@@ -81,6 +81,7 @@ BEGIN
 					$formatted_subdomain
 					$test
 					$lc
+					@lcs
 					$cc
 					$country
 
@@ -193,6 +194,7 @@ sub init()
 
 	$cc = 'world';
 	$lc = 'en';
+	@lcs = ();
 	$country = 'en:world';
 
 	if (not defined $r) {
@@ -315,11 +317,18 @@ sub init()
 		$cc_lc_overrides = 1;
 		$log->debug("cc override from request parameter", { cc => $cc }) if $log->is_debug();
 	}
-	if ((defined param('lc')) and (defined $language_codes{param('lc')})) {
-		$lc = param('lc');
-		$lang = $lc;
-		$cc_lc_overrides = 1;
-		$log->debug("lc override from request parameter", { lc => $lc }) if $log->is_debug();
+	if (defined param('lc')) {
+		# allow multiple languages in an ordered list
+		@lcs = split(/,/, param('lc'));
+		if (defined $language_codes{$lcs[0]}) {
+			$lc = $lcs[0];
+			$lang = $lc;
+			$cc_lc_overrides = 1;
+			$log->debug("lc override from request parameter", { lc => $lc , lcs => \@lcs}) if $log->is_debug();
+		}
+		else {
+			@lcs = ();
+		}
 	}
 	# change the subdomain if we have overrides so that links to product pages are properly constructed
 	if ($cc_lc_overrides) {
@@ -1238,7 +1247,9 @@ sub display_list_of_tags($$) {
 	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();
 
 	# disable caching if ?nocache=1
-	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
+	# or if the user is logged in and nocache is different from 0
+	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
 
@@ -1254,12 +1265,28 @@ sub display_list_of_tags($$) {
 
 		$log->debug("Did not find a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
 
-		eval {
-			$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-			$results = execute_query(sub {
-				return get_products_tags_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
-			});
-		};
+		# do not used the smaller cached products_ tags collection if ?nocache=1
+		# or if the user is logged in and nocache is different from 0
+		if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
+			
+			eval {
+				$log->debug("Executing MongoDB aggregate query on products collection", { query => $aggregate_parameters }) if $log->is_debug();
+				$results = execute_query(sub {
+					return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
+				});
+			};			
+			
+		}
+		else {
+		
+			eval {
+				$log->debug("Executing MongoDB aggregate query on products_tags collection", { query => $aggregate_parameters }) if $log->is_debug();
+				$results = execute_query(sub {
+					return get_products_tags_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
+				});
+			};
+		}
 		if ($@) {
 			$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 			$count = -1;
@@ -3183,7 +3210,9 @@ sub search_and_display_products($$$$$) {
 	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
 
 	# disable caching if ?nocache=1
-	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
+	# or if the user is logged in and nocache is different from 0
+	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
 
@@ -3612,6 +3641,17 @@ sub search_and_export_products($$$$$) {
 	elsif ($count == 0) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
+	
+	# On demand exports can be very big, limit the number of products
+	my $export_limit = 100000;
+	
+	if (defined $options{export_limit}) {
+		$export_limit = $options{export_limit};
+	}
+	
+	if ($count > $export_limit) {
+		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
+	}
 
 	if (defined $request_ref->{current_link_query}) {
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -3619,9 +3659,10 @@ sub search_and_export_products($$$$$) {
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
 
-	if ($count <= 0) {
+	if (($count <= 0) or ($count > $export_limit)) {
 		# $request_ref->{content_html} = $html;
 		$request_ref->{title} = lang("search_results");
+		$request_ref->{content_ref} = \$html;
 		display_new($request_ref);
 		return;
 	}
@@ -6050,7 +6091,7 @@ sub display_field($$) {
 	}
 
 
-	if ($value ne '') {
+	if ((defined $value) and ($value ne '')) {
 		if (($field eq 'link') and ($value =~ /^http/)) {
 			my $link = $value;
 			$link =~ s/"|<|>|'//g;
@@ -6295,6 +6336,16 @@ HTML
 
 	}
 
+	# GS1-Prefixes for restricted circulation numbers within a company - warn for possible conflicts
+	if ($code =~ /^(?:(?:0{7}[0-9]{5,6})|(?:04[0-9]{10,11})|(?:[02][0-9]{2}[0-9]{5}))$/) {
+		$html .= <<HTML
+<div data-alert class="alert-box info" id="warning_gs1_company_prefix" style="display: block;">
+$Lang{warning_gs1_company_prefix}{$lc}
+<a href="#" class="close">&times;</a>
+</span></div>
+HTML
+;
+	}
 
 	if (not has_tag($product_ref, "states", "en:complete")) {
 
@@ -6862,6 +6913,14 @@ $html_fields
 </div>
 HTML
 ;
+	}
+	
+	if ($admin) {
+		compute_carbon_footprint_infocard($product_ref);	
+		$html .= display_field($product_ref, 'environment_infocard');
+		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
+			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
+		}
 	}
 
 	# photos and data sources
@@ -7447,30 +7506,35 @@ sub display_nutrient_levels($) {
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
 
-	if ((exists $product_ref->{"nutrition_grade_fr"})) {
+	if ((exists $product_ref->{"nutrition_grade_fr"})
+		and ($product_ref->{"nutrition_grade_fr"} =~ /^[abcde]$/)) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
 
 		my $warning = '';
-		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-			$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
+		
+		# Do not display a warning for water
+		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+		
+			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
+			}
+			if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
+									$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
+									display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
+			}
 		}
-		if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
-			$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
-		}
-		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
-			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
-								$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
-		}
-		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
-			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
-								display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
-								$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
-		}
-
 
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
@@ -7918,6 +7982,7 @@ HTML
 
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
 			or ($nid eq 'new_0') or ($nid eq 'new_1')) {
 			$shown = 1;
@@ -8028,7 +8093,7 @@ HTML
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
 					$percent = $perf->format($percent / 100.0);
-					if ($percent > 0) {
+					if ($percent !~ /^-/) {
 						$percent = "+" . $percent;
 					}
 					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
@@ -8174,7 +8239,7 @@ HTML
 					}
 				}
 
-				if ($col eq '100g') {
+				if (($col eq '100g') and (defined $product_ref->{nutriments}{$nid . "_$col"})) {
 					my $property = $nid;
 					$property =~ s/-([a-z])/ucfirst($1)/eg;
 					$property .= "Per100g";
@@ -8239,7 +8304,7 @@ HTML
 
 		if (not $shown) {
 		}
-		elsif ($nid eq 'carbon-footprint') {
+		elsif (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')) {
 
 			$html2 .= <<HTML
 <tr id="ecological_footprint"><td style="padding-top:10px;font-weight:bold;">$Lang{ecological_data_table}{$lang}</td>$empty_cols</tr>
@@ -8348,14 +8413,34 @@ HTML
 		# If the request specified a value for the fields parameter, return only the fields listed
 		if (defined $request_ref->{fields}) {
 			my $compact_product_ref = {};
+			my $carbon_footprint_computed = 0;
 			foreach my $field (split(/,/, $request_ref->{fields})) {
-				if (defined $product_ref->{$field}) {
+				# On demand carbon footprint tags
+				if ((not $carbon_footprint_computed)
+					and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
+					compute_carbon_footprint_infocard($product_ref);
+					$carbon_footprint_computed = 1;
+				}
+				# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html 
+				if ($field eq "nutrition_table_html") {
+					$compact_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+				}
+				# fields in %language_fields can have different values by language
+				if (defined $language_fields{$field}) {
+					foreach my $preferred_lc (@lcs) {
+						if ((defined $product_ref->{$field . "_" . $preferred_lc}) and ($product_ref->{$field . "_" . $preferred_lc} ne '')) {
+							$compact_product_ref->{$field} = $product_ref->{$field . "_" . $preferred_lc};
+							last;
+						}
+					}
+				}
+				
+				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}
 			}
 			$response{product} = $compact_product_ref;
 		}
-
 
 		if ($request_ref->{jqm}) {
 			# return a jquerymobile page for the product
@@ -8451,7 +8536,7 @@ sub add_images_urls_to_product($) {
 		my @display_ids = ($imagetype . "_" . $display_lc);
 
 		# next try the main language of the product
-		if ($product_ref->{lc} ne $display_lc) {
+		if (defined ($product_ref->{lc}) && $product_ref->{lc} ne $display_lc) {
 			push @display_ids, $imagetype . "_" . $product_ref->{lc};
 		}
 

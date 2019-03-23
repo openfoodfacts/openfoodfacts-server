@@ -1,7 +1,10 @@
-stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
+# Please note: English needs to be first.
+
+stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
-stopwords:fr:ingrédients, issus, de, l', convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas
+stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
+stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 
 synonyms:en:coloring, colouring, color, colour
 synonyms:ru:окраска, цвет
@@ -32,6 +35,7 @@ synonyms:es:conservador, conservadores, preservador
 
 synonyms:en:seafood, sea food
 synonyms:ru:дары моря, морепродукты
+
 
 synonyms:en:without, 0%, free
 synonyms:es:sin, 0%, libre de
@@ -65,6 +69,16 @@ synonyms:ru:жир
 
 synonyms:fr:naturel, d'origine naturelle, origine naturelle
 synonyms:es:natural, de origen natural, origen natural
+
+synonyms:fr:élevé, élevée, élevés, élevées
+
+synonyms:fr:dès la fin, après
+
+synonyms:fr:antibiotique, anti-biotique, anti-biotiques, anti-biotiques, traitement antibiotique, utilisation d'antibiotique
+
+synonyms:fr:phase de ponte, période de ponte, la ponte
+
+synonyms:fr:premier, 1er
 
 en:1% for the planet, 1 percent for the planet, one percent for the planet
 es:1% para el planeta, uno por ciento para el planeta
@@ -101,6 +115,7 @@ es:No endurecido
 en:Assured Food Standards, assured food standard, Red Tractor
 ru:гарантированный пищевой стандарт
 wikidata:en:Q4810404
+image:en:assured-food-standards.82x90.svg
 
 de:Nach traditioneller Art, Hausmacher Art
 fr:À l'ancienne
@@ -130,11 +145,12 @@ en:Free range eggs
 de:Freilandeier
 fr:Œufs de poules élevées en plein air, Œufs de plein air, Œufs plein air, Œufs de poules élevées en plein air, Œufs de poule élevée en plein air, Œufs de poules élevées en plein air, Œuf de poule fermière élevée en liberté
 pt:Ovos criados em liberdade
+hu:Szabad tartású tojás
 
 <en:Free range eggs
 en:Made with free range eggs, Baked with free range eggs
 de:Aus Freilandeiern, Enhält Freilandeier, Mit Freilandeiern gebacken
-fr:Fait avec des œufs de poule élevées en plein air, Fait avec des œufs de poule en liberté, Cuisiné avec des œufs de plein air
+fr:Fait avec des œufs de poules élevées en plein air, Fait avec des œufs de poules en liberté, Cuisiné avec des œufs de plein air, Fait avec des œufs de poules élevées en liberté
 pt:Feito com ovos criados em liberdade
 
 <en:Free range
@@ -144,6 +160,7 @@ fr:Cultivé en plein air
 en:Free range pork
 de:Fleisch von Freilandschweinen
 pt:Porcos criados em liberdade
+hu:Szabad tartású sertés
 
 <en:Free range pork
 fr:Porc élevé sur paille ou en plein air
@@ -155,6 +172,7 @@ fr:Porc fermier élevé en plein air
 en:Free range chicken
 de:Freilandhühnchen
 pt:Galinhas criadas em liberdade
+hu:űszabad tartású csírke
 
 <en:Free range
 en:Free range poultry
@@ -170,6 +188,7 @@ fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compens
 nl:Kooldioxide neutraal
 pt:Produto produzido em neutralidade de carbono, Produto neutral de carbono
 ru:углерод компенсирующий продукт, углерод нейтральный
+hu:Szén-kompenzált termék, szén semleges
 
 en:Carbon footprint, carbon emissions, product that specifies the carbon footprint
 de:CO2-Emissionen
@@ -185,6 +204,9 @@ es:Certified Belgian Abbey Beer, Cerveza belga de abadía, Cerveza belga de abad
 fr:Bière belge d'Abbaye reconnue
 nl:Erkend belgisch abdijbier
 wikidata:en:Q2794703
+
+en:Belgian Family Brewers
+image:en:belgian-family-brewers.90x90.svg
 
 en:World Beer Awards
 
@@ -232,12 +254,15 @@ en:European Beer Star
 
 en:Belgian hops
 nl:Belgische hop
+image:en:belgian-hops.90x90.png
 
 en:Cooperative product
 es:Producto de cooperativa
 fr:Produit en coopérative, produit de coopérative
 ru:кооперативный продукт
 wikidata:en:Q4539
+
+en:South African National Bottled Water Association, SANBWA, SAN BWA
 
 en:HACCP,Hazard analysis and critical control points
 ar:HACCP,تحليل المخاطر ونقاط التحكم الحرجة
@@ -510,6 +535,7 @@ nl:Glutenvrij, Gluten vrij, Vrij van gluten, Zonder gluten
 ru:Без глютена
 sk: Bez lepku
 uk:Не містить глютену
+hu:Gluténmentes
 wikidata:en:Q2632776
 
 <en:Gluten-free
@@ -555,6 +581,7 @@ fr:Point Vert, Le Point Vert
 it:Punto Verde, Il Punto Verde
 nl:Groene Punt
 pt:Ponto Verde
+hu:Green Dot
 wikidata:en:Q975485
 
 en:Halal
@@ -792,6 +819,15 @@ fr:Riche en calcium
 nl:Rijk aan Calcium
 pt:Rico em cálcio
 ru:Обогащено кальцием
+
+en:Enriched with calcium
+fr:Enrichi en calcium
+
+en:Enriched wih vitamins
+fr:Enrichi en vitamines
+
+en:Enriched wih minerals
+fr:Enrichi en minéraux
 
 en:In braille
 de:In Blindenschrift, In Brailleschrift
@@ -1186,6 +1222,7 @@ es:Bajo o sin azúcar
 fr:Peu ou pas de sucre, peu ou pas sucré
 nl:Zonder of weinig suiker
 ru:Низкое содержание сахара или без сахара
+hu:Cukormentes vagy alacsony cukortartalmú
 
 <en:Low or no sugar
 en:Low sugar
@@ -1193,12 +1230,14 @@ fr:Peu de sucre, peu sucré, faible teneur en sucre
 nl:Weinig suiker
 ru:Низкое содержание сахара
 es:Bajo contenido de azúcar
+hu:Alacsony cukortartalmú
 
 <en:Low sugar
 en:Reduced sugar, Less sugar
 fr:Allégé en sucre, Allégé en sucres, Allégés en sucre, Allégés en suces, Allégées en sucre, Allégées en sucres, Allégée en sucre, Allégée en sucres, Teneur en sucre réduite, teneur réduite en sucre, Moins de sucre, Moins sucré, Sucre réduit
 nl:Minder suiker
 es:Menos azúcar, Azúcar reducido, Contenido de azúcar reducido
+hu:Csökkentett cukortartalmú
 
 <en:Reduced sugar
 en:10% less sugar
@@ -1300,6 +1339,7 @@ fr:Sans sucre, Zero sucre
 de:Ohne Zucker
 nl:Zonder suiker, sukervrij
 ru:Без сахара
+hu:Cukormentes
 
 en:Lowers cholesterol
 de:Cholesterinsenkend
@@ -1617,6 +1657,7 @@ ru:Без ГМО, Без использования ГМО, Не содержи�
 en:Contains GMOs, with GMOs
 fr:Contient des OGMs, Avec des OGMs
 
+<en:No GMOs
 en:Non GMO project
 wikidata:en:Q7754286
 
@@ -1630,6 +1671,7 @@ nl:Lactosevrij, Vrij van lactose
 pl:Bez laktozy
 ru:Без лактозы
 sk:Bez laktozy
+hu:Laktózmentes
 
 en:No lecithine, lecithine-free
 es:Sin lecitina
@@ -1786,6 +1828,7 @@ de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ök
 es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
 it:Biologico
+hu:Bio, Öko, Organikus
 wikidata:en:Q380778
 
 <en:Organic
@@ -1813,10 +1856,10 @@ en:India Organic
 wikidata:en:Q17055995
 
 <en:Organic
-en:EU Organic, European Organic
+en:EU Organic, European Organic, European leaf, European organic leaf
 de:EU-Öko-Verordnung, Europäische Öko-Verordnung, EU Ökologische
 es:Ecológico UE, Ecológico U.E., Producto ecológico europeo
-fr:Bio européen, Label bio européen, bio ce, bio europe
+fr:Bio européen, Label bio européen, bio ce, bio europe, Eurofeuille, Euro-Feuille, Feuille bio
 it:Biologico UE
 wikidata:en:Q380448
 
@@ -1825,6 +1868,9 @@ de:EG-Öko-Verordnung
 
 <en:EU Organic
 de:Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel
+
+en:Bio Austria
+image:en:bio-austria.67x90.svg
 
 <en:EU Organic
 en:AT-BIO-004
@@ -2831,6 +2877,7 @@ fr:Bio-Solidaire, biosolidaire
 en:Bioland
 de:Bioland
 wikidata:en:Q864442
+image:en:bioland.90x90.svg
 
 <en:Organic
 en:Naturland
@@ -2842,6 +2889,7 @@ en:Biokreis
 de:Biokreis
 fr:Biokreis
 wikidata:en:Q864429
+image:en:biokreis.92x90.png
 
 <en:Organic
 de:Bio 7 Initiative, BIO7 Initiative, Bio7, BIO 7
@@ -3466,6 +3514,7 @@ fr:Végétarien, Convient aux végétariens, Adapté au régime végétarien
 it:Vegetariano
 nl:Vegetarisch
 pt:Vegetariano
+hu:Vegetáriánus
 wikidata:en:Q638022
 
 <en:Vegetarian
@@ -3607,6 +3656,9 @@ fr:Sans muscle brun, Sans chair brune
 fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié
 wikidata:en:Q396709
 
+en:Biogarantie
+image:en:biogarantie.90x90.png
+
 fr:AOC, A.O.C, Appellation d'Origine Contrôlée, Appelation d'Origine Contrôlée, aoc
 
 en:with Guérande salt
@@ -3646,7 +3698,7 @@ fr:Fumage naturel
 
 fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 
-en:Lait Français (French milk)
+en:French milk
 fr:Lait Français, Lait de France, Lait Origine France
 
 en:Produced in Bretagne
@@ -4135,6 +4187,16 @@ en:2017 Bronze medal of the German Agricultural Society
 fr:Médaille de bronze 2017 de la Société Allemande d'Agriculture
 de:DLG Bronzener Preis 2017
 
+<en:Bronze medal of the German Agricultural Society
+en:2018 Bronze medal of the German Agricultural Society
+fr:Médaille de bronze 2018 de la Société Allemande d'Agriculture
+de:DLG Bronzener Preis 2018
+
+<en:Bronze medal of the German Agricultural Society
+en:2019 Bronze medal of the German Agricultural Society
+fr:Médaille de bronze 2019 de la Société Allemande d'Agriculture
+de:DLG Bronzener Preis 2019
+
 <en:Silver medal of the German Agricultural Society
 en:2009 Silver medal of the German Agricultural Society
 fr:Médaille d'argent 2009 de la Société Allemande d'Agriculture
@@ -4180,6 +4242,16 @@ en:2017 Silver medal of the German Agricultural Society
 fr:Médaille d'argent 2017 de la Société Allemande d'Agriculture
 de:DLG Silberner Preis 2017
 
+<en:Silver medal of the German Agricultural Society
+en:2018 Silver medal of the German Agricultural Society
+fr:Médaille d'argent 2018 de la Société Allemande d'Agriculture
+de:DLG Silberner Preis 2018
+
+<en:Silver medal of the German Agricultural Society
+en:2019 Silver medal of the German Agricultural Society
+fr:Médaille d'argent 2019 de la Société Allemande d'Agriculture
+de:DLG Silberner Preis 2019
+
 <en:Gold medal of the German Agricultural Society
 en:2009 Gold medal of the German Agricultural Society
 fr:Médaille d'or 2009 de la Société Allemande d'Agriculture
@@ -4224,6 +4296,16 @@ de:DLG Goldener Preis 2016
 en:2017 Gold medal of the German Agricultural Society
 fr:Médaille d'or 2017 de la Société Allemande d'Agriculture
 de:DLG Goldener Preis 2017
+
+<en:Gold medal of the German Agricultural Society
+en:2018 Gold medal of the German Agricultural Society
+fr:Médaille d'or 2018 de la Société Allemande d'Agriculture
+de:DLG Goldener Preis 2018
+
+<en:Gold medal of the German Agricultural Society
+en:2019 Gold medal of the German Agricultural Society
+fr:Médaille d'or 2019 de la Société Allemande d'Agriculture
+de:DLG Goldener Preis 2019
 
 <en:German Agricultural Society
 de:DLG Jährlich Prämiert
@@ -4488,3 +4570,86 @@ fr:Approuvé par les familles 2018
 
 <fr:Approuvé par les familles
 fr:Approuvé par les familles 2019
+
+en:Hungarian domestic product
+hu:Hazai-termék
+
+en:Hungarian product
+hu:Magyar-termek
+
+en:Milkheart
+hu:Tejszív
+
+hu:Minősegi magyar tej
+
+en:Hungarian Processed Product
+hu:Hazai Feldolgozású Termék
+
+en:Free from E number
+hu:E-szám mentes
+
+en:Without antibiotics, antibiotic-free, antibiotics-free, no antibiotics, no antibiotic, raised without antibiotics, no Antibiotics Administered
+fr:Sans antibiotique, sans antibiotiques, sans traitement antibiotique, élevage sans antibiotique, élevé sans antibiotique, élevés sans antibiotique, élevée sans antibiotique, élevées sans antibiotique
+de:Ohne Antibiotika, Frei von Antibiotika, Enthält kein Antibiotika, antibiotika-frei, antibiotikafrei
+
+<en:Without antibiotics
+en:Without antibiotics since birth, no antibiotics ever
+fr:Sans antibiotique dès la naissance, sans antibiotique de la naissance à l'abattage, sans antibiotique sur toute la vie de l'animal, sans traitement antibiotique sur toute la vie de l'animal
+
+<en:Without antibiotics
+en:Without antibiotics after weaning
+fr:Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, sans antibiotique après la fin du sevrage
+
+<en:Without antibiotics
+en:Without antibiotics after first age, Without antibiotics after 1st age
+fr:Sans antibiotique après le premier âge, Sans antibiotique après le 1er âge
+
+<en:Without antibiotics
+en:Porks raised without antibiotics
+fr:Porcs élevés sans antibiotique, Cochons élevés sans antibiotique
+de:Schweineaufzucht ohne Antibiotika
+
+<en:Without antibiotics since birth
+<en:Porks raised without antibiotics
+en:Porks raised without antibiotics since birth
+fr:Porcs élevés sans antibiotique dès la naissance
+de:Schweineaufzucht von Geburt an ohne Antibiotika
+
+<en:Without antibiotics after weaning
+<en:Porks raised without antibiotics
+en:Porks raised without antibiotics after weaning
+fr:Porcs élevés sans antibiotique après sevrage, Porcs élevés sans antibiotique dès la fin du sevrage, Cochons élevés sans antibiotique dès la fin du sevrage
+
+<en:Without antibiotics after first age
+<en:Porks raised without antibiotics
+en:Porks raised without antibiotics after first age
+fr:Porcs élevés sans antibiotique après le premier âge, Porcs élevés sans antibiotique après le 1er âge
+
+<en:Without antibiotics
+en:Chickens raised without antibiotics
+fr:Poulets élevés sans antibiotique
+de:Hühneraufzucht ohne Antibiotika
+
+<en:Without antibiotics since birth
+<en:Chickens raised without antibiotics
+en:Chickens raised without antibiotics since birth
+fr:Poulets élevés sans antibiotique dès la naissance
+
+<en:Without antibiotics
+en:Hens raised without antibiotics
+fr:Poules élevées sans antibiotique
+de:Hennenaufzucht ohne Antibiotika
+
+<en:Hens raised without antibiotics
+en:Hens raised without antibiotics during the laying phase
+fr:Poules élevées sans antibiotique pendant la phase de ponte, sans traitement antibiotique dès la phase de ponte
+
+en:Without hormones, raised without hormones
+fr:Sans hormone, élevé sans hormone
+de:ohne Hormone, Aufzucht ohne Hormone
+
+<en:Without antibiotics
+<en:Without hormones
+en:Without antibiotics or hormones, Without hormones or antibiotics
+fr:Sans antibiotique ni hormone, sans antibiotiques ni hormones
+de:ohne Antibiotika oder Hormone, Aufzucht ohne Hormone oder Antibiotika

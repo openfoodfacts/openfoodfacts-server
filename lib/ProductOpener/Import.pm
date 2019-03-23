@@ -38,6 +38,7 @@ BEGIN
 		%products
 	
 		&assign_value
+		&remove_value
 		
 		&get_list_of_files
 		
@@ -51,6 +52,8 @@ BEGIN
 		&match_taxonomy_tags
 		&assign_countries_for_product
 		&assign_main_language_of_product
+		
+		&assign_quantity_from_field
 		
 		&clean_fields
 		&clean_weights
@@ -70,6 +73,8 @@ use vars @EXPORT_OK ;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -131,13 +136,21 @@ sub assign_value($$$) {
 	if (not exists $fields{$field}) {
 		$fields{$field} = 1;
 		push @fields, $field;
-	}	
+	}
+	
+	if (($field =~ /_value$/) and (defined $value)) {
+		# nutrients: remove useless 0
+		# 2482.0000   39.8000
+		$value =~ s/(\.|\,)(0+)$//;
+		$value =~ s/(\.|\,)(\d*[1-9])0+$/$1$2/;		
+	}
 	
 	if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "") and ($mode eq "append")
 		and ($product_ref->{$field} ne $value)) {
 		
 		if (exists $tags_fields{$field}) {
 			if ($target =~ /^!/) {
+				# only add the field if it exists in the taxonomy
 				my $canon_tagid = canonicalize_taxonomy_tag($product_ref->{lc}, $field, $value);
 				if (exists_taxonomy_tag($field, $canon_tagid)) {
 					$product_ref->{$field} .= ", " . $value;
@@ -154,6 +167,20 @@ sub assign_value($$$) {
 	}
 	else {
 		$product_ref->{$field} = $value;
+	}
+}
+
+
+sub remove_value($$$) {
+
+	my $product_ref = shift;
+	my $target = shift;
+	my $value = shift;
+	
+	my $field = $target;
+	
+	if (defined $product_ref->{$field}) {
+		$field =~ s/(, )?$value//ig;
 	}
 }
 
@@ -292,6 +319,32 @@ sub split_allergens($) {
 	}
 }
 
+
+sub assign_quantity_from_field($$) {
+
+	my $product_ref = shift;
+	my $field = shift;
+	
+	if ((defined $product_ref->{$field}) and ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq ""))) {
+	
+		if ($product_ref->{$field} =~ /\b\(?((\d+)\s?x\s?)?(\d+\.?\d*)\s?(g|gr|kg|kgr)\s?(x\s?(\d+))?\)?\s*$/i) {
+			$product_ref->{$field} = $`;
+
+			if (defined $2) {
+				assign_value($product_ref, "quantity", $2 . " X " . $3 . " " . $4);
+			}
+			elsif (defined $6) {
+				assign_value($product_ref, "quantity", $6 . " X " . $3 . " " . $4);
+			}
+			else {
+				assign_value($product_ref, "quantity", $3 . " " . $4);
+			}
+			
+			$product_ref->{$field} =~ s/\s+$//;
+		}
+		
+	}
+}
 
 
 sub clean_weights($) {
@@ -483,6 +536,9 @@ sub clean_fields($) {
 			if ($field =~ /^ingredients_text/) {
 			
 				# Traces de<b> fruits à coque </b>
+
+				$product_ref->{$field} =~ s/<strong>/<b>/g;
+				$product_ref->{$field} =~ s/<\/strong>/<\/b>/g;
 			
 				$product_ref->{$field} =~ s/(<b><u>|<u><b>)/<b>/g;
 				$product_ref->{$field} =~ s/(<\b><\u>|<\u><\b>)/<\b>/g;
@@ -501,7 +557,7 @@ sub clean_fields($) {
 				
 				# d_'œufs_
 				# _lait)_
-				$product_ref->{$field} =~ s/<b>(\w)/$1<b>/g;
+				$product_ref->{$field} =~ s/<b>'(\w)/$1'<b>/g;
 				$product_ref->{$field} =~ s/(\w)<\/b>/<b>$1/g;
 				
 
@@ -545,6 +601,11 @@ sub clean_fields($) {
 				if (($field =~ /_fr/) or (($lc eq 'fr') and ($field !~ /_\w\w$/))) {
 					$product_ref->{$field} =~ s/_(d|l)('|’)([^_,-;]+)_/$1'_$2_/ig;
 				}
+			}
+			
+			if ($field =~ /^ingredients_text_(\w\w)/) {
+				my $ingredients_lc = $1;
+				$product_ref->{$field} = clean_ingredients_text_for_lang($product_ref->{$field}, $ingredients_lc);
 			}			
 			
 			if ($field =~ /^nutrition_grade_/) {
@@ -602,6 +663,7 @@ sub load_xml_file($$$$) {
 	
 	
 	if (defined $code) {
+		$code = normalize_code($code);
 		$product_ref = get_or_create_product_for_code($code);
 	}
 	
@@ -671,6 +733,7 @@ sub load_xml_file($$$$) {
 						if ($tag_target eq 'code') {
 							$code = $current_tag->{$tag};
 
+							$code = normalize_code($code);
 							$product_ref = get_or_create_product_for_code($code);
 						}						
 						assign_value($product_ref, $tag_target, $current_tag->{$tag});
@@ -760,6 +823,7 @@ sub load_csv_file($) {
 	my $encoding = $options_ref->{encoding};
 	my $separator = $options_ref->{separator};
 	my $skip_lines = $options_ref->{skip_lines};
+	my $skip_lines_after_header = $options_ref->{skip_lines_after_header};
 	my $skip_non_existing_products = $options_ref->{skip_non_existing_products};
 	my $skip_empty_codes = $options_ref->{skip_empty_codes};
 	my @csv_fields_mapping = @{$options_ref->{csv_fields_mapping}};
@@ -784,6 +848,13 @@ sub load_csv_file($) {
 	my $headers_ref = $csv->getline ($io);
 	$i++;
 	
+	if (defined $skip_lines_after_header) {
+		for (my $j = 0; $j < $skip_lines_after_header; $j++) {
+			$csv->getline ($io);
+			$i++;
+		}
+	}	
+	
 	$log->info("CSV headers", { file => $file, headers_ref=>$headers_ref }) if $log->is_info();
 	
 	$csv->column_names($headers_ref);
@@ -804,66 +875,111 @@ sub load_csv_file($) {
 			my $target_field = $field_mapping_ref->[1];
 						
 			$log->info("Field mapping", { source_field => $source_field, source_field_value => $csv_product_ref->{$source_field}, target_field=>$target_field }) if $log->is_info();
+			
+			# There can be other conditions:
+			# ["quantity", "nutriments.energy_kJ", ["Nutriment", "Energie"], ["Taille de la portion", "100.0000"], ["Unité", "Kilojoules (kj)"] ],
+
+			my $match = 1;
+			my $condition = 2;
+			
+			while (($match) and (defined $field_mapping_ref->[$condition])) {
+			
+				my $source_condition_field = $field_mapping_ref->[$condition][0];
+				my $source_condition_value = $field_mapping_ref->[$condition][1];
+			
+				if ((not defined $csv_product_ref->{$source_condition_field})
+					or ($csv_product_ref->{$source_condition_field} ne $source_condition_value)) {
+					$match = 0;
+				}
+			
+				$condition++;
+			}
 		
 			if (defined $csv_product_ref->{$source_field}) {
-				# print STDERR "defined source field $source_field: " . $csv_product_ref->{$source_field} . "\n";
-				
-				my $value = $csv_product_ref->{$source_field};
-				
-				if ($target_field eq 'code') {
-					$code = $value;
-					print STDERR "reading product code $code\n";
+			
+				if ($match) {
+					# print STDERR "defined source field $source_field: " . $csv_product_ref->{$source_field} . "\n";
+							
+					my $value = $csv_product_ref->{$source_field};
 					
-					if ((defined $options_ref->{skip_invalid_codes}) and ($code !~ /^\d+$/)) {
-						print STDERR "skipping invalid code\n";					
-						last;
-					}
-					elsif ((defined $skip_non_existing_products) and ($skip_non_existing_products) and (not exists $products{$code})) {
-						print STDERR "skipping non existing product\n";
-						last;
-					}
-					elsif ((defined $skip_empty_codes) and ((not defined $code) or ($code eq ""))) {
-						print STDERR "skipping empty code\n";					
-						last;
-					}
-					else {
-						$product_ref = get_or_create_product_for_code($code);
-					}
-				}
-				
-				# ["Energie kJ", "nutriments.energy_kJ"],
-				
-				elsif ($target_field =~ /^nutriments.(.*)/) {
-					$target_field = $1;
-					
-					# skip energy in kcal if we already have energy in kJ
-					if (($seen_energy_kj) and ($target_field =~ /kcal/i)) {
-						next;
+					if ($target_field eq 'code') {
+						$code = $value;
+						$code = normalize_code($code);
+						print STDERR "reading product code $code\n";
+						
+						if ((defined $options_ref->{skip_invalid_codes}) and ($code !~ /^\d+$/)) {
+							print STDERR "skipping invalid code\n";					
+							last;
+						}
+						elsif ((defined $skip_non_existing_products) and ($skip_non_existing_products) and (not exists $products{$code})) {
+							print STDERR "skipping non existing product\n";
+							last;
+						}
+						elsif ((defined $skip_empty_codes) and ((not defined $code) or ($code eq ""))) {
+							print STDERR "skipping empty code\n";					
+							last;
+						}
+						else {
+							$product_ref = get_or_create_product_for_code($code);
+						}
 					}
 					
-					if ($target_field =~ /kj/i) {
-						$seen_energy_kj = 1;
-					}
-					
-					if ($target_field =~ /^(.*)_([^_]+)$/) {
-							$target_field = $1;
-							my $unit = $2;
-							assign_value($product_ref, $target_field . "_value", $value);
-							if ($value ne "") {
-								assign_value($product_ref, $target_field . "_unit", $unit);
-							}
-							else {
-								assign_value($product_ref, $target_field . "_unit", "");
-							}
-					}
-					else {
-						assign_value($product_ref, $target_field . "_value", $value);					
-					}
-				}
-				else {
-					assign_value($product_ref, $target_field, $value);									
-				}
+					# ["URL", "download_to:/srv/off/imports/ferrero/images/"],
 
+					elsif ($target_field =~ /^download_to:/) {
+						
+						my $dir = $';
+						$dir =~ s/\/$//;
+						
+						my $file =  $csv_product_ref->{$source_field};
+						$file =~ s/.*\///;
+						
+						$file =~ s/[^A-Za-z0-9-_\.]/_/g;
+						
+						# do not download again images that we already have
+						# but try again if the size is 0
+						
+						if ((! -e "$dir/$file") or ((-s "$dir/$file") < 10000)) {
+						
+							print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
+							system("wget $csv_product_ref->{$source_field} -O $dir/$file");
+							sleep 2;	# there seems to be some limit as we received 403 Forbidden responses
+						}
+					}
+					
+					# ["Energie kJ", "nutriments.energy_kJ"],
+					
+					elsif ($target_field =~ /^nutriments.(.*)/) {
+						$target_field = $1;
+						
+						# skip energy in kcal if we already have energy in kJ
+						if (($seen_energy_kj) and ($target_field =~ /kcal/i)) {
+							next;
+						}
+						
+						if ($target_field =~ /kj/i) {
+							$seen_energy_kj = 1;
+						}
+						
+						if ($target_field =~ /^(.*)_([^_]+)$/) {
+								$target_field = $1;
+								my $unit = $2;
+								assign_value($product_ref, $target_field . "_value", $value);
+								if ($value ne "") {
+									assign_value($product_ref, $target_field . "_unit", $unit);
+								}
+								else {
+									assign_value($product_ref, $target_field . "_unit", "");
+								}
+						}
+						else {
+							assign_value($product_ref, $target_field . "_value", $value);					
+						}
+					}
+					else {
+						assign_value($product_ref, $target_field, $value);									
+					}
+				}
 			}
 			else {
 				$log->error("undefined source field", { line => $i, source_field=>$source_field, csv_product_ref=>$csv_product_ref }) if $log->is_error();

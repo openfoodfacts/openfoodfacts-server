@@ -65,15 +65,18 @@ TXT
 
 my %query_fields_values = ();
 my $fields;
+my $separator = "\t";
 
 GetOptions (
 	"fields=s" => \$fields,
 	"query=s%" => \%query_fields_values,
+	"separator=s" => \$separator,
 		)
   or die("Error in command line arguments:\n$\nusage");
 
 print STDERR "export_csv_file.pl
 - fields: $fields
+- separator: $separator
 - query fields values:
 ";
 
@@ -94,7 +97,7 @@ if (not defined $fields) {
 $missing_arg and exit();
 
 
-my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
+my $csv = Text::CSV->new ( { binary => 1 , sep_char => $separator } )  # should set binary attribute.
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
  

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-01-03 17:00\n"
+"PO-Revision-Date: 2019-03-03 21:51\n"
 "Language-Team: Portuguese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -2970,6 +2970,10 @@ msgctxt "producer_version_id"
 msgid "Producer version identifier"
 msgstr "Identificador da versão do produtor"
 
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr "Identificador do produto do produtor"
+
 msgctxt "net_weight"
 msgid "Net weight"
 msgstr "Peso líquido"
@@ -2990,6 +2994,30 @@ msgctxt "conservation_conditions"
 msgid "Conservation conditions"
 msgstr "Condições de conservação"
 
+msgctxt "warning"
+msgid "Warning"
+msgstr "Aviso"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr "Preparação"
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr "Ideia de receita"
+
+msgctxt "origin"
+msgid "Origin"
+msgstr "Origem"
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr "Serviço ao cliente"
+
+msgctxt "producer"
+msgid "Producer"
+msgstr "Produtor"
+
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
 msgstr "Instruções de reciclagem - Para reciclar"
@@ -3000,121 +3028,137 @@ msgstr "Instruções de reciclagem - Para descartar"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "Produtos verificados por %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "Produtos não verificados por %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "Produtos corrigidos por %s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "Produtos não corrigidos por %s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "Produtos editados por %s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "Produtos não editados por %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "Produtos completados por %s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "Produtos não completados por %s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "Produtos fotografados por %s"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "Produtos não fotografados por %s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "Página de %s"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "Produtos verificados por %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "Produtos não verificados por %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "Produtos corrigidos por %s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "Produtos não corrigidos por %s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "Produtos editados por %s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "Produtos não editados por %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "Produtos completados por %s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "Produtos não completados por %s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "Produtos fotografados por %s"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "Produtos não fotografados por %s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "Página de %s"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "O produto não é mais vendido."
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
-msgstr ""
+msgstr "Data de retirada"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY or YYYY-MM"
-msgstr ""
+msgstr "Formato: YYYY ou YYYY-MM (Y = ano)"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "Nota importante: este produto não é mais vendido. Os dados são mantidos apenas para referência. Este produto não aparece em pesquisas regulares e não é considerado para estatísticas."
 
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "Obtenha o aplicativo"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "Obtenha o aplicativo para Android"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "Obtenha o aplicativo para iPhone"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "Obtenha o aplicativo para iPad"
+
+msgctxt "environment_infocard"
+msgid "Environment infocard"
+msgstr "Cartão de informações do ambiente"
+
+msgctxt "environment_infocard_note"
+msgid "HTML code for the environment infocard in the mobile application"
+msgstr "Código HTML para o cartão de informações do ambiente na aplicação móvel"
+
+msgctxt "environment_impact_level"
+msgid "Environment impact level"
+msgstr "Nível de impacto ambiental"
+
+msgctxt "environment_impact_level_example"
+msgid "en:low, en:medium or en:high"
+msgstr "pt: baixo, pt: médio ou pt: alto"
 

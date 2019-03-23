@@ -32,6 +32,8 @@ BEGIN
 					&extract_ingredients_from_image
 					&extract_ingredients_from_text
 					
+					&compute_carbon_footprint_from_ingredients
+					
 					&clean_ingredients_text_for_lang
 					&clean_ingredients_text
 					
@@ -133,6 +135,105 @@ closedir(DH);
 
 
 
+sub compute_carbon_footprint_from_ingredients($) {
+
+	my $product_ref = shift;
+	
+	if (defined $product_ref->{nutriments}) {
+		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish"};
+		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"};
+		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"};
+	}
+	
+	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
+
+	# compute the carbon footprint from meat or fish ingredients, when the percentage is known
+	
+#ingredients: [
+#{
+#rank: 1,
+#text: "Eau",
+#id: "en:water"
+#},
+#{
+#percent: "10.9",
+#text: "_saumon_",
+#rank: 2,
+#id: "en:salmon"
+#},	
+	my @parents = qw(
+en:beef-meat
+en:pork-meat
+en:veal-meat
+en:rabbit-meat
+en:chicken-meat
+en:turkey-meat
+en:smoked-salmon
+en:salmon
+);
+
+	# values from FoodGES
+
+	my %carbon = (
+"en:beef-meat" => 35.8,
+"en:pork-meat" => 7.4,
+"en:veal-meat" => 20.5,
+"en:rabbit-meat" => 8.1,
+"en:chicken-meat" => 4.9,
+"en:turkey-meat" => 6.5,
+"en:smoked-salmon" => 5.5,
+"en:salmon" => 6.5,	
+"en:smoked-trout" => 5.5,
+"en:trout" => 6.5,	
+);
+	
+	# Limit to France, as the carbon values from ADEME are intended for France
+	
+	if ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients})) {
+	
+		my $carbon_footprint = 0;
+		
+	
+		foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+		
+			$log->debug("compute_carbon_footprint_from_ingredients", { id =>  $ingredient_ref->{id} }) if $log->is_debug();
+		
+			if ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0)) {
+			
+				$log->debug("compute_carbon_footprint_from_ingredients", { percent =>  $ingredient_ref->{percent} }) if $log->is_debug();
+		
+				foreach my $parent (@parents) {
+					if (is_a('ingredients', $ingredient_ref->{id}, $parent)) {
+						$carbon_footprint += $ingredient_ref->{percent} * $carbon{$parent};
+						$log->debug("found a parent with carbon footprint", { parent =>  $parent }) if $log->is_debug();
+						
+						if (not defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
+							$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} = "";
+						}
+						$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} .= $ingredient_ref->{id} . " => " . $parent
+						. " " . $ingredient_ref->{percent} . "% = " . $ingredient_ref->{percent} * $carbon{$parent} . " g - ";
+						
+						last;
+					}
+				}
+			}
+		}
+		
+		if ($carbon_footprint > 0) {
+			$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} = $carbon_footprint;
+			$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} =~ s/ - $//;
+			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
+			add_tag($product_ref, "misc", "en:environment-infocard");
+		}
+		else {
+			remove_tag($product_ref, "misc", "en:environment-infocard");
+		}
+
+	}
+
+}
+
+
 sub extract_ingredients_from_image($$$) {
 
 	my $product_ref = shift;
@@ -231,6 +332,9 @@ sub extract_ingredients_from_image($$$) {
 			my $json_file = "$www_root/images/products/$path/$filename.full.jpg" . ".google_cloud_vision.json";
 			
 			$log->info("saving google cloud vision json response to file", { path => $json_file }) if $log->is_info();
+			
+			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
+			$json_response = decode("utf8", $json_response);
 			
 			open (my $OUT, ">:encoding(UTF-8)", $json_file);
 			print $OUT $json_response;
@@ -424,8 +528,6 @@ sub extract_ingredients_from_text($) {
 		
 		my $ingredient = $before;
 		chomp($ingredient);
-		$ingredient =~ s/\s+$//;
-		$ingredient =~ s/^\s+//;
 		
 		# remove percent
 		
@@ -435,6 +537,28 @@ sub extract_ingredients_from_text($) {
 		
 		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
 		
+		my $origin;
+		my $label;
+		
+		# try to remove the origin and store it as property
+		if ($ingredient =~ /\b(origin|origine)\b/i) {
+			$ingredient = $`;
+			$origin = $';
+			$origin =~ s/^\s+//;
+			$origin =~ s/\s+$//;			
+		}
+		
+		if ($ingredient =~ /\b(bio|organic|halal)\b/i) {
+			$label = $1;
+			$label =~ s/^\s+//;
+			$label =~ s/\s+$//;
+			$ingredient =~ s/\b(bio|organic|halal)\b//i;
+			$ingredient =~ s/\s+/ /g;
+		}		
+		
+		$ingredient =~ s/^\s+//;
+		$ingredient =~ s/\s+$//;
+		
 		my %ingredient = (
 			id => canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient),
 			text => $ingredient
@@ -442,8 +566,12 @@ sub extract_ingredients_from_text($) {
 		if (defined $percent) {
 			$ingredient{percent} = $percent;
 		}
-		
-
+		if (defined $origin) {
+			$ingredient{origin} = $origin;
+		}		
+		if (defined $label) {
+			$ingredient{label} = $label;
+		}	
 		
 		if ($ingredient ne '') {
 		

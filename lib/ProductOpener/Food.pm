@@ -1,20 +1,20 @@
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -31,28 +31,31 @@ BEGIN
 	@EXPORT_OK = qw(
 					%Nutriments
 					%nutriments_labels
-					
+
 					%cc_nutriment_table
 					%nutriments_tables
-					
+
 					%other_nutriments_lists
 					%nutriments_lists
-					
+
 					@nutrient_levels
-	
+
 					&normalize_nutriment_value_and_modifier
 					&assign_nid_modifier_value_and_unit
-	
+
+					&get_nutrient_label
+
 					&unit_to_g
 					&g_to_unit
-					
+
 					&unit_to_mmoll
 					&mmoll_to_unit
-					
+
+					&normalize_serving_size
 					&normalize_quantity
 
 					&canonicalize_nutriment
-					
+
 					&fix_salt_equivalent
 					&compute_nutrition_score
 					&compute_nutrition_grade
@@ -61,16 +64,17 @@ BEGIN
 					&compute_unknown_nutrients
 					&compute_nutrient_levels
 					&compute_units_of_alcohol
-					
+					&compute_carbon_footprint_infocard
+
 					&compare_nutriments
-					
+
 					%packager_codes
 					%geocode_addresses
 					&normalize_packager_codes
 					&get_canon_local_authority
-					
+
 					&special_process_product
-					
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -90,14 +94,14 @@ use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
 
 sub normalize_nutriment_value_and_modifier($$) {
-		
+
 	my $value_ref = shift;
 	my $modifier_ref = shift;
-	
+
 	if ($$value_ref =~ /nan/i) {
 		$$value_ref = '';
-	}		
-	
+	}
+
 	if ($$value_ref =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
 		$$value_ref =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
 		$modifier_ref = "\N{U+2264}";
@@ -117,7 +121,7 @@ sub normalize_nutriment_value_and_modifier($$) {
 	if ($$value_ref =~ /(env|environ|about|~|≈)/) {
 		$$value_ref =~ s/(env|environ|about|~|≈)( )?//;
 		$$modifier_ref = '~';
-	}			
+	}
 	if ($$value_ref =~ /trace|traces/) {
 		$$value_ref = 0;
 		$$modifier_ref = '~';
@@ -138,16 +142,16 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	$value =~ s/(\d) (\d)/$1$2/g;
 	$value =~ s/,/./;
 	$value += 0;
-	
+
 	if ((defined $modifier) and ($modifier ne '')) {
 		$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
 	}
 	else {
 		delete $product_ref->{nutriments}{$nid . "_modifier"};
 	}
-	$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
+	$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 	$product_ref->{nutriments}{$nid . "_value"} = $value;
-	
+
 	if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
 		$value = $value * $Nutriments{$nid}{iu} ;
 		$unit = $Nutriments{$nid}{unit};
@@ -161,16 +165,33 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	}
 	else {
 		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-	}	
-	
+	}
+
 }
 
+sub get_nutrient_label {
+	my $nid = (shift(@_) // undef);
+	my $flang = (shift(@_) // $lang);
+
+	if (not defined $nid) {
+		return;
+	}
+	if (defined $Nutriments{$nid}{$lang}) {
+		return $Nutriments{$nid}{$lang};
+	}
+	elsif (defined $Nutriments{$nid}{$flang}) {
+		return $Nutriments{$nid}{$flang};
+	}
+	else {
+		return;
+	}
+}
 
 sub unit_to_g($$) {
 	my $value = shift;
 	my $unit = shift;
 	$unit = lc($unit);
-	
+
 	if ($unit =~ /^(fl|fluid)(\.| )*(oz|once|ounce)/) {
 		$unit = "fl oz";
 	}
@@ -179,18 +200,19 @@ sub unit_to_g($$) {
 
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-	
+
 	$value eq '' and return $value;
-	
+
 	$unit eq 'kcal' and return int($value * 4.184 + 0.5);
-	$unit eq 'kg' and return $value * 1000;
-	$unit eq 'mg' and return $value / 1000;
+	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value * 1000;
+	$unit eq "\N{U+65A4}" and return $value * 500;
+	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value / 1000;
 	$unit eq 'µg' and return $value / 1000000;
 	$unit eq 'oz' and return $value * 28.349523125;
 
-	$unit eq 'l' and return $value * 1000;
+	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value * 1000;
 	$unit eq 'dl' and return $value * 100;
-	$unit eq 'cl' and return $value * 10;	
+	$unit eq 'cl' and return $value * 10;
 	$unit eq 'fl oz' and return $value * 30;
 	return $value + 0; # + 0 to make sure the value is treated as number (needed when outputting json and to store in mongodb as a number)
 }
@@ -200,7 +222,7 @@ sub g_to_unit($$) {
 	my $value = shift;
 	my $unit = shift;
 	$unit = lc($unit);
-	
+
 	if ((not defined $value) or ($value eq '')) {
 		return "";
 	}
@@ -210,18 +232,19 @@ sub g_to_unit($$) {
 
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-	
-	$value eq '' and return $value;	
-	
+
+	$value eq '' and return $value;
+
 	$unit eq 'kcal' and return int($value / 4.184 + 0.5);
-	$unit eq 'kg' and return $value / 1000;
-	$unit eq 'mg' and return $value * 1000;
+	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value / 1000;
+	$unit eq "\N{U+65A4}" and return $value / 500;
+	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value * 1000;
 	$unit eq 'µg' and return $value * 1000000;
 	$unit eq 'oz' and return $value / 28.349523125;
-	
-	$unit eq 'l' and return $value / 1000;
+
+	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value / 1000;
 	$unit eq 'dl' and return $value / 100;
-	$unit eq 'cl' and return $value / 10;		
+	$unit eq 'cl' and return $value / 10;
 	$unit eq 'fl oz' and return $value / 30;
 	return $value + 0;
 }
@@ -229,14 +252,14 @@ sub g_to_unit($$) {
 sub unit_to_mmoll {
 	my ($value, $unit) = @_;
 	$unit = lc($unit);
-	
+
 	if ((not defined $value) or ($value eq '')) {
 		return '';
 	}
-	
+
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-	
+
 	return $value * 1000 if $unit eq 'mol/l';
 	return $value + 0 if $unit eq 'mmol/l';
 	return $value / 2 if $unit eq 'mval/l';
@@ -252,14 +275,14 @@ sub unit_to_mmoll {
 sub mmoll_to_unit {
 	my ($value, $unit) = @_;
 	$unit = lc($unit);
-	
+
 	if ((not defined $value) or ($value eq '')) {
 		return '';
 	}
-	
+
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-	
+
 	return $value / 1000 if $unit eq 'mol/l';
 	return $value + 0 if $unit eq 'mmol/l';
 	return $value * 2 if $unit eq 'mval/l';
@@ -396,6 +419,7 @@ sub mmoll_to_unit {
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -507,6 +531,7 @@ sub mmoll_to_unit {
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -617,6 +642,7 @@ sub mmoll_to_unit {
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -729,6 +755,7 @@ sub mmoll_to_unit {
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -836,6 +863,7 @@ sub mmoll_to_unit {
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -922,10 +950,10 @@ energy	=> {
 	bg => "Енергийна стойност",
 	zh => "能量",
 	ja => "エネルギー",
-	
+
 	unit => "kj",
 	unit_us => "kcal",
-	unit_ca => "kcal",	
+	unit_ca => "kcal",
 },
 "energy-from-fat" => {
 	cs => "Energie z tuku",
@@ -2083,7 +2111,7 @@ sodium => {
 	nl => "Natrium",
 	nl_be => "Sodium",
 	ja => "ナトリウム",
-	unit_us => "mg",	
+	unit_us => "mg",
 },
 salt => {
 	fr => "Sel",
@@ -2171,13 +2199,13 @@ salt => {
 	ro => "Vitamina A",
 	bg => "Витамин A",
 	zh => "维生素A",
-	
+
 	unit => "µg",
 	dv => 1500,
 	dv_2016 => "900 RAE", # ! not same unit
 	iu => 0.3, # Vitamin A: 1 IU is the biological equivalent of 0.3 μg retinol, or of 0.6 μg beta-carotene.[6][7][a]
 	unit_us => "% DV",
-	unit_ca => "% DV",		
+	unit_ca => "% DV",
 },
 'vitamin-d' => {
 	fr => "Vitamine D / D3 (cholécalciférol)",
@@ -2206,13 +2234,13 @@ salt => {
 	zh => "维生素D",
 
 	unit => "µg",
-	dv => 40,	
+	dv => 40,
 	dv_2016 => 20,
 	iu => 0.025, # 1 IU is the biological equivalent of 25 ng cholecalciferol/ergocalciferol
 },
 'vitamin-e' => {
 	fr => "Vitamine E (tocophérol)",
-	fr_synonyms => ["Vitamine E", "tocophérol"],	
+	fr_synonyms => ["Vitamine E", "tocophérol"],
 	en => "Vitamin E",
 	ja => "ビタミン E",
 	es => "Vitamina E (a-tocoferol)",
@@ -2235,11 +2263,11 @@ salt => {
 	ro => "Vitamina E",
 	bg => "Витамин E",
 	zh => "维生素E",
-	
+
 	unit => "mg",
 	dv => 20,
 	dv_2016 => 15,
-	iu => 2/3, # 1 IU is the biological equivalent of about 0.667 mg d-alpha-tocopherol (2/3 mg exactly), or of 0.45 mg of dl-alpha-tocopherol acetate.[8][9]	
+	iu => 2/3, # 1 IU is the biological equivalent of about 0.667 mg d-alpha-tocopherol (2/3 mg exactly), or of 0.45 mg of dl-alpha-tocopherol acetate.[8][9]
 },
 'vitamin-k' => {
 	fr => "Vitamine K",
@@ -2265,14 +2293,14 @@ salt => {
 	ro => "Vitamina K",
 	bg => "Витамин K",
 	zh => "维生素K",
-	
+
 	unit => "µg",
 	dv => 80,
-	dv_2016 => 120,	
+	dv_2016 => 120,
 },
 'vitamin-c' => {
 	fr => "Vitamine C (acide ascorbique)",
-	fr_synonyms => ["Vitamine C", "acide ascorbique"],	
+	fr_synonyms => ["Vitamine C", "acide ascorbique"],
 	en => "Vitamin C (ascorbic acid)",
 	es => "Vitamina C (Ácido ascórbico)",
 	ja => "ビタミン C",
@@ -2295,17 +2323,17 @@ salt => {
 	ro => "Vitamina C",
 	bg => "Витамин C",
 	zh => "维生素C(抗坏血酸)",
-	
+
 	unit => "mg",
 	dv => 60,
 	dv_2016 => 90,
 	iu => 0.05, # 1 IU is 50 μg L-ascorbic acid
 	unit_us => "% DV",
-	unit_ca => "% DV",	
+	unit_ca => "% DV",
 },
 'vitamin-b1' => {
 	fr => "Vitamine B1 (Thiamine)",
-	fr_synonyms => ["Vitamine B1", "Thiamine"],	
+	fr_synonyms => ["Vitamine B1", "Thiamine"],
 	en => "Vitamin B1 (Thiamin)",
 	es => "Vitamina B1 (Tiamina)",
 	ja => "ビタミン B1",
@@ -2329,13 +2357,13 @@ salt => {
 	ro => "Vitamina B1 (Tiamină)",
 	bg => "Витамин B1 (Тиамин)",
 	zh => "维生素B1(硫胺)",
-	
+
 	unit => "mg",
-	dv_2016 => 1.2,	
+	dv_2016 => 1.2,
 },
 'vitamin-b2' => {
 	fr => "Vitamine B2 (Riboflavine)",
-	fr_synonyms => ["Vitamine B2", "Riboflavine"],	
+	fr_synonyms => ["Vitamine B2", "Riboflavine"],
 	en => "Vitamin B2 (Riboflavin)",
 	es => "Vitamina B2 (Riboflavina)",
 	ja => "ビタミン B2",
@@ -2358,14 +2386,14 @@ salt => {
 	ro => "Vitamina B2 (Riboflavină)",
 	bg => "Витамин B2 (Рибофлавин)",
 	zh => "维生素B2(核黄素)",
-	
+
 	unit => "mg",
-	dv => 1.7,	
+	dv => 1.7,
 	dv_2016 => 1.3,
 },
 'vitamin-pp' => {
 	fr => "Vitamine B3 / Vitamine PP (Niacine)",
-	fr_synonyms => ["Vitamine B3", "Vitamine PP", "Niacine"],		
+	fr_synonyms => ["Vitamine B3", "Vitamine PP", "Niacine"],
 	en => "Vitamin B3 / Vitamin PP (Niacin)",
 	es => "Vitamina B3 / Vitamina PP (Niacina)",
 	ja => "ビタミン B3",
@@ -2387,14 +2415,14 @@ salt => {
 	ro => "Niacină",
 	bg => "Ниацин",
 	zh => "维生素B3(烟酸)",
-	
+
 	unit => "mg",
 	dv => 20,
-	dv_2016 => 16,	
-},	
+	dv_2016 => 16,
+},
 'vitamin-b6' => {
 	fr => "Vitamine B6 (Pyridoxine)",
-	fr_synonyms => ["Vitamine B6", "Pyridoxine"],			
+	fr_synonyms => ["Vitamine B6", "Pyridoxine"],
 	en => "Vitamin B6 (Pyridoxin)",
 	es => "Vitamina B6 (Piridoxina)",
 	ja => "ビタミン B6",
@@ -2416,10 +2444,14 @@ salt => {
 	ro => "Vitamina B6",
 	bg => "Витамин B6",
 	zh => "维生素B6",
+
+	unit => "mg",
+	dv => 2.0,
+	dv_2016 => 1.7,
 },
 'vitamin-b9' => {
 	fr => "Vitamine B9 (Acide folique)",
-	fr_synonyms => ["Vitamine B9", "Acide folique"],	
+	fr_synonyms => ["Vitamine B9", "Acide folique"],
 	en => "Vitamin B9 (Folic acid)",
 	es => "Vitamina B9 (Ácido fólico)",
 	ja => "ビタミン B9 (葉酸)",
@@ -2441,7 +2473,7 @@ salt => {
 	ro => "Vitamina B9 (Acid folic)",
 	bg => "Витамин B9 (Фолиева киселина)",
 	zh => "维生素B9(叶酸)",
-	
+
 	unit => "µg",
 	dv => 400,
 	dv_2016 => 400,
@@ -2452,12 +2484,12 @@ salt => {
 	fr => "Folates (folates totaux)",
 
 	unit => "µg",
-	dv => 400,	
-	dv_2016 => 400,	
+	dv => 400,
+	dv_2016 => 400,
 },
 'vitamin-b12' => {
 	fr => "Vitamine B12 (cobalamine)",
-	fr_synonyms => ["Vitamine B12", "Cobalamine"],				
+	fr_synonyms => ["Vitamine B12", "Cobalamine"],
 	en => "Vitamin B12 (cobalamin)",
 	es => "Vitamina B12 (Cianocobalamina)",
 	it => "Vitamina B12 (Cobalamina)",
@@ -2479,14 +2511,14 @@ salt => {
 	ro => "Vitamina B12",
 	bg => "Витамин В12",
 	zh => "维生素B12",
-	
+
 	unit => "µg",
 	dv => 6,
 	dv_2016 => 2.4,
 },
 'biotin' => {
 	fr => "Biotine (Vitamine B8 / B7 / H)",
-	fr_synonyms => ["Biotine", "Vitamine B8", "Vitamine B7", "Vitamine H"],				
+	fr_synonyms => ["Biotine", "Vitamine B8", "Vitamine B7", "Vitamine H"],
 	en => "Biotin",
 	es => "Vitamina B7 (Biotina)",
 	it => "Vitamina B8/B7/H/I (Biotina)",
@@ -2507,14 +2539,14 @@ salt => {
 	ro => "Biotină",
 	bg => "Биотин",
 	zh => "生物素",
-	
+
 	unit => "µg",
-	dv => 300,	
+	dv => 300,
 	dv_2016 => 30,
-},	
+},
 'pantothenic-acid' => {
 	fr => "Acide pantothénique (Vitamine B5)",
-	fr_synonyms => ["Acide pantothénique", "Vitamine B5"],	
+	fr_synonyms => ["Acide pantothénique", "Vitamine B5"],
 	en => "Pantothenic acid / Pantothenate (Vitamin B5)",
 	ja => "ビタミン B5",
 	es => "Vitamina B5 (Ácido pantoténico)",
@@ -2541,11 +2573,11 @@ salt => {
 	sk => "Kyselina pantotenová",
 	ro => "Acid pantotenic",
 	bg => "Пантотенова киселина",
-	
+
 	unit => "mg",
 	dv => 10,
 	dv_2016 => 5,
-},	
+},
 '#minerals' => {
 	fr => "Sels minéraux",
 	en => "Minerals",
@@ -2626,7 +2658,7 @@ chloride => {
 	bg => "Хлорид",
 	nl => "Chloor",
 	nl_be => "Chloor",
-	
+
 	unit => "mg",
 	dv => 3400,
 	dv_2016 => 2300,
@@ -2647,7 +2679,7 @@ silica => {
 calcium => {
 	fr => "Calcium",
 	en => "Calcium",
-	ja => "カルシウム",	     
+	ja => "カルシウム",
 	es => "Calcio",
 	ar => "الكالسيوم",
 	it => "Calcio",
@@ -2672,12 +2704,12 @@ calcium => {
 	zh => "鈣",
 	nl => "Calcium",
 	nl_be => "Calcium",
-	
+
 	unit => "mg",
-	dv => 1000,	
+	dv => 1000,
 	dv_2016 => 1300,
 	unit_us => "% DV",
-	unit_ca => "% DV",		
+	unit_ca => "% DV",
 },
 phosphorus => {
 	fr => "Phosphore",
@@ -2707,7 +2739,7 @@ phosphorus => {
 	ro => "Fosfor",
 	bg => "Фосфор",
 	zh => "磷",
-	
+
 	unit => "mg",
 	dv => 1000,
 	dv_2016 => 1250,
@@ -2740,12 +2772,12 @@ iron => {
 	ro => "Fier",
 	bg => "Желязо",
 	zh => "鐵",
-	
+
 	unit => "mg",
-	dv => 18,	
+	dv => 18,
 	dv_2016 => 18,
 	unit_us => "% DV",
-	unit_ca => "% DV",	
+	unit_ca => "% DV",
 },
 magnesium => {
 	fr => "Magnésium",
@@ -2772,7 +2804,7 @@ magnesium => {
 	nl => "Magnesium",
 	nl_be => "Magnesium",
 	ja => "マグネシウム",
-	
+
 	unit => "mg",
 	dv => 400,
 	dv_2016 => 420,
@@ -2804,9 +2836,9 @@ zinc => {
 	bg => "Цинк",
 	zh => "鋅",
 	ja => "亜鉛",
-	
+
 	unit => "mg",
-	dv => 15,	
+	dv => 15,
 	dv_2016 => 11,
 },
 copper => {
@@ -2835,9 +2867,9 @@ copper => {
 	sk => "Meď",
 	ro => "Cupru",
 	bg => "Мед",
-	
+
 	unit => "mg",
-	dv => 2,	
+	dv => 2,
 	dv_2016 => 0.9,
 },
 manganese => {
@@ -2866,9 +2898,9 @@ manganese => {
 	sk => "Mangán",
 	ro => "Mangan",
 	bg => "Манган",
-	
+
 	unit => "mg",
-	dv => 2,	
+	dv => 2,
 	dv_2016 => 2.3,
 },
 fluoride => {
@@ -2927,9 +2959,9 @@ selenium => {
 	ro => "Seleniu",
 	bg => "Селен",
 	zh => "硒",
-	
+
 	unit => "µg",
-	dv => 70,	
+	dv => 70,
 	dv_2016 => 55,
 },
 chromium => {
@@ -2959,9 +2991,9 @@ chromium => {
 	sk => "Chróm",
 	ro => "Crom",
 	bg => "Хром",
-	
+
 	unit => "µg",
-	dv => 120,	
+	dv => 120,
 	dv_2016 => 35,
 },
 molybdenum => {
@@ -2991,9 +3023,9 @@ molybdenum => {
 	sk => "Molybdén",
 	ro => "Molibden",
 	bg => "Молибден",
-	
+
 	unit => "µg",
-	dv => 75,	
+	dv => 75,
 	dv_2016 => 45,
 },
 iodine => {
@@ -3022,7 +3054,7 @@ iodine => {
 	sk => "Jód",
 	ro => "Iod",
 	bg => "Йод",
-	
+
 	unit => "µg",
 	dv => 150,
 	dv_2016 => 150,
@@ -3112,6 +3144,13 @@ ph => {
 	nl_be => "Ecologische voetafdruk / CO2-uitstoot",
 	unit => "g",
 },
+"carbon-footprint-from-meat-or-fish" => {
+	fr => "Empreinte carbone de la viande ou du poisson",
+	en => "Carbon footprint from meat or fish",
+	unit => "g",
+},
+
+
 'glycemic-index' => {
 	en => "Glycemic Index",
 	de => "Glykämischer Index",
@@ -3333,15 +3372,15 @@ foreach my $region (keys %nutriments_tables) {
 	foreach (@{$nutriments_tables{$region}}) {
 
 		my $nutriment = $_;	# copy instead of alias
-		
+
 		if ($nutriment =~ /-$/) {
 			$nutriment = $`;
 			$nutriment =~ s/^(-|!)+//g;
 			push @{$other_nutriments_lists{$region}}, $nutriment;
 		}
-		
+
 		next if $nutriment =~ /\#/;
-		
+
 		$nutriment =~ s/^(-|!)+//g;
 		$nutriment =~ s/-$//g;
 		push @{$nutriments_lists{$region}}, $nutriment;
@@ -3372,14 +3411,14 @@ sub canonicalize_nutriment($$) {
 				$nid2 =~ s/linoleni/linolei/;
 				if (defined $nutriments_labels{$lc}{$nid2}) {
 					$nid = $nutriments_labels{$lc}{$nid2};
-				}			
+				}
 			}
 		}
 	}
 
 	$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 	return $nid;
-	
+
 }
 
 
@@ -3387,21 +3426,21 @@ sub canonicalize_nutriment($$) {
 $log->info("initialize \%nutriments_labels");
 
 foreach my $nid (keys %Nutriments) {
-	
+
 	foreach my $lc (sort keys %{$Nutriments{$nid}}) {
-	
+
 		# skip non language codes
-		
-		next if ($lc =~  /^unit/); 
-		next if ($lc =~  /^dv/); 
-		next if ($lc =~  /^iu/); 
+
+		next if ($lc =~  /^unit/);
+		next if ($lc =~  /^dv/);
+		next if ($lc =~  /^iu/);
 
 		my $label = $Nutriments{$nid}{$lc};
 		next if not defined $label;
 		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
 		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
 		$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
-		
+
 		my @labels = split(/\(|\/|\)/, $label);
 
 		foreach my $sublabel ($label, @labels) {
@@ -3423,34 +3462,36 @@ foreach my $nid (keys %Nutriments) {
 
 }
 
-
+my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
+my $chinese_units = qr/(?:\N{U+6BEB}?\N{U+514B})|(?:\N{U+516C}?\N{U+65A4})|(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|\N{U+5428}/i;
+my $units = qr/$international_units|$chinese_units/i;
 sub normalize_quantity($) {
 
 	# return the size in g or ml for the whole product
-	
+
 	# 1 barquette de 40g
 	# 20 tranches 500g
 	# 6x90g --> return 540
 
 	my $quantity = shift;
-	
+
 	my $q = undef;
 	my $u = undef;
-	
-	if ($quantity =~ /(\d+)(\s)?(x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))/i) {
+
+	if ($quantity =~ /(\d+)(\s)?(x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
 		my $m = $1;
 		$q = lc($5);
 		$u = $10;
 		$q =~ s/,/\./;
 		$q = unit_to_g($q * $m, $u);
-	}	
-	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))/i) {
+	}
+	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
 		$q = lc($1);
 		$u = $6;
 		$q =~ s/,/\./;
 		$q = unit_to_g($q,$u);
 	}
-		
+
 	return $q;
 }
 
@@ -3458,17 +3499,17 @@ sub normalize_quantity($) {
 sub normalize_serving_size($) {
 
 	my $serving = shift;
-	
+
 	my $q = 0;
 	my $u;
-	
-	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)( )?oz))/i) {
+
+	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?($units)/i) {
 		$q = lc($1);
 		$u = $6;
 		$q =~ s/,/\./;
 		$q = unit_to_g($q,$u);
 	}
-	
+
 	$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
 	return $q;
 }
@@ -3521,6 +3562,7 @@ my %pnns = (
 "Fruit nectars" => "Beverages",
 "Waters and flavored waters" => "Beverages",
 "Teas and herbal teas and coffees" => "Beverages",
+"Plant-based milk substitutes" => "Beverages",
 
 "unknown" => "unknown",
 
@@ -3535,35 +3577,46 @@ sub special_process_product($) {
 
 	my $product_ref = shift;
 	
-	return if not defined $product_ref->{categories_tags};
+	delete $product_ref->{pnns_groups_1};
+	delete $product_ref->{pnns_groups_1_tags};
+	delete $product_ref->{pnns_groups_2};
+	delete $product_ref->{pnns_groups_2_tags};	
 	
-	# For Open Food Facts, add special categories for beverages that are computed from 
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq "")) {
+		$product_ref->{pnns_groups_2} = "unknown";
+		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-category"];
+		$product_ref->{pnns_groups_1} = "unknown";
+		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-category"];
+		return;
+	}	
+
+	# For Open Food Facts, add special categories for beverages that are computed from
 	# nutrition facts (alcoholic or not) or the ingredients (sweetened, artificially sweetened or unsweetened)
-	# those tags are only added to categories_tags (searchable in Mongo) 
+	# those tags are only added to categories_tags (searchable in Mongo)
 	# and not to the categories_hierarchy (displayed on the web site and in the product edit form)
 	# Those extra categories are also used to determined the French PNNS food groups
-	
+
 	$product_ref->{nutrition_score_beverage} = 0;
-	
+
 	if (has_tag($product_ref,"categories","en:beverages")) {
-	
+
 		$product_ref->{nutrition_score_beverage} = 1;
-		
+
 		if (defined $options{categories_not_considered_as_beverages_for_nutriscore}) {
-		
+
 			foreach my $category_id (@{$options{categories_not_considered_as_beverages_for_nutriscore}}) {
-			
+
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$product_ref->{nutrition_score_beverage} = 0;
 					last;
 				}
 			}
 		}
-		
+
 		# exceptions
 		if (defined $options{categories_considered_as_beverages_for_nutriscore}) {
 			foreach my $category_id (@{$options{categories_considered_as_beverages_for_nutriscore}}) {
-			
+
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$product_ref->{nutrition_score_beverage} = 1;
 					last;
@@ -3571,11 +3624,11 @@ sub special_process_product($) {
 			}
 		}
 	}
-	
-	
-	
+
+
+
 	if (($product_ref->{nutrition_score_beverage}) and (not has_tag($product_ref,"categories","en:instant-beverages"))) {
-	
+
 		if (defined $product_ref->{nutriments}{"alcohol_100g"}) {
 			if ($product_ref->{nutriments}{"alcohol_100g"} < 1) {
 				if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
@@ -3599,14 +3652,14 @@ sub special_process_product($) {
 		else {
 			if ((not has_tag($product_ref, "categories", "en:non-alcoholic-beverages"))
 				and (not has_tag($product_ref, "categories", "en:alcoholic-beverages")) ) {
-				add_tag($product_ref, "categories", "en:non-alcoholic-beverages");	
+				add_tag($product_ref, "categories", "en:non-alcoholic-beverages");
 			}
 		}
-	
+
 		if (not (has_tag($product_ref,"categories","en:alcoholic-beverages")
 			or has_tag($product_ref,"categories","en:fruit-juices")
 			or has_tag($product_ref,"categories","en:fruit-nectars") ) ) {
-		
+
 			if (has_tag($product_ref,"categories","en:sodas") and (not has_tag($product_ref,"categories","en:diet-sodas"))) {
 				if (not has_tag($product_ref,"categories","en:sweetened-beverages"))  {
 					add_tag($product_ref, "categories", "en:sweetened-beverages");
@@ -3615,7 +3668,7 @@ sub special_process_product($) {
 					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 				}
 			}
-			
+
 			if ($product_ref->{with_sweeteners}) {
 				if (not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) {
 					add_tag($product_ref, "categories", "en:artificially-sweetened-beverages");
@@ -3625,9 +3678,9 @@ sub special_process_product($) {
 				}
 			}
 			# fix me: ingredients are now partly taxonomized
-			
+
 			if (
-			
+
 				(has_tag($product_ref, "ingredients", "sucre") or has_tag($product_ref, "ingredients", "sucre-de-canne")
 				or has_tag($product_ref, "ingredients", "sucre-de-canne-roux") or has_tag($product_ref, "ingredients", "sucre-caramelise")
 				or has_tag($product_ref, "ingredients", "sucre-de-canne-bio") or has_tag($product_ref, "ingredients", "sucres")
@@ -3640,13 +3693,13 @@ sub special_process_product($) {
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose") or has_tag($product_ref, "ingredients", "saccharose")
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose") or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
 				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
-				
+
 				or has_tag($product_ref, "ingredients", "en:sugar")
 				or has_tag($product_ref, "ingredients", "en:glucose")
 				or has_tag($product_ref, "ingredients", "en:fructose")
 				)
 				) {
-				
+
 				if (not has_tag($product_ref,"categories","en:sweetened-beverages")) {
 					add_tag($product_ref, "categories", "en:sweetened-beverages");
 				}
@@ -3660,18 +3713,18 @@ sub special_process_product($) {
 				if (
 					(not has_tag($product_ref,"categories","en:sweetened-beverages")) and
 					(not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) and
-					
+
 					(not has_tag($product_ref,"quality","en:ingredients-100-percent-unknown")) and
 					(not has_tag($product_ref,"quality","en:ingredients-90-percent-unknown")) and
 					(not has_tag($product_ref,"quality","en:ingredients-80-percent-unknown")) and
 					(not has_tag($product_ref,"quality","en:ingredients-70-percent-unknown")) and
 					(not has_tag($product_ref,"quality","en:ingredients-60-percent-unknown")) and
 					(not has_tag($product_ref,"quality","en:ingredients-50-percent-unknown")) and
-					
+
 
 					(($product_ref->{lc} eq 'en') or ($product_ref->{lc} eq 'fr'))
 					and ((defined $product_ref->{ingredients_text}) and (length($product_ref->{ingredients_text}) > 3))) {
-					
+
 					if (not has_tag($product_ref,"categories","en:unsweetened-beverages")) {
 						add_tag($product_ref, "categories", "en:unsweetened-beverages");
 					}
@@ -3702,69 +3755,63 @@ sub special_process_product($) {
 		}
 		if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
 			remove_tag($product_ref, "categories", "en:unsweetened-beverages");
-		}	
+		}
 	}
-	
-	
+
+
 	# compute PNNS groups 2 and 1
-	
-	delete $product_ref->{pnns_groups_1};
-	delete $product_ref->{pnns_groups_1_tags};
-	delete $product_ref->{pnns_groups_2};
-	delete $product_ref->{pnns_groups_2_tags};
-	
+
 	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
 		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
-		
+
 			# skip the sweetened / unsweetened if it is alcoholic
 			next if (	(has_tag($product_ref, 'categories', 'en:alcoholic-beverages'))
 				and (
-					($categoryid eq 'en:sweetened-beverages') 
-					or ($categoryid eq 'en:artificially-sweetened-beverages') 
-					or ($categoryid eq 'en:unsweetened-beverages') 
+					($categoryid eq 'en:sweetened-beverages')
+					or ($categoryid eq 'en:artificially-sweetened-beverages')
+					or ($categoryid eq 'en:unsweetened-beverages')
 				)
 				);
-			
-			
+
+
 			# skip the category en:sweetened-beverages if we have the category en:artificially-sweetened-beverages
 			next if (($categoryid eq 'en:sweetened-beverages') and has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'));
-			
+
 			# skip waters and flavored waters if we have en:artificially-sweetened-beverages or en:sweetened-beverages
 			next if (
 				(($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Waters and flavored waters")
 				or ($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Teas and herbal teas and coffees"))
-			
-				and ( has_tag($product_ref, 'categories', 'en:sweetened-beverages') 
+
+				and ( has_tag($product_ref, 'categories', 'en:sweetened-beverages')
 					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
-		
+
 			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
-			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2})];
-			
+			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2}), "known"];
+
 			# Let waters and teas take precedence over unsweetened-beverages
 			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
 				last;
 			}
 		}
 	}
-	
+
 	if (defined $product_ref->{pnns_groups_2}) {
 		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
 			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
-			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1})];
+			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1}), "known"];
 		}
 		else {
 			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
 		}
 	}
 	else {
-		if (defined $product_ref->{categories}) {
-			$product_ref->{pnns_groups_2} = "unknown";
-			$product_ref->{pnns_groups_2_tags} = ["unknown"];
-			$product_ref->{pnns_groups_1} = "unknown";
-			$product_ref->{pnns_groups_1_tags} = ["unknown"];		
-		}
-	}
+		# We have a category for the product, but no PNNS groups are associated with this category or a parent category
 	
+		$product_ref->{pnns_groups_2} = "unknown";
+		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-association"];
+		$product_ref->{pnns_groups_1} = "unknown";
+		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
+	}
 }
 
 
@@ -3772,15 +3819,15 @@ sub special_process_product($) {
 sub fix_salt_equivalent($) {
 
 	my $product_ref = shift;
-	
+
 	# salt
-	
+
 	foreach my $product_type ("", "_prepared") {
-		
+
 		# use the salt value by default
 		if ((defined $product_ref->{nutriments}{'salt' . $product_type}) and ($product_ref->{nutriments}{'salt' . $product_type} ne '')) {
 			$product_ref->{nutriments}{'sodium' . $product_type} = $product_ref->{nutriments}{'salt' . $product_type} / 2.54;
-		}	
+		}
 		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type}) and ($product_ref->{nutriments}{'sodium' . $product_type} ne '')) {
 			$product_ref->{nutriments}{'salt' . $product_type} = $product_ref->{nutriments}{'sodium' . $product_type} * 2.54;
 		}
@@ -3813,7 +3860,7 @@ sub compute_nutrition_score($) {
 	# compute UK FSA score (also in planned use in France)
 
 	my $product_ref = shift;
-	
+
 	delete $product_ref->{nutrition_score_debug};
 	delete $product_ref->{nutriments}{"nutrition-score"};
 	delete $product_ref->{nutriments}{"nutrition-score_100g"};
@@ -3823,7 +3870,7 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutriments}{"nutrition-score-fr_serving"};
 	delete $product_ref->{nutriments}{"nutrition-score-uk"};
 	delete $product_ref->{nutriments}{"nutrition-score-uk_100g"};
-	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};	
+	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};
 	delete $product_ref->{"nutrition_grade_fr"};
 	delete $product_ref->{"nutrition_grades"};
 	delete $product_ref->{"nutrition_grades_tags"};
@@ -3834,9 +3881,9 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 
 	defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-	
+
 	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
-	
+
 	my $prepared = '';
 
 	# do not compute a score when we don't have a category
@@ -3844,23 +3891,23 @@ sub compute_nutrition_score($) {
 		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
 		return;
-	}	
-	
+	}
+
 	if (not defined $product_ref->{nutrition_score_beverage}) {
 		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage";
-		return;	
+		return;
 	}
-	
-	
+
+
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
 	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
-	
+
 	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups", "en:instant-beverages") {
-	
+
 		if (has_tag($product_ref, "categories", $category_tag)) {
-		
+
 			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
 				$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag";
 				$prepared = '_prepared';
@@ -3873,26 +3920,26 @@ sub compute_nutrition_score($) {
 			}
 		}
 	}
-	
-	
+
+
 	# do not compute a score for coffee, tea etc. except ice teas etc.
-	
+
 	if (defined $options{categories_exempted_from_nutriscore}) {
-	
+
 		my $not_exempted = 0;
 
 		foreach my $category_id (@{$options{categories_not_exempted_from_nutriscore}}) {
-		
+
 			if (has_tag($product_ref, "categories", $category_id)) {
 				$not_exempted = 1;
 				last;
 			}
-		}	
+		}
 
 		if (not $not_exempted) {
-	
+
 			foreach my $category_id (@{$options{categories_exempted_from_nutriscore}}) {
-			
+
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
@@ -3900,45 +3947,52 @@ sub compute_nutrition_score($) {
 				}
 			}
 		}
-	}	
-	
-	# compute the score only if all values are known
-	# for fiber, compute score without fiber points if the value is not known
-	# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
-	foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
-		if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
-			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
-			push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";
-			if (not defined $product_ref->{nutriments}{"saturated-fat"  . $prepared . "_100g"}) {
-				push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
+	}
+
+	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
+	# do not display warnings about missing fiber and fruits
+
+	if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+
+		# compute the score only if all values are known
+		# for fiber, compute score without fiber points if the value is not known
+		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
+
+		foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
+			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
+				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
+				push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";
+				if (not defined $product_ref->{nutriments}{"saturated-fat"  . $prepared . "_100g"}) {
+					push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
+				}
+				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
+				return;
 			}
-			$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
-			return;
+		}
+
+		# some categories of products do not have fibers > 0.7g (e.g. sodas)
+		# for others, display a warning when the value is missing
+		if ((not defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
+			and not (has_tag($product_ref, "categories", "en:sodas"))) {
+			$product_ref->{nutrition_score_warning_no_fiber} = 1;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
 		}
 	}
-	
-	# some categories of products do not have fibers > 0.7g (e.g. sodas)
-	# for others, display a warning when the value is missing
-	if ((not defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
-		and not (has_tag($product_ref, "categories", "en:sodas"))) {
-		$product_ref->{nutrition_score_warning_no_fiber} = 1;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
-	}
-	
+
 	if ($prepared ne '') {
 		push @{$product_ref->{misc_tags}}, "en:nutrition-grade-computed-for-prepared-product";
 	}
-	
-	
+
+
 	my $energy_points = int(($product_ref->{nutriments}{"energy" . $prepared . "_100g"} - 0.00001) / 335);
 	$energy_points > 10 and $energy_points = 10;
-	
+
 	my $saturated_fat_points = int(($product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"} - 0.00001) / 1);
 	$saturated_fat_points > 10 and $saturated_fat_points = 10;
 
 	#my $sugars_points = int(($product_ref->{nutriments}{"sugars" . $prepared . "_100g"} - 0.00001) / 4.5);
 	#$sugars_points > 10 and $sugars_points = 10;
-	
+
 	my $sugars_points = 0;
 	my $sugars_value = $product_ref->{nutriments}{"sugars" . $prepared . "_100g"} ;
 	if ($sugars_value > 45) {
@@ -3974,30 +4028,30 @@ sub compute_nutrition_score($) {
 	else {
 		$sugars_points = 0;
 	}
-	
+
 
 	my $sodium_points = int(($product_ref->{nutriments}{"sodium" . $prepared . "_100g"} * 1000 - 0.00001) / 90);
-	$sodium_points > 10 and $sodium_points = 10;	
-	
+	$sodium_points > 10 and $sodium_points = 10;
+
 	my $a_points = $energy_points + $saturated_fat_points + $sugars_points + $sodium_points;
-	
+
 # Pour les boissons, les grilles d’attribution des points pour l’énergie et les sucres simples ont été modifiées.
 # ATTENTION, le lait, les laits végétaux ne sont pas compris dans le calcul des scores boissons. Ils relèvent du calcul général.
 
 	my $fr_beverages_energy_points = int(($product_ref->{nutriments}{"energy" . $prepared . "_100g"} - 0.00001 + 30) / 30);
 	$fr_beverages_energy_points > 10 and $fr_beverages_energy_points = 10;
-	
+
 	my $fr_beverages_sugars_points = int(($product_ref->{nutriments}{"sugars" . $prepared . "_100g"} - 0.00001 + 1.5) / 1.5);
-	$fr_beverages_sugars_points > 10 and $fr_beverages_sugars_points = 10;	
-	
-	
-# L’attribution des points pour les sucres prend en compte la présence d’édulcorants, pour lesquels la grille maintient les scores sucres simples à 1 (au lieu de 0).		
-	
+	$fr_beverages_sugars_points > 10 and $fr_beverages_sugars_points = 10;
+
+
+# L’attribution des points pour les sucres prend en compte la présence d’édulcorants, pour lesquels la grille maintient les scores sucres simples à 1 (au lieu de 0).
+
 	# not in new HCSP from 20150625
 	#if ((defined $product_ref->{with_sweeteners}) and ($fr_beverages_sugars_points == 0)) {
 	#	$fr_beverages_sugars_points = 1;
 	#}
-	
+
 #Pour les boissons chaudes non sucrées (thé, café), afin de maintenir leur score à 0 (identique à l’eau), le score KJ a été maintenu à 0 si les sucres simples sont à 0.
 
 	#if (has_tag($product_ref, "categories", "en:hot-beverages") and (has_tag($product_ref, "categories", "en:coffees") or has_tag($product_ref, "categories", "en:teas"))) {
@@ -4005,24 +4059,24 @@ sub compute_nutrition_score($) {
 	#		$fr_beverages_energy_points = 0;
 	#	}
 	#}
-	
+
 	my $a_points_fr_beverages = $fr_beverages_energy_points + $saturated_fat_points + $fr_beverages_sugars_points + $sodium_points;
-	
+
 	# points for fruits, vegetables and nuts
-		
+
 	my $fruits = undef;
-	
+
 	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
 		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
 		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
-		
+
 		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
 			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
 			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
 		}
-		
+
 		$fruits = $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
-	}	
+	}
 	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
 		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
@@ -4031,7 +4085,7 @@ sub compute_nutrition_score($) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
 		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
 		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
-	}	
+	}
 	# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
 	else {
 		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted ) {
@@ -4046,8 +4100,8 @@ sub compute_nutrition_score($) {
 				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
 				last;
 			}
-		}	
-			
+		}
+
 		if (defined $fruits) {
 			$product_ref->{"fruits-vegetables-nuts_100g_estimate"} = $fruits;
 		}
@@ -4056,19 +4110,19 @@ sub compute_nutrition_score($) {
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
 			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
 		}
-		
+
 	}
-	
+
 	if ((defined $product_ref->{nutrition_score_warning_no_fiber}) or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})) {
 		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
 	}
 	else {
-		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";		
+		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";
 	}
 
-	
+
 	my $fruits_points = 0;
-	
+
 	if ($fruits > 80) {
 		$fruits_points = 5;
 	}
@@ -4078,13 +4132,13 @@ sub compute_nutrition_score($) {
 	elsif ($fruits > 40) {
 		$fruits_points = 1;
 	}
-	
+
 	# changes to the fiber scale
 	my $fiber_points = 0;
-	
+
 	# Use 0 if fiber is not defined
-	my $fiber_value = (defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}) ? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"} : 0; 
-	
+	my $fiber_value = (defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}) ? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"} : 0;
+
 	if ($fiber_value > 4.7) {
 		$fiber_points = 5;
 	}
@@ -4100,16 +4154,16 @@ sub compute_nutrition_score($) {
 	elsif ($fiber_value > 0.9) {
 		$fiber_points = 1;
 	}
-	
+
 	my $proteins_points = int(($product_ref->{nutriments}{"proteins" . $prepared . "_100g"} - 0.00001) / 1.6);
-	$proteins_points > 5 and $proteins_points = 5;		
-	
-	
+	$proteins_points > 5 and $proteins_points = 5;
+
+
 
 	my $fr_comment = <<COMMENT
 1. Les fromages. Comme vous avez dû le constater, dans le calcul du score, si les points A dépassent 11, et si la teneur en 'fruits, légumes et noix' est inférieure à 80%, alors, on ne retranche pas au score les points des protéines.
 Pour les fromages, qui ont des teneurs en protéines très importantes, mais qui dépassent très souvent le 11 en score 1, ce calcul est problématique.
-Nous proposons donc, pour cette catégorie, de retrancher les points des protéines quel que soit le score A initial. 
+Nous proposons donc, pour cette catégorie, de retrancher les points des protéines quel que soit le score A initial.
 
 2. Les matières grasses (margarine, huiles, crèmes fraiches). Le score tel qu'il est actuellement ne permet pas de différencier les différents types de matières grasses, etant donné qu'elles ont toutes un taux d'acides gras saturés (AGS) au dessus de 10g (soit le seuil maximal).
 Dans leur cas, nous proposons un réajustement de la grille des AGS, par un pas ascendant homogène de 4 points, en démarrant un peu plus haut, à 5.
@@ -4126,7 +4180,7 @@ Soit la grille suivante :
 38-41 : 9 points
 42 et plus : 10 points
 
-3. Les boissons. Le score tel qu'il est nécessite une modification plus importante, dans la mesure où actuellement, il donne de meilleurs scores aux jus de fruits, et ne différencie pas l'eau des boissons édulcorées. Nous proposons que toutes les boissons autres que l'eau (contenant des sucres ou des édulcorants) soient dans une catégorie supérieure à l'eau (qui est classée verte). Nous ne disposons pour l'instant pas d'adaptations plus précises du score. 	
+3. Les boissons. Le score tel qu'il est nécessite une modification plus importante, dans la mesure où actuellement, il donne de meilleurs scores aux jus de fruits, et ne différencie pas l'eau des boissons édulcorées. Nous proposons que toutes les boissons autres que l'eau (contenant des sucres ou des édulcorants) soient dans une catégorie supérieure à l'eau (qui est classée verte). Nous ne disposons pour l'instant pas d'adaptations plus précises du score.
 
 Nouveaux points: rapport AGS/lipides plutôt que AGS.
 
@@ -4157,37 +4211,37 @@ COMMENT
 		}
 		$saturated_fat_ratio = $saturated_fat / $fat;
 	}
-	
+
 	# my $saturated_fat_points_fr_matieres_grasses = int(($product_ref->{nutriments}{"saturated-fat_100g"} - 2.00001) / 4);
 	my $saturated_fat_points_fr_matieres_grasses = int(($saturated_fat_ratio * 100 - 4) / 6);
 	$saturated_fat_points_fr_matieres_grasses < 0 and $saturated_fat_points_fr_matieres_grasses = 0;
 	$saturated_fat_points_fr_matieres_grasses > 10 and $saturated_fat_points_fr_matieres_grasses = 10;
-	
+
 	my $a_points_fr_matieres_grasses = $energy_points + $saturated_fat_points_fr_matieres_grasses + $sugars_points + $sodium_points;
 
 	my $a_points_fr = $a_points;
-	
+
 	if (has_tag($product_ref, "categories", "en:fats")) {
 		$a_points_fr = $a_points_fr_matieres_grasses;
-		$product_ref->{nutrition_score_debug} .= " -- in fats category";		
+		$product_ref->{nutrition_score_debug} .= " -- in fats category";
 	}
 
 	# Nutriscore: milk and drinkable yogurts are not considered beverages
 	# $product_ref->{nutrition_score_beverage} is set by special_process_product()
-	
+
 	if ($product_ref->{nutrition_score_beverage}) {
 		$product_ref->{nutrition_score_debug} .= " -- in beverages category - a_points_fr_beverage: $fr_beverages_energy_points (energy) + $saturated_fat_points (sat_fat) + $fr_beverages_sugars_points (sugars) + $sodium_points (sodium) = $a_points_fr_beverages - ";
-		
+
 		$a_points_fr = $a_points_fr_beverages;
 	}
-	
+
 	my $c_points = $fruits_points + $fiber_points + $proteins_points;
-	
+
 	my $fsa_score = $a_points;
-	my $fr_score = $a_points_fr;	
-	
+	my $fr_score = $a_points_fr;
+
 	#FSA
-	
+
 	if ($a_points < 11) {
 		$fsa_score -= $c_points;
 	}
@@ -4197,17 +4251,17 @@ COMMENT
 	else {
 		$fsa_score -= ($fruits_points + $fiber_points);
 	}
-	
+
 	# FR
-	
+
 	my $fruits_points_fr = $fruits_points;
-	
+
 	if ($product_ref->{nutrition_score_beverage}) {
 		$fruits_points_fr = 2 * $fruits_points;
 	}
-	
+
 	my $c_points_fr = $fruits_points_fr + $fiber_points + $proteins_points;
-	
+
 	if ($a_points_fr < 11) {
 		$fr_score -= $c_points_fr;
 	}
@@ -4222,21 +4276,21 @@ COMMENT
 		else {
 			$fr_score -= ($fruits_points_fr + $fiber_points);
 		}
-	}	
-	
+	}
+
 	$product_ref->{nutriments}{"nutrition-score-uk"} = $fsa_score;
 	$product_ref->{nutriments}{"nutrition-score-fr"} = $fr_score;
-	
+
 	$product_ref->{nutriments}{"nutrition-score-uk_100g"} = $product_ref->{nutriments}{"nutrition-score-uk"};
 	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};
 	$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $product_ref->{nutriments}{"nutrition-score-fr"};
 	delete $product_ref->{nutriments}{"nutrition-score-fr_serving"};
-	
+
 	$product_ref->{nutrition_score_debug} .= " -- energy $energy_points + sat-fat $saturated_fat_points + fr-sat-fat-for-fats $saturated_fat_points_fr_matieres_grasses + sugars $sugars_points + sodium $sodium_points - fruits $fruits\% $fruits_points - fiber $fiber_points - proteins $proteins_points -- fsa $fsa_score -- fr $fr_score";
-	
-	
+
+
 	# Colored grades
-	
+
 
 #Vert : -15 à -2
 #Jaune : de -1 à 3
@@ -4246,14 +4300,14 @@ COMMENT
 
 # For beverages:
 # -15 to -1
-# 0	
+# 0
 # 1
 # 2
 
 #  3. Les boissons. Le score tel qu'il est nécessite une modification plus importante, dans la mesure où actuellement,
-# il donne de meilleurs scores aux jus de fruits, et ne différencie pas l'eau des boissons édulcorées. 
-# Nous proposons que toutes les boissons autres que l'eau (contenant des sucres ou des édulcorants) 
-# soient dans une catégorie supérieure à l'eau (qui est classée verte). 
+# il donne de meilleurs scores aux jus de fruits, et ne différencie pas l'eau des boissons édulcorées.
+# Nous proposons que toutes les boissons autres que l'eau (contenant des sucres ou des édulcorants)
+# soient dans une catégorie supérieure à l'eau (qui est classée verte).
 # Nous ne disposons pour l'instant pas d'adaptations plus précises du score.
 
 
@@ -4262,12 +4316,12 @@ COMMENT
 
 	delete $product_ref->{"nutrition-grade-fr"};
 	delete $product_ref->{"nutrition_grade_fr"};
-	
+
 	shift @{$product_ref->{misc_tags}};
 	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
-	
+
 	$product_ref->{"nutrition_grade_fr"} = compute_nutrition_grade($product_ref, $fr_score);
-	
+
 	$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
 	$product_ref->{"nutrition_grades"} = $product_ref->{"nutrition_grade_fr"};  # needed for the /nutrition-grade/unknown query
 
@@ -4278,11 +4332,11 @@ sub compute_nutrition_grade($$) {
 
 	my $product_ref = shift;
 	my $fr_score = shift;
-	
+
 	my $grade = "";
 
 	if ($product_ref->{nutrition_score_beverage}) {
-		
+
 # Tableau 6 : Seuils du score FSA retenus pour les boissons
 # Classe du 5-C
 # Bornes du score FSA
@@ -4290,9 +4344,9 @@ sub compute_nutrition_grade($$) {
 # B/Jaune Min – 1
 # C/Orange 2 – 5
 # D/Rose 6 – 9
-# E/Rouge 10 – Max		
-		
-		if (has_tag($product_ref, "categories", "en:mineral-waters")) {  
+# E/Rouge 10 – Max
+
+		if (has_tag($product_ref, "categories", "en:spring-waters")) {
 			$grade = 'a';
 		}
 		elsif ($fr_score <= 1) {
@@ -4303,13 +4357,13 @@ sub compute_nutrition_grade($$) {
 		}
 		elsif ($fr_score <= 9) {
 			$grade = 'd';
-		}	
+		}
 		else {
 			$grade = 'e';
-		}	
+		}
 	}
 	else {
-	
+
 # New grades from HCSP avis 20150602 hcspa20150625_infoqualnutprodalim.pdf
 # Tableau 1 : Seuils du score FSA retenus pour le cas général
 # Classe du 5-C
@@ -4318,8 +4372,8 @@ sub compute_nutrition_grade($$) {
 # B/Jaune 0 – 2
 # C/Orange 3 – 10
 # D/Rose 11 – 18
-# E/Rouge 19 – Max	
-	
+# E/Rouge 19 – Max
+
 		if ($fr_score <= -1) {
 			$grade = 'a';
 		}
@@ -4331,7 +4385,7 @@ sub compute_nutrition_grade($$) {
 		}
 		elsif ($fr_score <= 18) {
 			$grade = 'd';
-		}	
+		}
 		else {
 			$grade = 'e';
 		}
@@ -4342,13 +4396,13 @@ sub compute_nutrition_grade($$) {
 sub compute_serving_size_data($) {
 
 	my $product_ref = shift;
-	
+
 	# identify products that do not have comparable nutrition data
 	# e.g. products with multiple nutrition facts tables
 	# except in some cases like breakfast cereals
 	# bug #1145
 	# old
-	
+
 	# old fields
 	(defined $product_ref->{not_comparable_nutrition_data}) and delete $product_ref->{not_comparable_nutrition_data};
 	(defined $product_ref->{multiple_nutrition_data}) and delete $product_ref->{multiple_nutrition_data};
@@ -4360,122 +4414,219 @@ sub compute_serving_size_data($) {
 			$product_ref->{product_quantity} = $product_quantity;
 		}
 	}
-	
+
 	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
 		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
 	}
 	else {
 		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
 	}
-	
+
 	#if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{'energy.unit'}) and ($product_ref->{nutriments}{'energy.unit'} eq 'kcal')) {
 	#	$product_ref->{nutriments}{energy} = sprintf("%.0f", $product_ref->{nutriments}{energy} * 4.18);
 	#	$product_ref->{nutriments}{'energy.unit'} = 'kj';
 	#}
-	
+
 	foreach my $product_type ("", "_prepared") {
-	
+
 		if (not defined $product_ref->{"nutrition_data" . $product_type . "_per"}) {
 			$product_ref->{"nutrition_data" . $product_type . "_per"} = '100g';
 		}
-		
+
 		if ($product_ref->{"nutrition_data" . $product_type . "_per"} eq 'serving') {
-		
+
 			foreach my $nid (keys %{$product_ref->{nutriments}}) {
-				if (($product_type eq "") and ($nid =~ /_/) 
+				if (($product_type eq "") and ($nid =~ /_/)
 					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/))) {
-				
+
 					next;
 				}
 				$nid =~ s/_prepared$//;
-				
-				
+
+
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} = '';
-			
+
 				if (($nid eq 'alcohol') or ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})
 					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $product_ref->{nutriments}{$nid . $product_type} + 0.0;
 				}
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-					
+
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} * 100.0 / $product_ref->{serving_quantity}) + 0.0;
 				}
-			
+
 			}
 		}
 
 		else {
-		
+
 			foreach my $nid (keys %{$product_ref->{nutriments}}) {
-				if (($product_type eq "") and ($nid =~ /_/) 
+				if (($product_type eq "") and ($nid =~ /_/)
 					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/))) {
-				
+
 					next;
 				}
 				$nid =~ s/_prepared$//;
-				
+
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = '';
-				
+
 				if (($nid eq 'alcohol') or ((exists $Nutriments{$nid . $product_type}) and (exists $Nutriments{$nid . $product_type}{unit})
 					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type} + 0.0;
-				}			
+				}
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-				
+
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity}) + 0.0;
 				}
-				
-			}	
-		
+
+			}
+
 		}
-	
+
+		# Carbon footprint
+		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"}) {
+
+			if (defined $product_ref->{serving_quantity}) {
+				$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"}
+				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{serving_quantity}) + 0.0;
+			}
+
+			if (defined $product_ref->{product_quantity}) {
+				$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"}
+				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
+			}
+		}
+
 	}
 
+}
+
+
+sub compute_carbon_footprint_infocard($) {
+
+	my $product_ref = shift;
+
+	# compute the environment impact level
+	# -> currently only for prepared meals
+	if (has_tag($product_ref, "categories", "en:meals")) {
+
+		$product_ref->{environment_impact_level} = "en:low";
+
+		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"}) {
+
+			if ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} < 250) {
+				$product_ref->{environment_impact_level} = "en:medium";
+			}
+			else {
+				$product_ref->{environment_impact_level} = "en:high";
+			}
+		}
+
+		$product_ref->{environment_impact_level_tags} = [$product_ref->{environment_impact_level}];
+	}
+
+	# compute the carbon footprint infocard when we have a carbon footprint from meat or fish
+
+	if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"})) {
+
+		foreach my $lang ("en", "fr") {
+			my $html = "<h2>" . $Lang{carbon_impact_from_meat_or_fish}{$lang} . "</h2>";
+
+			$html .= "<ul>\n";
+
+			$html .= "<li><b>" . (sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} / 1000) + 0.0)
+				. " kg</b> " . $Lang{of_carbon_impact_from_meat_or_fish_for_whole_product}{$lang};
+
+			if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"}) {
+				$html .= " (<b>" .( sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"} / 1000) + 0.0)
+				. " kg</b> " . $Lang{for_one_serving}{$lang} . ")";
+			}
+
+			$html .= "</li>\n";
+
+			# COP 21 sustainable amount of CO2 per person per year: 2 tons
+			my %sustainable = (annual => 2000 * 1000);
+			$sustainable{daily} = $sustainable{annual} / 365;
+			$sustainable{weekly} = $sustainable{daily} * 7;
+
+			foreach my $period ("daily", "weekly") {
+
+				$html .= "<li><b>" . (sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} / $sustainable{$period} * 100) + 0.0)
+					. "%</b> " . $Lang{"of_sustainable_" . $period . "_emissions_of_1_person"}{$lang};
+
+				if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"}) {
+					$html .= " (<b>" .( sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"} / $sustainable{$period} * 100) + 0.0)
+					. "%</b> " . $Lang{for_one_serving}{$lang} . ")";
+				}
+
+				$html .= "</li>\n";
+			}
+
+			$html .= "</ul>";
+
+			$html .= "<br><br>";
+
+			$html .= "<h3>" . $Lang{methodology}{$lang} . "</h3>"
+			. "<p>" . $Lang{carbon_footprint_note_foodges_ademe}{$lang} . "</p>"
+			. "<p>" . $Lang{carbon_footprint_note_sustainable_annual_emissions}{$lang} . "</p>"
+			. "<p>" . $Lang{carbon_footprint_note_uncertainty}{$lang} . "</p>";
+
+			$product_ref->{"environment_infocard_" . $lang} = $html;
+		}
+
+		# copy the main language
+		if (defined $product_ref->{"environment_infocard_" . $product_ref->{lc}}) {
+			$product_ref->{environment_infocard} = $product_ref->{"environment_infocard_" . $product_ref->{lc}};
+		}
+		else {
+			$product_ref->{environment_infocard} = $product_ref->{environment_infocard_en};
+		}
+	}
 }
 
 
 sub compute_unknown_nutrients($) {
 
 	my $product_ref = shift;
-	
+
 	$product_ref->{unknown_nutrients_tags} = [];
 
 	foreach my $nid (keys %{$product_ref->{nutriments}}) {
-	
+
 		next if $nid =~ /_/;
-		
+
 		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
 			push @{$product_ref->{unknown_nutrients_tags}}, $nid;
 		}
 	}
-	
+
 }
 
 
 sub compute_nutrient_levels($) {
 
 	my $product_ref = shift;
-			
+
 	#$product_ref->{nutrient_levels_debug} .= " -- start ";
-	
+
 	$product_ref->{nutrient_levels_tags} = [];
 	$product_ref->{nutrient_levels} = {};
-	
+
 	return if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq ''));	# need categories hierarchy in order to identify drinks
-		
+
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
-	
+
 	my $prepared = "";
-	
+
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
-	
+
 			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
 				$prepared = '_prepared';
 			}
@@ -4483,34 +4634,34 @@ sub compute_nutrient_levels($) {
 				return;
 			}
 	}
-	
-	
+
+
 	# do not compute a score for coffee, tea etc.
-	
+
 	if (defined $options{categories_exempted_from_nutrient_levels}) {
-	
+
 		foreach my $category_id (@{$options{categories_exempted_from_nutrient_levels}}) {
-		
+
 			if (has_tag($product_ref, "categories", $category_id)) {
 				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 				return;
 			}
 		}
-	}		
-	
+	}
+
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
 		my ($nid, $low, $high) = @$nutrient_level_ref;
-		
+
 		# divide low and high per 2 for drinks
-		
+
 		if (has_tag($product_ref, "categories", "en:beverages")) {
 			$low = $low / 2;
-			$high = $high / 2;		
+			$high = $high / 2;
 		}
-		
+
 		if ((defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) and ($product_ref->{nutriments}{$nid . $prepared . "_100g"} ne '')) {
-		
+
 			if ($product_ref->{nutriments}{$nid . $prepared . "_100g"} < $low) {
 				$product_ref->{nutrient_levels}{$nid} = 'low';
 			}
@@ -4522,15 +4673,15 @@ sub compute_nutrient_levels($) {
 			}
 			# push @{$product_ref->{nutrient_levels_tags}}, get_fileid(sprintf(lang("nutrient_in_quantity"), $Nutriments{$nid}{$lc}, lang($product_ref->{nutrient_levels}{$nid} . "_quantity")));
 			push @{$product_ref->{nutrient_levels_tags}}, 'en:' . get_fileid(sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
-		
+
 		}
 		else {
 			delete $product_ref->{nutrient_levels}{$nid};
 		}
 			#$product_ref->{nutrient_levels_debug} .= " -- nid: $nid - low: $low - high: $high - level: " . $product_ref->{nutrient_levels}{$nid} . " -- value: " . $product_ref->{nutriments}{$nid . "_100g"} . " --- ";
-		
+
 	}
-	
+
 }
 
 # Create food taxonomy
@@ -4550,7 +4701,7 @@ foreach my $nutrient_level_ref (@nutrient_levels) {
 			}
 			else {
 				$nutrient_l = $Nutriments{$nid}{"en"};
-			}	
+			}
 			$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, $nutrient_l, $Lang{$level . "_quantity"}{$l}) . "\n";
 		}
 	}
@@ -4582,10 +4733,10 @@ sub compute_units_of_alcohol($$) {
 sub compare_nutriments($$) {
 
 	my $a_ref = shift; # can be a product, a category, ajr etc. -> needs {nutriments}{$nid} values
-	my $b_ref = shift;	
-	
+	my $b_ref = shift;
+
 	my %nutriments = ();
-	
+
 	foreach my $nid (keys %{$b_ref->{nutriments}}) {
 		next if $nid !~ /_100g$/;
 		$log->trace("compare_nutriments", { nid => $nid }) if $log->is_trace();
@@ -4597,9 +4748,9 @@ sub compare_nutriments($$) {
 			$log->trace("compare_nutriments", { nid => $nid, value => $nutriments{$nid}, percent => $nutriments{"$nid.%"} }) if $log->is_trace();
 		}
 	}
-	
+
 	return \%nutriments;
-	
+
 }
 
 
@@ -4619,7 +4770,7 @@ foreach my $key (keys %Nutriments) {
 			my $short_l = undef;
 			if ($l =~ /_/) {
 				$short_l = $`,  # pt_pt
-			}			
+			}
 			if (not exists $Nutriments{$key}{$l}) {
 				if ((defined $short_l) and (exists $Nutriments{$key}{$short_l})) {
 					$Nutriments{$key}{$l} = $Nutriments{$key}{$short_l};
@@ -4646,19 +4797,19 @@ sub normalize_packager_codes($) {
 	my $codes = shift;
 
 	$codes = uc($codes);
-	
+
 	$codes =~ s/\/\///g;
-	
+
 	$codes =~ s/(^|,|, )(emb|e)(\s|-|_|\.)?(\d+)(\.|-|\s)?(\d+)(\.|_|\s|-)?([a-z]*)/$1EMB $4$6$8/ig;
-	
+
 	# FRANCE -> FR
-	$codes =~ s/(^|,|, )(france)/$1FR/ig;			
+	$codes =~ s/(^|,|, )(france)/$1FR/ig;
 
 	# most common forms:
 	# ES 12.06648/C CE
 	# ES 26.00128/SS CE
 	# UK DZ7131 EC (with sometime spaces but not always, can be a mix of letters and numbers)
-	
+
 	my $normalize_fr_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $number = shift;
@@ -4668,10 +4819,10 @@ sub normalize_packager_codes($) {
 		$number =~ s/^(\d\d)(\d\d)/$1.$2/;
 		# put leading 0s at the end
 		$number =~ s/\.(\d)$/\.00$1/;
-		$number =~ s/\.(\d\d)$/\.0$1/;					
+		$number =~ s/\.(\d\d)$/\.0$1/;
 		return "$countrycode $number EC";
 	};
-	
+
 	my $normalize_uk_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $code = shift;
@@ -4680,7 +4831,7 @@ sub normalize_packager_codes($) {
 		$code =~ s/\s|-|_|\.|\///g;
 		return "$countrycode $code EC";
 	};
-	
+
 	my $normalize_es_ce_code = sub ($$$$) {
 		my $countrycode = shift;
 		my $code1 = shift;
@@ -4689,15 +4840,15 @@ sub normalize_packager_codes($) {
 		$countrycode = uc($countrycode);
 		$code3 = uc($code3);
 		return "$countrycode $code1.$code2/$code3 CE";
-	};	
-	
+	};
+
 	my $normalize_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $code = shift;
 		$countrycode = uc($countrycode);
 		$code = uc($code);
 		return "$countrycode $code EC";
-	};		
+	};
 
 	my $normalize_lu_ce_code = sub ($$) {
 		my $countrycode = shift;
@@ -4705,39 +4856,39 @@ sub normalize_packager_codes($) {
 		$letters = uc($letters);
 		my $number = shift;
 		$countrycode = uc($countrycode);
-		return "$countrycode $letters$number EC";	
+		return "$countrycode $letters$number EC";
 	};
-	
+
 	my $normalize_rs_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $code = shift;
 		$code = uc($code);
-		return "$countrycode $code EC";	
-	};		
-	
+		return "$countrycode $code EC";
+	};
+
 	# CE codes -- FR 67.145.01 CE
 	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	 # without CE, only for FR
-	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	
-	
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;	
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;	
-	
+	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;
+
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
+
 	# NO-RGSEAA-21-21552-SE -> ES 21.21552/SE
-	
-	
+
+
 	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . $normalize_es_ce_code->('es',$5,$7,$9)/ieg;
-	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?\b/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
-	
+	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?(?=,|$)/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
+
 	# LU L-2 --> LU L2
-	
-	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;	
-	
+
+	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;
+
 	# RS 731 -> RS 731 EC
-	
-	$codes =~ s/(^|,|, )(rs)(\s|-|_|\.|\/)*(\w+)(\.|_|\s|-)?(ce|eec|ec|eg|we)?\b/$1 . $normalize_rs_ce_code->('rs',$4)/ieg;	
-	
-	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we|ek)\b/$1 . $normalize_ce_code->($2,$4)/ieg;	
-	
+
+	$codes =~ s/(^|,|, )(rs)(\s|-|_|\.|\/)*(\w+)(\.|_|\s|-)?(ce|eec|ec|eg|we)?\b/$1 . $normalize_rs_ce_code->('rs',$4)/ieg;
+
+	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we|ek)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
+
 	return $codes;
 }
 
@@ -4748,7 +4899,7 @@ sub normalize_packager_codes($) {
 sub get_canon_local_authority($) {
 
 	my $local_authority = shift;
-	
+
 	$local_authority =~ s/LB of/London Borough of/;
 	$local_authority =~ s/CC/City Council/;
 	$local_authority =~ s/MBC/Metropolitan Borough Council/;
@@ -4763,8 +4914,8 @@ sub get_canon_local_authority($) {
 	$canon_local_authority =~ s/ +/ /g;
 	$canon_local_authority =~ s/^ //;
 	$canon_local_authority =~ s/ $//;
-	$canon_local_authority = get_fileid($canon_local_authority);	
-	
+	$canon_local_authority = get_fileid($canon_local_authority);
+
 	return $canon_local_authority;
 }
 
@@ -4785,7 +4936,7 @@ sub compute_nova_group($) {
 	# http://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
 
 	my $product_ref = shift;
-	
+
 	delete $product_ref->{nova_group_debug};
 	delete $product_ref->{nutriments}{"nova-group"};
 	delete $product_ref->{nutriments}{"nova-group_100g"};
@@ -4793,16 +4944,16 @@ sub compute_nova_group($) {
 	delete $product_ref->{nova_group};
 	delete $product_ref->{nova_groups};
 	delete $product_ref->{nova_groups_tags};
-	
+
 	$product_ref->{nova_group_debug} = "";
-		
+
 	# do not compute a score when we don't have ingredients
 	if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq '')) {
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
 			return;
-	}		
-	
+	}
+
 	# do not compute a score if we have too many unknown ingredients
 	if ( not (
 					(not has_tag($product_ref,"quality","en:ingredients-100-percent-unknown")) and
@@ -4813,45 +4964,45 @@ sub compute_nova_group($) {
 					(not has_tag($product_ref,"quality","en:ingredients-50-percent-unknown")) ) ) {
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
 			$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown";
-			return;					
+			return;
 	}
-	
+
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
 			return;
-	}	
-	
+	}
+
 	# determination process:
 	# - start by assigning group 1
 	# - see if the group needs to be increased based on category, ingredients and additives
 
-	$product_ref->{nova_group} = 1;	
-	
-	
+	$product_ref->{nova_group} = 1;
+
+
 # $options{nova_groups_tags} = {
-# 
+#
 # # start by assigning group 1
 #
 # # 1st try to identify group 2 processed culinary ingredients
-# 
-# "categories/en:fats" => 2,	
-	
+#
+# "categories/en:fats" => 2,
+
 
 	if (defined $options{nova_groups_tags}) {
-	
+
 		foreach my $tag (sort {$options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}} keys %{$options{nova_groups_tags}}) {
-		
+
 			if ($tag =~ /\//) {
-			
+
 				my $tagtype = $`;
 				my $tagid = $';
-						
+
 				if (has_tag($product_ref, $tagtype, $tagid)) {
-				
+
 					if ($options{nova_groups_tags}{$tag} > $product_ref->{nova_group}) {
-				
+
 						# only move group 1 product to group 3, not group 2
 						if (not (($product_ref->{nova_group} == 2) and ($options{nova_groups_tags}{$tag} == 3))) {
 							$product_ref->{nova_group_debug} .= " -- $tag : " . $options{nova_groups_tags}{$tag} ;
@@ -4859,17 +5010,17 @@ sub compute_nova_group($) {
 						}
 					}
 				}
-			
+
 			}
 		}
-	}		
-	
+	}
+
 	# Also loop through ingredients to see if the ingredients taxonomy has associated minimum NOVA grades
-	
+
 	if ((defined $product_ref->{ingredients_tags}) and (defined $properties{ingredients})) {
-	
+
 		foreach my $ingredient_tag (@{$product_ref->{ingredients_tags}}) {
-		
+
 			if ( (defined $properties{ingredients})
 				and (defined $properties{ingredients}{$ingredient_tag})
 				and (defined $properties{ingredients}{$ingredient_tag}{"nova:en"})
@@ -4883,132 +5034,132 @@ sub compute_nova_group($) {
 
 # Group 1
 # Unprocessed or minimally processed foods
-# The first NOVA group is of unprocessed or minimally processed foods. Unprocessed (or 
-# natural) foods are edible parts of plants (seeds, fruits, leaves, stems, roots) or of animals 
+# The first NOVA group is of unprocessed or minimally processed foods. Unprocessed (or
+# natural) foods are edible parts of plants (seeds, fruits, leaves, stems, roots) or of animals
 # (muscle, offal, eggs, milk), and also fungi, algae and water, after separation from nature.
-# Minimally processed foods are natural foods altered by processes such as removal of 
-# inedible or unwanted parts, drying, crushing, grinding, fractioning, filtering, roasting, boiling, 
+# Minimally processed foods are natural foods altered by processes such as removal of
+# inedible or unwanted parts, drying, crushing, grinding, fractioning, filtering, roasting, boiling,
 # pasteurisation, refrigeration, freezing, placing in containers, vac uum packaging, or non-alcoholic
 # fermentation. None of these processes adds substances such as salt, sugar, oils
 # or fats to the original food.
-# The main purpose of the processes used in the production of group 1 foods is to extend the 
-# life of unprocessed foods, allowing their storage for longer use, such as chilling, freezing, 
-# drying, and pasteurising. Other purposes include facilitating or diversifying food preparation, 
-# such as in the removal of inedible parts and fractioning of vegetables, the crushing or 
-# grinding of seeds, the roasting of coffee beans or tea leaves, and the fermentation of milk 
+# The main purpose of the processes used in the production of group 1 foods is to extend the
+# life of unprocessed foods, allowing their storage for longer use, such as chilling, freezing,
+# drying, and pasteurising. Other purposes include facilitating or diversifying food preparation,
+# such as in the removal of inedible parts and fractioning of vegetables, the crushing or
+# grinding of seeds, the roasting of coffee beans or tea leaves, and the fermentation of milk
 # to make yoghurt.
-# 
-# Group 1 foods include fresh, squeezed, chilled, frozen, or dried fruits and leafy and root 
-# vegetables; grains such as brown, parboiled or white rice, corn cob or kernel, wheat berry or 
-# grain; legumes such as beans of all types, lentils, chickpeas; starchy roots and tubers such 
-# as potatoes and cassava, in bulk or packaged; fungi such as fresh or dried mushrooms; 
-# meat, poultry, fish and seafood, whole or in the form of steaks, fillets and other cuts, or 
-# chilled or frozen; eggs; milk, pasteurised or powdered; fresh or pasteurised fruit or vegetable 
-# juices without added sugar, sweeteners or flavours; grits, flakes or flour made from corn, 
-# wheat, oats, or cassava; pasta, couscous and polenta made with flours, flakes or grits and 
-# water; tree and ground nuts and other oil seeds without added salt or sugar; spices such as 
+#
+# Group 1 foods include fresh, squeezed, chilled, frozen, or dried fruits and leafy and root
+# vegetables; grains such as brown, parboiled or white rice, corn cob or kernel, wheat berry or
+# grain; legumes such as beans of all types, lentils, chickpeas; starchy roots and tubers such
+# as potatoes and cassava, in bulk or packaged; fungi such as fresh or dried mushrooms;
+# meat, poultry, fish and seafood, whole or in the form of steaks, fillets and other cuts, or
+# chilled or frozen; eggs; milk, pasteurised or powdered; fresh or pasteurised fruit or vegetable
+# juices without added sugar, sweeteners or flavours; grits, flakes or flour made from corn,
+# wheat, oats, or cassava; pasta, couscous and polenta made with flours, flakes or grits and
+# water; tree and ground nuts and other oil seeds without added salt or sugar; spices such as
 # pepper, cloves and cinnamon; and herbs such as thyme and mint, fresh or dried;
 # plain yoghurt with no added sugar or artificial sweeteners added; tea, coffee, drinking water.
-# Group 1 also includes foods made up from two or more items in this group, such as dried 
-# mixed fruits, granola made from cereals, nuts and dried fruits with no added sugar, honey or 
-# oil; and foods with vitamins and minerals added generally to replace nutrients lost during 
+# Group 1 also includes foods made up from two or more items in this group, such as dried
+# mixed fruits, granola made from cereals, nuts and dried fruits with no added sugar, honey or
+# oil; and foods with vitamins and minerals added generally to replace nutrients lost during
 # processing, such as wheat or corn flour fortified with iron or folic acid.
-# Group 1 items may infrequently contain additives used to preserve the properties of the 
+# Group 1 items may infrequently contain additives used to preserve the properties of the
 # original food. Examples are vacuum-packed vegetables with added anti-oxidants, and ultra
-# -pasteurised milk with added stabilisers. 
+# -pasteurised milk with added stabilisers.
 
-	
+
 # Group 2
 # Processed culinary ingredients
-# The second NOVA group is of processed culinary ingredients. These are substances 
-# obtained directly from group 1 foods or from nature by processes such as pressing, refining, 
+# The second NOVA group is of processed culinary ingredients. These are substances
+# obtained directly from group 1 foods or from nature by processes such as pressing, refining,
 # grinding, milling, and spray drying.
-# The purpose of processing here is to make products used in home and restaurant kitchens 
-# to prepare, season and cook group 1 foods and to make with them varied and enjoyable 
-# hand-made dishes, soups and broths, breads, preserves, salads, drinks, desserts 
+# The purpose of processing here is to make products used in home and restaurant kitchens
+# to prepare, season and cook group 1 foods and to make with them varied and enjoyable
+# hand-made dishes, soups and broths, breads, preserves, salads, drinks, desserts
 # and other culinary preparations.
-# Group 2 items are rarely consumed in the absence of group 1 foods. Examples are salt 
-# mined or from seawater; sugar and molasses obtained from cane or beet; honey extracted 
-# from combs and syrup from maple trees; vegetable oils crushed from olives or seeds; butter 
+# Group 2 items are rarely consumed in the absence of group 1 foods. Examples are salt
+# mined or from seawater; sugar and molasses obtained from cane or beet; honey extracted
+# from combs and syrup from maple trees; vegetable oils crushed from olives or seeds; butter
 # and lard obtained from milk and pork; and starches extracted from corn and other plants.
 # Products consisting of two group 2 items, such as salted butter, group 2 items
-# with added vitamins or minerals, such as iodised salt, and vinegar made by acetic fermentation of wine 
+# with added vitamins or minerals, such as iodised salt, and vinegar made by acetic fermentation of wine
 # or other alcoholic drinks, remain in this group.
-# Group 2 items may contain additives used to preserve the product’s original properties. 
-# Examples are vegetable oils with added anti-oxidants, cooking salt with added anti-humectants, 
+# Group 2 items may contain additives used to preserve the product’s original properties.
+# Examples are vegetable oils with added anti-oxidants, cooking salt with added anti-humectants,
 # and vinegar with added preservatives that prevent microorganism proliferation.
 
- 
+
 # Group 3
 # Processed foods
-# The third NOVA group is of processed foods. These are relatively simple products made by 
-# adding sugar, oil, salt or other group 2 substances to group 1 foods. 
-# Most processed foods have two or three ingredients. Processes include various preservation or cooking methods, 
+# The third NOVA group is of processed foods. These are relatively simple products made by
+# adding sugar, oil, salt or other group 2 substances to group 1 foods.
+# Most processed foods have two or three ingredients. Processes include various preservation or cooking methods,
 # and, in the case of breads and cheese, non-alcoholic fermentation.
-# The main purpose of the manufacture of processed foods is to increase the durability of 
-# group 1 foods,or to modify or enhance their sensory qualities. 
-# Typical examples of processed foods are canned or bottled vegetables, fruits and legumes; 
-# salted or sugared nuts and seeds; salted, cured, or smoked meats; canned fish; fruits in 
+# The main purpose of the manufacture of processed foods is to increase the durability of
+# group 1 foods,or to modify or enhance their sensory qualities.
+# Typical examples of processed foods are canned or bottled vegetables, fruits and legumes;
+# salted or sugared nuts and seeds; salted, cured, or smoked meats; canned fish; fruits in
 # syrup; cheeses and unpackaged freshly made breads
-# Processed foods may contain additives used to preserve their original properties or to resist 
+# Processed foods may contain additives used to preserve their original properties or to resist
 # microbial contamination. Examples are fruits in syrup with added anti-oxidants, and dried
 # salted meats with added preservatives.
-# When alcoholic drinks are identified as foods, those produced by fermentation of group 1 
+# When alcoholic drinks are identified as foods, those produced by fermentation of group 1
 # foods such as beer, cider and wine, are classified here in Group 3.
 
 
 # Group 4
 # Ultra-processed food and drink products
-# The fourth NOVA group is of ultra-processed food and drink products. These are industrial 
-# formulations typically with five or more and usually many ingredients. Such ingredients often 
-# include those also used in processed foods, such as sugar, oils, fats, salt, anti-oxidants, 
-# stabilisers, and preservatives. Ingredients only found in ultra-processed products include 
-# substances not commonly used in culinary preparations, and additives whose purpose is to 
-# imitate sensory qualities of group 1 foods or of culinary preparations of these foods, or to 
-# disguise undesirable sensory qualities of the final product. Group 1 foods are a small 
-# proportion of or are even absent from ultra-processed products. 
-# Substances only found in ultra-processed products include some directly extracted from 
+# The fourth NOVA group is of ultra-processed food and drink products. These are industrial
+# formulations typically with five or more and usually many ingredients. Such ingredients often
+# include those also used in processed foods, such as sugar, oils, fats, salt, anti-oxidants,
+# stabilisers, and preservatives. Ingredients only found in ultra-processed products include
+# substances not commonly used in culinary preparations, and additives whose purpose is to
+# imitate sensory qualities of group 1 foods or of culinary preparations of these foods, or to
+# disguise undesirable sensory qualities of the final product. Group 1 foods are a small
+# proportion of or are even absent from ultra-processed products.
+# Substances only found in ultra-processed products include some directly extracted from
 # foods, such as casein, lactose, whey, and gluten, and some derived from further processing
-# of food constituents, such as hydrogenated or interesterified oils, hydrolysed proteins, soy 
+# of food constituents, such as hydrogenated or interesterified oils, hydrolysed proteins, soy
 # protein isolate, maltodextrin, invert sugar and high fructose corn syrup.
 # Classes of additive only found in ultra-processed products include dyes and other colours
-# , colour stabilisers, flavours, flavour enhancers, non-sugar sweeteners, and processing aids such as 
-# carbonating, firming, bulking and anti-bulking, de-foaming, anti-caking and glazing agents, 
+# , colour stabilisers, flavours, flavour enhancers, non-sugar sweeteners, and processing aids such as
+# carbonating, firming, bulking and anti-bulking, de-foaming, anti-caking and glazing agents,
 # emulsifiers, sequestrants and humectants.
-# Several industrial processes with no domestic equivalents are used in the manufacture of 
+# Several industrial processes with no domestic equivalents are used in the manufacture of
 # ultra-processed products, such as extrusion and moulding, and pre-processing for frying.
-# The main purpose of industrial ultra-processing is to create products that are ready to eat, to 
-# drink or to heat, liable to replace both unprocessed or minimally processed foods that are 
-# naturally ready to consume, such as fruits and nuts, milk and water, and freshly prepared 
+# The main purpose of industrial ultra-processing is to create products that are ready to eat, to
+# drink or to heat, liable to replace both unprocessed or minimally processed foods that are
+# naturally ready to consume, such as fruits and nuts, milk and water, and freshly prepared
 # drinks, dishes, desserts and meals. Common attributes of ultra-processed products are
-# hyper-palatability, sophisticated and attractive packaging, multi-media and other aggressive 
-# marketing to children and adolescents, health claims, high profitability, and branding and 
-# ownership by transnational corporations. 
-# Examples of typical ultra-processed products are: carbonated drinks; sweet or savoury 
-# packaged snacks; ice-cream, chocolate, candies (confectionery); mass-produced packaged 
-# breads and buns; margarines and spreads; cookies (biscuits), pastries, cakes, and cake 
-# mixes; breakfast ‘cereals’, ‘cereal’and ‘energy’ bars; ‘energy’ drinks; milk drinks, ‘fruit’ 
-# yoghurts and ‘fruit’ drinks; cocoa drinks; meat and chicken extracts and ‘instant’ sauces; 
+# hyper-palatability, sophisticated and attractive packaging, multi-media and other aggressive
+# marketing to children and adolescents, health claims, high profitability, and branding and
+# ownership by transnational corporations.
+# Examples of typical ultra-processed products are: carbonated drinks; sweet or savoury
+# packaged snacks; ice-cream, chocolate, candies (confectionery); mass-produced packaged
+# breads and buns; margarines and spreads; cookies (biscuits), pastries, cakes, and cake
+# mixes; breakfast ‘cereals’, ‘cereal’and ‘energy’ bars; ‘energy’ drinks; milk drinks, ‘fruit’
+# yoghurts and ‘fruit’ drinks; cocoa drinks; meat and chicken extracts and ‘instant’ sauces;
 # infant formulas, follow-on milks, other baby products; ‘health’ and ‘slimmin
-# g’ products such as powdered or ‘fortified’ meal and dish substitutes; and many ready to 
-# heat products including pre-prepared pies and pasta and pizza dishes; poultry and fish ‘nuggets’ and 
+# g’ products such as powdered or ‘fortified’ meal and dish substitutes; and many ready to
+# heat products including pre-prepared pies and pasta and pizza dishes; poultry and fish ‘nuggets’ and
 # ‘sticks’, sausages, burgers, hot dogs, and other reconstituted mea
 # t products, and powdered and packaged ‘instant’ soups, noodles and desserts.
-# When products made solely of group 1 or group 3 foods also contain cosmetic or sensory 
+# When products made solely of group 1 or group 3 foods also contain cosmetic or sensory
 # intensifying additives, such as plain yoghurt with added artificialsweeteners, and brea
-# ds with added emulsifiers, they are classified here in group 4. When alcoholic drinks are 
-# identified as foods, those produced by fermentation of group 1 foods followed by distillation 
+# ds with added emulsifiers, they are classified here in group 4. When alcoholic drinks are
+# identified as foods, those produced by fermentation of group 1 foods followed by distillation
 # of the resulting alcohol, such as whisky, gin, rum, vodka, are classified in group 4.
-	
-	
-	
+
+
+
 	$product_ref->{nutriments}{"nova-group"} = $product_ref->{nova_group};
 	$product_ref->{nutriments}{"nova-group_100g"} = $product_ref->{nova_group};
 	$product_ref->{nutriments}{"nova-group_serving"} = $product_ref->{nova_group};
-	
-	$product_ref->{nova_groups} = $product_ref->{nova_group};	
+
+	$product_ref->{nova_groups} = $product_ref->{nova_group};
 	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_group}) ];
-	
+
 
 }
 

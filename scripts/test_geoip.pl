@@ -20,22 +20,13 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI qw/:all/;
-
 use Modern::Perl '2012';
+use utf8;
 
-my $ip = remote_addr();
+use ProductOpener::GeoIP qw/:all/;
 
-if (defined $ARGV[0]) {
-	$ip = $ARGV[0];
+while(<STDIN>) {
+	my $ip = $_;
+	chomp($ip);
+	print "ip: $ip - country: " . ProductOpener::GeoIP::get_country_for_ip($ip) . "\n";
 }
-
-        use Geo::IP;
-        my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
-        # look up IP address '24.24.24.24'
-        # returns undef if country is unallocated, or not defined in our database
-        my $country = $gi->country_code_by_addr($ip);
-
-print header();
-
-print "IP: $ip - Country: $country\n";

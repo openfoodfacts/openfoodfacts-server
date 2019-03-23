@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-01-03 17:25\n"
+"PO-Revision-Date: 2019-02-15 11:56\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -2924,6 +2924,10 @@ msgctxt "producer_version_id"
 msgid "Producer version identifier"
 msgstr "crwdns111864:0crwdne111864:0"
 
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr "crwdns112768:0crwdne112768:0"
+
 msgctxt "net_weight"
 msgid "Net weight"
 msgstr "crwdns111866:0crwdne111866:0"
@@ -2943,6 +2947,30 @@ msgstr "crwdns111872:0crwdne111872:0"
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
 msgstr "crwdns111874:0crwdne111874:0"
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "crwdns112770:0crwdne112770:0"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr "crwdns112772:0crwdne112772:0"
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr "crwdns112774:0crwdne112774:0"
+
+msgctxt "origin"
+msgid "Origin"
+msgstr "crwdns112776:0crwdne112776:0"
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr "crwdns112778:0crwdne112778:0"
+
+msgctxt "producer"
+msgid "Producer"
+msgstr "crwdns112780:0crwdne112780:0"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
@@ -3071,4 +3099,20 @@ msgstr "crwdns111986:0crwdne111986:0"
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
 msgstr "crwdns111988:0crwdne111988:0"
+
+msgctxt "environment_infocard"
+msgid "Environment infocard"
+msgstr "crwdns112782:0crwdne112782:0"
+
+msgctxt "environment_infocard_note"
+msgid "HTML code for the environment infocard in the mobile application"
+msgstr "crwdns112784:0crwdne112784:0"
+
+msgctxt "environment_impact_level"
+msgid "Environment impact level"
+msgstr "crwdns112786:0crwdne112786:0"
+
+msgctxt "environment_impact_level_example"
+msgid "en:low, en:medium or en:high"
+msgstr "crwdns112788:0crwdne112788:0"
 

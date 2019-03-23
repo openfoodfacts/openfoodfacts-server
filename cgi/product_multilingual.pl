@@ -236,11 +236,8 @@ HTML
 	
 my @fields = @ProductOpener::Config::product_fields;
 
-if (($User_id eq 'teolemon') or ($User_id eq 'stephane')) {
+if ($admin) {
 	push @fields, "environment_impact_level";
-	if ($action eq 'process') {
-		push @fields, "environment_infocard";
-	}
 }
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -328,12 +325,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	foreach my $field (@param_fields) {
 	
 		if (defined param($field)) {
-			if ($field =~ /infocard/) {
-				$product_ref->{$field} = decode utf8=>param($field);
-			}
-			else {
-				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));			
-			}
+			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 			if ($field eq 'emb_codes') {
 				# French emb codes
 				$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
@@ -403,6 +395,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
+	compute_carbon_footprint_from_ingredients($product_ref);
 	
 	# Nutrition data
 	
@@ -592,7 +585,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);
-	
+		
 	ProductOpener::SiteQuality::check_quality($product_ref);
 	
 	$log->trace("end compute_serving_size_date - end") if $log->is_trace();
@@ -615,7 +608,7 @@ sub display_field($$) {
 	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
 	
 	my $fieldtype = $field;
-	my $display_lc = undef;
+	my $display_lc = $lc;
 	
 	if (($field =~ /^(.*?)_(..|new_lc)$/) and (defined $language_fields{$1})) {
 		$fieldtype = $1;
@@ -669,7 +662,7 @@ HTML
 HTML
 ;
 
-	if ($field =~ /infocard/) {
+	if ($field =~ /infocard/) {	# currently not used
 		$html .= <<HTML
 <textarea name="$field" id="$field" lang="${display_lc}">$value</textarea>
 HTML
@@ -1374,6 +1367,7 @@ HTML
 				elsif ($field eq 'ingredients_text') {
 				
 					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
+					not defined $value and $value = "";
 					my $id = "ingredients_text_" . ${display_lc};
 				
 					$html_content_tab .= <<HTML
@@ -1456,11 +1450,6 @@ HTML
 
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 	
-	if (($User_id eq 'teolemon') or ($User_id eq 'stephane')) {
-		push @ingredients_fields, "environment_infocard";
-		# push @ingredients_fields, "environment_impact_level";
-	}
-	
 	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 
 
@@ -1536,8 +1525,8 @@ JS
 		$product_ref->{nutrition_data_prepared} = "";
 	}	
 	
-	my %column_display_style = {};
-	my %nutrition_data_per_display_style = {};
+	my %column_display_style = ();
+	my %nutrition_data_per_display_style = ();
 	
 	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
 	foreach my $product_type ("", "_prepared") {

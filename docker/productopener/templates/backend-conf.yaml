@@ -9,10 +9,10 @@ metadata:
     heritage: {{ .Release.Service }}
     component: {{ include "productopener.backend.fullname" . }}
 data:
-  apache.conf: |  
+  apache.conf: |
     LoadModule perl_module modules/mod_perl.so
     ServerAdmin contact@{{ .Values.host }}
-    PerlSwitches -I/opt/product-opener/lib -I/opt/product-opener/local/lib/perl5
+    PerlSwitches -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5
 
     PerlWarn On
     PerlRequire /opt/product-opener/lib/startup_apache2.pl
@@ -39,9 +39,9 @@ data:
       </Directory>
     </VirtualHost>
 
-    PerlPostReadRequestHandler My::ProxyRemoteAddr 
+    PerlPostReadRequestHandler My::ProxyRemoteAddr
 
-  Config.pm: |  
+  Config.pm: |
     package ProductOpener::Config;
 
     use utf8;
@@ -55,37 +55,38 @@ data:
     	@EXPORT_OK = qw(
     		%admins
     		%moderators
-    		
+
     		$server_domain
     		@ssl_subdomains
     		$data_root
     		$www_root
+        $geolite2_path
     		$reference_timezone
     		$contact_email
     		$admin_email
-    		
+
     		$facebook_app_id
     		$facebook_app_secret
-    		
+
     		$csrf_secret
-    		
+
     		$mongodb
     		$mongodb_host
 
     		$memd_servers
-    	
+
     		$google_analytics
-    		
+
     		$thumb_size
     		$crop_size
     		$small_size
     		$display_size
     		$zoom_size
-    		
+
     		$page_size
-    		
+
     		%options
-    		
+
     		%wiki_texts
 
     		@product_fields
@@ -95,13 +96,13 @@ data:
     		@drilldown_fields
     		@taxonomy_fields
     		@export_fields
-    		
+
     		%tesseract_ocr_available_languages
-    		
+
     		%weblink_templates
-    		
+
     		@edit_rules
-    		
+
     	);
     	%EXPORT_TAGS = (all => [@EXPORT_OK]);
     }
@@ -112,7 +113,7 @@ data:
     %admins = map { $_ => 1 } qw(
     admin
     );
-    
+
     %moderators = map { $_ => 1 } qw(
     );
 
@@ -195,6 +196,8 @@ data:
     # server paths
     $www_root = $ProductOpener::Config2::www_root;
     $data_root = $ProductOpener::Config2::data_root;
+
+    $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
     $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
     $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
@@ -292,7 +295,7 @@ data:
 
 
     # fields for which we will load taxonomies
-    
+
     @taxonomy_fields = qw(states countries languages labels categories additives additives_classes allergens traces nutrient_levels misc);
 
 
@@ -350,8 +353,8 @@ data:
     generic_name
     quantity
     packaging
-    brands 
-    categories 
+    brands
+    categories
     origins
     manufacturing_places
     labels
@@ -415,7 +418,7 @@ data:
 
     1;
 
-  Config2.pm: |  
+  Config2.pm: |
     package ProductOpener::Config2;
 
     use utf8;
@@ -431,13 +434,14 @@ data:
     		@ssl_subdomains
     		$data_root
     		$www_root
+        $geolite2_path
     		$mongodb
         $mongodb_host
         $memd_servers
     		$facebook_app_id
     	    $facebook_app_secret
     		$csrf_secret
-    		
+
     	);
     	%EXPORT_TAGS = (all => [@EXPORT_OK]);
     }
@@ -452,6 +456,8 @@ data:
     $www_root = "/opt/product-opener/html";
     $data_root = "/mnt/podata";
 
+    $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
+
     $mongodb = "off";
     $mongodb_host = "mongodb://{{ .Release.Name }}-mongodb:27017";
 
@@ -464,7 +470,7 @@ data:
 
     1;
 
-  log.conf: |  
+  log.conf: |
     log4perl.rootLogger=TRACE, LOGFILE
 
     log4perl.appender.LOGFILE=Log::Log4perl::Appender::File

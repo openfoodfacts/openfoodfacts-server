@@ -1,22 +1,22 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -48,7 +48,7 @@ if (opendir (DH, "$data_root/packager-codes")) {
 			my $json = join("", (<$IN>));
 			close ($IN);
 			my $json_ref =  decode_json($json) or print "could not decode json: $!\n";
-			
+
 			my $addresses_ref = $json_ref->{data};
 			foreach my $item_ref (@{$addresses_ref}) {
 				$geocode_addresses{$country . '.' . $item_ref->{item}{address}} = [$item_ref->{item}{latitude},$item_ref->{item}{longitude}];
@@ -62,13 +62,13 @@ if (opendir (DH, "$data_root/packager-codes")) {
 			my $json = join("", (<$IN>));
 			close ($IN);
 			my $json_ref =  decode_json($json) or print "could not decode json: $!\n";
-			
+
 			my $addresses_ref = $json_ref->{councils};
 			foreach my $item_ref (@{$addresses_ref}) {
 				my $canon_local_authority = get_canon_local_authority($item_ref->{name});
 				$geocode_addresses{$country . '.' . $canon_local_authority} = [$item_ref->{lat},$item_ref->{lng}];
 				#print  "Name: " . $item_ref->{name} . " canon: " . $country . '.' . $canon_local_authority . '--> ' . $item_ref->{lat} . ", " . $item_ref->{item}{lng} . "\n";
-			}			
+			}
 		}
 	}
 	close DH;
@@ -87,19 +87,29 @@ print STDERR "loading packager codes\n";
 my $found = 0;
 my $notfound = 0;
 
+my $tsv_separator = qr/\t/;
+my $csv_separator = qr/;/;
+
 if (opendir (DH, "$data_root/packager-codes")) {
 	foreach my $file (readdir(DH)) {
-		if ($file =~ /(\w+)-merge(-UTF-8)?.csv/i) {
+		if ($file =~ /(\w+)-merge(-UTF-8)?\.([ct]sv)$/i) {
 			my $country = lc($1);
 			my $encoding = "windows-1252";
 			if (defined $2) {
 				$encoding = $2;
 				$encoding =~ s/^-//;
 			}
+
+			my $extension = lc($3);
+			my $separator = $csv_separator;
+			if ($extension eq 'tsv') {
+				$separator = $tsv_separator;
+			}
+
 			my $key = $packager_code_key{$country};
-			
+
 			open (my $IN, "<:encoding($encoding)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
-			my @fields = split(/;|\t/, <$IN>);
+			my @fields = split($separator, <$IN>);
 			my @headers = ();
 			my %headers = ();
 			foreach my $field (@fields) {
@@ -111,12 +121,12 @@ if (opendir (DH, "$data_root/packager-codes")) {
 				push @headers, $field;
 				$headers{$field} = $#headers;
 				# print STDERR "Tags.pm - packaging_codes - load - country: $country - header: $field\n";
-			}	
-			
+			}
+
 			while (<$IN>) {
 				chomp;
-				my @fields = split(/;|\t/);
-				
+				my @fields = split($separator);
+
 				my $code = '';
 				if ($country eq 'fr') {
 					$code = $fields[$headers{numero_agrement}];
@@ -128,7 +138,7 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					$code =~ s/^uk//i;
 					#print STDERR "uk - code: $code\n";
 					$code = normalize_packager_codes("UK $code EC");
-					
+
 				}
 				elsif ($country eq 'es') {
 					# Nº RGSEAA; Razón Social;Provincia/Localidad;lat;lon;Actividades;Especies;Otros Detalles
@@ -178,22 +188,22 @@ if (opendir (DH, "$data_root/packager-codes")) {
                                         $code =~ s/^CE //;
                                         $code = normalize_packager_codes("$code EC");
                                 }
-				
+
 				$code = get_fileid($code);
 				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;
-				
+
 				if ($country eq 'it') {
 					print STDERR "$code: $code\n";
 				}
-				
+
 				#print "country: $country - code: $code\n";
-		
+
 				# if we already have some info for the packager
-				# code from a previous line, keep it	
-				if (not defined $packager_codes{$code}) {	
+				# code from a previous line, keep it
+				if (not defined $packager_codes{$code}) {
 					$packager_codes{$code} = { cc => $country};
 				}
-					
+
 				foreach (my $f = 0; $f <= $#headers; $f++) {
 					# do not overwrite with empty values
 					# in case we already have some info
@@ -209,13 +219,13 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					}
 					#print "$code - f:$f - $headers[$f] - $packager_codes{$code}{$headers[$f]}\n";
 				}
-				
+
 				# Normalize local authority
-				
+
 				if ($country eq 'uk') {
-				
+
 					my $debug = "local_authority: " . $packager_codes{$code}{local_authority} . "\ndistrict: " . $packager_codes{$code}{district} . " \n";
-					
+
 					foreach my $local_authority (split (/,|\//, $packager_codes{$code}{local_authority} . ', ' . $packager_codes{$code}{district})) {
 						my $canon_local_authority = get_canon_local_authority($local_authority);
 						$debug .= "$local_authority --> $canon_local_authority\n";
@@ -224,7 +234,7 @@ if (opendir (DH, "$data_root/packager-codes")) {
 							last;
 						}
 					}
-					
+
 					if (not defined $packager_codes{$code}{canon_local_authority}) {
 						$notfound++;
 						# print "code: $code - could not find canon local authority for local authority: $packager_codes{$code}{local_authority} - district: $packager_codes{$code}{district}\ndebug: $debug\n";
@@ -232,12 +242,12 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					else {
 						$found++;
 					}
-				
+
 				}
-				
+
 			}
 			close ($IN);
-			
+
 			print "UK - found $found local authorities, not found: $notfound\n";
 		}
 	}

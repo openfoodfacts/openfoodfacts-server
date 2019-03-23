@@ -68,7 +68,7 @@ msgstr "Hej <NAME>,\n\n"
 "Her er dit brugernavn:\n\n"
 "Brugernavn: <USERID>\n\n"
 "Du kan nu logge in på webstedet og tilføje eller redigere produkter.\n\n"
-"<site_name> er et samarbejdsprojekt, til hvilket du kan bidrage med meget mere end nye produkter: Din energi, entusiasme og idéer!\n"
+"<<site_name>> er et samarbejdsprojekt, til hvilket du kan bidrage med meget mere end nye produkter: Din energi, entusiasme og idéer!\n"
 "Til diskussioner blandt bidragsydere, og til at hjælp projektet i sin fremdrift, benytter vi et meget nemt beskedsystem kalder Slack: https://slack.openfoodfacts.org\n\n"
 "Du kan også tilmelde dig i Facebook-gruppen for bidragsydere:\n"
 "https://www.facebook.com/groups/374350705955208/\n\n"
@@ -81,7 +81,7 @@ msgstr "Hej <NAME>,\n\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "Tak fordi du vil være med i <site_name>"
+msgstr "Tak fordi du vil være med i <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -155,7 +155,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Dette produkt er endnu ikke i <site_name>-databasen. Vil du være så elskværdig at tage et par billeder af produktet, stregkoden, ingredienslisten og næringsdeklarationen og tilføje den til <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><site_name></a>?</p><p>På forhånd tak!</p>\n"
+msgstr "<p>Dette produkt er endnu ikke i <<site_name>>-databasen. Vil du være så elskværdig at tage et par billeder af produktet, stregkoden, ingredienslisten og næringsdeklarationen og tilføje den til <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><site_name></a>?</p><p>På forhånd tak!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -652,7 +652,7 @@ msgstr "og <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook-g
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<< site_name >>-blog"
+msgstr "<<site_name>>-blog"
 
 # Do not translate
 msgctxt "footer_blog_link"
