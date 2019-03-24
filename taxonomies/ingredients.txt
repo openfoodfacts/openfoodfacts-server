@@ -2595,6 +2595,133 @@ fr:antioxydant e316, e 316, e-316, e316
 fr:antioxydant e320, e 320, e-320, bha, antioxygène bha
 
 
+
+# Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogenizing liquid mixtures, and repelling sticking materials.
+
+en:lecithins
+ar:ليسيثين
+bg:Лецитин
+ca:lecitina
+cs:lecitin
+da:Lecitin
+de:Lecithine
+el:λεκιθίνη
+eo:Lecitino
+es:Lecitina
+et:Letsitiin
+eu:Lezitina
+fa:لسیتین
+fi:Lesitiini
+fr:lécithine, lécithines
+gl:Lecitina
+he:לציטין
+hr:Lecitin
+hu:Lecitin
+hy:Լեցիտիններ
+id:Lesitin
+is:Lesitín
+it:Lecitina
+ja:レシチン
+ko:레시틴
+ms:Lesitin
+nl:Lecithine
+pl:Lecytyny
+pt:lecitina
+ro:Lecitină
+ru:Лецитины
+sh:Lecitin
+sl:Lecitin
+sr:Лецитин
+su:Lésitin
+sv:Lecitin
+th:เลซิทิน
+tr:Lesitin
+uk:Лецитин
+uz:Letsinlar
+vi:Lecithin
+zh:卵磷脂
+wikidata:en:Q241595
+wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
+# issue with ingredient @2018-10-11 mixed with sunflower
+
+# nova:en:lecithin
+<en:lecithin
+en:soya lecithin, soy lecithin
+cs:sójový lecitin
+da:sojalecitin
+de:Sojalecithine, Sojalecithin
+el:λεκιθίνη σόγιας
+es:lecitina de soja, lecitina de soya
+fi:soijalesitiini
+fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
+hu:szójalecitin
+it:lecitina di soia
+nl:sojalecithine
+nn:sojalecitin
+pl:lecytyna sojowa
+pt:lecitina de soja
+ro:lecitinã din soia
+ru:соевый лецитин
+sk:sójový lecitin
+sl:sojin lecitin
+sr:sojin lecitin
+sv:sojalecitin
+tr:soya lesitini
+# en:soya-lecithin has 27949 products in 29 languages @2018-11-10
+
+<en:soya lecithin
+en:GMO-free soy lecithin
+fr:lécithine de soja sans ogm
+# gmo-free-soy-lecithin has 73 products in 2 languages @2018-11-10
+
+<en:lecithin
+en:sunflower lecithin
+da:solsikkelecithin
+de:Sonnenblumenlecithine
+el:λεκιθίνες ηλιστροπιου
+es:lecitina de girasol
+fi:auringonkukkalesitiini
+fr:lécithine de tournesol
+it:lecitina girasole
+lv:lecitinai iš saulègrąžų
+nl:zonnebloem-lecithine
+nn:solsikkelecithin
+pl:lecytyny ze slonecznika
+pt:lecitina de girassol
+sv:solroslecitin
+wikidata:en:Q57271747
+# fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
+
+# <en:emulsifier
+<en:sunflower lecithin
+fr:émulsifiant lécithine de tournesol
+# ingredient/fr:émulsifiant-lécithine-de-tournesol has 100 products in 6 languages @2019-02-22
+
+<en:soya lecithin
+<en:sunflower lecithin
+en:soya and sunflower lecithin
+de:Sojalecithin und Sonnenblumen
+fr:lécithine de soja et de tournesol
+it:lecitina di soia e di girasole
+# fr:lécithine-de-soja-et-de-tournesol has 50 products in 4 languages @2018-11-10
+
+<en:lecithin
+en:rapeseed lecithin
+de:Rapslecithin
+fr:lécithine de colza, lécithines de colza
+nl:raapzaadlecithine
+sr:lecitin uljane repice
+# fr:lécithines-de-colza has 609 products in 6 languages @2018-11-10
+
+<en:lecithin
+fr:émulsifiant lécithines, émulsifiants lécithines
+de:emulgator lecithine
+it:emulsionante lecitine
+nl:emulgator lecithinen
+pt:emulsionante lecitinas
+# fr:émulsifiant-lécithines has 88 products in 6 languages @2018-11-10
+# fr:émulsifiants-lécithines has 21 products in 4 languages @2018-11-10
+
 fr:e331, e 331
 
 fr:e331iii
@@ -13267,7 +13394,7 @@ ms:Kanji
 # nap:Posema
 nl:zetmeel
 nn:Stive
-no:stivelse
+nb:stivelse
 oc:Amidon
 pa:ਸਟਾਰਚ
 pl:Skrobia
@@ -13399,7 +13526,7 @@ ko:감자 녹말
 ms:Kanji kentang
 nl:aardappelzetmeel, Aardappelmeel
 nn:Potetmjøl
-no:potetstivelse, Potetmel
+nb:potetstivelse, Potetmel
 pl:Mąka ziemniaczana
 pt:fecula de batata
 ru:Картофельный крахмал
@@ -14616,7 +14743,7 @@ lt:Eterinis aliejus
 lv:Ēteriskās eļļas
 mk:етерично масло
 ml:സുഗന്ധ എണ്ണകൾ
-no:eteriske oljer
+nb:eteriske oljer
 nl:etherische olie
 nn:Norwegian Nynorsk
 pl:Olejek eteryczny
@@ -14797,7 +14924,7 @@ lv:Etiķis
 ml:വിനാഗിരി
 ms:Cuka
 # nap:Acito
-no:eddik
+nb:eddik
 # neds-nl:Edik
 ne:भिनेगर
 nl:azijn
@@ -16694,7 +16821,7 @@ ne:गहुँ
 # new:छ्व
 nl:tarwe
 nn:Kveite
-no:Hvete
+nb:Hvete
 nv:Tłʼoh naadą́ą́ʼ
 oc:Blat
 os:Мæнæу
@@ -16823,7 +16950,7 @@ ky:Катуу буудай
 lt:Kietasis kvietys
 ms:Durum
 nl:durum tarwe, Durumtarwe
-no:Durumhvete
+nb:Durumhvete
 oc:Blat dur
 pl:Pszenica twarda
 ru:Пшеница твёрдая
@@ -17281,7 +17408,7 @@ ne:जौ
 # new:तछ्व
 nl:gerst
 nn:Bygg
-no:Bygg
+nb:Bygg
 oc:Òrdi
 or:ଯଅ
 os:Сиск
@@ -17428,7 +17555,7 @@ ms:Rai
 # nds-nl:Raai
 nl:rogge
 nn:Rug
-no:Rug
+nb:Rug
 oc:Segal
 os:Сылмæнæу
 pl:Żyto zwyczajne
@@ -17543,7 +17670,7 @@ ms:Malt
 # nds-nl:Malt
 nl:mout
 nn:Malt
-no:Malt
+nb:Malt
 pl:Słód
 pt:Malte
 ro:Malț
@@ -17766,7 +17893,7 @@ ms:Oat
 # new:ओट
 nl:haver
 nn:Havre
-no:Havre
+nb:Havre
 oc:Civada
 pa:ਜਵੀ
 # pcd:Avin·ne
@@ -17933,7 +18060,7 @@ lt:Bolivinė balanda
 ms:Kuinoa
 nl:Quinoa
 nn:Quinoa
-no:Quinoa
+nb:Quinoa
 # pam:Quinoa
 pl:Komosa ryżowa
 pt:Quinoa
@@ -18013,7 +18140,7 @@ ms:Spelt
 # nds-nl:Dinkelweite
 nl:spelt
 nn:Spelt
-no:Spelt
+nb:Spelt
 oc:Espeuta
 pl:Pszenica orkisz
 pt:Espelta
@@ -18136,7 +18263,7 @@ ms:tepung
 mt:dqiq
 my:မှုန့်
 # nah:Yōltextli
-no:mel
+nb:mel
 # nds:mael
 ne:पिठो
 nl:meel
@@ -18711,7 +18838,7 @@ ne:मकै
 # new:कःनि
 nl:maïs
 nn:mais
-no:Mais
+nb:Mais
 nv:Naadą́ą́ʼ
 oc:Milh
 or:ମକା
@@ -20004,7 +20131,7 @@ ms:Glukosa
 my:ဂလူးကို့သကြား
 nl:glucose
 nn:Glukose
-no:Glukose
+nb:Glukose
 oc:Glucòsa
 om:Giluukoosii
 pa:ਗੁਲੂਕੋਸ
@@ -20042,7 +20169,7 @@ zh:葡萄糖
 # yue:葡萄醣
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose
 wikidata:en:Q37525
-openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose
 # 24682 products in 24 languages @2018-09-24
 
 # nova:en:glucose-syrup
@@ -20075,7 +20202,7 @@ ro:sirop de glucoză
 sr:glukozni sirup
 sk:glukózový sirup
 sv:Glukossirap
-openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-syrup
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-syrup
 # 32467 products in 29 languages @2018-09-24
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose_syrup
 wikidata:en:Q14770547
@@ -20169,7 +20296,7 @@ mk:Фруктоза
 ms:Fruktosa
 nl:fructose
 nn:Fruktose
-no:fruktose, Fruktsukker
+nb:fruktose, Fruktsukker
 oc:Fructòsa
 pl:fruktoza
 pt:frutosa
@@ -20872,7 +20999,7 @@ lv:Kazeīns
 ms:Kasein
 nl:Caseïne
 nn:Kasein, ostestoff
-no:Kasein
+nb:Kasein
 pl:Kazeina
 pt:Caseína
 ro:Cazeină
@@ -21185,7 +21312,7 @@ ne:पानी
 # new:लः
 nl:Water
 nn:Vatn
-no:Vann
+nb:Vann
 # nrm:Ieau
 nv:Tó
 oc:Aiga
@@ -21314,7 +21441,7 @@ mk:Минерална вода
 ms:Air galian
 nl:Mineraalwater
 nn:Mineralvatn
-no:Naturlig mineralvann
+nb:Naturlig mineralvann
 or:ଖଣିଜ ଜଳ
 pl:Woda mineralna
 ps:کاني اوبه
@@ -21639,7 +21766,7 @@ lv:Irdinātājs
 ms:Agen penaik
 mt:Aġent li jgħolli l-ikel
 nl:Rijsmiddel, Rijsmiddelen
-no:Hevemiddel
+nb:Hevemiddel
 pl:Substancja spulchniająca
 pt:Levedante
 ro:Agent de afânare
@@ -21711,7 +21838,7 @@ ml:യീസ്റ്റ്
 ms:Yis
 nl:gist, Gist
 nn:Gjær
-no:Gjær
+nb:Gjær
 pa:ਖ਼ਮੀਰ
 pl:Drożdże
 pt:Levedura
@@ -21872,7 +21999,7 @@ ko:사워도
 # nap:Criscito
 nl:Zuurdesem
 nn:Surdeig
-no:Surdeig
+nb:Surdeig
 pl:Zakwas chlebowy
 pt:Massa lêveda
 ru:Хлебная закваска
@@ -23782,7 +23909,7 @@ ne:केरा
 # new:म्वाय्
 nl:banaan, bananen
 nn:Banan
-no:Bananer
+nb:Bananer
 # nso:Panana
 nv:Hashkʼaan
 oc:Banana
@@ -23927,7 +24054,7 @@ mn:Цангис
 mr:क्रॅनबेरी
 nl:veenbessen, cranberry
 nn:Tranebær
-no:Tranebær
+nb:Tranebær
 # olo:Garbalo
 os:Сырхнæмыг
 # pam:Cranberry
@@ -24214,7 +24341,7 @@ mt:lanġasa
 my:သစ်တောသီး
 nl:peer, peren
 nn:pære
-no:pære
+nb:pære
 nv:bilasáana bitseeʼ nineezígíí
 oc:Pera
 or:ନାସ୍ପାତି
@@ -35333,7 +35460,7 @@ my:ဟင်း
 nb:curry
 ne:तरकारी
 nl:curry, kerrie
-no:karry
+nb:karry
 pa:ਕੜ੍ਹੀ
 pl:Curry
 pt:caril
@@ -50403,136 +50530,7 @@ fr:e951
 
 fr:e950
 
-# EMULSIFIERS and ADDITIVES
 
-# Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues,
-# which are amphiphilic – they attract both water and fatty substances (and so are both hydrophilic and lipophilic),
-# and are used for smoothing food textures, dissolving powders (emulsifying),
-# homogenizing liquid mixtures, and repelling sticking materials.
-
-en:lecithins
-ar:ليسيثين
-bg:Лецитин
-ca:lecitina
-cs:lecitin
-da:Lecitin
-de:Lecithine
-el:λεκιθίνη
-eo:Lecitino
-es:Lecitina
-et:Letsitiin
-eu:Lezitina
-fa:لسیتین
-fi:Lesitiini
-fr:lécithine, lécithines
-gl:Lecitina
-he:לציטין
-hr:Lecitin
-hu:Lecitin
-hy:Լեցիտիններ
-id:Lesitin
-is:Lesitín
-it:Lecitina
-ja:レシチン
-ko:레시틴
-ms:Lesitin
-nl:Lecithine
-pl:Lecytyny
-pt:lecitina
-ro:Lecitină
-ru:Лецитины
-sh:Lecitin
-sl:Lecitin
-sr:Лецитин
-su:Lésitin
-sv:Lecitin
-th:เลซิทิน
-tr:Lesitin
-uk:Лецитин
-uz:Letsinlar
-vi:Lecithin
-zh:卵磷脂
-wikidata:en:Q241595
-wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
-# issue with ingredient @2018-10-11 mixed with sunflower
-
-# nova:en:lecithin
-<en:lecithin
-en:soya lecithin, soy lecithin
-cs:sójový lecitin
-da:sojalecitin
-de:Sojalecithine, Sojalecithin
-el:λεκιθίνη σόγιας
-es:lecitina de soja, lecitina de soya
-fi:soijalesitiini
-fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
-hu:szójalecitin
-it:lecitina di soia
-nl:sojalecithine
-nn:sojalecitin
-pl:lecytyna sojowa
-pt:lecitina de soja
-ro:lecitinã din soia
-ru:соевый лецитин
-sk:sójový lecitin
-sl:sojin lecitin
-sr:sojin lecitin
-sv:sojalecitin
-tr:soya lesitini
-# en:soya-lecithin has 27949 products in 29 languages @2018-11-10
-
-<en:soya lecithin
-en:GMO-free soy lecithin
-fr:lécithine de soja sans ogm
-# gmo-free-soy-lecithin has 73 products in 2 languages @2018-11-10
-
-<en:lecithin
-en:sunflower lecithin
-da:solsikkelecithin
-de:Sonnenblumenlecithine
-el:λεκιθίνες ηλιστροπιου
-es:lecitina de girasol
-fi:auringonkukkalesitiini
-fr:lécithine de tournesol
-it:lecitina girasole
-lv:lecitinai iš saulègrąžų
-nl:zonnebloem-lecithine
-nn:solsikkelecithin
-pl:lecytyny ze slonecznika
-pt:lecitina de girassol
-sv:solroslecitin
-wikidata:en:Q57271747
-# fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
-
-# <en:emulsifier
-<en:sunflower lecithin
-fr:émulsifiant lécithine de tournesol
-# ingredient/fr:émulsifiant-lécithine-de-tournesol has 100 products in 6 languages @2019-02-22
-
-<en:soya lecithin
-<en:sunflower lecithin
-en:soya and sunflower lecithin
-de:Sojalecithin und Sonnenblumen
-fr:lécithine de soja et de tournesol
-it:lecitina di soia e di girasole
-# fr:lécithine-de-soja-et-de-tournesol has 50 products in 4 languages @2018-11-10
-
-<en:lecithin
-en:rapeseed lecithin
-de:Rapslecithin
-fr:lécithine de colza, lécithines de colza
-nl:raapzaadlecithine
-sr:lecitin uljane repice
-# fr:lécithines-de-colza has 609 products in 6 languages @2018-11-10
-
-<en:lecithin
-fr:émulsifiant lécithines, émulsifiants lécithines
-de:emulgator lecithine
-it:emulsionante lecitine
-nl:emulgator lecithinen
-pt:emulsionante lecitinas
-# fr:émulsifiant-lécithines has 88 products in 6 languages @2018-11-10
-# fr:émulsifiants-lécithines has 21 products in 4 languages @2018-11-10
 
 
 
