@@ -80,7 +80,6 @@ BEGIN
 					$subdomain
 					$formatted_subdomain
 					$test
-					$lc
 					@lcs
 					$cc
 					$country
