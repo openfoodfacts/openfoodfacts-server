@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,6 +42,8 @@ BEGIN
 
 					&normalize_nutriment_value_and_modifier
 					&assign_nid_modifier_value_and_unit
+
+					&get_nutrient_label
 
 					&unit_to_g
 					&g_to_unit
@@ -167,6 +169,23 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 
 }
 
+sub get_nutrient_label {
+	my $nid = (shift(@_) // undef);
+	my $flang = (shift(@_) // $lang);
+
+	if (not defined $nid) {
+		return;
+	}
+	if (defined $Nutriments{$nid}{$lang}) {
+		return $Nutriments{$nid}{$lang};
+	}
+	elsif (defined $Nutriments{$nid}{$flang}) {
+		return $Nutriments{$nid}{$flang};
+	}
+	else {
+		return;
+	}
+}
 
 sub unit_to_g($$) {
 	my $value = shift;
@@ -3557,8 +3576,19 @@ foreach my $group (keys %pnns) {
 sub special_process_product($) {
 
 	my $product_ref = shift;
-
-	return if not defined $product_ref->{categories_tags};
+	
+	delete $product_ref->{pnns_groups_1};
+	delete $product_ref->{pnns_groups_1_tags};
+	delete $product_ref->{pnns_groups_2};
+	delete $product_ref->{pnns_groups_2_tags};	
+	
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq "")) {
+		$product_ref->{pnns_groups_2} = "unknown";
+		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-category"];
+		$product_ref->{pnns_groups_1} = "unknown";
+		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-category"];
+		return;
+	}	
 
 	# For Open Food Facts, add special categories for beverages that are computed from
 	# nutrition facts (alcoholic or not) or the ingredients (sweetened, artificially sweetened or unsweetened)
@@ -3731,11 +3761,6 @@ sub special_process_product($) {
 
 	# compute PNNS groups 2 and 1
 
-	delete $product_ref->{pnns_groups_1};
-	delete $product_ref->{pnns_groups_1_tags};
-	delete $product_ref->{pnns_groups_2};
-	delete $product_ref->{pnns_groups_2_tags};
-
 	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
 		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
 
@@ -3761,7 +3786,7 @@ sub special_process_product($) {
 					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
 
 			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
-			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2})];
+			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2}), "known"];
 
 			# Let waters and teas take precedence over unsweetened-beverages
 			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
@@ -3773,21 +3798,20 @@ sub special_process_product($) {
 	if (defined $product_ref->{pnns_groups_2}) {
 		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
 			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
-			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1})];
+			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1}), "known"];
 		}
 		else {
 			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
 		}
 	}
 	else {
-		if (defined $product_ref->{categories}) {
-			$product_ref->{pnns_groups_2} = "unknown";
-			$product_ref->{pnns_groups_2_tags} = ["unknown"];
-			$product_ref->{pnns_groups_1} = "unknown";
-			$product_ref->{pnns_groups_1_tags} = ["unknown"];
-		}
+		# We have a category for the product, but no PNNS groups are associated with this category or a parent category
+	
+		$product_ref->{pnns_groups_2} = "unknown";
+		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-association"];
+		$product_ref->{pnns_groups_1} = "unknown";
+		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
 	}
-
 }
 
 

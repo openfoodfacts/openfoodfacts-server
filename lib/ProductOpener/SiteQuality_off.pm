@@ -526,7 +526,7 @@ sub check_ingredients($) {
 
 	my $product_ref = shift;
 
-	# spell corrected additivse
+	# spell corrected additives
 	
 	if ($product_ref->{additives} =~ /spell correction/) {
 		push @{$product_ref->{quality_tags}}, "ingredients-spell-corrected-additives";
@@ -616,10 +616,13 @@ sub check_ingredients($) {
 					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-5-vowels";
 				}
 				
-				if ($product_ref->{$ingredients_text_lc} =~ /[bcdfghjklmnpqrstvwxz]{4}/is) {
-			
-					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-4-consonants";
-				}				
+				# Dutch and other languages can have 4 consecutive consonants
+				if ($display_lc !~ /de|nl/) {
+					if ($product_ref->{$ingredients_text_lc} =~ /[bcdfghjklmnpqrstvwxz]{4}/is) {
+				
+						push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-4-consonants";
+					}
+				}
 
 				if ($product_ref->{$ingredients_text_lc} =~ /(.)\1{4,}/is) {
 			

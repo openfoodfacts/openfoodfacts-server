@@ -839,7 +839,7 @@ sub build_tags_taxonomy($$) {
 			}
 		}
 		
-		my $max_pass = 3;
+		my $max_pass = 2;
 		if ($tagtype =~ /^additives/) {
 			$max_pass = 1;
 		}

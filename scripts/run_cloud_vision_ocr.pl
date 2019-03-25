@@ -88,6 +88,7 @@ my $api_request_ref =
 			[ 
 				{
 					features => [{ type => 'TEXT_DETECTION'}, { type => 'LOGO_DETECTION'},
+					{ type => 'LABEL_DETECTION'},
 					{ type => 'SAFE_SEARCH_DETECTION'}, { type => 'FACE_DETECTION'}]
 #					, image => { source => { imageUri => $image_url}}
 					, image => { content => encode_base64($image)}

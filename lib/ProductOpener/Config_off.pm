@@ -94,6 +94,7 @@ agamitsudo
 aleene
 bcatelin
 bojackhorseman
+charlesnepote
 hangy
 javichu
 kyzh
@@ -365,6 +366,7 @@ $options{favicons} = <<HTML
 <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
 <meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
+<meta name="apple-itunes-app" content="app-id=588797948">
 <meta name="flattr:id" content="dw637l">
 HTML
 ;
@@ -411,6 +413,9 @@ fr:levure
 fr:levures
 en:honeys
 en:vinegars
+en:pet-food
+en:non-food-products
+
 )];
 
 # exceptions
