@@ -2002,10 +2002,10 @@ sub display_list_of_tags_translate($$) {
 <tr><td>			
 <a href="$link"$nofollow>$display</a> $synonyms<br />
 <input type="hidden" id="from_$j" name="from_$j" value="$tagid" />
-<input id="to_$j" name="to_$j" value="" />
+<div id="to_${j}_div"><input id="to_$j" name="to_$j" value="" /></div>
 </td>
 <td>
-<button id="save_$j" class="tiny button save" type="button">$Lang{save}{$lang}</button>
+<div id="save_${j}_div"><button id="save_$j" class="tiny button save" type="button">$Lang{save}{$lang}</button></div>
 </td>
 <td style="text-align:right">$products</td></tr>
 HTML
@@ -2036,17 +2036,48 @@ oTable = \$('#tagstable').DataTable({
 	order: [[ 1, "desc" ]],
 	columns: [
 		null,
-		{ "searchable": false } 
+		{ "searchable": false },
+		{ "searchable": false }
 	]
 });
 
-\${.save}.click({},function(event) {
-				event.stopPropagation();
-				event.preventDefault();
-				
-				alert(this);
+			
+var buttonId;
 
-			});		
+\$("button.save").click(function(){
+
+	event.stopPropagation();
+	event.preventDefault();
+	buttonId = this.id;
+	console.log("buttonId " + buttonId);
+  
+	buttonIdArray = buttonId.split("_");
+	console.log("Splitted in " + buttonIdArray[0] + " " + buttonIdArray[1])
+  
+	var tagtype = \$("#tagtype").val()
+	var fromId = "from_" + buttonIdArray[1];
+	var from = \$("#"+fromId).val();
+	var toId = "to_" + buttonIdArray[1];
+	var to = \$("#"+toId).val();
+	var saveId = "save_" + buttonIdArray[1];
+	console.log("tagtype = " + tagtype);
+	console.log("from = " + from);
+	console.log("to = " + to);
+	
+	\$("#"+saveId).hide();
+	
+var jqxhr = \$.post( "/cgi/translate_taxonomy.pl", { tagtype: tagtype, from: from, to: to },
+	function(data) {
+  \$("#"+toId+"_div").html(to);
+  \$("#"+saveId+"_div").html("Saved");
+  
+})
+  .fail(function() {
+    \$("#"+saveId).show();
+  });	
+  
+});			
+			
 JS
 ;
 
