@@ -1498,7 +1498,7 @@ en:sorbic acid, E200, E 200, E-200
 ar:حمض السوربيك
 # azb:اسید سربیک
 bg:Сорбинова киселина
-ca àcid sòrbic
+ca:àcid sòrbic
 cs:Kyselina sorbová
 da:Sorbinsyre
 de:Sorbinsäure
@@ -2129,7 +2129,7 @@ de:Säureregulator E262
 # correcteur d'acidité E262 has 8 products in 3 languages @2018-11-18
 
 
-# Lactic acid is an organic compound with the formula CH3CH(OH)CO2H.
+#   LACTIC ACID   is an organic compound with the formula CH3CH(OH)CO2H.
 # In the form of its conjugate base called lactate (this is thus different and kept as a seperate ingredient)
 # Lactic acid is chiral, consisting of two optical isomers.
 # One is known as L-(+)-lactic acid or (S)-lactic acid and the other,
@@ -2218,11 +2218,63 @@ zh:乳酸
 # zh-sg:乳酸
 # zh-tw:乳酸
 wikidata:en:Q56626856
-wikipedia:https://en.wikipedia.org/wiki/Lactic_acid
+wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid
 # en:lactic-acid has 7496 products in 20 languages@2018-11-17
 
 
-# Carbon dioxide (chemical formula CO2) is a colorless gas with a density about 60% higher than that of dry air. 
+# Sodium propanoate or   SODIUM PROPIONATE   is the sodium salt of propionic acid which has the chemical formula Na(C2H5COO). 
+
+en:sodium propionate, E281, E-281, E 281
+ar:بروبيونات الصوديوم
+# azb:سودیوم پروپیونات
+bg:Натриев пропионат
+bs:Natrijum propionat
+cs:Propionan sodný
+da:Natriumpropionat
+de:Natriumpropionat
+el:Προπιονικο νατριο
+eo:Natria propanoato
+es:Propionato sódico, Propionato de sodio
+et:Naatriumpropionaat
+fa:سدیم پروپیونات
+fi:Natriumpropionaatti
+fr:propionate de sodium
+hu:Nátrium-propionát
+hy:Նատրիումի պրոպիոնատ
+it:Propionato di sodio
+ja:プロピオン酸ナトリウム
+lt:Natrio propionatas
+lv:Nātrija propionāts
+mt:Propjonat tas-sodju
+nl:Natriumpropionaat
+pl:Propionian sodu
+pt:Propionato de sódio
+ro:Propionat de sodiu
+ru:Пропионат натрия
+sh:Natrijum propionat
+sk:Propionan sodný
+sl:Natrijev propionat
+sr:Natrijum propionat
+# sr-ec:Натријум пропионат
+# sr-el:Natrijum propionat
+sv:Natriumpropionat
+ta:சோடியம் புரோப்பனோயேட்டு
+vi:Natri propionat
+zh:丙酸钠
+# zh-cn:丙酸钠
+# zh-hans:丙酸钠
+# zh-hant:丙酸鈉
+# zh-hk:丙酸鈉
+# zh-sg:丙酸钠
+# zh-tw:丙酸鈉
+wikidata:en:Q420130
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_propionate
+# ingredient/fr:e281 has 45 products in 7 languages @2019-03-25
+# additive/e281-sodium-propionate has 532 products in 10 languages @2019-02-25
+# preservative (E202, E281)
+
+
+#   CARBON DIOXIDE   (chemical formula CO2) is a colorless gas with a density about 60% higher than that of dry air. 
 # products seems to use all kinds of synonyms. Also wikidata is not consistent. Try to stay close to the chemical name:Carbon dioxide.
 
 # <en:propellant
@@ -19146,7 +19198,7 @@ zh:玉米
 # yue:粟米
 wikipedia:en:https://en.wikipedia.org/wiki/Maize
 wikidata:en:Q11575
-openfoodfacts:https://world.openfoodfacts.org/ingredient/corn
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/corn
 carbon_footprint_fr_foodges_ingredient:fr:Maïs
 # 6846 products in 16 languages @201809-23
 
@@ -19170,15 +19222,15 @@ ro:porumb boabe
 sk:kukuričná krupic
 sl:koruzni zdrob
 sv:majsgryn
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20mais
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20mais
 # 597 products in 15 languages @2018-09-23
 wikipedia:en:https://en.wikipedia.org/wiki/Cornmeal
-openfoodfacts:https://world.openfoodfacts.org/ingredient/cornmeal
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/cornmeal
 # 281 products in 1 language @201809-23
 
 <en:cornmeal
 fr:semoule de maïs précuite
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20maïs%20précuite
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20maïs%20précuite
 # 27 products in 1 language @2018-09-24
 
 <en:cornmeal
@@ -19187,7 +19239,7 @@ es:harina de maíz dextrinada
 fr:farine de maïs dextrinée
 nl:gedextrineerd maïsmeel
 de:dextriniertes Maismehl
-openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrinated-cornmeal
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrinated-cornmeal
 # NO products @2018-09-23
 
 <en:corn
@@ -19199,11 +19251,11 @@ it:fiocchi di mais, cornflakes
 nl:maïsvlokken
 pl:płatki kukurydziane
 pt:flocos de milho
-openfoodfacts:https://world.openfoodfacts.org/ingredient/cornflakes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/cornflakes
 # 11 products in 2 languages @2018-09-23
-openfoodfacts:https://world.openfoodfacts.org/ingredient/corn%20flakes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/corn%20flakes
 # 82 products in 5 languages @2018-09-23
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20maïs
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20maïs
 # 22 products in 5 languages @2018-09-23
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20maïs
 # 180 products in 8 languages @2018-09-24
@@ -28368,7 +28420,7 @@ zh:酸豆
 # zh-hant:羅望子
 # zh-tw:羅望子
 # tree:wikidata:en:Q80235
-wikidat:en:Q28178875
+wikidata:en:Q28178875
 wikipedia:en:https://en.wikipedia.org/wiki/Tamarind
 # ingredient/fr:tamarin has 107 products in 5 languages @2019-02-07
 
@@ -50031,8 +50083,6 @@ fr:e263
 
 fr:e270
 
-fr:e281
-
 fr:e282
 
 fr:e320
@@ -50750,7 +50800,6 @@ fr:conservateur e224
 
 en:e 220, e220, e-220
 
-fr:e281
 
 
 
