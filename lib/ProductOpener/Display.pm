@@ -2038,7 +2038,13 @@ sub display_list_of_tags_translate($$) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
 			}
 			
-
+			# Google Translate link
+			
+			# https://translate.google.com/#view=home&op=translate&sl=en&tl=de&text=
+			my $escaped_synonyms = $synonyms;
+			$escaped_synonyms =~ s/ /\%20/g;
+			
+			my $google_translate_link = "https://translate.google.com/#view=home&op=translate&sl=en&tl=$lc&text=$escaped_synonyms";
 
 			$html .= <<HTML
 <tr><td>			
@@ -2046,6 +2052,7 @@ sub display_list_of_tags_translate($$) {
 <input type="hidden" id="from_$j" name="from_$j" value="$tagid" />
 <div id="to_${j}_div"><input id="to_$j" name="to_$j" value="" /></div>
 $new_translation
+<span style="font-size: 80%;">&rarr; <a href="$google_translate_link" target="_blank">Google Translate</a></span>
 </td>
 <td>
 <div id="save_${j}_div"><button id="save_$j" class="tiny button save" type="button">$Lang{save}{$lang}</button></div>
