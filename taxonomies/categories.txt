@@ -3157,7 +3157,7 @@ wikidata:en:Q6097
 
 
 <en:Teas
-en:Tea bags, Teas in bags
+en:Tea bags, Teas in bags, teas in tea-bags
 fr:Thés en sachets
 # should not be in pnns_group_2:en:Teas and herbal teas and coffees
 pnns_group_2:en:unknown
@@ -17048,6 +17048,10 @@ it:Panetonne
 nl:Panettones, Panettone, panetonnes, panetonne
 wikidata:en:Q854342
 
+<en:Brioches
+en:Small brioches
+fr:Briochettes
+
 <en:Desserts
 en:Puddings
 de:Puddings
@@ -18461,11 +18465,14 @@ de:Gnocchi
 en:Potato gnocchi
 fr:Gnocchi de pommes de terre
 de:Kartiffelgnocchi
+pnns_group_2:en:Potatoes
 
 <en:Gnocchi
+<en:Cereals and their products
 en:Gnocchi of durum wheat semolina
 fr:Gnocchi de semoule de blé dur
 de:Grießgnocchi, Gnocchi aus Hartweizengrieß
+pnns_group_2:en:Cereals
 
 <en:Cereals and potatoes
 en:Cereals and their products, Cereals
@@ -22956,6 +22963,7 @@ nl:Desserts met chocolade
 zh:巧克力甜品, 巧克力甜点
 
 <en:Chocolate desserts
+en:Chocolate mousses
 fr:Mousses au chocolat, Mousse au chocolat
 de:Mousses au chocolat, Mousse au chocolat
 nl:Chocolademousses
@@ -25169,20 +25177,29 @@ es:Mezclas de cereales inflados
 fr:Mélanges de céréales soufflés
 nl:Gepofte granenmelanges
 
-<en:Sugary snacks
+<en:Snacks
 en:Popcorn, pop-corn, Popped popcorn
 es:Palomitas de maíz, Maíz inflado
 fr:Popcorn, Pop-corn, maïs éclaté, tactac
+it:Popcorn
 nl:Popcorn
 wikidata:en:Q165112
 
 <en:Salty snacks
+<en:Popcorn
 en:Salted popcorn, Salted pop-corn
 es:Palomitas de maíz saladas
 fr:Popcorn salé, Pop-corn salé
+it:Popcorn salati
 nl:Gezouten popcorn
 hu:sós popkorn
 pnns_group_2:en:Salty and fatty products
+
+<en:Sugary snacks
+<en:Popcorn
+en:Sugared popcorn
+fr:Popcorn sucré
+it:Popcorn dolci
 
 <en:Puffed cereals
 en:Puffed barley
@@ -26086,8 +26103,11 @@ hu:Fagyasztott desszertek
 
 <en:Frozen desserts
 fr:Omelettes Norvégiennes glacées
+pnns_group_2:en:Dairy desserts
 
 <en:Frozen desserts
+<fr:Bûches
+<en:Cakes
 fr:Bûches glacées
 
 <en:Frozen desserts
@@ -26458,6 +26478,8 @@ fr:Cônes et batonnets surgelés
 nl:Diepvriesijsjes
 
 <en:Frozen foods
+<en:Cakes
+en:Frozen cakes and pastries, frozen cakes, frozen pastries
 fr:Gâteaux et pâtisseries surgelés, gâteaux surgelés, pâtisseries surgelées, desserts pâtissiers surgelés, Gâteaux et pâtisseries surgelées
 nl:Diepvriesgebak
 
@@ -34238,6 +34260,10 @@ fr:Crevettes
 nl:Garnalen
 
 <en:Shrimps
+en:Shrimps tails
+fr:Queues de crevettes
+
+<en:Shrimps
 fr:Crevettes géantes tigrées, Crevette géante tigrée, Penaeus monodon
 nl:Grote tijgergarnalen
 
@@ -39353,6 +39379,10 @@ fr:Pains au lait, pain au lait
 pt: Pães de leite
 wikidata:en:Q3360557
 
+<en:Milk bread rolls
+en:Milk bread rolls with chocolate
+fr:Pains au lait au chocolat, pains au lait aux pépites de chocolat
+
 <en:Viennoiseries
 en:Vienna bread
 fr:Pains viennois
@@ -39533,6 +39563,7 @@ fr:Bloc de foie gras avec morceaux
 nl:Foie de gras blokken met stukjes
 
 <en:Foies gras
+en:Whole foies gras, whole fat livers
 fr:Foies gras entiers
 nl:Hele foie gras
 
@@ -39548,6 +39579,11 @@ nl:Gekookte foie gras
 en:Foies gras from ducks, fat liver from ducks
 fr:Foies gras de canard, Foie gras de canard
 nl:Eendenfoie gras
+
+<en:Foie gras from ducks
+<en:Whole foies gras
+en:Whole foies gras from ducks, whole fat liver from ducks
+fr:Foies gras de canard entiers, Foie gras de canard entier
 
 <en:Foies gras
 en:Foies gras from gooses, fat liver from gooses
@@ -39917,10 +39953,12 @@ en:miscellaneous pet food, miscellaneous animal food
 fr:nourriture pour animaux variés
 de:sonstiges Tierfutter
 
+<en:Cereals and their products
 en:Pie dough
 fr:Pâtes à tarte, Pâte à tarte, Pates à tarte fraiches
 nl:Taartdegen
 nl_be:Taartdeeg
+
 
 <en:Pie dough
 fr:Pâtes brisées, Pâte brisée, Pâtes à tarte brisées
@@ -40111,6 +40149,7 @@ wikidata:en:Q11175039
 <en:Terrines
 en:Vegetables terrines
 fr:Terrines de légumes 
+pnns_group_2:en:Salty and fatty products
 
 <en:Terrines
 en:Terrines from Brittany
@@ -40119,12 +40158,14 @@ nl:Bretonse terrines, Bretonse vleespotten, Bretonse terrine
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 en:Bison terrines
 fr:Terrines de bison
 nl:Bizonvleesterrines, Bizonvleespotten
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 en:Blood sausage terrines
 de:Blutwurst-Terrinen
 fr:Terrines de boudin, terrine de boudin
@@ -40132,27 +40173,32 @@ nl:Bloedworstterinnes, Bloedworstterrine
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 en:Country terrines
 fr:Terrines de campagne
 nl:Landvleespotten
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 fr:Terrines de cerf
 nl:Hertevleesterrines, Hertevleespotten
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 fr:Terrines de chevreuil
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 en:Pheasant terrines
 fr:Terrines de faisan
 nl:Fazantterrines, fazantterrine, Fazantvleespotten
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 en:Liver terrines
 fr:Terrines de foie, terrine de foie
 nl:Leverterrines, Lverterrine, Levervleespotten
@@ -40163,12 +40209,14 @@ wikidata:en:Q3518776
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 en:Rabbit terrines
 fr:Terrines de lapin
 nl:Konijnterrines, Konijnterrine, Konijnevleespotten
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 en:Chicken terrines
 fr:Terrines de poulet
 nl:Kipterrines, Kipterrine, Kippevleespotten
@@ -40179,6 +40227,7 @@ nl:St. Jacobsschelpterrines, St. Jacobsschelpterrine
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 en:Boar terrines
 fr:Terrines de sanglier
 nl:Everzijnterrines, Everzwijnterrine, Everzwijnvleespotten
@@ -40195,12 +40244,14 @@ nl:Forelterinnes, Forelterrine,
 
 <en:Terrines
 <en:Meat-based products
+<en:Prepared meats
 en:Poultry terrines
 fr:Terrines de volailles
 nl:Gevogelte terrines, Gevogelte terrine, Gevogelte vleespotten
 
 <fr:Terrines de volailles
 <en:Meat-based products
+<en:Prepared meats
 en:Duck terrines
 fr:Terrines de canard, Terrines de canard au poivre vert
 nl:Eendterrines, Eendterrine, Eendevleespotten
