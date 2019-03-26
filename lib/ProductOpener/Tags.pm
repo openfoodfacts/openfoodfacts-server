@@ -3463,7 +3463,7 @@ sub add_users_translations_to_taxonomy($) {
 			
 				foreach my $l (keys %{$users_translations_ref}) {
 					if (defined $users_translations_ref->{$l}{$tagid}) {
-						$translations{$l} = $users_translations_ref->{$l}{$tagid};
+						$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
 					}
 				}
 				
@@ -3490,7 +3490,7 @@ sub add_users_translations_to_taxonomy($) {
 		
 				foreach my $l (keys %{$users_translations_ref}) {
 					if (defined $users_translations_ref->{$l}{$tagid}) {
-						$translations{$l} = $users_translations_ref->{$l}{$tagid};
+						$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
 					}
 				}
 				
