@@ -1947,6 +1947,7 @@ nl:Vruchtensappen en -nectars
 ru:Плодовые соки и нектары
 hu:Gyümölcslevek és nektárok
 
+#should contain only juices (beverage with 100% fruit) and not nectars (beverage with fruit, water and eventually sugar)
 <en:Fruit juices and nectars
 en:Fruit juices
 es:Zumos de frutas, Zumo de frutas, Jugos de frutas
@@ -2549,6 +2550,21 @@ fr:Nectars de poire
 it:Nettare di pera
 nl:Perennectars, Perennectar
 zh:梨花蜜, 梨子花蜜
+
+<en:Fruit nectars
+en:Strawberry nectars
+fr:Nectars de fraise
+it:Nettare di fragola
+
+<en:Fruit nectars
+en:Raspberry nectars
+fr:Nectars de framboise
+it:Nettare di lamponi
+
+<en:Fruit nectars
+en:Cherry nectars
+fr:Nectars de cerise
+it:Nettare di ciliegia
 
 <en:Fruit nectars
 en:Pineapple nectars
@@ -17247,6 +17263,7 @@ en:Calissons d'Aix, Calissons of Aix
 fr:Calissons d'Aix
 de:Calissons d'Aix, Calissons aus Aix-en-Provence
 
+#should contain only chocolates and not pralines, which are a confectionery made with chocolate, and should be classified in "Bonbons"
 <en:Sugary snacks
 en:Chocolates, chocolate products
 es:Chocolates
@@ -22609,6 +22626,7 @@ fr:Yaourts multifruits, yaourts multi-fruits
 de:Mehrfruchtjoghurts, Mehrfruchtjoghurt
 nl:Multifruityoghurts
 
+#should contain only yogurt with real lemon, yogurt with lemon oil, extract or aroma should be in "Flavoured yogurts"
 <en:Fruit yogurts
 en:Lemon yogurts
 es:Yogures de limón
@@ -22689,6 +22707,7 @@ fr:Yaourts au kiwi
 it:Yogurt al kiwi
 hu:Kiwis  joghurtok
 
+#should contain only yogurt with real coco, yogurt with lemon extract or aroma should be in "Flavoured yogurts"
 <en:Fruit yogurts
 en:Coconut yogurts
 fr:Yaourts à la noix de coco
@@ -23190,7 +23209,7 @@ it:Composte mela e fico
 
 <en:Apple compotes
 fr:Compotes pommes cerise
-it:Composte mela e ciliega
+it:Composte mela e ciliegia
 
 <en:Apple compotes
 fr:Compotes pommes kiwi
@@ -31708,6 +31727,9 @@ fr:Canards
 nl:Eendevlezen
 zh:鸭肉, 新鸭肉, 鸭
 wikidata:en:Q3736439
+
+<en:Ducks
+fr:Filets de canard
 
 <en:Poultries
 en:Turkeys, Turkey, Turkey fresh meat, Fresh Turkey
