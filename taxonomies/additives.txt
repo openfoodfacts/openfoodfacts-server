@@ -1126,7 +1126,6 @@ el:E150, E150 food additive
 es:E150, Caramelo, Caramelina, Caramelo líquido
 et:E150, E150 food additive
 fi:E150, E150 food additive
-# too many synonyms for fr, makes taxonomy break
 fr:E150, Caramel
 hu:E150, Karamell
 it:E150, E150 food additive
@@ -1141,6 +1140,7 @@ ro:E150, E150 food additive
 sk:E150, E150 food additive
 sl:E150, E150 food additive
 sv:E150, E150 food additive
+# too many synonyms for fr, makes taxonomy break
 e_number:en:150
 mandatory_additive_class:en: en:colour
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
@@ -10245,8 +10245,8 @@ pl:E470a, Sole sodowe\, potasowe i wapniowe kwasów tłuszczowych
 pt:E470a, Sais de sódio\, potássio e cálcio de ácidos gordos, Sais de sódio
 ro:E470a, Săruri de sodiu\, potasiu și calciu ale acizilor grași
 sk:E470a, Sodné\, draselné a vápenaté soli mastných kyselín
-sv:E470a, Natrium-\, kalium- och kalciumsalter av fettsyror, Natrium-
 sl:E470a, Natrijeve\, kalijeve in kalcijeve soli maščobnih kislin, natrijeve
+sv:E470a, Natrium-\, kalium- och kalciumsalter av fettsyror, Natrium-
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:470a
 
@@ -17203,3 +17203,4 @@ wikidata:en:Q410083
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5293
 efsa_evaluation_date:en: 2018/06/22
 efsa_evaluation:en: Refined exposure assessment of polyethylene glycol (E 1521) from its use as a food additive
+
