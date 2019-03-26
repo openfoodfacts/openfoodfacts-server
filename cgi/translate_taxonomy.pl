@@ -27,6 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -46,12 +47,7 @@ my $status;
 
 if ((defined $tagtype) and (defined $from) and (defined $to) and ($to ne "")) {
 	$status = "ok";
-
-	(-e "$data_root/translate") or mkdir("$data_root/translate", 0755);
-	
-	open (my $LOG, ">>:encoding(UTF-8)", "$data_root/translate/$tagtype.$lc.txt");
-	print $LOG join("\t", (time(), $User_id, $from, $to)) . "\n";
-	close LOG;
+	add_user_translation($lc, $tagtype, $User_id, $from, $to);
 }
 else {
 	$status = "not ok - missing tagtype, from or to parameter";
@@ -62,7 +58,6 @@ my $data =  encode_json({ status => $status });
 $log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
 print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
-
 
 exit(0);
 

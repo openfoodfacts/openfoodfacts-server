@@ -108,6 +108,11 @@ BEGIN
 					
 					&init_select_country_options
 					
+					&add_user_translation
+					&load_users_translations
+					&load_users_translations_for_lc
+					&add_users_translations_to_taxonomy
+					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1541,26 +1546,26 @@ sub country_to_cc {
 # load all tags hierarchies
 
 # print STDERR "Tags.pm - loading tags hierarchies\n";
-opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
-foreach my $langid (readdir(DH2)) {
+opendir my $DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
+foreach my $langid (readdir($DH2)) {
 	next if $langid eq '.';
 	next if $langid eq '..';
 	# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
 	next if ((length($langid) ne 2) and not ($langid eq 'other'));
 	
 	if (-e "$www_root/images/lang/$langid") {
-		opendir DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
-		foreach my $tagtype (readdir(DH)) {
+		opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
+		foreach my $tagtype (readdir($DH)) {
 			next if $tagtype =~ /\./;
 			# print STDERR "Tags: loading tagtype images $langid/$tagtype\n";			
 			# print "Tags: loading tagtype images $langid/$tagtype\n";			
 			load_tags_images($langid, $tagtype)
 		}
-		closedir(DH);	
+		closedir($DH);	
 	}
 	
 }
-closedir(DH2);
+closedir($DH2);
 
 
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
@@ -2011,7 +2016,8 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	}	
 	else {
 		# use tag language
-		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
+		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid})
+			and (defined $tag_lc) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
 			# we have a translation for the tag language
 			# print STDERR "display_taxonomy_tag - translation for the tag language - translations_to{$tagtype}{$tagid}{$tag_lc} : $translations_to{$tagtype}{$tagid}{$tag_lc}\n";			
 			if ($tag_lc eq 'en') {
@@ -3335,6 +3341,171 @@ sub compute_field_tags($$$) {
 	}
 	
 }
+
+
+sub add_user_translation($$$$$) {
+
+	my $tag_lc = shift;
+	my $tagtype = shift;
+	my $user = shift;
+	my $from = shift;
+	my $to = shift;
+	
+	(-e "$data_root/translate") or mkdir("$data_root/translate", 0755);
+	
+	open (my $LOG, ">>:encoding(UTF-8)", "$data_root/translate/$tagtype.$tag_lc.txt");
+	print $LOG join("\t", (time(), $user, $from, $to)) . "\n";
+	close $LOG;
+}
+
+
+sub load_users_translations_for_lc($$$) {
+
+	my $users_translations_ref = shift;
+	my $tagtype = shift;
+	my $tag_lc = shift;	
+	
+	if (not defined $users_translations_ref->{$tag_lc}) {
+		$users_translations_ref->{$tag_lc} = {};
+	}
+	
+	my $file = "$data_root/translate/$tagtype.$tag_lc.txt";
+	
+	$log->debug("load_users_translations_for_lc", { file => $file}) if $log->is_debug();
+	
+	if (-e $file) {
+		$log->debug("load_users_translations_for_lc, file exists", { file => $file}) if $log->is_debug();
+		open (my $LOG, "<:encoding(UTF-8)", "$data_root/translate/$tagtype.$tag_lc.txt");
+		while(<$LOG>) {
+			chomp();
+			my ($time, $userid, $from, $to) = split(/\t/, $_);
+			$users_translations_ref->{$tag_lc}{$from} = { t => $time, userid => $userid, to => $to };
+			$log->debug("load_users_translations_for_lc, new translation $tagtype $userid $from $to", { userid => $userid, from => $from, to => $to}) if $log->is_debug();
+		}
+		close ($LOG);	
+		
+		return 1;
+	}
+	else {
+		$log->debug("load_users_translations_for_lc, file does not exist", { file => $file}) if $log->is_debug();
+		return 0;
+	}
+}
+
+
+sub load_users_translations($$) {
+
+	my $users_translations_ref = shift;
+	my $tagtype = shift;
+	
+	if (opendir (my $DH, "$data_root/translate")) {
+		foreach my $file (readdir($DH)) {
+			if ($file =~ /^$tagtype.(\w\w).txt$/) {
+				load_users_translations_for_lc($users_translations_ref, $tagtype, $1);
+			}
+		}
+		closedir $DH;
+	}	
+}
+
+
+sub add_users_translations_to_taxonomy($) {
+
+	my $tagtype = shift;
+	
+	my $users_translations_ref = {};
+	
+	load_users_translations($users_translations_ref, $tagtype);
+
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt")) {
+	
+		binmode(STDIN, ":encoding(UTF-8)");
+		binmode(STDOUT, ":encoding(UTF-8)");
+		binmode(STDERR, ":encoding(UTF-8)");
+
+		my $first_lc = "";
+		my $first_language_tag = "";
+		my $others = "";
+		my $tagid;
+
+		my %translations = ();
+		
+		while (<$IN>) {
+
+			my $line = $_;
+			chomp($line);
+			
+			if ($line =~ /^(<|stopwords|synonyms)/) {
+				print $line . "\n";
+			}
+			elsif (($first_lc eq '') and (($line =~ /^#/) or ($line =~ /^\s*$/))) {
+				# comments above the English definition
+				print $line . "\n";
+			}
+			elsif (($line =~ /^(\w\w):(.*)$/) or ($line =~ /^(\w\w_\w\w):(.*)$/)) {
+				my $l = $1;
+				my $tag = $2;
+				
+				if ($first_lc eq "") {
+					$first_language_tag = $tag;
+					$first_lc = $l;
+					$tag =~ s/,.*//;
+					$tagid = $first_lc . ":" . get_fileid($tag);
+				}
+				else {
+					$translations{$l} = $tag;
+				}
+			}
+			elsif ($line =~ /^#/) {
+				$others .= $line . "\n";
+			}
+			elsif (($first_language_tag ne "") and ($line =~ /^\s*$/)) {
+			
+				foreach my $l (keys %{$users_translations_ref}) {
+					if (defined $users_translations_ref->{$l}{$tagid}) {
+						$translations{$l} = $users_translations_ref->{$l}{$tagid};
+					}
+				}
+				
+				print "$first_lc:$first_language_tag\n";
+				foreach my $l (sort keys %translations) {
+					print "$l:$translations{$l}\n";
+				}
+				print $others;
+				print "\n";
+				
+				%translations = ();
+				$first_lc = "";
+				$first_language_tag = "";
+				$others = "";
+				$tagid = undef;
+			
+			}
+			else {
+				$others .= $line . "\n";
+			}
+		}
+		
+		if ($first_language_tag) {
+		
+				foreach my $l (keys %{$users_translations_ref}) {
+					if (defined $users_translations_ref->{$l}{$tagid}) {
+						$translations{$l} = $users_translations_ref->{$l}{$tagid};
+					}
+				}
+				
+				print "$first_lc:$first_language_tag\n";
+				foreach my $l (sort keys %translations) {
+					print "$l:$translations{$l}\n";
+				}
+				print $others;
+				print "\n";
+
+		}
+	}
+	
+}
+
 
 
 $log->info("Tags.pm loaded") if $log->is_info();

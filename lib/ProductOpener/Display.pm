@@ -1907,13 +1907,14 @@ sub display_list_of_tags_translate($$) {
 
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 
-		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
-			$html .= join("\n", (<$IN>));
-			close $IN;
-		}
-
-		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
+		# $html .= "<h3>" . sprintf(lang("translate_taxonomy_to"), $Lang{$tagtype . "_p"}{$lang}, $Languages{$lc}{$lc}) . "</h3>";
+		# Display the message in English until we have translated the translate_taxonomy_to message in many languages,
+		# to avoid mixing local words with English words
+		$html .= "<h3>" . sprintf($Lang{"translate_taxonomy_to"}{en}, $Lang{$tagtype . "_p"}{en}, $Languages{$lc}{en}) . "</h3>";
+		
+		$html .= "<p>" . lang("translate_taxonomy_description") . "</p>";
+		
+		$html .= '<p id="counts"><COUNTS></p>';
 
 
 		$html .= "<div style=\"max-width:600px;\"><table id=\"tagstable\">\n<thead><tr><th>" . ucfirst($Lang{$tagtype . "_s"}{$lang})
@@ -1942,13 +1943,23 @@ sub display_list_of_tags_translate($$) {
 			}
 			$nofollow = ' rel="nofollow"';
 		}
+		
+		my $users_translations_ref = {};
 
+		load_users_translations_for_lc($users_translations_ref, $tagtype, $lc);
+		
+		use Data::Dumper;
+		print STDERR Dumper($users_translations_ref);
+		
 		my %products = ();	# number of products by tag, used for histogram of nutrition grades colors
 		
-		$log->debug("going through all tags", {}) if $log->is_debug();
+		$log->debug("going through all tags") if $log->is_debug();
 		
 		my $i = 0;	# Number of tags
-		my $j = 0;	# Number of tags without translation
+		my $j = 0;	# Number of tags displayed
+		
+		my $to_be_translated = 0;
+		my $translated = 0;
 		
 		my $path = $tag_type_singular{$tagtype}{$lc};
 
@@ -1979,8 +1990,38 @@ sub display_list_of_tags_translate($$) {
 			my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 			
 			# Keep only known tags that do not have a translation in the current lc
-			if (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en") or (not $tag_ref->{known})) {
+			if (((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))
+				or (not $tag_ref->{known})) {
 				next;
+			}
+			
+			my $new_translation = "";
+			
+			# Check to see if we already have a user translation
+			if (defined $users_translations_ref->{$lc}{$tagid}) {
+				
+				$translated++;
+				
+				$log->debug("display_list_of_tags_translate - entry $tagid has existing user translation to $lc", $users_translations_ref->{$lc}{$tagid}) if $log->is_debug();
+			
+				if ($request_ref->{translate} eq "add") {
+					# Add mode: show only entries without translations
+					$log->debug("display_list_of_tags_translate - translate=" . $request_ref->{translate} . " - skip $tagid entry with existing user translation") if $log->is_debug();
+					next;
+				}
+				# Edit or Review mode: show the new translation
+				$new_translation = "<div>" . lang("current_translation") . " : " . $users_translations_ref->{$lc}{$tagid}{to} . " (" . $users_translations_ref->{$lc}{$tagid}{userid} . ")</div>";
+			}			
+			else {
+				$to_be_translated++;
+				
+				$log->debug("display_list_of_tags_translate - entry $tagid does not have user translation to $lc") if $log->is_debug();
+				
+				if ($request_ref->{translate} eq "review") {
+					# Review mode: show only entries with new translations
+					$log->debug("display_list_of_tags_translate - translate=" . $request_ref->{translate} . " - skip $tagid entry without existing user translation") if $log->is_debug();				
+					next;
+				}
 			}
 			
 			$j++;
@@ -1996,12 +2037,15 @@ sub display_list_of_tags_translate($$) {
 			if ((defined $synonyms_for{$tagtype}{$display_lc}) and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
 			}
+			
+
 
 			$html .= <<HTML
 <tr><td>			
 <a href="$link"$nofollow>$display</a> $synonyms<br />
 <input type="hidden" id="from_$j" name="from_$j" value="$tagid" />
 <div id="to_${j}_div"><input id="to_$j" name="to_$j" value="" /></div>
+$new_translation
 </td>
 <td>
 <div id="save_${j}_div"><button id="save_$j" class="tiny button save" type="button">$Lang{save}{$lang}</button></div>
@@ -2014,6 +2058,14 @@ HTML
 		}
 
 		$html .= "</tbody></table></div>";
+		
+		
+		my $counts = ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang}
+		. " (" . lang("translated") . " : $translated, " . lang("to_be_translated") . " : $to_be_translated)";
+		
+		$html =~ s/<COUNTS>/$counts/;
+		
+		
 		
 		$html .= <<HTML
 <input type="hidden" id="tagtype" name="tagtype" value="$tagtype" />		
