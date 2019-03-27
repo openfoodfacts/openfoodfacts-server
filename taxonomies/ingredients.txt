@@ -7524,7 +7524,8 @@ tt:Фермент
 uk:Ферменти
 uz:fermentlar
 # xal:Фермент
-nova:en:3
+#ferments for yoghurts do not make them nova 3, commenting the line below
+#nova:en:3
 
 #
 # ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
@@ -8855,7 +8856,7 @@ it:latte di capra pastorizzato
 <en:milk
 en:sheep's milk
 de:Schafmilch
-fr:laitde brebis
+fr:lait de brebis
 nl:schapenmelk
 
 # RAW SHEEPS MILK - milk produced by female sheep before any treatment
@@ -9027,7 +9028,10 @@ fr:lait écrémé concentré, concentré de lait écrémé
 de:kondensierte Magermilch, konzentrierte Magermilch, Kondensmagermilch
 it:latte scremato concentrato, latte magro concentrato
 
-fr:lactose et protéine de lait
+<en:milk proteins
+<en:lactose
+en:lactose and milk proteins
+fr:lactose et protéine de lait, lactose et protéines de lait, protéines de lait et lactose, protéine de lait et lactose
 
 # nova:en:milk-powder
 en:milk powder, powdered milk
