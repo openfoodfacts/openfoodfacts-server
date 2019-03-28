@@ -70,6 +70,7 @@ is( g_to_unit(42000, "\N{U+516C}\N{U+5347}"), 42 );
 my $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],
+	categories => "beverages",
 	ingredients_tags => ["en:water", "en:fruit-juice"],
 };
 
@@ -79,11 +80,12 @@ special_process_product($product_ref);
 
 ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages' ) || diag explain $product_ref;
 
-is( $product_ref->{pnns_groups_2}, undef) || diag explain $product_ref;
+is( $product_ref->{pnns_groups_2}, "unknown") || diag explain $product_ref;
 
 $product_ref = {
         lc => "en",
         categories_tags => ["en:beverages"],
+	categories => "beverages",
         ingredients_tags => ["en:water", "en:fruit-juice"],
 	ingredients_text => "water, fruit juice",
 };
@@ -100,6 +102,7 @@ is( $product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag explain $pro
 $product_ref = {
         lc => "en",
         categories_tags => ["en:beverages"],
+	categories => "beverages",
         ingredients_tags => ["en:sugar"],
 };
 
@@ -113,6 +116,7 @@ is( $product_ref->{pnns_groups_2}, "Sweetened beverages") || diag explain $produ
 $product_ref = {
         lc => "en",
         categories_tags => ["en:beverages"],
+	categories => "beverages",
         ingredients_tags => ["en:sugar"],
 	additives_tags => ["en:e950"],
 	with_sweeteners => 1,
@@ -129,6 +133,7 @@ is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag e
 $product_ref = {
         lc => "en",
         categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
+	categories => "beverages",
         ingredients_tags => ["en:sugar"],
         additives_tags => ["en:e950"],
         with_sweeteners => 1,
@@ -144,6 +149,7 @@ is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag e
 
 $product_ref = {
         lc => "en",
+	categories => "beverages",
         categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
 };
 
@@ -155,6 +161,7 @@ is( $product_ref->{pnns_groups_2}, "Waters and flavored waters") || diag explain
 
 $product_ref = {
         lc => "en",
+	categories => "beverages",
         categories_tags => ["en:beverages", "en:iced-teas"],
 };
 
@@ -166,6 +173,7 @@ is( $product_ref->{pnns_groups_2}, "Teas and herbal teas and coffees") || diag e
 
 $product_ref = {
         lc => "en",
+	categories => "beverages",
         categories_tags => ["en:beverages", "en:ice-teas"],
         ingredients_tags => ["en:sugar"],
         additives_tags => ["en:e950"],
@@ -183,6 +191,7 @@ is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag e
 
 $product_ref = {
         lc => "en",
+	categories => "beverages",
         categories_tags => ["en:beverages"],
         ingredients_tags => ["en:water", "en:fruit-juice"],
         ingredients_text => "water, fruit juice",
@@ -200,6 +209,7 @@ ok( (has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'))
 
 $product_ref = {
         lc => "en",
+	categories => "beverages",
         categories_tags => ["en:beverages", "en:unsweetened-beverages"],
         ingredients_tags => ["en:water", "en:sugar"],
         ingredients_text => "water, fruit juice",
@@ -216,6 +226,7 @@ is($product_ref->{nutrition_score_beverage}, 1);
 
 $product_ref = {
         lc => "en",
+	categories => "beverages",
         categories_tags => ["en:beverages", "en:plant-milks"],
         ingredients_tags => ["en:water", "en:sugar"],
         ingredients_text => "water, fruit juice",
