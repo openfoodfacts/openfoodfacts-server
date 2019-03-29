@@ -18784,14 +18784,14 @@ wa:Speate
 zh:斯佩耳特小麦
 wikipedia:en:https://en.wikipedia.org/wiki/Spelt
 wikidata:en:Q158767
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épeautre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épeautre
 # 278 products in 6 languages @2018-09-22
 
 <en:spelt
 fr:flocons d'épeautre
 de:Quinoa-Fakes
 it:fiocchi di quinoa
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-d'épeautre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-d'épeautre
 # 69 products in 3 languages @2018-09-22
 
 <fr:flocons d'épeautre
@@ -47826,6 +47826,23 @@ wikidata:en:Q178559
 wikipedia:en:https://en.wikipedia.org/wiki/Poultry
 # ingredient/fr:volaille has 99 products in 4 languages @2019-03-11
 
+<en:poultry
+# <en:skin
+en:poultry skin
+fr:peau de volaille
+nl:gevogeltevel
+# ingredient/fr:peau-de-volaille has 76 products in french @2019-03-29
+
+<en:poultry skin
+en:chicken skin
+de: Poulethaut
+es: piel de pollo
+fr:peau de poulet
+it: pelle di pollo
+nl: kippenvel
+ro: piele de pui
+# ingredient/fr:peau-de-poulet has 215 products in 7 languages @2019-03-29
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -49960,7 +49977,6 @@ fr:bilimbi
 nl:blimbing
 de:Gurkenbaumfrucht
 
-fr:peau de poulet
 
 fr:couenne
 
@@ -51089,10 +51105,7 @@ fr:oxyde de zinc
 
 fr:marc de bourgogne
 
-fr:peau de volaille
 
-
-fr:géliﬁant
 
 
 
