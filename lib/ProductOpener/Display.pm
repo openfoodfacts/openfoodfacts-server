@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -377,7 +377,7 @@ CSS
 CSS
 ;
 	}
-	
+
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 }
@@ -1268,17 +1268,17 @@ sub display_list_of_tags($$) {
 		# or if the user is logged in and nocache is different from 0
 		if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
 			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
-			
+
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection", { query => $aggregate_parameters }) if $log->is_debug();
 				$results = execute_query(sub {
 					return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
 				});
-			};			
-			
+			};
+
 		}
 		else {
-		
+
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products_tags collection", { query => $aggregate_parameters }) if $log->is_debug();
 				$results = execute_query(sub {
@@ -1431,19 +1431,19 @@ sub display_list_of_tags($$) {
 		}
 
 		my %products = ();	# number of products by tag, used for histogram of nutrition grades colors
-		
+
 		$log->debug("going through all tags", {}) if $log->is_debug();
-		
+
 		my $i = 0;
 
 		foreach my $tagcount_ref (@tags) {
-	
+
 			$i++;
-			
+
 			if (($i % 10000 == 0) and ($log->is_debug())) {
 				$log->debug("going through all tags", {i => $i});
 			}
-		
+
 			my $tagid = $tagcount_ref->{_id};
 			my $count = $tagcount_ref->{count};
 
@@ -1635,7 +1635,7 @@ sub display_list_of_tags($$) {
 		$html .= "</tbody></table></div>";
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
-		
+
 
 		# nutrition grades colors histogram
 
@@ -1829,7 +1829,7 @@ HEADER
 
 	# datatables clears both
 	$request_ref->{full_width} = 1;
-	
+
 	$log->debug("end", {}) if $log->is_debug();
 
 
@@ -3640,14 +3640,14 @@ sub search_and_export_products($$$$$) {
 	elsif ($count == 0) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
-	
+
 	# On demand exports can be very big, limit the number of products
 	my $export_limit = 100000;
-	
+
 	if (defined $options{export_limit}) {
 		$export_limit = $options{export_limit};
 	}
-	
+
 	if ($count > $export_limit) {
 		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
 	}
@@ -3667,19 +3667,19 @@ sub search_and_export_products($$$$$) {
 	}
 
 
-	
+
 
 	if ($count > 0) {
-	
+
 		# Send the CSV file line by line
-		
+
 		use Apache2::RequestRec ();
 		my $r = Apache2::RequestUtil->request();
 		$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
 		$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
 		binmode(STDOUT, ":encoding(UTF-8)");
-		print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";	
-	
+		print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
+
 		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
 
 		# First pass needed if we flatten results
@@ -3714,7 +3714,7 @@ sub search_and_export_products($$$$$) {
 		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
 		my $csv = "";
-		
+
 		foreach my $field (@export_fields) {
 
 			# skip additives field and put only additives_tags
@@ -3767,13 +3767,13 @@ sub search_and_export_products($$$$$) {
 		$csv =~ s/\t$/\n/;
 
 		print $csv;
-		
-		
-		
+
+
+
 		while (my $product_ref = $cursor->next) {
 
 			$csv = "";
-		
+
 			# Normal fields
 
 			foreach my $field (@export_fields) {
@@ -3902,7 +3902,7 @@ sub search_and_export_products($$$$$) {
 			}
 
 			$csv =~ s/\t$/\n/;
-			
+
 			print $csv;
 
 		}
@@ -6147,8 +6147,9 @@ sub display_product($)
 	my $title = undef;
 	my $description = "";
 
-	$scripts .= <<HTML
-HTML
+		$scripts .= <<SCRIPTS
+<script src="@{[ format_subdomain('static') ]}/js/display-product.js"></script>
+SCRIPTS
 ;
 	$initjs .= <<JS
 JS
@@ -6295,6 +6296,10 @@ HTML
 #   Rated <span itemprop="ratingValue">3.5</span>/5
 #   based on <span itemprop="reviewCount">11</span> customer reviews
 #  </div>
+
+	if ((defined $User_id) and (defined $robotoff_url) and (length($robotoff_url) > 0)) {
+		$html .= "<robotoff-asker url='$robotoff_url' code='$code' lang='$lc' style='display: none;' caption-yes='" . lang("button_caption_yes") . "' caption-no='" . lang("button_caption_no") . "' caption-skip='" . lang("button_caption_skip") . "'></robotoff-asker>\n";
+	}
 
 	$html .= '<div itemscope itemtype="https://schema.org/Product">' . "\n";
 
@@ -6913,9 +6918,9 @@ $html_fields
 HTML
 ;
 	}
-	
+
 	if ($admin) {
-		compute_carbon_footprint_infocard($product_ref);	
+		compute_carbon_footprint_infocard($product_ref);
 		$html .= display_field($product_ref, 'environment_infocard');
 		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
 			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
@@ -7511,10 +7516,10 @@ sub display_nutrient_levels($) {
 		my $uc_grade = uc($grade);
 
 		my $warning = '';
-		
+
 		# Do not display a warning for water
 		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
-		
+
 			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
 				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
 			}
@@ -8420,7 +8425,7 @@ HTML
 					compute_carbon_footprint_infocard($product_ref);
 					$carbon_footprint_computed = 1;
 				}
-				# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html 
+				# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
 				if ($field eq "nutrition_table_html") {
 					$compact_product_ref->{$field} = display_nutrition_table($product_ref, undef);
 				}
@@ -8433,7 +8438,7 @@ HTML
 						}
 					}
 				}
-				
+
 				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}
