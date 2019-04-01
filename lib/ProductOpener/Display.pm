@@ -1990,8 +1990,11 @@ sub display_list_of_tags_translate($$) {
 			my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 			
 			# Keep only known tags that do not have a translation in the current lc
-			if (((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))
-				or (not $tag_ref->{known})) {
+			if ((not $request_ref->{translate} eq "all") and
+				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
+				next;
+			}
+			if (not $tag_ref->{known}) {
 				next;
 			}
 			
@@ -2009,7 +2012,7 @@ sub display_list_of_tags_translate($$) {
 					$log->debug("display_list_of_tags_translate - translate=" . $request_ref->{translate} . " - skip $tagid entry with existing user translation") if $log->is_debug();
 					next;
 				}
-				# Edit or Review mode: show the new translation
+				# All, Edit or Review mode: show the new translation
 				$new_translation = "<div>" . lang("current_translation") . " : " . $users_translations_ref->{$lc}{$tagid}{to} . " (" . $users_translations_ref->{$lc}{$tagid}{userid} . ")</div>";
 			}			
 			else {
@@ -2048,7 +2051,7 @@ sub display_list_of_tags_translate($$) {
 
 			$html .= <<HTML
 <tr><td>			
-<a href="$link"$nofollow>$display</a> $synonyms<br />
+<a href="$link"$nofollow target="_blank">$display</a> $synonyms<br />
 <input type="hidden" id="from_$j" name="from_$j" value="$tagid" />
 <div id="to_${j}_div"><input id="to_$j" name="to_$j" value="" /></div>
 $new_translation
