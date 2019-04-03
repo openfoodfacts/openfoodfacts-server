@@ -19773,8 +19773,6 @@ fr:farine de riz blanc
 fr:farine de riz complet
 
 
-# Question
-
 <en:flour
 <en:quinoa
 en:quinoa flour
@@ -19782,7 +19780,7 @@ de:Quinoa-Mehl
 es:Harina de quinoa
 fr:farine de quinoa
 it:Farina di Quinoa
-openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa-flour
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa-flour
 # 173 products in 5 languages @2018-09-22
 
 <en:flour
@@ -19790,7 +19788,7 @@ en:pea flour
 de:Erbsenmehl
 fr:farine de pois
 it:farina di piselli
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20pois
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20pois
 # 36 products in 4 languages @2018-09-22
 
 <en:flour
@@ -25446,7 +25444,7 @@ sk:Broskyňa
 # zh-min-nan:Thô-á
 wikipedia:en:https://en.wikipedia.org/wiki/Peach
 wikidata:en:Q13411121
-openfoodfacts:https://world.openfoodfacts.org/ingredient/peach
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/peach
 # 1065 products in 7 languages @2018-09-26
 carbon_footprint_fr_foodges_ingredient:fr:Pêche
 
@@ -25456,7 +25454,7 @@ en:peach puree
 de:Pfirsichpurée
 fr:purée de pêches, purée de pêche
 it:purea di pesche
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pêches
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pêches
 # 147 products in 4 languages @2018-09-26
 
 
@@ -25571,7 +25569,7 @@ zh:梨
 # zh-min-nan:梨
 wikipedia:en:https://en.wikipedia.org/wiki/Pear
 wikidata:en:Q13099586
-openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
 #carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
 #carbon_footprint_fr_foodges_ingredient:fr:Poire (Argentine)
 # 130 products in 5 languages @2018-09-28
@@ -25582,7 +25580,7 @@ es:pera conferencia
 fr:poire conférence
 nl:conference peer
 de:Conference-Birne
-openfoodfacts:https://world.openfoodfacts.org/ingredient/conference-pear
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/conference-pear
 # 3 products in 1 language @2018-09-28
 
 <en:pear
@@ -34965,6 +34963,26 @@ wikipedia:en:https://en.wikipedia.org/wiki/Snow_pea
 fr:petits pois extra fins
 
 
+# description:en:  SPLIT PEAS  are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
+
+<en:legume
+en:split pea, split peas
+el:Φάβα
+# en-ca:Split pea
+# en-gb:Split pea
+fa:لپه
+fr:pois cassés
+hu:Sárgaborsó
+ko:완두 짜개
+ms:Kacang dal
+nl:spliterwt, Spliterwten
+ru:лущеный горох
+te:split peas
+wikidata:en:Q2265406
+wikipedia:en:https://en.wikipedia.org/wiki/Split_pea
+# ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
+
+
 fr:lentilles sèches trempées
 
 fr:lentilles corail
@@ -35333,9 +35351,9 @@ uz:Yeryongʻoq
 yi:סטאשקע
 za:Duhdoem
 zh:花生仁
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:arachide
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:arachide
 # 1147 products in 9 languages @2018-10-05
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
 # 806 products in 19 languages @2018-10-06
 
 <en:peanut
@@ -35345,7 +35363,7 @@ es:cacahuetes tostados
 fr:cacahuètes grillées
 it:arachidi tostate
 nl:geroosterde pinda's, geroosterde pindanoten
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes%20grillées
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes%20grillées
 # 66 products in 6 languages @2018-10-06
 
 <en:roasted peanuts
@@ -35355,7 +35373,7 @@ fr:cacahuètes grillées moulues, arachides grillées moulues
 it:arachidi tostate macinate
 nl:geroosterde germalen pinda's
 pt:amendoins torrados moídos
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes%20grillées%20moulues
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes%20grillées%20moulues
 # 53 products in 6 languages @2018-10-06
 
 <en:nut
@@ -51678,8 +51696,6 @@ fr:l-carnitine
 fr:nappage
 
 fr:roquefort
-allergens:fr:_roquefort_
-
 
 en:artichoke
 es:alcachofa
@@ -51692,14 +51708,9 @@ fr:cœurs d'artichauts, coeurs d'artichauts
 
 fr:églantier
 
-
 en:egg pastas
 fr:pâtes aux œufs, pâtes aux oeufs
 
-
-
-
-fr:pois cassés
 
 
 
