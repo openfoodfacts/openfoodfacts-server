@@ -37,4 +37,11 @@ assign_value($product_ref, "sugars_value", "10.6000");
 
 is($product_ref->{sugars_value}, "10.6");
 
+$product_ref->{some_field} = "Fabriqué en France par EMB59481 pour Auchan Production";
+
+match_taxonomy_tags($product_ref, "some_field", "emb_codes",
+{ split => ',|( \/ )|\r|\n|\+|:|;|=|\(|\)|\b(et|par|pour|ou)\b', });
+
+is($product_ref->{emb_codes}, "EMB59481");
+
 done_testing();
