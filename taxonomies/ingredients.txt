@@ -8036,11 +8036,150 @@ sl:Nukleotidi
 sv:Nukleotider
 #wikidata:en:
 
-en:Other nutritional substances
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                       O T H E R   N U T R I T I O N A L   S U B S T A N C E S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+en:other nutritional substances
 es:Otras sustancias nutricionales
 fr:Autres substances nutritives
 hu:Egyéb táplálkozási anyagok
 nl:Andere voedingsmiddelen
+
+
+# description:en:Carnitine is a quaternary ammonium compound involved in metabolism in most mammals, plants and some bacteria. The body synthesizes enough carnitine from lysine side chains to keep up with the needs of energy production in the body as carnitine acts as a transporter of long-chain fatty acids into the mitochondria to be oxidized and produce energy. Food sources rich in L-carnitine are animal products such as meat, poultry, fish, and milk. Redder meats tend to have higher levels of L-carnitine. Some individuals with genetic or medical disorders (like preterm infants) cannot make enough, so this makes carnitine a conditionally essential nutrient for them.
+
+
+<en:other nutritional substances
+en:Carnitine
+ar:كارنتين
+# azb:کارنیتین
+en:carnitine
+bg:карнитин
+ca:carnitina
+cs:karnitin
+de:Carnitin
+el:καρνιτίνη
+eo:Karnitino
+es:carnitina
+et:karnitiin
+fa:ال‌کارنیتین
+fr:Carnitine
+fi:karnitiini
+ga:Cairnitín
+gl:Carnitina
+he:קרניטין
+hr:Karnitin
+hu:karnitin
+hy:Կարնիտին
+id:Karnitina
+it:carnitina
+ja:カルニチン
+ko:카르니틴
+lt:karnitinas
+lv:karnitīns
+mt:karnetina
+nb:Karnitin
+nl:Carnitine
+pl:karnityna
+pt:carnitina
+ro:carnitină
+ru:Левокарнитин
+sh:Karnitin
+sk:karnitín
+sl:karnitin
+sq:carnitine
+sr:карнитин
+# sr-ec:карнитин
+# sr-el:Karnitin
+sv:karnitin
+ta:கார்னிதின்
+th:คาร์นิทีน
+tr:Karnitin
+uk:Карнитин
+zh:肉碱
+# zh-cn:肉碱
+# zh-hans:肉碱
+# zh-hant:肉鹼
+# zh-hk:肉鹼
+# zh-sg:肉碱
+# zh-tw:肉鹼
+wikidata:en:Q243309
+wikipedia:en:https://en.wikipedia.org/wiki/Carnitine
+
+<en:Carnitine
+en:L-carnitine
+bg:L-карнитин
+cs:L-karnitin
+de:L-Carnitin
+el:L-καρνιτίνη
+es:L-carnitina
+et:L-karnitiin
+fi:L-karnitiini
+fr:l-carnitine
+hu:L-karnitin
+it:L-carnitina
+lt:L-karnitinas
+lv:L-karnitīns
+mt:L-karnetina
+pl:L-karnityna
+pt:L-carnitina
+ro:L-carnitină
+ru:L-карнитин
+sk:L-karnitín
+sl:L-karnitin
+sv:L-karnitin
+# ingredient/fr:l-carnitine has 90 products in 4 languages @2019-04-04
+# other-nutritional-substance/l-carnitine has 156 products in 7 languages @2019-04-04
+
+<en:Carnitine
+en:L-carnitine hydrochloride
+bg:L-карнитин хидрохлорид
+cs:L-karnitin-hydrochlorid
+de:L-Carnitin-hydrochlorid
+el:υδροχλωρική L-καρνιτίνη
+es:Clorhidrato de L-carnitina
+et:L-karnitiinhüdrokloriid
+fi:L-karnitiinihydrokloridi
+fr:L-chlorhydrate de carnitine
+hu:L-karnitin-hidroklorid
+it:cloridrato di L-carnitina
+lt:L-karnitino hidrochloridas
+lv:L-karnitīna hidrohlorīds
+mt:L-karnetina
+nl:L-carnitine-hydrochloride
+pl:chlorowodorek L-karnityny
+pt:cloridrato de L-carnitina
+ro:clorhidrat de L-carnitină
+sk:L-karnitínhydrochlorid
+sl:L-karnitin hidroklorid
+sv:L-karnitinhydroklorid
+
+<en:Carnitine
+en:L-carnitine-L-tartrate
+bg:L-карнитин-L-тартарат
+cs:L-karnitin-L-vinan
+de:L-Carnitin-L-Tartrat
+el:L-τρυγική L-καρνιτίνη
+es:L-carnitina-L-tartrato
+et:L-karnitiin-L-tartraat
+fi:L-karnitiini- L-tartraatti
+hu:L-karnitin-L-tartarát
+it:L-carnitina-L-tartrato
+lt:L-karnitino-L-tartratas
+lv:L-karnitīns-L-tartrāts
+mt:L-karnetina-L-tartrat
+nl:L-carnitine-L-tartraat
+pl:L-winian-L-karnityny
+pt:L-carnitina-L-tartarato
+ro:L-carnitină-L-tartrat
+sk:L-karnitín-L-vínan
+sl:L-karnitin-L-tartrat
+sv:L-karnitin-L-tartrat
+
 
 # Ferment is an agent, such as an enzyme, bacterium, or fungus, that brings about fermentation.
 # Ferment is thus more generic than enzyme.
@@ -49349,7 +49488,7 @@ it:estratto concentrato
 en:Filling
 de:Belag
 es:relleno
-fr:garniture, fourrage
+fr:garniture, fourrage, nappage
 nl:garnituur, vulling
 pt:recheio
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
@@ -51900,10 +52039,6 @@ fr:laitue iceberg
 fr:assaisonnement aromatisé
 
 fr:sauce béchamel
-
-fr:l-carnitine
-
-fr:nappage
 
 
 
