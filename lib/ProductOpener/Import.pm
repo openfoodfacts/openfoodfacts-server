@@ -26,6 +26,8 @@ use Exporter    qw< import >;
 
 use Log::Any qw($log);
 
+use Storable qw(dclone);
+use Text::Fuzzy;
 
 BEGIN
 {
@@ -83,7 +85,6 @@ use Encode;
 use JSON::PP;
 use Time::Local;
 use Data::Dumper;
-
 use Text::CSV;
 
 %fields = ();
@@ -123,6 +124,12 @@ sub assign_value($$$) {
 	my $value = shift;
 	
 	my $field = $target;
+	
+	# empty value? skip
+	
+	if ((not defined $value) or ($value =~ /^(\s|\.|\\|\/)*$/)) {
+		return;
+	}
 	
 	# !categories : only add the value if it exists in the corresponding tags taxonomy
 	if ($target =~ /^!/) {
@@ -297,7 +304,8 @@ sub match_taxonomy_tags($$$$) {
 			}
 			# try to see if we have a packager code
 			# e.g. from Carrefour: Fabriqué en France par EMB 29181 (F) ou EMB 86092A (G) pour Interdis.
-			elsif ($value =~ /^((e|emb)(\s|-|\.)*(\d{5})(\s|-|\.)*(\w)?)$/i) {
+			elsif (($value =~ /^((e|emb)(\s|-|\.)*(\d{5})(\s|-|\.)*(\w)?)$/i)
+				or ($value =~ /([a-z][a-z])(\s|\.|-)+\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+(ce|ec|eg)/i)) {
 				assign_value($product_ref,"emb_codes", $value);
 				$log->info("match_taxonomy_tags: found packaging code - assigning value", { source => $source, value => $value, target => "emb_codes"}) if $log->is_info();		
 			}
@@ -357,9 +365,15 @@ sub clean_weights($) {
 	
 		# normalize unit
 		if (defined $product_ref->{$field . "_unit"}) {
-			$product_ref->{$field . "_unit"} =~ s/gr/g/i;
-			if ($product_ref->{$field . "_unit"} !~ /^(kJ|L)$/) {
-				$product_ref->{$field . "_unit"} = lc($product_ref->{$field . "_unit"});
+		
+			if ($product_ref->{$field . "_unit"} =~ /^(-|n\/a|na|nr|ns|\.)*$/i) {
+				delete $product_ref->{$field . "_unit"};
+			}
+			else {
+				$product_ref->{$field . "_unit"} =~ s/gr/g/i;
+				if ($product_ref->{$field . "_unit"} !~ /^(kJ|L)$/) {
+					$product_ref->{$field . "_unit"} = lc($product_ref->{$field . "_unit"});
+				}
 			}
 		}
 	
@@ -459,6 +473,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 	# empty or uncomplete quantity, but net_weight etc. present
 	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "") 
 		or (($lc eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
+		or ($product_ref->{quantity} =~ /^\(.+\)$/)	#  (4 x 125 g)
 		) {
 		
 		# See if we have other quantity related values: net_weight_value	net_weight_unit	drained_weight_value	drained_weight_unit	volume_value	volume_unit
@@ -475,7 +490,12 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 		
 		if (defined $extra_quantity) {
 			if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
-				$product_ref->{quantity} .= " ($extra_quantity)";
+				if ($product_ref->{quantity} =~ /^\(.+\)$/)	{
+					$product_ref->{quantity} = $extra_quantity . " " . $product_ref->{quantity};
+				}
+				else {
+					$product_ref->{quantity} .= " ($extra_quantity)";
+				}
 			}
 			else {
 				assign_value($product_ref, 'quantity', $extra_quantity);
@@ -496,6 +516,8 @@ sub clean_fields($) {
 		
 			$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
 			$product_ref->{$field} =~ s/’/'/g;
+			
+			$product_ref->{$field} =~ s/<p>|<\/p>/\n/ig;
 			
 			# Remove extra line feeds
 			$product_ref->{$field} =~ s/<br( )?(\/)?>/\n/ig;
@@ -659,12 +681,8 @@ sub load_xml_file($$$$) {
 
 	}
 	
-	my $product_ref;
-	
-	
 	if (defined $code) {
 		$code = normalize_code($code);
-		$product_ref = get_or_create_product_for_code($code);
 	}
 	
 	$log->info("parsing xml file with XML::Rules", { file => $file, xml_rules => $xml_rules_ref }) if $log->is_info();
@@ -683,6 +701,114 @@ sub load_xml_file($$$$) {
 	
 	$log->trace("XML::Rules output", { file => $file, xml_ref => $xml_ref }) if $log->is_trace();
 	
+	if ($log->is_trace()) {
+		binmode STDOUT, ":encoding(UTF-8)";
+		open (my $OUT_JSON, ">", "$www_root/data/import_debug_xml.json");
+		print $OUT_JSON encode_json($xml_ref);
+		close ($OUT_JSON);
+	}
+	
+	# Some producers (e.g. Auchan) have multiple product codes in one file, with multiple label field values, 
+	# but without an actual id to make the mapping.
+	
+#<ProductFolder Name="Auchan Cremes Dessert Autres Parfums"/>
+#-<TradeItems>
+#<TradeItem Ean7="" Gtin="3596710402274" Brand="AUCHAN" Packing="" Format="" DenominationCommerciale="CREME DESSERT spÃ©culoos 4X125G"/>
+#<TradeItem Ean7="" Gtin="3596710402281" Brand="AUCHAN" Packing="" Format="" DenominationCommerciale="CREME DESSERT baba au rhum 4X125G"/>
+#<TradeItem Ean7="" Gtin="3596710406074" Brand="AUCHAN" Packing="" Format="" DenominationCommerciale="CREME DESSERT PISTACHE 4X125G"/>
+#<TradeItem Ean7="" Gtin="3596710402250" Brand="AUCHAN" Packing="" Format="" DenominationCommerciale="CREME DESSERT chocolat caramel 4X125G"/>
+#<TradeItem Ean7="" Gtin="3596710402267" Brand="AUCHAN" Packing="" Format="" DenominationCommerciale="CREME DESSERT chocolat blanc 4X125G"/>
+#<TradeItem Ean7="" Gtin="3596710016495" Brand="AUCHAN" Packing="" Format="" DenominationCommerciale="CREM DESS CAFE 4X125G"/>
+#</TradeItems>
+# ...
+#+<Etiquette localId="347348" name="Crème Dessert Café Auchan x4">
+#-<Etiquette localId="347381" name="Crème Dessert Chocolat Caramel Auchan x4">
+#<SectionEtiquetage>Crème Dessert Chocolat Caramel Auchan x4</SectionEtiquetage>
+#<ConditionnementConcerne>Chocolat Caramel x 4</ConditionnementConcerne>
+#<DenominationCommerciale>Crème dessert Caram'choc</DenominationCommerciale>
+#<DenominationLegale>Crème dessert aromatisée caramel chocolat</DenominationLegale>	
+	
+#			multiple_codes => { 
+#				codes => codes,	# all sub fields will be moved to the root of the split children
+#				fuzzy_match => "etiquettes",	# if exists, specify a field that depends on the child
+#				fuzzy_from => "DenominationCommerciale", # value from "codes" that will be fuzzy matched to find the id for "fuzzy_match" hash
+#			},	
+	
+	my @xml_refs = ();
+	
+	# Multiple products?
+	if ($xml_fields_mapping_ref->[0][0] eq "multiple_codes") {
+	
+		$log->info("Split multiple products", { file => $file }) if $log->is_info();
+	
+		my $codes = $xml_fields_mapping_ref->[0][1]{codes};
+		
+		# fuzzy match?
+		
+		my @fuzzy_match_keys = ();
+		my @fuzzy_match_keysid = ();
+		my $fuzzy_match;
+		
+		if (defined $xml_fields_mapping_ref->[0][1]{fuzzy_match}) {
+		
+			$fuzzy_match = $xml_fields_mapping_ref->[0][1]{fuzzy_match};
+			if (defined $xml_ref->{$fuzzy_match}) {
+				@fuzzy_match_keys = sort keys %{$xml_ref->{$fuzzy_match}};
+				@fuzzy_match_keysid = map { get_fileid($_)} @fuzzy_match_keys;
+			}
+		}
+	
+		if (defined $xml_ref->{$codes}) {
+			foreach my $new_code (sort keys %{$xml_ref->{$codes}}) {
+			
+				$new_code = normalize_code($new_code);
+				
+				$log->info("Split multiple products - code", { code => $new_code }) if $log->is_info();
+			
+				my $new_xml_ref = dclone($xml_ref);
+				
+				$new_xml_ref->{code} = $new_code;
+				foreach my $field (sort keys %{$xml_ref->{$codes}{$new_code}}) {
+					
+					$log->info("Split multiple products - copy field", { code => $new_code, field => $field }) if $log->is_info();
+				
+					$new_xml_ref->{$field} = $xml_ref->{$codes}{$new_code}{$field};
+				}
+				
+				# Fuzzy matching in other part of the XML file
+				if (defined $xml_fields_mapping_ref->[0][1]{fuzzy_from}) {
+				
+					my $fuzzy_from = $xml_fields_mapping_ref->[0][1]{fuzzy_from};
+				
+					$log->info("Fuzzy match", { fuzzy_from => $fuzzy_from }) if $log->is_info();
+									
+					if (defined $new_xml_ref->{$fuzzy_from}) {
+						my $tf = Text::Fuzzy->new (get_fileid($new_xml_ref->{$fuzzy_from}));
+						my $nearestid = $tf->nearest (\@fuzzy_match_keysid);
+						my $nearest = $fuzzy_match_keys[$nearestid];
+						$log->info("Fuzzy match found", { fuzzy_from => $fuzzy_from, value => $new_xml_ref->{$fuzzy_from}, nearest => $nearest }) if $log->is_info();
+												
+						foreach my $field (sort keys %{$xml_ref->{$fuzzy_match}{$nearest}}) {
+							
+							$log->info("Fuzzy match - copy field", { field => $field }) if $log->is_info();
+						
+							$new_xml_ref->{$field} = $xml_ref->{$fuzzy_match}{$nearest}{$field};
+						}						
+						
+					}
+				}
+	
+				push @xml_refs, $new_xml_ref;
+			}
+		}
+		
+		shift @{$xml_fields_mapping_ref};
+		
+	}
+	else {
+		push @xml_refs, $xml_ref;
+	}
+	
 	$log->info("Mapping XML fields", { file => $file }) if $log->is_info();
 	
 #		my @xml_fields_mapping = (
@@ -694,12 +820,22 @@ sub load_xml_file($$$$) {
 #			["fields.AL_INGREDIENT.*", "ingredients_text_*"],
 
 	# $code = undef;
+	
+	my $i = 1;
+	
+	foreach $xml_ref (@xml_refs) {
+	
+	my $product_ref;
+	
+	if (defined $code) {
+		$product_ref = get_or_create_product_for_code($code);
+	}
 
 	foreach my $field_mapping_ref (@$xml_fields_mapping_ref) {
 		my $source = $field_mapping_ref->[0];
 		my $target = $field_mapping_ref->[1];
 		
-		$log->trace("source", { source=>$source, target=>$target }) if $log->is_trace();
+		$log->trace("source $i", { source=>$source, target=>$target }) if $log->is_trace();
 		
 		my $current_tag = $xml_ref;
 		
@@ -767,6 +903,8 @@ sub load_xml_file($$$$) {
 					print STDERR "$source_tag is a scalar: $value, assign value to $target\n";
 					if ($target eq 'code') {
 						$code = $value;
+						$code = normalize_code($code);
+						$product_ref = get_or_create_product_for_code($code);
 					}
 					
 					my $seen_energy_kj = 0;
@@ -809,7 +947,11 @@ sub load_xml_file($$$$) {
 				last;
 			}		
 		}
+		
+		$i++;
 	}
+	
+	} #foreach @xml_refs
 	
 	return 0;
 }
@@ -1047,7 +1189,7 @@ sub print_csv_file() {
 
 	print join("\t", @fields) . "\n";
 	
-	foreach my $code (sort {$products{$a} <=> $products{$b}} keys %products) {
+	foreach my $code (sort keys %products) {
 	
 		my @values = ();
 		my $product_ref = $products{$code};
@@ -1064,6 +1206,7 @@ sub print_csv_file() {
 		$csv_out->print (*STDOUT, \@values) ;
 		print "\n";
 	
+		print STDERR "code: $code\n";
 	}
 
 }
