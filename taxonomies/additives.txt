@@ -1,67 +1,3 @@
-[[Category:Food additives]]
-=== How it works ===
-[[Category:Global_Taxonomies]]
-This page contains the definition of the hierarchy of categories used in Open Food Facts.
-
-The definition contains:
-* stopwords (words that can be ignored when matching category names)
-* word synonyms (words that can be exchanged when matching category names)
-* category synonyms (the synonyms are then matched also in other category names that contains those synonyms)
-
-For more details, see [[Global taxonomies]]
-
-== Current status ==
-
-* Already live. 
-* Last push to production:
-
-== Done ==
-
-* 2014/11/14 - Merge from https://fr.wiki.openfoodfacts.org/Liste_des_additifs_reconnus and https://en.wiki.openfoodfacts.org/Additives_taxonomy
-* 2015 - * Match with Wikidata and Wikipedia at http://tools.wmflabs.org/mix-n-match/?mode=catalog&catalog=24&offset=0&show_noq=1&show_autoq=0&show_userq=0&show_na=0
-
-== Issues ==
-
-* The French list treated all variants (i), (ii) etc. as one single additive entry.
-* The other list [[Additives taxonomy]] does the reverse: there is one entry for each variant (e.g. E101(i) ) but no entry for E101.
-
-== To do ==
-
-* Change the "EXXX Food Additive" to the correct name (at least in English)
-** Those are the additives that existed in the French list but not in the global list
-
-* Add more synonyms for each language other than French (synonyms can be found in the EU directives)
-* Then remove the English synonyms from the the French entries
-
-* There are some synonyms in (parenthesis) for some entries, they should be converted to a comma separated list. But all parenthesis are not synonyms, so be careful.
-
-
-== Properties to be added ==
-<pre>
-vegetarian_level:
-gmo_level:
-risk_level:
-family:
-description:fr:
-origin:fr:
-risks:fr:
-from_palm_oil:
-efsa_authorized:
-fda_authorized:
-jecfa_authorized:
-fsanz_authorized:
-</pre>
-
-yes/no/unsure
-
-==Ruling bodies==
-* Joint Food and Agricultural Organization/World Health Organization Expert Committee on Food Additives (JECFA)
-* European Food Safety Authority (EFSA)
-* FSANZ
-* US FDA
-
-== Taxonomy definition ==
-<pre>
 # For reference:
 #
 # EU list of additives:
@@ -72,7 +8,7 @@ yes/no/unsure
 # of 16 December 2008
 # on food additives
 # (Text with EEA relevance)
-#
+#3
 # Codex Alimentarius:
 # http://www.fao.org/gsfaonline/additives/details.html?id=322
 
@@ -214,6 +150,7 @@ wikidata:en:Q130365
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101(i)) and riboflavin-5'-phosphate sodium (E 101(ii)) as food additives.
+efsa_evaluation_adi_established:en: en:no
 additives_classes:en: en:colour
 
 <en:E101
@@ -245,6 +182,7 @@ wikidata:en:Q130365
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101(i)) and riboflavin-5'-phosphate sodium (E 101(ii)) as food additives.
+efsa_evaluation_adi_established:en: en:no
 additives_classes:en: en:colour
 
 en:E101a, Riboflavin-5'-Phosphate
@@ -569,6 +507,7 @@ efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1332.pdf
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2009.1332
 efsa_evaluation_date:en: 2009-11-12
 efsa_evaluation:en: Scientific Opinion on the re-evaluationof Azorubine/Carmoisine (E 122) as a food additive
+efsa_evaluation_overexposure_risk:en: en:no
 additives_classes:en: en:colour
 
 # amaranth is common as an ingredient in cereals
@@ -881,9 +820,7 @@ efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2818.pdf
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2014.3768
 efsa_evaluation_date:en: 2014/07/25
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of Indigo Carmine (E 132) as a food additive
-efsa_evaluation_overexposure_risk:en: en:moderate
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_overexposure_risk:en: en:no
 efsa_evaluation_adi:en: 5
 additives_classes:en: en:colour
 
@@ -1189,7 +1126,6 @@ el:E150, E150 food additive
 es:E150, Caramelo, Caramelina, Caramelo líquido
 et:E150, E150 food additive
 fi:E150, E150 food additive
-# too many synonyms for fr, makes taxonomy break
 fr:E150, Caramel
 hu:E150, Karamell
 it:E150, E150 food additive
@@ -1204,6 +1140,7 @@ ro:E150, E150 food additive
 sk:E150, E150 food additive
 sl:E150, E150 food additive
 sv:E150, E150 food additive
+# too many synonyms for fr, makes taxonomy break
 e_number:en:150
 mandatory_additive_class:en: en:colour
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
@@ -1381,6 +1318,8 @@ efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1540.pdf
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.3960
 efsa_evaluation_date:en: 2015-01-09
 efsa_evaluation:en: Refined exposure assessment for Brilliant Black BN (E 151)
+efsa_evaluation_overexposure_risk:en: en:no
+efsa_evaluation_adi:en: 5
 additives_classes:en: en:colour
 
 en:E152, Black 7984, Food Black 2, carbon black
@@ -2607,7 +2546,7 @@ en:E172(ii), E172(ii) food additive, iron(III) oxide, ferric oxide
 bg:E172(ii), E172(ii) food additive
 cs:E172(ii), E172(ii) food additive, Oxid železitý, Fe2O3
 da:E172(ii), E172(ii) food additive
-de:E172(ii), E172(ii) food additive, Eisen(III)-oxid, Fe2O3, Oxidrot, Dieisentrioxid
+de:E172(ii), E172(ii) food additive, Eisen(III)-oxid, Fe2O3, Oxidrot, Dieisentrioxid, Eisenoxide
 el:E172(ii), E172(ii) food additive
 es:E172(ii), E172(ii) food additive, óxido férrico, Fe2O3, herrumbre, óxido de hierro, sesquióxido de hierro, trióxido de hierro, óxido de hierro (III)
 et:E172(ii), E172(ii) food additive, Raud(III)oksiid
@@ -3000,6 +2939,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4433
 efsa_evaluation_date:en: 2016-03-31
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of benzoic acid (E 210), sodium benzoate (E 211), potassium benzoate (E 212) and calcium benzoate (E 213) as food additives
 additives_classes:en: en:preservative
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 5
 
 en:E211, Sodium benzoate
 bg:E211, Натриев бензоат
@@ -3029,6 +2972,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4433
 efsa_evaluation_date:en: 2016-03-31
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of benzoic acid (E 210), sodium benzoate (E 211), potassium benzoate (E 212) and calcium benzoate (E 213) as food additives
 additives_classes:en: en:preservative
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 5
 
 en:E212, Potassium benzoate
 bg:E212, Калиев бензоат
@@ -3058,6 +3005,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4433
 efsa_evaluation_date:en: 2016-03-31
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of benzoic acid (E 210), sodium benzoate (E 211), potassium benzoate (E 212) and calcium benzoate (E 213) as food additives
 additives_classes:en: en:preservative
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 5
 
 en:E213, Calcium benzoate
 bg:E213, Калциев бензоат
@@ -3087,6 +3038,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4433
 efsa_evaluation_date:en: 2016-03-31
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of benzoic acid (E 210), sodium benzoate (E 211), potassium benzoate (E 212) and calcium benzoate (E 213) as food additives
 additives_classes:en: en:preservative
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 5
 
 en:E214, Ethyl p-hydroxybenzoate, Ethylparaben, ethyl para-hydroxybenzoate
 bg:E214, Етилов р-хидроксибензоат, Етилпарабен
@@ -3270,6 +3225,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
 efsa_evaluation_date:en: 2016-04-14
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
 additives_classes:en: en:antioxidant, en:preservative
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 0.7
 
 en:E221, Sodium sulphite, Sodium sulfite
 bg:E221, Натриев сулфит
@@ -3299,6 +3258,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
 efsa_evaluation_date:en: 2016-04-14
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
 additives_classes:en: en:antioxidant, en:preservative
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 0.7
 
 en:E222, Sodium bisulphite, Sodium bisulfite
 bg:E222, Натриев бисулфит, Натриев бисулфит
@@ -3328,6 +3291,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
 efsa_evaluation_date:en: 2016-04-14
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
 additives_classes:en: en:antioxidant, en:preservative
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 0.7
 
 en:E223, Sodium metabisulphite, Pyrosulphite, Sodium metabisulfite, Pyrosulfite
 bg:E223, Натриев метабисулфит, Пиросулфит
@@ -3357,6 +3324,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
 efsa_evaluation_date:en: 2016-04-14
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
 additives_classes:en: en:antioxidant, en:preservative
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 0.7
 
 en:E224, Potassium metabisulphite, Potassium metabisulfite
 bg:E224, Калиев метабисулфит
@@ -3388,6 +3359,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
 efsa_evaluation_date:en: 2016-04-14
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
 additives_classes:en: en:antioxidant, en:preservative
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 0.7
 
 en:E225, Calcium Disulphite, Calcium Disulfite, Calcium Pyrosulphite, Calcium Pyrosulfite, potassium sulfite, potassium sulphite
 bg:E225, E225 food additive
@@ -3442,6 +3417,10 @@ wikidata:en:Q899410
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
 efsa_evaluation_date:en: 2016-04-14
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 0.7
 
 en:E227, Calcium bisulphite, Calcium bisulfite
 bg:E227, Калциев бисулфит, Калциев бисулфит
@@ -3470,6 +3449,10 @@ wikidata:en:Q419619
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
 efsa_evaluation_date:en: 2016-04-14
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 0.7
 
 en:E228, Potassium bisulphite, Potassium bisulfite
 bg:E228, Калиев бисулфит, Калиев бисулфит
@@ -3498,6 +3481,10 @@ wikidata:en:Q412524
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
 efsa_evaluation_date:en: 2016-04-14
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 0.7
 
 en:E230, Biphenyl, diphenyl, (C6H5)2
 bg:E230, E230 food additive
@@ -6346,7 +6333,7 @@ el:E341, E341 food additive
 es:E341, Fosfatos de calcio, Fosfato de calcio, Fosfato cálcico
 et:E341, E341 food additive
 fi:E341, E341 food additive
-fr:E341, Phosphate de calcium d’hydrogène, Phosphate de calcium dihydrogène, Phosphates de calcium, Orthophosphates de calcium, Orthophosphate monocalcique, phosphate monocalcique, Orthophosphate dicalcique, Orthophosphate tricalcique, Phosphate tricalcique, Phosphate de calcium monobasique, Phosphate de calcium dibasique, Phosphate de calcium tribasique, Phosphate de calcium (i), Phosphate de calcium (ii), Phosphate de calcium (iii), phosphate de calcium, E341(iii), Orthophosphate de calcium, 7758-87-4, Phosphate dicalcique
+fr:E341, Phosphates de calcium, Orthophosphates de calcium
 hu:E341, E341 food additive
 it:E341, E341 food additive
 lt:E341, E341 food additive
@@ -6367,21 +6354,21 @@ additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer
 <en:E341
 en:E341(i), Monocalcium phosphate, Monobasic calcium phosphate
 bg:E341(i), Монокалциев фосфат, Едноосновен калциев фосфат
-cs:E341(i), Bis(dihydrogenfosforečnan) vápenatý
+cs:E341(i), Fosforečnan monovápenatý, Bis(dihydrogenfosforečnan) vápenatý
 da:E341(i), Monocalciumphosphat, Monobasisk calciumphosphat
 de:E341(i), Monocalciumphosphat, einbasiges Calciumphosphat
 el:E341(i), Δισοξινο φωσφορικο ασβεστιο, Μονοβασικό φωσφορικό ασβέστιο
 es:E341(i), Fosfato monocálcico, Fosfato monobásico cálcico
 et:E341(i), Kaltsiumdivesinikfosfaat, Kaltsiumdivesinikfosfaat
 fi:E341(i), Monokalsiumfosfaatti, Yhdenarvoinen kalsiumfosfaatti
-fr:E341(i), Phosphate monocalcique
+fr:E341(i), Phosphate monocalcique, orthophosphate monocalcique
 hu:E341(i), Monokalcium-foszfát, Egybázisú kalcium-foszfát
 it:E341(i), Fosfato monocalcico, Fosfato monobasico di calcio
 lt:E341(i), Monokalcio fosfatas, Vienbazis kalcio fosfatas
 lv:E341(i), Monokalcija fosfāts, Monobāziskais kalcija fosfāts
 mt:E341(i), Fosfat monokalċiku, Fosfat tal-kalċju monobażiku
 nl:E341(i), Monocalciumfosfaat, Eenbasisch calciumfosfaat
-pl:E341(i), Fosforan monowapniowy, Fosforan wapnia, monozasadowy
+pl:E341(i), Fosforan monowapniowy, Fosforan wapnia monozasadowy
 pt:E341(i), Fosfato monocálcico, Fosfato monobásico de cálcio
 ro:E341(i), Fosfat monocalcic, Fosfat de calciu monobazic
 sk:E341(i), Fosforečnan monovápenatý
@@ -6408,7 +6395,7 @@ lt:E341(ii), Dikalcio fosfatas, Dvibazis kalcio fosfatas
 lv:E341(ii), Dikalcija fosfāts, Dibāziskais kalcija fosfāts
 mt:E341(ii), Fosfat dikalċiku, Fosfat tal-kalċju dibażiku
 nl:E341(ii), Dicalciumfosfaat, Tweebasisch calciumfosfaat
-pl:E341(ii), Fosforan diwapniowy, Fosforan wapnia, dizasadowy
+pl:E341(ii), Fosforan diwapniowy, Fosforan wapnia dizasadowy
 pt:E341(ii), Fosfato dicálcico, Fosfato dibásico de cálcio
 ro:E341(ii), Fosfat dicalcic, Fosfat de calciu dibazic
 sk:E341(ii), Fosforečnan divápenatý, Dvojsýtny fosforečnan vápenatý
@@ -6481,13 +6468,13 @@ el:E343, E343 food additive
 es:E343, E343 food additive
 et:E343, E343 food additive
 fi:E343, E343 food additive
-fr:E343, Orthophosphates de magnésium, Orthophosphate monomagnésien, Orthophosphate dimagnésien, Orthophosphate trimagnésien
+fr:E343, phosphates de magnésium, Orthophosphates de magnésium
 hu:E343, E343 food additive
 it:E343, E343 food additive
 lt:E343, E343 food additive
 lv:E343, E343 food additive
 mt:E343, E343 food additive
-nl:E343, Magnesiumorthofosfaten
+nl:E343, magnesiumfosfaten, Magnesiumorthofosfaten
 pl:E343, E343 food additive
 pt:E343, E343 food additive
 ro:E343, E343 food additive
@@ -6500,26 +6487,26 @@ additives_classes:en: en:stabilizer, en:thickener
 
 <en:E343
 en:E343(i), Monomagnesium phosphate, Magnesiumdihydrogenphosphate, Magnesiumphosphate, monobasic
-bg:E343(i), Мономагнезиев фосфат, Магнезиев дихидрогенфосфат, магнезиев фосфат, едноосновен
+bg:E343(i), Мономагнезиев фосфат, Магнезиев дихидрогенфосфат, магнезиев фосфат едноосновен
 cs:E343(i), Dihydrogenfosforečnan hořečnatý, Kyselý fosforečnan hořečnatý
 da:E343(i), Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, monobasisk magnesiumphosphat
 de:E343(i), Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, einbasiges Magnesiumphosphat
-el:E343(i), Δισοξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο, μονοβασικό
+el:E343(i), Δισοξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο μονοβασικό
 es:E343(i), Fosfato de monomagnesio, Dihidrogenofosfato de magnesio, fosfato monobásico de magnesio
 et:E343(i), Magneesiumdivesinikfosfaat
-fi:E343(i), Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti, monoemäksinen
+fi:E343(i), Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti monoemäksinen
 fr:E343(i), Phosphate monomagnésique
-hu:E343(i), Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát, egybázisú
+hu:E343(i), Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát egybázisú
 it:E343(i), Fosfato di magnesio, Diidrogeno fosfato di magnesio, fosfato di magnesio monobasico
-lt:E343(i), Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas, vienbazis
+lt:E343(i), Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas vienbazis
 lv:E343(i), Monomagnija fosfāts, Magnija dihidrogēnfosfāts, Vienbāziskais magnija fosfāts
 mt:E343(i), Fosfat monomanjeżiku
 nl:E343(i), Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat
 pl:E343(i), Fosforan monomagnezu, Diwodorofosforan magnezu, fosforan magnezu, monozasadowy
-pt:E343(i), Fosfato de monomagnésio
+pt:E343(i), Fosfato de monomagnési
 ro:E343(i), Fosfat monomagnezic, Fosfat diacid de magneziu, Fosfat de magneziu monobazic
 sk:E343(i), Fosforečnan horečnatý
-sl:E343(i), Monomagnezijev fosfat, magnezijev dihidrogenfosfat, magnezijev fosfat, monobazični
+sl:E343(i), Monomagnezijev fosfat, magnezijev dihidrogenfosfat, magnezijev fosfat monobazični
 sv:E343(i), Monomagnesiumfosfat, Magnesiumdivätefosfat
 e_number:en:343
 wikidata:en:Q2634889
@@ -6527,26 +6514,26 @@ additives_classes:en: en:stabilizer, en:thickener
 
 <en:E343
 en:E343(ii), Dimagnesium phosphate, Magnesiumhydrogenphosphate, Magnesiumphosphate, dibasic, Dimagnesium orthophosphate
-bg:E343(ii), Димагнезиев фосфат, Магнезиев хидрогенфосфат, магнезиев фосфат, двуосновен, димагнезиев ортофосфат
+bg:E343(ii), Димагнезиев фосфат, Магнезиев хидрогенфосфат, магнезиев фосфат двуосновен, димагнезиев ортофосфат
 cs:E343(ii), Hydrogenfosforečnan hořečnatý, Orthofosforečnan dihořečnatý
 da:E343(ii), Dimagnesiumphosphat, Magnesiumhydrogenphosphat, dibasisk magnesiumphosphat, dimagnesiumorthophosphat
 de:E343(ii), Dimagnesiumphosphat, Magnesiumhydrogenphosphat, zweibasiges Magnesiumphosphat, Dimagnesiumorthophosphat
-el:E343(ii), Οξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο, διβασικό
+el:E343(ii), Οξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο διβασικό
 es:E343(ii), Fosfato de dimagnesio, Hidrogenofosfato de magnesio, fosfato dibásico de magnesio, ortofosfato de dimagnesio
 et:E343(ii), Magneesiumvesinikfosfaat
-fi:E343(ii), Dimagnesiumfosfaatti, Magnesiumvetyfosfaatti, Magnesiumfosfaatti, kaksiemäksinen, Dimagnesiumortofosfaatti
-fr:E343(ii), Phosphate dimagnésique
-hu:E343(ii), Dimagnézium-foszfát, Magnézium-hidrogén-foszfát, Magnézium-foszfát, kétbázisú, Dimagnézium-ortofoszfát
+fi:E343(ii), Dimagnesiumfosfaatti, Magnesiumvetyfosfaatti, Magnesiumfosfaatti kaksiemäksinen, Dimagnesiumortofosfaatti
+fr:E343(ii), dimagnésium phosphate, Phosphate dimagnésique
+hu:E343(ii), Dimagnézium-foszfát, Magnézium-hidrogén-foszfát, Magnézium-foszfát kétbázisú, Dimagnézium-ortofoszfát
 it:E343(ii), Fosfato di dimagnesio, Idrogeno fosfato di magnesio, fosfato di magnesio dibasico, ortofosfato bimagnesico
-lt:E343(ii), Dimagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas, dvibazis, dimagnio ortofosfatas
+lt:E343(ii), Dimagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas dvibazis, dimagnio ortofosfatas
 lv:E343(ii), Dimagnija fosfāts, Magnija hidrogēnfosfāts, Divbāziskais magnija fosfāts, Dimagnija ortofosfāts
-mt:E343(ii), Fosfat dimanjeżiku, Fosfat idroġenat tal-manjeżju, Fosfat tal-manjeżju, dibażiku, Ortofosfat dimanjeżiku
+mt:E343(ii), Fosfat dimanjeżiku, Fosfat idroġenat tal-manjeżju, Fosfat tal-manjeżju dibażiku, Ortofosfat dimanjeżiku
 nl:E343(ii), Dimagnesiumfosfaat, Magnesiumwaterstoffosfaat, tweebasisch magnesiumfosfaat, dimagnesiumorthofosfaat
-pl:E343(ii), Fosforan dimagnezu, Wodorofosforan magnezu, fosforan magnezu, dizasadowy, ortofosforan dimagnezu
+pl:E343(ii), Fosforan dimagnezu, Wodorofosforan magnezu, fosforan magnezu dizasadowy, ortofosforan dimagnezu
 pt:E343(ii), Fosfato de dimagnésio, Hidrogenofosfato de magnésio, fosfato dibásico de magnésio, ortofosfato de dimagnésio
 ro:E343(ii), Fosfat dimagnezic, Fosfat acid de magneziu, Fosfat de magneziu dibazic, Ortofosfat dimagnezic
-sk:E343(ii), Fosforečnan dihorečnatý, Hydrogenfosforečnan horečnatý, fosforečnan horečnatý, dvojsýtny, ortofosforečnan dihorečnatý
-sl:E343(ii), Dimagnezijev fosfat, magnezijev hidrogenfosfat, magnezijev fosfat, dibazični, dimagnezijev ortofosfat
+sk:E343(ii), Fosforečnan dihorečnatý, Hydrogenfosforečnan horečnatý, fosforečnan horečnatý dvojsýtny, ortofosforečnan dihorečnatý
+sl:E343(ii), Dimagnezijev fosfat, magnezijev hidrogenfosfat, magnezijev fosfat dibazični, dimagnezijev ortofosfat
 sv:E343(ii), Dimagnesiumfosfat, Magnesiumvätefosfat
 e_number:en:343
 wikidata:en:Q2634889
@@ -7719,7 +7706,7 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2018/04/26
 efsa_evaluation:en: Re‐evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives
 efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:adolescents, en:children, en:toddlers
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_adi:en: 75
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
@@ -7873,7 +7860,7 @@ et:E412, Guarkummi
 fi:E412, Guarkumi, Cyamopsiskumi, E 412
 fr:E412, Gomme de guar, gomme guar, gommes de guar, gomme de jaguar, Gomme cyamopsis, Farine de guar, CAS 9000-30-0, Farine Galligum de Guar, Guar Gum, GALLIGUM G, Gyamopsis Tetragonolobus, Guar Flour, Guaran, farine de graines de guar, guar, E 412, 9000-30-0
 hu:E412, Guargumi, „Gum cyamopsis”
-it:E412, Farina di semi di guar, Gomma cyamopsis, Gomma di guar, Guarano
+it:E412, Gomma di guar, Farina di semi di guar, Gomma cyamopsis, Guarano
 lt:E412, Pupenių derva, Cyamopsis derva, Pupenių lipai
 lv:E412, Guāra sveķi, Ciamopsis sveķi
 mt:E412, Gomma tal-guar, Gomma cyamopsis
@@ -7983,7 +7970,7 @@ et:E415, Ksantaankummi, Ksantaan
 fi:E415, Ksantaanikumi
 fr:E415, Gomme xanthane, gomme de xanthane, gomme de maïs, gommes xanthane, gommes de xanthane, Xanthane, CAS 11138-66-2, Xanthan gum, goma xantana, xantano, Gummi xanthanum, Xanthomonas gum, 11138-66-2, C35H49O29, E 415
 hu:E415, Xantángumi
-it:E415, Gomma di xantano, Resina di xantano, E145
+it:E415, Gomma di xantano, gomma di xanthan, Resina di xantano, E145
 lt:E415, Ksantano derva
 lv:E415, Ksantāna sveķi
 mt:E415, Gomma xanthan
@@ -8537,6 +8524,10 @@ wikidata:en:Q413616
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4152
 efsa_evaluation_date:en: 2015-07-17
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of polyoxyethylene sorbitan monolaurate (E 432), polyoxyethylene sorbitan monooleate (E 433), polyoxyethylene sorbitan monopalmitate (E 434), polyoxyethylene sorbitan monostearate (E 435) and polyoxyethylene sorbitan tristearate (E 436) as food additives
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:children, en:toddlers
+efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier, en:stabilizer
 
 en:E433, Polyoxyethylene sorbitan monooleate, Polysorbate 80
@@ -8566,6 +8557,10 @@ wikidata:en:Q420358
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4152
 efsa_evaluation_date:en: 2015-07-17
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of polyoxyethylene sorbitan monolaurate (E 432), polyoxyethylene sorbitan monooleate (E 433), polyoxyethylene sorbitan monopalmitate (E 434), polyoxyethylene sorbitan monostearate (E 435) and polyoxyethylene sorbitan tristearate (E 436) as food additives
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:children, en:toddlers
+efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier, en:stabilizer
 
 en:E434, Polyoxyethylene sorbitan monopalmitate, Polysorbate 40
@@ -8595,6 +8590,10 @@ wikidata:en:Q1413823
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4152
 efsa_evaluation_date:en: 2015-07-17
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of polyoxyethylene sorbitan monolaurate (E 432), polyoxyethylene sorbitan monooleate (E 433), polyoxyethylene sorbitan monopalmitate (E 434), polyoxyethylene sorbitan monostearate (E 435) and polyoxyethylene sorbitan tristearate (E 436) as food additives
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:children, en:toddlers
+efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier
 
 en:E435, Polyoxyethylene sorbitan monostearate, Polysorbate 60
@@ -8624,6 +8623,10 @@ wikidata:en:Q2103104
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4152
 efsa_evaluation_date:en: 2015-07-17
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of polyoxyethylene sorbitan monolaurate (E 432), polyoxyethylene sorbitan monooleate (E 433), polyoxyethylene sorbitan monopalmitate (E 434), polyoxyethylene sorbitan monostearate (E 435) and polyoxyethylene sorbitan tristearate (E 436) as food additives
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:children, en:toddlers
+efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier, en:stabilizer
 
 en:E436, Polyoxyethylene sorbitan tristearate, Polysorbate 65
@@ -8653,6 +8656,10 @@ wikidata:en:Q2103107
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4152
 efsa_evaluation_date:en: 2015-07-17
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of polyoxyethylene sorbitan monolaurate (E 432), polyoxyethylene sorbitan monooleate (E 433), polyoxyethylene sorbitan monopalmitate (E 434), polyoxyethylene sorbitan monostearate (E 435) and polyoxyethylene sorbitan tristearate (E 436) as food additives
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:children, en:toddlers
+efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier, en:stabilizer
 
 # Putting E440a and E440b first so that they don't take precedence over E440
@@ -10238,8 +10245,8 @@ pl:E470a, Sole sodowe\, potasowe i wapniowe kwasów tłuszczowych
 pt:E470a, Sais de sódio\, potássio e cálcio de ácidos gordos, Sais de sódio
 ro:E470a, Săruri de sodiu\, potasiu și calciu ale acizilor grași
 sk:E470a, Sodné\, draselné a vápenaté soli mastných kyselín
-sv:E470a, Natrium-\, kalium- och kalciumsalter av fettsyror, Natrium-
 sl:E470a, Natrijeve\, kalijeve in kalcijeve soli maščobnih kislin, natrijeve
+sv:E470a, Natrium-\, kalium- och kalciumsalter av fettsyror, Natrium-
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:470a
 
@@ -10519,8 +10526,8 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2018/01/05
 efsa_evaluation:en: Refined exposure assessment of sucrose esters of fatty acids (E 473) from its use as a food additive
 efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:adolescents, en:children, en:toddlers
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_adi:en: 40
 additives_classes:en: en:emulsifier, en:stabilizer
 
@@ -11004,6 +11011,13 @@ sv:E491, Sorbitanmonostearat
 e_number:en:491
 wikidata:en:Q907898
 additives_classes:en: en:emulsifier
+efsa_evaluation_url:en: hhttps://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4788
+efsa_evaluation_date:en: 2017-05-05
+efsa_evaluation:en: Re‐evaluation of sorbitan monostearate (E 491), sorbitan tristearate (E 492), sorbitan monolaurate (E 493), sorbitan monooleate (E 494) and sorbitan monopalmitate (E 495) when used as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
+efsa_evaluation_adi:en: 26
 
 en:E492, Sorbitan tristearate
 bg:E492, Сорбитан тристеарат
@@ -11030,6 +11044,12 @@ sv:E492, Sorbitantristearat
 e_number:en:492
 wikidata:en:Q1416224
 additives_classes:en: en:emulsifier, en:stabilizer
+efsa_evaluation_url:en: hhttps://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4788
+efsa_evaluation_date:en: 2017-05-05
+efsa_evaluation:en: Re‐evaluation of sorbitan monostearate (E 491), sorbitan tristearate (E 492), sorbitan monolaurate (E 493), sorbitan monooleate (E 494) and sorbitan monopalmitate (E 495) when used as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
 
 en:E493, Sorbitan monolaurate
 bg:E493, Сорбитан монолауарат
@@ -11056,6 +11076,12 @@ sv:E493, Sorbitanmonolaurat
 e_number:en:493
 wikidata:en:Q15427856
 additives_classes:en: en:emulsifier, en:stabilizer
+efsa_evaluation_url:en: hhttps://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4788
+efsa_evaluation_date:en: 2017-05-05
+efsa_evaluation:en: Re‐evaluation of sorbitan monostearate (E 491), sorbitan tristearate (E 492), sorbitan monolaurate (E 493), sorbitan monooleate (E 494) and sorbitan monopalmitate (E 495) when used as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
 
 en:E494, Sorbitan monooleate
 bg:E494, Сорбитан моноолеат
@@ -11082,6 +11108,12 @@ sv:E494, Sorbitanmonooleat
 e_number:en:494
 wikidata:en:Q18944664
 additives_classes:en: en:emulsifier, en:stabilizer
+efsa_evaluation_url:en: hhttps://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4788
+efsa_evaluation_date:en: 2017-05-05
+efsa_evaluation:en: Re‐evaluation of sorbitan monostearate (E 491), sorbitan tristearate (E 492), sorbitan monolaurate (E 493), sorbitan monooleate (E 494) and sorbitan monopalmitate (E 495) when used as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
 
 en:E495, Sorbitan monopalmitate
 bg:E495, Сорбитан монопалмитат
@@ -11108,6 +11140,12 @@ sv:E495, Sorbitanmonopalmitat
 e_number:en:495
 wikidata:en:Q18601367
 additives_classes:en: en:emulsifier
+efsa_evaluation_url:en: hhttps://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4788
+efsa_evaluation_date:en: 2017-05-05
+efsa_evaluation:en: Re‐evaluation of sorbitan monostearate (E 491), sorbitan tristearate (E 492), sorbitan monolaurate (E 493), sorbitan monooleate (E 494) and sorbitan monopalmitate (E 495) when used as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
 
 en:E496, Sorbitan trioleate
 bg:E496, E496 food additive
@@ -13089,6 +13127,7 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of 4-hexylresorcinol
 en:E620, Glutamic acid, L-Glutamic acid
 bg:E620, Глутаминова киселина, L-глутаминова киселина, Глутамат
 cs:E620, Kyselina glutamová, Kyselina L-glutamová, kyselina 2-aminoglutarová, E 620, L-glutamát
+da:E620, Glutaminsyre, L-Glutaminsyre, Glutamat, E-620
 de:E620, Glutaminsäure, L-Glutaminsäure, E 620
 el:E620, Γλουταμινικο οξυ, L-γλουταμινικό οξύ
 es:E620, Ácido glutámico, Ácido L-glutámico, E 620
@@ -13116,7 +13155,6 @@ efsa_evaluation:en: Scientific Opinion on the safety of the change in the produc
 en:E621, Monosodium glutamate, Sodium glutamate, L-Glutamic acid\, monosodium salt, Glutamate, MSG
 bg:E621, Мононатриев глутамат, Натриев глутамат, Е621, Мононатриев глутаминат, Натриев глутаминат
 cs:E621, Glutaman sodný, Glutamát sodný, L-glutamát sodný monohydrát, E 621, Glutasol, L-glutaman sodný, L-Glutaman sodný monohydrát, L-glutamát sodný, Glutaman, Glutamát
-da:E620, Glutaminsyre, L-Glutaminsyre, Glutamat, E-620
 da:E621, Mononatriumglutamat, Tredje krydderi, E-621, Mononatriumglutaminat, 3. krydderi, Det tredje krydderi, Det 3. krydderi
 de:E621, Mononatriumglutamat, Natriumglutamat, E 621
 el:E621, Οξινο γλουταμινικο νατριο, Γλουταμινικό νάτριο
@@ -17165,4 +17203,4 @@ wikidata:en:Q410083
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5293
 efsa_evaluation_date:en: 2018/06/22
 efsa_evaluation:en: Refined exposure assessment of polyethylene glycol (E 1521) from its use as a food additive
-</pre>
+
