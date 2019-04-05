@@ -31580,88 +31580,6 @@ de:Knoblauchextrakt
 <en:onion
 fr:oignon et ail en poudre
 
-
-# Horseradish (Armoracia rusticana, syn. Cochlearia armoracia) is a perennial plant of the family Brassicaceae
-
-en:horseradish
-af:Peperwortel
-ar:فجل الخيل الريفي
-az:Adi qıtıqotu
-# azb:عادی قیتیق اوْتو
-ba:Керән
-# bar:Kren
-be:Хрэн звычайны
-bg:хрян
-bn:সজিনা
-br:riforz
-bs:Hren
-ca:rave rusticà
-cs:křen selský
-cy:Rhuddygl poeth
-da:peberrod
-de:Meerrettich
-# de-at:Kren
-# dsb:kśěn
-el:Χραίνα
-eo:Kreno
-et:aed-mädarõigas
-eu:Errefau min
-fa:ترب کوهی
-fi:piparjuuri
-fr:raifort
-# frr:Pöberrut
-he:חזרת הגינה
-hi:हॉर्सरैडिश
-hr:Hren
-# hsb:Zahrodny chrěn
-hu:Torma
-hy:կծվիչ սովորական
-io:Armoracio
-is:Piparrót
-it:rafano, barbaforte
-ja:ホースラディッシュ
-ka:პირშუშხა
-kk:Ақжелкек
-ko:겨자무
-li:mieraedig
-lt:Valgomasis krienas
-lv:mārrutks
-mk:рен
-# mrj:Ӹрӓн
-# myv:Крён
-nb:pepperrot
-nl:Mierikswortel
-nn:peparrot
-or:ହର୍ସରାଡିଶ
-os:Туттургъан
-pa:ਹੋਰਸੇਰਾਡਿਸ਼
-pl:chrzan pospolity
-pt:Raiz-forte
-ro:Hrean
-# roa-tara:varvaforte
-ru:хрен обыкновенный
-# rup:Olmu
-# sgs:Krėins
-sh:Hren
-sk:Chren dedinský
-sl:Navadni hren
-sr:рен
-sv:pepparrot
-tr:Bayır turpu
-uk:Хрін звичайний
-# vec:Cren
-yi:כריין
-# yue:辣根
-zh:辣根
-wikidata:en:Q26545
-wikipedia:en:https://en.wikipedia.org/wiki/Horseradish
-# ingredient/fr:raifort has 103 products in 4 languages @2019-01-26
-
-<en:horseradish
-en:Armoracia rusticana
-la:Armoracia rusticana
-
-
 # ALOE VERA is a succulent plant species of the genus Aloe.
 
 en:aloe vera
@@ -33313,6 +33231,88 @@ wikipedia:en:https://en.wikipedia.org/wiki/Heart_of_palm
 # fr:coeurs-de-palmier has 16 products in 3 languages @2018-10-19
 
 
+
+# Horseradish (Armoracia rusticana, syn. Cochlearia armoracia) is a perennial plant of the family Brassicaceae
+
+en:horseradish
+af:Peperwortel
+ar:فجل الخيل الريفي
+az:Adi qıtıqotu
+# azb:عادی قیتیق اوْتو
+ba:Керән
+# bar:Kren
+be:Хрэн звычайны
+bg:хрян
+bn:সজিনা
+br:riforz
+bs:Hren
+ca:rave rusticà
+cs:křen selský
+cy:Rhuddygl poeth
+da:peberrod
+de:Meerrettich
+# de-at:Kren
+# dsb:kśěn
+el:Χραίνα
+eo:Kreno
+et:aed-mädarõigas
+eu:Errefau min
+fa:ترب کوهی
+fi:piparjuuri
+fr:raifort
+# frr:Pöberrut
+he:חזרת הגינה
+hi:हॉर्सरैडिश
+hr:Hren
+# hsb:Zahrodny chrěn
+hu:Torma
+hy:կծվիչ սովորական
+io:Armoracio
+is:Piparrót
+it:rafano, barbaforte
+ja:ホースラディッシュ
+ka:პირშუშხა
+kk:Ақжелкек
+ko:겨자무
+li:mieraedig
+lt:Valgomasis krienas
+lv:mārrutks
+mk:рен
+# mrj:Ӹрӓн
+# myv:Крён
+nb:pepperrot
+nl:Mierikswortel
+nn:peparrot
+or:ହର୍ସରାଡିଶ
+os:Туттургъан
+pa:ਹੋਰਸੇਰਾਡਿਸ਼
+pl:chrzan pospolity
+pt:Raiz-forte
+ro:Hrean
+# roa-tara:varvaforte
+ru:хрен обыкновенный
+# rup:Olmu
+# sgs:Krėins
+sh:Hren
+sk:Chren dedinský
+sl:Navadni hren
+sr:рен
+sv:pepparrot
+tr:Bayır turpu
+uk:Хрін звичайний
+# vec:Cren
+yi:כריין
+# yue:辣根
+zh:辣根
+wikidata:en:Q26545
+wikipedia:en:https://en.wikipedia.org/wiki/Horseradish
+# ingredient/fr:raifort has 103 products in 4 languages @2019-01-26
+
+<en:horseradish
+en:Armoracia rusticana
+la:Armoracia rusticana
+
+
 # JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower
 
 en:Jerusalem artichoke
@@ -33488,6 +33488,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Poireau
 
 # The onion (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium.
 
+<en:vegetable
 en:onion, onions
 # aeb-arab:راس بصل
 bn:পিঁয়াজ
@@ -33821,6 +33822,44 @@ zh:欧防风
 wikidata:en:Q188614
 wikipedia:en:https://en.wikipedia.org/wiki/Parsnip
 # ingredient/fr:panais has 372 products in 5 languages @2018-12-4
+
+
+# description:en:Scorzonera hispanica, black SALSIFY or Spanish salsify, also known as black oyster plant, serpent root, viper's herb, viper's grass or simply scorzonera, is a perennial member of the genus Scorzonera in the sunflower family (Asteraceae), cultivated as a root vegetable.
+
+<en:vegetable
+en:salsify, black salsify
+ar:سلسفي هسباني
+az:İspan təkəsaqqalı
+# azb:ساققیز اوْتو
+be:Скарцанера
+bg:испански кокеш
+ca:Escurçonera de nap
+cs:hadí mord španělský
+da:Skorzonerrod
+de:Schwarzwurzeln
+et:Aed-mustjuur
+eu:Eskortzonera
+fi:Mustajuuri
+fr:salsifis
+gl:Escorzoneira
+hu:Feketegyökér
+it:scorzonera
+ja:スコルツォネラヒスパニカ
+ku:Sping
+lt:Valgomoji gelteklė
+lv:melnsakne
+nl:schorseneren
+pl:Wężymord czarny korzeń
+pt:Escorcioneira
+ro:Scorțoneră
+ru:Козелец испанский
+sv:Svartrot
+tr:Sakız otu
+# vls:Schosneere
+zh:黑婆罗门参
+wikidata:en:Q385259
+wikipedia:en:https://en.wikipedia.org/wiki/Scorzonera_hispanica
+# ingredient/fr:salsifis has 58 products in 5 languages @2019-04-05
 
 
 # The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
@@ -52506,8 +52545,6 @@ fr:harissa
 
 
 fr:érythritol
-
-fr:salsifis
 
 
 
