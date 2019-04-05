@@ -31901,7 +31901,7 @@ en:grilled aubergines
 de:gegrillte Auberginen, grillierte Auberginen
 fr:aubergine grillée, aubergines grillées
 it:melanzane alta griglia, melanzane grigliate
-treatment:en:en:gril
+# treatment:en:en:gril
 # fr:aubergine-grillée has 54 products in 1 language @2018-10-17
 # fr:aubergines-grillées has 123 products in 4 languages @2018-10-17
 
@@ -33311,8 +33311,7 @@ fa:سیب‌زمینی ترش
 fi:Maa-artisokka
 fr:topinambour
 ga:Bliosán gréine
-gv:Blaa g
-y
+gv:Blaa gy
 he:ארטישוק ירושלמי
 hr:Čičoka
 # hsb:Topinambur
@@ -33868,6 +33867,82 @@ wikipedia:en:https://en.wikipedia.org/wiki/Shallot
 fr:échalote déshydratée
 # ingredient/fr:échalote-déshydratée has 67 products in french @2019-02-14
 
+
+# description:en: COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
+
+<en:vegetable
+en:sorrel, common sorrel
+af:Veldsuring
+ar:حماض بستاني
+az:Adi əvəlik
+# azb:عادی او‌لیک
+ba:Ҡуҙғалаҡ
+bg:Киселец
+ca:agrella
+cs:šťovík kyselý
+# csb:Kwasné zelé
+cy:Suran y cŵn
+da:syre, Almindelig Syre
+de:Sauerampfer
+# diq:Amênvaş
+el:Λάπαθο
+eo:Okzalo
+es:Acedera común
+eu:Mingarratz handi
+et:Hapu oblikas
+fa:سورل، لوئیزیانا
+fi:Niittysuolaheinä
+fr:oseille
+# frr:Ruad jüd
+ga:Samhadh
+gl:Aceda
+hi:खट्टा पालक
+hr:Obična kiselica
+# hsb:Kisały zdźer
+hu:Mezei sóska
+io:Oxalo
+is:Túnsúra
+it:acetosa
+ja:スイバ
+ka:მჟაუნა
+ko:수영
+# koi:Тшӧтшкӧр
+ku:Tirşo
+ky:Кызыл аткулак
+la:Rumex acetosa
+lt:Valgomoji rūgštynė
+lv:pļavas skābene
+mk:Киселец
+nb:Engsyre
+nl:veldzuring, Zurkel
+nn:Engsyre
+nv:Chaatʼíní
+os:Хуырхæг
+pl:Szczaw zwyczajny
+pt:Azeda
+ro:Măcriș
+ru:Щавель кислый
+se:Juopmu
+# sgs:Rūgštīnė
+sh:Kiseljak
+sk:štiav lúčny
+sl:Navadna kislica
+sq:Lëpjeta
+sr:кисељак
+# stq:Suurke
+sv:Ängssyra
+tg:Туршак
+uk:Щавель кислий
+# vec:Spanavin
+# vep:Sol'hein
+vi:Chút chít
+zh:酸模
+# zh-tw:酸模
+wikidata:en:Q26297
+wikipedia:en:https://en.wikipedia.org/wiki/Sorrel
+# ingredient/fr:oseille has 91 products in 5 languages @2019-04-05
+
+
 <en:vegetable
 en:spinach
 am:ቆስጣ
@@ -33875,8 +33950,7 @@ ar:سبانخ
 as:পালেং শাক
 az:Dirrik ispanağı
 # azb:ایسپاناق
-# bar:
-Spinat
+# bar:Spinat
 be:Шпінат
 bg:обикновен спанак
 # bho:पालकी
@@ -52416,7 +52490,6 @@ fr:salsifis
 
 fr:charbon végétal médicinal
 
-fr:oseille
 
 
 
