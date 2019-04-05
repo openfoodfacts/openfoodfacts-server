@@ -23300,20 +23300,6 @@ es:zumo de soja
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20soja
 # 253 products in 7 languages @2018-09-25
 
-<en:sauce
-en:soy sauce
-de:Sojasauce
-fr:sauce au soja, sauce de soja, sauce soja
-it:salsa di soia
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20au%20soja
-# 449 products in 5 languages @2018-09-25
-
-
-<fr:sauce au soja
-en:soy sauce powder
-de:Soja Sosse Pulver
-fr:sauce soja en poudre, sauce de soja en poudre
-nl:soja saus poeder
 
 en:gelifier
 fr:gélifiant
@@ -51672,6 +51658,51 @@ wikipedia:en:https://en.wikipedia.org/wiki/Béchamel_sauce
 # usage:en:Bechamel sauce (water, wheat flour, skimmed milk powder, sunflower oil, whey powder, whole cream, corn starch, salt iodized cooking, butter)
 
 
+# en:description:  HARISSA  is a Tunisian hot chili pepper paste, the main ingredients of which are roasted red peppers, Baklouti pepper, serrano peppers, and other hot chili peppers, spices and herbs such as garlic paste, coriander seed, saffron, rose, or caraway, as well as some vegetable or olive oil to carry the oil-soluble flavors.
+
+<en:sauce
+en:Harissa
+ar:هريسة
+bg:Хариса
+bn:হরিষ্যা
+ca:Harissa
+cs:harissa
+da:harissa
+de:Harissa
+eo:Hariso
+es:harissa
+et:harissa
+fa:هریسه
+fi:harissa
+fr:harissa
+he:אריסה
+hi:हरीसा
+hy:հարիսա
+id:Harissa
+it:Harissa
+ja:ハリッサ
+ka:ჰარისა
+ko:하리사
+la:Erise
+nb:harissa
+nl:harissa
+nn:harissa
+pa:ਹਰੀਸਾ
+pl:harissa
+# pnb:ھریسا
+pt:harissa
+ru:харисса
+sl:harissa
+sr:Harisa
+sv:harissa
+tr:Harissa
+ur:ھریسا
+zh:哈里薩辣醬
+wikidata:en:Q966327
+wikipedia:en:https://en.wikipedia.org/wiki/Harissa
+# ingredient/fr:harissa has 66 products in 5 languages @2019-04-05
+# usage:fr:harissa (piment, ail, coriandre, sel, carvi)
+
 # <en:compound
 <en:sauce
 en:mirin
@@ -51731,6 +51762,21 @@ nl:nuoc mam
 sv:nuoc mam
 # ingredient/fr:nuoc-mâm has 140 products in 6 languages @2019-03-01
 # nuoc mâm (sauce poisson) (poisson, sel, eau)
+
+<en:sauce
+en:soy sauce
+de:Sojasauce
+fr:sauce au soja, sauce de soja, sauce soja
+it:salsa di soia
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20au%20soja
+# 449 products in 5 languages @2018-09-25
+
+
+<en:soy sauce
+en:soy sauce powder
+de:Soja Sosse Pulver
+fr:sauce soja en poudre, sauce de soja en poudre
+nl:soja saus poeder
 
 # <en:compound
 <en:sauce
@@ -52593,7 +52639,6 @@ fr:carbonates d'ammonium
 
 fr:carbonates de sodium
 
-fr:harissa
 
 
 
