@@ -490,11 +490,12 @@ sub process_image_upload($$$$$$) {
 			# create the the directories for the product
 			make_path("$image_base_path/", { chmod => 0755 });
 
-			$imgid = Digest::SHA3->new(224)->addfile($file, 'b')->b64digest;
+			my $hash = Digest::SHA3->new(224)->addfile($file, 'b')->b64digest;
+			$imgid = time() . "." . $hash;
 			local $log->context->{imgid} = $imgid;
 			my $img_path = "$image_base_path/$imgid.$extension";
 			# Check that we don't already have the image with the same name
-			if (-e $img_path) {
+			if (glob("$image_base_path/*.$hash.$extension")) {
 				return -3;
 			}
 
