@@ -2481,12 +2481,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_acetate
 <en:calcium acetate
 sr:regulator kiselosti E263
 
-#   LACTIC ACID   is an organic compound with the formula CH3CH(OH)CO2H.
-# In the form of its conjugate base called lactate (this is thus different and kept as a seperate ingredient)
-# Lactic acid is chiral, consisting of two optical isomers.
-# One is known as L-(+)-lactic acid or (S)-lactic acid and the other,
-# its mirror image, is D-(−)-lactic acid or (R)-lactic acid
-# in food the L-variant is used
+# description:en:  LACTIC ACID   is an organic compound with the formula CH3CH(OH)CO2H. In the form of its conjugate base called lactate (this is thus different and kept as a seperate ingredient). Lactic acid is chiral, consisting of two optical isomers. One is known as L-(+)-lactic acid or (S)-lactic acid and the other, its mirror image, is D-(−)-lactic acid or (R)-lactic acid in food the L-variant is used
 
 en:lactic acid, E270, E 270, E-270
 ar:حمض اللبنيك
@@ -42846,8 +42841,8 @@ uk:Маслюк звичайний
 # zh-cn:褐环乳牛肝菌
 # zh-hant:褐環乳牛肝菌
 # zh-tw:黃乳牛肝菌
-wikidata:Q816730
-wikipedia:https://en.wikipedia.org/wiki/Suillus_luteus
+wikidata:en:Q816730
+wikipedia:en:https://en.wikipedia.org/wiki/Suillus_luteus
 # fr:bolets-jaunes has 72 products @2018-11-01
 
 
@@ -43006,13 +43001,13 @@ zh:平菇
 # zh-hk:平菇
 # zh-sg:平菇
 # zh-tw:糙皮側耳:
-wikidata:Q186451
+wikidata:en:Q186451
 # fr:pleurotes has 119 products @2018-11-01
 
 <en:oyster mushroom
 en:Pleurotus ostreatus
 la:Pleurotus ostreatus
-wikipedia:https://en.wikipedia.org/wiki/Pleurotus_ostreatus
+wikipedia:en:https://en.wikipedia.org/wiki/Pleurotus_ostreatus
 
 
 # MARASMIUS OREADES, the Scotch bonnet, is also known as the fairy ring mushroom or fairy ring champignon.
@@ -43113,8 +43108,8 @@ zh:黑木耳
 # zh-hk:黑木耳
 # zh-sg:黑木耳
 # zh-tw:木耳
-wikidata:Q321342
-wikipedia:https://en.wikipedia.org/wiki/Auricularia_auricula-judae
+wikidata:en:Q321342
+wikipedia:en:https://en.wikipedia.org/wiki/Auricularia_auricula-judae
 # fr:Oreilles de Judas has 24 products in 5 languages @2018-11-01
 
 
@@ -43146,6 +43141,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tuber_aestivum
 <en:summer truffle
 en:Tuber aestivum
 la:Tuber aestivum
+
+# Chanterelle est un nom français ambigu recouvrant plusieurs espèces de champignons distinctes. Il peut désigner la girolle (Cantharellus cibarius), ou d'autres espèces, en particulier des genres Cantharellus et Craterellus, par exemple la chanterelle en tubes (Craterellus tubaeformis) ou la chanterelle jaune (Craterellus lutescens), généralement vendues sous le seul nom de chanterelles.
+
+<en:mushroom
+fr:chanterelles
+wikipedia:fr:https://fr.wikipedia.org/wiki/Chanterelle
+# ingredient/fr:chanterelles has 51 products @2019-04-06
 
 
 # Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
@@ -52802,7 +52804,6 @@ fr:chlorophylles
 
 fr:scarole
 
-fr:chanterelles
 
 
 
