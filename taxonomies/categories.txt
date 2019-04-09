@@ -25,7 +25,7 @@ stopwords:de:und,mit,von
 
 en:Artisan products
 ca:Prouctes artesans
-de:Handgefertigte Produkte, Artisanale Produkte
+de:Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
 es:Productos artesanales, Productos artesanos
 fr:Produits artisanaux
 hu:Kézműves termékek
@@ -34,9 +34,10 @@ nl_be:Ambachtelijke producten
 ro:Produse artizanale
 
 <en:Artisan products
+<en:Breadstick
 en:Handmade breadsticks
 ca:Bastonets de pa artesans
-de:Handgefertigte Brotstangen
+de:Handgefertigte Brotstangen, Handgemachte Brotstangen
 es:Palitos de pan artesanales
 fr:Gressins artisanaux
 hu:Kézzel készített termékek
@@ -16326,6 +16327,7 @@ nl:Cookies
 ru:Печенье
 zh:曲奇, 曲奇饼干
 wikidata:en:Q13266
+oqali_family:en: fr:Biscuits et gateaux industriels - Cookies
 
 <en:Cookies
 <en:Chocolate biscuits
@@ -16382,15 +16384,38 @@ nl:Haverkoekjes, Haverkoekje
 ru:Печенье овсяное, овсяное печенье
 
 <en:Biscuits
+en:Filled biscuits
+fr:Biscuits fourrés
+
+<en:Filled Biscuits
+en:Chocolated filled biscuits
+fr:Biscuits cacaotés fourrés, biscuits chocolatés fourrés, biscuits fourrés au chocolat
+
+<en:Biscuits
 fr:Barquettes
 
+<en:Biscuits
+fr: Barquettes aux fruits
+
 <fr:Barquettes
+fr:Barquettes au chocolat
+
+<fr:Barquettes aux fruits
 <en:Strawberry biscuits
 fr:Barquettes à la fraise
 
 <en:Biscuits
 fr:Crêpes dentelle
 wikidata:en:Q16545117
+
+<fr:Crêpes dentelle
+<en:Chocolate biscuits
+fr:Crêpes dentelle au chocolat
+oqali_family:en: fr:Biscuits et gateaux industriels - Crepes dentelles au chocolat
+
+<fr:Crêpes dentelle
+fr:Crêpes dentelle natures
+oqali_family:en: fr:Biscuits et gateaux industriels - Crepes dentelles nature
 
 <en:Biscuits
 en:Strawberry biscuits, Biscuits with strawberry, Biscuit with strawberry
@@ -16422,17 +16447,26 @@ de:Kekse mit Bitterschokolade
 fr:Biscuits au chocolat noir
 nl:Pure chocoladebiscuits, Pure chocoladebiscuit
 
+<Chocolate biscuits
+fr:Biscuits tablette de chocolat
+oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
+
+<fr:Biscuits tablette de chocolat
+fr:Biscuits tablette fourrée
+oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette fourree
+
+<fr:Biscuits tablette de chocolat
+<en:Dark chocolate biscuits
+fr:Biscuits tablette de chocolat noir, Petits beurres au chocolat noir
+
+<fr:Biscuits tablette de chocolat
+<en:Milk chocolate biscuits
+fr:Biscuits tablette de chocolat au lait, Petits beurres au chocolat au lait
+
+#Should contain only biscuits with butter and no [palm, sunflower...] oil
 <en:Chocolate biscuits
 en:Petits beurres with chocolate
 fr:Petits beurres au chocolat
-
-<en:Petits beurres with chocolate
-<en:Dark chocolate biscuits
-fr:Petits beurres au chocolat noir
-
-<en:Petits beurres with chocolate
-<en:Milk chocolate biscuits
-fr:Petits beurres au chocolat au lait
 
 <en:Biscuits
 fr:Biscuits édulcorés, Biscuits avec édulcorants
@@ -16457,6 +16491,7 @@ nl:Droge biscuits
 fr:Boudoirs, boudoir, biscuits à la cuiller, biscuit à la cuiller, biscuits à la cuillère, biscuit à la cuillère
 nl:Lange vingers
 wikidata:en:Q16533537
+oqali_family:en: fr:Biscuits et gateaux industriels - Boudoirs
 
 <en:Chocolate biscuits
 <fr:Biscuits secs
@@ -16465,6 +16500,7 @@ de:Florentiner
 fr:Florentins, Florentin, Biscuit florentin, Biscuits florentins
 nl:Florentines
 wikidata:en:Q1429469
+oqali_family:en: fr:Biscuits et gateaux industriels - Florentins
 
 <fr:Biscuits sablés
 fr:Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
@@ -16487,6 +16523,7 @@ fr:Pains d'épices, pains d'épice, pain d'épices, pain d'épice
 nl:Ontbijtkoeken, Ontbijtkoek
 ru:Имбирное печенье и пряники
 wikidata:en:Q178600
+oqali_family:en: fr:Biscuits et gateaux industriels - Pains d_epices
 
 <fr:Biscuits sablés
 en:Shortbread
@@ -16497,6 +16534,8 @@ wikidata:en:Q652695
 fr:Spéculoos, spéculos
 de:Spekulatius
 nl:Kandijkoekjes, Kandijkoekje, Speculoos
+wikidata:en:Q6591
+oqali_family:en: fr:Biscuits et gateaux industriels - Speculoos
 
 en:Breaded products
 de:Panierte Produkte
@@ -16585,6 +16624,7 @@ fr:Gressins, gressin
 it:Grissini
 nl:Soepstengels, Soepstengel
 wikidata:en:Q514467
+oqali_family:en: fr:Aperitifs a croquer - Gressins
 
 <en:Breadsticks, Grissini
 es:Picos de pan, Picos
@@ -17000,6 +17040,7 @@ en:Marble cakes
 de:Marmorkuchen,
 fr:Gâteaux marbrés, gâteau marbré
 nl:Marmercakes, Marmercake
+oqali_family:en: fr:Biscuits et gateaux industriels - Gateaux marbres
 
 <en:Cakes
 fr:Nonnettes
@@ -17180,6 +17221,7 @@ fr:Brownies, Brownie
 de:Brownies, Brownie
 nl:Brownies, Brownie
 wikidata:en:Q503129
+oqali_family:en: fr:Biscuits et gateaux industriels - Brownies au chocolat
 
 <en:Puddings
 en:Christmas Puddings
@@ -17208,10 +17250,12 @@ de:Obstkuchen, Fruchtkuchen
 fr:Cakes aux fruits, cake aux fruits, cake aux fruits confits, cakes aux fruits confits
 nl:Vruchtencakes
 wikidata:en:Q675987
+oqali_family:en: fr:Biscuits et gateaux industriels - Cakes aux fruits confits
 
 <en:Cakes
 fr:Financiers, financier, visitandines, visitandine, financiers aux amandes, financier aux amandes
 wikidata:en:Q588378
+oqali_family:en: fr:Biscuits et gateaux industriels - Financiers
 
 <en:Biscuits
 en:Cat tongue
@@ -17228,6 +17272,10 @@ nl:Madeleines
 wikidata:en:Q604408
 
 <en:Madeleines
+fr:Madeleines natures
+oqali_family:en: fr:Biscuits et gateaux industriels - Madeleines nature
+
+<en:Madeleines
 en:Madeleines with raisin, Raisin madeleines
 de:Madeleines mit Rosinen
 fr:Madeleines aux raisins, Madeleines au raisin, Madeleine aux raisins, Madeleines au raisin
@@ -17241,6 +17289,7 @@ de:Lange Madeleines
 en:Chocolate madeleines
 de:Madeleines mit Schokolade
 fr:Madeleines au chocolat
+oqali_family:en: fr:Biscuits et gateaux industriels - Madeleines au chocolat
 
 <en:Cakes
 en:Pound Cake
@@ -18073,7 +18122,7 @@ de:Weihnachtsschokolade
 fr:Chocolats de Noël
 
 <en:Christmas foods and drinks
-fr:Bûches de Noël 
+fr:Bûches, Bûches de Noël 
 
 <en:Christmas foods and drinks
 en:Advent calendars
@@ -19496,6 +19545,7 @@ en:Corn chips, corn crisps
 de:Mais-Chips, Tortillachips, Nachos
 fr:Chips de maïs, Chips Tortillas, Tortillas Chips, Tortilla chips, Chips Tortilla
 nl:Tortillachips
+oqali_family:en: fr:Aperitifs a croquer - Tortillas
 
 <en:Chips and fries
 en:Fries
@@ -19786,6 +19836,7 @@ wikidata:en:Q2797509
 fr:Roqueforts
 wikidata:en:Q189221
 country:en:France
+oqali_family:en: fr:Fromages - Roquefort
 
 <en:French blue-veined cheeses
 fr:Tignard
@@ -19821,6 +19872,7 @@ wikidata:en:Q3088299
 fr:Coulommiers
 hu:Coulommiers sajt
 wikidata:en:Q774297
+oqali_family:en: fr:Fromages - Coulommiers
 
 <en:Cow cheeses
 <en:French cheeses
@@ -19830,6 +19882,7 @@ de:Brie
 fr:Bries, pointes de brie, pointes de bries, pointe de bries, pointe de brie, brie
 nl:Bries, Brie
 wikidata:en:Q193411
+oqali_family:en: fr:Fromages - Brie
 
 <en:Cow cheeses
 <en:French cheeses
@@ -19837,6 +19890,7 @@ wikidata:en:Q193411
 en:Saint-Félicien cheese
 fr:Saint-Félicien
 wikidata:en:Q1237731
+oqali_family:en: fr:Fromages - Saint marcellin et assimiles
 
 <en:Cow cheeses
 <en:Cheeses from England
@@ -19880,6 +19934,7 @@ de:Mimolette
 hu:Mimolettes sajtok
 nl:Mimolettes, Commissiekazen
 wikidata:en:Q749121
+oqali_family:en: fr:Fromages - Mimolette
 
 <en:Cheeses
 en:String cheeses
@@ -19918,6 +19973,8 @@ wikidata:en:Q643697
 en:Munsters
 de:Münsterkäse
 fr:Munsters
+wikidata:en:Q765540
+oqali_family:en: fr:Fromages - Munster
 
 <en:Munsters
 <en:Unpasteurised cheeses
@@ -19948,6 +20005,7 @@ de:Camembert
 fr:Camemberts
 nl:Camemberts
 wikidata:en:Q131480
+oqali_family:en: fr:Fromages - Camembert
 
 <en:Camemberts
 <en:Unpasteurised cheeses
@@ -19986,6 +20044,7 @@ de:Emmentaler
 fr:Emmentals, emmenthal, emmentaler
 nl:Emmentalers
 wikidata:en:Q932214
+oqali_family:en: fr:Fromages - Emmental
 
 <en:Emmentaler
 <en:Cheeses from Switzerland
@@ -20073,6 +20132,7 @@ fr:Reblochons, Reblochon, Reblochons de Savoie, Reblochon de Savoie
 de:Reblochon
 wikidata:en:Q543805
 country:en:France
+oqali_family:en: fr:Fromages - Reblochon
 
 <en:Sheep Cheeses
 <en:Soft cheeses with bloomy rind
@@ -20201,6 +20261,7 @@ wikidata:en:Q659277
 en:Cabécous
 fr:Cabécous, Cabécou
 wikidata:en:Q954122
+oqali_family:en: fr:Fromages - Crottin de chevre
 
 <en:French cheeses
 en:Cheeses from Corsica
@@ -20256,6 +20317,7 @@ country:en:France
 <en:Goat cheeses
 fr:Chabichous du Poitou, Chabichou du Poitou
 country:en:France
+oqali_family:en: fr:Fromages - Crottin de chevre
 
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
@@ -20266,7 +20328,7 @@ country:en:France
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
 <en:Goat cheeses
-fr:Charolais
+fr:Fromages charolais
 country:en:France
 
 <en:French cheeses
@@ -20341,60 +20403,75 @@ wikidata:en:Q520598
 <en:French cheeses
 fr:Pélardon
 country:en:France
+wikidata:en:Q965981
+oqali_family:en: fr:Fromages - Crottin de chevre
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
 fr:Picodon
 country:en:France
+wikidata:en:Q1245576
+oqali_family:en: fr:Fromages - Crottin de chevre
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
 fr:Pouligny-Saint-Pierre
 country:en:France
+wikidata:en:Q640839
 
 <en:Goat cheeses
 <en:Soft cheeses with bloomy rind
 <en:French cheeses
 fr:Rigotte de Condrieu
 country:en:France
+wikidata:en:Q2089007
+oqali_family:en: fr:Fromages - Crottin de chevre
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
 fr:Rocamadour
 country:en:France
+wikidata:en:Q768189
+oqali_family:en: fr:Fromages - Crottin de chevre
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
 fr:Sainte-Maure de Touraine
 country:en:France
+wikidata:en:Q652628
 
 <en:Cow cheeses
 <en:Soft cheeses with bloomy rind
 <en:French cheeses
 fr:Saint-Marcellin
 country:en:France
+wikidata:en:Q510126
+oqali_family:en: fr:Fromages - Saint marcellin et assimiles
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
 <en:French cheeses
 fr:Salers
 country:en:France
+wikidata:en:Q1245627
 
 <en:Goat cheeses
 <en:Soft cheeses with bloomy rind
 <en:French cheeses
 fr:Selles-sur-Cher
 country:en:France
+wikidata:en:Q1249172
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
 <en:French cheeses
 fr:Tome des Bauges
 country:en:France
+wikidata:en:Q524966
 
 <en:Cow cheeses
 <en:Soft cheeses with washed rind
@@ -20452,6 +20529,7 @@ de:Kochkäse
 es:Cancoillottes, Cancoyottes
 fr:Cancoillottes
 wikidata:en:Q688947
+oqali_family:en: fr:Fromages - Cancoillotte
 
 <en:Cheeses
 en:Cream cheeses
@@ -20517,6 +20595,7 @@ en:Maasdam, Maasdam cheeses
 de:Maasdamer
 fr:Maasdam
 wikidata:en:Q3273732
+oqali_family:en: fr:Fromages - Maasdam
 
 <en:Cheeses of the Netherlands
 en:Gouda
@@ -20524,6 +20603,7 @@ de:Goudas
 fr:Goudas
 nl:Goudse Kazen
 wikidata:en:Q593675
+oqali_family:en: fr:Fromages - Gouda
 
 <en:Gouda
 en:Goudas with cumin
@@ -20578,6 +20658,7 @@ en:Edam
 de:Edamer
 fr:Edam
 wikidata:en:Q597473
+oqali_family:en: fr:Fromages - Edam
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -20944,6 +21025,7 @@ en:Mascarpone
 de:Mascarpone
 fr:Mascarpone, mascarpones
 wikidata:en:Q209889
+oqali_family:en: fr:Fromages - Mascarpone
 
 <en:Italian cheeses
 it:Asiago
@@ -21021,7 +21103,8 @@ de:Grana Padano
 fr:Grana Padano
 it:Grana Padano
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q940319
+oqali_family:en: fr:Fromages - Parmesan et assimiles
 
 <en:Italian cheeses
 it:Montasio
@@ -21041,6 +21124,7 @@ fr:Mozzarella
 it:Mozzarella
 nl:Mozzarella
 wikidata:en:Q14088
+oqali_family:en: fr:Fromages - Mozzarella
 
 <en:Mozzarella
 <en:Buffalo's milk-cheese
@@ -21056,6 +21140,7 @@ fr:Burrata
 de:Burrata
 it:Burrata
 wikidata:en:Q543512
+oqali_family:en: fr:Fromages - Mozzarella
 
 <en:Italian cheeses
 it:Murazzano
@@ -21076,7 +21161,8 @@ it:Parmigiano Reggiano
 nl:Parmigiano-Reggiano, Parmezaan, Parmezaanse kaas
 wikidata:en:Q155922
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q155922
+oqali_family:en: fr:Fromages - Parmesan et assimiles
 
 <en:Italian cheeses
 <en:Sheep Cheeses
@@ -21085,6 +21171,7 @@ de:Pecorino
 fr:Pecorino
 it:Pecorino
 wikidata:en:Q677640
+oqali_family:en: fr:Fromages - Parmesan et assimiles
 
 <en:Pecorino
 it:Pecorino Crotonese
@@ -21475,6 +21562,7 @@ wikidata:en:Q734978
 fr:Raclettes
 de:Raclettekäse, Raclette-Käse
 wikidata:en:Q20748
+oqali_family:en: fr:Fromages - Fromage a raclette
 
 <en:Dairy desserts
 en:Petits suisses
@@ -21713,6 +21801,8 @@ nl:Merkkazen
 <en:AOC cheeses
 fr:Comté
 country:en:France
+wikidata:en:Q249310
+oqali_family:en: fr:Fromages - Comte
 
 <en:Labeled cheeses
 <fr:AOC Products
@@ -21900,6 +21990,7 @@ pnns_group_2:en:Milk and yogurt
 <en:Beverages
 <en:Dairies
 en:Dairy drinks, dairy beverages, milk-based drinks
+de:Milchgetränke
 es:Bebida lácteas
 fr:Boissons lactées
 nl:Zuiveldranken, Zuiveldrank
@@ -21909,6 +22000,7 @@ pnns_group_2:en:Milk and yogurt
 
 <en:Dairy drinks
 en:Flavoured milks, Flavored milks
+de:Aromatisierte Milch
 fr:Laits aromatisés, lait aromatisé
 nl:Zuiveldranken
 
@@ -21931,6 +22023,7 @@ fr:Laits aromatisés à la fraise, laits à la fraise
 <en:Dairy drinks
 <en:Coffee drinks
 en:Coffee milks
+de:Kaffeemilch
 fr:Boissons lactées au café
 nl:Koffiemelken, Koffiemelk
 
@@ -21955,18 +22048,21 @@ nl:Biologische halfvolle melken
 
 <en:Milks
 en:Cow milks
+de:Kuhmilch
 es:Leche de vaca
 fr:Laits de vache
 it:Latte di mucca
 
 <en:Milks
 en:Goat milks, goat milk
+de:Ziegenmilch
 es:Leche de cabra
 fr:Laits de chèvre, Lait de chèvre
 it:Latte di capra
 
 <en:Milks
 en:Sheep milks, Sheep milk, Ewe milk, Ewes milk, Sheep's milks, Sheep's milk
+de:Schafsmilch
 es:Leche de oveja
 fr:Laits de brebis, Lait de brebis
 
@@ -22058,11 +22154,13 @@ wikidata:en:Q1031291
 
 <en:Dairies
 en:Condensed milks
+de:Kondensmilch
 fr:Laits condensés, Lait condensé
 nl:Gecondenseerde melken
 
 <en:Milks
 en:Pasteurised milks, Pasterized milks
+de:Pasteurisierte Milch
 fr:Laits pasteurisés, lait pasteurisé
 it:Latte pastorizzato
 nl:Gepasteuriseerde melken, Gepasteuriseerde melk
@@ -22138,6 +22236,7 @@ ru:молоко низколактозное, низколактозное мо�
 
 <en:Milks
 en:lactose-free milk
+de:Laktosefreie Milch
 fr:Laits sans lactose, Laits délactosés, Lait sans lactose, Lait délactosé
 hu:Laktózmentes tej
 it:Latte senza lattosio
@@ -22758,6 +22857,11 @@ hu:Sárgabarackos joghurtok
 it:Yogurt all'albicocca
 
 <en:Fruit yogurts
+en:Pear yogurts
+fr:Yaourts à la poire
+it:Yogurt alla pera
+
+<en:Fruit yogurts
 en:Banana yogurts
 fr:Yaourts à la banane
 hu:Banános joghurtok
@@ -23094,12 +23198,24 @@ fr:Coulis de framboise
 hu:Málna öntet
 
 <en:Fruits coulis
+en:Blackcurrant coulis
+fr:Coulis de cassis
+
+<en:Fruits coulis
+en:Bilberry coulis
+fr:Coulis de myrtille
+
+<en:Fruits coulis
 fr:Coulis de fruits rouges
 
 <en:Fruits coulis
 en:Apricot coulis, Apricot sauce
 fr:Coulis d'abricot
 hu:Sárgabarack öntet
+
+<en:Fruits coulis
+en:Mango coulis 
+fr:Coulis de mangue
 
 <en:Desserts
 <en:Fruits based foods
@@ -23927,6 +24043,7 @@ es:Cacahuetes garrapiñados, Garrapiñadas de cacahuete, Cacahuetes confitados, 
 fr:Cacahuètes caramélisées, arachides caramélisées, chouchous
 nl:Suikerpinda's, gesuikerde pinda's
 wikidata:en:Q5875513
+oqali_family:en: fr:Aperitifs a croquer - Cacahuetes sucrees
 
 <en:Nut confectioneries
 en:Marrons glacés, Marrón glacé, Candied chesnuts
@@ -23938,6 +24055,7 @@ wikidata:en:Q2334489
 <en:Dragées
 <en:Nut confectioneries
 en:Sugar coated almonds
+de:Mandeln mit Zuckerüberzug
 es:Peladillas
 fr:Amandes enrobées de sucre
 nl:Suikeramandelen
@@ -23955,11 +24073,13 @@ wikidata:en:Q1187678
 
 <en:Nut confectioneries
 en:Caramelized hazelnuts
+de:Karamellisierte Haselnüsse
 es:Avellanas garrapiñadas, Avellanas caramelizadas
 fr:Noisettes caramélisées
 nl:Suikerhazelnoten
 
 en:Farming products, farm products
+de:Landwirtschaftliche Produkte
 fr:Produits d’élevages
 nl:Fokproducten
 
@@ -24088,6 +24208,7 @@ nl:Acaciahoningen van de roemeense Donau-oevers
 <en:Mountain products
 <fr:Miels de fleurs
 en:Honeys from the mountains
+de:Berghonige
 fr:miels de montagne
 nl:Berghoningen
 
@@ -24119,30 +24240,36 @@ nl:Zachte honingen
 
 <en:Honeys
 fr:Miels d’acacia
+de:Akazienhonige
 it:Miele di acacia
 nl:Acaciahoningen
 
 <en:Honeys
 fr:Miels d’agrumes
+de:Zitrusfruchthonige
 it:Miele di agrumi
 nl:Citrusvruchtenhoningen
 
 <fr:Miels d’agrumes
 fr:Miels d’oranger, Miel d’oranger
+de:Orangenbaumhonige
 it:Miele di arancio
 nl:Sinaasappelbloesemhoningen
 
 <fr:Miels d’agrumes
 fr:Miels de citronnier
+de:Zitronenbaumhonige
 it:Miele di limone
 nl:Citroenbloesemhoningen
 
 <fr:Miels d’agrumes
 fr:Miels de mandarinier
+de:Mandarinenbaumhonige
 nl:Mandarijnbloesemhoningen
 
 <en:Honeys
 fr:Miels d'eucalyptus
+de:Eukalyptushonige
 it:Miele di eucalipto
 nl:Eucalyptushoningen
 
@@ -24224,6 +24351,7 @@ nl:Jujubehoningen
 
 <en:Honeys
 en:Lavender honey
+de:Lavendelhonige
 fr:Miels de lavande
 it:Miele di lavanda
 nl:Lavendelhoningen
@@ -25295,6 +25423,7 @@ fr:Popcorn, Pop-corn, maïs éclaté, tactac
 it:Popcorn
 nl:Popcorn
 wikidata:en:Q165112
+oqali_family:en: fr:Aperitifs a croquer - Pop corn
 
 <en:Salty snacks
 <en:Popcorn
@@ -26222,8 +26351,7 @@ fr:Omelettes Norvégiennes glacées
 pnns_group_2:en:Dairy desserts
 
 <en:Frozen desserts
-<fr:Bûches
-<en:Cakes
+<en:Bûches
 fr:Bûches glacées
 
 <en:Frozen desserts
@@ -26403,6 +26531,11 @@ es:Sorbetes de naranja
 fr:Sorbets à l’orange
 it:Sorbetto all'arancia
 nl:Sinaasappelsorbets
+
+<en:Sorbets
+en:Mandarin sorbets
+fr:Sorbets à la mandarine
+it:Sorbetto al mandarino
 
 <en:Sorbets
 en:Strawberry sorbets
@@ -30751,6 +30884,10 @@ en:Vegetable cakes, vegetable patties
 de:Gemüsefrikadellen
 fr:Galettes de légumes
 
+<en:Prepared vegetables
+en:Stuffed vegetables
+fr:Légumes farcis
+
 <en:Meals
 en:Gratins
 de:Gratins
@@ -31214,6 +31351,7 @@ wikidata:en:Q21856516
 
 <en:Vegetable paste
 en:Eggplant caviar, eggplant paste, aubergine caviar, aubergine paste
+fr:Caviars d'aubergine, caviar d'aubergine
 ru:Икра из баклажанов, баклажанная икра
 wikidata:en:Q21856516
 
@@ -31589,6 +31727,10 @@ nl:Rundertartaarsteaks
 <en:Beef preparations
 en:Ground beef preparations, ground beef meat preparations
 fr:Préparations de viande bovine hachée, Préparations hachées de viande bovine, préparations hachées de viande bœuf, préparation de viande de bœuf hachée
+
+<en:Beef preparations
+en:Roast veal, Roasted veal
+fr:Rôtis de veau, Rôti de veau
 
 <en:Frozen meats
 en:Frozen steaks
@@ -32671,6 +32813,10 @@ fr:Mousses de foies de volailles, mousses de foie de volaille, mousses de foies 
 fr:Saucissons, Saucisson
 de:Würstchen
 nl:Worstjes
+
+<en:Prepared meats
+en:cut,cold cuts,cold meat
+de:Aufschnitt
 
 <en:Artisan products
 <fr:Saucissons
@@ -33933,12 +34079,14 @@ fr:Macarons
 
 <en:Pastries
 <en:Desserts
+<en:Bûches
 fr:Bûches pâtissières
 
 <en:Pastries
 en:Rum baba, baba au rhum
 fr:Babas au rhum, Baba au rhum
 wikidata:en:Q265457
+oqali_family:en: fr:Biscuits et gateaux industriels - Babas au rhum
 
 <en:Pastries
 en:King cakes, King cake
@@ -36077,6 +36225,10 @@ fr:Sucres de canne
 it:Zucchero di canna
 nl:Rietsuikers
 wikidata:en:Q9362753
+
+<en:Sugars
+en:Coconut sugar
+fr:Sucres de coco, sucres de fleur de coco
 
 <en:Sugars
 en:Inverted sugar syrups, inverted sugar, inverted liquid sugar
@@ -39469,16 +39621,21 @@ nl:Graanrepen, Mueslirepen
 wikidata:en:Q2885525
 
 <en:Cereal bars
+en:Fruits cereal bars
+fr:Barres de céréales aux fruits, Barre de céréales aux fruits
+it:Barrette di cereali con frutti
+
+<en:Fruits cereal bars
 en:Apricot cereal bars
 fr:Barres de céréales à l'abricot, Barre de céréales à l'abricot
 it:Barrette di cereali con albicocca
 
-<en:Cereal bars
+<en:Fruits cereal bars
 en:Banana cereal bars
 fr:Barres de céréales à la banane, Barre de céréales à la banane
 it:Barrette di cereali con banana
 
-<en:Cereal bars
+<en:Fruits cereal bars
 en:Apple cereal bars
 fr:Barres de céréales à la pomme, Barre de céréales à la pomme
 it:Barrette di cereali con mela
@@ -39489,16 +39646,26 @@ fr:Barres de céréales au chocolat, Barre de céréales au chocolat
 it:Barrette di cereali con cioccolato
 
 <en:Cereal bars
+en:Nuts cereal bars
+fr:Barres de céréales aux fruits à coques
+
+<en:Nuts cereal bars
 fr:Barres de céréales aux amandes, Barre de céréales aux amandes
 it:Barrette di cereali con mandorle
 
-<en:Cereal bars
+<en:Nuts cereal bars
 fr:Barres de céréales aux noisettes, Barre de céréales aux noisettes
 it:Barrette di cereali con nocciole
 
-<en:Cereal bars
-fr:Barres de céréales aux fruits, Barre de céréales aux fruits
-it:Barrette di cereali con frutti
+<en:Fruits cereal bars
+<en:Chocolate cereal bars
+fr:Barres de céréales aux fruits et chocolat
+oqali_family:en: fr:Barres cerealieres - Barres cerealieres aux fruits et au chocolat
+
+<en:Chocolate cereal bars
+<en:Nuts cereal bars
+fr:Barres de céréales aux fruits et fruits à coques
+oqali_family:en: fr:Barres cerealieres - Barres cerealieres aux fruits a coque et au chocolat
 
 <en:Bars
 <en:Nuts and their products
@@ -39715,12 +39882,11 @@ en:Filled crêpes
 fr:Crêpes fourrées
 
 <en:Filled crêpes
-<en:Sugared crêpes
 en:Filled crêpes with chocolate
 fr:Crêpes fourrées au chocolat, Crêpes au chocolat
+oqali_family:en: fr:Biscuits et gateaux industriels - Crepes au chocolat
 
 <fr:Filled crêpes
-<en:Sugared crêpes
 en:Filled crêpes with jam
 fr:Crêpes fourrées à la confiture, Crêpes à la confiture
 
@@ -40003,6 +40169,7 @@ en:Pretzel
 de:Brezeln, Brezel
 fr:Bretzels
 nl:Pretzels
+oqali_family:en: fr:Aperitifs a croquer - Sticks et bretzels
 
 <en:Crackers
 fr:Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
@@ -40764,6 +40931,7 @@ fr:Ravioli chinois
 
 <en:Tortellinis 
 en:Meat tortellinis
+de:Fleischtortellinis
 fr:Tortellini à la viande
 
 <en: Tortellinis
@@ -40916,4 +41084,3 @@ fr:Fromages panelas
 en:Liquid salts
 es:Sales liquidas, sal liquida
 fr:Sels liquides
-
