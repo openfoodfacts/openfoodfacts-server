@@ -15540,7 +15540,10 @@ de:pflanzliches Öl gehärtet
 
 # Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
-<en:vegetable oil
+<en:en:oil and vegetable fat
+en:palm oil and fat
+
+<en:palm oil and fat
 en:palm oil, palmoil
 ar:زيت النخيل
 # ast:Aceite de palma
@@ -15616,9 +15619,9 @@ it:Stearina di palma
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_stearin
 wikidata:en:Q7128109
 
-# Seems we can merge these into palm oil
+# comment:en:the word palm does not specify whether it is a fat or oil
 
-<en:palm oil
+<en:palm oil and fat
 en:palm
 es:palma
 fr:palme
@@ -15628,10 +15631,7 @@ pl:palma
 ru:пальмовое
 sk:palma
 
-# This is the same as palm oil. Merge?
-# is it really the same? (Stéphane)
-
-<en:palm oil
+<en:palm oil and fat
 en:palm fat
 fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
 da:palmfedtstof
@@ -15891,6 +15891,10 @@ en:organic extra virgin olive oil
 fr:huile d'olive vierge extra bio
 nl:biologische extra olijfolie van de eerste persing
 
+<en:oil and vegetable fat
+en:rapeseed oil and fat
+
+
 # Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
 # The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
 
@@ -15943,6 +15947,13 @@ fr:huile de colza vierge
 fr:monodiglycérides de colza
 de:Mono- und Diglyceride von Raps
 # ingredient/fr:monodiglycérides-de-colza has 16 products in 2 languages @2019-02-18
+
+<en:palm oil and fat
+en:palm and rapeseed
+de:Palm und Raps
+fr:palme et colza
+# ingredient/fr:palme-et-colza has 100 products in 4 languages @2019-04-09
+# usage:fr: huiles et graisses végétales (palme colza)
 
 
 # WALNUT OIL is oil extracted from walnuts, Juglans regia
@@ -52937,7 +52948,6 @@ fr:sulfate de magnésium
 
 fr:l-cystéine
 
-fr:palme et colza
 
 
 
