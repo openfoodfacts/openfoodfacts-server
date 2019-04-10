@@ -30,10 +30,7 @@ BEGIN
 	@EXPORT = qw();	# symbols to export by default
 	@EXPORT_OK = qw(
 					$lang
-					$langlang
-
 					$lc
-					$lclc
 
 					%tag_type_singular
 					%tag_type_from_singular
@@ -89,10 +86,7 @@ sub lang($) {
 		$short_l = $`,  # pt_pt
 	}
 
-	if ((defined $langlang) and (defined $Lang{$s}{$langlang})) {
-		return $Lang{$s}{$langlang};
-	}
-	elsif (defined $Lang{$s}{$lang}) {
+	if (defined $Lang{$s}{$lang}) {
 		return $Lang{$s}{$lang};
 	}
 	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
@@ -237,9 +231,9 @@ if (-e $path) {
 	@Langs = sort keys %{$Lang{site_name}};	# any existing key can be used, as %Lang should contain values for all languages for all keys
 	%Langs = ();
 	%lang_lc = ();
-	foreach my $lc (@Langs) {
-		$lang_lc{$lc} = $lc;
-		$Langs{$lc} = $Lang{"language_" . $lc}{$lc};	# Name of the language in the language itself
+	foreach my $l (@Langs) {
+		$lang_lc{$l} = $l;
+		$Langs{$l} = $Lang{"language_" . $l}{$l};	# Name of the language in the language itself
 	}
 	
 	$log->info("Loaded languaged", { langs => (scalar @Langs) }) if $log->is_info();

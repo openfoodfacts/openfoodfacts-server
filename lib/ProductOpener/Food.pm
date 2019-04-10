@@ -413,7 +413,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
-		'fruits-vegetables-nuts-dried',
+		'fruits-vegetables-nuts-dried-',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -525,7 +525,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
-		'fruits-vegetables-nuts-dried',
+		'fruits-vegetables-nuts-dried-',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -636,7 +636,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
-		'fruits-vegetables-nuts-dried',
+		'fruits-vegetables-nuts-dried-',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -749,7 +749,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
-		'fruits-vegetables-nuts-dried',
+		'fruits-vegetables-nuts-dried-',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -857,7 +857,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
-		'fruits-vegetables-nuts-dried',
+		'fruits-vegetables-nuts-dried-',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -3576,8 +3576,19 @@ foreach my $group (keys %pnns) {
 sub special_process_product($) {
 
 	my $product_ref = shift;
-
-	return if not defined $product_ref->{categories_tags};
+	
+	delete $product_ref->{pnns_groups_1};
+	delete $product_ref->{pnns_groups_1_tags};
+	delete $product_ref->{pnns_groups_2};
+	delete $product_ref->{pnns_groups_2_tags};	
+	
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq "")) {
+		$product_ref->{pnns_groups_2} = "unknown";
+		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-category"];
+		$product_ref->{pnns_groups_1} = "unknown";
+		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-category"];
+		return;
+	}	
 
 	# For Open Food Facts, add special categories for beverages that are computed from
 	# nutrition facts (alcoholic or not) or the ingredients (sweetened, artificially sweetened or unsweetened)
@@ -3750,11 +3761,6 @@ sub special_process_product($) {
 
 	# compute PNNS groups 2 and 1
 
-	delete $product_ref->{pnns_groups_1};
-	delete $product_ref->{pnns_groups_1_tags};
-	delete $product_ref->{pnns_groups_2};
-	delete $product_ref->{pnns_groups_2_tags};
-
 	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
 		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
 
@@ -3780,7 +3786,7 @@ sub special_process_product($) {
 					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
 
 			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
-			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2})];
+			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2}), "known"];
 
 			# Let waters and teas take precedence over unsweetened-beverages
 			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
@@ -3792,21 +3798,20 @@ sub special_process_product($) {
 	if (defined $product_ref->{pnns_groups_2}) {
 		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
 			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
-			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1})];
+			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1}), "known"];
 		}
 		else {
 			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
 		}
 	}
 	else {
-		if (defined $product_ref->{categories}) {
-			$product_ref->{pnns_groups_2} = "unknown";
-			$product_ref->{pnns_groups_2_tags} = ["unknown"];
-			$product_ref->{pnns_groups_1} = "unknown";
-			$product_ref->{pnns_groups_1_tags} = ["unknown"];
-		}
+		# We have a category for the product, but no PNNS groups are associated with this category or a parent category
+	
+		$product_ref->{pnns_groups_2} = "unknown";
+		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-association"];
+		$product_ref->{pnns_groups_1} = "unknown";
+		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
 	}
-
 }
 
 

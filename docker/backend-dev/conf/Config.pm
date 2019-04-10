@@ -44,6 +44,8 @@ BEGIN
 		$facebook_app_id
 		$facebook_app_secret
 
+		$robotoff_url
+
 		$mongodb
 		$mongodb_host
 
@@ -172,6 +174,8 @@ $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
+
+$robotoff_url = $ProductOpener::Config2::robotoff_url;
 
 $reference_timezone = 'Europe/Paris';
 
