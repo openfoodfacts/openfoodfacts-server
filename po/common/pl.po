@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-03-08 18:47\n"
+"PO-Revision-Date: 2019-04-10 15:41\n"
 "Language-Team: Polish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -81,7 +81,7 @@ msgstr "Witaj <NAME>\n\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "Dziękujemy za dołączenie do <site_name>>"
+msgstr "Dziękujemy za dołączenie do <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -1441,7 +1441,7 @@ msgstr "Żywnościowe poziomy 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/poziom składników odżywczych"
+msgstr "/zawartość składników odżywczych"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2940,39 +2940,39 @@ msgstr "Strony produktów mogą być oznaczone jako sprawdzone przez doświadczo
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "Zdjęcia i dane sprawdzone"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "Zdjęcia i dane sprawdzone przeze mnie."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "Zdjęcia i dane ponownie sprawdzone przeze mnie."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "Data ostatniego sprawdzania"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "Data ostatniego sprawdzania"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
-msgstr ""
+msgstr "Ostatnia weryfikacja strony produktu w"
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "Pozostałe informacje"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
-msgstr ""
+msgstr "Identyfikator wersji produktu"
 
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
-msgstr ""
+msgstr "Identyfikator produktu"
 
 msgctxt "net_weight"
 msgid "Net weight"
@@ -3000,23 +3000,23 @@ msgstr "Ostrzeżenie"
 
 msgctxt "preparation"
 msgid "Preparation"
-msgstr ""
+msgstr "Przygotowanie"
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
-msgstr ""
+msgstr "Pomysł na przepis"
 
 msgctxt "origin"
 msgid "Origin"
-msgstr ""
+msgstr "Pochodzenie"
 
 msgctxt "customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "Obsługa klienta"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr ""
+msgstr "Producent"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
@@ -3052,11 +3052,11 @@ msgstr "Produkty nieedytowane przez %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "Produkty ukończone przez %s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "Produkty nieukończone przez %s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
@@ -3096,11 +3096,11 @@ msgstr "Produkty nieedytowane przez %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "Produkty ukończone przez %s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "Produkty nieukończone przez %s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
@@ -3128,7 +3128,7 @@ msgstr "Format: YYYY lub YYYY-MM"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "Ważna uwaga: ten produkt nie jest już sprzedawany. Dane są przechowywane tylko w celach informacyjnych. Ten produkt nie pojawia się w regularnych wyszukiwaniach i nie jest brany pod uwagę w statystykach."
 
 msgctxt "get_the_app"
 msgid "Get the app"
@@ -3148,17 +3148,17 @@ msgstr "Pobierz aplikację na iPada"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
-msgstr ""
+msgstr "Informacje o środowisku"
 
 msgctxt "environment_infocard_note"
 msgid "HTML code for the environment infocard in the mobile application"
-msgstr ""
+msgstr "Kod HTML dla zakładki z informacjami o środowisku w aplikacji mobilnej"
 
 msgctxt "environment_impact_level"
 msgid "Environment impact level"
-msgstr ""
+msgstr "Poziom oddziaływania na środowisko"
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
-msgstr ""
+msgstr "pl:niska, en:średia lub pl:wysoka"
 
