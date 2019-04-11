@@ -57,6 +57,7 @@ stopwords:zh::配料
 # dérivés de lait
 # d'élevage au sol
 # en proportion variable
+# Issue d'animaux nés, élevés, abattus et transformés en Italie
 # Fabriqué dans un atelier qui utilise :céleri, moutarde et oeuf.
 # *produits issus de l'agriculture biologique.
 # Peut contenir des traces de céleri. Pizza préparée à partir de 338 g de pâte et 162 g de garniture.
@@ -52051,8 +52052,6 @@ fr:mâche
 en:Carbon Dioxide Gas
 fr:gaz carbonique
 
-fr:mayonnaise allégée en matières grasses
-
 
 fr:saindoux
 
@@ -52254,6 +52253,129 @@ wikipedia:en:https://en.wikipedia.org/wiki/Harissa
 # ingredient/fr:harissa has 66 products in 5 languages @2019-04-05
 # usage:fr:harissa (piment, ail, coriandre, sel, carvi)
 
+
+# description:en:Mayonnaise, informally mayo, is a thick cold sauce or dressing usually used in sandwiches and composed salads or on chips. It is a stable emulsion of oil, egg yolk, and acid, either vinegar or lemon juice.
+
+en:mayonnaise
+af:Mayonnaise
+ar:مايونيز
+# arz:مايونيز
+# ast:mayonesa
+az:Mayonez
+be:маянэз
+bg:Майонеза
+bn:মেয়নেজ
+br:maionez
+bs:Majoneza
+ca:maionesa
+# ceb:mayones
+# chr:ᎤᏁᎫᎯᏍᏗ
+cs:majonéza
+cy:Mayonnaise
+da:mayonnaise
+de:Mayonnaise
+# de-ch:Mayonnaise
+el:μαγιονέζα
+# en-ca:Mayonnaise
+# en-gb:Mayonnaise
+eo:Majonezo
+es:mayonesa
+et:majonees
+eu:maionesa
+fa:سس مایونز
+fi:majoneesi
+fo:majonesa
+fr:mayonnaise
+fy:mayonêze
+ga:maonáis
+gl:Maionesa
+gv:sooslagh bwinnican
+he:מיונז
+hi:मेयोनेज़
+hr:Majoneza
+ht:mayonèz
+hu:Majonéz
+hy:Մայոնեզ
+id:Mayones
+io:Mayonezo
+is:Majónes
+it:maionese
+ja:マヨネーズ
+ka:მაიონეზი
+kk:Майонез
+# kk-arab:مايونەز
+# kk-cn:مايونەز
+# kk-cyrl:Майонез
+# kk-kz:Майонез
+# kk-latn:Maýonez 
+# kk-tr:Maýonez 
+kn:ಮೇಯನೇಸ್
+ko:마요네즈
+ku:Mayonez
+lb:Mayonnaise
+li:mayonaise
+lo:ຊອດໄຂ່ແດງ
+lt:Majonezas
+lv:majonēze
+mk:мајонез
+mn:Майонез
+ms:Mayonis
+nb:majones
+nl:mayonaise
+nn:majones
+# nso:Mayonnaise
+oc:Maionesa
+pa:ਮਾਇਓਨੇਜ਼
+pl:majonez, sos majonezowy
+pt:maionese
+# pt-br:Maionese
+ro:maioneză
+ru:майонез
+# sco:mayonnaise
+se:Majoneasa
+sh:Majoneza
+sl:Majoneza
+sm:meio
+sq:majonezi
+sr:Мајонез
+# sr-ec:Мајонез
+# sr-el:Majonez
+sv:majonnäs
+ta:மயோனெய்சு
+tg:Майонез
+# tgl-latn:Majonez
+th:มายองเนส
+tl:Mayonnaise
+tn:Mayonnaise
+tr:Mayonez
+tt:Майонез
+uk:майонез
+uz:Mayonez
+vi:Mayonne
+vo:mäyonäd
+# wuu:蛋黄酱
+xh:Mayonnaise
+# yue:蛋黃醬
+zh:蛋黃醬
+# zh-cn:蛋黄酱
+# zh-hans:蛋黄酱
+# zh-hant:美乃滋
+# zh-hk:沙律醬
+# zh-mo:沙律醬
+# zh-my:蛋黄酱
+# zh-sg:蛋黄酱
+# zh-tw:美乃滋
+zu:mayonezi
+wikidata:en:Q167893
+wikipedia:en:https://en.wikipedia.org/wiki/Mayonnaise
+# ingredient/fr:mayonnaise has 207 products in 5 languages @2019-04-11
+# usage:de:Mayonnaise (Rapsöl, Wasser, Eier*, Tafelessig, Kochsalz jodiert, Zucker)
+
+<en:mayonnaise 
+fr:mayonnaise allégée en matière grasse, mayonnaise allégée en matières grasses
+# ingredient/fr:mayonnaise-allégée-en-matière-grasse has 266 products in french @2019-04-11
+
+
 # <en:compound
 <en:sauce
 en:mirin
@@ -52449,7 +52571,6 @@ fr:citrate de magnésium
 
 fr:bisulfite de sodium
 
-fr:mayonnaise
 
 
 
@@ -53150,7 +53271,6 @@ fr:gaufrette
 fr:agent conservateur
 
 
-fr:mayonnaise allégée en matière grasse
 
 
 
