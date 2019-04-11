@@ -28,6 +28,7 @@ stopwords:zh::配料
 # in varying proportions
 # organically grown products
 # prefried in vegetable oil
+# May contain hazelnuts, almonds, pistachios, nuts, eggs, lupines, sulphites or sulfur dioxide.
 
 # da
 # i varierende mænggdeforhold
@@ -36,6 +37,7 @@ stopwords:zh::配料
 # Hergestellt mit tierischem Lab und mikrobiellem Labaustauschstoff.
 # in veränderlichen Anteilen
 # Kann Haselnüsse, Mandeln, Eier und Spuren anderer Schalenfrüchte (Nüsse) enthalten. 
+# Kann enthalten: Haselnüsse, Mandeln, Pistazien, Walnusse, Eier, Lupinen, Sulfite oder Schwefeldioxid.
 # Kakao:34 % mindestens in der Schokolade
 # Kochsalzgehalt insgesamt:0,7%.
 # Kochsalzanteil:1.7% (ohne Jod und ohne Fluor)
@@ -73,6 +75,7 @@ stopwords:zh::配料
 # derivatti del latte
 # Può contenere nocciole, mandorle, uova e tracce d'altra frutta con guscio (noci). 
 # Cacao:34 % minimo nel cioccolato.
+# Può contenere: nocciole, mandorle, pistacchi, noci comuni, uova, lupini, solfiti o anidride solforosa.
 
 # nl
 # in wisselende hoeveelheden
@@ -20535,6 +20538,7 @@ nl:Tapiokameel, tapioca bloem
 sv:Tapiokamjöl
 
 <en:flour
+<en:lupin
 en:lupin flour
 es:harina de altramuz
 fr:farine de lupin
@@ -35773,6 +35777,80 @@ nl:groene flageolets
 fr:flageolets verts extra-fins
 nl:extra fijne groene flageolets
 # ingredient/fr:flageolets-verts-extra-fins has 30 products in 2 languages @2019-02-25
+
+
+# description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
+# comment:en:Unclear if the lupin genus or lupin bean wikidata entry should be referenced.
+
+<en:legume
+en:lupin, lupines
+ar:ترمس
+az:Acıpaxla
+ba:Әсе борсаҡ
+be:Лубін
+# be-tarask:Лубін
+bg:лупина
+bn:লুপিন
+cs:vlčí bob, lupina
+# csb:Lёpin
+da:lupin
+de:Lupinen
+el:λούπινο
+eo:Lupenoj
+es:altramuces, altramuz
+et:lupiin
+fi:lupiinit
+fr:lupin, lupins
+ga:lúipín
+he:תורמוס
+# hsb:Lupina
+hu:csillagfürt
+hy:լուպին
+id:Lupino
+is:Úlfabaunir
+it:lupini
+jp:ルピナス属
+ka:ხანჭკოლა
+# kbd:Бгъэдахэщӏудзхэр
+kk:Люпин
+ky:Люпин
+la:lupinus
+lt:lubinai
+lv:lupīna, Lupīnas
+mk:волчјак
+mn:Шошлой
+# mrj:Пивырса
+mt:lupina
+nb:Lupinslekten
+nl:lupine
+nn:Lupinslekta
+os:Бирæгъхъæдур
+pl:łubin
+pt:tremoço, tremoços
+qu:Q'ira
+ro:lupin
+ru:люпин
+sd:چونرا
+se:Lupiidnat
+sk:vlčí bôb, lupina
+sl:volčji
+sv:lupin, Lupinsläktet
+sw:Mlupini
+th:ลูพิน
+tr:Acı bakla
+uk:Люпин
+# yue:羽扇豆
+zh:羽扇豆属, 羽扇豆, 鲁冰花
+# zh-cn:羽扇豆
+# zh-hans:羽扇豆
+# zh-hant:羽扇豆
+# zh-hk:羽扇豆
+# zh-sg:羽扇豆
+# zh-tw:羽扇豆
+wikidata:en:Q156811
+wikipedia:en:https://en.wikipedia.org/wiki/Lupin_bean
+# ingredient/fr:lupin has 390 products @2019-04-11
+# usage:fr:lupins (lupine, sel de cuisine, antioxydants:acide citrique et acide ascorbique, conservateur:E202)
 
 fr:haricot rouge, haricots rouges
 
@@ -53074,9 +53152,6 @@ fr:agent conservateur
 
 fr:mayonnaise allégée en matière grasse
 
-fr:lupin, lupins
-allergens:fr:_lupin_
-allergens:fr:_lupins_
 
 
 
