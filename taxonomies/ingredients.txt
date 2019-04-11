@@ -52212,8 +52212,22 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mirin
 # mirin (eau, glucose de maïs, sirop de tapioca, riz, alcool de sucre de canne)
 
 
-# <en:fish sauce ???
+
 <en:sauce
+en:fish sauce
+da:fiskesaus
+de:Fischsosse
+fi:kalalastike
+fr:sauce poisson
+it:salsa di pesce
+nl:vissaus
+nn:fiskesaus
+sv:fisksås
+# ingredient/fr:sauce-poisson has 106 products in 9 languages @2019-04-11
+# usage:en: fish sauce (anchovy (fish), salt, sugar)
+
+
+<en:fish sauce
 en:nuoc mam
 de:Nuoc Mam
 fr:nuoc mâm
@@ -52221,7 +52235,7 @@ it:nuoc mam
 nl:nuoc mam
 sv:nuoc mam
 # ingredient/fr:nuoc-mâm has 140 products in 6 languages @2019-03-01
-# nuoc mâm (sauce poisson) (poisson, sel, eau)
+# usage:fr:nuoc mâm (sauce poisson) (poisson, sel, eau)
 
 <en:sauce
 en:soy sauce
@@ -53059,8 +53073,6 @@ fr:préparation aromatique
 fr:diglycérides d'acides gras
 
 fr:galette
-
-fr:sauce poisson
 
 
 
