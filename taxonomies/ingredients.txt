@@ -76,6 +76,7 @@ stopwords:zh::配料
 
 # nl
 # in wisselende hoeveelheden
+# Percentages uitgedrukt op de nems met varkensvlees
 # Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt :melk, selderij, sesam, weekdieren.
 
 # pt
@@ -18135,11 +18136,15 @@ de:Aroma, Aromen
 <en:flavouring
 en:flavouring preparation, spice preparation
 de:Gewürzzubereitung, Aromaextrakte
-fr:préparation aromatisante
+fr:préparation aromatisante, préparation aromatique
 it:preparazione di spezie
+nl:aromatiserende bereiding
 pt:preparacao aromatizante
 # ingredient/fr:préparation-aromatisante has  50 products in 5 languages @2019-03-04
-# Aromaextrakte (Pfefferminzextrakt)
+# usage:de:Aromaextrakte (Pfefferminzextrakt)
+# ingredient/fr:préparation%20aromatique has 64 products in 3 languages @2019-04-11
+# usage:fr: préparation aromatique (arôme naturel, colorants : caramel, curcumine, extrait de paprika, céleri)
+
 
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
@@ -53073,7 +53078,7 @@ allergens:fr:_lupins_
 
 fr:vermicelles
 
-fr:préparation aromatique
+
 
 
 
