@@ -3,16 +3,16 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: kmr_TR\n"
+"Language: ku\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-11 17:33\n"
-"Language-Team: Kurmanji (Kurdish)\n"
+"PO-Revision-Date: 2019-04-12 11:19\n"
+"Language-Team: Kurdish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
-"X-Crowdin-Language: kmr\n"
+"X-Crowdin-Language: ku\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
 
 msgctxt "1_product"
@@ -64,11 +64,11 @@ msgid "Hello <NAME>,\n\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 msgstr "Merhabe <nav>, https: //openfoodfacts.org'a Gelek spas dikim ji bo beşdariya we. Navê te yê bikarhêner: navdêr:\n\n"
-"Tu niha dikarin li ser têkevim vê malperê ji bo lê zêde bike û mesaja tomar.<<site_name>>,, Gelo projeyeke hevbeş yên ku berhemên nû çiqas bêtir bîne: enerjî, coş û ramanên! Di nav contributors bo gengeşîkirina pir kêrhatî û em bikaranîna pergala mesajên ya bi navê Xwarin ji bo pêşxistina vê projeyê: https://slack.openfoodfacts.org tu dikarî koma Facebook ji bo gelê Ji destê tevlî: https://www.facebook.com/ komên / openfoodfacts / New: em dest bi agahî ji bo pêkanîna heye di Cosmetics Open Beauty yî: sabûn, macûna, makeup û da ser. https://openbeautyfacts.org gelek sipas! Stéphane û ekîba wî https://openfoodfacts.org https://twitter.com/openfoodfacts Facts Food Open\n"
+"Tu niha dikarin li ser têkevim vê malperê ji bo lê zêde bike û mesaja tomar.<< site_name>>,, Gelo projeyeke hevbeş yên ku berhemên nû çiqas bêtir bîne: enerjî, coş û ramanên! Di nav contributors bo gengeşîkirina pir kêrhatî û em bikaranîna pergala mesajên ya bi navê Xwarin ji bo pêşxistina vê projeyê: https://slack.openfoodfacts.org tu dikarî koma Facebook ji bo gelê Ji destê tevlî: https://www.facebook.com/ komên / openfoodfacts / New: em dest bi agahî ji bo pêkanîna heye di Cosmetics Open Beauty yî: sabûn, macûna, makeup û da ser. https://openbeautyfacts.org gelek sipas! Stéphane û ekîba wî https://openfoodfacts.org https://twitter.com/openfoodfacts Facts Food Open\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "<Spas dikim ji bo tevlî<<site_name>>"
+msgstr "<Spas dikim ji bo tevlî<navê_site> >"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -142,7 +142,7 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Ev berhema e yet di ne<<site_name>> di nav Htmlê da ne. To lê zêde bike li ser products, barcodes, lîsteya maddeyên û maddeyên bi we hinek pictures <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_nav>></a>?</p>\n"
+msgstr "<p>Ev berhema e yet di ne<<site_nav>> di nav Htmlê da ne. To lê zêde bike li ser products, barcodes, lîsteya maddeyên û maddeyên bi we hinek pictures <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_nav>></a>?</p>\n"
 "<p>Spas dikim di pêş!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -3102,6 +3102,38 @@ msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
 msgstr ""
 
+msgctxt "warning_gs1_company_prefix"
+msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
+msgstr ""
+
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr ""
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "Heşyarkirin"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr ""
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr ""
+
+msgctxt "origin"
+msgid "Origin"
+msgstr ""
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr ""
+
+msgctxt "producer"
+msgid "Producer"
+msgstr ""
+
 msgctxt "environment_infocard"
 msgid "Environment infocard"
 msgstr ""
@@ -3116,5 +3148,85 @@ msgstr ""
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
+msgstr ""
+
+msgctxt "carbon_impact_from_meat_or_fish"
+msgid "Carbon impact from meat or fish"
+msgstr ""
+
+msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
+msgid "of carbon emission from meat or fish for the whole product"
+msgstr ""
+
+msgctxt "of_sustainable_daily_emissions_of_1_person"
+msgid "of sustainable daily emissions of 1 person"
+msgstr ""
+
+msgctxt "of_sustainable_weekly_emissions_of_1_person"
+msgid "of sustainable weekly emissions of 1 person"
+msgstr ""
+
+msgctxt "for_one_serving"
+msgid "for one serving"
+msgstr ""
+
+msgctxt "methodology"
+msgid "Methodology"
+msgstr ""
+
+msgctxt "carbon_footprint_note_foodges_ademe"
+msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
+msgstr ""
+
+msgctxt "carbon_footprint_note_sustainable_annual_emissions"
+msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
+msgstr ""
+
+msgctxt "carbon_footprint_note_uncertainty"
+msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
+msgstr ""
+
+msgctxt "error_too_many_products_to_export"
+msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
+msgstr ""
+
+msgctxt "translate_taxonomy_to"
+msgid "Help translate the %s to %s"
+msgstr ""
+
+msgctxt "translate_taxonomy_description"
+msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr ""
+
+msgctxt "translate_taxonomy_add"
+msgid "Show only entries without pending translations."
+msgstr ""
+
+msgctxt "translate_taxonomy_edit"
+msgid "Also show entries with pending translations from you or other users."
+msgstr ""
+
+msgctxt "translated"
+msgid "translated"
+msgstr ""
+
+msgctxt "to_be_translated"
+msgid "to be translated"
+msgstr ""
+
+msgctxt "current_translation"
+msgid "Current translation"
+msgstr ""
+
+msgctxt "button_caption_yes"
+msgid "Yes"
+msgstr "Erê"
+
+msgctxt "button_caption_no"
+msgid "No"
+msgstr "No no"
+
+msgctxt "button_caption_skip"
+msgid "Skip"
 msgstr ""
 
