@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-12 18:21\n"
+"PO-Revision-Date: 2019-04-12 18:33\n"
 "Language-Team: Arabic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -1584,7 +1584,7 @@ msgstr "كاليفورنيا، الولايات المتحدة الأمريكي�
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "تشير إلى أصل المكونات"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
@@ -1592,7 +1592,7 @@ msgstr "أصول المكونات"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "المنتجات ذات المكونات الناشئة من %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -1616,7 +1616,7 @@ msgstr "طازجة، معلبة، مجمدة، زجاجة، صندوق، زجا�
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "نوع التغليف ، الشكل ، المادة"
 
 msgctxt "packaging_p"
 msgid "packaging"
@@ -1624,7 +1624,7 @@ msgstr "ata3bia"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "المنتجات مع التغليف %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
@@ -1632,11 +1632,11 @@ msgstr "ata3bia"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "إضافة نوع أو شكل أو مادة"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "المنتجات بدون التغليف %s"
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -1644,7 +1644,7 @@ msgstr "الصفحة %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "الصفحة %d من %d."
 
 msgctxt "pages"
 msgid "Pages:"
@@ -1664,7 +1664,7 @@ msgstr "فترة من الوقت بعد الافتتاح"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "وجدت في شعار حاوية مفتوحة مع عدد من أشهر: على سبيل المثال 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
@@ -1684,35 +1684,35 @@ msgstr "moussawir"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "مجموعات 1 PNNS"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "مجموعات 1 PNNS"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "مجموعة 1 PNNS"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "مجموعات 2 PNNS"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "مجموعات 2 PNNS"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr ""
+msgstr "مجموعة 2 PNNS"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "هناك %d المستكشفون و %d السفراء."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "يوجد مستكشفون لبلدان %d وسفراء لـ %d بلدان."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
@@ -2012,11 +2012,11 @@ msgstr "حفظ"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "حفظ."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "حفظ."
 
 msgctxt "search"
 msgid "Search"
@@ -2032,7 +2032,7 @@ msgstr "بحث"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "يحتوي على"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2040,11 +2040,11 @@ msgstr "اختر المنتجات ذات العلامات التجارية ال�
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "البحث عن الحقائق الغذائية المفتوحة"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "لا يحتوي على"
 
 msgctxt "search_download_button"
 msgid "Download"
@@ -2056,7 +2056,7 @@ msgstr "تحميل النتائج"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr ""
+msgstr "تنزيل النتائج بتنسيق Excel, OpenOffice) CSV)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
