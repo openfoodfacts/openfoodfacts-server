@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-12 18:01\n"
+"PO-Revision-Date: 2019-04-12 18:11\n"
 "Language-Team: Arabic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -1273,11 +1273,11 @@ msgstr "إضافة مكان"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr ""
+msgstr "المنتجات غير المصنعة أو المصنعة في %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criterias, of which %i products have a known production place."
-msgstr ""
+msgstr "%d تتطابق المنتجات مع معايير البحث ، ومنها %d منتجات لها مكان إنتاج معروف."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1320,15 +1320,15 @@ msgstr "المهمة: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "تم الانتهاء من هذه المهمة من خلال:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "اكتمل بواسطة %d أشخاص."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr ""
+msgstr "كن أول من يكمل هذه المهمة!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
@@ -1340,7 +1340,7 @@ msgstr "المهمات"
 
 msgctxt "moderate"
 msgid "moderate"
-msgstr ""
+msgstr "إدارة"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
@@ -1364,15 +1364,15 @@ msgstr "الأسماء"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "إذا كان الرمز الشريطي غير صحيح ، فيرجى تصحيحه هنا:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "بالنسبة للمنتجات التي لا تحتوي على رمز شريطي ، يتم تعيين رمز داخلي تلقائيًا."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "الاشتراك في النشرة الإخبارية (2 رسائل البريد الإلكتروني في الشهر كحد أقصى)"
 
 msgctxt "next"
 msgid "Next"
@@ -1388,11 +1388,11 @@ msgstr "لم يتم تحديد الحقائق الغذائية على المنت
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "يتم تحديد حقائق التغذية المتعددة على المنتج (على سبيل المثال مع الماء أو الحليب المضافة)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "أدخل فقط حقائق التغذية للمنتج غير مستعد ، دون إضافة ماء أو حليب. إذا كانت هناك منتجات مختلفة ، فأدخل حقائق التغذية للمنتج الأول المدرج."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -1433,7 +1433,7 @@ msgstr "مستويات المغذيات"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "مستوى المواد الغذائية"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
@@ -1461,7 +1461,7 @@ msgstr "حقائق غذائية"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "متوسط ​​حقائق التغذية لمنتجات %d من فئة %s التي تعرف عنها حقائق التغذية (من منتجات %d)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1473,11 +1473,11 @@ msgstr "قيمة 100 ج / 100 مل"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "مقارنة بمتوسط ​​قيم المنتجات في نفس الفئة:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "يرجى ملاحظة: بالنسبة لكل مادة غذائية ، يتم حساب المتوسط ​​للمنتجات التي تُعرف بها كمية المواد الغذائية ، وليس على جميع منتجات الفئة."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
@@ -1485,7 +1485,7 @@ msgstr "إذا كانت الصورة حادة ومستوية بما فيه ال�
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "القرن العاشر"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
@@ -1493,15 +1493,15 @@ msgstr "100 غرام / 100 مل"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup>ال</sup> القرن"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "متوسط"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "القرن 90"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
