@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-11 18:12\n"
+"PO-Revision-Date: 2019-04-12 11:34\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -312,15 +312,15 @@ msgstr "Mã"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "hoàn thành nhiệm vụ %d:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Bạn đang kết nối với tài khoản Facebook của bạn."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Tham gia từ"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -332,11 +332,11 @@ msgstr "Xin vui lòng sửa những lỗi sau:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "những hiệu chỉnh"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "hiệu chỉnh"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -348,11 +348,11 @@ msgstr "Các quốc gia nơi sản phẩm có sẵn rộng rãi (không bao gồ
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "các quốc gia"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Sản phẩm được bán tại %s"
 
 msgctxt "countries_s"
 msgid "country"
@@ -360,7 +360,7 @@ msgstr "nước"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Sản phẩm không được bán trong %s"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -368,11 +368,11 @@ msgstr "Nguồn dữ liệu"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "debug"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "debug"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
@@ -388,15 +388,15 @@ msgstr "Xóa trang"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Xóa các hình ảnh"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Xóa người dùng"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Đã được thêm vào:"
 
 msgctxt "diff_change"
 msgid "Changed:"
@@ -464,31 +464,31 @@ msgstr "<p>Các thông số tài khoản của bạn đã được thay đổi.<
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "biên tập viên"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "biên tập viên"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "địa chỉ E-mail"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "Mã EMB"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr ""
+msgstr "Sản phẩm được đóng gói bởi công ty với mã emb %s"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "Mã EMB"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "Mã EMB"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -501,27 +501,27 @@ msgstr "Ở châu Âu, mã trong một hình elip với 2 chữ cái đầu tiê
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "mã đóng gói"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr ""
+msgstr "Sản phẩm với mã ebm %s"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "mã đóng gói"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr ""
+msgstr "Sản phẩm không có mã ebm %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "Ngày nhập"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Ngày nhập"
 
 msgctxt "error"
 msgid "Error"
@@ -545,7 +545,7 @@ msgstr "Địa chỉ e-mail đã được một người dùng khác sử dụng
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Địa chỉ không hợp lệ."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -557,7 +557,7 @@ msgstr "Mật khẩu cần dài ít nhất 6 ký tự."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Người dùng không hợp lệ."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -621,7 +621,7 @@ msgstr "Drilldown thành các sản phẩm của..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "en_US"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -771,7 +771,7 @@ msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "dành cho"
 
 msgctxt "front_alt"
 msgid "Product"
@@ -1932,7 +1932,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Sản phẩm được bán tại %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1944,7 +1944,7 @@ msgstr "thêm địa điểm"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Sản phẩm không được bán trong %s"
 
 msgctxt "quantity"
 msgid "Quantity"
