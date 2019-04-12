@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-12 17:28\n"
+"PO-Revision-Date: 2019-04-12 17:41\n"
 "Language-Team: Arabic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -933,7 +933,7 @@ msgstr "المنتجات التي لا تحتوي على المكون s٪"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"متوفر في متجر جوجل بلاي\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
@@ -941,11 +941,11 @@ msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "المواد الغذائية المعروفة"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "المواد الغذائية المعروفة"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
@@ -957,7 +957,7 @@ msgstr "عضوي"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "حدد فقط التسميات الأكثر تحديدًا. ستتم إضافة تسميات \"الآباء\" تلقائيًا."
 
 msgctxt "labels_p"
 msgid "labels"
@@ -965,7 +965,7 @@ msgstr "الملصقات"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "المنتجات التي تحمل العلامة %s"
 
 msgctxt "labels_s"
 msgid "label"
@@ -973,11 +973,11 @@ msgstr "al3alama"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "أضف علامة"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "المنتجات التي لا تملك علامة %s"
 
 msgctxt "lang"
 msgid "Main language"
@@ -1085,7 +1085,7 @@ msgstr "البرتغالية"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "البرتغال (البرتغالية)"
 
 msgctxt "lang_ro"
 msgid "Romanian"
@@ -1109,7 +1109,7 @@ msgstr "السويديَة"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "التايلندية"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
@@ -1125,7 +1125,7 @@ msgstr "لغات اخرى"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "اللغة الأكثر حضورا والأكثر تسليط الضوء على المنتج"
 
 msgctxt "language"
 msgid "en-US"
