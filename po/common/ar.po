@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-02-15 10:50\n"
+"PO-Revision-Date: 2019-04-12 10:21\n"
 "Language-Team: Arabic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -173,15 +173,15 @@ msgstr "رقم الرمز الشريطي:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "يمكنك أيضًا المساعدة في تمويل مشروع حقائق الغذاء المفتوح"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"> مصنوعة من قبل جمعية غير ربحية ، مستقلة عن الصناعة. وهي مصنوعة للجميع ، من قبل الجميع ، ويتم تمويلها من قبل الجميع. يمكنك دعم عملنا من خلال <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"> التبرع لحقائق الغذاء المفتوحة</a> و أيضاً من خلال<a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">باستخدام محرك البحث ليلو</a>.<br/><b> شكرا لكم!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "احتضان المهمة"
 
 msgctxt "brands"
 msgid "Brands"
@@ -221,7 +221,7 @@ msgstr "الفئات"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "السردين في زيت الزيتون، وعصير البرتقال من التركيز"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -393,11 +393,11 @@ msgstr "حذف:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "تبرع لحقائق الغذاء المفتوحة"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -405,7 +405,7 @@ msgstr "آثار بيئية"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "إذا تم تحديد البصمة الكربونية على الملصق (نادرًا في هذا الوقت) ، فقم بالإشارة إلى نفس الكمية من التركيبة الغذائية."
 
 msgctxt "edit"
 msgid "edit"
@@ -478,7 +478,7 @@ msgstr "رمز EMB"
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -3109,6 +3109,38 @@ msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
 msgstr ""
 
+msgctxt "warning_gs1_company_prefix"
+msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
+msgstr ""
+
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr ""
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "تحذير"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr ""
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr ""
+
+msgctxt "origin"
+msgid "Origin"
+msgstr ""
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr ""
+
+msgctxt "producer"
+msgid "Producer"
+msgstr ""
+
 msgctxt "environment_infocard"
 msgid "Environment infocard"
 msgstr ""
@@ -3123,5 +3155,85 @@ msgstr ""
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
+msgstr ""
+
+msgctxt "carbon_impact_from_meat_or_fish"
+msgid "Carbon impact from meat or fish"
+msgstr ""
+
+msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
+msgid "of carbon emission from meat or fish for the whole product"
+msgstr ""
+
+msgctxt "of_sustainable_daily_emissions_of_1_person"
+msgid "of sustainable daily emissions of 1 person"
+msgstr ""
+
+msgctxt "of_sustainable_weekly_emissions_of_1_person"
+msgid "of sustainable weekly emissions of 1 person"
+msgstr ""
+
+msgctxt "for_one_serving"
+msgid "for one serving"
+msgstr ""
+
+msgctxt "methodology"
+msgid "Methodology"
+msgstr ""
+
+msgctxt "carbon_footprint_note_foodges_ademe"
+msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
+msgstr ""
+
+msgctxt "carbon_footprint_note_sustainable_annual_emissions"
+msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
+msgstr ""
+
+msgctxt "carbon_footprint_note_uncertainty"
+msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
+msgstr ""
+
+msgctxt "error_too_many_products_to_export"
+msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
+msgstr ""
+
+msgctxt "translate_taxonomy_to"
+msgid "Help translate the %s to %s"
+msgstr ""
+
+msgctxt "translate_taxonomy_description"
+msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr ""
+
+msgctxt "translate_taxonomy_add"
+msgid "Show only entries without pending translations."
+msgstr ""
+
+msgctxt "translate_taxonomy_edit"
+msgid "Also show entries with pending translations from you or other users."
+msgstr ""
+
+msgctxt "translated"
+msgid "translated"
+msgstr ""
+
+msgctxt "to_be_translated"
+msgid "to be translated"
+msgstr ""
+
+msgctxt "current_translation"
+msgid "Current translation"
+msgstr ""
+
+msgctxt "button_caption_yes"
+msgid "Yes"
+msgstr "نعم"
+
+msgctxt "button_caption_no"
+msgid "No"
+msgstr "لا"
+
+msgctxt "button_caption_skip"
+msgid "Skip"
 msgstr ""
 
