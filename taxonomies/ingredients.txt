@@ -45,6 +45,7 @@ stopwords:zh::配料
 # Unter Schutzatmosphäre verpackt.
 
 # es
+# Corteza no comestible
 # derivados lácteos
 # Producto sujeto a desecación.
 # Puede contener trazas de apio. Porcentajes expresados sobre el total de la receta.
@@ -53,6 +54,7 @@ stopwords:zh::配料
 # Maidoton ja soijaton
 
 # fr
+# Croûte non comestible
 # Contient une source de phénylalamine.
 # Contient des organismes génétiquement modifiés
 # dérivés de lait
@@ -51915,6 +51917,22 @@ fr:omelette
 # ingredient/fr:omelette has 51 products in french @2019-03-11
 # omelette (oeufs, lait écrémé, emmental 1.6%, amidon de riz, sel ; acidifiant : acide citrique)
 
+
+en:crust, rind
+de:Rinde, Kruste
+es: corteza
+fr:croûte
+it:crosta
+nl: korst
+# ingredient/fr:croûte has 127 products in 6 languages @2019-04-13
+# usage:fr: croûte: herbes aromatiques bio 
+# usage:fr: conservateur (croûte) : natamycine (contient lait)
+# usage/de: Kruste (mit Farbstoff [E 160b])
+
+<en:crust
+en:cheese rind
+de:Käserinde
+it:crosta di formaggio
 
 fr:anhydride sulfureux
 
