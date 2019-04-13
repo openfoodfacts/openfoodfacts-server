@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-12 18:52\n"
+"PO-Revision-Date: 2019-04-13 20:41\n"
 "Language-Team: Arabic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -1716,7 +1716,7 @@ msgstr "يوجد مستكشفون لبلدان %d وسفراء لـ %d بلدا�
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s لديه %d المستكشفون و %d السفراء."
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -1728,15 +1728,15 @@ msgstr "ترتيب المساهمين والدول"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s هو مستكشف لبلدان %d وسفير لبلدان %d."
 
 msgctxt "previous"
 msgid "Previous"
-msgstr ""
+msgstr "السابق"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "إضافة مادة غذائية"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1744,7 +1744,7 @@ msgstr "وأضاف المنتج على"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr ""
+msgstr "تم حفظ التغييرات."
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -1752,15 +1752,15 @@ msgstr "خصائص المنتج"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "تم إنشاء المنتج"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr ""
+msgstr "المكونات والمواد المثيرة للحساسية والمواد المضافة وحقائق التغذية والعلامات وأصل المكونات والمعلومات عن المنتج %s"
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "صورة المنتج"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
@@ -1768,11 +1768,11 @@ msgstr "صورة مع الباركود:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "الصورة الحالية:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "حذف الصور"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -1780,31 +1780,31 @@ msgstr "استخراج المكونات من الصورة"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "لا يمكن استخراج نص المكونات. حاول باستخدام صورة أكثر وضوحًا ، مع دقة أعلى أو تأطير أفضل للنص."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "تم استخراج نص المكونات. التعرف على النص ليس كاملاً ، لذا يرجى مراجعة النص أدناه وتصحيح الأخطاء إذا لزم الأمر."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr ""
+msgstr "استخراج المكونات"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr ""
+msgstr "تطبيع الألوان"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr ""
+msgstr "افتح الصورة بالحجم الأصلي بنوافذ جديدة"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
-msgstr ""
+msgstr "تم إستلام الصورة"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr ""
+msgstr "قم بتدوير الصورة إذا لزم الأمر ، ثم انقر واسحب لتحديد المنطقة المثيرة للاهتمام:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
@@ -1816,39 +1816,39 @@ msgstr "تدوير الحق"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "التحقق من صحة و / أو تغيير حجم الصورة"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr ""
+msgstr "تم حفظ الصورة"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "حفظ الصورة"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr ""
+msgstr "خطأ أثناء تحميل الصورة"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "صورة على خلفية بيضاء: حاول إزالة الخلفية"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr ""
+msgstr "أخطاء أثناء حذف الصور"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "تم حذف الصور"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "أخطاء أثناء نقل الصور"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "تم نقل الصور"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
