@@ -18642,20 +18642,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Two parents due to and/or ingredient
+# comment:en:Two parents due to and/or ingredient
 
 <en:natural vanilla flavouring
 <en:natural flavouring
@@ -18781,6 +18768,138 @@ es:aroma natural de coco
 fr:arôme naturel de noix de coco
 it:aroma naturale di cocco
 nl:natuurlijk kokosnoot-aroma
+
+
+# description:en:Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
+# comment:en:It is assumed that the translations of smoke are the same as cooking smoke.
+
+en:smoke
+ar:دخان
+# arc:ܬܢܢܐ
+ay:Jiwq'i
+be:Дым
+# be-tarask:Дым
+bg:Дим
+# bho:धुँआ
+# bjn:Palak
+bs:Dim
+ca:fum
+cs:kouř
+da:røg
+de:Rauch
+el:καπνός
+eo:fumo
+es:humo
+et:Suits
+eu:Ke
+fa:دود
+fi:savustettu, Savu
+fr:fumée
+ga:Toit
+gl:Fume
+gu:Tatatĩ
+he:עשן
+hi:धुआँ
+hr:Dim
+ht:Lafimen
+hu:füst
+hy:ծուխ
+id:Asap
+is:Reykur
+it:fumo
+ja:煙
+# kab:Abbu
+kk:Түтінді газдар
+kn:ಹೊಗೆ
+ko:연기
+ky:Түтүн
+la:Fumus
+li:Rouk
+# lmo:Fumm
+lt:Dūmai
+lv:dūmi
+mk:чад
+ms:Asap
+my:မီးခိုး
+# nah:Pōctli
+nb:røyk
+# new:कुँ
+nl:rook
+nn:røyk
+oc:Fum
+pl:dym
+# pnb:توآں
+pt:fumo
+qu:Q'usñi
+ro:Fum
+ru:дым
+# rup:Fumu
+# sco:Reek
+# sgs:Dūmā
+sh:Dim
+sk:Dym
+so:Qiiq
+sr:дим
+# sr-ec:дим
+# sr-el:dim
+su:Haseup
+sv:rökt, rök
+sw:Moshi
+ta:புகை
+te:పొగ
+th:ควัน
+tr:Duman
+uk:Дим
+ur:دھواں
+vi:Khói
+# war:Asu
+# yue:煙
+zh:煙
+# zh-cn:烟
+# zh-hans:烟
+# zh-hant:煙
+# zh-hk:煙
+# zh-sg:烟
+# zh-hk:煙
+wikidata:en:Q130768
+wikipedia:en:https://en.wikipedia.org/wiki/Smoking_(cooking)
+# ingredient/fr:fumée has 437 products in 12 languages @2019-04-14
+
+<en:smoke
+en:beech wood smoke
+de:Buchenholzrauch
+fr:fumée de bois de hêtre
+it:fumo di faggio
+# ingredient/fr:fumée-de-bois-de-hêtre has 211 products in 4 languages @2019-04-14
+
+# description:en:LIQUID SMOKE is a water-soluble yellow to red liquid used for flavoring. It is used as a substitute for cooking with wood smoke while retaining a similar flavor. It can be used to flavor any meat or vegetable. It is generally made by concentrating the smoke from wood, but can contain any number of food additives.
+
+<en:smoke
+en:liquid smoke
+# azb:دود مایع
+de:Raucharoma
+eo:likva fumo
+fa:دود مایع
+fr:fumée liquide
+he:עשן נוזלי
+id:Asap cair
+it:fumo liquido
+ja:くん液
+jv:Asap Cair
+lt:Dūminis mirkalas
+nb:flytende røyk
+pt:fumaça líquida
+ru:Жидкий дым
+sv:rökarom
+uk:Рідкий дим
+zh:煙熏液
+# zh-hans:煙熏液
+# zh-hant:煙熏液
+# zh-hk:煙熏液
+wikidata:en:Q909463
+wikipedia:en:https://en.wikipedia.org/wiki/Liquid_smoke
+# ingredient/liquid-smoke has 183 products in 2 languages @2019-03-14
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -52140,7 +52259,6 @@ fr:caféine
 fr:citrate de calcium
 
 
-fr:fumée
 
 
 
@@ -53614,8 +53732,6 @@ fr:antiagglomérants
 
 fr:poudre parfois un ingrédient
 
-en:liquid smoke
-fr:fumée liquide
 
 fr:d2
 
@@ -53674,7 +53790,6 @@ fr:carbonates de potassium
 
 # RANDOM
 
-fr:fumée de bois de hêtre
 
 
 
