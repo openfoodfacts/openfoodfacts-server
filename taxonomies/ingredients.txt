@@ -26,14 +26,17 @@ stopwords:zh::配料
 # Contains genetically modified organisms
 # dairy derivatives
 # in varying proportions
+# Made in a cheese dairy using fish
 # organically grown products
 # prefried in vegetable oil
+# no preservatives
 # May contain hazelnuts, almonds, pistachios, nuts, eggs, lupines, sulphites or sulfur dioxide.
 
 # da
 # i varierende mænggdeforhold
 
 # de
+# Fur vegetarier geeignet.
 # Hergestellt mit tierischem Lab und mikrobiellem Labaustauschstoff.
 # in veränderlichen Anteilen
 # Kann Haselnüsse, Mandeln, Eier und Spuren anderer Schalenfrüchte (Nüsse) enthalten. 
@@ -79,7 +82,9 @@ stopwords:zh::配料
 # derivatti del latte
 # Può contenere nocciole, mandorle, uova e tracce d'altra frutta con guscio (noci). 
 # Cacao:34 % minimo nel cioccolato.
+# Prodotto in un caseificio con il pesce.
 # Può contenere: nocciole, mandorle, pistacchi, noci comuni, uova, lupini, solfiti o anidride solforosa.
+# senza conservanti
 
 # nl
 # in wisselende hoeveelheden
@@ -18674,7 +18679,7 @@ fr:arômes naturels de menthe, arôme naturel de menthe, arôme naturel de menth
 nl:natuurlijk muntaroma
 
 <en:flavouring
-en:smoke flavouring, smoke flavour
+en:smoke flavouring, smoke flavour, aroma of smoke
 da:røgaroma
 de:Raucharoma
 es:aroma de humo
@@ -35343,12 +35348,12 @@ nl:voorgebakken aardappel
 sv:forstekt potatis
 # fr:pommes-de-terre-préfrites has 151 products in 3 languages @2018-10-15
 
-# The bell PEPPER (also known as sweet pepper, pepper or capsicum) is a cultivar group of the species Capsicum annuum.
 
-# in some languages en:bell-pepper and en:parika are not distinguished, but the same word
+# description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
+# comment:en:in some languages en:bell-pepper and en:parika are not distinguished, but the same word
 
 <en:vegetable
-en:pepper, bell pepper
+en:bell pepper, pepper
 af:Soetrissie
 an:Pimiento
 ar:فلفل حلو
@@ -35413,6 +35418,12 @@ wikidata:en:Q1548030
 wikipedia:en:https://en.wikipedia.org/wiki/Bell_pepper
 carbon_footprint_fr_foodges_ingredient:fr:Poivron
 # fr:poivron has 1581 products in 11 languages @2018-10-15
+
+<en:bell pepper
+en:sweet peppers
+fr:piment doux
+it: peperoni dolci
+# ingredient/fr:piment-doux has 309 products in 6 languages @2019-04-14
 
 <en:bell pepper
 en:yellow pepper
@@ -35490,6 +35501,218 @@ it:peperoni rossi e gialli
 fr:poivrons rouges et jaunes grillés
 pt:pimentos vermelhos e amarelos grelhados
 # fr:poivrons-rouges-et-jaunes-grillés has 21 products in 2 languages @2018-10-15
+
+
+
+# description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
+
+<en:vegetable
+en:chili pepper
+# ace:Campli
+ar:فلفل حار
+# bcl:sili
+be:чырвоны перац
+bg:Люта чушка
+# bjn:Lombok
+br:pimant
+bs:Čili
+ca:bitxo
+cs:chilli paprička
+da:Chili
+de:Peperoni, chilischoten, Pfefferoni, Chili
+el:Τσίλι
+# en-ca:Chili pepper
+# en-gb:Chili pepper
+eo:Kapsiketo
+es:guindilla, ají, chile
+et:tšilli
+eu:Pipermin
+fa:فلفل تند
+fi:chili
+fr:fr:chili, piment du chili
+gl:Chile
+gn:Ky'ỹi
+gu:મરચું
+he:פלפלת צ'ילי
+hi:मिर्च
+hr:Čili
+ht:Piman
+hu:Csilipaprika
+hy:Կարմիր պղպեղ
+id:Cabai
+is:Chilli pipar
+it:peperoncino
+ja:唐辛子
+jv:Lombok abang
+ka:წიწაკა
+# kbp:Kpɛɛnzʊʊ
+kn:ಮೆಣಸಿನಕಾಯಿ
+ko:고추
+ku:Îsot
+ky:Калемпир
+la:Chili
+ln:Pilipilí
+lo:ໝາກເຜັດ
+lt:Raudonasis pipiras
+lv:čili pipari
+# mai:मर्चाई
+# min:Lado
+mk:лута пиперка
+ms:Cili
+my:ငရုတ်
+nb:paprikaslekten
+ne:खुर्सानी
+# new:मल्ता
+nl:pepers, peperoni, chilipeper
+nn:chilipepar
+# nrm:Piment
+nv:Azeedíchʼííʼ
+oc:Piment
+or:ଲଙ୍କା ମରୀଚ
+os:Цывзы
+pa:ਮਿਰਚ
+# pam:Lara
+pl:papryka chili
+# pnb:مرچ
+pt:chili
+# pt-br:Pimenta
+qu:Utsu
+ro:Chili
+ru:красный перец
+sa:मरीचिका
+# scn:pipi ardenti
+sd:ڳاڙھا مرچ
+sh:Čili
+si:මිරිස්
+sk:Chilli paprička
+sl:Čili
+sn:Mhiripiri
+so:Besbaas
+sq:specë e djegëst
+sr:Čili
+# sr-el:Čili
+su:Cabé
+sv:chilipeppar
+ta:பச்சை மிளகாய்
+# tcy:ಮುಂಚಿ
+te:మిరపకాయ
+th:พริก
+tl:Sili
+tr:Acı biber
+uk:червоний перець
+ur:مرچ
+vi:Ớt
+# war:Harang
+wo:kaani
+# xmf:ზაფანა
+# yue:辣椒
+zh:辣椒
+wikidata:en:Q165199
+wikipedia:en:https://en.wikipedia.org/wiki/Chili_pepper
+
+<en:chili pepper
+fr:extrait de piment
+de:Chiliextrakt
+it:estratto di peperoncino
+nl:pimentextract
+# ingredient/fr:extrait-de-piment has 72 products in 6 languages @2019-04-15
+
+<en:chili pepper
+en:chilli powder
+da:chilipulver
+de:Chilipulver, gemahlener Chili
+es:chile en polvo, chile molido
+fr:poudre de piment, piment en poudre
+hu:chilipaprikapor
+it:peperoncino en polvere, peperoncino macinato
+nl:chilipoeder, gemalen chili, chilipeperpoeder, pimentpoeder
+pt:malagueta em pó
+sv:chilipulver
+# ingredient/fr:poudre-de-piment has 221 products in 13 languages @2019-04-15
+
+<en:chili pepper
+en:chili puree, chilli puree
+de:Chilipaste, Chilipüree
+fr:purée de piments
+it:purea di peperoncino
+# ingredient/fr:purée-de-piments has 136 products in 4 languages @2019-04-15
+# usage:fr:purée de piments (piments, sel)
+
+<en:chili pepper
+en:dried chili pepper
+de:getrocknete Chilischoten
+fr:piment rouge séché
+nl:gedroogde chilipeper
+# ingredient/fr:piment-rouge-séché has 16 products in 4 languages @2019-04-15
+
+<en:chili pepper
+en:red chili pepper, red pepper, roter Pfeffer
+de:roter Chili, rote Chili-Schoten
+fr:piment rouge, piments rouges
+it:peperoncini rossi
+# ingredient/fr:piment-rouge has 314 products in 7 languages @2019-4-15
+
+<en:red chili pepper
+it:purè di peperoncino rosso
+
+<en:red chili pepper
+en:red pepper seed oil
+de:roter Pfeffer Kernöl
+fr:huile de graines de piment rouge
+nl:rode peper zaad olie
+
+<en:chili pepper
+de:grüne Chili
+fr:piments verts, piment vert
+it:peperoncino verde
+
+<en:chili pepper
+en:hot chili peppers, hot pepper
+de:scharfe chilischoten, scharfe Pfefferoni
+es:guindilla fuerte
+fr:piment fort, piments forts
+it:peperoncino piccante
+nl:scherpe peperoni, scherpsmakende pepers
+# ingredient/fr:piment-fort has 391 products in 7 languages @2019-04-14
+# usage:en:hot peppers (hot peppers, water, vinegar, sugar, table salt, stabilizer [E 509])
+
+# description:en:The Espelette pepper is a variety of Capsicum annuum that is cultivated in the French commune of Espelette, Pyrénées-Atlantiques, traditionally the northern territory of the Basque people. On 1 June 2000, it was classified as an AOC product and was confirmed as an APO product on 22 August 2002.
+
+<en:chili pepper
+en:Espelette chili pepper
+de:Gorria
+es:Pimiento de Espelette
+eu:Ezpeletako biperra
+fr:piment d'espelette
+it:peperoncino di Espelette
+ja:エスプレット
+ko:에스플레트고추
+nl:Espelettepeper
+pl:Pieprz z Espelette
+ru:Эспелетский перец
+sv:espelette paprika
+tl:Espelette pepper
+wikidata:en:Q1538429
+wikipedia:en:https://en.wikipedia.org/wiki/Espelette_pepper
+# ingredient/fr:piment-d’espelette has 371 products in 5 languages @2019-04-15
+# scoville:en:1500-2500
+
+<en:chili pepper
+en: Jalapeno peppers
+de: Jalapeno-Chilis
+fr:piments jalapeño, piment jalapeño
+it: Peperoncini jalapeños
+nl:Jalapeno pepers
+# ingredient/fr:piments-jalapeño has 104 products in 4 languages @2019-04-15
+
+
+<en:chili pepper
+fr:piment de la jamaïque, piment de Jamaïque, piment de jamaïque
+de:Jamaikapfeffer
+nl:Jamaicaanse peper
+# ingredient/fr:piment-de-la-jamaïque has 148 products in 5 languages @2019-04-15
+# description:en:The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
+
 
 # en:paprika is very often indicated as a spice. This is probably the same as en:paprika powder
 
@@ -53741,46 +53964,7 @@ fr:sérum de lait en poudre
 allergens:fr:sérum de _lait_ en poudre
 
 
-# Pepper
 
-fr:piment
-
-<fr:piment
-fr:piments rouges
-
-<fr:piment
-fr:piment d'espelette
-# scoville:en:1500-2500
-
-<fr:piment
-fr:piments jalapeño, piment jalapeño
-
-<fr:piment
-fr:piments verts, piment vert
-
-<fr:piment
-fr:extrait de piment
-
-<fr:piment
-fr:purée de piments
-
-<fr:piment
-fr:poudre de piment, piment en poudre
-
-<fr:piment
-fr:piment de la jamaïque, piment de Jamaïque, piment de jamaïque
-
-<fr:piment
-fr:chili
-
-<fr:piment
-fr:piment rouge
-
-<fr:piment
-fr:piment doux
-
-<fr:piment
-fr:piment fort
 
 
 
