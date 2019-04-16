@@ -459,15 +459,25 @@ fr:conservateur de surface
 
 
 # <en:function
+en:enhancer
 fr:améliorant, améliorants
-de: Backmittel
-it: miglioranti
+de:Backmittel
+it:miglioranti
 nl:verbeteraar
 # ingredient/fr:améliorant has 95 products in 5 languages @2019-03-06
 # améliorants (émulsifiant: E 472e, correcteurs d'acidité: E 516 et acide ascorbique, farine de soja, farine de blé)
 
-<fr:améliorant
+<en:enhancer
 it: miglioranti per panificazione
+
+<en:enhancer
+en:cooking enhancer
+de:Kochverstärker
+fr:améliorant de cuisson
+it:esaltatore di cottura
+# ingredient/fr:améliorant-de-cuisson has 51 products in 4 languages @2019-04-16
+# usage:en: acerola powder with cassava starch (cooking enhancer)
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -53965,7 +53975,6 @@ fr:dextrine de blé
 fr:ciboule
 
 
-fr:améliorant de cuisson
 
 
 
