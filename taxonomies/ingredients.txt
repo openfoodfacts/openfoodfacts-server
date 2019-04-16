@@ -10624,8 +10624,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Isomaltulose
 
 
 # nova:en:lactose
-<en:Disaccharide
-en:Lactose
+# <en:Disaccharide
+en:lactose
 ar:لاكتوز
 # ast:Lactosa
 # azb:لاکتوز
@@ -10698,6 +10698,23 @@ en:Lactose powder, powdered lactose
 fr:poudre de lactose
 nl:Lactosepoeder
 
+
+# <en:source:en:bovine milk
+en:milk minerals
+de:Milchmineralien
+es:minerales de la leche
+fr:minéraux du lait
+it:minerali del latte
+nl:melkmineralen
+wikipedia:en:https://en.wikipedia.org/wiki/Milk#Salts,_minerals,_and_vitamins
+# ingredient/fr:minéraux-du-lait has 107 products in 5 languages @2019-04-16
+
+<en:lactose
+<en:milk minerals
+fr:lactose et minéraux du lait
+es:lactosa y minerales de la leche
+nl:lactose en melkmineralen
+# ingredient/fr:lactose-et-minéraux-du-lait has 139 products in 5 languages @2019-04-16
 
 # Unsorted milk stuff
 
@@ -16958,10 +16975,10 @@ sv:kycklingfett
 # ingredient/fr:graisse-de-poulet has 369 products in 6 languages @2019-03-01
 
 <en:poultry fat
-en: goose fat
-de: Gänsefett
+en:goose fat
+de:Gänsefett
 fr:graisse d'oie
-it: grasso d'oca
+it:grasso d'oca
 # ingredient/fr:graisse-d’oie has 99 products in 4 languages @2019-03-01
 
 
@@ -52794,13 +52811,12 @@ fr:matière grasse laitière
 
 # Random
 
-fr:concentré des minéraux du lait
+fr:concentré des minéraux du lait, concentré de minéraux du lait
 
 fr:d3
 
 fr:mannitol
 
-fr:concentré de minéraux du lait
 
 fr:nouilles, nouille
 
@@ -53583,7 +53599,7 @@ fr:pantothénate de calcium
 fr:ketchup
 carbon_footprint_fr_foodges_ingredient:fr:Ketchup
 
-fr:minéraux du lait
+
 
 fr:carbonate de potassium
 
@@ -54022,12 +54038,10 @@ fr:folacine
 
 fr:salade composée
 
-fr:lactose et minéraux du lait
 
 
 
 
-fr:dextrine de blé
 
 
 
