@@ -31,6 +31,7 @@ stopwords:zh::配料
 # prefried in vegetable oil
 # no preservatives
 # May contain hazelnuts, almonds, pistachios, nuts, eggs, lupines, sulphites or sulfur dioxide.
+# Total saline: 2.0%
 
 # da
 # i varierende mænggdeforhold
@@ -74,6 +75,7 @@ stopwords:zh::配料
 # Traces de soja, moutarde, crustacés, poisson, mollusques, eufs. Les infor- mations en gras sont destinées aux personnes intolérantes ou allergiques. - amidon
 # Ingrédients laitiers issus de lait pasteurisé. Traces éventuelles de fruits à coque.
 # Traces éventuelles de céleri. Pourcentages exprimés sur le total de la recette.
+# Solution saline totale: 2,0%
 
 
 # it
@@ -29567,7 +29569,7 @@ fr:figues séchées, figues sèches
 de:Feigen getrocknet
 es:higo seco
 it:fichi essiccati
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:figues%20séchées
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:figues%20séchées
 # 91 products in 3 languages @2018-09-29
 
 <en:fruit
@@ -29576,7 +29578,7 @@ es:higo chumbo
 fr:figue de Barbarie
 nl:cactusvijg
 de:Kaktusfeigen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/cactus-fig
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/cactus-fig
 # 3 products in 1 language @2018-09-29
 
 # The context on an ingredient list determines whether this referes to the berries (probable) or the flowers.
@@ -29587,7 +29589,7 @@ de:Holunder
 fr:sureau
 it:sambuco
 nl:vlier
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sureau
 # 332 products @2018-09-29
 
 <en:elder
@@ -29604,20 +29606,20 @@ fr:jus de sureau
 de:Holundersaft
 it:succo di sambuco
 nl:vlierbessap
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20sureau
 # 52 products @2018-09-29
 
 <fr:jus de sureau
 fr:jus de sureau concentré, jus concentré de sureau
 de:konzentrierter Holundersaft
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20sureau%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20sureau%20concentré
 # 40 products @2018-09-29
 
 <fr:jus de sureau concentré
 fr:jus de sureau à base de concentré
 de:Holundersaft aus Konzentrat
 it:succo di sambuco a base di concentrato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20sureau%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20sureau%20à%20base%20de%20concentré
 # 25 products @2018-09-29
 
 <en:elderberry
@@ -29625,9 +29627,9 @@ en:elderberry extract
 de:Holunderbeerenextrakt
 fr:extrait de baie de sureau, extrait de sureau
 sv:fläderbär extract
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20sureau
 # 29 products @2018-09-29
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20baie%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20baie%20de%20sureau
 # 57 products in 1 language @2018-09-29
 
 <en:elderberry extract
@@ -29637,7 +29639,7 @@ en:natural elderberry extract
 fr:concentré de sureau
 de:Holunderbeerenkonzentrat
 es:concentrato di coccole di sambuco
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré%20de%20sureau
 # 33 products @2018-09-29
 
 <en:elder
@@ -29646,7 +29648,7 @@ de:Holunderblüten
 fr:fleurs de sureau
 it:fiori di sambuco
 nl:vlierbloesem
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs%20de%20sureau
 # 51 products @2018-09-29
 
 <en:fruit
@@ -31752,7 +31754,7 @@ fr:noix de coco râpée
 de:Kokosraspel
 es:coco rallado
 it:cocco grattugiato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20râpée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20râpée
 # 575 products in 7 languages @2018-10-03
 
 <fr:noix de coco séchée
@@ -31760,9 +31762,9 @@ en:coconut flakes
 de:Kokosflocken
 fr:flocons de coco, fr:flocons de noix de coco
 it:fiocchi di cocco
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20coco
 # 15 products in 4 languages @2018-10-03
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20noix%20de%20coco
 # 44 products @2018-10-03
 
 <en:fruit
@@ -31775,7 +31777,7 @@ es:zumo de acai
 fr:jus d’açaï
 nl:acaisap
 de:Acai-Saft
-openfoodfacts:https://world.openfoodfacts.org/ingredient/acai-juice
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acai-juice
 # 9 products in 2 langauges @2018-10-04
 
 <en:fruit
@@ -38643,7 +38645,7 @@ uk:Карі (приправа)
 zh:咖喱粉
 wikidata:en:Q1144935
 wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
-openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
 # 231 products in 8 languages @2018-10-11
 
 # TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking.
@@ -38748,7 +38750,7 @@ zh:薑黃
 # zh-tw:薑黃
 wikidata:en:Q42562
 wikipedia:en:https://en.wikipedia.org/wiki/Turmeric
-openfoodfacts:https://world.openfoodfacts.org/ingredient/turmeric
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/turmeric
 # 6644 products in 12 languages @2018-10-11
 
 # This is sometimes mentioned as a colouring agent.
@@ -38759,7 +38761,7 @@ en:turmeric powder
 de:Curcumapulver
 fr:poudre de curcuma, curcuma moulu
 it:curcuma in polvere
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poudre%20de%20curcuma
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poudre%20de%20curcuma
 # 40 products @2018-10-11
 
 # This is sometimes mentioned as a colouring agent.
@@ -39515,6 +39517,27 @@ wikidata:en:Q370239
 wikipedia:en:https://en.wikipedia.org/wiki/Cinnamomum_verum
 # fr:cannelle-de-ceylan has 18 products in 3 languages @2018-10-24
 
+
+# description:en:A PINK PEPPERCORN is a dried berry of the shrub Schinus molle, commonly known as the Peruvian peppertree. Although a peppercorn is the dried fruit of a plant from the genus Piper, pink peppercorns came to be called such because they resemble peppercorns, and because they, too, have a peppery flavour. As they are members of the cashew family, they may cause allergic reactions including anaphylaxis for persons with a tree nut allergy.
+
+en:pink peppercorn, pink berries
+da:rosépeber
+de:Rosa Beeren
+fa:فلفل صورتی
+fr:baies roses
+it:pepe rosa
+ja:ピンクペッパー
+la:Granum piperis roseum
+ml:പിങ്ക് പെപ്പർകോൺ
+nl:roze bessen
+ru:Розовый перец
+sv:Rosépeppar
+uk:Рожевий перець
+wikidata:en:Q2497744
+wikipedia:en:https://en.wikipedia.org/wiki/Pink_peppercorn
+# ingredient/fr:baies-roses has 141 products in 5 languages @2019-04-16
+# usage:fr:épice (baies roses)
+
 # A spice commonly called star anise, staranise, star anise seed, Chinese star anise, or badian that closely resembles anise in flavor is obtained from the star-shaped pericarps of the fruit of I. verum which are harvested just before ripening.
 
 <en:spice
@@ -39579,9 +39602,9 @@ fr:sariette, sarriette
 de:Bohnenkraut
 it:santoreggia
 nl:bonenkruid
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sarriette
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sarriette
 # 258 products in 5 languages @2018-10-10
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sariette
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sariette
 # 26 products in 2 languages @2018-10-10
 
 <en:herb
@@ -53943,27 +53966,6 @@ fr:ciboule
 
 
 fr:améliorant de cuisson
-
-fr:baies roses
-
-
-
-
-fr:homard
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
