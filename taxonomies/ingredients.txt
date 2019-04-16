@@ -10595,22 +10595,21 @@ pt:leite evaporado
 zh:淡奶
 
 <en:condensed milk
-<en:powdered milk
-fr:lait écrémé concentré ou en poudre
-nl:gecondenseerde magere poedermelk
-
-<en:condensed milk
-<en:skimmed milk
-fr:lait concentré sucré écrémé
-nl:gesuikerde gecondenseerde magere melk
-
-<en:condensed milk
 en:sweetened condensed milk
 de:gezuckerte Kondensmilch
 fr:lait concentré sucré, lait condensé sucré
 it:latte concentrato zuccherato
-nl:gecondenseerde gesuikerde melk, gecondenseerde volle melk met suiker
+nl:gecondenseerde gesuikerde melk, gecondenseerde volle melk met suiker, gesuikerde gecondenseerde melk
 # ingredient/sweetened-condensed-milk has 516 products in 5 languages @2019-04-16
+
+<en:sweetened condensed milk
+en:sweetened condensed semi-skimmed milk
+de:gezuckerte Kondensmagermilch, Kondensmagermilch gezuckert
+fr:lait écrémé condensé sucré, lait concentré sucré écrémé
+it:latte magro condensato zuccherato
+nl:gesuikerde gecondenseerde magere melk
+# ingredient/fr:lait-écrémé-condensé-sucré has 42 products in 4 languages @2019-04-18
+# usage:de: gezuckerte Kondensmagermilch (Milch, Zucker)
 
 <en:condensed milk
 en:condensed semi-skimmed milk
@@ -10625,6 +10624,12 @@ en:concentrated skim milk, concentrated skimmed milk
 fr:lait écrémé concentré, concentré de lait écrémé
 de:kondensierte Magermilch, konzentrierte Magermilch, Kondensmagermilch
 it:latte scremato concentrato, latte magro concentrato
+
+
+<en:condensed milk
+<en:powdered milk
+fr:lait écrémé concentré ou en poudre, lait écrémé condensé sucré
+nl:gecondenseerde magere poedermelk
 
 fr:lactose et protéine de lait
 
@@ -54157,7 +54162,6 @@ fr:lait écrémé condensé
 nl:gecondenseerde magere melk
 de:Kondensmagermilch
 
-fr:lait écrémé condensé sucré
 
 
 
