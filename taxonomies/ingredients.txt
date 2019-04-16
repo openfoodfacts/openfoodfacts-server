@@ -15548,8 +15548,6 @@ fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande d
 #Poulet
 
 
-en:chicken meat
-fr:viande de poulet
 
 <en:chicken meat
 fr:produit à base de viande de poulet
@@ -51069,6 +51067,28 @@ nl: kippenvel
 ro: piele de pui
 # ingredient/fr:peau-de-poulet has 215 products in 7 languages @2019-03-29
 
+# description:en:Chicken is the most common type of poultry in the world. Owing to the relative ease and low cost of raising them in comparison to animals such as cattle or hogs, chickens have become prevalent throughout the cuisine of cultures around the world, and their meat has been variously adapted to regional tastes. Chicken meat contains about two to three times as much polyunsaturated fat as most types of red meat when measured as weight percentage.
+# comment:en:The wikidata translations or unclear whether they refer to the chicken animal or the chicken meat
+
+<en:poultry meat
+en:chicken meat
+de:Pouletfleisch
+es:Carne de pollo
+fr:viande de poulet
+it:carne di pollo
+nl:kippenvlees
+ro:carne de pui
+ru:куриное мясо
+sk:prsia kuracie
+sv:kycklingkött
+# wikidata:en:Q864693
+# ingredient/chicken-meat has 2349 products in 8 languages @2019-04-16
+
+<en:chicken meat
+en:precooked chicken meat
+fr:viande de poulet précuite
+nl:voorgekookt kippenvlees
+# ingredient/fr:viande-de-poulet-précuite has 9 products in french @2019-04-16
 
 <en:chicken meat
 fr:viande de cuisse de poulet
@@ -54312,8 +54332,6 @@ fr:peau de dinde
 # ingredient/fr:peau-de-dinde has 76 products in french @2019-03-01
 
 
-<en:chicken meat
-fr:viande de poulet précuite
 
 
 
