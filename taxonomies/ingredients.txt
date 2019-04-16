@@ -10580,19 +10580,88 @@ fr:lait entier concentré
 
 fr:lait maigre
 
-# CONDENSED MILK
+
+# description:en:EVAPORATED MILK, known in some countries as "unsweetened condensed milk", is a shelf-stable canned milk product with about 60% of the water removed from fresh milk. It differs from sweetened condensed milk, which contains added sugar. Sweetened condensed milk requires less processing since the added sugar inhibits bacterial growth.
+
+<en:milk
+en:evaporated milk
+# en-ca:evaporated milk
+# en-gb:evaporated milk
+es:leche evaporada
+eu:Esne lurrundu
+fa:شیر تغلیظ‌شده
+fi:Maitotiiviste
+fr:lait concentré non sucré
+id:Susu evaporasi
+ja:無糖練乳
+ko:무당연유
+mk:згуснато млеко
+ms:Susu sejat
+nl:koffiemelk, geëvaporeerde melk
+pt:leite evaporado
+# pt-br:leite evaporado
+ru:сгущённое молоко
+sv:indunstad mjölk
+th:นมระเหย
+# yue:淡奶
+zh:淡奶
+wikidata:en:Q13417087
+wikipedia:en:https://en.wikipedia.org/wiki/Evaporated_milk
+# ingredient/evaporated-milk has 218 products in english @2019-04-16
+
+
+# description:en:CONDENSED MILK is cow's milk from which water has been removed.  It is most often found in the form of "sweetened condensed milk" ("SCM"), with sugar added, and the terms "condensed milk" and "sweetened condensed milk" are often used interchangeably today. Sweetened condensed milk is a very thick, sweet product, which when canned can last for years without refrigeration if not opened. Condensed milk is used in numerous dessert dishes in many countries.
 
 <en:milk
 en:condensed milk
+af:Kondensmelk
+ar:الحليب المبخر
+az:Qatılaşdırılmış süd
+be:згушчанае малако
+# be-tarask:згушчанае малако
 ca:llet condensada
-de:Kondensmilch, evaporierte Kondensmilch, Dosenmilch, Büchsenmilch
+cs:kondenzované mléko
+de:Kondensmilch, Dosenmilch, Büchsenmilch
+# de-ch:Kondensmilch
+# en-ca:Condensed milk
+# en-gb:Condensed milk
+eo:kondensita lakto
 es:leche condensada
 et:kondenspiim
-eu:esne lurrundua
-fr:lait concentré
-id:susu evaporasi
-pt:leite evaporado
-zh:淡奶
+eu:esne lurrundua, Esne kondentsatu
+fa:شیر تغلیظ‌شده
+fi:Kondensoitu maito
+fr:lait condensé, lait concentré
+gl:Leite condensado
+he:חלב מרוכז
+hy:Խտացրած կաթ
+id:susu kental
+it:latte condensato
+ja:加糖練乳
+kn:ಕಂಡೆನ್ಸ್‌ಡ್ ಮಿಲ್ಕ್
+ko:연유
+lb:Béchsemëllech
+lt:Kondensuotas pienas
+ms:Susu pekat
+nl:gecondenseerde melk
+pt:leche condensada, leite condensado
+# pt-br:Leite condensado
+ro:Lapte condensat
+ru:сгущённое молоко
+sl:Kondenzirano mleko
+sv:kondenserad mjölk
+th:นมข้นหวาน
+tl:Gatas na kondensada
+tr:Kondense süt
+tt:Куертылган сөт
+uk:згущене молоко
+vi:Sữa đặc
+# yue:煉奶
+zh:煉奶
+wikidata:en:Q2830455
+wikipedia:en:https://en.wikipedia.org/wiki/Condensed_milk
+# ingredient/condensed-milk has 1704 products in 10 languages @2019-04-16
+
 
 <en:condensed milk
 en:sweetened condensed milk
@@ -10641,6 +10710,8 @@ es:leche desnatada condensada
 fr:lait écrémé concentré, concentré de lait écrémé, lait écrémé condensé
 it:latte scremato concentrato, latte magro concentrato
 nl:gecondenseerde magere melk
+pt:leche condensada desnatada
+sv:kondenserad skummjölk
 # ingredient/condensed-skimmed-milk has 43 products @2019-04-16
 
 
@@ -54156,13 +54227,6 @@ fr:matière grasse végétale de coprah
 
 fr:matière grasse de coprah
 
-# LAIT
-
-en:condensed milk
-es:leche condensada
-fr:lait condensé
-nl:gecondenseerde melk
-de:Kondensmilch
 
 
 
