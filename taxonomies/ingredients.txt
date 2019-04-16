@@ -16121,10 +16121,10 @@ de:pflanzliches Öl gehärtet
 
 # Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
-<en:en:oil and vegetable fat
+<en:oil and vegetable fat
 en:palm oil and fat
 
-<en:palm oil and fat
+<en:vegetable oil
 en:palm oil, palmoil
 ar:زيت النخيل
 # ast:Aceite de palma
@@ -16850,6 +16850,33 @@ fr:illipé, huile d'illipé, graisse d'illipé
 uk:Ілліпе
 wikidata:en:Q6000160
 wikipedia:en:https://en.wikipedia.org/wiki/Illipe
+
+<en:vegetable fat
+en:sunflower fat
+# ingredient/sunflower-fat has 2 products in english @2019-04-16
+
+#<en:sunflower fat
+#en:partially hydrogenated sunflower fat
+#de:teilweise gehärtetes Sonnenblumenfett
+#es:grasa de girasol parcialmente hidrogenada
+#fr:graisse de tournesol partiellement hydrogénée
+#nl:zonnebloemvet gedeeltelijk gehard
+# ingredient/partially-hydrogenated-sunflower-fat has no products @2019-04-16
+
+#<en:sunflower fat
+#en:fully hydrogenated sunflower fat
+#de:ganz gehärtetes Sonnenblumenfett
+#fr:graisse de tournesol entièrement hydrogénée
+#nl:zonnebloemvet geheel gehard
+# ingredient/fully-hydrogenated-sunflower-fat has no products @2019-04-16
+
+#<en:sunflower fat
+#en:non-hydrogenated sunflower fat
+#de:ungehärtetes Sonnenblumenfett
+#es:grasa de girasol no hidrogenada
+#fr:graisse de tournesol non hydrogénée
+#nl:zonnebloemvet ongehard
+# ingredient/non-hydrogenated-sunflower-fat has no products @2019-04-16
 
 # Safflower (Carthamus tinctorius) is a highly branched, herbaceous, thistle-like annual plant. It is commercially cultivated for vegetable oil extracted from the seeds.
 
@@ -38317,7 +38344,7 @@ it:semi di girasole
 nl:zonnebloempitten
 nn:solsikkefrø
 sv:solrosfrön
-openfoodfacts:https://world.openfoodfacts.org/ingredient/sunflower-seeds
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/sunflower-seeds
 # 1881 products in 11 languages @2018-10-07
 
 # The context should make clear what it is used for (seeds or oil from seeds)
@@ -54225,33 +54252,6 @@ fr:viande et gras de mouton
 
 <en:meat
 fr:viande de cerf
-
-# GRAISSE VEGETALE
-
-<en:sunflower
-en:sunflower fat
-
-<en:sunflower fat
-en:partially hydrogenated sunflower fat
-es:grasa de girasol parcialmente hidrogenada
-fr:graisse de tournesol partiellement hydrogénée
-nl:zonnebloemvet gedeeltelijk gehard
-de:teilweise gehärtetes Sonnenblumenfett
-
-<en:sunflower fat
-en:fully hydrogenated sunflower fat
-fr:graisse de tournesol entièrement hydrogénée
-nl:zonnebloemvet geheel gehard
-de:ganz gehärtetes Sonnenblumenfett
-
-<en:sunflower fat
-en:non-hydrogenated sunflower fat
-es:grasa de girasol no hidrogenada
-fr:graisse de tournesol non hydrogénée
-nl:zonnebloemvet ongehard
-de:ungehärtetes Sonnenblumenfett
-
-
 
 
 
