@@ -40,6 +40,7 @@ stopwords:zh::配料
 # Fur vegetarier geeignet.
 # Hergestellt mit tierischem Lab und mikrobiellem Labaustauschstoff.
 # in veränderlichen Anteilen
+# Isomaltulose ist eine Quelle von Glukose und Fruktose
 # Kann Haselnüsse, Mandeln, Eier und Spuren anderer Schalenfrüchte (Nüsse) enthalten. 
 # Kann enthalten: Haselnüsse, Mandeln, Pistazien, Walnusse, Eier, Lupinen, Sulfite oder Schwefeldioxid.
 # Kakao:34 % mindestens in der Schokolade
@@ -14068,7 +14069,7 @@ zh:维生素C
 # zh-sg:维生素C
 # zh-tw:维生素C
 wikidata:en:Q199678
-wikipedia:https://en.wikipedia.org/wiki/Vitamin_C
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_C
 # en:ascorbic-acid has 17518 products in 17 languages @2018-11-17
 
 
@@ -14464,6 +14465,49 @@ wikidata:en:Q182338
 wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_K
 # ingredient/vitamin-k has 85 products in 4 languages @2018-11-25
 
+
+# description:en:Phytomenadione, also known as vitamin K1 or PHYLLOQUINONE, is a vitamin found in food and used as a dietary supplement. As a supplement it is used to treat certain bleeding disorders. Vitamin K is required for bone protein formation.
+
+<en:vitamin K
+en:phylloquinone, vitamin K1, K1
+ar:فايتوميناديون
+bg:Филохинон, фитоменадион
+ca:filloquinona, Vitamina K1
+cs:fyllochinon, fytomenadion, Vitamin K1
+da:Fyllokinon
+de:Phyllochinon, Phytomenadion, Vitamin K1
+el:φυλλοκινόνη, φυτομεναδιόνη
+es:filoquinona, fitomenadiona
+et:füllokinoon, fütomenadioon
+fa:فیلوکینون
+fi:fyllokinoni, fytomenadioni
+fr:phylloquinone, phytoménadione, phytonadione,  vitamine K1
+hu:fillokinon, fitomenadion
+it:fillochinone, vitamina K1
+ja:フィロキノン
+ko:필로퀴논
+ky:Филлохинон
+lt:filochinonas, fitomenadionas
+lv:filohinons, fitomenadions
+mt:fillokinona, fitomenadjona
+nl:fyllochinon, fytomenadion, Vitamine K1
+or:ଫାଇଟୋମେନାଡିଓନ
+pl:filochinon, fitomenadion
+pt:filoquinona, fitomenadiona
+ro:filochinonă, fitomenadionă
+ru:Филлохинон
+sh:Filohinon
+sk:fylochinón, fytomenadion, Vitamín K
+sl:filokinon, fitomenadion
+sr:Filohinon
+# sr-el:Filohinon
+sv:fyllokinon, fytomenadion
+vi:Phytomenadione
+zh:叶绿基甲萘醌
+wikidata:en:Q186093
+wikipedia:en:https://en.wikipedia.org/wiki/Phytomenadione
+# ingredient/fr:k1 has 79 products@2019-04-16
+# vitamin/phylloquinone has 180 products in 8 languages @2019-4-16
 
 # SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts
 
@@ -54118,9 +54162,7 @@ fr:lait demi-écrémé pasteurisé
 
 fr:iceberg
 
-fr:k1
 
-fr:graisse
 
 
 
