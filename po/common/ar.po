@@ -5,9 +5,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-13 20:56\n"
+"PO-Revision-Date: 2019-04-18 12:45\n"
 "Language-Team: Arabic\n"
-"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -1964,11 +1964,11 @@ msgstr ""
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "إعادة تعيين كلمة المرور الخاصة بك على <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "تم تغيير كلمة السر الخاصة بك. يمكنك الآن تسجيل الدخول باستخدام كلمة المرور هذه."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
@@ -1976,19 +1976,19 @@ msgstr "ادخل كلمه مرور جديده"
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "تم إرسال بريد إلكتروني يحتوي على رابط لإعادة تعيين كلمة مرورك إلى عنوان البريد الإلكتروني المرتبط بحسابك."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr ""
+msgstr "إذا نسيت كلمة مرورك ، فاملأ اسم المستخدم أو عنوان البريد الإلكتروني الخاص بك لتلقي تعليمات لإعادة تعيين كلمة المرور الخاصة بك."
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "خطر"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "أن يكون مكتمل"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2004,7 +2004,7 @@ msgstr "مخاطر عالية"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "ما يعادل الملح"
 
 msgctxt "save"
 msgid "Save"
@@ -2068,27 +2068,27 @@ msgstr "تغيير معايير البحث"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
-msgstr ""
+msgstr "(اختياري) - إنشاء عمود لكل:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr ""
+msgstr "توليد الرسم البياني"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "توليد الخريطة"
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "رسم بياني"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr ""
+msgstr "قطعة مبعثرة"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p> → تعرف على المزيد حول الرسوم البيانية <<site_name>>: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\"> الرسوم البيانية بثلاث نقرات </ a> (مدونة). </p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2097,27 +2097,28 @@ msgstr "النتائج على الرسم البياني"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "حدد ما تريد رسمه على المحور الأفقي للحصول على رسم بياني ، أو حدد محورين له\n"
+"الحصول على سحابة من المنتجات (قطعة مبعثرة)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "رابط دائم إلى هذا الرسم البياني ، يمكن مشاركته عن طريق البريد الإلكتروني وعلى الشبكات الاجتماعية"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "سيعرض الرسم البياني المنتجات التي تعرف القيم المعروضة فقط."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "عرض النتائج على الرسم البياني"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "ملاحظة: هذا رسم بياني أنشأه المستخدم. تم اختيار العنوان ، والمنتجات الممثلة ومحور التصور من قبل مؤلف الرسم البياني."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "غير مبال"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2125,7 +2126,7 @@ msgstr "المكونات"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "رابط دائم لهذه النتائج ، قابل للمشاركة عن طريق البريد الإلكتروني وعلى الشبكات الاجتماعية"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
@@ -2133,7 +2134,7 @@ msgstr "النتائج في قائمة من المنتجات"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "خريطة"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2141,19 +2142,19 @@ msgstr "النتائج على خريطة"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "رابط دائم لهذه الخريطة ، قابل للمشاركة عبر البريد الإلكتروني وعلى الشبكات الاجتماعية"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "ستعرض الخريطة فقط المنتجات التي يُعرف بها مكان الإنتاج."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr ""
+msgstr "عرض النتائج على الخريطة"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr ""
+msgstr "اختر المواد الغذائية..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
@@ -2161,23 +2162,23 @@ msgstr "اغذية"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "أو"
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr ""
+msgstr "النتائج لكل صفحة"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "البحث عن المنتجات"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "نتائج البحث"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "استخدم لونًا مختلفًا للمنتجات التالية:"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2193,7 +2194,7 @@ msgstr "تجارة عادلة"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr ""
+msgstr "استخدم ألوان درجات التغذية"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2209,23 +2210,23 @@ msgstr "مع المحليات"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "اختيار معيار..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "المعيار"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr ""
+msgstr "مصطلحات البحث"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "ابحث عن الكلمات الموجودة في اسم المنتج والاسم العام والعلامات التجارية والفئات والأصول والعلامات"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr ""
+msgstr "ابحث عن منتج أو علامة تجارية أو مكون أو مادة غذائية إلخ."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
@@ -2245,7 +2246,7 @@ msgstr "قيمة"
 
 msgctxt "search_with"
 msgid "With"
-msgstr ""
+msgstr "مع"
 
 msgctxt "search_without"
 msgid "Without"
@@ -2269,11 +2270,11 @@ msgstr "إرسال صورة..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr ""
+msgstr "خطأ في التحميل"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr ""
+msgstr "إرسال الصورة"
 
 msgctxt "serving_size"
 msgid "Serving size"
@@ -2302,15 +2303,15 @@ msgstr "مشاركة"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr ""
+msgstr "عرض احصائيات مفصلة"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "الانحراف المعياري ، الحد الأدنى ، الحد الأقصى ، النسبتان المئوية 10 و 90"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr ""
+msgstr "إذا كان لديك بالفعل حساب على <SITE> ، فيرجى تسجيل الدخول قبل ملء هذا النموذج."
 
 msgctxt "signout"
 msgid "Sign-out"
@@ -2326,7 +2327,7 @@ msgstr "الحقائق الغذائية مفتوحة"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "ترتيب حسب"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2334,11 +2335,11 @@ msgstr "إضافة تاريخ"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr ""
+msgstr "تعديل التاريخ"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr ""
+msgstr "شعبية"
 
 msgctxt "sort_product_name"
 msgid "Product name"
@@ -2362,7 +2363,7 @@ msgstr "المتاجر"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr ""
+msgstr "اسم المحل أو سلسلة محلات السوبر ماركت"
 
 msgctxt "stores_p"
 msgid "stores"
@@ -2370,7 +2371,7 @@ msgstr "المتاجر"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr ""
+msgstr "المنتجات التي تباع في %s"
 
 msgctxt "stores_s"
 msgid "store"
@@ -2378,31 +2379,31 @@ msgstr "almatajir"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr ""
+msgstr "إضافة متجر"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
-msgstr ""
+msgstr "المنتجات التي لم يتم شراؤها في %s"
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr ""
+msgstr "الاشتراك"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
-msgstr ""
+msgstr "ينتمي إلى:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "يحتوي على:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
-msgstr ""
+msgstr "روابط"
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
-msgstr ""
+msgstr "خارج _MAX_"
 
 msgctxt "tagstable_search"
 msgid "Search:"
@@ -2414,11 +2415,11 @@ msgstr "آثار"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr ""
+msgstr "الحليب ، الغلوتين ، المكسرات"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr ""
+msgstr "أشر إلى المكونات من الإشارات مثل \"قد تحتوي على آثار\" ، \"صنع في مصنع يستخدم أيضًا\" إلخ."
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2430,7 +2431,7 @@ msgstr "athar"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr ""
+msgstr "اسم مستخدم Twitter (اختياري)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
@@ -2442,51 +2443,51 @@ msgstr "غير معروف"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
-msgstr ""
+msgstr "المواد الغذائية غير معروفة"
 
 msgctxt "unknown_nutrients_s"
 msgid "unknown nutrient"
-msgstr ""
+msgstr "المغذيات غير معروفة"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
-msgstr ""
+msgstr "إلغاء الاشتراك"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr ""
+msgstr "يمكنك إلغاء الاشتراك من القوائم في أي وقت."
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr ""
+msgstr "اسم المستخدم أو البريد الالكتروني: "
 
 msgctxt "username"
 msgid "User name"
-msgstr ""
+msgstr "اسم المستخدم"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
-msgstr ""
+msgstr "(الحروف والأرقام و / أو الشرطات غير المعلمة)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "اسم المستخدم أو البريد الالكتروني"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr ""
+msgstr "المنتجات التي تم إضافتها من قبل المستخدم %s"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr ""
+msgstr "المنتجات التي لم تتم إضافتها من قبل المستخدم %s"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr ""
+msgstr "المنتجات التي تم تحريرها من قبل المستخدم %s"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr ""
+msgstr "المنتجات التي لم يتم تحريرها من قبل المستخدم %s"
 
 msgctxt "users_p"
 msgid "contributors"
@@ -2494,7 +2495,7 @@ msgstr "المساهمون"
 
 msgctxt "users_products"
 msgid "Products added by %s"
-msgstr ""
+msgstr "المنتجات المضافة بواسطة %s"
 
 msgctxt "users_s"
 msgid "contributor"
@@ -2502,15 +2503,15 @@ msgstr "almousstakhdimoun"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "المنتجات التي لم تتم إضافتها بواسطة %s"
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "عرض"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr ""
+msgstr "عرض قائمة لمطابقة المنتجات من العالم بأسره"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
@@ -2523,11 +2524,12 @@ msgstr "عرض النتائج من كل أنحاء العالم"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"\">Why it matters</a>"
-msgstr ""
+msgstr "يجب أن تأتي المعلومات والبيانات من حزمة المنتج والتسمية (وليس من مواقع أخرى أو موقع الشركة المصنعة) ، ويجب أن تكون قد التقطت الصور بنفسك. <br/>\n"
+"→ <a href=\"\"> سبب أهميته </a>"
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
+msgstr "الموقع أو عنوان المدونة"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
@@ -2539,99 +2541,99 @@ msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "أنت متصل ك %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "إلغاء تحديد الصورة"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "إلغاء تحديد الصورة."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "إلغاء تحديد الصورة."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "خطأ أثناء إلغاء تحديد الصورة."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "تحذير: لم يتم تحديد كمية الألياف ، ولا يمكن أخذ مساهمتها الإيجابية المحتملة في التقدير."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "تحذير: لم يتم تحديد كمية الفواكه والخضروات والمكسرات ، لا يمكن أخذ مساهمتها الإيجابية المحتملة في التقدير."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "تحذير: كمية الفواكه والخضروات والمكسرات غير محددة على الملصق ، فقد قدرت من قائمة المكونات: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "تحذير: كمية الفواكه والخضروات والمكسرات غير محددة على الملصق ، تم تقديرها من فئة (%s) من المنتج: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr ""
+msgstr "NutriScore درجة تغذية اللون"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr ""
+msgstr "كيف يتم حساب درجة تغذية اللون"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr ""
+msgstr "NutriScore درجة التغذية"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "احذف صفحة المنتج"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "حذف المنتج"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "لقد حذف المنتج"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr ""
+msgstr "هل أنت متأكد من أنك تريد حذف صفحة هذا المنتج؟"
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr ""
+msgstr "حذف المستخدم"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr ""
+msgstr "تأتي بعض البيانات و / أو الصور من قاعدة بيانات OpenFood.ch (القائمة الدقيقة متوفرة في سجل تحرير المنتج). هذه العناصر مرخصة بموجب <a href=\"https://creativecommons.org/licenses/by/4.0/\"> ترخيص المشاع الإبداعي 4.0٪ </a>."
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
-msgstr ""
+msgstr "صفحة المنتج على openfood.ch"
 
 msgctxt "sources_usda_ndb"
 msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr ""
+msgstr "تأتي بعض البيانات من قاعدة بيانات المواد الغذائية الوطنية التابعة لوزارة الزراعة الأمريكية للأغذية ذات العلامات التجارية (القائمة الدقيقة متوفرة في سجل تحرير المنتج)."
 
 msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
-msgstr ""
+msgstr "صفحة المنتج على USDA NDB"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr ""
+msgstr "تم توفير بعض البيانات والصور مباشرة من قبل الشركة المصنعة Fleury Michon."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr ""
+msgstr "تم توفير بعض البيانات الخاصة بهذا المنتج مباشرة من قبل الشركة المصنعة %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "هذه الصفحة المنتج ليست كاملة. يمكنك المساعدة في إكماله عن طريق تحريره وإضافة المزيد من البيانات من الصور الموجودة لدينا ، أو عن طريق التقاط المزيد من الصور باستخدام التطبيق لـ <a href=\"https://android.openfoodfacts.org\"> Android </a> أو <a href=\"https://ios.openfoodfacts.org\"> iPhone / iPad </a>. شكرا لكم!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2639,11 +2641,11 @@ msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "التغييرات الأخيرة"
 
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr ""
+msgstr "المترجمين لدينا"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
@@ -2651,7 +2653,7 @@ msgstr ""
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
-msgstr ""
+msgstr "يرجى ملاحظة أن هذا الجدول يتم تحديثه كل ليلة وقد يكون قديمًا."
 
 msgctxt "translators_column_name"
 msgid "Name"
@@ -2659,87 +2661,87 @@ msgstr "اﻹسم"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
-msgstr ""
+msgstr "تمت ترجمة (الكلمات)"
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
-msgstr ""
+msgstr "الكلمات الهدف"
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
-msgstr ""
+msgstr "موافق عليه (كلمات)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
+msgstr "التصويتات التي تم إجرائها"
 
 msgctxt "minerals_p"
 msgid "added minerals"
-msgstr ""
+msgstr "المعادن المضافة"
 
 msgctxt "minerals_s"
 msgid "added mineral"
-msgstr ""
+msgstr "المعادن المضافة"
 
 msgctxt "vitamins_p"
 msgid "added vitamins"
-msgstr ""
+msgstr "الفيتامينات المضافة"
 
 msgctxt "vitamins_s"
 msgid "added vitamin"
-msgstr ""
+msgstr "الفيتامينات المضافة"
 
 msgctxt "amino_acids_p"
 msgid "added amino acids"
-msgstr ""
+msgstr "إضافة الأحماض الأمينية"
 
 msgctxt "amino_acids_s"
 msgid "added amino acid"
-msgstr ""
+msgstr "إضافة الأحماض الأمينية"
 
 msgctxt "nucleotides_p"
 msgid "added nucleotides"
-msgstr ""
+msgstr "النيوكليوتيدات المضافة"
 
 msgctxt "nucleotides_s"
 msgid "added nucleotide"
-msgstr ""
+msgstr "النيوكليوتيدات المضافة"
 
 msgctxt "other_nutritional_substances_p"
 msgid "other nutritional substances added"
-msgstr ""
+msgstr "المواد الغذائية الأخرى المضافة"
 
 msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
-msgstr ""
+msgstr "المواد الغذائية الأخرى المضافة"
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "كما تباع"
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "معد مسبقاً"
 
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
+msgstr "وحدة"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "يتم تحديد حقائق التغذية للمنتج كما تباع."
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "يتم تحديد حقائق التغذية للمنتج المعد مسبقاً."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "مجموعة NOVA"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
+msgstr "مجموعة NOVA"
 
 msgctxt "footer_partners"
 msgid "Partners"
