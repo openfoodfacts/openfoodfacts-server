@@ -50956,7 +50956,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Glucuronolactone
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                           P OU L T R Y     S E C T I O N
+#                                           P O U L T R Y     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -51059,15 +51059,24 @@ nl:gevogeltevel
 
 <en:poultry skin
 en:chicken skin
-de: Poulethaut
-es: piel de pollo
+de:Poulethaut
+es:piel de pollo
 fr:peau de poulet
-it: pelle di pollo
-nl: kippenvel
-ro: piele de pui
+it:pelle di pollo
+nl:kippenvel
+ro:piele de pui
 # ingredient/fr:peau-de-poulet has 215 products in 7 languages @2019-03-29
 
-# description:en:Chicken is the most common type of poultry in the world. Owing to the relative ease and low cost of raising them in comparison to animals such as cattle or hogs, chickens have become prevalent throughout the cuisine of cultures around the world, and their meat has been variously adapted to regional tastes. Chicken meat contains about two to three times as much polyunsaturated fat as most types of red meat when measured as weight percentage.
+<en:turkey
+# <en:skin
+<en:poultry skin
+en:turkey skin
+fr:peau de dinde
+nl:kalkoenvel
+# ingredient/fr:peau-de-dinde has 76 products in french @2019-03-01
+
+
+# description:en:CHICKEN is the most common type of poultry in the world. Owing to the relative ease and low cost of raising them in comparison to animals such as cattle or hogs, chickens have become prevalent throughout the cuisine of cultures around the world, and their meat has been variously adapted to regional tastes. Chicken meat contains about two to three times as much polyunsaturated fat as most types of red meat when measured as weight percentage.
 # comment:en:The wikidata translations or unclear whether they refer to the chicken animal or the chicken meat
 
 <en:poultry meat
@@ -51093,6 +51102,174 @@ nl:voorgekookt kippenvlees
 <en:chicken meat
 fr:viande de cuisse de poulet
 # ingredient/fr:viande-de-cuisse-de-poulet has 53 products in french @2019-04-16
+
+
+# description:en:The TURKEY is a large bird in the genus Meleagris, which is native to the Americas. The species Meleagris gallopavo is used by humans for their meat. Compared to wild turkeys, domestic turkeys are selectively bred to grow larger in size for their meat. Americans often eat turkey on special occasions such as at Thanksgiving or Christmas.
+# comment:en:Turkey as a species is a separate item in order to designate the origin of turkey parts.
+
+<en:poultry
+en:turkey
+af:Kalkoen
+ar:دجاج رومي
+az:Hinduşka
+# azb:هیندوشکا
+ba:Күркә
+bg:пуйки
+bn:টার্কি
+bs:Ćurka
+ca:Gall dindi
+# chr:ᎬᎾ
+# chy:Ma'xêhë'ne
+cs:krocan
+cv:Кăркка
+cy:Twrci
+da:kalkun
+de:Truthahn, Truthühner
+# diq:Qulquli
+el:Γαλοπούλα
+# eml:Tòch
+# en-gb:turkey
+eo:Meleagro
+es:pavo
+et:Kalkunlased
+eu:Indioilo
+fa:بوقلمون
+fi:Kalkkunat
+fr:dinde
+ga:Turcaí
+gu:ટર્કી
+# hak:Fó-kiê
+he:תרנגול הודו
+hi:टर्की
+hr:Puran
+ht:Kodenn
+hu:Pulyka
+hy:հնդկահավեր
+id:kalkun
+# inh:Москалаш
+is:Kalkún
+it:tacchino, manzo
+ja:シチメンチョウ属
+jv:kalkun
+ka:ინდაური
+# kbd:Тхьаджэд
+kk:Күркетауықтар
+ko:칠면조
+ku:Elok
+la:Meleagris
+# lad:Indiano
+# lij:Bibbin
+mk:мисирка
+ml:കൽക്കം
+# mrj:Немӹццӹвӹвлӓ
+my:ကြက်ဆင်
+lt:Kalakutiniai
+lv:Tītari
+# nah:Huehxolotl
+# nan:Hóe-ke
+nb:Kalkuner
+ne:टर्की
+nl:kalkoen
+nn:kalkunar
+nv:Tązhii
+oc:Piòt
+pa:ਤੁਰਕੀ
+# pcd:Poulhdinne
+# pdc:Welschhinkel
+pl:indykowate
+ps:شونډکيز چرګ
+pt:peru
+ro:curcan
+ru:Индейки
+sc:Dindu
+# sco:Bubbly-jock
+sh:Ćurka
+sk:Morka
+sn:Ngarikuni
+sr:ћурка
+sv:Kalkoner
+sw:Bata Mzinga
+ta:வான்கோழி
+te:టర్కీ
+tg:Мурғи Марҷон
+th:ไก่งวง
+tl:Pabo
+tr:Hindi
+tt:Күркәләр
+uk:Індичка
+vi:Họ Gà tây
+yi:אינדיק
+# yue:火雞
+zh:火雞
+wikipedia:en:https://en.wikipedia.org/wiki/Turkey_(bird)
+# usage:en:meat extracts [turkey, chicken]
+# ingredient/fr:dinde has 161 products in 4 languages @2019-04-16
+
+# description:en:TURKEY MEAT, commonly referred to as just turkey, is the meat from turkeys, typically domesticated turkeys. Turkeys are sold sliced and ground, as well as "whole" in a manner similar to chicken with the head, feet, and feathers removed. Frozen whole turkeys remain popular. Sliced turkey is frequently used as a sandwich meat or served as cold cuts.
+
+<en:poultry meat
+<en:turkey
+en:turkey meat
+de:Trutenfleisch
+eo:meleagraĵo
+es:carne de pavo
+fa:گوشت بوقلمون
+fr:viande de dinde
+id:Daging kalkun
+it:carne di manzo
+ja:七面鳥肉
+ko:칠면조고기
+nl:kalkoenvlees
+nn:kalkunkjøt
+ro:carne de curcan
+ru:индюшатина
+uk:Індичатина
+vi:Thịt gà tây
+# yue:火雞肉
+zh:火雞肉
+wikidata:en:Q4200953
+wikipedia:en:https://en.wikipedia.org/wiki/Turkey_as_food
+# ingredient/fr:viande-de-dinde has 1257 products in 7 languages @2019-04-18
+
+<en:turkey meat
+fr:viande de dinde halal
+# ingredient/fr:viande-de-dinde-halal has 6 products in french @2019-04-16
+
+<en:turkey meat
+en:Turkey fillet
+de:Putenfilet
+fr:filet de dinde, filets de dinde
+it:Filetto di tacchino
+nl:Kalkoenfilet
+# ingredient/fr:filet-de-dinde has 162 products in 5 languages @2019-04-16
+
+<en:turkey meat
+en:mechanically separated meat of turkey
+de:mechanisch getrenntes Fleisch von Truthahn
+fr:viande séparée mécaniquement de dinde
+it:carne di tacchino separata meccanicamente
+# ingredient/fr:viande-séparée-mécaniquement-de-dinde has 80 products in 4 languages @2019-04-16
+
+<en:turkey meat
+fr:blanc de dinde
+carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
+# ingredient/fr:blanc-de-dinde has 14 products in french @2019-04-16
+
+<en:turkey
+fr:cuisse de dinde
+carbon_footprint_fr_foodges_ingredient:fr:Cuisse de dinde
+# ingredient/fr:cuisse-de-dinde has 84 products in french @2019-04-16
+
+<fr:Cuisse de dinde
+<en:turkey meat
+fr:viande de cuisse de dinde
+# ingredient/fr:viande-de-cuisse-de-dinde has 58 products in french @2019-04-16
+
+<en:turkey meat
+fr:viande de dinde traitée en salaison
+# ingredient/fr:viande-de-dinde-traitée-en-salaison has 35 products in french @2019-04-16
+
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -54297,39 +54474,7 @@ fr:viande d'agneau
 fr:cotelettes d'agneau
 carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
 
-<en:meat
-fr:viande de dinde
 
-<fr:viande de dinde
-fr:viande de dinde halal
-
-<fr:viande de dinde
-fr:dinde
-
-<fr:viande de dinde
-fr:filet de dinde, filets de dinde
-
-<fr:viande de dinde
-fr:viande séparée mécaniquement de dinde
-
-<fr:viande de dinde
-fr:blanc de dinde
-carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
-
-<en:meat
-fr:cuisse de dinde
-carbon_footprint_fr_foodges_ingredient:fr:Cuisse de dinde
-
-<fr:Cuisse de dinde
-fr:viande de cuisse de dinde
-
-<fr:viande de dinde
-fr:viande de dinde traitée en salaison
-
-
-<fr:dinde
-fr:peau de dinde
-# ingredient/fr:peau-de-dinde has 76 products in french @2019-03-01
 
 
 
