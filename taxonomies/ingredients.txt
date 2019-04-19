@@ -77,6 +77,7 @@ stopwords:zh::配料
 # Ingrédients laitiers issus de lait pasteurisé. Traces éventuelles de fruits à coque.
 # Traces éventuelles de céleri. Pourcentages exprimés sur le total de la recette.
 # Solution saline totale: 2,0%
+# Présence d'ingrédients d'origine animale (mouton)
 
 
 # it
@@ -10439,15 +10440,15 @@ fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
 it:latte di capra pastorizzato
 
 <en:milk
-en:sheep's milk
+en:sheeps milk
 de:Schafmilch
 fr:laitde brebis
 nl:schapenmelk
 
 # RAW SHEEPS MILK - milk produced by female sheep before any treatment
 
-<en:milk
-en:raw sheep's milk
+<en:sheeps milk
+en:raw sheeps milk
 de:roher Schafmilch
 el:ακατέργαστο πρόβειο γάλα
 fr:lait cru de brebis
@@ -10455,8 +10456,8 @@ nl:rauwe schapenmelk
 
 # SHEEPS MILK - raw sheeps milk that probably has been treated (pasteurisation)
 
-<en:raw sheep's milk
-en:scheep's milk, sheep milk
+<en:milk
+en:scheeps milk, sheep milk
 de:Schafsmilch
 fr:lait de brebis
 it:latte di pecora
@@ -10465,8 +10466,8 @@ wikidata:en:Q2736146
 
 # PASTEURIZED SHEEPS MILK - raw sheeps milk that has been treated (pasteurisation)
 
-<en:sheep's milk
-en:pasteurized sheep's milk, pasteurised sheep's milk
+<en:sheeps milk
+en:pasteurized sheeps milk, pasteurised sheep's milk
 fr:lait de brebis pasteurisé, lait pasteurisé de brebis
 de:pasteurisierter Schafsmilch
 nl:gepasteuriseerde schapenmelk
@@ -11702,7 +11703,7 @@ fr:fromage au lait de vache pasteurisé
 # fr:fromage-au-lait-de-vache pasteurisé has 39 products in 3 languages @2018-10-27
 
 <en:cheese
-# <en:sheep's milk
+# <en:sheeps milk
 fr:fromage de brebis
 de:Schafkäse
 it:formaggio di pecore
@@ -15049,6 +15050,21 @@ it:nitrito di sodio conservante
 en:meat
 fr:viande
 
+
+# comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. 
+
+en:beef, steers
+de:Rind
+fr:bœuf, boeuf, Boeufs
+it:manzo
+nl:rund
+# ingredient/fr:bœuf has 257 products in 7 languages @2019-04-19
+# usage:fr:gélatine (bœuf)
+
+<en:beef
+fr:cœur de bœuf, coeur de boeuf
+# ingredient/fr:cœur-de-bœuf has 17 products in french @2019–02-12
+
 <en:beef meat
 en:cooked beef meat, cooked beef
 de:gekochtes Rindfleisch
@@ -15287,6 +15303,219 @@ fr:viande de lapin
 carbon_footprint_fr_foodges_ingredient:fr:Lapin
 
 
+# description:en:Domestic sheep (Ovis aries) are quadrupedal, ruminant mammals typically kept as livestock.  Sheep are raised for fleeces, meat (lamb, hogget or mutton) , fat and milk. 
+# comment:en:Not convinced of the wikidata translations. The seem to be more “domesticated sheep” than “sheep”. Or the latin name is used.
+
+en:sheep
+# ace:Bubiri
+af:Skaap
+ak:Odwan
+am:በግ
+# ang:Scēap
+ar:خروف
+as:ভেড়া
+# ast:Oveya
+# atj:Martcenic
+av:Чахъу
+ay:Iwija
+ba:Һарыҡ
+# bar:Schof
+be:авечка
+# be-tarask:авечка
+bg:овца 
+bm:Saga
+bn:ভেড়া
+bo:ལུག
+br:Dañvad
+# brh:melle
+bs:Ovca
+# bxr:Хонин
+ca:Ovella
+ce:Ústaģ
+# chy:Kosa
+# ckb:پەز
+cs:ovce
+# csb:òwca
+cv:Сурăх
+cy:Dafad
+da:får
+de:Schaf, Hausschaf
+# de-ch:Schaf
+# din:Amɛ̈lbaai
+# diq:Kavır
+el:πρόβατο
+# en-ca:Sheep
+# en-gb:Sheep
+eo:ŝafo
+es:oveja
+et:lammas
+eu:ardi
+fa:گوسفند
+fi:lammas
+fo:Seyður
+fr:mouton, brebis
+# frr:Sjip
+ga:Caora
+# gan:羊
+gd:Caora
+gl:Ovella
+gn:Ovecha
+# got:������������������������
+# gsw:Schaf
+gv:Keyrrey
+# hak:Mièn-yòng
+he:כבש הבית
+hi:भेड़
+# hif:Bherra
+hr:Domaća ovca
+ht:Mouton
+hy:ոչխար
+hu:Juh
+id:Domba
+# ilo:karnero
+io:Mutono
+is:Sauðfé
+it:pecora
+ja:ヒツジ
+jv:Wedhus gembel
+# kbp:Heu
+kg:Dimeme
+kk:Қой
+kn:ಕುರಿ
+ko:양
+# koi:Баля
+ks:کَٹھ
+# ksh:Shof
+ku:Mih
+ky:Кой
+la:ovis aries
+# lad:Oveja
+lb:Schof
+# lbe:Тта
+# lez:Хеб
+# lfn:Ovea
+li:Sjaop
+ln:Mpatá
+lt:Avis
+lv:aita
+# mdf:Уча
+mk:овца
+ml:ചെമ്മരിയാട്
+mn:Хонь
+mr:मेंढी
+ms:Biri-biri
+mt:Nagħġa
+# mwl:Canhona
+my:သိုး
+# myv:Реве
+# mzn:گسفن
+# nah:Ichcatl
+# nan:Mî-iûⁿ
+nb:tamsau
+# nds:Schaap
+# nds-nl:Skoap
+ne:भेडा
+# new:फइ
+nl:schaap
+nn:sau
+nv:Dibé
+or:ମେଣ୍ଢା
+os:Фыс
+pa:ਭੇਡ
+# pam:Tupa
+# pcd:Bédo
+# pdc:Sheep
+pl:owca, owca domowa
+# pms:Fèja
+# pnb:پیڈ
+pt:ovelha
+# pt-br:Ovelha
+qu:Uwiha
+ro:Oaie domestică
+ru:овца
+# rup:Oai
+# scn:Crastu
+# sco:Sheep
+sd:رڍ
+se:Sávza
+sg:Walitaba
+# sgs:Avės
+sh:Ovca
+# shn:မေႈ
+si:බැටළුවා
+sm:Mamoe
+# sma:sïrve
+sk:Ovca domáca
+sl:Domača ovca
+sn:Hwayi
+so:Ido
+sq:Delja
+sr:овца
+# sr-ec:овца
+su:Domba
+sv:tamfår
+sw:Kondoo-kaya
+ta:வளர்ப்புச் செம்மறியாடு
+# tcy:ಕುರಿ
+te:గొర్రె
+tg:Гӯсфанд
+th:แกะ
+tl:Tupa
+tr:koyun
+# tum:Mbelele
+# tyv:Хой
+# udm:Ыж
+uk:вівця
+ur:بھیڑ
+uz:Qoʻy
+# vec:Piègora
+# vep:Lambaz
+vi:Cừu nhà
+# vls:Schoap
+vo:Lammas
+wa:Bedots
+# wuu:绵羊
+# xal:Хөн
+xh:Yegusha
+yi:שאף
+yo:Àgùtàn
+# yue:羊
+zh:羊
+# zh-cn:羊
+# zh-hk:羊
+zu:imvu
+wikidata:en:Q7368
+wikipedia:en:https://en.wikipedia.org/wiki/Sheep
+# ingredient/fr:mouton has 12 products @2019-04-19
+# usage:fr: mouton (graisse et viande),
+
+# description:en:mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
+# comment:en:Some wikidata translation seems to refer to lamb and not mutton.
+
+<en:meat
+<en:sheep
+en:mutton, sheeps meat
+af:skaapvleis
+az:Qoyun əti
+be:бараніна
+ca:carn d'ovella
+cs:skopové maso
+cy:Cig oen
+de:Schaffleisch
+es:carne de oveja
+fr:viande de mouton
+id:Daging domba
+it:carne ovina
+la:Vervecina
+nl:schaapsvlees, schapenvlees
+ru:баранятина
+sv:fårkött
+tr:Koyun eti
+uk:баранина
+wikidata:en:Q14566073
+wikipedia:en:https://en.wikipedia.org/wiki/Lamb_and_mutton
+# ingredient/fr:viande%20de%20mouton has 91 products in 2 languages @2019-04-19
+
 # description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 
 <en:meat
@@ -15321,8 +15550,8 @@ wikidata:en:Q2296872
 wikipedia:en:https://en.wikipedia.org/wiki/Venison
 # ingredient/fr:viande-de-cerf has 26 products in 4 languages @2019-04-16
 
-<en:sheep's meat
-<en:sheep’s fat
+<en:sheeps meat
+<en:sheeps fat
 fr:viande et gras de mouton
 # ingredient/fr:viande-et-gras-de-mouton has 19 products in french @2019-04-16
 
@@ -15663,8 +15892,7 @@ fr:viande bovine halal
 fr:viande de bœuf, viande de boeuf
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 
-<en:beef meat
-fr:bœuf, boeuf
+
 
 <en:beef meat
 fr:viande hachée de bœuf, viande hachée de boeuf
@@ -15701,13 +15929,13 @@ it:budello di manzo
 # enveloppe:boyau de boeuf
 
 <en:casing
-en:sheep's casing, Sheep gut, mutton casing
+en:sheeps casing, Sheep gut, mutton casing
 de:Schafsdarm, Schafsaitling
 fr:boyau de mouton
 it:budello di pecore, budello di sale
 # ingredient/fr:boyau-de-mouton has 80 products in 4 languages @2019-02-12
 
-<en:sheep's casing
+<en:sheeps casing
 fr:boyau naturel de mouton
 # ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
 
@@ -16256,7 +16484,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fat
 en:animal fat
 
 <en:animal fat
-en:sheep's fat
+<en:sheep
+en:sheeps fat
 fr:gras de mouton
 nl:schaapsvet
 # ingredient/fr:gras-de-mouton has 41 products in 3 languages @2019-03-01
@@ -54649,15 +54878,6 @@ nl:drijfgas E942, stikstofoxiden
 de:Treibgas E942
 
 # VIANDE
-
-<en:meat
-en:sheep's meat
-fr:viande de mouton
-
-<en:beef
-fr:cœur de bœuf, coeur de boeuf
-# ingredient/fr:cœur-de-bœuf has 16 products in french @2019–02-12
-
 
 
 
