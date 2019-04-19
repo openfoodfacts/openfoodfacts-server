@@ -94,6 +94,7 @@ stopwords:zh::配料
 # Percentages uitgedrukt op de nems met varkensvlees
 # Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt :melk, selderij, sesam, weekdieren.
 # Product onderhevig aan uitdroging
+# Rundvlees en lamsvlees uit Frankrijk.
 
 # pt
 # Contem organismos geneticamente modificados
@@ -15087,6 +15088,59 @@ wikidata:en:Q449506
 wikipedia:en:https://en.wikipedia.org/wiki/Goat_meat
 # ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
 
+# description:en:In general a sheep in its first year is called a LAMB, and its meat is also called lamb.
+
+en:lamb
+an:Corder
+# arc:ܐܡܪܐ
+br:Oan
+ca:anyell
+cy:Oen
+de:Lamm
+eo:ŝafido
+es:cordero
+et:Tall
+eu:Arkume
+fr:agneau
+gd:Uan
+gl:Año
+it:agnello
+ja:ラム
+ky:Козу
+lv:jērs
+nb:lam
+# nds-nl:Laom
+nl:lam
+pl:Jagnię
+pt:cordeiro
+qu:Achkash
+ru:ягнёнок
+# scn:Agneddu
+# sco:lamm
+wikidata:en:Q4575936
+
+# description:en:LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
+# comment:en:The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
+
+<en:meat
+<en:lamb
+en:lamb meat
+cs:jehněčí maso
+da:lammekød
+de:Lammfleisch
+es:carne de cordero
+fr:viande d'agneau
+it:carne di agnello
+nl:lamsvlees
+nn:lammekjøtt
+sv:Lammkött
+wikidata:en:Q643419
+# ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
+
+# <en:meat
+# fr:cotelettes d'agneau
+# carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
+# ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
 # description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 
@@ -54466,13 +54520,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Lapin
 <fr:lapin
 en:rabbit meat
 fr:viande de lapin
-
-<en:meat
-fr:viande d'agneau
-
-<en:meat
-fr:cotelettes d'agneau
-carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
 
 
 
