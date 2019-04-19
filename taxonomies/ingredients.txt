@@ -15142,6 +15142,151 @@ wikidata:en:Q643419
 # carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
+
+# description:en:RABBITS are small mammals in the family Leporidae of the order Lagomorpha. In some areas, wild rabbits and hares are hunted for their meat, a lean source of high quality protein. Domesticated descendants of the European rabbit (Oryctolagus cuniculus) that are bred and kept as livestock account for the estimated 200 million tons of rabbit meat produced annually.
+
+en:rabbit
+# aeb-arab:أرنب
+ak:Adanko
+am:ጥንቸል
+ar:أرنب
+as:শহাপহু
+ay:Wank'u
+az:Adadovşanı
+be:Трусы
+# be-tarask:Трусы
+# bho:खरहा
+bg:заек
+# bjn:Kalinci
+bn:খরগোশ
+bs:Kunić
+ca:conill
+# cdo:Tó
+ce:Пашбукъ
+# chr:ᏥᏍᏚ
+# chy:Vohkoohe
+# ckb:کەروێشک
+cs:králík
+# csb:Trus
+cv:Кролик
+cy:Cwningen
+da:kanin
+de:Kaninchen
+el:Κουνέλι
+# eml:Cunèṅ
+eo:kuniklo
+es:conejo
+et:Küülik
+eu:Untxi
+fa:خرگوش
+fo:Kanin
+fr:lapin
+# frp:Counél
+fy:knyn
+ga:Coinín
+gd:Coineanach
+gl:Coello
+gn:Apere'arusu
+gu:સસલું
+ha:Zomo
+# hak:Thu-é
+# haw:Lāpaki
+he:ארנבים
+hi:खरगोश
+hr:Kunić
+ht:Lapen
+hy:ճագար
+ia:Conilio
+id:Kelinci
+io:kuniklo
+is:Kanínur
+it:coniglio
+iu:ᐅᑲᓕᐊᑦᓯᐊᖅ
+ja:ウサギ
+# jbo:ractu
+jv:Kelinci
+ka:ბოცვერი
+# kab:amcic
+# kk-cyrl:қоян
+kn:ಮೊಲ
+ko:래빗
+ku:Xerûşk
+la:Cuniculus
+# lad:Konejo
+# lfn:Coneo
+# lmo:Cunìch
+# lzh:兔
+lt:Triušiai
+lv:Truši
+# mai:खरिया
+mk:зајак
+ml:മുയൽ
+mr:ससा
+ms:Arnab
+mt:fenek
+my:ယုန်
+# nah:Tōchtli
+nb:kanin
+# nds-nl:Kniende
+ne:खरायो
+nl:konijn
+nn:kanin
+# nso:Mmutla
+nv:Gah
+or:ଠେକୁଆ
+pa:ਖਰਗੋਸ਼
+# pcd:Lapin
+# pdc:Haasli
+pl:królik
+# pnb:خرگوش
+pt:coelho
+qu:Kunu
+ro:Iepure
+ru:кролики
+# rup:Ľiepuri
+sa:शशः
+# scn:Cunigghiu
+# sco:Kinnen
+# sgs:Triošis
+sh:Kunić
+si:හාවා
+sn:Tsuro
+so:Bakeyle
+sq:lepur
+sr:кунић
+# sr-ec:кунић
+su:Kelenci
+sv:Kaniner
+ta:முயல்
+# tcy:ಮುಯ್ಯೆರ್
+te:కుందేలు
+th:กระต่าย
+tl:Kuneho
+tr:Ada tavşanı
+uk:Кролі
+ur:خرگوش
+uz:Quyon
+# vec:Conéjo
+vi:thỏ
+# vls:Keun
+vo:krolig
+wa:Robete
+yi:קיניגל
+# yue:兔
+za:Douq
+zh:兔
+# zh-tw:兔
+wikidata:en:Q9394
+wikipedia:en:https://en.wikipedia.org/wiki/Rabbit
+
+<fr:lapin
+<en:meat
+en:rabbit meat
+fr:viande de lapin
+# ingredient/rabbit-meat has 109 products in french @2019-04-19
+carbon_footprint_fr_foodges_ingredient:fr:Lapin
+
+
 # description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 
 <en:meat
@@ -54513,13 +54658,6 @@ fr:viande de mouton
 fr:cœur de bœuf, coeur de boeuf
 # ingredient/fr:cœur-de-bœuf has 16 products in french @2019–02-12
 
-<en:meat
-fr:lapin
-carbon_footprint_fr_foodges_ingredient:fr:Lapin
-
-<fr:lapin
-en:rabbit meat
-fr:viande de lapin
 
 
 
