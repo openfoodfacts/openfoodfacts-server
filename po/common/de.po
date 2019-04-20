@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 17:01\n"
+"PO-Revision-Date: 2019-04-20 17:11\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3234,23 +3234,23 @@ msgstr "Berechnungen zum CO₂-Fußabdruck haben eine hohe Unsicherheit. Werte s
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "Zu viele Produkte (%d Produkte, max. %d) für den Export vorgesehen. Bitte laden Sie stattdessen den <a href=\"/data\">vollständiger Datenbankexport</a> herunter."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Helfen Sie mit, %s in %s zu übersetzen"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr ""
+msgstr "Sie können für die folgenden Einträge Übersetzungen vorschlagen, die noch nicht in Ihre Sprache übersetzt wurden. Der blaue Link in Englisch zeigt die entsprechenden Produkte, der schwarze Text in Englisch zeigt den Originaleintrag mit optionalen Synonymen, die durch Kommata getrennt sind. Geben Sie die Übersetzung in das Textfeld mit optionalen Synonymen ein, und klicken Sie dann auf die Schaltfläche „Speichern”. Vielen Dank!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "Nur Einträge mit noch ausstehenden Übersetzungen anzeigen."
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "Auch Einträge anzeigen mit noch ausstehenden Übersetzungen durch Sie oder anderen Benutzern."
 
 msgctxt "translated"
 msgid "translated"
@@ -3258,7 +3258,7 @@ msgstr "Übersetzt"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "Noch zu übersetzen"
 
 msgctxt "current_translation"
 msgid "Current translation"
