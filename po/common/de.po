@@ -5,25 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-09-25 18:20\n"
+"PO-Revision-Date: 2019-04-18 13:13\n"
 "Language-Team: German\n"
-"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "de"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Deutsch"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -55,7 +45,7 @@ msgstr "Registrieren"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Vielen Dank für Ihre Registrierung. Sie können sich jetzt auf der Seite anmelden um Produkte hinzuzufügen oder bearbeiten.</p>"
+msgstr "<p>Vielen Dank für Ihre Registrierung. Sie können sich jetzt auf der Seite anmelden, um Produkte hinzuzufügen oder zu bearbeiten.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -79,10 +69,10 @@ msgstr "Hallo <NAME>,\n\n"
 "Benutzername: <USERID>\n\n"
 "Sie können sich nun auf der Seite anmelden, um Produkte hinzuzufügen und zu bearbeiten.\n\n"
 "<<site_name>> ist ein gemeinschaftliches Projekt, zu dem Sie mehr als nur neue Produkte beitragen können: Ihre Energie, Ihren Enthusiasmus und Ihre Ideen!\n"
-"Für Gespräche zwischen Mitwirkenden und um das Projekt voranzutreiben, nutzen wir das praktische Massaging-Programm Slack: https://slack.openfoodfacts.org\n\n"
+"Für Gespräche zwischen Mitwirkenden und um das Projekt voranzutreiben, nutzen wir das praktische Messaging-Programm Slack: https://slack.openfoodfacts.org\n\n"
 "Sie können auch der Facebook-Gruppe für Mitwirkende beitreten:\n"
 "https://www.facebook.com/groups/openfoodfacts.de/\n\n"
-"Neu: Wir starten nun auch Open Beauty Facts, um eine Datenbank über Kosmetika wie zum Beispiel Seife, Zahncreme, Make-Up, u.s.w. zu schaffen\n"
+"Neu: Wir starten nun auch Open Beauty Facts, um eine Datenbank über Kosmetika wie zum Beispiel Seife, Zahncreme, Make-up u.s.w. zu schaffen\n"
 "https://openbeautyfacts.org\n\n"
 "Vielen Dank!\n\n"
 "Stéphane und das Open-Food-Facts-Team\n"
@@ -165,7 +155,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Dieses Produkt ist bisher noch nicht in der <<site_name>>-Datenbank eingetragen. Können Sie bitte Fotos des Produkts, des Strichcodes, der Zutatenliste und der Nährwertangaben machen und auf <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>ergänzen?</p>\n"
+msgstr "<p>Dieses Produkt ist bisher noch nicht in der <<site_name>>-Datenbank eingetragen. Können Sie bitte Fotos des Produkts, des Strichcodes, der Zutatenliste und der Nährwertangaben machen und auf <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a> ergänzen?</p>\n"
 "<p>Vielen Dank im Voraus!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -334,7 +324,7 @@ msgstr "Mitwirkend seit"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "Daten von aktuellem Produkt zu neuem Produkt kopieren"
+msgstr "Daten vom aktuellen Produkt zu neuem Produkt kopieren"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -442,7 +432,7 @@ msgstr "Bearbeitung begründen"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr "Produkt bearbeiten"
+msgstr "Ein Produkt bearbeiten"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
@@ -486,7 +476,7 @@ msgstr "E-Mail-Adresse"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr "Produzenten-Codes"
+msgstr "Identitätskennzeichen"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -494,11 +484,11 @@ msgstr "Produkte vom Unternehmen mit Produzenten-Code %s verpackt"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "Zulassungsnummern"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "Zulassungsnummern"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -639,7 +629,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Sollten die Informationen auf diese Seite unvollständig oder falsch sein, dann können Sie diese vervollständigen oder korrigieren."
+msgstr "Sollten die Informationen auf dieser Seite unvollständig oder falsch sein, dann können Sie diese vervollständigen oder korrigieren."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -677,7 +667,7 @@ msgstr "Verhaltensregeln"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr "/code-of-conduct"
+msgstr "/verhaltensregeln"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -699,21 +689,22 @@ msgstr "Häufig gestellte Fragen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr "/haeufige-fragen"
 
 msgctxt "footer_translators"
 msgid "Translators"
 msgstr "Übersetzer"
 
+# Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
 msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
-msgid "Follow us on <a href=\"https://twitter.com/openfoodfactsde\">Twitter</a>,\n"
+msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr "Folgen Sie uns auf <a href=\"https://twitter.com/openfoodfactsde\">Twitter</a>, <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> und <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google + </a>\n"
+msgstr "Folgen Sie uns auf <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>, <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> und <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google + </a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -734,7 +725,7 @@ msgstr "Gesetzliche Hinweise"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -756,7 +747,7 @@ msgstr "Nutzungsbedingungen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -765,12 +756,13 @@ msgstr "Wer wir sind"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/who-we-are"
+msgstr "/wer-wir-sind"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
 msgstr "<<site_name>> Wiki (de)"
 
+# Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
@@ -833,7 +825,7 @@ msgstr "Foto der Liste der Inhaltsstoffe"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr "Sind Details des Foto klar erkennbar, können die Inhaltsstoffe automatisch erfasst werden."
+msgstr "Sind Details des Fotos klar erkennbar, können die Inhaltsstoffe automatisch erfasst werden"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
@@ -955,7 +947,7 @@ msgstr "Produkte, die nicht den Inhaltsstoff %s enthalten"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_DE_135x40.png \" alt=\"Erhältlich im App Store\" width=\"135\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/Download-on-the-App-Store/DE/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_DE_RGB_blk_092917.svg\" alt=\"Erhältlich im App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
@@ -1097,14 +1089,6 @@ msgctxt "lang_nl_be"
 msgid "Dutch"
 msgstr "Niederländisch"
 
-msgctxt "lang_note"
-msgid "Language most present and most highlighted on the product"
-msgstr "Sprache, die auf dem Produkt am präsentesten und am stärksten hervorgehoben ist."
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "Weitere Sprache"
-
 msgctxt "lang_pl"
 msgid "Polish"
 msgstr "Polnisch"
@@ -1149,6 +1133,14 @@ msgctxt "lang_zh"
 msgid "Chinese"
 msgstr "Chinesisch"
 
+msgctxt "lang_other"
+msgid "other language"
+msgstr "Weitere Sprache"
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
+msgstr "Sprache, die auf dem Produkt am präsentesten und am stärksten hervorgehoben ist."
+
 msgctxt "language"
 msgid "en-US"
 msgstr "de-DE"
@@ -1181,9 +1173,9 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "Durch das Eingeben von Daten und Hinzufügen von Fotos erklären Sie sich unwiderruflich damit einverstanden Ihre Daten unter der Lizenz <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\" hreflang=\"en\">Database Contents Licence 1.0</a>\n"
-" und die Fotos unter den Lizenz <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\">Creative Commons Namensnennung - Weitergabe unter gleichen Bediungungen 3.0</a> zu veröffentlichen.\n"
-"Sie stimmen damit zu, von anderen Projekten, die diese Daten nutzen, mit einem Link zu den von Ihnen bearbeiteten Produkten gennant zu werden."
+msgstr "Durch das Eingeben von Daten und Hinzufügen von Fotos erklären Sie sich unwiderruflich damit einverstanden, Ihre Daten unter der Lizenz <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\" hreflang=\"en\">Database Contents Licence 1.0</a>\n"
+" und die Fotos unter der Lizenz <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\">Creative Commons Namensnennung - Weitergabe unter gleichen Bediungungen 3.0</a> zu veröffentlichen.\n"
+"Sie stimmen damit zu, von anderen Projekten, die diese Daten nutzen, mit einem Link zu den von Ihnen bearbeiteten Produkten genannt zu werden."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1325,7 +1317,7 @@ msgstr "Mitwirken"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/contribute"
+msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1334,7 +1326,7 @@ msgstr "Entdecken"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/discover"
+msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1444,13 +1436,14 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "Nährstoffwerte für 100 g"
 
-# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphensmsgctxt "nutrient_levels_link"
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr "Nährstoffgehalt"
+msgstr "Nährstoffgehalte"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
@@ -1494,15 +1487,15 @@ msgstr "Wert pro 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr "Vergleich mit den durchschnittlichen Werte von Produkten gleicher Kategorie:"
+msgstr "Vergleich mit den durchschnittlichen Werten von Produkten gleicher Kategorie:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr "Bitte beachten Sie: Der Durchschnitt für jeden Nährstoff wird anhand derjenigen Produkte berechnet, für diese der Wert bekannt ist, nicht als Durchschnitt über alle Produkte."
+msgstr "Bitte beachten Sie: Der Durchschnitt für jeden Nährstoff wird anhand derjenigen Produkte berechnet, für die der Wert bekannt ist, nicht als Durchschnitt über alle Produkte."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "Sind Details des Foto klar erkennbar, dann können die Nährwertinformationen automatisch erfasst werden."
+msgstr "Sind Details des Fotos klar erkennbar, dann können die Nährwertinformationen automatisch erfasst werden."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1801,11 +1794,11 @@ msgstr "Inhaltsstoffe aus Foto auslesen"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr "Der Angaben der Inhaltsstoffe konnte nicht ausgelesen werden. Versuchen Sie es mit einem schärferen Foto, einer höheren Auflösung oder einer besseren Einpassung des Textes."
+msgstr "Die Angaben der Inhaltsstoffe konnten nicht ausgelesen werden. Versuchen Sie es mit einem schärferen Foto, einer höheren Auflösung oder einer besseren Einpassung des Textes."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr "Die Inhaltsstoffe wurden ausgelesen. Da die Texterkennung nicht perfekt ist, bitten wir Sie, den unten stehenden Text zu überprüfen und wenn nötig Fehler zu korrigieren."
+msgstr "Die Inhaltsstoffe wurden ausgelesen. Da die Texterkennung nicht perfekt ist, bitten wir Sie, den unten stehenden Text zu überprüfen und wenn nötig, Fehler zu korrigieren."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
@@ -1853,7 +1846,7 @@ msgstr "Ein Fehler ist während des Hochladens des Fotos aufgetreten"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr "Foto auf weißem Hintergrund: Versuchen Sie den Hintergrund zu entfernen"
+msgstr "Foto auf weißem Hintergrund: Versuchen Sie, den Hintergrund zu entfernen"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
@@ -1881,7 +1874,7 @@ msgstr "Foto hinzufügen"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "➜ Mit Chrome, Firefox und Safari können Sie einfach durch die Verwendung der Strg-Taste mehrere Fotos auswählen (Produkt, Inhaltsstoffe, Nährwertinformationen, usw.), um diese einmalig hochzuladen."
+msgstr "➜ Mit Chrome, Firefox und Safari können Sie einfach durch die Verwendung der Strg-Taste mehrere Fotos auswählen (Produkt, Inhaltsstoffe, Nährwertinformationen usw.), um diese einmalig hochzuladen."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
@@ -1982,7 +1975,7 @@ msgid "Hello <NAME>,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
 msgstr "Hallo <NAME>,\n\n"
-"Sie haben das Zurücksetzen des Passworts auf https://openfoodfacts.org\n\n"
+"Sie haben das Zurücksetzen des Passworts auf https://de.openfoodfacts.org\n\n"
 "für folgenden Benutzer angefordert: <USERID>\n\n"
 "Um das Zurücksetzen des Passworts abzuschließen, klicken Sie auf den Link unten.\n"
 "Falls Sie das Zurücksetzen nicht angefordert haben, ignorieren Sie einfach diese E-Mail.\n\n"
@@ -2126,7 +2119,7 @@ msgstr "Ergebnisse in einem Diagramm"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr "Wählen Sie, was Sie auf der horizontalen Achse darstellen wollen, um ein Histogramm zu erhalten, oder wählen Sie zwei Achsen\n"
+msgstr "Wählen Sie, was Sie auf der horizontalen Achse darstellen wollen, um ein Histogramm zu erhalten oder wählen Sie zwei Achsen\n"
 "für ein Streudiagramm von Produkten."
 
 msgctxt "search_graph_link"
@@ -2135,7 +2128,7 @@ msgstr "Permanentlink zu diesem Diagramm, kann über E-Mail und in sozialen Netz
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr "Das Diagramm zeigt nur die Produkte für die die angezeigten Werte bekannt sind."
+msgstr "Das Diagramm zeigt nur die Produkte, für die die angezeigten Werte bekannt sind."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
@@ -2175,7 +2168,7 @@ msgstr "Permanentlink zu dieser Karte, kann über E-Mail und in sozialen Netzwer
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr "Die Karte zeigt nur Produkte für die Herstellungs- oder Verpackungsstätte bekannt sind."
+msgstr "Die Karte zeigt nur Produkte, für die Herstellungs- oder Verpackungsstätte bekannt sind."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
@@ -2309,9 +2302,18 @@ msgctxt "serving_size"
 msgid "Serving size"
 msgstr "Portionsgröße"
 
+msgctxt "serving_size_prepared"
+msgid ""
+msgstr ""
+""
+
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
 msgstr "60 g, 12 oz, 20 cl, 2 fl oz"
+
+msgctxt "serving_size_note"
+msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
+msgstr "Wenn die Nährwerttabelle Werte für das zubereitete Produkt enthält, geben Sie die Gesamtportion des zubereiteten Produkts (einschließlich Wasser- oder Milchzusatz) an."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2451,7 +2453,7 @@ msgstr "Spur"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr "Twitter-Benutzernamen (optional)"
+msgstr "Twitter-Benutzername (optional)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
@@ -2601,7 +2603,7 @@ msgstr "NutriScore-Farbe nach Nährstoffgehalt"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr "Wie die Farben für die Nährstoffgehalt berechnet werden"
+msgstr "Wie die Farben für den Nährstoffgehalt berechnet werden"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
@@ -2656,8 +2658,8 @@ msgid "This product page is not complete. You can help to complete it by editing
 msgstr "Diese Produktseite ist nicht vollständig. Sie können helfen, sie zu vervollständigen, indem Sie das Produkt bearbeiten und weitere Daten aus den vorhandenen Fotos hinzufügen oder indem Sie mehr Fotos aufnehmen mit der App für <a href=\"https://android.openfoodfacts.org\">Android</a> oder <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Vielen Dank!"
 
 msgctxt "title_separator"
-msgid " — "
-msgstr " — "
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2668,8 +2670,8 @@ msgid "Our Translators"
 msgstr "Unsere Übersetzer"
 
 msgctxt "translators_lead"
-msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
-msgstr "Wir möchten DANKE an die großartigen Übersetzer sagen, die es uns ermöglichen, „Open Food Facts”, „Open Beauty Facts” und „Open Pet Food Facts” in all diesen verschiedenen Sprachen zu anzubieten!"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
+msgstr "Wir möchten uns bei den großartigen Übersetzern bedanken, die es uns ermöglichen, Ihnen „Open Food Facts”, „Open Beauty Facts” und „Open Pet Food Facts” in all diesen Sprachen anzubieten! <a href=\"https://translate.openfoodfacts.org/\">Sie können sich uns in diesem globalen Projekt anschließen: Es erfordert kein technisches Wissen.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -2968,6 +2970,10 @@ msgctxt "producer_version_id"
 msgid "Producer version identifier"
 msgstr "Kennung der Herstellerversion"
 
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr "Produktkennung des Herstellers"
+
 msgctxt "net_weight"
 msgid "Net weight"
 msgstr "Nettogewicht"
@@ -2986,7 +2992,31 @@ msgstr "Weitere Informationen"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
-msgstr ""
+msgstr "Konservierungsbedingungen"
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "Warnhinweis"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr "Vorbereitung"
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr "Rezeptidee"
+
+msgctxt "origin"
+msgid "Origin"
+msgstr "Herkunft"
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr "Kundendienst"
+
+msgctxt "producer"
+msgid "Producer"
+msgstr "Hersteller"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
@@ -2995,6 +3025,242 @@ msgstr "Verwertungshinweise - Zur Wiederverwertung"
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
 msgstr "Verwertungshinweise - Zur Entsorgung"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "Von %s geprüfte Produkte"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "Nicht von %s geprüfte Produkte"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "Von %s korrigierte Produkte"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "Nicht von %s korrigierte Produkte"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "Von %s bearbeitete Produkte"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "Nicht von %s bearbeitete Produkte"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "Von %s vervollständigte Produkte"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "Nicht von %s vervollständigte Produkte"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "Von %s fotografierte Produkte"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "Nicht von %s fotografierte Produkte"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "%ss Seite"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "Von %s geprüfte Produkte"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "Nicht von %s geprüfte Produkte"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "Von %s korrigierte Produkte"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "Nicht von %s korrigierte Produkte"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "Von %s bearbeitete Produkte"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "Nicht von %s bearbeitete Produkte"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "Von %s vervollständigte Produkte"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "Nicht von %s vervollständigte Produkte"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "Von %s fotografierte Produkte"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "Nicht von %s fotografierte Produkte"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "%ss Seite"
+
+msgctxt "obsolete"
+msgid "The product is no longer sold."
+msgstr "Das Produkt wird nicht mehr verkauft."
+
+msgctxt "obsolete_since_date"
+msgid "Withdrawal date"
+msgstr "Datum der Zurückziehung"
+
+msgctxt "obsolete_since_date_note"
+msgid "Format: YYYY or YYYY-MM"
+msgstr "Format: JJJJJ oder JJJJJ-MM"
+
+msgctxt "obsolete_warning"
+msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
+msgstr "Wichtiger Hinweis: Dieses Produkt wird nicht mehr verkauft. Die Daten werden nur als Referenz gespeichert. Dieses Produkt erscheint nicht in der regulären Suche und wird für Statistiken nicht berücksichtigt."
+
+msgctxt "get_the_app"
+msgid "Get the app"
+msgstr "Holen Sie sich die App"
+
+msgctxt "get_the_app_android"
+msgid "Get the Android app"
+msgstr "Holen Sie sich die Android-App"
+
+msgctxt "get_the_app_iphone"
+msgid "Get the iPhone app"
+msgstr "Holen Sie sich die iPhone App"
+
+msgctxt "get_the_app_ipad"
+msgid "Get the iPad app"
+msgstr "Holen Sie sich die iPad-App"
+
+msgctxt "warning_gs1_company_prefix"
+msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
+msgstr ""
+
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr "Produktkennung des Herstellers"
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "Warnhinweis"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr "Vorbereitung"
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr "Rezeptidee"
+
+msgctxt "origin"
+msgid "Origin"
+msgstr "Herkunft"
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr "Kundendienst"
+
+msgctxt "producer"
+msgid "Producer"
+msgstr "Hersteller"
+
+msgctxt "environment_infocard"
+msgid "Environment infocard"
+msgstr "Infokarte der Umgebung"
+
+msgctxt "environment_infocard_note"
+msgid "HTML code for the environment infocard in the mobile application"
+msgstr "HTML-Code für die Infokarte der Umgebung in der mobilen Anwendung"
+
+msgctxt "environment_impact_level"
+msgid "Environment impact level"
+msgstr "Niveau der Umweltauswirkungen"
+
+msgctxt "environment_impact_level_example"
+msgid "en:low, en:medium or en:high"
+msgstr "de: niedrig, en: mittel oder en: hoch"
+
+msgctxt "carbon_impact_from_meat_or_fish"
+msgid "Carbon impact from meat or fish"
+msgstr "CO₂-Belastung durch Fleisch oder Fisch"
+
+msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
+msgid "of carbon emission from meat or fish for the whole product"
+msgstr ""
+
+msgctxt "of_sustainable_daily_emissions_of_1_person"
+msgid "of sustainable daily emissions of 1 person"
+msgstr ""
+
+msgctxt "of_sustainable_weekly_emissions_of_1_person"
+msgid "of sustainable weekly emissions of 1 person"
+msgstr ""
+
+msgctxt "for_one_serving"
+msgid "for one serving"
+msgstr ""
+
+msgctxt "methodology"
+msgid "Methodology"
+msgstr ""
+
+msgctxt "carbon_footprint_note_foodges_ademe"
+msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
+msgstr ""
+
+msgctxt "carbon_footprint_note_sustainable_annual_emissions"
+msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
+msgstr ""
+
+msgctxt "carbon_footprint_note_uncertainty"
+msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
+msgstr ""
+
+msgctxt "error_too_many_products_to_export"
+msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
+msgstr ""
+
+msgctxt "translate_taxonomy_to"
+msgid "Help translate the %s to %s"
+msgstr ""
+
+msgctxt "translate_taxonomy_description"
+msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr ""
+
+msgctxt "translate_taxonomy_add"
+msgid "Show only entries without pending translations."
+msgstr ""
+
+msgctxt "translate_taxonomy_edit"
+msgid "Also show entries with pending translations from you or other users."
+msgstr ""
+
+msgctxt "translated"
+msgid "translated"
+msgstr "Übersetzt"
+
+msgctxt "to_be_translated"
+msgid "to be translated"
+msgstr ""
+
+msgctxt "current_translation"
+msgid "Current translation"
+msgstr "Aktuelle Übersetzung"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
