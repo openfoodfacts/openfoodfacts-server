@@ -1694,28 +1694,29 @@ fr:conservateur de fruit
 
 # <en:function
 en:Propellent gas
-ga:Gás tiomána
+bg:Опаковъчен газ
+ca:gas propellent
+cs:Balicí plyn
 da:Konserveringsmiddel
 de:Treibgas
 el:Προωστικό αέριο
 es:Gas propulsor
+et:Propellent
 fi:Ponneaine
 fr:Gaz propulseur
-it:Gas propulsore
-nl:Drijfgas, Drijfgassen
-pt:Gás propulsor
-sv:Konserveringsmedel
-lv:Propelents
-cs:Balicí plyn
-et:Propellent
+ga:Gás tiomána
 hu:Hajtógáz
-pl:Gaz nośny
-sl:Konzervans
+it:Gas propulsore
 lt:Suslėgtosios dujos
+lv:Propelents
 mt:Gass propellent
-sk:Hnací plyn
+nl:drijfgas, drijfgassen
+pl:Gaz nośny
+pt:Gás propulsor
 ro:Agent de propulsare
-bg:Опаковъчен газ
+sk:Hnací plyn
+sl:Konzervans
+sv:Konserveringsmedel
 wikidata:en:Q50419221
 
 
@@ -5766,7 +5767,7 @@ az:Azot-1 oksid
 bg:Диазотен оксид
 bn:নাইট্রাস অক্সাইড
 bs:Dušik suboksid
-ca:òxid de dinitrogen
+ca:òxid de dinitrogen, n2o
 cs:Oxid dusný
 cy:ocsid nitrus
 da:Dinitrogenoxid
@@ -5824,6 +5825,15 @@ zh:一氧化二氮
 wikidata:en:Q905750
 wikipedia:en:https://en.wikipedia.org/wiki/Nitrous_oxide
 # ingredient/fr:protoxyde-d’azote has 21 products in 3 languages @2019-02-20
+# additive/e942-nitrous-oxide has 120 products in 7 languages @2019-04-20
+
+<en:nitrous oxide
+en:propellent gas E942
+de:Treibgas E942
+es:drijfgas E942
+fr:gaz propulseur E942
+nl:drijfgas E942
+# ingredient/propellent-gas-E942 has 2 products in 2 languages @2019-04-20
 
 
 # description:en:CYSTEINE is a semiessential proteinogenic amino acid with the formula HO2CCH(NH2)CH2SH. One of the largest applications is the production of flavors. For example, the reaction of cysteine with sugars in a Maillard reaction yields meat flavors. L-Cysteine is also used as a processing aid for baking. The animal-originating sources of L-cysteine as a food additive are a point of contention for people following dietary restrictions such as kosher, halal, vegan or vegetarian.
@@ -54869,32 +54879,6 @@ es:drijfgas E941
 fr:gaz propulseur E941
 nl:drijfgas E941, stikstof
 de:Treibgas E941
-
-<en:propellent gas
-en:propellent gas E942
-es:drijfgas E942
-fr:gaz propulseur E942
-nl:drijfgas E942, stikstofoxiden
-de:Treibgas E942
-
-# VIANDE
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
