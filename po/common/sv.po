@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 18:21\n"
+"PO-Revision-Date: 2019-04-20 18:31\n"
 "Language-Team: Swedish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -546,7 +546,7 @@ msgstr "Ogiltig användare."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Användarnamnet får endast innehålla bokstäver utan diakritiska tecken, siffror och bindestreck."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -570,7 +570,7 @@ msgstr "Du är redan inloggad."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Återställningslänken är ogiltig eller för gammal."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
@@ -582,7 +582,7 @@ msgstr "Detta användarnamn finns inte."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Detta användarnamn används redan. Var vänlig försök med ett annat."
 
 msgctxt "example"
 msgid "Example:"
@@ -598,7 +598,7 @@ msgstr "Bäst före-datum"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "Utgångsdatumet är ett sätt att spåra produktändringar över tid och för att identifiera den senaste versionen."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -614,7 +614,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "Om uppgifterna är ofullständiga eller felaktiga kan du komplettera eller korrigera den genom att redigera den här sidan."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -695,7 +695,7 @@ msgstr "Gå med i communityt"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr ""
+msgstr "Kom till oss på %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
@@ -1344,11 +1344,11 @@ msgstr "Namn"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "Om streckkoden inte är korrekt, vänligen korrigera den här:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "För produkter utan streckkod används en intern kod automatiskt."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
