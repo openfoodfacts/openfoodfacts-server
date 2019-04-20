@@ -127,6 +127,10 @@ sl:vsebuje
 sv:innehåller
 zh::配料
 
+fr:additifs alimentaires
+# ingredient/fr:additifs%20alimentaires has 52 products @2019-04-20
+# usage:fr: additif alimentaire (acide citrique)
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                           F U N C T I O N     S E C T I O N
@@ -137,6 +141,7 @@ zh::配料
 # functions are just descriptors, they are not ingredients themselves
 # usually a function is followed by one or more ingredients (usually an E-number additive)
 # additive classes (from Global_additives_classes_taxonomy)
+
 
 # <en:function
 en:Acid, Acidifier
