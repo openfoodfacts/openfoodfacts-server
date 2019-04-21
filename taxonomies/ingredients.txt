@@ -20623,7 +20623,7 @@ fr:flocons de blé complet
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20blé%20complet/languages
 
 <en:wheat
-# <en:fiber
+<en:vegetable fiber
 en:wheat fiber
 de:Weizenfasern
 es:fibras de trigo
@@ -28566,7 +28566,7 @@ it:fiocchi di mela
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
-# <en:fiber
+<en:vegetable fiber
 en:apple fiber
 de:Apfelfaser
 fr:fibre de pomme, fibres de pomme
@@ -52551,22 +52551,56 @@ wikidata:en:Q11173928
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                          F O R M     S E C T I O N
+#                                        P A R T S     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# Form describes the appearance/shape/etc of an ingredient, without referring to the origin of the ingredient itself
+# description:en:The part describes a piece of a vegetable or animal once it has been cut up in pieces (parts) or otherwise processed. These might be compound ingredients, i.e. in brackets the origin can be specified.
+# comment:en:There might be a better word for this.
 
+# en:part
 
 # <en:compound
-# <en:form
+# <en:part
 fr:extraits naturels
 # ingredient/fr:extraits-naturels has 72 products in french @2019-04-13
 # usage:fr: extraits naturels (dont céleri)
 
+# <en:part
+en:concentrated extract
+de:Extraktkonzentrat
+fr:extrait concentré
+it:estratto concentrato
+# ingredient/fr:extrait-concentré has 31 products @2019-02-15
+# concentrated extract (safflower flower)
+
+# <en:part
+# en:vegetable part
+
+# <en:vegetable part
+en:pulp
+de:Fruchtfleisch
+fr:pulpe
+nl:pulp
+# ingredient/fr:pulpe has 150 products in 4 languages @2019-01-25
+# Tomate (pulpe, concentré)
+# Jus de pamplemousse rose - pulpe
+
+
+# <en:vegetable part
+en:purée
+de:Püree
+fr:purée
+nl:puree
+wikidata:en:Q636056
+wikipedia:en:https://en.wikipedia.org/wiki/Purée
+# ingredient/fr:purée has 151 products @2018-10-05
+# usage:fr:kiwi 4% (purée)
+
+
 # Fiber or fibre is a natural or synthetic substance that is significantly longer than it is wide.
 
-#<en:form
+# <en:vegetable part
 en:fiber, fibre
 af:Vesel
 ar:ألياف النسيج
@@ -52664,51 +52698,6 @@ nl:erwtenvezel
 ro:fibre de mazare
 # ingredient/fr:fibre-de-pois has 173 products in 7 languages @2019-04-21
 
-# <en:form
-fr:jus de cuisson
-# ingredient/fr:jus-de-cuisson has 43 products in french @2019-03-11
-
-
-en:purée
-de:Püree
-fr:purée
-nl:puree
-wikidata:en:Q636056
-wikipedia:en:https://en.wikipedia.org/wiki/Purée
-# ingredient/fr:purée has 151 products @2018-10-05
-# usage:fr:kiwi 4% (purée)
-
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
-#                                        P A R T S     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-# description:en:The part describes a piece of a vegetable or animal once it has been cut up in pieces (parts) or otherwise processed.
-# comment:en:There might be a better word for this.
-
-# en:part
-
-# <en:part
-# en:vegetable part
-
-# <en:vegetable part
-en:pulp
-de:Fruchtfleisch
-fr:pulpe
-nl:pulp
-# ingredient/fr:pulpe has 150 products in 4 languages @2019-01-25
-# Tomate (pulpe, concentré)
-# Jus de pamplemousse rose - pulpe
-
-# <en:part
-en:concentrated extract
-de:Extraktkonzentrat
-fr:extrait concentré
-it:estratto concentrato
-# ingredient/fr:extrait-concentré has 31 products @2019-02-15
-# concentrated extract (safflower flower)
 
 # <en:part
 # en:animal part
@@ -52774,6 +52763,12 @@ vi:Collagen
 zh:膠原蛋白
 wikipedia:en:https://en.wikipedia.org/wiki/Collagen
 # ingredient/fr:collagène has 128 products in 4 languages @2019-04-21
+
+
+# comment:en:Where shall we put this?
+
+fr:jus de cuisson
+# ingredient/fr:jus-de-cuisson has 43 products in french @2019-03-11
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
