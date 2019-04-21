@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 14:09\n"
+"PO-Revision-Date: 2019-04-20 18:31\n"
 "Language-Team: Swedish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -45,7 +45,7 @@ msgstr "Registrera"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Tack för att du gick med. Du kan nu logga in på webbplatsen för att lägga till och redigera produkter.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -71,15 +71,15 @@ msgstr "Tack för att du gick med i <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Potentiellt farlig livsmedelstillsats. Begränsa användandet."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Farlig livsmedelstillsats. Undvik."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Livsmedelstillsats som förbjudits i Europa. Undvik till varje pris."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -173,7 +173,7 @@ msgstr "Streckkodsnummer:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Du kan också hjälpa till att finansiera Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -189,7 +189,7 @@ msgstr "Varumärken"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno Vit, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -225,7 +225,7 @@ msgstr "Sardiner i olivolja, Apelsinjuice från koncentrat"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Ange endast den mest specifika kategorin. Föräldrakategorier läggs automatiskt till."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -245,7 +245,7 @@ msgstr "lägg till en kategori"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "Produkter som inte är i %s-kategorin"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -277,11 +277,11 @@ msgstr "förpackningsstäder"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Produkter förpackade i %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "förpackningsstad"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -329,7 +329,7 @@ msgstr "Länder där såld"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
-msgstr ""
+msgstr "Länder där produkten är allmänt tillgänglig (ej inklusive butiker som specialiserat sig på utländska produkter)"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -518,15 +518,15 @@ msgstr "Felaktigt användarnamn eller lösenord. <a href=\"/cgi/reset_password.p
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr ""
+msgstr "Ett fel uppstod vid läsning av data, prova att uppdatera sidan."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Lösenord och bekräftelsen matchar inte."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "E-postadressen används redan av en annan användare. Kanske har du redan ett konto? Du kan  <a href=\"/cgi/reset_password.pl\">återställa lösenordet</a> till ditt andra konto."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -538,7 +538,7 @@ msgstr "Ogiltig e-postadress"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "Lösenordet måste vara minst sex tecken långt."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -546,7 +546,7 @@ msgstr "Ogiltig användare."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Användarnamnet får endast innehålla bokstäver utan diakritiska tecken, siffror och bindestreck."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -570,7 +570,7 @@ msgstr "Du är redan inloggad."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Återställningslänken är ogiltig eller för gammal."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
@@ -582,7 +582,7 @@ msgstr "Detta användarnamn finns inte."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Detta användarnamn används redan. Var vänlig försök med ett annat."
 
 msgctxt "example"
 msgid "Example:"
@@ -598,7 +598,7 @@ msgstr "Bäst före-datum"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "Utgångsdatumet är ett sätt att spåra produktändringar över tid och för att identifiera den senaste versionen."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -614,7 +614,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "Om uppgifterna är ofullständiga eller felaktiga kan du komplettera eller korrigera den genom att redigera den här sidan."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -682,10 +682,8 @@ msgstr "/cgi/top_translators.pl"
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
-"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr "Följ oss på <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
-"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> och\n"
-"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
+msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -697,7 +695,7 @@ msgstr "Gå med i communityt"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr ""
+msgstr "Kom till oss på %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
@@ -1346,11 +1344,11 @@ msgstr "Namn"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "Om streckkoden inte är korrekt, vänligen korrigera den här:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "För produkter utan streckkod används en intern kod automatiskt."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
