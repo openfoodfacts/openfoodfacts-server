@@ -52631,12 +52631,11 @@ wikidata:en:Q11173928
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# description:en:The part describes a piece of a vegetable or animal once it has been cut up in pieces (parts) or otherwise processed. These might be compound ingredients, i.e. in brackets the origin can be specified.
+# description:en:The part describes a piece of a vegetable or animal once it has been cut up in pieces (parts) or otherwise processed. In brackets there can be a further specification. Note that it is not a compound ingredient.
 # comment:en:There might be a better word for this.
 
 # en:part
 
-# <en:compound
 # <en:part
 fr:extraits naturels
 # ingredient/fr:extraits-naturels has 72 products in french @2019-04-13
@@ -53909,7 +53908,7 @@ wikidata:en:Q42366457
 # <en:mainIngredient:en:water
 fr:jus cuisiné
 # ingredient/fr:jus-cuisiné has 56 products in french @2019-03-29
-# usage:fr: jus cuisiné (eau, bouillon de poulet [sel, dextrose, graisse et viande de Poulet, arômes naturels, épices, plante aromatique], carottes, oignons, concentré de tomates)
+# usage:fr:jus cuisiné (eau, bouillon de poulet [sel, dextrose, graisse et viande de Poulet, arômes naturels, épices, plante aromatique], carottes, oignons, concentré de tomates)
 
 # <en:compound
 # mainIngredient:en:water
@@ -54022,6 +54021,94 @@ it:crosta di formaggio
 fr:salade composée
 # ingredient/fr:salade-composée has 97 products in french @2019-04-16
 # usage:fr: Salade composée 88% : Scarole, carotte râpées, maïs (maïs, sucre, sel), emmental 12%, dés de jambon cuit supérieur 12% (jambon de porc 10,9%, sel, sirop de glucose, dextrose, arômes naturels, antioxydant : ascorbate de sodium, conservateur: nitrite de sodium), frisée, chicorée rouge.
+
+
+# description:en:Ketchup is a sauce used as a condiment. Ketchup is a sweet and tangy sauce now typically made from tomatoes, sugar, and vinegar, with assorted seasonings and spices. The specific spices and flavors vary, but commonly include onions, allspice, coriander, cloves, cumin, garlic, and mustard; and sometimes include celery, cinnamon or ginger.
+
+# <en:compound
+# <en:mainIngredient:en:tomato
+en:ketchup
+af:Tamatiesous
+ar:كتشب
+# ast:Kétchup
+# bar:Ketchup
+be:Кетчуп
+# be-tarask:Кетчуп
+bg:Кетчуп
+ca:quètxup
+cs:kečup
+cy:Sôs coch
+da:Ketchup
+de:Ketchup
+el:Κέτσαπ
+# en-gb:tomato sauce
+eo:keĉupo
+es:kétchup
+et:Ketšup
+eu:Ketchup
+fa:کچاپ
+fi:Ketsuppi
+fr:ketchup
+ga:Citseap
+gl:Ketchup
+# hak:Kié-jiab-pú
+he:קטשופ
+hu:Ketchup
+hy:կետչուպ
+id:Saus tomat
+is:Tómatsósa
+it:ketchup
+ja:ケチャップ
+jv:Saos Tomat
+ka:კეტჩუპი
+kk:Кетчуп
+kn:ಕೆಚಪ್
+ko:케첩
+ku:Ketçap
+# ku-arab:کەتچاپ
+# ku-latn:Ketçap
+la:Lycopersici liquamen
+# lfn:Cetxap
+lt:Kečupas
+mk:Кечап
+ms:Sos tomato
+# nan:Khe-chiap-pu
+nb:ketchup
+nl:ketchup, tomatenketchup
+pl:Keczup
+pt:ketchup
+ro:Ketchup
+ru:кетчуп
+# sco:Ketchup
+sd:ڪيچپ
+sk:kečup
+sl:Kečap
+sr:Кечап
+# sr-ec:Кечап
+sv:Ketchup
+ta:கெச்சப்
+th:ซอสมะเขือเทศ
+tl:Ketsap
+tr:Ketçap
+uk:Кетчуп
+vi:Nước sốt cà chua
+# war:Ketchup
+# wuu:番茄酱
+yi:קעטשאפ
+# yue:番茄醬
+zh:番茄醬
+# zh-cn:番茄酱
+# zh-hans:番茄酱
+# zh-hant:番茄醬
+# zh-hk:番茄醬
+# zh-sg:番茄酱
+# zh-tw:番茄醬
+wikidata:en:Q178143
+wikipedia:en:https://en.wikipedia.org/wiki/Ketchup
+carbon_footprint_fr_foodges_ingredient:fr:Ketchup
+# ingredient/fr:ketchup has 110 products in 4 languages @2019-04-21
+# usage:en:ketchup (tomato puree, glucose syrup, brandy vinegar, sugar, modified corn starch)
+
 
 fr:anhydride sulfureux
 
@@ -55118,10 +55205,9 @@ fr:dioxyde de soufre
 
 fr:perméat de petit lait
 
-fr:pantothénate de calcium
 
-fr:ketchup
-carbon_footprint_fr_foodges_ingredient:fr:Ketchup
+
+
 
 
 
