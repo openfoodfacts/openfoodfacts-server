@@ -33006,6 +33006,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crudités
 
 # description:en:The globe  ARTICHOKE  (Cynara cardunculus var. scolymus), also known as French artichoke and green artichoke in the USA, is a variety of a species of thistle cultivated as a food. Leaves are often removed one at a time, and the fleshy base eaten, with hollandaise, vinegar, butter, mayonnaise, aioli, lemon juice, or other sauces. The fibrous upper part of each leaf is usually discarded. The heart is eaten when the inedible choke has been peeled away from the base and discarded. The thin leaves covering the choke are also edible.
 
+<en:vegetable
 en:artichoke
 # aeb-arab:قنّاريّة
 # aeb-latn:gannèriyya
@@ -33194,6 +33195,37 @@ it:asparagi bianchi
 fr:asperges blanches, asperge blanche
 nl:witte asperges
 # fr:asperges blanches has 46 products in 4 languages @2018-11-11
+
+# description:en:The AVOCADO (Persea americana) is a tree, long thought to have originated in South Central Mexico, classified as a member of the flowering plant family Lauraceae. The fruit of the plant, also called an avocado (or avocado pear or alligator pear), is botanically a large berry containing a single large seed. The fruit of horticultural cultivars has a markedly higher fat content than most other fruit, mostly monounsaturated fat, and as such serves as an important staple in the diet of consumers who have limited access to other fatty foods (high-fat meats and fish, dairy products). The fruit is not sweet, but distinctly and subtly flavored, with smooth texture.[4] It is used in both savory and sweet dishes, though in many countries not for both. The avocado is popular in vegetarian cuisine as a substitute for meats in sandwiches and salads because of its high fat content.
+
+<en:vegetable
+en:avocado
+ar:الأفوكادو
+cs:avokádo
+de:Avocado
+el:αβοκάντο
+eo:avokado
+es:aguacate
+et:Avokaado
+eu:ahuakate
+fr:avocat
+ht:Zaboka
+it:avocado
+lt:Avokadas
+# nah:Āhuacatl
+nb:avokado
+nl:avocado
+pl:Awokado
+pt:abacate
+ru:авокадо
+sk:avokádo
+te:అవోకాడో
+vo:Avokaado
+wikidata:en:Q961769
+wikipedia:en:https://en.wikipedia.org/wiki/Avocado
+carbon_footprint_fr_foodges_ingredient:fr:Avocat
+# ingredient/avocado has 223 products in 5 languages @2019-04-21
+
 
 <en:vegetable
 fr:batavia
@@ -55058,14 +55090,6 @@ fr:carboxyméthylcellulose
 fr:sélénate de sodium
 
 fr:fibre
-
-en:avocado
-es:aguacate
-fr:avocat
-nl:avocado
-de:Avocado
-carbon_footprint_fr_foodges_ingredient:fr:Avocat
-
 
 
 
