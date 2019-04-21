@@ -52681,13 +52681,19 @@ wikipedia:en:https://en.wikipedia.org/wiki/Purée
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                C O N T E X T   D E P E N D E N T     S E C T I O N
+#                                        P A R T S     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# the actual meaning of this ingredient depends on what comes before or after
-# so we can offer just translations
+# description:en:The part describes a piece of a vegetable or animal once it has been cut up in pieces (parts) or otherwise processed.
+# comment:en:There might be a better word for this.
 
+# en:part
+
+# <en:part
+# en:vegetable part
+
+# <en:vegetable part
 en:pulp
 de:Fruchtfleisch
 fr:pulpe
@@ -52696,13 +52702,79 @@ nl:pulp
 # Tomate (pulpe, concentré)
 # Jus de pamplemousse rose - pulpe
 
-
+# <en:part
 en:concentrated extract
 de:Extraktkonzentrat
 fr:extrait concentré
 it:estratto concentrato
 # ingredient/fr:extrait-concentré has 31 products @2019-02-15
 # concentrated extract (safflower flower)
+
+# <en:part
+# en:animal part
+
+# Collagen is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
+
+# <en:animal part
+en:collagen
+an:Colachén
+ar:كولاجين
+bg:Колаген
+ca:collagen
+cs:kolagen
+da:Kollagen
+de:Kollagen
+el:κολλαγόνο
+eo:kolageno
+es:colágeno
+eu:Kolageno
+fa:کلاژن
+fi:Kollageeni
+fr:collagène
+ga:Collaiginí
+gl:Coláxeno
+he:קולגן
+hi:कोलेजन
+hr:Kolagen
+hu:Kollagén
+hy:Կոլագեն
+id:Kolagen
+it:collagene
+ja:コラーゲン
+kk:Коллаген
+kn:ಕಾಲಜನ್
+ko:콜라겐
+la:Collagenum
+lt:Kolagenas
+lv:Kolagēns
+mk:Колаген
+ml:കൊളാജൻ
+mn:Коллаген
+ms:Kolagen
+nb:Kollagen
+nl:collageen
+nn:kollagen
+pl:Kolagen
+pt:colágeno
+ro:Colagen
+ru:Коллаген
+# sco:collagen
+sh:Kolagen
+sk:kolagén
+sl:Kolagen
+sr:колаген
+# sr-ec:колаген
+# sr-el:kolagen
+sv:Kollagen
+th:คอลลาเจน
+tr:Kollajen
+uk:Колаген
+vi:Collagen
+# yue:膠原蛋白
+zh:膠原蛋白
+wikipedia:en:https://en.wikipedia.org/wiki/Collagen
+# ingredient/fr:collagène has 128 products in 4 languages @2019-04-21
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -54998,23 +55070,6 @@ fr:avocat
 nl:avocado
 de:Avocado
 carbon_footprint_fr_foodges_ingredient:fr:Avocat
-
-
-fr:collagène
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
