@@ -12,14 +12,13 @@ def check_next_lines(ingredients):
 	return keep_lines
 
 def write_next_lines(next_lines, temporary_file):
-	for line in next_lines:
+	size = len(next_lines)
+	for i in range(0, size-1):
+		line = next_lines[i]
 		if "carbon_footprint_fr_foodges_ingredient:fr:" in line:
 			temporary_file.write(line)
-			temporary_file.write("carbon_footprint_fr_foodges_value:fr:" + dict.get(line.rstrip("\n")))
-		elif "carbon_footprint_fr_foodges_value:fr:" not in line or "carbon_footprint_fr_foodges_ingredient:fr:" in line:
-			temporary_file.write(line)
-		else:
-			print line
+			temporary_file.write("carbon_footprint_fr_foodges_value:fr:" + dict.pop(line.rstrip("\n"), None) + "\n")
+	temporary_file.write(next_lines[size])
 
 dict = {}
 
@@ -41,7 +40,7 @@ while True:
 		if line.rstrip("\n") not in dict:
 			print("this mapping is not known : " + line.rstrip("\n"))
 		else:
-			temporary_file.write("carbon_footprint_fr_foodges_value:fr:" + dict.get(line.rstrip("\n")))
+			temporary_file.write("carbon_footprint_fr_foodges_value:fr:" + dict.pop(line.rstrip("\n"), None) + "\n")
 			next_lines = check_next_lines(ingredients)
 			write_next_lines(next_lines, temporary_file)
 
@@ -50,3 +49,6 @@ temporary_file.close()
 
 os.remove("taxonomies/ingredients.txt")
 os.rename("ingredients_tmp.txt", "taxonomies/ingredients.txt")
+
+print "This is the dictionary of unused mapping"
+print dict
