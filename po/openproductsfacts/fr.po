@@ -5,9 +5,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-01-03 16:33\n"
+"PO-Revision-Date: 2019-04-18 13:05\n"
 "Language-Team: French\n"
-"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
@@ -17,26 +17,26 @@ msgstr ""
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
+msgstr "https://fr.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=fr"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/app/open-beauty-facts/id1122926380"
-msgstr "https://itunes.apple.com/app/open-beauty-facts/id1122926380"
+msgstr "https://itunes.apple.com/fr/open-beauty-facts/id1122926380"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openproductsfacts-logo-en-178x150.png"
-msgstr "openproductsfacts-logo-en-178x150.png"
+msgstr "openproductsfacts-logo-fr-178x150.png"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openproductsfacts-logo-en-356x300.png"
-msgstr "openproductsfacts-logo-en-356x300.png"
+msgstr "openproductsfacts-logo-fr-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Products Facts"
@@ -44,7 +44,7 @@ msgstr "Open Products Facts"
 
 msgctxt "windows_phone_app_link"
 msgid "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr&hl=fr"
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
@@ -125,7 +125,7 @@ msgstr "iPod Touch (1ère génération)"
 
 msgctxt "og_image_url"
 msgid "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
-msgstr "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
+msgstr "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-fr-178x150.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-product-hunt\">Open Product Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
@@ -148,5 +148,5 @@ msgstr "AQUA / EAU, LAURETH SULFATE DE SODIUM, COCOAMPHODIACETATE DISODIQUE, DIS
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "open-products-facts-mobile-app"
-msgstr ""
+msgstr "open-products-facts-mobile-appfr"
 

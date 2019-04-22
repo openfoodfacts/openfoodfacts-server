@@ -2155,6 +2155,10 @@ elsif ($action eq 'process') {
 			. lang("see_product_page") . "</a></p>";
 	}
 	elsif ($type eq 'delete') {
+	
+		# Notify robotoff
+		send_notification_for_product_change($product_ref, "deleted");
+	
 		my $email = <<MAIL
 $User_id $Lang{has_deleted_product}{$lc}:
 
@@ -2165,6 +2169,9 @@ MAIL
 		send_email_to_admin(lang("deleting_product"), $email);
 	
 	} else {
+	
+		# Notify robotoff
+		send_notification_for_product_change($product_ref, "updated");
 	
 		# warning: this option is very slow
 		if ((defined $options{display_random_sample_of_products_after_edits}) and ($options{display_random_sample_of_products_after_edits})) {
