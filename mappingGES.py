@@ -27,7 +27,7 @@ def check_next_lines(ingredients):
 	while next_line_is_not_foodges:
 		next_line = ingredients.readline()
 		keep_lines.append(next_line)	  
-		if STRING_FOODGES_VALUE not in next_line or STRING_FOODGES_INGREDIENT not in next_line:
+		if STRING_FOODGES_VALUE not in next_line and STRING_FOODGES_INGREDIENT not in next_line:
 			next_line_is_not_foodges = False
 	return keep_lines
 
@@ -36,9 +36,13 @@ def write_next_lines(next_lines, temporary_file):
 	for i in range(0, size-1):
 		line = next_lines[i]
 		if STRING_FOODGES_INGREDIENT in line:
-			temporary_file.write(line)
-			temporary_file.write(STRING_FOODGES_VALUE + dict.get(line.rstrip("\n")) + "\n")
-			unused_mappings.remove(line.rstrip("\n"))
+			if line.rstrip("\n") not in dict:
+                        	print("this mapping is not known : " + line.rstrip("\n"))
+			else:
+				temporary_file.write(line)
+				temporary_file.write(STRING_FOODGES_VALUE + dict.get(line.rstrip("\n")) + "\n")
+				if line.rstrip("\n") in unused_mappings:
+					unused_mappings.remove(line.rstrip("\n"))
 	temporary_file.write(next_lines[size-1])
 
 with open('FoodGES.csv', 'r') as csvFile:
@@ -61,7 +65,8 @@ while True:
 			print("this mapping is not known : " + line.rstrip("\n"))
 		else:
 			temporary_file.write(STRING_FOODGES_VALUE + dict.get(line.rstrip("\n")) + "\n")
-			unused_mappings.remove(line.rstrip("\n"))
+			if line.rstrip("\n") in unused_mappings:
+				unused_mappings.remove(line.rstrip("\n"))
 			next_lines = check_next_lines(ingredients)
 			write_next_lines(next_lines, temporary_file)
 
@@ -71,6 +76,7 @@ temporary_file.close()
 os.remove(PATH_TO_INGREDIENTS)
 os.rename(PATH_TO_TEMPORARY, PATH_TO_INGREDIENTS)
 
-print "This is the list of unused mapping"
-print unused_mappings
-
+print("\n")
+print "This is the list of unused mapping : "
+for mapping in unused_mappings:
+	print mapping
