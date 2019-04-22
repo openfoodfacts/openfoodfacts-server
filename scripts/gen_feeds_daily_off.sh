@@ -13,3 +13,6 @@ gzip < fr.openfoodfacts.org.products.rdf > fr.openfoodfacts.org.products.rdf.gz
 gzip < en.openfoodfacts.org.products.csv > en.openfoodfacts.org.products.csv.gz
 gzip < fr.openfoodfacts.org.products.csv > fr.openfoodfacts.org.products.csv.gz
 
+./generate_dump_for_offline_apps_off.py
+cd /srv/off/html/data/offline
+zip en.openfoodfacts.org.products.small.csv.zip en.openfoodfacts.org.products.small.csv

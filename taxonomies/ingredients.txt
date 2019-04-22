@@ -9472,7 +9472,8 @@ tt:Фермент
 uk:Ферменти
 uz:fermentlar
 # xal:Фермент
-nova:en:3
+#ferments for yoghurts do not make them nova 3, commenting the line below
+#nova:en:3
 
 #
 # ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
@@ -10809,7 +10810,7 @@ it:latte di capra pastorizzato
 <en:milk
 en:sheeps milk
 de:Schafmilch
-fr:laitde brebis
+fr:lait de brebis
 nl:schapenmelk
 
 # RAW SHEEPS MILK - milk produced by female sheep before any treatment
@@ -11091,7 +11092,10 @@ sv:kondenserad skummjölk
 fr:lait écrémé concentré ou en poudre, lait écrémé condensé sucré
 nl:gecondenseerde magere poedermelk
 
-fr:lactose et protéine de lait
+<en:milk proteins
+<en:lactose
+en:lactose and milk proteins
+fr:lactose et protéine de lait, lactose et protéines de lait, protéines de lait et lactose, protéine de lait et lactose
 
 # nova:en:milk-powder
 en:milk powder, powdered milk
@@ -20143,6 +20147,7 @@ en:cereal
 de:Getreide
 es:cereales
 fr:céréale, céréales
+carbon_footprint_fr_foodges_ingredient:fr:Mélange de céréales
 it:cereali
 nl:granen
 pl:płatki zbożewe
@@ -24591,6 +24596,10 @@ wikidata:en: Q63120038
 
 en:chocolate
 fr:chocolat
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
+
 nl:chocolade
 
 
@@ -24605,14 +24614,17 @@ it: pezzi di cioccolato
 en:white chocolate
 fr:chocolat blanc
 nl:witte chocolade
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 
 fr:chocolat en poudre
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
 
 en:chocolate chips
 fr:pépites de chocolat
 
 en:dark chocolate, black chocolate
 fr:chocolat noir
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 
 <en:dark chocolate
 <en:chocolate chips
@@ -24626,6 +24638,7 @@ nl:stukjes pure chocolade
 
 en:milk chocolate
 fr:chocolat au lait
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
 
 <en:milk chocolate
 <en:chocolate chips
@@ -27198,6 +27211,10 @@ eu:fruitu
 fa:میوه
 fi:hedelmä
 fr:fruit
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
 gl:Froita
 # gsw:Obst
 he:פרי
@@ -27448,6 +27465,8 @@ fa:زردآلو
 fi:aprikoosi
 fo:aprikosa
 fr:abricot
+carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
+carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
 fy:abrikoas
 ga:aibreog
 # gag:zerdeli
@@ -28026,6 +28045,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Peach
 wikidata:en:Q13411121
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/peach
 # 1065 products in 7 languages @2018-09-26
+carbon_footprint_fr_foodges_ingredient:fr:Pêche "Pays du Sud"
 carbon_footprint_fr_foodges_ingredient:fr:Pêche
 
 <en:peach
@@ -28366,6 +28386,8 @@ fi:omena
 fj:Yapolo
 fo:súrepli
 fr:pomme, pommes
+carbon_footprint_fr_foodges_ingredient:fr:Pomme France
+carbon_footprint_fr_foodges_ingredient:fr:Pomme amérique du Sud
 # frr:ååpel
 # fur:Miluçâr
 fy:appel
@@ -29143,6 +29165,8 @@ fa:پرتقال
 fi:appelsiini
 fo:Appilsin
 fr:orange
+carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
+carbon_footprint_fr_foodges_ingredient:fr:Orange fraîche
 # frr:Aapelsiin
 ga:Oráiste
 gl:Laranxa
@@ -29772,6 +29796,9 @@ fa:توت‌فرنگی
 fi:Puutarhamansikka
 fo:Jarðber
 fr:fraise
+carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
+carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
 # frr:Guard-eerdbei
 gl:Amorodo
 gn:Yvapytã
@@ -33010,6 +33037,10 @@ fr:baies de goji
 
 en:vegetable
 fr:légume
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
 
 <en:vegetable
 fr:légumes en proportions variables, légumes en proportion variable
@@ -33174,6 +33205,8 @@ eu:Себен үләне
 fa:مارچوبه
 fi:Parsa
 fr:asperge, asperges
+carbon_footprint_fr_foodges_ingredient:fr:Asperges en boite Chine
+carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
 # frr:Spargel
 gl:Esparragueira
 gv:Asparag
@@ -37139,6 +37172,7 @@ es:tomate, tomates
 et:tomat
 eu:Tomate
 fr:tomate, tomates
+carbon_footprint_fr_foodges_ingredient:fr:Tomate destinée à l'industrie
 # gan:番茄
 gl:tomate
 gu:tomate
@@ -37203,6 +37237,9 @@ wikidata:en:Q20638126
 en:fresh tomatoes
 de:frische Tomaten
 fr:tomates fraîches
+carbon_footprint_fr_foodges_ingredient:fr:Tomate fraîche saison (France)
+carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche hors saison (France)
+carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche importée (Espagne)
 it:pomodori freschi
 # ingredient/fresh-tomatoes has 89 products in 4 languages @2018-12-26
 
@@ -37251,6 +37288,7 @@ fr:tomates séchées réhydratées
 <en:tomato
 en:peeled tomatoes
 fr:tomates pelées, tomate pelée
+carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
 nl:gepelde tomaten
 # ingredient/fr:tomate-pelée has 195 products in 2 languages @2018-12-26
 # ingredient/en:peeled-tomatoes has 47 products in english @2018-12-24
@@ -37287,6 +37325,7 @@ sk:kocky rajčín
 <en:chopped tomatoes
 en:crushed peeled tomato
 fr:tomate pelée concassée, tomates pelées concassées
+carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
 nl:gepelde gehakte tomaten
 # ingredient/fr:tomate-pelee-concassee has 281 products in 3 languages @2018-12-24
 
@@ -37298,6 +37337,7 @@ fr:tomates pelées concassées au jus
 en:tomato pulp
 de:Tomatenfleisch
 fr:pulpe de tomate
+carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
 it:polpa di pomodoro
 nl:tomatenpulp
 sv:krossade tomater
@@ -37305,6 +37345,7 @@ sv:krossade tomater
 
 <en:tomato
 fr:coulis de tomates, coulis de tomate
+carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 de:Passierte Tomaten
 it:passata di pomodoro
 # ingredient/fr:coulis-de-tomates has 165 products in 4 languages @2018-12-26
@@ -37314,6 +37355,7 @@ en:tomato purée, tomato paste, tomato concentrate
 de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat
 es:concentrado de tomate
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate
+carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 fr:concentrato di pomodoro
 nl:tomatenconcentraat
 # ingredient/fr:purée-de-tomate has 2637 products @2018-12-26
@@ -37375,6 +37417,7 @@ de:Tomatensaft
 es:jugo de tomate
 fi:tomaattitäysmehu
 fr:jus de tomate, Jus de tomates
+carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
 it:succo di pomodoro
 nl:tomatensap
 sv:tomatjuice
@@ -37396,6 +37439,7 @@ fr:purée et pulpe de tomates
 <en:sauce
 en:tomato sauce
 fr:sauce tomate, préparation à base de tomates, préparation aux tomates
+carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 es:salsa de tomate
 nl:tomatensaus
 # ingredient/fr:préparation-à-base-de-tomates has 91 products in 5 languages @2018-12-26
@@ -37754,6 +37798,7 @@ en:flageolets
 es:habichuelas
 fr:flageolets
 # ingredient/fr:flageolets has 74 products in 2 languages @2019-02-25
+carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 
 <en:flageolets
 en:green flageolets
@@ -37869,12 +37914,14 @@ fr:haricots verts coupés
 fr:haricots lingots
 
 fr:haricots blancs secs trempés
+carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 
 fr:haricots
 
 fr:haricots verts extra-fins
 
 fr:haricots blancs
+carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 
 fr:haricot vert
 
@@ -38133,6 +38180,9 @@ it:ceci reidratati
 <en:legume
 en:garden peas
 fr:pois doux
+carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
+carbon_footprint_fr_foodges_ingredient:fr:Pois en conserve (type printemps)
+carbon_footprint_fr_foodges_ingredient:fr:Pois de printemps frais
 
 <en:garden peas
 fr:petits pois doux
@@ -38147,6 +38197,7 @@ ca:tirabec
 de:Zuckerschoten, Kefen
 eo:sukerpizo
 fr:pois croquants, pois mange-tout
+carbon_footprint_fr_foodges_ingredient:fr:Pois d'hiver frais
 gl:Tirabeque
 id:Kapri
 it:piselli dolce, Taccole
@@ -52901,6 +52952,7 @@ pt:recheio de leite
 # fourrage au _lait_ 16% (sucre, huile, ….)
 
 fr:brioche
+carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries Brioche industrielle préemballée
 # ingredient/fr:brioche has 35 products @2019-01-28
 
 # fr:pâte is a compound ingredient. It is either the pizza base or italian pasta (think spaghetti)
@@ -53384,6 +53436,7 @@ fr:pâtes fraîches
 # ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
 
 fr:pâtes alimentaires
+carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 de:Teigwaren
 it:paste alimentari
 # ingredient/fr:pâtes-alimentaires has 75 products 2018-12-10
@@ -53396,6 +53449,7 @@ it:tagliatelle cotte
 # Tagliatelles cuites (eau, semoule de blé dur, oeufs, huile de colza, persil, stabilisant :E 500)
 
 fr:pâte crue
+carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 # ingredient/fr:pâte-crue has 22 products in french @2018-12-10
 
 
@@ -53453,6 +53507,7 @@ en:biscuits
 de:Kekse
 es:galleta
 fr:biscuit, biscuits
+carbon_footprint_fr_foodges_ingredient:fr:Biscuit au beurre
 it:biscotto, Biscotti
 nl:biscuit
 pt:biscoito

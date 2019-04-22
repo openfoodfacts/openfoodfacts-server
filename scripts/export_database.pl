@@ -264,6 +264,12 @@ XML
 		foreach my $field (@export_fields) {
 
 			my $field_value = ($product_ref->{$field} // "");
+			
+			# Language specific field?
+			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {
+				$field_value = $product_ref->{$field . "_" . $l};
+			}
+			
 			$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
 
 			# Add field value to CSV file
