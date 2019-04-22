@@ -20147,6 +20147,7 @@ en:cereal
 de:Getreide
 es:cereales
 fr:céréale, céréales
+carbon_footprint_fr_foodges_ingredient:fr:Mélange de céréales
 it:cereali
 nl:granen
 pl:płatki zbożewe
@@ -24595,6 +24596,10 @@ wikidata:en: Q63120038
 
 en:chocolate
 fr:chocolat
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
+
 nl:chocolade
 
 
@@ -24609,14 +24614,17 @@ it: pezzi di cioccolato
 en:white chocolate
 fr:chocolat blanc
 nl:witte chocolade
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 
 fr:chocolat en poudre
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
 
 en:chocolate chips
 fr:pépites de chocolat
 
 en:dark chocolate, black chocolate
 fr:chocolat noir
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 
 <en:dark chocolate
 <en:chocolate chips
@@ -24630,6 +24638,7 @@ nl:stukjes pure chocolade
 
 en:milk chocolate
 fr:chocolat au lait
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
 
 <en:milk chocolate
 <en:chocolate chips
@@ -27202,6 +27211,10 @@ eu:fruitu
 fa:میوه
 fi:hedelmä
 fr:fruit
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
 gl:Froita
 # gsw:Obst
 he:פרי
@@ -27452,6 +27465,8 @@ fa:زردآلو
 fi:aprikoosi
 fo:aprikosa
 fr:abricot
+carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
+carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
 fy:abrikoas
 ga:aibreog
 # gag:zerdeli
@@ -28030,6 +28045,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Peach
 wikidata:en:Q13411121
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/peach
 # 1065 products in 7 languages @2018-09-26
+carbon_footprint_fr_foodges_ingredient:fr:Pêche "Pays du Sud"
 carbon_footprint_fr_foodges_ingredient:fr:Pêche
 
 <en:peach
@@ -28370,6 +28386,8 @@ fi:omena
 fj:Yapolo
 fo:súrepli
 fr:pomme, pommes
+carbon_footprint_fr_foodges_ingredient:fr:Pomme France
+carbon_footprint_fr_foodges_ingredient:fr:Pomme amérique du Sud
 # frr:ååpel
 # fur:Miluçâr
 fy:appel
@@ -29147,6 +29165,8 @@ fa:پرتقال
 fi:appelsiini
 fo:Appilsin
 fr:orange
+carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
+carbon_footprint_fr_foodges_ingredient:fr:Orange fraîche
 # frr:Aapelsiin
 ga:Oráiste
 gl:Laranxa
@@ -29776,6 +29796,9 @@ fa:توت‌فرنگی
 fi:Puutarhamansikka
 fo:Jarðber
 fr:fraise
+carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
+carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
 # frr:Guard-eerdbei
 gl:Amorodo
 gn:Yvapytã
@@ -33014,6 +33037,10 @@ fr:baies de goji
 
 en:vegetable
 fr:légume
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
 
 <en:vegetable
 fr:légumes en proportions variables, légumes en proportion variable
@@ -33178,6 +33205,8 @@ eu:Себен үләне
 fa:مارچوبه
 fi:Parsa
 fr:asperge, asperges
+carbon_footprint_fr_foodges_ingredient:fr:Asperges en boite Chine
+carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
 # frr:Spargel
 gl:Esparragueira
 gv:Asparag
@@ -37758,6 +37787,7 @@ en:flageolets
 es:habichuelas
 fr:flageolets
 # ingredient/fr:flageolets has 74 products in 2 languages @2019-02-25
+carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 
 <en:flageolets
 en:green flageolets
@@ -37873,12 +37903,14 @@ fr:haricots verts coupés
 fr:haricots lingots
 
 fr:haricots blancs secs trempés
+carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 
 fr:haricots
 
 fr:haricots verts extra-fins
 
 fr:haricots blancs
+carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 
 fr:haricot vert
 
@@ -38137,6 +38169,9 @@ it:ceci reidratati
 <en:legume
 en:garden peas
 fr:pois doux
+carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
+carbon_footprint_fr_foodges_ingredient:fr:Pois en conserve (type printemps)
+carbon_footprint_fr_foodges_ingredient:fr:Pois de printemps frais
 
 <en:garden peas
 fr:petits pois doux
@@ -38151,6 +38186,7 @@ ca:tirabec
 de:Zuckerschoten, Kefen
 eo:sukerpizo
 fr:pois croquants, pois mange-tout
+carbon_footprint_fr_foodges_ingredient:fr:Pois d'hiver frais
 gl:Tirabeque
 id:Kapri
 it:piselli dolce, Taccole
@@ -52905,6 +52941,7 @@ pt:recheio de leite
 # fourrage au _lait_ 16% (sucre, huile, ….)
 
 fr:brioche
+carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries Brioche industrielle préemballée
 # ingredient/fr:brioche has 35 products @2019-01-28
 
 # fr:pâte is a compound ingredient. It is either the pizza base or italian pasta (think spaghetti)
@@ -53388,6 +53425,7 @@ fr:pâtes fraîches
 # ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
 
 fr:pâtes alimentaires
+carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 de:Teigwaren
 it:paste alimentari
 # ingredient/fr:pâtes-alimentaires has 75 products 2018-12-10
@@ -53400,6 +53438,7 @@ it:tagliatelle cotte
 # Tagliatelles cuites (eau, semoule de blé dur, oeufs, huile de colza, persil, stabilisant :E 500)
 
 fr:pâte crue
+carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 # ingredient/fr:pâte-crue has 22 products in french @2018-12-10
 
 
@@ -53457,6 +53496,7 @@ en:biscuits
 de:Kekse
 es:galleta
 fr:biscuit, biscuits
+carbon_footprint_fr_foodges_ingredient:fr:Biscuit au beurre
 it:biscotto, Biscotti
 nl:biscuit
 pt:biscoito
