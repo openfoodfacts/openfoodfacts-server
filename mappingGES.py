@@ -36,10 +36,10 @@ def write_next_lines(next_lines, temporary_file):
 	for i in range(0, size-1):
 		line = next_lines[i]
 		if STRING_FOODGES_INGREDIENT in line:
+			temporary_file.write(line)
 			if line.rstrip("\n") not in dict:
                         	print("this mapping is not known : " + line.rstrip("\n"))
 			else:
-				temporary_file.write(line)
 				temporary_file.write(STRING_FOODGES_VALUE + dict.get(line.rstrip("\n")) + "\n")
 				if line.rstrip("\n") in unused_mappings:
 					unused_mappings.remove(line.rstrip("\n"))
