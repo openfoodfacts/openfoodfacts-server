@@ -3102,22 +3102,26 @@ es:Extracto rico en tocoferoles, Extracto rico en tocoferol
 et:Tokoferoolikontsentraat
 fi:Tokoferoliuute
 fr:Extrait riche en tocophérols, Extraits riches en tocophérols
-hu:Tokoferolban gazdag kivonat, antioxidáns E306
+hu:Tokoferolban gazdag kivonat, 
 it:Estratto ricco in tocoferolo
 lt:Tokoferolių koncentruotas ekstraktas
 lv:Tokoferola ekstrakts
 mt:Esratt rikk fit-tokoferol
-nl:Tocoferolrijk extract, extract rijk aan tocoferolen, antioxidant E306
+nl:Tocoferolrijk extract, extract rijk aan tocoferolen
 pl:Mieszanina tokoferoli, ekstrakt bogaty w tokoferole
 pt:Extracto rico em tocoferóis, extractos ricos em tocoferois
 ro:Extract bogat în tocoferol
-ru:антиокислитель E306, антиокислитель E 306
 sk:Extrakt s vysokým obsahom tokoferolu
 sl:Izvleček bogat s tokoferolom
 sv:Tokoferolrika extrakt, tokoferolextrakt,
 wikidata:en:Q141180
 wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_E
 # additive/e306-tocopherol-rich-extract has 1268 products in 16 languages @2018-11-25
+
+<en:Tocopherol-rich extract
+hu:antioxidáns E306
+nl:antioxidant E306
+ru:антиокислитель E306, антиокислитель E 306
 
 fr:e307, alpha-tocophérol
 
@@ -3131,6 +3135,94 @@ fr:antioxydant e316, e 316, e-316, e316
 <en:antioxidant
 fr:antioxydant e320, e 320, e-320, bha, antioxygène bha
 
+
+# comment:en:The generic form of potassium cirates should be written in plural, do distinguish them from potassium citrate.
+
+en:potassium citrates, E332, E-332, E 332
+de:Kaliumcitrate
+es:Citratos de potasio
+fr:citrates de potassium
+it:citrati di potassio
+nl:kaliumcitraten
+pt:citratos de potássio
+sv:Kaliumcitrater
+wikidata:en:Q59543257
+# additive/e332-potassium-citrates has 261 products @2019-04-22
+# ingredient/fr:citrate%20de%20potassium has 353 products in 7 languages @2019-04-22
+# usage:pt:regulador de acidez (citratos de potássio)
+
+<en:potassium citrates
+en:monopotassium citrate
+bg:Монокалиев цитрат
+cs:Citronan monodraselný
+da:Monokaliumcitrat
+de:Monokaliumcitrat
+el:Δισοξινο κιτρικο καλιο
+es:Citrato monopotásico
+et:Kaaliumdivesiniktsitraat
+fi:Monokaliumsitraatti
+fr:Citrate monopotassique
+hu:Monokálium-citrát
+it:Citrato monopotassico
+lt:Monokalio citratas
+lv:Monokālija citrāts
+mt:Ċitrat monopotassiku
+nl:Monokaliumcitraat
+pl:Cytrynian monopotasowy
+pt:Citrato monopotássico
+ro:Citrat monopotasic
+sl:Monokalijev citrat
+sv:Monokaliumcitrat
+wikidata:en:Q63255997
+# additive/e332i-monopotassium-citrate has 3 products in french @2019-04-22
+
+# description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
+# comment:en:Not sure which word is preferred on packaged, either the more chemical tripotassium or just potassiumcitrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
+
+<en:potassium citrates
+en:tripotassium citrate, potassium citrate, E332ii, E-332ii, E 332ii
+# azb:پوتاسیوم سیترات
+bg:Трикалиев цитрат
+bs:Kalij citrat
+cs:Tripotassium citrate
+cy:Potasiwm sitrad
+da:Trikaliumcitrat
+de:Trikaliumcitrat, Kaliumcitrat
+el:Κιτρικο καλιο
+eo:Kalia citrato tribaza
+es:Citrato tripotásico, Citrato de potasio
+et:Kaaliumtsitraat
+fi:Trikaliumsitraatti
+fr:Citrate tripotassique, citrate de potassium
+hu:Trikálium-citrát, Kálium-citrát,
+it:Citrato tripotassico
+ja:クエン酸カリウム
+lt:Trikalio citratas
+lv:Trikālija citrāts
+mt:Ċitrat tripotassiku
+nb:Kaliumsitrat
+nl:kaliumcitraat
+pl:Cytrynian tripotasowy, cytrynian potasu
+pt:Citrato tripotássico, citrato de potássio
+ro:Citrat tripotasic
+ru:цитрат калия
+sh:Kalijum citrat
+sk:Citran tridraselný, Kálium-citrát
+sl:Trikalijev citrat
+sr:Kalijum citrat
+sv:Trikaliumcitrat, Kaliumcitrat
+ta:பொட்டாசியம் சிட்ரேட்டு
+te:పొటాషియం సిట్రేట్
+zh:檸檬酸鉀
+# zh-cn:柠檬酸钾
+# zh-hans:柠檬酸钾
+# zh-hant:檸檬酸鉀
+# zh-hk:檸檬酸鉀
+# zh-sg:柠檬酸钾
+# zh-tw:檸檬酸鉀
+wikidata:en:Q419921
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
+# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
 
 
 # Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogenizing liquid mixtures, and repelling sticking materials.
@@ -55568,9 +55660,6 @@ fr:sardina pilchardus
 
 fr:quinine
 
-fr:citrate de potassium
-es:Citrato de potasio
-
 fr:fibres de pois
 
 fr:os
@@ -55641,7 +55730,6 @@ fr:energy
 
 fr:dorure
 
-fr:citrate de potassium, citrates de potassium
 
 
 
@@ -55754,8 +55842,6 @@ fr:e325
 fr:e326
 
 fr:e327
-
-fr:e332
 
 fr:e333
 
