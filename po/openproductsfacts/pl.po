@@ -5,9 +5,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-01-03 17:01\n"
+"PO-Revision-Date: 2019-04-18 13:31\n"
 "Language-Team: Polish\n"
-"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
@@ -17,12 +17,12 @@ msgstr ""
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=pl"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/app/open-beauty-facts/id1122926380"
@@ -31,12 +31,12 @@ msgstr ""
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openproductsfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "openproductsfacts-logo-en-178x150.png"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openproductsfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "openproductsfacts-logo-en-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Products Facts"
@@ -48,7 +48,7 @@ msgstr ""
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
-msgstr ""
+msgstr "Open Products Facts gromadzi informacje oraz dane o produktach z całego świata."
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -65,7 +65,7 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Products Facts"
-msgstr ""
+msgstr "Przekaż darowiznę na rzecz Open Products Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -91,7 +91,7 @@ msgstr ""
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of information on products from around the world"

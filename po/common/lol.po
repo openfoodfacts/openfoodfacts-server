@@ -5,9 +5,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-02-15 11:56\n"
+"PO-Revision-Date: 2019-04-18 13:46\n"
 "Language-Team: LOLCAT\n"
-"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -3100,6 +3100,38 @@ msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
 msgstr "crwdns111988:0crwdne111988:0"
 
+msgctxt "warning_gs1_company_prefix"
+msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
+msgstr "crwdns116824:0crwdne116824:0"
+
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr "crwdns116826:0crwdne116826:0"
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "crwdns116828:0crwdne116828:0"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr "crwdns116830:0crwdne116830:0"
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr "crwdns116832:0crwdne116832:0"
+
+msgctxt "origin"
+msgid "Origin"
+msgstr "crwdns116834:0crwdne116834:0"
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr "crwdns116836:0crwdne116836:0"
+
+msgctxt "producer"
+msgid "Producer"
+msgstr "crwdns116838:0crwdne116838:0"
+
 msgctxt "environment_infocard"
 msgid "Environment infocard"
 msgstr "crwdns112782:0crwdne112782:0"
@@ -3115,4 +3147,84 @@ msgstr "crwdns112786:0crwdne112786:0"
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
 msgstr "crwdns112788:0crwdne112788:0"
+
+msgctxt "carbon_impact_from_meat_or_fish"
+msgid "Carbon impact from meat or fish"
+msgstr "crwdns116840:0crwdne116840:0"
+
+msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
+msgid "of carbon emission from meat or fish for the whole product"
+msgstr "crwdns116842:0crwdne116842:0"
+
+msgctxt "of_sustainable_daily_emissions_of_1_person"
+msgid "of sustainable daily emissions of 1 person"
+msgstr "crwdns116844:0crwdne116844:0"
+
+msgctxt "of_sustainable_weekly_emissions_of_1_person"
+msgid "of sustainable weekly emissions of 1 person"
+msgstr "crwdns116846:0crwdne116846:0"
+
+msgctxt "for_one_serving"
+msgid "for one serving"
+msgstr "crwdns116848:0crwdne116848:0"
+
+msgctxt "methodology"
+msgid "Methodology"
+msgstr "crwdns116850:0crwdne116850:0"
+
+msgctxt "carbon_footprint_note_foodges_ademe"
+msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
+msgstr "crwdns116852:0crwdne116852:0"
+
+msgctxt "carbon_footprint_note_sustainable_annual_emissions"
+msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
+msgstr "crwdns116854:0crwdne116854:0"
+
+msgctxt "carbon_footprint_note_uncertainty"
+msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
+msgstr "crwdns116856:0crwdne116856:0"
+
+msgctxt "error_too_many_products_to_export"
+msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
+msgstr "crwdns116858:0%dcrwdnd116858:0%dcrwdne116858:0"
+
+msgctxt "translate_taxonomy_to"
+msgid "Help translate the %s to %s"
+msgstr "crwdns116860:0%scrwdnd116860:0%scrwdne116860:0"
+
+msgctxt "translate_taxonomy_description"
+msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr "crwdns116862:0crwdne116862:0"
+
+msgctxt "translate_taxonomy_add"
+msgid "Show only entries without pending translations."
+msgstr "crwdns116864:0crwdne116864:0"
+
+msgctxt "translate_taxonomy_edit"
+msgid "Also show entries with pending translations from you or other users."
+msgstr "crwdns116866:0crwdne116866:0"
+
+msgctxt "translated"
+msgid "translated"
+msgstr "crwdns116868:0crwdne116868:0"
+
+msgctxt "to_be_translated"
+msgid "to be translated"
+msgstr "crwdns116870:0crwdne116870:0"
+
+msgctxt "current_translation"
+msgid "Current translation"
+msgstr "crwdns116872:0crwdne116872:0"
+
+msgctxt "button_caption_yes"
+msgid "Yes"
+msgstr "crwdns116874:0crwdne116874:0"
+
+msgctxt "button_caption_no"
+msgid "No"
+msgstr "crwdns116876:0crwdne116876:0"
+
+msgctxt "button_caption_skip"
+msgid "Skip"
+msgstr "crwdns116878:0crwdne116878:0"
 

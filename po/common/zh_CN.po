@@ -5,25 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:09\n"
+"PO-Revision-Date: 2019-04-18 12:56\n"
 "Language-Team: Chinese Simplified\n"
-"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "zh_CN"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Simplified Chinese"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -2652,19 +2642,19 @@ msgstr "一些数据和图像由制造商Fleury Michon直接提供。"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr "该产品的部分数据是由制造商％s直接提供的。"
+msgstr "该产品的部分数据是由制造商%s直接提供的。"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "此产品页面不完整。 您可以通过编辑它并从我们的照片中添加更多数据，或通过使用应用程序拍摄更多照片来帮助完成<a href=\"https://android.openfoodfacts.org\">安卓</a>或者<a href=\"https://ios.openfoodfacts.org\">iphone手机</a>感谢"
 
 msgctxt "title_separator"
-msgid " — "
-msgstr " — "
+msgid " - "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "最近更改"
 
 msgctxt "translators_title"
 msgid "Our Translators"
@@ -2971,6 +2961,10 @@ msgctxt "producer_version_id"
 msgid "Producer version identifier"
 msgstr ""
 
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr ""
+
 msgctxt "net_weight"
 msgid "Net weight"
 msgstr ""
@@ -2989,6 +2983,30 @@ msgstr ""
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
+msgstr ""
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "警告"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr ""
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr ""
+
+msgctxt "origin"
+msgid "Origin"
+msgstr ""
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr ""
+
+msgctxt "producer"
+msgid "Producer"
 msgstr ""
 
 msgctxt "recycling_instructions_to_recycle"
@@ -3041,5 +3059,209 @@ msgstr ""
 
 msgctxt "user_s_page"
 msgid "%s's page"
+msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr ""
+
+msgctxt "obsolete"
+msgid "The product is no longer sold."
+msgstr ""
+
+msgctxt "obsolete_since_date"
+msgid "Withdrawal date"
+msgstr ""
+
+msgctxt "obsolete_since_date_note"
+msgid "Format: YYYY or YYYY-MM"
+msgstr ""
+
+msgctxt "obsolete_warning"
+msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
+msgstr ""
+
+msgctxt "get_the_app"
+msgid "Get the app"
+msgstr ""
+
+msgctxt "get_the_app_android"
+msgid "Get the Android app"
+msgstr ""
+
+msgctxt "get_the_app_iphone"
+msgid "Get the iPhone app"
+msgstr ""
+
+msgctxt "get_the_app_ipad"
+msgid "Get the iPad app"
+msgstr ""
+
+msgctxt "warning_gs1_company_prefix"
+msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
+msgstr ""
+
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr ""
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "警告"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr ""
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr ""
+
+msgctxt "origin"
+msgid "Origin"
+msgstr ""
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr ""
+
+msgctxt "producer"
+msgid "Producer"
+msgstr ""
+
+msgctxt "environment_infocard"
+msgid "Environment infocard"
+msgstr ""
+
+msgctxt "environment_infocard_note"
+msgid "HTML code for the environment infocard in the mobile application"
+msgstr ""
+
+msgctxt "environment_impact_level"
+msgid "Environment impact level"
+msgstr ""
+
+msgctxt "environment_impact_level_example"
+msgid "en:low, en:medium or en:high"
+msgstr ""
+
+msgctxt "carbon_impact_from_meat_or_fish"
+msgid "Carbon impact from meat or fish"
+msgstr ""
+
+msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
+msgid "of carbon emission from meat or fish for the whole product"
+msgstr ""
+
+msgctxt "of_sustainable_daily_emissions_of_1_person"
+msgid "of sustainable daily emissions of 1 person"
+msgstr ""
+
+msgctxt "of_sustainable_weekly_emissions_of_1_person"
+msgid "of sustainable weekly emissions of 1 person"
+msgstr ""
+
+msgctxt "for_one_serving"
+msgid "for one serving"
+msgstr ""
+
+msgctxt "methodology"
+msgid "Methodology"
+msgstr ""
+
+msgctxt "carbon_footprint_note_foodges_ademe"
+msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
+msgstr ""
+
+msgctxt "carbon_footprint_note_sustainable_annual_emissions"
+msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
+msgstr ""
+
+msgctxt "carbon_footprint_note_uncertainty"
+msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
+msgstr ""
+
+msgctxt "error_too_many_products_to_export"
+msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
+msgstr ""
+
+msgctxt "translate_taxonomy_to"
+msgid "Help translate the %s to %s"
+msgstr ""
+
+msgctxt "translate_taxonomy_description"
+msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr ""
+
+msgctxt "translate_taxonomy_add"
+msgid "Show only entries without pending translations."
+msgstr ""
+
+msgctxt "translate_taxonomy_edit"
+msgid "Also show entries with pending translations from you or other users."
+msgstr ""
+
+msgctxt "translated"
+msgid "translated"
+msgstr ""
+
+msgctxt "to_be_translated"
+msgid "to be translated"
+msgstr ""
+
+msgctxt "current_translation"
+msgid "Current translation"
+msgstr ""
+
+msgctxt "button_caption_yes"
+msgid "Yes"
+msgstr "是的"
+
+msgctxt "button_caption_no"
+msgid "No"
+msgstr "不"
+
+msgctxt "button_caption_skip"
+msgid "Skip"
 msgstr ""
 
