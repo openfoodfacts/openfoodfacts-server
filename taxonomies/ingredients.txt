@@ -15704,6 +15704,7 @@ en:rabbit meat
 fr:viande de lapin
 # ingredient/rabbit-meat has 109 products in french @2019-04-19
 carbon_footprint_fr_foodges_ingredient:fr:Lapin
+carbon_footprint_fr_foodges_value:fr:8,1
 
 
 # description:en:Domestic sheep (Ovis aries) are quadrupedal, ruminant mammals typically kept as livestock.  Sheep are raised for fleeces, meat (lamb, hogget or mutton) , fat and milk. 
@@ -28094,7 +28095,8 @@ wikidata:en:Q13411121
 # 1065 products in 7 languages @2018-09-26
 carbon_footprint_fr_foodges_ingredient:fr:Pêche "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr:1
-carbon_footprint_fr_foodges_ingredient:fr:Pêche
+carbon_footprint_fr_foodges_ingredient:fr:Pêche (France)
+carbon_footprint_fr_foodges_value:fr:0,7
 
 <en:peach
 <en:purée
@@ -33393,6 +33395,7 @@ vo:Avokaado
 wikidata:en:Q961769
 wikipedia:en:https://en.wikipedia.org/wiki/Avocado
 carbon_footprint_fr_foodges_ingredient:fr:Avocat
+carbon_footprint_fr_foodges_value:fr:2,4
 # ingredient/avocado has 223 products in 5 languages @2019-04-21
 
 
@@ -37252,6 +37255,7 @@ et:tomat
 eu:Tomate
 fr:tomate, tomates
 carbon_footprint_fr_foodges_ingredient:fr:Tomate destinée à l'industrie
+carbon_footprint_fr_foodges_value:fr:0,5
 # gan:番茄
 gl:tomate
 gu:tomate
@@ -37317,8 +37321,11 @@ en:fresh tomatoes
 de:frische Tomaten
 fr:tomates fraîches
 carbon_footprint_fr_foodges_ingredient:fr:Tomate fraîche saison (France)
+carbon_footprint_fr_foodges_value:fr:0,4
 carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche hors saison (France)
+carbon_footprint_fr_foodges_value:fr:2,3
 carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche importée (Espagne)
+carbon_footprint_fr_foodges_value:fr:0,7
 it:pomodori freschi
 # ingredient/fresh-tomatoes has 89 products in 4 languages @2018-12-26
 
@@ -37368,6 +37375,7 @@ fr:tomates séchées réhydratées
 en:peeled tomatoes
 fr:tomates pelées, tomate pelée
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1,4
 nl:gepelde tomaten
 # ingredient/fr:tomate-pelée has 195 products in 2 languages @2018-12-26
 # ingredient/en:peeled-tomatoes has 47 products in english @2018-12-24
@@ -37405,6 +37413,7 @@ sk:kocky rajčín
 en:crushed peeled tomato
 fr:tomate pelée concassée, tomates pelées concassées
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1,4
 nl:gepelde gehakte tomaten
 # ingredient/fr:tomate-pelee-concassee has 281 products in 3 languages @2018-12-24
 
@@ -37417,6 +37426,7 @@ en:tomato pulp
 de:Tomatenfleisch
 fr:pulpe de tomate
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1,4
 it:polpa di pomodoro
 nl:tomatenpulp
 sv:krossade tomater
@@ -37425,6 +37435,7 @@ sv:krossade tomater
 <en:tomato
 fr:coulis de tomates, coulis de tomate
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
+carbon_footprint_fr_foodges_value:fr:2,9
 de:Passierte Tomaten
 it:passata di pomodoro
 # ingredient/fr:coulis-de-tomates has 165 products in 4 languages @2018-12-26
@@ -37435,6 +37446,7 @@ de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat
 es:concentrado de tomate
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
+carbon_footprint_fr_foodges_value:fr:2,9
 fr:concentrato di pomodoro
 nl:tomatenconcentraat
 # ingredient/fr:purée-de-tomate has 2637 products @2018-12-26
@@ -37497,6 +37509,7 @@ es:jugo de tomate
 fi:tomaattitäysmehu
 fr:jus de tomate, Jus de tomates
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1,4
 it:succo di pomodoro
 nl:tomatensap
 sv:tomatjuice
@@ -37519,6 +37532,7 @@ fr:purée et pulpe de tomates
 en:tomato sauce
 fr:sauce tomate, préparation à base de tomates, préparation aux tomates
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
+carbon_footprint_fr_foodges_value:fr:2,9
 es:salsa de tomate
 nl:tomatensaus
 # ingredient/fr:préparation-à-base-de-tomates has 91 products in 5 languages @2018-12-26
@@ -52257,11 +52271,13 @@ it:carne di tacchino separata meccanicamente
 <en:turkey meat
 fr:blanc de dinde
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
+carbon_footprint_fr_foodges_value:fr:6,5
 # ingredient/fr:blanc-de-dinde has 14 products in french @2019-04-16
 
 <en:turkey
 fr:cuisse de dinde
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de dinde
+carbon_footprint_fr_foodges_value:fr:6,6
 # ingredient/fr:cuisse-de-dinde has 84 products in french @2019-04-16
 
 <fr:Cuisse de dinde
@@ -54293,6 +54309,7 @@ zh:番茄醬
 wikidata:en:Q178143
 wikipedia:en:https://en.wikipedia.org/wiki/Ketchup
 carbon_footprint_fr_foodges_ingredient:fr:Ketchup
+carbon_footprint_fr_foodges_value:fr:2,4
 # ingredient/fr:ketchup has 110 products in 4 languages @2019-04-21
 # usage:en:ketchup (tomato puree, glucose syrup, brandy vinegar, sugar, modified corn starch)
 

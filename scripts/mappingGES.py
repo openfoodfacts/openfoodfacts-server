@@ -3,7 +3,8 @@ import os
 
 
 PATH_TO_TEMPORARY = "ingredients_tmp.txt"
-PATH_TO_INGREDIENTS = "taxonomies/ingredients.txt"
+PATH_TO_INGREDIENTS = "../taxonomies/ingredients.txt"
+PATH_TO_FOODGES = "FoodGES.csv"
 STRING_FOODGES_VALUE = "carbon_footprint_fr_foodges_value:fr:"
 STRING_FOODGES_INGREDIENT = "carbon_footprint_fr_foodges_ingredient:fr:"
 
@@ -19,6 +20,11 @@ if temporary_exists:
 ingredients_exists = os.path.isfile(PATH_TO_INGREDIENTS)
 if not ingredients_exists:
         print "The ingredient file does not exist, check the path :" + PATH_TO_INGREDIENTS
+        exit()
+
+foodGES_exists = os.path.isfile(PATH_TO_FOODGES)
+if not foodGES_exists:
+        print "The foodGES file does not exist, check the path :" + PATH_TO_FOODGES
         exit()
 
 def check_next_lines(ingredients):
