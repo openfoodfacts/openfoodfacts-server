@@ -51,7 +51,7 @@ def write_next_lines(next_lines, temporary_file):
 					unused_mappings.remove(line.rstrip("\n"))
 	temporary_file.write(next_lines[size-1])
 
-with open('FoodGES.csv', 'r') as csvFile:
+with open(PATH_TO_FOODGES, 'r') as csvFile:
 	reader = csv.reader(csvFile)
 	for row in reader:
 		dict[row[2]]=row[1]
