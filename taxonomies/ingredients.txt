@@ -46026,7 +46026,41 @@ wikipedia:en:https://en.wikipedia.org/wiki/Auricularia_auricula-judae
 # fr:Oreilles de Judas has 24 products in 5 languages @2018-11-01
 
 
-# The summer truffle (Tuber aestivum) is a species of truffle, found in almost all European countries.
+# description:en:tuber melanosporum, called the BLACK TRUFFLE, Périgord truffle or French black truffle, is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto. 
+
+<en:mushroom
+en:black truffle
+ca:tòfona negra
+cy:Cloronen Ffrengig
+de:Schwarze Trüffel
+es:trufa negra
+eu:Boilur beltz
+fr:truffe noire, truffes noires
+hu:Francia szarvasgomba
+it:Tartufo nero
+kk:Жерқұлақ
+nl:zwarte truffel
+pl:trufla czarnozarodnikowa
+ro:Trufă neagră franceză
+ru:Трюфель чёрный
+sr:Crna gomoljača
+sv:Perigordtryffel
+tr:Perigord trüfü
+zh:黑松露
+# ingredient/black-truffle has 39 products in 4 languages @2019-04-23
+
+# description:en:TUBER MELANOSPORUM, called the black truffle, Périgord truffle or French black truffle, is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto. 
+# comment:en:The latin name is kept separate as it is often found as a separate ingredient. It also allows to detect wrong translations. 
+
+<en:black truffle
+en:tuber melanosporium
+la:tuber melanosporium
+wikidata:en:Q1093314
+wikipedia:en:https://en.wikipedia.org/wiki/Tuber_melanosporum
+# usage:fr:truffes noires (tuber melanosporium)
+
+
+# description:en:The SUMMER TRUFFLE (Tuber aestivum) is a species of truffle, found in almost all European countries.
 
 <en:mushroom
 en:summer truffle
@@ -46054,6 +46088,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tuber_aestivum
 <en:summer truffle
 en:Tuber aestivum
 la:Tuber aestivum
+# comment:en:The latin name is kept separate as it is often found as a separate ingredient. It also allows to detect wrong translations. 
 
 # Chanterelle est un nom français ambigu recouvrant plusieurs espèces de champignons distinctes. Il peut désigner la girolle (Cantharellus cibarius), ou d'autres espèces, en particulier des genres Cantharellus et Craterellus, par exemple la chanterelle en tubes (Craterellus tubaeformis) ou la chanterelle jaune (Craterellus lutescens), généralement vendues sous le seul nom de chanterelles.
 
@@ -55739,11 +55774,6 @@ fr:fibre végétale
 
 fr:bigarreaux
 
-en:black truffle
-es:trufa negra
-fr:truffe noire
-nl:zwarte truffel
-de:Schwarze Trüffel
 
 
 
