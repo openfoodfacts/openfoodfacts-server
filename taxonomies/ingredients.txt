@@ -44584,7 +44584,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chlorella
 # fr:chlorella has 42 products in 3 languages @2018-10-28
 
 
-# Spirulina represents a biomass of cyanobacteria (blue-green algae) that can be consumed by humans and other animals. 
+# description:en:SPIRULINA represents a biomass of cyanobacteria (blue-green algae) that can be consumed by humans and other animals. 
 
 en:spirulina
 ar:سبيرولنا
@@ -44626,8 +44626,16 @@ wikidata:en:Q285335
 wikipedia:en:https://en.wikipedia.org/wiki/Spirulina_(dietary_supplement)
 # ingredient/fr:spirulina has 61 products in 4 languages @2019-01-23
 
+# description:en:SPIRULINA CONCENTRATE is a color additive in multiple applications including ice cream, desserts, toppings, yoghurts and ready-to-eat cereals.
 
-# SEAWEED or macroalgae refers to several species of macroscopic, multicellular, marine algae.
+<en:spirulina
+en:spirulina concentrate, spirulina extract
+de:Spirulina-konzentrat
+fr:concentré de spiruline
+it:concentrato di spirulina
+# ingredient/fr:concentré-de-spiruline has 138 products in 4 languages @2019-04-23
+
+# description:en:SEAWEED or macroalgae refers to several species of macroscopic, multicellular, marine algae.
 # not sure if this should kept separate from en:algae
 
 <en:algae
@@ -55738,10 +55746,9 @@ nl:zwarte truffel
 de:Schwarze Trüffel
 
 
-fr:concentré de spiruline
 
 
-fr:energy
+
 
 
 
