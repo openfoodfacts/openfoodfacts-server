@@ -6939,16 +6939,16 @@ cs:Minerál, Minerální látky
 cy:Mwyn
 da:Mineral
 de:Mineral, Mineralstoffe
-el:Ορυκτό, Ανόργανα συστατικά
+el:Ορυκτό, Ανόργανα συστατικά, Ανόργανα άλατα
 eo:Mineralo
-es:Mineral, Minerales
+es:Mineral, Minerales, Sales minerales
 et:Mineraal, Mineraalained
 eu:Mineral
 # ext:Mineral
 fa:کانی
 fi:Mineraali, Kivennäiset
 # fiu-vro:Mineraal
-fr:Minéral, Minéraux, Substances d'apport minéral, Apport minéral, mineraux
+fr:Minéral, Minéraux, Substances d'apport minéral, Apport minéral, mineraux, Sels minéraux
 # frr:Mineraal
 fy:Mineraal
 ga:Mianra
@@ -6964,7 +6964,7 @@ id:Mineral
 # ilo:Mineral
 io:Mineralo
 is:Steind, steinefni, steintegund
-it:Minerale, Minerali
+it:Minerale, Minerali, Sali minerali
 ja:鉱物
 # jam:Minaral
 jv:Mineral
@@ -7000,7 +7000,7 @@ oc:Minerau
 pa:ਖਣਿਜ
 pl:Minerał, Składniki mineralne
 # pnb:معدنیات
-pt:Mineral, Minerais
+pt:Mineral, Minerais, Sais Minerais
 qu:Qiqlla
 ro:Mineral, Minerale
 # roa-rup:Mineralu
@@ -8323,7 +8323,7 @@ sv:Krom(III)klorid
 wikidata:en:Q411885
 wikipedia:en:https://en.wikipedia.org/wiki/Chromium(III)_chloride
 
-# COPPER is a chemical element with symbol Cu (from Latin:cuprum) and atomic number 29.
+# description:en:COPPER is a chemical element with symbol Cu (from Latin:cuprum) and atomic number 29.
 
 <en:mineral
 en:copper
@@ -8970,7 +8970,7 @@ wikidata:en:Q419488
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_selenate
 # ingredient/fr:sélénate-de-sodium has 97 products in 4 languages @2019-04-21
 
-# Zinc is a chemical element with symbol Zn and atomic number 30. 
+# description:en:Zinc is a chemical element with symbol Zn and atomic number 30. 
 
 <en:mineral
 en:zinc
@@ -13586,9 +13586,7 @@ fr:préparation fromagère
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# A vitamin is an organic molecule (or related set of molecules) which is an essential micronutrient
-# that an organism needs in small quantities for the proper functioning of its metabolism.
-# This ingredient is written in plural
+# description:en: A vitamin is an organic molecule (or related set of molecules) which is an essential micronutrient that an organism needs in small quantities for the proper functioning of its metabolism. This ingredient is written in plural
 
 en:Vitamins, vitamin
 af:Vitamien
@@ -13731,18 +13729,18 @@ ca:Vitamina A
 cs:vitamín A
 cy:Fitamin A
 da:Vitamin A
-de:Vitamin A
+de:Vitamin A, Vitamin A (Retinol)
 dv:ވިޓަމިން އޭ
 # en-ca:Vitamin A
 # en-gb:Vitamin A
 eo:Vitamino A
-es:vitamina A
+es:vitamina A, Vitamina A (Retinol)
 et:A-vitamiin
 eu:A bitamina
 fa:ویتامین آ
 fi:A-vitamiini
 fo:A vitamin
-fr:vitamine A
+fr:vitamine A, Vitamine A (rétinol), rétinol
 gl:Vitamina A
 he:A ויטמין
 hi:विटामिन ए
@@ -13750,7 +13748,7 @@ hr:Vitamin A
 hu:A-vitamin
 id:Vitamin A
 is:A-vítamín
-it:vitamina A
+it:vitamina A, Vitamina A (Retinolo)
 ja:ビタミンA
 # jbo:abumoi mivytcuxu'i
 jv:Vitamin A
@@ -13969,7 +13967,7 @@ it:mononitrato di tiamina
 # Riboflavin, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement.
 
 <en:vitamins
-en:vitamin b2, E101
+en:Riboflavin, vitamin b2, E101
 af:Riboflavien
 ar:فيتامين ب2
 # ast:Vitamina B2
@@ -14057,7 +14055,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Riboflavin
 # ingredient/vitamin-b2 has 4263 products in 10 languages @2018-11-23
 
 
-# Niacin, also known as nicotinic acid, is an organic compound and a form of vitamin B3, an essential human nutrient.
+# description:en:Niacin, also known as nicotinic acid, is an organic compound and a form of vitamin B3, an essential human nutrient.
 
 <en:vitamins
 en:niacin, vitamin b3, vitamin PP, E375, B3
@@ -54894,8 +54892,30 @@ nl:dragonblad
 
 fr:tofu
 
-en:magnesium
-fr:magnésium
+en:Magnesium
+bg:Магнезий
+cs:Hořčík
+de:Magnesium
+el:Μαγνήσιο
+es:Magnesio
+et:Magneesium
+fr:Magnésium
+ga:Maignéisiam
+he:מגנזיום
+hu:Magnézium
+it:Magnesio
+ja:マグネシウム
+lt:Magnis
+lv:Magnijs
+mt:Manjesju
+nl:Magnesium
+pl:Magnez
+pt:Magnésio
+ro:Magneziu
+sk:Horčík
+sl:Magnezij
+zh:鎂
+
 
 fr:glycérine
 es:Glicerina
@@ -55066,11 +55086,35 @@ fr:carotènes végétaux
 
 fr:babeurre
 
-fr:manganèse
+en:Manganese
+bg:Манган
+cs:Mangan
+da:Mangan
+de:Mangan
+el:Μαγγάνιο
+es:Manganeso
+et:Mangaan
+fi:Mangaani
+fr:Manganèse
+ga:Mangainéis
+he:מנגן
+hu:Mangán
+it:Manganese
+lv:Mangāns
+lt:Manganas
+mt:Manganis
+nl:Mangaan
+pl:Mangan
+pt:Manganês
+ro:Mangan
+sk:Mangán
+sl:Mangan
+sv:Mangan
+
 
 # MANGANESE(II) SULFATE usually refers to the inorganic compound with the formula MnSO4·H2O.
 
-<fr:manganèse
+<en:Manganese
 en:manganese sulfate, E518
 ar:كبريتات المنغنيز الثنائي
 # azb:سولفات منقنز (II)
