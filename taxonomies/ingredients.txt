@@ -610,7 +610,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tartrazine
 # ingredient/fr:tartrazine has 196 products in 3 languages @2019-02-09
 
 
-# Carmine, also called cochineal, cochineal extract, crimson lake or carmine lake, natural red 4, C.I. 75470, or E120, is a pigment of a bright-red color obtained from the aluminium salt of carminic acid
+# description:en:CARMINE, also called cochineal, cochineal extract, crimson lake or carmine lake, natural red 4, C.I. 75470, or E120, is a pigment of a bright-red color obtained from the aluminium salt of carminic acid
 
 <en:colour
 en:Cochineal, carminic acid, E120, E 120, E-120
@@ -1298,7 +1298,7 @@ sv:Paprikaextrakt
 fr:extrait naturel de paprika
 # fr:extrait-naturel-de-paprika 28 products in 1 language @2018-10-15
 
-# PAPRIKA OLEORESIN (also known as PAPRIKA EXTRACT and oleoresin paprika) is an oil-soluble extract from the fruits of Capsicum annuum or Capsicum frutescens, and is primarily used as a colouring and/or flavouring in food products.
+# description:en:PAPRIKA OLEORESIN (also known as PAPRIKA EXTRACT and oleoresin paprika) is an oil-soluble extract from the fruits of Capsicum annuum or Capsicum frutescens, and is primarily used as a colouring and/or flavouring in food products.
 
 <en:paprika extract
 en:paprika oleoresin, capsanthin
@@ -1311,6 +1311,7 @@ wikidata:en:Q425431
 # fr:capsanthine 8 products in 1 language @2018-10-15
 # en:capsanthin 4 products @2018-10-15
 # http://www.fao.org/gsfaonline/additives/results.html?techFunction=10&searchBy=tf
+
 en:colour retention agent
 fr:agent de rétention de la couleur, fixateur de couleur
 
@@ -3091,7 +3092,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ascorbyl_stearate
 en:E305
 
 
-# For the Vitamin application of tocopherol, see the vitamins section<en:antioxidant
+# comment:en:For the Vitamin application of tocopherol, see the vitamins section<en:antioxidant
 en:Tocopherol-rich extract, tocopherol rich extracts, E306, E 306, E-306
 bg:Токоферол-обогатен екстракт
 cs:Extrakt s vysokým obsahem tokoferolů
@@ -3724,7 +3725,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Agar
 # ingredient/fr:agar has 213 products in 5 languages @2018-12-4
 
 
-# CARRAGEENAN or carrageenins (/ˌkærəˈɡiːnənz/ karr-ə-gee-nənz, from Irish carraigín, "little rock") are a family of linear sulfated polysaccharides that are extracted from red edible seaweeds.
+# description:en:CARRAGEENAN or carrageenins are a family of linear sulfated polysaccharides that are extracted from red edible seaweeds.
 
 # <en:gelling agent
 # <en:stabiliser
@@ -10140,11 +10141,10 @@ wikidata:en:Q380967
 # ingredient/fr:lipase has 81 products in 2 languages @2019-02-01
 
 
-# protease is listed as E1101
+# comment:en:protease is listed as E1101
 
 
-# In commercial food processing, transglutaminase is used to bond proteins together. 
-# It is produced by Streptoverticillium mobaraense fermentation in commercial quantities or extracted from animal blood
+# description:en:In commercial food processing, transglutaminase is used to bond proteins together. It is produced by Streptoverticillium mobaraense fermentation in commercial quantities or extracted from animal blood
 
 <en:enzyme
 en:transglutaminase
@@ -14895,9 +14895,7 @@ nl:vitamine A en D, A en D
 sv:vitamin A och D, vitamin A och vitamin D
 
 
-# Vitamin E is a group of eight fat soluble compounds that include four tocopherols and four tocotrienols.
-# In order to distinguish between the vitamin and antioxidant role, vitamin E is call tocoferol.
-# The oxidant is called Tocopherol-rich extract or E306.
+# description:en:VITAMIN E is a group of eight fat soluble compounds that include four tocopherols and four tocotrienols. In order to distinguish between the vitamin and antioxidant role, vitamin E is call tocoferol. The oxidant is called Tocopherol-rich extract or E306.
 
 <en:vitamins
 en:tocoferol, vitamin e
@@ -16732,7 +16730,7 @@ fr:amidon modifié de maïs cireux, amidon de maïs cireux modifié
 <en:corn starch
 fr:amidon modifié de maïs visqueux
 
-# Potato starch is starch extracted from potatoes.
+# description:en:Potato starch is starch extracted from potatoes.
 
 <en:starch
 en:potato starch
@@ -16771,7 +16769,7 @@ fr:amidon de pois
 de:Erbsenstärke
 nl:erwtenzetmeel
 
-# Tapioca is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
+# description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 
 <en:starch
 en:tapioca starch, tapioca
@@ -17000,8 +16998,8 @@ fr:gras de bœuf, graisse de bœuf
 # ingredient/fr:gras-de-bœuf has 109 products in french @2019-03-01
 
 
-# Vegetable oils, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
-# In some languages one distinghuishes between edible and non-edible oils
+# description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
+# comment:en:In some languages one distinghuishes between edible and non-edible oils
 
 <en:oil
 en:oil and vegetable fat
@@ -17240,7 +17238,7 @@ fr:huile de palme partiellement hydrogénée
 de:teilweise hydriertes Palmöl
 nl:gedeeltelijk geharde palmolie
 
-# Palm kernel oil is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis.[1] It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
+# description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis.[1] It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
 en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
@@ -17285,7 +17283,7 @@ en:palm or palm kernel oil, palm oil or palm kernel oil, palm or palm kernel
 fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste, palme ou palmiste
 nl:palmolie of palmkernolie
 
-# Coconut oil, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera).
+# description:en:COCONUT OIL, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera).
 
 <en:vegetable oil
 # producedFrom:en:coconut
@@ -17528,7 +17526,7 @@ fr:palme et colza
 # usage:fr: huiles et graisses végétales (palme colza)
 
 
-# WALNUT OIL is oil extracted from walnuts, Juglans regia
+# description:en:WALNUT OIL is oil extracted from walnuts, Juglans regia
 
 <en:vegetable oil
 # producedFrom:en:walnut
@@ -17554,7 +17552,7 @@ zh:核桃油
 wikipedia:en:https://en.wikipedia.org/wiki/Walnut_oil
 wikidata:en:Q1434098
 
-# COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
+# description:en:COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
 
 <en:vegetable oil
 en:Cottonseed oil
@@ -17579,7 +17577,7 @@ zh:棉籽油
 wikipedia:en:https://en.wikipedia.org/wiki/Cottonseed_oil
 wikidata:en:Q811663
 
-# CORN OIL (maize oil) is oil extracted from the germ of corn (maize).
+# description:en:CORN OIL (maize oil) is oil extracted from the germ of corn (maize).
 
 <en:vegetable oil
 en:corn oil, maize oil
@@ -17706,7 +17704,7 @@ zh:芝麻油
 wikipedia:en:https://en.wikipedia.org/wiki/Sesame_oil
 wikidata:en:Q212317
 
-# SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
+# description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
 
 <en:vegetable oil
 en:soy oil, Soybean oil, soya oil
@@ -17772,7 +17770,7 @@ zh:葡萄籽油
 wikipedia:en:https://en.wikipedia.org/wiki/Grape_seed_oil
 wikidata:en:Q898982
 
-# RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk).
+# description:en:RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk).
 
 <en:vegetable oil
 # producedFrom:en:rice
@@ -17869,7 +17867,7 @@ en:sunflower fat
 #nl:zonnebloemvet ongehard
 # ingredient/non-hydrogenated-sunflower-fat has no products @2019-04-16
 
-# Safflower (Carthamus tinctorius) is a highly branched, herbaceous, thistle-like annual plant. It is commercially cultivated for vegetable oil extracted from the seeds.
+# description:en:SAFFLOWER (Carthamus tinctorius) is a highly branched, herbaceous, thistle-like annual plant. It is commercially cultivated for vegetable oil extracted from the seeds.
 
 <en:vegetable oil
 # <en:en:safflower
@@ -21240,7 +21238,7 @@ wa:Brå
 zh:麦芽
 wikipedia:en:https://en.wikipedia.org/wiki/Malt
 wikidata:en:Q152024
-openfoodfacts:https://world.openfoodfacts.org/ingredient/malt/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/malt/
 # 707 entries @ 2018-09-22
 
 <en:malt
@@ -21248,7 +21246,7 @@ en:malt extract
 de:Malzextrakt
 fr:extrait de malt
 it:estratto di malto
-openfoodfacts:https://world.openfoodfacts.org/ingredient/malt-extract/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/malt-extract/
 # 484 entries @ 2018-09-22
 
 <en:malt extract
@@ -21256,7 +21254,7 @@ en:dried malt extract
 de:Malzextraktpulver
 fr:extrait de malt en poudre
 it:estratto di malto in polvere
-openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-malt-extract/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-malt-extract/
 
 # Question
 
@@ -22902,7 +22900,7 @@ pt:sêmola de arroz
 # ingredient/fr:son-de-riz has 31 products @2018-12-19
 
 
-# fr:riz extrudé is a compound ingredient
+# 
 
 <en:rice
 fr:riz extrudé
@@ -22911,8 +22909,8 @@ it:riso estruso
 sr:pirinač ekstrudat
 # sr-el:pirinač ekstrudat
 # ingredient/fr:riz-extrudé has 36 products in 4 languages @2018-12-19
+# comment:en::riz extrudé is a compound ingredient
 
-# en:crisped rice is a compound ingredient, i.e. (Rice, Sugar, Salt, Barley Malt Extract)
 
 <en:rice
 en:puffed rice, crisped rice
@@ -22927,6 +22925,7 @@ pt:arroz tufado
 sv:puffat ris
 # ingredient/fr:riz-soufflé has 180 products in 10 languages @2018-12-19
 # ingredient/fr:riz-croustillant has 44 products in 2 languages @2018-12-19
+# usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
 
 <en:rice
 fr:galette de riz
@@ -25624,7 +25623,7 @@ it:lievito di birra
 nl:biergist
 pt:levedura de cerveja
 
-# Yeast extract is the common name for yeast products made by extracting the cell contents
+# description:en:YEAST EXTRACT is the common name for yeast products made by extracting the cell contents
 
 <en:yeast
 en:yeast extract
@@ -33028,7 +33027,7 @@ en:coconut cream
 fr:crème de noix de coco, crème de coco
 de:Kokosnusscreme
 it:Crema di noce di cocco
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème%20de%20noix%20de%20coco
 # 33 products @2018-10-03
 
 # Is this a compound product? coconut cream + water?
@@ -33040,16 +33039,16 @@ fr:lait de noix de coco, lait de coco, eau de coco
 it:latte di noce di cocco
 nl:kokosmelk
 sv:kokosmjòlk
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20noix%20de%20coco
 # 87 products @2018-10-03
 
 <fr:lait de noix de coco
 fr:lait de noix de coco en poudre, lait de coco en poudre
 de:Kokosnussmilchpulver, Kokosmilchpulver
 it:latte di noci di cocco in polvere
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20noix%20de%20coco%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20noix%20de%20coco%20en%20poudre
 # 53 products in 3 languages @2018-10-03
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20coco%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20coco%20en%20poudre
 # 69 products in 3 languages @2018-10-03
 
 <en:coconut
@@ -33058,21 +33057,21 @@ de:Kokosnussextrakt
 es:extracto de coco
 fr:extrait de noix de coco, extrait de coco
 it:estratto di noce di cocco
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20noix%20de%20coco
 # 216 products in 6 languages @2018-10-03
 
 <en:coconut
 en:coconut pulp
 de:Kokosfruchtfleisch
 fr:pulpe de noix de coco
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20noix%20de%20coco
 # 21 products in 3 languages @2018-10-03
 
 <en:coconut pulp
 fr:noix de coco séchée
 nl:gedroogde kokosnoot
 ro:nuca de cocos deshidratata
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20séchée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20séchée
 # 130 in 5 languages products @2018-10-03
 
 <fr:noix de coco séchée
@@ -33081,7 +33080,7 @@ de:Kokosnussepulver
 fr:noix de coco en poudre
 it:noce di cocco in polvere
 nl:kokospoeder
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20en%20poudre
 # 86 products in 5 languages @2108-10-03
 
 <fr:noix de coco séchée
@@ -39587,7 +39586,7 @@ nl:grove zwarte peper
 <en:black pepper
 en:ground black pepper
 fr:poivre noir moulu
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre%20noir%20moulu
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre%20noir%20moulu
 # 106 products in 4 languages @2018-10-08
 
 <en:black pepper
@@ -39596,7 +39595,7 @@ de:schwarzer Pfefferextrakt
 es:extracto de pimienta negra
 fr:extrait de poivre noir
 nl:zwarte peperextract
-openfoodfacts:https://world.openfoodfacts.org/ingredient/black-pepper-extract
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/black-pepper-extract
 # 66 products in 3 languages @2018-10-08
 
 <en:seed
@@ -39606,9 +39605,9 @@ es:semilla de fenegreco, semilla de fenegreco seca
 de:Bockshornkleesamen, getrocknete Bockshornkleesamen
 fr:graine de fenugrec, graines de fenugrec, graine de fenugrec séchée
 nl:fenegriekzaad, gedroogd fenegriekzaad
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20de%20fenugrec
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20de%20fenugrec
 # 3 products in 1 language @2018-10-08
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20fenugrec
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20fenugrec
 # 23 products in 2 languages @2018-10-08
 
 <en:fenugreek seed
@@ -41863,7 +41862,7 @@ zh:羅勒
 # zh-hk:羅勒
 wikidata:en:Q38859
 wikipedia:en:https://en.wikipedia.org/wiki/Basil
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:basilic
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:basilic
 # 3605 products in 14 languages @2108-10-10
 
 <en:basil
@@ -41873,7 +41872,7 @@ es:albahaca seca
 fr:basilic séché, basilic déshydraté
 it:basilico essiccato
 nl:gedroogde basilicum
-openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-basil
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-basil
 # 64 products in 4 languages @2018-10-10
 
 <en:basil
@@ -41881,10 +41880,10 @@ en:basil extract
 de:Basilikumextrakt
 fr:extrait de basilic
 pt:extracto de manjericão
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20basilic
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20basilic
 # 32 products in 4 languages @2108-10-10
 
-# Salvia officinalis (SAGE, also called garden sage, common sage, or culinary sage) is a perennial, evergreen subshrub, with woody stems, grayish leaves, and blue to purplish flowers.
+# description:en:SALVIA OFFICINALIS (SAGE, also called garden sage, common sage, or culinary sage) is a perennial, evergreen subshrub, with woody stems, grayish leaves, and blue to purplish flowers.
 
 <en:herb
 en:sage
@@ -54209,8 +54208,10 @@ vi:Fondant
 wikidata:en:Q1769523
 wikipedia:en:https://en.wikipedia.org/wiki/Fondant_icing
 # ingredient/fr:fondant has 65 products in 3 languages @2019-03-20
-# Fondant (sucre, sirop de glucose, eau)
-# MARZIPAN is a confection consisting primarily of sugar or honey and almond meal (ground almonds), sometimes augmented with almond oil or extract.
+# usage:fr:Fondant (sucre, sirop de glucose, eau)
+
+
+# description:en:MARZIPAN is a confection consisting primarily of sugar or honey and almond meal (ground almonds), sometimes augmented with almond oil or extract.
 
 # mainIngredient:en:sugar
 en:marzipan
