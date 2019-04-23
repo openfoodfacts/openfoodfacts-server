@@ -1138,7 +1138,7 @@ zh:胆固醇
 zh_CN:胆固醇
 zh_HK:膽固醇
 zh_TW:膽固醇
-unit:mg
+unit:en:mg
  
 fiber => {
 en:Dietary fiber
@@ -1210,7 +1210,7 @@ zh:钠
 nl:Natrium
 nl_be:Sodium
 ja:ナトリウム
-unit_us:mg
+unit:en-us:mg
  
 salt => {
 fr:Sel
@@ -1299,12 +1299,12 @@ ro:Vitamina A
 bg:Витамин A
 zh:维生素A
 
-unit:µg
-dv => 1500,
+unit:en:µg
+daily_value:en:1500,
 dv_2016:900 RAE # ! not same unit
 iu => 0.3, # Vitamin A: 1 IU is the biological equivalent of 0.3 μg retinol, or of 0.6 μg beta-carotene.[6][7][a]
-unit_us:% DV
-unit_ca:% DV
+unit:en-us:% DV
+unit:en-ca:% DV
  
 'vitamin-d' => {
 fr:Vitamine D / D3 (cholécalciférol)
@@ -1332,9 +1332,9 @@ ro:Vitamina D
 bg:Витамин D
 zh:维生素D
 
-unit:µg
-dv => 40,
-dv_2016 => 20,
+unit:en:µg
+daily_value:en:40,
+daily_value_2016:en:20,
 iu => 0.025, # 1 IU is the biological equivalent of 25 ng cholecalciferol/ergocalciferol
  
 'vitamin-e' => {
@@ -1363,9 +1363,9 @@ ro:Vitamina E
 bg:Витамин E
 zh:维生素E
 
-unit:mg
-dv => 20,
-dv_2016 => 15,
+unit:en:mg
+daily_value:en:20,
+daily_value_2016:en:15,
 iu => 2/3, # 1 IU is the biological equivalent of about 0.667 mg d-alpha-tocopherol (2/3 mg exactly), or of 0.45 mg of dl-alpha-tocopherol acetate.[8][9]
  
 'vitamin-k' => {
@@ -1393,9 +1393,9 @@ ro:Vitamina K
 bg:Витамин K
 zh:维生素K
 
-unit:µg
-dv => 80,
-dv_2016 => 120,
+unit:en:µg
+daily_value:en:80,
+daily_value_2016:en:120,
  
 'vitamin-c' => {
 fr:Vitamine C (acide ascorbique)
@@ -1423,12 +1423,12 @@ ro:Vitamina C
 bg:Витамин C
 zh:维生素C(抗坏血酸)
 
-unit:mg
-dv => 60,
-dv_2016 => 90,
+unit:en:mg
+daily_value:en:60,
+daily_value_2016:en:90,
 iu => 0.05, # 1 IU is 50 μg L-ascorbic acid
-unit_us:% DV
-unit_ca:% DV
+unit:en-us:% DV
+unit:en-ca:% DV
  
 'vitamin-b1' => {
 fr:Vitamine B1 (Thiamine)
@@ -1457,8 +1457,8 @@ ro:Vitamina B1 (Tiamină)
 bg:Витамин B1 (Тиамин)
 zh:维生素B1(硫胺)
 
-unit:mg
-dv_2016 => 1.2,
+unit:en:mg
+daily_value_2016:en:1.2,
  
 'vitamin-b2' => {
 fr:Vitamine B2 (Riboflavine)
@@ -1486,9 +1486,9 @@ ro:Vitamina B2 (Riboflavină)
 bg:Витамин B2 (Рибофлавин)
 zh:维生素B2(核黄素)
 
-unit:mg
-dv => 1.7,
-dv_2016 => 1.3,
+unit:en:mg
+daily_value:en:1.7,
+daily_value_2016:en:1.3,
  
 'vitamin-pp' => {
 fr:Vitamine B3 / Vitamine PP (Niacine)
@@ -1515,9 +1515,9 @@ ro:Niacină
 bg:Ниацин
 zh:维生素B3(烟酸)
 
-unit:mg
-dv => 20,
-dv_2016 => 16,
+unit:en:mg
+daily_value:en:20,
+daily_value_2016:en:16,
  
 'vitamin-b6' => {
 fr:Vitamine B6 (Pyridoxine)
@@ -1544,9 +1544,9 @@ ro:Vitamina B6
 bg:Витамин B6
 zh:维生素B6
 
-unit:mg
-dv => 2.0,
-dv_2016 => 1.7,
+unit:en:mg
+daily_value:en:2.0,
+daily_value_2016:en:1.7,
  
 'vitamin-b9' => {
 fr:Vitamine B9 (Acide folique)
@@ -1573,18 +1573,18 @@ ro:Vitamina B9 (Acid folic)
 bg:Витамин B9 (Фолиева киселина)
 zh:维生素B9(叶酸)
 
-unit:µg
-dv => 400,
-dv_2016 => 400,
+unit:en:µg
+daily_value:en:400,
+daily_value_2016:en:400,
  
 # folates = total folates = naturally occuring folates + added folic acid
 'folates' => {
 en:Folates (total folates)
 fr:Folates (folates totaux)
 
-unit:µg
-dv => 400,
-dv_2016 => 400,
+unit:en:µg
+daily_value:en:400,
+daily_value_2016:en:400,
  
 'vitamin-b12' => {
 fr:Vitamine B12 (cobalamine)
@@ -1600,7 +1600,6 @@ ga:Vitimín B12
 el:Βιταμίνη B12
 fi:B12-vitamiini
 nl:Vitamine B12
-nl_be:Vitamine B12
 lv:B12 vitamīns
 et:Vitamiin B12
 hu:B12-vitamin
@@ -1610,15 +1609,12 @@ sk:Vitamín B12
 ro:Vitamina B12
 bg:Витамин В12
 zh:维生素B12
-
-unit:µg
-dv => 6,
-dv_2016 => 2.4,
+unit:en:µg
+daily_value:en:6,
+daily_value_2016:en:2.4,
  
-'biotin' => {
-fr:Biotine (Vitamine B8 / B7 / H)
-fr_synonyms => ["Biotine "Vitamine B8 "Vitamine B7 "Vitamine H"],
 en:Biotin
+fr:Biotine (Vitamine B8 / B7 / H), Biotine, Vitamine B8, Vitamine B7, Vitamine H
 es:Vitamina B7 (Biotina)
 it:Vitamina B8/B7/H/I (Biotina)
 pt:Vitamina B7 (Biotina)
@@ -1629,7 +1625,6 @@ ga:Bitin
 el:Βιοτίνη
 fi:Biotiini
 nl:Biotine
-nl_be:Biotine
 lv:Biotīns
 et:Biotiin
 pl:Biotyna
@@ -1638,14 +1633,12 @@ sk:Biotín
 ro:Biotină
 bg:Биотин
 zh:生物素
-
-unit:µg
-dv => 300,
-dv_2016 => 30,
+unit:en:µg
+daily_value:en:300,
+daily_value_2016:en:30,
  
-'pantothenic-acid' => {
-fr:Acide pantothénique (Vitamine B5)
-fr_synonyms => ["Acide pantothénique "Vitamine B5"],
+
+fr:Acide pantothénique (Vitamine B5), Acide pantothénique, Vitamine B5
 en:Pantothenic acid / Pantothenate (Vitamin B5)
 ja:ビタミン B5
 es:Vitamina B5 (Ácido pantoténico)
@@ -1659,7 +1652,6 @@ da:Pantothensyre
 el:Παντοθενικό οξύ
 fi:Pantoteenihappo
 nl:Pantotheenzuur
-nl_be:Pantotheenzuur
 sv:Pantotensyra
 lv:Pantotēnskābe
 cs:Kyselina pantothenová
@@ -1672,12 +1664,10 @@ mt:Aċidu Pantoteniku
 sk:Kyselina pantotenová
 ro:Acid pantotenic
 bg:Пантотенова киселина
-
-unit:mg
-dv => 10,
-dv_2016 => 5,
+unit:en:mg
+daily_value:en:10,
+daily_value_2016:en:5,
  
-'#minerals' => {
 fr:Sels minéraux
 en:Minerals
 es:Sales minerales
@@ -1687,13 +1677,11 @@ pt:Sais Minerais
 de:Minerals
 he:מינרלים
 nl:Mineralen
-nl_be:Mineralen
+
  
-potassium => {
 fr:Potassium
 en:Potassium
 es:Potasio
-unit:mg
 it:Potassio
 pt:Potássio
 de:Kalium
@@ -1703,7 +1691,6 @@ da:Kalium
 el:Κάλιο
 fi:Kalium
 nl:Kalium
-nl_be:Kalium
 sv:Kalium
 lv:Kālijs
 cs:Draslík
@@ -1717,21 +1704,20 @@ sk:Draslík
 ro:Potasiu
 bg:Калий
 zh:钾
- 
-bicarbonate => {
+unit:en:mg
+
 fr:Bicarbonate
 en:Bicarbonate
 es:Bicarbonato
 el:Διττανθρακικό
-unit:mg
+unit:en:mg
 it:Bicarbonato
 pt:Bicarbonato
 de:Bikarbonat
 he:ביקרבונט (מימן פחמתי)
 nl:Bicarbonaat
-nl_be:Bicarbonaat
  
-chloride => {
+
 fr:Chlorure
 en:Chloride
 es:Cloro
@@ -1757,17 +1743,16 @@ ro:Clorură
 bg:Хлорид
 nl:Chloor
 nl_be:Chloor
-
-unit:mg
-dv => 3400,
-dv_2016 => 2300,
+unit:en:mg
+daily_value:en:3400,
+daily_value_2016:en:2300,
  
 silica => {
 fr:Silice
 en:Silica
 es:Sílice
 el:Πυρίτιο
-unit:mg
+unit:en:mg
 it:Silicio
 pt:Sílica
 de:Kieselerde
@@ -1802,15 +1787,12 @@ ro:Calciu
 bg:Калций
 zh:鈣
 nl:Calcium
-nl_be:Calcium
-
-unit:mg
-dv => 1000,
-dv_2016 => 1300,
-unit_us:% DV
-unit_ca:% DV
+unit:en:mg
+daily_value:en:1000,
+daily_value_2016:en:1300,
+unit:en-us:% DV
+unit:en-ca:% DV
  
-phosphorus => {
 fr:Phosphore
 en:Phosphorus
 es:Fósforo
@@ -1824,7 +1806,6 @@ da:Phosphor
 el:Φωσφόρος
 fi:Fosfori
 nl:Fosfor
-nl_be:Fosfor
 sv:Fosfor
 lv:Fosfors
 cs:Fosfor
@@ -1838,12 +1819,10 @@ sk:Fosfor
 ro:Fosfor
 bg:Фосфор
 zh:磷
-
-unit:mg
-dv => 1000,
-dv_2016 => 1250,
+unit:en:mg
+daily_value:en:1000,
+daily_value_2016:en:1250,
  
-iron => {
 fr:Fer
 en:Iron
 ja:鉄
@@ -1857,7 +1836,6 @@ da:Jern
 el:Σίδηρος
 fi:Rauta
 nl:IJzer
-nl_be:IJzer
 sv:Järn
 lv:Dzelzs
 cs:Železo
@@ -1871,14 +1849,12 @@ sk:Železo
 ro:Fier
 bg:Желязо
 zh:鐵
-
-unit:mg
-dv => 18,
-dv_2016 => 18,
-unit_us:% DV
-unit_ca:% DV
+unit:en:mg
+daily_value:en:18,
+daily_value_2016:en:18,
+unit:en-us:% DV
+unit:en-ca:% DV
  
-magnesium => {
 fr:Magnésium
 en:Magnesium
 es:Magnesio
@@ -1903,10 +1879,9 @@ zh:鎂
 nl:Magnesium
 nl_be:Magnesium
 ja:マグネシウム
-
-unit:mg
-dv => 400,
-dv_2016 => 420,
+unit:en:mg
+daily_value:en:400,
+daily_value_2016:en:420,
  
 zinc => {
 fr:Zinc
@@ -1935,10 +1910,9 @@ sk:Zinok
 bg:Цинк
 zh:鋅
 ja:亜鉛
-
-unit:mg
-dv => 15,
-dv_2016 => 11,
+unit:en:mg
+daily_value:en:15,
+daily_value_2016:en:11,
  
 copper => {
 fr:Cuivre
@@ -1953,7 +1927,6 @@ da:Kobber
 el:Χαλκός
 fi:Kupari
 nl:Koper
-nl_be:Koper
 sv:Koppar
 lv:Varš
 cs:Měď
@@ -1966,10 +1939,9 @@ mt:Ram
 sk:Meď
 ro:Cupru
 bg:Мед
-
-unit:mg
-dv => 2,
-dv_2016 => 0.9,
+unit:en:mg
+daily_value:en:2,
+daily_value_2016:en:0.9,
  
 manganese => {
 fr:Manganèse
@@ -1984,7 +1956,6 @@ da:Mangan
 el:Μαγγάνιο
 fi:Mangaani
 nl:Mangaan
-nl_be:Mangaan
 sv:Mangan
 lv:Mangāns
 cs:Mangan
@@ -1997,16 +1968,15 @@ mt:Manganis
 sk:Mangán
 ro:Mangan
 bg:Манган
-
-unit:mg
-dv => 2,
-dv_2016 => 2.3,
+unit:en:mg
+daily_value:en:2,
+daily_value_2016:en:2.3,
  
 fluoride => {
 fr:Fluorure
 en:Fluoride
 es:Flúor
-unit:mg
+unit:en:mg
 it:Fluoro
 pt:Fluoreto
 de:Fluor
@@ -2030,322 +2000,776 @@ bg:Флуорид
 nl:Fluor
 nl_be:Fluor
  
-selenium => {
-fr:Sélénium
-en:Selenium
-es:Selenio
-it:Selenio
-pt:Selênio
-pt_pt:Selénio
-de:Selen
-he:סלניום
-ga:Seiléiniam
-da:Selen
-el:Σελήνιο
-fi:Seleeni
-nl:Seleen
-nl_be:Seleen
-sv:Selen
-lv:Selēns
-cs:Selen
-et:Seleen
-hu:Szelén
-pl:Selen
-sl:Selen
-lt:Selenas
-mt:Selenju
-sk:Selén
-ro:Seleniu
+
+# description:en:Selenium is a chemical element with symbol Se and atomic number 34. 
+
+en:Selenium, Sn
+af:selenium
+am:ሴሊኒየም
+an:Selenio
+ar:سيلينيوم
+# ast:Seleniu
+az:Selen
+be:Селен
+# be-tarask:Сэлен
 bg:Селен
+# bho:सेलेनियम
+bn:সেলেনিয়াম
+bo:སེ་ལེ་ནིམ།
+br:Seleniom
+bs:selen
+ca:seleni
+# cdo:Să̤
+# ceb:Selenio
+# ckb:سیلینیۆم
+co:Seleniu
+cs:selen
+cv:Селен
+cy:Seleniwm
+da:selen
+de:Selen
+# de-ch:Selen
+dv:ސެލެނިއަމް
+el:σελήνιο
+# en-ca:Selenium
+# en-gb:Selenium
+eo:seleno
+es:selenio
+et:Seleen
+eu:selenio
+# ext:Seleniu
+fa:سلنیم
+fi:seleeni
+fo:Selen
+fr:sélénium
+# frr:Selen
+# fur:Seleni
+ga:Seiléiniam
+# gan:硒
+gd:Selenium
+gl:selenio
+gu:સેલિનીયમ
+gv:Shellainium
+# hak:Sî
+he:סלניום
+hi:सेलेनियम
+# hif:Selenium
+hr:Selenij
+ht:Selenyòm
+hu:szelén
+hu:սելեն
+ia:Selenium
+id:Selenium
+io:Selenio
+is:selen
+it:selenio
+ja:セレン
+# jbo:lurcmu
+jv:Selenium
+ka:სელენიუმი
+# kbp:Sɛlɩnɩyɔm
+kk:Селен
+kn:ಸೆಲೆನಿಯಮ್
+ko:셀레늄
+kv:Селен
+ky:Селен
+la:selenium
+lb:Selen
+# lfn:selenio
+li:Seleen
+# lij:Selenio
+# lmo:Selenio
+lt:Selenas
+lv:selēns
+# lzh:硒
+mk:Селен
+ml:സെലീനിയം
+mn:Селени
+mr:सेलेनियम
+# mrj:Селен
+ms:Selenium
+mt:selenju
+my:ဆီလီနီယမ်
+# myv:Селен
+# nan:Selenium
+nb:selen
+# nds:Selen
+ne:सेलेनियम
+# new:सेलेनियम
+nl:seleen
+nn:selen
+oc:Selèni
+# olo:Selen
+or:ସେଲେନିଅମ
+pa:ਸਿਲੀਨੀਅਮ
+pi:सेलेनियम
+pl:selen
+# pms:Seleni
+# pnb:سلینیم
+ps:selenium
+pt:selénio
+# pt-br:selênio
+qu:Silinyu
+ro:seleniu
+ru:селен
+# rup:Seleniu
+sa:सेलेनियम
+# scn:sileniu
+# sco:selenium
+sh:Selen
+sk:Selén
+sl:Selen
+so:Seleniyaam
+sq:Seleni
+sr:селен
+# sr-ec:селен
+# stq:Selen
+su:Sélénium
+sv:selen
+sw:Seleni
+ta:செலீனியம்
+te:సెలీనియం
+tg:Селен
+th:ซีลีเนียม
+tl:selenyo
+tr:Selenyum
+tt:Селен
+ug:سېلېن
+uk:селен
+uz:Selen
+# vep:Selen
+vi:selen
+# war:Selenyo
+# wuu:硒
+# xal:Селен
+yi:סעלעניום
+yo:Selenium
+# yue:硒
 zh:硒
-
-unit:µg
-dv => 70,
-dv_2016 => 55,
+# zh-cn:硒
+# zh-hans:硒
+# zh-hant:硒
+# zh-hk:硒
+# zh-tw:硒
+wikipedia:en:https://en.wikipedia.org/wiki/Selenium
+unit:en:µg
+daily_value:en:70,
+daily_value_2016:en:55,
  
-chromium => {
-fr:Chrome
+# description:en:Chromium is a chemical element with symbol Cr and atomic number 24. 
+
 en:Chromium
-es:Cromo
-it:Cromo
-pt:Cromo
-pt_pt:Crómio
-de:Chrom
-he:כרום
-ga:Cróimiam
-da:Chrom
-el:Χρώμιο
-fi:Kromi
-nl:Chroom
-nl_be:Chroom
-sv:Krom
-lv:Hroms
-cs:Chrom
-et:Kroom
-hu:Króm
-pl:Chrom
-sl:Krom
-lt:Chromas
-mt:Kromju
-sk:Chróm
-ro:Crom
+af:chroom
+am:ክሮሚየም
+an:Cromo
+ar:كروم
+# ast:Cromu
+az:Xrom
+be:Хром
+# be-tarask:Хром
 bg:Хром
-
-unit:µg
-dv => 120,
-dv_2016 => 35,
+# bho:क्रोमियम
+bn:ক্রোমিয়াম
+bo:ཀོ་ལྕགས།
+br:Krom
+bs:hrom
+ca:crom
+# cdo:Gáuk
+# ceb:Kromyo
+# ckb:کرۆم
+co:Cromu
+cs:Chrom
+cv:Хром
+cy:Cromiwm
+da:krom
+de:Chrom
+# de-at:Chrom
+# de-ch:Chrom
+dv:ކްރޯމިއަމް
+el:Χρώμιο
+# en-ca:chromium 
+# en-gb:chromium
+eo:kromo
+es:Cromo
+et:Kroom
+eu:kromo
+fa:کروم
+fi:Kromi
+fo:Krom
+fr:Chrome
+# frr:Kroom
+# fur:Crom
+ga:Cróimiam
+gl:cromo
+gu:ક્રોમિયમ
+gv:Cromium
+# hak:Kok
+he:כרום
+hi:क्रोमियम
+# hif:Chromium
+hr:krom
+# hsb:Chrom
+ht:Kwòm
+hu:Króm
+hy:քրոմ
+ia:chromo
+id:Kromium
+io:kromo
+is:króm
+it:Cromo
+ja:クロム
+# jbo:rogjinme
+jv:Kromiyum
+ka:ქრომი
+# kbp:Kurom
+kk:Хром
+kn:ಕ್ರೋಮಿಯಮ್
+ko:크로뮴
+ku:Krom
+kv:Хром
+ky:Хром
+la:chromium
+lb:Chrom
+# lfn:cromo
+li:Chroeam
+# lij:Crommo
+# lmo:Cróm
+lt:Chromas
+lv:Hroms
+# lzh:鉻
+mi:konukita
+mk:хром
+ml:ക്രോമിയം
+mn:Хром
+mr:क्रोमियम
+# mrj:Хром
+ms:Kromium
+mt:Kromju
+my:ခရိုမီယမ်
+# myv:Хром
+# nah:Tlapāltepoztli
+# nan:Chromium
+nb:krom
+# nds:Chrom
+ne:क्रोमियम
+# new:क्रोमियम
+nl:Chroom
+oc:Cròme
+# olo:Hrom
+or:କ୍ରୋମିୟମ
+pa:ਕ੍ਰੋਮੀਅਮ
+pi:क्रोमियम
+pl:Chrom
+# pms:Cròm
+# pnb:کرومیم
+pt:Crómio
+# pt-br:crômio
+qu:Krumu
+ro:Crom
+ru:хром
+# rup:Cromu
+sa:क्रोमियम
+sc:Cromu
+# scn:cromu
+# sco:chromium
+sh:Hrom
+sk:Chróm
+sl:Krom
+so:Koroomiyaam
+sq:Kromi
+sr:хром
+# stq:Chrom
+su:Kromium
+sv:Krom
+sw:Chromi
+ta:குரோமியம்
+te:క్రోమియం
+tg:Хром
+th:โครเมียม
+tl:Kromyo
+tr:krom
+tt:Хром
+ug:خروم
+uk:хром
+ur:کرومیئم
+uz:Xrom
+# vep:Hrom
+vi:crom
+# war:Cromo
+# wuu:铬
+# xal:Хром
+yi:כראם
+yo:Krómíọ̀mù
+# yue:鉻
+zh:铬
+# zh-cn:铬
+# zh-hans:铬
+# zh-hant:鉻
+# zh-hk:鉻
+# zh-tw:鉻
+wikipedia:en:Q725
+wikipedia:en:https://en.wikipedia.org/wiki/Chromium
+unit:en:µg
+daily_value:en:120,
+daily_value_2016:en:35,
  
-molybdenum => {
-fr:Molybdène
-en:Molybdenum
-es:Molibdeno
-it:Molibdeno
-pt:Molibdênio
-pt_pt:Molibdénio
-de:Molybdän
-he:מוליבדן
-ga:Molaibdéineam
-da:Molybdæn
-el:Μολυβδαίνιο
-fi:Molybdeeni
-nl:Molybdeen
-nl_be:Molybdeen
-sv:Molybden
-lv:Molibdēns
-cs:Molybden
-et:Molübdeen
-hu:Molibdén
-pl:Molibden
-sl:Molibden
-lt:Molibdenas
-mt:Molibdenum
-sk:Molybdén
-ro:Molibden
+
+
+# description:en:Molybdenum is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
+
+<en:mineral
+en:molybdenum
+af:molibdeen
+am:ሞሊብዴነም
+an:Molibdén
+ar:موليبدنوم
+# ast:Molibdenu
+az:Molibden
+be:Малібдэн
+# be-tarask:Малібдэн
 bg:Молибден
+# bho:मोलिब्डेनम
+bn:মলিবডিনাম
+bo:མོ་ལིབ་ཌེ་ནིམ།
+br:Molibden
+bs:molibden
+ca:molibdè
+# cdo:Mŭk
+# ceb:Molibdeno
+# ckb:مۆلیبدێنۆم
+co:Molibdenu
+cs:molybden
+cv:Молибден
+cy:Molybdenwm
+da:molybdæn
+de:Molybdän
+# de-ch:Molybdän
+dv:މޮލިބްޑިނަމް
+el:μολυβδαίνιο
+# en-ca:Molybdenum
+# en-gb:molybdenum
+eo:molibdeno
+es:molibdeno
+et:Molübdeen
+eu:molibdeno
+fa:مولیبدن
+fi:molybdeeni
+fr:molybdène
+# frr:Molybdeen
+# fur:Molibden
+ga:Molaibdéineam
+gd:Moilibdeanum
+gl:Molibdeno
+gu:મોલિબ્ડેનમ
+gv:Molybdenum
+# hak:Muk
+he:מוליבדן
+hi:मोलिब्डेनम
+# hif:Molybdenum
+hr:Molibden
+hu:molibdén
+hy:մոլիբդեն
+ia:molybdeno
+id:Molibdenum
+io:molibdo
+is:mólýbden
+it:molibdeno
+ja:モリブデン
+# jbo:mlibdena
+jv:Molibden
+ka:მოლიბდენი
+# kbp:Mɔlɩbɩdɛnɩ
+kk:Молибден
+kn:ಮಾಲಿಬ್ಡಿನಮ್
+ko:몰리브데넘
+ku:Molîbden
+kv:Молибден
+ky:Молибден
+la:molybdenum
+lb:Molybdän
+# lfn:molibdeno
+li:Molybdeen
+# lij:Molibden
+# lmo:Molibdeno
+# lzh:鉬
+lt:Molibdenas
+lv:molibdēns
+mk:Молибден
+ml:മൊളിബ്ഡിനം
+mn:Молибден
+mr:मॉलिब्डेनम
+# mrj:Молибден
+ms:Molibdenum
+mt:molibdenu
+# myv:Molibdenum
+# nan:Molybdenum
+nb:molybden
+ne:मोलिब्डेनम
+# new:मोलिब्डेनम
+nl:molybdeen
+nn:molybden
+oc:Molibdèn
+# olo:Molibden
+or:ମଲିବ୍‌ଡ଼େନମ
+pa:ਮੋਲਿਬਡੇਨਮ
+pi:मोलिब्डेनम
+pl:molibden
+# pms:Molibden
+# pnb:مولیبیڈینم
+pt:molibdénio
+# pt-br:molibdênio
+qu:Molibdenu
+ro:molibden
+ru:молибден
+# rup:Molibdenu
+sa:मोलिब्डेनम
+# scn:mulibdenu
+# sco:molybdenum
+sh:Molibden
+sk:Molybdén
+sl:Molibden
+so:Molybdenum
+sq:Molibdeni
+sr:молибден
+# stq:Molybdän
+su:Molibdénum
+sv:molybden
+sw:Molibdeni
+ta:மாலிப்டினம்
+tg:Молибден
+th:โมลิบดีนัม
+tl:Molibdeno
+tr:Molibden
+tt:Молибден
+ug:مولبېدىن
+uk:молібден
+ur:مولیبڈینم
+uz:Molibden
+# vep:Molibden
+vi:molypden
+# war:Molibdeno
+# xal:Молибдениүм
+yo:Molybdenum
+# yue:鉬
+zh:钼
+wikidata:en:Q1053
+wikipedia:en:https://en.wikipedia.org/wiki/Molybdenum
+unit:en:µg
+daily_value:en:75
+daily_value_2016:en:45
 
-unit:µg
-dv => 75,
-dv_2016 => 45,
- 
-iodine => {
-fr:Iode
-en:Iodine
-es:Yodo
-it=> "Iodio
-pt:Iodo
-de:Jod
-he:יוד
-ga:Iaidín
-da:Jod
-el:Ιώδιο
-fi:Jodi
-nl:Jodium
-nl_be:Jodium
-sv:Jod
-lv:Jods
-cs:Jód
-et:Jood
-hu:Jód
-pl:Jod
-sl:Jod
-lt:Jodas
-mt:Jodju
-sk:Jód
-ro:Iod
+# comment:en:Iodine is also part of ingredients.txt
+en:iodine
+af:jodium
+am:አዮዲን
+an:Yodo
+ar:يود
+# ast:Yodu
+az:Yod
+# azb:یود
+ba:Иод
+be:Ёд
+# be-tarask:Ёд
 bg:Йод
-
-unit:µg
-dv => 150,
-dv_2016 => 150,
+# bho:आयोडिन
+bi:Aiodin
+bn:আয়োডিন
+bo:ལྦ་ཚྭ།
+br:Iod
+bs:jod
+ca:iode
+# cdo:Diēng
+# ceb:Yodo
+# ckb:یۆد
+co:Iodiu
+cs:Jod
+cv:Иод
+cy:Ïodin
+da:jod
+de:Jod
+# diq:İyod
+dv:އަޔޮޑިން
+el:Ιώδιο
+# en-ca:Iodine
+# en-gb:Iodine
+eo:jodo
+es:Yodo
+et:Jood
+eu:iodo
+fa:ید
+fi:Jodi
+fo:Jod
+fr:Iode
+# frr:Jood
+# fur:Jodi
+ga:Iaidín
+# gan:碘
+gd:Aidhodain
+gl:Iodo
+gu:આયોડિન
+gv:Eeadeen
+# hak:Tièn
+he:יוד
+hi:आयोडिन
+# hif:Iodine
+hr:Jod
+ht:Yòd
+hu:Jód
+hy:յոդ
+ia:iodo
+id:Iodin
+io:iodo
+is:joð
+it:Iodio
+ja:ヨウ素
+# jbo:zirkliru
+jv:Yodium
+ka:იოდი
+# kbp:Ɩyɔdɩ
+kk:Йод
+kn:ಅಯೊಡಿನ್
+ko:아이오딘
+kv:Йод
+ky:Иод
+la:Iodum
+lb:Iod
+# lfn:iodo
+li:Jodium
+# lij:Iodio
+# lmo:Iodio
+lt:Jodas
+lv:Jods
+# lzh:碘
+mk:јод
+ml:അയോഡിൻ
+mn:Иод
+mr:आयोडिन
+# mrj:Иод
+ms:Iodin
+mt:Jodju
+my:အိုင်အိုဒင်း
+# myv:Иод
+# nan:Ak-sò͘ 
+nb:jod
+# nds:Jod
+ne:आयोडिन
+# new:आयोडिन
+nl:jodium
+nn:jod
+oc:Iòde
+# olo:Joudu
+or:ଆୟୋଡ଼ିନ
+os:Йод
+pa:ਆਇਓਡੀਨ
+pi:आयोडिन
+pl:Jod
+# pmo:Jòdio
+# pnb:آئیوڈین
+pt:Iodo
+# pt-br:iodo
+qu:Yudu
+ro:Iod
+ru:иод
+# rup:Iodu
+sa:अयोडिन्
+# scn:jodiu
+# sco:iodine
+sh:Jod
+sk:Jód
+sl:Jod
+so:Aaydhiin
+sq:Jodi
+sr:јод
+# stq:Iod
+su:Yodium
+sv:Jod
+sw:Iodini
+ta:அயோடின்
+te:అయోడిన్
+tg:Йод
+th:ไอโอดีน
+tl:Yodo
+tr:İyot
+tt:иод
+# tt-cyrl:иод
+# tyv:Йод
+uk:Йод
+ur:آیوڈین
+uz:Yod
+# vep:Jod
+vi:iốt
+# war:Yodo
+# wuu:碘
+# xal:Йод
+yi:יאד
+yo:Iodine
+# yue:碘
+zh:碘
+# zh-cn:碘
+# zh-hk:碘
+wikidata:en:Q1103
+wikipedia:en:https://en.wikipedia.org/wiki/Iodine
+unit:en:µg
+daily_value:en:150,
+dv_2016:en:150,
  
-caffeine => {
-fr:Caféine / Théine
 en:Caffeine
+fr:Caféine / Théine
 el:Καφεΐνη
 nl:Cafeïne
-nl_be:Cafeïne
 pt:Cafeína
  
-taurine => {
-zh_hans:牛磺酸
-zh_hant:牛磺酸
-zh_hk:牛磺酸
-zh_cn:牛磺酸
-zh_sg:牛磺酸
-zh_tw:牛磺酸
-pl:Tauryna
-wa:Torene
-ko:타우린
-fr:Taurine
-he:טאורין
-es:Taurina
-hu:Taurin
-it:Taurina
-gl:Taurina
-et:Tauriin
-id:Taurina
-de:Taurin
-ja:タウリン
-vi:Taurine
-nl:Taurine
-nl_be:Taurine
-sv:Taurin
-pt:Taurina
-eo:Taŭrino
-sk:Taurín
-ru:таурин
 en:Taurine
-sr_el:Taurin
-sr_ec:Таурин
-tr:Taurin
-ro:Taurină
-ca:Taurina
-fi:Tauriini
-uk:Таурин
-sl:Tavrin
-cs:Taurin
-fa:تائورین
-bg:Таурин
-hr:Taurin
-da:Taurin
-sr:таурин
-zh:牛磺酸
-nb:Taurin
-hy:Տաուրին
-sh:Taurin
 ar:التورين
-sq:taurin
-mk:Таурин
+bg:Таурин
+ca:Taurina
+cs:Taurin
+da:Taurin
+de:Taurin
 el:Ταυρίνη
-en_ca:Taurine
-en_gb:Taurine
-pt_br:Taurina
- 
+# en_ca:Taurine
+# en_gb:Taurine
+eo:Taŭrino
+es:Taurina
+et:Tauriin
+fa:تائورین
+fi:Tauriini
+fr:Taurine
+gl:Taurina
+he:טאורין
+hr:Taurin
+hu:Taurin
+hy:Տաուրին
+id:Taurina
+it:Taurina
+ja:タウリン
+ko:타우린
+mk:Таурин
+nb:Taurin
+nl:Taurine
+pl:Tauryna
+pt:Taurina
+# pt_br:Taurina
+ro:Taurină
+ru:таурин
+sh:Taurin
+sk:Taurín
+sl:Tavrin
+sq:taurin
+sr:таурин
+# sr_ec:Таурин
+# sr_el:Taurin
+sv:Taurin
+tr:Taurin
+uk:Таурин
+vi:Taurine
+wa:Torene
+zh:牛磺酸
+# zh_hans:牛磺酸
+# zh_hant:牛磺酸
+# zh_hk:牛磺酸
+# zh_cn:牛磺酸
+# zh_sg:牛磺酸
+# zh_tw:牛磺酸
 
-ph => {
 en:pH
 el:pH
 nl:pH
-nl_be:pH
-unit:
+unit:en:
  
 
-"carbon-footprint
-fr:Empreinte carbone / émissions de CO2
 en:Carbon footprint / CO2 emissions
-es:Huella de carbono / Emisiones de CO2
-el:Αποτύπωμα άνθρακα/Εκπομπές CO2
-it=> "Emissioni di CO2 (impronta climatica)
-pt:Pegada de carbono / Emissões de CO<sub>2</sub>
 de:Carbon Footprint / CO2-Emissionen
+el:Αποτύπωμα άνθρακα/Εκπομπές CO2
+es:Huella de carbono / Emisiones de CO2
+fr:Empreinte carbone / émissions de CO2
 he:טביעת רגל פחמנית / פליטת פחמן דו־חמצני
+it:Emissioni di CO2 (impronta climatica)
 nl:Ecologische voetafdruk / CO2-uitstoot
-nl_be:Ecologische voetafdruk / CO2-uitstoot
-unit:g
+pt:Pegada de carbono / Emissões de CO<sub>2</sub>
+unit:en:g
  
-"carbon-footprint-from-meat-or-fish
-fr:Empreinte carbone de la viande ou du poisson
 en:Carbon footprint from meat or fish
-unit:g
- 
+fr:Empreinte carbone de la viande ou du poisson
+unit:en:g
 
-
-'glycemic-index' => {
 en:Glycemic Index
 de:Glykämischer Index
-unit:
+unit:en:
  
-"water-hardness
 en:Water hardness
 fr:Dureté de l'eau
 ru:Жёсткость воды
 de:Wasserhärte
-unit:mmol/l
+unit:en:mmol/l
  
-"fruits-vegetables-nuts
-en:Fruits, vegetables and nuts
-fr:Fruits, légumes et noix
-es:Frutas, verduras y nueces
-el:Φρούτα, λαχανικά, καρποί
-nl:Fruit, groenten en noten
-nl_be:Fruit, groenten en noten
-de:Obst, Gemüse und Nüsse
-unit:%
+en:Fruits - vegetables and nuts
+fr:Fruits - légumes et noix
+es:Frutas - verduras y nueces
+el:Φρούτα - λαχανικά, καρποί
+nl:Fruit - groenten en noten
+de:Obst - Gemüse und Nüsse
+unit:en:%
  
-"fruits-vegetables-nuts-dried
-en:Fruits, vegetables and nuts - dried
-fr:Fruits, légumes et noix - séchés
-unit:%
+en:Fruits - vegetables and nuts - dried
+fr:Fruits - légumes et noix - séchés
+unit:en:%
  
 
-"fruits-vegetables-nuts-estimate
-en:Fruits, vegetables and nuts (estimate from ingredients list)
-fr:Fruits, légumes et noix (estimation avec la liste des ingrédients)
-es:Frutas, verduras y nueces (estimación de la lista de ingredientes)
-nl:Fruit, groenten en noten (Schat uit ingrediëntenlijst)
-nl_be:Fruit, groenten en noten (Schat uit ingrediëntenlijst)
-de:Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)
-unit:%
+en:Fruits - vegetables and nuts (estimate from ingredients list)
+de:Obst - Gemüse und Nüsse (Schätzung aus Zutatenliste)
+fr:Fruits - légumes et noix (estimation avec la liste des ingrédients)
+es:Frutas - verduras y nueces (estimación de la lista de ingredientes)
+nl:Fruit - groenten en noten (Schat uit ingrediëntenlijst)
+unit:en:%
  
-"collagen-meat-protein-ratio
 en:Collagen/Meat protein ratio (maximum)
 fr:Rapport collagène sur protéines de viande (maximum)
 el:Αναλογία κολλαγόνου/πρωτεΐνης κρέατος (μέγιστο)
 es:Relación tejido conjuntivo/proteínas de carne (máximo)
 de:Verhältnis Kollagen/Eiweiß
 nl:Verhouding collageen/eiwitten uit vlees (maximum)
-nl_be:Verhouding collageen/eiwitten uit vlees (maximum)
-unit:%
+unit:en:%
  
-cocoa => {
 en:Cocoa (minimum)
 de:Kakao (Minimum)
 es:Cacao (mínimo)
 fr:Cacao (minimum)
 nl:Cacao (minimum)
 pt:Cacau (minimum)
-unit:%
+unit:en:%
  
-"nutrition-score-uk
 en:Nutrition score - UK
 nl:Voedingsscore - UK
-nl_be:Voedingsgraad
 el:Bαθμολογία θρεπτικής αξίας-UK
-unit:
+unit:en:
  
-"nutrition-score-fr
-fr:Score nutritionnel - France
 en:Nutrition score - France
+fr:Score nutritionnel - France
 nl:Voedingsscore - FR
 el:Βαθμολογία θρεπτικής αξίας-FR
-unit:
+unit:en:
  
-"beta-carotene
-de:Beta-Carotin
 en:Beta carotene
+de:Beta-Carotin
 es:Beta caroteno
 fr:Bêta carotène
 nl:Bêta-caroteen
-nl_be:Bêta-caroteen
  
-"chlorophyl
-de:Chlorophyll
 en:Chlorophyl
+de:Chlorophyll
 nl:Chlorofyl
-nl_be:Chlorofyl
  
-"nutrition-grade
-fr:Note nutritionnelle
 en:Nutrition grade
+fr:Note nutritionnelle
  
-"choline
+en:Choline
 ar:كولين
 bg:Холин
 bs:Holin
 ca:Colina
 da:Cholin
 de:Cholin
-en:Choline
 eo:Kolino
 es:Colina
 et:Koliin
@@ -2372,26 +2796,17 @@ sr:Holin
 sv:Kolin
 ta:கோலின்
 tr:Kolin
-tyv:Холин
+# tyv:Холин
 uk:Холін
 zh:胆碱
-zh_CN:胆碱
+# zh_CN:胆碱
  
-phylloquinone => {
-en:Vitamin K1 (Phylloquinone)
+en:Vitamin K1, Phylloquinone
 fr:Vitamine K1"
  
-"beta-glucan
 en:Beta-glucan
 fr:Bêta-glucanes"
  
-inositol => {
 en:Inositol"
  
-carnitine => {
 en:Carnitine"
-
-
-
-1;
-
