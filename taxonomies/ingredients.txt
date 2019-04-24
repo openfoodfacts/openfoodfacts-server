@@ -3137,7 +3137,7 @@ fr:antioxydant e316, e 316, e-316, e316
 fr:antioxydant e320, e 320, e-320, bha, antioxygène bha
 
 
-# comment:en:The generic form of potassium cirates should be written in plural, do distinguish them from potassium citrate.
+# comment:en:The generic form of potassium citrates should be written in plural, do distinguish them from potassium citrate.
 
 en:potassium citrates, E332, E-332, E 332
 de:Kaliumcitrate
@@ -3224,6 +3224,103 @@ zh:檸檬酸鉀
 wikidata:en:Q419921
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
 # additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
+
+
+# description:en:CALCIUM CITRATEs is the calcium salt of citric acid. It is commonly used as a food additive (E333), usually as a preservative, but sometimes for flavor. Calcium citrate is also found in some dietary calcium supplements.
+# comment:en:The generic form (E333) is written in plural to distinguish it from E333iii
+
+en:calcium citrates, E333, E-333, E 333
+es:Citratos de calcio
+fr:Citrates de calcium
+nl:calciumcitraten
+
+<en:calcium citrates
+en:Monocalcium citrate, E333i, E-333i, E 333i
+bg:Монокалциев цитрат
+cs:Monocalcium citrate
+da:Monocalciumcitrat
+de:Monocalciumcitrat
+es:Citrato monocálcico
+fi:Monokalsiumsitraatti
+fr:Citrate monocalcique
+hu:Monokalcium-citrát
+it:Citrato monocalcico
+lt:Monokalcio citratas
+lv:Monokalcija citrāts
+mt:Ċitrat monokalċiku
+nl:Monocalciumcitraat
+pl:Cytrynian monowapniowy
+pt:Citrato monocálcico
+ro:Citrat monocalcic
+sk:Citran monovápenatý
+sl:Monokalcijev citrat
+sv:Monokalciumcitrat
+wikidata:en:Q482498
+
+<en:calcium citrates
+en:Dicalcium citrate, E333ii, E-333ii, E 333ii
+# azb:دیکلسیوم سیترات
+bg:Дикалциев цитрат
+cs:Dicalcium citrate
+da:Dicalciumcitrat
+de:Dicalciumcitrat
+el:Δισοξινο κιτρικο ασβεστιο
+es:Citrato dicálcico
+et:Kaltsiumvesiniktsitraat
+fa:دی‌کلسیم سیترات
+fi:Dikalsiumsitraatti
+fr:Citrate dicalcique
+hu:Dikalcium-citrát
+it:Citrato dicalcico
+lt:Dikalcio citratas
+lv:Dikalcija citrāts
+mt:Ċitrat dikalċiku
+nl:Dicalciumcitraat
+pl:Cytrynian diwapniowy
+pt:Citrato dicálcico
+ro:Citrat dicalcic
+sh:Dikalcijum citrat
+sk:dicitran divápenatý
+sl:Dikalcijev citrat
+sr:Dikalcijum citrat
+sv:Dikalciumcitrat
+wikidata:en:Q482501
+
+<en:calcium citrates
+en:Tricalcium citrate, calcium citrate, E333iii, E-333iii, E 333iii
+ar:سترات الكالسيوم
+# azb:کلسیوم سیترات
+bg:Трикалциев цитрат
+cs:Citrát vápenatý
+da:Tricalciumcitrat
+de:Tricalciumcitrat, Calciumcitrat
+el:Κιτρικο ασβεστιο
+es:citrato tricálcico, Citrato de calcio
+et:Kaltsiumtsitraat
+fa:کلسیم سیترات
+fi:Trikalsiumsitraatti, Citrato de calcio
+fr:citrate tricalcique
+hu:Trikalcium-citrát, Kalcium-citrát
+it:citrato tricalcico, Citrato di calcio
+lt:Trikalcio citratas
+lv:Trikalcija citrāts
+mt:Ċitrat trikalċiku
+nl:tricalciumcitraat, Calcium citrate
+pl:Cytrynian triwapniowy, cytrynian wapnia
+pt:Citrato tricálcico, citrato de cálcio
+ro:Citrat tricalcic
+ru:Цитрат кальция
+sh:Kalcijum citrat
+sk:Citran trivápenatý
+sl:Trikalcijev citrat
+sr:Kalcijum citrat
+sv:Trikalciumcitrat
+zh:柠檬酸钙
+wikidata:en:Q420280
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_citrate
+# mineral/calcium-citrate has 630 products @2019-04-24
+# ingredient/fr:citrate-tricalcique has 107 products in 6 languages @2019-04-24
+# usage:de:Säureregulator:Tricalciumcitrat
 
 
 # Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogenizing liquid mixtures, and repelling sticking materials.
@@ -55870,7 +55967,7 @@ fr:extrait de bœuf, extrait de boeuf
 
 fr:fer élémentaire
 
-fr:citrate tricalcique
+
 
 
 
@@ -55964,8 +56061,6 @@ fr:e325
 fr:e326
 
 fr:e327
-
-fr:e333
 
 fr:e392
 
