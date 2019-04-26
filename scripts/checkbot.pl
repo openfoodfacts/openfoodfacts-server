@@ -5,7 +5,7 @@
 # Product Opener
 # Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Foss�s, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -19,6 +19,9 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+# See: https://en.wiki.openfoodfacts.org/Verification/Bots#Checkbot
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -96,6 +99,8 @@ if (not defined $channel) {
 
 my $sendings = 0; # Number of alerts sent by the bot
 
+
+
 sub send_msg($) {
 
 	# Don't send and exit if the number of alerts sent equal the maximum allowed
@@ -132,6 +137,8 @@ sub send_msg($) {
 
 }
 
+
+
 my $query = {};
 
 # If --country is specified, build the query with the country
@@ -154,60 +161,61 @@ if ($product_order eq "random") {
 	$cursor = get_products_collection()->aggregate($aggregate_parameters);
 }
 
-	while (my $product_ref = $cursor->next) {
+
+while (my $product_ref = $cursor->next) {
 
 
-		my $code = $product_ref->{code};
-		my $path = product_path($code);
+	my $code = $product_ref->{code};
+	my $path = product_path($code);
 
-		print STDERR "updating product $code\n";
+	print STDERR "updating product $code\n";
 
-		$product_ref = retrieve_product($code);
+	$product_ref = retrieve_product($code);
 
-		if (not defined $product_ref) {
-			print "product code $code not found\n";
-		}
-		else {
+	if (not defined $product_ref) {
+		print "product code $code not found\n";
+	}
+	else {
 
-			if (defined $product_ref->{nutriments}) {
+		if (defined $product_ref->{nutriments}) {
 
-				next if has_tag($product_ref, "labels", "fr:informations-nutritionnelles-incorrectes");
-				next if has_tag($product_ref, "labels", "en:incorrect-nutrition-facts-on-label");
+			next if has_tag($product_ref, "labels", "fr:informations-nutritionnelles-incorrectes");
+			next if has_tag($product_ref, "labels", "en:incorrect-nutrition-facts-on-label");
 
-				my $name = get_fileid($product_ref->{product_name});
-				my $brands = get_fileid($product_ref->{brands});
+			my $name = get_fileid($product_ref->{product_name});
+			my $brands = get_fileid($product_ref->{brands});
 
-				foreach my $nid (keys %{$product_ref->{nutriments}}) {
-					next if $nid =~ /_/;
+			foreach my $nid (keys %{$product_ref->{nutriments}}) {
+				next if $nid =~ /_/;
 
-					if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
+				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
 
-						my $msg = "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : *$nid* = "
-						. $product_ref->{nutriments}{$nid . "_100g"} . "g / 100g";
+					my $msg = "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : *$nid* = "
+					. $product_ref->{nutriments}{$nid . "_100g"} . "g / 100g";
 
-						print "$code : " . $msg . "\n";
+					print "$code : " . $msg . "\n";
 
-						send_msg($msg);
+					send_msg($msg);
 
-					}
-				}
-
-				# Control that require computation and not just comparison
-				if (defined $product_ref->{nutriments}{"carbohydrates_100g"}) {
-					my $sugars = $product_ref->{nutriments}{"sugars_100g"} // 0;
-					my $starch = $product_ref->{nutriments}{"starch_100g"} // 0;
-					if ($sugars + $starch > $product_ref->{nutriments}{"carbohydrates_100g"} + 0.001) {
-
-						my $msg = "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : sugars (" . $sugars  . ") + starch (" .  $starch . ") > carbohydrates (" . $product_ref->{nutriments}{"carbohydrates_100g"}  . ")";
-
-						print "$code : " . $msg . "\n";
-
-						send_msg($msg);
-					}
 				}
 			}
 
+			# Control that require computation and not just comparison
+			if (defined $product_ref->{nutriments}{"carbohydrates_100g"}) {
+				my $sugars = $product_ref->{nutriments}{"sugars_100g"} // 0;
+				my $starch = $product_ref->{nutriments}{"starch_100g"} // 0;
+				if ($sugars + $starch > $product_ref->{nutriments}{"carbohydrates_100g"} + 0.001) {
+
+					my $msg = "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : sugars (" . $sugars  . ") + starch (" .  $starch . ") > carbohydrates (" . $product_ref->{nutriments}{"carbohydrates_100g"}  . ")";
+
+					print "$code : " . $msg . "\n";
+
+					send_msg($msg);
+				}
+			}
 		}
+
 	}
+}
 
 exit(0);
