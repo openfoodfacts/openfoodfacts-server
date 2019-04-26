@@ -101,7 +101,7 @@ my $last_imgid = undef;
 
 my $current_product_ref = undef;
 
-my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries misc data_sources );
 
 
 
