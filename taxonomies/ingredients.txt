@@ -19239,7 +19239,7 @@ nl:chocoladelikeur
 
 # Amaretto (Italian for "a little bitter") is a sweet Italian liqueur that originated in Saronno, Italy.
 
-en:liqueur
+<en:liqueur
 en:amaretto
 be:Амарэта
 bg:Амарето
@@ -19440,7 +19440,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kirsch
 
 # PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
 
-<en:alcohol
+<en:liqueur wine
 en:port, port wine
 an:Vin de Porto
 ar:نبيذ بورت
@@ -19895,14 +19895,14 @@ zh:索泰爾納
 # zh-cn:索泰尔纳白葡萄酒
 # zh-hans:索泰尔纳白葡萄酒
 # zh-hant:索泰爾納白葡萄酒
-wikidat:en:Q771636
+wikidata:en:Q771636
 wikipedia:en:https://en.wikipedia.org/wiki/Sauternes_(wine)
 # ingredient/fr:sauternes has 74 products in 4 languages @2019-02-14
 
 
 # MARSALA is a wine, dry or sweet, produced in the region surrounding the Italian city of Marsala in Sicily.
 
-<en:wine
+<en:liqueur wine
 en:Marsala wine
 ar:نبيذ مارسالا
 be:Марсала
@@ -19986,6 +19986,108 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rosé
 <en:wine
 fr:vin aromatisé
 # fr:vin-aromatisé has 67 products in 2 languages @2018-10-29
+
+
+# description:en:Fortified wine is a wine to which a distilled spirit, usually brandy, is added. Many different styles of fortified wine have been developed, including Port, Sherry, Madeira, Marsala, Commandaria wine, and the aromatised wine Vermouth.
+
+<en:wine
+en:liqueur wine, fortified wine
+be:Мацаванае віно
+# be-tarask:мацаванае віно
+bg:Ликьорно вино
+ca:vi generós
+cv:Мистель
+da:Hedvin
+de:Likörwein
+# en-ca:fortified wine
+# en-gb:fortified wine
+eo:fortigita vino
+es:vino fortificado
+fa:شراب تقویت شده
+fi:Väkevä viini
+fo:Heitvín
+fr:vin de liqueur
+gl:Viño xeneroso
+he:יין מחוזק
+hr:Desertno vino
+hu:likőrbor
+is:Styrkt vín
+it:vino liquoroso
+ja:酒精強化ワイン
+kk:Күшейтілген шараптар
+ko:강화 포도주
+la:Mixtella
+lt:Spirituotas vynas
+mk:зајакнато вино
+nb:Sterkvin
+nl:likeurwijn, versterkte wijn
+nn:Sterkvin
+pl:Wino wzmacniane
+pt:vinho fortificado
+# pt-br:Vinho fortificado
+ro:Vin fortificat
+ru:Креплёное вино
+sh:Desertno vino
+sv:Starkvin
+uk:Вина кріплені
+zh:加强葡萄酒
+# zh-hans:加强葡萄酒
+# zh-hant:加強葡萄酒
+# zh-hk:加強葡萄酒
+wikidata:en:Q722338
+wikipedia:en:https://en.wikipedia.org/wiki/Fortified_wine
+# ingredient/fr:vin%20de%20liqueur has 18 products in 4 languages @2109-04-26
+
+# description:en:MADEIRA is a fortified wine made on the Portuguese Madeira Islands, off the coast of Africa. Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert.
+
+<en:liqueur wine
+en:Madeira
+an:Vin de Madeira
+be:Мадэра
+bg:Мадейра
+ca:Vi de Madeira
+cs:Madeira
+cv:Мадера
+da:Madeira
+de:Madeira
+# de-ch:Madeira
+el:Οίνος της Μαδέρας
+# en-ca:Madeira wine
+# en-gb:Madeira wine
+eo:Madejra vino
+es:Madeira
+et:Madeira
+eu:Madeira
+fi:Madeira
+fo:Madeiravín
+fr:madère
+# frr:Madeira
+gl:Viño da Madeira
+he:יין מאדירה
+hu:Madeira
+is:Madeiravín
+it:Madeira
+ja:マデイラ・ワイン
+ka:მადერა
+kk:Мадера
+ko:마데이라 포도주
+nb:Madeira
+nl:Madeira
+pl:Madera
+pt:Vinho da Madeira
+# pt-br:Vinho da Madeira
+ro:Vin de Madeira
+ru:Мадера
+sv:Madeiravin
+tr:Madeira şarabı
+uk:Мадера
+uz:Madera
+# yue:孖爹剌
+zh:马德拉酒
+wikidata:en:Q27697
+wikipedia:en:https://en.wikipedia.org/wiki/Madeira_wine
+# ingredient/fr:madère has 120 products in 4 languages @2019-04-26
+# usage:en:liqueur wine (Madeira)
 
 <en:alcohol
 fr:brandy
@@ -48787,7 +48889,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/European_pilchard
 <en:sardine
 en:Sardina pilchardus
 la:Sardina pilchardus
-# Sardines (Sardina pilchardus)
+# usage:fr:Sardines (Sardina pilchardus)
 
 
 <en:sardine
@@ -48799,7 +48901,7 @@ fr:sardines sélectionnées
 # ingredient/fr:sardines-sélectionnées has 16 products @2019-02-03
 
 
-# Scorpaenidae (also known as the scorpionfish) are a family of mostly marine fish that includes many of the world's most venomous species.
+# description:en:Scorpaenidae (also known as the SCORPIONFISH) are a family of mostly marine fish that includes many of the world's most venomous species.
 
 <en:fish
 en:scorpion fish
@@ -56571,9 +56673,9 @@ fr:bisulfite de sodium
 
 
 
-fr:madère
 
-fr:sardina pilchardus
+
+
 
 
 
