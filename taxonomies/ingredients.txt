@@ -43689,6 +43689,102 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filipendula_ulmaria
 # fr:reine-des-prés has 37 products in 1 language @2018-10-15
 
 
+
+
+# The olive, known by the botanical name Olea europaea, is a species of small tree in the family Oleaceae
+
+en:olives, olive
+# aeb-arab:كعبة زيتون
+ar:الزيتون
+# ast:Aceituna
+bo:རྒྱ་ཨར།
+ca:oliva
+cs:oliva
+de:Oliven, Olive
+# en-gb:olive
+eo:olivo
+es:aceituna
+et:Oliiv
+eu:Oliba
+# ext:Azituna
+fr:olives, olive
+gl:Oliva
+gn:Tarumaite'a
+he:זית
+hu:olajbogyó
+ia:Oliva
+it:olive, oliva
+ja:オリーブ
+# kab:Azemmur
+ln:Olive
+mk:маслинка
+mt:żebbuġa
+# nah:Chiyāhualōtl
+# nap:Auliva
+nl:olijven, olijf
+nn:oliven
+oc:Oliva
+pt:axeitonas, azeitona
+qu:Asitunas
+ru:маслины, оливка
+# rue:Олива
+# scn:Aliva
+sk:Oliva
+sv:Oliv
+th:นํ้า
+tt:зәйтүн
+# tt-cyrl:зәйтүн
+zh:阿塞图纳
+# zh-hans:阿塞图纳
+# zh-hant:阿塞图纳
+# zh-hk:阿塞圖納
+wikipedia:en:https://en.wikipedia.org/wiki/Olive
+# ingredient/olive has 2637 products in 9 languages @2018-12-01
+
+<en:olive
+en:black olive
+de:schwarze Oliven
+es:aceituna negra
+fr:olives noires, olive noire
+it:olive nere
+nl:zwarte olijven, zwarte olijf
+pt:azeitonas pretas
+wikidata:en:Q56475549
+# ingredient/black-olive has 872 products in 7 languages @2018-12-01
+
+<en:olive
+en:green olives
+de:Grüne Oliven
+es:olivas verdes
+fr:olive verte, olives vertes
+it:olive verdi
+nl:groene olijven
+wikidata:en:Q26879770
+# ingredient/fr:olive-verte has 577 products in 6 languages @2018-12-01
+
+<en:green olives
+fr:olives vertes dénoyautées
+de:Grüne Oliven eintsteint
+nl:ontpitte groene olijven
+# ingredient/fr:olives-vertes-dénoyautées has 129 products in 4 languages @2018-12-01
+
+<fr:olive verte
+<en:black olive
+en:green and black olives
+de:grüne und schwarze Oliven
+fr:olives vertes et noires
+# ingredient/fr:olives-vertes-et-noires has 22 products in 3 languages @2018-12-01
+
+<en:black olive
+fr:olives noires avec noyau
+# ingredient/fr:olives-noires-avec-noyau has 58 products in french @2018-12-01
+
+<en:black olive
+en:olive paté
+de:Olivenpastete
+fr:pâte d'olives
+
+
 # <en:plant
 en:orange leaves
 de:Orangenblätter
@@ -43706,7 +43802,81 @@ nl:weegbree
 # fibres végétales (chicorée, pomme de terre, pois, riz, plantain, psyllium)
 
 
-# Plantago lanceolata is a species of flowering plant in the plantain family Plantaginaceae. 
+
+# description:en:Quinine was first isolated in 1820 from the bark of a cinchona tree. Quinine is a flavor component of tonic water and bitter lemon drink mixers.
+
+en:quinine
+ar:كينين
+be:Хінін
+bg:Хинин
+bn:কুইনিন
+bs:Kinin
+ca:quinina
+cs:chinin
+cy:cwinin
+da:kinin
+de:Chinin
+el:Κινίνη
+eo:Kinino
+es:quinina
+et:Kiniin
+eu:Kinina
+fa:کینین
+fi:Kiniini
+fr:quinine
+ga:Cuinín
+gl:Quinina
+he:כינין
+hi:कुनैन
+hr:Kinin
+hu:Kinin
+hy:Քինին
+id:Kuinina
+io:Quinino
+it:chinino
+ja:キニーネ
+ko:퀴닌
+la:Quinina
+ln:Kiníni
+lv:hinīns
+mk:Кинин
+my:ကွီနိုင်
+nb:kinin
+nl:kinine
+nn:kinin
+oc:Quinina
+or:କୁଇନାଇନ୍
+pl:chinina
+pt:quinina
+ro:Chinină
+ru:хинин
+# sco:quinine
+sh:Kinin
+sk:Chinín
+sl:Kinin
+sr:Kinin
+# sr-el:Kinin
+sv:kinin
+sw:Kwinini
+tr:Kinin
+uk:Хінін
+vi:Quinine
+# wuu:金雞納霜
+# yue:金雞納霜
+zh:奎寧
+# zh-cn:奎宁
+# zh-hans:奎宁
+# zh-hant:奎寧
+# zh-hk:奎寧
+# zh-sg:奎宁
+# zh-tw:奎寧
+wikidata:en:Q189522
+wikipedia:en:https://en.wikipedia.org/wiki/Quinine
+# ingredient/fr:quinine has 111 products in 5 languages @2019-04-26
+# usage:en:flavourings (contains quinine)
+
+
+# description:en:Plantago lanceolata is a species of flowering plant in the plantain family Plantaginaceae. 
 
 <fr:plantain
 en:ribwort plantain
@@ -44192,99 +44362,6 @@ wikidata:en:Q26949
 wikipedia:en:https://en.wikipedia.org/wiki/Helianthus
 # en:sunflower has 16610 products @2018-10-15
 
-
-# The olive, known by the botanical name Olea europaea, is a species of small tree in the family Oleaceae
-
-en:olives, olive
-# aeb-arab:كعبة زيتون
-ar:الزيتون
-# ast:Aceituna
-bo:རྒྱ་ཨར།
-ca:oliva
-cs:oliva
-de:Oliven, Olive
-# en-gb:olive
-eo:olivo
-es:aceituna
-et:Oliiv
-eu:Oliba
-# ext:Azituna
-fr:olives, olive
-gl:Oliva
-gn:Tarumaite'a
-he:זית
-hu:olajbogyó
-ia:Oliva
-it:olive, oliva
-ja:オリーブ
-# kab:Azemmur
-ln:Olive
-mk:маслинка
-mt:żebbuġa
-# nah:Chiyāhualōtl
-# nap:Auliva
-nl:olijven, olijf
-nn:oliven
-oc:Oliva
-pt:axeitonas, azeitona
-qu:Asitunas
-ru:маслины, оливка
-# rue:Олива
-# scn:Aliva
-sk:Oliva
-sv:Oliv
-th:นํ้า
-tt:зәйтүн
-# tt-cyrl:зәйтүн
-zh:阿塞图纳
-# zh-hans:阿塞图纳
-# zh-hant:阿塞图纳
-# zh-hk:阿塞圖納
-wikipedia:en:https://en.wikipedia.org/wiki/Olive
-# ingredient/olive has 2637 products in 9 languages @2018-12-01
-
-<en:olive
-en:black olive
-de:schwarze Oliven
-es:aceituna negra
-fr:olives noires, olive noire
-it:olive nere
-nl:zwarte olijven, zwarte olijf
-pt:azeitonas pretas
-wikidata:en:Q56475549
-# ingredient/black-olive has 872 products in 7 languages @2018-12-01
-
-<en:olive
-en:green olives
-de:Grüne Oliven
-es:olivas verdes
-fr:olive verte, olives vertes
-it:olive verdi
-nl:groene olijven
-wikidata:en:Q26879770
-# ingredient/fr:olive-verte has 577 products in 6 languages @2018-12-01
-
-<en:green olives
-fr:olives vertes dénoyautées
-de:Grüne Oliven eintsteint
-nl:ontpitte groene olijven
-# ingredient/fr:olives-vertes-dénoyautées has 129 products in 4 languages @2018-12-01
-
-<fr:olive verte
-<en:black olive
-en:green and black olives
-de:grüne und schwarze Oliven
-fr:olives vertes et noires
-# ingredient/fr:olives-vertes-et-noires has 22 products in 3 languages @2018-12-01
-
-<en:black olive
-fr:olives noires avec noyau
-# ingredient/fr:olives-noires-avec-noyau has 58 products in french @2018-12-01
-
-<en:black olive
-en:olive paté
-de:Olivenpastete
-fr:pâte d'olives
 
 
 # description:en:TEA is an aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub (bush) native to East Asia. After water, it is the most widely consumed drink in the world. There are many different types of tea; some, like Darjeeling and Chinese greens, have a cooling, slightly bitter, and astringent flavour, while others have vastly different profiles that include sweet, nutty, floral or grassy notes.
@@ -56498,7 +56575,7 @@ fr:madère
 
 fr:sardina pilchardus
 
-fr:quinine
+
 
 
 
