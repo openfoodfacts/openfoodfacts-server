@@ -1154,7 +1154,7 @@ wikidata:en:Q11735907
 # ingredient/fr:caramel-ammoniacal has 123 products in 6 languages @2019-03-09
 
 <en:caramel
-en:sulphite ammonia caramel, E150d, E-150d E 150d
+en:sulphite ammonia caramel, E150d, E-150d E 150d, INS150d, INS 150d
 bg:Карамел амониев сулфит
 cs:Amoniak-sulfitový karamel
 da:Ammonieret sulfiteret karamel
@@ -1969,7 +1969,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_sorbate
 # Sodium benzoate is a substance which has the chemical formula NaC7H5O2. It is a widely used food preservative, with an E number of E211.
 
 # <en:preservative
-en:Sodium benzoate, E211, E 211, E-211
+en:Sodium benzoate, E211, E 211, E-211, INS211, INS 211
 ar:بنزوات الصوديوم
 # azb:سودیوم بنزوئیک اسید
 bg:Натриев бензоат
@@ -2764,7 +2764,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_propionate
 # products seems to use all kinds of synonyms. Also wikidata is not consistent. Try to stay close to the chemical name:Carbon dioxide.
 
 # <en:propellant
-en:carbon dioxide, carbonic acid, E290, E-290, E 290
+en:carbon dioxide, carbonic acid, E290, E-290, E 290, INS290, INS 290
 af:Koolstofdioksied
 am:ካርቦን ክልቶኦክሳይድ
 an:Dioxido de carbonio
@@ -3584,7 +3584,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
 
 # nova:en:lecithin
 <en:lecithin
-en:soya lecithin, soy lecithin
+en:soya lecithin, soy lecithin, sin 322
 cs:sójový lecitin
 da:sojalecitin
 de:Sojalecithine, Sojalecithin
@@ -3935,7 +3935,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Agar
 
 # <en:gelling agent
 # <en:stabiliser
-en:carrageenan, E407, e 407, e-407
+en:carrageenan, E407, e 407, e-407, INS 407
 bg:Карагенан
 ca:carragenina
 cs:Karagen
@@ -4583,7 +4583,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_stearate
 
 #   MONO- AND DIGLYCERIDES OF FATTY ACIDS   (E471) refers to a food additive composed of diglycerides and monoglycerides which is used as an emulsifier.
 
-en:mono- and diglycerides of fatty acids, E471, E 471, E-471
+en:mono- and diglycerides of fatty acids, E471, E 471, E-471, INS 471, INS471
 ar:أحادي وثنائي الجليسريدات للأحماض الدهنية
 bg:Моно- и диглицериди на мастни киселини
 cs:Mono- a diglyceridy mastných kyselin
@@ -26197,7 +26197,7 @@ fr:levain de seigle déshydraté et dévitalisé
 
 en:phosphoric acid
 # azb:فوسفوریک اسید
-# ast:Ácidu fosfórico, E338, E 338, E-338
+# ast:Ácidu fosfórico, E338, E 338, E-338, INS338, INS 338
 bg:Фосфорна киселина, Ортофосфорна киселина, E338, E 338, E-338
 bn:ফসফরিক এসিড, E338, E 338, E-338
 bs:Fosfatna kiselina, E338, E 338, E-338
@@ -26861,7 +26861,7 @@ wikidata:en:Q9189390
 
 #   GUM ARABIC  , also known as acacia gum, arabic gum, gum acacia, acacia, Senegal gum and Indian gum
 
-en:gum arabic, Acacia gum, E414, E-414, E 414
+en:gum arabic, Acacia gum, E414, E-414, E 414, INS414, INS 414
 ar:صمغ عربي
 # azb:آغ ساققیز
 be:Гуміарабік
@@ -53904,7 +53904,157 @@ ro:fibre de mazare
 # <en:part
 # en:animal part
 
-# Collagen is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
+
+# description:en:A bone is a rigid organ that constitutes part of the vertebrate skeleton. Broth is made by simmering several ingredients for a long time, traditionally including bones.
+
+# <en:animal part
+en:bone
+# aeb-arab:عظمة
+# aeb-latn:3a4ma
+af:Been
+am:አጥንት
+# ang:Bān
+ar:عظم
+# arz:ܓܪܡܐ
+as:অস্থি বা হাড়
+# ast:Güesu
+ay:Ch'aka
+az:Sümük
+# bar:Boan
+be:косць
+# be-tarask:косьць
+bg:Кост
+bn:হাড়
+br:Askorn
+bs:Kost
+ca:os
+# cdo:Gáuk-gáuk
+# ckb:ئێسک
+co:Ossu
+cs:kost
+cv:Шăмă
+cy:Asgwrn
+da:Knogle
+de:Knochen
+# diq:Este
+el:Οστό
+eo:osto
+es:hueso
+et:luu
+eu:hezur
+fa:استخوان
+fi:luu
+fo:bein
+fr:os
+fy:Bonke
+ga:Cnámh
+gd:Cnàmh
+gl:Óso
+gn:Kangue
+# gor:Tulalo
+# gsw:Knochen
+# hak:Kut-kak
+he:עצם
+hi:अस्थि
+hr:Kost
+ht:Zo
+hu:csont
+hy:Ոսկոր
+# hyw:Ոսկոր
+ia:Osso
+id:Tulang
+io:Osto
+is:Bein
+it:osso
+ja:骨
+jv:Balung
+ka:ძვალი
+# kab:Iɣess
+# kbp:Mɔɔyɛ
+kk:Қарға сүйек
+kn:ಮೂಳೆ
+ko:뼈
+ku:Hestî
+la:os
+# lad:Gueso
+# lbe:ТтаркI
+# lfn:Oso
+li:Knaok
+# lmo:Òs
+ln:Mokúwa
+lt:Kaulas
+lv:Kauls
+# map-bms:Balung
+# mhr:Лу
+mk:коска
+ml:അസ്ഥി
+mn:Яс
+mr:अस्थि
+ms:Tulang
+my:အရိုး
+# mzn:استکا
+# nah:Omitl
+# nan:Kut
+# new:क्वँय्
+nl:bot
+nn:bein
+oc:òs
+or:ହାଡ଼
+pa:ਹੱਡੀ
+# pag:Pokel
+pl:kość
+# pnb:ہڈی
+pt:osso
+# pt-br:osso
+qu:Tullu
+ro:Os
+ru:кость
+# rup:Osu
+sa:अस्थि
+# sat:ᱡᱟᱝ
+# scn:Ossu
+# sco:bane
+sh:Kosti
+sk:Kosť
+sl:Kost
+so:Laf
+sq:Eshtrat
+sr:кост
+# sr-ec:кост
+su:Tulang
+sv:Ben
+sw:Mfupa
+ta:எலும்பு
+te:ఎముక
+tg:Устухон
+th:กระดูก
+tl:Buto
+tn:Lerapo
+tr:Kemik doku
+tt:сөяк
+# tt-cyrl:сөяк
+uk:кістка
+ur:ہڈی
+uz:Suyak
+vi:xương
+vo:Bom
+wa:Oxhea
+# war:Bukog
+# wuu:骨骼
+# xmf:ყვილი
+yo:Egungun
+# yue:骨
+za:Ndok
+zh:骨骼
+# zh-cn:骨骼
+# zh-hans:骨组织
+# zh-hant:骨組織
+wikidata:Q265868
+wikipedia:en:https://en.wikipedia.org/wiki/Bone
+# ingredient/fr:os has 593 products in french @2019-04-25
+# usage:fr:bouillon (eau, os, viande de porc, oignon, poivre, ail, muscade, thym, laurier, clou de girofle)
+
+# description:en:Collagen is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
 
 # <en:animal part
 en:collagen
@@ -56348,10 +56498,10 @@ fr:quinine
 
 fr:fibres de pois
 
-fr:os
 
 
-fr:sucroesters d'acides gras
+
+
 
 
 
@@ -56406,7 +56556,7 @@ fr:e110
 
 fr:e1105
 
-fr:e122
+en:e122, INS122, INS 122
 
 fr:e124
 
