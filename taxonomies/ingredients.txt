@@ -19438,86 +19438,6 @@ wikidata:en:Q279034
 wikipedia:en:https://en.wikipedia.org/wiki/Kirsch
 # ingredient/fr:kirsch has 184 products in 5 languages @2018-12-29
 
-# PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
-
-<en:liqueur wine
-en:port, port wine
-an:Vin de Porto
-ar:نبيذ بورت
-az:Portveyn
-be:Партвейн
-bg:Порто
-ca:Vi de Porto
-cs:Portské víno
-cv:Портвейн
-da:Portvin
-de:Portwein
-# de-ch:Portwein
-el:Πόρτο
-# en-ca:Port wine
-# en-gb:Port wine
-eo:Oporto
-es:Oporto
-eu:Porto
-fa:شراب پورت
-fi:Portviini
-fo:Portvín
-fr:porto
-fy:Port
-ga:Pórt
-gl:Viño do Porto
-he:פורט
-hr:Vinho do Porto
-hu:Portói bor
-is:Púrtvín
-it:Porto
-ja:ポートワイン
-ka:პორტვაინი
-ko:포르투 포도주
-li:Port
-lt:Portveinas
-lv:Portvīns
-mk:Порто
-nb:Portvin
-nl:port
-nn:Portvin
-oc:Porto
-pl:Porto
-pt:Vinho do Porto
-# pt-br:Vinho do Porto
-ro:Vin de Porto
-ru:Портвейн
-# sah:Портвейн
-sh:Porto
-sk:Portské víno
-sv:Portvin
-tr:Porto şarabı
-uk:Портвейн
-vi:Rượu vang Port
-# yue:砵酒
-zh:波特酒
-# zh-cn:波特酒
-# zh-hans:波特酒
-# zh-hant:波特酒
-# zh-hk:波特酒
-# zh-sg:波特酒
-# zh-tw:波特酒
-wikidata:en:Q191034
-wikipedia:en:https://en.wikipedia.org/wiki/Port_wine
-# fr:porto has 411 products in 5 languages @2018-10-28
-
-<en:port
-en:red port
-fr:porto rouge
-nl:rode port
-wikidata:en:Q26879196
-# fr:port-rouge has 72 products in 2 languages @2018-10-29
-
-# en:modified-red-port is a compound ingredient, i.e.:modified red port (port, salt, preservatives (sulphur dioxide, potassium acid disulphite))
-<en:red port
-en:modified red port
-fr:porto rouge modifié
-
 
 # TEQUILA is a regional distilled beverage and type of alcoholic drink made from the blue agave plant, primarily in the area surrounding the city of Tequila
 
@@ -19900,43 +19820,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sauternes_(wine)
 # ingredient/fr:sauternes has 74 products in 4 languages @2019-02-14
 
 
-# MARSALA is a wine, dry or sweet, produced in the region surrounding the Italian city of Marsala in Sicily.
-
-<en:liqueur wine
-en:Marsala wine
-ar:نبيذ مارسالا
-be:Марсала
-# be-tarask:Марсала
-bg:Марсала
-da:Marsala
-de:Marsala
-es:Marsala
-fi:Marsala
-fo:Marsalavínfi:Marsala
-fr:vin marsala
-hr:Marsala
-hr:Marsala
-id:Anggur Marsala
-ja:強化ワイン
-lt:Marsala
-nb:Marsala
-nl:Marsala
-pl:Marsala
-pt:Vinho Marsala
-ro:Vin de Marsala
-ru:Марсала
-# scn:Marsala
-sh:Marsala
-sv:Marsalavin
-uk:Марсала
-zh:玛萨拉酒
-# zh-hans:玛萨拉酒
-# zh-hant:瑪薩拉酒
-# zh-hk:瑪薩拉酒
-wikidata:en:Q842052
-wikipedia:en:https://en.wikipedia.org/wiki/Marsala_wine
-# fr:vin-marsala has 53 products in 2 languages @2018-10-29
-
 # A ROSÉ is a type of wine that incorporates some of the color from the grape skins, but not enough to qualify it as a red wine.
 
 <en:wine
@@ -20038,6 +19921,7 @@ wikidata:en:Q722338
 wikipedia:en:https://en.wikipedia.org/wiki/Fortified_wine
 # ingredient/fr:vin%20de%20liqueur has 18 products in 4 languages @2109-04-26
 
+
 # description:en:MADEIRA is a fortified wine made on the Portuguese Madeira Islands, off the coast of Africa. Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert.
 
 <en:liqueur wine
@@ -20088,6 +19972,126 @@ wikidata:en:Q27697
 wikipedia:en:https://en.wikipedia.org/wiki/Madeira_wine
 # ingredient/fr:madère has 120 products in 4 languages @2019-04-26
 # usage:en:liqueur wine (Madeira)
+
+
+# description:en:MARSALA is a wine, dry or sweet, produced in the region surrounding the Italian city of Marsala in Sicily.
+
+<en:liqueur wine
+en:Marsala wine
+ar:نبيذ مارسالا
+be:Марсала
+# be-tarask:Марсала
+bg:Марсала
+da:Marsala
+de:Marsala
+es:Marsala
+fi:Marsala
+fo:Marsalavínfi:Marsala
+fr:vin marsala
+hr:Marsala
+hr:Marsala
+id:Anggur Marsala
+ja:強化ワイン
+lt:Marsala
+nb:Marsala
+nl:Marsala
+pl:Marsala
+pt:Vinho Marsala
+ro:Vin de Marsala
+ru:Марсала
+# scn:Marsala
+sh:Marsala
+sv:Marsalavin
+uk:Марсала
+zh:玛萨拉酒
+# zh-hans:玛萨拉酒
+# zh-hant:瑪薩拉酒
+# zh-hk:瑪薩拉酒
+wikidata:en:Q842052
+wikipedia:en:https://en.wikipedia.org/wiki/Marsala_wine
+# fr:vin-marsala has 53 products in 2 languages @2018-10-29
+
+
+# description:en:PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
+
+<en:liqueur wine
+en:port, port wine
+an:Vin de Porto
+ar:نبيذ بورت
+az:Portveyn
+be:Партвейн
+bg:Порто
+ca:Vi de Porto
+cs:Portské víno
+cv:Портвейн
+da:Portvin
+de:Portwein
+# de-ch:Portwein
+el:Πόρτο
+# en-ca:Port wine
+# en-gb:Port wine
+eo:Oporto
+es:Oporto
+eu:Porto
+fa:شراب پورت
+fi:Portviini
+fo:Portvín
+fr:porto
+fy:Port
+ga:Pórt
+gl:Viño do Porto
+he:פורט
+hr:Vinho do Porto
+hu:Portói bor
+is:Púrtvín
+it:Porto
+ja:ポートワイン
+ka:პორტვაინი
+ko:포르투 포도주
+li:Port
+lt:Portveinas
+lv:Portvīns
+mk:Порто
+nb:Portvin
+nl:port
+nn:Portvin
+oc:Porto
+pl:Porto
+pt:Vinho do Porto
+# pt-br:Vinho do Porto
+ro:Vin de Porto
+ru:Портвейн
+# sah:Портвейн
+sh:Porto
+sk:Portské víno
+sv:Portvin
+tr:Porto şarabı
+uk:Портвейн
+vi:Rượu vang Port
+# yue:砵酒
+zh:波特酒
+# zh-cn:波特酒
+# zh-hans:波特酒
+# zh-hant:波特酒
+# zh-hk:波特酒
+# zh-sg:波特酒
+# zh-tw:波特酒
+wikidata:en:Q191034
+wikipedia:en:https://en.wikipedia.org/wiki/Port_wine
+# fr:porto has 411 products in 5 languages @2018-10-28
+
+<en:port
+en:red port
+fr:porto rouge
+nl:rode port
+wikidata:en:Q26879196
+# fr:port-rouge has 72 products in 2 languages @2018-10-29
+
+# <en:compound ingredient
+<en:red port
+en:modified red port
+fr:porto rouge modifié
+# usage:en:modified red port (port, salt, preservatives (sulphur dioxide, potassium acid disulphite))
 
 <en:alcohol
 fr:brandy
