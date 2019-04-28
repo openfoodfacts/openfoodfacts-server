@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 17:11\n"
+"PO-Revision-Date: 2019-04-28 20:09\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -364,6 +364,14 @@ msgstr "Produkte, die nicht in %s verkauft werden"
 
 msgctxt "data_source"
 msgid "Data source"
+msgstr "Datenquelle"
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr "Datenquellen"
+
+msgctxt "data_sources_s"
+msgid "data source"
 msgstr "Datenquelle"
 
 msgctxt "debug_p"
@@ -2654,6 +2662,10 @@ msgstr "Einige der Daten und Bilder wurden direkt vom Hersteller Fleury Michon z
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Einige der Daten für dieses Produkt wurden direkt vom Hersteller %s bereitgestellt"
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr "Einige der Daten für dieses Produkt wurden in Zusammenarbeit mit %s gesammelt"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
