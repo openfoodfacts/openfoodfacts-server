@@ -25696,7 +25696,7 @@ nl:cacaopoeder
 de:Kakaopulver
 
 
-# Water is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.
+# description:en:Water is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.
 
 en:water
 ab:Аӡы
@@ -26080,11 +26080,161 @@ fr:eau filtrée, eau purifiée
 
 <en:water
 fr:eau de cuisson
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20de%20cuisson
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20de%20cuisson
 # 410 products in 2 languages @2018-09-29
 
+<en:water
 fr:Eau du robinet
 carbon_footprint_fr_foodges_ingredient:fr:Eau du robinet
+# ingredient/fr:Eau%20du%20robinet has 1 product @2019-04-29
+
+# description:en:Ice is water frozen into a solid state.
+# comment:en:We differentiate between ice and icecream. This is not posisible in every language. In french the accent is not respected and it should sometimes be glacé.
+
+<en:water
+en:ice
+# aeb-arab:تلج
+af:Ys
+am:በረዶ
+an:Chelo
+# ang:Īs
+ar:جليد
+# arz:ܓܠܝܕܐ
+ast:Xelu
+ay:Chhullunkhaya
+az:Buz
+# azb:بوز
+be:лёд
+# be-tarask:лёд
+bg:Лед
+# bho:बरफ
+bn:বরফ
+bs:Led
+ca:gel
+# chr:ᎤᏁᏍᏓᎳ
+# chy:Má'ome
+cs:led
+cv:Пăр
+cy:Iâ
+da:is
+de:Eis
+# de-ch:Eis
+# diq:Cemed
+# dty:बरफ
+el:πάγος
+# eml:Giàs
+# en-ca:Ice
+# en-gb:Ice
+eo:glacio
+es:hielo
+et:Jää
+eu:izotz
+fa:یخ
+fi:jää
+fr:glace
+ga:Oighear
+gd:Dèigh
+gl:Xeo
+gn:Yrypy'a
+# gsw:Iis
+ha:Ƙanƙara
+# hak:Pên
+he:קרח
+hi:बर्फ़
+hr:Led
+ht:Glas
+hu:jég
+hy:սառույց
+ia:Glacie
+id:es
+ie:Glacie
+ik:Siku
+io:glacio
+is:Ís
+it:ghiaccio
+ja:氷
+jv:Ès
+ka:ყინული
+kk:Мұз
+ko:얼음
+ky:Муз
+la:glacies
+li:Ies
+# lmo:Giazz
+ln:Galási
+lt:Ledas
+lv:ledus
+# mdf:Эй
+mg:Ranomandry
+mk:Мраз
+ml:ഐസ്
+mn:Мөс
+mr:बर्फ
+ms:Ais
+my:ရေခဲ
+# myv:Эй
+# nah:Cetl
+# nan:Peng
+nb:is
+# nds:Ies
+ne:बरफ
+nl:ijs
+nn:is
+# nrm:Gllèche
+nv:Tin
+oc:Glaç
+or:ବରଫ
+pa:ਬਰਫ਼
+# pdc:Eis
+# pih:Ise
+pl:lód
+pt:gelo
+# pt-br:gelo
+qu:Chullunku
+ro:Gheață
+ru:лёд
+# sah:Муус
+# scn:ghiacciu
+# sco:ice
+sd:برف
+# sgs:Leds
+sh:Led
+sk:ľad
+sl:Led
+so:Baraf
+sq:Akulli
+sr:лед
+# sr-ec:лед
+su:És
+sv:is
+sw:Barafu
+ta:பனி
+te:మంచు
+tg:Ях
+th:น้ำแข็ง
+tl:Yelo
+tr:Buz
+tt:боз
+# tt-cyrl:боз
+uk:лід
+ur:برف
+uz:Muz
+# vec:Giaso
+# vep:Jä
+vi:Băng
+wa:Glaece
+# war:Hielo
+# wuu:冰
+yi
+# yue:冰
+zh:冰
+# zh-cn:冰
+# zh-hk:冰
+# zh-tw:冰
+zu:Iqhwa
+wikidata:en:Q23392
+wikipedia:en:https://en.wikipedia.org/wiki/Ice
+# ingredient/fr:glace has 145 products in 6 languages @2019-04-27
 
 # Acides
 
@@ -57078,7 +57228,7 @@ fr:fruit à pain
 nl:broodvrucht
 de:Brotfrucht
 
-fr:glace
+
 
 fr:glace à la vanille
 carbon_footprint_fr_foodges_ingredient:fr:Glace à la vanille
