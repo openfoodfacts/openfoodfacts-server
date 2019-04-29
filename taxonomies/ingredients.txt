@@ -5418,6 +5418,35 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_chloride
 # ingredient/fr:chlorure-d’ammonium has 34 products in 3 languages @2019-02-10
 # additive/e510-ammonium-chloride has 133 products @2019-02-10
 
+# comment:en:magnesium chloride is listed under en:magnesium
+
+# description:en:E511 - Magnesium chloride is the name for the chemical compound with the formula MgCl2 and its various hydrates MgCl2(H2O)x. Magnesium chloride is an important coagulant used in the preparation of tofu from soy milk. In Japan it is sold as nigari (にがり, derived from the Japanese word for "bitter"), a white powder produced from seawater after the sodium chloride has been removed, and the water evaporated. It is also an ingredient in baby formula milk.
+# comment:en:magnesium chloride can be used as an additive and as a mineral. The additive description is therefor kept separate.
+
+<en:magnesium chloride
+en:E511, E-511, E 511, INS511, INS-511, INS 511, SIN511, SIN-511, SIN 511
+
+
+# description:en:Bittern is a bitter-tasting solution that remains after precipitation of halite (common salt) from brines and/or seawater. It is rich in magnesium chlorides, sulfates, bromides, iodides, and other chemicals present in the original waters.
+# comment:en:Nigari is NOT the same as magnesium chloride, as it also contains other salts. It has been kept as a separate ingredient.
+
+<en:E511
+en:nigari, bittern
+de:Nigari
+fr:nigari
+it:nigari
+ja:にがり
+nl:nigari
+pl:Nigari
+pt:Nigari
+zh:卤水
+# zh-hans:卤水
+# zh-hant:鹵水
+wikipedia:en:https://en.wikipedia.org/wiki/Bittern_(salt)
+# ingredient/fr:nigari has 231 products in 5 languages @2019-04-29
+# usafe:en:nigari (magnesium chloride)
+# usage:nl:stremmiddelen:nigari
+
 
 # description:en:POTASSIUM HYDROXIDE is an inorganic compound with the formula KOH. In food products, potassium hydroxide acts as a food thickener, pH control agent and food stabilizer. The FDA considers it (as a direct human food ingredient) as generally safe when combined with "good" manufacturing practice conditions of use.
 
@@ -8568,6 +8597,58 @@ zh:镁
 # zh-hk:鎂
 wikipedia:en:https://en.wikipedia.org/wiki/Magnesium
 # mineral/magnesium has 436 products @2019-04-26
+
+
+# description:en:MAGNESIUM CHLORIDE is the name for the chemical compound with the formula MgCl2 and its various hydrates MgCl2(H2O)x. Magnesium chloride is an important coagulant used in the preparation of tofu from soy milk. In Japan it is sold as nigari (にがり, derived from the Japanese word for "bitter"), a white powder produced from seawater after the sodium chloride has been removed, and the water evaporated. It is also an ingredient in baby formula milk.
+# comment:en:magnesium chloride can be used as an additive and as a mineral. The additive description is therefor kept separate.
+
+<en:magnesium
+en:magnesium chloride
+ar:كلوريد المغنسيوم
+# azb:کولورید منیزیوم
+bg:Магнезиев хлорид
+bs:Magnezij hlorid
+ca:clorur de magnesi
+cs:Chlorid hořečnatý
+da:Magnesiumchlorid
+de:Magnesiumchlorid
+el:Χλωριουχο μαγνησιο
+eo:magnezia klorido
+es:cloruro de magnesio
+et:Magneesiumkloriid
+fa:کلرید منیزیم
+fi:Magnesiumkloridi
+fr:Chlorure de magnésium
+ga:clóiríd mhaignéisiam
+gl:Cloruro de magnesio
+gv:Cloreed vagnaishum
+hi:मैग्नीसियम क्लोराइड
+hu:Magnézium-klorid
+it:cloruro di magnesio
+ja:塩化マグネシウム
+ky:Магний хлориди
+lt:Magnio chloridas
+lv:Magnija hlorīds
+mt:Klorur tal-manjeżju
+nl:Magnesiumchloride
+pl:Chlorek magnezu
+pt:cloreto de magnésio
+# pt-br:cloreto de magnésio
+ro:Clorură de magneziu
+sh:Magnezijum hlorid
+sk:Chlorid horečnatý
+sl:Magnezijev klorid
+sr:магнезијум хлорид
+# sr-ec:магнезијум хлорид
+sv:Magnesiumklorid
+ta:மெக்னீசயம் குளோரைடு
+uk:Хлорид магнію
+vi:Magie clorua
+zh:氯化镁
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_chloride
+# ingredient/magnesium%20chloride has 207 products @2019-04-29
+# mineral/magnesium-chloride has 495 products in 7 languages @2019-04-29
+# usage:es:gelificante:cloruro de magnesio
 
 
 # description:en:MAGNESIUM CITRATE is a magnesium preparation in salt form with citric acid in a 1:1 ratio (1 magnesium atom per citrate molecule). The name "magnesium citrate" is ambiguous and sometimes may refer to other salts such as trimagnesium citrate which has a magnesium:citrate ratio of 3:2. It is also used in the pill form as a magnesium dietary supplement. It contains 11.23% magnesium by weight.  As a food additive, magnesium citrate is used to regulate acidity and is known as E number E345.
@@ -25037,7 +25118,7 @@ pl:dekstroza
 ro:dextroza
 sk:dextróza
 sl:dekstroza
-openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrose
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrose
 # 29818 products in 30 languages @2018-09-24
 
 <en:dextrose
@@ -57404,8 +57485,6 @@ it:salsa al caramello
 
 fr:carotènes
 
-
-fr:nigari, E511
 
 
 
