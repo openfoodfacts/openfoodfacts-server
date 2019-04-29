@@ -1251,7 +1251,7 @@ wikidata:en: Q59557415
 
 # description:en:The term carotene is used for many related unsaturated hydrocarbon substances having the formula C40Hx. Carotenes are responsible for the orange colour of the carrot. Carotene is also used as a substance to colour products such as juice, cakes, desserts, butter and margarine.
 
-en:carotene, E160, E-160, E 160, INS160, INS-160, INS 160, SIN160, SIN-160, SIN 160
+en:carotene, E160a, E-160a, E 160a, INS160a, INS-160a, INS 160a, SIN160a, SIN-160a, SIN 160a
 ar:كاروتين
 be:Карацін
 bg:Каротин
@@ -1312,6 +1312,7 @@ zh:胡蘿蔔素
 wikidata:en:Q190156
 wikipedia:en:https://en.wikipedia.org/wiki/Carotene
 # usage:pl:barwnik:karoteny
+# usage:en:dye (e160a)
 
 # description:en:Carotenoids are yellow, orange, and red organic pigments that are produced by plants and algae, as well as several bacteria and fungi. Carotenoids from the diet are stored in the fatty tissues of animals. There is insufficient evidence to state that carotenoids have an antioxidant function in humans or that carotenoid dietary supplements lower the risk of or prevent diseases.
 # comment:en:Translations mix carotene and carotenoids.
@@ -1378,7 +1379,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carotenoid
 # ingredient/fr:caroténoïde has 2195 products in 12 languages @2019-04-29
 
 <en:carotene
-en:mixed carotenes
+fr:colorant e160a
+
+<en:carotene
+en:mixed carotenes, E160ai, E-160ai, E 160ai, INS160ai, INS-160ai, INS 160ai, SIN160ai, SIN-160ai, SIN 160ai
 de:gemischte Carotine
 fr:carotènes mélangés, caroténoïdes mélangés
 it:caroteni misti
@@ -1387,52 +1391,15 @@ nl:diverse carotenen
 # usage:fr: colorant: carotènes mélangés
 
 
-# description:en:α-Carotene is a form of carotene with a β-ionone ring at one end and an α-ionone ring at the opposite end. It is the second most common form of carotene.
-
-<en:carotene
-en:alpha-carotene, E160a, E-160a, E 160a, INS160a, INS-160a, INS 160a, SIN160a, SIN-160a, SIN 160a
-ar:ألفا-كاروتين
-# azb:آلفا کاروتن
-ca:Alfa-Carotè
-de:Alpha-Carotin
-es:Alfa-caroteno
-eu:Alfa-karoteno
-fa:آلفا کاروتن
-fr:Alphacarotene
-gl:Alfa-caroteno
-hu:Alfa-karotin
-ja:α-カロテン
-mr:अल्फा-कॅरोटीन
-nl:Alfacaroteen
-pt:Alfacaroteno
-sh:Alfa-Karoten
-sk:Alfakarotén
-sr:алфа-каротен
-# sr-ec:алфа-каротен
-# sr-el:Alfa-Karoten
-sv:Alfakaroten
-zh:Α-胡萝卜素
-# zh-cn:Α-胡萝卜素
-# zh-hans:Α-胡萝卜素
-# zh-hant:Α-胡蘿卜素
-# zh-hk:Α-胡蘿卜素
-# zh-sg:Α-胡萝卜素
-# zh-hk:Α-胡蘿卜素
-wikipedia:en:https://en.wikipedia.org/wiki/Alpha-Carotene
-# ingredient/160a has 781 products in 13 languages @2019-04-29
-# usage:en:dye (e160a)
-
-<en:alpha-carotene
-fr:colorant e160a
 
 
-<en:E160
 fr:e160aii
 
-<en:E160
+
 fr:e160b
 
-<en:E160
+
+
 en:paprika extract, e160c
 da:paprikaekstrakt
 de:Paprikaextrakt
@@ -1482,6 +1449,11 @@ de:Capsaicin-Extrakt
 wikidata:en:Q53792073
 # en:capsicum-extract has 16 products in 2 languages @2018-10-15
 
+# comment:en:E160 is not a valid E-number. It should be one of underlying numbers. 
+
+<en:E160a
+# <en:E160b
+en:E160
 
 # description:en:LUTEIN is a xanthophyll and one of 600 known naturally occurring carotenoids. Lutein is extracted from the petals of African marigold (Tagetes erecta). It is approved for use in the EU and Australia and New Zealand. In the United States lutein may not be used as a food coloring for foods intended for human consumption, but can be added to animal feed.
 
