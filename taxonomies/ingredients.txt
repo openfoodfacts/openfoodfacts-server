@@ -1249,24 +1249,147 @@ sv:Vegetabiliskt kol
 wikidata:en: Q59557415
 # ingredient/fr:charbon%20végétal%20médicinal has 82 products in 6 languages @2019-04-05
 
+# description:en:The term carotene is used for many related unsaturated hydrocarbon substances having the formula C40Hx. Carotenes are responsible for the orange colour of the carrot. Carotene is also used as a substance to colour products such as juice, cakes, desserts, butter and margarine.
 
-<en:colour
-en:E160
-fr:e160
+en:carotene, E160, E-160, E 160, INS160, INS-160, INS 160, SIN160, SIN-160, SIN 160
+ar:كاروتين
+be:Карацін
+bg:Каротин
+bs:Karoten
+ca:Carotè
+cs:karoten
+da:Karotin
+de:Karotin
+el:καρωτίνιο
+eo:karoteno
+es:Caroteno
+et:Karoteenid
+eu:Karoteno
+fa:کاروتن
+fi:karoteeni
+fr:carotène, carotènes
+ga:Caraitéin
+gl:Caroteno
+he:קרוטן
+hu:Karotin, Karotinok
+hy:Կարոտին
+id:karotena
+io:Karotino
+it:carotene, caroteni
+ja:カロテン
+ko:카로틴
+lt:karotenas
+mk:Каротин
+mn:Каротин
+ms:Karotena
+my:ကဲရော့တင်း
+nb:karoten
+nl:caroteen, carotenen
+nn:karoten
+pl:karoten, karoteny
+pt:caroteno, carotenos
+ro:Caroten, caroteni
+ru:каротин
+# sco:carotene
+sh:Karoten
+sk:karotén
+sr:Karoten
+# sr-el:Каротен
+# sr-el:Karoten
+sv:karotin
+th:แคโรทีน
+tr:karoten
+uk:Каротин
+# wuu:胡萝卜素
+# yue:胡蘿蔔素
+zh:胡蘿蔔素
+# zh-cn:胡萝蔔素
+# zh-hans:胡萝蔔素
+# zh-hant:胡蘿蔔素
+# zh-hk:胡蘿蔔素
+# zh-sg:胡萝蔔素
+# zh-tw:胡蘿蔔素
+wikidata:en:Q190156
+wikipedia:en:https://en.wikipedia.org/wiki/Carotene
+# usage:pl:barwnik:karoteny
 
-<en:E160
-en:160a
-fr:e160a, e 160a,colorant e160a
+# description:en:Carotenoids are yellow, orange, and red organic pigments that are produced by plants and algae, as well as several bacteria and fungi. Carotenoids from the diet are stored in the fatty tissues of animals. There is insufficient evidence to state that carotenoids have an antioxidant function in humans or that carotenoid dietary supplements lower the risk of or prevent diseases.
+# comment:en:Translations mix carotene and carotenoids.
 
+<en:carotene
+en:cartenoid, carotenoids
+ar:كاروتينات
+# ast:Carotenoide
+be:каратыноід
+bg:Каротиноид
+ca:Carotenoide
+cs:karotenoidy
+de:Carotinoide
+el:Καροτενοειδές
+eo:Karotenoido
+es:Carotenoides
+et:Karotenoidid
+eu:Karotenoide
+fa:کاروتنوئید
+fi:Karotenoidi
+fr:caroténoïde, caroténoïdes
+ga:Caraitéinóideach
+gl:Carotenoide
+he:קרוטנואיד
+hr:Karotenoidi
+hy:Կարոտինոիդներ
+id:Karotenoid 
+it:Carotenoidi
+ja:カロテノイド
+kk:Каратиноидтар
+# kk-arab:كاراتىينوىيدتار
+# kk-cn:كاراتىينوىيدتار
+# kk-cyrl:Каратиноидтар
+# kk-kz:Каратиноидтар
+# kk-latn:Karatïnoïdtar
+# kk-tr:Karatïnoïdtar
+ko:카로티노이드
+ku:Karotenoîd
+ky:Каротиноиддер
+lv:Karotinoīdi
+nl:carotenoïde
+nn:karotenoid
+pl:karotenoidy
+pt:carotenoide
+ro:Carotenoidă
+ru:каротиноид
+sh:Karotenoid
+sr:Каротеноид
+# sr-ec:Каротеноид
+# sr-el:Karotenoid
+sv:Karotenoid
+tr:Karotenoid
+uk:Каротиноїди
+vi:Carotenoid
+zh:類胡蘿蔔素
+# zh-cn:类胡萝蔔素
+# zh-hans:类胡萝蔔素
+# zh-hant:類胡蘿蔔素
+# zh-hk:類胡蘿蔔素
+# zh-sg:类胡萝蔔素
+# zh-tw:類胡蘿蔔素
+wikidata:en:Q191907
+wikipedia:en:https://en.wikipedia.org/wiki/Carotenoid
+# ingredient/fr:caroténoïde has 2195 products in 12 languages @2019-04-29
 
-<en:E160a
+<en:carotene
 en:mixed carotenes
 de:gemischte Carotine
 fr:carotènes mélangés, caroténoïdes mélangés
 it:caroteni misti
 nl:diverse carotenen
 # ingredient/fr:carotènes-mélangés has 24 products in 5 languages @2019-03-16
-# colorant: carotènes mélangés
+# usage:fr: colorant: carotènes mélangés
+
+
+<en:E160
+en:160a
+fr:e160a, e 160a,colorant e160a
 
 <en:E160
 fr:e160aii
@@ -53166,7 +53289,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sulfite
 fr:Frites surgelées
 carbon_footprint_fr_foodges_ingredient:fr:Frites surgelées
 
-fr:caroténoïde
 
 fr:lactose et protéines de lait
 
@@ -53216,7 +53338,6 @@ fr:agent d'enrobage
 
 fr:vanilline
 
-fr:carotène
 
 fr:rocou
 
@@ -56832,7 +56953,7 @@ fr:mannitol
 fr:nouilles, nouille
 
 
-fr:carotènes végétaux
+
 
 
 fr:babeurre
@@ -57483,7 +57604,6 @@ it:salsa al caramello
 # ingredient/fr:sauce-caramel has 54 products in 4 languages @2019-03-09
 # sauce au caramel (sirop de sucre inverti, eau, 14% sirop de sucre caramélisé)
 
-fr:carotènes
 
 
 
