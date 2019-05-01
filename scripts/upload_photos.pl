@@ -49,12 +49,23 @@ my %global_values = ();
 my $only_import_products_with_images = 0;
 my $images_dir;
 my $comment = '';
+my $source_id;
+my $source_name;
+my $source_url;
+my $source_licence;
+my $source_licence_url;
+
 
 GetOptions (
 	"images_dir=s" => \$images_dir,
 	"user_id=s" => \$User_id,
 	"comment=s" => \$comment,
 	"define=s%" => \%global_values,
+	"source_id=s" => \$source_id,
+	"source_name=s" => \$source_name,
+	"source_url=s" => \$source_url,
+	"source_licence=s" => \$source_licence,
+	"source_licence_url=s" => \$source_licence_url,
 		)
   or die("Error in command line arguments:\n$\nusage");
 
@@ -101,7 +112,7 @@ my $last_imgid = undef;
 
 my $current_product_ref = undef;
 
-my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries misc data_sources );
 
 
 
@@ -176,6 +187,27 @@ if (opendir (DH, "$images_dir")) {
 						compute_field_tags($product_ref, $lc, $field);						
 
 					}
+				}
+				
+				if (defined $source_id) {
+					if (not defined $product_ref->{sources}) {
+						$product_ref->{sources} = [];
+					}
+
+					my $product_source_url = $source_url;
+
+					my $source_ref = {
+						id => $source_id,
+						name => $source_name,
+						url => $product_source_url,
+						collaboration => 1,
+						import_t => time(),
+					};
+
+					defined $source_licence and $source_ref->{source_licence} = $source_licence;
+					defined $source_licence_url and $source_ref->{source_licence_url} = $source_licence_url;
+
+					push @{$product_ref->{sources}}, $source_ref;				
 				}
 				
 				store_product($product_ref, "Editing product (upload_photos.pl bulk upload) - " . $comment );

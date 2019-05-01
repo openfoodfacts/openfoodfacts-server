@@ -497,6 +497,7 @@ other_information conservation_conditions recycling_instructions_to_recycle
  recycling_instructions_to_discard
 nutrition_grade_fr_producer
 recipe_idea origin customer_service producer preparation warning
+data_sources
 );
 
 
@@ -537,6 +538,7 @@ misc
 languages
 users
 states
+data_sources
 entry_dates
 last_edit_dates
 last_check_dates

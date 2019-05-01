@@ -1437,6 +1437,7 @@ HTML
 	
 	
 	foreach my $field (@fields) {
+		next if $field eq "origins"; # now displayed below allergens and traces in the ingredients section
 		$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
 		$html .= display_field($product_ref, $field);
 	}
@@ -1460,6 +1461,8 @@ HTML
 	$html .= display_field($product_ref, "allergens");
 	
 	$html .= display_field($product_ref, "traces");
+	
+	$html .= display_field($product_ref, "origins");
 
 $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";

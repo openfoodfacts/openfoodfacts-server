@@ -6793,6 +6793,9 @@ HTML
 			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
 				$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
 			}
+			elsif ((defined $source_ref->{collaboration}) and ($source_ref->{collaboration} == 1)) {
+				$html_manufacturer_source = "<p>" . sprintf(lang("sources_collaboration"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
+			}			
 		}
 	}
 

@@ -4514,6 +4514,14 @@ sub compute_carbon_footprint_infocard($) {
 
 	# compute the environment impact level
 	# -> currently only for prepared meals
+	
+	# Limit to France, as the carbon values from ADEME are intended for France
+	
+	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients}) 
+		and (length($product_ref->{ingredients}) > 5))) {
+		return;
+	}
+	
 	if (has_tag($product_ref, "categories", "en:meals")) {
 
 		$product_ref->{environment_impact_level} = "en:low";
