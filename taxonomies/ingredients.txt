@@ -57575,19 +57575,37 @@ wikidata:en:Q3514675
 # usage:nl: tamari (water, volle soja, zeezout, alcohol, fermentatiestarter)
 
 
-# <en:compound
-<en:sauce
-en:salad dressing
-de:Salatsauce
-fr:vinaigrette
-# ingredient/fr:vinaigrette has 78 products in 4 languages @2019-03-04
-# vinaigrette (maltodextrine de maïs, vinaigre de vin, sucre, sel, oignon 0,2%, mélange d'épices, arômes naturels, arôme, épaississants:gomme de xanthane et pectine)
-
 
 fr:sauce rémoulade
 
 
+# description:en:Sweet and sour is a generic term that encompasses many styles of sauce, cuisine and cooking methods.
+# comment:each country seems to have is own variants, so maybe a straightforward translation is not good.
+
+<en:sauce
+en:sweet and sour sauce
+de:Susssäure Sauce
+eo:dolĉacida saŭco
+es:salsa agridulce
 fr:sauce aigre-douce
+he:רוטב חמוץ-מתוק
+id:Saus asam manis
+is:Súrsæt sósa
+it:salsa agrodolce
+ja:糖酢醤
+ko:탕추
+nb:Sursøt saus
+nl:zoetzure saus
+pl:Sos słodko-kwaśny
+pt:molho agridoce
+sv:Sötsur sås
+uk:Кисло-солодкий соус
+# yue:甜酸醬
+# zh-hans:甜酸酱
+# zh-hant:甜酸醬
+wikidata:en:Q2550606
+wikipedia:en:https://en.wikipedia.org/wiki/Sweet_and_sour
+# ingredient/fr:sauce-aigre-douce has 72 products in 4 languages @2019-05-01
 
 
 # description:en:Worcestershire sauce is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
@@ -57687,7 +57705,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bolognese_sauce
 # ingredient/fr:sauce-bolognaise has 54 products in 5 Languages @2019-04-30
 
 
-# description:en:Vinaigrette  is made by mixing an oil with something acidic such as vinegar or lemon juice. The mixture can be enhanced with salt, herbs and/or spices. It is used most commonly as a salad dressing, but can also be used as a marinade.
+# description:en:Vinaigrette is made by mixing an oil with something acidic such as vinegar or lemon juice. The mixture can be enhanced with salt, herbs and/or spices. It is used most commonly as a salad dressing, but can also be used as a marinade.
 
 <en:sauce
 en:vinaigrette
@@ -57700,7 +57718,7 @@ br:gwinegrenn
 ca:vinagreta
 cs:vinaigrette
 da:vinaigrette
-de:Vinaigrette
+de:Vinaigrette, Salatsauce
 # de-ch:Vinaigrette
 el:βινεγκρετ
 # en-ca:Vinaigrette
@@ -57748,6 +57766,8 @@ zh:醋酱
 wikidata:en:Q847441
 wikipedia:en:https://en.wikipedia.org/wiki/Vinaigrette
 # ingredient/fr:sauce-vinaigrette has 33 products in french @2019-04-30
+# ingredient/fr:vinaigrette has 78 products in 4 languages @2019-03-04
+# vinaigrette (maltodextrine de maïs, vinaigre de vin, sucre, sel, oignon 0,2%, mélange d'épices, arômes naturels, arôme, épaississants:gomme de xanthane et pectine)
 # usage:fr:sauce vinaigrette (huile de colza, eau, huile d'olive vierge extra, vinaigre d'alcool, moutarde de Dijon, sel, amidon modifié de pomme de terre, épaississant :gomme xanthane)
 
 
