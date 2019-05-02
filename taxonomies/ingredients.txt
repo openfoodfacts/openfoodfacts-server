@@ -10,6 +10,7 @@ stopwords:fi:sisältää
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz
+stopwords:id:mengandung
 stopwords:it:contiene, nella
 stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier
 stopwords:nn:av, inneholder
@@ -116,6 +117,7 @@ de:Zutaten, Zusammensetzung
 es:composición
 fr:ingrédient, ingrédients, composition
 hu:összetétel
+id:komposisi
 it:ingredienti, composizione
 nl:ingrediënt, ingrediënten, samenstelling
 pl:skład
@@ -57205,22 +57207,136 @@ fr:conservateur du fruit
 
 fr:salpêtre
 
-# This is a compound ingredient
-
-en:sauce
-fr:sauce
-de:Sauce
-it:salsa
-nl:Saus
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce
-# 917 products in 6 languages @2018-09-26
-
-
-# description:en:Béchamel sauce, also known as white sauce, is made from a white roux (butter and flour) and milk.
+# description:en:In cooking, a SAUCE is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish. Sauces may be used for sweet or savory dishes. They may be prepared and served cold, like mayonnaise, prepared cold but served lukewarm like pesto, cooked and served warm like bechamel or cooked and served cold like apple sauce.
 
 # <en:compound
+en:sauce
+af:Sous
+ar:صلصة
+# arz:صلصه
+az:sous
+ba:Соус
+be:соус
+# be-tarask:соўс
+bg:Сос
+bn:সস
+br:chaous
+bs:sos
+ca:salsa
+cs:omáčka
+cy:Saws
+da:sovs
+de:Sauce
+# de-ch:Sauce
+el:σάλτσα
+# en-ca:Sauce
+# en-gb:Sauce
+eo:saŭco
+es:salsa
+et:kaste
+eu:saltsa
+fa:سس
+fi:kastike
+fo:sós
+fr:sauce
+fy:saus
+ga:Anlann
+gd:sùgh
+gl:Salsa
+he:רוטב
+hi:सॉस
+hr:umak
+ht:Sòs
+hu:mártás
+hy:սոուս
+id:Saus
+io:Sauco
+is:Sósa
+it:salsa
+ja:ソース
+# jbo:sanso
+jv:Saos
+ka:საწებელი
+kk:Соус
+# kk-arab:سوۋس
+# kk-cn:سوۋس
+# kk-cyrl:Соус
+# kk-kz:Соус
+# kk-latn:Sows
+# kk-tr:Sows
+km:ទឹកជ្រលក់
+kn:ಸಾಸ್
+ko:소스
+ku:Çênc
+# ku-arab:چێنج
+# ku-latn:Çênc
+ky:соус
+la:sūcus
+lb:Zooss
+li:saus
+lt:Padažas
+lv:mērce
+mg:Saosy
+mk:сос
+ml:സോസ്
+mn:сүмс
+ms:sos
+mt:zalza
+my:ငါးပိရည်
+# nah:Mōlli
+nb:saus
+nl:Saus
+nn:Saus
+or:ସସ୍
+pa:ਸੌਸ
+# pap:sous
+# pms:Bagna
+pt:Molho
+# pt-br:Molho
+qu:Salsa
+ro:Sos
+ru:соус
+# scn:sausa
+# sgs:Mėrkals
+sh:умак
+sk:Omáčka
+sl:Omaka
+so:Suugo
+sq:salcë
+sr:сос
+# sr-ec:сос
+# sr-el:sos
+# srn:sowsu
+sv:sås
+tg:соус
+th:ซอส
+tk:sous
+tl:Sarsa
+tr:Sos
+uk:соус
+ur:چٹنی
+uz:qayla
+vi:Xốt
+vo:sod
+# vot:kasõ
+# wuu:酱汁
+# yue:醬汁
+zh:醬
+# zh-cn:酱
+# zh-hans:酱
+# zh-hant:醬
+# zh-hk:醬
+# zh-sg:酱
+# zh-tw:醬
+wikidata:en:Q178359
+wikipedia:en:https://en.wikipedia.org/wiki/Sauce
+# ingredient/sauce has 5701 products in 15 languages @2019-05-02
+
+
+# description:en:BÉCHAMEL SAUCE, also known as white sauce, is made from a white roux (butter and flour) and milk.
+
 <en:sauce
-en:Bechamel sauce, Béchamel sauce
+en:bechamel sauce, Béchamel sauce
 af:Witsous
 ar:صلصة البشاميل
 # ast:Bechamel
@@ -57278,10 +57394,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Béchamel_sauce
 # usage:en:Bechamel sauce (water, wheat flour, skimmed milk powder, sunflower oil, whey powder, whole cream, corn starch, salt iodized cooking, butter)
 
 
-# en:description:  HARISSA  is a Tunisian hot chili pepper paste, the main ingredients of which are roasted red peppers, Baklouti pepper, serrano peppers, and other hot chili peppers, spices and herbs such as garlic paste, coriander seed, saffron, rose, or caraway, as well as some vegetable or olive oil to carry the oil-soluble flavors.
+# en:description:HARISSA is a Tunisian hot chili pepper paste, the main ingredients of which are roasted red peppers, Baklouti pepper, serrano peppers, and other hot chili peppers, spices and herbs such as garlic paste, coriander seed, saffron, rose, or caraway, as well as some vegetable or olive oil to carry the oil-soluble flavors.
 
 <en:sauce
-en:Harissa
+en:harissa
 ar:هريسة
 bg:Хариса
 bn:হরিষ্যা
@@ -57324,10 +57440,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Harissa
 # usage:fr:harissa (piment, ail, coriandre, sel, carvi)
 
 
-# description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid before cooking.
-# comment:en:the wikidata entry can be used as translator,. It has the process and the liquid.
+# description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
 
 # <en:compound
+<en:sauce
 en:marinade
 bg:mариноване
 cs:marináda	
@@ -57351,6 +57467,7 @@ wikidata:en:Q56296569
 
 # description:en:MAYONNAISE, informally mayo, is a thick cold sauce or dressing usually used in sandwiches and composed salads or on chips. It is a stable emulsion of oil, egg yolk, and acid, either vinegar or lemon juice.
 
+<en:sauce
 en:mayonnaise
 af:Mayonnaise
 ar:مايونيز
@@ -57470,9 +57587,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mayonnaise
 fr:mayonnaise allégée en matière grasse, mayonnaise allégée en matières grasses
 # ingredient/fr:mayonnaise-allégée-en-matière-grasse has 266 products in french @2019-04-11
 
-# description:en:Mirin is a type of rice wine similar to sake, but with a lower alcohol content and higher sugar content. Mirin is used to add a bright touch to grilled (broiled) fish or to erase the fishy smell.
 
-# <en:compound
+# description:en:MIRIN is a type of rice wine similar to sake, but with a lower alcohol content and higher sugar content. Mirin is used to add a bright touch to grilled (broiled) fish or to erase the fishy smell.
+
 <en:sauce
 en:mirin
 ar:ميرين
@@ -57522,7 +57639,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mirin
 # usage:fr:mirin (eau, glucose de maïs, sirop de tapioca, riz, alcool de sucre de canne)
 
 
-# description:en:Fish sauce is a liquid condiment made from fish or krill that have been coated in salt and fermented for up to two years. Following widespread recognition of its ability to impart a savory umami flavor to dishes, it has been embraced globally by chefs and home cooks. The umami flavor in fish sauce is due to its glutamate content.
+# description:en:FISH SAUCE is a liquid condiment made from fish or krill that have been coated in salt and fermented for up to two years. Following widespread recognition of its ability to impart a savory umami flavor to dishes, it has been embraced globally by chefs and home cooks. The umami flavor in fish sauce is due to its glutamate content.
 
 <en:sauce
 en:fish sauce
@@ -57539,7 +57656,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fish_sauce
 # usage:en: fish sauce (anchovy (fish), salt, sugar)
 
 
-# description:en:fish sauce in Vietnamese cuisine.
+# description:en:NƯỚC MẮM is a fish sauce in Vietnamese cuisine.
 
 <en:fish sauce
 en:nuoc-mam, nước mắm
@@ -57560,7 +57677,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Nuoc-mâm
 # ingredient/fr:nuoc-mâm has 140 products in 6 languages @2019-03-01
 # usage:fr:nuoc mâm (sauce poisson) (poisson, sel, eau)
 
-# description:en:Soy sauce is a liquid condiment of Chinese origin, made from a fermented paste of soybeans, roasted grain, brine, and Aspergillus oryzae or Aspergillus sojae molds.
+# description:en:SOY SAUCE is a liquid condiment of Chinese origin, made from a fermented paste of soybeans, roasted grain, brine, and Aspergillus oryzae or Aspergillus sojae molds.
 
 <en:sauce
 en:soy sauce, soya sauce
@@ -57648,11 +57765,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 <en:soy sauce
 en:soy sauce powder
 de:Soja Sosse Pulver
+fi:soijakastikejauhe
 fr:sauce soja en poudre, sauce de soja en poudre
 nl:soja saus poeder
+sv:sojasåspulver
 
 
-# description:en:Tamari is the "original" Japanese soy sauce, as its recipe is closest to the soy sauce originally introduced to Japan from China. It contains little or no wheat. Wheat-free tamari can be used by people with gluten intolerance. 
+# description:en:TAMARI is the "original" Japanese soy sauce, as its recipe is closest to the soy sauce originally introduced to Japan from China. It contains little or no wheat. Wheat-free tamari can be used by people with gluten intolerance. 
 
 <en:soy sauce
 en:tamari
@@ -57666,7 +57785,7 @@ wikidata:en:Q3514675
 # usage:nl: tamari (water, volle soja, zeezout, alcohol, fermentatiestarter)
 
 
-# description:en:Rémoulade is a condiment invented in France that is usually aioli- or mayonnaise-based. Although similar to tartar sauce, it is often more yellowish, sometimes flavored with curry, and sometimes contains chopped pickles or piccalilli. It can also contain horseradish, paprika, anchovies, capers and a host of other items. While its original purpose was possibly for serving with meats, it is now more often used as a condiment or dipping sauce, primarily for sole, plaice, and seafood cakes (such as crab or salmon cakes).
+# description:en:RÉMOULADE is a condiment invented in France that is usually aioli- or mayonnaise-based. Although similar to tartar sauce, it is often more yellowish, sometimes flavored with curry, and sometimes contains chopped pickles or piccalilli. It can also contain horseradish, paprika, anchovies, capers and a host of other items. While its original purpose was possibly for serving with meats, it is now more often used as a condiment or dipping sauce, primarily for sole, plaice, and seafood cakes (such as crab or salmon cakes).
 # comment:en:Translations with the word sauce in it are preferred
 
 <en:sauce
@@ -57698,7 +57817,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Remoulade
 # usage:fr: sauce rémoulade (eau, huile de colza, vinaigre, sirop de glucose-fructose, moutarde (eau, graines de moutarde, vinaigre, épices), amidon de mais, œuf, jaune d’œuf, amidon modifié (maïs cireux), sel, plantes aromatiques, épaississants: gomme xanthane, gomme guar; acidifiant: acide lactique; arôme, conservateur: sorbate de potassium; colorant: riboflavines; épices, extrait d'oignon, extrait de poireau, édulcorant: sel d'aspartame-acésulfame, antioxydant: calcium disodium EDTA)
 
 
-# description:en:Sweet and sour is a generic term that encompasses many styles of sauce, cuisine and cooking methods.
+# description:en:SWEET AND SOUR is a generic term that encompasses many styles of sauce, cuisine and cooking methods.
 # comment:each country seems to have is own variants, so maybe a straightforward translation is not good.
 
 <en:sauce
@@ -57727,7 +57846,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_and_sour
 # ingredient/fr:sauce-aigre-douce has 72 products in 4 languages @2019-05-01
 
 
-# description:en:Worcestershire sauce is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
+# description:en:WORCESTERSHIRE SAUCE is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
 
 <en:sauce
 en:worcestershire sauce
@@ -57771,7 +57890,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Worcestershire_sauce
 # usage:de:Worcestershire Sauce (Malzessig, Melasse, Wasser, Kochsalz, Zwiebeln, Knoblauch, Zucker, Gewürze, Sardellen, Tamarindenextrakt, natürliche Aromen)
 
 
-# description:en:Bolognese sauce is a meat-based sauce in Italian cuisine. It is customarily used to dress tagliatelle al ragù and to prepare lasagne alla bolognese. 
+# description:en:BOLOGNESE SAUCE is a meat-based sauce in Italian cuisine. It is customarily used to dress tagliatelle al ragù and to prepare lasagne alla bolognese. 
 
 <en:sauce
 en:bolognese sauce
@@ -57807,7 +57926,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bolognese_sauce
 # ingredient/fr:sauce-bolognaise has 54 products in 5 Languages @2019-04-30
 
 
-# description:en:Vinaigrette is made by mixing an oil with something acidic such as vinegar or lemon juice. The mixture can be enhanced with salt, herbs and/or spices. It is used most commonly as a salad dressing, but can also be used as a marinade.
+# description:en:VINAIGRETTE is made by mixing an oil with something acidic such as vinegar or lemon juice. The mixture can be enhanced with salt, herbs and/or spices. It is used most commonly as a salad dressing, but can also be used as a marinade.
 
 <en:sauce
 en:vinaigrette
@@ -57893,19 +58012,6 @@ pt:molho de caramelo
 ru:карамельный соус
 # ingredient/fr:sauce-caramel has 54 products in 4 languages @2019-03-09
 # usage:fr:sauce au caramel (sirop de sucre inverti, eau, 14% sirop de sucre caramélisé)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
