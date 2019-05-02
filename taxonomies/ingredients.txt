@@ -57519,7 +57519,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mirin
 # ingredient/fr:mirin has 74 products in 5 languages @2019-03-01
 # mirin (eau, glucose de maïs, sirop de tapioca, riz, alcool de sucre de canne)
 
-
+# description:en:Fish sauce is a liquid condiment made from fish or krill that have been coated in salt and fermented for up to two years. Following widespread recognition of its ability to impart a savory umami flavor to dishes, it has been embraced globally by chefs and home cooks. The umami flavor in fish sauce is due to its glutamate content.
 
 <en:sauce
 en:fish sauce
@@ -57531,6 +57531,7 @@ it:salsa di pesce
 nl:vissaus
 nn:fiskesaus
 sv:fisksås
+wikipedia:en:https://en.wikipedia.org/wiki/Fish_sauce
 # ingredient/fr:sauce-poisson has 106 products in 9 languages @2019-04-11
 # usage:en: fish sauce (anchovy (fish), salt, sugar)
 
@@ -57556,12 +57557,87 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Nuoc-mâm
 # ingredient/fr:nuoc-mâm has 140 products in 6 languages @2019-03-01
 # usage:fr:nuoc mâm (sauce poisson) (poisson, sel, eau)
 
+# description:en:Soy sauce is a liquid condiment of Chinese origin, made from a fermented paste of soybeans, roasted grain, brine, and Aspergillus oryzae or Aspergillus sojae molds.
 
 <en:sauce
-en:soy sauce
+en:soy sauce, soya sauce
+ar:صلصة الصويا
+# ast:Mueyu de soya
+be:соевы соус
+bg:Соев сос
+bn:সয়া সস
+ca:salsa de soia
+# cdo:siê-
+cs:sójová omáčka
+da:sojasovs
 de:Sojasauce
+el:Σάλτσα σόγιας
+# en-gb:soy sauce
+eo:sojsaŭco
+es:salsa de soya
+et:sojakaste
+eu:Soja-saltsa
+fa:سس سویا
+fi:soijakastike
 fr:sauce au soja, sauce de soja, sauce soja
+# gan:醬油
+# gan-hans:酱油
+# gan-hant:醬油
+gl:mollo de soia
+he:רוטב סויה
+hi:सॉय सॉस
+hr:umak od soje
+hu:szójaszósz
+id:kecap
+# ilo:toyo
+is:sojasósa
 it:salsa di soia
+ja:醤油
+jv:kécap
+ka:სოიას სოუსი
+kk:соя соусы
+km:ទឹកស៊ីអ៊ីវ
+ko:간장
+# ko-kp:간장
+lt:sojų padažas
+mk:соја-сос
+mr:सोया सॉस
+ms:kicap
+mt:zalza tas-soja
+# nan:tāu-iû
+nb:soyasaus
+nl:sojasaus
+pa:ਸੋਇਆ ਸੌਸ
+pl:sos sojowy
+pt:molho de soja
+# pt-br:molho de soja
+ro:Sos de soia
+ru:соевый соус
+sk:sójová omáčka
+sl:sojina omaka
+sq:salcë soje
+sr:Soja sos
+# sr-el:Soja sos
+su:nyegat
+sv:sojasås
+ta:சோயா சுவைச்சாறு
+th:ซีอิ๊ว
+tl:toyo
+tr:soya sosu
+uk:соєвий соус
+vi:xì dầu
+vo:sojakastõq
+# war:tuyo
+# wuu:酱油
+# yue:豉油
+za:ciengqyouz
+zh:酱油
+# zh-cn:酱油
+# zh-hans:酱油
+# zh-hant:醬油
+# zh-tw:醬油
+wikidata:en:Q229385
+wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20au%20soja
 # 449 products in 5 languages @2018-09-25
 
@@ -57651,8 +57727,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_and_sour
 # description:en:Worcestershire sauce is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
 
 <en:sauce
-en:Worcestershire sauce
-af:Worcestersous
+en:worcestershire sauce
+af:worcestersous
 # ang:Ƿeogornaceasterscīrsēaƿ
 ar:صلصة رسيستيرشاير
 be:Вустэрскі соус
