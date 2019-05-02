@@ -1384,6 +1384,12 @@ sub build_tags_taxonomy($$) {
 						$taxonomy_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 						$taxonomy_full_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 					}
+					
+					# add synonyms to the full taxonomy
+					if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
+						(defined $taxonomy_full_json{$tagid}{synonyms}) or $taxonomy_full_json{$tagid}{synonyms} = {};
+						$taxonomy_full_json{$tagid}{synonyms}{$lc} = $synonyms_for{$tagtype}{$lc}{$lc_tagid};
+					}
 				}
 			}
 			
