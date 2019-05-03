@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:16\n"
+"PO-Revision-Date: 2019-05-03 21:26\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -352,6 +352,14 @@ msgctxt "data_source"
 msgid "Data source"
 msgstr "Sumber data"
 
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr ""
+
 msgctxt "debug_p"
 msgid "debug"
 msgstr "debug"
@@ -683,8 +691,8 @@ msgstr "/cgi/top_translators.pl"
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
-"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr "Ikuti kami di <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>, <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> dan <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google + </a>"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
+msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -740,7 +748,7 @@ msgstr "/siapa-kita"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr "<<site_name>> wiki (en)"
+msgstr "<< site_name >> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
@@ -1407,7 +1415,7 @@ msgstr "Tingkat hara untuk 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/-tingkat-hara"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2305,7 +2313,7 @@ msgstr "Database bahan, fakta gizi dan informasi tentang produk makanan yang kol
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr "membuka fakta makanan"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2611,6 +2619,10 @@ msgstr "Beberapa data dan gambar telah disediakan langsung oleh pabrikan Fleury 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Beberapa data untuk produk ini telah disediakan langsung oleh pabrikan %s"
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr ""
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
