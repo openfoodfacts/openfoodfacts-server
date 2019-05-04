@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-04 08:21\n"
+"PO-Revision-Date: 2019-05-04 08:31\n"
 "Language-Team: Spanish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3245,15 +3245,15 @@ msgstr "Los cálculos de la huella de carbono tienen una alta incertidumbre. Los
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "Demasiados productos (%d productos, el límite es %d) para exportar, descargue la <a href=\"/data\">base de datos completa</a> en su lugar."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Ayuda a traducir el %s a %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr ""
+msgstr "Puede sugerir traducciones para las entradas que no han sido traducidas a su idioma todavía. El enlace azul en inglés muestra los productos correspondientes, el texto negro en inglés muestra la entrada original con sinónimos opcionales separados por comas. Introduzca la traducción en el cuadro de texto, con sinónimos opcionales, y luego haga clic en el botón Guardar. ¡Gracias!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3265,15 +3265,15 @@ msgstr ""
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "traducido"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "Necesita traducirse"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "Traducción actual"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
