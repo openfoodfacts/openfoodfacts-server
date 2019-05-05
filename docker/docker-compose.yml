@@ -41,7 +41,7 @@ services:
         target: /mnt/podata/log.conf
       - type: bind
         source: ./backend-dev/conf/apache.conf
-        target: /usr/local/apache2/conf/sites-enabled/product-opener.conf
+        target: /etc/apache2/conf.d/product-opener.conf
       - type: bind
         source: ./backend-dev/conf/po-foreground.sh
         target: /usr/local/bin/po-foreground.sh
