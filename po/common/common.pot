@@ -384,6 +384,14 @@ msgctxt "data_source"
 msgid "Data source"
 msgstr ""
 
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr ""
+
 msgctxt "debug_p"
 msgid "debug"
 msgstr ""
@@ -733,7 +741,7 @@ msgctxt "footer_follow_us"
 msgid ""
 "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
-"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 msgstr ""
 
 msgctxt "footer_install_the_app"
@@ -2783,6 +2791,10 @@ msgid ""
 "manufacturer %s"
 msgstr ""
 
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr ""
+
 msgctxt "warning_not_complete"
 msgid ""
 "This product page is not complete. You can help to complete it by editing it "
@@ -3369,6 +3381,45 @@ msgid "Carbon footprint calculations have high uncertainty. Values should be loo
 msgstr ""
 
 msgctxt "error_too_many_products_to_export"
-msgid "Too many products (%d products, the limit is %d) to export, please download the <a href="/data">complete database export</a> instead."
+msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
 msgstr ""
 
+msgctxt "translate_taxonomy_to"
+msgid "Help translate the %s to %s"
+msgstr ""
+
+msgctxt "translate_taxonomy_description"
+msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr ""
+
+msgctxt "translate_taxonomy_add"
+msgid "Show only entries without pending translations."
+msgstr ""
+
+msgctxt "translate_taxonomy_edit"
+msgid "Also show entries with pending translations from you or other users."
+msgstr ""
+
+msgctxt "translated"
+msgid "translated"
+msgstr ""
+
+msgctxt "to_be_translated"
+msgid "to be translated"
+msgstr ""
+
+msgctxt "current_translation"
+msgid "Current translation"
+msgstr ""
+
+msgctxt "button_caption_yes"
+msgid "Yes"
+msgstr ""
+
+msgctxt "button_caption_no"
+msgid "No"
+msgstr ""
+
+msgctxt "button_caption_skip"
+msgid "Skip"
+msgstr ""

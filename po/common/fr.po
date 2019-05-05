@@ -154,8 +154,9 @@ msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Disponible sur Google Play\" width=\"135\" height=\"47\" />"
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=fr"
 
 msgctxt "app_please_take_pictures"
@@ -558,10 +559,6 @@ msgstr "L'adresse e-mail est déjà utilisée par un autre utilisateur. Peut-êt
 msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "Adresse invalide."
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "Jeton CSRF invalide."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -2568,7 +2565,7 @@ msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Sto
 msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 msgstr "https://www.microsoft.com/fr-fr/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
@@ -2787,6 +2784,7 @@ msgctxt "footer_partners"
 msgid "Partners"
 msgstr "Partenaires"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
 msgstr "/partenaires"
@@ -3007,6 +3005,30 @@ msgctxt "conservation_conditions"
 msgid "Conservation conditions"
 msgstr "Conditions de conservation"
 
+msgctxt "warning"
+msgid "Warning"
+msgstr "Avertissement"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr "Préparation"
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr "Idée recette"
+
+msgctxt "origin"
+msgid "Origin"
+msgstr "Origine"
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr "Service consommateur"
+
+msgctxt "producer"
+msgid "Producer"
+msgstr "Producteur"
+
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To discard"
 msgstr "Consignes de recyclage - A recycler"
@@ -3092,6 +3114,10 @@ msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
 msgstr "Installez l'app iPad"
 
+msgctxt "warning_gs1_company_prefix"
+msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
+msgstr ""
+
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
 msgstr "Identifiant produit du producteur"
@@ -3175,4 +3201,16 @@ msgstr "Les calculs d'empreinte carbone présentent un grand degré d'incertitud
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href="/data">complete database export</a> instead."
 msgstr "Trop de produits (%d produits, la limite est %d) à exporter, merci de télécharger <a href="/data">l'export complet de la base</a> à la place.""
+
+msgctxt "button_caption_yes"
+msgid "Yes"
+msgstr "Oui"
+
+msgctxt "button_caption_no"
+msgid "No"
+msgstr "Non"
+
+msgctxt "button_caption_skip"
+msgid "Skip"
+msgstr "Passer"
 

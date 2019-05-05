@@ -112,10 +112,10 @@ if ($imagefield) {
 		}
 		
 		# Some apps may be passing a full locale like imagefield=front_pt-BR
-		$imagefield =~ s/^(front|ingredients|nutrition)_(\w\w)-.*/$1_$2/;
+		$imagefield =~ s/^(front|ingredients|nutrition|other)_(\w\w)-.*/$1_$2/;
 		
 		# For apps that do not specify the language associated with the image, try to assign one
-		if ($imagefield =~ /^(front|ingredients|nutrition)$/) {
+		if ($imagefield =~ /^(front|ingredients|nutrition|other)$/) {
 			# If the product exists, use the main language of the product
 			# otherwise if the product was just created above, we will get the current $lc
 			$imagefield .= "_" . $product_ref->{lc};

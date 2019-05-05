@@ -104,7 +104,10 @@ if ((not defined $search_terms) or ($search_terms eq '')) {
 
 # check if the search term looks like a barcode
 
-if ((not defined param('jqm')) and ($search_terms =~ /^(\d{8})\d*$/)) {
+if ((not defined param('json')) and (not defined param('jsonp')) and
+	(not defined param('jqm')) and (not defined param('jqm_loadmore')) and
+	(not defined param('xml')) and (not defined param('rss')) and
+	($search_terms =~ /^(\d{8})\d*$/)) {
 
 		my $code = $search_terms;
 

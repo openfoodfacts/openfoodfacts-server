@@ -49,6 +49,8 @@ BEGIN
 		$crowdin_project_identifier
 		$crowdin_project_key
 
+		$robotoff_url
+
 		$mongodb
 		$mongodb_host
 
@@ -94,6 +96,7 @@ agamitsudo
 aleene
 bcatelin
 bojackhorseman
+charlesnepote
 hangy
 javichu
 kyzh
@@ -293,6 +296,8 @@ $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
+$robotoff_url = $ProductOpener::Config2::robotoff_url;
+
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
@@ -365,6 +370,7 @@ $options{favicons} = <<HTML
 <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
 <meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
+<meta name="apple-itunes-app" content="app-id=588797948">
 <meta name="flattr:id" content="dw637l">
 HTML
 ;
@@ -491,6 +497,7 @@ other_information conservation_conditions recycling_instructions_to_recycle
  recycling_instructions_to_discard
 nutrition_grade_fr_producer
 recipe_idea origin customer_service producer preparation warning
+data_sources
 );
 
 
@@ -531,6 +538,7 @@ misc
 languages
 users
 states
+data_sources
 entry_dates
 last_edit_dates
 last_check_dates
@@ -726,7 +734,7 @@ $options{nova_groups_tags} = {
 "categories/en:terrines" => 3,
 "categories/en:pates" => 3,
 "categories/en:pastas" => 3,
-"categories/en:breakfast-cereals" => 3,
+#"categories/en:breakfast-cereals" => 3,
 "categories/en:tofu" => 3,
 "categories/en:alcoholic-beverages" => 3,
 "categories/en:meals" => 3,

@@ -37,6 +37,7 @@ BEGIN
 		&retrieve_product_or_deleted_product
 		&retrieve_product_rev
 		&store_product
+		&send_notification_for_product_change
 		&product_name_brand
 		&product_name_brand_quantity
 		&product_url
@@ -74,6 +75,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use Log::Any qw($log);
 
+use LWP::UserAgent;
 use Storable qw(dclone);
 
 use Algorithm::CheckDigits;
@@ -176,7 +178,12 @@ sub init_product($) {
 
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
-		$country = "france";
+		if (defined param('cc')) {
+			$country = param('cc');
+		}
+		else {
+			$country = "france";
+		}
 	}
 	
 	# ugly fix: elcoco -> Spain
@@ -202,6 +209,22 @@ sub init_product($) {
 		}
 	}
 	return $product_ref;
+}
+
+# Notify robotoff when products are updated
+
+sub send_notification_for_product_change($$) {
+
+	my $product_ref = shift;
+	my $action = shift;
+	
+	my $ua = LWP::UserAgent->new();
+	
+	my $response = $ua->post( "https://robotoff.openfoodfacts.org/api/v1/webhook/product",  {
+		'barcode' => $product_ref->{code},
+		'action' => $action,
+		'server_domain' => "api." . $server_domain
+	} );
 }
 
 sub retrieve_product($) {

@@ -12,8 +12,8 @@ nl:Leeg
 nl_be:Leeg
 pt:Vazio
 ro:Gol
-ru:Пустые
 rs:Prazno
+ru:Пустые
 sv:Tom
 vi:Trống
 zh:空
@@ -23,13 +23,13 @@ zh-HK:空
 
 en:Checked
 cs:Potvrzený
+de:Geprüft
 el:Ελέγχθηκε
 es:Comprobado
 fr:Vérifié
 he:נבדק
 hu:Ellenőrizve
 it:Verificato
-de:Geprüft
 ja:確認済
 nl:Gecontroleerd
 nl_be:Geverifieerd
@@ -66,13 +66,13 @@ zh-HK:需確認
 
 en:Complete
 cs:Hotový
+de:Ausgefüllt
 el:Συμπληρώθηκε
 es:Completado
 fr:Complet
 he:הושלם
 hu:Teljes
 it:Completato
-de:Ausgefüllt
 ja:完了
 nl:Volledig
 nl_be:Volledig
@@ -248,6 +248,7 @@ zh-HK:應完成商標
 
 en:Categories to be completed
 cs:Kategorie je třeba doplnit
+de:Kategorien auszufüllen
 el:Να συμπληρωθούν οι κατηγορίες
 es:Categorías a completar
 fr:Catégories à compléter
@@ -255,7 +256,6 @@ he:קטגוריות להשלמה
 hu:A kategóriákat ki kell egészíteni
 it:Categorie da completare
 ja:カテゴリー未完了
-de:Kategorien auszufüllen
 nl:Categorieën invullen
 pt:Categorias a completar
 ro:Categorii de completat
@@ -271,9 +271,9 @@ zh-HK:應完成分類
 en:Characteristics completed
 cs:Charakteristiky jsou hotové
 de:Merkmale ausgefüllt
-fr:Caractéristiques complétées
 el:Τα χαρακτηριστικά συμπληρώθηκαν
 es:Características completadas
+fr:Caractéristiques complétées
 he:מאפיינים הושלמו
 hu:A jellemzők teljes
 it:Caratteristiche completate
@@ -316,13 +316,13 @@ zh-HK:應完成特徵
 
 en:Ingredients completed
 cs:Ingredience jsou hotové
+de:Zutaten ausgefüllt
 el:Τα συσταστικά συμπληρώθηκαν
 es:Ingredientes completados
 fr:Ingrédients complétés
 he:הרכיבים הושלמו
 hu:Az összetevők teljes
 it:Ingredienti completati
-de:Zutaten ausgefüllt
 ja:原材料完了
 nl:Ingrediënten klaar
 pt:Ingredientes completados
@@ -492,14 +492,14 @@ zh-HK:應上傳照片
 
 en:Categories completed
 cs:Kategorie jsou hotové
+de:Kategorien ausgefüllt
 el:Οι φωτογραφίες συμπληρώθηκαν
+es:Categorías completadas
 fr:Catégories complétées
 hu:A kategóriák teljes
+it:Categorie completate
 ja:カテゴリー完了
 nl:Categorieën klaar
-es:Categorías completadas
-de:Kategorien ausgefüllt
-it:Categorie completate
 ru:Категории указаны
 sv:Kategorier fullständigt
 vi:Danh mục đã hoàn thành
@@ -510,14 +510,14 @@ zh-HK:完成分類
 
 en:Brands completed
 cs:Značky jsou hotové
+de:Marken ausgefüllt
 el:Οι μάρκες συμπληρώθηκαν
+es:Marcas completadas
 fr:Marques complétées
 hu:A márkanevek teljes
+it:Marchi completati
 ja:ブランド完了
 nl:Merken klaar
-es:Marcas completadas
-de:Marken ausgefüllt
-it:Marchi completati
 ru:Марки указаны
 sv:Varumärken fullständigt
 vi:Thương hiệu đã hoàn thành
@@ -528,14 +528,14 @@ zh-HK:完成商標
 
 en:Packaging completed
 cs:Informace o balení jsou hotové
+de:Verpackung ausgefüllt
 el:Η συσκευασία συμπληρώθηκε
+es:Empaquetado completado
 fr:Emballage complété
 hu:A csomagolás teljes
+it:Imballaggio completato
 ja:包装完了
 nl:Verpakking klaar
-es:Empaquetado completado
-de:Verpackung ausgefüllt
-it:Imballaggio completato
 ru:Упаковка описана
 sv:Förpackning fullständigt
 vi:Bao bì đã hoàn thành
@@ -546,14 +546,14 @@ zh-HK:完成包裝
 
 en:Quantity completed
 cs:Informace o množství jsou hotové
+de:Menge ausgefüllt
 el:Η ποσότητα συμπληρώθηκε
+es:Cantidad completada
 fr:Quantité complétée
 hu:A mennyiség teljes
+it:Quantità completata
 ja:数量完了
 nl:Hoeveelheid klaar
-es:Cantidad completada
-de:Menge ausgefüllt
-it:Quantità completata
 ru:Количество указано
 sv:Mängd fullständigt
 vi:Số lượng hoàn thành
@@ -564,14 +564,14 @@ zh-HK:完成數量
 
 en:Product name completed
 cs:Jméno produktu je hotové
+de:Produktname ausgefüllt
 el:Το όνομα του προϊόντος συμπληρώθηκε
+es:Nombre de producto completado
 fr:Nom du produit complete
 hu:A termék neve teljes
+it:Nome prodotto completato
 ja:製品名完了
 nl:Productnaam klaar
-es:Nombre de producto completado
-de:Produktname ausgefüllt
-it:Nome prodotto completato
 ru:Название указано
 sv:Produktnamn fullständigt
 vi:Tên sản phẩm đã hoàn thành
@@ -582,20 +582,23 @@ zh-HK:完成品名
 
 en:Packaging code to be completed
 cs:Kód balení je třeba doplnit
+de:Verpackungscode auszufüllen
 el:Να συμπληρωθεί ο κωδικός συσκευασίας
+es:Código de empaque a completar
 fr:Code emballeur à compléter
 hu:A csomagolási kódot ki kell egészíteni
 it:Codice di imballaggio da completare
 sv:Identifieringsmärke saknas
-es:Código de empaque a completar
 vi:Mã đóng gói cần hoàn thành
 
 en:Packaging code completed
 cs:Kód balení je hotový
+de:Verpackungscode ausgefüllt
 el:Ο κωδικός συσκευασίας συμπληρώθηκε
+es:Código de empaque completado
 fr:Code emballeur complété
 hu:A csomagolási kód teljes
 it:Codice di imballaggio completato
 sv:Identifieringsmärke fullständigt
-es:Código de empaque completado
 vi:Mã đóng gói đã hoàn thành
+

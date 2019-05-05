@@ -1384,6 +1384,7 @@ HTML
 
 
 	foreach my $field (@fields) {
+		next if $field eq "origins"; # now displayed below allergens and traces in the ingredients section
 		$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
 		$html .= display_field($product_ref, $field);
 	}
@@ -1402,6 +1403,8 @@ HTML
 	$html .= display_field($product_ref, "allergens");
 
 	$html .= display_field($product_ref, "traces");
+
+	$html .= display_field($product_ref, "origins");
 
 $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
@@ -2099,6 +2102,10 @@ elsif ($action eq 'process') {
 			. lang("see_product_page") . "</a></p>";
 	}
 	elsif ($type eq 'delete') {
+
+		# Notify robotoff
+		send_notification_for_product_change($product_ref, "deleted");
+
 		my $email = <<MAIL
 $User_id $Lang{has_deleted_product}{$lc}:
 
@@ -2109,6 +2116,9 @@ MAIL
 		send_email_to_admin(lang("deleting_product"), $email);
 
 	} else {
+
+		# Notify robotoff
+		send_notification_for_product_change($product_ref, "updated");
 
 		# warning: this option is very slow
 		if ((defined $options{display_random_sample_of_products_after_edits}) and ($options{display_random_sample_of_products_after_edits})) {
