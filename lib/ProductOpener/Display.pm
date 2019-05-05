@@ -3775,7 +3775,22 @@ HTML
 
 				my $compact_product_ref = {};
 				foreach my $field (split(/,/, $request_ref->{fields})) {
-					if (defined $product_ref->{$field}) {
+				
+					if ($field =~ /^(.*)_languages$/) {
+					
+						my $language_field = $1;
+						$compact_product_ref->{$field} = {};
+						if (defined $product_ref->{languages_codes}) {
+							foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
+								if (defined $product_ref->{$language_field . "_" . $language_code}) {
+									$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
+								}
+							}
+						}
+					
+					}
+				
+					elsif (defined $product_ref->{$field}) {
 						$compact_product_ref->{$field} = $product_ref->{$field};
 					}
 				}
@@ -8777,6 +8792,20 @@ HTML
 							last;
 						}
 					}
+				}
+				# [language_field]_languages : return a value with all existing values for a specific language field
+				if ($field =~ /^(.*)_languages$/) {
+				
+					my $language_field = $1;
+					$compact_product_ref->{$field} = {};
+					if (defined $product_ref->{languages_codes}) {
+						foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
+							if (defined $product_ref->{$language_field . "_" . $language_code}) {
+								$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
+							}
+						}
+					}
+				
 				}
 
 				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
