@@ -1,38 +1,23 @@
 # Base stage that adds the Perl runtime and some build utilities to httpd:alpine
-FROM httpd:alpine AS perl-runtime
+FROM alpine AS modperl
 
-RUN apk -U add --no-cache tzdata git curl wget perl perl-dev openssl openssl-dev make gcc libc-dev zlib-dev \
+RUN set -x \
+    && echo -e '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main\n@edgecommunity http://dl-cdn.alpinelinux.org/alpine/edge/community\n@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
+    && apk -U add --no-cache tzdata git curl wget perl perl-dev openssl openssl-dev make gcc libc-dev zlib-dev apache2-mod-perl@testing \
     && rm -rf /var/cache/apk/*
 
 # Install cpm to install cpanfile dependencies
 RUN curl -o- -L --compressed https://git.io/cpm | perl - install App::cpm -g && rm -rf ~/.perl-cpm
 
-# Stage that compiles mod_perl and installs it in the layer
-FROM perl-runtime AS modperl
-#  Fetch mod_perl source, build and install it
-ADD http://www.eu.apache.org/dist/perl/mod_perl-2.0.10.tar.gz mod_perl-2.0.10.tar.gz
-RUN set -x \
-    && ln -s /usr/lib/x86_64-linux-gnu/libgdbm.so.3.0.0 /usr/lib/libgdbm.so \
-    && tar -zxvf mod_perl-2.0.10.tar.gz \
-    && rm mod_perl-2.0.10.tar.gz \
-    && cd mod_perl-2.0.10 \
-    && perl Makefile.PL MP_AP_PREFIX=/usr/local/apache2 \
-    && make \
-    && make install \
-    && cd .. \
-    && rm -r mod_perl-2.0.10
-
 # Stage that just adds some runtime packages that will be used in the runnable stage and the builder stage
 FROM modperl AS alpinemodperl
 
 RUN set -x \
-	  && echo -e '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main\n@edgecommunity http://dl-cdn.alpinelinux.org/alpine/edge/community\n@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
 	  && apk --update --no-cache add \
     imagemagick6 \
 		graphviz \
 		tesseract-ocr \
-		# As of Alpine 3.7, zbar is only available in testing.
-		imagemagick@edge \
+    imagemagick \
 		zbar@testing
 
 # Stage for installing/compiling cpanfile dependencies
@@ -46,10 +31,11 @@ RUN apk --update --no-cache add \
 		graphviz-dev \
 		tesseract-ocr \
 		tesseract-ocr-dev \
-		# As of Alpine 3.7, zbar is only available in testing.
-		imagemagick@edge \
+    imagemagick \
 		zbar@testing \
-		zbar-dev@testing
+		zbar-dev@testing \
+    apache2-dev \
+    apache2-mod-perl-dev@testing
 
 WORKDIR /tmp
 
@@ -61,9 +47,6 @@ COPY ./cpanfile /tmp/cpanfile
 
 # Add ProductOpener runtime dependencies from cpan
 RUN cpm install
-
-# Remove some build dependencies that are not required to run the image
-RUN apk del --no-cache git curl wget perl-dev openssl-dev make gcc libc-dev zlib-dev
 
 # Helper stage, so that we don't try to install GeoIP upon every rebuild of the source
 FROM alpinemodperl AS alpinemodperlgeoip
@@ -82,6 +65,8 @@ FROM alpinemodperlgeoip AS runnable
 
 # Copy Perl libraries from the builder image
 COPY --from=builder /tmp/local/ /opt/perl/local/
+
+EXPOSE 80
 
 FROM runnable AS withsrc
 
