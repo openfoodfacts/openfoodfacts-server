@@ -437,6 +437,9 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 			$request_ref->{$parameter} = $2;
+			if ($parameter eq "fields") {
+				$request_ref->{$parameter} =~ s/\%2C/,/g;
+			}
 			$log->debug("parameter was set from query string", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}
