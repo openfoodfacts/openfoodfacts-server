@@ -4148,9 +4148,26 @@ wikidata:en: Q418064
 # additive/e336ii-dipotassium-tartrate/ has 9 products in 3 languages @2019-03-22
 
 
+# comment:E350 is written in plural to distinguish it from E350i.
+
+en:sodium malates
+da:natriummalater
+de:Natriummalate
+el:άλατα του μηλικού οξέος με νάτριο
+es:malatos de sodio
+fr:malates de sodium
+it:malati di sodio
+lt:natrio malatai
+nl:natriummalaten
+pt:malatos de sódio
+sk:jablčnany sodné
+sv:natriummalater
+wikidata:en:Q63534992
+
 # description:en:SODIUM MALATE is a compound with formula Na2(C2H4O(COO)2). It is the sodium salt of malic acid. 
 
-en:sodium malate, E350i, E-350i, E 350i, INS350i, INS-350i, INS 350i
+<en:sodium malates
+en:sodium malate, E350i, E-350i, E 350i, INS350i, INS-350i, INS 350i, SIN350i, SIN-350i, SIN 350i
 ar:مالات صوديوم
 # azb:سودیوم مالات
 bg:Натриев малат
@@ -4184,6 +4201,32 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_malate
 # ingredient/fr:malate-de-sodium has 18 products @2019-02-25
 # additive/e350i-sodium-malate has 38 products in 3 languages @2019-02-25
 # usage:fr:correcteur d'acidité:malate de sodium
+
+<en:sodium malates
+en:Sodium hydrogen malate, E350ii, E-350ii, E 350ii, INS350ii, INS-350ii, INS 350ii, SIN350ii, SIN-350ii, SIN 350ii
+bg:Натриев хидроген малат
+cs:Jablečnan monosodný
+da:Natriumhydrogenmalat
+de:Natriumhydrogenmalat
+el:Οξινο μηλικο νατριο
+es:Malato ácido de sodio
+et:Naatriumvesinikmalaat
+fi:Natriumvetymalaatti
+fr:malate acide de sodium
+hu:Nátrium-hidrogén-malát
+it:malato acidio di sodio
+lt:Natrio vandenilio malatas
+lv:Nātrija hidrogēnmalāts
+mt:Malat idroġenat tas-sodju
+nl:Natriumwaterstofmalaat
+pl:Wodorojabłczan sodu
+pt:Hidrogenomalato de sódio
+ro:Malat acid de sodiu
+sk:Hydrogenjablčnan sodný
+sl:Natrijev hidrogenmalat
+sv:Natriumvätemalat
+wikidata:en:Q42807545
+# ingredient/fr:malate-acide-de-sodium has 125 products in 5 languages @2019-05-06
 
 
 # description:en:Agar or agar-agar is a jelly-like substance, obtained from red algae.
@@ -57534,7 +57577,6 @@ fr:noix de saint-jacques
 
 fr:ortie
 
-fr:malate acide de sodium, e350ii
 
 
 
@@ -58244,7 +58286,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 <en:tomato sauce
 fr:sauce tomate cuite
 # ingredient/fr:sauce-tomate-cuite has 379 products in 5 languages @2018-12-26
-
 
 # description:en:WORCESTERSHIRE SAUCE is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
 
