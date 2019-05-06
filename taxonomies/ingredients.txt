@@ -10032,6 +10032,176 @@ wikidata:en:Q419488
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_selenate
 # ingredient/fr:sélénate-de-sodium has 97 products in 4 languages @2019-04-21
 
+
+# description:en:SODIUM is a chemical element with symbol Na (from Latin natrium) and atomic number 11. In humans, sodium is an essential mineral that regulates blood volume, blood pressure, osmotic equilibrium and pH; the minimum physiological requirement for sodium is 500 milligrams per day.
+
+<en:mineral
+en:Sodium
+af:natrium
+am:ሶዲየም
+an:Sodio
+ar:صوديوم
+# arz:صوديوم
+# ast:Sodiu
+az:Natrium
+# azb:سودیوم
+be:натрый
+# be-tarask:натар
+bg:Натрий
+# bho:सोडियम
+bn:সোডিয়াম
+bo:བུལ་རྫས།
+br:Sodiom
+bs:natrij
+ca:sodi
+# cdo:Năk
+# ceb:Sodio
+# ckb:سۆدیوم
+co:Sodiu
+cs:Sodík
+cv:Натри
+cy:Sodiwm
+da:natrium
+de:Natrium
+# de-ch:Natrium
+dv:ސޯޑިއަމް
+el:Νάτριο
+# en-ca:sodium
+# en-gb:sodium
+eo:natrio
+es:Sodio
+et:Naatrium
+eu:sodio
+fa:سدیم
+fi:Natrium
+fo:Natrium
+fr:sodium
+# frr:Natrium
+# fur:Sodi
+fy:Natrium
+ga:Sóidiam
+# gan:鈉
+gd:Sòidium
+gl:Sodio
+gu:સોડિયમ
+gv:Sodjum
+# hak:Na̍p
+# haw:Sodiuma
+he:נתרן
+hi:सोडियम
+# hif:Sodium
+hr:Natrij
+ht:Sodyòm
+hu:Nátrium
+hy:նատրիում
+ia:sodium
+id:Natrium
+io:natro
+is:natrín
+it:Sodio
+ja:ナトリウム
+# jbo:sodna
+jv:Natrium
+ka:ნატრიუმი
+# kaa:Nаtriy
+# kbp:Sɔdɩyɔm
+ki:Sodium
+kk:Натрий
+km:សូដ្យូម
+kn:ಸೋಡಿಯಮ್
+ko:나트륨
+ku:Natriyûm
+kv:Натрий
+ky:Натрий
+la:natrium
+lb:Natrium
+# lfn:sodio
+li:Natrium
+# lij:Sodio
+# lmo:Sodio
+ln:Sodu
+lt:Natris
+lv:Nātrijs
+# lzh:鈉
+mi:konutai
+mk:натриум
+ml:സോഡിയം
+mn:Натри
+mr:सोडियम
+# mrj:Натрий
+ms:Natrium
+mt:Sodju
+my:ဆိုဒီယမ်
+# nan:Na
+nb:natrium
+# nds:Natrium
+ne:सोडियम
+# new:सोडियम
+nl:Natrium
+nn:natrium
+# nov:Natrium
+# nrm:Sôdgium
+nv:Soodin
+oc:Sòdi
+# olo:Natrii
+or:ସୋଡ଼ିଅମ
+pa:ਸੋਡੀਅਮ
+pi:सोडियम
+pl:Sód
+# pms:Sòdio
+# pnb:سوڈیم
+# pnt:Νάτριον
+pt:Sódio
+# pt-br:sódio
+qu:Natriyu
+ro:Sodiu
+ru:натрий
+# rup:Natriu
+sa:सोडियम
+# sah:Натриум
+# scn:sodiu
+# sco:sodium
+sh:Natrij
+si:සෝඩියම්
+sk:Sodík
+sl:Natrij
+so:Saadiyom
+sq:Natriumi
+sr:натријум
+# stq:Natrium
+su:Natrium
+sv:Natrium
+sw:Natiri
+ta:சோடியம்
+te:సోడియమ్
+tg:Натрий
+th:โซเดียม
+tl:Sodyo
+tr:Sodyum
+tt:Натрий
+ug:ناترىي
+uk:натрій
+ur:صوداصر
+uz:Natriy
+# vep:Natrii
+vi:natri
+wa:Sodiom
+# war:Sodyo
+# wuu:钠
+# xal:Натрион
+yi:נאטריום
+yo:Sodiomu
+# yue:鈉
+zh:钠
+# zh-cn:钠
+# zh-hant:鈉
+# zh-hk:鈉
+wikidata:en:Q658
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium
+# usage:fr:sels minéraux de mer (sodium, potassium, magnésium, calcium)
+# ingredient/fr:sodium has 317 products @2019-05-06
+
+
 # description:en:Zinc is a chemical element with symbol Zn and atomic number 30. 
 
 <en:mineral
@@ -56431,8 +56601,8 @@ fr:salade composée
 
 # description:en:Ketchup is a sauce used as a condiment. Ketchup is a sweet and tangy sauce now typically made from tomatoes, sugar, and vinegar, with assorted seasonings and spices. The specific spices and flavors vary, but commonly include onions, allspice, coriander, cloves, cumin, garlic, and mustard; and sometimes include celery, cinnamon or ginger.
 
-# <en:compound
 # <en:mainIngredient:en:tomato
+<en:sauce
 en:ketchup
 af:Tamatiesous
 ar:كتشب
@@ -57037,8 +57207,6 @@ es:Fosfato de sodio
 fr:germe de blé, germes de blé
 
 
-
-fr:sodium
 
 
 
