@@ -5343,7 +5343,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Polyglycerol_polyricinoleate
 # ingredient/fr:polyricinoléate-de-polyglycérol has 191 products in 6 languages @2019-05-06
 # usage:fr:émulsifiants (mono - et diglycérides d'acides gras, lécithine de soja, polyricinoléate de polyglycérol)
 
-# Sorbitan monostearate is an ester of sorbitan (a sorbitol derivative) and stearic acid and is sometimes referred to as a synthetic wax.
+# description:en:Sorbitan monostearate is an ester of sorbitan (a sorbitol derivative) and stearic acid and is sometimes referred to as a synthetic wax.
 
 en:Sorbitan monostearate, E491, E-491, E 491
 bg:Сорбитан моностеарат
@@ -39131,22 +39131,6 @@ nl:tomatensap uit sapconcentraat
 <en:tomato pulp
 fr:purée et pulpe de tomates
 
-# en:tomato-sauce is a compound ingredient
-
-<en:sauce
-en:tomato sauce
-fr:sauce tomate, préparation à base de tomates, préparation aux tomates
-carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
-es:salsa de tomate
-nl:tomatensaus
-# ingredient/fr:préparation-à-base-de-tomates has 91 products in 5 languages @2018-12-26
-
-# fr:sauce-tomate-cuite is a compound ingredient
-
-<en:tomato sauce
-fr:sauce tomate cuite
-# ingredient/fr:sauce-tomate-cuite has 379 products in 5 languages @2018-12-26
-
 
 # Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 
@@ -58200,6 +58184,66 @@ uk:Кисло-солодкий соус
 wikidata:en:Q2550606
 wikipedia:en:https://en.wikipedia.org/wiki/Sweet_and_sour
 # ingredient/fr:sauce-aigre-douce has 72 products in 4 languages @2019-05-01
+
+
+# description:en:TOMATO SAUCE (also known as Neapolitan sauce) can refer to a large number of different sauces made primarily from tomatoes, usually to be served as part of a dish, rather than as a condiment. Tomato sauces are common for meat and vegetables, but they are perhaps best known as bases for Mexican salsas or sauces for pasta dishes. 
+
+<en:sauce
+en:tomato sauce
+ar:صلصة البندورة
+bg:Доматен сос
+bn:টমেটো সস্
+ca:salsa de tomàquet
+co:culatu
+cs:rajská omáčka
+da:tomatsauce
+de:Tomatensauce
+eo:tomatsaŭco
+es:salsa de tomate
+et:tomatikaste
+eu:tomate saltsa
+fa:سس گوجه فرنگی
+fi:tomaattikastike
+fr:sauce tomate, préparation à base de tomates, préparation aux tomates
+gl:Salsa de tomate
+gv:soolagh traase
+he:רוטב עגבניות
+hi:टमाटर की चटनी
+hy:Տոմատի սոուս
+ia:sauce de tomate
+id:Saus tomat
+is:tómatsósa
+it:salsa di pomodoro
+ja:トマトソース
+ka:პომიდვრის სოუსი
+ko:토마토 소스
+mk:до́матен сос
+lv:tomātu mērce
+nb:tomatsaus
+nl:tomatensaus
+or:ଟମାଟ ଚଟଣୀ
+pa:ਟਮਾਟਰ ਸੌਸ
+pl:Sos pomidorowy
+# pnb:ٹماٹر سوس
+pt:molho de tomate
+ru:томатный соус
+sk:paradajková omáčka
+sv:tomatsås
+sq:salcë domatesh
+tr:domates sosu
+uk:Суґо
+vi:Sốt cà
+# yue:拿坡里汁
+zh:番茄沙司
+# zh-cn:番茄酱
+wikidata:en:Q3596097
+wikipedia:en:https://en.wikipedia.org/wiki/Tomato_sauce
+carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
+# ingredient/fr:préparation-à-base-de-tomates has 91 products in 5 languages @2018-12-26
+
+<en:tomato sauce
+fr:sauce tomate cuite
+# ingredient/fr:sauce-tomate-cuite has 379 products in 5 languages @2018-12-26
 
 
 # description:en:WORCESTERSHIRE SAUCE is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
