@@ -16523,9 +16523,8 @@ en:finegrained salt
 fr:Sel fin
 nl:Fijn zout
 
-fr:sel nitrité pour saumure
 
-# SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
+# description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
 
 <en:salt
 en:Smoked salt
@@ -56381,8 +56380,60 @@ it:glassa
 # glassa (massa di cacao magro, zucchero, grasso vegetale)
 
 
+# description:en:BRINE is a high-concentration solution of salt (usually sodium chloride) in water. Brining is used to preserve or season the food. Brining can be applied to vegetables, cheeses and fruit in a process known as pickling. Meat and fish are typically steeped in brine for shorter periods of time, as a form of marination, enhancing its tenderness and flavor, or to enhance shelf period.
 
-# BROTH is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
+# <en:compound
+# <en:mainIngredient:en:water
+en:brine
+af:Pekel
+an:Salmuerra
+ar:أجاج
+# ast:Salmoria
+be:Рапа
+bn:ব্রাইন
+ca:salmorra
+cs:lák
+da:saltlage
+de:Sole, Salzlake
+el:Άρμη
+eo:peklakvo
+es:salmuera
+eu:Gatzun
+fa:آب‌نمک
+fr:saumure
+gl:Moira
+he:תמלחת
+hu:Telített sósvíz
+id:Air garam
+is:Pækill
+it:salamoia
+ja:塩水
+ko:소금물
+lt:Sūrymas
+mn:Ханасан ус
+ms:Penjerukan
+nb:lake
+nl:pekel
+nn:lake
+pl:Kiszenie
+pt:salmoura
+ro:Saramură
+ru:Рапа
+sk:Soľanka
+sl:Slanica
+sv:saltlag
+th:น้ำเกลือเข้มข้น
+tr:Salamura
+uk:Ропа
+vi:nước muối
+zh:濃鹽水
+wikidata:en:Q214403
+wikipedia:en:https://en.wikipedia.org/wiki/Brine
+# ingredient/fr:saumure has 150 products in 3 languages @2019-05-06
+# usage:en:brine (water, sea salt)
+
+
+# descrription:en:BROTH is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
 
 # <en:compound
 # <en:mainIngredient:en:water
@@ -57469,9 +57520,6 @@ fr:polyricinoléate de polyglycérol
 fr:babeurre déshydraté
 
 fr:éthanol
-
-
-fr:saumure
 
 
 
