@@ -8825,7 +8825,41 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_sulfate
 # mineral/ferrous-sulphate has 3832 products in 7 languages @2019-03-06
 
 
-# Iron(II) gluconate, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
+# description:en:Iron(II) phosphate, Fe3(PO4)2, is an iron salt of phosphoric acid.
+# comment:en:The diphosphate translation is preferred.
+
+<en:mineral
+en:ferric diphosphate, iron diphosphate
+bg:Железен дифосфат
+cs:difosforečnan železitý
+da:ferridiphosphat
+de:Eisendiphosphat
+el:διφωσφορικός σίδηρος
+es:difosfato férrico
+et:rauddifosfaat
+fi:ferridifosfaatti
+fr:diphosphate ferrique
+hu:vas-difoszfát
+it:difosfato di ferro
+lt:geležies difosfatas
+lv:dzelzs difosfāts
+mt:difosfat ferriku
+nl:ijzerdifosfaat, ijzerfosfaat
+pl:difosforan żelaza
+pt:difisato de ferro
+ro:difosfat feric
+sk:difosforečnan železitý
+sl:železov difosfat
+sv:ferridifosfat
+ta:இரும்பு பைரோபாசுபேட்டு
+zh:焦磷酸铁
+wikidata:en:Q9207442
+wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_phosphate
+# ingredient/fr:diphosphate-ferrique has 116 products in 7 languages @2019-05-07
+# usage:de:Mineralstoff (Eisendiphosphat)
+
+
+# description:en:Iron(II) gluconate, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
 
 <en:iron
 en:iron gluconate, ferrous gluconate, E579, E-579, E 579
@@ -8844,7 +8878,7 @@ fr:gluconate de fer, gluconate ferreux
 hu:Vas-glukonát
 it:gluconato di ferro, Gluconato ferroso
 lt:Geležies gliukonatas
-lz:Dzelzs glikonāts
+lv:Dzelzs glikonāts
 mt:Glukonat ferruż
 nl:Ijzergluconaat
 pl:Glukonian żelazawy
@@ -28408,10 +28442,10 @@ fr:diphosphate disodique et carbonate acide de sodium
 
 
 en:triphosphates, triphosphate, E451, e 451, e-451
-de:Triphosphate, E451, e 451, e-451
-fr:triphosphate, triphosphates, E451, e 451, e-451
-it:trifosfat, E451, e 451, e-451
-nl:trifosfaten, E451, e 451, e-451
+de:Triphosphate
+fr:triphosphate, triphosphates
+it:trifosfat
+nl:trifosfaten
 ru:Tрифосфаты
 sv:trifosfat
 # fr:triphosphate has 583 products in 5 languages @2018-11-04
@@ -57682,8 +57716,7 @@ de:Calciumiodat
 fr:nitrate de sodium
 #wikidata:en:
 
-fr:diphosphate ferrique
-#wikidata:en:
+
 
 
 
