@@ -40,6 +40,8 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 
 --compute-nutrition-score	nutriscore
 
+--compute-serving-size	compute serving size values
+
 --check-quality	run quality checks
 
 --compute-codes 
@@ -85,6 +87,7 @@ my $pretend = '';
 my $process_ingredients = '';
 my $clean_ingredients = '';
 my $compute_nutrition_score = '';
+my $compute_serving_size = '';
 my $compute_nova = '';
 my $check_quality = '';
 my $compute_codes = '';
@@ -97,6 +100,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
 			"compute-nutrition-score" => \$compute_nutrition_score,
+			"compute-serving-size" => \$compute_serving_size,
 			"compute-nova" => \$compute_nova,
 			"compute-codes" => \$compute_codes,
 			"compute-carbon" => \$compute_carbon,
@@ -134,6 +138,7 @@ if ($unknown_fields > 0) {
 
 if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova) 
 	and (not $clean_ingredients)
+	and (not $compute_serving_size)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0)) {
 	die("Missing fields to update:\n$usage");
 }  
@@ -150,7 +155,7 @@ else {
 
 #$query_ref->{code} = "3033490859206";
 #$query_ref->{categories_tags} = "en:plant-milks";
-$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
+#$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
 
 print "Update key: $key\n\n";
 
@@ -201,9 +206,9 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
-                if ($server_domain =~ /openfoodfacts/) {
-                        ProductOpener::Food::special_process_product($product_ref);
-                }
+		if ($server_domain =~ /openfoodfacts/) {
+				ProductOpener::Food::special_process_product($product_ref);
+		}
 		
 		if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 			push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
@@ -211,7 +216,7 @@ while (my $product_ref = $cursor->next) {
 		}
 	
 		
-                if ($clean_ingredients) {
+		if ($clean_ingredients) {
 			clean_ingredients_text($product_ref);
 		}
 	
@@ -252,8 +257,16 @@ while (my $product_ref = $cursor->next) {
 			ProductOpener::SiteQuality::check_quality($product_ref);
 		}
 		
+		if ($compute_serving_size) {
+			ProductOpener::Food::compute_serving_size_data($product_ref);
+		}
+		
 		if (not $pretend) {
 			$product_ref->{update_key} = $key;
+			
+			# make sure nutrient values are numbers
+			ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
+	
 			store("$data_root/products/$path/product.sto", $product_ref);		
 
 			# Make sure product code is saved as string and not a number
