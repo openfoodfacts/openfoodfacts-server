@@ -435,7 +435,6 @@ sub check_nutrition_grades($) {
 }
 
 
-
 sub check_nutrition_data($) {
 
 
@@ -483,6 +482,8 @@ sub check_nutrition_data($) {
 		my $nid_n = 0;
 		my $nid_zero = 0;
 	
+		my $total = 0;
+	
 		foreach my $nid (keys %{$product_ref->{nutriments}}) {
 			next if $nid =~ /_/;
 			
@@ -491,10 +492,30 @@ sub check_nutrition_data($) {
 				push @{$product_ref->{quality_tags}}, "nutrition-value-over-105-for-$nid";						
 			}
 			
+			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 1000)) {
+						
+				push @{$product_ref->{quality_tags}}, "nutrition-value-over-1000-for-$nid";						
+			}			
+			
 			if ($product_ref->{nutriments}{$nid . "_100g"} == 0) {
 				$nid_zero++;
 			}
 			$nid_n++;
+			
+			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
+				$total += $product_ref->{nutriments}{$nid . "_100g"};
+			}
+		}
+		
+		if ($total > 105) {
+			push @{$product_ref->{quality_tags}}, "nutrition-value-total-over-105";
+		}
+		if ($total > 1000) {
+			push @{$product_ref->{quality_tags}}, "nutrition-value-total-over-1000";
+		}		
+		
+		if ($product_ref->{nutriments}{"energy_100g"} > 4000) {
+			push @{$product_ref->{quality_tags}}, "nutrition-value-over-4000-for-energy";
 		}
 		
 		if (($nid_n >= 1) and ($nid_zero == $nid_n)) {
@@ -686,8 +707,38 @@ sub check_quantity($) {
 	if ((defined $product_ref->{quantity}) and (not defined $product_ref->{product_quantity})) {
 		push @{$product_ref->{quality_tags}}, "quantity-not-recognized";
 	}
+	
+	if (defined $product_ref->{product_quantity}) {
+		if ($product_ref->{product_quantity} > 10 * 1000) {
+			push @{$product_ref->{quality_tags}}, "product-quantity-over-10kg";
+		}
+		if ($product_ref->{product_quantity} < 1) {
+			push @{$product_ref->{quality_tags}}, "product-quantity-under-1g";
+		}
+	}
+	
+	if (defined $product_ref->{serving_quantity}) {
+		if ($product_ref->{serving_quantity} > 500) {
+			push @{$product_ref->{quality_tags}}, "serving-quantity-over-500g";
+		}
+		if ($product_ref->{serving_quantity} < 1) {
+			push @{$product_ref->{quality_tags}}, "serving-quantity-under-1g";
+		}
 
+		if (defined $product_ref->{product_quantity}) {
+			if ($product_ref->{serving_quantity} > $product_ref->{product_quantity}) {
+				push @{$product_ref->{quality_tags}}, "serving-quantity-over-product-quantity";
+			}
+			if ($product_ref->{serving_quantity} < $product_ref->{product_quantity} / 1000) {
+				push @{$product_ref->{quality_tags}}, "serving-quantity-less-than-product-quantity-divided-by-1000";
+			}			
+		}
+		else {
+			push @{$product_ref->{quality_tags}}, "serving-quantity-defined-but-quantity-undefined";
+		}	
+	}	
 }
+
 
 sub check_bugs($) {
 
