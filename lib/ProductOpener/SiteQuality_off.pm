@@ -187,7 +187,6 @@ GT
 Gudang-Garam
 HB
 Hits-Mild
-Hollywood
 Hongtashan
 Hope
 India-Kings 
