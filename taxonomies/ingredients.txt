@@ -18623,12 +18623,63 @@ nl:schaapsvet
 
 <en:pork by-product
 <en:animal fat
-en:pork fat
-de:Schweinefett
-fr:gras de porc
-it:grasso di maiale
-nl:varkensvet
-sv:fett fläsk
+
+# description:en:LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
+
+<en:pork
+<en:animal fat
+en:lard, pork fat
+an:Redetiu
+ar:دهن خنزير
+# ast:Mantega de gochu
+# bar:Schmoiz
+bg:Свинска мас
+ca:saïm
+cs:sádlo
+cv:Смалец
+de:Schweinefett, Schmalz
+eo:Ŝmalco
+es:manteca de cerdo
+eu:Txerri-gantz
+fa:چربی خوک
+fi:Silava
+fr:saindoux, gras de porc
+ga:Blonag
+gd:Blonag
+gl:Manteiga de porco
+hr:Svinjska mast
+hu:Disznózsír
+id:Lemak babi
+io:Saimo
+it:strutto, grasso di maiale
+ja:ラード
+ko:라드
+lb:Schmalz
+# lzh:豬油
+nb:smult
+nl:Reuzel, varkensvet
+nn:Smult
+# pdc:Schmals
+pl:Smalec
+pt:banha
+ru:Смалец
+# scn:Nzunza
+# sgs:Taukā
+sh:Svinjska mast
+sl:Svinjska mast
+sr:Svinjska mast # sr-el:Svinjska mast
+sv:Ister, fett fläsk
+# szl:Tuste
+th:มันหมู
+tl:Untosinsal
+tr:Domuz yağı
+uk:Смалець
+wa:Saeyén
+# yue:豬油
+zh:豬油
+wikidata:en:Q72827
+wikipedia:en:https://en.wikipedia.org/wiki/Lard
+# ingredient/fr:saindoux has 377 products in 4 languages @2019-05-08
 # ingredient/fr:gras-de-porc has 2110 products in 6 languages @2019-03-01
 
 <en:animal fat
@@ -58014,7 +58065,7 @@ en:Carbon Dioxide Gas
 fr:gaz carbonique
 
 
-fr:saindoux
+
 
 
 
