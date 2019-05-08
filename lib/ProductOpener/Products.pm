@@ -53,6 +53,8 @@ BEGIN
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
+		
+		&make_sure_numbers_are_stored_as_numbers
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -80,6 +82,40 @@ use Storable qw(dclone);
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
+
+
+sub make_sure_numbers_are_stored_as_numbers($) {
+
+	my $product_ref = shift;
+
+	# Perl scalars are not typed, the internal type depends on the last operator
+	# used on the variable... e.g. if it is printed, then it's converted to a string.
+	# See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
+	
+	# Force all numbers to be stored as numbers in .sto files and MongoDB
+	
+	if (defined $product_ref->{nutriments}) {
+		foreach my $field (keys %{$product_ref->{nutriments}}) {
+			# _100g and _serving need to be numbers
+			if ($field =~ /_(100g|serving)$/) {
+				# Store as number
+				$product_ref->{nutriments}{$field} += 0.0;
+			}
+			elsif ($field =~ /_(modifier|unit)/) {
+				# Store as string
+				$product_ref->{nutriments}{$field} .= "";
+			}
+			# fields like "salt", "salt_value"
+			# -> used internally, should not be used by apps
+			# store as numbers
+			else {	
+				# Store as number
+				$product_ref->{nutriments}{$field} += 0.0;			
+			}
+		}
+	}
+}
+
 
 
 sub normalize_code($) {
@@ -436,6 +472,9 @@ sub store_product($$) {
 	$product_ref->{complete} += 0;
 	$product_ref->{sortkey} += 0;
 
+	# make sure nutrient values are numbers
+	make_sure_numbers_are_stored_as_numbers($product_ref);
+	
 
 	# 2018-12-26: remove obsolete products from the database
 	# another option could be to keep them and make them searchable only in certain conditions
