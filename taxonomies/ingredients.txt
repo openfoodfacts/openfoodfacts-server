@@ -6793,8 +6793,14 @@ it:agenti di rivestimento cera di carnauba
 nl:glansmiddel carnaubawas
 # ingredient/fr:agent-d’enrobage-cire-de-carnauba has 45 products in 4 languages @2019-03-08
 
+# comment:en:Calcium iodate seems to more a mineral than an additive
 
-# SHELLAC is a resin secreted by the female lac bug, on trees in the forests of India and Thailand. It is processed and sold as dry flakes (pictured) and dissolved in alcohol to make liquid shellac, which is used as a brush-on colorant, food glaze and wood finish. 
+<en:calcium iodate
+en:E916, E-916, E 916, INS916, INS-916, INS 916, SIN916, SIN-916, SIN 916
+# additive/e916-calcium-iodate has 81 products in 2 languages @2019-05-08
+
+
+# description:en:SHELLAC is a resin secreted by the female lac bug, on trees in the forests of India and Thailand. It is processed and sold as dry flakes (pictured) and dissolved in alcohol to make liquid shellac, which is used as a brush-on colorant, food glaze and wood finish. 
 
 en:shellac, E904, E-904, E 904
 ar:شيلاك
@@ -8559,6 +8565,39 @@ wikidata:en:Q1103
 wikipedia:en:https://en.wikipedia.org/wiki/Iodine
 # ingredient/fr:iode has 92 products in 4 languages @2019-03-20
 # sel de cuisine [iodé, fluoré]
+
+
+# description:en:CALCIUM IODATES are inorganic compound composed of calcium and iodate anion. Calcium iodate can also be used as an iodine supplement.
+
+<en:iodine
+en:calcium iodate
+ar:يودات الكالسيوم
+# azb:کلسیوم یدات
+ca:iodat de calci
+da:calciumiodat
+de:Calciumiodat
+el:ιωδικό ασβέστιο
+# en-ca:Calcium iodate
+# en-gb:Calcium iodate
+es:yodato de calcio
+fi:Kalsiumjodaatti
+fr:iodate de calcium
+hu:Kalcium-jodát
+it:Iodato di calcio
+ja:ヨウ素酸カルシウム
+nl:calciumjodaat
+pl:Jodan wapnia
+pt:iodato de cálcio
+ru:Иодат кальция
+sh:Kalcijum jodat sr:Kalcijum jodat
+# sr-el:Kalcijum jodat
+ta:கால்சியம் அயோடேட்டு
+tr:Kalsiyum iyodat
+vi:Canxi iodat
+zh:碘酸鈣
+wikidata:en:Q2185998
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_iodate
+# ingredient/calcium-iodate has 76 products in 2 languages@2019-05-07
 
 
 # description:en:POTASSIUM IODIDE is a chemical compound, medication, and dietary supplement. As a medication it is used to treat hyperthyroidism, in radiation emergencies, and to protect the thyroid gland when certain types of radiopharmaceuticals are used.
@@ -57781,14 +57820,6 @@ fr:pâtes cuites
 fr:métabisulfite de sodium
 
 
-
-
-en:calcium iodate
-es:yodato de calcio
-fr:iodate de calcium
-nl:calciumjodaat
-de:Calciumiodat
-#wikidata:en:
 
 
 
