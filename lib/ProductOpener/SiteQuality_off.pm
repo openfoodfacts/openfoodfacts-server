@@ -99,11 +99,11 @@ Topfer
 );
 
 my @cigarette_brands = qw(
-A Mild
-Absolute Mild
-Access Mild
+A-Mild
+Absolute-Mild
+Access-Mild
 Akhtamar
-Alain Delon
+Alain-Delon
 Apache
 Ararat
 Ashford
@@ -111,16 +111,16 @@ Avolution
 Bahman
 Basic
 Belomorkanal
-Benson & Hedges
+Benson-&-Hedges
 Bentoel
 Berkeley
-Bintang Buana
-Bond Street
+Bintang-Buana
+Bond-Street
 Bristol
 Cabin
 Cambridge
 Camel
-Canadian Classics
+Canadian-Classics
 Capri
 Capstan
 Carroll's
@@ -131,70 +131,70 @@ Charminar
 Charms
 Chesterfield
 Chunghwa
-Clas Mild
-Classic Filter Kings
+Clas-Mild
+Classic-Filter-Kings
 Clavo
 Cleopatra
 Club
-Club Mild
+Club-Mild
 Cohiba
 Cool
 Country
-Craven A
+Craven-A
 Crossroads
 Crystal
 Dakota
 Davidoff
-Deluxe Tenor
+Deluxe-Tenor
 Derby
-Djarum Black
-Djarum Vanilla
-Dji Sam Soe 234
+Djarum-Black
+Djarum-Vanilla
+Dji-Sam-Soe-234
 Dominant
 Doral
-Double Happiness
-Du Maurier
+Double-Happiness
+Du-Maurier
 Duke
 Dunhill
 Eclipse
 Elita
 Embassy
-Envio Mild
-Ernte 23
+Envio-Mild
+Ernte-23
 Esse
 Eve
 Everest
-Extreme Mild
+Extreme-Mild
 f6
 Fatima
-Fellas Mild
-Fix Mild
+Fellas-Mild
+Fix-Mild
 Fixation
 Flair
 Flake
 Fortuna
-Four Square
+Four-Square
 FS1
 Galan
 Garni
 Gauloises
-Geo Mild
+Geo-Mild
 Gitanes
 GL
-Gold Flake
-Golden Bat
+Gold-Flake
+Golden-Bat
 GT
-Gudang Garam
+Gudang-Garam
 HB
-Hits Mild
+Hits-Mild
 Hollywood
 Hongtashan
 Hope
-India Kings 
+India-Kings 
 Insignia
 Intro
 Java
-Jazy Mild
+Jazy-Mild
 Joged
 Player's
 June
@@ -202,22 +202,22 @@ Karo
 Kent
 King's
 Kool
-Krong Thip
+Krong-Thip
 L&M
-L.A. Lights
-Lambert & Butler
+L.A.-Lights
+Lambert-&-Butler
 Lark
 LD
 Legend
-Liggett Select
+Liggett-Select
 Lips
 Longbeach
-Lucky Strike
+Lucky-Strike
 Main
 Marlboro
 Maraton
 Masis
-Master Mild
+Master-Mild
 Matra
 Maverick
 Max
@@ -227,8 +227,8 @@ MayPole
 Memphis
 Merit
 Mevius
-Mild Formula
-Minak Djinggo
+Mild-Formula
+Minak-Djinggo
 Misty
 Mocne
 Moments
@@ -236,33 +236,33 @@ Mondial
 More
 MS
 Muratti
-Natural American Spirit
-Navy Cut
-Neo Mild
+Natural-American-Spirit
+Navy-Cut
+Neo-Mild
 Neslite
 Newport
 Next
-Nikki Super
-Niko International
+Nikki-Super
+Niko-International
 Nil
-Niu Niu
+Niu-Niu
 NO.10
 Noblesse
-North Pole
+North-Pole
 NOY
-Nuu Mild
-One Mild
-Pall Mall
+Nuu-Mild
+One-Mild
+Pall-Mall
 Panama
 Parisienne
 Parliament
 Peace
-Pensil Mas
-Peter Stuyvesant
-Pianissimo Peche
+Pensil-Mas
+Peter-Stuyvesant
+Pianissimo-Peche
 Platinum
 Players
-Polo Mild
+Polo-Mild
 Popularne
 Prima
 Prince
@@ -271,66 +271,66 @@ Pundimas
 Pyramid
 Rambler
 Rawit
-Red & White
-Red Mild
+Red-&-White
+Red-Mild
 Regal
 Regent
-Relax Mild
+Relax-Mild
 Richmond
-Romeo y Julieta
+Romeo-y-Julieta
 Rothmans
 Royal
 Saat
 Salem
-Sampoerna Hijau
+Sampoerna-Hijau
 Sakura
 Scissors
-Score Mild
+Score-Mild
 Sejati
-Senior Service
-Seven Stars
+Senior-Service
+Seven-Stars
 Shaan
-Silk Cut
-Slic Mild
+Silk-Cut
+Slic-Mild
 Smart
 Sobranie
-Special Extra Filter
-ST Dupont
-Star Mild
-State Express 555
+Special-Extra-Filter
+ST-Dupont
+Star-Mild
+State-Express-555
 Sterling
 Strand
 Style
 Superkings
-Surya Pro Mild
-Sweet Afton
-Taj Chhap Deluxe
-Tali Jagat
+Surya-Pro-Mild
+Sweet-Afton
+Taj-Chhap-Deluxe
+Tali-Jagat
 Tareyton
-Ten Mild
-Thang Long
+Ten-Mild
+Thang-Long
 Time
 Tipper
 True
-U Mild
-Ultra Special
-Uno Mild
-Up Mild
-Urban Mild
+U-Mild
+Ultra-Special
+Uno-Mild
+Up-Mild
+Urban-Mild
 Vantage
-Vegas Mild
+Vegas-Mild
 Vogue
 Viceroy
-Virginia Slims
+Virginia-Slims
 Viper
 West
-Wills Navy Cut
+Wills-Navy-Cut
 Winfield
 Win Mild
 Winston
 Wismilak
 Woodbine
-X Mild
+X-Mild
 Ziganov
 Zhongnanhai
 );
@@ -704,20 +704,24 @@ sub check_quantity($) {
 		push @{$product_ref->{quality_tags}}, "quantity-contains-e";
 	}
 	
-	if ((defined $product_ref->{quantity}) and (not defined $product_ref->{product_quantity})) {
+	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "") and (not defined $product_ref->{product_quantity})) {
 		push @{$product_ref->{quality_tags}}, "quantity-not-recognized";
 	}
 	
-	if (defined $product_ref->{product_quantity}) {
+	if ((defined $product_ref->{product_quantity}) and ($product_ref->{product_quantity} ne "")) {
 		if ($product_ref->{product_quantity} > 10 * 1000) {
 			push @{$product_ref->{quality_tags}}, "product-quantity-over-10kg";
 		}
 		if ($product_ref->{product_quantity} < 1) {
 			push @{$product_ref->{quality_tags}}, "product-quantity-under-1g";
 		}
+		
+		if ($product_ref->{quantity} =~ /\d\s?mg\b/i) {
+			push @{$product_ref->{quality_tags}}, "product-quantity-in-mg";
+		}
 	}
 	
-	if (defined $product_ref->{serving_quantity}) {
+	if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} ne "")) {
 		if ($product_ref->{serving_quantity} > 500) {
 			push @{$product_ref->{quality_tags}}, "serving-quantity-over-500g";
 		}
@@ -725,7 +729,7 @@ sub check_quantity($) {
 			push @{$product_ref->{quality_tags}}, "serving-quantity-under-1g";
 		}
 
-		if (defined $product_ref->{product_quantity}) {
+		if ((defined $product_ref->{product_quantity}) and ($product_ref->{product_quantity} ne "")) {
 			if ($product_ref->{serving_quantity} > $product_ref->{product_quantity}) {
 				push @{$product_ref->{quality_tags}}, "serving-quantity-over-product-quantity";
 			}
@@ -736,6 +740,10 @@ sub check_quantity($) {
 		else {
 			push @{$product_ref->{quality_tags}}, "serving-quantity-defined-but-quantity-undefined";
 		}	
+		
+		if ($product_ref->{serving_size} =~ /\d\s?mg\b/i) {
+			push @{$product_ref->{quality_tags}}, "serving-size-in-mg";
+		}		
 	}	
 }
 
