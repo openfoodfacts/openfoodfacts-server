@@ -1,0 +1,14 @@
+﻿version: "3.7"
+services:
+  backend:
+    image: productopener-backend-dev
+    build:
+      context: ../
+      dockerfile: ./docker/backend/Dockerfile
+      target: runnable
+  frontend:
+    image: nginx:latest
+    volumes:
+      - type: bind
+        source: ../
+        target: /opt/product-opener/

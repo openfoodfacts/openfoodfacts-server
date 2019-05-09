@@ -4,7 +4,9 @@ This directory contains some experimental files for running Product Opener on [D
 
 ## Docker Compose
 
-Just run `docker-compose up` in this directory to build backend image and start the process. This spins up an application container for the backend, an nginx container that acts as a reverse proxy for static files, and a MongoDB container for storage. Note that this binds the docker container to your local develpoment directory, so be sure to build JavaScript etc. by running `yarn install && yarn run build`, or you will experience missing assets.
+Just run `docker-compose up` in this directory to run a pre-built image and start the process. This spins up an application container for the backend, an nginx container that acts as a reverse proxy for static files, and a MongoDB container for storage. You can also deploy OFF to Docker Swarm with `docker stack deploy -c docker-compose.yml`.
+
+Alternatively, run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` for local development. This will build a new backend image from your local source files. Note that this binds the docker container to your local develpoment directory, so be sure to build JavaScript etc. by running `yarn install && yarn run build`, or you will experience missing assets.
 
 ### Accessing Product Opener
 
