@@ -83,6 +83,7 @@ use Storable qw(dclone);
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
+use Scalar::Util qw(looks_like_number);
 
 sub make_sure_numbers_are_stored_as_numbers($) {
 
@@ -101,14 +102,14 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 				# Store as number
 				$product_ref->{nutriments}{$field} += 0.0;
 			}
-			elsif ($field =~ /_(modifier|unit|label)/) {
+			elsif ($field =~ /_(modifier|unit|label)$/) {
 				# Store as string
 				$product_ref->{nutriments}{$field} .= "";
 			}
 			# fields like "salt", "salt_value"
 			# -> used internally, should not be used by apps
 			# store as numbers
-			else {	
+			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {	
 				# Store as number
 				$product_ref->{nutriments}{$field} += 0.0;			
 			}
