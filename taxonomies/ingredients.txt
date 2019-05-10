@@ -8981,7 +8981,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_iodide
 # description:en: IRON is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. Iron is pervasive, but particularly rich sources of dietary iron include red meat, oysters, lentils, beans, poultry, fish, leaf vegetables, watercress, tofu, chickpeas, black-eyed peas, and blackstrap molasses. Iron provided by dietary supplements is often found as iron(II) fumarate, although iron(II) sulfate is cheaper and is absorbed equally well.
 
 <en:mineral
-en:Iron
+en:iron
 af:yster
 am:ብረት
 an:Fierro
@@ -9209,50 +9209,51 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron(III)_pyrophosphate
 # ingredient/fr:pyrophosphate-de-fer has 111 products in 4 languages @2019-4-02
 # ingredient/fr:pyrophosphate-ferrique has 47 products @2019-04-02
 
-
-# IRON(II) SULFATE (British English:iron(II) sulphate) or ferrous sulfate denotes a range of salts with the formula FeSO4·xH2O.
+# description:IRON(II) SULFATE denotes a range of salts with the formula FeSO4·xH2O. The hydrated form is used medically to treat iron deficiency. It is on the World Health Organization's List of Essential Medicines, the most important medications needed in a basic health system.
+# comment:en:The wikidata names do not match the product names. The simple name (without (II)) are preferred.
 
 <en:iron
-en:ferrous sulphate, Iron(II) sulfate
-af:Ystersulfaat
+en:ferrous sulphate, iron sulfate
 ar:كبريتات الحديد الثنائي
-# azb:دمیر(II) سولفات
-bg:железен сулфат
-ca:sulfat de ferro (II)
+# azb:دمیر سولفات
+bg:Железен сулфат
+ca:sulfat de ferro
 cs:síran železnatý
-da:Jern(II)sulfat
-de:Eisensulfat, Eisen(II)-sulfat
-es:sulfato ferroso, sulfato de hierro
-et:Raud(II)sulfaat
+de:Eisensulfat
+el:θειικός σίδηρος
+es:sulfato ferroso
+et:raudsulfaat
 fa:فروس سولفات
-fi:Rautavihtrilli
-fr:sulfates de fer, sulfate de fer(II), sulfate ferreux
-hr:Željezov(II) sulfat
-hu:Vas(II)-szulfát
-id:Besi(II) sulfat
-it:solfato di ferro, solfato ferroso
-ja:硫酸鉄(II)
-ko:황산 철(II)
-nb:Jern(II)sulfat
-nl:sulfaten van ijzer, IJzer(II)sulfaat
-nn:Jernsulfat
-pl:Siarczan żelaza(II)
-pt:sulfato de ferro
+fi:ferrosulfaatti
+fr:sulfate de fer, sulfates de fer, sulfate ferreux
+hr:Željezov sulfat
+hu:vas-szulfát
+id:Besi sulfat
+it:solfato di ferro
+ja:硫酸鉄
+ko:황산 철
+lt:geležies sulfatas
+lv:dzelzs sulfāts
+mt:sulfat ferruż
+nb:Jernsulfat
+nl:ijzersulfaat
+pl:siarczan żelaza
+pt:sulfato ferroso
 qu:Kachina
-ro:Sulfat de fier
-ru:сульфат железа(II)
-sh:Željezov(II) sulfat
-sk:Síran železnatý
-sl:Železov(II) sulfat
-sr:гвожђе(II) сулфат
-# sr-ec:гвожђе(II) сулфат
-# sr-el:Gvožđe(II) sulfat
-sv:Järn(II)sulfat
+ro:sulfat feros
+ru:сульфат железа
+sh:Željezov sulfat
+sk:síran železnatý
+sl:železov sulfat
+sr:гвожђе сулфат
+# sr-ec:гвожђе сулфат
+# sr-el:Gvožđe sulfat
+sv:ferrosulfat
 ta:அன்னபேதி
 te:అన్నభేది
 th:ไอร์ออนซัลเฟต
-uk:Сульфат заліза(II)
-vi:Sắt(II) sulfat
+uk:Сульфат заліза
+vi:Sắt sulfat
 # yue:青礬
 zh:硫酸亚铁
 # zh-cn:硫酸亚铁
@@ -9261,10 +9262,11 @@ zh:硫酸亚铁
 # zh-hk:硫酸亞鐵
 # zh-sg:硫酸亚铁
 # zh-tw:硫酸亞鐵
-# wikidata:en:Q214863 uses a more formal definition
+wikidata:en:Q214863
 wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_sulfate
+# ingredient/fr:sulfate-de-fer has 158 products in 4 languages @2019-05-10
+# mineral/ferrous-sulphate has 3843 products in 7 languages @2019-05-10
 # ingredient/fr:sulfates-de-fer has 69 products in 3 languages @2019-03-06
-# mineral/ferrous-sulphate has 3832 products in 7 languages @2019-03-06
 
 
 # description:en:Iron(II) phosphate, Fe3(PO4)2, is an iron salt of phosphoric acid.
@@ -58713,7 +58715,6 @@ fr:invertase
 
 fr:pois
 
-fr:sulfate de fer
 
 
 
