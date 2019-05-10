@@ -194,7 +194,7 @@ while (my $product_ref = $cursor->next) {
 	my $code = $product_ref->{code};
 	my $path = product_path($code);
 	
-	next if $code ne "4260121349266";
+	# next if $code ne "7310865071804";
 	
 	print STDERR "updating product $code\n";
 	
@@ -219,17 +219,17 @@ while (my $product_ref = $cursor->next) {
 		# Fix nutrient _label fields that were mistakenly set to 0
 		# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/772
 		
-		if (defined $product_ref->{nutriments}) {
-			foreach my $key (%{$product_ref->{nutriments}}) {
-				next if $key !~ /^(.*)_label$/;
-				my $nid = $1;
-				print STDERR "key: $key - nid: $nid - value: " . $product_ref->{nutriments}{$key} . " eq " . ($product_ref->{nutriments}{$key} eq "0") . "\n";
-				
-				if ($product_ref->{nutriments}{$key} eq "0") {
-					$product_ref->{nutriments}{$key} = $nid;
-				}
-			}
-		}
+		# 2019-05-10: done in production, commenting out
+		#if (defined $product_ref->{nutriments}) {
+		#	foreach my $key (%{$product_ref->{nutriments}}) {
+		#		next if $key !~ /^(.*)_label$/;
+		#		my $nid = $1;
+		#		
+		#		if ($product_ref->{nutriments}{$key} eq "0") {
+		#			$product_ref->{nutriments}{$key} = ucfirst($nid);
+		#		}
+		#	}
+		#}
 	
 		# Update all fields
 		
