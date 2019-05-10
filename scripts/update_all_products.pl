@@ -98,9 +98,9 @@ my $compute_nova = '';
 my $check_quality = '';
 my $compute_codes = '';
 my $compute_carbon = '';
-my $comment;
-my $fix_serving_size_mg_to_ml;
-my $query_ref;	# filters for mongodb query
+my $comment = '';
+my $fix_serving_size_mg_to_ml = '';
+my $query_ref = {};	# filters for mongodb query
 
 GetOptions ("key=s"   => \$key,      # string
 			"query=s%" => $query_ref,
@@ -165,7 +165,7 @@ if ((not defined $User_id) and (($fix_serving_size_mg_to_ml))) {
 # Use query filtes entered using --query categories_tags=en:plant-milks
 
 if (defined $key) {
-	$query_ref->{update_key} = { '$ne' => "$key" } };
+	$query_ref->{update_key} = { '$ne' => "$key" };
 }
 else {
 	$key = "key_" . time();
@@ -174,6 +174,9 @@ else {
 #$query_ref->{code} = "3033490859206";
 #$query_ref->{categories_tags} = "en:plant-milks";
 #$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
+
+use boolean;
+$query_ref->{unknown_nutrients_tags} = { '$exists' => true,  '$ne' => [] };
 
 print "Update key: $key\n\n";
 
@@ -191,7 +194,7 @@ while (my $product_ref = $cursor->next) {
 	my $code = $product_ref->{code};
 	my $path = product_path($code);
 	
-	#next if $code ne "9555118659523";
+	next if $code ne "4260121349266";
 	
 	print STDERR "updating product $code\n";
 	
@@ -208,8 +211,24 @@ while (my $product_ref = $cursor->next) {
 
 			if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} =~ /\d\s?mg\b/i)) {
 				$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
+				ProductOpener::Food::compute_serving_size_data($product_ref);
 				$product_values_changed = 1;
 			}			
+		}
+		
+		# Fix nutrient _label fields that were mistakenly set to 0
+		# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/772
+		
+		if (defined $product_ref->{nutriments}) {
+			foreach my $key (%{$product_ref->{nutriments}}) {
+				next if $key !~ /^(.*)_label$/;
+				my $nid = $1;
+				print STDERR "key: $key - nid: $nid - value: " . $product_ref->{nutriments}{$key} . " eq " . ($product_ref->{nutriments}{$key} eq "0") . "\n";
+				
+				if ($product_ref->{nutriments}{$key} eq "0") {
+					$product_ref->{nutriments}{$key} = $nid;
+				}
+			}
 		}
 	
 		# Update all fields
@@ -297,7 +316,7 @@ while (my $product_ref = $cursor->next) {
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
 			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
-				store_product($product_ref, $comment . " - update_all_products.pl" );
+				store_product($product_ref, "update_all_products.pl - " . $comment );
 				$m++;
 			}
 			
