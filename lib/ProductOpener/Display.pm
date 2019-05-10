@@ -8815,6 +8815,26 @@ HTML
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}
 			}
+			
+			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
+			# the "" values have been removed
+			# -> temporarily add back the _serving "" values
+			if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
+				if (defined $compact_product_ref->{nutriments}) {
+					foreach my $nid (keys %{$compact_product_ref->{nutriments}}) {
+						next if ($nid =~ /_/);
+						if ((defined $compact_product_ref->{nutriments}{$nid . "_100g"})
+							and (not defined $compact_product_ref->{nutriments}{$nid . "_serving"})) {
+							$compact_product_ref->{nutriments}{$nid . "_serving"} = "";
+						}
+						if ((defined $compact_product_ref->{nutriments}{$nid . "_serving"})
+							and (not defined $compact_product_ref->{nutriments}{$nid . "_100g"})) {
+							$compact_product_ref->{nutriments}{$nid . "_100g"} = "";
+						}						
+					}
+				}
+			}
+			
 			$response{product} = $compact_product_ref;
 		}
 
