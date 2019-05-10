@@ -27,7 +27,7 @@ ProductOpener::SiteQuality::check_quality($product_ref_without_energy_value);
 
 ok( !has_tag($product_ref_without_energy_value, 'quality', 'illogically-high-energy-value'), 'product does not have illogically-high-energy-value tag as it has no energy_value' );
 
-# illogically-high-energy-value - does not add tag, if energy_value is below 3800
+# illogically-high-energy-value - does not add tag, if energy_value is below 3800 - 3799
 my $product_ref_with_low_energy_value = {
 	lc => "de",
 	nutriments => {
@@ -37,7 +37,19 @@ my $product_ref_with_low_energy_value = {
 
 ProductOpener::SiteQuality::check_quality($product_ref_with_low_energy_value);
 
-ok( !has_tag($product_ref_with_low_energy_value, 'quality', 'illogically-high-energy-value'), 'product does not have illogically-high-energy-value tag as it has an energy_value below 3800' );
+ok( !has_tag($product_ref_with_low_energy_value, 'quality', 'illogically-high-energy-value'), 'product does not have illogically-high-energy-value tag as it has an energy_value below 3800: 3799' );
+
+# illogically-high-energy-value - does not add tag, if energy_value is below 3800 - 40
+my $product_ref_with_lower_energy_value = {
+	lc => "de",
+	nutriments => {
+		energy => 40
+	}
+};
+
+ProductOpener::SiteQuality::check_quality($product_ref_with_lower_energy_value);
+
+ok( !has_tag($product_ref_with_lower_energy_value, 'quality', 'illogically-high-energy-value'), 'product does not have illogically-high-energy-value tag as it has an energy_value below 3800: 40' );
 
 # illogically-high-energy-value - does not add tag, if energy_value is equal 3800
 my $product_ref_with_lowish_energy_value = {
