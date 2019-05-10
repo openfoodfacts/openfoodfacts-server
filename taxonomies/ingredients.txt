@@ -33627,7 +33627,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneaux%20d'agen
 <fr:pruneau
 <en:purée
 fr:purée de pruneaux
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pruneaux
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pruneaux
 # 39 products in 1 language @2018-09-30
 
 # The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet, somewhat bitter fruit.
@@ -40889,11 +40889,11 @@ zh:坚果
 # zh-hant:堅果
 wikipedia:en:https://en.wikipedia.org/wiki/Nut_(fruit)
 wikidata:en:Q11009
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit%20à%20coque
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit%20à%20coque
 # 158 products in 1 languages @2018-10-07
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20à%20coques
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20à%20coques
 # 438 products in 4 languages @2010-10-08
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20à%20coque
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20à%20coque
 # 2099 products in 5 languages @2018-10-07
 
 <en:nut
@@ -40902,9 +40902,9 @@ fr:châtaigne, châtaignes
 de:Kastanie, Kastanien
 it:castagne
 nl:kastanje, kastanjes
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:châtaigne
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:châtaigne
 # 87 products in 3 languages @2018-10-07
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:châtaignes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:châtaignes
 # 164 products in 4 languages @2018-10-07
 
 <en:chestnut
@@ -40912,7 +40912,7 @@ en:puréed chestnuts
 fr:purée de châtaignes
 it:purea di castagne
 nl:kastanjepuree
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20châtaignes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20châtaignes
 # 33 products in 2 languages @2018-10-07
 
 <en:chestnut
@@ -40920,7 +40920,7 @@ fr:marron, marrons
 de:Maronen
 it:marroni
 wikidata:en:Q3177204
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:marron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:marron
 # 218 products in 5 languages @2018-10-07
 
 # crème de marrons is a compound ingredient:(sucre, châtaignes, eau, extrait pur de vanille)
@@ -56127,6 +56127,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Purée
 # ingredient/fr:purée has 151 products @2018-10-05
 # usage:fr:kiwi 4% (purée)
 
+<en:purée
+en:concentrated purée
+de:Püreekonzentrat
+fr:purée concentrée
+nl:geconcentreerde puree
+# ingredient/fr:purée-concentrée has 3 products in 4 languages @2019-05-10
+
+<en:purée
+<en:concentrated purée
+fr:purée et purée concentrée
+# ingredient/fr:purée-et-purée-concentrée has 138 products in french @2019-05-10
 
 # Fiber or fibre is a natural or synthetic substance that is significantly longer than it is wide.
 
@@ -58559,15 +58570,6 @@ fr:roquette
 fr:sérum de lait
 
 fr:dioxyde de carbone
-
-
-fr:purée et purée concentrée
-
-
-
-
-
-
 
 
 
