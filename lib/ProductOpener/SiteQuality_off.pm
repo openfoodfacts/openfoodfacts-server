@@ -540,7 +540,7 @@ sub check_nutrition_data($) {
 
 		# Fat has the highest nutrient energy density of 37 kJ/g. With some leeway/inaccuracies,
 		# it is safe to assume that no product can have a higher energy of 3800 kJ.
-		if ((defined $product_ref->{nutriments}{energy}) and ($product_ref->{nutriments}{energy} gt 3800)) {
+		if ((defined $product_ref->{nutriments}{energy}) and ($product_ref->{nutriments}{energy} > 3800)) {
 			push @{$product_ref->{quality_tags}}, 'illogically-high-energy-value';
 		}
 	}
