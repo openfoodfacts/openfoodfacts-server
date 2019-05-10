@@ -55,6 +55,7 @@ BEGIN
 		&process_product_edit_rules
 		
 		&make_sure_numbers_are_stored_as_numbers
+		&change_product_server_or_code
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -312,6 +313,44 @@ sub retrieve_product_rev($$) {
 	return $product_ref;
 }
 
+
+sub change_product_server_or_code($$$) {
+
+	my $product_ref = shift;
+	my $new_code = shift;
+	my $errors_ref = shift;
+	
+	my $code = $product_ref->{code};
+	my $new_server = "";
+	my $new_data_root = $data_root;
+	
+	if ($new_code =~ /^([a-z]+)$/) {
+		$new_server = $1;
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
+			and ($options{other_servers}{$new_server}{data_root} ne $data_root)) {
+			$new_code = $code;
+			$new_data_root = $options{other_servers}{$new_server}{data_root};
+		}
+	}
+	
+	$new_code = normalize_code($new_code);
+	if ($new_code =~ /^\d+$/) {
+	# check that the new code is available
+		if (-e "$new_data_root/products/" . product_path($new_code)) {
+			push @{$errors_ref}, lang("error_new_code_already_exists");
+			$log->warn("cannot change product code, because the new code already exists", { code => $code, new_code => $new_code, new_server => $new_server }) if $log->is_warn();
+		}
+		else {
+			$product_ref->{old_code} = $code;
+			$code = $new_code;
+			$product_ref->{code} = $code;
+			if ($new_server ne '') {
+				$product_ref->{new_server} = $new_server;
+			}
+			$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
+		}
+	}	
+}
 
 
 sub store_product($$) {

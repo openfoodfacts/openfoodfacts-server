@@ -261,36 +261,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
 	if ($admin and (defined param('new_code'))) {
-		my $new_code = param('new_code');
-		my $new_server = "";
-		my $new_data_root = $data_root;
-		
-		if ($new_code =~ /^([a-z]+)$/) {
-			$new_server = $1;
-			if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
-				and ($options{other_servers}{$new_server}{data_root} ne $data_root)) {
-				$new_code = $code;
-				$new_data_root = $options{other_servers}{$new_server}{data_root};
-			}
-		}
-		
-		$new_code = normalize_code($new_code);
-		if ($new_code =~ /^\d+$/) {
-		# check that the new code is available
-			if (-e "$new_data_root/products/" . product_path($new_code)) {
-				push @errors, lang("error_new_code_already_exists");
-				$log->warn("cannot change product code, because the new code already exists", { code => $code, new_code => $new_code, new_server => $new_server }) if $log->is_warn();
-			}
-			else {
-				$product_ref->{old_code} = $code;
-				$code = $new_code;
-				$product_ref->{code} = $code;
-				if ($new_server ne '') {
-					$product_ref->{new_server} = $new_server;
-				}
-				$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
-			}
-		}
+	
+		change_product_server_or_code($product_ref, param('new_code'), \@errors);
+		$code = $product_ref->{code};
 	}
 	
 	my @param_fields = ();
