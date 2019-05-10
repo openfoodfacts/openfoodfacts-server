@@ -44,9 +44,15 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 
 --check-quality	run quality checks
 
---compute-codes 
+--compute-codes
+
+--fix-serving-size-mg-to-ml
 
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
+
+--user		create a separate .sto file and log the change in the product history, with the corresponding user
+
+--comment	comment for change in product history
 
 --pretend	do not actually update products
 TXT
@@ -92,8 +98,12 @@ my $compute_nova = '';
 my $check_quality = '';
 my $compute_codes = '';
 my $compute_carbon = '';
+my $comment;
+my $fix_serving_size_mg_to_ml;
+my $query_ref;	# filters for mongodb query
 
 GetOptions ("key=s"   => \$key,      # string
+			"query=s%" => $query_ref,
 			"fields=s" => \@fields_to_update,
 			"index" => \$index,
 			"pretend" => \$pretend,
@@ -105,6 +115,9 @@ GetOptions ("key=s"   => \$key,      # string
 			"compute-codes" => \$compute_codes,
 			"compute-carbon" => \$compute_carbon,
 			"check-quality" => \$check_quality,
+			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
+			"user_id=s" => \$User_id,
+			"comment=s" => \$comment,
 			)
   or die("Error in command line arguments:\n$\nusage");
  
@@ -143,11 +156,16 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	die("Missing fields to update:\n$usage");
 }  
 
-# Get a list of all products not yet updated
+# Make sure we have a user id and we will use a new .sto file for all edits that change values entered by users
+if ((not defined $User_id) and (($fix_serving_size_mg_to_ml))) {
+	die("Missing --user-id. We must have a user id and we will use a new .sto file for all edits that change values entered by users.\n");
+}
 
-my $query_ref = {};
+# Get a list of all products not yet updated
+# Use query filtes entered using --query categories_tags=en:plant-milks
+
 if (defined $key) {
-	$query_ref = { update_key => { '$ne' => "$key" } };
+	$query_ref->{update_key} = { '$ne' => "$key" } };
 }
 else {
 	$key = "key_" . time();
@@ -163,7 +181,8 @@ my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 })
 $cursor->immortal(1);
 my $count = $cursor->count();
 
-my $n = 0;
+my $n = 0;	# number of products updated
+my $m = 0;	# number of products with a new version created
 	
 print STDERR "$count products to update\n";
 	
@@ -181,6 +200,17 @@ while (my $product_ref = $cursor->next) {
 	if ((defined $product_ref) and ($code ne '')) {
 	
 		$lc = $product_ref->{lc};
+		
+		my $product_values_changed = 0;
+		
+		# Fix products and record if we have changed them so that we can create a new product version and .sto file
+		if ($fix_serving_size_mg_to_ml) {
+
+			if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} =~ /\d\s?mg\b/i)) {
+				$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
+				$product_values_changed = 1;
+			}			
+		}
 	
 		# Update all fields
 		
@@ -253,36 +283,46 @@ while (my $product_ref = $cursor->next) {
 			delete $product_ref->{environment_infocard_fr};		
 		}
 		
-		if ($check_quality) {
-			ProductOpener::SiteQuality::check_quality($product_ref);
-		}
-		
 		if ($compute_serving_size) {
 			ProductOpener::Food::compute_serving_size_data($product_ref);
+		}
+
+		if ($check_quality) {
+			ProductOpener::SiteQuality::check_quality($product_ref);
 		}
 		
 		if (not $pretend) {
 			$product_ref->{update_key} = $key;
 			
-			# make sure nutrient values are numbers
-			ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
-	
-			store("$data_root/products/$path/product.sto", $product_ref);		
-
-			# Make sure product code is saved as string and not a number
-			# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
-			# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
-			$product_ref->{code} = $product_ref->{code} . '';
-			get_products_collection()->save($product_ref);		
-		}
+			# Create a new version of the product and create a new .sto file
+			# Useful when we actually change a value entered by a user
+			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
+				store_product($product_ref, $comment . " - update_all_products.pl" );
+				$m++;
+			}
+			
+			# Otherwise, we silently update the .sto file of the last version 
+			else {
+				
+				# make sure nutrient values are numbers
+				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
 		
+				store("$data_root/products/$path/product.sto", $product_ref);		
+
+				# Make sure product code is saved as string and not a number
+				# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
+				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
+				$product_ref->{code} = $product_ref->{code} . '';
+				get_products_collection()->save($product_ref);
+			}
+		}
 		
 		$n++;
 	}
 
 }
 			
-print "$n products updated (pretend: $pretend)\n";
+print "$n products updated (pretend: $pretend) - $m new versions created\n";
 			
 exit(0);
 
