@@ -55314,6 +55314,25 @@ fr:peau de volaille
 nl:gevogeltevel
 # ingredient/fr:peau-de-volaille has 76 products in french @2019-03-29
 
+<en:poultry
+en:chicken
+de:Hühner
+fr:poulet
+it:pollo
+nl:kip
+
+# description:en:CHICKEN BONES are hazardous to health as they tend to break into sharp splinters when eaten, but they can be simmered with vegetables and herbs for hours or even days to make chicken stock.
+
+
+<en:bone
+<en:chicken
+en:chicken bone
+de:Hühnerknochen
+fr:os de poulet
+it:osso di pollo
+nl:kippenbeenderen
+# ingredient/fr:os-de-poulet has 184 products in 5 languages @2019-05-10
+
 <en:poultry skin
 en:chicken skin
 de:Poulethaut
@@ -55343,6 +55362,7 @@ nl:gevogeltelever
 # comment:en:The wikidata translations or unclear whether they refer to the chicken animal or the chicken meat
 
 <en:poultry meat
+<en:chicken
 en:chicken meat
 de:Pouletfleisch
 es:Carne de pollo
@@ -58545,8 +58565,6 @@ fr:purée et purée concentrée
 
 fr:poudre de babeurre
 
-# <en:bone
-fr:os de poulet
 
 
 
