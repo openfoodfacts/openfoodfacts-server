@@ -35,7 +35,17 @@ RUN apk --update --no-cache add \
 		zbar@testing \
 		zbar-dev@testing \
     apache2-dev \
-    apache2-mod-perl-dev@testing
+    apache2-mod-perl-dev@testing \
+    # Add ZBar perl module from git: https://rt.cpan.org/Ticket/Display.html?id=128085
+    && wget https://github.com/mchehab/zbar/archive/0.22.2.tar.gz \
+    && tar xfz 0.22.2.tar.gz \
+    && rm 0.22.2.tar.gz \
+    && cd zbar-0.22.2/perl \
+    && perl Makefile.PL PREFIX=/tmp/local \
+    && make \
+    && make install \
+    && cd ../.. \
+    && rm -rf zbar-0.22.2
 
 WORKDIR /tmp
 
@@ -46,7 +56,10 @@ RUN cpm install ExtUtils::XSBuilder::ParseSource
 COPY ./cpanfile /tmp/cpanfile
 
 # Add ProductOpener runtime dependencies from cpan
-RUN cpm install
+RUN set -x \
+  # Remove CPAN zbar perl module from git: https://rt.cpan.org/Ticket/Display.html?id=128085
+  && sed -i '/zbar/d' cpanfile \
+  && cpm install
 
 # Helper stage, so that we don't try to install GeoIP upon every rebuild of the source
 FROM alpinemodperl AS alpinemodperlgeoip
