@@ -8846,6 +8846,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_iodide
 
 # description:en: IRON is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. Iron is pervasive, but particularly rich sources of dietary iron include red meat, oysters, lentils, beans, poultry, fish, leaf vegetables, watercress, tofu, chickpeas, black-eyed peas, and blackstrap molasses. Iron provided by dietary supplements is often found as iron(II) fumarate, although iron(II) sulfate is cheaper and is absorbed equally well.
 
+<en:mineral
 en:Iron
 af:yster
 am:ብረት
@@ -9135,7 +9136,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_sulfate
 # description:en:Iron(II) phosphate, Fe3(PO4)2, is an iron salt of phosphoric acid.
 # comment:en:The diphosphate translation is preferred.
 
-<en:mineral
+<en:iron
 en:ferric diphosphate, iron diphosphate
 bg:Железен дифосфат
 cs:difosforečnan železitý
@@ -9206,8 +9207,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_gluconate
 en:ferrous gluconate to stabilize color
 
 
-# description:en:Magnesium is a chemical element with symbol Mg and atomic number 12. The important interaction between phosphate and magnesium ions makes magnesium essential to the basic nucleic acid chemistry of all cells of all known living organisms. Spices, nuts, cereals, cocoa and vegetables are rich sources of magnesium. Green leafy vegetables such as spinach are also rich in magnesium.
+# description:en:MAGNESIUM is a chemical element with symbol Mg and atomic number 12. The important interaction between phosphate and magnesium ions makes magnesium essential to the basic nucleic acid chemistry of all cells of all known living organisms. Spices, nuts, cereals, cocoa and vegetables are rich sources of magnesium. Green leafy vegetables such as spinach are also rich in magnesium.
 
+<en:mineral
 en:Magnesium
 af:magnesium
 am:ማግኒዥየም
@@ -9509,7 +9511,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_sulfate_(medical_use)
 # mineral/magnesium-sulphate has 272 products in 6 languages @2019-04-10
 
 
-# Molybdenum is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
+# description:en:MOLYBDENUM is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
 
 <en:mineral
 en:molybdenum
@@ -9650,7 +9652,7 @@ wikidata:en:Q1053
 wikipedia:en:https://en.wikipedia.org/wiki/Molybdenum
 
 
-# Sodium molybdate, Na2MoO4, is useful as a source of molybdenum.
+# description:en:SODIUM MOLYBDATE, Na2MoO4, is useful as a source of molybdenum.
 
 <en:molybdenum
 en:sodium molybdate
@@ -9685,8 +9687,174 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_molybdate
 # mineral/sodium-molybdate has 114 products @2019-02-18
 
 
+# description:en:POTASSIUM is a chemical element with symbol K (from Neo-Latin kalium) and atomic number 19. Potassium ions are vital for the functioning of all living cells. The transfer of potassium ions across nerve cell membranes is necessary for normal nerve transmission; potassium deficiency and excess can each result in numerous signs and symptoms, including an abnormal heart rhythm and various electrocardiographic abnormalities. Fresh fruits and vegetables are good dietary sources of potassium.
 
-# description:en:Sodium chloride commonly known as salt (though sea salt also contains other chemical salts), is an ionic compound with the chemical formula NaCl, representing a 1:1 ratio of sodium and chloride ions. Salt is added to food, either by the food producer or by the consumer, as a flavor enhancer, preservative, binder, fermentation-control additive, texture-control agent and color developer.
+<en:mineral
+en:Potassium
+af:kalium
+am:ፖታሺየም
+an:Potasio
+ar:بوتاسيوم
+# ast:Potasiu
+az:Kalium
+# azb:پوتاسیوم
+ba:Калий
+be:Калій
+# be-tarask:Каль
+bg:Калий
+# bho:पोटासियम
+bn:পটাশিয়াম
+bo:དུག་སེལ།
+br:Potasiom
+bs:kalij
+ca:potassi
+# cdo:Gák
+# ceb:Potasio
+# chr:ᏉᏔᏏᎥᎻ
+# ckb:پۆتاسیۆم
+co:Potassiu
+cs:Draslík
+cv:Кали
+cy:Potasiwm
+da:kalium
+de:Kalium
+# de-ch:Kalium
+dv:ޕޮޓޭސިއަމް
+el:Κάλιο
+# en-ca:Potassium
+# en-gb:Potassium
+eo:kalio
+es:Potasio
+et:Kaalium
+eu:potasio
+fa:پتاسیم
+fi:Kalium
+fo:Kalium
+fr:potassium
+# frr:Kaalium
+# fur:Potassi
+ga:potaisiam
+# gan:鉀
+gd:Potasium
+gl:Potasio
+gu:પોટેશિયમ
+gv:Potashum
+# hak:Kap
+# haw:Potasiuma
+he:אשלגן
+hi:पोटैशियम
+# hif:Potassium
+hr:kalij
+ht:Potasyòm
+hu:Kálium
+hy:կալիում
+ia:kalium
+id:Kalium
+io:kalio
+is:kalín
+it:Potassio
+ja:カリウム
+# jbo:sodnrkali
+jv:Kalium
+ka:კალიუმი
+# kbp:Pɔtasɩyɔm
+ki:Potasium
+kk:Калий
+# kn:ಪೊಟ್ಯಾಶಿಯಮ್
+ko:칼륨
+ku:Qelye
+kv:Калий
+ky:Калий
+la:kalium
+lb:Kalium
+# lfn:potasio
+li:Kalium
+# lij:Potassio
+# lmo:Potasse
+ln:Potasu
+lt:Kalis
+lv:Kālijs
+# lzh:鉀
+mi:konurehu
+mk:калиум
+ml:പൊട്ടാസ്യം
+mn:Кали
+mr:पलाश
+# mrj:Калий
+ms:Kalium
+mt:Potassju
+my:ပိုတက်ဆီယမ်
+# nan:Kah-sò͘
+nb:kalium
+# nds:Kalium
+ne:पोटासियम
+# new:पोटासियम
+nl:Kalium
+nn:kalium
+nv:Kalium
+oc:Potassi
+# olo:Kalii
+or:ପୋଟାସିଅମ
+pa:ਪੋਟਾਸ਼ਿਅਮ
+pl:Potas
+# pms:Potassi
+# pnb:پوٹاشیم
+pt:Potássio
+# pt-br:potássio
+qu:Kalyu
+ro:Potasiu
+ru:калий
+# rup:Kaliu
+sa:पोटासियम्
+# sah:Калиум
+# scn:putassiu
+# sco:potassium
+sh:Kalij
+si:පොටෑසියම්
+sk:Draslík
+sl:Kalij
+so:Botashiyaam
+sq:Kaliumi
+sr:калијум
+# sr-ec:калијум
+# stq:Kalium
+su:Kalium
+sv:Kalium
+sw:Kali
+ta:பொற்றாசியம்
+te:పొటాషియం
+tg:Калий
+th:โพแทสเซียม
+tl:Potasyo
+tr:Potasyum
+tt:калий
+# tt-cyrl:калий
+ug:كالىي
+uk:калій
+ur:اُشنانصر
+uz:Kaliy
+# vep:Kalii
+vi:kali
+# vls:Kalium
+wa:Potassiom
+# war:Potasyo
+# wuu:钾
+# xal:Калион
+yi:קאליום
+yo:Potassium
+# yue:鉀
+za:Gyaz
+zh:钾
+# zh-cn:钾
+# zh-hans:钾
+# zh-hant:鉀
+# zh-hk:鉀
+wikidata:en:Q703
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium
+# ingredient/fr:potassium has 232 products in 4 languages @2019-05-10
+
+
+# description:en:SODIUM CHLORIDE commonly known as salt (though sea salt also contains other chemical salts), is an ionic compound with the chemical formula NaCl, representing a 1:1 ratio of sodium and chloride ions. Salt is added to food, either by the food producer or by the consumer, as a flavor enhancer, preservative, binder, fermentation-control additive, texture-control agent and color developer.
 # comment:en:The chemical name is preferred here, otherwise it will be listed under en:salt.
 
 <en:salt
@@ -58307,18 +58475,6 @@ fr:xylitol
 
 
 fr:frisée
-
-
-
-fr:potassium
-
-
-
-
-
-
-
-
 
 
 
