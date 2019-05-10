@@ -18121,7 +18121,39 @@ en:smoked bacon
 de:geräucherter Speck
 fr:lard fumé
 it:lardo affumicato
+nl: gerookte spek, gerookt spek
 # ingredient/fr:lard-fumé has 66 products in 4 languages @2019-05-10
+
+
+# description:en:A LARDON, also called lardoon or larding, is a small strip or cube of fatty bacon, or pork fat (usually subcutaneous fat) used in a wide variety of cuisines to flavor savory foods and salads. 
+
+<en:bacon
+en:lardon, lardoon
+br:lardez
+es:mechar
+fr:lardons
+ja:ラードン
+nl:spekjes
+wikidata:en:Q3217888
+wikipedia:en:https://en.wikipedia.org/wiki/Lardon
+carbon_footprint_fr_foodges_ingredient:fr:Lardons
+
+<en:lardon
+en:smoked lardoons
+fr:lardon fumé, lardons fumés
+
+<en:lardon
+en:cooked lardoons
+es:jamón cocido
+
+<en:smoked lardoons
+en:smoked cooked lardoons
+de:Speckwürfel gekocht und geräuchert
+fr:lardons cuits fumés
+pt:toucinho cozido fumado
+# ingredient/fr:lardons-cuits-fumés has 168 products in 8 languages @2019-05-10
+# usage:de:Speckwürfel gekocht und geräuchert (Schweinebrust, Wasser, Glukosesirup, Salz, natürliche Aromen, Gemüsebrühe, Fermente)
+
 
 <en:pork meat
 fr:pièces de tête de porc
@@ -58622,22 +58654,6 @@ es:bimi
 fr:bimi
 nl:bimi
 de:Bimi
-
-<en:meat
-fr:lardons
-carbon_footprint_fr_foodges_ingredient:fr:Lardons
-
-<fr:lardons
-fr:lardon fumé, lardons fumés
-
-<fr:lardon fumé
-fr:lardons cuits fumés
-
-fr:lard
-
-<fr:lard
-fr:lard fumé
-
 
 
 
