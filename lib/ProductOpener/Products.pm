@@ -101,7 +101,7 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 				# Store as number
 				$product_ref->{nutriments}{$field} += 0.0;
 			}
-			elsif ($field =~ /_(modifier|unit)/) {
+			elsif ($field =~ /_(modifier|unit|label)/) {
 				# Store as string
 				$product_ref->{nutriments}{$field} .= "";
 			}
@@ -310,6 +310,7 @@ sub retrieve_product_rev($$) {
 
 	return $product_ref;
 }
+
 
 
 sub store_product($$) {
