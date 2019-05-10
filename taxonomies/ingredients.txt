@@ -40723,16 +40723,156 @@ zh:蚕豆
 # zh-hk:蠶豆
 # zh-sg:蚕豆
 # zh-tw:蠶豆
-wikipedia:https://en.wikipedia.org/wiki/Vicia_faba
+wikipedia:en:https://en.wikipedia.org/wiki/Vicia_faba
 # ingredient/fr:feve has 54 products in french @2019-02-17
 
 <en:broad bean
 en:Vicia faba
 la:Vicia faba
 
-# The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
+
+# description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
+# comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
 
 <en:legume
+en:pea, peas
+# aeb-arab:جلبانة
+am:ኣተር
+ar:بازلاء
+az:Əkin noxudu
+# azb:اکین نوخودو
+be:гарох пасяўны
+bg:грах
+# bho:гарох пасяўны
+bn:মটরশুঁটি
+bo:བོད་སྲན།
+br:Piz-bihan
+bs:Grašak
+ca:pèsol
+# cdo:Gĭng-dâu
+# ckb:پاقلە
+co:Piseddu
+cs:hrách
+# csb:Zwëczajny groch
+cv:Пăрçа
+cy:Pysen
+da:Ært
+de:Erbse, Erbsen
+# dsb:Zagrodny groch
+dv:ފެހި އޮށް
+el:αρακάς
+# en-ca:Pea
+eo:pizo
+es:guisante
+et:hernes
+eu:Ilar
+fa:نخود فرنگی
+fi:herne
+fr:pois
+# frr:Eert
+fy:eart
+ga:Pis
+gd:Peasair
+gl:Chícharo
+gn:Kumanda
+gu:વટાણા
+he:אפונה
+hi:मटर
+hr:Grašak
+# hsb:Zahrodny hroch
+ht:Pwa
+hu:Borsó
+hy:ոլոռ
+id:Ercis
+io:Pizo
+is:Gráerta
+it:Pisello, piselli
+lt:Žirnis
+ja:エンドウ
+ka:ბარდა
+ko:Nkasa
+kk:Бұршақ
+kn:ಬಟಾಣಿ
+ko:완두
+# koi:Анькытш
+km:مَٹَر
+ku:Baqilê xatûnî
+li:ert
+# lij:Poiscio
+ln:Wandu
+lv:zirņi
+# mdf:Снав
+mk:Грашок
+ml:പട്ടാണിപ്പയർ
+mn:Вандуй
+mr:वाटाणा
+# mrj:Пырса
+ms:kacang putih
+# nap:Pesiello
+nb:ert
+# nds-nl:Atepoele
+ne:केराउ
+nl:erwt
+nn:ert, erter
+oc:Pese
+or:ମଟର
+os:Тымбылхъæдур
+pa:ਮਟਰ 
+# pdc:Aerbs
+pl:Groch zwyczajny
+# pnb:مٹر
+pt:Ervilha
+# pt-br:Ervilha
+qu:Allwirha
+ro:Mazăre
+# roa-tara:piselle
+ru:горох
+# rup:Madzâri
+rw:Ishaza
+sa:हरेणुः
+# scn:Pisedda
+# sco:pease
+sd:مٽر
+se:Earta
+# sgs:Žėrnis
+sh:Grašak
+sk:hrášok, Hrach siaty
+sl:Grah
+sq:Bizelja
+sr:грашак
+# sr-ec:грашак
+# sr-el:Grašak
+# stq:Aate
+su:Kacang polong
+sv:ärt
+sw:Njegere
+ta:பட்டாணி
+te:బఠానీ
+th:ถั่วลันเตา
+tl:Tsitsaro
+to:Pī
+tr:Bezelye
+tt:Борчак
+uk:горох
+ur:مٹر
+# vec:Bixo
+vi:Đậu Hà Lan
+# vls:Errewete
+# wuu:豌豆
+# yue:青荳
+za:Duhlanhdouq
+# zea:Erten
+zh:豌豆
+# zh-tw:豌豆
+# wikidata:en:Q29472543 (seems more the vegetable)
+wikipedia:en:https://en.wikipedia.org/wiki/Pea
+# ingredient/fr:pois has 259 products in 7 languages @2019-05-10
+# usage:fr:amidon (blé, pomme de terre, pois, maïs)
+
+
+# The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
+
+<en:pea
 en:chickpea, chickpeas
 # aeb-arab:حمص
 am:ሽምብራ
@@ -40854,7 +40994,7 @@ it:ceci reidratati
 # ingredient/fr:poi-chiches-réhydratés has 55 products in 4 languages @2019-02-15
 
 
-<en:legume
+<en:pea
 en:garden peas
 fr:pois doux
 carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
@@ -40868,7 +41008,7 @@ nl:nl:zoete doperwten
 
 # The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
-<en:legume
+<en:pea
 en:snow pea
 ca:tirabec
 de:Zuckerschoten, Kefen
@@ -40894,7 +41034,7 @@ fr:petits pois extra fins
 
 # description:en:  SPLIT PEAS  are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
 
-<en:legume
+<en:pea
 en:split pea, split peas
 el:Φάβα
 # en-ca:Split pea
@@ -58713,7 +58853,6 @@ fr:foie de poulet
 
 fr:invertase
 
-fr:pois
 
 
 
