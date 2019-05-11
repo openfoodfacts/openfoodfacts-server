@@ -121,6 +121,7 @@ use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
 use JSON::PP;
+use Text::CSV;
 use XML::Simple;
 use CLDR::Number;
 use CLDR::Number::Format::Decimal;
@@ -4042,6 +4043,13 @@ sub search_and_export_products($$$$$) {
 		binmode(STDOUT, ":encoding(UTF-8)");
 		print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
 
+		my $csv = Text::CSV->new ({
+			eol => "\n",
+			sep => "\t",
+			quote_space => 0,
+			binary => 1
+		});
+
 		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
 
 		# First pass needed if we flatten results
@@ -4075,37 +4083,34 @@ sub search_and_export_products($$$$$) {
 
 		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
-		my $csv = "";
+		my @row = ();
 
 		foreach my $field (@export_fields) {
 
 			# skip additives field and put only additives_tags
 			if ($field ne 'additives') {
-				$csv .= $field . "\t";
+				push @row, $field;
 			}
 
-
 			if ($field eq 'code') {
-
-				$csv .= "url\t";
-
+				push @row, "url";
 			}
 
 			if (defined $tags_fields{$field}) {
-				$csv .= $field . '_tags' . "\t";
+				push @row, $field . '_tags';
 			}
 
 		}
 
-		$csv .= "main_category\t";
-
-		$csv .= "image_url\timage_small_url\t";
-		$csv .= "image_front_url\timage_front_small_url\t";
-		$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
-		$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
-
-
-
+		push @row, "main_category";
+		push @row, "image_url";
+		push @row, "image_small_url";
+		push @row, "image_front_url";
+		push @row, "image_front_small_url";
+		push @row, "image_ingredients_url";
+		push @row, "image_ingredients_small_url";
+		push @row, "image_nutrition_url";
+		push @row, "image_nutrition_small_url";
 
 		foreach (@{$nutriments_tables{$nutriment_table}}) {
 
@@ -4117,24 +4122,21 @@ sub search_and_export_products($$$$$) {
 			$nid =~ s/^-//g;
 			$nid =~ s/-$//g;
 
-			$csv .= "${nid}_100g" . "\t";
+			push @row, "${nid}_100g";
 		}
 
 		foreach my $field (%$flatten_ref) {
 			foreach my $tagid (@{$flattened_tags_sorted{$field}}) {
-				$csv .= "$field:$tagid\t";
+				push @row, "$field:$tagid";
 			}
 		}
 
-		$csv =~ s/\t$/\n/;
-
-		print $csv;
-
+		$csv->print (*STDOUT, \@row);
 
 		my $uri = format_subdomain($subdomain);
 		while (my $product_ref = $cursor->next) {
 
-			$csv = "";
+			@row = ();
 
 			# Normal fields
 
@@ -4145,24 +4147,25 @@ sub search_and_export_products($$$$$) {
 					my $value = $product_ref->{$field};
 					if (defined $value) {
 						$value =~ s/(\r|\n|\t)/ /g;
-						$csv .= $value;
+						push @row, $value;
 					}
-
-					$csv .= "\t";
+					else {
+						push @row, '';
+					}
 				}
 
 				if ($field eq 'code') {
 
-					$csv .= $uri . product_url($product_ref->{code}) . "\t";
+					push @row, $uri . product_url($product_ref->{code});
 
 				}
 
 				if (defined $tags_fields{$field}) {
 					if (defined $product_ref->{$field . '_tags'}) {
-						$csv .= join(',', @{$product_ref->{$field . '_tags'}}) . "\t";
+						push @row, join(',', @{$product_ref->{$field . '_tags'}});
 					}
 					else {
-						$csv .= "\t";
+						push @row, '';
 					}
 				}
 			}
@@ -4214,7 +4217,7 @@ sub search_and_export_products($$$$$) {
 				$main_cid = canonicalize_tag2("categories",$main_cid);
 			}
 
-			$csv .= $main_cid . "\t";
+			push @row, $main_cid;
 
 			$product_ref->{main_category} = $main_cid;
 
@@ -4222,10 +4225,9 @@ sub search_and_export_products($$$$$) {
 
 			# image_url = image_front_url
 			foreach my $id ('front', 'front','ingredients','nutrition') {
-
-				$csv .= $product_ref->{"image_" . $id . "_url"} . "\t" . $product_ref->{"image_" . $id . "_small_url"} . "\t";
+				push @row, $product_ref->{"image_" . $id . "_url"};
+				push @row, $product_ref->{"image_" . $id . "_small_url"};
 			}
-
 
 			# Nutriments
 
@@ -4238,12 +4240,12 @@ sub search_and_export_products($$$$$) {
 				$nid =~ s/!//g;
 				$nid =~ s/^-//g;
 				$nid =~ s/-$//g;
-
 				if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
-					$csv .= $product_ref->{nutriments}{"${nid}_100g"};
+					push @row, $product_ref->{nutriments}{"${nid}_100g"};
 				}
-
-				$csv .= "\t";
+				else {
+					push @row, '';
+				}
 			}
 
 			# Flattened tags
@@ -4255,18 +4257,15 @@ sub search_and_export_products($$$$$) {
 				}
 				foreach my $tagid (@{$flattened_tags_sorted{$field}}) {
 					if (defined $product_tags{$tagid}) {
-						$csv .= "1\t";
+						push @row, '1';
 					}
 					else {
-						$csv .= "\t";
+						push @row, '';
 					}
 				}
 			}
 
-			$csv =~ s/\t$/\n/;
-
-			print $csv;
-
+			$csv->print (*STDOUT, \@row);
 		}
 	}
 
