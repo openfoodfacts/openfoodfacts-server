@@ -218,7 +218,7 @@ sub init()
 	# [2 letters country code or "world"] -> set cc + default language for the country
 	# [2 letters country code or "world"]-[2 letters language code] -> set cc + lc
 	#
-	# Note: cc and lc can be overriden by query parameters
+	# Note: cc and lc can be overridden by query parameters
 	# (especially for the API so that we can use only one subdomain : api.openfoodfacts.org)
 
 	my $hostname = $r->hostname;
@@ -432,7 +432,7 @@ sub analyze_request($)
 	# Process API parameters: fields, formats, revision
 
 	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
-	# .jqm returns results in HTML specifically formated for the OFF mobile app (which uses jquerymobile)
+	# .jqm returns results in HTML specifically formatted for the OFF mobile app (which uses jquerymobile)
 	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
 	# (or ?json=1 if it's the first parameter)
 
@@ -443,6 +443,9 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 			$request_ref->{$parameter} = $2;
+			if ($parameter eq "fields") {
+				$request_ref->{$parameter} =~ s/\%2C/,/g;
+			}
 			$log->debug("parameter was set from query string", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}
@@ -2119,7 +2122,7 @@ var buttonId;
 	console.log("buttonId " + buttonId);
 
 	buttonIdArray = buttonId.split("_");
-	console.log("Splitted in " + buttonIdArray[0] + " " + buttonIdArray[1])
+	console.log("Split in " + buttonIdArray[0] + " " + buttonIdArray[1])
 
 	var tagtype = \$("#tagtype").val()
 	var fromId = "from_" + buttonIdArray[1];
@@ -3775,7 +3778,22 @@ HTML
 
 				my $compact_product_ref = {};
 				foreach my $field (split(/,/, $request_ref->{fields})) {
-					if (defined $product_ref->{$field}) {
+
+					if ($field =~ /^(.*)_languages$/) {
+
+						my $language_field = $1;
+						$compact_product_ref->{$field} = {};
+						if (defined $product_ref->{languages_codes}) {
+							foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
+								if (defined $product_ref->{$language_field . "_" . $language_code}) {
+									$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
+								}
+							}
+						}
+
+					}
+
+					elsif (defined $product_ref->{$field}) {
 						$compact_product_ref->{$field} = $product_ref->{$field};
 					}
 				}
@@ -3883,7 +3901,7 @@ HTML
 
 	}
 
-	# if cc and/or lc have been overriden, change the relative paths to absolute paths using the new subdomain
+	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
 
 	if ($subdomain ne $original_subdomain) {
 		$log->debug("subdomain not equal to original_subdomain, converting relative paths to absolute paths", { subdomain => $subdomain, original_subdomain => $original_subdomain }) if $log->is_debug();
@@ -8571,11 +8589,45 @@ HTML
 						}
 					}
 				}
+				# [language_field]_languages : return a value with all existing values for a specific language field
+				if ($field =~ /^(.*)_languages$/) {
+
+					my $language_field = $1;
+					$compact_product_ref->{$field} = {};
+					if (defined $product_ref->{languages_codes}) {
+						foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
+							if (defined $product_ref->{$language_field . "_" . $language_code}) {
+								$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
+							}
+						}
+					}
+
+				}
 
 				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}
 			}
+
+			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
+			# the "" values have been removed
+			# -> temporarily add back the _serving "" values
+			if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
+				if (defined $compact_product_ref->{nutriments}) {
+					foreach my $nid (keys %{$compact_product_ref->{nutriments}}) {
+						next if ($nid =~ /_/);
+						if ((defined $compact_product_ref->{nutriments}{$nid . "_100g"})
+							and (not defined $compact_product_ref->{nutriments}{$nid . "_serving"})) {
+							$compact_product_ref->{nutriments}{$nid . "_serving"} = "";
+						}
+						if ((defined $compact_product_ref->{nutriments}{$nid . "_serving"})
+							and (not defined $compact_product_ref->{nutriments}{$nid . "_100g"})) {
+							$compact_product_ref->{nutriments}{$nid . "_100g"} = "";
+						}
+					}
+				}
+			}
+
 			$response{product} = $compact_product_ref;
 		}
 

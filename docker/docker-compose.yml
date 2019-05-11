@@ -15,10 +15,7 @@ services:
     networks:
       - webnet
   backend:
-    build:
-      context: ../
-      dockerfile: ./docker/backend/Dockerfile
-      target: runnable
+    image: openfoodfacts/productopener-backend:latest
     depends_on:
       - mongodb
       - memcached
@@ -51,13 +48,10 @@ services:
     networks:
       - webnet
   frontend:
-    image: nginx:latest
+    image: openfoodfacts/productopener-frontend:latest
     depends_on:
       - backend
     volumes:
-      - type: bind
-        source: ../
-        target: /opt/product-opener/
       - product_images:/opt/product-opener/html/images/products
       - type: bind
         source: ./frontend-git/conf/nginx.conf

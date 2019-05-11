@@ -617,7 +617,7 @@ elsif ($action eq 'process') {
 				}
 				else {
 
-					# 2 or more criterias on the same field?
+					# 2 or more criteria on the same field?
 					my $remove = 0;
 					if (defined $query_ref->{$tagtype . "_tags"}) {
 						$remove = 1;
@@ -644,7 +644,7 @@ elsif ($action eq 'process') {
 
 				$current_link .= "\&tagtype_$i=$tagtype\&tag_contains_$i=$contains\&tag_$i=" . URI::Escape::XS::encodeURIComponent($tag);
 
-				# TODO: 2 or 3 criterias on the same field
+				# TODO: 2 or 3 criteria on the same field
 				# db.foo.find( { $and: [ { a: 1 }, { a: { $gt: 5 } } ] } ) ?
 			}
 		}
