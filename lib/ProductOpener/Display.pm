@@ -3673,6 +3673,13 @@ sub search_and_display_products($$$$$) {
 		if ((not defined $request_ref->{search}) and ($count >= 5)
 			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
 
+			my $nofollow = '';
+			if (defined $request_ref->{tagid}) {
+				# Prevent crawlers from going too deep in facets #938:
+				# Make the 2nd facet level "nofollow"
+				$nofollow = ' rel="nofollow"';
+			}
+
 			my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
 			if ($country eq 'en:world') {
 				unshift (@current_drilldown_fields, "countries");
@@ -3687,7 +3694,7 @@ HTML
 ;
 			foreach my $newtagtype (@current_drilldown_fields) {
 
-				$html .= "<li ><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\">"
+				$html .= "<li><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\"$nofollow>"
 					. ucfirst(lang($newtagtype . "_p")) . "</a></li>\n";
 			}
 			$html .= "</ul>\n</li>\n</ul>\n\n";
