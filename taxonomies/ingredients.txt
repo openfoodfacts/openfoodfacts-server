@@ -112,23 +112,27 @@ stopwords:zh::配料
 # i varierende proportion
 
 en:ingredient, ingredients, composition
+bg:Състав
+bs:Sastoji
 cs:Složení
 da:indeholder
 de:Zutaten, Zusammensetzung
 es:composición
+et:Koostisainsd
 fr:ingrédient, ingrédients, composition
 hu:összetétel
 id:komposisi
 it:ingredienti, composizione
-lt:Sudedamosios dalys
+lt:Sudedamosios dalys, Sudėtis
 nl:ingrediënt, ingrediënten, samenstelling
-pl:skład
+pl:skład, Skladniki
 pt:composição
-ro:compoziţie
+ro:compoziţie, Ingrediente
 ru:coctaB
 sk:obsahuje
-sl:vsebuje
-sv:innehåller
+sl:vsebuje, Sestavine
+sv:innehåller, Ingredienser
+tr:lcindekiler
 zh::配料
 
 fr:additifs alimentaires
@@ -57556,10 +57560,24 @@ de:Spekulatius
 nl:speculaas
 
 # <en:compound
-en:coating
-de:Panur
-es:envolviendo
-fr:enrobant
+en:coating, seasoning
+bg:Покритие
+bs:smjesa za paniranje
+de:Beschichtung, Panur
+es:envolviendo, sobrimiento
+et:kate
+fr:enrobage, enrobant
+it:rivestimento
+lt:apvalkalas
+nl:coating
+nb:belegg
+pl:panierka
+ro:inveliş
+sl:skorjica
+sv:panering
+tr:kaplama
+# ingredient/fr:enrobage has 410 products in 18 languages @2019-05-11
+# usage:fr:Enrobage:farines (blé, seigle, et riz) (contient gluten) eau, amidon modifié, amidon et protéines de blé (contient gluten ), sel
 # ingredient/fr:enrobant has 79 products in 4 languages @2019-02-21
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
 
@@ -58897,14 +58915,6 @@ wikidata:en:Q409393
 
 <fr:manganèse
 fr:gluconate de manganèse
-
-fr:enrobage
-
-
-
-
-
-
 
 
 
