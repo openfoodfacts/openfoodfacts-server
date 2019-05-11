@@ -21,7 +21,6 @@
 import './vendor/file-upload.js';
 
 async function initImageSearchFormUpload() {
-  const $ = await import('jquery');
   $('input.imgupload_search').each(function () {
     const id = $(this).data('id');
 

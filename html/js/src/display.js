@@ -19,18 +19,18 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import './vendor/jquery-ui.js';
-import { IOlazy } from 'iolazyload';
 import 'manupjs';
 
 import '../../css/src/display.css';
 import '../../../scss/app.scss';
 
-function initIOLazy() {
+async function initIOLazy() {
+  const tmp = await import('iolazyload');
+  const IOlazy = tmp.default.constructor;
   new IOlazy();
 }
 
 async function initCountrySelect(placeholder, serverdomain) {
-  const $ = await import('jquery');
   await import('select2');
   var options = {
     placeholder: placeholder,
@@ -49,7 +49,6 @@ async function initCountrySelect(placeholder, serverdomain) {
 }
 
 async function initFoundation() {
-  const $ = await import('jquery');
   await import('foundation-sites');
   $(document).foundation({
     equalizer : {
@@ -65,7 +64,6 @@ async function initFoundation() {
 }
 
 async function initCategoryStats() {
-  const $ = await import('jquery');
   const Cookies = await import('js-cookie');
   if (Cookies.get('show_stats') == '1') {
     $('#show_stats').prop('checked',true);
@@ -94,7 +92,6 @@ async function initCategoryStats() {
 }
 
 async function initProductPageUtilityButtons() {
-  const $ = await import('jquery');
   $('.unselectbutton').click(function (event) {
     event.stopPropagation();
     event.preventDefault();

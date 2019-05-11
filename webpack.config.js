@@ -3,6 +3,7 @@ const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 
 const config = {
   entry: {
+    babel: ['@babel/polyfill'],
     search: './html/js/src/search.js',
     display: './html/js/src/display.js',
     display_map: './html/js/src/display_map.js',
