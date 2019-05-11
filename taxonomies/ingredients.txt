@@ -112,6 +112,7 @@ stopwords:zh::配料
 # i varierende proportion
 
 en:ingredient, ingredients, composition
+cs:Složení
 da:indeholder
 de:Zutaten, Zusammensetzung
 es:composición
@@ -119,6 +120,7 @@ fr:ingrédient, ingrédients, composition
 hu:összetétel
 id:komposisi
 it:ingredienti, composizione
+lt:Sudedamosios dalys
 nl:ingrediënt, ingrediënten, samenstelling
 pl:skład
 pt:composição
@@ -2358,19 +2360,19 @@ bg:Натриев бисулфит, Натриев бисулфит
 ca:hidrogensulfit de sodi
 cs:Hydrogensiřičitan sodný
 da:natriumdisulfit
-de:Natriumbisulfit
+de:Natriumbisulfit, Natriumhydrogensulfit
 el:Οξινο θειωδες νατριο
 eo:Natria bisulfito
 es:Bisulfito de sodio
 et:Naatriumvesiniksulfit
 fa:سدیم بی‌سولفیت
 fi:natriumdisulfitti, Natriumbisulfiitti
-fr:disulfite de sodium, disulfites de sodium, bisulfite de sodium
+fr:disulfite de sodium, disulfites de sodium, bisulfite de sodium, sulfite acide de sodium
 he:ביסולפיט
 hr:Natrijev bisulfit
 hu:Nátrium-biszulfit
 hy:Նատրիումի հիդրոսուլֆիտ
-it:Bisolfito di sodio
+it:Bisolfito di sodio, sodio bisolfito
 ja:亜硫酸水素ナトリウム
 lt:Natrio bisulfitas
 lv:Nātrija bisulfīts
@@ -5955,7 +5957,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bittern_(salt)
 # comment:en:I can not find a product where this is used as mineral.
 
 # <en:calcium
-en:calcium sulphate, en:E516, E-516, E 516, INS516, INS-516, INS 516, SIN516, SIN-516, SIN 516
+en:calcium sulphate, E516, E-516, E 516, INS516, INS-516, INS 516, SIN516, SIN-516, SIN 516
 ar:كبريتات الكالسيوم
 # azb:کلسیوم سولفات
 be:сульфат кальцыю
@@ -7828,6 +7830,54 @@ zh:蛋白酶
 # wikidata:en:Q212410 the preferred name on products is protease. Not possible to copy 1:1
 wikipedia:en:https://en.wikipedia.org/wiki/Protease
 # ingredient/fr:protéase has 111 products in 5 languages @2019-02-01
+
+
+# description:en:INVERTASE is an enzyme that catalyzes the hydrolysis (breakdown) of sucrose (table sugar) into fructose and glucose. For industrial use, invertase is usually derived from yeast. It is also synthesized by bees, which use it to make honey from nectar. Chocolate-covered cherries, other cordials, and fondant candies include invertase, which liquefies the sugar.
+
+<en:enzyme
+en:invertase, E1103,, E-1103, E 1103, INS1103, INS-1103, INS 1103, SIN1103, SIN-1103, SIN 1103
+ar:أنزيمة الانفرتاز
+bg:Инвертаза
+bs:Invertaza
+ca:invertasa
+cs:invertáza
+da:Invertase
+de:Invertase
+el:Ιμβερταση
+es:Invertasa
+et:Invertaas
+fi:Invertaasi
+fr:invertase
+he:אינוורטאז
+ga:inbhéartáis
+hu:Invertáz
+io:Invertazo
+it:invertase
+ja:サッカラーゼ
+lt:invertazė
+lv:Invertāze
+mt:Invertażi
+nl:invertase
+nn:invertase
+pl:Inwertaza
+pt:Invertase
+ro:Invertază
+ru:Инвертаза
+sk:Invertáza
+sl:Invertaza
+sv:Invertas
+uk:Інвертаза
+zh:蔗糖酶
+# zh-cn:蔗糖酶
+# zh-hans:蔗糖酶
+# zh-hant:蔗糖酶
+# zh-hk:蔗糖酶
+# zh-sg:蔗糖酶
+# zh-tw:蔗糖酶
+wikidata:en:Q419189
+wikipedia:en:https://en.wikipedia.org/wiki/Invertase
+# ingredient/fr:invertase has 245 products in 7 languages @2019-05-10
+# usage:fr:stabilisant (invertase)
 
 
 # Lysozyme, also known as muramidase or N-acetylmuramide glycanhydrolase is an antimicrobial enzyme produced by animals that forms part of the innate immune system.
@@ -55656,6 +55706,16 @@ it:osso di pollo
 nl:kippenbeenderen
 # ingredient/fr:os-de-poulet has 184 products in 5 languages @2019-05-10
 
+
+# <en:liver
+<en:chicken
+en:chicken liver
+de:Pouletleber
+fr:foie de poulet
+it:fegato di pollo
+nl:kippenlever
+# ingredient/fr:foie-de-poulet has 237 products in 4 languages @2019-05-11
+
 <en:poultry skin
 en:chicken skin
 de:Poulethaut
@@ -58847,11 +58907,10 @@ fr:enrobage
 fr:dioxyde de silicium
 
 
-fr:sulfite acide de sodium
 
-fr:foie de poulet
 
-fr:invertase
+
+
 
 
 
