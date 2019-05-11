@@ -4131,7 +4131,7 @@ sub search_and_export_products($$$$$) {
 		print $csv;
 
 
-
+		my $uri = format_subdomain($subdomain);
 		while (my $product_ref = $cursor->next) {
 
 			$csv = "";
@@ -4153,7 +4153,7 @@ sub search_and_export_products($$$$$) {
 
 				if ($field eq 'code') {
 
-					$csv .= format_subdomain($cc) . product_url($product_ref->{code}) . "\t";
+					$csv .= $uri . product_url($product_ref->{code}) . "\t";
 
 				}
 
