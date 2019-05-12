@@ -17602,6 +17602,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Smoked_salt
 fr:concentré salin liquide
 # ingredient/fr:concentré-salin-liquide has 44 products in french @2019-03-30
 
+<en:salt
+en:Himalayan pink salt
+
+
 # Halite commonly known as rock salt, is a type of salt, the mineral (natural) form of sodium chloride (NaCl).
 
 en:Halite
@@ -23234,6 +23238,7 @@ fr:semoule de blé tendre
 # 20 products in 1 language @20180922
 
 <en:semolina
+en:Durum whole wheat flour
 nl:volkoren tarwegriesmeel
 
 # Couscous  is a Maghrebi dish of small steamed balls of crushed durum wheat semolina
@@ -26773,9 +26778,13 @@ fr:sirop d’érable
 nl:ahornsiroop
 de:Ahornsirup
 
+<en:maple syrup
 en:canadian maple syrup
 fr:sirop d’érable canadien
 de:Kanadischer Ahornsirup
+
+<en:maple syrup
+en:pure maple syrup
 
 en:sugar syrup
 fr:sirop de sucre
@@ -27737,6 +27746,11 @@ de:Brauwasser
 fr:Eau de brassage
 wikipedia:en:https://de.wikipedia.org/wiki/Brauwasser
 
+<en:water
+en:spring water
+fr:eau de source
+nl:bronwater
+
 # MINERAL WATER is water from a mineral spring that contains various minerals, such as salts and sulfur compounds.
 
 <en:Water
@@ -27760,7 +27774,7 @@ eo:Mineralakvo
 es:Agua mineral
 fa:آب معدنی
 fi:Kivennäisvesi
-fr:eau minérale, eau minérale naturelle, eau de source
+fr:eau minérale, eau minérale naturelle
 ga:Uiscí mianraí
 gl:Auga mineral
 he:מים מינרליים
@@ -27778,7 +27792,7 @@ lt:Mineralinis vanduo
 lv:Minerālūdens
 mk:Минерална вода
 ms:Air galian
-nl:Mineraalwater, bronwater
+nl:Mineraalwater
 nn:Mineralvatn
 nb:Naturlig mineralvann
 or:ଖଣିଜ ଜଳ
@@ -27879,7 +27893,7 @@ fr:eau de source gazéifiée
 nl:Bruisend mineraalwater
 
 <en:water
-en:filtered water
+en:filtered water, purified water
 fr:eau filtrée, eau purifiée
 nl:gezuiverd water
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20filtrée
@@ -32752,7 +32766,7 @@ it:lamponi liofilizzati
 
 <en:fruit
 <fr:fruit rouge
-en:strawberry
+en:strawberry, stawberries
 # aeb-arab:كعبة فراز
 an:Fraga
 ar:فراولة
@@ -41895,7 +41909,7 @@ pt:amendoins torrados moídos
 # 53 products in 6 languages @2018-10-06
 
 <en:nut
-en:cashew nuts
+en:cashew nuts, cashews
 de:Cashewkerne
 es:anacardos
 et:India pähkel
@@ -41907,7 +41921,7 @@ pl:orzechy nerkowca
 pt:castanhas de caju
 sv:cashewnötter
 wikidata:en:Q28788216
-openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
 
 # The hazelnut is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
@@ -42254,7 +42268,7 @@ nl:amandelen-hazelnotenpraliné
 # 31 products in 2 languages @2018-10-06
 
 <en:nut
-en:pecan nut, pecan nuts
+en:pecan nut, pecan nuts, pecan, pecans
 de:Pekannuss, Pekannüsse
 fr:noix de pécan
 it:noci del pekan, noci di pecan
@@ -44468,7 +44482,7 @@ zh:迷迭香
 
 <fr:romarin
 <en:antioxidant
-en:extracts of rosemary
+en:rosemary extract, extracts of rosemary
 da:ekstrakter af rosmarin
 de:Rosmarinextrakt
 fi:rosmariiniuutteet
@@ -55391,6 +55405,7 @@ es:citrato de sodio
 
 fr:saccharose
 
+en:sucralose
 fr:sucralose
 
 fr:glucide
