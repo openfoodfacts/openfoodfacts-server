@@ -19227,7 +19227,6 @@ nl:tarwezetmeel
 pt:amido de trigo
 se:pšenični skrob
 sv:vetestärkelse
-allergens:fr:amidon de _froment_
 
 <en:modified starch
 <en:wheat starch
@@ -19236,8 +19235,6 @@ de:modifizierte Weizenstärke
 fr:amidon modifié de blé, amidon transformé de blé
 it:amido modificato de fromento
 nl:gemodificeerd tarwezetmeel
-allergens:fr:amidon modifié de _blé_
-allergens:fr:amidon transformé de _blé_
 
 <en:modified starch
 <en:wheat starch
@@ -23012,7 +23009,6 @@ zh:小麦
 # zh-classical:麥
 # zh-min-nan:Be̍h-á
 # yue:小麥
-allergens:fr:_blé_
 wikipedia:en:https://en.wikipedia.org/wiki/Wheat
 wikidata:en:Q15645384
 
@@ -23023,7 +23019,7 @@ wikidata:en:Q15645384
 de:Weizenpops
 fr:blé soufflé
 it:frumento soffiato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20soufflé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20soufflé
 # 15 products in 3 languages @2018-09-22
 
 <en:wheat
@@ -23037,12 +23033,12 @@ nl:volkorentarwe
 pl:pszenica z pełnego przemiału
 pt:trigo integral
 zh:全麥小麥
-allergens:fr:_blé_ complet
+# allergens:fr:_blé_ complet
 
 <en:wheat
 fr:pétales de blé
 pl:chrupki pszenno-żytnie
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20blé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20blé
 # 57 products in 2 languages @2018-09-22
 
 <fr:pétales de blé
@@ -23050,7 +23046,7 @@ en:whole wheat flakes
 es:copos de trigo integral
 fr:pétales de blé complet
 pt:flocos de trigo integral
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20blé%20complet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20blé%20complet
 # 22 products in 5 languages @2018-09-22
 
 # Durum wheat (Triticum durum or Triticum turgidum subsp. durum) is a tetraploid species of wheat.
@@ -23116,6 +23112,20 @@ it:friscello di grano duro
 # https://world.openfoodfacts.org/ingredient/fr:fins%20finots%20de%20blé%20dur/
 # 17 products in 3 languages @20180922
 
+
+# description:en:WHEAT GERM is a concentrated source of several essential nutrients, including vitamin E, folate (folic acid), phosphorus, thiamin, zinc, and magnesium, as well as essential fatty acids and fatty alcohols. It is a good source of fiber. Wheat germ can be added to protein shakes, casseroles, muffins, pancakes, cereals, yogurt, smoothies, cookies, and other goods.
+
+<en:wheat
+en:wheat germ, wheatgerm
+de:Weizenkeime
+es:germen de trigo
+fr:germe de blé, germes de blé
+it:germi di frumento
+nl:tarwekiem
+pl:kielki pszenicy
+pt:gérmen de trigo
+wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
+# ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
 
 # Wheat gluten is a food made from gluten, the main protein of wheat. 
 
@@ -59098,7 +59108,7 @@ fr:carvi
 fr:cerfeuil
 
 
-fr:germes de blé
+
 
 
 
@@ -59128,7 +59138,7 @@ fr:bouillon de volaille
 fr:phosphate de sodium, phosphates de sodium
 es:Fosfato de sodio
 
-fr:germe de blé, germes de blé
+
 
 
 
