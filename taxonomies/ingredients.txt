@@ -13285,6 +13285,7 @@ fr:lait concentré écrémé
 
 <en:milk
 fr:lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
+nl:halfvolle melk uht verhit
 
 <en:milk
 fr:lait frais
@@ -19978,7 +19979,7 @@ en:canola oil
 de:Ölrübsenöl
 fi:Rypsiöljy
 fr:huile de navette, huile de canola
-nl:raapolie, canola olie
+nl:raapolie, canola olie, raapzaadolie
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
 
 # Colza oil or colza is a non-drying oil obtained from the seeds of rapeseed (Brassica napus subsp. napus). Note that this a single rapeseed variety
@@ -20107,6 +20108,7 @@ kk:Жүгері майы
 ko:옥수수기름
 lt:Kukurūzų aliejus
 nb:Maisolje
+nl:maiskiemolie
 pt:Óleo de milho
 ru:Кукурузное масло
 uk:Кукурудзяна олія
@@ -23231,6 +23233,8 @@ fr:semoule de blé tendre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20tendre/
 # 20 products in 1 language @20180922
 
+<en:semolina
+nl:volkoren tarwegriesmeel
 
 # Couscous  is a Maghrebi dish of small steamed balls of crushed durum wheat semolina
 
@@ -23309,7 +23313,7 @@ fr:semoule de blé dur
 hr:krupica durum pšenice
 hu:durum búzaliszt
 it:semola di grano duro
-nl:harde tarwe griesmeel
+nl:harde tarwe griesmeel, durum tarwegries, harde tarwegries
 pt:sêmola de trigo duro
 ro:griș din grâu
 ru:борошно з пшеннци тверднх сортив
@@ -23904,7 +23908,7 @@ fi:ohramallas, ohramallasta
 fr:malt d'orge, malts d'orge, orge malté, orge maltée
 hu:árpamálata
 it:malto d'orzo
-nl:gerstemout
+nl:gerstemout, mout van gerst
 nn:bygg malt
 pt:malte de cevada
 sk:jechyi slad
@@ -24132,7 +24136,7 @@ ko:납작귀리
 lt:avižiniai dribsniai
 ms:Emping oat
 nb:Havregryn
-nl:havervlokken, havermout
+nl:havervlokken, havermout, havermoutvlokken
 pl:płatki owsiane
 pt:flocos de aveia
 # pt-br:Flocos de aveia
@@ -24858,7 +24862,7 @@ sk:kukuričná múka
 sl:koruzna moka
 sv:majsmjöl
 zh:玉米淀粉
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20mais
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20mais
 # 1291 products in 19 languages @2018-09-23
 
 
@@ -24884,6 +24888,7 @@ fr:farine de riz blanc
 
 <en:rice flour
 fr:farine de riz complet
+nl:volkoren rijstmeel
 
 
 <en:flour
@@ -25886,6 +25891,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 <en:sugar
 en:cane sugar
 fr:sucre de canne
+nl:rietsuiker
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de canne
 
 <en:cane sugar
@@ -27598,7 +27604,7 @@ jv:Banyu
 ka:წყალი
 # kaa:Suw
 # kab:Aman
-kbp:Lɩm
+# kbp:Lɩm
 kg:Maza
 ki:Mai
 kk:Су
@@ -27609,7 +27615,7 @@ ko:물
 ku:Av
 ky:Суу
 la:Aqua
-lad:Agua
+# lad:Agua
 lb:Waasser
 # lad:Agua
 # lez:Яд
@@ -27689,7 +27695,7 @@ sr:Вода
 su:Cai
 sv:Vatten
 sw:Maji
-szl:Woda
+# szl:Woda
 ta:நீர்
 # tcy:ನೀರ್
 te:నీరు
@@ -27710,7 +27716,7 @@ vi:Nước
 vo:Vat
 # war:Tubig
 wo:Ndox
-wuu:水
+# wuu:水
 xh:Amanzi
 # xmf:წყარი
 yi:וואסער
@@ -27720,7 +27726,7 @@ zh:水
 # zh-classical:水
 # zh-min-nan:Chúi
 zu:Amanzi
-wikipedia:en.wikipedia.org/wiki/Water
+wikipedia:en:en.wikipedia.org/wiki/Water
 wikidata:en:Q283
 
 # BREWING WATER - Brauwasser ist speziell für das Brauen von Bier aufbereitetes Wasser
@@ -27772,7 +27778,7 @@ lt:Mineralinis vanduo
 lv:Minerālūdens
 mk:Минерална вода
 ms:Air galian
-nl:Mineraalwater
+nl:Mineraalwater, bronwater
 nn:Mineralvatn
 nb:Naturlig mineralvann
 or:ଖଣିଜ ଜଳ
@@ -27799,6 +27805,11 @@ zh:礦泉水
 wikipedia:en:https://en.wikipedia.org/wiki/Mineral_water
 
 <en:mineral water
+en:natural mineral water
+nl:natuurlijk mineraalwater
+
+<en:natural mineral water
+en:Volvic natural mineral water
 fr:eau minérale naturelle volvic
 
 # CARBONATED WATER (bubbly water, fizzy water) is water into which carbon dioxide gas under pressure has been dissolved
@@ -27870,6 +27881,7 @@ nl:Bruisend mineraalwater
 <en:water
 en:filtered water
 fr:eau filtrée, eau purifiée
+nl:gezuiverd water
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20filtrée
 # 134 products in 2 languages @2018-09-29
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20purifiée
@@ -31631,6 +31643,9 @@ it:fiocchi di mela
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
+nl:Royal Gala appel
+
+<en:apple
 <en:vegetable fiber
 en:apple fiber
 de:Apfelfaser
@@ -31696,7 +31711,7 @@ de:Apfeldicksaft, Apfelsaftkonzentrat
 es:jarabe de manzana
 fr:concentré de jus de pomme, jus de pommes concentré
 it:concentrato di succo di mele
-nl:appeldiksap
+nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-apple-juice
 # 423 products in 5 languages @2018-10-04
 
@@ -32196,7 +32211,7 @@ my:လိမ္မော်သီး
 nb:appelsin
 # nds-nl:Appelsien
 # new:सन्त्रासि
-nl:sinaasappel
+nl:sinaasappel, eetsinaasappel
 nn:appelsin
 # nso:Namune
 nv:Chʼil łitsxooí
@@ -35903,7 +35918,7 @@ sr:kokos
 za:Makyehswj
 wikipedia:en:https://fr.wikipedia.org/wiki/Noix_de_coco
 wikidata:en:Q3342808
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco
 # 1209 products in 11 languages @2018-10-03
 
 <en:coconut
@@ -35958,7 +35973,7 @@ ro:nuca de cocos deshidratata
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20séchée
 # 130 in 5 languages products @2018-10-03
 
-<fr:noix de coco séchée
+<en:coconut
 en:coconut powder
 de:Kokosnussepulver
 fr:noix de coco en poudre
@@ -35967,7 +35982,7 @@ nl:kokospoeder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20en%20poudre
 # 86 products in 5 languages @2108-10-03
 
-<fr:noix de coco séchée
+<en:coconut
 en:grated coconut
 fr:noix de coco râpée
 de:Kokosraspel
@@ -35976,7 +35991,7 @@ it:cocco grattugiato
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20râpée
 # 575 products in 7 languages @2018-10-03
 
-<fr:noix de coco séchée
+<en:coconut
 en:coconut flakes
 de:Kokosflocken
 fr:flocons de coco, fr:flocons de noix de coco
@@ -35985,6 +36000,9 @@ it:fiocchi di cocco
 # 15 products in 4 languages @2018-10-03
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20noix%20de%20coco
 # 44 products @2018-10-03
+
+<en:coconut
+nl:kokosnootwater
 
 <en:fruit
 en:acai berry, açaí berries, acai
@@ -40367,7 +40385,7 @@ de:Kirschtomaten
 es:tomates cerezas, tomate cherry
 fr:tomate cerise, tomates cerises, tomates cerise
 it:pomodorini, pomodorini ciliegia
-nl:kerstomaatjes, cherry tomaat
+nl:kerstomaatjes, cherry tomaat, cheryytomaatjes
 pt:tomates cerejas
 sv:cherrytomater
 # ingredient/fr:tomates-cerise has 432 products in 10 languages @2018-12-26
@@ -42406,6 +42424,7 @@ it:sedano in polvere
 en:coriander seeds
 fr:graine de coriandre, graines de coriandre
 de:Koriandersamen
+nl:korianderzaad
 # ingredient/fr:graine-de-coriandre has 188 products in 3 languages @2018-10-07
 
 <en:coriander seeds
@@ -43991,7 +44010,7 @@ en:ginger powder, ground ginger
 de:gemahlener Ingwer
 fr:gingembre moulu
 it:zenzero macinato
-nl:gemberpoeder, gemalen gember
+nl:gemberpoeder, gemalen gember, gemalen gemberwortel
 # fr:gingembre-moulu has 58 products in 4 languages @2018-10-25
 
 <en:ginger
@@ -50084,7 +50103,7 @@ fr:poissons et crustacés mis en œuvre, poissons et crustacés mis en oeuvre
 fr:poissons entiers pêchés en Méditerranée
 
 
-# The Alaska pollock, derpcod, or walleye pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
+# The Alaska pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
 
 <en:fish
 en:alaska pollock, Alaskan pollock
@@ -51298,6 +51317,9 @@ zh:綠青鱈
 wikipedia:en:https://en.wikipedia.org/wiki/Pollachius_virens
 # ingredient/fr:Lieu-Noir has 17 products in french @2019-01-02
 # ingredient/fr:colin-lieu has 12 products @2019-01-02
+
+<en:saithe
+nl:koolvisfilet
 
 <en:saithe
 en:Pollachius virens
@@ -55199,7 +55221,7 @@ da:blomsterhonning
 de:Blütenhonig
 es:miel de flores
 fr:miel de fleurs
-nl:bloemenhoning
+nl:bloemenhoning, bloemen-honing
 # ingredient/flower%20honey has 165 products in 5 languages @2018-12-17
 
 <en:honey
@@ -55701,7 +55723,7 @@ de:Röstkaffee gemahlen
 es:café tostado y molido
 fr:café torréfié moulu, Café torréfié et moulu
 it:caffè torrefatto macinato
-nl:gemalen gebrande koffie, gebrande koffie gemalen
+nl:gemalen gebrande koffie, gebrande koffie gemalen, gebrande en gemalen koffie
 pt:café torrado moído
 # ingredient/fr:café-torréfié-moulu has 85 products in 4 languages @2018-11-30
 
@@ -55722,7 +55744,7 @@ de:Röstkaffee
 es:café tostado
 fr:café torréfié
 it:caffè torrefatto
-nl:gebrande koffie
+nl:gebrande koffie, gebrande koffiebonen
 pt:café torrado
 # ingredient/fr:café-torréfié has 58 products in 5 languages @2018-11-30
 
