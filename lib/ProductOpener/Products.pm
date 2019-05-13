@@ -53,7 +53,7 @@ BEGIN
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
-		
+
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
 
@@ -93,9 +93,9 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 	# Perl scalars are not typed, the internal type depends on the last operator
 	# used on the variable... e.g. if it is printed, then it's converted to a string.
 	# See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
-	
+
 	# Force all numbers to be stored as numbers in .sto files and MongoDB
-	
+
 	if (defined $product_ref->{nutriments}) {
 		foreach my $field (keys %{$product_ref->{nutriments}}) {
 			# _100g and _serving need to be numbers
@@ -110,9 +110,9 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 			# fields like "salt", "salt_value"
 			# -> used internally, should not be used by apps
 			# store as numbers
-			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {	
+			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {
 				# Store as number
-				$product_ref->{nutriments}{$field} += 0.0;			
+				$product_ref->{nutriments}{$field} += 0.0;
 			}
 		}
 	}
@@ -223,11 +223,11 @@ sub init_product($) {
 			$country = "france";
 		}
 	}
-	
+
 	# ugly fix: elcoco -> Spain
 	if ($creator eq 'elcoco') {
 		$country = "spain";
-	}	
+	}
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
@@ -255,14 +255,16 @@ sub send_notification_for_product_change($$) {
 
 	my $product_ref = shift;
 	my $action = shift;
-	
-	my $ua = LWP::UserAgent->new();
-	
-	my $response = $ua->post( "https://robotoff.openfoodfacts.org/api/v1/webhook/product",  {
-		'barcode' => $product_ref->{code},
-		'action' => $action,
-		'server_domain' => "api." . $server_domain
-	} );
+
+	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
+		my $ua = LWP::UserAgent->new();
+
+		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
+			'barcode' => $product_ref->{code},
+			'action' => $action,
+			'server_domain' => "api." . $server_domain
+		} );
+	}
 }
 
 sub retrieve_product($) {
@@ -319,11 +321,11 @@ sub change_product_server_or_code($$$) {
 	my $product_ref = shift;
 	my $new_code = shift;
 	my $errors_ref = shift;
-	
+
 	my $code = $product_ref->{code};
 	my $new_server = "";
 	my $new_data_root = $data_root;
-	
+
 	if ($new_code =~ /^([a-z]+)$/) {
 		$new_server = $1;
 		if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
@@ -332,7 +334,7 @@ sub change_product_server_or_code($$$) {
 			$new_data_root = $options{other_servers}{$new_server}{data_root};
 		}
 	}
-	
+
 	$new_code = normalize_code($new_code);
 	if ($new_code =~ /^\d+$/) {
 	# check that the new code is available
@@ -349,7 +351,7 @@ sub change_product_server_or_code($$$) {
 			}
 			$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
 		}
-	}	
+	}
 }
 
 
@@ -515,7 +517,7 @@ sub store_product($$) {
 
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
-	
+
 
 	# 2018-12-26: remove obsolete products from the database
 	# another option could be to keep them and make them searchable only in certain conditions

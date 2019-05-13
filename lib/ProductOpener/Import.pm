@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -470,7 +470,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 	}
 
 
-	# empty or uncomplete quantity, but net_weight etc. present
+	# empty or incomplete quantity, but net_weight etc. present
 	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "")
 		or (($lc eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
 		or ($product_ref->{quantity} =~ /^\(.+\)$/)	#  (4 x 125 g)
