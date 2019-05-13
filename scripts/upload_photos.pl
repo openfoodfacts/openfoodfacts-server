@@ -1,28 +1,8 @@
-#!/usr/bin/perl -w
-
-# This file is part of Product Opener.
-# 
-# Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
-# Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
-# Product Opener is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-# 
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#!/usr/bin/perl
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use strict;
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -45,13 +25,83 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Time::Local;
 
-$User_id = 'stephane';
+use Getopt::Long;
 
-my $dir = $ARGV[0];
-$dir =~ s/\/$//;
 
-print "uploading photos from dir $dir\n";
+my $usage = <<TXT
+upload_photos.pl imports product photos into the database of Product Opener.
+The photos need to be taken in this order: picture of barcode first, then other pictures, last picture is the front of the product.
+
+Usage:
+
+upload_photos.pl --images_dir path_to_directory_containing_images --user_id user_id --comment "Scan-Party in Holland 2019"
+ --define lc=nl --define stores="Ekoplazza"
+
+--define	: allows to define field values that will be applied to all products.
+
+TXT
+;
+
+# $User_id is a global variable from Display.pm
+my %global_values = ();
+my $only_import_products_with_images = 0;
+my $images_dir;
+my $comment = '';
+my $source_id;
+my $source_name;
+my $source_url;
+my $source_licence;
+my $source_licence_url;
+
+
+GetOptions (
+	"images_dir=s" => \$images_dir,
+	"user_id=s" => \$User_id,
+	"comment=s" => \$comment,
+	"define=s%" => \%global_values,
+	"source_id=s" => \$source_id,
+	"source_name=s" => \$source_name,
+	"source_url=s" => \$source_url,
+	"source_licence=s" => \$source_licence,
+	"source_licence_url=s" => \$source_licence_url,
+		)
+  or die("Error in command line arguments:\n$\nusage");
+
+print STDERR "import.pl
+- images_dir: $images_dir
+- user_id: $User_id
+- comment: $comment
+- global fields values:
+";
+
+foreach my $field (sort keys %global_values) {
+	print STDERR "-- $field: $global_values{$field}\n";
+}
+
+my $missing_arg = 0;
+if (not defined $images_dir) {
+	print STDERR "missing --images_dir parameter\n";
+	$missing_arg++;
+}
+
+if (not defined $User_id) {
+	print STDERR "missing --user_id parameter\n";
+	$missing_arg++;
+}
+
+if (not defined  $global_values{lc}) {
+	print STDERR "missing --define lc= parameter\n";
+	$missing_arg++;
+}
+
+$missing_arg and exit();
+
+$images_dir =~ s/\/$//;
+print "uploading photos from dir $images_dir\n";
+
+sleep(5);
 
 my $i = 0;
 my $j = 0;
@@ -62,26 +112,27 @@ my $last_imgid = undef;
 
 my $current_product_ref = undef;
 
-my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries misc data_sources );
 
 
-my %params = (
-	lc => 'en',
-	countries => "UK",
-	purchase_places => "London",
-);
 
-if (opendir (DH, "$dir")) {
+$lc = $global_values{lc};
+
+
+my $time = time();
+
+if (opendir (DH, "$images_dir")) {
 	foreach my $file (sort readdir(DH)) {
 	
-		# next if $file lt "IMG_1110.JPG";
+		#next if $file gt "2013-07-13 11.02.07";
+		#next if $file le "DSC_1783.JPG";
 	
 		if ($file =~ /jpg/i) {
-			my $code = scan_code("$dir/$file");
+			my $code = scan_code("$images_dir/$file");
 			print $file . "\tcode: " . $code . "\n";
 			
 			if ((defined $code) and (not defined $codes{$code})) {	# in some pictures we detect the wrong code, for a product we already scanned..
-			# see https://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
+			# see http://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
 						
 				$codes{$code}++;
 				
@@ -91,15 +142,16 @@ if (opendir (DH, "$dir")) {
 				
 					if ((defined $last_imgid) and (defined $current_product_ref)) {
 						if ((not defined $current_product_ref->{images}) or (not defined $current_product_ref->{images}{'front'})) {
-							print STDERR "cropping for code $current_code , last_imgid: $last_imgid\n";
-							process_image_crop($current_code, 'front', $last_imgid, 0, undef, undef, -1, -1, -1, -1);
+							print STDERR "cropping for code $current_code - front_$lc - , last_imgid: $last_imgid\n";
+							process_image_crop($current_code, "front_$lc", $last_imgid, 0, undef, undef, -1, -1, -1, -1);
 						}
 					}
 				
 					$previous_code = $current_code;
 					$last_imgid = undef;
-					if ($j > 2) {
-						#exit;
+					if ($j > 10000) {
+						print STDERR "stopping - j = $j\n";
+						exit;
 					}
 				}				
 				
@@ -114,72 +166,79 @@ if (opendir (DH, "$dir")) {
 				if (1 and (not $product_ref)) {
 					print STDERR "product code $code does not exist yet, creating product\n";
 					$product_ref = init_product($code);
-					$product_ref->{interface_version_created} = "upload_photos.pl - version 2014/11/11";
-					$product_ref->{lc} = $params{lc};
+					$product_ref->{interface_version_created} = "upload_photos.pl - version 2019/04/22";
+					$product_ref->{lc} = $global_values{lc};
+					#store_product($product_ref, "Creating product (upload_photos.pl bulk upload) - " . $comment );
+										
 					
-					foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
-						if (defined $params{$field}) {
-							$product_ref->{$field} = remove_tags_and_quote($params{$field});
-							if ($field eq 'emb_codes') {
-								# French emb codes
-								$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-								$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
-							}
-							print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
-							if (defined $tags_fields{$field}) {
-
-								$product_ref->{$field . "_tags" } = [];
-								if ($field eq 'emb_codes') {
-									$product_ref->{"cities_tags" } = [];
-								}
-								foreach my $tag (split(',', $product_ref->{$field} )) {
-									if (get_fileid($tag) ne '') {
-										push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-										if ($field eq 'emb_codes') {
-											my $city_code = get_city_code($tag);
-											if (defined $emb_codes_cities{$city_code}) {
-												push @{$product_ref->{"cities_tags" }}, get_fileid($emb_codes_cities{$city_code}) ;
-											}
-										}
-									}
-								}			
-							}
-						
-							if (defined $taxonomy_fields{$field}) {
-								$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-								$product_ref->{$field . "_tags" } = [];
-								foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-									push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-								}
-							}		
-							elsif (defined $hierarchy_fields{$field}) {
-								$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
-								$product_ref->{$field . "_tags" } = [];
-								foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-									if (get_fileid($tag) ne '') {
-										push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-									}
-								}
-							}			
-						}
-						else {
-							print STDERR "product.pl - could not find field $field\n";
-						}
-					}					
-					
-					store_product($product_ref, "Creating product (upload_photos.pl bulk upload)");
 				}
+				
+				
+				# Create or update fields
+				
+				foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+						
+					if (defined $global_values{$field}) {				
+
+						add_tags_to_field($product_ref, $lc, $field, $global_values{$field});
+				
+						print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
+						
+						compute_field_tags($product_ref, $lc, $field);						
+
+					}
+				}
+				
+				if (defined $source_id) {
+					if (not defined $product_ref->{sources}) {
+						$product_ref->{sources} = [];
+					}
+
+					my $product_source_url = $source_url;
+
+					my $source_ref = {
+						id => $source_id,
+						name => $source_name,
+						url => $product_source_url,
+						collaboration => 1,
+						import_t => time(),
+					};
+
+					defined $source_licence and $source_ref->{source_licence} = $source_licence;
+					defined $source_licence_url and $source_ref->{source_licence_url} = $source_licence_url;
+
+					push @{$product_ref->{sources}}, $source_ref;				
+				}
+				
+				store_product($product_ref, "Editing product (upload_photos.pl bulk upload) - " . $comment );
 				
 				$current_product_ref = $product_ref;
 			} # code found
 			
 			if (defined $current_code) {
-				my $imgid = process_image_upload($current_code, "$dir/$file");
-				print "process_image_upload - result: $imgid\n";
-				if ($imgid > 0) {
+			
+				my $filetime = $time;
+				
+				# 2013-07-13 11.02.07
+				if ($file =~ /(20\d\d).(\d\d).(\d\d).(\d\d).(\d\d).(\d\d)/) {
+					$filetime = timelocal( $6, $5, $4, $3, $2 - 1, $1 );
+				}				
+				# 20150712_173454.jpg
+				elsif ($file =~ /(20\d\d)(\d\d)(\d\d)(-|_|\.)/) {
+					$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
+				}					
+				elsif ($file =~ /(20\d\d).(\d\d).(\d\d)./) {
+					$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
+				}				
+			
+				my $imgid;
+				my $return_code = process_image_upload($current_code, "$images_dir/$file", $User_id, $filetime, $comment, \$imgid);
+				
+				print "process_image_upload - file: $file - filetime: $filetime - result: $imgid\n";
+				if (($imgid > 0) and ($imgid <= 2)) { # assume the 1st image is the barcode, and 2nd the product front (or 1st if there's only one image)
 					$last_imgid = $imgid;
 				}
-			}			
+			}				
 			
 			$i++;
 			
@@ -189,7 +248,7 @@ if (opendir (DH, "$dir")) {
 	closedir DH;
 }
 else {
-	print STDERR "Could not open dir $dir: $!\n";
+	print STDERR "Could not open dir $images_dir: $!\n";
 }
 
 print "$i images\n";

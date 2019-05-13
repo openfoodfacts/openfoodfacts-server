@@ -1,5 +1,5 @@
 # Should also be available as Debian packages
-requires 'CGI';
+requires 'CGI', '>= 4.43, < 5.0';
 requires 'Tie::IxHash';
 requires 'LWP::Authen::Digest'; # libwww-perl
 requires 'LWP::Simple'; # libwww-perl
@@ -46,6 +46,7 @@ requires 'Data::Dumper::AutoEncode';
 requires 'XML::Rules';
 requires 'Email::Stuffer';
 requires 'Text::CSV', '>= 1.99, < 2.0';
+requires 'Text::Fuzzy';
 
 # Logging
 requires 'Log::Any', '>= 1.705';

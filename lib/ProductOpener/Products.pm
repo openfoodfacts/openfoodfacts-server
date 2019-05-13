@@ -37,6 +37,7 @@ BEGIN
 		&retrieve_product_or_deleted_product
 		&retrieve_product_rev
 		&store_product
+		&send_notification_for_product_change
 		&product_name_brand
 		&product_name_brand_quantity
 		&product_url
@@ -52,6 +53,9 @@ BEGIN
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
+
+		&make_sure_numbers_are_stored_as_numbers
+		&change_product_server_or_code
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -74,10 +78,46 @@ use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use Log::Any qw($log);
 
+use LWP::UserAgent;
 use Storable qw(dclone);
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
+
+use Scalar::Util qw(looks_like_number);
+
+sub make_sure_numbers_are_stored_as_numbers($) {
+
+	my $product_ref = shift;
+
+	# Perl scalars are not typed, the internal type depends on the last operator
+	# used on the variable... e.g. if it is printed, then it's converted to a string.
+	# See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
+
+	# Force all numbers to be stored as numbers in .sto files and MongoDB
+
+	if (defined $product_ref->{nutriments}) {
+		foreach my $field (keys %{$product_ref->{nutriments}}) {
+			# _100g and _serving need to be numbers
+			if ($field =~ /_(100g|serving)$/) {
+				# Store as number
+				$product_ref->{nutriments}{$field} += 0.0;
+			}
+			elsif ($field =~ /_(modifier|unit|label)$/) {
+				# Store as string
+				$product_ref->{nutriments}{$field} .= "";
+			}
+			# fields like "salt", "salt_value"
+			# -> used internally, should not be used by apps
+			# store as numbers
+			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {
+				# Store as number
+				$product_ref->{nutriments}{$field} += 0.0;
+			}
+		}
+	}
+}
+
 
 
 sub normalize_code($) {
@@ -183,11 +223,11 @@ sub init_product($) {
 			$country = "france";
 		}
 	}
-	
+
 	# ugly fix: elcoco -> Spain
 	if ($creator eq 'elcoco') {
 		$country = "spain";
-	}	
+	}
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
@@ -207,6 +247,24 @@ sub init_product($) {
 		}
 	}
 	return $product_ref;
+}
+
+# Notify robotoff when products are updated
+
+sub send_notification_for_product_change($$) {
+
+	my $product_ref = shift;
+	my $action = shift;
+
+	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
+		my $ua = LWP::UserAgent->new();
+
+		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
+			'barcode' => $product_ref->{code},
+			'action' => $action,
+			'server_domain' => "api." . $server_domain
+		} );
+	}
 }
 
 sub retrieve_product($) {
@@ -255,6 +313,45 @@ sub retrieve_product_rev($$) {
 	}
 
 	return $product_ref;
+}
+
+
+sub change_product_server_or_code($$$) {
+
+	my $product_ref = shift;
+	my $new_code = shift;
+	my $errors_ref = shift;
+
+	my $code = $product_ref->{code};
+	my $new_server = "";
+	my $new_data_root = $data_root;
+
+	if ($new_code =~ /^([a-z]+)$/) {
+		$new_server = $1;
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
+			and ($options{other_servers}{$new_server}{data_root} ne $data_root)) {
+			$new_code = $code;
+			$new_data_root = $options{other_servers}{$new_server}{data_root};
+		}
+	}
+
+	$new_code = normalize_code($new_code);
+	if ($new_code =~ /^\d+$/) {
+	# check that the new code is available
+		if (-e "$new_data_root/products/" . product_path($new_code)) {
+			push @{$errors_ref}, lang("error_new_code_already_exists");
+			$log->warn("cannot change product code, because the new code already exists", { code => $code, new_code => $new_code, new_server => $new_server }) if $log->is_warn();
+		}
+		else {
+			$product_ref->{old_code} = $code;
+			$code = $new_code;
+			$product_ref->{code} = $code;
+			if ($new_server ne '') {
+				$product_ref->{new_server} = $new_server;
+			}
+			$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
+		}
+	}
 }
 
 
@@ -417,6 +514,9 @@ sub store_product($$) {
 	$product_ref->{created_t} += 0;
 	$product_ref->{complete} += 0;
 	$product_ref->{sortkey} += 0;
+
+	# make sure nutrient values are numbers
+	make_sure_numbers_are_stored_as_numbers($product_ref);
 
 
 	# 2018-12-26: remove obsolete products from the database

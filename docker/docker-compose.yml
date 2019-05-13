@@ -15,10 +15,7 @@ services:
     networks:
       - webnet
   backend:
-    build:
-      context: ../
-      dockerfile: ./docker/backend/Dockerfile
-      target: runnable
+    image: openfoodfacts/productopener-backend:latest
     depends_on:
       - mongodb
       - memcached
@@ -41,7 +38,7 @@ services:
         target: /mnt/podata/log.conf
       - type: bind
         source: ./backend-dev/conf/apache.conf
-        target: /usr/local/apache2/conf/sites-enabled/product-opener.conf
+        target: /etc/apache2/conf.d/product-opener.conf
       - type: bind
         source: ./backend-dev/conf/po-foreground.sh
         target: /usr/local/bin/po-foreground.sh
@@ -51,13 +48,10 @@ services:
     networks:
       - webnet
   frontend:
-    image: nginx:latest
+    image: openfoodfacts/productopener-frontend:latest
     depends_on:
       - backend
     volumes:
-      - type: bind
-        source: ../
-        target: /opt/product-opener/
       - product_images:/opt/product-opener/html/images/products
       - type: bind
         source: ./frontend-git/conf/nginx.conf

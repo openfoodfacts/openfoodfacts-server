@@ -121,6 +121,7 @@ use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
 use JSON::PP;
+use Text::CSV;
 use XML::Simple;
 use CLDR::Number;
 use CLDR::Number::Format::Decimal;
@@ -212,7 +213,7 @@ sub init()
 	# [2 letters country code or "world"] -> set cc + default language for the country
 	# [2 letters country code or "world"]-[2 letters language code] -> set cc + lc
 	#
-	# Note: cc and lc can be overriden by query parameters
+	# Note: cc and lc can be overridden by query parameters
 	# (especially for the API so that we can use only one subdomain : api.openfoodfacts.org)
 
 	my $hostname = $r->hostname;
@@ -426,7 +427,7 @@ sub analyze_request($)
 	# Process API parameters: fields, formats, revision
 
 	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
-	# .jqm returns results in HTML specifically formated for the OFF mobile app (which uses jquerymobile)
+	# .jqm returns results in HTML specifically formatted for the OFF mobile app (which uses jquerymobile)
 	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
 	# (or ?json=1 if it's the first parameter)
 
@@ -437,6 +438,9 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 			$request_ref->{$parameter} = $2;
+			if ($parameter eq "fields") {
+				$request_ref->{$parameter} =~ s/\%2C/,/g;
+			}
 			$log->debug("parameter was set from query string", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}
@@ -1445,7 +1449,7 @@ sub display_list_of_tags($$) {
 		$log->debug("going through all tags", {}) if $log->is_debug();
 
 		my $i = 0;
-		
+
 		my $path = $tag_type_singular{$tagtype}{$lc};
 
 		foreach my $tagcount_ref (@tags) {
@@ -1505,12 +1509,12 @@ sub display_list_of_tags($$) {
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
 				}
 			}
-			
+
 			my $info = '';
 			my $css_class = '';
-			
+
 			# For taxonomy tags
-			my $tag_ref; 
+			my $tag_ref;
 
 			if (defined $taxonomy_fields{$tagtype}) {
 				$tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
@@ -1519,7 +1523,7 @@ sub display_list_of_tags($$) {
 			}
 			else {
 				$link = canonicalize_tag_link($tagtype, $tagid);
-				
+
 				if (not (($tagtype eq 'photographers') or ($tagtype eq 'editors') or ($tagtype eq 'informers') or ($tagtype eq 'correctors') or ($tagtype eq 'checkers'))) {
 					$css_class = "tag";	# not sure if it's needed
 				}
@@ -1911,9 +1915,9 @@ sub display_list_of_tags_translate($$) {
 		# Display the message in English until we have translated the translate_taxonomy_to message in many languages,
 		# to avoid mixing local words with English words
 		$html .= "<h3>" . sprintf($Lang{"translate_taxonomy_to"}{en}, $Lang{$tagtype . "_p"}{en}, $Languages{$lc}{en}) . "</h3>";
-		
+
 		$html .= "<p>" . lang("translate_taxonomy_description") . "</p>";
-		
+
 		$html .= '<p id="counts"><COUNTS></p>';
 
 
@@ -1943,34 +1947,34 @@ sub display_list_of_tags_translate($$) {
 			}
 			$nofollow = ' rel="nofollow"';
 		}
-		
+
 		my $users_translations_ref = {};
 
 		load_users_translations_for_lc($users_translations_ref, $tagtype, $lc);
-		
+
 		use Data::Dumper;
 		print STDERR Dumper($users_translations_ref);
-		
+
 		my %products = ();	# number of products by tag, used for histogram of nutrition grades colors
-		
+
 		$log->debug("going through all tags") if $log->is_debug();
-		
+
 		my $i = 0;	# Number of tags
 		my $j = 0;	# Number of tags displayed
-		
+
 		my $to_be_translated = 0;
 		my $translated = 0;
-		
+
 		my $path = $tag_type_singular{$tagtype}{$lc};
 
 		foreach my $tagcount_ref (@tags) {
-	
+
 			$i++;
-			
+
 			if (($i % 10000 == 0) and ($log->is_debug())) {
 				$log->debug("going through all tags", {i => $i});
 			}
-		
+
 			my $tagid = $tagcount_ref->{_id};
 			my $count = $tagcount_ref->{count};
 
@@ -1982,13 +1986,13 @@ sub display_list_of_tags_translate($$) {
 				$products = "";
 			}
 
-			
+
 			my $info = '';
 			my $css_class = '';
-			
+
 
 			my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
-			
+
 			# Keep only known tags that do not have a translation in the current lc
 			if ((not $request_ref->{translate} eq "all") and
 				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
@@ -1997,16 +2001,16 @@ sub display_list_of_tags_translate($$) {
 			if (not $tag_ref->{known}) {
 				next;
 			}
-			
+
 			my $new_translation = "";
-			
+
 			# Check to see if we already have a user translation
 			if (defined $users_translations_ref->{$lc}{$tagid}) {
-				
+
 				$translated++;
-				
+
 				$log->debug("display_list_of_tags_translate - entry $tagid has existing user translation to $lc", $users_translations_ref->{$lc}{$tagid}) if $log->is_debug();
-			
+
 				if ($request_ref->{translate} eq "add") {
 					# Add mode: show only entries without translations
 					$log->debug("display_list_of_tags_translate - translate=" . $request_ref->{translate} . " - skip $tagid entry with existing user translation") if $log->is_debug();
@@ -2014,43 +2018,43 @@ sub display_list_of_tags_translate($$) {
 				}
 				# All, Edit or Review mode: show the new translation
 				$new_translation = "<div>" . lang("current_translation") . " : " . $users_translations_ref->{$lc}{$tagid}{to} . " (" . $users_translations_ref->{$lc}{$tagid}{userid} . ")</div>";
-			}			
+			}
 			else {
 				$to_be_translated++;
-				
+
 				$log->debug("display_list_of_tags_translate - entry $tagid does not have user translation to $lc") if $log->is_debug();
-				
+
 				if ($request_ref->{translate} eq "review") {
 					# Review mode: show only entries with new translations
-					$log->debug("display_list_of_tags_translate - translate=" . $request_ref->{translate} . " - skip $tagid entry without existing user translation") if $log->is_debug();				
+					$log->debug("display_list_of_tags_translate - translate=" . $request_ref->{translate} . " - skip $tagid entry without existing user translation") if $log->is_debug();
 					next;
 				}
 			}
-			
+
 			$j++;
-			
+
 			$link = "/$path/" . $tag_ref->{tagurl};
 
 			my $display = $tag_ref->{display};
 			my $display_lc = $tag_ref->{display_lc};
-			
+
 			my $synonyms = "";
 			my $lc_tagid = get_fileid($display);
-			
+
 			if ((defined $synonyms_for{$tagtype}{$display_lc}) and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
 			}
-			
+
 			# Google Translate link
-			
+
 			# https://translate.google.com/#view=home&op=translate&sl=en&tl=de&text=
 			my $escaped_synonyms = $synonyms;
 			$escaped_synonyms =~ s/ /\%20/g;
-			
+
 			my $google_translate_link = "https://translate.google.com/#view=home&op=translate&sl=en&tl=$lc&text=$escaped_synonyms";
 
 			$html .= <<HTML
-<tr><td>			
+<tr><td>
 <a href="$link"$nofollow target="_blank">$display</a> $synonyms<br />
 <input type="hidden" id="from_$j" name="from_$j" value="$tagid" />
 <div id="to_${j}_div"><input id="to_$j" name="to_$j" value="" /></div>
@@ -2068,22 +2072,22 @@ HTML
 		}
 
 		$html .= "</tbody></table></div>";
-		
-		
+
+
 		my $counts = ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang}
 		. " (" . lang("translated") . " : $translated, " . lang("to_be_translated") . " : $to_be_translated)";
-		
+
 		$html =~ s/<COUNTS>/$counts/;
-		
-		
-		
+
+
+
 		$html .= <<HTML
-<input type="hidden" id="tagtype" name="tagtype" value="$tagtype" />		
+<input type="hidden" id="tagtype" name="tagtype" value="$tagtype" />
 HTML
 ;
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
-		
+
 		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
 
 		$initjs .= <<JS
@@ -2102,7 +2106,7 @@ oTable = \$('#tagstable').DataTable({
 	]
 });
 
-			
+
 var buttonId;
 
 \$("button.save").click(function(){
@@ -2111,10 +2115,10 @@ var buttonId;
 	event.preventDefault();
 	buttonId = this.id;
 	console.log("buttonId " + buttonId);
-  
+
 	buttonIdArray = buttonId.split("_");
-	console.log("Splitted in " + buttonIdArray[0] + " " + buttonIdArray[1])
-  
+	console.log("Split in " + buttonIdArray[0] + " " + buttonIdArray[1])
+
 	var tagtype = \$("#tagtype").val()
 	var fromId = "from_" + buttonIdArray[1];
 	var from = \$("#"+fromId).val();
@@ -2124,21 +2128,21 @@ var buttonId;
 	console.log("tagtype = " + tagtype);
 	console.log("from = " + from);
 	console.log("to = " + to);
-	
+
 	\$("#"+saveId).hide();
-	
+
 var jqxhr = \$.post( "/cgi/translate_taxonomy.pl", { tagtype: tagtype, from: from, to: to },
 	function(data) {
   \$("#"+toId+"_div").html(to);
   \$("#"+saveId+"_div").html("Saved");
-  
+
 })
   .fail(function() {
     \$("#"+saveId).show();
-  });	
-  
-});			
-			
+  });
+
+});
+
 JS
 ;
 
@@ -2157,7 +2161,7 @@ HEADER
 
 	# datatables clears both
 	$request_ref->{full_width} = 1;
-	
+
 	$log->debug("end", {}) if $log->is_debug();
 
 
@@ -3670,6 +3674,13 @@ sub search_and_display_products($$$$$) {
 		if ((not defined $request_ref->{search}) and ($count >= 5)
 			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
 
+			my $nofollow = '';
+			if (defined $request_ref->{tagid}) {
+				# Prevent crawlers from going too deep in facets #938:
+				# Make the 2nd facet level "nofollow"
+				$nofollow = ' rel="nofollow"';
+			}
+
 			my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
 			if ($country eq 'en:world') {
 				unshift (@current_drilldown_fields, "countries");
@@ -3684,7 +3695,7 @@ HTML
 ;
 			foreach my $newtagtype (@current_drilldown_fields) {
 
-				$html .= "<li ><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\">"
+				$html .= "<li><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\"$nofollow>"
 					. ucfirst(lang($newtagtype . "_p")) . "</a></li>\n";
 			}
 			$html .= "</ul>\n</li>\n</ul>\n\n";
@@ -3775,7 +3786,22 @@ HTML
 
 				my $compact_product_ref = {};
 				foreach my $field (split(/,/, $request_ref->{fields})) {
-					if (defined $product_ref->{$field}) {
+
+					if ($field =~ /^(.*)_languages$/) {
+
+						my $language_field = $1;
+						$compact_product_ref->{$field} = {};
+						if (defined $product_ref->{languages_codes}) {
+							foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
+								if (defined $product_ref->{$language_field . "_" . $language_code}) {
+									$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
+								}
+							}
+						}
+
+					}
+
+					elsif (defined $product_ref->{$field}) {
 						$compact_product_ref->{$field} = $product_ref->{$field};
 					}
 				}
@@ -3883,7 +3909,7 @@ HTML
 
 	}
 
-	# if cc and/or lc have been overriden, change the relative paths to absolute paths using the new subdomain
+	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
 
 	if ($subdomain ne $original_subdomain) {
 		$log->debug("subdomain not equal to original_subdomain, converting relative paths to absolute paths", { subdomain => $subdomain, original_subdomain => $original_subdomain }) if $log->is_debug();
@@ -4017,6 +4043,13 @@ sub search_and_export_products($$$$$) {
 		binmode(STDOUT, ":encoding(UTF-8)");
 		print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
 
+		my $csv = Text::CSV->new ({
+			eol => "\n",
+			sep => "\t",
+			quote_space => 0,
+			binary => 1
+		});
+
 		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
 
 		# First pass needed if we flatten results
@@ -4050,37 +4083,34 @@ sub search_and_export_products($$$$$) {
 
 		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
-		my $csv = "";
+		my @row = ();
 
 		foreach my $field (@export_fields) {
 
 			# skip additives field and put only additives_tags
 			if ($field ne 'additives') {
-				$csv .= $field . "\t";
+				push @row, $field;
 			}
 
-
 			if ($field eq 'code') {
-
-				$csv .= "url\t";
-
+				push @row, "url";
 			}
 
 			if (defined $tags_fields{$field}) {
-				$csv .= $field . '_tags' . "\t";
+				push @row, $field . '_tags';
 			}
 
 		}
 
-		$csv .= "main_category\t";
-
-		$csv .= "image_url\timage_small_url\t";
-		$csv .= "image_front_url\timage_front_small_url\t";
-		$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
-		$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
-
-
-
+		push @row, "main_category";
+		push @row, "image_url";
+		push @row, "image_small_url";
+		push @row, "image_front_url";
+		push @row, "image_front_small_url";
+		push @row, "image_ingredients_url";
+		push @row, "image_ingredients_small_url";
+		push @row, "image_nutrition_url";
+		push @row, "image_nutrition_small_url";
 
 		foreach (@{$nutriments_tables{$nutriment_table}}) {
 
@@ -4092,24 +4122,21 @@ sub search_and_export_products($$$$$) {
 			$nid =~ s/^-//g;
 			$nid =~ s/-$//g;
 
-			$csv .= "${nid}_100g" . "\t";
+			push @row, "${nid}_100g";
 		}
 
 		foreach my $field (%$flatten_ref) {
 			foreach my $tagid (@{$flattened_tags_sorted{$field}}) {
-				$csv .= "$field:$tagid\t";
+				push @row, "$field:$tagid";
 			}
 		}
 
-		$csv =~ s/\t$/\n/;
+		$csv->print (*STDOUT, \@row);
 
-		print $csv;
-
-
-
+		my $uri = format_subdomain($subdomain);
 		while (my $product_ref = $cursor->next) {
 
-			$csv = "";
+			@row = ();
 
 			# Normal fields
 
@@ -4120,24 +4147,25 @@ sub search_and_export_products($$$$$) {
 					my $value = $product_ref->{$field};
 					if (defined $value) {
 						$value =~ s/(\r|\n|\t)/ /g;
-						$csv .= $value;
+						push @row, $value;
 					}
-
-					$csv .= "\t";
+					else {
+						push @row, '';
+					}
 				}
 
 				if ($field eq 'code') {
 
-					$csv .= format_subdomain($cc) . product_url($product_ref->{code}) . "\t";
+					push @row, $uri . product_url($product_ref->{code});
 
 				}
 
 				if (defined $tags_fields{$field}) {
 					if (defined $product_ref->{$field . '_tags'}) {
-						$csv .= join(',', @{$product_ref->{$field . '_tags'}}) . "\t";
+						push @row, join(',', @{$product_ref->{$field . '_tags'}});
 					}
 					else {
-						$csv .= "\t";
+						push @row, '';
 					}
 				}
 			}
@@ -4189,7 +4217,7 @@ sub search_and_export_products($$$$$) {
 				$main_cid = canonicalize_tag2("categories",$main_cid);
 			}
 
-			$csv .= $main_cid . "\t";
+			push @row, $main_cid;
 
 			$product_ref->{main_category} = $main_cid;
 
@@ -4197,10 +4225,9 @@ sub search_and_export_products($$$$$) {
 
 			# image_url = image_front_url
 			foreach my $id ('front', 'front','ingredients','nutrition') {
-
-				$csv .= $product_ref->{"image_" . $id . "_url"} . "\t" . $product_ref->{"image_" . $id . "_small_url"} . "\t";
+				push @row, $product_ref->{"image_" . $id . "_url"};
+				push @row, $product_ref->{"image_" . $id . "_small_url"};
 			}
-
 
 			# Nutriments
 
@@ -4213,12 +4240,12 @@ sub search_and_export_products($$$$$) {
 				$nid =~ s/!//g;
 				$nid =~ s/^-//g;
 				$nid =~ s/-$//g;
-
 				if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
-					$csv .= $product_ref->{nutriments}{"${nid}_100g"};
+					push @row, $product_ref->{nutriments}{"${nid}_100g"};
 				}
-
-				$csv .= "\t";
+				else {
+					push @row, '';
+				}
 			}
 
 			# Flattened tags
@@ -4230,18 +4257,15 @@ sub search_and_export_products($$$$$) {
 				}
 				foreach my $tagid (@{$flattened_tags_sorted{$field}}) {
 					if (defined $product_tags{$tagid}) {
-						$csv .= "1\t";
+						push @row, '1';
 					}
 					else {
-						$csv .= "\t";
+						push @row, '';
 					}
 				}
 			}
 
-			$csv =~ s/\t$/\n/;
-
-			print $csv;
-
+			$csv->print (*STDOUT, \@row);
 		}
 	}
 
@@ -6793,6 +6817,9 @@ HTML
 			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
 				$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
 			}
+			elsif ((defined $source_ref->{collaboration}) and ($source_ref->{collaboration} == 1)) {
+				$html_manufacturer_source = "<p>" . sprintf(lang("sources_collaboration"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
+			}
 		}
 	}
 
@@ -8775,11 +8802,45 @@ HTML
 						}
 					}
 				}
+				# [language_field]_languages : return a value with all existing values for a specific language field
+				if ($field =~ /^(.*)_languages$/) {
+
+					my $language_field = $1;
+					$compact_product_ref->{$field} = {};
+					if (defined $product_ref->{languages_codes}) {
+						foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
+							if (defined $product_ref->{$language_field . "_" . $language_code}) {
+								$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
+							}
+						}
+					}
+
+				}
 
 				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}
 			}
+
+			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
+			# the "" values have been removed
+			# -> temporarily add back the _serving "" values
+			if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
+				if (defined $compact_product_ref->{nutriments}) {
+					foreach my $nid (keys %{$compact_product_ref->{nutriments}}) {
+						next if ($nid =~ /_/);
+						if ((defined $compact_product_ref->{nutriments}{$nid . "_100g"})
+							and (not defined $compact_product_ref->{nutriments}{$nid . "_serving"})) {
+							$compact_product_ref->{nutriments}{$nid . "_serving"} = "";
+						}
+						if ((defined $compact_product_ref->{nutriments}{$nid . "_serving"})
+							and (not defined $compact_product_ref->{nutriments}{$nid . "_100g"})) {
+							$compact_product_ref->{nutriments}{$nid . "_100g"} = "";
+						}
+					}
+				}
+			}
+
 			$response{product} = $compact_product_ref;
 		}
 

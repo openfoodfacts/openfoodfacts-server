@@ -66,7 +66,7 @@ Please populate this changelog with meaningful changes and release versions - re
 - 759c0fa hangy   Tue Sep 27 16:21:21 2016 +0200  Merge branch 'master' of bitbucket.org:openfoodfacts/product-opener
 - 6c68ab3 Stephane Gigandet       Sun Sep 25 17:56:52 2016 +0200  create product image dirs and subdirs if they were not created correctly
 - 13ec432 hangy   Fri Sep 23 02:03:22 2016 +0200  Added more system packages to cpanfile.
-- c1caec8 Stephane Gigandet       Thu Sep 22 18:22:42 2016 +0200  Mediawiki extension used for SSO with authentification on product opener, through /cgi/sso.pl -- currently broken because of wrong parameters order
+- c1caec8 Stephane Gigandet       Thu Sep 22 18:22:42 2016 +0200  Mediawiki extension used for SSO with authentication on product opener, through /cgi/sso.pl -- currently broken because of wrong parameters order
 - 91e9f02 hangy   Tue Sep 20 11:45:57 2016 +0200  Merge branch 'master' of bitbucket.org:openfoodfacts/product-opener
 - ce8835e hangy   Tue Sep 20 10:13:09 2016 +0200  Use the same Unicode character in the search dialog as in the nutrition table.
 - 77f8d22 Stéphane Gigandet       Tue Sep 20 09:04:36 2016 +0200  Merged in use-json-pp-issue-469 (pull request #43)
@@ -105,7 +105,7 @@ Please populate this changelog with meaningful changes and release versions - re
 - 42e5035 hangy   Sat Sep 10 12:38:04 2016 +0200  Don't allow robots to index old product revisions.
 - a0a9cee hangy   Sat Sep 10 12:30:30 2016 +0200  Redirect all product URIs to include the titleid.
 - 34909f3 Stéphane Gigandet       Thu Sep 8 14:52:46 2016 +0200   Merged in fix-warnings (pull request #38)
-- 1820856 Stephane Gigandet       Thu Sep 8 14:48:56 2016 +0200   fix unitialized values warnings
+- 1820856 Stephane Gigandet       Thu Sep 8 14:48:56 2016 +0200   fix uninitialized values warnings
 - f48cd23 Stephane Gigandet       Thu Sep 8 13:49:14 2016 +0200   fixed hash initialization
 - 9e362a2 Stéphane Gigandet       Thu Sep 8 12:55:37 2016 +0200   Merged in issue/457 (pull request #37)
 - 9c2053b Stephane Gigandet       Thu Sep 8 12:55:15 2016 +0200   fix alt tag for product images
@@ -157,7 +157,7 @@ Please populate this changelog with meaningful changes and release versions - re
 - fc3613a Alex    Tue Aug 16 09:02:05 2016 +0200  added label image for einwegpfandflasche
 - e8791cc hangy   Mon Aug 15 13:45:53 2016 +0200  Use the new SVG for nutrient_levels instead of PNG.
 - e5da7b5 Alex    Mon Aug 15 13:34:33 2016 +0200  added nutrition level images as svg
-- 257a908 Alex    Mon Aug 15 13:04:19 2016 +0200  removed redunant label images
+- 257a908 Alex    Mon Aug 15 13:04:19 2016 +0200  removed redundant label images
 - 156915d Alex    Mon Aug 15 13:01:10 2016 +0200  removed redundant label images
 - 31c62f7 Alex    Mon Aug 15 13:00:26 2016 +0200  added fsc label image
 - 2ee22c9 Alex    Mon Aug 15 12:54:42 2016 +0200  added eu ecolabel image
@@ -214,7 +214,7 @@ Please populate this changelog with meaningful changes and release versions - re
 - 14271c8 Stephane Gigandet       Sat Jul 30 16:33:38 2016 +0200  support latitude and longitude for lat and lng field names
 - 52bfdd4 Stephane Gigandet       Sat Jul 30 16:32:48 2016 +0200  use openstreetmap tiles
 - 0e8307e hangy   Thu Jul 28 20:45:41 2016 +0200  Removed files that should probably not be public.
-- 1dfa9ee hangy   Sun Jul 24 15:14:55 2016 +0200  Fix typo Potentialy => Potentially.
+- 1dfa9ee hangy   Sun Jul 24 15:14:55 2016 +0200  Fix typo Potentially => Potentially.
 - 4e5f243 hangy   Sun Jul 24 00:52:10 2016 +0200  Added support for &le; and &ge; nutrition value modifiers.
 - 8320f13 hangy   Sat Jul 23 23:21:20 2016 +0200  Minor cleanup of Swiss packager codes CSV. Realized too late what a weird CSV format this is. Probably not perfect, yet, but the results depends on the packaging code normalizer and the CSV parser.
 - a1f7b72 hangy   Sat Jul 23 23:13:18 2016 +0200  Updated script for Swiss packager codes.
@@ -406,10 +406,10 @@ Please populate this changelog with meaningful changes and release versions - re
 - 4562aae Stephane Gigandet       Fri Jan 29 14:55:13 2016 +0100  Support for adding new language tabs dynamically - bug #201
 - de7da0b Stephane Gigandet       Fri Jan 29 14:53:23 2016 +0100  compute languages tag fields - bug #205
 - 40805c5 Stephane Gigandet       Thu Jan 28 16:18:41 2016 +0100  bug #201 - add language dynamically (currently only adds Italian ;-))
-- a56e7a3 Stephane Gigandet       Tue Jan 26 16:09:06 2016 +0100  put back the button type accidentaly deleted in last commit
+- a56e7a3 Stephane Gigandet       Tue Jan 26 16:09:06 2016 +0100  put back the button type accidentally deleted in last commit
 - 0fb511b Stephane Gigandet       Tue Jan 26 15:51:27 2016 +0100  very first increment of multilingual products handling - not complete, some things working, some things broken
 - 28dfbfd Stéphane Gigandet       Tue Jan 26 15:36:30 2016 +0100  Merged master into multilingual-products
-- 3ae6128 Stephane Gigandet       Fri Jan 15 13:34:42 2016 +0100  new machanism to update automatically pages on OFF web site from their source on the wiki
+- 3ae6128 Stephane Gigandet       Fri Jan 15 13:34:42 2016 +0100  new mechanism to update automatically pages on OFF web site from their source on the wiki
 - d98bf4a Stephane Gigandet       Fri Jan 15 13:33:16 2016 +0100  fix double escaping of single quotes (was breaking madenearme)
 - 8bb1ae1 Stephane Gigandet       Fri Jan 15 11:42:04 2016 +0100  Merge branch 'master' of https://bitbucket.org/openfoodfacts/product-opener
 - 31aa7fb Stephane Gigandet       Fri Jan 15 11:41:29 2016 +0100  Fix weblinks to use canonical tagid so that they are displayed for all languages
@@ -602,7 +602,7 @@ Please populate this changelog with meaningful changes and release versions - re
 - e448371 Stephane Gigandet       Thu Feb 26 16:27:38 2015 +0100  check images are bigger than 640 pixels -- commented out
 - 1f6759d Stephane Gigandet       Thu Feb 26 16:26:34 2015 +0100  add error messages
 - de40295 Stephane Gigandet       Thu Feb 26 16:24:42 2015 +0100  allergen detection
-- 3f2b4c2 Florentin Raud  Thu Feb 12 13:24:12 2015 +0000  Change directory to avoid server path to be incuded in the *sum files
+- 3f2b4c2 Florentin Raud  Thu Feb 12 13:24:12 2015 +0000  Change directory to avoid server path to be included in the *sum files
 - dc8d506 Florentin Raud  Thu Feb 12 13:05:51 2015 +0000  Adding checksum to the db dump
 - d3c9749 Stephane Gigandet       Thu Feb 12 13:43:23 2015 +0100  new version of texts
 - 2e1cbfa Stephane Gigandet       Thu Feb 12 13:41:30 2015 +0100  new versions of texts

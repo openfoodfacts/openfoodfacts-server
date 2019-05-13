@@ -207,7 +207,7 @@ sub unit_to_g($$) {
 	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value * 1000;
 	$unit eq "\N{U+65A4}" and return $value * 500;
 	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value / 1000;
-	$unit eq 'µg' and return $value / 1000000;
+	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value / 1000000;
 	$unit eq 'oz' and return $value * 28.349523125;
 
 	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value * 1000;
@@ -239,7 +239,7 @@ sub g_to_unit($$) {
 	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value / 1000;
 	$unit eq "\N{U+65A4}" and return $value / 500;
 	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value * 1000;
-	$unit eq 'µg' and return $value * 1000000;
+	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value * 1000000;
 	$unit eq 'oz' and return $value / 28.349523125;
 
 	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value / 1000;
@@ -3503,7 +3503,7 @@ sub normalize_serving_size($) {
 	my $q = 0;
 	my $u;
 
-	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?($units)/i) {
+	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?($units)\b/i) {
 		$q = lc($1);
 		$u = $6;
 		$q =~ s/,/\./;
@@ -4420,6 +4420,7 @@ sub compute_serving_size_data($) {
 	}
 	else {
 		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
+		(defined $product_ref->{serving_size}) and ($product_ref->{serving_size} eq "") and delete $product_ref->{serving_size};
 	}
 
 	#if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{'energy.unit'}) and ($product_ref->{nutriments}{'energy.unit'} eq 'kcal')) {
@@ -4447,7 +4448,7 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
-				$product_ref->{nutriments}{$nid . $product_type . "_100g"} = '';
+				delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
 
 				if (($nid eq 'alcohol') or ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})
 					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
@@ -4474,7 +4475,7 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
-				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = '';
+				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
 
 				if (($nid eq 'alcohol') or ((exists $Nutriments{$nid . $product_type}) and (exists $Nutriments{$nid . $product_type}{unit})
 					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
@@ -4514,6 +4515,14 @@ sub compute_carbon_footprint_infocard($) {
 
 	# compute the environment impact level
 	# -> currently only for prepared meals
+	
+	# Limit to France, as the carbon values from ADEME are intended for France
+	
+	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients}) 
+		and (length($product_ref->{ingredients}) > 5))) {
+		return;
+	}
+	
 	if (has_tag($product_ref, "categories", "en:meals")) {
 
 		$product_ref->{environment_impact_level} = "en:low";
