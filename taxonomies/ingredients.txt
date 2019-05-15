@@ -56251,38 +56251,111 @@ wikidata:en:Q858049
 # ingredient/fr:café-soluble has 315 products in 8 languages @2018-11-30
 
 
-# A gherkin is a variety of cucumber
+# description:en:CUCUMBER (Cucumis sativus) is a widely cultivated plant in the gourd family, Cucurbitaceae. In general cultivation, cucumbers are classified into three main cultivar groups:"slicing", "pickling", and "burpless". In a 100-gram serving, raw cucumber (with peel) is 95% water, provides 67 kilojoules (16 kilocalories) and supplies low content of essential nutrients, as it is notable only for vitamin K at 16% of the Daily Value.
 
-en:gherkin
-bg:краставица, Корнишон
+<en:vegetable
+en:cucumber, cucumbers
+# ang:hwerhwette
+ar:الخيار
+bg:краставица
+ca:cogombre
 cs:Okurek
-da:Agurk
-de:Gurken, Cornichons
-el:Αγγούρι, Gurke
-es:Pepino, pepinillos
+da:agurk
+de:Gurke
+el:Αγγούρι
+eo:serpentkukumo
+es:pepino
 et:Kurgid
 fi:kurkku
-fr:cornichon, cornichons
-it:cetriolini
-lv:gurķis
-nl:augurken, augurk
+fr:concombre
+ga:Cúcamar
+hr:Krastavac
+hu:uborka
+it:cetrioli
+lv:gurķi
+nb:agurk
+nl:komkommer, komkommers
+nn:agurk
+nv:Taʼneeskʼání áłtsʼóózígíí
+pl:Ogórek
 pt:pepino
 ro:Castravete
 ru:огурец
+sd:کيرو
 sk:uhorka
-sl:Kumare
+sl:Kumara
 sv:Gurka
+za:lwgbieng
+zh:黄瓜
+wikidata:en:Q2735883
+wikipedia:en:https://en.wikipedia.org/wiki/Cucumber
+carbon_footprint_fr_foodges_ingredient:fr:Concombre
+# ingredient/fr:concombre has 549 products in 6 languages @2019-05-15
+
+
+# description:en:A GHERKIN is a variety of cucumber
+# comment:en:From wikidata it is not clear if a language differentiates between cucumber and gherkin
+
+<en:cucumber
+en:gherkin
+bg:краставица, Корнишон
+de:Cornichons
+el:Gurke
+es:pepinillos
+fr:cornichon, cornichons
+it:cetriolini
+nl:augurken, augurk
 wikidata:en:Q23425
 wikidata:en:Q1365891
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
 
-# fr:cornichons-au-vinaigre is a compound ingredient
-
-<en:gherkin
-fr:cornichons au vinaigre
+# <en:compound
+<en:cucumber
+en:vinegar cucumbers
 de:Essiggurken
+fr:concombres au vinaigre
+it:cetrioli all'aceto
+# ingredient/fr:concombres%20au%20vinaigre has 19 products in 4 languages @2019-05-15
+# usage:de:Essiggurken [Gurken, Branntweinessig, Zucker, Kochsalz]
 # fr:cornichons-au-vinaigre has 39 products in 2 languages @2018-12-01
 
+# <en:cucumber
+# fr:Concombre produit sous serre chauffée
+# carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
+# ingredient/fr:Concombre%20produit%20sous%20serre%20chauffée has no products @2019-05-15
+
+<en:juice
+<en:cucumber
+en:cucumber juice
+de:Gurkensaft
+es:zumo de pepino
+fr:jus de concombre
+nl:komkommersap
+# ingredient/cucumber-juice has 84 products in 3 languages @2019-05-15
+
+# <en:cucumber juice
+# en:pascalised cucumber juice
+# de:pascalisierter Gurkensaft
+# es:zumo de pepino pascalizado
+# fr:jus de concombre pascalisé
+# nl:gepascaliseerd komkommersap
+# ingredient/pascalised-cucumber-juice has no products @2019-05-15
+
+# <en:cucumber juice
+# en:pascalised cucumber juice from concentrate
+# es:zumo de pepino pascalizado a partir de concentrado
+# fr:jus de concombre pascalisé à base de concentré
+# nl:gepascaliseerd komkommersap uit concentraat
+# de:pascalisierter Gurkensaft aus Gurkensaftkonzentrat
+# ingredient/pascalised-cucumber-juice-from-concentrate has no products @2019-05-15
+
+<en:cucumber juice
+en:cucumber juice from concentrate
+de:Gurkensaft aus Gurkensaftkonzentrat
+es:zumo de pepino a partir de concentrado
+fr:jus de concombre à base de concentré
+nl:komkommersap uit concentraat
+# ingredient/cucumber-juice-from-concentrate has 1 product @2019-05-15
 
 
 # Liquorice or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted. 
@@ -59621,41 +59694,6 @@ fr:matière grasse du lait
 fr:bleu patenté v
 
 
-fr:concombre
-carbon_footprint_fr_foodges_ingredient:fr:Concombre
-
-fr:Concombre produit sous serre chauffée
-carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
-
-<fr:concombre
-fr:concombres au vinaigre
-
-en:cucumber juice
-es:zumo de pepino
-fr:jus de concombre
-nl:komkommersap
-de:Gurkensaft
-
-<en:cucumber juice
-en:pascalised cucumber juice
-es:zumo de pepino pascalizado
-fr:jus de concombre pascalisé
-nl:gepascaliseerd komkommersap
-de:pascalisierter Gurkensaft
-
-<en:cucumber juice
-en:pascalised cucumber juice from concentrate
-es:zumo de pepino pascalizado a partir de concentrado
-fr:jus de concombre pascalisé à base de concentré
-nl:gepascaliseerd komkommersap uit concentraat
-de:pascalisierter Gurkensaft aus Gurkensaftkonzentrat
-
-<en:cucumber juice
-en:cucumber juice from concentrate
-es:zumo de pepino a partir de concentrado
-fr:jus de concombre à base de concentré
-nl:komkommersap uit concentraat
-de:Gurkensaft aus Gurkensaftkonzentrat
 
 
 
