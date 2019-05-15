@@ -1253,7 +1253,7 @@ INFO
 		$product_ref->{$minerals_tagtype . '_tags'} = [];
 		$product_ref->{$amino_acids_tagtype . '_tags'} = [];
 		$product_ref->{$nucleotides_tagtype . '_tags'} = [];
-		$product_ref->{$vitamins_tagtype . '_tags'} = [];
+		$product_ref->{$other_nutritional_substances_tagtype . '_tags'} = [];
 
 		my $class = $tagtype;
 
