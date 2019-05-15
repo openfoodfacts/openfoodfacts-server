@@ -57322,11 +57322,23 @@ wikidata:en:Q11173928
 # comment:en:There might be a better word for this.
 
 # en:part
+en:extract
+fr:extrait
+nl:extract
 
 # <en:part
+en:natural extract
 fr:extraits naturels
 # ingredient/fr:extraits-naturels has 72 products in french @2019-04-13
 # usage:fr: extraits naturels (dont céleri)
+
+<en:extract
+en:vegetable extract, vegetable extracts
+fr:extraits végétaux
+nl:plantaardig extract, plantaardige extracten
+# ingredient/fr:extraits-végétaux has 224 products in 11 languages @2019-05-15
+# usage:fr: extraits végétaux (spiruline, chlorelle, brocoli, épinard, pousses d'orge, pousses de blé, persil, gingembre, algues bleu-vert, ail)
+# usage:fr: arômes naturels (extraits végétaux)
 
 # <en:part
 en:concentrate, concentrated, from concentrate
@@ -59649,7 +59661,7 @@ de:Gurkensaft aus Gurkensaftkonzentrat
 
 
 
-fr:extraits végétaux
+
 
 
 
