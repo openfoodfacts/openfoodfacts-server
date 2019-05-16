@@ -176,7 +176,7 @@ else {
 #$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
 
 use boolean;
-$query_ref->{unknown_nutrients_tags} = { '$exists' => true,  '$ne' => [] };
+# $query_ref->{unknown_nutrients_tags} = { '$exists' => true,  '$ne' => [] };
 
 print "Update key: $key\n\n";
 

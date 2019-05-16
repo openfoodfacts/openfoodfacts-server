@@ -277,7 +277,7 @@ fi:Hapettumisenestoaine
 fr:antioxydant, antioxygène, anti-oxydant, antioxidant,
 ga:Frithocsaídeoir
 hu:Antioxidáns
-it:Antiossidanti
+it:Antiossidanti, antiossidante
 lt:Antioksidantas
 lv:Antioksidants
 mt:Antiossidant
@@ -338,7 +338,7 @@ fi:Väri
 fr:colorant, colorants, colorant alimentaire, colorants alimentaires
 ga:Dath
 hu:Színezék
-it:Coloranti, alimento colorante
+it:Coloranti, alimento colorante, colorante
 lt:Dažiklis
 lv:Krāsa
 mt:Kulur
@@ -357,7 +357,7 @@ wikidata:en:Q753009
 en:natural colours
 de:natürliche Farbstoffe
 fr:colorant naturel, colorants naturels
-it:coloranti naturali
+it:coloranti naturali, colorante naturale
 # ingredient/fr:colorant-naturel has 283 products in 5 languages @2019-04-20
 
 <en:colour
@@ -385,7 +385,7 @@ fi:Emulgointiaine
 fr:Émulsifiant
 ga:Eiblitheoir
 hu:Emulgeálószer
-it:Emulsionanti
+it:Emulsionanti, emulsionante
 lt:Emulsiklis
 lv:Emulgators
 mt:Emulsifikant
@@ -1915,7 +1915,7 @@ es:Conservante, Conservador
 fi:Säilöntäaine
 fr:Conservateur, agent conservateur
 ga:Leasaitheach
-it:Conservanti
+it:Conservanti, conservante
 lv:Konservants
 nb:Konserveringsmiddel
 nl:Conserveermiddel, Conserveermiddelen
@@ -4149,7 +4149,7 @@ el:λεκιθίνες ηλιστροπιου
 es:lecitina de girasol
 fi:auringonkukkalesitiini
 fr:lécithine de tournesol
-it:lecitina girasole
+it:lecitina girasole, lecitina di girasole
 lv:lecitinai iš saulègrąžų
 nl:zonnebloem-lecithine
 nn:solsikkelecithin
@@ -6856,7 +6856,7 @@ hr:mononatrijev glutaminat
 hu:Mononátrium-glutamát
 id:Mononatrium glutamat
 is:MSG
-it:Glutammato di monosodio
+it:Glutammato di monosodio, glutammato monosodico
 ja:グルタミン酸ナトリウム
 ko:글루탐산 나트륨
 lt:Mononatrio glutamatas
@@ -12365,7 +12365,7 @@ el:γαλακτικά ένζυμα
 es:fermentos lácticos
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques
 hu:tejsavbaktériumok
-it:fermenti lattici, coltura di batteri acidolattici
+it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi
 nl:melkfermenten, melkkiemen
 pt:fermentos lácteos
 # fr:ferments-lactique has 6494 products in 12 languages @2018-11-02
@@ -12378,6 +12378,7 @@ fr:ferment lactique et d'affinage, Ferments lactiques et d'affinage
 <en:lactic ferment
 en:yogurt lactic ferment
 fr:ferment lactique du yaourt, ferments lactiques du yaourt
+it:fermenti lattici dello yogurt
 # fr:ferments-lactiques-du-yaourt has 108 products in 2 languages @2018-11-02
 
 <fr:ferments d'affinage
@@ -12477,7 +12478,7 @@ gu:Reenet
 he:אנזים הגבנה
 hr:Sirište
 id:Rennet
-it:gaglio
+it:gaglio, caglio
 ja:レンネット
 ko:레닛
 la:Coagulum
@@ -13438,6 +13439,7 @@ fr:lait écrémé
 gl:Leite desnatado
 id:Susu skim
 is:Undanrenna
+it:Latte scremato
 ja:脱脂粉乳
 lt:Nugriebtas pienas
 ms:Susu skim
@@ -13871,7 +13873,8 @@ en:milk powder, powdered milk
 fr:lait en poudre, poudre de lait
 nl:melkpoeder
 es:Leche en polvo
-nova:en:4
+it:latte in polvere
+nova:en:3
 
 <en:milk powder
 en:pasteurized skim milk, pasteurised skim milk
@@ -14092,6 +14095,12 @@ fr:yaourt brassé sucré
 
 <en:yogurt
 fr:yaourt maigre
+it:yogurt magro
+
+<en:yogurt
+en:whole yogurt
+fr:yaourt entier
+it:yogurt intero
 
 <en:yogurt
 fr:yaourt au lait entier
@@ -14170,6 +14179,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Whey
 <en:whey
 en:whey powder, powdered whey
 fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre
+it:siero di latte in polvere
 nl:weipoeder
 
 <en:whey powder
@@ -17891,7 +17901,7 @@ ig:Ńnú
 # inh:Тух
 io:Manjebla salo
 is:Borðsalt, matarsalt
-it:Cloruro di sodio, sale da cucina, sale
+it:sale,Cloruro di sodio, sale da cucina
 ja:塩
 jv:Uyah
 ka:სუფრის მარილი
@@ -18078,6 +18088,7 @@ gl:Sal mariño
 hr:Morska sol
 id:Garam laut
 is:Sjávarsalt
+it:sale marino
 ko:천일염
 ms:Garam laut
 nl:zeezout
@@ -18201,6 +18212,7 @@ fa:نمک یددار
 fr:Sel iodé, sel de cuisine iodé
 es:Sal yodada
 id:Garam beryodium
+it:Sale iodato
 nl:gejodeerd zout
 pl:Jodowanie soli
 pt:Sal iodado
@@ -18768,6 +18780,7 @@ de:Ziegenfleisch
 <en:meat
 en:pork meat
 fr:viande de porc
+it:carne di suino
 carbon_footprint_fr_foodges_ingredient:fr:Viande de porc
 # Facteur GES kg CO2 eq / kg d'ingrédient en sortie de magasin (poids net)
 carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
@@ -19559,6 +19572,7 @@ fr:amidon de maïs cireux
 <en:modified starch
 en:modified corn starch, modified corn starches
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidon de maïs modifié, amidons modifiés de maïs
+it:amido modificato di mais
 
 <en:modified starch
 <fr:amidon de maïs cireux
@@ -19580,7 +19594,7 @@ et:Kartulitärklis
 fi:Perunajauho
 fr:amidon de pommes de terre, amidon de pomme de terre, fécule de pommes de terre, fécule de pomme de terre
 id:Tepung kentang
-it:Fecola di patate
+it:Fecola di patate, amido di patata, amido di patate, fecola di patate
 ja:片栗粉
 ko:감자 녹말
 ms:Kanji kentang
@@ -19626,6 +19640,7 @@ en:modified tapioca starch
 de:modifizierte Tapiokastärke
 fi:muunnettu tapiokatärkkelys
 fr:amidon modifié de tapioca, amidon transformé de tapioca, amidon de tapioca modifié, amidon modifié de manioc
+it:amido modificato di tapioca
 nl:gemodificeerd tapiocazetmeel
 pt:amido modificado de tapioca
 
@@ -19959,6 +19974,7 @@ es:grasas vegetales, grasa vegetal
 fi:kasvirasva
 fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales
 is:jurtafeiti
+it:grassi vegetali
 nl:plantaardige vetten
 nn:vegetabilisk fett
 pt:gorduras vegetais
@@ -20275,7 +20291,7 @@ hr:Maslinovo ulje
 hu:Olívaolaj
 id:Minyak zaitun
 is:Ólífuolía
-it:olio d'oliva
+it:olio d'oliva, olio di oliva
 ja:オリーブ・オイル
 ka:ზეითუნის ზეთი
 kk:Зәйтүн майы
@@ -20343,7 +20359,7 @@ en:extra virgin olive oil
 da:ekstra jomfruolivenolie
 es:aceite de oliva virgen extra
 fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
-it:olio d'oliva extra vergine, olio extravergine di oliva
+it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva
 nl:extra olijfolie van de eerste persing
 
 <en:olive oil
@@ -22639,8 +22655,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Absinthe
 
 # nova:en:flavouring
 en:flavouring, flavour, flavor, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
-es:aromas
+es:aroma, aromas
 fr:arôme, arômes
+it:aroma, aromi
 nl:aroma's
 de:Aroma, Aromen
 
@@ -22661,6 +22678,7 @@ pt:preparacao aromatizante
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 fr:arôme naturel, arômes naturels
 de:natürliches Aroma
+it:aroma naturale, aromi naturali
 
 <en:flavouring
 en:artificial flavouring, artificial flavour, artificial flavor, artificial flavoring
@@ -22889,6 +22907,7 @@ en:natural vanilla flavouring
 da:naturlig vanillearoma
 de:natürliches Vanillearoma
 fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
+it:aroma naturale di vaniglia
 nl:natuurlijk vanillearoma
 nb:naturlig vanilijarom
 pl:naturalny aromat wanilii
@@ -24305,6 +24324,7 @@ en:barley malt extract
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
 zh:大麥芽精
 de:Gerstenmalzextrakt
+it:estratto di mato d'orzo
 
 
 # BUCKWHEAT (Fagopyrum esculentum) is a plant cultivated for its grain-like seeds and as a cover crop.
@@ -25240,6 +25260,7 @@ es:harina de maíz
 fi:maissijauho
 fr:farine de mais
 hu:kukoricaliszt
+it:farina di mais
 nl:maïsmeel
 pl:mąka kukurydziana
 pt:farinha de milho
@@ -26277,6 +26298,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 <en:sugar
 en:cane sugar
 fr:sucre de canne
+it:zucchero di canna
 nl:rietsuiker
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de canne
 
@@ -26316,6 +26338,7 @@ fr:pur sucre de canne
 en:caramelised sugar
 es:azúcar caramelizado
 fr:sucre caramélisé
+it:zucchero caramellato
 nl:gekarameliseerde suiker
 de:Karamellzucker
 fr:sucre brun, sucre caramel
@@ -26342,6 +26365,7 @@ fr:sucre liquide
 <en:sugar
 en:grape sugar, raisin sugar
 fr:sucre de raisin
+it:zucchero d'uva
 
 <en:sugar
 en:icing sugar
@@ -27111,6 +27135,7 @@ zh:高果糖浆
 en:invert sugar syrup, invert syrup, liquid invert syrup
 fr:sirop de sucre inverti
 de:Invertzuckersirup
+it:sciroppo di zucchero invertito
 
 <en:invert sugar syrup
 en:cane invert syrup, invert cane syrup
@@ -27188,6 +27213,7 @@ fr:sirop de maltitol
 
 en:sorbitol
 fr:sorbitol
+it:sorbitolo
 
 <en:sorbitol
 en:sorbitol syrup
@@ -27201,6 +27227,7 @@ fr:sirop de sorbitol de blé
 
 en:rice syrup
 fr:sirop de riz
+it:sciroppo di riso
 
 <en:sugar
 en:caramelised sugar syrup
@@ -27611,6 +27638,7 @@ en:milk proteins
 de:Milcheiweiß
 es:proteína de leche
 fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
+it:proteine del latte
 nl:melkeiwit
 nova:en:4
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
@@ -27748,6 +27776,7 @@ wikidata:en: Q63120038
 
 en:chocolate
 fr:chocolat
+it:cioccolato
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
@@ -27814,9 +27843,14 @@ fr:chocolat au lait du pays alpin
 
 # CACAO
 
+<en:cocoa
+en:cocoa powder
 fr:cacao en poudre
+it:cacao in polvere
 
+<fr:cacao en poudre
 fr:cacao maigre en poudre
+it:cacao magro in polvere
 
 fr:cacao dégraissé
 
@@ -27841,10 +27875,13 @@ fr:extrait de cacao
 
 fr:poudre de cacao dégraissé
 
+<fr:pâte de cacao
+<fr:beurre de cacao
 fr:pâte et beurre de cacao
 
 fr:cacao fortement dégraissé en poudre
 
+<fr:beurre de cacao
 fr:pur beurre de cacao
 
 
@@ -27869,6 +27906,7 @@ de:Kakao
 en:cocoa butter
 es:manteca de cacao
 fr:beurre de cacao
+it:burro di cacao
 nl:cacaoboter
 de:Kakaobutter
 wikidata:en:Q251106
@@ -27880,6 +27918,7 @@ en:cocoa paste
 fr:pâte de cacao
 de:Kakaomasse
 es:Pasta de cacao
+it:pasta di cacao
 
 <en:cocoa
 en:cocoa powder
@@ -28587,9 +28626,11 @@ es:zumo de soja
 
 en:gelifier
 fr:gélifiant
+it:gelificante
 
 en:gluten
 fr:gluten
+it:glutine
 
 fr:gluten de blé
 
@@ -29705,7 +29746,7 @@ gl:Xantano
 he:קסנטן גאם
 hu:Xantángumi
 id:Gum xanthan
-it:Gomma di xantano
+it:Gomma di xantano, gomma di xanthan
 ja:キサンタンガム
 lt:Ksantano derva
 lv:Ksantāna sveķi
@@ -41354,7 +41395,7 @@ hr:bundeva
 hy:Դդմիկ
 is:zukini
 # inh:Баьцахаьс
-it:Zucchina, zucchini
+it:Zucchina, zucchini, zucchine
 ja:ズッキーニ
 jv:zukini
 # kbp:Kamɩyɛ
@@ -42636,7 +42677,7 @@ fr:amande, amandes
 fy:Mangel
 gl:Améndoa
 ia:amandola
-it:mandorla
+it:mandorla, mandorle
 nl:amandel, amandelen
 oc:Almendra
 # pcd:Aminte
@@ -46143,6 +46184,7 @@ fr:origan
 da:oregano
 de:Oregano
 es:orégano
+it:origano
 nl:oregano
 pt:orégãos
 # plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
@@ -56126,6 +56168,7 @@ fr:lactose et protéines de lait
 
 en:sweetener, sweeteners, sugar substitute
 fr:édulcorant, édulcorants
+it:edulcorante
 
 fr:érythorbate de sodium
 es:Eritorbato de sodio
