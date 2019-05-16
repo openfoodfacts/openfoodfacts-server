@@ -38860,6 +38860,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Heart_of_palm
 
 # Horseradish (Armoracia rusticana, syn. Cochlearia armoracia) is a perennial plant of the family Brassicaceae
 
+<en:vegetable
 en:horseradish
 af:Peperwortel
 ar:فجل الخيل الريفي
@@ -38941,6 +38942,7 @@ la:Armoracia rusticana
 
 # JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower
 
+<en:vegetable
 en:Jerusalem artichoke
 ar:دوار الشمس الدرني
 az:Yerarmudu
@@ -39505,6 +39507,137 @@ zh:欧防风
 wikidata:en:Q188614
 wikipedia:en:https://en.wikipedia.org/wiki/Parsnip
 # ingredient/fr:panais has 372 products in 5 languages @2018-12-4
+
+
+# description:en:The RADISH (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
+
+<en:vegetable
+en:radish
+# aeb-arab:فجل
+am:ፍጁል
+ar:فجل
+az:Qırmızı turp
+# azb:قیرمیزی تورپ
+ba:Торма
+# bar:Radi
+be:Рэдзька пасяўная
+bg:репичка
+# bho:मुरई
+bn:মূলা
+bo:ལ་ཕུག
+br:Irvin-ruz
+ca:rave
+# cdo:Chái-tàu
+# ckb:توور
+co:Radichju
+cs:ředkvička
+# csb:Radiska
+cy:Rhuddygl y gerddi
+da:Radise
+de:rettich, Radieschen
+# de-ch:Radieschen
+el:Ρεπάνι
+# en-ca:Radish
+# en-gb:Radish
+eo:rafano
+es:rábano
+et:Redis
+eu:Errefau
+fa:ترب
+fi:Retiisi
+fr:radis
+ga:Raidis
+gl:Ravo
+# hak:Lò-phe̍t
+he:צנון
+hi:मूली
+hr:Rotkvica
+# hsb:Radiska
+ht:Radi
+hu:Retek
+id:Lobak
+# ilo:rabanos
+is:Hreðka
+it:ravanello
+ja:ダイコン
+jv:Lobak
+ka:ბოლოკი
+# kaa:Rediska
+# kbd:Radiska
+kk:Шомыр
+kn:ಮೂಲಂಗಿ
+ko:무
+km:مُج
+ku:Tivir
+kv:Кушман
+ky:Түрп
+la:Raphanus sativus
+lv:redīsi
+mk:ротквичка
+ml:മുള്ളങ്കി
+mn:Таримал манжин
+mr:मुळा
+# myv:Кшумань
+# nah:Rāhuano
+# nan:Chhài-thâu
+nb:reddik
+nl:radijs
+nn:reddik
+nv:Akétłʼóól łichxííʼí yázhí
+oc:Rafe
+or:ମୂଳା
+os:Булкъ
+pa:ਮੂਲੀ
+# pam:Labanus
+pl:rzodkiew
+# pnb:مولی
+ps:مولۍ
+pt:Rabanete
+# pt-br:Rabanete
+qu:Rawanushcu
+ro:Ridiche
+ru:Редис
+rw:Radi
+sa:मूलकम्
+# sco:Reefort
+# sgs:Rėdėks
+sh:Rotkvica
+sk:Reďkev siata
+sl:Redkvica
+sq:Rrepa
+sr:Ротквица
+# sr-ec:Ротквица
+# sr-el:Rotkvica
+su:Lobak
+sv:Rädisa
+# szl:Radiska
+ta:முள்ளங்கி
+te:ముల్లంగి
+tg:Турб
+tl:Labanos
+to:Lētisifoha
+tr:Turp
+tt:Редис
+tv:Турма
+uk:Редька
+ur:لال مولی
+uz:Turp
+vi:Cải củ
+wa:Rådisse
+yi:רעטעך
+# yue:蘿蔔
+za:lauxbaeg
+zh:萝卜
+# zh-tw:蘿蔔
+wikidata:en:Q7224565 # for the plant
+wikipedia:en:https://en.wikipedia.org/wiki/Radish
+# ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
+# usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
+
+# <en:radish
+# fr:Radis de saison
+# ingredient/fr:Radis-de-saison has no products @2019-05-16
+# carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
 
 
 # description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
@@ -59783,10 +59916,9 @@ fr:citronnelle
 nl:citroengras
 de:Zitronengras
 
-fr:radis
 
-fr:Radis de saison
-carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
+
+
 
 
 
