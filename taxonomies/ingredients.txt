@@ -44995,8 +44995,7 @@ wo:Anet
 zh:蒔蘿
 wikidata:en:Q26686
 wikipedia:en:https://en.wikipedia.org/wiki/Dill
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aneth
-# 512 products in 6 languages @2018-10-10
+# ingredient/fr:aneth has 512 products in 6 languages @2018-10-10
 
 <en:herb
 en:rosemary
@@ -45086,7 +45085,7 @@ zh:迷迭香
 # 1262 in 14 languages @2018-10-09
 
 <fr:romarin
-<en:antioxidant
+# <en:antioxidant
 en:rosemary extract, extracts of rosemary
 da:ekstrakter af rosmarin
 de:Rosmarinextrakt
@@ -45102,6 +45101,56 @@ sv:extrakt av rosmarin
 fr:extrait naturel de romarin
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20naturel%20de%20romarin
 # 70 products in 1 language @2018-10-09
+
+
+# description:LEMONGRASS is a genus of Asian, African, Australian, and tropical island plants in the grass family. Lemongrass is widely used as a culinary herb in Asian cuisines. It has a subtle citrus flavor and can be dried and powdered, or used fresh. It is commonly used in teas, soups, and curries. 
+# comment:en:The wikidata entry has the plant name.
+
+<en:herb
+en:lemongrass
+am:ጠጅ ሳር
+ar:إذخر ليموني
+# bcl:Tanglad
+bn:গন্ধবেণা
+ca:Canya llimona
+da:citrongræs
+de:Zitronengras
+dv:ކާސިންޖީ
+es:hierba limón, hierbalimón
+fa:پوتار
+fi:Sitruunaruoho
+fr:citronnelle
+ga:féar líomóideach
+gl:Herba limoeira
+he:עשב לימון
+hi:लेमन ग्रास
+id:Serai
+io:citron-suko
+it:Citronella
+ja:レモングラス
+ko:레몬그래스
+la:Cymbopogon citratus
+lg:Kalifuwa
+lo:ຫົວສີໄຄ
+mr:गवती चहा
+ms:daun serai
+ne:कागते घाँस
+nl:citroengras, Sereh
+or:ଲେମନ ଗ୍ରାସ୍
+pa:ਲੈਮਨ ਗਰਾਸ
+# pam:Salé
+pt:erva-principe
+# roa-tara:citronelle
+sq:barishte
+sr:Лимун-трава
+sv:citrongräs, citrongras
+th:ตะไคร้
+vi:Sả chanh
+zh:柠檬草
+# zh-tw:檸檬茅
+wikidata:en:Q33913
+wikipedia:en:https://en.wikipedia.org/wiki/Cymbopogon
+# ingredient/lemongrass has 713 products in 10 languages @2019-05-17
 
 
 # MENTHA (also known as mint) is a genus of plants in the family Lamiaceae (mint family).
@@ -59910,11 +59959,7 @@ fr:tofu
 fr:glycérine
 es:Glicerina
 
-en:lemongrass
-es:hierbalimón
-fr:citronnelle
-nl:citroengras
-de:Zitronengras
+
 
 
 
