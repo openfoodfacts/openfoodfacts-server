@@ -5114,38 +5114,75 @@ efsa_evaluation_overexposure_risk:en: en:no
 efsa_evaluation_adi:en: 6
 additives_classes:en: en:antioxidant
 
-en:E316, Sodium erythorbate
-bg:E316, Натриев ериторбат
-cs:E316, Erythorban sodný, Erythorbát sodný
-da:E316, Natriumerythorbat
-de:E316, Natriumisoascorbat, E 316, Natriumerythorbat
-el:E316, Ερυθορβικο νατριο
-es:E316, Eritorbato sódico, Eritorbato de sodio, D-isoascorbato, E 316
-et:E316, Naatriumerütorbaat
-fi:E316, Natriumerytorbaatti
-fr:E316, Erythorbate de sodium, Isoascorbate de sodium, Érythorbate de sodium, 7378-23-6
-hu:E316, Nátrium-eritroaszkorbát
-it:E316, Eritorbato di sodio
-lt:E316, Natrio eritorbatas
-lv:E316, Nātrija eritorbāts
-mt:E316, Eritorbat tas-sodju
-nl:E316, Natriumerythorbaat
-pl:E316, Izoaskorbinian sodu
-pt:E316, Eritorbato de sódio
-ro:E316, Eritorbat de sodiu
-rs:E316, natrijum-eritorbat
-ru:E316, Эриторбат натрия
-sk:E316, Erytorban sodný (izoaskorban sodný)
-sl:E316, Natrijev eritorbat
-sv:E316, Natriumisoaskorbat, E 316
+
+# description:en:SODIUM ERYTHORBATE is the sodium salt of erythorbic acid. Sodium erythorbate is produced from sugars derived from different sources, such as beets, sugar cane, and corn. It is used predominantly in meats, poultry, and soft drinks.
+# comment:en:This is NOT E301!!! Not clear if there should be a default name (iso or ery).
+
+en:sodium erythorbate, E316, E-316, E 316, INS316, INS-316, INS 316, SIN316, SIN-316, SIN 316
+ar:إيريثوربات صوديوم
+# azb:سودیوم اریتوربات
+bg:Натриев ериторбат
+cs:Erythorban sodný
+da:Natriumerythorbat
+de:Natriumisoascorbat, Natriumerythorbat
+el:Ερυθορβικο νατριο
+eo:Natria eritorbato
+es:eritorbato sódico
+et:Naatriumerütorbaat
+fa:سدیم اریتوربات
+fi:Natriumerytorbaatti
+fr:érythorbate de sodium, isoascorbate de sodium
+hu:Nátrium-eritroaszkorbát
+it:eritorbato di sodio
+ja:エリソルビン酸ナトリウム
+lt:Natrio eritorbatas
+lv:Nātrija eritorbāts
+mt:Eritorbat tas-sodju
+nl:natriumisoascorbaat, Natriumerythorbaat
+pl:Izoaskorbinian sodu
+pt:Eritorbato de sódio
+ro:eritorbat de sodiu
+# rs:natrijum-eritorbat
+ru:Эриторбат натрия
+sh:Natrijum erithorbat
+sk:Erytorban sodný, izoaskorban sodný
+sl:Natrijev eritorbat
+sr:Natrijum erithorbat
+# sr-el:Natrijum erithorbat
+sv:natriumisoaskorbat
+zh:异抗坏血酸钠
 e_number:en:316
 wikidata:en:Q417003
 efsa_evaluation_url:en:https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2016.4360
 efsa_evaluation_date:en:2016/01/20
 efsa_evaluation:en:Scientific Opinion on the re‐evaluation of erythorbic acid (E 315) and sodium erythorbate (E 316) as food additives
-efsa_evaluation_overexposure_risk:en: en:no
-efsa_evaluation_adi:en: 6
-additives_classes:en: en:antioxidant
+efsa_evaluation_overexposure_risk:en:en:no
+efsa_evaluation_adi:en:6
+additives_classes:en:en:antioxidant
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_erythorbate
+# ingredient/fr:isoascorbate-de-sodium has 250 products in 4 languages @2019-05-17
+# additive/e316-sodium-erythorbate has 7338 products in 28 languages @2019-05-17
+# usage:fr:antioxydants :lactate de portassium, isoascorbate de sodium
+
+<en:sodium erythorbate
+en:antioxydant E316
+cs:antioxidant E316
+da:antioxidant E316
+de:Antioxidationsmittel E 316
+es:antioxidante E316
+et:antioksüdant E316
+fi:hapettumisenestoaine E316
+fr:antioxydant e316
+it:antiossidante:E316
+lt:antioksidantas E316
+lv:antioksidants E316
+nl:antioxidant E316
+pl:przeciwutleniacz E316
+pt:antioxidante E316
+sv:antioxidationsmedel E316
+# ingredient/fr:antioxydant-e316 has 1567 products in 15 languages @2019-05-17
+
+
 
 en:E317, Erythorbin acid
 bg:E317, E317 food additive
