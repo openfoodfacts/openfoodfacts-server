@@ -124,7 +124,7 @@ hu:összetétel
 id:komposisi
 it:ingredienti, composizione
 lt:Sudedamosios dalys, Sudėtis
-nl:ingrediënt, ingrediënten, samenstelling
+nl:ingrediënt, ingrediënten, samenstelling, bestanddelen
 pl:skład, Skladniki
 pt:composição
 ro:compoziţie, Ingrediente
@@ -719,6 +719,41 @@ zh:赤藓红
 wikipedia:en:https://en.wikipedia.org/wiki/Erythrosine
 # ingredient/fr:érythrosine has 47 products in 3 languages @2019-02-22
 # additive/e127-erythrosine has 592 products in 8 languages @2019-02-22
+
+
+# description:en:PATENT BLUE V is a dark bluish synthetic triphenylmethane dye used as a food coloring. It is not widely used, but in Europe it can be found in Scotch eggs, certain jelly sweets, blue Curaçao, certain jello varieties (though not in actual Jell-O brand products), among others.
+
+en:patent blue v, E131, E-131, E 131, INS131, INS-131, INS 131, SIN131, SIN-131, SIN 131
+bg:Патент синьо v
+cs:Patentní modř v
+da:Patent blue v
+de:patentblau, patentblau E 131
+el:Πατεντ μπλε v
+fr:bleu patenté v, bleu patenté, bleu patenté E 131
+es:azul patente V
+et:Patentsinine v
+fi:Patenttisininen v
+ga:gorm paitinne V
+he:פטנט כחול V
+hu:Patentkék V
+it:blu patentato v, blu patentato, blu patentato E 131
+lt:Mėlynasis patentuotas v
+lv:Patentzilais v
+mt:Patent blue v
+nl:patentblauw v
+pl:Błękit patentowy v
+pt:Azul patenteado v
+ro:Albastru patent v
+ru:синий патентованный V
+sk:Patentná modrá v
+sl:Patentno modro v
+sv:Patentblått v
+uk:Синій патентований V
+zh:專利藍V
+wikidata:en:Q420087
+wikipedia:en:https://en.wikipedia.org/wiki/Patent_Blue_V
+# ingredient/fr:bleu-patenté-v has 219 products @2019-05-15
+# additive/e131-patent-blue-v has 548 products in 9 languages @2019-05-15
 
 
 #   BRILLIANT BLUE FCF  (Blue 1) is an organic compound classified as a blue triarylmethane dye, reflecting its chemical structure. Known under various commercial names, it is a colorant for foods and other substances.
@@ -4649,7 +4684,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mannitol
 # ingredient/fr:mannitol has 177 products in 5 languages @2019-05-12
 
 
-#   GLYCEROL   (also called glycerine or glycerin) is a simple polyol compound.
+#  description:en:GLYCEROL is a simple polyol compound. In food and beverages, glycerol serves as a humectant, solvent, and sweetener, and may help preserve foods. It is also used as filler in commercially prepared low-fat foods (e.g., cookies), and as a thickening agent in liqueurs.
 
 en:glycerol, E422, E-422, E 422
 ar:غليسرول
@@ -4668,12 +4703,12 @@ el:Γλυκερολη, Γλυκερίνη
 # en-ca:glycerol
 # en-gb:glycerol
 eo:glicerolo
-es:Glicerol
+es:Glicerol, Glicerina
 et:Glütserool, glicerol
 eu:glizerina
 fa:گلیسیرین
 fi:Glyseroli
-fr:Glycérol
+fr:Glycérol, glycérine
 # frr:Glycerin
 ga:Gliocról
 gl:Glicerol
@@ -5199,7 +5234,7 @@ es:carboximetilcelulosa, goma de celulosa
 et:Karboksümetüültselluloos
 fa:کربوکسی متیل سلولز
 fi:carboxy methyl cellulose
-fr:Carboxyméthylcellulose, gomme cellulosique
+fr:Carboxyméthylcellulose, gomme cellulosique, gomme de cellulose
 hu:karboxi-metil-cellulóz
 it:carbossimetilcellulosa
 ja:カルボキシメチルセルロース
@@ -5347,31 +5382,31 @@ tr:yağ asitlerinin mono ve digiseridleri
 <en:acid esters of mono- and diglycerides of fatty acids
 en:acetic acid esters of mono- and diglycerides of fatty acids, E472a, E 472a, E-472a
 bs:Acetatni esteri mono- i diglicerida masnih kiselina
-bg:Естери на оцетната киселина с моно- и диглицериди на мастни киселини, E472a, E 472a, E-472a
-cs:Estery mono- a diglyceridů mastných kyselin s kyselinou octovou, E472a, E 472a, E-472a
-da:eddikesyreestere af mono- og diglycerider af fedtsyrer, E472a, E 472a, E-472a
-de:Essigsäureester von Mono- und Diglyceriden von Speisefettsäuren, E472a, E 472a, E-472a
-el:Εστερες του οξικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων, E472a, E 472a, E-472a
-es:ésteres acéticos de monoglicéridos y diglicéridos de ácidos grasos, E472a, E 472a, E-472a
-et:Rasvhapete mono- ja diglütseriidide estrid äädikhappega, E472a, E 472a, E-472a
-fi:rasvahappojen mono- ja diglyseridien etikkahappoesterit, E472a, E 472a, E-472a
-fr:esters acétiques des mono- et diglycérides d’acides gras, E472a, E 472a, E-472a
+bg:Естери на оцетната киселина с моно- и диглицериди на мастни киселини
+cs:Estery mono- a diglyceridů mastných kyselin s kyselinou octovou
+da:eddikesyreestere af mono- og diglycerider af fedtsyrer
+de:Essigsäureester von Mono- und Diglyceriden von Speisefettsäuren
+el:Εστερες του οξικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων
+es:ésteres acéticos de monoglicéridos y diglicéridos de ácidos grasos
+et:Rasvhapete mono- ja diglütseriidide estrid äädikhappega
+fi:rasvahappojen mono- ja diglyseridien etikkahappoesterit
+fr:esters acétiques des mono- et diglycérides d’acides gras
 gl:Éster diacetil-acético de ácidos graxos
-hu:Zsírsavak mono- és digliceridjeinek ecetsav-észterei, E472a, E 472a, E-472a
-it:esteri acetici di mono- e digliceridi degli acidi grassi, E472a, E 472a, E-472a
+hu:Zsírsavak mono- és digliceridjeinek ecetsav-észterei
+it:esteri acetici di mono- e digliceridi degli acidi grassi
 ja:グリセリン酢酸脂肪酸エステル
-lt:Riebalų rūgščių mono- ir digliceridų acto rūgšties esteriai, E472a, E 472a, E-472a
-lv:Taukskābju mono- un diglicerīdu etiķskābes esteri, E472a, E 472a, E-472a
-mt:Esteri tal-aċidu aċetiku tal-mono- u d-digliċeridi tal-aċidi grassi, E472a, E 472a, E-472a
-nl:Mono- en diglyceriden van vetzuren veresterd met azijnzuur, azijnzuurester van mono- en diglyceriden uit vetzuren uit levensmiddelen, E472a, E 472a, E-472a
-nn:eddiksyreestere av mon- og diglyserider av fettsyrer, E472a, E 472a, E-472a
-pl:mono- i diglicerydy kwasów tłuszczowych estryfikowane kwasem octowym, E472a, E 472a, E-472a
-pt:ésteres acéticos de mono e diglicéridos gordos, E472a, E 472a, E-472a
-ro:Esteri ai acidului acetic cu mono- și digliceridele acizilor grași, E472a, E 472a, E-472a
-sk:Estery mono- a diglyceridov mastných kyselín s kyselinou octovou, E472a, E 472a, E-472a
-sl:Acetatni estri mono- in digliceridov maščobnih kislin, E472a, E 472a, E-472a
+lt:Riebalų rūgščių mono- ir digliceridų acto rūgšties esteriai
+lv:Taukskābju mono- un diglicerīdu etiķskābes esteri
+mt:Esteri tal-aċidu aċetiku tal-mono- u d-digliċeridi tal-aċidi grassi
+nl:Mono- en diglyceriden van vetzuren veresterd met azijnzuur, azijnzuurester van mono- en diglyceriden uit vetzuren uit levensmiddelen
+nn:eddiksyreestere av mon- og diglyserider av fettsyrer
+pl:mono- i diglicerydy kwasów tłuszczowych estryfikowane kwasem octowym
+pt:ésteres acéticos de mono e diglicéridos gordos
+ro:Esteri ai acidului acetic cu mono- și digliceridele acizilor grași
+sk:Estery mono- a diglyceridov mastných kyselín s kyselinou octovou
+sl:Acetatni estri mono- in digliceridov maščobnih kislin
 sr:Ацетатни естери моно- и диглицерида масних киселина
-sv:mono- och diglyceriders ättiksyraestrar, E472a, E 472a, E-472a
+sv:mono- och diglyceriders ättiksyraestrar
 tr:acetic asit esters of mono- ve diglycerides of fatty asits
 uk:Естери гліцерину та оцтової і жирних кислот
 wikidata:en:Q26806065
@@ -5618,6 +5653,45 @@ sv:Polyglycerolpolyricinoleat
 wikipedia:en:https://en.wikipedia.org/wiki/Polyglycerol_polyricinoleate
 # ingredient/fr:polyricinoléate-de-polyglycérol has 191 products in 6 languages @2019-05-06
 # usage:fr:émulsifiants (mono - et diglycérides d'acides gras, lécithine de soja, polyricinoléate de polyglycérol)
+
+
+# description:en:SODIUM STEAROYL-2-LACTYLATE is a versatile food additive used to improve the mix tolerance and volume of processed foods. It finds widespread application in baked goods, pancakes, waffles, cereals, pastas, instant rice, desserts, icings, fillings, puddings, toppings, sugar confectionaries, powdered beverage mixes, creamers, cream liqueurs, dehydrated potatoes, snack dips, sauces, gravies, chewing gum, dietetic foods, minced and diced canned meats, mostarda di frutta, and pet food.
+
+en:sodium stearoyl-2-lactylate, E481, E-481, E 481, INS481, INS-481, INS 481, SIN481, SIN-481, SIN 481
+bg:Натриев стераоил-2-лактилат
+cs:Stearoyl-2-mléčnan sodný
+da:Natriumstearoyl-2-lactylat
+de:Natriumstaroyl-2-lactylat
+el:Στεατοϋλο-2-γαλακτυλικο νατριο
+eo:Natria stearoila laktilato
+es:estearoil-2-lactilato sódico
+et:Naatriumstearoüül-2-laktülaat
+fi:natriumstearoyyli-2-laktylaatti
+fr:stéaroyl-2-lactylate de sodium
+ga:lachtaláit stéiril sóidiam
+hr:natrijev stearoil-2-laktilat
+hu:nátrium-sztearoil-2-laktilát
+it:stearoil-2-lattilato di sodio
+ja:ステアロイル乳酸ナトリウム
+lt:Natrio stearoil-2-laktilatas
+lv:Nātrija stearoil-2-laktilāts
+mt:Stearojl-2-lattilat tas-sodju
+nl:natriumstearoyl-2-lactylaat
+pl:2-stearoilomleczan sodu
+pt:Estearoíl-2-lactilato de sódio
+ro:Stearoil-2-lactilat de sodiu
+sh:Natrijum stearoil laktilat
+sk:Stearoyl-2-laktylát sodný
+sl:Natrijev stearoil-2-laktilat
+sr:Natrijum stearoil laktilat
+# sr-el:Natrijum stearoil laktilat
+sv:natriumstearoyl-2-laktylat
+wikidata:en:Q416058
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_stearoyl_lactylate
+# ingredient/fr:stéaroyl-2-lactylate-de-sodium has 301 products in 6 languages @2019-05-15
+# additive/e481-sodium-stearoyl-2-lactylate has 2620 products in 18 languages @2019-05-15
+# usage:fr:emulsionante (mono- et diglycérides d'acides gras, stéaroyl-2-lactylate de sodium)
+
 
 # description:en:Sorbitan monostearate is an ester of sorbitan (a sorbitol derivative) and stearic acid and is sometimes referred to as a synthetic wax.
 
@@ -6121,6 +6195,103 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_sulfate
 
 <en:manganese sulfate
 en:E518, E-518, E 518, INS518, INS-518, INS 518, SIN518, SIN-518, SIN 518
+
+<en:copper sulfate
+en:E519, E-519, E 519, INS519, INS-519, INS 519, SIN519, SIN-519, SIN 519
+
+
+# description:en:SODIUM HYDROXIDE is an inorganic compound with the formula NaOH. uses of sodium hydroxide include washing or chemical peeling of fruits and vegetables, chocolate and cocoa processing, caramel coloring production, poultry scalding, soft drink processing, and thickening ice cream. Olives are often soaked in sodium hydroxide for softening; Pretzels and German lye rolls are glazed with a sodium hydroxide solution before baking to make them crisp.
+# comment:en:the chemical name is preferred
+
+en:sodium hydroxide, E524, E-524, E 524, INS524, INS-524, INS 524, SIN524, SIN-524, SIN 524
+af:Natriumhidroksied
+ar:هيدروكسيد الصوديوم
+# ast:Hidróxidu de sodiu
+# azb:سودیوم هیدروکسید
+bg:Натриев хидроксид
+bn:সোডিয়াম হাইড্রোক্সাইড
+bs:Natrij-hidroksid
+ca:hidròxid de sodi
+cs:Hydroxid sodný
+da:natriumhydroxid
+de:Natriumhydroxid
+el:υδροξείδιο του νατρίου
+eo:natria hidroksido
+et:Naatriumhüdroksiid
+eu:sodio hidroxido
+fa:سدیم هیدروکسید
+fi:natriumhydroksidi
+fr:hydroxyde de sodium
+# frr:Natriumhydroxid
+ga:hiodrocsaíd sóidiam
+gl:Hidróxido de sodio
+gv:Hydrocseed sodjum
+he:נתרן הידרוקסידי
+hi:क्षारातु उदजारेय
+hu:Nátrium-hidroxid
+hy:Նատրիումի հիդրօքսիդ
+id:Natrium hidroksida
+it:idrossido di sodio
+ja:水酸化ナトリウム
+ka:ნატრიუმის ჰიდროქსიდი
+# kaa:Natriy gidroksid
+kk:Натрий гидроксиді
+ko:수산화 나트륨
+ky:Натрий гидроксиди
+la:Natrii hydroxidum
+lt:Natrio hidroksidas
+lv:Nātrija hidroksīds
+# lzh:氫氧化鈉
+mk:Натриум хидроксид
+ml:സോഡിയം ഹൈഡ്രോക്സൈഡ്
+mn:Натрийн гидроксид
+ms:Natrium hidroksida
+mt:Idrossidu tas-sodju
+my:ကော့စတစ်ဆိုဒါ
+# nan:Chúi-sng-hoà natrium
+nb:Natriumhydroksid
+# nds:Natriumhydroxid
+nl:natriumhydroxide
+oc:Idroxid de sòdi
+pl:Wodorotlenek sodu
+# pnb:سوڈیم ہائیڈرآکسائیڈ
+pt:Hidróxido de sódio
+# pt-br:hidróxido de sódio
+ro:Hidroxid de sodiu
+ru:гидроксид натрия
+# rup:Hidroxidu di natriu
+# sco:sodium hydroxide
+sh:Natrijum hidroksid
+sk:Hydroxid sodný
+sl:Natrijev hidroksid
+so:Sodium Hydroxide
+sq:Hidroksidi i natriumit
+sr:натријум-хидроксид
+# sr-ec:натријум-хидроксид
+# sr-el:Natrijum hidroksid
+sv:Natriumhydroxid
+ta:சோடியம் ஐதராக்சைடு
+te:సోడియమ్ హైడ్రాక్సైడ్
+th:โซดาไฟ
+tr:Sodyum hidroksit
+uk:гідроксид натрію
+ur:کاسٹک سوڈا
+uz:Natriy gidroksid
+vi:Natri hiđroxit
+# war:Sodium hydroxide
+# wuu:氢氧化钠
+# yue:哥士的
+# zh:氢氧化钠
+# zh-cn:氢氧化钠
+# zh=hans:氢氧化钠
+# zh-hant:氫氧化鈉
+# zh-hk:氫氧化鈉
+# zh-sg:氢氧化钠
+# zh-tw:氫氧化鈉
+wikidata:en: Q102769
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_hydroxide
+# ingredient/fr:hydroxyde%20de%20sodium has 268 products in 13 languages @2019-05-14
+# usage:fr:correcteur d'acidité (hydroxyde de sodium)
 
 
 # description:en:POTASSIUM HYDROXIDE is an inorganic compound with the formula KOH. In food products, potassium hydroxide acts as a food thickener, pH control agent and food stabilizer. The FDA considers it (as a direct human food ingredient) as generally safe when combined with "good" manufacturing practice conditions of use.
@@ -6913,6 +7084,113 @@ zh:亮氨酸
 wikidata:en:Q483745
 wikipedia:en:https://en.wikipedia.org/wiki/Leucine
 # ingredient/fr:l-leucine has 104 products in 4 languages @2019-02-16
+
+
+# description:en:BEESWAX (cera alba) is a natural wax produced by honey bees of the genus Apis. The three main types of beeswax products are yellow, white, and beeswax absolute. Beeswax may be used in small quantities acting as a glazing agent, which serves to prevent water loss, or used to provide surface protection for some fruits, soft gelatin capsules and tablet coatings. Beeswax is also a common ingredient of natural chewing gum.
+
+en:beeswax, beewax, E901, E-901, E 901, INS901, INS-901, INS 901, SIN901, SIN-901, SIN 901
+af:Byewas
+ar:شمع العسل
+az:Arı mumu
+# bcl:Taro
+be:Пчаліны воск
+bg:Пчелен восък
+bn:মোম
+bs:Pčelinji vosak
+ca:Cera d'abella
+cs:Včelí vosk
+da:Bivoks
+de:Bienenwachs
+el:Κηρος μελισσων
+eo:Abelvakso
+es:Cera de abeja, cera de abejas
+et:meevaha
+eu:Erle-argizari
+fa:موم زنبور عسل
+fi:Mehiläisvaha
+fr:cire d'abeille
+fy:Bijewaaks
+ga:céir bheach
+gl:Cera estampada
+he:דונג דבורים
+hi:मधुमोम
+hr:pčelinji vosak
+hu:Méhviasz
+hy:Մեղրամոմ
+id:Lilin lebah
+it:cera d'api
+ja:蜜蝋
+jv:Malam
+ka:ფუტკრის ცვილი
+ko:밀랍
+ku:şima
+lt:Bičių vaškas
+lv:Bišu vasks
+ml:തേനീച്ചയുടെ മെഴുക്
+ms:Lilin lebah
+mt:xama’ tan-naħal
+nb:Bivoks
+ne:मौरीको मैन
+nl:bijenwas
+nn:Bivoks
+oc:Cera d'abelha
+pl:wosk pszczeli
+pt:cera de abelhas
+ro:Ceară de albine
+ru:пчелиный воск
+rw:Igishashara
+sh:Pčelinji vosak
+si:මී ඉටි
+sk:včelí vosk
+sl:Čebelji vosek
+sq:Dylli
+sr:пчелињи восак
+# sr-ec:пчелињи восак
+# sr-el:Pčelinji vosak
+sv:Bivax
+tg:Муми занбӯри асал
+th:ขี้ผึ้ง
+tl:Mantika de papel
+tr:Balmumu
+uk:Бджолиний віск
+uz:Asalari mumi
+vi:Sáp ong
+zh:蜂蜡
+# zh-cn:蜂蜡
+# zh-hans:蜂蜡
+# zh-hant:蜂蠟
+# zh-hk:蜂蠟
+# zh-sg:蜂蜡
+# zh-tw:蜂蠟
+wikidata:en:Q143739
+wikipedia:en:https://en.wikipedia.org/wiki/Beeswax
+# ingredient/beewax has 260 products in 7 languages @2019-05-13
+# usage:fr:agent antiadhérant:cire d'abeilles
+
+<en:beeswax
+en:white and yellow beeswax
+bg:пчелен восък - бял и жълт
+cs:včelí vosk bílý a žlutý
+da:bivoks hvidt og gult
+de:Bienenwachs Weiß und Gelb
+el:κηρός μελισσών λευκός και κίτρινος
+es:cera de abejas blanca y amarilla
+et:toonitamata ja toonitatud meevaha
+fi:mehiläisvaha valkoinen ja keltainen
+fr:cire d'abeille blanche et jaune
+hu:fehér és sárga méhviasz
+it:cera d'api bianca e gialla
+lv:bišu vasks baltais un dzeltenais
+mt:xama’ tan-naħal bajda u safra
+nb:bivoks hvit og gull
+nl:bijenwas - wit en geel, wit en geel
+pl:wosk pszczeli biały i żółty
+pt:cera de abelhas branca ou amarela
+ro:ceară de albine albă și galbenă
+sk:biely a žltý včelí vosk
+sl:čebelji vosek beli in rumeni
+sv:bivax vitt och gult
+# ingredient/fr:cire-d’abeille-blanche-et-jaune has 200 products in 9 languages  @2019-05-13
 
 
 # CARNAUBA WAX, also called Brazil wax and palm wax, is a wax of the leaves of the palm Copernicia prunifera (Synonym:Copernicia cerifera), a plant native to and grown only in the northeastern Brazil.
@@ -9671,7 +9949,7 @@ es:cloruro de magnesio
 et:Magneesiumkloriid
 fa:کلرید منیزیم
 fi:Magnesiumkloridi
-fr:Chlorure de magnésium
+fr:chlorure de magnésium
 ga:clóiríd mhaignéisiam
 gl:Cloruro de magnesio
 gv:Cloreed vagnaishum
@@ -10662,6 +10940,64 @@ wikipedia:en:https://en.wikipedia.org/wiki/Copper_gluconate
 # ingredient/fr:gluconate-de-cuivre has 105 products @2019-03-16
 
 
+# description:en:COPPER(II) SULFATE, also known as copper sulphate, are the inorganic compounds with the chemical formula CuSO4(H2O)x, where x can range from 0 to 5.
+# comment:en:The (II) has been removed from the translations, as it is not used on packages.
+<en:copper
+en:copper sulfate, copper sulphate, cupric sulphate, cupric sulfate
+ar:كبريتات النحاس الثنائي
+# azb:پاخیر(II) سولفات
+bg:Меден сулфат
+bn:কপার সালফেট
+ca:Sulfat de coure
+cs:síran měďnatý
+da:Kobbersulfat
+de:Kupfersulfat
+el:θειικός χαλκός
+eo:kupra sulfato
+es:sulfato cúprico
+et:vasksulfaat
+eu:kobre sulfato
+fa:مس(II) سولفات
+fi:kuparisulfaatti
+fr:sulfate de cuivre
+he:נחושת גופרתית
+hi:नीला थोथा
+hr:Modra galica
+hu:réz-szulfát
+hy:Պղնձի սուլֆատ
+id:Tembaga sulfat
+it:solfato di rame
+ja:硫酸銅
+kn:ಮೈಲುತುತ್ತ
+ko:황산 구리
+ky:Жез сульфаты
+lt:vario sulfatas
+lv:vara sulfāts
+mk:син камен
+ml:തുരിശ്
+mn:Зэсийн
+ms:kuprum sulfat
+mt:sulfat tar-ram
+# nan:Liû-sng tâng
+nb:Blåstein
+# nds:Koppersulfat
+nl:kopersulfaat
+nn:koparsulfat
+oc:Sulfat de coire
+pa:ਕਾਪਰ ਸਲਫੇਟ
+pl:siarczan miedzi
+pt:sulfato cúprico, sulfato de cobre
+ro:sulfat cupric, Sulfat de cupru
+ru:сульфат меди
+# sco:capper sulphate
+sk:síran meďnatý
+sl:bakrov sulfat
+sv:kopparsulfat
+wikidata:en:Q107184
+wikipedia:en:https://en.wikipedia.org/wiki/Copper(II)_sulfate
+# ingredient/fr:sulfate-de-cuivre has 223 products in 4 languages @2019-05-13
+
+
 # Iron is a chemical element with symbol Fe and atomic number 26.
 
 <en:mineral
@@ -11089,6 +11425,50 @@ zh:硒酸鹽
 wikidata:en:Q419488
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_selenate
 # ingredient/fr:sélénate-de-sodium has 97 products in 4 languages @2019-04-21
+
+
+# description:en:SODIUM SELENITE is the inorganic compound with the formula Na2SeO3. Because selenium is an essential element, sodium selenite is an ingredient in dietary supplements such as multi-vitamin/mineral products.
+# comment:en:it seem that translations on packages confound selanate with selenite.
+
+<en:selenium
+en:Sodium selenite
+ar:سيلينيت الصوديوم
+# azb:سلنیت سودیوم
+bg:Натриев селенит
+cs:seleničitan sodný
+da:natriumselenit
+de:Natriumselenit
+el:σεληνιώδες νάτριο
+eo:Natria selenito
+es:selenito de sodio
+et:naatriumseleniit
+fa:سلنیت سدیم
+fi:natriumseleniitti
+fr:sélénite de sodium
+hu:nátrium-szelenit
+it:selenito di sodio
+ja:亜セレン酸ナトリウム
+lt:natrio selenitas
+lv:nātrija selenīts
+mt:selenit tas-sodju
+nl:natriumseleniet
+pl:selenian sodu
+pt:selenito de sódio
+# pt-br:selenito de sódio
+ro:selenit de sodiu
+ru:селенит натрия
+sh:Natrijum selenit
+sk:seleničitan sodný
+sl:natrijev selenit
+sr:Natrijum selenit
+# sr-el:Natrijum selenit
+sv:natriumselenit
+ta:சோடியம் செலீனைட்டு
+vi:Natri selenit
+zh:亞硒酸鹽
+wikidata:en:Q414626
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_selenite
+# ingredient/fr:sélénite%20de%20sodium has 320 products in 5 languages @2019-05-16
 
 
 # description:en:SODIUM is a chemical element with symbol Na (from Latin natrium) and atomic number 11. In humans, sodium is an essential mineral that regulates blood volume, blood pressure, osmotic equilibrium and pH; the minimum physiological requirement for sodium is 500 milligrams per day.
@@ -12820,7 +13200,7 @@ da:smørolie
 # en-gb:butterfat
 eo:laktograso
 es:grasa butírica
-fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait
+fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait, matière grasse du lait
 id:lemak susu
 it:burro anidro, burro di pasticceria, burro concentrato
 ja:乳脂肪
@@ -16761,7 +17141,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Biotin
 
 <en:vitamins
 en:vitamin b8, B8
-fr:vitamine b8
+fr:vitamine b8, b8
 es:vitamina b8
 # ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
 
@@ -17611,6 +17991,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Smoked_salt
 <en:salt
 fr:concentré salin liquide
 # ingredient/fr:concentré-salin-liquide has 44 products in french @2019-03-30
+
+<en:salt
+en:Himalayan pink salt
+
 
 # Halite commonly known as rock salt, is a type of salt, the mineral (natural) form of sodium chloride (NaCl).
 
@@ -23253,6 +23637,7 @@ fr:semoule de blé tendre
 # 20 products in 1 language @20180922
 
 <en:semolina
+en:Durum whole wheat flour
 nl:volkoren tarwegriesmeel
 
 # Couscous  is a Maghrebi dish of small steamed balls of crushed durum wheat semolina
@@ -26799,9 +27184,13 @@ fr:sirop d’érable
 nl:ahornsiroop
 de:Ahornsirup
 
+<en:maple syrup
 en:canadian maple syrup
 fr:sirop d’érable canadien
 de:Kanadischer Ahornsirup
+
+<en:maple syrup
+en:pure maple syrup
 
 en:sugar syrup
 fr:sirop de sucre
@@ -27777,6 +28166,11 @@ de:Brauwasser
 fr:Eau de brassage
 wikipedia:en:https://de.wikipedia.org/wiki/Brauwasser
 
+<en:water
+en:spring water
+fr:eau de source
+nl:bronwater
+
 # MINERAL WATER is water from a mineral spring that contains various minerals, such as salts and sulfur compounds.
 
 <en:Water
@@ -27800,7 +28194,7 @@ eo:Mineralakvo
 es:Agua mineral
 fa:آب معدنی
 fi:Kivennäisvesi
-fr:eau minérale, eau minérale naturelle, eau de source
+fr:eau minérale, eau minérale naturelle
 ga:Uiscí mianraí
 gl:Auga mineral
 he:מים מינרליים
@@ -27818,7 +28212,7 @@ lt:Mineralinis vanduo
 lv:Minerālūdens
 mk:Минерална вода
 ms:Air galian
-nl:Mineraalwater, bronwater
+nl:Mineraalwater
 nn:Mineralvatn
 nb:Naturlig mineralvann
 or:ଖଣିଜ ଜଳ
@@ -27919,7 +28313,7 @@ fr:eau de source gazéifiée
 nl:Bruisend mineraalwater
 
 <en:water
-en:filtered water
+en:filtered water, purified water
 fr:eau filtrée, eau purifiée
 nl:gezuiverd water
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20filtrée
@@ -29941,7 +30335,7 @@ et:Naatriumvesinikkarbonaat
 eu:sodio hidrogenokarbonato
 fa:جوش شیرین
 fi:Natriumbikarbonaatti
-fr:carbonate acide de sodium, bicarbonate de sodium
+fr:carbonate acide de sodium, bicarbonate de sodium, bicarbonate de soude
 # frr:Natriumhydrogencarbonat
 gl:Bicarbonato de sodio
 gu:ખાવાનો સોડા
@@ -32794,7 +33188,7 @@ it:lamponi liofilizzati
 
 <en:fruit
 <fr:fruit rouge
-en:strawberry
+en:strawberry, stawberries
 # aeb-arab:كعبة فراز
 an:Fraga
 ar:فراولة
@@ -36448,6 +36842,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chard
 # ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
 
 
+# en:Daikon cress
+# de:Daikonkresse
+# es:daikor cress
+# fr:pousse de daikon
+# nl:daikon cress
+# ingredient/daikon-cress has no products @2019-05-15
+
+
 # Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 
 <en:vegetable
@@ -38499,6 +38901,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Heart_of_palm
 
 # Horseradish (Armoracia rusticana, syn. Cochlearia armoracia) is a perennial plant of the family Brassicaceae
 
+<en:vegetable
 en:horseradish
 af:Peperwortel
 ar:فجل الخيل الريفي
@@ -38580,6 +38983,7 @@ la:Armoracia rusticana
 
 # JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower
 
+<en:vegetable
 en:Jerusalem artichoke
 ar:دوار الشمس الدرني
 az:Yerarmudu
@@ -39144,6 +39548,137 @@ zh:欧防风
 wikidata:en:Q188614
 wikipedia:en:https://en.wikipedia.org/wiki/Parsnip
 # ingredient/fr:panais has 372 products in 5 languages @2018-12-4
+
+
+# description:en:The RADISH (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
+
+<en:vegetable
+en:radish
+# aeb-arab:فجل
+am:ፍጁል
+ar:فجل
+az:Qırmızı turp
+# azb:قیرمیزی تورپ
+ba:Торма
+# bar:Radi
+be:Рэдзька пасяўная
+bg:репичка
+# bho:मुरई
+bn:মূলা
+bo:ལ་ཕུག
+br:Irvin-ruz
+ca:rave
+# cdo:Chái-tàu
+# ckb:توور
+co:Radichju
+cs:ředkvička
+# csb:Radiska
+cy:Rhuddygl y gerddi
+da:Radise
+de:rettich, Radieschen
+# de-ch:Radieschen
+el:Ρεπάνι
+# en-ca:Radish
+# en-gb:Radish
+eo:rafano
+es:rábano
+et:Redis
+eu:Errefau
+fa:ترب
+fi:Retiisi
+fr:radis
+ga:Raidis
+gl:Ravo
+# hak:Lò-phe̍t
+he:צנון
+hi:मूली
+hr:Rotkvica
+# hsb:Radiska
+ht:Radi
+hu:Retek
+id:Lobak
+# ilo:rabanos
+is:Hreðka
+it:ravanello
+ja:ダイコン
+jv:Lobak
+ka:ბოლოკი
+# kaa:Rediska
+# kbd:Radiska
+kk:Шомыр
+kn:ಮೂಲಂಗಿ
+ko:무
+km:مُج
+ku:Tivir
+kv:Кушман
+ky:Түрп
+la:Raphanus sativus
+lv:redīsi
+mk:ротквичка
+ml:മുള്ളങ്കി
+mn:Таримал манжин
+mr:मुळा
+# myv:Кшумань
+# nah:Rāhuano
+# nan:Chhài-thâu
+nb:reddik
+nl:radijs
+nn:reddik
+nv:Akétłʼóól łichxííʼí yázhí
+oc:Rafe
+or:ମୂଳା
+os:Булкъ
+pa:ਮੂਲੀ
+# pam:Labanus
+pl:rzodkiew
+# pnb:مولی
+ps:مولۍ
+pt:Rabanete
+# pt-br:Rabanete
+qu:Rawanushcu
+ro:Ridiche
+ru:Редис
+rw:Radi
+sa:मूलकम्
+# sco:Reefort
+# sgs:Rėdėks
+sh:Rotkvica
+sk:Reďkev siata
+sl:Redkvica
+sq:Rrepa
+sr:Ротквица
+# sr-ec:Ротквица
+# sr-el:Rotkvica
+su:Lobak
+sv:Rädisa
+# szl:Radiska
+ta:முள்ளங்கி
+te:ముల్లంగి
+tg:Турб
+tl:Labanos
+to:Lētisifoha
+tr:Turp
+tt:Редис
+tv:Турма
+uk:Редька
+ur:لال مولی
+uz:Turp
+vi:Cải củ
+wa:Rådisse
+yi:רעטעך
+# yue:蘿蔔
+za:lauxbaeg
+zh:萝卜
+# zh-tw:蘿蔔
+wikidata:en:Q7224565 # for the plant
+wikipedia:en:https://en.wikipedia.org/wiki/Radish
+# ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
+# usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
+
+# <en:radish
+# fr:Radis de saison
+# ingredient/fr:Radis-de-saison has no products @2019-05-16
+# carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
 
 
 # description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
@@ -40604,6 +41139,98 @@ nl:tomatensap uit sapconcentraat
 fr:purée et pulpe de tomates
 
 
+# description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
+# comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
+
+<en:vegetable
+en:turnip, turnips
+af:Raap
+ar:لفت
+az:Şalğam
+# azb:شلغم
+be:Турнэпс
+bg:ряпа
+# bho:शलजम
+bn:শালগম
+bo:ཉུང་མ།
+br:Irvin
+ca:nap
+# cdo:Duâi-tàu-chái
+# ckb:شێلم
+co:Navonu
+cs:vodnice
+cy:Erfinen
+da:Majroe
+de:Rübe, Mairüben, Speiserübe
+# de-ch:Speiserübe
+el:ρέβα
+# en-ca:Turnip
+# en-gb:Turnip
+eo:Rapo
+es:naba, nabo
+et:Naeris
+eu:Arbi
+fa:شلغم
+fi:Nauris, peltokaali
+fr:navet, navets
+ga:Tornapa
+gl:Nabo
+gu:સલગમ
+gv:Napin
+he:לפת
+hi:शलजम
+hr:Repa
+ht:Navè
+hu:tarlórépa
+io:Napo
+is:Næpa
+it:rape, capa, navone
+ja:カブ
+ka:ტურნეფსი
+# kbp:Adgir
+km:ಟರ್ನಿಪ್
+ko:순무
+la:Brassica rapa subsp. rapa
+lt:Ropė
+lv:turnepsis, rācenis
+mk:репа
+ml:മധുരമുള്ളങ്കി
+# mzn:شلم
+nb:Vanlig nepe
+ne:सलगम
+nl:meiraap, knolraap
+nv:Niłtsínii bikétłʼóól dijoolí
+oc:Nap
+# olo:Nagris
+os:Фосы булкъ
+pa:ਸ਼ਲਗਮ
+pl:rzepa biała
+# pnb:گونگلو
+pt:nabo, nabos
+# pt-br:Nabo
+ro:Nap
+ru:турнепс
+# sco:Neep
+sd:گوگڻو
+# sgs:Ruopė
+sh:Repa
+sk:okrúhlica
+sl:repa
+sv:Majrova
+th:சிகப்பு முள்ளங்கி
+tl:Puting singkamas
+tr:Şalgam
+uk:Турнепс
+ur:شلغم
+vi:Cải củ turnip
+yi:ברוקווע
+# yue:大頭菜
+zh:芜菁
+wikidata:en:Q3916957
+wikipedia:en:https://en.wikipedia.org/wiki/Turnip
+# ingredient/turnip has 592 products in 7 languages @2019-05-18
+
+
 # Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 
 <en:vegetable
@@ -41937,7 +42564,7 @@ pt:amendoins torrados moídos
 # 53 products in 6 languages @2018-10-06
 
 <en:nut
-en:cashew nuts
+en:cashew nuts, cashews
 de:Cashewkerne
 es:anacardos
 et:India pähkel
@@ -41949,7 +42576,7 @@ pl:orzechy nerkowca
 pt:castanhas de caju
 sv:cashewnötter
 wikidata:en:Q28788216
-openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
 
 # The hazelnut is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
@@ -42296,7 +42923,7 @@ nl:amandelen-hazelnotenpraliné
 # 31 products in 2 languages @2018-10-06
 
 <en:nut
-en:pecan nut, pecan nuts
+en:pecan nut, pecan nuts, pecan, pecans
 de:Pekannuss, Pekannüsse
 fr:noix de pécan
 it:noci del pekan, noci di pecan
@@ -43042,7 +43669,7 @@ es:condimento, condimentos
 eu:ongailu
 fa:چاشنی
 fi:maustekastike
-fr:condiment, condiments
+fr:condiment, condiments, assaisonnement
 ga:Blastán
 gl:condimento
 he:רוטב לתיבול
@@ -43143,8 +43770,91 @@ fr:plantes aromatiques
 
 fr:extraits naturels et aromates
 
-# The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
 
+# description:en:CARAWAY (Carum carvi), is a biennial plant in the family Apiaceae. The fruits, usually used whole, have a pungent, anise-like flavor. Caraway is used as a spice in breads, especially rye bread. Caraway is also used in desserts, liquors, casseroles, and other foods. 
+# comment:enThe wikidata entry is a mix of plant, seed and latin name.
+
+<en:spice
+en:caraway
+af:Karwy
+ar:كروياء
+az:Adi zirə
+# azb:عادی زیره
+# bar:Kimme
+bg:ким
+bo:གོ་སྙོད།
+bs:Kim
+ca:alcaravia
+cs:kmín
+cy:Carwy
+da:Kommen
+de:Kümmel
+# dsb:Garba
+dv:ފަރިހި ދަމުއި
+el:Κιουμέλ
+# en-ca:Caraway
+# en-gb:Caraway
+eo:Karvio
+eu:Txarpoil
+fa:زیره
+fi:Kumina
+fr:carvi
+# frr:Köömen
+ga:Cearbhas
+gl:Carvea
+# gsw:Chümmi
+he:כרוויה תרבותית
+hi:शाहजीरा
+hr:Kim
+# hsb:Kimjelčka
+hu:fűszerkömény
+hy:քիմիոն
+id:Jintan
+is:Kúmen
+it:carvi
+ja:キャラウェイ
+ka:ძირა
+# kbp:Issamen
+ko:캐러웨이
+ku:Jaj
+la:Careum
+lt:Kmynas
+mk:ким
+ml:കരിഞ്ചീരകം
+mr:शहाजिरे
+ms:Jintan
+my:ကရဝေး
+nb:karve
+nl:karwijzaad
+nn:Karve
+pa:زيره
+pt:Alcaravia
+# pt-br:Alcaravia
+ro:Chimen
+# sah:Анньыыс
+# sgs:Kvīns
+sh:Kim
+sk:kmín
+sl:Kumina
+sq:Qimnoni
+sr:Ким
+# sr-el:Kim
+sv:Kummin
+te:కరం కరవే
+tg:Карвиё
+th:เทียนตากบ
+uk:Кмин
+# vec:Kumo
+zh:葛縷子
+# wikidata:en:Q26811 for the plant
+# wikidata:en:Q61670763 for the seed
+wikipedia:en:https://en.wikipedia.org/wiki/Caraway
+# ingredient/fr:carvi has 276 products in 7 languages @2019-05-13
+
+
+# description:en:The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
+
+<en:spice
 en:cayenne pepper
 af:Brandrissie
 ar:فليفلة حريفة
@@ -44418,8 +45128,7 @@ wo:Anet
 zh:蒔蘿
 wikidata:en:Q26686
 wikipedia:en:https://en.wikipedia.org/wiki/Dill
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aneth
-# 512 products in 6 languages @2018-10-10
+# ingredient/fr:aneth has 512 products in 6 languages @2018-10-10
 
 <en:herb
 en:rosemary
@@ -44509,8 +45218,8 @@ zh:迷迭香
 # 1262 in 14 languages @2018-10-09
 
 <fr:romarin
-<en:antioxidant
-en:extracts of rosemary
+# <en:antioxidant
+en:rosemary extract, extracts of rosemary
 da:ekstrakter af rosmarin
 de:Rosmarinextrakt
 fi:rosmariiniuutteet
@@ -44525,6 +45234,56 @@ sv:extrakt av rosmarin
 fr:extrait naturel de romarin
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20naturel%20de%20romarin
 # 70 products in 1 language @2018-10-09
+
+
+# description:LEMONGRASS is a genus of Asian, African, Australian, and tropical island plants in the grass family. Lemongrass is widely used as a culinary herb in Asian cuisines. It has a subtle citrus flavor and can be dried and powdered, or used fresh. It is commonly used in teas, soups, and curries. 
+# comment:en:The wikidata entry has the plant name.
+
+<en:herb
+en:lemongrass
+am:ጠጅ ሳር
+ar:إذخر ليموني
+# bcl:Tanglad
+bn:গন্ধবেণা
+ca:Canya llimona
+da:citrongræs
+de:Zitronengras
+dv:ކާސިންޖީ
+es:hierba limón, hierbalimón
+fa:پوتار
+fi:Sitruunaruoho
+fr:citronnelle
+ga:féar líomóideach
+gl:Herba limoeira
+he:עשב לימון
+hi:लेमन ग्रास
+id:Serai
+io:citron-suko
+it:Citronella
+ja:レモングラス
+ko:레몬그래스
+la:Cymbopogon citratus
+lg:Kalifuwa
+lo:ຫົວສີໄຄ
+mr:गवती चहा
+ms:daun serai
+ne:कागते घाँस
+nl:citroengras, Sereh
+or:ଲେମନ ଗ୍ରାସ୍
+pa:ਲੈਮਨ ਗਰਾਸ
+# pam:Salé
+pt:erva-principe
+# roa-tara:citronelle
+sq:barishte
+sr:Лимун-трава
+sv:citrongräs, citrongras
+th:ตะไคร้
+vi:Sả chanh
+zh:柠檬草
+# zh-tw:檸檬茅
+wikidata:en:Q33913
+wikipedia:en:https://en.wikipedia.org/wiki/Cymbopogon
+# ingredient/lemongrass has 713 products in 10 languages @2019-05-17
 
 
 # MENTHA (also known as mint) is a genus of plants in the family Lamiaceae (mint family).
@@ -44775,7 +45534,7 @@ zh:胡椒薄荷
 # zh-tw:胡椒薄荷
 wikidata:en:Q156037
 wikipedia:en:https://en.wikipedia.org/wiki/Peppermint
-openfoodfacts:https://world.openfoodfacts.org/ingredient/peppermint
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/peppermint
 # 510 products in 6 languages @2018-10-10
 
 <en:peppermint
@@ -44784,19 +45543,115 @@ de:Pfefferminzöl
 es:aceite de menta
 fr:huile de menthe poivrée
 nl:pepermuntolie
-openfoodfacts:https://world.openfoodfacts.org/ingredient/peppermint-oil
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/peppermint-oil
 # 339 products in 4 languages @2018-10-10
 
 <en:mint
 fr:menthe douce
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:menthe%20douce
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:menthe%20douce
 # 81 products in 1 language @018-10-10
 
 <en:mint
 en:mint leaves
 fr:feuilles de menthe
-openfoodfacts:https://world.openfoodfacts.org/ingredient/mint-leaves
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/mint-leaves
 # 50 products in 2 languages @2018-10-10
+
+
+# description:en:TARRAGON (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes. 
+
+<en:herb
+en:tarragon
+af:Draakplant
+ar:طرخون
+az:tərxun
+# azb:ترخون
+be:эстрагон
+bg:тарос
+bn:তার্খুন
+br:Stragon
+bs:estragon
+ca:estragó
+co:arba dragona
+cs:estragon
+cy:taragon
+da:estragon
+de:Estragon
+el:εστραγκόν
+eo:estragono
+es:dragón, Estragon
+et:estragonpuju
+eu:binagrera
+fa:ترخون
+fi:rakuuna
+fr:estragon
+ga:dragan
+gl:estragón
+gv:dragane
+he:לענה דרקונית
+# hsb:estragon
+hu:tárkony
+hy:թարխուն
+id:tarragon
+io:estragono
+it:dragoncello
+ja:タラゴン
+ka:ტარხუნა
+kk:шырғалжың
+# kk-arab:شىرعالجىڭ
+# kk-cn:شىرعالجىڭ
+# kk-cyrl:шырғалжың
+# kk-kz:шырғалжың
+# kk-latn:Şırğaljıñ
+# kk-tr:Şırğaljıñ
+ko:타라곤
+ku:tarxûn
+# kk-arab:تارخوون
+# kk-latn:tarxûn
+la:Artemisia dracunculus
+lt:Estragonas
+mk:естрагон
+ms:taragon
+nb:estragon
+nl:dragon
+nn:estragon
+oc:estragon
+os:мæзæрæу
+pa:ਤਰਖ਼ੋਨ
+# pcd:astragon
+pl:draganek
+pt:estragão
+ro:tarhon
+ru:эстрагон
+# sco:tarragon
+# sgs:Peletrūns
+sk:Estragón
+sl:pehtran
+sq:terragoni
+sr:естрагон
+# sr-ec:естрагон
+sv:dragon
+tr:tarhun
+uk:тархун
+uz:sherolgʻin
+zh:龍蒿
+# zh-cn:龙蒿
+# zh-hans:龙蒿
+# zh-hant:龍蒿
+# zh-hk:龍蒿
+# zh-sg:龙蒿
+# zh-tw:龍蒿
+wikidata:en:Q155814
+wikipedia:en:https://en.wikipedia.org/wiki/Tarragon
+# ingredient/tarragon has 439 products in 5 languages @2019-05-17
+
+<en:tarragon
+en:tarragon leaves
+es:hoja de dragón
+fr:feuille d’estragon
+nl:dragonblad
+# ingredient/tarragon-leaves has 8 products in 2 languages @2019-05-17
+
 
 # THYME is an aromatic perennial evergreen herb with culinary, medicinal, and ornamental uses. The most common variety is Thymus vulgaris.
 
@@ -45125,6 +45980,35 @@ fr:extrait de basilic
 pt:extracto de manjericão
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20basilic
 # 32 products in 4 languages @2108-10-10
+
+
+# description:en:CHERVIL is a delicate annual herb related to parsley. It is commonly used to season mild-flavoured dishes and is a constituent of the French herb mixture fines herbes.
+# comment:en:The wikidata entries describe the plant. Not used. IATE has been used.
+
+<en:herb
+en:chervil
+da: kørvel
+de: Kerbel
+el: σκαντζίκι
+es: perifollo
+fi: kirveli
+fr:cerfeuil
+ga: costóg
+hu: turbolya
+it: cerfogilo
+la: Anthriscus cerefolium
+lv: kārvele
+mt: sorfolja
+nl:kervel
+pl: trybula ogrodowa
+pt: cerefólio
+ro: asmățui
+sk: trebuľka voňavá
+sl: krebuljica
+sv: körvel
+wikipedia:en:https://en.wikipedia.org/wiki/Chervil
+# ingredient/fr:cerfeuil has 242 products in 5 languages @2019-05-13
+
 
 # description:en:SALVIA OFFICINALIS (SAGE, also called garden sage, common sage, or culinary sage) is a perennial, evergreen subshrub, with woody stems, grayish leaves, and blue to purplish flowers.
 
@@ -48836,7 +49720,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cantharellus_cibarius
 en:cantharellus cibarius
 la:cantharellus cibarius
 
-# BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus. 
+# description:en:BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus. 
 
 <en:mushroom
 en:cep
@@ -55343,6 +56227,62 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sulfite
 
 
 
+# description:en:INOSITOL is a carbocyclic sugar that is abundant in brain and other mammalian tissues, mediates cell signal transduction and participates in osmoregulation. It is a sugar alcohol with half the sweetness of table sugar. It is made naturally in humans from glucose. A human kidney will produce around two grams each day. Foods containing the highest concentrations of inositol include fruits, beans, grains, and nuts.
+
+# <en:other
+en:inositol
+ar:إينوزيتول
+# azb:اینوزیتول
+ca:inositol
+cs:inositol
+da:inositol
+de:Inositol
+el:Ινοσιτόλη
+# en-ca:inositol
+# en-gb:inositol
+es:inositol
+et:Inositool
+eu:inositol
+fa:اینوزیتول
+fi:Inositoli
+fr:inositol
+ga:Ionóisíotól
+gl:Inositol
+hi:इनोसिटॉल
+hu:Inozitol
+hy:Ինոզիտ
+id:Inositol
+it:inositolo
+ja:イノシトール
+kk:Инозитол
+kn:ಇನೋಸಿಟಾಲ್
+ko:이노시톨
+ky:Инозит витамини
+lv:inozitols
+nl:inositol
+nn:Inositol
+pl:inozytol
+pt:inositol
+# pt-br:Inositol
+ro:Inozitol
+ru:инозитол
+sh:Inozitol
+sr:инозитол
+# sr-ec:инозитол
+# sr-el:Inozitol
+sv:inositol
+uk:Інозитол
+zh:肌醇
+# zh-cn:肌醇
+# zh-hans:肌醇
+# zh-hant:肌醇
+# zh-hk:肌醇
+# zh-sg:肌醇
+# zh-tw:肌醇
+wikipedia:en:https://en.wikipedia.org/wiki/Inositol
+# ingredient/fr:inositol has 221 products in 5 languages @2019-05-14
+
+
 # description:en:MENTHOL is an organic compound made synthetically or obtained from the oils of corn mint, peppermint, or other mints. Commonly used in oral hygiene products and bad-breath remedies, such as mouthwash, toothpaste, mouth and tongue sprays, and more generally as a food flavor agent; such as in chewing gum and candy.
 
 en:menthol
@@ -55404,6 +56344,68 @@ wikipedia:en:https://en.wikipedia.org/wiki/Menthol
 # ingredient/menthol has 245 products in 8 languages @2019-05-09
 
 
+# description:en:Taurine is an organic compound that is widely distributed in animal tissues. Taurine has many fundamental biological roles. Taurine is a common additive to energy drinks, which are often promoted as such.
+
+# <en:other
+en:taurine
+ar:حمض التورين
+# azb:تائورین
+bg:таурин
+ca:taurina
+cs:taurin
+da:taurin
+de:Taurin
+el:Ταυρίνη
+# en-ca:Taurine
+# en-gb:Taurine
+eo:Taŭrino
+es:Taurina
+et:Tauriin
+fa:تائورین
+fi:tauriini
+fr:taurine
+gl:Taurina
+he:טאורין
+hr:Taurin
+hu:Taurin
+hy:Տաուրին
+id:Taurina
+it:taurina
+ja:タウリン
+ko:타우린
+lv:taurīns
+mk:Таурин
+mt:tawrina
+nb:taurin
+nl:taurine
+pl:tauryna
+pt:taurina
+# pt-br:Taurina
+ro:Taurină
+ru:таурин
+sh:Taurin
+sk:Taurín
+sl:Tavrin
+sq:taurin
+sr:Таурин
+# sr-ec:Таурин
+# sr-el:Taurin
+sv:taurin
+tr:Taurin
+uk:Таурин
+vi:Taurine
+wa:Torene
+zh:牛磺酸
+# zh-cn:牛磺酸
+# zh-hans:牛磺酸
+# zh-hant:牛磺酸
+# zh-hk:牛磺酸
+# zh-sg:牛磺酸
+# zh-tw:牛磺酸
+wikidata:en:Q207051
+wikipedia:en:https://en.wikipedia.org/wiki/Taurine
+# ingredient/fr:taurine has 309 products in 6 languages @2019-5-17
+# other-nutritional-substance/taurine has 591 products in 8 languages @2019-05-17
 
 
 # RANDOM
@@ -55435,6 +56437,7 @@ es:citrato de sodio
 
 fr:saccharose
 
+en:sucralose
 fr:sucralose
 
 fr:glucide
@@ -55849,38 +56852,111 @@ wikidata:en:Q858049
 # ingredient/fr:café-soluble has 315 products in 8 languages @2018-11-30
 
 
-# A gherkin is a variety of cucumber
+# description:en:CUCUMBER (Cucumis sativus) is a widely cultivated plant in the gourd family, Cucurbitaceae. In general cultivation, cucumbers are classified into three main cultivar groups:"slicing", "pickling", and "burpless". In a 100-gram serving, raw cucumber (with peel) is 95% water, provides 67 kilojoules (16 kilocalories) and supplies low content of essential nutrients, as it is notable only for vitamin K at 16% of the Daily Value.
 
-en:gherkin
-bg:краставица, Корнишон
+<en:vegetable
+en:cucumber, cucumbers
+# ang:hwerhwette
+ar:الخيار
+bg:краставица
+ca:cogombre
 cs:Okurek
-da:Agurk
-de:Gurken, Cornichons
-el:Αγγούρι, Gurke
-es:Pepino, pepinillos
+da:agurk
+de:Gurke
+el:Αγγούρι
+eo:serpentkukumo
+es:pepino
 et:Kurgid
 fi:kurkku
-fr:cornichon, cornichons
-it:cetriolini
-lv:gurķis
-nl:augurken, augurk
+fr:concombre
+ga:Cúcamar
+hr:Krastavac
+hu:uborka
+it:cetrioli
+lv:gurķi
+nb:agurk
+nl:komkommer, komkommers
+nn:agurk
+nv:Taʼneeskʼání áłtsʼóózígíí
+pl:Ogórek
 pt:pepino
 ro:Castravete
 ru:огурец
+sd:کيرو
 sk:uhorka
-sl:Kumare
+sl:Kumara
 sv:Gurka
+za:lwgbieng
+zh:黄瓜
+wikidata:en:Q2735883
+wikipedia:en:https://en.wikipedia.org/wiki/Cucumber
+carbon_footprint_fr_foodges_ingredient:fr:Concombre
+# ingredient/fr:concombre has 549 products in 6 languages @2019-05-15
+
+
+# description:en:A GHERKIN is a variety of cucumber
+# comment:en:From wikidata it is not clear if a language differentiates between cucumber and gherkin
+
+<en:cucumber
+en:gherkin
+bg:краставица, Корнишон
+de:Cornichons
+el:Gurke
+es:pepinillos
+fr:cornichon, cornichons
+it:cetriolini
+nl:augurken, augurk
 wikidata:en:Q23425
 wikidata:en:Q1365891
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
 
-# fr:cornichons-au-vinaigre is a compound ingredient
-
-<en:gherkin
-fr:cornichons au vinaigre
+# <en:compound
+<en:cucumber
+en:vinegar cucumbers
 de:Essiggurken
+fr:concombres au vinaigre
+it:cetrioli all'aceto
+# ingredient/fr:concombres%20au%20vinaigre has 19 products in 4 languages @2019-05-15
+# usage:de:Essiggurken [Gurken, Branntweinessig, Zucker, Kochsalz]
 # fr:cornichons-au-vinaigre has 39 products in 2 languages @2018-12-01
 
+# <en:cucumber
+# fr:Concombre produit sous serre chauffée
+# carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
+# ingredient/fr:Concombre%20produit%20sous%20serre%20chauffée has no products @2019-05-15
+
+<en:juice
+<en:cucumber
+en:cucumber juice
+de:Gurkensaft
+es:zumo de pepino
+fr:jus de concombre
+nl:komkommersap
+# ingredient/cucumber-juice has 84 products in 3 languages @2019-05-15
+
+# <en:cucumber juice
+# en:pascalised cucumber juice
+# de:pascalisierter Gurkensaft
+# es:zumo de pepino pascalizado
+# fr:jus de concombre pascalisé
+# nl:gepascaliseerd komkommersap
+# ingredient/pascalised-cucumber-juice has no products @2019-05-15
+
+# <en:cucumber juice
+# en:pascalised cucumber juice from concentrate
+# es:zumo de pepino pascalizado a partir de concentrado
+# fr:jus de concombre pascalisé à base de concentré
+# nl:gepascaliseerd komkommersap uit concentraat
+# de:pascalisierter Gurkensaft aus Gurkensaftkonzentrat
+# ingredient/pascalised-cucumber-juice-from-concentrate has no products @2019-05-15
+
+<en:cucumber juice
+en:cucumber juice from concentrate
+de:Gurkensaft aus Gurkensaftkonzentrat
+es:zumo de pepino a partir de concentrado
+fr:jus de concombre à base de concentré
+nl:komkommersap uit concentraat
+# ingredient/cucumber-juice-from-concentrate has 1 product @2019-05-15
 
 
 # Liquorice or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted. 
@@ -56920,11 +57996,23 @@ wikidata:en:Q11173928
 # comment:en:There might be a better word for this.
 
 # en:part
+en:extract
+fr:extrait
+nl:extract
 
 # <en:part
+en:natural extract
 fr:extraits naturels
 # ingredient/fr:extraits-naturels has 72 products in french @2019-04-13
 # usage:fr: extraits naturels (dont céleri)
+
+<en:extract
+en:vegetable extract, vegetable extracts
+fr:extraits végétaux
+nl:plantaardig extract, plantaardige extracten
+# ingredient/fr:extraits-végétaux has 224 products in 11 languages @2019-05-15
+# usage:fr: extraits végétaux (spiruline, chlorelle, brocoli, épinard, pousses d'orge, pousses de blé, persil, gingembre, algues bleu-vert, ail)
+# usage:fr: arômes naturels (extraits végétaux)
 
 # <en:part
 en:concentrate, concentrated, from concentrate
@@ -58016,7 +59104,7 @@ nl:speculaas
 en:coating, seasoning
 bg:Покритие
 bs:smjesa za paniranje
-de:Beschichtung, Panur
+de:Beschichtung
 es:envolviendo, sobrimiento
 et:kate
 fr:enrobage, enrobant
@@ -58024,16 +59112,57 @@ it:rivestimento
 lt:apvalkalas
 nl:coating
 nb:belegg
-pl:panierka
 ro:inveliş
 sl:skorjica
-sv:panering
 tr:kaplama
 # ingredient/fr:enrobage has 410 products in 18 languages @2019-05-11
 # usage:fr:Enrobage:farines (blé, seigle, et riz) (contient gluten) eau, amidon modifié, amidon et protéines de blé (contient gluten ), sel
 # ingredient/fr:enrobant has 79 products in 4 languages @2019-02-21
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
 
+
+# description:en:BREAD CRUMBS are sliced residue of dry bread, used for breading or crumbing foods, topping casseroles, stuffing poultry, thickening stews, adding inexpensive bulk to soups, meatloaves and similar foods, and making a crisp and crunchy covering for fried foods, especially breaded cutlets like tonkatsu and schnitzel.
+
+<en:coating
+en:bread crumbs, breadcrumbs
+ar:بقسماط
+be:Паніровачныя сухары
+bg:Галета
+ca:farina de galeta
+cs:strouhanka
+da:Rasp
+de:Paniermehl, Panur, Semmelbrösel
+el:ψίχουλα ψωμιού
+# eml:Pan radû
+eo:raspaĵo
+es:pan rallado
+eu:Ogi birrindu
+fa:آرد سوخاری
+fi:Korppujauho
+fr:Chapelure, panure, Chapelures
+gl:Pan relado
+he:פירורי לחם
+id:Tepung roti
+io:Raspo-pano
+it:pangrattato
+ja:パン粉
+ko:빵가루
+lt:Malti džiūvėsiai
+nb:Strøkavring
+nl:paneermeel, Paneermelen
+pl:panierka, Bułka tarta
+pt:pão ralado
+# pt-br:farinha de rosca
+ru:Панировочные сухари
+sk:Strúhanka
+sv:panering, Ströbröd
+uk:Паніровка
+vi:Vụn bánh mì
+# yue:麪包糠
+zh:麵包屑
+wikidata:en:Q658413
+wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
+# ingredient/fr:panure has 462 products in 6 languages @2019-05-17
 
 fr:mélange de salades, salade mélangée
 de:Mischsalat
@@ -58162,6 +59291,103 @@ wikipedia:en:https://en.wikipedia.org/wiki/Muesli
 # ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
 
 
+# description:en:TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
+
+# <en:compound
+en:tofu, Tofus, bean curds
+an:Tofu
+ar:توفو
+# ast:Tofu
+az:Tofu
+ba:Тофу
+# bar:Tofu
+be:Тофу
+bg:Тофу
+bn:তফু
+br:tofou
+ca:tofu
+# cdo:Dâu-hô
+cs:tofu
+cv:Тофу
+cy:toffw
+da:tofu
+de:Tofu, Bohnenquark, Bohnenkäse
+el:Τόφου
+eo:Tofuo
+es:Tofu, Tofus
+et:tofu
+eu:Tofu
+fa:توفو
+fi:tofu
+fr:tofu
+ga:tófú
+gl:Tofu
+# hak:Theu-fú
+he:טופו
+hi:टोफ़ू
+hr:Tofu
+hu:Tofu
+hy:Տոֆու
+id:tahu
+is:Tófú
+it:Tofu
+ja:豆腐
+jv:Tahu
+ka:ტოფუ
+kk:Тофу
+km:តៅហ៊ូ
+kn:ಟೋಫ಼ು
+ko:두부
+lb:Tofu
+lo:ເຕົາຮູ້
+lt:Sojų varškė
+lv:tofu, tofoe
+# lzh:豆腐
+# map-bms:Tahu
+mk:то́фу
+ms:Tauhu
+my:တိုဟူး
+# nan:豆腐
+nb:tofu
+ne:तोफु
+nl:tofu, Tahoe
+nn:tofu
+or:ଟୋଫୁ
+pa:ਟੋਫੂ
+pl:tofu
+# pnb:توفو
+pt:tofu
+ro:tofu
+ru:тофу
+# sco:tofu
+sh:Tofu
+sk:tofu
+sq:tofu
+sr:Тофу
+# sr-ec:Тофу
+# sr-el:Tofu
+su:Tahu
+sv:tofu
+ta:டோஃபூ
+th:เต้าหู้
+tl:Tokwa
+tr:tofu
+uk:Тофу
+vi:Đậu phụ
+# yue:豆腐
+zh:豆腐
+# zh-hans:豆腐
+# zh-hant:豆腐
+# zh-hk:豆腐
+# zh-mo:豆腐
+# zh-my:豆腐
+# zh-sg:豆腐
+# zh-tw:豆腐
+wikidata:en:Q177378
+wikipedia:en:https://en.wikipedia.org/wiki/Tofu
+# ingredient/fr:tofu has 369 products in 7 languages@2019-05-17
+# usage:fr:Tofu (graines de soja, eau, agents de coagulation :chlorure de magnésium, sulfate de calcium)
+
 
 
 
@@ -58177,7 +59403,6 @@ it:fiocchi di Hüppen
 
 # <en:compound
 # mainIngredient:en:sugar
-
 en:fondant
 ar:فندان
 cy:Ffondant
@@ -58351,6 +59576,21 @@ it:croccante
 wikipedia:en:https://en.wikipedia.org/wiki/Brittle_(food)
 # ingredient/fr:nougatine has 60 products in 4 languages @2019-02-09
 # nougatine (noisettes, sucre)
+
+
+# description:fr:Le PRALINÉ est une pâte composée de pralin (mélange de sucre, d'amandes et/ou de noisettes), d'un peu de vanille, de cacao ou de beurre de cacao, et enrobée de chocolat au lait.
+# comment:en:Not to be confounded with pralinen (chocolate bonbons). And with nougat.
+
+# <en:compound
+en:Praliné
+fr:praliné
+de:Praliné
+es:praliné
+nl:praliné
+wikipedia:fr:https://fr.wikipedia.org/wiki/Praliné
+wikidata:en:Q3401308
+# ingredient/fr:praliné has 344 products in 5 languages @2019-05-14
+# usage:fr:praliné (sucre de canne brut*, noisettes*, pâte de cacao*, beurre de cacao*)
 
 
 # <en:compound
@@ -59121,155 +60361,20 @@ fr:salade
 
 fr:cellulose
 
-fr:taurine
-
-
-en:turnip
-es:naba
-fr:navet
-nl:meiraap
-de:Mairüben
-
-fr:panure
-
-en:tarragon
-es:dragón
-fr:estragon
-nl:dragon
-de:Estragon
-
-en:tarragon leaves
-es:hoja de dragón
-fr:feuille d’estragon
-nl:dragonblad
-
-fr:tofu
-
-
-
-fr:glycérine
-es:Glicerina
-
-en:lemongrass
-es:hierbalimón
-fr:citronnelle
-nl:citroengras
-de:Zitronengras
-
-fr:radis
-
-fr:Radis de saison
-carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
-
-# Random
-
-
-fr:sélénite de sodium
-
-fr:stéaroyl-2-lactylate de sodium
-
-fr:gomme de cellulose
-
-fr:b8
-
-fr:bicarbonate de soude
-es:bicarbonato de sodio
-
-
-en:Daikon cress
-es:daikor cress
-fr:pousse de daikon
-nl:daikon cress
-de:Daikonkresse
-
-
-fr:chlorure de magnésium
-
-fr:assaisonnement
-
-fr:matière grasse du lait
-
-
-fr:bleu patenté v
-
-
-fr:concombre
-carbon_footprint_fr_foodges_ingredient:fr:Concombre
-
-fr:Concombre produit sous serre chauffée
-carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
-
-<fr:concombre
-fr:concombres au vinaigre
-
-en:cucumber juice
-es:zumo de pepino
-fr:jus de concombre
-nl:komkommersap
-de:Gurkensaft
-
-<en:cucumber juice
-en:pascalised cucumber juice
-es:zumo de pepino pascalizado
-fr:jus de concombre pascalisé
-nl:gepascaliseerd komkommersap
-de:pascalisierter Gurkensaft
-
-<en:cucumber juice
-en:pascalised cucumber juice from concentrate
-es:zumo de pepino pascalizado a partir de concentrado
-fr:jus de concombre pascalisé à base de concentré
-nl:gepascaliseerd komkommersap uit concentraat
-de:pascalisierter Gurkensaft aus Gurkensaftkonzentrat
-
-<en:cucumber juice
-en:cucumber juice from concentrate
-es:zumo de pepino a partir de concentrado
-fr:jus de concombre à base de concentré
-nl:komkommersap uit concentraat
-de:Gurkensaft aus Gurkensaftkonzentrat
-
-
-
-
-
-fr:extraits végétaux
-
-fr:hydroxyde de sodium
-
-fr:inositol
-
-fr:praliné
-
-fr:sulfate de cuivre
-
-# Bee Products
-
-en:beewax
-fr:cire d'abeille
-
-fr:cire d'abeille blanche et jaune
-
-
-fr:citrates de calcium
-
-
-fr:carvi
-
-fr:cerfeuil
 
 
 
 
 
 
-fr:cèpe
 
-en:cep
-es:boletus
-fr:cèpe de Bordeaux, boletus edulis
-nl:eekhoorntjesbrood
-de:Steinpilze
+
+
+
+
+
+
+
 
 
 
@@ -60276,8 +61381,6 @@ fr:e127
 
 fr:e129
 
-fr:e131
-
 fr:e132
 
 fr:e151
@@ -60338,8 +61441,6 @@ fr:e473
 
 fr:e477
 
-fr:e481
-
 fr:e482
 
 fr:e491
@@ -60352,13 +61453,9 @@ fr:e500ii
 
 fr:e508
 
-fr:e524
-
 fr:e535
 
 fr:e640
-
-fr:e901
 
 fr:e955
 
