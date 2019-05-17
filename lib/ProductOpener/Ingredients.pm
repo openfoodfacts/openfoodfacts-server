@@ -382,6 +382,7 @@ sub extract_ingredients_from_text($) {
 	return if not defined $product_ref->{ingredients_text};
 
 	my $text = $product_ref->{ingredients_text};
+	$text =~ s/\&quot;/"/g;
 
 	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
 
@@ -549,11 +550,11 @@ sub extract_ingredients_from_text($) {
 			$origin =~ s/\s+$//;
 		}
 
-		if ($ingredient =~ /\b(bio|organic|halal)\b/i) {
+		if ($ingredient =~ /\b(bio|biologique|biologico|organic|halal)\b/i) {
 			$label = $1;
 			$label =~ s/^\s+//;
 			$label =~ s/\s+$//;
-			$ingredient =~ s/\b(bio|organic|halal)\b//i;
+			$ingredient =~ s/\b(bio|biologique|biologico|organic|halal)\b//i;
 			$ingredient =~ s/\s+/ /g;
 		}
 
@@ -903,6 +904,8 @@ sub extract_ingredients_classes_from_text($) {
 	my $path = product_path($product_ref->{code});
 	my $text = $product_ref->{ingredients_text};
 	my $lc = $product_ref->{lc};
+	
+	$text =~ s/\&quot;/"/g;
 
 	# vitamins...
 	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait)
@@ -1822,6 +1825,7 @@ sub detect_allergens_from_text($) {
 		foreach my $language (keys %{$product_ref->{languages_codes}}) {
 
 			my $text = $product_ref->{"ingredients_text_" . $language };
+			$text =~ s/\&quot;/"/g;
 
 			next if not defined $text;
 
