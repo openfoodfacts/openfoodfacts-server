@@ -621,7 +621,7 @@ csb:Piwò
 ext:Cerveza
 fur:Bire
 gan:啤酒
-got:𐌰𐌻𐌿𐌸
+got:̸̰̻̿
 hif:Beer
 jbo:birje
 krc:Сыра
@@ -16723,14 +16723,47 @@ fr:Pains de tradition française, pain de tradition française, pains traditionn
 <fr:Pains de tradition française
 fr:Baguettes de tradition française, Baguette de tradition française, baguettes traditionnelles françaises, baguette traditionnelle française, baguettes traditionnelles de France, baguette traditionnelle de France, baguettes tradition, baguette tradition
 
+# description:en:BREAD CRUMBS are sliced residue of dry bread, used for breading or crumbing foods, topping casseroles, stuffing poultry, thickening stews, adding inexpensive bulk to soups, meatloaves and similar foods, and making a crisp and crunchy covering for fried foods, especially breaded cutlets like tonkatsu and schnitzel.
+
 <en:Breads
-en:Bread crumbs, Breadcrumbs
-de:Semmelbrösel, Paniermehl
-es:Pan rallado
-fr:Chapelures, chapelure
-nl:Paneermelen, Paneermeel
-zh:面包屑
+en:bread crumbs, breadcrumbs
+ar:بقسماط
+be:Паніровачныя сухары
+bg:Галета
+ca:farina de galeta
+cs:strouhanka
+da:Rasp
+de:Paniermehl, Panur, Semmelbrösel
+el:ψίχουλα ψωμιού
+# eml:Pan radû
+eo:raspaĵo
+es:pan rallado
+eu:Ogi birrindu
+fa:آرد سوخاری
+fi:Korppujauho
+fr:Chapelure, panure, Chapelures
+gl:Pan relado
+he:פירורי לחם
+id:Tepung roti
+io:Raspo-pano
+it:pangrattato
+ja:パン粉
+ko:빵가루
+lt:Malti džiūvėsiai
+nb:Strøkavring
+nl:paneermeel, Paneermelen
+pl:panierka, Bułka tarta
+pt:pão ralado
+# pt-br:farinha de rosca
+ru:Панировочные сухари
+sk:Strúhanka
+sv:panering, Ströbröd
+uk:Паніровка
+vi:Vụn bánh mì
+# yue:麪包糠
+zh:麵包屑
 wikidata:en:Q658413
+wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
 
 <en:Bread crumbs
 en:Wheat crumbs
@@ -28999,13 +29032,92 @@ la:Satureja montana
 nl:Bergbonenkruid
 wikidata:en:Q160186
 
+# description:en:Tarragon (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes. 
+
 <en:Aromatic herbs
-en:Tarragon
-es:Estragón
-fr:Estragon
+en:tarragon
+af:Draakplant
+ar:طرخون
+az:tərxun
+# azb:ترخون
+be:эстрагон
+bg:тарос
+bn:তার্খুন
+br:Stragon
+bs:estragon
+ca:estragó
+co:arba dragona
+cs:estragon
+cy:taragon
+da:estragon
+de:Estragon
+el:εστραγκόν
+eo:estragono
+es:dragón, Estragon
+et:estragonpuju
+eu:binagrera
+fa:ترخون
+fi:rakuuna
+fr:estragon
+ga:dragan
+gl:estragón
+gv:dragane
+he:לענה דרקונית
+# hsb:estragon
+hu:tárkony
+hy:թարխուն
+id:tarragon
+io:estragono
+it:dragoncello
+ja:タラゴン
+ka:ტარხუნა
+kk:шырғалжың
+# kk-arab:شىرعالجىڭ
+# kk-cn:شىرعالجىڭ
+# kk-cyrl:шырғалжың
+# kk-kz:шырғалжың
+# kk-latn:Şırğaljıñ
+# kk-tr:Şırğaljıñ
+ko:타라곤
+ku:tarxûn
+# kk-arab:تارخوون
+# kk-latn:tarxûn
 la:Artemisia dracunculus
-nl:Dragon
+lt:Estragonas
+mk:естрагон
+ms:taragon
+nb:estragon
+nl:dragon
+nn:estragon
+oc:estragon
+os:мæзæрæу
+pa:ਤਰਖ਼ੋਨ
+# pcd:astragon
+pl:draganek
+pt:estragão
+ro:tarhon
+ru:эстрагон
+# sco:tarragon
+# sgs:Peletrūns
+sk:Estragón
+sl:pehtran
+sq:terragoni
+sr:естрагон
+# sr-ec:естрагон
+sv:dragon
+tr:tarhun
+uk:тархун
+uz:sherolgʻin
+zh:龍蒿
+# zh-cn:龙蒿
+# zh-hans:龙蒿
+# zh-hant:龍蒿
+# zh-hk:龍蒿
+# zh-sg:龙蒿
+# zh-tw:龍蒿
 wikidata:en:Q155814
+wikipedia:en:https://en.wikipedia.org/wiki/Tarragon
+
 
 <en:Tarragon
 <en:Fresh aromatic plants
@@ -38631,10 +38743,95 @@ nl:Zoete aardappelen
 pnns_group_2:en:Potatoes
 wikidata:en:Q37937
 
+# description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
+# comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
+
 <en:Vegetables
-en:Turnips
-fr:Navets
-nl:Knolraap
+en:turnip, turnips
+af:Raap
+ar:لفت
+az:Şalğam
+# azb:شلغم
+be:Турнэпс
+bg:ряпа
+# bho:शलजम
+bn:শালগম
+bo:ཉུང་མ།
+br:Irvin
+ca:nap
+# cdo:Duâi-tàu-chái
+# ckb:شێلم
+co:Navonu
+cs:vodnice
+cy:Erfinen
+da:Majroe
+de:Rübe, Mairüben, Speiserübe
+# de-ch:Speiserübe
+el:ρέβα
+# en-ca:Turnip
+# en-gb:Turnip
+eo:Rapo
+es:naba, nabo
+et:Naeris
+eu:Arbi
+fa:شلغم
+fi:Nauris, peltokaali
+fr:navet, navets
+ga:Tornapa
+gl:Nabo
+gu:સલગમ
+gv:Napin
+he:לפת
+hi:शलजम
+hr:Repa
+ht:Navè
+hu:tarlórépa
+io:Napo
+is:Næpa
+it:rape, capa, navone
+ja:カブ
+ka:ტურნეფსი
+# kbp:Adgir
+km:ಟರ್ನಿಪ್
+ko:순무
+la:Brassica rapa subsp. rapa
+lt:Ropė
+lv:turnepsis, rācenis
+mk:репа
+ml:മധുരമുള്ളങ്കി
+# mzn:شلم
+nb:Vanlig nepe
+ne:सलगम
+nl:meiraap, knolraap
+nv:Niłtsínii bikétłʼóól dijoolí
+oc:Nap
+# olo:Nagris
+os:Фосы булкъ
+pa:ਸ਼ਲਗਮ
+pl:rzepa biała
+# pnb:گونگلو
+pt:nabo, nabos
+# pt-br:Nabo
+ro:Nap
+ru:турнепс
+# sco:Neep
+sd:گوگڻو
+# sgs:Ruopė
+sh:Repa
+sk:okrúhlica
+sl:repa
+sv:Majrova
+th:சிகப்பு முள்ளங்கி
+tl:Puting singkamas
+tr:Şalgam
+uk:Турнепс
+ur:شلغم
+vi:Cải củ turnip
+yi:ברוקווע
+# yue:大頭菜
+zh:芜菁
+wikidata:en:Q3916957
+wikipedia:en:https://en.wikipedia.org/wiki/Turnip
 
 <en:Vegetables
 <en:Tomatoes and tomato products
@@ -39490,14 +39687,102 @@ es:Mantecas de soja
 fr:Beurres de soja
 nl:Sojaboonpastas
 
+# description:en:TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
+
 <en:Legumes and their products
 <en:Meat analogues
-en:Tofu, Tofus, bean curds
+en:tofu, Tofus, bean curds
+an:Tofu
+ar:توفو
+# ast:Tofu
+az:Tofu
+ba:Тофу
+# bar:Tofu
+be:Тофу
+bg:Тофу
+bn:তফু
+br:tofou
+ca:tofu
+# cdo:Dâu-hô
+cs:tofu
+cv:Тофу
+cy:toffw
+da:tofu
 de:Tofu, Bohnenquark, Bohnenkäse
-es:Tofus, Tofu
-fr:Tofu
-nl:Tofu, Tahoe
+el:Τόφου
+eo:Tofuo
+es:Tofu, Tofus
+et:tofu
+eu:Tofu
+fa:توفو
+fi:tofu
+fr:tofu
+ga:tófú
+gl:Tofu
+# hak:Theu-fú
+he:טופו
+hi:टोफ़ू
+hr:Tofu
+hu:Tofu
+hy:Տոֆու
+id:tahu
+is:Tófú
+it:Tofu
+ja:豆腐
+jv:Tahu
+ka:ტოფუ
+kk:Тофу
+km:តៅហ៊ូ
+kn:ಟೋಫ಼ು
+ko:두부
+lb:Tofu
+lo:ເຕົາຮູ້
+lt:Sojų varškė
+lv:tofu, tofoe
+# lzh:豆腐
+# map-bms:Tahu
+mk:то́фу
+ms:Tauhu
+my:တိုဟူး
+# nan:豆腐
+nb:tofu
+ne:तोफु
+nl:tofu, Tahoe
+nn:tofu
+or:ଟୋଫୁ
+pa:ਟੋਫੂ
+pl:tofu
+# pnb:توفو
+pt:tofu
+ro:tofu
+ru:тофу
+# sco:tofu
+sh:Tofu
+sk:tofu
+sq:tofu
+sr:Тофу
+# sr-ec:Тофу
+# sr-el:Tofu
+su:Tahu
+sv:tofu
+ta:டோஃபூ
+th:เต้าหู้
+tl:Tokwa
+tr:tofu
+uk:Тофу
+vi:Đậu phụ
+# yue:豆腐
+zh:豆腐
+# zh-hans:豆腐
+# zh-hant:豆腐
+# zh-hk:豆腐
+# zh-mo:豆腐
+# zh-my:豆腐
+# zh-sg:豆腐
+# zh-tw:豆腐
 wikidata:en:Q177378
+wikipedia:en:https://en.wikipedia.org/wiki/Tofu
+
 
 <en:Legumes and their products
 <en:Meat analogues
