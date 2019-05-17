@@ -100,6 +100,17 @@ else {
 		exit(0);
 
 	}
+	
+	exists $product_ref->{new_server} and delete $product_ref->{new_server};
+	
+	my @errors = ();
+	
+	# 26/01/2017 - disallow barcode changes until we fix bug #677
+	if ($admin and (defined param('new_code'))) {
+	
+		change_product_server_or_code($product_ref, param('new_code'), \@errors);
+		$code = $product_ref->{code};
+	}	
 
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
@@ -199,6 +210,9 @@ else {
 	# Language and language code / subsite
 
 	if (defined $product_ref->{lang}) {
+		# strip variants fr-BE fr_BE
+		$product_ref->{lang} =~ s/^([a-z][a-z])(-|_).*/$1/ig;
+		$product_ref->{lang} = lc($product_ref->{lang});
 		$product_ref->{lc} = $product_ref->{lang};
 	}
 

@@ -49,10 +49,14 @@ BEGIN
 		&compute_product_history_and_completeness
 		&compute_languages
 		&compute_changes_diff_text
+		&compute_data_sources
 
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
+		
+		&make_sure_numbers_are_stored_as_numbers
+		&change_product_server_or_code
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -80,6 +84,41 @@ use Storable qw(dclone);
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
+
+use Scalar::Util qw(looks_like_number);
+
+sub make_sure_numbers_are_stored_as_numbers($) {
+
+	my $product_ref = shift;
+
+	# Perl scalars are not typed, the internal type depends on the last operator
+	# used on the variable... e.g. if it is printed, then it's converted to a string.
+	# See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
+	
+	# Force all numbers to be stored as numbers in .sto files and MongoDB
+	
+	if (defined $product_ref->{nutriments}) {
+		foreach my $field (keys %{$product_ref->{nutriments}}) {
+			# _100g and _serving need to be numbers
+			if ($field =~ /_(100g|serving)$/) {
+				# Store as number
+				$product_ref->{nutriments}{$field} += 0.0;
+			}
+			elsif ($field =~ /_(modifier|unit|label)$/) {
+				# Store as string
+				$product_ref->{nutriments}{$field} .= "";
+			}
+			# fields like "salt", "salt_value"
+			# -> used internally, should not be used by apps
+			# store as numbers
+			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {	
+				# Store as number
+				$product_ref->{nutriments}{$field} += 0.0;			
+			}
+		}
+	}
+}
+
 
 
 sub normalize_code($) {
@@ -217,14 +256,16 @@ sub send_notification_for_product_change($$) {
 
 	my $product_ref = shift;
 	my $action = shift;
-	
-	my $ua = LWP::UserAgent->new();
-	
-	my $response = $ua->post( "https://robotoff.openfoodfacts.org/api/v1/webhook/product",  {
-		'barcode' => $product_ref->{code},
-		'action' => $action,
-		'server_domain' => "api." . $server_domain
-	} );
+
+	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
+		my $ua = LWP::UserAgent->new();
+
+		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
+			'barcode' => $product_ref->{code},
+			'action' => $action,
+			'server_domain' => "api." . $server_domain
+		} );
+	}
 }
 
 sub retrieve_product($) {
@@ -273,6 +314,45 @@ sub retrieve_product_rev($$) {
 	}
 
 	return $product_ref;
+}
+
+
+sub change_product_server_or_code($$$) {
+
+	my $product_ref = shift;
+	my $new_code = shift;
+	my $errors_ref = shift;
+	
+	my $code = $product_ref->{code};
+	my $new_server = "";
+	my $new_data_root = $data_root;
+	
+	if ($new_code =~ /^([a-z]+)$/) {
+		$new_server = $1;
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
+			and ($options{other_servers}{$new_server}{data_root} ne $data_root)) {
+			$new_code = $code;
+			$new_data_root = $options{other_servers}{$new_server}{data_root};
+		}
+	}
+	
+	$new_code = normalize_code($new_code);
+	if ($new_code =~ /^\d+$/) {
+	# check that the new code is available
+		if (-e "$new_data_root/products/" . product_path($new_code)) {
+			push @{$errors_ref}, lang("error_new_code_already_exists");
+			$log->warn("cannot change product code, because the new code already exists", { code => $code, new_code => $new_code, new_server => $new_server }) if $log->is_warn();
+		}
+		else {
+			$product_ref->{old_code} = $code;
+			$code = $new_code;
+			$product_ref->{code} = $code;
+			if ($new_server ne '') {
+				$product_ref->{new_server} = $new_server;
+			}
+			$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
+		}
+	}	
 }
 
 
@@ -409,6 +489,7 @@ sub store_product($$) {
 		rev=>$rev,
 	};
 
+	compute_data_sources($product_ref);
 
 	compute_codes($product_ref);
 
@@ -436,6 +517,9 @@ sub store_product($$) {
 	$product_ref->{complete} += 0;
 	$product_ref->{sortkey} += 0;
 
+	# make sure nutrient values are numbers
+	make_sure_numbers_are_stored_as_numbers($product_ref);
+	
 
 	# 2018-12-26: remove obsolete products from the database
 	# another option could be to keep them and make them searchable only in certain conditions
@@ -460,6 +544,69 @@ sub store_product($$) {
 	my $change_ref = @$changes_ref[-1];
 	log_change($product_ref, $change_ref);
 
+}
+
+# Update the data-sources tag from the sources field
+# This function is for historic products, new sources should set the data_sources_tags field directly
+# through import_csv_file.pl / upload_photos.pl etc.
+
+sub compute_data_sources($) {
+
+	my $product_ref = shift;
+
+	my %data_sources = ();
+	
+	if (defined $product_ref->{sources}) {
+		foreach my $source_ref (@{$product_ref->{sources}}) {
+
+			if ($source_ref->{id} eq 'casino') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Casino"} = 1;
+			}
+			if ($source_ref->{id} eq 'carrefour') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Carrefour"} = 1;
+			}
+			if ($source_ref->{id} eq 'ferrero') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Ferrero"} = 1;
+			}			
+			if ($source_ref->{id} eq 'fleurymichon') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Fleury Michon"} = 1;
+			}
+			if ($source_ref->{id} eq 'iglo') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Iglo"} = 1;
+			}			
+			if ($source_ref->{id} eq 'ldc') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - LDC"} = 1;
+			}			
+			if ($source_ref->{id} eq 'sodebo') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Sodebo"} = 1;
+			}
+			if ($source_ref->{id} eq 'systemeu') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Systeme U"} = 1;
+			}			
+			
+			if ($source_ref->{id} eq 'openfood-ch') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - FoodRepo / openfood.ch"} = 1;
+			}
+			if ($source_ref->{id} eq 'usda-ndb') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - USDA NDB"} = 1;
+			}			
+		}
+	}	
+	
+	if ((scalar keys %data_sources) > 0) {
+		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
+		compute_field_tags($product_ref, "en", "data_sources");
+	}
 }
 
 

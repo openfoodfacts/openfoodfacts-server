@@ -128,7 +128,21 @@ if (opendir (DH, "$images_dir")) {
 		#next if $file le "DSC_1783.JPG";
 	
 		if ($file =~ /jpg/i) {
-			my $code = scan_code("$images_dir/$file");
+		
+			my $code;
+			
+			# we can have the barcode in the image path or in the file name
+			if ($images_dir =~ /\/(\d{8}\d*)(\/|$)/) {
+				$code = $1;
+			}
+			if ($file =~ /^(\d{8}\d*)/) {
+				$code = $1;
+			}
+			
+			if (not defined $code) {
+				$code = scan_code("$images_dir/$file");
+			}
+			
 			print $file . "\tcode: " . $code . "\n";
 			
 			if ((defined $code) and (not defined $codes{$code})) {	# in some pictures we detect the wrong code, for a product we already scanned..

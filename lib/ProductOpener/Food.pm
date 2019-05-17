@@ -131,6 +131,30 @@ sub normalize_nutriment_value_and_modifier($$) {
 	}
 }
 
+# Return the default unit that we convert everything to internally
+
+sub default_unit_for_nid($) {
+
+	my $nid = shift;
+	my $unit = "";
+	
+	if ($nid eq "energy") {
+		$unit = "kJ";
+	}
+	elsif ($nid eq "alcohol") {
+		$unit = "% vol";
+	}	
+	elsif (($nid =~ /^fruits/) or ($nid =~ /^collagen/)) {
+		$unit = "%";
+	}
+	elsif ($nid eq 'water-hardness') {
+		$unit = "mmol/l";
+	}
+	else {
+		$unit = "g";
+	}
+}
+
 sub assign_nid_modifier_value_and_unit($$$$$) {
 
 	my $product_ref = shift;
@@ -138,6 +162,11 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	my $modifier = shift;
 	my $value = shift;
 	my $unit = shift;
+	
+	# empty unit?
+	if ((not defined $unit) or ($unit eq "")) {
+		$unit = default_unit_for_nid($nid);
+	}
 
 	$value =~ s/(\d) (\d)/$1$2/g;
 	$value =~ s/,/./;
@@ -207,7 +236,7 @@ sub unit_to_g($$) {
 	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value * 1000;
 	$unit eq "\N{U+65A4}" and return $value * 500;
 	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value / 1000;
-	$unit eq 'µg' and return $value / 1000000;
+	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value / 1000000;
 	$unit eq 'oz' and return $value * 28.349523125;
 
 	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value * 1000;
@@ -239,7 +268,7 @@ sub g_to_unit($$) {
 	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value / 1000;
 	$unit eq "\N{U+65A4}" and return $value / 500;
 	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value * 1000;
-	$unit eq 'µg' and return $value * 1000000;
+	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value * 1000000;
 	$unit eq 'oz' and return $value / 28.349523125;
 
 	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value / 1000;
@@ -3503,7 +3532,7 @@ sub normalize_serving_size($) {
 	my $q = 0;
 	my $u;
 
-	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?($units)/i) {
+	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?($units)\b/i) {
 		$q = lc($1);
 		$u = $6;
 		$q =~ s/,/\./;
@@ -4420,6 +4449,7 @@ sub compute_serving_size_data($) {
 	}
 	else {
 		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
+		(defined $product_ref->{serving_size}) and ($product_ref->{serving_size} eq "") and delete $product_ref->{serving_size};
 	}
 
 	#if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{'energy.unit'}) and ($product_ref->{nutriments}{'energy.unit'} eq 'kcal')) {
@@ -4447,7 +4477,7 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
-				$product_ref->{nutriments}{$nid . $product_type . "_100g"} = '';
+				delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
 
 				if (($nid eq 'alcohol') or ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})
 					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
@@ -4474,7 +4504,7 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
-				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = '';
+				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
 
 				if (($nid eq 'alcohol') or ((exists $Nutriments{$nid . $product_type}) and (exists $Nutriments{$nid . $product_type}{unit})
 					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
@@ -4961,26 +4991,14 @@ sub compute_nova_group($) {
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
 			return;
 	}
-
-	# do not compute a score if we have too many unknown ingredients
-	if ( not (
-					(not has_tag($product_ref,"quality","en:ingredients-100-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-90-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-80-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-70-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-60-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-50-percent-unknown")) ) ) {
+	
+	# do not compute a score when it is not food
+	if (has_tag($product_ref,"categories","en:non-food-products")) {
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
-			$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown";
-			return;
+			$product_ref->{nova_group_debug} = "no nova group for non food products";
+			return;	
 	}
-
-	# do not compute a score when we don't have a category
-	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
-			$product_ref->{nova_group_tags} = [ "not-applicable" ];
-			$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
-			return;
-	}
+	
 
 	# determination process:
 	# - start by assigning group 1
@@ -5159,6 +5177,37 @@ sub compute_nova_group($) {
 # identified as foods, those produced by fermentation of group 1 foods followed by distillation
 # of the resulting alcohol, such as whisky, gin, rum, vodka, are classified in group 4.
 
+
+	# Unless we found a marker for NOVA 4, do not compute a score if there are too many unknown ingredients:
+	
+	if ($product_ref->{nova_group} != 4) {
+	
+		# do not compute a score if we have too many unknown ingredients
+		if ( has_tag($product_ref,"quality","en:ingredients-100-percent-unknown") or
+			has_tag($product_ref,"quality","en:ingredients-90-percent-unknown") or
+			has_tag($product_ref,"quality","en:ingredients-80-percent-unknown") or
+			has_tag($product_ref,"quality","en:ingredients-70-percent-unknown") or
+			has_tag($product_ref,"quality","en:ingredients-60-percent-unknown") or
+			has_tag($product_ref,"quality","en:ingredients-50-percent-unknown") )  {
+				$product_ref->{nova_group_tags} = [ "not-applicable" ];
+				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown";
+				return;
+		}
+		
+		if ($product_ref->{unknown_ingredients_n} > ($product_ref->{ingredients_n} / 2)) {
+				$product_ref->{nova_group_tags} = [ "not-applicable" ];
+				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown: "
+					. $product_ref->{unknown_ingredients_n} . " out of " . $product_ref->{ingredients_n};
+				return;	
+		}
+
+		# do not compute a score when we don't have a category
+		if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+				$product_ref->{nova_group_tags} = [ "not-applicable" ];
+				$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
+				return;
+		}	
+	}
 
 
 	$product_ref->{nutriments}{"nova-group"} = $product_ref->{nova_group};
