@@ -49,11 +49,12 @@ BEGIN
 		&compute_product_history_and_completeness
 		&compute_languages
 		&compute_changes_diff_text
+		&compute_data_sources
 
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
-
+		
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
 
@@ -93,9 +94,9 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 	# Perl scalars are not typed, the internal type depends on the last operator
 	# used on the variable... e.g. if it is printed, then it's converted to a string.
 	# See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
-
+	
 	# Force all numbers to be stored as numbers in .sto files and MongoDB
-
+	
 	if (defined $product_ref->{nutriments}) {
 		foreach my $field (keys %{$product_ref->{nutriments}}) {
 			# _100g and _serving need to be numbers
@@ -110,9 +111,9 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 			# fields like "salt", "salt_value"
 			# -> used internally, should not be used by apps
 			# store as numbers
-			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {
+			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {	
 				# Store as number
-				$product_ref->{nutriments}{$field} += 0.0;
+				$product_ref->{nutriments}{$field} += 0.0;			
 			}
 		}
 	}
@@ -223,11 +224,11 @@ sub init_product($) {
 			$country = "france";
 		}
 	}
-
+	
 	# ugly fix: elcoco -> Spain
 	if ($creator eq 'elcoco') {
 		$country = "spain";
-	}
+	}	
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
@@ -321,11 +322,11 @@ sub change_product_server_or_code($$$) {
 	my $product_ref = shift;
 	my $new_code = shift;
 	my $errors_ref = shift;
-
+	
 	my $code = $product_ref->{code};
 	my $new_server = "";
 	my $new_data_root = $data_root;
-
+	
 	if ($new_code =~ /^([a-z]+)$/) {
 		$new_server = $1;
 		if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
@@ -334,7 +335,7 @@ sub change_product_server_or_code($$$) {
 			$new_data_root = $options{other_servers}{$new_server}{data_root};
 		}
 	}
-
+	
 	$new_code = normalize_code($new_code);
 	if ($new_code =~ /^\d+$/) {
 	# check that the new code is available
@@ -351,7 +352,7 @@ sub change_product_server_or_code($$$) {
 			}
 			$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
 		}
-	}
+	}	
 }
 
 
@@ -488,6 +489,7 @@ sub store_product($$) {
 		rev=>$rev,
 	};
 
+	compute_data_sources($product_ref);
 
 	compute_codes($product_ref);
 
@@ -517,7 +519,7 @@ sub store_product($$) {
 
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
-
+	
 
 	# 2018-12-26: remove obsolete products from the database
 	# another option could be to keep them and make them searchable only in certain conditions
@@ -542,6 +544,69 @@ sub store_product($$) {
 	my $change_ref = @$changes_ref[-1];
 	log_change($product_ref, $change_ref);
 
+}
+
+# Update the data-sources tag from the sources field
+# This function is for historic products, new sources should set the data_sources_tags field directly
+# through import_csv_file.pl / upload_photos.pl etc.
+
+sub compute_data_sources($) {
+
+	my $product_ref = shift;
+
+	my %data_sources = ();
+	
+	if (defined $product_ref->{sources}) {
+		foreach my $source_ref (@{$product_ref->{sources}}) {
+
+			if ($source_ref->{id} eq 'casino') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Casino"} = 1;
+			}
+			if ($source_ref->{id} eq 'carrefour') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Carrefour"} = 1;
+			}
+			if ($source_ref->{id} eq 'ferrero') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Ferrero"} = 1;
+			}			
+			if ($source_ref->{id} eq 'fleurymichon') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Fleury Michon"} = 1;
+			}
+			if ($source_ref->{id} eq 'iglo') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Iglo"} = 1;
+			}			
+			if ($source_ref->{id} eq 'ldc') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - LDC"} = 1;
+			}			
+			if ($source_ref->{id} eq 'sodebo') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Sodebo"} = 1;
+			}
+			if ($source_ref->{id} eq 'systemeu') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Systeme U"} = 1;
+			}			
+			
+			if ($source_ref->{id} eq 'openfood-ch') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - FoodRepo / openfood.ch"} = 1;
+			}
+			if ($source_ref->{id} eq 'usda-ndb') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - USDA NDB"} = 1;
+			}			
+		}
+	}	
+	
+	if ((scalar keys %data_sources) > 0) {
+		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
+		compute_field_tags($product_ref, "en", "data_sources");
+	}
 }
 
 
