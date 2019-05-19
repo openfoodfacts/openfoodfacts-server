@@ -19390,8 +19390,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
 <en:chicken meat
 fr:aiguillette de poulet
 
-<en:chicken meat
-fr:filet de poulet halal
 
 <en:chicken meat
 # <en:bone
@@ -19428,8 +19426,6 @@ fr:extrait de poulet
 <en:chicken meat
 fr:filets de poulet
 
-<en:chicken meat
-fr:viande de filet de poulet
 
 <en:chicken meat
 fr:viande de poitrine de poulet
@@ -58258,6 +58254,27 @@ fr:bouillon de poulet, fond de poulet
 nl:kippenbouillon
 # ingredient/fr:fond-de-poulet has 79 products in 4 languages @2019-05-18
 
+<en:chicken meat
+en:chicken fillet
+de:Hühnerfilet
+es:Filete de pechuga de pollo
+fr:filet de poulet, viande de filet de poulet
+it:Filetto di pollo
+nl:kipfilet
+# ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
+
+<en:chicken fillet
+en:halal chicken filet
+fr:filet de poulet halal
+nl:halal kipfilet
+# ingredient/fr:filet-de-poulet-halal has 1 products @2019-05-19
+
+<en:chicken fillet
+fr:filet de poulet traité en salaison cuit
+nl:verhitte gepekelde kipfilet
+# ingredient/fr:filet-de-poulet-traité-en-salaison-cuit has 4 products @2019-05-19
+
+
 # description:en:The TURKEY is a large bird in the genus Meleagris, which is native to the Americas. The species Meleagris gallopavo is used by humans for their meat. Compared to wild turkeys, domestic turkeys are selectively bred to grow larger in size for their meat. Americans often eat turkey on special occasions such as at Thanksgiving or Christmas.
 # comment:en:Turkey as a species is a separate item in order to designate the origin of turkey parts.
 
@@ -61220,7 +61237,7 @@ fr:extrait riche en tocophérol, extraits riches en tocophérol
 
 fr:pp
 
-fr:filet de poulet
+
 
 
 
