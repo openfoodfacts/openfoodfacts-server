@@ -60589,11 +60589,37 @@ wikidata:en:Q3401308
 # usage:fr:praliné (sucre de canne brut*, noisettes*, pâte de cacao*, beurre de cacao*)
 
 
+# description:en:A GLAZE in cooking is a coating of a glossy, often sweet, sometimes savoury, substance applied to food typically by dipping, dripping, or with a brush. Egg whites and basic icings are both used as glazes.
+
 # <en:compound
-# mainIngredient:en:cocoa mass
+en:glaze
+bn:গ্লেজ
+cs:glazování
+da:glasering
 de:Glasur
+eo:glaceo
+es:glaseado
+eu:glaseatu
+fi:kuorrute
 fr:glaçage
+he:זיגוג
+hi:चमक
 it:glassa
+ja:グレーズ
+ko:글레이즈
+nl:glacering
+nn:Glasering
+or:ଚମକ
+pa:ਚਮਕ
+pl:Polewa
+ru:глазурь
+sq:lustrimi
+sv:glasering
+zh:包糖衣
+# zh-hans:包糖衣
+# zh-hant:包糖衣
+wikidata:en:Q15223654
+wikipedia:en:https://en.wikipedia.org/wiki/Glaze_(cooking_technique)
 # ingredient/fr:glaçage has 86 products in 4 languages @2019-02-15
 # glassa (massa di cacao magro, zucchero, grasso vegetale)
 
@@ -60782,7 +60808,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broth
 # <en:beef
 <en:broth
 en:beef broth
-de:Rindfleischbouillon
+de:Rinderbrühe, Rindfleischbouillon
 fr:bouillon de bœuf, bouillon de boeuf
 it:brodo di carne
 # ingredient/fr:bouillon-de-bœuf has 48 products in 4 languages @2019-03-22
@@ -60794,8 +60820,8 @@ fr:bouillon déshydraté
 <en:broth
 en:poultry broth
 de:Geflügelbouillon
-fr:fond de volaille, bouillon de volaille
-nl:gevogelte bouillon
+fr:bouillon de volaille, fond de volaille, Bouillons de volaille
+nl:gevogeltebouillon
 # ingredient/fr:fond-de-volaille has 226 products in french @2019-03-09
 
 <en:poultry broth
