@@ -60700,7 +60700,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brine
 
 # <en:compound
 # <en:mainIngredient:en:water
-en:broth, broths, stock, bouillon
+en:broth, broths, stock, bouillon, Stocks
 af:bouillon
 ar:زومات
 az:Bulyon
@@ -60711,15 +60711,15 @@ bn:সুরুয়া
 ca:brou
 cs:vývar
 da:fond
-de:Brühe
+de:Brühe, Brühen, Bouillons
 el:ζωμός
 eo:buljono
-es:caldo
+es:caldo, Caldos
 et:puljong
 eu:Salda
 fa:گوشتابه
 fi:liemi
-fr:bouillon, fond
+fr:bouillon, fond, Bouillons
 ga:anraith
 gd:brot
 gl:Caldo
@@ -60741,7 +60741,7 @@ mk:бујо́н
 ms:kaldu
 mt:brodu
 nb:buljong
-nl:bouillon
+nl:bouillon, Bouillons
 nn:buljong
 pa:ਸ਼ੋਰਬਾ
 pl:Wywar
@@ -60790,6 +60790,8 @@ it:brodo di carne
 fr:bouillon déshydraté
 # ingredient/fr:bouillon-déshydraté has 57 products in french @2019-02-25
 
+# description:en:Chicken broth is broth made from chicken.
+
 <en:broth
 <en:chickens
 en:chicken broth
@@ -60801,6 +60803,8 @@ it:brodo di pollo
 <fr:fond de volaille
 fr:fond de volaille aromatisé
 # ingredient/fr:fond-de-volaille-aromatisé has 39 products in french @2019-03-09
+
+# description:en:VEGETABLE BROTH is made exclusively from vegetables.
 
 <en:broth
 en:vegetable broth
