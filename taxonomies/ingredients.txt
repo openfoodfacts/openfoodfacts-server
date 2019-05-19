@@ -60791,19 +60791,23 @@ it:brodo di carne
 fr:bouillon déshydraté
 # ingredient/fr:bouillon-déshydraté has 57 products in french @2019-02-25
 
-# description:en:Chicken broth is broth made from chicken.
-
 <en:broth
-<en:chickens
-en:chicken broth
+en:poultry broth
 de:Geflügelbouillon
-fr:fond de volaille. bouillon de volaille
-it:brodo di pollo
+fr:fond de volaille, bouillon de volaille
+nl:gevogelte bouillon
 # ingredient/fr:fond-de-volaille has 226 products in french @2019-03-09
 
-<fr:fond de volaille
+<en:poultry broth
 fr:fond de volaille aromatisé
 # ingredient/fr:fond-de-volaille-aromatisé has 39 products in french @2019-03-09
+
+# description:en:Chicken broth is broth made from chicken.
+
+<en:poultry broth
+<en:chickens
+en:chicken broth
+it:brodo di pollo
 
 # description:en:VEGETABLE BROTH is made exclusively from vegetables.
 
