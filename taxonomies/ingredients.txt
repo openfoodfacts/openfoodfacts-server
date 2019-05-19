@@ -60818,6 +60818,9 @@ fr:jus cuisiné
 # ingredient/fr:jus-cuisiné has 56 products in french @2019-03-29
 # usage:fr:jus cuisiné (eau, bouillon de poulet [sel, dextrose, graisse et viande de Poulet, arômes naturels, épices, plante aromatique], carottes, oignons, concentré de tomates)
 
+
+# description:en:LEMONADE can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
+
 # <en:compound
 # mainIngredient:en:water
 en:lemonade
@@ -60890,19 +60893,21 @@ zh:檸檬水
 # zh-cn:檸檬水
 # zh-hans:檸檬水
 # zh-hant:檸檬水
+wikidata:en:Q893
 wikipedia:en:https://en.wikipedia.org/wiki/Lemonade
 # ingredient/fr:limonade has 37 products in 5 languages @2019-02-16
-# Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme),
+# usage:fr:Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme),
 
+# description:en:A food product based on soy.
 
 # <en:compound
 en:soy preparation
 nl:sojabereiding
 pt:preparado à base de soja
 
-# description:en:Soy milk or soymilk is a plant-based drink produced by soaking and grinding soybeans, boiling the mixture, and filtering out remaining particulates.
+# description:en:SOY MILK or soymilk is a plant-based drink produced by soaking and grinding soybeans, boiling the mixture, and filtering out remaining particulates.
 
-# <en:soy preparation
+<en:soy preparation
 # mainIngredient:en:water
 en:soy milk
 an:Leit de soya
@@ -60967,8 +60972,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Soy_milk
 # ingredient/fr:tonyu has 105 products in 4 languages @2019-04-08
 # category/soy-milks has 417 products @2019-05-08
 # usage:fr:Tonyu (eau, graines de soja)
-
-
 
 
 # description:en:In cuisine, an OMELETTE is a dish made from beaten eggs fried with butter or oil in a frying pan (without stirring as in scrambled egg). It is quite common for the omelette to be folded around a filling such as cheese, chives, vegetables, mushrooms, meat (often ham or bacon), or some combination of the above. Whole eggs or egg whites are beaten, sometimes with a small amount of milk, cream, or water.
@@ -61048,6 +61051,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Omelette
 # ingredient/fr:omelette has 51 products in french @2019-03-11
 # omelette (oeufs, lait écrémé, emmental 1.6%, amidon de riz, sel ; acidifiant :acide citrique)
 
+# description:en:The outer layer of a food product.
 
 # <en:compound
 en:crust, rind
@@ -61060,6 +61064,8 @@ nl:korst
 # usage:fr: croûte: herbes aromatiques bio 
 # usage:fr: conservateur (croûte) : natamycine (contient lait)
 # usage/de: Kruste (mit Farbstoff [E 160b])
+
+# description:en:The outer layer of cheese. Mostly for cheeses that have a distinctive layer different from the cheese itself.
 
 <en:crust
 en:cheese rind, cheese crust
