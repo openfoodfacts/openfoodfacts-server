@@ -59466,6 +59466,7 @@ de:frische Teigwaren
 fr:pâtes fraîches
 it:pasta fresca
 # ingredient/fr:pâtes-fraîches has 51 products in 4 languages @2019-02-03
+# ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
 
 <en:fresh pasta
 fr:pâtes fraîches cuites
@@ -59480,6 +59481,26 @@ it:Pasta precotta
 # ingredient/fr:pâte-précuites has 88 products in 5 languages @2018-12-10
 # ingredient/fr:fond-de-pâte-précuit has 18 products @2018-12-10
 
+<en:dough
+en:pasta
+fr:pâtes alimentaires
+de:Teigwaren
+it:paste alimentari
+carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+# ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
+
+<en:pasta
+en:cooked tagliatelle
+fr:tagliatelles cuites
+de:Tagliatelle gekocht, Bandnudeln gekocht
+it:tagliatelle cotte
+# ingredient/fr:tagliatelles-cuites has 27 products in 4 languages @2019-02-16
+# usage:fr:Tagliatelles cuites (eau, semoule de blé dur, oeufs, huile de colza, persil, stabilisant :E 500)
+
+<en:dough
+fr:pâte crue
+carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+# ingredient/fr:pâte-crue has 22 products in french @2018-12-10
 
 # description:en:NOODLES are unleavened dough which is stretched, extruded, or rolled flat and cut into one of a variety of shapes which usually include long, thin strips, or waves, helices, tubes, strings, or shells, or folded over, or cut into other shapes.
 
@@ -59999,28 +60020,9 @@ nl:ongedesemd brood, ouwel
 # ingredient/fr:pain-azyme has 293 products in 6 languages @2019-03-07
 # pan ácimo (fécula de patata, agua, aceite de girasol)
 
-fr:pâtes fraîches
-# ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
-
-fr:pâtes alimentaires
-de:Teigwaren
-it:paste alimentari
-carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
-# ingredient/fr:pâtes-alimentaires has 75 products 2018-12-10
-
-<fr:pâtes alimentaires
-fr:tagliatelles cuites
-de:Tagliatelle gekocht
-it:tagliatelle cotte
-# ingredient/fr:tagliatelles%20cuites has 27 products in 4 languages @2019-02-16
-# Tagliatelles cuites (eau, semoule de blé dur, oeufs, huile de colza, persil, stabilisant :E 500)
-
-fr:pâte crue
-carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
-# ingredient/fr:pâte-crue has 22 products in french @2018-12-10
 
 
-# description:en:Ravioli are a type of dumpling comprising a filling enveloped in thin pasta dough. 
+# description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough. 
 
 # <en:compound
 # <en:Stuffed Pastas
@@ -60067,7 +60069,7 @@ zh:意大利餃
 wikidata:en:Q20053
 wikipedia:en:https://en.wikipedia.org/wiki/Ravioli
 # ingredient/ravioli has 92 products in 6 languages @2019-02-17
-# ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
+# usage:fr:ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
 
 
 # description:en:A BISCUIT is a flour-based baked food product, which is typically hard, flat and unleavened. 
