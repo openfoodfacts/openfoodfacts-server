@@ -792,6 +792,43 @@ sub check_bug_created_t_missing($) {
 
 }
 
+sub check_codes($) {
+
+	my $product_ref = shift;
+
+	check_code_gs1_prefixes($product_ref);
+
+}
+
+sub check_code_gs1_prefixes($) {
+
+	my $product_ref = shift;
+
+	if ((not (defined $product_ref->{code}))) {
+		return;
+	}
+
+	my $code = $product_ref->{code};
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/1129
+	if ($code =~ /^99[0-9]{10,11}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-coupon-prefix';
+	}
+	elsif ($code =~ /^98[5-9][0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-future-coupon-prefix';
+	}
+	elsif ($code =~ /^98[1-4][0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-coupon-common-currency-area-prefix';
+	}
+	elsif ($code =~ /^980[0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-refund-prefix';
+	}
+	elsif ($code =~ /^97[8-9][0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-isbn-prefix';
+	}
+	elsif ($code =~ /^977[0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-issn-prefix';
+	}
+}
 
 # Run site specific quality checks
 
@@ -806,6 +843,7 @@ sub check_quality($) {
 	check_nutrition_grades($product_ref);
 	check_quantity($product_ref);
 	check_bugs($product_ref);
+	check_codes($product_ref);
 
 	detect_categories($product_ref);
 }
