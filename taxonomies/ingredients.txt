@@ -59442,8 +59442,9 @@ fr:brioche
 carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries Brioche industrielle préemballée
 # ingredient/fr:brioche has 35 products @2019-01-28
 
-# fr:pâte is a compound ingredient. It is either the pizza base or italian pasta (think spaghetti)
+# comment:en:Dough is either the pizza base or italian pasta (think spaghetti)
 
+# <en:compound
 en:dough
 de:Teig
 es:masa, masa madre
@@ -59461,18 +59462,6 @@ it:pasta già cotta
 # ingredient/fr:pâte-cuite has 150 products in 3 languages @2018-12-10
 
 <en:dough
-en:fresh pasta
-de:frische Teigwaren
-fr:pâtes fraîches
-it:pasta fresca
-# ingredient/fr:pâtes-fraîches has 51 products in 4 languages @2019-02-03
-# ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
-
-<en:fresh pasta
-fr:pâtes fraîches cuites
-# ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
-
-<en:dough
 en:precooked dough
 de:Teig vorgebacken
 es:pasta precocida
@@ -59481,13 +59470,127 @@ it:Pasta precotta
 # ingredient/fr:pâte-précuites has 88 products in 5 languages @2018-12-10
 # ingredient/fr:fond-de-pâte-précuit has 18 products @2018-12-10
 
+# description:en:PASTA is type of noodle typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste and texture, or as a gluten-free alternative. Pasta is a staple food of Italian cuisine.
+
 <en:dough
-en:pasta
-fr:pâtes alimentaires
-de:Teigwaren
-it:paste alimentari
+# <en:Cereals and their products
+en:pasta, pastas
+ar:معكرونة
+# ast:pastia
+az:makaron
+be:макаронныя вырабы
+# be-tarask:паста
+bg:паста
+bn:পাস্তা
+br:toazennoù
+bs:pasta
+ca:Pasta
+co:pastasciutta
+cs:těstoviny
+# csb:nudle
+cy:pasta
+de:Teigwaren, Pasta
+# de-ch:pasta
+el:Ζυμαρικό
+# en-ca:pasta
+# en-gb:pasta
+eo:pastaĵo
+es:Pastas alimenticias, pastas, pasta
+et:pasta
+eu:pasta
+fi:pasta
+fr:pâtes alimentaires, pâtes
+fy:pasta
+ga:pasta
+gd:pastà
+gl:pasta
+gu:પાસ્તા
+he:פסטה
+hi:पास्ता
+hr:tjestenina
+hu:olasz tészta
+hy:մակարոնեղեն
+id:pasta
+is:pasta
+it:pasta, paste alimentari
+ja:パスタ
+jv:pasta
+ka:მაკარონი
+kn:ಪಾಸ್ತಾ
+ko:파스타
+ku:meqarne
+la:pasta
+lb:pasta
+li:pasta
+lt:pasta
+lv:pasta
+mr:पास्ता
+ms:pasta
+my:ပါစတာ
+# nan:pasta
+nb:pasta
+ne:पास्ता
+nl:Pastas, Deegwaren
+nn:pasta
+oc:pasta
+or:ପାସ୍ତା
+pa:ਪਾਸਤਾ
+pl:Makarony
+# pnb:پاستا
+pt:massa alimentícia
+# pt-br:massa alimentícia
+ro:paste făinoase
+# roa-tara:paste
+ru:Макаронные изделия
+# scn:pasta
+# sco:pasta
+sh:pasta
+sk:cestovina
+sl:testenine
+so:baasto
+sq:pasta
+# sr:паста
+# sr-el:паста
+# sr-ec:pasta
+sv:pasta
+sw:pasta
+# szl:nudle
+ta:பாஸ்தா
+te:పాస్తా
+th:พาสตา
+tl:pasta
+tr:makarna
+uk:макаронні вироби
+ur:پاستا
+uz:makaron mahsulotlari
+vi:nui
+wa:påsses itålyinnes
+# war:pasta
+wo:makaróni
+# wuu:意式面食
+# yue:意式麪
+zh:意式面食
+# zh-cn:意式麵食
+# zh-hans:意式面食
+# zh-hant:意式麵食
+pnns_group_2:en:Cereals
+wikidata:en:Q178
+wikipedia:en:https://en.wikipedia.org/wiki/Pasta
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
+
+<en:pasta
+en:fresh pasta
+de:frische Teigwaren
+fr:pâtes fraîches
+it:pasta fresca
+# ingredient/fr:pâtes-fraîches has 51 products in 4 languages @2019-02-03
+# ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
+
+<en:fresh pasta
+en:cooked fresh pasta
+fr:pâtes fraîches cuites
+# ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
 
 <en:pasta
 en:cooked tagliatelle
