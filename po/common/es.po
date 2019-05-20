@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-04 08:51\n"
+"PO-Revision-Date: 2019-05-20 19:57\n"
 "Language-Team: Spanish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -542,7 +542,7 @@ msgstr "Nombre de usuario o contraseña incorecto/a. <a href=\"/cgi/reset_passwo
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr "Se produjo un error durante la lectura de la base de datos, intente recargar la página."
+msgstr "Ocurrió un error al leer los datos, intenta actualizar la página."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
@@ -1301,7 +1301,7 @@ msgstr "Productos no manufacturados o procesados en %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr "%d productos coinciden con los criterios de búsqueda, de los cuales %i productos tienen valores definidos."
+msgstr "%d productos coinciden con los criterios de búsqueda, de los cuales %i productos tienen un lugar de producción conocido."
 
 msgctxt "map_title"
 msgid "Map title"
