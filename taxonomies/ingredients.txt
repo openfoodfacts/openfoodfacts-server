@@ -59442,23 +59442,106 @@ fr:brioche
 carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries Brioche industrielle préemballée
 # ingredient/fr:brioche has 35 products @2019-01-28
 
+
+# description:en:DOUGH is a thick, malleable, sometimes elastic, paste made out of any grains, leguminous or chestnut crops. Dough is typically made by mixing flour with a small amount of water and/or other liquid, and sometimes includes flour yeast or other leavening agents as well as other ingredients such as various fats or flavorings.
 # comment:en:Dough is either the pizza base or italian pasta (think spaghetti)
 
 # <en:compound
 en:dough
+ak:mori
+az:Xəmir
+ba:Ҡамыр
+# bar:Doag
+be:цеста
+# be-tarask:цеста
+bg:Тесто
+ca:massa
+ce:Bod
+cs:těsto
+cv:Чуста
+cy:toes
+da:Dej
 de:Teig
+ee:ayma
+el:Ζυμάρι
+# en-gb:dough
+eo:pasto
 es:masa, masa madre
+et:Taigen
+eu:ore
+fa:خمیر
+fi:taikina
 fr:pâte
-it:pasta
+ga:Taos
+he:בצק
+hr:Tijesto
+ht:pat
+hu:Tészta
+hy:Խմոր
+id:Adonan
+io:pasto
+is:Deig
+it:impasto
+ja:パン生地
+kk:Қамыр
+# kk-arab:قامىر
+# kk-cn:قامىر
+# kk-cyrl:Қамыр
+# kk-kz:Қамыр
+# kk-latn:Qamır
+# kk-tr:Qamır
+kn:ಕಣಕ
+ko:도
+ky:Камыр
+lb:Deegwueren
+lt:Tešla
+mk:Тесто
+mo:Blat
+ms:Doh
+nb:deig
+ne:आटा
 nl:deeg
+nn:deig
+pl:ciasto
 pt:massa
-ro:paste
-# ingredient/paste has 1809 products @2018-12-10
+qu:Sankhu
+ro:Blat
+ru:тесто
+# sco:daich
+# sgs:Tešla
+sk:cesto
+sl:Testo
+sr:тесто
+# sr-ec:тесто
+sv:deg
+sw:Kinyunga
+ta:பிசைந்த மாவு
+tg:Хамир
+# tg-latn:Xamir
+th:โด
+tl:Tapay
+tr:hamur
+tt:камыр
+uk:Тісто
+uz:Xamir
+wa:Påsse
+yi:טייג
+zh:生麵團
+# zh-cn:生面团
+# zh-hans:生面团
+# zh-hant:生麵團
+# zh-hk:生麵團
+# zh-sg:生面团
+# zh-tw:生麵團
+wikidata:en:Q178024
+wikipedia:en:https://en.wikipedia.org/wiki/Dough
 
-<en:dough
+<en:pasta
+en:cooked pasta
 fr:pâte cuite, pâte cuites, pâtes cuites
 de:Teigwaren gekocht
 it:pasta già cotta
+nl:gekookte pasta
 # ingredient/fr:pâte-cuite has 150 products in 3 languages @2018-12-10
 
 <en:dough
@@ -59578,6 +59661,8 @@ wikidata:en:Q178
 wikipedia:en:https://en.wikipedia.org/wiki/Pasta
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
+# ingredient/paste has 1809 products @2018-12-10
+
 
 <en:pasta
 en:fresh pasta
