@@ -59414,31 +59414,71 @@ wikipedia:en:https://en.wikipedia.org/wiki/Food_browning#Non-enzymatic_browning
 
 # Compound ingredients are ingredients that have sub-ingredients. Usually a compound ingredient is followed by a list of other ingredients.
 
-# en:filling is a compound ingredient (product part)
+# description:en:Stuffing or filling is an edible substance or mixture, normally consisting primarily of small cut-up pieces of bread or a similar starch and served as a side dish or used to fill a cavity in another food item while cooking. Many foods may be stuffed, including eggs, poultry, seafood, mammals, and vegetables, but chickens and turkey are the most common.
 
-en:Filling
-de:Belag
+# <en:compound
+en:filling, stuffing
+# ast:Rellenu
+be:Фарш
+bg:Кайма
+br:Fars
+ca:farciment
+cs:Nadívání
+cv:Фарш
+de:Belag, Farce
+el:Γέμιση
+# en-ca:Stuffing
+# en-gb:Stuffing
+eo:farĉo
 es:relleno
+et:Hakkliha
+fa:گوشت چرخ کرده
+fi:Jauheliha
 fr:garniture, fourrage, nappage, farce
+gl:Recheo
+he:מלית
+id:Isian
+io:Farso
+is:Kæfa
 it:ripieno
+ja:ファルス
+ko:소
+ku:Goştê kişandî
+# ku-arab:گۆشتێ کشاندی
+# ku-latn:Goştê kişandî
+mk:Фил
+nb:Kjøttdeig
 nl:garnituur, vulling
+pl:Farsz
 pt:recheio
+ru:фаршировка
+# scn:Capuliatu
+sv:Köttfärs
+ta:உள்வைப்பு
+th:อาหารยัดไส้
+tr:Dolgu
+uk:Фарш
+# yue:釀
+zh:餡
+wikidata:en:Q745361
+wikipedia:en:https://en.wikipedia.org/wiki/Stuffing
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
 # ingredient/fr:farce has 884 products in 6 languages @2019-05-18
 
 
-# compound ingredient
 
+# <en:compound
 <en:Filling
 en:milk filling
 es:relleno de leche
 fr:fourrage lait, fourrage au lait
 it:farcitura al latte
+nl:melkvulling
 pt:recheio de leite
 # ingredient/fr:fourrage-lait has 42 products in 5 languages @2019-02-03
 # fourrage au _lait_ 16% (sucre, huile, ….)
 
-# description:en:Brioche is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
+# description:en:BRIOCHE is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
 
 # <en:Viennoiseries
 en:brioche, Brioches
@@ -59476,6 +59516,7 @@ uk:Бріош
 # yue:法式甜包
 zh:布里歐
 wikidata:en:Q917574
+wikipedia:en:https://en.wikipedia.org/wiki/Brioche
 carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries Brioche industrielle préemballée
 # ingredient/fr:brioche has 35 products @2019-01-28
 # category/brioches has 1483 products @2019-05-20
