@@ -59151,11 +59151,24 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fiber
 # fibre has 270 products in 8 languages @2019-03-10
 
 <en:fiber
-en:vegetable fiber, vegetable fibers
-de:pflanzliche Fasern
+en:vegetable fiber, vegetable fibers, plant fiber
+ca:fibra vegetal
+cs:rostlinná textilní vlákna
+de:pflanzliche Fasern, Pflanzenfaser
+eo:planta fibro
+es:fibra vegetal
 fr:fibre végétale, fibres végétales, fibres alimentaires végétales
-it:fibre vegetali
+it:fibre vegetali, fibra vegetale
+ja:植物繊維
+ko:식물섬유
+nb:Plantefiber
 nl:plantaardige vezel
+nn:plantefiber
+pt:fibra vegetal
+# pt-br:fibra vegetal
+ru:растительное волокно
+sv:Växtfibrer
+wikipedia:en:Q20026824
 # ingredient/fr:fibres-végétales has 536 products in 7 languages @2019-03-11
 
 <en:vegetable fiber
@@ -59173,7 +59186,7 @@ ro:fibre de mazare
 # en:animal part
 
 
-# description:en:A bone is a rigid organ that constitutes part of the vertebrate skeleton. Broth is made by simmering several ingredients for a long time, traditionally including bones.
+# description:en:A BONE is a rigid organ that constitutes part of the vertebrate skeleton. Broth is made by simmering several ingredients for a long time, traditionally including bones.
 
 # <en:animal part
 en:bone
@@ -59322,7 +59335,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bone
 # ingredient/fr:os has 593 products in french @2019-04-25
 # usage:fr:bouillon (eau, os, viande de porc, oignon, poivre, ail, muscade, thym, laurier, clou de girofle)
 
-# description:en:Collagen is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
+# description:en:COLLAGEN is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
 
 # <en:animal part
 en:collagen
@@ -59383,10 +59396,6 @@ zh:膠原蛋白
 # yue:膠原蛋白
 wikipedia:en:https://en.wikipedia.org/wiki/Collagen
 # ingredient/fr:collagène has 128 products in 4 languages @2019-04-21
-
-
-
-
 
 # description:en:NONENZYMATIC BROWNING, is a process that produces the brown pigmentation in foods. The two main forms of non-enzymatic browning are caramelization and the Maillard reaction. Examples of foods that undergo Maillard reaction include breads, steaks, and potatoes.
 # comment:en:The wikidata item does not match the words on packages.
@@ -59903,7 +59912,7 @@ nl:vermicelli
 # vermicelli (mungbonenzetmeel, maïszetmeel)
 
 
-# Bread is a staple food prepared from a dough of flour and water, usually by baking.
+# description:en:BREAD is a staple food prepared from a dough of flour and water, usually by baking.
 
 # <en:compound
 en:bread
