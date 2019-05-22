@@ -53,7 +53,7 @@ use Data::Dumper;
 
 use Text::CSV;
 
-my $csv = Text::CSV->new ( { binary => 1 , sep_char => ";" } )  # should set binary attribute.
+my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
 $lc = "fr";
