@@ -36964,9 +36964,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Avocat
 # ingredient/avocado has 223 products in 5 languages @2019-04-21
 
 
-<en:vegetable
-fr:batavia
-# ingredient/fr:batavia has 21 products in french @2019-02-26
+
 
 <en:vegetable
 en:Belgian endive
@@ -36989,7 +36987,8 @@ carbon_footprint_fr_foodges_ingredient:fr:Endive
 # <en:Vegetable rods
 <en:vegetable
 en:chard, Chards
-ar:سلق # azb:پازی تره‌سی
+ar:سلق 
+# azb:پازی تره‌سی
 bg:Манголд
 bs:Blitva
 ca:bleda
@@ -39906,18 +39905,20 @@ wikipedia:en:https://en.wikipedia.org/wiki/Radish
 # description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 
 <en:vegetable
-en:rhubarb
+# <en:Vegetable rods
+en:rhubarb, Rhubarbs
 bg:Ревен
 cs:rebarbora
 da:Rabarber
 de:Rhabarber
-es:Ruibarbo
+es:Ruibarbo, Ruibarbos
 et:rabarber
 fi:raparperi
-fr:rhubarbe
+fr:rhubarbe, Rhubarbes
 ga:Biabhóg
 hr:Rabarbara
 it:rabarbaro
+la:Rheum
 lt:Rabarbaras
 lv:rabarber
 nl:rabarber
@@ -39931,6 +39932,7 @@ wikidata:en:Q20767168
 # plant:wikidata:en:Q7535
 wikipedia:en:https://en.wikipedia.org/wiki/Rhubarb
 # ingredient/fr:rhubarbe has 191 products in 4  languages @2019-05-08
+# category/rhubarbs has 4 products 22019-05-22
 
 
 # description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ». 
@@ -39944,7 +39946,9 @@ nl:sla, salade
 wikipedia:en:https://en.wikipedia.org/wiki/Salad
 # ingredient/fr:salade has 483 products in 4 languages @2019-05-17
 
-
+<en:vegetable
+fr:batavia
+# ingredient/fr:batavia has 21 products in french @2019-02-26
 
 # description:en:CORN SALAT is a small annual plant that is eaten as a leaf vegetable. It is typically served as a salad with chopped hard-boiled eggs and crumbled bacon.
 # comment:en:The wikidata translations are a mix of common and latin names.
