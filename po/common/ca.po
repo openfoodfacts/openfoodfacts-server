@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 15:25\n"
+"PO-Revision-Date: 2019-05-20 19:13\n"
 "Language-Team: Catalan\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -188,11 +188,11 @@ msgstr "Número de codi de barres:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "També podeu ajudar a finançar el projecte Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> és una associació sense ànim de lucre, independent de la indústria. Està fet per tothom, per a tothom i finançada per tothom. Podeu donar suport al nostre treball fent <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">un donatiu a Open Food Facts</a> i també <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilitzant el motor de cerca de Lilo</a>.<br/><b>Gràcies!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -204,7 +204,7 @@ msgstr "Marques"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno Blanc, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -232,7 +232,7 @@ msgstr "per"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -244,7 +244,7 @@ msgstr "Indicar únicament la categoria més específica. S'afegiran automàtica
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "categories"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -332,11 +332,11 @@ msgstr "Si us plau, corregiu els següents errors:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "correctors"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "corrector"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -365,6 +365,14 @@ msgstr "Productes que no es venen a %s"
 msgctxt "data_source"
 msgid "Data source"
 msgstr "Font de dades"
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr ""
 
 msgctxt "debug_p"
 msgid "debug"
@@ -408,11 +416,11 @@ msgstr "Eliminat:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Feu un donatiu a Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -464,11 +472,11 @@ msgstr "<p> Els paràmetres del seu compte han canviat. </p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "editors"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "editor"
 
 msgctxt "email"
 msgid "e-mail address"
@@ -493,7 +501,7 @@ msgstr "codi EMB"
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, ES 10.01235 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -525,7 +533,7 @@ msgstr "data d'entrada"
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -625,7 +633,7 @@ msgstr "ca_ES"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -639,7 +647,13 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world-ca.openfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world-ca.openfoodfacts.org/terms-of-use\">Condicions d'ús</a> -\n"
+"<a href=\"https://world-ca.openfoodfacts.org/who-we-are\">Qui som</a> -\n"
+"<a href=\"https://world-ca.openfoodfacts.org/faq\">Preguntes més freqüents</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Fòrums d'idees</a> -\n"
+"<a href=\"https://ca.blog.openfoodfacts.org\">Bloc</a> -\n"
+"<a href=\"https://world-ca.openfoodfacts.org/press-and-blogs\">Premsa i blocs</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
@@ -647,12 +661,12 @@ msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "Bloc <<site_name>>"
 
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://ca.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -861,11 +875,11 @@ msgstr "informadors"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -2131,7 +2145,7 @@ msgstr "Indiferent"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2638,6 +2652,10 @@ msgstr ""
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
+msgstr ""
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
 msgstr ""
 
 msgctxt "warning_not_complete"
