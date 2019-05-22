@@ -714,7 +714,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Suivez nous sur <a href=\"https://twitter.com/openfoodfactsfr\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts.fr\">Facebook</a> et\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -2661,6 +2663,10 @@ msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr "Certaines des données et des images ont été fournies directement par le fabricant Fleury Michon."
 
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr ""
+
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Certaines des données de ce produit ont été fournies directement par le fabricant %s"
@@ -3249,6 +3255,34 @@ msgstr "Les calculs d'empreinte carbone ont une grande incertitude. Les valeurs 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
 msgstr "Trop de produits (%d produits, la limite est de %d) à exporter, veuillez télécharger <a href=\"/data\">l'export complet de la base de données</a> à la place."
+
+msgctxt "translate_taxonomy_to"
+msgid "Help translate the %s to %s"
+msgstr ""
+
+msgctxt "translate_taxonomy_description"
+msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr ""
+
+msgctxt "translate_taxonomy_add"
+msgid "Show only entries without pending translations."
+msgstr ""
+
+msgctxt "translate_taxonomy_edit"
+msgid "Also show entries with pending translations from you or other users."
+msgstr ""
+
+msgctxt "translated"
+msgid "translated"
+msgstr ""
+
+msgctxt "to_be_translated"
+msgid "to be translated"
+msgstr "à traduire"
+
+msgctxt "current_translation"
+msgid "Current translation"
+msgstr "Traduction actuelle"
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
