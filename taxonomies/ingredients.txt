@@ -47708,7 +47708,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lemon_balm
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
-en:lettuce
+# <en:Leaf vegetables
+en:lettuce, Lettuces
 af:Blaarslaai
 am:ሰላጣ
 an:Ensalada
@@ -47725,12 +47726,12 @@ cy:Letysen
 da:Salat
 de:Lattich, Gartensalat
 eo:Laktuko, Kultiva laktuko
-es:Lechuga
+es:Lechuga, Lechugas
 et:Salat, Aedsalat
 eu:Uraza
 fa:لاکتوکا, کاهو
 fi:salaatit, Lehtisalaatti
-fr:laitue
+fr:laitue, Laitues
 ga:Leitís
 gl:Leituga
 gu:Ka'anakyrỹi
@@ -47814,6 +47815,7 @@ wikidata:en:Q578052
 wikipedia:en:https://en.wikipedia.org/wiki/Lettuce
 wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 # ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
+# category/lettuces has 84 products @2019-5-22
 
 # description:en: ICEBERG/Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
 
@@ -47833,10 +47835,11 @@ wikidata:en:Q1310886
 # ingredient/fr:laitue-iceberg has 41 products in 4 languages @2019-04-04
 # ingredient/fr:iceberg has 46 products in french @2019-04-16
 
-# TILIA is a genus of about 30 species of trees, or bushes, native throughout most of the temperate Northern Hemisphere.
+# description:en:TILIA is a genus of about 30 species of trees, or bushes, native throughout most of the temperate Northern Hemisphere.
 
 en:linden
 de:Lindenblüten
+es:Tila
 fr:tilleul
 it:Fiori di tiglio
 nl:Linde, lindebloesem
@@ -47846,6 +47849,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tilia
 
 # LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted. 
 
+# <en:Herbal teas
 en:liquorice, licorice
 af:Soethout
 ar:عرقسوس
