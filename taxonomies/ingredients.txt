@@ -37057,14 +37057,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chard
 # ingredient/daikon-cress has no products @2019-05-15
 
 
-# Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
+# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 
+# <en:Vegetables
 <en:vegetable
-en:endive
+en:endive, Endives
 ca:endívia
 cy:Endif
 de:Endivien, Endivie
 eo:Endivio
+es:Escarolas
 eu:Osterzuri
 fa:اندیو
 fi:Endiivi
@@ -37082,6 +37084,7 @@ ko:꽃상추
 ku:Xêzimok
 la:Cichorium endivia
 nb:endivie
+nl:Andijvie
 nv:Tʼąąʼdoolghasí
 pt:Endívia
 ro:Andivă
@@ -37096,8 +37099,10 @@ zh:苦苣
 # pcd:Indife
 # scn:Nirvia	
 # sr-ec:Ендивија
-wikidata:en:Q28604477
-
+wikidata:en:Q178547
+# wikidata:en:Q28604477 what is this?
+# category/endives has 8 products @2019-05-22
+# ingredient/endive has 125 products @2019-05-22
 
 <en:vegetable
 en:radicchio
@@ -39971,19 +39976,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
 # ingredient/fr:mâche has 133 products in french @2019-05-08
 
 
-# description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
-
-<en:salad
-en:frisée lettuce
-de:krauser Salat
-fr:frisée
-la:Cichorium endivia var. crispum
-nl:krulandijvie
-pl:Endywia kędzierzawa
-sv:Frisésallat
-wikidata:en:Q2963415
-wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
-# ingredient/fr:frisée has 158 products in 4 languages @2019-05-10
 
 
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
@@ -42130,6 +42122,7 @@ nl:waterkers
 wikipedia:en:https://en.wikipedia.org/wiki/Watercress
 # ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
 
+ # description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
 
 <en:vegetable
 en:frisée lettuce
@@ -42139,7 +42132,6 @@ la:Cichorium endivia var. crispum
 nl:krulandijvie
 pl:Endywia kędzierzawa
 sv:Frisésallat
- # description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
 wikidata:en:Q2963415
 wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
 # ingredient/fr:frisée has 158 products in 4 languages @2019-05-10
