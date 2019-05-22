@@ -41,9 +41,9 @@ RUN apk --update --no-cache add \
     && tar xfz 0.22.2.tar.gz \
     && rm 0.22.2.tar.gz \
     && cd zbar-0.22.2/perl \
-    && perl Makefile.PL PREFIX=/tmp/local \
-    && make \
-    && make install \
+    && perl Makefile.PL \
+    && ln -s MYMETA.yml META.yml \
+    && cpm install -L /tmp/local . \
     && cd ../.. \
     && rm -rf zbar-0.22.2
 
@@ -56,10 +56,12 @@ RUN cpm install ExtUtils::XSBuilder::ParseSource
 COPY ./cpanfile /tmp/cpanfile
 
 # Add ProductOpener runtime dependencies from cpan
-RUN set -x \
-  # Remove CPAN zbar perl module from git: https://rt.cpan.org/Ticket/Display.html?id=128085
-  && sed -i '/zbar/d' cpanfile \
-  && cpm install
+RUN cpm install --without-test
+
+# Separate stage/layer that can be used to run unit tests
+FROM builder AS tester
+
+RUN cpm install --with-test
 
 # Helper stage, so that we don't try to install GeoIP upon every rebuild of the source
 FROM alpinemodperl AS alpinemodperlgeoip

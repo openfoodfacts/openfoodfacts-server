@@ -210,6 +210,9 @@ else {
 	# Language and language code / subsite
 
 	if (defined $product_ref->{lang}) {
+		# strip variants fr-BE fr_BE
+		$product_ref->{lang} =~ s/^([a-z][a-z])(-|_).*/$1/ig;
+		$product_ref->{lang} = lc($product_ref->{lang});
 		$product_ref->{lc} = $product_ref->{lang};
 	}
 

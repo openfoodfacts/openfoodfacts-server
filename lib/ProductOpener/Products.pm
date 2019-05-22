@@ -49,6 +49,7 @@ BEGIN
 		&compute_product_history_and_completeness
 		&compute_languages
 		&compute_changes_diff_text
+		&compute_data_sources
 
 		&add_back_field_values_removed_by_user
 
@@ -255,14 +256,16 @@ sub send_notification_for_product_change($$) {
 
 	my $product_ref = shift;
 	my $action = shift;
-	
-	my $ua = LWP::UserAgent->new();
-	
-	my $response = $ua->post( "https://robotoff.openfoodfacts.org/api/v1/webhook/product",  {
-		'barcode' => $product_ref->{code},
-		'action' => $action,
-		'server_domain' => "api." . $server_domain
-	} );
+
+	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
+		my $ua = LWP::UserAgent->new();
+
+		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
+			'barcode' => $product_ref->{code},
+			'action' => $action,
+			'server_domain' => "api." . $server_domain
+		} );
+	}
 }
 
 sub retrieve_product($) {
@@ -486,6 +489,7 @@ sub store_product($$) {
 		rev=>$rev,
 	};
 
+	compute_data_sources($product_ref);
 
 	compute_codes($product_ref);
 
@@ -540,6 +544,69 @@ sub store_product($$) {
 	my $change_ref = @$changes_ref[-1];
 	log_change($product_ref, $change_ref);
 
+}
+
+# Update the data-sources tag from the sources field
+# This function is for historic products, new sources should set the data_sources_tags field directly
+# through import_csv_file.pl / upload_photos.pl etc.
+
+sub compute_data_sources($) {
+
+	my $product_ref = shift;
+
+	my %data_sources = ();
+	
+	if (defined $product_ref->{sources}) {
+		foreach my $source_ref (@{$product_ref->{sources}}) {
+
+			if ($source_ref->{id} eq 'casino') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Casino"} = 1;
+			}
+			if ($source_ref->{id} eq 'carrefour') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Carrefour"} = 1;
+			}
+			if ($source_ref->{id} eq 'ferrero') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Ferrero"} = 1;
+			}			
+			if ($source_ref->{id} eq 'fleurymichon') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Fleury Michon"} = 1;
+			}
+			if ($source_ref->{id} eq 'iglo') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Iglo"} = 1;
+			}			
+			if ($source_ref->{id} eq 'ldc') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - LDC"} = 1;
+			}			
+			if ($source_ref->{id} eq 'sodebo') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Sodebo"} = 1;
+			}
+			if ($source_ref->{id} eq 'systemeu') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Systeme U"} = 1;
+			}			
+			
+			if ($source_ref->{id} eq 'openfood-ch') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - FoodRepo / openfood.ch"} = 1;
+			}
+			if ($source_ref->{id} eq 'usda-ndb') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - USDA NDB"} = 1;
+			}			
+		}
+	}	
+	
+	if ((scalar keys %data_sources) > 0) {
+		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
+		compute_field_tags($product_ref, "en", "data_sources");
+	}
 }
 
 
