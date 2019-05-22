@@ -36984,10 +36984,11 @@ carbon_footprint_fr_foodges_ingredient:fr:Endive
 
 
 
-# Chard or Swiss chard (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. 
+# description:en:Chard or Swiss chard (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. 
 
+# <en:Vegetable rods
 <en:vegetable
-en:chard
+en:chard, Chards
 ar:سلق # azb:پازی تره‌سی
 bg:Манголд
 bs:Blitva
@@ -36997,10 +36998,11 @@ cs:Mangold
 de:Mangold
 el:Σέσκουλο
 eo:Folibeto
+es:Acelgas
 eu:Zerba
 fa:برگ چغندر
 fi:Lehtimangoldi
-fr:blette
+fr:blette, Blettes
 ga:Biatas bán
 gl:Acelga
 he:סלק עלים
@@ -37047,6 +37049,7 @@ zh:莙薘菜
 wikidata:en:Q157954
 wikipedia:en:https://en.wikipedia.org/wiki/Chard
 # ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
+# category/chards has 16 products @2019-05-22
 
 
 # en:Daikon cress
@@ -37058,6 +37061,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chard
 
 
 # description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
+# comment:enEndive in english is different from endive in french.
 
 # <en:Vegetables
 <en:vegetable
