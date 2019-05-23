@@ -25274,7 +25274,7 @@ it:farina di segala
 nl:roggebloem
 pl:mąka żytnia
 pt:farinha de centeio
-openfoodfacts:https://world.openfoodfacts.org/ingredient/rye-flour
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/rye-flour
 # 1039 products in 11 languages @2018-09-22
 
 # Question
@@ -32312,6 +32312,10 @@ zh:蘋果汁
 wikidata:en:Q618355
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-juice
 # 1508 products in 6 languages @2018-10-04
+
+<en:apple juice
+en:Organic apple juice
+fr:jus de pomme issu de l'agriculture biologique
 
 # Not sure if pure has any meaning
 
@@ -57602,7 +57606,7 @@ nl:vers gezette Arabica-koffie
 # ingredient/fr:café-arabica-fraîchement-préparé has 10 products in 4 languages @2018-11-30
 
 <en:arabica coffee
-fr:café moulu pur arabica
+fr:café moulu pur arabica, café moulu arabica
 # ingredient/fr:café-moulu-pur-arabica has 35 products in 4 languages @2018-11-30
 
 <en:ground coffee
@@ -59015,7 +59019,26 @@ zh:鴨蛋
 wikidata:en:Q11173928
 # ingredient/duck-egg has 7 products @2018-12-17
 
+# description:en:QUAIL EGGS are the eggs layed by a quail. They can be prepared the same as chicken eggs.
 
+# <en:category:en:Bird eggs
+<en:egg
+en:Quail eggs, Quail egg
+de:Wachteleier, Wachtelei
+fr:œufs de cailles, Oeufs de cailles
+id:Telur puyuh
+ko:메추리알
+nl:kwartelei, kwarteleieren
+nn:Vaktelegg
+ru:Перепелиные яйца, Яйцо перепёлок
+tg:Тухми бедона
+# tg-latn:Tuxmi bedona
+th:ไข่นกกระทา
+vi:Trứng cút
+zh:鹌鹑蛋
+wikidata:en:Q1572135
+wikipedia:en:https://en.wikipedia.org/wiki/Quail_eggs
+# ingredient/fr:oeufs-de-cailles has 25 products @2019-05-23
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
