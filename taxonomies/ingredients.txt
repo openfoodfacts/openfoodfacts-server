@@ -20339,7 +20339,7 @@ it:grasso di cocco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière%20grasse%20de%20noix%20de%20coco
 # 36 products in 4 languages @2018-10-03
 
-# Olive oil is a liquid fat obtained from olives (the fruit of Olea europaea; family Oleaceae).
+# description:en:OLIVE OIL is a liquid fat obtained from olives (the fruit of Olea europaea; family Oleaceae).
 
 <en:vegetable oil
 en:olive oil
@@ -20443,6 +20443,11 @@ es:aceite de oliva virgen extra
 fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva
 nl:extra olijfolie van de eerste persing
+
+<en:extra virgin olive oil
+en:organic extra virgin olive oil
+fr:huile d'olive vierge extra biologique
+# ingredient/fr:huile-d'olive-vierge-extra-biologique has 25 products in 2 languages @2019-05-23
 
 <en:olive oil
 en:organic extra virgin olive oil
@@ -56893,6 +56898,12 @@ nl:Lavandelhoning, Lavendelhoningen
 wikidata:en:Q43683476
 
 <en:honey
+en:orange blossom honey
+fr:miel d'oranger
+nl:sinaasappelbloesemhoning
+# ingredient/fr:miel-d'oranger has 24 products in french @2019-05-23
+
+<en:honey
 fr:mélange de miels originaires et non originaires de l'ue, melange de miels originaires et non originaires de l'union europeenne
 de:Mischung von Honig aus EU-ländern und Nicht EU-ländern
 # ingredient/fr:mélange-de-miels-originaires-et-non-originaires-de-l’ue has 25 products in french @2018-12-17
@@ -57629,6 +57640,10 @@ nl:vers gezette Arabica-koffie
 fr:café moulu pur arabica, café moulu arabica
 # ingredient/fr:café-moulu-pur-arabica has 35 products in 4 languages @2018-11-30
 
+<en:arabica coffee
+fr:cafe arabica torrefié
+# ingredient/fr:cafe-arabica-torrefié has 18 products in french @2019-05-23
+
 <en:ground coffee
 en:Ground roasted coffee
 de:Röstkaffee gemahlen
@@ -57668,7 +57683,7 @@ it:estratto di caffè
 nl:koffie-extract
 # ingredient/fr:extrait-de-café has 279 products in 5 languages @2018-11-30
 
-# Wonder if one should distinguish between the drink (fluid) and the powder to make the drink
+# comment:en:Wonder if one should distinguish between the drink (fluid) and the powder to make the drink
 
 <en:coffee
 en:soluble Coffee, instant coffee
