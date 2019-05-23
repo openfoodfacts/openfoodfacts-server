@@ -13438,10 +13438,9 @@ it:Latte biologico
 
 <en:milk
 en:skim milk, fat-free milk
-de:Magermilch
-fr:Lait écrémé
 nl:vetvrije melk
 wikidata:en:Q2352187
+
 
 # Skimmed milk (British English) is made when all the cream (also called milkfat) is removed from whole milk. It tends to contain around 0.1% fat.
 
@@ -13462,7 +13461,7 @@ ja:脱脂粉乳
 lt:Nugriebtas pienas
 ms:Susu skim
 nb:Skummet melk
-nl:Taptemelk, ondermelk, afgeroomde melk, magere melk
+nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk
 pa:ਸਪਰੇਟਾ
 pt:Leite desnatado
 ru:Обезжиренное молоко
@@ -13472,6 +13471,12 @@ vi:Sữa gầy
 # yue:脫脂奶
 wikidata:en:Q2352187
 wikipedia:en:https://en.wikipedia.org/wiki/Skimmed_milk
+
+<en:skimmed milk
+en:UHT sterilised skimmed milk
+fr:Lait écrémé stérilisé UHT
+nl:UHT-gesteriliseerde magere melk
+# ingredient/fr:lait-ecreme-sterilise-uht has 14 products in french @2019-05-23
 
 # LOW-FAT MILK is a 1% fat milk, sold in the United States
 
@@ -13526,7 +13531,7 @@ nl:volle melk
 
 <en:whole milk
 en:UHT sterilized whole milk
-fr:lait-entier-sterilise-uht
+fr:lait entier sterilisé uht
 de:Haltbare Vollmilch
 nl:UHT gesteriliseerde volle melk
 # ingredient/fr:lait-entier-sterilise-uht has 20 products in 2 languages @2019-05-23
