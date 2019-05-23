@@ -72,7 +72,8 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 my $product_ref = {
 	lc => "fr",
-	ingredients_text => "Acide citrique, colorant : e120, vitamine C, E-500"
+	ingredients_text => "Acide citrique, colorant : e120, vitamine C, E-500",
+	categories_tags => ["en:debug"],
 };
 
 extract_ingredients_classes_from_text($product_ref);
@@ -1201,7 +1202,8 @@ $product_ref = {
         lc => "fr",
         ingredients_text =>
 "Farine de BLE, sucre, chocolat au lait 13% (sucre, beurre de cacao, pâte de cacao, LAIT écrémé en poudre, LACTOSE, matière grasse LAITIERE anhydre, LACTOSERUM en poudre, émulsifiant : lécithines de tournesol), chocolat blanc 8% (sucre, beurre de cacao, LAIT entier en poudre, émulsifiant : lécithines de tournesol), BEURRE pâtissier, chocolat noir 6% (pâte de cacao, sucre, beurre de cacao, matière grasse LAITIERE, émulsifiant : lécithines de tournesol), blancs d'OEUFS, fourrage à la purée de framboise 3.5% (sirop de glucose- fructose, stabilisant : glycérol, purée et brisures de framboise, purée de framboise concentrée, purée de pomme, BEURRE, arômes, acidifiant : acide citrique, gélifiant : pectines de fruits, correcteur d'acidité : citrates de sodium, jus concentré de sureau), huile de tournesol, OEUFS entiers, AMANDES 1.3%, poudre de NOIX DE CAJOU 1.2%, sucre de canne roux, NOISETTES, poudre de florentin 0.6% (sucre, sirop de glucose, BEURRE, émulsifiant : lécithines de SOJA, poudre de LAIT écrémé), sirop de sucre inverti et partiellement inverti, grains de riz soufflés 0.5% (farine de riz, gluten de BLE, malt de BLE, saccharose, sel, dextrose), nougatine 0.4% (sucre, AMANDES et NOISETTES torréfiées), éclat de caramel 0.4% (sucre, sirop de glucose, CREME et BEURRE caramélisés), farine de SEIGLE, sel, poudres à lever : carbonates de sodium - carbonates d'ammonium- diphosphates- tartrates de potassium, amidon de BLE, poudre de LAIT écrémé, extrait de malt d'ORGE, noix de coco 0.1%, arômes, jaune d'OEUF en poudre, fécule de pomme de terre, farine d'ORGE, amidon de maïs, colorants : caramel ordinaire et curcumine, LACTOSERUM en poudre et protéines de LAIT, cannelle en poudre, émulsifiant : lécithines de tournesol, antioxydant : acide ascorbique. Traces éventuelles de graines de sésame et autres fruits à coques.
-"
+",
+	categories_tags => ["en:debug"],
 };
 
 extract_ingredients_classes_from_text($product_ref);
@@ -1224,9 +1226,6 @@ is_deeply($product_ref->{additives_original_tags}, [
 
                               ],
 );
-
-
-
 
 $product_ref = {
         lc => "fr",
