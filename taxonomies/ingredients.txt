@@ -13703,6 +13703,9 @@ fr:lait concentré écrémé
 fr:lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
 nl:halfvolle melk uht verhit
 
+<fr:lait demi-écrémé stérilisé uht
+fr:lait demi-ecreme sterilise uht issu de l'agriculture biologique
+
 <en:milk
 fr:lait frais
 nl:verse melk
@@ -24812,12 +24815,12 @@ de:weiße Quinoa
 es:quinoa blanco
 fr:quinoa blanc
 pt:quinoa branco
-openfoodfacts:https://world.openfoodfacts.org/ingredient/white-quinoa
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/white-quinoa
 # 63 products in 4 languages @2018-09-22
 
 <en:quinoa
 fr:quinoa cuit
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa%20cuit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa%20cuit
 # 49 products in 1 language @2018-09-22
 
 # SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
@@ -25017,7 +25020,7 @@ zh:麵粉
 # gsw:Mehl
 # hsb:muka
 # inh:Хьоар
-kab:An
+# kab:An
 # lez:Гъуьр
 # Lombard:farina
 # mdf:Почф
@@ -56651,7 +56654,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Psyllium
 
 
 
-# Honey is a sweet, viscous food substance produced by bees and some related insects.
+# description:en:HONEY is a sweet, viscous food substance produced by bees and some related insects.
 
 # nova:en:honey
 en:honey
@@ -56879,8 +56882,18 @@ it:miele d'acacia
 fr:Miel de châtaignier
 # ingredient/fr:Miel-de-châtaignier has 20 products in french @2018-12-17
 
+# <en:catageory:en:Honeys
 <en:honey
-fr:mélange de miels originaires et non originaires de l'ue
+en:lavander honey
+de:Lavendelhonig, Lavendelhonige
+fr:Miel de lavande, Miels de lavande
+it:Miele di lavanda
+nl:Lavandelhoning, Lavendelhoningen
+# ingredient/fr:miel-de-lavande has 39 products @2019-05-23
+wikidata:en:Q43683476
+
+<en:honey
+fr:mélange de miels originaires et non originaires de l'ue, melange de miels originaires et non originaires de l'union europeenne
 de:Mischung von Honig aus EU-ländern und Nicht EU-ländern
 # ingredient/fr:mélange-de-miels-originaires-et-non-originaires-de-l’ue has 25 products in french @2018-12-17
 
