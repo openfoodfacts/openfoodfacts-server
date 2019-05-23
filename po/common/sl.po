@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 16:19\n"
+"PO-Revision-Date: 2019-05-11 14:17\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -364,6 +364,14 @@ msgstr "Izdelki, ne prodani v %s"
 msgctxt "data_source"
 msgid "Data source"
 msgstr "Vir podatkov"
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr ""
 
 msgctxt "debug_p"
 msgid "debug"
@@ -1355,7 +1363,7 @@ msgstr "zmerno"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr "v zmerni količini"
+msgstr "zmerni količini"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -2305,7 +2313,7 @@ msgstr ""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr ""
+msgstr "60 g, 12 oz, 20cl, 2 fl oz"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
@@ -2381,7 +2389,7 @@ msgstr "Trgovine"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr ""
+msgstr "Ime trgovine ali verige supermarketov"
 
 msgctxt "stores_p"
 msgid "stores"
@@ -2389,7 +2397,7 @@ msgstr "trgovine"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr ""
+msgstr "Izdelki se prodajajo v %s"
 
 msgctxt "stores_s"
 msgid "store"
@@ -2401,7 +2409,7 @@ msgstr "dodaj trgovino"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
-msgstr ""
+msgstr "Izdelki, ki niso kupljeni v %s"
 
 msgctxt "subscribe"
 msgid "Subscribe"
@@ -2485,7 +2493,7 @@ msgstr "Uporabniško ime"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
-msgstr ""
+msgstr "(črke, številke in / ali pomišljaji brez naglasov)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
@@ -2563,19 +2571,19 @@ msgstr "Povezani ste kot %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "Odstrani sliko"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "Odstranjujem sliko."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "Neizbrana slika."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "Napaka pri odstranjevanju slike."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2627,7 +2635,7 @@ msgstr "Izbriši uporabnika"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr ""
+msgstr "Nekateri podatki in / ali slike prihajajo iz baze podatkov OpenFood.ch (točen seznam je na voljo v zgodovini urejanja izdelka). Ti elementi so pod licenco <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons 4.0 International License</a>."
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
@@ -2635,7 +2643,7 @@ msgstr "Stran izdelka na openfood.ch"
 
 msgctxt "sources_usda_ndb"
 msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr ""
+msgstr "Nekateri podatki prihajajo iz podatkovne baze USDA National Nutrients Database za živila z blagovno znamko (natančen seznam je na voljo v zgodovini urejanja izdelka)."
 
 msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
@@ -2643,15 +2651,19 @@ msgstr "Stran izdelka na USDA NDB"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr ""
+msgstr "Nekatere podatke in slike je neposredno zagotovil proizvajalec Fleury Michon."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Nekatere podatke za ta izdelek je neposredno zagotovil proizvajalec %s"
 
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr ""
+
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "Ta stran izdelka ni popolna. Pomagate lahko, da ga dokončate tako, da ga uredite in dodate več podatkov iz fotografij, ki jih imamo, ali pa z aplikacijo uporabite več fotografij za <a href=\"https://android.openfoodfacts.org\">Android</a> ali <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>Hvala vam!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -3232,7 +3244,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Pomagajte prevesti %s v %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"

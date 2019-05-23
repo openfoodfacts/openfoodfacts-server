@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 18:31\n"
+"PO-Revision-Date: 2019-05-21 11:00\n"
 "Language-Team: Swedish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -63,7 +63,21 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Hej <NAME>,\n\n"
+"Tack för att du har valt att använda https://openfoodfacts.org\n"
+"Här är ditt användarnamn:\n\n"
+"Användarnamn: <USERID>\n\n"
+"Du kan nu logga in på webbplatsen för att lägga till och redigera produkter.\n\n"
+"<<site_name>> är ett samarbetsprojekt där du kan bidra med mycket mer än bara nya produkter: din energi, entusiasm och idéer!\n"
+"För att diskussioner mellan medarbetare och driva projektet framåt använder vi ett mycket bekvämt meddelandesystem som heter Slack: https://slack.openfoodfacts.org\n\n"
+"Du kan också gå med i Facebook-gruppen för medarbetare:\n"
+"https://www.facebook.com/groups/openfoodfacts/\n\n"
+"Nyhet: Vi startar nu också Open Beauty Facts för att skapa en databas med kosmetika: tvål, tandkräm, smink etc.\n"
+"https://openbeautyfacts.org\n\n"
+"Tack så mycket!\n\n"
+"Stéphane och teamet Open Food Facts\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
@@ -141,7 +155,8 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Den här produkten finns ännu inte i databasen <<site_name>>. Ta gärna några bilder av produkten, streckkoden, ingredienslistan och näringsfakta för att lägga till den på <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Tack på förhand!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -149,7 +164,7 @@ msgstr "Ta en bild"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "De bilder du skickar publiceras under den fria licensen Creative Commons Attribution och ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -177,7 +192,7 @@ msgstr "Du kan också hjälpa till att finansiera Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donera till Open Food Facts\" /></a><p><<site_name>> görs av en branschoberoende ideell förening. Den är gjord för alla, av alla, och finansierad av alla. Du kan stödja vårt arbete genoma att <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donera till Open Food Facts</a> och även genom <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo-sökmotorn</a>.<br/><b>Tack!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -305,7 +320,7 @@ msgstr "Du är ansluten med ditt Facebook-konto."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Medarbetare sedan"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -350,6 +365,14 @@ msgstr "Produkter som inte säljs i %s"
 msgctxt "data_source"
 msgid "Data source"
 msgstr "Datakälla"
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr ""
 
 msgctxt "debug_p"
 msgid "debug"
@@ -405,7 +428,7 @@ msgstr "Ekologiskt fotavtryck"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "Om koldioxidavtrycket anges på etiketten (ovanligt just nu), ange det för samma mängd som näringskompositionen."
 
 msgctxt "edit"
 msgid "edit"
@@ -445,7 +468,7 @@ msgstr "Kontoparametrar"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Dina kontouppgifter har ändrats.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -486,19 +509,19 @@ msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "förpackningskoder"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr ""
+msgstr "Produkter med förp. koden %s"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "förpackningskod"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr ""
+msgstr "Produkter utan förp. kod %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -624,7 +647,13 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Juridik</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Användarvillkor</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">Vilka vi är</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">Vanliga frågor</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Idéforum</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blogg</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press och bloggar</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
@@ -760,7 +789,7 @@ msgstr "Vanligt namn"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "Chokladbit med mjölk och hasselnötter"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -796,7 +825,7 @@ msgstr "Ändringshistorik"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "Framsidesbild"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
@@ -804,11 +833,11 @@ msgstr "Ingrediensbild"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "Om bilden är tydlig nog kan ingredienserna läsas automatiskt"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "Bild på näringsfakta"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
@@ -816,12 +845,13 @@ msgstr "Den här bilden har redan skickats."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "Bilden är för liten. Vänligen ladda inte upp bilder som hittats på Internet och skicka bara bilder du tagit själv."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "Streckkoden i bilden kunde inte läsas, eller så innehöll bilden ingen streckkod.\n"
+"Försöka med en annan bild eller ange streckkoden direkt."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
@@ -829,7 +859,7 @@ msgstr "Ingen streckkod finns i bilden."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr ""
+msgstr "Du måste ange tecknen i streckkoden eller skicka en produktbild där streckkoden är väl synlig."
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -857,7 +887,7 @@ msgstr "Ingrediensanalys"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "Obs: ingredienser kan listas med många olika namn. Låt oss veta om du tycker att resultatet ovan är felaktigt."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
@@ -865,7 +895,7 @@ msgstr "ingredienser från eller som kan vara från palmolja"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "ingrediens som kan vara från palmolja"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
@@ -901,7 +931,7 @@ msgstr "Ingredienslista"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr ""
+msgstr "Ingredienserna är listade i storleksordning (vikt)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
@@ -1077,7 +1107,7 @@ msgstr "Portugisiska"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "Portugisiska (Portugal)"
 
 msgctxt "lang_ro"
 msgid "Romanian"
@@ -1225,7 +1255,7 @@ msgstr "Hantera bilder"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr ""
+msgstr "Du kan välja en eller flera bilder och sedan:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
@@ -1237,7 +1267,7 @@ msgstr "Montana, USA"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "tillverknings- eller bearbetningsplatser"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
@@ -1352,7 +1382,7 @@ msgstr "För produkter utan streckkod används en intern kod automatiskt."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "Prenumerera på nyhetsbrevet (maximalt två e-postmeddelanden per månad)"
 
 msgctxt "next"
 msgid "Next"
@@ -1368,11 +1398,11 @@ msgstr "Näringsfakta anges inte på produkten."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "Flera näringsfakta anges på produkten (t.ex. med tillsatt vatten eller mjölk)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "Ange endast näringsfakta för den oberedda produkten, utan tillsatt vatten eller mjölk. Om det finns olika produkter, ange näringsfakta för den första produkten som listas."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -1400,7 +1430,7 @@ msgstr "%s i %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "Näringsnivåer för 100 g"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
@@ -1477,7 +1507,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Median"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
@@ -1886,7 +1916,7 @@ msgstr "Stad, Län och Land där produkten köptes"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr ""
+msgstr "Ange var du köpte eller såg produkten (gärna minst vilket land)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
@@ -1922,7 +1952,7 @@ msgstr "Kom ihåg mig"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "Kom ihåg inköpsplatsen och använd för nästa tillagda produkt"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -1938,7 +1968,15 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr ""
+msgstr "Hej <NAME>,\n\n"
+"Du bad om att ditt lösenord ska återställas för https://openfoodfacts.org\n\n"
+"för användarnamnet: <USERID>\n\n"
+"För att fortsätta lösenordsåterställningen, klicka på länken nedan.\n"
+"Om du inte begärde återställning av lösenordet kan du ignorera det här meddelandet.\n\n"
+"<RESET_URL>\n\n"
+"Vi ses snart,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
@@ -1946,7 +1984,7 @@ msgstr "Återställ ditt lösenord på <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Ditt lösenord har ändrats. Du kan nu logga in med det nya lösenordet."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
@@ -1954,11 +1992,11 @@ msgstr "Ange ett nytt lösenord."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "Ett e-postmeddelande med en länk för att återställa ditt lösenord har skickats till den e-postadress som är kopplad till ditt konto."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr ""
+msgstr "Om du har glömt ditt lösenord, fyll i ditt användarnamn eller e-postadress för att få instruktioner för att återställa ditt lösenord."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2014,7 +2052,7 @@ msgstr "innehåller"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr ""
+msgstr "Välj produkter med specifika märken, kategorier, etiketter, ursprungsämnen, tillverkningsställen etc."
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2034,11 +2072,11 @@ msgstr "Hämta resultat"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr ""
+msgstr "Hämta resultat i CSV-format (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr ""
+msgstr "Teckenuppsättning: Unicode (UTF-8). Separator: tabulering (tabb)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2046,7 +2084,7 @@ msgstr "Ändra sökkriterier"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
-msgstr ""
+msgstr "(Valfritt) - Skapa en kolumn för varje:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2062,7 +2100,7 @@ msgstr "Graf"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr ""
+msgstr "Spridningsdiagram"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
@@ -2079,11 +2117,11 @@ msgstr ""
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Permanent länk till det här diagrammet, delbart via e-post och på sociala nätverk"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "Grafen visar bara produkter med kända värden."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
@@ -2091,7 +2129,7 @@ msgstr "Visa resultat på en graf"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "Obs! Detta är en användargenererad graf. Titeln, representerade produkter och visualiseringsaxlar har valts av författaren av grafen."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2103,7 +2141,7 @@ msgstr "Ingredienser"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Permanent länk till dessa resultat, delas via e-post och på sociala nätverk"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
@@ -2119,11 +2157,11 @@ msgstr "Resultat på en karta"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Permanent länk till den här kartan, delbar via e-post och på sociala nätverk"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "Kartan visar bara produkter med känd produktionsplats."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
@@ -2155,7 +2193,7 @@ msgstr "Sökresultat"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Använd en annan färg för följande produkter:"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2199,11 +2237,11 @@ msgstr "Söktermer"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Sök efter ord som finns i produktnamnet, generiska namn, varumärken, kategorier, ursprung och etiketter"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr ""
+msgstr "Sök en produkt, varumärke, ingrediens, näring etc."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
@@ -2284,11 +2322,11 @@ msgstr "Visa detaljerad statistik"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "standardavvikelse, minimum, maximium, 10:e och 90:e percentiler"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr ""
+msgstr "Om du redan har ett konto på <SITE>, vänligen logga in innan du fyller i det här formuläret."
 
 msgctxt "signout"
 msgid "Sign-out"
@@ -2296,7 +2334,7 @@ msgstr "Logga ut"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "En samlad, fri och öppen databas över ingredienser, näringsfakta och information om livsmedelsprodukter från hela världen"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2340,7 +2378,7 @@ msgstr "Butiker"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr ""
+msgstr "Namn på affären eller affärskedjan"
 
 msgctxt "stores_p"
 msgid "stores"
@@ -2432,7 +2470,7 @@ msgstr "Avprenumerera"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr ""
+msgstr "Du kan när som helst avregistrera dig från listorna."
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
@@ -2468,7 +2506,7 @@ msgstr "Produkter som inte har redigerats av användaren %s"
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "medverkande"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2476,7 +2514,7 @@ msgstr "Produkter tillagda av %s"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "medverkande"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2488,7 +2526,7 @@ msgstr "visa"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr ""
+msgstr "Visa matchande produkter från hela världen"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
@@ -2525,11 +2563,11 @@ msgstr "Avmarkera bild"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "Avmarkerar bild."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "Ej markerad bild."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
@@ -2537,7 +2575,7 @@ msgstr "Fel vid avmarkering av bild."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Varning: mängden fibrer är inte angiven, eventuella positiv inverkan på betyget kunde inte beaktas."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2605,6 +2643,10 @@ msgstr ""
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
+msgstr ""
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
 msgstr ""
 
 msgctxt "warning_not_complete"

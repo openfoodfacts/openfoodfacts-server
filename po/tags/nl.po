@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:06\n"
+"PO-Revision-Date: 2019-05-03 21:20\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -477,7 +477,7 @@ msgstr "aminozuren"
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "nucleotides:singular"
 msgid "nucleotide"
-msgstr ""
+msgstr "nucleotide"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "nucleotides:plural"
@@ -496,12 +496,12 @@ msgstr "andere-voedingsstoffen"
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "nova_groups:singular"
 msgid "nova-group"
-msgstr ""
+msgstr "nova-group"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "nova_groups:plural"
 msgid "nova-groups"
-msgstr ""
+msgstr "nova-groups"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "last_check_dates:plural"
@@ -511,5 +511,13 @@ msgstr ""
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "last_check_dates:singular"
 msgid "last-check-date"
+msgstr ""
+
+msgctxt "data_sources:singular"
+msgid "data-source"
+msgstr ""
+
+msgctxt "data_sources:plural"
+msgid "data-sources"
 msgstr ""
 
