@@ -12399,9 +12399,90 @@ fr:ferments lactiques sélectionnés
 nl:geselecteerde fermenten
 # fr:ferments-lactiques-sélectionnés has 124 products in 2 languages @2018-11-02
 
+# description:en:Lactobacillus acidophilus is a species of gram positive bacteria in the genus Lactobacillus. L. acidophilus is a homofermentative, microaerophilic species, fermenting sugars into lactic acid. These strains are commercially used in many dairy products in the production of acidophilus-type yogurt.
+
+<en:lactic ferments
+en:Lactobacillus acidophilus
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
 
 
+# A microbiological culture, or microbial culture, is a method of multiplying microbial organisms by letting them reproduce in predetermined culture medium under controlled laboratory conditions. 
+# All cultures in food are microbial cultures
 
+<en:ferment
+en:microbial culture, culture
+fr:culture bactérienne
+nl:Microbiële cultuur
+wikipedia:en:https://en.wikipedia.org/wiki/Microbiological_culture
+# ingredient/culture has 683 products in 3 languages @2018-12-27
+nova:en:3
+
+<en:microbial culture
+en:cheese culture
+de:Käsekultur
+fr:Arômes fromage
+# ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
+
+# Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
+
+<en:lactic ferments
+en:lactic acid bacteria
+de:Milchsäurebakterienkultur
+es:cultivos lácticos
+fr:culture de bactéries lactiques
+it:coltura di batteri acidolattici
+nl:Melkzuurbacteriën
+wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
+# ingredient/fr:culture-de-bactéries-lactiques has 19 products in 3 languages @2018-12-27
+
+# Bifidobacterium is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. 
+# Les bifidobactéries appartiennent à la famille des bactéries lactiques.
+
+<en:lactic ferments
+en:bifidus, bifidus culture
+ca:Bifidus, Bifidobacteri
+es:bifidus
+et:Bifidobakter
+fa:بیفیدوباکتر
+fr:bifidus, culture de bifidus, bifidobactérium
+it:Bifidobacterium Lactis
+ja:ビフィズス菌
+ka:ბიფიდობაქტერიები
+kk:Бифидобактериялар
+la:Bifidobacterium, b. lactis, Bifidobacterium lactis
+nl:bifidus
+ru:Бифидобактерии
+tr:Bifido bakterisi
+uk:Біфідобактерії
+uz:Bifidobakteriyalar
+vi:Vi khuẩn bifidus
+zh:雙歧桿菌屬
+# kk-arab:بىيفىيدوباكتەرىييالار
+# kk-cn:بىيفىيدوباكتەرىييالار
+# kk-cyrl:Бифидобактериялар
+# kk-kz:Бифидобактериялар
+# kk-latn:Bïfïdobakterïyalar
+# kk-tr:Bïfïdobakterïyalar
+# zh-cn:双歧杆菌
+wikidata:en:Q132656
+wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium
+# ingredient/fr:bifidus has 45 products in 4 languages @2018-12-27
+# the name used on the ingredients is primary, wikidata secondary, no entry if in latin
+
+# Danone decided to add a probiotic strain:Bifidus Actiregularis. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
+
+<en:bifidus
+en:bifidus actiregularis
+fr:Bifidus actiregularis, bifidus actiregularis
+la:bifidus actiregularis
+
+<en:bifidus
+<en:lactic acid bacteria
+fr:ferments lactiques dont bifidobacterium
+
+<en:bifidus
+<en:Lactobacillus acidophilus
+nl:L. acidophilus en Bifidobacterium
 # Lactobacillus delbrueckii subsp. bulgaricus (until 2014 known as Lactobacillus bulgaricus) is the main bacteria used for the production of yogurt. 
 
 <en:lactic ferments
@@ -12538,81 +12619,6 @@ fr:présure microbienne
 it:caglio microbico
 nl:microbieel stremsel
 # fr:présure-microbienne has 100 products in 6 languages @2018-11-03
-
-# A microbiological culture, or microbial culture, is a method of multiplying microbial organisms by letting them reproduce in predetermined culture medium under controlled laboratory conditions. 
-# All cultures in food are microbial cultures
-
-<en:ferment
-en:microbial culture, culture
-fr:culture bactérienne
-nl:Microbiële cultuur
-wikipedia:en:https://en.wikipedia.org/wiki/Microbiological_culture
-# ingredient/culture has 683 products in 3 languages @2018-12-27
-nova:en:3
-
-<en:microbial culture
-en:cheese culture
-de:Käsekultur
-fr:Arômes fromage
-# ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
-
-# Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
-
-# https://en.wikipedia.org/wiki/Lactic_acid_bacteria
-<en:microbial culture
-en:lactic acid bacteria
-de:Milchsäurebakterienkultur
-es:cultivos lácticos
-fr:culture de bactéries lactiques
-it:coltura di batteri acidolattici
-nl:Melkzuurbacteriën
-wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
-# ingredient/fr:culture-de-bactéries-lactiques has 19 products in 3 languages @2018-12-27
-
-# Bifidobacterium is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. 
-# Les bifidobactéries appartiennent à la famille des bactéries lactiques.
-
-<en:lactic acid bacteria
-en:bifidus, bifidus culture
-ca:Bifidus, Bifidobacteri
-es:bifidus
-et:Bifidobakter
-fa:بیفیدوباکتر
-fr:bifidus, culture de bifidus, bifidobactérium
-it:Bifidobacterium Lactis
-ja:ビフィズス菌
-ka:ბიფიდობაქტერიები
-kk:Бифидобактериялар
-la:Bifidobacterium, b. lactis, Bifidobacterium lactis
-nl:bifidus
-ru:Бифидобактерии
-tr:Bifido bakterisi
-uk:Біфідобактерії
-uz:Bifidobakteriyalar
-vi:Vi khuẩn bifidus
-zh:雙歧桿菌屬
-# kk-arab:بىيفىيدوباكتەرىييالار
-# kk-cn:بىيفىيدوباكتەرىييالار
-# kk-cyrl:Бифидобактериялар
-# kk-kz:Бифидобактериялар
-# kk-latn:Bïfïdobakterïyalar
-# kk-tr:Bïfïdobakterïyalar
-# zh-cn:双歧杆菌
-wikidata:en:Q132656
-wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium
-# ingredient/fr:bifidus has 45 products in 4 languages @2018-12-27
-# the name used on the ingredients is primary, wikidata secondary, no entry if in latin
-
-# Danone decided to add a probiotic strain:Bifidus Actiregularis. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
-
-<en:bifidus
-en:bifidus actiregularis
-fr:Bifidus actiregularis, bifidus actiregularis
-la:bifidus actiregularis
-
-<en:bifidus
-<en:lactic acid bacteria
-fr:ferments lactiques dont bifidobacterium
 
 
 
@@ -32486,6 +32492,9 @@ it:fiocchi di mela
 
 <en:apple
 nl:Royal Gala appel
+
+<nl:Royal Gala appel
+nl:Tenroy
 
 <en:apple
 <en:vegetable fiber
