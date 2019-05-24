@@ -20535,7 +20535,7 @@ da:ekstra jomfruolivenolie
 es:aceite de oliva virgen extra
 fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva
-nl:extra olijfolie van de eerste persing
+nl:olijfolie extra vierge, extra olijfolie van de eerste persing
 
 <en:extra virgin olive oil
 en:organic extra virgin olive oil
@@ -26133,6 +26133,10 @@ de:Dampfgegarter Spitzen-Langkorn-Reis
 fr:riz long grain précuit à la vapeur
 # ingredient/parboiled-long-grain-rice has 26 products in 3 languages @2018-12-19
 
+<en:parboiled long grain rice
+en:parboiled organic long grain rice
+nl:Witte langgraanrijst van biologische oorsprong parboiled
+
 <en:long grain rice
 fr:riz long étuvé, riz long grain étuvé
 # ingredient/fr:riz-long-étuvé has 40 products in french @2018-12-19
@@ -26155,9 +26159,6 @@ fr:riz blanc
 nl:witte rijst
 # ingredient/fr:riz-blanc has 99 products in french @2018-12-19
 
-<en:long grain rice
-en:parboiled organic long grain rice
-nl:Witte langgraanrijst van biologische oorsprong parboiled
 
 <en:rice
 en:red rice
@@ -41879,8 +41880,11 @@ pt:tomate en cubos
 sk:kocky rajčín
 # ingredient/fr:tomates-en-dés has 27 products in 4 languages @2018-12-26
 # ingredient/fr:dés-de-tomates has 53 products in french @2018-12-26
+# usage:en:  (tomato, tomato juice)
 
-# crushed peeled tomato can be a compound ingredient, eg  (tomato, tomato juice)
+<en:tomato cubes
+en:organic tomato cubes in organic tomato juice
+nl:tomatenblokjes in tomatensap van biologische oorsprong
 
 <en:chopped tomatoes
 en:crushed peeled tomato
