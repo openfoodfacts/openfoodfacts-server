@@ -15363,7 +15363,7 @@ fr:emmental français râpé
 # This cheese has translation issues as it is very similar to other fresh cheeses
 
 <en:cheese
-en:fromage blanc, cottage cheese
+en:fromage blanc, 
 af:Fromage blanc
 de:Frischkäse
 es:Fromage frais, queso fresco
@@ -15378,7 +15378,6 @@ nl:verse kaas
 pt:queijo branco
 # en-ca:Fromage blanc
 # en-gb:Fromage blanc
-wikidata:en:Q15080546
 wikipedia:en:https://en.wikipedia.org/wiki/Fromage_blanc
 # fr:fromage-blanc has 631 products in 7 languages @2018-10-27
 
@@ -15386,6 +15385,57 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fromage_blanc
 fr:fromage blanc frais
 # fr:fromage blanc frais has 60 products in 1 language @2018-10-28
 
+# description:en:QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
+
+# <en:category:en:Cream cheeses
+<en:cheese
+en:Quark
+ar:كوارك
+az:Kəsmik
+# bar:Tschottn
+be:тварог
+# be-tarask:тварог
+# bxr:Ээзгэй
+cs:tvaroh
+# csb:Glëmza
+da:Kvark
+de:Quark, Weißkäse, Topfen, Schotten, Speisequark
+# de-at:Topfen
+# en-ca:Quark
+# en-gb:Quark
+es:Queso quark
+fi:Rahka
+fr:quark
+he:גבינה לבנה
+hy:Կաթնաշոռ
+id:Quark
+it:Quark
+ja:クワルク
+ka:ხაჭო
+ko:크바르크
+lb:Stoffi
+lt:Varškės sūris
+lv:biezpiens
+nb:kvarg
+nl:kwark, plattekaas
+nn:kvarg
+# olo:Ruahto
+pl:Twaróg
+pt:quark
+# pt-br:Quark
+ru:творог
+sh:quark
+sk:Tvaroh
+sv:Kvarg
+tr:Kesmik
+tt:эремчек
+uk:домашній сир
+wa:Makêye
+zh:奶渣
+wikidata:en:Q259642
+wikipedia:en:https://en.wikipedia.org/wiki/Quark_(dairy_product)
+# ingredient/nl:kwark has 2 products @2019-05-24
+# category/quark has 221 products @2019-05-24
 
 <en:fromage blanc
 en:lean stern
@@ -15393,6 +15443,10 @@ de: Magerquark
 fr:séré maigre
 it: quark magro
 # ingredient/fr:séré-maigre has 33 products in 4 languages @2019-03-01
+
+<en:cheese
+en:cottage cheese
+wikidata:en:Q15080546
 
 # FETA is a brined curd white cheese made in Greece from sheep's milk or from a mixture of sheep and goat's milk.
 
