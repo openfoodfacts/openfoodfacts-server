@@ -14922,6 +14922,7 @@ fr:fromage de chèvre au lait pasteurisé
 fr:fromage au lait de vache pasteurisé
 # fr:fromage-au-lait-de-vache pasteurisé has 39 products in 3 languages @2018-10-27
 
+
 # description:en:SHEEP MILK CHEESE is a cheese prepared from sheep milk. 
 
 <en:cheese
@@ -33064,7 +33065,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Orange_juice
 wikidata:en:Q219059
 # orange-juice 1401 products in 9 languages @2018-09-28
 
-# This seems a compound ingredient, i.e. concentrated orange juice + water, bt is never described as such.
+<en:orange juice
+en:Organic orange juice
+fr:Jus d'orange issu de l'agriculture biologique
+nl:Biologisch sinaasappelsap
+# ingredient/fr:jus-d-orange-issu-de-l-agriculture-biologique has 11 products in french @2019-05-24
+
+# comment:en:This seems a compound ingredient, i.e. concentrated orange juice + water, but is never described as such.
 
 fr:Pur jus d'orange
 carbon_footprint_fr_foodges_ingredient:fr:Pur jus d'orange
