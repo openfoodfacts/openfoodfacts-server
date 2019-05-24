@@ -12,7 +12,7 @@ stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:id:mengandung
 stopwords:it:contiene, nella
-stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd
+stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd
 stopwords:nn:av, inneholder
 stopwords:pl:w tym
 stopwords:pt:do qual, dos quais
@@ -13542,6 +13542,10 @@ fi:täysmalto
 fr:lait entier, lait entier frais
 it:latte intero
 nl:volle melk
+
+<en:whole milk
+en:organic whole milk
+nl:volle melk van biologische oorsprong
 
 <en:whole milk
 en:UHT sterilized whole milk
@@ -43551,6 +43555,11 @@ nl:geroosterde germalen pinda's
 pt:amendoins torrados moídos
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes%20grillées%20moulues
 # 53 products in 6 languages @2018-10-06
+
+<en:peanut
+en:shelled peanuts
+nl:Pinda's in de dop
+# ingredient/nl:pinda-s-in-de-dop has 1 product @2019-05-24
 
 <en:nut
 en:cashew nuts, cashews
