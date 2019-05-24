@@ -14922,12 +14922,32 @@ fr:fromage de chèvre au lait pasteurisé
 fr:fromage au lait de vache pasteurisé
 # fr:fromage-au-lait-de-vache pasteurisé has 39 products in 3 languages @2018-10-27
 
+# description:en:SHEEP MILK CHEESE is a cheese prepared from sheep milk. 
+
 <en:cheese
 # <en:sheeps milk
-fr:fromage de brebis
-de:Schafkäse
-it:formaggio di pecore
-# fr:fromage-de-brebis has 42 products @2018-10-27
+# <en:category:en:Cheeses
+en:sheep's-milk cheese, Sheep Cheeses, Cheeses from sheep milk
+cs:ovčí sýr
+de:Schafskäse, Schafkäse, Schafmilchkäse, Käse aus Schafsmilch
+el:πρόβειο τυρί
+es:queso de leche de oveja, Quesos de oveja, Quesos de leche de oveja
+fr:Fromages de brebis, fromage de brebis, fromage au lait de brebis, Fromages au lait de brebis
+it:formaggio di pecore, Formaggio di pecora
+nl:schapenkaas, Schapenkazen
+nn:ost av sauemjølk
+pl:ser z mleka owczego
+ro:brânză din lapte de oaie
+ru:сыр из овечьего молока
+sv:Fårost
+wikidata:en:Q1411808
+wikipedia:en:https://en.wikipedia.org/wiki/Sheep_milk_cheese
+# ingredient/fr:fromage-de-brebis has 42 products @2018-10-27
+# category/Sheep-Cheeses has 868 products @2019-05-24
+
+<en:sheep's-milk cheese
+fr:fromage de brebis au lait pasteurisé
+# ingredient/fr:fromage-de-brebis-au-lait-pasteurise has 14 products in french @2019-05-24
 
 <en:cheese
 en:soft white cheese
