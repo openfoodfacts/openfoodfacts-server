@@ -43388,6 +43388,9 @@ nl:kastanjepuree
 # 33 products in 2 languages @2018-10-07
 
 <en:chestnut
+en:cooked chestnuts
+
+<en:chestnut
 fr:marron, marrons
 de:Maronen
 it:marroni
@@ -43395,12 +43398,24 @@ wikidata:en:Q3177204
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:marron
 # 218 products in 5 languages @2018-10-07
 
-# crème de marrons is a compound ingredient:(sucre, châtaignes, eau, extrait pur de vanille)
+<fr:marron
+de:Gekochte Maronen
 
+<fr:marron
+fr:Marrons entiers
+it:Castagne intere
+pt:Castanhas inteiras
+# ingredient/fr:marrons-entiers has 23 products @2019-05-24
+
+<fr:Marrons entiers
+fr:Marrons entiers bio
+
+# <en:compound
 <fr:marron
 fr:crème de marrons
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème%20de%20marrons
 # 53 products in 1 language @2018-10-07
+# usage:fr:(sucre, châtaignes, eau, extrait pur de vanille)
 
 <fr:marron
 fr:purée de marrons
