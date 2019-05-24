@@ -43964,13 +43964,24 @@ wikidata:en:Q40763
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines
 # 304 products in 7 languages @2018-10-06
 
+# description:en:Anise, also called aniseed, is a flowering plant in the family Apiaceae. It is widely cultivated and used to flavor food and alcoholic drinks, especially around the Mediterranean.
+# comment:en: wikidata page Q28692 refers anise in general terms, not to the seed
 
 <en:seed
 en:aniseed
-fr:graine d'anis vert, anis vert
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20d'anis%20vert
-# 25 products in 1 language @2018-10-07
+es:semilla de anís
+fr:graine d'anis vert, anis vert, graine d'anis
+nl:anijszaad
+te:సోపు
+tt:әнис орлыгы
+wikidata:en:Q33873455
+wikipedia:en:https://en.wikipedia.org/wiki/Anise
+# ingredient/fr:graine-d'anis-vert has 25 products in 1 language @2018-10-07
 
+<en:aniseed
+en:organic aniseed
+nl:biologisch anijszaad
+# ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
 
 <en:seed
 en:mustard seed
