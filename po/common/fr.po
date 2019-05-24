@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-23 18:14\n"
+"PO-Revision-Date: 2019-05-24 14:38\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -344,7 +344,7 @@ msgstr "Pays de vente"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr "Pays dans lesquels le produit est diffusé en masse (excepté les magasins spécialisés dans l'import)"
+msgstr "Pays dans lesquels le produit est largement distribué (hors magasins spécialisés dans l'import)"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -543,7 +543,7 @@ msgstr "Mauvais nom d'utilisateur ou mot de passe. <a href=\"/cgi/reset_password
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr "Une erreur est survenue dans la base de donnée, veuillez rafraîchir la page."
+msgstr "Une erreur est survenue en lisant la base de données, essayez de recharger la page."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
@@ -714,7 +714,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Suivez nous sur <a href=\"https://twitter.com/openfoodfactsfr\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts.fr\">Facebook</a> et\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -799,7 +801,7 @@ msgstr "A bientôt !"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr "%d de produits correspondent aux critères de recherche, dont %i de produits ont des valeurs définies sur le graphique."
+msgstr "%d produits correspondent aux critères de recherche, dont %i produits avec des valeurs définies pour les axes du graphique."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -1301,7 +1303,7 @@ msgstr "Les produits qui ne sont pas fabriqués ou transformés à :  %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr "%d de produits correspondent aux critères de recherches, dont %i de produits ont un lieu de production connu."
+msgstr "%d produits correspondent aux critères de recherche, dont %i produits pour lesquels le lieu de fabrication ou d'emballage est connu."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -2571,7 +2573,7 @@ msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone St
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/fr-fr/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -3164,7 +3166,7 @@ msgstr "Installez l'app iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr ""
+msgstr "<em>Code barre ambigu</em> : Ce produit utilise un code barre destiné à l'usage interne d'une entreprise. Il est possible que différents producteurs ou magasins utilisent ce même code barre pour des produits différents."
 
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
@@ -3196,19 +3198,19 @@ msgstr "Producteur"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
-msgstr "Carte d'information de l'environnement"
+msgstr "Carte d'information environnementale"
 
 msgctxt "environment_infocard_note"
 msgid "HTML code for the environment infocard in the mobile application"
-msgstr "Code HTML pour la carte d'information d'environnement dans l'application mobile"
+msgstr "Code HTML pour la carte d'information environnementale dans l'application mobile"
 
 msgctxt "environment_impact_level"
 msgid "Environment impact level"
-msgstr "Niveau d'impact sur l'environnement"
+msgstr "Niveau d'impact environnemental"
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
-msgstr "fr:faible, fr:moyen ou fr:fort"
+msgstr "en:low, en:medium ou en:high"
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
@@ -3220,15 +3222,15 @@ msgstr ""
 
 msgctxt "of_sustainable_daily_emissions_of_1_person"
 msgid "of sustainable daily emissions of 1 person"
-msgstr ""
+msgstr "des émissions journalières soutenables pour 1 personne"
 
 msgctxt "of_sustainable_weekly_emissions_of_1_person"
 msgid "of sustainable weekly emissions of 1 person"
-msgstr ""
+msgstr "des émissions hebdomadaires soutenables pour 1 personne"
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "pour une portion"
 
 msgctxt "methodology"
 msgid "Methodology"
@@ -3236,19 +3238,19 @@ msgstr "Méthodologie"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
-msgstr "Les calculs des émissions de carbone reposent sur les valeurs de CO<sub>2</sub> par kg du programme FoodGES de <a href=\"https://www.ademe.fr\">l'ADEME</a>."
+msgstr "Les calculs d'émissions de carbone reposent sur les valeurs de CO<sub>2</sub> par kg de la base FoodGES de l'<a href=\"https://www.ademe.fr\">ADEME</a>."
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
-msgstr "Émissions annuelles durables: 2 tonnes d'équivalent CO<sub>2</sub> par personne pour atteindre les objectifs définis dans la COP21."
+msgstr "Emissions annuelles soutenables : 2 tonnes d'équivalent de CO<sub>2</sub> par personne pour atteindre les objectifs fixés par la COP21"
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr "Les calculs d'empreinte carbone ont une grande incertitude. Les valeurs doivent être examinées avec prudence et sont davantage destinées à la comparaison relative que comme des valeurs absolues."
+msgstr "Les calculs d'empreinte carbone présentent un grand degré d'incertitude. Les valeurs sont plutôt destinées à une comparaison relative et ne doivent pas être considérées comme des mesures précises et absolues."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr "Trop de produits (%d produits, la limite est de %d) à exporter, veuillez télécharger <a href=\"/data\">l'export complet de la base de données</a> à la place."
+msgstr "Trop de produits (%d produits, la limite est %d) à exporter, merci de télécharger <a href=\"/data\">l'export complet de la base</a> à la place."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
@@ -3288,5 +3290,5 @@ msgstr "Non"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr "Ignorer"
+msgstr "Passer"
 
