@@ -21,20 +21,20 @@ my $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag explain $product_ref->{traces_tags};
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
+'en:gluten',
 'en:celery',
 'en:crustaceans',
 'en:eggs',
 'en:fish',
-'en:gluten',
 'en:milk',
 'en:molluscs',
 'en:mustard',
 'en:nuts',
 ]
-);
+) || diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{traces_tags},  [
 'en:lupin',
@@ -77,8 +77,8 @@ compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
 is_deeply($product_ref->{allergens_tags}, [
-"en:celery",
 "en:gluten",
+"en:celery",
 "en:lupin",
 "en:mustard",
 "en:soybeans",
@@ -133,8 +133,8 @@ is_deeply($product_ref->{allergens_tags}, [
 );
 
 is_deeply($product_ref->{traces_tags},  [
-'en:eggs',
 'en:gluten',
+'en:eggs',
 'en:nuts',
 'en:peanuts',
 'en:soybeans',
