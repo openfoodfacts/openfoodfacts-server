@@ -12,7 +12,7 @@ stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:id:mengandung
 stopwords:it:contiene, nella
-stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier
+stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd
 stopwords:nn:av, inneholder
 stopwords:pl:w tym
 stopwords:pt:do qual, dos quais
@@ -14140,6 +14140,10 @@ nl:Joghurt
 carbon_footprint_fr_foodges_ingredient:fr:Yaourt
 
 <en:yogurt
+en:organic yogurt
+nl:biologische yoghurt
+
+<en:yogurt
 fr:yogourt maigre
 nl:magere yoghurt
 # ingredient/nl:magere-yoghurt has 1 product @2019-05-24
@@ -27618,6 +27622,11 @@ sl:dekstroza
 # 29818 products in 30 languages @2018-09-24
 
 <en:dextrose
+en:organic dextrose
+nl:biologische dextrose
+# ingredient/nl:biologische-dextrose has 1 product @2019-05-24
+
+<en:dextrose
 en:corn dextrose, dextrose from corn
 bs:kukuruzna dekstroza
 es:dextrosa de maíz
@@ -28016,6 +28025,10 @@ it:proteine del latte
 nl:melkeiwit
 nova:en:4
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
+
+<en:milk proteins
+en:organic milk proteins
+nl:biologisch melkeiwit
 
 <en:milk proteins
 fr:protéines solubles de lait
@@ -28720,6 +28733,7 @@ en:carbonated natural mineral water
 
 <en:carbonated natural mineral water
 nl:Koolzuurhoudend Spa natuurlijk mineraalwater
+# ingredient/nl:koolzuurhoudend-spa-natuurlijk-mineraalwater has 1 product @2019-05-24
 
 <en:carbonated natural mineral water
 fr:eau minérale naturelle avec adjonction de gaz carbonique
@@ -44067,6 +44081,11 @@ it:semi di finocchio
 nl:Venkelzaad
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20fenouil
 # 115 products in 4 languages @2018-10-07
+
+<en:fennel seed
+en:organic fennel seed
+nl:biologisch venkelzaad
+# ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
 
 # Salvia hispanica, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
 en:chia
