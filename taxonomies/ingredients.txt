@@ -28350,16 +28350,6 @@ fr:chocolat au lait du pays alpin
 
 # CACAO
 
-<en:cocoa
-en:cocoa powder
-fr:cacao en poudre
-it:cacao in polvere
-
-<fr:cacao en poudre
-fr:cacao maigre en poudre
-it:cacao magro in polvere
-
-fr:cacao dégraissé
 
 fr:fèves de cacao
 
@@ -28374,29 +28364,22 @@ fr:cacao minimum
 <fr:éclats de fèves de cacao
 fr:éclats de fèves de cacao caramélisés
 
-fr:cacao dégraissé en poudre
 
-fr:cacao en poudre dégraissé
+
 
 fr:extrait de cacao
 
-fr:poudre de cacao dégraissé
 
-<fr:pâte de cacao
-<fr:beurre de cacao
-fr:pâte et beurre de cacao
 
-fr:cacao fortement dégraissé en poudre
 
-fr:cacao en poudre fortement dégraissé
+
 
 fr:cacao en pâte
 
 fr:masse de cacao
 
-fr:poudre de cacao maigre
 
-fr:cacao maigre
+
 
 en:cocoa
 de:Kakao
@@ -28404,6 +28387,16 @@ es:cacao
 fr:cacao
 it:cacao
 nl:cacao
+
+<en:cocoa
+da:fedtfattig kakao
+de:fettarmer Kakao
+es:cacao magro
+fr:cacao maigre, cacao dégraissé
+it:cacao magro
+nb:fedtfattig kakao
+sv:fettreducerad kakao
+
 
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
@@ -28460,7 +28453,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cocoa_butter
 # ingredient/cocoa-butter has 26027 products in 39 languages @2019-05-25
 
 <en:cocoa butter
+en:pure cocoa butter
 fr:pur beurre de cacao
+# ingredient/fr:pur-beurre-de-cacao has 74 products @2019-05-25
 
 <en:cocoa butter
 en:organic cocoa butter
@@ -28470,7 +28465,9 @@ fr:beurre de cacao bio
 
 <en:cocoa butter
 fr:beurre de cacao émulsifiant
+# ingredient/fr:beurre-de-cacao-émulsifiant has 35 products in french @2019-05-25
 
+<en:cocoa
 en:cocoa paste
 de:Kakaomasse
 es:Pasta de cacao
@@ -28488,9 +28485,35 @@ fr:pâte de cacao bio
 en:cocoa powder
 de:Kakaopulver
 es:cacao en polvo
-fr:poudre de cacao
+fr:poudre de cacao, cacao en poudre
+it:cacao in polvere
 nl:cacaopoeder
+pl:kakao w proszku
+pt:cacau em pó
+# ingredient/cocoa-powder has 4521 products in 23 languages @2019-05-25
 
+<en:cocoa powder
+en:fat reduced cocoa powder, low-fat cocoa powder
+de:fettarmes Kakaopulver
+es:cacao magro en polvo
+fi:vähärasvainen kaakaojauhe
+fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre
+it:cacao magro in polvere
+nl:magere cacaopoeder
+pt:cacao magro em pó
+sv:fettreducerat kakaopulver
+# ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
+
+<en:fat reduced cocoa powder
+fr:cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
+de:stark entöltes Kakaopulver
+# ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
+
+<en:cocoa paste
+<en:cocoa butter
+en:cocoa mass and cocoa butter
+fr:pâte et beurre de cacao
+# ingredient/fr:pâte-et-beurre-de-cacao has 92 products in 2 languages @2019-05-25
 
 # description:en:Water is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.
 
