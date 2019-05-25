@@ -5858,7 +5858,7 @@ HTML
 
 	my $top_banner = "";
 
-	if ($lc eq 'fr') {
+	if ($lc eq 'fr-deactivated') {
 
 
 		$top_banner = <<HTML
