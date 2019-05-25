@@ -123,16 +123,20 @@ fr:ingrédient, ingrédients, composition
 hu:összetétel
 id:komposisi
 it:ingredienti, composizione
+kk:Курамы
+ky:Курамы
 lt:Sudedamosios dalys, Sudėtis
 nl:ingrediënt, ingrediënten, samenstelling, bestanddelen
 pl:skład, Skladniki
 pt:composição
 ro:compoziţie, Ingrediente
 ru:coctaB
-sk:obsahuje
+sk:obsahuje, Zloženie
 sl:vsebuje, Sestavine
 sv:innehåller, Ingredienser
+tg:Таркиб
 tr:lcindekiler
+uz:Tarkib
 zh::配料
 
 fr:additifs alimentaires
@@ -28384,11 +28388,6 @@ fr:pâte et beurre de cacao
 
 fr:cacao fortement dégraissé en poudre
 
-<fr:beurre de cacao
-fr:pur beurre de cacao
-
-
-
 fr:cacao en poudre fortement dégraissé
 
 fr:cacao en pâte
@@ -28406,14 +28405,68 @@ fr:cacao
 it:cacao
 nl:cacao
 
+# description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
+
 <en:cocoa
 en:cocoa butter
+ar:زبدة الكاكاو
+bg:какаово масло
+ca:mantega de cacau
+cs:kakaové máslo
+da:kakaosmør
 de:Kakaobutter
+el:βούτυρο κακάου
+eo:kakaa butero
 es:manteca de cacao
+et:Kakaoõli
+eu:Kakao-gurin
+fa:کره کاکائو
+fi:kaakaovoi
 fr:beurre de cacao
+gl:Manteiga de cacao
+he:חמאת קקאו
+hr:kakao maslac
+hu:Kakaóvaj
+id:Budidaya kakao
+is:kakósmor
 it:burro di cacao
+ja:ココアバター
+kk:какао майы
+ko:카카오 버터
+ky:какао майы
+lt:kakovos sviestas
+lv:kakao sviests
+mk:Какаово масло
+ms:Mentega koko
+# nds-nl:Kakoubutter
 nl:cacaoboter
+pl:masło kakaowe
+pt:manteiga de cacau
+ru:масло какао
+# sco:cocoa butter
+sk:kakaové maslo
+sl:Kakavovo maslo
+sq:Gjalpa e kakaos
+sv:kakaosmör
+tg:равгани какао
+th:เนยโกโก้
+uk:Какао-олія
+uz:Kakao moyi, kakao yogi
+# wuu:可可脂
+# yue:唂咕脂
+# wuu:可可脂
 wikidata:en:Q251106
+wikipedia:en:https://en.wikipedia.org/wiki/Cocoa_butter
+# ingredient/cocoa-butter has 26027 products in 39 languages @2019-05-25
+
+<en:cocoa butter
+fr:pur beurre de cacao
+
+<en:cocoa butter
+en:organic cocoa butter
+de:Bio-Kakaobutter
+fr:beurre de cacao bio
+# ingredient/fr:beurre-de-cacao-bio has 24 products in 2 languages @2019-05-25
 
 <en:cocoa butter
 fr:beurre de cacao émulsifiant
