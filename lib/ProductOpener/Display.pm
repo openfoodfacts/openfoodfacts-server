@@ -7331,7 +7331,7 @@ HTML
 
 	$html .= <<HTML
 
-<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br>
+<p class="details">$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br>
 $Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
 $other_editors
 $checked
