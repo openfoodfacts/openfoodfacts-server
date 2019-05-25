@@ -551,9 +551,7 @@ sub extract_ingredients_from_text($) {
 		}
 
 		if ($ingredient =~ /\b(bio|biologique|biologico|organic|halal)\b/i) {
-			$label = $1;
-			$label =~ s/^\s+//;
-			$label =~ s/\s+$//;
+			$label = canonicalize_taxonomy_tag($product_ref->{lc}, "labels", $1);
 			$ingredient =~ s/\b(bio|biologique|biologico|organic|halal)\b//i;
 			$ingredient =~ s/\s+/ /g;
 		}
@@ -978,7 +976,7 @@ sub extract_ingredients_classes_from_text($) {
 	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
 
 
-	$product_ref->{ingredients_text_debug} = $text;
+	#$product_ref->{ingredients_text_debug} = $text;
 
 
 	if ($lc eq 'fr') {
@@ -1216,8 +1214,8 @@ INFO
 		}
 	}
 
-	$product_ref->{ingredients_debug} = clone(\@ingredients);
-	$product_ref->{ingredients_ids_debug} = clone(\@ingredients_ids);
+	#$product_ref->{ingredients_debug} = clone(\@ingredients);
+	#$product_ref->{ingredients_ids_debug} = clone(\@ingredients_ids);
 
 	my $with_sweeteners;
 
@@ -1538,6 +1536,26 @@ INFO
 				delete $product_ref->{$tagtype . '_n'};
 			}
 		}
+		
+		# Delete debug info
+		if (not has_tag($product_ref, "categories", 'en:debug')) {
+			delete $product_ref->{$tagtype};
+		}
+		
+		# Delete empty arrays
+		# -> not active
+		# -> may be dangerous if some apps rely on them existing even if empty
+		
+		if (0) {
+			foreach my $array ($tagtype . '_tags', $tagtype . '_original_tags',
+				$vitamins_tagtype . '_tags', $minerals_tagtype . '_tags',
+				$amino_acids_tagtype . '_tags', $nucleotides_tagtype . '_tags',
+				$other_nutritional_substances_tagtype . '_tags') {
+				if ((defined $product_ref->{$array}) and ((scalar @{$product_ref->{$array}}) == 0)) {
+					delete $product_ref->{$array};
+				}
+			}
+		}
 	}
 
 
@@ -1605,12 +1623,23 @@ INFO
 		else {
 			$product_ref->{$tagtype . '_n'} = scalar @{$product_ref->{$tagtype . '_tags'}};
 		}
+		
+		# Delete empty arrays
+		# -> not active
+		# -> may be dangerous if some apps rely on them existing even if empty		
+		
+		if (0) {
+			if ((defined $product_ref->{$tagtype . '_tags'}) and ((scalar @{$product_ref->{$tagtype . '_tags'}}) == 0)) {
+					delete $product_ref->{$tagtype . '_tags'};
+			}
+		}
 	}
 
-	for (my $i = 0; $i < (scalar @{$product_ref->{additives_old_tags}}); $i++) {
-		$product_ref->{additives_old_tags}[$i] = 'en:' . $product_ref->{additives_old_tags}[$i];
+	if (defined $product_ref->{additives_old_tags}) {
+		for (my $i = 0; $i < (scalar @{$product_ref->{additives_old_tags}}); $i++) {
+			$product_ref->{additives_old_tags}[$i] = 'en:' . $product_ref->{additives_old_tags}[$i];
+		}
 	}
-
 
 	# keep the old additives for France until we can fix the new taxonomy matching to support all special cases
 	# e.g. lecithine de soja
@@ -1625,13 +1654,11 @@ INFO
 
 	# check if we have a previous or a next version and compute differences
 
-	$product_ref->{$field . "_debug_tags"} = [];
-
-
-
 	# previous version
 
 	if (exists $loaded_taxonomies{$field . "_prev"}) {
+	
+		(defined $product_ref->{$field . "_debug_tags"}) or $product_ref->{$field . "_debug_tags"} = [];
 
 		# compute differences
 		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
@@ -1657,6 +1684,8 @@ INFO
 	# next version
 
 	if (exists $loaded_taxonomies{$field . "_next"}) {
+	
+		(defined $product_ref->{$field . "_debug_tags"}) or $product_ref->{$field . "_debug_tags"} = [];
 
 		# compute differences
 		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
@@ -1688,12 +1717,14 @@ INFO
 
 
 	delete $product_ref->{with_sweeteners};
-	foreach my $additive (@{$product_ref->{'additives_tags'}}) {
-		my $e = $additive;
-		$e =~ s/\D//g;
-		if (($e >= 950) and ($e <= 968)) {
-			$product_ref->{with_sweeteners} = 1;
-			last;
+	if (defined $product_ref->{'additives_tags'}) {
+		foreach my $additive (@{$product_ref->{'additives_tags'}}) {
+			my $e = $additive;
+			$e =~ s/\D//g;
+			if (($e >= 950) and ($e <= 968)) {
+				$product_ref->{with_sweeteners} = 1;
+				last;
+			}
 		}
 	}
 }
