@@ -143,9 +143,10 @@
   version "1.4.1"
   resolved "https://codeload.github.com/Leaflet/Leaflet.markercluster/tar.gz/94f9815a46ba279157f4976f39360197aa90aaee"
 
-"@bower_components/leaflet@Leaflet/Leaflet#>=1.0.0", leaflet@Leaflet/Leaflet#>=1.0.0:
-  version "1.3.4"
-  resolved "https://codeload.github.com/Leaflet/Leaflet/tar.gz/0e566b2ad5e696ba9f79a9d48a7e51c8f4892441"
+"@bower_components/leaflet@Leaflet/Leaflet#>=1.5.1":
+  version "1.5.1"
+  uid "2e3e0ffbe87f246eb76d86d2633ddd59b262830b"
+  resolved "https://codeload.github.com/Leaflet/Leaflet/tar.gz/2e3e0ffbe87f246eb76d86d2633ddd59b262830b"
 
 "@bower_components/osmtogeojson@tyrasd/osmtogeojson#^2.2.12", osmtogeojson@tyrasd/osmtogeojson#^2.2.12:
   version "2.2.12"
@@ -2532,6 +2533,10 @@ lcid@^1.0.0:
   integrity sha1-MIrMr6C8SDo4Z7S28rlQYlHRuDU=
   dependencies:
     invert-kv "^1.0.0"
+
+leaflet@Leaflet/Leaflet#>=1.0.0:
+  version "1.3.4"
+  resolved "https://codeload.github.com/Leaflet/Leaflet/tar.gz/0e566b2ad5e696ba9f79a9d48a7e51c8f4892441"
 
 leven@^2.1.0:
   version "2.1.0"
