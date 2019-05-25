@@ -370,6 +370,9 @@ sub clean_weights($) {
 				delete $product_ref->{$field . "_unit"};
 			}
 			else {
+				$product_ref->{$field . "_unit"} =~ s/grammes/g/i;
+				$product_ref->{$field . "_unit"} =~ s/grams/g/i;
+				$product_ref->{$field . "_unit"} =~ s/grm/g/i;
 				$product_ref->{$field . "_unit"} =~ s/gr/g/i;
 				if ($product_ref->{$field . "_unit"} !~ /^(kJ|L)$/) {
 					$product_ref->{$field . "_unit"} = lc($product_ref->{$field . "_unit"});
@@ -394,10 +397,10 @@ sub clean_weights($) {
 			$product_ref->{$field} =~ s/(\d|[\)])\s?\[(\w+)\]/lc("$1 $2")/ieg;
 
 			# 420g -> 420 g
-			$product_ref->{$field} =~ s/(\d|[\)])( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
+			$product_ref->{$field} =~ s/(\d|[\)])( )?(grms|grm|grams|grammes|gramme|gr|g)(\.)?/$1 g/i;
 			$product_ref->{$field} =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
 			$product_ref->{$field} =~ s/(litre|litres|liter|liters|lt)\b/l/i;
-			$product_ref->{$field} =~ s/kilogramme|kilogrammes|kgs/kg/i;
+			$product_ref->{$field} =~ s/kilogramme|kilogrammes|kgs|kgrs|kgr/kg/i;
 			$product_ref->{$field} =~ s/(\d)(\s)*(kg|g|gr|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))e?\b/lc("$1 $3")/ieg;
 			# 250 GR -> 250 g
 			$product_ref->{$field} =~ s/(\d) gr\b/$1 g/g;
@@ -1067,6 +1070,8 @@ sub load_csv_file($) {
 					}
 
 					# ["URL", "download_to:/srv/off/imports/ferrero/images/"],
+					# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
+					# -> remove thumb=true to get the full image
 
 					elsif ($target_field =~ /^download_to:/) {
 
@@ -1077,6 +1082,9 @@ sub load_csv_file($) {
 						$file =~ s/.*\///;
 
 						$file =~ s/[^A-Za-z0-9-_\.]/_/g;
+						
+						# get big images from equadis
+						$csv_product_ref->{$source_field} =~ s/thumb=true&//;
 
 						# do not download again images that we already have
 						# but try again if the size is 0
@@ -1084,7 +1092,7 @@ sub load_csv_file($) {
 						if ((! -e "$dir/$file") or ((-s "$dir/$file") < 10000)) {
 
 							print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
-							system("wget $csv_product_ref->{$source_field} -O $dir/$file");
+							system("wget \"" . $csv_product_ref->{$source_field} . "\" -O $dir/$file");
 							sleep 2;	# there seems to be some limit as we received 403 Forbidden responses
 						}
 					}
@@ -1116,6 +1124,15 @@ sub load_csv_file($) {
 						}
 						else {
 							assign_value($product_ref, $target_field . "_value", $value);
+						}
+					}
+					# ["organic", "labels_y_en:organic"],	# Y or N
+					elsif ($target_field =~ /^(.*)_(y|yes|o|oui|1)_(.*)$/) {
+						my $tagtype = $1;
+						my $condition = $2;
+						my $tag_value = $3;
+						if ($value =~ /^$condition$/i) {
+							assign_value($product_ref, $tagtype, $tag_value);
 						}
 					}
 					else {

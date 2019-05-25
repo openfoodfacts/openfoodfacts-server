@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_AU\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 15:32\n"
+"PO-Revision-Date: 2019-05-11 13:47\n"
 "Language-Team: English, Australia\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -344,7 +344,7 @@ msgstr "Country"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr "Countries where the product is widely available (not including stores specialising in foreign products)"
+msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
@@ -365,6 +365,14 @@ msgstr "Products not sold in %s"
 msgctxt "data_source"
 msgid "Data source"
 msgstr "Data source"
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr ""
 
 msgctxt "debug_p"
 msgid "debug"
@@ -533,7 +541,7 @@ msgstr "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forg
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr "An error occurred while reading the data, try to refresh the page."
+msgstr ""
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
@@ -789,7 +797,7 @@ msgstr "See you soon!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr "%d products match the search criteria, of which %i products have defined values for the graph's axis."
+msgstr ""
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -1291,7 +1299,7 @@ msgstr "Products not manufactured or processed in %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr "%d products match the search criteria, of which %i products have a known production place."
+msgstr ""
 
 msgctxt "map_title"
 msgid "Map title"
@@ -2653,6 +2661,10 @@ msgstr "Some of the data and images have been provided directly by the manufactu
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Some of the data for this product has been provided directly by the manufacturer %s"
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr ""
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"

@@ -94,6 +94,7 @@ my $process_ingredients = '';
 my $clean_ingredients = '';
 my $compute_nutrition_score = '';
 my $compute_serving_size = '';
+my $compute_data_sources = '';
 my $compute_nova = '';
 my $check_quality = '';
 my $compute_codes = '';
@@ -111,6 +112,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"process-ingredients" => \$process_ingredients,
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-serving-size" => \$compute_serving_size,
+			"compute-data-sources" => \$compute_data_sources,
 			"compute-nova" => \$compute_nova,
 			"compute-codes" => \$compute_codes,
 			"compute-carbon" => \$compute_carbon,
@@ -152,6 +154,7 @@ if ($unknown_fields > 0) {
 if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova) 
 	and (not $clean_ingredients)
 	and (not $compute_serving_size)
+	and (not $compute_data_sources)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0)) {
 	die("Missing fields to update:\n$usage");
 }  
@@ -176,7 +179,7 @@ else {
 #$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
 
 use boolean;
-$query_ref->{unknown_nutrients_tags} = { '$exists' => true,  '$ne' => [] };
+# $query_ref->{unknown_nutrients_tags} = { '$exists' => true,  '$ne' => [] };
 
 print "Update key: $key\n\n";
 
@@ -277,6 +280,10 @@ while (my $product_ref = $cursor->next) {
 			compute_nova_group($product_ref);
 			compute_languages($product_ref); # need languages for allergens detection
 			detect_allergens_from_text($product_ref);		
+		}
+		
+		if ($compute_data_sources) {
+			compute_data_sources($product_ref);
 		}
 		
 		if ($compute_nova) {

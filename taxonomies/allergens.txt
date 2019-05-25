@@ -1,4 +1,7 @@
-en:gluten, wheat, rye, barley, spelt, kamut, wheat semolina, wheat flour
+stopwords:en:and,byproducts
+stopwords:fr:et,dérivés,et dérivés
+
+en:gluten, wheat, rye, barley, spelt, kamut, wheat semolina, wheat flour, cereals containing gluten
 ar:غلوتين
 bg:глутен, ечемик, ечемичен, ечемично-малцов, пшеница, пшенично, ръж,  овес, шпелта, камут, вид едра твърда пшеница
 cs:lepek, pšenice, žito, ječmen, oves, špalda, kamut
@@ -9,9 +12,9 @@ el:γλουτένη, σιτάρι, σίκαλη, κριθάρι, βρώμη, ν�
 es:gluten, trigo, centeno, cebada, espelta, kamut, cereales con gluten, cereales, harina de trigo, trigo de Jorasán Kamut, harina de trigo integral
 et:gluteen, nisu, nisugluteen, rukis, oder, odra, kaer, speltanisu, kamut
 fi:gluteeniton, vehnä, ruis, ohra, kaura, speltti, kamut
-fr:gluten, blé, seigle, orge, épeautre, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre
+fr:gluten, blé, seigle, orge, épeautre, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre, céréales contenant du gluten
 ga:glútan, cruithneacht, seagal, eorna, coirce, speilt, camut, céréeale, céréales
-hu:glutén, búza, rozs, árpa, zab, tönkölybúza, kamut, búzadara, búzaliszt, búzacsíra, búzafehérje, búzapehely, rozspehely, árpapehely, zabpehely, tönkölybúzapehely, árpamaláta, rozsliszt, zabliszt, tönkölybúzaliszt, Glutent
+hu:glutén, búza, rozs, árpa, zab, tönkölybúza, kamut, búzadara, búzaliszt, búzacsíra, búzafehérje, búzapehely, rozspehely, árpapehely, zabpehely, tönkölybúzapehely, árpamaláta, rozsliszt, zabliszt, tönkölybúzaliszt, Glutent, lutént tartalmazó gabonafélék
 it:glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
 jp:グルテン,コムギ
 lt:avižos, avižų, glitimas,kamutas, kviečiai, kviečlų, kvietiniai, miežiai,  miežių, rugiai, spelta, manų
@@ -27,7 +30,7 @@ sk:glutén, lepok, obyčajná, raž, jačmeň, ovos, špalda, cirok
 sv:gluten, vete, råg, korn, havre, spelt, kamut, vetemjöl, fullkornsvetemjöl
 th:กลูเต็น,ข้าวสาลี,ข้าวไร,บาร์เลย์
 zh:麸质
-wikidata:Q4413030, Q2249305
+wikidata:en:Q4413030, Q2249305
 
 <en:gluten
 de:Gluten enthaltendes Getreide
@@ -95,7 +98,7 @@ sl:jajca, jajce
 sv:ägg
 th:ไข่
 zh:雞蛋
-wikidata:Q93189
+wikidata:en:Q93189
 
 en:fish, fishes, cod, mackerel, flounder, halibut, turbot, haddock, salmon, sole, trout, tuna, sardine, sardines
 ar:سمك
@@ -126,7 +129,7 @@ sl:ribe
 sv:fisk
 th:ปลา
 zh:魚
-wikidata:Q600396
+wikidata:en:Q600396
 
 en:peanuts, peanut, arachis hypogaea
 ar:فول سوداني
@@ -200,7 +203,7 @@ el:γάλα, λακτόζης
 es:leche,  lactosa, lácteos, derivados lácteos, productos lácteos, leche y derivados, queso, proteína de leche, leche y sus derivados
 et:laktoos, piim, piimast
 fi:maito, laktoosi
-fr:lait, lactose, laitier, laitiere, laitiers, crème, beurre, bas-beurre, babeurre, beurre patissier, petit-lait, yaourt, fromage, méton, lait cru, Emmental, comte, bleu, edam, lactique, lactiques, ferments lactiques, cheddar, reblochon, parmesan, mimolette, crème de lait, fromage de vache, fromage de chèvre, gouda, lait écrémé, lait entier, lactoserum, lactosérum, mozzarella, protéines de lait, crème fraiche, ricotta, fromage blanc, mascarpone, caséinate, caséine, poudre de lait, Produits laitiers et dérivées, Produits laitiers et dérivés, Produits laitiers, Gorgonzola, Roquefort, Fromage fondu, Fromage frais, Feta, Raclette
+fr:lait, lactose, laitier, laitiere, laitiers, crème, beurre, bas-beurre, babeurre, beurre patissier, petit-lait, yaourt, fromage, méton, lait cru, Emmental, comte, bleu, edam, lactique, lactiques, ferments lactiques, cheddar, reblochon, parmesan, mimolette, crème de lait, fromage de vache, fromage de chèvre, gouda, lait écrémé, lait entier, lactoserum, lactosérum, mozzarella, protéines de lait, crème fraiche, ricotta, fromage blanc, mascarpone, caséinate, caséine, poudre de lait, Produits laitiers et dérivées, Produits laitiers et dérivés, Produits laitiers, Gorgonzola, Roquefort, Fromage fondu, Fromage frais, Feta, Raclette, laits et dérivés y compris lactose
 ga:bainne, lachtós
 hu:tej, laktóz, tejsavó, savó, tejtermék, tejtermékek, vaj, tejszín, joghurt, sajt, tejfehérje, tejpor, Tejsavópor, Tejzsír, Tejet
 it:latte, lattosio
@@ -420,7 +423,7 @@ el:μαλάκια
 es:moluscos, molusco, ostras, almejas, escalópas, calamar, sepia, ostra, mejillón, mejillones, viera, vieras, caracol, caracoles
 et:molluskid
 fi:nilviäiset
-fr:mollusques, mollusque, poulpe, seiche, encornet, calamar, calmar, huitres, huitre, moules, moule, noix de saint-jacques, noix de st-jacques, noix de coquilles saint-jacques, noix de coquilles st-jacques, escargot, escargots
+fr:mollusques, mollusque, poulpe, seiche, encornet, calamar, calmar, huitres, huitre, moules, moule, noix de saint-jacques, noix de st-jacques, noix de coquilles saint-jacques, noix de coquilles st-jacques, escargot, escargots, saint-jacques, st-jacques, coquille saint jacques, coquille st jacques, pétoncles
 ga:moilisc, breallach, breallaigh
 hu:puhatestűek
 it:molluschi

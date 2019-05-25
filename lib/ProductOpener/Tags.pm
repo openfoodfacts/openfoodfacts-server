@@ -558,7 +558,7 @@ sub remove_stopwords($$$) {
 			$tagid =~ s/^${stopword}-//g;
 
 			if (not
-				(($lc eq 'fr') and not ($stopword =~ /^(en|proportion|proportions|variable|variables)$/))	# don't remove French stopwords at the end
+				(($lc eq 'fr') and (($tagtype eq "ingredients") or ($tagtype eq "additives")) and not ($stopword =~ /^(en|proportion|proportions|variable|variables|et-derives)$/))	# don't remove French stopwords at the end
 				) {
 				$tagid =~ s/-${stopword}$//g;
 			}
