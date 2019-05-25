@@ -5407,12 +5407,12 @@ sub display_login_register($)
 <div class="row">
 <div class="small-12 columns">
 	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" autocomplete="username">
+		<input type="text" name="user_id" autocomplete="username" required>
 	</label>
 </div>
 <div class="small-12 columns">
 	<label>$Lang{password}{$lc}
-		<input type="password" name="password" autocomplete="current-password">
+		<input type="password" name="password" autocomplete="current-password" required>
 	</label>
 </div>
 <div class="small-12 columns">
