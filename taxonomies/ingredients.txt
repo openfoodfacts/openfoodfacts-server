@@ -13451,7 +13451,7 @@ nl:vetvrije melk
 wikidata:en:Q2352187
 
 
-# Skimmed milk (British English) is made when all the cream (also called milkfat) is removed from whole milk. It tends to contain around 0.1% fat.
+# description:en:Skimmed milk (British English) is made when all the cream (also called milkfat) is removed from whole milk. It tends to contain around 0.1% fat. Láit écrémé has a maximum of 0.5% fat.
 
 <en:milk
 en:skimmed milk
@@ -13482,6 +13482,14 @@ wikidata:en:Q2352187
 wikipedia:en:https://en.wikipedia.org/wiki/Skimmed_milk
 
 <en:skimmed milk
+en:pasteurized skimmed milk
+de:pasteurisierter Magermilch
+es:leche desnatada pasteurizada
+fr:lait écrémé pasteurisé
+it:latte magro pastorizzato
+# ingredient/fr:lait-ecreme-pasteurise has 429 products @2019-05-25
+
+<en:skimmed milk
 en:UHT sterilised skimmed milk
 fr:Lait écrémé stérilisé UHT
 nl:UHT-gesteriliseerde magere melk
@@ -13493,7 +13501,7 @@ nl:UHT-gesteriliseerde magere melk
 en:low-fat milk, 1% fat milk
 nl:melk met 1% vetgehalte
 
-# LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
+# description:en:LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 
 <en:milk
 en:milk with 1.5-1.8% fat
@@ -13517,7 +13525,7 @@ nl:biologische halfvolle melk
 en:semi-skimmed milk
 fr:Lait demi-écrémé
 
-# PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
+# description:en:PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
 
 <en:milk with 1.5-1.8% fat
 fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé
@@ -49674,6 +49682,11 @@ zh:红茶
 wikidata:en:Q203415
 wikipedia:en:https://en.wikipedia.org/wiki/Black_tea
 # ingredient/black-tea has 751 products in 13 languages @2019-04-22
+
+<en:black tea
+en:Ceylon black tea
+fr:thé noir Ceylan
+# ingredient/fr:the-noir-ceylan has 14 products in french @2019-05-25
 
 <en:black tea
 en:black tea extract
