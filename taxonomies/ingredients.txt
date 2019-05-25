@@ -28267,27 +28267,34 @@ wikidata:en: Q63120038
 # ingredient/fr:caséinate-de-sodium has 130 products in 4 languages @2019-04-13
 # usage:fr: caséinate de sodium (de lait)
 
-# CHOCOLAT
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           C O C O A     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 en:chocolate
 de:Schokolade
 fr:chocolat
 it:cioccolato
+nl:chocolade
+
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 
-nl:chocolade
 
 
 <en:chocolate
-en: chocolate pieces
-de:Schokoladenstücke
-fr:morceaux de chocolat
-it: pezzi di cioccolato
+en:chocolate pieces, chocolate chips
+de:Schokoladenstücke, Schokoladenstückchen
+fr:morceaux de chocolat, pépites de chocolat, copeaux de chocolat
+it:pezzi di cioccolato, goccie di cioccolato
+nl:Chocostukjes
 # ingredient/fr:morceaux-de-chocolat has 63 products in 4 languages @2019-03-11
-# Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
+# usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
 
+<en:chocolate
 en:white chocolate
 de:weisse Schokolade
 fr:chocolat blanc
@@ -28295,15 +28302,12 @@ it:cioccolato bianco
 nl:witte chocolade
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 
-fr:chocolat en poudre
+<en:chocolate
+fr:chocolat en poudre, poudre de chocolat
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
 
-en:chocolate chips
-de:Schokoladenstückchen
-fr:pépites de chocolat
-it:goccie di cioccolato
-nl:Chocostukjes
 
+<en:chocolate
 en:dark chocolate, black chocolate
 de:dunkle Schokolade
 fr:chocolat noir
@@ -28321,6 +28325,7 @@ nl:stukjes pure chocolade
 # ingredient/fr:morceaux-de-chocolat-noir has 66 products in 5 languages @2019-03-29
 # usage:it: pezzetti di cioccolato fondente (zucchero, pasta di cacao, burro di cacao, emulsionante: lecitina di soia: aroma naturale di vaniglia)
 
+<en:chocolate
 en:milk chocolate
 de:Milchschokolade
 fr:chocolat au lait
@@ -28335,20 +28340,13 @@ fr:pépites de chocolat au lait
 <en:milk chocolate
 fr:chocolat supérieur au lait
 
-fr:fourrage au chocolat
+fr:fourrage au chocolat, fourrage chocolat
 
 fr:chocolat pur beurre de cacao
 
-fr:fourrage chocolat
 
-
-fr:copeaux de chocolat
-
-fr:poudre de chocolat
-
+<en:chocolate
 fr:chocolat au lait du pays alpin
-
-# CACAO
 
 
 fr:fèves de cacao
