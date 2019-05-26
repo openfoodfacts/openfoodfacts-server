@@ -31,10 +31,7 @@ BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();	# symbols to export by default
-	@EXPORT_OK = qw(
-
-
-					);	# symbols to export on request
+	@EXPORT_OK = qw();	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -46,293 +43,293 @@ use ProductOpener::Tags qw/:all/;
 use Log::Any qw($log);
 
 my @baby_food_brands = qw(
-Gallia
-Bledina
-Modilac
-Guigoz
-Milumel
-Hipp
-Babybio
-Novalac
-Premibio
-Picot
-Bledilait
-Carrefour-baby
-Pommette
-Laboratoires-guigoz
-Nidal
-Lactel-eveil
-Holle
-Mots-d-enfants
-Laboratoire-guigoz
-Bledidej
-Bebe-nestle
-Laboratoire-gallia
-Gilbert
-Hipp-biologique
-U-tout-petits
-Milupa
-Nestle-bebe
-Blediner
-Guiguoz
-Laboratoires-picot
-Nutricia
-P-tit-souper
-P-tit-dej-croissance
-P-tit-dej
-Sodiaal
-Premichevre
-Auchan-baby
-Aptamil
-Candia-croissance
-Lactel-lait-pour-nourrisson
-Croissance
-Biostime
-Premilait
-Envia
-Babysoif
-Capricare
-France-lait
-Candia-baby
-Physiolac
-Topfer
-);
+	Gallia
+	Bledina
+	Modilac
+	Guigoz
+	Milumel
+	Hipp
+	Babybio
+	Novalac
+	Premibio
+	Picot
+	Bledilait
+	Carrefour-baby
+	Pommette
+	Laboratoires-guigoz
+	Nidal
+	Lactel-eveil
+	Holle
+	Mots-d-enfants
+	Laboratoire-guigoz
+	Bledidej
+	Bebe-nestle
+	Laboratoire-gallia
+	Gilbert
+	Hipp-biologique
+	U-tout-petits
+	Milupa
+	Nestle-bebe
+	Blediner
+	Guiguoz
+	Laboratoires-picot
+	Nutricia
+	P-tit-souper
+	P-tit-dej-croissance
+	P-tit-dej
+	Sodiaal
+	Premichevre
+	Auchan-baby
+	Aptamil
+	Candia-croissance
+	Lactel-lait-pour-nourrisson
+	Croissance
+	Biostime
+	Premilait
+	Envia
+	Babysoif
+	Capricare
+	France-lait
+	Candia-baby
+	Physiolac
+	Topfer
+	);
 
-my @cigarette_brands = qw(
-A-Mild
-Absolute-Mild
-Access-Mild
-Akhtamar
-Alain-Delon
-Apache
-Ararat
-Ashford
-Avolution
-Bahman
-Basic
-Belomorkanal
-Benson-&-Hedges
-Bentoel
-Berkeley
-Bintang-Buana
-Bond-Street
-Bristol
-Cabin
-Cambridge
-Camel
-Canadian-Classics
-Capri
-Capstan
-Carroll's
-Caster
-Cavanders
-Chancellor
-Charminar
-Charms
-Chesterfield
-Chunghwa
-Clas-Mild
-Classic-Filter-Kings
-Clavo
-Cleopatra
-Club
-Club-Mild
-Cohiba
-Cool
-Country
-Craven-A
-Crossroads
-Crystal
-Dakota
-Davidoff
-Deluxe-Tenor
-Derby
-Djarum-Black
-Djarum-Vanilla
-Dji-Sam-Soe-234
-Dominant
-Doral
-Double-Happiness
-Du-Maurier
-Duke
-Dunhill
-Eclipse
-Elita
-Embassy
-Envio-Mild
-Ernte-23
-Esse
-Eve
-Everest
-Extreme-Mild
-f6
-Fatima
-Fellas-Mild
-Fix-Mild
-Fixation
-Flair
-Flake
-Fortuna
-Four-Square
-FS1
-Galan
-Garni
-Gauloises
-Geo-Mild
-Gitanes
-GL
-Gold-Flake
-Golden-Bat
-GT
-Gudang-Garam
-HB
-Hits-Mild
-Hollywood
-Hongtashan
-Hope
-India-Kings 
-Insignia
-Intro
-Java
-Jazy-Mild
-Joged
-Player's
-June
-Karo
-Kent
-King's
-Kool
-Krong-Thip
-L&M
-L.A.-Lights
-Lambert-&-Butler
-Lark
-LD
-Legend
-Liggett-Select
-Lips
-Longbeach
-Lucky-Strike
-Main
-Marlboro
-Maraton
-Masis
-Master-Mild
-Matra
-Maverick
-Max
-Maxus
-Mayfair
-MayPole
-Memphis
-Merit
-Mevius
-Mild-Formula
-Minak-Djinggo
-Misty
-Mocne
-Moments
-Mondial
-More
-MS
-Muratti
-Natural-American-Spirit
-Navy-Cut
-Neo-Mild
-Neslite
-Newport
-Next
-Nikki-Super
-Niko-International
-Nil
-Niu-Niu
-NO.10
-Noblesse
-North-Pole
-NOY
-Nuu-Mild
-One-Mild
-Pall-Mall
-Panama
-Parisienne
-Parliament
-Peace
-Pensil-Mas
-Peter-Stuyvesant
-Pianissimo-Peche
-Platinum
-Players
-Polo-Mild
-Popularne
-Prima
-Prince
-Pueblo
-Pundimas
-Pyramid
-Rambler
-Rawit
-Red-&-White
-Red-Mild
-Regal
-Regent
-Relax-Mild
-Richmond
-Romeo-y-Julieta
-Rothmans
-Royal
-Saat
-Salem
-Sampoerna-Hijau
-Sakura
-Scissors
-Score-Mild
-Sejati
-Senior-Service
-Seven-Stars
-Shaan
-Silk-Cut
-Slic-Mild
-Smart
-Sobranie
-Special-Extra-Filter
-ST-Dupont
-Star-Mild
-State-Express-555
-Sterling
-Strand
-Style
-Superkings
-Surya-Pro-Mild
-Sweet-Afton
-Taj-Chhap-Deluxe
-Tali-Jagat
-Tareyton
-Ten-Mild
-Thang-Long
-Time
-Tipper
-True
-U-Mild
-Ultra-Special
-Uno-Mild
-Up-Mild
-Urban-Mild
-Vantage
-Vegas-Mild
-Vogue
-Viceroy
-Virginia-Slims
-Viper
-West
-Wills-Navy-Cut
-Winfield
-Win Mild
-Winston
-Wismilak
-Woodbine
-X-Mild
-Ziganov
-Zhongnanhai
+	my @cigarette_brands = qw(
+	A-Mild
+	Absolute-Mild
+	Access-Mild
+	Akhtamar
+	Alain-Delon
+	Apache
+	Ararat
+	Ashford
+	Avolution
+	Bahman
+	Basic
+	Belomorkanal
+	Benson-&-Hedges
+	Bentoel
+	Berkeley
+	Bintang-Buana
+	Bond-Street
+	Bristol
+	Cabin
+	Cambridge
+	Camel
+	Canadian-Classics
+	Capri
+	Capstan
+	Carroll's
+	Caster
+	Cavanders
+	Chancellor
+	Charminar
+	Charms
+	Chesterfield
+	Chunghwa
+	Clas-Mild
+	Classic-Filter-Kings
+	Clavo
+	Cleopatra
+	Club
+	Club-Mild
+	Cohiba
+	Cool
+	Country
+	Craven-A
+	Crossroads
+	Crystal
+	Dakota
+	Davidoff
+	Deluxe-Tenor
+	Derby
+	Djarum-Black
+	Djarum-Vanilla
+	Dji-Sam-Soe-234
+	Dominant
+	Doral
+	Double-Happiness
+	Du-Maurier
+	Duke
+	Dunhill
+	Eclipse
+	Elita
+	Embassy
+	Envio-Mild
+	Ernte-23
+	Esse
+	Eve
+	Everest
+	Extreme-Mild
+	f6
+	Fatima
+	Fellas-Mild
+	Fix-Mild
+	Fixation
+	Flair
+	Flake
+	Fortuna
+	Four-Square
+	FS1
+	Galan
+	Garni
+	Gauloises
+	Geo-Mild
+	Gitanes
+	GL
+	Gold-Flake
+	Golden-Bat
+	GT
+	Gudang-Garam
+	HB
+	Hits-Mild
+	Hollywood
+	Hongtashan
+	Hope
+	India-Kings 
+	Insignia
+	Intro
+	Java
+	Jazy-Mild
+	Joged
+	Player's
+	June
+	Karo
+	Kent
+	King's
+	Kool
+	Krong-Thip
+	L&M
+	L.A.-Lights
+	Lambert-&-Butler
+	Lark
+	LD
+	Legend
+	Liggett-Select
+	Lips
+	Longbeach
+	Lucky-Strike
+	Main
+	Marlboro
+	Maraton
+	Masis
+	Master-Mild
+	Matra
+	Maverick
+	Max
+	Maxus
+	Mayfair
+	MayPole
+	Memphis
+	Merit
+	Mevius
+	Mild-Formula
+	Minak-Djinggo
+	Misty
+	Mocne
+	Moments
+	Mondial
+	More
+	MS
+	Muratti
+	Natural-American-Spirit
+	Navy-Cut
+	Neo-Mild
+	Neslite
+	Newport
+	Next
+	Nikki-Super
+	Niko-International
+	Nil
+	Niu-Niu
+	NO.10
+	Noblesse
+	North-Pole
+	NOY
+	Nuu-Mild
+	One-Mild
+	Pall-Mall
+	Panama
+	Parisienne
+	Parliament
+	Peace
+	Pensil-Mas
+	Peter-Stuyvesant
+	Pianissimo-Peche
+	Platinum
+	Players
+	Polo-Mild
+	Popularne
+	Prima
+	Prince
+	Pueblo
+	Pundimas
+	Pyramid
+	Rambler
+	Rawit
+	Red-&-White
+	Red-Mild
+	Regal
+	Regent
+	Relax-Mild
+	Richmond
+	Romeo-y-Julieta
+	Rothmans
+	Royal
+	Saat
+	Salem
+	Sampoerna-Hijau
+	Sakura
+	Scissors
+	Score-Mild
+	Sejati
+	Senior-Service
+	Seven-Stars
+	Shaan
+	Silk-Cut
+	Slic-Mild
+	Smart
+	Sobranie
+	Special-Extra-Filter
+	ST-Dupont
+	Star-Mild
+	State-Express-555
+	Sterling
+	Strand
+	Style
+	Superkings
+	Surya-Pro-Mild
+	Sweet-Afton
+	Taj-Chhap-Deluxe
+	Tali-Jagat
+	Tareyton
+	Ten-Mild
+	Thang-Long
+	Time
+	Tipper
+	True
+	U-Mild
+	Ultra-Special
+	Uno-Mild
+	Up-Mild
+	Urban-Mild
+	Vantage
+	Vegas-Mild
+	Vogue
+	Viceroy
+	Virginia-Slims
+	Viper
+	West
+	Wills-Navy-Cut
+	Winfield
+	Win Mild
+	Winston
+	Wismilak
+	Woodbine
+	X-Mild
+	Ziganov
+	Zhongnanhai
 );
 
 my %baby_food_brands = ();
@@ -406,8 +403,6 @@ sub detect_categories ($) {
 
 
 sub check_nutrition_grades($) {
-
-
 	my $product_ref = shift;
 
 	if ((defined $product_ref->{nutrition_grade_fr_producer}) and (defined $product_ref->{nutrition_grade_fr}) ) {
@@ -436,8 +431,6 @@ sub check_nutrition_grades($) {
 
 
 sub check_nutrition_data($) {
-
-
 	my $product_ref = shift;
 
 
@@ -548,7 +541,6 @@ sub check_nutrition_data($) {
 
 
 sub check_ingredients($) {
-
 	my $product_ref = shift;
 
 	# spell corrected additives
@@ -847,9 +839,6 @@ sub check_quality($) {
 
 	detect_categories($product_ref);
 }
-
-
-
 
 
 1;

@@ -32,8 +32,7 @@ BEGIN
 					&get_multi_objects
 					
 					$memd
-					
-					);	# symbols to export on request
+	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -60,8 +59,7 @@ $memd = new Cache::Memcached::Fast {
 # Converting them to global variables.
 # - better solution: create a class?
 
-use vars qw(
-);
+use vars qw();
 
 sub get_multi_objects($)
 {
