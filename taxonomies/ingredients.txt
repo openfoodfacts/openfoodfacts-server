@@ -118,14 +118,17 @@ cs:Složení
 da:indeholder
 de:Zutaten, Zusammensetzung
 es:composición
-et:Koostisainsd
+et:Koostisainsd, koostis
+fi:aineosat
 fr:ingrédient, ingrédients, composition
 hu:összetétel
 id:komposisi
+is:inneald
 it:ingredienti, composizione
 kk:Курамы
 ky:Курамы
 lt:Sudedamosios dalys, Sudėtis
+lv:sastāvs
 nl:ingrediënt, ingrediënten, samenstelling, bestanddelen
 pl:skład, Skladniki
 pt:composição
@@ -133,7 +136,7 @@ ro:compoziţie, Ingrediente
 ru:coctaB
 sk:obsahuje, Zloženie
 sl:vsebuje, Sestavine
-sv:innehåller, Ingredienser
+sv:innehåller, Ingredienser, innehåll
 tg:Таркиб
 tr:lcindekiler
 uz:Tarkib
@@ -28782,15 +28785,6 @@ it:cioccolato puro burro di cacao
 nl:chocolade met pure cacaoboter
 # ingredient/fr:chocolat-pur-beurre-de-cacao has 45 products in 6 languages @2019-05-25
 
-<en:chocolate
-en:white chocolate
-de:weisse Schokolade
-fr:chocolat blanc
-it:cioccolato bianco
-nl:witte chocolade
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
-
-
 
 <en:chocolate
 en:dark chocolate, black chocolate
@@ -28799,6 +28793,9 @@ fr:chocolat noir
 it:cioccolato fondente
 nl:Pure chocola
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
+
+<en:dark chocolate
+fr:chocolat-noir-a-70-de-cacao-minimum
 
 <en:dark chocolate
 # <en:chocolate chips
@@ -28826,8 +28823,15 @@ fr:pépites de chocolat au lait
 fr:chocolat supérieur au lait
 
 
+<en:chocolate
+en:white chocolate
+de:weisse Schokolade
+fr:chocolat blanc
+it:cioccolato bianco
+nl:witte chocolade
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 
-fr:chocolat-noir-a-70-de-cacao-minimum
+
 
 <en:chocolate
 fr:chocolat au lait du pays alpin
