@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:56\n"
+"PO-Revision-Date: 2019-05-21 13:53\n"
 "Language-Team: Italian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -367,6 +367,14 @@ msgctxt "data_source"
 msgid "Data source"
 msgstr "Sorgente dati"
 
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr "sorgenti dati"
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr "sorgente dati"
+
 msgctxt "debug_p"
 msgid "debug"
 msgstr "debug"
@@ -630,7 +638,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Se i dati sono corretti, è possibile completare o correggerla modificando questa pagina."
+msgstr "Se i dati sono incompleti o errati, puoi completarli o correggerli modificando questa pagina."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -704,10 +712,10 @@ msgstr "/cgi/top_translators.pl"
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
-"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 msgstr "Seguici su <a href=\"https://twitter.com/openfoodfactsit\">Twitter </a>,\n"
 " <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> e\n"
-" <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+" <a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -2657,6 +2665,10 @@ msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Alcuni dei dati relativi a questo prodotto sono stati forniti direttamente dal produttore %s"
 
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr "Alcuni dati per questo prodotto sono stati raccolti in collaborazione con %s"
+
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Questa pagina del prodotto non è completa. Puoi aiutarci a completarla modificandola e aggiungendo altri dati dalle foto che abbiamo, o scattando altre foto usando l’applicazione per <a href=“https://android.openfoodfacts.org”>Android</a> o <a href=“https://ios.openfoodfacts.org”>iPhone/iPad</a>. Grazie!"
@@ -2940,7 +2952,7 @@ msgstr "Foto e controllo dei dati"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
-msgstr "Le pagine dei prodotti possono essere contrassegnate quando controllate da contributori esperti che verificano che le foto più recenti siano selezionate e tagliate e che tutti i dati dei prodotti ricavabili dalle foto dei prodotti sono stati compilati e sono corretti."
+msgstr "Le pagine dei prodotti possono essere contrassegnate come verificate quando controllate da contributori esperti che verificano che siano selezionate le foto più recenti e siano tagliate in modo corretto e che tutti i dati dei prodotti ricavabili dalle foto dei prodotti siano stati compilati e siano corretti."
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
@@ -3152,7 +3164,7 @@ msgstr "Scarica l'app per iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr ""
+msgstr "<em>Codice a barre ambiguo</em>: Questo prodotto ha un codice a barre con Numero di Circolazione Ristretta per i prodotti all'interno dell'azienda. Ciò significa che differenti produttori e negozi possono usare lo stesso codice a barre per differenti prodotti."
 
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
@@ -3204,15 +3216,15 @@ msgstr "Impatto del carbonio da carne o pesce"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
-msgstr ""
+msgstr "emissioni di carbonio da carne o pesce per l'intero prodotto"
 
 msgctxt "of_sustainable_daily_emissions_of_1_person"
 msgid "of sustainable daily emissions of 1 person"
-msgstr ""
+msgstr "di emissioni sostenibili giornaliere di 1 persona"
 
 msgctxt "of_sustainable_weekly_emissions_of_1_person"
 msgid "of sustainable weekly emissions of 1 person"
-msgstr ""
+msgstr "di emissioni sostenibili settimanali di 1 persona"
 
 msgctxt "for_one_serving"
 msgid "for one serving"
@@ -3224,7 +3236,7 @@ msgstr "Metodologia"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
-msgstr ""
+msgstr "Calcoli delle emissioni di carbonio basati sui valori di CO<sub>2</sub> per kg dal programma FoodGES di <a href=\"https://www.ademe.fr\">ADEME</a>."
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
@@ -3232,7 +3244,7 @@ msgstr "Emissioni annuali sostenibili: 2 tonnellate di CO<sub>2</sub> equivalent
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr ""
+msgstr "I calcoli sull'impronta del carbonio hanno un'elevata incertezza. I valori dovrebbero essere osservati con attenzione e sono maggiormente intesi per comparazioni relative rispetto ai valori assoluti."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
@@ -3240,15 +3252,15 @@ msgstr "Troppi prodotti (%d prodotti, il limite è %d) da esportare, scarica inv
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Aiuta a tradurre il %s in %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr ""
+msgstr "Puoi suggerire traduzioni per le voci sotto che non sono state tradotte ancora alla tua lingua. Il link blu in inglese mostra i prodotti corrispondenti, il test nero in inglese mostra la voce originale con i sinonimi opzionali separati da virgole. Inserisci la traduzione nel riquadro apposito, con i sinonimi opzionali e poi clicca il pulsante Salva. Grazie!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "Mostra solo le voci senza traduzioni in sospeso."
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."

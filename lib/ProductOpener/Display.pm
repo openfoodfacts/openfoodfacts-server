@@ -5407,12 +5407,12 @@ sub display_login_register($)
 <div class="row">
 <div class="small-12 columns">
 	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" autocomplete="username">
+		<input type="text" name="user_id" autocomplete="username" required>
 	</label>
 </div>
 <div class="small-12 columns">
 	<label>$Lang{password}{$lc}
-		<input type="password" name="password" autocomplete="current-password">
+		<input type="password" name="password" autocomplete="current-password" required>
 	</label>
 </div>
 <div class="small-12 columns">
@@ -5858,7 +5858,7 @@ HTML
 
 	my $top_banner = "";
 
-	if ($lc eq 'fr') {
+	if ($lc eq 'fr-deactivated') {
 
 
 		$top_banner = <<HTML
@@ -7331,7 +7331,7 @@ HTML
 
 	$html .= <<HTML
 
-<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br>
+<p class="details">$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br>
 $Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
 $other_editors
 $checked
