@@ -28744,7 +28744,18 @@ carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 
-
+<en:chocolate
+en:chocolate powder
+da:chokoladepulver
+de:Schokoladenpulver
+es:chocolate en polvo
+fr:chocolat en poudre, poudre de chocolat
+it:cioccolato in polvere
+nl:chocoladepoeder
+ro:ciocolata pudra
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
+# ingredient/fr:chocolat-en-poudre has 1051 products in 9 languages @2019-05-25
+# usage:en:chocolate powder (sugar, cocoa powder)
 
 <en:chocolate
 en:chocolate pieces, chocolate chips
@@ -28756,6 +28767,18 @@ nl:Chocostukjes
 # usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
 
 <en:chocolate
+fr:fourrage au chocolat, fourrage chocolat
+
+<en:chocolate
+en:pure cocoa butter chocolate
+de:Schokolade aus reiner Kakaobutter
+es:chocolate de pura manteca de cacao
+fr:chocolat pur beurre de cacao
+it:cioccolato puro burro di cacao
+nl:chocolade met pure cacaoboter
+# ingredient/fr:chocolat-pur-beurre-de-cacao has 45 products in 6 languages @2019-05-25
+
+<en:chocolate
 en:white chocolate
 de:weisse Schokolade
 fr:chocolat blanc
@@ -28763,9 +28786,6 @@ it:cioccolato bianco
 nl:witte chocolade
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 
-<en:chocolate
-fr:chocolat en poudre, poudre de chocolat
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
 
 
 <en:chocolate
@@ -28777,7 +28797,7 @@ nl:Pure chocola
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 
 <en:dark chocolate
-<en:chocolate chips
+# <en:chocolate chips
 en:dark chocolate chunks, dark chocolate chips
 de:Bitterschokoladenstückchen
 fr:morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
@@ -28795,15 +28815,13 @@ nl:Melkchocola
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
 
 <en:milk chocolate
-<en:chocolate chips
+# <en:chocolate chips
 fr:pépites de chocolat au lait
 
 <en:milk chocolate
 fr:chocolat supérieur au lait
 
-fr:fourrage au chocolat, fourrage chocolat
 
-fr:chocolat pur beurre de cacao
 
 fr:chocolat-noir-a-70-de-cacao-minimum
 
