@@ -7,12 +7,12 @@ stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with
 stopwords:es:contiene
 stopwords:fi:sisältää
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:id:mengandung
 stopwords:it:contiene, nella
-stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd
+stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen
 stopwords:nn:av, inneholder
 stopwords:pl:w tym
 stopwords:pt:do qual, dos quais
@@ -28344,45 +28344,56 @@ fr:fourrage au chocolat, fourrage chocolat
 
 fr:chocolat pur beurre de cacao
 
+fr:chocolat-noir-a-70-de-cacao-minimum
 
 <en:chocolate
 fr:chocolat au lait du pays alpin
 
 
-fr:fèves de cacao
-
-<fr:fèves de cacao
-fr:éclats de fèves de cacao, éclats de fèves de cacao
-
-<fr:éclats de fèves de cacao
-fr:éclats de fèves de cacao torréfiés
-
-<fr:éclats de fèves de cacao
-fr:éclats de fèves de cacao caramélisés
-
 
 
 en:cocoa
+ar:كاكاو
 az:Kakao
+# bar:Gaugau
 bg:Какао
 bo:སྦྲིད་རིལ།
 ca:cacau
 da:kakao
 de:Kakao
 el:κακάο
+eo:kakao
 es:cacao
+fa:کاکائو
 fi:kaakao
+fo:Kakao
 fr:cacao
 ga:cócó
+he:קקאו
+hi:कोको
 id:Kakao
 it:cacao
+ja:ココア
+ko:코코아
 lt:kakava
 mt:kawkaw
+# nah:Cacahuatetl
+nb:Kakao
 nl:cacao
+nn:Kakao
+pl:Kakao
 pt:cacau
 ro:cacao
 ru:какао
 # scn:Cacau
+# sgs:Kakava
+sh:Kakao
+sk:Kakao
+sl:Kakav
+sr:какао
+# sr-ec:какао
+# sr-el:Kakao
+yi:קאקאו
 sv:kakao
 # yue:唂咕粉
 zh:可可粉
@@ -28531,7 +28542,7 @@ wikidata:en:Q1062396
 <en:cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder
 de:fettarmes Kakaopulver
-es:cacao magro en polvo
+es:cacao magro en polvo, cacao desgrasado en polvo
 fi:vähärasvainen kaakaojauhe
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre
 it:cacao magro in polvere
@@ -28549,8 +28560,11 @@ it:cacao fortemente sgrassato ed cacao in polvere
 <en:cocoa paste
 <en:cocoa butter
 en:cocoa mass and cocoa butter
-fr:pâte et beurre de cacao
+fr:pâte et beurre de cacao, pâte de cacao et beurre de cacao
 # ingredient/fr:pâte-et-beurre-de-cacao has 92 products in 2 languages @2019-05-25
+
+<en:organic cocoa mass and organic cocoa butter
+fr:pâte de cacao issus de l‘agriculture biologique et beurre de cacao issus de l‘agriculture biologique
 
 <en:cocoa
 de:Kakao-Extrakt
@@ -28559,7 +28573,77 @@ it:estratto di cacao
 nl:cacao-extract
 # ingredient/fr:extrait-de-cacao has 67 products in 4 languages @2019-05-25
 
-# description:en:Water is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.
+# comment:en:the wikidata-page mixes cocoa and cocoa bean
+
+<en:cacao
+en:cocoa bean, cocoa beans
+af:Kakaoboon
+ar:كاكاو
+ca:gra de cacau
+de:Kakaobohne
+et:Kakaopuu seemned
+fr:fèves de cacao
+hu:kakaóbab
+id:Biji kakao
+it:granelli di cacao
+mk:какаово зрно
+ms:Biji koko
+# nds-nl:Kakouboon
+nl:cacaobonen, cacaoboon
+ru:какао-бобы
+# sco:cocoa bean
+sq:Gatim me kakao
+sv:kakaoböna
+uk:Какао-боби
+# yue:可可豆
+zh:可可豆
+# zh-cn:可可豆
+# zh-hans:可可豆
+# zh-hant:可可豆
+# zh-hk:可可豆
+# zh-sg:可可豆
+# zh-tw:可可豆
+wikidata:en:Q208008
+# ingredient/fr:fèves-de-cacao has 341 products in 6 languages @2019-05-26
+
+<en:cocoa bean
+en:organic cocoa beans
+de:bio Kakaobohnen
+fr:fèves de cacao bio
+nl:bio cacaobonen
+
+<en:cocoa bean
+en:cocoa bean chips
+de:kakaobohnenchips
+es:pepitas de cacao, trozos de habas de cacao
+fr:éclats de fèves de cacao, éclats de fèves de cacao
+it:scaglie di cacao
+# ingredient/fr:éclats-de-fèves-de-cacao has 122 products in 6 languages @2019-05-26
+
+<en:cocoa bean chips
+fr:éclats de fèves de cacao torréfiés
+es:trozos de habas de cacao tostados
+nl:geroosterde schilfers van cacaobonen
+# ingredient/fr:éclats-de-fèves-de-cacao-torréfiés has 34 products in 4 languages @2019-05-25
+# usage:es:trozos de habas de cacao caramelizados (trozos de habas de cacao tostados, azúcar)
+
+# <en:compound
+<en:cocoa bean chips
+es:pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
+fr:éclats de fèves de cacao caramélisés
+nl:gekaramelliseerde schilfers van cacaobonen
+# ingredient/fr:éclats-de-fèves-de-cacao-caramélisés has 35 products @2019-05-25
+# usage:es:pepitas de cacao caramelizadas (cacao, azúcar)
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           W A T E R     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+# description:en:WATER is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.
 
 en:water
 ab:Аӡы
