@@ -119,7 +119,7 @@ da:indeholder
 de:Zutaten, Zusammensetzung
 es:composición
 et:Koostisainsd, koostis
-fi:aineosat
+fi:ainenosat
 fr:ingrédient, ingrédients, composition
 hu:összetétel
 id:komposisi
@@ -28429,7 +28429,6 @@ tg:какаои судашуда
 uz:qirilgan kakao
 # ingredient/cocoa-paste has 14530 products in 32 languages @2019-05-25
 
-
 <en:cocoa paste
 en:organic cocoa paste
 de:Bio-Kakaomasse
@@ -28785,13 +28784,48 @@ it:cioccolato puro burro di cacao
 nl:chocolade met pure cacaoboter
 # ingredient/fr:chocolat-pur-beurre-de-cacao has 45 products in 6 languages @2019-05-25
 
+# description:en:DARK BLACK CHOCOLATE is a form of chocolate containing cocoa solids, cocoa butter and sugar, without the milk found in milk chocolate.
 
 <en:chocolate
 en:dark chocolate, black chocolate
-de:dunkle Schokolade
+ar:شوكولاتة داكنة
+bn:ডার্ক চকোলেট
+cs:hořká čokoláda
+da:mørk chokolade
+de:dunkle Schokolade, Zartbitterschokolade
+el:μαύρη σοκολάτα
+eo:nigra ĉokolado
+es:Chocolate amargo
+et:tume šokolaad
+eu:txokolate beltz
+fa:شکلات تلخ
+fi:tumma suklaa
 fr:chocolat noir
+he:שוקולד מריר
+hi:डार्क चॉकलेट
+hu:étcsokoládé
 it:cioccolato fondente
-nl:Pure chocola
+ja:ビターチョコレート
+ka:შავი შოკოლადი
+ko:다크 초콜릿
+ms:coklat hitam
+lv:tumšā šokolāde
+nb:vanlig sjokolade
+nl:Pure chocola, pure chocolade
+or:ଡାର୍କ ଚୋକୋଲେଟ
+pa:ਡਾਰਕ ਚੌਕਲੇਟ
+pt:chocolate amargo
+ru:горький шоколад
+sq:çokollatë e zezë
+sv:mörk choklad
+th:ดาร์กช็อกโกแลต
+tr:Bitter çikolata
+vi:sôcôla đen
+# yue:黑朱古力
+wikidata:en:Q277628
+wikipedia:en:https://en.wikipedia.org/wiki/Dark_chocolate
+# ingredient/dark-chocolate has 3653 products in 12 languages @2019-05-25
+# category/dark-chocolates has 3311 products @2019-05-25
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 
 <en:dark chocolate
@@ -28804,6 +28838,7 @@ de:Bitterschokoladenstückchen
 fr:morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
 it:pezzetti di cioccolato fondente
 nl:stukjes pure chocolade
+pl:kawalki czekolday deserowej
 # ingredient/fr:morceaux-de-chocolat-noir has 66 products in 5 languages @2019-03-29
 # usage:it: pezzetti di cioccolato fondente (zucchero, pasta di cacao, burro di cacao, emulsionante: lecitina di soia: aroma naturale di vaniglia)
 
