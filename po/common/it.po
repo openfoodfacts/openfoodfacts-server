@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-21 13:53\n"
+"PO-Revision-Date: 2019-05-26 14:05\n"
 "Language-Team: Italian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -193,7 +193,7 @@ msgstr "Puoi anche contribuire a finanziare il progetto Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> è costituito da un'associazione senza scopo di lucro, indipendente dall'industria. È fatto per tutti, da tutti, ed è finanziato da tutti. Puoi sostenere il nostro lavoro con <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donazioni a Open Food Facts</a> e anche con <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilizzando il motore di ricerca Lilo</a>.<br/><b>Grazie!</b></p>"
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> è creato da un'associazione senza scopo di lucro, indipendente dall'industria. È fatto per tutti, da tutti, ed è finanziato da tutti. Puoi sostenere il nostro lavoro con <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donazioni a Open Food Facts</a> e anche <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilizzando il motore di ricerca Lilo</a>.<br/><b>Grazie!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -317,7 +317,7 @@ msgstr "missioni %d completate:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "Siete connessi attraverso il vostro profilo Facebook"
+msgstr "Connesso attraverso il vostro profilo Facebook."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -538,7 +538,7 @@ msgstr "Errore"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "Username o password sbagliate.  <a href=\"/cgi/reset_password.pl\">Password dimenticata? </a>"
+msgstr "Nome utente o password errati. <a href=\"/cgi/reset_password.pl\">Password dimenticata?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
@@ -546,7 +546,7 @@ msgstr "Un errore è occorso durante la lettura dei dati, prova a ricaricare la 
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr "La password non corrisponde"
+msgstr "La password e la password di conferma sono diverse."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
@@ -562,11 +562,11 @@ msgstr "Indirizzo e-mail non valido"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr "La password deve contenere almeno 6 caratteri"
+msgstr "La password deve essere lunga almeno 6 caratteri."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "Utilizzatore non valido"
+msgstr "Utente non valido."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -586,7 +586,7 @@ msgstr "Permesso rifiutato"
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr "Inserisci il nome dell'utilizzatore/username"
+msgstr "Devi inserire un nome utente"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
@@ -602,7 +602,7 @@ msgstr "Non esiste un account associato a questa e-mail"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "Questo nome d'utilizzatore/username non esiste"
+msgstr "Questo nome utente non esiste."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
@@ -626,7 +626,7 @@ msgstr "La data di scadenza permette di tracciare le modifiche dei prodotti nel 
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr "Drill-down nei prodotti da..."
+msgstr "Esplora i prodotti per..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -866,7 +866,7 @@ msgstr "È necessario immettere i caratteri del codice a barre oppure inviare un
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr "I prodotti aggiunti devono essere completati"
+msgstr "Prodotti aggiunti che devono essere completati"
 
 msgctxt "informers_p"
 msgid "informers"
@@ -1974,7 +1974,7 @@ msgstr "Ricorda il luogo di acquisto e il negozio per le prossime aggiunte di pr
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr "Modificare la password"
+msgstr "Reimposta password"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -1987,7 +1987,7 @@ msgid "Hello <NAME>,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
 msgstr "Ciao <NAME>,\n\n"
-"hai chiesto di reimpostare la password su https://openfoodfacts.org\n\n"
+"Hai chiesto di reimpostare la password su https://openfoodfacts.org\n\n"
 "per l'utente: <USERID>\n\n"
 "Per reimpostare la password fai clic sul collegamento sottostante.\n"
 "Se non hai chiesto di reimpostare la password puoi ignorare questo messaggio.\n\n"
@@ -2002,7 +2002,7 @@ msgstr "Reimposta la password su <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr "La password è stata modificata. Potete ora identificarvi con la nuova password."
+msgstr "La password è stata modificata. Ora puoi accedere con questa password."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
@@ -2288,7 +2288,7 @@ msgstr "Senza"
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr "Vedere la pagina del prodotto"
+msgstr "Vedi la pagina del prodotto"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2312,7 +2312,7 @@ msgstr "Invio immagine"
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr "Porzioni"
+msgstr "Porzione"
 
 msgctxt "serving_size_prepared"
 msgid ""
@@ -2349,7 +2349,7 @@ msgstr "Se siete già iscritti su <SITE>, per favore identificatevi prima di com
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr "Disconnettersi"
+msgstr "Esci"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2465,7 +2465,7 @@ msgstr "traccia"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr "Nome dâutilizzatore su Twitter (facoltativo)"
+msgstr "Nome utente Twitter (opzionale)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
@@ -2493,11 +2493,11 @@ msgstr "In qualsiasi momento e facilmente potete cancellarvi dalla lettera d'inf
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr "Nome d'utilizzatore o indirizzo e-mail "
+msgstr "Nome utente o indirizzo e-mail: "
 
 msgctxt "username"
 msgid "User name"
-msgstr "Nome dell'utilizzatore"
+msgstr "Nome utente"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
@@ -2575,7 +2575,7 @@ msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr "Siete connessi come %s."
+msgstr "Connesso come %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
@@ -2611,15 +2611,15 @@ msgstr "Attenzione: la quantità di frutta, verdura e noci non è specificata su
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr "grado di nutrizione del colore NutriScore"
+msgstr "Colore del voto nutrizionale NutriScore"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr "Come viene calcolato il grado di nutrizione del colore"
+msgstr "Come viene calcolato il colore del voto nutrizionale"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr "Grado di nutrizione NutriScore"
+msgstr "Voto nutrizionale NutriScore"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
