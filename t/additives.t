@@ -279,7 +279,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e967',
           'en:e968',
           'en:e421',
-          'en:e965i',
+          'en:e965',
           'en:e420i',
           'en:e965ii',
           'en:e951',
@@ -293,7 +293,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e903',
           'en:e320'
                               ],
-);
+) or diag explain $product_ref->{additives_original_tags};
 
 
 # additives that are only additives when preceeded by their function
