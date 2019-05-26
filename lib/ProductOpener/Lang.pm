@@ -306,7 +306,6 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 
 		foreach my $type (keys %tag_type_singular) {
 			next if ($type =~ /_(next|prev|debug)/);
-			print STDERR "type: $type -$tag_type_singular{$type}{$l} " . $tag_type_singular{$type}{$l} . "\n";
 			$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
 		}
 
