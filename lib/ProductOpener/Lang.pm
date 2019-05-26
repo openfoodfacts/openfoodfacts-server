@@ -255,11 +255,9 @@ my ($tag_type_singular_ref, $tag_type_plural_ref)
 %tag_type_singular = %$tag_type_singular_ref;
 %tag_type_plural   = %$tag_type_plural_ref;
 
-
 my @debug_taxonomies = ("categories", "labels", "additives");
 
 {
-
 	foreach my $taxonomy (@debug_taxonomies) {
 
 		foreach my $suffix ("prev", "next", "debug") {
@@ -306,13 +304,15 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 		$tag_type_from_singular{$l} or $tag_type_from_singular{$l} = {};
 		$tag_type_from_plural{$l} or $tag_type_from_plural{$l} = {};
 
-
 		foreach my $type (keys %tag_type_singular) {
-				$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
+			next if ($type =~ /_(next|prev|debug)/);
+			print STDERR "type: $type -$tag_type_singular{$type}{$l} " . $tag_type_singular{$type}{$l} . "\n";
+			$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
 		}
 
 		foreach my $type (keys %tag_type_plural) {
-				$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
+			next if ($type =~ /_(next|prev|debug)/);
+			$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
 		}
 
 	}	
