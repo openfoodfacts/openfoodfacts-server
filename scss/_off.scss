@@ -63,7 +63,7 @@ hr.floatright {
 }
 
 .nutriment_subx {
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .data_table .nutriment_sub .nutriment_label {
@@ -96,8 +96,8 @@ tbody {
 .data_table td,
 .data_table th {
   margin: 0;
-  padding: .2rem;
-  padding-left: .5rem;
+  padding: 0.2rem;
+  padding-left: 0.5rem;
 }
 
 .data_table .nutriment_head {
@@ -213,10 +213,10 @@ a:hover.level_1 {
 
 .select2-container--default .select2-selection--single {
   border-radius: 0;
-  font-size: .875rem;
+  font-size: 0.875rem;
   height: 1.75rem;
   position: relative;
-  top: .53125rem;
+  top: 0.53125rem;
   width: 10rem;
 }
 
@@ -235,7 +235,7 @@ a:hover.level_1 {
 .side-nav li a:not(.button) {
   color: blue;
   margin: 0 -1rem;
-  padding: .4375rem 1rem;
+  padding: 0.4375rem 1rem;
 }
 
 .side-nav li a:not(.button):hover,
@@ -247,7 +247,7 @@ a:hover.level_1 {
   a.button.icon {
     font-size: 1rem;
     height: 2rem;
-    padding: .5rem;
+    padding: 0.5rem;
     width: 2rem;
   }
 }
@@ -273,6 +273,9 @@ a:hover.level_1 {
 .top-bar-section .has-dropdown > a:after {
   border-color: transparent transparent transparent rgba(0, 0, 0, 0.4);
 }
+.top-bar-section ul li > a:hover {
+  text-decoration: none;
+}
 
 @media only screen and (min-width: 40.063em) {
   .top-bar-section .has-dropdown > a:after {
@@ -294,11 +297,11 @@ a:hover.level_1 {
 
 .example {
   color: green;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .note {
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .example,
@@ -313,4 +316,12 @@ a:hover.level_1 {
 .button-group ul {
   height: 400px;
   overflow: auto;
+}
+.top-bar-section ul li > a {
+  text-decoration: none;
+}
+
+p.details {
+  color: gray;
+  font-size: 0.8em;
 }
