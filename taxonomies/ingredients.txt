@@ -28829,7 +28829,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Dark_chocolate
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 
 <en:dark chocolate
-fr:chocolat-noir-a-70-de-cacao-minimum
+fr:chocolat noir à 70 de cacao
+# ingredient/fr:chocolat-noir-a-70-de-cacao-minimum has 31 products in french @2019-05-25
 
 <en:dark chocolate
 # <en:chocolate chips
@@ -28842,13 +28843,39 @@ pl:kawalki czekolday deserowej
 # ingredient/fr:morceaux-de-chocolat-noir has 66 products in 5 languages @2019-03-29
 # usage:it: pezzetti di cioccolato fondente (zucchero, pasta di cacao, burro di cacao, emulsionante: lecitina di soia: aroma naturale di vaniglia)
 
+# description:en:MILK CHOCOLATE is solid chocolate made with milk added in the form of powdered milk, liquid milk, or condensed milk. 
+
+# <en:contains:en:sugar
+# <en:contains:en:milk powder
+# <en:contains:en:cocoa mass
+# <en:contains:en:cocoa butter
+# <en:category:en:Milk chocolates
 <en:chocolate
 en:milk chocolate
-de:Milchschokolade
+ca:xocolata amb llet
+de:Milchschokolade, Vollmilchschokolade
+el:Σοκολάτα γάλακτος
+eo:laktoĉokolado
+es:chocolate con leche
+eu:Esnedun txokolate
+fi:maitosuklaa
 fr:chocolat au lait
+gl:Chocolate con leite
+he:שוקולד חלב
 it:cioccolato al latte
-nl:Melkchocola
+ja:ミルクチョコレート
+ko:밀크 초콜릿
+nl:Melkchocola, melkchocolade
+nn:Mjølkesjokolade
+pt:chocolate de leite, chocolate ao leite
+ru:молочный шоколад
+sv:mjölkchoklad
+tr:Sütlü çikolata
+wikidata:en:Q2164820
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
+# ingredient/milk-chocolate has 4843 products in 20 languages @2019-05-25
+# category/milk-chocolates has 2071 products @2019-05-25
+# usage:fr:Chocolat au lait [sucre, beurre de cacao, pâte de cacao, poudre de lait écrémé, lactose, matière grasse de lait anhydre, émulsifiant:lécithines (tournesol), arôme]
 
 <en:milk chocolate
 # <en:chocolate chips
@@ -28856,7 +28883,10 @@ fr:pépites de chocolat au lait
 
 <en:milk chocolate
 fr:chocolat supérieur au lait
+# usage:fr:Chocolat supérieur au lait (sucre, lait en poudre, beurre de cacao, pâte de cacao, émulsifiants:lécithine [soja], vanilline)
 
+<en:milk chocolate
+fr:chocolat au lait du pays alpin
 
 <en:chocolate
 en:white chocolate
@@ -28866,10 +28896,6 @@ it:cioccolato bianco
 nl:witte chocolade
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 
-
-
-<en:chocolate
-fr:chocolat au lait du pays alpin
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
