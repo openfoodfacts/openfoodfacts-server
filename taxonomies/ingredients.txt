@@ -28273,84 +28273,6 @@ wikidata:en: Q63120038
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-en:chocolate
-de:Schokolade
-fr:chocolat
-it:cioccolato
-nl:chocolade
-
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
-
-
-
-<en:chocolate
-en:chocolate pieces, chocolate chips
-de:Schokoladenstücke, Schokoladenstückchen
-fr:morceaux de chocolat, pépites de chocolat, copeaux de chocolat
-it:pezzi di cioccolato, goccie di cioccolato
-nl:Chocostukjes
-# ingredient/fr:morceaux-de-chocolat has 63 products in 4 languages @2019-03-11
-# usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
-
-<en:chocolate
-en:white chocolate
-de:weisse Schokolade
-fr:chocolat blanc
-it:cioccolato bianco
-nl:witte chocolade
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
-
-<en:chocolate
-fr:chocolat en poudre, poudre de chocolat
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
-
-
-<en:chocolate
-en:dark chocolate, black chocolate
-de:dunkle Schokolade
-fr:chocolat noir
-it:cioccolato fondente
-nl:Pure chocola
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
-
-<en:dark chocolate
-<en:chocolate chips
-en:dark chocolate chunks, dark chocolate chips
-de:Bitterschokoladenstückchen
-fr:morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
-it:pezzetti di cioccolato fondente
-nl:stukjes pure chocolade
-# ingredient/fr:morceaux-de-chocolat-noir has 66 products in 5 languages @2019-03-29
-# usage:it: pezzetti di cioccolato fondente (zucchero, pasta di cacao, burro di cacao, emulsionante: lecitina di soia: aroma naturale di vaniglia)
-
-<en:chocolate
-en:milk chocolate
-de:Milchschokolade
-fr:chocolat au lait
-it:cioccolato al latte
-nl:Melkchocola
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
-
-<en:milk chocolate
-<en:chocolate chips
-fr:pépites de chocolat au lait
-
-<en:milk chocolate
-fr:chocolat supérieur au lait
-
-fr:fourrage au chocolat, fourrage chocolat
-
-fr:chocolat pur beurre de cacao
-
-fr:chocolat-noir-a-70-de-cacao-minimum
-
-<en:chocolate
-fr:chocolat au lait du pays alpin
-
-
-
 
 en:cocoa
 ar:كاكاو
@@ -28634,6 +28556,259 @@ fr:éclats de fèves de cacao caramélisés
 nl:gekaramelliseerde schilfers van cacaobonen
 # ingredient/fr:éclats-de-fèves-de-cacao-caramélisés has 35 products @2019-05-25
 # usage:es:pepitas de cacao caramelizadas (cacao, azúcar)
+
+
+# description:en:CHOCOLATE is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods. 
+
+# <en:compound
+# <en:category:en:Chocolates
+# <en:contains:en:cocoa butter
+# <en:contains:en:cocoa mass
+# <en:contains:en:sugar
+en:chocolate
+af:Sjokolade
+am:ቸኮላታ
+an:Chicolate
+# ang:Ceocōlāte
+ar:شوكولاتة
+# arz:شوكولاته
+# ast:Chicolate
+az:Şokolad
+# azb:شوکولات
+ba:Шоколад
+# bar:Schogglad
+be:Шакалад
+# be-tarask:Шакаляд
+bg:шоколад
+# bho:चॉकलेट
+# bjn:Suklat
+bn:চকলেট
+br:Chokolad
+bs:Čokolada
+ca:xocolata
+ce:Шоколад
+# ceb:sikwate
+#ckb:چۆکلێت
+cs:čokoláda
+cy:siocled
+da:chokolade
+de:Schokolade
+# de-ch:Schokolade
+el:σοκολάτα
+# en-ca:Chocolate
+# en-gb:chocolate
+eo:ĉokolado
+es:chocolate
+et:šokolaad
+eu:Txokolate
+# ext:Chocolati
+fa:شکلات
+fo:sjokuláta
+fi:suklaa
+fr:chocolat
+# fur:Cjocolate
+fy:sûkelarje
+ga:Seacláid
+gd:Teòclaid
+gl:Chocolate
+gn:Chokora
+# gsw:Schokolade
+gu:ચોકલિટ્
+gv:shocklaid
+# hak:巧克力
+he:שוקולד
+hi:चॉकलेट
+hr:Čokolada
+ht:chokola
+hu:csokoládé
+hy:Շոկոլադ
+# hyw:Տուրմ
+ia:Chocolate
+id:Cokelat
+# ilo:tsokolate
+io:Chokolado
+is:Súkkulaði
+it:cioccolato
+ja:チョコレート
+# jbo:cakla
+jv:Coklat
+ka:შოკოლადი
+kk:Шоколад
+km:ស៊ុកូឡា
+kn:ಚಾಕಲಿಟ್
+ko:초콜릿
+ky:Шоколад
+la:Socolata
+# lad:Chikolata
+lb:Schockela
+# lfn:Xocolada
+lb:sjoekelaat
+# lmo:Scicolatt
+ln:Sokolá
+lo:ໂຊໂກລາ
+lt:Šokoladas
+lv:šokoladas
+# map-bms:Coklat
+mg:sokola
+mi:tiakarete
+# min:Cokelat
+mk:чоколадо
+ml:ചോക്കലേറ്റ്
+mn:Шоколад
+mr:चॉकलेट
+ms:coklat
+mt:ċikkulata
+my:ချောကလက်
+# nah:Xocolātl
+# nan:Chi-ku-la̍t
+nb:sjokolade
+# nds:Schokolaad
+# nds-nl:Sokkeloa
+ne:चकलेट
+# new:चकलेट
+nl:chocola, chocolade
+nn:sjokolade
+# nov:chokolate
+# nrm:Chocolat
+oc:Chocolat
+# olo:Šokoluadu
+or:ଚୋକୋଲେଟ
+os:Шоколад
+pa:ਚਾਕਲੇਟ
+# pap:chukulati
+pl:czekolada
+# pms:Cicolata
+# pnb:چاکلیٹ
+pt:chocolate
+# pt-br:chocolate
+qu:Chukulati
+ro:ciocolata
+# roa-tara:ciucculate
+ru:шоколад
+# rup:Ciuculatâ
+# sah:Сакалаат
+# scn:Cioccolatti
+# sco:chocolate
+sd:چاڪليٽ
+# sgs:Čėkuolads
+sh:Čokolada
+si:චොකලට්
+sk:čokoláda
+sl:Čokolada
+sm:sukalati
+so:Chocolate
+sq:çokollata
+sr:чоколада
+# sr-ec:чоколада
+# sr-el:čokolada
+# srn:sukruskrati
+st:tshokolete
+su:Coklat
+sv:choklad
+sw:Chokoleti
+# szl:Szekulada
+ta:சாக்கலேட்
+te:చాక్లెట్
+# tet:xoklate
+tg:Шакалод
+th:ช็อกโกแลต
+tk:Şokolad
+tl:Tsokolate
+tr:Çikolata
+tt:Шоколад
+uk:шоколад
+ur:چاکلیٹ
+uz:shokolad
+# vep:Šokolad
+vi:sô-cô-la
+# war:Sikolate
+wo:sokolaa
+# wuu:巧克力
+yi:שאקאלאד
+# yue:朱古力
+zh:巧克力
+# zh-cn:巧克力
+# zh-hans:巧克力
+# zh-hant:朱古力
+# zh-hk:朱古力
+# zh-mo:朱古力
+# zh-my:巧克力
+# zh-sg:巧克力
+# zh-tw:朱古力
+zu:shokoledi
+wikipedia:en:https://en.wikipedia.org/wiki/Chocolate
+# ingredient/chocolate has 4595 products in 18 languages @2019-05-26
+# category/chocolates has 7757 products @2019-05-26
+# usage:en:chocolate (cocoa mass, sugar, cocoa butter, emulsifiers:lecithins (soy), natural vanilla flavouring)
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
+
+
+
+<en:chocolate
+en:chocolate pieces, chocolate chips
+de:Schokoladenstücke, Schokoladenstückchen
+fr:morceaux de chocolat, pépites de chocolat, copeaux de chocolat
+it:pezzi di cioccolato, goccie di cioccolato
+nl:Chocostukjes
+# ingredient/fr:morceaux-de-chocolat has 63 products in 4 languages @2019-03-11
+# usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
+
+<en:chocolate
+en:white chocolate
+de:weisse Schokolade
+fr:chocolat blanc
+it:cioccolato bianco
+nl:witte chocolade
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
+
+<en:chocolate
+fr:chocolat en poudre, poudre de chocolat
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
+
+
+<en:chocolate
+en:dark chocolate, black chocolate
+de:dunkle Schokolade
+fr:chocolat noir
+it:cioccolato fondente
+nl:Pure chocola
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
+
+<en:dark chocolate
+<en:chocolate chips
+en:dark chocolate chunks, dark chocolate chips
+de:Bitterschokoladenstückchen
+fr:morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
+it:pezzetti di cioccolato fondente
+nl:stukjes pure chocolade
+# ingredient/fr:morceaux-de-chocolat-noir has 66 products in 5 languages @2019-03-29
+# usage:it: pezzetti di cioccolato fondente (zucchero, pasta di cacao, burro di cacao, emulsionante: lecitina di soia: aroma naturale di vaniglia)
+
+<en:chocolate
+en:milk chocolate
+de:Milchschokolade
+fr:chocolat au lait
+it:cioccolato al latte
+nl:Melkchocola
+carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
+
+<en:milk chocolate
+<en:chocolate chips
+fr:pépites de chocolat au lait
+
+<en:milk chocolate
+fr:chocolat supérieur au lait
+
+fr:fourrage au chocolat, fourrage chocolat
+
+fr:chocolat pur beurre de cacao
+
+fr:chocolat-noir-a-70-de-cacao-minimum
+
+<en:chocolate
+fr:chocolat au lait du pays alpin
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
