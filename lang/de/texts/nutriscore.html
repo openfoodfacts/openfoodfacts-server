@@ -1,402 +1,187 @@
-<div id="main_column" class="XXLarge-11 xlarge-10 wide-9 medium-8 columns" style="padding-top: 1REM; height: 4313px;" data-equalizer-watch="">
+<!-- no side column -->
 
-<!-- Hand column content - how used to remove left column and center glad On Some pages -->  
+<styles>
+@media only screen and (max-width: 40em) { h2 { font-weight:bold; font-size:1.2em;} }
+</styles>
 
-<h1>Nährwertangaben - Farbsystem - Frankreich</h1>
+<h1>Vergleichen Sie die Nährwertqualität von Lebensmitteln mit dem Nutri-Score!</h1>
 
-<h2>Ein System der Klassen A bis E zur Vereinfachung der Nährwertkennzeichnung</h2>
+<h2>Was ist der Nutri-Score?</h2>
 
-<p>In dem Bericht „Vorschläge für neue Impulse für die französische Gesundheitsernährungspolitik im Rahmen der nationalen Gesundheitsstrategie” (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">PDF-Datei (franz.)</a>) befürwortet Professor Serge Hercberg die Einführung eines Systems der Klassen A bis E auf der Vorderseite von Lebensmitteln, um einen einfachen Vergleich der Lebensmittelqualität von Produkten zu ermöglichen.</p>
+<div class="row">
 
-<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
+<div class="small-6 medium-6 large-8 xlarge-8 columns">  
 
-<p>Diese Farbwerte werden durch die Berechnung eines Ernährungswerts festgelegt, der für den ersten Teil der Energie, gesättigte Fettsäuren, Zucker, Natrium (hohe Werte gelten als ungesund) und für den zweiten Teil des Anteils von Obst, Gemüse und Nüssen, Fasern und Proteinen (hohe Werte gelten als gut für die Gesundheit).</p>
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png" alt="NutriScore">
 
-<p>Mehr erfahren:</p>
+<p>Der Nutri-Score ist ein Logo, das die Nährwertqualität von Lebensmitteln in den Qualitätsstufen A bis E darstellt. Mit dem NutriScore können Produkte einfach und schnell verglichen werden.</p>
 
-<ul>
-<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">Video (2 Minuten): Welche Kennzeichnung für Lebensmittel?</a></li>
-<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Forderung nach einer einfachen, intuitiven und verständlichen Nährwertkennzeichnung auf der Vorderseite von Lebensmittelverpackungen</a>
-</li>
-</ul>
+<div class="panel callout show-for-medium-up">
+<p><b>Mai 2019:</b> der Nutri-Score kann mit der Open Food Facts-App eingesehen werden, aber ist auf der Produktverpackung eine freiwillige Angabe. Die Europäische Kommission kann darum gebeten werden diese Angabe auf der Vorderseite von Lebensmittelprodukten zur Pflicht zu machen.</p>
 
-<h2>Die Lebensmittelbewertung bei Open Food Facts</h2>
-
-<p>Die Formel zur Berechnung des Nährwerts, die Schwellenwerte der Noten und die verschiedenen Optimierungsvorschläge wurden durch das Team von Professor Hercberg übermittelt. Diese Formel war Gegenstand von Studien und Anpassungen für den französischen Markt.</p>
-
-<p>Die offiziell angenommene und auf Open Food Facts umgesetzte Version ist die aus dem am 25. Juni 2015 veröffentlichten Bericht <a href="/files/hcspa20150625_infoqualnutprodalim.pdf">HINWEIS des Hohen Rates für öffentliche Gesundheit über Informationen über die Ernährungsqualität von Lebensmitteln</a>.</p>
-
-<p>Wir haben jedoch den Nährwert für Produkte, die auf französischem Boden verkauft werden und in der Datenbank Open Food Facts aufgeführt sind, berechnet und die entsprechenden A- bis E-Noten ermittelt. Dies ermöglicht insbesondere den Vergleich der Nährwerte und/oder Anmerkungen verschiedener Produkte und die Untersuchung der Verteilung für jede Produktkategorie.</p>
-
-<h2>Formel zur Berechnung des Nährstoffgehalts</h2>
-
-<p>Punkte werden den Produkten nach der Menge der enthaltenen Nährstoffe je 100 g gegeben.</p>
-
-<p>A-Punkte werden für die als „schlecht” geltenden Nährstoffe und C-Punkte für die „guten” Nährstoffe und den Gehalt an Obst, Gemüse und Nüssen vergeben.</p>
-
-<h3>A-Punkte</h3>
-
-<p>„A”-Punkte sind die Summe der Punkte für Energie, gesättigte Fettsäuren, Zucker und Natrium.</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <th>Punkte</th>
-    <th>Energie (kJ)</th>
-    <th>Gesättigte Fettsäuren (g)</th>
-    <th>Zucker (g)</th>
-    <th>Natrium (mg)</th>
-  </tr>
-<tr>
-  <td>0</td>
-  <td>≤ 335</td>
-  <td>≤ 1</td>
-  <td>≤ 4,5</td>
-  <td>≤ 90</td>
-</tr>
-<tr>
-  <td>1</td>
-  <td>&gt; 335</td>
-  <td>&gt; 1</td>
-  <td>&gt; 4,5</td>
-  <td>&gt; 90</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td>&gt; 670</td>
-  <td>&gt; 2</td>
-  <td>&gt; 9</td>
-  <td>&gt;180</td>
-</tr>
-<tr>
-  <td>3</td>
-  <td>&gt; 1005</td>
-  <td>&gt; 3</td>
-  <td>&gt; 13,5</td>
-  <td>&gt; 270</td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>&gt; 1340</td>
-  <td>&gt; 4</td>
-  <td>&gt; 18</td>
-  <td>&gt; 360</td>
-</tr>
-<tr>
-  <td>5</td>
-  <td>&gt; 1675</td>
-  <td>&gt; 5</td>
-  <td>&gt; 22,5</td>
-  <td>&gt; 450</td>
-</tr>
-<tr>
-  <td>6</td>
-  <td>&gt; 2010</td>
-  <td>&gt; 6</td>
-  <td>&gt; 27</td>
-  <td>&gt; 540</td>
-  </tr>
-<tr>
-  <td>7</td>
-  <td>&gt; 2345</td>
-  <td>&gt; 7</td>
-  <td>&gt; 31</td>
-  <td>&gt; 630</td>
-</tr>
-<tr>
-  <td>8</td>
-  <td>&gt; 2680</td>
-  <td>&gt; 8</td>
-  <td>&gt; 36</td>
-  <td>&gt; 720</td>
-</tr>
-<tr>
-  <td>9</td>
-  <td>&gt; 3015</td>
-  <td>&gt; 9</td>
-  <td>&gt; 40</td>
-  <td>&gt; 810</td>
-</tr>
-<tr>
-  <td>10</td>
-  <td>&gt; 3350</td>
-  <td>&gt; 10</td>
-  <td>&gt; 45</td>
-  <td>&gt; 900</td>
-</tr>
-</tbody>
-  </table>
-
-<h3>C-Punkte</h3>
-
-<p>„C”-Punkte sind die Summe der Punkte für Obst, Gemüse und Nüsse, für Ballaststoffe und Eiweiß.</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <th>Punkte</th>
-    <th>Obst, Gemüse und Nüsse (%)</th>
-    <th>Ballaststoffe (g)</th>
-    <th>Eiweiß (g)</th>
-  </tr>
-<tr>
-  <td>0</td>
-  <td>≤ 40</td>
-  <td>≤ 0,7</td>
-  <td>≤ 1,6</td>
-</tr> 
-<tr>
-    <td>1</td>
-    <td>&gt; 40</td>
-    <td>&gt; 0,7</td>
-    <td>&gt; 1,6</td>
-</tr> 
-<tr>
-  <td>2</td>
-  <td>&gt; 60</td>
-  <td>&gt; 1,4</td>
-  <td>&gt; 3,2</td>
-</tr> 
-<tr>
-  <td>3</td>
-  <td>-</td>
-  <td>&gt; 2,1</td>
-  <td>&gt; 4,8</td>
-</tr> 
-<tr>
-  <td>4</td>
-  <td>-</td>
-  <td>&gt; 2,8</td>
-  <td>&gt; 6,4</td>
-  </tr> 
-<tr>
-  <td>5</td>
-  <td>&gt; 80</td>
-  <td>&gt; 3,5</td>
-  <td>&gt; 8,0</td>
-</tr>
-</tbody>
-</table>
-
-<p>Hinweis: Kartoffeln, Süßkartoffeln, Taro, Maniok und Tapioka sind nicht in Obst, Gemüse und Nüssen enthalten.</p>
-
-<h3>Nährwertangabenberechnung</h3>
-
-<ul>
-<li>Wenn die Anzahl der A-Punkte &lt; 11 dann ＝ A-Punkt ➖ C-Punkt</li>
-<li>Wenn die Anzahl der A-Punkte ≥ 11
-<ul>
-<li>Wenn die Punktzahl für Obst, Gemüse und Nüsse ＝ 5, dann A-Punkte ➖ C-Punkte</li>
-<li>Wenn die Punkte für Obst, Gemüse und Nüsse &lt; 5, dann gilt: A-Punkte ➖ (Punkte für Ballaststoff ➕ Punkte für Punkte Obst, Gemüse und Nüsse)</li>
-</ul>
-
-</li>
-</ul>
-
-<h3>Anpassungen für den französischen Markt</h3>
-
-<p>Die oben angegebene Formel für den Nährwert entspricht der Formel für den Nährwert der „Food Standards Agency” (FSA) in Großbritannien.</p>
-
-<p>Das Team von Professor Hercberg bietet Anpassungen für den französischen Markt an, die zur Berechnung des Punktwerts von Open Food Facts eingesetzt werden.</p>
-
-<h4>Käseanpassung</h4>
-
-<p>Bei Käse werden die Punkte für die Proteine von der Wertung abgezogen, auch wenn die A-Punkte ≥ 11 sind.</p>
-
-<h4>Fettanpassung</h4>
-
-<p>Zur Unterscheidung der Fette (Öle, Margarinen, Crèmes fraîches), die alle einen höheren Anteil an gesättigten Fettsäuren als der Höchstwert von 10g aufweisen, wird ein weiteres Gitter verwendet, das den Anteil der gesättigten Fettsäuren am Gesamtfett berücksichtigt:</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <td>Punkte</td>
-    <td>Verhältnis zw. Gesättigten Fettsäuren/Gesamtfettgehalt</td>
-  </tr>
-<tr>
-  <td>0</td> 
-  <td>&lt; 10</td>
-</tr>
-<tr>
-  <td>1</td> 
-  <td>&lt; 16</td>
-</tr>
-<tr>
-  <td>2</td> 
-  <td>&lt; 22</td>
-</tr>
-<tr>
-  <td>3</td> 
-  <td>&lt; 28</td>
-</tr>
-<tr>
-  <td>4</td> 
-  <td>&lt; 34</td>
-</tr>
-<tr>
-  <td>5</td> 
-  <td>&lt; 40</td>
-</tr>
-<tr>
-  <td>6</td> 
-  <td>&lt; 46</td>
-</tr>
-<tr>
-  <td>7</td> 
-  <td>&lt; 52</td>
-</tr>
-<tr>
-  <td>8</td> 
-  <td>&gt;&lt; 58</td>
-</tr>
-<tr>
-  <td>9</td> 
-  <td>&gt;&lt; 64</td>
-</tr>
-<tr>
-  <td>10</td> 
-  <td>&gt; 64</td>
-</tr>
-</tbody>
-</table>
-
-<h4>Anpassungen für Obst und Gemüse</h4>
-
-<p>Nüsse werden bei der Berechnung des Gehalts an Obst und Gemüse nicht berücksichtigt.</p>
-
-<h4>Anpassungen für Getränke</h4>
-
-<p>Warnhinweis: Der Nährwert für Milch und Gemüsemilch wird nach der allgemeinen Formel und nicht nach der Formel für Getränke berechnet.</p>
-
-<p>Die Schwellenwerte für Energie und Zucker werden für Getränke angepasst und für Früchte verdoppelt:</p>
-
-<table class="points">
-<tbody>
-<tr>
-  <th>Punkte</th>
-  <th>Energie (kJ)</th>
-  <th>Zucker (g)</th>
-  <th>Obst, Gemüse (%)</th>
-</tr>
-<tr>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td> 
-  <td>&lt; = 40</td>
-</tr>
-<tr>
-  <td>1</td> <td>≤ 30</td> 
-  <td>≤ 1,5 oder Süßstoffe</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>2</td> <td>&gt; 30</td> 
-  <td>&gt; 1,5</td> 
-  <td>&gt; 40</td>
-</tr>
-<tr>
-  <td>3</td> <td>&gt; 60</td> 
-  <td>&gt; 3</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>&gt; 90</td> 
-  <td>&gt; 4,5</td> 
-  <td>&gt; 60</td>
-</tr>
-<tr>
-  <td>5</td> 
-  <td>&gt; 120</td> 
-  <td>&gt; 6</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>6</td> 
-  <td>&gt; 150</td> 
-  <td>&gt; 7,5</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>7</td> 
-  <td>&gt;180</td> 
-  <td>&gt; 9</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>8</td> 
-  <td>&gt; 210</td> 
-  <td>&gt; 10,5</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>9</td> 
-  <td>&gt; 240</td> 
-  <td>&gt; 12</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>10</td> 
-  <td>&gt; 270</td> 
-  <td>&gt; 13,5</td> 
-  <td>&gt; 80</td>
-  </tr>
-</tbody>
-</table>
-
-<h2>Schwellenwerte der Farbabstufungen</h2>
-
-<p>Die Schwellenwerte für die Zuordnung der Farbstufen sind:</p> <p>
-</p><h3>Feste Nahrungsmittel:</h3>
-<ul>
-<li>A ⁃ Grün: bis zu -1</li>
-<li>B ⁃ Gelb: von 0 bis 2</li>
-<li>C ⁃ Orange: von 3 bis 10</li>
-<li>D ⁃ Rosa: von 11 bis 18</li>
-<li>E ⁃ Rot: 19 und mehr</li>
-</ul>
-<h3>Getränke:</h3>
-<p>Nur Wasser (Mineral- und Quellwasser, mit Ausnahme von aromatisiertem Wasser) wird als A eingestuft.</p>
-
-<ul>
-<li>A ⁃ Grün: Mineralwasser und Quellwasser</li>
-<li>B ⁃ Gelb: bis zu 1</li>
-<li>C ⁃ Orange: von 2 bis 5</li>
-<li>D ⁃ Rosa: von 6 bis 9</li>
-<li>E ⁃ Rot: 10 und mehr</li>
-</ul>
-
-<p><b>Warnhinweis: Diese Punktzahl kann immer noch nicht mit der empfohlenen Punktzahl übereinstimmen:</b></p>
-
-<ul>
-<li>Der Ballaststoffgehalt ist nicht unbedingt in der Nährwerttabelle enthalten. Wenn letzteres nicht angegeben ist, wird ein positiver Wert der Ballaststoffe nicht berücksichtigt. Wir ermutigen alle Hersteller, den Ballaststoffgehalt ihrer Produkte auf der Verpackung anzugeben.</li>
-  
-  <--end of current proofread -->
-<li>Die Punkte, die den Werten für Obst und Gemüse entsprechen, werden nicht für alle Produkte berücksichtigt. Der Gehalt an Obst, Gemüse ist in der Tat nicht auf der Verpackung in der Nährwerttabelle, und wir müssen ihn mit anderen Informationen (wie den Worten „Mindestgehalt an Obst”, die Kategorie der Produkte  (z. B. Konfitüren enthalten 50% Frucht) und/oder die Zutatenliste.)
-<ul>
-<li>Ein neues Feld „Obst, Gemüse (mindestens)” wurde geschaffen, um die Werte der Begriffe „Mindestgehalt an Frucht/Gemüse” usw. zu erfassen.</li>
-<li>Standardmäßig werden die Produkte in bestimmten Kategorien mit einem Mindestgehalt von:
-<ul>
-<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits">Saft</a></li>
-<li>90%: <a href="https://world.openfoodfacts.org/category/fr:compotes">Früchtekompott</a></li>
-<li>85%: <a href="https://world.openfoodfacts.org/category/fr:legumes">Gemüse</a></li>
-<li>50%: <a href="https://world.openfoodfacts.org/category/fr:confitures">Konfitüren</a></li>
-<li>andere zu definierende Kategorien</li>
-</ul>
-
-Um den Nährwert zu berechnen, ist es wichtig, Werte von über 40%, 60% und 80% zu unterscheiden.
-</li>
-</ul>
-  
-</li>
-
-<li>Für gefriergetrocknete Lebensmittel (Tütensuppen usw.) sollte der Wert für das verbrauchsfertige Produkt berechnet werden, nicht für das Rohprodukt, wie es derzeit der Fall ist.</li>
-</ul>
-
-<p>Sie können uns helfen, den Gehalt an Obst, Gemüse und Nüssen zu erfahren. Für weitere Informationen siehe das Projekt <a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">die Nährwertkennzeichnung</a> im Wiki.</p>
-
-<p>Anmerkung: Knollen wie Kartoffeln und Süßkartoffeln gelten nicht als Gemüse zur Berechnung des Nährwerts.</p>
-<h2>Vielen Dank</h2>
-<p>Wir danken Herrn Professor Serge Hercberg und Frau Dr. Chantal Julia für ihre Hilfe und die Daten, die wir zur Berechnung des Ernährungswertes erhalten haben. Diese Daten stammen aus der Arbeit des <a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">Research Team in Nutritional Epidemiology (EREN)</a> der Universität Paris 13 / Avicenne Hospital.</p>
+<a class="small button" href="http://www.pronutriscore.org">Unterschreiben Sie die Petition zum Nutri-Score auf der Webseite der Europäischen Kommission</a> 
+</div>
 
 </div>
+
+<div class="small-6 medium-6 large-4 xlarge-4 columns">
+
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-cereals-delhaize-201905.jpg" alt="Nutri-Score in Belgien">
+<p><em>Nutri-Score Bewertung auf der Vorderseite einer Müsliverpackung in einem Geschäft in Delhaize in Belgien (Mai 2019)</em></p>
+
+
+</div>
+
+</div>
+
+<div class="panel callout show-for-small-only">
+<p><b>Mai 2019:</b> der Nutri-Score kann mit der Open Food Facts-App eingesehen werden, aber ist auf der Produktverpackung eine freiwillige Angabe. Die Europäische Kommission kann darum gebeten werden diese Angabe auf der Vorderseite von Lebensmittelprodukten zur Pflicht zu machen.</p>
+
+<a class="small button" href="http://www.pronutriscore.org">Unterschreiben Sie die Petition zum Nutri-Score auf der Webseite der Europäischen Kommission</a>
+</div>
+
+
+<h2>Wie wird der Nutri-Score berechnet?</h2>
+
+
+<p>Die Nutri-Score Bewertung wird durch die Anzahl der gesunden und ungesunden Nährwerte bestimmt:</p> 
+
+<p><b>Positive Punkte:</b> der Anteil von Obst, Gemüse und Nüssen, Ballaststoffen und Eiweißstoffen (hohe Werte gelten als gut für die Gesundheit).</p>
+
+<p><b>Negative Punkte:</b> Energie, gesättigte Fettsäuren, Zucker, Natrium (hohe Werte gelten als ungesund)</p>
+
+<p>Die detaillierte <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN"> Nutri-Score Formel </a> ist auf der Website von Santé publique France öffentlich zugänglich.</p>
+
+
+<h2>Wie kann ich den Nutri-Score von Lebensmitteln sehen?</h2>
+
+<div class="row">
+
+<div class="small-12 medium-6 columns">  
+
+
+<p>Der Nutri-Score erscheint auf dem Etikett von Lebensmitteln nur in einigen Ländern und für eine derzeit begrenzte Anzahl von Marken, wird aber seit 2014 für alle Produkte aller Länder auf Open Food Facts berechnet!</p>
+
+<p>Sie können den Nutri-Score von Lebensmitteln mit der mobilen App Open Food Facts für iPhone und Android sowie auf der Website von Open Food Facts sehen. Wenn das Produkt noch nicht auf Open Food Facts enthalten ist, können Sie es innerhalb einer Minute hinzufügen, indem Sie die Nährwertangaben eintragen und eine Kategorie auswählen. Der Nutri-Score wird sofort berechnet und angezeigt.</p>
+
+</div>
+
+<div class="small-12 medium-6 columns">
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-biscuits-e.800x600.jpg" alt="NutriScore in der Open Food Facts mobilen App">
+<p><em>Holen Sie sich den Nutri-Score mit der Open Food Facts App!</em></p>
+</div>
+
+</div>
+
+<h3>Mobile App Open Food Facts installieren</h3>
+
+<p>Um Lebensmittelprodukte zu scannen, die Nutri-Score Bewertung einzusehen, ultra-verarbeitete Lebensmittel mit der Nova-Gruppe zu erkennen, Allergenalarme zu erhalten und Zusatzstoffe zu entschlüsseln, installieren Sie die kostenlose Open Food Facts App!</p>
+
+
+<a href="https://itunes.apple.com/de/app/open-food-facts/id588797948"><img src="https://static.openfoodfacts.org/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Im App Store erhältlich" width="135" height="40"></a>
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="https://static.openfoodfacts.org/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Bei Google Play erhältlich" width="135" height="47"></a>
+<a href="https://www.microsoft.com/de-de/store/p/openfoodfacts/9nblggh0dkqr"><img src="https://static.openfoodfacts.org/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40"></a>
+<a href="https://world.openfoodfacts.org/files/off.apk"><img src="https://static.openfoodfacts.org/images/misc/android-apk.112x40.png" alt="Android APK"></a>
+
+<br><br>
+
+<p>Sie werden auch in der Lage sein, neue Produkte leicht zu Open Food Facts hinzuzufügen und zum Aufbau eines Gemeinwohls beizutragen, um die Ernährung und Gesundheit aller zu verbessern. Vielen Dank!</p>
+
+<h3>Vergleichen Sie den Nutri-Score der Produkte auf der Open Food Facts-Website</h3>
+
+<div class="row">
+
+<div class="small-12 medium-6 large-8 columns">
+<p>Bei <a href="/"> Open Food Facts </a> können Sie eine Produktkategorie oder eine Marke auswählen, die Nutri-Score-Klassen auflisten und dann die entsprechenden Produkte erkunden. Verwenden Sie die blaue Schaltfläche "Produkte nach Kriterien anzeigen..." und wählen Sie "Ernährungshinweise" aus.</p>
+
+</div>
+
+<div class="small-12 medium-6 large-4 columns">
+<a href="/nutrition-grades">
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-distribution.png" alt="NutriScore">
+<em> Verteilung des Nutri-Score für alle Produkte </em>
+</a>
+<br><br>
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="small-12 medium-6 large-8 columns">
+<p>Auf <a href="/">Open Food Facts</a> könnenSie auch <a href="/cgi/search.pl?graph=1">mit wenigen Klicks Graphen </a> erstellen, die den Nutri-Score von Produkten zeigen. Wählen Sie ein Kriterium wie eine Produktkategorie und die Nährwertangaben, die Sie interessieren (z.B. Zucker und Fett), und aktivieren Sie dann das Kontrollkästchen „Farben der Nährwertklassen verwenden”.</p>
+</div>
+
+<div class="small-12 medium-6 large-4 columns">
+<a href="/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=en:breakfast-cereals&sort_by=unique_scans_n&page_size=20&axis_x=sugars&axis_y=fat&graph_title=Sugar%20and%20fat%20in%20breakfast%20cereals&series_nutrition_grades=on&graph=1">
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-breakfast-cereals-graph-fr.png" alt="NutriScore">
+<em> Nutri-Score, Zucker und Fett von Frühstückszerealien </em>
+</a>
+<br><br>
+</div>
+
+</div>
+
+
+
+<h2>Wer hat den Nutri-Score erfunden?</h2>
+
+<p>Nutri-Score wurde von EREN, einem französischen Forschungsteam für öffentliche Ernährung unter der Leitung von Professor Serge Hercberg, vorgeschlagen. Es basiert auf dem FSA-Nährwert, der von der Food Standards Agency in Großbritannien erstellt wurde.</p>  
+
+<p>Der Nutri-Score wird im Bericht 2013 „Vorschläge für einen neuen Impuls für die französische Gesundheitsernährungspolitik im Rahmen der nationalen Gesundheitsstrategie” vorgestellt (<a href="http://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">PDF</a>).
+Professor Serge Hercberg plädiert für die Einführung eines Systems von A bis E auf der Vorderseite von Lebensmitteln, um die Nährwertqualität von Produkten leicht vergleichen zu können.</p>
+
+
+<h2>Welche Länder haben den Nutri-Score übernommen?</h2>
+
+
+<p>Der Nutri-Score wurde 2016 in Frankreich und 2018 in Belgien und Spanien eingeführt. Einige Produzenten in Deutschland verwenden ebenfalls den Nutri-Score. Der Nutri-Score ist in diesen Ländern optional, aber immer mehr Lebensmittelhersteller zeigen ihn auf ihren Produkten:</p>
+
+<ul>
+<li><a href="https://fr-en.openfoodfacts.org/label/nutriscore/brands">Marken mit Nutri-Score in Frankreich</a></li>
+<li><a href="https://be-en.openfoodfacts.org/label/nutriscore/brands">Marken mit Nutri-Score in Belgien</a></li>
+<li><a href="https://es-en.openfoodfacts.org/label/nutriscore/brands">Marken mit Nutri-Score in Spanien</a></li>
+<li><a href="https://de-en.openfoodfacts.org/label/nutriscore/brands">Marken mit Nutri-Score in Deutschland</a></li>
+</ul>
+
+<p>Forschungsteams in anderen Ländern, wie z. B. Mexiko, forschen ebenfalls auf Basis des Nutri-Scores.</p>
+
+
+
+<h2>Die #PRONUTRISCORE-Petition: Verbraucher in der gesamten EU schließen sich für 1 Million Unterschriften zusammen</h2>
+
+<p>UFC-Que Choisir (Frankreich), Test-Achat (Belgien), VZBV (Deutschland), Consumentenbond (Niederlande), OCU (Spanien), Federajca Konsumentow (Polen) und EKPIZO (Griechenland), Mitglieder des Europäischen Büros der Verbraucherverbände (BEUC) haben sich zusammengeschlossen, um die EU-Kommission aufzufordern, den Nutri-Score für Lebensmittelverpackungen verbindlich zu machen.</p>
+
+<blockquote>
+<p>Wir fordern die Europäische Kommission auf, eine vereinfachte Kennzeichnung von 'Nutriscore' für Lebensmittel einzuführen, sicherzustellen, dass die Verbraucher über qualitativ hochwertige Ernährungsinformationen verfügen und ihre Gesundheit schützen.</p>
+<ol>
+<li>Erleichtern Sie das Lesen und Verstehen der Nährwertkennzeichnung, damit der Nährwert eines Lebensmittels angesichts der Vielfalt der Lebensmittelversorgung auf einen Blick verstanden werden kann;</li>
+<li>Ergreifen Sie Maßnahmen in Bezug auf Fragen der öffentlichen Gesundheit, indem Sie Fachkräfte ermutigen, die Zusammensetzung ihrer Produkte zu verbessern;</li>
+<li>Harmonisierung der Nährwertangaben auf europäischer Ebene durch Einführung eines einheitlichen amtlichen Kennzeichnungssystems, wodurch die Verwirrung der europäischen Verbraucher angesichts der Vielzahl vorhandener Logos beseitigt wird.</li>
+</ol>
+</blockquote>
+<h3>Petition, den Nutri-Score für alle Verpackungen in ganz Europa verbindlich zu machen</h3>
+
+<p>
+<a class="small button" href="http://www.pronutriscore.org"> Unterzeichnen Sie die Nutri-Score-Petition auf der Website der EU-Kommission </a> (erfordert eine gültige Form der europäischen Identifikationsnummer)
+</p>
+
+<a class="tiny button" href="https://twitter.com/share?url=https://world-en.openfoodfacts.org/nutriscore&amp;text=Join%20me%20in%20signing%20the%20%23PRONUTRISCORE%20petition&amp;hashtags=yeswescan">Twittere über die Petition</a>
+<a class="tiny button" href="https://www.facebook.com/sharer.php?u=https://world-en.openfoodfacts.org/nutriscore">Diesen Aufruf teilen, um auf Facebook zu unterzeichnen</a>
+<a class="tiny button" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://world-en.openfoodfacts.org/nutriscore">Diesen Aufruf teilen, um auf LinkedIn zu unterzeichnen</a>
+
+<h2>Vielen Dank</h2>
+<p>Wir danken Herrn Professor Serge Hercberg und Frau Dr. Chantal Julia aus dem <a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">Forschungsteam in der Nutritionalen Epidemiologie (EREN)</a> der Pariser Universität 13 / Avicenne Hospital für ihre Hilfe und die Daten, die sie uns mitgeteilt haben, um die Nährwertqualität und die Nutri-Score Bewertungen zu berechnen.</p>
+
+
+<h2>Mehr über Nutri-Score erfahren</h2>
+
+<ul>
+<li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score"> Offizielle Präsentation von Nutri-Score </a> und <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN"> Wissenschaftliche und technische FAQ zu Nutri-Score </a> auf der Website der französischen staatlichen Gesundheitsbehörde Santé publique France.</li>
+<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">Video (2 Minuten): Welche Kennzeichnung für Lebensmittel?</a></li>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petition für ein einfaches, intuitives und verständliches kennzeichnen von Nährwertsqualitäten auf der Vorderseite von Lebensmittelverpackungen</a>
+</li>
+</ul>
+
+<br>
