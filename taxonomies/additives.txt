@@ -3854,7 +3854,13 @@ e_number:en:243
 wikidata:en:Q18608852
 efsa:en:http://www.efsa.europa.eu/fr/scdocs/doc/511.pdf
 efsa:en:http://www.efsa.europa.eu/en/efsajournal/doc/3294.pdf
-additives_classes:en: en:preservative
+efsa_evaluation_url:en:https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5621
+efsa_evaluation_date:en:2019/03/08
+efsa_evaluation:en:Safety of ethyl lauroyl arginate (E 243) as a food additive in the light of the new information provided and the proposed extension of use
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en:en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en:en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+additives_classes:en:en:preservative
 
 en:E249, Potassium nitrite
 bg:E249, Калиев нитрит
@@ -4305,35 +4311,53 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of propionic acid (E
 efsa_evaluation_adi_established:en: en:no
 additives_classes:en: en:preservative
 
-en:E282, Calcium propionate, Calcium propanoate
+# description:en:CALCIUM PROPIONATE has the formula Ca(C2H5COO)2. Calcium propionate is used as a preservative in a wide variety of products, including but not limited to:bread, other baked goods, processed meat, whey, and other dairy products.
+
+en:E282, calcium propionate
+ar:E282, بروبيونات الكالسيوم
+# azb:E282, کلسیوم پروپانوات
 bg:E282, Калциев пропионат
+ca:E282, Propanoat de calci
 cs:E282, Propionan vápenatý
 da:E282, Calciumpropionat
-de:E282, Calciumpropionat, E 282, Kalziumpropionat, Calciumdipropionat
+de:E282, Calciumpropionat
 el:E282, Προπιονικο ασβεστιο
-es:E282, Propionato cálcico, Propionato de calcio, Propanoato de calcio, Conservante E282, E-282, Conservante E 282, Propanoato cálcico
+eo:E282, kalcia propanato
+es:E282, Propionato de calcio, propionato cálcico
 et:E282, Kaltsiumpropionaat
-fi:E282, Kalsiumpropionaatti, Kalsiumpropanaatti
-fr:E282, Propionate de calcium, Propanoate de calcium
-hu:E282, Kalcium-propionát
-it:E282, Propionato di calcio
+fa:E282, کلسیم پروپانوات
+fi:E282, Kalsiumpropionaatti
+fr:E282, propionate de calcium
+hu:E282, kalcium-propionat
+it:E282, propionato di calcio
 lt:E282, Kalcio propionatas
 lv:E282, Kalcija propionāts
 mt:E282, Propjonat tal-kalċju
-nl:E282, Calciumpropionaat, Calciumpropanoaat
-pl:E282, Propionian wapnia
+nl:E282, calciumpropionaat
+pl:E282, propionian wapnia
 pt:E282, Propionato de cálcio, Propanoato de cálcio
-ro:E282, Propionat de calciu
+ro:E282, propionat de calciu
+ru:E282, Пропионат кальция
+sh:E282, Kalcijum propanoat
 sk:E282, Propionan vápenatý
 sl:E282, Kalcijev propionat
+# sr:E282, калцијум пропаноат
+# sr-ec:E282, калцијум пропаноат
+# sr-el:E282, Kalcijum propanoat
 sv:E282, Kalciumpropionat
+zh:E282, 丙酸钙
 e_number:en:282
 wikidata:en:Q417394
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3779
-efsa_evaluation_date:en: 2014-07-22
-efsa_evaluation:en: Scientific Opinion on the re-evaluation of propionic acid (E 280), sodium propionate (E 281), calcium propionate (E 282) and potassium propionate (E 283) as food additives
-efsa_evaluation_adi_established:en: en:no
-additives_classes:en: en:preservative
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_propanoate
+efsa_evaluation_url:en:http://dx.doi.org/10.2903/j.efsa.2014.3779
+efsa_evaluation_date:en:2014-07-22
+efsa_evaluation:en:Scientific Opinion on the re-evaluation of propionic acid (E 280), sodium propionate (E 281), calcium propionate (E 282) and potassium propionate (E 283) as food additives
+efsa_evaluation_adi_established:en:en:no
+additives_classes:en:en:preservative
+# additive/e282-calcium-propionate has 3549 products in 25 languages @2019-05-19
+# ingredient/fr:propionate-de-calcium has 833 products @2019-05-19
+# usage:es:conservador:propionato cálcico
+
 
 en:E283, Potassium propionate, Potassium propionate, Potassium propanoate
 bg:E283, Калиев пропионат, Калиев пропионат
@@ -5114,38 +5138,75 @@ efsa_evaluation_overexposure_risk:en: en:no
 efsa_evaluation_adi:en: 6
 additives_classes:en: en:antioxidant
 
-en:E316, Sodium erythorbate
+
+# description:en:SODIUM ERYTHORBATE is the sodium salt of erythorbic acid. Sodium erythorbate is produced from sugars derived from different sources, such as beets, sugar cane, and corn. It is used predominantly in meats, poultry, and soft drinks.
+# comment:en:This is NOT E301!!! Not clear if there should be a default name (iso or ery). This covers E316, E-316, E 316, INS316, INS-316, INS 316, SIN316, SIN-316, SIN 316.
+
+en:E316, sodium erythorbate
+ar:E316, إيريثوربات صوديوم
+# azb:E316, سودیوم اریتوربات
 bg:E316, Натриев ериторбат
-cs:E316, Erythorban sodný, Erythorbát sodný
+cs:E316, Erythorban sodný
 da:E316, Natriumerythorbat
-de:E316, Natriumisoascorbat, E 316, Natriumerythorbat
+de:E316, Natriumisoascorbat, Natriumerythorbat
 el:E316, Ερυθορβικο νατριο
-es:E316, Eritorbato sódico, Eritorbato de sodio, D-isoascorbato, E 316
+eo:E316, Natria eritorbato
+es:E316, eritorbato sódico
 et:E316, Naatriumerütorbaat
+fa:E316, سدیم اریتوربات
 fi:E316, Natriumerytorbaatti
-fr:E316, Erythorbate de sodium, Isoascorbate de sodium, Érythorbate de sodium, 7378-23-6
+fr:E316, érythorbate de sodium, isoascorbate de sodium
 hu:E316, Nátrium-eritroaszkorbát
-it:E316, Eritorbato di sodio
+it:E316, eritorbato di sodio
+ja:E316, エリソルビン酸ナトリウム
 lt:E316, Natrio eritorbatas
 lv:E316, Nātrija eritorbāts
 mt:E316, Eritorbat tas-sodju
-nl:E316, Natriumerythorbaat
+nl:E316, natriumisoascorbaat, Natriumerythorbaat
 pl:E316, Izoaskorbinian sodu
 pt:E316, Eritorbato de sódio
-ro:E316, Eritorbat de sodiu
-rs:E316, natrijum-eritorbat
+ro:E316, eritorbat de sodiu
+# rs:E316, natrijum-eritorbat
 ru:E316, Эриторбат натрия
-sk:E316, Erytorban sodný (izoaskorban sodný)
+sh:E316, Natrijum erithorbat
+sk:E316, Erytorban sodný, izoaskorban sodný
 sl:E316, Natrijev eritorbat
-sv:E316, Natriumisoaskorbat, E 316
+sr:E316, Natrijum erithorbat
+# sr-el:E316, Natrijum erithorbat
+sv:E316, natriumisoaskorbat
+zh:E316, 异抗坏血酸钠
 e_number:en:316
 wikidata:en:Q417003
 efsa_evaluation_url:en:https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2016.4360
 efsa_evaluation_date:en:2016/01/20
 efsa_evaluation:en:Scientific Opinion on the re‐evaluation of erythorbic acid (E 315) and sodium erythorbate (E 316) as food additives
-efsa_evaluation_overexposure_risk:en: en:no
-efsa_evaluation_adi:en: 6
-additives_classes:en: en:antioxidant
+efsa_evaluation_overexposure_risk:en:en:no
+efsa_evaluation_adi:en:6
+additives_classes:en:en:antioxidant
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_erythorbate
+# ingredient/fr:isoascorbate-de-sodium has 250 products in 4 languages @2019-05-17
+# additive/e316-sodium-erythorbate has 7338 products in 28 languages @2019-05-17
+# usage:fr:antioxydants :lactate de portassium, isoascorbate de sodium
+
+<en:sodium erythorbate
+en:antioxydant E316
+cs:antioxidant E316
+da:antioxidant E316
+de:Antioxidationsmittel E 316
+es:antioxidante E316
+et:antioksüdant E316
+fi:hapettumisenestoaine E316
+fr:antioxydant e316
+it:antiossidante:E316
+lt:antioksidantas E316
+lv:antioksidants E316
+nl:antioxidant E316
+pl:przeciwutleniacz E316
+pt:antioxidante E316
+sv:antioxidationsmedel E316
+# ingredient/fr:antioxydant-e316 has 1567 products in 15 languages @2019-05-17
+
+
 
 en:E317, Erythorbin acid
 bg:E317, E317 food additive
@@ -5255,7 +5316,7 @@ efsa_evaluation_date:en: 2012-07-24
 efsa_evaluation:en: Statement on the safety assessment of the exposure to butylated ydroxyanisole E 320 (BHA) by applying a new exposure assessment methodology
 additives_classes:en: en:antioxidant
 
-en:E321, Butylated hydroxytoluene (bht), 2\,6-Ditertiary-butyl-p-cresol, Butylated hydroxytoluene, BHT
+en:E321, Butylated hydroxytoluene (bht), 2\,6-Ditertiary-butyl-p-cresol, Butylated hydroxytoluene, BHT, bht added to preserve freshness
 bg:E321, Бутилхидрокситолуол (бхт), 2\,6-дитретичен-бутил-р-крезол
 cs:E321, Butylhydroxytoluen (bht), 2\,6-diterciární butyl-p-krezol, Butylhydroxytoluen
 da:E321, Butylhydroxytoluen (bht), 2\,6-Di-tert-butyl-p-cresol
@@ -5414,83 +5475,147 @@ sv:E324, E324 food additive
 e_number:en:324
 wikidata:en:Q1657816
 
-en:E325, Sodium lactate, Sodium lactate
-bg:E325, Натриев лактат, Натриев лактат
-cs:E325, Mléčnan sodný, Mléčnan sodný
-da:E325, Natriumlactat, Natriumlactat
-de:E325, Natriumlactat, Natriumlactat, Natrium Lacticum, E 325, Natriumlaktat
-el:E325, Γαλακτικο νατριο, Γαλακτικό νάτριο
-es:E325, Lactato sódico, Lactato sódico, Lactato de sodio, E 325
-et:E325, Naatriumlaktaat, Naatriumlaktaat
-fi:E325, Natriumlaktaatti, Natriumlaktaatti
-fr:E325, Lactate de sodium
-hu:E325, Nátrium-laktát, Nátrium-laktát
-it:E325, Lattato di sodio, Lattato di sodio
-lt:E325, Natrio laktatas, Natrio laktatas
-lv:E325, Nātrija laktāts, Nātrija laktāts
-mt:E325, Lattat tas-sodju, Lattat tas-sodju
-nl:E325, Natriumlactaat, Natriumlactaat
-pl:E325, Mleczan sodu, Mleczan sodu
-pt:E325, Lactato de sódio, Lactato de sódio
-ro:E325, Lactat de sodiu, Lactat de sodiu
-sk:E325, Mliečnan sodný, Mliečnan sodný
-sl:E325, Natrijev laktat, natrijev laktat
-sv:E325, Natriumlaktat synonymer, Natriumlaktat
+
+# description:en:SODIUM LACTATE is the sodium salt of lactic acid, and has a mild saline taste. It is produced by fermentation of a sugar source, such as corn or beets. It acts as a preservative, acidity regulator, and bulking agent.
+
+en:E325, sodium lactate
+ar:E325, لاكتات الصوديوم
+# azb:E325, سودیوم لاوکتات
+bg:E325, Натриев лактат
+ca:E325, Lactat de sodi
+cs:E325, Mléčnan sodný
+da:E325, Natriumlactat
+de:E325, Natriumlactat
+el:E325, Γαλακτικο νατριο
+eo:E325, Natria laktato
+es:E325, lactato sódico
+et:E325, Naatriumlaktaat
+fa:E325, سدیم لاکتات
+fi:E325, natriumlaktaatit
+fr:E325, lactate de sodium
+ga:E325, lachtaláit sóidiam
+hr:E325, natrijev laktilat
+hu:E325, Nátrium-laktát
+it:E325, lattato di sodio
+ja:E325, 乳酸ナトリウム
+lt:E325, Natrio laktatas
+lv:E325, Nātrija laktāts
+mt:E325, Lattat tas-sodju
+nl:E325, natriumlactaat
+pl:E325, mleczan sodu
+pt:E325, lactato de sódio
+ro:E325, lactat de sodiu
+ru:E325, лактат натрия
+sh:E325, Natrijum laktat
+sk:E325, Mliečnan sodný
+sl:E325, Natrijev laktat
+sr:E325, Natrijum laktat
+# sr-el:E325, Natrijum laktat
+sv:E325, natriumlaktat
+vi:E325, Natri lactat
+zh:E325, 乳酸钠
+# zh-cn:E325, 乳酸钠
+# zh-hans:E325, 乳酸钠
+# zh-hant:E325, 乳酸鈉
+# zh-hk:E325, 乳酸鈉
+# zh-sg:E325, 乳酸钠
+# zh-tw:E325, 乳酸鈉
 e_number:en:325
 wikidata:en:Q418235
-additives_classes:en: en:antioxidant, en:emulsifier, en:humectant, en:thickener
+additives_classes:en:en:antioxidant, en:emulsifier, en:humectant, en:thickener
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_lactate
+# ingredient/fr:lactate-de-sodium has 426 products in 4 languages @2019-05-18
+# additive/e325-sodium-lactate has 1960 products in 14 languages @2019-05-18
+# usage:sv:surhetsreglerande medel (natriumlaktat, natriumacetater)
 
-en:E326, Potassium lactate
+
+
+# description:en:POTASSIUM LACTATE is a compound with formula KC3H5O3. It is produced by neutralizing lactic acid which is fermented from a sugar source. Potassium lactate is commonly used in meat and poultry products to extend shelf life and increase food safety as it has a broad antimicrobial action.
+
+en:E326, potassium lactate
 bg:E326, Калиев лактат
 cs:E326, Mléčnan draselný
-da:E326, Kaliumlactat
-de:E326, Kaliumlactat, Kalium lacticum, Kaliumlaktat, E 326
+da:E326, kaliumlaktat
+de:E326, Kalumlactat
 el:E326, Γαλακτικο καλιο
-es:E326, Lactato potásico, Lactato de potasio, E 326
+eo:E326, Kalia laktato
+es:E326, lactato potasico
 et:E326, Kaaliumlaktaat
-fi:E326, Kaliumlaktaatti
-fr:E326, Lactate de potassium
+fi:E326, kaliumlaktaatti
+fr:E326, lactate de potassium
 hu:E326, Kálium-laktát
-it:E326, Lattato di potassio
-lt:E326, Kalio laktatas
-lv:E326, Kālija laktāts
+it:E326, lattato di potassio
+ja:E326, 乳酸カリウム
+lt:E326, kalio laktatas
+lv:E326, kālija laktāts
 mt:E326, Lattat tal-potassju
-nl:E326, Kaliumlactaat
-pl:E326, Mleczan potasu
-pt:E326, Lactato de potássio
-ro:E326, Lactat de potasiu
-sk:E326, Mliečnan draselný
+nl:E326, kaliumlactaat
+pl:E326, mleczan potasu
+pt:E326, lactato de potássio
+ro:E326, Iactat de potasiu
+ru:E326, лактат калия
+sh:E326, Kalijum laktat
+sk:E326, mliečnan draselný
 sl:E326, Kalijev laktat
-sv:E326, Kaliumlaktat synonymer
+sr:E326, Kalijum laktat
+# sr-el:E326, Kalijum laktat
+sv:E326, kaliumlaktat
+ta:E326, பொட்டாசியம் லாக்டேட்டு
 e_number:en:326
 wikidata:en:Q411342
-additives_classes:en: en:antioxidant, en:emulsifier, en:humectant
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_lactate
+additives_classes:en:en:antioxidant, en:emulsifier, en:humectant
+# ingredient/fr:lactate-de-potassium has 630 products in 5 languages @2019-05-18
+# additive/e326-potassium-lactate has 2488 products in 12 languages @2019-05-18
 
-en:E327, Calcium lactate, Calcium dilactate, Calcium dilactate hydrate
-bg:E327, Калциев лактат, Калциев дилактат, калциев дилактат хидрат
-cs:E327, Mléčnan vápenatý, Dimléčnan vápenatý, hydrát dimléčnanu vápenatého
-da:E327, Calciumlactat, Calciumdilactat, calciumdilactathydrat
-de:E327, Calciumlactat, Calciumdilactat, Calciumdilactathydrat, Calcium lacticum, E 327, Calciumlaktat
-el:E327, Γαλακτικο ασβεστιο, Γαλακτικό ασβέστιο, Ένυδρο γαλακτικό ασβέστιο
-es:E327, Lactato de calcio, Lactato cálcico, Dilactato de calcio, dilactato de calcio hidrato, E 327
-et:E327, Kaltsiumlaktaat, Kaltsiumdilaktaat, kaltsiumdilaktaathüdraat
-fi:E327, Kalsiumlaktaatti, Kalsiumdilaktaatti, Kalsiumdilaktaattihydraatti, 2-Hydroksipropaanihappo
-fr:E327, Lactate de calcium, Dilactate de calcium, dilactate de calcium hydraté
-hu:E327, Kalcium-laktát, Kalcium-dilaktát, Kalcium-dilaktát-hidrát
-it:E327, Lattato di calcio, Dilattato di calcio, idrato di calcio dilattato, C6H10CaO6x5H2O
-lt:E327, Kalcio laktatas, Kalcio dilaktatas, kalio dilaktato hidratas
-lv:E327, Kalcija laktāts, Kalcija dilaktāts, Kalcija dilaktāta hidrāts
-mt:E327, Lattat tal-kalċju, Dilattat tal-kalċju, Idrat tad-dilattat tal-kalċju
-nl:E327, Calciumlactaat, Calciumdilactaat, calciumdilactaat-hydraat
-pl:E327, Mleczan wapnia, Dimleczan wapnia, dimleczan wapnia, wodzian
-pt:E327, Lactato de cálcio, Dilactato de cálcio, dilactato de cálcio hidratado
-ro:E327, Lactat de calciu, Dilactat de calciu, Dilactat de calciu hidrat, acid 2-hidroxipropanoic
-sk:E327, Mliečnan vápenatý, Mliečnan vápenatý, kalcium dilaktát hydrát, calcium laktát
-sl:E327, Kalcijev laktat, kalcijev dilaktat, kalcijev dilaktat hidrat
-sv:E327, Kalciumlaktat synonymer, Kalciumdilaktat, kalciumdilaktathydrat
+
+# description:en:CALCIUM LACTATE is a white crystalline salt with formula C6H10CaO6. The compound is a food additive for uses as firming agent, a flavor enhancer or flavoring agent, a leavening agent, a nutritional supplement, and a stabilizer and thickener. Calcium lactate is an ingredient in some baking powders. Calcium lactate is added to sugar-free foods to prevent tooth decay. The compound is also added to fresh-cut fruits, such as cantaloupes, to keep them firm and extend their shelf life.
+# comment:en:This covers E327, E-327, E 327, INS327, INS-327, INS 327, SIN327, SIN-327, SIN 327
+
+en:E327, calcium lactate
+ar:E327, لاكتات الكالسيوم
+# azb:E327, کلسیوم لاوکتات
+bg:E327, Калциев лактат
+ca:E327, lactat de calci
+cs:E327, mléčnan vápenatý
+da:E327, kalciumlaktat, calciumlactat
+de:E327, Calciumlactat
+el:E327, Γαλακτικο ασβεστιο
+es:E327, lactato de calcio, lactato cálcico
+et:E327, Kaltsiumlaktaat
+fa:E327, کلسیم لاکتات
+fi:E327, kalsiumlaktaatti
+fr:E327, lactate de calcium
+hr:E327, kalcijev laktat
+hu:E327, Kalcium-laktát
+it:E327, lattato di calcio
+ja:E327, 乳酸カルシウム
+lt:E327, kalcio laktatas
+lv:E327, kalcija laktāts
+mt:E327, Lattat tal-kalċju
+nl:E327, calciumlactaat
+pl:E327, mleczan wapnia
+pt:E327, lactato de cálcio
+ro:E327, Lactat de calciu
+ru:E327, лактат кальция
+sh:E327, Kalcijum laktat
+sk:E327, mliečnan vápenatý
+sl:E327, Kalcijev laktat
+sr:E327, Kalcijum laktat
+# sr-el:E327, Kalcijum laktat
+sv:E327, kalciumlaktat
+ta:E327, கால்சியம் லாக்டேட்டு
+zh:E327, 乳酸钙
+# zh-hans:E327, 乳酸钙
+# zh-hant:E327, 乳酸钙
 e_number:en:327
 wikidata:en:Q419693
-additives_classes:en: en:thickener
+additives_classes:en:en:thickener
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_lactate
+# ingredient/calcium-lactate has 1120 products @2019-05-17
+# additive/e327-calcium-lactate has 1257 products in 21 languages @2019-05-17
+# usage:en:acidity regulators (lactic acid, calcium lactate)
+
 
 en:E328, ammonium lactate
 bg:E328, E328 food additive
@@ -5572,27 +5697,26 @@ efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:antioxidant, en:sequestrant
 
-en:E331, Sodium citrates , sodium citrate
+en:E331, Sodium citrates
 bg:E331, E331 food additive
 cs:E331, E331 food additive
 da:E331, E331 food additive
 de:E331, E331 food additive
 el:E331, E331 food additive
-es:E331, Citratos de sodio, Citrato de sodio
+es:E331, Citratos de sodio
 et:E331, E331 food additive
 fi:E331, E331 food additive
-fr:E331, Citrates de sodium, Citrate de sodium, Citrate biacide de sodium, Citrate monoacide disodique, Citrate trisodique
+fr:E331, Citrates de sodium
 hu:E331, E331 food additive
 it:E331, E331 food additive
 lt:E331, E331 food additive
 lv:E331, E331 food additive
 mt:E331, E331 food additive
-nl:E331, Natriumcitraat
+nl:E331, Natriumcitraten
 pl:E331, E331 food additive
 pt:E331, E331 food additive
 ro:E331, E331 food additive
-ru:E331, Натрия гидроцетрат, цитрат натрия
-sk:E331, Citrát sodný
+ru:E331, Натрия гидроцетрат
 sl:E331, E331 food additive
 sv:E331, E331 food additive
 e_number:en:331
@@ -5653,32 +5777,36 @@ e_number:en:331
 wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 
-<en:E331
-en:E331(iii), Trisodium citrate
-bg:E331(iii), Тринатриев цитрат
-cs:E331(iii), Trisodium citrate
-da:E331(iii), Trinatriumcitrat
-de:E331(iii), Trinatriumcitrat, Natriumcitrat
-el:E331(iii), Κιτρικο νατριο
-es:E331(iii), Citrato trisódico
-et:E331(iii), Naatriumtsitraat
-fi:E331(iii), Trinatriumsitraatti
-fr:E331(iii), Citrate trisodique
-hu:E331(iii), Trinátrium-citrát
-it:E331(iii), Citrato trisodico
-lt:E331(iii), Trinatrio citratas
-lv:E331(iii), Trinātrija citrāts
-mt:E331(iii), Ċitrat trisodiku
-nl:E331(iii), Trinatriumcitraat
-pl:E331(iii), Cytrynian trisodowy
-pt:E331(iii), Citrato trissódico
-ro:E331(iii), Citrat trisodic
-sk:E331(iii), Citran trisodný, Nátrium-citrát
-sl:E331(iii), Trinatrijev citrat
-sv:E331(iii), Trinatriumcitrat
+<en:sodium citrates
+en:Trisodium citrate, Sodium Citrate, e331iii, e-331iii, e 331iii, E331(iii), INS331, INS-331, INS 331, SIN331, SIN-331, SIN 331
+bg:Тринатриев цитрат
+cs:Citronan sodný
+da:Trinatriumcitrat
+de:Trinatriumcitrat
+el:Κιτρικο νατριο
+es:Citrato trisódico
+et:Naatriumtsitraat
+fi:Trinatriumsitraatti
+fr:Citrate trisodique
+hu:Trinátrium-citrát
+it:Citrato trisodico
+lt:Trinatrio citratas
+lv:Trinātrija citrāts
+mt:Ċitrat trisodiku
+nb:natriumsitrat
+nl:Trinatriumcitraat
+pl:Ċitrat trisodiku
+pt:Citrato trissódico
+ro:Citrat trisodic
+ru:цитрат натрия
+sk:Citran trisodný
+sl:Trinatrijev citrat
+sv:Trinatriumcitrat
 e_number:en:331
 wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
+wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_citrate
+# additive/e331iii-trisodium-citrate has 1010 products in 20 languages @2019-04-24
 
 en:E332, Potassium citrates, Potassium citrate
 bg:E332, E332 food additive
@@ -7505,35 +7633,44 @@ efsa_evaluation_date:en: 2017/11/10
 efsa_evaluation:en: Re‐evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400–E 404) as food additives
 efsa_evaluation_adi_established:en: en:no
 
-en:E401, Sodium alginate
-bg:E401, Натриев алгинат
-cs:E401, Alginan sodný synonyma
-da:E401, Natriumalginat
-de:E401, Natriumalginat
-el:E401, Αλγινικο νατριο
-es:E401, Alginato de sodio, Alginato sódico
-et:E401, Naatriumalginaat
-fi:E401, Natriumalginaatti
-fr:E401, Alginate de sodium, Alginates de sodium, Sel de sodium de l'acide alginique, algine, algiline, polymannuronate sodique, Sel sodique de l'acide alginique, sel d'acide alginique monosodique, E-401, 9005-38-3
-hu:E401, Nátrium-alginát
-it:E401, Alginato di sodio
-lt:E401, Natrio alginatas
-lv:E401, Nātrija algināts
-mt:E401, Alġinat tas-sodju
-nl:E401, Natriumalginaat
-pl:E401, Alginian sodu
-pt:E401, Alginato de sódio
-ro:E401, Alginat de sodiu
-sk:E401, Alginát sodný
-sl:E401, Natrijev alginat
-sv:E401, Natriumalginat
+# description:en:Sodium alginate is the sodium salt of alginic acid, NaC6H7O6. Sodium alginate is a gum, extracted from the cell walls of brown algae. Sodium alginate is used in the food industry as a thickening agent for drinks, ice cream and cosmetics, and as a gelling agent for jellies.
+
+en:sodium alginate, E401, E-401, E 401, E401, INS401, INS-401, INS 401, SIN401, SIN-401, SIN 401
+ar:ألجينات الصوديوم
+bg:Натриев алгинат
+cs:Alginan sodný
+da:Natriumalginat
+de:Natriumalginat
+el:Αλγινικο νατριο
+es:alginato sódico
+et:Naatriumalginaat
+fi:natriumalginaatti
+fr:alginate de sodium
+hu:Nátrium-alginát
+it:alginato di sodio
+ja:アルギン酸ナトリウム
+lt:Natrio alginatas
+lv:Nātrija algināts
+mt:Alġinat tas-sodju
+nl:natriumalginaat
+pl:alginian sodu
+pt:alginato de sódio
+ro:alginat de sodiu
+ru:альгинат натрия
+sk:Alginát sodný
+sl:Natrijev alginat
+sv:natriumalginat
+uk:Альгінат натрію
 e_number:en:401
 wikidata:en:Q1187513
-additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
-efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2017.5049
-efsa_evaluation_date:en: 2017/11/10
-efsa_evaluation:en: Re‐evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400–E 404) as food additives
-efsa_evaluation_adi_established:en: en:no
+additives_classes:en:en:carrier, en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
+efsa_evaluation_url:en:https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2017.5049
+efsa_evaluation_date:en:2017/11/10
+efsa_evaluation:en:Re‐evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400–E 404) as food additives
+efsa_evaluation_adi_established:en:en:no
+# additive/e401-sodium-alginate has 2842 products in 16 languages @2019-05-19
+# ingredient/fr:alginate-de-sodium has 879 products in 7 languages @2019-05-19
+# usage:pl:substancja zagęszczająca:alginian sodu
 
 en:E402, Potassium alginate
 bg:E402, Калиев алгинат
@@ -9883,31 +10020,95 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:ado
 efsa_evaluation_adi:en: 5
 additives_classes:en: en:carrier, en:stabilizer, en:thickener
 
+# description:en:Cellulose is an organic compound with the formula (C6H10O5)n, a polysaccharide consisting of a linear chain of several hundred to many thousands of linked D-glucose units. Cellulose is used as emulsifier, thickener and stabilizer in processed foods. Cellulose powder is, for example, used in processed cheese to prevent caking inside the package.
+# comment:en:This covers E460, E-460, E 460, INS460, INS-460, INS 460, SIN460, SIN-460, SIN 460
+
+# <en:additive
 en:E460, Cellulose
+af:E460, Sellulose
+ar:E460, سليولوز
+# ast:E460, Celulosa
+az:E460, Sellüloza
+# azb:E460, سلولز
+be:E460, Цэлюлоза
+# be-tarask:E460, Цэлюлёза
 bg:E460, Целулоза
-cs:E460, Celulóza, Celulosa, E 460
+bn:E460, সেলুলোজ
+bs:E460, Celuloza
+ca:E460, cellulosa
+cs:E460, Celulóza
+cy:E460, Seliwlos
 da:E460, Cellulose
-de:E460, Cellulose, Zellulose, E 460, E 465, Ethylmethylzellulose, E 463
+de:E460, Cellulose
 el:E460, Κυτταρίνη
-es:E460, Celulosas, Celulosa
+eo:E460, celulozo
+es:E460, Celulosas
 et:E460, Tselluloos
+eu:E460, zelulosa
+fa:E460, سلولز
 fi:E460, Selluloosa
-fr:E460, Celluloses, Cellulose microcristalline, Cellulose en poudre, Gel de cellulose, Cellulose, 9004-34-6
+fr:E460, cellulose
+ga:E460, ceallalós
+gl:E460, Celulosa
+he:E460, תאית
+he:E460, सेल्यूलोज़
+hr:E460, Celuloza
+ht:E460, Seliloz
 hu:E460, Cellulóz
-it:E460, cellulosa, Polpa di legno, Pasta di cellulosa, Polpa di cellulosa, (C6H10O5)n
-lt:E460, Celiuliozė, Ląsteliena, (C6H10O5)n
+hy:E460, Բջջանյութ
+id:E460, Selulosa
+ie:E460, Cellulose
+io:E460, Celuloso
+is:E460, Sellulósi
+it:E460, cellulosa
+ja:E460, セルロース
+ka:E460, ცელულოზა
+kk:E460, Жасұнық
+ko:E460, 셀룰로스
+ku:E460, Seluloz
+lt:E460, Celiuliozė
 lv:E460, Celuloze
-mt:E460, E460 food additive
-nl:E460, Cellulose
+mk:E460, целулоза
+ml:E460, സെല്ലുലോസ്
+mr:E460, सेल्युलोज
+ms:E460, Selulosa
+mt:E460, ċelluloża
+my:E460, ဆဲလျူလို့
+nb:E460, cellulose
+nl:E460, cellulose
+oc:E460, Cellulòsa
+pa:E460, ਸੈਲੂਲੋਜ਼
 pl:E460, Celuloza
 pt:E460, Celulose
+qu:E460, Silulusa
 ro:E460, Celuloză
+ru:E460, целлюлоза
+# sco:E460, cellulose
+sh:E460, Celuloza
 sk:E460, Celulóza
 sl:E460, Celuloza
+sq:E460, Celuloza
+sr:E460, целулоза
+# sr-ec:E460, целулоза
+# sr-el:E460, Celuloza
+su:E460, Selulosa
 sv:E460, Cellulosa
+sw:E460, Selulosi
+ta:E460, மாவியம்
+th:E460, เซลลูโลส
+tr:E460, Selüloz
+tt:E460, Tsellüloza
+uk:E460, Целюлоза
+vi:E460, Cellulose
+# xmf:E460, ცელულოზა
+zh:E460, 纤维素
 e_number:en:460
 wikidata:en:Q80294
-additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
+wikipedia:en:https://en.wikipedia.org/wiki/Cellulose
+additives_classes:en:en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
+# ingredient/fr:cellulose has 364 products in 5 languages @2019-05-17
+# usage:fr:boyau collagénique (collagène, glycérine, cellulose)
+# usage:it:stabilizzanti:cellulosa
 
 <en:E460
 en:E460(i), Microcrystalline cellulose
@@ -9963,17 +10164,29 @@ e_number:en:460
 wikidata:en:Q80294
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
 
-en:E461, Methyl cellulose, Methylcellulose
+
+# description:en:METHYL CELLULOSE is a chemical compound derived from cellulose. Methyl cellulose is added to food products, to generate their characteristic thick consistency, for example ice cream or croquette.
+# comment:en:This covers E461, E-461, E 461, INS461, INS-461, INS 461, SIN461, SIN-461, SIN 461.
+
+en:E461, methyl cellulose, methylcellulose, 
+ar:E461, ميثيل السليولوز
+# azb:E461, متیل سلولز
 bg:E461, Метил целулоза
-cs:E461, Methylcelulosa, Methylcelulóza, Metylcelulosa, Metylcelulóza, E 461
-da:E461, Methylcellulose
-de:E461, Methylcellulose, Methylzellulose, E 461
+ca:E461, metilcellulosa
+cs:E461, Methylcelulosa
+da:E461, methylcellulose
+de:E461, Methylcellulose
 el:E461, Μεθυλοκυτταρινη
+# en-ca:E461, Methyl cellulose
+# en-gb:E461, Methyl cellulose
 es:E461, Metilcelulosa
 et:E461, Metüültselluloos
+fa:E461, متیل سلولز
 fi:E461, Metyyliselluloosa
-fr:E461, Méthylcellulose, 9004-67-5
-hu:E461, Metil-cellulóz, Metilcellulóz
+fr:E461, méthylcellulose
+ga:E461, ceallalós carbocsaimeitile
+hu:E461, Metil-cellulóz
+ja:E461, メチルセルロース
 it:E461, Metilcellulosa
 lt:E461, Metilceliuliozė
 lv:E461, Metilceluloze
@@ -9982,12 +10195,23 @@ nl:E461, Methylcellulose
 pl:E461, Metyloceluloza
 pt:E461, Metilcelulose
 ro:E461, Metilceluloză
+ru:E461, метилцеллюлоза
 sk:E461, Metylcelulóza
 sl:E461, Metilceluloza
 sv:E461, Metylcellulosa
+uk:E461, Метилцелюлоза
+# zh-cn:E461, 甲基纤维素
+# zh-hans:E461, 甲基纤维素
+# zh-hant:E461, 甲基纖維素
 e_number:en:461
 wikidata:en:Q416312
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+wikipedia:en:https://en.wikipedia.org/wiki/Methyl_cellulose
+# additive/e461-methyl-cellulose has 960 products in 14 languages @2019-05-17
+# ingredient/fr:e461 has 180 products in 13 languages @2019-03-25
+# usage:fr:épaississant (E461)
+# usage:fr:agents de charge:E461
+
 
 en:E462, Ethyl cellulose, Ethylcellulose
 bg:E462, Етил целулоза
@@ -15439,31 +15663,55 @@ e_number:en:952
 wikidata:en:Q2130929
 additives_classes:en: en:sweetener
 
-en:E953, Isomalt
+
+# description:en:ISOMALT is a sugar substitute, a type of sugar alcohol used primarily for its sugar-like physical properties. It has little to no impact on blood sugar levels, and does not stimulate the release of insulin. Isomalt is widely used for the production of sugar-free candy, especially hard-boiled candy.
+
+en:E953, isomalt
+af:E953, Isomalt
+ar:E953, إسومالت
+# azb:E953, ایزومالت
 bg:E953, Изомалт
-cs:E953, Isomalt, Hydrogenovaná izomaltulóza, E 953
+ca:E953, isomalt
+cs:E953, Isomalt
 da:E953, Isomalt
-de:E953, Isomalt, E 953
-el:E953, Isomalt (ισομαλτιτολη)
-es:E953, Isomaltosa, Isomalt, Isomalta, Isomaltitol
+de:E953, Isomalt
+el:E953, ισομάλτ
+es:E953, isomalt
 et:E953, Isomalt
-fi:E953, Isomalti
-fr:E953, Isomalt, 64519-82-0, Palatinit, E 953, Isomalte, Isomaltitol
+fa:E953, ایزومالت
+fi:E953, isomalti
+fr:E953, isomalt
+ga:E953, iseamalt
+gl:E953, Isomalt
+hr:E953, izomalt
 hu:E953, Izomalt
-it:E953, Isomalto
+it:E953, isomalto
+ja:E953, イソマルト
 lt:E953, Izomaltas
 lv:E953, Izomalts
 mt:E953, Isomalt
+nb:E953, Isomalt
 nl:E953, Isomalt
-pl:E953, Izomalt
+pl:E953, Isomalt
 pt:E953, Isomalte
-ro:E953, Izomalt
+ro:E953, Izomalt, isomalt
+ru:E953, изомальтит
+sh:E953, Izomalt
 sk:E953, Izomalt
 sl:E953, Izomalt
-sv:E953, Isomalt, E 953
+sr:E953, изомалт
+# sr-ec:E953, изомалт
+# sr-el:E953, Izomalt
+sv:E953, isomalt
+uk:E953, Ізомальт
+zh:E953, 異麥芽酮糖醇
 e_number:en:953
 wikidata:en:Q412068
-additives_classes:en: en:stabilizer, en:sweetener, en:thickener
+additives_classes:en:en:stabilizer, en:sweetener, en:thickener
+wikipedia:en:https://en.wikipedia.org/wiki/Isomalt
+# ingredient/fr:isomalt has 399 products in 7 languages @2019-05-18
+# usage:fr:édulcorants (maltitol, isomalt)
+
 
 en:E954, Saccharin and its Na, K and Ca salts, Saccharin
 bg:E954, Захарин и неговите натриеви, калиеви и калциеви соли, Захарин
@@ -15760,28 +16008,81 @@ e_number:en:964
 wikidata:en:Q18601425
 additives_classes:en: en:sweetener
 
-en:E965, Maltitol
-bg:E965, E965 food additive
-cs:E965, E965 food additive
-da:E965, E965 food additive
-de:E965, Maltit, E 965, Lycasin, Maltitsirup, Maltitol-Sirup
-el:E965, E965 food additive
-es:E965, Maltitol , Licasina
-et:E965, E965 food additive
-fi:E965, Maltitoli
-fr:E965, Maltitol, Sirop de maltitol, E965(i), E965(ii), 585-88-6
-hu:E965, E965 food additive
-it:E965, Maltitolo, E 965, Maltisorb, Maltisweet
-lt:E965, Maltitas
-lv:E965, E965 food additive
-mt:E965, E965 food additive
+# description:en:MALTITOL is a sugar alcohol (a polyol) used as a sugar substitute. It has 75–90% of the sweetness of sucrose (table sugar) and nearly identical properties, except for browning. Maltitol's high sweetness allows it to be used without being mixed with other sweeteners. It is used in candy manufacture, particularly sugar-free hard candy, chewing gum, chocolates, baked goods, and ice cream. 
+
+en:E965, maltitol
+ar:E965, مالتيتول
+# azb:E965, مالتیتول
+bg:E965, Малтитол
+ca:E965, Maltitol
+cs:E965, Maltitol
+da:E965, Maltitol
+de:E965, Maltit
+el:E965, Μαλτιτολες
+es:E965, maltitol
+et:E965, Maltitool
+fa:E965, مالتیتول
+fi:E965, maltitoli
+fr:E965, maltitol
+he:E965, מלטיטול
+hu:E965, Maltit
+it:E965, maltitolo
+ja:E965, マルチトール
+lt:E965, Maltitolis
+lv:E965, Maltīts
+mt:E965, Maltitol
+nb:E965, Maltitol
 nl:E965, Maltitol
 pl:E965, Maltitol
-pt:E965, Maltitol
-ro:E965, E965 food additive
-sk:E965, E965 food additive
-sl:E965, E965 food additive
-sv:E965, Maltitol, E 965
+pt:E965, maltitol
+ro:E965, maltitol
+ru:E965, Мальтит
+sh:E965, Maltitol
+si:E965, මෝල්ටිටෝල්
+sk:E965, Maltitol
+sl:E965, Maltitol
+sr:E965, Малтитол
+# sr-ec:E965, Малтитол
+# sr-el:E965, Maltitol
+sv:E965, maltitol
+ta:E965, maltitol
+uk:E965, Мальтитол
+vi:E965, Maltitol
+zh:E965, 麦芽糖醇
+
+e_number:en:965
+wikidata:en:Q423882
+wikipedia:en:https://en.wikipedia.org/wiki/Maltitol
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2006.354
+efsa_evaluation_date:en: 2006-05-18
+efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965(ii) new production process. Change of specification
+additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
+# ingredient/fr:maltitol has 656 products in 11 languages @2019-05-18
+# usage:de:Süssungsmittel (Maltit)
+
+<en:maltitol
+en:E965(i), D-Maltitol
+bg:E965(i), D-малтитол
+cs:E965(i), D-maltitol
+da:E965(i), D-Maltitol
+de:E965(i), D-Maltit
+el:E965(i), D-Μαλτιτόλη
+es:E965(i), D-Maltitol
+et:E965(i), D-maltitool
+fi:E965(i), D-maltitoli
+fr:E965(i), D-Maltitol
+hu:E965(i), D-Maltit
+it:E965(i), D-maltitolo
+lt:E965(i), D-maltitolis
+lv:E965(i), D-maltīts
+mt:E965(i), D-Morbitol
+nl:E965(i), D-Maltitol
+pl:E965(i), D-maltitol
+pt:E965(i), D-Maltitol
+ro:E965(i), D-Maltitol
+sk:E965(i), D-Maltitol
+sl:E965(i), D-maltitol
+sv:E965(i), D-Maltitol
 e_number:en:965
 wikidata:en:Q423882
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2006.354
@@ -15789,37 +16090,7 @@ efsa_evaluation_date:en: 2006-05-18
 efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965(ii) new production process. Change of specification
 additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
 
-<en:E965
-en:E965(i), Maltitol, D-Maltitol
-bg:E965(i), Малтитол, D-малтитол
-cs:E965(i), Maltitol, D-maltitol
-da:E965(i), Maltitol, D-Maltitol
-de:E965(i), Maltit, D-Maltit
-el:E965(i), Μαλτιτολες, D-Μαλτιτόλη
-es:E965(i), Maltitol
-et:E965(i), Maltitool, D-maltitool
-fi:E965(i), Maltitoli, D-maltitoli
-fr:E965(i), Maltitol, D-Maltitol
-hu:E965(i), Maltit, D-Maltit
-it:E965(i), Maltitolo, D-maltitolo
-lt:E965(i), Maltitolis, D-maltitolis
-lv:E965(i), Maltīts, D-maltīts
-mt:E965(i), Maltitol, D-Morbitol
-nl:E965(i), Maltitol, D-Maltitol
-pl:E965(i), Maltitol, D-maltitol
-pt:E965(i), Maltitol, D-Maltitol
-ro:E965(i), Maltitol, D-Maltitol
-sk:E965(i), Maltitol, D-Maltitol
-sl:E965(i), Maltitol, D-maltitol
-sv:E965(i), Maltitol, D-Maltitol
-e_number:en:965
-wikidata:en:Q423882
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2006.354
-efsa_evaluation_date:en: 2006-05-18
-efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965(ii) new production process. Change of specification
-additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
-
-<en:E965
+<en:maltitol
 en:E965(ii), Maltitol syrup
 bg:E965(ii), Малтитол сироп
 cs:E965(ii), Maltitol sirup
