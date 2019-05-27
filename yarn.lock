@@ -161,7 +161,7 @@
     osm-polygon-features "^0.9.1"
     xmldom "~0.1.16"
 
-"@bower_components/papaparse@mholt/papaparse#^4.6.3":
+"@bower_components/papaparse@mholt/papaparse#^4.6.3", papaparse@mholt/papaparse#^4.6.3:
   version "4.6.3"
   uid "8b663aa17edbc375eb942c60999aa957c14effd2"
   resolved "https://codeload.github.com/mholt/papaparse/tar.gz/8b663aa17edbc375eb942c60999aa957c14effd2"
@@ -3316,10 +3316,6 @@ p-try@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-1.0.0.tgz#cbc79cdbaf8fd4228e13f621f2b1a237c1b207b3"
   integrity sha1-y8ec26+P1CKOE/Yh8rGiN8GyB7M=
-
-papaparse@mholt/papaparse#^4.3.6:
-  version "4.6.2"
-  resolved "https://codeload.github.com/mholt/papaparse/tar.gz/b58a65c6070cf830c45f6659ec426d29ccddbb81"
 
 parse-entities@^1.0.2, parse-entities@^1.1.0:
   version "1.2.0"
