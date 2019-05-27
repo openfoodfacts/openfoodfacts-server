@@ -314,13 +314,13 @@ states
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
 $options{other_servers} = {
-opf =>
+obf =>
 {
-        name => "Open Products Facts",
-        data_root => "/srv/opf",
-        www_root => "/srv/opf/html",
-        mongodb => "opf",
-        domain => "openproductsfacts.org",
+        name => "Open Beauty Facts",
+        data_root => "/srv/obf",
+        www_root => "/srv/obf/html",
+        mongodb => "obf",
+        domain => "openbeautyfacts.org",
 },
 off =>
 {
