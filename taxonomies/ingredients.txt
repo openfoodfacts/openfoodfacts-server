@@ -58085,9 +58085,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Honey
 
 <en:honey
 en:organic honey
-fr:miel bio, miel biologique
+fr:miel bio, miel biologique, miel issu de l'agriculture biologique
 nl:biologische honing
 # ingredient/nl:biologische-honing has 4 products @2019-05-24
+
+<en:honey
+fr:miel non pasteurisé
+
+<en:honey
+fr:miel pasteurisé
 
 <en:honey
 fr:miel pur
@@ -58100,14 +58106,14 @@ nl:vloeibare honing
 # ingredient/fr:miel-liquide has 12 products in french @2019-05-28
 
 <en:honey
-fr:miel crémeux
+fr:miel crémeux, miel de nectar cremeux, miel de fleurs crémeux
 de:Honig cremig
 it:miele cremoso
 # ingredient/fr:miel-cremeux has 6 products in 3 languages @2019-05-28
+# ingredient/fr:miel-de-fleurs-cremeux has 4 products @2019-05-28
 
 <fr:miel crémeux
-fr:miel de fleurs crémeux
-# ingredient/fr:miel-de-fleurs-cremeux has 4 products @2019-05-28
+fr:miel cremeux bio, miel de fleurs cremeux issu de l'agriculture biologique
 
 <en:honey
 en:flower honey
@@ -58145,29 +58151,37 @@ fr:miel de fleurs sauvages
 nl:wilde bloemen honing
 # ingredient/fr:miel-de-fleurs-sauvages has 6 products in 3 languages @2019-08-25
 
+##################### HONEY FROM SPECIFIC FLOWERS
+
 <en:honey
 en:acacia honey
-fr:miel d'acacia
+fr:miel d'acacia, miel de acacia
 de:Akazienhonig
 it:miele d'acacia
 # ingredient/fr:miel-d’acacia has 84 products in 4 languages @2018-12-17
 
 <en:acacia honey
 en:organic acacia honey
-fr:miel d'Acacia issu de l'Agriculture Biologique,  miel bio d'acacia
+fr:miel d'Acacia issu de l'Agriculture Biologique, miel bio d'acacia
 # ingredient/fr:miel-d-acacia-issu-de-l-agriculture-biologique has 3 products @2018-05-28
 
 <en:acacia honey
 en:honey from France
-fr:miel d'acacia de france, miel d'acacia récolté en France, Miel d'acacia de Bourgogne, mield'acacia du val de saone
+fr:miel d'acacia de france, miel d'acacia récolté en France, Miel d'acacia de Bourgogne, mield'acacia du val de saone, miel d'acacia d'occitanie
 # ingredient/fr:miel-d-acacia-recolte-en-france has 4 products @2019-05-28
 
 <en:acacia honey
+fr:miel italien d'acacia
+
+<en:acacia honey
 <fr:mélange de miels originaires et non originaires de l'ue
-fr:Mélanges de miels d'Acacia originaires et non originaires de l'Union Européenne
+fr:Mélanges de miels d'Acacia originaires et non originaires de l'Union Européenne, melange de miels d'acacia originaires et non-originaires de l'union europeenne issus de l'agriculture biologique
 
 <en:acacia honey
 fr:miel d'acacia des forets preservées d'Europe
+
+<en:honey
+fr:miel baies roses
 
 <en:honey
 fr:miel de Bourdaine
@@ -58180,15 +58194,21 @@ fr:miel de bruyere
 fr:miel de bruyere blanche
 
 <en:honey
+es:miel de caña
+
+<en:honey
+fr:miel de carotte sauvage
+
+<en:honey
 <fr:miel du Gâtinais
 fr:miel de carotte recolté dans le gatinais
 
 <en:honey
-fr:miel de châtaignier, miel de chataigner
+fr:miel de châtaignier, miel de chataigner, miel de fleurs de chataignier
 # ingredient/fr:Miel-de-châtaignier has 20 products in french @2018-12-17
 
 <fr:miel de châtaignier
-fr:miel de châtaignier biologique
+fr:miel de châtaignier biologique, miel de chataignier issu de l'agriculture biologique
 
 <fr:miel de châtaignier
 <en:honey from France
@@ -58197,6 +58217,9 @@ fr:miel de châtaignier origine France, Miel de châtaignier récolté en France
 <en:honey
 fr:miel de citronnier
 # ingredient/fr:miel-de-citronnier has 7 products in french @2019-05-28
+
+<fr:miel de citronnier
+fr:miel de citronnier biologique, miel de citronnier bio
 
 <fr:miel de citronnier
 fr:miel de citronnier d'Espagne
@@ -58208,6 +58231,16 @@ fr:miel d'eucalyptus
 nl:eucalytus honing
 # ingredient/fr:miel-d-eucalyptus has 7 products @2019-05-28
 
+<en:eucalyptus honey
+en:organic eucalyptus honey
+fr:miel d'eucalyptus'issu de l'agriculture biologique
+
+<en:honey
+fr:miel de framboisier issu de l'agriculture biologique
+
+<en:honey
+en:Pure Fynbos honey
+
 <en:honey
 fr:miel de garrigue
 # ingredient/fr:miel-de-garrigue has 6 products in french @2019-05-28
@@ -58216,7 +58249,7 @@ fr:miel de garrigue
 <en:honey
 en:lavander honey
 de:Lavendelhonig, Lavendelhonige
-fr:miel de lavande, Miels de lavande, miel de lavande maritime
+fr:miel de lavande, Miels de lavande, miel de lavande maritime, miel de nectar de fleurs de lavande
 it:miele di lavanda
 nl:Lavandelhoning, Lavendelhoningen
 # ingredient/fr:miel-de-lavande has 39 products @2019-05-23
@@ -58237,6 +58270,9 @@ nl:lavendelhoning uit de Provence
 fr:miel de litchi
 
 <en:honey
+fr:miel-de-luzerne
+
+<en:honey
 fr:miel de mandarinier
 # ingredient/fr:miel-de-mandarinier has 3 products @2019-05-28
 
@@ -58246,10 +58282,20 @@ fr:miel de Manuka
 # ingredient/fr:miel-de-manuka has 5 products @2019-05-28
 
 <en:honey
+de:Mokaranahonig
+fr:Miel de Mokarana
+
+<en:honey
+fr:miel de maquis de printemps
+
+<en:honey
 en:orange blossom honey
-fr:miel d'oranger
+fr:miel d'oranger, miel de fleur d'oranger
 nl:sinaasappelbloesemhoning
 # ingredient/fr:miel-d'oranger has 24 products in french @2019-05-23
+
+<en:orange blossom honey
+fr:miel d'oranger biologique
 
 <en:orange blossom honey
 fr:miel d'oranger d'espagne
@@ -58262,6 +58308,10 @@ it:miele di rosmarino
 
 <fr:miel de romarin
 fr:miel de romarin bio
+
+<fr:miel de romarin
+<en:honey from France
+fr:miel de romarin du languedoc
 
 <en:honey
 fr:miel de ronce
@@ -58308,6 +58358,8 @@ fr:miel-de-tilleul-de-picardie
 fr:miel de trefle
 nl:klaverhoning
 
+##################### MIXED HONEYS
+
 <en:honey
 en:blend of honeys
 fr:mélange de miels
@@ -58325,22 +58377,28 @@ fr:mélange de miels originaires de l'UE
 
 <en:blend of honeys
 en:blend of non-EU honey
-fr:mélange de miels non originaires de l'UE, mélange de miels non originaires de la CE, Mélange de miels non originaires de l'Union européenne
+fr:mélange de miels non originaires de l'UE, mélange de miels non originaires de la CE, Mélange de miels non originaires de l'Union européenne, melange de miels non ce
 nl:gemengde niet-EU-honing
 # ingredient/fr:melange-de-miels-non-originaires-de-l-ue has 5 products @2019-05-28
 
 <en:mix of honeys
-fr:mélange de miels originaires et non originaires de l'ue, melange de miels originaires et non originaires de l'union europeenne, mélange de miels originaires et non originaires de la CE, mélange de miels non originaires et originaires de l'UE, Sélection et mélange de miels non originaires et originaires de l'UE,  melange de miels originaires et non de l'ue
+en:Blend of EU and non-EU honeys
+fr:mélange de miels originaires et non originaires de l'ue, melange de miels originaires et non originaires de l'union europeenne, mélange de miels originaires et non originaires de la CE, mélange de miels non originaires et originaires de l'UE, Sélection et mélange de miels non originaires et originaires de l'UE,  melange de miels originaires et non de l'ue, Mélange de miels originaires et non originaires de la communauté Européenne, de miels originaires et non originaires de la ce, miel originaire et non-originaire de la ce, melange de miels de fleurs originaires et non-originaires de l'ue, melange de miels ue et non-ue
 de:Mischung von Honig aus EU-ländern und Nicht EU-ländern
+es:Mezcla de mieles originarias y no originarias de la UE
+nl:gemengde EG- en niet EG honing
 # ingredient/fr:mélange-de-miels-originaires-et-non-originaires-de-l’ue has 25 products in french @2018-12-17
 # ingredient/fr:melange-de-miels-originaires-et-non-originaires-de-la-ce has 11 products @2019-05-28
 
 <fr:mélange de miels originaires et non originaires de l'ue
 fr:melange-de-miels-de-fleurs-originaires-et-non-originaires-de-l-union-europeenne-issus-de-l-agriculture-biologique
 
+##################### HONEY FROM SPECIFIC AREAS
+
 <en:honey
 en:forest honey
 de:Waldhonig
+fi:trooppinen metsähunaja
 fr:miel de forêt
 it:miele di bosco
 nl:boshoning
@@ -58348,6 +58406,9 @@ nl:boshoning
 
 <en:forest honey
 fr:miel de foret d'italie
+
+<en:forest honey
+fr:miel de foret de france
 
 <en:honey
 en:mountain honey
@@ -58361,7 +58422,20 @@ fr:miel de montagne biologique
 
 <en:mountain honey
 <en:honey from France
-fr:miel de montagne recolte en france
+fr:miel de montagne de France, miel de montagne recolte en France
+
+<en:mountain honey
+<en:honey from Spain
+fr:miel de montagne d'Espagne
+
+<en:honey
+fr:miel de campagne
+
+##################### HONEY FROM SPECIFIC COUNTRIES
+
+<en:honey
+en:honey from New Zealand
+fr:Miel de Nouvelle Zélande
 
 <en:mountain honey
 fr:miel de montagne du Chili
@@ -58369,8 +58443,7 @@ fr:miel de montagne du Chili
 
 <en:honey
 en:honey from France
-fr:miel de France, miel récolté en france, miel de Poitou-Charentes, miel de la champagne, miel de bourgogne, miel produit en Lorraine, miel de Bretagne, Mélange de miels de fleurs récoltés en Gascogne
-
+fr:miel de France, miel récolté en france, miel de Poitou-Charentes, miel de la champagne, miel de bourgogne, miel produit en Lorraine, miel de Bretagne, Mélange de miels de fleurs récoltés en Gascogne, miel de fleurs de bretagne, miel de Franche Comté, miels de fleurs de france, miel de la vallee du tarn
 nl:honing uit Frankrijk
 # ingredient/fr:miel-de-france has 20 products in french @2019-05-28
 
