@@ -755,7 +755,10 @@ my %phrases_before_ingredients_list_uppercase = (
 	],
 	it => [
 		'INGREDIENTI(\s*)(-|:|\r|\n)+',
-	]
+	],
+	es => [
+		'ingredientes'
+	],
 );
 
 
@@ -812,8 +815,6 @@ my %phrases_after_ingredients_list = (
 	pt => [
 		'conservar em local fresco',
 	],
-
-
 );
 
 
