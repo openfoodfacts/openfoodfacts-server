@@ -22466,6 +22466,66 @@ fr:vin biologique
 nl:biologische wijn
 # 2019-05-29
 
+# description:en:SPARKLING WINE is a wine with significant levels of carbon dioxide in it, making it fizzy. Sparkling wine is usually either white or rosé, but there are examples of red sparkling wines.
+
+# <en:category:en:Sparkling wines
+<en:wine
+en:sparkling wine
+af:Vonkelwyn
+ar:نبيذ فوار
+# ast:Vinu esplumoso
+be:Пеністае віно
+bg:Шумящо вино
+ca:vi escumós
+cs:sekt
+da:Mousserende vin
+de:Schaumwein
+el:αφρώδης οίνος
+eo:Ŝaŭmvino
+es:vino espumoso
+et:Vahuvein
+fa:شراب گازدار
+fi:Kuohuviini
+fo:Brúsandi vín
+fr:vin mousseux
+ga:Fíon cúrach
+# gsw:Chlepfmoscht
+he:יין נתזים
+hr:Biser vino
+hu:pezsgő
+hy:փրփրուն գինի
+it:vino spumante
+ja:発泡性ワイン
+ko:발포성 포도주
+mk:Пенливо вино
+lt:Putojantis vynas
+lv:dzirkstošais vīns
+nb:Musserende vin
+nl:mousserende wijn
+oc:Vin efervescent
+pl:Wino musujące
+pt:vinho espumante
+ro:vin spumant
+ru:Игристое вино
+sk:sekt
+sv:Mousserande vin
+tr:Köpüklü şarap
+uk:Ігристі вина
+# vep:Vändai vin
+vi:Vang sủi
+# yue:汽酒
+zh:气泡酒
+# zh-cn:气泡酒
+#zh-hans:气泡酒
+# zh-hant:氣泡酒
+# zh-hk:氣泡酒
+# zh-sg:气泡酒
+# zh-tw:氣泡酒
+wikidata:en:Q321263
+wikipedia:en:https://en.wikipedia.org/wiki/Sparkling_wine
+# ingredient/fr:vin-mousseux has 10 products in french @2019-05-29
+# category/sparkling-wines has 293 products 2019-05-29
+
 <en:wine
 fr:vin de France, vin français
 carbon_footprint_fr_foodges_ingredient:fr:Vin France
@@ -22520,6 +22580,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/White_wine
 # en:white-wine has 2793 products in 5 languages @2018-10-29
 
 <en:white wine
+fr:vin-blanc-arbois-aoc
+# 2019-05-29
+
+<en:white wine
 fr:vin blanc réduit
 # fr:vin-blanc-réduit has 33 products in 1 language @2018-10-29
 
@@ -22551,11 +22615,20 @@ en:red wine
 de:Rotwein
 fr:vin rouge
 it:vino rosso
+nl:rode wijn
 
 <en:red wine
 en:organic red wine
 fr:vin rouge bio
 nl:biologische rode wijn
+
+<en:red wine
+fr:vin rouge issu du cepage pinot noir
+# 2019-05-29
+
+<en:red wine
+fr:vin rouge issu des cepages merlot
+# 2019-05-29
 
 <en:red wine
 fr:extrait de vin rouge
