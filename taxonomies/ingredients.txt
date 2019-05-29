@@ -26440,6 +26440,10 @@ it:riso parboiled
 # ingredient/fr:riz-parboiled has 3 products in 3 languages @2018-12-19
 
 <en:rice
+fr:riz parfumé
+# ingredient/fr:riz-parfume has 17 products @2019-05-29
+
+<en:rice
 en:long grain rice
 de:Langkornreis
 fr:riz long grain, riz long blanc, riz long
@@ -26452,10 +26456,12 @@ nl:Langkorrelige rijst
 <en:long grain rice
 en:superior quality long grain rice
 fr:riz long grain de qualité supérieure, riz long de qualité supérieure
+nl:langkorrelige rijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-long-grain-de-qualite-superieure has 10 products in french @2019-05-25
 
 <en:long grain rice
 fr:riz long complet
+nl:langkorrelige zilvervliesrijst
 # ingredient/fr:riz-long-complet has 13 products @2019-05-29
 
 <en:long grain rice
@@ -26464,23 +26470,28 @@ vi:gạo thóm ðặc biệt
 zh:標香米
 
 <en:long grain rice
-en:parboiled long grain rice
+en:parboiled long grain rice, long grain parboiled rice
 de:Dampfgegarter Spitzen-Langkorn-Reis
-fr:riz long grain précuit à la vapeur
+es:arroz grano largo vaporizado
+fr:riz long étuvé, riz long grain étuvé, riz long grain précuit à la vapeur, riz a grain long parboiled
+# ingredient/fr:riz-long-étuvé has 40 products in french @2018-12-19
 # ingredient/parboiled-long-grain-rice has 26 products in 3 languages @2018-12-19
 
 <en:parboiled long grain rice
 en:parboiled organic long grain rice
 nl:Witte langgraanrijst van biologische oorsprong parboiled
 
-<en:long grain rice
-fr:riz long étuvé, riz long grain étuvé
-# ingredient/fr:riz-long-étuvé has 40 products in french @2018-12-19
-
-<fr:riz long étuvé
+<en:long grain parboiled rice
+en:superior quality long grain parboiled rice
+es:arroz grano largo vaporizado de calidad superior
 fr:riz long grain étuvé de qualité supérieure
-nl:Langkorrelige rijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-long-grain-étuvé-de-qualité-supérieure has 39 products in 2 languages @2018-12-19
+
+<en:superior quality long grain parboiled rice
+en:superior quality long grain parboiled brown rice
+es:arroz grano largo vaporizado integral de calidad superior
+fr:riz long grain complet étuvé de qualité supérieure
+# ingredient/fr:riz-long-grain-complet-étuvé-de-qualite-superieure has 4 products @2019-05-29
 
 <en:rice
 en:wild rice
@@ -26591,6 +26602,15 @@ fr:riz complet précuit
 <en:rice
 fr:riz rond
 # ingredient/fr:riz-rond has 27 products in french @2019-05-28
+
+<fr:riz rond
+fr:riz rond demi-complet, riz rond complet légèrement poli
+nl:halfvolkoren ronde rijst, volkoren ronde rijst lichtjes gepolijst
+
+<fr:riz rond
+fr:riz rond complet
+nl:volkoren ronde rijst
+# ingredient/fr:riz-rond-complet has 19 products @2019-05-29
 
 <fr:riz rond
 fr:Riz rond de qualité supérieure
