@@ -26503,6 +26503,14 @@ fr:riz sauvage noir
 nl:zwarte wilde rijst
 
 <en:rice
+en:Italian Black Parboiled Brown Rice
+de:Italienischer Schwarzer Parboiled Vollkornreis
+es:Arroz Integral Venere Vaporizado
+fr:Riz moyen à grains noirs complet étuvé
+it:Riso Venere Integrale Parboiled
+pt:Arroz Integral Venere Parboiled
+
+<en:rice
 en:white rice
 fr:riz blanc
 nl:witte rijst
@@ -26602,6 +26610,10 @@ nl:Hom Mali
 fr:Riz thaï complet
 # ingredient/fr:riz-thai-complet has 7 products @2019-05-29
 
+<fr:Riz thaï complet
+fr:Riz Thaï complet étuvé
+# ingredient/fr:riz-thai-complet-etuve has 3 products @2019-05-29
+
 <en:Thai long grain rice
 fr:Riz thaï long grain de qualité supérieure
 de:qualitativ hochwertiger thailändischer Langkornreis
@@ -26643,6 +26655,7 @@ nl:Volkorenrijst
 
 <en:full grain rice
 en:organic full grain rice
+fr:riz complèt bio
 nl:biozilvervliesrijst
 
 <en:full grain rice
@@ -26650,8 +26663,23 @@ fr:riz complet précuit
 # ingredient/fr:riz-complet-précuit has 26 products in french @2018-12-19
 
 <en:rice
+en:carnaroli rice
+fr:riz Carnaroli
+it:riso carnaroli
+# ingredient/fr:riz-carnaroli has 33 products @2019-05-29
+
+<en:rice
 fr:riz rond
 # ingredient/fr:riz-rond has 27 products in french @2019-05-28
+
+<fr:riz rond
+fr:riz rond blanc, Riz rond blanchi
+nl:witte ronde rijst, ronde rijst wit
+# ingredient/fr:riz-rond-blanchi has 4 products @2019-05-29
+# ingredient/fr:riz-rond-blanc has 15 products @2019-05-29
+
+<fr:riz rond blanc
+fr:riz rond blanc bio
 
 <fr:riz rond
 fr:riz rond demi-complet, riz rond complet légèrement poli
@@ -26676,13 +26704,6 @@ nl:rijst gemalen
 # This can be found under the flours
 #<en:rice
 #en:rice flour
-#da:rismel
-#es:harina de arroz
-#fi:riisijauho
-#it:farina di riso
-#nl:rijstbloem
-#pt:farinha de arroz
-#sv:rismjöl
 
 <en:rice
 fr:semoule de riz, son de riz
@@ -26709,7 +26730,6 @@ sr:pirinač ekstrudat
 # sr-el:pirinač ekstrudat
 # ingredient/fr:riz-extrudé has 36 products in 4 languages @2018-12-19
 # comment:en::riz extrudé is a compound ingredient
-
 
 <en:rice
 en:puffed rice, crisped rice
