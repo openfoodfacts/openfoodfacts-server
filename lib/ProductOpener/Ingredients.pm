@@ -772,23 +772,31 @@ fr => [
 ],
 
 es => [
-'INGREDIENTES'(\s*)(\s|-|:|\r|\n)+,
+
+'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
+
 ],
 
 pt => [
-'INGREDIENTES'(\s*)(\s|-|:|\r|\n)+,
+
+'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
+
 ],
 
 it => [
-'INGREDIENTI'(\s*)(\s|-|:|\r|\n)+,
+'INGREDIENTI(\s*)(\s|-|:|\r|\n)+',
 ],
 
 nl => [
-'INGREDI(E|Ë)NTEN'(\s*)(\s|-|:|\r|\n)+,
+
+'INGREDI(E|Ë)NTEN(\s*)(\s|-|:|\r|\n)+',
+
 ],
 
 de => [
-'ZUTATEN'(\s*)(\s|-|:|\r|\n)+,
+
+'ZUTATEN(\s*)(\s|-|:|\r|\n)+',
+
 ],
 
 );
@@ -827,6 +835,7 @@ en => [
 
 es => [
 'valores nutricionales',
+'modo de preparacion',
 ],
 
 de => [
