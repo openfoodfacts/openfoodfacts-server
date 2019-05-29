@@ -26455,6 +26455,10 @@ fr:riz long grain de qualité supérieure, riz long de qualité supérieure
 # ingredient/fr:riz-long-grain-de-qualite-superieure has 10 products in french @2019-05-25
 
 <en:long grain rice
+fr:riz long complet
+# ingredient/fr:riz-long-complet has 13 products @2019-05-29
+
+<en:long grain rice
 en:parboiled long grain rice
 de:Dampfgegarter Spitzen-Langkorn-Reis
 fr:riz long grain précuit à la vapeur
@@ -26514,6 +26518,16 @@ nl:basmatirijst
 # ingredient/basmati-rice has 344 products in 6 languages @2018-12-19
 
 <en:basmati rice
+en:white basmati rice
+fr:riz basmati blanc
+de:weißer Basmatireis
+nl:witte basmatirijst
+# ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
+
+<en:basmati rice
+nl:volkoren basmati rijst
+
+<en:basmati rice
 en:long grain basmati rice
 fr:riz Basmati long grain, riz long basmati
 nl:langkorrelige basmatirijst
@@ -26558,6 +26572,9 @@ nl:biozilvervliesrijst
 fr:riz complet précuit
 # ingredient/fr:riz-complet-précuit has 26 products in french @2018-12-19
 
+<en:rice
+fr:Riz rond de qualité supérieure
+# ingredient/fr:riz-rond-de-qualite-superieure has 11 products @2019-05-29
 
 <en:rice
 fr:riz moulu
@@ -33309,7 +33326,7 @@ nl:appels van biologisch-dynamische teelt
 <en:apple
 en:Organic apple
 de:Bio Äpfel
-fr:Pommes bio
+fr:pomme bio, Pommes bio
 it:mele bio
 nl:biologische appel, Biologische appels
 # ingredient/fr:pommes-bio has 18 products in 4 languages @2019-05-23
