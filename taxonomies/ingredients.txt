@@ -19240,6 +19240,7 @@ fr:morceaux de tête de porc
 <en:pork meat
 fr:jambon de porc
 
+
 <fr:jambon de porc
 fr:jambon de porc issu d'animaux nourris sans ogm
 
@@ -19254,6 +19255,10 @@ fr:jambon de porc français
 
 <en:pork meat
 fr:noix de jambon de porc
+
+<en:pork meat
+fr:Côtes de porc
+# ingredient/fr:cotes-de-porc has 8 products @2019-05-29
 
 <en:pork meat
 fr:carré de porc
@@ -19449,7 +19454,7 @@ fr:viande bovine origine france
 fr:viande bovine halal
 
 <en:beef meat
-fr:viande de bœuf, viande de boeuf
+fr:viande de bœuf, viande de boeuf, pure viande bovine
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 
 
@@ -22461,10 +22466,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wine
 # en:wine has 4233 products in 6 languages @2018-10-29
 
 <en:wine
+fr:vin doux naturel
+
+<en:wine
 en:organic wine
 fr:vin biologique
 nl:biologische wijn
 # 2019-05-29
+
+<en:wine
+fr:vin de France, vin français
+carbon_footprint_fr_foodges_ingredient:fr:Vin France
 
 # description:en:SPARKLING WINE is a wine with significant levels of carbon dioxide in it, making it fizzy. Sparkling wine is usually either white or rosé, but there are examples of red sparkling wines.
 
@@ -22526,9 +22538,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sparkling_wine
 # ingredient/fr:vin-mousseux has 10 products in french @2019-05-29
 # category/sparkling-wines has 293 products 2019-05-29
 
-<en:wine
-fr:vin de France, vin français
-carbon_footprint_fr_foodges_ingredient:fr:Vin France
+<en:sparkling wine
+fr:vin cremant de Loire aop
+
 
 
 # WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
@@ -22580,7 +22592,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/White_wine
 # en:white-wine has 2793 products in 5 languages @2018-10-29
 
 <en:white wine
-fr:vin-blanc-arbois-aoc
+en:dry white wine
+fr:vin blanc sec
+nl:droge witte wijn
+# 2019-05-29
+
+<en:white wine
+en:white wine from France
+fr:vin blanc de France, vin-blanc-arbois-aoc, vinblanc coteaux du layon aop, vin blanc condrieu aop, vin blanc coteaux du lyonnais aop
 # 2019-05-29
 
 <en:white wine
@@ -22679,24 +22698,18 @@ zh:紅葡萄酒
 # zh-tw:紅葡萄酒
 wikidata:en:Q1827
 wikipedia:en:https://en.wikipedia.org/wiki/Red_wine
-# ingredient/red%20wine has 658 products @2019-05-29
+# ingredient/red-wine has 658 products @2019-05-29
 # category/red-wines has 920 products @2019-05-29
 
 <en:red wine
 en:organic red wine
-fr:vin rouge bio
+fr:vin rouge bio, vin rouge biologique, vin biologique contient des sulfites
 nl:biologische rode wijn
 
 <en:red wine
-fr:vin rouge issu du cepage pinot noir
-# 2019-05-29
+en:red wine from France
+fr:vin rouge de France, vin rouge issu du cepage pinot noir, vin rouge issu des cepages merlot, vin rouge puy de dome igp, vin bordeaux rouge, vin rouge bordeaux, vin rouge bordeaux aoc, vin rouge coteaux du lyonnais, vin rouge cote de brouilly
 
-<en:red wine
-fr:vin rouge issu des cepages merlot
-# 2019-05-29
-
-<en:red wine
-fr:vin rouge puy de dome igp
 # 2019-05-29
 
 <en:red wine
