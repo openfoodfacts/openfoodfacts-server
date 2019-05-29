@@ -777,12 +777,14 @@ fr => [
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
 '(a|à) conserver (dans|de|a|à)',
+'(a|à)conserver (dans|de|a|à)', #variation
 'apr(e|è)s ouverture',
 'pr(e|é)paration au four',
 'valeurs moyennes pour 100 g',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
+#'dontSUcres',
 #'waarvan suikers/dont sucres',
 #`verzadigde vetzuren/ acides gras saturés`,
 ],
@@ -802,6 +804,7 @@ es => [
 'valor energ(e|é)tico',
 #'pa(i|í)s de transformaci(o|ó)n',
 # Conservar en luger fresco y seco
+#de los cuates azücares
 ],
 
 de => [
@@ -818,10 +821,12 @@ nl => [
 it => [
 'valori nutrizionali',
 'consigli per la preparazione',
+'di cui zuccheri',
 ],
 
 pt => [
 'conservar em local fresco',
+'dos quais açüares',
 ],
 
 
