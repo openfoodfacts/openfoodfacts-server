@@ -605,8 +605,6 @@ sub build_tags_taxonomy($$) {
 	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};
 
 
-
-
 	# Need to be initialized as a taxonomy is probably already loaded by Tags.pm
 	$stopwords{$tagtype} = {};
 	$synonyms{$tagtype} = {};
@@ -623,7 +621,8 @@ sub build_tags_taxonomy($$) {
 	$just_synonyms{$tagtype} = {};
 	$properties{$tagtype} = {};
 
-
+	my $errors = '';
+	
 	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt")) {
 
 		my $current_tagid;
@@ -797,8 +796,11 @@ sub build_tags_taxonomy($$) {
 						($synonyms{$tagtype}{$lc}{$tagid} eq $current_tagid) and next;
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
 						if (not ($tagtype =~ /^additives/)) {
-						($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) and print "$tagid already is a synonym of $synonyms{$tagtype}{$lc}{$tagid} - cannot add $current_tagid\n";
-						next;
+							if ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) {
+								print "$lc:$tagid already is a synonym of $synonyms{$tagtype}{$lc}{$tagid} - cannot make a synonym of $current_tagid\n";
+								$errors .= "ERROR - $lc:$tagid already is a synonym of $synonyms{$tagtype}{$lc}{$tagid} - cannot make a synonym of $current_tagid\n";
+								next;
+							}
 						}
 					}
 
@@ -815,6 +817,13 @@ sub build_tags_taxonomy($$) {
 		}
 
 		close ($IN);
+		
+		if ($errors ne "") {
+		
+			print STDERR "Errors in the $tagtype taxonomy definition:\n";
+			print STDERR $errors;
+			die("Errors in the $tagtype taxonomy definition");
+		}
 
 		# 2nd phase: compute synonyms
 		# e.g.
@@ -1303,8 +1312,6 @@ sub build_tags_taxonomy($$) {
 		my %taxonomy_json = ();
 		my %taxonomy_full_json = (); # including wikipedia abstracts
 
-		my $errors = '';
-
 		foreach my $lc (keys %{$stopwords{$tagtype}}) {
 			print $OUT $stopwords{$tagtype}{$lc . ".orig"};
 		}
@@ -1332,7 +1339,7 @@ sub build_tags_taxonomy($$) {
 					push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
-						$errors .= "ERROR - parent $parentid is not defined for tag $tagid\n";
+						$errors .= "ERROR - parent $parentid is not defined in lc $lc for tag $tagid\n";
 					}
 				}
 			}
@@ -1422,6 +1429,13 @@ sub build_tags_taxonomy($$) {
 		}
 
 		close $OUT;
+		
+		if ($errors ne "") {
+		
+			print STDERR "Errors in the $tagtype taxonomy definition:\n";
+			print STDERR $errors;
+			die("Errors in the $tagtype taxonomy definition");
+		}		
 
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 
