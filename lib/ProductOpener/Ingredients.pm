@@ -741,23 +741,23 @@ fr => [
 ],
 
 es => [
-'ingredientes'(\s*)(\s|-|:|\r|\n)+
+'ingredientes'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 pt => [
-'ingredientes'(\s*)(\s|-|:|\r|\n)+
+'ingredientes'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 it => [
-'ingredienti'(\s*)(\s|-|:|\r|\n)+
+'ingredienti'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 nl => [
-'ingredi(e|ë)nten'(\s*)(\s|-|:|\r|\n)+
+'ingredi(e|ë)nten'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 de => [
-'zutaten'(\s*)(\s|-|:|\r|\n)+
+'zutaten'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 );
@@ -772,23 +772,23 @@ fr => [
 ],
 
 es => [
-'INGREDIENTES'(\s*)(\s|-|:|\r|\n)+
+'INGREDIENTES'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 pt => [
-'INGREDIENTES'(\s*)(\s|-|:|\r|\n)+
+'INGREDIENTES'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 it => [
-'INGREDIENTI'(\s*)(\s|-|:|\r|\n)+
+'INGREDIENTI'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 nl => [
-'INGREDI(E|Ë)NTEN'(\s*)(\s|-|:|\r|\n)+
+'INGREDI(E|Ë)NTEN'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 de => [
-'ZUTATEN'(\s*)(\s|-|:|\r|\n)+
+'ZUTATEN'(\s*)(\s|-|:|\r|\n)+,
 ],
 
 );
@@ -826,7 +826,7 @@ en => [
 ],
 
 es => [
-'valores nutricionales'
+'valores nutricionales',
 ],
 
 de => [
