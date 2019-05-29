@@ -61,7 +61,17 @@ if (not defined $code) {
 	exit(0);
 }
 
-my $product_ref = process_image_crop($code, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2);
+# Check if we have a picture from the manufacturer
+
+my $product_ref = retrieve_product($code);
+
+if ((defined $product_ref) and (has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+	and (referer() !~ /\/cgi\/product.pl/)) {
+	print STDERR "product_image_crop.pl - skip image id $id for product code $code (data from producer) - referer: " . referer() . "\n";
+}
+else {
+	$product_ref = process_image_crop($code, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2);
+}
 
 my $data =  encode_json({ status => 'status ok',
 		image => {

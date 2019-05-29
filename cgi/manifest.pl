@@ -60,12 +60,12 @@ else {
 my %manifest = (
 	lang => $lc,
 	name => $long_name,
-	short_name => $short_name;
-	description => lang('site_description');
-	start_url => format_subdomain($subdomain);
-	scope => '/';
-	display => 'standalone';
-	prefer_related_applications => $JSON::PP::true;
+	short_name => $short_name,
+	description => lang('site_description'),
+	start_url => format_subdomain($subdomain),
+	scope => '/',
+	display => 'standalone',
+	prefer_related_applications => $JSON::PP::true,
 );
 
 my @keys = qw(theme_color icons related_applications background_color);

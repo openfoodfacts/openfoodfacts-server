@@ -42,7 +42,7 @@ BEGIN
 					%tags_images
 					%tags_texts
 					%tags_levels
-					%levels
+					%level
 					%special_tags
 
 					&get_taxonomyid
@@ -187,7 +187,7 @@ my %synonyms = ();
 my %synonyms_for_extended = ();
 %translations_from = ();
 %translations_to = ();
-my %level = ();
+%level = ();
 my %direct_parents = ();
 my %direct_children = ();
 my %all_parents = ();
@@ -1773,6 +1773,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	}
 
 	my @sorted_list = sort { (((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0) <=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)) || ($a cmp $b) } keys %tags;
+	
 	return @sorted_list;
 }
 
@@ -3038,7 +3039,7 @@ close ($IN);
 
 	foreach my $geofile (@geofiles) {
 
-		#print STDERR "Tags.pm - loading geofile $geofile\n";
+		print STDERR "Tags.pm - loading geofile $geofile\n";
 		open (my $IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
 
 		my @th = split(/\t/, <$IN>);

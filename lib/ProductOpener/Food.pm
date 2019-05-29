@@ -5185,12 +5185,14 @@ sub compute_nova_group($) {
 			has_tag($product_ref,"quality","en:ingredients-70-percent-unknown") or
 			has_tag($product_ref,"quality","en:ingredients-60-percent-unknown") or
 			has_tag($product_ref,"quality","en:ingredients-50-percent-unknown") )  {
+				delete $product_ref->{nova_group};
 				$product_ref->{nova_group_tags} = [ "not-applicable" ];
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown";
 				return;
 		}
 		
 		if ($product_ref->{unknown_ingredients_n} > ($product_ref->{ingredients_n} / 2)) {
+				delete $product_ref->{nova_group};
 				$product_ref->{nova_group_tags} = [ "not-applicable" ];
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown: "
 					. $product_ref->{unknown_ingredients_n} . " out of " . $product_ref->{ingredients_n};
@@ -5199,6 +5201,7 @@ sub compute_nova_group($) {
 
 		# do not compute a score when we don't have a category
 		if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+				delete $product_ref->{nova_group};
 				$product_ref->{nova_group_tags} = [ "not-applicable" ];
 				$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
 				return;

@@ -107,7 +107,7 @@ foreach my $f (readdir(DH)) {
 		# Skip EOF and lines prefixed with #
 		chomp;
 		next if /^\#/;
-		
+
 		my ($canon_name, $other_names, $misc, $desc, $level, $warning) = split("\t");
 		my $id = get_fileid($canon_name);
 		next if (not defined $id) or ($id eq '');
@@ -760,9 +760,11 @@ my %phrases_before_ingredients_list_uppercase = (
 
 
 my %phrases_after_ingredients_list = (
+
 	# TODO: Introduce a common list for kcal
 
 	fr => [
+
 		'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
 		'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
 		'valeur(s?) (e|é)nerg(e|é)tique',
@@ -775,13 +777,17 @@ my %phrases_after_ingredients_list = (
 		'(a|à) consommer (cuit|rapidement|dans|jusqu)',
 		'(a|à) conserver (dans|de|a|à)',
 		'apr(e|è)s ouverture',
+		'pr(e|é)paration au four',
+
 	],
 
 	en => [
+
 		'nutritional values',
 		'after opening',
 		'nutrition values',
 		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+
 	],
 
 	es => [
@@ -802,6 +808,12 @@ my %phrases_after_ingredients_list = (
 		'valori nutrizionali',
 		'consigli per la preparazione',
 	],
+
+	pt => [
+		'conservar em local fresco',
+	],
+
+
 );
 
 
@@ -906,7 +918,7 @@ sub extract_ingredients_classes_from_text($) {
 	my $path = product_path($product_ref->{code});
 	my $text = $product_ref->{ingredients_text};
 	my $lc = $product_ref->{lc};
-	
+
 	$text =~ s/\&quot;/"/g;
 
 	# vitamins...
@@ -1540,16 +1552,16 @@ INFO
 				delete $product_ref->{$tagtype . '_n'};
 			}
 		}
-		
+
 		# Delete debug info
 		if (not has_tag($product_ref, "categories", 'en:debug')) {
 			delete $product_ref->{$tagtype};
 		}
-		
+
 		# Delete empty arrays
 		# -> not active
 		# -> may be dangerous if some apps rely on them existing even if empty
-		
+
 		if (0) {
 			foreach my $array ($tagtype . '_tags', $tagtype . '_original_tags',
 				$vitamins_tagtype . '_tags', $minerals_tagtype . '_tags',
@@ -1627,11 +1639,11 @@ INFO
 		else {
 			$product_ref->{$tagtype . '_n'} = scalar @{$product_ref->{$tagtype . '_tags'}};
 		}
-		
+
 		# Delete empty arrays
 		# -> not active
-		# -> may be dangerous if some apps rely on them existing even if empty		
-		
+		# -> may be dangerous if some apps rely on them existing even if empty
+
 		if (0) {
 			if ((defined $product_ref->{$tagtype . '_tags'}) and ((scalar @{$product_ref->{$tagtype . '_tags'}}) == 0)) {
 					delete $product_ref->{$tagtype . '_tags'};
@@ -1661,7 +1673,7 @@ INFO
 	# previous version
 
 	if (exists $loaded_taxonomies{$field . "_prev"}) {
-	
+
 		(defined $product_ref->{$field . "_debug_tags"}) or $product_ref->{$field . "_debug_tags"} = [];
 
 		# compute differences
@@ -1688,7 +1700,7 @@ INFO
 	# next version
 
 	if (exists $loaded_taxonomies{$field . "_next"}) {
-	
+
 		(defined $product_ref->{$field . "_debug_tags"}) or $product_ref->{$field . "_debug_tags"} = [];
 
 		# compute differences
@@ -1743,7 +1755,7 @@ sub replace_allergen($$$$) {
 	my $before = shift;
 
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain|può contenere|tracce)\b/i) {
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain|pu(o|ò) contenere|tracce)\b/i) {
 		$field = "traces";
 	}
 
@@ -1766,7 +1778,7 @@ sub replace_allergen_in_caps($$$$) {
 	my $before = shift;
 
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain|può contenere|tracce)\b/i) {
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain|pu(o|ò) contenere|tracce)\b/i) {
 		$field = "traces";
 	}
 

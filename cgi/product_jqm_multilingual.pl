@@ -171,23 +171,38 @@ else {
 		}
 
 		elsif (defined param($field)) {
-			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
-
-			if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
-				my $field_lc = $field . "_" . $product_ref->{lc};
-				$product_ref->{$field_lc} = $product_ref->{$field};
+		
+			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
+			if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+				print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field\n";
 			}
+			else {
+				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 
-			compute_field_tags($product_ref, $lc, $field);
+				if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
+					my $field_lc = $field . "_" . $product_ref->{lc};
+					$product_ref->{$field_lc} = $product_ref->{$field};
+				}
 
+				compute_field_tags($product_ref, $lc, $field);
+			}
 		}
 
 		if (defined $language_fields{$field}) {
+		
 			foreach my $param_lang (@param_langs) {
 				my $field_lc = $field . '_' . $param_lang;
 				if (defined param($field_lc)) {
-					$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8=>param($field_lc));
-					compute_field_tags($product_ref, $lc, $field_lc);
+				
+					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
+					if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
+						print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field_lc\n";
+					}
+					else {
+				
+						$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8=>param($field_lc));
+						compute_field_tags($product_ref, $lc, $field_lc);
+					}
 				}
 			}
 		}
@@ -240,105 +255,113 @@ else {
 	detect_allergens_from_text($product_ref);
 
 	# Nutrition data
-
-	if (defined param("no_nutrition_data")) {
-		$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
+	
+	# Do not allow nutrition edits through API for data provided by producers 
+	if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{"nutriments"})) {
+		print STDERR "product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
 	}
-
-	my $no_nutrition_data = 0;
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
-		$no_nutrition_data = 1;
-	}
-
-	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
-
-	my @unknown_nutriments = ();
-	foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
-		next if $nid =~ /_/;
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
-			push @unknown_nutriments, $nid;
-			$log->debug("unknown nutrient", { nid => $nid }) if $log->is_debug();
+	else {
+	
+		if (defined param("no_nutrition_data")) {
+			$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
 		}
-	}
 
-	my @new_nutriments = ();
-	my $new_max = remove_tags_and_quote(param('new_max'));
-	for (my $i = 1; $i <= $new_max; $i++) {
-		push @new_nutriments, "new_$i";
-	}
+		my $no_nutrition_data = 0;
+		if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+			$no_nutrition_data = 1;
+		}
 
-	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
-		next if $nutriment =~ /^\#/;
+		defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
-		my $nid = $nutriment;
-		$nid =~ s/^(-|!)+//g;
-		$nid =~ s/-$//g;
-
-		next if $nid =~ /^nutrition-score/;
-
-		my $enid = encodeURIComponent($nid);
-
-		# do not delete values if the nutriment is not provided
-		next if not defined param("nutriment_${enid}");
-
-		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
-		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
-		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
-
-		my $modifier = undef;
-
-		normalize_nutriment_value_and_modifier(\$value, \$modifier);
-
-		# New label?
-		my $new_nid = undef;
-		if ((defined $label) and ($label ne '')) {
-			$new_nid = canonicalize_nutriment($lc,$label);
-			$log->debug("unknown nutrient", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
-
-			if ($new_nid ne $nid) {
-				delete $product_ref->{nutriments}{$nid};
-				delete $product_ref->{nutriments}{$nid . "_unit"};
-				delete $product_ref->{nutriments}{$nid . "_value"};
-				delete $product_ref->{nutriments}{$nid . "_modifier"};
-				delete $product_ref->{nutriments}{$nid . "_label"};
-				delete $product_ref->{nutriments}{$nid . "_100g"};
-				delete $product_ref->{nutriments}{$nid . "_serving"};
-				$log->debug("unknown nutrient, but known canonical new id", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
-				$nid = $new_nid;
+		my @unknown_nutriments = ();
+		foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
+			next if $nid =~ /_/;
+			if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
+				push @unknown_nutriments, $nid;
+				$log->debug("unknown nutrient", { nid => $nid }) if $log->is_debug();
 			}
-			$product_ref->{nutriments}{$nid . "_label"} = $label;
 		}
 
-		if (($nid eq '') or (not defined $value) or ($value eq '')) {
-				delete $product_ref->{nutriments}{$nid};
-				delete $product_ref->{nutriments}{$nid . "_unit"};
-				delete $product_ref->{nutriments}{$nid . "_value"};
-				delete $product_ref->{nutriments}{$nid . "_modifier"};
-				delete $product_ref->{nutriments}{$nid . "_label"};
-				delete $product_ref->{nutriments}{$nid . "_100g"};
-				delete $product_ref->{nutriments}{$nid . "_serving"};
+		my @new_nutriments = ();
+		my $new_max = remove_tags_and_quote(param('new_max'));
+		for (my $i = 1; $i <= $new_max; $i++) {
+			push @new_nutriments, "new_$i";
 		}
-		else {
-			assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
+
+		foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
+			next if $nutriment =~ /^\#/;
+
+			my $nid = $nutriment;
+			$nid =~ s/^(-|!)+//g;
+			$nid =~ s/-$//g;
+
+			next if $nid =~ /^nutrition-score/;
+
+			my $enid = encodeURIComponent($nid);
+
+			# do not delete values if the nutriment is not provided
+			next if not defined param("nutriment_${enid}");
+
+			my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
+			my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
+			my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
+
+			my $modifier = undef;
+
+			normalize_nutriment_value_and_modifier(\$value, \$modifier);
+
+			# New label?
+			my $new_nid = undef;
+			if ((defined $label) and ($label ne '')) {
+				$new_nid = canonicalize_nutriment($lc,$label);
+				$log->debug("unknown nutrient", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
+
+				if ($new_nid ne $nid) {
+					delete $product_ref->{nutriments}{$nid};
+					delete $product_ref->{nutriments}{$nid . "_unit"};
+					delete $product_ref->{nutriments}{$nid . "_value"};
+					delete $product_ref->{nutriments}{$nid . "_modifier"};
+					delete $product_ref->{nutriments}{$nid . "_label"};
+					delete $product_ref->{nutriments}{$nid . "_100g"};
+					delete $product_ref->{nutriments}{$nid . "_serving"};
+					$log->debug("unknown nutrient, but known canonical new id", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
+					$nid = $new_nid;
+				}
+				$product_ref->{nutriments}{$nid . "_label"} = $label;
+			}
+
+			if (($nid eq '') or (not defined $value) or ($value eq '')) {
+					delete $product_ref->{nutriments}{$nid};
+					delete $product_ref->{nutriments}{$nid . "_unit"};
+					delete $product_ref->{nutriments}{$nid . "_value"};
+					delete $product_ref->{nutriments}{$nid . "_modifier"};
+					delete $product_ref->{nutriments}{$nid . "_label"};
+					delete $product_ref->{nutriments}{$nid . "_100g"};
+					delete $product_ref->{nutriments}{$nid . "_serving"};
+			}
+			else {
+				assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
+			}
+		}
+
+		if ($no_nutrition_data) {
+			# Delete all non-carbon-footprint nids.
+			foreach my $key (keys %{$product_ref->{nutriments}}) {
+				next if $key =~ /_/;
+				next if $key eq 'carbon-footprint';
+
+				delete $product_ref->{nutriments}{$key};
+				delete $product_ref->{nutriments}{$key . "_unit"};
+				delete $product_ref->{nutriments}{$key . "_value"};
+				delete $product_ref->{nutriments}{$key . "_modifier"};
+				delete $product_ref->{nutriments}{$key . "_label"};
+				delete $product_ref->{nutriments}{$key . "_100g"};
+				delete $product_ref->{nutriments}{$key . "_serving"};
+			}
 		}
 	}
-
-	if ($no_nutrition_data) {
-		# Delete all non-carbon-footprint nids.
-		foreach my $key (keys %{$product_ref->{nutriments}}) {
-			next if $key =~ /_/;
-			next if $key eq 'carbon-footprint';
-
-			delete $product_ref->{nutriments}{$key};
-			delete $product_ref->{nutriments}{$key . "_unit"};
-			delete $product_ref->{nutriments}{$key . "_value"};
-			delete $product_ref->{nutriments}{$key . "_modifier"};
-			delete $product_ref->{nutriments}{$key . "_label"};
-			delete $product_ref->{nutriments}{$key . "_100g"};
-			delete $product_ref->{nutriments}{$key . "_serving"};
-		}
-	}
-
+	
+	
 	# Compute nutrition data per 100g and per serving
 
 	$log->trace("compute_serving_size_date") if ($admin and $log->is_trace());

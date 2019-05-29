@@ -384,14 +384,14 @@ off =>
         mongodb => "off",
         domain => "openfoodfacts.org",
 },
-opff =>
+opf =>
 {
-        prefix => "opff",
-        name => "Open Pet Food Facts",
-        data_root => "/srv/opff",
-        www_root => "/srv/opff/html",
-        mongodb => "opff",
-        domain => "openpetfoodfacts.org",
+        prefix => "opf",
+        name => "Open Products Facts",
+        data_root => "/srv/opf",
+        www_root => "/srv/opf/html",
+        mongodb => "opf",
+        domain => "openproductsfacts.org",
 }
 };
 

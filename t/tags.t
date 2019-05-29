@@ -147,9 +147,9 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits',
    'en:apples',
    'en:berries',
+   'en:citrus',
    'en:tropical-fruits',
    'en:bananas',
-   'en:citrus',
    'en:lemons',
    'en:oranges',
    'en:plums',
@@ -172,9 +172,9 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits',
    'en:apples',
    'en:berries',
+   'en:citrus',
    'en:tropical-fruits',
    'en:bananas',
-   'en:citrus',
    'en:lemons',
    'en:oranges',
    'en:plums',
@@ -288,23 +288,28 @@ my @tags = ();
 
 is_deeply (\@tags, [
    'en:fruit',
-   'en:fruit-juice',
    'en:citrus-fruit',
+   'en:fruit-juice',
    'en:salt',
-   'en:sugar',
    'en:orange',
+   'en:sugar',
    'en:orange-juice',
    'en:concentrated-orange-juice'
  ]
  ) or diag explain(\@tags);;
+
+foreach my $tag (@tags) {
+
+	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
+}
 
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
 is_deeply (\@tags, [
    'en:concentrated-orange-juice',
    'en:fruit',
-   'en:fruit-juice',
    'en:citrus-fruit',
+   'en:fruit-juice',
    'en:orange',
    'en:orange-juice',
    'en:sugar',
