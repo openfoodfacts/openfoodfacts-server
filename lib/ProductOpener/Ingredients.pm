@@ -826,7 +826,8 @@ it => [
 
 pt => [
 'conservar em local fresco',
-'dos quais açüares',
+'dos quais a(ç|c)(u|ü)ares',
+'dos quais a(ç|c)(u|ü)cares',
 ],
 
 
