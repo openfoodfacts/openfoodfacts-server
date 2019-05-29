@@ -777,7 +777,11 @@ fr => [
 '(a|à) conserver (dans|de|a|à)',
 'apr(e|è)s ouverture',
 'pr(e|é)paration au four',
-
+#'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
+#`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
+#'dont sucres',
+#'waarvan suikers/dont sucres',
+#`verzadigde vetzuren/ acides gras saturés`,
 ],
 
 en => [
@@ -790,7 +794,11 @@ en => [
 ],
 
 es => [
-'valores nutricionales'
+'valores nutricionales',
+'informaci(o|ô)n nutricional',
+'valor energ(e|é)tico',
+#'pa(i|í)s de transformaci(o|ó)n',
+# Conservar en luger fresco y seco
 ],
 
 de => [
@@ -801,6 +809,7 @@ de => [
 nl => [
 'voedingswaarden',
 'voorbereidingstips',
+#'waarvan suikers',
 ],
 
 it => [
@@ -1152,7 +1161,7 @@ INFO
 );
 
 
-		my $vitaminsprefixregexp = "vitamine|vitamines|vitamin|vitamins|vitamina|vitaminas";
+		my $vitaminsprefixregexp = "vitamine|vitamines|vitamin|vitamins|vitamina|vitaminas|witamina|witaminy|Βιταμίνες|Βιταμίνη";
 
 		my $vitaminssuffixregexp = "";
 		foreach my $suffix (@vitaminssuffixes) {
