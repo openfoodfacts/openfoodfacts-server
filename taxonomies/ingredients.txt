@@ -26235,7 +26235,7 @@ eu:Arroz
 fa:برنج
 fi:riisi
 fo:Rís
-fr:riz
+fr:riz, riz cru
 fy:rys
 ga:Rís
 gl:Arroz
@@ -26424,15 +26424,6 @@ ro:orez italian
 # ingredient/italian-rice has 17 products in 12 languages @2018-12-19
 
 <en:rice
-en:puffed rice
-de:Reisflocken
-es:arroz inflados
-fr:flocons de riz
-it:fiocchi di riso
-nl:gepofte rijst, rijst pofte
-# ingredient/fr:flocons-de-riz has 47 products in 6 languages @2018-12-19
-
-<en:rice
 en:parboiled rice
 de:Parboiled Reis
 fr:riz parboiled
@@ -26446,12 +26437,13 @@ fr:riz parfumé
 <en:rice
 en:long grain rice
 de:Langkornreis
-fr:riz long grain, riz long blanc, riz long
+fr:riz long grain, riz long blanc, riz long, riz aux grains longs, riz a grain long
 it:riso a chicco lungo
 nl:Langkorrelige rijst
 # ingredient/fr:riz-long-grain has 46 products in 4 languages @2018-12-19
 # ingredient/fr:riz-long-blanc has 9 products in french @2018-12-19
 # ingredient/fr:riz-long has 26 products in french @2018-12-19
+
 
 <en:long grain rice
 en:superior quality long grain rice
@@ -26470,10 +26462,15 @@ vi:gạo thóm ðặc biệt
 zh:標香米
 
 <en:long grain rice
+fr:riz long grain naturellement parfumé
+# ingredient/fr:riz-long-grain-naturellement-parfume has 4 products @2019-05-29
+
+
+<en:long grain rice
 en:parboiled long grain rice, long grain parboiled rice
 de:Dampfgegarter Spitzen-Langkorn-Reis
 es:arroz grano largo vaporizado
-fr:riz long étuvé, riz long grain étuvé, riz long grain précuit à la vapeur, riz a grain long parboiled
+fr:riz long étuvé, riz long grain étuvé, riz long grain précuit à la vapeur, riz a grain long parboiled, Riz long grain étuvé cuisson rapide, riz long précuite
 # ingredient/fr:riz-long-étuvé has 40 products in french @2018-12-19
 # ingredient/parboiled-long-grain-rice has 26 products in 3 languages @2018-12-19
 
@@ -26500,6 +26497,11 @@ fr:riz sauvage
 it:riso selvatico
 # ingredient/fr:riz-sauvage has 65 products in 7 languages @2018-12-19
 
+<en:wild rice
+en:black wild rice
+fr:riz sauvage noir
+nl:zwarte wilde rijst
+
 <en:rice
 en:white rice
 fr:riz blanc
@@ -26511,6 +26513,10 @@ en:red rice
 de:roter Reis
 fr:riz rouge
 # ingredient/fr:riz-rouge has 45 products in french @2018-12-19
+
+<en:red rice
+fr:riz rouge long complet
+# ingredient/fr:riz-rouge-long-complet has 5 products @2019-05-29
 
 <en:rice
 fr:riz gluant
@@ -26540,17 +26546,23 @@ nl:witte basmatirijst
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 
 <en:basmati rice
+fr:riz basmati complet
 nl:volkoren basmati rijst
+# ingredient/fr:riz-basmati-complet has 11 products @2019-05-29
 
 <en:basmati rice
 en:long grain basmati rice
-fr:riz Basmati long grain, riz long basmati
+fr:riz Basmati long grain, riz long basmati, riz long grain basmati
 nl:langkorrelige basmatirijst
 # fr:riz-long-basmati has 14 products in french @2019-05-25
 
 <en:long grain basmati rice
+fr:Riz basmati long grain naturellement parfumé
+# ingredient/fr:riz-basmati-long-grain-naturellement-parfume has 6 products 22019-05-29
+
+<en:long grain basmati rice
 en:high quality long grain Basmati rice
-fr:riz basmati long grain de qualité supérieure, riz long grain Basmati de qualité supérieure
+fr:riz basmati long grain de qualité supérieure, riz long grain Basmati de qualité supérieure, riz long basmati de qualite superieure
 nl:langkorrelige basmatirijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-basmati-long-grain-de-qualite-superieure has 16 products in 3 languages @2019-05-23
 
@@ -26575,13 +26587,51 @@ nl:thaise rijst
 
 <en:Thai rice
 en:Thai long grain rice
-fr:riz thai long grain
+de:Langkorn Thai-Reis 
+fr:riz thai long grain, riz long grain thai
+nl:Langkorrelige Thaise rijst
+# ingredient/fr:riz-long-grain-thai has 4 products @2019-05-29
+
+<en:Thai long grain rice
+en:Hom Mali
+de:Hom Mali
+fr:Hom Mali
+nl:Hom Mali
+
+<en:Thai rice
+fr:Riz thaï complet
+# ingredient/fr:riz-thai-complet has 7 products @2019-05-29
 
 <en:Thai long grain rice
 fr:Riz thaï long grain de qualité supérieure
 de:qualitativ hochwertiger thailändischer Langkornreis
 nl:Thaise langkorrelrijst van hoge kwaliteit
 # ingredient/fr:riz-thai-long-grain-de-qualite-superieure has 16 products @2019-05-23
+
+<en:long grain rice
+fr:Riz de Camargue long grain de qualité supérieure
+# ingredient/fr:riz-de-camargue-long-grain-de-qualite-superieure has 3 products @2019-05-29
+
+<en:long grain rice
+fr:riz de Camargue long blanc
+# ingredient/fr:riz-de-camargue-long-blanc has 4 products @2019-05-29
+
+<fr:riz de Camargue long blanc
+fr:Riz de Camargue long blanc biologique
+
+<en:long grain rice
+fr:Riz de Camargue noir long complet
+
+<en:rice
+en:Arborio rice
+fr:riz arborio
+it:Riso Arborio
+# ingredient/fr:riz-arborio has 14 products @2019-05-29
+
+<en:Arborio rice
+<en:long grain rice
+fr:Riz Arborio long grain de qualité supérieure
+# ingredient/fr:riz-arborio-long-grain-de-qualite-superieure has 3 products @2019-05-29
 
 <en:rice
 en:full grain rice
@@ -26642,8 +26692,14 @@ pt:sêmola de arroz
 # ingredient/fr:semoule-de-riz has 287 products in 5 languages @2018-12-19
 # ingredient/fr:son-de-riz has 31 products @2018-12-19
 
-
-# 
+<en:rice
+en:puffed rice
+de:Reisflocken
+es:arroz inflados
+fr:flocons de riz
+it:fiocchi di riso
+nl:gepofte rijst, rijst pofte
+# ingredient/fr:flocons-de-riz has 47 products in 6 languages @2018-12-19
 
 <en:rice
 fr:riz extrudé
