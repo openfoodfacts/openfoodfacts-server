@@ -350,7 +350,12 @@ my @icons = (
 my @related_applications = (
 	{ 'platform' => 'play', 'id' => 'org.openfoodfacts.scanner', 'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner' },
 	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://itunes.apple.com/app/id588797948' },
+	{ 'platform' => 'windows', 'id' => '9nblggh0dkqr', 'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr' },
 );
+
+<a href="https://itunes.apple.com/app/open-food-facts/id588797948">iPhone</a> ou
+<a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou
+<a href="https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34">Windows Phone</a> 
 
 my $manifest;
 $manifest->{icons} = \@icons;
