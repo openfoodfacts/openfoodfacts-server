@@ -751,6 +751,10 @@ fr => [
 
 ],
 
+es => [
+'ingredientes'
+],
+
 );
 
 
@@ -772,6 +776,7 @@ fr => [
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
 '(a|à) conserver (dans|de|a|à)',
 'apr(e|è)s ouverture',
+'pr(e|é)paration au four',
 
 ],
 
@@ -801,6 +806,10 @@ nl => [
 it => [
 'valori nutrizionali',
 'consigli per la preparazione',
+],
+
+pt => [
+'conservar em local fresco',
 ],
 
 
@@ -1739,7 +1748,7 @@ sub replace_allergen($$$$) {
 	my $before = shift;
 
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain|puo contenere|tracce)\b/i) {
 		$field = "traces";
 	}
 
@@ -1762,7 +1771,7 @@ sub replace_allergen_in_caps($$$$) {
 	my $before = shift;
 
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain)\b/i) {
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain|puo contenere|tracce)\b/i) {
 		$field = "traces";
 	}
 
