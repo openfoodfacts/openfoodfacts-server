@@ -740,6 +740,26 @@ fr => [
 
 ],
 
+es => [
+'ingredientes'(\s*)(\s|-|:|\r|\n)+
+],
+
+pt => [
+'ingredientes'(\s*)(\s|-|:|\r|\n)+
+],
+
+it => [
+'ingredienti'(\s*)(\s|-|:|\r|\n)+
+],
+
+nl => [
+'ingredi(e|ë)nten'(\s*)(\s|-|:|\r|\n)+
+],
+
+de => [
+'zutaten'(\s*)(\s|-|:|\r|\n)+
+],
+
 );
 
 
@@ -752,7 +772,23 @@ fr => [
 ],
 
 es => [
-'ingredientes'
+'INGREDIENTES'(\s*)(\s|-|:|\r|\n)+
+],
+
+pt => [
+'INGREDIENTES'(\s*)(\s|-|:|\r|\n)+
+],
+
+it => [
+'INGREDIENTI'(\s*)(\s|-|:|\r|\n)+
+],
+
+nl => [
+'INGREDI(E|Ë)NTEN'(\s*)(\s|-|:|\r|\n)+
+],
+
+de => [
+'ZUTATEN'(\s*)(\s|-|:|\r|\n)+
 ],
 
 );
@@ -801,6 +837,7 @@ de => [
 nl => [
 'voedingswaarden',
 'voorbereidingstips',
+'gemiddelde voedingswaarden',
 ],
 
 it => [
@@ -810,6 +847,7 @@ it => [
 
 pt => [
 'conservar em local fresco',
+'conservar em lugar fresco',
 ],
 
 
