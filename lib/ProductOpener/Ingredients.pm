@@ -741,23 +741,23 @@ fr => [
 ],
 
 es => [
-'ingredientes'(\s*)(\s|-|:|\r|\n)+,
+'ingredientes(\s*)(\s|-|:|\r|\n)+',
 ],
 
 pt => [
-'ingredientes'(\s*)(\s|-|:|\r|\n)+,
+'ingredientes(\s*)(\s|-|:|\r|\n)+',
 ],
 
 it => [
-'ingredienti'(\s*)(\s|-|:|\r|\n)+,
+'ingredienti(\s*)(\s|-|:|\r|\n)+',
 ],
 
 nl => [
-'ingredi(e|ë)nten'(\s*)(\s|-|:|\r|\n)+,
+'ingredi(e|ë)nten(\s*)(\s|-|:|\r|\n)+',
 ],
 
 de => [
-'zutaten'(\s*)(\s|-|:|\r|\n)+,
+'zutaten(\s*)(\s|-|:|\r|\n)+',
 ],
 
 );
