@@ -13,7 +13,7 @@ var sassOptions = {
   includePaths: ['./html/bower_components/foundation/scss']
 };
 
-gulp.task('sass', function() {
+gulp.task('default', function() {
   return gulp
     .src(input)
     .pipe(sourcemaps.init())
@@ -22,5 +22,3 @@ gulp.task('sass', function() {
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(output));
 });
-
-gulp.task('default', ['sass']);
