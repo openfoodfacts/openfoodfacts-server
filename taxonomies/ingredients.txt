@@ -26412,6 +26412,10 @@ it:riso bio
 nl:biorijst
 # ingredient/fr:riz-bio has 12 products in 4 languages @2019-05-25
 
+<en:organic rice
+en:superior quality organic rice
+fr:riz qualité supérieure issu de l'agriculture biologique
+
 # comment:en:The origin of rice is an independent aspect and can be present for all rice entries.
 <en:rice
 en:rice from Italy, Italian rice
@@ -26430,32 +26434,58 @@ ro:orez italian
 <en:rice
 en:parboiled rice
 de:Parboiled Reis
-fr:riz parboiled
+fr:riz étuvé, riz parboiled
 it:riso parboiled
 # ingredient/fr:riz-parboiled has 3 products in 3 languages @2018-12-19
 
 <en:rice
-fr:riz parfumé
-# ingredient/fr:riz-parfume has 17 products @2019-05-29
+fr:riz gluant
+# ingredient/fr:riz-gluant has 120 products in french @2018-12-19
+
+########################### PROCESSING STAGES OF RICES #######################
 
 <en:rice
 en:brown rice, full grain rice
 de:Vollkornreis
-fr:riz complet
+fr:riz complet, riz brun
 it:riso integrale
 nl:Volkorenrijst
 # ingredient/fr:riz-complet has 253 products in 4 languages @2018-12-19
+# ingredient/fr:riz-brun has 39 products @2019-05-30
 
-<en:full grain rice
+<en:brown rice
 <en:organic rice
 en:organic brown rice, organic full grain rice
-fr:riz complèt bio
+fr:riz complèt bio, riz complet biologique, riz complet issu de l'agriculture biologique
 nl:biozilvervliesrijst
 
-<en:brown rice, full grain rice
+<en:brown rice
 <en:parboiled rice
-fr:riz complet précuit
+fr:riz complet étuvé, riz complet précuit
 # ingredient/fr:riz-complet-précuit has 26 products in french @2018-12-19
+
+<en:rice
+en:white rice
+fr:riz blanc
+nl:witte rijst
+# ingredient/fr:riz-blanc has 99 products in french @2018-12-19
+
+<en:white rice
+en:organic white rice
+fr:riz blanc bio
+# 2019-05-30
+
+<en:rice
+<en:parboiled rice
+<en:Italian rice
+en:Italian Black Parboiled Brown Rice
+de:Italienischer Schwarzer Parboiled Vollkornreis
+es:Arroz Integral Venere Vaporizado
+fr:Riz moyen à grains noirs complet étuvé
+it:Riso Venere Integrale Parboiled
+pt:Arroz Integral Venere Parboiled
+
+########################### LONG GRAIN RICES #######################
 
 <en:rice
 en:long grain rice
@@ -26467,21 +26497,51 @@ nl:Langkorrelige rijst
 # ingredient/fr:riz-long-blanc has 9 products in french @2018-12-19
 # ingredient/fr:riz-long has 26 products in french @2018-12-19
 
+<en:organic long grain rice
+fr:riz long biologique
+
 <en:long grain rice
 en:superior quality long grain rice
 fr:riz long grain de qualité supérieure, riz long de qualité supérieure
 nl:langkorrelige rijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-long-grain-de-qualite-superieure has 10 products in french @2019-05-25
 
+<en:superior quality long grain rice
+<en:organic rice
+en:superior quality organic long grain rice
+fr:riz long grain biologique de qualite superieure
+
 <en:long grain rice
+<en:white rice
+en:long grain white rice
+fr:riz long grain blanc
+# ingredient/fr:riz-long-grain-blanc has 4 products @2019-05-30
+
+<en:long grain white rice
+en:superior quality long grain white rice
+fr:riz blanc long grain de qualite superieure
+
+<en:organic long grain rice
+en:organic long grain white rice
+fr:riz long blanc bio
+
+<en:long grain rice
+fr:riz long semi complet
+
+<fr:riz long semi complet
 <en:organic rice
 fr:riz long semi complet issu de l'agriculture-biologique:
 
 <en:long grain rice
 en:brown long grain rice
-fr:riz long complet
+fr:riz long complet, riz complet long grain
 nl:langkorrelige zilvervliesrijst
 # ingredient/fr:riz-long-complet has 13 products @2019-05-29
+
+<en:brown long grain rice
+<en:parboiled rice
+en:parboiled brown long grain rice
+fr:riz complet long grain étuvé, riz long complet etuve
 
 <en:long grain rice
 fr:riz long parfumé
@@ -26492,7 +26552,6 @@ zh:標香米
 fr:riz long grain naturellement parfumé
 # ingredient/fr:riz-long-grain-naturellement-parfume has 4 products @2019-05-29
 
-
 <en:long grain rice
 <en:parboiled rice
 en:parboiled long grain rice, long grain parboiled rice
@@ -26501,6 +26560,9 @@ es:arroz grano largo vaporizado
 fr:riz long étuvé, riz long grain étuvé, riz long grain précuit à la vapeur, riz a grain long parboiled, Riz long grain étuvé cuisson rapide, riz long précuite
 # ingredient/fr:riz-long-étuvé has 40 products in french @2018-12-19
 # ingredient/parboiled-long-grain-rice has 26 products in 3 languages @2018-12-19
+
+<en:parboiled long grain rice
+fr:riz long italien étuvé
 
 <en:parboiled long grain rice
 <en:organic rice
@@ -26518,8 +26580,65 @@ fr:riz long grain étuvé de qualité supérieure
 <en:parboiled rice
 en:superior quality long grain parboiled brown rice
 es:arroz grano largo vaporizado integral de calidad superior
-fr:riz long grain complet étuvé de qualité supérieure
+fr:riz long grain complet étuvé de qualité supérieure, riz long complet etuve de qualite superieure
 # ingredient/fr:riz-long-grain-complet-étuvé-de-qualite-superieure has 4 products @2019-05-29
+
+########################### ROUND RICES #######################
+
+<en:rice
+en:round rice
+fr:riz rond
+# ingredient/fr:riz-rond has 27 products in french @2019-05-28
+
+<en:round rice
+<en:organic rice
+en:organic round rice
+fr:riz rond biologique
+# 2019-05-30
+
+<en:round rice
+fr:riz rond blanc, Riz rond blanchi
+nl:witte ronde rijst, ronde rijst wit
+# ingredient/fr:riz-rond-blanchi has 4 products @2019-05-29
+# ingredient/fr:riz-rond-blanc has 15 products @2019-05-29
+
+
+<fr:riz rond blanc
+fr:riz rond blanc bio
+
+<fr:riz rond
+fr:riz rond demi-complet, riz rond complet légèrement poli
+nl:halfvolkoren ronde rijst, volkoren ronde rijst lichtjes gepolijst
+
+<fr:riz rond
+fr:riz rond complet
+nl:volkoren ronde rijst
+# ingredient/fr:riz-rond-complet has 19 products @2019-05-29
+
+<fr:riz rond
+fr:riz rond de qualité supérieure
+# ingredient/fr:riz-rond-de-qualite-superieure has 11 products @2019-05-29
+
+<fr:riz rond de qualité supérieure
+<en:organic rice
+fr:riz rond biologique de qualité supérieure
+
+<en:rice
+en:risotto rice
+fr:riz pour risottto
+de:Risotto-Reis
+it:riso per risotto
+# ingredient/fr:riz-pour-risotto has 8 products @2019-05-30
+
+<en:long grain rice
+<en:risotto rice
+fr:riz long pour risotto
+
+<en:rice
+<en:parboiled rice
+fr:riz pour risotto étuvé
+
+########################### RICE SPECIES #######################
 
 <en:rice
 en:wild rice
@@ -26534,35 +26653,12 @@ fr:riz sauvage noir
 nl:zwarte wilde rijst
 
 <en:rice
-<en:parboiled rice
-en:Italian Black Parboiled Brown Rice
-de:Italienischer Schwarzer Parboiled Vollkornreis
-es:Arroz Integral Venere Vaporizado
-fr:Riz moyen à grains noirs complet étuvé
-it:Riso Venere Integrale Parboiled
-pt:Arroz Integral Venere Parboiled
-
-<en:rice
-en:white rice
-fr:riz blanc
-nl:witte rijst
-# ingredient/fr:riz-blanc has 99 products in french @2018-12-19
-
-<en:white rice
-en:organic white rice
-# 2019-05-30
-
-<en:rice
-en:brown rice
-fr:riz brun
-# ingredient/fr:riz-brun has 39 products @2019-05-30
-
-<en:rice
 en:red rice
 de:roter Reis
 fr:riz rouge
 # ingredient/fr:riz-rouge has 45 products in french @2018-12-19
 
+# comment:encargo seems to mean whole/brown
 <en:red rice
 en:red cargo rice
 de:Roten Cargo Reis
@@ -26576,16 +26672,8 @@ nl:rode cargo rijst
 fr:riz rouge long complet
 # ingredient/fr:riz-rouge-long-complet has 5 products @2019-05-29
 
-<en:rice
-fr:riz gluant
-# ingredient/fr:riz-gluant has 120 products in french @2018-12-19
-
-<en:rice
-en:jasmine rice
-de:Jasmin-Reis
-fr:riz jasmin, riz au jasmin
-it:riso algelsomino
-# ingredient/fr:riz-jasmin has 22 products in 4 languages @2019-05-25
+<en:black rice
+fr:riz noir
 
 # description:en:BASMATI RICE is a variety of long, slender-grained aromatic rice which is traditionally from the Indian subcontinent.
 
@@ -26665,6 +26753,11 @@ fr:riz basmati long grain de qualité supérieure, riz long grain Basmati de qua
 nl:langkorrelige basmatirijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-basmati-long-grain-de-qualite-superieure has 16 products in 3 languages @2019-05-23
 
+<en:high quality long grain Basmati rice
+<en:organic rice
+en:organic high quality long grain Basmati rice
+fr:riz basmati long grain de qualite superieure issu de l'agriculture biologique
+
 <en:basmati rice
 <en:parboiled rice
 fr:riz basmati précuit
@@ -26677,13 +26770,31 @@ it:riso Basmati cotto
 nl:gekookte basmatirijst
 # ingredient/fr:riz-basmati-cuit has 93 products @2018-12-19
 
+# description:en:JASMINE RICE is a long-grain variety of fragrant rice (also known as aromatic rice). Its fragrance, reminiscent of jasmine and popcorn, results from the rice plant's natural production of aromatic compounds
+
+# <category:en:Jasmine rice
 <en:rice
-en:Thai rice
-de:Thai-Reis
-fr:riz thai
-it:riso tailandese, di riso tailandese
-nl:thaise rijst
+en:Thai rice, jasmine rice, 
+de:Thai-Reis, Jasmin-Reis
+es:Arroz jazmín, Arroz tailandes
+fi:Jasmiiniriisi
+fr:riz thaï, riz jasmin, riz au jasmin, riz parfumé, riz parfume de thailande, riz au jasmin thai
+it:riso tailandese, di riso tailandese, riso algelsomino
+nl:thaise rijst, jasmijnrijst
+wikidata:en:Q2733021
+wikipedia:en:https://en.wikipedia.org/wiki/Jasmine_rice
 # ingredient/fr:riz-thai has 23 products @2019-05-29
+# ingredient/fr:riz-jasmin has 22 products in 4 languages @2019-05-25
+# ingredient/fr:riz-parfume has 17 products @2019-05-29
+# category/jasmine-rice has 106 products @2019-05-30
+
+<en:Thai rice
+<en:white rice
+fr:riz blanc thailandais
+
+<en:Thai rice
+<en:black rice
+fr:thai riz noir
 
 <en:Thai rice
 en:Thai long grain rice
@@ -26701,6 +26812,11 @@ nl:Hom Mali
 <en:Hom Mali rice
 <en:parboiled rice
 fr:riz thaï Hom Mali demi complet étuvé
+
+<en:Thai long grain rice
+en:organic Thai long grain white rice
+fr:riz-blanc-thailandais-a-grains-longs-issu-de-l-agriculture-biologique
+# 2019-05-30
 
 <en:Thai rice
 en:Thaï brown rice
@@ -26721,18 +26837,36 @@ de:qualitativ hochwertiger thailändischer Langkornreis
 nl:Thaise langkorrelrijst van hoge kwaliteit
 # ingredient/fr:riz-thai-long-grain-de-qualite-superieure has 16 products @2019-05-23
 
+# description:fr:Le riz de Camargue est protégé par une IGP dans ses différentes variétés.
+
+<en:rice
+en:Camargue rice
+fr:riz de Camargue
+wikipedia:fr:https://fr.wikipedia.org/wiki/Riz_de_Camargue
+
+<en:Camargue rice
+fr:riz rond de Camargue
+
+<en:Camargue rice
 <en:long grain rice
+en:superioir quality Camargue long grain rice
 fr:Riz de Camargue long grain de qualité supérieure
 # ingredient/fr:riz-de-camargue-long-grain-de-qualite-superieure has 3 products @2019-05-29
 
-<en:long grain rice
+<en:Camargue rice
+en:Camargue long grain white rice
 fr:riz de Camargue long blanc
 # ingredient/fr:riz-de-camargue-long-blanc has 4 products @2019-05-29
 
 <fr:riz de Camargue long blanc
 fr:Riz de Camargue long blanc biologique
 
-<en:long grain rice
+<en:Camargue rice
+en:Camargue whole long grain rice
+fr:riz de Camargue long complet
+
+<en:Camargue rice
+en:Camargue whole long grain black rice
 fr:Riz de Camargue noir long complet
 
 <en:rice
@@ -26767,37 +26901,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carnaroli
 # ingredient/fr:riz-carnaroli has 33 products @2019-05-29
 # category/carnaroli-rices has 7 products @2019-05-29
 
-<en:rice
-fr:riz rond
-# ingredient/fr:riz-rond has 27 products in french @2019-05-28
-
-<fr:riz rond
-fr:riz rond blanc, Riz rond blanchi
-nl:witte ronde rijst, ronde rijst wit
-# ingredient/fr:riz-rond-blanchi has 4 products @2019-05-29
-# ingredient/fr:riz-rond-blanc has 15 products @2019-05-29
-
-<fr:riz rond blanc
-fr:riz rond blanc bio
-
-<fr:riz rond
-fr:riz rond demi-complet, riz rond complet légèrement poli
-nl:halfvolkoren ronde rijst, volkoren ronde rijst lichtjes gepolijst
-
-<fr:riz rond
-fr:riz rond complet
-nl:volkoren ronde rijst
-# ingredient/fr:riz-rond-complet has 19 products @2019-05-29
-
-<fr:riz rond
-fr:Riz rond de qualité supérieure
-# ingredient/fr:riz-rond-de-qualite-superieure has 11 products @2019-05-29
-
-<en:rice
-fr:riz pour risottto
-de:Risotto-Reis
-it:riso per risotto
-# ingredient/fr:riz-pour-risotto has 8 products @2019-05-30
 
 ####### processed rices
 
