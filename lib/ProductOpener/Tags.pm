@@ -595,10 +595,10 @@ sub remove_plurals($$) {
 
 
 
-
-sub build_tags_taxonomy($$) {
+sub build_tags_taxonomy($$$) {
 
 	my $tagtype = shift;
+	my $file = shift;
 	my $publish = shift;
 
 	defined $tags_images{$lc} or $tags_images{$lc} = {};
@@ -623,7 +623,7 @@ sub build_tags_taxonomy($$) {
 
 	my $errors = '';
 	
-	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file")) {
 
 		my $current_tagid;
 		my $current_tag;
@@ -714,7 +714,7 @@ sub build_tags_taxonomy($$) {
 
 				# Make sure we don't have empty entries
 				if ($line eq "") {
-					die ("Empty entry at line $line_number in $data_root/taxonomies/$tagtype.txt\n");
+					die ("Empty entry at line $line_number in $data_root/taxonomies/$file\n");
 				}
 
 				my @tags = split(/\s*,\s*/, $line);
@@ -797,8 +797,10 @@ sub build_tags_taxonomy($$) {
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
 						if (not ($tagtype =~ /^additives/)) {
 							if ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) {
-								print "$lc:$tagid already is a synonym of $synonyms{$tagtype}{$lc}{$tagid} - cannot make a synonym of $current_tagid\n";
-								$errors .= "ERROR - $lc:$tagid already is a synonym of $synonyms{$tagtype}{$lc}{$tagid} - cannot make a synonym of $current_tagid\n";
+								my $msg = "$lc:$tagid already is a synonym of " . $synonyms{$tagtype}{$lc}{$tagid}
+								. " (" . $translations_from{$tagtype}{"$lc:$tagid"} . ")"
+								. " - cannot make a synonym of $current_tagid for $canon_tagid\n";
+								$errors .= "ERROR - " . $msg;
 								next;
 							}
 						}
@@ -822,7 +824,10 @@ sub build_tags_taxonomy($$) {
 		
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
-			die("Errors in the $tagtype taxonomy definition");
+			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			unless ($tagtype eq "ingredients") {
+				die("Errors in the $tagtype taxonomy definition");
+			}
 		}
 
 		# 2nd phase: compute synonyms
@@ -873,7 +878,7 @@ sub build_tags_taxonomy($$) {
 			foreach my $tagid (sort { length($a) <=> length($b) } keys %{$synonyms{$tagtype}{$lc}}) {
 
 				my $max_length = length($tagid) - 3;
-				$max_length > 40 and next; # don't lengthen already long synonyms
+				$max_length > 30 and next; # don't lengthen already long synonyms
 
 				# check if the synonym contains another small synonym
 
@@ -883,7 +888,7 @@ sub build_tags_taxonomy($$) {
 
 				# Does $tagid have other synonyms?
 				if (scalar @{$synonyms_for{$tagtype}{$lc}{$tagid_c}} > 1) {
-					if (length($tagid) < 20) {
+					if (length($tagid) < 15) {
 						# limit length of synonyms for performance
 						push @smaller_synonyms, $tagid;
 						#print "$tagid (canon: $tagid_c) has other synonyms\n";
@@ -1003,7 +1008,7 @@ sub build_tags_taxonomy($$) {
 # > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar
 
 
-		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt") or die ;
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file") or die ;
 
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 
@@ -1434,7 +1439,10 @@ sub build_tags_taxonomy($$) {
 		
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
-			die("Errors in the $tagtype taxonomy definition");
+			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			unless ($tagtype eq "ingredients") {
+				die("Errors in the $tagtype taxonomy definition");
+			}
 		}		
 
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
