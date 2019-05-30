@@ -416,11 +416,24 @@ sub store_product($$) {
 
 		if ((! -e "$new_data_root/products/$path")
 			and (! -e "$new_www_root/images/products/$path")) {
-			use File::Copy;
+			# File::Copy move() is intended to move files, not
+			# directories. It does work on directories if the
+			# source and target are on the same file system
+			# (in which case the directory is just renamed),
+			# but fails otherwise.
+			# An alternative is to use File::Copy::Recursive
+			# but then it will do a copy even if it is the same
+			# file system...
+			# Another option is to call the system mv command.
+			#
+			# use File::Copy;
+
+			use File::Copy::Recursive qw(dirmove);
 			$log->debug("moving product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path" }) if $log->is_debug();
-			move("$data_root/products/$old_path", "$new_data_root/products/$path") or $log->error("could not move product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $! });
+			dirmove("$data_root/products/$old_path", "$new_data_root/products/$path") or $log->error("could not move product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $! });
+
 			$log->debug("moving product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path" }) if $log->is_debug();
-			move("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or $log->error("could not move product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path", error => $! });
+			dirmove("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or $log->error("could not move product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path", error => $! });
 			$log->debug("images and data moved");
 
 			delete $product_ref->{old_code};
