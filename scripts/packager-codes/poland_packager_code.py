@@ -10,8 +10,8 @@ def make_request(url):
 
 path_csv_file = './results.csv'
 with open(path_csv_file, mode="w") as csv_file:
-    csv_writer = csv.writer(csv_file, delimiter=",")
-    csv_writer.writerow(['Code', 'Name', 'Address', 'lat', 'lng'])
+    csv_writer = csv.writer(csv_file, delimiter=";")
+    csv_writer.writerow(['code', 'name', 'address', 'lat', 'lng'])
 
     base_url = 'https://pasze.wetgiw.gov.pl/spi/demozatw/index.php?kodwoj=&kodpow=&szukanaNazwa=&szukanaMiejsc=&szukanyWni=&onpage=20&poprzedniaSekcja=1&gatunek=&kategoria='
 
