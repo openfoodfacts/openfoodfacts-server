@@ -26403,6 +26403,7 @@ wikidata:en:Q5090
 wikipedia:en:https://en.wikipedia.org/wiki/Rice
 carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
 
+# comment:en:organic is an independent aspect of all rices
 <en:rice
 en:organic rice
 de:Bio Reis
@@ -26435,6 +26436,23 @@ it:riso parboiled
 fr:riz parfumé
 # ingredient/fr:riz-parfume has 17 products @2019-05-29
 
+<en:rice
+en:full grain rice
+de:Vollkornreis
+fr:riz complet
+it:riso integrale
+nl:Volkorenrijst
+# ingredient/fr:riz-complet has 253 products in 4 languages @2018-12-19
+
+<en:full grain rice
+<en:organic rice
+en:organic full grain rice
+fr:riz complèt bio
+nl:biozilvervliesrijst
+
+<en:full grain rice
+fr:riz complet précuit
+# ingredient/fr:riz-complet-précuit has 26 products in french @2018-12-19
 <en:rice
 en:long grain rice
 de:Langkornreis
@@ -26476,6 +26494,7 @@ fr:riz long étuvé, riz long grain étuvé, riz long grain précuit à la vapeu
 # ingredient/parboiled-long-grain-rice has 26 products in 3 languages @2018-12-19
 
 <en:parboiled long grain rice
+<en:organic rice
 en:parboiled organic long grain rice
 nl:Witte langgraanrijst van biologische oorsprong parboiled
 
@@ -26555,6 +26574,7 @@ nl:witte basmatirijst
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 
 <en:basmati rice
+<en:organic rice
 fr:riz basmati demi-complet issu de l'agriculture biologique
 # ingredient/fr:riz-basmati-demi-complet-issu-de-l-agriculture-biologique has 3 products @2019-05-30
 
@@ -26650,23 +26670,6 @@ it:Riso Arborio
 <en:long grain rice
 fr:Riz Arborio long grain de qualité supérieure, riz long grain Arborio de qualité supérieure
 # ingredient/fr:riz-arborio-long-grain-de-qualite-superieure has 3 products @2019-05-29
-
-<en:rice
-en:full grain rice
-de:Vollkornreis
-fr:riz complet
-it:riso integrale
-nl:Volkorenrijst
-# ingredient/fr:riz-complet has 253 products in 4 languages @2018-12-19
-
-<en:full grain rice
-en:organic full grain rice
-fr:riz complèt bio
-nl:biozilvervliesrijst
-
-<en:full grain rice
-fr:riz complet précuit
-# ingredient/fr:riz-complet-précuit has 26 products in french @2018-12-19
 
 # description:en:CARNAROLI is a medium-grained rice grown in the Pavia, Novara and Vercelli provinces of northern Italy. Carnaroli is used for making risotto, differing from the more common arborio rice due to its higher starch content and firmer texture, as well as having a longer grain.
 
