@@ -130,7 +130,7 @@
 <h5 id="nom_des_fichiers_images">Наименование файлов изображений</h5>
 
 
-<pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
+<pre>[штрих-код]_[тип изображения]_[код языка].[jpg или png]</pre>
 
   <p>Например:</p>
 
@@ -158,31 +158,31 @@
 
 <ul>  
   <!-- Do not translate field names, just their description -->
-  <li>код: штрих-код продукта в том виде, в котором он указан на упаковке (EAN-13, EAN-8 или другой)</li>
+  <li>code: штрих-код продукта в том виде, в котором он указан на упаковке (EAN-13, EAN-8 или другой)</li>
   <li>lang: 2-буквенный код основного языка (всегда присутствующий на упаковке) продукта (например: fr для французского)</li>
-  <li>имя продукта_ [2-буквенный код основного языка]: имя продукта (в поле product_name_en для имени на французском языке)</li>
-  <li>generic_name_ [2-letter code of the main language]: Generic product name </li>
-  <li>brands: brands (several possible values for brands and sub-brands, to be separated by commas)</li>
-  <li>quantity: quantity, specify the unit, and possibly add in parentheses if the product contains several units (example: 120 g (4 x 30 g))</li>
-  <li>categories: product category, in the main product language (example: chocolate cakes)</li>
-  <li>countries: country where the product is sold, in the main language of the product (several possible values, to be separated by commas)</li>
-  <li>ingredients_text_ [2-letter code of the main language]: list of ingredients (in the ingredients_text_fr field for the list in French). Allergens may be indicated in CAPITAL LETTERS or between </li>
-  <li>allergens: allergens, in the main language of the product, separated by commas</li>
-  <li>traces: traces of allergens, in the main language of the product, separated by commas</li>
+  <li>product_name_ [2-буквенный код основного языка]: название продукта (в поле product_name_en для названия на английском языке)</li>
+  <li>generic_name_ [2-буквенный код основного языка]: общеупотребительное название продукта </li>
+  <li>brands: бренды (несколько возможных значений для брендов и суббрендов, которые будут разделены запятыми)</li>
+  <li>quantity: количество, укажите единицу и, возможно, добавьте в скобки, если продукт содержит несколько порций (например, 120 г (4 х 30 г))</li>
+  <li>categories: категория продукта, на основном языке продукта (например: шоколадные торты)</li>
+  <li>countries: страна, в которой продукт продается, на основном языке продукта (несколько возможных значений, разделенных запятыми)</li>
+  <li>ingredients_text_ [двухбуквенный код основного языка]: список ингредиентов (в поле ingredients_text_fr список на французском языке). Аллергены могут быть указаны ЗАГЛАВНЫМИ БУКВАМИ или между </li>
+  <li>allergens: аллергены, на основном языке продукта, разделенные запятыми</li>
+  <li>traces: следы аллергенов, на основном языке продукта, разделенные запятыми</li>
 </ul>
 
-<p>Among the mandatory fields are the nutritional values that appear on the package, per 100g / 100ml of product as sold.</p>
-<p>All values must have no unit (the unit is kJ for energy and g for all other fields).</p>
+<p>В обязательные поля входят значения питательной ценности, которые указаны на упаковке, на 100 г / 100 мл продукта в проданном виде.</p>
+<p>Все значения не должны иметь единиц измерения (единица измерения - кДж для энергетической ценности и грамм для всех остальных полей).</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
-  <li>energy_100g: energy, in kJ</li>
-  <li>fat_100g: fat</li>
-  <li>saturated-fat_100g: saturated fat</li>
-  <li>carbohydrates_100g: carbohydrates</li>
-  <li>sugars_100g: sugars</li>
-  <li>proteins_100g: proteins</li>
-  <li>salt_100g: salt</li>
+  <li>energy_100g: энергетическая ценность, в кДж</li>
+  <li>fat_100g: жир</li>
+  <li>saturated-fat_100g: насыщенный жир</li>
+  <li>carbohydrates_100g: углеводы</li>
+  <li>sugars_100g: сахара</li>
+  <li>proteins_100g: белки</li>
+  <li>salt_100g: соль</li>
   <!-- Do not translate nutrient field names -->
 </ul>
 
@@ -190,7 +190,7 @@
 
   <ul>
     <!-- Do not translate nutrient field names -->
-  <li>fiber_100g: fibers</li>
+  <li>fiber_100g: пищевые волокна</li>
   <li>fruits-vegetables-nuts_100g</li>
     <!-- Do not translate nutrient field names -->
   </ul>
@@ -198,18 +198,18 @@
   <h5 id="champs_optionnels">Необязательные поля</h5>
 
   <ul>
-    <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
-    <li>origins: origins of the ingredients, in the main language of the product (several possible values, to be separated by commas) (example: Peru, Périgord)</li>
-    <li>packaging: materials and forms of the product packaging, in the main language of the product (several possible values, to be separated by commas) (example: can, aluminum)</li>
-    <li>manufacturing_places: manufacturing locations, in the main language of the product (several possible values, to be separated by commas: city names, countries)</li>
-    <li>emb_codes: packager codes and European sanitary stamps (several possible values, to be separated by commas)</li>
-    <li>stores: places of sale (several possible values, to be separated by commas: names of supermarket chains)</li>
-    <li>nutri_score: Nutri-Score rating from A to E, only in case it is indicated on the package</li>
-    <li>serving_size: quantity of a serving, specify the unit</li>
+    <li>labels: маркировка на основном языке продукта (несколько возможных значений, разделенных запятыми) (например: AB Bio, MSC, Max Havelaar). Примечание: маркировка должна быть указана на упаковке продукта.</li>
+    <li>origins: происхождение ингредиентов на основном языке продукта (несколько возможных значений, разделенных запятыми) (например: Перу, Перигор)</li>
+    <li>packaging: материалы и формы упаковки продукта на основном языке продукта (несколько возможных значений, разделенных запятыми) (например: банка, алюминий)</li>
+    <li>manufacturing_places: места производства на основном языке продукта (несколько возможных значений, разделенных запятыми: названия городов, страны)</li>
+    <li>emb_codes: коды упаковщиков и европейские санитарные марки (несколько возможных значений, разделенных запятыми)</li>
+    <li>stores: места продажи (несколько возможных значений, разделенных запятыми: названия сетей супермаркетов)</li>
+    <li>nutrition_score: оценка Nutri-Score от A до E, только если она указана на упаковке</li>
+    <li>serve_size: размер порции, укажите единицы</li>
   </ul>
 
-<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. For example energy_prepared_100g.</p>
-<p>It is also possible to indicate the values for other nutrients:</p>
+<p>Пищевая ценность также может быть указана для готового продукта (с водой, молоком и т.д.). В таком случае добавьте «_prepared» к названию поля. Например, energy_prepared_100g.</p>
+<p>Также можно указать значения для других питательных веществ:</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
@@ -263,7 +263,7 @@
 <li>serum-proteins_100g</li>
 <li>nucleotides_100g</li>
 
-<li>sodium_100g - in the case the salt_100g is left empty</li>
+<li>sodium_100g - в случае если поле salt_100g оставлено пустым</li>
 <li>alcohol_100g</li>
 
 <li>vitamin-a_100g</li>
@@ -317,27 +317,27 @@
 </ul>
 
 <h4 id="envoi_des_photos_et_des_donnees">Отправка фотографий и данных</h4>
-<p>If the number of products is relatively small (less than 1000 products) and the updates are infrequent (for example every 6 months), it is possible to send us the photos and the CSV file by any means (for example mail for CSV file and WeTransfer, Google Drive, DropBox etc. for photos).</p>
-<p>For a larger number of products or a more regular update, we can create an SFTP space where you can manually or automatically send data and photos. Contact us so that we can put this in place.</p>
+<p>Если число продуктов относительно невелико (менее 1000 продуктов) и обновления происходят нечасто (например, каждые 6 месяцев), можно отправить нам фотографии и файл CSV любым способом (например, почтой для файла CSV и WeTransfer, Google Drive, DropBox и т. д. для фотографий).</p>
+<p>Для большего количества продуктов или для более регулярного обновления мы можем создать пространство SFTP, куда вы можете вручную или автоматически отправлять данные и фотографии. Свяжитесь с нами, чтобы мы могли включить их.</p>
 
 <h2 id="questions_frequentes">Часто задаваемые вопросы</h2>
 
 <h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">Является ли список продуктов бесплатным?</h3>
-<p>Импорт данных полностью бесплатен. We do not accept any retribution for the inclusion of data. Мы рады, что Вы решили внести данные о Вашей продукции в обеспечение прозрачности пищевых продуктов, и мы благодарим Вас за это.</p>
+<p>Импорт данных полностью бесплатен. Мы безвозмездно включаем данные. Мы рады, что Вы решили внести данные о Вашей продукции в обеспечение прозрачности пищевых продуктов, и мы благодарим Вас за это.</p>
   
 <h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Будут ли данные производителя перезаписаны данными, введенными участниками?</h3>
 <p>Данные производителя автоматически контролируются Open Food Facts алгоритмами проверки соответствия, а затем некоторыми участниками. Мы полностью уверены в данных, которые вы нам отправляете, но по опыту знаем, что опечатки возможны.</p>
-<p>Once checked, they will replace and / or supplement the data entered by the contributors.</p>
+<p>После проверки они заменят и / или дополнят данные, введенные участниками.</p>
 
-<p>In the case of a regular and automated import, the data will replace at every import the updates by contributors, unless a manifest error (which will be reported to you) is reported on a product by a contributor.</p>
+<p>В случае регулярного и автоматизированного импорта данные будут заменять при каждом импорте обновления участников, если участник не сообщит о явной ошибке (о которой вам сообщат).</p>
 
 <h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Можно ли удалить продукты, которые больше не производятся?</h3>
 
-<p>When a product disappears from the shelves, it is quickly consumed, and we find that it is quickly no longer scanned.</p>
-<p>We then archive the product so that it remains available as an archive for scientific purposes in the context of food cohorts that can last for decades. It is indeed essential to be able to obtain the compositions of the product at a precise date, even if it has changed or disappeared.</p>
-<p>If you have historical data on your old products or old versions of your products, we would also be very interested in this historical data, in order to be able to go back in time, to allow scientific analyzes on long time, and to make it possible to visualize the evolution some products.</p>
-<p>Producers can also send us the lists of barcodes removed from the sale so that we can label the products appropriately.</p>
+<p>Когда продукт исчезает с полок, он быстро потребляется, и мы обнаруживаем, что он больше не сканируется.</p>
+<p>Затем мы заархивируем продукт, чтобы он оставался доступным в архиве для научных целей в контексте пищевых когорт, которые могут сохраняться в течение десятилетий. Действительно важно иметь возможность получить состав продукта на точную дату, даже если он изменился или исчез.</p>
+<p>Если у вас есть исторические данные о ваших старых продуктах или старых версиях ваших продуктов, мы также были бы очень заинтересованы в этих исторических данных, чтобы иметь возможность вернуться назад во времени, провести научный анализ в течение длительного времени и сделать возможной визуализацию эволюции некоторых продуктов.</p>
+<p>Производители могут также прислать нам списки штрих-кодов, снятых с продажи, чтобы мы могли соответствующим образом маркировать продукты.</p>
   
 <h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Могут ли продукты для животных, непродовольственные товары, косметика и другие продукты быть интегрированы в Open Food Facts?</h3>
-<p>We have created specific projects for cosmetics, for animal feed, as well as for other products (Open Beauty Facts, Open Pet Food Facts and Open Products Facts respectively). We are therefore happy to be able to import your products into the project that suits them.</p>
+<p>Мы создали специальные проекты для косметики, кормов для животных, а также для других продуктов (Open Beauty Facts, Open Pet Food Facts и Open Products Facts соответственно). Поэтому мы рады иметь возможность импортировать ваши продукты в проект, который им подходит.</p>
 </div>
