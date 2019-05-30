@@ -764,57 +764,77 @@ my %phrases_before_ingredients_list_uppercase = (
 
 my %phrases_after_ingredients_list = (
 
-	# TODO: Introduce a common list for kcal
+# TODO: Introduce a common list for kcal
 
-	fr => [
+fr => [
 
-		'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
-		'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
-		'valeur(s?) (e|é)nerg(e|é)tique',
-		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
-		'(a|à) consommer de préférence',
-		'conseils de pr(e|é)paration',
-		'(a|à) protéger de ', # humidité, chaleur, lumière etc.
-		'conditionn(e|é) sous atmosph(e|è)re protectrice',
-		'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
-		'(a|à) consommer (cuit|rapidement|dans|jusqu)',
-		'(a|à) conserver (dans|de|a|à)',
-		'apr(e|è)s ouverture',
-		'pr(e|é)paration au four',
+'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
+'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
+'valeur(s?) (e|é)nerg(e|é)tique',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+'(a|à) consommer de préférence',
+'conseils de pr(e|é)paration',
+'conseil de pr(e|é)paration',
+'conditions de conservation',
+'(a|à) protéger de ', # humidité, chaleur, lumière etc.
+'conditionn(e|é) sous atmosph(e|è)re protectrice',
+'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
+'(a|à) consommer (cuit|rapidement|dans|jusqu)',
+'(a|à) conserver (dans|de|a|à)',
+'(a|à)conserver (dans|de|a|à)', #variation
+'apr(e|è)s ouverture',
+'pr(e|é)paration au four',
+'valeurs moyennes pour 100 g',
+#'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
+#`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
+#'dont sucres',
+#'dontSUcres',
+#'waarvan suikers/dont sucres',
+#`verzadigde vetzuren/ acides gras saturés`,
+],
 
-	],
+en => [
 
-	en => [
+'nutritional values',
+'after opening',
+'nutrition values',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 
-		'nutritional values',
-		'after opening',
-		'nutrition values',
-		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+],
 
-	],
+es => [
+'valores nutricionales',
+'informaci(o|ô)n nutricional',
+'valor energ(e|é)tico',
+#'pa(i|í)s de transformaci(o|ó)n',
+# Conservar en luger fresco y seco
+#de los cuates azücares
+],
 
-	es => [
-		'valores nutricionales'
-	],
+de => [
+'Ernährungswerte',
+'Vorbereitung Tipps',
+],
 
-	de => [
-		'Ernährungswerte',
-		'Vorbereitung Tipps',
-	],
+nl => [
+'voedingswaarden',
+'voorbereidingstips',
+#'waarvan suikers',
+],
 
-	nl => [
-		'voedingswaarden',
-		'voorbereidingstips',
-	],
+it => [
+'valori nutrizionali',
+'consigli per la preparazione',
+'di cui zuccheri',
+],
 
-	it => [
-		'valori nutrizionali',
-		'consigli per la preparazione',
-	],
+pt => [
+'conservar em local fresco',
+'dos quais a(ç|c)(u|ü)ares',
+'dos quais a(ç|c)(u|ü)cares',
+],
 
-	pt => [
-		'conservar em local fresco',
-	],
+
 );
 
 
@@ -1160,7 +1180,7 @@ INFO
 );
 
 
-		my $vitaminsprefixregexp = "vitamine|vitamines|vitamin|vitamins|vitamina|vitaminas";
+		my $vitaminsprefixregexp = "vitamine|vitamines|vitamin|vitamins|vitamina|vitaminas|witamina|witaminy|Βιταμίνες|Βιταμίνη";
 
 		my $vitaminssuffixregexp = "";
 		foreach my $suffix (@vitaminssuffixes) {

@@ -6255,6 +6255,9 @@ HTML
 	my $status = $request_ref->{status};
 	if (defined $status) {
 		print header ( -status => $status );
+		my $r = Apache2::RequestUtil->request();
+		$r->rflush;
+		$r->status(200);
 	}
 
 	binmode(STDOUT, ":encoding(UTF-8)");
