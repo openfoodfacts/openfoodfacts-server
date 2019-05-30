@@ -353,10 +353,6 @@ my @related_applications = (
 	{ 'platform' => 'windows', 'id' => '9nblggh0dkqr', 'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr' },
 );
 
-<a href="https://itunes.apple.com/app/open-food-facts/id588797948">iPhone</a> ou
-<a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou
-<a href="https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34">Windows Phone</a> 
-
 my $manifest;
 $manifest->{icons} = \@icons;
 $manifest->{related_applications} = \@related_applications;
