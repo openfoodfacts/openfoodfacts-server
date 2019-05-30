@@ -26411,14 +26411,15 @@ it:riso bio
 nl:biorijst
 # ingredient/fr:riz-bio has 12 products in 4 languages @2019-05-25
 
+# comment:en:The origin of rice is an independent aspect and can be present for all rice entries.
 <en:rice
-en:Italian rice
+en:rice from Italy, Italian rice
 de:italien. Reis
 es:arroz italiano
-fr:riz italien
+fr:riz d'Italie, riz italien
 hu:olasz rizs
 it:riso italiano
-nl:italiaanse rijst
+nl:rijst uit Italië, italiaanse rijst
 pl:ryż włoski
 ro:orez italian
 # ingredient/italian-rice has 17 products in 12 languages @2018-12-19
@@ -26554,6 +26555,10 @@ nl:witte basmatirijst
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 
 <en:basmati rice
+fr:riz basmati demi-complet issu de l'agriculture biologique
+# ingredient/fr:riz-basmati-demi-complet-issu-de-l-agriculture-biologique has 3 products @2019-05-30
+
+<en:basmati rice
 fr:riz basmati complet
 nl:volkoren basmati rijst
 # ingredient/fr:riz-basmati-complet has 11 products @2019-05-29
@@ -26635,6 +26640,7 @@ fr:Riz de Camargue long blanc biologique
 fr:Riz de Camargue noir long complet
 
 <en:rice
+<en:rice from Italy
 en:Arborio rice
 fr:riz arborio
 it:Riso Arborio
@@ -26642,7 +26648,7 @@ it:Riso Arborio
 
 <en:Arborio rice
 <en:long grain rice
-fr:Riz Arborio long grain de qualité supérieure
+fr:Riz Arborio long grain de qualité supérieure, riz long grain Arborio de qualité supérieure
 # ingredient/fr:riz-arborio-long-grain-de-qualite-superieure has 3 products @2019-05-29
 
 <en:rice
@@ -26666,7 +26672,7 @@ fr:riz complet précuit
 
 # <category:en:Carnaroli rices
 <en:long grain rice
-<en:Italian rice
+<en:rice from Italy
 en:carnaroli rice
 de:Carnaroli Reis
 # en-ca:Carnaroli
