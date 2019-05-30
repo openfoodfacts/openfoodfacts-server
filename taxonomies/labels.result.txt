@@ -1,8 +1,8 @@
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
-stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
-stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès
+stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
+stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase
 
 
 synonyms:en:carbon, co2
@@ -120,14 +120,6 @@ it:100% naturale
 nl:100% natuurlijk
 pt:100% natural
 ru:100% натуральное, 100% натуральный, 100% натуральная, 100% натуральные, 100% натуральный продукт, натуральный продукт
-
-< en:100% natural
-< en:Without vegetable oils
-en:Natural product without vegetable oils, Natural product without vegetable fats
-es:Producto natural sin aceites vegetales, Producto natural sin grasas vegetales
-fr:Produit naturel sans huiles végétales, Produit naturel sans matières grasses végétales
-nl:Zonder plantaardige vetten
-ru:натуральный продукт без растительных жиров
 
 en:100% vegetable
 ca:100% vegetal
@@ -278,7 +270,7 @@ de:Kalziumquelle
 es:Fuente de calcio
 fr:Source de calcium
 he:מקור לסידן
-nl:Bron van Calcium, Rijk aan Calcium
+nl:Bron van Calcium
 pt:Fonte de calcio
 ru:Обогащено кальцием, источник кальция
 
@@ -1598,19 +1590,6 @@ nl:European Beer Star, Europese Bier Ster
 en:European Fruit Juice Control System, EQCS, European Quality Control System for Juice, European Quality Control System for Juice and Nectars from Fruits and Vegetables
 
 < en:European Vegetarian Union
-< en:Ovo-lacto-vegetarian
-en:European Vegetarian Union Ovo-lacto-vegetarian
-de:Europäische Vegetarier-Union Ovo-lacto-vegetarisch
-
-< en:European Vegetarian Union
-< en:Vegan
-en:European Vegetarian Union Vegan
-ca:Unió Vegana Vegetariana Europea
-de:Europäische Vegetarier-Union Vegan
-fr:Union végétarienne européenne végétalien
-nl:Europese Vegetarische Unie Vegan, EVU Vegan
-
-< en:European Vegetarian Union
 < en:Lacto-vegetarian
 en:European Vegetarian Union Lacto-vegetarian
 de:Europäische Vegetarier-Union Lacto-vegetarisch
@@ -1639,10 +1618,10 @@ wikidata:en: Q188485
 
 < en:Fair trade
 en:Fairtrade International, Fairtrade, FLO international, FLO
-ca:Comerç Just Internacional, FLO International
+ca:Fairtrade Internacional, FLO International
 es:Fairtrade International, Fairtrade, FLO international, FLO
 fr:Fairtrade International, Fairtrade, FLO international, FLO
-nl:Eerlijke handel
+nl:Fairtrade International, Eerlijke handel
 ru:Честная торговля, FLO
 
 < en:Fair trade
@@ -1720,6 +1699,53 @@ he:מזון חופש
 en:French eggs, Eggs from France
 fr:Oeufs de France, Oeufs français
 he:ביצים צרפתיות, ביצים מצרפת
+
+en:French meat
+fr:Viande Française, VF
+
+< en:French meat
+en:French duck
+fr:Canard Français, Canard de France, Canard Origine France, Viande de canard français, Viande de canard française, Viande de canard Origine France
+he:ברווז צרפתי
+pt:Pato francês
+
+< en:French meat
+en:French pork
+ca:Porc francès
+fr:Viande Porcine Française, VPF, viande de porc française, Le Porc Français, Porc Origine France, porc français, porc 100% France
+nl:Frans varkensvlees
+pl:Francuska wieprzowina
+pt:Porco francês
+
+< en:French meat
+fr:Lapin Français, Lapin de France, Lapin Origine France, Viande de lapin français, Viande de lapin française, Viande de Lapin origine France
+
+< en:French meat
+fr:Poulet Français, Viande de poulet origine France, Poulet 100% Français, Viande de poulet français, Viande de poulet française, Poulet Origine France, Poulet 100% France
+
+< en:French meat
+fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
+
+< en:French meat
+fr:Viande Chevaline Française, Viande chevaline origine France, Cheval 100% Français, Viande de cheval française, Viande de cheval français, Cheval Origine France, Cheval 100% France
+
+< en:French meat
+fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
+
+< en:French meat
+fr:Viande de chèvre française, Viande de chèvre Origine France, Chèvre 100% Française, Chèvre 100% France, Chèvre Origine France
+
+< en:French meat
+fr:Viande de chevreau français, Viande de chevreau Origine France, Chevreau 100% Français, Viande de chevreau Française, Chevreau 100% France, Chevreau Origine France
+
+< en:French meat
+fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français, Viande de veau Française, Veau 100% France, Veau Origine France
+
+< en:French meat
+fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
+
+< en:French meat
+fr:Volaille Française, volaille Origine France
 
 en:French milk
 fr:Lait Français, Lait de France, Lait Origine France
@@ -2145,7 +2171,7 @@ de:Reich an Kalzium, Kalziumreiche
 es:Alto contenido de calcio, Rico en calcio, Alto en calcio
 fr:Riche en calcium
 he:עתיר בסידן
-nl:
+nl:Rijk aan Calcium
 pt:Rico em cálcio
 ru:Обогащено кальцием, источник кальция
 
@@ -2525,7 +2551,7 @@ he:ללא סוכר, נטול סוכר
 hu:Cukormentes, Minimális cukortartalom
 it:Senza zucchero
 nl:Zonder suiker, sukervrij
-pl:
+pl:bez cukru
 pt:Sem açúcar
 ru:Без сахара
 
@@ -2763,7 +2789,7 @@ he:ללא תוספת סוכר
 hu:Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
 it:Senza zuccheri aggiunti
 nl:Zonder toegevoegde suikers
-pl:bez dodatku cukru, bez cukru, nie zawiera cukru
+pl:bez dodatku cukru, nie zawiera cukru
 pt:Sem açúcares adicionados, Sem adição de açúcares
 zh:无添糖
 
@@ -2811,6 +2837,15 @@ nl:Vrij van kunstmatige kleurstoffen
 pt:Sem cores artificiais, sem cor artificial
 ru:без искусственных красителей
 
+< en:No artificial colors
+< en:No artificial flavors
+en:No artificial colours or flavours
+de:Keine künstlichen Farbstoffe oder Aromen
+es:Sin colorantes o saborizantes artificiales
+fr:Sans colorants ni arômes artificiels
+nl:Zonder kunstmatige kleurstoffen
+pt:Sem corantes nem aromas artificiais
+
 en:No artificial flavors, free of artificial flavor
 ca:Sense aromes artificials, Lliure d'aromes artificials
 de:Ohne künstliche Aromen
@@ -2824,22 +2859,13 @@ pl:Bez sztucznych aromatów
 pt:Sem sabores artificiais, livre de sabor artificial
 ru:без искусственных ароматизаторов, без добавления искусственных ароматизаторов
 
-< en:No artificial colors
-< en:No artificial flavors
-en:No artificial colours or flavours
-de:Keine künstlichen Farbstoffe oder Aromen
-es:Sin colorantes o saborizantes artificiales
-fr:Sans colorants ni arômes artificiels
-nl:Zonder kunstmatige kleurstoffen
-pt:Sem corantes nem aromas artificiais
-
 en:No artificial flavour enhancer
 de:Ohne künstliche Geschmaksverstärker
 es:Sin potenciador artificial del sabor
 fr:Sans exhausteurs de goût artificiels
 nl:Zonder smaakversterkers
 
-en:No artificial preservatives
+en:No artificial preservatives, free of artificial preservative
 de:Ohne künstliche Konservierungsstoffe
 es:Sin conservantes artificiales, Sin conservadores artificiales
 fr:Sans conservateur artificiel
@@ -2994,7 +3020,7 @@ it:Senza latte
 nl:Melkvrij
 ru:Без молока
 
-en:No preservatives, no added preservatives, free of artificial preservative
+en:No preservatives, no added preservatives
 ca:Sense conservants, sense conservants afegits, lliure de conservants artificials
 de:Ohne Konservierungsstoffe, Ohne Zusatz von Konservierungsstoffen
 es:Sin conservantes, Sin conservantes añadidos, Sin conservadores, Sin conservadores añadidos
@@ -3346,6 +3372,11 @@ fr:Bio-Cohérence
 < en:Organic
 fr:Bio-Solidaire, biosolidaire
 
+< en:European Vegetarian Union
+< en:Ovo-lacto-vegetarian
+en:European Vegetarian Union Ovo-lacto-vegetarian
+de:Europäische Vegetarier-Union Ovo-lacto-vegetarisch
+
 en:Ovo-vegetarian
 de:Ovo-vegetarisch
 es:Ovo-vegetariano
@@ -3425,17 +3456,6 @@ es:Fuente de fósforo
 fr:Source de phosphore
 nl:Bron van fosfor
 pt:Fonte de fosforo
-
-< en:Porks raised without antibiotics
-< en:Without antibiotics after weaning
-en:Porks raised without antibiotics after weaning
-fr:Porcs élevés sans antibiotique après sevrage, Porcs élevés sans antibiotique dès la fin du sevrage, Cochons élevés sans antibiotique dès la fin du sevrage
-
-< en:Porks raised without antibiotics
-< en:Without antibiotics since birth
-en:Porks raised without antibiotics since birth
-de:Schweineaufzucht von Geburt an ohne Antibiotika
-fr:Porcs élevés sans antibiotique dès la naissance
 
 en:Potatoes from France
 fr:Pommes de terre de France
@@ -3976,6 +3996,18 @@ fr:Saveurs de l'Année 2018, Saveur de l'Année 2018
 < en:Saveurs de l'Année (France)
 fr:Saveurs de l'Année 2019, Saveur de l'Année 2019
 
+< en:Saveurs de l'Année (France)
+fr:Saveurs de l'Année 2020, Saveur de l'Année 2020
+
+< en:Saveurs de l'Année (France)
+fr:Saveurs de l'Année 2021, Saveur de l'Année 2021
+
+< en:Saveurs de l'Année (France)
+fr:Saveurs de l'Année 2022, Saveur de l'Année 2022
+
+< en:Saveurs de l'Année (France)
+fr:Saveurs de l'Année 2023, Saveur de l'Année 2023
+
 en:Seine fishing
 de:Ringwadenfischerei
 fr:Pêché à la senne, Pêchés à la senne, Pêchée à la senne, Pêchées à la senne
@@ -4507,18 +4539,23 @@ en:UTZ Certified Coffee
 de:UTZ Certified Kaffee
 fr:Café certifié UTZ
 
+< en:European Vegetarian Union
+< en:Vegan
+en:European Vegetarian Union Vegan
+ca:Unió Vegana Vegetariana Europea
+de:Europäische Vegetarier-Union Vegan
+fr:Union végétarienne européenne végétalien
+nl:Europese Vegetarische Unie Vegan, EVU Vegan
+
 < en:Vegan
 en:The Vegan Society, Vegan Society, Vegan Flower
 de:The Vegan Society, Vegan Society, Veganblume
 it:La società vegana
+wikidata:en: Q1855049
 
 < en:Vegan
 en:Vegan Action
 wikidata:en: Q7918275
-
-< en:Vegan
-en:
-wikidata:en: Q1855049
 
 < en:Vegan
 es:UVE Vegano, Unión Vegetariana Española Vegano, Certificado UVE Vegano
@@ -4774,10 +4811,21 @@ en:Porks raised without antibiotics after first age
 ca:Porcs criats sense antibiòtics després del primer any de vida
 fr:Porcs élevés sans antibiotique après le premier âge, Porcs élevés sans antibiotique après le 1er âge
 
+< en:Porks raised without antibiotics
+< en:Without antibiotics after weaning
+en:Porks raised without antibiotics after weaning
+fr:Porcs élevés sans antibiotique après sevrage, Porcs élevés sans antibiotique dès la fin du sevrage, Cochons élevés sans antibiotique dès la fin du sevrage
+
 < en:Chickens raised without antibiotics
 < en:Without antibiotics since birth
 en:Chickens raised without antibiotics since birth
 fr:Poulets élevés sans antibiotique dès la naissance
+
+< en:Porks raised without antibiotics
+< en:Without antibiotics since birth
+en:Porks raised without antibiotics since birth
+de:Schweineaufzucht von Geburt an ohne Antibiotika
+fr:Porcs élevés sans antibiotique dès la naissance
 
 en:without azo dyes, without azodyes
 fr:sans colorants azoïques
@@ -4837,6 +4885,14 @@ fr:Sans huiles végétales, sans matières grasses végétales
 he:ללא שמנים מהצומח, ללא שומן מהצומח
 nl:Zonder plantaardige olieën
 ru:без растительных жиров
+
+< en:100% natural
+< en:Without vegetable oils
+en:Natural product without vegetable oils, Natural product without vegetable fats
+es:Producto natural sin aceites vegetales, Producto natural sin grasas vegetales
+fr:Produit naturel sans huiles végétales, Produit naturel sans matières grasses végétales
+nl:Zonder plantaardige vetten
+ru:натуральный продукт без растительных жиров
 
 en:World Beer Awards
 
@@ -5013,7 +5069,7 @@ wikidata:en: Q3214304
 fr:Fabrication artisanale
 es:Fabricación artesanal, Producción artesanal
 
-fr:Fabriqué en Gourmandie
+fr:Fabriqué en Gourmandie, Produit en Gourmandie
 
 fr:Farine de blé français
 
@@ -5211,12 +5267,12 @@ fr:prix d'excellence du concours général agricole 2015, Concours général agr
 < fr:Prix d'excellence du Concours général agricole
 fr:prix d'excellence du concours général agricole 2016, Concours général agricole prix d'excellence 2016
 
-fr:Produit en Gourmandie
-
 fr:Riche en fibres, source de fibres
 es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra
 
 fr:Salage naturel
+
+fr:Saveurs de Normandie
 
 fr:Saveurs en Or
 wikidata:en: Q3474531
@@ -5248,55 +5304,6 @@ fr:Tréfilage au bronze, tréfilé au bronze
 it:Trafilata al bronzo
 
 fr:Triman, tri-man
-
-fr:Viande Française, VF
-
-< fr:Viande Française
-en:French duck
-fr:Canard Français, Canard de France, Canard Origine France, Viande de canard français, Viande de canard française, Viande de canard Origine France
-he:ברווז צרפתי
-pt:Pato francês
-
-< fr:Viande Française
-en:French pork
-ca:Porc francès
-fr:Porc Français, porc origine France, porc 100% France, Porc élevé en France
-nl:Frans varkensvlees
-pl:Francuska wieprzowina
-pt:Porco francês
-
-< fr:Viande Française
-fr:Lapin Français, Lapin de France, Lapin Origine France, Viande de lapin français, Viande de lapin française, Viande de Lapin origine France
-
-< fr:Viande Française
-fr:Poulet Français, Viande de poulet origine France, Poulet 100% Français, Viande de poulet français, Viande de poulet française, Poulet Origine France, Poulet 100% France
-
-< fr:Viande Française
-fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
-
-< fr:Viande Française
-fr:Viande Chevaline Française, Viande chevaline origine France, Cheval 100% Français, Viande de cheval française, Viande de cheval français, Cheval Origine France, Cheval 100% France
-
-< fr:Viande Française
-fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
-
-< fr:Viande Française
-fr:Viande de chèvre française, Viande de chèvre Origine France, Chèvre 100% Française, Chèvre 100% France, Chèvre Origine France
-
-< fr:Viande Française
-fr:Viande de chevreau français, Viande de chevreau Origine France, Chevreau 100% Français, Viande de chevreau Française, Chevreau 100% France, Chevreau Origine France
-
-< fr:Viande Française
-fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français, Viande de veau Française, Veau 100% France, Veau Origine France
-
-< fr:Viande Française
-fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
-
-< fr:Viande Française
-fr:Viande Porcine Française, VPF, viande de porc française, Le Porc Français
-
-< fr:Viande Française
-fr:Volaille Française, volaille Origine France
 
 fr:Vinalies
 
