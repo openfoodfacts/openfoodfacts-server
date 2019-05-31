@@ -1,10 +1,35 @@
-# Base stage that adds the Perl runtime and some build utilities to httpd:alpine
-FROM alpine AS modperl
+ARG ALPINE_VERSION=3.9.4
+# mod_perl is only available in Alpine edge as a @testing package.
+# Unfortunately, as the edge version can have another version of Perl
+# than the stable version of Alpine Linux. In that case, mod_perl won't load.
+# To work around this, we compile mod_perl on our own. This should be removed once
+# apache2-mod-perl-dev gets moved to the community or the main repository.
+FROM alpine:${ALPINE_VERSION} AS build_modperl
+RUN set -x \
+  && apk --no-cache add alpine-sdk coreutils cmake \
+  && adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D builder \
+  && echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
+  && mkdir /packages \
+  && chown builder:abuild /packages
+USER builder
+RUN set -x \
+   && cd /packages \
+   # depth=1000 was chosen arbitarily. Increase if build fails.
+   && git clone --depth=10000 https://git.alpinelinux.org/aports \
+   && cd aports/testing/apache2-mod-perl \
+   && abuild-keygen -a -i \
+   && abuild -R \
+   && echo $(sed -E -n 's/^pkgver=(.+)$/\1/p' /packages/aports/testing/apache2-mod-perl/APKBUILD)-r$(sed -E -n 's/^pkgrel=(.+)$/\1/p' /packages/aports/testing/apache2-mod-perl/APKBUILD) > /home/builder/packages/testing/x86_64/ver.txt
 
+# Base stage that adds the Perl runtime and some build utilities to httpd:alpine
+FROM alpine:${ALPINE_VERSION} AS modperl
+
+COPY --from=build_modperl /home/builder/packages/testing/x86_64 /packages
 RUN set -x \
     && echo -e '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main\n@edgecommunity http://dl-cdn.alpinelinux.org/alpine/edge/community\n@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
-    && apk -U add --no-cache tzdata git curl wget perl perl-dev openssl openssl-dev make gcc libc-dev zlib-dev apache2-mod-perl@testing \
-    && rm -rf /var/cache/apk/*
+    && apk -U add --no-cache tzdata git curl wget perl perl-dev openssl openssl-dev make gcc libc-dev zlib-dev \
+    && apk add /packages/apache2-mod-perl-$(cat /packages/ver.txt).apk --allow-untrusted \
+    && rm -rf /var/cache/apk/* /packages/
 
 # Install cpm to install cpanfile dependencies
 RUN curl -o- -L --compressed https://git.io/cpm | perl - install App::cpm -g && rm -rf ~/.perl-cpm
@@ -23,6 +48,7 @@ RUN set -x \
 # Stage for installing/compiling cpanfile dependencies
 FROM alpinemodperl AS builder
 
+COPY --from=build_modperl /home/builder/packages/testing/x86_64 /packages
 RUN apk --update --no-cache add \
 		alpine-sdk \
 		imagemagick6 \
@@ -35,7 +61,7 @@ RUN apk --update --no-cache add \
 		zbar@testing \
 		zbar-dev@testing \
     apache2-dev \
-    apache2-mod-perl-dev@testing \
+    && apk add /packages/apache2-mod-perl-dev-$(cat /packages/ver.txt).apk --allow-untrusted \
     # Add ZBar perl module from git: https://rt.cpan.org/Ticket/Display.html?id=128085
     && wget https://github.com/mchehab/zbar/archive/0.22.2.tar.gz \
     && tar xfz 0.22.2.tar.gz \
