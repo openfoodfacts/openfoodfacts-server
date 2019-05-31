@@ -17,7 +17,7 @@ stopwords:nn:av, inneholder
 stopwords:pl:w tym
 stopwords:pt:do qual, dos quais
 stopwords:sk:obsahuje
-stopwords:sl:vsebuje
+stopwords:sl:vsebuje, sestavine
 stopwords:sv:innehåller, från, med
 stopwords:zh::配料
 
@@ -27430,13 +27430,46 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 nl:Arenga bossuiker
 # ingredient/nl:arenga-bossuiker has 1 product @2019-05-24
 
+# description:en:Since the 6th century BC, cane sugar producers have crushed the harvested vegetable material from sugarcane in order to collect and filter the juice. They then treat the liquid (often with lime (calcium oxide)) to remove impurities and then neutralize it. Boiling the juice then allows the sediment to settle to the bottom for dredging out, while the scum rises to the surface for skimming off.
+
 <en:sugar
 en:cane sugar
+bg:захар от захарна тръстика
+cs:třtinový cukr
+da:rörsocker
 de:Rohrzucker
+el:ζάχαρη από ζαχαροκάλαμο
+es:azúcar de caña
+fi:ruokosokeri
 fr:sucre de canne
+ga:siúcra cána
+# hsb:Cokorina
 it:zucchero di canna
+ja:きび糖
+lv:cukurniedru cukurs
+mt:zokkor tal-kannamiela
+nb:rörsocker
 nl:Rietsuiker
+nn:røyrsukker
+# pam:Atbu
+pl:cukier trzcinowy
+pt:açúcar de cana
+ru:тростниковый сахар
+sl:trsni sladkor
+sr:šećer od šećerne trske, Šećerna trska
+# sr-el:šećer od šećerne trske
+sv:rörsocker
+uk:тростинний цукор
+wikidata:en:Q165267
+wikipedia:en:https://en.wikipedia.org/wiki/Sucrose#Cane
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de canne
+# ingredient/cane-sugar has 17093 products in 23 languages @2019-05-31
+
+<en:cane sugar
+en:organic cane sugar
+fr:sucre de canne biologique
+nl:biologische rietsuiker
+# ingredient/fr:sucre-de-canne-biologique has 22 products @2019-05-30
 
 <en:cane sugar
 en:organic cane sugar
@@ -27468,9 +27501,15 @@ fr:sucre de canne blond
 
 <en:cane sugar
 en:unrefined cane sugar, raw cane sugar
-de:Rohrohrzucker
+cs:nerafinovaný třtinový cukr
+da:rå rørsukker
+de:Rohrohrzucker, roher Rohrzucker
+el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
+fi:raakaruokosokeri
 fr:sucre de canne non raffiné, sucre de canne brut
-nl:Ongeraffineerde rietsuiker
+it:zucchero di canna grezzo
+nl:Ongeraffineerde rietsuiker, ruwe rietsuiker
+sv:rårörsocker
 
 <en:brown cane sugar
 fr:sucre de canne roux non raffiné
