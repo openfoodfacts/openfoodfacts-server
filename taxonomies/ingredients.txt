@@ -60760,6 +60760,11 @@ fr:viande de dinde traitée en salaison
 fr:Escalopes de dinde
 # ingredient/fr:escalopes-de-dinde has 22 products @2019-05-23
 
+<en:poultry
+fr:caille, cailles
+nl:kwartel, kwartels
+# ingredient/fr:cailles has 4 products @2019-05-31
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                                      E G G S     S E C T I O N
@@ -60794,7 +60799,7 @@ et:Muna
 eu:arrautza
 fa:تخم‌مرغ
 fi:kananmuna
-fr:œuf, œufs, oeuf, oeufs
+fr:œuf, œufs, oeuf, oeufs, 6 oeufs, 4 oeufs
 gl:ovo
 gv:Ooh
 he:ביצה
@@ -60880,11 +60885,46 @@ wikipedia:en:https://en.wikipedia.org/wiki/Egg_as_food
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
 
 <en:egg
-it:uova fresche di categoria A
+fr:gros oeufs
+# 3@2019-05-31
 
 <en:egg
-fr:œufs de poules, oeufs de poules
-# ingredient/fr:œufs-de-poules has 16 products in french @2018-12-18
+fr:œufs frais, oeufs frais, 6 oeufs frais, 18 oeufs frais, 10 oeufs frais
+nl:verse eieren
+
+<en:egg
+en:organic egg, organic eggs
+fr:oeufs biologiques, oeuf bio, 0 oeufs biologiques, oeufs bio
+nl:biologische eieren
+# ingredient/fr:oeufs-biologiques has 8 products in french @2019-05-31
+
+<en:organic egg
+fr:oeufs frais biologiques, oeufs frais issus de l'agriculture biologique
+de:Bio-Frischei
+
+<en:egg
+en:free range eggs
+fr:Oeufs élevés en plein air, oeufs d'élevage en plein air, oeufs plein air, œufs d'élevage en plein air
+
+<en:egg
+en:category A egg
+fr:oeufs de categorie A
+it:uova di categoria A
+nl:categorie A eieren
+# ingredient/fr:oeufs-de-categorie-a has 6 products @2019-05-31
+
+<en:category A egg
+fr:oeufs frais de catégorie A
+it:uova fresche di categoria A
+nl:verse categorie A eieren
+
+<en:egg
+en:eggs from Switzerland
+fr:oeufs suisses, 6 oeufs suisses, 4 oeufs suisses
+de:Schweizer Eier, 6 Schweizer Eier, 4 Schweizer Eier
+it:uova svizzere, 6 uova svizzere, 4 uova svizzere
+nl:eieren uit Zwitserland, zwitserse eieren
+# 2@2109-05-31
 
 <en:egg
 fr:œuf dur, œufs durs, oeuf dur, oeufs durs
@@ -60898,20 +60938,70 @@ it:uova pastorizzate
 # ingredient/fr:oeuf-pasteurisé has 57 products in 4 languages @2018-12-18
 
 <en:egg
-fr:œuf liquide pasteurisé, oeuf liquide pasteurisé
-nl:gepasteuriseerd vloeibaar ei
-# ingredient/fr:oeuf-liquide-pasteurisé has 50 products in 2 languages @2018-12-18
+en:chicken egg
+fr:œufs de poules, oeufs de poules
+nl:kippeneieren
+# ingredient/fr:œufs-de-poules has 16 products in french @2018-12-18
 
-<en:egg
-fr:œufs de poules élevées en cage, oeufs de poules élevées en cage
+<en:chicken egg
+en:organic chicken egg
+fr:œufs de poules issus de l'agriculture biologique
+# 2@2019-05-31
+
+<en:chicken egg
+fr:œufs frais de poule
+# 3@2019-05-31
+
+<en:chicken egg
+fr:œufs de poules élevées en cage, oeufs de poules élevées en cage, 20 oeufs de poules elevees en cage, 6 oeufs de poules elevees en cage
 # ingredient/fr:oeufs-de-poules-élevées-en-cage has 53 products in french @2018-12-18
 
-<en:egg
-fr:œuf de poules élevées en plein air, œufs de poules élevées en plein air, œufs d'élevage en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air, oeufs d'élevage en plein air
+<fr:œufs de poules élevées en cage
+<en:category A eggs
+fr:oeufs de poules elevees en cage de categorie a
+
+<fr:œufs de poules élevées en cage
+fr:oeufs frais de poules élevées en cage
+# 4@2019-05-31
+
+<fr:œufs de poules élevées en cage, oeufs de poules élevées en cage
+fr:Oeufs frais datés du jour de ponte de poules élevées en cage
+# 2019-05-31
+
+<en:chicken egg
+<en:free range eggs
+en:free range chicken eggs
+fr:œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air
 nl:ei van hennen met vrije uitloop
 # ingredient/fr:oeufs-de-poules-elevees-en-plein-air has 242 products in 5 languages @2018-12-18
 
-<fr:œuf de poules élevées en plein air
+<en:free range chicken eggs
+fr:œufs de poules élevées en plein air calibre moyen
+
+<en:free range chicken eggs
+<en:organic egg
+fr:oeufs frais de poules elevees en plein air issus de l'agriculture biologique
+
+<en:free range chicken eggs
+<en:category A egg
+fr:Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air
+# ingredient/fr:oeufs-de-categorie-a-de-poules-elevees-en-plein-air has 5 products @2019-05-31
+
+<en:free range chicken eggs
+fr:Oeufs frais de poule élevées en plein air, 12 Oeufs frais de poule élevées en plein air
+
+<fr:Oeufs frais de poule élevées en plein air
+<en:organic egg
+fr:oeufs frais de poules elevees en plein air issus de l'agriculture biologique
+
+<en:free range chicken eggs
+fr:Gros Œufs de Poules Élevées en Plein Air
+# 3@2109-05-31
+
+<en:free range chicken eggs
+fr:œuf moyen de poule élevé en plein air sans antibiotiques
+
+<en:free range chicken eggs
 fr:œufs de poules élevées en plein air pasteurisés, oeufs de poules élevées en plein air pasteurisés
 nl:gepasteuriseerd ei van hennen met vrije uitloop
 # ingredient/fr:œufs-de-poules-élevées-en-plein-air-pasteurisés has 49 products in 3 languages @2018-12-18
@@ -60924,6 +61014,11 @@ it:uova di allevamento al suolo
 nl:scharreleieren
 # ingredient/fr:œufs-d’élevage-au-sol has 168 products in 4 languages @2018-12-18
 # ingredient/fr:œufs-de-poules-élevées-au-sol has 111 products in 4 languages @2018-12-18
+
+<en:egg
+fr:œuf liquide pasteurisé, oeuf liquide pasteurisé
+nl:gepasteuriseerd vloeibaar ei
+# ingredient/fr:oeuf-liquide-pasteurisé has 50 products in 2 languages @2018-12-18
 
 <en:egg
 en:egg powder, powdered egg
@@ -61293,7 +61388,7 @@ wikidata:en:Q11173928
 <en:egg
 en:Quail eggs, Quail egg
 de:Wachteleier, Wachtelei
-fr:œufs de cailles, Oeufs de cailles
+fr:œufs de caille, oeufs de cailles, oeufs de caille
 id:Telur puyuh
 ko:메추리알
 nl:kwartelei, kwarteleieren
