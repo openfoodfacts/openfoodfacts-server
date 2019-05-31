@@ -747,6 +747,18 @@ de => [
 #@hangy Does that regex handle zutat: ?
 ],
 
+es => [
+
+'ingredientes(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+
+],
+
+it => [
+
+'ingredienti(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+
+],
+
 );
 
 
@@ -765,7 +777,15 @@ de => [
 ],
 
 es => [
-'ingredientes'
+
+'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+
+],
+
+it => [
+
+'INGREDIENTI(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+
 ],
 
 );
