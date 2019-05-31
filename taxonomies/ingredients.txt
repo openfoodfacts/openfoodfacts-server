@@ -27441,7 +27441,7 @@ de:Rohrzucker
 el:ζάχαρη από ζαχαροκάλαμο
 es:azúcar de caña
 fi:ruokosokeri
-fr:sucre de canne
+fr:sucre de canne, pur sucre de canne, canne à sucre, sucre pure canne, sucre 100 pure canne
 ga:siúcra cána
 # hsb:Cokorina
 it:zucchero di canna
@@ -27466,38 +27466,49 @@ carbon_footprint_fr_foodges_ingredient:fr:Sucre de canne
 # ingredient/cane-sugar has 17093 products in 23 languages @2019-05-31
 
 <en:cane sugar
-en:organic cane sugar
-fr:sucre de canne biologique
-nl:biologische rietsuiker
-# ingredient/fr:sucre-de-canne-biologique has 22 products @2019-05-30
+en:cane sugar cubes
+fr:Sucre en morceaux pure canne
+
+<en:cane sugar cubes
+en:brown cane sugar cubes
+de:brauner Rohrzucker in Würfeln
+es:azúcar moreno de caña en terrones
+fr:Sucre roux de canne en morceaux
+it:Zollette di zucchero grezzo di canna
+nl:Bruin rietsuiker in klontjes
 
 <en:cane sugar
 en:organic cane sugar
 de:Bio-Rohrzucker
 es:caña de azúcar orgánica
-fr:sucre de canne bio
+fr:sucre de canne bio, sucre de canne biologique, cannes à sucre biologiques
 it:zucchero di cana bio
 nl:biologische rietsuiker, biologisch rietsuiker
 # ingredient/fr:sucre-de-canne-bio has 104 products in 6 languages @2019-03-23
-
-<en:cane sugar
-fr:sucre brut de canne
+# ingredient/fr:sucre-de-canne-biologique has 22 products @2019-05-30
 
 <en:cane sugar
 en:brown cane sugar
 de:brauner Rohrzucker
-fr:sucre de canne roux, sucre roux de canne
+fr:sucre de canne brun
 it:zucchero di canna grezzo
 nl:Bruine rietsuiker
 wikipedia:en:https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
 
-<en:sugar
-fr:sucre de canne blanc
-
 <en:cane sugar
-en:blonde cane sugar
+en:white cane sugar, blonde cane sugar
 de:weisser Rohrzucker
-fr:sucre de canne blond
+fr:sucre de canne blond, sucre de canne blanc, sucre de canne roux clair
+
+<en:white cane sugar
+en:white cane sugar from Brazil
+fr:sucre de canne blond du Brésil
+
+<en:white cane sugar
+fr:sucre blond de canne biologique
+
+<en:white cane sugar
+fr:sucre-de-canne-blond-equitable
 
 <en:cane sugar
 en:unrefined cane sugar, raw cane sugar
@@ -27506,22 +27517,18 @@ da:rå rørsukker
 de:Rohrohrzucker, roher Rohrzucker
 el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
 fi:raakaruokosokeri
-fr:sucre de canne non raffiné, sucre de canne brut
+fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre de canne complet, suc de canne intégral, sucre brut de canne, sucre complet de canne, 
 it:zucchero di canna grezzo
 nl:Ongeraffineerde rietsuiker, ruwe rietsuiker
 sv:rårörsocker
 
-<en:brown cane sugar
-fr:sucre de canne roux non raffiné
+<en:unrefined cane sugar
+fr:sucre roux de canne en poudre, Cassonade Pure Canne, Sucre de canne complet en poudre, sucre en poudre pur canne
 
-<en:cane sugar
-fr:sucre de canne complet
-
-<en:cane sugar
-fr:sucre de canne brun
-
-<en:sugar
-fr:pur sucre de canne
+<en:unrefined cane sugar
+<en:organic cane sugar
+en:organic unrefined cane sugar
+fr:Sucre roux de canne issu de l'agriculture biologique, Sucre de canne biologique non raffiné, sucre de canne roux bio
 
 <en:sugar
 en:caramelised sugar
