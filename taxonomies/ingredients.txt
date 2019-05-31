@@ -13464,6 +13464,11 @@ nl:gesteriliseerde melk
 # ingredient/fr:lait-sterilise-u-h-t has 8 products @2019-05-28
 
 <en:milk
+en:pasteurized milk
+fr:lait pasteurisé
+nl:gepasteuriseerde melk
+
+<en:milk
 en:Follow-on milk
 de:Folgemilch
 fr:lait de suite
@@ -13473,10 +13478,30 @@ it:latte di proseguimento
 <en:milk
 en:organic milk
 de:Bio-milch
-fr:lait bio
+fr:lait bio, lait issu de l'agriculture biologique
 it:Latte biologico
 # ingredient/fr:lait-bio has 24 products @2019-02-22
 
+<en:milk
+en:milk from France
+fr:lait origine france
+nl:melk uit Frankrijk
+
+<en:milk
+fr:lait frais
+nl:verse melk
+# ingredient/fr:lait-frais has 79 products in 2 languages 2019-04-05
+
+<fr:lait frais
+fr:lait frais entier
+
+<fr:lait frais
+fr:lait frais pasteurisé
+
+<en:milk
+fr:lait thermisé
+
+############################### NO FAT MILK #################
 
 # Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
 
@@ -13485,6 +13510,14 @@ en:skim milk, fat-free milk
 nl:vetvrije melk
 wikidata:en:Q2352187
 
+############################# LOW FAT MILK #####################
+
+# LOW-FAT MILK is a 1% fat milk, sold in the United States
+
+<en:milk
+en:low-fat milk, 1% fat milk
+fr:lait maigre
+nl:melk met 1% vetgehalte
 
 # description:en:Skimmed milk (British English) is made when all the cream (also called milkfat) is removed from whole milk. It tends to contain around 0.1% fat. Láit écrémé has a maximum of 0.5% fat.
 
@@ -13526,20 +13559,15 @@ it:latte magro pastorizzato
 
 <en:skimmed milk
 en:UHT sterilised skimmed milk
-fr:Lait écrémé stérilisé UHT
+fr:Lait écrémé stérilisé UHT, lait écrémé stérilisé u h t, lait sterilise uht ecreme
 nl:UHT-gesteriliseerde magere melk
 # ingredient/fr:lait-ecreme-sterilise-uht has 14 products in french @2019-05-23
 
-# LOW-FAT MILK is a 1% fat milk, sold in the United States
-
-<en:milk
-en:low-fat milk, 1% fat milk
-nl:melk met 1% vetgehalte
 
 # description:en:LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 
 <en:milk
-en:milk with 1.5-1.8% fat
+en:semi-skimmed milk, reduced-fat milk
 de:teilentrahmte milch
 fr:lait demi-écrémé, lait partiellement écrémé
 it:latte parzialmente scremato
@@ -13549,53 +13577,98 @@ sv:Lättmjölk
 wikidata:en:Q10572454
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
-<en:milk with 1.5-1.8% fat
-en:organic milk with 1.5-1.8% fat
+<en:semi-skimmed milk
+fr:lait demi écrémé uht, lait sterilise u h t demi-ecreme, lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
+nl:halfvolle melk uht verhit
+
+<fr:lait demi écrémé uht
+fr:lait de montagne demi écrémé sterilisé uht
+
+<en:semi-skimmed milk
+en:organic semi-skimmed milk, semi-skimmed milk from organic farming
+de:Magermilch aus biologischer Landwirtschaft
+fr:Lait demi-écrémé issu de l'agriculture biologique
+it:latte parzialmente scremato da agricoltura biologica
 nl:biologische halfvolle melk
 # ingredient/nl:biologische-halfvolle-melk has 1 product @2019-05-24
 
-# SEMI-SKIMMED MILK has a butterfat percentage of 2.5% fat by regulation
-
-<en:milk
-en:semi-skimmed milk
-fr:Lait demi-écrémé
+<en:organic semi-skimmed milk
+fr:lait demi-écrémé sterilisé uht biologique,lait demi-écrémé issu de l'agriculture biologique sterilisé uht, lait demi-ecreme sterilise uht issu de l'agriculture biologique
 
 # description:en:PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
 
-<en:milk with 1.5-1.8% fat
-fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé
+<en:semi-skimmed milk
+en:pasteurized skimmed milk
+fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé, lait pasteurise demi ecreme
 de:pasteurisierte magermilch
 nl:gepasteuriseerde halfvolle melk
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 
-# In the United States, milk is marketed primarily by fat content and available in these varieties:2% Reduced-fat milk
+<en:pasteurized skimmed milk
+en:organic pasteurized skimed milk
+nl:magere melkpoeder van biologische oorsprong
+# ingredient/nl:magere-melkpoeder-van-biologische-oorsprong has 1 product @2019-05-24
 
-<en:milk
-en:reduced-fat milk
-fr:Lait demi-écrémé
+<en:semi-skimmed milk
+fr:lait demi écrémé stérilisé
 
+<en:semi-skimmed milk
+fr:lait de montagne partiellement écrémé
+
+<en:semi-skimmed milk
+fr:lait frais demi-écrémé pasteurisé
+
+<en:organic semi-skimmed milk
+fr:Lait frais demi-écrémé microfiltré issu de l'agriculture biologique
+
+################################## FULL FAT MILKS ##############################
 
 # Whole milk (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
 
 <en:milk
 en:whole milk
 da:sødmaelk
-de:Vollmilch, Frische Vollmilch
+de:Vollmilch, 
 fi:täysmalto
-fr:lait entier, lait entier frais
+fr:lait entier, 
 it:latte intero
 nl:volle melk
 
+en:whole milk
+fr:lait entier frais
+de:Frische Vollmilch
+
+<fr:lait entier frais
+fr:lait frais entier microfiltré
+
+<fr:lait entier frais
+fr:lait frais pasteurisé entier
+
+<fr:lait entier frais
+fr:lait frais de montagne entier pasteurisé
+
 <en:whole milk
 en:organic whole milk
+fr:lait entier bio, lait entier issu de l'agriculture biologique
 nl:volle melk van biologische oorsprong
 
 <en:whole milk
 en:UHT sterilized whole milk
-fr:lait entier sterilisé uht
+fr:lait entier sterilisé uht, lait entier sterilise u h t, lait sterilise uht entier
 de:Haltbare Vollmilch
 nl:UHT gesteriliseerde volle melk
 # ingredient/fr:lait-entier-sterilise-uht has 20 products in 2 languages @2019-05-23
+
+<en:whole milk
+en:pasteurized whole milk, pasteurised whole milk
+fr:lait entier pasteurisé
+it:latte intero pastorizzato
+nl:volle gepasteuriseerde melk
+
+<en:pasteurized whole milk
+fr:Lait pasteurisé entier pasteurisation haute
+
+################################## RAW MILKS ##############################
 
 # RAW MILK - milk produced by female mammals (probably cow) before any treatment
 
@@ -13607,13 +13680,11 @@ it:latte crudo
 nl:rauwe melk
 wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
 
-# RAW COW MILK - milk produced by female cows before any treatment
+<en:raw milk
+<en:whole milk
+fr:lait cru entier
 
-<en:milk
-en:raw cow's milk
-es:leche cruda de vaca
-fr:lait cru de vache
-nl:rauwe koemelk
+################################## COW MILKS ##############################
 
 # COW MILK - raw cow milk that probably has been treated (pasteurisation)
 
@@ -13626,18 +13697,29 @@ it:latte di mucca
 nl:koemelk
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
 
+# description:en:RAW COW MILK - milk produced by female cows before any treatment
+
+en:cow's milk
+en:raw cow's milk
+es:leche cruda de vaca
+fr:lait cru de vache, lait de vache cru
+nl:rauwe koemelk
+
 # WHOLE COWS MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
 
 <en:whole milk
 <en:Cow's milk
 en:whole cow's milk
 es:Leche entera de vaca
-fr:Lait de vache entier
+fr:Lait de vache entier, lait entier de vache
 
 <en:whole cow's milk
 en:raw whole cow's milk
 fr:lait de vache entier cru
 # ingredient/fr:lait-de-vache-entier-cru has 10 products @2019-05-27
+
+<en:cow's milk
+fr:lait de vache demi écrémé
 
 # PASTEURISED COW MILK - raw cow milk that has been treated (pasteurisation)
 
@@ -13647,6 +13729,15 @@ de:pasteurisierte Kuhmilch
 fr:lait de vache pasteurisé, lait pasteurisé de vache
 it:latte di mucca pastorizzato
 nl:gepasteuriseerde koemelk
+
+<en:whole cow's milk
+fr:lait entier pasteurisé de vache
+es:Leche entera pasteurizada de vaca
+
+<en:Cow's milk
+fr:lait de vache thermisé
+
+################################# GOAT MILKS ##########################
 
 # RAW GOAT MILK - milk produced by female goats before any treatment
 
@@ -13665,6 +13756,9 @@ it:latte di capra
 nl:geitenmelk
 wikidata:en:Q1418287
 
+<en:goat's milk
+fr:lait entier de chèvre
+
 # GOATS MILK - raw goat milk that has been treated (pasteurisation)
 
 <en:goat's milk
@@ -13673,6 +13767,8 @@ de:pasteurisierte Ziegenmilch
 es:leche de cabra pasteurizada
 fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
 it:latte di capra pastorizzato
+
+################################# SHEEP MILKS ##########################
 
 <en:milk
 en:sheeps milk
@@ -13708,6 +13804,11 @@ de:pasteurisierter Schafsmilch
 fr:lait de brebis pasteurisé, lait pasteurisé de brebis
 nl:gepasteuriseerde schapenmelk
 
+<en:sheeps milk
+fr:lait de brebis thermisé
+
+################################# BUFFALO MILKS ##########################
+
 <en:milk
 en:buffalo milk
 de:Büffelmilch
@@ -13723,105 +13824,7 @@ wikidata:en:Q16571278
 # ingredient/buffalo-milk has 8 products @2019-02-16
 
 
-<en:milk
-fr:lait écrémé concentré sucré
-nl:gecondenseerde gesuikerde volle melk
-
-<en:milk
-en:pasteurized whole milk, pasteurised whole milk
-fr:lait entier pasteurisé
-it:latte intero pastorizzato
-nl:volle gepasteuriseerde melk
-
-<en:pasteurized whole milk
-fr:lait entier pasteurisé de vache
-es:Leche entera pasteurizada de vaca
-
-<en:milk
-en:modified milk ingredients
-fr:substances laitières modifiées
-# ingredient/fr:substances-laitières-modifiées has 86 products @2019-02-22
-
-<en:milk
-<en:cream
-en:pasteurized milk and cream
-de:pasteurisiert Milch und Rahm
-es:Leche y nata pasteurizadas
-fr:lait et crème pasteurisé
-it:latte e panna pastorizzati
-nl:Gepasteuriseerde melk en room
-pt:Leite e natas pateurizados
-# ingredient/fr:lait-et-crème-pasteurisé has 177 products in 7 languages @2019-02-03
-
-<en:milk powder
-fr:lait en poudre partiellement écrémé
-nl:halfvolle poedermelk
-
-<en:milk powder
-fr:lait en poudre enrichi en matière grasse
-
-<en:milk powder
-fr:lait maigre en poudre
-
-<en:milk powder
-fr:lait écrémé à base de poudre de lait
-
-
-<en:milk
-fr:lait concentré écrémé
-
-<en:milk
-fr:lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
-nl:halfvolle melk uht verhit
-
-<fr:lait demi-écrémé stérilisé uht
-fr:lait demi-ecreme sterilise uht issu de l'agriculture biologique
-
-<en:milk
-fr:lait frais
-nl:verse melk
-# ingredient/fr:lait-frais has 79 products in 2 languages 2019-04-05
-
-<fr:lait frais
-fr:lait frais entier
-
-<en:milk
-fr:lait fermenté
-nl:gefermenteerde melk
-
-<en:milk
-fr:produits laitiers
-
-<en:milk
-fr:produits laitiers en poudre
-
-fr:poudre de lait écrémé
-
-
-fr:lait de vache thermisé
-
-
-fr:lait frais pasteurisé
-
-fr:lait thermisé
-
-fr:lait frais demi-écrémé pasteurisé
-
-fr:Lait frais demi-écrémé microfiltré issu de l'agriculture biologique
-
-fr:lait de vache cru
-
-fr:lait écrémé en poudre réhydraté
-
-
-fr:lait entier concentré sucré
-
-fr:lait écrémé caillé
-
-fr:lait entier concentré
-
-fr:lait maigre
-
+############################## CONCENTRATED MILKS ###############
 
 # description:en:EVAPORATED MILK, known in some countries as "unsweetened condensed milk", is a shelf-stable canned milk product with about 60% of the water removed from fresh milk. It differs from sweetened condensed milk, which contains added sugar. Sweetened condensed milk requires less processing since the added sugar inhibits bacterial growth.
 
@@ -13851,7 +13854,6 @@ zh:淡奶
 wikidata:en:Q13417087
 wikipedia:en:https://en.wikipedia.org/wiki/Evaporated_milk
 # ingredient/evaporated-milk has 218 products in english @2019-04-16
-
 
 # description:en:CONDENSED MILK is cow's milk from which water has been removed.  It is most often found in the form of "sweetened condensed milk" ("SCM"), with sugar added, and the terms "condensed milk" and "sweetened condensed milk" are often used interchangeably today. Sweetened condensed milk is a very thick, sweet product, which when canned can last for years without refrigeration if not opened. Condensed milk is used in numerous dessert dishes in many countries.
 
@@ -13905,7 +13907,6 @@ wikidata:en:Q2830455
 wikipedia:en:https://en.wikipedia.org/wiki/Condensed_milk
 # ingredient/condensed-milk has 1704 products in 10 languages @2019-04-16
 
-
 <en:condensed milk
 en:sweetened condensed milk
 de:gezuckerte Kondensmilch
@@ -13927,7 +13928,7 @@ nl:gesuikerde gecondenseerde magere melk
 <en:sweetened condensed milk
 en:sweetened condensed whole milk
 de:gezuckerte Kondensvollmilch
-fr:lait entier condensé sucré
+fr:lait entier condensé sucré, lait entier concentré sucré
 it:latte intero condensato zuccherato
 nl:gecondenseerde volle melk met suiker
 # ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
@@ -13936,7 +13937,7 @@ nl:gecondenseerde volle melk met suiker
 en:condensed whole milk
 de:kondensierte Vollmilch
 es:leche entera condensada
-fr:lait entier condensé
+fr:lait entier condensé, lait entier concentré
 nl:gecondenseerde volle melk
 # ingredient/condensed-whole-milk has 52 products in 5 languages @2019-04-16
 
@@ -13952,13 +13953,15 @@ nl:gecondenseerde halfvolle melk
 en:condensed skimmed milk, concentrated skim milk, concentrated skimmed milk
 de:Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch
 es:leche desnatada condensada
-fr:lait écrémé concentré, concentré de lait écrémé, lait écrémé condensé
+fr:lait écrémé concentré, concentré de lait écrémé, lait écrémé condensé, lait concentré écrémé
 it:latte scremato concentrato, latte magro concentrato
 nl:gecondenseerde magere melk
 pt:leche condensada desnatada
 sv:kondenserad skummjölk
 # ingredient/condensed-skimmed-milk has 43 products @2019-04-16
 
+<en:condensed skimmed milk
+fr:lait écrémé concentré sucré
 
 <en:condensed milk
 <en:powdered milk
@@ -13977,6 +13980,8 @@ pt:lactose e proteínas do leite
 # ingredient/lactose-and-milk-proteins has 1395 products in 10 languages @2019-05-06
 
 
+#################### MILK POWDERS ################
+
 # nova:en:milk-powder
 en:milk powder, powdered milk
 de:Milchpulver
@@ -13987,18 +13992,34 @@ nl:melkpoeder
 nova:en:3
 
 <en:milk powder
-en:pasteurized skim milk, pasteurised skim milk
+fr:poudre de lait écrémé
+
+<en:milk powder
+fr:lait en poudre demi-écrémé, lait en poudre partiellement écrémé, 
+nl:halfvolle poedermelk
+pt:leite meio gordo em pó
+# ingredient/fr:lait-en-poudre-demi-ecreme has 8 products @2019-05-31
+
+<en:milk powder
+fr:lait en poudre enrichi en matière grasse
+
+<en:milk powder
+fr:lait maigre en poudre
+
+<en:milk powder
+fr:lait écrémé à base de poudre de lait
+
+<en:milk powder
+fr:produits laitiers en poudre
+
+<en:milk powder
+en:skimmed milk  powder
 de:Magermilchpulver
-en:skimmed milk powder
 es:leche desnatada en polvo
 fr:lait en poudre écrémé, lait écrémé en poudre
 it:latte scremato in polvere
 nl:magere melkpoeder
 
-<en:pasteurized skim milk
-en:organic pasteurized skim milk
-nl:magere melkpoeder van biologische oorsprong
-# ingredient/nl:magere-melkpoeder-van-biologische-oorsprong has 1 product @2019-05-24
 
 <en:milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
@@ -14016,9 +14037,6 @@ pt:leite entero em pó, leite em pó gordo
 sk:sušené plnotučné mlieko
 sv:helmjölkspulver
 
-<en:milk
-fr:lait pasteurisé
-nl:gepasteuriseerde melk
 
 <en:milk
 fr:lait écrémé reconstitué
@@ -14034,10 +14052,41 @@ nl:gerehydrateerde magere melk
 fr:matière grasse de lait anhydre
 
 <en:milk
-fr:lait écrémé en poudre reconstitué
+fr:lait écrémé en poudre reconstitué, lait écrémé en poudre réhydraté
 
 <en:milk
 fr:lait entier reconstitué
+
+<en:milk
+en:modified milk ingredients
+fr:substances laitières modifiées
+# ingredient/fr:substances-laitières-modifiées has 86 products @2019-02-22
+
+
+<en:milk
+fr:lait fermenté
+nl:gefermenteerde melk
+
+<en:milk
+fr:lait écrémé caillé
+
+<en:milk
+fr:produits laitiers
+
+#################### MILK and ? ###########
+
+<en:milk
+<en:cream
+en:pasteurized milk and cream
+de:pasteurisiert Milch und Rahm
+es:Leche y nata pasteurizadas
+fr:lait et crème pasteurisé
+it:latte e panna pastorizzati
+nl:Gepasteuriseerde melk en room
+pt:Leite e natas pateurizados
+# ingredient/fr:lait-et-crème-pasteurisé has 177 products in 7 languages @2019-02-03
+
+
 
 
 # LACTOSE is a disaccharide. It is a sugar composed of galactose and glucose.
