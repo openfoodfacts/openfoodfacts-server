@@ -740,6 +740,13 @@ fr => [
 
 ],
 
+
+de => [
+
+'zutaten(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
+#@hangy Does that regex handle zutat: ?
+],
+
 );
 
 
@@ -749,6 +756,12 @@ fr => [
 
 'INGR(E|É)DIENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
 
+],
+
+de => [
+
+'ZUTATEN(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
+#@hangy Does that regex handle ZUTAT: ?
 ],
 
 es => [
