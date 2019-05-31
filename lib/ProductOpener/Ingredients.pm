@@ -767,6 +767,7 @@ fr => [
 '(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
 'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
 'valeur(s?) (e|é)nerg(e|é)tique',
+'valeur(s?) nutritives',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 '(a|à) consommer de préférence',
 'conseils de pr(e|é)paration',
@@ -779,6 +780,8 @@ fr => [
 '(a|à) conserver (dans|de|a|à)',
 '(a|à)conserver (dans|de|a|à)', #variation
 'apr(e|è)s ouverture',
+'apr(e|è)s achat',
+'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
 'valeurs moyennes pour 100 g',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
@@ -824,10 +827,20 @@ it => [
 'di cui zuccheri',
 ],
 
+ja => [
+'栄養価',
+],
+
 pt => [
 'conservar em local fresco',
 'dos quais a(ç|c)(u|ü)ares',
 'dos quais a(ç|c)(u|ü)cares',
+],
+
+ro => [
+'declaratie nutritional(a|ă)',
+'a si pastra la frigider dup(a|ă) deschidere',
+'a se agita inainte de deschidere',
 ],
 
 
