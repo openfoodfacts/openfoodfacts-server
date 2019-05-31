@@ -168,7 +168,7 @@ el:Μέσο οξίνισης
 es:Acidulante, acidulant
 et:Hape
 fi:Happo
-fr:Acidifiant
+fr:acidifiant, acide
 ga:Aigéad
 hu:Étkezési sav
 it:Acidificanti
@@ -184,6 +184,7 @@ sl:Kislina
 sv:Syra
 wikidata:en:Q337038
 # ingredient/fr:acidulant has 110 products in 5 languages @2019-03-06
+# ingredient/fr:acide has 262 products @2019-05-31
 
 
 # <en:function
@@ -203,7 +204,7 @@ el:Ρυθμιστής οξύτητας
 es:Corrector de acidez
 et:Happesuse regulaator
 fi:Happamuudensäätöaine
-fr:correcteur d’acidité
+fr:correcteur d’acidité, régulateur d'acidité
 ga:Rialtán aigéadachta
 hu:Savanyúságot szabályozó anyag
 it:Correttori di acidità
@@ -30135,7 +30136,6 @@ ast:Xelu
 # vep:Jä
 # war:Hielo
 # wuu:冰
-yi
 # yue:冰
 # zh-cn:冰
 # zh-hk:冰
@@ -30144,13 +30144,16 @@ wikidata:en:Q23392
 wikipedia:en:https://en.wikipedia.org/wiki/Ice
 # ingredient/fr:glace has 145 products in 6 languages @2019-04-27
 
-# Acides
+<en:water
+<en:salt
+fr:eau et sel
+
 
 fr:acide de sodium
 
-fr:acide
 
-fr:régulateur d'acidité
+
+
 
 
 # SOYA is used as a generic word to indicate it is made from soybeans
