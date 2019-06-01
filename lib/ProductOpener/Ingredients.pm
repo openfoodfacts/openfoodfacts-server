@@ -817,12 +817,14 @@ fr => [
 'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
 'valeurs moyennes pour 100 g',
+'valeur nutritionnelle moyenne par 100 g',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
 #'dontSUcres',
 #'waarvan suikers/dont sucres',
 #`verzadigde vetzuren/ acides gras saturés`,
+
 ],
 
 en => [
@@ -851,6 +853,7 @@ de => [
 nl => [
 'voedingswaarden',
 'voorbereidingstips',
+'gemiddelde voedingswaarde per 100 g',
 #'waarvan suikers',
 ],
 
