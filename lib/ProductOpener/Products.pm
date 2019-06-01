@@ -215,7 +215,8 @@ sub init_product($) {
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
 		if (defined param('cc')) {
-			$country = param('cc');
+			$country = lc(param('cc'));
+			$country =~ s/^en://;
 			
 			# 2019 06 01: also try to change the language according to country
 			my %lc_overrides = (

@@ -143,7 +143,8 @@ else {
 
 	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined param('cc')) and (param('cc') ne "fr")) {
 	
-		my $param_cc = param('cc');
+		my $param_cc = lc(param('cc'));
+		$param_cc =~ s/^en://;
 		
 		my %lc_overrides = (
 			es => "es",
