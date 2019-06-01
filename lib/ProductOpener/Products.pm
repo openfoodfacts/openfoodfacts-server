@@ -220,6 +220,21 @@ sub init_product($) {
 	if ($creator eq 'kiliweb') {
 		if (defined param('cc')) {
 			$country = param('cc');
+			
+			# 2019 06 01: also try to change the language according to country
+			my %lc_overrides = (
+				es => "es",
+				it => "it",
+				de => "de",
+				uk => "en",
+				gb => "en",
+				pt => "pt",
+				nl => "nl",
+			);
+			
+			if (defined $lc_overrides{$country}) {
+				$lc = $lc_overrides{$country};
+			}					
 		}
 		else {
 			$country = "france";
