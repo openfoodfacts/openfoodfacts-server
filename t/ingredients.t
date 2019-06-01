@@ -40,7 +40,7 @@ my $expected_product_ref = {
                                            'en:milk-proteins',
                                            'en:egg',
                                            'en:emulsifier',
-                                           'fr:E463',
+                                           'en:e463',
                                            'fr:E432 et E472',
                                            'en:acidity-regulator',
                                            'en:polyglycerol-esters-of-fatty-acids',
@@ -61,7 +61,7 @@ my $expected_product_ref = {
                                        'en:animal-protein',
                                        'en:egg',
                                        'en:emulsifier',
-                                       'fr:E463',
+                                       'en:e463',
                                        'fr:E432 et E472',
                                        'en:acidity-regulator',
                                        'en:polyglycerol-esters-of-fatty-acids',
@@ -83,7 +83,7 @@ my $expected_product_ref = {
                                   'en:animal-protein',
                                   'en:egg',
                                   'en:emulsifier',
-                                  'fr:e463',
+                                  'en:e463',
                                   'fr:e432-et-e472',
                                   'en:acidity-regulator',
                                   'en:polyglycerol-esters-of-fatty-acids',
@@ -132,7 +132,7 @@ my $expected_product_ref = {
                              },
                              {
                                'text' => 'E463',
-                               'id' => 'fr:E463',
+                               'id' => 'en:e463',
                                'rank' => 7
                              },
                              {
@@ -182,7 +182,7 @@ my $expected_product_ref = {
                                'id' => 'en:phosphoric-acid'
                              }
                            ],
-          'unknown_ingredients_n' => 3,
+          'unknown_ingredients_n' => 2,
           'ingredients_n' => 17
 
         };
@@ -524,8 +524,8 @@ $expected_product_ref =
     'en:milk-proteins',
     'en:wheat-flour',
     'en:cereal',
-    'en:cereal-flour',
     'en:wheat',
+    'en:cereal-flour',
     'en:sugar',
     'en:egg',
     'en:glucose-fructose-syrup',
@@ -639,8 +639,8 @@ $expected_product_ref =
     'en:milk-proteins',
     'en:wheat-flour',
     'en:cereal',
-    'en:cereal-flour',
     'en:wheat',
+    'en:cereal-flour',
     'en:sugar',
     'en:egg',
     'en:glucose-fructose-syrup',
