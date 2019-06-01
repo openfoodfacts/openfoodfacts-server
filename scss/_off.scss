@@ -325,3 +325,5 @@ p.details {
   color: gray;
   font-size: 0.8em;
 }
+
+@media only screen and (max-width: 40em) { h2 { font-weight:bold; font-size:1.2em;} }
