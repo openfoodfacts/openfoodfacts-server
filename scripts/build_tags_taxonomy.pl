@@ -25,6 +25,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use Modern::Perl '2012';
 use utf8;
 
+use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
 my $tagtype = $ARGV[0];
@@ -32,7 +33,43 @@ my $publish = $ARGV[1];
 
 print "building taxonomy for $tagtype - publish: $publish\n";
 
-build_tags_taxonomy($tagtype, $publish);
+binmode STDERR, ":encoding(UTF-8)";
+binmode STDIN, ":encoding(UTF-8)";
+binmode STDOUT, ":encoding(UTF-8)";
+
+
+my $file = $tagtype . ".txt";
+
+# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
+
+if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts/)) {
+
+	$file = "ingredients.all.txt";
+		
+	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file") or die("Cannot write $data_root/taxonomies/$file : $!\n");
+	
+	foreach my $taxonomy ("ingredients", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances") {
+	
+		if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")) {
+		
+			print $OUT "# $taxonomy.txt\n\n";
+			
+			while (<$IN>) {
+				print $OUT $_;
+			}
+			
+			print OUT "\n\n";
+			close($IN);
+		}
+		else {
+			print STDERR "Missing $data_root/taxonomies/$tagtype.txt\n";
+		}
+	}
+	
+	close ($OUT);
+}
+
+build_tags_taxonomy($tagtype, $file, $publish);
 
 
 exit(0);
