@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /cgi
+Disallow: /code
+User-agent: Slurp
+Disallow: /
+User-agent: dotbot
+Disallow: /
+User-agent: AhrefsBot 
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
