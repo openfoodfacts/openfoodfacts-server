@@ -737,7 +737,7 @@ my %phrases_before_ingredients_list = (
 fr => [
 
 'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
-
+'Quels Ingr(e|é)dients ?', # In Casino packagings
 ],
 
 
@@ -767,7 +767,6 @@ my %phrases_before_ingredients_list_uppercase = (
 fr => [
 
 'INGR(E|É)DIENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
-
 ],
 
 de => [
