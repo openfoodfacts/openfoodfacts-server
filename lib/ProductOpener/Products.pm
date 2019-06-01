@@ -46,6 +46,7 @@ BEGIN
 		&log_change
 
 		&compute_codes
+		&compute_completeness_and_missing_tags
 		&compute_product_history_and_completeness
 		&compute_languages
 		&compute_changes_diff_text
@@ -54,7 +55,7 @@ BEGIN
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
-		
+
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
 
@@ -94,9 +95,9 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 	# Perl scalars are not typed, the internal type depends on the last operator
 	# used on the variable... e.g. if it is printed, then it's converted to a string.
 	# See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
-	
+
 	# Force all numbers to be stored as numbers in .sto files and MongoDB
-	
+
 	if (defined $product_ref->{nutriments}) {
 		foreach my $field (keys %{$product_ref->{nutriments}}) {
 			# _100g and _serving need to be numbers
@@ -111,9 +112,9 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 			# fields like "salt", "salt_value"
 			# -> used internally, should not be used by apps
 			# store as numbers
-			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {	
+			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {
 				# Store as number
-				$product_ref->{nutriments}{$field} += 0.0;			
+				$product_ref->{nutriments}{$field} += 0.0;
 			}
 		}
 	}
@@ -224,11 +225,11 @@ sub init_product($) {
 			$country = "france";
 		}
 	}
-	
+
 	# ugly fix: elcoco -> Spain
 	if ($creator eq 'elcoco') {
 		$country = "spain";
-	}	
+	}
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
@@ -322,11 +323,11 @@ sub change_product_server_or_code($$$) {
 	my $product_ref = shift;
 	my $new_code = shift;
 	my $errors_ref = shift;
-	
+
 	my $code = $product_ref->{code};
 	my $new_server = "";
 	my $new_data_root = $data_root;
-	
+
 	if ($new_code =~ /^([a-z]+)$/) {
 		$new_server = $1;
 		if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
@@ -335,7 +336,7 @@ sub change_product_server_or_code($$$) {
 			$new_data_root = $options{other_servers}{$new_server}{data_root};
 		}
 	}
-	
+
 	$new_code = normalize_code($new_code);
 	if ($new_code =~ /^\d+$/) {
 	# check that the new code is available
@@ -352,7 +353,7 @@ sub change_product_server_or_code($$$) {
 			}
 			$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
 		}
-	}	
+	}
 }
 
 
@@ -532,7 +533,7 @@ sub store_product($$) {
 
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
-	
+
 
 	# 2018-12-26: remove obsolete products from the database
 	# another option could be to keep them and make them searchable only in certain conditions
@@ -568,7 +569,7 @@ sub compute_data_sources($) {
 	my $product_ref = shift;
 
 	my %data_sources = ();
-	
+
 	if (defined $product_ref->{sources}) {
 		foreach my $source_ref (@{$product_ref->{sources}}) {
 
@@ -583,7 +584,7 @@ sub compute_data_sources($) {
 			if ($source_ref->{id} eq 'ferrero') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Ferrero"} = 1;
-			}			
+			}
 			if ($source_ref->{id} eq 'fleurymichon') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Fleury Michon"} = 1;
@@ -591,11 +592,11 @@ sub compute_data_sources($) {
 			if ($source_ref->{id} eq 'iglo') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Iglo"} = 1;
-			}			
+			}
 			if ($source_ref->{id} eq 'ldc') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - LDC"} = 1;
-			}			
+			}
 			if ($source_ref->{id} eq 'sodebo') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Sodebo"} = 1;
@@ -603,8 +604,8 @@ sub compute_data_sources($) {
 			if ($source_ref->{id} eq 'systemeu') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Systeme U"} = 1;
-			}			
-			
+			}
+
 			if ($source_ref->{id} eq 'openfood-ch') {
 				$data_sources{"Databases"} = 1;
 				$data_sources{"Database - FoodRepo / openfood.ch"} = 1;
@@ -612,10 +613,10 @@ sub compute_data_sources($) {
 			if ($source_ref->{id} eq 'usda-ndb') {
 				$data_sources{"Databases"} = 1;
 				$data_sources{"Database - USDA NDB"} = 1;
-			}			
+			}
 		}
-	}	
-	
+	}
+
 	if ((scalar keys %data_sources) > 0) {
 		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
 		compute_field_tags($product_ref, "en", "data_sources");
@@ -640,6 +641,8 @@ sub compute_completeness_and_missing_tags($$$) {
 
 	my $complete = 1;
 	my $notempty = 0;
+	my $step = 1.0/10.0; # Currently, we check for 10 items.
+	my $completeness = 0.0;
 
 	if (scalar keys %{$current_ref->{uploaded_images}} < 1) {
 		push @states_tags, "en:photos-to-be-uploaded";
@@ -647,11 +650,20 @@ sub compute_completeness_and_missing_tags($$$) {
 	}
 	else {
 		push @states_tags, "en:photos-uploaded";
+		my $half_step = $step * 0.5;
+		$completeness += $half_step;
+
+		my $image_step = $half_step * (1.0 / 3.0);
+		$completeness += $image_step if defined $current_ref->{selected_images}{"front_$lc"};
+		$completeness += $image_step if defined $current_ref->{selected_images}{"ingredients_$lc"};
+		$completeness += $image_step if ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
+				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')));
 
 		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
 			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
 				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
 			push @states_tags, "en:photos-validated";
+
 		}
 		else {
 			push @states_tags, "en:photos-to-be-validated";
@@ -670,6 +682,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		else {
 			push @states_tags, "en:" . get_fileid($field) . "-completed";
 			$notempty++;
+			$completeness += $step;
 		}
 	}
 
@@ -684,6 +697,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	if ((defined $product_ref->{emb_codes}) and ($product_ref->{emb_codes} ne '')) {
 		push @states_tags, "en:packaging-code-completed";
 		$notempty++;
+		$completeness += $step;
 	}
 	else {
 		push @states_tags, "en:packaging-code-to-be-completed";
@@ -692,6 +706,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	if ((defined $product_ref->{expiration_date}) and ($product_ref->{expiration_date} ne '')) {
 		push @states_tags, "en:expiration-date-completed";
 		$notempty++;
+		$completeness += $step;
 	}
 	else {
 		push @states_tags, "en:expiration-date-to-be-completed";
@@ -701,6 +716,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} ne '') and (not ($product_ref->{ingredients_text} =~ /\?/))) {
 		push @states_tags, "en:ingredients-completed";
 		$notempty++;
+		$completeness += $step;
 	}
 	else {
 		push @states_tags, "en:ingredients-to-be-completed";
@@ -711,6 +727,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) ) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
+		$completeness += $step;
 	}
 	else {
 		push @states_tags, "en:nutrition-facts-to-be-completed";
@@ -742,6 +759,8 @@ sub compute_completeness_and_missing_tags($$$) {
 
 	$product_ref->{complete} = $complete;
 	$current_ref->{complete} = $complete;
+	$product_ref->{completeness} = $completeness;
+	$current_ref->{completeness} = $completeness;
 
 
 	if ($complete) {
