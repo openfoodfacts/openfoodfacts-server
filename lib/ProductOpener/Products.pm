@@ -208,10 +208,6 @@ sub init_product($) {
 		creator=>$creator,
 		rev=>0,
 	};
-	if (defined $lc) {
-		$product_ref->{lc} = $lc;
-		$product_ref->{lang} = $lc;
-	}
 
 	use ProductOpener::GeoIP;
 	my $country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
@@ -245,6 +241,11 @@ sub init_product($) {
 	if ($creator eq 'elcoco') {
 		$country = "spain";
 	}
+	
+	if (defined $lc) {
+		$product_ref->{lc} = $lc;
+		$product_ref->{lang} = $lc;
+	}	
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
