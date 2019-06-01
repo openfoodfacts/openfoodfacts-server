@@ -1,8 +1,8 @@
-stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
-stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
-stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès
-stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase
+stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
+stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
+stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès
+stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 
 
 synonyms:en:carbon, co2
@@ -76,7 +76,6 @@ synonyms:es:natural, de origen natural, origen natural
 synonyms:fr:phase de ponte, période de ponte, la ponte
 
 synonyms:fr:premier, 1er
-
 
 de:Berliner Wein Trophy
 
@@ -429,6 +428,7 @@ en:Decanter World Wine Awards
 en:Designated Origin Denomination
 de:Ausgewiesene Herkunftsbezeichnung
 es:DO, D.O., Denominación de Origen
+fr:Appellation d'origine
 wikidata:en: Q3139487
 
 en:Distributor labels, Labels of distributors
@@ -1628,6 +1628,10 @@ ru:Честная торговля, FLO
 en:Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
 nl:Max Havelaar
 wikidata:en: Q694008
+
+< en:Fair trade
+< en:Organic
+fr:Bio-équitable, bioéquitable
 
 < en:Fair trade
 en:TransFer, TransFer Canada
@@ -2837,15 +2841,6 @@ nl:Vrij van kunstmatige kleurstoffen
 pt:Sem cores artificiais, sem cor artificial
 ru:без искусственных красителей
 
-< en:No artificial colors
-< en:No artificial flavors
-en:No artificial colours or flavours
-de:Keine künstlichen Farbstoffe oder Aromen
-es:Sin colorantes o saborizantes artificiales
-fr:Sans colorants ni arômes artificiels
-nl:Zonder kunstmatige kleurstoffen
-pt:Sem corantes nem aromas artificiais
-
 en:No artificial flavors, free of artificial flavor
 ca:Sense aromes artificials, Lliure d'aromes artificials
 de:Ohne künstliche Aromen
@@ -2858,6 +2853,15 @@ nl:Vrij van kunstmatige smaakstoffen, Zonder kunstmatige smaakstoffen
 pl:Bez sztucznych aromatów
 pt:Sem sabores artificiais, livre de sabor artificial
 ru:без искусственных ароматизаторов, без добавления искусственных ароматизаторов
+
+< en:No artificial colors
+< en:No artificial flavors
+en:No artificial colours or flavours
+de:Keine künstlichen Farbstoffe oder Aromen
+es:Sin colorantes o saborizantes artificiales
+fr:Sans colorants ni arômes artificiels
+nl:Zonder kunstmatige kleurstoffen
+pt:Sem corantes nem aromas artificiais
 
 en:No artificial flavour enhancer
 de:Ohne künstliche Geschmaksverstärker
@@ -2973,6 +2977,10 @@ ru:Без ГМО, Без использования ГМО, Не содержи�
 en:Non GMO project
 pt:Non GMO project, Projeto não OGM
 wikidata:en: Q7754286
+
+< en:No GMOs
+< fr:Soja Français
+fr:Soja Français sans OGM, Soja Français garanti sans OGM
 
 en:No hydrogenated fats
 ca:Sense greixos hidrogenats
@@ -3329,10 +3337,6 @@ nl:EU Organic
 pt:Orgânico EU, Orgânico Europeu, Folha Europeia, Folha Orgânica Europeia
 zh:欧盟有机
 wikidata:en: Q380448
-
-< en:Fair trade
-< en:Organic
-fr:Bio-équitable, bioéquitable
 
 < en:Organic
 en:India Organic
@@ -4109,38 +4113,32 @@ de:Geschütztes spanisches Produkt
 es:Producto protegido de España
 fr:Produit protégé espagnol
 
-< :
+< en:Designated Origin Denomination
 < en:Spanish protected product
 en:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
 ca:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
 es:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
 wikidata:en: Q5802762
 
-< :
+< en:Designated Origin Denomination
 < en:Spanish protected product
 en:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
 ca:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
 es:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
 wikidata:en: Q13157
 
-< :
+< en:Designated Origin Denomination
 < en:Spanish protected product
 en:DO Navarra, D.O. Navarra, Vino de Navarra
 es:DO Navarra, D.O. Navarra, Vino de Navarra
 wikidata:en: Q976624
 
-< :
+< en:Designated Origin Denomination
 < en:Spanish protected product
 en:DO Toro, D.O. Toro, Toro, Vino de Toro
 ca:DO Toro, D.O. Toro, Toro, Vi de Toro
 es:DO Toro, D.O. Toro, Toro, Vino de Toro
 wikidata:en: Q765567
-
-< :
-< en:Spanish protected product
-en:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
-es:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
-wikidata:en: Q1569384
 
 < en:PDO
 < en:Spanish protected product
@@ -4935,6 +4933,12 @@ es:Concours Internetionale du Vins, Vinandino
 es:DOCa, D.O.Ca., Denominación de Origen Calificada
 ru:Обозначение происхождения
 
+< en:Spanish protected product
+< es:DOCa
+en:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
+es:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
+wikidata:en: Q1569384
+
 es:Salon Internacional del Vino de Valladolid
 fr:Iberwine à Valladolid
 
@@ -5285,10 +5289,6 @@ fr:Sélections Mondiales des Vins Canada à Québec
 fr:Soja de France
 
 fr:Soja Français, Soja de Français, Filière Soja Français
-
-< en:No GMOs
-< fr:Soja Français
-fr:Soja Français sans OGM, Soja Français garanti sans OGM
 
 fr:Source de Vitamine C
 es:Fuente de Vitamina C
