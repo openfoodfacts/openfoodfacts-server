@@ -838,7 +838,7 @@ my %phrases_after_ingredients_list = (
 fr => [
 
 '(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
-'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
+'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
 'valeur(s?) (e|é)nerg(e|é)tique',
 'valeur(s?) nutritives',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
@@ -856,8 +856,8 @@ fr => [
 'apr(e|è)s achat',
 'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
-'valeurs moyennes pour 100 g',
-'valeur nutritionnelle moyenne par 100 g',
+'valeurs mo(y|v)ennes',
+'valeur nutritionnelle mo(y|v)enne',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
