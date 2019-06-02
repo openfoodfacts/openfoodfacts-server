@@ -737,7 +737,46 @@ my %phrases_before_ingredients_list = (
 fr => [
 
 'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
+'Quels Ingr(e|é)dients ?', # In Casino packagings
+],
 
+
+de => [
+
+'zutaten(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
+#@hangy Does that regex handle zutat: ?
+],
+
+es => [
+
+'ingredientes(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+
+],
+
+it => [
+
+'ingredienti(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+
+],
+
+es => [
+'ingredientes(\s*)(\s|-|:|\r|\n)+',
+],
+
+pt => [
+'ingredientes(\s*)(\s|-|:|\r|\n)+',
+],
+
+it => [
+'ingredienti(\s*)(\s|-|:|\r|\n)+',
+],
+
+nl => [
+'ingredi(e|ë)nten(\s*)(\s|-|:|\r|\n)+',
+],
+
+de => [
+'zutaten(\s*)(\s|-|:|\r|\n)+',
 ],
 
 );
@@ -748,11 +787,41 @@ my %phrases_before_ingredients_list_uppercase = (
 fr => [
 
 'INGR(E|É)DIENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+],
 
+de => [
+
+'ZUTATEN(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
+#@hangy Does that regex handle ZUTAT: ?
 ],
 
 es => [
-'ingredientes'
+
+'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
+
+],
+
+pt => [
+
+'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
+
+],
+
+it => [
+
+'INGREDIENTI(\s*)(\s|-|:|\r|\n)+',
+],
+
+nl => [
+
+'INGREDI(E|Ë)NTEN(\s*)(\s|-|:|\r|\n)+',
+
+],
+
+de => [
+
+'ZUTATEN(\s*)(\s|-|:|\r|\n)+',
+
 ],
 
 );
@@ -767,6 +836,7 @@ fr => [
 '(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
 'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
 'valeur(s?) (e|é)nerg(e|é)tique',
+'valeur(s?) nutritives',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 '(a|à) consommer de préférence',
 'conseils de pr(e|é)paration',
@@ -779,14 +849,18 @@ fr => [
 '(a|à) conserver (dans|de|a|à)',
 '(a|à)conserver (dans|de|a|à)', #variation
 'apr(e|è)s ouverture',
+'apr(e|è)s achat',
+'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
 'valeurs moyennes pour 100 g',
+'valeur nutritionnelle moyenne par 100 g',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
 #'dontSUcres',
 #'waarvan suikers/dont sucres',
 #`verzadigde vetzuren/ acides gras saturés`,
+
 ],
 
 en => [
@@ -800,8 +874,10 @@ en => [
 
 es => [
 'valores nutricionales',
+'modo de preparacion',
 'informaci(o|ô)n nutricional',
 'valor energ(e|é)tico',
+'condiciones de conservaci(o|ó)n',
 #'pa(i|í)s de transformaci(o|ó)n',
 # Conservar en luger fresco y seco
 #de los cuates azücares
@@ -815,6 +891,8 @@ de => [
 nl => [
 'voedingswaarden',
 'voorbereidingstips',
+'gemiddelde voedingswaarden',
+'gemiddelde voedingswaarde per 100 g',
 #'waarvan suikers',
 ],
 
@@ -824,10 +902,21 @@ it => [
 'di cui zuccheri',
 ],
 
+ja => [
+'栄養価',
+],
+
 pt => [
 'conservar em local fresco',
+'conservar em lugar fresco',
 'dos quais a(ç|c)(u|ü)ares',
 'dos quais a(ç|c)(u|ü)cares',
+],
+
+ro => [
+'declaratie nutritional(a|ă)',
+'a si pastra la frigider dup(a|ă) deschidere',
+'a se agita inainte de deschidere',
 ],
 
 

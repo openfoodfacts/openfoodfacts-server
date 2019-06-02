@@ -1,7 +1,7 @@
 ﻿version: "3.7"
 services:
   mongodb:
-    image: mongo:latest
+    image: mongo:4.0.10
     volumes:
       - dbdata:/var/lib/mongodb
     ports:
@@ -9,7 +9,7 @@ services:
     networks:
       - webnet
   memcached:
-    image:  memcached:latest
+    image:  memcached:1.5.16-alpine
     ports:
       - 11211:11211
     networks:
