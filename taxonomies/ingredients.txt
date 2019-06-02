@@ -56,9 +56,9 @@ stopwords:sl:vsebuje, sestavine
 stopwords:sv:från, med
 stopwords:zh::配料
 
-# comment:en:Words that negate the preceding comma
+# comment:en:Words that specify the ingredient before the preceding comma or ()
 
-fr:effilées et séchées
+fr:effilées et séchées, feuilles, feulles et tiges, follicule
 
 # comment:en:Words that should be integrated in the ingredients
 
@@ -23272,6 +23272,9 @@ fr:whiskys
 en:Scottish whiskey
 fr:whisky écossais
 
+<en:Scottish whiskey
+en:blended scotch whisky
+
 <en:whiskey
 en:Irish whiskey
 fr:whisky irlandais
@@ -44769,32 +44772,48 @@ nl:groene spliterwten
 it:piselli verdi spezzati
 # ingredient/fr:pois-casses-verts has 13 products in 4 languages
 
-fr:lentilles sèches trempées
 
-fr:lentilles corail
 
+
+# description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
+
+<en:legume
+en:lentils, lentil
+fr:lentilles, lentille
+wikipedia:en:https://en.wikipedia.org/wiki/Lentil
+
+<en:lentils
+fr:lentilles réhydratées, lentilles sèches trempées
+
+<en:lentils
+fr:lentilles précuites
+
+<en:lentils
 en:green lentils
-de:Tellerlinsen
-es:lentejas rubias
-fr:lentilles blondes
-nl:blonde linzen
-
-fr:lentille, lentilles
-
 fr:lentille verte, lentilles vertes
 carbon_footprint_fr_foodges_ingredient:fr:Lentilles vertes
 
-fr:lentilles précuites
-
-fr:lentilles vertes précuites
-
-fr:lentilles rouges
-
-fr:lentilles réhydratées
-
+<en:green lentils
 fr:lentilles vertes cuites
 
-fr:lentille
+<en:green lentils
+fr:lentilles vertes précuites
+
+<en:lentils
+fr:lentilles corail
+
+<en:lentils
+fr:lentilles rouges
+de:Rote Linsen
+it:lenticchie rosse
+# ingredient/fr:lentilles-rouges has 40 products @2019-06-02
+
+<fr:lentilles rouges
+fr:lentilles rouges décortiquées
+# ingredient/fr:lentilles-rouges-decortiquees has 11 products @2019-06-02
+
+
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
