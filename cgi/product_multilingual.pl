@@ -603,27 +603,33 @@ sub display_field($$) {
 			$default_text = $Lang{$field . "_tagsinput"}{$lang};
 		}
 
-		$initjs .= <<JAVASCRIPT
+		$initjs .= <<"JAVASCRIPT"
 \$('#$field').tagsInput({
-	'height':'3rem',
-	'width':'100%',
-	'interactive':true,
-	'minInputWidth':130,
-	'delimiter': [','],
-	'defaultText':"$default_text",
-	'autocomplete_url':"$autocomplete",
-	'autocomplete': {
-		'source': function(request, response) {
-			if (request.term.length < 1) {
-				let tag = window.localStorage.getItem("po_last_tag");
-				tag != null ? response(tag): "";
+	height: '3rem',
+	width: '100%',
+	interactive: true,
+	minInputWidth: 130,
+	delimiter: [','],
+	defaultText: "$default_text",
+	autocomplete_url:"$autocomplete",
+	autocomplete: {
+		source: function(request, response) {
+			if (request.term === "") {
+				let tag = window.localStorage.getItem("po_last_tag_${field}");
+				if (tag != null) response([tag]);
 			}
 		},
-		'select': function(event, ui) {
-			window.localStorage.setItem("po_last_tag", ui.item.value)
-		}
+		minLength: 0
+	},
+	onAddTag: function(tag) {
+		window.localStorage.setItem("po_last_tag_${field}", tag);
+		\$('#${field}_tag').autocomplete("search", "");
 	}
 });
+\$("#${field}_tag").focus(function() {
+    \$(this).autocomplete("search", "");
+});
+
 JAVASCRIPT
 ;
 	}
