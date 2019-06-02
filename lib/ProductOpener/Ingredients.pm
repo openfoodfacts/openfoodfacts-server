@@ -759,6 +759,26 @@ it => [
 
 ],
 
+es => [
+'ingredientes(\s*)(\s|-|:|\r|\n)+',
+],
+
+pt => [
+'ingredientes(\s*)(\s|-|:|\r|\n)+',
+],
+
+it => [
+'ingredienti(\s*)(\s|-|:|\r|\n)+',
+],
+
+nl => [
+'ingredi(e|ë)nten(\s*)(\s|-|:|\r|\n)+',
+],
+
+de => [
+'zutaten(\s*)(\s|-|:|\r|\n)+',
+],
+
 );
 
 
@@ -777,13 +797,30 @@ de => [
 
 es => [
 
-'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
+
+],
+
+pt => [
+
+'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
 
 ],
 
 it => [
 
-'INGREDIENTI(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+'INGREDIENTI(\s*)(\s|-|:|\r|\n)+',
+],
+
+nl => [
+
+'INGREDI(E|Ë)NTEN(\s*)(\s|-|:|\r|\n)+',
+
+],
+
+de => [
+
+'ZUTATEN(\s*)(\s|-|:|\r|\n)+',
 
 ],
 
@@ -837,8 +874,10 @@ en => [
 
 es => [
 'valores nutricionales',
+'modo de preparacion',
 'informaci(o|ô)n nutricional',
 'valor energ(e|é)tico',
+'condiciones de conservaci(o|ó)n',
 #'pa(i|í)s de transformaci(o|ó)n',
 # Conservar en luger fresco y seco
 #de los cuates azücares
@@ -852,6 +891,7 @@ de => [
 nl => [
 'voedingswaarden',
 'voorbereidingstips',
+'gemiddelde voedingswaarden',
 'gemiddelde voedingswaarde per 100 g',
 #'waarvan suikers',
 ],
@@ -868,6 +908,7 @@ ja => [
 
 pt => [
 'conservar em local fresco',
+'conservar em lugar fresco',
 'dos quais a(ç|c)(u|ü)ares',
 'dos quais a(ç|c)(u|ü)cares',
 ],
