@@ -1,7 +1,42 @@
 
-# stopwords
 
-stopwords:da:indeholder, inneholder, av
+
+# comment:en:These are words that start a list of ingredients
+
+en:ingredient, ingredients, composition
+bg:Състав
+bs:Sastoji
+cs:Složení
+da:indeholder
+de:Zutaten, Zusammensetzung
+es:composición
+et:Koostisainsd, koostis
+fi:ainenosat
+fr:ingrédient, ingrédients, composition
+hu:összetétel
+id:komposisi
+is:inneald
+it:ingredienti, composizione
+kk:Курамы
+ky:Курамы
+lt:Sudedamosios dalys, Sudėtis
+lv:sastāvs
+nl:ingrediënt, ingrediënten, samenstelling, bestanddelen
+pl:skład, Skladniki
+pt:composição
+ro:compoziţie, Ingrediente
+ru:coctaB
+sk:obsahuje, Zloženie
+sl:vsebuje, Sestavine
+sv:innehåller, Ingredienser, innehåll
+tg:Таркиб
+tr:lcindekiler
+uz:Tarkib
+zh::配料
+
+# comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
+
+stopwords:da:av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with
@@ -13,13 +48,16 @@ stopwords:hu:tartalmaz
 stopwords:id:mengandung
 stopwords:it:contiene, nella
 stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen
-stopwords:nn:av, inneholder
+stopwords:nn:av
 stopwords:pl:w tym
 stopwords:pt:do qual, dos quais
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje, sestavine
-stopwords:sv:innehåller, från, med
+stopwords:sv:från, med
 stopwords:zh::配料
+
+# comment:en:These are words that end ingredient lists.
+
 
 # postfixes
 
@@ -111,36 +149,6 @@ stopwords:zh::配料
 # sv
 # i varierende proportion
 
-en:ingredient, ingredients, composition
-bg:Състав
-bs:Sastoji
-cs:Složení
-da:indeholder
-de:Zutaten, Zusammensetzung
-es:composición
-et:Koostisainsd, koostis
-fi:ainenosat
-fr:ingrédient, ingrédients, composition
-hu:összetétel
-id:komposisi
-is:inneald
-it:ingredienti, composizione
-kk:Курамы
-ky:Курамы
-lt:Sudedamosios dalys, Sudėtis
-lv:sastāvs
-nl:ingrediënt, ingrediënten, samenstelling, bestanddelen
-pl:skład, Skladniki
-pt:composição
-ro:compoziţie, Ingrediente
-ru:coctaB
-sk:obsahuje, Zloženie
-sl:vsebuje, Sestavine
-sv:innehåller, Ingredienser, innehåll
-tg:Таркиб
-tr:lcindekiler
-uz:Tarkib
-zh::配料
 
 fr:additifs alimentaires
 # ingredient/fr:additifs%20alimentaires has 52 products @2019-04-20
@@ -30357,8 +30365,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ice
 <en:salt
 fr:eau et sel
 
-
-fr:acide de sodium
 
 
 
