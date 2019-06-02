@@ -220,6 +220,7 @@ sub init_product($) {
 			
 			# 2019 06 01: also try to change the language according to country
 			my %lc_overrides = (
+				au => "en",
 				es => "es",
 				it => "it",
 				de => "de",
@@ -227,6 +228,9 @@ sub init_product($) {
 				gb => "en",
 				pt => "pt",
 				nl => "nl",
+				us => "en",
+				ie => "en",
+				nz => "en",
 			);
 			
 			if (defined $lc_overrides{$country}) {

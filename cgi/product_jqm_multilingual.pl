@@ -147,13 +147,17 @@ else {
 		$param_cc =~ s/^en://;
 		
 		my %lc_overrides = (
-			es => "es",
-			it => "it",
-			de => "de",
-			uk => "en",
-			gb => "en",
-			pt => "pt",
-			nl => "nl",
+				au => "en",
+				es => "es",
+				it => "it",
+				de => "de",
+				uk => "en",
+				gb => "en",
+				pt => "pt",
+				nl => "nl",
+				us => "en",
+				ie => "en",
+				nz => "en",
 		);
 		
 		if (defined $lc_overrides{$param_cc}) {
