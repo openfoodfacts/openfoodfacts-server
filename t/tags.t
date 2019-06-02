@@ -293,8 +293,8 @@ my @tags = ();
 
 is_deeply (\@tags, [
    'en:fruit',
-   'en:fruit-juice',
    'en:citrus-fruit',
+   'en:fruit-juice',
    'en:salt',
    'en:sugar',
    'en:orange',
@@ -315,8 +315,8 @@ foreach my $tag (@tags) {
 is_deeply (\@tags, [
    'en:concentrated-orange-juice',
    'en:fruit',
-   'en:fruit-juice',
    'en:citrus-fruit',
+   'en:fruit-juice',
    'en:orange',
    'en:orange-juice',
    'en:sugar',
