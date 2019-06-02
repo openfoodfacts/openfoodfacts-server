@@ -879,8 +879,10 @@ es => [
 'valor energ(e|é)tico',
 'condiciones de conservaci(o|ó)n',
 #'pa(i|í)s de transformaci(o|ó)n',
-# Conservar en luger fresco y seco
-#de los cuates azücares
+'conservar en luger fresco y seco',
+'de los cuates az(u|ü)cares',
+'conservar en lugar fresco y seco',
+'protegido de la luz',
 ],
 
 de => [
