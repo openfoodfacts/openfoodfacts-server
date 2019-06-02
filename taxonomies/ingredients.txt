@@ -62,7 +62,7 @@ fr:effilées et séchées, feuilles, feulles et tiges, follicule
 
 # comment:en:Words that should be integrated in the ingredients
 
-fr:ingrédient agricole issu de, produit de l'agriculture biologique, issue de l'agriculture biologique, produit issu de l'agriculture biologique, produits issus de l'agriculture biologique, ingrédients biologiques
+fr:ingrédient agricole issu de, produit de l'agriculture biologique, issue de l'agriculture biologique, produit issu de l'agriculture biologique, produits issus de l'agriculture biologique, ingrédients biologiques, biologiques
 
 # comment:en:These are words that end ingredient lists.
 
@@ -44790,23 +44790,36 @@ fr:lentilles précuites
 
 <en:lentils
 en:green lentils
+de:grüne Linsen, Linsen grün
+es:lentejas verdes
 fr:lentille verte, lentilles vertes
+it:lenticchie verdi
+nl:groene linzen
+pt:lentilhas verde
 carbon_footprint_fr_foodges_ingredient:fr:Lentilles vertes
+# ingredient/fr:lentille-verte has 228 products in 7 languages @2019-06-02
+
+<en:green lentils
+en:organic green lentils
+de:Bio Linsen grün
+fr:lentilles vertes bio
+it:lenticchie verdi bio
 
 <en:green lentils
 fr:lentilles vertes cuites
 
 <en:green lentils
 fr:lentilles vertes précuites
+# ingredient/fr:lentilles-vertes-précuites has 49 products @2019-06-02
 
 <en:lentils
-fr:lentilles corail
-
-<en:lentils
-fr:lentilles rouges
+fr:lentilles corail, lentilles rouges
 de:Rote Linsen
+es:lentejas rojas
 it:lenticchie rosse
-# ingredient/fr:lentilles-rouges has 40 products @2019-06-02
+nl:rode linzen
+# ingredient/fr:lentilles-rouges has 40 products in 3 languages @2019-06-02
+# ingredient/fr:lentilles-corail has 131 products in 6 languages @2019-06-02
 
 <fr:lentilles rouges
 fr:lentilles rouges décortiquées
