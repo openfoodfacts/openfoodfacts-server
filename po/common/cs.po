@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-03 21:15\n"
+"PO-Revision-Date: 2019-06-02 17:43\n"
 "Language-Team: Czech\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -185,7 +185,7 @@ msgstr "Číslo čárového kódu:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Můžete také pomoct s financováním projektu Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -381,11 +381,11 @@ msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Důvod odstranění"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Odstranit výrobek"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
@@ -393,7 +393,7 @@ msgstr "Smazat stránku"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Smazat obrázky"
 
 msgctxt "delete_user"
 msgid "Delete an user"
@@ -425,15 +425,15 @@ msgstr "Enviromentální stopa"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "Pokud je uhlíková stopa uvedena na etiketě (což se dnes stává velmi zřídka), uveďte ji prosím v přepočtu na stejné množství výrobku, jako nutriční hodnoty."
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "upravit"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "Souhrn změn"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -445,27 +445,27 @@ msgstr "Upravit stránku"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Upravit veřejný profil"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "Změny vašeho veřejného profilu byly uloženy."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "Níže uvedené informace jsou viditelné ve vašem veřejném profilu."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "Změnit vlastnosti účtu"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Vlastnosti účtu"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Vlastnosti vašeho účtu byly změněny.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -477,7 +477,7 @@ msgstr ""
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "e-mailová adresa"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -685,7 +685,7 @@ msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "Objevte projekt"
+msgstr "Zjistěte více o projektu"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
@@ -782,7 +782,7 @@ msgstr "Produkt"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "Běžné jméno"
+msgstr "Obecné označení"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -1313,7 +1313,7 @@ msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "Objevte"
+msgstr "Zjistit víc"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -1768,7 +1768,7 @@ msgstr ""
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr "Foto s čárovým kódem:"
+msgstr "Snímek čárového kódu:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
@@ -2332,6 +2332,10 @@ msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Seřadit podle"
 
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr ""
+
 msgctxt "sort_created_t"
 msgid "Add date"
 msgstr "Přidat datum"
@@ -2466,7 +2470,7 @@ msgstr "Uživatelské jméno nebo e-mailová adresa: "
 
 msgctxt "username"
 msgid "User name"
-msgstr ""
+msgstr "Uživatelské jméno"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
@@ -2579,7 +2583,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr ""
+msgstr "Barevná nutriční škála NutriScore"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
@@ -2772,7 +2776,7 @@ msgstr "Od 18 let do a včetně 64 let"
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr "Starší"
+msgstr "Senioři"
 
 msgctxt "elderly_age"
 msgid "65+"
@@ -2820,7 +2824,7 @@ msgstr ""
 
 msgctxt "infants"
 msgid "Infants"
-msgstr "Nemluvňata"
+msgstr "Kojenci"
 
 msgctxt "infants_age"
 msgid "< 1"
@@ -2840,11 +2844,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "Evropský úřad pro bezpečnost potravin (EFSA) zjistil, že nadměrná konzumace <tag> je velmi riziková pro některé skupiny obyvatel."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr ""
+msgstr "Evropský úřad pro bezpečnost potravin (EFSA) zjistil, že nadměrná konzumace <tag> je mírně riziková pro některé skupiny obyvatel."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2856,7 +2860,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
-msgstr ""
+msgstr "Evropský úřad pro bezpečnost potravin (EFSA) zjistil, že v populaci není žádná skupina obyvatel, kde by bylo více než 5 % osob vystaveno riziku nadměrného denního příjmu <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
@@ -2868,11 +2872,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Riziko překročení přijatelného denního příjmu (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Riziko překročení nejvyšší dávky, pří které není pozorován nežádoucí účinek (dávka bez pozorovaných nežádoucích účinků - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -2892,15 +2896,15 @@ msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr "Někteří lidé"
+msgstr "Část populace"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr "nad 5 %"
+msgstr "více než 5 %"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr "Většina lidí"
+msgstr "Většina populace"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
@@ -3223,7 +3227,7 @@ msgid "Help translate the %s to %s"
 msgstr ""
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
 msgstr ""
 
 msgctxt "translate_taxonomy_add"
