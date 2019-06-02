@@ -892,6 +892,7 @@ es => [
 de => [
 'Ernährungswerte',
 'Vorbereitung Tipps',
+'Mindestens altbar bis',
 ],
 
 nl => [
