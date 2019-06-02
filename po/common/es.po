@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-20 19:57\n"
+"PO-Revision-Date: 2019-06-02 18:37\n"
 "Language-Team: Spanish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2360,6 +2360,10 @@ msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Ordenar por"
 
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr ""
+
 msgctxt "sort_created_t"
 msgid "Add date"
 msgstr "Fecha de creación"
@@ -2789,7 +2793,7 @@ msgstr ""
 
 msgctxt "adults"
 msgid "Adults"
-msgstr ""
+msgstr "Adultos"
 
 msgctxt "adults_age"
 msgid "18 to 64"
@@ -2797,7 +2801,7 @@ msgstr ""
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr ""
+msgstr "Desde los 18 años hasta los 64 años inclusive"
 
 msgctxt "elderly"
 msgid "Elderly"
@@ -2921,7 +2925,7 @@ msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "Algunas personas"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
@@ -2929,7 +2933,7 @@ msgstr "más del 5%"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "La mayoría de la gente"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
@@ -2937,11 +2941,11 @@ msgstr "más del 50%"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "Funciones"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
@@ -2953,15 +2957,15 @@ msgstr ""
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "Fotos y datos comprobados"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "He comprobado las fotos y datos."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "He comprobado las fotos y los datos de nuevo."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
@@ -2977,7 +2981,7 @@ msgstr ""
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "Otra información"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
@@ -3001,7 +3005,7 @@ msgstr ""
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr ""
+msgstr "Otra información"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
@@ -3252,8 +3256,8 @@ msgid "Help translate the %s to %s"
 msgstr "Ayuda a traducir el %s a %s"
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr "Puede sugerir traducciones para las entradas que no han sido traducidas a su idioma todavía. El enlace azul en inglés muestra los productos correspondientes, el texto negro en inglés muestra la entrada original con sinónimos opcionales separados por comas. Introduzca la traducción en el cuadro de texto, con sinónimos opcionales, y luego haga clic en el botón Guardar. ¡Gracias!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr ""
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
