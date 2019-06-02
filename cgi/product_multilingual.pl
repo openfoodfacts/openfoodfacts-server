@@ -603,6 +603,8 @@ sub display_field($$) {
 			$default_text = $Lang{$field . "_tagsinput"}{$lang};
 		}
 
+		my $arrayLenght = 3;
+
 		$initjs .= <<"JAVASCRIPT"
 \$('#$field').tagsInput({
 	height: '3rem',
@@ -616,20 +618,26 @@ sub display_field($$) {
 		source: function(request, response) {
 			if (request.term === "") {
 				let tag = window.localStorage.getItem("po_last_tag_${field}");
-				if (tag != null) response([tag]);
+				if (tag != null) response(JSON.parse(tag));
 			}
 		},
 		minLength: 0
 	},
 	onAddTag: function(tag) {
-		window.localStorage.setItem("po_last_tag_${field}", tag);
+		let existing = JSON.parse(window.localStorage.getItem("po_last_tag_${field}"));
+		if (existing == null) {
+			window.localStorage.setItem("po_last_tag_${field}", JSON.stringify([tag]));
+		} else {
+			if (existing.length >= $arrayLenght) existing.shift();
+			existing.push(tag);
+			window.localStorage.setItem("po_last_tag_${field}", JSON.stringify(existing));
+		}
 		\$('#${field}_tag').autocomplete("search", "");
 	}
 });
 \$("#${field}_tag").focus(function() {
     \$(this).autocomplete("search", "");
 });
-
 JAVASCRIPT
 ;
 	}
