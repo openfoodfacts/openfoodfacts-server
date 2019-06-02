@@ -44125,20 +44125,128 @@ fr:haricots rouges secs trempés
 
 fr:haricots verts coupés
 
+
 fr:haricots lingots
+
+
 
 fr:haricots blancs secs trempés
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 
-fr:haricots
+# description:en:A bean is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
+# comment:en:Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
 
+<en:legume
+en:beans, common bean, bean
+am:ኣደንጓሬ
+ar:فاصولياء شائعة
+av:Лубия
+ay:Chuwi
+az:Adi lobya
+# azb:عادی لوْبیا
+ba:Фасоль
+# bar:Fisoin
+be:фасоля звычайная
+bg:фасул
+ca:fesol
+# chr:ᏚᏯ
+# chy:Ma'emonêškeho
+cs:fazol zahradní
+# csb:Zwëczajny bónk
+cy:Ffeuen Ffrengig
+da:Bønne
+de:Bohnen, Bohne, Gartenbohne
+# diq:Lobiye
+el:Φασολιά
+# eml:Fasöl
+eo:Fazeolo
+es:fríjol
+et:Harilik aeduba
+eu:Babarrun
+fa:لوبیا
+fi:tarhapapu
+fr:haricot, haricots, haricot commun
+# frr:Buan
+ga:Pónaire Fhrancach
+gl:Feixón
+he:שעועית מצויה
+hi:सामान्य फलियाँ
+# hsb:Niska buna
+ht:Pwa nouris
+hu:Veteménybab
+hy:լոբի
+id:Buncis
+io:Fazeolo
+is:Matbaun
+it:fagioli, fagiolo comune
+ja:インゲンマメ
+jv:Buncis
+kg:Dideso
+ko:강낭콩
+ku:Lovî
+ky:Буурчак
+la:Phaseolus vulgaris
+# lad:Frejol
+lb:Gréng Boun
+# lbe:Шагьнал хъюрув
+# lij:Faxeu
+ln:Lidɛ́su
+lt:Daržinė pupelė
+lv:Parastās pupiņas
+mk:Грав
+mr:घेवडा
+# nah:Etl
+# nap:Fasulo
+# nds-nl:Breekbonen
+ne:राजमा
+nn:Hagebønne
+oc:mongeta
+pl:Fasola zwykła
+pt:Feijão
+qu:Purutu
+ro:Fasole
+rn:Igiharage
+ru:фасоль обыкновенная
+# rup:Fâsuľiu
+sa:शिम्बी
+sc:Basolu
+# scn:fasola
+# sgs:Popalė
+sh:Pasulj
+sk:Fazuľa záhradná
+sl:Navadni fižol
+so:Digir Guud
+sr:пасуљ
+su:Buncis
+sv:böna
+sw:Maharagwe
+tg:лӯбиё
+to:Piini
+tr:Fasulye
+ud:Фасоль
+uk:квасоля звичайна
+vi:Đậu cô ve
+# xmf:ლებია
+# yue:四季豆
+zh:菜豆
+# zh-hans:菜豆
+# zh-hant:菜豆
+# zh-tw:長豇豆
+wikipedia:en:https://en.wikipedia.org/wiki/Phaseolus_vulgaris
+# ingredient/fr:haricots has 92 products in 4 languages @2019-06-02
+
+<en:beans
 fr:haricots verts extra-fins
 
-fr:haricots blancs
+<en:beans
+fr:haricots blancs, lingots blancs
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
+# ingredient/fr:lingots-blancs has 8 products @2019-06-02
 
+<en:beans
 fr:haricot vert
 
+<en:beans
 fr:haricots noirs
 
 fr:pousse de haricot mungo
