@@ -605,6 +605,9 @@ sub display_field($$) {
 
 		my $arrayLenght = 3;
 
+		# For the field autocomplete_url it has to have a value
+		# otherwise tagsInput will not load the autoload plugin
+		# (see line https://github.com/xoxco/jQuery-Tags-Input/blob/ae31b175fbfd0a0476822182ef52e76c2629e9c3/src/jquery.tagsinput.js#L264)
 		$initjs .= <<"JAVASCRIPT"
 \$('#$field').tagsInput({
 	height: '3rem',
@@ -613,12 +616,22 @@ sub display_field($$) {
 	minInputWidth: 130,
 	delimiter: [','],
 	defaultText: "$default_text",
-	autocomplete_url:"$autocomplete",
+	autocomplete_url: "I love OpenFoodFacts",
 	autocomplete: {
 		source: function(request, response) {
 			if (request.term === "") {
 				let tag = window.localStorage.getItem("po_last_tags");
 				if (tag != null) response(JSON.parse(tag)['${field}']);
+			} else {
+				\$.ajax({
+					type: "GET",
+					url: "${autocomplete}",
+					data: "term="+ request.term,
+  					dataType: "json",
+					success: function(data) {
+						response(data)
+					}
+				});
 			}
 		},
 		minLength: 0
