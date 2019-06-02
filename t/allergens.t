@@ -143,6 +143,117 @@ is_deeply($product_ref->{traces_tags},  [
 ]
 );
 
+$product_ref = {
+	lc => "it", lang => "it",
+	ingredients_text_it => "Può contenere altra frutta a guscio (mandorle, noci pistacchi)",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:nuts',
+]
+);
+
+$product_ref = {
+	lc => "it", lang => "it",
+	ingredients_text_it => "Può contenere glutine e pesce.",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:gluten',
+'en:fish',
+]
+);
+
+$product_ref = {
+	lc => "nl", lang => "nl",
+	ingredients_text_nl => "Dit product kan sporen van MELK, NOTEN en SOJA bevatten.",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:milk',
+'en:nuts',
+'en:soybeans',
+]
+);
+	
+$product_ref = {
+	lc => "de", lang => "de",
+	ingredients_text_de => "aus kontrolliert ökologischem Anbau Kann Spuren von Milch, Erdnüssen, Soja, anderen Schalenfrüchten und Sesamsamen enthalten.",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:milk',
+'en:nuts',
+'en:peanuts',
+'en:soybeans',
+'en:sesame',
+]
+);
+
+$product_ref = {
+	lc => "de", lang => "de",
+	ingredients_text_de => "Kann Spuren von Milch,Welzen enthalten",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:milk',
+'en:gluten',
+]
+);
+
+$product_ref = {
+	lc => "de", lang => "de",
+	ingredients_text_de => "Kann Spuren von Ei, Sesam und Schalenfrüchten enthalten.",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+]
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:eggs',
+'en:sesame',
+'en:other nuts',
+]
+);
 
 $product_ref = {
 	lc => "fr", lang => "fr",
