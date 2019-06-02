@@ -1911,7 +1911,7 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $field = "allergens";
 
 
-	#print STDERR "allergen: $allergen\n";
+	#print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et|and|of";
 
@@ -1996,7 +1996,7 @@ sub detect_allergens_from_text($) {
 			# positive look ahead for the separators so that we can properly match the next word
 			# match at least 3 characters so that we don't match the separator
 			# Farine de blé 97% -> make numbers be separators
-			$text =~ s/(^| - |_|\(|\[|\)|\]|,| (d'|de|du|des|l'|la|les|et|and) |;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,| (et|and) |;|\.|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg;
+			$text =~ s/(^| - |_|\(|\[|\)|\]|,| (de|du|des|la|les|et|and) | d'| l'|;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,| (et|and) |;|\.| trace|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg;
 
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 
