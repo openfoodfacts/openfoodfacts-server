@@ -56,7 +56,15 @@ stopwords:sl:vsebuje, sestavine
 stopwords:sv:från, med
 stopwords:zh::配料
 
+# comment:en:Words that negate the preceding comma
+
+fr:effilées et séchées
+
 # comment:en:These are words that end ingredient lists.
+
+fr:ingrédient agricole issu de, peut contenir des traces, pourcentage exprimé sur
+
+
 
 
 # postfixes
@@ -36513,11 +36521,15 @@ nl:Ananassap
 # 287 products in 6 languages @2018-09-30
 
 <en:pineapple juice
+en:concentrated pineapple juice
 fr:jus d'ananas concentré
 de:Ananassaftkonzentrat
 it:succo d'ananas concentrato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'ananas%20concentré
-# 37 products in 3 languages @2018-09-30
+# ingredient/fr:jus-d'ananas-concentré has 37 products in 3 languages @2018-09-30
+
+<en:concentrated pineapple juice
+en:organic concentrated pineapple juice
+fr:Jus d'ananas issu de l'agriculture biologique
 
 <fr:jus d'ananas concentré
 fr:jus d'ananas à base de concentré, Jus d'ananas à base de jus d'ananas concentré
@@ -45389,7 +45401,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Amandes
 en:almond with skin
 de:Mandeln mit Haut
 es:almendra con piel
-fr:amande brute
+fr:amande brute, amandes mondées
 nl:amandel met vlies
 # ingredient/almond-with-skin has 4 products in 2 languages @2018-10-06
 
