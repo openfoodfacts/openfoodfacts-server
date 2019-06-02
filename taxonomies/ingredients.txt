@@ -58,19 +58,27 @@ stopwords:zh::配料
 
 # comment:en:Words that specify the ingredient before the preceding comma or ()
 
-fr:effilées et séchées, feuilles, feulles et tiges, follicule
+#fr:effilées et séchées, feuilles, feulles et tiges, follicule
 
 # comment:en:Ingredients that are wrongly broken in two parts on the '
 
-fr:viande bovine d'origine française
+#fr:viande bovine d'origine française
 
 # comment:en:Words that should be integrated in the ingredients
 
-fr:ingrédient agricole issu de, produit de l'agriculture biologique, issue de l'agriculture biologique, produit issu de l'agriculture biologique, produits issus de l'agriculture biologique, ingrédients biologiques, biologiques
+#fr:ingrédient agricole issu de, produit de l'agriculture biologique, issue de l'agriculture biologique, produit issu de l'agriculture biologique, produits issus de l'agriculture biologique, ingrédients biologiques, biologiques
 
 # comment:en:These are words that end ingredient lists.
 
-fr:peut contenir des, peut contenir du, pourcentage exprimé sur
+#de:Ernährungswerte, Vorbereitung Tipps, Mindestens altbar bis, Mindestens haltbar bis, Durchschnittliche N(a|ä)hrwerte, davon ges(a|ä)ttigte
+#en:nutritional values, after opening, nutrition values, ((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal
+#es:valores nutricionales, modo de preparacion, informaci(o|ô)n nutricional, valor energ(e|é)tico, condiciones de conservaci(o|ó)n, conservar en lug(a|e)r fresco y seco, de los cuates az(u|ü)cares, protegido de la luz, conser(y|v)ar entre, una vez abierto, conservaci(o|ó)n:, consumi preferentemente antes del, consumir preferentemente antes del
+#fr:peut contenir des, peut contenir du, pourcentage exprimé sur
+#it:valori nutrizionali, consigli per la preparazione, di cui zuccheri
+#ja:栄養価
+#nl:voedingswaarden, voorbereidingstips, gemiddelde voedingswaarden, gemiddelde voedingswaarde per 100 g
+#pt:dos quais a(ç|c)(u|ü)cares, informa(ç|c)(a|ã)o nutricional, modo de prepara(ç|c)(a|ã)o, a consumir de prefer(e|ê)ncia antes do, consumir de prefer(e|ê)ncia antes do
+#ro:declaratie nutritional(a|ă), a si pastra la frigider dup(a|ă) deschidere, a se agita inainte de deschidere
 
 
 
