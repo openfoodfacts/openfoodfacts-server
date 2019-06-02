@@ -60,6 +60,10 @@ stopwords:zh::配料
 
 fr:effilées et séchées, feuilles, feulles et tiges, follicule
 
+# comment:en:Ingredients that are wrongly broken in two parts on the '
+
+fr:viande bovine d'origine française
+
 # comment:en:Words that should be integrated in the ingredients
 
 fr:ingrédient agricole issu de, produit de l'agriculture biologique, issue de l'agriculture biologique, produit issu de l'agriculture biologique, produits issus de l'agriculture biologique, ingrédients biologiques, biologiques
@@ -44773,20 +44777,122 @@ it:piselli verdi spezzati
 # ingredient/fr:pois-casses-verts has 13 products in 4 languages
 
 
-
-
 # description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
+# comment:en:The wikidata entry is more about the plan, so translations can be wrong.
 
 <en:legume
 en:lentils, lentil
+# aeb-arab:عدس
+am:ምስ'ር
+ar:عدس
+av:ТIипало
+az:Mərcimək
+# azb:مرجیمک
+bg:леща
+bn:মসুর ডাল
+bo:སྲན་ལེབ་ཆུང་ངུ།
+ca:llentilla
+# ckb:نیسک
+cs:čočka jedlá
+# csb:Jôdnô soczewica
+cv:Ясмăк
+cy:Corbysen corbys
+da:Linser
+de:Linse
+# diq:Mercu
+# dsb:Sok
+el:Φακή
+eo:Lento
+es:lenteja
+et:Lääts
+eu:Dilista
+fa:عدس
+fi:Kylvövirvilä
 fr:lentilles, lentille
+ga:Lintile
+gl:Lentella
+gu:મસુર
+he:עדשה תרבותית
+hi:मसूर
+hr:Leća
+# hsb:Sok
+hu:főzeléklencse
+is:Linsubaun
+it:Lenticchia
+ja:レンズマメ
+kk:Азықтық жасымық
+# kk-arab:ازىقتىق جاسىمىق
+# kk-cn:ازىقتىق جاسىمىق
+# kk-ec:Азықтық жасымық
+# kk-kz:Азықтық жасымық
+# kk-latn:Azıqtıq jasımıq
+# kk-tr:Azıqtıq jasımıq
+kn:ಮಸೂರ ಅವರೆ
+ko:렌즈콩
+ku:Nîsk
+# ku-arab:نیسک
+# ku-latn:Nîsk
+la:Lens culinaris
+lt:Valgomasis lęšis
+lv:lēcas
+mk:Леќа
+mn:Сэвэгзарам
+mr:मसूर
+ms:Lentil
+# mzn:مرجی
+# nah:Caxtillān pitzāhuac etl
+nb:Linse
+ne:मुसुरो
+nl:linzen, linze
+nn:Linser
+oc:Lentilha cultivada
+or:ମସୁର
+pl:Soczewica
+# pnb:مسور
+pt:Lentilha
+qu:Lantrihas
+ro:Linte
+ru:чечевица пищевая
+sd:مھري دال
+sh:Leća
+si:මසූර්
+sk:Šošovica jedlá
+sl:Navadna leča
+so:Misir
+sq:Thjerrëza
+sr:сочиво
+# sr-ec:сочиво
+# sr-el:Sočivo
+sv:Linser, Lins
+sw:Mdengu
+ta:மைசூர்ப் பருப்பு
+tg:Наск
+tr:Mercimek
+tt:Ясмык
+uk:сочевиця
+vi:Đậu lăng
+wa:Lintile
+yi:לינזן
+# yue:蘭度豆
+zh:小扁豆
+# zh-hans:小扁豆
+# zh-hant:小扁豆
+# zh-hk:小扁豆
+# zh-sg:小扁豆
+# zh-tw:小扁豆
+# wikidata:en:Q61505177 # the fruit
+wikidata:en:Q131226
 wikipedia:en:https://en.wikipedia.org/wiki/Lentil
 
 <en:lentils
 fr:lentilles réhydratées, lentilles sèches trempées
+# ingredient/fr:lentilles-réhydratées has 54 products @2019-06-02
 
 <en:lentils
+en:precooked lentils
 fr:lentilles précuites
+nl:voorgekookte linzen
+# ingredient/fr:lentilles-précuites has 57 products @2019-06-02
 
 <en:lentils
 en:green lentils
@@ -44806,7 +44912,10 @@ fr:lentilles vertes bio
 it:lenticchie verdi bio
 
 <en:green lentils
+en:cooked green lentils
 fr:lentilles vertes cuites
+nl:gekookte groene linzen
+# ingredient/fr:lentilles-vertes-cuites has 65 products @2019-06-02
 
 <en:green lentils
 fr:lentilles vertes précuites
