@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-06-02 19:11\n"
+"PO-Revision-Date: 2019-06-02 19:21\n"
 "Language-Team: Spanish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2322,7 +2322,7 @@ msgstr "30 g, 2 galletas 60 g, 5 cl, un vaso 20 cl"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "Si la tabla de información nutricional contiene valores para el producto preparado, indique el tamaño de la porción total del producto preparado (incluida la leche o el agua agregada)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2362,7 +2362,7 @@ msgstr "Ordenar por"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "Integridad"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2917,11 +2917,11 @@ msgstr "Grupos con más del 5% de miembros que exceden la ingesta diaria aceptab
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Grupos con más del 50% de miembros que exceden la dosis máxima sin efecto adverso (No se observa el nivel de efecto adverso - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Grupos con más del 5% de miembros que exceden la dosis máxima sin efecto adverso (No se observa el nivel de efecto adverso - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
@@ -2949,11 +2949,11 @@ msgstr "Funciones"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
-msgstr ""
+msgstr "Comprobar fotos y datos"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
-msgstr ""
+msgstr "Las páginas de producto pueden ser marcadas como comprobadas por los colaboradores experimentados que verifican que las fotos más recientes son seleccionadas y recortadas, y que todos los datos de producto que se pueden inferir de las fotos del producto se hayan completado y sean correctos."
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
@@ -2969,15 +2969,15 @@ msgstr "He comprobado las fotos y los datos de nuevo."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "Últimas fechas de comprobación"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "Fecha de última comprobación"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
-msgstr ""
+msgstr "Última comprobación de la página de producto en"
 
 msgctxt "product_other_information"
 msgid "Other information"
@@ -2985,7 +2985,7 @@ msgstr "Otra información"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
-msgstr ""
+msgstr "Identificador de versión del productor"
 
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
@@ -2993,15 +2993,15 @@ msgstr "Identificador de producto de productor"
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "Peso neto"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "Peso escurrido"
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "Volumen"
 
 msgctxt "other_information"
 msgid "Other information"
@@ -3009,7 +3009,7 @@ msgstr "Otra información"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
-msgstr ""
+msgstr "Condiciones de conservación"
 
 msgctxt "warning"
 msgid "Warning"
@@ -3037,19 +3037,19 @@ msgstr "Productor"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
-msgstr ""
+msgstr "Instrucciones de reciclaje - Para reciclar"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
-msgstr ""
+msgstr "Instrucciones de reciclaje - Para descartar"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "Productos comprobados por %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "Productos no comprobados por %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
@@ -3089,11 +3089,11 @@ msgstr "Página de %s"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "Productos comprobados por %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "Productos no comprobados por %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
@@ -3257,7 +3257,7 @@ msgstr "Ayuda a traducir el %s a %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr ""
+msgstr "Puede sugerir traducciones para las entradas que no han sido traducidas a su idioma todavía. El enlace azul en inglés muestra los productos correspondientes, el texto negro en inglés muestra la entrada original con sinónimos opcionales separados por comas. Introduzca la traducción en el cuadro de texto, con sinónimos opcionales, y luego haga clic en el botón Guardar. ¡Gracias!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
