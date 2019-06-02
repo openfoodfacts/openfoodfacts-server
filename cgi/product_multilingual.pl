@@ -617,21 +617,25 @@ sub display_field($$) {
 	autocomplete: {
 		source: function(request, response) {
 			if (request.term === "") {
-				let tag = window.localStorage.getItem("po_last_tag_${field}");
-				if (tag != null) response(JSON.parse(tag));
+				let tag = window.localStorage.getItem("po_last_tags");
+				if (tag != null) response(JSON.parse(tag)['${field}']);
 			}
 		},
 		minLength: 0
 	},
 	onAddTag: function(tag) {
-		let existing = JSON.parse(window.localStorage.getItem("po_last_tag_${field}"));
-		if (existing == null) {
-			window.localStorage.setItem("po_last_tag_${field}", JSON.stringify([tag]));
+		let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+
+		if (obj == null) {
+			obj = {"${field}": [tag]}
+		} else if (obj["${field}"] == null) {
+			obj["${field}"] = [tag];
 		} else {
-			if (existing.length >= $arrayLenght) existing.shift();
-			existing.push(tag);
-			window.localStorage.setItem("po_last_tag_${field}", JSON.stringify(existing));
+			if (obj["${field}"].indexOf() != -1) return;
+			if (obj["${field}"].length >= $arrayLenght) obj["${field}"].pop();
+			obj["${field}"].unshift(tag);
 		}
+		window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
 		\$('#${field}_tag').autocomplete("search", "");
 	}
 });
