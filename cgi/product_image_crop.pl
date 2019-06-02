@@ -69,6 +69,10 @@ if ((defined $product_ref) and (has_tag($product_ref,"data_sources","producers")
 	and (referer() !~ /\/cgi\/product.pl/)) {
 	print STDERR "product_image_crop.pl - skip image id $id for product code $code (data from producer) - referer: " . referer() . "\n";
 }
+elsif ((defined $User_id) and ($User_id eq 'kiliweb')) {
+	# Skip images selected by Yuka -> they have already been selected through the upload if they were the first
+	# otherwise we can have images selected twice, once with the right language (set for the upload with the cc field), and another time with fr
+}
 else {
 	$product_ref = process_image_crop($code, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2);
 }
