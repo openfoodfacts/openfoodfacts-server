@@ -864,6 +864,7 @@ fr => [
 #'dontSUcres',
 #'waarvan suikers/dont sucres',
 #`verzadigde vetzuren/ acides gras saturés`,
+#`Conditionné par`,
 
 ],
 
