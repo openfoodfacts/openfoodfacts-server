@@ -60,9 +60,13 @@ stopwords:zh::配料
 
 fr:effilées et séchées
 
+# comment:en:Words that should be integrated in the ingredients
+
+fr:ingrédient agricole issu de, produit de l'agriculture biologique, issue de l'agriculture biologique
+
 # comment:en:These are words that end ingredient lists.
 
-fr:ingrédient agricole issu de, peut contenir des traces, pourcentage exprimé sur
+fr:peut contenir des traces, pourcentage exprimé sur
 
 
 
@@ -20684,6 +20688,14 @@ wikidata:en:Q216235
 en:organic coconut oil
 nl:Biologische kokosolie
 # ingredient/nl:biologische-kokosolie has 1 product @2019-05-24
+
+<en:coconut oil
+fr:huile de coco vierge
+# ingredient/fr:huile-de-coco-vierge has 10 products @2019-06-02
+
+<en:organic coconut oil
+<fr:huile de coco vierge
+fr:huile de coco vierge biologique
 
 <en:coconut oil
 fr:huile de coco non hydrogénée
