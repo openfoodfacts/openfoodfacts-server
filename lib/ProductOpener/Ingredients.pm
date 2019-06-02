@@ -893,6 +893,9 @@ de => [
 'Ernährungswerte',
 'Vorbereitung Tipps',
 'Mindestens altbar bis',
+'Mindestens haltbar bis',
+'Durchschnittliche N(a|ä)hrwerte',
+'davon ges(a|ä)ttigte',
 ],
 
 nl => [
