@@ -606,7 +606,7 @@ sub display_field($$) {
 		my $arrayLenght = 3;
 
 		# For the field autocomplete_url it has to have a value
-		# otherwise tagsInput will not load the autoload plugin
+		# otherwise tagsInput will not load the autocomplete plugin
 		# (see line https://github.com/xoxco/jQuery-Tags-Input/blob/ae31b175fbfd0a0476822182ef52e76c2629e9c3/src/jquery.tagsinput.js#L264)
 		$initjs .= <<"JAVASCRIPT"
 \$('#$field').tagsInput({
