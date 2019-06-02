@@ -879,8 +879,14 @@ es => [
 'valor energ(e|é)tico',
 'condiciones de conservaci(o|ó)n',
 #'pa(i|í)s de transformaci(o|ó)n',
-# Conservar en luger fresco y seco
-#de los cuates azücares
+'conservar en lug(a|e)r fresco y seco',
+'de los cuates az(u|ü)cares',
+'protegido de la luz',
+'conser(y|v)ar entre',
+'una vez abierto',
+'conservaci(o|ó)n:',
+'consumi preferentemente antes del',
+'consumir preferentemente antes del',
 ],
 
 de => [
@@ -911,6 +917,8 @@ pt => [
 'conservar em lugar fresco',
 'dos quais a(ç|c)(u|ü)ares',
 'dos quais a(ç|c)(u|ü)cares',
+'informa(ç|c)(a|ã)o nutricional',
+'modo de prepara(ç|c)(a|ã)o',
 ],
 
 ro => [
