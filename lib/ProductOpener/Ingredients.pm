@@ -912,6 +912,7 @@ pt => [
 'conservar em lugar fresco',
 'dos quais a(ç|c)(u|ü)ares',
 'dos quais a(ç|c)(u|ü)cares',
+'informa(ç|c)(a|ã)o nutricional',
 ],
 
 ro => [
