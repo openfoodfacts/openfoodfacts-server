@@ -767,6 +767,10 @@ pt => [
 'ingredientes(\s*)(\s|-|:|\r|\n)+',
 ],
 
+pl => [
+'składniki(\s*)(\s|-|:|\r|\n)+',
+],
+
 it => [
 'ingredienti(\s*)(\s|-|:|\r|\n)+',
 ],
