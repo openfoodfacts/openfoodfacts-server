@@ -70,16 +70,46 @@ stopwords:zh::配料
 
 # comment:en:These are words that end ingredient lists.
 
-#de:Ernährungswerte, Vorbereitung Tipps, Mindestens altbar bis, Mindestens haltbar bis, Durchschnittliche N(a|ä)hrwerte, davon ges(a|ä)ttigte
-#en:nutritional values, after opening, nutrition values, ((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal
-#es:valores nutricionales, modo de preparacion, informaci(o|ô)n nutricional, valor energ(e|é)tico, condiciones de conservaci(o|ó)n, conservar en lug(a|e)r fresco y seco, de los cuates az(u|ü)cares, protegido de la luz, conser(y|v)ar entre, una vez abierto, conservaci(o|ó)n:, consumi preferentemente antes del, consumir preferentemente antes del
+#de:
+# davon ges(a|ä)ttigte
+# Durchschnittliche N(a|ä)hrwerte, 
+# Ernährungswerte
+# Mindestens altbar bis, 
+# Mindestens haltbar bis, 
+# Vorbereitung Tipps, 
+
+#en:
+# after opening
+# nutrition values
+# nutritional values
+# ((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal
+
+# es:
+# condiciones de conservaci(o|ó)n
+# conservar en lug(a|e)r fresco y seco
+# conser(y|v)ar entre
+# conservaci(o|ó)n:
+# consumi preferentemente antes del
+# consumir preferentemente antes del
+# de los cuates az(u|ü)cares
+# informaci(o|ô)n nutricional
+# modo de preparacion
+# protegido de la luz
+# una vez abierto
+# valor energ(e|é)tico
+# valores nutricionales
+
 # fr:
 # peut contenir des
 # peut contenir du, pourcentage exprimé sur
+# Produit issu de l'agriculture biologique
 # Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
 
 #it:
-# valori nutrizionali, consigli per la preparazione, di cui zuccheri
+# consigli per la preparazione
+# di cui zuccheri
+# valori nutrizionali
+
 
 #ja:
 # 栄養価
@@ -24047,7 +24077,7 @@ zh:小麦
 # als:Weisse
 # arc:ܚܛܬܐ
 # arz:قمح
-ast:Trigu
+# ast:Trigu
 # azb:بۇغدا
 # bat-smg:Kvėitē
 # bxr:Улаан буудай
@@ -24093,10 +24123,12 @@ ast:Trigu
 wikipedia:en:https://en.wikipedia.org/wiki/Wheat
 wikidata:en:Q15645384
 
-# Question
-
-<en:puffed cereal
 <en:wheat
+fr:blé précuit à la vapeur
+# ingredient/fr:ble-precuit-a-la-vapeur has 10 products @2019-06-03
+
+<en:wheat
+en:puffed cereal
 de:Weizenpops
 fr:blé soufflé
 it:frumento soffiato
