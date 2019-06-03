@@ -58,7 +58,7 @@ stopwords:zh::配料
 
 # comment:en:Words that specify the ingredient before the preceding comma or ()
 
-#fr:effilées et séchées, feuilles, feulles et tiges, follicule
+#fr:effilées et séchées, feuilles, feulles et tiges, follicule, torréfié et moulu
 
 # comment:en:Ingredients that are wrongly broken in two parts on the '
 
@@ -24124,7 +24124,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wheat
 wikidata:en:Q15645384
 
 <en:wheat
+en:cooked wheat
+de:Vorgegarter Hartweizen
 fr:blé précuit à la vapeur
+it:grano cotto
 # ingredient/fr:ble-precuit-a-la-vapeur has 10 products @2019-06-03
 
 <en:wheat
@@ -45085,21 +45088,24 @@ de:Kastanie, Kastanien
 fr:châtaigne, châtaignes
 it:castagne
 nl:kastanje, kastanjes
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:châtaigne
-# 87 products in 3 languages @2018-10-07
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:châtaignes
-# 164 products in 4 languages @2018-10-07
+# ingredient/fr:châtaigne has 87 products in 3 languages @2018-10-07
+# ingredient/fr:châtaignes has 164 products in 4 languages @2018-10-07
+
+<en:chestnut
+en:chestnut from the EU
+nl:kastanjes EU
 
 <en:chestnut
 en:puréed chestnuts
 fr:purée de châtaignes
 it:purea di castagne
 nl:kastanjepuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20châtaignes
-# 33 products in 2 languages @2018-10-07
+# ingredient/fr:purée%20de%20châtaignes has 33 products in 2 languages @2018-10-07
 
 <en:chestnut
 en:cooked chestnuts
+
+# comment:en:It seems that only in french there is a difference between chataigne and marron
 
 <en:chestnut
 fr:marron, marrons
@@ -45110,7 +45116,13 @@ wikidata:en:Q3177204
 # 218 products in 5 languages @2018-10-07
 
 <fr:marron
+fr:Marrons UE
+
+<fr:marron
+en:cooked chestnuts
 de:Gekochte Maronen
+fr:marrons cuits
+nl:gekookte kastanjes
 
 <fr:marron
 fr:Marrons entiers
@@ -60366,6 +60378,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Coffee
 en:organic coffee
 nl:koffie van biologische oorsprong
 # ingredient/nl:koffie-van-biologische-oorsprong has 1 product @2019-05-24
+
+<en:coffee
+fr:Café décaféiné
+nl:Cafeïnevrije koffie
+# ingredient/fr:cafe-decafeine has 8 products @2019-06-03
+
+<fr:Café décaféiné
+fr:café doux sans caféine
+nl:zachte koffie zonder cafeïne
 
 <en:coffee
 en:coffee powder
