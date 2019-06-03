@@ -855,6 +855,7 @@ fr => [
 
 '(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
 'valeurs mo(y|v)ennes',
+'valeurs nutritionelles moyennes',
 'valeur nutritionnelle mo(y|v)enne',
 'information nutritionnelle',
 'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
@@ -862,6 +863,7 @@ fr => [
 'moyennes pour 100g',
 'valeur(s?) (e|é)nerg(e|é)tique',
 'valeur(s?) nutritives',
+'apport de r(e|é)ference pour un adulte type',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 '(a|à) consommer de préférence',
 '(a|à) cons.de préférence avant',
@@ -917,12 +919,13 @@ es => [
 ],
 
 de => [
-'Ernährungswerte',
+'Ern(â|a|ä)hrungswerte',
 'Vorbereitung Tipps',
 'Mindestens altbar bis',
 'Mindestens haltbar bis',
-'Durchschnittliche N(a|ä)hrwerte',
-'davon ges(a|ä)ttigte',
+'Durchschnittliche N(â|a|ä)hrwerte',
+'davon ges(â|a|ä)ttigte',
+'Nâhrwerte',
 ],
 
 nl => [
@@ -937,6 +940,7 @@ it => [
 'valori nutrizionali',
 'consigli per la preparazione',
 'di cui zuccheri',
+'Valori nutritivi',
 ],
 
 ja => [
