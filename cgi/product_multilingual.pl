@@ -2099,22 +2099,59 @@ HTML
 	. hidden(-name=>'code', -value=>$code, -override=>1)
 	. hidden(-name=>'action', -value=>'process', -override=>1);
 
-	$html .= '<div style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">';
+	$html .= <<HTML
+<div id="fixed_bar" style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">
+HTML
+;
+	# As the save bar is position:fixed, there is no way to get its width, width:100% will be relative to the viewport, and width:inherit does not work as well.
+	# Using javascript to set the width of the fixed bar at startup, and when the window is resized.
+
+	$initjs .= <<JS
+
+var parent_width = \$("#fixed_bar").parent().width();
+\$("#fixed_bar").width(parent_width);
+
+\$(window).resize(
+	function() {
+		var parent_width = \$("#fixed_bar").parent().width();
+		\$("#fixed_bar").width(parent_width);
+	}
+)
+JS
+;
+
+	$scripts .= <<JS
+
+)
+JS
+;
 
 	if ($type eq 'edit') {
 		$html .= <<HTML
-<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" style="width: 70%; float: left; margin-right: 5px">
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small" style="float: left">
+<div class="row">
+<div class="small-12 medium-12 large-8 xlarge-10 columns">
+<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text">
+</div>
+<div class="small-12 medium-12 large-4 xlarge-2 columns">
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small">
+</div>
+</div>
 HTML
 ;
 	}
 	else {
 		$html .= <<HTML
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small" style="float: left; margin-left: 70%;">
+<div class="row">
+<div class="small-12 medium-12 large-8 xlarge-10 columns">
+</div>
+<div class="small-12 medium-12 large-4 xlarge-2 columns">
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small">
+</div>
+</div>
 HTML
 ;
 	}
-
+	
 	$html .= <<HTML
 </div>
 </form>
