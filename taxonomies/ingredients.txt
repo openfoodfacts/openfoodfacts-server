@@ -73,105 +73,29 @@ stopwords:zh::配料
 #de:Ernährungswerte, Vorbereitung Tipps, Mindestens altbar bis, Mindestens haltbar bis, Durchschnittliche N(a|ä)hrwerte, davon ges(a|ä)ttigte
 #en:nutritional values, after opening, nutrition values, ((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal
 #es:valores nutricionales, modo de preparacion, informaci(o|ô)n nutricional, valor energ(e|é)tico, condiciones de conservaci(o|ó)n, conservar en lug(a|e)r fresco y seco, de los cuates az(u|ü)cares, protegido de la luz, conser(y|v)ar entre, una vez abierto, conservaci(o|ó)n:, consumi preferentemente antes del, consumir preferentemente antes del
-#fr:peut contenir des, peut contenir du, pourcentage exprimé sur
-#it:valori nutrizionali, consigli per la preparazione, di cui zuccheri
-#ja:栄養価
-#nl:voedingswaarden, voorbereidingstips, gemiddelde voedingswaarden, gemiddelde voedingswaarde per 100 g
+# fr:
+# peut contenir des
+# peut contenir du, pourcentage exprimé sur
+# Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
+
+#it:
+# valori nutrizionali, consigli per la preparazione, di cui zuccheri
+
+#ja:
+# 栄養価
+
+#nl:
+# gemiddelde voedingswaarde
+# gemiddelde voedingswaarden
+# 100 g
+# voedingswaarden
+# voorbereidingstips
+
 #pt:dos quais a(ç|c)(u|ü)cares, informa(ç|c)(a|ã)o nutricional, modo de prepara(ç|c)(a|ã)o, a consumir de prefer(e|ê)ncia antes do, consumir de prefer(e|ê)ncia antes do
 #ro:declaratie nutritional(a|ă), a si pastra la frigider dup(a|ă) deschidere, a se agita inainte de deschidere
 
 
 
-
-# postfixes
-
-# en
-# Contains genetically modified organisms
-# dairy derivatives
-# in varying proportions
-# Made in a cheese dairy using fish
-# organically grown products
-# prefried in vegetable oil
-# no preservatives
-# May contain hazelnuts, almonds, pistachios, nuts, eggs, lupines, sulphites or sulfur dioxide.
-# Total saline: 2.0%
-
-# da
-# i varierende mænggdeforhold
-
-# de
-# Fur vegetarier geeignet.
-# Hergestellt mit tierischem Lab und mikrobiellem Labaustauschstoff.
-# in veränderlichen Anteilen
-# Isomaltulose ist eine Quelle von Glukose und Fruktose
-# Kann Haselnüsse, Mandeln, Eier und Spuren anderer Schalenfrüchte (Nüsse) enthalten. 
-# Kann enthalten: Haselnüsse, Mandeln, Pistazien, Walnusse, Eier, Lupinen, Sulfite oder Schwefeldioxid.
-# Kakao:34 % mindestens in der Schokolade
-# Kochsalzgehalt insgesamt:0,7%.
-# Kochsalzanteil:1.7% (ohne Jod und ohne Fluor)
-# Mit Stickstoff aufgeschlagen
-# natürliches Aroma enthält eine Phenylalaninquelle
-# Unter Schutzatmosphäre verpackt.
-
-# es
-# Corteza no comestible
-# derivados lácteos
-# Producto sujeto a desecación.
-# Puede contener trazas de apio. Porcentajes expresados sobre el total de la receta.
-
-# fi
-# Maidoton ja soijaton
-
-# fr
-# Croûte non comestible
-# Contient une source de phénylalamine.
-# Contient des organismes génétiquement modifiés
-# dérivés de lait
-# d'élevage au sol
-# en proportion variable
-# Issue d'animaux nés, élevés, abattus et transformés en Italie
-# Fabriqué dans un atelier qui utilise :céleri, moutarde et oeuf.
-# *produits issus de l'agriculture biologique.
-# Peut contenir des traces de céleri. Pizza préparée à partir de 338 g de pâte et 162 g de garniture.
-# Pourcentages exprimés sur la pizza garnie.
-# Teneur totale en sel de cuisine:0,7%.
-# Teneur totale en sel de cuisine:1.7% (sans fluor et sans iode)
-# Traces possibles de :CEufs, Soja Celeri, Moutarde, Céréales/Gluten
-# Traces de soja, moutarde, crustacés, poisson, mollusques, eufs. Les infor- mations en gras sont destinées aux personnes intolérantes ou allergiques. - amidon
-# Ingrédients laitiers issus de lait pasteurisé. Traces éventuelles de fruits à coque.
-# Traces éventuelles de céleri. Pourcentages exprimés sur le total de la recette.
-# Solution saline totale: 2,0%
-# Présence d'ingrédients d'origine animale (mouton)
-
-
-# it
-# Contenuto complessivo di sale da cucina:1,4%.
-# Contiene latte. Puo contenere trace di uova, glutine, sedano, senape.
-# derivatti del latte
-# Può contenere nocciole, mandorle, uova e tracce d'altra frutta con guscio (noci). 
-# Cacao:34 % minimo nel cioccolato.
-# Prodotto in un caseificio con il pesce.
-# Può contenere: nocciole, mandorle, pistacchi, noci comuni, uova, lupini, solfiti o anidride solforosa.
-# senza conservanti
-
-# nl
-# in wisselende hoeveelheden
-# Percentages uitgedrukt op de nems met varkensvlees
-# Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt :melk, selderij, sesam, weekdieren.
-# Product onderhevig aan uitdroging
-# Rundvlees en lamsvlees uit Frankrijk.
-
-# pt
-# Contem organismos geneticamente modificados
-# Pode conter vestigios de aipo. Percentagens expressas sobre o total da receita.
-# Pode conter vestígios de leite
-
-# ro
-# Produs maturat si afumat cu lemn de fag. 
-# Pentru 100g produs se prelucreaza 158 g carne de porc.
-
-# sv
-# i varierende proportion
 
 
 fr:additifs alimentaires
@@ -34491,6 +34415,12 @@ pt:sumo de limão
 sv:citronjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon%20juice
 # 9259 products in 16 languages @2018-10-01
+
+<en:lemon juice
+en:organic lemon juice
+fr:jus de citron bio
+nl:biologisch citroensap
+# ingredient/fr:jus-de-citron-bio has 12 products @2019-06-03
 
 <en:lemon juice
 en:dried lemon juice
