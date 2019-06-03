@@ -218,7 +218,7 @@ sub init_product($) {
 			$country = lc(param('cc'));
 			$country =~ s/^en://;
 			
-			# 2019 06 01: also try to change the language according to country
+			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it 
 			my %lc_overrides = (
 				au => "en",
 				es => "es",

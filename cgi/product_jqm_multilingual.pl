@@ -141,7 +141,7 @@ else {
 	
 	# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
 
-	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined param('cc')) and (param('cc') ne "fr")) {
+	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined param('cc'))) {
 	
 		my $param_cc = lc(param('cc'));
 		$param_cc =~ s/^en://;
