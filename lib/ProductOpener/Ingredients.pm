@@ -954,8 +954,8 @@ pt => [
 'dos quais a(ç|c)(u|ü)cares',
 'informa(ç|c)(a|ã)o nutricional',
 'modo de prepara(ç|c)(a|ã)o',
-'a consumir de prefer(e|ê)ncia antes do'
-'consumir de prefer(e|ê)ncia antes do'
+'a consumir de prefer(e|ê)ncia antes do',
+'consumir de prefer(e|ê)ncia antes do',
 ],
 
 ro => [
