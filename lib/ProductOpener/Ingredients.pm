@@ -854,11 +854,17 @@ my %phrases_after_ingredients_list = (
 fr => [
 
 '(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
+'valeurs mo(y|v)ennes',
+'valeur nutritionnelle mo(y|v)enne',
+'information nutritionnelle',
 'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
+'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
+'moyennes pour 100g',
 'valeur(s?) (e|é)nerg(e|é)tique',
 'valeur(s?) nutritives',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 '(a|à) consommer de préférence',
+'(a|à) cons.de préférence avant',
 'conseils de pr(e|é)paration',
 'conseil de pr(e|é)paration',
 'conditions de conservation',
@@ -872,8 +878,6 @@ fr => [
 'apr(e|è)s achat',
 'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
-'valeurs mo(y|v)ennes',
-'valeur nutritionnelle mo(y|v)enne',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
@@ -902,6 +906,7 @@ es => [
 #'pa(i|í)s de transformaci(o|ó)n',
 'conservar en lug(a|e)r fresco y seco',
 'de los cuates az(u|ü)cares',
+'de las cuales saturadas',
 'protegido de la luz',
 'conser(y|v)ar entre',
 'una vez abierto',
