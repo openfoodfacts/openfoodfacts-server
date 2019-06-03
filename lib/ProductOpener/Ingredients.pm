@@ -892,6 +892,7 @@ es => [
 'conservaci(o|ó)n:',
 'consumi preferentemente antes del',
 'consumir preferentemente antes del',
+#Envasado por:
 ],
 
 de => [
