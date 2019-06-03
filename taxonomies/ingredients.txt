@@ -19694,80 +19694,6 @@ fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande d
 # ingredient/fr:jus-concentré-d’os-et-de-viande-de-bœuf has 14 products in 2 languages @2019-02-12
 
 
-
-
-<en:chicken meat
-fr:produit à base de viande de poulet
-
-<en:chicken meat
-fr:poitrine de poulet
-
-<en:chicken meat
-fr:cuisse de poulet
-carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
-
-<en:chicken meat
-fr:poulet rôti
-carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
-
-
-
-# <en:chicken meat
-# en:precooked chicken
-# de:vorgegartes Hühnerfleisch
-# es:carne de pollo precocida
-# nl:voorgegaard kippenvlees
-# ingredient/precooked-chicken has NO products @2019-02-25
-
-
-
-
-<en:chicken meat
-fr:aiguillette de poulet
-
-
-<en:chicken meat
-# <en:bone
-fr:os et viande de poulet
-
-<en:chicken meat
-fr:aiguillettes de poulet
-
-<en:chicken meat
-fr:manchons de poulet
-
-<en:chicken meat
-fr:haut de cuisse de poulet
-
-<en:chicken meat
-fr:poulet traité en salaison
-
-<fr:poulet traité en salaison
-fr:poulet rôti traité en salaison
-
-<fr:poulet traité en salaison
-fr:viande de poulet traitée en salaison
-
-<fr:viande de poulet traitée en salaison
-fr:viande de poulet traitée en salaison et précuite
-
-<en:chicken meat
-fr:blanc de poulet
-carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
-
-
-fr:extrait de poulet
-
-<en:chicken meat
-fr:filets de poulet
-
-
-<en:chicken meat
-fr:viande de poitrine de poulet
-
-<en:chicken meat
-fr:viande de poulet séparée mécaniquement
-
 <en:meat
 en:beef meat
 de:Rindfleisch
@@ -19797,7 +19723,8 @@ fr:foie
 # ingredient/fr:foie has 57 products in french @2019-03-01
 # Porc 91% (gorge, foie, épaule)
 
-
+<en:meat
+fr:Cuisses de grenouilles
 
 # STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds.
 
@@ -60904,7 +60831,7 @@ nl:gevogeltevel
 # description:en:CHICKEN is the most common type of poultry in the world. Chicken can be prepared in a vast range of ways, including baking, grilling, barbecuing, frying, and boiling, among many others, depending on its purpose.
 
 <en:poultry
-en:chickens, chicken
+en:chicken, chickens
 # aeb-ara:دجاج
 af:hoender
 ak:akokɔ
@@ -61091,14 +61018,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chicken_as_food
 # ingredient/chicken has 872 products @2019-05-18
 # category/chickens has 3369 products in 18 languages @2019-05-18
 
-<en:chickens
+<en:chicken
 fr:poulet fermier
 # ingredient/fr:poulet-fermier has 13 products in french @2019-05-25
 
 # description:en:CHICKEN BONES are hazardous to health as they tend to break into sharp splinters when eaten, but they can be simmered with vegetables and herbs for hours or even days to make chicken stock.
 
 <en:bone
-<en:chickens
+<en:chicken
 en:chicken bone
 de:Hühnerknochen
 fr:os de poulet
@@ -61108,7 +61035,7 @@ nl:kippenbeenderen
 
 
 # <en:liver
-<en:chickens
+<en:chicken
 en:chicken liver
 de:Pouletleber
 fr:foie de poulet
@@ -61146,7 +61073,7 @@ nl:gevogeltelever
 # comment:en:The wikidata translations or unclear whether they refer to the chicken animal or the chicken meat
 
 <en:poultry meat
-<en:chickens
+<en:chicken
 en:chicken meat
 de:Pouletfleisch
 es:Carne de pollo
@@ -61171,7 +61098,7 @@ fr:viande de cuisse de poulet
 # ingredient/fr:viande-de-cuisse-de-poulet has 53 products in french @2019-04-16
 
 # <en:broth
-<en:chickens
+<en:chicken
 en:Chicken Stock
 de:Hühnerbrühe
 fr:bouillon de poulet, fond de poulet
@@ -61198,6 +61125,77 @@ fr:filet de poulet traité en salaison cuit
 nl:verhitte gepekelde kipfilet
 # ingredient/fr:filet-de-poulet-traité-en-salaison-cuit has 4 products @2019-05-19
 
+
+<en:chicken meat
+fr:produit à base de viande de poulet
+
+<en:chicken meat
+fr:poitrine de poulet
+
+<en:chicken meat
+fr:cuisse de poulet
+carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
+
+<en:chicken meat
+fr:poulet rôti
+carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
+
+
+
+# <en:chicken meat
+# en:precooked chicken
+# de:vorgegartes Hühnerfleisch
+# es:carne de pollo precocida
+# nl:voorgegaard kippenvlees
+# ingredient/precooked-chicken has NO products @2019-02-25
+
+
+
+
+<en:chicken meat
+fr:aiguillette de poulet
+
+<en:chicken meat
+# <en:bone
+fr:os et viande de poulet
+
+<en:chicken meat
+fr:aiguillettes de poulet
+
+<en:chicken meat
+fr:manchons de poulet
+
+<en:chicken meat
+fr:haut de cuisse de poulet
+
+<en:chicken meat
+fr:poulet traité en salaison
+
+<fr:poulet traité en salaison
+fr:poulet rôti traité en salaison
+
+<fr:poulet traité en salaison
+fr:viande de poulet traitée en salaison
+
+<fr:viande de poulet traitée en salaison
+fr:viande de poulet traitée en salaison et précuite
+
+<en:chicken meat
+fr:blanc de poulet
+carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
+
+
+fr:extrait de poulet
+
+<en:chicken meat
+fr:filets de poulet
+
+
+<en:chicken meat
+fr:viande de poitrine de poulet
+
+<en:chicken meat
+fr:viande de poulet séparée mécaniquement
 
 # description:en:The TURKEY is a large bird in the genus Meleagris, which is native to the Americas. The species Meleagris gallopavo is used by humans for their meat. Compared to wild turkeys, domestic turkeys are selectively bred to grow larger in size for their meat. Americans often eat turkey on special occasions such as at Thanksgiving or Christmas.
 # comment:en:Turkey as a species is a separate item in order to designate the origin of turkey parts.
