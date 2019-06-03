@@ -58,7 +58,7 @@ stopwords:zh::配料
 
 # comment:en:Words that specify the ingredient before the preceding comma or ()
 
-#fr:effilées et séchées, feuilles, feulles et tiges, follicule, torréfié et moulu
+#fr:effilées et séchées, feuilles, feulles et tiges, follicule, torréfié et moulu, méthode biodynamique
 
 # comment:en:Ingredients that are wrongly broken in two parts on the '
 
@@ -102,8 +102,10 @@ stopwords:zh::配料
 # fr:
 # peut contenir des
 # peut contenir du, pourcentage exprimé sur
+# PRÉPARATION : Au four
 # Produit issu de l'agriculture biologique
 # Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
+# Traces éventuelles de lait
 
 #it:
 # consigli per la preparazione
@@ -42693,6 +42695,15 @@ fr:Pommes de terre de consommation à chair ferme
 fr:Pommes de terre de consommation à chair ferme bio
 
 <en:potato
+en:organic potato
+fr:pommes de terre biologiques
+# ingredient/fr:pommes-de-terre-biologiques has 7 products @2019-06-03
+
+<en:organic potato
+en:organic potato from France
+fr:Pommes de terre biologiques origine France
+
+<en:potato
 en:potato powder
 da:kartoffelpulver
 de:Kartoffelpulver
@@ -60387,6 +60398,9 @@ nl:Cafeïnevrije koffie
 <fr:Café décaféiné
 fr:café doux sans caféine
 nl:zachte koffie zonder cafeïne
+
+<fr:Café décaféiné
+fr:café Arabica décaféiné torréfié
 
 <en:coffee
 en:coffee powder
