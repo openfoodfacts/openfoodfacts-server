@@ -759,16 +759,16 @@ it => [
 
 ],
 
-es => [
-'ingredientes(\s*)(\s|-|:|\r|\n)+',
-],
-
 pt => [
 'ingredientes(\s*)(\s|-|:|\r|\n)+',
 ],
 
 pl => [
 'składniki(\s*)(\s|-|:|\r|\n)+',
+],
+
+si => [
+'sestavine(\s*)(\s|-|:|\r|\n)+',
 ],
 
 it => [
@@ -823,6 +823,10 @@ pt => [
 
 ],
 
+pl => [
+'SKŁADNIKI(\s*)(\s|-|:|\r|\n)+',
+],
+
 it => [
 
 'INGREDIENTI(\s*)(\s|-|:|\r|\n)+',
@@ -842,6 +846,14 @@ de => [
 
 fi => [
 'AINESOTAT:(\s*)(\s|-|:|\r|\n)+',
+],
+
+si => [
+'SESTAVINE:(\s*)(\s|-|:|\r|\n)+',
+],
+
+sv => [
+'INGREDIENSER:(\s*)(\s|-|:|\r|\n)+',
 ],
 
 );
