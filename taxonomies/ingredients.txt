@@ -76,6 +76,7 @@ stopwords:zh::配料
 #	'davon ges(â|a|ä)ttigte',
 #	'Durchschnittliche N(â|a|ä)hrwerte',
 #	'Ern(â|a|ä)hrungswerte',
+#Milchschokolade: Kakao: 37% mindestens
 #	'Mindestens altbar bis',
 #	'Mindestens haltbar bis',
 #	'Nâhrwerte',
@@ -85,6 +86,7 @@ stopwords:zh::配料
 #en:
 #allergy advice
 #	'after opening',
+#Keep in a cool and dry place.
 #	'nutritional values',
 #	'nutrition values',
 #	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
@@ -98,15 +100,18 @@ stopwords:zh::配料
 #	'consumir preferentemente antes del',
 #	'de los cuates az(u|ü)cares',
 #	'de las cuales saturadas',
+#E producto puede contener trazas de sésamo y leche.
 #	#Envasado por:
 #	#'pa(i|í)s de transformaci(o|ó)n',
 #	'protegido de la luz',
 #	'una vez abierto',
 
 # fr:
+#Chocolat au lait: cacao: 37% minimum
 #	'(a|à) consommer de préférence',
 #	'(a|à) cons.de préférence avant',
 #	'(a|à) consommer (cuit|rapidement|dans|jusqu)',
+#Conserver au frais et au sec.
 #	'(a|à) conserver (dans|de|a|à)',
 #	'(a|à)conserver (dans|de|a|à)', #variation
 #	'apport de r(e|é)ference pour un adulte type',
@@ -127,13 +132,14 @@ stopwords:zh::配料
 #	'information nutritionnelle',
 # INFORMATIONS SUR LES ALLERGIES 
 #La présence de vide au fond du pot est due au procédé de fabrication.
+#Le produit peut contenir traces de sésame et du _lait_
 #	'moyennes pour 100g',
 #	ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon
 #	'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
 #	'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
 #	'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
 #	'la pr(e|é)sence de vide',
-#peut contenir des
+#peut contenir des traces de fruits à coque
 #peut contenir du, pourcentage exprimé sur
 #	'pr(e|é)paration au four',
 #Produit issu de l'agriculture biologique
@@ -155,8 +161,10 @@ stopwords:zh::配料
 
 
 #######     it:
+#Cioccolato al latte: cacao: 37% min
 #	'consigli per la preparazione',
 #	'di cui zuccheri',
+#Può contenere tracce di sesamo e latte.
 #	'Valori nutritivi',
 #	'valori nutrizionali',
 
@@ -18411,69 +18419,8 @@ fr:concentré salin liquide
 
 <en:salt
 en:Himalayan pink salt
+fr:sel de l'Himalaya
 
-
-# Halite commonly known as rock salt, is a type of salt, the mineral (natural) form of sodium chloride (NaCl).
-
-en:Halite
-af:Haliet
-ar:هاليت
-az:Halit
-be:Галіт
-bg:Халит
-bn:হ্যালাইট
-ca:Halita
-cs:Halit
-de:Halit
-el:Αλίτης
-es:Halita
-et:Haliit
-eu:Halita
-fa:سنگ نمک
-fi:Vuorisuola, haliitti
-fr:Halite
-ga:Hailít
-gl:Halita
-gu:સિંધવ
-he:הליט
-hi:सेंधा नमक
-hr:Halit
-hu:Kősó
-hy:Հալիտ
-id:Halit
-is:Halít
-it:Halite
-ja:岩塩
-kk:Галит
-kn:ಕಲ್ಲುಪ್ಪು
-ko:암염
-ky:Таш туз
-lt:Halitas, valgomoji druska, akmens druska
-mr:सैंधव मीठ
-ms:Halit
-nb:Halitt
-nl:Haliet
-nn:Halitt
-oc:Sau gemma
-pl:Halit
-pt:Halita
-ru:Галит
-sh:Halit
-sk:Halit
-sl:Halit
-sr:Халит
-sv:Halit, bergsalt, stensalt
-ta:பாறை உப்பு
-te:రాతి ఉప్పు
-th:เกลือหิน
-tr:Kaya tuzu
-uk:Галіт
-vi:Halit
-zh:石鹽
-# ast:Halita
-# nds:Halit
-# sco:Halite, rock saut
-wikipedia:en:https://en.wikipedia.org/wiki/Halite
 
 # Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine.
 
