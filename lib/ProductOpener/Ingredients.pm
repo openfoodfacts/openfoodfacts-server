@@ -26,27 +26,25 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-					&extract_ingredients_from_image
-					&extract_ingredients_from_text
+		&extract_ingredients_from_image
+		&extract_ingredients_from_text
 
-					&compute_carbon_footprint_from_ingredients
+		&compute_carbon_footprint_from_ingredients
 
-					&clean_ingredients_text_for_lang
-					&clean_ingredients_text
+		&clean_ingredients_text_for_lang
+		&clean_ingredients_text
 
-					&extract_ingredients_classes_from_text
+		&extract_ingredients_classes_from_text
 
-					&detect_allergens_from_text
-
-
-					);	# symbols to export on request
+		&detect_allergens_from_text
+	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 use experimental 'smartmatch';
 
 use ProductOpener::Store qw/:all/;
@@ -69,28 +67,36 @@ use Log::Any qw($log);
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
+
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
+
 # ',' and synonyms - COMMA, SMALL COMMA, FULLWIDTH COMMA, IDEOGRAPHIC COMMA, SMALL IDEOGRAPHIC COMMA, HALFWIDTH IDEOGRAPHIC COMMA
 my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+FF64})/i;
+
 # '.' and synonyms - FULL STOP, SMALL FULL STOP, FULLWIDTH FULL STOP, IDEOGRAPHIC FULL STOP, HALFWIDTH IDEOGRAPHIC FULL STOP
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
+
 # '(' and other opening brackets ('Punctuation, Open' without QUOTEs)
 my $obrackets = qr/^(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}])[\p{Ps}]$/i;
+
 # ')' and other closing brackets ('Punctuation, Close' without QUOTEs)
 my $cbrackets = qr/^(?![\N{U+276F}|\N{U+301E}|\N{U+301F}])[\p{Pe}]$/i;
+
 my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i; # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
+
 my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 
 # load ingredients classes
-
 opendir(DH, "$data_root/ingredients") or $log->error("cannot open ingredients directory", { path => "$data_root/ingredients", error => $! });
 
 foreach my $f (readdir(DH)) {
+	# Skip entry if its not a valid file
 	next if $f eq '.';
 	next if $f eq '..';
 	next if ($f !~ /\.txt$/);
 
+	# Remove file extension
 	my $class = $f;
 	$class =~ s/\.txt$//;
 
@@ -98,8 +104,10 @@ foreach my $f (readdir(DH)) {
 
 	open(my $IN, "<:encoding(UTF-8)", "$data_root/ingredients/$f");
 	while (<$IN>) {
+		# Skip EOF and lines prefixed with #
 		chomp;
 		next if /^\#/;
+
 		my ($canon_name, $other_names, $misc, $desc, $level, $warning) = split("\t");
 		my $id = get_fileid($canon_name);
 		next if (not defined $id) or ($id eq '');
@@ -148,45 +156,45 @@ sub compute_carbon_footprint_from_ingredients($) {
 
 	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
 
-	# compute the carbon footprint from meat or fish ingredients, when the percentage is known
+	# Compute the carbon footprint from meat or fish ingredients, when the percentage is known
 
-#ingredients: [
-#{
-#rank: 1,
-#text: "Eau",
-#id: "en:water"
-#},
-#{
-#percent: "10.9",
-#text: "_saumon_",
-#rank: 2,
-#id: "en:salmon"
-#},
+	#ingredients: [
+	#{
+	#rank: 1,
+	#text: "Eau",
+	#id: "en:water"
+	#},
+	#{
+	#percent: "10.9",
+	#text: "_saumon_",
+	#rank: 2,
+	#id: "en:salmon"
+	#},
 	my @parents = qw(
-en:beef-meat
-en:pork-meat
-en:veal-meat
-en:rabbit-meat
-en:chicken-meat
-en:turkey-meat
-en:smoked-salmon
-en:salmon
-);
+		en:beef-meat
+		en:pork-meat
+		en:veal-meat
+		en:rabbit-meat
+		en:chicken-meat
+		en:turkey-meat
+		en:smoked-salmon
+		en:salmon
+	);
 
-	# values from FoodGES
+	# Values from FoodGES
 
 	my %carbon = (
-"en:beef-meat" => 35.8,
-"en:pork-meat" => 7.4,
-"en:veal-meat" => 20.5,
-"en:rabbit-meat" => 8.1,
-"en:chicken-meat" => 4.9,
-"en:turkey-meat" => 6.5,
-"en:smoked-salmon" => 5.5,
-"en:salmon" => 6.5,
-"en:smoked-trout" => 5.5,
-"en:trout" => 6.5,
-);
+		"en:beef-meat" => 35.8,
+		"en:pork-meat" => 7.4,
+		"en:veal-meat" => 20.5,
+		"en:rabbit-meat" => 8.1,
+		"en:chicken-meat" => 4.9,
+		"en:turkey-meat" => 6.5,
+		"en:smoked-salmon" => 5.5,
+		"en:salmon" => 6.5,
+		"en:smoked-trout" => 5.5,
+		"en:trout" => 6.5,
+	);
 
 	# Limit to France, as the carbon values from ADEME are intended for France
 
@@ -231,7 +239,6 @@ en:salmon
 		}
 
 	}
-
 }
 
 
@@ -390,7 +397,7 @@ sub extract_ingredients_from_text($) {
 	$text =~ s/\r\n/\n/g;
 	$text =~ s/\R/\n/g;
 
-	# remove ending .
+	# remove ending . and ending whitespaces
 	$text =~ s/(\s|\.)+$//;
 
 
@@ -974,6 +981,8 @@ sub clean_ingredients_text_for_lang($$) {
 	my $text = shift;
 	my $language = shift;
 
+	# Remove phrases before ingredients list lowercase
+
 	$log->debug("clean_ingredients_text_for_lang - 1", { language=>$language, text=>$text }) if $log->is_debug();
 
 	if (defined $phrases_before_ingredients_list{$language}) {
@@ -982,6 +991,8 @@ sub clean_ingredients_text_for_lang($$) {
 			$text =~ s/^(.*)$regexp(\s*)//ies;
 		}
 	}
+
+	# Remove phrases before ingredients list UPPERCASE
 
 	$log->debug("clean_ingredients_text_for_lang - 2", { language=>$language, text=>$text }) if $log->is_debug();
 
@@ -993,6 +1004,8 @@ sub clean_ingredients_text_for_lang($$) {
 		}
 	}
 
+	# Remove phrases after ingredients list
+
 	$log->debug("clean_ingredients_text_for_lang - 3", { language=>$language, text=>$text }) if $log->is_debug();
 
 	if (defined $phrases_after_ingredients_list{$language}) {
@@ -1002,8 +1015,8 @@ sub clean_ingredients_text_for_lang($$) {
 		}
 	}
 
-	# non language specific cleaning
-	# try to add missing spaces around dashes - separating ingredients
+	# Non language specific cleaning
+	# Try to add missing spaces around dashes - separating ingredients
 
 	# jus d'orange à base de concentré 14%- sucre
 	$text =~ s/(\%)- /$1 - /g;
@@ -1063,7 +1076,7 @@ sub extract_ingredients_classes_from_text($) {
 	my $path = product_path($product_ref->{code});
 	my $text = $product_ref->{ingredients_text};
 	my $lc = $product_ref->{lc};
-	
+
 	$text =~ s/\&quot;/"/g;
 
 	# vitamins...
@@ -1697,16 +1710,16 @@ INFO
 				delete $product_ref->{$tagtype . '_n'};
 			}
 		}
-		
+
 		# Delete debug info
 		if (not has_tag($product_ref, "categories", 'en:debug')) {
 			delete $product_ref->{$tagtype};
 		}
-		
+
 		# Delete empty arrays
 		# -> not active
 		# -> may be dangerous if some apps rely on them existing even if empty
-		
+
 		if (0) {
 			foreach my $array ($tagtype . '_tags', $tagtype . '_original_tags',
 				$vitamins_tagtype . '_tags', $minerals_tagtype . '_tags',
@@ -1784,11 +1797,11 @@ INFO
 		else {
 			$product_ref->{$tagtype . '_n'} = scalar @{$product_ref->{$tagtype . '_tags'}};
 		}
-		
+
 		# Delete empty arrays
 		# -> not active
-		# -> may be dangerous if some apps rely on them existing even if empty		
-		
+		# -> may be dangerous if some apps rely on them existing even if empty
+
 		if (0) {
 			if ((defined $product_ref->{$tagtype . '_tags'}) and ((scalar @{$product_ref->{$tagtype . '_tags'}}) == 0)) {
 					delete $product_ref->{$tagtype . '_tags'};
@@ -1818,7 +1831,7 @@ INFO
 	# previous version
 
 	if (exists $loaded_taxonomies{$field . "_prev"}) {
-	
+
 		(defined $product_ref->{$field . "_debug_tags"}) or $product_ref->{$field . "_debug_tags"} = [];
 
 		# compute differences
@@ -1845,7 +1858,7 @@ INFO
 	# next version
 
 	if (exists $loaded_taxonomies{$field . "_next"}) {
-	
+
 		(defined $product_ref->{$field . "_debug_tags"}) or $product_ref->{$field . "_debug_tags"} = [];
 
 		# compute differences
@@ -1900,7 +1913,7 @@ sub replace_allergen($$$$) {
 	my $before = shift;
 
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain|puo contenere|tracce)\b/i) {
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain|pu(o|ò) contenere|tracce)\b/i) {
 		$field = "traces";
 	}
 
@@ -1923,7 +1936,7 @@ sub replace_allergen_in_caps($$$$) {
 	my $before = shift;
 
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain|puo contenere|tracce)\b/i) {
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain|pu(o|ò) contenere|tracce)\b/i) {
 		$field = "traces";
 	}
 
@@ -2075,10 +2088,5 @@ sub detect_allergens_from_text($) {
 	}
 
 }
-
-
-
-
-
 
 1;
