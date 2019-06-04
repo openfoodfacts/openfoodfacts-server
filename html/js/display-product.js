@@ -47,7 +47,7 @@ class RobotoffAsker extends HTMLElement {
           <span id="question">Question</span>
           <span id="value">Value</span>
         </div>
-        <ul class="small-12 columns button-group" style="margin-top:0.5rem;">
+        <ul class="small-10 columns button-group" style="margin-top:0.5rem;">
           <li><a href="#" id="no" class="small button alert annotate" data-annotation="0">No</a></li>
           <li><a href="#" id="skip" class="small button secondary annotate" data-annotation="-1">Not sure</a></li>
           <li><a href="#" id="yes" class="small button success annotate" data-annotation="1">Yes</a></li>
