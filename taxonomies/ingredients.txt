@@ -129,6 +129,7 @@ stopwords:zh::配料
 #	'dontSUcres',
 #	`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #Fabriqué dans un atelier utilisant
+#Ingrédients issus de l'agriculture biologique
 #	'information nutritionnelle',
 # INFORMATIONS SUR LES ALLERGIES 
 #La présence de vide au fond du pot est due au procédé de fabrication.
@@ -188,7 +189,8 @@ stopwords:zh::配料
 #	'dos quais a(ç|c)(u|ü)cares',
 #	'informa(ç|c)(a|ã)o nutricional',
 #	'modo de prepara(ç|c)(a|ã)o',
-	
+#Derivado da agricultura biológica
+
 #######     ro:
 #	'a se agita inainte de deschidere',
 #	'a si pastra la frigider dup(a|ă) deschidere',
@@ -38182,6 +38184,9 @@ it:succo di melagrana
 # 61 products in 3 languages @2018-10-03
 
 <en:pomegranate juice
+fr:pur jus de grenade
+
+<en:pomegranate juice
 en:organic pomegranate juice
 fr:Jus de Grenade issu de l'agriculture biologique
 
@@ -46195,6 +46200,10 @@ de:grüner Pfeffer
 fr:poivre gris
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre%20gris
 # 53 products in 1 language @2018-10-08
+
+<fr:poivre gris
+fr:Poivre gris moulu
+# 7@2019-06-04
 
 <en:pepper
 en:black pepper
