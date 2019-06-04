@@ -76,6 +76,7 @@ stopwords:zh::配料
 #	'davon ges(â|a|ä)ttigte',
 #	'Durchschnittliche N(â|a|ä)hrwerte',
 #	'Ern(â|a|ä)hrungswerte',
+#Glutenfrei
 #Milchschokolade: Kakao: 37% mindestens
 #	'Mindestens altbar bis',
 #	'Mindestens haltbar bis',
@@ -86,6 +87,7 @@ stopwords:zh::配料
 #en:
 #allergy advice
 #	'after opening',
+#Gluten free
 #Keep in a cool and dry place.
 #	'nutritional values',
 #	'nutrition values',
@@ -145,6 +147,7 @@ stopwords:zh::配料
 #	'pr(e|é)paration au four',
 #Produit issu de l'agriculture biologique
 #Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
+#Sans gluten
 #Sans pectine ajoutée
 #	'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
 #	'valeur(s?) (e|é)nerg(e|é)tique',
@@ -36541,8 +36544,9 @@ en:organic concentrated pineapple juice
 fr:Jus d'ananas issu de l'agriculture biologique
 
 <fr:jus d'ananas concentré
-fr:jus d'ananas à base de concentré, Jus d'ananas à base de jus d'ananas concentré
-de:Ananassaft aus Konzentrat, Ananassaft aus Ananassaftkonzentrat
+en:pineapple juice from concentrate
+de:Ananassaft aus Konzentrat, Ananassaft aus Ananassaftkonzentrat, Ananassaft aus Fruchtsaftkonzentrat
+fr:jus d'ananas à base de concentré, Jus d'ananas à base de jus d'ananas concentré, Jus d'ananas à base de jus concentré
 it:succo d'ananas a base di concentrato
 # ingredient/fr:jus-d'ananas-à-base-de-concentré has 96 products in 3 languages @2018-09-30
 
