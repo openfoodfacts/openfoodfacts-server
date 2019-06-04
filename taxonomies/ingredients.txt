@@ -73,63 +73,118 @@ stopwords:zh::配料
 # comment:en:These are words that end ingredient lists.
 
 #de:
-# davon ges(a|ä)ttigte
-# Durchschnittliche N(a|ä)hrwerte, 
-# Ernährungswerte
-# Mindestens altbar bis, 
-# Mindestens haltbar bis, 
-# Vorbereitung Tipps, 
+#	'davon ges(â|a|ä)ttigte',
+#	'Durchschnittliche N(â|a|ä)hrwerte',
+#	'Ern(â|a|ä)hrungswerte',
+#	'Mindestens altbar bis',
+#	'Mindestens haltbar bis',
+#	'Nâhrwerte',
+#	'Vorbereitung Tipps',
+
 
 #en:
-# ALLERGY ADVICE
-# after opening
-# nutrition values
-# nutritional values
-# ((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal
+#allergy advice
+#	'after opening',
+#	'nutritional values',
+#	'nutrition values',
+#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+
 
 # es:
-# condiciones de conservaci(o|ó)n
-# conservar en lug(a|e)r fresco y seco
-# conser(y|v)ar entre
-# conservaci(o|ó)n:
-# consumi preferentemente antes del
-# consumir preferentemente antes del
-# de los cuates az(u|ü)cares
-# informaci(o|ô)n nutricional
-# modo de preparacion
-# protegido de la luz
-# una vez abierto
-# valor energ(e|é)tico
-# valores nutricionales
+#	'conservar en lug(a|e)r fresco y seco',
+#	'conser(y|v)ar entre',
+#	'conservaci(o|ó)n:',
+#	'consumi preferentemente antes del',
+#	'consumir preferentemente antes del',
+#	'de los cuates az(u|ü)cares',
+#	'de las cuales saturadas',
+#	#Envasado por:
+#	#'pa(i|í)s de transformaci(o|ó)n',
+#	'protegido de la luz',
+#	'una vez abierto',
 
 # fr:
+#	'(a|à) consommer de préférence',
+#	'(a|à) cons.de préférence avant',
+#	'(a|à) consommer (cuit|rapidement|dans|jusqu)',
+#	'(a|à) conserver (dans|de|a|à)',
+#	'(a|à)conserver (dans|de|a|à)', #variation
+#	'apport de r(e|é)ference pour un adulte type',
+#	'apr(e|è)s achat',
+#	'apr(e|è)s ouverture',
+#	'(a|à) protéger de ', # humidité, chaleur, lumière etc.
+#`Conditionné par`,
+#	'conditions de conservation',
+#	'conditionn(e|é) sous atmosph(e|è)re protectrice',
+#	'conseils de pr(e|é)paration',
+#	'conseil de pr(e|é)paration',
+#Consommer cuit a coeur
+#	'dans le compartiment (a|à) gla(c|ç)ons',
+#	'dont sucres',
+#	'dontSUcres',
+#	`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
+#Fabriqué dans un atelier utilisant
+#	'information nutritionnelle',
 # INFORMATIONS SUR LES ALLERGIES 
-# peut contenir des
-# peut contenir du, pourcentage exprimé sur
-# PRÉPARATION : Au four
-# Produit issu de l'agriculture biologique
-# Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
-# Sans pectine ajoutée
-# Traces éventuelles de lait
+#La présence de vide au fond du pot est due au procédé de fabrication.
+#	'moyennes pour 100g',
+#	ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon
+#	'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
+#	'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
+#	'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
+#	'la pr(e|é)sence de vide',
+#peut contenir des
+#peut contenir du, pourcentage exprimé sur
+#	'pr(e|é)paration au four',
+#Produit issu de l'agriculture biologique
+#Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
+#Sans pectine ajoutée
+#	'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
+#	'valeur(s?) (e|é)nerg(e|é)tique',
+#	'valeurs mo(y|v)ennes',
+#	'valeurs moyennes pour 100 g',
+#	'valeur nutritionnelle moyenne par 100 g',
+#	'valeurs nutritionelles moyennes',
+#	'valeur nutritionnelle mo(y|v)enne',
+#	'valeur(s?) nutritives',
+#	`verzadigde vetzuren/ acides gras saturés`,
+#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+#Traces éventuelles de lait
+#Traces possible de fruits à coque
+#'waarvan suikers/dont sucres',
 
-#it:
-# consigli per la preparazione
-# di cui zuccheri
-# valori nutrizionali
+
+#######     it:
+#	'consigli per la preparazione',
+#	'di cui zuccheri',
+#	'Valori nutritivi',
+#	'valori nutrizionali',
 
 
-#ja:
-# 栄養価
+#######     ja:
+#	'栄養価',
 
-#nl:
-# gemiddelde voedingswaarde
-# gemiddelde voedingswaarden
-# 100 g
-# voedingswaarden
-# voorbereidingstips
+#######     nl:
+#	'gemiddelde voedingswaarden',
+#	'gemiddelde voedingswaarde per 100 g',
+#	'voedingswaarden',
+#	'voorbereidingstips',
 
-#pt:dos quais a(ç|c)(u|ü)cares, informa(ç|c)(a|ã)o nutricional, modo de prepara(ç|c)(a|ã)o, a consumir de prefer(e|ê)ncia antes do, consumir de prefer(e|ê)ncia antes do
-#ro:declaratie nutritional(a|ă), a si pastra la frigider dup(a|ă) deschidere, a se agita inainte de deschidere
+
+#######     pt:
+#	'a consumir de prefer(e|ê)ncia antes do',
+#	'consumir de prefer(e|ê)ncia antes do',
+#	'conservar em local fresco',
+#	'conservar em lugar fresco',
+#	'dos quais a(ç|c)(u|ü)ares',
+#	'dos quais a(ç|c)(u|ü)cares',
+#	'informa(ç|c)(a|ã)o nutricional',
+#	'modo de prepara(ç|c)(a|ã)o',
+	
+#######     ro:
+#	'a se agita inainte de deschidere',
+#	'a si pastra la frigider dup(a|ă) deschidere',
+#	'declaratie nutritional(a|ă)',
 
 
 
@@ -53561,7 +53616,7 @@ en:Tuber aestivum
 la:Tuber aestivum
 # comment:en:The latin name is kept separate as it is often found as a separate ingredient. It also allows to detect wrong translations. 
 
-# Chanterelle est un nom français ambigu recouvrant plusieurs espèces de champignons distinctes. Il peut désigner la girolle (Cantharellus cibarius), ou d'autres espèces, en particulier des genres Cantharellus et Craterellus, par exemple la chanterelle en tubes (Craterellus tubaeformis) ou la chanterelle jaune (Craterellus lutescens), généralement vendues sous le seul nom de chanterelles.
+# comment:fr:Chanterelle est un nom français ambigu recouvrant plusieurs espèces de champignons distinctes. Il peut désigner la girolle (Cantharellus cibarius), ou d'autres espèces, en particulier des genres Cantharellus et Craterellus, par exemple la chanterelle en tubes (Craterellus tubaeformis) ou la chanterelle jaune (Craterellus lutescens), généralement vendues sous le seul nom de chanterelles.
 
 <en:mushroom
 fr:chanterelles
