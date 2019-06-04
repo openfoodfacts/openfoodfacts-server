@@ -43,7 +43,7 @@ class RobotoffAsker extends HTMLElement {
         <div class="small-2 columns">
           <img src="" id="thumbnail">
         </div>
-        <div class="small-12 columns">
+        <div class="small-10 columns">
           <span id="question">Question</span>
           <span id="value">Value</span>
         </div>
