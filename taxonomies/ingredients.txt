@@ -79,6 +79,7 @@ stopwords:zh::配料
 # Vorbereitung Tipps, 
 
 #en:
+# ALLERGY ADVICE
 # after opening
 # nutrition values
 # nutritional values
@@ -100,6 +101,7 @@ stopwords:zh::配料
 # valores nutricionales
 
 # fr:
+# INFORMATIONS SUR LES ALLERGIES 
 # peut contenir des
 # peut contenir du, pourcentage exprimé sur
 # PRÉPARATION : Au four
@@ -35297,12 +35299,22 @@ de:Wilde Heidelbeeren
 
 <en:blueberry
 <en:purée
-en:blueberries puree
+en:blueberry puree, blueberries puree
 de:Blaubeerenpuree
 fr:purée de myrtilles
 nl:bosbessenpuree, bosbessenmoes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20myrtilles
 # 105 products @2018-10-01
+
+
+<en:blueberry
+<en:juice
+en:blueberry juice
+de:Preiselbeersaft
+fr:jus de myrtille
+it:succo di mirtillo
+nl:bosbessensap
+# ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
 
 # Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit,
 
