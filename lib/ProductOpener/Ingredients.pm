@@ -926,6 +926,7 @@ de => [
 'Durchschnittliche N(â|a|ä)hrwerte',
 'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
+'k(u|ü)hl und trocken lagern',
 ],
 
 nl => [
