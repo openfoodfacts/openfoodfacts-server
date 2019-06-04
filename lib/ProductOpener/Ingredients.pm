@@ -767,6 +767,10 @@ pt => [
 'ingredientes(\s*)(\s|-|:|\r|\n)+',
 ],
 
+pl => [
+'składniki(\s*)(\s|-|:|\r|\n)+',
+],
+
 it => [
 'ingredienti(\s*)(\s|-|:|\r|\n)+',
 ],
@@ -777,6 +781,18 @@ nl => [
 
 de => [
 'zutaten(\s*)(\s|-|:|\r|\n)+',
+],
+
+fi => [
+'ainesosat:(\s*)(\s|-|:|\r|\n)+',
+],
+
+sv => [
+'ingredienser:(\s*)(\s|-|:|\r|\n)+',
+],
+
+ru => [
+'Состав:(\s*)(\s|-|:|\r|\n)+',
 ],
 
 );
@@ -824,6 +840,10 @@ de => [
 
 ],
 
+fi => [
+'AINESOTAT:(\s*)(\s|-|:|\r|\n)+',
+],
+
 );
 
 
@@ -834,11 +854,19 @@ my %phrases_after_ingredients_list = (
 fr => [
 
 '(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
-'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
+'valeurs mo(y|v)ennes',
+'valeurs nutritionelles moyennes',
+'valeur nutritionnelle mo(y|v)enne',
+'information nutritionnelle',
+'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
+'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
+'moyennes pour 100g',
 'valeur(s?) (e|é)nerg(e|é)tique',
 'valeur(s?) nutritives',
+'apport de r(e|é)ference pour un adulte type',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 '(a|à) consommer de préférence',
+'(a|à) cons.de préférence avant',
 'conseils de pr(e|é)paration',
 'conseil de pr(e|é)paration',
 'conditions de conservation',
@@ -852,14 +880,13 @@ fr => [
 'apr(e|è)s achat',
 'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
-'valeurs moyennes pour 100 g',
-'valeur nutritionnelle moyenne par 100 g',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
 #'dontSUcres',
 #'waarvan suikers/dont sucres',
 #`verzadigde vetzuren/ acides gras saturés`,
+#`Conditionné par`,
 
 ],
 
@@ -881,17 +908,24 @@ es => [
 #'pa(i|í)s de transformaci(o|ó)n',
 'conservar en lug(a|e)r fresco y seco',
 'de los cuates az(u|ü)cares',
+'de las cuales saturadas',
 'protegido de la luz',
 'conser(y|v)ar entre',
 'una vez abierto',
 'conservaci(o|ó)n:',
 'consumi preferentemente antes del',
 'consumir preferentemente antes del',
+#Envasado por:
 ],
 
 de => [
-'Ernährungswerte',
+'Ern(â|a|ä)hrungswerte',
 'Vorbereitung Tipps',
+'Mindestens altbar bis',
+'Mindestens haltbar bis',
+'Durchschnittliche N(â|a|ä)hrwerte',
+'davon ges(â|a|ä)ttigte',
+'Nâhrwerte',
 ],
 
 nl => [
@@ -906,6 +940,7 @@ it => [
 'valori nutrizionali',
 'consigli per la preparazione',
 'di cui zuccheri',
+'Valori nutritivi',
 ],
 
 ja => [
@@ -919,6 +954,8 @@ pt => [
 'dos quais a(ç|c)(u|ü)cares',
 'informa(ç|c)(a|ã)o nutricional',
 'modo de prepara(ç|c)(a|ã)o',
+'a consumir de prefer(e|ê)ncia antes do',
+'consumir de prefer(e|ê)ncia antes do',
 ],
 
 ro => [
