@@ -164,7 +164,7 @@ $memd = new Cache::Memcached::Fast {
 };
 
 $default_request_ref = {
-page=>1,
+	page=>1,
 };
 
 
@@ -175,8 +175,7 @@ page=>1,
 # Converting them to global variables.
 # - better solution: create a class?
 
-use vars qw(
-);
+use vars qw();
 
 sub init()
 {
