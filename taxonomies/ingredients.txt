@@ -14573,7 +14573,7 @@ es:crema de leche, nata
 eu:esne-gaina
 fa:خامه
 fi:Kerma
-fr:Crème, Crème fraîche, Crème fraîche liquide, crème de lait
+fr:Crème, crème de lait
 ga:Uachtar
 gd:Bàrr a' bhainne
 gl:Crema de leite
@@ -14632,6 +14632,8 @@ zh:鮮奶油
 # yue:忌廉
 wikipedia:en:https://en.wikipedia.org/wiki/Cream
 
+
+
 <en:cream
 en:pasteurized cream
 de:pasteurisierte Sahne
@@ -14640,6 +14642,8 @@ fr:crème pasteurisé
 
 <en:Pasteurized cream
 fr:crème de lait pasteurisé
+es:nata pasteurizada
+nl:Gepasteuriseerde room
 
 <en:cream
 en:Powdered cream, Cream powder
@@ -14768,15 +14772,17 @@ zh:斯美塔那酸奶油
 # vep:Kandatez
 wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
 
+# comment:en:fr:Creme fraiche is oten translated into creme.
+
 <en:Cream
-en:Crème fraîche
+en:Crème fraîche, fresh cream
 af:Crème fraîche
 cs:Crème fraîche
 da:Cremefraiche
 de:Crème fraîche
 es:Crème fraîche
 eu:Esne-gain gordina, esne-gain freskoa
-fr:crème fraîche épaisse, crème fraîche fermentée
+fr:crème fraîche épaisse, crème fraîche fermentée, Crème fraîche, Crème fraîche liquide
 he:קרם פרש
 hy:Կրեմ-ֆրեշ
 is:Crème fraîche
@@ -14794,6 +14800,12 @@ uk:Крем-фреш
 vi:Kem fraîche
 zh:法式酸奶油
 wikipedia:en:https://en.wikipedia.org/wiki/Crème_fraîche
+
+
+<en:cream
+fr:creme fraiche pasteurisée
+it:panna fresca pastorizzata
+# ingredient/fr:creme-fraiche-pasteurisee has products in 5 languages @2018-06-05
 
 # BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
@@ -29166,6 +29178,10 @@ fr:pur beurre de cacao
 # ingredient/fr:pur-beurre-de-cacao has 74 products @2019-05-25
 
 <en:cocoa butter
+fr:beurre de cacao cru
+# 9@2019-06-04
+
+<en:cocoa butter
 en:organic cocoa butter
 de:Bio-Kakaobutter
 fr:beurre de cacao bio
@@ -33885,6 +33901,10 @@ nl:biologische appel, Biologische appels
 
 <en:apple
 fr:fruits à cidre de Normandie
+
+<en:apple
+fr:pommes golden
+# 11@109-06-05
 
 <en:apple
 en:dried apple, dried apples
@@ -44800,11 +44820,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Split_pea
 # ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
 
 <en:split pea
+en:green split pea
 fr:pois cassés verts
-nl:groene spliterwten
 it:piselli verdi spezzati
+nl:groene spliterwten
 # ingredient/fr:pois-casses-verts has 13 products in 4 languages
 
+<en:green split pea
+fr:Farine de pois cassés
+es:Harina de guisantes partidos
+# 9@2019-06-05
 
 # description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
 # comment:en:The wikidata entry is more about the plan, so translations can be wrong.
