@@ -971,6 +971,11 @@ pt => [
 'consumir de prefer(e|ê)ncia antes do',
 ],
 
+pl => [
+'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
+'n(a|o)jlepiej spożyć przed', #Best before
+],
+
 ro => [
 'declaratie nutritional(a|ă)',
 'a si pastra la frigider dup(a|ă) deschidere',
