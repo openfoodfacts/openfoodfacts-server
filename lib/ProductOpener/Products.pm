@@ -208,10 +208,6 @@ sub init_product($) {
 		creator=>$creator,
 		rev=>0,
 	};
-	if (defined $lc) {
-		$product_ref->{lc} = $lc;
-		$product_ref->{lang} = $lc;
-	}
 
 	use ProductOpener::GeoIP;
 	my $country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
@@ -219,7 +215,27 @@ sub init_product($) {
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
 		if (defined param('cc')) {
-			$country = param('cc');
+			$country = lc(param('cc'));
+			$country =~ s/^en://;
+			
+			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it 
+			my %lc_overrides = (
+				au => "en",
+				es => "es",
+				it => "it",
+				de => "de",
+				uk => "en",
+				gb => "en",
+				pt => "pt",
+				nl => "nl",
+				us => "en",
+				ie => "en",
+				nz => "en",
+			);
+			
+			if (defined $lc_overrides{$country}) {
+				$lc = $lc_overrides{$country};
+			}					
 		}
 		else {
 			$country = "france";
@@ -230,6 +246,11 @@ sub init_product($) {
 	if ($creator eq 'elcoco') {
 		$country = "spain";
 	}
+	
+	if (defined $lc) {
+		$product_ref->{lc} = $lc;
+		$product_ref->{lang} = $lc;
+	}	
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
