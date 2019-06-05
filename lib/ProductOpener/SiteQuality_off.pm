@@ -93,6 +93,7 @@ my @baby_food_brands = qw(
 	Candia-baby
 	Physiolac
 	Topfer
+	Nutrilac
 	);
 
 	my @cigarette_brands = qw(
