@@ -621,13 +621,17 @@ sub display_field($$) {
 		source: function(request, response) {
 			if (request.term === "") {
 				let tag = window.localStorage.getItem("po_last_tags");
-				if (tag != null) response(JSON.parse(tag)['${field}']);
+				let obj = JSON.parse(tag)['${field}'];
+				obj = obj.filter( function(el) {
+  				return !\$('#$field').tagExist(el);
+				});
+				if (tag != null) response(obj);
 			} else {
 				\$.ajax({
 					type: "GET",
 					url: "${autocomplete}",
 					data: "term="+ request.term,
-  					dataType: "json",
+  				dataType: "json",
 					success: function(data) {
 						response(data)
 					}
@@ -644,7 +648,7 @@ sub display_field($$) {
 		} else if (obj["${field}"] == null) {
 			obj["${field}"] = [tag];
 		} else {
-			if (obj["${field}"].indexOf() != -1) return;
+			if (obj["${field}"].indexOf(tag) != -1) return;
 			if (obj["${field}"].length >= $arrayLenght) obj["${field}"].pop();
 			obj["${field}"].unshift(tag);
 		}
@@ -1219,7 +1223,7 @@ color:#FFFFFF;
 CSS
 ;
 
-	$initjs .= <<JS
+	$initjs .= <<JAVASCRIPT
 \$(".select_add_language").select2({
 	placeholder: "$Lang{add_language}{$lang}",
     allowClear: true
@@ -1253,7 +1257,7 @@ CSS
     }
   });
 
-JS
+JAVASCRIPT
 ;
 
 
@@ -2151,7 +2155,7 @@ HTML
 HTML
 ;
 	}
-	
+
 	$html .= <<HTML
 </div>
 </form>
