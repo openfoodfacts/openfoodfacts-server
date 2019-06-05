@@ -77,6 +77,7 @@ stopwords:zh::配料
 #	'Durchschnittliche N(â|a|ä)hrwerte',
 #	'Ern(â|a|ä)hrungswerte',
 #Glutenfrei
+#Kann andere Schalenfrüchte enthalten.
 #Milchschokolade: Kakao: 37% mindestens
 #	'Mindestens altbar bis',
 #	'Mindestens haltbar bis',
@@ -89,6 +90,7 @@ stopwords:zh::配料
 #	'after opening',
 #Gluten free
 #Keep in a cool and dry place.
+#May contain other nuts.
 #	'nutritional values',
 #	'nutrition values',
 #	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
@@ -198,6 +200,7 @@ stopwords:zh::配料
 #	'a se agita inainte de deschidere',
 #	'a si pastra la frigider dup(a|ă) deschidere',
 #	'declaratie nutritional(a|ă)',
+#Poate contine urme de fructe cu coajă lemnoasă
 
 
 
@@ -28626,6 +28629,9 @@ de:Agavendicksaft
 it:succo di agave concentrato
 # ingredient/fr:jus-d’agave-concentré has 16 products in 3 languages @2018-12-17
 
+<fr:jus d'agave concentré
+fr:sirop d'agave concentré biologique
+es:jarabe de ágave concentrado ecológico
 
 
 # description:en:FRUCTOOLIGOSACCHARIDES (FOS) also sometimes called oligofructose or oligofructan, are oligosaccharide fructans, used as an alternative sweetener. FOS is extracted from the blue Agave plant as well as fruits and vegetables such as bananas, onions, chicory root, garlic, asparagus, jícama, and leeks.
