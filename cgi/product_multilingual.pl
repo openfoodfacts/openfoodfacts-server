@@ -620,18 +620,20 @@ sub display_field($$) {
 	autocomplete: {
 		source: function(request, response) {
 			if (request.term === "") {
-				let tag = window.localStorage.getItem("po_last_tags");
-				let obj = JSON.parse(tag)['${field}'];
-				obj = obj.filter( function(el) {
-  				return !\$('#$field').tagExist(el);
-				});
-				if (tag != null) response(obj);
+				const tag = window.localStorage.getItem("po_last_tags");
+				const obj = JSON.parse(tag)['${field}'];
+				if (obj == null) return;
+				response(obj.filter( function(el) {
+  					return !\$('#$field').tagExist(el);
+				}));
 			} else {
+				const url = "${autocomplete}";
+				if (url == "") return;
 				\$.ajax({
 					type: "GET",
 					url: "${autocomplete}",
 					data: "term="+ request.term,
-  				dataType: "json",
+  					dataType: "json",
 					success: function(data) {
 						response(data)
 					}
