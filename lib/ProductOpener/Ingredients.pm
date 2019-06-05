@@ -882,6 +882,7 @@ fr => [
 'conseils de pr(e|é)paration',
 'conseil de pr(e|é)paration',
 'conditions de conservation',
+'conservation:',
 '(a|à) protéger de ', # humidité, chaleur, lumière etc.
 'conditionn(e|é) sous atmosph(e|è)re protectrice',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
