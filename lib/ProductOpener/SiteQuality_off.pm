@@ -539,6 +539,14 @@ sub check_nutrition_data($) {
 	}
 }
 
+sub calculate_digit_percentage($) {
+	my $text = shift;
+	return 0.0 if not defined $text;
+	my $tl = length($text);
+	return 0.0 if $tl <= 0;
+	my $dc = () = $text =~ /\d/g;
+	return $dc / ($tl * 1.0);
+}
 
 sub check_ingredients($) {
 	my $product_ref = shift;
@@ -612,6 +620,9 @@ sub check_ingredients($) {
 		}
 	}
 
+	if ((defined $product_ref->{ingredients_text}) and (calculate_digit_percentage($product_ref->{ingredients_text}) > 0.3)) {
+		push @{$product_ref->{quality_tags}}, 'ingredients-over-30-percent-digits';
+	}
 
 	if (defined $product_ref->{languages_codes}) {
 
@@ -622,6 +633,10 @@ sub check_ingredients($) {
 			if (defined $product_ref->{$ingredients_text_lc}) {
 
 				$log->debug("ingredients text", { quality => $product_ref->{$ingredients_text_lc} }) if $log->is_debug();
+
+				if (calculate_digit_percentage($product_ref->{$ingredients_text_lc}) > 0.3) {
+					push @{$product_ref->{quality_tags}}, 'ingredients-' . $display_lc . '-over-30-percent-digits';
+				}
 
 				if ($product_ref->{$ingredients_text_lc} =~ /,(\s*)$/is) {
 
