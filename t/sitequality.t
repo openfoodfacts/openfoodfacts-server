@@ -127,4 +127,61 @@ product_with_code_has_quality_tag('9900000000000', 'gs1-coupon-prefix', 'product
 product_with_code_has_quality_tag('976000000000', 'gs1-coupon-prefix', 'product with GTIN-12 has no gs1-coupon-prefix tag because of the barcode prefix 976', 0);
 product_with_code_has_quality_tag('9760000000000', 'gs1-coupon-prefix', 'product with GTIN-13 has no gs1-coupon-prefix tag because of the barcode prefix 976', 0);
 
+# ingredients-de-over-30-percent-digits - with more than 30%
+my $over_30 = '(52,3 0) 0,2 (J 23 (J 2,3 g 0,15 g';
+my $at_30 = '123abcdefg';
+my $product_ref = {
+	lc => 'de',
+	languages_codes => {
+		de => 1
+	},
+	ingredients_text_de => $over_30
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'quality', 'ingredients-de-over-30-percent-digits'), 'product with more than 30% digits in the language-specific ingredients has tag ingredients-over-30-percent-digits' ) or diag explain $product_ref;
+
+# ingredients-de-over-30-percent-digits - with exactly 30%
+$product_ref = {
+	lc => 'de',
+	languages_codes => {
+		de => 1
+	},
+	ingredients_text_de => $at_30
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( !has_tag($product_ref, 'quality', 'ingredients-de-over-30-percent-digits'), 'product with at most 30% digits in the language-specific ingredients has no ingredients-over-30-percent-digits tag' ) or diag explain $product_ref;
+
+# ingredients-de-over-30-percent-digits - without a text
+$product_ref = {
+	lc => 'de',
+	languages_codes => {
+		de => 1
+	}
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( !has_tag($product_ref, 'quality', 'ingredients-de-over-30-percent-digits'), 'product with no language-specific ingredients text has no ingredients-over-30-percent-digits tag' ) or diag explain $product_ref;
+
+# ingredients-over-30-percent-digits - with more than 30%
+$product_ref = {
+	lc => 'de',
+	ingredients_text => $over_30
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'quality', 'ingredients-over-30-percent-digits'), 'product with more than 30% digits in the ingredients has tag ingredients-over-30-percent-digits' ) or diag explain $product_ref;
+
+# ingredients-over-30-percent-digits - with exactly 30%
+$product_ref = {
+	lc => 'de',
+	ingredients_text => $at_30
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( !has_tag($product_ref, 'quality', 'ingredients-over-30-percent-digits'), 'product with at most 30% digits in the ingredients has no ingredients-over-30-percent-digits tag' ) or diag explain $product_ref;
+
+# ingredients-over-30-percent-digits - without a text
+$product_ref = {
+	lc => 'de'
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( !has_tag($product_ref, 'quality', 'ingredients-over-30-percent-digits'), 'product with no ingredients text has no ingredients-over-30-percent-digits tag' ) or diag explain $product_ref;
+
 done_testing();
