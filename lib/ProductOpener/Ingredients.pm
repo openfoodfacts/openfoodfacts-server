@@ -389,9 +389,12 @@ sub extract_ingredients_from_text($) {
 	return if not defined $product_ref->{ingredients_text};
 
 	my $text = $product_ref->{ingredients_text};
-	$text =~ s/\&quot;/"/g;
 
 	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
+	
+	preparse_ingredients_text($lc, \$text);
+	
+	$log->debug("preparsed ingredients from text", { text => $text }) if $log->is_debug();
 
 	# unify newline feeds to \n
 	$text =~ s/\r\n/\n/g;
@@ -399,8 +402,6 @@ sub extract_ingredients_from_text($) {
 
 	# remove ending . and ending whitespaces
 	$text =~ s/(\s|\.)+$//;
-
-
 
 	# $product_ref->{ingredients_tags} = ["first-ingredient", "second-ingredient"...]
 	# $product_ref->{ingredients}= [{id =>, text =>, percent => etc. }, ] # bio / équitable ?
@@ -1069,13 +1070,10 @@ sub clean_ingredients_text($) {
 
 
 
+sub preparse_ingredients_text($$) {
 
-sub extract_ingredients_classes_from_text($) {
-
-	my $product_ref = shift;
-	my $path = product_path($product_ref->{code});
-	my $text = $product_ref->{ingredients_text};
-	my $lc = $product_ref->{lc};
+	my $text_ref = shift;
+	my $text = $$text_ref;
 
 	$text =~ s/\&quot;/"/g;
 
@@ -1100,8 +1098,6 @@ sub extract_ingredients_classes_from_text($) {
 	# 2018-03-07 : commenting out the code above as we are now separating vitamins from additives,
 	# and PP, B6, B12 etc. will be listed as synonyms for Vitamine PP, Vitamin B6, Vitamin B12 etc.
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
-
-
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	$text =~ s/\bins( |-)?(\d)/E$2/ig;
@@ -1347,10 +1343,20 @@ INFO
 
 		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et | and | y ))+($vitaminssuffixregexp))\b/normalize_vitamins_enumeration($lc,$3)/ieg;
 
+}
 
+
+
+sub extract_ingredients_classes_from_text($) {
+
+	my $product_ref = shift;
+	my $path = product_path($product_ref->{code});
+	my $text = $product_ref->{ingredients_text};
+	my $lc = $product_ref->{lc};
+
+	preparse_ingredients_text($lc, \$text);
 
 	my @ingredients = split($separators, $text);
-
 
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
@@ -1902,7 +1908,6 @@ INFO
 		}
 	}
 }
-
 
 
 
