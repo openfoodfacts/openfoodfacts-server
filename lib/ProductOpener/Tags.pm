@@ -3254,11 +3254,15 @@ sub compute_field_tags($$$) {
 
 	if (defined $tags_fields{$field}) {
 
+		my $value = $product_ref->{$field};
+
 		$product_ref->{$field . "_tags" } = [];
 		if ($field eq 'emb_codes') {
 			$product_ref->{"cities_tags" } = [];
+			$value = normalize_packager_codes($product_ref->{emb_codes});
 		}
-		foreach my $tag (split(',', $product_ref->{$field} )) {
+		
+		foreach my $tag (split(',', $value)) {
 			if (get_fileid($tag) ne '') {
 				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
 				if ($field eq 'emb_codes') {
