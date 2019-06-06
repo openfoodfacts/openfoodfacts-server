@@ -759,6 +759,10 @@ it => [
 
 ],
 
+cs => [
+'složení',
+],
+
 pt => [
 'ingredientes(\s*)(\s|-|:|\r|\n)+',
 ],
@@ -803,6 +807,10 @@ my %phrases_before_ingredients_list_uppercase = (
 fr => [
 
 'INGR(E|É)DIENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+],
+
+cs => [
+'SLOŽENÍ',
 ],
 
 de => [
