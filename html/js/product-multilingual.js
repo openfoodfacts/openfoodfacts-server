@@ -372,6 +372,7 @@ function change_image(imagefield, imgid) {
 	$(document).foundation('equalizer', 'reflow');
 }
 
+// https://jsperf.com/jquery-visibility-test
 $.fn.isVisible = function() {
   return $.expr.filters.visible(this[0]);
 };
