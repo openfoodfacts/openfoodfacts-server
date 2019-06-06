@@ -8386,7 +8386,7 @@ HTML
 			else {
 				my $labelid = get_fileid($Nutriments{$nid}{$lang});
 				$label = <<HTML
-<td class="nutriment_label"><a href="/$labelid" title="$product_ref->{nutrition_score_debug}">${prefix}$Nutriments{$nid}{$lang}</a></td>
+<td class="nutriment_label"><a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">${prefix}$Nutriments{$nid}{$lang}</a></td>
 HTML
 ;
 			}
