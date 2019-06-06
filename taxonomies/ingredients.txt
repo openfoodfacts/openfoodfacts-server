@@ -13344,7 +13344,7 @@ zh:乳脂
 wikidata:en:Q909729
 wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 
-# MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
+# description:en:MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
 en:milk
 af:Melk
@@ -13784,7 +13784,7 @@ fr:Lait pasteurisé entier pasteurisation haute
 
 ################################## RAW MILKS ##############################
 
-# RAW MILK - milk produced by female mammals (probably cow) before any treatment
+# description:en:RAW MILK - milk produced by female mammals (probably cow) before any treatment
 
 <en:milk
 en:raw milk
@@ -13800,7 +13800,7 @@ fr:lait cru entier
 
 ################################## COW MILKS ##############################
 
-# COW MILK - raw cow milk that probably has been treated (pasteurisation)
+# description:en:COW MILK - raw cow milk that probably has been treated (pasteurisation)
 
 <en:milk
 en:cow's milk, cows' milk, cow milk
@@ -13867,13 +13867,13 @@ fr:lait frais de nos vaches non homogeneise
 
 ################################# GOAT MILKS ##########################
 
-# RAW GOAT MILK - milk produced by female goats before any treatment
+# description:en:RAW GOAT MILK - milk produced by female goats before any treatment
 
 <en:goat's milk
 en:raw goat's milk
 fr:lait cru de chèvre
 
-# GOATS MILK - goat milk that probably has been treated (pasteurisation)
+# description:en:GOATS MILK - goat milk that probably has been treated (pasteurisation)
 
 <en:milk
 en:goat's milk
@@ -13896,7 +13896,7 @@ fr:lait de chevre demi-écrémé
 en:skimmed goat's milk
 fr:lait de chevre écrémé
 
-# GOATS MILK - raw goat milk that has been treated (pasteurisation)
+# description:en:GOATS MILK - raw goat milk that has been treated (pasteurisation)
 
 <en:goat's milk
 en:pasteurised goat milk, pasteurized goat milk, pasteurised goatmilk
@@ -13918,7 +13918,7 @@ fr:lait de brebis
 it:latte di pecora
 nl:schapenmelk
 
-# RAW SHEEPS MILK - milk produced by female sheep before any treatment
+# description:en:RAW SHEEPS MILK - milk produced by female sheep before any treatment
 
 <en:sheeps milk
 en:raw sheeps milk
@@ -13927,7 +13927,7 @@ el:ακατέργαστο πρόβειο γάλα
 fr:lait cru de brebis
 nl:rauwe schapenmelk
 
-# SHEEPS MILK - raw sheeps milk that probably has been treated (pasteurisation)
+# description:en:SHEEPS MILK - raw sheeps milk that probably has been treated (pasteurisation)
 
 <en:milk
 en:scheeps milk, sheep milk
@@ -13937,7 +13937,7 @@ it:latte di pecora
 nl:schapenmelk
 wikidata:en:Q2736146
 
-# PASTEURIZED SHEEPS MILK - raw sheeps milk that has been treated (pasteurisation)
+# description:en:PASTEURIZED SHEEPS MILK - raw sheeps milk that has been treated (pasteurisation)
 
 <en:sheeps milk
 en:pasteurized sheeps milk, pasteurised sheep's milk
@@ -13995,6 +13995,14 @@ zh:淡奶
 wikidata:en:Q13417087
 wikipedia:en:https://en.wikipedia.org/wiki/Evaporated_milk
 # ingredient/evaporated-milk has 218 products in english @2019-04-16
+
+<en:evaporated milk
+en:coffee cream
+fr:crème à café
+de:Kaffeerahm
+it:panna da caffè
+nl:koffieroom
+# 14@2019-06-06
 
 # description:en:CONDENSED MILK is cow's milk from which water has been removed.  It is most often found in the form of "sweetened condensed milk" ("SCM"), with sugar added, and the terms "condensed milk" and "sweetened condensed milk" are often used interchangeably today. Sweetened condensed milk is a very thick, sweet product, which when canned can last for years without refrigeration if not opened. Condensed milk is used in numerous dessert dishes in many countries.
 
