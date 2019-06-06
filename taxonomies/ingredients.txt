@@ -25841,7 +25841,7 @@ fr:farine de blé type 55
 # ingredient/fr:farine-de-ble-type-55 has 12 products @2019-06-02
 
 <en:wheat flour
-fr:farine de blé t65
+fr:farine de blé type 65, farine de blé t65
 nl:tarwemeel T65
 
 <en:wheat flour
@@ -34233,6 +34233,9 @@ en:pure apple juice
 fr:pur jus de pomme
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pure-apple-juice
 # 51 products in 2 languages @2018-10-04
+
+<en:pure apple juice
+fr:pur jus de pommes à cidre de Bretagne
 
 <en:apple juice
 en:concentrated apple juice
@@ -53242,6 +53245,39 @@ wikipedia:en:https://en.wikipedia.org/wiki/Agaricus_bisporus
 # fr:champignons de Paris has 857 products in 9 languages @2018-11-01
 carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
 
+# description:en:HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
+
+<en:mushroom
+en:horn of plenty
+bg:Тръбенка
+ca:trompeta de la mort
+cs:stroček trubkovitý
+cy:Corn llawnder
+de:Totentrompete
+es:Craterellus
+fi:Mustatorvisieni
+fr:Trompettes de la mort
+gl:Trompeta dos mortos
+hr:Crna trubača
+hu:Sötét trombitagomba
+li:Trompèt van d'r doeëd
+lt:Paprastasis trimitėlis
+mk:црна труба
+nb:Sort trompetsopp
+nl:Doodstrompet
+pl:Lejkowiec dęty
+ro:Trâmbița morților
+ru:Вороночник рожковидный
+sl:Črna trobenta
+sr:Мрка трубача
+sv:Svart trumpetsvamp
+# vec:Tronbeta da morto
+# zh-tw:灰喇叭菌
+wikidata:en:Q857903
+
+<en:horn of plenty, Craterellus cornucopioides
+la:Craterellus cornucopioides
+wikipedia:en:https://en.wikipedia.org/wiki/Craterellus_cornucopioides
 
 <en:mushroom
 en:kikurage mushroom
