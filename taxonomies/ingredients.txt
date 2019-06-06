@@ -22202,6 +22202,80 @@ wikipedia:en:https://en.wikipedia.org/wiki/Amaretto
 #nl:angostura
 # no products @2019-02-15
 
+# description:en:GIN is a distilled alcoholic drink that derives its predominant flavour from juniper berries.
+
+<en:alcohol
+en:gin
+ar:جن
+# arz:جن
+# ast:Xinebra
+be:Джын
+bg:Джин
+ca:ginebra
+cs:gin
+cv:Джин
+cy:Jin
+da:gin
+de:Gin
+# de-ch:Gin
+el:Τζιν
+# en-ca:Gin
+# en-gb:gin
+eo:ĝino
+es:ginebra
+et:Džinn
+eu:gin
+fa:جین
+fi:gini
+fo:Ginn
+fr:gin, london-dry-gin
+gl:Xenebra
+gv:Jeneeve
+he:ג'ין
+hu:gin
+hy:Ջին
+id:Gin
+io:Jino
+is:Gin
+it:gin
+ja:ジン
+ka:ჯინი
+kk:Джин
+ko:진
+# ksh:Gin
+la:Gin
+lt:Džinas
+lv:džins
+mk:Џин
+my:ဂျင်
+nb:gin
+nl:gin
+nn:gin
+oc:Gin
+pl:gin
+pt:gim
+# pt-br:Gim
+ro:Gin
+ru:джин
+# sco:gin
+sh:Džin
+sk:Gin
+sl:Gin
+sr:Џин
+sv:Gin
+ta:ஜின்
+th:ยิน
+tr:Cin
+uk:Джин
+vi:Gin
+# wuu:金酒
+# xmf:ჯინი
+yi:דזשין
+# yue:氈酒
+zh:琴酒
+wikidata:en:Q959362
+wikipedia:en:https://en.wikipedia.org/wiki/Gin
+
 # Champagne is sparkling wine or, in the EU countries, legally only that sparkling wine which comes from the Champagne region of France.
 
 <en:alcohol
@@ -33986,6 +34060,9 @@ nl:biologische appel, Biologische appels
 fr:fruits à cidre de Normandie
 
 <en:apple
+fr:pommes gala
+
+<en:apple
 fr:pommes golden
 # 11@109-06-05
 
@@ -37249,6 +37326,10 @@ wikidata:en:Q1209756
 wikipedia:en:https://en.wikipedia.org/wiki/Grape_juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/grape-juice
 # 701 products in 6 languages @2018-10-02
+
+<en:grape juice
+en:organic grape juice
+fr:jus de raisin issu de l'agriculture biologique
 
 <en:grape juice
 en:concentrated grape juice
@@ -41051,6 +41132,10 @@ zh:小茴香
 wikipedia:en:https://en.wikipedia.org/wiki/Fennel
 wikidata:en:https://www.wikidata.org/wiki/Q43511
 # fr:fenouil has 634 products in 6 languages @2018-10-21
+
+<en:fennel
+en:organic fennel
+fr:fenouil bio
 
 
 # description:en:HEART OF PALM is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
@@ -45113,6 +45198,10 @@ wikidata:en:Q131226
 wikipedia:en:https://en.wikipedia.org/wiki/Lentil
 
 <en:lentils
+fr:lentilles Béluga
+# 8@2019-06-06
+
+<en:lentils
 fr:lentilles réhydratées, lentilles sèches trempées
 # ingredient/fr:lentilles-réhydratées has 54 products @2019-06-02
 
@@ -45138,6 +45227,10 @@ en:organic green lentils
 de:Bio Linsen grün
 fr:lentilles vertes bio
 it:lenticchie verdi bio
+
+<en:green lentils
+fr:Lentilles vertes du Berry
+# 8@2019-06-06
 
 <en:green lentils
 en:cooked green lentils
@@ -45167,8 +45260,8 @@ fr:lentilles corail issues de l'agriculture biologique
 fr:lentilles rouges décortiquées
 # ingredient/fr:lentilles-rouges-decortiquees has 11 products @2019-06-02
 
-
-
+<en:lentils
+fr:lentillons
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -47329,6 +47422,10 @@ wikidata:en:Q83165
 wikipedia:en:https://en.wikipedia.org/wiki/Nutmeg
 # fr:noix-de-muscade has 517 products in 6 languages @2018-10-24
 
+<en:nutmeg
+en:ground nutmeg
+fr:muscade-moulue
+
 # CARDAMOM, sometimes cardamon or cardamum, is a spice made from the seeds of several plants in the genera Elettaria and Amomum in the family Zingiberaceae. Both
 
 <en:spice
@@ -48650,6 +48747,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Peppermint
 
 <en:peppermint
 fr:feuilles de menthe poivrée
+
+<en:peppermint
+en:organic peppermint
+fr:menthe poivrée bio
 
 <en:peppermint
 en:peppermint oil
@@ -51731,6 +51832,9 @@ en:organic Ceylon black tea
 fr:Thé noir de Ceylan bio
 
 <en:black tea
+fr:thé noir darjeeling
+
+<en:black tea
 en:black tea extract
 de:Schwarztee-Extrakt
 es:extracto de té negro
@@ -51857,6 +51961,9 @@ ru:экстракт зеленого чая
 <en:green tea extract
 en:green tea extract powder
 pt:extrato de ché verde em po
+
+<en:green tea
+fr:thé vert au jasmin
 
 
 # en:tree sorrel
@@ -60735,6 +60842,9 @@ es:café arabica, puro arabica
 fr:café arabica, arabica, Café 100 % arabica, café pur arabica
 it:caffè Arabica
 # ingredient/fr:café-arabica has 38 products in 5 languages @2018-11-30
+
+<en:arabica coffee
+fr:cafe arabica du Brésil
 
 <en:arabica coffee
 en:freshly brewed Arabica coffee
