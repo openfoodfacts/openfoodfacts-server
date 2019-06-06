@@ -389,10 +389,11 @@ sub extract_ingredients_from_text($) {
 	return if not defined $product_ref->{ingredients_text};
 
 	my $text = $product_ref->{ingredients_text};
+	my $lc = $product_ref->{lc};
 
 	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
 	
-	preparse_ingredients_text($lc, \$text);
+	$text = preparse_ingredients_text($lc, $text);
 	
 	$log->debug("preparsed ingredients from text", { text => $text }) if $log->is_debug();
 
@@ -1072,8 +1073,8 @@ sub clean_ingredients_text($) {
 
 sub preparse_ingredients_text($$) {
 
-	my $text_ref = shift;
-	my $text = $$text_ref;
+	my $lc = shift;
+	my $text = shift;
 
 	$text =~ s/\&quot;/"/g;
 
@@ -1343,6 +1344,7 @@ INFO
 
 		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et | and | y ))+($vitaminssuffixregexp))\b/normalize_vitamins_enumeration($lc,$3)/ieg;
 
+	return $text;
 }
 
 
@@ -1354,7 +1356,7 @@ sub extract_ingredients_classes_from_text($) {
 	my $text = $product_ref->{ingredients_text};
 	my $lc = $product_ref->{lc};
 
-	preparse_ingredients_text($lc, \$text);
+	$text = preparse_ingredients_text($lc, $text);
 
 	my @ingredients = split($separators, $text);
 
