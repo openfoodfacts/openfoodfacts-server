@@ -1497,7 +1497,7 @@ $html .= "</div><!-- fieldset -->
 HTML
 ;
 
-	$initjs .= <<JS
+	$initjs .= <<JAVASCRIPT
 \$('#no_nutrition_data').change(function() {
 	if (\$(this).prop('checked')) {
 		\$('#nutrition_data_table input').prop('disabled', true);
@@ -1512,10 +1512,10 @@ HTML
 		\$('#multiple_nutrition_data').prop('disabled', false);
 		\$('#nutrition_data_table').show();
 	}
-
+	update_nutrition_image_copy();
 	\$(document).foundation('equalizer', 'reflow');
 });
-JS
+JAVASCRIPT
 ;
 
 
