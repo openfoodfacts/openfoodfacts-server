@@ -54,6 +54,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Images qw/:all/;
 
 
 use Image::OCR::Tesseract 'get_ocr';
@@ -247,125 +248,14 @@ sub extract_ingredients_from_image($$$) {
 	my $product_ref = shift;
 	my $id = shift;
 	my $ocr_engine = shift;
-
-	my $path = product_path($product_ref->{code});
-	my $status = 1;
-
-	my $filename = '';
-
+		
 	my $lc = $product_ref->{lc};
 
-	if ($id =~ /^ingredients_(\w\w)$/) {
+	if ($id =~ /_(\w\w)$/) {
 		$lc = $1;
-	}
-	else {
-		$id = "ingredients";
-	}
-
-	my $size = 'full';
-	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-		$filename = $id . '.' . $product_ref->{images}{$id}{rev} ;
-	}
-
-	my $image = "$www_root/images/products/$path/$filename.full.jpg";
-	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
-
-	my $text;
-
-	$log->debug("extracting ingredients from image", { id => $id, ocr_engine => $ocr_engine }) if $log->is_debug();
-
-	if ($ocr_engine eq 'tesseract') {
-
-		my $lan;
-
-		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
-			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
-		}
-		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
-			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
-		}
-		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
-			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
-		}
-
-		$log->debug("extracting ingredients with tesseract", { lc => $lc, lan => $lan, id => $id, image => $image }) if $log->is_debug();
-
-		if (defined $lan) {
-			$text =  decode utf8=>get_ocr($image,undef,$lan);
-
-			if ((defined $text) and ($text ne '')) {
-				$product_ref->{ingredients_text_from_image} = $text;
-				$status = 0;
-			}
-		}
-		else {
-			$log->warn("no available tesseract dictionary", { lc => $lc, lan => $lan, id => $id }) if $log->is_warn();
-		}
-
-	}
-	elsif ($ocr_engine eq 'google_cloud_vision') {
-
-		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
-		# alpha-vision.googleapis.com/
-
-		my $ua = LWP::UserAgent->new();
-
-		my $api_request_ref =
-			{
-				requests =>
-					[
-						{
-							features => [{ type => 'TEXT_DETECTION'}], image => { source => { imageUri => $image_url}}
-						}
-					]
-			}
-		;
-		my $json = encode_json($api_request_ref);
-
-		my $request = HTTP::Request->new(POST => $url);
-		$request->header( 'Content-Type' => 'application/json' );
-		$request->content( $json );
-
-		my $res = $ua->request($request);
-
-		if ($res->is_success) {
-
-			$log->info("request to google cloud vision was successful") if $log->is_info();
-
-			my $json_response = $res->decoded_content;
-
-			my $cloudvision_ref = decode_json($json_response);
-
-			my $json_file = "$www_root/images/products/$path/$filename.full.jpg" . ".google_cloud_vision.json";
-
-			$log->info("saving google cloud vision json response to file", { path => $json_file }) if $log->is_info();
-
-			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
-			$json_response = decode("utf8", $json_response);
-
-			open (my $OUT, ">:encoding(UTF-8)", $json_file);
-			print $OUT $json_response;
-			close $OUT;
-
-			if ((defined $cloudvision_ref->{responses}) and (defined $cloudvision_ref->{responses}[0])
-				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
-				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text})) {
-
-				$log->debug("text found in google cloud vision response") if $log->is_debug();
-
-
-				$product_ref->{ingredients_text_from_image} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
-				$status = 0;
-			}
-
-		}
-		else {
-			$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
-		}
-
-
-	}
+	}		
+		
+	my $status = extract_text_from_image($product_ref, $id, "ingredients_text_from_image", $ocr_engine);
 
 	# remove nutrition facts etc.
 	if (($status == 0) and (defined $product_ref->{ingredients_text_from_image})) {
@@ -375,9 +265,7 @@ sub extract_ingredients_from_image($$$) {
 
 	}
 
-
 	return $status;
-
 }
 
 

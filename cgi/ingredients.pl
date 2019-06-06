@@ -46,8 +46,8 @@ ProductOpener::Display::init();
 
 my $code = normalize_code(param('code'));
 my $id = param('id');
-
 my $ocr_engine = param('ocr_engine');
+my $annotations = param('annotations') | 0;
 
 if (not defined $ocr_engine) {
 	$ocr_engine = "tesseract";
@@ -69,6 +69,9 @@ if (($id =~ /^ingredients/) and (param('process_image'))) {
 	if ($results{status} == 0) {
 		$results{ingredients_text_from_image} = $product_ref->{ingredients_text_from_image};
 		$results{ingredients_text_from_image} =~ s/\n/ /g;
+		if ($annotations) {
+			$results{ingredients_text_from_image_annotations} = $product_ref->{ingredients_text_from_image_annotations};
+		}		
 	}
 }
 my $data =  encode_json(\%results);
