@@ -965,6 +965,10 @@ it => [
 'Valori nutritivi',
 ],
 
+cs => [
+'doporučeny způsob přípravy',
+],
+
 ja => [
 '栄養価',
 ],
