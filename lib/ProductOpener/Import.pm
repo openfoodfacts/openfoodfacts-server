@@ -738,11 +738,34 @@ sub load_xml_file($$$$) {
 #			},
 
 	my @xml_refs = ();
+	
+	# Multiple products in an array?
+	
+	if ($xml_fields_mapping_ref->[0][0] eq "multiple_products") {
 
-	# Multiple products?
-	if ($xml_fields_mapping_ref->[0][0] eq "multiple_codes") {
+		my $array = $xml_fields_mapping_ref->[0][1];
 
-		$log->info("Split multiple products", { file => $file }) if $log->is_info();
+		$log->info("Split multiple products", { file => $file, array => $array }) if $log->is_info();
+
+		if (defined $xml_ref->{$array}) {
+			my $i = 1;
+			foreach my $new_product_ref (@{$xml_ref->{$array}}) {
+
+				$log->info("Split multiple products - i: " . $i++) if $log->is_info();
+
+				push @xml_refs, $new_product_ref;
+			}
+		}
+
+		shift @{$xml_fields_mapping_ref};
+
+	}
+
+
+	# Multiple variant of one product, with different codes?
+	elsif ($xml_fields_mapping_ref->[0][0] eq "multiple_codes") {
+
+		$log->info("Split multiple codes (product variants)", { file => $file }) if $log->is_info();
 
 		my $codes = $xml_fields_mapping_ref->[0][1]{codes};
 
@@ -808,6 +831,7 @@ sub load_xml_file($$$$) {
 		shift @{$xml_fields_mapping_ref};
 
 	}
+	
 	else {
 		push @xml_refs, $xml_ref;
 	}
@@ -841,6 +865,8 @@ sub load_xml_file($$$$) {
 		$log->trace("source $i", { source=>$source, target=>$target }) if $log->is_trace();
 
 		my $current_tag = $xml_ref;
+
+		print STDERR "\nsource: $source\n";
 
 		foreach my $source_tag (split(/\./, $source)) {
 			print STDERR "source_tag: $source_tag\n";
@@ -894,6 +920,29 @@ sub load_xml_file($$$$) {
 					$current_tag = $current_tag->[$i];
 				}
 			}
+			
+			# Array with several versions identified by a number, take the highest one
+			# <ADO LIB="JUS DE RAISIN" LIB2="Pur jus de raisin 1L" ADO="01" SECT_OQALI="Jus et nectars" 
+			# ["ADO.[max.ADO].COMP.ING", "ingredients_text_fr"],
+			
+			elsif ($source_tag =~ /^\[max:([^\]]+)\]$/) {
+				my $version = $1;
+				if (ref($current_tag) eq 'ARRAY') {
+					my $max = undef;
+					my $max_version_ref = undef;
+					foreach my $version_ref (@{$current_tag}) {
+						if ((defined $version_ref->{$version}) and (not defined $max) or ($version_ref->{$version} > $max)) {
+							$max = $version_ref->{$version};
+							$max_version_ref = $version_ref;
+						}
+					}
+					if (defined $max_version_ref) {
+						print STDERR "going down to array element $source_tag - version $max\n";
+						$current_tag = $max_version_ref;
+					}
+				}
+			}
+			
 			elsif (defined $current_tag->{$source_tag}) {
 				if ((ref($current_tag->{$source_tag}) eq 'HASH') or (ref($current_tag->{$source_tag}) eq 'ARRAY')) {
 					print STDERR "going down to hash $source_tag\n";
