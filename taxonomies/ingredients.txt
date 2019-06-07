@@ -27593,6 +27593,40 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 <en:invert sugar
 <en:invert cane sugar, inverted cane sugar
 
+
+<en:sugar
+en:caramelised sugar
+de:Karamellzucker
+es:azúcar caramelizado
+fr:sucre brun, sucre caramel
+it:zucchero caramellato
+nl:gekarameliseerde suiker
+
+<en:sugar
+en:white sugar
+fr:sucre blanc
+
+<en:sugar
+en:brown sugar
+es:azúcar moreno
+fr:sucre roux
+it:zucchero bruno
+nl:bruine suiker
+
+<en:brown sugar
+en:organic brown sugar
+fr:sucre roux bio
+nl:biologische bruine suiker
+# ingredient/fr:sucre-roux-bio has 15 products in french @2019-05-23
+
+
+<en:sugar
+en:liquid sugar
+de:Flüssigzucker, flüssiger Zucker
+fr:sucre liquide
+
+#################### Sugars from specific sources ##############
+
 <en:sugar
 nl:Arenga bossuiker
 # ingredient/nl:arenga-bossuiker has 1 product @2019-05-24
@@ -27697,30 +27731,6 @@ fr:sucre roux de canne en poudre, Cassonade Pure Canne, Sucre de canne complet e
 en:organic unrefined cane sugar
 fr:Sucre roux de canne issu de l'agriculture biologique, Sucre de canne biologique non raffiné, sucre de canne roux bio
 
-<en:sugar
-en:caramelised sugar
-de:Karamellzucker
-es:azúcar caramelizado
-fr:sucre brun, sucre caramel
-it:zucchero caramellato
-nl:gekarameliseerde suiker
-
-<en:sugar
-en:white sugar
-fr:sucre blanc
-
-<en:sugar
-en:brown sugar
-es:azúcar moreno
-fr:sucre roux
-it:zucchero bruno
-nl:bruine suiker
-
-<en:brown sugar
-en:organic brown sugar
-fr:sucre roux bio
-nl:biologische bruine suiker
-# ingredient/fr:sucre-roux-bio has 15 products in french @2019-05-23
 
 <en:sugar
 en:beet sugar
@@ -27729,9 +27739,7 @@ fr:sucre de betterave
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de betterave
 
 <en:sugar
-en:liquid sugar
-de:Flüssigzucker, flüssiger Zucker
-fr:sucre liquide
+fr:sucre de fleur de cocotier
 
 <en:sugar
 en:grape sugar, raisin sugar
