@@ -24,171 +24,189 @@ extract_ingredients_from_text($product_ref);
 diag explain $product_ref;
 
 
-is($product_ref->{ingredients_n}, 17);
+is($product_ref->{ingredients_n}, 19);
 
-my $expected_product_ref = {
+my $expected_product_ref = 
 
-	ingredients_text => "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel",
-          'ingredients_n_tags' => [
-                                    '17',
-                                    '11-20'
-                                  ],
-          'ingredients_original_tags' => [
-                                           'en:flour',
-                                           'en:chocolate',
-                                           'en:sugar',
-                                           'en:milk-proteins',
-                                           'en:egg',
-                                           'en:emulsifier',
-                                           'en:e463',
-                                           'fr:E432 et E472',
-                                           'en:acidity-regulator',
-                                           'en:polyglycerol-esters-of-fatty-acids',
-                                           'en:acid',
-                                           'en:salt',
-                                           'en:cocoa-butter',
-                                           'fr:e322',
-                                           'fr:E333 E474',
-                                           'en:citric-acid',
-                                           'en:phosphoric-acid'
-                                         ],
-          'ingredients_hierarchy' => [
-                                       'en:flour',
-                                       'en:chocolate',
-                                       'en:sugar',
-                                       'en:milk-proteins',
-                                       'en:protein',
-                                       'en:animal-protein',
-                                       'en:egg',
-                                       'en:emulsifier',
-                                       'en:e463',
-                                       'fr:E432 et E472',
-                                       'en:acidity-regulator',
-                                       'en:polyglycerol-esters-of-fatty-acids',
-                                       'en:acid',
-                                       'en:salt',
-                                       'en:cocoa-butter',
-                                       'en:cocoa',
-                                       'fr:e322',
-                                       'fr:E333 E474',
-                                       'en:citric-acid',
-                                       'en:phosphoric-acid'
-                                     ],
-          'ingredients_tags' => [
-                                  'en:flour',
-                                  'en:chocolate',
-                                  'en:sugar',
-                                  'en:milk-proteins',
-                                  'en:protein',
-                                  'en:animal-protein',
-                                  'en:egg',
-                                  'en:emulsifier',
-                                  'en:e463',
-                                  'fr:e432-et-e472',
-                                  'en:acidity-regulator',
-                                  'en:polyglycerol-esters-of-fatty-acids',
-                                  'en:acid',
-                                  'en:salt',
-                                  'en:cocoa-butter',
-                                  'en:cocoa',
-                                  'fr:e322',
-                                  'fr:e333-e474',
-                                  'en:citric-acid',
-                                  'en:phosphoric-acid'
-                                ],
-          'lc' => 'fr',
-          'ingredients' => [
-                             {
-                               'percent' => '12',
-                               'text' => 'farine',
-                               'id' => 'en:flour',
-                               'rank' => 1
-                             },
-                             {
-                               'text' => 'chocolat',
-                               'id' => 'en:chocolate',
-                               'rank' => 2
-                             },
-                             {
-                               'percent' => '10',
-                               'text' => 'sucre',
-                               'id' => 'en:sugar',
-                               'rank' => 3
-                             },
-                             {
-                               'text' => "prot\x{e9}ines de lait",
-                               'id' => 'en:milk-proteins',
-                               'rank' => 4
-                             },
-                             {
-                               'text' => 'oeuf',
-                               'id' => 'en:egg',
-                               'rank' => 5
-                             },
-                             {
-                               'text' => "\x{e9}mulsifiants",
-                               'id' => 'en:emulsifier',
-                               'rank' => 6
-                             },
-                             {
-                               'text' => 'E463',
-                               'id' => 'en:e463',
-                               'rank' => 7
-                             },
-                             {
-                               'text' => 'E432 et E472',
-                               'id' => 'fr:E432 et E472',
-                               'rank' => 8
-                             },
-                             {
-                               'text' => "correcteurs d'acidit\x{e9}",
-                               'id' => 'en:acidity-regulator',
-                               'rank' => 9
-                             },
-                             {
-                               'text' => 'E475',
-                               'id' => 'en:polyglycerol-esters-of-fatty-acids',
-                               'rank' => 10
-                             },
-                             {
-                               'text' => 'acidifiant',
-                               'id' => 'en:acid',
-                               'rank' => 11
-                             },
-                             {
-                               'text' => 'sel',
-                               'id' => 'en:salt',
-                               'rank' => 12
-                             },
-                             {
-                               'percent' => '15',
-                               'text' => 'beurre de cacao',
-                               'id' => 'en:cocoa-butter'
-                             },
-                             {
-                               'text' => 'E322',
-                               'id' => 'fr:e322'
-                             },
-                             {
-                               'text' => 'E333 E474',
-                               'id' => 'fr:E333 E474'
-                             },
-                             {
-                               'text' => 'acide citrique',
-                               'id' => 'en:citric-acid'
-                             },
-                             {
-                               'text' => 'acide phosphorique',
-                               'id' => 'en:phosphoric-acid'
-                             }
-                           ],
-          'unknown_ingredients_n' => 2,
-          'ingredients_n' => 17
+{
+  'ingredients' => [
+    {
+      'id' => 'en:flour',
+      'percent' => '12',
+      'rank' => 1,
+      'text' => 'farine'
+    },
+    {
+      'id' => 'en:chocolate',
+      'rank' => 2,
+      'text' => 'chocolat'
+    },
+    {
+      'id' => 'en:sugar',
+      'percent' => '10',
+      'rank' => 3,
+      'text' => 'sucre'
+    },
+    {
+      'id' => 'en:milk-proteins',
+      'rank' => 4,
+      'text' => "prot\x{e9}ines de lait"
+    },
+    {
+      'id' => 'en:egg',
+      'rank' => 5,
+      'text' => 'oeuf'
+    },
+    {
+      'id' => 'en:emulsifier',
+      'rank' => 6,
+      'text' => "\x{e9}mulsifiants"
+    },
+    {
+      'id' => 'en:e463',
+      'rank' => 7,
+      'text' => 'e463'
+    },
+    {
+      'id' => 'en:e432',
+      'rank' => 8,
+      'text' => 'e432'
+    },
+    {
+      'id' => 'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+      'rank' => 9,
+      'text' => 'e472'
+    },
+    {
+      'id' => 'en:acidity-regulator',
+      'rank' => 10,
+      'text' => "correcteurs d'acidit\x{e9}"
+    },
+    {
+      'id' => 'fr:e322',
+      'rank' => 11,
+      'text' => 'e322'
+    },
+    {
+      'id' => 'en:calcium-citrates',
+      'rank' => 12,
+      'text' => 'e333'
+    },
+    {
+      'id' => 'en:e474',
+      'rank' => 13,
+      'text' => 'e474'
+    },
+    {
+      'id' => 'en:polyglycerol-esters-of-fatty-acids',
+      'rank' => 14,
+      'text' => 'e475'
+    },
+    {
+      'id' => 'en:acid',
+      'rank' => 15,
+      'text' => 'acidifiant'
+    },
+    {
+      'id' => 'en:salt',
+      'rank' => 16,
+      'text' => 'sel'
+    },
+    {
+      'id' => 'en:cocoa-butter',
+      'percent' => '15',
+      'text' => 'beurre de cacao'
+    },
+    {
+      'id' => 'en:citric-acid',
+      'text' => 'acide citrique'
+    },
+    {
+      'id' => 'en:phosphoric-acid',
+      'text' => 'acide phosphorique'
+    }
+  ],
+  'ingredients_hierarchy' => [
+    'en:flour',
+    'en:chocolate',
+    'en:sugar',
+    'en:milk-proteins',
+    'en:protein',
+    'en:animal-protein',
+    'en:egg',
+    'en:emulsifier',
+    'en:e463',
+    'en:e432',
+    'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+    'en:acidity-regulator',
+    'fr:e322',
+    'en:calcium-citrates',
+    'en:e474',
+    'en:polyglycerol-esters-of-fatty-acids',
+    'en:acid',
+    'en:salt',
+    'en:cocoa-butter',
+    'en:cocoa',
+    'en:citric-acid',
+    'en:phosphoric-acid'
+  ],
+  'ingredients_n' => 19,
+  'ingredients_n_tags' => [
+    '19',
+    '11-20'
+  ],
+  'ingredients_original_tags' => [
+    'en:flour',
+    'en:chocolate',
+    'en:sugar',
+    'en:milk-proteins',
+    'en:egg',
+    'en:emulsifier',
+    'en:e463',
+    'en:e432',
+    'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+    'en:acidity-regulator',
+    'fr:e322',
+    'en:calcium-citrates',
+    'en:e474',
+    'en:polyglycerol-esters-of-fatty-acids',
+    'en:acid',
+    'en:salt',
+    'en:cocoa-butter',
+    'en:citric-acid',
+    'en:phosphoric-acid'
+  ],
+  'ingredients_tags' => [
+    'en:flour',
+    'en:chocolate',
+    'en:sugar',
+    'en:milk-proteins',
+    'en:protein',
+    'en:animal-protein',
+    'en:egg',
+    'en:emulsifier',
+    'en:e463',
+    'en:e432',
+    'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+    'en:acidity-regulator',
+    'fr:e322',
+    'en:calcium-citrates',
+    'en:e474',
+    'en:polyglycerol-esters-of-fatty-acids',
+    'en:acid',
+    'en:salt',
+    'en:cocoa-butter',
+    'en:cocoa',
+    'en:citric-acid',
+    'en:phosphoric-acid'
+  ],
+  'ingredients_text' => "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], prot\x{e9}ines de lait, oeuf 1%) - \x{e9}mulsifiants : E463, E432 et E472 - correcteurs d'acidit\x{e9} : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel",
+  'lc' => 'fr',
+  'unknown_ingredients_n' => 0
+};
 
-        };
 
-
-is_deeply($product_ref, $expected_product_ref);
+is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 
 
@@ -293,7 +311,7 @@ delete $product_ref->{minerals_prev};
 
 $expected_product_ref = 
 {
-  'ingredients' => [
+   'ingredients' => [
     {
       'id' => 'fr:Marmelade d\'oranges',
       'percent' => '41',
@@ -359,68 +377,53 @@ $expected_product_ref =
       'text' => 'chocolat'
     },
     {
-      'id' => 'en:flavouring',
-      'rank' => 13,
-      'text' => "ar\x{f4}me"
-    },
-    {
-      'id' => 'en:emulsifier',
-      'rank' => 14,
-      'text' => "\x{e9}mulsifiant"
-    },
-    {
-      'id' => 'en:soya-lecithin',
-      'rank' => 15,
-      'text' => "l\x{e9}cithine de soja"
-    },
-    {
       'id' => 'en:lactose-and-milk-proteins',
-      'rank' => 16,
+      'rank' => 13,
       'text' => "lactose et prot\x{e9}ines de lait"
     },
     {
       'id' => 'en:wheat-flour',
-      'rank' => 17,
+      'rank' => 14,
       'text' => "farine de bl\x{e9}"
     },
     {
       'id' => 'en:sugar',
-      'rank' => 18,
+      'rank' => 15,
       'text' => 'sucre'
     },
     {
       'id' => 'en:egg',
-      'rank' => 19,
+      'rank' => 16,
       'text' => 'oeufs'
     },
     {
       'id' => 'en:glucose-fructose-syrup',
-      'rank' => 20,
+      'rank' => 17,
       'text' => 'sirop de glucose-fructose'
     },
     {
       'id' => 'en:colza-oil',
-      'rank' => 21,
+      'rank' => 18,
       'text' => 'huile de colza'
     },
     {
       'id' => 'en:yeast-powder',
-      'rank' => 22,
+      'rank' => 19,
       'text' => "poudre \x{e0} lever"
     },
     {
       'id' => 'en:salt',
-      'rank' => 23,
+      'rank' => 20,
       'text' => 'sel'
     },
     {
       'id' => 'en:emulsifier',
-      'rank' => 24,
+      'rank' => 21,
       'text' => "\x{e9}mulsifiant"
     },
     {
       'id' => 'en:soya-lecithin',
-      'rank' => 25,
+      'rank' => 22,
       'text' => "l\x{e9}cithine de soja"
     },
     {
@@ -467,24 +470,36 @@ $expected_product_ref =
       'text' => 'beurre de cacao'
     },
     {
-      'id' => 'en:vegetable-fat',
-      'text' => "graisses v\x{e9}g\x{e9}tales"
+      'id' => "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
+      'text' => "graisses v\x{e9}g\x{e9}tales d'illipe"
     },
     {
-      'id' => 'en:illipe',
-      'text' => 'illipe'
+      'id' => "fr:graisses v\x{e9}g\x{e9}tales de mangue",
+      'text' => "graisses v\x{e9}g\x{e9}tales de mangue"
     },
     {
-      'id' => 'en:mango',
-      'text' => 'mangue'
+      'id' => "fr:graisses v\x{e9}g\x{e9}tales de sal",
+      'text' => "graisses v\x{e9}g\x{e9}tales de sal"
     },
     {
-      'id' => 'fr:sal',
-      'text' => 'sal'
+      'id' => "fr:graisses v\x{e9}g\x{e9}tales de karit\x{e9}",
+      'text' => "graisses v\x{e9}g\x{e9}tales de karit\x{e9}"
     },
     {
-      'id' => "fr:karit\x{e9} et palme en proportions variables",
-      'text' => "karit\x{e9} et palme en proportions variables"
+      'id' => 'en:palm-fat',
+      'text' => "graisses v\x{e9}g\x{e9}tales de palme"
+    },
+    {
+      'id' => 'en:flavouring',
+      'text' => "ar\x{f4}me"
+    },
+    {
+      'id' => 'en:emulsifier',
+      'text' => "\x{e9}mulsifiant"
+    },
+    {
+      'id' => 'en:soya-lecithin',
+      'text' => "l\x{e9}cithine de soja"
     },
     {
       'id' => 'en:ammonium-hydrogen-carbonate',
@@ -514,9 +529,6 @@ $expected_product_ref =
     'en:thickener',
     'en:xanthan-gum',
     'en:chocolate',
-    'en:emulsifier',
-    'en:soya-lecithin',
-    'en:lecithins',
     'en:lactose-and-milk-proteins',
     'en:protein',
     'en:animal-protein',
@@ -538,6 +550,9 @@ $expected_product_ref =
     'en:yeast-powder',
     'en:yeast',
     'en:salt',
+    'en:emulsifier',
+    'en:soya-lecithin',
+    'en:lecithins',
     'de:orangenfruchtfleisch',
     'en:fruit',
     'en:citrus-fruit',
@@ -554,11 +569,12 @@ $expected_product_ref =
     'en:cocoa-paste',
     'en:cocoa',
     'en:cocoa-butter',
-    'en:vegetable-fat',
-    'en:illipe',
-    'en:mango',
-    'fr:sal',
-    "fr:karit\x{e9} et palme en proportions variables",
+    "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
+    "fr:graisses v\x{e9}g\x{e9}tales de mangue",
+    "fr:graisses v\x{e9}g\x{e9}tales de sal",
+    "fr:graisses v\x{e9}g\x{e9}tales de karit\x{e9}",
+    'en:palm-fat',
+    'en:palm-oil-and-fat',
     'en:ammonium-hydrogen-carbonate',
     'en:ammonium-carbonates',
     'en:disodium-diphosphate',
@@ -584,9 +600,6 @@ $expected_product_ref =
     'en:thickener',
     'en:xanthan-gum',
     'en:chocolate',
-    'en:flavouring',
-    'en:emulsifier',
-    'en:soya-lecithin',
     'en:lactose-and-milk-proteins',
     'en:wheat-flour',
     'en:sugar',
@@ -607,11 +620,14 @@ $expected_product_ref =
     'en:sugar',
     'en:cocoa-paste',
     'en:cocoa-butter',
-    'en:vegetable-fat',
-    'en:illipe',
-    'en:mango',
-    'fr:sal',
-    "fr:karit\x{e9} et palme en proportions variables",
+    "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
+    "fr:graisses v\x{e9}g\x{e9}tales de mangue",
+    "fr:graisses v\x{e9}g\x{e9}tales de sal",
+    "fr:graisses v\x{e9}g\x{e9}tales de karit\x{e9}",
+    'en:palm-fat',
+    'en:flavouring',
+    'en:emulsifier',
+    'en:soya-lecithin',
     'en:ammonium-hydrogen-carbonate',
     'en:disodium-diphosphate',
     'en:sodium-hydrogen-carbonate'
@@ -631,9 +647,6 @@ $expected_product_ref =
     'en:thickener',
     'en:xanthan-gum',
     'en:chocolate',
-    'en:emulsifier',
-    'en:soya-lecithin',
-    'en:lecithins',
     'en:lactose-and-milk-proteins',
     'en:protein',
     'en:animal-protein',
@@ -655,6 +668,9 @@ $expected_product_ref =
     'en:yeast-powder',
     'en:yeast',
     'en:salt',
+    'en:emulsifier',
+    'en:soya-lecithin',
+    'en:lecithins',
     'de:orangenfruchtfleisch',
     'en:fruit',
     'en:citrus-fruit',
@@ -671,11 +687,12 @@ $expected_product_ref =
     'en:cocoa-paste',
     'en:cocoa',
     'en:cocoa-butter',
-    'en:vegetable-fat',
-    'en:illipe',
-    'en:mango',
-    'fr:sal',
-    'fr:karite-et-palme-en-proportions-variables',
+    'fr:graisses-vegetales-d-illipe',
+    'fr:graisses-vegetales-de-mangue',
+    'fr:graisses-vegetales-de-sal',
+    'fr:graisses-vegetales-de-karite',
+    'en:palm-fat',
+    'en:palm-oil-and-fat',
     'en:ammonium-hydrogen-carbonate',
     'en:ammonium-carbonates',
     'en:disodium-diphosphate',
@@ -685,9 +702,11 @@ $expected_product_ref =
   ],
   'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
   'lc' => 'fr',
-  'unknown_ingredients_n' => 6
+  'unknown_ingredients_n' => 8
 };
+	
 
+is_deeply($product_ref->{ingredients_original_tags}, $expected_product_ref->{ingredients_original_tags}) || diag explain $product_ref->{ingredients_original_tags};
 
 is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
@@ -849,6 +868,17 @@ $expected_product_ref = {
 
 
 is_deeply($product_ref, $expected_product_ref);
+my $product_ref = {
+        lc => "fr",
+        ingredients_text => "gélifiant (pectines)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+is_deeply ($product_ref->{ingredients_original_tags}, [
+"en:gelling-agent",
+"en:pectin",
+]) or diag explain $product_ref;
 
 
 done_testing();

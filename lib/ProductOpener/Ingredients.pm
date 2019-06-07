@@ -1173,9 +1173,11 @@ sub preparse_ingredients_text($$) {
 	# e432 et lécithines -> e432 - et lécithines
 	$text =~ s/ - et / - /ig;
 
-	# stabilisant e420 (sans : )
+	# stabilisant e420 (sans : ) -> stabilisant : e420
+	# but not acidifier (pectin) : acidifier : (pectin)
+	
 	# FIXME : should use additives classes
-	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement)(s|)(\s)?(:)?/$1$2 : /ig;
+	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)?(:)?(?!\(| \()/$1$2 : /ig;
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 
@@ -1199,10 +1201,6 @@ sub preparse_ingredients_text($$) {
 
 	# print STDERR "additives: $text\n\n";
 
-	#  remove % / percent
-	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
-
-
 	#$product_ref->{ingredients_text_debug} = $text;
 
 
@@ -1217,6 +1215,9 @@ sub preparse_ingredients_text($$) {
 		# Minéraux (carbonate de calcium, chlorures de calcium, potassium et magnésium, citrates de potassium et de sodium, phosphate de calcium,
 		# sulfates de fer, de zinc, de cuivre et de manganèse, iodure de potassium, sélénite de sodium).
 
+		# graisses végétales de palme et de colza en proportion variable
+		# remove stopwords
+		$text =~ s/( en)? proportion(s)? variable(s)?//i;
 
 		# simple plural (just an additional "s" at the end) will be added in the regexp
 		my @prefixes = (
@@ -1227,6 +1228,7 @@ sub preparse_ingredients_text($$) {
 "matière grasse",
 "matières grasses",
 "graisses",
+"graisses végétales",
 "lécithine",
 
 "carbonate",
@@ -1256,6 +1258,10 @@ sub preparse_ingredients_text($$) {
 "olive vierge",
 "noix",
 "avocat",
+"illipe",
+"mangue",
+"sal",
+"karité",
 
 "aluminium",
 "ammonium",
@@ -1427,6 +1433,9 @@ sub extract_ingredients_classes_from_text($) {
 	my $lc = $product_ref->{lc};
 
 	$text = preparse_ingredients_text($lc, $text);
+	
+	#  remove % / percent (to avoid identifying 100% as E100 in some cases)
+	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
 
 	my @ingredients = split($separators, $text);
 
