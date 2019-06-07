@@ -351,12 +351,12 @@ my @related_applications = (
 	{ 'platform' => 'windows', 'id' => '9nblggh0dkqr', 'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr' },
 );
 
-my $manifest = (
+my $manifest = { 
 	icons => \@icons,
 	related_applications => \@related_applications,
 	theme_color => '#ffffff',
 	background_color => '#ffffff',
-);
+};
 $options{manifest} = $manifest;
 
 $options{mongodb_supports_sample} = 0;  # from MongoDB 3.2 onward
