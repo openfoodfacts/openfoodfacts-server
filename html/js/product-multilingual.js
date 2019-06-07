@@ -372,14 +372,15 @@ function change_image(imagefield, imgid) {
 	$(document).foundation('equalizer', 'reflow');
 }
 
-
-
+// https://jsperf.com/jquery-visibility-test
+$.fn.isVisible = function() {
+  return $.expr.filters.visible(this[0]);
+};
 function update_nutrition_image_copy() {
 
 	// width big enough to display a copy next to nutrition table?
-	if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
-
-		$('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
+  if ($("#nutrition_data_table").isVisible() && $('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+    $('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
 	}
 	else {
 		$('#nutrition_image_copy').hide();
