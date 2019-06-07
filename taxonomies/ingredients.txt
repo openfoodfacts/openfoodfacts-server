@@ -46392,7 +46392,7 @@ it:pinoli, pinolo
 ja:松の実
 ko:잣
 ku:Fistiqên çaman
-la:Nucleus pineus
+
 nb:pinjekjerne
 nl:pijnboompitten, Pijnboompit
 nn:russenøtter
@@ -46427,6 +46427,15 @@ zh:松子
 wikipedia:en:https://en.wikipedia.org/wiki/Pine_nut
 # ingredient/fr:pignons has 98 products in 4 languages @2018-12-05
 
+<en:pine nuts
+la:Pinus sibirica
+
+<en:pine nuts
+la:Nucleus pineus
+
+<en:pine nuts
+fr:pignons de pin décortiqués
+# 5@2019-06-07
 
 <en:pumpkin
 <en:seed
@@ -60936,6 +60945,10 @@ fr:café décaféiné
 nl:Cafeïnevrije koffie
 # ingredient/fr:cafe-decafeine has 8 products @2019-06-03
 
+<en:instant coffee
+<fr:café décaféiné
+fr:café soluble décaféiné
+
 <fr:Café décaféiné
 fr:café doux sans caféine
 nl:zachte koffie zonder cafeïne
@@ -60969,9 +60982,14 @@ fr:café arabica fraîchement préparé
 nl:vers gezette Arabica-koffie
 # ingredient/fr:café-arabica-fraîchement-préparé has 10 products in 4 languages @2018-11-30
 
+
+
 <en:arabica coffee
 fr:café moulu pur arabica, café moulu arabica, café moulu 100 arabica
 # ingredient/fr:café-moulu-pur-arabica has 35 products in 4 languages @2018-11-30
+
+<fr:café moulu pur arabica
+fr:cafe moulu pur arabica bio
 
 <en:arabica coffee
 fr:cafe arabica torrefié
