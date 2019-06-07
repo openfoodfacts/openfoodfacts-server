@@ -80,6 +80,7 @@ stopwords:zh::配料
 #	'Ern(â|a|ä)hrungswerte',
 #Glutenfrei
 #Kann andere Schalenfrüchte enthalten.
+#Kann spuren von Sellerie und Senf enthalen
 #Milchschokolade: Kakao: 37% mindestens
 #	'Mindestens altbar bis',
 #	'Mindestens haltbar bis',
@@ -93,6 +94,7 @@ stopwords:zh::配料
 #Gluten free
 #Keep in a cool and dry place.
 #May contain other nuts.
+#May contain traces of celery and mustard
 #	'nutritional values',
 #	'nutrition values',
 #	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
@@ -147,6 +149,7 @@ stopwords:zh::配料
 #	'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
 #	'la pr(e|é)sence de vide',
 #peut contenir des traces de fruits à coque
+#Peut contenir des traces de céleri et de moutarde
 #peut contenir du, pourcentage exprimé sur
 #	'pr(e|é)paration au four',
 #Produit issu de l'agriculture biologique
@@ -173,6 +176,7 @@ stopwords:zh::配料
 #	'consigli per la preparazione',
 #	'di cui zuccheri',
 #Può contenere tracce di sesamo e latte.
+#Può contenere tracce di sedano e senape
 #	'Valori nutritivi',
 #	'valori nutrizionali',
 
@@ -18683,6 +18687,12 @@ nl:gekookt rundvlees
 <en:beef
 fr:foie de boeuf
 # ingredient/fr:foie-de-boeuf has 13 products in french @2019-05-24
+
+<fr:foie de boeuf
+en:calf's liver
+de:kalbsleber
+fr:foie de veau
+it:fegato di maiale
 
 # description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety. 
 
