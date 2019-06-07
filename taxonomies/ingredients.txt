@@ -15150,10 +15150,18 @@ wikipedia:en:Q10943
 wikipedia:en:https://en.wikipedia.org/wiki/Cheese
 # en:cheese has 579 products in 10 languages @2018-10-28
 
+
 <en:cheese
 # <en:pasteurized
 en:cheese made from pasteurized milk
 es:queso elaborado con leche pasteurizada
+
+<en:cheese made from pasteurized milk
+en:Soft cheese made from pasteurized milk
+de:Weichkäse aus pasteurisierter Milch
+fr:fromage à pâte molle au lait pasteurisé
+it:Formaggio a pasta molle di latte pastorizzato
+# 6@2019-06-08
 
 # GOAT CHEESE, goats' cheese, or chèvre, is cheese made from goat's milk.
 
@@ -34226,7 +34234,7 @@ wikidata:en:Q618355
 en:organic apple juice
 fr:jus de pomme issu de l'agriculture biologique, jus de pomme bio, jus de pomme biologique, jus de pommes issues de l'agriculture biologique
 
-# Not sure if pure has any meaning
+# coment:en:Not sure if "pure" has any meaning. It might be just marketing.
 
 <en:apple juice
 en:pure apple juice
@@ -34236,6 +34244,10 @@ fr:pur jus de pomme
 
 <en:pure apple juice
 fr:pur jus de pommes à cidre de Bretagne
+
+<en:pure apple juice
+fr:pur jus de pommes pressées
+# 6@2019-06-08
 
 <en:apple juice
 en:concentrated apple juice
@@ -61636,6 +61648,10 @@ fr:filet de poulet, viande de filet de poulet
 it:Filetto di pollo
 nl:kipfilet
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
+
+<en:chicken fillet
+fr:Filets de poulet jaune
+# 6@2019-06-07
 
 <en:chicken fillet
 en:halal chicken filet
