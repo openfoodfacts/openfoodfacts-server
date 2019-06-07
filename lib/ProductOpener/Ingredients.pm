@@ -30,6 +30,8 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 		&extract_ingredients_from_image
+		
+		&preparse_ingredients_text
 		&extract_ingredients_from_text
 
 		&compute_carbon_footprint_from_ingredients
@@ -40,6 +42,9 @@ BEGIN
 		&extract_ingredients_classes_from_text
 
 		&detect_allergens_from_text
+		
+		&normalize_a_of_b
+		&normalize_enumeration
 	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -54,6 +59,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 
 use Image::OCR::Tesseract 'get_ocr';
@@ -679,7 +685,57 @@ sub normalize_fr_a_de_enumeration {
 
 	my $a = shift;
 
-	return join(",", map { normalize_fr_a_de_b($a, $_)} @_);
+	return join(", ", map { normalize_fr_a_de_b($a, $_)} @_);
+}
+
+# English: oil, olive -> olive oil
+# French: huile, olive -> huile d'olive
+
+sub normalize_a_of_b($$$) {
+
+	my $lc = shift;
+	my $a = shift;
+	my $b = shift;
+
+	$a =~ s/\s+$//;
+	$b =~ s/^\s+//;
+
+	if ($lc eq "en") {
+	
+		return $b . " " . $a;
+	}
+	elsif ($lc eq "es") {
+		return $a . " de " . $b;
+	}
+	elsif ($lc eq "fr") {
+		$b =~ s/^(de |d')//;
+
+		if ($b =~ /^(a|e|i|o|u|y|h)/i) {
+			return $a . " d'" . $b;
+		}
+		else {
+			return $a . " de " . $b;
+		}
+	}
+}
+
+
+# Vegetal oil (palm, sunflower and olive)
+# -> palm vegetal oil, sunflower vegetal oil, olive vegetal oil
+
+sub normalize_enumeration($$$) {
+
+	my $lc = shift;
+	my $type = shift;
+	my $enumeration = shift;
+	
+	$log->debug("normalize_enumeration", { type => $type, enumeration => $enumeration }) if $log->is_debug();
+	
+	my $separators = '\(|\)|\/| \/ | - |, |,|'  . $Lang{_and_}{$lc};
+		
+	my @list = split(/$separators/, $enumeration);
+	
+	return join(", ", map { normalize_a_of_b($lc, $type, $_)} @list);
 }
 
 
@@ -690,7 +746,7 @@ sub normalize_fr_a_et_b_de_c($$$) {
 	my $b = shift;
 	my $c = shift;
 
-	return normalize_fr_a_de_b($a, $c) . "," . normalize_fr_a_de_b($b, $c);
+	return normalize_fr_a_de_b($a, $c) . ", " . normalize_fr_a_de_b($b, $c);
 }
 
 
@@ -733,7 +789,7 @@ sub normalize_vitamins_enumeration($$) {
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	else { $split_vitamins_list = "vitamine" }
 
-	$split_vitamins_list .= "," . join(",", map { normalize_vitamin($lc,$_)} @vitamins);
+	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);
 
 	$log->debug("vitamins split", { input => $vitamins_list, output => $split_vitamins_list }) if $log->is_debug();
 
@@ -1194,11 +1250,16 @@ sub preparse_ingredients_text($$) {
 "colza",
 "palme",
 "tournesol",
+"arachide",
+"pépins de raisin",
+"olive",
+"olive vierge",
+"noix",
+"avocat",
 
 "aluminium",
 "ammonium",
 "calcium",
-"citrate",
 "cuivre",
 "fer",
 "magnésium",
@@ -1235,10 +1296,18 @@ sub preparse_ingredients_text($$) {
 
 		$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $2, $4)/ieg;
 
-		$text =~ s/($prefixregexp) (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
-		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
-		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
-		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
+		# old:
+		
+		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
+		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
+		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
+		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
+
+		$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))?/normalize_enumeration($lc,$1,$3)/ieg;
+		
+		# Huiles végétales de palme, de colza et de tournesol
+		$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp))\b(\s?(\)|\]))?/normalize_enumeration($lc,$1,$3)/ieg;
+
 
 		# Caramel ordinaire et curcumine
 		# $text =~ s/ et /, /ig;
@@ -1281,10 +1350,10 @@ INFO
 
 		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
 
-		$text =~ s/(di|tri|tripoli)?(phosphate|phosphates) d'aluminium,?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
+		$text =~ s/(di|tri|tripoli)?(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
 
 		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split...
-		$text =~ s/(sel|sels) de sodium,(sel|sels) de potassium/sels de sodium et de potassium/ig;
+		$text =~ s/(sel|sels) de sodium,\s?(sel|sels) de potassium/sels de sodium et de potassium/ig;
 
 		# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
 		# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
@@ -1341,8 +1410,9 @@ INFO
 		$vitaminssuffixregexp =~ s/^\|//;
 
 		$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
+		$log->debug("vitamins text", { text => $text }) if $log->is_debug();
 
-		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et | and | y ))+($vitaminssuffixregexp))\b/normalize_vitamins_enumeration($lc,$3)/ieg;
+		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et | and | y ))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($lc,$3)/ieg;
 
 	return $text;
 }
