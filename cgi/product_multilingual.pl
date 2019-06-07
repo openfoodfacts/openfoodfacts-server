@@ -616,9 +616,11 @@ sub display_field($$) {
 	autocomplete: {
 		source: function(request, response) {
 			if (request.term === "") {
-				const tag = window.localStorage.getItem("po_last_tags");
-				const obj = JSON.parse(tag)['${field}'];
+				let obj = window.localStorage.getItem("po_last_tags");
+				obj = JSON.parse(obj);
 				if (obj == null) return;
+				obj = obj['${field}'];
+
 				response(obj.filter( function(el) {
   					return !\$('#$field').tagExist(el);
 				}));
