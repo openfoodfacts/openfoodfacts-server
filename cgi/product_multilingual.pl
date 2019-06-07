@@ -617,9 +617,8 @@ sub display_field($$) {
 		source: function(request, response) {
 			if (request.term === "") {
 				let obj = window.localStorage.getItem("po_last_tags");
-				obj = JSON.parse(obj);
-				if (obj == null) return;
-				obj = obj['${field}'];
+				obj = JSON.parse(obj) || {};
+				obj = obj['${field}'] || [];
 
 				response(obj.filter( function(el) {
   					return !\$('#$field').tagExist(el);
