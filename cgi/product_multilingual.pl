@@ -299,11 +299,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		if (defined param($field)) {
 			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
-			if ($field eq 'emb_codes') {
-				# French emb codes
-				$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
-			}
+
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
 			if ($field =~ /ingredients_text/) {
 				# the ingredients_text_with_allergens[_$lc] will be recomputed after
@@ -666,9 +662,7 @@ JAVASCRIPT
 	}
 
 	my $value = $product_ref->{$field};
-	if (defined $product_ref->{$field . "_orig"}) {
-		$value = $product_ref->{$field . "_orig"};
-	}
+
 	if ((defined $value) and (defined $taxonomy_fields{$field})) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 		# Remove tags
