@@ -12,7 +12,7 @@ el:γλουτένη, σιτάρι, σίκαλη, κριθάρι, βρώμη, ν�
 es:gluten, trigo, centeno, cebada, espelta, kamut, cereales con gluten, cereales, harina de trigo, trigo de Jorasán Kamut, harina de trigo integral, cereales que contienen gluten
 et:gluteen, nisu, nisugluteen, rukis, oder, odra, kaer, speltanisu, kamut
 fi:gluteeniton, vehnä, ruis, ohra, kaura, speltti, kamut
-fr:gluten, blé, seigle, orge, épeautre, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre, céréales contenant du gluten
+fr:gluten, blé, seigle, orge, épeautre, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre, céréales contenant du gluten, blé dur
 ga:glútan, cruithneacht, seagal, eorna, coirce, speilt, camut, céréeale, céréales
 hu:glutén, búza, rozs, árpa, zab, tönkölybúza, kamut, búzadara, búzaliszt, búzacsíra, búzafehérje, búzapehely, rozspehely, árpapehely, zabpehely, tönkölybúzapehely, árpamaláta, rozsliszt, zabliszt, tönkölybúzaliszt, Glutent, lutént tartalmazó gabonafélék, glutént tartalmazó gabonafélék
 it:glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
@@ -185,7 +185,7 @@ sv:sojabönor
 th:ถั่วเหลือง
 zh:大豆类制品, 黄豆，大豆，酱油
 
-en:milk, lactose, whey, dairy, butter, cream, yogurt, cheese, yoghurt
+en:milk, lactose, whey, dairy, butter, cream, yogurt, cheese, yoghurt, parmigiano reggiano, grana padano
 ar:حليبب, لاكتوز,
 bg:суроватка, млечна, мляко,  лактоза
 cs:mléko, laktózy
@@ -196,10 +196,10 @@ el:γάλα, λακτόζης
 es:leche,  lactosa, lácteos, derivados lácteos, productos lácteos, leche y derivados, queso, proteína de leche, leche y sus derivados
 et:laktoos, piim, piimast
 fi:maito, laktoosi
-fr:lait, lactose, laitier, laitiere, laitiers, crème, beurre, bas-beurre, babeurre, beurre patissier, petit-lait, yaourt, fromage, méton, lait cru, Emmental, comte, bleu, edam, lactique, lactiques, ferments lactiques, cheddar, reblochon, parmesan, mimolette, crème de lait, fromage de vache, fromage de chèvre, gouda, lait écrémé, lait entier, lactoserum, lactosérum, mozzarella, protéines de lait, crème fraiche, ricotta, fromage blanc, mascarpone, caséinate, caséine, poudre de lait, Produits laitiers et dérivées, Produits laitiers et dérivés, Produits laitiers, Gorgonzola, Roquefort, Fromage fondu, Fromage frais, Feta, Raclette, laits et dérivés y compris lactose, lait de vache, lait de chèvre, lait de brebis, dérivés laitiers
+fr:lait, lactose, laitier, laitiere, laitiers, crème, beurre, bas-beurre, babeurre, beurre patissier, petit-lait, yaourt, fromage, méton, lait cru, Emmental, comte, bleu, edam, lactique, lactiques, ferments lactiques, cheddar, reblochon, parmesan, mimolette, crème de lait, fromage de vache, fromage de chèvre, gouda, lait écrémé, lait entier, lactoserum, lactosérum, mozzarella, protéines de lait, crème fraiche, ricotta, fromage blanc, mascarpone, caséinate, caséine, poudre de lait, Produits laitiers et dérivées, Produits laitiers et dérivés, Produits laitiers, Gorgonzola, Roquefort, Fromage fondu, Fromage frais, Feta, Raclette, laits et dérivés y compris lactose, lait de vache, lait de chèvre, lait de brebis, dérivés laitiers, protéines laitières, beurre concentré, gruyère
 ga:bainne, lachtós
 hu:tej, laktóz, tejsavó, savó, tejtermék, tejtermékek, vaj, tejszín, joghurt, sajt, tejfehérje, tejpor, Tejsavópor, Tejzsír, Tejet
-it:latte, lattosio
+it:latte, lattosio, parmigiano reggiano, grana padano
 jp:牛乳,乳,クリーム,バター,ヨーグルト,チーズ
 lt:išrügų, pienas, laktozę, pieno
 lv:laktozi, piena, piens, pilnpiena, vājpiena
@@ -216,7 +216,7 @@ sv:mjölk, laktos
 th:นม,แล็กโทส,ครีม,เนย,นมเปรี้ยว,เนยแข็ง
 zh:乳,乳糖,奶油,鮮奶油,忌廉,黃油,奶油,牛油
 
-en:nuts, almonds, hazelnuts, walnuts, cashews, cashew, pecan nuts, pecan,  Brazil nuts, pistachio nuts, macadamia, Queensland nuts
+en:nuts, almonds, hazelnuts, walnuts, cashews, cashew, pecan nuts, pecan,  Brazil nuts, pistachio nuts, macadamia, Queensland nuts, tree nuts, treenuts, other nuts
 ar:بندقة, الكاجو, المكاداميا, الفستقجوز, لوز
 bg:ядки, бадеми, лешници, орехи, кашу, пеканови ядки,  бразилски орехи, шамфъстък, орехи макадамия, орехи Куинсленд
 cs:skořápkové plody, mandle, lískové ořechy, vlašské ořechy, kešu ořechy, pekanové ořechy,  para ořechy, pistácie, makadamie
@@ -355,7 +355,7 @@ el:διοξείδιο του θείου και θειώδεις, διοξείδ�
 es:dióxido de azufre y sulfitos, dióxido de azufre, sulfitos
 et:vääveldioksiid ja sulfitid, vääveldioksiid, sulfitid
 fi:rikkidioksidi ja sulfiitit, Rikkidioksidi, sulfiitit
-fr:anhydride sulfureux et sulfites, anhydride sulfureux, sulfites, sulfite, sulphites, sulphite, bisulfite, metabisulfite, metabisulphite
+fr:anhydride sulfureux et sulfites, anhydride sulfureux, sulfites, sulfite, sulphites, sulphite, bisulfite, metabisulfite, metabisulphite, disulfites
 ga:dé-ocsaíd sulfair agus suilfítí, dé-ocsaíd sulfair, suilfítí
 hu:kén-dioxid és szulfitok, kén-dioxid, szulfitok, szulfit
 it:anidride solforosa e solfiti, anidride solforosa, solfiti
