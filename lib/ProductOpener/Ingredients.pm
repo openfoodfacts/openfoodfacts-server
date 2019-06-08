@@ -1416,9 +1416,8 @@ INFO
 "h",
 "k", "k1", "k2", "k3",
 "p", "pp",
-
-
 );
+		my $vitaminsprefixregexp = "vitamine|vitamines";
 
 		# Add synonyms in target language
 		if (defined $translations_to{vitamins}) {
@@ -1428,9 +1427,17 @@ INFO
 				}
 			}
 		}
-
-		my $vitaminsprefixregexp = "vitamine|vitamines|vitamin|vitamins|vitamina|vitaminas|witamina|witaminy|Βιταμίνες|Βιταμίνη";
-
+		
+		# Add synonyms in target language
+		my $vitamin_in_lc = get_fileid(display_taxonomy_tag($lc, "ingredients", "en:vitamins"));
+		$vitamin_in_lc =~ s/^\w\w://;
+		
+		if ((defined $synonyms_for{ingredients}) and (defined $synonyms_for{ingredients}{$lc}) and (defined $synonyms_for{ingredients}{$lc}{$vitamin_in_lc})) {
+			foreach my $synonym (@{$synonyms_for{ingredients}{$lc}{$vitamin_in_lc}}) {
+				$vitaminsprefixregexp .= '|' . $synonym;
+			}
+		}
+		
 		my $vitaminssuffixregexp = "";
 		foreach my $suffix (@vitaminssuffixes) {
 			$vitaminssuffixregexp .= '|' . $suffix;
