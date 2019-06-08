@@ -462,7 +462,7 @@ sub extract_ingredients_from_text($) {
 
 				my $ending = $last_separator;
 				if (not defined $ending) {
-					$ending = ",|-";
+					$ending = ",|;|( $dashes )";
 				}
 				if ($sep eq '(') {
 					$ending = '\)';
@@ -552,7 +552,7 @@ sub extract_ingredients_from_text($) {
 		$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
 		$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
 
-		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
+		$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
 		my $origin;
 		my $label;

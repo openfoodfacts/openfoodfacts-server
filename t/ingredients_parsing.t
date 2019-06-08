@@ -59,7 +59,8 @@ my @lists =(
 ["gélifiant (pectine)", "gélifiant (pectine)"],
 
 ["agent de traitement de la farine (acide ascorbique)", "agent de traitement de la farine (acide ascorbique)"],
-
+["lait demi-écrémé", "lait demi-écrémé"],
+["Saveur vanille : lait demi-écrémé 77%, sucre", "Saveur vanille : lait demi-écrémé 77%, sucre"],
 ],
 ],
 );
