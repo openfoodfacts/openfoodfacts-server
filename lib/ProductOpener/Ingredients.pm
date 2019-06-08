@@ -1415,10 +1415,19 @@ INFO
 "f",
 "h",
 "k", "k1", "k2", "k3",
-"p", "pp"
+"p", "pp",
+
 
 );
 
+		# Add synonyms in target language
+		if (defined $translations_to{vitamins}) {
+			foreach my $vitamin (keys %{$translations_to{vitamins}}) {
+				if (defined $translations_to{vitamins}{$vitamin}{$lc}) {
+					push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$lc};
+				}
+			}
+		}
 
 		my $vitaminsprefixregexp = "vitamine|vitamines|vitamin|vitamins|vitamina|vitaminas|witamina|witaminy|Βιταμίνες|Βιταμίνη";
 
@@ -1449,7 +1458,7 @@ INFO
 		$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
 		$log->debug("vitamins text", { text => $text }) if $log->is_debug();
 
-		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et | and | y ))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($lc,$3)/ieg;
+		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($lc,$3)/ieg;
 
 	# remove extra spaces
 	$text =~ s/ ( )+/ /g;
@@ -1467,6 +1476,8 @@ sub extract_ingredients_classes_from_text($) {
 	my $lc = $product_ref->{lc};
 
 	$text = preparse_ingredients_text($lc, $text);
+	my $and = $Lang{_and_}{$lc};
+	$and =~ s/ /-/g;
 	
 	#  remove % / percent (to avoid identifying 100% as E100 in some cases)
 	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
@@ -1481,7 +1492,7 @@ sub extract_ingredients_classes_from_text($) {
 
 			# split additives
 			# caramel ordinaire et curcumine
-			if (($lc eq 'fr') and ($ingredientid =~ /-et-/)) {
+			if ($ingredientid =~ /$and/i) {
 
 				my $ingredientid1 = $`;
 				my $ingredientid2 = $';
