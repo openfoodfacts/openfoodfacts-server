@@ -68,6 +68,9 @@ stopwords:zh::配料
 # viande bovine d'origine française, L. bulgaricus
 # 100% pur arabica d'Amérique centrale, d'Amérique du Sud, d'Afrique et d'Asie
 
+#  non-ingredients
+#
+# fr:Roquefort au lait cru de Brebis
 # comment:en:Words that should be integrated in the ingredients
 
 #fr:ingrédient agricole issu de, produit de l'agriculture biologique, issue de l'agriculture biologique, produit issu de l'agriculture biologique, produits issus de l'agriculture biologique, ingrédients biologiques, biologiques
@@ -20671,7 +20674,7 @@ fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
 
 <en:organic coconut oil
 <fr:huile de coco vierge
-fr:huile de coco vierge biologique
+fr:huile de coco vierge biologique, huile vierge de noix de coco bio
 
 <en:coconut oil
 fr:huile de coco non hydrogénée
@@ -24573,7 +24576,7 @@ nl:halfvolkoren harde tarwegriesmeel
 
 <en:semi-whole durum wheat semolina
 en:organic semi-whole durum wheat semolina
-fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur biologique
+fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur biologique, semoule de blé dur demi-complète biologique
 # ingredient/fr:semoule-semi-complete-de-ble-dur-biologique has 9 products in french @2019-05-25
 
 <en:durum wheat semolina
@@ -45975,6 +45978,9 @@ wikidata:en:Q184357
 carbon_footprint_fr_foodges_ingredient:fr:Amandes
 
 <en:almond
+fr:amandes biologiques
+
+<en:almond
 en:almond with skin
 de:Mandeln mit Haut
 es:almendra con piel
@@ -59586,6 +59592,12 @@ fr:tégument de psyllium blond
 la:Plantago ovata
 
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                     B E E     I N G R E D I E N T S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 # description:en:HONEY is a sweet, viscous food substance produced by bees and some related insects.
 
 # nova:en:honey
@@ -60251,6 +60263,9 @@ zh:蜂王漿
 wikipedia:en:https://en.wikipedia.org/wiki/
 wikidata:en:Q202501
 
+<en:royal jelly
+en:organic royal jelly
+fr:gelée royale bio
 
 # Sulfites or sulphites are compounds that contain the sulfite ion SO2−3. 
 
