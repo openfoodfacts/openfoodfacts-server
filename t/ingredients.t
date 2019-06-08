@@ -29,180 +29,179 @@ is($product_ref->{ingredients_n}, 19);
 my $expected_product_ref = 
 
 {
-  'ingredients' => [
-    {
-      'id' => 'en:flour',
-      'percent' => '12',
-      'rank' => 1,
-      'text' => 'farine'
-    },
-    {
-      'id' => 'en:chocolate',
-      'rank' => 2,
-      'text' => 'chocolat'
-    },
-    {
-      'id' => 'en:sugar',
-      'percent' => '10',
-      'rank' => 3,
-      'text' => 'sucre'
-    },
-    {
-      'id' => 'en:milk-proteins',
-      'rank' => 4,
-      'text' => "prot\x{e9}ines de lait"
-    },
-    {
-      'id' => 'en:egg',
-      'rank' => 5,
-      'text' => 'oeuf'
-    },
-    {
-      'id' => 'en:emulsifier',
-      'rank' => 6,
-      'text' => "\x{e9}mulsifiants"
-    },
-    {
-      'id' => 'en:e463',
-      'rank' => 7,
-      'text' => 'e463'
-    },
-    {
-      'id' => 'en:e432',
-      'rank' => 8,
-      'text' => 'e432'
-    },
-    {
-      'id' => 'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
-      'rank' => 9,
-      'text' => 'e472'
-    },
-    {
-      'id' => 'en:acidity-regulator',
-      'rank' => 10,
-      'text' => "correcteurs d'acidit\x{e9}"
-    },
-    {
-      'id' => 'fr:e322',
-      'rank' => 11,
-      'text' => 'e322'
-    },
-    {
-      'id' => 'en:calcium-citrates',
-      'rank' => 12,
-      'text' => 'e333'
-    },
-    {
-      'id' => 'en:e474',
-      'rank' => 13,
-      'text' => 'e474'
-    },
-    {
-      'id' => 'en:polyglycerol-esters-of-fatty-acids',
-      'rank' => 14,
-      'text' => 'e475'
-    },
-    {
-      'id' => 'en:acid',
-      'rank' => 15,
-      'text' => 'acidifiant'
-    },
-    {
-      'id' => 'en:salt',
-      'rank' => 16,
-      'text' => 'sel'
-    },
-    {
-      'id' => 'en:cocoa-butter',
-      'percent' => '15',
-      'text' => 'beurre de cacao'
-    },
-    {
-      'id' => 'en:citric-acid',
-      'text' => 'acide citrique'
-    },
-    {
-      'id' => 'en:phosphoric-acid',
-      'text' => 'acide phosphorique'
-    }
-  ],
-  'ingredients_hierarchy' => [
-    'en:flour',
-    'en:chocolate',
-    'en:sugar',
-    'en:milk-proteins',
-    'en:protein',
-    'en:animal-protein',
-    'en:egg',
-    'en:emulsifier',
-    'en:e463',
-    'en:e432',
-    'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
-    'en:acidity-regulator',
-    'fr:e322',
-    'en:calcium-citrates',
-    'en:e474',
-    'en:polyglycerol-esters-of-fatty-acids',
-    'en:acid',
-    'en:salt',
-    'en:cocoa-butter',
-    'en:cocoa',
-    'en:citric-acid',
-    'en:phosphoric-acid'
-  ],
-  'ingredients_n' => 19,
-  'ingredients_n_tags' => [
-    '19',
-    '11-20'
-  ],
-  'ingredients_original_tags' => [
-    'en:flour',
-    'en:chocolate',
-    'en:sugar',
-    'en:milk-proteins',
-    'en:egg',
-    'en:emulsifier',
-    'en:e463',
-    'en:e432',
-    'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
-    'en:acidity-regulator',
-    'fr:e322',
-    'en:calcium-citrates',
-    'en:e474',
-    'en:polyglycerol-esters-of-fatty-acids',
-    'en:acid',
-    'en:salt',
-    'en:cocoa-butter',
-    'en:citric-acid',
-    'en:phosphoric-acid'
-  ],
-  'ingredients_tags' => [
-    'en:flour',
-    'en:chocolate',
-    'en:sugar',
-    'en:milk-proteins',
-    'en:protein',
-    'en:animal-protein',
-    'en:egg',
-    'en:emulsifier',
-    'en:e463',
-    'en:e432',
-    'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
-    'en:acidity-regulator',
-    'fr:e322',
-    'en:calcium-citrates',
-    'en:e474',
-    'en:polyglycerol-esters-of-fatty-acids',
-    'en:acid',
-    'en:salt',
-    'en:cocoa-butter',
-    'en:cocoa',
-    'en:citric-acid',
-    'en:phosphoric-acid'
-  ],
-  'ingredients_text' => "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], prot\x{e9}ines de lait, oeuf 1%) - \x{e9}mulsifiants : E463, E432 et E472 - correcteurs d'acidit\x{e9} : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel",
-  'lc' => 'fr',
-  'unknown_ingredients_n' => 0
+   'ingredients' => [
+        {
+          'id' => 'en:flour',
+          'percent' => '12',
+          'rank' => 1,
+          'text' => 'farine'
+        },
+        {
+          'id' => 'en:chocolate',
+          'rank' => 2,
+          'text' => 'chocolat'
+        },
+        {
+          'id' => 'en:sugar',
+          'percent' => '10',
+          'rank' => 3,
+          'text' => 'sucre'
+        },
+        {
+          'id' => 'en:milk-proteins',
+          'rank' => 4,
+          'text' => "prot\x{e9}ines de lait"
+        },
+        {
+          'id' => 'en:egg',
+          'rank' => 5,
+          'text' => 'oeuf'
+        },
+        {
+          'id' => 'en:emulsifier',
+          'rank' => 6,
+          'text' => "\x{e9}mulsifiants"
+        },
+        {
+          'id' => 'en:e463',
+          'rank' => 7,
+          'text' => 'e463'
+        },
+        {
+          'id' => 'en:e432',
+          'rank' => 8,
+          'text' => 'e432'
+        },
+        {
+          'id' => 'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+          'rank' => 9,
+          'text' => 'e472'
+        },
+        {
+          'id' => 'en:acidity-regulator',
+          'rank' => 10,
+          'text' => "correcteurs d'acidit\x{e9}"
+        },
+        {
+          'id' => 'en:e474',
+          'rank' => 11,
+          'text' => 'e474'
+        },
+        {
+          'id' => 'en:polyglycerol-esters-of-fatty-acids',
+          'rank' => 12,
+          'text' => 'e475'
+        },
+        {
+          'id' => 'en:acid',
+          'rank' => 13,
+          'text' => 'acidifiant'
+        },
+        {
+          'id' => 'en:salt',
+          'rank' => 14,
+          'text' => 'sel'
+        },
+        {
+          'id' => 'en:cocoa-butter',
+          'percent' => '15',
+          'text' => 'beurre de cacao'
+        },
+        {
+          'id' => 'fr:e322',
+          'text' => 'e322'
+        },
+        {
+          'id' => 'en:calcium-citrates',
+          'text' => 'e333'
+        },
+        {
+          'id' => 'en:citric-acid',
+          'text' => 'acide citrique'
+        },
+        {
+          'id' => 'en:phosphoric-acid',
+          'text' => 'acide phosphorique'
+        }
+      ],
+      'ingredients_hierarchy' => [
+        'en:flour',
+        'en:chocolate',
+        'en:sugar',
+        'en:milk-proteins',
+        'en:protein',
+        'en:animal-protein',
+        'en:egg',
+        'en:emulsifier',
+        'en:e463',
+        'en:e432',
+        'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+        'en:acidity-regulator',
+        'en:e474',
+        'en:polyglycerol-esters-of-fatty-acids',
+        'en:acid',
+        'en:salt',
+        'en:cocoa-butter',
+        'en:cocoa',
+        'fr:e322',
+        'en:calcium-citrates',
+        'en:citric-acid',
+        'en:phosphoric-acid'
+      ],
+      'ingredients_n' => 19,
+      'ingredients_n_tags' => [
+        '19',
+        '11-20'
+      ],
+      'ingredients_original_tags' => [
+        'en:flour',
+        'en:chocolate',
+        'en:sugar',
+        'en:milk-proteins',
+        'en:egg',
+        'en:emulsifier',
+        'en:e463',
+        'en:e432',
+        'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+        'en:acidity-regulator',
+        'en:e474',
+        'en:polyglycerol-esters-of-fatty-acids',
+        'en:acid',
+        'en:salt',
+        'en:cocoa-butter',
+        'fr:e322',
+        'en:calcium-citrates',
+        'en:citric-acid',
+        'en:phosphoric-acid'
+      ],
+      'ingredients_tags' => [
+        'en:flour',
+        'en:chocolate',
+        'en:sugar',
+        'en:milk-proteins',
+        'en:protein',
+        'en:animal-protein',
+        'en:egg',
+        'en:emulsifier',
+        'en:e463',
+        'en:e432',
+        'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+        'en:acidity-regulator',
+        'en:e474',
+        'en:polyglycerol-esters-of-fatty-acids',
+        'en:acid',
+        'en:salt',
+        'en:cocoa-butter',
+        'en:cocoa',
+        'fr:e322',
+        'en:calcium-citrates',
+        'en:citric-acid',
+        'en:phosphoric-acid'
+      ],
+      'ingredients_text' => "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], prot\x{e9}ines de lait, oeuf 1%) - \x{e9}mulsifiants : E463, E432 et E472 - correcteurs d'acidit\x{e9} : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel",
+      'lc' => 'fr',
+      'unknown_ingredients_n' => 0
+
 };
 
 

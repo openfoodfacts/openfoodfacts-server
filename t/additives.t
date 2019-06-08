@@ -1355,6 +1355,27 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"émulsifiants : E463, E432 et E472, correcteurs d'acidité : E322/E333 E474-E475
+",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+diag explain $product_ref->{additives};
+
+is_deeply($product_ref->{additives_original_tags}, [
+"en:e463",
+"en:e432",
+"en:e472",
+"en:e322",
+"en:e333",
+"en:e474",
+"en:e475",
+                              ],
+) or diag explain $product_ref->{additives_original_tags};
 
 
 

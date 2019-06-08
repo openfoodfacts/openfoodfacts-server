@@ -749,6 +749,20 @@ sub normalize_fr_a_et_b_de_c($$$) {
 	return normalize_fr_a_de_b($a, $c) . ", " . normalize_fr_a_de_b($b, $c);
 }
 
+sub normalize_additives_enumeration($$) {
+
+	my $lc = shift;
+	my $enumeration = shift;
+	
+	$log->debug("normalize_additives_enumeration", { enumeration => $enumeration }) if $log->is_debug();
+	
+	my $and = $Lang{_and_}{$lc};
+	
+	my @list = split(/\(|\)|\/| \/ | - |, |,|$and/, $enumeration);
+	
+	return join(", ", map { "E" . $_} @list);
+}
+
 
 sub normalize_vitamin($$) {
 
@@ -759,8 +773,6 @@ sub normalize_vitamin($$) {
 
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
-
-
 
 	# does it look like a vitamin code?
 	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
@@ -777,8 +789,10 @@ sub normalize_vitamins_enumeration($$) {
 
 	my $lc = shift;
 	my $vitamins_list = shift;
+	
+	my $and = $Lang{_and_}{$lc};
 
-	my @vitamins = split(/\(|\)|\/| \/ | - |, |,| et | and | y /, $vitamins_list);
+	my @vitamins = split(/\(|\)|\/| \/ | - |, |,|$and/, $vitamins_list);
 
 	$log->debug("splitting vitamins", { input => $vitamins_list }) if $log->is_debug();
 
@@ -1156,8 +1170,13 @@ sub preparse_ingredients_text($$) {
 	# and PP, B6, B12 etc. will be listed as synonyms for Vitamine PP, Vitamin B6, Vitamin B12 etc.
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
+	# colorants alimentaires E (124,122,133,104,110)
+	my $and = $Lang{_and_}{$lc};
+	my $additivesregexp = '\d{3}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?|\d{4}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?';
+	$text =~ s/\b(e|ins|sin)(:|\(|\[| )+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($lc,$3)/ieg;
+
 	# in India: INS 240 instead of E 240, bug #1133)
-	$text =~ s/\bins( |-)?(\d)/E$2/ig;
+	$text =~ s/\b(ins|sin)( |-)?(\d)/E$3/ig;
 
 	# E 240, E.240, E-240..
 	# E250-E251-E260
@@ -1166,7 +1185,19 @@ sub preparse_ingredients_text($$) {
 	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
 	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
 	# ! [a-z] matches i... replacing in line above -- 2015/08/12
-	$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b|-)/$1 - e$3$5$7 - $9/ig;
+	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b|-)/$1 - e$3$5$7 - $9/ig;
+	$text =~ s/-e( |-|\.)?($additivesregexp)/- E$2/ig;
+	$text =~ s/e( |-|\.)?($additivesregexp)-/E$2 -/ig;
+	
+	# Canonicalize additives to remove the dash that can make further parsing break
+	$text =~ s/(\b)e( |-|\.)?(\d+)()?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b)/e$3$5$7/ig;
+	
+	# E100 et E120 -> E100, E120
+	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
+	$text =~ s/${and}e($additivesregexp)/, e$1/ig;
+		
+	# E100 E122 -> E100, E122
+	$text =~ s/\be($additivesregexp)\s+e(?=\d)/e$1, e/ig;
 
 	# ! caramel E150d -> caramel - E150d -> e150a - e150d ...
 	$text =~ s/(caramel|caramels)(\W*)e150/e150/ig;
@@ -1180,7 +1211,7 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)?(:)?(?!\(| \()/$1$2 : /ig;
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
-
+	
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
@@ -1419,6 +1450,9 @@ INFO
 		$log->debug("vitamins text", { text => $text }) if $log->is_debug();
 
 		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et | and | y ))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($lc,$3)/ieg;
+
+	# remove extra spaces
+	$text =~ s/ ( )+/ /g;
 
 	return $text;
 }

@@ -61,8 +61,35 @@ my @lists =(
 ["agent de traitement de la farine (acide ascorbique)", "agent de traitement de la farine (acide ascorbique)"],
 ["lait demi-écrémé", "lait demi-écrémé"],
 ["Saveur vanille : lait demi-écrémé 77%, sucre", "Saveur vanille : lait demi-écrémé 77%, sucre"],
+
+["colorants alimentaires E (124,122,133,104,110)", "colorants : alimentaires E124, E122, E133, E104, E110"],
+["INS 240,241,242b","E240, E241, E242b"],
+["colorants E (124, 125, 120 et 122", "colorants : E124, E125, E120, E122"],
+["E250-E251", "E250 - E251"],
+["E250-E251-E260", "E250 - E251 - E260"],
+["E 250b-E251-e.260(ii)", "E250b - E251 - E260(ii)"],
+["émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475","émulsifiants : e463, e432, e472 - correcteurs d'acidité : e322/e333, e474 - e475"],
+["E100 E122", "E100, E122"],
+["E103 et E140", "E103, E140"],
+["curcumine et E140", "curcumine, E140"],
+["E140 et tartrazine", "E140, tartrazine"],
+["Acide citrique, colorant : e120, vitamine C, E-500", "Acide citrique, colorant : e120, vitamine C, E500"],
+
 ],
 ],
+
+['en',
+[
+["REAL SUGARCANE, SALT, ANTIOXIDANT (INS 300), INS 334, INS345", "REAL SUGARCANE, SALT, ANTIOXIDANT (e300), e334, e345"],
+],
+],
+
+['es',
+[
+["colores E (120, 124 y 125)", "colores E120, E124, E125"],
+]
+],
+
 );
 
 foreach my $list_ref (@lists) {
