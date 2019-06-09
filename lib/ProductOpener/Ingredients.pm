@@ -905,7 +905,10 @@ fr => [
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
 #'dontSUcres',
-#'waarvan suikers/dont sucres',
+#'waarvan suikers/
+'dont sucres',
+'dont acides ras satur(e|é)s',
+'dont acides gras satur(e|é)s',
 #`verzadigde vetzuren/ acides gras saturés`,
 #`Conditionné par`,
 
@@ -916,6 +919,8 @@ en => [
 'nutritional values',
 'after opening',
 'nutrition values',
+'of whlch saturates',
+'of which saturates',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 
 ],
