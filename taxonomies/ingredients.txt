@@ -75,6 +75,10 @@ stopwords:zh::配料
 
 #fr:ingrédient agricole issu de, produit de l'agriculture biologique, issue de l'agriculture biologique, produit issu de l'agriculture biologique, produits issus de l'agriculture biologique, ingrédients biologiques, biologiques
 
+# *biologique
+# *Ingrédient décongelé, ne pas recongeler.
+# *Appellation d'Origine Contrôlée 
+
 # comment:en:These are words that end ingredient lists.
 
 #de:
@@ -140,11 +144,14 @@ stopwords:zh::配料
 #	'dontSUcres',
 #	`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #Fabriqué dans un atelier utilisant
+# Fabriqué dans un atelier utilisant : moutarde et _fruits à coque_.
 #Ingrédients issus de l'agriculture biologique
 #	'information nutritionnelle',
+#Ingrédient décongelé, ne pas recongeler
 # INFORMATIONS SUR LES ALLERGIES 
 #La présence de vide au fond du pot est due au procédé de fabrication.
 #Le produit peut contenir traces de sésame et du _lait_
+#Les pourcentages sont exprimés sur les cuisses de
 #	'moyennes pour 100g',
 #	ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon
 #	'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
@@ -153,8 +160,17 @@ stopwords:zh::配料
 #	'la pr(e|é)sence de vide',
 #peut contenir des traces de fruits à coque
 #Peut contenir des traces de céleri et de moutarde
+# Peut contenir des traces de céleri, moutarde et fruits à coque.
 #peut contenir du, pourcentage exprimé sur
+#Peut contenir des traces d'_œufs_, _gluten_, _poissons_, _mollusques_, _crustacés_, _céleri_, _moutarde_ et _fruits à coque_.
+#Peut contenir des traces de céleri, moutarde et fruits à coque.
+#Pourcentages exprimés sur letotal de la recette
+#Pourcentages exprimés sur le total de la recette
 #	'pr(e|é)paration au four',
+#Présence éventuelle de poissons, cr!Ftù.es, _mollusques_, _moutarde_ et _fruits à coque_.
+#Présence éventuelle de poisson, crustacés, céleri, mollusques, moutarde et fruits à coque. 
+#Présence éventuelle de _crustacés_, _soja_, graines de _sésame_, _œufs_, _moutarde_ et _fruits à coque_, 
+#Présence possible de lait, _gluten_, _œuf_, _moutarde_ et _fruits à coque_.
 #Produit issu de l'agriculture biologique
 #Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
 #Sans gluten
@@ -32791,12 +32807,15 @@ nl:bosvruchten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20des%20bois
 # 35 products in 1 language @2018-09-29
 
+# description:en:A berry is a small, pulpy, and often edible fruit. Typically, berries are juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present. Common examples are strawberries, raspberries, blueberries, blackberries, red currants, white currants and blackcurrants
+
 <en:fruit
+en:berries
 fr:fruit rouge, fruits rouges
 de:rote Früchte
 nl:rode vruchten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20rouges
-# 205 products @2018-10-01
+wikipedia:en:https://en.wikipedia.org/wiki/Berry
+# ingredient/fr:fruits-rouges 205 products @2018-10-01
 
 # This is a compound ingredient
 
@@ -34120,6 +34139,10 @@ fr:pommes gala
 <en:apple
 fr:pommes golden
 # 11@109-06-05
+
+<en:apple
+fr:pommes d'Aquitaine
+# 22@2019-06-09
 
 <en:apple
 en:dried apple, dried apples
