@@ -897,21 +897,21 @@ fr => [
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
 '(a|à) conserver (dans|de|a|à)',
 '(a|à)conserver (dans|de|a|à)', #variation
+'(a|à)conserver entre',
 'apr(e|è)s ouverture',
 'apr(e|è)s achat',
 'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
+'dont sucres',
+'dont acides ras satur(e|é)s',
+'dont acides gras satur(e|é)s',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
 #'dontSUcres',
 #'waarvan suikers/
-'dont sucres',
-'dont acides ras satur(e|é)s',
-'dont acides gras satur(e|é)s',
 #`verzadigde vetzuren/ acides gras saturés`,
 #`Conditionné par`,
-
 ],
 
 en => [
