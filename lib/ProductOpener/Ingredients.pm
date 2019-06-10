@@ -259,10 +259,10 @@ sub extract_ingredients_from_image($$$) {
 
 	my $filename = '';
 
-	my $lc = $product_ref->{lc};
+	my $image_lc = $product_ref->{lc};
 
 	if ($id =~ /^ingredients_(\w\w)$/) {
-		$lc = $1;
+		$image_lc = $1;
 	}
 	else {
 		$id = "ingredients";
@@ -285,17 +285,17 @@ sub extract_ingredients_from_image($$$) {
 
 		my $lan;
 
-		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
-			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
+		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc};
 		}
-		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
-			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc};
 		}
 		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
 			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
 		}
 
-		$log->debug("extracting ingredients with tesseract", { lc => $lc, lan => $lan, id => $id, image => $image }) if $log->is_debug();
+		$log->debug("extracting ingredients with tesseract", { image_lc => $image_lc, lan => $lan, id => $id, image => $image }) if $log->is_debug();
 
 		if (defined $lan) {
 			$text =  decode utf8=>get_ocr($image,undef,$lan);
@@ -306,7 +306,7 @@ sub extract_ingredients_from_image($$$) {
 			}
 		}
 		else {
-			$log->warn("no available tesseract dictionary", { lc => $lc, lan => $lan, id => $id }) if $log->is_warn();
+			$log->warn("no available tesseract dictionary", { image_lc => $image_lc, lan => $lan, id => $id }) if $log->is_warn();
 		}
 
 	}
@@ -377,7 +377,7 @@ sub extract_ingredients_from_image($$$) {
 	if (($status == 0) and (defined $product_ref->{ingredients_text_from_image})) {
 
 		$product_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
-		$product_ref->{ingredients_text_from_image} = clean_ingredients_text_for_lang($product_ref->{ingredients_text_from_image}, $lc);
+		$product_ref->{ingredients_text_from_image} = clean_ingredients_text_for_lang($product_ref->{ingredients_text_from_image}, $image_lc);
 
 	}
 
@@ -395,11 +395,10 @@ sub extract_ingredients_from_text($) {
 	return if not defined $product_ref->{ingredients_text};
 
 	my $text = $product_ref->{ingredients_text};
-	my $lc = $product_ref->{lc};
 
 	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
 	
-	$text = preparse_ingredients_text($lc, $text);
+	$text = preparse_ingredients_text($product_ref->{lc}, $text);
 	
 	$log->debug("preparsed ingredients from text", { text => $text }) if $log->is_debug();
 
@@ -731,7 +730,7 @@ sub normalize_enumeration($$$) {
 	
 	$log->debug("normalize_enumeration", { type => $type, enumeration => $enumeration }) if $log->is_debug();
 	
-	my $separators = '\(|\)|\/| \/ | - |, |,|'  . $Lang{_and_}{$lc};
+	my $separators = $obrackets . '|' . $cbrackets . '|\/| \/ | ' . $dashes . ' |' . $commas . ' |' . $commas. '|'  . $Lang{_and_}{$lc};
 		
 	my @list = split(/$separators/, $enumeration);
 	
@@ -1480,10 +1479,9 @@ sub extract_ingredients_classes_from_text($) {
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
 	my $text = $product_ref->{ingredients_text};
-	my $lc = $product_ref->{lc};
 
-	$text = preparse_ingredients_text($lc, $text);
-	my $and = $Lang{_and_}{$lc};
+	$text = preparse_ingredients_text($product_ref->{lc}, $text);
+	my $and = $Lang{_and_}{$product_ref->{lc}};
 	$and =~ s/ /-/g;
 	
 	#  remove % / percent (to avoid identifying 100% as E100 in some cases)
@@ -1811,11 +1809,11 @@ sub extract_ingredients_classes_from_text($) {
 
 						# try to shorten the ingredient to make it less specific, to see if it matches then
 
-						if (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
+						if (($product_ref->{lc} eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
 							# soy lecithin -> lecithin
 							$ingredient_id_copy = $';
 						}
-						elsif (($lc eq 'fr') and ($ingredient_id_copy =~ /-([^-]+)$/)) {
+						elsif (($product_ref->{lc} eq 'fr') and ($ingredient_id_copy =~ /-([^-]+)$/)) {
 							# lécithine de soja -> lécithine de -> lécithine
 							$ingredient_id_copy = $`;
 						}
