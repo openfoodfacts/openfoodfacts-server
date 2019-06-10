@@ -730,9 +730,10 @@ sub normalize_enumeration($$$) {
 	
 	$log->debug("normalize_enumeration", { type => $type, enumeration => $enumeration }) if $log->is_debug();
 	
-	my $separators = $obrackets . '|' . $cbrackets . '|\/| \/ | ' . $dashes . ' |' . $commas . ' |' . $commas. '|'  . $Lang{_and_}{$lc};
+	my $and = $Lang{_and_}{$lc};
+	#my $enumeration_separators = $obrackets . '|' . $cbrackets . '|\/| \/ | ' . $dashes . ' |' . $commas . ' |' . $commas. '|'  . $Lang{_and_}{$lc};
 		
-	my @list = split(/$separators/, $enumeration);
+	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
 	
 	return join(", ", map { normalize_a_of_b($lc, $type, $_)} @list);
 }
@@ -757,7 +758,7 @@ sub normalize_additives_enumeration($$) {
 	
 	my $and = $Lang{_and_}{$lc};
 	
-	my @list = split(/\(|\)|\/| \/ | - |, |,|$and/, $enumeration);
+	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
 	
 	return join(", ", map { "E" . $_} @list);
 }

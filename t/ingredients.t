@@ -867,7 +867,8 @@ $expected_product_ref = {
 
 
 is_deeply($product_ref, $expected_product_ref);
-my $product_ref = {
+
+$product_ref = {
         lc => "fr",
         ingredients_text => "gélifiant (pectines)",
 };
@@ -878,6 +879,39 @@ is_deeply ($product_ref->{ingredients_original_tags}, [
 "en:gelling-agent",
 "en:pectin",
 ]) or diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "Fraise 12,3% ; Orange 6.5%, Pomme (3,5%)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+
+is_deeply ($product_ref->{ingredients}, 
+[
+	     {
+	            'id' => 'en:strawberry',
+	            'percent' => '12.3',
+	            'rank' => 1,
+	            'text' => 'Fraise'
+	          },
+	          {
+	            'id' => 'en:orange',
+	            'percent' => '6.5',
+	            'rank' => 2,
+	            'text' => 'Orange'
+	          },
+	          {
+	            'id' => 'en:apple',
+	            'percent' => '3.5',
+	            'rank' => 3,
+	            'text' => 'Pomme'
+	          }
+	        ]
+) or diag explain $product_ref;
+
 
 
 done_testing();

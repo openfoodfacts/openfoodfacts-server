@@ -71,6 +71,7 @@ my @lists =(
 ["émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475","émulsifiants : e463, e432, e472 - correcteurs d'acidité : e322/e333, e474 - e475"],
 ["E100 E122", "E100, E122"],
 ["E103 et E140", "E103, E140"],
+["E103 ET E140", "E103, E140"],
 ["curcumine et E140", "curcumine, E140"],
 ["E140 et tartrazine", "E140, tartrazine"],
 ["Acide citrique, colorant : e120, vitamine C, E-500", "Acide citrique, colorant : e120, vitamine C, E500"],
