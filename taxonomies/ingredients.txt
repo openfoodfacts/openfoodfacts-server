@@ -20322,6 +20322,8 @@ fr:graisse de bœuf, graisse de boeuf, gras de bovin, gras de bœuf, gras de boe
 fr:gras de bœuf, graisse de bœuf
 # ingredient/fr:gras-de-bœuf has 109 products in french @2019-03-01
 
+# description:This parent is used to indicate ingredients that might have been derived from palm oil. Note that this includes also those that have been derived from palm oil.
+
 en:may be from palm oil
 
 # description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
@@ -20342,6 +20344,7 @@ pt:gordura e óleo vegetais
 
 # nova:en:vegetal-oil
 # nova:en:vegetable-oil
+<en:may be from palm oil
 <en:oil and vegetable fat
 en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
 af:Plantaardige olie
@@ -20388,6 +20391,7 @@ zh:植物油
 # sco:Vegetable ile
 wikipedia:en:https://en.wikipedia.org/wiki/Vegetable_oil
 
+<en:may be from palm oil
 <en:oil and vegetable fat
 en:vegetable fat, vegetal fat, vegetable fats
 da:vegetabilsk fedt
@@ -20403,20 +20407,24 @@ nn:vegetabilisk fett
 pt:gorduras vegetais
 sv:vegetabiliska fetter
 
+<en:may be from palm oil
 <en:oil and vegetable fat
 en:vegetable fat/oil non hydrogenated
 de:Pflanzenfett/-öl ungehärtet
 fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
 it:oli/grassi vegetali non idrogenati
 
+<en:may be from palm oil
 en:hydrogenated fat
 fr:Graisse hydrogénée
 
+<en:may be from palm oil
 <en:vegetable fat
 <en:hydrogenated fat
 en:hydrogenated vegetable fat
 fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée, graisses végétales hydrogénées
 
+<en:may be from palm oil
 <en:hydrogenated vegetable fat
 en:fully hydrogenated vegetable fat
 de:komplett hydriertes Pflanzenfett
@@ -20425,16 +20433,19 @@ fr:graisse végétale totalement hydrogénée
 it:grassi vegetali totalmente idrogenati
 nl:volledig gehydrogeneerde plantaardig vet
 
+<en:may be from palm oil
 <en:vegetable fat
 en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
 fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée, graisses végétales non hydrogénées
 
+<en:may be from palm oil
 <en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
 es:aceite vegetales no hidrogenados
 fr:huiles végétales non hydrogénées, huile végétale non hydrogénée
 it:oli vegetali non idrogenati
 
+<en:may be from palm oil
 <en:vegetable oil
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
@@ -20447,6 +20458,7 @@ en:palm oil and fat
 de:Palmöl und Palmfett, Palmöl und Fett
 it:Olio e grasso di palma
 
+<en:palm
 <en:vegetable oil
 <en:palm oil and fat
 en:palm oil, palmoil
@@ -20508,6 +20520,7 @@ zh:棕榈油
 wikidata:en:Q231458
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_oil
 
+<en:palm
 <en:palm oil
 en:organic palm oil
 nl:biologische palmolie
@@ -20515,12 +20528,14 @@ nl:biologische palmolie
 
 # palm olein, the liquid fraction of palm oil
 
+<en:palm
 <en:palm oil
 en:palm olein, palmoleil
 fr:Oléïne de palme
 
-# description:en:Palm stearin is the solid fraction of palm oil that is produced by partial crystallization at controlled temperature
+# description:en:PALM STEARIN is the solid fraction of palm oil that is produced by partial crystallization at controlled temperature
 
+<en:palm
 <en:palm oil
 en:Palm stearin
 de:Palmstearin
@@ -20529,6 +20544,7 @@ it:Stearina di palma
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_stearin
 wikidata:en:Q7128109
 
+<en:palm
 <en:palm oil and fat
 en:palm fat
 da:palmfedtstof
@@ -20542,7 +20558,7 @@ pt:gordura de palma
 se:palmina mast
 sv:palmfett
 
-
+<en:palm
 <en:palm oil
 en:non-hydrogenated palm oil
 de:ungehärtetes Palmöl, nicht-hydriertes Palm
@@ -20555,6 +20571,7 @@ en:hydrogenated oil
 fr:Huile hydrogénée
 nl:Gehydrogeneerde olie
 
+<en:palm
 <en:palm oil
 <en:hydrogenated oil
 en:hydrogenated palm oil
@@ -20563,6 +20580,7 @@ es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
 nl:gehydrogeneerde palmolie
 
+<en:palm
 <en:palm oil
 fr:huile de palme partiellement hydrogénée
 de:teilweise hydriertes Palmöl
@@ -20595,19 +20613,19 @@ uk:Пальмоядрова олія
 wikidata:en:Q1960534
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_kernel_oil
 
-
+<en:palm
 <en:palm kernel oil
 en:palm kernel fat
 de:Palmkernfett
 fr:graisse de palmiste, matière grasse de palmiste, acides gras de palmiste, graisse végétale de palmiste, matière grasse végétale de palmiste
 
-
+<en:palm
 <en:palm kernel oil
 fr:palmiste totalement hydrogénée
 
 # The and/or ingredients, also used as a container
 
-
+<en:palm
 <en:palm kernel oil
 <en:palm oil
 en:palm and palm kernel oil
@@ -20615,6 +20633,7 @@ de:Palm- und Palmkernöl, Palmöl und Palmkernöl
 fr:huile de palme et de palmiste
 nl:palmolie en palmkernolie
 
+<en:palm
 <en:palm kernel oil
 <en:palm oil
 en:palm or palm kernel oil, palm oil or palm kernel oil, palm or palm kernel
