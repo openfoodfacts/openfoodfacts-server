@@ -129,6 +129,7 @@ stopwords:zh::配料
 #Conserver au frais et au sec.
 #	'(a|à) conserver (dans|de|a|à)',
 #	'(a|à)conserver (dans|de|a|à)', #variation
+#	'(a|à)conserver entre
 #	'apport de r(e|é)ference pour un adulte type',
 #	'apr(e|è)s achat',
 #	'apr(e|è)s ouverture',
@@ -142,6 +143,8 @@ stopwords:zh::配料
 #	'dans le compartiment (a|à) gla(c|ç)ons',
 #	'dont sucres',
 #	'dontSUcres',
+# 	'dont acides ras satur(e|é)s
+	'dont acides gras satur(e|é)s
 #	`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #Fabriqué dans un atelier utilisant
 # Fabriqué dans un atelier utilisant : moutarde et _fruits à coque_.
@@ -44575,6 +44578,9 @@ zh:菜豆
 wikipedia:en:https://en.wikipedia.org/wiki/Phaseolus_vulgaris
 # ingredient/fr:haricots has 92 products in 4 languages @2019-06-02
 
+<en:beans
+en:flat green beans
+fr:haricots plats coupés
 
 <en:beans
 en:white beans
