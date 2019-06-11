@@ -5443,6 +5443,10 @@ pt:mono e diglicéridos de ácidos gordos de origem vegetal
 # fr:mono- et diglycérides d'acides gras d'origine végétale has 53 products @2018-11-12
 
 <en:mono- and diglycerides of fatty acids
+<en:palm
+fr:Mono- et diglycerides d'acides gras de palme, monoglycérides et diglycérides d'acide gras de palme
+
+<en:mono- and diglycerides of fatty acids
 fr:émulsifiant e471
 
 
@@ -7311,6 +7315,7 @@ sv:bivax vitt och gult
 
 # CARNAUBA WAX, also called Brazil wax and palm wax, is a wax of the leaves of the palm Copernicia prunifera (Synonym:Copernicia cerifera), a plant native to and grown only in the northeastern Brazil.
 
+<en:palm
 en:carnauba wax, E903, E-903, E 903
 ar:شمع الخارنوبا
 bg:Карнаубов восък
@@ -20433,12 +20438,14 @@ de:pflanzliches Öl gehärtet
 
 # Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
+<en:palm
 <en:oil and vegetable fat
 en:palm oil and fat
 de:Palmöl und Palmfett, Palmöl und Fett
 it:Olio e grasso di palma
 
 <en:vegetable oil
+<en:palm
 en:palm oil, palmoil
 ar:زيت النخيل
 be:Пальмавы алей
@@ -20453,7 +20460,7 @@ et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
 fi:Palmuöljy
-fr:huile de palme, huile végétale de palme
+fr:huile de palme, huile végétale de palme, Matière grasse de palme, huile palmique, graisse de palme, graisse végétale de palme, palmiste, huiles de palme, huiles végétales de palme, matières grasses de palme, huile de palmiste, graisse de palmiste, graisse végétale de palmiste, matières grasses de palmiste
 ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
@@ -20498,6 +20505,7 @@ zh:棕榈油
 wikidata:en:Q231458
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_oil
 
+<en:palm
 <en:palm oil
 en:organic palm oil
 nl:biologische palmolie
@@ -20505,12 +20513,14 @@ nl:biologische palmolie
 
 # palm olein, the liquid fraction of palm oil
 
+<en:palm
 <en:palm oil
 en:palm olein, palmoleil
 fr:Oléïne de palme
 
-# Palm stearin is the solid fraction of palm oil that is produced by partial crystallization at controlled temperature
+# description:en:Palm stearin is the solid fraction of palm oil that is produced by partial crystallization at controlled temperature
 
+<en:palm
 <en:palm oil
 en:Palm stearin
 de:Palmstearin
@@ -20519,9 +20529,6 @@ it:Stearina di palma
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_stearin
 wikidata:en:Q7128109
 
-# comment:en:the word palm does not specify whether it is a fat or oil
-
-<en:palm oil and fat
 en:palm
 es:palma
 fr:palme
@@ -20531,6 +20538,7 @@ pl:palma
 ru:пальмовое
 sk:palma
 
+<en:palm
 <en:palm oil and fat
 en:palm fat
 da:palmfedtstof
@@ -20544,6 +20552,7 @@ pt:gordura de palma
 se:palmina mast
 sv:palmfett
 
+<en:palm
 <en:palm oil
 en:non-hydrogenated palm oil
 de:ungehärtetes Palmöl, nicht-hydriertes Palm
@@ -20556,6 +20565,7 @@ en:hydrogenated oil
 fr:Huile hydrogénée
 nl:Gehydrogeneerde olie
 
+<en:palm
 <en:palm oil
 <en:hydrogenated oil
 en:hydrogenated palm oil
@@ -20564,6 +20574,7 @@ es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
 nl:gehydrogeneerde palmolie
 
+<en:palm
 <en:palm oil
 fr:huile de palme partiellement hydrogénée
 de:teilweise hydriertes Palmöl
@@ -20571,6 +20582,7 @@ nl:gedeeltelijk geharde palmolie
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis.[1] It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
+<en:palm
 en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
 ca:Oli de palmist
@@ -20595,16 +20607,19 @@ uk:Пальмоядрова олія
 wikidata:en:Q1960534
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_kernel_oil
 
+<en:palm
 <en:palm kernel oil
 en:palm kernel fat
 de:Palmkernfett
 fr:graisse de palmiste, matière grasse de palmiste, acides gras de palmiste, graisse végétale de palmiste, matière grasse végétale de palmiste
 
+<en:palm
 <en:palm kernel oil
 fr:palmiste totalement hydrogénée
 
 # The and/or ingredients, also used as a container
 
+<en:palm
 <en:palm kernel oil
 <en:palm oil
 en:palm and palm kernel oil
@@ -20612,6 +20627,7 @@ de:Palm- und Palmkernöl, Palmöl und Palmkernöl
 fr:huile de palme et de palmiste
 nl:palmolie en palmkernolie
 
+<en:palm
 <en:palm kernel oil
 <en:palm oil
 en:palm or palm kernel oil, palm oil or palm kernel oil, palm or palm kernel
@@ -20899,6 +20915,7 @@ fr:monodiglycérides de colza
 de:Mono- und Diglyceride von Raps
 # ingredient/fr:monodiglycérides-de-colza has 16 products in 2 languages @2019-02-18
 
+<en:palm
 <en:palm oil and fat
 en:palm and rapeseed
 de:Palm und Raps
@@ -38608,8 +38625,7 @@ es:zumo de acerola
 fr:jus d’acérola
 it:succo di acerola
 nl:acerolasap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola-juice
-# 18 products in 2 languages @2018-10-03
+# ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
 
 <en:acerola juice
 fr:extrait d'acérola, jus concentré d'acérola
@@ -38618,24 +38634,21 @@ it:estratto d'acerola
 nl:acerola-extract
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20concentré%20d'acérola
 # 3 products in 1 language @2018-10-03
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20d'acérola
-# 215 products in 4 languages @2018-10-03
+# ingredient/fr:extrait%20d'acérola has 215 products in 4 languages @2018-10-03
 
 <en:acerola
 en:acerola powder
 de:Acerolapulver
 fr:poudre d'acérola
 it:acerola in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poudre%20d'acérola
-# 37 products @2018-10-03
+# ingredient/fr:poudre%20d'acérola has 37 products @2018-10-03
 
 <fr:poudre d'acérola
 en:acerola powder on manioc starch
 de:Acerolapulver auf Maniokstärke
 fr:poudre d'acérola avec fécule de manioc
 it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poudre%20d'acérola%20avec%20fécule%20de%20manioc
-# 38 products @2018-10-03
+# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
 
 # The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
 
