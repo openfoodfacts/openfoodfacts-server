@@ -4549,6 +4549,11 @@ sub compute_carbon_footprint_infocard($) {
 	
 	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients}) 
 		and (length($product_ref->{ingredients}) > 5))) {
+		delete $product_ref->{environment_impact_level};
+		delete $product_ref->{environment_impact_level_tags};
+		delete $product_ref->{environment_infocard};
+		delete $product_ref->{environment_infocard_en};
+		delete $product_ref->{environment_infocard_fr};
 		return;
 	}
 	

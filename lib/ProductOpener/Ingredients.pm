@@ -154,6 +154,7 @@ sub compute_carbon_footprint_from_ingredients($) {
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"};
 	}
 
+	remove_tag($product_ref, "misc", "en:environment-infocard");
 	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
 
 	# Compute the carbon footprint from meat or fish ingredients, when the percentage is known
