@@ -40,7 +40,7 @@ my $expected_product_ref = {
                                            'en:milk-proteins',
                                            'en:egg',
                                            'en:emulsifier',
-                                           'fr:E463',
+                                           'en:e463',
                                            'fr:E432 et E472',
                                            'en:acidity-regulator',
                                            'en:polyglycerol-esters-of-fatty-acids',
@@ -61,7 +61,7 @@ my $expected_product_ref = {
                                        'en:animal-protein',
                                        'en:egg',
                                        'en:emulsifier',
-                                       'fr:E463',
+                                       'en:e463',
                                        'fr:E432 et E472',
                                        'en:acidity-regulator',
                                        'en:polyglycerol-esters-of-fatty-acids',
@@ -83,7 +83,7 @@ my $expected_product_ref = {
                                   'en:animal-protein',
                                   'en:egg',
                                   'en:emulsifier',
-                                  'fr:e463',
+                                  'en:e463',
                                   'fr:e432-et-e472',
                                   'en:acidity-regulator',
                                   'en:polyglycerol-esters-of-fatty-acids',
@@ -132,7 +132,7 @@ my $expected_product_ref = {
                              },
                              {
                                'text' => 'E463',
-                               'id' => 'fr:E463',
+                               'id' => 'en:e463',
                                'rank' => 7
                              },
                              {
@@ -182,7 +182,7 @@ my $expected_product_ref = {
                                'id' => 'en:phosphoric-acid'
                              }
                            ],
-          'unknown_ingredients_n' => 3,
+          'unknown_ingredients_n' => 2,
           'ingredients_n' => 17
 
         };
@@ -447,11 +447,11 @@ $expected_product_ref =
       'text' => "\x{e9}quivalent jus d'orange"
     },
     {
-      'id' => 'fr:citrate-de-calcium',
+      'id' => 'en:dicalcium-citrate',
       'text' => 'citrate de calcium'
     },
     {
-      'id' => 'en:trisodium-citrate',
+      'id' => 'en:sodium-citrate',
       'text' => 'citrate de sodium'
     },
     {
@@ -524,8 +524,8 @@ $expected_product_ref =
     'en:milk-proteins',
     'en:wheat-flour',
     'en:cereal',
-    'en:cereal-flour',
     'en:wheat',
+    'en:cereal-flour',
     'en:sugar',
     'en:egg',
     'en:glucose-fructose-syrup',
@@ -546,12 +546,14 @@ $expected_product_ref =
     'en:fruit-juice',
     'en:orange-juice',
     "fr:\x{e9}quivalent jus d'orange",
-    'fr:citrate-de-calcium',
-    'en:trisodium-citrate',
-    'en:sodium-citrates',
+    'en:dicalcium-citrate',
+    'en:calcium-citrates',
+    'en:sodium-citrate',
+    'en:mineral',
+    'en:sodium',
     'en:cocoa-paste',
-    'en:cocoa-butter',
     'en:cocoa',
+    'en:cocoa-butter',
     'en:vegetable-fat',
     'en:illipe',
     'en:mango',
@@ -600,8 +602,8 @@ $expected_product_ref =
     'de:orangenfruchtfleisch',
     'en:concentrated-orange-juice',
     "fr:\x{e9}quivalent jus d'orange",
-    'fr:citrate-de-calcium',
-    'en:trisodium-citrate',
+    'en:dicalcium-citrate',
+    'en:sodium-citrate',
     'en:sugar',
     'en:cocoa-paste',
     'en:cocoa-butter',
@@ -639,8 +641,8 @@ $expected_product_ref =
     'en:milk-proteins',
     'en:wheat-flour',
     'en:cereal',
-    'en:cereal-flour',
     'en:wheat',
+    'en:cereal-flour',
     'en:sugar',
     'en:egg',
     'en:glucose-fructose-syrup',
@@ -661,12 +663,14 @@ $expected_product_ref =
     'en:fruit-juice',
     'en:orange-juice',
     'fr:equivalent-jus-d-orange',
-    'fr:citrate-de-calcium',
-    'en:trisodium-citrate',
-    'en:sodium-citrates',
+    'en:dicalcium-citrate',
+    'en:calcium-citrates',
+    'en:sodium-citrate',
+    'en:mineral',
+    'en:sodium',
     'en:cocoa-paste',
-    'en:cocoa-butter',
     'en:cocoa',
+    'en:cocoa-butter',
     'en:vegetable-fat',
     'en:illipe',
     'en:mango',

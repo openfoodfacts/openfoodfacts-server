@@ -16,19 +16,34 @@
 stopwords:en: of
 stopwords:fr: de,d,des,du,le,la,les,a,aux
 
-synonyms:en:FD&C, FC and C, FDC, FFDCA, FDCA
-synonyms:en:n°, no, number, nb, #
+# synonyms need to be separated with an empty line
+
+synonyms:en:FD&C, FD and C, FDC, FFDCA, FDCA
+
+synonyms:en:n°, no, number, nb
+
 synonyms:en:no1, n1, 1
+
 synonyms:en:no2, n2, 2
+
 synonyms:en:no3, n3, 3
+
 synonyms:en:no4, n4, 4
+
 synonyms:en:no5, n5, 5
+
 synonyms:en:no6, n6, 6
+
 synonyms:en:no7, n7, 7
+
 synonyms:en:no8, n8, 8
+
 synonyms:en:no9, n9, 9
+
 synonyms:en:no10, n10, 10
+
 synonyms:en:no11, n11, 11
+
 synonyms:en:no12, n12, 12
 
 synonyms:en:colour, color
@@ -1378,6 +1393,7 @@ efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2592.pdf
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.2592
 efsa_evaluation_date:en: 2012-04-27
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of vegetable carbon (E 153) as a food additive
+organic_eu:en:authorized
 
 en:E154, Brown FK, Kipper Brown 
 bg:E154, E154 food additive
@@ -1682,6 +1698,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4544
 efsa_evaluation_date:en: 2016-08-24
 efsa_evaluation:en: The safety of annatto extracts (E 160b) as a food additive
 additives_classes:en: en:colour
+organic_eu:en:authorized
 
 en:E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin
 bg:E160c, Паприка екстракт, капсантин, капсорубин
@@ -2446,6 +2463,7 @@ efsa_evaluation_date:en:2011/07/26
 efsa_evaluation:en:Scientific Opinion on re‐evaluation of calcium carbonate (E 170) as a food additive
 efsa_evaluation_overexposure_risk:en: en:no
 additives_classes:en: en:colour, en:stabilizer
+organic_eu:en:authorized
 
 en:E171, Titanium dioxide
 bg:E171, Титанов диоксид, Титанов двуокис, Титаниев двуокис, Титаниев диоксид
@@ -3229,6 +3247,7 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_adi:en: 0.7
+organic_eu:en:authorized
 
 en:E221, Sodium sulphite, Sodium sulfite
 bg:E221, Натриев сулфит
@@ -3328,6 +3347,7 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_adi:en: 0.7
+organic_eu:en:authorized
 
 en:E224, Potassium metabisulphite, Potassium metabisulfite
 bg:E224, Калиев метабисулфит
@@ -3363,6 +3383,7 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_adi:en: 0.7
+organic_eu:en:authorized
 
 en:E225, Calcium Disulphite, Calcium Disulfite, Calcium Pyrosulphite, Calcium Pyrosulfite, potassium sulfite, potassium sulphite
 bg:E225, E225 food additive
@@ -3923,8 +3944,7 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 additives_classes:en: en:preservative
-
-
+organic_eu:en:authorized
 
 en:E251, Sodium nitrate
 bg:E251, Натриев нитрат i.
@@ -3992,6 +4012,7 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_adi:en: 3.7
+organic_eu:en:authorized
 
 en:E260, Acetic acid, ethanoic acid
 bg:E260, Оцетна киселина, Оцетна киселина, Е260, Етанова киселина
@@ -4250,6 +4271,7 @@ sl:E270, Mlečna kislina, Laktat
 sv:E270, Mjölksyra, Laktat, 2-hydroxipropansyra, E 270
 e_number:en:270
 wikidata:en:Q161249
+organic_eu:en:authorized
 
 en:E280, Propionic acid, Propionic acid, Propanoic acid, CH3CH2COOH
 bg:E280, Пропионова киселина, Пропионова киселина, Пропанова киселина
@@ -4470,6 +4492,7 @@ sv:E290, Koldioxid, Kolsyregas, kolsyresnö (i fast form)
 e_number:en:290
 wikidata:en:Q1997
 additives_classes:en: en:preservative, en:propellant
+organic_eu:en:authorized
 
 en:E296, Malic acid, hydroxybutanedioic acid
 bg:E296, Ябълчна киселина, Ябълчена киселина, Хидроксиянтарна киселина
@@ -4495,6 +4518,7 @@ sl:E296, Jabolčna kislina
 sv:E296, Äppelsyra, Malat, E 296
 e_number:en:296
 wikidata:en:Q190143
+organic_eu:en:authorized
 
 en:E297, Fumaric acid, trans-Butenedioic acid
 bg:E297, Фурмарова киселина, транс-бутендиова киселина
@@ -4553,6 +4577,7 @@ efsa_evaluation_date:en: 2015/05/06
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of ascorbic acid (E 300), sodium ascorbate (E 301) and calcium ascorbate (E 302) as food additives
 efsa_evaluation_adi_established:en: en:no
 additives_classes:en: en:antioxidant, en:sequestrant
+organic_eu:en:authorized
 
 en:E301, Sodium ascorbate, Sodium L-ascorbate
 bg:E301, Натриев аскорбат, Натриев L-аскорбат
@@ -4586,6 +4611,7 @@ efsa_evaluation_date:en: 2015/05/06
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of ascorbic acid (E 300), sodium ascorbate (E 301) and calcium ascorbate (E 302) as food additives
 efsa_evaluation_adi_established:en: en:no
 additives_classes:en: en:antioxidant
+organic_eu:en:authorized
 
 en:E302, Calcium ascorbate
 bg:E302, Калциев аскорбат
@@ -4791,8 +4817,7 @@ wikidata:en:Q13081782
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4247
 efsa_evaluation_date:en: 2015-09-30
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of tocopherol-rich extract (E 306), alpha-tocopherol (E 307), gamma-tocopherol (E 308) and delta-tocopherol (E 309) as food additives
-
-
+organic_eu:en:authorized
 
 en:E307a, tocopherol
 bg:E307a, E307a food additive
@@ -5188,26 +5213,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_erythorbate
 # additive/e316-sodium-erythorbate has 7338 products in 28 languages @2019-05-17
 # usage:fr:antioxydants :lactate de portassium, isoascorbate de sodium
 
-<en:sodium erythorbate
-en:antioxydant E316
-cs:antioxidant E316
-da:antioxidant E316
-de:Antioxidationsmittel E 316
-es:antioxidante E316
-et:antioksüdant E316
-fi:hapettumisenestoaine E316
-fr:antioxydant e316
-it:antiossidante:E316
-lt:antioksidantas E316
-lv:antioksidants E316
-nl:antioxidant E316
-pl:przeciwutleniacz E316
-pt:antioxidante E316
-sv:antioxidationsmedel E316
-# ingredient/fr:antioxydant-e316 has 1567 products in 15 languages @2019-05-17
-
-
-
 en:E317, Erythorbin acid
 bg:E317, E317 food additive
 cs:E317, E317 food additive
@@ -5371,6 +5376,7 @@ sv:E322, Lecitiner, Fosfatider, Lecitin
 e_number:en:322
 wikidata:en:Q241595
 additives_classes:en: en:antioxidant, en:emulsifier
+organic_eu:en:authorized
 
 <en:E322
 en:E322(i), Lecithin
@@ -5398,6 +5404,7 @@ sv:E322(i), E322(i) food additive
 e_number:en:322
 wikidata:en:Q241595
 additives_classes:en: en:antioxidant, en:emulsifier
+organic_eu:en:authorized
 
 <en:E322
 en:E322(ii), E322(ii) food additive
@@ -5425,6 +5432,7 @@ sv:E322(ii), E322(ii) food additive
 e_number:en:322
 wikidata:en:Q241595
 additives_classes:en: en:antioxidant, en:emulsifier
+organic_eu:en:authorized
 
 en:E323, E323 food additive
 bg:E323, E323 food additive
@@ -5527,6 +5535,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_lactate
 # ingredient/fr:lactate-de-sodium has 426 products in 4 languages @2019-05-18
 # additive/e325-sodium-lactate has 1960 products in 14 languages @2019-05-18
 # usage:sv:surhetsreglerande medel (natriumlaktat, natriumacetater)
+organic_eu:en:authorized
 
 
 
@@ -5696,6 +5705,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:antioxidant, en:sequestrant
+organic_eu:en:authorized
 
 en:E331, Sodium citrates
 bg:E331, E331 food additive
@@ -5722,6 +5732,7 @@ sv:E331, E331 food additive
 e_number:en:331
 wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 <en:E331
 en:E331(i), Monosodium citrate
@@ -5749,6 +5760,7 @@ sv:E331(i), Mononatriumcitrat
 e_number:en:331
 wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 <en:E331
 en:E331(ii), Disodium citrate
@@ -5776,37 +5788,7 @@ sv:E331(ii), Dinatriumcitrat
 e_number:en:331
 wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
-
-<en:sodium citrates
-en:Trisodium citrate, Sodium Citrate, e331iii, e-331iii, e 331iii, E331(iii), INS331, INS-331, INS 331, SIN331, SIN-331, SIN 331
-bg:Тринатриев цитрат
-cs:Citronan sodný
-da:Trinatriumcitrat
-de:Trinatriumcitrat
-el:Κιτρικο νατριο
-es:Citrato trisódico
-et:Naatriumtsitraat
-fi:Trinatriumsitraatti
-fr:Citrate trisodique
-hu:Trinátrium-citrát
-it:Citrato trisodico
-lt:Trinatrio citratas
-lv:Trinātrija citrāts
-mt:Ċitrat trisodiku
-nb:natriumsitrat
-nl:Trinatriumcitraat
-pl:Ċitrat trisodiku
-pt:Citrato trissódico
-ro:Citrat trisodic
-ru:цитрат натрия
-sk:Citran trisodný
-sl:Trinatrijev citrat
-sv:Trinatriumcitrat
-e_number:en:331
-wikidata:en:Q6460572
-additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
-wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_citrate
-# additive/e331iii-trisodium-citrate has 1010 products in 20 languages @2019-04-24
+organic_eu:en:authorized
 
 en:E332, Potassium citrates, Potassium citrate
 bg:E332, E332 food additive
@@ -5918,6 +5900,7 @@ mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 e_number:en:333
 wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 <en:E333
 en:E333(i), Monocalcium citrate
@@ -5946,6 +5929,7 @@ mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 e_number:en:333
 wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 <en:E333
 en:E333(ii), Dicalcium citrate
@@ -5973,6 +5957,7 @@ sv:E333(ii), Dikalciumcitrat
 e_number:en:333
 wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 <en:E333
 en:E333(iii), Tricalcium citrate
@@ -6001,6 +5986,7 @@ mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 e_number:en:333
 wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 en:E334, L(+)-tartaric acid, tartaric acid, 2\,3-dihydroxybutanedioic acid, 2\,3-dihydroxysuccinic acid, threaric acid, racemic acid, uvic acid, paratartaric acid
 bg:E334, L(+)-винена киселина, винена киселина, Лимонтузу, Лимонтозу
@@ -6027,6 +6013,7 @@ sv:E334, L(+)-vinsyra, L-vinsyra, L-2\,3-dihydroxibutandisyra, Vinsyra, Tartrat,
 e_number:en:334
 wikidata:en:Q194322
 additives_classes:en: en:antioxidant, en:sequestrant
+organic_eu:en:authorized
 
 en:E335, Sodium tartrates
 bg:E335, E335 food additive
@@ -6053,6 +6040,7 @@ sv:E335, E335 food additive
 e_number:en:335
 wikidata:en:Q17997701
 additives_classes:en: en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 <en:E335
 en:E335(i), Monosodium tartrate
@@ -6080,6 +6068,7 @@ sv:E335(i), Mononatriumtartrat
 e_number:en:335
 wikidata:en:Q17997701
 additives_classes:en: en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 <en:E335
 en:E335(ii), Disodium tartrate
@@ -6107,6 +6096,7 @@ sv:E335(ii), Dinatriumtartrat
 e_number:en:335
 wikidata:en:Q17997701
 additives_classes:en: en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 en:E336, Potassium tartrates, Potassium tartrate, dipotassium tartrate, argol
 bg:E336, E336 food additive
@@ -6132,6 +6122,7 @@ sl:E336, E336 food additive
 sv:E336, Kaliumtartrat, E 336
 e_number:en:336
 wikidata:en:Q418064
+organic_eu:en:authorized
 
 <en:E336
 en:E336(i), Monopotassium tartrate, monopotassic tartrate
@@ -6158,6 +6149,7 @@ sl:E336(i), Monokalijev tartrat
 sv:E336(i), Monokaliumtartrat
 e_number:en:336
 wikidata:en:Q418064
+organic_eu:en:authorized
 
 <en:E336
 en:E336(ii), Dipotassium tartrate, dipotassic tartrate
@@ -6184,6 +6176,7 @@ sl:E336(ii), Dikalijev tartrat
 sv:E336(ii), Dikaliumtartrat
 e_number:en:336
 wikidata:en:Q418064
+organic_eu:en:authorized
 
 en:E337, Potassium sodium tartrate
 bg:E337, Калиево-натриев тартарат, Калиево-натриев L-(+) тартарат, рошелова сол
@@ -6478,6 +6471,7 @@ e_number:en:341
 mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en:Q426664
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 <en:E341
 en:E341(i), Monocalcium phosphate, Monobasic calcium phosphate
@@ -6505,6 +6499,7 @@ sv:E341(i), Monokalciumfosfat
 e_number:en:341
 wikidata:en:Q426664
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 <en:E341
 en:E341(ii), Dicalcium phosphate, Dibasic calcium phosphate
@@ -6532,6 +6527,7 @@ sv:E341(ii), Dikalciumfosfat
 e_number:en:341
 wikidata:en:Q426664
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 <en:E341
 en:E341(iii), Tricalcium phosphate
@@ -6560,6 +6556,7 @@ e_number:en:341
 mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabiliser, en:acid
 wikidata:en:Q426664
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 en:E342, Ammonium phosphates: (i) monoammonium phosphate (ii) diammonium phosphate
 bg:E342, E342 food additive
@@ -7577,6 +7574,7 @@ e_number:en:392
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4090
 efsa_evaluation_date:en: 2015-05-07
 efsa_evaluation:en: Extension of use of extracts of rosemary (E 392) in fat-based spreads
+organic_eu:en:authorized
 
 en:E399, Lactobionic acid
 bg:E399, E399 food additive
@@ -7632,35 +7630,36 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2017/11/10
 efsa_evaluation:en: Re‐evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400–E 404) as food additives
 efsa_evaluation_adi_established:en: en:no
+organic_eu:en:authorized
 
 # description:en:Sodium alginate is the sodium salt of alginic acid, NaC6H7O6. Sodium alginate is a gum, extracted from the cell walls of brown algae. Sodium alginate is used in the food industry as a thickening agent for drinks, ice cream and cosmetics, and as a gelling agent for jellies.
 
-en:sodium alginate, E401, E-401, E 401, E401, INS401, INS-401, INS 401, SIN401, SIN-401, SIN 401
-ar:ألجينات الصوديوم
-bg:Натриев алгинат
-cs:Alginan sodný
-da:Natriumalginat
-de:Natriumalginat
-el:Αλγινικο νατριο
-es:alginato sódico
-et:Naatriumalginaat
-fi:natriumalginaatti
-fr:alginate de sodium
-hu:Nátrium-alginát
-it:alginato di sodio
-ja:アルギン酸ナトリウム
-lt:Natrio alginatas
-lv:Nātrija algināts
-mt:Alġinat tas-sodju
-nl:natriumalginaat
-pl:alginian sodu
-pt:alginato de sódio
-ro:alginat de sodiu
-ru:альгинат натрия
-sk:Alginát sodný
-sl:Natrijev alginat
-sv:natriumalginat
-uk:Альгінат натрію
+en:E401, sodium alginate
+ar:E401, ألجينات الصوديوم
+bg:E401, Натриев алгинат
+cs:E401, Alginan sodný
+da:E401, Natriumalginat
+de:E401, Natriumalginat
+el:E401, Αλγινικο νατριο
+es:E401, alginato sódico
+et:E401, Naatriumalginaat
+fi:E401, natriumalginaatti
+fr:E401, alginate de sodium
+hu:E401, Nátrium-alginát
+it:E401, alginato di sodio
+ja:E401, アルギン酸ナトリウム
+lt:E401, Natrio alginatas
+lv:E401, Nātrija algināts
+mt:E401, Alġinat tas-sodju
+nl:nE401, atriumalginaat
+pl:E401, alginian sodu
+pt:E401, alginato de sódio
+ro:E401, alginat de sodiu
+ru:E401, альгинат натрия
+sk:E401, Alginát sodný
+sl:E401, Natrijev alginat
+sv:E401, natriumalginat
+uk:E401, Альгінат натрію
 e_number:en:401
 wikidata:en:Q1187513
 additives_classes:en:en:carrier, en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
@@ -7671,6 +7670,7 @@ efsa_evaluation_adi_established:en:en:no
 # additive/e401-sodium-alginate has 2842 products in 16 languages @2019-05-19
 # ingredient/fr:alginate-de-sodium has 879 products in 7 languages @2019-05-19
 # usage:pl:substancja zagęszczająca:alginian sodu
+organic_eu:en:authorized
 
 en:E402, Potassium alginate
 bg:E402, Калиев алгинат
@@ -7701,6 +7701,7 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2017/11/10
 efsa_evaluation:en: Re‐evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400–E 404) as food additives
 efsa_evaluation_adi_established:en: en:no
+organic_eu:en:authorized
 
 en:E403, Ammonium alginate
 bg:E403, Амониев алгинат
@@ -7813,6 +7814,7 @@ sv:E406, Agar, Agar-agar, E 406
 e_number:en:406
 wikidata:en:Q177998
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 en:E407, Carrageenan
 bg:E407, Карагенан
@@ -7847,6 +7849,7 @@ efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:adolescents, en
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_adi:en: 75
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 en:E407a, Processed eucheuma seaweed
 bg:E407a, Обработени eucheuma водорасли
@@ -7880,6 +7883,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:ado
 efsa_evaluation_adi:en: 75
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
 e_number:en:407a
+organic_eu:en:authorized
 
 en:E408, Bakers yeast glycan
 bg:E408, E408 food additive
@@ -7961,6 +7965,7 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2017/01/20
 efsa_evaluation:en: Re‐evaluation of locust bean gum (E 410) as a food additive
 efsa_evaluation_adi_established:en: en:no
+organic_eu:en:authorized
 
 en:E411, E411 food additive
 bg:E411, E411 food additive
@@ -8012,6 +8017,7 @@ sv:E412, Guarkärnmjöl, Guargummi, Guarmjöl, E 412, Guarkärnsmjöl
 e_number:en:412
 wikidata:en:Q422071
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 en:E413, Tragacanth, Tragacanth gum
 bg:E413, Трагакант, Гума трагант
@@ -8069,6 +8075,7 @@ sv:E414, Gummi arabicum
 e_number:en:414
 wikidata:en:Q535814
 additives_classes:en: en:carrier, en:emulsifier, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 en:E414a, E414a food additive
 bg:E414a, E414a food additive
@@ -8126,6 +8133,7 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2017/07/14
 efsa_evaluation:en: Re‐evaluation of xanthan gum (E 415) as a food additive
 efsa_evaluation_adi_established:en: en:no
+organic_eu:en:authorized
 
 en:E416, Karaya-gum, Katilo, Kadaya, Gum sterculia, Sterculia, Karaya, gum karaya, Kullo
 bg:E416, Гума карая, Катило, кадая, гума sterculia, Sterculia, карая, гума карая, куло
@@ -8374,6 +8382,7 @@ sv:E422, Glycerol, Propantriol
 e_number:en:422
 wikidata:en:Q132501
 additives_classes:en: en:humectant, en:thickener
+organic_eu:en:authorized
 
 en:E424, Curdlan
 bg:E424, E424 food additive
@@ -8827,6 +8836,7 @@ sv:E440a, E440a food additive
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:440a
+organic_eu:en:authorized
 
 <en:E440a
 en:E440a(ii), Sodium pectate
@@ -8963,6 +8973,7 @@ sv:E440, Pektin, E 440
 e_number:en:440
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 <en:E440
 en:E440(i), Pectin
@@ -8990,6 +9001,7 @@ sv:E440(i), Pektin
 e_number:en:440
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 <en:E440
 en:E440(ii), Amidated pectin
@@ -10293,6 +10305,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4088
 efsa_evaluation_date:en: 2015-05-05
 efsa_evaluation:en: Safety of a change in specifications for the food additive hydroxypropyl methyl cellulose (E 464)
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 en:E465, Ethyl methyl cellulose, Ethylmethylcellulose
 bg:E465, Етил метил целулоза
@@ -11426,6 +11439,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 <en:E500
 en:E500(i), Sodium carbonate
@@ -11456,6 +11470,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 <en:E500
 en:E500(ii), Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda
@@ -11486,6 +11501,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 <en:E500
 en:E500(iii), Sodium sesquicarbonate
@@ -11516,6 +11532,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 en:E501, Potassium carbonates, potassium carbonate
 bg:E501, Калиев карбонат
@@ -11543,6 +11560,7 @@ e_number:en:501
 mandatory_additive_class:en: en:acidity-regulator
 wikidata:en:Q379885
 additives_classes:en: en:stabilizer
+organic_eu:en:authorized
 
 <en:E501
 en:E501(i), Potassium carbonate
@@ -11570,6 +11588,7 @@ sv:E501(i), Kaliumkarbonat
 e_number:en:501
 wikidata:en:Q379885
 additives_classes:en: en:stabilizer
+organic_eu:en:authorized
 
 <en:E501
 en:E501(ii), Potassium hydrogen carbonate, Potassium bicarbonate
@@ -11597,6 +11616,7 @@ sv:E501(ii), Kaliumvätekarbonat, Kaliumbikarbonat
 e_number:en:501
 wikidata:en:Q379885
 additives_classes:en: en:stabilizer
+organic_eu:en:authorized
 
 en:E502, Carbonates
 bg:E502, E502 food additive
@@ -11649,6 +11669,7 @@ sv:E503, Ammoniumkarbonat
 e_number:en:503
 mandatory_additive_class:en: en:raising-agent
 wikidata:en:Q204873
+organic_eu:en:authorized
 
 <en:E503
 en:E503(i), Ammonium carbonate
@@ -11675,6 +11696,7 @@ sl:E503(i), Amonijev karbonat
 sv:E503(i), Ammoniumkarbonat
 e_number:en:503
 wikidata:en:Q204873
+organic_eu:en:authorized
 
 <en:E503
 en:E503(ii), Ammonium hydrogen carbonate
@@ -11701,6 +11723,7 @@ sl:E503(ii), Amonijev hidrogenkarbonat
 sv:E503(ii), Ammoniumvätekarbonat
 e_number:en:503
 wikidata:en:Q204873
+organic_eu:en:authorized
 
 en:E504, Magnesium carbonates, magnesium carbonate
 bg:E504, E504 food additive
@@ -11727,6 +11750,7 @@ sv:E504, Magnesiumkarbonat, Magnesit, E 504
 e_number:en:504
 wikidata:en:Q407931
 additives_classes:en: en:carrier
+organic_eu:en:authorized
 
 <en:E504
 en:E504(i), Magnesium carbonate
@@ -11755,6 +11779,7 @@ e_number:en:504
 mandatory_additive_class:en: en:acidity-regulator,en:anticaking-agent
 wikidata:en:Q407931
 additives_classes:en: en:carrier
+organic_eu:en:authorized
 
 <en:E504
 en:E504(ii), Magnesium hydroxide carbonate
@@ -11782,6 +11807,7 @@ sv:E504(ii), Magnesiumhydroxidkarbonat
 e_number:en:504
 wikidata:en:Q407931
 additives_classes:en: en:carrier
+organic_eu:en:authorized
 
 en:E505, Ferrous carbonate
 bg:E505, E505 food additive
@@ -11888,6 +11914,7 @@ mandatory_additive_class:en: en:firming-agent, en:stabiliser, en:thickener
 e_number:en:509
 wikidata:en:Q208451
 additives_classes:en: en:stabilizer, en:thickener
+organic_eu:en:authorized
 
 en:E510, Ammonium chloride, ammonia solution
 bg:E510, E510 food additive
@@ -12172,6 +12199,7 @@ mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 e_number:en:516
 wikidata:en:Q407258
 additives_classes:en: en:sequestrant, en:stabilizer
+organic_eu:en:authorized
 
 en:E517, Ammonium sulphate, ammonium sulfate
 bg:E517, Амониев сулфат
@@ -12376,6 +12404,7 @@ sl:E524, Natrijev hidroksid, kavstična soda, NaOH
 sv:E524, Natriumhydroxid, Kaustiksoda, Natronlut, E 524, NaOH, Kaustik soda, Natriumhydrooxid, Na-hydroxid
 e_number:en:524
 wikidata:en:Q102769
+organic_eu:en:authorized
 
 en:E525, Potassium hydroxide
 bg:E525, Калиев хидроксид
@@ -12687,6 +12716,7 @@ wikidata:en:Q116269
 mandatory_additive_class:en: en:anti-caking-agent, en:anti-foaming-agent, en:stabiliser
 colour_index:en:CI 7811
 additives_classes:en: en:carrier
+organic_eu:en:authorized
 
 en:E552, Calcium silicate
 bg:E552, Калциев силикат
@@ -12737,6 +12767,7 @@ sl:E553, E553 food additive
 sv:E553, E553 food additive
 e_number:en:553
 additives_classes:en: en:thickener
+organic_eu:en:authorized
 
 en:E553a, Magnesium silicates, Synthetic magnesium silicate
 bg:E553a, E553a food additive
@@ -12762,6 +12793,7 @@ sl:E553a, E553a food additive
 sv:E553a, Magnesiumsilikat
 additives_classes:en: en:thickener
 e_number:en:553a
+organic_eu:en:authorized
 
 <en:E553a
 en:E553a(i), Magnesium silicate
@@ -12788,6 +12820,7 @@ sl:E553a(i), Magnezijev silikat
 sv:E553a(i), Magnesiumsilikat
 additives_classes:en: en:thickener
 e_number:en:553a
+organic_eu:en:authorized
 
 <en:E553a
 en:E553a(ii), Magnesium trisilicate
@@ -12814,6 +12847,7 @@ sl:E553a(ii), Magnezijev trisilikat
 sv:E553a(ii), Magnesiumtrisilikat
 additives_classes:en: en:thickener
 e_number:en:553a
+organic_eu:en:authorized
 
 en:E553b, Talc, talcum
 bg:E553b, Талк
@@ -14795,6 +14829,7 @@ sv:E917, E917 food additive
 e_number:en:917
 mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en:Q414599
+organic_eu:en:authorized
 
 en:E918, Nitrogen oxides
 bg:E918, E918 food additive
@@ -15295,6 +15330,7 @@ sl:E938, Argon
 sv:E938, Argon
 e_number:en:938
 wikidata:en:Q696
+organic_eu:en:authorized
 
 en:E939, Helium, element 2
 bg:E939, Хелий
@@ -15321,6 +15357,7 @@ sl:E939, Helij
 sv:E939, Helium
 e_number:en:939
 wikidata:en:Q560
+organic_eu:en:authorized
 
 en:E940, Dichlorodifluoromethane
 bg:E940, E940 food additive
@@ -15374,6 +15411,7 @@ sv:E941, Kväve
 e_number:en:941
 wikidata:en:Q627
 additives_classes:en: en:propellant
+organic_eu:en:authorized
 
 en:E942, Nitrous oxide
 bg:E942, Азотист оксид, Диазотен оксид, Райски газ
@@ -15551,6 +15589,7 @@ sl:E948, Kisik
 sv:E948, Syre
 e_number:en:948
 wikidata:en:Q629
+organic_eu:en:authorized
 
 en:E949, Hydrogen
 bg:E949, E949 food additive
@@ -17338,6 +17377,7 @@ sl:E1510, Etanol
 sv:E1510, Etanol, alkohol
 e_number:en:1510
 wikidata:en:Q153
+organic_eu:en:authorized
 
 en:E1517, Glyceryl diacetate
 bg:E1517, Глицерил диацетат

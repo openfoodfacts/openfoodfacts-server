@@ -138,8 +138,37 @@ else {
 		}
 	}
 	my @param_langs = keys %param_langs;
+	
+	# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
+
+	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined param('cc'))) {
+	
+		my $param_cc = lc(param('cc'));
+		$param_cc =~ s/^en://;
+		
+		my %lc_overrides = (
+				au => "en",
+				es => "es",
+				it => "it",
+				de => "de",
+				uk => "en",
+				gb => "en",
+				pt => "pt",
+				nl => "nl",
+				us => "en",
+				ie => "en",
+				nz => "en",
+		);
+		
+		if (defined $lc_overrides{$param_cc}) {
+			$lc = $lc_overrides{$param_cc};
+		}
+	}	
 
 	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	
+
+		
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
 		if ((defined $User_id) and ($User_id eq 'kiliweb')
@@ -157,12 +186,6 @@ else {
 			my $additional_fields = remove_tags_and_quote(decode utf8=>param("add_$field"));
 
 			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
-
-			if ($field eq 'emb_codes') {
-				# French emb codes
-				$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
-			}
 
 			print STDERR "product_jqm_multilingual.pl - lc: $lc - adding value to field $field - additional: $additional_fields - existing: $product_ref->{$field}\n";
 

@@ -296,12 +296,18 @@ is_deeply (\@tags, [
    'en:citrus-fruit',
    'en:fruit-juice',
    'en:salt',
-   'en:orange',
    'en:sugar',
+   'en:orange',
    'en:orange-juice',
    'en:concentrated-orange-juice'
  ]
- ) or diag explain(\@tags);;
+ ) or diag explain(\@tags);
+
+
+foreach my $tag (@tags) {
+
+	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
+}
 
 
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
