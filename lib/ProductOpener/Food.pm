@@ -5222,21 +5222,20 @@ sub compute_nova_group($) {
 }
 
 
-sub extract_nutrition_from_image($$$) {
+sub extract_nutrition_from_image($$$$) {
 
 	my $product_ref = shift;
 	my $id = shift;
 	my $ocr_engine = shift;
+	my $results_ref = shift;
 		
-	my $status = extract_text_from_image($product_ref, $id, "nutrition_text_from_image", $ocr_engine);
+	extract_text_from_image($product_ref, $id, "nutrition_text_from_image", $ocr_engine, $results_ref);
 
 	# clean and process text
-	if (($status == 0) and (defined $product_ref->{nutrition_text_from_image})) {
+	if (($results_ref->{status} == 0) and (defined $results_ref->{nutrition_text_from_image})) {
 
 		# TODO: extract the nutrition facts values
 	}
-
-	return $status;
 }
 
 1;

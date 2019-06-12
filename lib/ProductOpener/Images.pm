@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -1350,17 +1350,18 @@ HTML
 }
 
 
-sub extract_text_from_image($$$$) {
+sub extract_text_from_image($$$$$) {
 
 	my $product_ref = shift;
 	my $id = shift;
 	my $field = shift;
 	my $ocr_engine = shift;
+	my $results_ref = shift;
 
 	delete $product_ref->{$field};
 
 	my $path = product_path($product_ref->{code});
-	my $status = 1;
+	$results_ref->{status} = 1;	# 1 = nok, 0 = ok
 
 	my $filename = '';
 
@@ -1374,6 +1375,9 @@ sub extract_text_from_image($$$$) {
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 		$filename = $id . '.' . $product_ref->{images}{$id}{rev} ;
+	}
+	else {
+		return;
 	}
 
 	my $image = "$www_root/images/products/$path/$filename.full.jpg";
@@ -1403,8 +1407,8 @@ sub extract_text_from_image($$$$) {
 			$text =  decode utf8=>get_ocr($image,undef,$lan);
 
 			if ((defined $text) and ($text ne '')) {
-				$product_ref->{$field} = $text;
-				$status = 0;
+				$results_ref->{$field} = $text;
+				$results_ref->{status} = 0;
 			}
 		}
 		else {
@@ -1463,9 +1467,9 @@ sub extract_text_from_image($$$$) {
 				$log->debug("text found in google cloud vision response") if $log->is_debug();
 
 
-				$product_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
-				$product_ref->{$field . "_annotations"} = $cloudvision_ref;
-				$status = 0;
+				$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
+				$results_ref->{$field . "_annotations"} = $cloudvision_ref;
+				$results_ref->{status} = 0;
 			}
 
 		}
@@ -1474,7 +1478,6 @@ sub extract_text_from_image($$$$) {
 		}
 	}
 
-	return $status;
 }
 
 1;

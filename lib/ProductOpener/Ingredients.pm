@@ -243,11 +243,12 @@ sub compute_carbon_footprint_from_ingredients($) {
 }
 
 
-sub extract_ingredients_from_image($$$) {
+sub extract_ingredients_from_image($$$$) {
 
 	my $product_ref = shift;
 	my $id = shift;
 	my $ocr_engine = shift;
+	my $results_ref = shift;
 		
 	my $lc = $product_ref->{lc};
 
@@ -255,17 +256,15 @@ sub extract_ingredients_from_image($$$) {
 		$lc = $1;
 	}		
 		
-	my $status = extract_text_from_image($product_ref, $id, "ingredients_text_from_image", $ocr_engine);
+	extract_text_from_image($product_ref, $id, "ingredients_text_from_image", $ocr_engine, $results_ref);
 
 	# remove nutrition facts etc.
-	if (($status == 0) and (defined $product_ref->{ingredients_text_from_image})) {
+	if (($results_ref->{status} == 0) and (defined $results_ref->{ingredients_text_from_image})) {
 
-		$product_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
-		$product_ref->{ingredients_text_from_image} = clean_ingredients_text_for_lang($product_ref->{ingredients_text_from_image}, $lc);
+		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
+		$results_ref->{ingredients_text_from_image} = clean_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
 
 	}
-
-	return $status;
 }
 
 

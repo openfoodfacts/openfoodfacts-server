@@ -62,19 +62,18 @@ if (not defined $code) {
 }
 my $product_ref = retrieve_product($code);
 
-my %results = ();
+my $results_ref = {};
 
 if (($id =~ /^ingredients/) and (param('process_image'))) {
-	$results{status} = extract_ingredients_from_image($product_ref, $id, $ocr_engine);
-	if ($results{status} == 0) {
-		$results{ingredients_text_from_image} = $product_ref->{ingredients_text_from_image};
-		$results{ingredients_text_from_image} =~ s/\n/ /g;
-		if ($annotations) {
-			$results{ingredients_text_from_image_annotations} = $product_ref->{ingredients_text_from_image_annotations};
+	extract_ingredients_from_image($product_ref, $id, $ocr_engine, $results_ref);
+	if ($results_ref->{status} == 0) {
+		$results_ref->{ingredients_text_from_image} =~ s/\n/ /g;
+		if (not $annotations) {
+			delete $results_ref->{ingredients_text_from_image_annotations};
 		}		
 	}
 }
-my $data =  encode_json(\%results);
+my $data =  encode_json($results_ref);
 
 $log->debug("JSON data output", { data => $data }) if $log->is_debug();
 	
