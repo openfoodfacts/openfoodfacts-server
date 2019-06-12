@@ -20236,6 +20236,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fat
 <en:fat
 fr:gras
 
+
+<en:fat
+en:hydrogenated fat
+fr:Graisse hydrogénée
+
 <en:fat
 en:animal fat
 de:Tierfett, tierisches Fett
@@ -20324,49 +20329,19 @@ fr:gras de bœuf, graisse de bœuf
 
 # description:This parent is used to indicate ingredients that might have been derived from palm oil. Note that this includes also those that have been derived from palm oil.
 
-en:may be from palm oil, Ingredients that may be from palm oil
-ar:المكونات التي قد تكون من زيت النخيل
-ca:Ingredients que poden ser d'oli de palma
-cs:Přísady, které mohou být z palmového oleje
-da:Ingredienser, som kan være fra palmeolie
-de:Inhaltsstoffe, die möglicherweise aus Palmöl hergestellt werden
-el:Συστατικά πιθανώς προερχόμενα από φοινικέλαιο
-eo:Ingrediencoj, kiuj eble enhavas palmoleon
-es:Ingredientes que pueden proceder del aceite de palma
-fi:Ainesosat, jotka voivat olla peräisin palmuöljystä
-# fil:Mga sangkap na maaaring mula sa palm oil
-fr:Ingrédients pouvant être issus de l'huile de palme
-gl:Ingredientes que poden ser a partir de aceite de palma
-he:רכיבים שעשויים להיות משמן דקלים
-hi:सामग्री जो ताड़ के तेल से हो सकती है
-hu:Összetevők amelyek pálmaolajat tartalmazhatnak
-id:Bahan yang mungkin berasal dari minyak sawit
-it:Ingredienti che possono essere derivati da olio di palma
-ja:パーム油由来の可能性がある原材料
-kk:Ингредиенттер мүмкін пальма майынан
-kn:ತಾಳೆ ಎಣ್ಣೆಯಿಂದ ಬೇಕಾದ ಪದಾರ್ಥಗಳು
-lb:Zutaten déi aus Palmöl stammen kéinnten
-nb:Ingredienser som kan være tilknyttet palmeolje
-nl:Ingredienten die mogelijk palmolie bevatten
-nn:Ingredienser som kan være tilknyttet palmeolje
-pl:Składniki które mogą pochodzić z oleju palmowego
-pt:Ingredientes que podem derivar de óleo de palma
-ro:Ingrediente care ar putea proveni din ulei de palmier
-ru:Ингредиенты, которые могут быть выработаны из пальмового масла
-sl:Sestavine, ki so lahko iz palmovega olja
-sr:Sastojci koji mogu biti od palminog ulja
-sv:Ingredienser som kan vara från palmolja
-th:ส่วนผสมที่อาจมาจากน้ำมันปาล์ม
-tr:Palmiye yağı içerebilecek malzemeler
-vi:Thành phần có thể có nguồn gốc từ dầu cọ
-zh:也許有棕櫚油成分
-# zh-hans:也許有棕櫚油成分
+
 
 # description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
 # comment:en:In some languages one distinghuishes between edible and non-edible oils
 
+
+# nova:en:hydrogenated-oil
 <en:oil
-<en:may be from palm oil
+en:hydrogenated oil
+fr:Huile hydrogénée
+nl:Gehydrogeneerde olie
+
+<en:oil
 en:oil and vegetable fat
 de:pflanzliche Öle und Fette
 es:aceites y grasas vegetales
@@ -20380,7 +20355,6 @@ pt:gordura e óleo vegetais
 
 # nova:en:vegetal-oil
 # nova:en:vegetable-oil
-<en:may be from palm oil
 <en:oil and vegetable fat
 en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
 af:Plantaardige olie
@@ -20427,7 +20401,6 @@ zh:植物油
 # sco:Vegetable ile
 wikipedia:en:https://en.wikipedia.org/wiki/Vegetable_oil
 
-<en:may be from palm oil
 <en:oil and vegetable fat
 en:vegetable fat, vegetal fat, vegetable fats
 da:vegetabilsk fedt
@@ -20443,24 +20416,17 @@ nn:vegetabilisk fett
 pt:gorduras vegetais
 sv:vegetabiliska fetter
 
-<en:may be from palm oil
 <en:oil and vegetable fat
 en:vegetable fat/oil non hydrogenated
 de:Pflanzenfett/-öl ungehärtet
 fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
 it:oli/grassi vegetali non idrogenati
 
-<en:may be from palm oil
-en:hydrogenated fat
-fr:Graisse hydrogénée
-
-<en:may be from palm oil
 <en:vegetable fat
 <en:hydrogenated fat
 en:hydrogenated vegetable fat
 fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée, graisses végétales hydrogénées
 
-<en:may be from palm oil
 <en:hydrogenated vegetable fat
 en:fully hydrogenated vegetable fat
 de:komplett hydriertes Pflanzenfett
@@ -20469,33 +20435,29 @@ fr:graisse végétale totalement hydrogénée
 it:grassi vegetali totalmente idrogenati
 nl:volledig gehydrogeneerde plantaardig vet
 
-<en:may be from palm oil
 <en:vegetable fat
 en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
 fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée, graisses végétales non hydrogénées
 
-<en:may be from palm oil
 <en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
 es:aceite vegetales no hidrogenados
 fr:huiles végétales non hydrogénées, huile végétale non hydrogénée
 it:oli vegetali non idrogenati
 
-<en:may be from palm oil
 <en:vegetable oil
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
 
 # Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
-<en:palm
 <en:oil and vegetable fat
 en:palm oil and fat
 de:Palmöl und Palmfett, Palmöl und Fett
 it:Olio e grasso di palma
+from_palm_oil:en:yes
 
-<en:palm
-<en:vegetable oil
+# <en:palm
 <en:palm oil and fat
 en:palm oil, palmoil
 ar:زيت النخيل
@@ -20556,22 +20518,31 @@ zh:棕榈油
 wikidata:en:Q231458
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_oil
 
-<en:palm
 <en:palm oil
 en:organic palm oil
 nl:biologische palmolie
 # ingredient/nl:biologische-palmolie has 1 product @2019-05-24
 
-# palm olein, the liquid fraction of palm oil
+# comment:en:palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
 
-<en:palm
+<en:palm oil
+en:palm
+es:palma
+fr:palme
+it:palma
+nl:palm
+pl:palma
+ru:пальмовое
+sk:palma
+
+# description:en:palm olein, the liquid fraction of palm oil
+
 <en:palm oil
 en:palm olein, palmoleil
 fr:Oléïne de palme
 
 # description:en:PALM STEARIN is the solid fraction of palm oil that is produced by partial crystallization at controlled temperature
 
-<en:palm
 <en:palm oil
 en:Palm stearin
 de:Palmstearin
@@ -20580,7 +20551,6 @@ it:Stearina di palma
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_stearin
 wikidata:en:Q7128109
 
-<en:palm
 <en:palm oil and fat
 en:palm fat
 da:palmfedtstof
@@ -20594,7 +20564,6 @@ pt:gordura de palma
 se:palmina mast
 sv:palmfett
 
-<en:palm
 <en:palm oil
 en:non-hydrogenated palm oil
 de:ungehärtetes Palmöl, nicht-hydriertes Palm
@@ -20602,12 +20571,6 @@ es:aceite de palma no hidrogenado
 fr:huile de palme non hydrogénée
 nl:niet-gehydrogeneerde palm, niet gehydrogeneerde palmolie
 
-# nova:en:hydrogenated-oil
-en:hydrogenated oil
-fr:Huile hydrogénée
-nl:Gehydrogeneerde olie
-
-<en:palm
 <en:palm oil
 <en:hydrogenated oil
 en:hydrogenated palm oil
@@ -20616,7 +20579,6 @@ es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
 nl:gehydrogeneerde palmolie
 
-<en:palm
 <en:palm oil
 fr:huile de palme partiellement hydrogénée
 de:teilweise hydriertes Palmöl
@@ -20624,7 +20586,7 @@ nl:gedeeltelijk geharde palmolie
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis.[1] It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
-<en:palm
+<en:palm oil
 en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
 ca:Oli de palmist
@@ -20649,33 +20611,29 @@ uk:Пальмоядрова олія
 wikidata:en:Q1960534
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_kernel_oil
 
-<en:palm
 <en:palm kernel oil
 en:palm kernel fat
 de:Palmkernfett
 fr:graisse de palmiste, matière grasse de palmiste, acides gras de palmiste, graisse végétale de palmiste, matière grasse végétale de palmiste
 
-<en:palm
 <en:palm kernel oil
 fr:palmiste totalement hydrogénée
 
 # The and/or ingredients, also used as a container
 
-<en:palm
 <en:palm kernel oil
-<en:palm oil
 en:palm and palm kernel oil
 de:Palm- und Palmkernöl, Palmöl und Palmkernöl
 fr:huile de palme et de palmiste
 nl:palmolie en palmkernolie
 
-<en:palm
 <en:palm kernel oil
-<en:palm oil
 en:palm or palm kernel oil, palm oil or palm kernel oil, palm or palm kernel
 de:Palmöl oder Palmkernöl, Palm- oder Palmkernöl
 fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste, palme ou palmiste
 nl:palmolie of palmkernolie
+
+############################## Pumpkin Seed Oil ##################
 
 <en:vegetable oil
 en:pumpkin seed oil
@@ -51169,14 +51127,6 @@ it:foglie d'arancio
 # ingredient/fr:feuilles%20d'oranger has 65 products in 4@2019-04-13
 
 
-en:palm
-es:palma
-fr:palme
-it:palma
-nl:palm
-pl:palma
-ru:пальмовое
-sk:palma
 
 # <en:vegetable fibre
 <en:plant
