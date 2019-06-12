@@ -30,6 +30,8 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 		&extract_ingredients_from_image
+		
+		&preparse_ingredients_text
 		&extract_ingredients_from_text
 
 		&compute_carbon_footprint_from_ingredients
@@ -40,6 +42,9 @@ BEGIN
 		&extract_ingredients_classes_from_text
 
 		&detect_allergens_from_text
+		
+		&normalize_a_of_b
+		&normalize_enumeration
 	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -54,6 +59,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 
 use Image::OCR::Tesseract 'get_ocr';
@@ -253,10 +259,10 @@ sub extract_ingredients_from_image($$$) {
 
 	my $filename = '';
 
-	my $lc = $product_ref->{lc};
+	my $image_lc = $product_ref->{lc};
 
 	if ($id =~ /^ingredients_(\w\w)$/) {
-		$lc = $1;
+		$image_lc = $1;
 	}
 	else {
 		$id = "ingredients";
@@ -279,17 +285,17 @@ sub extract_ingredients_from_image($$$) {
 
 		my $lan;
 
-		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
-			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
+		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc};
 		}
-		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
-			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc};
 		}
 		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
 			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
 		}
 
-		$log->debug("extracting ingredients with tesseract", { lc => $lc, lan => $lan, id => $id, image => $image }) if $log->is_debug();
+		$log->debug("extracting ingredients with tesseract", { image_lc => $image_lc, lan => $lan, id => $id, image => $image }) if $log->is_debug();
 
 		if (defined $lan) {
 			$text =  decode utf8=>get_ocr($image,undef,$lan);
@@ -300,7 +306,7 @@ sub extract_ingredients_from_image($$$) {
 			}
 		}
 		else {
-			$log->warn("no available tesseract dictionary", { lc => $lc, lan => $lan, id => $id }) if $log->is_warn();
+			$log->warn("no available tesseract dictionary", { image_lc => $image_lc, lan => $lan, id => $id }) if $log->is_warn();
 		}
 
 	}
@@ -371,7 +377,7 @@ sub extract_ingredients_from_image($$$) {
 	if (($status == 0) and (defined $product_ref->{ingredients_text_from_image})) {
 
 		$product_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
-		$product_ref->{ingredients_text_from_image} = clean_ingredients_text_for_lang($product_ref->{ingredients_text_from_image}, $lc);
+		$product_ref->{ingredients_text_from_image} = clean_ingredients_text_for_lang($product_ref->{ingredients_text_from_image}, $image_lc);
 
 	}
 
@@ -389,9 +395,12 @@ sub extract_ingredients_from_text($) {
 	return if not defined $product_ref->{ingredients_text};
 
 	my $text = $product_ref->{ingredients_text};
-	$text =~ s/\&quot;/"/g;
 
 	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
+	
+	$text = preparse_ingredients_text($product_ref->{lc}, $text);
+	
+	$log->debug("preparsed ingredients from text", { text => $text }) if $log->is_debug();
 
 	# unify newline feeds to \n
 	$text =~ s/\r\n/\n/g;
@@ -399,8 +408,6 @@ sub extract_ingredients_from_text($) {
 
 	# remove ending . and ending whitespaces
 	$text =~ s/(\s|\.)+$//;
-
-
 
 	# $product_ref->{ingredients_tags} = ["first-ingredient", "second-ingredient"...]
 	# $product_ref->{ingredients}= [{id =>, text =>, percent => etc. }, ] # bio / équitable ?
@@ -454,7 +461,7 @@ sub extract_ingredients_from_text($) {
 
 				my $ending = $last_separator;
 				if (not defined $ending) {
-					$ending = ",|-";
+					$ending = ",|;|( $dashes )";
 				}
 				if ($sep eq '(') {
 					$ending = '\)';
@@ -544,7 +551,7 @@ sub extract_ingredients_from_text($) {
 		$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
 		$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
 
-		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
+		$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
 		my $origin;
 		my $label;
@@ -677,7 +684,58 @@ sub normalize_fr_a_de_enumeration {
 
 	my $a = shift;
 
-	return join(",", map { normalize_fr_a_de_b($a, $_)} @_);
+	return join(", ", map { normalize_fr_a_de_b($a, $_)} @_);
+}
+
+# English: oil, olive -> olive oil
+# French: huile, olive -> huile d'olive
+
+sub normalize_a_of_b($$$) {
+
+	my $lc = shift;
+	my $a = shift;
+	my $b = shift;
+
+	$a =~ s/\s+$//;
+	$b =~ s/^\s+//;
+
+	if ($lc eq "en") {
+	
+		return $b . " " . $a;
+	}
+	elsif ($lc eq "es") {
+		return $a . " de " . $b;
+	}
+	elsif ($lc eq "fr") {
+		$b =~ s/^(de |d')//;
+
+		if ($b =~ /^(a|e|i|o|u|y|h)/i) {
+			return $a . " d'" . $b;
+		}
+		else {
+			return $a . " de " . $b;
+		}
+	}
+}
+
+
+# Vegetal oil (palm, sunflower and olive)
+# -> palm vegetal oil, sunflower vegetal oil, olive vegetal oil
+
+sub normalize_enumeration($$$) {
+
+	my $lc = shift;
+	my $type = shift;
+	my $enumeration = shift;
+	
+	$log->debug("normalize_enumeration", { type => $type, enumeration => $enumeration }) if $log->is_debug();
+	
+	my $and = $Lang{_and_}{$lc};
+	#my $enumeration_separators = $obrackets . '|' . $cbrackets . '|\/| \/ | ' . $dashes . ' |' . $commas . ' |' . $commas. '|'  . $Lang{_and_}{$lc};
+		
+	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
+	
+	return join(", ", map { normalize_a_of_b($lc, $type, $_)} @list);
 }
 
 
@@ -688,7 +746,21 @@ sub normalize_fr_a_et_b_de_c($$$) {
 	my $b = shift;
 	my $c = shift;
 
-	return normalize_fr_a_de_b($a, $c) . "," . normalize_fr_a_de_b($b, $c);
+	return normalize_fr_a_de_b($a, $c) . ", " . normalize_fr_a_de_b($b, $c);
+}
+
+sub normalize_additives_enumeration($$) {
+
+	my $lc = shift;
+	my $enumeration = shift;
+	
+	$log->debug("normalize_additives_enumeration", { enumeration => $enumeration }) if $log->is_debug();
+	
+	my $and = $Lang{_and_}{$lc};
+	
+	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
+	
+	return join(", ", map { "E" . $_} @list);
 }
 
 
@@ -701,8 +773,6 @@ sub normalize_vitamin($$) {
 
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
-
-
 
 	# does it look like a vitamin code?
 	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
@@ -719,8 +789,10 @@ sub normalize_vitamins_enumeration($$) {
 
 	my $lc = shift;
 	my $vitamins_list = shift;
+	
+	my $and = $Lang{_and_}{$lc};
 
-	my @vitamins = split(/\(|\)|\/| \/ | - |, |,| et | and | y /, $vitamins_list);
+	my @vitamins = split(/\(|\)|\/| \/ | - |, |,|$and/, $vitamins_list);
 
 	$log->debug("splitting vitamins", { input => $vitamins_list }) if $log->is_debug();
 
@@ -731,7 +803,7 @@ sub normalize_vitamins_enumeration($$) {
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	else { $split_vitamins_list = "vitamine" }
 
-	$split_vitamins_list .= "," . join(",", map { normalize_vitamin($lc,$_)} @vitamins);
+	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);
 
 	$log->debug("vitamins split", { input => $vitamins_list, output => $split_vitamins_list }) if $log->is_debug();
 
@@ -1069,13 +1141,10 @@ sub clean_ingredients_text($) {
 
 
 
+sub preparse_ingredients_text($$) {
 
-sub extract_ingredients_classes_from_text($) {
-
-	my $product_ref = shift;
-	my $path = product_path($product_ref->{code});
-	my $text = $product_ref->{ingredients_text};
-	my $lc = $product_ref->{lc};
+	my $lc = shift;
+	my $text = shift;
 
 	$text =~ s/\&quot;/"/g;
 
@@ -1101,10 +1170,13 @@ sub extract_ingredients_classes_from_text($) {
 	# and PP, B6, B12 etc. will be listed as synonyms for Vitamine PP, Vitamin B6, Vitamin B12 etc.
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
-
+	# colorants alimentaires E (124,122,133,104,110)
+	my $and = $Lang{_and_}{$lc};
+	my $additivesregexp = '\d{3}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?|\d{4}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?';
+	$text =~ s/\b(e|ins|sin)(:|\(|\[| )+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($lc,$3)/ieg;
 
 	# in India: INS 240 instead of E 240, bug #1133)
-	$text =~ s/\bins( |-)?(\d)/E$2/ig;
+	$text =~ s/\b(ins|sin)( |-)?(\d)/E$3/ig;
 
 	# E 240, E.240, E-240..
 	# E250-E251-E260
@@ -1113,19 +1185,33 @@ sub extract_ingredients_classes_from_text($) {
 	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
 	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
 	# ! [a-z] matches i... replacing in line above -- 2015/08/12
-	$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b|-)/$1 - e$3$5$7 - $9/ig;
+	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b|-)/$1 - e$3$5$7 - $9/ig;
+	$text =~ s/-e( |-|\.)?($additivesregexp)/- E$2/ig;
+	$text =~ s/e( |-|\.)?($additivesregexp)-/E$2 -/ig;
+	
+	# Canonicalize additives to remove the dash that can make further parsing break
+	$text =~ s/(\b)e( |-|\.)?(\d+)()?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b)/e$3$5$7/ig;
+	
+	# E100 et E120 -> E100, E120
+	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
+	$text =~ s/${and}e($additivesregexp)/, e$1/ig;
+		
+	# E100 E122 -> E100, E122
+	$text =~ s/\be($additivesregexp)\s+e(?=\d)/e$1, e/ig;
 
 	# ! caramel E150d -> caramel - E150d -> e150a - e150d ...
 	$text =~ s/(caramel|caramels)(\W*)e150/e150/ig;
 	# e432 et lécithines -> e432 - et lécithines
 	$text =~ s/ - et / - /ig;
 
-	# stabilisant e420 (sans : )
+	# stabilisant e420 (sans : ) -> stabilisant : e420
+	# but not acidifier (pectin) : acidifier : (pectin)
+	
 	# FIXME : should use additives classes
-	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement)(s|)(\s)?(:)?/$1$2 : /ig;
+	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)?(:)?(?!\(| \()/$1$2 : /ig;
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
-
+	
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
@@ -1146,10 +1232,6 @@ sub extract_ingredients_classes_from_text($) {
 
 	# print STDERR "additives: $text\n\n";
 
-	#  remove % / percent
-	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
-
-
 	#$product_ref->{ingredients_text_debug} = $text;
 
 
@@ -1164,6 +1246,9 @@ sub extract_ingredients_classes_from_text($) {
 		# Minéraux (carbonate de calcium, chlorures de calcium, potassium et magnésium, citrates de potassium et de sodium, phosphate de calcium,
 		# sulfates de fer, de zinc, de cuivre et de manganèse, iodure de potassium, sélénite de sodium).
 
+		# graisses végétales de palme et de colza en proportion variable
+		# remove stopwords
+		$text =~ s/( en)? proportion(s)? variable(s)?//i;
 
 		# simple plural (just an additional "s" at the end) will be added in the regexp
 		my @prefixes = (
@@ -1174,6 +1259,7 @@ sub extract_ingredients_classes_from_text($) {
 "matière grasse",
 "matières grasses",
 "graisses",
+"graisses végétales",
 "lécithine",
 
 "carbonate",
@@ -1197,11 +1283,20 @@ sub extract_ingredients_classes_from_text($) {
 "colza",
 "palme",
 "tournesol",
+"arachide",
+"pépins de raisin",
+"olive",
+"olive vierge",
+"noix",
+"avocat",
+"illipe",
+"mangue",
+"sal",
+"karité",
 
 "aluminium",
 "ammonium",
 "calcium",
-"citrate",
 "cuivre",
 "fer",
 "magnésium",
@@ -1238,10 +1333,18 @@ sub extract_ingredients_classes_from_text($) {
 
 		$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $2, $4)/ieg;
 
-		$text =~ s/($prefixregexp) (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
-		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
-		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
-		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
+		# old:
+		
+		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
+		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
+		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
+		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
+
+		$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))?/normalize_enumeration($lc,$1,$3)/ieg;
+		
+		# Huiles végétales de palme, de colza et de tournesol
+		$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp))\b(\s?(\)|\]))?/normalize_enumeration($lc,$1,$3)/ieg;
+
 
 		# Caramel ordinaire et curcumine
 		# $text =~ s/ et /, /ig;
@@ -1284,10 +1387,10 @@ INFO
 
 		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
 
-		$text =~ s/(di|tri|tripoli)?(phosphate|phosphates) d'aluminium,?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
+		$text =~ s/(di|tri|tripoli)?(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
 
 		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split...
-		$text =~ s/(sel|sels) de sodium,(sel|sels) de potassium/sels de sodium et de potassium/ig;
+		$text =~ s/(sel|sels) de sodium,\s?(sel|sels) de potassium/sels de sodium et de potassium/ig;
 
 		# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
 		# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
@@ -1312,13 +1415,29 @@ INFO
 "f",
 "h",
 "k", "k1", "k2", "k3",
-"p", "pp"
-
+"p", "pp",
 );
+		my $vitaminsprefixregexp = "vitamine|vitamines";
 
-
-		my $vitaminsprefixregexp = "vitamine|vitamines|vitamin|vitamins|vitamina|vitaminas|witamina|witaminy|Βιταμίνες|Βιταμίνη";
-
+		# Add synonyms in target language
+		if (defined $translations_to{vitamins}) {
+			foreach my $vitamin (keys %{$translations_to{vitamins}}) {
+				if (defined $translations_to{vitamins}{$vitamin}{$lc}) {
+					push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$lc};
+				}
+			}
+		}
+		
+		# Add synonyms in target language
+		my $vitamin_in_lc = get_fileid(display_taxonomy_tag($lc, "ingredients", "en:vitamins"));
+		$vitamin_in_lc =~ s/^\w\w://;
+		
+		if ((defined $synonyms_for{ingredients}) and (defined $synonyms_for{ingredients}{$lc}) and (defined $synonyms_for{ingredients}{$lc}{$vitamin_in_lc})) {
+			foreach my $synonym (@{$synonyms_for{ingredients}{$lc}{$vitamin_in_lc}}) {
+				$vitaminsprefixregexp .= '|' . $synonym;
+			}
+		}
+		
 		my $vitaminssuffixregexp = "";
 		foreach my $suffix (@vitaminssuffixes) {
 			$vitaminssuffixregexp .= '|' . $suffix;
@@ -1344,13 +1463,32 @@ INFO
 		$vitaminssuffixregexp =~ s/^\|//;
 
 		$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
+		$log->debug("vitamins text", { text => $text }) if $log->is_debug();
 
-		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et | and | y ))+($vitaminssuffixregexp))\b/normalize_vitamins_enumeration($lc,$3)/ieg;
+		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($lc,$3)/ieg;
+
+	# remove extra spaces
+	$text =~ s/ ( )+/ /g;
+
+	return $text;
+}
 
 
+
+sub extract_ingredients_classes_from_text($) {
+
+	my $product_ref = shift;
+	my $path = product_path($product_ref->{code});
+	my $text = $product_ref->{ingredients_text};
+
+	$text = preparse_ingredients_text($product_ref->{lc}, $text);
+	my $and = $Lang{_and_}{$product_ref->{lc}};
+	$and =~ s/ /-/g;
+	
+	#  remove % / percent (to avoid identifying 100% as E100 in some cases)
+	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
 
 	my @ingredients = split($separators, $text);
-
 
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
@@ -1360,7 +1498,7 @@ INFO
 
 			# split additives
 			# caramel ordinaire et curcumine
-			if (($lc eq 'fr') and ($ingredientid =~ /-et-/)) {
+			if ($ingredientid =~ /$and/i) {
 
 				my $ingredientid1 = $`;
 				my $ingredientid2 = $';
@@ -1672,11 +1810,11 @@ INFO
 
 						# try to shorten the ingredient to make it less specific, to see if it matches then
 
-						if (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
+						if (($product_ref->{lc} eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
 							# soy lecithin -> lecithin
 							$ingredient_id_copy = $';
 						}
-						elsif (($lc eq 'fr') and ($ingredient_id_copy =~ /-([^-]+)$/)) {
+						elsif (($product_ref->{lc} eq 'fr') and ($ingredient_id_copy =~ /-([^-]+)$/)) {
 							# lécithine de soja -> lécithine de -> lécithine
 							$ingredient_id_copy = $`;
 						}
@@ -1902,7 +2040,6 @@ INFO
 		}
 	}
 }
-
 
 
 
