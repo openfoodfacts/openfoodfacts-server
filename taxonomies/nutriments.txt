@@ -240,7 +240,7 @@ my:စွမ်းအင်
 nb:energi
 # nds:energie
 # new:ऊर्जा
-nl:Energie, specifieke energie
+nl:Energie
 nn:energi, ernæringsverdi
 # nov:energie
 oc:energia
@@ -299,6 +299,8 @@ unit:en-ca:kcal
 wikidata:en:Q11379
 wikipedia:en:https://en.wikipedia.org/wiki/Food_energy
 
+# comment:en:No wikipedia entry available
+
 en:Energy from fat
 cs:Energie z tuku
 de:Brennwert aus Fetten
@@ -314,42 +316,166 @@ zh:来自脂肪的能量
 unit:en:kj
 unit:en-us:kcal
 unit:en-ca:kcal
- 
-en:Proteins
-ar:البروتين
-bg:Белтъци
-cs:Bílkoviny
+
+# description:en:PROTEINS are essential nutrients for the human body. They are one of the building blocks of body tissue and can also serve as a fuel source. Proteins are polymer chains made of amino acids linked together by peptide bonds. During human digestion, proteins are broken down in the stomach to smaller polypeptide chains. Dietary sources of protein include both animals and plants: meats, dairy products, fish and eggs, as well as grains, legumes and nuts. Vegans can get enough essential amino acids by eating plant proteins.
+
+en:Proteins, protein
+af:proteïen
+an:Proteína
+ar:بروتين
+# arz:بروتين
+as:প্ৰ'টিন
+# ast:proteína
+az:Zülallar
+# azb:پروتئین
+ba:Аҡһымдар
+be:бялкі
+# be-tarask:бялкі
+bg:Белтъци, протеин
+# bho:प्रोटीन
+# bjn:Parotéin
+bn:প্রোটিন
+br:Protein
+bs:Bjelančevine
+# bxr:Уураг
+ca:proteïna
+# cdo:Lâung-băh-cék
+# chr:ᎠᏓᎵᏥᏍᏗᏍᎩ
+# ckb:پرۆتین
+cs:Bílkoviny, bílkovina
+cv:Шуррисем
+cy:Protin
 da:Protein
-de:Eiweiß
-el:Πρωτεΐνες
-es:Proteínas
+de:Eiweiß, Protein
+# dty:प्रोटिन
+dv:ޕްރޮޓީން
+el:Πρωτεΐνες, Πρωτεΐνη
+eo:proteino
+es:Proteínas, proteína
 et:Valgud
+eu:proteina
 fa:ﭘﺮﻭﺗﺌ‍ین
 fi:Proteiini
-fr:Protéines, Protéine brute
+fo:Protein
+fr:Protéines, Protéine brute, protéine
+# frr:Protein
+fy:proteïne
 ga:Próitéin
+gl:Proteína
+# gsw:Protein
+gu:પ્રોટિન
+gv:Proteen
+# hak:Thàn-pha̍k-chṳt
 he:חלבונים
+hi:प्रोटीन
+# hif:Protein
+hr:bjelančevina
+ht:Proteyin
 hu:Fehérje
-it:Proteine
+hy:սպիտակուց
+ia:proteina
+id:Protein
+# ilo:protina
+io:proteino
+is:Prótín
+it:Proteine, proteina
 ja:たんぱく質
+jv:Protein
+ka:ცილები
+kk:Ақуыз
+kn:ಪ್ರೋಟೀನ್
+ko:단백질
+ku:Proteîn
+ky:Белок
+la:proteinum
+lb:Protein
+# lez:Ладзар
+#lfn:protena
+li:Proteïne
+# lmo:Pruteina
+lo:ປະໂລເຕອິນ
 lt:Baltymai
 lv:Olbaltumvielas
+# lzh:朊
+mk:белковина
+ml:മാംസ്യം
+mn:Уураг
+mr:प्रथिने
+ms:Protein
 mt:Proteini
-nl:Eiwitten
+my:ပရိုတိန်း
+# myv:Ашовт
+# nan:Nn̄g-pe̍h-chit
 nb:Protein
-pl:Białko
-pt:Proteínas
-ro:Proteine
-rs:Proteini
-ru:Белки
-sk:Bielkoviny
-sl:Beljakovine
+# nds:Protein
+ne:प्रोटिन
+# new:प्रोटिन
+nl:Eiwitten, proteïne, eiwit
+nn:protein
+# nov:Proteine
+oc:proteïna
+om:Pirootiinii
+or:ପୁଷ୍ଟିସାର
+pa:ਪ੍ਰੋਟੀਨ
+# pam:Protina
+pl:Białko, białka
+# pnb:پروٹین
+pt:Proteínas, proteína
+# pt-br:proteína
+qu:Prutina
+ro:Proteine, proteină
+# rs:Proteini
+ru:Белки, белок
+# rue:Протеін
+# sah:Протеин
+# scn:Prutiìna
+# sco:protein
+sd:پروٽين
+# sgs:Baltīms
+sh:Protein
+si:ප් රෝටීන්
+sk:Bielkoviny, Bielkovina
+sl:Beljakovine, Beljakovina
+so:Borotiin
+sq:proteinë
+sr:протеин
+# sr-ec:протеин
+# sr-el:protein
+# stq:Oaiwiete
+su:Protéin
 sv:Protein
+sw:Protini
+ta:புரதம்
+te:మాంసకృత్తులు
+tg:Протеинҳо дар реҷаи ғизо
+th:โปรตีน
+tl:Protina
 tr:Protein
+tt:аксым
+# tt-cyrl:аксым
+tv:Белок
+uk:білок
+ur:لحمیات
+uz:Proteinlar
+# vec:Proteine
+# vep:vauktuš
+vi:protein
+# vls:Proteïne
+wa:Proteyene
+# war:Protina
+# wuu:蛋白质
+# xal:Уург
+# xmf:ცილეფი
+yi:פראטעין
+# yue:蛋白質
 zh:蛋白质
-# zh-CN:蛋白质
+# zh-cn:蛋白质
+# zh-hans:蛋白质
 # zh-HK:蛋白質
 # zh-TW:蛋白質
+wikidata:en:Q8054
+wikipedia:en:https://en.wikipedia.org/wiki/Protein_(nutrient)
+# wikidata:en:Q21296145 (better, but not really used)
  
 en:casein
 ar:كازين
