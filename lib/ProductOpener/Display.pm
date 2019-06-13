@@ -7248,9 +7248,8 @@ HTML
 
 
 	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
-		$html .= "<p>$Lang{no_nutrition_data}{$lang}</p>";
+		$html .= "<div class='panel callout'>$Lang{no_nutrition_data}{$lang}</div>";
 	}
-
 
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 
@@ -7722,11 +7721,11 @@ HTML
 	my @comparisons = ();
 
 	if ($product_ref->{no_nutrition_data} eq 'on') {
-		$html .= "<p>$Lang{no_nutrition_data}{$lang}</p>";
+		$html .= "<div class='panel callout'>$Lang{no_nutrition_data}{$lang}</div>";
 	}
 
-
 	$html .= display_nutrition_table($product_ref, \@comparisons);
+
 
 	$html .= <<HTML
 			</div>
