@@ -4887,7 +4887,6 @@ fr:humectant glycérol
 # description:en:  GLYCEROL MONOSTEARATE  , commonly known as GMS, is a monoglyceride commonly used as an emulsifier in foods. GMS is a food additive used as a thickening, emulsifying, anticaking, and preservative agent; an emulsifying agent for oils, waxes, and solvents; a protective coating for hygroscopic powders; a solidifier and control release agent in pharmaceuticals; and a resin lubricant.
 # Has NO E-number!!!
 
-<en:may be from palm oil
 en:Glycerol monostearate
 ar:أحادي ستيرات الغليسرول
 bg:глицеролов моностеарат
@@ -4910,7 +4909,7 @@ zh:单硬脂酸甘油酯
 # en-gb:Glycerol monostearate
 wikipedia:en:https://en.wikipedia.org/wiki/Glycerol_monostearate
 # ingredient/fr:monostéarate-de-glycérol has 54 products in french @2019-03-28
-
+from_palm:en:maybe
 
 # GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts. 
 
@@ -20342,7 +20341,7 @@ fr:Huile hydrogénée
 nl:Gehydrogeneerde olie
 
 <en:oil
-en:oil and vegetable fat
+en:vegetable oil and fat
 de:pflanzliche Öle und Fette
 es:aceites y grasas vegetales
 fr:huile et graisse végétale, huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
@@ -20355,7 +20354,7 @@ pt:gordura e óleo vegetais
 
 # nova:en:vegetal-oil
 # nova:en:vegetable-oil
-<en:oil and vegetable fat
+<en:vegetable oil and fat
 en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
 af:Plantaardige olie
 ar:زيت نباتي
@@ -20401,7 +20400,7 @@ zh:植物油
 # sco:Vegetable ile
 wikipedia:en:https://en.wikipedia.org/wiki/Vegetable_oil
 
-<en:oil and vegetable fat
+<en:vegetable oil and fat
 en:vegetable fat, vegetal fat, vegetable fats
 da:vegetabilsk fedt
 de:pflanzliche Fette
@@ -20416,7 +20415,7 @@ nn:vegetabilisk fett
 pt:gorduras vegetais
 sv:vegetabiliska fetter
 
-<en:oil and vegetable fat
+<en:vegetable oil and fat
 en:vegetable fat/oil non hydrogenated
 de:Pflanzenfett/-öl ungehärtet
 fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
@@ -20451,11 +20450,11 @@ de:pflanzliches Öl gehärtet
 
 # Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
-<en:oil and vegetable fat
+<en:vegetable oil and fat
 en:palm oil and fat
 de:Palmöl und Palmfett, Palmöl und Fett
 it:Olio e grasso di palma
-from_palm_oil:en:yes
+from_palm:en:yes
 
 # <en:palm
 <en:palm oil and fat
@@ -20473,7 +20472,7 @@ et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
 fi:Palmuöljy
-fr:huile de palme, huile végétale de palme, Matière grasse de palme, huile palmique, graisse de palme, graisse végétale de palme, palmiste, huiles de palme, huiles végétales de palme, matières grasses de palme, huile de palmiste, graisse de palmiste, graisse végétale de palmiste, matières grasses de palmiste
+fr:huile de palme, huile végétale de palme, huile palmique
 ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
@@ -20586,7 +20585,6 @@ nl:gedeeltelijk geharde palmolie
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis.[1] It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
-<en:palm oil
 en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
 ca:Oli de palmist
@@ -20595,7 +20593,7 @@ de:Palmkernöl
 es:palmiste
 eu:Palmiste olio
 fa:روغن هسته پالم
-fr:huile de palmiste, huile végétale de palmiste, palmiste
+fr:huile de palmiste, huile végétale de palmiste, palmiste, graisse de palmiste, grasse végétale de palmiste, matière grasse de palmiste, matière grasse végétale de palmiste
 id:Minyak inti kelapa sawit
 it:olio di palmisto
 kn:ಪಾಮ್ ಕೆರ್ನಲ್ ಎಣ್ಣೆ
@@ -20610,6 +20608,7 @@ te:పామ్‌కెర్నల్‌ నూనె
 uk:Пальмоядрова олія
 wikidata:en:Q1960534
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_kernel_oil
+from_palm:en:yes
 
 <en:palm kernel oil
 en:palm kernel fat
@@ -20852,7 +20851,7 @@ en:Spanish organic olive oil
 nl:olie van biologische Spaanse olijven
 # nl:olie-van-biologische-spaanse-olijven has 2 products @2019-05-24
 
-<en:oil and vegetable fat
+<en:vegetable oil and fat
 en:rapeseed oil and fat
 
 
