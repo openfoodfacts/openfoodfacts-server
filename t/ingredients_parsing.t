@@ -89,7 +89,13 @@ my @lists =(
 [
 ["colores E (120, 124 y 125)", "colores E120, E124, E125"],
 ["Leche desnatada de vaca, enzima lactasa y vitaminas A, D, E y ácido fólico.","Leche desnatada de vaca, enzima lactasa y vitaminas, vitamina A, vitamina D, vitamina E, ácido fólico."],
-]
+],
+],
+
+['it',
+[
+["Vitamine C, D, acido folico, E", "vitamine, vitamin C, vitamin D, acido folico, vitamin E"],
+],
 ],
 
 );
