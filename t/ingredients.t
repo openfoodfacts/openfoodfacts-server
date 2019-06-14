@@ -248,19 +248,23 @@ my $expected_product_ref =
   ],
   'ingredients_hierarchy' => [
     'en:palm-kernel-fat',
-    'en:palm-kernel-oil'
+    'en:oil',
+    'en:vegetable-oil-and-fat',
+    'en:palm-kernel-oil-and-fat',
   ],
   'ingredients_n' => 1,
   'ingredients_n_tags' => [
     '1',
     '1-10'
   ],
-  'ingredients_original_tags' => [
-    'en:palm-kernel-fat'
-  ],
   'ingredients_tags' => [
     'en:palm-kernel-fat',
-    'en:palm-kernel-oil'
+    'en:oil',
+    'en:vegetable-oil-and-fat',
+    'en:palm-kernel-oil-and-fat',
+  ],
+  'ingredients_original_tags' => [
+    'en:palm-kernel-fat',
   ],
   'ingredients_text' => 'graisse de palmiste',
   'ingredients_that_may_be_from_palm_oil_n' => 0,
@@ -531,8 +535,8 @@ $expected_product_ref =
     'en:lactose-and-milk-proteins',
     'en:protein',
     'en:animal-protein',
-    'en:lactose',
     'en:milk-proteins',
+    'en:lactose',
     'en:wheat-flour',
     'en:cereal',
     'en:wheat',
@@ -560,7 +564,6 @@ $expected_product_ref =
     'en:fruit-juice',
     'en:orange-juice',
     "fr:\x{e9}quivalent jus d'orange",
-    'en:calcium-citrates',
     'en:calcium-citrates',
     'en:sodium-citrate',
     'en:mineral',
@@ -649,8 +652,8 @@ $expected_product_ref =
     'en:lactose-and-milk-proteins',
     'en:protein',
     'en:animal-protein',
-    'en:lactose',
     'en:milk-proteins',
+    'en:lactose',
     'en:wheat-flour',
     'en:cereal',
     'en:wheat',
@@ -678,7 +681,6 @@ $expected_product_ref =
     'en:fruit-juice',
     'en:orange-juice',
     'fr:equivalent-jus-d-orange',
-    'en:calcium-citrates',
     'en:calcium-citrates',
     'en:sodium-citrate',
     'en:mineral',

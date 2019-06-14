@@ -20453,7 +20453,13 @@ de:pflanzliches Öl gehärtet
 <en:vegetable oil and fat
 en:palm oil and fat
 de:Palmöl und Palmfett, Palmöl und Fett
+fr:Huile et matière grasse de palme
 it:Olio e grasso di palma
+from_palm:en:yes
+
+<en:vegetable oil and fat
+en:palm kernel oil and fat
+fr:Huile et matière grasse de palmiste
 from_palm:en:yes
 
 # <en:palm
@@ -20585,6 +20591,7 @@ nl:gedeeltelijk geharde palmolie
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis.[1] It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
+<en:palm kernel oil and fat
 en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
 ca:Oli de palmist
@@ -20593,7 +20600,7 @@ de:Palmkernöl
 es:palmiste
 eu:Palmiste olio
 fa:روغن هسته پالم
-fr:huile de palmiste, huile végétale de palmiste, palmiste, graisse de palmiste, grasse végétale de palmiste, matière grasse de palmiste, matière grasse végétale de palmiste
+fr:huile de palmiste, huile végétale de palmiste, palmiste
 id:Minyak inti kelapa sawit
 it:olio di palmisto
 kn:ಪಾಮ್ ಕೆರ್ನಲ್ ಎಣ್ಣೆ
@@ -20610,7 +20617,7 @@ wikidata:en:Q1960534
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_kernel_oil
 from_palm:en:yes
 
-<en:palm kernel oil
+<en:palm kernel oil and fat
 en:palm kernel fat
 de:Palmkernfett
 fr:graisse de palmiste, matière grasse de palmiste, acides gras de palmiste, graisse végétale de palmiste, matière grasse végétale de palmiste
@@ -20621,12 +20628,14 @@ fr:palmiste totalement hydrogénée
 # The and/or ingredients, also used as a container
 
 <en:palm kernel oil
+<en:palm oil
 en:palm and palm kernel oil
 de:Palm- und Palmkernöl, Palmöl und Palmkernöl
 fr:huile de palme et de palmiste
 nl:palmolie en palmkernolie
 
 <en:palm kernel oil
+<en:palm oil
 en:palm or palm kernel oil, palm oil or palm kernel oil, palm or palm kernel
 de:Palmöl oder Palmkernöl, Palm- oder Palmkernöl
 fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste, palme ou palmiste
