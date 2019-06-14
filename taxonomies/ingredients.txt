@@ -920,8 +920,8 @@ fr:colorant e133
 
 
 en:Chlorophylls and Chlorophyllins, E140, E-140, E 140
-hu: Klorofillok és klorofillinek
-nl: Chlorofylen en chlorofyllinen
+hu:Klorofillok és klorofillinek
+nl:Chlorofylen en chlorofyllinen
 wikidata:en: Q26806091
 
 # description:en: Chlorophyll (also chlorophyl) is any of several related green pigments found in cyanobacteria and the chloroplasts of algae and plants. Chefs use chlorophyll to color a variety of foods and beverages green, such as pasta and spirits.
@@ -1025,7 +1025,8 @@ fr:complexes cuivre-chlorophylles et cuivre-chlorophyllines, complexes cuivre
 hu:Klorofillok és klorofillinek rézkomplexei
 # ingredient/fr:complexes-cuivre has 86 products in 4 languages @2019-02-25
 
-<en:Copper complexes of chlorophylls, E141i, E-141i, E 141i, E 141 i
+<en:Copper complexes of chlorophylls and chlorophyllins
+en:Copper complexes of chlorophylls, E141i, E-141i, E 141i, E 141 i
 bg:Медни комплекси на хлорофили
 cs:Měďnaté komplexy chlorofylů
 da:Chlorophyll-kobber-kompleks
@@ -5432,7 +5433,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acids
 # mono—and-diglycerides-of-fatty-acids has 2139 products in 19 languages @2018-11-12
 # fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
 
-<en:en:mono- and diglycerides of fatty acids
+<en:mono- and diglycerides of fatty acids
 en:emulsifier mono- and diglycerides of fatty acids
 fr:émulsifiant e471
 
@@ -7357,7 +7358,7 @@ wikidata:en:Q839494
 wikipedia:en:https://en.wikipedia.org/wiki/Carnauba_wax
 # additive/e903-carnauba-wax has 4590 products @2019-03-08
 
-<en:carbuba wax
+<en:carnauba wax
 en:carnauba wax coating agents
 de:Carnaubawachsüberzugsmittel, Überzugsmittel Carnaubawachs
 fr:agent d'enrobage cire de carnauba
@@ -21884,7 +21885,8 @@ fr:vinaigre de malt d'orge
 # Two parents due to and/or ingredient
 
 <en:spirit vinegar
-<en:white whine vinegar
+<en:white wine vinegar
+en:spirit- and white wine vinegar
 de:Alkohol- und Weisweinessig
 fr:vinaigres d'alcool et de vin blanc
 it:aceti d'alcool e di vino bianco
@@ -26826,7 +26828,8 @@ nl:Langkorrelige rijst
 # ingredient/fr:riz-long-blanc has 9 products in french @2018-12-19
 # ingredient/fr:riz-long has 26 products in french @2018-12-19
 
-<en:organic long grain rice
+<en:long grain rice
+en:organic long grain rice
 fr:riz long biologique
 
 <en:long grain rice
@@ -27001,7 +27004,8 @@ nl:rode cargo rijst
 fr:riz rouge long complet
 # ingredient/fr:riz-rouge-long-complet has 5 products @2019-05-29
 
-<en:black rice
+<en:rice
+en:black rice
 fr:riz noir
 
 # description:en:BASMATI RICE is a variety of long, slender-grained aromatic rice which is traditionally from the Indian subcontinent.
@@ -27123,6 +27127,7 @@ fr:riz blanc thailandais
 
 <en:Thai rice
 <en:black rice
+en:blaack Thai rice
 fr:thai riz noir
 
 <en:Thai rice
@@ -29493,7 +29498,8 @@ en:cocoa mass and cocoa butter
 fr:pâte et beurre de cacao, pâte de cacao et beurre de cacao
 # ingredient/fr:pâte-et-beurre-de-cacao has 92 products in 2 languages @2019-05-25
 
-<en:organic cocoa mass and organic cocoa butter
+<en:cocoa mass and cocoa butter
+en:organic cocoa mass and organic cocoa butter
 fr:pâte de cacao issus de l‘agriculture biologique et beurre de cacao issus de l‘agriculture biologique
 
 <en:cocoa
@@ -29505,7 +29511,7 @@ nl:cacao-extract
 
 # comment:en:the wikidata-page mixes cocoa and cocoa bean
 
-<en:cacao
+<en:cocoa
 en:cocoa bean, cocoa beans
 af:Kakaoboon
 ar:كاكاو
@@ -29915,7 +29921,7 @@ fr:chocolat au lait du pays alpin
 # description:en:WHITE CHOCOLATE is made of sugar, milk, and cocoa butter, without the cocoa solids. It is pale ivory colour, and lacks many of the compounds found in milk and dark chocolates.
 
 # <en:category:en:White chocolates
-<en:contains:en:cocoa butter
+# <en:contains:en:cocoa butter
 <en:chocolate
 en:white chocolate
 ar:شوكولاتة بيضاء
@@ -45115,6 +45121,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chickpea
 en:Cicer arietinum
 la:Cicer arietinum
 
+<en:chickpea
+en:organic chickpea
+fr:Pois chiches biologiques
+10@2019-06-12
+
 # <en:compound
 <en:chickpea
 fr:pois chiches cuits
@@ -50328,6 +50339,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Juniper_berry
 
 # description:en:LAVANDULA (common name lavender) is a genus of 47 known species of flowering plants in the mint family, Lamiaceae. 
 
+<en:plant
 en:lavender
 ar:ضرم
 az:Lavanda
@@ -50416,7 +50428,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lavandula
 # comment:en:The wikidata translations sometimes use the official localised plant name and not the popular name found on packages.
 
 <en:plant
-en:Lemon Balm
+en:lemon balm
 af:Suurlemoenbalsem
 ar:ترنجان مخزني
 az:Dərman limonotu
@@ -53414,7 +53426,8 @@ sv:Svart trumpetsvamp
 # zh-tw:灰喇叭菌
 wikidata:en:Q857903
 
-<en:horn of plenty, Craterellus cornucopioides
+<en:horn of plenty
+en:Craterellus cornucopioides
 la:Craterellus cornucopioides
 wikipedia:en:https://en.wikipedia.org/wiki/Craterellus_cornucopioides
 
@@ -56026,7 +56039,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_salmon
 # The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family. 
 
 <en:salmon
-en:Chum salmon
+en:chum salmon
 be:Кета
 bg:куча сьомга
 ca:salmó keta
@@ -56068,7 +56081,7 @@ zh:鈎吻鮭
 wikidata:en:Q475211
 wikipedia:en:https://en.wikipedia.org/wiki/Chum_salmon
 
-<en:Chum salmon
+<en:chum salmon
 en:Oncorhynchus kéta
 fr:Oncorhynchus kéta, Saumon du Pacifique, Saumon kéta, Saumon chien
 la:Oncorhynchus kéta
@@ -56629,7 +56642,7 @@ zh:藍尖尾無鬚鱈
 wikipedia:en:https://en.wikipedia.org/wiki/Blue_grenadier
 # ingredient/fr:hoki has 5 products in french @2018-12-31
 
-<en:hoki
+<en:blue grenadier
 en:Macruronus novaezelandiae
 de:Blauer Seehecht
 fr:Macruronus novaezelandiae, Hoki, Grenadier bleu, Merlu à longue queue
@@ -56850,7 +56863,7 @@ zh:黑椎鯛
 wikidata:en:Q1135606
 wikipedia:en:https://en.wikipedia.org/wiki/Black_seabream
 
-<en:black seabream
+<en:black sea bream
 en:Spondyliosoma cantharus
 fr:Spondyliosoma cantharus, Dorade grise, Canthère, Griset, Tanude
 la:Spondyliosoma cantharus
@@ -59228,7 +59241,7 @@ fr:têtes et pinces de langoustines
 # Panulirus argus, the Caribbean spiny lobster,[2] is a species of spiny lobster that lives on reefs and in mangrove swamps in the western Atlantic Ocean.
 
 <en:lobster
-en:Caribean spiny lobster
+en:Caribbean spiny lobster
 bg:карибски гръбначен омар
 de:Karibik-Languste
 fr:Langouste blanche
@@ -60147,7 +60160,7 @@ fr:mélange de miels non originaires de l'UE, mélange de miels non originaires 
 nl:gemengde niet-EU-honing
 # ingredient/fr:melange-de-miels-non-originaires-de-l-ue has 5 products @2019-05-28
 
-<en:mix of honeys
+<en:blend of honeys
 en:Blend of EU and non-EU honeys
 fr:mélange de miels originaires et non originaires de l'ue, melange de miels originaires et non originaires de l'union europeenne, mélange de miels originaires et non originaires de la CE, mélange de miels non originaires et originaires de l'UE, Sélection et mélange de miels non originaires et originaires de l'UE,  melange de miels originaires et non de l'ue, Mélange de miels originaires et non originaires de la communauté Européenne, de miels originaires et non originaires de la ce, miel originaire et non-originaire de la ce, melange de miels de fleurs originaires et non-originaires de l'ue, melange de miels ue et non-ue
 de:Mischung von Honig aus EU-ländern und Nicht EU-ländern
@@ -62344,10 +62357,10 @@ fr:œufs de poules élevées en cage, oeufs de poules élevées en cage, 20 oeuf
 fr:oeufs de poules elevees en cage de categorie a
 
 <fr:œufs de poules élevées en cage
-fr:oeufs frais de poules élevées en cage
+fr:oeufs frais de poules élevées en cage, oeufs de poules élevées en cage
 # 4@2019-05-31
 
-<fr:œufs de poules élevées en cage, oeufs de poules élevées en cage
+<fr:oeufs de poules élevées en cage
 fr:Oeufs frais datés du jour de ponte de poules élevées en cage
 # 2019-05-31
 
