@@ -17,8 +17,6 @@ synonyms:en:sulphate,sulfate
 
 synonyms:en:iron,ferric,ferrous
 
-synonyms:en:cupric,copper
-
 synonyms:fr:de fer, ferreux, ferrique
 
 synonyms:fr:monosodique, mono-sodique, sodique, disodique, trisodique, de sodium
@@ -583,7 +581,7 @@ sl:kalcijev oksid
 sv:kalciumoxid
 
 <en:Calcium
-en:calcium sulphate
+en:calcium sulfate
 bg:Калциев сулфат
 cs:síran vápenatý
 de:Calciumsulfat
@@ -956,7 +954,7 @@ sl:magnezijev oksid
 sv:magnesiumoxid
 
 <en:Magnesium
-en:magnesium sulphate
+en:magnesium sulfate
 bg:Магнезиев сулфат
 cs:síran hořečnatý
 de:Magnesiumsulfat
@@ -1259,7 +1257,7 @@ sl:železov laktat
 sv:ferrolaktat
 
 <en:Iron
-en:ferrous sulphate, iron sulphate
+en:ferrous sulfate, iron sulfate
 bg:Железен сулфат
 cs:síran železnatý
 de:Eisensulfat
@@ -1627,7 +1625,7 @@ sv:zinkkarbonat
 # description:en:ZINC SULFATE has the formula ZnSO4 as well as any of three hydrates. As a supplement it is used to treat zinc deficiency and to prevent the condition in those at high risk.
 
 <en:zinc
-en:zinc sulfate, zinc sulphate
+en:zinc sulfate
 ar:كبريتات الزنك
 # azb:چینکو سولفات
 bg:Цинков сулфат
@@ -1701,7 +1699,8 @@ sk:bisglycinát zinočnatý
 sl:cinkov bisglicinat
 sv:zinkbisglycinat
 
-en:Copper
+# add cupric so that it can be user as a synonym in compounds e.g. copper / cupric carbonate
+en:Copper, cupric
 bg:Мед
 cs:Měď
 de:Kupfer
@@ -1724,7 +1723,7 @@ sl:Baker
 sv:Koppar
 
 <en:Copper
-en:cupric carbonate, copper carbonate
+en:cupric carbonate
 bg:Меден карбонат
 cs:uhličitan měďnatý
 de:Kupfercarbonat
@@ -1793,7 +1792,7 @@ sl:bakrov glukonat
 sv:kopparglukonat
 
 <en:Copper
-en:cupric sulphate, copper sulphate
+en:cupric sulfate
 bg:Меден сулфат
 cs:síran měďnatý
 de:Kupfersulfat
@@ -1975,7 +1974,7 @@ sl:manganov glicerofosfat
 sv:manganglycerolfosfat
 
 <en:Manganese
-en:manganese sulphate
+en:manganese sulfate
 bg:Манганов сулфат
 cs:síran manganatý
 de:Mangansulfat
@@ -2224,7 +2223,7 @@ sl:kromov (III) klorid in njegov heksahidrat
 sv:krom(III)klorid och dess hexahydrat
 
 <en:Chromium
-en:chromium (III) sulphate and its hexahydrate
+en:chromium (III) sulfate and its hexahydrate
 bg:Хром (III) сулфат и неговите хексахидрати
 cs:síran chromitý a jeho hexahydrát
 de:Chrom-(III)-Sulfat und sein Hexahydrat
