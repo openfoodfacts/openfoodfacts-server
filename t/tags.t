@@ -85,8 +85,8 @@ is_deeply($product_ref,
      'en:fruits-and-vegetables-based-foods',
      'en:fruits-based-foods',
      'en:fruits',
-     'en:tropical-fruits',
      'en:apples',
+     'en:tropical-fruits',
      'en:bananas',
    ],
    'categories_lc' => 'fr',
@@ -96,8 +96,8 @@ is_deeply($product_ref,
      'en:fruits-and-vegetables-based-foods',
      'en:fruits-based-foods',
      'en:fruits',
-     'en:tropical-fruits',
      'en:apples',
+     'en:tropical-fruits',
      'en:bananas',
    ],
    'lc' => 'fr'
@@ -116,7 +116,7 @@ is($product_ref->{categories}, "pommes, bananes");
 
 add_tags_to_field($product_ref, "fr", "categories", "fraises");
 
-is($product_ref->{categories}, "Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments à base de fruits et de légumes, Fruits et produits dérivés, Fruits, Fruits tropicaux, Pommes, Bananes, fraises");
+is($product_ref->{categories}, "Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments à base de fruits et de légumes, Fruits et produits dérivés, Fruits, Pommes, Fruits tropicaux, Bananes, fraises");
 
 add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
 
@@ -129,10 +129,10 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits-and-vegetables-based-foods',
    'en:fruits-based-foods',
    'en:fruits',
-   'en:tropical-fruits',
    'en:apples',
-   'en:bananas',
    'en:berries',
+   'en:tropical-fruits',
+   'en:bananas',
    'en:plums',
    'en:raspberries',
  ]
@@ -150,11 +150,11 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits-and-vegetables-based-foods',
    'en:fruits-based-foods',
    'en:fruits',
-   'en:tropical-fruits',
    'en:apples',
-   'en:bananas',
    'en:berries',
    'en:citrus',
+   'en:tropical-fruits',
+   'en:bananas',
    'en:lemons',
    'en:oranges',
    'en:plums',
@@ -163,7 +163,7 @@ is_deeply($product_ref->{categories_tags},
 
 ) or diag explain $product_ref->{categories_tags};
 
-is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Frutas tropicales, Manzanas, Plátanos, Frutas del bosque, Ciruelas, Frambuesas, naranjas, limones");
+is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Manzanas, Frutas del bosque, Frutas tropicales, Plátanos, Ciruelas, Frambuesas, naranjas, limones");
 
 add_tags_to_field($product_ref, "it", "categories", "bogus, limone");
 compute_field_tags($product_ref, "it", "categories");
@@ -175,11 +175,11 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits-and-vegetables-based-foods',
    'en:fruits-based-foods',
    'en:fruits',
-   'en:tropical-fruits',
    'en:apples',
-   'en:bananas',
    'en:berries',
    'en:citrus',
+   'en:tropical-fruits',
+   'en:bananas',
    'en:lemons',
    'en:oranges',
    'en:plums',

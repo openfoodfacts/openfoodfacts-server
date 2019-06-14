@@ -499,9 +499,9 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
-	"en:cupric-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
+	"en:cupric-sulfate",
                               ],
 );
 
@@ -574,10 +574,10 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:potassium-citrate",
 	"en:sodium-citrate",
 	"en:calcium-phosphate",
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
-	"en:cupric-sulphate",
-	"en:manganese-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
+	"en:cupric-sulfate",
+	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
                               ],
@@ -609,10 +609,10 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:potassium-citrate",
 	"en:sodium-citrate",
 	"en:calcium-phosphate",
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
-	"en:cupric-sulphate",
-	"en:manganese-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
+	"en:cupric-sulfate",
+	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
                               ],
@@ -943,11 +943,11 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 is_deeply($product_ref->{minerals_tags}, [
         "en:calcium-citrate",
-        "en:ferrous-sulphate",
-        "en:magnesium-sulphate",
-        "en:zinc-sulphate",
-        "en:cupric-sulphate",
-        "en:manganese-sulphate",
+        "en:ferrous-sulfate",
+        "en:magnesium-sulfate",
+        "en:zinc-sulfate",
+        "en:cupric-sulfate",
+        "en:manganese-sulfate",
         "en:sodium-citrate",
         "en:potassium-iodide",
         "en:potassium-hydroxide",
@@ -1004,13 +1004,13 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:sodium-citrate",
 	"en:potassium-phosphate",
 	"en:magnesium-phosphate",
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
 	"en:potassium-hydroxide",
 	"en:sodium-selenite",
 	"en:potassium-iodide",
-        "en:cupric-sulphate",
-        "en:manganese-sulphate",
+        "en:cupric-sulfate",
+        "en:manganese-sulfate",
                               ],
 );
 
@@ -1033,6 +1033,26 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-phosphate",
 	"en:calcium-carbonate",
 	"en:potassium-citrate",
+                              ],
+);
+
+
+$product_ref = {
+        lc => "en",
+        ingredients_text =>
+"copper carbonate"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+diag explain $product_ref->{additives};
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:cupric-carbonate",
                               ],
 );
 

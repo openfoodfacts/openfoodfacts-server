@@ -74,6 +74,8 @@ BEGIN
 					&get_canon_local_authority
 
 					&special_process_product
+					
+					&extract_nutrition_from_image
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -84,8 +86,8 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
-
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Images qw/:all/;
 
 use Hash::Util;
 
@@ -5224,5 +5226,21 @@ sub compute_nova_group($) {
 
 }
 
+
+sub extract_nutrition_from_image($$$$) {
+
+	my $product_ref = shift;
+	my $id = shift;
+	my $ocr_engine = shift;
+	my $results_ref = shift;
+		
+	extract_text_from_image($product_ref, $id, "nutrition_text_from_image", $ocr_engine, $results_ref);
+
+	# clean and process text
+	if (($results_ref->{status} == 0) and (defined $results_ref->{nutrition_text_from_image})) {
+
+		# TODO: extract the nutrition facts values
+	}
+}
 
 1;
