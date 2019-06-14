@@ -33,7 +33,8 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Images qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -64,13 +65,12 @@ my $product_ref = retrieve_product($code);
 
 my $results_ref = {};
 
-if (($id =~ /^ingredients/) and (param('process_image'))) {
-	extract_ingredients_from_image($product_ref, $id, $ocr_engine, $results_ref);
+if (($id =~ /^nutrition/) and (param('process_image'))) {
+	extract_nutrition_from_image($product_ref, $id, $ocr_engine, $results_ref);
 	if ($results_ref->{status} == 0) {
-		$results_ref->{ingredients_text_from_image} =~ s/\n/ /g;
 		if (not $annotations) {
-			delete $results_ref->{ingredients_text_from_image_annotations};
-		}		
+			delete $results_ref->{nutrition_text_from_image_annotations};
+		}
 	}
 }
 my $data =  encode_json($results_ref);
