@@ -42,7 +42,7 @@ BEGIN
 					%tags_images
 					%tags_texts
 					%tags_levels
-					%levels
+					%level
 					%special_tags
 
 					&get_taxonomyid
@@ -187,7 +187,7 @@ my %synonyms = ();
 my %synonyms_for_extended = ();
 %translations_from = ();
 %translations_to = ();
-my %level = ();
+%level = ();
 my %direct_parents = ();
 my %direct_children = ();
 my %all_parents = ();
@@ -558,7 +558,7 @@ sub remove_stopwords($$$) {
 			$tagid =~ s/^${stopword}-//g;
 
 			if (not
-				(($lc eq 'fr') and not ($stopword =~ /^(en|proportion|proportions|variable|variables)$/))	# don't remove French stopwords at the end
+				(($lc eq 'fr') and (($tagtype eq "ingredients") or ($tagtype eq "additives")) and not ($stopword =~ /^(en|proportion|proportions|variable|variables|et-derives)$/))	# don't remove French stopwords at the end
 				) {
 				$tagid =~ s/-${stopword}$//g;
 			}
@@ -595,16 +595,14 @@ sub remove_plurals($$) {
 
 
 
-
-sub build_tags_taxonomy($$) {
+sub build_tags_taxonomy($$$) {
 
 	my $tagtype = shift;
+	my $file = shift;
 	my $publish = shift;
 
 	defined $tags_images{$lc} or $tags_images{$lc} = {};
 	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};
-
-
 
 
 	# Need to be initialized as a taxonomy is probably already loaded by Tags.pm
@@ -623,8 +621,9 @@ sub build_tags_taxonomy($$) {
 	$just_synonyms{$tagtype} = {};
 	$properties{$tagtype} = {};
 
-
-	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt")) {
+	my $errors = '';
+	
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file")) {
 
 		my $current_tagid;
 		my $current_tag;
@@ -715,7 +714,7 @@ sub build_tags_taxonomy($$) {
 
 				# Make sure we don't have empty entries
 				if ($line eq "") {
-					die ("Empty entry at line $line_number in $data_root/taxonomies/$tagtype.txt\n");
+					die ("Empty entry at line $line_number in $data_root/taxonomies/$file\n");
 				}
 
 				my @tags = split(/\s*,\s*/, $line);
@@ -797,8 +796,13 @@ sub build_tags_taxonomy($$) {
 						($synonyms{$tagtype}{$lc}{$tagid} eq $current_tagid) and next;
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
 						if (not ($tagtype =~ /^additives/)) {
-						($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) and print "$tagid already is a synonym of $synonyms{$tagtype}{$lc}{$tagid} - cannot add $current_tagid\n";
-						next;
+							if ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) {
+								my $msg = "$lc:$tagid already is a synonym of " . $synonyms{$tagtype}{$lc}{$tagid}
+								. " (" . $translations_from{$tagtype}{"$lc:$tagid"} . ")"
+								. " - cannot make a synonym of $current_tagid for $canon_tagid\n";
+								$errors .= "ERROR - " . $msg;
+								next;
+							}
 						}
 					}
 
@@ -815,6 +819,16 @@ sub build_tags_taxonomy($$) {
 		}
 
 		close ($IN);
+		
+		if ($errors ne "") {
+		
+			print STDERR "Errors in the $tagtype taxonomy definition:\n";
+			print STDERR $errors;
+			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			unless ($tagtype eq "ingredients") {
+				die("Errors in the $tagtype taxonomy definition");
+			}
+		}
 
 		# 2nd phase: compute synonyms
 		# e.g.
@@ -845,7 +859,8 @@ sub build_tags_taxonomy($$) {
 		}
 
 		my $max_pass = 2;
-		if ($tagtype =~ /^additives/) {
+		# Limit the number of passes for big taxonomies to avoid generating tons of useless synonyms
+		if (($tagtype =~ /^additives/) or ($tagtype =~ /^ingredients/)) {
 			$max_pass = 1;
 		}
 
@@ -861,10 +876,10 @@ sub build_tags_taxonomy($$) {
 			next if ($lc eq 'ar');
 			next if ($lc eq 'he');
 
-			foreach my $tagid (sort { length($a) <=> length($b) } keys %{$synonyms{$tagtype}{$lc}}) {
+			foreach my $tagid (sort { length($a) <=> length($b) || ($a cmp $b) } keys %{$synonyms{$tagtype}{$lc}}) {
 
 				my $max_length = length($tagid) - 3;
-				$max_length > 40 and next; # don't lengthen already long synonyms
+				$max_length > 30 and next; # don't lengthen already long synonyms
 
 				# check if the synonym contains another small synonym
 
@@ -874,7 +889,7 @@ sub build_tags_taxonomy($$) {
 
 				# Does $tagid have other synonyms?
 				if (scalar @{$synonyms_for{$tagtype}{$lc}{$tagid_c}} > 1) {
-					if (length($tagid) < 20) {
+					if (length($tagid) < 15) {
 						# limit length of synonyms for performance
 						push @smaller_synonyms, $tagid;
 						#print "$tagid (canon: $tagid_c) has other synonyms\n";
@@ -921,7 +936,7 @@ sub build_tags_taxonomy($$) {
 
 						#print "computing synonyms for $tagid ($tagid_c): replace: $replace \n";
 
-						foreach my $tagid2_s (keys %{$synonyms_for_extended{$tagtype}{$lc}{$tagid2_c}}) {
+						foreach my $tagid2_s (sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$tagid2_c}}) {
 
 							# don't replace a synonym by itself
 							next if $tagid2_s eq $tagid2;
@@ -967,9 +982,9 @@ sub build_tags_taxonomy($$) {
 		# add more synonyms: remove stopwords and deal with simple plurals
 
 
-		foreach my $lc (keys %{$synonyms{$tagtype}}) {
+		foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
-			foreach my $tagid (keys %{$synonyms{$tagtype}{$lc}}) {
+			foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
 
 				# stopwords
 
@@ -994,7 +1009,7 @@ sub build_tags_taxonomy($$) {
 # > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar
 
 
-		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt") or die ;
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file") or die ;
 
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 
@@ -1113,7 +1128,7 @@ sub build_tags_taxonomy($$) {
 
 
 					$just_tags{$tagtype}{$canon_tagid} = 1;
-					foreach my $parentid (keys %parents) {
+					foreach my $parentid (sort keys %parents) {
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
 						$direct_parents{$tagtype}{$canon_tagid}{$parentid} = 1;
 						defined $direct_children{$tagtype}{$parentid} or $direct_children{$tagtype}{$parentid} = {};
@@ -1231,21 +1246,20 @@ sub build_tags_taxonomy($$) {
 		my %longest_parent = ();
 
 		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {
-		foreach my $tagid (keys %{$translations_to{$tagtype}}) {
+		foreach my $tagid (sort keys %{$translations_to{$tagtype}}) {
 
 			# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first - tagid: $tagid\n";
-
 
 			my @queue = ();
 
 			if (defined $direct_parents{$tagtype}{$tagid}) {
-				@queue = keys %{$direct_parents{$tagtype}{$tagid}};
+				@queue = sort keys %{$direct_parents{$tagtype}{$tagid}};
 			}
 
 			if (not defined $level{$tagtype}{$tagid}) {
 				$level{$tagtype}{$tagid} = 1;
 				if (defined $direct_parents{$tagtype}{$tagid}) {
-					$longest_parent{$tagid} = (keys %{$direct_parents{$tagtype}{$tagid}})[0];
+					$longest_parent{$tagid} = (sort keys %{$direct_parents{$tagtype}{$tagid}})[0];
 				}
 			}
 
@@ -1265,7 +1279,7 @@ sub build_tags_taxonomy($$) {
 					}
 
 					if (defined $direct_parents{$tagtype}{$parentid}) {
-						foreach my $grandparentid (keys %{$direct_parents{$tagtype}{$parentid}}) {
+						foreach my $grandparentid (sort keys %{$direct_parents{$tagtype}{$parentid}}) {
 							push @queue, $grandparentid;
 							if ((not defined $level{$tagtype}{$grandparentid}) or ($level{$tagtype}{$grandparentid} <= $level{$tagtype}{$parentid})) {
 								$level{$tagtype}{$grandparentid} = $level{$tagtype}{$parentid} + 1;
@@ -1280,7 +1294,7 @@ sub build_tags_taxonomy($$) {
 		# Compute all children, breadth first
 
 		my %sort_key_parents = ();
-		foreach my $tagid (keys %{$level{$tagtype}}) {
+		foreach my $tagid (sort keys %{$level{$tagtype}}) {
 			my $key = '';
 			if (defined $just_synonyms{$tagtype}{$tagid}) {
 				$key = '! synonyms ';	# synonyms first
@@ -1303,9 +1317,7 @@ sub build_tags_taxonomy($$) {
 		my %taxonomy_json = ();
 		my %taxonomy_full_json = (); # including wikipedia abstracts
 
-		my $errors = '';
-
-		foreach my $lc (keys %{$stopwords{$tagtype}}) {
+		foreach my $lc (sort keys %{$stopwords{$tagtype}}) {
 			print $OUT $stopwords{$tagtype}{$lc . ".orig"};
 		}
 		print $OUT "\n\n";
@@ -1332,7 +1344,7 @@ sub build_tags_taxonomy($$) {
 					push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
-						$errors .= "ERROR - parent $parentid is not defined for tag $tagid\n";
+						$errors .= "ERROR - parent $parentid is not defined in lc $lc for tag $tagid\n";
 					}
 				}
 			}
@@ -1422,6 +1434,16 @@ sub build_tags_taxonomy($$) {
 		}
 
 		close $OUT;
+		
+		if ($errors ne "") {
+		
+			print STDERR "Errors in the $tagtype taxonomy definition:\n";
+			print STDERR $errors;
+			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
+			unless ($tagtype eq "ingredients") {
+				die("Errors in the $tagtype taxonomy definition");
+			}
+		}		
 
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 
@@ -1773,6 +1795,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	}
 
 	my @sorted_list = sort { (((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0) <=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)) || ($a cmp $b) } keys %tags;
+	
 	return @sorted_list;
 }
 
@@ -3038,7 +3061,7 @@ close ($IN);
 
 	foreach my $geofile (@geofiles) {
 
-		#print STDERR "Tags.pm - loading geofile $geofile\n";
+		print STDERR "Tags.pm - loading geofile $geofile\n";
 		open (my $IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
 
 		my @th = split(/\t/, <$IN>);
@@ -3231,11 +3254,15 @@ sub compute_field_tags($$$) {
 
 	if (defined $tags_fields{$field}) {
 
+		my $value = $product_ref->{$field};
+
 		$product_ref->{$field . "_tags" } = [];
 		if ($field eq 'emb_codes') {
 			$product_ref->{"cities_tags" } = [];
+			$value = normalize_packager_codes($product_ref->{emb_codes});
 		}
-		foreach my $tag (split(',', $product_ref->{$field} )) {
+		
+		foreach my $tag (split(',', $value)) {
 			if (get_fileid($tag) ne '') {
 				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
 				if ($field eq 'emb_codes') {

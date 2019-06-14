@@ -21,7 +21,7 @@ my $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag explain $product_ref->{traces_tags};
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:celery',
@@ -34,7 +34,7 @@ is_deeply($product_ref->{allergens_tags}, [
 'en:mustard',
 'en:nuts',
 ]
-);
+) || diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{traces_tags},  [
 'en:lupin',
@@ -84,6 +84,8 @@ is_deeply($product_ref->{allergens_tags}, [
 "en:soybeans",
 ]
 );
+
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{traces_tags},  [
 "en:fish",
@@ -263,7 +265,40 @@ is_deeply($product_ref->{allergens_tags}, [
 );
 
 
+$product_ref = {
+        lc => "fr", lang => "fr",
+        ingredients_text_fr => "farine de graines de moutarde, 100 % semoule de BLE dur de qualité supérieure Traces éventuelles d'oeufs",
+};
 
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+	'en:gluten',
+	'en:mustard',
+]
+);
+
+is_deeply($product_ref->{traces_tags}, [
+	'en:eggs',
+]
+);
+
+
+$product_ref = {
+lc => "fr", lang => "fr",
+allergens => "Lait de vache, autres fruits à coque, autres céréales contenant du gluten",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+'en:gluten',
+'en:milk',
+'en:nuts',
+]
+);
 
 
 done_testing();

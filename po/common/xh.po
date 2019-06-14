@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: xh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 16:06\n"
+"PO-Revision-Date: 2019-05-03 22:09\n"
 "Language-Team: Xhosa\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -349,6 +349,14 @@ msgstr ""
 
 msgctxt "data_source"
 msgid "Data source"
+msgstr ""
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
 msgstr ""
 
 msgctxt "debug_p"
@@ -2605,6 +2613,10 @@ msgstr ""
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
+msgstr ""
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
 msgstr ""
 
 msgctxt "warning_not_complete"

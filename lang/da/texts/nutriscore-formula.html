@@ -1,0 +1,417 @@
+<div id="main_column" class="XXLarge-11 xlarge-10 wide-9 medium-8 columns" style="padding-top: 1REM; height: 4313px;" data-equalizer-watch="">
+
+<!-- Hand column content - how used to remove left column and center glad On Some pages -->  
+
+<h1>Ernæringsbedømmelse - Farveklassificeringer - Frankrig</h1>
+
+<h2>Et karaktersystem fra A til E til forenkling af næringsmærkning</h2>
+
+<p>I rapporten "Forslag til ny fremdrift i den franske folkesundhedsernæringspolitik inden for rammerne af den Nationale Sundhedsstrategi" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>) er professor Serge Hercberg fortaler for vedtagelsen af ​​et system med karaktererne A til E på forsiden af ​​fødevareemballagen
+for at gøre det lettere at sammenligne produkternes ernæringsmæssige kvalitet.</p>
+
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
+
+<p>Disse farveaccenter opsættes ved at beregne en ernæringsværdi, der afspejler den første del af energien, mættet fedt, sukkerarter, natrium (høje niveauer betragtes som usunde), og for den anden del af andelen af ​​frugt, grøntsager og nødder, fibre og proteiner 
+  (høje niveauer betragtes som gode for helbredet).</p>
+
+<p>For at få mere: at vide:</p>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">2 minutters video: Hvilken mærkning for fødevarer?</a></li>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Anmodning om en enkel, intuitiv og for alle forståelig ernæringsmæssig mærkning på forsiden af ​​fødevareemballager</a>
+</li>
+</ul>
+
+<h2>Ernæringsscoren på Open Food Facts</h2>
+
+<p>Formlen til beregning af ernæringsværdien, grænserne for kvaliteterne og de forskellige forslagstilpasninger blev formidlet af professor Hercbergs team. Denne formel var genstand for studier og tilpasninger til det franske marked.</p>
+
+<p>Den officielt vedtagne og implementerede version i ​​Open Food Facts er den fra rapporten 
+<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">BEKENDTGØRELSE fra Det Høje Råd for Folkesundhed vedr. information om fødevares ernæringsmæssige kvaliteter udgivet 25. juni 2015</a>.</p>
+
+<p>Vi beregnede imidlertid ernæringsværdierne for produkter solgt på fransk jord og refereret i databasen Open Food Facts,,
+og bestemmer de tilsvarende A til E gradueringer. Dette gør det især muligt at sammenligne forskellige produkters ernæringsværdier og/eller studere fordelingen for hver produktkategori.</p>
+
+<h2>Formel til beregning af ernæringsværdi</h2>
+
+<p>Point gives til produkterne ift. til mængden af ​​næringsstoffer, de indeholder pr. 100 g.</p>
+
+<p>A-point gives for de næringsstoffer, som betragtes som "dårlige", og C-point gives til de "gode" næringsstoffer og indholdet i frugt, grøntsager og nødder.</p>
+
+<h3>A-point</h3>
+
+<p>A-point er summen af ​​point for energi, mættet fedt, sukker og natrium.</p>
+
+<table class="points">
+<tbody>
+  <tr>
+    <th>Point</th>
+    <th>Energi (kJ)</th>
+    <th>Mættet fedt (g)</th>
+    <th>Sukker (g)</th>
+    <th>Natrium (mg)</th>
+  </tr>
+<tr>
+  <td>0</td>
+  <td>≤335</td>
+  <td>≤1</td>
+  <td>≤4.5</td>
+  <td>≤90</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>&gt;335</td>
+  <td>&gt;1</td>
+  <td>&gt;4.5</td>
+  <td>&gt;90</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>&gt;670</td>
+  <td>&gt;2</td>
+  <td>&gt;9</td>
+  <td>&gt;180</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>&gt;1005</td>
+  <td>&gt;3</td>
+  <td>&gt;13.5</td>
+  <td>&gt;270</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>&gt;1340</td>
+  <td>&gt;4</td>
+  <td>&gt;18</td>
+  <td>&gt;360</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>&gt;1675</td>
+  <td>&gt;5</td>
+  <td>&gt;22.5</td>
+  <td>&gt;450</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>&gt;2010</td>
+  <td>&gt;6</td>
+  <td>&gt;27</td>
+  <td>&gt;540</td>
+  </tr>
+<tr>
+  <td>7</td>
+  <td>&gt;2345</td>
+  <td>&gt;7</td>
+  <td>&gt;31</td>
+  <td>&gt;630</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>&gt;2680</td>
+  <td>&gt;8</td>
+  <td>&gt;36</td>
+  <td>&gt;720</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>&gt;3015</td>
+  <td>&gt;9</td>
+  <td>&gt;40</td>
+  <td>&gt;810</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td>&gt;3350</td>
+  <td>&gt;10</td>
+  <td>&gt;45</td>
+  <td>&gt;900</td>
+</tr>
+</tbody>
+  </table>
+
+<h3>C-point</h3>
+
+<p>C-pointene er summen af ​​point for frugt, grøntsager og nødder samt for fiber og protein.</p>
+
+<table class="points">
+<tbody>
+  <tr>
+    <th>Point</th>
+    <th>Frugter, grøntsager, nødder (%)</th>
+    <th>Fiber (g)</th>
+    <th>Protein (g)</th>
+  </tr>
+<tr>
+  <td>0</td>
+  <td>≤40</td>
+  <td>≤0.7</td>
+  <td>≤1.6</td>
+</tr> 
+<tr>
+    <td>1</td>
+    <td>&gt;40</td>
+    <td>&gt;0.7</td>
+    <td>&gt;1.6</td>
+</tr> 
+<tr>
+  <td>2</td>
+  <td>&gt;60</td>
+  <td>&gt;1.4</td>
+  <td>&gt;3.2</td>
+</tr> 
+<tr>
+  <td>3</td>
+  <td>-</td>
+  <td>&gt;2.1</td>
+  <td>&gt;4.8</td>
+</tr> 
+<tr>
+  <td>4</td>
+  <td>-</td>
+  <td>&gt;2.8</td>
+  <td>&gt;6.4</td>
+  </tr> 
+<tr>
+  <td>5</td>
+  <td>&gt;80</td>
+  <td>&gt;3.5</td>
+  <td>&gt;8.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>Bemærk: Kartofler, søde kartofler, taro, kassava og tapioka er ikke inkluderet i frugt, grøntsager og nødder.</p>
+
+<h3>Ernæringsscoreberegning</h3>
+
+<ul>
+<li>Hvis A-point &lt; 11, så er score= Ét point - C-point</li>
+<li>Hvis A-point ≥ 11
+<ul>
+<li>Hvis point for frugt, grøntsager og nødder= 5, så er score= A-point - C-point</li>
+<li>Hvis point for frugt, grøntsager og nødder &lt; 5, så er score= A-point - (fiberpoint + point for frugt, grøntsager og nødder)</li>
+</ul>
+
+</li>
+</ul>
+
+<h3>Tilpasninger til det franske marked</h3>
+
+<p>Formlen for næringsværdi som angivet ovenfor svarer til formlen for  næringsværdien fra ​​Food Standards Agency (FSA) i Storbritannien.</p>
+
+<p>Professor Hercbergs team tilbyder tilpasninger til det franske marked, som gennemføres for at beregne scoren på Open Food Facts.</p>
+
+<h4>Tilpasning for ost</h4>
+
+<p>For oste er point for proteinerne fratrukket scoren, selvom A-point udgør ≥ 11.</p>
+
+<h4>Tilpasning for fedtstof</h4>
+
+<p>For at hjælpe med at skelne mellem fedtstoffer (olier, margariner, creme fraîches), som alle har
+  mættet fedtindhold højere end maksimumsgrænsen på 10 g, 
+  anvendes et andet gitter, der tager højde for forholdet mellem mættede fedtsyrer på det samlede fedt:</p>
+
+<table class="points">
+<tbody>
+  <tr>
+    <td>Point</td>
+    <td>Mættet Fedt/Total Fedt forhold</td>
+  </tr>
+<tr>
+  <td>0</td> 
+  <td>&lt; 10</td>
+</tr>
+<tr>
+  <td>1</td> 
+  <td>&lt; 16</td>
+</tr>
+<tr>
+  <td>2</td> 
+  <td>&lt; 22</td>
+</tr>
+<tr>
+  <td>3</td> 
+  <td>&lt; 28</td>
+</tr>
+<tr>
+  <td>4</td> 
+  <td>&lt; 34</td>
+</tr>
+<tr>
+  <td>5</td> 
+  <td>&lt; 40</td>
+</tr>
+<tr>
+  <td>6</td> 
+  <td>&lt; 46</td>
+</tr>
+<tr>
+  <td>7</td> 
+  <td>&lt; 52</td>
+</tr>
+<tr>
+  <td>8</td> 
+  <td>&gt;&lt; 58</td>
+</tr>
+<tr>
+  <td>9</td> 
+  <td>&gt;&lt; 64</td>
+</tr>
+<tr>
+  <td>10</td> 
+  <td>&gt;64</td>
+</tr>
+</tbody>
+</table>
+
+<h4>Tilpasninger for frugt og grøntsager</h4>
+
+<p>Nødder tages ikke i betragtning ved beregningen af ​​indholdet af frugt og grøntsager.</p>
+
+<h4>Tilpasninger for drikkevarer</h4>
+
+<p>Advarsel: Ernæringsværdien for mælk og vegetabilske mælkeprodukter beregnes med den generelle formel og 
+  ikke formlen for drikkevarer.</p>
+
+<p>Pointgrænseværdien for energi og sukker er tilpasset drikkevarer, og point fordobles for frugt:</p>
+
+<table class="points">
+<tbody>
+<tr>
+  <th>Point</th>
+  <th>Energi (kJ)</th>
+  <th>Sukker (g)</th>
+  <th>Frugter, grøntsager (%)</th>
+</tr>
+<tr>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td> 
+  <td>&lt; = 40</td>
+</tr>
+<tr>
+  <td>1</td> <td>≤30</td> 
+  <td>≤1,5 eller sødestoffer</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>2</td> <td>&gt;30</td> 
+  <td>&gt;1.5</td> 
+  <td>&gt;40</td>
+</tr>
+<tr>
+  <td>3</td> <td>&gt;60</td> 
+  <td>&gt;3</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>&gt;90</td> 
+  <td>&gt;4.5</td> 
+  <td>&gt;60</td>
+</tr>
+<tr>
+  <td>5</td> 
+  <td>&gt;120</td> 
+  <td>&gt;6</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>6</td> 
+  <td>&gt;150</td> 
+  <td>&gt;7.5</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>7</td> 
+  <td>&gt;180</td> 
+  <td>&gt;9</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>8</td> 
+  <td>&gt;210</td> 
+  <td>&gt;10.5</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>9</td> 
+  <td>&gt;240</td> 
+  <td>&gt;12</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>10</td> 
+  <td>&gt;270</td> 
+  <td>&gt;13.5</td> 
+  <td>&gt;80</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>Farveklassificeringsgrænser</h2>
+
+<p>Grænserne, som benyttes til tildeling af farveklassificeringer, er:</p> <p>
+</p><h3>Fast føde:</h3>
+<ul>
+<li>A - Grøn: Op til -1</li>
+<li>B - Gul: Fra 0 til 2</li>
+<li>C - Orange: Fra 3 til 10</li>
+<li>D - steg: Fra 11 til 18</li>
+<li>E - Rød: 19 og flere</li>
+</ul>
+<h3>Drikkevarer:</h3>
+<p>Kun vand (mineral- og kildevand med undtagelse af aromatiseret vand) klassificeres som A.</p>
+
+<ul>
+<li>A - Grøn: Mineral- og kildevand</li>
+<li>B - Gul: Op til 1</li>
+<li>C - Orange: Fra 2 til 5</li>
+<li>D - steg: Fra 6 til 9</li>
+<li>E - Rød: 10 og flere</li>
+</ul>
+
+<p><b>Advarsel: Denne værdi matcher måske stadig ikke den anbefalede værdi:</b></p>
+
+<ul>
+<li>Fiberindholdet er ikke nødvendigvis til stede i ernæringstabellen. Når sidstnævnte ikke er angivet, tages
+der ikke hensyn til positive bidrag fra fibre. Vi opfordrer alle producenter til at angive 
+  fiberindholdet i deres produkter på disses emballager.</li>
+  
+  <--end of current proofread -->
+<li>Point svarende til niveauerne i frugt og grøntsager, medregnes ikke for alle produkter. Frugt-/grøntsagsindholdet
+ fremgår faktisk ikke af pakken i ernæringstabellen, og vi skal bestemme dette
+via andre oplysninger (såsom beskrivelsen "mindste frugtindhold", produktkategorien (f.eks. syltetøj indeholder 50% frugt) og/eller ingedienslisten.)
+<ul>
+<li>Et nyt felt "Frugter, grøntsager (minimum)" blev oprettet for at registrere værdierne af udtrykkene "mindste indhold af frugt/grøntsager" mv.</li>
+<li>Som standard anses produkterne i visse kategorier for at have et minimumsindhold på:
+<ul>
+<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits">juice</a></li>
+<li>90%: <a href="https://world.openfoodfacts.org/category/fr:compotes">syltede frugter</a></li>
+<li>85%: <a href="https://world.openfoodfacts.org/category/fr:legumes">grøntsager</a></li>
+<li>50%: <a href="https://world.openfoodfacts.org/category/fr:confitures">syltetøj</a></li>
+<li>andre definerbare kategorier</li>
+</ul>
+
+For at beregne ernæringsværdien er det vigtigt at skelne mellem niveauer over 40%, 60% og 80%.
+</li>
+</ul>
+  
+</li>
+
+<li>For den lyofiliserede mad (pakkede supper mv.) skal værdien beregnes for det rekonstituerede produkt, ikke for råproduktet, som det pt. er tilfældet.</li>
+</ul>
+
+<p>Du kan hjælpe os med at kende frugtindhold, grøntsager og nødder. For flere oplysninger, se 
+projektet <a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">Næringsmærkning</a> på wiki.</p>
+
+<p>Bemærk: Knolde, såsom kartofler og søde kartofler, betragtes ikke som grøntsager i beregningen af næringsværdien.</p>
+<h2>Tak</h2>
+<p>Vi takker professor Serge Hercberg og Dr. Chantal Julia for deres hjælp og de data, de har
+formidlet os til beregning af næringsværdi. Disse data kommer fra arbejdet i
+<a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">Forskningsholdet i Ernæringsevaluering (EREN)</a>
+fra Paris 13 University/Avicenne Hospital.</p>
+
+</div>

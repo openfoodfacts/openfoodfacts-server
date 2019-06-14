@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 20:41\n"
+"PO-Revision-Date: 2019-05-03 21:26\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -364,6 +364,14 @@ msgstr "מוצרים שאינם נמכרים ב%s"
 
 msgctxt "data_source"
 msgid "Data source"
+msgstr "מקור נתונים"
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr "מקורות נתונים"
+
+msgctxt "data_sources_s"
+msgid "data source"
 msgstr "מקור נתונים"
 
 msgctxt "debug_p"
@@ -2654,6 +2662,10 @@ msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "חלק מהנתונים סופקו ישירות על ידי היצרן %s"
 
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr "חלק מהנתונים על המוצר הזה נאספו בשיתוף עם %s"
+
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "עמוד המוצר לוקה בחסר. ניתן לסייע בהשלמתו על ידי עריכה והוספת עוד נתונים מהתמונות שיש לנו או על ידי צילום באמצעות היישומון עבור <a href=\"https://android.openfoodfacts.org\">Android</a> או <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. תודה רבה לך!"
@@ -3197,7 +3209,7 @@ msgstr "en:low,‏ en:medium או en:high"
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr ""
+msgstr "השפעה פחמנית עקב בשר או דג"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
@@ -3213,11 +3225,11 @@ msgstr ""
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "למנה אחת"
 
 msgctxt "methodology"
 msgid "Methodology"
-msgstr ""
+msgstr "מתודולוגיה"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
@@ -3233,35 +3245,35 @@ msgstr ""
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "יותר מדי מוצרים (%d מוצרים, המגבלה עומדת על %d) לייצוא, נא להוריד את <a href=\"/data\">מסד הנתונים המלא לייצוא</a> במקום."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "מזמינים אותך לסייע לנו לתרגם את %s ל%s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr ""
+msgstr "ניתן להציע תרגומים עבור הרשומות שלהלן שטרם תורגמו לשפה שלך. הקישור הכחול באנגלית מציג את המוצרים שעונים על הגדרת התווית, הטקסט בשחור באנגלית מציג את הרשומה המקורית עם מילים נרדפות כרשות מופרדים בפסיקים. נא להקליד את התרגום בתיבה שלהלן, לרבות מילים נרדפות אם ישנן ואז ללחוץ על כפתור השמירה. תודה רבה לך!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "להציג אך ורק רשומות ללא תרגומים ממתינים."
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "להציג רשומות שממתינות לתרגום על ידך או על ידי משתמשים אחרים."
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "מתורגם"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "לתרגום"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "תרגום נוכחי"
 
 msgctxt "button_caption_yes"
 msgid "Yes"

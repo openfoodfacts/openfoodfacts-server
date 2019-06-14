@@ -541,7 +541,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 	foreach my $field ('lc', 'product_name', 'generic_name',
 		@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
-		'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
+		'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang', 'data_sources') {
 
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {

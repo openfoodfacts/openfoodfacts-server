@@ -3,7 +3,7 @@ branches:
   - l10n_master
 language: perl
 perl:
-  - "system"
+  - "5.18.4"
 env: COVERAGE=1
 cache:
   yarn: true
