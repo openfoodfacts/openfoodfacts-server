@@ -859,7 +859,8 @@ sub build_tags_taxonomy($$$) {
 		}
 
 		my $max_pass = 2;
-		if ($tagtype =~ /^additives/) {
+		# Limit the number of passes for big taxonomies to avoid generating tons of useless synonyms
+		if (($tagtype =~ /^additives/) or ($tagtype =~ /^ingredients/)) {
 			$max_pass = 1;
 		}
 
@@ -875,7 +876,7 @@ sub build_tags_taxonomy($$$) {
 			next if ($lc eq 'ar');
 			next if ($lc eq 'he');
 
-			foreach my $tagid (sort { length($a) <=> length($b) } keys %{$synonyms{$tagtype}{$lc}}) {
+			foreach my $tagid (sort { length($a) <=> length($b) || ($a cmp $b) } keys %{$synonyms{$tagtype}{$lc}}) {
 
 				my $max_length = length($tagid) - 3;
 				$max_length > 30 and next; # don't lengthen already long synonyms
@@ -935,7 +936,7 @@ sub build_tags_taxonomy($$$) {
 
 						#print "computing synonyms for $tagid ($tagid_c): replace: $replace \n";
 
-						foreach my $tagid2_s (keys %{$synonyms_for_extended{$tagtype}{$lc}{$tagid2_c}}) {
+						foreach my $tagid2_s (sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$tagid2_c}}) {
 
 							# don't replace a synonym by itself
 							next if $tagid2_s eq $tagid2;
@@ -981,9 +982,9 @@ sub build_tags_taxonomy($$$) {
 		# add more synonyms: remove stopwords and deal with simple plurals
 
 
-		foreach my $lc (keys %{$synonyms{$tagtype}}) {
+		foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
-			foreach my $tagid (keys %{$synonyms{$tagtype}{$lc}}) {
+			foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
 
 				# stopwords
 
@@ -1127,7 +1128,7 @@ sub build_tags_taxonomy($$$) {
 
 
 					$just_tags{$tagtype}{$canon_tagid} = 1;
-					foreach my $parentid (keys %parents) {
+					foreach my $parentid (sort keys %parents) {
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
 						$direct_parents{$tagtype}{$canon_tagid}{$parentid} = 1;
 						defined $direct_children{$tagtype}{$parentid} or $direct_children{$tagtype}{$parentid} = {};
@@ -1245,21 +1246,20 @@ sub build_tags_taxonomy($$$) {
 		my %longest_parent = ();
 
 		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {
-		foreach my $tagid (keys %{$translations_to{$tagtype}}) {
+		foreach my $tagid (sort keys %{$translations_to{$tagtype}}) {
 
 			# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first - tagid: $tagid\n";
-
 
 			my @queue = ();
 
 			if (defined $direct_parents{$tagtype}{$tagid}) {
-				@queue = keys %{$direct_parents{$tagtype}{$tagid}};
+				@queue = sort keys %{$direct_parents{$tagtype}{$tagid}};
 			}
 
 			if (not defined $level{$tagtype}{$tagid}) {
 				$level{$tagtype}{$tagid} = 1;
 				if (defined $direct_parents{$tagtype}{$tagid}) {
-					$longest_parent{$tagid} = (keys %{$direct_parents{$tagtype}{$tagid}})[0];
+					$longest_parent{$tagid} = (sort keys %{$direct_parents{$tagtype}{$tagid}})[0];
 				}
 			}
 
@@ -1279,7 +1279,7 @@ sub build_tags_taxonomy($$$) {
 					}
 
 					if (defined $direct_parents{$tagtype}{$parentid}) {
-						foreach my $grandparentid (keys %{$direct_parents{$tagtype}{$parentid}}) {
+						foreach my $grandparentid (sort keys %{$direct_parents{$tagtype}{$parentid}}) {
 							push @queue, $grandparentid;
 							if ((not defined $level{$tagtype}{$grandparentid}) or ($level{$tagtype}{$grandparentid} <= $level{$tagtype}{$parentid})) {
 								$level{$tagtype}{$grandparentid} = $level{$tagtype}{$parentid} + 1;
@@ -1294,7 +1294,7 @@ sub build_tags_taxonomy($$$) {
 		# Compute all children, breadth first
 
 		my %sort_key_parents = ();
-		foreach my $tagid (keys %{$level{$tagtype}}) {
+		foreach my $tagid (sort keys %{$level{$tagtype}}) {
 			my $key = '';
 			if (defined $just_synonyms{$tagtype}{$tagid}) {
 				$key = '! synonyms ';	# synonyms first
@@ -1317,7 +1317,7 @@ sub build_tags_taxonomy($$$) {
 		my %taxonomy_json = ();
 		my %taxonomy_full_json = (); # including wikipedia abstracts
 
-		foreach my $lc (keys %{$stopwords{$tagtype}}) {
+		foreach my $lc (sort keys %{$stopwords{$tagtype}}) {
 			print $OUT $stopwords{$tagtype}{$lc . ".orig"};
 		}
 		print $OUT "\n\n";
