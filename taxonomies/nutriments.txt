@@ -318,6 +318,7 @@ unit:en-us:kcal
 unit:en-ca:kcal
 
 # description:en:PROTEINS are essential nutrients for the human body. They are one of the building blocks of body tissue and can also serve as a fuel source. Proteins are polymer chains made of amino acids linked together by peptide bonds. During human digestion, proteins are broken down in the stomach to smaller polypeptide chains. Dietary sources of protein include both animals and plants: meats, dairy products, fish and eggs, as well as grains, legumes and nuts. Vegans can get enough essential amino acids by eating plant proteins.
+# comment:en:The entries here are in plural. The entries taken from wikidata are usally singular. These need to be checked.
 
 en:Proteins, protein
 af:proteïen
@@ -573,45 +574,140 @@ zh:血清蛋白
 # zh_CN:血清蛋白
 # zh_HK:血清蛋白
 # zh_TW:血清蛋白
- 
+
+# description:en:A CARBOHYDRATE is a biomolecule consisting of carbon (C), hydrogen (H) and oxygen (O) atoms, usually with a hydrogen–oxygen atom ratio of 2:1 (as in water) and thus with the empirical formula Cm(H2O)n. Relatively high levels of carbohydrate are associated with processed foods or refined foods made from plants, including sweets, cookies and candy, table sugar, honey, soft drinks, breads and crackers, jams and fruit products, pastas and breakfast cereals. Lower amounts of carbohydrate are usually associated with unrefined foods, including beans, tubers, rice, and unrefined fruit. Carbohydrate serve for the storage of energy (e.g. starch and glycogen).
+# comment:en:The entries here are in plural. The entries taken from wikidata are usally singular. These need to be checked. In some languages multiple synonyms are possible, which need to be checked against actual products.
+
 en:Carbohydrate
-ar:الكاربوهايدريد
+af:Koolhidraat
+an:Hidrato de carbonio
+ar:سكريات
+as:শৰ্কৰা
+# ast:carbohidratu
+az:Karbohidrat
+# azb:کاربوهیدروژئن
+ba:Углеводтар
+be:Вугляводы
+# be-tarask:Вугляводы
 bg:Въглехидрати
+bn:শর্করা
+bs:Ugljikohidrati
+# bxr:Нүүрһэн уһан
+ca:glúcid
+# ckb:کاربۆھایدرەیت
 cs:Sacharidy
+cy:Carbohydrad
 da:Kulhydrat
 de:Kohlenhydrate
+# dty:कार्बोहाइड्रेट
 el:Υδατάνθρακες
-es:Hidratos de carbono
-et:Süsivesikud
+# en-gb:carbohydrate
+eo:karbonhidrato
+es:Hidratos de carbono, glúcido
+et:Süsivesikud, Sahhariidid
+eu:karbono hidrato
+# ext:Glúcidu
 fa:کربوهیدرات ها
 fi:Hiilihydraatti
 fr:Glucides
+# frr:Köölhüdraaten
+fy:Koalhydraat
 ga:Carbaihiodráit
+gd:Gualuisg
+gl:Carbohidrato
+# gsw:Kohlenhydrate
 he:פחמימות
+hi:शर्करा
+# hif:Carbohydrate
+hr:Ugljikohidrati
+ht:Kabonidrat
 hu:Szénhidrát
-it:Carboidrati
+hy:ածխաջուր
+ia:Carbohydrato
+id:Karbohidrat
+# ilo:karbohidrato
+io:Karbohidrato
+# is:Sykra sugars????
+it:Carboidrati, glucidi
 ja:炭水化物
+jv:Karbohidrat
+ka:ნახშირწყლები
+kk:Көмірсулар
+kn:ಕಾರ್ಬೋಹೈಡ್ರೇಟುಗಳು
+ko:탄수화물
+ku:Karbohîdrat
+ky:Углеводдор
+la:Carbohydratum
+lb:Kuelenhydrat
+# lmo:Carbuidraa
+lo:ກະລູຊິດ
 lt:Angliavandeniai
 lv:Ogļhidrāti
+mk:Јаглехидрат
+ml:കാർബോഹൈഡ്രേറ്റ്
+mn:Нүүрс ус
+ms:Karbohidrat
 mt:Karboidrati
+my:ကာဗိုဟိုက်ဒရိတ်
+# nan:Carbohydrate
+nb:karbohydrat
+# nds:Kohlenhydrate
+ne:कार्बोहाइड्रेट
+# new:शर्करा
 nl:Koolhydraten
-nb:Karbohydrat
+nn:Karbohydrat
+oc:Glucid
+om:Carbohydrate
+or:ଶ୍ଵେତସାର
+pa:ਕਾਰਬੋਹਾਈਡਰੇਟ
 pl:Węglowodany
+# pnb:کاربوہائیڈریٹ
 pt:Hidratos de carbono
 # pt_br:Carboidratos
 # pt_pt:Hidratos de carbono
-ro:gGlucide
+qu:K'illimsayaku
+ro:Glucide, Glucidă
 # rs:Ugljeni hidrati
 ru:Углеводы
-sk:Sacharidy
-sl:Ogljikove hidrate
+# rue:Вуглёводы
+# scn:Carbuidrati
+# sco:carbohydrate
+sd:نشاستو
+# sgs:Onglėondėnē
+sh:Ugljeni hidrati
+si:කාබෝහයිඩ් රේට
+sk:Sacharidy, Sacharid
+sl:Ogljikove hidrate, Ogljikovi hidrati
+sn:Carbohydrates
+sq:Karbohidratet
+sr:угљени хидрати
+su:Karbohidrat
 sv:Kolhydrat
-tr:Karbonhidratlar
-zh:碳水化合物
+sw:Hidrati kabonia
+ta:காபோவைதரேட்டு
+te:పిండి పదార్ధాలు
+tg:Карбогидратҳо
+th:คาร์โบไฮเดรต
+tr:Karbonhidratlar, karbonhidrat
+tt:Күмерсулар
+tv:Углеводтар
+uk:Вуглеводи
+ur:کاربو ہائیڈریٹ
+uz:Uglevodlar
+# vec:Carboidrati
+vi:cacbohydrat
+# war:Karbohidrato
+# wuu:糖类
+# xmf:ნოშქერწყარეფი
+yi:קארבאהידראט
+# yue:醣
+za:Danqsuijvaqhozvuz
+zh:碳水化合物, 糖类
 # zh_CN:碳水化合物
 # zh_HK:碳水化合物
 # zh_TW:碳水化合物
 wikidata:en:Q11358
+wikipedia:en:https://en.wikipedia.org/wiki/Carbohydrate
  
 en:Sugars
 ar:السكر
