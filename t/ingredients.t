@@ -248,19 +248,23 @@ my $expected_product_ref =
   ],
   'ingredients_hierarchy' => [
     'en:palm-kernel-fat',
-    'en:palm-kernel-oil'
+    'en:oil',
+    'en:vegetable-oil-and-fat',
+    'en:palm-kernel-oil-and-fat',
   ],
   'ingredients_n' => 1,
   'ingredients_n_tags' => [
     '1',
     '1-10'
   ],
-  'ingredients_original_tags' => [
-    'en:palm-kernel-fat'
-  ],
   'ingredients_tags' => [
     'en:palm-kernel-fat',
-    'en:palm-kernel-oil'
+    'en:oil',
+    'en:vegetable-oil-and-fat',
+    'en:palm-kernel-oil-and-fat',
+  ],
+  'ingredients_original_tags' => [
+    'en:palm-kernel-fat',
   ],
   'ingredients_text' => 'graisse de palmiste',
   'ingredients_that_may_be_from_palm_oil_n' => 0,
@@ -434,7 +438,7 @@ $expected_product_ref =
       'text' => 'sucre'
     },
     {
-      'id' => 'de:orangenfruchtfleisch',
+      'id' => 'en:orange-pulp',
       'percent' => '4.5',
       'text' => 'pulpe d\'orange'
     },
@@ -449,7 +453,7 @@ $expected_product_ref =
       'text' => "\x{e9}quivalent jus d'orange"
     },
     {
-      'id' => 'en:dicalcium-citrate',
+      'id' => 'en:calcium-citrates',
       'text' => 'citrate de calcium'
     },
     {
@@ -531,8 +535,8 @@ $expected_product_ref =
     'en:lactose-and-milk-proteins',
     'en:protein',
     'en:animal-protein',
-    'en:lactose',
     'en:milk-proteins',
+    'en:lactose',
     'en:wheat-flour',
     'en:cereal',
     'en:wheat',
@@ -544,7 +548,7 @@ $expected_product_ref =
     'en:fructose',
     'en:colza-oil',
     'en:oil',
-    'en:oil-and-vegetable-fat',
+    'en:vegetable-oil-and-fat',
     'en:vegetable-oil',
     'en:yeast-powder',
     'en:yeast',
@@ -552,7 +556,7 @@ $expected_product_ref =
     'en:emulsifier',
     'en:soya-lecithin',
     'en:lecithins',
-    'de:orangenfruchtfleisch',
+    'en:orange-pulp',
     'en:fruit',
     'en:citrus-fruit',
     'en:orange',
@@ -560,7 +564,6 @@ $expected_product_ref =
     'en:fruit-juice',
     'en:orange-juice',
     "fr:\x{e9}quivalent jus d'orange",
-    'en:dicalcium-citrate',
     'en:calcium-citrates',
     'en:sodium-citrate',
     'en:mineral',
@@ -611,10 +614,10 @@ $expected_product_ref =
     'en:soya-lecithin',
     'en:glucose-fructose-syrup',
     'en:sugar',
-    'de:orangenfruchtfleisch',
+    'en:orange-pulp',
     'en:concentrated-orange-juice',
     "fr:\x{e9}quivalent jus d'orange",
-    'en:dicalcium-citrate',
+    'en:calcium-citrates',
     'en:sodium-citrate',
     'en:sugar',
     'en:cocoa-paste',
@@ -649,8 +652,8 @@ $expected_product_ref =
     'en:lactose-and-milk-proteins',
     'en:protein',
     'en:animal-protein',
-    'en:lactose',
     'en:milk-proteins',
+    'en:lactose',
     'en:wheat-flour',
     'en:cereal',
     'en:wheat',
@@ -662,7 +665,7 @@ $expected_product_ref =
     'en:fructose',
     'en:colza-oil',
     'en:oil',
-    'en:oil-and-vegetable-fat',
+    'en:vegetable-oil-and-fat',
     'en:vegetable-oil',
     'en:yeast-powder',
     'en:yeast',
@@ -670,7 +673,7 @@ $expected_product_ref =
     'en:emulsifier',
     'en:soya-lecithin',
     'en:lecithins',
-    'de:orangenfruchtfleisch',
+    'en:orange-pulp',
     'en:fruit',
     'en:citrus-fruit',
     'en:orange',
@@ -678,7 +681,6 @@ $expected_product_ref =
     'en:fruit-juice',
     'en:orange-juice',
     'fr:equivalent-jus-d-orange',
-    'en:dicalcium-citrate',
     'en:calcium-citrates',
     'en:sodium-citrate',
     'en:mineral',
