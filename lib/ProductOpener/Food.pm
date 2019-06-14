@@ -4547,8 +4547,13 @@ sub compute_carbon_footprint_infocard($) {
 	
 	# Limit to France, as the carbon values from ADEME are intended for France
 	
-	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients}) 
-		and (length($product_ref->{ingredients}) > 5))) {
+	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients_text}) 
+		and (length($product_ref->{ingredients_text}) > 5))) {
+		delete $product_ref->{environment_impact_level};
+		delete $product_ref->{environment_impact_level_tags};
+		delete $product_ref->{environment_infocard};
+		delete $product_ref->{environment_infocard_en};
+		delete $product_ref->{environment_infocard_fr};
 		return;
 	}
 	
@@ -4556,7 +4561,7 @@ sub compute_carbon_footprint_infocard($) {
 
 		$product_ref->{environment_impact_level} = "en:low";
 
-		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"}) {
+		if ((defined  $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"})) {
 
 			if ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} < 250) {
 				$product_ref->{environment_impact_level} = "en:medium";
