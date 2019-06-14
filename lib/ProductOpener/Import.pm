@@ -335,7 +335,7 @@ sub assign_quantity_from_field($$) {
 
 	if ((defined $product_ref->{$field}) and ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq ""))) {
 
-		if ($product_ref->{$field} =~ /\b\(?((\d+)\s?x\s?)?(\d+\.?\d*)\s?(g|gr|kg|kgr)\s?(x\s?(\d+))?\)?\s*$/i) {
+		if ($product_ref->{$field} =~ /\b\(?((\d+)\s?x\s?)?(\d+\.?\,?\d*)\s?(g|gr|kg|kgr|l|cl|ml|dl)\s?(x\s?(\d+))?\)?\s*$/i) {
 			$product_ref->{$field} = $`;
 
 			if (defined $2) {
@@ -975,7 +975,13 @@ sub load_xml_file($$$$) {
 
 						$value =~ s/,/\./;
 
-						if ($target =~ /^(.*)_([^_]+)$/) {
+						if ($target =~ /^(.*)_value$/) {
+							assign_value($product_ref, $target, $value);
+						}
+						elsif ($target =~ /^(.*)_unit$/) {
+							assign_value($product_ref, $target, $value);
+						}						
+						elsif ($target =~ /^(.*)_([^_]+)$/) {
 								$target = $1;
 								my $unit = $2;
 								assign_value($product_ref, $target . "_value", $value);

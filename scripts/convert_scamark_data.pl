@@ -146,6 +146,7 @@ F=>undef,
 			[ "multiple_products", "PRDT" ], # split products in the PRDT array
 			
 			["GEN.GENCOD", "code"], 
+			["GEN.MARQUE", "brands"], 
 			["ADO.[max:ADO].LIB2", "product_name_fr"], 
 			["ADO.[max:ADO].COMP.ING", "ingredients_text_fr"], 
 			
@@ -273,155 +274,6 @@ F=>undef,
 		$xml_errors += load_xml_file($file, \@xml_rules, \@xml_fields_mapping, undef);
 	}
 
-
-	elsif ($file =~ /_valNut/) {
-		# Nutrition facts
-
-		my @xml_rules = (
-
-_default => sub {$_[0] => $_[1]->{_content}},
-TabNutXMLPF => "pass no content",
-TabNutColElements => "pass no content",
-#TextFrameLinesPF => "pass no content",
-#TextFrameLinePF => sub { '%fields' => [$_[1]->{code_champs} => $_[1]->{languages} ]},
-TabNutColElement => sub { '%nutrients' => [$_[1]->{Type_Code} => $_[1]->{Units}  ]},
-Units => "pass no content",
-Unit => sub { '@Units' => $_[1]},
-
-"ARPercent,Description,Id,Label,Language,ModifiedBy,Name,ProductCode,RoundValue,TabNutCadrans,TabNutId,TabNutName,TabNutTemplateCode,TypeCode,Unit_value,lOrder,name" => "content",
-#"LanguageTB,TabNutColElements,TabNutPhrases,TabNutXMLPF,Units,languages" => "no content",
-  #"TabNutColElement,TabNutPhrase,Unit" => "as array no content",
-
-
-lOrder => undef,
-SetOrder => undef,
-SetCode => undef,
-SetName => undef,
-Comments => undef,
-ModifiedBy => undef,
-TextFrameLineId => undef,
-F=>undef,
-
-);
-
-
-
-		my @xml_fields_mapping = (
-
-			# get the code first
-
-			# don't trust the EAN from the XML file, use the one from the file name instead
-			# -> sometimes different
-			#["fields.AL_CODE_EAN.*", "code"],
-
-			["ProductCode", "producer_product_id"],
-
-			["nutrients.ENERKJ.[0].RoundValue", "nutriments.energy_kJ"],
-			["nutrients.FAT.[0].RoundValue", "nutriments.fat_g"],
-			["nutrients.FASAT.[0].RoundValue", "nutriments.saturated-fat_g"],
-			["nutrients.CHOAVL.[0].RoundValue", "nutriments.carbohydrates_g"],
-			["nutrients.SUGAR.[0].RoundValue", "nutriments.sugars_g"],
-			["nutrients.FIBTG.[0].RoundValue", "nutriments.fiber_g"],
-			["nutrients.PRO.[0].RoundValue", "nutriments.proteins_g"],
-			["nutrients.SALTEQ.[0].RoundValue", "nutriments.salt_g"],
-
-
-# unsure about units / values (lots of 0s)
-# disabling:
-
-			["nutrients.FAMSCIS.[0].RoundValue", "nutriments.monounsaturated-fat-disabled_g"],
-			["nutrients.FAPUCIS.[0].RoundValue", "nutriments.polyunsaturated-fat-disabled_g"],
-			["nutrients.POLYL.[0].RoundValue", "nutriments.polyols-disabled_g"],
-			["nutrients.STARCH.[0].RoundValue", "nutriments.starch-disabled_g"],
-			["nutrients.ACL.[0].RoundValue", "nutriments.alcohol-disabled_g"],
-			["nutrients.CHO.[0].RoundValue", "nutriments.cholesterol-disabled_g"],
-			["nutrients.AGO.[0].RoundValue", "nutriments.omega-3-fat-disabled_g"],
-			["nutrients.LACS.[0].RoundValue", "nutriments.lactose-disabled_g"],
-
-# vitamin C:
-#<Unit>
-#<Name>ml</Name>
-#<Id>ML</Id>
-#<Unit_value>100,00</Unit_value>
-#<Description>millilitre</Description>
-#<RoundValue>12</RoundValue>
-#<ARPercent>15</ARPercent>
-#</Unit>
-
-			["nutrients.VITA.[0].RoundValue", "nutriments.vitamin-a-disabled_g"],
-			["nutrients.VITC.[0].RoundValue", "nutriments.vitamin-c-disabled_g"],
-			["nutrients.VITD.[0].RoundValue", "nutriments.vitamin-d-disabled_g"],
-			["nutrients.VITE.[0].RoundValue", "nutriments.vitamin-e-disabled_g"],
-			["nutrients.K.[0].RoundValue", "nutriments.potassium-disabled_g"],
-			["nutrients.ZN.[0].RoundValue", "nutriments.zinc-disabled_g"],
-			["nutrients.BIOT.[0].RoundValue", "nutriments.biotin-disabled_g"],
-			["nutrients.MO.[0].RoundValue", "nutriments.molybdenum-disabled_g"],
-			["nutrients.MN.[0].RoundValue", "nutriments.manganese-disabled_g"],
-			["nutrients.FE.[0].RoundValue", "nutriments.iron-disabled_g"],
-			["nutrients.MG.[0].RoundValue", "nutriments.magnesium-disabled_g"],
-			["nutrients.P.[0].RoundValue", "nutriments.phosphorus-disabled_g"],
-			["nutrients.NIA.[0].RoundValue", "nutriments.vitamin-pp-disabled_g"],
-			["nutrients.CU.[0].RoundValue", "nutriments.copper-disabled_g"],
-			["nutrients.CR.[0].RoundValue", "nutriments.chromium-disabled_g"],
-			["nutrients.VITK.[0].RoundValue", "nutriments.vitamin-k-disabled_g"],
-			["nutrients.SE.[0].RoundValue", "nutriments.selenium-disabled_g"],
-			["nutrients.ID.[0].RoundValue", "nutriments.iodine-disabled_g"],
-			["nutrients.FOLDFE.[0].RoundValue", "nutriments.folates-disabled_g"],
-			["nutrients.VITB12.[0].RoundValue", "nutriments.vitamin-b12-disabled_g"],
-			["nutrients.PANTAC.[0].RoundValue", "nutriments.pantothenic-acid-disabled_g"],
-			["nutrients.VITB6.[0].RoundValue", "nutriments.vitamin-b6-disabled_g"],
-			["nutrients.RIBF.[0].RoundValue", "nutriments.vitamin-b2-disabled_g"],
-			["nutrients.THIA.[0].RoundValue", "nutriments.vitamin-b1-disabled_g"],
-			["nutrients.FD.[0].RoundValue", "nutriments.fluoride-disabled_g"],
-			["nutrients.CA.[0].RoundValue", "nutriments.calcium-disabled_g"],
-			["nutrients.CLD.[0].RoundValue", "nutriments.chloride-disabled_g"],
-
-			# for waters? but present for other products .  by L ?
-
-#<Unit>
-#<Name>mg/L</Name>
-#<Id>MCL</Id>
-#<Unit_value>1,00</Unit_value>
-#<Description>milligramme par litre</Description>
-#<RoundValue>7,000</RoundValue>
-#</Unit>
-
-			["nutrients.CAL.[0].RoundValue", "nutriments.calcium-disabled_mgl"],
-			["nutrients.FDL.[0].RoundValue", "nutriments.fluoride-disabled_mgl"],
-			["nutrients.FR.[0].RoundValue", "nutriments.fluoride-disabled_mgl"],
-			["nutrients.CLDE.[0].RoundValue", "nutriments.chloride-disabled_mgl"],
-			["nutrients.BCO.[0].RoundValue", "nutriments.bicarbonates-disabled_mgl"],
-			["nutrients.NH.[0].RoundValue", "nutriments.ammonium-disabled_mgl"],
-			["nutrients.NAL.[0].RoundValue", "nutriments.sodium-disabled_mgl"],
-			["nutrients.SO.[0].RoundValue", "nutriments.sulfates-disabled_mgl"],
-			["nutrients.NO.[0].RoundValue", "nutriments.nitrates-disabled_mgl"],
-			["nutrients.KL.[0].RoundValue", "nutriments.potassium-disabled_mgl"],
-			["nutrients.SIO.[0].RoundValue", "nutriments.silica-disabled_mgl"],
-			["nutrients.MGL.[0].RoundValue", "nutriments.magnesium-disabled_mgl"],
-
-			# same thing as bicarbonates ?
-			["nutrients.HCO.[0].RoundValue", "nutriments.hydrogenocarbonates-disabled_mgl"],
-
-		);
-
-	# To get the rules:
-
-	#use XML::Rules;
-	#use Data::Dump;
-	#print Data::Dump::dump(XML::Rules::inferRulesFromExample($file));
-
-
-		$xml_errors += load_xml_file($file, \@xml_rules, \@xml_fields_mapping, undef);
-
-		open(my $IN, "<:encoding(UTF-8)", $file);
-		my $xml = join('', (<$IN>));
-		close ($IN);
-
-		while ($xml =~ /Type_Code="(\w+)"/) {
-			$nutrients{$1}++;
-			$xml = $';
-		}
-	}
 }
 
 
@@ -430,29 +282,40 @@ F=>undef,
 
 # Special processing for Carrefour data (before clean_fields_for_all_products)
 
+my @non_food_brands = qw(
+ELEMBAL
+MAMISON
+MOTS D'ENFANTS
+CLAIR
+);
+
+my %non_food_brands = ();
+foreach my $brand (@non_food_brands) {
+	$non_food_brands{$brand} = 1;
+}
+
 foreach my $code (sort keys %products) {
+	
+	my $product_ref = $products{$code};
+	
+	assign_quantity_from_field($product_ref, "product_name_fr");
+	
+	# Some products have 0 in the serving size field
+	#       <ADO LIB="HACHIS PARMENTIER SURGELE" LIB2="Hachis parmentier - 1 kg" ADO="02" SECT_OQALI="Plats cuisines surgeles" CAT_NUTRI_SCORE="Autres" POIDS="1000.000" UNITE_POIDS="G" PORTION="0" NOMBREPORTION="">
 
-	if (defined $products{$code}{total_weight}) {
-
-		$products{$code}{total_weight} =~ s/(\[emetro\])|(\[zemetro\])/e/ig;
-
-		# + e métrologique
-		# (métrologique)
-		$products{$code}{total_weight} =~ s/(\+ )?e( ?([\[\(])?(métrologique|metrologique|metro|métro)([\]\)])?)?/e/ig;
-		$products{$code}{total_weight} =~ s/(\+ )?( ?([\[\(])?(métrologique|metrologique|metro|métro)([\]\)])?)/e/ig;
-
-		# poids net = poids égoutté = 450 g [zemetro]
-		# poids net : 240g (3x80ge)       2
-		# poids net égoutté : 150g[zemetro]       2
-		# poids net : 320g [zemetro] poids net égoutté : 190g contenance : 370ml  2
-		# poids net total : 200g [zemetro] poids net égoutté : 140g contenance 212ml
-
+	if ((defined $product_ref->{serving_size_value}) and ($product_ref->{serving_size_value} == 0)) {
+	
+		delete $product_ref->{serving_size_value};
+		delete $product_ref->{serving_size_unit};
 	}
-
-	if ((defined $products{$code}{emb_codes}) and ($products{$code}{emb_codes} =~ /fabriqu|elabor|conditionn/i)) {
-
-		$products{$code}{producer_fr} = $products{$code}{emb_codes};
-		delete $products{$code}{emb_codes};
+	
+	if (defined $product_ref->{product_name_fr}) {
+	
+		$product_ref->{product_name_fr} =~ s/\(?\s*(facultatif|non affiché|non étiqueté)\s*\)?\s*//i;
+	}
+	
+	if ((defined $product_ref->{brands}) and (defined $non_food_brands{$product_ref->{brands}})) {
+		delete $products{$code};
 	}
 }
 
@@ -467,6 +330,8 @@ clean_fields_for_all_products();
 foreach my $code (sort keys %products) {
 
 	my $product_ref = $products{$code};
+	
+	
 
 	clean_weights($product_ref); # needs the language code
 
