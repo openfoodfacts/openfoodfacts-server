@@ -17,8 +17,6 @@ synonyms:en:sulphate,sulfate
 
 synonyms:en:iron,ferric,ferrous
 
-synonyms:en:cupric,copper
-
 synonyms:fr:de fer, ferreux, ferrique
 
 synonyms:fr:monosodique, mono-sodique, sodique, disodique, trisodique, de sodium
@@ -97,28 +95,93 @@ sk:uhličitan draselný
 sl:kalijev karbonat
 sv:kaliumkarbonat
 
-<en:Potassium
+
+# description:en:POTASSIUM CHLORIDE (KCl) is a metal halide salt composed of potassium and chlorine. It can be used as a salt substitute for food. Potassium is vital in the human body, and potassium chloride by mouth is the common means to treat low blood potassium.
+
+<en:potassium
 en:potassium chloride
+ar:كلوريد البوتاسيوم
+# azb:پوتاسیوم کولورید
 bg:Калиев хлорид
-cs:chlorid draselný
+bn:পটাশিয়াম ক্লোরাইড
+bs:Kalij hlorid
+ca:clorur de potassi
+cs:Chlorid draselný
+cy:potasiwm clorid
+da:kaliumklorid
 de:Kaliumchlorid
-el:χλωριούχο κάλιο
-es:cloruro de potasio
-et:kaaliumkloriid
+el:Χλωριουχο καλιο
+eo:kalia klorido
+es:cloruro potásico
+et:Kaaliumkloriid
+fa:پتاسیم کلرید
 fi:kaliumkloridi
 fr:chlorure de potassium
+gl:Cloruro de potasio
+gv:Cloreed potashum
+he:אשלגן כלורי
+hi:पोटेशियम क्लोराइड
+hr:Kalijev klorid
 hu:kálium-klorid
+hy:Կալիումի քլորիդ
+id:Potasium klorida
 it:cloruro di potassio
-lt:kalio chloridas
-lv:kālija hlorīds
-mt:klorur tal-potassju
+ja:塩化カリウム
+ka:კალიუმის ქლორიდი
+kk:Калий хлориді
+# kk-arab:كالىيي ٴحلورىيدى
+# kk-cn:كالىيي ٴحلورىيدى
+# kk-cyrl:Калий хлориді
+# kk-kz:Калий хлориді
+# kk-latn:Kalïý xlorïdi
+# kk-tr:Kalïý xlorïdi
+ko:염화 칼륨
+ky:Калий хлориди
+lt:Kalio chloridas
+lv:Kālija hlorīds
+ml:പൊട്ടാസ്യം ക്ലോറൈഡ്
+ms:Kalium klorida
+mt:Klorur tal-potassju
+nb:kaliumklorid
 nl:kaliumchloride
+or:ପୋଟାସିଅମ କ୍ଲୋରାଇଡ
 pl:chlorek potasu
 pt:cloreto de potássio
-ro:clorură de potasiu
-sk:chlorid draselný
+ro:Clorură de potasiu
+ru:хлорид калия
+# sco:potassium chloride
+sh:Kalijum hlorid
+sk:Chlorid draselný
 sl:kalijev klorid
+sr:калијум хлорид
+# sr-ec:калијум хлорид
+# sr-el:Kalijum hlorid
 sv:kaliumklorid
+ta:பொட்டாசியம் குளோரைடு
+te:పొటాషియం క్లోరైడ్
+th:โพแทสเซียมคลอไรด์
+tr:Potasyum klorür
+uk:Хлорид калію
+vi:Kali clorua
+# wuu:氯化钾
+# yue:氯化鉀
+zh:氯化钾
+# zh-cn:氯化钾
+# zh-hans:氯化钾
+# zh-hant:氯化鉀
+# zh-hk:氯化鉀
+# zh-sg:氯化钾
+# zh-tw:氯化鉀
+mandatory_additive_class:en:en:flavour-enhancer, en:stabiliser, en:thickener
+e_number:en:508
+wikidata:en:Q184630
+additives_classes:en:en:stabilizer, en:thickener
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_chloride
+# mineral/potassium-chloride has 2404 products in 16 languages @2019-05-19
+# ingredient/fr:chlorure-de-potassium has 731 products @2019-05-19
+# usage:pl:chlorek potasu (potas)
+
+
 
 <en:Potassium
 en:potassium citrate
@@ -518,7 +581,7 @@ sl:kalcijev oksid
 sv:kalciumoxid
 
 <en:Calcium
-en:calcium sulphate
+en:calcium sulfate
 bg:Калциев сулфат
 cs:síran vápenatý
 de:Calciumsulfat
@@ -891,7 +954,7 @@ sl:magnezijev oksid
 sv:magnesiumoxid
 
 <en:Magnesium
-en:magnesium sulphate
+en:magnesium sulfate
 bg:Магнезиев сулфат
 cs:síran hořečnatý
 de:Magnesiumsulfat
@@ -1194,7 +1257,7 @@ sl:železov laktat
 sv:ferrolaktat
 
 <en:Iron
-en:ferrous sulphate, iron sulphate
+en:ferrous sulfate, iron sulfate
 bg:Железен сулфат
 cs:síran železnatý
 de:Eisensulfat
@@ -1558,28 +1621,60 @@ sk:uhličitan zinočnatý
 sl:cinkov karbonat
 sv:zinkkarbonat
 
-<en:Zinc
-en:zinc sulphate
+
+# description:en:ZINC SULFATE has the formula ZnSO4 as well as any of three hydrates. As a supplement it is used to treat zinc deficiency and to prevent the condition in those at high risk.
+
+<en:zinc
+en:zinc sulfate
+ar:كبريتات الزنك
+# azb:چینکو سولفات
 bg:Цинков сулфат
+bn:জিঙ্ক সালফেট
+ca:sulfat de zinc
 cs:síran zinečnatý
+da:zinksulfat
 de:Zinksulfat
+# de-ch:Zinksulfat
 el:θειικός ψευδάργυρος
+# en-ca:zinc sulfate
+# en-gb:zinc sulfate
+eo:zinka sulfato
 es:sulfato de cinc
 et:tsinksulfaat
+fa:روی سولفات
 fi:sinkkisulfaatti
 fr:sulfate de zinc
+hi:जिंक सल्फेट
 hu:cink-szulfát
+id:Seng sulfat
 it:solfato di zinco
+ja:硫酸亜鉛
 lt:cinko sulfatas
 lv:cinka sulfāts
+mk:Цинк сулфат
 mt:sulfat taż-żingu
+nb:Sinksulfat
 nl:zinksulfaat
 pl:siarczan cynku
 pt:sulfato de zinco
+# pt-br:Sulfato de zinco
 ro:sulfat de zinc
+sh:Cink sulfat
 sk:síran zinočnatý
+sr:цинк-сулфат
+# sr-ec:цинк-сулфат
+# sr-el:Cink sulfat
 sl:cinkov sulfat
 sv:zinksulfat
+ta:வெண் துத்தம்
+tr:zinc sulfate
+uk:Цинковий купорос
+vi:Kẽm sulfat
+zh:硫酸锌
+# ingredient/fr:sulfate-de-zinc has 421 products in 4 languages @2019-05-18
+# mineral/zinc-sulphate has 692 products in 9 languages @2019-05-18
+# usage:pt:zinco (sulfato de zinco)
+
 
 <en:Zinc
 en:zinc bisglycinate
@@ -1604,7 +1699,8 @@ sk:bisglycinát zinočnatý
 sl:cinkov bisglicinat
 sv:zinkbisglycinat
 
-en:Copper
+# add cupric so that it can be user as a synonym in compounds e.g. copper / cupric carbonate
+en:Copper, cupric
 bg:Мед
 cs:Měď
 de:Kupfer
@@ -1627,7 +1723,7 @@ sl:Baker
 sv:Koppar
 
 <en:Copper
-en:cupric carbonate, copper carbonate
+en:cupric carbonate
 bg:Меден карбонат
 cs:uhličitan měďnatý
 de:Kupfercarbonat
@@ -1696,7 +1792,7 @@ sl:bakrov glukonat
 sv:kopparglukonat
 
 <en:Copper
-en:cupric sulphate, copper sulphate
+en:cupric sulfate
 bg:Меден сулфат
 cs:síran měďnatý
 de:Kupfersulfat
@@ -1878,7 +1974,7 @@ sl:manganov glicerofosfat
 sv:manganglycerolfosfat
 
 <en:Manganese
-en:manganese sulphate
+en:manganese sulfate
 bg:Манганов сулфат
 cs:síran manganatý
 de:Mangansulfat
@@ -2127,7 +2223,7 @@ sl:kromov (III) klorid in njegov heksahidrat
 sv:krom(III)klorid och dess hexahydrat
 
 <en:Chromium
-en:chromium (III) sulphate and its hexahydrate
+en:chromium (III) sulfate and its hexahydrate
 bg:Хром (III) сулфат и неговите хексахидрати
 cs:síran chromitý a jeho hexahydrát
 de:Chrom-(III)-Sulfat und sein Hexahydrat
