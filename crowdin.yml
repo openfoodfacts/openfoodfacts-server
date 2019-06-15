@@ -353,20 +353,6 @@ files:
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr
-  - source: /lang/en/texts/experimental-nutrition-score-france.html
-    translation: /lang/%two_letters_code%/texts/experimental-nutrition-score-france.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr
   - source: /lang/en/texts/scan-parties.html
     translation: /lang/%two_letters_code%/texts/scan-parties.html
     languages_mapping:
@@ -591,8 +577,22 @@ files:
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr
-  - source: /html/files/tagline.txt
-    translation: /html/files/tagline/tagline-%two_letters_code%.txt
+  - source: /lang/en/texts/nutriscore-formula.html
+    translation: /lang/%two_letters_code%/texts/nutriscore-formula.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr
+  - source: /lang/en/texts/nutriscore.html
+    translation: /lang/%two_letters_code%/texts/nutriscore.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK

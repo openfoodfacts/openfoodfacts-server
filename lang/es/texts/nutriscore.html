@@ -1,403 +1,187 @@
-<div id="main_column" class="XXLarge-11 xlarge-10 wide-9 medium-8 columns" style="padding-top: 1REM; height: 4313px;" data-equalizer-watch="">
+<!-- no side column -->
 
-<!-- Hand column content - how used to remove left column and center glad On Some pages -->  
+<styles>
+@media only screen and (max-width: 40em) { h2 { font-weight:bold; font-size:1.2em;} }
+</styles>
 
-<h1>Puntuación nutricional - Notas de color - Francia</h1>
+<h1>¡Compare la calidad nutricional de los productos alimenticios con el Nutri-Score!</h1>
 
-<h2>Un sistema de niveles del A al E para simplificar el etiquetado nutricional</h2>
+<h2>¿Qué es Nutri-Score?</h2>
 
-<p>En el reporte "Proposals for a new impetus to the French public health nutrition policy in the framework of the National Health Strategy" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>), el profesor Professor Serge Hercberg aboga por la adopción de un sistema de niveles, desde el A al E, que sea visible en el frente de la comida para permitir realizar una comparación sencilla de la calidad de los productos.</p>
+<div class="row">
 
-<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
+<div class="small-6 medium-6 large-8 xlarge-8 columns">  
 
-<p>Estos símbolos de colores son dados al calcular el valor nutricional que refleja, por un lado, la energía, la grasa saturada, los azúcares, el sodio (las concentraciones altas se consideran poco saludables), y por otro lado, la proporción de frutas, vegetales y nueces, fibra y proteínas (los niveles altos se consideran buenos para la salud).</p>
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png" alt="NutriScore">
 
-<p>Para aprender más:</p>
+<p>El Nutri-Score es un logotipo que muestra la calidad nutricional de los productos alimenticios con grados de A a E. Con el NutriScore, los productos pueden ser comparados fácilmente y rápidamente.</p>
 
-<ul>
-<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">Vídeo de dos minutos: ¿Qué etiquetado para productos alimenticios?</a></li>
-<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petición de un etiquetado nutricional simple, intuitivo y comprensible en las etiquetas de los envases de los productos alimenticios</a>
-</li>
-</ul>
+<div class="panel callout show-for-medium-up">
+<p><b>May 2019:</b> you can see the Nutri-Score with the Open Food Facts app but it is currently optional on the front of food products. You can ask the European commission to make its display mandatory on the front of food products.</p>
 
-<h2>La puntuación nutricional en Open Food Facts</h2>
-
-<p>La fórmula para calcular la puntuación nutricional, los umbrales de los grados y las diferentes propuestas de ajuste fueron transmitidas por el equipo del profesor Hercberg. Esta fórmula fue objeto de estudios y adaptaciones para el mercado francés.</p>
-
-<p>La versión adoptada oficialmente e implementada por Open Food Facts es la que viene en el reporte 
-<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">AVISO del Alto Consejo de Educación Pública relacionado con la información de la calidad nutricional de los productos alimenticios publicado el 25 de junio de 2015</a>.</p>
-
-<p>Sin embargo, calculamos la puntuación nutricional para los productos que se venden en suelo Francés y referenciados en la base de datos de Open Food Facts, y se determina la puntuación correspondiente de la A a la E. Esto permite, en particular, comparar puntuaciones nutricionales o notas de diferentes productos, y estudiar la distribución por cada categoría.</p>
-
-<h2>Fórmula para calcular la puntuación nutricional</h2>
-
-<p>Los puntos se otorgan al producto según la cantidad de nutrientes que contiene por cada 100 g.</p>
-
-<p>La puntuación A se da a nutrientes considerados «malos» y la puntuación C a los nutrientes «buenos» y al contenido de frutas, vegetales y nueces.</p>
-
-<h3>Puntuación A</h3>
-
-<p>La puntuación A es la suma de los puntos para energía, grasas saturadas, azúcares y sodio.</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <th>Puntos</th>
-    <th>Energía (kj)</th>
-    <th>Grasas saturadas (g)</th>
-    <th>Azúcares (g)</th>
-    <th>Sodio (mg)</th>
-  </tr>
-<tr>
-  <td>0</td>
-  <td>≤335</td>
-  <td>≤1</td>
-  <td>≤4.5</td>
-  <td>≤90</td>
-</tr>
-<tr>
-  <td>1</td>
-  <td>&gt;335</td>
-  <td>&gt;1</td>
-  <td>&gt;4.5</td>
-  <td>&gt;90</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td>&gt;670</td>
-  <td>&gt;2</td>
-  <td>&gt;9</td>
-  <td>&gt;180</td>
-</tr>
-<tr>
-  <td>3</td>
-  <td>&gt;1005</td>
-  <td>&gt;3</td>
-  <td>&gt;13.5</td>
-  <td>&gt;270</td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>&gt;1340</td>
-  <td>&gt;4</td>
-  <td>&gt;18</td>
-  <td>&gt;360</td>
-</tr>
-<tr>
-  <td>5</td>
-  <td>&gt;1675</td>
-  <td>&gt;5</td>
-  <td>&gt;22.5</td>
-  <td>&gt;450</td>
-</tr>
-<tr>
-  <td>6</td>
-  <td>&gt;2010</td>
-  <td>&gt;6</td>
-  <td>&gt;27</td>
-  <td>&gt;540</td>
-  </tr>
-<tr>
-  <td>7</td>
-  <td>&gt;2345</td>
-  <td>&gt;7</td>
-  <td>&gt;31</td>
-  <td>&gt;630</td>
-</tr>
-<tr>
-  <td>8</td>
-  <td>&gt;2680</td>
-  <td>&gt;8</td>
-  <td>&gt;36</td>
-  <td>&gt;720</td>
-</tr>
-<tr>
-  <td>9</td>
-  <td>&gt;3015</td>
-  <td>&gt;9</td>
-  <td>&gt;40</td>
-  <td>&gt;810</td>
-</tr>
-<tr>
-  <td>10</td>
-  <td>&gt;3350</td>
-  <td>&gt;10</td>
-  <td>&gt;45</td>
-  <td>&gt;900</td>
-</tr>
-</tbody>
-  </table>
-
-<h3>Puntuación C</h3>
-
-<p>La puntuación C es la suma de los puntos para frutas, vegetales y frutos secos, así como para fibra y proteína.</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <th>Puntos</th>
-    <th>Frutas, vegetales y frutos secos (%)</th>
-    <th>Fibra (g)</th>
-    <th>Proteína (g)</th>
-  </tr>
-<tr>
-  <td>0</td>
-  <td>≤40</td>
-  <td>≤0.7</td>
-  <td>≤1.6</td>
-</tr> 
-<tr>
-    <td>1</td>
-    <td>&gt;40</td>
-    <td>&gt;0.7</td>
-    <td>&gt;1.6</td>
-</tr> 
-<tr>
-  <td>2</td>
-  <td>&gt;60</td>
-  <td>&gt;1.4</td>
-  <td>&gt;3.2</td>
-</tr> 
-<tr>
-  <td>3</td>
-  <td>-</td>
-  <td>&gt;2.1</td>
-  <td>&gt;4.8</td>
-</tr> 
-<tr>
-  <td>4</td>
-  <td>-</td>
-  <td>&gt;2.8</td>
-  <td>&gt;6.4</td>
-  </tr> 
-<tr>
-  <td>5</td>
-  <td>&gt;80</td>
-  <td>&gt;3.5</td>
-  <td>&gt;8.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>Nota: las papas, batatas, taro, mandioca y la tapioca no están incluidas como frutas, vegetales y frutos secos.</p>
-
-<h3>Cálculo de puntuación nutricional</h3>
-
-<ul>
-<li>Si los puntos A &lt; 11 entonces la puntuación = puntos A - puntos C</li>
-<li>Si los puntos A ≥ 11
-<ul>
-<li>Si los puntos para frutas, verduras y frutos secos = 5, entonces la puntuación = puntos A - puntos C</li>
-<li>Si los puntos para frutas, verduras y frutos secos &lt; 5, entonces la puntuación = A puntos - (puntos de fibra + puntos para puntos de frutas, verduras y frutos secos)</li>
-</ul>
-
-</li>
-</ul>
-
-<h3>Adaptaciones para el mercado francés</h3>
-
-<p>La fórmula de la puntuación nutricional indicada anteriormente corresponde a la fórmula de la puntuación nutricional de la Food Standards Agency (FSA) del Reino Unido.</p>
-
-<p>El equipo del profesor Hercberg ofrece adaptaciones para el mercado francés que se han implementado para calcular la puntuación en Open Food Facts.</p>
-
-<h4>Adaptación para el queso</h4>
-
-<p>Para los quesos, los puntos de las proteínas se restan de la puntuación incluso si los puntos A son ≥ 11.</p>
-
-<h4>Adaptación para grasas</h4>
-
-<p>Para ayudar a diferenciar entre distintas grasas (aceites, margarinas, cremas), que tienen grados de grasas saturadas superiores a el umbral máximo de 10g, se usa otro criterio que toma en cuenta la relación del ratio entre los ácidos grasos saturados y el total de grasas:</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <td>Puntos</td>
-    <td>Relación grasa saturada / grasa total</td>
-  </tr>
-<tr>
-  <td>0</td> 
-  <td>&lt; 10</td>
-</tr>
-<tr>
-  <td>1</td> 
-  <td>&lt; 16</td>
-</tr>
-<tr>
-  <td>2</td> 
-  <td>&lt; 22</td>
-</tr>
-<tr>
-  <td>3</td> 
-  <td>&lt; 28</td>
-</tr>
-<tr>
-  <td>4</td> 
-  <td>&lt; 34</td>
-</tr>
-<tr>
-  <td>5</td> 
-  <td>&lt; 40</td>
-</tr>
-<tr>
-  <td>6</td> 
-  <td>&lt; 46</td>
-</tr>
-<tr>
-  <td>7</td> 
-  <td>&lt; 52</td>
-</tr>
-<tr>
-  <td>8</td> 
-  <td>&gt;&lt; 58</td>
-</tr>
-<tr>
-  <td>9</td> 
-  <td>&gt;&lt; 64</td>
-</tr>
-<tr>
-  <td>10</td> 
-  <td>&gt;64</td>
-</tr>
-</tbody>
-</table>
-
-<h4>Adaptaciones para frutas y verduras</h4>
-
-<p>Los frutos secos no se tienen en cuenta para el cálculo del contenido de frutas y verduras.</p>
-
-<h4>Adaptaciones para bebidas</h4>
-
-<p>Advertencia: la puntuación nutricional para la leche y las leches vegetales se calcula con la fórmula general y no con la fórmula para bebidas.</p>
-
-<p>El umbral de puntos para la energía y para los azúcares se modifica para las bebidas, y los puntos se duplican para las frutas:</p>
-
-<table class="points">
-<tbody>
-<tr>
-  <th>Puntos</th>
-  <th>Energía (kj)</th>
-  <th>Azúcares (g)</th>
-  <th>Frutas, vegetales (%)</th>
-</tr>
-<tr>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td> 
-  <td>&lt; = 40</td>
-</tr>
-<tr>
-  <td>1</td> <td>≤30</td> 
-  <td>≤1,5 o edulcorantes</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>2</td> <td>&gt;30</td> 
-  <td>&gt;1.5</td> 
-  <td>&gt;40</td>
-</tr>
-<tr>
-  <td>3</td> <td>&gt;60</td> 
-  <td>&gt;3</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>&gt;90</td> 
-  <td>&gt;4.5</td> 
-  <td>&gt;60</td>
-</tr>
-<tr>
-  <td>5</td> 
-  <td>&gt;120</td> 
-  <td>&gt;6</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>6</td> 
-  <td>&gt;150</td> 
-  <td>&gt;7.5</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>7</td> 
-  <td>&gt;180</td> 
-  <td>&gt;9</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>8</td> 
-  <td>&gt;210</td> 
-  <td>&gt;10.5</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>9</td> 
-  <td>&gt;240</td> 
-  <td>&gt;12</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>10</td> 
-  <td>&gt;270</td> 
-  <td>&gt;13.5</td> 
-  <td>&gt;80</td>
-  </tr>
-</tbody>
-</table>
-
-<h2>Umbrales de grados de color</h2>
-
-<p>Los umbrales utilizados para asignar las calificaciones de color son:</p> <p>
-</p><h3>Alimentos sólidos:</h3>
-<ul>
-<li>A - Verde: hasta -1</li>
-<li>B - Amarillo: de 0 a 2</li>
-<li>C - Naranja: de 3 a 10</li>
-<li>D - Rosa: del 11 al 18</li>
-<li>E - Rojo: 19 y más</li>
-</ul>
-<h3>Bebidas:</h3>
-<p>Solo el agua (mineral y de manantial, con exclusión de las aguas saborizadas) se clasifica como A.</p>
-
-<ul>
-<li>A - Verde: aguas minerales y aguas de manantial</li>
-<li>B - Amarillo: hasta 1</li>
-<li>C - Naranja: de 2 a 5</li>
-<li>D - Rosa: del 6 al 9</li>
-<li>E - Rojo: 10 y más</li>
-</ul>
-
-<p><b>Advertencia: esta puntuación puede que aún no coincida con la puntuación recomendado:</b></p>
-
-<ul>
-<li>El contenido de fibra no está necesariamente presente en la tabla de nutrición. Cuando no se indica este último, no se tiene en cuenta ninguna contribución positiva de las fibras. Alentamos a todos los productores a indicar el contenido de fibra de sus productos en el envase de los mismos.</li>
-  
-  <--end of current proofread -->
-<li>Los puntos correspondientes a los niveles en frutas y verduras no se toman en cuenta para todos los productos. El contenido de frutas y verduras no figura dentro de la tabla de valores nutricionales del envase, por lo que tendremos que determinarlo con otra información (como las palabras «contenido mínimo de fruta», la categoría del producto (p. ej. las mermeladas contienen un 50% de fruta) o la lista de ingredientes).
-<ul>
-<li>Se creó un nuevo campo «Frutas, verduras (mínimo)» para registrar los valores de los términos «contenido mínimo de frutas / verduras», etc.</li>
-<li>Por defecto, se considera que los productos en ciertas categorías tienen un contenido mínimo de:
-<ul>
-<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits">jugos de fruta</a></li>
-<li>90%: <a href="https://world.openfoodfacts.org/category/fr:compotes">compotas de frutas</a></li>
-<li>85%: <a href="https://world.openfoodfacts.org/category/fr:legumes">vegetales</a></li>
-<li>50%: <a href="https://world.openfoodfacts.org/category/fr:confitures">mermeladas</a></li>
-<li>otras categorías a definir</li>
-</ul>
-
-Para calcular la puntuación nutricional es importante distinguir niveles superiores al 40%, 60% y 80%.
-</li>
-</ul>
-  
-</li>
-
-<li>Para los alimentos liofilizados (sopas envasadas, etc.) la puntuación debe calcularse para el producto reconstituido, no para el producto crudo como se hace actualmente.</li>
-</ul>
-
-<p>Puede ayudarnos a aprender el contenido de frutas, verduras y frutos secos. Para obtener más información, consulte el proyecto <a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">Etiqutado Nutricional</a> en la wiki.</p>
-
-<p>Nota: los tubérculos, como las papas y las batatas, no se consideran verduras para calcular la puntuación nutricional.</p>
-<h2>Agradecimientos</h2>
-<p>Agradecemos al profesor Serge Hercberg y al Dr. Chantal Julia por su ayuda y los datos que nos han proporcionado para calcular la puntuación nutricional. Estos datos provienen del trabajo del <a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">Equipo de Investigación en Epidemiología Nutricional (EREN)</a> de la Universidad Paris 13 / Hospital Avicenne.</p>
+<a class="small button" href="http://www.pronutriscore.org">Sign the Nutri-Score Petition on the EU commission website</a> 
+</div>
 
 </div>
+
+<div class="small-6 medium-6 large-4 xlarge-4 columns">
+
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-cereals-delhaize-201905.jpg" alt="Nutri-Score en Bélgica">
+<p><em>Nutri-Score en la parte frontal del paquete de nutrición en cereales de desayuno en una tienda Delhaize en Bélgica (mayo de 2019)</em></p>
+
+
+</div>
+
+</div>
+
+<div class="panel callout show-for-small-only">
+<p><b>May 2019:</b> you can see the Nutri-Score with the Open Food Facts app but it is currently optional on the front of food products. You can ask the European commission to make its display mandatory on the front of food products.</p>
+
+<a class="small button" href="http://www.pronutriscore.org">Sign the Nutri-Score Petition on the EU commission website</a>
+</div>
+
+
+<h2>¿Cómo se calcula Nutri-Score?</h2>
+
+
+<p>El grado de Nutri-Score está determinado por la cantidad de nutrientes saludables y poco saludables:</p> 
+
+<p><b>Puntos positivos:</b> la proporción de frutas, verduras y nueces, fibras y proteínas (los niveles altos son considerados buenos para la salud).</p>
+
+<p><b>Puntos negativos:</b> energía, grasa saturada, azúcares, sodio (niveles altos se consideran poco saludables)</p>
+
+<p>La fórmula detallada <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN">Nutri-Score</a> está disponible públicamente en el sitio web de Santé publique France.</p>
+
+
+<h2>¿Cómo puedo ver el Nutri-Score de los productos alimenticios?</h2>
+
+<div class="row">
+
+<div class="small-12 medium-6 columns">  
+
+
+<p>El Nutri-Score aparece en la etiqueta de los productos alimenticios solo en algunos países y para un número limitado de marcas actualmente, ¡pero se computa para todos los productos de todos los países en Open Food Facts desde 2014!</p>
+
+<p>Puedes ver el Nutri-Score de productos alimenticios con la aplicación móvil Open Food Facts de iPhone y Android, y en el sitio web Open Food Facts. Si el producto aún no está en Open Food Facts, puede agregarlo en un minuto agregando los datos nutricionales y seleccionando una categoría, y el Nutri-Score será calculado y mostrado instantáneamente.</p>
+
+</div>
+
+<div class="small-12 medium-6 columns">
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-biscuits-e.800x600.jpg" alt="NutriScore en la aplicación móvil Open Food Facts">
+<p><em>¡Obtén el Nutri-Score con la aplicación Open Food Facts!</em></p>
+</div>
+
+</div>
+
+<h3>Instala la aplicación móvil de Open Food Facts</h3>
+
+<p>Para escanear productos alimenticios, obtenga su grado nutricional Nutri-Score, el grupo NOVA para alimentos ultraprocesados, alertas de alérgenos y para descifrar aditivos alimentarios, ¡instale la aplicación gratuita Open Food Facts!</p>
+
+
+<a href="https://itunes.apple.com/app/open-food-facts/id588797948"><img src="https://static.openfoodfacts.org/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Disponible en la App Store" width="135" height="40"></a>
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="https://static.openfoodfacts.org/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible en Google Play" width="135" height="47"></a>
+<a href="https://www.microsoft.com/es-es/store/p/openfoodfacts/9nblggh0dkqr"><img src="https://static.openfoodfacts.org/images/misc/154x40_WP_Store_blk.png" alt="Tienda de Windows Phone" width="154" height="40"></a>
+<a href="https://world.openfoodfacts.org/files/off.apk"><img src="https://static.openfoodfacts.org/images/misc/android-apk.112x40.png" alt="Android APK"></a>
+
+<br><br>
+
+<p>You will also be able to easily add new products to Open Food Facts and help to build a common good to improve everyone's food and health. Thank you!</p>
+
+<h3>Compare the Nutri-Score of products on the Open Food Facts Web site</h3>
+
+<div class="row">
+
+<div class="small-12 medium-6 large-8 columns">
+<p>On <a href="/">Open Food Facts</a>, you can choose a category of products or a brand and list the Nutri-Score grades, and then explore the corresponding products. Use the "Explore products by..." blue button and select "Nutrition grades".</p>
+
+</div>
+
+<div class="small-12 medium-6 large-4 columns">
+<a href="/nutrition-grades">
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-distribution.png" alt="NutriScore">
+<em>Distribution of the Nutri-Score for all products</em>
+</a>
+<br><br>
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="small-12 medium-6 large-8 columns">
+<p>On <a href="/">Open Food Facts</a>, you can also <a href="/cgi/search.pl?graph=1">create in a few clicks graphs</a> that show the Nutri-Score of products. Choose a criteria like a category of products, and the nutrition facts that you are interested in (e.g. sugars and fat), then check the box "Use the nutrition grades colors".</p>
+</div>
+
+<div class="small-12 medium-6 large-4 columns">
+<a href="/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=en:breakfast-cereals&sort_by=unique_scans_n&page_size=20&axis_x=sugars&axis_y=fat&graph_title=Sugar%20and%20fat%20in%20breakfast%20cereals&series_nutrition_grades=on&graph=1">
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-breakfast-cereals-graph-fr.png" alt="NutriScore">
+<em>Nutri-Score, sugars and fat of breakfast cereals</em>
+</a>
+<br><br>
+</div>
+
+</div>
+
+
+
+<h2>Who created the Nutri-Score?</h2>
+
+<p>Nutri-Score has been proposed by EREN, a French public nutrition research team, led by Professor Serge Hercberg. It is based on the FSA nutritional score created by the Food Standards Agency in the UK.</p>  
+
+<p>The Nutri-Score is presented in the 2013 report "Proposals for a new impetus to the French public health nutrition policy in the framework of the National Health Strategy" (<a href="http://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>).
+Professor Serge Hercberg advocates for the adoption of a system of grades from A to E on the front of food products to allow to easily compare the nutritional quality of products.</p>
+
+
+<h2>Which countries have adopted the Nutri-Score ?</h2>
+
+
+<p>The Nutri-Score has been adopted in France in 2016, and in Belgium and Spain in 2018. Some producers in Germany are also using the Nutri-Score. The Nutri-Score is optional in these countries, but a growing number of food manufacturers are displaying it on their products:</p>
+
+<ul>
+<li><a href="https://fr-en.openfoodfacts.org/label/nutriscore/brands">Brands with Nutri-Score in France</a></li>
+<li><a href="https://be-en.openfoodfacts.org/label/nutriscore/brands">Brands with Nutri-Score in Belgium</a></li>
+<li><a href="https://es-en.openfoodfacts.org/label/nutriscore/brands">Brands with Nutri-Score in Spain</a></li>
+<li><a href="https://de-en.openfoodfacts.org/label/nutriscore/brands">Brands with Nutri-Score in Germany</a></li>
+</ul>
+
+<p>Research teams in other countries, like Mexico, are also conducting research based on Nutri-Score.</p>
+
+
+
+<h2>The #PRONUTRISCORE Petition: Consumers across the EU are joining forces for 1 million signatures</h2>
+
+<p>UFC-Que Choisir (France), Test-Achat (Belgium), VZBV (Germany), Consumentenbond (The Netherlands), OCU (Spain), Federajca Konsumentow (Poland) and EKPIZO (Greece), members of the European Bureau of Consumer Associations (BEUC) have teamed up to ask the EU commission to make the Nutri-Score compulsory on food packagings.</p>
+
+<blockquote>
+<p>We are asking the European Commission to impose simplified ‘Nutriscore’ labelling on food products, to guarantee that consumers are provided with quality nutritional information and to protect their health.</p>
+<ol>
+<li>Make nutritional labelling easier to read and understand, so that the nutritional value of a food can be understood at a glance in the face of the diversity of food supply;</li>
+<li>Take action on public health issues by encouraging professionals to improve the composition of their products;</li>
+<li>Harmonise nutritional information at European level by imposing a single official labelling system, thereby putting an end to the confusion experienced by European consumers when faced by the plethora of existing logos.</li>
+</ol>
+</blockquote>
+<h3>Petition to make the Nutri-Score compulsory on all packages across Europe</h3>
+
+<p>
+<a class="small button" href="http://www.pronutriscore.org">Sign the Nutri-Score Petition on the EU commission website</a> (requires a valid form of European identification number)
+</p>
+
+<a class="tiny button" href="https://twitter.com/share?url=https://world-en.openfoodfacts.org/nutriscore&amp;text=Join%20me%20in%20signing%20the%20%23PRONUTRISCORE%20petition&amp;hashtags=yeswescan">Tweet about the petition</a>
+<a class="tiny button" href="https://www.facebook.com/sharer.php?u=https://world-en.openfoodfacts.org/nutriscore">Share this call to sign on Facebook</a>
+<a class="tiny button" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://world-en.openfoodfacts.org/nutriscore">Share this call to sign on LinkedIn</a>
+
+<h2>Agradecimientos</h2>
+<p>We would like to thank Professor Serge Hercberg and Dr. Chantal Julia from the <a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">Research Team in Nutritional Epidemiology (EREN)</a> of the Paris 13 University / Avicenne Hospital for their help and the data they have communicated us to compute the nutritional score and the Nutri-Score grades.</p>
+
+
+<h2>Aprende más sobre el Nutri-Score</h2>
+
+<ul>
+<li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score">Nutri-Score official presentation</a> and <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN">Nutri-Score Scientific and Technical FAQ</a> on the web site of the French national public health agency Santé publique France.</li>
+<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">Vídeo de dos minutos: ¿Qué etiquetado para productos alimenticios?</a></li>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petition for a simple, intuitive and understandable by all nutritional labeling on the front of food packages</a>
+</li>
+</ul>
+
+<br>

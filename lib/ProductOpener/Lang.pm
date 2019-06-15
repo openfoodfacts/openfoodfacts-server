@@ -255,25 +255,25 @@ my ($tag_type_singular_ref, $tag_type_plural_ref)
 %tag_type_singular = %$tag_type_singular_ref;
 %tag_type_plural   = %$tag_type_plural_ref;
 
-
 my @debug_taxonomies = ("categories", "labels", "additives");
 
 {
-
-	foreach my $taxonomy (@debug_taxonomies) {
-
-		foreach my $suffix ("prev", "next", "debug") {
-		
-			foreach my $field ("", "_s", "_p") {
-				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
-			}
-			
-			$tag_type_singular{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
-			$tag_type_plural{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
-		}
-	}
-	
 	foreach my $l (@Langs) {
+	
+		foreach my $taxonomy (@debug_taxonomies) {
+
+			foreach my $suffix ("prev", "next", "debug") {
+			
+				foreach my $field ("", "_s", "_p") {
+					defined $Lang{$taxonomy . "_$suffix" . $field } or $Lang{$taxonomy . "_$suffix" . $field } = {};
+					$Lang{$taxonomy . "_$suffix" . $field }{$l} = get_fileid($taxonomy) . "-$suffix";
+				}
+				defined $tag_type_singular{$taxonomy . "_$suffix"} or $tag_type_singular{$taxonomy . "_$suffix"} = {};
+				defined $tag_type_plural{$taxonomy . "_$suffix"} or $tag_type_plural{$taxonomy . "_$suffix"} = {};
+				$tag_type_singular{$taxonomy . "_$suffix"}{$l} = get_fileid($taxonomy) . "-$suffix";
+				$tag_type_plural{$taxonomy . "_$suffix"}{$l} = get_fileid($taxonomy) . "-$suffix";
+			}
+		}	
 
 		my $short_l = undef;
 		if ($l =~ /_/) {
@@ -306,13 +306,14 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 		$tag_type_from_singular{$l} or $tag_type_from_singular{$l} = {};
 		$tag_type_from_plural{$l} or $tag_type_from_plural{$l} = {};
 
-
 		foreach my $type (keys %tag_type_singular) {
-				$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
+			next if $type =~ /^:/;
+			$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
 		}
 
 		foreach my $type (keys %tag_type_plural) {
-				$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
+			next if $type =~ /^:/;
+			$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
 		}
 
 	}	

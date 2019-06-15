@@ -164,7 +164,7 @@ $memd = new Cache::Memcached::Fast {
 };
 
 $default_request_ref = {
-page=>1,
+	page=>1,
 };
 
 
@@ -175,8 +175,7 @@ page=>1,
 # Converting them to global variables.
 # - better solution: create a class?
 
-use vars qw(
-);
+use vars qw();
 
 sub init()
 {
@@ -5407,12 +5406,12 @@ sub display_login_register($)
 <div class="row">
 <div class="small-12 columns">
 	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" autocomplete="username">
+		<input type="text" name="user_id" autocomplete="username" required>
 	</label>
 </div>
 <div class="small-12 columns">
 	<label>$Lang{password}{$lc}
-		<input type="password" name="password" autocomplete="current-password">
+		<input type="password" name="password" autocomplete="current-password" required>
 	</label>
 </div>
 <div class="small-12 columns">
@@ -5858,7 +5857,7 @@ HTML
 
 	my $top_banner = "";
 
-	if ($lc eq 'fr') {
+	if ($lc eq 'fr-deactivated') {
 
 
 		$top_banner = <<HTML
@@ -6256,6 +6255,9 @@ HTML
 	my $status = $request_ref->{status};
 	if (defined $status) {
 		print header ( -status => $status );
+		my $r = Apache2::RequestUtil->request();
+		$r->rflush;
+		$r->status(200);
 	}
 
 	binmode(STDOUT, ":encoding(UTF-8)");
@@ -7246,9 +7248,8 @@ HTML
 
 
 	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
-		$html .= "<p>$Lang{no_nutrition_data}{$lang}</p>";
+		$html .= "<div class='panel callout'>$Lang{no_nutrition_data}{$lang}</div>";
 	}
-
 
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 
@@ -7331,7 +7332,7 @@ HTML
 
 	$html .= <<HTML
 
-<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br>
+<p class="details">$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br>
 $Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
 $other_editors
 $checked
@@ -7720,11 +7721,11 @@ HTML
 	my @comparisons = ();
 
 	if ($product_ref->{no_nutrition_data} eq 'on') {
-		$html .= "<p>$Lang{no_nutrition_data}{$lang}</p>";
+		$html .= "<div class='panel callout'>$Lang{no_nutrition_data}{$lang}</div>";
 	}
 
-
 	$html .= display_nutrition_table($product_ref, \@comparisons);
+
 
 	$html .= <<HTML
 			</div>
@@ -8384,7 +8385,7 @@ HTML
 			else {
 				my $labelid = get_fileid($Nutriments{$nid}{$lang});
 				$label = <<HTML
-<td class="nutriment_label"><a href="/$labelid" title="$product_ref->{nutrition_score_debug}">${prefix}$Nutriments{$nid}{$lang}</a></td>
+<td class="nutriment_label"><a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">${prefix}$Nutriments{$nid}{$lang}</a></td>
 HTML
 ;
 			}

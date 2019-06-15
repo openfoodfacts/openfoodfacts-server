@@ -374,6 +374,7 @@ ru:ГОСТ Р ИСО 22000-2007
 en:Designated Origin Denomination
 de:Ausgewiesene Herkunftsbezeichnung
 es:DO, D.O., Denominación de Origen
+fr:Appellation d'origine
 wikidata:en:Q3139487
 
 es:DOCa, D.O.Ca., Denominación de Origen Calificada
@@ -427,12 +428,14 @@ nl:Rechtvaardige handel, fair trade
 pl:Fair trade
 wikidata:en:Q188485
 
+# Should not be translated, "Fairtrade International" is a label
+
 <en:Fair trade
 en:Fairtrade International, Fairtrade, FLO international, FLO
-ca:Comerç Just Internacional, Comerç Just, FLO International
+ca:Fairtrade Internacional, FLO International
 es:Fairtrade International, Fairtrade, FLO international, FLO
 fr:Fairtrade International, Fairtrade, FLO international, FLO
-nl:Fair Trade, Eerlijke handel
+nl:Fairtrade International, Eerlijke handel
 ru:Честная торговля, FLO
 
 <en:Fair trade
@@ -850,7 +853,7 @@ de:Kalziumquelle
 es:Fuente de calcio
 fr:Source de calcium
 he:מקור לסידן
-nl:Bron van Calcium, Rijk aan Calcium
+nl:Bron van Calcium
 pt:Fonte de calcio
 ru:Обогащено кальцием, источник кальция
 
@@ -1584,7 +1587,7 @@ he:ללא תוספת סוכר
 hu:Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
 it:Senza zuccheri aggiunti
 nl:Zonder toegevoegde suikers
-pl:bez dodatku cukru, bez cukru, nie zawiera cukru
+pl:bez dodatku cukru, nie zawiera cukru
 pt:Sem açúcares adicionados, Sem adição de açúcares
 zh:无添糖
 
@@ -1754,7 +1757,9 @@ fr:Nou la fé, NOU LA FE
 
 fr:PIL, Produit de l'Industrie Locale
 
-fr:Produit en Gourmandie
+# Fabriqué en Gourmandie, Produit en Gourmandie are old brands of Saveurs de Normandie
+
+fr:Saveurs de Normandie
 
 fr:Fabriqué en Gourmandie, Produit en Gourmandie
 
@@ -1886,7 +1891,7 @@ it:Senza dolcificanti artificiali
 nl:Zonder kunstmatige suikers, Zonder suikervervangers
 pt:Sem adoçantes artificiais
 
-en:No artificial preservatives
+en:No artificial preservatives, free of artificial preservative
 de:Ohne künstliche Konservierungsstoffe
 es:Sin conservantes artificiales, Sin conservadores artificiales
 fr:Sans conservateur artificiel
@@ -2098,7 +2103,7 @@ nl:Bevat melk
 pt:Contem leite
 ru:Содержит молоко
 
-en:No preservatives, no added preservatives, free of artificial preservative
+en:No preservatives, no added preservatives
 ca:Sense conservants, sense conservants afegits, lliure de conservants artificials
 de:Ohne Konservierungsstoffe, Ohne Zusatz von Konservierungsstoffen
 es:Sin conservantes, Sin conservantes añadidos, Sin conservadores, Sin conservadores añadidos
@@ -2108,7 +2113,7 @@ hu:Nincs tartósítószer, nincs hozzáadott tartósítószer mesterséges tart�
 it:Senza conservanti, Senza aggiunta di conservanti, Senza conservanti aggiunti
 nl:Conserveermiddelvrij
 pl:Bez konserwantów, bez dodatku konserwantów, bez sztucznych dodatków
-pt:Sem conservantes, sem conservantes adicionados, sem conservantes artificiais
+pt:Sem conservantes, sem conservantes adicionados
 ro:Fără conservanți
 ru:Без консервантов
 zh:无防腐剂
@@ -3881,34 +3886,34 @@ de:Geschütztes spanisches Produkt
 es:Producto protegido de España
 fr:Produit protégé espagnol
 
-<en:Denominación de Origen
+<es:Denominación de Origen
 <en:Spanish protected product
 en:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
 ca:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
 es:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
 wikidata:en:Q5802762
 
-<en:Denominación de Origen
+<es:Denominación de Origen
 <en:Spanish protected product
 en:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
 ca:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
 es:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
 wikidata:en:Q13157
 
-<en:Denominación de Origen
+<es:Denominación de Origen
 <en:Spanish protected product
 en:DO Navarra, D.O. Navarra, Vino de Navarra
 es:DO Navarra, D.O. Navarra, Vino de Navarra
 wikidata:en:Q976624
 
-<en:Denominación de Origen
+<es:Denominación de Origen
 <en:Spanish protected product
 en:DO Toro, D.O. Toro, Toro, Vino de Toro
 ca:DO Toro, D.O. Toro, Toro, Vi de Toro
 es:DO Toro, D.O. Toro, Toro, Vino de Toro
 wikidata:en:Q765567
 
-<en:Denominación de Origen Calificada
+<es:Denominación de Origen Calificada
 <en:Spanish protected product
 en:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
 es:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
@@ -4369,9 +4374,6 @@ wikidata:en:Q7918275
 en:The Vegan Society, Vegan Society, Vegan Flower
 de:The Vegan Society, Vegan Society, Veganblume
 it:La società vegana
-
-<en:Vegan
-en:Vegan Society
 wikidata:en:Q1855049
 
 <en:Vegan
@@ -4617,12 +4619,24 @@ fr:Saveurs de l'Année 2018, Saveur de l'Année 2018
 <fr:Saveurs de l'Année
 fr:Saveurs de l'Année 2019, Saveur de l'Année 2019
 
+<fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2020, Saveur de l'Année 2020
+
+<fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2021, Saveur de l'Année 2021
+
+<fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2022, Saveur de l'Année 2022
+
+<fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2023, Saveur de l'Année 2023
+
 fr:Triman, tri-man
 
 fr:Tidy man
 wikidata:en:Q3528198
 
-# en:French meat
+en:French meat
 fr:Viande Française, VF
 
 <fr:Viande Française
@@ -4646,7 +4660,7 @@ pt:Pato francês
 <fr:Viande Française
 en:French pork
 ca:Porc francès
-fr:Porc Français, porc origine France, porc 100% France, Porc élevé en France
+fr:Viande Porcine Française, VPF, viande de porc française, Le Porc Français, Porc Origine France, porc français, porc 100% France
 nl:Frans varkensvlees
 pl:Francuska wieprzowina
 pt:Porco francês
@@ -4661,7 +4675,6 @@ fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Vi
 fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français, Viande de veau Française, Veau 100% France, Veau Origine France
 
 <fr:Viande Française
-fr:Viande Porcine Française, VPF, viande de porc française, Le Porc Français, Porc Origine France
 
 <fr:Viande Française
 fr:Volaille Française, volaille Origine France

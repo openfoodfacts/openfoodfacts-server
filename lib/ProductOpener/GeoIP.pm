@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&get_country_for_ip
+					&get_country_code_for_ip
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -63,5 +64,25 @@ sub get_country_for_ip {
 
 	return $country;
 }
+
+
+sub get_country_code_for_ip {
+	my $ip = shift;
+
+	my $country;
+	eval {
+		my $country_mod = $gi->country(ip => $ip);
+		my $country_rec = $country_mod->country();
+		$country = $country_rec->iso_code();
+	};
+
+	if ($@) {
+		$log->warn("GeoIP error", { error => $@ }) if $log->is_warn();
+		$country = undef;
+	}
+
+	return $country;
+}
+
 
 1;

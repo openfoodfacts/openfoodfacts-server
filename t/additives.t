@@ -72,7 +72,8 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 my $product_ref = {
 	lc => "fr",
-	ingredients_text => "Acide citrique, colorant : e120, vitamine C, E-500"
+	ingredients_text => "Acide citrique, colorant : e120, vitamine C, E-500",
+	categories_tags => ["en:debug"],
 };
 
 extract_ingredients_classes_from_text($product_ref);
@@ -278,7 +279,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e967',
           'en:e968',
           'en:e421',
-          'en:e965i',
+          'en:e965',
           'en:e420i',
           'en:e965ii',
           'en:e951',
@@ -292,7 +293,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e903',
           'en:e320'
                               ],
-);
+) or diag explain $product_ref->{additives_original_tags};
 
 
 # additives that are only additives when preceeded by their function
@@ -498,9 +499,9 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
-	"en:cupric-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
+	"en:cupric-sulfate",
                               ],
 );
 
@@ -573,10 +574,10 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:potassium-citrate",
 	"en:sodium-citrate",
 	"en:calcium-phosphate",
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
-	"en:cupric-sulphate",
-	"en:manganese-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
+	"en:cupric-sulfate",
+	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
                               ],
@@ -608,10 +609,10 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:potassium-citrate",
 	"en:sodium-citrate",
 	"en:calcium-phosphate",
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
-	"en:cupric-sulphate",
-	"en:manganese-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
+	"en:cupric-sulfate",
+	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
                               ],
@@ -942,11 +943,11 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 is_deeply($product_ref->{minerals_tags}, [
         "en:calcium-citrate",
-        "en:ferrous-sulphate",
-        "en:magnesium-sulphate",
-        "en:zinc-sulphate",
-        "en:cupric-sulphate",
-        "en:manganese-sulphate",
+        "en:ferrous-sulfate",
+        "en:magnesium-sulfate",
+        "en:zinc-sulfate",
+        "en:cupric-sulfate",
+        "en:manganese-sulfate",
         "en:sodium-citrate",
         "en:potassium-iodide",
         "en:potassium-hydroxide",
@@ -1003,13 +1004,13 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:sodium-citrate",
 	"en:potassium-phosphate",
 	"en:magnesium-phosphate",
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
 	"en:potassium-hydroxide",
 	"en:sodium-selenite",
 	"en:potassium-iodide",
-        "en:cupric-sulphate",
-        "en:manganese-sulphate",
+        "en:cupric-sulfate",
+        "en:manganese-sulfate",
                               ],
 );
 
@@ -1032,6 +1033,26 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-phosphate",
 	"en:calcium-carbonate",
 	"en:potassium-citrate",
+                              ],
+);
+
+
+$product_ref = {
+        lc => "en",
+        ingredients_text =>
+"copper carbonate"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+diag explain $product_ref->{additives};
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:cupric-carbonate",
                               ],
 );
 
@@ -1201,7 +1222,8 @@ $product_ref = {
         lc => "fr",
         ingredients_text =>
 "Farine de BLE, sucre, chocolat au lait 13% (sucre, beurre de cacao, pâte de cacao, LAIT écrémé en poudre, LACTOSE, matière grasse LAITIERE anhydre, LACTOSERUM en poudre, émulsifiant : lécithines de tournesol), chocolat blanc 8% (sucre, beurre de cacao, LAIT entier en poudre, émulsifiant : lécithines de tournesol), BEURRE pâtissier, chocolat noir 6% (pâte de cacao, sucre, beurre de cacao, matière grasse LAITIERE, émulsifiant : lécithines de tournesol), blancs d'OEUFS, fourrage à la purée de framboise 3.5% (sirop de glucose- fructose, stabilisant : glycérol, purée et brisures de framboise, purée de framboise concentrée, purée de pomme, BEURRE, arômes, acidifiant : acide citrique, gélifiant : pectines de fruits, correcteur d'acidité : citrates de sodium, jus concentré de sureau), huile de tournesol, OEUFS entiers, AMANDES 1.3%, poudre de NOIX DE CAJOU 1.2%, sucre de canne roux, NOISETTES, poudre de florentin 0.6% (sucre, sirop de glucose, BEURRE, émulsifiant : lécithines de SOJA, poudre de LAIT écrémé), sirop de sucre inverti et partiellement inverti, grains de riz soufflés 0.5% (farine de riz, gluten de BLE, malt de BLE, saccharose, sel, dextrose), nougatine 0.4% (sucre, AMANDES et NOISETTES torréfiées), éclat de caramel 0.4% (sucre, sirop de glucose, CREME et BEURRE caramélisés), farine de SEIGLE, sel, poudres à lever : carbonates de sodium - carbonates d'ammonium- diphosphates- tartrates de potassium, amidon de BLE, poudre de LAIT écrémé, extrait de malt d'ORGE, noix de coco 0.1%, arômes, jaune d'OEUF en poudre, fécule de pomme de terre, farine d'ORGE, amidon de maïs, colorants : caramel ordinaire et curcumine, LACTOSERUM en poudre et protéines de LAIT, cannelle en poudre, émulsifiant : lécithines de tournesol, antioxydant : acide ascorbique. Traces éventuelles de graines de sésame et autres fruits à coques.
-"
+",
+	categories_tags => ["en:debug"],
 };
 
 extract_ingredients_classes_from_text($product_ref);
@@ -1224,9 +1246,6 @@ is_deeply($product_ref->{additives_original_tags}, [
 
                               ],
 );
-
-
-
 
 $product_ref = {
         lc => "fr",
@@ -1356,6 +1375,44 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"émulsifiants : E463, E432 et E472, correcteurs d'acidité : E322/E333 E474-E475
+",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+diag explain $product_ref->{additives};
+
+is_deeply($product_ref->{additives_original_tags}, [
+"en:e463",
+"en:e432",
+"en:e472",
+"en:e322",
+"en:e333",
+"en:e474",
+"en:e475",
+                              ],
+) or diag explain $product_ref->{additives_original_tags};
+
+
+$product_ref = {
+        lc => "es",
+        ingredients_text =>
+"Leche desnatada de vaca, enzima lactasa y vitaminas A, D, E y ácido fólico.",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+is_deeply($product_ref->{vitamins_tags}, [
+"en:vitamin-a",
+"en:vitamin-d",
+"en:vitamin-e",
+"en:folic-acid",
+                              ],
+) or diag explain $product_ref->{vitamins_tags};
 
 
 

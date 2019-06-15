@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 21:51\n"
+"PO-Revision-Date: 2019-05-03 21:46\n"
 "Language-Team: Russian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -364,6 +364,14 @@ msgstr "Продукты, не проданные в %s"
 msgctxt "data_source"
 msgid "Data source"
 msgstr "Источник данных"
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr "источники данных"
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr "источник данных"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -2655,6 +2663,10 @@ msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Некоторые данные об этом продукте были предоставлены непосредственно производителем %s"
 
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr "Некоторые данные для этого продукта были собраны в сотрудничестве с %s"
+
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Эта страница продукта не завершена. Вы можете помочь заполнить её, отредактировав и добавив больше данных с фотографий, которые у нас есть, или сделав дополнительные фотографий с помощью приложения для <a href=\"https://android.openfoodfacts.org\">Android</a> или <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Спасибо!"
@@ -3150,7 +3162,7 @@ msgstr "Скачать приложение для iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr ""
+msgstr "<em>Неоднозначный штрих-код</em>: Этот продукт имеет штрих-код с ограниченным обращением для продуктов внутри компании. Это означает, что разные производители и магазины могут использовать один и тот же штрих-код для разных продуктов."
 
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
@@ -3198,23 +3210,23 @@ msgstr "en:низкий, en:средний или en:высокий"
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr ""
+msgstr "Углеродный след от мяса или рыбы"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
-msgstr ""
+msgstr "выбросы углерода от мяса или рыбы для всего продукта"
 
 msgctxt "of_sustainable_daily_emissions_of_1_person"
 msgid "of sustainable daily emissions of 1 person"
-msgstr ""
+msgstr "устойчивые ежедневные выбросы 1 человека"
 
 msgctxt "of_sustainable_weekly_emissions_of_1_person"
 msgid "of sustainable weekly emissions of 1 person"
-msgstr ""
+msgstr "устойчивые еженедельные выбросы 1 человека"
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "за одну порцию"
 
 msgctxt "methodology"
 msgid "Methodology"
@@ -3222,23 +3234,23 @@ msgstr "Методология"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
-msgstr ""
+msgstr "Расчеты выбросов углерода основаны на значениях CO<sub>2</sub> на кг из программы FoodGES <a href=\"https://www.ademe.fr\">ADEME</a>."
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
-msgstr ""
+msgstr "Устойчивые ежегодные выбросы: 2 тонны эквивалента CO<sub>2</sub> на человека для достижения целей, поставленных в COP21."
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr ""
+msgstr "Расчет углеродного следа имеет высокую неопределенность. Значения следует рассматривать с осторожностью, они более применимы для относительного сравнения, чем в виде абсолютных значений."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "Слишком много продуктов (%d продуктов, ограничение %d) для экспорта, загрузите вместо этого <a href=\"/data\">данные полного экспорта базы данных</a>."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Помогите перевести %s на %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
@@ -3250,7 +3262,7 @@ msgstr "Показывать только записи без ожидающих
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "Также показывать записи с ожидающими переводами от вас или других пользователей."
 
 msgctxt "translated"
 msgid "translated"
