@@ -597,7 +597,7 @@ ca:glúcid
 # ckb:کاربۆھایدرەیت
 cs:Sacharidy
 cy:Carbohydrad
-da:Kulhydrat
+da:Karbohydrat, Kulhydrat
 de:Kohlenhydrate
 # dty:कार्बोहाइड्रेट
 el:Υδατάνθρακες
@@ -731,7 +731,7 @@ ce:Шекар
 cs:Cukry, Cukr
 cv:Сахăр
 cy:Siwgr
-da:Sukkerarter, Sukker
+da:Sockerarter, Sukker
 de:Zucker
 el:Σάκχαρα, Ζάχαρη
 eo:Sukero
@@ -858,7 +858,7 @@ zh:糖
 wikidata:en:Q11002
 wikipedia:en:https://en.wikipedia.org/wiki/Sugar
 
-# description:en:Sucrose is common sugar. It is a disaccharide, a molecule composed of two monosaccharides: glucose and fructose. Sucrose is produced naturally in plants, from which table sugar is refined. Fully refined sugar is 99.9% sucrose, thus providing only carbohydrate as dietary nutrient.
+# description:en:SUCROSE is common sugar. It is a disaccharide, a molecule composed of two monosaccharides: glucose and fructose. Sucrose is produced naturally in plants, from which table sugar is refined. Fully refined sugar is 99.9% sucrose, thus providing only carbohydrate as dietary nutrient.
 
 en:sucrose
 ar:سكروز
@@ -1267,7 +1267,7 @@ zh:麥芽糖
 wikidata:en:Q170002
 wikipedia:en:https://en.wikipedia.org/wiki/Maltose
 
-# description:en:Maltodextrin is a polysaccharide that is used as a food additive. It is produced from starch by partial hydrolysis. It is commonly used for the production of soft drinks and candy. It can also be found as an ingredient in a variety of other processed foods.
+# description:en:MALTODEXTRIN is a polysaccharide that is used as a food additive. It is produced from starch by partial hydrolysis. It is commonly used for the production of soft drinks and candy. It can also be found as an ingredient in a variety of other processed foods.
 
 en:Maltodextrins, maltodextrin
 de:Maltodextrine
@@ -1288,7 +1288,7 @@ zh:麦芽糊精
 wikidata:en:Q177570
 wikipedia:en:https://en.wikipedia.org/wiki/Maltodextrin
 
-# description:en:Starch is a polymeric carbohydrate consisting of a large number of glucose units joined. This polysaccharide is produced by most green plants as energy storage. It is the most common carbohydrate in human diets and is contained in large amounts in staple foods like potatoes, wheat, maize (corn), rice, and cassava.
+# description:en:STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined. This polysaccharide is produced by most green plants as energy storage. It is the most common carbohydrate in human diets and is contained in large amounts in staple foods like potatoes, wheat, maize (corn), rice, and cassava.
 
 en:starch
 # als:Stärchi
@@ -1370,7 +1370,7 @@ zh:淀粉
 wikidata:en:Q41534
 wikipedia:en:https://en.wikipedia.org/wiki/Starch 
 
-# description:en:Sugar alcohols are organic compounds, typically derived from sugars, that comprise a class of polyols. They can occur naturally or be produced industrially from sugars. They are used widely in the food industry as thickeners and sweeteners. Consumption of sugar alcohols affects blood sugar levels, although much less than does sucrose comparing by glycemic index. Sugar alcohols may also cause bloating and diarrhea when consumed in excessive amounts.
+# description:en:SUGAR ALCOHOLS are organic compounds, typically derived from sugars, that comprise a class of polyols. They can occur naturally or be produced industrially from sugars. They are used widely in the food industry as thickeners and sweeteners. Consumption of sugar alcohols affects blood sugar levels, although much less than does sucrose comparing by glycemic index. Sugar alcohols may also cause bloating and diarrhea when consumed in excessive amounts.
 
 en:Sugar alcohols (Polyols)
 bg:Полиоли
@@ -1405,7 +1405,7 @@ zh:糖醇（多元醇）
 wikidata:en:Q4625944
 wikipedia:en:https://en.wikipedia.org/wiki/Sugar_alcohol
 
-# description:en:Fat is one of the three main macronutrients, along with carbohydrate and protein.[1] Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. Fat is an important foodstuff for many forms of life, and fats serve both structural and metabolic functions. They are a necessary part of the diet of humans and are the most energy dense, thus the most efficient form of energy storage.
+# description:en:FAT is one of the three main macronutrients, along with carbohydrate and protein.[1] Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. Fat is an important foodstuff for many forms of life, and fats serve both structural and metabolic functions. They are a necessary part of the diet of humans and are the most energy dense, thus the most efficient form of energy storage.
 
 en:fat, fats
 af:Vet
@@ -1637,21 +1637,61 @@ zh:丁酸
 # zh_TW:丁酸
 wikidata:en:Q193213
 wikipedia:en:https://en.wikipedia.org/wiki/Butyric_acid
- 
-en:Caproic acid (6:0)
-de:Capronsäure (6:0)
-el:Καπροϊκό οκύ (6:0)
-es:Ácido caproico (6:0)
-fr:Acide caproïque (6:0)
-he:חומצה קפרואית (6:0)
-ja:カプロン酸 (6:0)
-nl:Capronzuur (6:0)
-pt:Ácido capróico (6:0)
-ru:Капроновая кислота (6:0)
-zh:己酸 (6:0)
-# zh_CN:己酸 (6:0)
-# zh_HK:己酸 (6:0)
-# zh_TW:己酸 (6:0)
+
+# description:en:CAPROIC ACID, is the carboxylic acid derived from hexane with the chemical formula CH3(CH2)4COOH. It is a fatty acid found naturally in various animal fats and oils. It is also one of the components of vanilla. The primary use of caproic acid is in the manufacture of its esters for artificial flavors.
+# Comment:en:The more common name seems to be Hexanoic acid, so translations might use both.
+
+en:Caproic acid, Hexanoic acid
+ar:حمض الهكسانويك
+az:Kapron turşusu
+# azb:هقزانوئیک اسید
+ca:Àcid caproic, àcid hexanoic
+cs:Kyselina kapronová
+de:Capronsäure 
+el:καπροϊκό οξύ
+# en-ca:Hexanoic acid
+# en-gb:Hexanoic acid
+eo:Heksanoata acido
+es:Ácido caproico, Acide hexanoïque
+fa:هگزانوئیک اسید
+fi:Kapronihappo
+fr:Acide caproïque, Acide hexanoïque
+gl:Ácido hexanoico
+he:חומצה קפרואית 
+hi:हेक्सानिक अम्ल
+it:Acido capronico, acido esanoico
+ja:カプロン酸 
+kn:ಕಾಪ್ರೋಯಿಕ್ ಆಮ್ಲ
+ko:카프로산
+lv:kapronskābe, Heksānskābe
+ml:ഹെക്സനോയിക് ആസിഡ്
+nl:Capronzuur, Hexaanzuur
+pl:Kwas kapronowy, Kwas heksanowy
+pt:Ácido capróico, Ácido hexanóico
+# pt-br:Ácido caproico
+ro:Acid hexanoic
+ru:Капроновая кислота, гексановая кислота
+sh:Heksanska kiselina
+sr:хексанска киселина
+# sr-ec:хексанска киселина
+# sr-el:Heksanska kiselina
+sv:Kapronsyra
+te:కాప్రోయిక్ ఆమ్లం
+uk:капронова кислота
+vi:Axít caproic
+zh:己酸 
+# zh-cn:己酸
+# zh-hans:己酸
+# zh-hant:己酸
+# zh-hk:己酸
+# zh-mo:己酸
+# zh-sg:己酸
+# zh-tw:己酸
+# zh_CN:己酸 
+# zh_HK:己酸 
+# zh_TW:己酸 
+wikidata:Q422597
+wikipedia:en:https://en.wikipedia.org/wiki/Hexanoic_acid
  
 en:Caprylic acid (8:0)
 de:Caprylsäure (8:0)
