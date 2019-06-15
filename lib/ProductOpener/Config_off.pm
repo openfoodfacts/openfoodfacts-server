@@ -785,22 +785,20 @@ $options{nova_groups_tags} = {
 
 	# tags only found in group 4
 
-	"ingredients/en:colour" => 4,
-	"ingredients/en:colour-stabilizer" => 4,
-	# colour-stabilizer is not yet in the taxonomy. Is there a synonym>? aleene@2018-10-09
-	"ingredients/en:flavour-enhancer" => 4,
-	"ingredients/en:sweetener" => 4,
-	"ingredients/en:carbonating-agent" => 4,
-	# carbonating-agent is not yet in the taxonomy. Is there a synonym>? aleene@2018-10-09
-	"ingredients/en:firming-agent" => 4,
-	"ingredients/en:bulking-agent" => 4,
-	"ingredients/en:anti-bulking-agent" => 4,
-	# anti-bulking-agent is not yet in the taxonomy Is there a synonym>? aleene@2018-10-09
-	"ingredients/en:de-foaming-agent" => 4,
+	"ingredients/en:anti-foaming-agent" => 4,
 	"ingredients/en:anti-caking-agent" => 4,
-	"ingredients/en:glazing-agent" => 4,
+	"ingredients/en:bulking-agent" => 4,
+	"ingredients/en:carbonating-agent" => 4,
+	"ingredients/en:colour" => 4,
+	"ingredients/en:colour-stabilizer" => 4,	
 	"ingredients/en:emulsifier" => 4,
+	"ingredients/en:firming-agent" => 4,	
+	"ingredients/en:flavour-enhancer" => 4,	
+	"ingredients/en:gelling-agent" => 4,
+	"ingredients/en:glazing-agent" => 4,	
 	"ingredients/en:sequestrant" => 4,
+	"ingredients/en:sweetener" => 4,	
+	"ingredients/en:thickener" => 4,
 	"ingredients/en:humectant" => 4,
 
 	# group 4 ingredients from nova paper
@@ -852,7 +850,7 @@ $options{nova_groups_tags} = {
 
 	# additives that we can consider as ultra-processed (or a sufficient marker of ultra-processed food)
 
-	# all colors (should already be detected by the "color" class if it is specified in the ingredient list (e.g. "color: some additive")
+	# colors (should already be detected by the "color" class if it is specified in the ingredient list (e.g. "color: some additive")
 
 	"additives/en:e100" => 4, #Curcumin" => 4, #Turmeric extract" => 4, #curcuma extract
 	"additives/en:e106" => 4, #flavin mononucleotide" => 4, #phosphate lactoflavina
@@ -935,7 +933,6 @@ $options{nova_groups_tags} = {
 
 	# flavour enhancers
 
-	"additives/en:e421" => 4, #Mannitol
 	"additives/en:e620" => 4, #Glutamic acid, L(+)-
 	"additives/en:e621" => 4, #Monosodium L-glutamate
 	"additives/en:e622" => 4, #Monopotassium L-glutamate
@@ -954,10 +951,12 @@ $options{nova_groups_tags} = {
 	"additives/en:e635" => 4, #Disodium 5'-ribonucleotides
 	"additives/en:e636" => 4, #Maltol
 	"additives/en:e637" => 4, #Ethyl maltol
+	"additives/en:e640" => 4, #	glycine
+	"additives/en:e641" => 4, #	leucine
+	"additives/en:e650" => 4, # zinc acetatel
+	"additives/en:e1104" => 4, # lipase
 
 	# sweeteners
-
-	"additives/en:e420" => 4, #Sorbitol
 
 	"additives/en:e950" => 4, #Acesulfame potassium
 	"additives/en:e951" => 4, #Aspartame
@@ -967,6 +966,7 @@ $options{nova_groups_tags} = {
 	"additives/en:e955" => 4, #Sucralose (Trichlorogalactosucrose)
 	"additives/en:e956" => 4, #Alitame
 	"additives/en:e957" => 4, #Thaumatin
+	"additives/en:e959" => 4, #neohesperidin dihydrochalcone
 	"additives/en:e960" => 4, #Steviol glycosides
 	"additives/en:e961" => 4, #Neotame
 	"additives/en:e962" => 4, #Aspartame-acesulfame salt
@@ -977,20 +977,139 @@ $options{nova_groups_tags} = {
 	"additives/en:e968" => 4, #Erythritol
 	"additives/en:e969" => 4, #Advantame
 
+	
+	# anti-foaming agents
 
-
-	"additives/en:e330" => 4,
-	"additives/en:e338" => 4,
-	"additives/en:e339" => 4,
-	"additives/en:e340" => 4,
-	"additives/en:e341" => 4,
-	"additives/en:e343" => 4,
+	"additives/en:e551" => 4,	
+	"additives/en:e900a" => 4,
+	"additives/en:e905c" => 4,
+	"additives/en:e905d" => 4,
+	"additives/en:e1521" => 4,
+	
+	# glazing agents
+	
+	"additives/en:e900" => 4,
+	"additives/en:e901" => 4,
+	"additives/en:e902" => 4,
+	"additives/en:e903" => 4,
+	"additives/en:e904" => 4,
+	"additives/en:e905" => 4,
+	"additives/en:e907" => 4,
+	
+	# propellants
+	
+	"additives/en:e938" => 4,
+	"additives/en:e939" => 4,
+	"additives/en:e941" => 4,
+	"additives/en:e942" => 4,
+	"additives/en:e943a" => 4,
+	"additives/en:e943b" => 4,
+	
+	# bulking agents / thickeners / stabilizers / emulsifiers / gelling agents
+	
+	"additives/en:e400" => 4,
+	"additives/en:e401" => 4,
+	"additives/en:e402" => 4,	
+	"additives/en:e403" => 4,
+	"additives/en:e404" => 4,
+	"additives/en:e405" => 4,
+	"additives/en:e406" => 4,
+	"additives/en:e407" => 4,
+	"additives/en:e407a" => 4,
+	"additives/en:e409" => 4,
+	"additives/en:e410" => 4,
+	"additives/en:e412" => 4,
+	"additives/en:e413" => 4,
+	"additives/en:e414" => 4,
+	"additives/en:e415" => 4,
+	"additives/en:e416" => 4,
+	"additives/en:e417" => 4,
+	"additives/en:e418" => 4,
+	"additives/en:e415" => 4,
+	"additives/en:e416" => 4,
+	"additives/en:e417" => 4,
+	"additives/en:e418" => 4,	
+	"additives/en:e420" => 4, #Sorbitol
+	"additives/en:e421" => 4, #Mannitol	
+	"additives/en:e422" => 4,	
+	"additives/en:e425" => 4,	
+	"additives/en:e428" => 4,	
+	"additives/en:e430" => 4,	
+	"additives/en:e431" => 4,	
+	"additives/en:e432" => 4,	
+	"additives/en:e433" => 4,	
+	"additives/en:e434" => 4,	
+	"additives/en:e435" => 4,	
+	"additives/en:e436" => 4,	
+	"additives/en:e440" => 4,
+	"additives/en:e441" => 4,	
+	"additives/en:e442" => 4,
+	"additives/en:e443" => 4,	
+	"additives/en:e444" => 4,
+	"additives/en:e445" => 4,
 	"additives/en:e450" => 4,
 	"additives/en:e451" => 4,
 	"additives/en:e452" => 4,
+	"additives/en:e459" => 4,
+	"additives/en:e460" => 4,
 	"additives/en:e461" => 4,
-	"additives/en:e471" => 4,
+	"additives/en:e463" => 4,
+	"additives/en:e464" => 4,	
+	"additives/en:e465" => 4,	
+	"additives/en:e466" => 4,	
+	"additives/en:e468" => 4,	
+	"additives/en:e469" => 4,	
+	"additives/en:e470" => 4,	
+	"additives/en:e470a" => 4,	
+	"additives/en:e470b" => 4,	
+	"additives/en:e471" => 4,	
+	"additives/en:e472a" => 4,	
+	"additives/en:e472b" => 4,	
+	"additives/en:e472c" => 4,	
+	"additives/en:e472d" => 4,	
+	"additives/en:e472e" => 4,	
+	"additives/en:e472f" => 4,	
+	"additives/en:e473" => 4,	
+	"additives/en:e474" => 4,	
+	"additives/en:e475" => 4,	
+	"additives/en:e476" => 4,	
+	"additives/en:e477" => 4,	
+	"additives/en:e478" => 4,	
+	"additives/en:e479b" => 4,	
+	"additives/en:e480" => 4,	
+	"additives/en:e481" => 4,	
+	"additives/en:e482" => 4,	
+	"additives/en:e483" => 4,	
+	"additives/en:e491" => 4,	
+	"additives/en:e492" => 4,	
+	"additives/en:e493" => 4,	
+	"additives/en:e494" => 4,	
+	"additives/en:e495" => 4,	
+	
+	"additives/en:e1400" => 4,	
+	"additives/en:e1401" => 4,	
+	"additives/en:e1402" => 4,	
+	"additives/en:e1403" => 4,	
+	"additives/en:e1404" => 4,	
+	"additives/en:e1405" => 4,	
+	"additives/en:e1410" => 4,	
+	"additives/en:e1412" => 4,	
+	"additives/en:e1413" => 4,	
+	"additives/en:e1414" => 4,	
+	"additives/en:e1420" => 4,	
+	"additives/en:e1422" => 4,	
+	"additives/en:e1440" => 4,	
+	"additives/en:e1442" => 4,	
+	"additives/en:e1450" => 4,	
+	"additives/en:e1451" => 4,	
+	"additives/en:e1505" => 4,
+	
 	"additives/en:e14xx" => 4,
+	
+	# carbonating agents
+
+	"additives/en:e290" => 4, # carbon dioxyde
+
 
 };
 
