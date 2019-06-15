@@ -26,7 +26,6 @@ my @tests = (
 [
 	{ lc => "fr",
 	ingredients_text => "Saveur vanille : lait demi-écrémé 77%, sucre"},
-
 [
 	"fr:Saveur vanille",
 	"en:semi-skimmed-milk",
@@ -35,14 +34,12 @@ my @tests = (
 ],
 
 
-[
-	{ lc => "fr",
-	ingredients_text => "lécithine de soja"},
+[ { lc => "fr", ingredients_text => "lécithine de soja"}, [ "en:soya-lecithin", ], ],
 
-[
-	"en:soya-lecithin",
-],
-],
+[ { lc => "fr", ingredients_text => "sel et épices"}, [ "en:salt", "en:spice" ], ],
+[ { lc => "fr", ingredients_text => "cire d'abeille blanche et jaune"}, [ "en:e901", ], ],
+[ { lc => "en", ingredients_text => "sugar and water"}, [ "en:sugar", "en:water"], ],
+[ { lc => "en", ingredients_text => "something and something else"}, [ "en:something and something else", ], ],
 
 );
 

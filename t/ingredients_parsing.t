@@ -91,6 +91,10 @@ my @lists =(
 ["Leche desnatada de vaca, enzima lactasa y vitaminas A, D, E y ácido fólico.","Leche desnatada de vaca, enzima lactasa y vitaminas, vitamina A, vitamina D, vitamina E, ácido fólico."],
 ["Leche desnatada, leche desnatada en polvo, zumo de lima, almidón de maíz, extracto de ginseng 0,19%, aromas, fermentos lácticos con Lcasei, colorante: caramelo natural, edulcorantes: sucralosa y acesulfamo K, estabilizante: goma xantana, vitaminas: D, B6, ácido fólico y B12 Origen de la feche. España. Preparación: Agitar antes de abrir.",
  "Leche desnatada, leche desnatada en polvo, zumo de lima, almidón de maíz, extracto de ginseng 0,19%, aromas, fermentos lácticos con Lcasei, colorante: caramelo natural, edulcorantes: sucralosa y acesulfamo K, estabilizante: goma xantana, vitaminas, vitamina D, vitamina B6, ácido fólico, vitamina B12 Origen de la feche. España. Preparación: Agitar antes de abrir."],
+["edulcorantes (acesulfamo K y sucralosa) y vitaminas (riboflavina (vitamina B2) y cianocobalamina vitamina B12))",
+ "edulcorantes (acesulfamo K y sucralosa), vitaminas (riboflavina (vitamina B2), cianocobalamina vitamina B12))"],
+["aceites vegetales [aceite de girasol (70%) y aceite de oliva virgen (30%)] y sal",
+ "aceites vegetales [aceite de girasol (70%), aceite de oliva virgen (30%)], sal"],
 ]
 ],
 

@@ -84,10 +84,11 @@ my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+F
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
 
 # '(' and other opening brackets ('Punctuation, Open' without QUOTEs)
-my $obrackets = qr/^(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}])[\p{Ps}]$/i;
-
+#my $obrackets = qr/^(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}])[\p{Ps}]$/i;
+my $obrackets = qr/\(|\[|\{/;
 # ')' and other closing brackets ('Punctuation, Close' without QUOTEs)
-my $cbrackets = qr/^(?![\N{U+276F}|\N{U+301E}|\N{U+301F}])[\p{Pe}]$/i;
+# my $cbrackets = qr/^(?![\N{U+276F}|\N{U+301E}|\N{U+301F}])[\p{Pe}]$/i;
+my $cbrackets = qr/\)|\]|\}/;
 
 my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i; # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 
@@ -317,6 +318,8 @@ sub extract_ingredients_from_text($) {
 	# replace by a lower comma ‚
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
+	
+	my $and = $Lang{_and_}{$product_ref->{lc}};
 
 	my $analyze_ingredients = sub($$$$$) {
 		my $analyze_ingredients_self = shift;
@@ -402,6 +405,30 @@ sub extract_ingredients_from_text($) {
 				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
+			}
+		}
+		# 2 known ingredients separated by "and" ?
+		elsif ($s =~ /$and/i) {
+		
+			$before = $s;
+
+			my $ingredient1 = $`;
+			my $ingredient2 = $';
+
+			# check if the whole ingredient is an additive
+			my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $s);
+
+			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
+
+				# otherwise check the 2 sub ingredients
+				my $canon_ingredient1 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient1);
+				my $canon_ingredient2 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient2);
+
+				if ( (exists_taxonomy_tag("ingredients", $canon_ingredient1))
+					and (exists_taxonomy_tag("ingredients", $canon_ingredient2)) ) {
+					$before = $ingredient1;
+					$after = $ingredient2;
+				}
 			}
 		}
 		else {
@@ -1121,6 +1148,10 @@ sub preparse_ingredients_text($$) {
 	# print STDERR "additives: $text\n\n";
 
 	#$product_ref->{ingredients_text_debug} = $text;
+	
+	# separator followed by and
+	# aceite de girasol (70%) y aceite de oliva virgen (30%)
+	$text =~ s/($cbrackets)$and/$1, /ig;
 
 
 	if ($lc eq 'fr') {
