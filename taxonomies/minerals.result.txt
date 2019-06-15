@@ -1,8 +1,6 @@
 
 
-synonyms:en:cupric, copper
-
-synonyms:en:
+synonyms:en:iron, ferric, ferrous
 synonyms:bg:Желязо
 synonyms:cs:Železo
 synonyms:de:Eisen
@@ -223,7 +221,7 @@ sv:kalciumcitratmalat
 < en:Calcium
 en:calcium gluconate
 bg:Калциев глюконат
-cs:
+cs:glukonan vápenatý
 de:Calciumgluconat
 el:γλυκονικό ασβέστιο
 es:gluconato cálcico
@@ -432,7 +430,7 @@ sl:kalcijeve soli ortofosforne kisline
 sv:kalciumsalter av ortofosforsyra
 
 < en:Calcium
-en:calcium sulphate
+en:calcium sulfate
 bg:Калциев сулфат
 cs:síran vápenatý
 de:Calciumsulfat
@@ -500,7 +498,7 @@ sl:kromov III klorid in njegov heksahidrat
 sv:kromIIIklorid och dess hexahydrat
 
 < en:Chromium
-en:chromium III sulphate and its hexahydrate
+en:chromium III sulfate and its hexahydrate
 bg:Хром III сулфат и неговите хексахидрати
 cs:síran chromitý a jeho hexahydrát
 de:Chrom-III-Sulfat und sein Hexahydrat
@@ -545,7 +543,7 @@ sk:pikolinát chromitý
 sl:kromov pikolinat
 sv:krompikolinat
 
-en:
+en:Copper, cupric
 bg:Мед
 cs:Měď
 de:Kupfer
@@ -567,7 +565,7 @@ sk:Meď
 sl:Baker
 sv:Koppar
 
-< en:Cupric
+< en:Copper
 en:copper lysine complex
 bg:Мед-лизинов комплекс
 cs:komplex mědi s lysinem
@@ -590,8 +588,8 @@ sk:komplex medi s lyzínom
 sl:kompleks bakra z lizinom
 sv:kopparlysin-komplex
 
-< en:Cupric
-en:cupric carbonate, copper carbonate
+< en:Copper
+en:cupric carbonate
 bg:Меден карбонат
 cs:uhličitan měďnatý
 de:Kupfercarbonat
@@ -613,7 +611,7 @@ sk:uhličitan meďnatý
 sl:bakrov karbonat
 sv:kopparkarbonat
 
-< en:Cupric
+< en:Copper
 en:cupric citrate, copper citrate
 bg:Меден цитрат
 cs:citronan měďnatý
@@ -636,7 +634,7 @@ sk:citran meďnatý
 sl:bakrov citrat
 sv:kopparcitrat
 
-< en:Cupric
+< en:Copper
 en:cupric gluconate, copper gluconate
 bg:Меден глюконат
 cs:glukonan měďnatý
@@ -659,8 +657,8 @@ sk:glukónan meďnatý
 sl:bakrov glukonat
 sv:kopparglukonat
 
-< en:Cupric
-en:cupric sulphate, copper sulphate
+< en:Copper
+en:cupric sulfate
 bg:Меден сулфат
 cs:síran měďnatý
 de:Kupfersulfat
@@ -772,27 +770,27 @@ sl:Jod
 sv:Jod
 
 < en:Iodine
-en:
-bg:
-cs:
-de:
-el:
-es:
-et:
-fi:
-fr:
-hu:
-it:
-lt:
-lv:
-mt:
-nl:
-pl:
-pt:
-ro:
-sk:
-sl:
-sv:
+en:potassium iodate
+bg:Калиев йодат
+cs:jodičnan draselný
+de:Kaliumiodat
+el:ιωδικό κάλιο
+es:yodato de potasio
+et:kaaliumjodaat
+fi:kaliumjodaatti
+fr:iodate de potassium
+hu:kálium-jodát
+it:iodato di sodio
+lt:kalio jodatas
+lv:kālija jodāts
+mt:jodat tal-potassju
+nl:kaliumjodaat
+pl:jodan potasu
+pt:iodato de potássio
+ro:iodat de potasiu
+sk:jodičnan draselný
+sl:kalijev jodat
+sv:kaliumjodat
 
 < en:Iodine
 en:potassium iodide
@@ -1163,7 +1161,7 @@ sl:železov laktat
 sv:ferrolaktat
 
 < en:Iron
-en:ferrous sulphate, iron sulphate
+en:ferrous sulfate, iron sulfate
 bg:Железен сулфат
 cs:síran železnatý
 de:Eisensulfat
@@ -1302,7 +1300,7 @@ fr:citrate de magnésium
 < en:Magnesium
 en:magnesium gluconate
 bg:Магнезиев глюконат
-cs:
+cs:glukonan vápenatý
 de:Magnesiumgluconat
 el:γλυκονικό μαγνήσιο
 es:gluconato de magnesio
@@ -1382,7 +1380,7 @@ hu:magnézium-L-aszpartát
 it:L-aspartato di magnesio
 lt:magnio L-aspartatas
 lv:magnija L-aspartāts
-mt:
+mt:L-aspartat tal-manjesju
 nl:magnesium-L-aspartaat
 pl:L-asparaginian magnezu
 pt:L-aspartato de magnésio
@@ -1405,7 +1403,7 @@ hu:magnézium-L-pidolát
 it:L-pidolato di magnesio
 lt:magnio L-pidolatas
 lv:magnija L-pidolāts
-mt:
+mt:L-aspartat tal-manjesju
 nl:magnesium-L-pidolaat
 pl:L-pidolan magnezu
 pt:L-pidolato de magnésio
@@ -1511,7 +1509,7 @@ sl:magnezijeve soli ortofosforne kisline
 sv:magnesiumsalter av ortofosforsyra
 
 < en:Magnesium
-en:magnesium sulphate
+en:magnesium sulfate
 bg:Магнезиев сулфат
 cs:síran hořečnatý
 de:Magnesiumsulfat
@@ -1532,6 +1530,30 @@ ro:sulfat de magneziu
 sk:síran horečnatý
 sl:magnezijev sulfat
 sv:magnesiumsulfat
+
+< en:Magnesium
+< en:Potassium
+en:magnesium potassium citrate
+bg:Магнезиево-калиев цитрат
+cs:citronan draselno-hořečnatý
+de:Magnesiumkaliumcitrat
+el:κιτρικό καλιομαγνήσιο
+es:citrato de magnesio y potasio
+et:magneesiumkaaliumtsitraat
+fi:magnesiumkaliumsitraatti
+fr:citrate potassium-magnésium
+hu:magnézium-kálium-citrát
+it:citrato di potassio e magnesio
+lt:magnio kalio citratas
+lv:magnija kālija citrāts
+mt:ċitrat tal-potassju tal-manjesju
+nl:kaliummagnesiumcitraat
+pl:cytrynian magnezu-potasu
+pt:citrato de magnésio e potássio
+ro:citrat de magneziu și potasiu
+sk:citran horečnato-draselný
+sl:magnezijev kalijev citrat
+sv:magnesiumkaliumcitrat
 
 en:Manganese
 bg:Манган
@@ -1670,7 +1692,7 @@ sl:manganov glicerofosfat
 sv:manganglycerolfosfat
 
 < en:Manganese
-en:manganese sulphate
+en:manganese sulfate
 bg:Манганов сулфат
 cs:síran manganatý
 de:Mangansulfat
@@ -1781,30 +1803,6 @@ sk:Draslík
 sl:Kalij
 sv:Kalium
 
-< en:Magnesium
-< en:Potassium
-en:
-bg:
-cs:
-de:
-el:
-es:
-et:
-fi:
-fr:
-hu:
-it:
-lt:
-lv:
-mt:
-nl:
-pl:
-pt:
-ro:
-sk:
-sl:
-sv:
-
 < en:Potassium
 en:potassium bicarbonate
 bg:Калиев бикарбонат
@@ -1853,26 +1851,65 @@ sv:kaliumkarbonat
 
 < en:Potassium
 en:potassium chloride
+ar:كلوريد البوتاسيوم
 bg:Калиев хлорид
-cs:chlorid draselný
+bn:পটাশিয়াম ক্লোরাইড
+bs:Kalij hlorid
+ca:clorur de potassi
+cs:Chlorid draselný
+cy:potasiwm clorid
+da:kaliumklorid
 de:Kaliumchlorid
-el:χλωριούχο κάλιο
-es:cloruro de potasio
-et:kaaliumkloriid
+el:Χλωριουχο καλιο
+eo:kalia klorido
+es:cloruro potásico
+et:Kaaliumkloriid
+fa:پتاسیم کلرید
 fi:kaliumkloridi
 fr:chlorure de potassium
+gl:Cloruro de potasio
+gv:Cloreed potashum
+he:אשלגן כלורי
+hi:पोटेशियम क्लोराइड
+hr:Kalijev klorid
 hu:kálium-klorid
+hy:Կալիումի քլորիդ
+id:Potasium klorida
 it:cloruro di potassio
-lt:kalio chloridas
-lv:kālija hlorīds
-mt:klorur tal-potassju
+ja:塩化カリウム
+ka:კალიუმის ქლორიდი
+kk:Калий хлориді
+ko:염화 칼륨
+ky:Калий хлориди
+lt:Kalio chloridas
+lv:Kālija hlorīds
+ml:പൊട്ടാസ്യം ക്ലോറൈഡ്
+ms:Kalium klorida
+mt:Klorur tal-potassju
+nb:kaliumklorid
 nl:kaliumchloride
+or:ପୋଟାସିଅମ କ୍ଲୋରାଇଡ
 pl:chlorek potasu
 pt:cloreto de potássio
-ro:clorură de potasiu
-sk:chlorid draselný
+ro:Clorură de potasiu
+ru:хлорид калия
+sh:Kalijum hlorid
+sk:Chlorid draselný
 sl:kalijev klorid
+sr:калијум хлорид
 sv:kaliumklorid
+ta:பொட்டாசியம் குளோரைடு
+te:పొటాషియం క్లోరైడ్
+th:โพแทสเซียมคลอไรด์
+tr:Potasyum klorür
+uk:Хлорид калію
+vi:Kali clorua
+zh:氯化钾
+additives_classes:en: en:stabilizer, en:thickener
+e_number:en: 508
+mandatory_additive_class:en: en:flavour-enhancer, en:stabiliser, en:thickener
+wikidata:en: Q184630
+wikipedia:en: https://en.wikipedia.org/wiki/Potassium_chloride
 
 < en:Potassium
 en:potassium citrate
@@ -2544,25 +2581,43 @@ sl:cinkov oksid
 sv:zinkoxid
 
 < en:Zinc
-en:zinc sulphate
+en:zinc sulfate
+ar:كبريتات الزنك
 bg:Цинков сулфат
+bn:জিঙ্ক সালফেট
+ca:sulfat de zinc
 cs:síran zinečnatý
+da:zinksulfat
 de:Zinksulfat
 el:θειικός ψευδάργυρος
+eo:zinka sulfato
 es:sulfato de cinc
 et:tsinksulfaat
+fa:روی سولفات
 fi:sinkkisulfaatti
 fr:sulfate de zinc
+hi:जिंक सल्फेट
 hu:cink-szulfát
+id:Seng sulfat
 it:solfato di zinco
+ja:硫酸亜鉛
 lt:cinko sulfatas
 lv:cinka sulfāts
+mk:Цинк сулфат
 mt:sulfat taż-żingu
+nb:Sinksulfat
 nl:zinksulfaat
 pl:siarczan cynku
 pt:sulfato de zinco
 ro:sulfat de zinc
+sh:Cink sulfat
 sk:síran zinočnatý
 sl:cinkov sulfat
+sr:цинк-сулфат
 sv:zinksulfat
+ta:வெண் துத்தம்
+tr:zinc sulfate
+uk:Цинковий купорос
+vi:Kẽm sulfat
+zh:硫酸锌
 
