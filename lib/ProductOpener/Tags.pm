@@ -113,6 +113,8 @@ BEGIN
 					&load_users_translations_for_lc
 					&add_users_translations_to_taxonomy
 
+					&find_property_in_ingredient_tree
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -3511,6 +3513,31 @@ sub add_users_translations_to_taxonomy($) {
 	}
 
 }
+
+#Return the last occurence of the property if several are defined in ingredients.txt
+sub find_property_in_ingredient_tree($$$) {
+
+	my $tagtype = shift;
+	my $canon_tagid = shift;
+	my $property = shift;
+
+	while ($canon_tagid) 
+	{
+		if (exists $properties{$tagtype}{$canon_tagid})
+		{
+			foreach(keys $properties{$tagtype}{$canon_tagid})
+			{
+				if ($_ eq $property) 
+				{	
+					return "$properties{$tagtype}{$canon_tagid}{$_}\n";
+				}
+			}
+		} 
+		foreach(keys $direct_parents{$tagtype}{$canon_tagid}){$canon_tagid = $_;}
+	}
+}
+
+
 
 
 

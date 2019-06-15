@@ -144,6 +144,7 @@ sub compute_carbon_footprint_from_ingredients($) {
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"};
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"};
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"};
+		delete $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"};
 	}
 
 	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
