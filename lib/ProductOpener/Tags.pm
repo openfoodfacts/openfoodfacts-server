@@ -3559,9 +3559,17 @@ sub find_property_in_ingredient_tree($$$) {
 					return "$properties{$tagtype}{$canon_tagid}{$_}\n";
 				}
 			}
-		} 
-		foreach(keys $direct_parents{$tagtype}{$canon_tagid}){$canon_tagid = $_;}
+		}
+		if ($direct_parents{$tagtype}{$canon_tagid})
+		{
+			foreach(keys $direct_parents{$tagtype}{$canon_tagid}){$canon_tagid = $_;}
+		}
+		else
+		{
+			return 0;
+		}
 	}
+	return 0;
 }
 
 
