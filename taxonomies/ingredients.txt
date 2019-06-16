@@ -20327,9 +20327,6 @@ fr:graisse de bœuf, graisse de boeuf, gras de bovin, gras de bœuf, gras de boe
 fr:gras de bœuf, graisse de bœuf
 # ingredient/fr:gras-de-bœuf has 109 products in french @2019-03-01
 
-# description:This parent is used to indicate ingredients that might have been derived from palm oil. Note that this includes also those that have been derived from palm oil.
-
-
 
 # description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
 # comment:en:In some languages one distinghuishes between edible and non-edible oils
@@ -20449,19 +20446,33 @@ it:oli vegetali non idrogenati
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
 
-# Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
+
+# comment:en:palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils. It is unclear whether palm refers to palm oil or palm kernel oil
+
+en:palm
+es:palma
+fr:palme
+it:palma
+nl:palm
+pl:palma
+ru:пальмовое
+sk:palma
+from_palm:en:yes
+# usage:en:vegetable fats (coconut, palm)
+# pflanzliche Fette (Palm, Shea)
+# description:en:PALM OIL is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
 <en:vegetable oil and fat
+<en:palm
 en:palm oil and fat
 de:Palmöl und Palmfett, Palmöl und Fett
 fr:Huile et matière grasse de palme
 it:Olio e grasso di palma
-from_palm:en:yes
 
+<en:palm
 <en:vegetable oil and fat
 en:palm kernel oil and fat
 fr:Huile et matière grasse de palmiste
-from_palm:en:yes
 
 # <en:palm
 <en:palm oil and fat
@@ -20529,17 +20540,6 @@ en:organic palm oil
 nl:biologische palmolie
 # ingredient/nl:biologische-palmolie has 1 product @2019-05-24
 
-# comment:en:palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
-
-<en:palm oil
-en:palm
-es:palma
-fr:palme
-it:palma
-nl:palm
-pl:palma
-ru:пальмовое
-sk:palma
 
 # description:en:palm olein, the liquid fraction of palm oil
 
@@ -20616,7 +20616,6 @@ te:పామ్‌కెర్నల్‌ నూనె
 uk:Пальмоядрова олія
 wikidata:en:Q1960534
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_kernel_oil
-from_palm:en:yes
 
 <en:palm kernel oil and fat
 en:palm kernel fat
