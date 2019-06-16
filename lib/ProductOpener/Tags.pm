@@ -215,7 +215,10 @@ sub has_tag($$$) {
 
 	if (defined $product_ref->{$tagtype . "_tags"}) {
 
+		print "tagType defini !";
+
 		foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
+			print $tag;
 			if ($tag eq $tagid) {
 				$return = 1;
 				last;
@@ -3550,8 +3553,6 @@ sub find_property_in_ingredient_tree($$$) {
 
 	while ($canon_tagid) 
 	{
-		print "on rentre dans le while\n";
-
 		if (exists $properties{$tagtype}{$canon_tagid}{$property})
 		{
 			return "$properties{$tagtype}{$canon_tagid}{$property}\n";
@@ -3560,7 +3561,6 @@ sub find_property_in_ingredient_tree($$$) {
 		{
 			foreach(keys $direct_parents{$tagtype}{$canon_tagid})
 			{
-				print "$_/$direct_parents{$tagtype}{$canon_tagid}{$_}\n";
 				$canon_tagid = $_;
 			}
 		}
