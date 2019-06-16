@@ -3550,26 +3550,26 @@ sub find_property_in_ingredient_tree($$$) {
 
 	while ($canon_tagid) 
 	{
-		if (exists $properties{$tagtype}{$canon_tagid})
+		print "on rentre dans le while\n";
+
+		if (exists $properties{$tagtype}{$canon_tagid}{$property})
 		{
-			foreach(keys $properties{$tagtype}{$canon_tagid})
-			{
-				if ($_ eq $property) 
-				{	
-					return "$properties{$tagtype}{$canon_tagid}{$_}\n";
-				}
-			}
+			return "$properties{$tagtype}{$canon_tagid}{$property}\n";
 		}
 		if ($direct_parents{$tagtype}{$canon_tagid})
 		{
-			foreach(keys $direct_parents{$tagtype}{$canon_tagid}){$canon_tagid = $_;}
+			foreach(keys $direct_parents{$tagtype}{$canon_tagid})
+			{
+				print "$_/$direct_parents{$tagtype}{$canon_tagid}{$_}\n";
+				$canon_tagid = $_;
+			}
 		}
 		else
 		{
-			return 0;
+			return undef;
 		}
 	}
-	return 0;
+	return undef;
 }
 
 
