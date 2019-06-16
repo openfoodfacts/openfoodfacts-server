@@ -41,6 +41,11 @@ my @tests = (
 [ { lc => "en", ingredients_text => "sugar and water"}, [ "en:sugar", "en:water"], ],
 [ { lc => "en", ingredients_text => "something and something else"}, [ "en:something and something else", ], ],
 
+[ { lc => "es", ingredients_text => "Quinoa"}, [ "en:quinoa", ], ],
+[ { lc => "es", ingredients_text => "aromas y antioxidante: ácido cítrico"}, [ "en:flavouring", "en:antioxidant", "en:e330", ], ],
+[ { lc => "es", ingredients_text => "aromas y antioxidante"}, [ "en:flavouring", "en:antioxidant", ], ],
+[ { lc => "es", ingredients_text => "manzanas 10% y naranjas 5%"}, [ "en:apple", "en:orange", ], ],
+
 );
 
 foreach my $test_ref (@tests) {
@@ -54,5 +59,29 @@ foreach my $test_ref (@tests) {
 		$expected_tags) or diag explain $product_ref;
 }
 
+my $before = "";
+my $after = "";
+my $s = "aromas y antioxidante";
+if ($s =~ / y /) {
+my $ingredient1 = $`;
+my $ingredient2 = $';
+my $product_ref = { lc => "es" };
+
+ my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $s);
+
+ if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
+
+ my $canon_ingredient1 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient1);
+ my $canon_ingredient2 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient2);
+
+ if ( (exists_taxonomy_tag("ingredients", $canon_ingredient1))
+ and (exists_taxonomy_tag("ingredients", $canon_ingredient2)) ) {
+ $before = $ingredient1;
+ $after = $ingredient2;
+ }
+}
+}
+
+print "before: $before - after: $after\n";
 
 done_testing();

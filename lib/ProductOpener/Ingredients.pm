@@ -338,6 +338,8 @@ sub extract_ingredients_from_text($) {
 		my $between_level = $level;
 		my $percent = undef;
 
+		print STDERR "s: $s\n";
+
 		# find the first separator or ( or [ or :
 		if ($s =~ $separators) {
 
@@ -407,30 +409,6 @@ sub extract_ingredients_from_text($) {
 				$after = $';
 			}
 		}
-		# 2 known ingredients separated by "and" ?
-		elsif ($s =~ /$and/i) {
-		
-			$before = $s;
-
-			my $ingredient1 = $`;
-			my $ingredient2 = $';
-
-			# check if the whole ingredient is an additive
-			my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $s);
-
-			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
-
-				# otherwise check the 2 sub ingredients
-				my $canon_ingredient1 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient1);
-				my $canon_ingredient2 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient2);
-
-				if ( (exists_taxonomy_tag("ingredients", $canon_ingredient1))
-					and (exists_taxonomy_tag("ingredients", $canon_ingredient2)) ) {
-					$before = $ingredient1;
-					$after = $ingredient2;
-				}
-			}
-		}
 		else {
 			# no separator found: only one ingredient
 			# print STDERR "no separator found: $s\n";
@@ -440,80 +418,123 @@ sub extract_ingredients_from_text($) {
 		# remove ending parenthesis
 		$before =~ s/(\),\],\])*//;
 
-		# Strawberry 10.3%
-		if ($before =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$/) {
-			# print STDERR "percent found: $before = $` + $1\%\n";
-			$percent = $1;
-			$before = $`;
-		}
+		my @ingredients = ();
+		
+		# 2 known ingredients separated by "and" ?
+		if ($before =~ /$and/i) {
+		
+			my $ingredient = $before;
+			my $ingredient1 = $`;
+			my $ingredient2 = $';
+			
+			# Remove percent 
+			
+			my $ingredient1_orig = $ingredient1;
+			my $ingredient2_orig = $ingredient2;
+			
+			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$//;
+			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$//;
+			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$//;
 
-		# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-		if ($before =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
-			# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
-			$percent = $1;
-			$before = $';
-		}
+			# check if the whole ingredient is an ingredient
+			my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $before);
+			
+			# print STDERR "canon_ingredient - $canon_ingredient\n";
 
+			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
+				# otherwise check the 2 sub ingredients
+				my $canon_ingredient1 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient1);
+				my $canon_ingredient2 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient2);
+				
+				# print STDERR "canon_ingredient1 - $canon_ingredient1\n";
+				# print STDERR "canon_ingredient2 - $canon_ingredient2\n";
 
-		my $ingredient = $before;
-		chomp($ingredient);
-
-		# remove percent
-
-		# remove * and other chars before and after the name of ingredients
-		$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
-		$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
-
-		$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
-
-		my $origin;
-		my $label;
-
-		# try to remove the origin and store it as property
-		if ($ingredient =~ /\b(origin|origine)\b/i) {
-			$ingredient = $`;
-			$origin = $';
-			$origin =~ s/^\s+//;
-			$origin =~ s/\s+$//;
-		}
-
-		if ($ingredient =~ /\b(bio|biologique|biologico|organic|halal)\b/i) {
-			$label = canonicalize_taxonomy_tag($product_ref->{lc}, "labels", $1);
-			$ingredient =~ s/\b(bio|biologique|biologico|organic|halal)\b//i;
-			$ingredient =~ s/\s+/ /g;
-		}
-
-		$ingredient =~ s/^\s+//;
-		$ingredient =~ s/\s+$//;
-
-		my %ingredient = (
-			id => canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient),
-			text => $ingredient
-		);
-		if (defined $percent) {
-			$ingredient{percent} = $percent;
-		}
-		if (defined $origin) {
-			$ingredient{origin} = $origin;
-		}
-		if (defined $label) {
-			$ingredient{label} = $label;
-		}
-
-		if ($ingredient ne '') {
-
-			# ingredients tags that are too long (greater than 1024, mongodb max index key size)
-			# will cause issues for the mongodb ingredients_tags index, just drop them
-
-			if (length($ingredient{id}) < 500) {
-				if ($level == 0) {
-					push @$ranked_ingredients_ref, \%ingredient;
-				}
-				else {
-					push @$unranked_ingredients_ref, \%ingredient;
+				if ( (exists_taxonomy_tag("ingredients", $canon_ingredient1))
+					and (exists_taxonomy_tag("ingredients", $canon_ingredient2)) ) {
+					push @ingredients, $ingredient1_orig;
+					push @ingredients, $ingredient2_orig;
 				}
 			}
+		}
+		
+		if (scalar @ingredients == 0) {
+			push @ingredients, $before;
+		}
+
+		foreach my $ingredient (@ingredients) {
+		
+			chomp($ingredient);
+			
+			# Strawberry 10.3%
+			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$/) {
+				# print STDERR "percent found: $before = $` + $1\%\n";
+				$percent = $1;
+				$ingredient = $`;
+			}
+
+			# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
+			if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
+				# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
+				$percent = $1;
+				$ingredient = $';
+			}		
+
+			# remove * and other chars before and after the name of ingredients
+			$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
+			$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
+
+			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
+
+			my $origin;
+			my $label;
+
+			# try to remove the origin and store it as property
+			if ($ingredient =~ /\b(origin|origine)\b/i) {
+				$ingredient = $`;
+				$origin = $';
+				$origin =~ s/^\s+//;
+				$origin =~ s/\s+$//;
+			}
+
+			if ($ingredient =~ /\b(bio|biologique|biologico|organic|halal)\b/i) {
+				$label = canonicalize_taxonomy_tag($product_ref->{lc}, "labels", $1);
+				$ingredient =~ s/\b(bio|biologique|biologico|organic|halal)\b//i;
+				$ingredient =~ s/\s+/ /g;
+			}
+
+			$ingredient =~ s/^\s+//;
+			$ingredient =~ s/\s+$//;
+
+			my %ingredient = (
+				id => canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient),
+				text => $ingredient
+			);
+			if (defined $percent) {
+				$ingredient{percent} = $percent;
+			}
+			if (defined $origin) {
+				$ingredient{origin} = $origin;
+			}
+			if (defined $label) {
+				$ingredient{label} = $label;
+			}
+
+			if ($ingredient ne '') {
+
+				# ingredients tags that are too long (greater than 1024, mongodb max index key size)
+				# will cause issues for the mongodb ingredients_tags index, just drop them
+
+				if (length($ingredient{id}) < 500) {
+					if ($level == 0) {
+						push @$ranked_ingredients_ref, \%ingredient;
+					}
+					else {
+						push @$unranked_ingredients_ref, \%ingredient;
+					}
+				}
+			}
+		
 		}
 
 		if ($between ne '') {
