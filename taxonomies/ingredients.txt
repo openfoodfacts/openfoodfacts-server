@@ -8638,7 +8638,7 @@ hy:Միներալ
 ia:Mineral
 id:Mineral
 io:Mineralo
-is:Steind, steinefni, steintegund
+io:Mineralo
 it:Minerale, Minerali, Sali minerali
 ja:鉱物
 jv:Mineral
@@ -14574,6 +14574,8 @@ fr:lactosérum déminéralisé
 nl:Gedemineraliseerde wei
 
 <en:Demineralised whey
+
+<en:Demineralised whey
 fr:lactosérum partiellement déminéralisé, petit lait partiellement déminéralisé
 # ingredient/fr:lactosérum-partiellement-déminéralisé has 20 products in 4 languages @2019-02-12
 
@@ -14723,8 +14725,6 @@ nl:Lichte room
 # ingredient/fr:crème%20légère has 399 products in 8 languages @2019-02-03
 
 # Recipes calling for 'single cream' are referring to pure or thickened cream with about 35% fat.
-# Note that the translations are often wrong, as this does not exists in all countries
-
 <en:cream
 en:single cream
 de:Halbrahm, Haldsahne
@@ -20007,6 +20007,9 @@ fr:amidon de pommes de terre, amidon de pomme de terre, fécule de pommes de ter
 id:Tepung kentang
 it:Fecola di patate, amido di patata, amido di patate, fecola di patate
 ja:片栗粉
+fr:amidon de pommes de terre, amidon de pomme de terre, fécule de pommes de terre, fécule de pomme de terre
+it:Fecola di patate, amido di patata, amido di patate, fecola di patate
+ja:片栗粉
 ko:감자 녹말
 ms:Kanji kentang
 nb:potetstivelse, Potetmel
@@ -20137,6 +20140,8 @@ ak:sradeɛ
 an:Graixa
 ar:دهن
 ay:Lik'i
+bg:Мазнина, мазнини
+bn:স্নেহ পদার্থ
 bg:Мазнина, мазнини
 bn:স্নেহ পদার্থ
 br:Druzoni 
@@ -20314,11 +20319,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lard
 
 <en:animal fat
 fr:gras de veau
-# ingredient/fr:gras-de-veau has 75 products in french @2019-03-01
-
-<en:animal fat
-# <en:beef
-fr:graisse de bœuf, graisse de boeuf, gras de bovin, gras de bœuf, gras de boeuf
 # ingredient/fr:gras-de-bovin has 70 products in french @2019-03-29
 
 fr:gras de bœuf, graisse de bœuf
@@ -25974,6 +25974,9 @@ it:farina di grano tenero
 <en:wheat flour
 de:Weissmehl
 fr:farine blanche
+<en:wheat flour
+de:Weissmehl
+fr:farine blanche
 it:farina bianca
 
 <en:cereal flour
@@ -26137,9 +26140,6 @@ nl:amaranthmeel, amarant gemalen
 en:tapioca flour
 de:Tapiokamehl
 fr:farine de tapioca, farine de manioc
-it:farina di tapioca
-nl:Tapiokameel, tapioca bloem
-sv:Tapiokamjöl
 
 <en:flour
 <en:lupin
@@ -27098,6 +27098,11 @@ fr:riz basmati blanc
 de:weißer Basmatireis
 nl:witte basmatirijst
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
+en:white basmati rice
+fr:riz basmati blanc
+de:weißer Basmatireis
+nl:witte basmatirijst
+# ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 
 <en:basmati rice
 <en:organic rice
@@ -27202,8 +27207,6 @@ fr:Riz thaï complet
 <en:Thaï brown rice
 <en:parboiled rice
 fr:Riz Thaï complet étuvé
-# ingredient/fr:riz-thai-complet-etuve has 3 products @2019-05-29
-
 <en:Thaï rice
 fr:riz thaï noir complet de Thailande
 
@@ -27328,6 +27331,9 @@ it:riso soffiato
 nl:gepofte rijst
 pt:arroz tufado
 sv:puffat ris
+# ingredient/fr:riz-soufflé has 180 products in 10 languages @2018-12-19
+# ingredient/fr:riz-croustillant has 44 products in 2 languages @2018-12-19
+# usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
 # ingredient/fr:riz-soufflé has 180 products in 10 languages @2018-12-19
 # ingredient/fr:riz-croustillant has 44 products in 2 languages @2018-12-19
 # usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
@@ -27498,12 +27504,6 @@ hi:शर्करा
 hr:Šećeri
 ht:Sik
 hu:Cukor
-hy:Շաքար
-ia:Sucro
-id:Gula
-ig:Ńnú odẹne
-ik:Avu
-io:Sukro
 is:Matarsykur
 it:zucchero
 iu:ᓱᑲᒃ
@@ -28581,6 +28581,12 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-and-fructose-sy
 
 <en:wheat
 <en:fructose syrup
+ru:глюкозно-фруктозный сироп
+sk:glukózový-fruktózový sirup
+sr:glukozno-fruktozni sirup
+sv:glukos-fruktossirap
+openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-and-fructose-syrup
+<en:fructose syrup
 <en:glucose syrup
 fr:sirop de glucose-fructose de blé
 de:Glukose-und Fruktosesirup (Weizen)
@@ -28711,6 +28717,10 @@ fr:sirop de sucre partiellement inverti
 fr:sirop de sucre mélassé
 
 en:maltitol syrup
+fr:sirop de maltitol
+it:sciroppo di maltitolo
+nl:Maltitolstroop
+
 fr:sirop de maltitol
 it:sciroppo di maltitolo
 nl:Maltitolstroop
@@ -28854,16 +28864,6 @@ hr:sirup od agave
 id:Agave nectar
 is:agave-síróp
 it:sciroppo d'agave
-ja:アガベシロップ
-nl:agavesiroop, agave
-nn:agave sirup
-pl:Syrop z agawy
-pt:xarope de agave
-ro:nectar de agave
-ru:сироп из агавы
-sl:agavin sirup
-sv:Agavesirap
-th:อะกาเวเนกเตอร์
 zh:龍舌蘭糖漿
 wikidata:en:Q392001
 wikipedia:en:https://en.wikipedia.org/wiki/Agave_nectar
@@ -32843,6 +32843,16 @@ carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, prod
 # sr-el:voće
 # vec:Fruta
 # vls:Fruut
+# mrj:Садывичӹ кушкышвлӓ
+# nds:Aaft
+# rue:Овоцина
+# sat:ᱡᱚ
+# scn:Frutta
+# sco:fruit
+# sr-ec:воће
+# sr-el:voće
+# vec:Fruta
+# vls:Fruut
 # vro:Puuvili
 # wuu:水果
 # xmf:ხილი
@@ -32898,6 +32908,8 @@ fr:fruits et légumes concentrés, concentrés de fruits et de légumes
 
 
 <en:fruit
+en:dried fruits
+es:frutos secos
 fr:fruits séchés, fruits secs
 de:Trockenfrüchte
 it:frutta secca
@@ -32950,16 +32962,6 @@ fr:purée de fruits, purées de fruits
 de:Fruchtmark
 it:popa di frutti
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20fruits
-# 81 products in 3 languages @2018-10-04
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purées%20de%20fruits
-# 66 products in 1 language @2018-10-04
-
-<en:fruit juice
-<fr:purée de fruits
-fr:jus et purées de fruits
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20et%20purées%20de%20fruits
-# 56 products in 1 language @2018-10-04
-
 # Is and Compound, i.e. ingredient:jus et purées de fruits à base de concentré :pomme, mangue, orange, ananas et fruits de la passion.
 
 <fr:jus et purées de fruits
@@ -46653,6 +46655,19 @@ es:pimienta
 et:Pipar
 fi:pippuri
 fr:poivre, poivres
+# Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
+
+<en:seed
+en:pepper
+ak:moko
+ca:pebre
+de:Pfeffer
+ee:ableh
+eo:pipro
+es:pimienta
+et:Pipar
+fi:pippuri
+fr:poivre, poivres
 gl:Pementa
 ht:Pwav
 it:pepe
@@ -46784,10 +46799,6 @@ de:Bockshornkleesamen, getrocknete Bockshornkleesamen
 es:semilla de fenegreco, semilla de fenegreco seca
 fr:graine de fenugrec, graines de fenugrec, graine de fenugrec séchée
 nl:fenegriekzaad, gedroogd fenegriekzaad
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20de%20fenugrec
-# 3 products in 1 language @2018-10-08
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20fenugrec
-# 23 products in 2 languages @2018-10-08
 
 <en:fenugreek seed
 en:organic fenugreek seed
@@ -46977,6 +46988,11 @@ nb:tahini
 nl:tahin
 nn:tahini
 pa:ਤਾਹੀਨੀ
+ms:Tahini
+nb:tahini
+nl:tahin
+nn:tahini
+pa:ਤਾਹੀਨੀ
 pl:Tahini
 pt:tahine
 ro:tahini
@@ -46985,20 +47001,6 @@ sv:tahini
 th:ทาฮีนี
 tr:Tahin
 uk:Тахіні
-zh:芝麻酱
-# wuu:芝麻酱
-# yue:麻醬
-wikidata:en:Q383389
-wikipedia:en:https://en.wikipedia.org/wiki/Tahini
-# ingredient/fr:tahini has 36 products in 2 languages @2018-12-14
-
-
-
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
-#                                     S P I C E S     S E C T I O N
-#
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -66645,10 +66647,6 @@ he:רוטב בולונז
 it:Sugo alla bolognese, Ragù bolognese
 ja:ミートソース
 ko:라구 볼로녜세
-lt:Bolonijos padažas
-nb:Kjøttsaus
-nl:bolognesesaus, bolognesaus
-pl:Sos bolognese
 pt:Molho à bolonhesa
 ru:Болоньезе
 sv:Köttfärssås
@@ -66764,3 +66762,9 @@ fr:verte, vertes
 # nitrate -> citrate
 fr:nitrate, nitrates
 
+
+
+
+# comment:en:These are words that start a list of ingredients
+
+en:ingredient, ingredients, composition
