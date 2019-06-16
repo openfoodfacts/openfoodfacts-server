@@ -40,7 +40,7 @@ stopwords:da:av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with
-stopwords:es:contiene
+stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo
 stopwords:fi:sisältää
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets souleves
 stopwords:hr:sastojci
@@ -13683,6 +13683,7 @@ fr:lait écrémé stérilisé uht issu de l'agriculture biologique
 <en:milk
 en:semi-skimmed milk, reduced-fat milk
 de:teilentrahmte milch
+es:leche parcialmente desnatada
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
 it:latte parzialmente scremato
 nb:Ekstra lett melk
@@ -13757,7 +13758,8 @@ fr:Lait frais demi-écrémé microfiltré issu de l'agriculture biologique
 <en:milk
 en:whole milk
 da:sødmaelk
-de:Vollmilch, 
+de:Vollmilch
+es:leche entera
 fi:täysmalto
 fr:lait entier, 
 it:latte intero
@@ -19246,6 +19248,7 @@ nl:geitenvlees
 <en:meat
 en:pork meat
 de:Schweinefleisch
+es:carne de cerdo
 fr:viande de porc
 it:carne di suino
 nl:Varkensvlees
@@ -20081,7 +20084,7 @@ fr:amidon de blé partiellement modifié
 # <en:rice
 en:rice starch
 de:Reisstärke
-es:amido de arroz
+es:almidon de arroz, amido de arroz
 fr:amidon de riz
 it:amido di riso
 nl:rijstzetmeel
@@ -20360,7 +20363,7 @@ ca:Oli vegetal
 da:vegetabilisk olie
 de:Pflanzenöle
 eo:Legoma oleo
-es:Aceite vegetal
+es:Aceite vegetal, aceites vegetales
 et:Taimeõli
 eu:Landare-olio
 fa:دانه‌های روغنی
@@ -20555,7 +20558,7 @@ wikidata:en:Q7128109
 en:palm fat
 da:palmfedtstof
 de:Palmfett
-es:grasa de palma
+es:grasa de palma, grasa vegetal de palma
 fi:palmurasva
 fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
 it:grasso di palma
@@ -21475,6 +21478,8 @@ fr:huile de tournesol raffinée
 it:oleo di girasole raffinato
 
 <en:sunflower oil
+en:high oleic sunflower
+es:girasol alto oleico
 fr:tournesol oléique
 # ingredient/fr:tournesol-oléique has 55 products in french @2019-02-22
 # huiles végétales (tournesol oléique, colza, tournesol)
@@ -21483,6 +21488,7 @@ fr:tournesol oléique
 
 <en:sunflower oil
 en:high oleic sunflower oil
+es:aceite de girasol alto oleico
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique
 nl:high oleic zonnebloemolie
 
@@ -28545,6 +28551,7 @@ it:sciroppo di oligofruttosio
 <en:glucose
 <en:fructose
 en:glucose-fructose
+es:glucosa-fructosa
 fr:glucose-fructose
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-fructose
 # 19 products in 3 languages @2018-09-24
@@ -28556,7 +28563,7 @@ cs:glukózový-fruktózový sirup
 da:glukos-fruktossirap
 de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
-es:jarabe de glucosa y fructosa
+es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
 fi:glukoosi-fruktoosi siirappi
 fr:sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
 hu:glükóz-fruktózszörp, glükóz-fruktózszőrp
@@ -29843,7 +29850,7 @@ da:mørk chokolade
 de:dunkle Schokolade, Zartbitterschokolade
 el:μαύρη σοκολάτα
 eo:nigra ĉokolado
-es:Chocolate amargo
+es:Chocolate negro, Chocolate amargo
 et:tume šokolaad
 eu:txokolate beltz
 fa:شکلات تلخ
@@ -34769,7 +34776,7 @@ sv:torkad citronjuice
 <en:lemon
 en:concentrated lemon juice, lemon extract
 de:Zitronensaftkonzentrat, Zitronenkonzentrat, Zitronenextrakt
-es:extracto de limón
+es:zumo concentrado de limón, extracto de limón
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de citron, extrait de citron, concentré de jus de citron
 it:succo di limone concentrato, concentrato di limone, estratto di limone
 nl:citroenextract
@@ -48015,7 +48022,7 @@ da:Ingefær
 de:Ingwer
 el:Πιπερόριζα
 eo:zingibro
-es:Gengibre
+es:Gengibre, jengibre
 et:Ingver
 eu:jengibre
 fa:زنجبیل
@@ -65397,7 +65404,7 @@ ca:llet de soia
 cs:Sojové mléko
 el:γάλα σόγιας
 eo:sojlakto
-es:leche de soya, Licuado de soja, leche de soja
+es:bebida de soja, bebida de soya, leche de soya, Licuado de soja, leche de soja
 et:Sojapiim
 eu:Soja-esne
 fa:شیر سویا
