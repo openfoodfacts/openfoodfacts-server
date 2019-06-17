@@ -324,5 +324,19 @@ is_deeply (\@tags, [
  ]
  ) or diag explain(\@tags);;
 
+ProductOpener::Tags::retrieve_tags_taxonomy("test");
+
+is(get_property("test","en:meat","vegan:en"), "no");
+is($properties{test}{"en:meat"}{"vegan:en"}, "no");
+is(get_inherited_property("test","en:meat","vegan:en"), "no");
+is(get_property("test","en:beef","vegan:en"), undef);
+is(get_inherited_property("test","en:beef","vegan:en"), "no");
+is(get_inherited_property("test","en:fake-meat","vegan:en"), "yes");
+is(get_inherited_property("test","en:fake-duck-meat","vegan:en"), "yes");
+is(get_inherited_property("test","en:yogurts","vegan:en"), undef);
+is(get_inherited_property("test","en:unknown","vegan:en"), undef);
+is(get_inherited_property("test","en:roast-beef","carbon_footprint_fr_foodges_value:fr"), 15);
+is(get_inherited_property("test","en:fake-duck-meat","carbon_footprint_fr_foodges_value:fr"), undef);
+
 
 done_testing();

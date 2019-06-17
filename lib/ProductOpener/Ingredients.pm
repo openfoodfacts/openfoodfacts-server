@@ -659,6 +659,7 @@ fr => [
 
 'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 'Quels Ingr(e|é)dients ?', # In Casino packagings
+'ingr(e|é)dient(\s*)(-|:|\r|\n)+',
 ],
 
 
@@ -680,8 +681,8 @@ it => [
 
 ],
 
-es => [
-'ingredientes(\s*)(\s|-|:|\r|\n)+',
+cs => [
+'složení',
 ],
 
 pt => [
@@ -690,6 +691,10 @@ pt => [
 
 pl => [
 'składniki(\s*)(\s|-|:|\r|\n)+',
+],
+
+si => [
+'sestavine(\s*)(\s|-|:|\r|\n)+',
 ],
 
 it => [
@@ -724,6 +729,12 @@ my %phrases_before_ingredients_list_uppercase = (
 fr => [
 
 'INGR(E|É)DIENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+'INGR(E|É)DIENT(\s*)(-|:|\r|\n)+',
+
+],
+
+cs => [
+'SLOŽENÍ',
 ],
 
 de => [
@@ -742,6 +753,10 @@ pt => [
 
 'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
 
+],
+
+pl => [
+'SKŁADNIKI(\s*)(\s|-|:|\r|\n)+',
 ],
 
 it => [
@@ -763,6 +778,14 @@ de => [
 
 fi => [
 'AINESOTAT:(\s*)(\s|-|:|\r|\n)+',
+],
+
+si => [
+'SESTAVINE:(\s*)(\s|-|:|\r|\n)+',
+],
+
+sv => [
+'INGREDIENSER:(\s*)(\s|-|:|\r|\n)+',
 ],
 
 );
@@ -791,24 +814,28 @@ fr => [
 'conseils de pr(e|é)paration',
 'conseil de pr(e|é)paration',
 'conditions de conservation',
+'conservation:',
 '(a|à) protéger de ', # humidité, chaleur, lumière etc.
 'conditionn(e|é) sous atmosph(e|è)re protectrice',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
 '(a|à) conserver (dans|de|a|à)',
 '(a|à)conserver (dans|de|a|à)', #variation
+'(a|à)conserver entre',
 'apr(e|è)s ouverture',
 'apr(e|è)s achat',
 'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
+'dont sucres',
+'dont acides ras satur(e|é)s',
+'dont acides gras satur(e|é)s',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
 #'dontSUcres',
-#'waarvan suikers/dont sucres',
+#'waarvan suikers/
 #`verzadigde vetzuren/ acides gras saturés`,
 #`Conditionné par`,
-
 ],
 
 en => [
@@ -816,6 +843,8 @@ en => [
 'nutritional values',
 'after opening',
 'nutrition values',
+'of whlch saturates',
+'of which saturates',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 
 ],
@@ -847,6 +876,7 @@ de => [
 'Durchschnittliche N(â|a|ä)hrwerte',
 'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
+'k(u|ü)hl und trocken lagern',
 ],
 
 nl => [
@@ -864,6 +894,10 @@ it => [
 'Valori nutritivi',
 ],
 
+cs => [
+'doporučeny způsob přípravy',
+],
+
 ja => [
 '栄養価',
 ],
@@ -879,6 +913,11 @@ pt => [
 'consumir de prefer(e|ê)ncia antes do',
 ],
 
+pl => [
+'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
+'n(a|o)jlepiej spożyć przed', #Best before
+],
+
 ro => [
 'declaratie nutritional(a|ă)',
 'a si pastra la frigider dup(a|ă) deschidere',
@@ -889,11 +928,28 @@ ro => [
 );
 
 
+# turn demi - écrémé to demi-écrémé
+my %prefixes_before_dash  = (
+fr => [
+'demi',
+'saint',
+],
+);
+
 
 sub clean_ingredients_text_for_lang($$) {
 
 	my $text = shift;
 	my $language = shift;
+	
+	# turn demi - écrémé to demi-écrémé
+	
+	if (defined $prefixes_before_dash{$language}) {
+
+		foreach my $prefix (@{$prefixes_before_dash{$language}}) {
+			$text =~ s/\b($prefix) - (\w)/$1-$2/is;
+		}
+	}	
 
 	# Remove phrases before ingredients list lowercase
 
