@@ -934,11 +934,28 @@ ro => [
 );
 
 
+# turn demi - écrémé to demi-écrémé
+my %prefixes_before_dash  = (
+fr => [
+'demi',
+'saint',
+],
+);
+
 
 sub clean_ingredients_text_for_lang($$) {
 
 	my $text = shift;
 	my $language = shift;
+	
+	# turn demi - écrémé to demi-écrémé
+	
+	if (defined $prefixes_before_dash{$language}) {
+
+		foreach my $prefix (@{$prefixes_before_dash{$language}}) {
+			$text =~ s/\b($prefix) - (\w)/$1-$2/is;
+		}
+	}	
 
 	# Remove phrases before ingredients list lowercase
 
