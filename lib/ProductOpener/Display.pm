@@ -6679,7 +6679,9 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p id=\"barcode_paragraph\">" . lang("barcode") . separator_before_colon($lc) . ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span> $html_upc</p>
+		$html .= "<p id=\"barcode_paragraph\">" 
+		    . lang("barcode") . separator_before_colon($lc) 
+		    . ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 
