@@ -795,7 +795,7 @@ sub build_tags_taxonomy($$$) {
 					if (defined $synonyms{$tagtype}{$lc}{$tagid}) {
 						($synonyms{$tagtype}{$lc}{$tagid} eq $current_tagid) and next;
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
-						if (not ($tagtype =~ /^additives/)) {
+						if (not ($tagtype =~ /^additives(|_prev|_next|_debug)$/)) {
 							if ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) {
 								my $msg = "$lc:$tagid already is a synonym of " . $synonyms{$tagtype}{$lc}{$tagid}
 								. " (" . $translations_from{$tagtype}{"$lc:$tagid"} . ")"
@@ -860,7 +860,7 @@ sub build_tags_taxonomy($$$) {
 
 		my $max_pass = 2;
 		# Limit the number of passes for big taxonomies to avoid generating tons of useless synonyms
-		if (($tagtype =~ /^additives/) or ($tagtype =~ /^ingredients/)) {
+		if (($tagtype =~ /^additives(|_prev|_next|_debug)$/) or ($tagtype =~ /^ingredients/)) {
 			$max_pass = 1;
 		}
 
@@ -1392,7 +1392,7 @@ sub build_tags_taxonomy($$$) {
 					}
 
 					# additives has e-number as their name, and the first synonym is the additive name
-					if (($tagtype eq 'additives') and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1])) {
+					if (($tagtype =~ /^additives(|_prev|_next|_debug)$/) and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1])) {
 						$taxonomy_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 						$taxonomy_full_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 					}
@@ -2072,7 +2072,7 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	}
 
 	# for additives, add the first synonym
-	if ($tagtype =~ /^additives/) {
+	if ($tagtype =~ /^additives(|_prev|_next|_debug)$/) {
 		$tagid =~ s/.*://;
 		if ((defined $synonyms_for{$tagtype}{$target_lc}) and (defined $synonyms_for{$tagtype}{$target_lc}{$tagid})
 			and (defined $synonyms_for{$tagtype}{$target_lc}{$tagid}[1])) {
@@ -2399,7 +2399,7 @@ sub canonicalize_tag2($$)
 
 	$tag = $canon_tag;
 
-	if (($tagtype ne "additives_debug") and ($tagtype =~ /^additives/)) {
+	if (($tagtype ne "additives_debug") and ($tagtype =~ /^additives(|_prev|_next|_debug)$/)) {
 
 		# e322-lecithines -> e322
 		my $tagid = get_fileid($tag);
@@ -2823,7 +2823,7 @@ sub display_taxonomy_tag($$$)
 	}
 
 	# for additives, add the first synonym
-	if ($tagtype =~ /^additives/) {
+	if ($tagtype =~ /^additives(|_prev|_next|_debug)$/) {
 		$tagid =~ s/.*://;
 		if ((defined $synonyms_for{$tagtype}{$target_lc}) and (defined $synonyms_for{$tagtype}{$target_lc}{$tagid})
 			and (defined $synonyms_for{$tagtype}{$target_lc}{$tagid}[1])) {
