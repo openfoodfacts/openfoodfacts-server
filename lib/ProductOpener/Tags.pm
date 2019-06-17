@@ -38,6 +38,9 @@ BEGIN
 					&remove_tag
 					&is_a
 
+					&get_property
+					&get_inherited_property
+
 					%canon_tags
 					%tags_images
 					%tags_texts
@@ -202,6 +205,45 @@ my %all_parents = ();
 
 my $logo_height = 90;
 
+sub get_property($$$) {
+
+ 	my $tagtype = shift;
+	my $canon_tagid = shift;
+	my $property = shift;
+
+	if (exists $properties{$tagtype}{$canon_tagid}) {
+		return $properties{$tagtype}{$canon_tagid}{$property};
+	}
+	else {
+		return undef;
+	}
+}
+
+sub get_inherited_property($$$) {
+
+ 	my $tagtype = shift;
+	my $canon_tagid = shift;
+	my $property = shift;
+
+	my @parents = ($canon_tagid);
+
+ 	foreach my $tagid (@parents) {
+		if ((exists $properties{$tagtype}{$tagid}) and (exists $properties{$tagtype}{$tagid}{$property})) {
+
+			if ($properties{$tagtype}{$tagid}{$property} eq "undef") {
+				# stop the propagation to parents of this tag, but continue with other parents
+			}
+			else {
+				return $properties{$tagtype}{$tagid}{$property};
+			}
+		}
+		elsif (exists $direct_parents{$tagtype}{$tagid}) {
+			# check if one of the parents has the property
+			push @parents, sort keys %{$direct_parents{$tagtype}{$tagid}};
+		}
+	}
+	return undef;
+}
 
 sub has_tag($$$) {
 
