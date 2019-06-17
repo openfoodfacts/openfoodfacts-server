@@ -35,22 +35,22 @@ class RobotoffAsker extends HTMLElement {
         .hidden { display: none; }
       </style>
       <div class="row hidden zoomrow" id="zoomrow">
-        <div class="medium-12 columns">
+        <div class="small-12 columns">
           <img src="" id="zoom" data-zoom-in-src="" data-zoom-out-src="">
         </div>
       </div>
       <div class="row">
-        <div class="medium-2 columns">
+        <div class="small-2 columns">
           <img src="" id="thumbnail">
         </div>
-        <div class="medium-10 large-6 columns">
+        <div class="small-10 columns">
           <span id="question">Question</span>
           <span id="value">Value</span>
         </div>
-        <ul class="medium-12 large-4 columns button-group">
-          <li><a href="#" id="no" class="button alert annotate" data-annotation="0">No</a></li>
-          <li><a href="#" id="skip" class="button secondary annotate" data-annotation="-1">Not sure</a></li>
-          <li><a href="#" id="yes" class="button success annotate" data-annotation="1">Yes</a></li>
+        <ul class="small-10 columns button-group" style="margin-top:0.5rem;">
+          <li><a href="#" id="no" class="small button alert annotate" data-annotation="0">No</a></li>
+          <li><a href="#" id="skip" class="small button secondary annotate" data-annotation="-1">Not sure</a></li>
+          <li><a href="#" id="yes" class="small button success annotate" data-annotation="1">Yes</a></li>
         </ul>
       </div>
       <a href="#" id="close">&times;</button>

@@ -299,11 +299,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		if (defined param($field)) {
 			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
-			if ($field eq 'emb_codes') {
-				# French emb codes
-				$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
-			}
+
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
 			if ($field =~ /ingredients_text/) {
 				# the ingredients_text_with_allergens[_$lc] will be recomputed after
@@ -620,9 +616,16 @@ sub display_field($$) {
 	autocomplete: {
 		source: function(request, response) {
 			if (request.term === "") {
-				let tag = window.localStorage.getItem("po_last_tags");
-				if (tag != null) response(JSON.parse(tag)['${field}']);
+				let obj = window.localStorage.getItem("po_last_tags");
+				obj = JSON.parse(obj) || {};
+				obj = obj['${field}'] || [];
+
+				response(obj.filter( function(el) {
+  					return !\$('#$field').tagExist(el);
+				}));
 			} else {
+				const url = "${autocomplete}";
+				if (url == "") return;
 				\$.ajax({
 					type: "GET",
 					url: "${autocomplete}",
@@ -644,7 +647,7 @@ sub display_field($$) {
 		} else if (obj["${field}"] == null) {
 			obj["${field}"] = [tag];
 		} else {
-			if (obj["${field}"].indexOf() != -1) return;
+			if (obj["${field}"].indexOf(tag) != -1) return;
 			if (obj["${field}"].length >= $arrayLenght) obj["${field}"].pop();
 			obj["${field}"].unshift(tag);
 		}
@@ -660,9 +663,7 @@ JAVASCRIPT
 	}
 
 	my $value = $product_ref->{$field};
-	if (defined $product_ref->{$field . "_orig"}) {
-		$value = $product_ref->{$field . "_orig"};
-	}
+
 	if ((defined $value) and (defined $taxonomy_fields{$field})) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 		# Remove tags
@@ -1219,7 +1220,7 @@ color:#FFFFFF;
 CSS
 ;
 
-	$initjs .= <<JS
+	$initjs .= <<JAVASCRIPT
 \$(".select_add_language").select2({
 	placeholder: "$Lang{add_language}{$lang}",
     allowClear: true
@@ -1253,7 +1254,7 @@ CSS
     }
   });
 
-JS
+JAVASCRIPT
 ;
 
 
@@ -1497,7 +1498,7 @@ $html .= "</div><!-- fieldset -->
 HTML
 ;
 
-	$initjs .= <<JS
+	$initjs .= <<JAVASCRIPT
 \$('#no_nutrition_data').change(function() {
 	if (\$(this).prop('checked')) {
 		\$('#nutrition_data_table input').prop('disabled', true);
@@ -1512,10 +1513,10 @@ HTML
 		\$('#multiple_nutrition_data').prop('disabled', false);
 		\$('#nutrition_data_table').show();
 	}
-
+	update_nutrition_image_copy();
 	\$(document).foundation('equalizer', 'reflow');
 });
-JS
+JAVASCRIPT
 ;
 
 
@@ -2151,7 +2152,7 @@ HTML
 HTML
 ;
 	}
-	
+
 	$html .= <<HTML
 </div>
 </form>
