@@ -1506,6 +1506,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fat
 # description:en:A SATURATED FAT is a type of fat in which the fatty acid chains have all or predominantly single bonds. Examples of foods containing a high proportion of saturated fat include animal fat products such as cream, cheese, butter, other whole milk dairy products and fatty meats. Certain vegetable products have high saturated fat content, such as coconut oil and palm kernel oil. Guidelines released by many medical organizations, including the World Health Organization, have advocated for reduction in the intake of saturated fat to promote health and reduce the risk from cardiovascular diseases.
 # comment:en:All translations need to be checked against actual products, as many synonyms exist.
 
+# <en:fat
 en:Saturated fat
 ar:دهن مشبع
 bg:Наситени мастни киселини
@@ -1566,8 +1567,9 @@ zh:饱和脂肪
 wikidata:en:Q970537
 wikipedia:en:https://en.wikipedia.org/wiki/Saturated_fat
 
-# description:en:BUTYRIC ACID is found in animal fat and plant oils, bovine milk, breast milk,[8] butter, parmesan cheese. In food manufacturing, it is used as a flavoring agent.
+# description:en:BUTYRIC ACID is found in animal fat and plant oils, bovine milk, breast milk, butter, parmesan cheese. In food manufacturing, it is used as a flavoring agent.
 
+# <en:fat
 en:Butyric acid
 af:Bottersuur
 ar: الزبدة
@@ -1638,9 +1640,10 @@ zh:丁酸
 wikidata:en:Q193213
 wikipedia:en:https://en.wikipedia.org/wiki/Butyric_acid
 
-# description:en:CAPROIC ACID, is the carboxylic acid derived from hexane with the chemical formula CH3(CH2)4COOH. It is a fatty acid found naturally in various animal fats and oils. It is also one of the components of vanilla. The primary use of caproic acid is in the manufacture of its esters for artificial flavors.
+# description:en:CAPROIC ACID is a fatty acid found naturally in various animal fats and oils. It is also one of the components of vanilla. The primary use of caproic acid is in the manufacture of its esters for artificial flavors.
 # Comment:en:The more common name seems to be Hexanoic acid, so translations might use both.
 
+# <en:fat
 en:Caproic acid, Hexanoic acid
 ar:حمض الهكسانويك
 az:Kapron turşusu
@@ -1696,6 +1699,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Hexanoic_acid
 # description:en:CAPRYLIC ACID is a eight-carbon saturated fatty acid found naturally in the milk of various mammals, and as a minor constituent of coconut oil and palm kernel oil. Caprylic acid is taken as a dietary supplement.
 # comment:en:Another name seems to be Octanoic acid, so translations might use both.
 
+# <en:saturated fat
 en:Caprylic acid
 ar:حمض الأوكتانويك
 # azb:کاپریلیک اسید
@@ -1743,7 +1747,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caprylic_acid
 
 # description:en:CAPRIC ACID is a saturated fatty acid. The term capric acid is derived from the Latin "caper" (goat) because the sweaty, unpleasant smell of the compound is reminiscent of goats. Capric acid occurs naturally in coconut oil (about 10%) and palm kernel oil (about 4%). It is used in the manufacture of esters for artificial fruit flavors.
 
-
+# <en:saturated fat
 en:Capric acid
 ar:حمض الديكانويك
 # azb:دکانوئیک اسید
@@ -1794,6 +1798,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Decanoic_acid
 # description:en:LAURIC ACID is a saturated fatty acid with a 12-carbon atom chain. Lauric acid comprises about half of the fatty-acid content in coconut milk, coconut oil, laurel oil, and palm kernel oil
 # comment:en:This is also known as dodecoic acid and translated as such. We use the lauric translation if available.
 
+# <en:saturated fat
 en:Lauric acid
 ar:حمض الغار
 # azb:لوریک اسید
@@ -1849,6 +1854,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lauric_acid
 
 # description:en:MYRISTIC ACID is a common saturated fatty acid. Besides nutmeg, myristic acid is also found in palm kernel oil, coconut oil, butterfat, 8–14% of bovine milk, and 8.6% of breast milk as well as being a minor component of many other animal fats. It also comprises 14.49% of the fats from the fruit of the Durian.
 
+# <en:saturated fat
 en:Myristic acid
 ar:حمض الميريستيك
 # azb:میریستیک اسید
@@ -1903,6 +1909,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Myristic_acid
 
 # deescription:en:PALMITIC ACID is the most common saturated fatty acid found in animals, plants and microorganisms. As its name indicates, it is a major component of the oil from the fruit of oil palms (palm oil). Palmitic acid can also be found in meats, cheeses, butter, and other dairy products.
 
+# <en:saturated fat
 en:Palmitic acid
 ar:حمض النخيل
 # azb:پالمیتیک اسید
@@ -1971,6 +1978,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Palmitic_acid
 
 # description:en:STEARIC ACID is one of the most common saturated fatty acids found in nature following palmitic acid. Fats and oils rich in stearic acid are more abundant in animal fat than in vegetable fat. The important exceptions are the foods cocoa butter and shea butter, where the stearic acid content is 28–45%.
 
+# <en:saturated fat
 en:Stearic acid
 ar:حمض الشمع
 # azb:اسید استئاریک
@@ -2037,6 +2045,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Stearic_acid
 
 # description:en:ARACHIDIC ACID is a saturated fatty acid with a 20-carbon chain. It is a minor constituent of cupuaçu butter, perilla oil, peanut oil, corn oil, and cocoa butter. It also constitutes one of the fats from the fruit of the durian.
 
+# <en:saturated fat
 en:Arachidic acid
 ar:حمض الأراكيديك
 # azb:آراکیدیک اسید
@@ -2085,6 +2094,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Arachidic_acid
 
 # description:en:BEHENIC ACID is a carboxylic acid, the saturated fatty acid. Behenic acid is present in some oil-bearing plants, including rapeseed (canola) and peanut oil and skins.
 
+# <en:saturated fat
 en:Behenic acid
 ar:حمض البيهينيك
 # azb:بهینیک اسید
@@ -2127,6 +2137,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Behenic_acid
 
 # description:en:LIGNOCERIC ACID is a saturated fatty acid. The fatty acids of peanut oil contain small amounts of lignoceric acid.
 
+# <en:saturated fat
 en:Lignoceric acid
 ar:حمض الليغنوسيريك
 # azb:لیقنوسریک اسید
@@ -2164,6 +2175,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lignoceric_acid
 
 # description:en:CEROTIC ACID is a 26-carbon long-chain saturated fatty acid. It is most commonly found in beeswax and carnauba wax.
 
+# <en:saturated fat
 en:Cerotic acid, hexacosanoic acid
 ar:حمض السيروتيك
 # azb:سروتیک اسید
@@ -2198,6 +2210,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cerotic_acid
 
 # description:en:MONTANIC ACID is a saturated fatty acid isolated and detected mainly in montan wax. It also occurs in beeswax and Chinese wax. It is known as E number reference E912.
 
+# <en:saturated fat
 en:Montanic acid
 ar:حمض المونتانيك
 # azb:مونتانیک اسید
@@ -2227,7 +2240,10 @@ zh:二十八酸
 # zh_TW:二十八酸
 wikidata:en:Q911196
 wikipedia:en:https://en.wikipedia.org/wiki/Montanic_acid
- 
+
+# description:en:MELISSIC ACID is a saturated fatty acid. Melissic acid is found in beeswax.
+
+# <en:saturated fat
 en:Melissic acid
 ar:حمض الميليسيك
 # azb:ملیسیک اسید
@@ -2260,6 +2276,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Melissic_acid
 
 # description:en:MONOUNSATURATED FATTY ACIDS (more plainly monounsaturated fats) are fatty acids that have one double bond in the fatty acid chain with all of the remainder carbon atoms being single-bonded. Monounsaturated fats protect against cardiovascular disease by providing more membrane fluidity than saturated fats. The Mediterranean diet is one heavily influenced by monounsaturated fats. People in Mediterranean countries consume more total fat than Northern European countries, but most of the fat is in the form of monounsaturated fatty acids from olive oil and omega-3 fatty acids from fish, vegetables, and certain meats like lamb.
 
+# <en:fat
 en:Monounsaturated fat
 ar:دهون أحادية غير مشبعة
 be:Монаненасычаныя тлустыя кіслоты
@@ -2315,6 +2332,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Monounsaturated_fat
 
 # description:en:OMEGA-9 fatty acids (ω−9 fatty acids or n−9 fatty acids) are a family of unsaturated fatty acids. Some omega−9 fatty acids are common components of animal fat and vegetable oil.
 
+# <en:fat
 en:Omega 9 fatty acids
 ar:حمض دهني أوميغا-9
 bg:Омега-9 мастни киселини
@@ -2585,6 +2603,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Erucic_acid
 
 # description:en:NERVONIC ACID is a fatty acid. Nervonic acid is an essential nutrient for the growth and maintenance of the brain. This acid has been found in breast-milk: it is said it can speed the development in infants. It is the reason why it is recommended to pregnant and nursing women.
 
+# <en:fat
 en:Nervonic acid
 ar:حمض النيرفونيك
 # azb:نرونیک اسید
@@ -2619,6 +2638,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nervonic_acid
 
 # description:en:POLYUNSATURATED FATS are fats in which the constituent hydrocarbon chain possesses two or more carbon–carbon double bonds. Polyunsaturated fat can be found mostly in nuts, seeds, fish, seed oils, and oysters. Because of their effects in the diet, unsaturated fats (monounsaturated and polyunsaturated) are often referred to as good fats; while saturated fats are sometimes referred to as bad fats. 
 
+# <en:fat
 en:Polyunsaturated fat
 ar:دهون غير مشبعة متعددة
 bg:Полиненаситени мастни киселини
@@ -2664,6 +2684,7 @@ wikidata:en:Q3604509
 
 # description:en:OMEGA−3 FATTY ACIDS are widely distributed in nature, being important constituents of animal lipid metabolism. Humans are unable to synthesize the essential omega−3 fatty acid and must obtain it through diet. The three types of omega−3 fatty acids involved in human physiology are α-linolenic acid (ALA), found in plant oils, and eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA), both commonly found in marine oils.
 
+# <en:fat
 en:Omega 3 fatty acids
 ar:حمض دهني أوميغا-3
 bg:Омега-3 мастни киселини
@@ -2723,20 +2744,59 @@ zh:Omega 3 脂肪酸
 # zh_TW:Omega 3 脂肪酸
 wikidata:en:Q191756
 wikipedia:en:https://en.wikipedia.org/wiki/Omega-3_fatty_acid
- 
-en:Alpha-linolenic acid / ALA (18:3 n-3)
-de:A-Linolensäure (18:3 n-3)
-el:Α-λινολενικό οξύ/ ALA (18:3 n-3)
-es:Ácido alfa-linolénico / ALA (18:3 n-3)
-fr:Acide alpha-linolénique / ALA (18:3 n-3)
-nl:Alfa-linoleenzuur / ALA (18:3 n-3)
-pt:Ácido alfa-linolênico / ALA (18:3 n-3)
-# pt_pt:Ácido alfa-linolénico / ALA (18:3 n-3)
-ru:Альфа-линоленовая кислота / (АЛК) (18:3 n-3)
-zh:α-亚麻酸 / ALA (18:3 n-3)
-# zh_CN:α-亚麻酸 / ALA (18:3 n-3)
-# zh_HK:α-亞麻酸 / ALA (18:3 n-3)
-# zh_TW:α-亞麻酸 / ALA (18:3 n-3)
+
+# description:en:α-Linolenic acid (ALA) is one of two essential fatty acids (the other being linoleic acid), so called because they are necessary for health and cannot be produced within the human body. They must be acquired through diet. ALA is an omega-3 fatty acid found in seeds (chia, flaxseed, hemp, see also table below), nuts (notably walnuts), and many common vegetable oils.
+
+# <en:en:Omega 3 fatty acids
+en:Alpha-linolenic acid
+ar:حمض ألفا-اللينولينيك
+ca:àcid alfa-linolènic
+cs:kyselina alfa-linolenová
+cy:asid α-linolenig
+da:alfalinolensyre
+de:Alpha-Linolensäure
+el:Α-λινολενικό οξύ
+eo:Alfa linolenika acido
+es:Ácido alfa-linolénico
+eu:azido alfa-linoleniko
+fa:آلفا لینولنیک اسید
+fi:Alfalinoleenihappo
+fr:Acide alpha-linolénique
+gl:Ácido alfa-linolénico
+he:חומצה אלפא-לינולנית
+hi:अल्फा-लिनोलेनिक अम्ल
+hu:alfa-Linolénsav
+it:acido alfa-linoleico
+ja:α-リノレン酸
+lv:alfa-linolēnskābe
+mt:aċidu alfa-linoleniku
+nb:alfalinolensyre
+nl:Alfa-linolzuur
+nn:alfalinolensyre
+pl:kwas α-linolenowy
+pt:Ácido alfa-linolênico 
+# pt_pt:Ácido alfa-linolénico
+ro:acid alfa-linolenic
+ru:Альфа-линоленовая кислота
+# sco:alpha-Linolenic acid
+sh:Alfa-linoleinska kiselina
+sl:Linolenska kislina
+sr:алфа-линолеинска киселина
+# sr-ec:алфа-линолеинска киселина
+# sr-el:Alfa-linoleinska kiselina
+sv:Alfa-linolensyra
+ta:ஆல்ஃபா-லினோலெனிக் அமிலம்
+te:లినోలినిక్ ఆమ్లం
+th:กรดลิโนเลนิกอัลฟา
+tr:Alfa-linolenik asit
+uz:alfa-linolen kislota
+vi:Axit α-linolenic
+zh:α-亚麻酸 
+# zh_CN:α-亚麻酸 
+# zh_HK:α-亞麻酸 
+# zh_TW:α-亞麻酸
+wikidata:en:Q256502
+wikipedia:en:https://en.wikipedia.org/wiki/Alpha-Linolenic_acid
  
 en:Eicosapentaenoic acid / EPA (20:5 n-3)
 de:Eicosapentaensäure (20:5 n-3)
