@@ -14685,7 +14685,8 @@ zh:鮮奶油
 # war:Krema
 # yue:忌廉
 wikipedia:en:https://en.wikipedia.org/wiki/Cream
-
+carbon_footprint_fr_foodges_ingredient:fr:Crème, 40% MG, pasteurisée
+carbon_footprint_fr_foodges_value:fr:4.2
 
 
 <en:cream
@@ -18489,6 +18490,8 @@ en:salt and pepper
 fr:sel et poivre
 nl:zout en peper, peper en zout
 # ingredient/fr:sel-et-poivre has 37 products @2019-05-31
+carbon_footprint_fr_foodges_ingredient:fr:Piment et poivre sec
+carbon_footprint_fr_foodges_value:fr:3.4
 
 # description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
 
@@ -18816,11 +18819,12 @@ nl:lamsvlees
 nn:lammekjøtt
 sv:Lammkött
 wikidata:en:Q643419
+carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
+carbon_footprint_fr_foodges_value:fr:55
 # ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
 
 # <en:meat
 # fr:cotelettes d'agneau
-# carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
 
@@ -24304,6 +24308,8 @@ zh:小麦
 # yue:小麥
 wikipedia:en:https://en.wikipedia.org/wiki/Wheat
 wikidata:en:Q15645384
+carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
+carbon_footprint_fr_foodges_value:fr:0.6
 
 <en:wheat
 en:cooked wheat
@@ -24506,6 +24512,8 @@ nl:tarwegries
 pt:sêmola de trigo
 wikipedia:en:https://en.wikipedia.org/wiki/Semolina
 wikidata:en:Q381350
+carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
+carbon_footprint_fr_foodges_value:fr:0.6
 
 <en:semolina
 fr:semoule de blé tendre
@@ -27803,6 +27811,7 @@ uk:тростинний цукор
 wikidata:en:Q165267
 wikipedia:en:https://en.wikipedia.org/wiki/Sucrose#Cane
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de canne
+carbon_footprint_fr_foodges_value:fr:1.3
 # ingredient/cane-sugar has 17093 products in 23 languages @2019-05-31
 
 <en:cane sugar
@@ -27876,6 +27885,7 @@ en:beet sugar
 de:Rübenzucker
 fr:sucre de betterave
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de betterave
+carbon_footprint_fr_foodges_value:fr:0.7
 
 # description:en:COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm.It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
 
@@ -29844,6 +29854,7 @@ it:cioccolato in polvere
 nl:chocoladepoeder
 ro:ciocolata pudra
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
+carbon_footprint_fr_foodges_value:fr:4.7
 # ingredient/fr:chocolat-en-poudre has 1051 products in 9 languages @2019-05-25
 # usage:en:chocolate powder (sugar, cocoa powder)
 
@@ -30052,6 +30063,7 @@ zh:白朱古力
 # zh-hk:白朱古力
 wikidata:en:Q742385
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
+carbon_footprint_fr_foodges_value:fr:6.5
 # ingredient/white-chocolate has 1212 products in 8 languages @2019-05-25
 # category/white-chocolates has 444 products @2018-05-25
 # usage:fr:Chocolat blanc (beurre de cacao, sucre, lait écrémé en poudre, beurre concentré, émulsifiants:lécithines [soja], arômes)
@@ -30294,6 +30306,8 @@ zu:Amanzi
 # zh-min-nan:Chúi
 wikipedia:en:en.wikipedia.org/wiki/Water
 wikidata:en:Q283
+carbon_footprint_fr_foodges_ingredient:fr:Eau en bouteille PET, plate, 0.5 L
+carbon_footprint_fr_foodges_value:fr:0.4
 
 <en:Water
 en:water like ice wrap
@@ -33844,8 +33858,10 @@ zh:梨
 wikipedia:en:https://en.wikipedia.org/wiki/Pear
 wikidata:en:Q13099586
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
-#carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
-#carbon_footprint_fr_foodges_ingredient:fr:Poire (Argentine)
+carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
+carbon_footprint_fr_foodges_value:fr:0.5
+carbon_footprint_fr_foodges_ingredient:fr:Poire (Argentine)
+carbon_footprint_fr_foodges_value:fr:1
 # 130 products in 5 languages @2018-09-28
 
 <en:pear
@@ -40012,6 +40028,8 @@ wikidata:en:Q7540
 wikipedia:en:https://en.wikipedia.org/wiki/Eggplant
 carbon_footprint_fr_foodges_ingredient:fr:Aubergine
 carbon_footprint_fr_foodges_value:fr:1.2
+carbon_footprint_fr_foodges_ingredient:fr:Aubergine serre chauffée
+carbon_footprint_fr_foodges_value:fr:6.2
 # en:aubergine has 733 products in 9 languages @2018-10-17
 
 # This can be seen as compound ingredient, i.e.:melanzane grigliate (melanzane, olio di girasole)
@@ -40414,7 +40432,8 @@ zh:西蘭花
 # yue:西蘭花
 wikidata:en:Q47722
 wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
-# carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
+carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
+carbon_footprint_fr_foodges_value:fr:0.4
 # ingredient/broccoli has 1167 products in 10 languages @2018-10-16
 # category/broccoli has 150 products @2019-05-24
 
@@ -41237,6 +41256,8 @@ zh:旱芹
 wikidata:en:Q23012379
 wikipedia:en:https://en.wikipedia.org/wiki/Celery
 # fr:celeri has 4877 products in 10 languages @2018-10-21
+carbon_footprint_fr_foodges_ingredient:fr:Céleri
+carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:celery
 fr:céleri branche
@@ -42231,6 +42252,10 @@ zh:萝卜
 # zh-tw:蘿蔔
 wikidata:en:Q7224565 # for the plant
 wikipedia:en:https://en.wikipedia.org/wiki/Radish
+carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
+carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr:Radis serre chauffée
+carbon_footprint_fr_foodges_value:fr:8.4
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
@@ -42238,7 +42263,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Radish
 # <en:radish
 # fr:Radis de saison
 # ingredient/fr:Radis-de-saison has no products @2019-05-16
-# carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
 
 
 # description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
@@ -42284,6 +42308,8 @@ it:Insalata
 nl:sla, salade
 wikipedia:en:https://en.wikipedia.org/wiki/Salad
 # ingredient/fr:salade has 483 products in 4 languages @2019-05-17
+carbon_footprint_fr_foodges_ingredient:fr:Salade
+carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:salad
 fr:batavia
@@ -43254,7 +43280,8 @@ fr:pommes de terre préfrites
 nl:voorgebakken aardappel
 sv:forstekt potatis
 # fr:pommes-de-terre-préfrites has 151 products in 3 languages @2018-10-15
-
+carbon_footprint_fr_foodges_ingredient:fr:Frites surgelées
+carbon_footprint_fr_foodges_value:fr:1.3
 
 # description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
 # comment:en:in some languages en:bell-pepper and en:parika are not distinguished, but the same word
@@ -43519,6 +43546,8 @@ zh:辣椒
 # yue:辣椒
 wikidata:en:Q165199
 wikipedia:en:https://en.wikipedia.org/wiki/Chili_pepper
+carbon_footprint_fr_foodges_ingredient:fr:Piment et poivre sec
+carbon_footprint_fr_foodges_value:fr:3.4
 
 <en:chili pepper
 fr:extrait de piment
@@ -44210,7 +44239,8 @@ zh:芜菁
 wikidata:en:Q3916957
 wikipedia:en:https://en.wikipedia.org/wiki/Turnip
 # ingredient/turnip has 592 products in 7 languages @2019-05-18
-
+carbon_footprint_fr_foodges_ingredient:fr:Navet
+carbon_footprint_fr_foodges_value:fr:0.9
 
 # Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 
@@ -44757,11 +44787,13 @@ fr:haricots plats coupés
 en:white beans
 fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
+carbon_footprint_fr_foodges_value:fr:2
 # ingredient/fr:lingots-blancs has 8 products @2019-06-02
 
 <fr:haricots blancs
 fr:haricots blancs secs trempés
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
+carbon_footprint_fr_foodges_value:fr:2
 
 <en:beans
 en:black beans
@@ -44792,6 +44824,10 @@ fr:haricots beurre
 
 <en:beans
 fr:haricot vert, haricots verts
+carbon_footprint_fr_foodges_ingredient:fr:Haricot vert frais locaux
+carbon_footprint_fr_foodges_value:fr:0.7
+carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
+carbon_footprint_fr_foodges_value:fr:22.8
 
 <fr:haricot vert
 fr:haricots verts tres fins issus de l'agriculture biologique
@@ -48447,7 +48483,8 @@ ru:анис звёздчатый
 sv:Stjärnanis
 wikidata:en:Q1760637
 # ingredient/fr:badiane has 121 products in 3 languages @2019-04-26
-
+carbon_footprint_fr_foodges_ingredient:fr:Anis - Badiane
+carbon_footprint_fr_foodges_value:fr:2.7
 
 
 
@@ -51245,6 +51282,8 @@ zh:阿塞图纳
 # zh-hk:阿塞圖納
 wikipedia:en:https://en.wikipedia.org/wiki/Olive
 # ingredient/olive has 2637 products in 9 languages @2018-12-01
+carbon_footprint_fr_foodges_ingredient:fr:Olives "Pays du Sud" en boite
+carbon_footprint_fr_foodges_value:fr:1.7
 
 <en:olive
 en:black olive
@@ -54805,7 +54844,9 @@ fr:poissons et crustacés mis en œuvre, poissons et crustacés mis en oeuvre
 fr:poissons entiers pêchés en Méditerranée
 
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
+carbon_footprint_fr_foodges_value:fr:10.2
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
+carbon_footprint_fr_foodges_value:fr:11.5
 
 # The Alaska pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
 
@@ -56114,6 +56155,8 @@ zh:鮭魚
 # wikipedia:en:https://en.wikipedia.org/wiki/Salmon
 wikipedia:en:https://en.wikipedia.org/wiki/Salmon_as_food
 # ingredient/salmon has 1659 products in 6 languages @2018-12-29
+carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
+carbon_footprint_fr_foodges_value:fr:6.6
 
 <en:salmon
 fr:saumon cuit
@@ -56122,12 +56165,10 @@ de:Lachs gekocht
 
 #<en:salmon
 #fr:pavé de saumon d'élevage
-#carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
 # no products
 
 #<en:salmon
 #fr:saumon fumé d'élevage
-#carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
 # no products
 
 # en:smoked-salmon is a compound ingredient
@@ -56138,7 +56179,8 @@ de:Räucherlachs
 fr:saumon fumé
 it:salmone affumicato
 # ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
-
+carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
+carbon_footprint_fr_foodges_value:fr:5.5
 
 # The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae. 
 
@@ -57303,6 +57345,8 @@ wikidata:en:Q187986
 wikipedia:en:https://en.wikipedia.org/wiki/Rainbow_trout
 # ingredient/fr:truite%20arc-en-ciel has 81 products in 3 languages @2018-12-30
 # structure:outer:role:synonym,  eg Truite arc-en-ciel (oncorhynchus mykiss)
+carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
+carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:rainbow trout
 en:Oncorhynchus mykiss
@@ -57312,17 +57356,14 @@ la:Oncorhynchus mykiss
 
 # <fr:truite
 # fr:truite d'élevage entière
-# carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
 # no products @2018-12-30
 
 # <fr:truite
 # fr:pavé de truite d'élevage
-# carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
 # no products @2018-12-30
 
 # <fr:truite
 # fr:Truite fumée d'élevage
-# carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
 # no products @2018-12-30
 
 
@@ -57661,7 +57702,8 @@ zh:软体动物
 wikidata:en:Q25326
 wikipedia:en:https://en.wikipedia.org/wiki/Mollusca
 # ingredient/fr:mollusque has 1890 products in 6 languages @2018-01-03
-
+carbon_footprint_fr_foodges_ingredient:fr:Moules/autres crustacés
+carbon_footprint_fr_foodges_value:fr:10.7
 
 # A cockle is an edible, marine bivalve mollusc. Although many small edible bivalves are loosely called cockles, true cockles are species in the family Cardiidae.
 
@@ -61423,6 +61465,8 @@ wikidata:en:Q2735883
 wikipedia:en:https://en.wikipedia.org/wiki/Cucumber
 carbon_footprint_fr_foodges_ingredient:fr:Concombre
 carbon_footprint_fr_foodges_value:fr:1.7
+carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
+carbon_footprint_fr_foodges_value:fr:2.4
 # ingredient/fr:concombre has 549 products in 6 languages @2019-05-15
 
 
@@ -62028,10 +62072,12 @@ fr:poitrine de poulet
 <en:chicken meat
 fr:cuisse de poulet
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chicken meat
 fr:poulet rôti
 carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
+carbon_footprint_fr_foodges_value:fr:5.2
 
 
 
@@ -62076,6 +62122,7 @@ fr:viande de poulet traitée en salaison et précuite
 <en:chicken meat
 fr:blanc de poulet
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
+carbon_footprint_fr_foodges_value:fr:4.9
 
 
 fr:extrait de poulet
@@ -63764,6 +63811,7 @@ pnns_group_2:en:Cereals
 wikidata:en:Q178
 wikipedia:en:https://en.wikipedia.org/wiki/Pasta
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+carbon_footprint_fr_foodges_value:fr:0.5
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 # ingredient/paste has 1809 products @2018-12-10
 
@@ -63802,6 +63850,7 @@ it:tagliatelle cotte
 <en:dough
 fr:pâte crue
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+carbon_footprint_fr_foodges_value:fr:0.5
 # ingredient/fr:pâte-crue has 22 products in french @2018-12-10
 
 # description:en:NOODLES are unleavened dough which is stretched, extruded, or rolled flat and cut into one of a variety of shapes which usually include long, thin strips, or waves, helices, tubes, strings, or shells, or folded over, or cut into other shapes.
@@ -63881,6 +63930,8 @@ ta:நூடுல்ஸ்
 wikidata:en:https://www.wikidata.org/wiki/Q192874
 wikipedia:en:https://en.wikipedia.org/wiki/Noodle
 # ingredient/fr:nouilles has 241 products in 7 languages @2019-05-08
+carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+carbon_footprint_fr_foodges_value:fr:7.3
 
 
 <en:dough
@@ -63919,7 +63970,6 @@ wikidata:en: Q53619707
 # <en:dough
 # fr:pâte à tarte
 # ingredient/fr:pâte-à-tarte has no products @2018-12-10
-# carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 
 #<en:compound
 fr:galette
