@@ -3878,6 +3878,10 @@ sub display_pagination($$$$) {
 					}
 					elsif (defined $current_link_query) {
 
+						if ($current_link_query eq '') {
+							$current_link_query = '?';
+						}
+
 						$link = $current_link_query . "&page=$i";
 					}
 
@@ -9234,6 +9238,8 @@ sub display_recent_changes {
 	}
 
 	$html .= "</ul>";
+	$html .= display_pagination($request_ref, $count, $limit, $page);
+
 	${$request_ref->{content_ref}} .= $html;
 	$request_ref->{title} = lang("recent_changes");
 	display_new($request_ref);
