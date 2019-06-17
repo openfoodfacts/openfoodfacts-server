@@ -273,6 +273,15 @@ sub extract_ingredients_from_image($$$$) {
 }
 
 
+# Words that can be ignored after a percent
+# e.g. 50% du poids total, 30% of the total weight
+
+my %ignore_strings_after_percent = (
+	en => "of (the )?total weight",
+	fr => "minimum( dans le chocolat( noir)?)?|du poids total|du poids",
+);
+
+
 sub extract_ingredients_from_text($) {
 
 	my $product_ref = shift;
@@ -318,6 +327,11 @@ sub extract_ingredients_from_text($) {
 	$text =~ s/(\d),(\d)/$1‚$2/g;
 	
 	my $and = $Lang{_and_}{$product_ref->{lc}};
+	
+	my $ignore_strings_after_percent = "";
+	if (defined $ignore_strings_after_percent{$product_ref->{lc}}) {
+		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_ref->{lc}}
+	}
 
 	my $analyze_ingredients = sub($$$$$) {
 		my $analyze_ingredients_self = shift;
@@ -336,6 +350,7 @@ sub extract_ingredients_from_text($) {
 		my $between_level = $level;
 		my $percent = undef;
 
+		print STDERR "s: $s\n";
 
 		# find the first separator or ( or [ or :
 		if ($s =~ $separators) {
@@ -400,7 +415,7 @@ sub extract_ingredients_from_text($) {
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*($separators|$)/) {
+			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*($separators|$)/) {
 				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
@@ -429,9 +444,9 @@ sub extract_ingredients_from_text($) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 			
-			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$//;
-			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$//;
-			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$//;
+			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
+			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
+			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $before);
@@ -464,7 +479,7 @@ sub extract_ingredients_from_text($) {
 			chomp($ingredient);
 			
 			# Strawberry 10.3%
-			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$/) {
+			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$/) {
 				# print STDERR "percent found: $before = $` + $1\%\n";
 				$percent = $1;
 				$ingredient = $`;

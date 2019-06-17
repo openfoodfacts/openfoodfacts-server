@@ -796,7 +796,7 @@ diag explain $product_ref;
 $expected_product_ref = {
 
           'ingredients_n_tags' => [
-                                    '5',
+                                    '4',
                                     '1-10'
                                   ],
           'ingredients_original_tags' => [
@@ -804,7 +804,6 @@ $expected_product_ref = {
                                            'en:cane-sugar',
                                            'en:cocoa-butter',
                                            "fr:issus du commerce \x{e9}quitable et de l'agriculture",
-                                           'fr:du poids total'
                                          ],
           'ingredients_hierarchy' => [
                                        "fr:p\x{e2}te de cacao* de Madagascar",
@@ -813,7 +812,6 @@ $expected_product_ref = {
                                        'en:cocoa-butter',
                                        'en:cocoa',
                                        "fr:issus du commerce \x{e9}quitable et de l'agriculture",
-                                       'fr:du poids total'
                                      ],
           'ingredients_tags' => [
                                   'fr:pate-de-cacao-de-madagascar',
@@ -822,7 +820,6 @@ $expected_product_ref = {
                                   'en:cocoa-butter',
                                   'en:cocoa',
                                   'fr:issus-du-commerce-equitable-et-de-l-agriculture',
-                                  'fr:du-poids-total'
                                 ],
           'ingredients_text' => "p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).",
           'lc' => 'fr',
@@ -849,15 +846,9 @@ $expected_product_ref = {
 			       'label' => "en:organic",
                                'rank' => 4
                              },
-                             {
-                               'percent' => '100',
-                               'text' => 'du poids total',
-                               'id' => 'fr:du poids total',
-                               'rank' => 5
-                             }
                            ],
-          'unknown_ingredients_n' => 3,
-          'ingredients_n' => 5
+          'unknown_ingredients_n' => 2,
+          'ingredients_n' => 4 
 
         };
 
