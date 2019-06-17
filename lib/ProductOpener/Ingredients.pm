@@ -705,6 +705,8 @@ fr => [
 'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 'Quels Ingr(e|é)dients ?', # In Casino packagings
 'ingr(e|é)dient(\s*)(-|:|\r|\n)+',
+'ingr(e|é)dienits(\s*)(-|:|\r|\n)+',
+'rédients(\s*)(-|:|\r|\n)+', # in case OCR cuts the word https://world.openfoodfacts.org/product/4024297006305/mayonnaise-demeter-en-tube-naturata
 ],
 
 
@@ -773,7 +775,7 @@ my %phrases_before_ingredients_list_uppercase = (
 
 fr => [
 
-'INGR(E|É)DIENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+'INGR(E|É)(D|0|O)IENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
 'INGR(E|É)DIENT(\s*)(-|:|\r|\n)+',
 
 ],
@@ -783,15 +785,12 @@ cs => [
 ],
 
 de => [
-
 'ZUTATEN(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 #@hangy Does that regex handle ZUTAT: ?
 ],
 
 es => [
-
 'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
-
 ],
 
 pt => [
@@ -810,15 +809,11 @@ it => [
 ],
 
 nl => [
-
 'INGREDI(E|Ë)NTEN(\s*)(\s|-|:|\r|\n)+',
-
 ],
 
 de => [
-
 'ZUTATEN(\s*)(\s|-|:|\r|\n)+',
-
 ],
 
 fi => [
@@ -842,7 +837,7 @@ my %phrases_after_ingredients_list = (
 
 fr => [
 
-'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
+'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
 'valeurs mo(y|v)ennes',
 'valeurs nutritionelles moyennes',
 'valeur nutritionnelle mo(y|v)enne',
@@ -855,6 +850,7 @@ fr => [
 'apport de r(e|é)ference pour un adulte type',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 '(a|à) consommer de préférence',
+'de préférence avant le',
 '(a|à) cons.de préférence avant',
 'conseils de pr(e|é)paration',
 'conseil de pr(e|é)paration',
@@ -874,6 +870,8 @@ fr => [
 'dont sucres',
 'dont acides ras satur(e|é)s',
 'dont acides gras satur(e|é)s',
+'N(o|ò)us vous conseillons',
+'ne jamais recongeler un produit décongelé',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
@@ -918,10 +916,13 @@ de => [
 'Vorbereitung Tipps',
 'Mindestens altbar bis',
 'Mindestens haltbar bis',
+'N(â|a|ä)hrwertinformation je 100 ml',
 'Durchschnittliche N(â|a|ä)hrwerte',
 'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
 'k(u|ü)hl und trocken lagern',
+'Ungeöffnet bei max.', 
+'zu verbrauchen bis',
 ],
 
 nl => [
