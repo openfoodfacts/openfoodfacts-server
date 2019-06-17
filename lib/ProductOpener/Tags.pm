@@ -236,6 +236,7 @@ sub get_inherited_property($$$) {
 				# stop the propagation to parents of this tag, but continue with other parents
 			}
 			else {
+				#Return only one occurence of the property if several are defined in ingredients.txt
 				return $properties{$tagtype}{$tagid}{$property};
 			}
 		}
@@ -3585,37 +3586,6 @@ sub add_users_translations_to_taxonomy($) {
 	}
 
 }
-
-#Return the last occurence of the property if several are defined in ingredients.txt
-sub find_property_in_ingredient_tree($$$) {
-
-	my $tagtype = shift;
-	my $canon_tagid = shift;
-	my $property = shift;
-
-	while ($canon_tagid) 
-	{
-		if (exists $properties{$tagtype}{$canon_tagid}{$property})
-		{
-			return "$properties{$tagtype}{$canon_tagid}{$property}\n";
-		}
-		if ($direct_parents{$tagtype}{$canon_tagid})
-		{
-			foreach(keys $direct_parents{$tagtype}{$canon_tagid})
-			{
-				$canon_tagid = $_;
-			}
-		}
-		else
-		{
-			return undef;
-		}
-	}
-	return undef;
-}
-
-
-
 
 
 $log->info("Tags.pm loaded") if $log->is_info();
