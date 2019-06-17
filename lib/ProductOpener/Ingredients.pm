@@ -738,7 +738,7 @@ fr => [
 
 'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 'Quels Ingr(e|é)dients ?', # In Casino packagings
-'Ingr(e|é)dient(\s*)(-|:|\r|\n)+',
+'ingr(e|é)dient(\s*)(-|:|\r|\n)+',
 ],
 
 
