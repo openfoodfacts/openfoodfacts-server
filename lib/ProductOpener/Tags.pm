@@ -211,11 +211,11 @@ sub get_property($$$) {
 	my $canon_tagid = shift;
 	my $property = shift;
 
-	if (exists $properties{$tagtype}{$canon_tagid}) {
+	if ((exists $properties{$tagtype}{$canon_tagid}) and (exists $properties{$tagtype}{$canon_tagid}{$property})) {
 		return $properties{$tagtype}{$canon_tagid}{$property};
 	}
 	else {
-		return undef;
+		return;
 	}
 }
 
@@ -242,7 +242,7 @@ sub get_inherited_property($$$) {
 			push @parents, sort keys %{$direct_parents{$tagtype}{$tagid}};
 		}
 	}
-	return undef;
+	return;
 }
 
 sub has_tag($$$) {
