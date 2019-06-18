@@ -793,9 +793,9 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		);
 
 
-		my $value = remove_tags_and_quote($imported_product_ref->{$nid . "_value"});
-		my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"});
-		my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"});
+		my $value = remove_tags_and_quote($imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"});
+		my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"});
+		my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "100g_unit"});
 
 
 		if ($nid eq 'alcohol') {
