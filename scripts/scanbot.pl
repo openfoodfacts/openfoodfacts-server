@@ -186,7 +186,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 				$top_country = $cc;
 			}
 			
-			if ($countries{$cc} >= 3) {
+			if ($countries{$cc} >= 5) {
 				my $country = canonicalize_taxonomy_tag('en', "countries", $cc);
 				if (not exists $existing{$country}) {
 					print "- adding $country to $product_ref->{countries}\n";
