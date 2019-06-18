@@ -921,7 +921,7 @@ de => [
 'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
 'k(u|ü)hl und trocken lagern',
-'Ungeöffnet bei max.', 
+'Unge(ö|o)ffnet bei max.', 
 'zu verbrauchen bis',
 ],
 
