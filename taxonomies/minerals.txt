@@ -28,6 +28,131 @@ synonyms:fr:monocalcique, mono-calcique, calcique, dicalcique, tricalcique, de c
 synonyms:fr:orthophosphate, phosphate
 
 
+# MINERAL - is a naturally occurring chemical compound,[1] usually of crystalline form and not produced by life processes.
+
+en:Mineral, Minerals
+af:Mineraal
+an:Mineral
+ar:معدن
+as:খনিজ পদাৰ্থ
+az:Mineral
+ba:Минерал, Минера́л
+be:Мінерал
+bg:Минерал, Минерали
+bn:খনিজ
+bs:Mineral
+ca:Mineral
+cs:Minerál, Minerální látky
+cy:Mwyn
+da:Mineral
+de:Mineral, Mineralstoffe
+el:Ορυκτό, Ανόργανα συστατικά, Ανόργανα άλατα
+eo:Mineralo
+es:Mineral, Minerales, Sales minerales
+et:Mineraal, Mineraalained
+eu:Mineral
+fa:کانی
+fi:Mineraali, Kivennäiset
+fr:Minéral, Minéraux, Substances d'apport minéral, Apport minéral, mineraux, Sels minéraux
+fy:Mineraal
+ga:Mianra
+gl:Mineral
+he:מינרל
+hi:खनिज
+hr:Minerali
+ht:Mineral
+hu:Ásvány, Ásványi anyagok
+hy:Միներալ
+ia:Mineral
+id:Mineral
+io:Mineralo
+is:Steind, steinefni, steintegund
+it:Minerale, Minerali, Sali minerali
+ja:鉱物
+jv:Mineral
+ka:მინერალები
+kk:Минерал
+kn:ಖನಿಜ
+ko:광물
+ky:Минерал
+la:Minerale
+lo:ແຮ່ທາດ
+lt:Mineralas, Mineralinės medžiagos
+lv:Minerāls, Minerālvielas
+mk:Минерал
+ml:ധാതു
+mn:Эрдэс
+mr:खनिज
+ms:Mineral
+mt:Minerali
+my:တွင်းထွက်ပစ္စည်း
+nb:Mineral
+ne:खनिज
+nl:Mineraal, Mineralen
+nn:Mineral
+oc:Minerau
+pa:ਖਣਿਜ
+pl:Minerał, Składniki mineralne
+pt:Mineral, Minerais, Sais Minerais
+qu:Qiqlla
+ro:Mineral, Minerale
+ru:Минерал
+sa:खानिजः
+sh:Minerali
+si:ඛනිජ
+sk:Minerál, Minerálne látky
+sl:Mineral, Minerali
+sn:Muchegwa
+so:Macdan
+sq:Minerali
+sr:Минерал
+su:Mineral
+sv:Mineral, Mineraler
+sw:Madini
+ta:கனிமம்
+te:మినరల్
+th:แร่
+tl:Mineral
+tr:Mineral
+uk:Мінерал, Мінера́л
+ur:معدن
+uz:Mineral
+vi:Khoáng vật
+yi:מינעראל
+za:Gvangvuz
+zh:礦物
+# als:Mineral
+# ast:Mineral
+# bho:खनिज
+# chr:ᎦᏙ ᏂᏓᏳᏓᎴᏅ
+# ext:Mineral
+# fiu-vro:Mineraal
+# frr:Mineraal
+# ilo:Mineral
+# jam:Minaral
+# kaa:Mineral
+# kbp:Ñɩɣlɩm tɛtʊ
+# lfn:Mineral
+# lmo:Mineraj
+# mai:खनिज
+# mwl:Mineral
+# nds:Mineral
+# new:खनिज
+# pnb:معدنیات
+# roa-rup:Mineralu
+# rue:Мінералы
+# scn:Minirali
+# sco:Meeneral
+# tcy:ಕನಿಜೊ
+# war:Mineral
+# wuu:礦物
+# zh-min-nan:Khòng-bu̍t
+# yue:礦物
+#wikidata:en:
+wikipedia:en:https://en.wikipedia.org/wiki/Mineral
+vegan:en:yes
+
+<en:mineral
 en:Potassium
 bg:Калий
 cs:Draslík
@@ -349,7 +474,7 @@ sl:magnezijev kalijev citrat
 sv:magnesiumkaliumcitrat
 
 
-
+<en:mineral
 en:Calcium
 bg:Калций
 cs:Vápník
@@ -700,6 +825,7 @@ sk:L-pidolát vápenatý
 sl:kalcijev L-pidolat
 sv:kalcium L-pidolat
 
+<en:mineral
 en:Magnesium
 bg:Магнезий
 cs:Hořčík
@@ -1072,7 +1198,7 @@ sv:magnesiumkaliumcitrat
 en:magnesium citrate
 fr:citrate de magnésium
 
-
+<en:mineral
 en:Iron
 bg:Желязо
 cs:Železo
@@ -1440,6 +1566,7 @@ sk:L-pidolát železnatý
 sl:železov L-pidolat
 sv:ferro-L-pidolat
 
+<en:mineral
 en:Zinc
 bg:Цинк
 cs:Zinek
@@ -1699,7 +1826,9 @@ sk:bisglycinát zinočnatý
 sl:cinkov bisglicinat
 sv:zinkbisglycinat
 
+
 # add cupric so that it can be user as a synonym in compounds e.g. copper / cupric carbonate
+<en:mineral
 en:Copper, cupric
 bg:Мед
 cs:Měď
@@ -1837,6 +1966,7 @@ sk:komplex medi s lyzínom
 sl:kompleks bakra z lizinom
 sv:kopparlysin-komplex
 
+<en:mineral
 en:Manganese
 bg:Манган
 cs:Mangan
@@ -1996,6 +2126,7 @@ sk:síran mangánatý
 sl:manganov sulfat
 sv:mangansulfat
 
+<en:mineral
 en:Fluoride
 bg:Флуориди
 cs:Fluor
@@ -2063,6 +2194,7 @@ sk:fluorid sodný
 sl:natrijev fluorid
 sv:natriumfluorid
 
+<en:mineral
 en:Selenium
 bg:Селен
 cs:Selen
@@ -2177,6 +2309,7 @@ sk:kvasnice obohatené selénom
 sl:s selenom obogatene kvasovke
 sv:selenberikad jäst
 
+<en:mineral
 en:Chromium
 bg:Хром
 cs:Chrom
@@ -2268,6 +2401,7 @@ sk:pikolinát chromitý
 sl:kromov pikolinat
 sv:krompikolinat
 
+<en:mineral
 en:Molybdenum
 bg:Молибден
 cs:Molybden
@@ -2336,6 +2470,7 @@ sk:molybdénan sodný
 sl:natrijev molibdat
 sv:natriummolybdat
 
+<en:mineral
 en:Iodine
 bg:Йод
 cs:Jod
@@ -2450,6 +2585,7 @@ sk:jodičnan sodný
 sl:natrijev jodat
 sv:natriumjodat
 
+<en:mineral
 en:Sodium
 bg:Натрий
 cs:Sodík
@@ -2659,6 +2795,7 @@ sk:sodné soli kyseliny ortofosforečnej
 sl:natrijeve soli ortofosforne kisline
 sv:natriumsalter av ortofosforsyra
 
+<en:mineral
 en:Boron
 bg:Бор
 cs:Bor
