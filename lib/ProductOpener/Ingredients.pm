@@ -35,6 +35,7 @@ BEGIN
 		&extract_ingredients_from_text
 
 		&compute_carbon_footprint_from_ingredients
+		&compute_carbon_footprint_from_meat_or_fish
 
 		&clean_ingredients_text_for_lang
 		&clean_ingredients_text
@@ -153,16 +154,11 @@ sub compute_carbon_footprint_from_ingredients($) {
 	my $product_ref = shift;
 
 	if (defined $product_ref->{nutriments}) {
-		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish"};
-		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"};
-		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"};
-		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"};
 		delete $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"};
 	}
 
 	remove_tag($product_ref, "misc", "en:environment-infocard");
 	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
-	delete $product_ref->{"carbon_footprint_percent_of_known_ingredients"};
 
 	# Limit to France, as the carbon values from ADEME are intended for France
 	if ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients})) {
@@ -201,6 +197,100 @@ sub compute_carbon_footprint_from_ingredients($) {
 
 	}
 }
+
+
+sub compute_carbon_footprint_from_meat_or_fish($) {
+
+	my $product_ref = shift;
+
+	if (defined $product_ref->{nutriments}) {
+		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish"};
+		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"};
+		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"};
+		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"};
+	}
+
+	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
+
+	# Compute the carbon footprint from meat or fish ingredients, when the percentage is known
+
+	#ingredients: [
+	#{
+	#rank: 1,
+	#text: "Eau",
+	#id: "en:water"
+	#},
+	#{
+	#percent: "10.9",
+	#text: "_saumon_",
+	#rank: 2,
+	#id: "en:salmon"
+	#},
+	my @parents = qw(
+		en:beef-meat
+		en:pork-meat
+		en:veal-meat
+		en:rabbit-meat
+		en:chicken-meat
+		en:turkey-meat
+		en:smoked-salmon
+		en:salmon
+	);
+
+	# Values from FoodGES
+
+	my %carbon = (
+		"en:beef-meat" => 35.8,
+		"en:pork-meat" => 7.4,
+		"en:veal-meat" => 20.5,
+		"en:rabbit-meat" => 8.1,
+		"en:chicken-meat" => 4.9,
+		"en:turkey-meat" => 6.5,
+		"en:smoked-salmon" => 5.5,
+		"en:salmon" => 6.5,
+		"en:smoked-trout" => 5.5,
+		"en:trout" => 6.5,
+	);
+
+	# Limit to France, as the carbon values from ADEME are intended for France
+
+	if ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients})) {
+
+		my $carbon_footprint = 0;
+
+
+		foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+
+			$log->debug("compute_carbon_footprint_from_meat_or_fish", { id =>  $ingredient_ref->{id} }) if $log->is_debug();
+
+			if ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0)) {
+
+				$log->debug("compute_carbon_footprint_from_meat_or_fish", { percent =>  $ingredient_ref->{percent} }) if $log->is_debug();
+
+				foreach my $parent (@parents) {
+					if (is_a('ingredients', $ingredient_ref->{id}, $parent)) {
+						$carbon_footprint += $ingredient_ref->{percent} * $carbon{$parent};
+						$log->debug("found a parent with carbon footprint", { parent =>  $parent }) if $log->is_debug();
+
+						if (not defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
+							$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} = "";
+						}
+						$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} .= $ingredient_ref->{id} . " => " . $parent
+						. " " . $ingredient_ref->{percent} . "% = " . $ingredient_ref->{percent} * $carbon{$parent} . " g - ";
+
+						last;
+					}
+				}
+			}
+		}
+
+		if ($carbon_footprint > 0) {
+			$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} = $carbon_footprint;
+			$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} =~ s/ - $//;
+		}
+	}
+}
+
 
 
 sub extract_ingredients_from_image($$$$) {

@@ -256,10 +256,8 @@ sub has_tag($$$) {
 
 	if (defined $product_ref->{$tagtype . "_tags"}) {
 
-		print "tagType defini !";
-
 		foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
-			print $tag;
+
 			if ($tag eq $tagid) {
 				$return = 1;
 				last;
