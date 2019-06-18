@@ -20266,6 +20266,8 @@ fr:gras
 en:hydrogenated fat
 fr:Graisse hydrogénée
 
+
+
 <en:fat
 en:animal fat
 de:Tierfett, tierisches Fett
@@ -20354,17 +20356,14 @@ fr:gras de bœuf, graisse de bœuf
 
 # description:This parent is used to indicate ingredients that might have been derived from palm oil. Note that this includes also those that have been derived from palm oil.
 
-
-
-# description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
-# comment:en:In some languages one distinghuishes between edible and non-edible oils
-
-
 # nova:en:hydrogenated-oil
 <en:oil
 en:hydrogenated oil
 fr:Huile hydrogénée
 nl:Gehydrogeneerde olie
+
+# description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
+# comment:en:In some languages one distinghuishes between edible and non-edible oils
 
 <en:oil
 en:vegetable oil and fat
@@ -20375,6 +20374,7 @@ it:olio e grasso vegetale
 nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
+vegan:en:true
 
 # In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
 
