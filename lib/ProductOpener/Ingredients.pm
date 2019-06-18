@@ -706,7 +706,7 @@ fr => [
 'Quels Ingr(e|é)dients ?', # In Casino packagings
 'ingr(e|é)dient(\s*)(-|:|\r|\n)+',
 'ingr(e|é)dienits(\s*)(-|:|\r|\n)+',
-'rédients(\s*)(-|:|\r|\n)+', # in case OCR cuts the word https://world.openfoodfacts.org/product/4024297006305/mayonnaise-demeter-en-tube-naturata
+#'rédients(\s*)(-|:|\r|\n)+', # in case OCR cuts the word https://world.openfoodfacts.org/product/4024297006305/mayonnaise-demeter-en-tube-naturata
 ],
 
 
@@ -915,18 +915,27 @@ de => [
 'Ern(â|a|ä)hrungswerte',
 'Vorbereitung Tipps',
 'Mindestens altbar bis',
-'Mindestens haltbar bis',
-'N(â|a|ä)hrwertinformation je 100 ml',
+'Mindestens haltbar bis'
+'N(â|a|ä)hrwertangaben', #Nährwertangaben pro 100g
+'N(â|a|ä)hrwertangabe', 
+'N(â|a|ä)hrwertinformation',
+'N(â|a|ä)hrwerte je',
+'N(â|a|ä)hrwerttabelle',
+'Durchschnittliche N(â|a|ä)hrwertangaben',
 'Durchschnittliche N(â|a|ä)hrwerte',
 'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
 'k(u|ü)hl und trocken lagern',
+'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.', 
 'zu verbrauchen bis',
+'100 (ml|g) enthalten durchschnittlich',
+'Durchschnittlich enthalten 100 (ml|g)',
 ],
 
 nl => [
 'voedingswaarden',
+'voedingswaarde',
 'voorbereidingstips',
 'gemiddelde voedingswaarden',
 'gemiddelde voedingswaarde per 100 g',
@@ -938,6 +947,7 @@ it => [
 'consigli per la preparazione',
 'di cui zuccheri',
 'Valori nutritivi',
+'Conservare in luogo fresco e asciutto',
 ],
 
 cs => [
