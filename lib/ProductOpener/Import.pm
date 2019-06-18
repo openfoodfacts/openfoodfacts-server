@@ -1031,39 +1031,51 @@ sub load_csv_file($) {
 	# e.g. load_csv_file($file, "UTF-8", "\t", 4);
 
 	$log->info("Loading CSV file", { file => $file }) if $log->is_info();
+	
+	my $csv_options_ref = { binary => 1 , sep_char => $separator };
+	
+	if (defined $options_ref->{escape_char}) {
+		$csv_options_ref->{escape_char} = $options_ref->{escape_char};
+	}
 
-	my $csv = Text::CSV->new ( { binary => 1 , sep_char => $separator } )  # should set binary attribute.
-                 or die "Cannot use CSV: ".Text::CSV->error_diag ();
+	my $csv = Text::CSV->new ( $csv_options_ref )  # should set binary attribute.
+                 or die "Cannot use CSV: " . Text::CSV->error_diag ();
 
 	open (my $io, "<:encoding($encoding)", $file) or die("Could not open $file: $!");
-
+	
 	my $i = 0;	# line number
 
 	if (defined $skip_lines) {
+		$log->info("Skipping $skip_lines lines before header") if $log->is_info();
 		for ($i = 0; $i < $skip_lines; $i++) {
 			$csv->getline ($io);
 		}
 	}
 
-	my $headers_ref = $csv->getline ($io);
+	#my $headers_ref = $csv->getline ($io);
 	$i++;
+	
+	$csv->header ($io, { detect_bom => 1 });
 
 	if (defined $skip_lines_after_header) {
+		$log->info("Skipping $skip_lines_after_header lines after header") if $log->is_info();
 		for (my $j = 0; $j < $skip_lines_after_header; $j++) {
 			$csv->getline ($io);
 			$i++;
 		}
 	}
 
-	$log->info("CSV headers", { file => $file, headers_ref=>$headers_ref }) if $log->is_info();
+	#$log->info("CSV headers", { file => $file, headers_ref=>$headers_ref }) if $log->is_info();
 
-	$csv->column_names($headers_ref);
+	#$csv->column_names($headers_ref);
 
 	my $product_ref;
 
 	while (my $csv_product_ref = $csv->getline_hr ($io)) {
 
 		$i++; # line number
+		
+		$log->info("Reading line $i") if $log->is_info();
 
 		my $code = undef;	# code must be first
 
@@ -1074,7 +1086,7 @@ sub load_csv_file($) {
 			my $source_field = $field_mapping_ref->[0];
 			my $target_field = $field_mapping_ref->[1];
 
-			$log->info("Field mapping", { source_field => $source_field, source_field_value => $csv_product_ref->{$source_field}, target_field=>$target_field }) if $log->is_info();
+			# $log->info("Field mapping", { source_field => $source_field, source_field_value => $csv_product_ref->{$source_field}, target_field=>$target_field }) if $log->is_info();
 
 			# There can be other conditions:
 			# ["quantity", "nutriments.energy_kJ", ["Nutriment", "Energie"], ["Taille de la portion", "100.0000"], ["Unité", "Kilojoules (kj)"] ],
