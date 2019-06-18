@@ -705,7 +705,7 @@ fr => [
 'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 'Quels Ingr(e|é)dients ?', # In Casino packagings
 'ingr(e|é)dient(\s*)(-|:|\r|\n)+',
-'ingr(e|é)dienits(\s*)(-|:|\r|\n)+',
+#'ingr(e|é)dienits(\s*)(-|:|\r|\n)+',
 #'rédients(\s*)(-|:|\r|\n)+', # in case OCR cuts the word https://world.openfoodfacts.org/product/4024297006305/mayonnaise-demeter-en-tube-naturata
 ],
 
