@@ -13156,6 +13156,7 @@ zh:黄油
 # wuu:白脱
 # zh-min-nan:bá-tah
 # yue:牛油
+vegetarian:en:yes
 
 # BEURRE DOUX - en:Butter avec une salinité moins de 0,5 %
 
@@ -13249,6 +13250,39 @@ fr:poudre au beurre, poudre de beurre
 # ingredient/fr:poudre-au-beurre has 62 products in 3 languages @2019-02-23
 # poudre au beurre (BEURRE, maltodextrines, protéines de LAIT, émulsifiant : E471)
 
+# BUTTERFAT - the fatty portion of milk.
+
+en:butterfat, milkfat, pastry butter
+bs:mliječna mast
+cy:braster menyn
+da:smørolie
+de:Butterreinfett, Milchfett, wasserfreies Milchfett
+eo:laktograso
+es:grasa butírica
+fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait, matière grasse du lait
+id:lemak susu
+it:burro anidro, burro di pasticceria, burro concentrato
+ja:乳脂肪
+ko:유지방
+ms:lemak mentega, lemak susu
+nb:melkefett
+nl:melkvet, boterconcentraat, botervet
+pl:tłuszcz mlecny
+pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
+ru:Молочный жир
+sl:mlečna maščoba
+sv:mølkfett
+th:ไขมันเนย
+tl:taba ng gatas
+uk:Молочний жир
+zh:乳脂
+# en-gb:butterfat
+# zh-hans:乳脂
+# zh-hant:乳脂
+# zh-hk:乳脂
+wikidata:en:Q909729
+wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
+vegetarian:en:yes
 
 # CLARIFIED BUTTER - milk fat rendered from butter to separate the milk solids and water from the butterfat
 
@@ -13336,46 +13370,13 @@ zh:酥油
 wikidata:en:https://www.wikidata.org/wiki/Q323225
 
 
-# CONCENTRATED BUTTER - is an industrially-made “clarified butter.”
+# description:en:CONCENTRATED BUTTER - is an industrially-made “clarified butter.”
 
 <en:butterfat
 en:concentrated butter
 fr:beurre concentré
 nl:geconcentreerde boter
 
-
-# BUTTERFAT - the fatty portion of milk.
-
-en:butterfat, milkfat, pastry butter
-bs:mliječna mast
-cy:braster menyn
-da:smørolie
-de:Butterreinfett, Milchfett, wasserfreies Milchfett
-eo:laktograso
-es:grasa butírica
-fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait, matière grasse du lait
-id:lemak susu
-it:burro anidro, burro di pasticceria, burro concentrato
-ja:乳脂肪
-ko:유지방
-ms:lemak mentega, lemak susu
-nb:melkefett
-nl:melkvet, boterconcentraat, botervet
-pl:tłuszcz mlecny
-pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
-ru:Молочный жир
-sl:mlečna maščoba
-sv:mølkfett
-th:ไขมันเนย
-tl:taba ng gatas
-uk:Молочний жир
-zh:乳脂
-# en-gb:butterfat
-# zh-hans:乳脂
-# zh-hant:乳脂
-# zh-hk:乳脂
-wikidata:en:Q909729
-wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 
 # description:en:MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
@@ -13557,6 +13558,7 @@ zu:Ubisi
 # zh-min-nan:Leng
 # yue:奶
 wikipedia:en:https://en.wikipedia.org/wiki/Milk
+vegetarian:en:yes
 
 <en:milk
 en:sterilised milk
@@ -14396,6 +14398,7 @@ fr:minéraux du lait
 it:minerali del latte
 nl:melkmineralen
 wikipedia:en:https://en.wikipedia.org/wiki/Milk#Salts,_minerals,_and_vitamins
+vegetarian:en:yes
 # ingredient/fr:minéraux-du-lait has 107 products in 5 languages @2019-04-16
 
 <en:milk minerals
@@ -14420,7 +14423,7 @@ fr:lait entier standardisé
 
 fr:lait de bufflonne pasteurisé
 
-# Yogurt related stuff
+################################## Yogurt related stuff ####################
 
 en:yogurt
 de:Joghurt
@@ -14428,6 +14431,7 @@ fr:yaourt
 it:yogurt
 nl:Joghurt
 carbon_footprint_fr_foodges_ingredient:fr:Yaourt
+vegetarian:en:yes
 
 <en:yogurt
 en:organic yogurt
@@ -14680,7 +14684,7 @@ zh:鮮奶油
 # war:Krema
 # yue:忌廉
 wikipedia:en:https://en.wikipedia.org/wiki/Cream
-
+vegetarian:en:yes
 
 
 <en:cream
@@ -14933,6 +14937,7 @@ zh:酪漿
 # zh-tw:酪漿
 wikidata:en:Q106612
 wikipedia:en:https://en.wikipedia.org/wiki/Buttermilk
+vegetarian:en:yes
 # ingredient/fr:babeurre has 166 products in 4 languages @2018-11-15
 
 <en:buttermilk
@@ -15179,6 +15184,7 @@ zu:Ushizi
 # zh-tw:起司
 wikipedia:en:Q10943
 wikipedia:en:https://en.wikipedia.org/wiki/Cheese
+vegetarian:en:yes
 # en:cheese has 579 products in 10 languages @2018-10-28
 
 
