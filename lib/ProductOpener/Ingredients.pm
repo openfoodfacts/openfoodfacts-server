@@ -888,7 +888,10 @@ en => [
 'nutrition values',
 'of whlch saturates',
 'of which saturates',
+'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+#'Best before',
+#'See bottom of tin',
 
 ],
 
@@ -929,6 +932,7 @@ de => [
 'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.', 
 'zu verbrauchen bis',
+'verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
 'Durchschnittlich enthalten 100 (ml|g)',
 ],
