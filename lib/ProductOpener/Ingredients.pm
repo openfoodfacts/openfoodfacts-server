@@ -179,7 +179,7 @@ sub compute_carbon_footprint_from_ingredients($) {
 
 				$log->debug("carbon-footprint-from-known-ingredients_100g", { percent =>  $ingredient_ref->{percent} }) if $log->is_debug();
 
-				my $carbon_footprint_ingredient = find_property_in_ingredient_tree('ingredients', $ingredient_ref->{id}, "carbon_footprint_fr_foodges_value:fr");
+				my $carbon_footprint_ingredient = get_inherited_property('ingredients', $ingredient_ref->{id}, "carbon_footprint_fr_foodges_value:fr");
 
 				if(defined $carbon_footprint_ingredient)
 				{

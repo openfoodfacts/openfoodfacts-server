@@ -115,9 +115,7 @@ BEGIN
 					&load_users_translations
 					&load_users_translations_for_lc
 					&add_users_translations_to_taxonomy
-
-					&find_property_in_ingredient_tree
-
+					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
