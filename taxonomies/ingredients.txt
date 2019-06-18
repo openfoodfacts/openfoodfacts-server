@@ -1,4 +1,4 @@
-
+﻿
 # stopwords
 
 stopwords:da:indeholder, inneholder, av
@@ -574,7 +574,7 @@ cs:Tartrazin
 da:Tartrazin
 de:Tartrazin
 el:Ταρτραζινη
-es:Tartrazina, amarillo ocaso FCF
+es:Tartrazina, amarillo ocaso FCF, amarillo 5
 et:Tartrasiin
 fa:تارترازین
 fi:Tartrazine
@@ -616,6 +616,14 @@ zh::柠檬黄
 wikidata:en:Q407158
 wikipedia:en:https://en.wikipedia.org/wiki/Tartrazine
 # ingredient/fr:tartrazine has 196 products in 3 languages @2019-02-09
+
+<en:colour
+en:Sunset Yellow FCF, E100
+de:Gelborange S, Sunsetgelb FCF
+es:Amarillo crepúsculo, amarillo 6
+fr:Jaune orangé S
+it:Giallo arancio S, giallo Tramonto FCF, Giallo 6
+nl:Zonnegeel FCF
 
 
 # description:en:CARMINE, also called cochineal, cochineal extract, crimson lake or carmine lake, natural red 4, C.I. 75470, or E120, is a pigment of a bright-red color obtained from the aluminium salt of carminic acid
@@ -15762,6 +15770,17 @@ wikidata:en:Q209889
 wikipedia:en:https://en.wikipedia.org/wiki/Mascarpone
 # fr:mascarpone has 254 products @2018-10-27
 
+# MONTEREY JACK is an American cheese
+
+<en:cheese
+en:Monterey Jack, Monterey Jack Cheese
+de:Monterey Jack
+es:Monterey Jack
+fr:Monterey jack
+it:Monterey Jack
+wikidata:en:Q1056415
+# Montenerey jack has 31 products @2019-05-31
+
 
 # MOZZARELLA is a traditionally southern Italian spun paste dairy made with Italian buffalo's milk by the pasta filata method.
 
@@ -19431,7 +19450,6 @@ fr:viande de poulet traitée en salaison et précuite
 <en:chicken meat
 fr:blanc de poulet
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
-
 
 fr:extrait de poulet
 
@@ -25409,7 +25427,7 @@ en:quinoa flour
 de:Quinoa-Mehl
 es:Harina de quinoa
 fr:farine de quinoa
-it:Farina di Quinoa
+it:Farina di quinoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa-flour
 # 173 products in 5 languages @2018-09-22
 
@@ -27265,6 +27283,9 @@ fr:sirop de sucre inverti
 it:sciroppo di zucchero invertito
 nl:Invertsuikerstroop
 
+fr:sirop de sucre partiellement inverti
+it:sciroppo di zucchero parzialmente invertito
+
 <en:invert sugar syrup
 en:cane invert syrup, invert cane syrup
 fr:Sirop de canne invertie
@@ -27326,6 +27347,11 @@ en:sugar syrup
 de:Zuckersirup
 fr:sirop de sucre
 nl:Suikerstroop
+
+<en:sugar syrup
+fr:sirop de sucres issus de fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-sucres-issus-de-fruits
+# 22 products @2019-05-30
 
 fr:sirop de sucre candi
 
@@ -27724,6 +27750,9 @@ fr:protéines de soja réhydratées, protéines végétales de soja réhydratée
 nl:gerehydrateerde soja-eiwit
 
 <en:soy protein
+fr:concentré de protéines de soja
+
+<en:soy protein
 fr:isolat de protéine de soja
 
 <en:soy protein
@@ -28016,19 +28045,27 @@ it:cacao magro in polvere
 
 fr:cacao dégraissé
 
+es:pepitas de cacao
 fr:fèves de cacao
+it:fave di cacao
 
 <fr:fèves de cacao
+es:trocitos de pepitas de cacao
 fr:éclats de fèves de cacao, éclats de fèves de cacao
+it:granella di fave di cacao, granella di cacao
 
 <fr:éclats de fèves de cacao
+es:trocitos de pepitas de cacao tostadas
 fr:éclats de fèves de cacao torréfiés
+it:granella di fave di cacao tostate
 
 fr:cacao minimum
 
 <fr:éclats de fèves de cacao
+es:trocitos de pepitas de cacao caramelizadas
 fr:éclats de fèves de cacao caramélisés
 
+es:cacao desgrasado en polvo
 fr:cacao dégraissé en poudre
 
 fr:cacao en poudre dégraissé
@@ -61700,8 +61737,6 @@ fr:e101
 fr:e101
 
 fr:e104
-
-fr:e110
 
 fr:e1105
 
