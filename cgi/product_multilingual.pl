@@ -2253,7 +2253,9 @@ MAIL
 
 }
 
-$html = "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n" . $html;
+$html = "<p id=\"barcode_paragraph\">" . lang("barcode") 
+	. separator_before_colon($lc) 
+	. ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span></p>\n" . $html;
 
 display_new( {
 	blog_ref=>undef,
