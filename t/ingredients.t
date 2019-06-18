@@ -73,7 +73,7 @@ my $expected_product_ref =
           'text' => 'e432'
         },
         {
-          'id' => 'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+          'id' => 'en:e472',
           'rank' => 9,
           'text' => 'e472'
         },
@@ -88,7 +88,7 @@ my $expected_product_ref =
           'text' => 'e474'
         },
         {
-          'id' => 'en:polyglycerol-esters-of-fatty-acids',
+          'id' => 'en:e475',
           'rank' => 12,
           'text' => 'e475'
         },
@@ -108,19 +108,19 @@ my $expected_product_ref =
           'text' => 'beurre de cacao'
         },
         {
-          'id' => 'fr:e322',
+          'id' => 'en:e322',
           'text' => 'e322'
         },
         {
-          'id' => 'en:calcium-citrates',
+          'id' => 'en:e333',
           'text' => 'e333'
         },
         {
-          'id' => 'en:citric-acid',
+          'id' => 'en:e330',
           'text' => 'acide citrique'
         },
         {
-          'id' => 'en:phosphoric-acid',
+          'id' => 'en:e338',
           'text' => 'acide phosphorique'
         }
       ],
@@ -135,18 +135,18 @@ my $expected_product_ref =
         'en:emulsifier',
         'en:e463',
         'en:e432',
-        'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+        'en:e472',
         'en:acidity-regulator',
         'en:e474',
-        'en:polyglycerol-esters-of-fatty-acids',
+        'en:e475',
         'en:acid',
         'en:salt',
         'en:cocoa-butter',
         'en:cocoa',
-        'fr:e322',
-        'en:calcium-citrates',
-        'en:citric-acid',
-        'en:phosphoric-acid'
+        'en:e322',
+        'en:e333',
+        'en:e330',
+        'en:e338'
       ],
       'ingredients_n' => 19,
       'ingredients_n_tags' => [
@@ -162,17 +162,17 @@ my $expected_product_ref =
         'en:emulsifier',
         'en:e463',
         'en:e432',
-        'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+        'en:e472',
         'en:acidity-regulator',
         'en:e474',
-        'en:polyglycerol-esters-of-fatty-acids',
+        'en:e475',
         'en:acid',
         'en:salt',
         'en:cocoa-butter',
-        'fr:e322',
-        'en:calcium-citrates',
-        'en:citric-acid',
-        'en:phosphoric-acid'
+        'en:e322',
+        'en:e333',
+        'en:e330',
+        'en:e338'
       ],
       'ingredients_tags' => [
         'en:flour',
@@ -185,18 +185,18 @@ my $expected_product_ref =
         'en:emulsifier',
         'en:e463',
         'en:e432',
-        'en:acid-esters-of-mono-and-diglycerides-of-fatty-acids',
+        'en:e472',
         'en:acidity-regulator',
         'en:e474',
-        'en:polyglycerol-esters-of-fatty-acids',
+        'en:e475',
         'en:acid',
         'en:salt',
         'en:cocoa-butter',
         'en:cocoa',
-        'fr:e322',
-        'en:calcium-citrates',
-        'en:citric-acid',
-        'en:phosphoric-acid'
+        'en:e322',
+        'en:e333',
+        'en:e330',
+        'en:e338'
       ],
       'ingredients_text' => "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], prot\x{e9}ines de lait, oeuf 1%) - \x{e9}mulsifiants : E463, E432 et E472 - correcteurs d'acidit\x{e9} : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel",
       'lc' => 'fr',
@@ -339,7 +339,7 @@ $expected_product_ref =
       'text' => "g\x{e9}lifiant"
     },
     {
-      'id' => 'en:pectin',
+      'id' => 'en:e440a',
       'rank' => 5,
       'text' => 'pectines'
     },
@@ -349,7 +349,7 @@ $expected_product_ref =
       'text' => 'acidifiant'
     },
     {
-      'id' => 'en:citric-acid',
+      'id' => 'en:e330',
       'rank' => 7,
       'text' => 'acide citrique'
     },
@@ -369,7 +369,7 @@ $expected_product_ref =
       'text' => "\x{e9}paississant"
     },
     {
-      'id' => 'en:xanthan-gum',
+      'id' => 'en:e415',
       'rank' => 11,
       'text' => 'gomme xanthane'
     },
@@ -410,7 +410,7 @@ $expected_product_ref =
       'text' => 'huile de colza'
     },
     {
-      'id' => 'en:yeast-powder',
+      'id' => 'en:raising-agent',
       'rank' => 19,
       'text' => "poudre \x{e0} lever"
     },
@@ -453,7 +453,7 @@ $expected_product_ref =
       'text' => "\x{e9}quivalent jus d'orange"
     },
     {
-      'id' => 'en:calcium-citrates',
+      'id' => 'en:e333',
       'text' => 'citrate de calcium'
     },
     {
@@ -505,15 +505,15 @@ $expected_product_ref =
       'text' => "l\x{e9}cithine de soja"
     },
     {
-      'id' => 'en:ammonium-hydrogen-carbonate',
+      'id' => 'en:e503',
       'text' => 'carbonate acide d\'ammonium'
     },
     {
-      'id' => 'en:disodium-diphosphate',
+      'id' => 'en:e450i',
       'text' => 'diphosphate disodique'
     },
     {
-      'id' => 'en:sodium-hydrogen-carbonate',
+      'id' => 'en:e500',
       'text' => 'carbonate acide de sodium'
     }
   ],
@@ -522,15 +522,15 @@ $expected_product_ref =
     "fr:pulpe d'orange concentr\x{e9}e",
     "fr:\x{e9}quivalent pulpe d'orange",
     'en:gelling-agent',
-    'en:pectin',
+    'en:e440a',
     'en:acid',
-    'en:citric-acid',
+    'en:e330',
     'en:acidity-regulator',
     'en:natural-orange-flavouring',
     'en:flavouring',
     'en:natural-flavouring',
     'en:thickener',
-    'en:xanthan-gum',
+    'en:e415',
     'en:chocolate',
     'en:lactose-and-milk-proteins',
     'en:protein',
@@ -550,12 +550,11 @@ $expected_product_ref =
     'en:oil',
     'en:vegetable-oil-and-fat',
     'en:vegetable-oil',
-    'en:yeast-powder',
-    'en:yeast',
+    'en:raising-agent',
     'en:salt',
     'en:emulsifier',
     'en:soya-lecithin',
-    'en:lecithins',
+    'en:e322',
     'en:orange-pulp',
     'en:fruit',
     'en:citrus-fruit',
@@ -564,9 +563,9 @@ $expected_product_ref =
     'en:fruit-juice',
     'en:orange-juice',
     "fr:\x{e9}quivalent jus d'orange",
-    'en:calcium-citrates',
+    'en:e333',
     'en:sodium-citrate',
-    'en:mineral',
+    'en:minerals',
     'en:sodium',
     'en:cocoa-paste',
     'en:cocoa',
@@ -577,12 +576,10 @@ $expected_product_ref =
     "fr:graisses v\x{e9}g\x{e9}tales de karit\x{e9}",
     'en:palm-fat',
     'en:palm-oil-and-fat',
-    'en:ammonium-hydrogen-carbonate',
-    'en:ammonium-carbonates',
-    'en:disodium-diphosphate',
-    'en:diphosphates',
-    'en:sodium-hydrogen-carbonate',
-    'en:sodium-carbonates'
+    'en:e503',
+    'en:e450i',
+    'en:e450',
+    'en:e500',
   ],
   'ingredients_n' => 43,
   'ingredients_n_tags' => [
@@ -594,13 +591,13 @@ $expected_product_ref =
     "fr:pulpe d'orange concentr\x{e9}e",
     "fr:\x{e9}quivalent pulpe d'orange",
     'en:gelling-agent',
-    'en:pectin',
+    'en:e440a',
     'en:acid',
-    'en:citric-acid',
+    'en:e330',
     'en:acidity-regulator',
     'en:natural-orange-flavouring',
     'en:thickener',
-    'en:xanthan-gum',
+    'en:e415',
     'en:chocolate',
     'en:lactose-and-milk-proteins',
     'en:wheat-flour',
@@ -608,7 +605,7 @@ $expected_product_ref =
     'en:egg',
     'en:glucose-fructose-syrup',
     'en:colza-oil',
-    'en:yeast-powder',
+    'en:raising-agent',
     'en:salt',
     'en:emulsifier',
     'en:soya-lecithin',
@@ -617,7 +614,7 @@ $expected_product_ref =
     'en:orange-pulp',
     'en:concentrated-orange-juice',
     "fr:\x{e9}quivalent jus d'orange",
-    'en:calcium-citrates',
+    'en:e333',
     'en:sodium-citrate',
     'en:sugar',
     'en:cocoa-paste',
@@ -630,24 +627,24 @@ $expected_product_ref =
     'en:flavouring',
     'en:emulsifier',
     'en:soya-lecithin',
-    'en:ammonium-hydrogen-carbonate',
-    'en:disodium-diphosphate',
-    'en:sodium-hydrogen-carbonate'
+    'en:e503',
+    'en:e450i',
+    'en:e500'
   ],
   'ingredients_tags' => [
     'fr:marmelade-d-oranges',
     'fr:pulpe-d-orange-concentree',
     'fr:equivalent-pulpe-d-orange',
     'en:gelling-agent',
-    'en:pectin',
+    'en:e440a',
     'en:acid',
-    'en:citric-acid',
+    'en:e330',
     'en:acidity-regulator',
     'en:natural-orange-flavouring',
     'en:flavouring',
     'en:natural-flavouring',
     'en:thickener',
-    'en:xanthan-gum',
+    'en:e415',
     'en:chocolate',
     'en:lactose-and-milk-proteins',
     'en:protein',
@@ -667,12 +664,11 @@ $expected_product_ref =
     'en:oil',
     'en:vegetable-oil-and-fat',
     'en:vegetable-oil',
-    'en:yeast-powder',
-    'en:yeast',
+    'en:raising-agent',
     'en:salt',
     'en:emulsifier',
     'en:soya-lecithin',
-    'en:lecithins',
+    'en:e322',
     'en:orange-pulp',
     'en:fruit',
     'en:citrus-fruit',
@@ -681,9 +677,9 @@ $expected_product_ref =
     'en:fruit-juice',
     'en:orange-juice',
     'fr:equivalent-jus-d-orange',
-    'en:calcium-citrates',
+    'en:e333',
     'en:sodium-citrate',
-    'en:mineral',
+    'en:minerals',
     'en:sodium',
     'en:cocoa-paste',
     'en:cocoa',
@@ -694,12 +690,10 @@ $expected_product_ref =
     'fr:graisses-vegetales-de-karite',
     'en:palm-fat',
     'en:palm-oil-and-fat',
-    'en:ammonium-hydrogen-carbonate',
-    'en:ammonium-carbonates',
-    'en:disodium-diphosphate',
-    'en:diphosphates',
-    'en:sodium-hydrogen-carbonate',
-    'en:sodium-carbonates'
+    'en:e503',
+    'en:e450i',
+    'en:e450',
+    'en:e500',
   ],
   'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
   'lc' => 'fr',
@@ -802,7 +796,7 @@ diag explain $product_ref;
 $expected_product_ref = {
 
           'ingredients_n_tags' => [
-                                    '5',
+                                    '4',
                                     '1-10'
                                   ],
           'ingredients_original_tags' => [
@@ -810,7 +804,6 @@ $expected_product_ref = {
                                            'en:cane-sugar',
                                            'en:cocoa-butter',
                                            "fr:issus du commerce \x{e9}quitable et de l'agriculture",
-                                           'fr:du poids total'
                                          ],
           'ingredients_hierarchy' => [
                                        "fr:p\x{e2}te de cacao* de Madagascar",
@@ -819,7 +812,6 @@ $expected_product_ref = {
                                        'en:cocoa-butter',
                                        'en:cocoa',
                                        "fr:issus du commerce \x{e9}quitable et de l'agriculture",
-                                       'fr:du poids total'
                                      ],
           'ingredients_tags' => [
                                   'fr:pate-de-cacao-de-madagascar',
@@ -828,7 +820,6 @@ $expected_product_ref = {
                                   'en:cocoa-butter',
                                   'en:cocoa',
                                   'fr:issus-du-commerce-equitable-et-de-l-agriculture',
-                                  'fr:du-poids-total'
                                 ],
           'ingredients_text' => "p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).",
           'lc' => 'fr',
@@ -855,15 +846,9 @@ $expected_product_ref = {
 			       'label' => "en:organic",
                                'rank' => 4
                              },
-                             {
-                               'percent' => '100',
-                               'text' => 'du poids total',
-                               'id' => 'fr:du poids total',
-                               'rank' => 5
-                             }
                            ],
-          'unknown_ingredients_n' => 3,
-          'ingredients_n' => 5
+          'unknown_ingredients_n' => 2,
+          'ingredients_n' => 4 
 
         };
 
@@ -879,7 +864,7 @@ extract_ingredients_from_text($product_ref);
 
 is_deeply ($product_ref->{ingredients_original_tags}, [
 "en:gelling-agent",
-"en:pectin",
+"en:e440a",
 ]) or diag explain $product_ref;
 
 

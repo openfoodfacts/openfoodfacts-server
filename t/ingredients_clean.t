@@ -115,5 +115,6 @@ is($ingredients, "Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%,
 crème fraîche
 5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde.");
 
+is(clean_ingredients_text_for_lang("Lait demi - écrémé, fromage Saint - Moret 3% - pommes - bananes", "fr"), "Lait demi-écrémé, fromage Saint-Moret 3% - pommes - bananes");
 
 done_testing();

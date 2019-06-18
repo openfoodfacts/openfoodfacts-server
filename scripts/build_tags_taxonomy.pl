@@ -42,13 +42,15 @@ my $file = $tagtype . ".txt";
 
 # For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
 
-if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts/)) {
+# For automated tests, the domain is off.travis-ci.org
+
+if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts|off.travis/)) {
 
 	$file = "ingredients.all.txt";
 		
 	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file") or die("Cannot write $data_root/taxonomies/$file : $!\n");
 	
-	foreach my $taxonomy ("ingredients", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances") {
+	foreach my $taxonomy ("additives_classes", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances", "ingredients") {
 	
 		if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")) {
 		

@@ -84,10 +84,9 @@ my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+F
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
 
 # '(' and other opening brackets ('Punctuation, Open' without QUOTEs)
-my $obrackets = qr/^(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}])[\p{Ps}]$/i;
-
+my $obrackets = qr/(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}])[\p{Ps}]/i;
 # ')' and other closing brackets ('Punctuation, Close' without QUOTEs)
-my $cbrackets = qr/^(?![\N{U+276F}|\N{U+301E}|\N{U+301F}])[\p{Pe}]$/i;
+my $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}])[\p{Pe}]/i;
 
 my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i; # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 
@@ -274,6 +273,15 @@ sub extract_ingredients_from_image($$$$) {
 }
 
 
+# Words that can be ignored after a percent
+# e.g. 50% du poids total, 30% of the total weight
+
+my %ignore_strings_after_percent = (
+	en => "of (the )?total weight",
+	fr => "minimum( dans le chocolat( noir)?)?|du poids total|du poids",
+);
+
+
 sub extract_ingredients_from_text($) {
 
 	my $product_ref = shift;
@@ -317,6 +325,13 @@ sub extract_ingredients_from_text($) {
 	# replace by a lower comma ‚
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
+	
+	my $and = $Lang{_and_}{$product_ref->{lc}};
+	
+	my $ignore_strings_after_percent = "";
+	if (defined $ignore_strings_after_percent{$product_ref->{lc}}) {
+		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_ref->{lc}}
+	}
 
 	my $analyze_ingredients = sub($$$$$) {
 		my $analyze_ingredients_self = shift;
@@ -334,6 +349,8 @@ sub extract_ingredients_from_text($) {
 		my $between = '';
 		my $between_level = $level;
 		my $percent = undef;
+
+		print STDERR "s: $s\n";
 
 		# find the first separator or ( or [ or :
 		if ($s =~ $separators) {
@@ -398,7 +415,7 @@ sub extract_ingredients_from_text($) {
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*($separators|$)/) {
+			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*($separators|$)/) {
 				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
@@ -413,80 +430,123 @@ sub extract_ingredients_from_text($) {
 		# remove ending parenthesis
 		$before =~ s/(\),\],\])*//;
 
-		# Strawberry 10.3%
-		if ($before =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$/) {
-			# print STDERR "percent found: $before = $` + $1\%\n";
-			$percent = $1;
-			$before = $`;
-		}
+		my @ingredients = ();
+		
+		# 2 known ingredients separated by "and" ?
+		if ($before =~ /$and/i) {
+		
+			my $ingredient = $before;
+			my $ingredient1 = $`;
+			my $ingredient2 = $';
+			
+			# Remove percent 
+			
+			my $ingredient1_orig = $ingredient1;
+			my $ingredient2_orig = $ingredient2;
+			
+			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
+			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
+			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
 
-		# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-		if ($before =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
-			# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
-			$percent = $1;
-			$before = $';
-		}
+			# check if the whole ingredient is an ingredient
+			my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $before);
+			
+			# print STDERR "canon_ingredient - $canon_ingredient\n";
 
+			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
+				# otherwise check the 2 sub ingredients
+				my $canon_ingredient1 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient1);
+				my $canon_ingredient2 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient2);
+				
+				# print STDERR "canon_ingredient1 - $canon_ingredient1\n";
+				# print STDERR "canon_ingredient2 - $canon_ingredient2\n";
 
-		my $ingredient = $before;
-		chomp($ingredient);
-
-		# remove percent
-
-		# remove * and other chars before and after the name of ingredients
-		$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
-		$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
-
-		$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
-
-		my $origin;
-		my $label;
-
-		# try to remove the origin and store it as property
-		if ($ingredient =~ /\b(origin|origine)\b/i) {
-			$ingredient = $`;
-			$origin = $';
-			$origin =~ s/^\s+//;
-			$origin =~ s/\s+$//;
-		}
-
-		if ($ingredient =~ /\b(bio|biologique|biologico|organic|halal)\b/i) {
-			$label = canonicalize_taxonomy_tag($product_ref->{lc}, "labels", $1);
-			$ingredient =~ s/\b(bio|biologique|biologico|organic|halal)\b//i;
-			$ingredient =~ s/\s+/ /g;
-		}
-
-		$ingredient =~ s/^\s+//;
-		$ingredient =~ s/\s+$//;
-
-		my %ingredient = (
-			id => canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient),
-			text => $ingredient
-		);
-		if (defined $percent) {
-			$ingredient{percent} = $percent;
-		}
-		if (defined $origin) {
-			$ingredient{origin} = $origin;
-		}
-		if (defined $label) {
-			$ingredient{label} = $label;
-		}
-
-		if ($ingredient ne '') {
-
-			# ingredients tags that are too long (greater than 1024, mongodb max index key size)
-			# will cause issues for the mongodb ingredients_tags index, just drop them
-
-			if (length($ingredient{id}) < 500) {
-				if ($level == 0) {
-					push @$ranked_ingredients_ref, \%ingredient;
-				}
-				else {
-					push @$unranked_ingredients_ref, \%ingredient;
+				if ( (exists_taxonomy_tag("ingredients", $canon_ingredient1))
+					and (exists_taxonomy_tag("ingredients", $canon_ingredient2)) ) {
+					push @ingredients, $ingredient1_orig;
+					push @ingredients, $ingredient2_orig;
 				}
 			}
+		}
+		
+		if (scalar @ingredients == 0) {
+			push @ingredients, $before;
+		}
+
+		foreach my $ingredient (@ingredients) {
+		
+			chomp($ingredient);
+			
+			# Strawberry 10.3%
+			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$/) {
+				# print STDERR "percent found: $before = $` + $1\%\n";
+				$percent = $1;
+				$ingredient = $`;
+			}
+
+			# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
+			if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
+				# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
+				$percent = $1;
+				$ingredient = $';
+			}		
+
+			# remove * and other chars before and after the name of ingredients
+			$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
+			$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
+
+			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
+
+			my $origin;
+			my $label;
+
+			# try to remove the origin and store it as property
+			if ($ingredient =~ /\b(origin|origine)\b/i) {
+				$ingredient = $`;
+				$origin = $';
+				$origin =~ s/^\s+//;
+				$origin =~ s/\s+$//;
+			}
+
+			if ($ingredient =~ /\b(bio|biologique|biologico|organic|halal)\b/i) {
+				$label = canonicalize_taxonomy_tag($product_ref->{lc}, "labels", $1);
+				$ingredient =~ s/\b(bio|biologique|biologico|organic|halal)\b//i;
+				$ingredient =~ s/\s+/ /g;
+			}
+
+			$ingredient =~ s/^\s+//;
+			$ingredient =~ s/\s+$//;
+
+			my %ingredient = (
+				id => canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient),
+				text => $ingredient
+			);
+			if (defined $percent) {
+				$ingredient{percent} = $percent;
+			}
+			if (defined $origin) {
+				$ingredient{origin} = $origin;
+			}
+			if (defined $label) {
+				$ingredient{label} = $label;
+			}
+
+			if ($ingredient ne '') {
+
+				# ingredients tags that are too long (greater than 1024, mongodb max index key size)
+				# will cause issues for the mongodb ingredients_tags index, just drop them
+
+				if (length($ingredient{id}) < 500) {
+					if ($level == 0) {
+						push @$ranked_ingredients_ref, \%ingredient;
+					}
+					else {
+						push @$unranked_ingredients_ref, \%ingredient;
+					}
+				}
+			}
+		
 		}
 
 		if ($between ne '') {
@@ -704,6 +764,7 @@ fr => [
 
 'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 'Quels Ingr(e|é)dients ?', # In Casino packagings
+'ingr(e|é)dient(\s*)(-|:|\r|\n)+',
 ],
 
 
@@ -725,8 +786,8 @@ it => [
 
 ],
 
-es => [
-'ingredientes(\s*)(\s|-|:|\r|\n)+',
+cs => [
+'složení',
 ],
 
 pt => [
@@ -735,6 +796,10 @@ pt => [
 
 pl => [
 'składniki(\s*)(\s|-|:|\r|\n)+',
+],
+
+si => [
+'sestavine(\s*)(\s|-|:|\r|\n)+',
 ],
 
 it => [
@@ -769,6 +834,12 @@ my %phrases_before_ingredients_list_uppercase = (
 fr => [
 
 'INGR(E|É)DIENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
+'INGR(E|É)DIENT(\s*)(-|:|\r|\n)+',
+
+],
+
+cs => [
+'SLOŽENÍ',
 ],
 
 de => [
@@ -787,6 +858,10 @@ pt => [
 
 'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
 
+],
+
+pl => [
+'SKŁADNIKI(\s*)(\s|-|:|\r|\n)+',
 ],
 
 it => [
@@ -808,6 +883,14 @@ de => [
 
 fi => [
 'AINESOTAT:(\s*)(\s|-|:|\r|\n)+',
+],
+
+si => [
+'SESTAVINE:(\s*)(\s|-|:|\r|\n)+',
+],
+
+sv => [
+'INGREDIENSER:(\s*)(\s|-|:|\r|\n)+',
 ],
 
 );
@@ -836,24 +919,28 @@ fr => [
 'conseils de pr(e|é)paration',
 'conseil de pr(e|é)paration',
 'conditions de conservation',
+'conservation:',
 '(a|à) protéger de ', # humidité, chaleur, lumière etc.
 'conditionn(e|é) sous atmosph(e|è)re protectrice',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
 '(a|à) conserver (dans|de|a|à)',
 '(a|à)conserver (dans|de|a|à)', #variation
+'(a|à)conserver entre',
 'apr(e|è)s ouverture',
 'apr(e|è)s achat',
 'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
+'dont sucres',
+'dont acides ras satur(e|é)s',
+'dont acides gras satur(e|é)s',
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
 #'dontSUcres',
-#'waarvan suikers/dont sucres',
+#'waarvan suikers/
 #`verzadigde vetzuren/ acides gras saturés`,
 #`Conditionné par`,
-
 ],
 
 en => [
@@ -861,6 +948,8 @@ en => [
 'nutritional values',
 'after opening',
 'nutrition values',
+'of whlch saturates',
+'of which saturates',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 
 ],
@@ -892,6 +981,7 @@ de => [
 'Durchschnittliche N(â|a|ä)hrwerte',
 'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
+'k(u|ü)hl und trocken lagern',
 ],
 
 nl => [
@@ -909,6 +999,10 @@ it => [
 'Valori nutritivi',
 ],
 
+cs => [
+'doporučeny způsob přípravy',
+],
+
 ja => [
 '栄養価',
 ],
@@ -924,6 +1018,11 @@ pt => [
 'consumir de prefer(e|ê)ncia antes do',
 ],
 
+pl => [
+'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
+'n(a|o)jlepiej spożyć przed', #Best before
+],
+
 ro => [
 'declaratie nutritional(a|ă)',
 'a si pastra la frigider dup(a|ă) deschidere',
@@ -934,11 +1033,28 @@ ro => [
 );
 
 
+# turn demi - écrémé to demi-écrémé
+my %prefixes_before_dash  = (
+fr => [
+'demi',
+'saint',
+],
+);
+
 
 sub clean_ingredients_text_for_lang($$) {
 
 	my $text = shift;
 	my $language = shift;
+	
+	# turn demi - écrémé to demi-écrémé
+	
+	if (defined $prefixes_before_dash{$language}) {
+
+		foreach my $prefix (@{$prefixes_before_dash{$language}}) {
+			$text =~ s/\b($prefix) - (\w)/$1-$2/is;
+		}
+	}	
 
 	# Remove phrases before ingredients list lowercase
 
@@ -1095,7 +1211,8 @@ sub preparse_ingredients_text($$) {
 	# but not acidifier (pectin) : acidifier : (pectin)
 	
 	# FIXME : should use additives classes
-	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)?(:)?(?!\(| \()/$1$2 : /ig;
+	# ! in Spanish: colorante: caramelo was changed to colorant: e: caramelo
+	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)+(:)?(?!\(| \()/$1$2 : /ig;
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 	
@@ -1120,6 +1237,10 @@ sub preparse_ingredients_text($$) {
 	# print STDERR "additives: $text\n\n";
 
 	#$product_ref->{ingredients_text_debug} = $text;
+	
+	# separator followed by and
+	# aceite de girasol (70%) y aceite de oliva virgen (30%)
+	$text =~ s/($cbrackets)$and/$1, /ig;
 
 
 	if ($lc eq 'fr') {
