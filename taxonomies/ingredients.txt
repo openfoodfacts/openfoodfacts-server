@@ -20374,7 +20374,7 @@ it:olio e grasso vegetale
 nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
-vegan:en:true
+vegan:en:yes
 
 # In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
 
@@ -21835,7 +21835,7 @@ zh:醋
 # vls:Azyn
 # war:Suoy
 wikipedia:en:https://en.wikipedia.org/wiki/Vinegar
-vegan:en:true
+vegan:en:yes
 
 <en:vinegar
 en:wine vinegar
@@ -24058,7 +24058,7 @@ zh:煙
 # zh-hk:煙
 wikidata:en:Q130768
 wikipedia:en:https://en.wikipedia.org/wiki/Smoking_(cooking)
-vegan:en:true
+vegan:en:yes
 # ingredient/fr:fumée has 437 products in 12 languages @2019-04-14
 
 <en:smoke
@@ -24119,7 +24119,7 @@ it:cereali
 nl:granen
 pl:płatki zbożewe
 pt:cereais
-vegan:en:true
+vegan:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Mélange de céréales
 
 <en:cereal
@@ -24583,6 +24583,7 @@ zh:古斯米
 wikidata:en:Q76605
 wikipedia:en:https://en.wikipedia.org/wiki/Couscous
 # ingredient/fr:couscous has 57 products @2019-02-21
+vegan:en:yes
 # cous cous (semola di grano duro)
 # Couscous * (durum wheat semolina)
 
@@ -24801,6 +24802,7 @@ zh:麵包屑
 # yue:麪包糠
 wikidata:en:Q658413
 wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
+vegan:en:maybe
 # fr:chapelure has 2441 products in 7 languages @2018-11-12
 
 <en:bread crumbs
@@ -25198,6 +25200,7 @@ zh:麦芽
 # sco:Maut
 wikipedia:en:https://en.wikipedia.org/wiki/Malt
 wikidata:en:Q152024
+vegan:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/malt/
 # 707 entries @ 2018-09-22
 
@@ -25331,6 +25334,7 @@ nl:boekweitflakes
 
 # The OAT (Avena sativa) is a species of cereal grain grown for its seed.
 
+<en:cereal
 en:oat
 am:ገረማ
 an:Avena sativa
@@ -25624,13 +25628,13 @@ vi:Diêm mạch
 # yue:藜麥
 wikipedia:en:https://en.wikipedia.org/wiki/Quinoa
 wikidata:en:Q139925
-openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
 # 425 products in 6 languages @2018-09-22
 
 <en:quinoa
 en:red quinoa
 fr:quinoa rouge
-openfoodfacts:https://world.openfoodfacts.org/ingredient/red-quinoa
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-quinoa
 # 115 products in 2 languages @2018-09-22
 
 <en:quinoa
@@ -25873,7 +25877,9 @@ zh:麵粉
 # war:harina
 wikidata:en:Q36465
 wikipedia:en:https://en.wikipedia.org/wiki/Flour
+vegan:en:yes
 
+<en:flour
 en:cereal flour
 de:Getreidemehl, Getreidemehle
 fi:jauhot
@@ -26301,9 +26307,11 @@ fr:farine de châtaigne
 <en:flour
 fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
 
-# Maize, also known as corn, is a cereal grain first domesticated by indigenous peoples in southern Mexico about 10,000 years ago.
-# On ingredient lists it is known as corn (english/american issue?). Some translations refer to the latin name of the plant.
 
+# description:en:Maize, also known as corn, is a cereal grain first domesticated by indigenous peoples in southern Mexico about 10,000 years ago.
+# comment:en:On ingredient lists it is known as corn (english/american issue?). Some translations refer to the latin name of the plant.
+
+<en:cereal
 en:corn, maize
 af:Mielie
 am:በቆሎ
@@ -26554,29 +26562,25 @@ pt:flocos de milho
 # 82 products in 5 languages @2018-09-23
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20maïs
 # 22 products in 5 languages @2018-09-23
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20maïs
-# 180 products in 8 languages @2018-09-24
+# ingredient/fr:pétales%20de%20maïs 180 products in 8 languages @2018-09-24
 
 <en:corn
 de:Maiskölbchen
 fr:épis de maïs
 it:pannocchiette di granoturco
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épis%20de%20maïs
-# 19 products in 4 languages @2018-09-23
+# ingredient/fr:épis%20de%20maïs 19 products in 4 languages @2018-09-23
 
 <en:corn
 de:Wachmais
 fr:maïs cireux
 it:maïs ceroso
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20cireux
-# 24 products in 3 languages @2018-09-24
+# ingredient/fr:maïs%20cireux24 products in 3 languages @2018-09-24
 
 <en:corn
 fr:grains de maïs
 de:Maiskörner
 sr:kukuruzni griz
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grains%20de%20maïs
-# 41 products in 3 languages @2018-09-24
+# ingredient/fr:grains%20de%20maïs 41 products in 3 languages @2018-09-24
 
 # Question
 
@@ -26585,13 +26589,11 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grains%20de%20maïs
 fr:maïs doux en grains
 nl:zoete maïskorrels
 pt:milho doce em grão
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20doux%20en%20grains
-# 66 products in 1 language @2018-09-24
+# ingredient/fr:maïs%20doux%20en%20grains 66 products in 1 language @2018-09-24
 
 <fr:maïs doux en grains
 fr:maïs doux en grains sans ogm
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20doux%20en%20grains%20sans%20ogm
-# 65 products in 4 languages @2018-09-24
+# ingredient/fr:maïs%20doux%20en%20grains%20sans%20ogm 65 products in 4 languages @2018-09-24
 
 <en:corn
 en:sweetcorn
@@ -26599,15 +26601,13 @@ de:Süssmais
 es:maíz dulce
 fr:maïs doux
 it:mais dolce
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20doux
-# 103 products in 5 languages @2018-09-24
+# ingredient/fr:maïs%20doux 103 products in 5 languages @2018-09-24
 
 <en:cornmeal
 fr:maïs moulu
 nl:gemalen maïs
 pt:milho moído
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20moulu
-# 28 products in 3 languages @2018-09-24
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20moulu 28 products in 3 languages @2018-09-24
 
 
 # Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). 
@@ -26812,6 +26812,7 @@ zu:ilayisi
 wikidata:en:Q5090
 wikipedia:en:https://en.wikipedia.org/wiki/Rice
 carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
+vegan:en:yes
 
 # comment:en:organic is an independent aspect of all rices
 <en:rice
@@ -27425,6 +27426,7 @@ cs:carubin
 fr:caroube
 it:carruba
 nl:johannesbrood
+vegan:en:yes
 
 # question
 
@@ -27634,6 +27636,7 @@ zh:食糖
 # yue:糖
 wikidata:en:Q11002
 wikipedia:en:https://en.wikipedia.org/wiki/Sugar
+vegan:en:yes
 
 <en:sugar
 en:organic sugar
@@ -28286,6 +28289,7 @@ zh:糖漿
 # yue:糖漿
 wikipedia:en:https://en.wikipedia.org/wiki/Syrup
 wikidata:en:Q6584340
+vegan:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/syrup
 # 9746 products in 24 languages @2018-09-24
 
@@ -28388,6 +28392,7 @@ zh:葡萄糖
 # yue:葡萄醣
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose
 wikidata:en:Q37525
+vegan:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose
 # 24682 products in 24 languages @2018-09-24
 
@@ -28542,6 +28547,7 @@ zh:果糖
 # yue:菓醣
 wikipedia:en:https://en.wikipedia.org/wiki/Fructose
 wikidata:en:Q122043
+vegan:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fructose
 # 3267 products in 11 languages @2018-09-24
 
@@ -28572,6 +28578,7 @@ fr:oligofructose
 it:oligofruttosio
 wikidata:en: Q418945
 wikipedia:en:https://en.wikipedia.org/wiki/Fructooligosaccharide
+vegan:en:yes
 # ingredient/fr:oligofructose has 245 products in 5 languages @2019-05-12
 # usage:en: dietary fibres (oligofructose, polydextrose)
 
@@ -28679,8 +28686,8 @@ uk:Кукурудзяний сироп
 zh:玉米糖漿
 wikidata:en:Q618739
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_syrup
-openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-syrup
-# 19402 products in 7 languages @2018-09-24
+vegan:en:yes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-syrup 19402 products in 7 languages @2018-09-24
 
 <en:corn syrup
 nl:biologische gesproeidroogde maisstroop
@@ -28822,8 +28829,7 @@ ro:dextroza din porumb
 sl:dekstroza iz koruze
 sv:majssocker
 tr:misir dekstrozu
-openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-dextrose
-# 868 products in 18 languages @2018-09-24
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-dextrose 868 products in 18 languages @2018-09-24
 
 <en:dextrose
 en:wheat dextrose, dextrose from wheat
@@ -28901,6 +28907,7 @@ th:อะกาเวเนกเตอร์
 zh:龍舌蘭糖漿
 wikidata:en:Q392001
 wikipedia:en:https://en.wikipedia.org/wiki/Agave_nectar
+vegan:en:yes
 # ingredient/agave-syrup has 477 products in 16 languages @2018-12-17
 
 <en:agave syrup
@@ -29103,6 +29110,7 @@ de:pflanzliches Eiweiß
 fr:protéines végétales, protéine végétale
 it:proteine vegetali
 nl:plantaardige eiwit
+vegan:en:yes
 
 <en:vegetable protein
 fr:protéines végétales réhydratées
@@ -29209,6 +29217,7 @@ fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait
 it:proteine del latte
 nl:melkeiwit
 nova:en:4
+vegetarian:en:yes
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
 
 <en:milk proteins
@@ -29344,6 +29353,7 @@ wikidata:en: Q63120038
 # ingredient/fr:caséinate-de-sodium has 130 products in 4 languages @2019-04-13
 # usage:fr: caséinate de sodium (de lait)
 
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                           C O C O A     S E C T I O N
@@ -29399,6 +29409,7 @@ zh:可可粉
 # zh-hans:可可粉
 # zh-hant:可可粉
 # zh-hk:可可粉
+vegan:en:yes
 
 <en:cocoa
 fr:cacao cru
@@ -30290,6 +30301,7 @@ zu:Amanzi
 # xmf:წყარი
 # zh-classical:水
 # zh-min-nan:Chúi
+vegan:en:yes
 wikipedia:en:en.wikipedia.org/wiki/Water
 wikidata:en:Q283
 
@@ -30735,6 +30747,7 @@ uz:Soya
 # kbp:Soojaa
 # lfn:Soia
 # war:Soya
+vegan:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
 
@@ -30826,6 +30839,7 @@ de:Gluten
 fr:gluten
 it:glutine
 nl:Gluten
+vegan:en:yes
 
 <en:gluten
 en:wheat gluten
@@ -30846,6 +30860,7 @@ nl:Maltodextrine
 pt:Maltodextrinas, maltodextrina
 ru:Мальтодекстрин
 zh:麦芽糊精
+vegan:en:yes
 # zh_CN:麦芽糊精
 # zh_HK:麥芽糊精
 # zh_TW:麥芽糊精
@@ -30991,6 +31006,7 @@ zh:酵母
 # sco:Baurm
 # yue:依士
 # zh-min-nan:Kàⁿ-bú
+vegan:en:yes
 wikidata:en:Q45422
 wikipedia:en:https://en.wikipedia.org/wiki/Yeast
 
@@ -32889,6 +32905,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, prod
 # zh-my:水果
 # zh-sg:水果
 # zh-tw:水果
+vegan:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Fruit
 wikidata:en:Q1364
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
@@ -36339,10 +36356,8 @@ zh:瓜
 # zh-hk:瓜
 wikipedia:en:https://en.wikipedia.org/wiki/Melon
 wikidata:en:Q5881191
-openfoodfacts:https://world.openfoodfacts.org/ingredient/melon
-# 5 products @2018-09-29
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melon
-# 94 products in 5 languages @2018-09-29
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/melon 5 products @2018-09-29
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melon 94 products in 5 languages @2018-09-29
 carbon_footprint_fr_foodges_ingredient:fr:Melon
 
 # MELONS CONFITS is a compound ingredient
@@ -36351,8 +36366,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Melon
 fr:melons confits
 de:kandierte Melonen
 it:meloni canditi
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melons%20confits
-# 59 products in 3 languages @2018-09-29
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melons%20confits 59 products in 3 languages @2018-09-29
 
 # Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
 
@@ -37769,6 +37783,7 @@ uk:Сортове вино
 zh:品種葡萄酒
 # gsw:Räbsorte
 # scn:Vitignu
+vegan:en:yes
 wikidata:en:Q958314
 wikipedia:en:https://en.wikipedia.org/wiki/List_of_grape_varieties
 # ingredient/fr:cépages has 52 products @2019-01-18
@@ -38895,6 +38910,7 @@ de:Gemüse
 fr:légume
 it:vegetale
 nl:Groente
+vegan:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
@@ -39188,9 +39204,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Avocado
 carbon_footprint_fr_foodges_ingredient:fr:Avocat
 # ingredient/avocado has 223 products in 5 languages @2019-04-21
 
-
-
-
 <en:vegetable
 en:Belgian endive
 cs:čekanka
@@ -39204,8 +39217,6 @@ nl:witlof
 wikidata:en:Q1474
 # ingredient/fr:endives has 38 products in 4 languages @2018-12-10
 carbon_footprint_fr_foodges_ingredient:fr:Endive
-
-
 
 # description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
 
@@ -39357,8 +39368,11 @@ wikidata:en:Q767765
 # ingredient/fr:chicorée-rouge has 114 products in 4 languages @2018-12-10
 # ingredient/fr:trévise has 16 products in 4 languages @2019-02-15
 
+<en:vegetable
+en:chicory
 
 <en:vegetable fiber
+<en:chicory
 en:chicory fibre
 de:Zichorienfäser
 es:fibra de la raíz de achicoria
@@ -39366,13 +39380,14 @@ fr:fibre de chicorée, fibres de chicorée
 nl:chicoreivezel
 # ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
 
-
+<en:chicory
 fr:chicorée soluble
 es:achicoria en polvo
 nl:oploscichorei, poeder met witlof
 pt:chicória solúvel
 # ingredient/fr:chicorée-soluble has 70 products in 4 languages @2018-12-10
 
+<en:chicory
 en:extract of chicory
 de:Zichorien-Extrakt
 es:extracto de achicoria
@@ -39658,6 +39673,7 @@ sv:torkad hvidlök
 # fr:ailséché contains 35 products in 8 languages @2018-10-22
 
 <fr:ail déshydraté
+<en:garlic
 en:rehydrated garlic
 fr:ail réhydraté
 # en:rehydrated-garlic contains 66 products in 2 languages @2018-10-22
@@ -39688,8 +39704,9 @@ de:Knoblauchextrakt
 <en:onion
 fr:oignon et ail en poudre
 
-# ALOE VERA is a succulent plant species of the genus Aloe.
+# description:en:ALOE VERA is a succulent plant species of the genus Aloe.
 
+<en:vegetable
 en:aloe vera
 am:ሬት
 ar:صبر حقيقي
@@ -39962,9 +39979,11 @@ fr:aubergine préfrite, aubergines préfrites
 nl:voorgebakken aubergines
 # fr:aubergine-préfrite has 28 products in 1 language @2018-10-17
 # fr:aubergines-préfrites has 86 products in 2 languages @2018-10-17
+vegan:en:maybe
 
 <en:aubergine
 fr:aubergines frites
+vegan:en:maybe
 # fr:aubergines-frites has 41 products in 1 language @2018-10-17
 
 
@@ -40121,7 +40140,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bamboo_shoot
 # ingredient/fr:pousse-de-bambou has 43 products in 4 languages @2019-02-03
 # ingredient/fr:pousses-de-bambou/ has 95 products in 10 languages @2019-02-03
 
-
 # <en:bamboo
 <en:vegetable fiber
 en:bamboo fibre
@@ -40226,14 +40244,14 @@ nl:rode biet
 pt:beterraba vermelha
 # fr:betterave-rouge has 298 products in 6 languages @2018-10-22
 
-<fr:betterave rouge
+<en:red beetroot
 fr:betterave rouge déshydratée, betterave rouge en poudre, poudre de betterave rouge
 de:Randenpulver
 it:barbabietole in polvere
 # fr:betterave-rouge-déshydratée has 55 products in 3 languages @2018-10-22
 # fr:betterave-rouge-en-poudre has 44 products in 3 languages @2018-10-22
 
-<fr:jus de betterave
+<en:red beetroot
 fr:jus de betterave rouge
 de:Rote Bete Saft
 es:zumo de remolacha roja
@@ -40241,7 +40259,7 @@ it:succo di barbabietole rosse
 nl:rodebietensap
 # fr:jus-de-betterave-rouge has 38 products @2018-10-21
 
-<fr:betterave rouge
+<fr:jus de betterave rouge
 fr:jus de betterave rouge concentré, concentré de jus de betterave rouge
 de:Rote Bete-Saftkonzentrat
 nl:geconcentreerd rodebietensap
@@ -42864,8 +42882,9 @@ fr:Épinards hachés
 nl:gehakte spinazie
 # ingredient/fr:epinards-haches has 26 products in 2 languages @2019-05-24
 
-# The sweet potato (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
+# description:en:The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
 
+<en:vegetable
 en:sweet potato
 af:Patats
 ak:atomo
@@ -44542,6 +44561,7 @@ zh:荚果
 # zh-sg:荚果
 # zh-tw:莢果
 wikidata:en:Q145909
+vegan:en:yes
 
 
 # description:en:A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
@@ -45597,6 +45617,7 @@ zh:坚果
 # zh-hant:堅果
 wikipedia:en:https://en.wikipedia.org/wiki/Nut_(fruit)
 wikidata:en:Q11009
+vegan:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit%20à%20coque
 # 158 products in 1 languages @2018-10-07
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20à%20coques
@@ -46374,6 +46395,7 @@ cdo:Cī-cī
 # zh-sg:种子
 # zh-tw:種子
 wikidata:en:Q40763
+vegan:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines
 # 304 products in 7 languages @2018-10-06
 
@@ -46656,12 +46678,12 @@ wikidata:en:Q911332
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20de%20lin
 # 449 in 7 languages products @2018-10-08
 
-<fr:graines de lin
+<en:flax seed
 fr:graines de lin doré
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20lin%20doré
 # 40 products in 1 language @2018-10-08
 
-<fr:graines de lin
+<en:flax seed
 en:brown flax seeds
 de:brauner Leinsamen
 es:semillas de lino dorado
@@ -46831,6 +46853,7 @@ de:gemahlen Bockshornkleesamen
 
 # The wikidata page is a mix of the plant and the genric name
 
+<en:seed
 en:sesame
 af:Sesam
 am:ሰሊጥ
@@ -47107,6 +47130,7 @@ fr:épice, épices, aromate
 it:spezie
 nl:kruiden
 sv:kryddor
+vegan:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aromate
 carbon_footprint_fr_foodges_ingredient:fr:Épices
 # 903 products in 4 languages @2018-10-08
@@ -47145,11 +47169,13 @@ fr:épices et arômes, aromates et épices
 
 fr:sel épices
 
+<en:plant
 en:herb
 de:Gewürz
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques
 nl:Kruiden
 
+<en:plant
 en:plant extracts
 de:Pflanzenextrakte
 fr:extraits de plantes
@@ -48332,11 +48358,9 @@ sv:Stjärnanis
 wikidata:en:Q1760637
 # ingredient/fr:badiane has 121 products in 3 languages @2019-04-26
 
-
-
-
 # description:en:A PINK PEPPERCORN is a dried berry of the shrub Schinus molle, commonly known as the Peruvian peppertree. Although a peppercorn is the dried fruit of a plant from the genus Piper, pink peppercorns came to be called such because they resemble peppercorns, and because they, too, have a peppery flavour. As they are members of the cashew family, they may cause allergic reactions including anaphylaxis for persons with a tree nut allergy.
 
+<en:spice
 en:pink peppercorn, pink berries
 da:rosépeber
 de:Rosa Beeren
@@ -49984,11 +50008,15 @@ it:erba cipollina essiccata
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
+en:plant
+vegan:en:yes
+
 # The plants section contains things other than herbs or vegetables. Tea ingredients can be found here.
 
 
 # Chamomile (American English) or camomile (British English) is the common name for several daisy-like plants of the family Asteraceae.
 
+<en:herb
 en:camomile, chamomile
 ar:بابونج
 cy:Camri
@@ -50022,6 +50050,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chamomile
 
 # Capparis spinosa, the caper bush is best known for the edible flower buds (capers), often used as a seasoning, and the fruit (caper berries)
 
+<en:plant
 en:capers
 cs:kapary
 de:Kapern
@@ -50046,6 +50075,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caper
 # If it is not specified we do not know which one.
 # However probably it is used as the spice, but the context should reveal that.
 
+<en:herb
 en:coriander
 af:Koljander
 am:ድምብላል
@@ -50170,6 +50200,7 @@ es:aroma de cilantro
 
 # GUARANA is a climbing plant in the maple family, Sapindaceae, native to the Amazon basin and especially common in Brazil.
 
+<en:plant
 en:guarana
 ar:غوارانا
 az:Quarana
@@ -50234,6 +50265,7 @@ it:estratto di guarana
 
 # Hops are the flowers (also called seed cones or strobiles) of the hop plant Humulus lupulus.
 
+<en:plant
 en:hops, hop
 ar:جنجل
 be:хмель
@@ -50307,6 +50339,7 @@ sv:organisk humle
 # description:en:JUNIPERS are coniferous plants in the genus Juniperus of the cypress family Cupressaceae. Juniper berries are a spice used in a wide variety of culinary dishes and best known for the primary flavoring in gin. Juniper berry sauce is often a popular flavoring choice for quail, pheasant, veal, rabbit, venison and other game dishes.
 # comment:en:Juniper as an ingredient most certainly implies a juniper berry.
 
+<en:plant
 en:juniper
 ar:عرعر شائع
 az:Adi ardıc
@@ -50382,6 +50415,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Juniper
 
 # description:en:A JUNIPER BERRY is the female seed cone produced by the various species of junipers. Juniper berries are used in northern European and particularly Scandinavian cuisine to "impart a sharp, clear flavor" to meat dishes. Besides Norwegian and Swedish dishes, juniper berries are also sometimes used in German, Austrian, Czech, Polish and Hungarian cuisine, often with roasts (such as German sauerbraten). Northern Italian cuisine, especially that of the South Tyrol, also incorporates juniper berries.
 
+<en:juniper
 en:juniper berry, juniper berries
 af: Jenewerbessie
 be: Ядловец
@@ -50411,6 +50445,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Juniper_berry
 
 # description:en:LAVANDULA (common name lavender) is a genus of 47 known species of flowering plants in the mint family, Lamiaceae. 
 
+<en:herb
 en:lavender
 ar:ضرم
 az:Lavanda
@@ -50498,7 +50533,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lavandula
 # description:en:LEMON BALM (Melissa officinalis), is a perennial herbaceous plant in the mint family Lamiaceae. Lemon balm is used as a flavouring in ice cream and herbal teas, both hot and iced, often in combination with other herbs such as spearmint. In alternative medicine it is used as a sleep aid and digestive aid.
 # comment:en:The wikidata translations sometimes use the official localised plant name and not the popular name found on packages.
 
-<en:plant
+<en:herb
 en:Lemon Balm
 af:Suurlemoenbalsem
 ar:ترنجان مخزني
@@ -50586,7 +50621,7 @@ fr:mélisse bio
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
-# <en:Leaf vegetables
+<en:vegetable
 en:lettuce, Lettuces
 af:Blaarslaai
 am:ሰላጣ
@@ -50723,6 +50758,7 @@ fr:jeunes pousses de laitue rouge
 
 # description:en:TILIA is a genus of about 30 species of trees, or bushes, native throughout most of the temperate Northern Hemisphere.
 
+<en:plant
 en:linden
 de:Lindenblüten
 es:Tila
@@ -50735,7 +50771,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tilia
 
 # LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted. 
 
-# <en:Herbal teas
+<en:plant
 en:liquorice, licorice
 af:Soethout
 ar:عرقسوس
@@ -51082,6 +51118,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Urtica_dioica
 
 # The olive, known by the botanical name Olea europaea, is a species of small tree in the family Oleaceae
 
+<en:plant
 en:olives, olive
 ar:الزيتون
 bo:རྒྱ་ཨར།
@@ -51174,7 +51211,7 @@ de:Olivenpastete
 fr:pâte d'olives
 
 
-# <en:plant
+<en:plant
 en:orange leaves
 de:Orangenblätter
 fr:feuilles d'oranger
@@ -51199,6 +51236,7 @@ la:Pinus sylvestris
 
 # description:en:Quinine was first isolated in 1820 from the bark of a cinchona tree. Quinine is a flavor component of tonic water and bitter lemon drink mixers.
 
+<en:plant
 en:quinine
 ar:كينين
 be:Хінін
@@ -51273,6 +51311,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quinine
 # description:en:Plantago lanceolata is a species of flowering plant in the plantain family Plantaginaceae. 
 
 <fr:plantain
+<en:plant
 en:ribwort plantain
 ar:لسان الحمل السهمي
 az:Nəştəryarpaq bağayarpağı
@@ -51338,6 +51377,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Plantago_lanceolata
 
 # description:en:ROOIBOS (Aspalathus linearis), meaning 'red bush'; is a broom-like member of the Fabaceae family of plants that grows in South Africa's fynbos. The leaves are used to make a herbal tea that is called by the names:rooibos, bush tea (especially in Southern Africa), red tea, or redbush tea. The tea has a taste and color somewhat similar to hibiscus tea, with more or less of an earthy flavor like yerba mate.
 
+<en:plant
 en:rooibos
 af:Rooibos
 ar:رويبوس
@@ -51400,6 +51440,7 @@ nl:biologische rooibos
 # fr:rose
 
 # <en:rose
+<en:plant
 en:rose petals
 de:rosenblatt
 fr:pétales de rose
@@ -51409,7 +51450,7 @@ it:petalo di rosa
 
 # description:en: The  ROSE HIP  or rosehip, also called rose haw and rose hep, is the accessory fruit of the rose plant. Rose hips are used for herbal teas, jam, jelly, syrup, rose hip soup, beverages, pies, bread, wine, and marmalade. They can also be eaten raw, like a berry, if care is taken to avoid the hairs inside the fruit.
 
-# <en:plant
+<en:plant
 en:rose hip, rosehip
 af:Roosbottel
 ar:وردة المسك
@@ -51468,6 +51509,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rose_hip
 
 # Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an infusion, in which it may be known as carcade.
 
+<en:plant
 en:roselle flower
 ar:كركديه
 as:টেঙামৰা
@@ -51504,7 +51546,6 @@ te:గోంగూర
 th:กระเจี๊ยบเปรี้ยว
 tr:Kerkede
 zh:玫瑰茄
-// <en:plant
 # arz:كركديه
 # azb:مکَه چایی
 wikidata:en:Q319390
@@ -51515,6 +51556,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Roselle_(plant)
 
 # Safflower (Carthamus tinctorius) is a highly branched, herbaceous, thistle-like annual plant.
 
+<en:plant
 en:safflower
 am:ሱፍ
 ar:عصفر
@@ -51610,6 +51652,7 @@ es:concentrado de cártamo con efecto colorante
 
 # Saffron is a spice derived from the flower of Crocus sativus, commonly known as the "saffron crocus".
 
+<en:plant
 en:saffron
 af:Saffraan
 an:Zafrán
@@ -51699,6 +51742,7 @@ nl:saffraanpoeder
 # en:sunflower is only found as a specication, i.e. oil (sunflower, ...)
 # This plant is kept outside the section as it is not eaten.
 
+<en:plant
 en:sunflower
 af:sonneblom
 ar:دوار الشمس
@@ -51770,7 +51814,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Helianthus
 
 # description:en:TEA is an aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub (bush) native to East Asia. After water, it is the most widely consumed drink in the world. There are many different types of tea; some, like Darjeeling and Chinese greens, have a cooling, slightly bitter, and astringent flavour, while others have vastly different profiles that include sweet, nutty, floral or grassy notes.
 
-# <en:plant
+<en:plant
 en:tea
 af:tee
 an:té
@@ -52202,6 +52246,7 @@ fr:thé vert au jasmin
 
 # Ddscription:en:Vanilla is a flavoring derived from orchids of the genus Vanilla, primarily from the Mexican species, flat-leaved vanilla (V.planifolia).
 
+<en:plant
 en:vanilla
 af:Vanielje
 ar:فانيليا
@@ -52427,6 +52472,7 @@ it:foglie di vite
 
 # WASABI (Japanese ワサビ, わさび or 山葵; Eutrema japonicum or Wasabia japonica) or Japanese horseradish is a plant of the Brassicaceae family
 
+<en:plant
 en:wasabi
 af:Wasabi
 ar:وسابي
@@ -52584,6 +52630,7 @@ zh:藻類
 # yue:藻
 wikidata:en:Q37868
 wikipedia:en:https://en.wikipedia.org/wiki/Algae
+vegan:en:true
 # ingredient/algae has 135 products in 4 languages @2019-01-27
 
 
@@ -53246,6 +53293,7 @@ zh:食用蕈, 蕈類
 wikidata:en:Q654236
 wikidata:en:Q83093
 wikipedia:en:https://en.wikipedia.org/wiki/Mushroom
+vegan:en:true
 # en:mushroom has 1817 products in 16 languages @2018-11-02
 
 <en:mushroom
@@ -59925,6 +59973,7 @@ zh:蜂蜜
 # zh-hant:蜂蜜
 wikidata:en:Q10987
 wikipedia:en:https://en.wikipedia.org/wiki/Honey
+vegetarian:en:yes
 # ingredient/honey has 9679 products in 17 languages @2018-12-17
 
 <en:honey
@@ -60383,6 +60432,7 @@ zh:蜂王漿
 # zh-tw:蜂王漿
 wikipedia:en:https://en.wikipedia.org/wiki/
 wikidata:en:Q202501
+vegetarian:en:yes
 
 <en:royal jelly
 en:organic royal jelly
@@ -61077,6 +61127,7 @@ zu:Ikhofi
 # zh-tw:咖啡
 wikidata:en:Q8486
 wikipedia:en:https://en.wikipedia.org/wiki/Coffee
+vegan:en:yes
 # ingredient/en:coffee has 1637 products in 10 languages @2018-11-30
 
 <en:coffee
@@ -61125,8 +61176,6 @@ de:frisch gebrühter Arabica-Kaffee
 fr:café arabica fraîchement préparé
 nl:vers gezette Arabica-koffie
 # ingredient/fr:café-arabica-fraîchement-préparé has 10 products in 4 languages @2018-11-30
-
-
 
 <en:arabica coffee
 fr:café moulu pur arabica, café moulu arabica, café moulu 100 arabica
@@ -61369,7 +61418,7 @@ nl:komkommersap uit concentraat
 
 # description:en:LIQUORICE is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted. 
 
-# <en:plant
+<en:plant
 en:liquorice, licorice
 af:Soethout
 ar:عرقسوس
@@ -62269,6 +62318,7 @@ zh:Amaqanda
 # zh-sg:蛋
 # zh-tw:蛋
 wikipedia:en:https://en.wikipedia.org/wiki/Egg_as_food
+vegetarian:en:yes
 # ingredient/egg has 15441 products in 24 languages @2018-12-19
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
 
