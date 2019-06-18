@@ -42,7 +42,9 @@ my $file = $tagtype . ".txt";
 
 # For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
 
-if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts/)) {
+# For automated tests, the domain is off.travis-ci.org
+
+if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts|off.travis/)) {
 
 	$file = "ingredients.all.txt";
 		

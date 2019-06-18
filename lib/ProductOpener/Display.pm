@@ -40,6 +40,7 @@ BEGIN
 					&display_form
 					&display_date
 					&display_date_tag
+					&display_pagination
 					&get_packager_code_coordinates
 
 					&display_structured_response
@@ -3623,7 +3624,6 @@ sub search_and_display_products($$$$$) {
 	}
 
 	my $html = '';
-	my $html_pages = '';
 	my $html_count = '';
 
 	if (not defined $request_ref->{jqm_loadmore}) {
@@ -3812,100 +3812,7 @@ HTML
 
 
 		# Pagination
-
-		my $nb_pages = int (($count - 1) / $limit) + 1;
-
-		my $current_link = $request_ref->{current_link};
-		my $current_link_query = $request_ref->{current_link_query};
-
-		if ($request_ref->{jqm}) {
-			$current_link_query .= "&jqm=1";
-		}
-
-		my $next_page_url;
-
-		if ((($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) and (not defined $request_ref->{product_changes_saved})) {
-
-			my $prev = '';
-			my $next = '';
-			my $skip = 0;
-
-			for (my $i = 1; $i <= $nb_pages; $i++) {
-				if ($i == $page) {
-					$html_pages .= '<li class="current"><a href="">' . $i . '</a></li>';
-					$skip = 0;
-				}
-				else {
-
-					# do not show 5425423 pages...
-
-					if (($i > 3) and ($i <= $nb_pages - 3) and (($i > $page + 3) or ($i < $page - 3))) {
-						$html_pages .= "<unavailable>";
-					}
-					else {
-
-						my $link;
-
-						if (defined $current_link) {
-
-							$link = $current_link;
-							if ($i > 1) {
-								$link .= "/$i";
-							}
-							if ($link eq '') {
-								$link  = "/";
-							}
-						}
-						elsif (defined $current_link_query) {
-
-							$link = $current_link_query . "&page=$i";
-						}
-
-						$html_pages .=  '<li><a href="' . $link . '">' . $i . '</a></li>';
-
-						if ($i == $page - 1) {
-							$prev = '<li><a href="' . $link . '" rel="prev">' . lang("previous") . '</a></li>';
-						}
-						elsif ($i == $page + 1) {
-							$next = '<li><a href="' . $link . '" rel="next">' . lang("next") . '</a></li>';
-							$next_page_url = $link;
-						}
-					}
-				}
-			}
-
-			$html_pages =~ s/(<unavailable>)+/<li class="unavailable">&hellip;<\/li>/g;
-
-			$html_pages = "\n<hr>" . '<ul id="pages" class="pagination">'
-			. "<li class=\"unavailable\">" . lang("pages") . "</li>"
-			. $prev . $html_pages . $next . "</ul>\n";
-		}
-
-		# Close the list
-
-
-		if (defined $request_ref->{jqm}) {
-			if (defined $next_page_url) {
-				my $loadmore = lang("loadmore");
-				$html .= <<HTML
-<li id="loadmore" style="text-align:center"><a href="${formatted_subdomain}/${next_page_url}&jqm_loadmore=1" id="loadmorelink">$loadmore</a></li>
-HTML
-;
-			}
-			else {
-				$html .= '<br><br>';
-			}
-		}
-
-		if (not defined $request_ref->{jqm_loadmore}) {
-			$html .= "</ul>\n";
-		}
-
-		if (not defined $request_ref->{jqm}) {
-			$html .= $html_pages;
-		}
-
-
+		$html .= display_pagination($request_ref, $count, $limit, $page);
 	}
 
 	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
@@ -3915,6 +3822,112 @@ HTML
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
+	return $html;
+}
+
+sub display_pagination($$$$) {
+	my $request_ref = shift;
+	my $count = shift;
+	my $limit = shift;
+	my $page = shift;
+	my $html = '';
+	my $html_pages = '';
+
+	my $nb_pages = int (($count - 1) / $limit) + 1;
+
+	my $current_link = $request_ref->{current_link};
+	my $current_link_query = $request_ref->{current_link_query};
+
+	if ($request_ref->{jqm}) {
+		$current_link_query .= "&jqm=1";
+	}
+
+	my $next_page_url;
+
+	if ((($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) and (not defined $request_ref->{product_changes_saved})) {
+
+		my $prev = '';
+		my $next = '';
+		my $skip = 0;
+
+		for (my $i = 1; $i <= $nb_pages; $i++) {
+			if ($i == $page) {
+				$html_pages .= '<li class="current"><a href="">' . $i . '</a></li>';
+				$skip = 0;
+			}
+			else {
+
+				# do not show 5425423 pages...
+
+				if (($i > 3) and ($i <= $nb_pages - 3) and (($i > $page + 3) or ($i < $page - 3))) {
+						$html_pages .= "<unavailable>";
+				}
+				else {
+
+					my $link;
+
+					if (defined $current_link) {
+
+						$link = $current_link;
+						if ($i > 1) {
+							$link .= "/$i";
+						}
+						if ($link eq '') {
+							$link  = "/";
+						}
+					}
+					elsif (defined $current_link_query) {
+
+						if ($current_link_query eq '') {
+							$current_link_query = '?';
+						}
+
+						$link = $current_link_query . "&page=$i";
+					}
+
+					$html_pages .=  '<li><a href="' . $link . '">' . $i . '</a></li>';
+
+					if ($i == $page - 1) {
+						$prev = '<li><a href="' . $link . '" rel="prev">' . lang("previous") . '</a></li>';
+					}
+					elsif ($i == $page + 1) {
+						$next = '<li><a href="' . $link . '" rel="next">' . lang("next") . '</a></li>';
+						$next_page_url = $link;
+					}
+				}
+			}
+		}
+
+		$html_pages =~ s/(<unavailable>)+/<li class="unavailable">&hellip;<\/li>/g;
+
+		$html_pages = "\n<hr>" . '<ul id="pages" class="pagination">'
+		. "<li class=\"unavailable\">" . lang("pages") . "</li>"
+		. $prev . $html_pages . $next . "</ul>\n";
+	}
+
+	# Close the list
+
+
+	if (defined $request_ref->{jqm}) {
+		if (defined $next_page_url) {
+			my $loadmore = lang("loadmore");
+			$html .= <<HTML
+<li id="loadmore" style="text-align:center"><a href="${formatted_subdomain}/${next_page_url}&jqm_loadmore=1" id="loadmorelink">$loadmore</a></li>
+HTML
+;
+		}
+		else {
+			$html .= '<br><br>';
+		}
+	}
+
+	if (not defined $request_ref->{jqm_loadmore}) {
+		$html .= "</ul>\n";
+	}
+
+	if (not defined $request_ref->{jqm}) {
+		$html .= $html_pages;
+	}
 	return $html;
 }
 
@@ -9225,6 +9238,8 @@ sub display_recent_changes {
 	}
 
 	$html .= "</ul>";
+	$html .= display_pagination($request_ref, $count, $limit, $page);
+
 	${$request_ref->{content_ref}} .= $html;
 	$request_ref->{title} = lang("recent_changes");
 	display_new($request_ref);
