@@ -838,6 +838,26 @@ sub check_code_gs1_prefixes($) {
 	}
 }
 
+sub check_categories($) {
+	my $product_ref = shift;
+
+	# Check alcohol content
+	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")
+		&& (!(defined $product_ref->{alcohol_value}) or $product_ref->{alcohol_value} == 0)) {
+
+			push @{$product_ref->{quality_tags}}, 'alcoholic-no-alcohol';
+	}
+
+	if (defined $product_ref->{alcohol_value}
+		and $product_ref->{alcohol_value} > 0
+		and !has_tag($product_ref, "categories", "en:alcoholic-beverages") {
+
+			push @{$product_ref->{quality_tags}}, 'alcohol-no-category';
+	}
+
+	}
+}
+
 # Run site specific quality checks
 
 sub check_quality($) {
@@ -854,6 +874,7 @@ sub check_quality($) {
 	check_codes($product_ref);
 
 	detect_categories($product_ref);
+	check_categories($product_ref);
 }
 
 
