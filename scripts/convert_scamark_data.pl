@@ -90,6 +90,11 @@ PRDT => "as array",
 #GEN => "content",
 #RISK => "content",
 ADO => "as array",
+
+#        <NUTRIS>
+#          <NUTRI TYPE_NUTRI="100 g">
+#            <CNUT LIB="Energie (kJoules)" VAL="538" UNT="kJ" />
+
 NUTRIS => "pass",
 NUTRI => sub { '%per' => [$_[1]->{TYPE_NUTRI} => $_[1]->{nutrients} ] },
 #CNUT => "as array",
@@ -97,6 +102,17 @@ CNUT => sub { '%nutrients' => [$_[1]->{LIB} => {value => $_[1]->{VAL}, unit => $
 
 MOD => "content",
 #COMP => "content",
+
+#        <ALL>
+#          <INGAD ALL="MOLLUSQUE" TYPE_ALL="Recette" />
+#          <INGAD ALL="COQUE" TYPE_ALL="Traces" />
+
+ALL => "pass",
+INGAD => sub { '%allergens' => [$_[1]->{ALL} => ($_[1]->{TYPE_ALL} eq "Recette" ? "allergen" : "traces")  ]},
+
+#         <LABEL NOM="BIO AB" TYPE_LABEL="Label_Produit" />
+
+LABEL =>  sub { 'label' => $_[1]->{NOM} },
 
 TabNutXMLPF => "pass no content",
 TabNutColElements => "pass no content",
@@ -150,6 +166,10 @@ F=>undef,
 			["ADO.[max:ADO].LIB2", "product_name_fr"], 
 			["ADO.[max:ADO].COMP.ING", "ingredients_text_fr"], 
 			
+			["ADO.[max:ADO].allergens.*", "value_as_target_and_source_as_value"], 
+			
+			["ADO.[max:ADO].label", "labels"], 
+
 			["ADO.[max:ADO].MOD", "preparation_fr"], 
 			["ADO.[max:ADO].POIDS", "net_weight_value"], 
 			["ADO.[max:ADO].UNITE_POIDS", "net_weight_unit"],
@@ -193,7 +213,7 @@ F=>undef,
 			["ADO.[max:ADO].per.100 ml.Sel.value", "nutriments.salt_value"],
 			["ADO.[max:ADO].per.100 ml.Sel.unit", "nutriments.salt_unit"],		
 			
-			["ADO.[max:ADO].SCORING.TX_FL", "nutriments.fruits-vegetables-nuts_100g"],
+			["ADO.[max:ADO].SCORING.TX_FL", "nutriments.fruits-vegetables-nuts_g"],
 			["ADO.[max:ADO].SCORING.ORDRE", "nutrition_grade_fr_producer"],
 
 
@@ -280,13 +300,44 @@ F=>undef,
 
 
 
-# Special processing for Carrefour data (before clean_fields_for_all_products)
+# Special processing for Leclerc data (before clean_fields_for_all_products)
 
-my @non_food_brands = qw(
-ELEMBAL
-MAMISON
-MOTS D'ENFANTS
-CLAIR
+my @non_food_brands = (
+"ELEMBAL",
+"MAMISON",
+"MOTS D'ENFANTS",
+"CLAIR",
+"BIEN AIR",
+"BIONAÏA",
+"CARESSE",
+"CARRE HOMME",
+"CHORYS",
+"DENTAMYL",
+"DOULYS",
+"EPSIL",
+"HYPERDOU",
+"INELL",
+"INSECTIVOR",
+"IROISE",
+"MANAVA",
+"LYCAT",
+"LYDOG",
+"MIMOSA",
+"NATEIS",
+"PETIT DENTAMYL",
+"PETIT MANAVA",
+"PLUG'IN",
+"PRIMOPLAST",
+"SANS MARQUE MR",
+"SILEX",
+"SILISS",
+"SYPHON",
+"TEXIL",
+"TOUS MES AMIS",
+"UNI VERT",
+"VISIOR",
+"VITANOVE",
+"XEOR",
 );
 
 my %non_food_brands = ();
@@ -294,9 +345,145 @@ foreach my $brand (@non_food_brands) {
 	$non_food_brands{$brand} = 1;
 }
 
+my %brands = (
+
+"5 LAGER" => "",
+"ABBAYE ALVERINGEM" => "",
+"ADRIEN CHAMPAUD" => "",
+"ALIX DE FAURE" => "",
+"ANTOINE BARRIER" => "",
+"AUGUSTE MUGNIOT" => "",
+"AUTOUR DU DESSERT" => "",
+"BELLES SAISONS" => "",
+"BIEN AIR" => "",
+"BIONAÏA" => "",
+"BIO VILLAGE" => "",
+"BLAZER" => "",
+"BOLIANE" => "",
+"BRIGHTON'S" => "",
+"BRIN DE JOUR" => "",
+"BRITLEY" => "",
+"CANTANIS" => "",
+"CHAQ. JR S/ GLUTEN" => "",
+"CHANTEGRIL" => "",
+"CHANTET BLANET" => "",
+"CHAQUE JOUR REDUIT EN LACTOSE" => "",
+"CHIANTI" => "",
+"COMPTOIR DU GRAIN" => "",
+"CONFISEO" => "",
+"COPAINS COPINES" => "",
+"COTE CROC" => "",
+"COTE SNACK" => "",
+"COULEURS VIVES" => "",
+"DAY BREAK" => "",
+"DELI DEL'O" => "",
+"DESQUILES" => "",
+"DIANE D'ARRIA" => "",
+"DUC DE BORZAC" => "",
+"EAUX MR" => "",
+"EDULCOREL" => "",
+"ENTR'AIDE" => "",
+"EPI D'OR" => "",
+"EQUADOR" => "",
+"ESKISS" => "",
+"EXTRA STRONG" => "",
+"FALSBOURG" => "",
+"FERIAL" => "",
+"FÉRIAL" => "",
+"FESTALIE" => "",
+"FRESH TEA" => "",
+"FRUCCI" => "",
+"FRUCCI SODA" => "",
+"FRUISTAR" => "",
+"GIBUS" => "",
+"GREGOIRE XI" => "",
+"HILBORG" => "",
+"JEAN'S" => "",
+"JOHN DAVON'S" => "",
+"LAGOA COCKTAIL" => "",
+"LAQUEUILLE" => "",
+"LES CARACTERES" => "",
+"LES CROISES" => "",
+"LOELLA" => "",
+"MAITRE COQUILLE" => "",
+"MAMIE DOUCEUR" => "",
+"MANZELLA" => "",
+"MARQUES DEL DOMINIO" => "",
+"MENU FRAICHEUR" => "",
+"NAT&VIE" => "",
+"NEW'R" => "",
+"NID D'ABEILLE" => "",
+"NOVOTNA" => "",
+"NUSTIKAO" => "",
+"OEUFS DE NOS REGIONS" => "",
+"O'FRESH" => "",
+"PAUSE FRAICHEUR" => "",
+"PIC EXPRESS" => "",
+"PIC'EXPRESS" => "",
+"PIERRE DE CHAUMEYRAC" => "",
+"PRIEUR BARSANNE" => "",
+"PULP ORANGE" => "",
+"REBMANN" => "",
+"RECOLTONS L'AVENIR" => "",
+"REGAL SOUPE" => "",
+"RIVES ET TERRASSES" => "",
+"RONDE DES MERS" => "",
+"SAINT AZAY" => "",
+"SAINT-AZAY" => "",
+"SAINT CHARMIN" => "",
+"SAINT DIERY" => "",
+"SIDI YOUSSOUF" => "",
+"SMICY" => "",
+"SPRINK'S" => "",
+"TABLES DU MONDE" => "",
+"TABLETTE D'OR" => "",
+"TABLIER BLANC" => "",
+"TERRASSES D'AUTAN" => "",
+"TERRES OCREES" => "",
+"TEVA" => "",
+"TISEA" => "",
+"TOKAPI" => "",
+"TRADILEGE" => "",
+"TRADILEGE." => "",
+"TRADILÈGE" => "",
+"TRIUM" => "",
+"TROFIC" => "",
+"TURINI" => "",
+"VIEUX CARION" => "",
+"VOLANDRY" => "",
+"VOLTANO" => "",
+"WHIST CLUB" => "",
+"X-TENSE" => "",
+"YENLI" => "",
+"ZAPATA" => "",
+"BAIRD'S" => "Baird's",
+"BON CHOCO" => "Bon Choco",
+"COTE TABLE" => "Côté Table",
+"DELISSE" => "Délisse",
+"DORRAO" => "Dorrao",
+"DOUCEUR DU VERGER" => "Douceur du Verger",
+"GUILLAUME D'ARRIA" => "Guillaume d'Arria",
+"JAFADEN" => "Jafaden",
+"LAGOA" => "Lagoa",
+"LES GOELLERIES" => "Les Goelleries",
+"NOTRE JARDIN" => "Notre Jardin",
+"PECHE OCEAN" => "Pêche Océan",
+"PLANTATION" => "Plantation",
+"POL CARSON" => "Pol Carson",
+"POM'LISSE" => "Pom'Lisse",
+"P'TIT DELI" => "P'tit Déli",
+"RUSTICA" => "Rustica",
+"VIVALIS" => "Vivalis",
+
+);
+
 foreach my $code (sort keys %products) {
 	
 	my $product_ref = $products{$code};
+	
+	if (defined $brands{$product_ref->{brands}}) {
+		$product_ref->{brands} = $brands{$product_ref->{brands}};
+	}	
 	
 	assign_quantity_from_field($product_ref, "product_name_fr");
 	

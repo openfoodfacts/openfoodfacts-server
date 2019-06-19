@@ -328,6 +328,8 @@ if ((defined $images_dir) and ($images_dir ne '')) {
 	else {
 		die ("Could not open images_dir $images_dir : $!\n");
 	}
+	
+	
 }
 
 print "importing products\n";
@@ -1105,7 +1107,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					# upload a photo
 					my $imgid;
 					my $return_code = process_image_upload($code, "$images_dir/$file", $User_id, undef, $product_comment, \$imgid);
-					print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";
+					print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid - imagefield_with_lc: $imagefield_with_lc\n";
 
 					if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 						$stats{products_images_added}{$code} = 1;
