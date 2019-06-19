@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -22,23 +22,17 @@ package ProductOpener::SiteQuality;
 
 use utf8;
 use Modern::Perl '2012';
-use Exporter    qw< import >;
-
-
+use Exporter qw(import);
 
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();	# symbols to export by default
-	@EXPORT_OK = qw();	# symbols to export on request
+	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
-
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Store qw(:all);
+use ProductOpener::Tags qw(:all);
 
 use Log::Any qw($log);
 
@@ -702,6 +696,18 @@ sub check_ingredients($) {
 
 	}
 
+
+	my $agr_bio = qr/
+		(ingrédients issus de l'Agriculture Biologique)
+		|(aus biologischer Landwirtschaft)
+		|(aus kontrolliert ökologischer Landwirtschaft)
+		|(Zutaten aus ökol. Landwirtschaft)
+	/xx;
+
+	if (($product_ref->{ingredients_text} =~ /$agr_bio/is) && !has_tag($product_ref, "labels", "en:organic")) {
+		push @{$product_ref->{quality_tags}}, 'no-organic-label';
+	}
+
 }
 
 
@@ -850,12 +856,12 @@ sub check_categories($) {
 
 	if (defined $product_ref->{alcohol_value}
 		and $product_ref->{alcohol_value} > 0
-		and !has_tag($product_ref, "categories", "en:alcoholic-beverages") {
+		and !has_tag($product_ref, "categories", "en:alcoholic-beverages")
+		) {
 
 			push @{$product_ref->{quality_tags}}, 'alcohol-no-category';
 	}
-
-	}
+	return;
 }
 
 # Run site specific quality checks
@@ -875,6 +881,7 @@ sub check_quality($) {
 
 	detect_categories($product_ref);
 	check_categories($product_ref);
+	return;
 }
 
 
