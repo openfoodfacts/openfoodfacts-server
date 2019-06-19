@@ -112,6 +112,9 @@ use ProductOpener::Config2;
 	teolemon
 	twoflower
 
+	jniderkorn
+	desan
+	cedagaesse
 );
 
 %moderators = map { $_ => 1 } qw();
