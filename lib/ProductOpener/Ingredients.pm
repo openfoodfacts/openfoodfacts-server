@@ -705,6 +705,7 @@ fr => [
 'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 'Quels Ingr(e|é)dients ?', # In Casino packagings
 'ingr(e|é)dient(\s*)(-|:|\r|\n)+',
+'composition(\s*)(-|:|\r|\n)+',
 #'ingr(e|é)dienits(\s*)(-|:|\r|\n)+',
 #'rédients(\s*)(-|:|\r|\n)+', # in case OCR cuts the word https://world.openfoodfacts.org/product/4024297006305/mayonnaise-demeter-en-tube-naturata
 ],
@@ -847,15 +848,15 @@ fr => [
 'moyennes pour 100g',
 'valeur(s?) (e|é)nerg(e|é)tique',
 'valeur(s?) nutritives',
+'valeur nutritive',
 'apport de r(e|é)ference pour un adulte type',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 '(a|à) consommer de préférence',
 '(a|à) consommer de',
 'de préférence avant le',
 '(a|à) cons.de préférence avant',
-'conseils de pr(e|é)paration',
-'conseil de pr(e|é)paration',
-'conditions de conservation',
+'(conseil|conseils) de pr(e|é)paration',
+'(conditions|conseils) de conservation',
 'conservation:',
 '(a|à) protéger de ', # humidité, chaleur, lumière etc.
 'conditionn(e|é) sous atmosph(e|è)re protectrice',
@@ -864,13 +865,11 @@ fr => [
 '(a|à) conserver (dans|de|a|à)',
 '(a|à)conserver (dans|de|a|à)', #variation
 '(a|à)conserver entre',
-'apr(e|è)s ouverture',
-'apr(e|è)s achat',
+'apr(e|è)s (ouverture|achat)',
 'dans le compartiment (a|à) gla(c|ç)ons',
 'pr(e|é)paration au four',
 'dont sucres',
-'dont acides ras satur(e|é)s',
-'dont acides gras satur(e|é)s',
+'dont acides (gras|ras) satur(e|é)s',
 'N(o|ò)us vous conseillons',
 'ne jamais recongeler un produit décongelé',
 'pensez au tri',
@@ -892,6 +891,7 @@ en => [
 'of which saturates',
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+'once opened keep in the refrigerator',
 #'Best before',
 #'See bottom of tin',
 
