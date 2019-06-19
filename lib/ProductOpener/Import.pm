@@ -890,21 +890,34 @@ sub load_xml_file($$$$) {
 			elsif ($source_tag eq '*') {
 				foreach my $tag ( keys %{$current_tag}) {
 					my $tag_target = $target;
-					$tag_target =~ s/\*/$tag/;
-					$tag_target = lc($tag_target);
-					print STDERR "* tag key: $tag - target: $tag_target\n";
-					if ((defined $current_tag->{$tag}) and (not ref($current_tag->{$tag})) and ($current_tag->{$tag} ne '')) {
-						print STDERR "$tag value is a scalar: $current_tag->{$tag}, assign value to $tag_target\n";
-						if ($tag_target eq 'code') {
-							$code = $current_tag->{$tag};
+					
+					# special case where we have something like allergens.nuts = traces
+					if ($tag_target eq "value_as_target_and_source_as_value") {
+						print STDERR "* tag key: $tag - target: $tag_target\n";
+						if ((defined $current_tag->{$tag}) and (not ref($current_tag->{$tag})) and ($current_tag->{$tag} ne '')) {
+							print STDERR "assign $tag to $current_tag->{$tag}\n";
 
-							$code = normalize_code($code);
-							$product_ref = get_or_create_product_for_code($code);
-						}
-						assign_value($product_ref, $tag_target, $current_tag->{$tag});
+							assign_value($product_ref, $current_tag->{$tag}, $tag);
+						}						
+					}
+					else {
+						
+						$tag_target =~ s/\*/$tag/;
+						$tag_target = lc($tag_target);
+						print STDERR "* tag key: $tag - target: $tag_target\n";
+						if ((defined $current_tag->{$tag}) and (not ref($current_tag->{$tag})) and ($current_tag->{$tag} ne '')) {
+							print STDERR "$tag value is a scalar: $current_tag->{$tag}, assign value to $tag_target\n";
+							if ($tag_target eq 'code') {
+								$code = $current_tag->{$tag};
 
-						if ($tag_target eq 'emb_codes') {
-							print STDERR "emb_codes : " . $product_ref->{$tag_target} . "\n";
+								$code = normalize_code($code);
+								$product_ref = get_or_create_product_for_code($code);
+							}
+							assign_value($product_ref, $tag_target, $current_tag->{$tag});
+
+							if ($tag_target eq 'emb_codes') {
+								print STDERR "emb_codes : " . $product_ref->{$tag_target} . "\n";
+							}
 						}
 					}
 				}
