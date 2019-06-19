@@ -921,13 +921,9 @@ de => [
 'Vorbereitung Tipps',
 'Mindestens altbar bis',
 'Mindestens haltbar bis'
-'N(â|a|ä)hrwertangaben', #Nährwertangaben pro 100g
-'N(â|a|ä)hrwertangabe', 
-'N(â|a|ä)hrwertinformation',
+'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)' #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
-'N(â|a|ä)hrwerttabelle',
-'Durchschnittliche N(â|a|ä)hrwertangaben',
-'Durchschnittliche N(â|a|ä)hrwerte',
 'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
 'k(u|ü)hl und trocken lagern',
