@@ -850,6 +850,7 @@ fr => [
 'apport de r(e|é)ference pour un adulte type',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 '(a|à) consommer de préférence',
+'(a|à) consommer de',
 'de préférence avant le',
 '(a|à) cons.de préférence avant',
 'conseils de pr(e|é)paration',
