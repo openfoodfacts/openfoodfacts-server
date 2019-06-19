@@ -18313,6 +18313,7 @@ wikidata:en:Q11254
 wikipedia:en:https://en.wikipedia.org/wiki/Salt
 carbon_footprint_fr_foodges_ingredient:fr:Sel
 vegan:en:yes
+vegetarian:en:yes
 
 <en:Salt
 en:finegrained salt
@@ -18521,6 +18522,8 @@ de:Fleisch
 fr:viande
 it:carne
 nl:Vlees
+vegan:en:no
+vegetarian:en:no
 
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. 
@@ -19725,6 +19728,8 @@ zh:淀粉
 wikidata:en:Q41534
 wikipedia:en:https://en.wikipedia.org/wiki/Starch
 vegan:en:yes
+vegetarian:en:yes
+
 # ingredient/fr:fécules has 612 products in 5 languages @2019-01-25
 # usage:fr:fécules (dont blé)
 
@@ -20166,6 +20171,7 @@ nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
 vegan:en:yes
+vegetarian:en:yes
 
 # In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
 
@@ -21637,6 +21643,7 @@ zh:醋
 # war:Suoy
 wikipedia:en:https://en.wikipedia.org/wiki/Vinegar
 vegan:en:yes
+vegetarian:en:yes
 
 <en:vinegar
 en:wine vinegar
@@ -21823,7 +21830,8 @@ es:alcohol
 fr:alcool
 it:Alcol or alcool
 nl:alcohol
-vegan:en:vegan
+vegan:en:yes
+vegetarian:en:yes
 
 
 # ETHANOL, also called alcohol, ethyl alcohol, grain alcohol, and drinking alcohol, is a chemical compound, a simple alcohol with the chemical formula C2H5OH.
@@ -23861,6 +23869,7 @@ zh:煙
 wikidata:en:Q130768
 wikipedia:en:https://en.wikipedia.org/wiki/Smoking_(cooking)
 vegan:en:yes
+vegetarian:en:yes
 # ingredient/fr:fumée has 437 products in 12 languages @2019-04-14
 
 <en:smoke
@@ -23922,6 +23931,7 @@ nl:granen
 pl:płatki zbożewe
 pt:cereais
 vegan:en:yes
+vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Mélange de céréales
 
 <en:cereal
@@ -24386,6 +24396,7 @@ wikidata:en:Q76605
 wikipedia:en:https://en.wikipedia.org/wiki/Couscous
 # ingredient/fr:couscous has 57 products @2019-02-21
 vegan:en:yes
+vegetarian:en:yes
 # cous cous (semola di grano duro)
 # Couscous * (durum wheat semolina)
 
@@ -24605,6 +24616,7 @@ zh:麵包屑
 wikidata:en:Q658413
 wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
 vegan:en:maybe
+vegetarian:en:maybe
 # fr:chapelure has 2441 products in 7 languages @2018-11-12
 
 <en:bread crumbs
@@ -25003,6 +25015,7 @@ zh:麦芽
 wikipedia:en:https://en.wikipedia.org/wiki/Malt
 wikidata:en:Q152024
 vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/malt/
 # 707 entries @ 2018-09-22
 
@@ -25679,6 +25692,7 @@ zh:麵粉
 wikidata:en:Q36465
 wikipedia:en:https://en.wikipedia.org/wiki/Flour
 vegan:en:yes
+vegetarian:en:yes
 
 <en:flour
 en:cereal flour
@@ -26614,6 +26628,7 @@ wikidata:en:Q5090
 wikipedia:en:https://en.wikipedia.org/wiki/Rice
 carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
 vegan:en:yes
+vegetarian:en:yes
 
 # comment:en:organic is an independent aspect of all rices
 <en:rice
@@ -27237,6 +27252,7 @@ fr:caroube
 it:carruba
 nl:johannesbrood
 vegan:en:yes
+vegetarian:en:yes
 
 # question
 
@@ -27441,6 +27457,7 @@ zh:食糖
 wikidata:en:Q11002
 wikipedia:en:https://en.wikipedia.org/wiki/Sugar
 vegan:en:yes
+vegetarian:en:yes
 
 <en:sugar
 en:organic sugar
@@ -28094,6 +28111,7 @@ zh:糖漿
 wikipedia:en:https://en.wikipedia.org/wiki/Syrup
 wikidata:en:Q6584340
 vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/syrup
 # 9746 products in 24 languages @2018-09-24
 
@@ -28197,6 +28215,7 @@ zh:葡萄糖
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose
 wikidata:en:Q37525
 vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose
 # 24682 products in 24 languages @2018-09-24
 
@@ -28352,6 +28371,7 @@ zh:果糖
 wikipedia:en:https://en.wikipedia.org/wiki/Fructose
 wikidata:en:Q122043
 vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fructose
 # 3267 products in 11 languages @2018-09-24
 
@@ -28383,6 +28403,7 @@ it:oligofruttosio
 wikidata:en: Q418945
 wikipedia:en:https://en.wikipedia.org/wiki/Fructooligosaccharide
 vegan:en:yes
+vegetarian:en:yes
 # ingredient/fr:oligofructose has 245 products in 5 languages @2019-05-12
 # usage:en: dietary fibres (oligofructose, polydextrose)
 
@@ -28498,6 +28519,7 @@ zh:玉米糖漿
 wikidata:en:Q618739
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_syrup
 vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-syrup 19402 products in 7 languages @2018-09-24
 
 <en:corn syrup
@@ -28713,6 +28735,7 @@ zh:龍舌蘭糖漿
 wikidata:en:Q392001
 wikipedia:en:https://en.wikipedia.org/wiki/Agave_nectar
 vegan:en:yes
+vegetarian:en:yes
 # ingredient/agave-syrup has 477 products in 16 languages @2018-12-17
 
 <en:agave syrup
@@ -28916,6 +28939,7 @@ fr:protéines végétales, protéine végétale
 it:proteine vegetali
 nl:plantaardige eiwit
 vegan:en:yes
+vegetarian:en:yes
 
 <en:vegetable protein
 fr:protéines végétales réhydratées
@@ -29215,6 +29239,7 @@ zh:可可粉
 # zh-hant:可可粉
 # zh-hk:可可粉
 vegan:en:yes
+vegetarian:en:yes
 
 <en:cocoa
 fr:cacao cru
@@ -30108,6 +30133,7 @@ zu:Amanzi
 # zh-classical:水
 # zh-min-nan:Chúi
 vegan:en:yes
+vegetarian:en:yes
 wikipedia:en:en.wikipedia.org/wiki/Water
 wikidata:en:Q283
 
@@ -30554,6 +30580,7 @@ uz:Soya
 # lfn:Soia
 # war:Soya
 vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
 
@@ -30646,6 +30673,7 @@ fr:gluten
 it:glutine
 nl:Gluten
 vegan:en:yes
+vegetarian:en:yes
 
 <en:gluten
 en:wheat gluten
@@ -30667,6 +30695,7 @@ pt:Maltodextrinas, maltodextrina
 ru:Мальтодекстрин
 zh:麦芽糊精
 vegan:en:yes
+vegetarian:en:yes
 # zh_CN:麦芽糊精
 # zh_HK:麥芽糊精
 # zh_TW:麥芽糊精
@@ -30813,6 +30842,7 @@ zh:酵母
 # yue:依士
 # zh-min-nan:Kàⁿ-bú
 vegan:en:yes
+vegetarian:en:yes
 wikidata:en:Q45422
 wikipedia:en:https://en.wikipedia.org/wiki/Yeast
 
@@ -32722,6 +32752,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, prod
 # zh-sg:水果
 # zh-tw:水果
 vegan:en:yes
+vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Fruit
 wikidata:en:Q1364
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
@@ -37592,6 +37623,7 @@ zh:品種葡萄酒
 # gsw:Räbsorte
 # scn:Vitignu
 vegan:en:yes
+vegetarian:en:yes
 wikidata:en:Q958314
 wikipedia:en:https://en.wikipedia.org/wiki/List_of_grape_varieties
 # ingredient/fr:cépages has 52 products @2019-01-18
@@ -38719,6 +38751,7 @@ fr:légume
 it:vegetale
 nl:Groente
 vegan:en:yes
+vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
@@ -39790,10 +39823,12 @@ nl:voorgebakken aubergines
 # fr:aubergine-préfrite has 28 products in 1 language @2018-10-17
 # fr:aubergines-préfrites has 86 products in 2 languages @2018-10-17
 vegan:en:maybe
+vegetarian:en:maybe
 
 <en:aubergine
 fr:aubergines frites
 vegan:en:maybe
+vegetarian:en:maybe
 # fr:aubergines-frites has 41 products in 1 language @2018-10-17
 
 
@@ -44374,6 +44409,7 @@ zh:荚果
 # zh-tw:莢果
 wikidata:en:Q145909
 vegan:en:yes
+vegetarian:en:yes
 
 
 # description:en:A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
@@ -45435,6 +45471,7 @@ zh:坚果
 wikipedia:en:https://en.wikipedia.org/wiki/Nut_(fruit)
 wikidata:en:Q11009
 vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit%20à%20coque
 # 158 products in 1 languages @2018-10-07
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20à%20coques
@@ -46213,6 +46250,7 @@ cdo:Cī-cī
 # zh-tw:種子
 wikidata:en:Q40763
 vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines
 # 304 products in 7 languages @2018-10-06
 
@@ -46948,6 +46986,7 @@ it:spezie
 nl:kruiden
 sv:kryddor
 vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aromate
 carbon_footprint_fr_foodges_ingredient:fr:Épices
 # 903 products in 4 languages @2018-10-08
@@ -49830,6 +49869,7 @@ it:erba cipollina essiccata
 
 en:plant
 vegan:en:yes
+vegetarian:en:yes
 
 # The plants section contains things other than herbs or vegetables. Tea ingredients can be found here.
 
@@ -52459,7 +52499,8 @@ zh:藻類
 # yue:藻
 wikidata:en:Q37868
 wikipedia:en:https://en.wikipedia.org/wiki/Algae
-vegan:en:true
+vegan:en:yes
+vegetarian:en:yes
 # ingredient/algae has 135 products in 4 languages @2019-01-27
 
 
@@ -53122,7 +53163,8 @@ zh:食用蕈, 蕈類
 wikidata:en:Q654236
 wikidata:en:Q83093
 wikipedia:en:https://en.wikipedia.org/wiki/Mushroom
-vegan:en:true
+vegan:en:yes
+vegetarian:en:yes
 # en:mushroom has 1817 products in 16 languages @2018-11-02
 
 <en:mushroom
@@ -54440,6 +54482,8 @@ zu:inhlanzi
 wikidata:en:Q152
 wikidata:en:Q600396
 wikipedia:en:https://en.wikipedia.org/wiki/Fish
+vegan:en:no
+vegetarian:en:no
 # ingredient/fish has 7147 products in 12 languages @2018-12-21
 
 <en:fish
@@ -57309,6 +57353,8 @@ vo:koanaf
 # zh-hans:水生有壳动物
 wikidata:en:Q6501235
 wikipedia:en:https://en.wikipedia.org/wiki/Shellfish
+vegan:en:no
+vegetarian:en:no
 # ingredient/shellfish has 18 products @2019-01-12
 # ingredient/fr:fruits-de-mer has 38 products @2019-01-12
 
@@ -58710,6 +58756,8 @@ zh:甲壳亚门
 # yue:甲殼動物
 wikidata:en:Q25364
 wikipedia:en:https://en.wikipedia.org/wiki/Crustacean
+vegan:en:no
+vegetarian:en:no
 # ingredient/fr:crustacé has 2263 products @2019-01-06
 
 
@@ -60872,6 +60920,7 @@ zu:Ikhofi
 wikidata:en:Q8486
 wikipedia:en:https://en.wikipedia.org/wiki/Coffee
 vegan:en:yes
+vegetarian:en:yes
 # ingredient/en:coffee has 1637 products in 10 languages @2018-11-30
 
 <en:coffee
@@ -61373,6 +61422,8 @@ zh:家禽
 # zh-sg:家禽 # zh-tw:家禽
 wikidata:en:Q178559
 wikipedia:en:https://en.wikipedia.org/wiki/Poultry
+vegan:en:no
+vegetarian:en:no
 # ingredient/fr:volaille has 99 products in 4 languages @2019-03-11
 
 <en:poultry
