@@ -4998,6 +4998,8 @@ zh:明膠
 # zh-tw:明膠
 wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
+vegetarian:en:no
+vegan:en:no
 
 <en:gelatin
 en:beef gelatin
@@ -13995,6 +13997,8 @@ fr:lactose et protéine de lait, lactose et protéines de lait, protéines de la
 it:lattosio e proteine del latte
 nl:lactose en melkeiwitten
 pt:lactose e proteínas do leite
+vegan:en:no
+vegetarian:en:maybe
 # ingredient/lactose-and-milk-proteins has 1395 products in 10 languages @2019-05-06
 
 #################### MILK POWDERS ################
@@ -14218,6 +14222,8 @@ zh:乳糖
 # ckb:لاکتۆز
 # sco:Lactose
 # yue:乳醣
+vegan:en:no
+vegetarian:en:maybe
 wikipedia:en:https://en.wikipedia.org/wiki/Lactose
 
 <en:Lactose
@@ -14234,7 +14240,8 @@ fr:minéraux du lait
 it:minerali del latte
 nl:melkmineralen
 wikipedia:en:https://en.wikipedia.org/wiki/Milk#Salts,_minerals,_and_vitamins
-vegetarian:en:yes
+vegan:en:no
+vegetarian:en:maybe
 # ingredient/fr:minéraux-du-lait has 107 products in 5 languages @2019-04-16
 
 <en:milk minerals
@@ -14378,6 +14385,8 @@ zh:乳清
 # nds-nl:Wui
 # sco:Whey, milk serum
 wikipedia:en:https://en.wikipedia.org/wiki/Whey
+vegan:en:no
+vegetarian:en:maybe
 
 <en:whey
 en:whey powder, powdered whey
@@ -15020,7 +15029,8 @@ zu:Ushizi
 # zh-tw:起司
 wikipedia:en:Q10943
 wikipedia:en:https://en.wikipedia.org/wiki/Cheese
-vegetarian:en:yes
+vegetarian:en:maybe
+vegan:en:no
 # en:cheese has 579 products in 10 languages @2018-10-28
 
 
@@ -20059,6 +20069,8 @@ zh:脂肪
 wikidata:en:Q127980
 wikipedia:en:https://en.wikipedia.org/wiki/Fat
 # ingredient/fr:graisse has 143 products in 6 languages @2019-03-30
+vegetarian:en:no
+vegan:en:no
 
 # comment:en: fr:gras is often not an ingredient but an adjective. Might require repairs to the ingredient lists.
 
@@ -21833,8 +21845,8 @@ es:alcohol
 fr:alcool
 it:Alcol or alcool
 nl:alcohol
-vegan:en:yes
-vegetarian:en:yes
+vegan:en:maybe
+vegetarian:en:maybe
 
 
 # ETHANOL, also called alcohol, ethyl alcohol, grain alcohol, and drinking alcohol, is a chemical compound, a simple alcohol with the chemical formula C2H5OH.
@@ -28926,6 +28938,8 @@ zh:蛋白质
 # zh-classical:朊
 # zh-min-nan:Nn̄g-pe̍h-chit
 # yue:蛋白質
+vegan:en:no
+vegetarian:en:no
 
 # nova:en:hydrolysed-proteins
 <en:protein
@@ -32838,7 +32852,10 @@ es:zumo de frutas
 fr:jus de fruits
 it:succhi di frutta
 nl:vruchtensap
+vegan:en:maybe
+vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Juice
+
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruits
 # 1687 products in 6 languages @2018-10-04
 
@@ -66565,6 +66582,8 @@ zh:辣醬油
 # zh-hk:辣醬油
 wikidata:en:Q842618
 wikipedia:en:https://en.wikipedia.org/wiki/Worcestershire_sauce
+vegan:en:no
+vegetarian:en:no
 # ingredient/fr:sauce-worcestershire has 30 products in 3 languages @2019-04-30
 # usage:de:Worcestershire Sauce (Malzessig, Melasse, Wasser, Kochsalz, Zwiebeln, Knoblauch, Zucker, Gewürze, Sardellen, Tamarindenextrakt, natürliche Aromen)
 
