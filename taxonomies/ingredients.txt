@@ -3359,6 +3359,7 @@ zh:乳酸
 wikidata:en:Q56626856
 wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid
 # en:lactic-acid has 7496 products in 20 languages@2018-11-17
+vegan:en:no
 
 
 # Sodium propanoate or   SODIUM PROPIONATE   is the sodium salt of propionic acid which has the chemical formula Na(C2H5COO). 
@@ -14005,6 +14006,8 @@ es:Leche en polvo
 fr:lait en poudre, poudre de lait
 it:latte in polvere
 nl:melkpoeder
+vegan:en:no
+vegetarian:en:yes
 nova:en:3
 
 <en:milk powder
@@ -29019,16 +29022,20 @@ de:tierisches Eiweiß
 fr:Protéine animale
 it:proteina animale
 nl:Dierlijk proteine
+vegan:en:no
+vegetarian:en:maybe
 
 <en:animal protein
 en:blood proteins
 fr:protéines de sang
+vegetarian:en:no
 # ingredient/blood-proteins has 80 products in french @2018-12-28
 
 <en:hydrolysed protein
 <en:animal protein
 en:hydrolised animal protein, animal hydrolysed proteins
 fr:protéines animales hydrolysées, protéine animale hydrolysée
+vegetarian:en:no
 
 <en:hydrolised animal protein
 de:hydrolysiertes Schweineprotein
@@ -29036,6 +29043,7 @@ en:hydrolyzed pork protein
 es:proteína de cerdo hidrolizada
 fr:protéine de porc hydrolysée
 nl:gehydroliseerd varkenseiwit
+vegetarian:en:no
 
 # nova:en:milk-proteins
 <en:animal protein
@@ -29160,6 +29168,8 @@ en:caseinate
 de:Caseinat
 fr:caséinate
 it:caseinato
+vegan:en:no
+vegetarian:en:yes
 wiktionary:en:https://en.wiktionary.org/wiki/caseinate
 # ingredient/fr:caséinate has 44 products in 4 languages @2019-03-06
 
@@ -55188,6 +55198,8 @@ wikidata:en:Q783575
 # <en:cod
 
 fr:œufs de cabillaud, oeufs de cabillaud
+vegetarian:en:no
+vegan:en:no
 # ingredient/fr:œufs-de-cabillaud has 69 products in french @2018-12-29
 
 <fr:œufs de cabillaud
@@ -57305,6 +57317,8 @@ fr:poisson blanc, poissons blancs
 
 
 fr:œufs de lompe, oeufs de lompe
+vegetarian:en:no
+vegan:en:no
 wikipedia:en:https://fr.wikipedia.org/wiki/Œufs_de_lump
 # ingredient/fr:oeufs-de-lompe has 38 products in french @2019-02-20
 
@@ -62161,6 +62175,7 @@ zh:Amaqanda
 # zh-tw:蛋
 wikipedia:en:https://en.wikipedia.org/wiki/Egg_as_food
 vegetarian:en:yes
+vegan:en:no
 # ingredient/egg has 15441 products in 24 languages @2018-12-19
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
 
