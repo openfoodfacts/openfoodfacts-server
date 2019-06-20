@@ -3729,7 +3729,7 @@ pt:Equivalente em sal
 wikidata:en:Q7405977
 wikipedia:en:https://en.wikipedia.org/wiki/Salt_equivalent
  
-# description:en: A vitamin is an organic molecule (or related set of molecules) which is an essential micronutrient that an organism needs in small quantities for the proper functioning of its metabolism. This ingredient is written in plural
+# description:en: A VITAMIN is an organic molecule (or related set of molecules) which is an essential micronutrient that an organism needs in small quantities for the proper functioning of its metabolism. This ingredient is written in plural
 # comment:en:vitamins is also part of ingredients.txt
 
 en:Vitamins, vitamin
@@ -3856,7 +3856,10 @@ yo:Àmínìamáralókun
 zh:维生素
 #wikidata:en:Q34956
 wikipedia:en:https://en.wikipedia.org/wiki/Vitamin
- 
+
+# description:en:VITAMIN A is a group of unsaturated nutritional organic compounds that includes retinol, retinal, retinoic acid, and several provitamin A carotenoids (most notably beta-carotene). Vitamin A has multiple functions: it is important for growth and development, for the maintenance of the immune system and good vision.
+
+# <en:vitamins
 en:vitamin A
 af:Vitamien A
 ar:فيتامين ألف
@@ -3951,31 +3954,100 @@ daily_value_2016:en:900 RAE # ! not same unit
 international_unit:en: 0.3, # Vitamin A: 1 IU is the biological equivalent of 0.3 μg retinol, or of 0.6 μg beta-carotene.[6][7][a]
 unit:en-us:% DV
 unit:en-ca:% DV
- 
-'vitamin-d' => {
-fr:Vitamine D / D3 (cholécalciférol)
-fr_synonyms => ["Vitamine D "Vitamine D3 "cholécalciférol"],
-en:Vitamin D
-es:Vitamina D
-it:Vitamina D (colecalciferolo)
-pt:Vitamina D
-de:Vitamin D / D3 (Cholecalciferol)
-he:ויטמין D
-ja:ビタミン D
-ga:Vitimín D
-el:Βιταμίνη D
-fi:D-vitamiini
-nl:Vitamine D
-lv:D vitamīns
-et:Vitamiin D
-hu:D-vitamin
-pl:Witamina D
-lt:Vitaminas D
-mt:Vitamina D
-sk:Vitamín D
-ro:Vitamina D
+
+# description:en:VITAMIN D is a group of fat-soluble secosteroids responsible for increasing intestinal absorption of calcium, magnesium, and phosphate, and multiple other biological effects. In humans, the most important compounds in this group are vitamin D3 (also known as cholecalciferol) and vitamin D2 (ergocalciferol).
+
+#'vitamin-d' => {
+# fr:Vitamine D / D3 (cholécalciférol)
+# fr_synonyms => ["Vitamine D "Vitamine D3 "cholécalciférol"],
+# <en:vitamins
+en:vitamin D, D
+af:Vitamien D
+ar:فيتامين دي
+az:D vitamini
 bg:Витамин D
+bs:Vitamin D
+ca:vitamina D
+cs:vitamín D
+cy:Fitamin D
+da:Vitamin D
+de:Vitamin D
+dv:ވިޓަމިން ޑީ
+el:Βιταμίνη D
+eo:Vitamino D
+es:vitamina D
+et:D-vitamiin
+eu:D bitamina
+fa:ویتامین د
+fi:D-vitamiini
+fr:vitamine D
+gl:Vitamina D
+he:ויטמין D
+hi:विटामिन डी
+hr:Vitamin D
+hu:D-vitamin
+hy:Վիտամին D
+id:Vitamin D
+is:D-vítamín
+it:vitamina D
+ja:ビタミンD
+ka:ვიტამინი D
+ko:비타민 D
+ky:Кальциферол
+lt:Vitaminas D
+lv:D vitamīns
+ml:ജീവകം ഡി
+mn:Д витамин
+mr:ड-जीवनसत्त्व
+ms:Vitamin D
+nb:vitamin D
+ne:भिटामिन डी
+nl:vitamine D
+nn:vitamin D, D-vitamin
+oc:Vitamina D
+pa:ਵਿਟਾਮਿਨ ਡੀ
+pl:Witamina D
+pt:vitamina D, vitaminas D
+ro:vitamina D
+ru:Витамин D
+sh:Vitamin D
+si:විටමින් D
+sk:Vitamín D
+sl:Vitamin D
+sq:Vitamina D
+sr:витамин Д
+su:Vitamin D
+sv:vitamin D
+ta:உயிர்ச்சத்து டி
+te:విటమిన్ డి
+tg:Витамини D
+th:วิตามินดี
+tr:D vitamini
+tt:D витамины
+ug:ۋىتامىن D
+uk:Вітамін D
+vi:vitamin D
+yi:וויטאמין D
 zh:维生素D
+# ast:Vitamina D
+# csb:ڤیتامین دی
+# en-ca:Vitamin D
+# en-gb:Vitamin D
+# kaa:D Vitamini
+# pt-br:Vitamina D
+# sco:vitamin D
+# sr-ec:витамин Д
+# sr-el:vitamin D
+# tyv:Витамини Д
+# wuu:维生素D
+# zh-cn:维生素D
+# zh-hans:维生素D
+# zh-hant:维生素D
+# zh-hk:维生素D
+# zh-sg:维生素D
+# zh-tw:维生素D
+wikidata:en:Q175621
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_D
 unit:en:µg
 daily_value:en:40,
 daily_value_2016:en:20,
