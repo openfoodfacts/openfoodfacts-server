@@ -846,6 +846,7 @@ fr => [
 'valeurs mo(y|v)ennes',
 'valeurs nutritionelles moyennes',
 'valeur nutritionnelle mo(y|v)enne',
+'valeur nutritionnelle',
 'information nutritionnelle',
 'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
 'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
