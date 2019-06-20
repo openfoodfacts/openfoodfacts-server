@@ -158,7 +158,9 @@ sub compute_carbon_footprint_from_ingredients($) {
 	}
 
 	remove_tag($product_ref, "misc", "en:environment-infocard");
-	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
+	remove_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
+	
+	delete $product_ref->{"carbon_footprint_from_known_ingredients_debug"};
 
 	# Limit to France, as the carbon values from ADEME are intended for France
 	if ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients})) {
@@ -180,6 +182,12 @@ sub compute_carbon_footprint_from_ingredients($) {
 				{
 					$carbon_footprint += $ingredient_ref->{percent} * $carbon_footprint_ingredient;
 					$carbon_percent	+= $ingredient_ref->{percent};
+					
+					if (not defined $product_ref->{"carbon_footprint_from_known_ingredients_debug"}) {
+						$product_ref->{"carbon_footprint_from_known_ingredients_debug"} = "";
+					}
+					$product_ref->{"carbon_footprint_from_known_ingredients_debug"} .= $ingredient_ref->{id}
+					. " " . $ingredient_ref->{percent} . "% x $carbon_footprint_ingredient = " . $ingredient_ref->{percent} * $carbon_footprint_ingredient . " g - ";					
 				}
 			}
 		}
@@ -189,10 +197,10 @@ sub compute_carbon_footprint_from_ingredients($) {
 			$product_ref->{carbon_footprint_percent_of_known_ingredients} = $carbon_percent;
 
 			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-			add_tag($product_ref, "misc", "en:environment-infocard");
+			add_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
 		}
 		else {
-			remove_tag($product_ref, "misc", "en:environment-infocard");
+			remove_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
 		}
 
 	}
@@ -209,6 +217,8 @@ sub compute_carbon_footprint_from_meat_or_fish($) {
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"};
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"};
 	}
+	
+	remove_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
 
 	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
 
@@ -276,7 +286,7 @@ sub compute_carbon_footprint_from_meat_or_fish($) {
 							$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} = "";
 						}
 						$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} .= $ingredient_ref->{id} . " => " . $parent
-						. " " . $ingredient_ref->{percent} . "% = " . $ingredient_ref->{percent} * $carbon{$parent} . " g - ";
+						. " " . $ingredient_ref->{percent} . "% x $carbon{$parent} = " . $ingredient_ref->{percent} * $carbon{$parent} . " g - ";
 
 						last;
 					}
@@ -287,6 +297,11 @@ sub compute_carbon_footprint_from_meat_or_fish($) {
 		if ($carbon_footprint > 0) {
 			$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} = $carbon_footprint;
 			$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} =~ s/ - $//;
+			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
+			add_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
+		}
+		else {
+			remove_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
 		}
 	}
 }
