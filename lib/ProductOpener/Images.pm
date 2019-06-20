@@ -49,7 +49,7 @@ BEGIN
 
 					&display_image
 					&display_image_thumb
-					
+
 					&extract_text_from_image
 
 					);	# symbols to export on request
@@ -260,7 +260,7 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="fi-camera"></i> $product_image_with_barcode
+<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="icon-ui-camera"></i> $product_image_with_barcode
 <input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
     right:0;
     bottom:0;

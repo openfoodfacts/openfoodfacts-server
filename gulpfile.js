@@ -1,24 +1,47 @@
-"use strict";
+'use strict'
 
-var gulp = require("gulp");
-var sass = require("gulp-sass");
-var sourcemaps = require("gulp-sourcemaps");
-var cleanCSS = require("gulp-clean-css");
+const { src, dest, series } = require('gulp')
+const sass = require('gulp-sass')
+const sourcemaps = require('gulp-sourcemaps')
+const minifyCSS = require('gulp-csso')
+const iconfont = require('gulp-iconfont')
+const iconfontCss = require('gulp-iconfont-css')
+const runTimestamp = Math.round(Date.now()/1000)
 
-var input = "./scss/**/*.scss";
-var output = "./html/css/dist";
-var sassOptions = {
+const fontName = 'Icons';
+const sassOptions = {
   errLogToConsole: true,
-  outputStyle: "expanded",
-  includePaths: ["./html/bower_components/foundation/scss"]
-};
+  outputStyle: 'expanded',
+  includePaths: ['./html/bower_components/foundation/scss']
+}
 
-gulp.task('default', function() {
-  return gulp
-    .src(input)
+function icons() {
+  return src('**/*.svg', { cwd: './icons'  })
+  .pipe(iconfontCss({
+    fontName: fontName,
+    path: './scss/templates/_icons.scss',
+    targetPath: '_icons.scss',
+    fontPath: '/fonts/icons/'
+  }))
+  .pipe(iconfont({
+    prependUnicode: false,
+    fontName: fontName,
+    formats: ['ttf', 'eot', 'woff', 'woff2'],
+    normalize: true,
+    timestamp: runTimestamp
+  }))
+  .pipe(dest('./html/fonts/icons'))
+}
+
+function css() {
+  return src('./scss/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on("error", sass.logError))
-    .pipe(cleanCSS())
-    .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest(output));
-});
+    .pipe(sass(sassOptions).on('error', sass.logError))
+    .pipe(minifyCSS())
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest('./html/css/dist'))
+}
+
+exports.css = css
+exports.icons = icons
+exports.default = series(icons, css)

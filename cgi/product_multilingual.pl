@@ -946,7 +946,7 @@ JS
 		$html .= <<HTML
 <ul id="manage_images_accordion" class="accordion" data-accordion>
   <li class="accordion-navigation">
-<a href="#manage_images_drop"><i class="fi-page-multiple"></i> $Lang{manage_images}{$lc}</a>
+<a href="#manage_images_drop"><i class="icon-list"></i> $Lang{manage_images}{$lc}</a>
 
 
 <div id="manage_images_drop" class="content" style="background:#eeeeee">
@@ -956,10 +956,10 @@ HTML
 <<HTML
 
 	<p>$Lang{manage_images_info}{$lc}</p>
-	<a id="delete_images" class="button small disabled"><i class="fi-trash"></i> $Lang{delete_the_images}{$lc}</a><br/>
+	<a id="delete_images" class="button small disabled"><i class="icon-trash"></i> $Lang{delete_the_images}{$lc}</a><br/>
 	<div class="row">
 		<div class="small-12 medium-5 columns">
-			<button id="move_images" class="button small disabled"><i class="fi-arrow-right"></i> $Lang{move_images_to_another_product}{$lc}</a>
+			<button id="move_images" class="button small disabled"><i class="icon-bubble-right"></i> $Lang{move_images_to_another_product}{$lc}</a>
 		</div>
 		<div class="small-4 medium-2 columns">
 			<label for="move_to" class="right inline">$Lang{barcode}{$lc}</label>
@@ -2254,8 +2254,8 @@ MAIL
 
 }
 
-$html = "<p id=\"barcode_paragraph\">" . lang("barcode") 
-	. separator_before_colon($lc) 
+$html = "<p id=\"barcode_paragraph\">" . lang("barcode")
+	. separator_before_colon($lc)
 	. ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span></p>\n" . $html;
 
 display_new( {
