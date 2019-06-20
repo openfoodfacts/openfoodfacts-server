@@ -866,18 +866,18 @@ HTML
 
 	$html .= <<HTML
 <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
-<span>$Lang{warning_3rd_party_content}{$lang}
- <a href="#" class="close">&times;</a>
+	<span>$Lang{warning_3rd_party_content}{$lang}</span>
+ 	<a href="#" class="close">&times;</a>
 </div>
 
 <div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
-<span>$Lang{licence_accept}{$lang}</span>
- <a href="#" class="close">&times;</a>
+	<span>$Lang{licence_accept}{$lang}</span>
+ 	<a href="#" class="close">&times;</a>
 </div>
 HTML
 ;
 
-	$scripts .= <<JS
+	$scripts .= <<HTML
 <script type="text/javascript">
 'use strict';
 \$(function() {
@@ -895,7 +895,7 @@ HTML
   });
 });
 </script>
-JS
+HTML
 ;
 
 	# Main language
@@ -1812,10 +1812,10 @@ HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td class="nutriment_col" $column_display_style{"nutrition_data"}>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled />
+<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
 </td>
 <td class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
-<input class="nutriment_value" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled/>
+<input class="nutriment_value" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
 </td>
 HTML
 ;
@@ -2254,8 +2254,8 @@ MAIL
 
 }
 
-$html = "<p id=\"barcode_paragraph\">" . lang("barcode") 
-	. separator_before_colon($lc) 
+$html = "<p id=\"barcode_paragraph\">" . lang("barcode")
+	. separator_before_colon($lc)
 	. ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span></p>\n" . $html;
 
 display_new( {
