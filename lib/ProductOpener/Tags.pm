@@ -115,7 +115,7 @@ BEGIN
 					&load_users_translations
 					&load_users_translations_for_lc
 					&add_users_translations_to_taxonomy
-					
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -666,7 +666,7 @@ sub build_tags_taxonomy($$$) {
 	$properties{$tagtype} = {};
 
 	my $errors = '';
-	
+
 	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file")) {
 
 		my $current_tagid;
@@ -863,9 +863,9 @@ sub build_tags_taxonomy($$$) {
 		}
 
 		close ($IN);
-		
+
 		if ($errors ne "") {
-		
+
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
@@ -1478,16 +1478,16 @@ sub build_tags_taxonomy($$$) {
 		}
 
 		close $OUT;
-		
+
 		if ($errors ne "") {
-		
+
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			unless ($tagtype eq "ingredients") {
 				die("Errors in the $tagtype taxonomy definition");
 			}
-		}		
+		}
 
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 
@@ -1829,17 +1829,13 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		$tags{$tag} = 1;
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-				if ($parentid eq 'fr:') {
-					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
-					next;
-				}
 				$tags{$parentid} = 1;
 			}
 		}
 	}
 
 	my @sorted_list = sort { (((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0) <=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)) || ($a cmp $b) } keys %tags;
-	
+
 	return @sorted_list;
 }
 
@@ -1887,10 +1883,6 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-				if ($parentid eq 'fr:') {
-					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
-					next;
-				}
 				if (not exists $seen{$parentid}) {
 					push @tags, $parentid;
 					$seen{$parentid} = 1;
@@ -3305,7 +3297,7 @@ sub compute_field_tags($$$) {
 			$product_ref->{"cities_tags" } = [];
 			$value = normalize_packager_codes($product_ref->{emb_codes});
 		}
-		
+
 		foreach my $tag (split(',', $value)) {
 			if (get_fileid($tag) ne '') {
 				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
