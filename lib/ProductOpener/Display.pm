@@ -80,6 +80,7 @@ BEGIN
 					$original_subdomain
 					$subdomain
 					$formatted_subdomain
+					$static_subdomain
 					$test
 					@lcs
 					$cc
@@ -381,6 +382,7 @@ CSS
 
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
+	$static_subdomain = format_subdomain('static');
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -1742,7 +1744,7 @@ JS
 		$initjs .= $js;
 
 		$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
 SCRIPTS
 ;
 
@@ -1789,8 +1791,8 @@ HTML
 JS
 ;
 			$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="@{[ format_subdomain('static') ]}/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="$static_subdomain/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="$static_subdomain/js/jquery-jvectormap-world-mill-en.js"></script>
 SCRIPTS
 ;
 
@@ -1837,12 +1839,12 @@ JS
 ;
 
 	$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
+<link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 HEADER
 ;
 
@@ -2147,12 +2149,12 @@ JS
 ;
 
 	$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
+<link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 HEADER
 ;
 
@@ -2402,12 +2404,12 @@ sub display_points($) {
 
 
 	$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
+<link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 <meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png">
 HEADER
 ;
@@ -3186,10 +3188,10 @@ JS
 
 	if ((scalar @map_layers) > 0) {
 		$header .= <<HTML
-	<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.css">
-	<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.js"></script>
-	<script src="@{[ format_subdomain('static') ]}/bower_components/osmtogeojson/osmtogeojson.js"></script>
-	<script src="@{[ format_subdomain('static') ]}/js/display-tag.js"></script>
+	<link rel="stylesheet" href="$static_subdomain/bower_components/leaflet/dist/leaflet.css">
+	<script src="$static_subdomain/bower_components/leaflet/dist/leaflet.js"></script>
+	<script src="$static_subdomain/bower_components/osmtogeojson/osmtogeojson.js"></script>
+	<script src="$static_subdomain/js/display-tag.js"></script>
 HTML
 ;
 
@@ -3312,7 +3314,7 @@ HTML
 			$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small icon" title="$title">
-	<i class="fi-share"></i>
+	<i class="icon-share"></i>
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -4624,7 +4626,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 
 		$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
 SCRIPTS
 ;
 
@@ -4987,7 +4989,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 
 		$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
 SCRIPTS
 ;
 
@@ -5151,8 +5153,6 @@ sub get_packager_code_coordinates($) {
 	return ($lat, $lng);
 
 }
-
-
 
 sub search_and_map_products($$$) {
 
@@ -5321,11 +5321,11 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.css">
-<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
-<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<link rel="stylesheet" href="$static_subdomain/bower_components/leaflet/dist/leaflet.css">
+<script src="$static_subdomain/bower_components/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="$static_subdomain/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
+<link rel="stylesheet" href="$static_subdomain/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
+<script src="$static_subdomain/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 HTML
 ;
 
@@ -5482,7 +5482,7 @@ HTML
 	</form>
 </li>
 <li>
-	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="fi-widget"></i></a>
+	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="icon-gear"></i></a>
 </li>
 </ul>
 $links
@@ -5739,11 +5739,10 @@ $og_images
 $og_images2
 <meta property="og:description" content="$canon_description">
 $options{favicons}
-<link rel="stylesheet" href="/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
+<link rel="stylesheet" href="$static_subdomain/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <style media="all">
 HTML
 ;
@@ -5946,11 +5945,11 @@ HTML
 
 		if ($system eq 'android') {
 
-			$link_text = '<i class="fab fa-android"></i> ' . $link_text;
+			$link_text = '<i class="icon-brand-android-robot"></i> ' . $link_text;
 		}
 		elsif ($system eq 'ios') {
 
-			$link_text = '<i class="fab fa-apple"></i> ' . $link_text;
+			$link_text = '<i class="icon-brand-apple"></i> ' . $link_text;
 		}
 
 		$top_banner = <<HTML
@@ -5972,20 +5971,20 @@ HTML
 							<input name="action" value="process" type="hidden">
 						</div>
 						<div class="small-4 columns">
-							<button type="submit" title="$Lang{search}{$lang}"><i class="fi-magnifying-glass"></i></button>
+							<button type="submit" title="$Lang{search}{$lang}"><i class="icon-ui-search"></i></button>
 						</div>
 					</div>
 				</form>
 			</li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="fi-plus"></i> $Lang{advanced_search}{$lang}</span></a></li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="fi-graph-bar"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-plus"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="icon-plus"></i> $Lang{advanced_search}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="icon-chart-bar-graph"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="icon-chart-bar-graph"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i> $Lang{get_the_app}{$lc}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-stock-mobile"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-stock-mobile"></i> $Lang{get_the_app}{$lc}</a></li>
 		</ul>
 	</section>
 </nav>
@@ -5993,7 +5992,7 @@ HTML
 <nav class="tab-bar show-for-small-only">
 	<div class="left-small" style="padding-top:4px;">
 		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
-		<i class="fi-torso" style="color:$torso_color;font-size:1.8rem"></i></a>
+		<i class="icon-user" style="color:$torso_color;font-size:1.8rem"></i></a>
 	</div>
 	<div class="middle tab-bar-section" style="padding-top:4px;">
 		<form action="/cgi/search.pl">
@@ -6004,10 +6003,10 @@ HTML
 					<input name="action" value="process" type="hidden">
 				</div>
 				<div class="small-2 columns">
-					<button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
+					<button type="submit" class="button postfix"><i class="icon-ui-search"></i></button>
 				</div>
 				<div class="small-2 columns">
-					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-magnifying-glass"></i> <i class="fi-plus"></i></a>
+					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-ui-search"></i> <i class="icon-plus"></i></a>
 				</div>
 			</div>
 		</form>
@@ -6039,11 +6038,11 @@ HTML
 								<input name="action" value="process" type="hidden">
 							</div>
 							<div class="small-2 columns">
-								<button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
+								<button type="submit" class="button postfix"><i class="icon-ui-search"></i></button>
 							</div>
 							<div class="small-1 columns">
 								<label class="right inline">
-									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a>
+									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-plus"></i></a>
 								</label>
 							</div>
 						</div>
@@ -6105,11 +6104,11 @@ HTML
 
 <div id="fb-root"></div>
 
-<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/modernizr.js"></script>
+<script src="$static_subdomain/bower_components/foundation/js/vendor/modernizr.js"></script>
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-<script src="@{[ format_subdomain('static') ]}/bower_components/iolazyload/dist/js/iolazy.min.js" defer></script>
-<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.js"></script>
-<script src="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="$static_subdomain/bower_components/iolazyload/dist/js/iolazy.min.js" defer></script>
+<script src="$static_subdomain/bower_components/foundation/js/vendor/jquery.js"></script>
+<script src="$static_subdomain/bower_components/jquery-ui/jquery-ui.min.js"></script>
 
 <script>
 \$(function() {
@@ -6129,9 +6128,9 @@ HTML
 });
 </script>
 
-<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/foundation.min.js"></script>
-<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
-<script async defer src="@{[ format_subdomain('static') ]}/bower_components/ManUp.js/manup.min.js"></script>
+<script src="$static_subdomain/bower_components/foundation/js/foundation.min.js"></script>
+<script src="$static_subdomain/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
+<script async defer src="$static_subdomain/bower_components/ManUp.js/manup.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 $scripts
 <script>
@@ -6524,7 +6523,7 @@ sub display_product($)
 	my $description = "";
 
 		$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/display-product.js"></script>
+<script src="$static_subdomain/js/display-product.js"></script>
 SCRIPTS
 ;
 	$initjs .= <<JS
@@ -6635,12 +6634,12 @@ HTML
 	$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small icon" title="$title">
-	<i class="fi-share"></i>
+	<i class="icon-share"></i>
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
-	<i class="fi-pencil"></i>
+	<i class="icon-pencil"></i>
 	<span class="show-for-large-up"> $Lang{edit_product_page}{$lc}</span>
 </a></div>
 HTML
@@ -6650,7 +6649,7 @@ HTML
 		$html .= <<HTML
 <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
 <a href="/cgi/product.pl?type=delete&code=$code" class="button small icon">
-	<i class="fi-trash"></i>
+	<i class="icon-trash"></i>
 	<span class="show-for-large-up"> $Lang{delete_product_page}{$lc}</span>
 </a></div>
 HTML
@@ -6692,8 +6691,8 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p id=\"barcode_paragraph\">" 
-		    . lang("barcode") . separator_before_colon($lc) 
+		$html .= "<p id=\"barcode_paragraph\">"
+		    . lang("barcode") . separator_before_colon($lc)
 		    . ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
@@ -7189,7 +7188,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="/nova">
-<i class="fi-info"></i></a>
+<i class="icon-info-circle"></i></a>
 </h4>
 
 
@@ -7371,7 +7370,7 @@ HTML
 	$html .= <<HTML
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small">
-	<i class="fi-pencil"></i>
+	<i class="icon-pencil"></i>
 	$Lang{edit_product_page}{$lc}
 </a></div>
 HTML
@@ -7554,7 +7553,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="https://world.openfoodfacts.org/nova" title="NOVA groups for food processing">
-<i class="fi-info"></i></a>
+<i class="icon-info-circle"></i></a>
 </h4>
 
 
@@ -7923,7 +7922,7 @@ sub display_nutrient_levels($) {
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}">
-<i class="fi-info"></i></a>
+<i class="icon-info-circle"></i></a>
 </h4>
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%"></a><br>
 $warning
@@ -7945,7 +7944,7 @@ HTML
 	if ($html_nutrient_levels ne '') {
 		$html_nutrient_levels = <<HTML
 <h4>$Lang{nutrient_levels_info}{$lc}
-<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="fi-info"></i></a>
+<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="icon-info-circle"></i></a>
 </h4>
 $html_nutrient_levels
 HTML
