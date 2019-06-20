@@ -9189,6 +9189,8 @@ sub display_recent_changes {
 	}
 
 	my $html .= "<ul>\n";
+	my $last_change_ref = undef;
+	my @cumulate_changes = ();
 	while (my $change_ref = $cursor->next) {
 		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
 		my $change_hash = {
@@ -9205,38 +9207,33 @@ sub display_recent_changes {
 		delete $change_hash->{ip} unless $admin; # security: Do not expose IP addresses to non-admin or anonymous users.
 
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
-
-		my $date = display_date_tag($change_ref->{t});
-		my $user = "";
-		if (defined $change_ref->{userid}) {
-			$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
-		}
-
-		my $comment = $change_ref->{comment};
-		$comment = lang($comment) if $comment eq 'product_created';
-
-		$comment =~ s/^Modification :\s+//;
-		if ($comment eq 'Modification :') {
-			$comment = '';
-		}
-		$comment =~ s/\new image \d+( -)?//;
-
-		if ($comment ne '') {
-			$comment = "- $comment";
-		}
-
-		my $change_rev = $change_ref->{rev};
-
-		# Display diffs
-		# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
-
 		my $diffs = compute_changes_diff_text($change_ref);
 		$change_hash->{diffs_text} = $diffs;
 
-		my $product_url = product_url($change_ref->{code});
-		$html .= "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+		if (defined $last_change_ref and $last_change_ref->{code} == $change_ref->{code}
+			and $change_ref->{userid} == $last_change_ref->{userid} and $change_ref->{userid} ne 'kiliweb') {
 
+			push @cumulate_changes, $change_ref;
+			next;
+
+		}
+		elsif (@cumulate_changes > 0) {
+
+			$html.= "<details class='recent'><summary>" . lang('collapsed_changes') . "</summary>";
+			foreach (@cumulate_changes) {
+				$html.= display_change($_, compute_changes_diff_text($_));
+			}
+			$html.= "</details>";
+
+			@cumulate_changes = ();
+
+		}
+		$html.= display_change($change_ref, $diffs);
+
+		$last_change_ref = $change_ref;
 	}
+
+	# Display...
 
 	$html .= "</ul>";
 	$html .= display_pagination($request_ref, $count, $limit, $page);
@@ -9245,6 +9242,39 @@ sub display_recent_changes {
 	$request_ref->{title} = lang("recent_changes");
 	display_new($request_ref);
 
+}
+
+sub display_change($$) {
+	my $change_ref = shift;
+	my $diffs = shift;
+
+	my $date = display_date_tag($change_ref->{t});
+	my $user = "";
+	if (defined $change_ref->{userid}) {
+		$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+	}
+
+	my $comment = $change_ref->{comment};
+	$comment = lang($comment) if $comment eq 'product_created';
+
+	$comment =~ s/^Modification :\s+//;
+	if ($comment eq 'Modification :') {
+		$comment = '';
+	}
+	$comment =~ s/\new image \d+( -)?//;
+
+	if ($comment ne '') {
+		$comment = "- $comment";
+	}
+
+	my $change_rev = $change_ref->{rev};
+
+	# Display diffs
+	# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
+
+
+	my $product_url = product_url($change_ref->{code});
+	return "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 }
 
 1;
