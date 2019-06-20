@@ -365,6 +365,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	extract_ingredients_classes_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 	compute_carbon_footprint_from_ingredients($product_ref);
+	compute_carbon_footprint_from_meat_or_fish($product_ref);
 
 	# Nutrition data
 

@@ -35,6 +35,7 @@ BEGIN
 		&extract_ingredients_from_text
 
 		&compute_carbon_footprint_from_ingredients
+		&compute_carbon_footprint_from_meat_or_fish
 
 		&clean_ingredients_text_for_lang
 		&clean_ingredients_text
@@ -153,13 +154,62 @@ sub compute_carbon_footprint_from_ingredients($) {
 	my $product_ref = shift;
 
 	if (defined $product_ref->{nutriments}) {
+		delete $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"};
+	}
+
+	remove_tag($product_ref, "misc", "en:environment-infocard");
+	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
+
+	# Limit to France, as the carbon values from ADEME are intended for France
+	if ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients})) {
+
+		my $carbon_footprint = 0;
+		my $carbon_percent = 0;
+
+		foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+
+			$log->debug("carbon-footprint-from-known-ingredients_100g", { id =>  $ingredient_ref->{id} }) if $log->is_debug();
+
+			if ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0)) {
+
+				$log->debug("carbon-footprint-from-known-ingredients_100g", { percent =>  $ingredient_ref->{percent} }) if $log->is_debug();
+
+				my $carbon_footprint_ingredient = get_inherited_property('ingredients', $ingredient_ref->{id}, "carbon_footprint_fr_foodges_value:fr");
+
+				if(defined $carbon_footprint_ingredient)
+				{
+					$carbon_footprint += $ingredient_ref->{percent} * $carbon_footprint_ingredient;
+					$carbon_percent	+= $ingredient_ref->{percent};
+				}
+			}
+		}
+
+		if ($carbon_footprint > 0) {
+			$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} = $carbon_footprint;
+			$product_ref->{carbon_footprint_percent_of_known_ingredients} = $carbon_percent;
+
+			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
+			add_tag($product_ref, "misc", "en:environment-infocard");
+		}
+		else {
+			remove_tag($product_ref, "misc", "en:environment-infocard");
+		}
+
+	}
+}
+
+
+sub compute_carbon_footprint_from_meat_or_fish($) {
+
+	my $product_ref = shift;
+
+	if (defined $product_ref->{nutriments}) {
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish"};
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"};
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"};
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"};
 	}
 
-	remove_tag($product_ref, "misc", "en:environment-infocard");
 	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
 
 	# Compute the carbon footprint from meat or fish ingredients, when the percentage is known
@@ -211,11 +261,11 @@ sub compute_carbon_footprint_from_ingredients($) {
 
 		foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 
-			$log->debug("compute_carbon_footprint_from_ingredients", { id =>  $ingredient_ref->{id} }) if $log->is_debug();
+			$log->debug("compute_carbon_footprint_from_meat_or_fish", { id =>  $ingredient_ref->{id} }) if $log->is_debug();
 
 			if ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0)) {
 
-				$log->debug("compute_carbon_footprint_from_ingredients", { percent =>  $ingredient_ref->{percent} }) if $log->is_debug();
+				$log->debug("compute_carbon_footprint_from_meat_or_fish", { percent =>  $ingredient_ref->{percent} }) if $log->is_debug();
 
 				foreach my $parent (@parents) {
 					if (is_a('ingredients', $ingredient_ref->{id}, $parent)) {
@@ -237,15 +287,10 @@ sub compute_carbon_footprint_from_ingredients($) {
 		if ($carbon_footprint > 0) {
 			$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} = $carbon_footprint;
 			$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} =~ s/ - $//;
-			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-			add_tag($product_ref, "misc", "en:environment-infocard");
 		}
-		else {
-			remove_tag($product_ref, "misc", "en:environment-infocard");
-		}
-
 	}
 }
+
 
 
 sub extract_ingredients_from_image($$$$) {

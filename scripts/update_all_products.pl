@@ -303,6 +303,7 @@ while (my $product_ref = $cursor->next) {
 		
 		if ($compute_carbon) {
 			compute_carbon_footprint_from_ingredients($product_ref);
+			compute_carbon_footprint_from_meat_or_fish($product_ref);
 			compute_serving_size_data($product_ref);
 			delete $product_ref->{environment_infocard};
 			delete $product_ref->{environment_infocard_en};

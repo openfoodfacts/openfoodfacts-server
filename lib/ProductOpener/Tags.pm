@@ -115,7 +115,7 @@ BEGIN
 					&load_users_translations
 					&load_users_translations_for_lc
 					&add_users_translations_to_taxonomy
-
+					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -234,6 +234,7 @@ sub get_inherited_property($$$) {
 				# stop the propagation to parents of this tag, but continue with other parents
 			}
 			else {
+				#Return only one occurence of the property if several are defined in ingredients.txt
 				return $properties{$tagtype}{$tagid}{$property};
 			}
 		}
@@ -256,6 +257,7 @@ sub has_tag($$$) {
 	if (defined $product_ref->{$tagtype . "_tags"}) {
 
 		foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
+
 			if ($tag eq $tagid) {
 				$return = 1;
 				last;
@@ -3580,7 +3582,6 @@ sub add_users_translations_to_taxonomy($) {
 	}
 
 }
-
 
 
 $log->info("Tags.pm loaded") if $log->is_info();

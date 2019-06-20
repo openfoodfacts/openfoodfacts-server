@@ -197,6 +197,7 @@ synonyms:fr:orthophosphate, phosphate
 
 additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
 carbon_footprint_fr_foodges_ingredient:fr: Poisson sauvage -filet-
+carbon_footprint_fr_foodges_value:fr: 11.5
 e_number:en: 965
 efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965ii new production process. Change of specification
 efsa_evaluation_date:en: 2006-05-18
@@ -1752,6 +1753,7 @@ fr:lardons
 ja:ラードン
 nl:spekjes
 carbon_footprint_fr_foodges_ingredient:fr: Lardons
+carbon_footprint_fr_foodges_value:fr: 5.6
 wikidata:en: Q3217888
 wikipedia:en: https://en.wikipedia.org/wiki/Lardon
 
@@ -1944,12 +1946,15 @@ fr:haricot rouge, haricots rouges
 en:white beans
 fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs
 carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve -type cassoulet-
+carbon_footprint_fr_foodges_value:fr: 2
 
 < en:Beans
 fr:haricot mungo
 
 < en:Beans
 fr:haricot vert, haricots verts
+carbon_footprint_fr_foodges_ingredient:fr: Haricot vert importé par avion
+carbon_footprint_fr_foodges_value:fr: 22.8
 
 < en:Beans
 fr:haricots beurre
@@ -2008,6 +2013,7 @@ fr:viande bovine origine france
 < en:Beef meat
 fr:viande de bœuf, pure viande bovine
 carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
+carbon_footprint_fr_foodges_value:fr: 35.8
 
 < en:Beef meat
 fr:viande hachée de bœuf
@@ -2102,6 +2108,17 @@ pt:pimento vermelho
 sv:röd paprika
 
 < en:Bell pepper
+<<<<<<< HEAD
+< en:Salt
+en:salt and pepper
+fr:sel et poivre
+nl:zout en peper, peper en zout
+carbon_footprint_fr_foodges_ingredient:fr: Piment et poivre sec
+carbon_footprint_fr_foodges_value:fr: 3.4
+
+< en:Bell pepper
+=======
+>>>>>>> 1f463669a132b7e6374fb7cb664681c381a018f9
 < en:Spice
 en:paprika
 ar:بابريكا
@@ -2274,6 +2291,7 @@ vi:Dâu tây vườn
 za:Godumh
 zh:草莓
 carbon_footprint_fr_foodges_ingredient:fr: Fraise "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr: 0.8
 wikidata:en: Q14458220
 wikipedia:en: https://en.wikipedia.org/wiki/Strawberry
 
@@ -2407,6 +2425,7 @@ vi:Bích quy
 wa:Biscûte
 zh:面饼
 carbon_footprint_fr_foodges_ingredient:fr: Biscuit au beurre
+carbon_footprint_fr_foodges_value:fr: 4.5
 wikidata:en: Q13270
 wikipedia:en: https://en.wikipedia.org/wiki/Biscuit
 
@@ -2846,6 +2865,7 @@ yi:ברויט
 zh:麵包
 zu:isinkwa
 carbon_footprint_fr_foodges_ingredient:fr: Pain
+carbon_footprint_fr_foodges_value:fr: 1.5
 wikidata:en: Q7802
 wikipedia:en: https://en.wikipedia.org/wiki/Bread
 
@@ -2973,6 +2993,7 @@ tr:Brioche
 uk:Бріош
 zh:布里歐
 carbon_footprint_fr_foodges_ingredient:fr: Viennoiseries Brioche industrielle préemballée
+carbon_footprint_fr_foodges_value:fr: 2.9
 wikidata:en: Q917574
 wikipedia:en: https://en.wikipedia.org/wiki/Brioche
 
@@ -3341,6 +3362,7 @@ de:ungesalzene Butter
 fr:beurre doux
 nl:ongezouten boter
 carbon_footprint_fr_foodges_ingredient:fr: Beurre doux
+carbon_footprint_fr_foodges_value:fr: 9.5
 wikipedia:en: https://fr.wikipedia.org/wiki/Beurre_doux
 
 < en:Butter
@@ -4500,6 +4522,7 @@ nl:granen
 pl:płatki zbożewe
 pt:cereais
 carbon_footprint_fr_foodges_ingredient:fr: Mélange de céréales
+carbon_footprint_fr_foodges_value:fr: 0.3
 
 < en:Cereal
 de:Getreideflocken
@@ -4866,6 +4889,8 @@ vi:Lúa mì
 wa:Frumint
 yi:ווייץ
 zh:小麦
+carbon_footprint_fr_foodges_ingredient:fr: Semoule de blé dur
+carbon_footprint_fr_foodges_value:fr: 0.6
 wikidata:en: Q15645384
 wikipedia:en: https://en.wikipedia.org/wiki/Wheat
 
@@ -4991,6 +5016,7 @@ uk:Борошно пшеничне
 vi:Bột mì
 zh:小麥麵粉
 carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
+carbon_footprint_fr_foodges_value:fr: 1.2
 wikidata:en: Q2249305
 wikipedia:en: https://en.wikipedia.org/wiki/Wheat_flour
 
@@ -5201,6 +5227,7 @@ vi:Camembert
 yi:קאמעמבערט
 zh:卡芒贝尔奶酪
 carbon_footprint_fr_foodges_ingredient:fr: Fromage à pâte molle -type camembert-
+carbon_footprint_fr_foodges_value:fr: 4.3
 wikidata:en: Q131480
 wikipedia:en: https://en.wikipedia.org/wiki/Camembert
 
@@ -5391,6 +5418,7 @@ vi:Pho mát Emmental
 yi:עמענטאל
 zh:埃文達芝士
 carbon_footprint_fr_foodges_ingredient:fr: Fromage à pâte dure -type emmental-
+carbon_footprint_fr_foodges_value:fr: 5.6
 wikidata:en: Q932214
 wikipedia:en: https://en.wikipedia.org/wiki/Emmental_cheese
 
@@ -5500,6 +5528,7 @@ sw:getost
 ta:ஆட்டு பாலாடைகட்டி
 zh:契福瑞芝士
 carbon_footprint_fr_foodges_ingredient:fr: Fromage frais de chèvre
+carbon_footprint_fr_foodges_value:fr: 3.6
 wikidata:en: Q198815
 wikipedia:en: https://en.wikipedia.org/wiki/Goat_cheese
 
@@ -6187,6 +6216,7 @@ fr:fromage frais
 it:formaggio fresco
 nl:Zachte witte kaas
 carbon_footprint_fr_foodges_ingredient:fr: Fromage frais 58% MG
+carbon_footprint_fr_foodges_value:fr: 3.5
 
 < en:Cheese
 en:Taleggio
@@ -6452,10 +6482,12 @@ fr:aiguillettes de poulet
 < en:Chicken meat
 fr:blanc de poulet
 carbon_footprint_fr_foodges_ingredient:fr: Blanc de poulet
+carbon_footprint_fr_foodges_value:fr: 4.9
 
 < en:Chicken meat
 fr:cuisse de poulet
 carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr: 4.9
 
 < en:Chicken meat
 fr:filets de poulet
@@ -6475,6 +6507,7 @@ fr:poitrine de poulet
 < en:Chicken meat
 fr:poulet rôti
 carbon_footprint_fr_foodges_ingredient:fr: Poulet roti entier
+carbon_footprint_fr_foodges_value:fr: 5.2
 
 < en:Chicken meat
 fr:poulet traité en salaison
@@ -6704,6 +6737,7 @@ yi:שאקאלאד
 zh:巧克力
 zu:shokoledi
 carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau -noir-
+carbon_footprint_fr_foodges_value:fr: 4.9
 wikipedia:en: https://en.wikipedia.org/wiki/Chocolate
 
 < :
@@ -6751,6 +6785,7 @@ tt:ак шоколад
 uk:Білий шоколад
 zh:白朱古力
 carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau -blanc-
+carbon_footprint_fr_foodges_value:fr: 6.5
 wikidata:en: Q742385
 
 < en:Chocolate
@@ -6777,6 +6812,7 @@ it:cioccolato in polvere
 nl:chocoladepoeder
 ro:ciocolata pudra
 carbon_footprint_fr_foodges_ingredient:fr: Chocolat en poudre non sucré
+carbon_footprint_fr_foodges_value:fr: 4.7
 
 < en:Chocolate
 en:dark chocolate, black chocolate
@@ -6814,6 +6850,7 @@ th:ดาร์กช็อกโกแลต
 tr:Bitter çikolata
 vi:sôcôla đen
 carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau -noir-
+carbon_footprint_fr_foodges_value:fr: 4.9
 wikidata:en: Q277628
 wikipedia:en: https://en.wikipedia.org/wiki/Dark_chocolate
 
@@ -6839,6 +6876,7 @@ ru:молочный шоколад
 sv:mjölkchoklad
 tr:Sütlü çikolata
 carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau -au lait-
+carbon_footprint_fr_foodges_value:fr: 5.9
 wikidata:en: Q2164820
 
 < en:Chocolate
@@ -6946,6 +6984,7 @@ de:zerkleinerte geschälte Tomate
 fr:tomate pelée concassée, tomates pelées concassées
 nl:gepelde gehakte tomaten
 carbon_footprint_fr_foodges_ingredient:fr: Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr: 1.4
 
 < en:Chopped tomatoes
 en:tomato pulp
@@ -6955,6 +6994,7 @@ it:polpa di pomodoro
 nl:tomatenpulp
 sv:krossade tomater
 carbon_footprint_fr_foodges_ingredient:fr: Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr: 1.4
 
 en:chorizo, chorizos
 af:Chorizo
@@ -7244,6 +7284,7 @@ fr:citron, citrons
 it:limone
 nl:citroen
 carbon_footprint_fr_foodges_ingredient:fr: Citron
+carbon_footprint_fr_foodges_value:fr: 0.9
 wikidata:en: Q1093742
 
 < en:Citrus fruit
@@ -7346,6 +7387,7 @@ sk:Mandarínkovník
 sw:Mchenza
 uk:мандарин
 carbon_footprint_fr_foodges_ingredient:fr: Mandarine
+carbon_footprint_fr_foodges_value:fr: 1.3
 wikidata:en: https://www.wikidata.org/wiki/Q190024
 wikipedia:en: https://en.wikipedia.org/wiki/Mandarin_orange
 
@@ -7464,6 +7506,7 @@ yo:ọsàn
 za:Makdoengj
 zh:橙
 carbon_footprint_fr_foodges_ingredient:fr: Orange fraîche
+carbon_footprint_fr_foodges_value:fr: 0.8
 wikidata:en: Q13191
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_-fruit-
 
@@ -8129,6 +8172,7 @@ fr:café moulu
 it:caffè macinato
 nl:gemalen koffie
 carbon_footprint_fr_foodges_ingredient:fr: Café moulu
+carbon_footprint_fr_foodges_value:fr: 15.7
 
 < en:Coffee
 en:instant coffee, soluble Coffee
@@ -8872,6 +8916,7 @@ yi:קוקורוזע
 za:Haeuxyangz
 zh:玉米
 carbon_footprint_fr_foodges_ingredient:fr: Maïs
+carbon_footprint_fr_foodges_value:fr: 0.7
 wikidata:en: Q11575
 wikipedia:en: https://en.wikipedia.org/wiki/Maize
 
@@ -9212,6 +9257,8 @@ ur:ملائی
 uz:Qaymoq
 vi:Kem
 zh:鮮奶油
+carbon_footprint_fr_foodges_ingredient:fr: Crème, 40% MG, pasteurisée
+carbon_footprint_fr_foodges_value:fr: 4.2
 wikipedia:en: https://en.wikipedia.org/wiki/Cream
 
 < en:Cream
@@ -10145,6 +10192,8 @@ su:Emih
 sv:Nudlar
 sw:Tambi
 ta:நூடுல்ஸ்
+carbon_footprint_fr_foodges_ingredient:fr: Pâte à tarte
+carbon_footprint_fr_foodges_value:fr: 7.3
 wikidata:en: https://www.wikidata.org/wiki/Q192874
 wikipedia:en: https://en.wikipedia.org/wiki/Noodle
 
@@ -10227,6 +10276,7 @@ wa:påsses itålyinnes
 wo:makaróni
 zh:意式面食
 carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
+carbon_footprint_fr_foodges_value:fr: 0.5
 pnns_group_2:en: Cereals
 wikidata:en: Q178
 wikipedia:en: https://en.wikipedia.org/wiki/Pasta
@@ -10252,6 +10302,7 @@ sv:pajdeg
 < en:Dough
 fr:pâte crue
 carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
+carbon_footprint_fr_foodges_value:fr: 0.5
 
 < en:Dough
 fr:pâte feuilletée
@@ -10284,6 +10335,7 @@ fr:cuisses de canard
 < en:Duck meat
 fr:magret de canard
 carbon_footprint_fr_foodges_ingredient:fr: Magret canard
+carbon_footprint_fr_foodges_value:fr: 9.7
 
 < en:Duck meat
 fr:manchons de canard
@@ -13070,6 +13122,7 @@ fr:bière
 it:birra
 nl:Bier
 carbon_footprint_fr_foodges_ingredient:fr: Bière
+carbon_footprint_fr_foodges_value:fr: 2.7
 
 < en:E1510
 en:calvados
@@ -30613,6 +30666,7 @@ vi:trứng
 wa:Oû
 zh:Amaqanda
 carbon_footprint_fr_foodges_ingredient:fr: Oeuf, moyenne nationale
+carbon_footprint_fr_foodges_value:fr: 2.6
 wikipedia:en: https://en.wikipedia.org/wiki/Egg_as_food
 
 < en:Egg
@@ -32604,6 +32658,8 @@ th:ปลาแซลมอน
 tr:Sombalığı
 vi:Cá hồi
 zh:鮭魚
+carbon_footprint_fr_foodges_ingredient:fr: Pavé de Truite ou Saumon d'élevage
+carbon_footprint_fr_foodges_value:fr: 6.6
 wikipedia:en: https://en.wikipedia.org/wiki/Salmon_as_food
 
 < en:Fish
@@ -32760,6 +32816,7 @@ uk:Спарові
 vi:Họ Cá tráp
 zh:鯛科
 carbon_footprint_fr_foodges_ingredient:fr: Bar ou dorade d'élevage -filet-
+carbon_footprint_fr_foodges_value:fr: 12
 wikipedia:en: https://en.wikipedia.org/wiki/Sparidae
 
 < en:Fish
@@ -32987,6 +33044,7 @@ uk:тунець
 ur:ٹیونا
 zh:鮪魚
 carbon_footprint_fr_foodges_ingredient:fr: Thon en boîte
+carbon_footprint_fr_foodges_value:fr: 4
 wikipedia:en: https://en.wikipedia.org/wiki/Tuna
 
 < en:Fish
@@ -34027,6 +34085,7 @@ yo:èso
 za:mak
 zh:水果
 carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen de saison, produit localement
+carbon_footprint_fr_foodges_value:fr: 0.3
 wikidata:en: Q1364
 wikipedia:en: https://en.wikipedia.org/wiki/Fruit
 
@@ -34177,6 +34236,7 @@ za:Makbinzgoj
 zh:蘋果
 zu:Ihhabhula
 carbon_footprint_fr_foodges_ingredient:fr: Pomme amérique du Sud
+carbon_footprint_fr_foodges_value:fr: 1.3
 wikidata:en: Q89
 wikipedia:en: https://en.wikipedia.org/wiki/Apple
 
@@ -34280,6 +34340,7 @@ wa:åbricot
 yi:אַפּריקאָס
 zh:杏
 carbon_footprint_fr_foodges_ingredient:fr: Abricot "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr: 1.1
 wikidata:en: Q3733836
 wikipedia:en: https://en.wikipedia.org/wiki/Apricot
 
@@ -34396,6 +34457,7 @@ yo:Ọ̀gẹ̀dẹ̀
 za:Gyoijhom
 zh:香蕉
 carbon_footprint_fr_foodges_ingredient:fr: Banane
+carbon_footprint_fr_foodges_value:fr: 1.2
 wikidata:en: Q503
 wikipedia:en: https://en.wikipedia.org/wiki/Banana
 
@@ -34547,6 +34609,7 @@ wa:Ceréjhe
 wo:sëriis
 zh:樱
 carbon_footprint_fr_foodges_ingredient:fr: Cerise
+carbon_footprint_fr_foodges_value:fr: 1.3
 wikidata:en: Q196
 wikipedia:en: https://en.wikipedia.org/wiki/Cherry
 
@@ -35309,6 +35372,7 @@ tr:kavun
 uk:баштанні культури
 zh:瓜
 carbon_footprint_fr_foodges_ingredient:fr: Melon
+carbon_footprint_fr_foodges_value:fr: 0.5
 wikidata:en: Q5881191
 wikipedia:en: https://en.wikipedia.org/wiki/Melon
 
@@ -35394,7 +35458,8 @@ pl:Brzoskwinia
 pt:pêssegos
 ru:персик
 sk:Broskyňa
-carbon_footprint_fr_foodges_ingredient:fr: Pêche
+carbon_footprint_fr_foodges_ingredient:fr: Pêche -France-
+carbon_footprint_fr_foodges_value:fr: 0.7
 wikidata:en: Q13411121
 wikipedia:en: https://en.wikipedia.org/wiki/Peach
 
@@ -35494,6 +35559,8 @@ vi:lê
 vo:bün
 wa:poere
 zh:梨
+carbon_footprint_fr_foodges_ingredient:fr: Poire -Argentine-
+carbon_footprint_fr_foodges_value:fr: 1
 wikidata:en: Q13099586
 wikipedia:en: https://en.wikipedia.org/wiki/Pear
 
@@ -36448,6 +36515,7 @@ vi:Nho khô
 yi:ראזשינקע
 zh:葡萄乾
 carbon_footprint_fr_foodges_ingredient:fr: Raisin
+carbon_footprint_fr_foodges_value:fr: 0.8
 wikidata:en: Q13186
 wikipedia:en: https://en.wikipedia.org/wiki/Raisin
 
@@ -38549,6 +38617,7 @@ uk:Ванільне морозиво
 vi:Kem vani
 zh:香草冰淇淋
 carbon_footprint_fr_foodges_ingredient:fr: Glace à la vanille
+carbon_footprint_fr_foodges_value:fr: 1.5
 wikidata:en: Q12071938
 
 en:imazalil
@@ -39136,6 +39205,13 @@ zh:杜松子
 wikidata:en: Q3251025
 wikipedia:en: https://en.wikipedia.org/wiki/Juniper_berry
 
+en:kaffir lime leaf
+de:Zitronenblatt
+es:hoja limón
+fr:feuille de citron
+nl:citroenblad
+wikipedia:en: https://en.wikipedia.org/wiki/Kaffir_lime
+
 < en:Kikurage mushroom
 en:Tremella fuciformis
 la:Tremella fuciformis
@@ -39368,6 +39444,8 @@ it:carne di agnello
 nl:lamsvlees
 nn:lammekjøtt
 sv:Lammkött
+carbon_footprint_fr_foodges_ingredient:fr: Côtelettes d'Agneau
+carbon_footprint_fr_foodges_value:fr: 55
 wikidata:en: Q643419
 
 < en:Lardon
@@ -39690,6 +39768,7 @@ en:flageolets
 es:habichuelas
 fr:flageolets
 carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve -type cassoulet-
+carbon_footprint_fr_foodges_value:fr: 2
 
 < en:Legume
 en:lentils, lentil
@@ -40070,6 +40149,7 @@ it:lenticchie verdi
 nl:groene linzen
 pt:lentilhas verde
 carbon_footprint_fr_foodges_ingredient:fr: Lentilles vertes
+carbon_footprint_fr_foodges_value:fr: 0.3
 
 < en:Lentils
 en:precooked lentils
@@ -41145,10 +41225,12 @@ wikidata:en: Q288266
 < en:Mango
 fr:Mangue importée en avion
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en avion
+carbon_footprint_fr_foodges_value:fr: 27.4
 
 < en:Mango
 fr:Mangue importée en bateau
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
+carbon_footprint_fr_foodges_value:fr: 0.8
 
 < en:Mango
 < en:Purée
@@ -41296,6 +41378,7 @@ fr:viande de porc
 it:carne di suino
 nl:Varkensvlees
 carbon_footprint_fr_foodges_ingredient:fr: Viande de porc
+carbon_footprint_fr_foodges_value:fr: 7.4
 
 < en:Meat
 en:venison, deer meat
@@ -41331,6 +41414,7 @@ fr:Cuisses de grenouilles
 < en:Meat
 fr:saucisse de porc
 carbon_footprint_fr_foodges_ingredient:fr: Saucisse de porc
+carbon_footprint_fr_foodges_value:fr: 5.5
 
 < en:Meat
 fr:steak haché
@@ -44442,6 +44526,7 @@ ta:அகாரிகஸ் பைஸ்போரஸ்
 uk:Печериця садова
 zh:雙孢蘑菇
 carbon_footprint_fr_foodges_ingredient:fr: Champignons de Paris
+carbon_footprint_fr_foodges_value:fr: 1.9
 wikidata:en: Q227690
 wikipedia:en: https://en.wikipedia.org/wiki/Agaricus_bisporus
 
@@ -45417,6 +45502,7 @@ sq:Bajamet
 tt:бәдәм җимеше
 za:Makgai
 carbon_footprint_fr_foodges_ingredient:fr: Amandes
+carbon_footprint_fr_foodges_value:fr: 5.9
 wikidata:en: Q184357
 
 < en:Nut
@@ -45616,6 +45702,7 @@ sv:valnöt
 ta:வாதுமைக் கொட்டை
 zh:胡桃木
 carbon_footprint_fr_foodges_ingredient:fr: Noix entières
+carbon_footprint_fr_foodges_value:fr: 1.3
 wikidata:en: Q208021
 
 < en:Nutmeg
@@ -45948,6 +46035,8 @@ sv:Oliv
 th:นํ้า
 tt:зәйтүн
 zh:阿塞图纳
+carbon_footprint_fr_foodges_ingredient:fr: Olives "Pays du Sud" en boite
+carbon_footprint_fr_foodges_value:fr: 1.7
 wikipedia:en: https://en.wikipedia.org/wiki/Olive
 
 < en:Olives
@@ -46381,6 +46470,7 @@ fr:oranges pressées
 < en:Orange juice
 fr:Pur jus d'orange
 carbon_footprint_fr_foodges_ingredient:fr: Pur jus d'orange
+carbon_footprint_fr_foodges_value:fr: 1.3
 
 en:orange leaves
 de:Orangenblätter
@@ -47037,6 +47127,7 @@ en:garden peas
 fr:petits pois, petit pois, pois doux
 nl:doperwten
 carbon_footprint_fr_foodges_ingredient:fr: Pois de printemps frais
+carbon_footprint_fr_foodges_value:fr: 0.7
 
 < en:Pea
 en:snow pea
@@ -47054,6 +47145,7 @@ nl:Peultjes
 su:Kapri
 tr:Sultani bezelye
 carbon_footprint_fr_foodges_ingredient:fr: Pois d'hiver frais
+carbon_footprint_fr_foodges_value:fr: 1.7
 wikipedia:en: https://en.wikipedia.org/wiki/Snow_pea
 
 < en:Pea
@@ -47798,6 +47890,8 @@ fr:Pommes de terre de consommation à chair ferme
 fr:pommes de terre préfrites
 nl:voorgebakken aardappel
 sv:forstekt potatis
+carbon_footprint_fr_foodges_ingredient:fr: Frites surgelées
+carbon_footprint_fr_foodges_value:fr: 1.3
 
 < en:Potato
 fr:purée de pomme de terre, purée de pommes de terre
@@ -48801,6 +48895,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rabbit
 en:rabbit meat
 fr:viande de lapin
 carbon_footprint_fr_foodges_ingredient:fr: Lapin
+carbon_footprint_fr_foodges_value:fr: 8.1
 
 < en:Rainbow trout
 en:Oncorhynchus mykiss
@@ -49175,6 +49270,7 @@ za:Haeuxbieg
 zh:稻
 zu:ilayisi
 carbon_footprint_fr_foodges_ingredient:fr: Riz jasmin -Thaïlande-
+carbon_footprint_fr_foodges_value:fr: 1.4
 wikidata:en: Q5090
 wikipedia:en: https://en.wikipedia.org/wiki/Rice
 
@@ -50256,6 +50352,8 @@ en:smoked salmon
 de:Räucherlachs
 fr:saumon fumé
 it:salmone affumicato
+carbon_footprint_fr_foodges_ingredient:fr: Truite/Saumon fumé d'élevage
+carbon_footprint_fr_foodges_value:fr: 5.5
 
 < en:Salmon
 en:Sockeye salmon
@@ -50382,6 +50480,7 @@ yi:זאלץ
 yo:Iyọ̀
 zh:食盐
 carbon_footprint_fr_foodges_ingredient:fr: Sel
+carbon_footprint_fr_foodges_value:fr: 0.5
 wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
 
@@ -50767,6 +50866,7 @@ vi:Nước sốt cà chua
 yi:קעטשאפ
 zh:番茄醬
 carbon_footprint_fr_foodges_ingredient:fr: Ketchup
+carbon_footprint_fr_foodges_value:fr: 2.4
 wikidata:en: Q178143
 wikipedia:en: https://en.wikipedia.org/wiki/Ketchup
 
@@ -51073,6 +51173,7 @@ uk:Суґо
 vi:Sốt cà
 zh:番茄沙司
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
+carbon_footprint_fr_foodges_value:fr: 2.9
 wikidata:en: Q3596097
 wikipedia:en: https://en.wikipedia.org/wiki/Tomato_sauce
 
@@ -52497,6 +52598,8 @@ uz:Mollyuskalar
 vi:Động vật thân mềm
 yi:מאלוסקן
 zh:软体动物
+carbon_footprint_fr_foodges_ingredient:fr: Moules/autres crustacés
+carbon_footprint_fr_foodges_value:fr: 10.7
 wikidata:en: Q25326
 wikipedia:en: https://en.wikipedia.org/wiki/Mollusca
 
@@ -52662,6 +52765,7 @@ fr:lait écrémé pasteurisé, lait demi-écrémé pasteurisé, lait partielleme
 it:latte magro pastorizzato
 nl:gepasteuriseerde halfvolle melk
 carbon_footprint_fr_foodges_ingredient:fr: Lait semi-écrémé, pasteurisé
+carbon_footprint_fr_foodges_value:fr: 1.2
 
 < en:Skipjack tuna
 en:Katsuwonus pelamis
@@ -53309,6 +53413,7 @@ fr:vin cremant de Loire aop
 < en:Special bread
 fr:pain au chocolat
 carbon_footprint_fr_foodges_ingredient:fr: Viennoiseries pain au chocolat
+carbon_footprint_fr_foodges_value:fr: 2.3
 
 < en:Speckled Scallop
 en:Argopecten irradians concentricus
@@ -53374,6 +53479,7 @@ it:spezie
 nl:kruiden
 sv:kryddor
 carbon_footprint_fr_foodges_ingredient:fr: Épices
+carbon_footprint_fr_foodges_value:fr: 2.2
 
 < en:Spice
 en:caraway
@@ -53616,6 +53722,7 @@ vo:kirfat
 yi:צימערינג
 zh:桂皮
 carbon_footprint_fr_foodges_ingredient:fr: Cannelle
+carbon_footprint_fr_foodges_value:fr: 2.2
 wikidata:en: Q28165
 
 < en:Spice
@@ -53862,14 +53969,6 @@ zh:薑
 wikipedia:en: https://en.wikipedia.org/wiki/Ginger
 
 < en:Spice
-en:kaffir lime leaf
-de:Zitronenblatt
-es:hoja limón
-fr:feuille de citron
-nl:citroenblad
-wikipedia:en: https://en.wikipedia.org/wiki/Kaffir_lime
-
-< en:Spice
 en:mixed spices
 fr:mélange d'épices
 nl:gemengde specerijen
@@ -53940,6 +54039,7 @@ vi:Mù tạc
 zh:芥末醬
 zu:umasitadi
 carbon_footprint_fr_foodges_ingredient:fr: Moutarde
+carbon_footprint_fr_foodges_value:fr: 3.3
 wikidata:en: Q131748
 wikipedia:en: https://en.wikipedia.org/wiki/Mustard_-condiment-
 
@@ -54059,6 +54159,8 @@ uk:Бодян справжній
 vi:Đại hồi
 wa:Anisse-sitoele
 zh:八角
+carbon_footprint_fr_foodges_ingredient:fr: Anis - Badiane
+carbon_footprint_fr_foodges_value:fr: 2.7
 wikidata:en: Q1760637
 
 < en:Spice
@@ -54769,6 +54871,7 @@ en:beet sugar
 de:Rübenzucker
 fr:sucre de betterave
 carbon_footprint_fr_foodges_ingredient:fr: Sucre de betterave
+carbon_footprint_fr_foodges_value:fr: 0.7
 
 < en:Sugar
 en:brown sugar
@@ -54830,6 +54933,7 @@ sr:šećer od šećerne trske, Šećerna trska
 sv:rörsocker
 uk:тростинний цукор
 carbon_footprint_fr_foodges_ingredient:fr: Sucre de canne
+carbon_footprint_fr_foodges_value:fr: 1.3
 wikidata:en: Q165267
 wikipedia:en: https://en.wikipedia.org/wiki/Sucrose#Cane
 
@@ -55288,6 +55392,7 @@ fr:huile de tournesol pressée à froid
 nl:koudgeperste zonnebloemolie
 pt:óleo de girassol prensado a frio
 carbon_footprint_fr_foodges_ingredient:fr: Huile Tournesol
+carbon_footprint_fr_foodges_value:fr: 1.6
 
 < en:Sunflower oil
 en:deodorized sunflower oil
@@ -55863,6 +55968,7 @@ yi:טיי
 zh:茶
 zu:Itiye
 carbon_footprint_fr_foodges_ingredient:fr: Thé
+carbon_footprint_fr_foodges_value:fr: 30.5
 wikipedia:en: https://en.wikipedia.org/wiki/Tea
 
 < en:Tea
@@ -56343,6 +56449,7 @@ de:frische Tomaten
 fr:tomates fraîches
 it:pomodori freschi
 carbon_footprint_fr_foodges_ingredient:fr: Tomate fraiche importée -Espagne-
+carbon_footprint_fr_foodges_value:fr: 0.7
 
 < en:Tomato
 en:grilled tomato
@@ -56363,6 +56470,7 @@ fr:tomates pelées, tomate pelée
 it:pomodori pelati
 nl:gepelde tomaten
 carbon_footprint_fr_foodges_ingredient:fr: Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr: 1.4
 
 < en:Tomato
 en:tomato cubes
@@ -56386,6 +56494,7 @@ it:succo di pomodoro
 nl:tomatensap
 sv:tomatjuice
 carbon_footprint_fr_foodges_ingredient:fr: Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr: 1.4
 
 < en:Tomato
 en:tomato powder, powdered tomato
@@ -56402,16 +56511,18 @@ sv:tomatpulver
 en:tomato purée, tomato paste, tomato concentrate
 de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat
 es:concentrado de tomate
-fr:concentrato di pomodoro
+fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, concentrato di pomodoro
 it:passata di pomodoro
 nl:tomatenpurée, tomatenconcentraat
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
+carbon_footprint_fr_foodges_value:fr: 2.9
 
 < en:Tomato
 fr:coulis de tomates, coulis de tomate
 de:Passierte Tomaten
 it:passata di pomodoro
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
+carbon_footprint_fr_foodges_value:fr: 2.9
 
 < en:Tomato
 fr:tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
@@ -56521,6 +56632,8 @@ tr:Gökkuşağı alabalığı
 uk:Пструг райдужний
 vi:Cá hồi vân
 zh:虹鱒
+carbon_footprint_fr_foodges_ingredient:fr: Truite d'élevage, entière
+carbon_footprint_fr_foodges_value:fr: 4.9
 wikidata:en: Q187986
 wikipedia:en: https://en.wikipedia.org/wiki/Rainbow_trout
 
@@ -56684,10 +56797,12 @@ nl:Kalkoenfilet
 < en:Turkey meat
 fr:blanc de dinde
 carbon_footprint_fr_foodges_ingredient:fr: Blanc de dinde
+carbon_footprint_fr_foodges_value:fr: 6.5
 
 < en:Turkey meat
 fr:cuisse de dinde
 carbon_footprint_fr_foodges_ingredient:fr: Cuisse de dinde
+carbon_footprint_fr_foodges_value:fr: 6.6
 
 < en:Turkey meat
 fr:Escalopes de dinde
@@ -56812,6 +56927,7 @@ nl:vanillestokje, vanillestokjes
 pt:vagem de baunilha
 sv:vaniljstång
 carbon_footprint_fr_foodges_ingredient:fr: Gousse de Vanille
+carbon_footprint_fr_foodges_value:fr: 2.6
 
 < en:Vanilla
 en:vanilla powder
@@ -57515,6 +57631,7 @@ fr:légume, légumes en proportions variables, légumes en proportion variable
 it:vegetale
 nl:Groente
 carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen de saison, produit localement
+carbon_footprint_fr_foodges_value:fr: 0.3
 
 < en:Vegetable
 en:artichoke
@@ -57566,6 +57683,7 @@ uz:Artishok
 vi:Atisô
 zh:朝鲜蓟
 carbon_footprint_fr_foodges_ingredient:fr: Artichauts
+carbon_footprint_fr_foodges_value:fr: 2.5
 wikidata:en: Q23041430
 wikipedia:en: https://en.wikipedia.org/wiki/Artichoke
 
@@ -57641,6 +57759,7 @@ wa:Aspedje
 yi:אספארגוס
 zh:芦笋
 carbon_footprint_fr_foodges_ingredient:fr: Asperges saison France
+carbon_footprint_fr_foodges_value:fr: 0.9
 wikidata:en: Q23041045
 wikipedia:en: https://en.wikipedia.org/wiki/Asparagus
 
@@ -57745,7 +57864,8 @@ wa:Åberdjene
 yi:פאטלעזשאן
 za:lwggwz
 zh:茄子
-carbon_footprint_fr_foodges_ingredient:fr: Aubergine
+carbon_footprint_fr_foodges_ingredient:fr: Aubergine serre chauffée
+carbon_footprint_fr_foodges_value:fr: 6.2
 wikidata:en: Q7540
 wikipedia:en: https://en.wikipedia.org/wiki/Eggplant
 
@@ -57772,6 +57892,7 @@ sk:avokádo
 te:అవోకాడో
 vo:Avokaado
 carbon_footprint_fr_foodges_ingredient:fr: Avocat
+carbon_footprint_fr_foodges_value:fr: 2.4
 wikidata:en: Q961769
 wikipedia:en: https://en.wikipedia.org/wiki/Avocado
 
@@ -57870,6 +57991,7 @@ hu:cikória
 it:Cicoria Belga
 nl:witlof
 carbon_footprint_fr_foodges_ingredient:fr: Endive
+carbon_footprint_fr_foodges_value:fr: 1.2
 wikidata:en: Q1474
 
 < en:Vegetable
@@ -57928,6 +58050,7 @@ wa:poevron
 yi:פאפריקע
 zh:菜椒
 carbon_footprint_fr_foodges_ingredient:fr: Poivron
+carbon_footprint_fr_foodges_value:fr: 0.9
 wikidata:en: Q1548030
 wikipedia:en: https://en.wikipedia.org/wiki/Bell_pepper
 
@@ -58003,6 +58126,8 @@ uk:броколі
 ur:شاخ گوبھی
 vi:Bông cải xanh
 zh:西蘭花
+carbon_footprint_fr_foodges_ingredient:fr: Brocoli -France-
+carbon_footprint_fr_foodges_value:fr: 0.4
 wikidata:en: Q47722
 wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
@@ -58127,6 +58252,7 @@ xh:umnqathe
 za:lauxbaeghoengz
 zh:胡萝卜
 carbon_footprint_fr_foodges_ingredient:fr: Carottes fraîches
+carbon_footprint_fr_foodges_value:fr: 0.3
 wikidata:en: Q81
 wikipedia:en: https://en.wikipedia.org/wiki/Carrot
 
@@ -58142,6 +58268,7 @@ ru:цветная капуста
 te:గోబీ పుష్పం
 zh:花椰菜
 carbon_footprint_fr_foodges_ingredient:fr: Chou-Fleur
+carbon_footprint_fr_foodges_value:fr: 0.5
 wikidata:en: Q23900272
 wikipedia:en: https://en.wikipedia.org/wiki/Cauliflower
 
@@ -58243,6 +58370,8 @@ wa:Celeri
 yi:סעלערי
 za:Ginzcaiq
 zh:旱芹
+carbon_footprint_fr_foodges_ingredient:fr: Céleri
+carbon_footprint_fr_foodges_value:fr: 0.8
 wikidata:en: Q23012379
 wikipedia:en: https://en.wikipedia.org/wiki/Celery
 
@@ -58371,6 +58500,8 @@ ur:مرچ
 vi:Ớt
 wo:kaani
 zh:辣椒
+carbon_footprint_fr_foodges_ingredient:fr: Piment et poivre sec
+carbon_footprint_fr_foodges_value:fr: 3.4
 wikidata:en: Q165199
 wikipedia:en: https://en.wikipedia.org/wiki/Chili_pepper
 
@@ -58384,6 +58515,7 @@ fr:betterave, betteraves
 it:barbabietola
 nl:biet, bieten
 carbon_footprint_fr_foodges_ingredient:fr: Betteraves
+carbon_footprint_fr_foodges_value:fr: 0.2
 wikidata:en: Q165437
 wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
 
@@ -58443,6 +58575,7 @@ uk:кабачок
 vi:bí ngòi
 zh:西葫芦
 carbon_footprint_fr_foodges_ingredient:fr: Courgette
+carbon_footprint_fr_foodges_value:fr: 0.7
 wikidata:en: Q7533
 wikipedia:en: https://en.wikipedia.org/wiki/Zucchini
 
@@ -58492,7 +58625,8 @@ sl:Kumara
 sv:Gurka
 za:lwgbieng
 zh:黄瓜
-carbon_footprint_fr_foodges_ingredient:fr: Concombre
+carbon_footprint_fr_foodges_ingredient:fr: Concombre serre chauffée
+carbon_footprint_fr_foodges_value:fr: 2.4
 wikidata:en: Q2735883
 wikipedia:en: https://en.wikipedia.org/wiki/Cucumber
 
@@ -58971,6 +59105,7 @@ wa:Porea
 yi:פארע-ציבעלע
 zh:韭葱
 carbon_footprint_fr_foodges_ingredient:fr: Poireau
+carbon_footprint_fr_foodges_value:fr: 0.3
 wikidata:en: Q1807269
 wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
@@ -59005,6 +59140,7 @@ tr:soğan
 vi:hành tây
 zh:洋葱
 carbon_footprint_fr_foodges_ingredient:fr: Oignons
+carbon_footprint_fr_foodges_value:fr: 0.6
 wikidata:en: Q3406628
 wikipedia:en: https://en.wikipedia.org/wiki/Onion
 
@@ -59138,6 +59274,7 @@ za:Majlingzsuz
 zh:馬鈴薯
 zu:Izambane
 carbon_footprint_fr_foodges_ingredient:fr: Pomme de terre
+carbon_footprint_fr_foodges_value:fr: 0.6
 wikidata:en: Q16587531
 wikipedia:en: https://en.wikipedia.org/wiki/Potato
 
@@ -59225,6 +59362,7 @@ yi:קירבעס
 za:namzgva
 zh:南瓜
 carbon_footprint_fr_foodges_ingredient:fr: Citrouille - Courges -Potiron
+carbon_footprint_fr_foodges_value:fr: 1.2
 wikidata:en: Q165308
 wikipedia:en: https://en.wikipedia.org/wiki/Pumpkin
 
@@ -59337,6 +59475,8 @@ wa:Rådisse
 yi:רעטעך
 za:lauxbaeg
 zh:萝卜
+carbon_footprint_fr_foodges_ingredient:fr: Radis serre chauffée
+carbon_footprint_fr_foodges_value:fr: 8.4
 wikidata:en: Q7224565 # for the plant
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
 
@@ -59381,6 +59521,8 @@ de:Salat
 fr:salade
 it:Insalata
 nl:sla, salade
+carbon_footprint_fr_foodges_ingredient:fr: Salade
+carbon_footprint_fr_foodges_value:fr: 0.8
 wikipedia:en: https://en.wikipedia.org/wiki/Salad
 
 < en:Vegetable
@@ -59556,6 +59698,7 @@ wa:Spinasse
 za:byaekbohcaiq
 zh:菠菜
 carbon_footprint_fr_foodges_ingredient:fr: Epinard
+carbon_footprint_fr_foodges_value:fr: 0.5
 wikidata:en: Q81464
 wikipedia:en: https://en.wikipedia.org/wiki/Spinach
 
@@ -59605,6 +59748,7 @@ za:makyungz
 zh:番茄
 zu:Utamatisi
 carbon_footprint_fr_foodges_ingredient:fr: Tomate destinée à l'industrie
+carbon_footprint_fr_foodges_value:fr: 0.5
 wikidata:en: Q20638126
 
 < en:Vegetable
@@ -59676,6 +59820,8 @@ ur:شلغم
 vi:Cải củ turnip
 yi:ברוקווע
 zh:芜菁
+carbon_footprint_fr_foodges_ingredient:fr: Navet
+carbon_footprint_fr_foodges_value:fr: 0.9
 wikidata:en: Q3916957
 wikipedia:en: https://en.wikipedia.org/wiki/Turnip
 
@@ -60050,6 +60196,7 @@ ru:рапсове масло
 sk:repkový olej
 sv:rapsolja
 carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
+carbon_footprint_fr_foodges_value:fr: 2.2
 wikidata:en: Q697248
 wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
 
@@ -60317,6 +60464,7 @@ vi:Dầu ô liu
 yi:שמן־זית
 zh:橄欖油
 carbon_footprint_fr_foodges_ingredient:fr: Huile d'olive
+carbon_footprint_fr_foodges_value:fr: 2.6
 wikidata:en: Q93165
 wikipedia:en: https://en.wikipedia.org/wiki/Olive_oil
 
@@ -60881,6 +61029,7 @@ fr:vinaigre de vin
 it:aceto di vino
 nl:wijnazijn
 carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
+carbon_footprint_fr_foodges_value:fr: 4.2
 
 < en:Vinegar
 en:xeres vinegar
@@ -62216,6 +62365,8 @@ yo:Omi
 za:Raemx
 zh:水
 zu:Amanzi
+carbon_footprint_fr_foodges_ingredient:fr: Eau en bouteille PET, plate, 0.5 L
+carbon_footprint_fr_foodges_value:fr: 0.4
 wikidata:en: Q283
 wikipedia:en: en.wikipedia.org/wiki/Water
 
@@ -62465,6 +62616,7 @@ fr:eau de cuisson
 < en:Water
 fr:Eau du robinet
 carbon_footprint_fr_foodges_ingredient:fr: Eau du robinet
+carbon_footprint_fr_foodges_value:fr: 0
 
 < de:Grieß
 < en:Wheat
@@ -62476,6 +62628,8 @@ fr:semoule de blé
 it:semolino di frumento
 nl:tarwegries
 pt:sêmola de trigo
+carbon_footprint_fr_foodges_ingredient:fr: Semoule de blé dur
+carbon_footprint_fr_foodges_value:fr: 0.6
 wikidata:en: Q381350
 wikipedia:en: https://en.wikipedia.org/wiki/Semolina
 
@@ -62770,6 +62924,7 @@ fr:whisky écossais
 < en:White beans
 fr:haricots blancs secs trempés
 carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve -type cassoulet-
+carbon_footprint_fr_foodges_value:fr: 2
 
 < en:White cabbage
 en:sauerkraut
@@ -63261,6 +63416,7 @@ fr:vin aromatisé
 < en:Wine
 fr:vin de France, vin français
 carbon_footprint_fr_foodges_ingredient:fr: Vin France
+carbon_footprint_fr_foodges_value:fr: 1.4
 
 < en:Wine
 fr:vin doux naturel
@@ -63485,6 +63641,7 @@ fr:yaourt
 it:yogurt
 nl:Joghurt
 carbon_footprint_fr_foodges_ingredient:fr: Yaourt
+carbon_footprint_fr_foodges_value:fr: 2.9
 
 < en:Yogurt
 en:mild yogurt
@@ -63827,6 +63984,7 @@ pt:chicória solúvel
 
 fr:Chou pommé, Chou cabus
 carbon_footprint_fr_foodges_ingredient:fr: Chou pommé
+carbon_footprint_fr_foodges_value:fr: 0.8
 
 < fr:Concentré de carotte et de citrouille
 de:Färbende Konzentrate Karotte und Kürbis
@@ -64117,6 +64275,7 @@ fr:maïs doux en grains sans ogm
 
 fr:margarine
 carbon_footprint_fr_foodges_ingredient:fr: Margarine
+carbon_footprint_fr_foodges_value:fr: 2.7
 
 fr:margarine végétale
 
@@ -64237,6 +64396,7 @@ fr:pain de mie au blé malté
 
 fr:pâte à tarte
 carbon_footprint_fr_foodges_ingredient:fr: Pâte à tarte
+carbon_footprint_fr_foodges_value:fr: 7.3
 
 < fr:Pétales de blé
 en:whole wheat flakes
@@ -64300,6 +64460,7 @@ fr:saucisses de toulouse grillées
 
 fr:saucisson de porc
 carbon_footprint_fr_foodges_ingredient:fr: Saucisson de porc
+carbon_footprint_fr_foodges_value:fr: 5.1
 
 < fr:Semoule blanche de blé dur
 fr:semoule de blé dur blanche biologique
@@ -64357,6 +64518,7 @@ en:veal meat
 de:Kalbsfleisch
 fr:viande de veau
 carbon_footprint_fr_foodges_ingredient:fr: Viande de veau France
+carbon_footprint_fr_foodges_value:fr: 20.5
 
 
 < fr:Viande de porc traitée en salaison
