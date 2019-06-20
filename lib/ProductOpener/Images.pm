@@ -1143,11 +1143,10 @@ sub _set_magickal_options($$) {
 
 }
 
-sub display_image_thumb($$$) {
+sub display_image_thumb($$) {
 
 	my $product_ref = shift;
 	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc]
-	my $lazyload = shift;
 
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -1180,22 +1179,10 @@ sub display_image_thumb($$$) {
 			my $rev = $product_ref->{images}{$id}{rev};
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
-
-			if ($lazyload) {
 				$html .= <<HTML
-<img src="$static/images/misc/pacman.svg" data-src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" data-srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" class="lazyload" />
-<noscript>
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
-</noscript>
+<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" />
 HTML
 ;
-			}
-			else {
-				$html .= <<HTML
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
-HTML
-;
-			}
 
 			last;
 		}
@@ -1270,34 +1257,22 @@ sub display_image($$$) {
 
 			# add srcset with 2x image only if the 2x image exists
 			my $srcset = '';
-			my $srcsetns = '';
 			if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
-				$srcsetns = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
-				$srcset = "data-" . $srcsetns;
+				$srcset = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
 			}
 
 			$html .= <<HTML
-<img class="hide-for-xlarge-up lazyload" src="/images/misc/pacman.svg" data-src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" />
-HTML
-;
-			$noscript .= <<HTML
-<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcsetns width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" />
+<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 ;
 
 			$srcset = '';
-			$srcsetns = '';
 			if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
-				$srcsetns = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
-				$srcset = "data-" . $srcsetns;
+				$srcset = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
 			}
 
 			$html .= <<HTML
-<img class="show-for-xlarge-up lazyload" src="/images/misc/pacman.svg" data-src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" />
-HTML
-;
-			$noscript .= <<HTML
-<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcsetns width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" />
+<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 ;
 
@@ -1322,7 +1297,7 @@ $html
 </a>
 <div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle_$id" aria-hidden="true" role="dialog" about="$full_image_url" >
 <h2 id="modalTitle_$id">$title</h2>
-<img src="/images/misc/pacman.svg" data-src="$full_image_url" alt="$alt" itemprop="contentUrl" class="lazyload" />
+<img src="$full_image_url" alt="$alt" itemprop="contentUrl" loading="lazy" />
 <a class="close-reveal-modal" aria-label="Close" href="#">&#215;</a>
 <meta itemprop="representativeOfPage" content="$representative_of_page"/>
 <meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/3.0/"/>

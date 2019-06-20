@@ -3802,7 +3802,7 @@ HTML
 			my $img_h;
 
 			my $code = $product_ref->{code};
-			my $img = display_image_thumb($product_ref, 'front', 1);	# lazyload
+			my $img = display_image_thumb($product_ref, 'front');
 
 
 
@@ -4526,7 +4526,7 @@ sub display_scatter_plot($$$) {
 				}
 				$data{product_name} = $product_ref->{product_name};
 				$data{url} = $url;
-				$data{img} = display_image_thumb($product_ref, 'front', 0);	# no lazyload
+				$data{img} = display_image_thumb($product_ref, 'front');
 
 				defined $series{$seriesid} or $series{$seriesid} = '';
 				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
@@ -5353,7 +5353,7 @@ JS
 				$origins = $manufacturing_places . $origins;
 
 				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
-					. escape_single_quote(display_image_thumb($product_ref, 'front', 0)) . "', origins:'" . $origins . "'";	# no lazyload
+					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";
 
 
 
@@ -6184,8 +6184,6 @@ HTML
 <div id="fb-root"></div>
 
 <script src="$static_subdomain/js/dist/modernizr.js"></script>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-<script src="$static_subdomain/js/dist/iolazy.min.js" defer></script>
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
 
@@ -6242,8 +6240,6 @@ function doWebShare(e) {
 }
 
 function onLoad() {
-	new IOlazy();
-
 	var buttons = document.getElementsByClassName('share_button');
 	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
 
