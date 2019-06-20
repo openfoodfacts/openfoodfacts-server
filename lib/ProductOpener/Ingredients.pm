@@ -199,10 +199,6 @@ sub compute_carbon_footprint_from_ingredients($) {
 			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 			add_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
 		}
-		else {
-			remove_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
-		}
-
 	}
 }
 
@@ -218,7 +214,7 @@ sub compute_carbon_footprint_from_meat_or_fish($) {
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"};
 	}
 	
-	remove_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
+	remove_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
 
 	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
 
@@ -268,7 +264,6 @@ sub compute_carbon_footprint_from_meat_or_fish($) {
 
 		my $carbon_footprint = 0;
 
-
 		foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 
 			$log->debug("compute_carbon_footprint_from_meat_or_fish", { id =>  $ingredient_ref->{id} }) if $log->is_debug();
@@ -299,9 +294,6 @@ sub compute_carbon_footprint_from_meat_or_fish($) {
 			$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} =~ s/ - $//;
 			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 			add_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
-		}
-		else {
-			remove_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
 		}
 	}
 }
