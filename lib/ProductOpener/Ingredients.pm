@@ -1195,6 +1195,7 @@ sub preparse_ingredients_text($$) {
 	my $text = shift;
 
 	$text =~ s/\&quot;/"/g;
+	$text =~ s/’/'/g;
 
 	# vitamins...
 	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait)
@@ -1316,6 +1317,7 @@ sub preparse_ingredients_text($$) {
 "lécithine",
 
 "carbonate",
+"carbonates acides",
 "chlorure",
 "citrate",
 "iodure",
