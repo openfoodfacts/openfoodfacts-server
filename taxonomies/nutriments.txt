@@ -4058,7 +4058,7 @@ international_unit:en: 0.025, # 1 IU is the biological equivalent of 25 ng chole
 # 'vitamin-e' => {
 #fr:Vitamine E (tocophérol)
 # fr_synonyms => ["Vitamine E "tocophérol"],
-<en:vitamins
+# <en:vitamins
 en:tocoferol, vitamin e
 af:Vitamien E
 ar:فيتامين إي
@@ -4136,35 +4136,88 @@ unit:en:mg
 daily_value:en:20,
 daily_value_2016:en:15,
 international_unit:en: 2/3, # 1 IU is the biological equivalent of about 0.667 mg d-alpha-tocopherol (2/3 mg exactly), or of 0.45 mg of dl-alpha-tocopherol acetate.[8][9]
- 
-'vitamin-k' => {
-fr:Vitamine K
-en:Vitamin K
-es:Vitamina K
-ja:ビタミン K
-it:Vitamina K
-pt:Vitamina K
-de:Vitamin K
-he:ויטמין K (מנדיון)
-ga:Vitimín K
-el:Βιταμίνη K
-fi:K-vitamiini
-nl:Vitamine K
-nl_be:Vitamine K
-lv:K vitamīns
-et:Vitamiin K
-hu:K-vitamin
-pl:Witamina K
-lt:Vitaminas K
-mt:Vitamina K
-sk:Vitamín K
-ro:Vitamina K
+
+# description:en:VITAMIN K is a group of structurally similar, fat-soluble vitamins that the human body requires for complete synthesis of certain proteins that are prerequisites for blood coagulation and which the body also needs for controlling binding of calcium in bones and other tissues.
+
+#'vitamin-k' => {
+# <en:vitamins
+en:vitamin K
+af:Vitamien K
+ar:فيتامين ك
+az:K vitamini
 bg:Витамин K
+bs:Vitamin K
+ca:Vitamina K
+cs:vitamín K
+da:Vitamin K
+de:Vitamin K
+dv:ވިޓަމިން ކޭ
+es:Vitamina K
+eu:K bitamina
+fa:ویتامین کا
+fi:K-vitamiinit
+fr:vitamine K
+gl:Vitamina K
+he:ויטמין K
+hi:विटामिन के
+hr:Vitamin K
+hu:k vitamin
+hy:Վիտամին K
+id:Vitamin K
+is:K-vítamín
+it:vitamina K
+ja:ビタミンK
+jv:Vitamin K
+ka:ვიტამინი K
+ko:비타민 K
+ky:Витамин К
+lt:Vitaminas K
+lv:K vitamīns
+ml:ജീവകം കെ
+mr:के-जीवनसत्त्व
+ms:Vitamin K
+my:ဗီတာမင်ကေ
+nb:Vitamin K
+ne:भिटामिन के
+nl:vitamine K
+nn:Vitamin K
+oc:Vitamina K
+pl:Witamina K
+pt:vitamina K
+ro:Vitamina K
+ru:Витамин K
+sh:Vitamin K
+sl:Vitamin K
+sr:витамин К
+su:Vitamin K
+sv:K-vitamin
+ta:உயிர்ச்சத்து கே
+th:วิตามินเค
+tr:K vitamini
+uk:Вітамін K
+vi:Vitamin K
 zh:维生素K
+# ast:Vitamina K
+# nan:Bî-tá-mín K
+# sco:Vitamin K
+# sr-ec:витамин К
+# sr-el:vitamin K
+# tyv:Витамин К
+# zh-cn:维生素K
+# zh-hans:维生素K
+# zh-hant:维生素K
+# zh-hk:维生素K
+# zh-sg:维生素K
+# zh-tw:维生素K
+wikidata:en:Q182338
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_K
 unit:en:µg
 daily_value:en:80,
 daily_value_2016:en:120,
- 
+
+# description:en:VITAMIN C is a vitamin found in various foods and sold as a dietary supplement. It is used to prevent and treat scurvy. Vitamin C is an essential nutrient involved in the repair of tissue and the enzymatic production of certain neurotransmitters. The richest natural sources are fruits and vegetables.
+
+# <en:vitamins
 en:Vitamin C, ascorbic acid, E300, E 300, E-300
 af:Vitamien C
 ar:فيتامين سي
