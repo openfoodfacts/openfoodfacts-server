@@ -4052,33 +4052,86 @@ unit:en:µg
 daily_value:en:40,
 daily_value_2016:en:20,
 international_unit:en: 0.025, # 1 IU is the biological equivalent of 25 ng cholecalciferol/ergocalciferol
- 
-'vitamin-e' => {
-fr:Vitamine E (tocophérol)
-fr_synonyms => ["Vitamine E "tocophérol"],
-en:Vitamin E
-ja:ビタミン E
-es:Vitamina E (a-tocoferol)
-it:Vitamina E (Alfa-tocoferolo)
-pt:Vitamina E
-de:Vitamin E (Tocopherol)
-he:ויטמין E (אלפא טוקופרול)
-ga:Vitimín E
-el:Βιταμίνη E
-fi:E-vitamiini
-nl:Vitamine E
-nl_be:Vitamine E
-lv:E vitamīns
-et:Vitamiin E
-hu:E-vitamin
-pl:Witamina E
-lt:Vitaminas E
-mt:Vitamina E
-sk:Vitamín E
-ro:Vitamina E
-bg:Витамин E
-zh:维生素E
 
+# description:en:VITAMIN E is a group of eight fat soluble compounds that include four tocopherols and four tocotrienols. In order to distinguish between the vitamin and antioxidant role, vitamin E is call tocoferol. The oxidant is called Tocopherol-rich extract or E306.
+
+# 'vitamin-e' => {
+#fr:Vitamine E (tocophérol)
+# fr_synonyms => ["Vitamine E "tocophérol"],
+<en:vitamins
+en:tocoferol, vitamin e
+af:Vitamien E
+ar:فيتامين إي
+bg:Токоферол, Витамин Е
+ca:Tocoferol, vitamina E
+cs:tokoferol, vitamín E
+da:Vitamin E
+de:Vitamin E
+dv:ވިޓަމިން އީ
+el:τοκοφερολεσ
+eo:Tokoferolo, vitamino E
+es:vitamina e
+et:Tokoferoolid, E-vitamiin, Vitamiin E
+eu:E bitamina
+fa:ویتامین ای
+fi:Tokoferoli, E-vitamiini
+fr:tocophérol, tocophérol, vitamine e, vitamines e
+gl:Vitamina E
+he:E ויטמין
+hi:विटामिन ई
+hr:vitamin E
+hy:Վիտամին E
+id:Vitamin E
+it:vitamina E
+ja:ビタミンE
+jv:Vitamin E
+ka:ვიტამინი E
+kk:Е дәрумені
+ko:비타민 E
+ky:Витамин Е
+lt:Tokoferolis, Vitaminas E
+lv:E vitamīns
+mk:vitamin e
+ml:ജീവകം ഇ
+mr:इ-जीवनसत्त्व
+mt:tokoferol
+nb:vitamin E
+ne:भिटामिन ई
+nl:Tocoferol, vitamine E
+nn:vitamin E, E-vitamin
+oc:Vitamina E
+pa:ਵਿਟਾਮਿਨ ਈ
+pl:witamina E
+pt:vitamina E
+ru:токоферол, витамин E
+sh:Vitamin E
+si:විටමින් E
+sk:vitamín E
+sl:Tokoferol, vitamin E
+sr:vitamin E
+sv:Vitamin E
+ta:உயிர்ச்சத்து ஈ
+te:vitamin e
+th:วิตามินอี
+tr:Tokoferol, E vitamini
+ug:ۋىتامىنE
+uk:Вітамін E
+vi:Vitamin E
+zh:维生素E
+# ast:Vitamina Y
+# pt-br:vitamina E
+# sco:vitamin E
+# sr-ec:витамин Е
+# sr-el:vitamin E
+# tyv:витамин Е
+# zh-cn:维生素E
+# zh-hans:维生素E
+# zh-hant:维生素E
+# zh-hk:维生素E
+# zh-sg:维生素E
+# zh-tw:维生素E
+wikidata:en:Q141180
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_E
 unit:en:mg
 daily_value:en:20,
 daily_value_2016:en:15,
