@@ -87,8 +87,12 @@ else {
 		if (not ($search_lc eq $original_lc)) {
 			$tag = $search_lc . ":" . $tag;
 		}
-
-		push @suggestions, $tag;
+		if ($tag =~ /^$stringid/) {
+			push @suggestions, $tag;
+		}
+		else {
+			unshift @suggestions, $tag;
+		}
 		last if ++$i >= $limit;
 	}
 }
