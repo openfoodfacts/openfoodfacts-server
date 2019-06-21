@@ -4407,6 +4407,7 @@ daily_value_2016:en:1.2,
 # description:en:RIBOFLAVIN, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement. Food sources include eggs, green vegetables, milk and other dairy product, meat, mushrooms, and almonds. Some countries require its addition to grains. As a supplement it is used to prevent and treat riboflavin deficiency and prevent migraines.
 # comment:en:riboflavine is also in ingredients.txt
 
+# <en:vitamins
 en:Riboflavin, vitamin b2, E101
 af:Riboflavien
 ar:فيتامين ب2
@@ -4496,8 +4497,10 @@ unit:en:mg
 daily_value:en:1.7,
 daily_value_2016:en:1.3,
 
+# description:en:NIACIN is an organic compound and a form of vitamin B3, an essential human nutrient. Niacin is obtained in the diet from a variety of whole and processed foods, with highest contents in fortified packaged foods, tuna, some vegetable and other animal sources. Some countries require its addition to grains. Supplemental niacin is primarily used to treat high blood cholesterol and pellagra (niacin deficiency).
 # comment:en:niacin is also in ingredients.txt
 
+# <en:vitamins
 en:niacin, vitamin b3, vitamin PP, E375, B3
 af:Niasien
 ar:نياسين
@@ -4540,8 +4543,10 @@ unit:en:mg
 daily_value:en:20,
 daily_value_2016:en:16,
 
+# description:en:VITAMIN B6 is part of the vitamin B group of essential nutrients.Foods that contain large amounts of vitamin B6 include: fortified breakfast cereals, pork, turkey, beef, bananas, chickpeas, dark chocolate, potatoes,pistachios.
 # vitamin b6 is also in ingredients.txt
 
+# <en:vitamins
 en:vitamin b6, pyridoxamine
 ar:فيتامين بي6
 # ast:Vitamina B6
