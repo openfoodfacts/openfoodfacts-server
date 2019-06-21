@@ -795,6 +795,12 @@ es => [
 'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
 ],
 
+
+hu => [
+'(Ö|O|0)SSZETEVOK(\s*)(\s|-|:|\r|\n)+',
+],
+
+
 pt => [
 
 'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
