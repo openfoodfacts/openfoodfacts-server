@@ -8731,6 +8731,7 @@ sub display_product_api($)
 	my $product_ref = retrieve_product($code);
 
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
+		$request_ref->{status} = 404;
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
 		if ($request_ref->{jqm}) {
@@ -9030,6 +9031,11 @@ sub display_structured_response($)
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 		. $xs->XMLout($request_ref->{structured_response}); 	# noattr -> force nested elements instead of attributes
 
+		my $status = $request_ref->{status};
+		if (defined $status) {
+			print header ( -status => $status );
+		}
+
 		print header( -type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
 
 	}
@@ -9050,6 +9056,11 @@ sub display_structured_response($)
 
 		$jsonp =~ s/[^a-zA-Z0-9_]//g;
 
+		my $status = $request_ref->{status};
+		if (defined $status) {
+			print header ( -status => $status );
+		}
+
 		if (defined $jsonp) {
 			print header( -type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $jsonp . "(" . $data . ");" ;
 		}
@@ -9057,6 +9068,10 @@ sub display_structured_response($)
 			print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 		}
 	}
+
+	my $r = Apache2::RequestUtil->request();
+	$r->rflush;
+	$r->status(200);
 
 	exit();
 }
