@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-06-03 01:55\n"
+"PO-Revision-Date: 2019-06-21 15:48\n"
 "Language-Team: Polish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -961,8 +961,8 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Dostepny w App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -3216,19 +3216,19 @@ msgstr "Ślad węglowy mięsa lub ryb"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
-msgstr ""
+msgstr "emisji dwutlenku węgla z mięsa lub ryb dla całego produktu"
 
 msgctxt "of_sustainable_daily_emissions_of_1_person"
 msgid "of sustainable daily emissions of 1 person"
-msgstr ""
+msgstr "zrównoważonej dziennej emisji 1 osoby"
 
 msgctxt "of_sustainable_weekly_emissions_of_1_person"
 msgid "of sustainable weekly emissions of 1 person"
-msgstr ""
+msgstr "zrównoważonej tygodniowej emisji 1 osoby"
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "dla jednej porcji"
 
 msgctxt "methodology"
 msgid "Methodology"
@@ -3236,23 +3236,23 @@ msgstr "Metodologia"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
-msgstr ""
+msgstr "Obliczenia emisji dwutlenku węgla opierają się na wartościach CO<sub>2</sub> na kg z programu FoodGES agencji <a href=\"https://www.ademe.fr\">ADEME</a>."
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
-msgstr ""
+msgstr "Zrównoważone emisje roczne: 2 tony ekwiwalentu CO<sub>2</sub> na osobę, aby osiągnąć cele wyznaczone w COP21."
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr ""
+msgstr "Obliczenia śladu węglowego mają dużą niepewność. Wartości powinny być traktowane z ostrożnością i są one bardziej przeznaczone do celów porównawczych niż jako wartości bezwzględne."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "Zbyt wiele produktów (%d produktów, limit wynosi %d) do eksportowania, zamiast tego pobierz <a href=\"/data\">eksport całej bazy danych</a>."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Pomóż przetłumaczyć %s na %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
@@ -3260,11 +3260,11 @@ msgstr ""
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "Pokaż tylko wpisy bez oczekujących tłumaczeń."
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "Pokaż także wpisy z oczekującymi tłumaczeniami od Ciebie lub innych użytkowników."
 
 msgctxt "translated"
 msgid "translated"
@@ -3272,7 +3272,7 @@ msgstr "przetłumaczone"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "do przetłumaczenia"
 
 msgctxt "current_translation"
 msgid "Current translation"
@@ -3289,4 +3289,12 @@ msgstr "Nie"
 msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr "Pomiń"
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr ""
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr ""
 
