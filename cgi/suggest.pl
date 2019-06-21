@@ -61,7 +61,8 @@ if ($term =~ /^(\w\w):/) {
 	$term = $';
 }
 
-my @suggestions = ();
+my @suggestions = (); # Suggestions starting with the term
+my @suggestions_c = (); # Suggestions containing the term
 
 my $limit = 25;
 my $i = 0;
@@ -87,16 +88,16 @@ else {
 		if (not ($search_lc eq $original_lc)) {
 			$tag = $search_lc . ":" . $tag;
 		}
-		if ($tag =~ /^$stringid/) {
+		if ($tag =~ /^$stringid/i) {
 			push @suggestions, $tag;
 		}
 		else {
-			unshift @suggestions, $tag;
+			push @suggestions_c, $tag;
 		}
 		last if ++$i >= $limit;
 	}
 }
-
+push @suggestions, @suggestions_c;
 my $data =  encode_json(\@suggestions);
 
 print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
