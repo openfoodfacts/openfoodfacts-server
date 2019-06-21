@@ -1,6 +1,6 @@
 'use strict'
 
-const { src, dest, series } = require('gulp')
+const { src, dest, series, parallel } = require('gulp')
 const sass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const minifyCSS = require('gulp-csso')
@@ -42,6 +42,26 @@ function css() {
     .pipe(dest('./html/css/dist'))
 }
 
+function js() {
+  return src([
+      './node_modules/foundation-sites/js/vendor/*.js',
+      './node_modules/foundation-sites/js/foundation.min.js',
+      './node_modules/jqueryui/jquery-ui.min.js',
+      './node_modules/papaparse/papaparse.min.js',
+      './node_modules/osmtogeojson/osmtogeojson.js',
+      './node_modules/leaflet/dist/**/*.*',
+      './node_modules/leaflet.markercluster/dist/**/*.*',
+      './node_modules/iolazyload/dist/js/iolazy.min.js'
+    ], { sourcemaps: true })
+    .pipe(dest('./html/js/dist', { sourcemaps: true }))
+}
+
+function jQueryUiThemes() {
+  return src('./node_modules/jqueryui/themes/base/**/*.css', { sourcemaps: true })
+    .pipe(dest('./html/css/dist/jqueryui/themes/base', { sourcemaps: true }))
+}
+
+exports.js = js
 exports.css = css
 exports.icons = icons
-exports.default = series(icons, css)
+exports.default = parallel(js, jQueryUiThemes, series(icons, css))
