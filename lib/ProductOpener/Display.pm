@@ -6130,7 +6130,6 @@ HTML
 
 <script src="$static_subdomain/bower_components/foundation/js/foundation.min.js"></script>
 <script src="$static_subdomain/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
-<script async defer src="$static_subdomain/bower_components/ManUp.js/manup.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 $scripts
 <script>
