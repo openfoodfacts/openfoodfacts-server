@@ -6821,35 +6821,40 @@ unit:en:mg
 daily_value:en:2,
 daily_value_2016:en:2.3,
 
+# description:en:FLUORIDE is an inorganic, monatomic anion with the chemical formula F−. In areas where water is fluoridated the daily intake can be expected to be a significant source of fluoride, however fluoride is also naturally present in virtually all foods and beverages at a wide range of concentrations.
+# comment:en:NB this is NOT the element Fluor. Maybe these must be written in plural.
+
 # <en:Mineral
 en:Fluoride
 bg:Флуорид
-cs:Fluor
+ca:fluorur
 da:Fluorid
-de:Fluor
-el:Φθόριο
-es:Flúor
+de:Fluoride
+el:φθοριούχα άλατα
+eo:fluorido
+es:fluoruro
 et:Fluoriid
 fi:Fluoridi
 fr:Fluorure
 ga:Fluairíd
 he:פלואוריד
-hu:Fluor
-it:Fluoro
+it:fluoruro
+ja:フッ化物
 lt:Fluoridas
 lv:Fluorīds
 mt:Floridu
-nl:Fluor
-pl:Fluor
+nl:fluroride
+nn:fluorid
 pt:Fluoreto
 ro:Fluorură
 sk:Fluorid
 sl:Fluorid
 sv:Fluorid
 unit:en:mg
+wikidata:en:Q44793182
+wikipedia:en:https://en.wikipedia.org/wiki/Fluoride
 
-
-# description:en:Selenium is a chemical element with symbol Se and atomic number 34. 
+# description:en:Selenium is a chemical element with symbol Se and atomic number 34. 
 # comment:en:Selenium is also in ingredients.txt
 
 en:Selenium, Sn
