@@ -410,6 +410,30 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		push @new_nutriments, "new_$i";
 	}
 
+	# fix_salt_equivalent always prefers the 'salt' value of the product by default
+	# the 'sodium' value should be preferred, though, if the 'salt' parameter is not
+	# present. Therefore, delete the 'salt' value and let it be fixed by
+	# fix_salt_equivalent afterwards.
+	foreach my $product_type ("", "_prepared") {
+		my $saltnid = "salt${product_type}";
+		my $sodiumnid = "sodium${product_type}";
+
+		my $salt = param("nutriment_${saltnid}");
+		my $sodium = param("nutriment_${sodiumnid}");
+
+		if (((not defined $salt) or ($salt eq ''))
+			and (defined $sodium) and ($sodium ne ''))
+		{
+			delete $product_ref->{nutriments}{$saltnid};
+			delete $product_ref->{nutriments}{$saltnid . "_unit"};
+			delete $product_ref->{nutriments}{$saltnid . "_value"};
+			delete $product_ref->{nutriments}{$saltnid . "_modifier"};
+			delete $product_ref->{nutriments}{$saltnid . "_label"};
+			delete $product_ref->{nutriments}{$saltnid . "_100g"};
+			delete $product_ref->{nutriments}{$saltnid . "_serving"};
+		}
+	}
+
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
 		next if $nutriment =~ /^\#/;
 
@@ -511,7 +535,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 
 	}
-
 
 	# product check
 
