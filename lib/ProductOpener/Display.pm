@@ -3188,9 +3188,9 @@ JS
 
 	if ((scalar @map_layers) > 0) {
 		$header .= <<HTML
-	<link rel="stylesheet" href="$static_subdomain/bower_components/leaflet/dist/leaflet.css">
-	<script src="$static_subdomain/bower_components/leaflet/dist/leaflet.js"></script>
-	<script src="$static_subdomain/bower_components/osmtogeojson/osmtogeojson.js"></script>
+	<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
+	<script src="$static_subdomain/js/dist/leaflet.js"></script>
+	<script src="$static_subdomain/js/dist/osmtogeojson.js"></script>
 	<script src="$static_subdomain/js/display-tag.js"></script>
 HTML
 ;
@@ -5321,11 +5321,11 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML
-<link rel="stylesheet" href="$static_subdomain/bower_components/leaflet/dist/leaflet.css">
-<script src="$static_subdomain/bower_components/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" href="$static_subdomain/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
-<link rel="stylesheet" href="$static_subdomain/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
-<script src="$static_subdomain/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
+<script src="$static_subdomain/js/dist/leaflet.js"></script>
+<link rel="stylesheet" href="$static_subdomain/js/dist/MarkerCluster.css">
+<link rel="stylesheet" href="$static_subdomain/js/dist/MarkerCluster.Default.css">
+<script src="$static_subdomain/js/dist/leaflet.markercluster.js"></script>
 HTML
 ;
 
@@ -5740,7 +5740,7 @@ $og_images2
 <meta property="og:description" content="$canon_description">
 $options{favicons}
 <link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
-<link rel="stylesheet" href="$static_subdomain/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 <style media="all">
@@ -6104,11 +6104,11 @@ HTML
 
 <div id="fb-root"></div>
 
-<script src="$static_subdomain/bower_components/foundation/js/vendor/modernizr.js"></script>
+<script src="$static_subdomain/js/dist/modernizr.js"></script>
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-<script src="$static_subdomain/bower_components/iolazyload/dist/js/iolazy.min.js" defer></script>
-<script src="$static_subdomain/bower_components/foundation/js/vendor/jquery.js"></script>
-<script src="$static_subdomain/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="$static_subdomain/js/dist/iolazy.min.js" defer></script>
+<script src="$static_subdomain/js/dist/jquery.js"></script>
+<script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
 
 <script>
 \$(function() {
@@ -6128,8 +6128,8 @@ HTML
 });
 </script>
 
-<script src="$static_subdomain/bower_components/foundation/js/foundation.min.js"></script>
-<script src="$static_subdomain/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
+<script src="$static_subdomain/js/dist/foundation.min.js"></script>
+<script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 $scripts
 <script>
@@ -6239,7 +6239,7 @@ HTML
 
 	# Use static subdomain for images, js etc.
 	my $static = format_subdomain('static');
-	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|foundation|bower_components)\//$static\/$1\//g;
+	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|css)\//$static\/$1\//g;
 	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
 	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
