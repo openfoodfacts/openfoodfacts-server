@@ -5923,6 +5923,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phosphorus
 # description:en: IRON is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. Iron is pervasive, but particularly rich sources of dietary iron include red meat, oysters, lentils, beans, poultry, fish, leaf vegetables, watercress, tofu, chickpeas, black-eyed peas, and blackstrap molasses. Iron provided by dietary supplements is often found as iron(II) fumarate, although iron(II) sulfate is cheaper and is absorbed equally well.
 # comment:en:Iron is also in ingredients.txt
 
+# <en:Mineral
 en:Iron
 af:yster
 am:ብረት
@@ -6131,31 +6132,167 @@ daily_value_2016:en:18,
 unit:en-us:% DV
 unit:en-ca:% DV
 
+# description:en:MAGNESIUM is a chemical element with symbol Mg and atomic number 12. The important interaction between phosphate and magnesium ions makes magnesium essential to the basic nucleic acid chemistry of all cells of all known living organisms. Spices, nuts, cereals, cocoa and vegetables are rich sources of magnesium. Green leafy vegetables such as spinach are also rich in magnesium.
+
 # comment:en:Magnesium is also in ingredients.txt
 
+# <en:Mineral
 en:Magnesium
+af:magnesium
+am:ማግኒዥየም
+an:Magnesio
+ar:مغنسيوم
+az:Maqnezium
+be:магній
 bg:Магнезий
+bn:ম্যাগনেসিয়াম
+bo:དཀར་གཡའ།
+br:Magneziom
+bs:magnezij
+ca:magnesi
+co:Magnesiu
 cs:Hořčík
+cv:Магни
+cy:Magnesiwm
+da:magnesium
 de:Magnesium
+dv:މެގްނީޒިއަމް
 el:Μαγνήσιο
+eo:magnezio
 es:Magnesio
 et:Magneesium
+eu:magnesio
+fa:منیزیم
+fo:Magnesium
 fr:Magnésium
+fy:Magnesium
 ga:Maignéisiam
+gd:Magnesium
+gl:magnesio
+gu:મેગ્નેશિયમ
+gv:Magnaishum
 he:מגנזיום
+hi:मैग्नेशियम तत्त्व
+hr:magnezij
+ht:Manyezyòm
 hu:Magnézium
+hy:մագնեզիումia:magnesium
+id:magnesium
+io:magnezo
+is:magnesín
 it:Magnesio
 ja:マグネシウム
+jv:Magnesium
+ka:მაგნიუმი
+ki:Magnesium
+kk:Магний
+km:ម៉ាញ៉េស្យូម
+kn:ಮ್ಯಗ್ನೀಶಿಯಮ್
+ko:마그네슘
+ku:Magnezyûm
+kv:Магний
+ky:Магний
+la:magnesium
+lb:Magnesium
+li:Magnesium
+ln:Manezu
 lt:Magnis
 lv:Magnijs
+mi:konupora
+mk:Магнезиум
+ml:മഗ്നീഷ്യം
+mn:Магни
+mr:मॅग्नेशियम
+ms:Magnesium
 mt:Manjesju
+my:မဂ္ဂနီစီယမ်
+nb:magnesium
+ne:म्याग्नेसियम
 nl:Magnesium
+nn:magnesium
+nv:Béésh Łikoní
+oc:Magnèsi
+or:ମାଗ୍ନେସିଅମ
+pa:ਮੈਗਨੇਸ਼ਿਅਮ
+pi:म्याग्नेजियम
 pl:Magnez
 pt:Magnésio
+qu:Qunta q'illay
 ro:Magneziu
+ru:магний
+sa:म्याग्नेजियम
+sh:Magnezij
+si:මැග්නීසියම්
 sk:Horčík
 sl:Magnezij
-zh:鎂
+so:Magniisiyaam
+sq:Magneziumi
+sr:магнезијум
+su:Magnésium
+sv:magnesium
+sw:Magnesi
+ta:மக்னீசியம்
+te:మెగ్నీషియం
+tg:Магний
+th:แมกนีเซียม
+tl:Magnesyo
+tr:magnezyum
+tt:Магний
+ug:ماگنىي
+uk:магній
+uz:Magniy
+vi:magiê
+yi:מאגנעזיום
+yo:Magnésíọ̀mù
+zh:镁
+# ast:Magnesiu
+# azb:منیزیوم
+# be-tarask:магн
+# bho:म्याग्नेजियम
+# cdo:Mī
+# ceb:Magnesyo
+# ckb:ماگنیسیۆم
+# csb:Magnez
+# de-ch:Magnesium
+# en-ca:Magnesium
+# en-gb:Magnesium
+# frr:Magnesium
+# fur:Magnesi
+# gan:鎂
+# hak:Mî
+# haw:Makanekiuma
+# hif:Magnesium
+# jbo:lidgusyjinme
+# kbp:Mañɩzɩyɔm
+# lfn:magnesio
+# lij:Magnesio
+# lmo:Magnesio
+# lzh:鎂
+# mdf:Магнезь
+# mrj:Магний
+# nan:Magnesium
+# nds:Magnesium
+# new:म्याग्नेजियम
+# olo:Magnii
+# pms:Magnesi
+# pnb:میگنیشیم
+# pt-br:magnésio
+# rup:Magneziu
+# sah:Магнезиум
+# scn:magnesiu
+# sco:magnesium
+# sr-ec:магнезијум
+# stq:Magnesium
+# vep:Magnii
+# war:Magnesyo
+# wuu:镁
+# xal:Маңһанис
+# yue:鎂
+# zh-cn:镁
+# zh-hans:镁
+# zh-hant:鎂
+# zh-hk:鎂
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium
 unit:en:mg
 daily_value:en:400,
 daily_value_2016:en:420,
