@@ -98,6 +98,9 @@ sub get_fileid($) {
 	# turn characters that are not letters and numbers to -
 	# except extended UTF-8 characters
 	# $file =~ s/[^a-z0-9-]/-/g;
+
+	# turn special chars to -
+	$file =~ s/[\000-\037]/-/g;
 	
 	# avoid turning &quot; in -quot-
 	$file =~ s/\&(quot|lt|gt);/-/g;	
