@@ -4622,9 +4622,23 @@ unit:en:mg
 daily_value:en:2.0,
 daily_value_2016:en:1.7,
 
+
+# comment:en:folates = total folates = naturally occuring folates + added folic acid
+
+# <en:vitamins
+en:Folates (total folates)
+cs:folát
+el:Φολασίνη
+fr:Folates (folates totaux)
+ms:Folat
+nn:folat
+unit:en:µg
+daily_value:en:400,
+daily_value_2016:en:400,
 # description:en:FOLIC ACID is one of the B vitamins. Not consuming enough folate can lead to folate deficiency. This may result in a type of anemia in which low numbers of large red blood cells occur. Plant sources that contain folic acid with high doses are: peanuts, sunflower seed kernels, lentils, chickpeas, aparagus, spinach, lettuce, soy beans, brocolli, etc. Animal sources with high doses are: chicken liver, calf liver, cheese, etc.
 # comment:en:Folic acid is also in ingredients.txt
 
+# <en:Folates
 en:folic acid, vitamin B9, B9, vitamin M
 ar:حمض الفوليك
 # ast:Ácidu fólicu
@@ -4705,16 +4719,11 @@ unit:en:µg
 daily_value:en:400,
 daily_value_2016:en:400,
  
-# folates = total folates = naturally occuring folates + added folic acid
 
-en:Folates (total folates)
-fr:Folates (folates totaux)
-unit:en:µg
-daily_value:en:400,
-daily_value_2016:en:400,
-
+# description:en:VITAMIN B12 is a water-soluble vitamin that is involved in the metabolism of every cell of the human body. Because there are no common vegetable sources of the vitamin, vegans must use a supplement or fortified foods for B12 intake or risk serious health consequences. Otherwise, most omnivorous people in developed countries obtain enough vitamin B12 from consuming animal products including meat, milk, eggs, and fish.
 # comment:en:cobalamin is also in ingredients.txt
 
+# <en:vitamins
 en:cobalamin, vitamin b12
 af:Vitamien B12
 ar:فيتامين بي 12
