@@ -335,7 +335,7 @@ sub assign_quantity_from_field($$) {
 
 	if ((defined $product_ref->{$field}) and ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq ""))) {
 
-		if ($product_ref->{$field} =~ /\b\(?((\d+)\s?x\s?)?(\d+\.?\d*)\s?(g|gr|kg|kgr)\s?(x\s?(\d+))?\)?\s*$/i) {
+		if ($product_ref->{$field} =~ /\b\(?((\d+)\s?x\s?)?(\d+\.?\,?\d*)\s?(g|gr|kg|kgr|l|cl|ml|dl)\s?(x\s?(\d+))?\)?\s*$/i) {
 			$product_ref->{$field} = $`;
 
 			if (defined $2) {
@@ -738,11 +738,34 @@ sub load_xml_file($$$$) {
 #			},
 
 	my @xml_refs = ();
+	
+	# Multiple products in an array?
+	
+	if ($xml_fields_mapping_ref->[0][0] eq "multiple_products") {
 
-	# Multiple products?
-	if ($xml_fields_mapping_ref->[0][0] eq "multiple_codes") {
+		my $array = $xml_fields_mapping_ref->[0][1];
 
-		$log->info("Split multiple products", { file => $file }) if $log->is_info();
+		$log->info("Split multiple products", { file => $file, array => $array }) if $log->is_info();
+
+		if (defined $xml_ref->{$array}) {
+			my $i = 1;
+			foreach my $new_product_ref (@{$xml_ref->{$array}}) {
+
+				$log->info("Split multiple products - i: " . $i++) if $log->is_info();
+
+				push @xml_refs, $new_product_ref;
+			}
+		}
+
+		shift @{$xml_fields_mapping_ref};
+
+	}
+
+
+	# Multiple variant of one product, with different codes?
+	elsif ($xml_fields_mapping_ref->[0][0] eq "multiple_codes") {
+
+		$log->info("Split multiple codes (product variants)", { file => $file }) if $log->is_info();
 
 		my $codes = $xml_fields_mapping_ref->[0][1]{codes};
 
@@ -808,6 +831,7 @@ sub load_xml_file($$$$) {
 		shift @{$xml_fields_mapping_ref};
 
 	}
+	
 	else {
 		push @xml_refs, $xml_ref;
 	}
@@ -842,6 +866,8 @@ sub load_xml_file($$$$) {
 
 		my $current_tag = $xml_ref;
 
+		print STDERR "\nsource: $source\n";
+
 		foreach my $source_tag (split(/\./, $source)) {
 			print STDERR "source_tag: $source_tag\n";
 
@@ -864,21 +890,34 @@ sub load_xml_file($$$$) {
 			elsif ($source_tag eq '*') {
 				foreach my $tag ( keys %{$current_tag}) {
 					my $tag_target = $target;
-					$tag_target =~ s/\*/$tag/;
-					$tag_target = lc($tag_target);
-					print STDERR "* tag key: $tag - target: $tag_target\n";
-					if ((defined $current_tag->{$tag}) and (not ref($current_tag->{$tag})) and ($current_tag->{$tag} ne '')) {
-						print STDERR "$tag value is a scalar: $current_tag->{$tag}, assign value to $tag_target\n";
-						if ($tag_target eq 'code') {
-							$code = $current_tag->{$tag};
+					
+					# special case where we have something like allergens.nuts = traces
+					if ($tag_target eq "value_as_target_and_source_as_value") {
+						print STDERR "* tag key: $tag - target: $tag_target\n";
+						if ((defined $current_tag->{$tag}) and (not ref($current_tag->{$tag})) and ($current_tag->{$tag} ne '')) {
+							print STDERR "assign $tag to $current_tag->{$tag}\n";
 
-							$code = normalize_code($code);
-							$product_ref = get_or_create_product_for_code($code);
-						}
-						assign_value($product_ref, $tag_target, $current_tag->{$tag});
+							assign_value($product_ref, $current_tag->{$tag}, $tag);
+						}						
+					}
+					else {
+						
+						$tag_target =~ s/\*/$tag/;
+						$tag_target = lc($tag_target);
+						print STDERR "* tag key: $tag - target: $tag_target\n";
+						if ((defined $current_tag->{$tag}) and (not ref($current_tag->{$tag})) and ($current_tag->{$tag} ne '')) {
+							print STDERR "$tag value is a scalar: $current_tag->{$tag}, assign value to $tag_target\n";
+							if ($tag_target eq 'code') {
+								$code = $current_tag->{$tag};
 
-						if ($tag_target eq 'emb_codes') {
-							print STDERR "emb_codes : " . $product_ref->{$tag_target} . "\n";
+								$code = normalize_code($code);
+								$product_ref = get_or_create_product_for_code($code);
+							}
+							assign_value($product_ref, $tag_target, $current_tag->{$tag});
+
+							if ($tag_target eq 'emb_codes') {
+								print STDERR "emb_codes : " . $product_ref->{$tag_target} . "\n";
+							}
 						}
 					}
 				}
@@ -894,6 +933,29 @@ sub load_xml_file($$$$) {
 					$current_tag = $current_tag->[$i];
 				}
 			}
+			
+			# Array with several versions identified by a number, take the highest one
+			# <ADO LIB="JUS DE RAISIN" LIB2="Pur jus de raisin 1L" ADO="01" SECT_OQALI="Jus et nectars" 
+			# ["ADO.[max.ADO].COMP.ING", "ingredients_text_fr"],
+			
+			elsif ($source_tag =~ /^\[max:([^\]]+)\]$/) {
+				my $version = $1;
+				if (ref($current_tag) eq 'ARRAY') {
+					my $max = undef;
+					my $max_version_ref = undef;
+					foreach my $version_ref (@{$current_tag}) {
+						if ((defined $version_ref->{$version}) and (not defined $max) or ($version_ref->{$version} > $max)) {
+							$max = $version_ref->{$version};
+							$max_version_ref = $version_ref;
+						}
+					}
+					if (defined $max_version_ref) {
+						print STDERR "going down to array element $source_tag - version $max\n";
+						$current_tag = $max_version_ref;
+					}
+				}
+			}
+			
 			elsif (defined $current_tag->{$source_tag}) {
 				if ((ref($current_tag->{$source_tag}) eq 'HASH') or (ref($current_tag->{$source_tag}) eq 'ARRAY')) {
 					print STDERR "going down to hash $source_tag\n";
@@ -926,7 +988,13 @@ sub load_xml_file($$$$) {
 
 						$value =~ s/,/\./;
 
-						if ($target =~ /^(.*)_([^_]+)$/) {
+						if ($target =~ /^(.*)_value$/) {
+							assign_value($product_ref, $target, $value);
+						}
+						elsif ($target =~ /^(.*)_unit$/) {
+							assign_value($product_ref, $target, $value);
+						}						
+						elsif ($target =~ /^(.*)_([^_]+)$/) {
 								$target = $1;
 								my $unit = $2;
 								assign_value($product_ref, $target . "_value", $value);
@@ -976,39 +1044,51 @@ sub load_csv_file($) {
 	# e.g. load_csv_file($file, "UTF-8", "\t", 4);
 
 	$log->info("Loading CSV file", { file => $file }) if $log->is_info();
+	
+	my $csv_options_ref = { binary => 1 , sep_char => $separator };
+	
+	if (defined $options_ref->{escape_char}) {
+		$csv_options_ref->{escape_char} = $options_ref->{escape_char};
+	}
 
-	my $csv = Text::CSV->new ( { binary => 1 , sep_char => $separator } )  # should set binary attribute.
-                 or die "Cannot use CSV: ".Text::CSV->error_diag ();
+	my $csv = Text::CSV->new ( $csv_options_ref )  # should set binary attribute.
+                 or die "Cannot use CSV: " . Text::CSV->error_diag ();
 
 	open (my $io, "<:encoding($encoding)", $file) or die("Could not open $file: $!");
-
+	
 	my $i = 0;	# line number
 
 	if (defined $skip_lines) {
+		$log->info("Skipping $skip_lines lines before header") if $log->is_info();
 		for ($i = 0; $i < $skip_lines; $i++) {
 			$csv->getline ($io);
 		}
 	}
 
-	my $headers_ref = $csv->getline ($io);
+	#my $headers_ref = $csv->getline ($io);
 	$i++;
+	
+	$csv->header ($io, { detect_bom => 1 });
 
 	if (defined $skip_lines_after_header) {
+		$log->info("Skipping $skip_lines_after_header lines after header") if $log->is_info();
 		for (my $j = 0; $j < $skip_lines_after_header; $j++) {
 			$csv->getline ($io);
 			$i++;
 		}
 	}
 
-	$log->info("CSV headers", { file => $file, headers_ref=>$headers_ref }) if $log->is_info();
+	#$log->info("CSV headers", { file => $file, headers_ref=>$headers_ref }) if $log->is_info();
 
-	$csv->column_names($headers_ref);
+	#$csv->column_names($headers_ref);
 
 	my $product_ref;
 
 	while (my $csv_product_ref = $csv->getline_hr ($io)) {
 
 		$i++; # line number
+		
+		$log->info("Reading line $i") if $log->is_info();
 
 		my $code = undef;	# code must be first
 
@@ -1019,7 +1099,7 @@ sub load_csv_file($) {
 			my $source_field = $field_mapping_ref->[0];
 			my $target_field = $field_mapping_ref->[1];
 
-			$log->info("Field mapping", { source_field => $source_field, source_field_value => $csv_product_ref->{$source_field}, target_field=>$target_field }) if $log->is_info();
+			# $log->info("Field mapping", { source_field => $source_field, source_field_value => $csv_product_ref->{$source_field}, target_field=>$target_field }) if $log->is_info();
 
 			# There can be other conditions:
 			# ["quantity", "nutriments.energy_kJ", ["Nutriment", "Energie"], ["Taille de la portion", "100.0000"], ["Unité", "Kilojoules (kj)"] ],
