@@ -1591,6 +1591,7 @@ sub display_list_of_tags($$) {
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
+				$display = display_tag_name($tagtype, $display);
 			}
 
 			$css_class =~ s/^\s+|\s+$//g;
@@ -2522,7 +2523,7 @@ sub display_tag($) {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
 			$newtagid2 = get_fileid($display_tag2);
 			
-			$display_tag2 = display_tag_name($tagtype, $display_tag2);
+			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
 			
 			$title .= " / " . $display_tag2;
 			
