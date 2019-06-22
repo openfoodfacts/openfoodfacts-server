@@ -1836,10 +1836,6 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		$tags{$tag} = 1;
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-				if ($parentid eq 'fr:') {
-					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
-					next;
-				}
 				$tags{$parentid} = 1;
 			}
 		}
@@ -1894,10 +1890,6 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-				if ($parentid eq 'fr:') {
-					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
-					next;
-				}
 				if (not exists $seen{$parentid}) {
 					push @tags, $parentid;
 					$seen{$parentid} = 1;

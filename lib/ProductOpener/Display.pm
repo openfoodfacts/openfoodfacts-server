@@ -80,6 +80,7 @@ BEGIN
 					$original_subdomain
 					$subdomain
 					$formatted_subdomain
+					$static_subdomain
 					$test
 					@lcs
 					$cc
@@ -381,6 +382,7 @@ CSS
 
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
+	$static_subdomain = format_subdomain('static');
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -1743,7 +1745,7 @@ JS
 		$initjs .= $js;
 
 		$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
 SCRIPTS
 ;
 
@@ -1790,8 +1792,8 @@ HTML
 JS
 ;
 			$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="@{[ format_subdomain('static') ]}/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="$static_subdomain/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="$static_subdomain/js/jquery-jvectormap-world-mill-en.js"></script>
 SCRIPTS
 ;
 
@@ -1838,12 +1840,12 @@ JS
 ;
 
 	$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
+<link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 HEADER
 ;
 
@@ -2148,12 +2150,12 @@ JS
 ;
 
 	$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
+<link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 HEADER
 ;
 
@@ -2335,6 +2337,7 @@ sub display_points($) {
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
 			$newtagid = get_fileid($display_tag);
+			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
 				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
@@ -2403,12 +2406,12 @@ sub display_points($) {
 
 
 	$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
+<link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 <meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png">
 HEADER
 ;
@@ -2473,9 +2476,7 @@ sub display_tag($) {
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
 			$newtagid = get_fileid($display_tag);
-			
-			$display_tag = display_tag_name($tagtype, $display_tag);
-			
+			$display_tag = display_tag_name($tagtype2, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
 				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
@@ -2522,9 +2523,7 @@ sub display_tag($) {
 		else {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
 			$newtagid2 = get_fileid($display_tag2);
-			
 			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
-			
 			$title .= " / " . $display_tag2;
 			
 			if ($tagtype2 eq 'emb_codes') {
@@ -3194,10 +3193,10 @@ JS
 
 	if ((scalar @map_layers) > 0) {
 		$header .= <<HTML
-	<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.css">
-	<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.js"></script>
-	<script src="@{[ format_subdomain('static') ]}/bower_components/osmtogeojson/osmtogeojson.js"></script>
-	<script src="@{[ format_subdomain('static') ]}/js/display-tag.js"></script>
+	<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
+	<script src="$static_subdomain/js/dist/leaflet.js"></script>
+	<script src="$static_subdomain/js/dist/osmtogeojson.js"></script>
+	<script src="$static_subdomain/js/display-tag.js"></script>
 HTML
 ;
 
@@ -3320,7 +3319,7 @@ HTML
 			$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small icon" title="$title">
-	<i class="fi-share"></i>
+	<i class="icon-share"></i>
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -4632,7 +4631,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 
 		$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
 SCRIPTS
 ;
 
@@ -4995,7 +4994,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 
 		$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
 SCRIPTS
 ;
 
@@ -5159,8 +5158,6 @@ sub get_packager_code_coordinates($) {
 	return ($lat, $lng);
 
 }
-
-
 
 sub search_and_map_products($$$) {
 
@@ -5329,11 +5326,11 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.css">
-<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
-<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
+<script src="$static_subdomain/js/dist/leaflet.js"></script>
+<link rel="stylesheet" href="$static_subdomain/js/dist/MarkerCluster.css">
+<link rel="stylesheet" href="$static_subdomain/js/dist/MarkerCluster.Default.css">
+<script src="$static_subdomain/js/dist/leaflet.markercluster.js"></script>
 HTML
 ;
 
@@ -5490,7 +5487,7 @@ HTML
 	</form>
 </li>
 <li>
-	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="fi-widget"></i></a>
+	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="icon-gear"></i></a>
 </li>
 </ul>
 $links
@@ -5747,11 +5744,10 @@ $og_images
 $og_images2
 <meta property="og:description" content="$canon_description">
 $options{favicons}
-<link rel="stylesheet" href="/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
+<link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <style media="all">
 HTML
 ;
@@ -5954,11 +5950,11 @@ HTML
 
 		if ($system eq 'android') {
 
-			$link_text = '<i class="fab fa-android"></i> ' . $link_text;
+			$link_text = '<i class="icon-brand-android-robot"></i> ' . $link_text;
 		}
 		elsif ($system eq 'ios') {
 
-			$link_text = '<i class="fab fa-apple"></i> ' . $link_text;
+			$link_text = '<i class="icon-brand-apple"></i> ' . $link_text;
 		}
 
 		$top_banner = <<HTML
@@ -5980,20 +5976,20 @@ HTML
 							<input name="action" value="process" type="hidden">
 						</div>
 						<div class="small-4 columns">
-							<button type="submit" title="$Lang{search}{$lang}"><i class="fi-magnifying-glass"></i></button>
+							<button type="submit" title="$Lang{search}{$lang}"><i class="icon-ui-search"></i></button>
 						</div>
 					</div>
 				</form>
 			</li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="fi-plus"></i> $Lang{advanced_search}{$lang}</span></a></li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="fi-graph-bar"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-plus"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="icon-plus"></i> $Lang{advanced_search}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="icon-chart-bar-graph"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="icon-chart-bar-graph"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i> $Lang{get_the_app}{$lc}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-stock-mobile"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-stock-mobile"></i> $Lang{get_the_app}{$lc}</a></li>
 		</ul>
 	</section>
 </nav>
@@ -6001,7 +5997,7 @@ HTML
 <nav class="tab-bar show-for-small-only">
 	<div class="left-small" style="padding-top:4px;">
 		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
-		<i class="fi-torso" style="color:$torso_color;font-size:1.8rem"></i></a>
+		<i class="icon-user" style="color:$torso_color;font-size:1.8rem"></i></a>
 	</div>
 	<div class="middle tab-bar-section" style="padding-top:4px;">
 		<form action="/cgi/search.pl">
@@ -6012,10 +6008,10 @@ HTML
 					<input name="action" value="process" type="hidden">
 				</div>
 				<div class="small-2 columns">
-					<button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
+					<button type="submit" class="button postfix"><i class="icon-ui-search"></i></button>
 				</div>
 				<div class="small-2 columns">
-					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-magnifying-glass"></i> <i class="fi-plus"></i></a>
+					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-ui-search"></i> <i class="icon-plus"></i></a>
 				</div>
 			</div>
 		</form>
@@ -6047,11 +6043,11 @@ HTML
 								<input name="action" value="process" type="hidden">
 							</div>
 							<div class="small-2 columns">
-								<button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
+								<button type="submit" class="button postfix"><i class="icon-ui-search"></i></button>
 							</div>
 							<div class="small-1 columns">
 								<label class="right inline">
-									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a>
+									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-plus"></i></a>
 								</label>
 							</div>
 						</div>
@@ -6113,11 +6109,11 @@ HTML
 
 <div id="fb-root"></div>
 
-<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/modernizr.js"></script>
+<script src="$static_subdomain/js/dist/modernizr.js"></script>
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-<script src="@{[ format_subdomain('static') ]}/bower_components/iolazyload/dist/js/iolazy.min.js" defer></script>
-<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.js"></script>
-<script src="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="$static_subdomain/js/dist/iolazy.min.js" defer></script>
+<script src="$static_subdomain/js/dist/jquery.js"></script>
+<script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
 
 <script>
 \$(function() {
@@ -6137,9 +6133,8 @@ HTML
 });
 </script>
 
-<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/foundation.min.js"></script>
-<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
-<script async defer src="@{[ format_subdomain('static') ]}/bower_components/ManUp.js/manup.min.js"></script>
+<script src="$static_subdomain/js/dist/foundation.min.js"></script>
+<script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 $scripts
 <script>
@@ -6249,7 +6244,7 @@ HTML
 
 	# Use static subdomain for images, js etc.
 	my $static = format_subdomain('static');
-	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|foundation|bower_components)\//$static\/$1\//g;
+	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|css)\//$static\/$1\//g;
 	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
 	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
@@ -6532,7 +6527,7 @@ sub display_product($)
 	my $description = "";
 
 		$scripts .= <<SCRIPTS
-<script src="@{[ format_subdomain('static') ]}/js/display-product.js"></script>
+<script src="$static_subdomain/js/display-product.js"></script>
 SCRIPTS
 ;
 	$initjs .= <<JS
@@ -6643,12 +6638,12 @@ HTML
 	$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small icon" title="$title">
-	<i class="fi-share"></i>
+	<i class="icon-share"></i>
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
-	<i class="fi-pencil"></i>
+	<i class="icon-pencil"></i>
 	<span class="show-for-large-up"> $Lang{edit_product_page}{$lc}</span>
 </a></div>
 HTML
@@ -6658,7 +6653,7 @@ HTML
 		$html .= <<HTML
 <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
 <a href="/cgi/product.pl?type=delete&code=$code" class="button small icon">
-	<i class="fi-trash"></i>
+	<i class="icon-trash"></i>
 	<span class="show-for-large-up"> $Lang{delete_product_page}{$lc}</span>
 </a></div>
 HTML
@@ -6700,8 +6695,8 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p id=\"barcode_paragraph\">" 
-		    . lang("barcode") . separator_before_colon($lc) 
+		$html .= "<p id=\"barcode_paragraph\">"
+		    . lang("barcode") . separator_before_colon($lc)
 		    . ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
@@ -7197,7 +7192,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="/nova">
-<i class="fi-info"></i></a>
+<i class="icon-info-circle"></i></a>
 </h4>
 
 
@@ -7379,7 +7374,7 @@ HTML
 	$html .= <<HTML
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small">
-	<i class="fi-pencil"></i>
+	<i class="icon-pencil"></i>
 	$Lang{edit_product_page}{$lc}
 </a></div>
 HTML
@@ -7562,7 +7557,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="https://world.openfoodfacts.org/nova" title="NOVA groups for food processing">
-<i class="fi-info"></i></a>
+<i class="icon-info-circle"></i></a>
 </h4>
 
 
@@ -7931,7 +7926,7 @@ sub display_nutrient_levels($) {
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}">
-<i class="fi-info"></i></a>
+<i class="icon-info-circle"></i></a>
 </h4>
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%"></a><br>
 $warning
@@ -7953,7 +7948,7 @@ HTML
 	if ($html_nutrient_levels ne '') {
 		$html_nutrient_levels = <<HTML
 <h4>$Lang{nutrient_levels_info}{$lc}
-<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="fi-info"></i></a>
+<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="icon-info-circle"></i></a>
 </h4>
 $html_nutrient_levels
 HTML
@@ -8740,6 +8735,7 @@ sub display_product_api($)
 	my $product_ref = retrieve_product($code);
 
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
+		$request_ref->{status} = 404;
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
 		if ($request_ref->{jqm}) {
@@ -9037,6 +9033,11 @@ sub display_structured_response($)
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 		. $xs->XMLout($request_ref->{structured_response}); 	# noattr -> force nested elements instead of attributes
 
+		my $status = $request_ref->{status};
+		if (defined $status) {
+			print header ( -status => $status );
+		}
+
 		print header( -type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
 
 	}
@@ -9057,6 +9058,11 @@ sub display_structured_response($)
 
 		$jsonp =~ s/[^a-zA-Z0-9_]//g;
 
+		my $status = $request_ref->{status};
+		if (defined $status) {
+			print header ( -status => $status );
+		}
+
 		if (defined $jsonp) {
 			print header( -type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $jsonp . "(" . $data . ");" ;
 		}
@@ -9064,6 +9070,10 @@ sub display_structured_response($)
 			print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 		}
 	}
+
+	my $r = Apache2::RequestUtil->request();
+	$r->rflush;
+	$r->status(200);
 
 	exit();
 }
@@ -9196,6 +9206,8 @@ sub display_recent_changes {
 	}
 
 	my $html .= "<ul>\n";
+	my $last_change_ref = undef;
+	my @cumulate_changes = ();
 	while (my $change_ref = $cursor->next) {
 		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
 		my $change_hash = {
@@ -9212,38 +9224,33 @@ sub display_recent_changes {
 		delete $change_hash->{ip} unless $admin; # security: Do not expose IP addresses to non-admin or anonymous users.
 
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
-
-		my $date = display_date_tag($change_ref->{t});
-		my $user = "";
-		if (defined $change_ref->{userid}) {
-			$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
-		}
-
-		my $comment = $change_ref->{comment};
-		$comment = lang($comment) if $comment eq 'product_created';
-
-		$comment =~ s/^Modification :\s+//;
-		if ($comment eq 'Modification :') {
-			$comment = '';
-		}
-		$comment =~ s/\new image \d+( -)?//;
-
-		if ($comment ne '') {
-			$comment = "- $comment";
-		}
-
-		my $change_rev = $change_ref->{rev};
-
-		# Display diffs
-		# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
-
 		my $diffs = compute_changes_diff_text($change_ref);
 		$change_hash->{diffs_text} = $diffs;
 
-		my $product_url = product_url($change_ref->{code});
-		$html .= "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+		if (defined $last_change_ref and $last_change_ref->{code} == $change_ref->{code}
+			and $change_ref->{userid} == $last_change_ref->{userid} and $change_ref->{userid} ne 'kiliweb') {
 
+			push @cumulate_changes, $change_ref;
+			next;
+
+		}
+		elsif (@cumulate_changes > 0) {
+
+			$html.= "<details class='recent'><summary>" . lang('collapsed_changes') . "</summary>";
+			foreach (@cumulate_changes) {
+				$html.= display_change($_, compute_changes_diff_text($_));
+			}
+			$html.= "</details>";
+
+			@cumulate_changes = ();
+
+		}
+		$html.= display_change($change_ref, $diffs);
+
+		$last_change_ref = $change_ref;
 	}
+
+	# Display...
 
 	$html .= "</ul>";
 	$html .= display_pagination($request_ref, $count, $limit, $page);
@@ -9252,6 +9259,39 @@ sub display_recent_changes {
 	$request_ref->{title} = lang("recent_changes");
 	display_new($request_ref);
 
+}
+
+sub display_change($$) {
+	my $change_ref = shift;
+	my $diffs = shift;
+
+	my $date = display_date_tag($change_ref->{t});
+	my $user = "";
+	if (defined $change_ref->{userid}) {
+		$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+	}
+
+	my $comment = $change_ref->{comment};
+	$comment = lang($comment) if $comment eq 'product_created';
+
+	$comment =~ s/^Modification :\s+//;
+	if ($comment eq 'Modification :') {
+		$comment = '';
+	}
+	$comment =~ s/\new image \d+( -)?//;
+
+	if ($comment ne '') {
+		$comment = "- $comment";
+	}
+
+	my $change_rev = $change_ref->{rev};
+
+	# Display diffs
+	# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
+
+
+	my $product_url = product_url($change_ref->{code});
+	return "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 }
 
 1;
