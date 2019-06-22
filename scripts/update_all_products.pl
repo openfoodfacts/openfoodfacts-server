@@ -35,25 +35,16 @@ The key is used to keep track of which products have been updated. If there are 
 it is likely that the MongoDB cursor of products to be updated will expire, and the script will have to be re-run.
 
 --process-ingredients	compute allergens, additives detection
-
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
-
 --compute-nutrition-score	nutriscore
-
 --compute-serving-size	compute serving size values
-
+--compute-history	compute history and completeness
 --check-quality	run quality checks
-
 --compute-codes
-
 --fix-serving-size-mg-to-ml
-
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
-
 --user		create a separate .sto file and log the change in the product history, with the corresponding user
-
 --comment	comment for change in product history
-
 --pretend	do not actually update products
 TXT
 ;
@@ -99,6 +90,7 @@ my $compute_nova = '';
 my $check_quality = '';
 my $compute_codes = '';
 my $compute_carbon = '';
+my $compute_history = '';
 my $comment = '';
 my $fix_serving_size_mg_to_ml = '';
 my $query_ref = {};	# filters for mongodb query
@@ -111,6 +103,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
 			"compute-nutrition-score" => \$compute_nutrition_score,
+			"compute-history" => \$compute_history,
 			"compute-serving-size" => \$compute_serving_size,
 			"compute-data-sources" => \$compute_data_sources,
 			"compute-nova" => \$compute_nova,
@@ -121,7 +114,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"user_id=s" => \$User_id,
 			"comment=s" => \$comment,
 			)
-  or die("Error in command line arguments:\n$\nusage");
+  or die("Error in command line arguments:\n\n$usage");
  
 use Data::Dumper;
 
@@ -154,7 +147,7 @@ if ($unknown_fields > 0) {
 if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova) 
 	and (not $clean_ingredients)
 	and (not $compute_serving_size)
-	and (not $compute_data_sources)
+	and (not $compute_data_sources) and (not $compute_history)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0)) {
 	die("Missing fields to update:\n$usage");
 }  
@@ -316,6 +309,17 @@ while (my $product_ref = $cursor->next) {
 
 		if ($check_quality) {
 			ProductOpener::SiteQuality::check_quality($product_ref);
+		}
+		
+		if ($compute_history) {
+			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			if (not defined $changes_ref) {
+				$changes_ref = [];
+			}
+
+			compute_data_sources($product_ref);
+
+			compute_product_history_and_completeness($product_ref, $changes_ref);		
 		}
 		
 		if (not $pretend) {

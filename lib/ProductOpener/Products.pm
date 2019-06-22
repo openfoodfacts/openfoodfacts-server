@@ -45,6 +45,7 @@ BEGIN
 		&index_product
 		&log_change
 
+		&get_change_userid_or_uuid
 		&compute_codes
 		&compute_completeness_and_missing_tags
 		&compute_product_history_and_completeness
@@ -818,6 +819,37 @@ sub compute_completeness_and_missing_tags($$$) {
 }
 
 
+sub get_change_userid_or_uuid($) {
+
+	my $change_ref = shift;
+	
+	my $userid = $change_ref->{userid};
+
+	my $app = "";
+	my $uuid;
+	
+	if ((defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
+		$app = $options{apps_userids}{$userid} . "\.";
+	}
+		
+	# use UUID provided by some apps like Yuka
+	# UUIDs are mix of [a-zA-Z0-9] chars, they must not be lowercased by getfile_id
+	if ($change_ref->{comment} =~ /User(\s*):(\s*)(\S+)/i) {
+		$uuid = $3;
+	}
+	
+	if (defined $uuid) {
+		$userid = $app . $uuid;
+	}
+
+	if ((not defined $userid) or ($userid eq '')) {
+		$userid = "openfoodfacts-contributors";
+	}
+	
+	return $userid;
+}		
+
+
 sub compute_product_history_and_completeness($$) {
 
 
@@ -980,11 +1012,7 @@ sub compute_product_history_and_completeness($$) {
 
 		my %diffs = ();
 
-		my $userid = $change_ref->{userid};
-
-		if ((not defined $userid) or ($userid eq '')) {
-			$userid = "openfoodfacts-contributors";
-		}
+		my $userid = get_change_userid_or_uuid($change_ref);
 
 		$changed_by{$userid} = 1;
 
