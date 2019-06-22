@@ -7775,6 +7775,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carbon_footprint
 
 en:Carbon footprint from meat or fish
 fr:Empreinte carbone de la viande ou du poisson
+nl:koolstofvoetafdruk voor vlees of vis
 unit:en:g
 
 # description:en:The GLYCEMIC INDEX (GI) is a number from 0 to 100 assigned to a food, with pure glucose arbitrarily given the value of 100, which represents the relative rise in the blood glucose level two hours after consuming that food.
@@ -7831,7 +7832,7 @@ unit:en:
 wikidata:en:Q273924
 wikipedia:en:https://en.wikipedia.org/wiki/Glycemic_index
 
-# description:en:Hard water is water that has high mineral content. The total water hardness is the sum of the molar concentrations of Ca2+ and Mg2+, in mol/L or mmol/L units. 
+# description:en:Hard water is water that has high mineral content. The total WATER HARDNESS is the sum of the molar concentrations of Ca2+ and Mg2+, in mol/L or mmol/L units. 
 
 en:Water hardness
 ar:عسر الماء
@@ -7901,6 +7902,7 @@ nl:Fruit - groenten en noten
 unit:en:%
 
 en:Fruits - vegetables and nuts - dried
+de:Obst - Gemüse und Nüsse - getrocknet
 fr:Fruits - légumes et noix - séchés
 nl:Fruit - groenten en noten - gedroogd
 unit:en:%
@@ -7938,7 +7940,11 @@ fr:Score nutritionnel - France
 nl:Voedingsscore - FR
 el:Βαθμολογία θρεπτικής αξίας-FR
 unit:en:
- 
+
+en:Nutrition grade
+fr:Note nutritionnelle
+unit:en:
+
 # description:en:Β-CAROTENE is an organic, strongly colored red-orange pigment abundant in plants and fruits. Plant carotenoids are the primary dietary source of provitamin A worldwide, with β-carotene as the best-known provitamin A carotenoid.
 # comment:en:The greek letter β, has not been used in this ingredient.
 
@@ -8087,9 +8093,6 @@ zh:叶绿素
 # yue:葉綠素
 wikipedia:en:https://en.wikipedia.org/wiki/Chlorophyll
  
-en:Nutrition grade
-fr:Note nutritionnelle
-
 # description:en:CHOLINE is a water-soluble vitamin-like essential nutrient. Cruciferous vegetables, such as Brussels sprouts and broccoli, are good sources of choline.
 
 en:Choline
