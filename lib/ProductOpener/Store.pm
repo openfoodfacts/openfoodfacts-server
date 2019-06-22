@@ -91,8 +91,10 @@ sub get_fileid($) {
 	$file =~ s/ñ/n/g;
 	
 	# do not lowercase UUIDs
-	# e.g. yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
-	if ($file !~ /^([a-z\-]+)\.([a-zA-Z0-9]{8})([a-zA-Z0-9]*)$/) {
+	# e.g.
+	# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
+	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
+	if ($file !~ /^([a-z\-]+)\.([a-zA-Z0-9-]{8})([a-zA-Z0-9-]*)$/) {
 		$file = lc($file);
 		$file =~ s/\./-/g;
 	}
