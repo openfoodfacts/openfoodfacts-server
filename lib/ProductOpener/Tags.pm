@@ -306,12 +306,6 @@ sub add_tag($$$) {
 	my $tagtype = shift;
 	my $tagid = shift;
 
-	(defined $product_ref->{$tagtype . "_tags"})  or $product_ref->{$tagtype . "_tags"} = [];
-	foreach my $existing_tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-		if ($tagid eq $existing_tagid) {
-			return;
-		}
-	}
 	push @{$product_ref->{$tagtype . "_tags"}}, $tagid;
 }
 
