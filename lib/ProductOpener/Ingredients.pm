@@ -935,7 +935,7 @@ de => [
 'Mindestens altbar bis',
 'Mindestens haltbar bis',
 'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
-'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)' #Nährwertangaben pro 100g
+'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
 'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
