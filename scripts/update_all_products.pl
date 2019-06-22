@@ -121,7 +121,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"user_id=s" => \$User_id,
 			"comment=s" => \$comment,
 			)
-  or die("Error in command line arguments:\n$\nusage");
+  or die("Error in command line arguments:\n\n$usage");
  
 use Data::Dumper;
 

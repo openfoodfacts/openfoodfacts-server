@@ -18713,6 +18713,7 @@ fr:cœur de bœuf, coeur de boeuf
 # ingredient/fr:cœur-de-bœuf has 17 products in french @2019–02-12
 
 <en:beef meat
+en:pure beef meat
 fr:pure viande de bœuf
 # 7@2019-06-06
 
@@ -18960,7 +18961,7 @@ zh:兔
 wikidata:en:Q9394
 wikipedia:en:https://en.wikipedia.org/wiki/Rabbit
 
-<fr:lapin
+<en:rabbit
 <en:meat
 en:rabbit meat
 fr:viande de lapin
@@ -19261,6 +19262,7 @@ es:carne de cabra
 nl:geitenvlees
 
 <en:meat
+<en:pork
 en:pork meat
 de:Schweinefleisch
 es:carne de cerdo
@@ -19274,7 +19276,6 @@ carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
-<en:pork meat
 en:pork
 de:Schweinefleisch
 fr:porc
@@ -19658,21 +19659,19 @@ fr:maigre de porc
 fr:fond de porc
 
 
-
-<en:beef meat
-fr:viande bovine
-
 <en:beef meat
 fr:viande-bovine-de-race-charolaise
 
-<fr:viande bovine
+# viande bovine in ingredients refers to (aged) beef, not veal
+#<fr:viande bovine
+<en:veal
 en:veal meat
 de:Kalbsfleisch
 fr:viande de veau
 carbon_footprint_fr_foodges_ingredient:fr:Viande de veau France
 carbon_footprint_fr_foodges_value:fr:20.5
 
-<en:veal meat
+en:veal
 fr:veau
 
 <en:beef meat
@@ -19718,7 +19717,7 @@ nl:collageendarm
 # boyau collagénique (collagène, glycérine, cellulose)
 
 <en:casing
-#<en:beef meat
+<en:beef
 en:beef casing
 de:Rinderdarm
 fr:boyau de bœuf, boyau de boeuf
@@ -19738,6 +19737,7 @@ fr:boyau naturel de mouton
 # ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
 
 <en:casing
+<en:pork
 en:pork casing, pork gut
 de:Schweinedarm
 fr:boyau de porc
@@ -19753,7 +19753,7 @@ fr:bœuf cuit
 
 <en:beef meat
 en:cooked beaf meat
-fr:viande de bœuf cuite
+fr:viande de bœuf cuite, viande bovine cuite
 
 
 
@@ -19772,10 +19772,12 @@ fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande d
 
 
 <en:meat
+<en:beef
 en:beef meat
 de:Rindfleisch
-fr:viande de bœuf, viande de boeuf
+fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine
 nl:Rundvlees
+carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 
 fr:extrait de viande de bœuf, extrait de viande de boeuf
 
@@ -20237,8 +20239,6 @@ fr:gras de mouton
 nl:schaapsvet
 # ingredient/fr:gras-de-mouton has 41 products in 3 languages @2019-03-01
 
-<en:pork by-product
-<en:animal fat
 
 # description:en:LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
 
@@ -62173,6 +62173,7 @@ fr:canard
 nl:eend
 
 <en:duck
+<en:poultry meat
 en:duck meat
 fr:viande de canard
 

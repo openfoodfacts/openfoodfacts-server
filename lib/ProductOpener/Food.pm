@@ -4532,6 +4532,7 @@ sub compute_serving_size_data($) {
 		}
 
 		# Carbon footprint
+				
 		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"}) {
 
 			if (defined $product_ref->{serving_quantity}) {
@@ -4544,6 +4545,19 @@ sub compute_serving_size_data($) {
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
 		}
+		
+		if (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"}) {
+
+			if (defined $product_ref->{serving_quantity}) {
+				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_serving"}
+				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{serving_quantity}) + 0.0;
+			}
+
+			if (defined $product_ref->{product_quantity}) {
+				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_product"}
+				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
+			}
+		}		
 
 	}
 

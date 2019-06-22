@@ -425,6 +425,33 @@ sub check_nutrition_grades($) {
 }
 
 
+sub check_carbon_footprint($) {
+	my $product_ref = shift;
+	
+	if (defined $product_ref->{nutriments}) {
+	
+		if ((defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
+			and not (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
+			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-meat-or-fish-but-not-from-known-ingredients";
+		}
+		if ((not defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
+			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
+			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-known-ingredients-but-not-from-meat-or-fish";
+		}
+		if ((defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
+			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})
+			and ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} > $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
+			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-known-ingredients-less-than-from-meat-or-fish";
+		}
+		if ((defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
+			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})
+			and ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} < $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
+			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-known-ingredients-more-than-from-meat-or-fish";
+		}			
+	}
+}
+
+
 sub check_nutrition_data($) {
 	my $product_ref = shift;
 
@@ -875,6 +902,7 @@ sub check_quality($) {
 	check_ingredients($product_ref);
 	check_nutrition_data($product_ref);
 	check_nutrition_grades($product_ref);
+	check_carbon_footprint($product_ref);
 	check_quantity($product_ref);
 	check_bugs($product_ref);
 	check_codes($product_ref);
