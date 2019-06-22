@@ -868,6 +868,7 @@ fr => [
 '(a|à) cons.de préférence avant',
 '(conseil|conseils) de pr(e|é)paration',
 '(conditions|conseils) de conservation',
+'conseil d\'utilisation',
 'conservation:',
 '(a|à) protéger de ', # humidité, chaleur, lumière etc.
 'conditionn(e|é) sous atmosph(e|è)re protectrice',
