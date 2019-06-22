@@ -75,6 +75,7 @@ my @lists =(
 ["curcumine et E140", "curcumine, E140"],
 ["E140 et tartrazine", "E140, tartrazine"],
 ["Acide citrique, colorant : e120, vitamine C, E-500", "Acide citrique, colorant : e120, vitamine C, E500"],
+["poudres à lever (carbonates acides d’ammonium et de sodium, acide citrique)", "poudres à lever (carbonates acides d'ammonium, carbonates acides de sodium, acide citrique)"],
 
 ],
 ],
