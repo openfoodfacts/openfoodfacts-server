@@ -718,6 +718,30 @@ $options{display_tag_additives} = [
 ];
 
 
+# Specific users used by apps
+$options{apps_userids} = {
+
+	"kiliweb" => "yuka",
+	"labeleat" => "labeleat",
+	"waistline-app" => "waistline",
+};
+
+# (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
+# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
+# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
+# (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
+
+$options{apps_uuid_prefix} = {
+
+	"kiliweb" => "User :",
+	"labeleat" => "Labeleat([^-]*)-",
+	"waistline-app" => "Waistline:",
+};
+
+$options{official_app_id} = "off";
+$options{official_app_comment} = "(official android app|off app)";
+
+
 $options{nova_groups_tags} = {
 
 	# start by assigning group 1

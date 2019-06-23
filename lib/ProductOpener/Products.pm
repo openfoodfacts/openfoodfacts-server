@@ -45,6 +45,7 @@ BEGIN
 		&index_product
 		&log_change
 
+		&get_change_userid_or_uuid
 		&compute_codes
 		&compute_completeness_and_missing_tags
 		&compute_product_history_and_completeness
@@ -818,6 +819,48 @@ sub compute_completeness_and_missing_tags($$$) {
 }
 
 
+sub get_change_userid_or_uuid($) {
+
+	my $change_ref = shift;
+	
+	my $userid = $change_ref->{userid};
+
+	my $app = "";
+	my $uuid;
+	
+	if ((defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
+		$app = $options{apps_userids}{$userid} . "\.";
+	}
+	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
+		$app = $options{official_app_id} . "\.";
+	}
+		
+	# use UUID provided by some apps like Yuka
+	# UUIDs are mix of [a-zA-Z0-9] chars, they must not be lowercased by getfile_id
+	if ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
+		$uuid = $7;
+	}
+	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
+	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
+	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A	
+	elsif ((defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
+		$uuid = $';
+		$uuid =~ s/^(\s*)//;
+		$uuid =~ s/(\s*)$//;
+	}
+
+	if (defined $uuid) {
+		$userid = $app . $uuid;
+	}
+
+	if ((not defined $userid) or ($userid eq '')) {
+		$userid = "openfoodfacts-contributors";
+	}
+	
+	return $userid;
+}		
+
+
 sub compute_product_history_and_completeness($$) {
 
 
@@ -980,11 +1023,7 @@ sub compute_product_history_and_completeness($$) {
 
 		my %diffs = ();
 
-		my $userid = $change_ref->{userid};
-
-		if ((not defined $userid) or ($userid eq '')) {
-			$userid = "openfoodfacts-contributors";
-		}
+		my $userid = get_change_userid_or_uuid($change_ref);
 
 		$changed_by{$userid} = 1;
 

@@ -1593,6 +1593,7 @@ sub display_list_of_tags($$) {
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
+				$display = display_tag_name($tagtype, $display);
 			}
 
 			$css_class =~ s/^\s+|\s+$//g;
@@ -2336,6 +2337,7 @@ sub display_points($) {
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
 			$newtagid = get_fileid($display_tag);
+			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
 				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
@@ -2474,6 +2476,7 @@ sub display_tag($) {
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
 			$newtagid = get_fileid($display_tag);
+			$display_tag = display_tag_name($tagtype2, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
 				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
@@ -2519,8 +2522,10 @@ sub display_tag($) {
 		}
 		else {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
-			$title .= " / " . $display_tag2;
 			$newtagid2 = get_fileid($display_tag2);
+			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
+			$title .= " / " . $display_tag2;
+			
 			if ($tagtype2 eq 'emb_codes') {
 				$canon_tagid2 = $newtagid2;
 				$canon_tagid2 =~ s/-(eec|eg|ce)$/-ec/i;
@@ -7325,12 +7330,12 @@ HTML
 	my $other_editors = "";
 
 	foreach my $editor (sort @other_editors) {
-		$other_editors .= "<a href=\"" . canonicalize_tag_link("users", get_fileid($editor)) . "\">" . $editor . "</a>, ";
+		$other_editors .= display_tag_link("editors", $editor) . ", ";
 	}
 	$other_editors =~ s/, $//;
 
-	my $creator = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{creator})) . "\">" . $product_ref->{creator} . "</a>";
-	my $last_editor = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_editor})) . "\">" . $product_ref->{last_editor} . "</a>";
+	my $creator = display_tag_link("editors", $product_ref->{creator});
+	my $last_editor = display_tag_link("editors", $product_ref->{last_editor});
 
 	if ($other_editors ne "") {
 		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
@@ -7339,7 +7344,7 @@ HTML
 	my $checked = "";
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
-		my $last_checker = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_checker})) . "\">" . $product_ref->{last_checker} . "</a>";
+		my $last_checker = display_tag_link("editors", $product_ref->{last_checker});
 		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
 	}
 
@@ -8896,10 +8901,8 @@ sub display_product_history($$) {
 		foreach my $change_ref (reverse @{$changes_ref}) {
 
 			my $date = display_date_tag($change_ref->{t});
-			my $user = "";
-			if (defined $change_ref->{userid}) {
-				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
-			}
+			my $userid = get_change_userid_or_uuid($change_ref);
+			my $user = display_tag_link("editors", $userid);
 
 			my $comment = $change_ref->{comment};
 			$comment = lang($comment) if $comment eq 'product_created';
