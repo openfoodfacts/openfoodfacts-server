@@ -14,8 +14,12 @@
 
 en:nucleotides
 
-en:adenosine 5â-phosphoric acid (AMP)
+# description:en:ADENOSINE MONOPHOSPHATE (AMP) is a nucleotide. AMP plays an important role in many cellular metabolic processes
 
+<en:nucleotides
+en:Adenosine monophosphate, adenosine 5'-monophosphate, adenosine-5'-monophosphate, adenosine 5'-phosphoric acid (AMP), AMP
+
+<en:Adenosine monophosphate
 en:sodium salts of AMP
 bg:Натриеви соли на АМФ
 cs:sodné soli AMP
@@ -42,7 +46,7 @@ sv:natriumsalter av AMP
 # description:Cytidine monophosphate (CMP) is a nucleotide that is used as a monomer in RNA.
 
 <en:nucleotides
-en:Cytidine monophosphate, cytidine 5'-monophosphate, cytidine 5'-monophosphoric acid (CMP), cytadine-
+en:Cytidine monophosphate, cytidine 5'-monophosphate, cytidine-5'-monophosphate, cytidine 5'-monophosphoric acid (CMP), cytidine-, CMP
 ar:سيتيدين أحادي الفوسفات
 # azb:سیتیدین مونوفوسفات
 ca:monofosfat de citidina
@@ -69,8 +73,10 @@ zh:單磷酸胞苷
 # zh-hk:單磷酸胞苷
 # zh-sg:单磷酸胞苷
 # zh-tw:單磷酸胞苷
+wikidata:en:Q412622
 wikipedia:en:https://en.wikipedia.org/wiki/Cytidine_monophosphate
 
+<en:Cytidine monophosphate
 en:sodium salts of CMP
 bg:Натриеви соли на ЦМФ
 cs:sodné soli CMP
@@ -94,7 +100,7 @@ sl:natrijeve soli CMP
 sv:natriumsalter av CMP
 # ingredient/sodium-salts-of-CMP has no products @2019-06-23
 
-en:guanosine 5â-phosphoric acid (GMP)
+en:disodium guanosine-5'-monophosphate, guanosine 5'-phosphoric acid (GMP)
 
 en:sodium salts of GMP
 bg:Натриеви соли на ГМФ
@@ -118,7 +124,7 @@ sk:sodné soli GMP
 sl:natrijeve soli GMP
 sv:natriumsalter av GMP
 
-en:inosine 5â-phosphoric acid (IMP)
+en:disodium inosine-5'-monophosphate,inosine 5'-phosphoric acid (IMP)
 
 en:sodium salts of IMP
 bg:Натриеви соли на ИМФ
@@ -142,9 +148,41 @@ sk:sodné soli IMP
 sl:natrijeve soli IMP
 sv:natriumsalter av IMP
 
-en:uridine 5â-phosphoric acid (UMP)
+# description:en:URIDINE MONOPHOSPHATE (UMP) is a nucleotide that is used as a monomer in RNA.
 
-en:sodium salts of UMP
+<en:nucleotides
+en:uridine monophosphate, uridine-monophosphate, uridine-5'-monophosphate, uridine 5'-phosphoric acid (UMP), UMP
+ar:يوريدين أحادي الفوسفات
+# azb:اوریدین مونوفوسفات
+ca:monofosfat d'uridina
+da:Uridinmonofosfat
+de:Uridinmonophosphat
+fa:اوریدین مونوفسفات
+fi:Uridiinimonofosfaatti
+fr:Uridine monophosphate
+gl:Uridín monofosfato
+hr:Uridin monofosfat
+it:Uridina monofosfato
+ja:ウリジル酸
+ko:우리딘 일인산
+nl:Uridinemonofosfaat
+pl:urydyno-5′-monofosforan
+ru:Uridinmonophosphat
+sh:Uridin-monofosfat
+sr:уридин-монофосфат
+# sr-ec:уридин-монофосфат
+# sr-el:Uridin-monofosfat
+zh:單磷酸尿苷
+# zh-cn:单磷酸尿苷
+# zh-hans:单磷酸尿苷
+# zh-hant:單磷酸尿苷
+# zh-hk:單磷酸尿苷
+# zh-sg:单磷酸尿苷
+# zh-tw:單磷酸尿苷
+wikidata:en:Q414932
+
+<en:uridine-monophosphate
+en:disodium uridine-monophosphate, disodium uridine-5'-monophosphate, sodium salts of UMP
 bg:Натриеви соли на УМФ
 cs:sodné soli UMP
 de:Natriumsalze der UMP
