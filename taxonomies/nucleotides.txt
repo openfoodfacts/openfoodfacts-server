@@ -12,6 +12,8 @@
 # http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
 
+en:nucleotides
+
 en:adenosine 5â-phosphoric acid (AMP)
 
 en:sodium salts of AMP
@@ -35,8 +37,39 @@ ro:săruri de sodiu ale AMP
 sk:sodné soli AMP
 sl:natrijeve soli AMP
 sv:natriumsalter av AMP
+# ingredient/sodium-salts-of-AMP has no products @2019-06-23
 
-en:cytidine 5â-monophosphoric acid (CMP)
+# description:Cytidine monophosphate (CMP) is a nucleotide that is used as a monomer in RNA.
+
+<en:nucleotides
+en:Cytidine monophosphate, cytidine 5'-monophosphate, cytidine 5'-monophosphoric acid (CMP), cytadine-
+ar:سيتيدين أحادي الفوسفات
+# azb:سیتیدین مونوفوسفات
+ca:monofosfat de citidina
+cs:Cytidinmonofosfát
+da:Cytidinmonofosfat
+de:Cytidinmonophosphat
+es:Citidina monofosfato
+fa:سیتیدین مونوفسفات
+fr:Cytidine monophosphate
+gl:Citidín monofosfato
+it:Citosina monofosfato
+ja:シチジル酸
+ko:시티딘 일인산
+nl:Cytidinemonofosfaat
+nn:cytidinmonofosfat
+sh:Citidin-monofosfat
+sr:цитидин-монофосфат
+# sr-ec:цитидин-монофосфат
+# sr-el:Citidin-monofosfat
+zh:單磷酸胞苷
+# zh-cn:单磷酸胞苷
+# zh-hans:单磷酸胞苷
+# zh-hant:單磷酸胞苷
+# zh-hk:單磷酸胞苷
+# zh-sg:单磷酸胞苷
+# zh-tw:單磷酸胞苷
+wikipedia:en:https://en.wikipedia.org/wiki/Cytidine_monophosphate
 
 en:sodium salts of CMP
 bg:Натриеви соли на ЦМФ
@@ -59,6 +92,7 @@ ro:săruri de sodiu ale CMP
 sk:sodné soli CMP
 sl:natrijeve soli CMP
 sv:natriumsalter av CMP
+# ingredient/sodium-salts-of-CMP has no products @2019-06-23
 
 en:guanosine 5â-phosphoric acid (GMP)
 
