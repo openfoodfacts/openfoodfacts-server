@@ -375,6 +375,14 @@ msgctxt "data_source"
 msgid "Data source"
 msgstr "Source des données"
 
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr ""
+
 msgctxt "debug_p"
 msgid "debug"
 msgstr "débogage"
@@ -704,13 +712,22 @@ msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/questions-frequentes"
 
+msgctxt "footer_translators"
+msgid "Translators"
+msgstr "Traducteurs"
+
+# Do not translate
+msgctxt "footer_translators_link"
+msgid "/cgi/top_translators.pl"
+msgstr "/cgi/top_translators.pl"
+
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
-"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 msgstr "Suivez nous sur <a href=\"https://twitter.com/openfoodfactsfr\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts.fr\">Facebook</a> et\n"
-"<a href=\"https://plus.google.com/u/0/b/102622509148794386660/\">Google+</a>\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -768,6 +785,7 @@ msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
 msgstr "<<site_name>> wiki (fr)"
 
+# Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://fr.wiki.openfoodfacts.org"
@@ -2664,6 +2682,10 @@ msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr "Certaines des données et des images ont été fournies directement par le fabricant Fleury Michon."
 
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr ""
+
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Certaines des données de ce produit ont été fournies directement par le fabricant %s"
@@ -2985,6 +3007,10 @@ msgctxt "producer_version_id"
 msgid "Producer version identifier"
 msgstr "Identifiant de version du producteur"
 
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr "Identifiant produit du producteur"
+
 msgctxt "net_weight"
 msgid "Net weight"
 msgstr "Poids net"
@@ -3199,8 +3225,36 @@ msgid "Carbon footprint calculations have high uncertainty. Values should be loo
 msgstr "Les calculs d'empreinte carbone présentent un grand degré d'incertitude. Les valeurs sont plutôt destinées à une comparaison relative et ne doivent pas être considérées comme des mesures précises et absolues."
 
 msgctxt "error_too_many_products_to_export"
-msgid "Too many products (%d products, the limit is %d) to export, please download the <a href="/data">complete database export</a> instead."
-msgstr "Trop de produits (%d produits, la limite est %d) à exporter, merci de télécharger <a href="/data">l'export complet de la base</a> à la place.""
+msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
+msgstr "Trop de produits (%d produits, la limite est %d) à exporter, merci de télécharger <a href=\"/data\">l'export complet de la base</a> à la place."
+
+msgctxt "translate_taxonomy_to"
+msgid "Help translate the %s to %s"
+msgstr ""
+
+msgctxt "translate_taxonomy_description"
+msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr ""
+
+msgctxt "translate_taxonomy_add"
+msgid "Show only entries without pending translations."
+msgstr ""
+
+msgctxt "translate_taxonomy_edit"
+msgid "Also show entries with pending translations from you or other users."
+msgstr ""
+
+msgctxt "translated"
+msgid "translated"
+msgstr ""
+
+msgctxt "to_be_translated"
+msgid "to be translated"
+msgstr "à traduire"
+
+msgctxt "current_translation"
+msgid "Current translation"
+msgstr "Traduction actuelle"
 
 msgctxt "button_caption_yes"
 msgid "Yes"

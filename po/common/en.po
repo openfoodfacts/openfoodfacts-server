@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Language: en\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
 
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "en"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "English"
-
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1 product"
@@ -2402,6 +2392,10 @@ msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Sort by"
 
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr "Completeness"
+
 msgctxt "sort_created_t"
 msgid "Add date"
 msgstr "Add date"
@@ -3264,3 +3258,15 @@ msgstr "No"
 msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr "Skip"
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr "popularity"
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr "popularity"
+
+msgctxt "collapsed_changes"
+msgid "Collapsed changes"
+msgstr "Collapsed changes"

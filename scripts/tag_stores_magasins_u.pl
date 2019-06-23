@@ -53,7 +53,7 @@ use Data::Dumper;
 
 use Text::CSV;
 
-my $csv = Text::CSV->new ( { binary => 1 , sep_char => ";" } )  # should set binary attribute.
+my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
 $lc = "fr";
@@ -68,7 +68,7 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/data/off/systemeu/SUYQD_DISPOMAG_08b.csv";
+my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_DISPOMAG.csv";
 
 
 #my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08b_diff.csv";
@@ -116,7 +116,7 @@ my $testing_allergens = 0;
 print STDERR "tagging products\n";
 
 open (my $io, '<:encoding(UTF-8)', $csv_file) or die("Could not open $csv_file: $!");
-$csv->getline ($io);
+#$csv->getline ($io);
 $csv->column_names ($csv->getline ($io));
 
 
@@ -227,7 +227,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 						
 						if (get_fileid($current_field) ne get_fileid($product_ref->{$field})) {
 							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field\n";
-							compute_field_tags($product_ref, $field);
+							compute_field_tags($product_ref, $lc, $field);
 							push @modified_fields, $field;
 							$modified++;
 						}

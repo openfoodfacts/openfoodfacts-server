@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -22,317 +22,309 @@ package ProductOpener::SiteQuality;
 
 use utf8;
 use Modern::Perl '2012';
-use Exporter    qw< import >;
-
-
+use Exporter qw(import);
 
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();	# symbols to export by default
-	@EXPORT_OK = qw(
-
-
-					);	# symbols to export on request
+	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
-
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Store qw(:all);
+use ProductOpener::Tags qw(:all);
 
 use Log::Any qw($log);
 
 my @baby_food_brands = qw(
-Gallia
-Bledina
-Modilac
-Guigoz
-Milumel
-Hipp
-Babybio
-Novalac
-Premibio
-Picot
-Bledilait
-Carrefour-baby
-Pommette
-Laboratoires-guigoz
-Nidal
-Lactel-eveil
-Holle
-Mots-d-enfants
-Laboratoire-guigoz
-Bledidej
-Bebe-nestle
-Laboratoire-gallia
-Gilbert
-Hipp-biologique
-U-tout-petits
-Milupa
-Nestle-bebe
-Blediner
-Guiguoz
-Laboratoires-picot
-Nutricia
-P-tit-souper
-P-tit-dej-croissance
-P-tit-dej
-Sodiaal
-Premichevre
-Auchan-baby
-Aptamil
-Candia-croissance
-Lactel-lait-pour-nourrisson
-Croissance
-Biostime
-Premilait
-Envia
-Babysoif
-Capricare
-France-lait
-Candia-baby
-Physiolac
-Topfer
-);
+	Gallia
+	Bledina
+	Modilac
+	Guigoz
+	Milumel
+	Hipp
+	Babybio
+	Novalac
+	Premibio
+	Picot
+	Bledilait
+	Carrefour-baby
+	Pommette
+	Laboratoires-guigoz
+	Nidal
+	Lactel-eveil
+	Holle
+	Mots-d-enfants
+	Laboratoire-guigoz
+	Bledidej
+	Bebe-nestle
+	Laboratoire-gallia
+	Gilbert
+	Hipp-biologique
+	U-tout-petits
+	Milupa
+	Nestle-bebe
+	Blediner
+	Guiguoz
+	Laboratoires-picot
+	Nutricia
+	P-tit-souper
+	P-tit-dej-croissance
+	P-tit-dej
+	Sodiaal
+	Premichevre
+	Auchan-baby
+	Aptamil
+	Candia-croissance
+	Lactel-lait-pour-nourrisson
+	Croissance
+	Biostime
+	Premilait
+	Envia
+	Babysoif
+	Capricare
+	France-lait
+	Candia-baby
+	Physiolac
+	Topfer
+	Nutrilac
+	);
 
-my @cigarette_brands = qw(
-A-Mild
-Absolute-Mild
-Access-Mild
-Akhtamar
-Alain-Delon
-Apache
-Ararat
-Ashford
-Avolution
-Bahman
-Basic
-Belomorkanal
-Benson-&-Hedges
-Bentoel
-Berkeley
-Bintang-Buana
-Bond-Street
-Bristol
-Cabin
-Cambridge
-Camel
-Canadian-Classics
-Capri
-Capstan
-Carroll's
-Caster
-Cavanders
-Chancellor
-Charminar
-Charms
-Chesterfield
-Chunghwa
-Clas-Mild
-Classic-Filter-Kings
-Clavo
-Cleopatra
-Club
-Club-Mild
-Cohiba
-Cool
-Country
-Craven-A
-Crossroads
-Crystal
-Dakota
-Davidoff
-Deluxe-Tenor
-Derby
-Djarum-Black
-Djarum-Vanilla
-Dji-Sam-Soe-234
-Dominant
-Doral
-Double-Happiness
-Du-Maurier
-Duke
-Dunhill
-Eclipse
-Elita
-Embassy
-Envio-Mild
-Ernte-23
-Esse
-Eve
-Everest
-Extreme-Mild
-f6
-Fatima
-Fellas-Mild
-Fix-Mild
-Fixation
-Flair
-Flake
-Fortuna
-Four-Square
-FS1
-Galan
-Garni
-Gauloises
-Geo-Mild
-Gitanes
-GL
-Gold-Flake
-Golden-Bat
-GT
-Gudang-Garam
-HB
-Hits-Mild
-Hollywood
-Hongtashan
-Hope
-India-Kings 
-Insignia
-Intro
-Java
-Jazy-Mild
-Joged
-Player's
-June
-Karo
-Kent
-King's
-Kool
-Krong-Thip
-L&M
-L.A.-Lights
-Lambert-&-Butler
-Lark
-LD
-Legend
-Liggett-Select
-Lips
-Longbeach
-Lucky-Strike
-Main
-Marlboro
-Maraton
-Masis
-Master-Mild
-Matra
-Maverick
-Max
-Maxus
-Mayfair
-MayPole
-Memphis
-Merit
-Mevius
-Mild-Formula
-Minak-Djinggo
-Misty
-Mocne
-Moments
-Mondial
-More
-MS
-Muratti
-Natural-American-Spirit
-Navy-Cut
-Neo-Mild
-Neslite
-Newport
-Next
-Nikki-Super
-Niko-International
-Nil
-Niu-Niu
-NO.10
-Noblesse
-North-Pole
-NOY
-Nuu-Mild
-One-Mild
-Pall-Mall
-Panama
-Parisienne
-Parliament
-Peace
-Pensil-Mas
-Peter-Stuyvesant
-Pianissimo-Peche
-Platinum
-Players
-Polo-Mild
-Popularne
-Prima
-Prince
-Pueblo
-Pundimas
-Pyramid
-Rambler
-Rawit
-Red-&-White
-Red-Mild
-Regal
-Regent
-Relax-Mild
-Richmond
-Romeo-y-Julieta
-Rothmans
-Royal
-Saat
-Salem
-Sampoerna-Hijau
-Sakura
-Scissors
-Score-Mild
-Sejati
-Senior-Service
-Seven-Stars
-Shaan
-Silk-Cut
-Slic-Mild
-Smart
-Sobranie
-Special-Extra-Filter
-ST-Dupont
-Star-Mild
-State-Express-555
-Sterling
-Strand
-Style
-Superkings
-Surya-Pro-Mild
-Sweet-Afton
-Taj-Chhap-Deluxe
-Tali-Jagat
-Tareyton
-Ten-Mild
-Thang-Long
-Time
-Tipper
-True
-U-Mild
-Ultra-Special
-Uno-Mild
-Up-Mild
-Urban-Mild
-Vantage
-Vegas-Mild
-Vogue
-Viceroy
-Virginia-Slims
-Viper
-West
-Wills-Navy-Cut
-Winfield
-Win Mild
-Winston
-Wismilak
-Woodbine
-X-Mild
-Ziganov
-Zhongnanhai
+	my @cigarette_brands = qw(
+	A-Mild
+	Absolute-Mild
+	Access-Mild
+	Akhtamar
+	Alain-Delon
+	Apache
+	Ararat
+	Ashford
+	Avolution
+	Bahman
+	Basic
+	Belomorkanal
+	Benson-&-Hedges
+	Bentoel
+	Berkeley
+	Bintang-Buana
+	Bond-Street
+	Bristol
+	Cabin
+	Cambridge
+	Camel
+	Canadian-Classics
+	Capri
+	Capstan
+	Carroll's
+	Caster
+	Cavanders
+	Chancellor
+	Charminar
+	Charms
+	Chesterfield
+	Chunghwa
+	Clas-Mild
+	Classic-Filter-Kings
+	Clavo
+	Cleopatra
+	Club
+	Club-Mild
+	Cohiba
+	Cool
+	Country
+	Craven-A
+	Crossroads
+	Crystal
+	Dakota
+	Davidoff
+	Deluxe-Tenor
+	Derby
+	Djarum-Black
+	Djarum-Vanilla
+	Dji-Sam-Soe-234
+	Dominant
+	Doral
+	Double-Happiness
+	Du-Maurier
+	Duke
+	Dunhill
+	Eclipse
+	Elita
+	Embassy
+	Envio-Mild
+	Ernte-23
+	Esse
+	Eve
+	Everest
+	Extreme-Mild
+	f6
+	Fatima
+	Fellas-Mild
+	Fix-Mild
+	Fixation
+	Flair
+	Flake
+	Fortuna
+	Four-Square
+	FS1
+	Galan
+	Garni
+	Gauloises
+	Geo-Mild
+	Gitanes
+	GL
+	Gold-Flake
+	Golden-Bat
+	GT
+	Gudang-Garam
+	HB
+	Hits-Mild
+	Hollywood
+	Hongtashan
+	Hope
+	India-Kings 
+	Insignia
+	Intro
+	Java
+	Jazy-Mild
+	Joged
+	Player's
+	June
+	Karo
+	Kent
+	King's
+	Kool
+	Krong-Thip
+	L&M
+	L.A.-Lights
+	Lambert-&-Butler
+	Lark
+	LD
+	Legend
+	Liggett-Select
+	Lips
+	Longbeach
+	Lucky-Strike
+	Main
+	Marlboro
+	Maraton
+	Masis
+	Master-Mild
+	Matra
+	Maverick
+	Max
+	Maxus
+	Mayfair
+	MayPole
+	Memphis
+	Merit
+	Mevius
+	Mild-Formula
+	Minak-Djinggo
+	Misty
+	Mocne
+	Moments
+	Mondial
+	More
+	MS
+	Muratti
+	Natural-American-Spirit
+	Navy-Cut
+	Neo-Mild
+	Neslite
+	Newport
+	Next
+	Nikki-Super
+	Niko-International
+	Nil
+	Niu-Niu
+	NO.10
+	Noblesse
+	North-Pole
+	NOY
+	Nuu-Mild
+	One-Mild
+	Pall-Mall
+	Panama
+	Parisienne
+	Parliament
+	Peace
+	Pensil-Mas
+	Peter-Stuyvesant
+	Pianissimo-Peche
+	Platinum
+	Players
+	Polo-Mild
+	Popularne
+	Prima
+	Prince
+	Pueblo
+	Pundimas
+	Pyramid
+	Rambler
+	Rawit
+	Red-&-White
+	Red-Mild
+	Regal
+	Regent
+	Relax-Mild
+	Richmond
+	Romeo-y-Julieta
+	Rothmans
+	Royal
+	Saat
+	Salem
+	Sampoerna-Hijau
+	Sakura
+	Scissors
+	Score-Mild
+	Sejati
+	Senior-Service
+	Seven-Stars
+	Shaan
+	Silk-Cut
+	Slic-Mild
+	Smart
+	Sobranie
+	Special-Extra-Filter
+	ST-Dupont
+	Star-Mild
+	State-Express-555
+	Sterling
+	Strand
+	Style
+	Superkings
+	Surya-Pro-Mild
+	Sweet-Afton
+	Taj-Chhap-Deluxe
+	Tali-Jagat
+	Tareyton
+	Ten-Mild
+	Thang-Long
+	Time
+	Tipper
+	True
+	U-Mild
+	Ultra-Special
+	Uno-Mild
+	Up-Mild
+	Urban-Mild
+	Vantage
+	Vegas-Mild
+	Vogue
+	Viceroy
+	Virginia-Slims
+	Viper
+	West
+	Wills-Navy-Cut
+	Winfield
+	Win Mild
+	Winston
+	Wismilak
+	Woodbine
+	X-Mild
+	Ziganov
+	Zhongnanhai
 );
 
 my %baby_food_brands = ();
@@ -406,8 +398,6 @@ sub detect_categories ($) {
 
 
 sub check_nutrition_grades($) {
-
-
 	my $product_ref = shift;
 
 	if ((defined $product_ref->{nutrition_grade_fr_producer}) and (defined $product_ref->{nutrition_grade_fr}) ) {
@@ -435,9 +425,34 @@ sub check_nutrition_grades($) {
 }
 
 
+sub check_carbon_footprint($) {
+	my $product_ref = shift;
+	
+	if (defined $product_ref->{nutriments}) {
+	
+		if ((defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
+			and not (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
+			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-meat-or-fish-but-not-from-known-ingredients";
+		}
+		if ((not defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
+			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
+			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-known-ingredients-but-not-from-meat-or-fish";
+		}
+		if ((defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
+			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})
+			and ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} > $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
+			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-known-ingredients-less-than-from-meat-or-fish";
+		}
+		if ((defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
+			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})
+			and ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} < $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
+			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-known-ingredients-more-than-from-meat-or-fish";
+		}			
+	}
+}
+
+
 sub check_nutrition_data($) {
-
-
 	my $product_ref = shift;
 
 
@@ -546,9 +561,16 @@ sub check_nutrition_data($) {
 	}
 }
 
+sub calculate_digit_percentage($) {
+	my $text = shift;
+	return 0.0 if not defined $text;
+	my $tl = length($text);
+	return 0.0 if $tl <= 0;
+	my $dc = () = $text =~ /\d/g;
+	return $dc / ($tl * 1.0);
+}
 
 sub check_ingredients($) {
-
 	my $product_ref = shift;
 
 	# spell corrected additives
@@ -620,6 +642,9 @@ sub check_ingredients($) {
 		}
 	}
 
+	if ((defined $product_ref->{ingredients_text}) and (calculate_digit_percentage($product_ref->{ingredients_text}) > 0.3)) {
+		push @{$product_ref->{quality_tags}}, 'ingredients-over-30-percent-digits';
+	}
 
 	if (defined $product_ref->{languages_codes}) {
 
@@ -630,6 +655,10 @@ sub check_ingredients($) {
 			if (defined $product_ref->{$ingredients_text_lc}) {
 
 				$log->debug("ingredients text", { quality => $product_ref->{$ingredients_text_lc} }) if $log->is_debug();
+
+				if (calculate_digit_percentage($product_ref->{$ingredients_text_lc}) > 0.3) {
+					push @{$product_ref->{quality_tags}}, 'ingredients-' . $display_lc . '-over-30-percent-digits';
+				}
 
 				if ($product_ref->{$ingredients_text_lc} =~ /,(\s*)$/is) {
 
@@ -692,6 +721,18 @@ sub check_ingredients($) {
 
 		}
 
+	}
+
+
+	my $agr_bio = qr/
+		(ingrédients issus de l'Agriculture Biologique)
+		|(aus biologischer Landwirtschaft)
+		|(aus kontrolliert ökologischer Landwirtschaft)
+		|(Zutaten aus ökol. Landwirtschaft)
+	/xx;
+
+	if (($product_ref->{ingredients_text} =~ /$agr_bio/is) && !has_tag($product_ref, "labels", "en:organic")) {
+		push @{$product_ref->{quality_tags}}, 'no-organic-label';
 	}
 
 }
@@ -792,6 +833,63 @@ sub check_bug_created_t_missing($) {
 
 }
 
+sub check_codes($) {
+
+	my $product_ref = shift;
+
+	check_code_gs1_prefixes($product_ref);
+
+}
+
+sub check_code_gs1_prefixes($) {
+
+	my $product_ref = shift;
+
+	if ((not (defined $product_ref->{code}))) {
+		return;
+	}
+
+	my $code = $product_ref->{code};
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/1129
+	if ($code =~ /^99[0-9]{10,11}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-coupon-prefix';
+	}
+	elsif ($code =~ /^98[5-9][0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-future-coupon-prefix';
+	}
+	elsif ($code =~ /^98[1-4][0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-coupon-common-currency-area-prefix';
+	}
+	elsif ($code =~ /^980[0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-refund-prefix';
+	}
+	elsif ($code =~ /^97[8-9][0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-isbn-prefix';
+	}
+	elsif ($code =~ /^977[0-9]{9,10}$/) {
+		push @{$product_ref->{quality_tags}}, 'gs1-issn-prefix';
+	}
+}
+
+sub check_categories($) {
+	my $product_ref = shift;
+
+	# Check alcohol content
+	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")
+		&& (!(defined $product_ref->{alcohol_value}) or $product_ref->{alcohol_value} == 0)) {
+
+			push @{$product_ref->{quality_tags}}, 'alcoholic-no-alcohol';
+	}
+
+	if (defined $product_ref->{alcohol_value}
+		and $product_ref->{alcohol_value} > 0
+		and !has_tag($product_ref, "categories", "en:alcoholic-beverages")
+		) {
+
+			push @{$product_ref->{quality_tags}}, 'alcohol-no-category';
+	}
+	return;
+}
 
 # Run site specific quality checks
 
@@ -804,14 +902,15 @@ sub check_quality($) {
 	check_ingredients($product_ref);
 	check_nutrition_data($product_ref);
 	check_nutrition_grades($product_ref);
+	check_carbon_footprint($product_ref);
 	check_quantity($product_ref);
 	check_bugs($product_ref);
+	check_codes($product_ref);
 
 	detect_categories($product_ref);
+	check_categories($product_ref);
+	return;
 }
-
-
-
 
 
 1;

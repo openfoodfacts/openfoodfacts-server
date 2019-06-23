@@ -1,413 +1,187 @@
-<div id="main_column" class="XXLarge-11 xlarge-10 wide-9 medium-8 columns" style="padding-top: 1REM; height: 4313px;" data-equalizer-watch="">
+<!-- no side column -->
 
-<!-- Hand column content - how used to remove left column and center glad On Some pages -->  
+<styles>
+@media only screen and (max-width: 40em) { h2 { font-weight:bold; font-size:1.2em;} }
+</styles>
 
-<h1>ציון תזונתי - סימון בצבע - צרפת</h1>
+<h1>השוואת האיכות התזונתית של מוצרי מזון עם Nutri-Score!</h1>
 
-<h2>מערכת של ציונים מ־A עד E לפישוט הסימון התזונתי</h2>
+<h2>מה זה Nutri-Score?</h2>
 
-<p>In the report "Proposals for a new impetus to the French public health nutrition policy in the framework of the National Health Strategy" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>),
-Professor Serge Hercberg advocates for the adoption of a system of grades from A to E on the front of food
-to allow to simply compare the nutritional quality of products.</p>
+<div class="row">
 
-<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
+<div class="small-6 medium-6 large-8 xlarge-8 columns">  
 
-<p>These color accents are set by calculating a nutritional score that reflects for the 1st part of the energy, saturated fat, sugars, sodium (high levels are considered unhealthy), and for the 2nd part of the proportion of fruits, vegetables and nuts, fibers and proteins 
-  (high levels are considered good for health).</p>
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png" alt="ציון תזונתי">
 
-<p>למידע נוסף:</p>
+<p>Nutri-Score הוא סמל שמייצג את האיכות התזונתית של מוצרי מזון עם דירוג מ־A עד E. עם ציון תזונתי, ניתן להשוות מוצרים בקלות ובמהירות.</p>
 
-<ul>
-<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">סרטון של שתי דקות: מה משמעות התוויות למוצרי מזון?</a></li>
-<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">עצומה לסימון כל התוויות התזונתיות בצורה פשוטה, נוחה ומובנת בחזית אריזות המזון</a>
-</li>
-</ul>
+<div class="panel callout show-for-medium-up">
+<p><b>מאי 2019:</b> ניתן לצפות בדירוג Nutri-Score עם היישומון של Open Food Facts אך לא על כל חזיתות מוצרי המזון. ניתן לבקש מהנציבות האירופית שהצגתו תהיה מחייבת על חזיתם של מוצרי מזון.</p>
 
-<h2>הציון התזונתי ב־Open Food Facts</h2>
-
-<p>הנוסחה לחישוב הציון התזונתי, ערכי הסף שמוגדרים לציונים והצעות שונות לשיפורים התקבלו על ידי הצוות של פרופסור הרקברג. הנוסחה הזאת הייתה נושא למחקר ולהתאמה לשוק הצרפתי.</p>
-
-<p>The version adopted officially and implementated on Open Food Facts is the one from the report 
-<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">NOTICE of the High Council for Public Health relating to information on the nutritional quality of food products published on June 25, 2015</a>.</p>
-
-<p>However, we calculated the nutritional score for products sold on French soil and referenced in the database Open Food Facts,
-and determined the corresponding A to E grades. This allows in particular to compare the nutritional score and / or notes of different products, and to study the distribution for each product category.</p>
-
-<h2>נוסחה לחישוב הציון התזונתי</h2>
-
-<p>נקודות ניתנות למוצרים בהתאם לכמות חומרי ההזנה שהם מכילים ל־100 גרם.</p>
-
-<p>נקודות A ניתנות לחומרי הזנה שנחשבים „רעים” ונקודות C ניתנות לחומרי הזנה „טובים” ותוכן של פרות, ירקות ואגוזים.</p>
-
-<h3>נקודות A</h3>
-
-<p>נקודות A הן סכום הנקודות לאנרגיה, שומן רווי, סוכרים ונתרן.</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <th>נקודות</th>
-    <th>אנרגיה (kJ)</th>
-    <th>שומן רווי (ג׳)</th>
-    <th>סוכרים (ג׳)</th>
-    <th>נתרן (מ״ג)</th>
-  </tr>
-<tr>
-  <td>0</td>
-  <td>‎≤335</td>
-  <td>‎≤1</td>
-  <td>‎≤4.5</td>
-  <td>‎≤90</td>
-</tr>
-<tr>
-  <td>1</td>
-  <td>‎&gt;335</td>
-  <td>‎&gt;1</td>
-  <td>‎&gt;4.5</td>
-  <td>‎&gt;90</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td>‎&gt;670</td>
-  <td>‎&gt;2</td>
-  <td>‎&gt;9</td>
-  <td>‎&gt;180</td>
-</tr>
-<tr>
-  <td>3</td>
-  <td>‎&gt;1005</td>
-  <td>‎&gt;3</td>
-  <td>‎&gt;13.5</td>
-  <td>‎&gt;270</td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>‎&gt;1340</td>
-  <td>‎&gt;4</td>
-  <td>‎&gt;18</td>
-  <td>‎&gt;360</td>
-</tr>
-<tr>
-  <td>5</td>
-  <td>‎&gt;1675</td>
-  <td>‎&gt;5</td>
-  <td>‎&gt;22.5</td>
-  <td>‎&gt;450</td>
-</tr>
-<tr>
-  <td>6</td>
-  <td>‎&gt;2010</td>
-  <td>‎&gt;6</td>
-  <td>‎&gt;27</td>
-  <td>‎&gt;540</td>
-  </tr>
-<tr>
-  <td>7</td>
-  <td>‎&gt;2345</td>
-  <td>‎&gt;7</td>
-  <td>‎&gt;31</td>
-  <td>‎&gt;630</td>
-</tr>
-<tr>
-  <td>8</td>
-  <td>‎&gt;2680</td>
-  <td>‎&gt;8</td>
-  <td>‎&gt;36</td>
-  <td>‎&gt;720</td>
-</tr>
-<tr>
-  <td>9</td>
-  <td>‎&gt;3015</td>
-  <td>‎&gt;9</td>
-  <td>‎&gt;40</td>
-  <td>‎&gt;810</td>
-</tr>
-<tr>
-  <td>10</td>
-  <td>‎&gt;3350</td>
-  <td>‎&gt;10</td>
-  <td>‎&gt;45</td>
-  <td>‎&gt;900</td>
-</tr>
-</tbody>
-  </table>
-
-<h3>נקודות C</h3>
-
-<p>נקודות ה־C הן סכום הנקודות לפרות, ירקות ואגוזים, לפי סיבים וחלבונים.</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <th>נקודות</th>
-    <th>פרות, ירקות ואגוזים (%)</th>
-    <th>סיבים (ג׳)</th>
-    <th>חלבון (ג׳)</th>
-  </tr>
-<tr>
-  <td>0</td>
-  <td>‎≤40</td>
-  <td>‎≤0.7</td>
-  <td>‎≤1.6</td>
-</tr> 
-<tr>
-    <td>1</td>
-    <td>‎&gt;40</td>
-    <td>‎&gt;0.7</td>
-    <td>‎&gt;1.6</td>
-</tr> 
-<tr>
-  <td>2</td>
-  <td>‎&gt;60</td>
-  <td>‎&gt;1.4</td>
-  <td>‎&gt;3.2</td>
-</tr> 
-<tr>
-  <td>3</td>
-  <td>-</td>
-  <td>‎&gt;2.1</td>
-  <td>‎&gt;4.8</td>
-</tr> 
-<tr>
-  <td>4</td>
-  <td>-</td>
-  <td>‎&gt;2.8</td>
-  <td>‎&gt;6.4</td>
-  </tr> 
-<tr>
-  <td>5</td>
-  <td>‎&gt;80</td>
-  <td>‎&gt;3.5</td>
-  <td>‎&gt;8.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>לתשומת לבך: תפוחי אדמה, בטטות, טארו, קסאווה וטפיוקה אינם נכללים בין פרות, ירקות ואגוזים.</p>
-
-<h3>חישוב ציון תזונתי</h3>
-
-<ul>
-<li>אם נקודות ה־A‏ &lt; 11 אז הציון = נקודות A - נקודות C</li>
-<li>אם נקודות ה־A‏ ≥ 11
-<ul>
-<li>אם הנקודות עבור פרות, ירקות ואגוזים = 5, אז הציון = A נקודות - C נקודות</li>
-<li>If the points for fruit, vegetables and nuts &lt; 5, then score = A points - (fiber points + points for points fruits, vegetables and nuts)</li>
-</ul>
-
-</li>
-</ul>
-
-<h3>התאמות לשוק הצרפתי</h3>
-
-<p>The formula of nutritional score indicated above corresponds to the formula of the 
-  nutritional score of the Food Standards Agency (FSA) in the UK.</p>
-
-<p>הצוות של פרופסור הרקברג מציע התאמות לשוק הצרפתי שמוטמעות לטובת חישוב הניקוד ב־Open Food Facts.</p>
-
-<h4>התאמות לגבינות</h4>
-
-<p>לגבינות, נקודות לחלבונים מוחסרות מהניקוד אפילו אם נקודות ה־A הן ≥ 11.</p>
-
-<h4>התאמה לשומנים</h4>
-
-<p>To help differentiate between fats (oils, margarines, crèmes fraîches), all of which have rates of
-  saturated fat higher than the maximum threshold of 10 g, 
-  another grid that takes into account the ratio of saturated fatty acids on the total fat is applied:</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <td>נקודות</td>
-    <td>יחס בין שומן רווי / סך כל השומן</td>
-  </tr>
-<tr>
-  <td>0</td> 
-  <td>‎&lt; 10</td>
-</tr>
-<tr>
-  <td>1</td> 
-  <td>‎&lt; 16</td>
-</tr>
-<tr>
-  <td>2</td> 
-  <td>‎&lt; 22</td>
-</tr>
-<tr>
-  <td>3</td> 
-  <td>‎&lt; 28</td>
-</tr>
-<tr>
-  <td>4</td> 
-  <td>‎&lt; 34</td>
-</tr>
-<tr>
-  <td>5</td> 
-  <td>‎&lt; 40</td>
-</tr>
-<tr>
-  <td>6</td> 
-  <td>‎&lt; 46</td>
-</tr>
-<tr>
-  <td>7</td> 
-  <td>‎&lt; 52</td>
-</tr>
-<tr>
-  <td>8</td> 
-  <td>‎&gt;&lt; 58</td>
-</tr>
-<tr>
-  <td>9</td> 
-  <td>‎&gt;&lt; 64</td>
-</tr>
-<tr>
-  <td>10</td> 
-  <td>‎&gt;64</td>
-</tr>
-</tbody>
-</table>
-
-<h4>התאמות לפרות ולירקות</h4>
-
-<p>אגוזים אינם נלקחים בחשבון לצורך חישוב תוכן של פרות וירקות.</p>
-
-<h4>התאמות למשקאות</h4>
-
-<p>אזהרה: הציון התזונתי של חלב וסוגי חלב מהצומת מחושבים עם נוסחה כללית ולא לפי הנוסחה למשקאות.</p>
-
-<p>סף הנקודות לאנרגיה ולסוכרים משתנה עבור משקאות והנקודות מוכפלות לפרות:</p>
-
-<table class="points">
-<tbody>
-<tr>
-  <th>נקודות</th>
-  <th>אנרגיה (kJ)</th>
-  <th>סוכרים (ג׳)</th>
-  <th>פרות, ירקות (%)</th>
-</tr>
-<tr>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td> 
-  <td>‎&lt; = 40</td>
-</tr>
-<tr>
-  <td>1</td> <td>‎≤30</td> 
-  <td>≤1,5 או ממתיקים</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>2</td> <td>‎&gt;30</td> 
-  <td>‎&gt;1.5</td> 
-  <td>‎&gt;40</td>
-</tr>
-<tr>
-  <td>3</td> <td>‎&gt;60</td> 
-  <td>‎&gt;3</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>‎&gt;90</td> 
-  <td>‎&gt;4.5</td> 
-  <td>‎&gt;60</td>
-</tr>
-<tr>
-  <td>5</td> 
-  <td>‎&gt;120</td> 
-  <td>‎&gt;6</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>6</td> 
-  <td>‎&gt;150</td> 
-  <td>‎&gt;7.5</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>7</td> 
-  <td>‎&gt;180</td> 
-  <td>‎&gt;9</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>8</td> 
-  <td>‎&gt;210</td> 
-  <td>‎&gt;10.5</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>9</td> 
-  <td>‎&gt;240</td> 
-  <td>‎&gt;12</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>10</td> 
-  <td>‎&gt;270</td> 
-  <td>‎&gt;13.5</td> 
-  <td>‎&gt;80</td>
-  </tr>
-</tbody>
-</table>
-
-<h2>סף צבע לציון</h2>
-
-<p>ערכי הסף שמשמשים להקצאת ציוני הצבע הם:</p> <p>
-</p><h3>מזון מוצק:</h3>
-<ul>
-<li>A - ירוק: עד ‎-1</li>
-<li>B - צהוב: מ־0 עד 2</li>
-<li>C - כתום: מ־3 עד 10</li>
-<li>D - ורוד: מ־11 עד 18</li>
-<li>E - אדום: 19 ומעלה</li>
-</ul>
-<h3>משקאות:</h3>
-<p>רק מים (מינרלים או ממעיין, ללא מים בטעמים) מקבלים ציון A.</p>
-
-<ul>
-<li>A - ירוק: מים מינרליים ומי מעיינות</li>
-<li>B - צהוב: עד 1</li>
-<li>C - כתום: מ־2 עד 5</li>
-<li>D - ורוד: מ־6 עד 9</li>
-<li>E - אדום: 10 ומעלה</li>
-</ul>
-
-<p><b>אזהרה: יתכן שציון זה עדיין לא תואם לציון המומלץ:</b></p>
-
-<ul>
-<li>תוכן הסיבים לא בהכרח מופיע בטבלת הערכים התזונתיים. כאשר הנתון האחרון לא צוין, כל תרומה חיובית של הסיבים אינה נלקחת בחשבון. אנו מעודדים את כל היצרנים לציין את תכולת הסיבית במוצרים שלהם על האריזה.</li>
-  
-  <--end of current proofread -->
-<li>הנקודות התואמות לרמות בפרות ובירקות אינן נלקחות בחשבון לכל המוצרים. The fruit , vegetables content
-  is indeed not on the package within the nutrition table, and we'll have to determine it
-with other information (such as the words "minimum fruit content", the category of products (eg. jams contain 50% fruit) and/or the ingredient list.)
-<ul>
-<li>נוצר שדה חדש „פרות, ירקות (לכל הפחות)” כדי לתעד את הערכים של הביטויים „תוכן מזערי של פרי / ירקות” וכו׳.</li>
-<li>כבררת מחדל, המוצרים בקטגוריות מסוימות נחשבים שיש בהם תוכן מזערי על סך:
-<ul>
-<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits">מיץ</a></li>
-<li>90%: <a href="https://world.openfoodfacts.org/category/fr:compotes">פרות מבושלים</a></li>
-<li>85%: <a href="https://world.openfoodfacts.org/category/fr:legumes">ירקות</a></li>
-<li>50%: <a href="https://world.openfoodfacts.org/category/fr:confitures">ריבות</a></li>
-<li>קטגוריות נוספות יתווספו בהמשך</li>
-</ul>
-
-כדי לחשב את הציון התזונתי, חשוב להבדיל רמות של מעל 40%, 60% ו־80%.
-</li>
-</ul>
-  
-</li>
-
-<li>For the lyophilized food (packaged soups, etc.), the score should be calculated for the reconstituted product, not the raw product as is currently the case.</li>
-</ul>
-
-<p>ניתן לסייע לנו ללמוד מוצרים עם תוכן פרות, ירקות ואגוזים. למידע נוסף, יש לעיין במיזם 
-<a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">סימון תוויות תזונתיות</a> בוויקי.</p>
-
-<p>לתשומת לבך: פקעות כגון תפוחי אדמה ובטטות אינם נחשבים לירקות לחישוב ציון תזונתי.</p>
-<h2>תודה רבה</h2>
-<p>אנו מודים לפרופסור סרג׳ הרצברג ולד״ר שנטל ג׳וליה על עזרתם ועל הנתונים שהם סיפרו לנו לטובת חישוב הציון התזונתי. נתונים אלו נובעים מהעבודה של <a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">צוות המחקר באפידמיולוגיה תזונתית (EREN)</a> של אוניברסיטה 13 בפריז ובית החולים אביסיין.</p>
+<a class="small button" href="http://www.pronutriscore.org">לחתימה על העצומה של Nutri-Score באתר הנציבות האירופית</a> 
+</div>
 
 </div>
+
+<div class="small-6 medium-6 large-4 xlarge-4 columns">
+
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-cereals-delhaize-201905.jpg" alt="Nutri-Score בבלגיה">
+<p><em>Nutri-Score בחזית האריזה עם דירוג תזונתי על דגני בוקר בחנות של Delhaize בבלגיה (מאי 2019)</em></p>
+
+
+</div>
+
+</div>
+
+<div class="panel callout show-for-small-only">
+<p><b>מאי 2019:</b> ניתן לצפות בדירוג Nutri-Score עם היישומון של Open Food Facts אך לא על כל חזיתות מוצרי המזון. ניתן לבקש מהנציבות האירופית שהצגתו תהיה מחייבת על חזיתם של מוצרי מזון.</p>
+
+<a class="small button" href="http://www.pronutriscore.org">לחתימה על העצומה של Nutri-Score באתר הנציבות האירופית</a>
+</div>
+
+
+<h2>כיצד מחושב Nutri-Score?</h2>
+
+
+<p>דירוג Nutri-Score נקבע בהתאם לרכיבי ההזנה הבריאים והמזיקים:</p> 
+
+<p><b> נקודות חיוביות: </b> יחס הרכב פרי, ירקות ואגוזים, סיבים וחלבונים (רמות גבוהות נחשבות טובות לבריאות).</p>
+
+<p><b> נקודות שליליות: </b> אנרגיה, שומן רווי, סוכרים, נתרן (רמות גבוהות נחשבות למזיקות)</p>
+
+<p><a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN">נוסחת ה־Nutri-Score</a> המפורטת זמינה באתר של Santé publique France.</p>
+
+
+<h2>כיצד ניתן לצפות ב־Nutri-Score של מוצרי מזון?</h2>
+
+<div class="row">
+
+<div class="small-12 medium-6 columns">  
+
+
+<p>Nutri-Score מופיע על תוויות מוצרי מזון רק בחלק מהמדינות ולמבחר מצומצם של מותגים, אך הוא מחושב לכל המוצרים ולכל המדינות דרך Open Food Facts החל מ־2014!</p>
+
+<p>ניתן לצפות ב־Nutri-Score של מוצרי מזון עם היישומונים של Open Food Facts ל־iPhone ול־Android ובאתר של Open Food Facts. אם המוצר עדיין לא נמצא במסד הנתונים של Open Food Facts ניתן להוסיף אותו תוך דקה על ידי הוספת הפירוט התזונתי ובחירת קטגוריה, לאחר מכן ה־Nutri-Score יחושב ויופיע באופן מיידי.</p>
+
+</div>
+
+<div class="small-12 medium-6 columns">
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-biscuits-e.800x600.jpg" alt="NutriScore on the Open Food Facts mobile app">
+<p><em>קבלת ה־Nutri-Score עם היישומון של Open Food Facts!</em></p>
+</div>
+
+</div>
+
+<h3>Install the Open Food Facts mobile app</h3>
+
+<p>To scan food products, get their Nutri-Score nutritional grade, the NOVA group for ultra-processed foods, allergens alerts and to decypher food additives, install the free Open Food Facts app!</p>
+
+
+<a href="https://itunes.apple.com/app/open-food-facts/id588797948"><img src="https://static.openfoodfacts.org/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Available on the App Store" width="135" height="40"></a>
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="https://static.openfoodfacts.org/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47"></a>
+<a href="https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="https://static.openfoodfacts.org/images/misc/154x40_WP_Store_blk.png" alt="חנות Windows Phone" width="154" height="40"></a>
+<a href="https://world.openfoodfacts.org/files/off.apk"><img src="https://static.openfoodfacts.org/images/misc/android-apk.112x40.png" alt="Android APK"></a>
+
+<br><br>
+
+<p>You will also be able to easily add new products to Open Food Facts and help to build a common good to improve everyone's food and health. תודה רבה לך!</p>
+
+<h3>השוואת Nutri-Score של מוצרים באתר של Open Food Facts</h3>
+
+<div class="row">
+
+<div class="small-12 medium-6 large-8 columns">
+<p>ב־<a href="/">Open Food Facts</a>, ניתן לבחור קטגוריית מוצרים או מותג ולהציג את דירוגי ה־Nutri-Score וגם לחקור את המוצרים התואמים. Use the "Explore products by..." blue button and select "Nutrition grades".</p>
+
+</div>
+
+<div class="small-12 medium-6 large-4 columns">
+<a href="/nutrition-grades">
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-distribution.png" alt="NutriScore">
+<em>התפלגות של Nutri-Score עבור כל המוצרים</em>
+</a>
+<br><br>
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="small-12 medium-6 large-8 columns">
+<p>ב־<a href="/">Open Food Facts</a>, ניתן גם ליצור <a href="/cgi/search.pl?graph=1">תרשימים בלחיצות ספורות</a> שמציגים Nutri-Score של מוצרים. Choose a criteria like a category of products, and the nutrition facts that you are interested in (e.g. sugars and fat), then check the box "Use the nutrition grades colors".</p>
+</div>
+
+<div class="small-12 medium-6 large-4 columns">
+<a href="/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=en:breakfast-cereals&sort_by=unique_scans_n&page_size=20&axis_x=sugars&axis_y=fat&graph_title=Sugar%20and%20fat%20in%20breakfast%20cereals&series_nutrition_grades=on&graph=1">
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-breakfast-cereals-graph-fr.png" alt="NutriScore">
+<em>Nutri-Score, סוכרים ושומנים של דגני בוקר</em>
+</a>
+<br><br>
+</div>
+
+</div>
+
+
+
+<h2>מי עומד מאחורי Nutri-Score?</h2>
+
+<p>Nutri-Score has been proposed by EREN, a French public nutrition research team, led by Professor Serge Hercberg. It is based on the FSA nutritional score created by the Food Standards Agency in the UK.</p>  
+
+<p>The Nutri-Score is presented in the 2013 report "Proposals for a new impetus to the French public health nutrition policy in the framework of the National Health Strategy" (<a href="http://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>).
+Professor Serge Hercberg advocates for the adoption of a system of grades from A to E on the front of food products to allow to easily compare the nutritional quality of products.</p>
+
+
+<h2>אילו מדינות אימצו את Nutri-Score?</h2>
+
+
+<p>Nutri-Score אומץ בצרפת ב־2016 ובבלגיה וספרד ב־2018. חלק מהיצרנים בגרמניה גם כן משתמשים ב־Nutri-Score. Nutri-Score הוא בגדר רשות במדינות האלו, אך מספר הולך וגדל של יצרני מזון מציגים אותו על מוצריהם:</p>
+
+<ul>
+<li><a href="https://fr-en.openfoodfacts.org/label/nutriscore/brands">מותגים עם Nutri-Score בצרפת</a></li>
+<li><a href="https://be-en.openfoodfacts.org/label/nutriscore/brands">מותגים עם Nutri-Score בבלגיה</a></li>
+<li><a href="https://es-en.openfoodfacts.org/label/nutriscore/brands">מותגים עם Nutri-Score בספרד</a></li>
+<li><a href="https://de-en.openfoodfacts.org/label/nutriscore/brands">מותגים עם Nutri-Score בגרמניה</a></li>
+</ul>
+
+<p>צוותי מחקר במדינות אחרות, למשל מקסיקו, גם כן עורכות מחקר על בסיס Nutri-Score.</p>
+
+
+
+<h2>עצומת ‎#PRONUTRISCORE (בעד Nutri-Score): צרכנים בכל רחבי אירופה מצרפים כוחות כדי לאסוף מיליון חתימות</h2>
+
+<p>UFC-Que Choisir (צרפת), Test-Achat (בלגיה), VZBV (גרמניה), Consumentenbond (הולנד), OCU (ספרד), Federajca Konsumentow (פולין) ו־EKPIZO (יוון), חברי הסוכנות האירופאית לאיגודי צרכנים (BEUC) חברה לטובת הגשת בקשה לנציבות האיחוד האירופי להפוך את ציון ה־Nutri-Score על גבי אריזות מזון למחייב.</p>
+
+<blockquote>
+<p>אנו מבקשים מנציבות האיחוד האירופי לכפות תיוג ‚ציון תזונתי’ על מוצרי מזון כדי להבטיח שהצרכנים מקבלים מידע תזונתי איכותי ולהגן על בריאות הציבור.</p>
+<ol>
+<li>להפוך את התיוג התזונתי לקריא וברור כדי שהערך התזונתי של המזון ישוקף במבט חטוף בתוך המגוון העצום של אספקת מזון,</li>
+<li>Take action on public health issues by encouraging professionals to improve the composition of their products;</li>
+<li>Harmonise nutritional information at European level by imposing a single official labelling system, thereby putting an end to the confusion experienced by European consumers when faced by the plethora of existing logos.</li>
+</ol>
+</blockquote>
+<h3>עצומה להפיכת ציון Nutri-Score למחייב על כל האריזות בכל רחבי אירופה</h3>
+
+<p>
+<a class="small button" href="http://www.pronutriscore.org">לחתימה על העצומה של Nutri-Score באתר הנציבות האירופית</a> (דורש תצורה רשמית של מספר זיהוי אירופי)
+</p>
+
+<a class="tiny button" href="https://twitter.com/share?url=https://world-en.openfoodfacts.org/nutriscore&amp;text=Join%20me%20in%20signing%20the%20%23PRONUTRISCORE%20petition&amp;hashtags=yeswescan">לצייץ על העצומה</a>
+<a class="tiny button" href="https://www.facebook.com/sharer.php?u=https://world-en.openfoodfacts.org/nutriscore">יש לשתף את הקריאה הזאת כדי לחתום ב־Facebook</a>
+<a class="tiny button" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://world-en.openfoodfacts.org/nutriscore">Share this call to sign on LinkedIn</a>
+
+<h2>תודה רבה</h2>
+<p>We would like to thank Professor Serge Hercberg and Dr. Chantal Julia from the <a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">Research Team in Nutritional Epidemiology (EREN)</a> of the Paris 13 University / Avicenne Hospital for their help and the data they have communicated us to compute the nutritional score and the Nutri-Score grades.</p>
+
+
+<h2>מידע נוסף על Nutri-Score</h2>
+
+<ul>
+<li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score">מצגת רשמית של Nutri-Score</a> ו<a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN">שאלות ותשובות בתחומי מדע וטכנולוגיה שלNutri-Score</a> באתר של סוכנות הבריאות הציבורית של צרפת: Santé publique France.</li>
+<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">סרטון של שתי דקות: מה משמעות התוויות למוצרי מזון?</a></li>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petition for a simple, intuitive and understandable by all nutritional labeling on the front of food packages</a>
+</li>
+</ul>
+
+<br>

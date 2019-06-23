@@ -166,7 +166,8 @@ for (my $i = 0; $i < $nutriments_n ; $i++) {
 
 my $sort_by = remove_tags_and_quote(decode utf8=>param("sort_by"));
 if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
-	and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')) {
+	and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
+	and ($sort_by ne 'completeness')) {
 	$sort_by = 'unique_scans_n';
 }
 
@@ -373,9 +374,10 @@ HTML
 	# Different types to display results
 
 	my $popup_sort = popup_menu(-name=>"sort_by", -id=>"sort_by", -value=> $sort_by,
-		-values=>['unique_scans_n','product_name','created_t','last_modified_t'],
+		-values=>['unique_scans_n','product_name','created_t','last_modified_t','completeness'],
 		-labels=>{unique_scans_n=>lang("sort_popularity"), product_name=>lang("sort_product_name"),
-			created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t")});
+			created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t"),
+			completeness=>lang("sort_completeness")});
 
 	my $popup_size = popup_menu(-name=>"page_size", -id=>"page_size", -value=> $limit, -values=>[20, 50, 100, 250, 500, 1000]);
 
@@ -777,7 +779,7 @@ elsif ($action eq 'process') {
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="fi-share"></i>
+	<i class="icon-share"></i>
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -810,7 +812,7 @@ HTML
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="fi-share"></i>
+	<i class="icon-share"></i>
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -841,7 +843,7 @@ HTML
 			${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="fi-share"></i>
+	<i class="icon-share"></i>
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML

@@ -61,7 +61,22 @@ if (not defined $code) {
 	exit(0);
 }
 
-my $product_ref = process_image_crop($code, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2);
+# Check if we have a picture from the manufacturer
+
+my $product_ref = retrieve_product($code);
+
+if ((defined $product_ref) and (has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+	and (referer() !~ /\/cgi\/product.pl/)) {
+	print STDERR "product_image_crop.pl - skip image id $id for product code $code (data from producer) - referer: " . referer() . "\n";
+}
+elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "207.154.237.7")) {
+	# Skip images selected by Yuka -> they have already been selected through the upload if they were the first
+	# otherwise we can have images selected twice, once with the right language (set for the upload with the cc field), and another time with fr
+	# Yuka may not be passing the user_id for the crop, use the ip 207.154.237.7
+}
+else {
+	$product_ref = process_image_crop($code, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2);
+}
 
 my $data =  encode_json({ status => 'status ok',
 		image => {

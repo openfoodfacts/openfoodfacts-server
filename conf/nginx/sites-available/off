@@ -73,6 +73,7 @@ server {
         if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
         if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
         if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = windowsphone.openfoodfacts.org) { return 302 https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr ; }
         if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
         if ($host = donner.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous ; }
         if ($host = donate.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en ; }
@@ -153,7 +154,7 @@ server {
 
 	# Static files are served directly by NGINX
 
-	location ~ ^/(.well-known|images|css|js|rss|data|files|resources|foundation|bower_components)/ {
+	location ~ ^/(.well-known|fonts|images|css|js|rss|data|files|resources)/ {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;

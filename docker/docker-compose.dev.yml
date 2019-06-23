@@ -7,7 +7,7 @@ services:
       dockerfile: ./docker/backend/Dockerfile
       target: runnable
   frontend:
-    image: nginx:latest
+    image: nginx:1.16.0-alpine
     volumes:
       - type: bind
         source: ../

@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -29,8 +29,6 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-					&generate_banner
-					&generate_mosaic_background
 					&display_image_form
 					&process_image_form
 
@@ -51,6 +49,8 @@ BEGIN
 
 					&display_image
 					&display_image_thumb
+
+					&extract_text_from_image
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -260,7 +260,7 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="fi-camera"></i> $product_image_with_barcode
+<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="icon-ui-camera"></i> $product_image_with_barcode
 <input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
     right:0;
     bottom:0;
@@ -1347,6 +1347,137 @@ HTML
 	}
 
 	return $html;
+}
+
+
+sub extract_text_from_image($$$$$) {
+
+	my $product_ref = shift;
+	my $id = shift;
+	my $field = shift;
+	my $ocr_engine = shift;
+	my $results_ref = shift;
+
+	delete $product_ref->{$field};
+
+	my $path = product_path($product_ref->{code});
+	$results_ref->{status} = 1;	# 1 = nok, 0 = ok
+
+	my $filename = '';
+
+	my $lc = $product_ref->{lc};
+
+	if ($id =~ /_(\w\w)$/) {
+		$lc = $1;
+	}
+
+	my $size = 'full';
+	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+		$filename = $id . '.' . $product_ref->{images}{$id}{rev} ;
+	}
+	else {
+		return;
+	}
+
+	my $image = "$www_root/images/products/$path/$filename.full.jpg";
+	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
+
+	my $text;
+
+	$log->debug("extracting text from image", { id => $id, ocr_engine => $ocr_engine }) if $log->is_debug();
+
+	if ($ocr_engine eq 'tesseract') {
+
+		my $lan;
+
+		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
+		}
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
+		}
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
+		}
+
+		$log->debug("extracting text with tesseract", { lc => $lc, lan => $lan, id => $id, image => $image }) if $log->is_debug();
+
+		if (defined $lan) {
+			$text =  decode utf8=>get_ocr($image,undef,$lan);
+
+			if ((defined $text) and ($text ne '')) {
+				$results_ref->{$field} = $text;
+				$results_ref->{status} = 0;
+			}
+		}
+		else {
+			$log->warn("no available tesseract dictionary", { lc => $lc, lan => $lan, id => $id }) if $log->is_warn();
+		}
+
+	}
+	elsif ($ocr_engine eq 'google_cloud_vision') {
+
+		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
+		# alpha-vision.googleapis.com/
+
+		my $ua = LWP::UserAgent->new();
+
+		my $api_request_ref =
+			{
+				requests =>
+					[
+						{
+							features => [{ type => 'TEXT_DETECTION'}], image => { source => { imageUri => $image_url}}
+						}
+					]
+			}
+		;
+		my $json = encode_json($api_request_ref);
+
+		my $request = HTTP::Request->new(POST => $url);
+		$request->header( 'Content-Type' => 'application/json' );
+		$request->content( $json );
+
+		my $res = $ua->request($request);
+
+		if ($res->is_success) {
+
+			$log->info("request to google cloud vision was successful") if $log->is_info();
+
+			my $json_response = $res->decoded_content;
+
+			my $cloudvision_ref = decode_json($json_response);
+
+			my $json_file = "$www_root/images/products/$path/$filename.full.jpg" . ".google_cloud_vision.json";
+
+			$log->info("saving google cloud vision json response to file", { path => $json_file }) if $log->is_info();
+
+			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
+			$json_response = decode("utf8", $json_response);
+
+			open (my $OUT, ">:encoding(UTF-8)", $json_file);
+			print $OUT $json_response;
+			close $OUT;
+
+			if ((defined $cloudvision_ref->{responses}) and (defined $cloudvision_ref->{responses}[0])
+				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
+				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text})) {
+
+				$log->debug("text found in google cloud vision response") if $log->is_debug();
+
+
+				$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
+				$results_ref->{$field . "_annotations"} = $cloudvision_ref;
+				$results_ref->{status} = 0;
+			}
+
+		}
+		else {
+			$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
+		}
+	}
+
 }
 
 1;
