@@ -211,7 +211,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Taurine
 # other-nutritional-substance/taurine has 591 products in 8 languages @2019-05-17
 
 
-# description:en:CHOLINE is a water-soluble vitamin-like essential nutrient. Cruciferous vegetables, such as Brussels sprouts and broccoli, are good sources of choline.
+# description:en:CHOLINE is a water-soluble vitamin-like essential nutrient. The US Food and Drug Administration requires that infant formula not made from cow's milk be supplemented with choline. Choline-providing dietary supplement ingredients include: choline chloride, choline bitartrate, citicoline (CDP-choline), L-alpha-glycerophosphocholine (Alpha-GPC), lecithin, phosphatidylcholine. Cruciferous vegetables, such as Brussels sprouts and broccoli, are good sources of choline.
 # comment:en:Related to additive E1001 and vitamin B4
 
 en:Choline
@@ -255,7 +255,7 @@ wikidata:en:Q193166
 wikipedia:en:https://en.wikipedia.org/wiki/Choline
 # ingredient/choline has 73 products @2019-06-23
 
-# description:en:Choline chloride is an organic compound containing both quaternary ammonium salt and an alcohol. It is an important additive in feed especially for chickens where it accelerates growth.
+# description:en:Choline chloride is an organic compound containing both quaternary ammonium salt and an alcohol. It is an important additive in feed especially for chickens where it accelerates growth. The US Food and Drug Administration requires that infant formula not made from cow's milk be supplemented with choline. Choline-providing dietary supplement ingredients include: choline chloride, choline bitartrate, citicoline (CDP-choline), L-alpha-glycerophosphocholine (Alpha-GPC), lecithin, phosphatidylcholine.
 
 <en:Choline
 en:choline chloride
@@ -287,6 +287,8 @@ wikidata:en:Q2964153
 wikipedia:en:https://en.wikipedia.org/wiki/Choline_chloride
 # ingredient/choline-chloride has 18 products in 4 languages @2019-06-23
 
+# description:en:The US Food and Drug Administration requires that infant formula not made from cow's milk be supplemented with choline. Choline-providing dietary supplement ingredients include: choline chloride, choline bitartrate, citicoline (CDP-choline), L-alpha-glycerophosphocholine (Alpha-GPC), lecithin, phosphatidylcholine.
+
 <en:Choline
 en:choline bitartrate
 bg:Холин битартарат
@@ -299,6 +301,7 @@ fi:koliinibitartraatti
 fr:bitartrate de choline
 hu:kolin-bitartarát
 it:bitartrato di colina
+ja:重酒石酸コリン
 lt:cholino bitartratas
 lv:holīna bitartrāts
 mt:bitartrat tal-kolin
@@ -309,30 +312,84 @@ ro:bitartrat de colină
 sk:cholín dvojvínan
 sl:holin bitartrat
 sv:kolinbitartrat
+wikidata:en:Q18324709
+# ingredient/choline-bitartrate has 84 products @2019-06-23
 
-<en:Choline
-en:choline citrate
-bg:Холин цитрат
-cs:citronan cholinu
-de:Cholincitrat
-el:κιτρική χολίνη
-es:citrato de colina
-et:koliintsitraat
-fi:koliinisitraatti
-fr:citrate de choline
-hu:kolin-citrát
-it:citrato di colina
-lt:cholino citratas
-lv:holīna citrāts
-mt:ċitrat tal-kolin
-nl:cholinecitraat
-pl:cytrynian choliny
-pt:citrato de colina
-ro:citrat de colină
-sk:cholín citran
-sl:holin citrat
-sv:kolincitrat
+# <en:Choline
+# en:choline citrate
+# bg:Холин цитрат
+# cs:citronan cholinu
+# de:Cholincitrat
+# el:κιτρική χολίνη
+# es:citrato de colina
+# et:koliintsitraat
+# fi:koliinisitraatti
+# fr:citrate de choline
+# hu:kolin-citrát
+# it:citrato di colina
+# lt:cholino citratas
+# lv:holīna citrāts
+# mt:ċitrat tal-kolin
+# nl:cholinecitraat
+# pl:cytrynian choliny
+# pt:citrato de colina
+# ro:citrat de colină
+# sk:cholín citran
+# sl:holin citrat
+# sv:kolincitrat
+# ingredient/choline-citrate has no products @2019-06-23
 
-en:Inositol
-fr:Inositol
+# description:en:INOSITOL is a carbocyclic sugar that is abundant in brain and other mammalian tissues, mediates cell signal transduction and participates in osmoregulation. It is a sugar alcohol with half the sweetness of table sugar. It is made naturally in humans from glucose. A human kidney will produce around two grams each day. Foods containing the highest concentrations of inositol include fruits, beans, grains, and nuts.
 
+en:inositol
+ar:إينوزيتول
+ca:inositol
+cs:inositol
+da:inositol
+de:Inositol
+el:Ινοσιτόλη
+es:inositol
+et:Inositool
+eu:inositol
+fa:اینوزیتول
+fi:Inositoli
+fr:inositol
+ga:Ionóisíotól
+gl:Inositol
+hi:इनोसिटॉल
+hu:Inozitol
+hy:Ինոզիտ
+id:Inositol
+it:inositolo
+ja:イノシトール
+kk:Инозитол
+kn:ಇನೋಸಿಟಾಲ್
+ko:이노시톨
+ky:Инозит витамини
+lv:inozitols
+nl:inositol
+nn:Inositol
+pl:inozytol
+pt:inositol
+ro:Inozitol
+ru:инозитол
+sh:Inozitol
+sr:инозитол
+sv:inositol
+uk:Інозитол
+zh:肌醇
+# azb:اینوزیتول
+# en-ca:inositol
+# en-gb:inositol
+# pt-br:Inositol
+# sr-ec:инозитол
+# sr-el:Inozitol
+# zh-cn:肌醇
+# zh-hans:肌醇
+# zh-hant:肌醇
+# zh-hk:肌醇
+# zh-sg:肌醇
+# zh-tw:肌醇
+wikipedia:en:https://en.wikipedia.org/wiki/Inositol
+wikidata:en:Q407997
+# ingredient/inositol has 296 products @2019-06-23
