@@ -2525,7 +2525,7 @@ sub display_tag($) {
 			$newtagid2 = get_fileid($display_tag2);
 			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
 			$title .= " / " . $display_tag2;
-			
+
 			if ($tagtype2 eq 'emb_codes') {
 				$canon_tagid2 = $newtagid2;
 				$canon_tagid2 =~ s/-(eec|eg|ce)$/-ec/i;
@@ -6661,7 +6661,6 @@ HTML
 	}
 
 
-
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
 
@@ -6731,8 +6730,10 @@ $Lang{warning_gs1_company_prefix}{$lc}
 HTML
 ;
 	}
-
-	if (not has_tag($product_ref, "states", "en:complete")) {
+	if (defined $rev) {
+		$html .= display_rev_info($product_ref);
+	}
+	if (not has_tag($product_ref, "states", "en:complete") and not defined $rev) {
 
 		$html .= <<HTML
 <div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
@@ -8879,7 +8880,33 @@ HTML
 
 	display_structured_response($request_ref);
 }
+sub display_rev_info {
+	my $code = shift;
+	my $rev = shift;
 
+	my $html = '';
+
+	my $path = product_path($code);
+	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	if (not defined $changes_ref) {
+		return '';
+	}
+	my $change_ref = $changes_ref->[$rev];
+
+	my $date = display_date_tag($change_ref->{t});
+	my $userid = get_change_userid_or_uuid($change_ref);
+	my $user = display_tag_link("editors", $userid);
+
+	$html .= ' <div id=\'rev_summary\'> ';
+	$html .= ' <span class=\'rev_warning\'> '. lang('rev_warning') . '</span>';
+	$html .= " Rev. <span class='rev_nb'>$change_ref->{rev}</span> ";
+	$html .= " <time datetime='$change_ref->{t}'>$date</time> - ";
+	$html .= " <a href='/contributor/$userid' class='rev_contributor'>$user</a> ";
+
+	$html .= "</div>";
+	return $html;
+
+}
 sub display_product_history($$) {
 
 	my $code = shift;
