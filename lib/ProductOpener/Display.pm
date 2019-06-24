@@ -8735,7 +8735,9 @@ sub display_product_api($)
 	my $product_ref = retrieve_product($code);
 
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		$request_ref->{status} = 404;
+		if ($request_ref->{api_version} >= 1) {
+			$request_ref->{status} = 404;
+		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
 		if ($request_ref->{jqm}) {
