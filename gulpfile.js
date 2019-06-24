@@ -16,7 +16,7 @@ const sassOptions = {
 }
 
 function icons() {
-  return src('**/*.svg', { cwd: './icons'  })
+  return src('*.svg', { cwd: './icons'  })
   .pipe(iconfontCss({
     fontName: fontName,
     path: './scss/templates/_icons.scss',
