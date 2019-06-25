@@ -115,6 +115,7 @@ use ProductOpener::Config2;
 	jniderkorn
 	desan
 	cedagaesse
+	m-etchebarne
 );
 
 %moderators = map { $_ => 1 } qw();
