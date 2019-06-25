@@ -650,6 +650,8 @@ sub extract_ingredients_from_text($) {
 		my $end = $d * 10 + 10;
 
 		$product_ref->{ingredients_n_tags} = [$product_ref->{ingredients_n} . "", "$start" . "-" . "$end"];
+		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
+		$product_ref->{ingredients_n} += 0;
 	}
 	else {
 		delete $product_ref->{ingredients_n};
