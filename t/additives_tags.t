@@ -20,6 +20,7 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "Stabilisants: (SIN450i, SIN450iii), antioxydant (SIN316), Agent de conservation: (SIN250)." }, [ "en:e450i", "en:e450iii", "en:e316", "en:e250" ] ], 
 [ { lc => "fr", ingredients_text => "Laitue, Carmine" }, [ ] ], 
 [ { lc => "fr", ingredients_text => "poudres à lever (carbonates acides d’ammonium et de sodium, acide citrique)" }, ["en:e503ii", "en:e500ii", "en:e330" ] ], 
+[ { lc => "fr", ingredients_text => "Saumon Atlantique* 97% (salmo salar), sel. poissons. Saumon élevé en/au : voir sur la face avant. INFORMATIONS : A consommerjusqu'au / NO de lot : voir sur la face avant. A conserver entre OOC et +40C avant et" }, [ ] ], 
 
 );
 

@@ -2819,7 +2819,8 @@ sub exists_taxonomy_tag($$) {
 	my $tagtype = shift;
 	my $tagid = shift;
 
-	return ((exists $translations_from{$tagtype}) and (exists $translations_from{$tagtype}{$tagid}));
+	return ((exists $translations_from{$tagtype}) and (exists $translations_from{$tagtype}{$tagid})
+		and not ((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid})));
 }
 
 
