@@ -1509,7 +1509,7 @@ sub extract_text_from_image($$$$$) {
 
 			my $cloudvision_ref = decode_json($json_response);
 
-			my $json_file = "$www_root/images/products/$path/$filename.full.jpg" . ".json";
+			my $json_file = "$www_root/images/products/$path/$filename.json";
 
 			$log->info("saving google cloud vision json response to file", { path => $json_file }) if $log->is_info();
 

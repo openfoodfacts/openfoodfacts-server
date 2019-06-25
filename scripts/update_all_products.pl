@@ -172,7 +172,7 @@ else {
 	$key = "key_" . time();
 }
 
-$query_ref->{code} = "3661112080648";
+#$query_ref->{code} = "3661112080648";
 #$query_ref->{categories_tags} = "en:plant-milks";
 #$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
 
@@ -237,15 +237,17 @@ while (my $product_ref = $cursor->next) {
 			# images
 			if (defined $product_ref->{images}) {
 				foreach my $imgid (sort keys %{$product_ref->{images}}) {
-					if ($imgid =~ /^ingredients_/) {
-						my $results_ref = {};
-						print STDERR "extract_ingredients_from_image: $imgid\n";
-						extract_ingredients_from_image($product_ref, $imgid, "google_cloud_vision", $results_ref);
-					}
-					elsif ($imgid =~ /^nutrition_/) {
-                                                my $results_ref = {};
-                                                print STDERR "extract_nutrition_from_image: $imgid\n";
-                                                extract_nutrition_from_image($product_ref, $imgid, "google_cloud_vision", $results_ref);
+					if ((not defined $product_ref->{images}{$imgid}{ocr}) or ($product_ref->{images}{$imgid}{ocr} == 0)) {
+						if ($imgid =~ /^ingredients_/) {
+							my $results_ref = {};
+							print STDERR "extract_ingredients_from_image: $imgid\n";
+							extract_ingredients_from_image($product_ref, $imgid, "google_cloud_vision", $results_ref);
+						}
+						elsif ($imgid =~ /^nutrition_/) {
+							my $results_ref = {};
+							print STDERR "extract_nutrition_from_image: $imgid\n";
+							extract_nutrition_from_image($product_ref, $imgid, "google_cloud_vision", $results_ref);
+						}
 					}
 				}
 			}
