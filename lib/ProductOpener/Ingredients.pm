@@ -1143,7 +1143,7 @@ sub clean_ingredients_text_for_lang($$) {
 	if (defined $phrases_before_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-			$text =~ s/^(.*)$regexp(\s*)//ies;
+			$text =~ s/^(.*)$regexp(\s*)//is;
 		}
 	}
 
@@ -1155,7 +1155,7 @@ sub clean_ingredients_text_for_lang($$) {
 
 		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
 			# INGREDIENTS followed by lowercase
-			$text =~ s/^(.*)$regexp(\s*)(?=(\w?)(\w?)[a-z])//es;
+			$text =~ s/^(.*)$regexp(\s*)(?=(\w?)(\w?)[a-z])//s;
 		}
 	}
 
@@ -1166,7 +1166,7 @@ sub clean_ingredients_text_for_lang($$) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			$text =~ s/\s*$regexp(.*)$//ies;
+			$text =~ s/\s*$regexp(.*)$//is;
 		}
 	}
 

@@ -93,6 +93,8 @@ my $compute_carbon = '';
 my $compute_history = '';
 my $comment = '';
 my $fix_serving_size_mg_to_ml = '';
+my $run_ocr = '';
+my $autorotate = '';
 my $query_ref = {};	# filters for mongodb query
 
 GetOptions ("key=s"   => \$key,      # string
@@ -113,6 +115,8 @@ GetOptions ("key=s"   => \$key,      # string
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
 			"user_id=s" => \$User_id,
 			"comment=s" => \$comment,
+			"run-ocr" => \$run_ocr,
+			"autorotate" => \$autorotate,
 			)
   or die("Error in command line arguments:\n\n$usage");
  
@@ -148,6 +152,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $clean_ingredients)
 	and (not $compute_serving_size)
 	and (not $compute_data_sources) and (not $compute_history)
+	and (not $run_ocr) and (not $autorotate)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0)) {
 	die("Missing fields to update:\n$usage");
 }  
@@ -167,7 +172,7 @@ else {
 	$key = "key_" . time();
 }
 
-#$query_ref->{code} = "3033490859206";
+#$query_ref->{code} = "3661112080648";
 #$query_ref->{categories_tags} = "en:plant-milks";
 #$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
 
@@ -190,7 +195,7 @@ while (my $product_ref = $cursor->next) {
 	my $code = $product_ref->{code};
 	my $path = product_path($code);
 	
-	# next if $code ne "7310865071804";
+	#next if $code ne "8480013072645";
 	
 	print STDERR "updating product $code\n";
 	
@@ -226,6 +231,52 @@ while (my $product_ref = $cursor->next) {
 		#		}
 		#	}
 		#}
+
+		if ($run_ocr) {
+			# run OCR on all selected ingredients and nutrition
+			# images
+			if (defined $product_ref->{images}) {
+				foreach my $imgid (sort keys %{$product_ref->{images}}) {
+					if ((not defined $product_ref->{images}{$imgid}{ocr}) or ($product_ref->{images}{$imgid}{ocr} == 0)) {
+						if ($imgid =~ /^ingredients_/) {
+							my $results_ref = {};
+							print STDERR "extract_ingredients_from_image: $imgid\n";
+							extract_ingredients_from_image($product_ref, $imgid, "google_cloud_vision", $results_ref);
+						}
+						elsif ($imgid =~ /^nutrition_/) {
+							my $results_ref = {};
+							print STDERR "extract_nutrition_from_image: $imgid\n";
+							extract_nutrition_from_image($product_ref, $imgid, "google_cloud_vision", $results_ref);
+						}
+					}
+				}
+			}
+		}
+		
+		if ($autorotate) {
+			# OCR needs to have been run first
+			if (defined $product_ref->{images}) {
+				foreach my $imgid (sort keys %{$product_ref->{images}}) {
+					if (($imgid =~ /^(ingredients|nutrition)_/) 
+						and (defined $product_ref->{images}{$imgid}{orientation}) and ($product_ref->{images}{$imgid}{orientation} != 0)
+						# only rotate images that have not been manually cropped
+						and ((not defined $product_ref->{images}{$imgid}{x1}) or ($product_ref->{images}{$imgid}{x1} <= 0))
+						and ((not defined $product_ref->{images}{$imgid}{y1}) or ($product_ref->{images}{$imgid}{y1} <= 0))
+						and ((not defined $product_ref->{images}{$imgid}{x2}) or ($product_ref->{images}{$imgid}{x2} <= 0))
+						and ((not defined $product_ref->{images}{$imgid}{y2}) or ($product_ref->{images}{$imgid}{y2} <= 0))
+						) {
+						print STDERR "rotating image $imgid by " .  (- $product_ref->{images}{$imgid}{orientation}) . "\n";
+						my $User_id_copy = $User_id;
+						$User_id = "autorotate-bot";
+						eval { 
+							my $updated_product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1);
+							$product_ref->{images}{$imgid} = $updated_product_ref->{images}{$imgid};
+						};
+						$User_id = $User_id_copy;
+					}
+				}
+			}		
+		}
 	
 		# Update all fields
 		
