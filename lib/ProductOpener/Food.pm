@@ -3853,6 +3853,8 @@ sub fix_salt_equivalent($) {
 	my $product_ref = shift;
 
 	# salt
+	
+	# EU fixes the conversion: sodium = salt / 2.5 (instead of 2.54 previously)
 
 	foreach my $product_type ("", "_prepared") {
 
@@ -3861,17 +3863,17 @@ sub fix_salt_equivalent($) {
 		assign_nid_modifier_value_and_unit(
 			$product_ref,
 			'sodium' . $product_type,
-			$product_ref->{nutriments}{'salt' . $product_type} . '_modifier',
-			$product_ref->{nutriments}{'salt' . $product_type} / 2.54,
+			$product_ref->{nutriments}{'salt' . $product_type . '_modifier'},
+			$product_ref->{nutriments}{'salt' . $product_type} / 2.5,
 			$product_ref->{nutriments}{'salt' . $product_type} . '_unit');
 		}
 		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type}) and ($product_ref->{nutriments}{'sodium' . $product_type} ne '')) {
 			assign_nid_modifier_value_and_unit(
 			$product_ref,
 			'salt' . $product_type,
-			$product_ref->{nutriments}{'sodium' . $product_type} . '_modifier',
-			$product_ref->{nutriments}{'sodium' . $product_type} * 2.54,
-			$product_ref->{nutriments}{'sodium' . $product_type} . '_unit');
+			$product_ref->{nutriments}{'sodium' . $product_type . '_modifier'},
+			$product_ref->{nutriments}{'sodium' . $product_type} * 2.5,
+			$product_ref->{nutriments}{'sodium' . $product_type . '_unit'});
 		}
 	}
 }
