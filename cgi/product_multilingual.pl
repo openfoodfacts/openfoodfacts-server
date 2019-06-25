@@ -1996,22 +1996,22 @@ HTML
 });
 
 \$("#nutriment_sodium").change( function () {
-	swapSalt(\$("#nutriment_sodium"), \$("#nutriment_salt"), 2.54);
+	swapSalt(\$("#nutriment_sodium"), \$("#nutriment_salt"), 2.5);
 }
 );
 
 \$("#nutriment_salt").change( function () {
-	swapSalt(\$("#nutriment_salt"), \$("#nutriment_sodium"), 1/2.54);
+	swapSalt(\$("#nutriment_salt"), \$("#nutriment_sodium"), 1/2.5);
 }
 );
 
 \$("#nutriment_sodium_prepared").change( function () {
-	swapSalt(\$("#nutriment_sodium_prepared"), \$("#nutriment_salt_prepared"), 2.54);
+	swapSalt(\$("#nutriment_sodium_prepared"), \$("#nutriment_salt_prepared"), 2.5);
 }
 );
 
 \$("#nutriment_salt_prepared").change( function () {
-	swapSalt(\$("#nutriment_salt_prepared"), \$("#nutriment_sodium_prepared"), 1/2.54);
+	swapSalt(\$("#nutriment_salt_prepared"), \$("#nutriment_sodium_prepared"), 1/2.5);
 }
 );
 
