@@ -301,7 +301,7 @@ while (my $product_ref = $cursor->next) {
 			else {
 			}
 		}
-
+			
 		if ($server_domain =~ /openfoodfacts/) {
 				ProductOpener::Food::special_process_product($product_ref);
 		}
@@ -337,6 +337,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_nutrition_score) {
+			fix_salt_equivalent($product_ref);
 			compute_nutrition_score($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
