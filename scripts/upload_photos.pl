@@ -245,17 +245,21 @@ if (opendir (DH, "$images_dir")) {
 			
 				my $filetime = $time;
 				
-				# 2013-07-13 11.02.07
-				if ($file =~ /(20\d\d).(\d\d).(\d\d).(\d\d).(\d\d).(\d\d)/) {
-					$filetime = timelocal( $6, $5, $4, $3, $2 - 1, $1 );
-				}				
-				# 20150712_173454.jpg
-				elsif ($file =~ /(20\d\d)(\d\d)(\d\d)(-|_|\.)/) {
-					$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
-				}					
-				elsif ($file =~ /(20\d\d).(\d\d).(\d\d)./) {
-					$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
-				}				
+				# skip 0012000031878
+				# skip 2000000023922
+				if (($file !~ /\d(20\d\d)(\d\d)(\d\d)/) and ($file !~ /(20\d\d)(\d\d)(\d\d)\d/)) {
+					# 2013-07-13 11.02.07
+					if (($file =~ /(20\d\d).(\d\d).(\d\d).(\d\d).(\d\d).(\d\d)/) and ($2 <= 12) and ($3 <= 31)) {
+						$filetime = timelocal( $6, $5, $4, $3, $2 - 1, $1 );
+					}				
+					# 20150712_173454.jpg
+					elsif (($file =~ /(20\d\d)(\d\d)(\d\d)(-|_|\.)/) and ($2 <= 12) and ($3 <= 31)) {
+						$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
+					}					
+					elsif (($file =~ /(20\d\d).(\d\d).(\d\d)./) and ($2 <= 12) and ($3 <= 31)) {
+						$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
+					}				
+				}
 			
 				my $imgid;
 				my $return_code = process_image_upload($current_code, "$images_dir/$file", $User_id, $filetime, $comment, \$imgid);
