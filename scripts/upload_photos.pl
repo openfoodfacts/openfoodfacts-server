@@ -226,7 +226,7 @@ if (opendir (DH, "$images_dir")) {
 						id => $source_id,
 						name => $source_name,
 						url => $product_source_url,
-						collaboration => 1,
+						# collaboration => 1,
 						import_t => time(),
 					};
 
