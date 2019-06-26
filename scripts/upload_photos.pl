@@ -27,6 +27,10 @@ use Encode;
 use JSON::PP;
 use Time::Local;
 
+use Encode::Locale qw/decode_argv/;
+
+decode_argv(Encode::FB_CROAK);
+
 use Getopt::Long;
 
 
@@ -127,7 +131,7 @@ if (opendir (DH, "$images_dir")) {
 		#next if $file gt "2013-07-13 11.02.07";
 		#next if $file le "DSC_1783.JPG";
 	
-		if ($file =~ /jpg/i) {
+		if ($file =~ /\.jpg|jpeg|png$/i) {
 		
 			my $code;
 			
@@ -155,7 +159,11 @@ if (opendir (DH, "$images_dir")) {
 					$j++;
 				
 					if ((defined $last_imgid) and (defined $current_product_ref)) {
-						if ((not defined $current_product_ref->{images}) or (not defined $current_product_ref->{images}{'front'})) {
+						
+						# Select the image only if we don't have a selected image for the front in the target language
+					
+						if ((not defined $current_product_ref->{images}) or 
+							(not defined $current_product_ref->{images}{"front_$lc"}) ) {
 							print STDERR "cropping for code $current_code - front_$lc - , last_imgid: $last_imgid\n";
 							process_image_crop($current_code, "front_$lc", $last_imgid, 0, undef, undef, -1, -1, -1, -1);
 						}
