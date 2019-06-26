@@ -627,6 +627,10 @@ sub compute_data_sources($) {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Systeme U"} = 1;
 			}
+			if ($source_ref->{id} eq 'biscuiterie-sainte-victoire') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Biscuiterie Sainte Victoire"} = 1;
+			}			
 
 			if ($source_ref->{id} eq 'openfood-ch') {
 				$data_sources{"Databases"} = 1;
