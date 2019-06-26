@@ -721,6 +721,7 @@ $options{display_tag_additives} = [
 # Specific users used by apps
 $options{apps_userids} = {
 
+	"elcoco" => "elcoco",
 	"kiliweb" => "yuka",
 	"labeleat" => "labeleat",
 	"waistline-app" => "waistline",
@@ -730,9 +731,11 @@ $options{apps_userids} = {
 # (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 # (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
 # (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
+# (app)El Coco - user 61b65d5707eb50d206268e11074dde96
 
 $options{apps_uuid_prefix} = {
 
+	"elcoco" => "El Coco - user",
 	"kiliweb" => "User :",
 	"labeleat" => "Labeleat([^-]*)-",
 	"waistline-app" => "Waistline:",
