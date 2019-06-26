@@ -58,7 +58,7 @@ my $source_name;
 my $source_url;
 my $source_licence;
 my $source_licence_url;
-
+my $select_front_image = 0;
 
 GetOptions (
 	"images_dir=s" => \$images_dir,
@@ -70,14 +70,17 @@ GetOptions (
 	"source_url=s" => \$source_url,
 	"source_licence=s" => \$source_licence,
 	"source_licence_url=s" => \$source_licence_url,
+	"select_front_image" => \$select_front_image,
 		)
   or die("Error in command line arguments:\n$\nusage");
 
 print STDERR "import.pl
-- images_dir: $images_dir
-- user_id: $User_id
-- comment: $comment
-- global fields values:
+--images_dir: $images_dir
+--user_id: $User_id
+--comment: $comment
+--select_front_image: $select_front_image
+
+global fields values:
 ";
 
 foreach my $field (sort keys %global_values) {
@@ -131,7 +134,7 @@ if (opendir (DH, "$images_dir")) {
 		#next if $file gt "2013-07-13 11.02.07";
 		#next if $file le "DSC_1783.JPG";
 	
-		if ($file =~ /\.jpg|jpeg|png$/i) {
+		if ($file =~ /\.jpg|jpeg$/i) {
 		
 			my $code;
 			
@@ -162,8 +165,9 @@ if (opendir (DH, "$images_dir")) {
 						
 						# Select the image only if we don't have a selected image for the front in the target language
 					
-						if ((not defined $current_product_ref->{images}) or 
-							(not defined $current_product_ref->{images}{"front_$lc"}) ) {
+						if (($select_front_image) or (
+								(not defined $current_product_ref->{images}) or 
+								(not defined $current_product_ref->{images}{"front_$lc"}) ) ) {
 							print STDERR "cropping for code $current_code - front_$lc - , last_imgid: $last_imgid\n";
 							process_image_crop($current_code, "front_$lc", $last_imgid, 0, undef, undef, -1, -1, -1, -1);
 						}
@@ -258,6 +262,10 @@ if (opendir (DH, "$images_dir")) {
 				
 				print "process_image_upload - file: $file - filetime: $filetime - result: $imgid\n";
 				if (($imgid > 0) and ($imgid <= 2)) { # assume the 1st image is the barcode, and 2nd the product front (or 1st if there's only one image)
+					$last_imgid = $imgid;
+				}
+				# forced selection through --select_front_image parameter
+				if ($select_front_image) {
 					$last_imgid = $imgid;
 				}
 			}				
