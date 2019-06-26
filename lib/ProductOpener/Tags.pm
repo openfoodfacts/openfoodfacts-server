@@ -3277,7 +3277,7 @@ sub add_tags_to_field($$$$) {
 
 	if ((scalar @added_tags) > 0) {
 
-		my $value = "";
+		my $value;
 
 		if (defined $taxonomy_fields{$field}) {
 			# we do not know the language of the current value of $product_ref->{$field}
@@ -3289,6 +3289,7 @@ sub add_tags_to_field($$$$) {
 		else {
 			$value = $product_ref->{$field};
 		}
+		(defined $value) or $value = "";
 
 		$product_ref->{$field} = $value . ", " . join(", ", @added_tags);
 	}
