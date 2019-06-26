@@ -44,22 +44,22 @@ use Log::Any::Adapter ('Stderr');
 $lc = "fr";
 
 %global_params = (
-	# params below are already in the csv file
 	lc => 'fr',
 	no_nutrition_data => "on",
+#	categories => "Condiments",
 );
 
 
 my @csv_fields_mapping = (
 		
-["Codes barres", "code"],
-["Dénomination", "product_name_fr"],
-["Quantité","quantity"],
-["Conditionnement","packaging"],
-["Marques", "brands"],
-["Code emballeur ", "emb_codes"],
-["Pays de vente", "countries"],
-["Ingrédients", "allergens"],
+["codes barres", "code"],
+["dénomination", "product_name_fr"],
+["quantité","quantity"],
+["conditionnement","packaging"],
+["marques", "brands"],
+["code emballeur ", "emb_codes"],
+["pays de vente", "countries"],
+["ingrédients", "ingredients_text_fr"],
 
 
 );
@@ -72,7 +72,7 @@ my @files = get_list_of_files(@ARGV);
 foreach my $file (@files) {
 
 	if ($file =~ /.csv/) {
-		load_csv_file({ file => $file, encoding => "UTF-8", separator => "\t", skip_lines=> 0, skip_lines_after_header=> 0,  skip_empty_codes=>1, csv_fields_mapping => \@csv_fields_mapping});
+		load_csv_file({ file => $file, encoding => "UTF-8", separator => "\t", skip_lines=> 3, skip_lines_after_header=> 0,  skip_empty_codes=>1, csv_fields_mapping => \@csv_fields_mapping});
 	}
 }
 
@@ -83,7 +83,28 @@ foreach my $code (sort keys %products) {
 	
 	my $product_ref = $products{$code};
 	
+	# Paprika moulu BIO
+	match_taxonomy_tags($product_ref, "product_name_fr", "labels",
+	{
+		split => ' ',
+		# stopwords =>
+	}
+	);
 	
+	# also try the product name
+	match_taxonomy_tags($product_ref, "product_name_fr", "categories",
+	{
+		# split => ',|\/|\r|\n|\+|:|;|\b(logo|picto)\b',
+		stopwords => '(bio|aop|pot)',
+	}
+	);
+	
+	match_taxonomy_tags($product_ref, "product_name_fr", "categories",
+	{
+		# split => ',|\/|\r|\n|\+|:|;|\b(logo|picto)\b',
+		stopwords => '(de|au|en|bio|aop|pot|moulu|concassé|graine|semoule|entier|entière|bâton|coupé|feuille|aromatique|haché|poudre|gousse|moulin|lyophilisé|lamelle|naturel|france)(e)?(s)?',
+	}
+	);		
 }
 
 # Clean / normalize fields
