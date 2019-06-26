@@ -632,6 +632,13 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					}
 					else {
 						#print "- $tagid already in $field\n";
+						# update the case (e.g. for brands)
+						if ($field eq "brands") {
+							my $regexp = $tag;
+							$regexp =~ s/( |-)/\( \|-\)/g;
+							$product_ref->{$field} =~ s/\b$tagid\b/$tag/i;
+							$product_ref->{$field} =~ s/\b$regexp\b/$tag/i;
+						}
 					}
 
 				}
