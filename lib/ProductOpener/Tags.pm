@@ -1319,7 +1319,11 @@ sub build_tags_taxonomy($$$) {
 			while ($#queue > -1) {
 				my $parentid = shift @queue;
 				#print "- $parentid\n";
-				if (not defined $seen{$parentid}) {
+				
+				if ($parentid eq $tagid) {
+					$errors .= "ERROR - $tagid is a parent of itself\n";
+				}				
+				elsif (not defined $seen{$parentid}) {
 					defined $all_parents{$tagtype}{$tagid} or $all_parents{$tagtype}{$tagid} = [];
 					push @{$all_parents{$tagtype}{$tagid}}, $parentid;
 					$seen{$parentid} = 1;
@@ -1395,7 +1399,7 @@ sub build_tags_taxonomy($$$) {
 					push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
-						$errors .= "ERROR - parent $parentid is not defined in lc $lc for tag $tagid\n";
+						$errors .= "ERROR - $tagid has an undefined parent $parentid\n";
 					}
 				}
 			}
