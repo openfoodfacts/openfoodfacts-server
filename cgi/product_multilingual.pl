@@ -969,7 +969,7 @@ JS
 		$html .= <<HTML
 <ul id="manage_images_accordion" class="accordion" data-accordion>
   <li class="accordion-navigation">
-<a href="#manage_images_drop"><i class="icon-list"></i> $Lang{manage_images}{$lc}</a>
+<a href="#manage_images_drop"><i class="icon-collections"></i> $Lang{manage_images}{$lc}</a>
 
 
 <div id="manage_images_drop" class="content" style="background:#eeeeee">
@@ -979,10 +979,10 @@ HTML
 <<HTML
 
 	<p>$Lang{manage_images_info}{$lc}</p>
-	<a id="delete_images" class="button small disabled"><i class="icon-trash"></i> $Lang{delete_the_images}{$lc}</a><br/>
+	<a id="delete_images" class="button small disabled"><i class="icon-delete"></i> $Lang{delete_the_images}{$lc}</a><br/>
 	<div class="row">
 		<div class="small-12 medium-5 columns">
-			<button id="move_images" class="button small disabled"><i class="icon-bubble-right"></i> $Lang{move_images_to_another_product}{$lc}</a>
+			<button id="move_images" class="button small disabled"><i class="icon-arrow_right_alt"></i> $Lang{move_images_to_another_product}{$lc}</a>
 		</div>
 		<div class="small-4 medium-2 columns">
 			<label for="move_to" class="right inline">$Lang{barcode}{$lc}</label>
@@ -1996,22 +1996,22 @@ HTML
 });
 
 \$("#nutriment_sodium").change( function () {
-	swapSalt(\$("#nutriment_sodium"), \$("#nutriment_salt"), 2.54);
+	swapSalt(\$("#nutriment_sodium"), \$("#nutriment_salt"), 2.5);
 }
 );
 
 \$("#nutriment_salt").change( function () {
-	swapSalt(\$("#nutriment_salt"), \$("#nutriment_sodium"), 1/2.54);
+	swapSalt(\$("#nutriment_salt"), \$("#nutriment_sodium"), 1/2.5);
 }
 );
 
 \$("#nutriment_sodium_prepared").change( function () {
-	swapSalt(\$("#nutriment_sodium_prepared"), \$("#nutriment_salt_prepared"), 2.54);
+	swapSalt(\$("#nutriment_sodium_prepared"), \$("#nutriment_salt_prepared"), 2.5);
 }
 );
 
 \$("#nutriment_salt_prepared").change( function () {
-	swapSalt(\$("#nutriment_salt_prepared"), \$("#nutriment_sodium_prepared"), 1/2.54);
+	swapSalt(\$("#nutriment_salt_prepared"), \$("#nutriment_sodium_prepared"), 1/2.5);
 }
 );
 
