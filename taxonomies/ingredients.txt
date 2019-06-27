@@ -57542,7 +57542,7 @@ cy:pysgodyn cragen
 da:skaldyr
 de:Schalentier, Meeresfrüchten
 eo:marisko
-es:molusco
+es:marisco, mariscos
 eu:itsaski
 fa:صدف‌ماهی
 fi:äyriäinen
@@ -57607,7 +57607,7 @@ de:Weichtiere
 el:μαλάκια
 eo:molusko
 es:molusco, moluscos
-et:Limused
+et:molluskid, Limused
 eu:Molusku
 fa:نرم‌تنان
 fi:nilviäiset
@@ -57692,6 +57692,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mollusca
 # ingredient/fr:mollusque has 1890 products in 6 languages @2018-01-03
 carbon_footprint_fr_foodges_ingredient:fr:Moules/autres crustacés
 carbon_footprint_fr_foodges_value:fr:10.7
+
+# description:en:ABALONE is a common name for any of a group of small to very large sea snails, marine gastropod molluscs in the family Haliotidae. The flesh of abalones is widely considered to be a desirable food, and is consumed raw or cooked by a variety of cultures.
+
+<en:mollusc
+en:abalone
+ja:アワビ
+wikipedia:en:https://en.wikipedia.org/wiki/Abalone
 
 # A cockle is an edible, marine bivalve mollusc. Although many small edible bivalves are loosely called cockles, true cockles are species in the family Cardiidae.
 
@@ -58024,7 +58031,7 @@ eo:Polpo
 fr:poulpe, poulpes
 hi:ऑक्टोपस
 it:polpo
-ja:マダコ属
+ja:マダコ属, タコ
 ko:낙지속
 la:Octopus
 ml:നീരാളി
@@ -58260,7 +58267,7 @@ ar:بالیق قولاغی
 ca:Pectínid
 de:Kammmuscheln, Jakobsmuscheln, Pilgermuscheln
 el:Χτένι
-es:viera, vieras
+es:viera, vieras, escalópas
 fa:شانه‌گونان
 fi:Kampasimpukat
 fr:Noix de Saint-Jacques
@@ -58291,11 +58298,12 @@ fr:Noix de Saint-Jacques sans corail
 <en:scallop
 en:Atlantic bay scallop, bay scallop
 fa:گوش‌ماهی خلیج
+fr:Pétoncle, pétoncles
 is:Flóaskel
 zh:海湾扇贝
 
+<en:Atlantic bay scallop
 en:Argopecten irradians
-fr:Argopecten irradians, Pétoncle
 la:Argopecten irradians
 wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_irradians
 wikidata:en:Q3018372
@@ -58335,7 +58343,7 @@ de:Große Pilgermuschel
 es:Venera
 eu:Erromes-maskor handi
 fa:گوش‌ماهی شاه
-fr:noix de saint-jacques, Saint-Jacques, noix de st-jacques, noix de st jacques, noix de coquilles saint-jacques, noix de coquilles st-jacques, coquille Saint-Jacques,
+fr:noix de saint-jacques, Saint-Jacques, noix de st-jacques, noix de st jacques, noix de coquilles saint-jacques, noix de coquilles st-jacques, coquille Saint-Jacques, coquille st jacques, coquille saint jacques, st-jacques
 ga:Muirín
 gd:Slige-chreachainn
 gl:Vieira
@@ -58641,7 +58649,7 @@ id:Cumi-cumi
 io:Kalmaro
 is:Smokkfiskur
 it:calamaro
-ja:ツツイカ目
+ja:ツツイカ目, イカ
 jv:Iwak Nus
 ka:კალმარები
 kk:Кальмар
@@ -58826,7 +58834,7 @@ es:Almeja, almejas
 eu:Txirla
 fa:صدف دوکفه‌ای
 fr:palourde, palourdes
-ga:Breallach
+ga:Breallach, breallaigh
 gd:Bainteag
 gl:Ameixa
 he:קלאם
