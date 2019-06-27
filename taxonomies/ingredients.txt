@@ -9090,7 +9090,7 @@ lv:ortofosforskābes kalcija sāļi
 mt:melħ tal-kalċju tal-aċidu ortofosforiku
 nl:calciumzouten van orthofosforzuur
 pl:sole wapniowe kwasu ortofosforowego
-pt: sais de calcio de acido ortofosforico
+pt:sais de calcio de acido ortofosforico
 ro:săruri de calciu ale acidului ortofosforic
 sk:vápenaté soli kyseliny ortofosforečnej
 sl:kalcijeve soli ortofosforne kisline
@@ -21654,6 +21654,7 @@ nl:peperolie
 # FISH OIL is oil derived from the tissues of oily fish
 
 <en:oil
+<en:fish
 en:fish oil
 ar:زيت السمك
 az:Balıq yağı
@@ -23722,6 +23723,7 @@ fr:arôme naturel de caramel
 nl:natuurlijk caramelaroma
 
 <en:natural flavouring
+<en:celery
 fr:arôme naturel de céleri
 de:natürliches Selleriearoma
 nl:natuurlijk selderijaroma
@@ -41162,7 +41164,7 @@ fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concent
 nl:Geconcentreerd wortelsap
 # fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
 
-# CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
+# description:en:CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
 
 <en:vegetable
 en:celery
@@ -41170,19 +41172,20 @@ af:Seldery
 am:ሰለሪ
 ar:كرفس
 az:İyli kərəviz
+bg:целина
 bn:পাথুনি শাক
 bo:ལྕ་ཚལ།
 br:Ach
 bs:Celer
 ca:Api
-cs:Miřík celer
+cs:Miřík celer, celer
 cy:Seleri
 da:sellerie
-de:Sellerie
+de:Sellerie, Staudensellerie
 el:Σέλινο
 eo:celerio
 es:apio
-et:Aedseller
+et:Aedseller, seller
 eu:Apio
 fa:کرفس
 fi:Selleri
@@ -41205,26 +41208,27 @@ kk:Балдыркөк
 kn:ಸೆಲರಿ
 ko:셀러리
 la:Apium graveolens
-lt:Valgomasis salieras
-lv:Selerija
+lt:Valgomasis salieras, salierai
+lv:Selerija, selerijas
 mr:अजमोदा
 ms:Daun Saderi
+mt:karfus
 my:တရုတ်နံနံပင်
 nb:Selleri
 nl:selderij
 nv:Hazaʼaleehtsoh
 oc:Api
 os:Маламар
-pl:Selery zwyczajne
+pl:Selery zwyczajne, seler
 pt:aipo
 qu:Apiyu
 ro:Țelină
-ru:Сельдерей пахучий
+ru:Сельдерей пахучий, сельдерей
 sa:कुस्तुम्बरीपर्णम्
 sc:Appiu
 sh:Celer
-sk:Zeler voňavý
-sl:Navadna zelena
+sk:Zeler voňavý, zeler
+sl:Navadna zelena, listna zelena
 sq:Selinoja
 sr:Целер
 su:Salédri
@@ -41265,7 +41269,7 @@ de:Stangensellerie
 <en:celery
 <en:herb
 fr:feuilles de céleri
-de:Sellerieblätter
+de:Sellerieblätter, Sellerieblatt
 it:foglie di sedano
 nl:selderblad
 # fr:feuilles-de-céleri has 39 products in 4 languages @2018-10-21
@@ -41276,12 +41280,29 @@ fr:garniture de céleri
 
 <en:celery
 fr:jus concentré de céleri
+de:Sellerieextrakt
 # fr:jus-concentré-de-céleri has 64 products in 1 language @2018-10-21
+
+<en:celery
+de:Selleriesaft
 
 <en:celery
 fr:extrait de céleri
 nl:selderextract
 # fr:extrait-de-céleri has 58 products @2018-10-20
+
+<en:celery
+fr:graines de céleri
+de:Selleriesamen
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20céleri
+# 66 products in 3 languages @2018-10-07
+
+<fr:graines de céleri
+fr:céleri en poudre
+de:Selleriepulver
+it:sedano in polvere
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri%20en%20poudre
+# 41 products in 4 languages @2018-10-07
 
 <en:carrot juice
 <en:celery
@@ -46235,6 +46256,7 @@ pt:amêndoa
 ru:миндаль
 sk:Mandľa
 sq:Bajamet
+th:อัลมอนด์
 tt:бәдәм җимеше
 za:Makgai
 # ast:Almendra
@@ -46553,18 +46575,6 @@ nl:biologisch anijszaad, anijs bio
 # ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
 
 
-<en:seed
-fr:graines de céleri
-de:Selleriesamen
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20céleri
-# 66 products in 3 languages @2018-10-07
-
-<fr:graines de céleri
-fr:céleri en poudre
-de:Selleriepulver
-it:sedano in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri%20en%20poudre
-# 41 products in 4 languages @2018-10-07
 
 <en:seed
 <en:coriander
@@ -54499,27 +54509,27 @@ ca:peix
 ce:чӏара
 co:pesciu
 cr:ᓇᒣᔅ
-cs:ryba
+cs:ryba, ryby
 cu:рꙑба
 cv:Пулă
 cy:pysgodyn
 da:fisk
-de:Fisch
+de:Fisch, Fische
 dv:މަސް
 ee:akpa
-el:Ψάρι
+el:Ψάρι, ψάρια
 eo:fiŝo, fiŝaĵo
 es:pescado, pez
 et:Kalad, kala
 eu:arrain
 fa:ماهی
 ff:liingu
-fi:kala
+fi:kala, Kalat
 fj:Ika
 fo:Fiskur
 fr:poisson
 fy:fisk
-ga:Iasc
+ga:Iasc, éisc, bric
 gd:Iasg
 gl:Peixes
 gn:Pira
@@ -54530,7 +54540,7 @@ he:דג
 hi:मछली
 hr:Ribe
 ht:Pwason
-hu:halak
+hu:halak, hal
 hy:Ձկնամիս, ձկներ
 ia:pisce
 id:Ikan
@@ -54569,7 +54579,7 @@ ml:മത്സ്യം
 mn:загас
 mr:मासा
 ms:Ikan
-mt:ħuta
+mt:ħuta, ħut
 my:ငါး
 na:Iy
 nb:fisk
@@ -54583,7 +54593,7 @@ os:кӕсаг
 pa:ਮੱਛੀ
 pl:ryba
 ps:کب
-pt:peixe
+pt:peixe, peixes
 qu:Challwa
 rm:pesch
 ro:pește
@@ -54629,7 +54639,7 @@ xh:Intlanzi
 yi:ים–פיש
 yo:eja
 za:Duzbya
-zh:鱼
+zh:鱼, 魚
 zu:inhlanzi
 # ace:Eungkôt
 # ang:Fisc
@@ -54892,7 +54902,7 @@ en:alaska pollock, Alaskan pollock
 az:Mintay
 bg:treska pestrá
 ca:peix carboner d'Alaska
-de:Alaska Seelachs, Alaska-Pollack, Alaska-Seelachs
+de:Alaska Seelachs, Alaska-Pollack, Alaska-Seelachs, Alaska-Seelachsfilet, Alaska-Seelachs-Filet
 es:Abadejo de Alaska, colín de Alaska
 fa:زغال‌ماهی آلاسکا
 fi:Alaskanseiti
@@ -54933,7 +54943,7 @@ nl:Alaska koolvisfilet
 <en:alaska pollock
 en:Theragra chalcogramma
 fr:Theragra chalcogramma, Colin d'Alaska
-la:Theragra chalcogramma
+la:Theragra chalcogmaquereauramma
 
 
 # An anchovy is a small, common forage fish of the family Engraulidae. 
@@ -55136,8 +55146,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Anglerfish
 en:Lophius piscatorius
 la:Lophius piscatorius
 
+# description:fr:Loup est un nom vernaculaire ambigu désignant en français certains poissons prédateurs marins.
 
-# The Atlantic wolffish (Anarhichas lupus), also known as the seawolf, Atlantic catfish, ocean catfish, devil fish, wolf eel (the common name for its Pacific relative), woof or sea cat, is a marine fish of the wolffish family Anarhichadidae. 
+<en:fish
+fr:loup
+
+# description:en:The Atlantic wolffish (Anarhichas lupus), also known as the seawolf, Atlantic catfish, ocean catfish, devil fish, wolf eel (the common name for its Pacific relative), woof or sea cat, is a marine fish of the wolffish family Anarhichadidae. 
 
 <en:fish
 en:Atlantic wolffish
@@ -55358,6 +55372,8 @@ el:Μπακαλιάρος
 es:bacalao
 fa:کاد
 fr:cabillaud, morue
+ga:trosc, troisc
+hu:tőkehal
 id:Ikan kod
 it:merluzzo
 ja:コッド
@@ -55610,6 +55626,20 @@ la:Pleuronectes platessa
 # ingredient/fr:Pleuronectes%20platessa has 6 products in 3 languages @2018-12-31
 # structure:inner:role:synonym, eg carrelet (Pleuronectes platessa)
 
+# description:en:The name "FLOUNDER" is used for several only distantly related species, though all are in the suborder Pleuronectoidei
+
+<en:fish
+en:flounder
+ar:مفلطح
+eo:Flundro
+fr:flet
+ga:Leadhbóg, leadhbóige
+nl:Bot
+pl:Flądra
+pt:Linguado
+tl:Tatampal
+tr:Bayağı pisi balığı
+wikipedia:en:https://en.wikipedia.org/wiki/Flounder
 
 # The Triglidae, commonly known as sea robins or gurnard, are a family of bottom-feeding scorpaeniform fish. 
 
@@ -55674,8 +55704,8 @@ es:Eglefino
 fa:روغن‌ماهی کوچک
 fi:Kolja
 fo:Hýsa
-fr:églefin
-ga:Cadóg
+fr:églefin, haddock, aiglefin
+ga:Cadóg, cadóige
 gd:Adag
 gl:Fogoeiro
 hu:Foltos tőkehal
@@ -55725,7 +55755,7 @@ bg:мерлуз
 ca:lluç
 de:Colin
 es:Merluza
-fr:merlu, merlu blanc, filets de merlu blanc
+fr:merlu, merlu blanc, filets de merlu blanc, lieu
 ga:Colmóir
 hu:Hekk
 it:merluzzo
@@ -55860,6 +55890,12 @@ la:Merluccius hubbsi
 # ingredient/fr:Merluccius-hubbsi has 3 products in french @2018-12-31
 # structure:inner:role:synonym, eg Filet de merlu blanc (Merluccius hubbsi)
 
+# description:en:HALIBUT is a common name principally applied to the two flatfish in the genus Hippoglossus from the family of right-eye flounders. Halibut are often boiled, deep-fried or grilled while fresh.  
+
+<en:fish
+en:halibut
+fr:flétan
+wikipedia:en:https://en.wikipedia.org/wiki/Halibut
 
 # Herring are forage fish, mostly belonging to the family Clupeidae.
 
@@ -55870,12 +55906,12 @@ br:Harink
 ca:areng
 co:aringa
 cs:Sleď
-de:Hering
+de:Hering, Heringsfilet, Heringsfilets
 eo:Haringo
 es:Arenque
 fa:شاه‌ماهی
 fo:sild
-fr:hareng
+fr:hareng, harengs
 fy:hjerring
 gl:Arenque
 hr:Haringe
@@ -56005,6 +56041,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trachurus
 # ingredient/fr:chinchard has 1 product in french @2019-01-01
 # Oarfish are large, greatly elongated, pelagic lampriform fish belonging to the small family Regalecidae
 
+<en:fish
+fr:limande
 
 <en:fish
 en:oarfish
@@ -56139,7 +56177,7 @@ bg:Сьомга
 bs:losos
 ca:salmó
 cs:losos
-de:Lachse
+de:Lachse, Lachs, Lachsfilet, Lachsfilets
 eo:Salmo
 es:salmón
 eu:Izokin
@@ -56147,7 +56185,7 @@ fa:ماهی آزاد
 fi:Varsinaiset lohet
 fo:Laksur
 fr:saumon
-ga:Bradán
+ga:Bradán, bradáin
 gd:Bradan
 gl:Salmoninos
 he:אלתית
@@ -56467,7 +56505,7 @@ es:sardina, sardines
 eu:Sardina
 fa:ساردین
 fi:Sardiinit
-fr:sardine
+fr:sardine, sardines
 gl:Sardiña
 gu:Ypiaũ ete
 he:סרדין אירופי
@@ -56585,8 +56623,21 @@ zh:鮋科
 wikipedia:en:Q386535
 wikipedia:en:https://en.wikipedia.org/wiki/Scorpaenidae
 
+# description:en:SOLE is a fish belonging to several families. Generally speaking, they are members of the family Soleidae, but, outside Europe, the name sole is also applied to various other similar flatfish, especially other members of the sole suborder Soleoidei as well as members of the flounder family. 
 
-# Surimi  refers to a paste made from fish or other meat.
+<en:fish
+en:sole
+ar:سمك موسى
+es:Lenguado
+fa:ماهی حلوا
+fr:sole
+ga:sól, sóil
+it:Sogliola
+ja:ウシノシタ
+ms:Ikan sebelah
+zh:龍脷
+
+# description:en:Surimi refers to a paste made from fish or other meat.
 
 <en:fish
 en:surimi
@@ -56677,10 +56728,12 @@ eu:Atun
 fa:ماگورو
 fi:Aitotonnikalat
 fr:thon
+ga:tuinnín
 gl:Túnido
 he:טונה
 hr:Tunj
 ht:Ton
+hu:tonhal
 io:Atuno
 is:Túnfiskur
 it:tonno
@@ -56947,7 +57000,7 @@ br:Brezhell
 ca:Verat
 cy:Macrell
 da:Makrel
-de:Makrele
+de:Makrele, Makrelenfilet, Makrelenfilets
 el:Σκουμπρί
 es:Verdel
 et:Makrell
@@ -56959,9 +57012,11 @@ gd:Rionnach
 gl:Xarda
 hr:Skuša
 ht:Makro
+hu:makréla
 io:Makrelo
 is:Makríll
 it:sgombri, scombro
+ja:サバ
 ka:სკუმბრია
 kk:Скумбрия
 la:Scomber
@@ -57433,6 +57488,12 @@ en:Trigla lucerna
 fr:Chelidonichthys lucerna, lucernus, Grondin perlon, Trigle hirondelle, Galline, Gallinette, Tombe, Rouget
 la:Trigla lucerna, Chelidonichthys lucerna
 
+# description:en:The TURBOT (Scophthalmus maximus) is a species of flatfish in the family Scophthalmidae. It is a valuable commercial species, acquired through aquaculture and trawling. Turbot is highly prized as a food fish for its delicate flavour.
+
+<en:fish
+en:turbot
+fr:turbot
+wikipedia:en:https://en.wikipedia.org/wiki/Turbot
 
 # Weevers (or weeverfish) are 9 extant species of fishes of family Trachinidae, order Trachiniformes, part of the Percomorpha clade.
 
@@ -57574,7 +57635,7 @@ fr:poisson blanc, poissons blancs
 # Theragra chalcogramma ou Merluccius productus ou Merluccius gayi ou Merluccius hubbsi
 # Les Œufs de Cyclopterus lumpus (lump, lompe), poisson de l'Atlantique Nord, sont des œufs de poisson présentés comme succédané du caviar d'esturgeon.
 
-
+<en:fish
 fr:œufs de lompe, oeufs de lompe
 wikipedia:en:https://fr.wikipedia.org/wiki/Œufs_de_lump
 # ingredient/fr:oeufs-de-lompe has 38 products in french @2019-02-20
