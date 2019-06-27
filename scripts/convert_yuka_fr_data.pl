@@ -45,7 +45,7 @@ $lc = "fr";
 
 %global_params = (
 	# params below are already in the csv file
-	# lc => 'de',
+	lc => 'fr',
 	# countries => "Deutchland",
 	# brands => "Iglo",
 	# stores => "Casino",
@@ -57,32 +57,23 @@ $lc = "fr";
 
 my @csv_fields_mapping = (
 		
-["Code", "code"],
-#["code", "code"],
-["lang", "lc"],
-["product_name_de", "product_name_de"],
-["brands", "brands"],
-["categories", "categories"],
-["countries", "countries"],
-#["ingredients_text_de", "ingredients_text_de"],
-["ingredients_text_ de", "ingredients_text_de"],
-["allergens", "allergens"],
-["traces", "traces"],
-["quantity_value ", "quantity_value"],
-["quanity_unit", "quantity_unit"],
-#["quantity_unit", "quantity_unit"],
-["energy", "nutriments.energy_kJ"],
-["fat", "nutriments.fat_g"],
-["saturated fat", "nutriments.saturated-fat_g"],
-["carbohydrates", "nutriments.carbohydrates_g"],
-["sugars", "nutriments.sugars_g"],
-["fibers", "nutriments.fiber_g"],
-["proteins", "nutriments.proteins_g"],
-["salt", "nutriments.salt_g"],
-["fruits vegetables nuts", "nutriments.fruits-vegetables-nuts_g"],
-["labels", "labels"],
-["nutri_score", "nutrition_grade_fr_producer"],
-["Link", "link"],
+["ean", "code"],
+["nom_produit", "product_name_fr"],
+["quantite","quantity"],
+["marque", "brands"],
+["categorie", "categories"],
+["liste_ingredients", "ingredients_text_fr"],
+["allergenes", "allergens"],
+["bio","labels_y_en:organic"],
+["calories", "nutriments.energy_kcal"],
+["matieres_grasses", "nutriments.fat_g"],
+["acides_gras_satures", "nutriments.saturated-fat_g"],
+["glucides", "nutriments.carbohydrates_g"],
+["sucres", "nutriments.sugars_g"],
+["proteines", "nutriments.proteins_g"],
+["fibres", "nutriments.fiber_g"],
+["sel", "nutriments.salt_g"],
+["fruits_legumes_noix", "nutriments.fruits-vegetables-nuts_g"],
 
 );
 
@@ -94,7 +85,7 @@ my @files = get_list_of_files(@ARGV);
 foreach my $file (@files) {
 
 	if ($file =~ /.csv/) {
-		load_csv_file({ file => $file, encoding => "UTF-8", separator => "\t", skip_lines=> 0, skip_lines_after_header=> 1,  skip_empty_codes=>1, csv_fields_mapping => \@csv_fields_mapping});
+		load_csv_file({ file => $file, encoding => "UTF-8", separator => "\t", skip_lines=> 0, skip_lines_after_header=> 0,  skip_empty_codes=>1, csv_fields_mapping => \@csv_fields_mapping});
 	}
 }
 
@@ -105,24 +96,6 @@ foreach my $code (sort keys %products) {
 	
 	my $product_ref = $products{$code};
 	
-	
-	if (defined $product_ref->{"fruits-vegetables-nuts_value"}) {
-	
-		# values:  < 40 , 40 - 60, 60 - 80, > 80
-		
-		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ /<(\s?)40/) {
-			$product_ref->{"fruits-vegetables-nuts_value"} = 20;
-		}
-		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ /40(\s?)-(\s?)60/) {
-			$product_ref->{"fruits-vegetables-nuts_value"} = 50;
-		}
-		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ /60(\s?)-(\s?)80/) {
-			$product_ref->{"fruits-vegetables-nuts_value"} = 70;
-		}
-		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ />(\s?)80/) {
-			$product_ref->{"fruits-vegetables-nuts_value"} = 90;
-		}
-	}
 	
 }
 

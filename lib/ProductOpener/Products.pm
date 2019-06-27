@@ -627,6 +627,10 @@ sub compute_data_sources($) {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Systeme U"} = 1;
 			}
+			if ($source_ref->{id} eq 'biscuiterie-sainte-victoire') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Biscuiterie Sainte Victoire"} = 1;
+			}			
 
 			if ($source_ref->{id} eq 'openfood-ch') {
 				$data_sources{"Databases"} = 1;
@@ -828,7 +832,7 @@ sub get_change_userid_or_uuid($) {
 	my $app = "";
 	my $uuid;
 	
-	if ((defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
+	if ((defined $userid) and (defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
 		$app = $options{apps_userids}{$userid} . "\.";
 	}
 	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
@@ -843,7 +847,7 @@ sub get_change_userid_or_uuid($) {
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A	
-	elsif ((defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
+	elsif ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
 		$uuid =~ s/^(\s*)//;
 		$uuid =~ s/(\s*)$//;
