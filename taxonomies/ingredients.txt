@@ -23385,6 +23385,18 @@ nl:natuurlijke aroma's van citrusvruchten met andere natuurlijke aroma's
 nn:naturlig sitrusaroma med andre naturlige aromaer
 sv:naturlig citrusarom med andra naturliga aromer
 
+<en:flavouring
+en:orange flavouring
+fr:arôme d'orange
+
+<en:flavouring
+en:sour orange flavouring
+fr:arôme d'orange amère
+
+<en:natural flavouring
+en:natural sour orange flavouring
+fr:arôme naturel d'orange amère
+
 <en:natural flavouring
 en:natural orange flavouring, natural orange flavor
 de:natürlichen Orangenaroma
@@ -23469,30 +23481,26 @@ fr:arôme naturel de pamplemousse rose
 fr:arôme de sureau
 
 <en:natural flavouring
-en:laurel natural flavouring
-fr:arôme naturel de laurier
-
-<en:natural flavouring
-en:tarragon natural flavouring
+en:natural tarragon flavouring
 fr:arôme naturel d'estragon
 
 <en:natural flavouring
 fr:arôme naturel de réglisse
 
 <en:natural flavouring
-en:fruits natural flavouring
+en:natural fruits flavouring
 fr:arôme naturel de fruit, arômes naturels de fruit
 
 <en:natural flavouring
-en:chicken natural flavouring
+en:natural chicken flavouring
 fr:arôme naturel de poulet, arôme naturel de poule
 
 <en:natural flavouring
-en:cinammon natural flavouring
+en:natural cinammon flavouring
 fr:arôme naturel de cannelle
 
 <en:natural flavouring
-en:oregano natural flavouring
+en:natural oregano flavouring
 fr:arôme naturel d'origan
 
 <en:natural flavouring
@@ -23528,9 +23536,9 @@ fr:arôme naturel d'abricot
 
 <en:flavouring
 # derivedFrom:en:strawberry
-en:strawberry flavour
+en:strawberry flavouring
 de:Erdbeergeschmack
-fr:arôme flavouring
+fr:arôme de fraise
 nl:aardbeienaroma
 
 # Question
@@ -23554,12 +23562,6 @@ en:natural pepper flavouring, natural pepper flavor, natural pepper flavors
 de:natürliches Pfefferaroma
 fr:arôme naturel de poivre, arôme naturel poivre, arômes naturels de poivre
 it:aroma naturale di pepe
-
-# Two parents due to and/or ingredient
-
-<en:natural flavouring
-<en:natural pepper flavouring
-fr:arôme naturel de poivre avec autres arômes naturels
 
 <en:natural flavouring
 en:natural paprika flavor, natural flavor of paprika
@@ -23722,20 +23724,32 @@ it:aroma naturale di vaniglia con altri aromi naturali
 nl:natuurlijk vanillearoma met andere natuurlijke aroma's, natuurlijk vanille aroma en andere natuurlijke aroma's
 
 
-# Two parents due to and/or ingredient
-
 <en:natural flavouring
-<en:natural mint flavouring
-fr:arôme naturel de menthe avec autres arômes naturels
-de:natürliches Pfefferminzaroma mit anderen natürlichen Aromen
-
-<en:natural flavouring
+en:natural thyme flavouring
 fr:arôme naturel de thym
+
+<en:natural flavouring
+en:natural tea flavouring
+fr:arôme naturel de thé
 
 <en:natural flavouring
 fr:arôme naturel de muscade
 
+<en:flavouring
+en:mint flavouring
+fr:arôme de menthe
+
+<en:flavouring
+en:peppermint flavouring
+fr:arôme de menthe poivrée
+
 <en:natural flavouring
+<en:peppermint flavouring
+en:natural pepperming flavouring
+fr:arôme naturel de menthe poivrée
+
+<en:natural flavouring
+<en:mint flavouring
 en:natural mint flavouring, natural mint flavours, natural mints flavor
 de:natürliches Minzaroma
 es:aroma natural de menta
@@ -23757,12 +23771,14 @@ fr:arôme naturel de noisette
 
 <en:natural flavouring
 # derivedFrom:en:almond
+en:natural almond flavouring
 fr:arôme naturel d'amande
 de:natürliches Mandelaroma
 it:aroma naturale di mandorle
 
 <en:natural flavouring
 # derivedFrom:en:bitter almond
+en:natural sour almond flavouring
 fr:arôme naturel d'amande amère
 
 <en:flavouring
@@ -23771,6 +23787,7 @@ fr:arôme caramel
 nl:caramelaroma
 
 <en:natural flavouring
+en:natural pork flavouring
 fr:arôme naturel de porc
 
 <en:natural flavouring
@@ -23817,6 +23834,51 @@ nl:frambozenaroma
 <en:flavouring
 fr:arôme fleur d'oranger
 nl:sinaasappelbloemaroma
+
+<en:flavouring
+en:citrus flavouring
+fr:arôme d'agrume
+
+<en:natural flavouring
+<en:citrus flavouring
+en:natural citrus flavouring
+fr:arôme naturel d'agrumes
+
+<en:natural flavouring
+en:natural cocoa flavouring
+fr:arôme naturel de cacao
+
+<en:flavouring
+en:seafood flavouring
+fr:arôme de fruits de mer
+
+<en:flavouring
+en:fruit flavouring
+fr:arôme de fruit, arômes de fruits
+
+<en:flavouring
+en:passion fruit flavouring
+fr:arôme de fruit de la passion
+
+<en:flavouring
+en:celery flavouring
+fr:arôme de céleri
+
+<en:flavouring
+en:laurel flavouring
+fr:arôme de laurier
+
+<en:flavouring
+en:crustaceans flavouring
+fr:arôme de crustacés
+
+<en:flavouring
+fr:arôme de gentiane
+
+/oran
+
+<en:natural flavouring
+fr:arôme naturel de gentiane
 
 <en:flavouring
 # derivedFrom:en:coconut
@@ -47158,11 +47220,13 @@ fr:extraits d'épices et d'aromates
 <en:spice
 fr:plantes aromatiques et épices
 
+en:spice extract, spices extract
 fr:extrait d'épice, extraits d'épices
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte
 
 fr:herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques
 
+en:spices and spices extracts
 fr:épices et extrait d'épices
 
 fr:extraits d'épices et d'herbes

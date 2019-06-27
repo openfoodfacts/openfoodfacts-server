@@ -89,6 +89,7 @@ my @lists =(
 
 ["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'autres agrumes"],
 ["fr","arômes naturels de citron et de limette","arômes naturels de citron, arômes naturels de limette"],
+["fr","arôme naturel de pomme avec d'autres arômes naturels","arôme naturel de pomme, arômes naturels"],
 );
 
 foreach my $test_ref (@lists) {
