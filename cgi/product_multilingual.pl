@@ -2158,10 +2158,14 @@ JS
 		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button postfix small"/>
+		<button type="submit" name=".submit" class="button postfix small">
+			<i class="icon-check"></i> $Lang{save}{$lc}
+		</button>
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<input type="button" id="back-btn" value="$Lang{back}{$lc}" class="button postfix small secondary"/>
+		<button type="button" id="back-btn" class="button postfix small secondary">
+			<i class="icon-cancel"></i> $Lang{cancel}{$lc}
+		</button>
 	</div>
 </div>
 HTML
