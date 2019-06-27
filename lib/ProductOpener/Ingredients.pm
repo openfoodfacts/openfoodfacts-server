@@ -1352,6 +1352,11 @@ sub preparse_ingredients_text($$) {
 "graisses",
 "graisses végétales",
 "lécithine",
+"arôme naturel",
+"arômes naturels",
+"arôme artificiel",
+"arômes artificiels",
+"arômes",
 
 "carbonate",
 "carbonates acides",
@@ -1371,6 +1376,25 @@ sub preparse_ingredients_text($$) {
 		my @suffixes = (
 "curcuma",
 "romarin",
+
+# arômes
+
+"agrumes",
+"citron",
+"citron vert",
+"lime",
+"limette",
+"orange",
+"pamplemousse",
+"pamplemousse rose",
+"pomme",
+"poire",
+"rose",
+"thé",
+"vanille",
+"vanille de Madagascar",
+"autres agrumes",
+
 
 "colza",
 "palme",
@@ -1422,6 +1446,10 @@ sub preparse_ingredients_text($$) {
 
 		}
 		$suffixregexp =~ s/^\|//;
+		
+		# arôme naturel de citron-citron vert et d'autres agrumes
+		# -> separate suffixes
+		$text =~ s/($suffixregexp)-($suffixregexp)/$1, $2/g;
 
 		$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $2, $4)/ieg;
 

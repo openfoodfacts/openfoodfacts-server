@@ -8,7 +8,7 @@ stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo
 stopwords:fi:sisältää
 stopwords:fr:la,les,des,du,de,d
 stopwords:fr:de,d,des,du,le,la,les,a,aux
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets souleves
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:id:mengandung
@@ -11299,6 +11299,7 @@ e_number:en: 120
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of cochineal, carminic acid, carmines -E 120- as a food additive
 efsa_evaluation_date:en: 2015-11-18
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4288
+mandatory_additive_class:en: en:colour
 wikidata:en: Q416860
 
 en:E1200, Polydextrose
@@ -13897,6 +13898,54 @@ sv:E15x, E15x food additive
 colour_index:en: CI 77266
 e_number:en: 159
 
+en:E160, carotene, E160a, Alpha-carotene, Beta-carotene, Gamma-carotene, E160ai
+bg:E160, E160 food additive, E160a, Каротин, E160ai, Бета-каротин, Бета-каротен
+ca:beta-carotè
+cs:E160, E160 food additive, E160a, karoteny, E 160a, karoten, E160ai, Beta-karoten, β-karoten
+da:E160, E160 food additive, E160a, Karotin, Carotenoider, Karotenoid, E 160, Karoten, Caroten, Carotenoid, E160ai, Beta-caroten, Betakaroten
+de:E160, E160 food additive, E160a, Carotine, Provitamin A, Karotin, E 160a, Beta-Carotin, Betacarotin, Carotin, Gamma-Carotin, Betakarotin, Alpha-Carotin, Beta-Karotin, γ-Carotin, β-Carotin, β-Karotin, α-Carotin, E160ai
+el:E160, E160 food additive, E160a, E160a food additive, E160ai, Β-καροτενιο, β-καροτένιο
+es:E160, Carotenoides, Caroteno, E160a, Carotenos, Alfa-caroteno, Alfacaroteno, α-caroteno, Beta-caroteno, Betacaroteno, ß-caroteno, Gamma-caroteno, Gammacaroteno, γ-caroteno, Carotina, Tetraterpeno, E160ai
+et:E160, E160 food additive, E160a, Karoteenid, Karotiinid, Karotiin, Karoteen, E160ai, Beetakaroteen
+eu:Beta-karoteno
+fa:بتاکاروتن
+fi:E160, E160 food additive, E160a, Karoteeni, E160ai, Beta-karoteeni, beetakaroteeni
+fr:E160, Caroténoïdes, carotène, carotènes, Caroténoïde, caroténoïdes mélangés, carotènes mélangés, E160a, Bêta-carotène, bétacarotène, β-carotène, Caroténoïdes extrait de légumes, β-carotène extrait de Blakeslea trispora, β-carotène extrait d'algue, γ-Carotène, gamma-carotène, Pro-vitamine A, Alphacarotene, Α-Carotène, Provitamine A, carotéinodes mélangés, E160ai
+gl:Beta-caroteno
+he:בטא-קרוטן
+hi:बीटा कैरोटीन
+hu:E160, Karotin, E160a, Karotinok, E160ai, Béta-karotin
+id:Beta-karoten
+is:Beta-karótín
+it:E160, E160 food additive, E160a, Carotene, Beta-carotene, Carotina, Β-carotene, Caroteni, Betacarotene, E160ai
+ja:β-カロテン
+ko:베타카로틴
+lt:E160, E160 food additive, E160a, Karotinas, Beta karotinas, E160ai, Beta karotenas, b-karotenas
+lv:E160, E160 food additive, E160a, E160a food additive, E160ai, Beta-karotīns
+mk:Бета-каротен
+mn:Бета каротин
+ms:Beta-Karotena
+mt:E160, E160 food additive, E160a, E160a food additive, E160ai, Beta-karotên, beta-karotina
+nl:E160, E160 food additive, E160a, caroteen, Carotenen, Beta-caroteen, Β-caroteen, E160ai
+nn:betakaroten
+pl:E160, E160 food additive, E160a, karoteny, karoten, E160ai, Beta-karoten
+pt:E160, E160 food additive, E160a, Caroteno, E160ai, Beta-caroteno, Betacaroteno
+ro:E160, E160 food additive, E160a, Caroten, E160ai, Beta-caroten
+ru:E160a, Бета-каротин, β-Каротин, каротин, Е160a, каротины
+sh:Beta-karoten
+sk:E160, E160 food additive, E160a, Karotén, E160ai, Beta-karotén, Betakarotén
+sl:E160, E160 food additive, E160a, E160a food additive, E160ai, Beta karoten
+sr:бета-каротен
+sv:E160, E160 food additive, E160a, Karoten, E 160, Karotener, Karotin, E 160a, Alfakaroten, E 160 a, E160ai, Betakaroten
+ta:பீட்டா கரோட்டீன்
+th:บีตา-แคโรทีน
+vi:Beta-Carotene
+zh:Β-胡萝卜素
+e_number:en: 160
+efsa_evaluation:en: Scientific Opinion on the reconsideration of the ADI and a refined exposure assessment of beta-apo-8'-carotenal -E 160e-
+efsa_evaluation_date:en: 2014-01-22
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3492
+
 < en:E160
 en:beta-carotene dye
 de:Farbstoff Beta-Carotin
@@ -13948,64 +13997,34 @@ wikidata:en: Q191907
 wikipedia:en: https://en.wikipedia.org/wiki/Carotenoid
 
 < en:E160
-en:E160, carotene, E160a, Alpha-carotene, Beta-carotene, Gamma-carotene, E160ai, E-160a, INS160a, INS-160a, SIN160a, SIN-160a, mixed carotenes, E-160ai, INS160ai, INS-160ai, SIN160ai, SIN-160ai
-ar:كاروتين
-be:Карацін
-bg:E160, E160 food additive, E160a, Каротин, E160ai, Бета-каротин, Бета-каротен
-bs:Karoten
-ca:Carotè, beta-carotè
-cs:E160, E160 food additive, E160a, karoteny, E 160a, karoten, E160ai, Beta-karoten, β-karoten
-da:E160, E160 food additive, E160a, Karotin, Carotenoider, Karotenoid, E 160, Karoten, Caroten, Carotenoid, E160ai, Beta-caroten, Betakaroten
-de:E160, E160 food additive, E160a, Carotine, Provitamin A, Karotin, E 160a, Beta-Carotin, Betacarotin, Carotin, Gamma-Carotin, Betakarotin, Alpha-Carotin, Beta-Karotin, γ-Carotin, β-Carotin, β-Karotin, α-Carotin, E160ai, gemischte Carotine
-el:E160, E160 food additive, E160a, E160a food additive, E160ai, Β-καροτενιο, β-καροτένιο, καρωτίνιο
-eo:karoteno
-es:E160, Carotenoides, Caroteno, E160a, Carotenos, Alfa-caroteno, Alfacaroteno, α-caroteno, Beta-caroteno, Betacaroteno, ß-caroteno, Gamma-caroteno, Gammacaroteno, γ-caroteno, Carotina, Tetraterpeno, E160ai
-et:E160, E160 food additive, E160a, Karoteenid, Karotiinid, Karotiin, Karoteen, E160ai, Beetakaroteen
-eu:Karoteno, Beta-karoteno
-fa:کاروتن, بتاکاروتن
-fi:E160, E160 food additive, E160a, Karoteeni, E160ai, Beta-karoteeni, beetakaroteeni
-fr:E160, Caroténoïdes, carotène, carotènes, Caroténoïde, caroténoïdes mélangés, carotènes mélangés, E160a, Bêta-carotène, bétacarotène, β-carotène, Caroténoïdes extrait de légumes, β-carotène extrait de Blakeslea trispora, β-carotène extrait d'algue, γ-Carotène, gamma-carotène, Pro-vitamine A, Alphacarotene, Α-Carotène, Provitamine A, carotéinodes mélangés, E160ai
-ga:Caraitéin
-gl:Caroteno, Beta-caroteno
-he:קרוטן, בטא-קרוטן
-hi:बीटा कैरोटीन
-hu:E160, Karotin, E160a, Karotinok, E160ai, Béta-karotin
-hy:Կարոտին
-id:karotena, Beta-karoten
-io:Karotino
-is:Beta-karótín
-it:E160, E160 food additive, E160a, Carotene, Beta-carotene, Carotina, Β-carotene, Caroteni, Betacarotene, E160ai, caroteni misti
-ja:カロテン, β-カロテン
-ko:카로틴, 베타카로틴
-lt:E160, E160 food additive, E160a, Karotinas, Beta karotinas, E160ai, Beta karotenas, b-karotenas, karotenas
-lv:E160, E160 food additive, E160a, E160a food additive, E160ai, Beta-karotīns
-mk:Каротин, Бета-каротен
-mn:Каротин, Бета каротин
-ms:Karotena, Beta-Karotena
-mt:E160, E160 food additive, E160a, E160a food additive, E160ai, Beta-karotên, beta-karotina
-my:ကဲရော့တင်း
-nb:karoten
-nl:E160, E160 food additive, E160a, caroteen, Carotenen, Beta-caroteen, Β-caroteen, E160ai, diverse carotenen
-nn:karoten, betakaroten
-pl:E160, E160 food additive, E160a, karoteny, karoten, E160ai, Beta-karoten
-pt:E160, E160 food additive, E160a, Caroteno, E160ai, Beta-caroteno, carotenos, Betacaroteno
-ro:E160, E160 food additive, E160a, Caroten, E160ai, Beta-caroten, caroteni
-ru:E160a, Бета-каротин, β-Каротин, каротин, Е160a, каротины
-sh:Karoten, Beta-karoten
-sk:E160, E160 food additive, E160a, Karotén, E160ai, Beta-karotén, Betakarotén
-sl:E160, E160 food additive, E160a, E160a food additive, E160ai, Beta karoten
-sr:Karoten, бета-каротен
-sv:E160, E160 food additive, E160a, Karoten, E 160, Karotener, Karotin, E 160a, Alfakaroten, E 160 a, E160ai, Betakaroten
-ta:பீட்டா கரோட்டீன்
-th:แคโรทีน, บีตา-แคโรทีน
-tr:karoten
-uk:Каротин
-vi:Beta-Carotene
-zh:胡蘿蔔素, Β-胡萝卜素
-e_number:en: 160
-efsa_evaluation:en: Scientific Opinion on the reconsideration of the ADI and a refined exposure assessment of beta-apo-8'-carotenal -E 160e-
-efsa_evaluation_date:en: 2014-01-22
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3492
+en:E160aii, Plant carotenes
+bg:E160aii, Растителни каротини
+cs:E160aii, Rostlinné karoteny
+da:E160aii, Plantecarotener
+de:E160aii, Pflanzliche carotine
+el:E160aii, Φυτικα καροτενια
+es:E160aii, Carotenos de plantas
+et:E160aii, Taimsed karoteenid, Toiduks kasutatavate taimede, porgandi, taimsete õlide, kõrreliste
+fi:E160aii, Kasvikaroteenit
+fr:E160aii, Carotènes végétaux, carotènes de plantes
+hu:E160aii, Növényi karotinok
+it:E160aii, Caroteni vegetali
+lt:E160aii, Augaliniai karotenai
+lv:E160aii, Augu karotīni
+mt:E160aii, Karoteni tal-pjanti
+nl:E160aii, Plantaardige carotenen
+pl:E160aii, Karoteny otrzymywane z roślin
+pt:E160aii, Carotenos provenientes de plantas
+ro:E160aii, Caroten din plante
+sk:E160aii, Rastlinné karotény
+sl:E160aii, Rastlinski karoteni
+sv:E160aii, Karotener från växter
+additives_classes:en: en:colour
+e_number:en: 160a
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2593.pdf
+efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160aii] in foods for special medical purposes in young children
+efsa_evaluation_date:en: 2016-03-18
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 
 < en:E160
 en:E160aiii, Beta-carotene from blakeslea trispora
@@ -14064,9 +14083,6 @@ e_number:en: 160a
 efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160aii] in foods for special medical purposes in young children
 efsa_evaluation_date:en: 2016-03-18
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
-
-< en:E160
-fr:colorant e160a
 
 en:E160b, Annatto, bixin, norbixin, roucou, achiote
 bg:E160b, Анато, биксин, норбиксин i, БИКСИН И НОРБИКСИН
@@ -17718,36 +17734,35 @@ efsa_evaluation_date:en: 2015-11-18
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4289
 wikidata:en: Q424521
 
-< en:E305
-en:E305, Ascorbyl stearate, E304ii
-bg:E305, E305 food additive, E304ii, Аскорбил стеарат
-cs:E305, E305 food additive, E304ii, Askorbylstearát
-da:E305, E305 food additive, E304ii, Ascorbylstearat
-de:E305, E305 food additive, E304ii, Ascorbylstearat
-el:E305, E305 food additive, E304ii, Στεατικο ασκορβυλιο
-es:E305, Estearato ascorbilo, E304ii, Estearato de ascorbilo
-et:E305, E305 food additive, E304ii, Askorbüülstearaat
-fa:اسکوربیل استیرات
-fi:E305, E305 food additive, E304ii, Askorbyylistearaatti
-fr:E305, Stéarate d'ascorbyle, E304ii
-hu:E305, Aszkorbil-sztearát, E304ii
-it:E305, Stearato di ascorbile, E304ii
-ja:ステアリン酸アスコルビル
-lt:E305, Askorbilo stearatas, E304ii, Askorbilstearatas
-lv:E305, E305 food additive, E304ii, Askorbilstearāts
-mt:E305, E305 food additive, E304ii, Stearat askorbili, Stearat L-askorbili
-nl:E305, Ascorbylstearaat, E304ii
-pl:E305, Stearynian askorbylu, E304ii
-pt:E305, E305 food additive, E304ii, Estearato de ascorbilo
-ro:E305, E305 food additive, E304ii, Stearat de ascorbil
-sh:Askorbil stearat
-sk:E305, E305 food additive, E304ii, Askorbylstearan
-sl:E305, E305 food additive, E304ii, Askorbil stearat
-sr:Askorbil stearat
-sv:E305, E305 food additive, E304ii, Askorbylstearat
+< en:E304
+en:E304ii, Ascorbyl stearate, E305
+bg:E304ii, Аскорбил стеарат
+cs:E304ii, Askorbylstearát
+da:E304ii, Ascorbylstearat
+de:E304ii, Ascorbylstearat
+el:E304ii, Στεατικο ασκορβυλιο
+es:E304ii, Estearato de ascorbilo
+et:E304ii, Askorbüülstearaat
+fi:E304ii, Askorbyylistearaatti
+fr:E304ii, Stéarate d'ascorbyle
+hu:E304ii, Aszkorbil-sztearát
+it:E304ii, Stearato di ascorbile
+lt:E304ii, Askorbilstearatas
+lv:E304ii, Askorbilstearāts
+mt:E304ii, Stearat askorbili, Stearat L-askorbili
+nl:E304ii, Ascorbylstearaat
+pl:E304ii, Stearynian askorbylu
+pt:E304ii, Estearato de ascorbilo
+ro:E304ii, Stearat de ascorbil
+sk:E304ii, Askorbylstearan
+sl:E304ii, Askorbil stearat
+sv:E304ii, Askorbylstearat
 additives_classes:en: en:antioxidant
-e_number:en: 305
-wikidata:en: Q286793
+e_number:en: 304
+efsa_evaluation:en: Scientific Opinion on the re-evaluation of ascorbyl palmitate -E 304i- and ascorbyl stearate -E 304-ii-- as food additives
+efsa_evaluation_date:en: 2015-11-18
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4289
+wikidata:en: Q424521
 
 en:E306, Tocopherol-rich extract, tocopherol rich extracts, E 306
 bg:E306, Токоферол-обогатен екстракт
@@ -25163,8 +25178,7 @@ sv:E507, Saltsyra, Väteklorid, Kloran, E 507, Vätekloridgas, Klorvätesyra, Kl
 e_number:en: 507
 wikidata:en: Q2409
 
-< en:E508
-en:E508, Potassium chloride, Sylvine, E-508, INS508, INS-508, SIN508, SIN-508
+en:E508, Potassium chloride, Sylvine
 ar:كلوريد البوتاسيوم
 bg:E508, Калиев хлорид, Силвин
 bn:পটাশিয়াম ক্লোরাইড
@@ -25341,8 +25355,7 @@ vi:Amoni clorua
 zh:氯化铵
 e_number:en: 510
 
-< en:E511
-en:E511, Magnesium chloride, E-511, INS511, INS-511, SIN511, SIN-511
+en:E511, Magnesium chloride
 ar:كلوريد المغنسيوم
 bg:E511, Магнезиев хлорид, Магнезиев дихлорид
 bs:Magnezij hlorid
@@ -25682,8 +25695,59 @@ sv:E517, Ammoniumsulfat, E 517
 e_number:en: 517
 wikidata:en: Q191831
 
-< en:E519
-en:E519, Copper sulphate, copperII sulfate, E-519, INS519, INS-519, SIN519, SIN-519, copper sulfate, cupric sulphate
+en:E518, Magnesium sulphate, Epsom salts, magnesium sulfate
+ar:كبريتات المغنسيوم
+az:Acı duz
+bg:E518, E518 food additive, Магнезиев сулфат
+ca:sulfat de magnesi
+cs:E518, Síran hořečnatý
+da:E518, E518 food additive
+de:E518, Magnesiumsulfat
+el:E518, E518 food additive, θειικό μαγνήσιο
+eo:magnezia sulfato
+es:E518, Sulfato de magnesio
+et:E518, Magneesiumsulfaat
+fa:منیزیم سولفات
+fi:E518, Magnesiumsulfaatti
+fr:E518, Sulfate de magnésium
+he:מגנזיום גופרתי
+hi:मैग्निसियम सल्फेट
+hu:E518, Magnézium-szulfát
+hy:Մագնեզիումի սուլֆատ
+id:Magnesium sulfat
+it:E518, Solfato di magnesio
+ja:硫酸マグネシウム
+ko:황산 마그네슘
+ky:Магний сульфаты
+lt:E518, E518 food additive, magnio sulfatas
+lv:E518, Magnija sulfāts
+mk:Магнезиум сулфат
+ml:മഗ്നീഷ്യം സൾഫേറ്റ്
+ms:Magnesium sulfat
+mt:E518, E518 food additive, sulfat tal-manjesju
+nb:Magnesiumsulfat
+nl:E518, Magnesiumsulfaat
+nn:magnesiumsulfat
+pl:E518, Siarczan magnezu
+pt:E518, Sulfato de magnésio
+ro:E518, Sulfat de magneziu
+ru:гептагидрат сульфата магния
+sh:Magnezijum sulfat
+sk:E518, E518 food additive, síran horečnatý
+sl:E518, Magnezijev sulfat
+sr:магнезијум сулфат
+sv:E518, Magnesiumsulfat
+ta:மக்னீசியம் சல்பேட்டு
+th:แมกนีเซียมซัลเฟต
+tr:Magnezyum sülfat
+uk:Сульфат магнію
+vi:Magie sulphat
+zh:硫酸镁
+e_number:en: 518
+mandatory_additive_class:en: en:flavour-enhancer, en:firming-agent
+wikidata:en: Q288266
+
+en:E519, Copper sulphate, copperII sulfate, copper sulfate, cupric sulphate
 ar:كبريتات النحاس الثنائي
 bg:E519, Меден сулфат
 bn:কপার সালফেট
@@ -28921,8 +28985,7 @@ sv:E915, E915 food additive
 e_number:en: 915
 wikidata:en: Q18935691
 
-< en:E916
-en:E916, Calcium iodate, E-916, INS916, INS-916, SIN916, SIN-916
+en:E916, Calcium iodate
 ar:يودات الكالسيوم
 bg:E916, E916 food additive
 ca:iodat de calci
@@ -33308,6 +33371,10 @@ fr:arôme anis
 nl:anijsaroma
 
 < en:Flavouring
+en:apple flavouring
+fr:arôme de pomme
+
+< en:Flavouring
 en:artificial flavouring, artificial flavour, artificial flavor, artificial flavoring
 de:künstliches Aroma
 fr:arôme artificiel, arômes artificiels
@@ -33331,6 +33398,10 @@ fr:préparation aromatisante, préparation aromatique
 it:preparazione di spezie
 nl:aromatiserende bereiding
 pt:preparacao aromatizante
+
+< en:Flavouring
+en:grapefruit flavouring
+fr:arôme de pamplemousse
 
 < en:Flavouring
 en:lemon flavouring
@@ -33381,6 +33452,9 @@ nl:krabaroma
 
 < en:Flavouring
 fr:arôme de malt d'orge
+
+< en:Flavouring
+fr:arôme de sureau
 
 < en:Flavouring
 fr:arôme fleur d'oranger
@@ -36701,10 +36775,19 @@ de:Grape-fruitsaft
 fr:jus de pamplemousse
 nl:Grapefruitsap
 
+< en:Grapefruit flavouring
+< en:Natural flavouring
+en:grapefruit natural flavouring
+fr:arôme naturel de pamplemousse
+
 < en:Grapefruit juice
 fr:jus de pamplemousse à base de concentré
 de:Grapefruitsaft aus Konzentrat
 it:succo di pompelmo a base di concentrato
+
+< en:Grapefruit natural flavouring
+en:pink grapefruit natural flavouring
+fr:arôme naturel de pamplemousse rose
 
 < en:Emmental from France
 < en:Grated emmental cheese
@@ -41195,59 +41278,6 @@ vi:Mangan sulfat
 zh:硫酸锰
 wikidata:en: Q409393
 
-< en:Manganese sulfate
-en:E518, Magnesium sulphate, Epsom salts, magnesium sulfate, E-518, INS518, INS-518, SIN518, SIN-518
-ar:كبريتات المغنسيوم
-az:Acı duz
-bg:E518, E518 food additive, Магнезиев сулфат
-ca:sulfat de magnesi
-cs:E518, Síran hořečnatý
-da:E518, E518 food additive
-de:E518, Magnesiumsulfat
-el:E518, E518 food additive, θειικό μαγνήσιο
-eo:magnezia sulfato
-es:E518, Sulfato de magnesio
-et:E518, Magneesiumsulfaat
-fa:منیزیم سولفات
-fi:E518, Magnesiumsulfaatti
-fr:E518, Sulfate de magnésium
-he:מגנזיום גופרתי
-hi:मैग्निसियम सल्फेट
-hu:E518, Magnézium-szulfát
-hy:Մագնեզիումի սուլֆատ
-id:Magnesium sulfat
-it:E518, Solfato di magnesio
-ja:硫酸マグネシウム
-ko:황산 마그네슘
-ky:Магний сульфаты
-lt:E518, E518 food additive, magnio sulfatas
-lv:E518, Magnija sulfāts
-mk:Магнезиум сулфат
-ml:മഗ്നീഷ്യം സൾഫേറ്റ്
-ms:Magnesium sulfat
-mt:E518, E518 food additive, sulfat tal-manjesju
-nb:Magnesiumsulfat
-nl:E518, Magnesiumsulfaat
-nn:magnesiumsulfat
-pl:E518, Siarczan magnezu
-pt:E518, Sulfato de magnésio
-ro:E518, Sulfat de magneziu
-ru:гептагидрат сульфата магния
-sh:Magnezijum sulfat
-sk:E518, E518 food additive, síran horečnatý
-sl:E518, Magnezijev sulfat
-sr:магнезијум сулфат
-sv:E518, Magnesiumsulfat
-ta:மக்னீசியம் சல்பேட்டு
-th:แมกนีเซียมซัลเฟต
-tr:Magnezyum sülfat
-uk:Сульфат магнію
-vi:Magie sulphat
-zh:硫酸镁
-e_number:en: 518
-mandatory_additive_class:en: en:flavour-enhancer, en:firming-agent
-wikidata:en: Q288266
-
 < en:Mango
 fr:Mangue importée en avion
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en avion
@@ -45055,6 +45085,22 @@ en:natural extract
 fr:extraits naturels
 
 < en:Natural flavouring
+en:chicken natural flavouring
+fr:arôme naturel de poulet, arôme naturel de poule
+
+< en:Natural flavouring
+en:cinammon natural flavouring
+fr:arôme naturel de cannelle
+
+< en:Natural flavouring
+en:fruits natural flavouring
+fr:arôme naturel de fruit, arômes naturels de fruit
+
+< en:Natural flavouring
+en:laurel natural flavouring
+fr:arôme naturel de laurier
+
+< en:Natural flavouring
 en:natural apple flavouring
 fr:arôme naturel de pomme
 nl:natuurlijk appelaroma
@@ -45170,6 +45216,18 @@ pl:naturalny aromat wanilii
 sv:naturlig vanilijarom
 
 < en:Natural flavouring
+en:oregano natural flavouring
+fr:arôme naturel d'origan
+
+< en:Natural flavouring
+en:rum natural flavouring
+fr:arôme naturel de rhum
+
+< en:Natural flavouring
+en:tarragon natural flavouring
+fr:arôme naturel d'estragon
+
+< en:Natural flavouring
 en:with other natural flavouring, other natural flavours
 de:mit anderen natürlichen Aromen, andere natürliche Aromen
 fr:avec autres arômes naturels, autres arômes naturels
@@ -45212,13 +45270,16 @@ fr:arôme naturel de muscade
 fr:arôme naturel de noisette
 
 < en:Natural flavouring
-fr:arôme naturel de pamplemousse
-
-< en:Natural flavouring
 fr:arôme naturel de porc
 
 < en:Natural flavouring
+fr:arôme naturel de réglisse
+
+< en:Natural flavouring
 fr:arôme naturel de romarin
+
+< en:Natural flavouring
+fr:arôme naturel de sureau
 
 < en:Natural flavouring
 fr:arôme naturel de thym
@@ -45820,26 +45881,6 @@ it:crusca d'avena
 nl:Haverzemelen
 
 < en:Oat
-en:organic oat
-fr:avoine biologique
-
-< en:Oat
-en:whole grain rolled oats, whole oat flakes
-da:fullkornshavregryn
-de:Vollkorn-Haferflocken
-fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
-it:fiocchi di avena integrale
-nl:volkoren havermout, volkoren havervlokken, volkorenhavervlokken
-nn:fullkornshavregryn
-pl:płatki owsiane z pełnego przemiału
-pt:flocos de aveia integral
-sv:fullkornshavregryn
-
-< en:Oat bran
-nl:Haverzemelen met kiem
-
-< en:Oat
-< en:Oat flakes
 en:oat flakes, rolled oats
 cs:ovesné vločky
 da:Havregryn
@@ -45867,6 +45908,25 @@ uk:Вівсяні пластівці
 zh:大燕麥片
 wikidata:en: Q1208221
 wikipedia:en: https://en.wikipedia.org/wiki/Rolled_oats
+
+< en:Oat
+en:organic oat
+fr:avoine biologique
+
+< en:Oat
+en:whole grain rolled oats, whole oat flakes
+da:fullkornshavregryn
+de:Vollkorn-Haferflocken
+fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
+it:fiocchi di avena integrale
+nl:volkoren havermout, volkoren havervlokken, volkorenhavervlokken
+nn:fullkornshavregryn
+pl:płatki owsiane z pełnego przemiału
+pt:flocos de aveia integral
+sv:fullkornshavregryn
+
+< en:Oat bran
+nl:Haverzemelen met kiem
 
 < en:Oat flour
 < en:Wholemeal flour
@@ -46583,7 +46643,7 @@ en:organic UHT pasteurised semi-skimmed milk
 fr:lait demi-écrémé issu de l'agriculture biologique stérilisé u h t, lait demi-écrémé biologique stérilisé uht
 
 en:Other nutritional substances
-de:Andere Nährstoffe# additives.txt
+de:Andere Nährstoffe
 es:Otras sustancias nutricionales
 fr:Autres substances nutritives
 hu:Egyéb táplálkozási anyagok
@@ -61134,37 +61194,6 @@ nl:olijfolie extra vierge, extra olijfolie van de eerste persing
 
 < en:E160
 < en:Vitamin A
-en:E160aii, Plant carotenes, E-160aii, INS160aii, INS-160aii, SIN160aii, SIN-160aii
-bg:E160aii, Растителни каротини
-cs:E160aii, Rostlinné karoteny
-da:E160aii, Plantecarotener
-de:E160aii, Pflanzliche carotine
-el:E160aii, Φυτικα καροτενια
-es:E160aii, Carotenos de plantas
-et:E160aii, Taimsed karoteenid, Toiduks kasutatavate taimede, porgandi, taimsete õlide, kõrreliste
-fi:E160aii, Kasvikaroteenit
-fr:E160aii, Carotènes végétaux, carotènes de plantes
-hu:E160aii, Növényi karotinok
-it:E160aii, Caroteni vegetali
-lt:E160aii, Augaliniai karotenai
-lv:E160aii, Augu karotīni
-mt:E160aii, Karoteni tal-pjanti
-nl:E160aii, Plantaardige carotenen
-pl:E160aii, Karoteny otrzymywane z roślin
-pt:E160aii, Carotenos provenientes de plantas
-ro:E160aii, Caroten din plante
-sk:E160aii, Rastlinné karotény
-sl:E160aii, Rastlinski karoteni
-sv:E160aii, Karotener från växter
-additives_classes:en: en:colour
-e_number:en: 160a
-efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2593.pdf
-efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160aii] in foods for special medical purposes in young children
-efsa_evaluation_date:en: 2016-03-18
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
-
-< en:E160
-< en:Vitamin A
 en:provitamin A
 de:
 fr:
@@ -64125,8 +64154,6 @@ it:destrina di tapioca
 < fr:Dextrose de tapioca
 nl:tarwe- of tapiocadextrose
 sv:dextros av vete eller tapioka
-
-fr:E160b, Rocou, annatto, mélange de bixine et norbixine, Bixine, Norbixine, Annatto extract, Extraits de rocou, Extrait de graine de roucou, base de bixine, base de norbixine, CI 75120, Orange naturel CI n.4, Natural orange 4, CAS 1393-63-1, 89957-43-7, CAS 6983-79-5, Annatto seed extract, Bixa orellana seed extract, bixa orellana, achiote, Annatto G
 
 fr:E307, Alphatocophérol, Alpha-tocophérol, Alpha-tocophérol de synthèse, dl-α-Tocophérol, 59-02-9
 

@@ -47,6 +47,7 @@ my @tests = (
 [ { lc => "es", ingredients_text => "manzanas 10% y naranjas 5%"}, [ "en:apple", "en:orange", ], ],
 
 [ { lc => "fr", ingredients_text => "viande de porc 50% du poids total"}, [ "en:pork-meat" ], ],
+[ { lc => "fr", ingredients_text => "arôme naturel"}, [ "en:natural-flavouring" ], ],
 
 );
 
