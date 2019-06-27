@@ -4999,6 +4999,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 
 <en:gelatin
+<en:beef
 en:beef gelatin
 de:Rindergelatine
 fr:gélatine de bœuf, gélatine de boeuf, gélatine bovine
@@ -5006,7 +5007,7 @@ it:gelatina di manzo
 # ingredient/fr:gélatine-de-bœuf has 216 products in 4 languages @2019-02-10
 
 <en:gelatin
-# <en:fish
+<en:fish
 en:fish gelatine
 de:Fisch-Gelatine
 fr:gélatine de poisson
@@ -5018,10 +5019,12 @@ fr:gélatine non porcine
 # ingredient/fr:gélatine-non-porcine has 1 product in french @2019-02-10
 
 <en:gelatin
+<en:poultry
 fr:gélatine de volaille
 # ingredient/fr:gélatine-de-volaille has 17 products in french @2019-02-10
 
 <en:gelatin
+<en:pork
 en:pork gelatin
 de:Schweinegelatine
 es:gelatina de cerdo
@@ -18680,6 +18683,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iodised_salt
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+en:animal
+
 en:meat
 de:Fleisch
 fr:viande
@@ -18689,6 +18694,7 @@ nl:Vlees
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. 
 
+<en:animal
 en:beef, steers
 de:Rind
 fr:bœuf, boeuf, Boeufs
@@ -18827,6 +18833,7 @@ carbon_footprint_fr_foodges_value:fr:55
 
 # description:en:RABBITS are small mammals in the family Leporidae of the order Lagomorpha. In some areas, wild rabbits and hares are hunted for their meat, a lean source of high quality protein. Domesticated descendants of the European rabbit (Oryctolagus cuniculus) that are bred and kept as livestock account for the estimated 200 million tons of rabbit meat produced annually.
 
+<en:animal
 en:rabbit
 ak:Adanko
 am:ጥንቸል
@@ -18973,6 +18980,7 @@ carbon_footprint_fr_foodges_value:fr:8.1
 # description:en:Domestic sheep (Ovis aries) are quadrupedal, ruminant mammals typically kept as livestock.  Sheep are raised for fleeces, meat (lamb, hogget or mutton) , fat and milk. 
 # comment:en:Not convinced of the wikidata translations. The seem to be more “domesticated sheep” than “sheep”. Or the latin name is used.
 
+<en:animal
 en:sheep
 af:Skaap
 ak:Odwan
@@ -19185,7 +19193,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lamb_and_mutton
 
 # description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 
+<en:animal
+en:game animal
+
+<en:game animal
+en:deer
+
 <en:meat
+<en:deer
 en:venison, deer meat
 ar:لحم الغزال
 ca:carn de cérvol
@@ -19276,6 +19291,7 @@ carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
+<en:animal
 en:pork
 de:Schweinefleisch
 fr:porc
@@ -19572,6 +19588,7 @@ fr:jambon cuit standard
 <en:ham
 fr:jambon cuit supérieur
 
+<en:pork
 en:pork by-product
 fr:sous-produit du porc
 nl:Varkensvleesbijproduct
@@ -19612,6 +19629,7 @@ fr:maigre et gras de porc
 fr:couenne de porc, couennes de porc
 
 # <en:broth
+<en:pork
 fr:bouillon de porc
 
 # <en:bone
@@ -19624,6 +19642,7 @@ fr:os de porc
 <en:pork meat
 fr:couenne de porc
 
+<en:pork
 fr:foie de porc
 
 
@@ -19671,6 +19690,7 @@ fr:viande de veau
 carbon_footprint_fr_foodges_ingredient:fr:Viande de veau France
 carbon_footprint_fr_foodges_value:fr:20.5
 
+<en:beef
 en:veal
 fr:veau
 
@@ -19805,6 +19825,7 @@ fr:foie
 # Porc 91% (gorge, foie, épaule)
 
 <en:meat
+<en:animal
 fr:Cuisses de grenouilles
 
 # STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds.
@@ -46531,12 +46552,6 @@ it:anice bio
 nl:biologisch anijszaad, anijs bio
 # ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
 
-<en:seed
-en:mustard seed
-de:Senfsaaten
-es:grano de mostaza
-fr:graine de moutarde, graines de moutarde
-nl:mosterdzaad
 
 <en:seed
 fr:graines de céleri
@@ -48353,7 +48368,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kaffir_lime
 en:mustard
 ar:صلصة الخردل
 be:Гарчыца
-bg:Горчица
+bg:Горчица, синап
 bn:সরিষার আচার
 br:sezo
 bs:Senf
@@ -48362,7 +48377,7 @@ co:mustarda
 cs:hořčice
 da:sennep
 de:Senf
-el:Μουστάρδα
+el:Μουστάρδα, σινάπι
 eo:mustardo
 es:mostaza
 et:sinep
@@ -48371,12 +48386,13 @@ fi:sinappi
 fo:sinoppur
 fr:moutarde
 fy:moster
+ga:mustard, mustaird
 gl:Mostaza
 he:חרדל
 hi:सरसों
 hr:Senf
 ht:Moutad
-hu:Mustármag
+hu:mustár, Mustármag
 hy:Մանանեխ
 id:Moster
 io:Mustardo
@@ -48393,12 +48409,13 @@ lt:Garstyčios, garstyčių
 lv:sinepes
 mk:Сенф
 ms:Mustard
+mt:mustarda
 nb:sennep
 nl:mosterd
 nn:sennep
 or:ଶୋରିଷ ଆଚାର
 pa:ਸਰੋਂ
-pl:Musztarda
+pl:Musztarda, gorczyca
 pt:mostarda
 qu:Mustasa
 ro:muștar
@@ -48410,6 +48427,7 @@ sq:mustardë kuzhine
 sr:сенф
 sv:senap
 ta:கடுகு
+th:มัสตาร์ด
 uk:гірчиця
 vi:Mù tạc
 zh:芥末醬
@@ -48435,11 +48453,23 @@ carbon_footprint_fr_foodges_ingredient:fr:Moutarde
 carbon_footprint_fr_foodges_value:fr:3.3
 # en:mustard has 4679 products in 13 languages @2018-10-25
 
-# MUSTARD is a condiment made from the seeds of a mustard plant
+# <en:seed
+<en:mustard
+en:mustard seed
+de:Senfsaaten, Senfkörner, Senfsaat, Senfsamen, Senfschrot, Senfkorn
+es:grano de mostaza, semillas de mostaza
+fr:graine de moutarde, graines de moutarde
+hu:káposztafélék, Mustármag
+ja:カラシナ,シロガラシ
+nl:mosterdzaad, mosterdzaden
+sl:gorčično seme
+
+
+# description:en:MUSTARD is a condiment made from the seeds of a mustard plant
 
 <en:mustard
 en:mustard powder
-de:Senfpulver
+de:Senfpulver, Senfmehl
 fr:moutarde en poudre, poudre de moutarde, farine de moutarde
 it:senape in polvere
 nl:mosterdpoeder
@@ -57935,7 +57965,7 @@ sq:Midhje
 tr:Midye
 vi:Trai
 zh:淡菜類
-ffr:Hees
+# ffr:Hees
 # gom:Xinnani, Xinnaneo
 # lij:Musculu
 # pt-br:Mexilhão
@@ -65565,7 +65595,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broth
 # ingredient/fr:bouillon has 1214 products in 6 languages @2019-02-25
 # brodo (acqua, osso di pollo, sale, spezie, carota, sedano (0,01%), cipolla, porro, scalogno, aglio, piante aromatiche),
 
-# <en:beef
+<en:beef
 <en:broth
 en:beef broth
 de:Rinderbrühe, Rindfleischbouillon
@@ -65578,6 +65608,7 @@ fr:bouillon déshydraté
 # ingredient/fr:bouillon-déshydraté has 57 products in french @2019-02-25
 
 <en:broth
+<en:poultry
 en:poultry broth
 de:Geflügelbouillon
 fr:bouillon de volaille, fond de volaille, Bouillons de volaille
