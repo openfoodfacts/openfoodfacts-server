@@ -4671,34 +4671,6 @@ sv:E303, E303 food additive
 e_number:en:303
 wikidata:en:Q2252299
 
-# E305 is the same as E304(ii)
-<en:E304(ii)
-en:E305, Ascorbyl stearate
-bg:E305, E305 food additive
-cs:E305, E305 food additive
-da:E305, E305 food additive
-de:E305, E305 food additive
-el:E305, E305 food additive
-es:E305, Estearato ascorbilo
-et:E305, E305 food additive
-fi:E305, E305 food additive
-fr:E305, Stéarate d'ascorbyle
-hu:E305, Aszkorbil-sztearát
-it:E305, Stearato di ascorbile
-lt:E305, Askorbilo stearatas
-lv:E305, E305 food additive
-mt:E305, E305 food additive
-nl:E305, Ascorbylstearaat
-pl:E305, Stearynian askorbylu
-pt:E305, E305 food additive
-ro:E305, E305 food additive
-sk:E305, E305 food additive
-sl:E305, E305 food additive
-sv:E305, E305 food additive
-e_number:en:305
-wikidata:en:Q286793
-additives_classes:en: en:antioxidant
-
 
 en:E304, Fatty acid esters of ascorbic acid, Ascorbyl palmitate
 bg:E304, E304 food additive
@@ -4759,8 +4731,10 @@ efsa_evaluation_date:en: 2015-11-18
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of ascorbyl palmitate (E 304(i)) and ascorbyl stearate (E 304(ii)) as food additives
 additives_classes:en: en:antioxidant
 
+# E305 is the same as E304(ii)
+
 <en:E304
-en:E304(ii), Ascorbyl stearate
+en:E304(ii), Ascorbyl stearate, E305
 bg:E304(ii), Аскорбил стеарат
 cs:E304(ii), Askorbylstearát
 da:E304(ii), Ascorbylstearat
