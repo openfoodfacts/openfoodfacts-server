@@ -2161,7 +2161,7 @@ JS
 		<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button postfix small"/>
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<input type="button" onclick="history.back();" value="$Lang{back}{$lc}" class="button postfix small secondary"/>
+		<input type="button" id="back-btn" value="$Lang{back}{$lc}" class="button postfix small secondary"/>
 	</div>
 </div>
 HTML

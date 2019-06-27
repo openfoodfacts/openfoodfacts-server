@@ -494,7 +494,6 @@ function update_display(imagefield, first_display) {
 	$(document).foundation('equalizer', 'reflow');
 }
 
-
 (function( $ ){
 
 	var settings = {
@@ -716,5 +715,9 @@ function update_display(imagefield, first_display) {
     }
 
   };
+
+  $('#back-btn').click(function() {
+	window.location.href = window.location.origin + '/product/' + window.code;
+  });
 
 })( jQuery );
