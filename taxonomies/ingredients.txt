@@ -62521,32 +62521,33 @@ nl:kwartel, kwartels
 
 # description:en:EGGS are laid by female animals of many different species, including birds, reptiles, amphibians, mammals, and fish, and have been eaten by humans for thousands of years.
 
-en:egg
+en:egg, eggs
 af:eier
 ak:Kosua
 am:እንቁላል
-ar:بيض
+ar:بيض,بيضة
 az:yumurta
 ba:Йомортҡа
 be:яйка
-bg:Яйце
+bg:Яйце,яйца
 bm:Syɛfan
 bn:ডিম
 br:Vi
 ca:ou
 cs:vejce
 cy:ŵy
-da:æg
-de:Ei, Eier
+da:æg, aeg
+de:Ei, Eier, Eiern, Vollei
 ee:koklozi
 el:αυγό, αυγά
 eo:ovo
 es:huevo, huevos
-et:Muna
+et:Muna, munad
 eu:arrautza
 fa:تخم‌مرغ
-fi:kananmuna
+fi:kananmuna, munat, muna
 fr:œuf, œufs, oeuf, oeufs, 6 oeufs, 4 oeufs
+ga:uibheacha, ubh
 gl:ovo
 gv:Ooh
 he:ביצה
@@ -62557,16 +62558,18 @@ hy:Ձու
 id:telur
 io:ovo
 is:egg
-it:uova
+it:uova, uovo
 ja:卵
 ka:კვერცხი
 ko:알
 ky:Жумуртка
 li:Ei
-lv:ola
+lt:kiaušiniai, kiaušinis
+lv:ola,olas
 mk:јајце
 mr:अंडी
 ms:telur
+mt:bajd
 nb:egg
 ne:फुल
 nl:ei, eieren
@@ -62574,15 +62577,15 @@ nn:egg
 oc:uòu
 or:ଅଣ୍ଡା
 pa:ਆਂਡਾ
-pl:jajo, jajko, jaja
+pl:jajo, jajko, jaja, jajka
 pt:ovo, ovos
 ro:ou, ouă, oua
-ru:яйцо
+ru:яйцо, яйца
 rw:Igi
 sh:Jaje
 si:බිත්තරය
-sk:vajce
-sl:jajca
+sk:vajce, vajcia
+sl:jajca, jajce
 so:Ukun
 sr:jaja
 sv:ägg
@@ -62595,7 +62598,7 @@ uk:яйце
 ur:انڈا
 vi:trứng
 wa:Oû
-zh:Amaqanda
+zh:雞蛋
 # aeb-arab:عضمة
 # ast:Güevu
 # azb:یومورتا
@@ -62637,7 +62640,8 @@ fr:gros oeufs
 # 3@2019-05-31
 
 <en:egg
-fr:œufs frais, oeufs frais, 6 oeufs frais, 18 oeufs frais, 10 oeufs frais
+fr:œufs frais, oeufs frais, oeuf frais, œuf frais, 6 oeufs frais, 18 oeufs frais, 10 oeufs frais
+de:Frischei
 nl:verse eieren
 
 <en:egg
@@ -62687,6 +62691,7 @@ it:uova pastorizzate
 
 <en:egg
 en:chicken egg
+de:Hühnerei, Hühnereier, Hühnervollei
 fr:œufs de poules, oeufs de poules
 nl:kippeneieren
 # ingredient/fr:œufs-de-poules has 16 products in french @2018-12-18
@@ -62771,7 +62776,7 @@ nl:gepasteuriseerd vloeibaar ei
 <en:egg
 en:egg powder, powdered egg
 da:æggepulver
-de:Eipulver
+de:Eipulver, Volleipulver
 el:αλεύρι σίτου αυγό σκόνη
 es:huevo en polvo
 fi:kananmunajauhe
@@ -62806,6 +62811,10 @@ it:uovo intero in polvere
 nl:heeleipoeder
 # ingredient/fr:œuf-entier-en-poudre has 592 products in 7 languages @2018-12-18
 
+<en:whole powdered egg
+en:whole powdered chicken egg
+de:Hühnervolleipulver
+
 <en:whole egg
 en:liquid whole egg
 de:Vollei flüssig
@@ -62833,6 +62842,7 @@ de:pasteurisiertes Vollei
 fr:œuf entier d'élevage au sol, oeuf entier d'élevage au sol
 de:Vollei aus Bodenhaltung
 it:uovo intero da allevamento al suolo
+nl:scharrelkipheelei
 # ingredient/fr:oeuf-entier-d’élevage-au-sol has 10 products in 4 languages @2018-1-18
 
 <en:whole egg
@@ -62879,13 +62889,13 @@ bn:সাদা ডিম
 ca:clara d'ou
 cs:bílek
 da:æggehvide
-de:Eiklar, Eiweiß
+de:Eiklar, Eiweiß, Eiweiss
 el:ασπράδι αυγού
 eo:ovoblanko
 es:clara de huevo
 eu:Zuringo
 fa:سفیده تخم‌مرغ
-fr:blanc d'œuf, blancs d'œufs, albumine d'œuf, blancs d'œuf, blanc d'oeuf, blancs d'oeufs, albumine d'oeuf, blancs d'oeuf
+fr:blanc d'œuf, blancs d'œufs, albumine d'œuf, blancs d'œuf, blanc d'oeuf, blancs d'oeufs, albumine d'oeuf, blancs d'oeuf, blanc d'œufs
 gl:clara de ovo
 hi:חלבון הביצה
 id:putih telur
@@ -62918,6 +62928,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Egg_white
 # ingredient/fr:blanc-d-oeuf has 2748 products in 13 languages @2018-12-18
 
 <en:egg white
+en:chicken egg white
+de:Hühnereiweiß, Hühnereieiweiß, Hühnereiklar, Hühnerei-Eiweiß
+
+<en:egg white
 en:powdered egg white, dehydrated egg white
 de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß
 el:ασπράδι αυγού σε σκόν
@@ -62928,9 +62942,15 @@ nl:eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
 sv:äggvita i pulver
 # ingredient/fr:blancs-d-oeufs-en-poudre has 1124 products in 8 languages @2018-12-17
 
+<en:chicken egg white
+nl:scharrelkipeiwit
+
 <en:powdered egg white
-de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver
+de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühnereiweißpulver, Hühnereiweisspulver, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnerei-Eiweisspulver, Hühnerei-Eiweißpulver, Hühnertrockeneiweiß, Hühnertrockeneiweiss
 nl:kippenei-eiwitpoeder
+
+<de:Hühnerei-Trockeneiweiß
+nl:scharrelkipeiwitpoeder
 
 <en:powdered egg white
 en:rehydrated egg white
@@ -62990,7 +63010,7 @@ et:rebu
 eu:Gorringo
 fa:زرده تخم‌مرغ
 fi:kananmunan
-fr:jaune d’œuf, jaunes d'œuf, jaune d'œufs, jaunes d'œufs, jaune d’oeuf, jaunes d'oeuf, jaune d'oeufs, jaunes d'oeufs
+fr:jaune d'œuf, jaunes d'œuf, jaune d'œufs, jaunes d'œufs, jaune d'oeuf, jaunes d'oeuf, jaune d'oeufs, jaunes d'oeufs
 fy:aaidjerre
 ga:buíocán
 gd:buidheagan
@@ -63042,9 +63062,21 @@ wikidata:en:Q1302994
 
 <en:egg yolk
 en:free range egg yolk
+nl:scharreleigeel
+
+<en:egg yolk
+en:chicken egg yolk
+de:Hühnereieigelb, Hühnereigelb
+
+<en:chicken egg yolk
+en:chicken egg yolk powder
+de:Hühnereigelbpulver
+
+<en:free range egg yolk
+en:free range chicken egg yolk
 es:yema de huevo de gallinas camperas
 fr:jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air
-nl:Eigeel van vrije uitloop eieren
+nl:scharrelkipeigeel, Eigeel van vrije uitloop eieren
 pt:gema de ovo de galinhas criadas ao ar livre
 # ingredient/fr:jaune-d’oeuf-de-poules-élevées-en-plein-air has 61 products in 2 languages @2018-12-18
 
@@ -63105,6 +63137,8 @@ de:Eigelb gesalzen
 nl:gezouten eigeel
 # ingredient/fr:jaune-d-oeuf-sale has 119 products in 3 languages @2018-12-17
 
+<en:egg
+es:productos derivados de huevo
 
 # The context should determine what part of the egg is meant.
 
@@ -66733,6 +66767,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mirin
 # description:en:FISH SAUCE is a liquid condiment made from fish or krill that have been coated in salt and fermented for up to two years. Following widespread recognition of its ability to impart a savory umami flavor to dishes, it has been embraced globally by chefs and home cooks. The umami flavor in fish sauce is due to its glutamate content.
 
 <en:sauce
+<en:fish
 en:fish sauce
 da:fiskesaus
 de:Fischsosse
