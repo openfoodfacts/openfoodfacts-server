@@ -1480,7 +1480,7 @@ wikidata:en:Q191907
 wikipedia:en:https://en.wikipedia.org/wiki/Carotenoid
 # ingredient/fr:caroténoïde has 2195 products in 12 languages @2019-04-29
 
-
+<en:paprika
 en:paprika extract, e160c
 da:paprikaekstrakt
 de:Paprikaextrakt
@@ -27220,7 +27220,6 @@ de:Reiswaffeln
 it:gallette di riso
 nl:rijstwafel, rijstwafels
 # ingredient/fr:galette-de-riz has 132 products @2018-12-19
-
 # fr:extrait de riz is a compound ingredient, eg:(eau, riz, huile de tournesol)
 
 <en:rice
@@ -47112,24 +47111,27 @@ carbon_footprint_fr_foodges_ingredient:fr:Épices
 carbon_footprint_fr_foodges_value:fr:2.2
 # 903 products in 4 languages @2018-10-08
 
+en:herb
+de:Gewürz
+fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, plantes aromatiques
+nl:Kruiden
 
-fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique
+<en:herb
+<en:spice
+en:herbs and spices
+fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique, plantes aromatiques et épices, extraits d'épices et d'herbes, herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques, épice et aromate, épices et aromates, épices et aromate, épice et aromates, épices et arômes, aromates et épices
 
-fr:épice et aromate, épices et aromates, épices et aromate, épice et aromates
-
+<en:herbs and spices
 fr:extraits d'épices et d'aromates
 
 <en:spice
-fr:plantes aromatiques et épices
-
+en:spice extracts
 fr:extrait d'épice, extraits d'épices
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte
 
-fr:herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques
+<en:spice
+fr:épices et extrait d'épices, épices et extraits d'épices
 
-fr:épices et extrait d'épices
-
-fr:extraits d'épices et d'herbes
 
 <en:spice
 en:mixed spices
@@ -47137,21 +47139,12 @@ fr:mélange d'épices
 nl:gemengde specerijen
 # ingredient/nl:gemengde-specerijen has 2 products @2019-05-24
 
-fr:épices moulues
-
-fr:épices et extraits d'épices
-
 <en:spice
-fr:épices et arômes, aromates et épices
-
-en:herb
-de:Gewürz
-fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques
-nl:Kruiden
+fr:épices moulues
 
 en:plant extracts
 de:Pflanzenextrakte
-fr:extraits de plantes
+fr:extraits de plantes, extraits de plantes aromatiques
 it:estratti vegetali
 nl:plantextracten
 # ingredient/fr:extraits-de-plantes has 69 products in 4 languages @2019-05-29
@@ -47163,11 +47156,10 @@ nl:biologische plantextracten
 # ingredient/fr:extraits-de-plantes-bio has 9 products in french @2019-05-29
 # usage:fr:Extraits de plantes Bio: Aubépine Bio, Fleur d'oranger Bio, Passiflore Bio, Houblon Bio, Mélisse Bio
 
+<en:herb
 fr:plantes aromatiques déshydratées
 
-fr:plantes aromatiques
-
-
+<en:herb
 fr:extraits naturels et aromates
 
 
