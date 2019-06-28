@@ -49,6 +49,7 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "viande de porc 50% du poids total"}, [ "en:pork-meat" ], ],
 [ { lc => "fr", ingredients_text => "arôme naturel"}, [ "en:natural-flavouring" ], ],
 [ { lc => "fr", ingredients_text => "arôme naturel de pomme avec d'autres arômes naturels"}, [ "en:natural-apple-flavouring", "en:natural-flavouring" ], ],
+[ { lc => "fr", ingredients_text => "Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"}, [ "en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:e330", "en:natural-flavouring", "en:tea-extract" ]],
 
 );
 

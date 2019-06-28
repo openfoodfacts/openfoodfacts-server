@@ -1233,6 +1233,12 @@ sub preparse_ingredients_text($$) {
 
 	$text =~ s/\&quot;/"/g;
 	$text =~ s/’/'/g;
+	
+	# turn special chars to spaces
+	$text =~ s/[\000-\037]/ /g;
+	
+	# zero width space
+	$text =~ s/\x{200B}/-/g;
 
 	# vitamins...
 	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait)
