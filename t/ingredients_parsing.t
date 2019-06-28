@@ -87,7 +87,7 @@ my @lists =(
 ["es","aceites vegetales [aceite de girasol (70%) y aceite de oliva virgen (30%)] y sal",
  "aceites vegetales [aceite de girasol (70%), aceite de oliva virgen (30%)], sal"],
 
-["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'autres agrumes"],
+["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"],
 ["fr","arômes naturels de citron et de limette","arômes naturels de citron, arômes naturels de limette"],
 ["fr","arôme naturel de pomme avec d'autres arômes naturels","arôme naturel de pomme, arômes naturels"],
 );
