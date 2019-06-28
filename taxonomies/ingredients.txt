@@ -19122,6 +19122,12 @@ de:Ziegenfleisch
 es:carne de cabra
 nl:geitenvlees
 
+
+en:pork
+de:Schweinefleisch
+fr:porc
+it:suino
+
 <en:meat
 <en:pork
 en:pork meat
@@ -19137,17 +19143,13 @@ carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
-en:pork
-de:Schweinefleisch
-fr:porc
-it:suino
 
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
 # comment:en:Product translations can be wrong. The wikidata page translations often refers to disambiguations. Are these translations any good?
 
 # <en:skin
-# <en:pork
+<en:pork
 en:pork rind
 af:Couenne
 an:Couenne
@@ -19369,6 +19371,8 @@ fr:morceaux de tête de porc
 <en:pork meat
 fr:jambon de porc
 
+<en:pork meat
+fr:palette de porc
 
 <fr:jambon de porc
 fr:jambon de porc issu d'animaux nourris sans ogm
