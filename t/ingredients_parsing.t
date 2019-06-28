@@ -13,7 +13,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
-#use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP', filter => "none";
 #
 is (normalize_a_of_b("en", "oil", "olive"), "olive oil");
 is (normalize_a_of_b("es", "aceta", "oliva"), "aceta de oliva");
@@ -90,6 +90,14 @@ my @lists =(
 ["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"],
 ["fr","arômes naturels de citron et de limette","arômes naturels de citron, arômes naturels de limette"],
 ["fr","arôme naturel de pomme avec d'autres arômes naturels","arôme naturel de pomme, arômes naturels"],
+["fr","jus de pomme, eau, sucre. Traces de lait.","jus de pomme, eau, sucre. traces éventuelles : lait."],
+["fr","jus de pomme, eau, sucre. Traces possibles de céleri, moutarde et gluten.","jus de pomme, eau, sucre. Traces éventuelles : céleri, Traces éventuelles : moutarde, Traces éventuelles : gluten."],
+["es","Trazas de cacahuete, huevo y frutos de cáscara.","Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
+["es","sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara.","sal y acidulante (ácido cítrico). Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
+
+["fr","jus de pomme, eau, sucre. Traces possibles de céleri, de moutarde et gluten.","jus de pomme, eau, sucre. Traces éventuelles : céleri, Traces éventuelles : moutarde, Traces éventuelles : gluten."],
+["fr","Traces de moutarde","traces éventuelles : moutarde."],
+["fr","Sucre de canne Traces éventuelles d'oeufs","Sucre de canne, Traces éventuelles : oeufs."],
 );
 
 foreach my $test_ref (@lists) {
