@@ -18575,17 +18575,48 @@ it:estratto di manzo
 nl:rundvleesextrakt
 # ingredient/fr:extrait-de-bœuf has 110 products in 4 languages @2019-04-14
 
+<en:meat
 <en:beef
-fr:cœur de bœuf, coeur de boeuf
-# ingredient/fr:cœur-de-bœuf has 17 products in french @2019–02-12
+en:beef meat
+de:Rindfleisch
+fr:viande de bœuf, viande de boeuf, viande bovine, 
+nl:Rundvlees
+carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
+carbon_footprint_fr_foodges_value:fr:35.8
+
+<en:beef meat
+en:cooked beaf meat
+fr:viande de bœuf cuite, viande bovine cuite, bœuf cuit
+
 
 <en:beef meat
 en:pure beef meat
-fr:pure viande de bœuf
+fr:pure viande de bœuf, pure viande bovine
 # 7@2019-06-06
 
 <en:beef meat
 fr:Viande bovine fraîche protégée sous vide
+
+<en:beef meat
+fr:viande-bovine-de-race-charolaise
+
+<en:beef meat
+fr:viande bovine hachée
+
+<en:beef meat
+fr:viande bovine origine france
+
+<en:beef meat
+fr:viande bovine halal
+
+<en:beef meat
+fr:viande hachée de bœuf, viande hachée de boeuf
+fr:extrait de viande de bœuf, extrait de viande de boeuf
+
+<en:beef meat
+fr:cœur de bœuf, coeur de boeuf
+# ingredient/fr:cœur-de-bœuf has 17 products in french @2019–02-12
+
 
 <en:beef meat
 en:cooked beef meat, cooked beef
@@ -18594,6 +18625,9 @@ fr:viande de bœuf cuite, viande de boeuf cuite, bœuf cuit, boeuf cuit
 it:manzo cotto
 nl:gekookt rundvlees
 # ingredient/fr:bœuf-cuit has 58 products in 4 languages @2019-04-02
+
+<en:beef meat
+fr:viande de boeuf mise en oeuvre
 
 <en:beef
 fr:foie de boeuf
@@ -19530,8 +19564,6 @@ fr:maigre de porc
 fr:fond de porc
 
 
-<en:beef meat
-fr:viande-bovine-de-race-charolaise
 
 # viande bovine in ingredients refers to (aged) beef, not veal
 #<fr:viande bovine
@@ -19545,24 +19577,6 @@ carbon_footprint_fr_foodges_value:fr:20.5
 en:veal
 fr:veau
 
-<en:beef meat
-fr:viande bovine hachée
-
-<en:beef meat
-fr:viande bovine origine france
-
-<en:beef meat
-fr:viande bovine halal
-
-<en:beef meat
-fr:viande de bœuf, viande de boeuf, pure viande bovine
-carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
-carbon_footprint_fr_foodges_value:fr:35.8
-
-
-
-<en:beef meat
-fr:viande hachée de bœuf, viande hachée de boeuf
 
 # <en:bone
 fr:os de veau
@@ -19618,15 +19632,6 @@ it:budello di maiale
 <fr:boyau de porc
 fr:boyau naturel de porc
 
-fr:cœur de bœuf
-
-fr:bœuf cuit
-
-<en:beef meat
-en:cooked beaf meat
-fr:viande de bœuf cuite, viande bovine cuite
-
-
 
 # <en:broth
 fr:bouillon de boeuf
@@ -19640,17 +19645,6 @@ fr:jus de cuisson de viande de bœuf, jus de cuisson de viande de boeuf
 
 fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande de boeuf
 # ingredient/fr:jus-concentré-d’os-et-de-viande-de-bœuf has 14 products in 2 languages @2019-02-12
-
-
-<en:meat
-<en:beef
-en:beef meat
-de:Rindfleisch
-fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine
-nl:Rundvlees
-carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
-
-fr:extrait de viande de bœuf, extrait de viande de boeuf
 
 # SAUSAGES
 <en:meat
