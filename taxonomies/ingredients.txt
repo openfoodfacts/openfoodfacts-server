@@ -14593,7 +14593,7 @@ fr:crème uht
 <en:cream
 en:light cream
 de:leichte Sahne
-fr:crème légère, Crème fraîche légère
+fr:crème légère, Crème fraîche légère, Crème légère fraîche
 it:crema leggera
 nl:Lichte room
 # ingredient/fr:crème-légère has 399 products in 8 languages @2019-02-03
@@ -15189,13 +15189,16 @@ carbon_footprint_fr_foodges_ingredient:fr:Fromage frais 58% MG
 carbon_footprint_fr_foodges_value:fr:3.5
 # fr:fromage-frais has 474 products @2018-10-28
 
-<fr:fromage frais
+<en:soft white cheese
 fr:fromage frais au lait demi-écrémé
 
-<fr:fromage frais
+<en:soft white cheese
+fr:fromage frais au lait demi-écrémé pasteurisé
+
+<en:soft white cheese
 fr:fromage frais à 0% de matière grasse
 
-<fr:fromage frais
+<en:soft white cheese
 fr:fromage frais à la ciboulette
 
 # <en:compound
@@ -21099,7 +21102,7 @@ de:Shea Butter
 el:λίπος shea
 eo:karitea butero
 fi:Karitevoi
-fr:beurre de karité, matière grasse de karité, karité
+fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité
 he:חמאת שיאה
 hr:shea maslac
 it:Burro di karité
@@ -23525,11 +23528,6 @@ de:natürliches Pfefferaroma
 fr:arôme naturel de poivre, arôme naturel poivre, arômes naturels de poivre
 it:aroma naturale di pepe
 
-# Two parents due to and/or ingredient
-
-<en:natural flavouring
-<en:natural pepper flavouring
-fr:arôme naturel de poivre avec autres arômes naturels
 
 <en:natural flavouring
 en:natural laurel flavouring
@@ -23542,6 +23540,17 @@ fr:arôme naturel d'estragon, arome naturel d'estragon
 <en:natural flavouring
 en:natural paprika flavor, natural flavor of paprika
 fr:arôme naturel de paprika
+
+
+# Two parents due to and/or ingredient
+
+<en:natural flavouring
+<en:natural pepper flavouring
+fr:arôme naturel de poivre avec autres arômes naturels
+
+<en:natural flavouring
+# <en:natural origan flavouring
+fr:arôme naturel d'origan avec autres arômes naturels
 
 <en:natural flavouring
 en:natural spice flavouring
@@ -26842,7 +26851,7 @@ nl:Witte langgraanrijst van biologische oorsprong parboiled
 <en:long grain parboiled rice
 en:superior quality long grain parboiled rice
 es:arroz grano largo vaporizado de calidad superior
-fr:riz long grain étuvé de qualité supérieure
+fr:riz long grain étuvé de qualité supérieure, riz long étuvé de qualité supérieure
 # ingredient/fr:riz-long-grain-étuvé-de-qualité-supérieure has 39 products in 2 languages @2018-12-19
 
 <en:superior quality long grain parboiled rice
@@ -28971,6 +28980,9 @@ nl:plantaardige eiwit
 <en:vegetable protein
 fr:protéines végétales réhydratées
 # ingredient/fr:protéines-végétales-réhydratées has 32 products in french @2019-03-11
+
+<en:vegetable protein
+fr:protéines de blé deshydratées
 
 <en:vegetable protein
 en:pea protein
@@ -32932,6 +32944,8 @@ it:concentrati di frutta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés%20de%20fruits
 # 42 products in 3 languages @2018-10-04
 
+<en:fruit
+fr:specialité de fruits pomme poire
 
 # APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
 
@@ -35595,7 +35609,7 @@ nl:aardbeienpuree
 
 <en:strawberry puree
 en:concentrated strawberry puree
-fr:purée de fraise concentrée, puree de fraise concentree
+fr:purée de fraise concentrée, puree de fraise concentree, purée de fraise å base de concentré
 
 # description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
 # comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
@@ -43093,6 +43107,9 @@ fr:pommes de terre biologiques
 en:organic potato from France
 fr:Pommes de terre biologiques origine France
 
+<en:precooked potato
+fr:pommes de terre précuites
+
 <en:potato
 en:potato powder
 da:kartoffelpulver
@@ -44321,6 +44338,9 @@ carbon_footprint_fr_foodges_value:fr:1.2
 # ingredient/fr:potiron has 439 products in 6 languages @2019-04-08
 
 <en:pumpkin
+fr:concentré de citrouille
+
+<en:pumpkin
 en:pumpkin juice
 de:Kürbissaft
 fr:jus de potiron
@@ -44328,6 +44348,9 @@ it:succo di zucca
 nl:Pompoensap
 # fr:jus-de-potiron has 54 products in 5 languages @2019-04-08
 
+<en:pumpkin juice
+en:concentrated pumpkin juice
+fr:jus de potiron concentré
 
 # Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 
@@ -47690,6 +47713,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nutmeg
 <en:nutmeg
 en:ground nutmeg
 fr:muscade-moulue
+
+<en:nutmeg
+en:nutmeg extract
+fr:extrait de muscade
 
 # CARDAMOM, sometimes cardamon or cardamum, is a spice made from the seeds of several plants in the genera Elettaria and Amomum in the family Zingiberaceae. Both
 
@@ -52445,7 +52472,7 @@ nl:uitgeputte vanillestokjes, geëxtraheerde vanillestokjes, leeg vanillestokje
 # ingredient/fr:gousse-de-vanille-épuisée has 55 products in 3 languages @2019-02-24
 
 <fr:gousse de vanille épuisée
-fr:gousses de vanille épuisées broyées
+fr:gousses de vanille épuisées broyées, gousses de vanille broyées épuisées
 de:gemahlene extrahierte Vanilleschoten
 it:baccelli di vaniglia curati macinati
 nl:gemalen geëxtraheerde vanillestokjes
@@ -61434,15 +61461,21 @@ wikidata:en:Q23425
 wikidata:en:Q1365891
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
 
+<en:gherkin
+en:vinegar gherkin
+de:Essiggurken
+fr:cornichons au vinaigre
+nl:augurken op azijn
+# usage:de:Essiggurken [Gurken, Branntweinessig, Zucker, Kochsalz]
+# fr:cornichons-au-vinaigre has 39 products in 2 languages @2018-12-01
+
 # <en:compound
 <en:cucumber
 en:vinegar cucumbers
-de:Essiggurken
 fr:concombres au vinaigre
 it:cetrioli all'aceto
 # ingredient/fr:concombres%20au%20vinaigre has 19 products in 4 languages @2019-05-15
-# usage:de:Essiggurken [Gurken, Branntweinessig, Zucker, Kochsalz]
-# fr:cornichons-au-vinaigre has 39 products in 2 languages @2018-12-01
+
 
 # <en:cucumber
 # fr:Concombre produit sous serre chauffée
@@ -63901,6 +63934,9 @@ fr:pâtes fraîches cuites
 # ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
 
 <en:pasta
+fr:pâtes alimentaires aux oeufs cuites
+
+<en:pasta
 en:cooked tagliatelle
 fr:tagliatelles cuites
 de:Tagliatelle gekocht, Bandnudeln gekocht
@@ -64444,6 +64480,8 @@ nl:ongedesemd brood, ouwel
 
 fr:cornet biscuit
 nl:ijshoorntje
+
+fr:biscuit d'enrobage
 
 # description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough. 
 
