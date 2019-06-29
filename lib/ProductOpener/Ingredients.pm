@@ -93,6 +93,60 @@ my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i; 
 
 my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 
+
+# do not add sub ( ) in the regexps below as it would change which parts gets matched in $1, $2 etc. in other regexps that use those regexps
+my %traces_regexps = (
+
+en => "traces|may contain",
+de => "Kann Spuren|Spuren",
+es => "puede contener|trazas|traza",
+fr => "peut contenir|qui utilise aussi|traces|traces possibles|traces éventuelles|trace|trace possible|trace éventuelle",
+it => "può contenere|tracce",
+
+);
+
+my %allergens_stopwords = (
+
+en => "and|of|this|product|other|made|manufactured|in|a|factory|which|also|uses",
+de => "enthalten|von|und",
+es => "y|de|que|contiene|contienen|otros",
+fr => "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et",
+
+);
+
+my %of = (
+en => " of ",
+de => " von ",
+es => " de ",
+fr => " de | du | des | d'",
+it => " di ",
+);
+
+my %and_of = (
+en => " and of ",
+de => " und von ",
+es => " y de ",
+fr => " et de | et du | et des | et d'",
+it => " e di ",
+);
+
+my %and_or = (
+en => " and | or | and/or | and / or ",
+de => " und | oder | und/oder | und / oder ",
+es => " y | o | y/o | y / o ",
+fr => " et | ou | et/ou | et / ou ",
+it => " e | o | e/o | e / o",
+);
+
+
+my %the = (
+en => " the ",
+es => " el | la | los | las ",
+fr => " le | la | les | l'",
+it => " il | la ",
+);
+
+
 # load ingredients classes
 opendir(DH, "$data_root/ingredients") or $log->error("cannot open ingredients directory", { path => "$data_root/ingredients", error => $! });
 
@@ -348,6 +402,14 @@ sub extract_ingredients_from_text($) {
 	$text = preparse_ingredients_text($product_ref->{lc}, $text);
 	
 	$log->debug("preparsed ingredients from text", { text => $text }) if $log->is_debug();
+	
+	# Remove traces that have been preparsed
+	# jus de pomme, eau, sucre. Traces possibles de c\x{e9}leri, moutarde et gluten.",
+	# -> jus de pomme, eau, sucre. Traces éventuelles : céleri, Traces éventuelles : moutarde, Traces éventuelles : gluten.
+
+	my $traces = $Lang{traces}{$product_ref->{lc}};
+
+	$text =~ s/\b($traces)\s?:\s?([^,\.]+)//ig;
 
 	# unify newline feeds to \n
 	$text =~ s/\r\n/\n/g;
@@ -812,6 +874,58 @@ sub normalize_vitamins_enumeration($$) {
 }
 
 
+sub normalize_allergen($$$) {
+
+	my $type = shift; # allergens or traces
+	my $lc = shift;
+	my $a = shift;
+
+	$log->debug("normalize allergen", { allergen => $a }) if $log->is_debug();
+
+	my $of = ' - ';
+	if (defined $of{$lc}) {
+		$of = $of{$lc};
+	}
+	
+	# "de moutarde" -> moutarde
+	$a = " " . $a;
+	$a =~ s/^$of\b//;
+	$a =~ s/\s+$//;
+	$a =~ s/^\s+//;
+	
+	return $Lang{$type}{$lc} . " : " . $a;
+}
+
+sub normalize_allergens_enumeration($$$) {
+
+	my $type = shift; # allergens or traces
+	my $lc = shift;
+	my $allergens_list = shift;
+	
+	my $and = $Lang{_and_}{$lc};
+	
+	$log->debug("splitting allergens", { input => $allergens_list }) if $log->is_debug();
+		
+	# remove stopwords at the end
+	# e.g. Kann Spuren von Senf und Sellerie enthalten.
+	if (defined $allergens_stopwords{$lc}) {
+		my $stopwords = $allergens_stopwords{$lc};
+		$allergens_list =~ s/( ($stopwords)\b)+(\.|$)/$3/ig;
+	}
+
+	$log->debug("splitting allergens after removing stopwords", { input => $allergens_list }) if $log->is_debug();
+
+	my @allergens = split(/\(|\)|\/| \/ | - |, |,|$and/, $allergens_list);
+
+	my $split_allergens_list =  " " . join(", ", map { normalize_allergen($type,$lc,$_)} @allergens) . ".";
+	# added ending . to facilite matching and removing when parsing ingredients
+
+	$log->debug("allergens split", { input => $allergens_list, output => $split_allergens_list }) if $log->is_debug();
+
+	return $split_allergens_list;
+}
+
+
 my %phrases_before_ingredients_list = (
 
 fr => [
@@ -1230,9 +1344,33 @@ sub preparse_ingredients_text($$) {
 
 	my $lc = shift;
 	my $text = shift;
+	
+	my $and = $Lang{_and_}{$lc};
+	my $of = ' - ';
+	if (defined $of{$lc}) {
+		$of = $of{$lc};
+	}
+	
+	my $and_of = ' - ';
+	if (defined $and_of{$lc}) {
+		$and_of = $and_of{$lc};
+	}
+	
+	# replace and / or by and
+	my $and_or = ' - ';
+	if (defined $and_or{$lc}) {
+		$and_or = $and_or{$lc};
+		$text =~ s/$and_or/$and/ig;
+	}		
 
 	$text =~ s/\&quot;/"/g;
 	$text =~ s/’/'/g;
+	
+	# turn special chars to spaces
+	$text =~ s/[\000-\037]/ /g;
+	
+	# zero width space
+	$text =~ s/\x{200B}/-/g;
 
 	# vitamins...
 	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait)
@@ -1257,7 +1395,6 @@ sub preparse_ingredients_text($$) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $and = $Lang{_and_}{$lc};
 	my $additivesregexp = '\d{3}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?|\d{4}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?';
 	$text =~ s/\b(e|ins|sin)(:|\(|\[| )+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($lc,$3)/ieg;
 
@@ -1352,6 +1489,11 @@ sub preparse_ingredients_text($$) {
 "graisses",
 "graisses végétales",
 "lécithine",
+"arôme naturel",
+"arômes naturels",
+"arôme artificiel",
+"arômes artificiels",
+"arômes",
 
 "carbonate",
 "carbonates acides",
@@ -1371,6 +1513,70 @@ sub preparse_ingredients_text($$) {
 		my @suffixes = (
 "curcuma",
 "romarin",
+
+# arômes
+
+"agrumes",
+"aneth",
+"boeuf",
+"cacao",
+"cannelle",
+"carthame",
+"cassis",
+"céleri",
+"cerise",
+"cumin",
+"citron",
+"citron vert",
+"crustacés",
+"estragon",
+"fenouil",
+"figue",
+"fraise",
+"framboise",
+"fromage de chèvre",
+"fruit",
+"fruit de la passion",
+"fruits de la passion",
+"fruits de mer",
+"fumée",
+"gentiane",
+"herbes",
+"jasmin",
+"laurier",
+"lime",
+"limette",
+"mangue",
+"menthe",
+"menthe crêpue",
+"menthe poivrée",
+"muscade",
+"noix",
+"olive",
+"orange",
+"orange amère",
+"origan",
+"pamplemousse",
+"pamplemousse rose",
+"pêche",
+"piment",
+"pistache",
+"pomme",
+"poire",
+"poisson",
+"poulet",
+"réglisse",
+"rose",
+"rhum",
+"sauge",
+"saumon",
+"sureau",
+"thé",
+"thym",
+"vanille",
+"vanille de Madagascar",
+"autres agrumes",
+
 
 "colza",
 "palme",
@@ -1422,6 +1628,13 @@ sub preparse_ingredients_text($$) {
 
 		}
 		$suffixregexp =~ s/^\|//;
+		
+		# arôme naturel de citron-citron vert et d'autres agrumes
+		# -> separate suffixes
+		$text =~ s/($suffixregexp)-($suffixregexp)/$1, $2/g;
+		
+		# arôme naturel de pomme avec d'autres âromes
+		$text =~ s/ (ou|et|avec) (d')?autres /, /g;
 
 		$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $2, $4)/ieg;
 
@@ -1490,7 +1703,7 @@ INFO
 	}
 
 
-		my @vitaminssuffixes = (
+	my @vitaminssuffixes = (
 "a", "rétinol",
 "b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
 "thiamine",
@@ -1509,58 +1722,128 @@ INFO
 "k", "k1", "k2", "k3",
 "p", "pp",
 );
-		my $vitaminsprefixregexp = "vitamine|vitamines";
+	my $vitaminsprefixregexp = "vitamine|vitamines";
 
+	# Add synonyms in target language
+	if (defined $translations_to{vitamins}) {
+		foreach my $vitamin (keys %{$translations_to{vitamins}}) {
+			if (defined $translations_to{vitamins}{$vitamin}{$lc}) {
+				push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$lc};
+			}
+		}
+	}
+	
+	# Add synonyms in target language
+	my $vitamin_in_lc = get_fileid(display_taxonomy_tag($lc, "ingredients", "en:vitamins"));
+	$vitamin_in_lc =~ s/^\w\w://;
+	
+	if ((defined $synonyms_for{ingredients}) and (defined $synonyms_for{ingredients}{$lc}) and (defined $synonyms_for{ingredients}{$lc}{$vitamin_in_lc})) {
+		foreach my $synonym (@{$synonyms_for{ingredients}{$lc}{$vitamin_in_lc}}) {
+			$vitaminsprefixregexp .= '|' . $synonym;
+		}
+	}
+	
+	my $vitaminssuffixregexp = "";
+	foreach my $suffix (@vitaminssuffixes) {
+		$vitaminssuffixregexp .= '|' . $suffix;
+		# vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)].
+		# -> also put (B1)
+		$vitaminssuffixregexp .= '|\(' . $suffix . '\)';
+
+		my $unaccented_suffix = unac_string_perl($suffix);
+		if ($unaccented_suffix ne $suffix) {
+			$vitaminssuffixregexp .= '|' . $unaccented_suffix;
+		}
+		if ($suffix =~ /[a-z]\d/) {
+
+
+			$suffix =~ s/([a-z])(\d)/$1 $2/;
+			$vitaminssuffixregexp .= '|' . $suffix;
+			$suffix =~ s/ /-/;
+			$vitaminssuffixregexp .= '|' . $suffix;
+
+		}
+
+	}
+	$vitaminssuffixregexp =~ s/^\|//;
+
+	$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
+	$log->debug("vitamins text", { text => $text }) if $log->is_debug();
+
+	$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($lc,$3)/ieg;
+
+
+	# Allergens and traces
+	# Traces de lait, d'oeufs et de soja.
+		
+	my $traces_regexp = $traces_regexps{$lc};
+	
+	if (defined $traces_regexp) {
+
+		my @allergenssuffixes = ();
+		
 		# Add synonyms in target language
-		if (defined $translations_to{vitamins}) {
-			foreach my $vitamin (keys %{$translations_to{vitamins}}) {
-				if (defined $translations_to{vitamins}{$vitamin}{$lc}) {
-					push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$lc};
+		if (defined $translations_to{allergens}) {
+			foreach my $allergen (keys %{$translations_to{allergens}}) {
+				if (defined $translations_to{allergens}{$allergen}{$lc}) {
+					# push @allergenssuffixes, $translations_to{allergens}{$allergen}{$lc};
+					# the synonyms below also contain the main translation as the first entry
+				
+					my $lc_allergenid = get_fileid($translations_to{allergens}{$allergen}{$lc});
+				
+					foreach my $synonym (@{$synonyms_for{allergens}{$lc}{$lc_allergenid}}) {
+						push @allergenssuffixes, $synonym;
+				}
 				}
 			}
 		}
 		
-		# Add synonyms in target language
-		my $vitamin_in_lc = get_fileid(display_taxonomy_tag($lc, "ingredients", "en:vitamins"));
-		$vitamin_in_lc =~ s/^\w\w://;
-		
-		if ((defined $synonyms_for{ingredients}) and (defined $synonyms_for{ingredients}{$lc}) and (defined $synonyms_for{ingredients}{$lc}{$vitamin_in_lc})) {
-			foreach my $synonym (@{$synonyms_for{ingredients}{$lc}{$vitamin_in_lc}}) {
-				$vitaminsprefixregexp .= '|' . $synonym;
-			}
-		}
-		
-		my $vitaminssuffixregexp = "";
-		foreach my $suffix (@vitaminssuffixes) {
-			$vitaminssuffixregexp .= '|' . $suffix;
-			# vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)].
-			# -> also put (B1)
-			$vitaminssuffixregexp .= '|\(' . $suffix . '\)';
+		my $allergenssuffixregexp = "";
+		foreach my $suffix (@allergenssuffixes) {
+			# simple singulars and plurals
+			my $singular = $suffix;
+			$suffix =~ s/s$//;
+			$allergenssuffixregexp .= '|' . $suffix . '|' . $suffix . 's'  ;
 
 			my $unaccented_suffix = unac_string_perl($suffix);
 			if ($unaccented_suffix ne $suffix) {
-				$vitaminssuffixregexp .= '|' . $unaccented_suffix;
-			}
-			if ($suffix =~ /[a-z]\d/) {
-
-
-				$suffix =~ s/([a-z])(\d)/$1 $2/;
-				$vitaminssuffixregexp .= '|' . $suffix;
-				$suffix =~ s/ /-/;
-				$vitaminssuffixregexp .= '|' . $suffix;
-
+				$allergenssuffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
 			}
 
 		}
-		$vitaminssuffixregexp =~ s/^\|//;
+		$allergenssuffixregexp =~ s/^\|//;
+		
+		# stopwords
+		# e.g. Kann Spuren von Senf und Sellerie enthalten.
+		my $stopwords = "";
+		if (defined $allergens_stopwords{$lc}) {
+			$stopwords = $allergens_stopwords{$lc};
+		}
 
-		$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
-		$log->debug("vitamins text", { text => $text }) if $log->is_debug();
+		# $traces_regexp may be the end of a sentence, remove the beginning
+		# e.g. this product has been manufactured in a factory that also uses...
+		# Some text with comma May contain ... -> Some text with comma, May contain
+		# ! does not work in German and languages that have words with a capital letter
+		if ($lc ne "de") {
+			my $ucfirst_traces_regexp = $traces_regexp;
+			$ucfirst_traces_regexp =~ s/(^|\|)(\w)/$1 . uc($2)/ieg;
+			$text =~ s/([a-z]) ($ucfirst_traces_regexp)/$1, $2/g;
+		}
+		
+		$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
+		$log->debug("allergens", { lc => $lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();		
+		
+		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)*($allergenssuffixregexp))\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$lc,$4)/ieg;
+		# we may have added an extra dot in order to make sure we have at least one
+		$text =~ s/\.\./\./g;
 
-		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($lc,$3)/ieg;
+	}
+	
 
 	# remove extra spaces
-	$text =~ s/ ( )+/ /g;
+	$text =~ s/\s(\s)+/ /g;
+	$text =~ s/^\s+//;
+	$text =~ s/\s+$//;
 
 	return $text;
 }
@@ -1694,7 +1977,6 @@ sub extract_ingredients_classes_from_text($) {
 					my $canon_ingredient_amino_acids = canonicalize_taxonomy_tag($product_ref->{lc}, "amino_acids", $ingredient_id_copy);
 					my $canon_ingredient_nucleotides = canonicalize_taxonomy_tag($product_ref->{lc}, "nucleotides", $ingredient_id_copy);
 					my $canon_ingredient_other_nutritional_substances = canonicalize_taxonomy_tag($product_ref->{lc}, "other_nutritional_substances", $ingredient_id_copy);
-					($ingredient_id_copy =~ /carniti/i) and print STDERR "other: $canon_ingredient_other_nutritional_substances\n";
 
 					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 
@@ -2011,9 +2293,6 @@ sub extract_ingredients_classes_from_text($) {
 							push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$id}{id};
 							$seen{$ingredients_classes{$class}{$id}{id}} = 1;
 							$all_seen{$ingredients_classes{$class}{$id}{id}} = 1;
-
-							($product_ref->{code} eq '3245414658769') and print STDERR "extract_ingredient_classes 2 : id: $id - id/id: $ingredients_classes{$class}{$id}{id}\n";
-
 						}
 					}
 				}
@@ -2142,7 +2421,10 @@ sub replace_allergen($$$$) {
 	my $before = shift;
 
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain|pu(o|ò) contenere|tracce)\b/i) {
+	
+	my $traces_regexp = $traces_regexps{$language};
+	
+	if ((defined $traces_regexp) and ($before =~ /\b($traces_regexp)\b/i)) {
 		$field = "traces";
 	}
 
@@ -2165,13 +2447,14 @@ sub replace_allergen_in_caps($$$$) {
 	my $before = shift;
 
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain|pu(o|ò) contenere|tracce)\b/i) {
+	
+	my $traces_regexp = $traces_regexps{$language};
+	
+	if ((defined $traces_regexp) and ($before =~ /\b($traces_regexp)\b/i)) {
 		$field = "traces";
 	}
 
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
-
-	print STDERR "allergen: $allergen - tagid: $tagid\n";
 
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
@@ -2198,19 +2481,29 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $field = "allergens";
 
 
-	#print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
+	print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
-	my $stopwords = "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et|and|of";
+	my $stopwords = $allergens_stopwords{$language};
 
 	my $before_allergen = "";
-	if ($allergen =~ /^((\s|\b($stopwords)\b)+)/i) {
-		$before_allergen = $1;
-		$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
+	
+	# Remove stopwords at the beginning or end
+	if (defined $stopwords) {
+		if ($allergen =~ /^((\s|\b($stopwords)\b)+)/i) {
+			$before_allergen = $1;
+			$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
+		}
+		if ($allergen =~ /((\s|\b($stopwords)\b)+)$/i) {
+			$before_allergen = $1;
+			$allergen =~ s/(\s|\b($stopwords)\b)+$//i;
+		}		
 	}
 
-	if (($before . $before_allergen) =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain)\b/i) {
+	my $traces_regexp = $traces_regexps{$language};
+
+	if (($before . $before_allergen) =~ /\b($traces_regexp)\b/i) {
 		$field = "traces";
-		#print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+		print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}
 
 	# Farine de blé 97%
@@ -2219,11 +2512,11 @@ sub replace_allergen_between_separators($$$$$$) {
 		$end_separator = $1 . $' . $end_separator;
 	}
 
-	#print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
+	print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
 
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
 
-	#print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
+	print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
 
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
@@ -2244,7 +2537,6 @@ sub detect_allergens_from_text($) {
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
 
-
 	# Keep allergens entered by users in the allergens and traces field
 
 	foreach my $field ("allergens", "traces") {
@@ -2257,6 +2549,21 @@ sub detect_allergens_from_text($) {
 	if (defined $product_ref->{languages_codes}) {
 
 		foreach my $language (keys %{$product_ref->{languages_codes}}) {
+
+			my $and = $Lang{_and_}{$language};
+			my $of = ' - ';
+			if (defined $of{$language}) {
+				$of = $of{$language};
+			}
+			my $the = ' - ';
+			if (defined $the{$language}) {
+				$the = $the{$language};
+			}
+			
+			my $traces_regexp = "traces";
+			if (defined $traces_regexps{$language}) {
+				$traces_regexp = $traces_regexps{$language};
+			}
 
 			my $text = $product_ref->{"ingredients_text_" . $language };
 			$text =~ s/\&quot;/"/g;
@@ -2286,7 +2593,7 @@ sub detect_allergens_from_text($) {
 			# positive look ahead for the separators so that we can properly match the next word
 			# match at least 3 characters so that we don't match the separator
 			# Farine de blé 97% -> make numbers be separators
-			$text =~ s/(^| - |_|\(|\[|\)|\]|,| (de|du|des|la|les|et|and) | d'| l'|;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,| (et|and) |;|\.| trace|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg;
+			$text =~ s/(^| - |_|\(|\[|\)|\]|,|$the|$and|$of|;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,|$and|;|\.|\b($traces_regexp)\b|$))/replace_allergen_between_separators($language,$product_ref,$1, $2, "",$`)/iesg;
 
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 

@@ -109,6 +109,9 @@ sub get_fileid($) {
 	# turn special chars to -
 	$file =~ s/[\000-\037]/-/g;
 	
+	# zero width space
+	$file =~ s/\x{200B}/-/g;
+	
 	# avoid turning &quot; in -quot-
 	$file =~ s/\&(quot|lt|gt);/-/g;	
 	
