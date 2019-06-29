@@ -384,7 +384,7 @@ sub extract_ingredients_from_image($$$$) {
 
 my %ignore_strings_after_percent = (
 	en => "of (the )?total weight",
-	fr => "minimum( dans le chocolat( noir)?)?|du poids total|du poids",
+	fr => "min|min\.|minimum( dans le chocolat( noir)?)?|du poids total|du poids",
 );
 
 
@@ -430,8 +430,12 @@ sub extract_ingredients_from_text($) {
 	my @unranked_ingredients = ();
 	my $level = 0;
 
+	# Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g
+	# 56 g -> 56%
+	$text =~ s/(\d| )g(\*)/$1g/ig;
+
 	# transform 0,2% into 0.2%
-	$text =~ s/(\d),(\d+)( )?\%/$1.$2\%/g;
+	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
 	$text =~ s/—/-/g;
 
 	# assume commas between numbers are part of the name
@@ -507,7 +511,7 @@ sub extract_ingredients_from_text($) {
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
-						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*$/) {
+						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i) {
 							# print STDERR "percent found:  $1\%\n";
 							$percent = $1;
 							$between = '';
@@ -529,7 +533,7 @@ sub extract_ingredients_from_text($) {
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*($separators|$)/) {
+			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*($separators|$)/i) {
 				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
@@ -558,9 +562,9 @@ sub extract_ingredients_from_text($) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 			
-			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
-			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
-			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
+			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//i;
+			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//i;
+			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//i;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $before);
@@ -593,14 +597,14 @@ sub extract_ingredients_from_text($) {
 			chomp($ingredient);
 			
 			# Strawberry 10.3%
-			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$/) {
+			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$/i) {
 				# print STDERR "percent found: $before = $` + $1\%\n";
 				$percent = $1;
 				$ingredient = $`;
 			}
 
 			# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-			if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
+			if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
 				# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
 				$percent = $1;
 				$ingredient = $';

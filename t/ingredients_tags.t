@@ -64,6 +64,7 @@ my @tests = (
 
 [ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsâure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ "en:sugar", "en:spice", "en:antioxidant", "en:e300", "en:preservative", "en:e250" ], ],
 
+[ { lc => "fr", ingredients_text => "Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g"}, [ "en:wheat-flour", "en:concentrated-butter", "fr:soit 30 g en beurre reconstitué", "en:sugar", "en:fresh-egg" ], ],
 );
 
 foreach my $test_ref (@tests) {
