@@ -1529,7 +1529,7 @@ sub display_list_of_tags($$) {
 			}
 			
 			# do not compute the tag display if we just need stats
-			next if (defined $request_ref->{stats});
+			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
 
 			my $info = '';
 			my $css_class = '';
@@ -1679,7 +1679,7 @@ sub display_list_of_tags($$) {
 		$html .= "</tbody></table></div>";
 		
 		
-		if (defined $request_ref->{stats}) {
+		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
 		
 			$html =~ s/<table(.*)<\/table>//is;
 		
