@@ -98,6 +98,14 @@ my @lists =(
 ["fr","jus de pomme, eau, sucre. Traces possibles de céleri, de moutarde et gluten.","jus de pomme, eau, sucre. Traces éventuelles : céleri, Traces éventuelles : moutarde, Traces éventuelles : gluten."],
 ["fr","Traces de moutarde","traces éventuelles : moutarde."],
 ["fr","Sucre de canne Traces éventuelles d'oeufs","Sucre de canne, Traces éventuelles : oeufs."],
+["fr","huile végétale de tournesol et/ou colza","huile végétale de tournesol, huile végétale de colza"],
+
+["de","Zucker. Kann Spuren von Sellerie.","zucker. spuren : sellerie."],
+["de","Zucker. Kann Spuren von Senf und Sellerie.","zucker. spuren : senf, spuren : sellerie."],
+["de","Zucker. Kann Spuren von Senf und Sellerie enthalten","zucker. spuren : senf, spuren : sellerie."],
+
+["it","Puo contenere tracce di frutta a guscio, sesamo, soia e uova","tracce : frutta a guscio, tracce : sesamo, tracce : soia, tracce : uova."],
+["it","Il prodotto può contenere tracce di GRANO, LATTE, UOVA, FRUTTA A GUSCIO e SOIA.","tracce : grano, tracce : latte, tracce : uova, tracce : frutta a guscio, tracce : soia."],
 );
 
 foreach my $test_ref (@lists) {

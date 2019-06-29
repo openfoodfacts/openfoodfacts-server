@@ -27,6 +27,9 @@ my @tests = (
 [ { lc => "es", ingredients_text => "Harina de trigo 59%, margarina [grasa de palma, agua, aceite de colza, sal, emulgente: monoglicéridos y diglicéridos de ácidos grasos, corrector de acidez: ácido cítrico, colorante: carotenos], azúcar 17,8%, dextrosa, sal, gasificantes: carbonatos de sodio, aroma. Puede contener trazas de leche." }, [ "en:gluten", ], ["en:milk"] ], 
 
 [ { lc => "es", ingredients_text => "Chocolate 48% [azúcar, pasta de cacao, manteca de cacao, lactosa, materia grasa láctea anhidra, leche desnatada en polvo, emulgente: lecitinas (girasol), aroma], harina de trigo, azúcar, mantequilla concentrada 6,5%, jarabe de glucosa y fructosa, sal, gasificantes: carbonatos de amonio - carbonatos de sodio - difosfatos, acidulante: ácido cítrico. Puede contener trazas de huevo y frutos de cáscara." }, [ "en:gluten", "en:milk"], ["en:eggs", "en:nuts"] ], 
+
+[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsâure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ ], [ "en:celery", "en:mustard"] ],
+[ { lc => "it", ingredients_text => "Puo contenere tracce di frutta a guscio, sesamo, soia e uova"}, [ ], [ "en:eggs", "en:nuts", "en:sesame-seeds", "en:soybeans"] ],
 );
 
 foreach my $test_ref (@tests) {

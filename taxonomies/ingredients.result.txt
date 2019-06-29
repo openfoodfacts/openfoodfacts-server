@@ -196,8 +196,6 @@ synonyms:fr:monosodique, mono-sodique, sodique, disodique, trisodique, de sodium
 synonyms:fr:orthophosphate, phosphate
 
 additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
-carbon_footprint_fr_foodges_ingredient:fr: Poisson sauvage -filet-
-carbon_footprint_fr_foodges_value:fr: 11.5
 e_number:en: 965
 efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965ii new production process. Change of specification
 efsa_evaluation_date:en: 2006-05-18
@@ -1439,7 +1437,7 @@ wikidata:en: Q904035
 
 en:Antioxidant, antibrowning agent, antioxidany synergist, antioxygen
 bg:Антиоксидант
-de:Antioxidant, Antioxidationsmittel
+de:Antioxidant, Antioxidations-mittel, Antioxidationsmittel
 el:Αντιοξειδωτικό
 es:Antioxidante, antipardeamiento, sinérgicos de antioxidantes
 et:Antioksüdant
@@ -1954,8 +1952,6 @@ fr:haricot rouge, haricots rouges
 < en:Beans
 en:white beans
 fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs
-carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve -type cassoulet-
-carbon_footprint_fr_foodges_value:fr: 2
 
 < en:Beans
 fr:haricot mungo
@@ -1988,6 +1984,7 @@ de:Rindfleisch
 fr:viande de bœuf, pure viande bovine, viande bovine
 nl:Rundvlees
 carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
+carbon_footprint_fr_foodges_value:fr: 35.8
 
 < en:Beef
 fr:cœur de bœuf
@@ -5208,6 +5205,8 @@ yi:קעז
 yo:wàràkàsì
 zh:乾酪
 zu:Ushizi
+carbon_footprint_fr_foodges_ingredient:fr: Fromage à pâte molle -type camembert-
+carbon_footprint_fr_foodges_value:fr: 4.3
 wikipedia:en: https://en.wikipedia.org/wiki/Cheese
 
 < en:Cheese
@@ -7320,8 +7319,6 @@ es:limón
 fr:citron, citrons
 it:limone
 nl:citroen
-carbon_footprint_fr_foodges_ingredient:fr: Citron
-carbon_footprint_fr_foodges_value:fr: 0.9
 wikidata:en: Q1093742
 
 < en:Citrus fruit
@@ -7392,6 +7389,8 @@ uk:Лайм
 ur:گلگل
 vi:Chanh
 zh:青檸
+carbon_footprint_fr_foodges_ingredient:fr: Citron
+carbon_footprint_fr_foodges_value:fr: 0.9
 wikidata:en: Q13195
 wikipedia:en: https://en.wikipedia.org/wiki/Lime_-fruit-
 
@@ -8197,6 +8196,8 @@ yi:קאווע
 yo:kofi
 zh:咖啡
 zu:Ikhofi
+carbon_footprint_fr_foodges_ingredient:fr: Café moulu
+carbon_footprint_fr_foodges_value:fr: 15.7
 wikidata:en: Q8486
 wikipedia:en: https://en.wikipedia.org/wiki/Coffee
 
@@ -10362,15 +10363,12 @@ pt:massa quebrada
 sv:pajdeg
 
 < en:Dough
-fr:pâte crue
-carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
-carbon_footprint_fr_foodges_value:fr: 0.5
-
-< en:Dough
 fr:pâte feuilletée
 de:Blätterteig
 it:pasta sfoglia
 nl:bladerdeeg
+carbon_footprint_fr_foodges_ingredient:fr: Pâte à tarte
+carbon_footprint_fr_foodges_value:fr: 7.3
 
 < en:Dried apple
 da:tørrede æbleskiver
@@ -13646,6 +13644,8 @@ wa:Vén
 xh:Iveyn
 yi:וויין
 zh:葡萄酒
+carbon_footprint_fr_foodges_ingredient:fr: Vin France
+carbon_footprint_fr_foodges_value:fr: 1.4
 wikidata:en: Q282
 wikipedia:en: https://en.wikipedia.org/wiki/Wine
 
@@ -32069,6 +32069,8 @@ yo:eja
 za:Duzbya
 zh:鱼
 zu:inhlanzi
+carbon_footprint_fr_foodges_ingredient:fr: Poisson sauvage -filet-
+carbon_footprint_fr_foodges_value:fr: 11.5
 wikidata:en: Q600396
 wikipedia:en: https://en.wikipedia.org/wiki/Fish
 
@@ -32385,6 +32387,8 @@ zh:吉氏毛突石首魚
 < en:Crustacean
 < en:Fish
 fr:poissons et crustacés mis en œuvre
+carbon_footprint_fr_foodges_ingredient:fr: Moules/autres crustacés
+carbon_footprint_fr_foodges_value:fr: 10.7
 
 < en:Fish
 en:deepwater redfish
@@ -32397,6 +32401,8 @@ nb:Snabeluer
 nl:Diepzeeroodbaars
 sv:Djuphavskungsfisk
 zh:尖吻平鮋
+carbon_footprint_fr_foodges_ingredient:fr: Bar ou dorade d'élevage -filet-
+carbon_footprint_fr_foodges_value:fr: 12
 wikidata:en: Q1700062
 wikipedia:en: https://en.wikipedia.org/wiki/Deepwater_redfish
 
@@ -33655,6 +33661,8 @@ wa:farene
 wo:sunguf
 yi:מעל
 zh:麵粉
+carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
+carbon_footprint_fr_foodges_value:fr: 1.2
 wikidata:en: Q36465
 wikipedia:en: https://en.wikipedia.org/wiki/Flour
 
@@ -34928,6 +34936,8 @@ uk:цитрус
 vi:Chi Cam chanh
 yi:ציטרוס פרוכט
 zh:柑橘属
+carbon_footprint_fr_foodges_ingredient:fr: Citron
+carbon_footprint_fr_foodges_value:fr: 0.9
 wikidata:en: Q81513
 wikipedia:en: https://en.wikipedia.org/wiki/Citrus
 
@@ -35242,6 +35252,8 @@ wa:Roejhén
 yi:וויינטרויבן
 za:Makit
 zh:葡萄
+carbon_footprint_fr_foodges_ingredient:fr: Raisin
+carbon_footprint_fr_foodges_value:fr: 0.8
 wikidata:en: Q10978
 wikipedia:en: https://en.wikipedia.org/wiki/Grape
 
@@ -35539,6 +35551,8 @@ uz:अं
 vi:Xoài
 za:Makmanghgoj
 zh:芒果
+carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
+carbon_footprint_fr_foodges_value:fr: 0.8
 wikidata:en: Q3919027
 wikipedia:en: https://en.wikipedia.org/wiki/Mango
 
@@ -39820,6 +39834,8 @@ ud:Фасоль
 uk:квасоля звичайна
 vi:Đậu cô ve
 zh:菜豆
+carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve -type cassoulet-
+carbon_footprint_fr_foodges_value:fr: 2
 wikipedia:en: https://en.wikipedia.org/wiki/Phaseolus_vulgaris
 
 < en:Legume
@@ -40001,6 +40017,8 @@ vi:Đậu lăng
 wa:Lintile
 yi:לינזן
 zh:小扁豆
+carbon_footprint_fr_foodges_ingredient:fr: Lentilles vertes
+carbon_footprint_fr_foodges_value:fr: 0.3
 wikidata:en: Q131226
 wikipedia:en: https://en.wikipedia.org/wiki/Lentil
 
@@ -41836,6 +41854,8 @@ wa:Laecea
 yi:מילך
 zh:乳
 zu:Ubisi
+carbon_footprint_fr_foodges_ingredient:fr: Lait semi-écrémé, pasteurisé
+carbon_footprint_fr_foodges_value:fr: 1.2
 wikipedia:en: https://en.wikipedia.org/wiki/Milk
 
 < en:Milk
@@ -44505,6 +44525,8 @@ vo:Söögisiin
 wa:Magnåve tchampion, Tchampion-åbusson
 yi:שוועמל
 zh:食用蕈, 蕈類
+carbon_footprint_fr_foodges_ingredient:fr: Champignons de Paris
+carbon_footprint_fr_foodges_value:fr: 1.9
 wikidata:en: Q83093
 wikipedia:en: https://en.wikipedia.org/wiki/Mushroom
 
@@ -46103,6 +46125,8 @@ it:olio e grasso vegetale
 nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
+carbon_footprint_fr_foodges_ingredient:fr: Huile d'olive
+carbon_footprint_fr_foodges_value:fr: 2.6
 
 en:oligofructose
 de:Oligofructose
@@ -47112,20 +47136,26 @@ nl:gekookte pasta
 < en:Pasta
 en:cooked tagliatelle
 de:Tagliatelle gekocht, Bandnudeln gekocht
-fr:tagliatelles cuites
+fr:tagliatelles cuites, pâte crue
 it:tagliatelle cotte
+carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
+carbon_footprint_fr_foodges_value:fr: 0.5
 
 < en:Pasta
 en:durum wheat semolina pasta
 de:Teigwaren aus Hartweizengrieß
 fr:Pâtes alimentaires de semoule de blé dur, pâtes alimentaires de blé dur.
 it:pasta di semola di grano duro
+carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
+carbon_footprint_fr_foodges_value:fr: 0.5
 
 < en:Pasta
 en:fresh pasta
 de:frische Teigwaren
 fr:pâtes fraîches
 it:pasta fresca
+carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
+carbon_footprint_fr_foodges_value:fr: 0.5
 
 < en:Pasteurised goat milk
 en:organic pasteurised goat milk
@@ -47254,6 +47284,8 @@ vi:Đậu gà
 wa:Poes d' souke
 yi:נאהיט
 zh:鹰嘴豆
+carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
+carbon_footprint_fr_foodges_value:fr: 1.5
 wikipedia:en: https://en.wikipedia.org/wiki/Chickpea
 
 < en:Pea
@@ -48268,6 +48300,8 @@ xh:Inkuku
 yi:האן
 za:Gaeq
 zh:鸡, 鸡肉
+carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr: 4.9
 wikidata:en: Q780
 wikipedia:en: https://en.wikipedia.org/wiki/Chicken_as_food
 
@@ -48415,6 +48449,8 @@ ro:carne de pui
 ru:куриное мясо
 sk:prsia kuracie
 sv:kycklingkött
+carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr: 4.9
 
 < en:Poultry meat
 fr:viande de volaille traitée en salaison
@@ -52718,6 +52754,8 @@ ur:قشریات
 uz:Qisqichbaqasimonlar
 vi:động vật giáp xác
 zh:甲壳亚门
+carbon_footprint_fr_foodges_ingredient:fr: Moules/autres crustacés
+carbon_footprint_fr_foodges_value:fr: 10.7
 wikidata:en: Q25364
 wikipedia:en: https://en.wikipedia.org/wiki/Crustacean
 
@@ -55069,6 +55107,8 @@ uz:Qand
 vi:Đường
 wa:Souke
 zh:食糖
+carbon_footprint_fr_foodges_ingredient:fr: Sucre de canne
+carbon_footprint_fr_foodges_value:fr: 1.3
 wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
 
@@ -58874,6 +58914,8 @@ tr:Hindiba
 uk:цикорій салатний
 vi:Rau cúc đắng
 zh:苦苣
+carbon_footprint_fr_foodges_ingredient:fr: Endive
+carbon_footprint_fr_foodges_value:fr: 1.2
 wikidata:en: Q178547
 
 < en:Vegetable
@@ -60105,6 +60147,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Watercress
 < en:Vegetable
 fr:Brocolis en fleurettes
 nl:broccoliroosjes
+carbon_footprint_fr_foodges_ingredient:fr: Brocoli -France-
+carbon_footprint_fr_foodges_value:fr: 0.4
 
 < en:Vegetable
 fr:concentré de légumes
@@ -61125,6 +61169,8 @@ uz:Sirka
 vi:giấm
 yi:עסיג
 zh:醋
+carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
+carbon_footprint_fr_foodges_value:fr: 4.2
 wikipedia:en: https://en.wikipedia.org/wiki/Vinegar
 
 < en:Vinegar
@@ -63107,8 +63153,6 @@ fr:whisky écossais
 
 < en:White beans
 fr:haricots blancs secs trempés
-carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve -type cassoulet-
-carbon_footprint_fr_foodges_value:fr: 2
 
 < en:White cabbage
 en:sauerkraut

@@ -98,6 +98,7 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 my %traces_regexps = (
 
 en => "traces|may contain",
+de => "Kann Spuren|Spuren",
 es => "puede contener|trazas|traza",
 fr => "peut contenir|qui utilise aussi|traces|traces possibles|traces éventuelles|trace|trace possible|trace éventuelle",
 it => "può contenere|tracce",
@@ -107,6 +108,7 @@ it => "può contenere|tracce",
 my %allergens_stopwords = (
 
 en => "and|of|this|product|other|made|manufactured|in|a|factory|which|also|uses",
+de => "enthalten|von|und",
 es => "y|de|que|contiene|contienen|otros",
 fr => "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et",
 
@@ -114,14 +116,26 @@ fr => "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emba
 
 my %of = (
 en => " of ",
+de => " von ",
 es => " de ",
 fr => " de | du | des | d'",
+it => " di ",
 );
 
 my %and_of = (
 en => " and of ",
+de => " und von ",
 es => " y de ",
 fr => " et de | et du | et des | et d'",
+it => " e di ",
+);
+
+my %and_or = (
+en => " and | or | and/or | and / or ",
+de => " und | oder | und/oder | und / oder ",
+es => " y | o | y/o | y / o ",
+fr => " et | ou | et/ou | et / ou ",
+it => " e | o | e/o | e / o",
 );
 
 
@@ -129,6 +143,7 @@ my %the = (
 en => " the ",
 es => " el | la | los | las ",
 fr => " le | la | les | l'",
+it => " il | la ",
 );
 
 
@@ -888,10 +903,19 @@ sub normalize_allergens_enumeration($$$) {
 	my $allergens_list = shift;
 	
 	my $and = $Lang{_and_}{$lc};
+	
+	$log->debug("splitting allergens", { input => $allergens_list }) if $log->is_debug();
+		
+	# remove stopwords at the end
+	# e.g. Kann Spuren von Senf und Sellerie enthalten.
+	if (defined $allergens_stopwords{$lc}) {
+		my $stopwords = $allergens_stopwords{$lc};
+		$allergens_list =~ s/( ($stopwords)\b)+(\.|$)/$3/ig;
+	}
+
+	$log->debug("splitting allergens after removing stopwords", { input => $allergens_list }) if $log->is_debug();
 
 	my @allergens = split(/\(|\)|\/| \/ | - |, |,|$and/, $allergens_list);
-
-	$log->debug("splitting allergens", { input => $allergens_list }) if $log->is_debug();
 
 	my $split_allergens_list =  " " . join(", ", map { normalize_allergen($type,$lc,$_)} @allergens) . ".";
 	# added ending . to facilite matching and removing when parsing ingredients
@@ -1330,7 +1354,14 @@ sub preparse_ingredients_text($$) {
 	my $and_of = ' - ';
 	if (defined $and_of{$lc}) {
 		$and_of = $and_of{$lc};
-	}	
+	}
+	
+	# replace and / or by and
+	my $and_or = ' - ';
+	if (defined $and_or{$lc}) {
+		$and_or = $and_or{$lc};
+		$text =~ s/$and_or/$and/ig;
+	}		
 
 	$text =~ s/\&quot;/"/g;
 	$text =~ s/’/'/g;
@@ -1750,12 +1781,19 @@ INFO
 	if (defined $traces_regexp) {
 
 		my @allergenssuffixes = ();
-
+		
 		# Add synonyms in target language
 		if (defined $translations_to{allergens}) {
 			foreach my $allergen (keys %{$translations_to{allergens}}) {
 				if (defined $translations_to{allergens}{$allergen}{$lc}) {
-					push @allergenssuffixes, $translations_to{allergens}{$allergen}{$lc};
+					# push @allergenssuffixes, $translations_to{allergens}{$allergen}{$lc};
+					# the synonyms below also contain the main translation as the first entry
+				
+					my $lc_allergenid = get_fileid($translations_to{allergens}{$allergen}{$lc});
+				
+					foreach my $synonym (@{$synonyms_for{allergens}{$lc}{$lc_allergenid}}) {
+						push @allergenssuffixes, $synonym;
+				}
 				}
 			}
 		}
@@ -1774,8 +1812,13 @@ INFO
 
 		}
 		$allergenssuffixregexp =~ s/^\|//;
-
-		$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(\s?(\)|\]))?" }) if $log->is_debug();
+		
+		# stopwords
+		# e.g. Kann Spuren von Senf und Sellerie enthalten.
+		my $stopwords = "";
+		if (defined $allergens_stopwords{$lc}) {
+			$stopwords = $allergens_stopwords{$lc};
+		}
 
 		# $traces_regexp may be the end of a sentence, remove the beginning
 		# e.g. this product has been manufactured in a factory that also uses...
@@ -1783,7 +1826,11 @@ INFO
 		my $ucfirst_traces_regexp = $traces_regexp;
 		$ucfirst_traces_regexp =~ s/(^|\|)(\w)/$1 . uc($2)/ieg;
 		$text =~ s/([a-z]) ($ucfirst_traces_regexp)/$1, $2/g;
-		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)*($allergenssuffixregexp))\b(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$lc,$4)/ieg;
+		
+		$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
+		$log->debug("allergens", { lc => $lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();		
+		
+		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)*($allergenssuffixregexp))\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$lc,$4)/ieg;
 		# we may have added an extra dot in order to make sure we have at least one
 		$text =~ s/\.\./\./g;
 
@@ -1927,7 +1974,6 @@ sub extract_ingredients_classes_from_text($) {
 					my $canon_ingredient_amino_acids = canonicalize_taxonomy_tag($product_ref->{lc}, "amino_acids", $ingredient_id_copy);
 					my $canon_ingredient_nucleotides = canonicalize_taxonomy_tag($product_ref->{lc}, "nucleotides", $ingredient_id_copy);
 					my $canon_ingredient_other_nutritional_substances = canonicalize_taxonomy_tag($product_ref->{lc}, "other_nutritional_substances", $ingredient_id_copy);
-					($ingredient_id_copy =~ /carniti/i) and print STDERR "other: $canon_ingredient_other_nutritional_substances\n";
 
 					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 
@@ -2244,9 +2290,6 @@ sub extract_ingredients_classes_from_text($) {
 							push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$id}{id};
 							$seen{$ingredients_classes{$class}{$id}{id}} = 1;
 							$all_seen{$ingredients_classes{$class}{$id}{id}} = 1;
-
-							($product_ref->{code} eq '3245414658769') and print STDERR "extract_ingredient_classes 2 : id: $id - id/id: $ingredients_classes{$class}{$id}{id}\n";
-
 						}
 					}
 				}
@@ -2410,8 +2453,6 @@ sub replace_allergen_in_caps($$$$) {
 
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
 
-	print STDERR "allergen: $allergen - tagid: $tagid\n";
-
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
@@ -2437,21 +2478,29 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $field = "allergens";
 
 
-	#print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
+	print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = $allergens_stopwords{$language};
 
 	my $before_allergen = "";
-	if ((defined $stopwords) and ($allergen =~ /^((\s|\b($stopwords)\b)+)/i)) {
-		$before_allergen = $1;
-		$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
+	
+	# Remove stopwords at the beginning or end
+	if (defined $stopwords) {
+		if ($allergen =~ /^((\s|\b($stopwords)\b)+)/i) {
+			$before_allergen = $1;
+			$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
+		}
+		if ($allergen =~ /((\s|\b($stopwords)\b)+)$/i) {
+			$before_allergen = $1;
+			$allergen =~ s/(\s|\b($stopwords)\b)+$//i;
+		}		
 	}
 
 	my $traces_regexp = $traces_regexps{$language};
 
 	if (($before . $before_allergen) =~ /\b($traces_regexp)\b/i) {
 		$field = "traces";
-		#print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+		print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}
 
 	# Farine de blé 97%
@@ -2460,11 +2509,11 @@ sub replace_allergen_between_separators($$$$$$) {
 		$end_separator = $1 . $' . $end_separator;
 	}
 
-	#print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
+	print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
 
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
 
-	#print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
+	print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
 
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);

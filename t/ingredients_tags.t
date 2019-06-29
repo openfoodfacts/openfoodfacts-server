@@ -60,6 +60,10 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "jus de pomme, eau, sucre, Traces possibles d'oeuf, de moutarde et gluten."}, [ "en:apple-juice", "en:water", "en:sugar" ], ],
 [ { lc => "fr", ingredients_text => "Traces de moutarde"}, [  ], ],
 
+[ { lc => "it", ingredients_text => "Puo contenere tracce di frutta a guscio, sesamo, soia e uova"}, [  ], ],
+
+[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsâure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ "en:sugar", "en:spice", "en:antioxydant", "en:e300", "en:preservative", "en:e250" ], ],
+
 );
 
 foreach my $test_ref (@tests) {
