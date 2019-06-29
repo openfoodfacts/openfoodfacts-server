@@ -1822,10 +1822,13 @@ INFO
 
 		# $traces_regexp may be the end of a sentence, remove the beginning
 		# e.g. this product has been manufactured in a factory that also uses...
-		# Some text with comma May contain ... -> include only May contain
-		my $ucfirst_traces_regexp = $traces_regexp;
-		$ucfirst_traces_regexp =~ s/(^|\|)(\w)/$1 . uc($2)/ieg;
-		$text =~ s/([a-z]) ($ucfirst_traces_regexp)/$1, $2/g;
+		# Some text with comma May contain ... -> Some text with comma, May contain
+		# ! does not work in German and languages that have words with a capital letter
+		if ($lc ne "de") {
+			my $ucfirst_traces_regexp = $traces_regexp;
+			$ucfirst_traces_regexp =~ s/(^|\|)(\w)/$1 . uc($2)/ieg;
+			$text =~ s/([a-z]) ($ucfirst_traces_regexp)/$1, $2/g;
+		}
 		
 		$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
 		$log->debug("allergens", { lc => $lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();		
