@@ -435,7 +435,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -1453,6 +1453,15 @@ sub display_list_of_tags($$) {
 		my $i = 0;
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
+		
+		my %stats = (
+			all_tags => 0,
+			all_tags_products => 0,
+			known_tags => 0,
+			known_tags_products => 0,
+			unknown_tags => 0,
+			unknown_tags_products => 0,
+		);
 
 		foreach my $tagcount_ref (@tags) {
 
@@ -1466,6 +1475,9 @@ sub display_list_of_tags($$) {
 			my $count = $tagcount_ref->{count};
 
 			$products{$tagid} = $count;
+			
+			$stats{all_tags}++;
+			$stats{all_tags_products} += $count;
 
 			my $link;
 			my $products = $count;
@@ -1506,11 +1518,18 @@ sub display_list_of_tags($$) {
 			elsif (defined $taxonomy_fields{$tagtype}) {
 				if (exists_taxonomy_tag($tagtype, $tagid)) {
 					$td_nutriments .= "<td></td>";
+					$stats{known_tags}++;
+					$stats{known_tags_products} += $count;
 				}
 				else {
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+					$stats{unknown_tags}++;
+					$stats{unknown_tags_products} += $count;
 				}
 			}
+			
+			# do not compute the tag display if we just need stats
+			next if (defined $request_ref->{stats});
 
 			my $info = '';
 			my $css_class = '';
@@ -1658,6 +1677,36 @@ sub display_list_of_tags($$) {
 		}
 
 		$html .= "</tbody></table></div>";
+		
+		
+		if (defined $request_ref->{stats}) {
+		
+			$html =~ s/<table(.*)<\/table>//is;
+		
+			if ($stats{all_tags} > 0) {
+			
+				$html .= <<"HTML"
+<table>
+<tr>
+<th>Type</th>
+<th>Unique tags</th>
+<th>Occurrences</th>
+</tr>
+HTML
+;
+				foreach my $type ("known", "unknown", "all") {
+					$html .= "<tr><td>" . $type . "</td>"
+					. "<td>" . $stats{$type . "_tags"} . " (" . sprintf("%2.2f", $stats{$type . "_tags"} / $stats{"all_tags"} * 100) . "%)</td>"
+					. "<td>" . $stats{$type . "_tags_products"} . " (" . sprintf("%2.2f", $stats{$type . "_tags_products"} / $stats{"all_tags_products"} * 100) . "%)</td>";
+		
+				}
+			
+				$html .=<<"HTML"
+</table>
+HTML
+;
+			}
+		}
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
