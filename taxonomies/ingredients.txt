@@ -14072,7 +14072,7 @@ fr:lait écrémé à base de poudre de lait
 fr:produits laitiers en poudre
 
 <en:milk powder
-en:skimmed milk  powder
+en:skimmed milk powder
 de:Magermilchpulver
 es:leche desnatada en polvo
 fr:lait en poudre écrémé, lait écrémé en poudre
@@ -14096,6 +14096,9 @@ pt:leite entero em pó, leite em pó gordo
 sk:sušené plnotučné mlieko
 sv:helmjölkspulver
 
+<en:whole milk powder
+<en:skimmed milk powder
+fr:poudres de lait écrémé et entier
 
 <en:milk
 fr:lait écrémé reconstitué
@@ -14589,6 +14592,10 @@ fr:crème stérilisée
 <en:cream
 fr:crème uht
 # ingredient/fr:crème-uht has 100 products @2019-02-03
+
+<fr:crème stérilisée
+<fr:crème uht
+fr:crème stérilisée uht
 
 <en:cream
 en:light cream
@@ -16198,6 +16205,9 @@ de:schnittfester mozzarella
 fr:Mozzarella affinée
 nl:Geharde mozzarella
 sv:skivbar mozzarella
+
+<en:mozzarella
+fr:mozzarella râpée
 
 # PARMIGIANO-REGGIANO is an Italian hard, granular cheese.
 # This is a compound product, i.e.:Parmigiano reggiano (pasteurized cow's milk, rennet, salt, enzymes)
@@ -18621,8 +18631,15 @@ fr:viande bovine origine france
 fr:viande bovine halal
 
 <en:beef meat
+fr:carpaccio de boeuf
+
+<en:beef meat
 fr:viande hachée de bœuf, viande hachée de boeuf
+
 fr:extrait de viande de bœuf, extrait de viande de boeuf
+
+<fr:viande hachée de bœuf
+fr:préparation viande hachée de boeuf
 
 <en:beef meat
 fr:cœur de bœuf, coeur de boeuf
@@ -18639,6 +18656,9 @@ nl:gekookt rundvlees
 
 <en:beef meat
 fr:viande de boeuf mise en oeuvre
+
+<en:beef meat
+fr:viande de boeuf en poudre
 
 <en:beef
 fr:foie de boeuf
@@ -19441,6 +19461,12 @@ fr:jambon de porc français
 fr:noix de jambon de porc
 
 <en:pork meat
+fr:filet et pointe de porc
+
+<en:pork meat
+fr:carré
+
+<en:pork meat
 fr:Côtes de porc
 # ingredient/fr:cotes-de-porc has 8 products @2019-05-29
 
@@ -19475,6 +19501,9 @@ it:prosciutto
 
 <en:ham
 fr:jambon cru
+
+<fr:jambon cru
+fr:jambon cru fumé
 
 <en:ham
 fr:jambon cuit choix
@@ -23363,7 +23392,6 @@ en:artificial flavouring, artificial flavour, artificial flavor, artificial flav
 de:künstliches Aroma
 fr:arôme artificiel, arômes artificiels
 
-
 # <en:compound
 <en:flavouring
 fr:base aromatisante barbecue
@@ -23439,6 +23467,9 @@ it:aroma naturale di limone
 nl:natuurlijk citroenaroma
 pt:aroma natural de limão
 ru:натуральный ароматизатор лимон
+
+<en:natural flavouring
+fr:arômes naturels de réglisse
 
 # Two parents due to and/or ingredient
 
@@ -26722,6 +26753,9 @@ fr:riz gluant
 ########################### PROCESSING STAGES OF RICES #######################
 
 <en:rice
+fr:riz semi-complet
+
+<en:rice
 en:brown rice, full grain rice
 de:Vollkornreis
 es:arroz integral
@@ -29880,6 +29914,9 @@ it:Cioccolato superiore al latte
 <en:milk chocolate
 fr:chocolat au lait du pays alpin
 # ingredient/fr:chocolat-au-lait-du-pays-alpin has 22 products @2019-05-25
+
+<en:milk chocolate
+fr:chocolat au lait de couverture
 
 # description:en:WHITE CHOCOLATE is made of sugar, milk, and cocoa butter, without the cocoa solids. It is pale ivory colour, and lacks many of the compounds found in milk and dark chocolates.
 
@@ -34064,10 +34101,6 @@ zu:Ihhabhula
 # eml:Pàm
 # en-ca:apple
 # en-gb:apple
-carbon_footprint_fr_foodges_ingredient:fr:Pomme France
-carbon_footprint_fr_foodges_value:fr:0.3
-carbon_footprint_fr_foodges_ingredient:fr:Pomme amérique du Sud
-carbon_footprint_fr_foodges_value:fr:1.3
 # frr:ååpel
 # fur:Miluçâr
 # gag:alma
@@ -34247,7 +34280,7 @@ nl:geconcentreerde appelpuree
 en:apple extract
 de:Apfelextrakt
 es:extracto de manzana
-fr:extrait de pomme
+fr:extrait de pomme, concentré de pomme
 nl:appelextract
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-extract
 # 65 products in 4 languages @2018-10-04
@@ -37407,6 +37440,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Raisin
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin%20sec
 carbon_footprint_fr_foodges_ingredient:fr:Raisin
 carbon_footprint_fr_foodges_value:fr:0.8
+
+<en:raisin
+fr:raisins secs rehydratés
 
 # 1314 products in 6 languages @2018-10-02
 
@@ -42646,6 +42682,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Shallot
 fr:échalote déshydratée
 # ingredient/fr:échalote-déshydratée has 67 products in french @2019-02-14
 
+<en:shallot
+fr:pulpe d'échalote
 
 # description:en: COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
 
@@ -43845,6 +43883,9 @@ fr:tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
 de:Tomaten halbgetrocknete
 it:pomodori semiseccchi
 # ingredient/fr:tomates-semi-séchées has 38 products in 4 languages @2018-12-26
+
+<fr:tomates semi-séchées
+fr:tomates semi-deshydratées et marinées
 
 <en:tomato
 en:dried tomatoes
@@ -45278,12 +45319,15 @@ carbon_footprint_fr_foodges_ingredient:fr:Pois de printemps frais
 carbon_footprint_fr_foodges_value:fr:0.7
 
 <en:garden peas
-fr:petits pois doux extra fins
+fr:petits pois fins
 
 <en:garden peas
 fr:petits pois doux
 nl:zoete doperwten
 # ingredient/fr:petits-pois-doux has 38 products in 3 languages @2019-02-07
+
+<fr:petits pois doux
+fr:petits pois doux extra fins
 
 # The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
@@ -46699,7 +46743,7 @@ de:Leinsamen
 es:semillas de lino
 et:Linaseemned
 fa:تخم کتان
-fr:graine de lin, graines de lin, lin
+fr:graine de lin, graines de lin, lin, graines de lin jaune
 hu:Lenmag
 it:semi di lino, lino
 nl:lijnzaad
@@ -53508,6 +53552,10 @@ en:Boletus edulis
 fr:Boletus edulis, Cèpe de Bordeaux
 it:funghi porcini
 la:Boletus edulis
+
+<en:cep
+en:dried cep
+fr:cèpes deshydratés
 
 # AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America. 
 
