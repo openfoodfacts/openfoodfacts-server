@@ -126,7 +126,7 @@ my %and_of = (
 	en => " and of ",
 	de => " und von ",
 	es => " y de ",
-	fr => " et de | et du | et des | et d' ",
+	fr => " et de | et du | et des | et d'",
 	it => " e di | e d' ",
 );
 
