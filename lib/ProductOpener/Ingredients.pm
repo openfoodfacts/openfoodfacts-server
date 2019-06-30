@@ -142,7 +142,7 @@ my %and_or = (
 my %the = (
 	en => " the ",
 	es => " el | la | los | las ",
-	fr => " le | la | les | l' ",
+	fr => " le | la | les | l'",
 	it => " il | lo | la | i | gli | le | l'",
 );
 
