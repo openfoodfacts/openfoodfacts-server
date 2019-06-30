@@ -739,6 +739,7 @@ $options{apps_userids} = {
 $options{apps_uuid_prefix} = {
 
 	"elcoco" => " user ",
+	"ethic-advisor" => "user_",
 	"kiliweb" => "User :",
 	"labeleat" => "Labeleat([^-]*)-",
 	"waistline-app" => "Waistline:",
