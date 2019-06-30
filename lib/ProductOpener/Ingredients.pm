@@ -101,7 +101,7 @@ my %traces_regexps = (
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
 	fr => "peut contenir|qui utilise aussi|traces|traces possibles|traces éventuelles|trace|trace possible|trace éventuelle",
-	it => "puo contenere|che utilizza anche|tracce|possibili tracce|eventuali tracce|traccia|possibile traccia|eventuale traccia",
+	it => "può contenere|puo contenere|che utilizza anche|tracce|possibili tracce|eventuali tracce|traccia|possibile traccia|eventuale traccia",
 
 );
 
