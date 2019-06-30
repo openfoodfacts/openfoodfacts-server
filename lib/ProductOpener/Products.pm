@@ -525,13 +525,13 @@ sub store_product($$) {
 		rev=>$rev,
 	};
 
-	compute_data_sources($product_ref);
-
 	compute_codes($product_ref);
 
 	compute_languages($product_ref);
 
 	compute_product_history_and_completeness($product_ref, $changes_ref);
+	
+	compute_data_sources($product_ref);
 
 	# sort_key
 	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
@@ -643,10 +643,28 @@ sub compute_data_sources($) {
 		}
 	}
 
+	
+	# Add a data source forapps
+	
+	%data_sources = ();
+
+	if (defined $product_ref->{editors_tags}) {
+		foreach my $editor (@{$product_ref->{editors_tags}}) {
+		
+			if ($editor =~ /\./) {
+			
+				my $app = $`;
+
+				$data_sources{"Apps"} = 1;
+				$data_sources{"App - $app"} = 1;
+			}
+		}
+	}
+
 	if ((scalar keys %data_sources) > 0) {
 		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
 		compute_field_tags($product_ref, "en", "data_sources");
-	}
+	}	
 }
 
 
