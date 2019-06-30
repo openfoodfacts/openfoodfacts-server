@@ -537,7 +537,7 @@ el:Πυκνωτικό μέσο
 es:Espesante
 et:Paksendaja
 fi:Sakeuttamisaine
-fr:épaississant, Épaississant, agent épaississant, agents épaississants
+fr:épaississant, Épaississant, agent épaississant, agents épaississants, épaissisant
 ga:Tiúsóir
 hu:Sűrítőanyag
 it:Addensanti
@@ -1485,7 +1485,7 @@ wikidata:en:Q191907
 wikipedia:en:https://en.wikipedia.org/wiki/Carotenoid
 # ingredient/fr:caroténoïde has 2195 products in 12 languages @2019-04-29
 
-<en:paprika
+# <en:paprika
 en:paprika extract, e160c
 da:paprikaekstrakt
 de:Paprikaextrakt
@@ -14054,7 +14054,7 @@ fr:poudre de lait écrémé
 fr:lait origine france en poudre écrémé
 
 <en:milk powder
-fr:lait en poudre demi-écrémé, lait en poudre partiellement écrémé, 
+fr:lait en poudre demi-écrémé, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé
 nl:halfvolle poedermelk
 pt:leite meio gordo em pó
 # ingredient/fr:lait-en-poudre-demi-ecreme has 8 products @2019-05-31
@@ -14567,7 +14567,7 @@ carbon_footprint_fr_foodges_value:fr:4.2
 <en:cream
 en:pasteurized cream
 de:pasteurisierte Sahne
-fr:crème pasteurisé, crème pasteurisée
+fr:crème pasteurisée
 # ingredient/fr:crème-pasteurisé has 86 products in 4 languages @2019-02-03
 
 <en:Pasteurized cream
@@ -14822,6 +14822,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Buttermilk
 # ingredient/fr:babeurre has 166 products in 4 languages @2018-11-15
 
 <en:buttermilk
+fr:babaurre pasteurisé
+
+<en:buttermilk
 en:buttermilk powder
 da:kæarnemælkpulver
 de:Buttermilchpulver
@@ -15067,6 +15070,8 @@ wikipedia:en:Q10943
 wikipedia:en:https://en.wikipedia.org/wiki/Cheese
 # en:cheese has 579 products in 10 languages @2018-10-28
 
+<en:cheese
+fr:fromages râpées sechés
 
 <en:cheese
 # <en:pasteurized
@@ -19434,28 +19439,14 @@ pt:toucinho cozido fumado
 
 
 <en:pork meat
-fr:pièces de tête de porc
+fr:jarret avant de porc
 
 <en:pork meat
-fr:morceaux de tête de porc
+fr:pièces de tête de porc, morceaux de tête de porc
 
-<en:pork meat
-fr:jambon de porc
-
-<en:pork meat
-fr:palette de porc
-
-<fr:jambon de porc
-fr:jambon de porc issu d'animaux nourris sans ogm
-
-<fr:jambon de porc
-fr:jambon de porc frais
 
 <en:pork meat
 fr:langue de porc
-
-<fr:jambon de porc
-fr:jambon de porc français
 
 <en:pork meat
 fr:noix de jambon de porc
@@ -19464,14 +19455,14 @@ fr:noix de jambon de porc
 fr:filet et pointe de porc
 
 <en:pork meat
-fr:carré
+fr:palette de porc
 
 <en:pork meat
 fr:Côtes de porc
 # ingredient/fr:cotes-de-porc has 8 products @2019-05-29
 
 <en:pork meat
-fr:carré de porc
+fr:carré de porc, carré
 
 <en:pork meat
 fr:viande porc
@@ -19486,7 +19477,7 @@ fr:filet mignon de porc
 fr:échine de porc
 
 <en:pork meat
-fr:jambon frais de porc
+fr:viande de porc cuite
 
 <en:pork meat
 fr:viande de porc traitée en salaison
@@ -19494,28 +19485,49 @@ fr:viande de porc traitée en salaison
 <fr:viande de porc traitée en salaison
 fr:viande de porc traitée en salaison et précuite
 
+<en:pork meat
 en:ham
 de:Schinken
-fr:jambon
+fr:jambon de porc, jambon
 it:prosciutto
 
 <en:ham
+fr:jambon de porc issu d'animaux nourris sans ogm
+
+<en:ham
+fr:jambon de porc frais, jambon frais de porc
+
+
+<en:ham
+fr:jambon de porc français
+
+<en:ham
+en:raw ham
 fr:jambon cru
 
-<fr:jambon cru
+<en:raw ham
 fr:jambon cru fumé
 
 <en:ham
-fr:jambon cuit choix
-
-<en:ham
+en:cooked ham
 fr:jambon cuit
 
-<en:ham
+<en:cooked ham
+fr:jambon cuit choix
+
+<fr:jambon cuit choix
+fr:jambon cuit choix fumé
+
+
+<en:cooked ham
 fr:jambon cuit standard
 
-<en:ham
+<en:cooked ham
+en:superior cooked ham
 fr:jambon cuit supérieur
+
+<en:superior cooked ham
+fr:jambon cuit de qualité supérieure avec couenne jambon de porc
 
 en:pork by-product
 fr:sous-produit du porc
@@ -19532,7 +19544,6 @@ fr:protéines de sang de porc
 
 <en:pork by-product
 fr:sang de porc
-
 
 <en:pork by-product
 fr:plasma de porc
@@ -19687,6 +19698,7 @@ fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande d
 # ingredient/fr:jus-concentré-d’os-et-de-viande-de-bœuf has 14 products in 2 languages @2019-02-12
 
 # SAUSAGES
+
 <en:meat
 fr:saucisse de porc
 carbon_footprint_fr_foodges_ingredient:fr:Saucisse de porc
@@ -19696,9 +19708,13 @@ carbon_footprint_fr_foodges_value:fr:5.5
 fr:saucisses de toulouse grillées
 # treatment:en:gril
 
+<en:meat
 fr:saucisson de porc
 carbon_footprint_fr_foodges_ingredient:fr:Saucisson de porc
 carbon_footprint_fr_foodges_value:fr:5.1
+
+<en:meat
+fr:saucisse de strasbourg
 
 fr:plasma déshydraté
 # ingredient/fr:plasma-déshydraté has 46 products in french @2019-02-10
@@ -20551,7 +20567,7 @@ et:Kookosõli
 eu:Koko olio
 fa:روغن نارگیل
 fi:Kookosöljy
-fr:huile de coco, huile de noix de coco, huile de coprah, coprah, graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco, huile végétale de coco
+fr:huile de coco, huile de noix de coco, huile de coprah, coprah, graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco, huile végétale de coco, huile végétale de coprah
 ga:Aceite de coco
 he:שמן קוקוס
 hi:नारियल तेल
@@ -20639,7 +20655,7 @@ et:Oliiviõli
 eu:Oliba olio
 fa:روغن زیتون
 fi:oliiviöljy
-fr:huile d'olive
+fr:huile d'olive, huiles végétales d'olive
 gl:Aceite de oliva
 he:שמן זית
 hi:जैतून का तेल
@@ -23568,6 +23584,9 @@ fr:arôme naturel de laurier, arome naturel de laurier
 en:natural estragon flavouring
 fr:arôme naturel d'estragon, arome naturel d'estragon
 
+<en:natural estragon flavouring
+fr:arôme naturel d'estragon avec autres arômes naturels
+
 <en:natural flavouring
 en:natural paprika flavor, natural flavor of paprika
 fr:arôme naturel de paprika
@@ -26015,6 +26034,9 @@ it:farina di grano saraceno
 nl:boekweitmeel
 pt:farinha de trigo mourisco
 
+<en:buckwheat flour
+fr:galette en blé noir
+
 <en:cereal flour
 en:rye flour
 de:Roggenmehl
@@ -26034,7 +26056,7 @@ pt:farinha de centeio
 en:wholemeal rye flour
 de:Roggenvollkornmehl
 es:flor de harina integral de centeno
-fr:farine de seigle complèt, farine complète de seigle
+fr:farine de seigle complète, farine complète de seigle
 nl:volkoren roggemeel
 
 <en:rye flour
@@ -27808,6 +27830,8 @@ en:grape sugar, raisin sugar
 fr:sucre de raisin
 it:zucchero d'uva
 
+<en:sugar
+fr:sucre vanilline
 
 # description:en:MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
 
@@ -29016,7 +29040,13 @@ fr:protéines végétales réhydratées
 # ingredient/fr:protéines-végétales-réhydratées has 32 products in french @2019-03-11
 
 <en:vegetable protein
+fr:protéines de blé
+
+<fr:protéines de blé
 fr:protéines de blé deshydratées
+
+<fr:protéines de blé
+fr:protéines de blé partiellement hydrolysées
 
 <en:vegetable protein
 en:pea protein
@@ -29981,7 +30011,7 @@ carbon_footprint_fr_foodges_value:fr:6.5
 
 <en:chocolate
 en:chocolate sauce
-fr:sauce au chocolat
+fr:sauce au chocolat, sauce parfum chocolat
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -30780,6 +30810,9 @@ zh:麦芽糊精
 # zh_CN:麦芽糊精
 # zh_HK:麥芽糊精
 # zh_TW:麥芽糊精
+
+<en:maltodextrin
+fr:maltodextrine fumée
 
 <en:maltodextrin
 en:tapioca maltodextrin
@@ -33129,6 +33162,9 @@ en:organic apricot
 fr:abricots bio
 
 <en:apricot
+fr:demi-abricots, demi abricots
+
+<en:apricot
 <en:purée
 en:apricot purée
 de:Aprikosenpüree
@@ -33652,6 +33688,9 @@ carbon_footprint_fr_foodges_ingredient:fr:Pêche (France)
 carbon_footprint_fr_foodges_value:fr:0.7
 
 <en:peach
+fr:pêches en cubes
+
+<en:peach
 <en:purée
 en:peach puree
 de:Pfirsichpurée
@@ -33794,6 +33833,9 @@ fr:poire conférence
 nl:conference peer
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/conference-pear
 # 3 products in 1 language @2018-09-28
+
+<en:pear
+fr:poire Williams demi-fruits
 
 <en:pear
 en:pears in cubes
@@ -34232,7 +34274,7 @@ nl:stukjes appel
 # 45 products in 4 languages @2018-10-04
 
 <en:apple
-fr:compote de pommes, compote de pommes
+fr:compote de pommes
 de:Apfelmus
 nl:appelcompote
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:compote%20de%20pommes
@@ -34678,6 +34720,9 @@ carbon_footprint_fr_foodges_value:fr:0.9
 fr:citron confit
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron%20confit
 # 70 products in 1 language @2018-10-01
+
+<fr:citron confit
+fr:zestes de citron confits
 
 <en:lemon
 en:lemon pulpe
@@ -38698,7 +38743,7 @@ it:acerola in polvere
 <fr:poudre d'acérola
 en:acerola powder on manioc starch
 de:Acerolapulver auf Maniokstärke
-fr:poudre d'acérola avec fécule de manioc
+fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
 it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
 # ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
 
@@ -38773,6 +38818,9 @@ it:latte di noci di cocco in polvere
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20coco%20en%20poudre
 # 69 products in 3 languages @2018-10-03
 
+<fr:lait de noix de coco en poudre
+fr:lait de coco reconstitué
+
 <en:coconut
 en:coconut extract
 de:Kokosnussextrakt
@@ -38792,7 +38840,7 @@ nl:Kokospulp
 # 21 products in 3 languages @2018-10-03
 
 <en:coconut pulp
-fr:noix de coco séchée
+fr:noix de coco séchée, noix de coco deshydratée
 nl:gedroogde kokosnoot
 ro:nuca de cocos deshidratata
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20séchée
@@ -40242,14 +40290,15 @@ nl:rode biet
 pt:beterraba vermelha
 # fr:betterave-rouge has 298 products in 6 languages @2018-10-22
 
-<fr:betterave rouge
+<en:red beetroot
 fr:betterave rouge déshydratée, betterave rouge en poudre, poudre de betterave rouge
 de:Randenpulver
 it:barbabietole in polvere
 # fr:betterave-rouge-déshydratée has 55 products in 3 languages @2018-10-22
 # fr:betterave-rouge-en-poudre has 44 products in 3 languages @2018-10-22
 
-<fr:jus de betterave
+<en:red beetroot
+en:red beetroot juice
 fr:jus de betterave rouge
 de:Rote Bete Saft
 es:zumo de remolacha roja
@@ -40257,8 +40306,8 @@ it:succo di barbabietole rosse
 nl:rodebietensap
 # fr:jus-de-betterave-rouge has 38 products @2018-10-21
 
-<fr:betterave rouge
-fr:jus de betterave rouge concentré, concentré de jus de betterave rouge
+<en:red beetroot juice
+fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
 de:Rote Bete-Saftkonzentrat
 nl:geconcentreerd rodebietensap
 # fr:jus-de-betterave-rouge-concentré has 37 products in 4 languages @2018-10-21
@@ -40990,7 +41039,6 @@ fr:purée de carotte
 
 # fr:concentré de carotte usage as a colour is not always mentioned
 
-<en:colour
 <en:carrot
 fr:concentré de carotte, concentré de carottes
 de:Karottenkonzentrat
@@ -41037,6 +41085,7 @@ it:carote nere
 # fr:carotte-noire has 122 products in 4 languages @2018-10-20
 
 <en:black carrot
+en:black carrot juice
 fr:jus de carotte noire
 de:schwarzer Karottensaft
 it:succo di carote nere
@@ -41051,7 +41100,12 @@ nl:zwarte wortelsapconcentraat
 # fr:jus-de-carotte-noire-concentré has 26 products in 2 languages @2018-10-20
 # fr:jus-de-carotte-pourpre-concentré has 22 products @2018-10-20
 
-# Carrot juice has a particularly high content of β-carotene, a source of vitamin A, but it is also high in B complex vitamins like folate, and many minerals including calcium, copper, magnesium, potassium, phosphorus, and iron.
+<en:black carrot
+en:concentrated black carrot
+fr:concentré de carotte pourpre
+
+
+# description:en:Carrot juice has a particularly high content of β-carotene, a source of vitamin A, but it is also high in B complex vitamins like folate, and many minerals including calcium, copper, magnesium, potassium, phosphorus, and iron.
 
 <en:vegetable juice
 <en:carrot
@@ -41232,7 +41286,7 @@ eo:tubercelerio
 es:Apio nabo
 et:Juurseller
 fi:Mukulaselleri
-fr:céleri-rave
+fr:céleri-rave, céleri rave
 ga:Soiliriac
 it:sedano rapa
 ja:セロリアック
@@ -41245,9 +41299,12 @@ wikidata:en:Q575174
 wikipedia:en:https://en.wikipedia.org/wiki/Celeriac
 # fr:céleri-rave has 399 products in 4 languages @2018-10-20
 
-<fr:céleri-rave
+<en:celeriac
 fr:céleri rave râpé
 # fr:céleri-rave-râpé has 17 products in 1 language @2018-10-20
+
+<en:celeriac
+fr:jus concentré de céleri rave
 
 <en:carrot
 <en:pumpkin
@@ -41685,7 +41742,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Onion
 carbon_footprint_fr_foodges_ingredient:fr:Oignons
 carbon_footprint_fr_foodges_value:fr:0.6
 
-
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
 
@@ -41967,6 +42023,9 @@ it:cipolle grigliate
 nl:Gefrituurde ui
 pt:cebolas fritas
 # ingredient/fr:oignons-grillés has 111 products in 4 languages @2018-12-06
+
+<en:fried onion
+fr:oignon grillé en poudre
 
 # fr:oignon-frit is a compound ingredient, eg:gefrituurde uien ( uien, raapzaadolie, zonnebloemolie, zout)
 
@@ -42896,7 +42955,10 @@ fr:Épinards hachés
 nl:gehakte spinazie
 # ingredient/fr:epinards-haches has 26 products in 2 languages @2019-05-24
 
-# The sweet potato (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
+<en:spinach
+fr:jeunes pousses d'épinard
+
+# description:en:The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
 
 en:sweet potato
 af:Patats
@@ -44391,7 +44453,7 @@ nl:Pompoensap
 
 <en:pumpkin juice
 en:concentrated pumpkin juice
-fr:jus de potiron concentré
+fr:jus de potiron concentré, jus concentré de potiron
 
 # Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 
@@ -44782,6 +44844,10 @@ fr:haricots verts coupés
 
 <fr:haricot vert
 fr:haricots verts très fins
+
+<fr:haricots verts très fins
+<fr:haricots verts coupés
+fr:haricots vertes très fins coupés
 
 <fr:haricot vert
 fr:haricots verts extra-fins
@@ -45177,6 +45243,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pea
 # ingredient/fr:pois has 259 products in 7 languages @2019-05-10
 # usage:fr:amidon (blé, pomme de terre, pois, maïs)
 
+<en:pea
+fr:extrait de pois
 
 # The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 
@@ -45778,6 +45846,9 @@ pl:orzechy pistacjowe
 pt:pistácios
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pistache
 # 613 products in 9 languages @2018-10-05
+
+<en:pistachio nuts
+fr:pistaches en coques
 
 <en:pistachio nuts
 fr:pâte de pistache
@@ -47201,6 +47272,9 @@ it:condimenti misti
 # ingredient/fr:assaisonnement-aromatisé has 45 products @2019-04-04
 # usage:fr:assaisonnement aromatisé (arôme, amidon de pomme de terre, extrait de levure, sel, poudre de tomate, graisse de poule, poudre de bœuf, thym)
 
+<en:condiment
+fr:assaisonnemenet saveur barbecue
+
 en:spice, spices
 de:Gewürze
 es:especias
@@ -47226,7 +47300,7 @@ fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes
 <en:herbs and spices
 fr:extraits d'épices et d'aromates
 
-<en:spice
+# <en:spice
 en:spice extracts
 fr:extrait d'épice, extraits d'épices
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte
@@ -48464,7 +48538,7 @@ en:pink peppercorn, pink berries
 da:rosépeber
 de:Rosa Beeren
 fa:فلفل صورتی
-fr:baies roses
+fr:baies roses, baies
 it:pepe rosa
 ja:ピンクペッパー
 la:Granum piperis roseum
@@ -48672,6 +48746,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Dill
 en:organic dill seed
 nl:biologisch dillezaad
 # ingredient/nl:biologisch-dillezaad has 1 product @2019-05-24
+
+<en:dill
+en:dried dill
+fr:aneth deshydraté
 
 <en:herb
 en:rosemary
@@ -49267,7 +49345,12 @@ nl:biologische tijm
 # ingredient/fr:thym-bio has 10 products in 3 languages @2019-05-25
 
 <en:thyme
+en:dried thyme
 fr:thym deshydraté, thym deshydrate
+
+<en:thyme
+en:thyme in powder
+fr:thym en poudre
 
 <en:thyme
 en:thyme extract
@@ -56154,6 +56237,9 @@ fr:saumon cuit
 de:Lachs gekocht
 # ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
 
+<en:salmon
+fr:pulpe de saumon fumé
+
 #<en:salmon
 #fr:pavé de saumon d'élevage
 # no products
@@ -56485,6 +56571,10 @@ fr:filets de sardines
 it:filetti di sardine
 nl:sardinefilets
 # ingredient/fr:filets-de-sardines has 115 products in 5 languages @2019-05-06
+
+<en:sardine fillets
+en:precooked sardine fillets
+fr:filets de sardines précuits
 
 <en:sardine
 fr:sardines fraîches
@@ -59660,7 +59750,7 @@ fr:Gambas cuites
 en:giant tiger prawn, Asian tiger shrimp
 bg:гигантска тигрова скарида
 fa:میگوی ببری بزرگ
-fr:Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées
+fr:Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées, crevettes tropicales tigrées
 id:Udang windu
 ja:ウシエビ
 ko:블랙타이거
@@ -62098,6 +62188,8 @@ fr:filet de poulet traité en salaison cuit
 nl:verhitte gepekelde kipfilet
 # ingredient/fr:filet-de-poulet-traité-en-salaison-cuit has 4 products @2019-05-19
 
+<fr:filet de poulet traité en salaison cuit
+fr:préparation à base de filets de poulet traités en salaison
 
 <en:chicken meat
 fr:produit à base de viande de poulet
@@ -62402,6 +62494,9 @@ fr:viande de dinde traitée en salaison
 <en:turkey meat
 fr:Escalopes de dinde
 # ingredient/fr:escalopes-de-dinde has 22 products @2019-05-23
+
+<en:turkey meat
+fr:jambon de dinde cuit standard goût fumé
 
 <en:poultry
 fr:caille, cailles
@@ -64132,6 +64227,8 @@ nl:vermicelli
 # ingredient/fr:vermicelle has 41 products in 2 languages @2019-03-12
 # vermicelli (mungbonenzetmeel, maïszetmeel)
 
+<en:vermicelli
+fr:vermicelles cuits
 
 # description:en:BREAD is a staple food prepared from a dough of flour and water, usually by baking.
 
@@ -64399,7 +64496,7 @@ it:pane per toast
 # ingredient/fr:pain-de-mie has 104 products in 4 languages @2019-03-07
 
 <en:breadmeal
-fr:pain de mie complèt
+fr:pain de mie complet
 
 <en:special bread
 fr:pain au chocolat
@@ -64727,7 +64824,7 @@ tr:kaplama
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
 
 <en:coating
-fr:décor au cacao maigre, decor au cacao maigre
+fr:décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
 
 # comment:en:The inside part of an ice cream cone
 
@@ -65415,6 +65512,7 @@ wikidata:en:Q3401308
 # ingredient/fr:praliné has 344 products in 5 languages @2019-05-14
 # usage:fr:praliné (sucre de canne brut*, noisettes*, pâte de cacao*, beurre de cacao*)
 
+fr:bonbon au cacao maigre
 
 # description:en:A GLAZE in cooking is a coating of a glossy, often sweet, sometimes savoury, substance applied to food typically by dipping, dripping, or with a brush. Egg whites and basic icings are both used as glazes.
 
@@ -66307,6 +66405,11 @@ wikidata:en:Q178359
 wikipedia:en:https://en.wikipedia.org/wiki/Sauce
 # ingredient/sauce has 5701 products in 15 languages @2019-05-02
 
+<en:sauce
+fr:préparation deshydratée pour sauce
+
+<en:sauce
+fr:sauce au vinaigre balsamique
 
 # description:en:BÉCHAMEL SAUCE, also known as white sauce, is made from a white roux (butter and flour) and milk.
 
