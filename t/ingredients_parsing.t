@@ -23,7 +23,7 @@ is (normalize_enumeration("en", "phosphates", "calcium and sodium"), "calcium ph
 is (normalize_enumeration("en", "vegetal oil", "sunflower, palm"), "sunflower vegetal oil, palm vegetal oil");
 is (normalize_enumeration("fr", "huile", "colza, tournesol et olive"), "huile de colza, huile de tournesol, huile d'olive");
 
-my @lists =( 
+my @lists =(
 
 ["fr","Sel marin, blé, lécithine de soja", "Sel marin, blé, lécithine de soja"],
 ["fr","Vitamine A", "Vitamine A"],
@@ -44,23 +44,16 @@ my @lists =(
 ["fr","chlorures (sodium et potassium)", "chlorures de sodium, chlorures de potassium"],
 ["fr","chlorures (sodium, potassium)", "chlorures de sodium, chlorures de potassium"],
 ["fr","fraises 30%", "fraises 30%"],
-["fr","Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentré 1.4% (équivalent jus d'orange 7.8%), pulpe d'orange concentrée 0.6% (équivalent pulpe d'orange 2.6%), gélifiant (pectines), acidifiant (acide citrique), correcteurs d'acidité (citrate de calcium, citrate de sodium), arôme naturel d'orange, épaississant (gomme xanthane)), chocolat 24.9% (sucre, pâte de cacao, beurre de cacao, graisses végétales (illipe, mangue, sal, karité et palme en proportions variables), arôme, émulsifiant (lécithine de soja), lactose et protéines de lait), farine de blé, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre à lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, émulsifiant (lécithine de soja).",
-
- "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentré 1.4% (équivalent jus d'orange 7.8%), pulpe d'orange concentrée 0.6% (équivalent pulpe d'orange 2.6%), gélifiant (pectines), acidifiant (acide citrique), correcteurs d'acidité (citrate de calcium, citrate de sodium), arôme naturel d'orange, épaississant (gomme xanthane)), chocolat 24.9% (sucre, pâte de cacao, beurre de cacao, graisses végétales d'illipe, graisses végétales de mangue, graisses végétales de sal, graisses végétales de karité, graisses végétales de palme, arôme, émulsifiant (lécithine de soja), lactose et protéines de lait), farine de blé, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre à lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, émulsifiant (lécithine de soja)."],
-
-
+["fr","Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentré 1.4% (équivalent jus d'orange 7.8%), pulpe d'orange concentrée 0.6% (équivalent pulpe d'orange 2.6%), gélifiant (pectines), acidifiant (acide citrique), correcteurs d'acidité (citrate de calcium, citrate de sodium), arôme naturel d'orange, épaississant (gomme xanthane)), chocolat 24.9% (sucre, pâte de cacao, beurre de cacao, graisses végétales (illipe, mangue, sal, karité et palme en proportions variables), arôme, émulsifiant (lécithine de soja), lactose et protéines de lait), farine de blé, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre à lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, émulsifiant (lécithine de soja).", "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentré 1.4% (équivalent jus d'orange 7.8%), pulpe d'orange concentrée 0.6% (équivalent pulpe d'orange 2.6%), gélifiant (pectines), acidifiant (acide citrique), correcteurs d'acidité (citrate de calcium, citrate de sodium), arôme naturel d'orange, épaississant (gomme xanthane)), chocolat 24.9% (sucre, pâte de cacao, beurre de cacao, graisses végétales d'illipe, graisses végétales de mangue, graisses végétales de sal, graisses végétales de karité, graisses végétales de palme, arôme, émulsifiant (lécithine de soja), lactose et protéines de lait), farine de blé, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre à lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, émulsifiant (lécithine de soja)."],
 ["fr","graisses végétales (illipe, mangue, sal, karité et palme en proportions variables)", "graisses végétales d'illipe, graisses végétales de mangue, graisses végétales de sal, graisses végétales de karité, graisses végétales de palme"],
 ["fr","graisses végétales (illipe, mangue, palme)", "graisses végétales d'illipe, graisses végétales de mangue, graisses végétales de palme"],
 ["fr","graisses végétales (illipe)", "graisses végétales d'illipe"],
 ["fr","graisses végétales (illipe et sal)", "graisses végétales d'illipe, graisses végétales de sal"],
-
 ["fr","gélifiant pectine", "gélifiant : pectine"],
 ["fr","gélifiant (pectine)", "gélifiant (pectine)"],
-
 ["fr","agent de traitement de la farine (acide ascorbique)", "agent de traitement de la farine (acide ascorbique)"],
 ["fr","lait demi-écrémé", "lait demi-écrémé"],
 ["fr","Saveur vanille : lait demi-écrémé 77%, sucre", "Saveur vanille : lait demi-écrémé 77%, sucre"],
-
 ["fr","colorants alimentaires E (124,122,133,104,110)", "colorants : alimentaires E124, E122, E133, E104, E110"],
 ["fr","INS 240,241,242b","E240, E241, E242b"],
 ["fr","colorants E (124, 125, 120 et 122", "colorants : E124, E125, E120, E122"],
@@ -86,15 +79,14 @@ my @lists =(
  "edulcorantes (acesulfamo K y sucralosa), vitaminas (riboflavina (vitamina B2), cianocobalamina vitamina B12))"],
 ["es","aceites vegetales [aceite de girasol (70%) y aceite de oliva virgen (30%)] y sal",
  "aceites vegetales [aceite de girasol (70%), aceite de oliva virgen (30%)], sal"],
+["es","Trazas de cacahuete, huevo y frutos de cáscara.","Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
+["es","sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara.","sal y acidulante (ácido cítrico). Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 
 ["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"],
 ["fr","arômes naturels de citron et de limette","arômes naturels de citron, arômes naturels de limette"],
 ["fr","arôme naturel de pomme avec d'autres arômes naturels","arôme naturel de pomme, arômes naturels"],
 ["fr","jus de pomme, eau, sucre. Traces de lait.","jus de pomme, eau, sucre. traces éventuelles : lait."],
 ["fr","jus de pomme, eau, sucre. Traces possibles de céleri, moutarde et gluten.","jus de pomme, eau, sucre. Traces éventuelles : céleri, Traces éventuelles : moutarde, Traces éventuelles : gluten."],
-["es","Trazas de cacahuete, huevo y frutos de cáscara.","Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
-["es","sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara.","sal y acidulante (ácido cítrico). Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
-
 ["fr","jus de pomme, eau, sucre. Traces possibles de céleri, de moutarde et gluten.","jus de pomme, eau, sucre. Traces éventuelles : céleri, Traces éventuelles : moutarde, Traces éventuelles : gluten."],
 ["fr","Traces de moutarde","traces éventuelles : moutarde."],
 ["fr","Sucre de canne Traces éventuelles d'oeufs","Sucre de canne, Traces éventuelles : oeufs."],
@@ -116,7 +108,7 @@ foreach my $test_ref (@lists) {
 	print STDERR "preparsed: $preparsed\n";
 	my $expected = $test_ref->[2];
 	is (lc($preparsed), lc($expected)) or print STDERR "original ingredients: $ingredients ($l)\n";
-}	
+}
 
 
 done_testing();
