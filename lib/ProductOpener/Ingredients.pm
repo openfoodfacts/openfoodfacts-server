@@ -63,7 +63,6 @@ use ProductOpener::URL qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
-use Image::OCR::Tesseract 'get_ocr';
 use Encode;
 use Clone qw(clone);
 
