@@ -119,7 +119,7 @@ my %of = (
 	de => " von ",
 	es => " de ",
 	fr => " de | du | des | d'",
-	it => " di | d' ",
+	it => " di | d'",
 );
 
 my %and_of = (
