@@ -30463,12 +30463,19 @@ fr:eau de source gazéifiée, Eau minérale gazeuse
 nl:Bruisend mineraalwater, gashoudendmineraalwater
 # ingredient/fr:eau-minerale-gazeuse has 9 products @2019-06-02
 
+# comment:en:eau minérale naturelle gazéifiée implies that gas is present
+
 <en:natural mineral water
 en:carbonated natural mineral water, natural sparkling mineral water
 fr:eau minérale naturelle gazeuse
 nl:gashoudend natuurlijk mineraalwater
 
+# comment:en:eau minérale naturelle gazéifiée implies that gas is added
+
 <en:carbonated natural mineral water
+fr:eau minérale naturelle gazéifiée, eau minérale naturelle avec adjonction de gaz carbonique
+
+<fr:eau minérale naturelle gazéifiée
 fr:Eau minérale naturelle de Spa gazéifiée
 nl:Koolzuurhoudend Spa natuurlijk mineraalwater
 # ingredient/nl:koolzuurhoudend-spa-natuurlijk-mineraalwater has 1 product @2019-05-24
@@ -30481,9 +30488,6 @@ nl:natuurlijk gashoudend natuurlijk mineraalwater
 <en:carbonated natural mineral water
 fr:Eau minérale naturelle renforcée au gaz de la source
 # ingredient/fr:eau-minerale-naturelle-renforcee-au-gaz-de-la-source has 11 products in french @2019-05-24
-
-<en:carbonated natural mineral water
-fr:eau minérale naturelle avec adjonction de gaz carbonique
 
 <en:water
 en:filtered water, purified water
