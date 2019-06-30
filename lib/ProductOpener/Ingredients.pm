@@ -118,7 +118,7 @@ my %of = (
 	en => " of ",
 	de => " von ",
 	es => " de ",
-	fr => " de | du | des | d' ",
+	fr => " de | du | des | d'",
 	it => " di | d' ",
 );
 
