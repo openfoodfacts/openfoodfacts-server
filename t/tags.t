@@ -8,6 +8,7 @@ use Test::More;
 use Log::Any::Adapter 'TAP', filter => "none";;
 
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Store qw/:all/;
 
 
 ok (is_a( "categories", "en:beers", "en:beverages"), 'en:beers is a child of en:beverages');
@@ -85,8 +86,8 @@ is_deeply($product_ref,
      'en:fruits-and-vegetables-based-foods',
      'en:fruits-based-foods',
      'en:fruits',
-     'en:tropical-fruits',
      'en:apples',
+     'en:tropical-fruits',
      'en:bananas',
    ],
    'categories_lc' => 'fr',
@@ -96,8 +97,8 @@ is_deeply($product_ref,
      'en:fruits-and-vegetables-based-foods',
      'en:fruits-based-foods',
      'en:fruits',
-     'en:tropical-fruits',
      'en:apples',
+     'en:tropical-fruits',
      'en:bananas',
    ],
    'lc' => 'fr'
@@ -116,7 +117,7 @@ is($product_ref->{categories}, "pommes, bananes");
 
 add_tags_to_field($product_ref, "fr", "categories", "fraises");
 
-is($product_ref->{categories}, "Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments à base de fruits et de légumes, Fruits et produits dérivés, Fruits, Fruits tropicaux, Pommes, Bananes, fraises");
+is($product_ref->{categories}, "Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments à base de fruits et de légumes, Fruits et produits dérivés, Fruits, Pommes, Fruits tropicaux, Bananes, fraises");
 
 add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
 
@@ -129,10 +130,10 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits-and-vegetables-based-foods',
    'en:fruits-based-foods',
    'en:fruits',
-   'en:tropical-fruits',
    'en:apples',
-   'en:bananas',
    'en:berries',
+   'en:tropical-fruits',
+   'en:bananas',
    'en:plums',
    'en:raspberries',
  ]
@@ -150,11 +151,11 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits-and-vegetables-based-foods',
    'en:fruits-based-foods',
    'en:fruits',
-   'en:tropical-fruits',
    'en:apples',
-   'en:bananas',
    'en:berries',
    'en:citrus',
+   'en:tropical-fruits',
+   'en:bananas',
    'en:lemons',
    'en:oranges',
    'en:plums',
@@ -163,7 +164,7 @@ is_deeply($product_ref->{categories_tags},
 
 ) or diag explain $product_ref->{categories_tags};
 
-is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Frutas tropicales, Manzanas, Plátanos, Frutas del bosque, Ciruelas, Frambuesas, naranjas, limones");
+is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Manzanas, Frutas del bosque, Frutas tropicales, Plátanos, Ciruelas, Frambuesas, naranjas, limones");
 
 add_tags_to_field($product_ref, "it", "categories", "bogus, limone");
 compute_field_tags($product_ref, "it", "categories");
@@ -175,11 +176,11 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits-and-vegetables-based-foods',
    'en:fruits-based-foods',
    'en:fruits',
-   'en:tropical-fruits',
    'en:apples',
-   'en:bananas',
    'en:berries',
    'en:citrus',
+   'en:tropical-fruits',
+   'en:bananas',
    'en:lemons',
    'en:oranges',
    'en:plums',
@@ -324,5 +325,34 @@ is_deeply (\@tags, [
  ]
  ) or diag explain(\@tags);;
 
+ProductOpener::Tags::retrieve_tags_taxonomy("test");
+
+is(get_property("test","en:meat","vegan:en"), "no");
+is($properties{test}{"en:meat"}{"vegan:en"}, "no");
+is(get_inherited_property("test","en:meat","vegan:en"), "no");
+is(get_property("test","en:beef","vegan:en"), undef);
+is(get_inherited_property("test","en:beef","vegan:en"), "no");
+is(get_inherited_property("test","en:fake-meat","vegan:en"), "yes");
+is(get_inherited_property("test","en:fake-duck-meat","vegan:en"), "yes");
+is(get_inherited_property("test","en:yogurts","vegan:en"), undef);
+is(get_inherited_property("test","en:unknown","vegan:en"), undef);
+is(get_inherited_property("test","en:roast-beef","carbon_footprint_fr_foodges_value:fr"), 15);
+is(get_inherited_property("test","en:fake-duck-meat","carbon_footprint_fr_foodges_value:fr"), undef);
+
+my $yuka_uuid = "yuka.R452afga432";
+my $tagtype = "editors";
+
+is(get_fileid($yuka_uuid), $yuka_uuid);
+
+my $display_tag  = canonicalize_tag2($tagtype, $yuka_uuid);
+my $newtagid = get_fileid($display_tag);
+
+is($display_tag, $yuka_uuid);
+is($newtagid, $yuka_uuid);
+
+# make sure synonyms are not counted as existing tags
+is(exists_taxonomy_tag("additives", "en:n"), '');
+is(exists_taxonomy_tag("additives", "en:no"), '');
+is(exists_taxonomy_tag("additives", "en:e330"), 1);
 
 done_testing();

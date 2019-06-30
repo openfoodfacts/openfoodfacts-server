@@ -79,7 +79,7 @@ my $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 is($product_ref->{additives},
-' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
+' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
 );
 
 # vitamine C is not used as an additive (no fuction)
@@ -499,9 +499,9 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
-	"en:cupric-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
+	"en:cupric-sulfate",
                               ],
 );
 
@@ -574,10 +574,10 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:potassium-citrate",
 	"en:sodium-citrate",
 	"en:calcium-phosphate",
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
-	"en:cupric-sulphate",
-	"en:manganese-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
+	"en:cupric-sulfate",
+	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
                               ],
@@ -609,10 +609,10 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:potassium-citrate",
 	"en:sodium-citrate",
 	"en:calcium-phosphate",
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
-	"en:cupric-sulphate",
-	"en:manganese-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
+	"en:cupric-sulfate",
+	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
                               ],
@@ -943,11 +943,11 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 is_deeply($product_ref->{minerals_tags}, [
         "en:calcium-citrate",
-        "en:ferrous-sulphate",
-        "en:magnesium-sulphate",
-        "en:zinc-sulphate",
-        "en:cupric-sulphate",
-        "en:manganese-sulphate",
+        "en:ferrous-sulfate",
+        "en:magnesium-sulfate",
+        "en:zinc-sulfate",
+        "en:cupric-sulfate",
+        "en:manganese-sulfate",
         "en:sodium-citrate",
         "en:potassium-iodide",
         "en:potassium-hydroxide",
@@ -1004,13 +1004,13 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:sodium-citrate",
 	"en:potassium-phosphate",
 	"en:magnesium-phosphate",
-	"en:ferrous-sulphate",
-	"en:zinc-sulphate",
+	"en:ferrous-sulfate",
+	"en:zinc-sulfate",
 	"en:potassium-hydroxide",
 	"en:sodium-selenite",
 	"en:potassium-iodide",
-        "en:cupric-sulphate",
-        "en:manganese-sulphate",
+        "en:cupric-sulfate",
+        "en:manganese-sulfate",
                               ],
 );
 
@@ -1033,6 +1033,26 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-phosphate",
 	"en:calcium-carbonate",
 	"en:potassium-citrate",
+                              ],
+);
+
+
+$product_ref = {
+        lc => "en",
+        ingredients_text =>
+"copper carbonate"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+diag explain $product_ref->{additives};
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:cupric-carbonate",
                               ],
 );
 
@@ -1243,7 +1263,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e175',
           'en:e14xx',
           'en:e503i',
-          'en:e120',
+	  #'en:e120', # does not have color before it
           'en:e960',
           'en:e250',
 
@@ -1355,6 +1375,44 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"émulsifiants : E463, E432 et E472, correcteurs d'acidité : E322/E333 E474-E475
+",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+diag explain $product_ref->{additives};
+
+is_deeply($product_ref->{additives_original_tags}, [
+"en:e463",
+"en:e432",
+"en:e472",
+"en:e322",
+"en:e333",
+"en:e474",
+"en:e475",
+                              ],
+) or diag explain $product_ref->{additives_original_tags};
+
+
+$product_ref = {
+        lc => "es",
+        ingredients_text =>
+"Leche desnatada de vaca, enzima lactasa y vitaminas A, D, E y ácido fólico.",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+is_deeply($product_ref->{vitamins_tags}, [
+"en:vitamin-a",
+"en:vitamin-d",
+"en:vitamin-e",
+"en:folic-acid",
+                              ],
+) or diag explain $product_ref->{vitamins_tags};
 
 
 

@@ -1,3 +1,11 @@
+
+# FAO reference: http://www.fao.org/gsfaonline/reference/techfuncs.html?lang=en
+
+# agent de blanchiment de la farine
+stopwords:fr:la,les,des,du,de,d
+
+stopwords:es:de,del,la,las,los,una
+
 en: Acid, Acidifier
 ga: Aigéad
 da: Syre
@@ -42,13 +50,13 @@ description:sk:Kyseliny sú látky, ktoré zvyšujú kyslosť potravín a/alebo 
 description:sl:Kisline so snovi, ki povečajo kislost živila in/ali mu dajejo kisel okus.
 description:sv:Syror: ämnen som ökar surheten hos ett livsmedel och/eller ger det en syrlig smak.
 
-en: Acidity regulator
+en: Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent
 ga: Rialtán aigéadachta
 da: Surhedsregulerende middel
 el: Ρυθμιστής οξύτητας
-es: Corrector de acidez
+es: Corrector de acidez, correctores de acidez, regulador de la acidez, agente de regulación del pH, agente regulador, reguladores de acidez, soluciones reguladoras, álcali, base
 fi: Happamuudensäätöaine
-fr: Correcteur d’acidité
+fr: Correcteur d’acidité, régulateur de l'acidité, agent tampon, adjusteur du pH, alcali, base, tampon
 it: Correttori di acidità
 nl: Zuurteregelaar
 pt: Regulador de acidez
@@ -86,14 +94,14 @@ description:sk:Regulátory kyslosti sú látky, ktoré menia alebo upravujú kys
 description:sl:Sredstva za uravnavanje kislosti so snovi, ki spremenijo ali nadzirajo kislost ali alkalnost živila.
 description:sv:Surhetsreglerande medel: ämnen som förändrar eller styr ett livsmedels surhet eller alkalinitet.
 
-en: Anti-caking agent
+en: Anti-caking agent, anticaking agent, anti-stick agent, drying agent, dusting agent
 ga: Oibreán frithstolptha
 de: Rieselhilfe, Antiagglomerationsmittel
 da: Antiklumpningsmiddel
 el: Αντισυσσωματωτικό
-es: Antiaglomerante
+es: Antiaglomerante, antiaglutinante, agente antiadherente, agente antiaglutinante, angente de empolvo, agente de sacado
 fi: Paakkuuntumisenestoaine
-fr: Antiagglomérant, poudre de fleurage
+fr: Antiagglomérant, poudre de fleurage, agent antiadhésif, agent de pulvérisation sèche, agent dessicateur, anti-agglomérant
 it: Agenti antiagglomeranti
 nl: Antiklontermiddel
 pt: Antiaglomerante
@@ -130,12 +138,12 @@ description:sk:Protihrudkové činidlá sú látky, ktoré znižujú vzájomnú 
 description:sl:Sredstva proti sprijemanju so snovi, ki zmanjšujejo težnjo posameznih delcev v živilu, da bi se sprijemali med seboj.
 description:sv:Klumpförebyggande medel: ämnen som minskar tendensen hos enskilda partiklar i ett livsmedel att klumpa ihop sig.
 
-en: Anti-foaming agent
+en: Anti-foaming agent, de-foaming agent, antifoaming agent, defoaming agent
 ga: Oibreán frithchúrtha
 de: Schaumverhüter
 da: Skumdæmpningsmiddel
 el: Αντιαφριστικό
-es: Antiespumante
+es: Antiespumante, reductor de espuma, reductores de espuma
 fi: Vaahdonestoaine
 fr: Antimoussant
 it: Agenti antischiumogeni
@@ -174,13 +182,13 @@ description:sk:Protipeniace činidlá sú látky, ktoré zabraňujú vzniku peny
 description:sl:Sredstva proti penjenju so snovi, ki preprečujejo ali zmanjšujejo nastanek pene.
 description:sv:Skumdämpningsmedel: ämnen som förhindrar eller minskar skumbildning.
 
-en: Antioxidant
+en: Antioxidant, antibrowning agent, antioxidany synergist
 ga: Frithocsaídeoir
-de: Antioxidant
+de: Antioxidant, Antioxidations-mittel
 el: Αντιοξειδωτικό
-es: Antioxidante
+es: Antioxidante, antipardeamiento, sinérgicos de antioxidantes
 fi: Hapettumisenestoaine
-fr: Antioxydant, antioxygène
+fr: Antioxydant, antioxygène, antibrunissant, antioxydant synergique
 it: Antiossidanti
 pt: Antioxidante
 sv: Antioxidationsmedel
@@ -213,12 +221,19 @@ description:sk:Antioxidanty sú látky, ktoré predlžujú trvanlivosť potraví
 description:sl:Antioksidanti so snovi, ki podaljšajo rok uporabnosti živil tako, da jih ščitijo pred kvarjenjem, ki ga povzroča oksidacija, kot sta žarkost maščob in sprememba barve.
 description:sv:Antioxidationsmedel: ämnen som förlänger hållbarheten hos livsmedel genom att skydda dem från att försämras genom oxidering, som t.ex. härskning av fett och färgförändringar.
 
-en: Bulking agent
+en:Bleaching agent
+es:Decolorante, blanqueador, blanqueadores
+fr:Agent de blanchiment
+description:en:A food additive (non-flour use) used to decolourize food. Bleaching agents do not include pigments.
+description:es:Aditivos alimentarios utilizados (no en las harinas) para decolorar un alimento. Los decolorantes no contienen pigmentos.
+description:fr:Additif alimentaire utilisé pour décolorer des denrées alimentaires (mais pas la farine). Les pigments ne sont pas des agents de blanchiment.
+
+en: Bulking agent, filler
 ga: Toirteoir
 de: Füllstoff
 da: Fyldemiddel
 el: Διογκωτικό
-es: Incrementador de volumen
+es: Agente de carga, Incrementador de volumen, agente de relleno, incrementadores del volumen
 fi: Täyteaine
 fr: Agent de charge
 it: Agenti di carica
@@ -257,14 +272,29 @@ description:sk:Objemové činidlá sú látky, ktoré prispievajú k zväčšova
 description:sl:Sredstva za povečanje prostornine so snovi, ki povečajo prostornino živila, ne da bi bistveno povečale njegovo energetsko vrednost.
 description:sv:Fyllnadsmedel: ämnen som ökar ett livsmedels volym utan att väsentligt bidra till dess tillgängliga näringsvärde.
 
-en: Colour, color, colouring, coloring
+en: Carbonating agent
+es: Agente gasificante
+fr: Agent de carbonation
+description:en:A food additive used to provide carbonation in a food.
+description:es:Aditivos alimentarios utilizados para introducir dióxido de carbono en un alimento.
+description:fr:Additif alimentaire utilisé pour apporter du dioxyde de carbone à une denrée alimentaire.
+
+
+en: Carrier, carrier solvant, diluent for other food additives, encapsulating agent, nutrient carrier
+es: Agente encapsulador, diluyente de otros aditivos alimentarios, disolvente inerte, sustancia inerte, sustancia inerte portadora de nutriente
+fr: Support, agent d'encapsulation, diluant d'autres additifs alimentaires, solvant de support, support de nutriment
+description:en:A food additive used to dissolve, dilute, disperse or otherwise physically modify a food additive or nutrient without altering its function (and without exerting any technological effect itself) in order to facilitate its handling, application or use of the food additive or nutrient.
+description:es:Aditivos alimentarios que se utilizan para disolver, diluir, dispersar o modificar de otras maneras un aditivo alimentario o nutriente sin alterar su función (y sin generar por sí mismos efecto tecnológico alguno) con el fin de facilitar la manipulación, la aplicación o uso del aditivo alimentario o nutriente.
+description:fr:Additif alimentaire utilisé pour dissoudre, diluer, disperser ou modifier physiquement de toute autre façon un additif alimentaire ou un nutriment sans altérer sa fonction (et sans produire lui-même d’effet technologique) afin de faciliter sa manipulation, son application ou son utilisationde l’additif alimentaire ou du nutriment.
+
+en: Colour, color, colouring, coloring, decorative pigment, surface colorant
 ga: Dath
 de: Farbstoff
 da: Farve
 el: Χρωστική ουσία
-es: Colorante, color
+es: Colorante, color, colorante de superficie, pigmentos de coloración y decoración, pigmentos de coloración, pigmentos de decoración
 fi: Väri
-fr: Colorant
+fr: Colorant, colorant de surface, pigment décoratif, pigment colorant
 it: Coloranti
 nl: Kleuren
 pt: Corante
@@ -302,18 +332,20 @@ description:sl:Barvila so snovi, ki dodajo ali obnovijo barvo živila ter vsebuj
 description:sv:Färgämnen: ämnen som tillför eller återställer färg hos livsmedel, inklusive naturliga beståndsdelar i livsmedel och naturliga ursprungsmaterial, som normalt inte i sig konsumeras som livsmedel och som normalt inte används som en karakteristisk ingrediens i livsmedel.
 
 # http://www.fao.org/gsfaonline/additives/results.html?techFunction=10&searchBy=tf
-en:colour retention agent
-fr:agent de rétention de la couleur, fixateur de couleur
-wikidata:en:
+en:colour retention agent, colour adjunct, colour fixative, colour stabilizer
+es:Agente de retención de color, complementos del color, estabilizador del color, estabilizadores del color, fijadores del color, fijador del color
+fr:agent de rétention de la couleur, fixateur de la couleur, adjuvant de la couleur, stabilisant de la couleur, agent de rétention de couleur, fixateur de couleur, adjuvant de couleur, stabilisant de couleur
+description:es:Aditivos alimentarios que estabilizan, retienen o intensifican el color de un alimento.
+description:fr:Additif alimentaire qui stabilise, retient ou intensifie la couleur d’une denrée alimentaire.
 
-en: Emulsifier
+en: Emulsifier, clouding agent, crystallization inhibitor, density adjustment agent, dispersing agent, plasticizer, surface active agent, suspension agent
 ga: Eiblitheoir
 de: Emulgator
 da: Emulgator
 el: Γαλακτωματοποιητής
-es: Emulgente, Emulsificante
+es: Emulgente, Emulsificante, emulsionante, agente dispersante, agente enturbiador, agentes enturbiadores, agente tensoactivo, corrector de la densidad, estabilizadores de una suspensión, estabilizador de una suspensión, inhibidor de la cristalización, plastificante
 fi: Emulgointiaine
-fr: Émulsifiant
+fr: Émulsifiant, agent de dispersion, agent de surface, agent de suspension, agent d'ajustement de la densité, inhibiteur de cristalisation, nébulisant, plastifiant
 it: Emulsionanti
 nl: Emulgator
 pt: Emulsionante
@@ -350,14 +382,14 @@ description:sk:Emulgátory sú látky, ktoré umožňujú vytvoriť alebo zachov
 description:sl:Emulgatorji so snovi, ki omogočajo nastanek ali ohranjanje homogene mešanice dveh ali več medsebojno nezdružljivih faz, kot sta olje in voda, v živilu.
 description:sv:Emulgeringsmedel: ämnen som gör det möjligt att skapa eller bibehålla en homogen blandning av två eller flera icke blandbara faser som olja och vatten i ett livsmedel.
 
-en: Emulsifying salts
+en: Emulsifying salts, emulsifying salt synergist, melding salt
 ga: Salainn eiblithe
 de: Schmelzsalze
 da: Smeltesalt
 el: Γαλακτωματοποιητικά άλατα
-es: Sales fundentes, Sales emulsionantes
+es: Sales fundentes, Sales emulsionantes, sales de mezcla, sinergista de sal emulsionante, sales de fundido
 fi: Sulatesuola
-fr: Sels émulsifiants
+fr: Sels émulsifiants, sel émulsifiant, sels de fonte, sel de fonte, synergiste de sel émulsifiant
 it: Sali di fusione
 nl: Smeltzout
 pt: Sais de fusão
@@ -399,9 +431,9 @@ ga: Oibreán teannta
 de: Festigungsmittel
 da: Konsistensmiddel
 el: Σκληρυντικό
-es: Endurecedor
+es: Endurecedor, Agentes endurecedores, Agente endurecedor
 fi: Kiinteyttämisaine
-fr: Affermissant
+fr: Affermissant, agent affermissant
 it: Agenti di resistenza
 nl: Verstevigingsmiddel
 pt: Agente de endurecimento
@@ -438,14 +470,14 @@ description:sk:Stužovadlá sú látky, ktoré spevňujú tkanivá ovocia a zele
 description:sl:Utrjevalci so snovi, ki omogočajo ali ohranjajo čvrstost sadja ali zelenjave ali v povezavi z želirnimi sredstvi tvorijo ali utrdijo žele.
 description:sv:Konsistensmedel: ämnen som gör eller håller frukt eller grönsaker fasta eller spröda eller som reagerar med geleringsmedel och bildar eller förstärker ett gel.
 
-en: Flavour enhancer
+en: Flavour enhancer, flavour synergist, flavor enhancer
 ga: Méadaitheoir blais
 de: Geschmacksverstärker
 da: Smagsforstærker
 el: Ενισχυτικό γεύσης
-es: Potenciador del sabor
+es: Potenciador del sabor, potenciadores del sabor, Acentuadores del sabor, acentuadores del aroma, aromatizantes sinergistas
 fi: Arominvahvenne
-fr: Exhausteur de goût, Exaltateur d'arôme, agent de sapidité
+fr: Exhausteur de goût, Exaltateur d'arôme, agent de sapidité, activateur d'arôme, exaltateur de goût, exhausteur d'arôme
 it: Esaltatori di sapidità
 nl: Smaakversterker
 pt: Intensificador de sabor
@@ -482,14 +514,14 @@ description:sk:Zvýrazňovače chuti a arómy sú látky, ktoré zvýrazňujú e
 description:sl:Ojačevalci arome so snovi, ki izboljšajo obstoječi okus in/ali vonj živila.
 description:sv:Smakförstärkare: ämnen som förstärker den existerande smaken och/eller lukten hos ett livsmedel.
 
-en: Flour treatment agent
+en: Flour treatment agent, dough conditioner, dough strengthening agent, flour bleaching agent, flour improver, flour treatment agent
 ga: Oibreán plúrchóireála
 de: Mehlbehandlungsmittel
 da: Melbehandlingsmiddel
 el: Βελτιωτικό αλεύρων
-es: Agente de tratamiento de la harina
+es: Agente de tratamiento de la harina, acondicionadores de masa, acondicionador de masa, blanqueadores de las harinas, blanqueador de la harina, mejoradores de harinas, mejorador de la harina, reforzadores de la masa, reforzador de la masa
 fi: Jauhonparanne
-fr: Agent de traitement de la farine
+fr: Agent de traitement de la farine, agent de blanchiment de la farine, agent de conditionnement des pâtes, agent de réhaussement des pâtes, améliorant de la farine
 it: Agenti di trattamento della farina
 nl: Meelverbeteraar
 pt: Agente de tratamento da farinha
@@ -526,14 +558,14 @@ description:sk:Látky na zlepšenie vlastností múky sú látky iné ako emulg�
 description:sl:Sredstva za obdelavo moke so snovi, razen emulgatorjev, ki so dodane moki ali testu za izboljšanje njunih pecilnih lastnosti.
 description:sv:Mjölbehandlingsmedel: andra ämnen än emulgeringsmedel som tillförs mjöl eller deg för att förbättra dess bakegenskaper.
 
-en: Foaming agent
+en: Foaming agent, aerating agent, foaming agent, whipping agent
 ga: Oibreáin chúrtha
 de: Schaummittel
 da: Skumdannende middel
 el: Αφριστικοί παράγοντες
-es: Espumante
+es: Espumante, agente de aireación, agente de batido, agente espumante
 fi: Vaahdotusaine
-fr: Agent moussant
+fr: Agent moussant, agent d'aération, agent fouettant, moussant
 it: Agenti schiumogeni
 nl: Schuimmiddel
 pt: Agente espumante
@@ -575,9 +607,9 @@ ga: Oibreán glóthúcháin
 de: Geliermittel
 da: Geleringsmiddel
 el: Πηκτωματογόνο
-es: Gelificante
+es: Gelificante, Agente gelificante
 fi: Hyytelöimisaine
-fr: Gélifiant
+fr: Gélifiant, Agent gélifiant
 it: Gelificanti
 nl: Geleermiddel
 pt: Gelificante
@@ -614,13 +646,13 @@ description:sk:Želírujúce činidlá sú látky, ktoré vytvorením gélu tvor
 description:sl:Želirna sredstva so snovi, ki dajejo živilu teksturo s tvorbo želeja.
 description:sv:Geleringsmedel: ämnen som ger ett livsmedel struktur genom att bilda ett gel.
 
-en: Glazing agent
+en: Glazing agent, coating agent, film forming agent, polishing agent, sealing agent, surface-finishing agent
 ga: Oibreán glónrúcháin
 de: Überzugsmittel
 el: Υλικό για γλασάρισμα
-es: Agente de recubrimiento
+es: Agente de recubrimiento, Agente de glaseado, agente de abrillantado, agente de acabado en superficie, agente de glaseado, agente de revestimiento, agente formadores de película, agente sellantes
 fi: Pintakäsittelyaine
-fr: Agent d’enrobage
+fr: Agent d’enrobage, agent de conditionnement hermétique, agent de finition superficielle, agent de polissage, filmogène
 it: Agenti di rivestimento
 nl: Glansmiddel
 pt: Agente de revestimento
@@ -656,12 +688,13 @@ description:sk:Polevové činidlá (vrátane lubrikantov) sú látky, ktoré pri
 description:sl:Sredstva za glaziranje so snovi (vključno z mazivi), ki dajejo živilu lesk ali tvorijo zaščitno oblogo na njegovi zunanji površini.
 description:sv:Ytbehandlingsmedel (inklusive smörjmedel): ämnen som ger ett blankt utseende eller ett skyddande skikt när de appliceras på ytan av ett livsmedel.
 
-en: Humectant
+en: Humectant, moisture retention agent, water retention agent, wetting agent
 ga: Taisleán
 de: Feuchthaltemittel
 el: Υγροσκοπικό μέσο
-es: Humectante
+es: Humectante, agente humectante, agente de retención del agua, agentes de retención de la humedad
 fi: Kosteudensäilyttäjä
+fr: Humectant, agent de rétention d'eau, agent de rétention d'humidité, mouillant, agent mouillant
 it: Umidificanti
 nl: Bevochtigingsmiddel
 pt: Humidificante
@@ -719,14 +752,21 @@ ro: Amidon modificat
 bg: Модифицирано нишесте
 wikidata:en:Q415766
 
-en: Preservative
+en:Packaging gas
+es:Gas de envasado, Gases de envasado
+fr:Gaz de conditionnement
+description:en:A food additive gas, which is introduced into a container before, during or after filling with food with the intention to protect the food, for example, from oxidation or spoilage.
+description:es:Aditivos alimentarios gaseosos, introducidos en un envase antes, durante o después de su llenado con un alimento, con la intención de proteger el alimento, por ejemplo, de la oxidación o descomposición.
+description:fr:Additif alimentaire gazeux, qui est introduit dans un conteneur pendant, durant ou après son remplissage avec une denrée alimentaire avec l’intention de protéger l’aliment par exemple de l’oxydation ou de l’altération.
+
+en: Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent
 ga: Leasaitheach
 de: Konservierungsstoff
 da: Modificeret stivelse
 el: Συντηρητικό
-es: Conservante, Conservador
+es: Conservante, Conservador, agente conservador, agente antimicótico, agente de control de bacteriófagos, agente fungistático, agentes inhibidores de mohos y hongos filamentosos, conservadores antimicrobianos, conservador antimicrobiano, sustancias conservadoras, sustancia conservadora, conservadores
 fi: Säilöntäaine
-fr: Conservateur
+fr: Conservateur, agent antimoisissure et antifilant, agent antimoisissure, antifilant, agent antimycoses, agent de conservation, agent de conservation antimicrobien, agent de contrôle bactériologique, antimicrobien synergique, agent antimicrobien, antimicrobien, fongiostatique, agent antifongique
 it: Conservanti
 nl: Conserveermiddel
 pt: Conservante
@@ -812,7 +852,7 @@ ga: Oibreán éiritheach
 de: Treibgas
 da: Drivgas
 el: Διογκωτικό αρτοποιίας
-es: Gasificante
+es: Gasificante, Leudante, Agente leudante
 fi: Nostatusaine
 fr: Poudre à lever, Agent levant, agent de levuration
 it: Agenti lievitanti
@@ -895,14 +935,14 @@ description:sk:Komplexotvorné látky (sekvestranty) sú látky, ktoré tvoria c
 description:sl:Veziva so snovi, ki tvorijo kemične komplekse s kovinskimi ioni.
 description:sv:Komplexbildare: ämnen som bildar kemiska komplex med metalljoner.
 
-en: Stabiliser
+en: Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, foam stabilizer, stabilizer synergist
 ga: Cobhsaitheoir
 de: Stabilisator
 da: Kompleksdannere
 el: Σταθεροποιητής
-es: Estabilizador
+es: Estabilizador, estabilizadores, estabilizadores coloidales, estabilizadores de emulsión, estabilizadores de espuma, estabilizador coloidal, estabilizador de emulsión, estabilizador de espuma, sinergistas estabilizadores, estabilizante, estabilizantes
 fi: Stabilointiaine
-fr: Stabilisant
+fr: Stabilisant, liant, stabilisateur colloïdal, stabilisateur d'émulsion, stabilisateur de mousse,
 it: Stabilizzanti
 nl: Stabilisator
 pt: Estabilizador
@@ -939,14 +979,14 @@ description:sk:Stabilizátory sú látky, ktoré umožňujú zachovať fyzikáln
 description:sl:Stabilizatorji so snovi, ki vzdržujejo fizikalno-kemično stanje živila; stabilizatorji vključujejo snovi, ki vzdržujejo homogeno razpršenost dveh ali več snovi, ki se v živilu med seboj ne mešajo, snovi, ki stabilizirajo, ohranijo ali poudarijo obstoječo barvo živila, ter snovi, ki povečajo sposobnost vezave živil, vključno z nastankom navzkrižnih povezav med beljakovinami, ki omogočajo vezavo delcev živil v rekonstituiranih živilih.
 description:sv:Stabiliseringsmedel: ämnen som gör det möjligt att bevara ett livsmedels fysikaliska och kemiska tillstånd; stabiliseringsmedel inkluderar ämnen som gör det möjligt att bibehålla en homogen blandning av två eller flera icke blandbara ämnen i ett livsmedel, ämnen som stabiliserar, bevarar eller förstärker ett livsmedels existerande färg samt ämnen som ökar ett livsmedels bindande egenskaper, inklusive bildande av tvärgående bindningar mellan proteiner så att bitar av livsmedel kan bindas samman till ett rekonstituerat livsmedel.
 
-en: Sweetener
+en: Sweetener, bulk sweetener, intense sweetener
 ga: Milseoir
 de: Süßungsmittel
 da: Kompleksdannere
 el: Γλυκαντικό
-es: Edulcorante, Endulzante
+es: Edulcorante, Endulzante, edulcorante intenso, edulcorante masivo
 fi: Makeutusaine
-fr: Édulcorant
+fr: Édulcorant, édulcorant de charge, édulcorant intense
 it: Edulcoranti
 nl: Zoetstof
 pt: Edulcorante
@@ -984,14 +1024,14 @@ description:sk:Sladidlá sú látky, ktoré sa používajú na dodanie sladkej c
 description:sl:Sladila so snovi, ki se uporabljajo za sladkanje živil ali kot namizna sladila.
 description:sv:Sötningsmedel: ämnen som används för att ge livsmedel söt smak eller i bordssötningsmedel.
 
-en: Thickener
+en: Thickener, bodying agent, texturizing agent, thickener synergist
 ga: Tiúsóir
 de: Verdickungsmittel
 da: Sødestof
 el: Πυκνωτικό μέσο
-es: Espesante
+es: Espesante, agente de soporte, agente texturizador, agentes texturizadores, aglutinante, sinergista espesante
 fi: Sakeuttamisaine
-fr: Épaississant
+fr: Épaississant, agent de texture, épaississan synergiste, raffermissant
 it: Addensanti
 nl: Verdikkingsmiddel
 pt: Espessante
