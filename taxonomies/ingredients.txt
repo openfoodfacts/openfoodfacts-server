@@ -42,7 +42,7 @@ stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with
 stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo
 stopwords:fi:sisältää
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets souleves
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:id:mengandung
@@ -537,7 +537,7 @@ el:Πυκνωτικό μέσο
 es:Espesante
 et:Paksendaja
 fi:Sakeuttamisaine
-fr:épaississant, Épaississant, agent épaississant, agents épaississants
+fr:épaississant, Épaississant, agent épaississant, agents épaississants, épaissisant
 ga:Tiúsóir
 hu:Sűrítőanyag
 it:Addensanti
@@ -616,6 +616,8 @@ sl:Imazalil
 wikidata:en:Q421576
 wikipedia:en:https://en.wikipedia.org/wiki/Enilconazole
 # ingredient/fr:imazalil has 23 products @2019-05-29
+
+fr:friture
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1222,6 +1224,9 @@ pl:cukier skarmelizowanny
 sv:karamellisoitu sokeri
 # ingredient/caramelised-sugar-syrup has 56 products @2019-03-09
 
+<en:caramel
+fr:caramel au lait
+
 # plain caramel can be used as food colorant E150a
 
 <en:caramel
@@ -1352,7 +1357,7 @@ wikidata:en:Q13081740
 en:aromatic caramel
 de:aromatisches Karamell
 es:caramelo aromático
-fr:caramel aromatique
+fr:caramel aromatique, sirop de glucose caramélisé
 it:caramello aromatico
 nl:aromatische karamel, aromatiserende karamel
 pl:aromat karmelowy
@@ -1415,70 +1420,6 @@ sv:Vegetabiliskt kol
 wikidata:en: Q59557415
 # ingredient/fr:charbon%20végétal%20médicinal has 82 products in 6 languages @2019-04-05
 
-# description:en:The term carotene is used for many related unsaturated hydrocarbon substances having the formula C40Hx. Carotenes are responsible for the orange colour of the carrot. Carotene is also used as a substance to colour products such as juice, cakes, desserts, butter and margarine.
-
-en:carotene, E160a, E-160a, E 160a, INS160a, INS-160a, INS 160a, SIN160a, SIN-160a, SIN 160a
-ar:كاروتين
-be:Карацін
-bg:Каротин
-bs:Karoten
-ca:Carotè
-cs:karoten
-da:Karotin
-de:Karotin
-el:καρωτίνιο
-eo:karoteno
-es:Caroteno
-et:Karoteenid
-eu:Karoteno
-fa:کاروتن
-fi:karoteeni
-fr:carotène, carotènes
-ga:Caraitéin
-gl:Caroteno
-he:קרוטן
-hu:Karotin, Karotinok
-hy:Կարոտին
-id:karotena
-io:Karotino
-it:carotene, caroteni
-ja:カロテン
-ko:카로틴
-lt:karotenas
-mk:Каротин
-mn:Каротин
-ms:Karotena
-my:ကဲရော့တင်း
-nb:karoten
-nl:caroteen, carotenen
-nn:karoten
-pl:karoten, karoteny
-pt:caroteno, carotenos
-ro:Caroten, caroteni
-ru:каротин
-sh:Karoten
-sk:karotén
-sr:Karoten
-sv:karotin
-th:แคโรทีน
-tr:karoten
-uk:Каротин
-zh:胡蘿蔔素
-# sco:carotene
-# sr-el:Каротен
-# sr-el:Karoten
-# wuu:胡萝卜素
-# yue:胡蘿蔔素
-# zh-cn:胡萝蔔素
-# zh-hans:胡萝蔔素
-# zh-hant:胡蘿蔔素
-# zh-hk:胡蘿蔔素
-# zh-sg:胡萝蔔素
-# zh-tw:胡蘿蔔素
-wikidata:en:Q190156
-wikipedia:en:https://en.wikipedia.org/wiki/Carotene
-# usage:pl:barwnik:karoteny
-# usage:en:dye (e160a)
 
 # description:en:Carotenoids are yellow, orange, and red organic pigments that are produced by plants and algae, as well as several bacteria and fungi. Carotenoids from the diet are stored in the fatty tissues of animals. There is insufficient evidence to state that carotenoids have an antioxidant function in humans or that carotenoid dietary supplements lower the risk of or prevent diseases.
 # comment:en:Translations mix carotene and carotenoids.
@@ -1544,28 +1485,7 @@ wikidata:en:Q191907
 wikipedia:en:https://en.wikipedia.org/wiki/Carotenoid
 # ingredient/fr:caroténoïde has 2195 products in 12 languages @2019-04-29
 
-<en:carotene
-fr:colorant e160a
-
-<en:carotene
-en:mixed carotenes, E160ai, E-160ai, E 160ai, INS160ai, INS-160ai, INS 160ai, SIN160ai, SIN-160ai, SIN 160ai
-de:gemischte Carotine
-fr:carotènes mélangés, caroténoïdes mélangés
-it:caroteni misti
-nl:diverse carotenen
-# ingredient/fr:carotènes-mélangés has 24 products in 5 languages @2019-03-16
-# usage:fr: colorant: carotènes mélangés
-
-# comment:en:The names are listed under vitamin A.
-
-<en:E160a
-<en:vitamin A
-en:E160aii, E-160aii, E 160aii, INS160aii, INS-160aii, INS 160aii, SIN160aii, SIN-160aii, SIN 160aii
-
-
-fr:e160b
-
-
+# <en:paprika
 en:paprika extract, e160c
 da:paprikaekstrakt
 de:Paprikaextrakt
@@ -1615,12 +1535,6 @@ nl:capsicum-extract
 wikidata:en:Q53792073
 # en:capsicum-extract has 16 products in 2 languages @2018-10-15
 
-# comment:en:E160 is not a valid E-number. It should be one of underlying numbers. 
-
-<en:E160a
-# <en:E160b
-en:E160
-nl:E160
 
 # description:en:LUTEIN is a xanthophyll and one of 600 known naturally occurring carotenoids. Lutein is extracted from the petals of African marigold (Tagetes erecta). It is approved for use in the EU and Australia and New Zealand. In the United States lutein may not be used as a food coloring for foods intended for human consumption, but can be added to animal feed.
 
@@ -1719,6 +1633,8 @@ pl:Czerwień buraczana
 pt:vermelho beterraba
 sv:rödbetsrött
 # fr:rouge-de-betterave has 426 products in 7 languages @2018-10-21
+carbon_footprint_fr_foodges_ingredient:fr:Betteraves
+carbon_footprint_fr_foodges_value:fr:0.2
 
 <en:colour
 en:anthocyanin, anthocyanins, E163, E-163, E 163
@@ -3719,33 +3635,6 @@ sv:Askorbylpalmitat
 wikidata:en:Q424521
 # ingredient/fr:e304i has 17 products in french @2018-11-27
 # additive/e304i-ascorbyl-palmitate has 433 products in 12 languages @2018-11-27
-
-
-# Ascorbyl stearate (C24H42O7) is an ester formed from ascorbic acid and stearic acid.
-
-<en:E304
-en:Ascorbyl stearate, E304ii
-es:Estearato ascorbilo
-fa:اسکوربیل استیرات
-fr:Stéarate d'ascorbyle
-hu:Aszkorbil-sztearát
-it:Stearato di ascorbile
-ja:ステアリン酸アスコルビル
-lt:Askorbilo stearatas
-nl:Ascorbylstearaat
-pl:stearynian askorbylu
-sh:Askorbil stearat
-sr:Askorbil stearat
-# azb:اسکوربیل استیرات
-# en-ca:Ascorbyl stearate
-# eb-gb:Ascorbyl stearate
-wikidata:en:Q286793
-wikipedia:en:https://en.wikipedia.org/wiki/Ascorbyl_stearate
-# additive/e304ii-ascorbyl-stearate has 1 product in french @2018-11-27
-
-
-<en:E304ii
-en:E305
 
 
 # comment:en:For the Vitamin application of tocopherol, see the vitamins section<en:antioxidant
@@ -6210,12 +6099,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_chloride
 
 # comment:en:magnesium chloride is listed under en:magnesium
 
-# description:en:E511 - Magnesium chloride is the name for the chemical compound with the formula MgCl2 and its various hydrates MgCl2(H2O)x. Magnesium chloride is an important coagulant used in the preparation of tofu from soy milk. In Japan it is sold as nigari (にがり, derived from the Japanese word for "bitter"), a white powder produced from seawater after the sodium chloride has been removed, and the water evaporated. It is also an ingredient in baby formula milk.
-# comment:en:magnesium chloride can be used as an additive and as a mineral. The additive description is therefor kept separate.
-
-<en:magnesium chloride
-en:E511, E-511, E 511, INS511, INS-511, INS 511, SIN511, SIN-511, SIN 511
-
 
 # description:en:Bittern is a bitter-tasting solution that remains after precipitation of halite (common salt) from brines and/or seawater. It is rich in magnesium chlorides, sulfates, bromides, iodides, and other chemicals present in the original waters.
 # comment:en:Nigari is NOT the same as magnesium chloride, as it also contains other salts. It has been kept as a separate ingredient.
@@ -6311,15 +6194,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_sulfate
 # mineral/calcium-sulphate has 2466 products in 6 languages @2019-05-11
 # usage:it:coagulo:cloruro di magnesio, solfato di calcio
 
-
-# description:en:MANGANESE SULFATE usually refers to the inorganic compound with the formula MnSO4·H2O. Magnesium sulfate is used as a brewing salt in making beer. It may also be used as a coagulant for making tofu.
-# comment:en:The ingredient is listed under en:mineral.
-
-<en:manganese sulfate
-en:E518, E-518, E 518, INS518, INS-518, INS 518, SIN518, SIN-518, SIN 518
-
-<en:copper sulfate
-en:E519, E-519, E 519, INS519, INS-519, INS 519, SIN519, SIN-519, SIN 519
 
 
 # description:en:SODIUM HYDROXIDE is an inorganic compound with the formula NaOH. uses of sodium hydroxide include washing or chemical peeling of fruits and vegetables, chocolate and cocoa processing, caramel coloring production, poultry scalding, soft drink processing, and thickening ice cream. Olives are often soaked in sodium hydroxide for softening; Pretzels and German lye rolls are glazed with a sodium hydroxide solution before baking to make them crisp.
@@ -7367,13 +7241,6 @@ fr:agent d'enrobage cire de carnauba
 it:agenti di rivestimento cera di carnauba
 nl:glansmiddel carnaubawas
 # ingredient/fr:agent-d’enrobage-cire-de-carnauba has 45 products in 4 languages @2019-03-08
-
-# comment:en:Calcium iodate seems to more a mineral than an additive
-
-<en:calcium iodate
-en:E916, E-916, E 916, INS916, INS-916, INS 916, SIN916, SIN-916, SIN 916
-# additive/e916-calcium-iodate has 81 products in 2 languages @2019-05-08
-
 
 # description:en:SHELLAC is a resin secreted by the female lac bug, on trees in the forests of India and Thailand. It is processed and sold as dry flakes (pictured) and dissolved in alcohol to make liquid shellac, which is used as a brush-on colorant, food glaze and wood finish. 
 
@@ -13000,6 +12867,7 @@ de:ungesalzene Butter
 fr:beurre doux
 nl:ongezouten boter
 carbon_footprint_fr_foodges_ingredient:fr:Beurre doux
+carbon_footprint_fr_foodges_value:fr:9.5
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_doux
 
 # BEURRE DEMI-SEL - en:Butter avec une salinité moyenne de 0,5 % à 3 %
@@ -13393,6 +13261,8 @@ zu:Ubisi
 # yue:奶
 wikipedia:en:https://en.wikipedia.org/wiki/Milk
 vegetarian:en:yes
+carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
+carbon_footprint_fr_foodges_value:fr:1.2
 
 <en:milk
 en:sterilised milk
@@ -13554,6 +13424,7 @@ fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé, la
 de:pasteurisierte magermilch
 nl:gepasteuriseerde halfvolle melk
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
+carbon_footprint_fr_foodges_value:fr:1.2
 
 <en:organic semi-skimmed milk
 <en:UHT pasteurised milk
@@ -13819,6 +13690,9 @@ nl:gepasteuriseerde schapenmelk
 <en:sheeps milk
 fr:lait de brebis thermisé
 
+<en:sheeps milk
+fr:lait entier de brebis
+
 ################################# BUFFALO MILKS ##########################
 
 <en:milk
@@ -14023,7 +13897,7 @@ fr:poudre de lait écrémé
 fr:lait origine france en poudre écrémé
 
 <en:milk powder
-fr:lait en poudre demi-écrémé, lait en poudre partiellement écrémé, 
+fr:lait en poudre demi-écrémé, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé
 nl:halfvolle poedermelk
 pt:leite meio gordo em pó
 # ingredient/fr:lait-en-poudre-demi-ecreme has 8 products @2019-05-31
@@ -14041,7 +13915,7 @@ fr:lait écrémé à base de poudre de lait
 fr:produits laitiers en poudre
 
 <en:milk powder
-en:skimmed milk  powder
+en:skimmed milk powder
 de:Magermilchpulver
 es:leche desnatada en polvo
 fr:lait en poudre écrémé, lait écrémé en poudre
@@ -14065,6 +13939,9 @@ pt:leite entero em pó, leite em pó gordo
 sk:sušené plnotučné mlieko
 sv:helmjölkspulver
 
+<en:whole milk powder
+<en:skimmed milk powder
+fr:poudres de lait écrémé et entier
 
 <en:milk
 fr:lait écrémé reconstitué
@@ -14274,6 +14151,7 @@ fr:yaourt
 it:yogurt
 nl:Joghurt
 carbon_footprint_fr_foodges_ingredient:fr:Yaourt
+carbon_footprint_fr_foodges_value:fr:2.9
 vegetarian:en:yes
 
 <en:yogurt
@@ -14281,9 +14159,13 @@ en:organic yogurt
 nl:biologische yoghurt
 
 <en:yogurt
-fr:yogourt maigre
+fr:yoaourt maigre
+it:yogurt magro
 nl:magere yoghurt
 # ingredient/nl:magere-yoghurt has 1 product @2019-05-24
+
+<fr:yaourt maigre
+fr:yaourt maigre en poudre
 
 <en:yogurt
 fr:yogourt au lait pasteurisé
@@ -14300,9 +14182,6 @@ fr:yaourt en poudre
 <en:yogurt
 fr:yaourt brassé sucré
 
-<en:yogurt
-fr:yaourt maigre
-it:yogurt magro
 
 <en:yogurt
 en:whole yogurt
@@ -14312,7 +14191,7 @@ it:yogurt intero
 <en:yogurt
 fr:yaourt au lait entier
 
-
+<en:yogurt
 de:Sahnejoghurt
 
 <en:yogurt
@@ -14391,7 +14270,7 @@ vegetarian:en:maybe
 <en:whey
 en:whey powder, powdered whey
 de:Molkenpulver
-fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre
+fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre de lactosérum
 it:siero di latte in polvere
 nl:weipoeder
 
@@ -14420,7 +14299,6 @@ en:Demineralised whey
 fr:lactosérum déminéralisé
 nl:Gedemineraliseerde wei
 
-<en:Demineralised whey
 
 <en:Demineralised whey
 fr:lactosérum partiellement déminéralisé, petit lait partiellement déminéralisé
@@ -14436,7 +14314,7 @@ nl:Geconcentreerde wei
 <en:whey
 en:whey product, whey based formula
 de:Molkenerzeugnis, formel auf molkebasis
-fr:produit de lactosérum, produit de petit-lait, produit à base de lactosérum, préparation à base de lactosérum
+fr:produit de lactosérum, produit de petit-lait, produit à base de lactosérum, préparation à base de lactosérum, dérivé de lactosérum
 it:derivati del siero di latte, la preparazione del siero di latte
 # ingredient/fr:produit-de-lactosérum has 22 products in 4 languages @2019-02-07
 # ingredient/fr:préparation-à-base-de-lactosérum has 34 products @2019-03-18
@@ -14453,7 +14331,8 @@ en:whey permeate powder
 de:Molkepermeat Pulver
 fr:perméat de petit lait en poudre
 
-# CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
+
+# description:en:CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 
 en:cream
 af:Room
@@ -14532,12 +14411,13 @@ zh:鮮奶油
 # yue:忌廉
 wikipedia:en:https://en.wikipedia.org/wiki/Cream
 vegetarian:en:yes
-
+carbon_footprint_fr_foodges_ingredient:fr:Crème, 40% MG, pasteurisée
+carbon_footprint_fr_foodges_value:fr:4.2
 
 <en:cream
 en:pasteurized cream
 de:pasteurisierte Sahne
-fr:crème pasteurisé
+fr:crème pasteurisée, crème de lait pasteurisée
 # ingredient/fr:crème-pasteurisé has 86 products in 4 languages @2019-02-03
 
 <en:Pasteurized cream
@@ -14563,13 +14443,20 @@ fr:crème stérilisée
 fr:crème uht
 # ingredient/fr:crème-uht has 100 products @2019-02-03
 
+<fr:crème stérilisée
+<fr:crème uht
+fr:crème stérilisée uht
+
 <en:cream
 en:light cream
 de:leichte Sahne
-fr:crème légère, Crème fraîche légère
+fr:crème légère, Crème fraîche légère, Crème légère fraîche
 it:crema leggera
 nl:Lichte room
-# ingredient/fr:crème%20légère has 399 products in 8 languages @2019-02-03
+# ingredient/fr:crème-légère has 399 products in 8 languages @2019-02-03
+
+<en:light cream
+fr:crème fraîche légère epaisse
 
 # Recipes calling for 'single cream' are referring to pure or thickened cream with about 35% fat.
 <en:cream
@@ -14784,6 +14671,9 @@ wikidata:en:Q106612
 wikipedia:en:https://en.wikipedia.org/wiki/Buttermilk
 vegetarian:en:yes
 # ingredient/fr:babeurre has 166 products in 4 languages @2018-11-15
+
+<en:buttermilk
+fr:babaurre pasteurisé
 
 <en:buttermilk
 en:buttermilk powder
@@ -15033,6 +14923,12 @@ vegetarian:en:maybe
 vegan:en:no
 # en:cheese has 579 products in 10 languages @2018-10-28
 
+<en:cheese
+fr:fromages râpées sechés
+carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte dure (type emmental)
+carbon_footprint_fr_foodges_value:fr:5.6
+carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte molle (type camembert)
+carbon_footprint_fr_foodges_value:fr:4.3
 
 <en:cheese
 # <en:pasteurized
@@ -15096,6 +14992,7 @@ zh:契福瑞芝士
 wikidata:en:Q198815
 wikipedia:en:https://en.wikipedia.org/wiki/Goat_cheese
 carbon_footprint_fr_foodges_ingredient:fr:Fromage frais de chèvre
+carbon_footprint_fr_foodges_value:fr:3.6
 # fr:fromage de chèvre has 391 products in 6 languages @2018-10-27
 
 <fr:fromage de chèvre
@@ -15158,24 +15055,31 @@ fr:fromage frais
 it:formaggio fresco
 nl:Zachte witte kaas
 carbon_footprint_fr_foodges_ingredient:fr:Fromage frais 58% MG
+carbon_footprint_fr_foodges_value:fr:3.5
 # fr:fromage-frais has 474 products @2018-10-28
 
-<fr:fromage frais
+<en:soft white cheese
 fr:fromage frais au lait demi-écrémé
 
-<fr:fromage frais
+<en:soft white cheese
+fr:fromage frais au lait demi-écrémé pasteurisé
+
+<en:soft white cheese
 fr:fromage frais à 0% de matière grasse
 
-# fr:fromage-fondu is a compound ingredient
+<en:soft white cheese
+fr:fromage frais à la ciboulette
 
+# <en:compound
 <en:cheese
+en:melted cheese
 fr:fromage fondu
 de:Schmelzkäse
 it:formaggio fuso
 nl:smeltkaas
 # fr:fromage-fondu has 420 products in 5 languages @2018-10-28
 
-<fr:fromage fondu
+<en:melted cheese
 en:melted powdered cheese
 de:Schmelzkäsepulver
 fr:fromage fondu en poudre
@@ -15314,6 +15218,7 @@ wikidata:en:Q131480
 wikipedia:en:https://en.wikipedia.org/wiki/Camembert
 # ingredient/fr:camembert has 23 products @2019-02-17
 carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte molle (type camembert)
+carbon_footprint_fr_foodges_value:fr:4.3
 
 <en:camembert
 fr:camembert au lait pasteurisé
@@ -15384,6 +15289,9 @@ wikidata:en:Q217525
 wikipedia:en:https://en.wikipedia.org/wiki/Cheddar_cheese
 # fr:fromage-cheddar has 39 products @2018-10-27
 # en:cheddar has 366 products @2018-10-27
+
+<en:cheddar
+fr:cheddar orange
 
 <en:cheddar
 fr:cheddar fondu
@@ -15535,6 +15443,7 @@ zh:埃文達芝士
 wikidata:en:Q932214
 wikipedia:en:https://en.wikipedia.org/wiki/Emmental_cheese
 carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte dure (type emmental)
+carbon_footprint_fr_foodges_value:fr:5.6
 # fr:emmental has 1931 products in 9 languages @2018-10-27
 
 <en:emmental
@@ -16161,6 +16070,9 @@ de:schnittfester mozzarella
 fr:Mozzarella affinée
 nl:Geharde mozzarella
 sv:skivbar mozzarella
+
+<en:mozzarella
+fr:mozzarella râpée
 
 # PARMIGIANO-REGGIANO is an Italian hard, granular cheese.
 # This is a compound product, i.e.:Parmigiano reggiano (pasteurized cow's milk, rennet, salt, enzymes)
@@ -17082,7 +16994,7 @@ eu:B2 bitamina
 fa:ویتامین ب۲
 fi:Riboflaviini
 fo:Riboflavin, Vitamin B2
-fr:riboflavine, vitamine b2
+fr:riboflavine, vitamine b2, B2
 ga:Ribeaflaivin
 gl:Riboflavina, Vitamina B2
 he:ויטמין B2
@@ -17328,7 +17240,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pantothenic_acid
 # Should this be split up in several chemical compounds?
 
 <en:vitamins
-en:vitamin b6, pyridoxamine
+en:vitamin b6, pyridoxamine, B6
 ar:فيتامين بي6
 az:Piridoksalfosfat
 bg:Витамин B6
@@ -17344,7 +17256,7 @@ et:Vitamiin B6
 eu:B6 bitamina
 fa:ویتامین ب۶
 fi:B6-vitamiini
-fr:vitamine b6
+fr:vitamine b6, B6
 fy:Fitamine B6
 gl:Vitamina B6
 gu:વિટામિન બી૬
@@ -18327,6 +18239,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Salt
 carbon_footprint_fr_foodges_ingredient:fr:Sel
 vegan:en:yes
 vegetarian:en:yes
+carbon_footprint_fr_foodges_value:fr:0.5
 
 <en:Salt
 en:finegrained salt
@@ -18560,16 +18473,42 @@ it:estratto di manzo
 nl:rundvleesextrakt
 # ingredient/fr:extrait-de-bœuf has 110 products in 4 languages @2019-04-14
 
-<en:beef
-fr:cœur de bœuf, coeur de boeuf
-# ingredient/fr:cœur-de-bœuf has 17 products in french @2019–02-12
 
 <en:beef meat
-fr:pure viande de bœuf
-# 7@2019-06-06
+en:cooked beef meat
+fr:viande de bœuf cuite, viande bovine cuite, bœuf cuit
+
 
 <en:beef meat
 fr:Viande bovine fraîche protégée sous vide
+
+<en:beef meat
+fr:viande-bovine-de-race-charolaise
+
+<en:beef meat
+fr:viande bovine hachée
+
+<en:beef meat
+fr:viande bovine origine france
+
+<en:beef meat
+fr:viande bovine halal
+
+<en:beef meat
+fr:carpaccio de boeuf
+
+<en:beef meat
+fr:viande hachée de bœuf, viande hachée de boeuf
+
+fr:extrait de viande de bœuf, extrait de viande de boeuf
+
+<fr:viande hachée de bœuf
+fr:préparation viande hachée de boeuf
+
+<en:beef meat
+fr:cœur de bœuf, coeur de boeuf
+# ingredient/fr:cœur-de-bœuf has 17 products in french @2019–02-12
+
 
 <en:beef meat
 en:cooked beef meat, cooked beef
@@ -18578,6 +18517,12 @@ fr:viande de bœuf cuite, viande de boeuf cuite, bœuf cuit, boeuf cuit
 it:manzo cotto
 nl:gekookt rundvlees
 # ingredient/fr:bœuf-cuit has 58 products in 4 languages @2019-04-02
+
+<en:beef meat
+fr:viande de boeuf mise en oeuvre
+
+<en:beef meat
+fr:viande de boeuf en poudre, viande de boeuf deshydratée
 
 <en:beef
 fr:foie de boeuf
@@ -18667,11 +18612,12 @@ nl:lamsvlees
 nn:lammekjøtt
 sv:Lammkött
 wikidata:en:Q643419
+carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
+carbon_footprint_fr_foodges_value:fr:55
 # ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
 
 # <en:meat
 # fr:cotelettes d'agneau
-# carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
 
@@ -18811,12 +18757,13 @@ zh:兔
 wikidata:en:Q9394
 wikipedia:en:https://en.wikipedia.org/wiki/Rabbit
 
-<fr:lapin
+<en:rabbit
 <en:meat
 en:rabbit meat
 fr:viande de lapin
 # ingredient/rabbit-meat has 109 products in french @2019-04-19
 carbon_footprint_fr_foodges_ingredient:fr:Lapin
+carbon_footprint_fr_foodges_value:fr:8.1
 
 
 # description:en:Domestic sheep (Ovis aries) are quadrupedal, ruminant mammals typically kept as livestock.  Sheep are raised for fleeces, meat (lamb, hogget or mutton) , fat and milk. 
@@ -19110,7 +19057,14 @@ de:Ziegenfleisch
 es:carne de cabra
 nl:geitenvlees
 
+
+en:pork
+de:Schweinefleisch
+fr:porc
+it:suino
+
 <en:meat
+<en:pork
 en:pork meat
 de:Schweinefleisch
 es:carne de cerdo
@@ -19118,23 +19072,19 @@ fr:viande de porc
 it:carne di suino
 nl:Varkensvlees
 carbon_footprint_fr_foodges_ingredient:fr:Viande de porc
+carbon_footprint_fr_foodges_value:fr:7.4
 # Facteur GES kg CO2 eq / kg d'ingrédient en sortie de magasin (poids net)
 carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
-<en:pork meat
-en:pork
-de:Schweinefleisch
-fr:porc
-it:suino
 
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
 # comment:en:Product translations can be wrong. The wikidata page translations often refers to disambiguations. Are these translations any good?
 
 # <en:skin
-# <en:pork
+<en:pork
 en:pork rind
 af:Couenne
 an:Couenne
@@ -19328,6 +19278,7 @@ nl:spekjes
 wikidata:en:Q3217888
 wikipedia:en:https://en.wikipedia.org/wiki/Lardon
 carbon_footprint_fr_foodges_ingredient:fr:Lardons
+carbon_footprint_fr_foodges_value:fr:5.6
 
 <en:lardon
 en:smoked lardoons
@@ -19336,47 +19287,42 @@ fr:lardon fumé, lardons fumés
 <en:lardon
 en:cooked lardoons
 es:jamón cocido
+fr:lardons cuits
 
 <en:smoked lardoons
 en:smoked cooked lardoons
 de:Speckwürfel gekocht und geräuchert
-fr:lardons cuits fumés
+fr:lardons cuits fumés, lardons cuits fumés rissolés
 pt:toucinho cozido fumado
 # ingredient/fr:lardons-cuits-fumés has 168 products in 8 languages @2019-05-10
 # usage:de:Speckwürfel gekocht und geräuchert (Schweinebrust, Wasser, Glukosesirup, Salz, natürliche Aromen, Gemüsebrühe, Fermente)
 
 
 <en:pork meat
-fr:pièces de tête de porc
+fr:jarret avant de porc
 
 <en:pork meat
-fr:morceaux de tête de porc
+fr:pièces de tête de porc, morceaux de tête de porc
 
-<en:pork meat
-fr:jambon de porc
-
-
-<fr:jambon de porc
-fr:jambon de porc issu d'animaux nourris sans ogm
-
-<fr:jambon de porc
-fr:jambon de porc frais
 
 <en:pork meat
 fr:langue de porc
 
-<fr:jambon de porc
-fr:jambon de porc français
-
 <en:pork meat
 fr:noix de jambon de porc
+
+<en:pork meat
+fr:filet et pointe de porc
+
+<en:pork meat
+fr:palette de porc
 
 <en:pork meat
 fr:Côtes de porc
 # ingredient/fr:cotes-de-porc has 8 products @2019-05-29
 
 <en:pork meat
-fr:carré de porc
+fr:carré de porc, carré
 
 <en:pork meat
 fr:viande porc
@@ -19391,7 +19337,7 @@ fr:filet mignon de porc
 fr:échine de porc
 
 <en:pork meat
-fr:jambon frais de porc
+fr:viande de porc cuite
 
 <en:pork meat
 fr:viande de porc traitée en salaison
@@ -19399,25 +19345,49 @@ fr:viande de porc traitée en salaison
 <fr:viande de porc traitée en salaison
 fr:viande de porc traitée en salaison et précuite
 
+<en:pork meat
 en:ham
 de:Schinken
-fr:jambon
+fr:jambon de porc, jambon
 it:prosciutto
 
 <en:ham
+fr:jambon de porc issu d'animaux nourris sans ogm
+
+<en:ham
+fr:jambon de porc frais, jambon frais de porc
+
+
+<en:ham
+fr:jambon de porc français
+
+<en:ham
+en:raw ham
 fr:jambon cru
 
-<en:ham
-fr:jambon cuit choix
+<en:raw ham
+fr:jambon cru fumé
 
 <en:ham
+en:cooked ham
 fr:jambon cuit
 
-<en:ham
+<en:cooked ham
+fr:jambon cuit choix
+
+<fr:jambon cuit choix
+fr:jambon cuit choix fumé
+
+
+<en:cooked ham
 fr:jambon cuit standard
 
-<en:ham
+<en:cooked ham
+en:superior cooked ham
 fr:jambon cuit supérieur
+
+<en:superior cooked ham
+fr:jambon cuit de qualité supérieure avec couenne jambon de porc
 
 en:pork by-product
 fr:sous-produit du porc
@@ -19434,7 +19404,6 @@ fr:protéines de sang de porc
 
 <en:pork by-product
 fr:sang de porc
-
 
 <en:pork by-product
 fr:plasma de porc
@@ -19507,38 +19476,18 @@ fr:fond de porc
 
 
 
-<en:beef meat
-fr:viande bovine
-
-<en:beef meat
-fr:viande-bovine-de-race-charolaise
-
-<fr:viande bovine
+# viande bovine in ingredients refers to (aged) beef, not veal
+#<fr:viande bovine
+<en:veal
 en:veal meat
 de:Kalbsfleisch
 fr:viande de veau
 carbon_footprint_fr_foodges_ingredient:fr:Viande de veau France
+carbon_footprint_fr_foodges_value:fr:20.5
 
-<en:veal meat
+en:veal
 fr:veau
 
-<en:beef meat
-fr:viande bovine hachée
-
-<en:beef meat
-fr:viande bovine origine france
-
-<en:beef meat
-fr:viande bovine halal
-
-<en:beef meat
-fr:viande de bœuf, viande de boeuf, pure viande bovine
-carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
-
-
-
-<en:beef meat
-fr:viande hachée de bœuf, viande hachée de boeuf
 
 # <en:bone
 fr:os de veau
@@ -19564,7 +19513,7 @@ nl:collageendarm
 # boyau collagénique (collagène, glycérine, cellulose)
 
 <en:casing
-#<en:beef meat
+<en:beef
 en:beef casing
 de:Rinderdarm
 fr:boyau de bœuf, boyau de boeuf
@@ -19584,6 +19533,7 @@ fr:boyau naturel de mouton
 # ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
 
 <en:casing
+<en:pork
 en:pork casing, pork gut
 de:Schweinedarm
 fr:boyau de porc
@@ -19592,15 +19542,6 @@ it:budello di maiale
 
 <fr:boyau de porc
 fr:boyau naturel de porc
-
-fr:cœur de bœuf
-
-fr:bœuf cuit
-
-<en:beef meat
-en:cooked beaf meat
-fr:viande de bœuf cuite
-
 
 
 # <en:broth
@@ -19616,26 +19557,38 @@ fr:jus de cuisson de viande de bœuf, jus de cuisson de viande de boeuf
 fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande de boeuf
 # ingredient/fr:jus-concentré-d’os-et-de-viande-de-bœuf has 14 products in 2 languages @2019-02-12
 
-
 <en:meat
-en:beef meat
+<en:beef
+en:beef meat, pure beef meat
 de:Rindfleisch
-fr:viande de bœuf, viande de boeuf
+fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine, pure viande de boeuf
 nl:Rundvlees
+carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
+carbon_footprint_fr_foodges_value:fr:35.8
 
 fr:extrait de viande de bœuf, extrait de viande de boeuf
 
 # SAUSAGES
+
 <en:meat
 fr:saucisse de porc
 carbon_footprint_fr_foodges_ingredient:fr:Saucisse de porc
+carbon_footprint_fr_foodges_value:fr:5.5
+
+<fr:saucisse de porc
+fr:saucisses pur porc fumées
 
 <fr:saucisse de porc
 fr:saucisses de toulouse grillées
 # treatment:en:gril
 
+<en:meat
 fr:saucisson de porc
 carbon_footprint_fr_foodges_ingredient:fr:Saucisson de porc
+carbon_footprint_fr_foodges_value:fr:5.1
+
+<en:meat
+fr:saucisse de strasbourg
 
 fr:plasma déshydraté
 # ingredient/fr:plasma-déshydraté has 46 products in french @2019-02-10
@@ -20097,8 +20050,6 @@ fr:gras de mouton
 nl:schaapsvet
 # ingredient/fr:gras-de-mouton has 41 products in 3 languages @2019-03-01
 
-<en:pork by-product
-<en:animal fat
 
 # description:en:LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
 
@@ -20187,6 +20138,8 @@ pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
 vegan:en:yes
 vegetarian:en:yes
+carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
+carbon_footprint_fr_foodges_value:fr:2.6
 
 # In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
 
@@ -20237,6 +20190,9 @@ zh:植物油
 # roa-rup:Untulemnu
 # sco:Vegetable ile
 wikipedia:en:https://en.wikipedia.org/wiki/Vegetable_oil
+
+<en:vegetable oil
+fr:huile végétale raffinée
 
 <en:vegetable oil and fat
 en:vegetable fat, vegetal fat, vegetable fats
@@ -20505,7 +20461,7 @@ et:Kookosõli
 eu:Koko olio
 fa:روغن نارگیل
 fi:Kookosöljy
-fr:huile de coco, huile de noix de coco, huile de coprah, coprah, graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco, huile végétale de coco
+fr:huile de coco, huile de noix de coco, huile de coprah, coprah, graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco, huile végétale de coco, huile végétale de coprah
 ga:Aceite de coco
 he:שמן קוקוס
 hi:नारियल तेल
@@ -20558,10 +20514,13 @@ fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
 fr:huile de coco vierge biologique, huile vierge de noix de coco bio
 
 <en:coconut oil
-fr:huile de coco non hydrogénée
+fr:huile de coco non-hydrogénée
 
 <en:coconut oil
 fr:huile de noix de coco totalement hydrogénée, huile de coprah totalement hydrogénée
+
+<en:coconut oil
+fr:huile de noix de coco totalement hydrogénée et non-hydrogénée
 
 <en:vegetable fat
 # producedFrom:en:coconut
@@ -20593,7 +20552,7 @@ et:Oliiviõli
 eu:Oliba olio
 fa:روغن زیتون
 fi:oliiviöljy
-fr:huile d'olive
+fr:huile d'olive, huiles végétales d'olive
 gl:Aceite de oliva
 he:שמן זית
 hi:जैतून का तेल
@@ -20656,6 +20615,7 @@ zh:橄欖油
 wikipedia:en:https://en.wikipedia.org/wiki/Olive_oil
 wikidata:en:Q93165
 carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
+carbon_footprint_fr_foodges_value:fr:2.6
 
 <en:olive oil
 en:virgin olive oil
@@ -20723,7 +20683,7 @@ de:Rapsöl
 el:κραμβέλαιο
 es:aceite de colza, aceite de nabina
 fi:rapsiöljy, rypsiöljy
-fr:huile de colza, huile végétale de colza, huile colza, colza
+fr:huile de colza, huile végétale de colza, huile colza, colza, graisses végétales de colza, graisses vegetales de colza
 hr:repičino ulje
 hu:repceolaj
 it:olio di colza
@@ -20739,6 +20699,7 @@ sv:rapsolja
 wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 wikidata:en:Q697248
 carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
+carbon_footprint_fr_foodges_value:fr:2.2
 
 <en:colza oil
 en:organic colza oil
@@ -21083,7 +21044,7 @@ de:Shea Butter
 el:λίπος shea
 eo:karitea butero
 fi:Karitevoi
-fr:beurre de karité, matière grasse de karité, karité
+fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité
 he:חמאת שיאה
 hr:shea maslac
 it:Burro di karité
@@ -21253,7 +21214,7 @@ et:Päevalilleõli
 eu:ekilore-olio
 fa:روغن آفتاب‌گردان
 fi:auringokukkaöljy, Auringonkukkaöljy
-fr:huile de tournesol, huile de graines de tournesol, huile tournesol, huile végétale de tournesol
+fr:huile de tournesol, huile de graines de tournesol, huile tournesol, huile végétale de tournesol, graisses végétales de tournesol
 gl:Aceite de xirasol
 he:שמן חמניות
 hu:napraforgóolaj
@@ -21349,6 +21310,7 @@ fr:huile de tournesol pressée à froid
 nl:koudgeperste zonnebloemolie
 pt:óleo de girassol prensado a frio
 carbon_footprint_fr_foodges_ingredient:fr:Huile Tournesol
+carbon_footprint_fr_foodges_value:fr:1.6
 
 <en:sunflower oil
 # en:organic
@@ -21659,6 +21621,8 @@ zh:醋
 wikipedia:en:https://en.wikipedia.org/wiki/Vinegar
 vegan:en:yes
 vegetarian:en:yes
+carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
+carbon_footprint_fr_foodges_value:fr:4.2
 
 <en:vinegar
 en:wine vinegar
@@ -21668,6 +21632,7 @@ fr:vinaigre de vin
 it:aceto di vino
 nl:wijnazijn
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
+carbon_footprint_fr_foodges_value:fr:4.2
 
 <en:wine vinegar
 en:white wine vinegar
@@ -22620,6 +22585,8 @@ zh:葡萄酒
 # zh-hant:葡萄酒
 wikidata:en:Q282
 wikipedia:en:https://en.wikipedia.org/wiki/Wine
+carbon_footprint_fr_foodges_ingredient:fr:Vin France
+carbon_footprint_fr_foodges_value:fr:1.4
 # en:wine has 4233 products in 6 languages @2018-10-29
 
 <en:wine
@@ -22634,6 +22601,7 @@ nl:biologische wijn
 <en:wine
 fr:vin de France, vin français
 carbon_footprint_fr_foodges_ingredient:fr:Vin France
+carbon_footprint_fr_foodges_value:fr:1.4
 
 # description:en:SPARKLING WINE is a wine with significant levels of carbon dioxide in it, making it fizzy. Sparkling wine is usually either white or rosé, but there are examples of red sparkling wines.
 
@@ -22865,7 +22833,8 @@ nl:biologische rode wijn
 
 <en:red wine
 en:red wine from France
-fr:vin rouge de France, vin rouge issu du cepage pinot noir, vin rouge issu des cepages merlot, vin rouge puy de dome igp, vin bordeaux rouge, vin rouge bordeaux, vin rouge bordeaux aoc, vin rouge coteaux du lyonnais, vin rouge cote de brouilly
+fr:vin rouge de France, vin rouge issu du cepage pinot noir, vin rouge issu des cepages merlot, vin rouge puy de dome igp, vin bordeaux rouge, vin rouge bordeaux, vin rouge bordeaux aoc, vin rouge coteaux du lyonnais, vin rouge cote de brouilly, vin rouge de Bourgogne
+
 
 # 2019-05-29
 
@@ -23281,6 +23250,7 @@ fr:bière
 it:birra
 nl:Bier
 carbon_footprint_fr_foodges_ingredient:fr:Bière
+carbon_footprint_fr_foodges_value:fr:2.7
 
 <fr:bière
 fr:bière blonde
@@ -23349,7 +23319,6 @@ en:artificial flavouring, artificial flavour, artificial flavor, artificial flav
 de:künstliches Aroma
 fr:arôme artificiel, arômes artificiels
 
-
 # <en:compound
 <en:flavouring
 fr:base aromatisante barbecue
@@ -23375,6 +23344,9 @@ fr:arôme naturel d'agrumes, arômes naturels d'agrumes
 de:natürliche Zitrusfruchtaromen
 nl:natuurlijke aroma's van citrusvruchten
 
+<en:natural flavouring
+fr:arôme naturel d'aneth
+
 # comment:en:Two parents due to and/or ingredient
 
 <fr:arôme naturel d'agrumes
@@ -23387,6 +23359,18 @@ nl:natuurlijke aroma's van citrusvruchten met andere natuurlijke aroma's
 nn:naturlig sitrusaroma med andre naturlige aromaer
 sv:naturlig citrusarom med andra naturliga aromer
 
+<en:flavouring
+en:orange flavouring
+fr:arôme d'orange
+
+<en:flavouring
+en:sour orange flavouring
+fr:arôme d'orange amère
+
+<en:natural flavouring
+en:natural sour orange flavouring
+fr:arôme naturel d'orange amère
+
 <en:natural flavouring
 en:natural orange flavouring, natural orange flavor
 de:natürlichen Orangenaroma
@@ -23398,6 +23382,10 @@ lt:natūralios apelsino kvapiosios medžiagos
 lv:apelsīnu dabīgs aromatizētājs
 nl:natuurlijk sinaasappelaroma
 pt:aroma de laranja natural
+
+<en:natural flavouring
+en:natural rum flavouring
+fr:arôme naturel de rhum
 
 # Two parents due to and/or ingredient
 
@@ -23426,6 +23414,9 @@ nl:natuurlijk citroenaroma
 pt:aroma natural de limão
 ru:натуральный ароматизатор лимон
 
+<en:natural flavouring
+fr:arômes naturels de réglisse
+
 # Two parents due to and/or ingredient
 
 <en:natural flavouring
@@ -23433,6 +23424,14 @@ ru:натуральный ароматизатор лимон
 fr:arôme naturel de citron avec autres arômes naturels, arômes naturels de citron avec autres arômes naturels, arôme naturel de citron et autres arômes naturels
 de:natürliches Zitronenaroma mit anderen natürliche Aromen
 it:aroma naturale di limone con altri aromi naturali
+
+<en:natural flavouring
+<en:natural lemon flavouring
+fr:arôme naturel de framboise avec autres arômes naturels
+
+<en:natural flavouring
+<en:natural lemon flavouring
+fr:arôme naturel de pamplemousse avec autres arômes naturels
 
 <en:natural flavouring
 # derivedFrom:en:lime
@@ -23454,8 +23453,55 @@ nl:natuurlijke citroen en limoen aromas
 fr:arôme naturel de citron vert avec autres arômes naturels
 # 25@2109-06-06
 
+<en:flavouring
+en:grapefruit flavouring
+fr:arôme de pamplemousse
+
 <en:natural flavouring
+<en:grapefruit flavouring
+en:grapefruit natural flavouring
 fr:arôme naturel de pamplemousse
+
+<en:grapefruit natural flavouring
+en:pink grapefruit natural flavouring
+fr:arôme naturel de pamplemousse rose
+
+<en:flavouring
+fr:arôme de sureau
+
+<en:natural flavouring
+en:natural tarragon flavouring
+fr:arôme naturel d'estragon
+
+<en:natural flavouring
+fr:arôme naturel de réglisse
+
+<en:natural flavouring
+en:natural fruits flavouring
+fr:arôme naturel de fruit, arômes naturels de fruit
+
+<en:natural flavouring
+en:natural chicken flavouring
+fr:arôme naturel de poulet, arôme naturel de poule
+
+<en:natural flavouring
+en:natural cinammon flavouring
+fr:arôme naturel de cannelle
+
+<en:natural flavouring
+en:natural oregano flavouring
+fr:arôme naturel d'origan
+
+<en:natural flavouring
+en:rum natural flavouring
+fr:arôme naturel de rhum
+
+<en:natural flavouring
+fr:arôme naturel de sureau
+
+<en:flavouring
+en:apple flavouring
+fr:arôme de pomme
 
 <en:natural flavouring
 en:natural apple flavouring
@@ -23479,9 +23525,9 @@ fr:arôme naturel d'abricot
 
 <en:flavouring
 # derivedFrom:en:strawberry
-en:strawberry flavour
+en:strawberry flavouring
 de:Erdbeergeschmack
-fr:arôme flavouring
+fr:arôme de fraise
 nl:aardbeienaroma
 
 # Question
@@ -23506,6 +23552,22 @@ de:natürliches Pfefferaroma
 fr:arôme naturel de poivre, arôme naturel poivre, arômes naturels de poivre
 it:aroma naturale di pepe
 
+<en:natural flavouring
+en:natural laurel flavouring
+fr:arôme naturel de laurier, arome naturel de laurier
+
+<en:natural flavouring
+en:natural estragon flavouring
+fr:arôme naturel d'estragon, arome naturel d'estragon
+
+<en:natural estragon flavouring
+fr:arôme naturel d'estragon avec autres arômes naturels
+
+<en:natural flavouring
+en:natural paprika flavor, natural flavor of paprika
+fr:arôme naturel de paprika
+
+
 # Two parents due to and/or ingredient
 
 <en:natural flavouring
@@ -23513,17 +23575,9 @@ it:aroma naturale di pepe
 fr:arôme naturel de poivre avec autres arômes naturels
 
 <en:natural flavouring
-en:natural paprika flavor, natural flavor of paprika
-fr:arôme naturel de paprika
-
-<en:natural flavouring
 en:natural spice flavouring
 de:natürliches Gewürzaroma
 fr:arôme naturel d'épices
-
-fr:extraits d'épice
-
-fr:extraits naturels d'épices
 
 <en:natural flavouring
 en:natural flavor of turmeric
@@ -23673,20 +23727,32 @@ it:aroma naturale di vaniglia con altri aromi naturali
 nl:natuurlijk vanillearoma met andere natuurlijke aroma's, natuurlijk vanille aroma en andere natuurlijke aroma's
 
 
-# Two parents due to and/or ingredient
-
 <en:natural flavouring
-<en:natural mint flavouring
-fr:arôme naturel de menthe avec autres arômes naturels
-de:natürliches Pfefferminzaroma mit anderen natürlichen Aromen
-
-<en:natural flavouring
+en:natural thyme flavouring
 fr:arôme naturel de thym
+
+<en:natural flavouring
+en:natural tea flavouring
+fr:arôme naturel de thé
 
 <en:natural flavouring
 fr:arôme naturel de muscade
 
+<en:flavouring
+en:mint flavouring
+fr:arôme de menthe
+
+<en:flavouring
+en:peppermint flavouring
+fr:arôme de menthe poivrée
+
 <en:natural flavouring
+<en:peppermint flavouring
+en:natural pepperming flavouring
+fr:arôme naturel de menthe poivrée
+
+<en:natural flavouring
+<en:mint flavouring
 en:natural mint flavouring, natural mint flavours, natural mints flavor
 de:natürliches Minzaroma
 es:aroma natural de menta
@@ -23708,12 +23774,14 @@ fr:arôme naturel de noisette
 
 <en:natural flavouring
 # derivedFrom:en:almond
+en:natural almond flavouring
 fr:arôme naturel d'amande
 de:natürliches Mandelaroma
 it:aroma naturale di mandorle
 
 <en:natural flavouring
 # derivedFrom:en:bitter almond
+en:natural sour almond flavouring
 fr:arôme naturel d'amande amère
 
 <en:flavouring
@@ -23722,6 +23790,7 @@ fr:arôme caramel
 nl:caramelaroma
 
 <en:natural flavouring
+en:natural pork flavouring
 fr:arôme naturel de porc
 
 <en:natural flavouring
@@ -23768,6 +23837,49 @@ nl:frambozenaroma
 <en:flavouring
 fr:arôme fleur d'oranger
 nl:sinaasappelbloemaroma
+
+<en:flavouring
+en:citrus flavouring
+fr:arôme d'agrume
+
+<en:natural flavouring
+<en:citrus flavouring
+en:natural citrus flavouring
+fr:arôme naturel d'agrumes
+
+<en:natural flavouring
+en:natural cocoa flavouring
+fr:arôme naturel de cacao
+
+<en:flavouring
+en:seafood flavouring
+fr:arôme de fruits de mer
+
+<en:flavouring
+en:fruit flavouring
+fr:arôme de fruit, arômes de fruits
+
+<en:flavouring
+en:passion fruit flavouring
+fr:arôme de fruit de la passion
+
+<en:flavouring
+en:celery flavouring
+fr:arôme de céleri
+
+<en:flavouring
+en:laurel flavouring
+fr:arôme de laurier
+
+<en:flavouring
+en:crustaceans flavouring
+fr:arôme de crustacés
+
+<en:flavouring
+fr:arôme de gentiane
+
+<en:natural flavouring
+fr:arôme naturel de gentiane
 
 <en:flavouring
 # derivedFrom:en:coconut
@@ -23890,7 +24002,7 @@ vegetarian:en:yes
 <en:smoke
 en:beech wood smoke
 de:Buchenholzrauch
-fr:fumée de bois de hêtre
+fr:fumée de bois de hêtre, fumée naturelle au bois de hêtre
 it:fumo di faggio
 # ingredient/fr:fumée-de-bois-de-hêtre has 211 products in 4 languages @2019-04-14
 
@@ -23941,6 +24053,8 @@ en:cereal
 de:Getreide
 es:cereales
 fr:céréale, céréales
+carbon_footprint_fr_foodges_ingredient:fr:Mélange de céréales
+carbon_footprint_fr_foodges_value:fr:0.3
 it:cereali
 nl:granen
 pl:płatki zbożewe
@@ -23948,6 +24062,7 @@ pt:cereais
 vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Mélange de céréales
+carbon_footprint_fr_foodges_value:fr:0.3
 
 <en:cereal
 en:wholemeal cereal
@@ -23966,7 +24081,7 @@ fr:céréales biscuitées
 <en:cereal
 en:cereal crispies
 de:Getreide Crispies
-fr:crispies de céréales
+fr:crispies de céréales, céréales croustillantes
 it:crispies di cereali
 
 <en:cereal
@@ -24138,6 +24253,8 @@ zh:小麦
 # yue:小麥
 wikipedia:en:https://en.wikipedia.org/wiki/Wheat
 wikidata:en:Q15645384
+carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
+carbon_footprint_fr_foodges_value:fr:0.6
 
 <en:wheat
 en:cooked wheat
@@ -24340,6 +24457,8 @@ nl:tarwegries
 pt:sêmola de trigo
 wikipedia:en:https://en.wikipedia.org/wiki/Semolina
 wikidata:en:Q381350
+carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
+carbon_footprint_fr_foodges_value:fr:0.6
 
 <en:semolina
 fr:semoule de blé tendre
@@ -25293,7 +25412,6 @@ fr:avoine biologique
 # description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
 <en:oat
-<en:oat flakes
 en:oat flakes, rolled oats
 cs:ovesné vločky
 da:Havregryn
@@ -25708,6 +25826,8 @@ wikidata:en:Q36465
 wikipedia:en:https://en.wikipedia.org/wiki/Flour
 vegan:en:yes
 vegetarian:en:yes
+carbon_footprint_fr_foodges_ingredient:fr:Farine de blé
+carbon_footprint_fr_foodges_value:fr:1.2
 
 <en:flour
 en:cereal flour
@@ -25766,6 +25886,7 @@ zh:小麥麵粉
 wikipedia:en:https://en.wikipedia.org/wiki/Wheat_flour
 wikidata:en:Q2249305
 carbon_footprint_fr_foodges_ingredient:fr:Farine de blé
+carbon_footprint_fr_foodges_value:fr:1.2
 
 <en:wheat flour
 fr:farine de blé malté torréfié
@@ -25830,6 +25951,9 @@ fr:farine mi-blanche
 
 <en:wheat flour
 fr:farine de gonflement de blé
+
+<en:wheat flour
+fr:farine de germes de blé stabilisé
 
 <en:wheat flour
 en:fortified wheat flour
@@ -25955,6 +26079,9 @@ it:farina di grano saraceno
 nl:boekweitmeel
 pt:farinha de trigo mourisco
 
+<en:buckwheat flour
+fr:galette en blé noir
+
 <en:cereal flour
 en:rye flour
 de:Roggenmehl
@@ -25974,7 +26101,7 @@ pt:farinha de centeio
 en:wholemeal rye flour
 de:Roggenvollkornmehl
 es:flor de harina integral de centeno
-fr:farine de seigle complet
+fr:farine de seigle complète, farine complète de seigle
 nl:volkoren roggemeel
 
 <en:rye flour
@@ -26330,6 +26457,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Maize
 wikidata:en:Q11575
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/corn
 carbon_footprint_fr_foodges_ingredient:fr:Maïs
+carbon_footprint_fr_foodges_value:fr:0.7
 # 6846 products in 16 languages @201809-23
 
 <en:corn
@@ -26411,6 +26539,9 @@ fr:grains de maïs
 de:Maiskörner
 sr:kukuruzni griz
 # ingredient/fr:grains%20de%20maïs 41 products in 3 languages @2018-09-24
+
+<fr:grains de maïs
+fr:grains de maïs à éclater
 
 # Question
 
@@ -26642,6 +26773,7 @@ zu:ilayisi
 wikidata:en:Q5090
 wikipedia:en:https://en.wikipedia.org/wiki/Rice
 carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
+carbon_footprint_fr_foodges_value:fr:1.4
 vegan:en:yes
 vegetarian:en:yes
 
@@ -26685,6 +26817,9 @@ fr:riz gluant
 # ingredient/fr:riz-gluant has 120 products in french @2018-12-19
 
 ########################### PROCESSING STAGES OF RICES #######################
+
+<en:rice
+fr:riz semi-complet
 
 <en:rice
 en:brown rice, full grain rice
@@ -26816,7 +26951,7 @@ nl:Witte langgraanrijst van biologische oorsprong parboiled
 <en:long grain parboiled rice
 en:superior quality long grain parboiled rice
 es:arroz grano largo vaporizado de calidad superior
-fr:riz long grain étuvé de qualité supérieure
+fr:riz long grain étuvé de qualité supérieure, riz long étuvé de qualité supérieure
 # ingredient/fr:riz-long-grain-étuvé-de-qualité-supérieure has 39 products in 2 languages @2018-12-19
 
 <en:superior quality long grain parboiled rice
@@ -27214,7 +27349,6 @@ de:Reiswaffeln
 it:gallette di riso
 nl:rijstwafel, rijstwafels
 # ingredient/fr:galette-de-riz has 132 products @2018-12-19
-
 # fr:extrait de riz is a compound ingredient, eg:(eau, riz, huile de tournesol)
 
 <en:rice
@@ -27473,6 +27607,8 @@ wikidata:en:Q11002
 wikipedia:en:https://en.wikipedia.org/wiki/Sugar
 vegan:en:yes
 vegetarian:en:yes
+carbon_footprint_fr_foodges_ingredient:fr:Sucre de canne
+carbon_footprint_fr_foodges_value:fr:1.3
 
 <en:sugar
 en:organic sugar
@@ -27538,7 +27674,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 en:caramelised sugar
 de:Karamellzucker
 es:azúcar caramelizado
-fr:sucre brun, sucre caramel
+fr:sucre brun, sucre caramel, sucre caramélisé
 it:zucchero caramellato
 nl:gekarameliseerde suiker
 
@@ -27646,6 +27782,7 @@ uk:тростинний цукор
 wikidata:en:Q165267
 wikipedia:en:https://en.wikipedia.org/wiki/Sucrose#Cane
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de canne
+carbon_footprint_fr_foodges_value:fr:1.3
 # ingredient/cane-sugar has 17093 products in 23 languages @2019-05-31
 
 <en:cane sugar
@@ -27719,6 +27856,7 @@ en:beet sugar
 de:Rübenzucker
 fr:sucre de betterave
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de betterave
+carbon_footprint_fr_foodges_value:fr:0.7
 
 # description:en:COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm.It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
 
@@ -27742,6 +27880,8 @@ en:grape sugar, raisin sugar
 fr:sucre de raisin
 it:zucchero d'uva
 
+<en:sugar
+fr:sucre vanilline
 
 # description:en:MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
 
@@ -27854,7 +27994,7 @@ et:Sahharoos
 eu:Sakarosa
 fa:ساکارز
 fi:Sakkaroosi
-fr:Sacharose, sucrose
+fr:Saccharose, sucrose, sacharose
 fy:Sacharoaze
 ga:Siúcrós
 gl:Sacarosa
@@ -28003,6 +28143,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Molasses
 
 fr:pâte à tarte
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+carbon_footprint_fr_foodges_value:fr:7.3
 
 fr:sucre liquide inverti
 
@@ -28963,6 +29104,15 @@ fr:protéines végétales réhydratées
 # ingredient/fr:protéines-végétales-réhydratées has 32 products in french @2019-03-11
 
 <en:vegetable protein
+fr:protéines de blé
+
+<fr:protéines de blé
+fr:protéines de blé deshydratées
+
+<fr:protéines de blé
+fr:protéines de blé partiellement hydrolysées
+
+<en:vegetable protein
 en:pea protein
 de:Erbsenprotein
 fr:protéines de pois, protéine de pois
@@ -28991,6 +29141,10 @@ it:proteine di soia
 nl:soja-eiwit
 
 <en:soy protein
+en:dehydrated soy protein
+fr:protéines de soja deshydratées
+
+<en:en:dehydrated soy protein
 en:rehydrated soy protein
 fr:protéines de soja réhydratées, protéines végétales de soja réhydratées
 nl:gerehydrateerde soja-eiwit
@@ -29098,7 +29252,7 @@ nl:melkeiwitpoeder
 
 # nova:en:whey-proteins
 <en:milk proteins
-en:whey proteins, whey protein
+en:whey protein, whey proteins
 ar:بروتين مصل اللبن
 de:Molkenprotein
 es:Proteína de suero de leche
@@ -29117,6 +29271,10 @@ vi:Đạm váng sữa
 zh:乳清蛋白
 # ckb:پڕۆتینی پاڵاوتەی شیر
 wikipedia:en:https://en.wikipedia.org/wiki/Whey_protein
+
+<en:whey protein
+en:concentrated whey protein
+fr:concentré de protéines de lactosérum
 
 # Casein is a family of related phosphoproteins. These proteins are commonly found in mammalian milk, comprising c. 80% of the proteins in cow's milk and between 20% and 45% of the proteins in human milk.
 
@@ -29697,8 +29855,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chocolate
 # category/chocolates has 7757 products @2019-05-26
 # usage:en:chocolate (cocoa mass, sugar, cocoa butter, emulsifiers:lecithins (soy), natural vanilla flavouring)
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
+carbon_footprint_fr_foodges_value:fr:5.9
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
+carbon_footprint_fr_foodges_value:fr:6.5
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
+carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chocolate
 en:chocolate powder
@@ -29710,6 +29871,7 @@ it:cioccolato in polvere
 nl:chocoladepoeder
 ro:ciocolata pudra
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
+carbon_footprint_fr_foodges_value:fr:4.7
 # ingredient/fr:chocolat-en-poudre has 1051 products in 9 languages @2019-05-25
 # usage:en:chocolate powder (sugar, cocoa powder)
 
@@ -29782,6 +29944,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Dark_chocolate
 # ingredient/dark-chocolate has 3653 products in 12 languages @2019-05-25
 # category/dark-chocolates has 3311 products @2019-05-25
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
+carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:dark chocolate
 fr:chocolat noir à 70 de cacao
@@ -29833,6 +29996,7 @@ sv:mjölkchoklad
 tr:Sütlü çikolata
 wikidata:en:Q2164820
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
+carbon_footprint_fr_foodges_value:fr:5.9
 # ingredient/milk-chocolate has 4843 products in 20 languages @2019-05-25
 # category/milk-chocolates has 2071 products @2019-05-25
 # usage:fr:Chocolat au lait [sucre, beurre de cacao, pâte de cacao, poudre de lait écrémé, lactose, matière grasse de lait anhydre, émulsifiant:lécithines (tournesol), arôme]
@@ -29859,6 +30023,9 @@ it:Cioccolato superiore al latte
 <en:milk chocolate
 fr:chocolat au lait du pays alpin
 # ingredient/fr:chocolat-au-lait-du-pays-alpin has 22 products @2019-05-25
+
+<en:milk chocolate
+fr:chocolat au lait de couverture
 
 # description:en:WHITE CHOCOLATE is made of sugar, milk, and cocoa butter, without the cocoa solids. It is pale ivory colour, and lacks many of the compounds found in milk and dark chocolates.
 
@@ -29916,11 +30083,14 @@ zh:白朱古力
 # zh-hk:白朱古力
 wikidata:en:Q742385
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
+carbon_footprint_fr_foodges_value:fr:6.5
 # ingredient/white-chocolate has 1212 products in 8 languages @2019-05-25
 # category/white-chocolates has 444 products @2018-05-25
 # usage:fr:Chocolat blanc (beurre de cacao, sucre, lait écrémé en poudre, beurre concentré, émulsifiants:lécithines [soja], arômes)
 
-
+<en:chocolate
+en:chocolate sauce
+fr:sauce au chocolat, sauce parfum chocolat
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -30160,6 +30330,8 @@ vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:en.wikipedia.org/wiki/Water
 wikidata:en:Q283
+carbon_footprint_fr_foodges_ingredient:fr:Eau en bouteille PET, plate, 0.5 L
+carbon_footprint_fr_foodges_value:fr:0.4
 
 <en:Water
 en:water like ice wrap
@@ -30346,12 +30518,19 @@ fr:eau de source gazéifiée, Eau minérale gazeuse
 nl:Bruisend mineraalwater, gashoudendmineraalwater
 # ingredient/fr:eau-minerale-gazeuse has 9 products @2019-06-02
 
+# comment:en:eau minérale naturelle gazéifiée implies that gas is present
+
 <en:natural mineral water
 en:carbonated natural mineral water, natural sparkling mineral water
 fr:eau minérale naturelle gazeuse
 nl:gashoudend natuurlijk mineraalwater
 
+# comment:en:eau minérale naturelle gazéifiée implies that gas is added
+
 <en:carbonated natural mineral water
+fr:eau minérale naturelle gazéifiée, eau minérale naturelle avec adjonction de gaz carbonique
+
+<fr:eau minérale naturelle gazéifiée
 fr:Eau minérale naturelle de Spa gazéifiée
 nl:Koolzuurhoudend Spa natuurlijk mineraalwater
 # ingredient/nl:koolzuurhoudend-spa-natuurlijk-mineraalwater has 1 product @2019-05-24
@@ -30364,9 +30543,6 @@ nl:natuurlijk gashoudend natuurlijk mineraalwater
 <en:carbonated natural mineral water
 fr:Eau minérale naturelle renforcée au gaz de la source
 # ingredient/fr:eau-minerale-naturelle-renforcee-au-gaz-de-la-source has 11 products in french @2019-05-24
-
-<en:carbonated natural mineral water
-fr:eau minérale naturelle avec adjonction de gaz carbonique
 
 <en:water
 en:filtered water, purified water
@@ -30385,6 +30561,7 @@ fr:eau de cuisson
 <en:water
 fr:Eau du robinet
 carbon_footprint_fr_foodges_ingredient:fr:Eau du robinet
+carbon_footprint_fr_foodges_value:fr:0
 # ingredient/fr:Eau-du-robinet has 1 product @2019-04-29
 
 # description:en:Ice is water frozen into a solid state.
@@ -30534,6 +30711,7 @@ wikidata:en:Q23392
 wikipedia:en:https://en.wikipedia.org/wiki/Ice
 # ingredient/fr:glace has 145 products in 6 languages @2019-04-27
 
+
 <en:water
 <en:salt
 fr:eau et sel
@@ -30619,7 +30797,7 @@ eo:Sojfabo
 es:granos de soja, habas de soja
 et:Sojauba
 fi:Soijapapu
-fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja
+fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja, haricot de soja
 hu:Szójabab
 id:kacang kedelai
 is:Sojabaun
@@ -30723,6 +30901,9 @@ vegetarian:en:yes
 # zh_CN:麦芽糊精
 # zh_HK:麥芽糊精
 # zh_TW:麥芽糊精
+
+<en:maltodextrin
+fr:maltodextrine fumée
 
 <en:maltodextrin
 en:tapioca maltodextrin
@@ -32649,10 +32830,6 @@ it:carbonati di amonio e di sodio
 nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
 # ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
 
-# potassium chloride is in the minerals taxonomy
-<en:potassium chloride
-en:E508, E-508, E 508, E508, INS508, INS-508, INS 508, SIN508, SIN-508, SIN 508
-
 # PURÉE (or mash) is cooked food, usually vegetables, fruits or legumes, that has been ground, pressed, blended or sieved to the consistency of a creamy paste or liquid.
 
 
@@ -32687,6 +32864,14 @@ eu:fruitu
 fa:میوه
 fi:hedelmä
 fr:fruit
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_value:fr:1.3
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+carbon_footprint_fr_foodges_value:fr:2.3
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+carbon_footprint_fr_foodges_value:fr:27.4
+carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
+carbon_footprint_fr_foodges_value:fr:0.3
 gl:Froita
 he:פרי
 hi:फल
@@ -32734,10 +32919,6 @@ zh:水果
 # ckb:میوه‌
 # dsb:Sad
 # en-gb:fruit
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
 # gsw:Obst
 # hsb:Sad
 # kbp:Tɩŋ piye
@@ -32879,6 +33060,9 @@ it:popa di frutti
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20fruits
 # Is and Compound, i.e. ingredient:jus et purées de fruits à base de concentré :pomme, mangue, orange, ananas et fruits de la passion.
 
+<fr:purée de fruits
+fr:purées de fruits à base de concentrés, purees de fruits à base de concentres
+
 <fr:jus et purées de fruits
 fr:jus et purées de fruits à base de concentrés
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20et%20purées%20de%20fruits%20à%20base%20de%20concentrés
@@ -32920,6 +33104,8 @@ it:concentrati di frutta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés%20de%20fruits
 # 42 products in 3 languages @2018-10-04
 
+<en:fruit
+fr:specialité de fruits pomme poire
 
 # APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
 
@@ -32951,6 +33137,10 @@ fa:زردآلو
 fi:aprikoosi
 fo:aprikosa
 fr:abricot
+carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
+carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr:1.1
 fy:abrikoas
 ga:aibreog
 gd:apragod
@@ -33030,8 +33220,6 @@ zh:杏
 # chy:Ová'kemene
 # crh-latn:qaysı
 # dsb:Aprikoza
-carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
-carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
 # gag:zerdeli
 # hsb:Aprikoza
 # krc:шаптал
@@ -33060,6 +33248,9 @@ en:organic apricot
 fr:abricots bio
 
 <en:apricot
+fr:demi-abricots, demi abricots
+
+<en:apricot
 <en:purée
 en:apricot purée
 de:Aprikosenpüree
@@ -33080,6 +33271,10 @@ it:albicocche secche
 nl:gedroogde abrikozen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:abricots%20secs
 # 138 products in 5 languages @2018-09-29
+
+<en:dried apricots
+en:pitted dried apricots
+fr:abricots secs denoyautés
 
 <en:apricot
 en:apricot kernels
@@ -33252,6 +33447,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Banana
 wikidata:en:Q503
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/banana
 carbon_footprint_fr_foodges_ingredient:fr:Banane
+carbon_footprint_fr_foodges_value:fr:1.2
 # 1538 products in 10 languages @2018-09-26
 
 <en:banana
@@ -33506,16 +33702,20 @@ zh:芒果
 # yue:芒果
 wikidata:en:Q3919027
 wikipedia:en:https://en.wikipedia.org/wiki/Mango
+carbon_footprint_fr_foodges_ingredient:fr:Mangue importée en bateau
+carbon_footprint_fr_foodges_value:fr:0.8
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
 # 1597 products in 10 languages @2018-09-27
 
 <en:mango
 fr:Mangue importée en avion
 carbon_footprint_fr_foodges_ingredient:fr:Mangue importée en avion
+carbon_footprint_fr_foodges_value:fr:27.4
 
 <en:mango
 fr:Mangue importée en bateau
 carbon_footprint_fr_foodges_ingredient:fr:Mangue importée en bateau
+carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:mango
 <en:purée
@@ -33575,7 +33775,15 @@ wikidata:en:Q13411121
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/peach
 # 1065 products in 7 languages @2018-09-26
 carbon_footprint_fr_foodges_ingredient:fr:Pêche "Pays du Sud"
-carbon_footprint_fr_foodges_ingredient:fr:Pêche
+carbon_footprint_fr_foodges_value:fr:1
+carbon_footprint_fr_foodges_ingredient:fr:Pêche (France)
+carbon_footprint_fr_foodges_value:fr:0.7
+
+<en:peach
+fr:demi-pêches
+
+<en:peach
+fr:pêches en cubes
 
 <en:peach
 <en:purée
@@ -33587,6 +33795,12 @@ nl:Perzikkenpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pêches
 # 147 products in 4 languages @2018-09-26
 
+<en:peach
+en:peach juice
+fr:jus de pêche
+
+<en:peach juice
+fr:jus de pêche à base de concentré
 
 # The PEAR is any of several tree and shrub species of genus Pyrus, in the family Rosaceae. Note this refers to the tree and not the fruit
 
@@ -33700,8 +33914,10 @@ zh:梨
 wikipedia:en:https://en.wikipedia.org/wiki/Pear
 wikidata:en:Q13099586
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
-#carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
-#carbon_footprint_fr_foodges_ingredient:fr:Poire (Argentine)
+carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
+carbon_footprint_fr_foodges_value:fr:0.5
+carbon_footprint_fr_foodges_ingredient:fr:Poire (Argentine)
+carbon_footprint_fr_foodges_value:fr:1
 # 130 products in 5 languages @2018-09-28
 
 <en:pear
@@ -33712,6 +33928,9 @@ fr:poire conférence
 nl:conference peer
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/conference-pear
 # 3 products in 1 language @2018-09-28
+
+<en:pear
+fr:poire Williams demi-fruits
 
 <en:pear
 en:pears in cubes
@@ -33893,6 +34112,10 @@ fi:omena
 fj:Yapolo
 fo:súrepli
 fr:pomme, pommes
+carbon_footprint_fr_foodges_ingredient:fr:Pomme France
+carbon_footprint_fr_foodges_value:fr:0.3
+carbon_footprint_fr_foodges_ingredient:fr:Pomme amérique du Sud
+carbon_footprint_fr_foodges_value:fr:1.3
 fy:appel
 ga:Úll
 gd:ubhal
@@ -34015,8 +34238,6 @@ zu:Ihhabhula
 # eml:Pàm
 # en-ca:apple
 # en-gb:apple
-carbon_footprint_fr_foodges_ingredient:fr:Pomme France
-carbon_footprint_fr_foodges_ingredient:fr:Pomme amérique du Sud
 # frr:ååpel
 # fur:Miluçâr
 # gag:alma
@@ -34154,6 +34375,8 @@ nl:appelcompote
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:compote%20de%20pommes
 # 74 products in 4 languages @2018-10-04
 
+<fr:compote de pommes
+fr:compote de pommes allégée en sucres
 # This can be a compound ingredient
 
 <en:apple
@@ -34194,7 +34417,7 @@ nl:geconcentreerde appelpuree
 en:apple extract
 de:Apfelextrakt
 es:extracto de manzana
-fr:extrait de pomme
+fr:extrait de pomme, concentré de pomme
 nl:appelextract
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-extract
 # 65 products in 4 languages @2018-10-04
@@ -34349,7 +34572,7 @@ et:Tsitrus
 eu:Garrazki
 fa:مرکبات
 fi:Sitruspuut
-fr:Citrus
+fr:agrume, agrumes, Citrus
 ga:Toradh citris
 gl:Cítrico
 he:הדרים
@@ -34419,6 +34642,11 @@ zh:柑橘属
 wikidata:en:Q81513
 wikipedia:en:https://en.wikipedia.org/wiki/Citrus
 
+<en:citrus fruit
+en:citrus fruit juice
+fr:jus d'agrumes à base de concentrés
+carbon_footprint_fr_foodges_ingredient:fr:Citron
+carbon_footprint_fr_foodges_value:fr:0.9
 
 # Citrus hystrix, called the kaffir lime, makrut lime or Mauritius papeda, is a citrus fruit native to tropical Southeast Asia and southern China.
 
@@ -34548,6 +34776,8 @@ wikidata:en:Q13195
 wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron%20vert
 # 251 products @2018-10-01
+carbon_footprint_fr_foodges_ingredient:fr:Citron
+carbon_footprint_fr_foodges_value:fr:0.9
 
 # <en:lime
 <en:fruit juice
@@ -34585,12 +34815,15 @@ fr:citron, citrons
 it:limone
 nl:citroen
 wikidata:en:Q1093742
-carbon_footprint_fr_foodges_ingredient:fr:Citron
+
 
 <en:lemon
 fr:citron confit
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron%20confit
 # 70 products in 1 language @2018-10-01
+
+<fr:citron confit
+fr:zestes de citron confits
 
 <en:lemon
 en:lemon pulpe
@@ -34762,6 +34995,10 @@ fa:پرتقال
 fi:appelsiini
 fo:Appilsin
 fr:orange
+carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
+carbon_footprint_fr_foodges_value:fr:0.8
+carbon_footprint_fr_foodges_ingredient:fr:Orange fraîche
+carbon_footprint_fr_foodges_value:fr:0.8
 ga:Oráiste
 gl:Laranxa
 gu:સંતરુ
@@ -34847,8 +35084,6 @@ zh:橙
 # bho:संतरा
 # chr:ᎣᏂᏥ
 # dsb:Apelsina
-carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
-carbon_footprint_fr_foodges_ingredient:fr:Orange fraîche
 # frr:Aapelsiin
 # gom:ಸ೦ತ್ರಾ೦
 # hsb:Apelsina
@@ -34958,6 +35193,7 @@ fr:oranges pressées
 <en:orange juice
 fr:Pur jus d'orange
 carbon_footprint_fr_foodges_ingredient:fr:Pur jus d'orange
+carbon_footprint_fr_foodges_value:fr:1.3
 
 # comment:en:This seems a compound ingredient, i.e. concentrated orange juice + water, but is never described as such.
 
@@ -35119,6 +35355,7 @@ wikidata:en:https://www.wikidata.org/wiki/Q190024
 wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
 carbon_footprint_fr_foodges_ingredient:fr:Mandarine
+carbon_footprint_fr_foodges_value:fr:1.3
 # 239 products in 6 languages @2018-10-01
 
 <fr:mandarine
@@ -35214,7 +35451,7 @@ nl:zwarte bessensap
 # 87 products in 5 languages @2018-10-01
 
 <en:blackcurrant juice
-fr:jus concentré de cassis, jus de cassis concentré
+fr:jus concentré de cassis, jus de cassis concentré, concentré de cassis
 nl:zwarte bessensapconcentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20concentré%20de%20cassis
 # 58 products in 1 language @2018-10-01
@@ -35422,6 +35659,12 @@ fa:توت‌فرنگی
 fi:Puutarhamansikka
 fo:Jarðber
 fr:fraise
+carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
+carbon_footprint_fr_foodges_value:fr:3.5
+carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr:0.8
 gl:Amorodo
 gn:Yvapytã
 gu:સ્ટ્રોબેરી
@@ -35481,8 +35724,11 @@ zh:草莓
 # csb:Ògardowô pòtrôwnica
 # dsb:Zagrodna słynica
 carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+carbon_footprint_fr_foodges_value:fr:0.6
 carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
+carbon_footprint_fr_foodges_value:fr:3.5
 carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr:0.8
 # frr:Guard-eerdbei
 # hak:Chhó-mòi
 # hsb:Zahrodna truskalca
@@ -35501,6 +35747,10 @@ wikidata:en:Q14458220
 wikipedia:en:https://en.wikipedia.org/wiki/Strawberry
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
 # 2504 products in 15 languages @2018-10-01
+
+<en:strawberry
+<en:strawberry pieces
+fr:morceaux de fraise
 
 # This is a compound ingredient
 
@@ -35536,8 +35786,12 @@ nl:aardbeienpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20fraise
 # 450 products in 6 languages @2018-10-01
 
-# Blueberries are perennial flowering plants with blue– or purple–colored berries.
-# Note that th european variety should be called bilberry. For the moment we mix the two.
+<en:strawberry puree
+en:concentrated strawberry puree
+fr:purée de fraise concentrée, puree de fraise concentree, purée de fraise å base de concentré
+
+# description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
+# comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
 
 <en:fruit
 <fr:fruit rouge
@@ -35600,6 +35854,10 @@ fr:jus de myrtille
 it:succo di mirtillo
 nl:bosbessensap
 # ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
+
+<en:blueberry juice
+en:blueberry juice from concentrate
+fr:jus de myrtille à base de concentré
 
 # Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit,
 
@@ -35887,6 +36145,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cherry
 wikidata:en:Q196
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cherry
 carbon_footprint_fr_foodges_ingredient:fr:Cerise
+carbon_footprint_fr_foodges_value:fr:1.3
 # 969 products in 7 languages @2018-09-29
 
 <en:cherry
@@ -36225,6 +36484,7 @@ wikidata:en:Q5881191
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/melon 5 products @2018-09-29
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melon 94 products in 5 languages @2018-09-29
 carbon_footprint_fr_foodges_ingredient:fr:Melon
+carbon_footprint_fr_foodges_value:fr:0.5
 
 # MELONS CONFITS is a compound ingredient
 
@@ -37221,6 +37481,8 @@ zh:葡萄
 # yue:提子
 wikipedia:en:https://en.wikipedia.org/wiki/Grape
 wikidata:en:Q10978
+carbon_footprint_fr_foodges_ingredient:fr:Raisin
+carbon_footprint_fr_foodges_value:fr:0.8
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/grape
 # 250 products in 1 language @2018-10-02
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin
@@ -37326,6 +37588,10 @@ wikidata:en:Q13186
 wikipedia:en:https://en.wikipedia.org/wiki/Raisin
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin%20sec
 carbon_footprint_fr_foodges_ingredient:fr:Raisin
+carbon_footprint_fr_foodges_value:fr:0.8
+
+<en:raisin
+fr:raisins secs rehydratés
 
 # 1314 products in 6 languages @2018-10-02
 
@@ -38583,7 +38849,7 @@ it:acerola in polvere
 <fr:poudre d'acérola
 en:acerola powder on manioc starch
 de:Acerolapulver auf Maniokstärke
-fr:poudre d'acérola avec fécule de manioc
+fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
 it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
 # ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
 
@@ -38658,6 +38924,9 @@ it:latte di noci di cocco in polvere
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20coco%20en%20poudre
 # 69 products in 3 languages @2018-10-03
 
+<fr:lait de noix de coco en poudre
+fr:lait de coco reconstitué
+
 <en:coconut
 en:coconut extract
 de:Kokosnussextrakt
@@ -38677,7 +38946,7 @@ nl:Kokospulp
 # 21 products in 3 languages @2018-10-03
 
 <en:coconut pulp
-fr:noix de coco séchée
+fr:noix de coco séchée, noix de coco deshydratée
 nl:gedroogde kokosnoot
 ro:nuca de cocos deshidratata
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20séchée
@@ -38780,9 +39049,13 @@ nl:Groente
 vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_value:fr:1.3
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+carbon_footprint_fr_foodges_value:fr:2.3
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+carbon_footprint_fr_foodges_value:fr:27.4
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
+carbon_footprint_fr_foodges_value:fr:0.3
 
 <en:vegetable
 fr:légumes en proportions variables, légumes en proportion variable
@@ -38908,6 +39181,7 @@ zh:朝鲜蓟
 wikidata:en:Q23041430
 wikipedia:en:https://en.wikipedia.org/wiki/Artichoke
 carbon_footprint_fr_foodges_ingredient:fr:Artichauts
+carbon_footprint_fr_foodges_value:fr:2.5
 
 # description:en:The heart is eaten when the inedible choke has been peeled away from the base and discarded.
 
@@ -38946,6 +39220,10 @@ eu:Себен үләне
 fa:مارچوبه
 fi:Parsa
 fr:asperge, asperges
+carbon_footprint_fr_foodges_ingredient:fr:Asperges en boite Chine
+carbon_footprint_fr_foodges_value:fr:2.4
+carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
+carbon_footprint_fr_foodges_value:fr:0.9
 gl:Esparragueira
 gv:Asparag
 he:אספרג רפואי
@@ -39000,7 +39278,9 @@ zh:芦笋
 # ast:espárragu
 # csb:Lékarskô szparaga
 carbon_footprint_fr_foodges_ingredient:fr:Asperges en boite Chine
+carbon_footprint_fr_foodges_value:fr:2.4
 carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
+carbon_footprint_fr_foodges_value:fr:0.9
 # frr:Spargel
 # hsb:Prawy hromak
 # lfn:Asparago
@@ -39070,6 +39350,7 @@ vo:Avokaado
 wikidata:en:Q961769
 wikipedia:en:https://en.wikipedia.org/wiki/Avocado
 carbon_footprint_fr_foodges_ingredient:fr:Avocat
+carbon_footprint_fr_foodges_value:fr:2.4
 # ingredient/avocado has 223 products in 5 languages @2019-04-21
 
 <en:vegetable
@@ -39085,6 +39366,7 @@ nl:witlof
 wikidata:en:Q1474
 # ingredient/fr:endives has 38 products in 4 languages @2018-12-10
 carbon_footprint_fr_foodges_ingredient:fr:Endive
+carbon_footprint_fr_foodges_value:fr:1.2
 
 # description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
 
@@ -39154,6 +39436,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chard
 # ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
 # category/chards has 16 products @2019-05-22
 
+<en:chard
+en:chard concentrate
+fr:concentrés de blettes
 
 # en:Daikon cress
 # de:Daikonkresse
@@ -39210,6 +39495,8 @@ wikidata:en:Q178547
 # wikidata:en:Q28604477 what is this?
 # category/endives has 8 products @2019-05-22
 # ingredient/endive has 125 products @2019-05-22
+carbon_footprint_fr_foodges_ingredient:fr:Endive
+carbon_footprint_fr_foodges_value:fr:1.2
 
 <en:vegetable
 en:radicchio
@@ -39831,6 +40118,9 @@ zh:茄子
 wikidata:en:Q7540
 wikipedia:en:https://en.wikipedia.org/wiki/Eggplant
 carbon_footprint_fr_foodges_ingredient:fr:Aubergine
+carbon_footprint_fr_foodges_value:fr:1.2
+carbon_footprint_fr_foodges_ingredient:fr:Aubergine serre chauffée
+carbon_footprint_fr_foodges_value:fr:6.2
 # en:aubergine has 733 products in 9 languages @2018-10-17
 
 # This can be seen as compound ingredient, i.e.:melanzane grigliate (melanzane, olio di girasole)
@@ -40078,6 +40368,7 @@ nl:biet, bieten
 wikidata:en:Q165437
 wikipedia:en:https://en.wikipedia.org/wiki/Beetroot
 carbon_footprint_fr_foodges_ingredient:fr:Betteraves
+carbon_footprint_fr_foodges_value:fr:0.2
 # en:beetroot has 319 products in 5 languages @2018-10-22
 
 # Sometimes it is indicated as a colour.
@@ -40124,6 +40415,7 @@ it:barbabietole in polvere
 # fr:betterave-rouge-en-poudre has 44 products in 3 languages @2018-10-22
 
 <en:red beetroot
+en:red beetroot juice
 fr:jus de betterave rouge
 de:Rote Bete Saft
 es:zumo de remolacha roja
@@ -40131,8 +40423,8 @@ it:succo di barbabietole rosse
 nl:rodebietensap
 # fr:jus-de-betterave-rouge has 38 products @2018-10-21
 
-<fr:jus de betterave rouge
-fr:jus de betterave rouge concentré, concentré de jus de betterave rouge
+<en:red beetroot juice
+fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
 de:Rote Bete-Saftkonzentrat
 nl:geconcentreerd rodebietensap
 # fr:jus-de-betterave-rouge-concentré has 37 products in 4 languages @2018-10-21
@@ -40235,7 +40527,8 @@ zh:西蘭花
 # yue:西蘭花
 wikidata:en:Q47722
 wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
-# carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
+carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
+carbon_footprint_fr_foodges_value:fr:0.4
 # ingredient/broccoli has 1167 products in 10 languages @2018-10-16
 # category/broccoli has 150 products @2019-05-24
 
@@ -40243,6 +40536,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
 fr:Brocolis en fleurettes
 nl:broccoliroosjes
 # ingredient/fr:brocolis-en-fleurettes has 17 products in 3 languages @2019-05-24
+carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
+carbon_footprint_fr_foodges_value:fr:0.4
 
 <en:broccoli
 en:broccoli cress
@@ -40269,6 +40564,7 @@ zh:花椰菜
 wikidata:en:Q23900272
 wikipedia:en:https://en.wikipedia.org/wiki/Cauliflower
 carbon_footprint_fr_foodges_ingredient:fr:Chou-Fleur
+carbon_footprint_fr_foodges_value:fr:0.5
 # en:cauliflower has 660 products in 5 languages @2018-10-17
 
 <en:cauliflower
@@ -40297,6 +40593,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cabbage
 
 fr:Chou pommé, Chou cabus
 carbon_footprint_fr_foodges_ingredient:fr:Chou pommé
+carbon_footprint_fr_foodges_value:fr:0.8
 
 # Cabbage or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
 # There is an issue with the wikidata item, it mixes white cabbage and cabbage.
@@ -40814,6 +41111,7 @@ zh:胡萝卜
 # wuu:胡萝卜
 # yue:紅蘿蔔
 carbon_footprint_fr_foodges_ingredient:fr:Carottes fraîches
+carbon_footprint_fr_foodges_value:fr:0.3
 # zh-cn:胡萝卜
 # zh-hans:胡萝卜
 # zh-hant:胡蘿蔔
@@ -40860,7 +41158,6 @@ fr:purée de carotte
 
 # fr:concentré de carotte usage as a colour is not always mentioned
 
-<en:colour
 <en:carrot
 fr:concentré de carotte, concentré de carottes
 de:Karottenkonzentrat
@@ -40907,6 +41204,7 @@ it:carote nere
 # fr:carotte-noire has 122 products in 4 languages @2018-10-20
 
 <en:black carrot
+en:black carrot juice
 fr:jus de carotte noire
 de:schwarzer Karottensaft
 it:succo di carote nere
@@ -40921,7 +41219,12 @@ nl:zwarte wortelsapconcentraat
 # fr:jus-de-carotte-noire-concentré has 26 products in 2 languages @2018-10-20
 # fr:jus-de-carotte-pourpre-concentré has 22 products @2018-10-20
 
-# Carrot juice has a particularly high content of β-carotene, a source of vitamin A, but it is also high in B complex vitamins like folate, and many minerals including calcium, copper, magnesium, potassium, phosphorus, and iron.
+<en:black carrot
+en:concentrated black carrot
+fr:concentré de carotte pourpre
+
+
+# description:en:Carrot juice has a particularly high content of β-carotene, a source of vitamin A, but it is also high in B complex vitamins like folate, and many minerals including calcium, copper, magnesium, potassium, phosphorus, and iron.
 
 <en:vegetable juice
 <en:carrot
@@ -41055,6 +41358,8 @@ zh:旱芹
 wikidata:en:Q23012379
 wikipedia:en:https://en.wikipedia.org/wiki/Celery
 # fr:celeri has 4877 products in 10 languages @2018-10-21
+carbon_footprint_fr_foodges_ingredient:fr:Céleri
+carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:celery
 fr:céleri branche
@@ -41074,8 +41379,17 @@ fr:garniture de céleri
 # fr:garniture-de-céleri has 27 products in 1 language @2018-10-20
 
 <en:celery
+en:celery puree
+fr:purée de céleri
+
+<en:celery
+en:concentrated celery juice
 fr:jus concentré de céleri
 # fr:jus-concentré-de-céleri has 64 products in 1 language @2018-10-21
+
+<en:concentrated celery juice
+en:powdered concentrated celery juice
+fr:jus concentré de céleri en poudre
 
 <en:celery
 fr:extrait de céleri
@@ -41100,7 +41414,7 @@ eo:tubercelerio
 es:Apio nabo
 et:Juurseller
 fi:Mukulaselleri
-fr:céleri-rave
+fr:céleri-rave, céleri rave
 ga:Soiliriac
 it:sedano rapa
 ja:セロリアック
@@ -41113,9 +41427,12 @@ wikidata:en:Q575174
 wikipedia:en:https://en.wikipedia.org/wiki/Celeriac
 # fr:céleri-rave has 399 products in 4 languages @2018-10-20
 
-<fr:céleri-rave
+<en:celeriac
 fr:céleri rave râpé
 # fr:céleri-rave-râpé has 17 products in 1 language @2018-10-20
+
+<en:celeriac
+fr:jus concentré de céleri rave
 
 <en:carrot
 <en:pumpkin
@@ -41505,6 +41822,7 @@ zh:韭葱
 wikidata:en:Q1807269
 wikipedia:en:https://en.wikipedia.org/wiki/Leek
 carbon_footprint_fr_foodges_ingredient:fr:Poireau
+carbon_footprint_fr_foodges_value:fr:0.3
 # ingredient/leek has 3620 products in 19 languages @2019-05-22
 # category/leeks has 34 products @2019-05-22
 
@@ -41550,7 +41868,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Onion
 # ingredient/onion has 12754 products in 18 languages @2018-12-06
 # category/onions has 233 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr:Oignons
+carbon_footprint_fr_foodges_value:fr:0.6
 
+<en:onion
+fr:oignon semoule
 
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
@@ -41834,6 +42155,9 @@ nl:Gefrituurde ui
 pt:cebolas fritas
 # ingredient/fr:oignons-grillés has 111 products in 4 languages @2018-12-06
 
+<en:fried onion
+fr:oignon grillé en poudre
+
 # fr:oignon-frit is a compound ingredient, eg:gefrituurde uien ( uien, raapzaadolie, zonnebloemolie, zout)
 
 <en:onion
@@ -42047,6 +42371,10 @@ zh:萝卜
 # zh-tw:蘿蔔
 wikidata:en:Q7224565 # for the plant
 wikipedia:en:https://en.wikipedia.org/wiki/Radish
+carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
+carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr:Radis serre chauffée
+carbon_footprint_fr_foodges_value:fr:8.4
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
@@ -42054,7 +42382,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Radish
 # <en:radish
 # fr:Radis de saison
 # ingredient/fr:Radis-de-saison has no products @2019-05-16
-# carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
 
 
 # description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
@@ -42100,6 +42427,8 @@ it:Insalata
 nl:sla, salade
 wikipedia:en:https://en.wikipedia.org/wiki/Salad
 # ingredient/fr:salade has 483 products in 4 languages @2019-05-17
+carbon_footprint_fr_foodges_ingredient:fr:Salade
+carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:salad
 fr:batavia
@@ -42543,6 +42872,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Shallot
 fr:échalote déshydratée
 # ingredient/fr:échalote-déshydratée has 67 products in french @2019-02-14
 
+<en:shallot
+fr:pulpe d'échalote
 
 # description:en: COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
 
@@ -42730,6 +43061,7 @@ zh:菠菜
 wikidata:en:Q81464
 wikipedia:en:https://en.wikipedia.org/wiki/Spinach
 carbon_footprint_fr_foodges_ingredient:fr:Epinard
+carbon_footprint_fr_foodges_value:fr:0.5
 # fr:épinard 1204 in 9 languages products @2018-10-14
 
 <en:spinach
@@ -42753,6 +43085,9 @@ nl:bladspinazie
 fr:Épinards hachés
 nl:gehakte spinazie
 # ingredient/fr:epinards-haches has 26 products in 2 languages @2019-05-24
+
+<en:spinach
+fr:jeunes pousses d'épinard
 
 # description:en:The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
 
@@ -42985,6 +43320,7 @@ zu:Izambane
 wikidata:en:Q16587531
 wikipedia:en:https://en.wikipedia.org/wiki/Potato
 carbon_footprint_fr_foodges_ingredient:fr:Pomme de terre
+carbon_footprint_fr_foodges_value:fr:0.6
 # en:potato has 2269 products in 23 languages @2018-10-15
 
 <en:potato
@@ -43002,6 +43338,9 @@ fr:pommes de terre biologiques
 <en:organic potato
 en:organic potato from France
 fr:Pommes de terre biologiques origine France
+
+<en:precooked potato
+fr:pommes de terre précuites
 
 <en:potato
 en:potato powder
@@ -43069,7 +43408,8 @@ fr:pommes de terre préfrites
 nl:voorgebakken aardappel
 sv:forstekt potatis
 # fr:pommes-de-terre-préfrites has 151 products in 3 languages @2018-10-15
-
+carbon_footprint_fr_foodges_ingredient:fr:Frites surgelées
+carbon_footprint_fr_foodges_value:fr:1.3
 
 # description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
 # comment:en:in some languages en:bell-pepper and en:parika are not distinguished, but the same word
@@ -43086,7 +43426,7 @@ eo:Kapsiko
 es:Pimiento, morrón, Pimiento morrón
 fa:فلفل دلمه‌ای
 fi:paprikaa, paprika
-fr:poivron
+fr:poivron, poivrons
 ha:Barkono
 hu:bell paprika
 id:Paprika
@@ -43139,12 +43479,17 @@ zh:菜椒
 wikidata:en:Q1548030
 wikipedia:en:https://en.wikipedia.org/wiki/Bell_pepper
 carbon_footprint_fr_foodges_ingredient:fr:Poivron
+carbon_footprint_fr_foodges_value:fr:0.9
 # fr:poivron has 1581 products in 11 languages @2018-10-15
+
+<en:bell pepper
+en:dehydrated bell pepper
+fr:poivron deshydraté, poivrons deshydratés
 
 <en:bell pepper
 en:sweet peppers
 fr:piment doux
-it: peperoni dolci
+it:peperoni dolci
 # ingredient/fr:piment-doux has 309 products in 6 languages @2019-04-14
 
 <en:bell pepper
@@ -43250,7 +43595,7 @@ et:tšilli
 eu:Pipermin
 fa:فلفل تند
 fi:chili
-fr:fr:chili, piment du chili
+fr:chili, piment du chili, piment, piments
 gl:Chile
 gn:Ky'ỹi
 gu:મરચું
@@ -43335,6 +43680,12 @@ zh:辣椒
 # yue:辣椒
 wikidata:en:Q165199
 wikipedia:en:https://en.wikipedia.org/wiki/Chili_pepper
+carbon_footprint_fr_foodges_ingredient:fr:Piment et poivre sec
+carbon_footprint_fr_foodges_value:fr:3.4
+
+<en:chili pepper
+en:smoked chili pepper
+fr:piment fumé
 
 <en:chili pepper
 fr:extrait de piment
@@ -43617,6 +43968,8 @@ es:tomate, tomates
 et:tomat
 eu:Tomate
 fr:tomate, tomates
+carbon_footprint_fr_foodges_ingredient:fr:Tomate destinée à l'industrie
+carbon_footprint_fr_foodges_value:fr:0.5
 gl:tomate
 gu:tomate
 he:עגבנייה
@@ -43659,7 +44012,6 @@ zu:Utamatisi
 # de-at:Paradeiser
 # en-ca:Tomato
 # en-gb:Tomato
-carbon_footprint_fr_foodges_ingredient:fr:Tomate destinée à l'industrie
 # gan:番茄
 # haw:ʻōhiʻa lomi
 # kaa:Pomidor
@@ -43701,8 +44053,11 @@ de:frische Tomaten
 fr:tomates fraîches
 it:pomodori freschi
 carbon_footprint_fr_foodges_ingredient:fr:Tomate fraîche saison (France)
+carbon_footprint_fr_foodges_value:fr:0.4
 carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche hors saison (France)
+carbon_footprint_fr_foodges_value:fr:2.3
 carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche importée (Espagne)
+carbon_footprint_fr_foodges_value:fr:0.7
 # ingredient/fresh-tomatoes has 89 products in 4 languages @2018-12-26
 
 <en:tomato
@@ -43731,6 +44086,10 @@ de:Tomaten halbgetrocknete
 it:pomodori semiseccchi
 # ingredient/fr:tomates-semi-séchées has 38 products in 4 languages @2018-12-26
 
+<fr:tomates semi-séchées
+fr:tomates semi-séchées marinées, tomates semi-deshydratées et marinées
+
+
 <en:tomato
 en:dried tomatoes
 da:tørret tomat
@@ -43751,9 +44110,12 @@ fr:tomates séchées réhydratées
 en:peeled tomatoes
 de:geschälte Tomaten
 fr:tomates pelées, tomate pelée
+carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1.4
 it:pomodori pelati
 nl:gepelde tomaten
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1.4
 # ingredient/fr:tomate-pelée has 195 products in 2 languages @2018-12-26
 # ingredient/en:peeled-tomatoes has 47 products in english @2018-12-24
 
@@ -43798,6 +44160,7 @@ de:zerkleinerte geschälte Tomate
 fr:tomate pelée concassée, tomates pelées concassées
 nl:gepelde gehakte tomaten
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1.4
 # ingredient/fr:tomate-pelee-concassee has 281 products in 3 languages @2018-12-24
 
 <en:crushed peeled tomato
@@ -43812,6 +44175,7 @@ it:polpa di pomodoro
 nl:tomatenpulp
 sv:krossade tomater
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1.4
 # ingredient/fr:pulpe-de-tomate has 501 products in 6 languages @2018-12-26
 
 <en:tomato
@@ -43819,16 +44183,18 @@ fr:coulis de tomates, coulis de tomate
 de:Passierte Tomaten
 it:passata di pomodoro
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
+carbon_footprint_fr_foodges_value:fr:2.9
 # ingredient/fr:coulis-de-tomates has 165 products in 4 languages @2018-12-26
 
 <en:tomato
 en:tomato purée, tomato paste, tomato concentrate
 de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat
 es:concentrado de tomate
-fr:concentrato di pomodoro
-it:passata di pomodoro
+fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
+it:passata di pomodoro, concentrato di pomodoro
 nl:tomatenpurée, tomatenconcentraat
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
+carbon_footprint_fr_foodges_value:fr:2.9
 # ingredient/fr:purée-de-tomate has 2637 products @2018-12-26
 
 <en:tomato purée
@@ -43843,6 +44209,9 @@ fr:purée de tomate mi-réduite, purée de tomates mi-concentrée, purée de tom
 nl:half ingedikte tomatenpuree
 # ingredient/fr:purée-de-tomates-mi-concentrée has 28 products in 4 languages @2018-12-26
 # ingredient/fr:purée-de-tomate-mi-réduite has 309 products in 5 languages @2018-12-26
+
+<fr:purée de tomate mi-réduite
+fr:purée de tomates mi-réduite reconstituée
 
 <en:tomato purée
 en:concentrated tomato purée
@@ -43870,6 +44239,9 @@ de:Tomatenpüree aus Konzentrat, Tomatenmark aus Konzentrat
 # ingredient/fr:puree-de-tomates-reconstituee has 127 products in french @2018-12-26
 # ingredient/fr:purée-de-tomates-à-base-de-concentré has 94 products in 2 languages @2018-12-26
 
+<en:tomato purée
+fr:purée de tomates triple concentrée, triple concentré de tomate
+
 <en:tomato
 en:tomato powder, powdered tomato
 da:tomatpulver
@@ -43894,14 +44266,17 @@ de:Tomatensaft
 es:jugo de tomate
 fi:tomaattitäysmehu
 fr:jus de tomate, Jus de tomates
+carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1.4
 it:succo di pomodoro
 nl:tomatensap
 sv:tomatjuice
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
+carbon_footprint_fr_foodges_value:fr:1.4
 # ingredient/en:tomato-juice has 2171 products in 10 languages @2018-12-26
 
 <en:tomato juice
-fr:jus de tomate à partir de concentré, jus de tomates à base de concentré
+fr:jus de tomate à partir de concentré, jus de tomates à base de concentré, jus de tomates reconstitué
 de:Tomatensaft aus Konzentrat
 it:succo di pomodoro ricavato da concentrato
 nl:tomatensap uit sapconcentraat
@@ -43910,6 +44285,7 @@ nl:tomatensap uit sapconcentraat
 <en:tomato purée
 <en:tomato pulp
 fr:purée et pulpe de tomates
+
 
 
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
@@ -44002,7 +44378,8 @@ zh:芜菁
 wikidata:en:Q3916957
 wikipedia:en:https://en.wikipedia.org/wiki/Turnip
 # ingredient/turnip has 592 products in 7 languages @2019-05-18
-
+carbon_footprint_fr_foodges_ingredient:fr:Navet
+carbon_footprint_fr_foodges_value:fr:0.9
 
 # Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 
@@ -44200,8 +44577,12 @@ zh:南瓜
 wikidata:en:Q165308
 wikipedia:en:https://en.wikipedia.org/wiki/Pumpkin
 carbon_footprint_fr_foodges_ingredient:fr:Citrouille - Courges -Potiron
+carbon_footprint_fr_foodges_value:fr:1.2
 # fr:courge has 88 products in 4 languages @2018-10-26
 # ingredient/fr:potiron has 439 products in 6 languages @2019-04-08
+
+<en:pumpkin
+fr:concentré de citrouille
 
 <en:pumpkin
 en:pumpkin juice
@@ -44211,6 +44592,9 @@ it:succo di zucca
 nl:Pompoensap
 # fr:jus-de-potiron has 54 products in 5 languages @2019-04-08
 
+<en:pumpkin juice
+en:concentrated pumpkin juice
+fr:jus de potiron concentré, jus concentré de potiron
 
 # Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 
@@ -44299,9 +44683,10 @@ zh:西葫芦
 wikidata:en:Q7533
 wikipedia:en:https://en.wikipedia.org/wiki/Zucchini
 carbon_footprint_fr_foodges_ingredient:fr:Courgette
+carbon_footprint_fr_foodges_value:fr:0.7
 # fr:courgette contains 2098 products in 9 languages @2018-10-26
 
-<fr:courgette
+<en:Courgette
 en:grilled courgette
 de:grillierte Zucchetti, gegrillte Zucchini, Zucchini geröstet
 es:calabacín asado
@@ -44310,6 +44695,8 @@ it:zucchine grigliate
 nl:gegrilde courgette
 # en:grilled-courgette has 238 products in 5 languages @2018-10-26
 
+<en:Courgette
+fr:courgettes en rondelles
 
 # Watercress or yellowcress is an aquatic plant species with the botanical name Nasturtium officinale. 
 
@@ -44540,6 +44927,8 @@ zh:菜豆
 # zh-tw:長豇豆
 wikipedia:en:https://en.wikipedia.org/wiki/Phaseolus_vulgaris
 # ingredient/fr:haricots has 92 products in 4 languages @2019-06-02
+carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
+carbon_footprint_fr_foodges_value:fr:2
 
 <en:beans
 en:flat green beans
@@ -44548,12 +44937,20 @@ fr:haricots plats coupés
 <en:beans
 en:white beans
 fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs
-carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 # ingredient/fr:lingots-blancs has 8 products @2019-06-02
 
-<fr:haricots blancs
+<en:white beans
+fr:haricots mogettes, mogettes
+
+<fr:haricots mogettes
+fr:haricots mogettes de Vendée, mogettes de Vendée
+
+<en:white beans
 fr:haricots blancs secs trempés
-carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
+
+
+<en:white beans
+fr:haricots blancs précuits
 
 <en:beans
 en:black beans
@@ -44584,6 +44981,10 @@ fr:haricots beurre
 
 <en:beans
 fr:haricot vert, haricots verts
+carbon_footprint_fr_foodges_ingredient:fr:Haricot vert frais locaux
+carbon_footprint_fr_foodges_value:fr:0.7
+carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
+carbon_footprint_fr_foodges_value:fr:22.8
 
 <fr:haricot vert
 fr:haricots verts tres fins issus de l'agriculture biologique
@@ -44593,6 +44994,10 @@ fr:haricots verts coupés
 
 <fr:haricot vert
 fr:haricots verts très fins
+
+<fr:haricots verts très fins
+<fr:haricots verts coupés
+fr:haricots vertes très fins coupés, haricots verts extra fines coupés
 
 <fr:haricot vert
 fr:haricots verts extra-fins
@@ -44636,6 +45041,7 @@ es:habichuelas
 fr:flageolets
 # ingredient/fr:flageolets has 74 products in 2 languages @2019-02-25
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
+carbon_footprint_fr_foodges_value:fr:2
 
 <en:flageolets
 en:green flageolets
@@ -44723,7 +45129,6 @@ wikidata:en:Q156811
 wikipedia:en:https://en.wikipedia.org/wiki/Lupin_bean
 # ingredient/fr:lupin has 390 products @2019-04-11
 # usage:fr:lupins (lupine, sel de cuisine, antioxydants:acide citrique et acide ascorbique, conservateur:E202)
-
 
 
 
@@ -44988,6 +45393,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pea
 # ingredient/fr:pois has 259 products in 7 languages @2019-05-10
 # usage:fr:amidon (blé, pomme de terre, pois, maïs)
 
+<en:pea
+fr:extrait de pois
 
 # The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 
@@ -45085,6 +45492,8 @@ zh:鹰嘴豆
 # yue:三角豆
 # wikidata:en:Q81375 # this is actually the plant ont the legume
 wikipedia:en:https://en.wikipedia.org/wiki/Chickpea
+carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
+carbon_footprint_fr_foodges_value:fr:1.5
 # ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
 
 # This is the plant, not the peas themselves
@@ -45097,6 +45506,9 @@ la:Cicer arietinum
 en:organic chickpea
 fr:Pois chiches biologiques
 10@2019-06-12
+
+<en:chickpea
+fr:pois chiches précuits
 
 # <en:compound
 <en:chickpea
@@ -45123,16 +45535,22 @@ en:garden peas
 fr:petits pois, petit pois, pois doux
 nl:doperwten
 carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
+carbon_footprint_fr_foodges_value:fr:1.5
 carbon_footprint_fr_foodges_ingredient:fr:Pois en conserve (type printemps)
+carbon_footprint_fr_foodges_value:fr:0.9
 carbon_footprint_fr_foodges_ingredient:fr:Pois de printemps frais
+carbon_footprint_fr_foodges_value:fr:0.7
 
 <en:garden peas
-fr:petits pois doux extra fins
+fr:petits pois fins
 
 <en:garden peas
 fr:petits pois doux
 nl:zoete doperwten
 # ingredient/fr:petits-pois-doux has 38 products in 3 languages @2019-02-07
+
+<fr:petits pois doux
+fr:petits pois doux extra fins
 
 # The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
@@ -45142,6 +45560,8 @@ ca:tirabec
 de:Zuckerschoten, Kefen
 eo:sukerpizo
 fr:pois croquants, pois mange-tout
+carbon_footprint_fr_foodges_ingredient:fr:Pois d'hiver frais
+carbon_footprint_fr_foodges_value:fr:1.7
 gl:Tirabeque
 id:Kapri
 it:piselli dolce, Taccole
@@ -45152,6 +45572,7 @@ nl:Peultjes
 su:Kapri
 tr:Sultani bezelye
 carbon_footprint_fr_foodges_ingredient:fr:Pois d'hiver frais
+carbon_footprint_fr_foodges_value:fr:1.7
 wikipedia:en:https://en.wikipedia.org/wiki/Snow_pea
 # ingredient/fr:pois-croquants has 30 products in 3 languages @2019-03-06
 # ingredient/fr:pois-mange-tout has 30 products @2019-02-13
@@ -45297,6 +45718,8 @@ zh:小扁豆
 # wikidata:en:Q61505177 # the fruit
 wikidata:en:Q131226
 wikipedia:en:https://en.wikipedia.org/wiki/Lentil
+carbon_footprint_fr_foodges_ingredient:fr:Lentilles vertes
+carbon_footprint_fr_foodges_value:fr:0.3
 
 <en:lentils
 fr:lentilles Béluga
@@ -45313,6 +45736,9 @@ nl:voorgekookte linzen
 # ingredient/fr:lentilles-précuites has 57 products @2019-06-02
 
 <en:lentils
+fr:lentilles blondes
+
+<en:lentils
 en:green lentils
 de:grüne Linsen, Linsen grün
 es:lentejas verdes
@@ -45321,6 +45747,7 @@ it:lenticchie verdi
 nl:groene linzen
 pt:lentilhas verde
 carbon_footprint_fr_foodges_ingredient:fr:Lentilles vertes
+carbon_footprint_fr_foodges_value:fr:0.3
 # ingredient/fr:lentille-verte has 228 products in 7 languages @2019-06-02
 
 <en:green lentils
@@ -45583,6 +46010,9 @@ pt:pistácios
 # 613 products in 9 languages @2018-10-05
 
 <en:pistachio nuts
+fr:pistaches en coques
+
+<en:pistachio nuts
 fr:pâte de pistache
 de:Pistazienpaste
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte%20de%20pistache
@@ -45649,6 +46079,7 @@ zh:胡桃木
 # pt-br:noz
 # yue:合桃仁
 carbon_footprint_fr_foodges_ingredient:fr:Noix entières
+carbon_footprint_fr_foodges_value:fr:1.3
 wikidata:en:Q208021
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix
 # 894 products in 7 languages @2018-10-05
@@ -45844,6 +46275,9 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnuts
 # 4124 products @2018-10-07
 
 <en:hazelnut
+fr:noisettes avec peau
+
+<en:hazelnut
 en:toasted hazelnut
 de:geröstete Haselnüsse, Haselnüsse geröstet
 es:avellanas tostadas
@@ -45860,7 +46294,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20décorti
 # 42 products in 4 languages @2018-10-07
 
 <en:hazelnut
-fr:noisettes entières
+fr:noisettes entières,
 de:ganze Haselnüsse, Haselnüsse ganz
 it:nocciole intere
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20entières
@@ -45997,6 +46431,7 @@ za:Makgai
 wikidata:en:Q184357
 # ingredient/almonds has 9611 products @2018-10-06
 carbon_footprint_fr_foodges_ingredient:fr:Amandes
+carbon_footprint_fr_foodges_value:fr:5.9
 
 <en:almond
 fr:amandes biologiques
@@ -46287,7 +46722,7 @@ vegetarian:en:yes
 <en:seed
 en:aniseed
 es:semilla de anís
-fr:graine d'anis vert, anis vert, graine d'anis
+fr:graine d'anis vert, anis vert, graine d'anis, anis
 nl:anijszaad
 te:సోపు
 tt:әнис орлыгы
@@ -46309,6 +46744,10 @@ de:Senfsaaten
 es:grano de mostaza
 fr:graine de moutarde, graines de moutarde
 nl:mosterdzaad
+
+<en:mustard seed
+en:yellow mustard seed
+fr:graines de moutarde jaunes
 
 <en:seed
 fr:graines de céleri
@@ -46546,7 +46985,7 @@ de:Leinsamen
 es:semillas de lino
 et:Linaseemned
 fa:تخم کتان
-fr:graine de lin, graines de lin, lin
+fr:graine de lin, graines de lin, lin, graines de lin jaune
 hu:Lenmag
 it:semi di lino, lino
 nl:lijnzaad
@@ -46576,7 +47015,7 @@ nl:bruin lijnzaad
 nn:brune linfrø
 # ingredient/fr:graines%20de%20lin%20brun has 181 products in 3 languages @2018-10-08
 
-# Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
+# description:en:Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
 
 <en:seed
 en:pepper
@@ -46589,7 +47028,6 @@ es:pimienta
 et:Pipar
 fi:pippuri
 fr:poivre, poivres
-# Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
 
 <en:seed
 en:pepper
@@ -46624,6 +47062,10 @@ tr:biber
 # pt-br:pimenta
 # sgs:Pėpėrā
 wikidata:en:Q3143131
+
+<en:pepper
+en:peppercorns
+fr:grains de poivre
 
 <en:pepper
 en:pepper extract
@@ -47005,6 +47447,9 @@ it:condimenti misti
 # ingredient/fr:assaisonnement-aromatisé has 45 products @2019-04-04
 # usage:fr:assaisonnement aromatisé (arôme, amidon de pomme de terre, extrait de levure, sel, poudre de tomate, graisse de poule, poudre de bœuf, thym)
 
+<en:condiment
+fr:assaisonnemenet saveur barbecue
+
 en:spice, spices
 de:Gewürze
 es:especias
@@ -47016,26 +47461,33 @@ vegan:en:yes
 vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aromate
 carbon_footprint_fr_foodges_ingredient:fr:Épices
+carbon_footprint_fr_foodges_value:fr:2.2
 # 903 products in 4 languages @2018-10-08
 
+en:herb
+de:Gewürz
+fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, plantes aromatiques, herbes aromatiques
+nl:Kruiden
 
-fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique
-
-fr:épice et aromate, épices et aromates, épices et aromate, épice et aromates
-
-fr:extraits d'épices et d'aromates
+<en:herb
+<en:spice
+en:herbs and spices
+fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique, plantes aromatiques et épices, extraits d'épices et d'herbes, herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques, épice et aromate, épices et aromates, épices et aromate, épice et aromates, épices et arômes, aromates et épices
 
 <en:spice
 fr:plantes aromatiques et épices
 
+en:spice extract, spices extract
 fr:extrait d'épice, extraits d'épices
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte
 
+<en:natural spice extract
+fr:extrait naturel d'épice, extraits naturels d'épices
+
 fr:herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques
 
+en:spices and spices extracts
 fr:épices et extrait d'épices
-
-fr:extraits d'épices et d'herbes
 
 <en:spice
 en:mixed spices
@@ -47043,23 +47495,19 @@ fr:mélange d'épices
 nl:gemengde specerijen
 # ingredient/nl:gemengde-specerijen has 2 products @2019-05-24
 
-fr:épices moulues
-
-fr:épices et extraits d'épices
-
 <en:spice
 fr:épices et arômes, aromates et épices
 
-<en:plant
 en:herb
 de:Gewürz
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques
 nl:Kruiden
 
-<en:plant
+fr:épices moulues
+
 en:plant extracts
 de:Pflanzenextrakte
-fr:extraits de plantes
+fr:extraits de plantes, extraits de plantes aromatiques
 it:estratti vegetali
 nl:plantextracten
 # ingredient/fr:extraits-de-plantes has 69 products in 4 languages @2019-05-29
@@ -47071,11 +47519,10 @@ nl:biologische plantextracten
 # ingredient/fr:extraits-de-plantes-bio has 9 products in french @2019-05-29
 # usage:fr:Extraits de plantes Bio: Aubépine Bio, Fleur d'oranger Bio, Passiflore Bio, Houblon Bio, Mélisse Bio
 
+<en:herb
 fr:plantes aromatiques déshydratées
 
-fr:plantes aromatiques
-
-
+<en:herb
 fr:extraits naturels et aromates
 
 
@@ -47334,7 +47781,27 @@ wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
 # 231 products in 8 languages @2018-10-11
 
-# TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking.
+# description:fr:Le MACIS, également appelé « fleur de muscade », est l’épice obtenue à partir du tégument de la noix de muscade. Plus raffiné que la noix de muscade, on l'utilise en cuisine dans les plats salés, sucrés-salés, mais aussi sucrés.
+
+<en:spice
+en:mace
+ca:Macís
+cs:Muškátový květ
+de:Macis
+eo:Maciso
+es:Macis
+fr:macis
+it:Macis
+ko:메이스
+nl:foelie
+oc:Macís
+pt:Macis
+ru:Мацис
+sk:Muškátový kvet
+uk:Мацис
+wikidata:en:Q1882876
+
+# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking.
 
 <en:spice
 en:turmeric
@@ -47550,7 +48017,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nutmeg
 
 <en:nutmeg
 en:ground nutmeg
-fr:muscade-moulue
+fr:muscade-moulue, noix de muscade en poudre
+
+<en:nutmeg
+en:nutmeg extract
+fr:extrait de muscade
 
 # CARDAMOM, sometimes cardamon or cardamum, is a spice made from the seeds of several plants in the genera Elettaria and Amomum in the family Zingiberaceae. Both
 
@@ -47734,6 +48205,7 @@ zh:桂皮
 # zh-tw:陰香
 wikidata:en:Q28165
 carbon_footprint_fr_foodges_ingredient:fr:Cannelle
+carbon_footprint_fr_foodges_value:fr:2.2
 # fr:cannelle has 1851 products in 14 languages @2018-10-24
 
 <en:Cinnamon
@@ -48097,6 +48569,7 @@ sv:ingefärspuré
 # fr:purée-de-gingembre has 118 products in 6 languages @2018-10-25
 
 <en:spice
+
 en:kaffir lime leaf
 de:Zitronenblatt
 es:hoja limón
@@ -48189,6 +48662,7 @@ zu:umasitadi
 wikidata:en:Q131748
 wikipedia:en:https://en.wikipedia.org/wiki/Mustard_(condiment)
 carbon_footprint_fr_foodges_ingredient:fr:Moutarde
+carbon_footprint_fr_foodges_value:fr:3.3
 # en:mustard has 4679 products in 13 languages @2018-10-25
 
 # MUSTARD is a condiment made from the seeds of a mustard plant
@@ -48219,6 +48693,8 @@ fr:moutarde forte de dijon
 fr:moutarde forte
 # fr:moutarde-forte has 26 products in 1 language @2018-10-25
 
+<en:mustard
+fr:moutarde à l'ancienne
 
 # description:en:A spice commonly called star anise, staranise, star anise seed, Chinese star anise, or badiane that closely resembles anise in flavor is obtained from the star-shaped pericarps of the fruit of I. verum which are harvested just before ripening.  Star anise contains anethole, the same compound that gives the unrelated anise its flavor. Star anise is an ingredient of the traditional five-spice powder of Chinese cooking.
 
@@ -48238,6 +48714,8 @@ ru:анис звёздчатый
 sv:Stjärnanis
 wikidata:en:Q1760637
 # ingredient/fr:badiane has 121 products in 3 languages @2019-04-26
+carbon_footprint_fr_foodges_ingredient:fr:Anis - Badiane
+carbon_footprint_fr_foodges_value:fr:2.7
 
 # description:en:A PINK PEPPERCORN is a dried berry of the shrub Schinus molle, commonly known as the Peruvian peppertree. Although a peppercorn is the dried fruit of a plant from the genus Piper, pink peppercorns came to be called such because they resemble peppercorns, and because they, too, have a peppery flavour. As they are members of the cashew family, they may cause allergic reactions including anaphylaxis for persons with a tree nut allergy.
 
@@ -48246,7 +48724,7 @@ en:pink peppercorn, pink berries
 da:rosépeber
 de:Rosa Beeren
 fa:فلفل صورتی
-fr:baies roses
+fr:baies roses, baies
 it:pepe rosa
 ja:ピンクペッパー
 la:Granum piperis roseum
@@ -48454,6 +48932,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Dill
 en:organic dill seed
 nl:biologisch dillezaad
 # ingredient/nl:biologisch-dillezaad has 1 product @2019-05-24
+
+<en:dill
+en:dried dill
+fr:aneth deshydraté
 
 <en:herb
 en:rosemary
@@ -49049,6 +49531,14 @@ nl:biologische tijm
 # ingredient/fr:thym-bio has 10 products in 3 languages @2019-05-25
 
 <en:thyme
+en:dried thyme
+fr:thym deshydraté, thym deshydrate
+
+<en:thyme
+en:thyme in powder
+fr:thym en poudre
+
+<en:thyme
 en:thyme extract
 fr:extrait de thym
 # en:thyme-extract has 27 products in 1 language @2018-10-10
@@ -49343,6 +49833,8 @@ pt:extracto de manjericão
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20basilic
 # 32 products in 4 languages @2108-10-10
 
+<en:basil
+fr:basilic en poudre
 
 # description:en:CHERVIL is a delicate annual herb related to parsley. It is commonly used to season mild-flavoured dishes and is a constituent of the French herb mixture fines herbes.
 # comment:en:The wikidata entries describe the plant. Not used. IATE has been used.
@@ -49744,6 +50236,12 @@ pt:orégãos
 <en:oregano
 fr:origan déshydraté
 # ingredient/fr:origan-déshydraté has 57 products in french @2018-12-29
+
+<en:oregano
+fr:origan en poudre
+
+<en:oregano
+fr:extract d'origan
 
 <en:herb
 en:bay leaf
@@ -50327,11 +50825,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Juniper_berry
 
 # description:en:LAVANDULA (common name lavender) is a genus of 47 known species of flowering plants in the mint family, Lamiaceae. 
 
-<<<<<<< HEAD
 <en:herb
-=======
-<en:plant
->>>>>>> master
 en:lavender
 ar:ضرم
 az:Lavanda
@@ -50419,13 +50913,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lavandula
 # description:en:LEMON BALM (Melissa officinalis), is a perennial herbaceous plant in the mint family Lamiaceae. Lemon balm is used as a flavouring in ice cream and herbal teas, both hot and iced, often in combination with other herbs such as spearmint. In alternative medicine it is used as a sleep aid and digestive aid.
 # comment:en:The wikidata translations sometimes use the official localised plant name and not the popular name found on packages.
 
-<<<<<<< HEAD
 <en:herb
 en:Lemon Balm
-=======
-<en:plant
 en:lemon balm
->>>>>>> master
 af:Suurlemoenbalsem
 ar:ترنجان مخزني
 az:Dərman limonotu
@@ -51057,6 +51547,8 @@ zh:阿塞图纳
 # zh-hk:阿塞圖納
 wikipedia:en:https://en.wikipedia.org/wiki/Olive
 # ingredient/olive has 2637 products in 9 languages @2018-12-01
+carbon_footprint_fr_foodges_ingredient:fr:Olives "Pays du Sud" en boite
+carbon_footprint_fr_foodges_value:fr:1.7
 
 <en:olive
 en:black olive
@@ -51095,6 +51587,9 @@ fr:olives vertes et noires
 <en:black olive
 fr:olives noires avec noyau
 # ingredient/fr:olives-noires-avec-noyau has 58 products in french @2018-12-01
+
+<en:black olive
+fr:olives noires confites entières
 
 <en:black olive
 en:olive paté
@@ -51897,6 +52392,7 @@ zu:Itiye
 # zh-tw:茶
 wikipedia:en:https://en.wikipedia.org/wiki/Tea
 carbon_footprint_fr_foodges_ingredient:fr:Thé
+carbon_footprint_fr_foodges_value:fr:30.5
 # ingredient/tea has 217 products in 5 languages @2019-04-21
 
 <en:tea
@@ -52289,13 +52785,14 @@ sv:bourbon vaniljextrakt
 en:vanilla pod, vanilla pods
 de:Vanilleschoten
 es:vainas de vainilla
-fr:gousse de vanille, gousses de vanille
+fr:gousse de vanille, gousses de vanille, écorce de vanille
 it:baccelli di vaniglia
 nl:vanillestokje, vanillestokjes
 pt:vagem de baunilha
 sv:vaniljstång
 # ingredient/fr:gousse-de-vanille has 207 products in 5 languages @2019-02-24
 carbon_footprint_fr_foodges_ingredient:fr:Gousse de Vanille
+carbon_footprint_fr_foodges_value:fr:2.6
 
 <en:vanilla pod
 en:ground vanilla beans, vanilla bean pieces
@@ -52313,7 +52810,7 @@ nl:uitgeputte vanillestokjes, geëxtraheerde vanillestokjes, leeg vanillestokje
 # ingredient/fr:gousse-de-vanille-épuisée has 55 products in 3 languages @2019-02-24
 
 <fr:gousse de vanille épuisée
-fr:gousses de vanille épuisées broyées
+fr:gousses de vanille épuisées broyées, gousses de vanille broyées épuisées
 de:gemahlene extrahierte Vanilleschoten
 it:baccelli di vaniglia curati macinati
 nl:gemalen geëxtraheerde vanillestokjes
@@ -53188,6 +53685,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mushroom
 vegan:en:yes
 vegetarian:en:yes
 # en:mushroom has 1817 products in 16 languages @2018-11-02
+carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
+carbon_footprint_fr_foodges_value:fr:1.9
+
+<en:mushroom
+en:concentrated mushroom juice
+fr:jus concentré de champignon
 
 <en:mushroom
 en:mushroom extract
@@ -53355,6 +53858,10 @@ fr:Boletus edulis, Cèpe de Bordeaux
 it:funghi porcini
 la:Boletus edulis
 
+<en:cep
+en:dried cep
+fr:cèpes deshydratés
+
 # AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America. 
 
 <en:mushroom
@@ -53408,6 +53915,12 @@ wikidata:en:Q227690
 wikipedia:en:https://en.wikipedia.org/wiki/Agaricus_bisporus
 # fr:champignons de Paris has 857 products in 9 languages @2018-11-01
 carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
+carbon_footprint_fr_foodges_value:fr:1.9
+
+<en:champignon
+fr:champignons de Paris émincés
+
+
 
 # description:en:HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
 
@@ -53883,16 +54396,14 @@ wikidata:en:Q1142857
 en:shiitake
 de:shiitake, schwarzer Pilz
 es:setas negro
-fr:shiitake, champignon noir, champignons noirs, shiitakes
+fr:shiitake, champignon noir, champignons noirs, shiitakes, , Lentin du chêne, Lentin comestible, Champignon parfumé
 it:funghi shiitake
 nl:shiitake, zwarte paddestoel, Chinese champignons
 sv:svart champinjon
 # fr:champignon-noir has 111 products in 2 languages @2018-11-01
 
 <en:shiitake
-en:Lentinula edodes , Lentinus edodes
-fr:Lentinula edodes, Shiitake, Lentin du chêne, Lentin comestible, Champignon parfumé
-it:Lentinula edodes (Shiitake)
+en:Lentinula edodes, Lentinus edodes
 la:Lentinula edodes
 # ingredient/fr:Lentinus-edodes has 21 products in french @2018-01-22
 
@@ -54507,6 +55018,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fish
 vegan:en:no
 vegetarian:en:no
 # ingredient/fish has 7147 products in 12 languages @2018-12-21
+carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
+carbon_footprint_fr_foodges_value:fr:10.2
+carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
+carbon_footprint_fr_foodges_value:fr:11.5
 
 <en:fish
 fr:extrait de poisson
@@ -54631,12 +55146,11 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Liste_des_poissons_de_mer_utilisés_e
 <en:crustacean
 fr:poissons et crustacés mis en œuvre, poissons et crustacés mis en oeuvre
 # ingredient/fr:poissons-et-crustacés-mis-en-œuvre has 1 product in french @2019-01-01
+carbon_footprint_fr_foodges_ingredient:fr:Moules/autres crustacés
+carbon_footprint_fr_foodges_value:fr:10.7
 
 <en:fish
 fr:poissons entiers pêchés en Méditerranée
-
-carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
-carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
 
 # The Alaska pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
 
@@ -55134,8 +55648,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cod
 # ingredient/cod has 401 products in 5 languages @2018-12-29
 
 <en:cod
+fr:chair de morue
+
+<en:cod
 fr:filet de cabillaud, filets de cabillaud
 # ingredient/fr:filet-de-cabillaud has 32 products in french @2018-12-29
+
+<en:cod
+fr:oeufs de cabillaud fumés
 
 <en:cod
 fr:foie de morue
@@ -55250,6 +55770,8 @@ zh:尖吻平鮋
 wikidata:en:Q1700062
 wikipedia:en:https://en.wikipedia.org/wiki/Deepwater_redfish
 # ingredient/fr:dorade-sébaste has 2 products @2019-01-15
+carbon_footprint_fr_foodges_ingredient:fr:Bar ou dorade d'élevage (filet)
+carbon_footprint_fr_foodges_value:fr:12
 
 <en:deepwater redfish
 en:Sebastes mentella
@@ -55947,20 +56469,23 @@ zh:鮭魚
 # wikipedia:en:https://en.wikipedia.org/wiki/Salmon
 wikipedia:en:https://en.wikipedia.org/wiki/Salmon_as_food
 # ingredient/salmon has 1659 products in 6 languages @2018-12-29
+carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
+carbon_footprint_fr_foodges_value:fr:6.6
 
 <en:salmon
 fr:saumon cuit
 de:Lachs gekocht
 # ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
 
+<en:salmon
+fr:pulpe de saumon fumé
+
 #<en:salmon
 #fr:pavé de saumon d'élevage
-#carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
 # no products
 
 #<en:salmon
 #fr:saumon fumé d'élevage
-#carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
 # no products
 
 # en:smoked-salmon is a compound ingredient
@@ -55971,7 +56496,8 @@ de:Räucherlachs
 fr:saumon fumé
 it:salmone affumicato
 # ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
-
+carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
+carbon_footprint_fr_foodges_value:fr:5.5
 
 # The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae. 
 
@@ -56052,6 +56578,9 @@ wikidata:en:Q188879
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_salmon
 # ingredient/fr:saumon-atlantique has 687 products in 5 languages @2018-12-29
 
+<en:atlantic salmon
+en:smoked atlantic salmon
+fr:saumon Atlantique fumé
 
 # The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family. 
 
@@ -56286,6 +56815,10 @@ it:filetti di sardine
 nl:sardinefilets
 # ingredient/fr:filets-de-sardines has 115 products in 5 languages @2019-05-06
 
+<en:sardine fillets
+en:precooked sardine fillets
+fr:filets de sardines précuits
+
 <en:sardine
 fr:sardines fraîches
 # ingredient/fr:sardines-fraîches has 30 products in french @2019-02-21
@@ -56294,6 +56827,9 @@ fr:sardines fraîches
 fr:sardines sélectionnées
 # ingredient/fr:sardines-sélectionnées has 16 products @2019-02-03
 
+<en:sardine
+en:precooked sardine
+fr:sardines précuites
 
 # description:en:Scorpaenidae (also known as the SCORPIONFISH) are a family of mostly marine fish that includes many of the world's most venomous species.
 
@@ -56465,6 +57001,7 @@ zh:鮪魚
 wikipedia:en:https://en.wikipedia.org/wiki/Tuna
 # ingredient/tuna has 1347 products in 10 languages @2019-01-02
 carbon_footprint_fr_foodges_ingredient:fr:Thon en boîte
+carbon_footprint_fr_foodges_value:fr:4
 
 <en:tuna
 fr:filets de thon
@@ -56472,8 +57009,12 @@ de:Thunfisch Filets
 # ingredient/fr:filets-de-thon has 24 products in 2 languages @2019-02-02
 
 <en:tuna
+en:precooked tuna
 fr:thon précuit
 # ingredient/fr:thon-précuit has 30 products in french @2019-01-02
+
+<en:precooked tuna
+fr:thon précuit haché
 
 <en:tuna
 fr:Ventrèches de thon
@@ -56706,7 +57247,7 @@ es:Verdel
 et:Makrell
 eu:Berdel
 fi:Makrilli
-fr:maquereau, filets de maquereaux
+fr:maquereau, maquereaux 
 ga:Ronnach
 gd:Rionnach
 gl:Xarda
@@ -56740,6 +57281,14 @@ zh:鯖魚
 # yue:青花魚
 wikipedia:en:https://en.wikipedia.org/wiki/Mackerel
 # structure:outer:role:synonym, eg sgombri (Scomber scombrus)
+
+<en:mackarel
+en:mackarel fillet
+fr:filets de maquereaux
+
+<en:mackarel fillet
+en:precooked mackarel fillet
+fr:filets de maquereaux précuits
 
 <en:mackarel
 en:atlantic mackarel
@@ -56846,6 +57395,7 @@ zh:鯛科
 wikipedia:en:https://en.wikipedia.org/wiki/Sparidae
 # ingredient/fr:dorade has 3 products @2018-12-30
 carbon_footprint_fr_foodges_ingredient:fr:Bar ou dorade d'élevage (filet)
+carbon_footprint_fr_foodges_value:fr:12
 # structure:outer:role:synonym,  eg:dorade (Spondyliosoma cantharus)
 
 
@@ -57134,6 +57684,8 @@ wikidata:en:Q187986
 wikipedia:en:https://en.wikipedia.org/wiki/Rainbow_trout
 # ingredient/fr:truite%20arc-en-ciel has 81 products in 3 languages @2018-12-30
 # structure:outer:role:synonym,  eg Truite arc-en-ciel (oncorhynchus mykiss)
+carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
+carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:rainbow trout
 en:Oncorhynchus mykiss
@@ -57143,17 +57695,14 @@ la:Oncorhynchus mykiss
 
 # <fr:truite
 # fr:truite d'élevage entière
-# carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
 # no products @2018-12-30
 
 # <fr:truite
 # fr:pavé de truite d'élevage
-# carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
 # no products @2018-12-30
 
 # <fr:truite
 # fr:Truite fumée d'élevage
-# carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
 # no products @2018-12-30
 
 
@@ -57496,7 +58045,8 @@ zh:软体动物
 wikidata:en:Q25326
 wikipedia:en:https://en.wikipedia.org/wiki/Mollusca
 # ingredient/fr:mollusque has 1890 products in 6 languages @2018-01-03
-
+carbon_footprint_fr_foodges_ingredient:fr:Moules/autres crustacés
+carbon_footprint_fr_foodges_value:fr:10.7
 
 # A cockle is an edible, marine bivalve mollusc. Although many small edible bivalves are loosely called cockles, true cockles are species in the family Cardiidae.
 
@@ -57730,6 +58280,9 @@ fr:moules glazurées
 <en:mussel
 fr:moules cuites
 # ingredient/fr:moules-cuites has 2 products @2019-02-05
+
+<fr:moules cuites
+fr:moules du Pacifique décoquillées cuites
 
 # The Mediterranean mussel (Mytilus galloprovincialis) is a species of bivalve, a marine mollusc in the family Mytilidae. 
 
@@ -58785,7 +59338,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crustacean
 vegan:en:no
 vegetarian:en:no
 # ingredient/fr:crustacé has 2263 products @2019-01-06
-
+carbon_footprint_fr_foodges_ingredient:fr:Moules/autres crustacés
+carbon_footprint_fr_foodges_value:fr:10.7
 
 # Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail"
 
@@ -59457,7 +60011,7 @@ fr:Gambas cuites
 en:giant tiger prawn, Asian tiger shrimp
 bg:гигантска тигрова скарида
 fa:میگوی ببری بزرگ
-fr:Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées
+fr:Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées, crevettes tropicales tigrées
 id:Udang windu
 ja:ウシエビ
 ko:블랙타이거
@@ -60643,8 +61197,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Menthol
 
 
 
-# Sulfites or sulphites are compounds that contain the sulfite ion SO2−3. 
 
+# Sulfites or sulphites are compounds that contain the sulfite ion SO2−3. 
 en:sulfite, Sulphites, sulphite
 af:Sulfiet
 bg:Сулфит
@@ -60947,6 +61501,8 @@ wikidata:en:Q8486
 wikipedia:en:https://en.wikipedia.org/wiki/Coffee
 vegan:en:yes
 vegetarian:en:yes
+carbon_footprint_fr_foodges_ingredient:fr:Café moulu
+carbon_footprint_fr_foodges_value:fr:15.7
 # ingredient/en:coffee has 1637 products in 10 languages @2018-11-30
 
 <en:coffee
@@ -61030,6 +61586,7 @@ fr:café moulu
 it:caffè macinato
 nl:gemalen koffie
 carbon_footprint_fr_foodges_ingredient:fr:Café moulu
+carbon_footprint_fr_foodges_value:fr:15.7
 # ingredient/fr:café-moulu has 151 products in 5 languages @2018-11-30
 
 <en:ground coffee
@@ -61167,6 +61724,9 @@ zh:黄瓜
 wikidata:en:Q2735883
 wikipedia:en:https://en.wikipedia.org/wiki/Cucumber
 carbon_footprint_fr_foodges_ingredient:fr:Concombre
+carbon_footprint_fr_foodges_value:fr:1.7
+carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
+carbon_footprint_fr_foodges_value:fr:2.4
 # ingredient/fr:concombre has 549 products in 6 languages @2019-05-15
 
 
@@ -61186,15 +61746,21 @@ wikidata:en:Q23425
 wikidata:en:Q1365891
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
 
+<en:gherkin
+en:vinegar gherkin
+de:Essiggurken
+fr:cornichons au vinaigre
+nl:augurken op azijn
+# usage:de:Essiggurken [Gurken, Branntweinessig, Zucker, Kochsalz]
+# fr:cornichons-au-vinaigre has 39 products in 2 languages @2018-12-01
+
 # <en:compound
 <en:cucumber
 en:vinegar cucumbers
-de:Essiggurken
 fr:concombres au vinaigre
 it:cetrioli all'aceto
 # ingredient/fr:concombres%20au%20vinaigre has 19 products in 4 languages @2019-05-15
-# usage:de:Essiggurken [Gurken, Branntweinessig, Zucker, Kochsalz]
-# fr:cornichons-au-vinaigre has 39 products in 2 languages @2018-12-01
+
 
 # <en:cucumber
 # fr:Concombre produit sous serre chauffée
@@ -61656,10 +62222,18 @@ wikidata:en:Q780
 wikipedia:en:https://en.wikipedia.org/wiki/Chicken_as_food
 # ingredient/chicken has 872 products @2019-05-18
 # category/chickens has 3369 products in 18 languages @2019-05-18
+carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chicken
 fr:poulet fermier
 # ingredient/fr:poulet-fermier has 13 products in french @2019-05-25
+
+<en:chicken
+fr:poulet deshydraté
+
+<en:chicken
+fr:machons et ailerons de poulet
 
 # description:en:CHICKEN BONES are hazardous to health as they tend to break into sharp splinters when eaten, but they can be simmered with vegetables and herbs for hours or even days to make chicken stock.
 
@@ -61725,6 +62299,8 @@ sk:prsia kuracie
 sv:kycklingkött
 # wikidata:en:Q864693
 # ingredient/chicken-meat has 2349 products in 8 languages @2019-04-16
+carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chicken meat
 en:precooked chicken meat
@@ -61754,6 +62330,10 @@ nl:kipfilet
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
 
 <en:chicken fillet
+en:superior chicken fillet
+fr:filet de poulet de qualité supérieure
+
+<en:chicken fillet
 fr:Filets de poulet jaune
 # 6@2019-06-07
 
@@ -61768,6 +62348,8 @@ fr:filet de poulet traité en salaison cuit
 nl:verhitte gepekelde kipfilet
 # ingredient/fr:filet-de-poulet-traité-en-salaison-cuit has 4 products @2019-05-19
 
+<fr:filet de poulet traité en salaison cuit
+fr:préparation à base de filets de poulet traités en salaison
 
 <en:chicken meat
 fr:produit à base de viande de poulet
@@ -61778,12 +62360,15 @@ fr:poitrine de poulet
 <en:chicken meat
 fr:cuisse de poulet
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chicken meat
 fr:poulet rôti
 carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
+carbon_footprint_fr_foodges_value:fr:5.2
 
-
+<en:chicken meat
+fr:blanc de poulet cuit de qualite superieure traite en salaison et filet interne de poulet
 
 # <en:chicken meat
 # en:precooked chicken
@@ -61826,6 +62411,7 @@ fr:viande de poulet traitée en salaison et précuite
 <en:chicken meat
 fr:blanc de poulet
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
+carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chicken
 fr:extrait de poulet
@@ -61859,6 +62445,7 @@ fr:canard
 nl:eend
 
 <en:duck
+<en:poultry meat
 en:duck meat
 fr:viande de canard
 
@@ -61871,6 +62458,7 @@ fr:manchons de canard
 <en:duck meat
 fr:magret de canard
 carbon_footprint_fr_foodges_ingredient:fr:Magret canard
+carbon_footprint_fr_foodges_value:fr:9.7
 
 <en:duck
 en:duck liver
@@ -62022,6 +62610,8 @@ zh:火雞肉
 wikidata:en:Q4200953
 wikipedia:en:https://en.wikipedia.org/wiki/Turkey_as_food
 # ingredient/fr:viande-de-dinde has 1257 products in 7 languages @2019-04-18
+carbon_footprint_fr_foodges_ingredient:fr:Cuisse de dinde
+carbon_footprint_fr_foodges_value:fr:6.6
 
 <en:turkey meat
 fr:viande de dinde halal
@@ -62030,10 +62620,12 @@ fr:viande de dinde halal
 <en:turkey meat
 en:Turkey fillet
 de:Putenfilet
-fr:filet de dinde, filets de dinde
+fr:filet de dinde, filets de dinde, blanc de dinde, blancs de dinde
 it:Filetto di tacchino
 nl:Kalkoenfilet
 # ingredient/fr:filet-de-dinde has 162 products in 5 languages @2019-04-16
+carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
+carbon_footprint_fr_foodges_value:fr:6.5
 
 <en:turkey meat
 en:mechanically separated meat of turkey
@@ -62043,13 +62635,9 @@ it:carne di tacchino separata meccanicamente
 # ingredient/fr:viande-séparée-mécaniquement-de-dinde has 80 products in 4 languages @2019-04-16
 
 <en:turkey meat
-fr:blanc de dinde
-carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
-# ingredient/fr:blanc-de-dinde has 14 products in french @2019-04-16
-
-<en:turkey meat
 fr:cuisse de dinde
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de dinde
+carbon_footprint_fr_foodges_value:fr:6.6
 # ingredient/fr:cuisse-de-dinde has 84 products in french @2019-04-16
 
 <fr:Cuisse de dinde
@@ -62064,6 +62652,9 @@ fr:viande de dinde traitée en salaison
 <en:turkey meat
 fr:Escalopes de dinde
 # ingredient/fr:escalopes-de-dinde has 22 products @2019-05-23
+
+<en:turkey meat
+fr:jambon de dinde cuit standard goût fumé
 
 <en:poultry
 fr:caille, cailles
@@ -62190,6 +62781,7 @@ vegetarian:en:yes
 vegan:en:no
 # ingredient/egg has 15441 products in 24 languages @2018-12-19
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
+carbon_footprint_fr_foodges_value:fr:2.6
 
 <en:egg
 fr:gros oeufs
@@ -62372,6 +62964,9 @@ fr:œuf entier liquide, œufs entiers liquides, oeuf entier liquide, oeufs entie
 it:uovo intero liquido
 # ingredient/llwiquid-whole-egg has 131 products in 4 languages @2018-12-18
 
+<en:liquid whole egg
+fr:oeuf entier liquide pasteurisé salé
+
 <en:whole egg
 en:whole fresh eggs
 es:huevos enteros frescos
@@ -62400,6 +62995,9 @@ fr:œuf entier liquide pasteurisé, oeuf entier liquide pasteurisé
 nl:gepasteuriseerd vloeibaar heel ei
 sv:helt pastöriserat ägg i flytande form
 # ingredient/fr:œuf-entier-liquide-pasteurisé has 143 products in 3 languages @2018-12-18
+
+<en:whole egg
+fr:oeufs entiers reconstitués
 
 <en:egg
 en:fresh egg, fresh eggs
@@ -62498,6 +63096,10 @@ fr:blanc d'œuf réhydraté, blanc d'oeuf réhydraté
 it:albume reidratato
 nl:gerehydrateerd eiwit
 # ingredient/rehydrated-egg-white has 150 products in 5 languages @2018-12-18
+
+<en:powdered egg white
+en:pasteurised powdered egg white
+fr:blanc d'oeuf en poudre pasteurisé
 
 <en:egg white
 fr:blancs d'œufs pasteurisés, blancs d'oeufs pasteurisés
@@ -62602,7 +63204,7 @@ wikidata:en:Q1302994
 <en:egg yolk
 en:free range egg yolk
 es:yema de huevo de gallinas camperas
-fr:jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air
+fr:jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air, jaune d'oeuf issu d'oeufs de poules elevees en plein air
 nl:Eigeel van vrije uitloop eieren
 pt:gema de ovo de galinhas criadas ao ar livre
 # ingredient/fr:jaune-d’oeuf-de-poules-élevées-en-plein-air has 61 products in 2 languages @2018-12-18
@@ -62956,6 +63558,66 @@ zh:纤维
 wikidata:en:Q161
 wikipedia:en:https://en.wikipedia.org/wiki/Fiber
 # fibre has 270 products in 8 languages @2019-03-10
+
+# description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants,[1] industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
+
+# fodmap:en:yes
+<en:fiber
+en:inulin
+ar:إينولين
+# azb:اینولین
+be:Інулін
+# be-tarask:Інулін
+bs:Inulin
+ca:Inulina
+cs:Inulin
+da:Inulin
+de:Inulin
+eo:Inulino
+es:Inulina
+eu:Inulina
+fa:اینولین
+fi:Inuliini
+fr:inuline
+gl:Inulina
+he:אינולין
+hu:Inulin
+hy:Ինուլին
+id:Inulin
+io:Inulino
+it:Inulina
+ja:イヌリン
+jv:Inulin
+lt:Inulinas
+lv:inulīns
+mk:Инулин
+nl:Inuline
+nn:Inulin
+pl:Inulina
+pt:Inulina
+ro:Inulina
+ru:инулин
+# sco:inulin
+sh:inulin
+sl:Inulin
+sr:Инулин
+# sr-ec:Инулин
+# sr-el:inulin
+sv:Inulin
+th:อินูลิน
+tr:İnülin
+uk:Інулін
+uz:Inulin
+vi:Inulin
+zh:菊粉
+# zh-cn:菊粉
+# zh-hans:菊粉
+# zh-hant:菊粉
+# zh-hk:菊粉
+# zh-sg:菊粉
+# zh-tw:菊粉
+wikidata:en:Q201552
+wikipedia:en:https://en.wikipedia.org/wiki/Inulin
 
 <en:fiber
 en:vegetable fiber, vegetable fibers, plant fiber
@@ -63331,6 +63993,7 @@ zh:布里歐
 wikidata:en:Q917574
 wikipedia:en:https://en.wikipedia.org/wiki/Brioche
 carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries Brioche industrielle préemballée
+carbon_footprint_fr_foodges_value:fr:2.9
 # ingredient/fr:brioche has 35 products @2019-01-28
 # category/brioches has 1483 products @2019-05-20
 
@@ -63555,6 +64218,7 @@ pnns_group_2:en:Cereals
 wikidata:en:Q178
 wikipedia:en:https://en.wikipedia.org/wiki/Pasta
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+carbon_footprint_fr_foodges_value:fr:0.5
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 # ingredient/paste has 1809 products @2018-12-10
 
@@ -63564,6 +64228,8 @@ de:Teigwaren aus Hartweizengrieß
 fr:Pâtes alimentaires de semoule de blé dur, pâtes alimentaires de blé dur.
 it:pasta di semola di grano duro
 # 10@2019-06-04
+carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+carbon_footprint_fr_foodges_value:fr:0.5
 
 <en:durum wheat semolina pasta
 fr:Pâtes alimentaires de semoule de blé dur de qualité supérieure
@@ -63576,11 +64242,19 @@ fr:pâtes fraîches
 it:pasta fresca
 # ingredient/fr:pâtes-fraîches has 51 products in 4 languages @2019-02-03
 # ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
+carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+carbon_footprint_fr_foodges_value:fr:0.5
 
 <en:fresh pasta
 en:cooked fresh pasta
 fr:pâtes fraîches cuites
 # ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
+
+<en:fresh pasta
+fr:pâtes fraîches aux oeufs
+
+<en:pasta
+fr:pâtes alimentaires aux oeufs cuites
 
 <en:pasta
 en:cooked tagliatelle
@@ -63589,10 +64263,12 @@ de:Tagliatelle gekocht, Bandnudeln gekocht
 it:tagliatelle cotte
 # ingredient/fr:tagliatelles-cuites has 27 products in 4 languages @2019-02-16
 # usage:fr:Tagliatelles cuites (eau, semoule de blé dur, oeufs, huile de colza, persil, stabilisant :E 500)
-
+carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+carbon_footprint_fr_foodges_value:fr:0.5
 <en:dough
 fr:pâte crue
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+carbon_footprint_fr_foodges_value:fr:0.5
 # ingredient/fr:pâte-crue has 22 products in french @2018-12-10
 
 # description:en:NOODLES are unleavened dough which is stretched, extruded, or rolled flat and cut into one of a variety of shapes which usually include long, thin strips, or waves, helices, tubes, strings, or shells, or folded over, or cut into other shapes.
@@ -63672,6 +64348,8 @@ ta:நூடுல்ஸ்
 wikidata:en:https://www.wikidata.org/wiki/Q192874
 wikipedia:en:https://en.wikipedia.org/wiki/Noodle
 # ingredient/fr:nouilles has 241 products in 7 languages @2019-05-08
+carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+carbon_footprint_fr_foodges_value:fr:7.3
 
 
 <en:dough
@@ -63690,7 +64368,8 @@ de:Blätterteig
 it:pasta sfoglia
 nl:bladerdeeg
 # ingredient/fr:pâte-feuilletée has 208 products in 8 languages @2018-12-10
-
+carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+carbon_footprint_fr_foodges_value:fr:7.3
 
 # description:en:EGG PASTA (pasta all'uovo) – May only be manufactured using durum wheat semolina with at least 4 hens’ eggs (chicken) weighing at least 200 grams (without the shells) per kilogram of semolina, or a liquid egg product produced only with hen’s eggs. Pasta made and sold in Italy under this category must be labeled egg pasta.
 
@@ -63710,7 +64389,6 @@ wikidata:en: Q53619707
 # <en:dough
 # fr:pâte à tarte
 # ingredient/fr:pâte-à-tarte has no products @2018-12-10
-# carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 
 #<en:compound
 fr:galette
@@ -63728,6 +64406,8 @@ nl:vermicelli
 # ingredient/fr:vermicelle has 41 products in 2 languages @2019-03-12
 # vermicelli (mungbonenzetmeel, maïszetmeel)
 
+<en:vermicelli
+fr:vermicelles cuits
 
 # description:en:BREAD is a staple food prepared from a dough of flour and water, usually by baking.
 
@@ -63977,6 +64657,7 @@ zu:isinkwa
 wikidata:en:Q7802
 wikipedia:en:https://en.wikipedia.org/wiki/Bread
 carbon_footprint_fr_foodges_ingredient:fr:Pain
+carbon_footprint_fr_foodges_value:fr:1.5
 # ingredient/fr:pain has 411 products in 5 languages @2019-03-06
 
 <en:bread
@@ -63993,15 +64674,24 @@ fr:pain de mie
 it:pane per toast
 # ingredient/fr:pain-de-mie has 104 products in 4 languages @2019-03-07
 
+<en:breadmeal
+fr:pain de mie complet
+
+<en:special bread
+fr:pain spécial bretzel
+
 <en:special bread
 fr:pain au chocolat
 carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries pain au chocolat
+carbon_footprint_fr_foodges_value:fr:2.3
 # ingredient/fr:pain-au-chocolat has 17 products in french @2019-03-07
 
 <en:breadmeal
 fr:pain de mie au son de blé
 # ingredient/fr:pain-de-mie-au-son-de-blé has 32 products in french @2019-03-07
 
+<en:special bread
+fr:pain spécial viennois, pain special viennois
 
 # <en:compound
 fr:brisures de crêpe dentelle
@@ -64113,7 +64803,12 @@ nl:ongedesemd brood, ouwel
 # ingredient/fr:pain-azyme has 293 products in 6 languages @2019-03-07
 # pan ácimo (fécula de patata, agua, aceite de girasol)
 
+# description:Cornet biscuit is for ice creqm
 
+fr:cornet biscuit
+nl:ijshoorntje
+
+fr:biscuit d'enrobage
 
 # description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough. 
 
@@ -64184,6 +64879,8 @@ el:Μπισκότο
 # en-gb:Biscuit
 eo:biskvito
 es:galleta
+carbon_footprint_fr_foodges_ingredient:fr:Biscuit au beurre
+carbon_footprint_fr_foodges_value:fr:4.5
 eu:Gaileta
 fa:بیسکویت
 fr:biscuit, biscuits, biscuits sucrés, biscuit sucré
@@ -64234,6 +64931,7 @@ zh:面饼
 wikidata:en:Q13270
 wikipedia:en:https://en.wikipedia.org/wiki/Biscuit
 carbon_footprint_fr_foodges_ingredient:fr:Biscuit au beurre
+carbon_footprint_fr_foodges_value:fr:4.5
 # ingredient/fr:biscuit has 391 products in 8 languages @2019-02-23
 # Biscuit (egg, wheat flour, sugar, emulsifier:mono - and diglycerides of fatty acids, leavening agents:diphosphates and sodium carbonate)
 
@@ -64294,7 +64992,7 @@ bs:smjesa za paniranje
 de:Beschichtung
 es:envolviendo, sobrimiento
 et:kate
-fr:enrobage, enrobant
+fr:enrobage, enrobant, décor, decor, chemisage
 it:rivestimento
 lt:apvalkalas
 nb:belegg
@@ -64307,6 +65005,12 @@ tr:kaplama
 # ingredient/fr:enrobant has 79 products in 4 languages @2019-02-21
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
 
+<en:coating
+fr:décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
+
+# comment:en:The inside part of an ice cream cone
+
+fr:intérieur cône
 
 # description:en:BREAD CRUMBS are sliced residue of dry bread, used for breading or crumbing foods, topping casseroles, stuffing poultry, thickening stews, adding inexpensive bulk to soups, meatloaves and similar foods, and making a crisp and crunchy covering for fried foods, especially breaded cutlets like tonkatsu and schnitzel.
 
@@ -64575,6 +65279,7 @@ wikidata:en:Q19573669
 # ingredient/fr:petit-beurre has 20 products in french @2018-02-08
 # category/petit-beurre has 263 products @2018-05-19
 
+fr:génoise, genoise
 
 # description:en:A CROUTON is a piece of sautéed or rebaked bread, often cubed and seasoned, that is used to add texture and flavor to salads as an accompaniment to soups and stews, or eaten as a snack food.
 
@@ -64945,6 +65650,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nougat
 # ingredient/nougat has 52 products in 5 languages @2019-02-08
 # nougat (cane sugar , hazelnuts 33%, cocoa mass, cocoa butter)
 
+<en:nougat
+fr:morceaux de nougat
 
 # description:en:BRITTLE is a type of confection consisting of flat broken pieces of hard sugar candy embedded with nuts such as pecans, almonds, or peanuts.
 
@@ -64989,6 +65696,7 @@ wikidata:en:Q3401308
 # ingredient/fr:praliné has 344 products in 5 languages @2019-05-14
 # usage:fr:praliné (sucre de canne brut*, noisettes*, pâte de cacao*, beurre de cacao*)
 
+fr:bonbon au cacao maigre
 
 # description:en:A GLAZE in cooking is a coating of a glossy, often sweet, sometimes savoury, substance applied to food typically by dipping, dripping, or with a brush. Egg whites and basic icings are both used as glazes.
 
@@ -65748,8 +66456,13 @@ vi:Kem vani
 zh:香草冰淇淋
 wikidata:en:Q12071938
 carbon_footprint_fr_foodges_ingredient:fr:Glace à la vanille
+carbon_footprint_fr_foodges_value:fr:1.5
 # ingredient/fr:glace-à-la-vanille has 60 products in 2 languages @2019-04-29
 
+<en:ice cream
+en:chocolate ice cream
+fr:glace au chocolat
+nl:chocoladeijs
 
 # description:en:In cooking, a SAUCE is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish. Sauces may be used for sweet or savory dishes. They may be prepared and served cold, like mayonnaise, prepared cold but served lukewarm like pesto, cooked and served warm like bechamel or cooked and served cold like apple sauce.
 
@@ -65876,6 +66589,14 @@ wikidata:en:Q178359
 wikipedia:en:https://en.wikipedia.org/wiki/Sauce
 # ingredient/sauce has 5701 products in 15 languages @2019-05-02
 
+<en:sauce
+fr:préparation deshydratée pour sauce
+
+<en:sauce
+fr:sauce au vinaigre balsamique
+
+<en:sauce
+fr:sauce aux fruits rouges
 
 # description:en:BÉCHAMEL SAUCE, also known as white sauce, is made from a white roux (butter and flour) and milk.
 
@@ -65896,7 +66617,7 @@ et:Valge kaste
 eu:Bexamel
 fa:سس بشامل
 fi:Valkokastike
-fr:sauce béchamel
+fr:sauce béchamel, béchamel
 gl:Bechamel
 he:רוטב בשאמל
 hu:Besamel
@@ -66067,6 +66788,7 @@ zh:番茄醬
 wikidata:en:Q178143
 wikipedia:en:https://en.wikipedia.org/wiki/Ketchup
 carbon_footprint_fr_foodges_ingredient:fr:Ketchup
+carbon_footprint_fr_foodges_value:fr:2.4
 # ingredient/fr:ketchup has 110 products in 4 languages @2019-04-21
 # usage:en:ketchup (tomato puree, glucose syrup, brandy vinegar, sugar, modified corn starch)
 
@@ -66531,11 +67253,15 @@ zh:番茄沙司
 wikidata:en:Q3596097
 wikipedia:en:https://en.wikipedia.org/wiki/Tomato_sauce
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
+carbon_footprint_fr_foodges_value:fr:2.9
 # ingredient/fr:préparation-à-base-de-tomates has 91 products in 5 languages @2018-12-26
 
 <en:tomato sauce
 fr:sauce tomate cuite
 # ingredient/fr:sauce-tomate-cuite has 379 products in 5 languages @2018-12-26
+
+<en:tomato sauce
+fr:sauce tomate cuisinée
 
 # description:en:WORCESTERSHIRE SAUCE is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
 
@@ -66703,8 +67429,10 @@ ru:карамельный соус
 # usage:fr:sauce au caramel (sirop de sucre inverti, eau, 14% sirop de sucre caramélisé)
 
 
+
 fr:margarine
 carbon_footprint_fr_foodges_ingredient:fr:Margarine
+carbon_footprint_fr_foodges_value:fr:2.7
 
 fr:margarine végétale non hydrogénée
 
