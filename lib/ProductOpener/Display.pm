@@ -6520,7 +6520,10 @@ sub display_field($$) {
 
 	if ((defined $value) and ($value ne '')) {
 		# See https://stackoverflow.com/a/3809435
-		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/)) {
+		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/)) {
+			if ($value !~ /https?:\/\//) {
+				$value = 'http://' + $value;
+			}
 			my $link = $value;
 			$link =~ s/"|<|>|'//g;
 			my $link2 = $link;
