@@ -62796,8 +62796,10 @@ fr:viande de dinde traitée en salaison
 fr:Escalopes de dinde
 # ingredient/fr:escalopes-de-dinde has 22 products @2019-05-23
 
+# category not available @2019-07-01
 <en:turkey meat
 fr:jambon de dinde cuit standard goût fumé
+# usage:fr:jambon de dinde cuit standard 10% (viande de dinde 8% ; eau ; sirop de glucose ; sel ; dextrose ; stabilisants : e451, e450 ; protéines de ble ; arômes ; antioxydant : e316 ; conservateur : e250)
 
 <en:poultry
 fr:caille, cailles
@@ -64404,13 +64406,17 @@ de:Tagliatelle gekocht, Bandnudeln gekocht
 it:tagliatelle cotte
 # ingredient/fr:tagliatelles-cuites has 27 products in 4 languages @2019-02-16
 # usage:fr:Tagliatelles cuites (eau, semoule de blé dur, oeufs, huile de colza, persil, stabilisant :E 500)
-carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
-carbon_footprint_fr_foodges_value:fr:0.5
+
 <en:dough
 fr:pâte crue
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 carbon_footprint_fr_foodges_value:fr:0.5
 # ingredient/fr:pâte-crue has 22 products in french @2018-12-10
+
+# <en:compound
+<en:pasta
+fr:mélange de pâtes alimentaires cuisinées
+# usage:fr:mélange de pâtes alimentaires cuisinées 43% (conchiglie cuites aromatisées au curcuma 22,4% (eau, semoule de blé dur de qualité supérieure, œufs, curcuma) - mini torsades cuites aromatisées à la tomate et à la betterave 18,8% (eau, semoule de blé dur de qualité supérieure, tomate 0,2%, betterave 0,03%), huile d'olive vierge extra, huile de colza, basilic, sel)
 
 # description:en:NOODLES are unleavened dough which is stretched, extruded, or rolled flat and cut into one of a variety of shapes which usually include long, thin strips, or waves, helices, tubes, strings, or shells, or folded over, or cut into other shapes.
 
