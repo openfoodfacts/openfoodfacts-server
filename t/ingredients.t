@@ -485,7 +485,7 @@ $expected_product_ref =
       'text' => "graisses v\x{e9}g\x{e9}tales de sal"
     },
     {
-      'id' => "fr:graisses v\x{e9}g\x{e9}tales de karit\x{e9}",
+      'id' => "en:shea-butter",
       'text' => "graisses v\x{e9}g\x{e9}tales de karit\x{e9}"
     },
     {
@@ -540,6 +540,7 @@ $expected_product_ref =
     'en:wheat-flour',
     'en:cereal',
     'en:wheat',
+    'en:flour',
     'en:cereal-flour',
     'en:sugar',
     'en:egg',
@@ -573,7 +574,8 @@ $expected_product_ref =
     "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
     "fr:graisses v\x{e9}g\x{e9}tales de mangue",
     "fr:graisses v\x{e9}g\x{e9}tales de sal",
-    "fr:graisses v\x{e9}g\x{e9}tales de karit\x{e9}",
+    "en:shea-butter",
+    'en:vegetable-fat',
     'en:palm-fat',
     'en:palm-oil-and-fat',
     'en:e503',
@@ -622,7 +624,7 @@ $expected_product_ref =
     "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
     "fr:graisses v\x{e9}g\x{e9}tales de mangue",
     "fr:graisses v\x{e9}g\x{e9}tales de sal",
-    "fr:graisses v\x{e9}g\x{e9}tales de karit\x{e9}",
+    "en:shea-butter",
     'en:palm-fat',
     'en:flavouring',
     'en:emulsifier',
@@ -654,6 +656,7 @@ $expected_product_ref =
     'en:wheat-flour',
     'en:cereal',
     'en:wheat',
+    'en:flour',
     'en:cereal-flour',
     'en:sugar',
     'en:egg',
@@ -687,7 +690,8 @@ $expected_product_ref =
     'fr:graisses-vegetales-d-illipe',
     'fr:graisses-vegetales-de-mangue',
     'fr:graisses-vegetales-de-sal',
-    'fr:graisses-vegetales-de-karite',
+    'en:shea-butter',
+    'en:vegetable-fat',
     'en:palm-fat',
     'en:palm-oil-and-fat',
     'en:e503',
@@ -697,7 +701,7 @@ $expected_product_ref =
   ],
   'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
   'lc' => 'fr',
-  'unknown_ingredients_n' => 8
+  'unknown_ingredients_n' => 7
 };
 	
 
