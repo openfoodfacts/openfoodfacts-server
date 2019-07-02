@@ -13827,6 +13827,12 @@ it:latte intero condensato zuccherato
 nl:gecondenseerde volle melk met suiker
 # ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
 
+# <en:compound
+# category:en:en:Milk jams
+<en:sweetened condensed milk
+fr:confiture de lait
+# usage:fr:confiture de lait (lait concentré sucré, sirop de glucose, sucre, eau, correcteur d'acidité : e331, sel, épaississant : pectines)
+
 <en:condensed milk
 en:condensed whole milk
 de:kondensierte Vollmilch
@@ -14426,10 +14432,14 @@ es:nata pasteurizada
 nl:Gepasteuriseerde room
 
 <en:cream
-en:Powdered cream, Cream powder
-fr:Crème en poudre, crème en poudre, poudre de crème
+en:cream powder, Powdered cream
+fr:crème en poudre, crème en poudre, poudre de crème
 it:panna in polvere
 nl:Poederroom, poederroom
+
+<en:cream powder
+en:rehydrated cream powder
+fr:crème en poudre rehydratée
 
 <en:cream
 en:Cream from Normandy
@@ -15293,6 +15303,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cheddar_cheese
 <en:cheddar
 fr:cheddar orange
 
+<fr:cheddar orange
+fr:cheddar orange fondu
+
 <en:cheddar
 fr:cheddar fondu
 # fr:cheddar-fondu has 75 products in 1 language @2018-10-27
@@ -15645,7 +15658,7 @@ es:Gorgonzolo
 et:Gorgonzola juust
 eu:Gorgonzola
 fa:گورگونتزولا
-fr:gorgonzola
+fr:gorgonzola, gorgonzola AOP
 gl:Gorgonzola
 he:גורגונזולה
 hr:Gorgonzola
@@ -15857,10 +15870,10 @@ it:Gruyère AOP
 # fr:gruyère-aop has 16 products in 3 languages @2018-10-27
 
 
-# MAASDAM cheese is a Swiss-style Dutch cheese.
+# description:en:MAASDAM cheese is a Swiss-style Dutch cheese.
 
 <en:cheese
-en:maasdam cheese, maasdam
+en:maasdam, maasdam cheese
 af:Maasdamkaas
 ar:ماسدام
 bg:Маасдам
@@ -15880,6 +15893,9 @@ wikidata:en:Q3273732
 wikipedia:en:https://en.wikipedia.org/wiki/Maasdam_cheese
 # fr:Maasdam has 29 products in 2 languages @2018-10-28
 
+<en:maasdam
+fr:Maasdam râpé
+nl:geraspte Maasdam
 
 # Maroilles is a cow's-milk cheese made in the regions of Picardy and Nord-Pas-de-Calais in northern France. 
 
@@ -16367,6 +16383,8 @@ wikidata:en:Q216781
 wikipedia:en:https://en.wikipedia.org/wiki/Ricotta
 # fr:ricotta has 532 products in 6 languages @2018-10-27
 
+<en:ricotta
+fr:ricotta de brébis
 
 # description:en:  ROQUEFORT  is a sheep milk cheese from the south of France. The cheese is white, tangy, crumbly and slightly moist, with distinctive veins of blue mold. EU law dictates that only those cheeses aged in the natural Combalou caves of Roquefort-sur-Soulzon may bear the name Roquefort, as it is a recognised geographical indication, or has a protected designation of origin.
 
@@ -19265,6 +19283,11 @@ it:lardo affumicato
 nl: gerookte spek, gerookt spek
 # ingredient/fr:lard-fumé has 66 products in 4 languages @2019-05-10
 
+# description:fr:La BARDE est une fine tranche de lard gras frais, de lard salé ou de lard fumé avec laquelle on enveloppe divers morceaux de viandes, fruits ou légumes pour garder leur texture moelleuse et éviter le dessèchement.
+
+<en:bacon
+fr:barde
+wikipedia:fr:https://fr.wikipedia.org/wiki/Barde_(cuisine)
 
 # description:en:A LARDON, also called lardoon or larding, is a small strip or cube of fatty bacon, or pork fat (usually subcutaneous fat) used in a wide variety of cuisines to flavor savory foods and salads. 
 
@@ -19297,6 +19320,8 @@ pt:toucinho cozido fumado
 # ingredient/fr:lardons-cuits-fumés has 168 products in 8 languages @2019-05-10
 # usage:de:Speckwürfel gekocht und geräuchert (Schweinebrust, Wasser, Glukosesirup, Salz, natürliche Aromen, Gemüsebrühe, Fermente)
 
+<en:pork meat
+fr:rognons de porc
 
 <en:pork meat
 fr:jarret avant de porc
@@ -19346,6 +19371,12 @@ fr:viande de porc traitée en salaison
 fr:viande de porc traitée en salaison et précuite
 
 <en:pork meat
+fr:chipolatas
+
+<en:pork meat
+fr:chipolatas aux herbes
+
+<en:pork meat
 en:ham
 de:Schinken
 fr:jambon de porc, jambon
@@ -19356,7 +19387,6 @@ fr:jambon de porc issu d'animaux nourris sans ogm
 
 <en:ham
 fr:jambon de porc frais, jambon frais de porc
-
 
 <en:ham
 fr:jambon de porc français
@@ -19422,6 +19452,7 @@ fr:cuisse de porc
 <en:pork meat
 fr:gorge de porc
 
+<en:pork meat
 fr:maigre et gras de porc
 
 <en:pork meat
@@ -19440,14 +19471,13 @@ fr:os de porc
 <en:pork meat
 fr:couenne de porc
 
+<en:pork
 fr:foie de porc
 
-
-
-<fr:viande de porc
+<en:pork meat
 fr:poitrine de porc
 
-<fr:viande de porc
+<en:pork meat
 fr:viande et gras de porc
 
 
@@ -19457,24 +19487,30 @@ fr:bouillon de porc déshydraté
 <en:pork by-product
 fr:couenne et gras de porc
 
-<fr:viande de porc
+<en:pork meat
 fr:barde de porc
 
-<fr:viande de porc
+<en:pork meat
 fr:épaule de porc
 
-<fr:viande de porc
+<en:pork meat
 fr:filet de porc
 
+<en:pork meat
 fr:maigre de tête de porc
 
+<en:pork meat
 fr:gras et couenne de porc
 
+<en:pork meat
 fr:maigre de porc
 
+<en:broth
+<en:pork
 fr:fond de porc
 
-
+<en:pork
+fr:coeur de porc
 
 # viande bovine in ingredients refers to (aged) beef, not veal
 #<fr:viande bovine
@@ -19540,7 +19576,7 @@ fr:boyau de porc
 it:budello di maiale
 # ingredient/fr:boyau-de-porc has 1085 products in 5 languages @2019-02-12
 
-<fr:boyau de porc
+<en:pork casing
 fr:boyau naturel de porc
 
 
@@ -19569,6 +19605,10 @@ carbon_footprint_fr_foodges_value:fr:35.8
 fr:extrait de viande de bœuf, extrait de viande de boeuf
 
 # SAUSAGES
+
+# <en:compound
+<en:meat
+fr:saucisses fumées
 
 <en:meat
 fr:saucisse de porc
@@ -22732,6 +22772,7 @@ fr:vin blanc réduit
 # fr:vin-blanc-réduit has 33 products in 1 language @2018-10-29
 
 <en:white wine
+en:white wine extract
 fr:extrait de vin blanc
 de:Weissweinextrakt
 it:estratto di vino bianco
@@ -22993,7 +23034,7 @@ et:Madeira
 eu:Madeira
 fi:Madeira
 fo:Madeiravín
-fr:madère
+fr:madère, vin de Madére
 gl:Viño da Madeira
 he:יין מאדירה
 hu:Madeira
@@ -23325,7 +23366,6 @@ fr:base aromatisante barbecue
 # ingredient/fr:base-aromatisante-barbecue has 28 products in 2 languages @2019-03-01
 
 # comment:en:Two parents due to and/or ingredient
-
 
 <en:artificial flavouring
 <en:natural flavouring
@@ -23764,7 +23804,7 @@ en:smoke flavouring, smoke flavour, aroma of smoke
 da:røgaroma
 de:Raucharoma
 es:aroma de humo
-fr:arôme de fumée, arôme fumé, arôme fumée
+fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee
 it:aroma di affumicato
 nl:rookaroma
 
@@ -25208,6 +25248,9 @@ it:estratto di mato d'orzo
 nl:Gerstemoutextract
 zh:大麥芽精
 
+<en:barley malt extract
+fr:extrait de malte d'orge houblonné
+
 
 # BUCKWHEAT (Fagopyrum esculentum) is a plant cultivated for its grain-like seeds and as a cover crop.
 
@@ -25223,6 +25266,9 @@ pt:trigo mourisco
 sr:Heljda
 wikipedia:en:https://en.wikipedia.org/wiki/Buckwheat
 wikidata:en:Q132734
+
+<en:buckwheat
+fr:graines de sarrasin
 
 <en:buckwheat
 en:organic buckwheat
@@ -25281,7 +25327,10 @@ fr:pétales de sarrasin
 nl:boekweitflakes
 # pétales de sarrasin (sarrasin, sel)
 
-# The OAT (Avena sativa) is a species of cereal grain grown for its seed.
+<en:buckwheat
+fr:sarrasin rehydraté
+
+# description:en:The OAT (Avena sativa) is a species of cereal grain grown for its seed.
 
 <en:cereal
 en:oat
@@ -25446,6 +25495,10 @@ zh:大燕麥片
 wikidata:en:Q1208221
 wikipedia:en:https://en.wikipedia.org/wiki/Rolled_oats
 
+<en:oat flakes
+en:gluten-free oat flakes
+fr:flocons d'avoine sans gluten
+
 <en:oat
 <en:vegetable fibre
 en:oat fibre
@@ -25581,6 +25634,10 @@ wikidata:en:Q139925
 <en:quinoa
 en:red quinoa
 fr:quinoa rouge
+# ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
+
+<en:red quinoa
+fr:quinoa rouge précuit
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/red-quinoa
 # 115 products in 2 languages @2018-09-22
 
@@ -25672,12 +25729,11 @@ it:fiocchi di quinoa
 
 <en:spelt
 fr:Petit épeautre
-<fr:flocons d'épeautre
 
+<en:spelt
 de:Dinkelvollkornflocken
 fr:flocons d'épeautre complet
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20d'épeautre%20complet
-# 23 products in 2 languages @2018-09-22
+# ingredient/fr:flocons-d'épeautre-complet has 23 products in 2 languages @2018-09-22
 
 # ingredient/fr:petit-epeautre has 37 products @2019-06-03
 
@@ -26019,7 +26075,7 @@ nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 en:spelt flour
 de:Dinkelmehl
 es:harina de espelta
-fr:farine d'épeautre
+fr:farine d'épeautre, farine de blé d'épeautre
 it:farina di spelta
 nl:speltmeel
 
@@ -26936,7 +26992,7 @@ fr:riz long grain naturellement parfumé
 en:parboiled long grain rice, long grain parboiled rice
 de:Dampfgegarter Spitzen-Langkorn-Reis
 es:arroz grano largo vaporizado
-fr:riz long étuvé, riz long grain étuvé, riz long grain précuit à la vapeur, riz a grain long parboiled, Riz long grain étuvé cuisson rapide, riz long précuite
+fr:riz long étuvé, riz long grain étuvé, riz long grain précuit à la vapeur, riz a grain long parboiled, Riz long grain étuvé cuisson rapide, riz long précuite, riz long grain précuit
 # ingredient/fr:riz-long-étuvé has 40 products in french @2018-12-19
 # ingredient/parboiled-long-grain-rice has 26 products in 3 languages @2018-12-19
 
@@ -27614,6 +27670,9 @@ carbon_footprint_fr_foodges_value:fr:1.3
 en:organic sugar
 fr:sucre bio, sucre issu de l'agriculture biologique
 
+<en:sugar
+fr:sucres extraits de fruits
+
 # description:en:BROWN SUGAR is a sucrose sugar product with a distinctive brown color due to the presence of molasses. 
 
 <en:sugar
@@ -27654,7 +27713,6 @@ wikidata:en:Q11190742
 wikipedia:en:https://en.wikipedia.org/wiki/Brown_sugar
 # ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
 
-
 # nova:en:invert-sugar
 <en:sugar
 en:invert sugar, inverted sugar
@@ -27664,11 +27722,8 @@ it:zucchero invertito
 nl:Invertsuiker
 wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
-
-
 <en:invert sugar
 <en:invert cane sugar, inverted cane sugar
-
 
 <en:sugar
 en:caramelised sugar
@@ -27696,12 +27751,10 @@ fr:sucre roux bio
 nl:biologische bruine suiker
 # ingredient/fr:sucre-roux-bio has 15 products in french @2019-05-23
 
-
 <en:sugar
 en:liquid sugar
 de:Flüssigzucker, flüssiger Zucker
 fr:sucre liquide
-
 
 <en:sugar
 en:icing sugar
@@ -27724,6 +27777,8 @@ fr:sucre vanillé
 <en:sugar
 fr:sucre perlé
 
+<en:sugar
+fr:sucre blond
 
 <en:sugar
 fr:sucre du lait
@@ -27814,6 +27869,9 @@ fr:sucre de canne brun
 it:zucchero di canna grezzo
 nl:Bruine rietsuiker
 wikipedia:en:https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
+
+<en:cane sugar
+fr:sucre mi-blanc de canne
 
 <en:cane sugar
 en:white cane sugar, blonde cane sugar
@@ -28563,6 +28621,8 @@ vegetarian:en:yes
 # ingredient/fr:oligofructose has 245 products in 5 languages @2019-05-12
 # usage:en: dietary fibres (oligofructose, polydextrose)
 
+<en:oligofructose
+fr:fibres végétales d'oligofructose
 
 <en:oligofructose
 en:oligofructose syrup
@@ -28650,7 +28710,7 @@ nl:Invertsuikerstroop
 
 <en:invert sugar syrup
 en:cane invert syrup, invert cane syrup
-fr:Sirop de canne invertie
+fr:sirop de sucre de canne inverti, Sirop de canne invertie
 
 en:corn syrup
 ar:شراب الذرة
@@ -29119,6 +29179,9 @@ fr:protéines de pois, protéine de pois
 it:proteine di piselli
 nl:boneneiwit
 
+<en:pea protein
+fr:isolat de proteines de pois
+
 # HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
 <en:vegetable protein
@@ -29143,6 +29206,9 @@ nl:soja-eiwit
 <en:soy protein
 en:dehydrated soy protein
 fr:protéines de soja deshydratées
+
+<en:soy protein
+fr:protéines de soja texturées
 
 <en:en:dehydrated soy protein
 en:rehydrated soy protein
@@ -34405,7 +34471,7 @@ fr:purée de pommes françaises
 # 28 products in 1 language @2018-10-04
 
 <en:apple purée
-fr:purée de pommes concentrée, purée de pomme concentrée
+fr:purée de pommes concentrée, purée de pomme concentrée, concentrés végétaux de pomme
 de:Apfel-Püree konzentriert
 nl:geconcentreerde appelpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pommes%20concentrée
@@ -35990,6 +36056,9 @@ fr:dattes Medjool
 de:Medjool Datteln
 it:Datteri Medjool
 # 9in3@2019-06-04
+
+<en:date
+fr:jus de dattes concentré
 
 # CHERRY is the fruit of many plants of the genus Prunus, and is a fleshy drupe (stone fruit).
 
@@ -40392,6 +40461,9 @@ fr:jus de betterave concentré, jus concentré de betterave
 # fr:jus-de-betterave-concentré has 71 products in 4 languages @2018-10-22
 
 <en:beetroot
+fr:concentré de betterave
+
+<en:beetroot
 # <en:fibre
 fr:fibres de betterave
 #  fr:fibres-de-betterave has 43 products in 1 language @2018-10-22
@@ -41193,6 +41265,10 @@ nl:gele wortel
 sv:gul morot
 # fr:carotte-jaune has 132 products in 4 languages @2018-10-20
 
+<en:carrot
+en:orange carrot
+fr:carottes oranges
+
 # This is mainly used as colorant
 
 <en:anthocyanin
@@ -41872,6 +41948,9 @@ carbon_footprint_fr_foodges_value:fr:0.6
 
 <en:onion
 fr:oignon semoule
+
+<en:onion
+fr:oignons grillés en poudre
 
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
@@ -43348,7 +43427,7 @@ da:kartoffelpulver
 de:Kartoffelpulver
 el:πατάτα σε σκόνη
 es:patata en polvo
-fr:poudre de pommes de terre, poudre de pomme de terre, pomme de terre déshydratée, pommes de terre déshydratées, pommes de terre en poudre, pomme de terre déshydratée
+fr:poudre de pommes de terre, poudre de pomme de terre, pomme de terre déshydratée, pommes de terre déshydratées, pommes de terre en poudre, g de terre déshydratée
 hu:burgonyapor
 it:Patate in polvere
 nl:aardappelpoeder
@@ -43885,6 +43964,10 @@ nl:Gerookte paprika
 # fr:paprika-fumé 55 products in 4 languages @2018-10-14
 
 
+<en:paprika powder
+<en:turmeric powder
+fr:paprika et curcuma déshydratés
+
 # description:en:ROCKET is an edible annual plant in the family Brassicaceae used as a leaf vegetable for its fresh, tart, bitter, and peppery flavor.
 # comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
 
@@ -44285,7 +44368,6 @@ nl:tomatensap uit sapconcentraat
 <en:tomato purée
 <en:tomato pulp
 fr:purée et pulpe de tomates
-
 
 
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
@@ -44951,6 +45033,9 @@ fr:haricots blancs secs trempés
 
 <en:white beans
 fr:haricots blancs précuits
+
+<en:white beans
+fr:haricots blancs réhydratés
 
 <en:beans
 en:black beans
@@ -46440,7 +46525,7 @@ fr:amandes biologiques
 en:almond with skin
 de:Mandeln mit Haut
 es:almendra con piel
-fr:amande brute, amandes mondées
+fr:amande brute, amandes mondées, amandes brunes
 nl:amandel met vlies
 # ingredient/almond-with-skin has 4 products in 2 languages @2018-10-06
 
@@ -47322,7 +47407,7 @@ fr:sésame complet
 en:sesame paste
 de:Sesampaste
 es:pasta de sésamo
-fr:pâte de sésame
+fr:pâte de sésame, pâte de graines de sésame
 it:pasta di sesamo
 sv:sesam-kräm
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte%20de%20sésame
@@ -47450,6 +47535,12 @@ it:condimenti misti
 <en:condiment
 fr:assaisonnemenet saveur barbecue
 
+<en:condiment
+fr:assaisonnemenet goût salé
+
+<en:condiment
+fr:assaisonnemenet goût fromage
+
 en:spice, spices
 de:Gewürze
 es:especias
@@ -47472,10 +47563,10 @@ nl:Kruiden
 <en:herb
 <en:spice
 en:herbs and spices
-fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique, plantes aromatiques et épices, extraits d'épices et d'herbes, herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques, épice et aromate, épices et aromates, épices et aromate, épice et aromates, épices et arômes, aromates et épices
+fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique, plantes aromatiques et épices, extraits d'épices et d'herbes, herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques, épice et aromate, épices et aromates, épices et aromate, épice et aromates, épices et arômes, aromates et épices, plantes aromatiques et épices
 
-<en:spice
-fr:plantes aromatiques et épices
+<en:herbs and spices
+fr:plantes aromatiques et épices dont herbes aromatiques
 
 en:spice extract, spices extract
 fr:extrait d'épice, extraits d'épices
@@ -47912,7 +48003,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turmeric
 <en:colour
 en:turmeric powder
 de:Curcumapulver
-fr:poudre de curcuma, curcuma moulu
+fr:poudre de curcuma, curcuma moulu, curcuma deshydraté
 it:curcuma in polvere
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poudre%20de%20curcuma
 # 40 products @2018-10-11
@@ -51893,7 +51984,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rose_hip
 # ingredient/fr:églantier has 66 products in 5 languages @2019-04-03
 
 
-# Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an infusion, in which it may be known as carcade.
+# Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an inon, in which it may be known as carcade.
 
 <en:plant
 en:roselle flower
@@ -52492,6 +52583,9 @@ fr:Thé noir de Ceylan bio
 fr:thé noir darjeeling
 
 <en:black tea
+fr:infusion de thé noir concentrée
+
+<en:black tea
 en:black tea extract
 de:Schwarztee-Extrakt
 es:extracto de té negro
@@ -52607,7 +52701,7 @@ fr:thé vert de Chine
 en:green tea extract
 de:Grüntee-Extrakt
 es:extracto de té verde
-fr:extrait de thé vert, extraits de thé vert
+fr:extrait de thé vert, extraits de thé vert, infusion concentrée de thé vert
 it:estratto di te verde
 kk:кек шай сығындысы
 nl:groene thee-extract
@@ -52798,7 +52892,7 @@ carbon_footprint_fr_foodges_value:fr:2.6
 en:ground vanilla beans, vanilla bean pieces
 de:Vanilleschoten gemahlen, Vannileschoten gemahlen, vermahlene Vanilleschoten
 fi:vaniljatangon palat
-fr:gousses de vanille moulues
+fr:gousses de vanille moulues, gousses de vanille broyées
 it:semi di vaniglia macinat
 sv:vaniljstångbitar
 # ingredient/fr:gousses-de-vanille-moulues has 45 products in 4 languages @2019-02-24
@@ -56499,6 +56593,9 @@ it:salmone affumicato
 carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
 carbon_footprint_fr_foodges_value:fr:5.5
 
+<en:smoked salmon
+fr:chutes de saumon fumé
+
 # The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae. 
 
 <en:salmon
@@ -58966,6 +59063,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Snail
 # ingredient/fr:escargot has 2 products @2019-01-16
 # ingredient/fr:escargots has 7 products in french @2019-01-16
 
+<en:snail
+la:Helix pomatia
+
+<en:snail
+fr:chairs d'escargots
 
 # Squid are cephalopods in the order Teuthida with elongated bodies, large eyes, eight arms and two tentacles.
 
@@ -62303,6 +62405,9 @@ carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chicken meat
+fr:viande de poulet traitée en salaison cuite
+
+<en:chicken meat
 en:precooked chicken meat
 fr:viande de poulet précuite
 nl:voorgekookt kippenvlees
@@ -62311,6 +62416,9 @@ nl:voorgekookt kippenvlees
 <en:chicken meat
 fr:viande de cuisse de poulet
 # ingredient/fr:viande-de-cuisse-de-poulet has 53 products in french @2019-04-16
+
+<fr:viande de cuisse de poulet
+fr:Viande de haut de cuisse de poulet sans peau
 
 # <en:broth
 <en:chicken
@@ -62653,8 +62761,10 @@ fr:viande de dinde traitée en salaison
 fr:Escalopes de dinde
 # ingredient/fr:escalopes-de-dinde has 22 products @2019-05-23
 
+# category not available @2019-07-01
 <en:turkey meat
 fr:jambon de dinde cuit standard goût fumé
+# usage:fr:jambon de dinde cuit standard 10% (viande de dinde 8% ; eau ; sirop de glucose ; sel ; dextrose ; stabilisants : e451, e450 ; protéines de ble ; arômes ; antioxydant : e316 ; conservateur : e250)
 
 <en:poultry
 fr:caille, cailles
@@ -62825,10 +62935,42 @@ it:uova svizzere, 6 uova svizzere, 4 uova svizzere
 nl:eieren uit Zwitserland, zwitserse eieren
 # 2@2109-05-31
 
+# category:en:en:Boiled eggs
 <en:egg
-fr:œuf dur, œufs durs, oeuf dur, oeufs durs
-de:gekochte Eier
+en:boiled egg
+ar:بيض مسلوق
+ca:ou bullit
+de:gekochte Eier, Gekochte Hühnereier, gekochtes Ei
+eo:boligita ovo
+es:huevo cocido
+eu:Arrautza egosi
+fi:Keitetty muna
+fr:œuf dur, œufs durs, oeuf dur, oeufs durs, œuf à la coque
+gl:Ovo duro
+he:ביצה מבושלת
+hi:उबले हुए अंडे
+id:telur rebus
+it:uovo alla coque
+ja:ゆで卵
+ko:삶은 달걀
+lb:Gekachtent Ee
+ms:Telur rebus
+nl:gekookt ei, gekookte eieren
+or:ସିଝା ଅଣ୍ଡା
+pt:ovo cozido
+ro:ou fiert
+ru:варёные яйца
+th:ไข่ต้ม
+uk:варене яйце
+vi:Trứng luộc
+# yue:烚蛋
+zh:水煮蛋
+wikidata:en:Q1062531
 # ingredient/fr:oeuf-dur has 149 products @2018-12-18
+
+<en:boiled egg
+fr:quartiers d'œufs durs
+nl:gekookt ei kwarten
 
 <en:egg
 fr:œuf pasteurisé, œufs pasteurisés, oeuf pasteurisé, oeufs pasteurisés
@@ -63257,6 +63399,11 @@ fr:jaune d'œuf frais, jaunes d'œufs frais, jaune d'oeuf frais, jaunes d'oeufs 
 it:tuorlo d'uova fresche, turolo d'uova fresche
 # ingredient/fr:jaune-d’oeuf-frais has 176 products in 3 languages @2018-12-17
 
+<en:egg yolk
+en:sugared egg yolk
+fr:jaunes d'oeufs sucrés
+nl:gesuikerd eigeel
+# usage:fr:jaunes d'oeufs sucrés (jaunes d'oeufs ; sucre)
 
 # fr:jaunes d'oeufs salés is a compound ingredient
 
@@ -64263,13 +64410,22 @@ de:Tagliatelle gekocht, Bandnudeln gekocht
 it:tagliatelle cotte
 # ingredient/fr:tagliatelles-cuites has 27 products in 4 languages @2019-02-16
 # usage:fr:Tagliatelles cuites (eau, semoule de blé dur, oeufs, huile de colza, persil, stabilisant :E 500)
-carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
-carbon_footprint_fr_foodges_value:fr:0.5
+
+
+# category:en:en:Cannelloni
+<en:pasta
+fr:canneloni
+
 <en:dough
 fr:pâte crue
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 carbon_footprint_fr_foodges_value:fr:0.5
 # ingredient/fr:pâte-crue has 22 products in french @2018-12-10
+
+# <en:compound
+<en:pasta
+fr:mélange de pâtes alimentaires cuisinées
+# usage:fr:mélange de pâtes alimentaires cuisinées 43% (conchiglie cuites aromatisées au curcuma 22,4% (eau, semoule de blé dur de qualité supérieure, œufs, curcuma) - mini torsades cuites aromatisées à la tomate et à la betterave 18,8% (eau, semoule de blé dur de qualité supérieure, tomate 0,2%, betterave 0,03%), huile d'olive vierge extra, huile de colza, basilic, sel)
 
 # description:en:NOODLES are unleavened dough which is stretched, extruded, or rolled flat and cut into one of a variety of shapes which usually include long, thin strips, or waves, helices, tubes, strings, or shells, or folded over, or cut into other shapes.
 
@@ -64667,6 +64823,10 @@ fr:pain spécial
 it:pane speciale
 nl:Speciaal brood
 
+<en:special bread
+fr:pain spécial cuit
+# usage:fr:Pain spécial cuit 41,2 % (farine de blé ; eau ; œufs ; beurre ; sucre ; poudre de lait écrémé ; huile de colza ; poudres à lever : E450i, E500ii ; sel ; levure ; gluten de blé ; épaississant : gomme guar)
+
 <en:bread
 en:breadmeal, bread roll
 de:Toastbrot, brotmehl
@@ -64679,6 +64839,9 @@ fr:pain de mie complet
 
 <en:special bread
 fr:pain spécial bretzel
+
+<en:special bread
+fr:pain spécial de campagne
 
 <en:special bread
 fr:pain au chocolat
@@ -64809,6 +64972,9 @@ fr:cornet biscuit
 nl:ijshoorntje
 
 fr:biscuit d'enrobage
+
+# <en:dessert
+fr:Ile flottante sur lit de crème anglaise
 
 # description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough. 
 
@@ -65681,6 +65847,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brittle_(food)
 # ingredient/fr:nougatine has 60 products in 4 languages @2019-02-09
 # nougatine (noisettes, sucre)
 
+<en:crocant
+fr:Morceaux de nougatine aux amandes
+# usage:fr:Morceaux de nougatine aux amandes 1,1% : sucre, amandes 0,3%
 
 # description:fr:Le PRALINÉ est une pâte composée de pralin (mélange de sucre, d'amandes et/ou de noisettes), d'un peu de vanille, de cacao ou de beurre de cacao, et enrobée de chocolat au lait.
 # comment:en:Not to be confounded with pralinen (chocolate bonbons). And with nougat.
@@ -65936,6 +66105,9 @@ nl:gevogeltebouillon
 <en:poultry broth
 fr:fond de volaille aromatisé
 # ingredient/fr:fond-de-volaille-aromatisé has 39 products in french @2019-03-09
+
+<en:poultry broth
+fr:bouillon de volaille deshydraté
 
 # description:en:Chicken broth is broth made from chicken.
 
@@ -66792,6 +66964,10 @@ carbon_footprint_fr_foodges_value:fr:2.4
 # ingredient/fr:ketchup has 110 products in 4 languages @2019-04-21
 # usage:en:ketchup (tomato puree, glucose syrup, brandy vinegar, sugar, modified corn starch)
 
+<en:sauce
+en:tomato sauce
+fr:préparation de tomates décongelée
+# usage:fr:préparation de tomates décongelée (tomates mi-séchées, huile de colza, sel, origan, ail)
 
 # description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
 
@@ -67428,31 +67604,89 @@ ru:карамельный соус
 # ingredient/fr:sauce-caramel has 54 products in 4 languages @2019-03-09
 # usage:fr:sauce au caramel (sirop de sucre inverti, eau, 14% sirop de sucre caramélisé)
 
+# category:en:not available @2019-07-01
+<en:caramel sauce
+en:salted butter caramel sauce
+fr:sauce au caramel au beurre salé
+# usage:fr:sauce au caramel au beurre salé 1,5% (caramel au beurre salé 0,5% (sucre, lait concentré sucré, beurre salé 0,1% (beurre, sel)), eau, sirop de glucose, amidon modifié de maïs, sucre, sucre caramélisé, émulsifiant : E471, correcteur d´acidité : acide lactique, épaississant : gomme xanthane, arômes naturels)
 
+# description:en:MARGARINE is a spread used for flavoring, baking, and cooking. Margarine is made mainly of refined vegetable oil and water.
 
+en:Margarine
+ar:سمن نباتي
+# ast:Margarina
+be:Маргарын
+# be-tarask:Маргарын
+bg:Маргарин
+# bjn:Margarin
+bn:মার্জারিন
+ca:margarina
+cs:Margarín
+cy:Marjarîn
+da:Margarine
+de:Margarine
+el:Μαργαρίνη
+eo:margarino
+es:margarina
+et:Margariin
+eu:Margarina
+fa:مارگارین
+fi:margariini
 fr:margarine
+fy:margarine
+ga:Buíoc
+gl:Margarina
+gu:માર્જરિન
+he:מרגרינה
+hi:मार्जरीन
+hr:Margarin
+hu:Margarin
+hy:Մարգարին
+id:Margarin
+io:Margarino
+is:Smjörlíki
+it:margarina
+ja:マーガリン
+jv:Margarin
+kk:Маргарин
+kn:ಮಾರ್ಗರೀನ್‌
+ko:마가린
+lt:Margarinas
+mk:Маргарин
+ms:Marjerinnb:margarin
+ne:मार्गरिन
+nl:margarine
+oc:margarine
+pl:Margaryna
+pt:margarina
+ro:Margarină
+ru:маргарин
+# rue:Маргарин
+sh:Margarin
+sk:Margarín
+sl:Margarina
+sr:маргарин
+# sr-ec:маргарин
+# sr-el:Margarin
+sv:margarin
+tg:Маргарин
+th:เนยเทียม
+tr:Margarin
+tt:маргарин
+uk:маргарин
+uz:Margarin
+vi:Bơ thực vật
+# war:Margarina
+# wuu:瑪淇淋
+# yue:人造牛油
+zh:植物牛油
+wikidata:en:Q4287
+wikipedia:en:https://en.wikipedia.org/wiki/Margarine
 carbon_footprint_fr_foodges_ingredient:fr:Margarine
 carbon_footprint_fr_foodges_value:fr:2.7
 
+<en:Margarine
 fr:margarine végétale non hydrogénée
 
+<en:Margarine
 fr:margarine végétale
-
-# words that can be part of ingredients
-# in particular, words that would be auto-corrected to additives
-
-# additives spell correction:agent -> argent
-fr:agent, agents
-
-# additives spell correction:olives (vertes) -> vert s
-fr:verte, vertes
-
-# nitrate -> citrate
-fr:nitrate, nitrates
-
-
-
-
-# comment:en:These are words that start a list of ingredients
-
-en:ingredient, ingredients, composition
