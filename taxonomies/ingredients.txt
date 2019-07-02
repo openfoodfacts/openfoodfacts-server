@@ -22893,6 +22893,7 @@ fr:vin blanc réduit
 # fr:vin-blanc-réduit has 33 products in 1 language @2018-10-29
 
 <en:white wine
+en:white wine extract
 fr:extrait de vin blanc
 de:Weissweinextrakt
 it:estratto di vino bianco
@@ -67719,29 +67720,83 @@ en:salted butter caramel sauce
 fr:sauce au caramel au beurre salé
 # usage:fr:sauce au caramel au beurre salé 1,5% (caramel au beurre salé 0,5% (sucre, lait concentré sucré, beurre salé 0,1% (beurre, sel)), eau, sirop de glucose, amidon modifié de maïs, sucre, sucre caramélisé, émulsifiant : E471, correcteur d´acidité : acide lactique, épaississant : gomme xanthane, arômes naturels)
 
+# description:en:MARGARINE is a spread used for flavoring, baking, and cooking. Margarine is made mainly of refined vegetable oil and water.
+
+en:Margarine
+ar:سمن نباتي
+# ast:Margarina
+be:Маргарын
+# be-tarask:Маргарын
+bg:Маргарин
+# bjn:Margarin
+bn:মার্জারিন
+ca:margarina
+cs:Margarín
+cy:Marjarîn
+da:Margarine
+de:Margarine
+el:Μαργαρίνη
+eo:margarino
+es:margarina
+et:Margariin
+eu:Margarina
+fa:مارگارین
+fi:margariini
 fr:margarine
+fy:margarine
+ga:Buíoc
+gl:Margarina
+gu:માર્જરિન
+he:מרגרינה
+hi:मार्जरीन
+hr:Margarin
+hu:Margarin
+hy:Մարգարին
+id:Margarin
+io:Margarino
+is:Smjörlíki
+it:margarina
+ja:マーガリン
+jv:Margarin
+kk:Маргарин
+kn:ಮಾರ್ಗರೀನ್‌
+ko:마가린
+lt:Margarinas
+mk:Маргарин
+ms:Marjerinnb:margarin
+ne:मार्गरिन
+nl:margarine
+oc:margarine
+pl:Margaryna
+pt:margarina
+ro:Margarină
+ru:маргарин
+# rue:Маргарин
+sh:Margarin
+sk:Margarín
+sl:Margarina
+sr:маргарин
+# sr-ec:маргарин
+# sr-el:Margarin
+sv:margarin
+tg:Маргарин
+th:เนยเทียม
+tr:Margarin
+tt:маргарин
+uk:маргарин
+uz:Margarin
+vi:Bơ thực vật
+# war:Margarina
+# wuu:瑪淇淋
+# yue:人造牛油
+zh:植物牛油
+wikidata:en:Q4287
+wikipedia:en:https://en.wikipedia.org/wiki/Margarine
 carbon_footprint_fr_foodges_ingredient:fr:Margarine
 carbon_footprint_fr_foodges_value:fr:2.7
 
+<en:Margarine
 fr:margarine végétale non hydrogénée
 
+<en:Margarine
 fr:margarine végétale
-
-# words that can be part of ingredients
-# in particular, words that would be auto-corrected to additives
-
-# additives spell correction:agent -> argent
-fr:agent, agents
-
-# additives spell correction:olives (vertes) -> vert s
-fr:verte, vertes
-
-# nitrate -> citrate
-fr:nitrate, nitrates
-
-
-
-
-# comment:en:These are words that start a list of ingredients
-
-en:ingredient, ingredients, composition
