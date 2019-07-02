@@ -12,27 +12,82 @@
 # https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                       O T H E R   N U T R I T I O N A L   S U B S T A N C E S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+en:other nutritional substances
+es:Otras sustancias nutricionales
+fr:Autres substances nutritives
+hu:Egyéb táplálkozási anyagok
+nl:Andere voedingsmiddelen
+
+
+
+# description:en:Carnitine is a quaternary ammonium compound involved in metabolism in most mammals, plants and some bacteria. The body synthesizes enough carnitine from lysine side chains to keep up with the needs of energy production in the body as carnitine acts as a transporter of long-chain fatty acids into the mitochondria to be oxidized and produce energy. Food sources rich in L-carnitine are animal products such as meat, poultry, fish, and milk. Redder meats tend to have higher levels of L-carnitine. Some individuals with genetic or medical disorders (like preterm infants) cannot make enough, so this makes carnitine a conditionally essential nutrient for them.
+
+
+# <en:other nutritional substances
 en:Carnitine
-en:carnitine
+ar:كارنتين
 bg:карнитин
+ca:carnitina
 cs:karnitin
 de:Carnitin
 el:καρνιτίνη
+en:carnitine
+eo:Karnitino
 es:carnitina
 et:karnitiin
-fr:Carnitine
+fa:ال‌کارنیتین
 fi:karnitiini
+fr:Carnitine
+ga:Cairnitín
+gl:Carnitina
+he:קרניטין
+hr:Karnitin
 hu:karnitin
+hy:Կարնիտին
+id:Karnitina
 it:carnitina
+ja:カルニチン
+ko:카르니틴
 lt:karnitinas
 lv:karnitīns
 mt:karnetina
+nb:Karnitin
+nl:Carnitine
 pl:karnityna
 pt:carnitina
 ro:carnitină
+ru:Левокарнитин
+sh:Karnitin
 sk:karnitín
 sl:karnitin
+sq:carnitine
+sr:карнитин
 sv:karnitin
+ta:கார்னிதின்
+th:คาร์นิทีน
+tr:Karnitin
+uk:Карнитин
+zh:肉碱
+# azb:کارنیتین
+# sr-ec:карнитин
+# sr-el:Karnitin
+# zh-cn:肉碱
+# zh-hans:肉碱
+# zh-hant:肉鹼
+# zh-hk:肉鹼
+# zh-sg:肉碱
+# zh-tw:肉鹼
+wikidata:en:Q243309
+wikipedia:en:https://en.wikipedia.org/wiki/Carnitine
+vegetarian:en:maybe
+vegan:en:no
 
 
 <en:Carnitine
@@ -43,8 +98,8 @@ de:L-Carnitin
 el:L-καρνιτίνη
 es:L-carnitina
 et:L-karnitiin
-fr:L-Carnitine
 fi:L-karnitiini
+fr:l-carnitine
 hu:L-karnitin
 it:L-carnitina
 lt:L-karnitinas
@@ -53,9 +108,12 @@ mt:L-karnetina
 pl:L-karnityna
 pt:L-carnitina
 ro:L-carnitină
+ru:L-карнитин
 sk:L-karnitín
 sl:L-karnitin
 sv:L-karnitin
+# ingredient/fr:l-carnitine has 90 products in 4 languages @2019-04-04
+# other-nutritional-substance/l-carnitine has 156 products in 7 languages @2019-04-04
 
 <en:Carnitine
 en:L-carnitine hydrochloride
@@ -103,16 +161,88 @@ sl:L-karnitin-L-tartrat
 sv:L-karnitin-L-tartrat
 
 
-en:Taurine
-fr:Taurine
+# description:en:TAURINE is an organic compound that is widely distributed in animal tissues. Taurine has many fundamental biological roles. Taurine is a common additive to energy drinks, which are often promoted as such.
 
+# <en:other nutritional substances
+en:taurine
+ar:حمض التورين
+bg:таурин
+ca:taurina
+cs:taurin
+da:taurin
+de:Taurin
+el:Ταυρίνη
+eo:Taŭrino
+es:Taurina
+et:Tauriin
+fa:تائورین
+fi:tauriini
+fr:taurine
+gl:Taurina
+he:טאורין
+hr:Taurin
+hu:Taurin
+hy:Տաուրին
+id:Taurina
+it:taurina
+ja:タウリン
+ko:타우린
+lv:taurīns
+mk:Таурин
+mt:tawrina
+nb:taurin
+nl:taurine
+pl:tauryna
+pt:taurina
+ro:Taurină
+ru:таурин
+sh:Taurin
+sk:Taurín
+sl:Tavrin
+sq:taurin
+sr:Таурин
+sv:taurin
+tr:Taurin
+uk:Таурин
+vi:Taurine
+wa:Torene
+zh:牛磺酸
+# azb:تائورین
+# en-ca:Taurine
+# en-gb:Taurine
+# pt-br:Taurina
+# sr-ec:Таурин
+# sr-el:Taurin
+# zh-cn:牛磺酸
+# zh-hans:牛磺酸
+# zh-hant:牛磺酸
+# zh-hk:牛磺酸
+# zh-sg:牛磺酸
+# zh-tw:牛磺酸
+wikidata:en:Q207051
+wikipedia:en:https://en.wikipedia.org/wiki/Taurine
+vegan:en:maybe
+vegetarian:en:maybe
+# ingredient/fr:taurine has 309 products in 6 languages @2019-5-17
+# other-nutritional-substance/taurine has 591 products in 8 languages @2019-05-17
+
+
+# description:en:CHOLINE is a water-soluble vitamin-like essential nutrient. It is a constituent of lecithin, which is present in many plants and animal organs.
+
+# <en:other nutritional substances
 en:Choline
 fr:Choline
+wikipedia:en:https://en.wikipedia.org/wiki/Choline
+vegetarian:en:maybe
+vegan:en:maybe
 
-<en:Choline
-en:choline chloride
+# description:en:Choline chloride is an organic compound with the formula (CH3)3NCH2CH2OH]Cl. It is an important additive in feed especially for chickens where it accelerates growth.
+
+# <en:other nutritional substances
+en:Choline chloride
 bg:Холин хлорид
 cs:cholin-chlorid
+da:cholinchlorid
 de:Cholinchlorid
 el:χλωριούχος χολίνη
 es:cloruro de colina
@@ -126,11 +256,19 @@ lv:holīna hlorīds
 mt:klorat tal-kolin
 nl:cholinechloride
 pl:chlorek choliny
-pt:cloridrato de colina
+pt:cloreto de colina
 ro:clorură de colină
+sh:Holin hlorid
 sk:cholín chlorid
 sl:holin klorid
+sr:Holin hlorid
 sv:kolinklorid
+zh:氯化膽鹼素
+# sr-el:Holin hlorid
+wikidata:en:Q2964153
+wikipedia:en:https://en.wikipedia.org/wiki/Choline_chloride
+# ingredient/fr:chlorure-de-choline has 74 products in 3 languages @2019-04-08
+# other-nutritional-substance/choline-chloride has 84 products @2019-04-08
 
 <en:Choline
 en:choline bitartrate
@@ -178,6 +316,60 @@ sk:cholín citran
 sl:holin citrat
 sv:kolincitrat
 
-en:Inositol
-fr:Inositol
 
+# description:en:INOSITOL is a carbocyclic sugar that is abundant in brain and other mammalian tissues, mediates cell signal transduction and participates in osmoregulation. It is a sugar alcohol with half the sweetness of table sugar. It is made naturally in humans from glucose. A human kidney will produce around two grams each day. Foods containing the highest concentrations of inositol include fruits, beans, grains, and nuts.
+
+# <en:other nutritional substances
+en:inositol
+ar:إينوزيتول
+ca:inositol
+cs:inositol
+da:inositol
+de:Inositol
+el:Ινοσιτόλη
+es:inositol
+et:Inositool
+eu:inositol
+fa:اینوزیتول
+fi:Inositoli
+fr:inositol
+ga:Ionóisíotól
+gl:Inositol
+hi:इनोसिटॉल
+hu:Inozitol
+hy:Ինոզիտ
+id:Inositol
+it:inositolo
+ja:イノシトール
+kk:Инозитол
+kn:ಇನೋಸಿಟಾಲ್
+ko:이노시톨
+ky:Инозит витамини
+lv:inozitols
+nl:inositol
+nn:Inositol
+pl:inozytol
+pt:inositol
+ro:Inozitol
+ru:инозитол
+sh:Inozitol
+sr:инозитол
+sv:inositol
+uk:Інозитол
+zh:肌醇
+# azb:اینوزیتول
+# en-ca:inositol
+# en-gb:inositol
+# pt-br:Inositol
+# sr-ec:инозитол
+# sr-el:Inozitol
+# zh-cn:肌醇
+# zh-hans:肌醇
+# zh-hant:肌醇
+# zh-hk:肌醇
+# zh-sg:肌醇
+# zh-tw:肌醇
+wikipedia:en:https://en.wikipedia.org/wiki/Inositol
+vegan:en:yes
+vegetarian:en:yes
+# ingredient/fr:inositol has 221 products in 5 languages @2019-05-14
