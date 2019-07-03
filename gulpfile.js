@@ -12,11 +12,11 @@ const fontName = 'Icons';
 const sassOptions = {
   errLogToConsole: true,
   outputStyle: 'expanded',
-  includePaths: ['./html/bower_components/foundation/scss']
+  includePaths: ['./node_modules/foundation-sites/scss']
 }
 
 function icons() {
-  return src('**/*.svg', { cwd: './icons'  })
+  return src('*.svg', { cwd: './icons'  })
   .pipe(iconfontCss({
     fontName: fontName,
     path: './scss/templates/_icons.scss',

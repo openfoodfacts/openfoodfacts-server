@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-03 21:02\n"
+"PO-Revision-Date: 2019-06-21 15:21\n"
 "Language-Team: Arabic\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -942,7 +942,7 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"متوفر في متجر جوجل بلاي\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -2335,6 +2335,10 @@ msgctxt "sort_by"
 msgid "Sort by"
 msgstr "ترتيب حسب"
 
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr ""
+
 msgctxt "sort_created_t"
 msgid "Add date"
 msgstr "إضافة تاريخ"
@@ -3227,7 +3231,7 @@ msgid "Help translate the %s to %s"
 msgstr ""
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
 msgstr ""
 
 msgctxt "translate_taxonomy_add"
@@ -3260,5 +3264,13 @@ msgstr "لا"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
+msgstr ""
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr ""
+
+msgctxt "popularity_p"
+msgid "popularity"
 msgstr ""
 

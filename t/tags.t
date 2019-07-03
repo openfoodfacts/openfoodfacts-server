@@ -350,5 +350,9 @@ my $newtagid = get_fileid($display_tag);
 is($display_tag, $yuka_uuid);
 is($newtagid, $yuka_uuid);
 
+# make sure synonyms are not counted as existing tags
+is(exists_taxonomy_tag("additives", "en:n"), '');
+is(exists_taxonomy_tag("additives", "en:no"), '');
+is(exists_taxonomy_tag("additives", "en:e330"), 1);
 
 done_testing();

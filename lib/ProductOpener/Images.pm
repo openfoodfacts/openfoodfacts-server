@@ -68,6 +68,8 @@ use Image::Magick;
 use Graphics::Color::RGB;
 use Graphics::Color::HSL;
 use Barcode::ZBar;
+use Image::OCR::Tesseract 'get_ocr';
+
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -260,7 +262,7 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="icon-ui-camera"></i> $product_image_with_barcode
+<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="icon-photo_camera"></i> $product_image_with_barcode
 <input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
     right:0;
     bottom:0;
@@ -1349,6 +1351,66 @@ HTML
 	return $html;
 }
 
+# Use google cloud vision output to determine of the image should be rotated
+
+sub compute_orientation_from_cloud_vision_annotations($) {
+
+	my $annotations_ref = shift;
+	
+	if ((defined $annotations_ref) and (defined $annotations_ref->{responses})
+		and (defined $annotations_ref->{responses}[0])
+		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation})
+		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation}{pages})
+		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation}{pages}[0])
+		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation}{pages}[0]{blocks})) {
+		
+		my $blocks_ref = $annotations_ref->{responses}[0]{fullTextAnnotation}{pages}[0]{blocks};
+		
+		# compute the number of blocks in each orientation
+		my %orientations = (0 => 0, 90 => 0, 180 => 0, 270 => 0);
+		my $total = 0;
+		
+		foreach my $block_ref (@{$blocks_ref}) {
+			next if $block_ref->{blockType} ne "TEXT";
+			
+			my $x_center = ($block_ref->{boundingBox}{vertices}[0]{x} + $block_ref->{boundingBox}{vertices}[1]{x}
+				+ $block_ref->{boundingBox}{vertices}[2]{x} + $block_ref->{boundingBox}{vertices}[3]{x}) / 4;
+				
+			my $y_center = ($block_ref->{boundingBox}{vertices}[0]{y} + $block_ref->{boundingBox}{vertices}[1]{y}
+				+ $block_ref->{boundingBox}{vertices}[2]{y} + $block_ref->{boundingBox}{vertices}[3]{y}) / 4;
+				
+			# Check where the first corner is compared to the center.
+			# If the image is correctly oriented, the first corner is at the top left
+				
+			if ($block_ref->{boundingBox}{vertices}[0]{x} < $x_center) {
+				if ($block_ref->{boundingBox}{vertices}[0]{y} < $y_center) {
+					$orientations{0}++;
+				}
+				else {
+					$orientations{270}++;
+				}
+			}
+			else {
+				if ($block_ref->{boundingBox}{vertices}[0]{y} < $y_center) {
+					$orientations{90}++;
+				}
+				else {
+					$orientations{180}++;
+				}			
+			}
+			$total++;
+		}
+		
+		foreach my $orientation (keys %orientations) {
+			if ($orientations{$orientation} > ($total * 0.90)) {
+				return $orientation;
+			}
+		}
+	}
+
+	return;
+}
+
 
 sub extract_text_from_image($$$$$) {
 
@@ -1449,7 +1511,7 @@ sub extract_text_from_image($$$$$) {
 
 			my $cloudvision_ref = decode_json($json_response);
 
-			my $json_file = "$www_root/images/products/$path/$filename.full.jpg" . ".google_cloud_vision.json";
+			my $json_file = "$www_root/images/products/$path/$filename.json";
 
 			$log->info("saving google cloud vision json response to file", { path => $json_file }) if $log->is_info();
 
@@ -1470,6 +1532,11 @@ sub extract_text_from_image($$$$$) {
 				$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
 				$results_ref->{$field . "_annotations"} = $cloudvision_ref;
 				$results_ref->{status} = 0;
+				$product_ref->{images}{$id}{ocr} = 1;
+				$product_ref->{images}{$id}{orientation} = compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
+			}
+			else {
+				$product_ref->{images}{$id}{ocr} = 0;
 			}
 
 		}

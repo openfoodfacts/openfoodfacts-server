@@ -115,6 +115,7 @@ use ProductOpener::Config2;
 	jniderkorn
 	desan
 	cedagaesse
+	m-etchebarne
 );
 
 %moderators = map { $_ => 1 } qw();
@@ -721,6 +722,8 @@ $options{display_tag_additives} = [
 # Specific users used by apps
 $options{apps_userids} = {
 
+	"ethic-advisor" => "ethic-advisor",
+	"elcoco" => "elcoco",
 	"kiliweb" => "yuka",
 	"labeleat" => "labeleat",
 	"waistline-app" => "waistline",
@@ -730,9 +733,13 @@ $options{apps_userids} = {
 # (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 # (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
 # (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
+# (app)EthicAdvisorApp-production-2.6.3-user_17cf91e3-52ee-4431-aebf-7d455dd610f0
+# (app)El Coco - user b0e8d6a858034cc750136b8f19a8953d
 
 $options{apps_uuid_prefix} = {
 
+	"elcoco" => " user ",
+	"ethic-advisor" => "user_",
 	"kiliweb" => "User :",
 	"labeleat" => "Labeleat([^-]*)-",
 	"waistline-app" => "Waistline:",
