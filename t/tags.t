@@ -5,7 +5,7 @@ use Modern::Perl '2012';
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP', filter => "none";;
+#use Log::Any::Adapter 'TAP', filter => "none";;
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -354,5 +354,13 @@ is($newtagid, $yuka_uuid);
 is(exists_taxonomy_tag("additives", "en:n"), '');
 is(exists_taxonomy_tag("additives", "en:no"), '');
 is(exists_taxonomy_tag("additives", "en:e330"), 1);
+
+is(get_inherited_property("ingredients","en:milk","vegetarian:en"), "yes");
+is(get_property("ingredients","en:milk","vegan:en"), "no");
+is(get_inherited_property("ingredients","en:milk","vegan:en"), "no");
+is(get_inherited_property("ingredients","en:semi-skimmed-milk","vegetarian:en"), "yes");
+is(get_inherited_property("ingredients","en:semi-skimmed-milk","vegan:en"), "no");
+
+is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
 
 done_testing();

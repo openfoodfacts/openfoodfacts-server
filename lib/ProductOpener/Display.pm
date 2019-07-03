@@ -1453,7 +1453,7 @@ sub display_list_of_tags($$) {
 		my $i = 0;
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
-		
+
 		my %stats = (
 			all_tags => 0,
 			all_tags_products => 0,
@@ -1475,7 +1475,7 @@ sub display_list_of_tags($$) {
 			my $count = $tagcount_ref->{count};
 
 			$products{$tagid} = $count;
-			
+
 			$stats{all_tags}++;
 			$stats{all_tags_products} += $count;
 
@@ -1527,7 +1527,7 @@ sub display_list_of_tags($$) {
 					$stats{unknown_tags_products} += $count;
 				}
 			}
-			
+
 			# do not compute the tag display if we just need stats
 			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
 
@@ -1677,14 +1677,14 @@ sub display_list_of_tags($$) {
 		}
 
 		$html .= "</tbody></table></div>";
-		
-		
+
+
 		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
-		
+
 			$html =~ s/<table(.*)<\/table>//is;
-		
+
 			if ($stats{all_tags} > 0) {
-			
+
 				$html .= <<"HTML"
 <table>
 <tr>
@@ -1698,9 +1698,9 @@ HTML
 					$html .= "<tr><td>" . $type . "</td>"
 					. "<td>" . $stats{$type . "_tags"} . " (" . sprintf("%2.2f", $stats{$type . "_tags"} / $stats{"all_tags"} * 100) . "%)</td>"
 					. "<td>" . $stats{$type . "_tags_products"} . " (" . sprintf("%2.2f", $stats{$type . "_tags_products"} / $stats{"all_tags_products"} * 100) . "%)</td>";
-		
+
 				}
-			
+
 				$html .=<<"HTML"
 </table>
 HTML
@@ -2574,7 +2574,7 @@ sub display_tag($) {
 			$newtagid2 = get_fileid($display_tag2);
 			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
 			$title .= " / " . $display_tag2;
-			
+
 			if ($tagtype2 eq 'emb_codes') {
 				$canon_tagid2 = $newtagid2;
 				$canon_tagid2 =~ s/-(eec|eg|ce)$/-ec/i;
@@ -7059,6 +7059,55 @@ JS
 	$html .= display_field($product_ref, 'allergens');
 
 	$html .= display_field($product_ref, 'traces');
+
+	# Ingredient analysis
+
+	if (defined $product_ref->{ingredients_analysis_tags}) {
+
+		my $html_analysis = "";
+
+		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
+
+			# Skip unknown
+			next if $ingredients_analysis_tag =~ /unknown/;
+
+			my $color;
+
+			if ($ingredients_analysis_tag =~ /palm/) {
+
+				if ($ingredients_analysis_tag =~ /-free$/) {
+					$color = "#178c4f"; # green
+				}
+				elsif ($ingredients_analysis_tag =~ /^en:may-$/) {
+					$color = "#bf8316"; # orange
+				}
+				else {
+					$color = "#bf2316"; # red
+				}
+
+			}
+			else {
+				if ($ingredients_analysis_tag =~ /^en:non-/) {
+					$color = "#bf2316"; # red
+				}
+				elsif ($ingredients_analysis_tag =~ /^maybe-$/) {
+					$color = "#4f8c17"; # yellow green
+				}
+				else {
+					$color = "#178c4f"; # green
+				}
+			}
+
+			$html_analysis .= "<span class=\"button small round disabled\" style=\"background-color:$color;color:white;padding:.5rem 1rem;\">"
+			. display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
+			. "</span> ";
+		}
+
+		if ($html_analysis ne "") {
+
+			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b> " . $html_analysis . "</p>";
+		}
+	}
 
 
 	my $html_ingredients_classes = "";

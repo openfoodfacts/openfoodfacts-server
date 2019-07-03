@@ -4800,7 +4800,7 @@ zh:单硬脂酸甘油酯
 # en-gb:Glycerol monostearate
 wikipedia:en:https://en.wikipedia.org/wiki/Glycerol_monostearate
 # ingredient/fr:monostéarate-de-glycérol has 54 products in french @2019-03-28
-from_palm:en:maybe
+from_palm_oil:en:maybe
 
 # GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts. 
 
@@ -13260,6 +13260,7 @@ zu:Ubisi
 # zh-min-nan:Leng
 # yue:奶
 wikipedia:en:https://en.wikipedia.org/wiki/Milk
+vegan:en:no
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 carbon_footprint_fr_foodges_value:fr:1.2
@@ -20176,6 +20177,7 @@ it:olio e grasso vegetale
 nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
+from_palm_oil:en:maybe
 vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
@@ -20289,12 +20291,12 @@ en:palm oil and fat
 de:Palmöl und Palmfett, Palmöl und Fett
 fr:Huile et matière grasse de palme
 it:Olio e grasso di palma
-from_palm:en:yes
+from_palm_oil:en:yes
 
 <en:vegetable oil and fat
 en:palm kernel oil and fat
 fr:Huile et matière grasse de palmiste
-from_palm:en:yes
+from_palm_oil:en:yes
 
 # <en:palm
 <en:palm oil and fat
@@ -20449,7 +20451,7 @@ te:పామ్‌కెర్నల్‌ నూనె
 uk:Пальмоядрова олія
 wikidata:en:Q1960534
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_kernel_oil
-from_palm:en:yes
+from_palm_oil:en:yes
 
 <en:palm kernel oil and fat
 en:palm kernel fat
@@ -20656,6 +20658,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Olive_oil
 wikidata:en:Q93165
 carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
 carbon_footprint_fr_foodges_value:fr:2.6
+from_palm_oil:en:no
 
 <en:olive oil
 en:virgin olive oil
@@ -20712,6 +20715,7 @@ fi:Rypsiöljy
 fr:huile de navette, huile de canola
 nl:raapolie, canola olie, raapzaadolie
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
+from_palm_oil:en:no
 
 # Colza oil or colza is a non-drying oil obtained from the seeds of rapeseed (Brassica napus subsp. napus). Note that this a single rapeseed variety
 
@@ -20740,6 +20744,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 wikidata:en:Q697248
 carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
 carbon_footprint_fr_foodges_value:fr:2.2
+from_palm_oil:en:no
 
 <en:colza oil
 en:organic colza oil
@@ -21043,6 +21048,7 @@ ru:Масло виноградных косточек
 zh:葡萄籽油
 wikipedia:en:https://en.wikipedia.org/wiki/Grape_seed_oil
 wikidata:en:Q898982
+from_palm_oil:en:no
 
 # description:en:RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk).
 
@@ -21071,6 +21077,7 @@ uk:Рисова олія
 zh:米糠油
 wikidata:en:Q175933
 wikipedia:en:https://en.wikipedia.org/wiki/Rice_bran_oil
+from_palm_oil:en:no
 
 
 # description:en:SHEA BUTTER is a fat extracted from the nut of the African shea tree (Vitellaria paradoxa). Shea butter is edible and is used in food preparation in some African countries. Occasionally, shea butter is mixed with other oils as a substitute for cocoa butter, although the taste is noticeably different.
@@ -21104,6 +21111,7 @@ zh:乳木果油
 wikidata:en:Q495857
 wikipedia:en:https://en.wikipedia.org/wiki/Shea_butter
 # ingredient/fr:beurre-de-karité has 93 products in 6 languages @2019-04-16
+from_palm_oil:en:no
 
 # description:en:ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree.
 
@@ -21114,10 +21122,12 @@ fr:illipé, huile d'illipé, graisse d'illipé
 uk:Ілліпе
 wikidata:en:Q6000160
 wikipedia:en:https://en.wikipedia.org/wiki/Illipe
+from_palm_oil:en:no
 
 <en:vegetable fat
 en:sunflower fat
 # ingredient/sunflower-fat has 2 products in english @2019-04-16
+from_palm_oil:en:no
 
 #<en:sunflower fat
 #en:partially hydrogenated sunflower fat
@@ -21156,6 +21166,7 @@ nl:saffloerolie
 pl:olej z krokosza bawierskiego
 ro:ulei de șofrănel
 wikidata:en:Q16642513
+from_palm_oil:en:no
 
 <en:vegetable oil
 # producedFrom:en:chia
@@ -21164,6 +21175,7 @@ de:Chiaöl
 es:aceite de chía
 fr:huile de chia
 nl:chia-olie
+from_palm_oil:en:no
 
 <en:vegetable oil
 # producedFrom:en:hazelnut
@@ -21174,16 +21186,19 @@ fr:huile de noisette
 it:Olio di nocciole
 nl:hazelnotenolie, hazelnootolie
 wikidata:en:Q1112606
+from_palm_oil:en:no
 
 <en:hazelnut oil
 en:virgin hazelnut oil
 fr:huile vierge de noisette
 # ingredient/fr:huile-vierge-de-noisette has 9 products @2019-06-02
+from_palm_oil:en:no
 
 <en:vegetable oil
 en:pistachio seed oil
 de:Pistazienöl
 fr:Huile de pistache
+from_palm_oil:en:no
 
 # LINSEED OIL, also known as flaxseed oil or flax oil, is a colourless to yellowish oil obtained from the dried, ripened seeds of the flax plant (Linum usitatissimum).
 
@@ -21230,6 +21245,7 @@ zh:亞麻子油
 # nap:Uoglio 'e lino
 # yue:亞麻籽油
 wikidata:en:Q818405
+from_palm_oil:en:no
 
 <en:linseed oil
 en:Organic linseed oil
@@ -21290,6 +21306,7 @@ vi:Dầu hướng dương
 zh:葵花籽植物油
 wikipedia:en:https://en.wikipedia.org/wiki/Sunflower_oil
 wikidata:en:Q94787
+from_palm_oil:en:no
 
 <en:sunflower oil
 en:organic sunflower oil
@@ -21392,10 +21409,11 @@ fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza
 en:lemon oil
 fr:huile de citron
 nl:Citroenolie
+from_palm_oil:en:no
 
 # <en:mango
 <en:vegetable oil
-fr:noyaux de mangue
+fr:huile de noyaux de mangue
 # ingredient/fr:noyaux-de-mangue has 31 products in french @2019-03-01
 # matières grasses végétales (palme, karité, sal, noyaux de mangue, illipé, kokum gurgi dans des proportions variables)
 
