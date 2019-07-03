@@ -4219,12 +4219,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
 en:soya lecithin, soy lecithin, sin 322
 cs:sójový lecitin
 da:sojalecitin
-de:Sojalecithine, Sojalecithin
+de:Sojalecithine, Sojalecithin, Soja-Lecithine
 el:λεκιθίνη σόγιας
 es:lecitina de soja, lecitina de soya
 fi:soijalesitiini
 fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
-hu:szójalecitin
+hu:szójalecitin, szójalecitinek
 it:lecitina di soia
 nl:sojalecithine
 nn:sojalecitin
@@ -13030,6 +13030,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Xylanase
 
 # nova:en:butter
 
+<en:dairy
 en:butter
 am:ቅቤ
 an:manteca
@@ -13089,7 +13090,7 @@ ms:mentega
 my:ထောပတ်
 nb:smør
 ne:नौनी
-nl:Boter, boter
+nl:boter
 nn:smør
 oc:burre
 os:hæлхæ
@@ -13409,7 +13410,7 @@ da:Mælk
 de:Milch
 el:Γάλα
 es:Leche
-et:Piim
+et:Piim, piimast
 eu:Esne
 fa:شیر
 fi:Maito
@@ -13445,14 +13446,15 @@ lb:Mëllech
 li:Mèlk
 ln:Míliki
 lo:ນົມ
-lt:Pienas
-lv:Piens
+lt:Pienas, pieno
+lv:Piens, piena
 mg:Ronono
 mk:Млеко
 ml:പാൽ
 mn:Сүү
 mr:दूध
 ms:Susu
+mt:ħalib
 my:နို့
 nb:Melk
 ne:दूध
@@ -13972,7 +13974,7 @@ nl:rauwe schapenmelk
 
 <en:milk
 en:scheeps milk, sheep milk
-de:Schafsmilch
+de:Schafsmilch, Schafmilch
 fr:lait de brebis
 it:latte di pecora
 nl:schapenmelk
@@ -14329,11 +14331,11 @@ bg:Лактоза
 bn:ল্যাকটোজ
 bs:Laktoza
 ca:Lactosa
-cs:Laktóza
+cs:Laktóza, laktózy
 cy:Lactos
 da:Laktose
 de:Lactose, Milchzucker, Laktose
-el:Λακτόζη
+el:Λακτόζη, λακτόζης
 eo:Laktozo, laktosukero
 es:Lactosa
 et:Laktoos, piimasuhkur
@@ -14356,21 +14358,22 @@ ka:ლაქტოზა
 ko:락토스
 ky:Лактоза
 la:Lactosum
-lt:Laktozė
-lv:Laktoze
+lt:Laktozė, laktozę
+lv:Laktoze, laktozi
 mg:Laktôzy
 mk:Лактоза
 ms:Laktosa
+mt:lattosju
 nb:Laktose, melkesukker
 nl:Lactose, Melksuiker
 nn:Laktose, mjølkesukker
 oc:Lactòsa
-pl:Laktoza
-pt:Lactose
+pl:Laktoza, laktozą
+pt:Lactose, lactéos
 ro:Lactoză
 ru:Лактоза
 sh:Laktoza
-sk:Laktóza
+sk:Laktóza, laktózy
 sl:Laktoza, mlečni sladkor
 sq:Laktoza
 sr:Лактоза
@@ -14434,7 +14437,8 @@ en:yogurt
 de:Joghurt
 fr:yaourt
 it:yogurt
-nl:Joghurt
+nl:Joghurt, yoghurt, jogurt
+ru:йогурт
 carbon_footprint_fr_foodges_ingredient:fr:Yaourt
 carbon_footprint_fr_foodges_value:fr:2.9
 
@@ -14613,8 +14617,12 @@ en:whey permeate powder
 de:Molkepermeat Pulver
 fr:perméat de petit lait en poudre
 
+en:dairy
+nl:zuivel
+
 # CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 
+<en:dairy
 en:cream
 af:Room
 ar:قشدة
@@ -14885,7 +14893,7 @@ es:Suero de mantequilla
 et:Pett
 fa:آب‌دوغ
 fi:Piimä
-fr:babeurre
+fr:babeurre, bas-beurre
 fy:sûpe
 ga:Bláthach
 gd:Blàthach
@@ -14970,7 +14978,7 @@ sv:kärnemjölkspulver
 
 # CHEESE is a dairy product derived from milk that is produced in a wide range of flavors, textures, and forms by coagulation of the milk protein casein.
 
-# <en:milk
+<en:dairy
 en:cheese
 af:Kaas
 am:ፎርማጆ
@@ -21147,7 +21155,7 @@ bg:Соево олио
 ca:oli de soia
 cs:sójový olej
 da:Sojaolie
-de:Sojaöl
+de:Sojaöl, Sojabohnenöl, Sojafett
 eo:Sojoleo
 es:aceite de soja
 eu:soja-olio
@@ -29120,10 +29128,10 @@ fr:protéines de pois, protéine de pois
 it:proteine di piselli
 nl:boneneiwit
 
-# HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
+# descriptioN:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
 <en:vegetable protein
-en:hydrolyzed vegetable protein, HVP, vegetable hydrolysed proteins
+en:hydrolysed vegetable protein, HVP, vegetable hydrolysed proteins
 fr:protéine végétale hydrolysée, protéines végétales hydrolysées, protéine végétale hydrolysée
 nl:gehydroliseerde plantaardige eiwit
 zh:酸水解植物蛋白
@@ -29132,14 +29140,16 @@ zh:酸水解植物蛋白
 <en:pea protein
 fr:protéines de pois hydrolysées
 
-<en:pea protein
-<en:vegetable hydrolysed protein
+<en:hydrolysed vegetable protein
 en:soy protein
-de:Sojaprotein, Sojaproteine
+de:Sojaprotein, Sojaproteine, Sojaeiweiß
 es:Proteina de soya, proteina de soja
 fr:protéine de soja, protéines de soja
 it:proteine di soia
-nl:soja-eiwit
+nl:soja-eiwit, sojaeiwitten
+
+<en:soy protein
+de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat
 
 <en:soy protein
 en:rehydrated soy protein
@@ -29148,6 +29158,7 @@ nl:gerehydrateerde soja-eiwit
 
 <en:soy protein
 fr:isolat de protéine de soja
+de:Sojaproteinisolat
 
 <en:soy protein
 en:hydrolysed soy protein
@@ -30697,35 +30708,39 @@ fr:eau et sel
 # Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max
 # note that soya is english and soy is american
 
-en:soya, soy
+en:soya, soy, , soja, soia
 an:soya
 az:Soya
 ba:Соя
 be:Соя
-bg:Соя
+bg:Соя, соеви, соево
 br:Soja
 bs:Soja
 ca:Soia
+cs:sója, sójové
 cy:Soia
 da:soja
 de:Soja
-el:Σόγια
-es:soja
+el:σόγια
+es:soja, soya
 et:soja
 eu:Soja
 fi:soija
-fr:soja
+fr:soja, soya, soia, sojas
+ga:soighe
 gl:Soia
 gn:Sóha
 hr:Soja
+hu:szója, szójatej, szójaliszt, szójából, szóját
 ia:soya
 id:Kedelai
 io:Soyo
 it:soia
+ja:ダイズ
 jv:Dhelé
 ku:Soya
-lt:Soja
-lv:Soja
+lt:Soja, sojų
+lv:Soja, sojas
 mk:Соја
 ms:soya
 nl:soja
@@ -30738,7 +30753,8 @@ ro:soia
 ru:Соя
 rw:Soya
 sh:Soja
-sl:Soja
+sk:sójové
+sl:Soja, soje
 sr:Соја
 sv:soja
 sw:Soya
@@ -30746,6 +30762,7 @@ tr:Soya
 tt:Соя
 uk:Соя
 uz:Soya
+zh:黄豆, 大豆类制品
 # ast:soya
 # hsb:Soja
 # ilo:Soya
@@ -30755,31 +30772,40 @@ uz:Soya
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
 
-# SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia,
+# description:en:SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia,
 
 <en:soya
-en:soya bean, soy beans, soya beans, soybean
-cs:Sója luštinatá
+en:soya bean, soy beans, soya beans, soybean, soybeans
+ar:فول الصويا
+cs:Sója luštinatá, sójové boby
 da:Sojabønne
-de:Sojabohne, Sojabohnen, Sojakerne
+de:Sojabohne, Sojabohnen, Sojakerne, Sojakerne
 eo:Sojfabo
-es:granos de soja, habas de soja
-et:Sojauba
-fi:Soijapapu
+es:granos de soja, habas de soja, habas de soya
+et:Sojauba, sojaoad
+fi:Soijapapu, soijapavut
 fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja
+ga:pónairí soighe
 hu:Szójabab
 id:kacang kedelai
 is:Sojabaun
 it:semi di soia
 ku:fasulyeya soyayê
-lt:Gauruotoji soja
+lt:Gauruotoji soja, sojų pupelės
+lv:sojas pupas
 ms:Kacang soya
+mt:soybeans
 nb:Soyabønne
 nl:Sojaboon, sojabonen
 nn:Soyabønne
 pl:Soja warzywna
 pt:grão de soja, grãos de soja
-sk:Sója fazuľová
+ru:соевые бобы
+sk:Sója fazuľová, sójové bôby
+sl:zrnje soje 
+sv:sojabönor
+th:ถั่วเหลือง
+zh: 黄豆, 大豆
 # als:Sojabohne
 # bar:Sojaboanl
 # fiu-vro:Sojauba
@@ -30818,11 +30844,23 @@ nl:Sojavlokken
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20soja
 # 77 products in 4 languages @2018-09-25
 
+<en:soya
+de:Sojaschrot, Sojagrieß
+
+<en:soya
+de:Sojamehl
+fr:son de soja
 
 <en:soya
 fr:pousses de soja
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pousses%20de%20soja
 # 24 products in 1 language @2018-09-25
+
+<en:soya
+de:Sojaerzeugnis
+
+<en:soya
+de:Sojakleie
 
 # fr:Jus de soja is a compound ingredient:soybean + water
 
@@ -65857,6 +65895,7 @@ bg:Соево мляко
 bn:সয়াদুধ
 ca:llet de soia
 cs:Sojové mléko
+de:Sojamilch
 el:γάλα σόγιας
 eo:sojlakto
 es:bebida de soja, bebida de soya, leche de soya, Licuado de soja, leche de soja
@@ -66826,7 +66865,7 @@ bn:সয়া সস
 ca:salsa de soia
 cs:sójová omáčka
 da:sojasovs
-de:Sojasauce
+de:Sojasauce, Sojasoße, Sojasosse
 el:Σάλτσα σόγιας
 eo:sojsaŭco
 es:salsa de soya, salsa de soja
@@ -66902,7 +66941,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 
 <en:soy sauce
 en:soy sauce powder
-de:Soja Sosse Pulver
+de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver
 fi:soijakastikejauhe
 fr:sauce soja en poudre, sauce de soja en poudre
 nl:soja saus poeder
