@@ -235,7 +235,7 @@ ou de route. Vous nous rejoignez ?</p>
 
 <a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" style="margin-right:30px" /></a>
 
-<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a><br/>
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/google-play-badge.png" alt="Disponible sur Google Play" width="135" height="47" /></a><br/>
 
 <p>C'est fabriqué (et pas seulement emballé !) <s>près de</s> chez vous : le plus court des circuits-courts passe par votre cuisine !
 Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http://recettes.de/cuisine">recettes de cuisine</a> proposées par les blogueuses et blogueurs culinaires.</p>

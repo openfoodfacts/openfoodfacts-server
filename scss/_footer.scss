@@ -16,6 +16,14 @@ footer {
       float: left;
       height: 70px;
       width: 160px;
+
+      margin: 5px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
     }
   }
 
