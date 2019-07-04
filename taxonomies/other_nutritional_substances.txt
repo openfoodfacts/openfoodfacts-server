@@ -12,8 +12,24 @@
 # https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
 
-# description:en:CARNITINE is a quaternary ammonium compound involved in metabolism in most mammals, plants and some bacteria. The body synthesizes enough carnitine from lysine side chains to keep up with the needs of energy production in the body as carnitine acts as a transporter of long-chain fatty acids into the mitochondria to be oxidized and produce energy. Food sources rich in L-carnitine are animal products such as meat, poultry, fish, and milk. Redder meats tend to have higher levels of L-carnitine. Some individuals with genetic or medical disorders (like preterm infants) cannot make enough, so this makes carnitine a conditionally essential nutrient for them.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                       O T H E R   N U T R I T I O N A L   S U B S T A N C E S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+
+en:other nutritional substances
+es:Otras sustancias nutricionales
+fr:Autres substances nutritives
+hu:Egyéb táplálkozási anyagok
+nl:Andere voedingsmiddelen
+
+
+
+# description:en:Carnitine is a quaternary ammonium compound involved in metabolism in most mammals, plants and some bacteria. The body synthesizes enough carnitine from lysine side chains to keep up with the needs of energy production in the body as carnitine acts as a transporter of long-chain fatty acids into the mitochondria to be oxidized and produce energy. Food sources rich in L-carnitine are animal products such as meat, poultry, fish, and milk. Redder meats tend to have higher levels of L-carnitine. Some individuals with genetic or medical disorders (like preterm infants) cannot make enough, so this makes carnitine a conditionally essential nutrient for them.
+
+# <en:other nutritional substances
 en:Carnitine
 ar:كارنتين
 bg:карнитин
@@ -70,6 +86,8 @@ zh:肉碱
 wikidata:en:Q243309
 wikipedia:en:https://en.wikipedia.org/wiki/Carnitine
 # ingredient/Carnitine has 194 products @2019-06-23
+vegetarian:en:maybe
+vegan:en:no
 
 # description:en:L-CARNITINE is the left isomer of carnitine, a quaternary ammonium compound involved in metabolism in most mammals, plants and some bacteria. The body synthesizes enough carnitine from lysine side chains to keep up with the needs of energy production in the body as carnitine acts as a transporter of long-chain fatty acids into the mitochondria to be oxidized and produce energy. Food sources rich in L-carnitine are animal products such as meat, poultry, fish, and milk. Redder meats tend to have higher levels of L-carnitine. Some individuals with genetic or medical disorders (like preterm infants) cannot make enough, so this makes carnitine a conditionally essential nutrient for them.
 
@@ -81,8 +99,8 @@ de:L-Carnitin
 el:L-καρνιτίνη
 es:L-carnitina
 et:L-karnitiin
-fr:L-Carnitine
 fi:L-karnitiini
+fr:l-carnitine
 hu:L-karnitin
 it:L-carnitina
 lt:L-karnitinas
@@ -92,6 +110,7 @@ nl:L-Carnitine
 pl:L-karnityna
 pt:L-carnitina
 ro:L-carnitină
+ru:L-карнитин
 sk:L-karnitín
 sl:L-karnitin
 sv:L-karnitin
@@ -149,7 +168,6 @@ wikidata:en:Q64782495
 
 # description:en:Taurine is an organic compound that is widely distributed in animal tissues. Taurine has many fundamental biological roles. Taurine is a common additive to energy drinks, which are often promoted as such.
 
-# <en:other
 en:taurine
 ar:حمض التورين
 # azb:تائورین
@@ -207,6 +225,8 @@ zh:牛磺酸
 # zh-tw:牛磺酸
 wikidata:en:Q207051
 wikipedia:en:https://en.wikipedia.org/wiki/Taurine
+vegan:en:maybe
+vegetarian:en:maybe
 # ingredient/fr:taurine has 309 products in 6 languages @2019-5-17
 # other-nutritional-substance/taurine has 591 products in 8 languages @2019-05-17
 
@@ -214,6 +234,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Taurine
 # description:en:CHOLINE is a water-soluble vitamin-like essential nutrient. The US Food and Drug Administration requires that infant formula not made from cow's milk be supplemented with choline. Choline-providing dietary supplement ingredients include: choline chloride, choline bitartrate, citicoline (CDP-choline), L-alpha-glycerophosphocholine (Alpha-GPC), lecithin, phosphatidylcholine. Cruciferous vegetables, such as Brussels sprouts and broccoli, are good sources of choline.
 # comment:en:Related to additive E1001 and vitamin B4
 
+# <en:other nutritional substances
 en:Choline
 ar:كولين
 bg:Холин
@@ -254,11 +275,13 @@ zh:胆碱
 wikidata:en:Q193166
 wikipedia:en:https://en.wikipedia.org/wiki/Choline
 # ingredient/choline has 73 products @2019-06-23
+vegetarian:en:maybe
+vegan:en:maybe
 
 # description:en:Choline chloride is an organic compound containing both quaternary ammonium salt and an alcohol. It is an important additive in feed especially for chickens where it accelerates growth. The US Food and Drug Administration requires that infant formula not made from cow's milk be supplemented with choline. Choline-providing dietary supplement ingredients include: choline chloride, choline bitartrate, citicoline (CDP-choline), L-alpha-glycerophosphocholine (Alpha-GPC), lecithin, phosphatidylcholine.
 
-<en:Choline
-en:choline chloride
+# <en:other nutritional substances
+en:Choline chloride
 bg:Холин хлорид
 cs:cholin-chlorid
 da:cholinchlorid
@@ -275,11 +298,12 @@ lv:holīna hlorīds
 mt:klorat tal-kolin
 nl:cholinechloride
 pl:chlorek choliny
-pt:cloridrato de colina
+pt:cloreto de colina
 ro:clorură de colină
 sh:Holin hlorid
 sk:cholín chlorid
 sl:holin klorid
+sr:Holin hlorid
 # sr-el:Holin hlorid
 sv:kolinklorid
 zh:氯化膽鹼素
@@ -339,8 +363,10 @@ wikidata:en:Q18324709
 # sv:kolincitrat
 # ingredient/choline-citrate has no products @2019-06-23
 
+
 # description:en:INOSITOL is a carbocyclic sugar that is abundant in brain and other mammalian tissues, mediates cell signal transduction and participates in osmoregulation. It is a sugar alcohol with half the sweetness of table sugar. It is made naturally in humans from glucose. A human kidney will produce around two grams each day. Foods containing the highest concentrations of inositol include fruits, beans, grains, and nuts.
 
+# <en:other nutritional substances
 en:inositol
 ar:إينوزيتول
 ca:inositol
@@ -393,3 +419,5 @@ zh:肌醇
 wikipedia:en:https://en.wikipedia.org/wiki/Inositol
 wikidata:en:Q407997
 # ingredient/inositol has 296 products @2019-06-23
+vegan:en:yes
+vegetarian:en:yes

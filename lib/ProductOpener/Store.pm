@@ -90,7 +90,14 @@ sub get_fileid($) {
 	$file =~ s/ç/c/g;
 	$file =~ s/ñ/n/g;
 	
-	$file = lc($file);
+	# do not lowercase UUIDs
+	# e.g.
+	# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
+	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
+	if ($file !~ /^([a-z\-]+)\.([a-zA-Z0-9-]{8})([a-zA-Z0-9-]*)$/) {
+		$file = lc($file);
+		$file =~ s/\./-/g;
+	}
 	
 	#$file = decode("UTF-16", unac_string('UTF-16',encode("UTF-16", $file)));
 	$file = unac_string_perl($file);
@@ -98,14 +105,17 @@ sub get_fileid($) {
 	# turn characters that are not letters and numbers to -
 	# except extended UTF-8 characters
 	# $file =~ s/[^a-z0-9-]/-/g;
-
+	
 	# turn special chars to -
 	$file =~ s/[\000-\037]/-/g;
+	
+	# zero width space
+	$file =~ s/\x{200B}/-/g;
 	
 	# avoid turning &quot; in -quot-
 	$file =~ s/\&(quot|lt|gt);/-/g;	
 	
-	$file =~ s/[\s!"#\$%&'()*+,.\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
+	$file =~ s/[\s!"#\$%&'()*+,\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
 	$file =~ s/-+/-/g;
 	$file =~ s/^-//;
 	$file =~ s/-$//;

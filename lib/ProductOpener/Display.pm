@@ -435,7 +435,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -1453,6 +1453,15 @@ sub display_list_of_tags($$) {
 		my $i = 0;
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
+		
+		my %stats = (
+			all_tags => 0,
+			all_tags_products => 0,
+			known_tags => 0,
+			known_tags_products => 0,
+			unknown_tags => 0,
+			unknown_tags_products => 0,
+		);
 
 		foreach my $tagcount_ref (@tags) {
 
@@ -1466,6 +1475,9 @@ sub display_list_of_tags($$) {
 			my $count = $tagcount_ref->{count};
 
 			$products{$tagid} = $count;
+			
+			$stats{all_tags}++;
+			$stats{all_tags_products} += $count;
 
 			my $link;
 			my $products = $count;
@@ -1506,11 +1518,18 @@ sub display_list_of_tags($$) {
 			elsif (defined $taxonomy_fields{$tagtype}) {
 				if (exists_taxonomy_tag($tagtype, $tagid)) {
 					$td_nutriments .= "<td></td>";
+					$stats{known_tags}++;
+					$stats{known_tags_products} += $count;
 				}
 				else {
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+					$stats{unknown_tags}++;
+					$stats{unknown_tags_products} += $count;
 				}
 			}
+			
+			# do not compute the tag display if we just need stats
+			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
 
 			my $info = '';
 			my $css_class = '';
@@ -1593,6 +1612,7 @@ sub display_list_of_tags($$) {
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
+				$display = display_tag_name($tagtype, $display);
 			}
 
 			$css_class =~ s/^\s+|\s+$//g;
@@ -1657,6 +1677,36 @@ sub display_list_of_tags($$) {
 		}
 
 		$html .= "</tbody></table></div>";
+		
+		
+		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
+		
+			$html =~ s/<table(.*)<\/table>//is;
+		
+			if ($stats{all_tags} > 0) {
+			
+				$html .= <<"HTML"
+<table>
+<tr>
+<th>Type</th>
+<th>Unique tags</th>
+<th>Occurrences</th>
+</tr>
+HTML
+;
+				foreach my $type ("known", "unknown", "all") {
+					$html .= "<tr><td>" . $type . "</td>"
+					. "<td>" . $stats{$type . "_tags"} . " (" . sprintf("%2.2f", $stats{$type . "_tags"} / $stats{"all_tags"} * 100) . "%)</td>"
+					. "<td>" . $stats{$type . "_tags_products"} . " (" . sprintf("%2.2f", $stats{$type . "_tags_products"} / $stats{"all_tags_products"} * 100) . "%)</td>";
+		
+				}
+			
+				$html .=<<"HTML"
+</table>
+HTML
+;
+			}
+		}
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
@@ -2336,6 +2386,7 @@ sub display_points($) {
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
 			$newtagid = get_fileid($display_tag);
+			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
 				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
@@ -2474,6 +2525,7 @@ sub display_tag($) {
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
 			$newtagid = get_fileid($display_tag);
+			$display_tag = display_tag_name($tagtype2, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
 				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
@@ -2519,8 +2571,10 @@ sub display_tag($) {
 		}
 		else {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
-			$title .= " / " . $display_tag2;
 			$newtagid2 = get_fileid($display_tag2);
+			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
+			$title .= " / " . $display_tag2;
+			
 			if ($tagtype2 eq 'emb_codes') {
 				$canon_tagid2 = $newtagid2;
 				$canon_tagid2 =~ s/-(eec|eg|ce)$/-ec/i;
@@ -5482,7 +5536,7 @@ HTML
 	</form>
 </li>
 <li>
-	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="icon-gear"></i></a>
+	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="icon-settings"></i></a>
 </li>
 </ul>
 $links
@@ -5971,20 +6025,20 @@ HTML
 							<input name="action" value="process" type="hidden">
 						</div>
 						<div class="small-4 columns">
-							<button type="submit" title="$Lang{search}{$lang}"><i class="icon-ui-search"></i></button>
+							<button type="submit" title="$Lang{search}{$lang}"><i class="icon-search"></i></button>
 						</div>
 					</div>
 				</form>
 			</li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-plus"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="icon-plus"></i> $Lang{advanced_search}{$lang}</span></a></li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="icon-chart-bar-graph"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="icon-chart-bar-graph"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-add"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="icon-add"></i> $Lang{advanced_search}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="icon-bar_chart"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="icon-bar_chart"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-stock-mobile"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-stock-mobile"></i> $Lang{get_the_app}{$lc}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-phone_android"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-phone_android"></i> $Lang{get_the_app}{$lc}</a></li>
 		</ul>
 	</section>
 </nav>
@@ -5992,7 +6046,7 @@ HTML
 <nav class="tab-bar show-for-small-only">
 	<div class="left-small" style="padding-top:4px;">
 		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
-		<i class="icon-user" style="color:$torso_color;font-size:1.8rem"></i></a>
+		<i class="icon-account_box" style="color:$torso_color;font-size:1.8rem"></i></a>
 	</div>
 	<div class="middle tab-bar-section" style="padding-top:4px;">
 		<form action="/cgi/search.pl">
@@ -6003,10 +6057,10 @@ HTML
 					<input name="action" value="process" type="hidden">
 				</div>
 				<div class="small-2 columns">
-					<button type="submit" class="button postfix"><i class="icon-ui-search"></i></button>
+					<button type="submit" class="button postfix"><i class="icon-search"></i></button>
 				</div>
 				<div class="small-2 columns">
-					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-ui-search"></i> <i class="icon-plus"></i></a>
+					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-search"></i> <i class="icon-add"></i></a>
 				</div>
 			</div>
 		</form>
@@ -6038,11 +6092,11 @@ HTML
 								<input name="action" value="process" type="hidden">
 							</div>
 							<div class="small-2 columns">
-								<button type="submit" class="button postfix"><i class="icon-ui-search"></i></button>
+								<button type="submit" class="button postfix"><i class="icon-search"></i></button>
 							</div>
 							<div class="small-1 columns">
 								<label class="right inline">
-									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-plus"></i></a>
+									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-add"></i></a>
 								</label>
 							</div>
 						</div>
@@ -6638,7 +6692,7 @@ HTML
 </a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
-	<i class="icon-pencil"></i>
+	<i class="icon-edit"></i>
 	<span class="show-for-large-up"> $Lang{edit_product_page}{$lc}</span>
 </a></div>
 HTML
@@ -6648,7 +6702,7 @@ HTML
 		$html .= <<HTML
 <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
 <a href="/cgi/product.pl?type=delete&code=$code" class="button small icon">
-	<i class="icon-trash"></i>
+	<i class="icon-delete"></i>
 	<span class="show-for-large-up"> $Lang{delete_product_page}{$lc}</span>
 </a></div>
 HTML
@@ -7187,7 +7241,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="/nova">
-<i class="icon-info-circle"></i></a>
+<i class="icon-info"></i></a>
 </h4>
 
 
@@ -7325,12 +7379,12 @@ HTML
 	my $other_editors = "";
 
 	foreach my $editor (sort @other_editors) {
-		$other_editors .= "<a href=\"" . canonicalize_tag_link("users", get_fileid($editor)) . "\">" . $editor . "</a>, ";
+		$other_editors .= display_tag_link("editors", $editor) . ", ";
 	}
 	$other_editors =~ s/, $//;
 
-	my $creator = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{creator})) . "\">" . $product_ref->{creator} . "</a>";
-	my $last_editor = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_editor})) . "\">" . $product_ref->{last_editor} . "</a>";
+	my $creator = display_tag_link("editors", $product_ref->{creator});
+	my $last_editor = display_tag_link("editors", $product_ref->{last_editor});
 
 	if ($other_editors ne "") {
 		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
@@ -7339,7 +7393,7 @@ HTML
 	my $checked = "";
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
-		my $last_checker = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_checker})) . "\">" . $product_ref->{last_checker} . "</a>";
+		my $last_checker = display_tag_link("editors", $product_ref->{last_checker});
 		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
 	}
 
@@ -7369,7 +7423,7 @@ HTML
 	$html .= <<HTML
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small">
-	<i class="icon-pencil"></i>
+	<i class="icon-edit"></i>
 	$Lang{edit_product_page}{$lc}
 </a></div>
 HTML
@@ -7552,7 +7606,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="https://world.openfoodfacts.org/nova" title="NOVA groups for food processing">
-<i class="icon-info-circle"></i></a>
+<i class="icon-info"></i></a>
 </h4>
 
 
@@ -7921,7 +7975,7 @@ sub display_nutrient_levels($) {
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}">
-<i class="icon-info-circle"></i></a>
+<i class="icon-info"></i></a>
 </h4>
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%"></a><br>
 $warning
@@ -7943,7 +7997,7 @@ HTML
 	if ($html_nutrient_levels ne '') {
 		$html_nutrient_levels = <<HTML
 <h4>$Lang{nutrient_levels_info}{$lc}
-<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="icon-info-circle"></i></a>
+<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="icon-info"></i></a>
 </h4>
 $html_nutrient_levels
 HTML
@@ -8730,7 +8784,9 @@ sub display_product_api($)
 	my $product_ref = retrieve_product($code);
 
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		$request_ref->{status} = 404;
+		if ($request_ref->{api_version} >= 1) {
+			$request_ref->{status} = 404;
+		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
 		if ($request_ref->{jqm}) {
@@ -8896,10 +8952,8 @@ sub display_product_history($$) {
 		foreach my $change_ref (reverse @{$changes_ref}) {
 
 			my $date = display_date_tag($change_ref->{t});
-			my $user = "";
-			if (defined $change_ref->{userid}) {
-				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
-			}
+			my $userid = get_change_userid_or_uuid($change_ref);
+			my $user = display_tag_link("editors", $userid);
 
 			my $comment = $change_ref->{comment};
 			$comment = lang($comment) if $comment eq 'product_created';
