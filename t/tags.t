@@ -5,7 +5,7 @@ use Modern::Perl '2012';
 use utf8;
 
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";;
+use Log::Any::Adapter 'TAP', filter => "none";;
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
