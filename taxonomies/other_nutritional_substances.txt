@@ -29,7 +29,6 @@ nl:Andere voedingsmiddelen
 
 # description:en:Carnitine is a quaternary ammonium compound involved in metabolism in most mammals, plants and some bacteria. The body synthesizes enough carnitine from lysine side chains to keep up with the needs of energy production in the body as carnitine acts as a transporter of long-chain fatty acids into the mitochondria to be oxidized and produce energy. Food sources rich in L-carnitine are animal products such as meat, poultry, fish, and milk. Redder meats tend to have higher levels of L-carnitine. Some individuals with genetic or medical disorders (like preterm infants) cannot make enough, so this makes carnitine a conditionally essential nutrient for them.
 
-
 # <en:other nutritional substances
 en:Carnitine
 ar:كارنتين
@@ -86,9 +85,11 @@ zh:肉碱
 # zh-tw:肉鹼
 wikidata:en:Q243309
 wikipedia:en:https://en.wikipedia.org/wiki/Carnitine
+# ingredient/Carnitine has 194 products @2019-06-23
 vegetarian:en:maybe
 vegan:en:no
 
+# description:en:L-CARNITINE is the left isomer of carnitine, a quaternary ammonium compound involved in metabolism in most mammals, plants and some bacteria. The body synthesizes enough carnitine from lysine side chains to keep up with the needs of energy production in the body as carnitine acts as a transporter of long-chain fatty acids into the mitochondria to be oxidized and produce energy. Food sources rich in L-carnitine are animal products such as meat, poultry, fish, and milk. Redder meats tend to have higher levels of L-carnitine. Some individuals with genetic or medical disorders (like preterm infants) cannot make enough, so this makes carnitine a conditionally essential nutrient for them.
 
 <en:Carnitine
 en:L-carnitine
@@ -105,6 +106,7 @@ it:L-carnitina
 lt:L-karnitinas
 lv:L-karnitīns
 mt:L-karnetina
+nl:L-Carnitine
 pl:L-karnityna
 pt:L-carnitina
 ro:L-carnitină
@@ -112,31 +114,32 @@ ru:L-карнитин
 sk:L-karnitín
 sl:L-karnitin
 sv:L-karnitin
-# ingredient/fr:l-carnitine has 90 products in 4 languages @2019-04-04
-# other-nutritional-substance/l-carnitine has 156 products in 7 languages @2019-04-04
+wikidata:en:Q20735709
+# ingredient/l-carnitine has 146 products @2019-06-23
 
-<en:Carnitine
-en:L-carnitine hydrochloride
-bg:L-карнитин хидрохлорид
-cs:L-karnitin-hydrochlorid
-de:L-Carnitin-hydrochlorid
-el:υδροχλωρική L-καρνιτίνη
-es:Clorhidrato de L-carnitina
-et:L-karnitiinhüdrokloriid
-fi:L-karnitiinihydrokloridi
-fr:L-chlorhydrate de carnitine
-hu:L-karnitin-hidroklorid
-it:cloridrato di L-carnitina
-lt:L-karnitino hidrochloridas
-lv:L-karnitīna hidrohlorīds
-mt:L-karnetina
-nl:L-carnitine-hydrochloride
-pl:chlorowodorek L-karnityny
-pt:cloridrato de L-carnitina
-ro:clorhidrat de L-carnitină
-sk:L-karnitínhydrochlorid
-sl:L-karnitin hidroklorid
-sv:L-karnitinhydroklorid
+# <en:Carnitine
+# en:L-carnitine hydrochloride
+# bg:L-карнитин хидрохлорид
+# cs:L-karnitin-hydrochlorid
+# da:L-carnitin hydrochlorid
+# de:L-Carnitin-hydrochlorid
+# el:υδροχλωρική L-καρνιτίνη
+# es:Clorhidrato de L-carnitina
+# et:L-karnitiinhüdrokloriid
+# fi:L-karnitiinihydrokloridi
+# fr:L-chlorhydrate de carnitine
+# hu:L-karnitin-hidroklorid
+# it:cloridrato di L-carnitina
+# lt:L-karnitino hidrochloridas
+# lv:L-karnitīna hidrohlorīds
+# nl:L-carnitine waterstofchloride
+# pl:chlorowodorek L-karnityny
+# pt:cloridrato de L-carnitina
+# ro:clorhidrat de L-carnitină
+# sk:L-karnitínhydrochlorid
+# sl:L-karnitin hidroklorid
+# sv:L-karnitinhydroklorid
+# ingredient/l-carnitine-hydrochloride has no products @2019-06-23
 
 <en:Carnitine
 en:L-carnitine-L-tartrate
@@ -147,6 +150,7 @@ el:L-τρυγική L-καρνιτίνη
 es:L-carnitina-L-tartrato
 et:L-karnitiin-L-tartraat
 fi:L-karnitiini- L-tartraatti
+fr:L-carnitine-L-tartrate
 hu:L-karnitin-L-tartarát
 it:L-carnitina-L-tartrato
 lt:L-karnitino-L-tartratas
@@ -159,19 +163,22 @@ ro:L-carnitină-L-tartrat
 sk:L-karnitín-L-vínan
 sl:L-karnitin-L-tartrat
 sv:L-karnitin-L-tartrat
+wikidata:en:Q64782495
+# ingredient/l-carnitine-l-tartrate has 40 products @2019-06-23
 
+# description:en:Taurine is an organic compound that is widely distributed in animal tissues. Taurine has many fundamental biological roles. Taurine is a common additive to energy drinks, which are often promoted as such.
 
-# description:en:TAURINE is an organic compound that is widely distributed in animal tissues. Taurine has many fundamental biological roles. Taurine is a common additive to energy drinks, which are often promoted as such.
-
-# <en:other nutritional substances
 en:taurine
 ar:حمض التورين
+# azb:تائورین
 bg:таурин
 ca:taurina
 cs:taurin
 da:taurin
 de:Taurin
 el:Ταυρίνη
+# en-ca:Taurine
+# en-gb:Taurine
 eo:Taŭrino
 es:Taurina
 et:Tauriin
@@ -194,6 +201,7 @@ nb:taurin
 nl:taurine
 pl:tauryna
 pt:taurina
+# pt-br:Taurina
 ro:Taurină
 ru:таурин
 sh:Taurin
@@ -201,18 +209,14 @@ sk:Taurín
 sl:Tavrin
 sq:taurin
 sr:Таурин
+# sr-ec:Таурин
+# sr-el:Taurin
 sv:taurin
 tr:Taurin
 uk:Таурин
 vi:Taurine
 wa:Torene
 zh:牛磺酸
-# azb:تائورین
-# en-ca:Taurine
-# en-gb:Taurine
-# pt-br:Taurina
-# sr-ec:Таурин
-# sr-el:Taurin
 # zh-cn:牛磺酸
 # zh-hans:牛磺酸
 # zh-hant:牛磺酸
@@ -227,16 +231,54 @@ vegetarian:en:maybe
 # other-nutritional-substance/taurine has 591 products in 8 languages @2019-05-17
 
 
-# description:en:CHOLINE is a water-soluble vitamin-like essential nutrient. It is a constituent of lecithin, which is present in many plants and animal organs.
+# description:en:CHOLINE is a water-soluble vitamin-like essential nutrient. The US Food and Drug Administration requires that infant formula not made from cow's milk be supplemented with choline. Choline-providing dietary supplement ingredients include: choline chloride, choline bitartrate, citicoline (CDP-choline), L-alpha-glycerophosphocholine (Alpha-GPC), lecithin, phosphatidylcholine. Cruciferous vegetables, such as Brussels sprouts and broccoli, are good sources of choline.
+# comment:en:Related to additive E1001 and vitamin B4
 
 # <en:other nutritional substances
 en:Choline
+ar:كولين
+bg:Холин
+bs:Holin
+ca:Colina
+da:Cholin
+de:Cholin
+eo:Kolino
+es:Colina
+et:Koliin
+eu:Kolina
+fa:کولین
+fi:Koliini
 fr:Choline
+ga:Coilín
+gl:Colina
+he:כולין
+id:Kolina
+it:Colina
+ja:コリン
+kk:Холин
+lt:Cholinas
+nl:Choline
+pl:Cholina
+pt:Colina
+ru:Холин
+sh:Holin
+sk:Cholín
+sl:Holin
+sr:Holin
+sv:Kolin
+ta:கோலின்
+tr:Kolin
+# tyv:Холин
+uk:Холін
+zh:胆碱
+# zh_CN:胆碱
+wikidata:en:Q193166
 wikipedia:en:https://en.wikipedia.org/wiki/Choline
+# ingredient/choline has 73 products @2019-06-23
 vegetarian:en:maybe
 vegan:en:maybe
 
-# description:en:Choline chloride is an organic compound with the formula (CH3)3NCH2CH2OH]Cl. It is an important additive in feed especially for chickens where it accelerates growth.
+# description:en:Choline chloride is an organic compound containing both quaternary ammonium salt and an alcohol. It is an important additive in feed especially for chickens where it accelerates growth. The US Food and Drug Administration requires that infant formula not made from cow's milk be supplemented with choline. Choline-providing dietary supplement ingredients include: choline chloride, choline bitartrate, citicoline (CDP-choline), L-alpha-glycerophosphocholine (Alpha-GPC), lecithin, phosphatidylcholine.
 
 # <en:other nutritional substances
 en:Choline chloride
@@ -262,13 +304,14 @@ sh:Holin hlorid
 sk:cholín chlorid
 sl:holin klorid
 sr:Holin hlorid
+# sr-el:Holin hlorid
 sv:kolinklorid
 zh:氯化膽鹼素
-# sr-el:Holin hlorid
 wikidata:en:Q2964153
 wikipedia:en:https://en.wikipedia.org/wiki/Choline_chloride
-# ingredient/fr:chlorure-de-choline has 74 products in 3 languages @2019-04-08
-# other-nutritional-substance/choline-chloride has 84 products @2019-04-08
+# ingredient/choline-chloride has 18 products in 4 languages @2019-06-23
+
+# description:en:The US Food and Drug Administration requires that infant formula not made from cow's milk be supplemented with choline. Choline-providing dietary supplement ingredients include: choline chloride, choline bitartrate, citicoline (CDP-choline), L-alpha-glycerophosphocholine (Alpha-GPC), lecithin, phosphatidylcholine.
 
 <en:Choline
 en:choline bitartrate
@@ -282,6 +325,7 @@ fi:koliinibitartraatti
 fr:bitartrate de choline
 hu:kolin-bitartarát
 it:bitartrato di colina
+ja:重酒石酸コリン
 lt:cholino bitartratas
 lv:holīna bitartrāts
 mt:bitartrat tal-kolin
@@ -292,29 +336,32 @@ ro:bitartrat de colină
 sk:cholín dvojvínan
 sl:holin bitartrat
 sv:kolinbitartrat
+wikidata:en:Q18324709
+# ingredient/choline-bitartrate has 84 products @2019-06-23
 
-<en:Choline
-en:choline citrate
-bg:Холин цитрат
-cs:citronan cholinu
-de:Cholincitrat
-el:κιτρική χολίνη
-es:citrato de colina
-et:koliintsitraat
-fi:koliinisitraatti
-fr:citrate de choline
-hu:kolin-citrát
-it:citrato di colina
-lt:cholino citratas
-lv:holīna citrāts
-mt:ċitrat tal-kolin
-nl:cholinecitraat
-pl:cytrynian choliny
-pt:citrato de colina
-ro:citrat de colină
-sk:cholín citran
-sl:holin citrat
-sv:kolincitrat
+# <en:Choline
+# en:choline citrate
+# bg:Холин цитрат
+# cs:citronan cholinu
+# de:Cholincitrat
+# el:κιτρική χολίνη
+# es:citrato de colina
+# et:koliintsitraat
+# fi:koliinisitraatti
+# fr:citrate de choline
+# hu:kolin-citrát
+# it:citrato di colina
+# lt:cholino citratas
+# lv:holīna citrāts
+# mt:ċitrat tal-kolin
+# nl:cholinecitraat
+# pl:cytrynian choliny
+# pt:citrato de colina
+# ro:citrat de colină
+# sk:cholín citran
+# sl:holin citrat
+# sv:kolincitrat
+# ingredient/choline-citrate has no products @2019-06-23
 
 
 # description:en:INOSITOL is a carbocyclic sugar that is abundant in brain and other mammalian tissues, mediates cell signal transduction and participates in osmoregulation. It is a sugar alcohol with half the sweetness of table sugar. It is made naturally in humans from glucose. A human kidney will produce around two grams each day. Foods containing the highest concentrations of inositol include fruits, beans, grains, and nuts.
@@ -370,6 +417,7 @@ zh:肌醇
 # zh-sg:肌醇
 # zh-tw:肌醇
 wikipedia:en:https://en.wikipedia.org/wiki/Inositol
+wikidata:en:Q407997
+# ingredient/inositol has 296 products @2019-06-23
 vegan:en:yes
 vegetarian:en:yes
-# ingredient/fr:inositol has 221 products in 5 languages @2019-05-14
