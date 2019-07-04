@@ -1413,7 +1413,7 @@ sk:Rastlinné uhlie
 sl:Rastlinsko oglje
 sv:Vegetabiliskt kol
 wikidata:en: Q59557415
-# ingredient/fr:charbon%20végétal%20médicinal has 82 products in 6 languages @2019-04-05
+# ingredient/fr:charbon-végétal-médicinal has 82 products in 6 languages @2019-04-05
 
 # description:en:The term carotene is used for many related unsaturated hydrocarbon substances having the formula C40Hx. Carotenes are responsible for the orange colour of the carrot. Carotene is also used as a substance to colour products such as juice, cakes, desserts, butter and margarine.
 
@@ -12494,7 +12494,7 @@ nl:microbiële stremmingsenzymen
 
 <en:ferment
 en:lactic ferments, lactic starters, lactic cultures
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Joghurtkulturen
 el:γαλακτικά ένζυμα 
 es:fermentos lácticos
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques
@@ -12551,6 +12551,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Microbiological_culture
 nova:en:3
 
 <en:microbial culture
+# <en:dairy
 en:cheese culture
 de:Käsekultur
 fr:Arômes fromage
@@ -13025,8 +13026,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Xylanase
 
 
 #
-# BUTTER - a dairy product containing at least 80% butterfat.
-#
+# description:en:BUTTER - a dairy product containing at least 80% butterfat.
 
 # nova:en:butter
 
@@ -13047,7 +13047,7 @@ cs:máslo
 cv:Çу
 cy:menyn
 da:smør
-de:Butter
+de:Butter, Butterfett
 el:βούτυρο
 eo:butero
 es:mantequilla
@@ -13127,7 +13127,7 @@ vi:bơ
 vo:bör
 wa:boure
 yi:פוטער
-zh:黄油
+zh:黄油, 黃油
 # als:Anke, Butter
 # arc:ܚܐܘܬܐ
 # ast:mantega
@@ -13265,7 +13265,7 @@ ca:mantega clarificada
 cs:přepuštěné máslo
 de:Butterschmalz
 es:mantequilla clarificada, mantequilla concentrada
-fr:beurre clarifié, beurre purifié, beurre fondu, beurre pâtissier
+fr:beurre clarifié, beurre purifié, beurre fondu, beurre pâtissier, beurre patissier
 he:חמאה מזוקקת
 it:burro chiarificato, burro fuso
 ja:澄ましバター
@@ -13352,11 +13352,12 @@ nl:geconcentreerde boter
 
 # BUTTERFAT - the fatty portion of milk.
 
+<en:dairy
 en:butterfat, milkfat, pastry butter
 bs:mliječna mast
 cy:braster menyn
 da:smørolie
-de:Butterreinfett, Milchfett, wasserfreies Milchfett
+de:Butterreinfett, Milchfett, wasserfreies Milchfett, Buttereinfett
 eo:laktograso
 es:grasa butírica
 fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait, matière grasse du lait
@@ -13385,6 +13386,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 
 # description:en:MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
+<en:dairy
 en:milk
 af:Melk
 am:ወተት
@@ -13395,7 +13397,7 @@ ay:Millk'i
 az:Süd
 ba:Һөт
 be:Малако
-bg:Мляко
+bg:Мляко, млечна
 bm:Nɔnɔ
 bn:দুধ
 br:Laezh
@@ -13410,7 +13412,7 @@ da:Mælk
 de:Milch
 el:Γάλα
 es:Leche
-et:Piim, piimast
+et:Piim, piimast, piima
 eu:Esne
 fa:شیر
 fi:Maito
@@ -13426,7 +13428,7 @@ gv:Bainney
 he:חלב
 hr:Mlijeko, mlijeko
 ht:Lèt
-hu:Tej
+hu:Tej, Tejet, Tejzsír
 hy:Կաթ
 ia:Lacte
 id:Susu
@@ -13434,7 +13436,7 @@ ik:Immuk
 is:Mjólk
 it:Latte
 iu:ᐃᒻᒧᒃ
-ja:乳
+ja:乳, 乳
 jv:Susu
 ka:რძე
 kk:Сүт
@@ -13447,7 +13449,7 @@ li:Mèlk
 ln:Míliki
 lo:ນົມ
 lt:Pienas, pieno
-lv:Piens, piena
+lv:Piens, piena, vājpiena, pilnpiena
 mg:Ronono
 mk:Млеко
 ml:പാൽ
@@ -13612,11 +13614,17 @@ fr:lait frais
 nl:verse melk
 # ingredient/fr:lait-frais has 79 products in 2 languages 2019-04-05
 
-en:fresh milk
+<en:fresh milk
 fr:lait frais entier
 
-en:fresh milk
+<en:fresh milk
 fr:lait frais pasteurisé
+
+<en:milk
+de:Käsereimilch
+
+<en:milk
+fr:lait de montagne
 
 
 ############################### NO FAT MILK #################
@@ -13825,13 +13833,16 @@ nl:volle gepasteuriseerde melk
 <en:pasteurised whole milk
 fr:Lait pasteurisé entier pasteurisation haute
 
+<en:whole milk
+fr:lait entier standardisé
+
 ################################## RAW MILKS ##############################
 
 # description:en:RAW MILK - milk produced by female mammals (probably cow) before any treatment
 
 <en:milk
 en:raw milk
-de:rohmilch
+de:Rohmilch
 fr:lait cru
 it:latte crudo
 nl:rauwe melk
@@ -13847,10 +13858,11 @@ fr:lait cru entier
 
 <en:milk
 en:cow's milk, cows' milk, cow milk
-de:kuhmilch
+de:Kuhmilch
 es:leche de vaca
 fr:lait de vache
 it:latte di mucca
+ja:牛乳
 nl:koemelk
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
 
@@ -13872,6 +13884,7 @@ fr:lait de vache bio thermisé
 <en:whole milk
 <en:Cow's milk
 en:whole cow's milk
+de:Kuhvollmilch
 es:Leche entera de vaca
 fr:Lait de vache entier, lait entier de vache
 
@@ -13954,12 +13967,15 @@ fr:lait de chevre pasteurisé issu de l'agriculture biologique
 
 ################################# SHEEP MILKS ##########################
 
+# description:en:SHEEPS MILK -  milk produced by female sheep 
+
 <en:milk
-en:sheeps milk
-de:Schafmilch
+en:scheeps milk, sheep milk
+de:Schafsmilch, Schafmilch
 fr:lait de brebis
 it:latte di pecora
 nl:schapenmelk
+wikidata:en:Q2736146
 
 # description:en:RAW SHEEPS MILK - milk produced by female sheep before any treatment
 
@@ -13969,16 +13985,6 @@ de:roher Schafmilch
 el:ακατέργαστο πρόβειο γάλα
 fr:lait cru de brebis
 nl:rauwe schapenmelk
-
-# description:en:SHEEPS MILK - raw sheeps milk that probably has been treated (pasteurisation)
-
-<en:milk
-en:scheeps milk, sheep milk
-de:Schafsmilch, Schafmilch
-fr:lait de brebis
-it:latte di pecora
-nl:schapenmelk
-wikidata:en:Q2736146
 
 # description:en:PASTEURIZED SHEEPS MILK - raw sheeps milk that has been treated (pasteurisation)
 
@@ -14006,6 +14012,10 @@ sr:бивоље млеко
 uk:буйволине молоко
 wikidata:en:Q16571278
 # ingredient/buffalo-milk has 8 products @2019-02-16
+
+<en:buffalo milk
+en:pasteurised buffalo milk
+fr:lait de bufflonne pasteurisé
 
 
 ############################## CONCENTRATED MILKS ###############
@@ -14108,6 +14118,10 @@ nl:gecondenseerde gesuikerde melk, gesuikerde gecondenseerde melk
 wikidata:en:Q57271749
 # ingredient/sweetened-condensed-milk has 516 products in 5 languages @2019-04-16
 
+<en:condensed milk
+en:condensed semi-skimmed milk
+de:Kondensmagermilch
+
 <en:sweetened condensed milk
 en:sweetened condensed semi-skimmed milk
 de:gezuckerte Kondensmagermilch, Kondensmagermilch gezuckert
@@ -14143,7 +14157,7 @@ nl:gecondenseerde halfvolle melk
 
 <en:condensed milk
 en:condensed skimmed milk, concentrated skim milk, concentrated skimmed milk
-de:Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch
+de:Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch, Magermilchkonzentrat
 es:leche desnatada condensada
 fr:lait écrémé concentré, concentré de lait écrémé, lait écrémé condensé, lait concentré écrémé
 it:latte scremato concentrato, latte magro concentrato
@@ -14174,10 +14188,12 @@ pt:lactose e proteínas do leite
 #################### MILK POWDERS ################
 
 # nova:en:milk-powder
+<en:dairy
 en:milk powder, powdered milk
 de:Milchpulver
 es:Leche en polvo
 fr:lait en poudre, poudre de lait
+hu:tejpor
 it:latte in polvere
 nl:melkpoeder
 nova:en:3
@@ -14271,7 +14287,7 @@ fr:produits laitiers
 
 #################### MILK and ? ###########
 
-<en:milk
+<en:dairy
 <en:cream
 en:pasteurized milk and cream
 de:pasteurisiert Milch und Rahm
@@ -14324,6 +14340,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Isomaltulose
 
 # nova:en:lactose
 # <en:Disaccharide
+# <en:dairy
 en:lactose
 ar:لاكتوز
 be:Лактоза
@@ -14423,22 +14440,19 @@ es:lactosa y minerales de la leche
 nl:lactose en melkmineralen
 # ingredient/fr:lactose-et-minéraux-du-lait has 139 products in 5 languages @2019-04-16
 
-# Unsorted milk stuff
-
-fr:lait de montagne
-
-fr:lait entier standardisé
-
-fr:lait de bufflonne pasteurisé
 
 # Yogurt related stuff
 
+<en:dairy
 en:yogurt
 de:Joghurt
 fr:yaourt
+hu:joghurt
 it:yogurt
+ja:ヨーグルト
 nl:Joghurt, yoghurt, jogurt
 ru:йогурт
+th:นมเปรี้ยว
 carbon_footprint_fr_foodges_ingredient:fr:Yaourt
 carbon_footprint_fr_foodges_value:fr:2.9
 
@@ -14448,6 +14462,7 @@ nl:biologische yoghurt
 
 <en:yogurt
 fr:yogourt maigre
+de:Magermilchjoghurt
 nl:magere yoghurt
 # ingredient/nl:magere-yoghurt has 1 product @2019-05-24
 
@@ -14461,7 +14476,12 @@ fr:yogourt partiellement écrémé
 en:whole milk yogurt
 fr:yogourt au lait entier
 
+<en:yogurt
+de:Joghurtpulver
 fr:yaourt en poudre
+
+<de:Joghurtpulver
+de:Magermilchjoghurtpulver
 
 <en:yogurt
 fr:yaourt brassé sucré
@@ -14472,19 +14492,23 @@ it:yogurt magro
 
 <en:yogurt
 en:whole yogurt
+de:Rahmjoghurt
 fr:yaourt entier
 it:yogurt intero
 
 <en:yogurt
 fr:yaourt au lait entier
 
-
+<en:yogurt
 de:Sahnejoghurt
 
 <en:yogurt
 en:mild yogurt
 nl:ingredient/nl:milde-yoghurt
 # ingredient/nl:milde-yoghurt has 1 product @2019-05-24
+
+<en:yogurt
+de:Joghurterzeugnis
 
 # no products in OFF
 # <en:Whey
@@ -14494,7 +14518,7 @@ nl:ingredient/nl:milde-yoghurt
 # WHEY is the liquid remaining after milk has been curdled and strained.
 
 # nova:en:whey
-<en:milk
+<en:dairy
 en:whey
 an:Siero de leit
 ar:مصل اللبن
@@ -14513,10 +14537,11 @@ et:Vadak
 eu:Esne-gazur
 fa:آب‌پنیر
 fi:Hera
-fr:petit-lait, lactosérum, sérum de lait
+fr:petit-lait, lactosérum, sérum de lait, lactoserum
 fy:Waai
 gl:Soro de leite, lactosoro
 he:מי גבינה
+hu:savó, tejsavó
 id:Whey, laktoserum
 io:selakto
 is:Mysa
@@ -14524,7 +14549,7 @@ it:siero di latte
 ja:乳清
 ko:유청
 lb:Wässeg
-lt:Išrūgos
+lt:Išrūgos, išrügų
 lv:Sūkalas
 ms:Whey
 nb:Myse, valle
@@ -14554,8 +14579,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Whey
 
 <en:whey
 en:whey powder, powdered whey
-de:Molkenpulver
+de:Molkenpulver, Molkepulver
 fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre
+hu:Tejsavópor
 it:siero di latte in polvere
 nl:weipoeder
 
@@ -14564,9 +14590,16 @@ en:partially demineralized powdered whey
 de:Molkenpulver teilentmineralisiert
 it:siero di latte polvere parzialmente demineralizzato
 
-<en:whey powder
-en:Powdered sweet whey
-de:Sussmolkenpulver
+<en:whey
+de:Sauermolke
+
+<en:whey
+en:sweet whey
+de:Süßmolke, Süssmolke
+
+<en:sweet whey
+en:sweet whey powder
+de:Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver
 fr:lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
 it:siero di latte in polvere
 nl:Zoete weipoeder
@@ -14578,13 +14611,10 @@ fr:petit-lait filtré en poudre, lactosérum filtré en poudre
 it:filtrato di siero di latte in polvere
 nl:weifiltraatpoeder
 
-
 <en:whey
 en:Demineralised whey
 fr:lactosérum déminéralisé
 nl:Gedemineraliseerde wei
-
-<en:Demineralised whey
 
 <en:Demineralised whey
 fr:lactosérum partiellement déminéralisé, petit lait partiellement déminéralisé
@@ -14596,6 +14626,9 @@ de:konzentrierte Molke
 fr:lactosérum concentré
 it:siero di latte concentrato
 nl:Geconcentreerde wei
+
+<en:whey
+de:Molkeneiweißkäse
 
 <en:whey
 en:whey product, whey based formula
@@ -14618,6 +14651,10 @@ de:Molkepermeat Pulver
 fr:perméat de petit lait en poudre
 
 en:dairy
+de:Milcherzeugnisse
+es:productos lácteos, leche y sus derivados, leche y derivados, derivados lácteos, lácteos
+fr:Produits laitiers et dérivées, laits et dérivés y compris lactose, dérivés laitiers, Produits laitiers, Produits laitiers et dérivés, lactique, lactiques
+hu:tejtermékek, tejtermék
 nl:zuivel
 
 # CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
@@ -14647,6 +14684,7 @@ gd:Bàrr a' bhainne
 gl:Crema de leite
 he:שמנת
 hr:Vrhnje
+hu:tejszín
 io:Kremo
 is:Rjómi
 it:panna, crema di latte
@@ -14684,7 +14722,7 @@ uk:Вершки
 ur:ملائی
 uz:Qaymoq
 vi:Kem, Kem
-zh:鮮奶油
+zh:鮮奶油, 奶油
 # ast:Crema de lleche
 # bar:Rahm
 # bxr:Сүсэгы, ᠴᠦᠴᠦᠭᠡᠢ
@@ -14716,6 +14754,7 @@ nl:Gepasteuriseerde room
 
 <en:cream
 en:Powdered cream, Cream powder
+de:Sahnepulver
 fr:Crème en poudre, crème en poudre, poudre de crème
 it:panna in polvere
 nl:Poederroom, poederroom
@@ -14768,6 +14807,9 @@ en:Skim milk and pasteurized cream
 de:Magermilch und pasteurisiertes Sahne
 fr:lait écrémé et crème pasteurisés
 # ingredient/fr:lait-écrémé-et-crème-pasteurisés has 64 products in 4 languages @2019-02-03
+
+<en:Cream
+de:Schlagsahne
 
 <en:Cream
 en:Sour cream
@@ -14839,6 +14881,10 @@ zh:斯美塔那酸奶油
 # vep:Kandatez
 wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
 
+<en:Sour cream
+en:sour cream powder
+de:Sauerrahmpulver
+
 # comment:en:fr:Creme fraiche is often translated into creme.
 
 <en:Cream
@@ -14849,7 +14895,7 @@ da:Cremefraiche
 de:Crème fraîche
 es:Crème fraîche
 eu:Esne-gain gordina, esne-gain freskoa
-fr:crème fraîche épaisse, crème fraîche fermentée, Crème fraîche, Crème fraîche liquide
+fr:crème fraîche épaisse, crème fraîche fermentée, Crème fraîche, Crème fraîche liquide, crème fraiche
 he:קרם פרש
 hy:Կրեմ-ֆրեշ
 is:Crème fraîche
@@ -14876,10 +14922,11 @@ it:panna fresca pastorizzata
 
 # BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
+<en:dairy
 en:buttermilk
 af:Karringmelk
 am:አሬራ
-ar:حليب رائب
+ar:حليب رائب, حليبب
 bg:Мътеница
 br:laezh-ribod
 ca:sèrum de mantega
@@ -14887,7 +14934,7 @@ cs:Podmáslí
 cv:Уйран
 cy:Llaeth enwyn
 da:Kærnemælk
-de:Buttermilch
+de:Buttermilch, Sauermilch
 eo:Buterlakto
 es:Suero de mantequilla
 et:Pett
@@ -15211,6 +15258,17 @@ de:Weichkäse aus pasteurisierter Milch
 fr:fromage à pâte molle au lait pasteurisé
 it:Formaggio a pasta molle di latte pastorizzato
 # 6@2019-06-08
+
+<en:cheese
+de:Bergkäse
+
+<en:cheese
+de:Hartkäse
+
+<en:cheese
+en:cow cheese
+fr:fromage de vache
+nl:koekaas
 
 # GOAT CHEESE, goats' cheese, or chèvre, is cheese made from goat's milk.
 
@@ -15567,7 +15625,7 @@ cs:Comté
 de:Comtéeo:Komte
 es:Comté
 fi:Comté
-fr:comté
+fr:comté, comte
 he:קונטה
 hy:Կոնտե
 id:Comté
@@ -15603,7 +15661,7 @@ cs:Eidam
 cv:Эдам
 cy:Edammer
 da:edam
-de:Edamer
+de:Edamer, Edamer-Käse
 eo:edama fromaĝo
 es:edam, queso edam
 eu:Edam gazta
@@ -15815,12 +15873,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quark_(dairy_product)
 # ingredient/nl:kwark has 2 products @2019-05-24
 # category/quark has 221 products @2019-05-24
 
-<en:fromage blanc
+<en:Quark
 en:lean stern
-de: Magerquark
+de:Magerquark
 fr:séré maigre
-it: quark magro
+it:quark magro
 # ingredient/fr:séré-maigre has 33 products in 4 languages @2019-03-01
+
+<en:Quark
+de:Sauermilchquark
 
 <en:cheese
 en:cottage cheese
@@ -16234,6 +16295,8 @@ wikidata:en:Q209889
 wikipedia:en:https://en.wikipedia.org/wiki/Mascarpone
 # fr:mascarpone has 254 products @2018-10-27
 
+<en:cheese
+fr:mimolette
 
 # MOZZARELLA is a traditionally southern Italian spun paste dairy made with Italian buffalo's milk by the pasta filata method.
 
@@ -16423,6 +16486,7 @@ af:Pecorino
 ca:Pecorino
 cs:Pecorino
 cv:Пекорино
+da:Pecorino
 de:Pecorino
 el:Πεκορίνο
 eo:Pecorino
@@ -16776,6 +16840,7 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
 # <en:compound
 <en:cheese
 fr:bleu
+de:Blauschimmelkäse
 # ingredient/fr:bleu has 47 products in french @2019-02-16
 # bleu (lait de vache entier pasteurisé, présure végétale, ferments lactiques, sel) 
 
@@ -19201,7 +19266,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lamb_and_mutton
 
 # description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 
-<en:animal
+# <en:animal
 en:game animal
 
 <en:game animal
@@ -21148,7 +21213,7 @@ fr:huile vierge de sésame
 # description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
 
 <en:vegetable oil
-en:soy oil, Soybean oil, soya oil
+en:soya oil, Soybean oil, soy oil
 ar:زيت فول الصويا
 be:Соевы алей
 bg:Соево олио
@@ -21356,6 +21421,7 @@ fr:huile vierge de noisette
 # ingredient/fr:huile-vierge-de-noisette has 9 products @2019-06-02
 
 <en:vegetable oil
+# <en:nut
 en:pistachio seed oil
 de:Pistazienöl
 fr:Huile de pistache
@@ -23876,17 +23942,14 @@ it:aroma di affumicato
 nl:rookaroma
 
 <en:natural flavouring
-# derivedFrom:en:hazelnut
 fr:arôme naturel de noisette
 
 <en:natural flavouring
-# derivedFrom:en:almond
 fr:arôme naturel d'amande
 de:natürliches Mandelaroma
 it:aroma naturale di mandorle
 
 <en:natural flavouring
-# derivedFrom:en:bitter almond
 fr:arôme naturel d'amande amère
 
 <en:flavouring
@@ -29218,10 +29281,12 @@ nl:gehydroliseerd varkenseiwit
 
 # nova:en:milk-proteins
 <en:animal protein
+# <en:dairy
 en:milk proteins
-de:Milcheiweiß
+de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz
 es:proteína de leche
 fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
+hu:tejfehérje
 it:proteine del latte
 nl:melkeiwit
 nova:en:4
@@ -29250,13 +29315,14 @@ fr:protéines de petit-lait
 fr:protéines de lait en poudre
 nl:melkeiwitpoeder
 
+
 # WHEY PROTEIN is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
 
 # nova:en:whey-proteins
 <en:milk proteins
 en:whey proteins, whey protein
 ar:بروتين مصل اللبن
-de:Molkenprotein
+de:Molkenprotein, Molkeneiweiß, Molkeneiweiss
 es:Proteína de suero de leche
 fa:پروتیین وی
 fr:protéine de lactosérum
@@ -29333,7 +29399,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Casein
 
 # description:en:Casein has a wide variety of uses, from being a major component of cheese, to use as a food additive. Any of several salts derived from casein via the coagulation of milk protein
 
-# <en:milk
+<en:dairy
 en:caseinate
 de:Caseinat
 fr:caséinate
@@ -29967,6 +30033,7 @@ nl:biologische pure chocola
 # <en:contains:en:cocoa butter
 # <en:category:en:Milk chocolates
 <en:chocolate
+# <en:dairy
 en:milk chocolate
 ca:xocolata amb llet
 de:Milchschokolade
@@ -30708,7 +30775,7 @@ fr:eau et sel
 # Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max
 # note that soya is english and soy is american
 
-en:soya, soy, , soja, soia
+en:soya, soy, soja, soia
 an:soya
 az:Soya
 ba:Соя
@@ -30824,8 +30891,7 @@ nl:biologische sojabonen
 
 <en:soya bean
 fr:fèves de soja sans ogm décortiquées
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fèves%20de%20soja%20sans%20ogm%20décortiquées
-# 31 products in 5 languages @2018-09-25
+# fr:fèves-de-soja-sans-ogm-décortiquées has 31 products in 5 languages @2018-09-25
 
 <en:soya bean
 fr:soja dépelliculé, graines de soja dépelliculées, fèves de soja décortiquées
@@ -33010,8 +33076,8 @@ fr:fruits et légumes concentrés, concentrés de fruits et de légumes
 
 <en:fruit
 en:dried fruits
-es:frutos secos
-fr:fruits séchés, fruits secs
+es:frutos secos, otros frutos secos
+fr:fruits séchés, fruits secs, autres fruits secs
 de:Trockenfrüchte
 it:frutta secca
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20séchés
@@ -45688,33 +45754,34 @@ fr:lentillons
 # For the oils from nuts, see the oil section
 # This can be an origin list specification, i.e.:mixed nuts (hazelnuts, almonds blanched, cashew nuts)
 
-en:nut, nuts, mixed nuts
+en:nut, nuts, mixed nuts, other nuts
 af:neut
 an:Nuez
 ar:بندقة
 ba:Сәтләүек
 be:арэхі
-bg:Орех
+bg:ядки
 bn:বাদাম
 br:kraoñ
 bs:orašasti plod
 ca:nou
 ce:БӀар
-cs:oříšek
+cs:oříšek, skořápkové plody
 cv:Мăйăр
 cy:Cneuen
-da:nød
-de:Nüssen, Nusskernmischung, Nussfrucht, Nußfrucht
-el:Κάρυο
+da:nød, nødder
+de:Nüssen, Nusskernmischung, Nussfrucht, Nußfrucht, Schalenfrüchte, Nüsse
+el:Κάρυο, καρποί με κέλυφος, καρύδια
 eo:nukso
-et:pähkel
+es:nuez, nueces, frutos de cáscara, frutos con cáscara, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, frutos de cáscara y derivados
+et:pähkel, pähklid
 eu:fruitu oskoldun
 fa:فندقی
-fi:pähkinä
+fi:pähkinä, pähkinät
 fo:nøt
-fr:fruits à coque, fruit à coque, fruits à coques, autres fruits à coque
+fr:fruits à coque, fruit à coque, fruits à coques, autres fruits à coque, fruits secs à coque, fruits à coque dure
 fy:nút
-ga:Cnó
+ga:Cnó, cnónna
 gd:cnò
 gl:noz
 gn:Yvapo
@@ -45723,25 +45790,26 @@ he:אגוז
 hi:अखरोट
 hr:orah
 ht:Nwa
+hu:diófélék, Diofeleket
 hy:ընկույզ
 ia:nuce
 id:kacang pohon
 is:hneta
-it:noci
-ja:種実
+it:noci, frutta a guscio
+ja:種実, 種実類
 ka:კაკალი
 kk:Жаңғақтар
 ko:견과
 la:Nux
 li:noot
 lo:ແຫ້ງເປືອກ
-lt:Riešutas
-lv:rieksts
+lt:Riešutas, riešutai
+lv:rieksts, rieksti
 mg:vadin-tsaikiro
 mk:оревест плод
 ml:അണ്ടി
 ms:kekeras
-mt:ġewża
+mt:ġewża, ġewż
 my:အခွံမာသီး
 nb:nøtt
 nl:noot, noten
@@ -45749,17 +45817,18 @@ nn:nøtt
 oc:nòse
 or:ବାଦାମ
 pa:ਗਿਰੀ
-pl:orzech
-ro:nuci
-ru:орех
+pl:orzech, orzechy
+pt:nozes, frutos de casca rija
+ro:nuci, fructe cu coajă lemnoasă
+ru:орех, орехи
 se:Niehtit
 sh:orašasti plod
-sk:oriešok
-sl:orešek
+sk:oriešok, orechy
+sl:orešek, oreški, orehi
 so:miro
 sq:bajame
 sr:орашасти плодови
-sv:nöt
+sv:nöt, nötter
 sw:Jozi
 ta:கொட்டை
 te:గింజ
@@ -45820,6 +45889,7 @@ wikidata:en:Q11009
 <en:nut
 en:chestnut, chestnuts
 de:Kastanie, Kastanien
+es:castañas, castaña
 fr:châtaigne, châtaignes
 it:castagne
 nl:kastanje, kastanjes
@@ -45883,13 +45953,31 @@ de:Marronipüree
 
 <en:nut
 en:pistachio nuts, pistachio
+bg:шамфъстък
+cs:pistácie
+da:pistacienødder
 de:Pistazien
-es:pistachos
+el:φυστίκια
+es:pistachos, pistacho, alfóncigos
+et:pistaatsiapähklid
+fi:pistaasipähkinät
 fr:pistache, pistaches
+ga:cnónna pistéise
+hu:pisztácia
 it:pistacci
+ja:ピスタチオ
+lt:pistacijos
+lv:pistāciju rieksti
+mt:pistaċċi
 nl:pistachenoten
-pl:orzechy pistacjowe
+pl:orzechy pistacjowe, pistacje
 pt:pistácios
+ro:fistic
+ru:фисташки
+sk:pistáciové oriešky
+sl:pistacija
+sv:pistaschmandel
+zh:开心果, 阿月浑子
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pistache
 # 613 products in 9 languages @2018-10-05
 
@@ -45909,43 +45997,48 @@ de:Pistazienstücke
 en:walnut, walnuts
 af:Okkerneut
 ar:جوز
+bg:орехи
 bn:আখরোট
 co:Noce
-cs:vlašský ořech
-de:Walnuss, Walnüsse
+cs:vlašský ořech, vlašské ořechy
+da:valnødder
+de:Walnuss, Walnüsse, Walnusskerne
 el:Καρύδι
 eo:juglandonukso
 es:nuez, nueces
 et:Kreeka pähklid
 eu:Intxaur
 fa:مغز گردو
-fi:saksanpähkinä
+fi:saksanpähkinä, saksanpähkinät
 fr:noix
-ga:Gallchnó
+ga:Gallchnó, gallchnónna
 gl:Noz
 hu:dió
 id:Kacang kenari
 io:Nuco
 it:noce, nocciole
+ja:クルミ
 kn:ಅಖ್ರೋಟ್
 ko:호두
 ky:Жаңгак
 lb:Noss
-lv:Valrieksts
+lt:graikiniai riešutai
+lv:Valrieksts, valrieksti
 mr:अक्रोड
 nl:walnoot, walnoten
 nv:Haʼałtsédii
 oc:Notz
 or:ଅଖରୋଟ
 pa:ਅਖਰੋਟ
-pl:orzech włoski
+pl:orzech włoski, orzechy włoskie
 ps:غوز
 pt:noz
 ru:грецкий орех
 sd:اکروٽ
+sk:vlašské orechy
 sv:valnöt
 ta:வாதுமைக் கொட்டை
-zh:胡桃木
+zh:胡桃木, 核桃仁, 核桃
 # ast:Nuez
 # bg:Орех translation error
 # chr:ᏎᏗ
@@ -45975,30 +46068,68 @@ nl:Gepelde walnoot
 
 <en:nut
 en:brazil nut, brazil nuts
-de:Paranuss, Paranüsse
+bg:бразилски орехи
+cs:para ořechy
+da:paranødder
+de:Paranuss, Paranüsse, Paranusskerne
+el:καρύδια Βραζιλίας
+es:pacanas, nueces de Brasil, nuez de Brasil, nueces del Amazonas
+et:brasiilia pähklid, parapähklid
+fi:parapähkinät
 fr:noix du brésil
-it:Paranüsse
+ga:cnónna peagáin, cnónna Brasaíleacha
+hu:pekándió, brazil dió
+it:noci del Brasile
+ja:ブラジルナッツ
+lt:brazilinės bertoletijos, pekaninės karijos
+lv:Brazīlijas rieksti
+mt:ġewż tal-Brażil
 nl:paranoot, paranoten
+pl:orzechy brazylijskie
+pt:castanhas do Brasil
+ro:nuci de Brazilia
 ru:бразильский орех
+sk:brazílske orechy
+sl:brazilski oreščki
+sv:paranöt
 wikidata:en:Q22810770
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20du%20brésil
 # 87 products in 4 languages @2018-10-05
 
 <en:nut
-en:macademia nut, macadamia
-da:Macadamianød
-de:Makadamianuss, Macadamianüsse
+en:macademia nut, macadamia, Queensland nuts
+ar:المكاداميا
+bg:орехи макадамия, орехи Куинсленд
+cs:makadamie
+da:Macadamianød, queenslandnødder
+de:Makadamianuss, Macadamianüsse, Queenslandnüsse
+el:καρύδια μακαντάμια, καρύδια Κουίνσλαντ
+es:nueces macadamia, nueces de macadamia, nueces de Australia
+et:makadaamiapähklid
+fi:Macadamia-pähkinät, Queensland-pähkinät
 fr:noix de macadamia, noix du Queensland
-it:macadamia
-nl:macadamianoot, macadamia
+ga:cnónna macadaíme, cnónna Thír na Banríona
+hu:makadámia, queenslandi dió
+it:macadamia, noci macadamia, noci del Queensland
+ja:マカダミアナッツ
+lt:makadamijos, Kvinslendo riešutai
+lv:makadāmijas, Kvīnslendas rieksti
+mt:macadamia, Queensland nuts
+nl:macadamianoot, macadamia, macadamianoten
 nn:Makadamianøtter
-pt:macadâmia
-ru:макадамия
+pl:orzechy makadamia, orzechy Queensland
+pt:macadâmia, nozes de macadâmia, nozes do Queensland
+ro:nuci de macadamia, nuci de Queensland
+ru:макадамия, орехи Куинсленд
+sk:makadamové orechy, queenslandské orechy
+sl:makadamija, orehi Queensland
+sv:makadamianöt, Queenslandsnöt
+zh:夏威夷果
 wikidata:en:Q11027461
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20macadamia
 # 84 products in 4 languages @2018-10-05
 
-<en:nut
+# <en:nut
 en:peanut, peanuts
 ar:فول سوداني
 ay:Chuqupa
@@ -46094,17 +46225,33 @@ nl:Pinda's in de dop
 # ingredient/nl:pinda-s-in-de-dop has 1 product @2019-05-24
 
 <en:nut
-en:cashew nuts, cashews
-de:Cashewkerne
+en:cashew nuts, cashews, cashew
+ar:كاجو
+bg:кашу
+cs:kešu ořechy
+da:cashewnødder
+de:Cashewkerne, Kaschunüsse, Cashewnüsse
+el:καρύδια κάσιους
 es:anacardos
-et:India pähkel
-fi:cashewpähkinä
+et:kašupähklid, India pähkel
+fi:cashewpähkinä, cashewpähkinät, india pähklid
 fr:noix de cajou
+ga:cnónna caisiú
+hu:kesudió
 it:noci di acagiù
+ja:カシューナッツ
+lt:anakardžiai, Anakardium occidentale
+lv:Indijas rieksti
+mt:anakardji
 nl:cashewnoot, cashewnoten
 pl:orzechy nerkowca
 pt:castanhas de caju
-sv:cashewnötter
+ro:nuci Caju
+ru:кешью
+sk:kešu oriešky
+sl:indijski oreščki
+sv:cashewnötter, cashewnöt
+zh:腰果
 wikidata:en:Q28788216
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
@@ -46117,40 +46264,50 @@ af:Haselneut
 an:Avellana
 ar:بندق
 be:лясны арэх
+bg:лешници
 bn:হ্যাজেল বাদাম
 ca:avellana
-cs:lískový ořech
-da:Hasselnød
-de:Haselnuss, Haselnüsse, Haselnusse
-el:Hasselnød
+cs:lískový ořech, lískové ořechy
+da:Hasselnød, hasselnødder
+de:Haselnuss, Haselnüsse, Haselnusse, Haselnusskerne
+el:φουντούκια
 eo:Avelo
 es:avellana, avellanas
-et:Sarapuupähkel
+et:Sarapuupähkel, sarapuupähklid
 eu:Hur
 fa:فندق
-fi:hasselpähkinä
+fi:hasselpähkinä, hasselpähkinät
 fr:noisette, noisettes
+ga:cnónna coill
 gl:Abelá
 he:אגוז לוז
 ht:Nwazèt
+hu:mogyoró
 id:Kacang hazel
 it:nocciola, nocciole
 ja:ヘーゼルナッツ
 ko:헤이즐넛
 lb:Hieselnoss
+lt:lazdyno riešutai
+lv:lazdu rieksti
 ms:Kacang hazel
+mt:ġellewż
 ne:क‌‌‌टुस
 nl:hazelnoot, hazelnoten
 nv:Neeshchʼíínímazí
-pl:Leszczyna pospolita
+pl:orzechy laskowe, Leszczyna pospolita
+pt:avelãs
+ro:alune de pădure
 ru:лесной орех
+sk:lieskové oriešky
+sl:lešniki
 sv:hasselnöt
 th:เฮเซลนัต
 tr:fındık
 uk:ліщинні горіхи
 ur:بندق
 vi:Hạt phỉ
-zh:榛子
+zh:榛子, 榛仁
 # aeb-arab:بوفريوة
 # ast:Ablana
 # lad:Avyána
@@ -46221,7 +46378,7 @@ it:nocciole macinate
 
 <en:hazelnut
 fr:éclats de noisettes
-de:Haselnüsse gemahlen, Haselnusssplitter
+de:Haselnüsse gemahlen, Haselnusssplitter, Haselnussstücke
 it:nocciole a scaglie
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats%20de%20noisettes
 # 145 products in 4 languages @2018-10-06
@@ -46236,7 +46393,7 @@ fr:éclats de noisettes caramélisés
 <en:hazelnut
 en:hazelnut paste
 cs:oříšková pasta
-de:Haselnüsspaste, Haselnusspaste
+de:Haselnüsspaste, Haselnusspaste, Haselnussmasse, , Haselnussmark
 es:pasta de avellana, pasta de avellanas
 fr:pâte de noisette, purée de noisettes
 hu:mogyoromassza
@@ -46272,7 +46429,7 @@ it:nocciole a scaglie é macinate
 
 # <en:hazelnut
 # en:Chilean hazelnut
-# es:avellana chilena
+# es:avellana chilena, coquitos, coquito
 # fr:noisette chilienne
 # nl:Chileense hazelnoot
 # de:chilenische Haselnüsse
@@ -46283,29 +46440,40 @@ it:nocciole a scaglie é macinate
 <en:nut
 en:almond, almonds
 am:አልመንድ
+ar:لوز
+bg:бадеми
 ca:ametlla
 cs:mandle
-da:mandel
-de:Mandel, Mandeln
-el:Αμύγδαλο
+da:mandel, mandler
+de:Mandel, Mandeln, Mandelkerne
+el:Αμύγδαλο, αμύγδαλα
 eo:migdalo
 es:almendra, almendras
-et:Mandel
+et:Mandel, mandlid
 eu:Arbendol
-fi:manteli
+fi:manteli, mantelit
 fr:amande, amandes
 fy:Mangel
+ga:almóinní
 gl:Améndoa
+hu:mandula
 ia:amandola
 it:mandorla, mandorle
+ja:アーモンド
 la:Prunis dulcis
+lt:migdolai
+lv:mandeles
+mt:lewż
 nl:amandel, amandelen
 oc:Almendra
 pl:Migdały
-pt:amêndoa
+pt:amêndoa, amêndoas
+ro:migdale
 ru:миндаль
-sk:Mandľa
+sk:Mandľa, mandle
+sl:mandlji
 sq:Bajamet
+sv:mandel
 th:อัลมอนด์
 tt:бәдәм җимеше
 za:Makgai
@@ -46315,7 +46483,7 @@ za:Makgai
 # scn:Mènnula
 # sco:Awmond
 # wuu:扁桃仁
-# yue:大杏仁
+# yue:大杏仁, 杏仁
 wikidata:en:Q184357
 # ingredient/almonds has 9611 products @2018-10-06
 carbon_footprint_fr_foodges_ingredient:fr:Amandes
@@ -46389,7 +46557,7 @@ sv:ekologiskt mandelmjöl
 
 <en:almond
 en:ground almonds
-de:gemahlene Mandeln, gehackte Mandeln, mandeln gemahlen
+de:gemahlene Mandeln, gehackte Mandeln, mandeln gemahlen, 
 es:almendras molidas
 fr:amandes hachées, amandes moulues
 it:mandorle macinate
@@ -46403,24 +46571,21 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes%20moulues
 fr:amandes décortiquées
 de:Mandelkerne
 it:mandorle sgusciate
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes%20décortiquées
-# 64 products in 3 languages @2018-10-06
+# ingredient/fr:amandes%20décortiquées has 64 products in 3 languages @2018-10-06
 
 <en:almond
 en:almonds pieces
-de:Mandelstückchen
+de:Mandelstückchen, Mandelstücke
 fr:éclats d'amandes
 it:mandorle spezzate
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats%20d'amandes
-# 73 products in 4 languages @2018-10-06
+# ingredient/fr:éclats-d'amandes has73 products in 4 languages @2018-10-06
 
 <en:almond
 fr:amandes grillées
 de:geröstete Mandeln, Mandeln geröstet
 it:mandorle tostate
 nl:geroosterde amandelen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes%20grillées
-# 159 products in 5 languages @2018-10-06
+# ingredient/fr:amandes%20grillées has 159 products in 5 languages @2018-10-06
 
 <en:almond
 en:flaked almonds
@@ -46466,15 +46631,42 @@ nl:amandelen-hazelnotenpraliné
 
 <en:nut
 en:pecan nut, pecan nuts, pecan, pecans
-de:Pekannuss, Pekannüsse
+bg:пеканови ядки
+cs:pekanové ořechy
+da:pekannødder
+de:Pekannuss, Pekannüsse, Pecannüsse
+el:καρύδια πεκάν
+et:pekanipähklid
+fi:pekaanipähkinät
 fr:noix de pécan
 it:noci del pekan, noci di pecan
+ja:ペカン
+lv:pekanrieksti
+mt:ġewż Amerikan
 nl:pecannoot, pecannoten
+pl:orzeszki pekan
+pt:nozes pécan
+ro:nuci Pecan
+ru:пекан
+sk:pekanové orechy
+sl:ameriški orehi
+sv:pekannöt
+zh:碧根果
 wikidata:en:Q1119911
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20pécan
 # 323 products in 5 languages 2018-10-05
 
+<en:nut
+en:tree nuts, treenuts
+es:nueces de árboles
 
+<en:nut
+en:Ginkgo nuts
+zh:银杏果, 白果
+
+<en:nut
+en:chinese chestnut
+zh:板栗
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -46710,7 +46902,7 @@ ca:pinyó
 de:Pinienkerne
 el:Κουκουνάρι
 eo:Pinsemo
-es:Piñón
+es:Piñón, piñones
 et:seedermännipähkel
 eu:Pinazi
 fa:دانه کاج
@@ -46724,7 +46916,6 @@ it:pinoli, pinolo
 ja:松の実
 ko:잣
 ku:Fistiqên çaman
-
 nb:pinjekjerne
 nl:pijnboompitten, Pijnboompit
 nn:russenøtter
@@ -60046,6 +60237,7 @@ la:Plantago ovata
 # description:en:HONEY is a sweet, viscous food substance produced by bees and some related insects.
 
 # nova:en:honey
+
 en:honey
 ab:ацха
 af:Heuning
@@ -65488,6 +65680,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nougat
 # description:en:BRITTLE is a type of confection consisting of flat broken pieces of hard sugar candy embedded with nuts such as pecans, almonds, or peanuts.
 
 # <en:mainIngredient:en:sugar
+# <en:nut
 en:crocant, brittle
 de:Krokant
 # en-gb:Croquant
