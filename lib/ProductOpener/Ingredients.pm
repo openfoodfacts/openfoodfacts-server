@@ -733,7 +733,7 @@ sub analyze_ingredients($) {
 
 	delete $product_ref->{ingredients_analysis_tags};
 
-	if (defined $product_ref->{ingredients}) {
+	if ((scalar @{$product_ref->{ingredients}}) > 0) {
 
 		my @properties = ("from_palm_oil", "vegan", "vegetarian");
 
