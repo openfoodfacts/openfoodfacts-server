@@ -20,7 +20,7 @@ foreach my $test (@tests) {
 
 is(get_fileid("Café au lait, bœuf gros sel de Guérande"), "cafe-au-lait-boeuf-gros-sel-de-guerande");
 is(get_fileid("ethic-advisor.UUID_in-MiXeD_CaSe"),"ethic-advisor.UUID-in-MiXeD-CaSe");
-is(get_fileid("àáâãäåçèéêëìíîïòóôõöùúûüýÿ"),"aaaaaaceeeeiiiiooooouuuuyy");
+is(get_fileid("àáâãäåçèéêëìíîïñòóôõöùúûüýÿ"),"aaaaaaceeeeiiiinooooouuuuyy");
 is(get_fileid("Farine de blé 56g *"),"farine-de-ble-56g");
 
 done_testing();

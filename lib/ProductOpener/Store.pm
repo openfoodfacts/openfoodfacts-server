@@ -96,7 +96,7 @@ sub get_fileid($) {
 	# Remove one call to a subfunction and just inline the subfunction content
 	# $file = unac_string_perl($file);
 
-	$file =~ tr/àáâãäåçèéêëìíîïòóôõöùúûüýÿ/aaaaaaceeeeiiiiooooouuuuyy/;
+	$file =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
 
 	$file =~ s/œ|Œ/oe/g;
 	$file =~ s/æ|Æ/ae/g;
