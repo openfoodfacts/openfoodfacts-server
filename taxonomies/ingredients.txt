@@ -8655,6 +8655,8 @@ uz:fermentlar
 # xal:Фермент
 #ferments for yoghurts do not make them nova 3, commenting the line below
 #nova:en:3
+vegan:en:maybe
+vegetarian:en:maybe
 
 #
 # ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
@@ -8766,16 +8768,22 @@ zh:酶
 # yue:酵素
 wikipedia:en:https://en.wikipedia.org/wiki/Enzyme
 nova:en:3
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:enzyme
 en:coagulating enzyme
 fr:enzyme coagulante, enzymes coagulantes, coagulant enzymatique
 nl:stremmingsenzymen
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:coagulating enzyme
 en:microbial coagulating enzyme
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
 nl:microbiële stremmingsenzymen
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:ferment
 en:lactic ferments, lactic starters, lactic cultures
@@ -8789,6 +8797,8 @@ nl:melkfermenten, melkkiemen
 pt:fermentos lácteos
 # fr:ferments-lactique has 6494 products in 12 languages @2018-11-02
 # fr:culture-de-bactéries-lactiques has 19 products @2018-11-02
+vegan:en:maybe
+vegetarian:en:yes
 
 <en:lactic ferment
 en:lactic and aging ferments
@@ -8834,11 +8844,12 @@ nl:Microbiële cultuur
 wikipedia:en:https://en.wikipedia.org/wiki/Microbiological_culture
 # ingredient/culture has 683 products in 3 languages @2018-12-27
 nova:en:3
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:microbial culture
 en:cheese culture
 de:Käsekultur
-fr:Arômes fromage
 # ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
 
 # Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
@@ -9015,6 +9026,9 @@ zh:凝乳酶
 wikidata:en:Q326900
 wikipedia:en:https://en.wikipedia.org/wiki/Rennet
 # fr:présure has 2726 products in 15 languages @2018-11-03
+vegan:en:no
+vegetarian:en:no
+
 
 <en:rennet
 en:animal-based rennet
@@ -9024,6 +9038,8 @@ fr:présure animale
 nl:dierlijk stremsel
 nn:animalsk løpe
 # fr:présure-animale has 509 products in 5 languages @2018-11-03
+vegan:en:no
+vegetarian:en:no
 
 <en:animal-based rennet
 fr:présure de veau
@@ -9037,7 +9053,8 @@ fr:présure microbienne
 it:caglio microbico
 nl:microbieel stremsel
 # fr:présure-microbienne has 100 products in 6 languages @2018-11-03
-
+vegan:en:maybe
+vegetarian:en:maybe
 
 
 # Amylase are enzymes that catalyse the hydrolysis of starch into sugars. 
@@ -10469,7 +10486,7 @@ it:lattosio e proteine del latte
 nl:lactose en melkeiwitten
 pt:lactose e proteínas do leite
 vegan:en:no
-vegetarian:en:maybe
+vegetarian:en:yes
 # ingredient/lactose-and-milk-proteins has 1395 products in 10 languages @2019-05-06
 
 #################### MILK POWDERS ################
@@ -10697,7 +10714,7 @@ zh:乳糖
 # sco:Lactose
 # yue:乳醣
 vegan:en:no
-vegetarian:en:maybe
+vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Lactose
 
 <en:Lactose
@@ -10715,7 +10732,7 @@ it:minerali del latte
 nl:melkmineralen
 wikipedia:en:https://en.wikipedia.org/wiki/Milk#Salts,_minerals,_and_vitamins
 vegan:en:no
-vegetarian:en:maybe
+vegetarian:en:yes
 # ingredient/fr:minéraux-du-lait has 107 products in 5 languages @2019-04-16
 
 <en:milk minerals
@@ -10862,7 +10879,7 @@ zh:乳清
 # sco:Whey, milk serum
 wikipedia:en:https://en.wikipedia.org/wiki/Whey
 vegan:en:no
-vegetarian:en:maybe
+vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey
@@ -18475,7 +18492,7 @@ fr:alcool
 it:Alcol or alcool
 nl:alcohol
 vegan:en:maybe
-vegetarian:en:maybe
+vegetarian:en:yes
 
 
 # ETHANOL, also called alcohol, ethyl alcohol, grain alcohol, and drinking alcohol, is a chemical compound, a simple alcohol with the chemical formula C2H5OH.
@@ -29742,7 +29759,7 @@ es:zumo de frutas
 fr:jus de fruits
 it:succhi di frutta
 nl:vruchtensap
-vegan:en:maybe
+vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Juice
 
@@ -49599,6 +49616,8 @@ es:hojas de parra
 fr:feuilles de vigne
 it:foglie di vite
 # ingredient/fr:feuilles-de-vigne has 27 products in 5 languages @2019-02-10
+vegan:en:yes
+vegetarian:en:yes
 
 
 # WASABI (Japanese ワサビ, わさび or 山葵; Eutrema japonicum or Wasabia japonica) or Japanese horseradish is a plant of the Brassicaceae family

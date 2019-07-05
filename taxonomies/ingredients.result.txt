@@ -58,7 +58,7 @@ synonyms:eu:burdina
 synonyms:fa:آهن
 synonyms:fi:Rauta
 synonyms:fo:Jarn
-synonyms:fr:Fer, fer élémentaire
+synonyms:fr:Fer
 synonyms:fy:Izer
 synonyms:ga:Iarann
 synonyms:gd:Iarann
@@ -68,7 +68,7 @@ synonyms:gu:લોખંડ
 synonyms:gv:Yiarn
 synonyms:he:ברזל
 synonyms:hi:लोहा
-synonyms:hr:vas, Željezo
+synonyms:hr:vas
 synonyms:ht:Fè
 synonyms:hu:Vas
 synonyms:hy:երկաթ
@@ -103,7 +103,7 @@ synonyms:ml:ഇരുമ്പ്
 synonyms:mn:Төмөр
 synonyms:mr:लोखंड
 synonyms:ms:Besi
-synonyms:mt:Hadid, ħadid
+synonyms:mt:ħadid
 synonyms:my:သံ
 synonyms:nb:jern
 synonyms:ne:फलाम
@@ -181,9 +181,9 @@ synonyms:en:no8, n8, 8
 
 synonyms:en:no9, n9, 9
 
-synonyms:en:sulphate, sulfate
+synonyms:en:sulfate, sulphate
 
-synonyms:en:sulphide, sulfide
+synonyms:en:sulfide, sulphide
 
 synonyms:fr:de fer, ferreux, ferrique
 
@@ -236,15 +236,6 @@ fr:pur jus de pommes à cidre bio
 
 < :
 fr:yaourt maigre en poudre
-
-de:Grieß
-ca:Sèmola
-el:Σιμιγδάλι
-es:Sémola
-et:Manna
-fr:Semoule
-nl:gries
-oc:Semola
 
 fr:
 it:
@@ -1648,6 +1639,8 @@ de:Rind
 fr:bœuf, Boeufs
 it:manzo
 nl:rund
+vegan:en: no
+vegetarian:en: no
 
 < en:Beef
 en:beef extract
@@ -2416,6 +2409,8 @@ wa:Oxhea
 yo:Egungun
 za:Ndok
 zh:骨骼
+vegan:en: no
+vegetarian:en: no
 wikidata:en: Q265868
 wikipedia:en: https://en.wikipedia.org/wiki/Bone
 
@@ -2803,6 +2798,8 @@ en:poultry broth
 de:Geflügelbouillon
 fr:bouillon de volaille, fond de volaille, Bouillons de volaille
 nl:gevogeltebouillon
+vegan:en: no
+vegetarian:en: no
 
 < en:Broth
 en:vegetable broth
@@ -3057,6 +3054,7 @@ vo:bör
 wa:boure
 yi:פוטער
 zh:黄油
+vegan:en: no
 vegetarian:en: yes
 
 < en:Butter
@@ -3141,6 +3139,7 @@ th:ไขมันเนย
 tl:taba ng gatas
 uk:Молочний жир
 zh:乳脂
+vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q909729
 wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
@@ -3283,6 +3282,7 @@ ta:மோர்
 te:మజ్జిగ
 uk:Сколотини
 zh:酪漿
+vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q106612
 wikipedia:en: https://en.wikipedia.org/wiki/Buttermilk
@@ -3793,35 +3793,12 @@ sl:kalcijev L-pidolat
 sv:kalcium L-pidolat
 
 < en:Calcium
-en:calcium salts of citric acid
-bg:Калциеви соли на лимонената киселина
-cs:vápenaté soli kyseliny citronové
-de:Calciumsalze der Zitronensäure
-el:άλατα ασβεστίου του κιτρικού οξέος
-es:sales cálcicas de ácido cítrico
-et:sidrunhappe kaltsiumisoolad
-fi:sitruunahapon kalsiumsuolat
-fr:sels de calcium de l'acide citrique
-hu:kalcium citromsavval alkotott sói
-it:sali di calcio dell'acido citrico
-lt:citrinų rūgšties kalcio druskos
-lv:citronskābes kalcija sāļi
-mt:melħ tal-kalċju tal-aċidu ċitriku
-nl:calciumzouten van citroenzuur
-pl:sole wapniowe kwasu cytrynowego
-pt:sais de cálcio do ácido cítrico
-ro:săruri de calciu ale acidului citric
-sk:vápenaté soli kyseliny citrónovej
-sl:kalcijeve soli citronske kisline
-sv:kalciumsalter av citronsyra
-
-< en:Calcium
-en:calcium salts of orthophosphoric acid, calcium salts from orthophosphoric acid
+en:calcium salts from orthophosphoric acid, calcium salts of orthophosphoric acid
 bg:Калциеви соли на ортофосфорната киселина
 cs:vápenaté soli kyseliny fosforečné
-de:Calciumsalze der Orthophosphorsäure, Calciumcitrat aus Orthophosphorsäure
+de:Calciumcitrat aus Orthophosphorsäure
 el:άλατα ασβεστίου του ορθοφωσφορικού οξέος
-es:sales cálcicas de ácido ortofosfórico, sales de calcio de ácido ortofosfórico
+es:sales de calcio de ácido ortofosfórico
 et:ortofosforhappe kaltsiumisoolad
 fi:ortofosforihapon kalsiumsuolat
 fr:sels de calcium de l'acide orthophosphorique
@@ -3832,11 +3809,12 @@ lv:ortofosforskābes kalcija sāļi
 mt:melħ tal-kalċju tal-aċidu ortofosforiku
 nl:calciumzouten van orthofosforzuur
 pl:sole wapniowe kwasu ortofosforowego
-pt:sais de cálcio do ácido ortofosfórico, sais de calcio de acido ortofosforico
+pt:sais de calcio de acido ortofosforico
 ro:săruri de calciu ale acidului ortofosforic
 sk:vápenaté soli kyseliny ortofosforečnej
 sl:kalcijeve soli ortofosforne kisline
 sv:kalciumsalter av ortofosforsyra
+wikidata:en: Q57657491
 
 < en:Camargue long grain white rice
 fr:Riz de Camargue long blanc biologique
@@ -4025,6 +4003,7 @@ it:L-carnitina
 lt:L-karnitinas
 lv:L-karnitīns
 mt:L-karnetina
+nl:L-Carnitine
 pl:L-karnityna
 pt:L-carnitina
 ro:L-carnitină
@@ -4032,29 +4011,7 @@ ru:L-карнитин
 sk:L-karnitín
 sl:L-karnitin
 sv:L-karnitin
-
-< en:Carnitine
-en:L-carnitine hydrochloride
-bg:L-карнитин хидрохлорид
-cs:L-karnitin-hydrochlorid
-de:L-Carnitin-hydrochlorid
-el:υδροχλωρική L-καρνιτίνη
-es:Clorhidrato de L-carnitina
-et:L-karnitiinhüdrokloriid
-fi:L-karnitiinihydrokloridi
-fr:L-chlorhydrate de carnitine
-hu:L-karnitin-hidroklorid
-it:cloridrato di L-carnitina
-lt:L-karnitino hidrochloridas
-lv:L-karnitīna hidrohlorīds
-mt:L-karnetina
-nl:L-carnitine-hydrochloride
-pl:chlorowodorek L-karnityny
-pt:cloridrato de L-carnitina
-ro:clorhidrat de L-carnitină
-sk:L-karnitínhydrochlorid
-sl:L-karnitin hidroklorid
-sv:L-karnitinhydroklorid
+wikidata:en: Q20735709
 
 < en:Carnitine
 en:L-carnitine-L-tartrate
@@ -4065,6 +4022,7 @@ el:L-τρυγική L-καρνιτίνη
 es:L-carnitina-L-tartrato
 et:L-karnitiin-L-tartraat
 fi:L-karnitiini- L-tartraatti
+fr:L-carnitine-L-tartrate
 hu:L-karnitin-L-tartarát
 it:L-carnitina-L-tartrato
 lt:L-karnitino-L-tartratas
@@ -4077,6 +4035,7 @@ ro:L-carnitină-L-tartrat
 sk:L-karnitín-L-vínan
 sl:L-karnitin-L-tartrat
 sv:L-karnitin-L-tartrat
+wikidata:en: Q64782495
 
 en:carob
 cs:carubin
@@ -6952,9 +6911,43 @@ de:Aroniasaft
 it:succo d'aronia
 
 en:Choline
+ar:كولين
+bg:Холин
+bs:Holin
+ca:Colina
+da:Cholin
+de:Cholin
+eo:Kolino
+es:Colina
+et:Koliin
+eu:Kolina
+fa:کولین
+fi:Koliini
 fr:Choline
+ga:Coilín
+gl:Colina
+he:כולין
+id:Kolina
+it:Colina
+ja:コリン
+kk:Холин
+lt:Cholinas
+nl:Choline
+pl:Cholina
+pt:Colina
+ru:Холин
+sh:Holin
+sk:Cholín
+sl:Holin
+sr:Holin
+sv:Kolin
+ta:கோலின்
+tr:Kolin
+uk:Холін
+zh:胆碱
 vegan:en: maybe
 vegetarian:en: maybe
+wikidata:en: Q193166
 wikipedia:en: https://en.wikipedia.org/wiki/Choline
 
 < en:Choline
@@ -6969,6 +6962,7 @@ fi:koliinibitartraatti
 fr:bitartrate de choline
 hu:kolin-bitartarát
 it:bitartrato di colina
+ja:重酒石酸コリン
 lt:cholino bitartratas
 lv:holīna bitartrāts
 mt:bitartrat tal-kolin
@@ -6979,29 +6973,7 @@ ro:bitartrat de colină
 sk:cholín dvojvínan
 sl:holin bitartrat
 sv:kolinbitartrat
-
-< en:Choline
-en:choline citrate
-bg:Холин цитрат
-cs:citronan cholinu
-de:Cholincitrat
-el:κιτρική χολίνη
-es:citrato de colina
-et:koliintsitraat
-fi:koliinisitraatti
-fr:
-hu:kolin-citrát
-it:citrato di colina
-lt:cholino citratas
-lv:holīna citrāts
-mt:ċitrat tal-kolin
-nl:cholinecitraat
-pl:cytrynian choliny
-pt:citrato de colina
-ro:citrat de colină
-sk:cholín citran
-sl:holin citrat
-sv:kolincitrat
+wikidata:en: Q18324709
 
 en:Choline chloride
 bg:Холин хлорид
@@ -7102,29 +7074,6 @@ fr:chlorure de chrome
 it:cloruro di cromo
 pt:cloreto de crômio
 ro:Clorură de crom
-
-< en:Chromium
-en:chromium III chloride and its hexahydrate
-bg:Хром III хлорид и неговите хексахидрати
-cs:chlorid chromitý a jeho hexahydrát
-de:Chrom-III-Chlorid und sein Hexahydrat
-el:χλωριούχο χρώμιο III και το εξαϋδρικό άλας του
-es:cloruro de cromo III y su hexahidrato
-et:kroomIIIkloriid ja selle heksahüdraat
-fi:kromi-III-kloridi ja sen heksahydraatti
-fr:chlorure de chrome III et ses formes hexahydratées
-hu:krómIII-klorid és hexahidrátjai
-it:cloruro di cromo III e il suo esaidrato
-lt:chromo III chloridas ir jo heksahidratas
-lv:hroma III hlorīds un tā heksahidrāts
-mt:klorur tal-kromju III u l-eżaidrat tiegħu
-nl:chroom III chloride en het hexahydraat daarvan
-pl:chlorek chromuIII i jego heksahydrat
-pt:cloreto de crómio III e a sua forma hexa-hidratada
-ro:clorură de crom III și hexahidratul său
-sk:chlorid chromitý III a jeho hexahydrát
-sl:kromov III klorid in njegov heksahidrat
-sv:kromIIIklorid och dess hexahydrat
 
 < en:Chromium
 en:chromium III sulfate and its hexahydrate
@@ -7602,6 +7551,8 @@ de:Clementinensaft
 en:microbial coagulating enzyme
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
 nl:microbiële stremmingsenzymen
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:Coagulating enzyme
 en:rennet
@@ -7643,6 +7594,8 @@ sr:сириште
 sv:löpe
 tr:lab
 zh:凝乳酶
+vegan:en: no
+vegetarian:en: no
 wikidata:en: Q326900
 wikipedia:en: https://en.wikipedia.org/wiki/Rennet
 
@@ -7664,6 +7617,8 @@ nl:coating
 ro:inveliş
 sl:skorjica
 tr:kaplama
+vegan:en: ignore
+vegetarian:en: ignore
 
 < en:Coating
 en:bread crumbs, breadcrumbs
@@ -8404,6 +8359,8 @@ tr:Kollajen
 uk:Колаген
 vi:Collagen
 zh:膠原蛋白
+vegan:en: no
+vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Collagen
 
 en:Colour, color, colouring, coloring, decorative pigment, surface colorant, colours, colors, coloring food
@@ -8655,6 +8612,8 @@ tr:Çeşni
 uk:Смакові добавки
 vi:Phụ gia
 zh:食品添加剂
+vegan:en: ignore
+vegetarian:en: ignore
 wikidata:en: Q2596997
 wikipedia:en: https://en.wikipedia.org/wiki/Condiment
 
@@ -8695,6 +8654,36 @@ fr:riz blanc cuit
 
 < en:Cooked wheat
 fr:Blé dur biologique
+
+< en:Copper
+en:copper gluconate, cupric gluconate
+ar:غلوكونات النحاس
+bg:Меден глюконат
+cs:glukonan měďnatý
+de:Kupfergluconat
+el:γλυκονικός χαλκός
+es:gluconato cúprico
+et:vaskglükonaat
+fi:kupariglukonaatti
+fr:gluconate de cuivre
+hu:réz-glükonát
+it:gluconato rameico, gluconato di rame
+lt:vario gliukonatas
+lv:vara glikonāts
+mt:glukonat tar-ram
+nl:kopergluconaat
+pl:glukonian miedzi
+pt:gluconato cúprico
+ro:gluconat cupric
+ru:Глюконат меди
+sh:Bakar glukonat
+sk:glukónan meďnatý
+sl:bakrov glukonat
+sr:Bakar glukonat
+sv:kopparglukonat
+zh:葡萄糖酸铜
+wikidata:en: Q3109285
+wikipedia:en: https://en.wikipedia.org/wiki/Copper_gluconate
 
 < en:Copper
 en:copper lysine complex
@@ -8764,57 +8753,6 @@ ro:citrat cupric
 sk:citran meďnatý
 sl:bakrov citrat
 sv:kopparcitrat
-
-< en:Copper
-en:cupric gluconate, copper gluconate
-ar:غلوكونات النحاس
-bg:Меден глюконат
-cs:glukonan měďnatý
-de:Kupfergluconat
-el:γλυκονικός χαλκός
-es:gluconato cúprico
-et:vaskglükonaat
-fi:kupariglukonaatti
-fr:gluconate de cuivre
-hu:rézII-glükonát
-it:gluconato rameico, gluconato di rame
-lt:vario gliukonatas
-lv:vara glikonāts
-mt:glukonat tar-ram
-nl:koper II gluconaat, kopergluconaat
-pl:glukonian miedziII
-pt:gluconato cúprico
-ro:gluconat cupric
-ru:Глюконат меди
-sh:Bakar glukonat
-sk:glukónan meďnatý
-sl:bakrov glukonat
-sr:Bakar glukonat
-sv:kopparglukonat
-zh:葡萄糖酸铜
-
-< en:Copper
-en:cupric sulfate
-bg:
-cs:
-de:
-el:
-es:
-et:
-fi:
-fr:
-hu:rézII-szulfát
-it:
-lt:vario sulfatas
-lv:
-mt:sulfat tar-ram
-nl:koper II sulfaat
-pl:
-pt:
-ro:sulfat cupric
-sk:
-sl:
-sv:
 
 < en:Coriander
 < en:Herb
@@ -9184,6 +9122,7 @@ vi:Kem
 zh:鮮奶油
 carbon_footprint_fr_foodges_ingredient:fr: Crème, 40% MG, pasteurisée
 carbon_footprint_fr_foodges_value:fr: 4.2
+vegan:en: no
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Cream
 
@@ -10588,7 +10527,7 @@ e_number:en: 101
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin -E 101i- and riboflavin-5'-phosphate sodium -E 101-ii-- as food additives.
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
-vegan:en: yes
+vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q130365
 
@@ -12954,6 +12893,8 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children, en:to
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
+vegan:en: yes
+vegetarian:en: yes
 
 < en:E150a
 en:aromatic caramel
@@ -15042,7 +14983,7 @@ cs:E170, Uhličitan vápenatý, CI bílý pigment 18
 cy:calsiwm carbonad
 da:E170, Calciumcarbonat, CI Pigment White 18
 de:E170, Calciumcarbonat, Pigment White 18, Kalk
-el:E170, Ανθρακικο ασβεστιο, Λευκό CI Pigment 18, ανθρακικό ασβέστιο
+el:E170, Ανθρακικο ασβεστιο, Λευκό CI Pigment 18
 eo:kalcia karbonato
 es:E170, Carbonato de calcio, CI Pigment White 18, Carbonato cálcico
 et:E170, Kaltsiumkarbonaat, CI valge pigment 18
@@ -17418,7 +17359,7 @@ zh:乳酸
 e_number:en: 270
 organic_eu:en: authorized
 vegan:en: maybe
-vegetarian:en: yes
+vegetarian:en: maybe
 wikidata:en: Q161249
 
 en:E280, Propionic acid, Propanoic acid, CH3CH2COOH
@@ -17985,8 +17926,8 @@ e_number:en: 304
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of ascorbyl palmitate -E 304i- and ascorbyl stearate -E 304-ii-- as food additives
 efsa_evaluation_date:en: 2015-11-18
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4289
-vegan:en: yes
-vegetarian:en: yes
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q424521
 
 < en:E304
@@ -18817,6 +18758,8 @@ de:Rapslecithin
 fr:lécithine de colza, lécithines de colza
 nl:raapzaadlecithine
 sr:lecitin uljane repice
+vegan:en: yes
+vegetarian:en: yes
 
 < en:E322
 en:soya lecithin, soy lecithin, sin 322
@@ -18840,6 +18783,8 @@ sl:sojin lecitin
 sr:sojin lecitin
 sv:sojalecitin
 tr:soya lesitini
+vegan:en: yes
+vegetarian:en: yes
 
 < en:E322
 en:sunflower lecithin
@@ -18856,6 +18801,8 @@ nn:solsikkelecithin
 pl:lecytyny ze slonecznika
 pt:lecitina de girassol
 sv:solroslecitin
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q57271747
 
 < en:E322
@@ -22507,6 +22454,7 @@ uk:Желатин
 vi:Gelatin
 zh:明膠
 e_number:en: 428
+vegan:en: no
 vegetarian:en: no
 
 < en:E428
@@ -22514,12 +22462,16 @@ en:beef gelatin
 de:
 fr:gélatine de bœuf, gélatine bovine
 it:gelatina di manzo
+vegan:en: no
+vegetarian:en: no
 
 < en:E428
 en:fish gelatine
 de:Fisch-Gelatine
 fr:gélatine de poisson
 it:gelatina di pesce
+vegan:en: no
+vegetarian:en: no
 
 < en:E428
 en:pork gelatin
@@ -22529,6 +22481,8 @@ fr:gélatine de porc, gélatine porcine
 it:gelatina di maiale
 nl:varkensgelatine
 pl:zelatyna wieprzowa
+vegan:en: no
+vegetarian:en: no
 
 < en:E428
 fr:gélatine de volaille
@@ -25973,7 +25927,7 @@ ca:clorur de magnesi
 cs:E511, Chlorid hořečnatý
 da:E511, Magnesiumchlorid
 de:E511, Magnesiumchlorid
-el:E511, Χλωριουχο μαγνησιο, χλωριούχο μαγνήσιο
+el:E511, Χλωριουχο μαγνησιο
 eo:magnezia klorido
 es:E511, Cloruro de magnesio, Cloruro magnésico, Nigari
 et:E511, Magneesiumkloriid
@@ -25990,7 +25944,7 @@ ja:塩化マグネシウム
 ky:Магний хлориди
 lt:E511, Magnio chloridas
 lv:E511, Magnija hlorīds
-mt:E511, Klorur tal-manjeżju, klorur tal-manjesju
+mt:E511, Klorur tal-manjeżju
 nl:E511, Magnesiumchloride
 pl:E511, Chlorek magnezu
 pt:E511, Cloreto de magnésio
@@ -26371,7 +26325,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q288266
 
-en:E519, Copper sulphate, copperII sulfate, copper sulfate, cupric sulphate
+en:E519, Copper sulphate, copperII sulfate, copper sulfate, cupric sulphate, cupric sulfate
 ar:كبريتات النحاس الثنائي
 bg:E519, Меден сулфат
 bn:কপার সালফেট
@@ -26398,13 +26352,13 @@ ja:硫酸銅
 kn:ಮೈಲುತುತ್ತ
 ko:황산 구리
 ky:Жез сульфаты
-lt:E519, E519 food additive
+lt:E519, E519 food additive, vario sulfatas
 lv:E519, Vara sulfāts, Vara vitriols
 mk:син камен
 ml:തുരിശ്
 mn:Зэсийн
 ms:kuprum sulfat
-mt:E519, E519 food additive
+mt:E519, E519 food additive, sulfat tar-ram
 nb:Blåstein
 nl:E519, KoperIIsulfaat, Blauwe vitriool, Wit kopersulfaat, Kopersulfaat
 nn:koparsulfat
@@ -26412,7 +26366,7 @@ oc:Sulfat de coire
 pa:ਕਾਪਰ ਸਲਫੇਟ
 pl:E519, siarczan miedziII, siarczan(VI) miedzi(II), siarczan miedziowy, siarczan miedzi
 pt:E519, Sulfato de cobre, Cúprico, Sulfato cúprico, CuSO4
-ro:E519, Sulfat de cupru, Piatră vânătă
+ro:E519, Sulfat de cupru, Piatră vânătă, sulfat cupric
 ru:сульфат меди
 sk:E519, Síran meďnatý, Modrá skalica
 sl:E519, BakrovII sulfat, Modra galica, CuSO4, Bakrov sulfat
@@ -26670,7 +26624,7 @@ ca:hidròxid de calci
 cs:E526, Hydroxid vápenatý, Vápenaté mléko, Ca(OH)2, Hašené vápno, Vápenné mléko, Vápenný hydrát, E 526, Vápenná voda
 da:E526, Calciumhydroxid, Læsket kalk, Kalciumhydroxid, Ca(OH)2, Tørlæsket kalk, Kalkvand
 de:E526, Calciumhydroxid, gelöschter Kalk, Kalkhydrat, Calciumlauge, Ca(OH)2, Calciumdihydroxid, Kalziumhydroxid, Löschkalk, E 526, CaOH, Hydratkalk
-el:E526, Υδροξειδιο του ασβεστιου, Σβησμένη άσβεστος, υδροξείδιο του ασβεστίου
+el:E526, Υδροξειδιο του ασβεστιου, Σβησμένη άσβεστος
 eo:Kalcia hidroksido
 es:E526, Hidróxido de calcio, Hidróxido cálcico, Cal apagada, Cal muerta, E 526
 et:E526, Kaltsiumhüdroksiid, Kustutatud lubi
@@ -28020,31 +27974,31 @@ wikidata:en: Q413739
 
 en:E579, Ferrous gluconate, IronII gluconate, iron gluconate, E-579
 ar:غلوكونات الحديد الثنائي
-bg:E579, Феро глюконат, Феро-ди-D-глюконат дихидрат, Железен глюконат
+bg:E579, Феро глюконат, Феро-ди-D-глюконат дихидрат
 cs:E579, Glukonan železnatý
 da:E579, Ferrogluconat, Ferrodi-D-gluconatdihydrat
 de:E579, Eisenii-gluconat, Eisengluconat, E 579, Eisen(II)Gluconat
-el:E579, Γλυκονικος σιδηρος, γλυκονικός σίδηρος
+el:E579, Γλυκονικος σιδηρος
 es:E579, Gluconato ferroso
-et:E579, Ferroglükonaat, raudIIglükonaat
+et:E579, Ferroglükonaat
 fa:گلوکونات آهن
 fi:E579, Ferroglukonaatti
 fr:E579, Gluconate ferreux, Di-D-gluconate ferreux dihydraté, gluconate de fer II, gluconate de fer, C12H22FeO14, 299-29-6, 22830-45-1
 hu:E579, Vasii-glükonát, Vas-di-D-glükonát-dihidrát, Vas-glukonát
 it:E579, Gluconato ferroso, C12H22FeO14·2H2O, gluconato di ferro
-lt:E579, Geležies gliukonatas, geležies II gliukonatas
+lt:E579, Geležies gliukonatas
 lv:E579, Dzelzs glikonāts
 mt:E579, Glukonat ferruż
-nl:E579, Ijzeriigluconaat, ijzer II gluconaat, Ijzergluconaat
-pl:E579, Glukonian żelazawy, Żelaza di-D-glukonian, diwodzian, żelaza II diglukonian, glukonian żelazaII
+nl:E579, Ijzeriigluconaat, Ijzergluconaat
+pl:E579, Glukonian żelazawy, Żelaza di-D-glukonian, diwodzian, żelaza II diglukonian
 pt:E579, Gluconato ferroso
 ro:E579, Gluconat feros, Di-D-gluconat feros dihidrat
 ru:глюконат железа
 sh:Gvožđe glukonat
 sk:E579, Glukonan železnatý
-sl:E579, Železov ii glukonat, železov di-D-glukonat dihidrat, železov glukonat
+sl:E579, Železov ii glukonat, železov di-D-glukonat dihidrat, Železov glukonat
 sr:Gvožđe glukonat
-sv:E579, Järnglukonat, Järn-di-D-glukonatdihydrat, E 579, ferroglukonat
+sv:E579, Järnglukonat, Järn-di-D-glukonatdihydrat, E 579
 tr:ferrous gluconate
 e_number:en: 579
 vegan:en: yes
@@ -28542,8 +28496,8 @@ sv:E631, Dinatriuminosinat, Natriuminosinat, E631 dinatriuminosinat
 tr:disodyum inosinat
 vi:NatriII inosinat
 e_number:en: 631
-vegan:en: no
-vegetarian:en: no
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q905782
 
 en:E632, Dipotassium inosinate, Potassium inosinate
@@ -28651,8 +28605,8 @@ sk:E635, 5'-ribonukleotid disodný
 sl:E635, Dinatrijev 5'-ribonukleotid
 sv:E635, Dinatrium-5'-ribonukleotider
 e_number:en: 635
-vegan:en: no
-vegetarian:en: no
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q18967210
 
 en:E636, Maltol
@@ -29963,7 +29917,7 @@ uk:L-Цистеїн
 vi:L-Cystein
 e_number:en: 920
 mandatory_additive_class:en: en:flour-treatment-agent
-vegan:en: no
+vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q186474
 
@@ -32211,6 +32165,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cellulase
 en:coagulating enzyme
 fr:enzyme coagulante, enzymes coagulantes, coagulant enzymatique
 nl:stremmingsenzymen
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:Enzyme
 en:Lactase
@@ -32506,6 +32462,8 @@ fr:Graisse hydrogénée
 en:poultry fat
 de:Geflügelfett
 fr:graisse de volaille
+vegan:en: no
+vegetarian:en: no
 
 < en:Fat
 fr:gras
@@ -32559,6 +32517,8 @@ nl:Ferment
 tt:Фермент
 uk:Ферменти
 uz:fermentlar
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:Ferment
 en:enzyme
@@ -32642,6 +32602,8 @@ vi:enzym
 yi:ענזים
 zh:酶
 nova:en: 3
+vegan:en: maybe
+vegetarian:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Enzyme
 
 < en:Ferment
@@ -32654,12 +32616,16 @@ hu:tejsavbaktériumok
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi
 nl:melkfermenten, melkkiemen
 pt:fermentos lácteos
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:Ferment
 en:microbial culture, culture
 fr:culture bactérienne
 nl:Microbiële cultuur
 nova:en: 3
+vegan:en: maybe
+vegetarian:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Microbiological_culture
 
 < en:Ferment
@@ -32812,6 +32778,8 @@ nn:plantefiber
 pt:fibra vegetal
 ru:растительное волокно
 sv:Växtfibrer
+vegan:en: yes
+vegetarian:en: yes
 wikipedia:en: Q20026824
 
 < en:Fig
@@ -35217,6 +35185,8 @@ fr:fructose de blé
 en:fructose syrup
 de:Fruktose Sirup
 fr:sirop de fructose
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Fructose syrup
 de:Fruktosepulver
@@ -36121,7 +36091,7 @@ es:zumo de frutas
 fr:jus de fruits
 it:succhi di frutta
 nl:vruchtensap
-vegan:en: maybe
+vegan:en: yes
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Juice
 
@@ -38187,6 +38157,8 @@ en:herb
 de:Gewürz
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, herbes aromatiques
 nl:kruiden
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Herb
 af:Marjolein
@@ -39600,6 +39572,7 @@ wa:Låme
 wo:lem
 yi:האניג
 zh:蜂蜜
+vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q10987
 wikipedia:en: https://en.wikipedia.org/wiki/Honey
@@ -40136,6 +40109,7 @@ uk:Інозитол
 zh:肌醇
 vegan:en: yes
 vegetarian:en: yes
+wikidata:en: Q407997
 wikipedia:en: https://en.wikipedia.org/wiki/Inositol
 
 < en:Instant coffee
@@ -40155,39 +40129,36 @@ ar:يوديد البوتاسيوم
 bg:Калиев йодид
 bs:Kalij jodid
 ca:iodur de potassi
-cs:jodid draselný
+cs:Jodid draselný
 da:Kaliumiodid
 de:Kaliumiodid
 el:ιωδιούχο κάλιο
 eo:kalia jodido
 es:yoduro de potasio
-et:kaaliumjodiid
 fa:پتاسیم یدید
-fi:kaliumjodidi
+fi:Kaliumjodidi
 fr:iodure de potassium
 hi:पोटासियम आयोडाइड
 hu:kálium-jodid
 id:Kalium iodida
-it:ioduro di sodio, ioduro di potassio
+it:ioduro di potassio
 ja:ヨウ化カリウム
 ko:아이오딘화 칼륨
 ky:Калий иодиди
-lt:kalio jodidas
 lv:kālija jodīds
-mt:jodur tal-potassju
 nb:Kaliumjodid
 nl:kaliumjodide
 nn:Kaliumjodid
 or:ପୋଟାସିଅମ ଆୟୋଡାଇଡ
-pl:jodek potasu
+pl:Jodek potasu
 pt:iodeto de potássio
-ro:iodură de potasiu
+ro:Iodură de potasiu
 ru:иодид калия
 sh:Kalijum jodid
-sk:jodid draselný
-sl:kalijev jodid
+sk:Jodid draselný
+sl:Kalijev jodid
 sr:калијум-јодид
-sv:kaliumjodid
+sv:Kaliumjodid
 te:పొటాషియం అయోడైడు
 th:โพแทสเซียมไอโอไดด์
 tr:Potasyum iyodür
@@ -40221,27 +40192,27 @@ sl:natrijev jodat
 sv:natriumjodat
 
 < en:Iron
-en:elemental iron (carbonyl + electrolytic + hydrogen reduced)
-bg:Елементарно желязо (карбонилно + електролитно + редуциран водород)
-cs:elementární železo (karbonylové železo a elektrolyticky nebo vodíkem redukované železo)
-de:Elementares Eisen (aus Carbonyl + elektrolytisch + wasserstoffreduziert)
-el:στοιχειακός σίδηρος (ανηγμένος με καρβονύλιο + ηλεκτρόλυση + υδρογόνο)
-es:hierro elemental (carbonilo + electrolítico + deshidrogenado)
-et:elementaarne raud (karbonüülraud, elektrolüütiliselt, vesinikuga redutseeritud raud)
-fi:alkuainemuotoinen rauta (karbonyylillä, elektrolyyttisesti sekä vedyllä pelkistetty)
-fr:fer élémentaire (issu de la réduction du carbonyle, de la réduction électrolytique et de la réduction de l'hydrogène)
-hu:elemi vas (karbonil + elektrolitikus + hidrogénnel redukált)
-it:ferro elementare (carbonile + elettrolitico + riduzione con idrogeno)
-lt:elementinė geležis (karbonilas + elektrolitas + redukuotas vandenilis)
-lv:elementārā dzelzs (karbonil- + elektrolītiski + reducēta ar ūdeņradi)
-mt:adid elementali (karbonil + elettrolitiku + idroġenu mnaqqas)
-nl:elementair ijzer (uit carbonyl + elektrolytisch bereid + met waterstof gereduceerd)
-pl:żelazo elementarne (karbonyl + elektrolityczne + zredukowane wodorem)
-pt:ferro elementar (resultante da redução por carbonilo, electrólise ou hidrogénio)
-ro:fier elementar (carbonil + electrolitic + hidrogen redus)
-sk:elementárne železo (redukované karbonylovaním + elektrolyticky + vodíkom)
-sl:elementarno železo (karbonil + elektrolitski + z reduciranim vodikom)
-sv:elementarjärn (karbonyljärn, elektrolytjärn, ferrum reductum)
+en:elemental iron
+bg:Елементарно желязо
+cs:elementární železo
+de:Elementares Eisen
+el:στοιχειακός σίδηρος
+es:hierro elemental
+et:elementaarne raud
+fi:alkuainemuotoinen rauta
+fr:fer élémentaire
+hu:elemi vas
+it:ferro elementare
+lt:elementinė geležis
+lv:elementārā dzelzs
+mt:adid elementali
+nl:elementair ijzer
+pl:żelazo elementarne
+pt:ferro elementar
+ro:fier elementar
+sk:elementárne železo
+sl:elementarno železo
+sv:elementarjärn
 
 < en:Iron
 en:ferric ammonium citrate
@@ -40267,30 +40238,29 @@ sl:železov amonijev citrat
 sv:ferriammoniumcitrat
 
 < en:Iron
-en:ferric diphosphate, ferric pyrophosphate, iron diphosphate, iron pyrophosphate, IronIII pyrophosphate
-bg:Железен дифосфат, железен пирофосфат
+en:ferric diphosphate, iron diphosphate
+bg:Железен дифосфат
 cs:difosforečnan železitý
-da:ferripyrophosphat, ferridiphosphat
+da:ferridiphosphat
 de:Eisendiphosphat, Eisenpyrophosphat
-el:διφωσφορικός σίδηρος, πυροφωσφορικός σίδηρος, φωσφορικός σίδηρος
+el:διφωσφορικός σίδηρος, πυροφωσφορικός σίδηρος
 es:difosfato férrico, pirofosfato férrico
-et:raudIIIdifosfaat, raud(III)pürofosfaat, rauddifosfaat
-fi:ferridifosfaatti, ferripyrofosfaatti, ferrofosfaatti
+et:rauddifosfaat, raudpürofosfaat
+fi:ferridifosfaatti, ferripyrofosfaatti
 fr:diphosphate ferrique, pyrophosphate ferrique, diphosphate de fer, pyrophosphate de fer
-hu:vasIII-difoszfát, ferri-pirofoszfát, vas-difoszfát
-it:difosfato ferrico, pirofosfato ferrico, pirofosfato di ferro, difosfato di ferro
-lt:geležies difosfatas, geležies pirofosfatas
+hu:vas-difoszfát, ferri-pirofoszfát
+it:difosfato di ferro, pirofosfato ferrico
+lt:geležies difosfatas, geležies pirofosfata
 lv:dzelzs difosfāts, dzelzs pirofosfāts
 mt:difosfat ferriku, pirofosfat ferriku
-nl:ijzer III difosfaat, ijzer (III) pyrofosfaat, ijzerpyrofosfaat, ijzerdifosfaat, ijzerfosfaat
-pl:difosforan żelazaIII, pirofosforan żelaza(III), difosforan żelaza
-pt:difosfato férrico, pirofosfato férrico, difisato de ferro
+nl:ijzerdifosfaat, ijzerfosfaat, ijzerpyrofosfaat
+pl:difosforan żelaza, pirofosforan żelaza
+pt:difisato de ferro, pirofosfato férrico
 ro:difosfat feric, pirofosfat feric
-ru:пирофосфат железаIII
 sk:difosforečnan železitý, pyrofosforečnan železitý
 sl:železov difosfat, železov pirofosfat
-sv:ferridifosfat, ferripyrofosfat, ferrofosfat
-ta:இரும்புIII பைரோபாசுபேட்டு, இரும்பு பைரோபாசுபேட்டு
+sv:ferridifosfat, ferripyrofosfat
+ta:இரும்பு பைரோபாசுபேட்டு
 zh:焦磷酸铁
 wikidata:en: Q9207442
 wikipedia:en: https://en.wikipedia.org/wiki/IronII_phosphate
@@ -40394,16 +40364,16 @@ cs:bisglycinát železnatý
 de:Eisenbisglycinat
 el:διγλυκινικός σίδηρος
 es:bisglicinato ferroso
-et:raudIIdiglütsinaat
+et:rauddiglütsinaat
 fi:ferrobisglysinaatti
 fr:bisglycinate ferreux
-hu:vasII-biszglicinát
+hu:vas-biszglicinát
 it:bisglicinato ferroso
-lt:geležies II bisglicinatas
+lt:geležies bisglicinatas
 lv:dzelzs bisglicināts
 mt:bisgliċinat ferruż
-nl:ijzer II bisglycinaat
-pl:diglicynian żelazaII
+nl:ijzer bisglycinaat
+pl:diglicynian żelaza
 pt:bisglicinato ferroso
 ro:bisglicinat feros
 sk:bisglycinát železnatý
@@ -40434,50 +40404,22 @@ sl:železov citrat
 sv:ferrocitrat
 
 < en:Iron
-en:ferrous fumarate, iron fumarate, ironII fumarate
-ar:فومارات الحديد الثنائي
-bg:Железен фумарат
-cs:fumaran železnatý
-de:Eisenfumarat, Eisen-II-fumarat
-el:φουμαρικός σίδηρος
-es:fumarato ferroso
-et:raudIIfumaraat
-fa:آهنII فیومارات
-fi:ferrofumaraatti
-fr:fumarate ferreux, fumarate de fer, fumarate de fer II
-hu:vasII-fumarát
-it:fumarato ferroso, fumarato ferroso II
-lt:geležies II fumaratas
-lv:dzelzs fumarāts
-mt:fumarat ferruż
-nl:ijzer II fumaraat
-pl:fumaran żelazaII
-pt:fumarato ferroso
-ro:fumarat feros
-sh:GvožđeII fumarat
-sk:fumaran železnatý
-sl:železov fumarat
-sr:GvožđeII fumarat
-sv:ferrofumarat
-zh:延胡索酸亚铁
-
-< en:Iron
 en:ferrous L-pidolate
 bg:Железен L-пидолат
 cs:L-pyroglutaman (pidolát) železnatý
 de:Eisen-L-pidolat
 el:L-πιδολικός σίδηρος
 es:L-pidolato ferroso
-et:raudII-L-pidolaat
+et:raud-L-pidolaat
 fi:ferro-L-pidolaatti
 fr:L-pidolate ferreux
-hu:vasII-L-pidolát
+hu:vas-L-pidolát
 it:L-pidolato ferroso
-lt:geležies II L-pidolatas
+lt:geležies L-pidolatas
 lv:dzelzs L-pidolāts
 mt:L-pidolat ferruż
-nl:ijzer II -L-pidolaat
-pl:L-pidolan żelazaII
+nl:ijzer-L-pidolaat
+pl:L-pidolan żelaza
 pt:L-pidolato ferroso
 ro:L-pidolat feros
 sk:L-pidolát železnatý
@@ -40485,7 +40427,7 @@ sl:železov L-pidolat
 sv:ferro-L-pidolat
 
 < en:Iron
-en:ferrous sulfate, iron sulfate, ferrous sulphate
+en:ferrous sulfate, iron sulfate
 ar:كبريتات الحديد الثنائي
 bg:Железен сулфат
 ca:sulfat de ferro
@@ -40493,22 +40435,22 @@ cs:síran železnatý
 de:Eisensulfat
 el:θειικός σίδηρος
 es:sulfato ferroso
-et:raudIIsulfaat, raudsulfaat
+et:raudsulfaat
 fa:فروس سولفات
 fi:ferrosulfaatti
-fr:sulfate ferreux, sulfate de fer, sulfates de fer
+fr:sulfate de fer, sulfates de fer, sulfate ferreux
 hr:Željezov sulfat
-hu:vasII-szulfát, vas-szulfát
+hu:vas-szulfát
 id:Besi sulfat
-it:solfato ferroso, solfato di ferro
+it:solfato di ferro
 ja:硫酸鉄
 ko:황산 철
-lt:geležies II sulfatas, geležies sulfatas
+lt:geležies sulfatas
 lv:dzelzs sulfāts
 mt:sulfat ferruż
 nb:Jernsulfat
-nl:ijzer II sulfaat, ijzersulfaat
-pl:siarczan żelazaII, siarczan żelaza
+nl:ijzersulfaat
+pl:siarczan żelaza
 pt:sulfato ferroso
 qu:Kachina
 ro:sulfat feros
@@ -40524,6 +40466,38 @@ th:ไอร์ออนซัลเฟต
 uk:Сульфат заліза
 vi:Sắt sulfat
 zh:硫酸亚铁
+wikidata:en: Q214863
+wikipedia:en: https://en.wikipedia.org/wiki/IronII_sulfate
+
+< en:Iron
+en:iron fumarate, ironII fumarate, ferrous fumarate
+ar:فومارات الحديد الثنائي
+bg:Железен фумарат
+cs:fumaran železnatý
+de:Eisenfumarat
+el:φουμαρικός σίδηρος
+es:fumarato ferroso
+et:raudIIfumaraat
+fa:آهنII فیومارات
+fi:ferrofumaraatti
+fr:fumarate ferreux, fumarate de fer
+hu:vasII-fumarát
+it:fumarato ferroso
+lt:geležies II fumaratas
+lv:dzelzs fumarāts
+mt:fumarat ferruż
+nl:ijzerfumaraat
+pl:fumaran żelazaII
+pt:fumarato ferroso
+ro:fumarat feros
+sh:GvožđeII fumarat
+sk:fumaran železnatý
+sl:železov fumarat
+sr:GvožđeII fumarat
+sv:ferrofumarat
+zh:延胡索酸亚铁
+wikidata:en: Q416370
+wikipedia:en: https://en.wikipedia.org/wiki/IronII_fumarate
 
 en:juice
 de:Saft
@@ -40784,7 +40758,7 @@ uz:Laktoza
 vi:Lactose
 zh:乳糖
 vegan:en: no
-vegetarian:en: maybe
+vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Lactose
 
 < en:Lactose
@@ -40808,7 +40782,7 @@ it:lattosio e proteine del latte
 nl:lactose en melkeiwitten
 pt:lactose e proteínas do leite
 vegan:en: no
-vegetarian:en: maybe
+vegetarian:en: yes
 
 < en:Lamb
 < en:Meat
@@ -42424,31 +42398,31 @@ en:manganese sulfate, manganese sulphate
 ar:كبريتات المنغنيز الثنائي
 bg:Манганов сулфат
 bs:Mangan sulfat
-cs:síran manganatý
+cs:Síran manganatý
 da:mangansulfat
-de:Mangansulfat, Mangan-sulfat
+de:Mangan-sulfat
 el:θειικό μαγγάνιο
-es:sulfato de manganeso
+es:Sulfato de manganeso
 et:mangaansulfaat
 fa:سولفات منگنز
-fi:mangaanisulfaatti
+fi:Mangaanisulfaatti
 fr:sulfate de manganèse
-hu:mangán-szulfát
-it:solfato di manganese, Solfato manganoso
+hu:Mangán-szulfát
+it:Solfato manganoso
 ja:硫酸マンガン
 lt:mangano sulfatas
 lv:mangāna sulfāts
 mt:sulfat tal-manganiż
-nl:mangaansulfaat
-pl:siarczan manganu
-pt:sulfato de manganês
+nl:Mangaansulfaat
+pl:Siarczan manganu
+pt:Sulfato de manganês
 ro:sulfat de mangan
 ru:Сульфат марганца
 sh:Mangan sulfat
 sk:síran mangánatý
 sl:manganov sulfat
 sr:Mangan sulfat
-sv:mangansulfat
+sv:Mangansulfat
 tr:Manganez sülfat
 uk:Сульфат марганцю
 vi:Mangan sulfat
@@ -42478,6 +42452,8 @@ de:Ahornsirup
 es:jarabe de arce
 fr:sirop d'érable
 nl:ahornsiroop
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Maple syrup
 en:canadian maple syrup
@@ -42557,7 +42533,10 @@ wikidata:en: Q4287
 wikipedia:en: https://en.wikipedia.org/wiki/Margarine
 
 < en:Margarine
+en:Vegetal margarine
 fr:margarine végétale
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Margarine
 fr:margarine végétale non hydrogénée
@@ -42938,7 +42917,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Menthol
 < en:Microbial culture
 en:cheese culture
 de:Käsekultur
-fr:Arômes fromage
 
 en:milk
 af:Melk
@@ -43315,7 +43293,7 @@ tr:Peynir altı suyu
 uk:Сироватка, Сиро́ватка моло́чна
 zh:乳清
 vegan:en: no
-vegetarian:en: maybe
+vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Whey
 
 < en:Milk
@@ -43374,7 +43352,7 @@ fr:minéraux du lait
 it:minerali del latte
 nl:melkmineralen
 vegan:en: no
-vegetarian:en: maybe
+vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Milk#Salts,_minerals,_and_vitamins
 
 < en:Milk minerals
@@ -43712,7 +43690,7 @@ sl:Bor
 sv:Bor
 
 < en:Minerals
-en:Calcium
+en:calcium
 af:kalsium
 am:ካልሲየም
 an:Calcio
@@ -43933,7 +43911,7 @@ zh:铬
 wikipedia:en: https://en.wikipedia.org/wiki/Chromium
 
 < en:Minerals
-en:Copper, cupric
+en:copper, cupric
 af:koper
 am:መዳብ
 an:Arambre
@@ -43950,21 +43928,21 @@ br:Kouevr
 bs:bakar
 ca:coure
 co:Ramu
-cs:Měď
+cs:měď
 cv:Пăхăр
 cy:copr
 da:kobber
 de:Kupfer
 dv:ރަތުލޯ
-el:Χαλκός
+el:χαλκός
 eo:kupro
-es:Cobre
+es:cobre
 et:Vask
 eu:kobre
 fa:مس
-fi:Kupari
+fi:kupari
 fo:Kopar
-fr:Cuivre
+fr:cuivre
 fy:Koper
 ga:Copar
 gd:Copar
@@ -43976,13 +43954,13 @@ he:נחושת
 hi:ताम्र
 hr:Bakar
 ht:Kwiv
-hu:Réz
+hu:réz
 hy:պղինձ
 ia:cupro
 id:tembaga
 io:kupro
 is:kopar
-it:Rame
+it:rame
 ja:銅
 jv:Tembaga
 ka:სპილენძი
@@ -44000,42 +43978,42 @@ la:cuprum
 lb:Koffer
 li:Koper
 lt:Varis
-lv:Varš
+lv:varš
 mi:konukura
 mk:бакар
 ml:ചെമ്പ്
 mn:Зэс
 mr:तांबे
 ms:Tembaga
-mt:Ram
+mt:ram
 my:ကြေးနီ
 na:Eborage
 nb:kobber
 ne:तामा
-nl:Koper
+nl:koper
 nn:kopar
 nv:Béésh Łichíiʼii
 oc:Coire
 or:ତମ୍ବା
 os:ତମ୍ବା
 pa:ਤਾਂਬਾ
-pl:Miedź
+pl:miedź
 ps:تامبه
-pt:Cobre
+pt:cobre
 qu:Anta
-ro:Cupru
+ro:cupru
 ru:медь
 sa:ताम्रम्
 sc:Ràmine
 sd:ٽامو
 sh:Bakar
-sk:Meď
-sl:Baker
+sk:meď
+sl:baker
 so:Kober
 sq:Bakri
 sr:бакар
 su:Tambaga
-sv:Koppar
+sv:koppar
 sw:Shaba
 ta:செப்பு
 te:రాగి
@@ -44081,7 +44059,7 @@ sl:Fluorid
 sv:Fluor
 
 < en:Minerals
-en:Iodine
+en:iodine
 af:jodium
 am:አዮዲን
 an:Yodo
@@ -44150,7 +44128,7 @@ mt:Jodju
 my:အိုင်အိုဒင်း
 nb:jod
 ne:आयोडिन
-nl:Jood, jodium
+nl:jodium
 nn:jod
 oc:Iòde
 or:ଆୟୋଡ଼ିନ
@@ -44301,7 +44279,7 @@ zh:镁
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium
 
 < en:Minerals
-en:Manganese
+en:manganese
 af:Mangaan
 am:ማንጋኒዝ
 an:Manganés
@@ -44364,7 +44342,7 @@ ml:മാംഗനീസ്
 mn:Манган
 mr:मँगेनिझ
 ms:Mangan
-mt:Manganiż, Manganis
+mt:Manganis
 my:မက်ဂနိစ်
 nb:mangan
 ne:म्याङगनिज
@@ -44408,7 +44386,7 @@ wikidata:en: Q731
 wikipedia:en: https://en.wikipedia.org/wiki/Manganese
 
 < en:Minerals
-en:Molybdenum
+en:molybdenum
 af:molibdeen
 am:ሞሊብዴነም
 an:Molibdén
@@ -44422,20 +44400,20 @@ br:Molibden
 bs:molibden
 ca:molibdè
 co:Molibdenu
-cs:Molybden
+cs:molybden
 cv:Молибден
 cy:Molybdenwm
 da:molybdæn
 de:Molybdän
 dv:މޮލިބްޑިނަމް
-el:Μολυβδαίνιο
+el:μολυβδαίνιο
 eo:molibdeno
-es:Molibdeno
+es:molibdeno
 et:Molübdeen
 eu:molibdeno
 fa:مولیبدن
-fi:Molybdeeni
-fr:Molybdène
+fi:molybdeeni
+fr:molybdène
 ga:Molaibdéineam
 gd:Moilibdeanum
 gl:Molibdeno
@@ -44444,13 +44422,13 @@ gv:Molybdenum
 he:מוליבדן
 hi:मोलिब्डेनम
 hr:Molibden
-hu:Molibdén
+hu:molibdén
 hy:մոլիբդեն
 ia:molybdeno
 id:Molibdenum
 io:molibdo
 is:mólýbden
-it:Molibdeno
+it:molibdeno
 ja:モリブデン
 jv:Molibden
 ka:მოლიბდენი
@@ -44464,25 +44442,25 @@ la:molybdenum
 lb:Molybdän
 li:Molybdeen
 lt:Molibdenas
-lv:Molibdēns
+lv:molibdēns
 mk:Молибден
 ml:മൊളിബ്ഡിനം
 mn:Молибден
 mr:मॉलिब्डेनम
 ms:Molibdenum
-mt:Molibdenu
+mt:molibdenu
 nb:molybden
 ne:मोलिब्डेनम
-nl:Molybdeen
+nl:molybdeen
 nn:molybden
 oc:Molibdèn
 or:ମଲିବ୍‌ଡ଼େନମ
 pa:ਮੋਲਿਬਡੇਨਮ
 pi:मोलिब्डेनम
-pl:Molibden
-pt:Molibdénio
+pl:molibden
+pt:molibdénio
 qu:Molibdenu
-ro:Molibden
+ro:molibden
 ru:молибден
 sa:मोलिब्डेनम
 sh:Molibden
@@ -44492,7 +44470,7 @@ so:Molybdenum
 sq:Molibdeni
 sr:молибден
 su:Molibdénum
-sv:Molybden
+sv:molybden
 sw:Molibdeni
 ta:மாலிப்டினம்
 tg:Молибден
@@ -44639,21 +44617,21 @@ br:Seleniom
 bs:selen
 ca:seleni
 co:Seleniu
-cs:Selen
+cs:selen
 cv:Селен
 cy:Seleniwm
 da:selen
 de:Selen
 dv:ސެލެނިއަމް
-el:Σελήνιο
+el:σελήνιο
 eo:seleno
-es:Selenio
+es:selenio
 et:Seleen
 eu:selenio
 fa:سلنیم
-fi:Seleeni
+fi:seleeni
 fo:Selen
-fr:Sélénium
+fr:sélénium
 ga:Seiléiniam
 gd:Selenium
 gl:selenio
@@ -44663,12 +44641,12 @@ he:סלניום
 hi:सेलेनियम
 hr:Selenij
 ht:Selenyòm
-hu:Szelén, սելեն
+hu:սելեն
 ia:Selenium
 id:Selenium
 io:Selenio
 is:selen
-it:Selenio
+it:selenio
 ja:セレン
 jv:Selenium
 ka:სელენიუმი
@@ -44681,27 +44659,27 @@ la:selenium
 lb:Selen
 li:Seleen
 lt:Selenas
-lv:Selēns
+lv:selēns
 mk:Селен
 ml:സെലീനിയം
 mn:Селени
 mr:सेलेनियम
 ms:Selenium
-mt:Selenju
+mt:selenju
 my:ဆီလီနီယမ်
 nb:selen
 ne:सेलेनियम
-nl:Seleen
+nl:seleen
 nn:selen
 oc:Selèni
 or:ସେଲେନିଅମ
 pa:ਸਿਲੀਨੀਅਮ
 pi:सेलेनियम
-pl:Selen
+pl:selen
 ps:selenium
-pt:Selénio
+pt:selénio
 qu:Silinyu
-ro:Seleniu
+ro:seleniu
 ru:селен
 sa:सेलेनियम
 sh:Selen
@@ -44711,7 +44689,7 @@ so:Seleniyaam
 sq:Seleni
 sr:селен
 su:Sélénium
-sv:Selen
+sv:selen
 sw:Seleni
 ta:செலீனியம்
 te:సెలీనియం
@@ -44846,7 +44824,7 @@ wikidata:en: Q658
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium
 
 < en:Minerals
-en:Zinc
+en:zinc
 af:sink
 am:ዚንክ
 an:Zinc
@@ -44870,7 +44848,7 @@ de:Zink
 dv:ޒިންކް
 el:Ψευδάργυρος
 eo:zinko
-es:Cinc, Zinc
+es:Zinc
 et:Tsink
 eu:zink
 fa:روی
@@ -44915,7 +44893,7 @@ ml:നാകം
 mn:Цайр
 mr:जस्त
 ms:Timah sari
-mt:Zingu, Żingu
+mt:Żingu
 my:သွပ်
 nb:Sink
 ne:जस्ता
@@ -45537,32 +45515,21 @@ sv:ammoniummolybdat
 < en:Molybdenum
 en:sodium molybdate
 ar:موليبدات الصوديوم
-bg:Натриев молибдат
-cs:molybdenan sodný
+cs:Molybdenan sodný
 de:Natriummolybdat
-el:μολυβδαινικό νάτριο
 eo:Natria molibdenato
-es:molibdato sódico, Molibdato de sodio
-et:naatriummolübdaat
+es:Molibdato de sodio
 fa:سدیم مولیبدات
-fi:natriummolybdaatti
+fi:Natriummolybdaatti
 fr:molybdate de sodium
-hu:nátrium-molibdát
-it:molibdato di sodio, molibdeno di sodio
+it:molibdeno di sodio
 ja:モリブデン酸ナトリウム
-lt:natrio molibdatas
-lv:nātrija molibdāts
-mt:molibdat tas-sodju
-nl:natriummolybdaat
-pl:molibdenianVI sodu, Molibdenian sodu
+nl:Natriummolybdaat
+pl:Molibdenian sodu
 pt:molibdato de sódio
-ro:molibdat de sodiu
 ru:молибдат натрия
 sh:Natrijum molibdat
-sk:molybdénan sodný
-sl:natrijev molibdat
 sr:Natrijum molibdat
-sv:natriummolybdat
 ta:சோடியம் மாலிப்டேட்டு
 vi:Natri molipđat
 zh:钼酸钠
@@ -46516,6 +46483,8 @@ it:aroma naturale di limone
 nl:natuurlijk citroenaroma
 pt:aroma natural de limão
 ru:натуральный ароматизатор лимон
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Natural flavouring
 en:natural lime flavouring
@@ -46591,18 +46560,6 @@ fr:arôme naturel de thé
 < en:Natural flavouring
 en:natural thyme flavouring
 fr:arôme naturel de thym
-
-< en:Natural flavouring
-en:natural vanilla flavouring
-da:naturlig vanillearoma
-de:natürliches Vanillearoma
-es:aroma natural de vainilla
-fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
-it:aroma naturale di vaniglia
-nb:naturlig vanilijarom
-nl:natuurlijk vanillearoma
-pl:naturalny aromat wanilii
-sv:naturlig vanilijarom
 
 < en:Natural flavouring
 en:rum natural flavouring
@@ -49950,6 +49907,8 @@ en:pork
 de:Schweinefleisch
 fr:porc
 it:suino
+vegan:en: no
+vegetarian:en: no
 
 < en:Meat
 < en:Pork
@@ -50044,6 +50003,8 @@ fr:foie de porc
 en:pork by-product
 fr:sous-produit du porc
 nl:Varkensvleesbijproduct
+vegan:en: no
+vegetarian:en: no
 
 < en:Pork by-product
 fr:couenne et gras de porc
@@ -51169,6 +51130,8 @@ tl:Quinoa
 tr:Kinoa
 uk:Кіноа
 vi:Diêm mạch
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q139925
 wikipedia:en: https://en.wikipedia.org/wiki/Quinoa
 
@@ -51566,6 +51529,8 @@ es:cuajo animal
 fr:présure animale
 nl:dierlijk stremsel
 nn:animalsk løpe
+vegan:en: no
+vegetarian:en: no
 
 < en:Rennet
 en:microbial rennet
@@ -51573,6 +51538,8 @@ de:mikrobielles Lab
 fr:présure microbienne
 it:caglio microbico
 nl:microbieel stremsel
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:Rhum
 en:white rum
@@ -51958,6 +51925,8 @@ de:Reissirup
 fr:sirop de riz
 it:sciroppo di riso
 nl:Rijststroop
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Ricotta
 fr:ricotta de brébis
@@ -52825,7 +52794,7 @@ hi:सोडियम आयोडाइड
 hr:Natrijev jodid
 hu:Nátrium-jodid
 id:Natrium iodida
-it:ioduro di sodio, ioduro di potassio
+it:Ioduro di sodio
 ja:ヨウ化ナトリウム
 ko:아이오딘화 나트륨
 ky:Натрий иодиди
@@ -52971,6 +52940,8 @@ uz:qayla
 vi:Xốt
 vo:sod
 zh:醬
+vegan:en: ignore
+vegetarian:en: ignore
 wikidata:en: Q178359
 wikipedia:en: https://en.wikipedia.org/wiki/Sauce
 
@@ -53061,6 +53032,8 @@ it:salsa di pesce
 nl:vissaus
 nn:fiskesaus
 sv:fisksås
+vegan:en: no
+vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Fish_sauce
 
 < en:Sauce
@@ -54251,7 +54224,7 @@ lt:natrio selenatas
 lv:nātrija selenāts
 mt:selenat tas-sodju
 nl:natriumselenaat
-pl:selenianVI sodu, selenian sodu
+pl:selenian sodu
 pt:selenato de sódio
 ro:selenat de sodiu
 sh:Natrijum selenat
@@ -54265,7 +54238,7 @@ wikidata:en: Q419488
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_selenate
 
 < en:Selenium
-en:sodium selenite
+en:Sodium selenite
 ar:سيلينيت الصوديوم
 bg:Натриев селенит
 cs:seleničitan sodný
@@ -54285,7 +54258,7 @@ lt:natrio selenitas
 lv:nātrija selenīts
 mt:selenit tas-sodju
 nl:natriumseleniet
-pl:selenian soduIV
+pl:selenian sodu
 pt:selenito de sódio
 ro:selenit de sodiu
 ru:селенит натрия
@@ -54327,6 +54300,18 @@ fr:lait demi écrémé stérilisé
 en:organic semi-whole durum wheat semolina
 fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur biologique, semoule de blé dur demi-complète biologique
 
+en:semolina
+ca:Sèmola
+de:Grieß
+el:Σιμιγδάλι
+es:Sémola
+et:Manna
+fr:Semoule
+nl:gries
+oc:Semola
+vegan:en: yes
+vegetarian:en: yes
+
 < en:Durum wheat
 < en:Semolina
 en:durum wheat semolina
@@ -54351,7 +54336,19 @@ en:Durum whole wheat flour
 nl:volkoren tarwegriesmeel
 
 < en:Semolina
-fr:semoule de blé tendre
+< en:Wheat
+en:wheat semolina
+ar:سميد
+de:Weizengrieß
+es:sémola de trigo
+fr:semoule de blé
+it:semolino di frumento
+nl:tarwegries
+pt:sêmola de trigo
+carbon_footprint_fr_foodges_ingredient:fr: Semoule de blé dur
+carbon_footprint_fr_foodges_value:fr: 0.6
+wikidata:en: Q381350
+wikipedia:en: https://en.wikipedia.org/wiki/Semolina
 
 en:Sequestrant
 bg:Комплексообразуватели
@@ -55194,57 +55191,6 @@ it:Oncorhynchus nerka - salmone rosso
 la:oncorhynchus nerka
 
 < en:Sodium
-en:sodium citrate
-bg:Натриев цитрат
-cs:citronan sodný
-de:
-el:κιτρικό νάτριο
-es:citrato de sodio
-et:naatriumtsitraat
-fi:natriumsitraatti
-fr:citrate de sodium
-hu:nátrium-citrát
-it:citrato di sodio
-lt:natrio citratas
-lv:nātrija citrāts
-mt:ċitrat tas-sodju
-nl:natriumcitraat
-pl:cytrynian sodu
-pt:citrato de sódio
-ro:citrat de sodiu
-sk:
-sl:natrijev citrat
-sv:natriumcitrat
-
-< en:Sodium
-en:sodium phosphate
-fr:
-
-< en:Sodium
-en:sodium salts of orthophosphoric acid
-bg:Натриеви соли на ортофосфорната киселина
-cs:sodné soli kyseliny fosforečné
-de:Natriumsalze der Orthophosphorsäure
-el:άλατα νατρίου του ορθοφωσφορικού οξέος
-es:sales sódicas de ácido ortofosfórico
-et:ortofosforhappe naatriumisoolad
-fi:ortofosforihapon natriumsuolat
-fr:sels de sodium de l'acide orthophosphorique
-hu:nátrium ortofoszforsavval alkotott sói
-it:sali di sodio dell'acido ortofosforico
-lt:ortofosforo rūgšties natrio druskos
-lv:ortofosforskābes nātrija sāļi
-mt:melħ tas-sodju tal-aċidu ortofosforiku
-nl:natriumzouten van orthofosforzuur
-pl:sole sodowe kwasu ortofosforowego
-pt:sais de sódio do ácido ortofosfórico
-ro:săruri de sodiu ale acidului ortofosforic
-sk:sodné soli kyseliny ortofosforečnej
-sl:natrijeve soli ortofosforne kisline
-sv:natriumsalter av ortofosforsyra
-
-< en:Salt
-< en:Sodium
 en:sodium chloride, sodium chlorure
 ar:كلوريد الصوديوم
 az:Natrium Xlorid
@@ -55257,7 +55203,7 @@ da:natriumklorid
 de:Natriumchlorid
 el:χλωριούχο νάτριο
 eo:natria klorido
-es:cloruro de sodio
+es:Cloruro de sodio
 et:naatriumkloriid
 eu:sodio kloruro
 fa:سدیم کلرید
@@ -55306,6 +55252,56 @@ uz:Natriy xlorid
 vi:natri clorua
 wikidata:en: Q2314
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_chloride
+
+< en:Sodium
+en:sodium citrate
+bg:Натриев цитрат
+cs:citronan sodný
+de:
+el:κιτρικό νάτριο
+es:citrato de sodio
+et:naatriumtsitraat
+fi:natriumsitraatti
+fr:citrate de sodium
+hu:nátrium-citrát
+it:citrato di sodio
+lt:natrio citratas
+lv:nātrija citrāts
+mt:ċitrat tas-sodju
+nl:natriumcitraat
+pl:cytrynian sodu
+pt:citrato de sódio
+ro:citrat de sodiu
+sk:
+sl:natrijev citrat
+sv:natriumcitrat
+
+< en:Sodium
+en:sodium phosphate
+fr:
+
+< en:Sodium
+en:sodium salts of orthophosphoric acid
+bg:Натриеви соли на ортофосфорната киселина
+cs:sodné soli kyseliny fosforečné
+de:Natriumsalze der Orthophosphorsäure
+el:άλατα νατρίου του ορθοφωσφορικού οξέος
+es:sales sódicas de ácido ortofosfórico
+et:ortofosforhappe naatriumisoolad
+fi:ortofosforihapon natriumsuolat
+fr:sels de sodium de l'acide orthophosphorique
+hu:nátrium ortofoszforsavval alkotott sói
+it:sali di sodio dell'acido ortofosforico
+lt:ortofosforo rūgšties natrio druskos
+lv:ortofosforskābes nātrija sāļi
+mt:melħ tas-sodju tal-aċidu ortofosforiku
+nl:natriumzouten van orthofosforzuur
+pl:sole sodowe kwasu ortofosforowego
+pt:sais de sódio do ácido ortofosfórico
+ro:săruri de sodiu ale acidului ortofosforic
+sk:sodné soli kyseliny ortofosforečnej
+sl:natrijeve soli ortofosforne kisline
+sv:natriumsalter av ortofosforsyra
 
 en:sodium salts of AMP
 bg:Натриеви соли на АМФ
@@ -56592,6 +56588,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Turmeric
 en:spice extract, spices extract
 de:Gewürz Extrakte, Gewürzextrakte
 fr:extrait d'épice, extraits d'épices
+vegan:en: yes
+vegetarian:en: yes
 
 en:spices and spices extracts
 fr:épices et extrait d'épices
@@ -57622,6 +57620,8 @@ en:sugar syrup
 de:Zuckersirup
 fr:sirop de sucre
 nl:Suikerstroop
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Invert sugar
 < en:Sugar syrup
@@ -57690,6 +57690,8 @@ en:soya and sunflower lecithin
 de:Sojalecithin und Sonnenblumen
 fr:lécithine de soja et de tournesol
 it:lecitina di soia e di girasole
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Sunflower oil
 en:cold pressed sunflower oil
@@ -59037,6 +59039,21 @@ en:pure vanilla extract
 fr:extrait pur de vanille
 it:estratto puro di vaniglia
 
+< en:Natural flavouring
+< en:Vanilla flavouring
+en:natural vanilla flavouring
+da:naturlig vanillearoma
+de:natürliches Vanillearoma
+es:aroma natural de vainilla
+fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
+it:aroma naturale di vaniglia
+nb:naturlig vanilijarom
+nl:natuurlijk vanillearoma
+pl:naturalny aromat wanilii
+sv:naturlig vanilijarom
+vegan:en: yes
+vegetarian:en: yes
+
 < en:Bourbon vanilla
 < en:Vanilla pod
 en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean
@@ -59682,7 +59699,10 @@ fr:Muscat sec
 
 en:veal
 fr:veau
+vegan:en: no
+vegetarian:en: no
 
+< en:Meat
 < en:Veal
 en:veal meat
 de:Kalbsfleisch
@@ -63108,6 +63128,8 @@ de:Weinblätter
 es:hojas de parra
 fr:feuilles de vigne
 it:foglie di vite
+vegan:en: yes
+vegetarian:en: yes
 
 en:vinegar
 af:Asyn
@@ -63642,6 +63664,8 @@ uk:Холекальциферол, Вітамін D3
 vi:cholecalciferol, vitamin D3
 yi:וויטאמין D3
 zh:胆钙化醇, 维生素D3
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q139347
 wikipedia:en: https://en.wikipedia.org/wiki/Cholecalciferol
 
@@ -63682,6 +63706,8 @@ sr:ергокалциферол
 sv:ergokalciferol, vitamin D2
 uk:Ергокальциферол
 zh:麦角钙化醇, 维生素D2
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q139200
 wikipedia:en: https://en.wikipedia.org/wiki/Ergocalciferol
 
@@ -63866,6 +63892,8 @@ wa:Vitamene
 yi:וויטאמין
 yo:Àmínìamáralókun
 zh:维生素
+vegan:en: yes
+vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin
 
 < en:Vitamins
@@ -64818,21 +64846,6 @@ fr:Eau du robinet
 carbon_footprint_fr_foodges_ingredient:fr: Eau du robinet
 carbon_footprint_fr_foodges_value:fr: 0
 
-< de:Grieß
-< en:Wheat
-en:semolina
-ar:سميد
-de:Weizengrieß
-es:sémola de trigo
-fr:semoule de blé
-it:semolino di frumento
-nl:tarwegries
-pt:sêmola de trigo
-carbon_footprint_fr_foodges_ingredient:fr: Semoule de blé dur
-carbon_footprint_fr_foodges_value:fr: 0.6
-wikidata:en: Q381350
-wikipedia:en: https://en.wikipedia.org/wiki/Semolina
-
 < en:Wheat
 en:cooked wheat
 de:Vorgegarter Hartweizen
@@ -65048,6 +65061,9 @@ fr:farine de gonflement de blé
 
 < en:Wheat flour
 fr:farine mi-blanche
+
+< en:Wheat semolina
+fr:semoule de blé tendre
 
 < en:Modified starch
 < en:Wheat starch
@@ -66010,11 +66026,11 @@ en:zinc gluconate
 ar:غلوكونات الزنك
 bg:Цинков глюконат
 ca:gluconat de zinc
-cs:glukonan zinečnatý, Glukonát zinečnatý
+cs:glukonan zinečnatý
 da:zinkgluconat
 de:Zinkgluconat
 el:γλυκονικός ψευδάργυρος
-es:gluconato de cinc, gluconato de zinc
+es:gluconato de cinc
 et:tsinkglükonaat
 fa:گلوکونات روی
 fi:sinkkiglukonaatti
@@ -66067,41 +66083,39 @@ bg:Цинков оксид
 bn:জিঙ্ক অক্সাইড
 bs:Cink oksid
 ca:òxid de zinc
-cs:oxid zinečnatý
+cs:Oxid zinečnatý
 cy:Sinc ocsid
 da:Zinkoxid
 de:Zinkoxid
-el:οξείδιο του ψευδαργύρου
+el:Οξείδιο του ψευδαργύρου
 eo:zinka oksido
-es:óxido de cinc, óxido de zinc
-et:tsinkoksiid
+es:óxido de zinc
 fa:روی اکسید
-fi:sinkkioksidi
+fi:Sinkkioksidi
 fr:oxyde de zinc
 hi:जिंक ऑक्साइड
 hr:Cinkov oksid
-hu:cink-oxid
+hu:Cink-oxid
 id:Seng oksida
 it:ossido di zinco
 ja:酸化亜鉛
 kk:Мырыш тотығы
 la:Oxidum zinci
 lt:cinko oksidas, Cinko baltasis
-lv:cinka oksīds
 mk:Цинк оксид
 mt:ossidu taż-żingu
 nb:Sinkhvitt
 nl:zinkoxide
 pl:tlenek cynku
 pt:óxido de zinco
-ro:oxid de zinc
+ro:Oxid de zinc
 ru:оксид цинка
 sh:Cink oksid
 si:සින්ක් ඔක්සයිඩ්
-sk:oxid zinočnatý
-sl:cinkov oksid
+sk:Oxid zinočnatý
+sl:Cinkov oksid
 sr:цинк оксид
-sv:zinkoxid
+sv:Zinkoxid
 te:జింక్ ఆక్సైడ్
 th:สังกะสีออกไซด์
 uk:Оксид цинку
@@ -66150,8 +66164,6 @@ tr:zinc sulfate
 uk:Цинковий купорос
 vi:Kẽm sulfat
 zh:硫酸锌
-
-en:zinc sulphate
 
 fr:additifs alimentaires
 
