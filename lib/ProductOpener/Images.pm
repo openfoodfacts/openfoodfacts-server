@@ -1291,7 +1291,7 @@ HTML
 
 				$noscript .= "</noscript>";
 				$html = $html . $noscript;
-				$html = <<HTML
+				$html = <<"HTML"
 <a data-reveal-id="drop_$id" class="th">
 $html
 </a>
@@ -1303,6 +1303,7 @@ $html
 <meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/3.0/"/>
 <meta itemprop="caption" content="$alt"/>
 </div>
+<meta itemprop="imgid" content="$id"/>
 HTML
 ;
 

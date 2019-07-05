@@ -6406,6 +6406,11 @@ sub display_image_box($$$) {
 
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {
+		my $code = $product_ref->{code};
+		my $linkid = $id;
+		if ($img =~ /<meta itemprop="imgid" content="([^"]+)"/) {
+			$linkid = $1;
+		}
 
 		if ($id eq 'front') {
 
@@ -6413,10 +6418,12 @@ sub display_image_box($$$) {
 
 		}
 
-		$img = <<HTML
-<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+		my $alt = lang('image_attribution_link_title');
+		$img = <<"HTML"
+<figure id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 $img
-</div>
+<figcaption><a href="/cgi/product_image.pl?code=$code&amp;id=$linkid" title="$alt"><img src="/images/svg/cc.svg" alt="Creative Commons icon"></a></figcaption>
+</figure>
 HTML
 ;
 
@@ -6426,8 +6433,6 @@ HTML
 
 		# Unselect button for admins
 		if ($admin) {
-
-			my $code = $product_ref->{code};
 
 			my $idlc = $id;
 
@@ -6613,6 +6618,28 @@ JS
 .image_box {
 	text-align:center;
 	margin-bottom:2rem;
+}
+
+figure.image_box  {
+	position: relative;
+	padding: 0;
+}
+
+.image_box > img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+figure.image_box figcaption {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+figure.image_box figcaption img {
+	width: 16px;
+	height: 16px;
 }
 
 .field_div {
@@ -6926,7 +6953,7 @@ HTML
 
 	# Take the last (biggest) image
 	my $product_image_url;
-	if ($html_image =~ /.*src="([^"]+)"/is) {
+	if ($html_image =~ /.*src="(.*\/products\/[^"]+)"/is) {
 		$product_image_url = $1;
 	}
 
