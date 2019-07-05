@@ -117,6 +117,7 @@ additive:en:E221
 palm oil free:en:no
 ingredient:en:palm
 ingredient:en:palm oil and fat
+ingredient:en:palm kernel oil and fat
 additive:en:E304i
 
 palm oil free:en:maybe
@@ -133,16 +134,101 @@ additive:en:en:Glycerol monostearate
 
 Pollo-pescetarianism:en:no
 ingredient:en:animal
+additive:en:E428
+additive:en:E542
+
+Pollo-pescetarianism:en:maybe
+additive:en:E387
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E910
+additive:en:E920
+additive:en:E921
+additive:en:E1000
+additive:en:E1001
+other:en:Carnitine
+other:en:taurine
+other:en:choline
+
+
 
 Pollo-vegetarianism:en:no
 ingredient:en:animal
 ingredient:en:fish
 ingredient:en:shellfish
+additive:en:E428
+additive:en:E542
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E1000
+
+Pollo-vegetarianism:en:maybe
+additive:en:E387
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E626
+additive:en:E627
+additive:en:E629
+additive:en:E910
+additive:en:E920
+additive:en:E921
+other:en:Carnitine
+other:en:taurine
+additive:en:E1001
+other:en:choline
+
+
 
 Pescetarianism:en:no
 ingredient:en:animal
 ingredient:en:poultry
 ingredient:en:game animal
+additive:en:E120
+additive:en:E428
+additive:en:E542
+additive:en:E1000
+
+Pescetarianism:en:maybe
+additive:en:E387
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E910
+additive:en:E920
+additive:en:E921
+additive:en:E1001
+other:en:Carnitine
+other:en:taurine
+other:en:choline
+
+
 
 Ovo-lacto vegetarianism:en:no
 ingredient:en:animal
@@ -150,6 +236,38 @@ ingredient:en:poultry
 ingredient:en:game animal
 ingredient:en:fish
 ingredient:en:shellfish
+additive:en:E120
+additive:en:E428
+additive:en:E542
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E1000
+
+Ovo-lacto vegetarianism:en:maybe
+additive:en:E387
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E626
+additive:en:E627
+additive:en:E628
+additive:en:E629
+additive:en:E910
+additive:en:E920
+additive:en:E921
+additive:en:E1001
+other:en:Carnitine
+other:en:taurine
+other:en:choline
+
+
 
 Ovo vegetarianism:en:no
 ingredient:en:animal
@@ -159,18 +277,57 @@ ingredient:en:fish
 ingredient:en:shellfish
 ingredient:en:dairy
 ingredient:en:lactose
+ingredient:en:animal-based rennet
 ingredient:en:milk minerals
 ingredient:en:milk proteins
 ingredient:en:milk chocolate
 ingredient:en:milk filling
 ingredient:en:ice cream
 ingredient:en:bechamel sauce
+# additive:en:E106 can be produced from milk, but is not done so commercially
+additive:en:E120
+additive:en:E428
+additive:en:E542
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E963
+additive:en:E966
+additive:en:E1000
+additive:en:E1001
+other:en:Carnitine
+other:en:taurine
+other:en:choline
+
+Ovo vegetarianism:en:maybe
+ingredient:en:rennet
+additive:en:E387
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E910
+additive:en:E626
+additive:en:E627
+additive:en:E628
+additive:en:E629
+additive:en:E910
+additive:en:E920
+additive:en:E921
+
+
 
 Orthodox Fasting:en:no
 ingredient:en:animal
 ingredient:en:poultry
 ingredient:en:game animal
 ingredient:en:dairy
+ingredient:en:animal-based rennet
 ingredient:en:lactose
 ingredient:en:milk minerals
 ingredient:en:milk proteins
@@ -179,6 +336,38 @@ ingredient:en:milk filling
 ingredient:en:ice cream
 ingredient:en:bechamel sauce
 ingredient:en:egg
+# additive:en:E106 can be produced from milk, but is not done so commercially
+additive:en:E120
+additive:en:E428
+additive:en:E542
+additive:en:E963
+additive:en:E966
+additive:en:E1000
+
+Orthodox Fasting:en:maybe
+additive:en:E387
+additive:en:E322
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E910
+additive:en:E920
+additive:en:E921
+additive:en:E1001
+other:en:Carnitine
+other:en:taurine
+other:en:choline
+
+
 
 Lacto vegetarianism:en:no
 ingredient:en:animal
@@ -187,6 +376,39 @@ ingredient:en:game animal
 ingredient:en:fish
 ingredient:en:shellfish
 ingredient:en:egg
+additive:en:E120
+additive:en:E428
+additive:en:E542
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E1000
+additive:en:E1105
+
+Lacto vegetarianism:en:maybe
+additive:en:E387
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E626
+additive:en:E627
+additive:en:E628
+additive:en:E629
+additive:en:E910
+additive:en:E920
+additive:en:E921
+additive:en:E1001
+other:en:Carnitine
+other:en:taurine
+other:en:choline
+
+
 
 Veganism:en:no
 ingredient:en:animal
@@ -195,6 +417,7 @@ ingredient:en:game animal
 ingredient:en:fish
 ingredient:en:shellfish
 ingredient:en:dairy
+ingredient:en:animal-based rennet
 ingredient:en:lactose
 ingredient:en:milk minerals
 ingredient:en:milk proteins
@@ -210,7 +433,47 @@ ingredient:en:beeswax
 ingredient:en:marzipan
 ingredient:en:nougat
 ingredient:en:invertase
+# additive:en:E106 can be produced from milk, but is not done so commercially
+additive:en:E120
+additive:en:E428
+additive:en:E542
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E901
+additive:en:E904
+additive:en:E910
+additive:en:E913
 additive:en:E920
+additive:en:E921
+additive:en:E963
+additive:en:E966
+additive:en:E1000
+additive:en:E1105
+other:en:Carnitine
+
+Veganism:en:maybe
+ingredient:en:rennet
+additive:en:E387
+additive:en:E322
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E626
+additive:en:E627
+additive:en:E628
+additive:en:E629
+additive:en:E1001
+other:en:taurine
+other:en:choline
+
+
 
 Jain vegetarianism:en:no
 ingredient:en:animal
@@ -230,6 +493,37 @@ ingredient:en:root vegetable
 ingredient:en:ginger
 ingredient:en:betanin
 ingredient:en:turmeric
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E1000
+additive:en:E1105
+
+Jain vegetarianism:en:maybe
+additive:en:E387
+additive:en:E322
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E626
+additive:en:E627
+additive:en:E628
+additive:en:E629
+additive:en:E910
+additive:en:E920
+additive:en:E921
+additive:en:E1001
+other:en:Carnitine
+other:en:taurine
+other:en:choline
+
+
 
 Fruitarianism:en:no
 ingredient:en:animal
@@ -239,6 +533,7 @@ ingredient:en:fish
 ingredient:en:shellfish
 ingredient:en:dairy
 ingredient:en:lactose
+ingredient:en:animal-based rennet
 ingredient:en:milk minerals
 ingredient:en:milk proteins
 ingredient:en:milk chocolate
@@ -257,4 +552,41 @@ ingredient:en:root vegetable
 ingredient:en:ginger
 ingredient:en:betanin
 ingredient:en:turmeric
+# additive:en:E106 can be produced from milk, but is not done so commercially
+additive:en:E120
+additive:en:E428
+additive:en:E542
+additive:en:E630
+additive:en:E631
+additive:en:E632
+additive:en:E633
+additive:en:E634
+additive:en:E635
+additive:en:E901
+additive:en:E904
+additive:en:E910
+additive:en:E913
 additive:en:E920
+additive:en:E963
+additive:en:E966
+additive:en:E1000
+additive:en:E1105
+other:en:Carnitine
+
+Fruitarianism:en:maybe
+ingredient:en:rennet
+additive:en:E387
+additive:en:E322
+additive:en:E430
+additive:en:E431
+additive:en:E432
+additive:en:E433
+additive:en:E434
+additive:en:E435
+additive:en:E626
+additive:en:E627
+additive:en:E628
+additive:en:E629
+additive:en:E1001
+other:en:taurine
+other:en:choline
