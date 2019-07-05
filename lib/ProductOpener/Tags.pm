@@ -2675,11 +2675,11 @@ sub canonicalize_taxonomy_tag($$$)
 }
 
 
-sub generate_spellcheck_candidates($) {
+sub generate_spellcheck_candidates($$) {
 
 	my $tagid = shift;
 
-	my @candidates = [$tagid];
+	my $candidates_ref = shift;
 
 	# https://norvig.com/spell-correct.html
 	# "All edits that are one edit away from `word`."
@@ -2699,29 +2699,27 @@ sub generate_spellcheck_candidates($) {
 
 		# delete
 		if ($i < $l) {
-			push @candidates, $left . substr($right, 1);
+			push @$candidates_ref, $left . substr($right, 1);
 		}
 
 		foreach my $c ("a".."z") {
 
 			# insert
-			push @candidates, $left . $c . $right;
+			push @$candidates_ref, $left . $c . $right;
 
 			# replace
 			if ($i < $l) {
-				push @candidates, $left . $c . substr($right, 1);
+				push @$candidates_ref, $left . $c . substr($right, 1);
 			}
 		}
 
 		if (($i > 0) and ($i < $l)) {
-			push @candidates, $left . "-" . $right;
+			push @$candidates_ref, $left . "-" . $right;
 			if ($i < ($l - 1)) {
-				push @candidates, $left . "-" . substr($right, 1);
+				push @$candidates_ref, $left . "-" . substr($right, 1);
 			}
 		}
 	}
-
-	return @candidates;
 }
 
 
@@ -2741,18 +2739,11 @@ sub spellcheck_taxonomy_tag($$$)
 	}
 
 	$tag = normalize_percentages($tag, $tag_lc);
-	my $tagid = get_fileid($tag);
-
-	if ($tagtype =~ /^additives/) {
-		# convert the E-number + name into just E-number (we get those in urls like /additives/e330-citric-acid)
-		# check E + 1 digit in order to not convert Erythorbate-de-sodium to Erythorbate
-		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
-	}
 
 	my @candidates = ($tag);
 
 	if (length($tag) > 6) {
-		@candidates = generate_spellcheck_candidates($tag);
+		generate_spellcheck_candidates($tag, \@candidates);
 	}
 
 	my $result;
@@ -2761,38 +2752,41 @@ sub spellcheck_taxonomy_tag($$$)
 	my $correction;
 	my $last_candidate;
 
-	foreach my $candidate (@candidates) {
+	if ((exists $synonyms{$tagtype}) and (exists $synonyms{$tagtype}{$tag_lc})) {
 
-		$last_candidate = $candidate;
-		$tagid = get_fileid($candidate);
+		foreach my $candidate (@candidates) {
 
-		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid})) {
-			$result = $synonyms{$tagtype}{$tag_lc}{$tagid};
-			last;
-		}
-		else {
-			# try removing stopwords and plurals
-			# my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
-			# $tagid2 = remove_plurals($tag_lc,$tagid2);
-			my $tagid2 = remove_plurals($tag_lc,$tagid);
+			$last_candidate = $candidate;
+			my $tagid = get_fileid($candidate);
 
-			# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
-			my $tagid3 = $tagid2;
-			my $tagid4 = $tagid2;
-			$tagid3 =~ s/(anti)(-| )/$1/;
-			$tagid4 =~ s/(anti)([a-z])/$1-$2/;
-
-			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid2})) {
-				$result = $synonyms{$tagtype}{$tag_lc}{$tagid2};
+			if (exists $synonyms{$tagtype}{$tag_lc}{$tagid}) {
+				$result = $synonyms{$tagtype}{$tag_lc}{$tagid};
 				last;
 			}
-			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3})) {
-				$result = $synonyms{$tagtype}{$tag_lc}{$tagid3};
-				last;
-			}
-			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4})) {
-				$result = $synonyms{$tagtype}{$tag_lc}{$tagid4};
-				last;
+			else {
+				# try removing stopwords and plurals
+				# my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
+				# $tagid2 = remove_plurals($tag_lc,$tagid2);
+				my $tagid2 = remove_plurals($tag_lc,$tagid);
+
+				# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
+				my $tagid3 = $tagid2;
+				my $tagid4 = $tagid2;
+				$tagid3 =~ s/(anti)(-| )/$1/;
+				$tagid4 =~ s/(anti)([a-z])/$1-$2/;
+
+				if (exists $synonyms{$tagtype}{$tag_lc}{$tagid2}) {
+					$result = $synonyms{$tagtype}{$tag_lc}{$tagid2};
+					last;
+				}
+				elsif (exists $synonyms{$tagtype}{$tag_lc}{$tagid3}) {
+					$result = $synonyms{$tagtype}{$tag_lc}{$tagid3};
+					last;
+				}
+				elsif (exists $synonyms{$tagtype}{$tag_lc}{$tagid4}) {
+					$result = $synonyms{$tagtype}{$tag_lc}{$tagid4};
+					last;
+				}
 			}
 		}
 	}
@@ -2801,7 +2795,7 @@ sub spellcheck_taxonomy_tag($$$)
 	if (defined $result) {
 
 		$correction = $last_candidate;
-		$tagid = $tag_lc . ':' . $result;
+		my $tagid = $tag_lc . ':' . $result;
 		$resultid = $tagid;
 
 		if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})) {

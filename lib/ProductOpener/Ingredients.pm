@@ -1956,9 +1956,7 @@ sub extract_ingredients_classes_from_text($) {
 
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
-	my $text = $product_ref->{ingredients_text};
-
-	$text = preparse_ingredients_text($product_ref->{lc}, $text);
+	my $text = preparse_ingredients_text($product_ref->{lc}, $product_ref->{ingredients_text});
 	my $and = $Lang{_and_}{$product_ref->{lc}};
 	$and =~ s/ /-/g;
 
