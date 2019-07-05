@@ -218,8 +218,8 @@ sub init_product($) {
 		if (defined param('cc')) {
 			$country = lc(param('cc'));
 			$country =~ s/^en://;
-			
-			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it 
+
+			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
 			my %lc_overrides = (
 				au => "en",
 				es => "es",
@@ -233,10 +233,10 @@ sub init_product($) {
 				ie => "en",
 				nz => "en",
 			);
-			
+
 			if (defined $lc_overrides{$country}) {
 				$lc = $lc_overrides{$country};
-			}					
+			}
 		}
 		else {
 			$country = "france";
@@ -247,11 +247,11 @@ sub init_product($) {
 	if ($creator eq 'elcoco') {
 		$country = "spain";
 	}
-	
+
 	if (defined $lc) {
 		$product_ref->{lc} = $lc;
 		$product_ref->{lang} = $lc;
-	}	
+	}
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
@@ -530,7 +530,7 @@ sub store_product($$) {
 	compute_languages($product_ref);
 
 	compute_product_history_and_completeness($product_ref, $changes_ref);
-	
+
 	compute_data_sources($product_ref);
 
 	# sort_key
@@ -556,6 +556,13 @@ sub store_product($$) {
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
+	my $change_ref = @$changes_ref[-1];
+	my $diffs = $change_ref->{diffs};
+	my %diffs = %{$diffs};
+	if ((!$diffs) or (!keys %diffs)) {
+		$log->info("changes not stored because of empty diff", { change_ref => $change_ref }) if $log->is_info();
+		return 0;
+	}
 
 	# 2018-12-26: remove obsolete products from the database
 	# another option could be to keep them and make them searchable only in certain conditions
@@ -576,9 +583,9 @@ sub store_product($$) {
 	symlink("$rev.sto", $link) or $log->error("could not symlink to new revision", { source => "$new_data_root/products/$path/$rev.sto", link => $link, error => $! });
 
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
-
-	my $change_ref = @$changes_ref[-1];
 	log_change($product_ref, $change_ref);
+
+	return 1;
 
 }
 
@@ -630,7 +637,7 @@ sub compute_data_sources($) {
 			if ($source_ref->{id} eq 'biscuiterie-sainte-victoire') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Biscuiterie Sainte Victoire"} = 1;
-			}			
+			}
 
 			if ($source_ref->{id} eq 'openfood-ch') {
 				$data_sources{"Databases"} = 1;
@@ -643,16 +650,16 @@ sub compute_data_sources($) {
 		}
 	}
 
-	
+
 	# Add a data source forapps
-	
+
 	%data_sources = ();
 
 	if (defined $product_ref->{editors_tags}) {
 		foreach my $editor (@{$product_ref->{editors_tags}}) {
-		
+
 			if ($editor =~ /\./) {
-			
+
 				my $app = $`;
 
 				$data_sources{"Apps"} = 1;
@@ -664,7 +671,7 @@ sub compute_data_sources($) {
 	if ((scalar keys %data_sources) > 0) {
 		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
 		compute_field_tags($product_ref, "en", "data_sources");
-	}	
+	}
 }
 
 
@@ -844,25 +851,25 @@ sub compute_completeness_and_missing_tags($$$) {
 sub get_change_userid_or_uuid($) {
 
 	my $change_ref = shift;
-	
+
 	my $userid = $change_ref->{userid};
 
 	my $app = "";
 	my $uuid;
-	
+
 	if ((defined $userid) and (defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
 		$app = $options{apps_userids}{$userid} . "\.";
 	}
 	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
 		$app = $options{official_app_id} . "\.";
 	}
-		
+
 	# use UUID provided by some apps like Yuka
 	# UUIDs are mix of [a-zA-Z0-9] chars, they must not be lowercased by getfile_id
 
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
-	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A	
+	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
 	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
 		$uuid =~ s/^(\s*)//;
@@ -879,9 +886,9 @@ sub get_change_userid_or_uuid($) {
 	if ((not defined $userid) or ($userid eq '')) {
 		$userid = "openfoodfacts-contributors";
 	}
-	
+
 	return $userid;
-}		
+}
 
 
 sub compute_product_history_and_completeness($$) {
