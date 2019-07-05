@@ -435,7 +435,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -443,7 +443,7 @@ sub analyze_request($)
 			if ($parameter eq "fields") {
 				$request_ref->{$parameter} =~ s/\%2C/,/g;
 			}
-			$log->debug("parameter was set from query string", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
+			$log->debug("parameter $parameter was set from query string: " . $request_ref->{$parameter}, { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}
 
@@ -1463,6 +1463,13 @@ sub display_list_of_tags($$) {
 			unknown_tags_products => 0,
 		);
 
+		my $missing_property = $request_ref->{missing_property};
+		if ((defined $missing_property) and ($missing_property !~ /:/)) {
+			$missing_property .= ":en";
+			$log->debug("missing_property defined", {missing_property => $missing_property});
+			sleep(5);
+		}
+
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -1520,16 +1527,27 @@ sub display_list_of_tags($$) {
 					$td_nutriments .= "<td></td>";
 					$stats{known_tags}++;
 					$stats{known_tags_products} += $count;
+					# ?missing_property=vegan
+					# keep only known tags without a defined value for the property
+					if ($missing_property) {
+						next if (defined get_inherited_property($tagtype, $tagid, $missing_property));
+					}
 				}
 				else {
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
 					$stats{unknown_tags}++;
 					$stats{unknown_tags_products} += $count;
+
+					# ?missing_property=vegan
+					# keep only known tags
+					next if ($missing_property);
 				}
 			}
 
 			# do not compute the tag display if we just need stats
 			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
+
+
 
 			my $info = '';
 			my $css_class = '';
