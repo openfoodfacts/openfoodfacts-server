@@ -2393,7 +2393,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_benzoate
 en:sulphur dioxide, Sulfur dioxide, e220, e-220, e 220
 ar:ثنائي أكسيد الكبريت
 az:Kükürd qazından təmizlənmə üsulları
-bg:Серен двуокис
+bg:Серен двуокис, серен диоксид
 bn:সালফার ডাইঅক্সাইড
 bs:Sumpor dioksid
 ca:diòxid de sofre
@@ -2416,7 +2416,7 @@ hu:Kén-dioxid
 hy:Ծծմբի օքսիդ
 id:Belerang dioksida
 is:Brennisteinsoxíð
-it:Biossido di zolfo
+it:Biossido di zolfo, anidride solforosa
 ja:二酸化硫黄
 kk:Күкірт диоксиді
 ko:이산화 황
@@ -2433,6 +2433,7 @@ nl:Zwaveldioxide
 pl:Dwutlenek siarki
 pt:Dióxido de enxofre
 ro:Dioxid de sulf
+ru:серный диоксид
 sh:Sumpor dioksid
 sk:Oxid siričitý
 sl:Žveplov dioksid
@@ -24816,7 +24817,7 @@ nl:tarwevlokken
 pl:płatki pszenne
 
 <en:wheat flakes
-de:Weizenvollkornflocken
+de:Weizenvollkornflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot
 fr:flocons de blé complet
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20blé%20complet/languages
 
@@ -24832,7 +24833,7 @@ pt:fibras de trigo
 
 <en:wheat
 en:wheat bran
-de:Weizenkleie
+de:Weizenkleie, Weizenspeisekleie
 es:salvado de trigo
 fr:son de blé, son de froment
 it:crusca di frumento
@@ -26016,6 +26017,9 @@ fr:farine de céréales, farines de céréales
 it:farine di cereali
 nl:granenmeel
 
+<en:cereal flour
+de:Malzmehl
+
 # WHEAT FLOUR is a powder made from the grinding of wheat used for human consumption
 
 # Question
@@ -26068,15 +26072,16 @@ carbon_footprint_fr_foodges_ingredient:fr:Farine de blé
 carbon_footprint_fr_foodges_value:fr:1.2
 
 <en:wheat flour
+en:malted wheat flour
+de:gemaltzen Weizenmehl, Weizenmalzmehl, Weizenrostmalzmehl
+fr:farine de blé maltée, fr:farine de blé fermenté, farine de blé malté, farine de malt, farine de malt de froment
+it:farina di grano maltato
+
+<en:malted wheat flour
 fr:farine de blé malté torréfié
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20blé%20malté%20torréfié
 # 33 products in 3 languages @2018-09-22 (has translation issues)
 
-<en:wheat flour
-en:malted wheat flour
-de:gemaltzen Weizenmehl
-fr:farine de blé maltée
-it:farina di grano maltato
 
 # the t** is not translated in the ingredients
 
@@ -26124,7 +26129,6 @@ fr:farine de blé dextrinée
 nl:gedextrineerd tarwemeel
 
 <en:wheat flour
-fr:farine de blé fermenté, farine de blé malté, farine de malt, farine de malt de froment
 
 <en:wheat flour
 fr:farine mi-blanche
@@ -31058,7 +31062,7 @@ zh:麸质
 
 <en:gluten
 en:wheat gluten
-de:Weizengluten
+de:Weizengluten, Weizenkleber
 es:gluten de trigo
 et:nisugluteen
 fr:gluten de blé, gluten de froment
@@ -61494,35 +61498,44 @@ wikipedia:en:https://en.wikipedia.org/wiki/Taurine
 
 
 # Sulfites or sulphites are compounds that contain the sulfite ion SO2−3. 
-en:sulfite, Sulphites, sulphite
+en:sulfite, Sulphites, sulphite, sulfites
 af:Sulfiet
-bg:Сулфит
+bg:Сулфит, сулфити
 ca:sulfit
-cs:siřičitan
-da:Sulfit
-de:Sulfite
+cs:siřičitan, siřičitany
+da:Sulfit, sulfitter
+de:Sulfite, Sulphite
+el:θειώδεις
 eo:Sulfito
-es:Sulfito
-et:sulfit
+es:Sulfito, sulfitos
+et:sulfit, sulfitid
 fa:سولفیت
-fi:Sulfiitti
-fr:sulfite, sulfites
+fi:Sulfiitti, sulfiitit
+fr:sulfite, sulfites, sulphites, sulphite, bisulfite, metabisulfite, metabisulphite, disulfites
+ga:suilfítí
 he:סולפיט
 hr:Sulfit
+hu:szulfit
 hy:Սուլֆիտներ
-it:solfito
-lt:Persulfatai
+it:solfito, solfiti
+ja:亜硫酸塩
+lt:Persulfatai, sulfitai
+lv:sulfīti
+mt:sulfiti
 nb:sulfitt
 nl:sulfiet, sulfieten
 oc:Sulfit
 pl:Siarczyny
-pt:sulfito
-ro:Sulfit
+pt:sulfito, sulfitos
+ro:Sulfit, sulfiții
 ru:Сульфиты
 sh:Sulfit
+sk:siričitany
+sl:sulfiti
 sr:Сулфит
 sv:Sulfit
 tr:Sülfit
+th:ซัลไฟต์
 uk:Сульфіти
 zh:亚硫酸盐
 # sr-ec:Сулфит
