@@ -75,15 +75,26 @@ my $path = product_path($product_ref->{code});
 my $rev = $product_ref->{images}{$id}{rev};
 my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $imagetext;
 
-my $full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+my $display_image_url;
+my $full_image_url;
+if ($id =~ /^\d+$/) {
+	$display_image_url = "/images/products/$path/$id.$display_size.jpg";
+	$full_image_url = "/images/products/$path/$id.jpg";
+}
+else {
+	$display_image_url = "/images/products/$path/$id.$rev.$display_size.jpg";
+	$full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+}
 
 my $photographer = $product_ref->{images}{$id}{uploader};
 my $editor = $photographer;
 my $site_name = lang('site_name');
 
 my $original_id = $product_ref->{images}{$id}{imgid};
+my $original_link = "";
 if ((defined $original_id) and (defined $product_ref->{images}{$original_id})) {
 	$photographer = $product_ref->{images}{$original_id}{uploader};
+	$original_link = " <a href=\"/cgi/product_image.pl?code=$code&id=$original_id\">" . lang("image_original_link_text") . "</a>";
 }
 
 if  (defined $product_ref->{images}{$id}{rev}) {
@@ -138,10 +149,10 @@ my $creativecommons = sprintf(lang('image_attribution_creativecommons'), "<a hre
 
 my $html .= <<"HTML"
 <figure>
-	<img src="/images/products/$path/$id.$rev.$display_size.jpg" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy">
+	<img src="$display_image_url" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy">
 	<figcaption>
-		<p><a href="/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg">$full_size</a></p>
-		<p>$creativecommons</p>
+		<p><a href="$full_image_url">$full_size</a></p>
+		<p>$creativecommons$original_link</p>
 		<p>$attribution</p>
 	</figcaption>
 </figure>
