@@ -139,7 +139,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101(i)) and riboflavin-5'-phosphate sodium (E 101(ii)) as food additives.
 additives_classes:en: en:colour
-vegan:en:yes
+vegan:en:maybe
 vegetarian:en:yes
 
 <en:E101
@@ -1254,6 +1254,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
 efsa_evaluation_date:en: 2011-03-08
 efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
 
 en:E150b, Caustic sulphite caramel
 bg:E150b, Карамел (основен сулфит)
@@ -4532,7 +4534,7 @@ e_number:en:270
 wikidata:en:Q161249
 organic_eu:en:authorized
 vegan:en:maybe
-vegetarian:en:yes
+vegetarian:en:maybe
 
 en:E280, Propionic acid, Propionic acid, Propanoic acid, CH3CH2COOH
 bg:E280, Пропионова киселина, Пропионова киселина, Пропанова киселина
@@ -4985,8 +4987,9 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4289
 efsa_evaluation_date:en: 2015-11-18
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of ascorbyl palmitate (E 304(i)) and ascorbyl stearate (E 304(ii)) as food additives
 additives_classes:en: en:antioxidant
-vegan:en:yes
-vegetarian:en:yes
+# could be made from animal fat
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:E304
 en:E304(i), Ascorbyl palmitate, L-Ascorbyl Palmitate
@@ -9031,6 +9034,7 @@ sk:E428, Želatína
 sl:E428, Želatina
 sv:E428, gelatin
 e_number:en:428
+vegan:en:no
 vegetarian:en:no
 
 en:E429, peptone, tryptone
@@ -14468,8 +14472,9 @@ sl:E631, Dinatrijev inozinat, natrijev inozinat
 sv:E631, Dinatriuminosinat, Natriuminosinat
 e_number:en:631
 wikidata:en:Q905782
-vegan:en:no
-vegetarian:en:no
+# from meat or fish or fermentation of sugar
+vegan:en:maybe
+vegetarian:en:maybe
 
 en:E632, Dipotassium inosinate, Potassium inosinate
 bg:E632, Дикалиев инозинат, Калиев инозинат
@@ -14576,8 +14581,8 @@ sl:E635, Dinatrijev 5'-ribonukleotid
 sv:E635, Dinatrium-5'-ribonukleotider
 e_number:en:635
 wikidata:en:Q18967210
-vegan:en:no
-vegetarian:en:no
+vegan:en:maybe
+vegetarian:en:maybe
 
 en:E636, Maltol
 bg:E636, E636 food additive
@@ -15748,7 +15753,8 @@ sv:E920, L-cystein, Cystein, E 910, Cysteiner, E 920
 e_number:en:920
 mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en:Q186474
-vegan:en:no
+# produced through fermentation of vegetal or from animal hair or feathers
+vegan:en:maybe
 vegetarian:en:maybe
 
 en:E921, L-cysteine hydrochloride monohydrate
