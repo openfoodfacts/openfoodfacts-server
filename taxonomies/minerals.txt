@@ -11,9 +11,9 @@
 # Commission Regulations (EC) No 41/2009 and (EC) No 953/2009
 # http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
-synonyms:en:sulphide,sulfide
+synonyms:en:sulfide,sulphide
 
-synonyms:en:sulphate,sulfate
+synonyms:en:sulfate,sulphate
 
 synonyms:en:iron,ferric,ferrous
 
@@ -1029,7 +1029,7 @@ da:calciumhydroxid
 de:Calciumhydroxid
 el:Υδροξειδιο του ασβεστιου
 eo:Kalcia hidroksido
-es:hidróxido de calcio
+es:hidróxido de calcio, hidróxido cálcico
 et:Kaltsiumhüdroksiid
 eu:Kaltzio hidroxido
 fa:کلسیم هیدروکسید
@@ -1670,7 +1670,7 @@ sv:magnesiumoxid
 # description:en:MAGNESIUM SULFATE is an inorganic salt with the formula MgSO4(H2O)x where 0≤x≤7. Magnesium sulfate as a medication is used to treat and prevent low blood magnesium and seizures in women with eclampsia.
 
 <en:magnesium
-en:magnesium sulphate
+en:magnesium sulfate
 ar:كبريتات المغنسيوم
 az:Acı duz
 bg:Магнезиев сулфат
@@ -2252,7 +2252,7 @@ sv:ferrolaktat
 # comment:en:The wikidata names do not match the product names. The simple name (without (II)) are preferred.
 
 <en:iron
-en:ferrous sulphate, iron sulfate
+en:ferrous sulfate, iron sulfate
 ar:كبريتات الحديد الثنائي
 bg:Железен сулфат
 ca:sulfat de ferro
@@ -2361,24 +2361,24 @@ en:ferric diphosphate, iron diphosphate
 bg:Железен дифосфат
 cs:difosforečnan železitý
 da:ferridiphosphat
-de:Eisendiphosphat
-el:διφωσφορικός σίδηρος
-es:difosfato férrico
-et:rauddifosfaat
-fi:ferridifosfaatti
-fr:diphosphate ferrique
-hu:vas-difoszfát
-it:difosfato di ferro
-lt:geležies difosfatas
-lv:dzelzs difosfāts
-mt:difosfat ferriku
-nl:ijzerdifosfaat, ijzerfosfaat
-pl:difosforan żelaza
-pt:difisato de ferro
-ro:difosfat feric
-sk:difosforečnan železitý
-sl:železov difosfat
-sv:ferridifosfat
+de:Eisendiphosphat, Eisenpyrophosphat
+el:διφωσφορικός σίδηρος, πυροφωσφορικός σίδηρος
+es:difosfato férrico, pirofosfato férrico
+et:rauddifosfaat, raudpürofosfaat
+fi:ferridifosfaatti, ferripyrofosfaatti
+fr:diphosphate ferrique, pyrophosphate ferrique, diphosphate de fer, pyrophosphate de fer
+hu:vas-difoszfát, ferri-pirofoszfát
+it:difosfato di ferro,  pirofosfato ferrico
+lt:geležies difosfatas, geležies pirofosfata
+lv:dzelzs difosfāts, dzelzs pirofosfāts
+mt:difosfat ferriku, pirofosfat ferriku
+nl:ijzerdifosfaat, ijzerfosfaat, ijzerpyrofosfaat
+pl:difosforan żelaza, pirofosforan żelaza
+pt:difisato de ferro, pirofosfato férrico
+ro:difosfat feric, pirofosfat feric
+sk:difosforečnan železitý, pyrofosforečnan železitý
+sl:železov difosfat, železov pirofosfat
+sv:ferridifosfat, ferripyrofosfat
 ta:இரும்பு பைரோபாசுபேட்டு
 zh:焦磷酸铁
 wikidata:en:Q9207442
@@ -4567,7 +4567,7 @@ eo:kalia jodido
 es:yoduro de potasio
 fa:پتاسیم یدید
 fi:Kaliumjodidi
-fr:iodure de potassium, iodate de potassium
+fr:iodure de potassium
 hi:पोटासियम आयोडाइड
 hu:kálium-jodid
 id:Kalium iodida
@@ -4602,6 +4602,29 @@ wikidata:en:Q121874
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_iodide
 # mineral/potassium-iodide has 718 products in 8 languages @2019-04-24
 # ingredient/fr:iodure-de-potassium has 504 products in 4 languages @2019-04-24
+
+<en:Iodine
+en:potassium iodate
+bg:Калиев йодат
+cs:jodičnan draselný
+de:Kaliumiodat
+el:ιωδικό κάλιο
+es:yodato de potasio
+et:kaaliumjodaat
+fi:kaliumjodaatti
+fr:iodate de potassium
+hu:kálium-jodát
+it:iodato di sodio
+lt:kalio jodatas
+lv:kālija jodāts
+mt:jodat tal-potassju
+nl:kaliumjodaat
+pl:jodan potasu
+pt:iodato de potássio
+ro:iodat de potasiu
+sk:jodičnan draselný
+sl:kalijev jodat
+sv:kaliumjodat
 
 <en:Iodine
 en:sodium iodate
