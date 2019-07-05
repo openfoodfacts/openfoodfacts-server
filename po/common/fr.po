@@ -3,13 +3,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
+"Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
 "PO-Revision-Date: 2017-09-04 03:54-0400\n"
 "Language-Team: French\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -55,7 +56,7 @@ msgid "Hello <NAME>,\n\n"
 "<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!\n"
 "To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: https://slack.openfoodfacts.org\n\n"
 "You can also join the Facebook group for contributors:\n"
-"https://www.facebook.com/groups/openfoodfacts/\n\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
 "New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.\n"
 "https://openbeautyfacts.org\n\n"
 "Thank you very much!\n\n"
@@ -205,7 +206,6 @@ msgstr "<a href=\"http://donner.openfoodfacts.org\"><img src=\"https://static.op
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Donnez pour soutenir notre travail"
-
 
 msgctxt "brands"
 msgid "Brands"
@@ -377,11 +377,11 @@ msgstr "Source des données"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "sources de données"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "source de données"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -430,8 +430,6 @@ msgstr "Faire un don à l'association Open Food Facts"
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 msgstr "http://donner.openfoodfacts.org"
-
-
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -973,7 +971,7 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png\" alt=\"Disponible sur l'App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
 msgstr "https://itunes.apple.com/fr/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
@@ -2376,6 +2374,10 @@ msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Trier par"
 
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr "Complétude"
+
 msgctxt "sort_created_t"
 msgid "Add date"
 msgstr "Date d'ajout"
@@ -2682,13 +2684,13 @@ msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr "Certaines des données et des images ont été fournies directement par le fabricant Fleury Michon."
 
-msgctxt "sources_collaboration"
-msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr ""
-
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Certaines des données de ce produit ont été fournies directement par le fabricant %s"
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr "Un partie des données de ce produit a été collectée en collaboration avec %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -3056,12 +3058,16 @@ msgid "Producer"
 msgstr "Producteur"
 
 msgctxt "recycling_instructions_to_recycle"
-msgid "Recycling instructions - To discard"
+msgid "Recycling instructions - To recycle"
 msgstr "Consignes de recyclage - A recycler"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
 msgstr "Consignes de recyclage - A jeter"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "Page de %s"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
@@ -3102,10 +3108,6 @@ msgstr "Produits photographiés par %s"
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
 msgstr "Produits qui n'ont pas été photographiés par %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "Page de %s"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
@@ -3230,23 +3232,23 @@ msgstr "Trop de produits (%d produits, la limite est %d) à exporter, merci de t
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Aidez à traduire les %s en %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr ""
+msgstr "Vous pouvez suggérer des traductions pour les entrées ci-dessous qui n'ont pas encore été traduites dans votre langue. Le lien bleu en anglais indique les produits correspondants, le texte noir en anglais indique l'entrée originale avec les synonymes facultatifs séparés par des virgules. Entrez la traduction dans la zone de texte, avec les synonymes facultatifs, puis cliquez sur le bouton Enregistrer. Merci !"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "Afficher seulement les éléments sans traductions en attente."
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "Afficher également les éléments avec des traductions en attente d'autres utilisateurs ou de vous."
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "traduit"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
@@ -3268,6 +3270,14 @@ msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr "Passer"
 
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr ""
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr ""
+
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
 msgstr "Analyse des ingrédients"
@@ -3279,4 +3289,3 @@ msgstr "Analyse des ingrédients"
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Analyse des ingrédients"
-
