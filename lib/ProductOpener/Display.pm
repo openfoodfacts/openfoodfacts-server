@@ -1467,7 +1467,6 @@ sub display_list_of_tags($$) {
 		if ((defined $missing_property) and ($missing_property !~ /:/)) {
 			$missing_property .= ":en";
 			$log->debug("missing_property defined", {missing_property => $missing_property});
-			sleep(5);
 		}
 
 		foreach my $tagcount_ref (@tags) {
