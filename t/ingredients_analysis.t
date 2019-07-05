@@ -15,6 +15,7 @@ use ProductOpener::Ingredients qw/:all/;
 # dummy product for testing
 
 my @tests = (
+[ { lc => "fr", ingredients_text => "" }, [ ] ],
 [ { lc => "fr", ingredients_text => "eau, sucre, noisettes" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "lait demi-écrémé 67%" }, [ "en:palm-oil-free", "en:non-vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "viande de boeuf, lait, sel" }, [ "en:palm-oil-free", "en:non-vegan", "en:non-vegetarian"] ],
@@ -25,6 +26,7 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "huile de palme, unknown ingredient" }, [ "en:palm-oil", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
 [ { lc => "fr", ingredients_text => "unknown ingredient" }, [ "en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
 [ { lc => "fr", ingredients_text => "sucre, unknown ingredient" }, [ "en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
+[ { lc => "fr", ingredients_text => "sucre, colour: e150" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 );
 
 

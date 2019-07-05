@@ -745,6 +745,8 @@ sub analyze_ingredients($) {
 
 			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 
+				$values{all_ingredients}++;
+
 				my $ingredientid = $ingredient_ref->{id};
 				my $value = get_inherited_property("ingredients", $ingredientid, $property . ":en");
 
@@ -756,12 +758,18 @@ sub analyze_ingredients($) {
 					if (not (exists_taxonomy_tag("ingredients", $ingredientid))) {
 						$values{unknown_ingredients}++;
 					}
+
+					# additives classes in ingredients are functions of a more specific ingredient
+					# if we don't have a property value for the ingredient class
+					# then ignore the additive class instead of considering the property undef
+					elsif (exists_taxonomy_tag("additives_classes", $ingredientid)) {
+						$value = "ignore";
+						$ingredient_ref->{$property} = $value;
+					}
 				}
 
 				defined $values{$value} or $values{$value} = 0;
 				$values{$value}++;
-
-				$values{all_ingredients}++;
 
 				print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
 			}
