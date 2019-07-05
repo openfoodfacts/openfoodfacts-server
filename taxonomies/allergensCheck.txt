@@ -1,183 +1,247 @@
-stopwords:en:and,byproducts,other
-stopwords:fr:et,dérivés,et dérivés,autres, et autres
 
-en:gluten, wheat, rye, barley, spelt, kamut, wheat semolina, wheat flour, cereals containing gluten
-ar:غلوتين
-bg:глутен, ечемик, ечемичен, ечемично-малцов, пшеница, пшенично, ръж,  овес, шпелта, камут, вид едра твърда пшеница
-cs:lepek, pšenice, žito, ječmen, oves, špalda, kamut
-da:gluten, hvede, rug, byg, havre, spelt, kamut
-de:Gluten, Weizen, Roggen, Gerste, Hafer, Dinkel, Kamut, Gerstenmehl, Gerstenvollkornmehl, Hafer-Vollkornmehl, Haferflocken, Haferkleie, Hafervollkornflocken, Hafervollkornmehl, Vollkorn-Hafer, Vollkorn-Haferflocken, Vollkorn-Hafermehl, Vollkornhafermehl, Vollkornhafer, Vollkornhaferflocken, Vollkornhaferschrot, Vollkornweizenmehl, Weizenvollkornmehl, Weizenmehl, Weizengluten, Weizensauerteig, Hartweizen, Gluten enthaltendes Getreide, Gluten-enthaltendes-Getreide, Gerstenmalzextrakt, Gerstenmalz, Weizenstärke, Hartweizengriess, Hartweizengrieß, Roggenmehl, Weizenmalzmehl, Dinkelmehl, Gerstenmalzmehl, Weizenmalz, Roggenvollkornmehl, Weizenkleber, Roggenvollkornschrot, Dinkelvollkornmehl, Hafermehl, Weizenflocken, Weizenvollkornflocken, Weizengrieß, Weizengriess, Weizenkleie, Gerstenflocken, Weizenquellmehl, Roggenflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot, Weizenspeisekleie, Weichweizenmehl, Dinkelflocken, Roggenvollkornflocken, Malzmehl, Dinkelvollkornflocken, Dinkelvollkornschrot, Roggenschrot, Gersten, Weizenrostmalzmehl, Vollkornweizen
-ee:nisu, odrasiirup, odralinnaseekstrakt
-el:γλουτένη, σιτάρι, σίκαλη, κριθάρι, βρώμη, ντίνκελ, σιτηρό kamut
-es:gluten, trigo, centeno, cebada, espelta, kamut, cereales con gluten, cereales, harina de trigo, trigo de Jorasán Kamut, harina de trigo integral, cereales que contienen gluten
-et:gluteen, nisu, nisugluteen, rukis, oder, odra, kaer, speltanisu, kamut
-fi:gluteeniton, vehnä, ruis, ohra, kaura, speltti, kamut
-fr:gluten, blé, seigle, orge, épeautre, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre, céréales contenant du gluten, blé dur
-ga:glútan, cruithneacht, seagal, eorna, coirce, speilt, camut, céréeale, céréales
-hu:glutén, búza, rozs, árpa, zab, tönkölybúza, kamut, búzadara, búzaliszt, búzacsíra, búzafehérje, búzapehely, rozspehely, árpapehely, zabpehely, tönkölybúzapehely, árpamaláta, rozsliszt, zabliszt, tönkölybúzaliszt, Glutent, lutént tartalmazó gabonafélék, glutént tartalmazó gabonafélék
-it:glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
-jp:グルテン,コムギ
-lt:avižos, avižų, glitimas,kamutas, kviečiai, kviečlų, kvietiniai, miežiai,  miežių, rugiai, spelta, manų
-lv:auzas, auzu, kvieši, kviešu, lipekli, manna, mieži, miežu, rudzi, speltas kvieši, triticum turgidum polonicum
-mt:glutina, qamħ, segala, barli, ħafur, ispelt, kamut
-nl:gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel, tarwebloem
-nl_be:gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel
-pl:gluten, gluten pszenny, jęczmień, jęczmienny , kamut, owies, orkisz, owsiane, pszenica, pszenna, pszenne, pszenny, żytnia, żytopt:glúten, trigo, centeio, cevada, aveia, espelta, kamut, farinha de trigo, farinha de trigo integral
-ro:gluten, grâu, secară, orz, ovăz, grâu spelt, grâu dur, griș de grău
-ru:глютен, пшеница, рожь, ячмень, овёс, полба (камут) (спельта) (двузернянка) (фарро), манная крупа
-sl:gluten, pšenica, rž, ječmen, oves, pira, kamut
-sk:glutén, lepok, obyčajná, raž, jačmeň, ovos, špalda, cirok
-sv:gluten, vete, råg, korn, havre, spelt, kamut, vetemjöl, fullkornsvetemjöl
-th:กลูเต็น,ข้าวสาลี,ข้าวไร,บาร์เลย์
-zh:麸质
-wikidata:en:Q4413030, Q2249305
+de:, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , Weizenmalzmehl, , , , , Weizenkleber, , , , , Weizenvollkornflocken, , , , , Weizenquellmehl, , Vollkorn-Weizenflocken, Weizenvollkornschrot, Weizenspeisekleie, , , , Malzmehl, , , , , Weizenrostmalzmehl, 
 
+gluten-allergy:en:no
+ingredient:en:gluten
+ingredient:en:wheat
+en:emmer
+en:barley
+en:rye
+en:barley flour
+en:wheat dextrose
+en:wheat protein
+en:speculoos
+en:speculaas
+ingredient:en:dough
+ingredient:en:bread crumbs
+ingredient:en:wheat cakes
+ingredient:en:Petit-Beurre
+ingredient:en:crouton
+ingredient:en:wheat starch
+en:müesli
+
+gluten-allergy:en:maybe
+en:bran
+en:cereal
+en:coating
+en:tamari
+en:cereal
+en:cereal flour
 
 egg-allergy:en:no
-en:egg
+ingredient:en:egg
 
 fish-allergy:en:no
-en:fish
+ingredient:en:fish
 
 peanut-allergy:en:no
-en:peanut
-en:peanut oil
+ingredient:en:peanut
+ingredient:en:peanut oil
 
 crustacean-allergy:en:no
-en:crustacean
+ingredient:en:crustacean
 
 soya-allergy:en:no
-en:soya
-en:soya
-en:soya oil
-en:soy flour
-en:soy protein
-en:tofu
-en:soy preparation
-en:soy sauce
-en:soya lecithin
+ingredient:en:soya
+ingredient:en:soya
+ingredient:en:soya oil
+ingredient:en:soy flour
+ingredient:en:soy protein
+ingredient:en:tofu
+ingredient:en:soy preparation
+ingredient:en:soy sauce
+ingredient:en:soya lecithin
 
 soya-allergy:en:maybe
-en:E476
+ingredient:en:E476
 
 milk-allergy:en:no
-en:dairy
-en:lactose
-en:milk minerals
-en:milk proteins
-en:milk chocolate
-en:milk filling
-en:ice cream
-en:bechamel sauce
+ingredient:en:dairy
+ingredient:en:lactose
+ingredient:en:milk minerals
+ingredient:en:milk proteins
+ingredient:en:milk chocolate
+ingredient:en:milk filling
+ingredient:en:ice cream
+ingredient:en:bechamel sauce
 
 nut-allergy:en:no
-en:nut
-en:peanut
-en:crocant
-en:nougat
-en:pistachio seed oil
-en:pine nuts
-en:walnut oil
-en:hazelnut oil
-en:pink peppercorn
+ingredient:en:nut
+ingredient:en:peanut
+ingredient:en:crocant
+ingredient:en:nougat
+ingredient:en:pistachio seed oil
+ingredient:en:pine nuts
+ingredient:en:walnut oil
+ingredient:en:hazelnut oil
+ingredient:en:pink peppercorn
 
 celery-allergy:en:no
-en:celery
-en:celeraic
+ingredient:en:celery
+ingredient:en:celeraic
 
 mustard-allergy:en:no
-en:mustard
-en:brassica
+ingredient:en:mustard
+ingredient:en:brassica
 
 sesame-allergy:en:no
-en:sesame
-en:sesame oil
+ingredient:en:sesame
+ingredient:en:sesame oil
 
 lupin-allergy:en:maybe
-en:lupin
+ingredient:en:lupin
 
 mollusc-allergy:en:no
-en:molluscs
+ingredient:en:molluscs
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                       P A L M O I L - F R E E     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+Palm oil free:en:no
+ingredient:en:palm
+ingredient:en:palm oil and fat
+additive:en:E304i
+
+Palm oil free:en:maybe
+ingredient:en:vegetable oil and fat
+additive:en:E304
+additive:en:en:Glycerol monostearate
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                    V E G E T A R I A N I S M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 Pollo-pescetarianism:en:no
-en:animal
+ingredient:en:animal
 
 Pollo-vegetarianism:en:no
-en:animal
-en:fish
-en:shellfish
+ingredient:en:animal
+ingredient:en:fish
+ingredient:en:shellfish
 
 Pescetarianism:en:no
-en:animal
-en:poultry
-en:game animal
+ingredient:en:animal
+ingredient:en:poultry
+ingredient:en:game animal
 
 Ovo-lacto vegetarianism:en:no
-en:animal
-en:poultry
-en:game animal
-en:fish
-en:shellfish
+ingredient:en:animal
+ingredient:en:poultry
+ingredient:en:game animal
+ingredient:en:fish
+ingredient:en:shellfish
 
 Ovo vegetarianism:en:no
-en:animal
-en:poultry
-en:game animal
-en:fish
-en:shellfish
-en:dairy
-en:lactose
-en:milk minerals
-en:milk proteins
-en:milk chocolate
-en:milk filling
-en:ice cream
-en:bechamel sauce
+ingredient:en:animal
+ingredient:en:poultry
+ingredient:en:game animal
+ingredient:en:fish
+ingredient:en:shellfish
+ingredient:en:dairy
+ingredient:en:lactose
+ingredient:en:milk minerals
+ingredient:en:milk proteins
+ingredient:en:milk chocolate
+ingredient:en:milk filling
+ingredient:en:ice cream
+ingredient:en:bechamel sauce
 
 Orthodox Fasting:en:no
-en:animal
-en:poultry
-en:game animal
-en:dairy
-en:lactose
-en:milk minerals
-en:milk proteins
-en:milk chocolate
-en:milk filling
-en:ice cream
-en:bechamel sauce
-en:egg
+ingredient:en:animal
+ingredient:en:poultry
+ingredient:en:game animal
+ingredient:en:dairy
+ingredient:en:lactose
+ingredient:en:milk minerals
+ingredient:en:milk proteins
+ingredient:en:milk chocolate
+ingredient:en:milk filling
+ingredient:en:ice cream
+ingredient:en:bechamel sauce
+ingredient:en:egg
 
 Lacto vegetarianism:en:no
-en:animal
-en:poultry
-en:game animal
-en:fish
-en:shellfish
-en:egg
+ingredient:en:animal
+ingredient:en:poultry
+ingredient:en:game animal
+ingredient:en:fish
+ingredient:en:shellfish
+ingredient:en:egg
 
 Veganism:en:no
-en:animal
-en:poultry
-en:game animal
-en:fish
-en:shellfish
-en:dairy
-en:lactose
-en:milk minerals
-en:milk proteins
-en:milk chocolate
-en:milk filling
-en:ice cream
-en:bechamel sauce
-en:egg
-en:honey
-en:royal jelly
-en:pollen
-en:beeswax
-en:marzipan
-en:nougat
-en:invertase
+ingredient:en:animal
+ingredient:en:poultry
+ingredient:en:game animal
+ingredient:en:fish
+ingredient:en:shellfish
+ingredient:en:dairy
+ingredient:en:lactose
+ingredient:en:milk minerals
+ingredient:en:milk proteins
+ingredient:en:milk chocolate
+ingredient:en:milk filling
+ingredient:en:ice cream
+ingredient:en:bechamel sauce
+ingredient:en:egg
+ingredient:en:honey
+ingredient:en:royal jelly
+ingredient:en:pollingredient:en
+ingredient:en:beeswax
+ingredient:en:marzipan
+ingredient:en:nougat
+ingredient:en:invertase
+
+Jain vegetarianism:en:no
+ingredient:en:animal
+ingredient:en:poultry
+ingredient:en:game animal
+ingredient:en:fish
+ingredient:en:shellfish
+ingredient:en:egg
+ingredient:en:honey
+ingredient:en:royal jelly
+ingredient:en:pollen
+ingredient:en:beeswax
+ingredient:en:marzipan
+ingredient:en:nougat
+ingredient:en:invertase
+ingredient:en:root vegetable
+ingredient:en:ginger
+ingredient:en:betanin
+ingredient:en:turmeric
+
+Fruitarianism:en:no
+ingredient:en:animal
+ingredient:en:poultry
+ingredient:en:game animal
+ingredient:en:fish
+ingredient:en:shellfish
+ingredient:en:dairy
+ingredient:en:lactose
+ingredient:en:milk minerals
+ingredient:en:milk proteins
+ingredient:en:milk chocolate
+ingredient:en:milk filling
+ingredient:en:ice cream
+ingredient:en:bechamel sauce
+ingredient:en:egg
+ingredient:en:honey
+ingredient:en:royal jelly
+ingredient:en:pollen
+ingredient:en:beeswax
+ingredient:en:marzipan
+ingredient:en:nougat
+ingredient:en:invertase
+ingredient:en:root vegetable
+ingredient:en:ginger
+ingredient:en:betanin
+ingredient:en:turmeric
 
 # 2018/07/03 - removed bisulfite, metabisulfite, metabisulphite, E150b, E150d, E220, E221, E222, E223, E224, E225, E226, E227, E228
 # assume the additives do not amount to the 10 PPM threshold. If they do, "contains sulphites" should also be on the label.

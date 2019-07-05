@@ -1688,6 +1688,7 @@ nl:extract van afrikaantje
 
 # <en:beetroot
 # <en:colour
+# <en:root vegetable
 en:betanin, E162, E-162, E 162, INS162, INS-162, INS 162
 ar:بيتانين
 cs:Betanin
@@ -21150,7 +21151,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Peanut_oil
 # description:en:SESAME OIL is an edible vegetable oil derived from sesame seeds.
 # comment:en:The parent en:sesam enables the sesam allergen detection
 
-<en:sesam
+# <en:sesam
 <en:vegetable oil
 en:sesame oil
 ar:زيت السمسم
@@ -24176,8 +24177,7 @@ en:cereal
 de:Getreide
 es:cereales
 fr:céréale, céréales
-carbon_footprint_fr_foodges_ingredient:fr:Mélange de céréales
-carbon_footprint_fr_foodges_value:fr:0.3
+ga:céréeale, céréales
 it:cereali
 nl:granen
 pl:płatki zbożewe
@@ -24192,7 +24192,11 @@ fr:céréale complète, céréales complètes
 nl:Volkorengraan
 
 <en:cereal
+en:cereals containing gluten
 fr:céréales contenant du gluten
+de:Gluten enthaltendes Getreide, Gluten-enthaltendes-Getreide
+es:cereales con gluten, cereales que contienen gluten
+hu:lutént tartalmazó gabonafélék, glutént tartalmazó gabonafélék
 
 <en:cereal
 fr:céréales biscuitées
@@ -24225,7 +24229,12 @@ de:Getreideflocken
 fr:flocons de céréales
 it:fiocchi di cereali
 
-# Wheat is a grass widely cultivated for its seed,
+# no gluten
+<en:cereal
+en:Sorghum
+sk:cirok
+
+# description:en:WHEAT is a grass widely cultivated for its seed.
 
 <en:cereal
 en:wheat
@@ -24237,7 +24246,7 @@ as:গম
 az:Buğda
 ba:Бойҙай
 be:Пшаніца
-bg:Пшеница
+bg:Пшеница, пшенично
 bh:गोहूँ
 bn:গম
 bo:གྲོ།
@@ -24245,6 +24254,7 @@ br:Gwinizh
 bs:Pšenica
 ca:Blat
 ce:КӀа
+cs:pšenice
 cv:Тулă
 cy:Gwenith
 da:hvede
@@ -24258,6 +24268,7 @@ fa:گندم
 fi:vehnä, Vehnät
 fo:Hveiti
 fr:blé, froment, blé entier
+ga:cruithneacht
 gl:Trigo
 gn:Avati mirĩ
 gu:ઘઉં
@@ -24270,20 +24281,21 @@ id:Gandum
 ii:ꅪ
 ik:Palauvakstrat
 io:Frumento
-it:frumento
+it:frumento, grano
 ja:コムギ
 kk:Бидай
 ko:밀
 ky:Буудай
 lb:Weess
 li:Weit
-lt:kvieciu, Kvietys
-lv:Kvieši
+lt:kvieciu, Kvietys, kviečiai, kviečlų
+lv:Kvieši, kviešu
 mk:Пченица
 ml:ഗോതമ്പ്
 mn:Улаан буудай
 mr:गहू
 ms:Pokok Gandum
+mt:qamħ
 my:ဂျုံ
 nb:Hvete
 ne:गहुँ
@@ -24293,7 +24305,7 @@ nv:Tłʼoh naadą́ą́ʼ
 oc:Blat
 os:Мæнæу
 pa:ਕਣਕ
-pl:pszenica, pszenicy
+pl:pszenica, pszenicy, pszenna, pszenne, pszenny
 ps:غنم
 pt:trigo
 ro:Grâu, grau
@@ -24384,9 +24396,6 @@ fr:blé précuit à la vapeur
 it:grano cotto
 # ingredient/fr:ble-precuit-a-la-vapeur has 10 products @2019-06-03
 
-<en:cooked wheat
-fr:Blé dur biologique
-
 <en:wheat
 en:puffed cereal
 de:Weizenpops
@@ -24394,9 +24403,6 @@ fr:blé soufflé
 it:frumento soffiato
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20soufflé
 # 15 products in 3 languages @2018-09-22
-
-<en:wheat
-fr:Grains de blé dur précuits
 
 
 <en:wheat
@@ -24447,7 +24453,7 @@ fr:blé dur
 ga:Dúram
 gl:trigo duro
 he:דורום
-hu:Durumbúza
+hu:Durumbúza, búzadara
 it:grano duro
 ja:デュラムコムギ
 ka:მაგარი ხორბალი
@@ -24459,6 +24465,7 @@ nb:Durumhvete
 nl:durum tarwe, Durumtarwe
 oc:Blat dur
 pl:Pszenica twarda
+ro:grâu dur
 ru:Пшеница твёрдая
 sl:Trda pšenica
 sv:Durumvete
@@ -24481,11 +24488,15 @@ fr:blé dur précuit
 
 <en:durum wheat
 fr:blé dur concassé
+bg:вид едра твърда пшеница
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20dur%20concassé/
 
 <fr:blé dur précuit
 fr:blé dur précuit concassé
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20dur%20précuit%20concassé/
+
+<fr:blé dur précuit
+fr:Grains de blé dur précuits
 
 <en:durum wheat
 de:Hartweizendunst
@@ -24502,6 +24513,7 @@ en:wheat germ, wheatgerm
 de:Weizenkeime
 es:germen de trigo
 fr:germe de blé, germes de blé
+hu:búzacsíra
 it:germi di frumento
 nl:tarwekiem
 pl:kielki pszenicy
@@ -24555,6 +24567,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 # Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
 # Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
 
+<en:wheat
 de:Grieß
 ca:Sèmola
 el:Σιμιγδάλι
@@ -24567,7 +24580,7 @@ oc:Semola
 # Question
 
 <en:wheat
-<de:Grieß
+# <de:Grieß
 en:semolina
 ar:سميد
 de:Weizengrieß, Weizengriess
@@ -24593,6 +24606,7 @@ nl:volkoren tarwegriesmeel
 
 # Couscous  is a Maghrebi dish of small steamed balls of crushed durum wheat semolina
 
+<en:wheat
 en:Couscous, cous cous
 ar:كسكس
 be:Кус-кус
@@ -24660,7 +24674,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Couscous
 <en:durum wheat
 # <en:Couscous
 en:durum wheat semolina
-de:Hartweizengriess, Hartweizengries
+de:Hartweizengrieß, Hartweizengriess, Hartweizengries
 el:σιμιγδάλισκληρού σιταριού
 es:sémola de trigo duro
 fi:durumvehnäjauho
@@ -24670,7 +24684,7 @@ hu:durum búzaliszt
 it:semola di grano duro
 nl:harde tarwe griesmeel, durum tarwegries, harde tarwegries
 pt:sêmola de trigo duro
-ro:griș din grâu
+ro:griș din grâu, griș de grău
 ru:борошно з пшеннци тверднх сортив
 sl:pšenični zdrob durum
 tr:durum buğdayı ırmığı
@@ -24887,11 +24901,15 @@ ru:Панко
 wikidata:en:Q1820454
 # en:panko has 20 products in english @2018-11-12
 
+<en:cereal
+en:emmer
+ru:двузернянка
+
 # Barley (Hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
 # The translations taken from wikipedia need to be checked. They can refer to the plant species.
 
 <en:cereal
-en:barley
+en:rye
 am:ገብስ
 an:hordio
 ar:شعير
@@ -24899,7 +24917,7 @@ ay:Siwara
 az:Adi arpa
 ba:Арпа
 be:Ячмень звычайны
-bg:ечемик, Ечемик
+bg:ечемик, Ечемик, ечемичен
 bn:যব
 bo:ནས།
 br:Heiz
@@ -24910,12 +24928,12 @@ cs:Ječmen, jecmen
 cv:Урпа
 cy:Haidd
 da:byg
-de:Gerste
+de:Gerste, Gersten
 dv:ހިމަ ގޮދަން
 el:Κριθάρι
 eo:hordeo
 es:cebada
-et:Oder
+et:Oder, odra
 eu:Garagar
 fa:جو
 fi:Ohra, Ohraa
@@ -24941,11 +24959,13 @@ kn:ಬಾರ್ಲಿ
 ko:보리
 ky:Арпа
 li:Gaes
-lv:Mieži
+lt:miežiai,  miežių, rugiai
+lv:Mieži, miežu
 mk:Јачмен
 ml:യവം
 mn:Арвай
 ms:Barli
+mt:barli
 my:မုယော
 nb:Bygg
 ne:जौ
@@ -24955,7 +24975,7 @@ oc:Òrdi
 or:ଯଅ
 os:Сиск
 pa:ਜੌਂ
-pl:Jęczmień, Jeczmien
+pl:Jęczmień, Jeczmien, jęczmienny
 pt:Cevada
 qu:Siwara
 ro:Orz
@@ -24973,7 +24993,7 @@ sw:Shayiri
 ta:வாற்கோதுமை
 te:బార్లీ
 tg:Ҷав
-th:ข้าวบาร์เลย์
+th:ข้าวบาร์เลย์, บาร์เลย์
 tl:Sebada
 tr:Arpa
 tt:Арпа
@@ -25040,6 +25060,7 @@ pt:cevada integral
 <en:barley
 de:Gerstenflocken
 fr:flocons d'orge, flocon d'orge
+hu:árpapehely
 it:fiocchi d'orzo
 nl:gerstvlokken
 pl:płatki jęczmienne
@@ -25068,7 +25089,7 @@ br:Segal
 bs:Raž
 ca:Sègol
 ce:Ӏаьржа кӀа
-cs:Žito seté
+cs:Žito seté, žito
 cv:Ыраш
 cy:Rhyg
 da:Rug
@@ -25109,18 +25130,19 @@ mk:’Рж
 ml:വരക്
 mn:Таримал хөх тариа
 ms:Rai
+mt:segala
 nb:Rug
 nl:rogge
 nn:Rug
 oc:Segal
 os:Сылмæнæу
-pl:Żyto zwyczajne
+pl:Żyto zwyczajne, żyto, żytnia
 pt:Centeio
 qu:Sintinu
 ro:Secară
 ru:Рожь
 sh:Raž
-sk:Raž siata
+sk:Raž siata, raž
 sl:Rž
 sq:Thekra
 sr:Раж
@@ -25182,6 +25204,7 @@ it:faricello di segale
 <en:rye
 fr:flocons de seigle
 de:Roggenflocken
+hu:rozspehely
 it:fiocchi di segale
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle/
 # 87 entries @ 2018-09-22
@@ -25195,14 +25218,18 @@ fr:flocons de seigle malté
 # 71 entries @ 2018-09-22
 
 <en:rye
-de:Vollkornhafer
+en:wholemeal rye
 fr:seigle complet
 nl:volkorenrogge
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20complet/
 # 37 entries @ 2018-09-22
 
+<en:wholemeal rye
+de:Roggenvollkornschrot, Roggenvollkornflocken
+
 # Malt is germinated cereal grains that have been dried in a process known as "malting".
 
+<en:cereal
 en:malt
 ar:ملت
 be:Солад
@@ -25297,7 +25324,7 @@ nl:tarwemout
 
 <en:malt
 en:malted barley
-bg:яачменныи солод
+bg:яачменныи солод, ечемично малцов
 cs:ječmenný slad
 da:bygmalt
 de:Gerstenmalz
@@ -25318,6 +25345,7 @@ zh:含大麥芽片
 en:barley malt extract
 de:Gerstenmalzextrakt
 es:extracto de malta de cebada
+et:odralinnaseekstrakt
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
 it:estratto di mato d'orzo
 nl:Gerstemoutextract
@@ -25398,6 +25426,7 @@ nl:boekweitflakes
 
 # The OAT (Avena sativa) is a species of cereal grain grown for its seed.
 
+<en:cereal
 en:oat
 am:ገረማ
 an:Avena sativa
@@ -25411,7 +25440,7 @@ bo:ཡུག་པོ།
 br:Kerc'h
 bs:Zob
 ca:Civada
-cs:Oves setý
+cs:Oves setý, oves
 cy:Ceirch
 da:Havre
 de:Hafer
@@ -25430,7 +25459,7 @@ he:שיבולת-שועל
 hi:जई
 hr:Obična zob
 ht:Avwàn
-hu:Abrakzab
+hu:Abrakzab, zab
 ia:Avena sativa
 id:Haver
 is:Hafrar
@@ -25445,26 +25474,28 @@ ku:Gîhagulî
 ky:Сулу
 la:Avena sativa
 li:Haver
-lt:Sėjamoji aviža
-lv:Sējas auzas
+lt:Sėjamoji aviža, avižos, avižų
+lv:Sējas auzas, auzu, auzas
 mk:Овес
 ml:ഓട്സ്
 mn:Таримал хошуу будаа
 mr:ओट
 ms:Oat
+mt:ħafur
 nb:Havre
 nl:haver
 nn:Havre
 oc:Civada
 pa:ਜਵੀ
-pl:owsiana, Owies zwyczajny
+pl:owsiana, Owies zwyczajny, owies, owsiane
 pt:aveia
 qu:Tarpuy awina
 ro:Ovăz
-ru:Овёс посевной
+ru:Овёс посевной, овёс
 sc:Avena
 sh:Zob
 si:යව
+sk:ovos
 sl:Oves
 so:Sareen
 sq:Tërshëra
@@ -25523,6 +25554,11 @@ en:organic oat
 fr:avoine biologique
 # ingredient/fr:avoine-biologique has 12 products in french @2019-05-25
 
+<en:oat
+en:wholemeal oat
+de:Vollkornhafer, Vollkorn-Hafer
+nl:volkoren haver
+
 # description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
 <en:oat
@@ -25537,6 +25573,7 @@ es:copos de avena
 eu:Olo-malutak
 fi:kaurahiutaleet
 fr:flocons d'avoine, flocon d'avoine
+hu:zabpehely
 it:fiocchi di avena
 ja:ロールド・オーツ
 ko:납작귀리
@@ -25576,7 +25613,7 @@ pt:fibra de aveia
 <en:oat
 en:whole grain rolled oats, whole oat flakes
 da:fullkornshavregryn
-de:Vollkorn-Haferflocken, Vollkorn haferflocken
+de:Vollkorn-Haferflocken, Vollkorn haferflocken, Vollkornhaferflocken, Hafervollkornflocken, Vollkornhaferschrot
 fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
 it:fiocchi di avena integrale
 nl:volkoren havermout, volkoren havervlokken, volkorenhavervlokken
@@ -25721,16 +25758,18 @@ ar:حنطة
 bg:Спелта
 br:Yell
 ca:Espelta
-cs:Pšenice špalda
+cs:špalda, Pšenice špalda
 da:Spelt
 de:Dinkel
-el:Όλυρα
+el:Όλυρα, ντίνκελ
 eo:Spelto
+es:espelta
 et:Speltanisu
 eu:Espelta
 fa:گندم آلمانی
-fi:Spelttivehnä
+fi:speltti, Spelttivehnä
 fr:épeautre
+ga:speilt
 gl:Espelta
 he:כוסמין
 hr:Pravi pir
@@ -25741,17 +25780,22 @@ it:farro, farro spelta
 ko:스펠트밀
 la:Spelta
 lb:Spelz
+lv:speltas kvieši
+lt:spelta
 ms:Spelt
+mt:ispelt
 nb:Spelt
 nl:spelt
 nn:Spelt
 oc:Espeuta
-pl:Pszenica orkisz
+pl:Pszenica orkisz, orkisz
 pt:Espelta
+ro:grâu spelt
 ru:Спельта
+sk:špalda
 sl:Pira
 sr:Крупник
-sv:Speltvete
+sv:spelt, Speltvete
 ta:ஸ்பெல்ட்
 tr:Kavuzlu buğday
 tt:Борай
@@ -25780,23 +25824,48 @@ nl:Biologische spelt
 
 <en:spelt
 fr:flocons d'épeautre
-de:Quinoa-Fakes
+de:Dinkelflocken
+hu:tönkölybúzapehely
 it:fiocchi di quinoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-d'épeautre
 # 69 products in 3 languages @2018-09-22
 
 <en:spelt
+hu:tönkölybúzaliszt
+
+<en:spelt
 fr:Petit épeautre
 <fr:flocons d'épeautre
+# ingredient/fr:petit-epeautre has 37 products @2019-06-03
 
-de:Dinkelvollkornflocken
+<en:spelt
+de:Dinkelvollkornflocken, Dinkelvollkornschrot
 fr:flocons d'épeautre complet
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20d'épeautre%20complet
 # 23 products in 2 languages @2018-09-22
 
-# ingredient/fr:petit-epeautre has 37 products @2019-06-03
-
-# FLOUR is a powder made by grinding raw grains or roots and used to make many different foods.
+<en:cereal
+bg:камут
+cs:kamut
+de:Kamut
+el:σιτηρό kamut
+es:kamut, trigo de Jorasán Kamut
+et:kamut
+fi:kamut
+fr:kamut
+ga:camut
+hu:kamut
+it:kamut
+la:triticum turgidum polonicum
+lt:kamutas
+mt:kamut
+nl:kamut
+pl:kamut
+pt:kamut
+ru:камут
+sl:kamut
+sv:kamut
+# description:en:FLOUR is a powder made by grinding raw grains or roots and used to make many different foods.
 
 en:flour
 af:meel
@@ -25971,7 +26040,7 @@ hu:búzaliszt
 is:hveiti
 it:farina di frumento
 ja:小麦粉
-lt:kviešu milti
+lt:kviešu milti, kvietiniai
 lv:kvietiniai miltai
 mr:कणीक
 ms:Tepung gandum
@@ -25980,7 +26049,7 @@ nn:hvetemel
 pl:mąka pszenna
 pt:farinha de trigo
 ro:făină de grâu
-ru:Пшеничная мука
+ru:Пшеничная мука, манная крупа
 sa:गोधूमपिष्टम्
 sk:pšeničná múka
 sl:psenicna moka
@@ -26041,10 +26110,11 @@ nl:durum tarwemeel
 
 <en:wheat flour
 <en:wholemeal flour
-de:Vollkornweizenmehl
+de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
-it:farina integrale di frumento
+it:farina integrale di frumento, farina di frumento integrale
+pt:farinha de trigo integral
 
 <en:wheat flour
 en:dextrinated wheat flour
@@ -26086,9 +26156,11 @@ en:wholemeal flour
 de:Vollkornmehl
 fr:farine complète
 it:farina integrale
-nl:volkorenmeel
+nl:volkorentarwemeel, volkorenmeel
+sv:fullkornsvetemjöl
 
 <en:cereal flour
+<en:barley
 en:barley flour
 de:Gerstenmehl
 es:harina de cebada
@@ -26109,6 +26181,7 @@ nl:volkoren gerstemeel
 
 <en:barley flour
 en:barley malt flour
+de:Gerstenmalzmehl
 es:harina de malta de cebada
 fr:farine de malt d'orge, farine d'orge malté
 
@@ -26163,6 +26236,7 @@ en:oat flour
 de:Hafermehl
 es:farina de avena
 fr:farine d'avoine
+hu:zabliszt
 it:farina d'avena
 nl:havermeel
 pl:mąka owsiana
@@ -26172,6 +26246,8 @@ pt:farinha de aveia
 
 <fr:farine d'avoine
 <en:wholemeal flour
+en:wholemeal oat flour
+de:Hafer-Vollkornmehl, Hafervollkornmehl, Vollkorn-Hafermehl, Vollkornhafermehl
 fr:farine d'avoine complète, farine complète d'avoine
 nl:volkorenhavermeel
 pl:mąka owsiana pełnoziarnista
@@ -26191,6 +26267,7 @@ en:rye flour
 de:Roggenmehl
 es:harina de centeno
 fr:farine de seigle
+hu:rozsliszt
 it:farina di segala
 nl:roggebloem
 pl:mąka żytnia
@@ -26612,6 +26689,7 @@ en:corn flakes, cornflakes
 de:Maisflakes, Cornflakes
 es:copos de maíz, corn flakes
 fr:pétales de maïs, pétale de maïs, cornflakes, corn flakes, flocons de maïs
+hu:búzapehely
 it:fiocchi di mais, cornflakes
 nl:maïsvlokken
 pl:płatki kukurydziane
@@ -28545,6 +28623,11 @@ pt:xarope de glucose de trigo
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-glucose-syrup
 # 661 products in 7 languages @2018-09-24
 
+<en:syrup
+<en:rye
+en:rye sirup
+et:odrasiirup
+
 # FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose.
 
 en:fructose
@@ -29238,10 +29321,12 @@ fr:protéines de soja i.p
 en:wheat protein
 de:Weizenprotein
 fr:protéine de blé, protéines de blé, protéines de froment
+hu:búzafehérje
 it:proteine del grano
 nl:graneneiwit
 
 <en:vegetable hydrolysed protein
+<en:wheat protein
 en:hydrolyzed wheat protein
 de:hydrolisiertes Weizenprotein
 es:proteína hidrolizada de trigo
@@ -30943,15 +31028,42 @@ fr:gélifiant
 it:gelificante
 
 en:gluten
+ar:غلوتين
+bg:глутен
+cs:lepek
+da:gluten
 de:Gluten
+el:γλουτένη
+es:gluten
+et:gluteen
+fi:gluteeniton
 fr:gluten
+ga:glútan
+hu:glutén, Glutent
 it:glutine
+ja:グルテン
+lt:glitimas
+lv:lipekli
+mt:glutina
 nl:Gluten
+pl:gluten
+pt:glúten
+ro:gluten
+ru:глютен
+sk:lepok, glutén
+sl:gluten
+sv:gluten
+th:กลูเต็น
+zh:麸质
 
 <en:gluten
 en:wheat gluten
+de:Weizengluten
 es:gluten de trigo
+et:nisugluteen
 fr:gluten de blé, gluten de froment
+nl:tarwegluten
+pl:gluten pszenny
 
 # nova:en:maltodextrin
 en:Maltodextrins, maltodextrin
@@ -39123,6 +39235,66 @@ de:Gemüsesaft
 fr:Jus de légumes
 nl:Groentensap
 
+# description:en:ROOT VEGETABLES are underground plant parts eaten by humans as food.
+
+<en:vegetable
+en:root vegetable
+# ang:Moru
+ar:قائمة الخضراوات الجذرية
+bg:Кореноплод
+bn:শিকড় সবজি
+cs:kořenová zelenina
+cy:gwreiddlysieuyn
+da:rodfrugt
+el:Wurzelgemüse
+# en-ca:root vegetable
+# en-gb:root vegetable
+eo:Radiklegomo
+es:raíz alimenticia
+et:juurvili
+fa:لیست سبزیجات ریشه‌ای
+fi:juures
+fr:légume-racine
+he:ירק שורש
+hi:रूट सब्जि
+hu:Gyökérzöldség
+hy:արմատապտուղներ
+ia:legumine a radice
+is:Rótargrænmeti
+it:radice
+ja:根菜
+ka:ძირხვენა
+kk:Тамыр жемістер
+ko:뿌리채소
+la:vegetable radix
+lo:ມັນ
+lt:Šakniavaisis
+lv:sakņaugs
+mk:коренест зеленчук
+ml:കിഴങ്ങുകൾ
+ms:ubi
+nb:rotfrukt
+nl:wortelgewas
+nn:rotfrukt
+or:ମୂଳ ପରିବା
+pa:ਜੜ੍ਹ ਵਾਲੀ ਸਬਜ਼ੀ
+# pnb:جڑ والیاں سبزیاں
+# roa-tara:pastunache
+ru:корнеплод
+sa:कन्दमूलानि
+sk:Koreňová zelenina
+sq:rrënjë perimesh
+sv:rotfrukter
+tg:Бехмева
+tl:Lamang-kati
+ud:Выжы емышъёс
+uk:Коренеплоди
+uz:Ildizmevalilar
+zh:根菜
+# zh-hans:根菜
+# h-hant:根菜
+wikidata:en:Q20136
+wikipedia:en:https://en.wikipedia.org/wiki/List_of_root_vegetables
 
 # description:en:Crudités (plural only) are traditional French appetizers consisting of sliced or whole raw vegetables[1] which are typically dipped in a vinaigrette or other dipping sauce. Examples of crudités include celery sticks, carrot sticks, cucumber sticks, bell pepper strips, broccoli, cauliflower, fennel, and asparagus spears.
 
@@ -39606,7 +39778,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
 
 # description:en:GARLIC (Allium sativum) is a species in the onion genus.
 
-<en:vegetable
+<en:root vegetable
 en:garlic
 af:Knoffel
 am:ነጭ ሽንኩርት
@@ -40369,8 +40541,8 @@ it:Galatto-oligosaccaridi di lattosio
 
 # BEETROOT is the taproot portion of the beet plant
 
-<en:vegetable
-<en:colour
+<en:root vegetable
+# <en:colour
 en:beetroot, beet
 af:Beet
 de:Rüben, Randen
@@ -40972,7 +41144,7 @@ nl:zuurkoolsap
 
 # The CARROT (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist
 
-<en:vegetable
+<en:root vegetable
 en:carrot
 af:Wortel
 am:ካሮት
@@ -41418,7 +41590,7 @@ fr:jus concentré de céleri et de carotte
 
 # CELERIAC (Apium graveolens var. rapaceum), also called turnip-rooted celery, celery root, or knob celery, is a variety of celery cultivated for its edible stem or hypocotyl, and shoots.
 
-<en:vegetable
+<en:root vegetable
 en:celeriac
 ar:الكرفس اللفتي
 ca:Api-rave
@@ -41457,7 +41629,7 @@ de:Färbende Konzentrate Karotte und Kürbis
 # description:en:FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
 
 # <en:category:en:Plant-based foods
-<en:vegetable
+<en:root vegetable
 en:fennel
 af:Vinkel
 ar:شمرة شائعة
@@ -41588,7 +41760,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Heart_of_palm
 
 # description:en:HORSERADISH (Armoracia rusticana, syn. Cochlearia armoracia) is a perennial plant of the family Brassicaceae. The intact horseradish root has hardly any aroma. When cut or grated enzymes from the now-broken plant cells break down sinigrin (a glucosinolate) to produce allyl isothiocyanate (mustard oil), which irritates the mucous membranes of the sinuses and eyes. Grated mash should be used immediately or preserved in vinegar for best flavor.
 
-<en:vegetable
+<en:root vegetable
 en:horseradish
 af:Peperwortel
 ar:فجل الخيل الريفي
@@ -41667,7 +41839,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Horseradish
 
 # description:en:JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
 
-<en:vegetable
+<en:root vegetable
 en:Jerusalem artichoke
 ar:دوار الشمس الدرني
 az:Yerarmudu
@@ -41748,7 +41920,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Jerusalem_artichoke
 # description:en:The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
 
 # <en:category:en:Vegetable rods
-<en:vegetable
+<en:root vegetable
 en:leek
 ar:كراث
 az:Kəvər soğanı
@@ -41843,7 +42015,7 @@ carbon_footprint_fr_foodges_value:fr:0.3
 
 # <en:class:en:Vegetables
 # <en:class:en:Onions and their products
-<en:vegetable
+<en:root vegetable
 en:onion, onions
 bn:পিঁয়াজ
 ca:ceba
@@ -42177,7 +42349,7 @@ nl:gebakken ui, gebakken uien, gefrituurde uien
 
 # description:en:The PARSNIP (Pastinaca sativa) is a root vegetable closely related to the carrot and parsley.
 
-<en:vegetable
+<en:root vegetable
 en:parsnip
 ar:جزر أبيض
 az:Əkin cırhavucu
@@ -42257,8 +42429,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Parsnip
 
 # description:en:The RADISH (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
 
-<en:vegetable
-# <en:Vegetables
+<en:root vegetable
+# category:en:Vegetables
 en:radish, Radishes
 am:ፍጁል
 ar:فجل
@@ -42773,7 +42945,7 @@ fr:salade composée
 
 # description:en:Scorzonera hispanica, black SALSIFY or Spanish salsify, also known as black oyster plant, serpent root, viper's herb, viper's grass or simply scorzonera, is a perennial member of the genus Scorzonera in the sunflower family (Asteraceae), cultivated as a root vegetable.
 
-<en:vegetable
+<en:root vegetable
 en:salsify, black salsify
 ar:سلسفي هسباني
 az:İspan təkəsaqqalı
@@ -42811,7 +42983,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scorzonera_hispanica
 
 # The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
 
-<en:vegetable
+<en:root vegetable
 en:shallot, shallots
 am:ቀይ ሽንኩርት
 ar:كراث أندلسي
@@ -43093,6 +43265,7 @@ nl:gehakte spinazie
 
 # The sweet potato (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
 
+<en:root vegetable
 en:sweet potato
 af:Patats
 ak:atomo
@@ -43222,7 +43395,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
 
 # The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
 
-<en:vegetable
+<en:root vegetable
 en:potato, potatoes
 ab:Акартош
 ar:بطاطس
@@ -44280,7 +44453,7 @@ fr:purée et pulpe de tomates
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
-<en:vegetable
+<en:root vegetable
 en:turnip, turnips
 af:Raap
 ar:لفت
@@ -44372,7 +44545,7 @@ carbon_footprint_fr_foodges_value:fr:0.9
 
 # Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 
-<en:vegetable
+<en:root vegetable
 en:water chestnut, water chestnuts
 ar:إيليوكاريس حلو
 as:শিঙৰি
@@ -47843,6 +48016,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
 
 # TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking.
 
+# <en:root vegetable
 <en:spice
 en:turmeric
 af:Borrie
@@ -48450,6 +48624,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Galangal
 
 # description:en:GINGER (Zingiber officinale) is a flowering plant whose rhizome, ginger root or simply ginger, is widely used as a spice or a folk medicine
 
+# <en:root vegetable
 <en:spice
 en:ginger, stem ginger
 af:Gemmer
@@ -50316,7 +50491,7 @@ wikidata:en:Q2370943
 
 # CHIVES, scientific name Allium schoenoprasum, are an edible species of the genus Allium
 
-<en:herb
+<en:root vegetable
 en:chives
 af:Sprietui
 am:ቀጭን ሽንኩርት
