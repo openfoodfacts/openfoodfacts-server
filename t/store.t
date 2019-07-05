@@ -2,6 +2,8 @@
 
 use Modern::Perl '2012';
 
+use utf8;
+
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
@@ -15,5 +17,10 @@ foreach my $test (@tests) {
 	ok( length get_urlid($test) > 0, "get_urlid(${test})" );
 	ok( length get_ascii_fileid($test) > 0, "get_ascii_fileid(${test})" );
 }
+
+is(get_fileid("Café au lait, bœuf gros sel de Guérande"), "cafe-au-lait-boeuf-gros-sel-de-guerande");
+is(get_fileid("ethic-advisor.UUID_in-MiXeD_CaSe"),"ethic-advisor.UUID-in-MiXeD-CaSe");
+is(get_fileid("àáâãäåçèéêëìíîïòóôõöùúûüýÿ"),"aaaaaaceeeeiiiiooooouuuuyy");
+is(get_fileid("Farine de blé 56g *"),"farine-de-ble-56g");
 
 done_testing();
