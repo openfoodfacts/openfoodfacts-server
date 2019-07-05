@@ -94,7 +94,7 @@ my $original_id = $product_ref->{images}{$id}{imgid};
 my $original_link = "";
 if ((defined $original_id) and (defined $product_ref->{images}{$original_id})) {
 	$photographer = $product_ref->{images}{$original_id}{uploader};
-	$original_link = " <a href=\"/cgi/product_image.pl?code=$code&id=$original_id\">" . lang("image_original_link_text") . "</a>";
+	$original_link = " <a href=\"/cgi/product_image.pl?code=$code&id=$original_id\" rel=\"isBasedOn\">" . lang("image_original_link_text") . "</a>";
 }
 
 if  (defined $product_ref->{images}{$id}{rev}) {
@@ -122,7 +122,7 @@ if  (defined $product_ref->{images}{$id}{rev}) {
 my $photographer_link = "<a href=\"" . canonicalize_tag_link("photographers", $photographer) . "\" rel=\"author\">$photographer</a>";
 my $editor_link;
 if (defined $editor) {
-	$editor_link = "<a href=\"" . canonicalize_tag_link("photographers", $editor) . "\" rel=\"author\">$editor</a>";
+	$editor_link = "<a href=\"" . canonicalize_tag_link("photographers", $editor) . "\" rel=\"contributor\">$editor</a>";
 }
 
 my $full_size = lang('image_full_size');
@@ -145,13 +145,13 @@ if ($product_name eq '') {
 }
 
 my $url = product_url($product_ref);
-my $creativecommons = sprintf(lang('image_attribution_creativecommons'), "<a href=\"$url\">$product_name</a>", '<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en" rel="license">Creative Commons Attribution-Share Alike 3.0 Unported</a>');
+my $creativecommons = sprintf(lang('image_attribution_creativecommons'), "<a href=\"$url\" rel=\"about\">$product_name</a>", '<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en" rel="license">Creative Commons Attribution-Share Alike 3.0 Unported</a>');
 
 my $html .= <<"HTML"
-<figure>
+<figure itemscope itemtype="https://schema.org/ImageObject">
 	<img src="$display_image_url" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy">
 	<figcaption>
-		<p><a href="$full_image_url">$full_size</a></p>
+		<p><a href="$full_image_url" itemprop="contentUrl">$full_size</a></p>
 		<p>$creativecommons$original_link</p>
 		<p>$attribution</p>
 	</figcaption>
