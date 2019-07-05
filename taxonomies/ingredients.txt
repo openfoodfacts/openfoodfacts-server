@@ -8599,6 +8599,8 @@ zh:礦物
 # yue:礦物
 #wikidata:en:
 wikipedia:en:https://en.wikipedia.org/wiki/Mineral
+vegan:en:ignore
+vegetarian:en:ignore
 
 
 # description:en:Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is the most abundant metal and the fifth-most abundant element in the human body. As electrolytes, calcium ions play a vital role in the physiological and biochemical processes of organisms and cells:in signal transduction pathways where they act as a second messenger; in neurotransmitter release from neurons; in contraction of all muscle cell types; as cofactors in many enzymes; and in fertilization. About three-quarters of dietary calcium is from dairy products and grains, the rest being accounted for by vegetables, protein-rich foods, fruits, sugar, fats, and oil.
@@ -16693,6 +16695,8 @@ zh:维生素
 # yue:維他命
 #wikidata:en:Q34956
 wikipedia:en:https://en.wikipedia.org/wiki/Vitamin
+vegan:en:yes
+vegetarian:en:yes
 
 
 # Vitamin A is a group of unsaturated nutritional organic compounds that includes retinol, retinal, retinoic acid,
@@ -24500,6 +24504,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 # Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
 # Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
 
+en:semolina
 de:Grieß
 ca:Sèmola
 el:Σιμιγδάλι
@@ -24508,12 +24513,14 @@ et:Manna
 fr:Semoule
 nl:gries
 oc:Semola
+vegan:en:yes
+vegetarian:en:yes
 
 # Question
 
 <en:wheat
-<de:Grieß
-en:semolina
+<en:semolina
+en:wheat semolina
 ar:سميد
 de:Weizengrieß, Weizengriess
 es:sémola de trigo
@@ -24526,7 +24533,7 @@ wikidata:en:Q381350
 carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
 carbon_footprint_fr_foodges_value:fr:0.6
 
-<en:semolina
+<en:wheat semolina
 fr:semoule de blé tendre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20tendre/
 # 20 products in 1 language @20180922
