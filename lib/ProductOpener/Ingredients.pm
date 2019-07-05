@@ -764,7 +764,7 @@ sub analyze_ingredients($) {
 					# then ignore the additive class instead of considering the property undef
 					elsif (exists_taxonomy_tag("additives_classes", $ingredientid)) {
 						$value = "ignore";
-						$ingredient_ref->{$property} = $value;
+						#$ingredient_ref->{$property} = $value;
 					}
 				}
 
