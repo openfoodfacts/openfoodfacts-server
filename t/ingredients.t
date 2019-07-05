@@ -490,8 +490,8 @@ $expected_product_ref =
         'id' => 'en:soya-lecithin',
         'rank' => 22,
         'text' => "l\x{e9}cithine de soja",
-        'vegan' => 'maybe',
-        'vegetarian' => 'maybe'
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
       },
       {
         'id' => 'en:glucose-fructose-syrup',
@@ -589,8 +589,8 @@ $expected_product_ref =
       {
         'id' => 'en:soya-lecithin',
         'text' => "l\x{e9}cithine de soja",
-        'vegan' => 'maybe',
-        'vegetarian' => 'maybe'
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
       },
       {
         'id' => 'en:e503',
