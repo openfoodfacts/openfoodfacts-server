@@ -69,6 +69,7 @@ BEGIN
 
 					&get_tag_css_class
 
+					&display_tag_name
 					&display_tag_link
 					&display_tags_list
 					&display_tag_and_parents
@@ -115,7 +116,7 @@ BEGIN
 					&load_users_translations
 					&load_users_translations_for_lc
 					&add_users_translations_to_taxonomy
-
+					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -234,6 +235,7 @@ sub get_inherited_property($$$) {
 				# stop the propagation to parents of this tag, but continue with other parents
 			}
 			else {
+				#Return only one occurence of the property if several are defined in ingredients.txt
 				return $properties{$tagtype}{$tagid}{$property};
 			}
 		}
@@ -256,6 +258,7 @@ sub has_tag($$$) {
 	if (defined $product_ref->{$tagtype . "_tags"}) {
 
 		foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
+
 			if ($tag eq $tagid) {
 				$return = 1;
 				last;
@@ -303,6 +306,12 @@ sub add_tag($$$) {
 	my $tagtype = shift;
 	my $tagid = shift;
 
+	(defined $product_ref->{$tagtype . "_tags"})  or $product_ref->{$tagtype . "_tags"} = [];
+	foreach my $existing_tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+		if ($tagid eq $existing_tagid) {
+			return;
+		}
+	}
 	push @{$product_ref->{$tagtype . "_tags"}}, $tagid;
 }
 
@@ -1310,7 +1319,11 @@ sub build_tags_taxonomy($$$) {
 			while ($#queue > -1) {
 				my $parentid = shift @queue;
 				#print "- $parentid\n";
-				if (not defined $seen{$parentid}) {
+				
+				if ($parentid eq $tagid) {
+					$errors .= "ERROR - $tagid is a parent of itself\n";
+				}				
+				elsif (not defined $seen{$parentid}) {
 					defined $all_parents{$tagtype}{$tagid} or $all_parents{$tagtype}{$tagid} = [];
 					push @{$all_parents{$tagtype}{$tagid}}, $parentid;
 					$seen{$parentid} = 1;
@@ -1386,7 +1399,7 @@ sub build_tags_taxonomy($$$) {
 					push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
-						$errors .= "ERROR - parent $parentid is not defined in lc $lc for tag $tagid\n";
+						$errors .= "ERROR - $tagid has an undefined parent $parentid\n";
 					}
 				}
 			}
@@ -1827,10 +1840,6 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		$tags{$tag} = 1;
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-				if ($parentid eq 'fr:') {
-					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
-					next;
-				}
 				$tags{$parentid} = 1;
 			}
 		}
@@ -1885,10 +1894,6 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-				if ($parentid eq 'fr:') {
-					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
-					next;
-				}
 				if (not exists $seen{$parentid}) {
 					push @tags, $parentid;
 					$seen{$parentid} = 1;
@@ -1940,10 +1945,26 @@ sub get_tag_css_class($$$) {
 	return $css_class;
 }
 
+
+sub display_tag_name($$) {
+
+	my $tagtype = shift;
+	my $tag = shift;
+	
+	# do not display UUIDs yuka-UnY4RExZOGpoTVVWb01aajN4eUY2UHRJNDY2cWZFVzhCL1U0SVE9PQ
+	# but just yuka - user	
+	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+		$tag =~ s/\.(.*)/ - user/;
+	}
+	return $tag;
+}
+
+
 sub display_tag_link($$) {
 
 	my $tagtype = shift;
 	my $tag = shift;
+	
 	$tag = canonicalize_tag2($tagtype, $tag);
 	my $tagid = get_fileid($tag);
 	my $tagurl = get_urlid($tagid);
@@ -1956,12 +1977,14 @@ sub display_tag_link($$) {
 		$tag = $';
 	}
 
+	my $display_tag = display_tag_name($tagtype, $tag);
+	
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
-		$html = "<a href=\"/$path/$tagurl\" lang=\"$tag_lc\">$tag</a>";
+		$html = "<a href=\"/$path/$tagurl\" lang=\"$tag_lc\">$display_tag</a>";
 	}
 	else {
-		$html = "<a href=\"/$path/$tagurl\">$tag</a>";
+		$html = "<a href=\"/$path/$tagurl\">$display_tag</a>";
 	}
 
 	if ($tagtype eq 'emb_codes') {
@@ -2429,6 +2452,11 @@ sub canonicalize_tag2($$)
 	$canon_tag =~ s/ $//g;
 
 	my $tagid = get_fileid($tag);
+	
+	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+		return $tagid;
+	}
+	
 	if ((defined $canon_tags{$lc}) and (defined $canon_tags{$lc}{$tagtype}) and (defined $canon_tags{$lc}{$tagtype}{$tagid})) {
 		$canon_tag = $canon_tags{$lc}{$tagtype}{$tagid};
 	}
@@ -2795,7 +2823,8 @@ sub exists_taxonomy_tag($$) {
 	my $tagtype = shift;
 	my $tagid = shift;
 
-	return ((exists $translations_from{$tagtype}) and (exists $translations_from{$tagtype}{$tagid}));
+	return ((exists $translations_from{$tagtype}) and (exists $translations_from{$tagtype}{$tagid})
+		and not ((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid})));
 }
 
 
@@ -2896,14 +2925,6 @@ sub canonicalize_tag_link($$)
 			$tagid = $';
 		}
 	}
-
-	# Redirect photographers, informers, correctors, checkers to users page
-	#if (($tagtype eq 'photographers') or ($tagtype eq 'informers')
-	#	or ($tagtype eq 'correctors') or ($tagtype eq 'checkers')) {
-	#
-	#	$tagtype = 'users';
-	#}
-
 
 	my $path = $tag_type_singular{$tagtype}{$lang};
 	if (not defined $path) {
@@ -3260,7 +3281,7 @@ sub add_tags_to_field($$$$) {
 
 	if ((scalar @added_tags) > 0) {
 
-		my $value = "";
+		my $value;
 
 		if (defined $taxonomy_fields{$field}) {
 			# we do not know the language of the current value of $product_ref->{$field}
@@ -3272,6 +3293,7 @@ sub add_tags_to_field($$$$) {
 		else {
 			$value = $product_ref->{$field};
 		}
+		(defined $value) or $value = "";
 
 		$product_ref->{$field} = $value . ", " . join(", ", @added_tags);
 	}
@@ -3580,7 +3602,6 @@ sub add_users_translations_to_taxonomy($) {
 	}
 
 }
-
 
 
 $log->info("Tags.pm loaded") if $log->is_info();

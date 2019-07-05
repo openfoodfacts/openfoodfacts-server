@@ -65,7 +65,7 @@ hy:Միներալ
 ia:Mineral
 id:Mineral
 io:Mineralo
-io:Mineralo
+is:Steind, steinefni, steintegund
 it:Minerale, Minerali, Sali minerali
 ja:鉱物
 jv:Mineral
@@ -149,7 +149,8 @@ zh:礦物
 # yue:礦物
 #wikidata:en:
 wikipedia:en:https://en.wikipedia.org/wiki/Mineral
-
+vegan:en:yes
+vegetarian:en:yes
 
 # description:en:POTASSIUM is a chemical element with symbol K (from Neo-Latin kalium) and atomic number 19. Potassium ions are vital for the functioning of all living cells. The transfer of potassium ions across nerve cell membranes is necessary for normal nerve transmission; potassium deficiency and excess can each result in numerous signs and symptoms, including an abnormal heart rhythm and various electrocardiographic abnormalities. Fresh fruits and vegetables are good dietary sources of potassium.
 
@@ -615,7 +616,6 @@ ro:citrat de magneziu și potasiu
 sk:citran horečnato-draselný
 sl:magnezijev kalijev citrat
 sv:magnesiumkaliumcitrat
-
 
 
 # description:en:CALCIUM is a chemical element with symbol Ca and atomic number 20. Calcium is the most abundant metal and the fifth-most abundant element in the human body. As electrolytes, calcium ions play a vital role in the physiological and biochemical processes of organisms and cells:in signal transduction pathways where they act as a second messenger; in neurotransmitter release from neurons; in contraction of all muscle cell types; as cofactors in many enzymes; and in fertilization. About three-quarters of dietary calcium is from dairy products and grains, the rest being accounted for by vegetables, protein-rich foods, fruits, sugar, fats, and oil.
@@ -1857,7 +1857,6 @@ fi:magnesiumsitraatti
 fr:citrate de magnésium
 it:citrato di magnesio
 nl:Magnesiumcitraat
-pl:Cytrynian magnezu
 pt:citrato de magnésio
 sh:Magnezijum citrat
 sk:Citrát horečnatý
@@ -1869,7 +1868,6 @@ wikidata:en:Q45044
 wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_citrate
 # mineral/magnesium-citrate has 192 products in 4 languages @2019-04-26
 # ingredient/fr:citrate-de-magnésium has 151 products in 4 languages @2019-04-26
-
 
 # description:en: IRON is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. Iron is pervasive, but particularly rich sources of dietary iron include red meat, oysters, lentils, beans, poultry, fish, leaf vegetables, watercress, tofu, chickpeas, black-eyed peas, and blackstrap molasses. Iron provided by dietary supplements is often found as iron(II) fumarate, although iron(II) sulfate is cheaper and is absorbed equally well.
 
@@ -3663,6 +3661,7 @@ wikidata:en:Q409393
 # ingredient/manganese-sulfate has 354 products @2019-05-12
 # mineral/manganese-sulphate has 346 products @2019-05-12
 
+<en:mineral
 en:Fluoride
 bg:Флуориди
 cs:Fluor
@@ -5162,6 +5161,7 @@ sk:sodné soli kyseliny ortofosforečnej
 sl:natrijeve soli ortofosforne kisline
 sv:natriumsalter av ortofosforsyra
 
+<en:mineral
 en:Boron
 bg:Бор
 cs:Bor

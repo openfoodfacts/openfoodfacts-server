@@ -328,6 +328,8 @@ if ((defined $images_dir) and ($images_dir ne '')) {
 	else {
 		die ("Could not open images_dir $images_dir : $!\n");
 	}
+	
+	
 }
 
 print "importing products\n";
@@ -387,7 +389,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		next;
 	}
 
-	#next if ($code !~ /^80/);
+	#next if ($code ne "3162050010259");
 
 	$stats{products_in_file}{$code} = 1;
 
@@ -541,7 +543,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 	foreach my $field ('lc', 'product_name', 'generic_name',
 		@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
-		'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang', 'data_sources') {
+		'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang', 'data_sources') {
 
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -630,6 +632,13 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					}
 					else {
 						#print "- $tagid already in $field\n";
+						# update the case (e.g. for brands)
+						if ($field eq "brands") {
+							my $regexp = $tag;
+							$regexp =~ s/( |-)/\( \|-\)/g;
+							$product_ref->{$field} =~ s/\b$tagid\b/$tag/i;
+							$product_ref->{$field} =~ s/\b$regexp\b/$tag/i;
+						}
 					}
 
 				}
@@ -793,9 +802,9 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		);
 
 
-		my $value = remove_tags_and_quote($imported_product_ref->{$nid . "_value"});
-		my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"});
-		my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"});
+		my $value = remove_tags_and_quote($imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"});
+		my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"});
+		my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "100g_unit"});
 
 
 		if ($nid eq 'alcohol') {
@@ -1105,7 +1114,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					# upload a photo
 					my $imgid;
 					my $return_code = process_image_upload($code, "$images_dir/$file", $User_id, undef, $product_comment, \$imgid);
-					print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";
+					print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid - imagefield_with_lc: $imagefield_with_lc\n";
 
 					if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 						$stats{products_images_added}{$code} = 1;
