@@ -431,7 +431,7 @@ $expected_product_ref =
         'rank' => 13,
         'text' => "lactose et prot\x{e9}ines de lait",
         'vegan' => 'no',
-        'vegetarian' => 'maybe'
+        'vegetarian' => 'yes'
       },
       {
         'id' => 'en:wheat-flour',
@@ -516,7 +516,7 @@ $expected_product_ref =
         'id' => 'en:concentrated-orange-juice',
         'percent' => '1.4',
         'text' => "jus d'orange concentr\x{e9}",
-        'vegan' => 'maybe',
+        'vegan' => 'yes',
         'vegetarian' => 'yes'
       },
       {
