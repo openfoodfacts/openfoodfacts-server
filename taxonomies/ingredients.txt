@@ -4896,6 +4896,8 @@ de:Rindergelatine
 fr:gélatine de bœuf, gélatine de boeuf, gélatine bovine
 it:gelatina di manzo
 # ingredient/fr:gélatine-de-bœuf has 216 products in 4 languages @2019-02-10
+vegan:en:no
+vegetarian:en:no
 
 <en:gelatin
 # <en:fish
@@ -4903,6 +4905,8 @@ en:fish gelatine
 de:Fisch-Gelatine
 fr:gélatine de poisson
 it:gelatina di pesce
+vegan:en:no
+vegetarian:en:no
 # ingredient/fr:gélatine-de-poisson has 71 products in 4 languages @2019-02-10
 
 <en:gelatin
@@ -4922,6 +4926,8 @@ it:gelatina di maiale
 nl:varkensgelatine
 pl:zelatyna wieprzowa
 # ingredient/fr:gélatine-de-porc has 891 products in 8 languages @2019-02-10
+vegan:en:no
+vegetarian:en:no
 
 
 # PECTIN is a structural heteropolysaccharide contained in the primary cell walls of terrestrial plants.
@@ -8593,6 +8599,8 @@ zh:礦物
 # yue:礦物
 #wikidata:en:
 wikipedia:en:https://en.wikipedia.org/wiki/Mineral
+vegan:en:ignore
+vegetarian:en:ignore
 
 
 # description:en:Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is the most abundant metal and the fifth-most abundant element in the human body. As electrolytes, calcium ions play a vital role in the physiological and biochemical processes of organisms and cells:in signal transduction pathways where they act as a second messenger; in neurotransmitter release from neurons; in contraction of all muscle cell types; as cofactors in many enzymes; and in fertilization. About three-quarters of dietary calcium is from dairy products and grains, the rest being accounted for by vegetables, protein-rich foods, fruits, sugar, fats, and oil.
@@ -12857,6 +12865,7 @@ zh:黄油
 # wuu:白脱
 # zh-min-nan:bá-tah
 # yue:牛油
+vegan:en:no
 vegetarian:en:yes
 
 # BEURRE DOUX - en:Butter avec une salinité moins de 0,5 %
@@ -12984,6 +12993,7 @@ zh:乳脂
 # zh-hk:乳脂
 wikidata:en:Q909729
 wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
+vegan:en:no
 vegetarian:en:yes
 
 # CLARIFIED BUTTER - milk fat rendered from butter to separate the milk solids and water from the butterfat
@@ -14417,6 +14427,7 @@ zh:鮮奶油
 # war:Krema
 # yue:忌廉
 wikipedia:en:https://en.wikipedia.org/wiki/Cream
+vegan:en:no
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Crème, 40% MG, pasteurisée
 carbon_footprint_fr_foodges_value:fr:4.2
@@ -14680,6 +14691,7 @@ zh:酪漿
 # zh-tw:酪漿
 wikidata:en:Q106612
 wikipedia:en:https://en.wikipedia.org/wiki/Buttermilk
+vegan:en:no
 vegetarian:en:yes
 # ingredient/fr:babeurre has 166 products in 4 languages @2018-11-15
 
@@ -16684,6 +16696,8 @@ zh:维生素
 # yue:維他命
 #wikidata:en:Q34956
 wikipedia:en:https://en.wikipedia.org/wiki/Vitamin
+vegan:en:yes
+vegetarian:en:yes
 
 
 # Vitamin A is a group of unsaturated nutritional organic compounds that includes retinol, retinal, retinoic acid,
@@ -18478,6 +18492,8 @@ de:Rind
 fr:bœuf, boeuf, Boeufs
 it:manzo
 nl:rund
+vegan:en:no
+vegetarian:en:no
 # ingredient/fr:bœuf has 257 products in 7 languages @2019-04-19
 # usage:fr:gélatine (bœuf)
 
@@ -19081,6 +19097,8 @@ en:pork
 de:Schweinefleisch
 fr:porc
 it:suino
+vegan:en:no
+vegetarian:en:no
 
 <en:meat
 <en:pork
@@ -19423,6 +19441,8 @@ fr:jambon cuit de qualité supérieure avec couenne jambon de porc
 en:pork by-product
 fr:sous-produit du porc
 nl:Varkensvleesbijproduct
+vegan:en:no
+vegetarian:en:no
 
 <en:pork by-product
 fr:graisse de porc
@@ -19516,6 +19536,7 @@ fr:coeur de porc
 # viande bovine in ingredients refers to (aged) beef, not veal
 #<fr:viande bovine
 <en:veal
+<en:meat
 en:veal meat
 de:Kalbsfleisch
 fr:viande de veau
@@ -19524,7 +19545,8 @@ carbon_footprint_fr_foodges_value:fr:20.5
 
 en:veal
 fr:veau
-
+vegan:en:no
+vegetarian:en:no
 
 # <en:bone
 fr:os de veau
@@ -21548,6 +21570,8 @@ en:poultry fat
 de:Geflügelfett
 fr:graisse de volaille
 # ingredient/fr:graisse-de-volaille has 76 products in 5 languages @2019-03-01
+vegan:en:no
+vegetarian:en:no
 
 <en:poultry fat
 en:duck fat
@@ -23471,6 +23495,8 @@ it:aroma naturale di limone
 nl:natuurlijk citroenaroma
 pt:aroma natural de limão
 ru:натуральный ароматизатор лимон
+vegan:en:yes
+vegetarian:en:yes
 
 <en:natural flavouring
 fr:arômes naturels de réglisse
@@ -23699,6 +23725,7 @@ nl:vanillearoma
 pt:aroma baunilha
 
 <en:natural flavouring
+<en:vanilla flavouring
 en:natural vanilla flavouring
 da:naturlig vanillearoma
 de:natürliches Vanillearoma
@@ -23709,6 +23736,9 @@ nb:naturlig vanilijarom
 nl:natuurlijk vanillearoma
 pl:naturalny aromat wanilii
 sv:naturlig vanilijarom
+vegan:en:yes
+vegetarian:en:yes
+
 
 <en:natural vanilla flavouring
 en:natural organic vanilla flavouring
@@ -24492,6 +24522,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 # Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
 # Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
 
+en:semolina
 de:Grieß
 ca:Sèmola
 el:Σιμιγδάλι
@@ -24500,12 +24531,14 @@ et:Manna
 fr:Semoule
 nl:gries
 oc:Semola
+vegan:en:yes
+vegetarian:en:yes
 
 # Question
 
 <en:wheat
-<de:Grieß
-en:semolina
+<en:semolina
+en:wheat semolina
 ar:سميد
 de:Weizengrieß, Weizengriess
 es:sémola de trigo
@@ -24518,7 +24551,7 @@ wikidata:en:Q381350
 carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
 carbon_footprint_fr_foodges_value:fr:0.6
 
-<en:semolina
+<en:wheat semolina
 fr:semoule de blé tendre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20tendre/
 # 20 products in 1 language @20180922
@@ -25644,6 +25677,8 @@ vi:Diêm mạch
 # sco:Quinoa
 # war:Chenopodium quinoa
 # yue:藜麥
+vegan:en:yes
+vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Quinoa
 wikidata:en:Q139925
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
@@ -28616,6 +28651,8 @@ fr:fructose de blé
 en:fructose syrup
 de:Fruktose Sirup
 fr:sirop de fructose
+vegan:en:yes
+vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fructose-syrup
 # 11561 products in 5 languages @2018-09-24
 
@@ -28779,6 +28816,8 @@ de:Ahornsirup
 es:jarabe de arce
 fr:sirop d’érable
 nl:ahornsiroop
+vegan:en:yes
+vegetarian:en:yes
 
 <en:maple syrup
 en:canadian maple syrup
@@ -28798,6 +28837,8 @@ en:sugar syrup
 de:Zuckersirup
 fr:sirop de sucre
 nl:Suikerstroop
+vegan:en:yes
+vegetarian:en:yes
 
 fr:sucre de fleur de coco
 it:zucchero di fiori di cocco
@@ -28848,6 +28889,8 @@ de:Reissirup
 fr:sirop de riz
 it:sciroppo di riso
 nl:Rijststroop
+vegan:en:yes
+vegetarian:en:yes
 
 <en:sugar
 en:caramelised sugar syrup
@@ -47533,6 +47576,8 @@ zh:食品添加剂
 wikidata:en:Q2596997
 wikipedia:en:https://en.wikipedia.org/wiki/Condiment
 # ingredient/fr:condiment has 360 products in 6 languages @2019-03-09
+vegan:en:ignore
+vegetarian:en:ignore
 
 <en:condiment
 en:powdered condiment
@@ -47577,6 +47622,8 @@ en:herb
 de:Gewürz
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, plantes aromatiques, herbes aromatiques
 nl:Kruiden
+vegan:en:yes
+vegetarian:en:yes
 
 <en:herb
 <en:spice
@@ -47589,6 +47636,8 @@ fr:plantes aromatiques et épices dont herbes aromatiques
 en:spice extract, spices extract
 fr:extrait d'épice, extraits d'épices
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte
+vegan:en:yes
+vegetarian:en:yes
 
 <en:natural spice extract
 fr:extrait naturel d'épice, extraits naturels d'épices
@@ -60557,6 +60606,7 @@ zh:蜂蜜
 # zh-hant:蜂蜜
 wikidata:en:Q10987
 wikipedia:en:https://en.wikipedia.org/wiki/Honey
+vegan:en:no
 vegetarian:en:yes
 # ingredient/honey has 9679 products in 17 languages @2018-12-17
 
@@ -63802,6 +63852,8 @@ pt:fibra vegetal
 # pt-br:fibra vegetal
 ru:растительное волокно
 sv:Växtfibrer
+vegan:en:yes
+vegetarian:en:yes
 wikipedia:en:Q20026824
 # ingredient/fr:fibres-végétales has 536 products in 7 languages @2019-03-11
 
@@ -63968,6 +64020,8 @@ wikidata:en:Q265868
 wikipedia:en:https://en.wikipedia.org/wiki/Bone
 # ingredient/fr:os has 593 products in french @2019-04-25
 # usage:fr:bouillon (eau, os, viande de porc, oignon, poivre, ail, muscade, thym, laurier, clou de girofle)
+vegan:en:no
+vegetarian:en:no
 
 # description:en:COLLAGEN is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
 
@@ -64030,6 +64084,8 @@ zh:膠原蛋白
 # yue:膠原蛋白
 wikipedia:en:https://en.wikipedia.org/wiki/Collagen
 # ingredient/fr:collagène has 128 products in 4 languages @2019-04-21
+vegan:en:no
+vegetarian:en:no
 
 # description:en:NONENZYMATIC BROWNING, is a process that produces the brown pigmentation in foods. The two main forms of non-enzymatic browning are caramelization and the Maillard reaction. Examples of foods that undergo Maillard reaction include breads, steaks, and potatoes.
 # comment:en:The wikidata item does not match the words on packages.
@@ -65188,6 +65244,8 @@ tr:kaplama
 # usage:fr:Enrobage:farines (blé, seigle, et riz) (contient gluten) eau, amidon modifié, amidon et protéines de blé (contient gluten ), sel
 # ingredient/fr:enrobant has 79 products in 4 languages @2019-02-21
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
+vegan:en:ignore
+vegetarian:en:ignore
 
 <en:coating
 fr:décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
@@ -66119,6 +66177,8 @@ de:Geflügelbouillon
 fr:bouillon de volaille, fond de volaille, Bouillons de volaille
 nl:gevogeltebouillon
 # ingredient/fr:fond-de-volaille has 226 products in french @2019-03-09
+vegetarian:en:no
+vegan:en:no
 
 <en:poultry broth
 fr:fond de volaille aromatisé
@@ -66778,6 +66838,8 @@ zh:醬
 wikidata:en:Q178359
 wikipedia:en:https://en.wikipedia.org/wiki/Sauce
 # ingredient/sauce has 5701 products in 15 languages @2019-05-02
+vegan:en:ignore
+vegetarian:en:ignore
 
 <en:sauce
 fr:préparation deshydratée pour sauce
@@ -67201,6 +67263,8 @@ sv:fisksås
 wikipedia:en:https://en.wikipedia.org/wiki/Fish_sauce
 # ingredient/fr:sauce-poisson has 106 products in 9 languages @2019-04-11
 # usage:en: fish sauce (anchovy (fish), salt, sugar)
+vegan:en:no
+vegetarian:en:no
 
 
 # description:en:NƯỚC MẮM is a fish sauce in Vietnamese cuisine.
@@ -67707,4 +67771,8 @@ carbon_footprint_fr_foodges_value:fr:2.7
 fr:margarine végétale non hydrogénée
 
 <en:Margarine
+en:Vegetal margarine
 fr:margarine végétale
+vegan:en:yes
+vegetarian:en:yes
+
