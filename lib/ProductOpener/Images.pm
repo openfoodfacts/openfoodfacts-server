@@ -68,6 +68,8 @@ use Image::Magick;
 use Graphics::Color::RGB;
 use Graphics::Color::HSL;
 use Barcode::ZBar;
+use Image::OCR::Tesseract 'get_ocr';
+
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;

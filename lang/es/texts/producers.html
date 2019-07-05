@@ -9,7 +9,7 @@
 <p>Esta guía explica por qué y cómo los fabricantes pueden integrar directamente las fotos y los datos del producto en la base de datos de Open Food Facts.</p>
 
 <ul>
-<li><a href="#introduction">Introduction</a></li>
+<li><a href="#introduction">Introducción</a></li>
 <li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">¿Por qué agregar los datos de sus productos a Open Food Facts?</a></li>
 <ul>
 <li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Ejemplos de fabricantes que envían fotos y datos de productos a Open Food Facts</a></li>
@@ -47,7 +47,7 @@
 </ul>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">Introducción</h2>
 
 <p>Las fotos y datos de los productos alimenticios que están en la base de datos de Open Food Facts provienen de 2 fuentes:</p>
 <ul>
@@ -77,7 +77,7 @@
   
 <p>All data sent to Open Food Facts is published under the Open Database License (ODbL), and the photos under the Creative Commons License CC-BY-SA. These licenses allow the data to be freely reusable by all and for all purposes. For more information, see the <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Terms of Use, Contribution, and Reuse.</a></p>
   
-<h3 id="quelles_donnees">What data</h3>
+<h3 id="quelles_donnees">Qué datos</h3>
 
 <p>All the data you have can be integrated into Open Food Facts: ingredients and nutritional information of course, but also labels, materials used for packaging, traceability of ingredients, instructions for preparation and recycling, ecological footprint etc.</p>
 <p>We regularly add new fields to the database based on the information on the packages or provided by the manufacturers.</p>
@@ -104,18 +104,18 @@ We have recently added fields on the carbon footprint, and the packaging of prod
 To make importing data easier and faster, we have defined a standard format for images and data:
 <h4 id="format_des_images">Formato de imagen</h4>
 
-<p>At least 3 images are required:</p>
+<p>Se requieren al menos 3 imágenes:</p>
 <ul>
 <li>Front view of product on white background (avoid three-quarter views that do not allow visual recognition of products without barcode scanning)</li>
 <li>Lista de Ingredientes</li>
-<li>Nutritional table</li>
+<li>Tabla nutricional</li>
 </ul>
   
 <p>The front view, ingredients and nutrition chart must be provided in at least the main language of the product. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
 
 <p>For example, a product intended for the Belgian market may have photos showing the product written in French and written in Dutch.</p>
 
-  <p>Other images may also be included:</p>
+  <p>Otras imágenes también pueden ser incluidas:</p>
 <ul>
 <li>Verso and other views of the product (they allow in particular to automatically identify labels logos etc.)</li>
 <li>Flat view of the packaging</li>
@@ -123,8 +123,8 @@ To make importing data easier and faster, we have defined a standard format for 
   
 <h5 id="format_des_fichiers_images">Formato de las imágenes</h5>
 <ul>
-  <li>JPEG or PNG format</li>
-  <li>Size at least 2000 pixels wide or tall</li>
+  <li>Formato JPEG o PNG</li>
+  <li>Tamaño de al menos 2000 píxeles de ancho o alto</li>
 </ul>
 
 <h5 id="nom_des_fichiers_images">Nombre de las fotos</h5>
@@ -132,18 +132,18 @@ To make importing data easier and faster, we have defined a standard format for 
 
 <pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
 
-  <p>For example :</p>
+  <p>Por ejemplo:</p>
 
 <p>3660140808750_front_en.jpg for the front image of the product whose barcode is 3660140808750</p>
 
-  <p>The types of images are:</p>
+  <p>Los tipos de imágenes son:</p>
 
 <ul>
   <!-- Do not translate field names, just their description -->
-  <li>front: front image</li>
-  <li>ingredients: list of ingredients</li>
-  <li>nutrition: nutritional chart</li>
-  <li>back: version</li>
+  <li>frontal: imagen frontal</li>
+  <li>ingredientes: lista de ingredientes</li>
+  <li>nutrición: gráfico nutricional</li>
+  <li>atrás: versión</li>
   <li>any name you see fit (characters from a to e, no spaces) for other views</li>
 </ul>
   
@@ -176,13 +176,13 @@ To make importing data easier and faster, we have defined a standard format for 
 
 <ul>
   <!-- Do not translate nutrient field names -->
-  <li>energy_100g: energy, in kJ</li>
-  <li>fat_100g: fat</li>
-  <li>saturated-fat_100g: saturated fat</li>
-  <li>carbohydrates_100g: carbohydrates</li>
-  <li>sugars_100g: sugars</li>
-  <li>proteins_100g: proteins</li>
-  <li>salt_100g: salt</li>
+  <li>energy_100g: energía, en kJ</li>
+  <li>fat_100g: grasa</li>
+  <li>saturated-fat_100g: grasa saturada</li>
+  <li>carbohydrates_100g: carbohidratos</li>
+  <li>sugars_100g: azúcares</li>
+  <li>proteins_100g: proteínas</li>
+  <li>salt_100g: sal</li>
   <!-- Do not translate nutrient field names -->
 </ul>
 
@@ -190,7 +190,7 @@ To make importing data easier and faster, we have defined a standard format for 
 
   <ul>
     <!-- Do not translate nutrient field names -->
-  <li>fiber_100g: fibers</li>
+  <li>fiber_100g: fibras</li>
   <li>fruits-vegetables-nuts_100g</li>
     <!-- Do not translate nutrient field names -->
   </ul>
@@ -208,7 +208,7 @@ To make importing data easier and faster, we have defined a standard format for 
     <li>serving_size: quantity of a serving, specify the unit</li>
   </ul>
 
-<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. For example energy_prepared_100g.</p>
+<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. Por ejemplo, energy_prepared_100g.</p>
 <p>It is also possible to indicate the values for other nutrients:</p>
 
 <ul>
@@ -263,7 +263,7 @@ To make importing data easier and faster, we have defined a standard format for 
 <li>serum-proteins_100g</li>
 <li>nucleotides_100g</li>
 
-<li>sodium_100g - in the case the salt_100g is left empty</li>
+<li>sodium_100g - en el caso de que salt_100g se deje vacío</li>
 <li>alcohol_100g</li>
 
 <li>vitamin-a_100g</li>
@@ -317,13 +317,13 @@ To make importing data easier and faster, we have defined a standard format for 
 </ul>
 
 <h4 id="envoi_des_photos_et_des_donnees">Enviando fotos y datos</h4>
-<p>If the number of products is relatively small (less than 1000 products) and the updates are infrequent (for example every 6 months), it is possible to send us the photos and the CSV file by any means (for example mail for CSV file and WeTransfer, Google Drive, DropBox etc. for photos).</p>
+<p>If the number of products is relatively small (less than 1000 products) and the updates are infrequent (for example every 6 months), it is possible to send us the photos and the CSV file by any means (for example mail for CSV file and WeTransfer, Google Drive, DropBox etc. para fotos).</p>
 <p>For a larger number of products or a more regular update, we can create an SFTP space where you can manually or automatically send data and photos. Contact us so that we can put this in place.</p>
 
-<h2 id="questions_frequentes">Frequently asked Questions</h2>
+<h2 id="questions_frequentes">Preguntas frecuentes</h2>
 
 <h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">¿Es gratuito el listado de productos?</h3>
-<p>The import of the data is completely free. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
+<p>La importación de los datos es completamente gratuita. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
   
 <h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">¿Los datos del fabricante sobrescribirán los datos ingresados por los contribuyentes?</h3>
 <p>Producer data is automatically controlled by Open Food Facts with consistency checking algorithms, and then by some contributors. We have full confidence in the data you send us, but we know by experience that typos  are possible.</p>

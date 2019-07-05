@@ -3996,7 +3996,7 @@ sub compute_nutrition_score($) {
 	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
 	# do not display warnings about missing fiber and fruits
 
-	if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+	if (not ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
 
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known
@@ -4390,7 +4390,7 @@ sub compute_nutrition_grade($$) {
 		# D/Rose 6 – 9
 		# E/Rouge 10 – Max
 
-		if (has_tag($product_ref, "categories", "en:spring-waters")) {
+		if (((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
 			$grade = 'a';
 		}
 		elsif ($fr_score <= 1) {
