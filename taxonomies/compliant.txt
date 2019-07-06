@@ -131,12 +131,16 @@ additive:en:glycerol monostearate
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Hallal:en:no
+Hallal:en:no # haram
 ingredient:en:pork
+ingredient:en:alcohol
+additive:en:E120
 additive:en:E428
 additive:en:E542
+additive:en:E904
 
-Hallal:en:maybe
+Hallal:en:maybe # mushbooh
+additive:en:E312
 additive:en:E387
 additive:en:E430
 additive:en:E431
@@ -179,10 +183,14 @@ additive:en:E921
 
 Pollo-pescetarianism:en:no
 ingredient:en:animal
+additive:en:E120
 additive:en:E428
 additive:en:E542
+additive:en:E904
 
 Pollo-pescetarianism:en:maybe
+ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E430
 additive:en:E431
@@ -234,6 +242,7 @@ Pollo-vegetarianism:en:no
 ingredient:en:animal
 ingredient:en:fish
 ingredient:en:shellfish
+additive:en:E120
 additive:en:E428
 additive:en:E542
 additive:en:E630
@@ -242,9 +251,12 @@ additive:en:E632
 additive:en:E633
 additive:en:E634
 additive:en:E635
+additive:en:E904
 additive:en:E1000
 
 Pollo-vegetarianism:en:maybe
+ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E430
 additive:en:E431
@@ -295,9 +307,12 @@ ingredient:en:game animal
 additive:en:E120
 additive:en:E428
 additive:en:E542
+additive:en:E904
 additive:en:E1000
 
 Pescetarianism:en:maybe
+ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E430
 additive:en:E431
@@ -334,6 +349,7 @@ additive:en:E633
 additive:en:E634
 additive:en:E635
 additive:en:E640
+additive:en:E904
 additive:en:E910
 additive:en:E920
 additive:en:E921
@@ -359,9 +375,12 @@ additive:en:E632
 additive:en:E633
 additive:en:E634
 additive:en:E635
+additive:en:E904
 additive:en:E1000
 
 Ovo-lacto vegetarianism:en:maybe
+ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E430
 additive:en:E431
@@ -431,6 +450,7 @@ additive:en:E632
 additive:en:E633
 additive:en:E634
 additive:en:E635
+additive:en:E904
 additive:en:E963
 additive:en:E966
 additive:en:E1000
@@ -441,6 +461,7 @@ other:en:choline
 
 Ovo vegetarianism:en:maybe
 ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E430
 additive:en:E431
@@ -500,11 +521,14 @@ ingredient:en:egg
 additive:en:E120
 additive:en:E428
 additive:en:E542
+additive:en:E904
 additive:en:E963
 additive:en:E966
 additive:en:E1000
 
 Orthodox Fasting:en:maybe
+ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E322
 additive:en:E430
@@ -542,6 +566,7 @@ additive:en:E633
 additive:en:E634
 additive:en:E635
 additive:en:E640
+additive:en:E904
 additive:en:E910
 additive:en:E920
 additive:en:E921
@@ -568,10 +593,13 @@ additive:en:E632
 additive:en:E633
 additive:en:E634
 additive:en:E635
+additive:en:E904
 additive:en:E1000
 additive:en:E1105
 
 Lacto vegetarianism:en:maybe
+ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E430
 additive:en:E431
@@ -661,6 +689,7 @@ other:en:Carnitine
 
 Veganism:en:maybe
 ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E322
 additive:en:E430
@@ -732,6 +761,8 @@ additive:en:E1000
 additive:en:E1105
 
 Jain vegetarianism:en:maybe
+ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E322
 additive:en:E430
@@ -826,6 +857,7 @@ other:en:Carnitine
 
 Fruitarianism:en:maybe
 ingredient:en:rennet
+additive:en:E312
 additive:en:E387
 additive:en:E322
 additive:en:E430
