@@ -1367,7 +1367,7 @@ fr => [
 'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
 'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
 'moyennes pour 100(g|ml)',
-'Nutrition pour 100 (g|ml)', 
+'Nutrition pour 100 (g|ml)',
 'valeur(s?) (e|é)nerg(e|é)tique',
 'valeur(s?) nutritives',
 'valeur nutritive',
@@ -2112,7 +2112,7 @@ INFO
 	}
 
 	# Add synonyms in target language
-	my $vitamin_in_lc = get_fileid(display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"));
+	my $vitamin_in_lc = get_fileid(display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"), 0, $product_lc
 	$vitamin_in_lc =~ s/^\w\w://;
 
 	if ((defined $synonyms_for{ingredients}) and (defined $synonyms_for{ingredients}{$product_lc}) and (defined $synonyms_for{ingredients}{$product_lc}{$vitamin_in_lc})) {
@@ -2167,7 +2167,7 @@ INFO
 					# push @allergenssuffixes, $translations_to{allergens}{$allergen}{$product_lc};
 					# the synonyms below also contain the main translation as the first entry
 
-					my $product_lc_allergenid = get_fileid($translations_to{allergens}{$allergen}{$product_lc});
+					my $product_lc_allergenid = get_fileid($translations_to{allergens}{$allergen}{$product_lc}, 0, $product_lc);
 
 					foreach my $synonym (@{$synonyms_for{allergens}{$product_lc}{$product_lc_allergenid}}) {
 						push @allergenssuffixes, $synonym;
@@ -2273,10 +2273,7 @@ sub extract_ingredients_classes_from_text($) {
 
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
-
-		print STDERR "ingredients_classes - ingredient: $ingredient\n";
-
-		my $ingredientid = get_fileid($ingredient);
+		my $ingredientid = get_fileid($ingredient, 0, $product_ref->{lc});
 		if ((defined $ingredientid) and ($ingredientid ne '')) {
 
 			# split additives

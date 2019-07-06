@@ -68,8 +68,8 @@ sub unac_string_perl($) {
 }
 
 # Tags in European characters (iso-8859-1 / Latin-1 / Windows-1252) are canonicalized:
-# 1. deaccent: é -> è, + German umlauts: ä -> ae if $unaccent is 1.
-# 2. lowercase
+# 1. lowercase
+# 2. deaccent: é -> è, + German umlauts: ä -> ae if $unaccent is 1 OR $lc is 'fr'
 # 3. turn ascii characters that are not letters / numbers to -
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
@@ -78,9 +78,14 @@ sub get_fileid {
 
 	my $file = shift;
 	my $unaccent = shift;
+	my $lc = shift;
 
 	if (not defined $file) {
 		return "";
+	}
+
+	if ((defined $lc) and ($lc eq 'fr')) {
+		$unaccent = 1;
 	}
 
 	# do not lowercase UUIDs
@@ -88,12 +93,10 @@ sub get_fileid {
 	# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	if ($file !~ /^([a-z\-]+)\.([a-zA-Z0-9-_]{8})([a-zA-Z0-9-_]*)$/) {
+		$file =~ s/\N{U+1E9E}/\N{U+00DF}/g; # Actual lower-case for capital ß
 		$file = lc($file);
 		$file =~ tr/./-/;
 	}
-
-	$file =~ s/\N{U+1E9E}/\N{U+00DF}/g; # Actual lower-case for capital ß
-	$file = lc($file);
 
 	if ((defined $unaccent) and ($unaccent eq 1)) {
 		$file =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
@@ -101,6 +104,7 @@ sub get_fileid {
 		$file =~ s/œ|Œ/oe/g;
 		$file =~ s/æ|Æ/ae/g;
 		$file =~ s/ß/ss/g;
+		$file =~ s/\N{U+1E9E}/ss/g;
 	}
 
 	# turn special chars to -
@@ -121,12 +125,14 @@ sub get_fileid {
 }
 
 
-sub get_urlid($) {
+sub get_urlid {
 
 	my $input = shift;
 	my $file = $input;
+	my $unaccent = shift;
+	my $lc = shift;
 
-	$file = get_fileid($file);
+	$file = get_fileid($file, $unaccent, $lc);
 
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
@@ -136,24 +142,6 @@ sub get_urlid($) {
 
 	return $file;
 }
-
-
-sub get_ascii_fileid($) {
-
-	my $file = shift;
-
-	$file = get_fileid($file, 1);
-
-	if ($file =~ /[^a-zA-Z0-9-]/) {
-		$file = "xn--" .  encode('Punycode',$file);
-	}
-
-	$log->debug("get_ascii_fileid", { file => $file }) if $log->is_debug();
-
-	return $file;
-}
-
-
 
 sub store {
 	my $file = shift @_;

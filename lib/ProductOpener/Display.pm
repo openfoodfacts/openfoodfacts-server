@@ -2116,7 +2116,7 @@ sub display_list_of_tags_translate($$) {
 			my $display_lc = $tag_ref->{display_lc};
 
 			my $synonyms = "";
-			my $lc_tagid = get_fileid($display);
+			my $lc_tagid = get_fileid($display, 0, $display_lc);
 
 			if ((defined $synonyms_for{$tagtype}{$display_lc}) and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
@@ -2410,7 +2410,7 @@ sub display_points($) {
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
-			$newtagid = get_fileid($display_tag);
+			$newtagid = get_fileid($display_tag, 0, $lc);
 			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
@@ -2549,7 +2549,7 @@ sub display_tag($) {
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
-			$newtagid = get_fileid($display_tag);
+			$newtagid = get_fileid($display_tag, 0, $lc);
 			$display_tag = display_tag_name($tagtype2, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
@@ -2596,7 +2596,7 @@ sub display_tag($) {
 		}
 		else {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
-			$newtagid2 = get_fileid($display_tag2);
+			$newtagid2 = get_fileid($display_tag2, 0, $lc);
 			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
 			$title .= " / " . $display_tag2;
 
@@ -2839,7 +2839,7 @@ HTML
 			}
 
 
-			my $fieldid = get_fileid($field);
+			my $fieldid = get_fileid($field, 0, $lc);
 			$fieldid =~ s/-/_/g;
 
 			my %propertyid = ();
@@ -8588,7 +8588,7 @@ HTML
 				$shown = 0;
 			}
 			else {
-				my $labelid = get_fileid($Nutriments{$nid}{$lang});
+				my $labelid = get_fileid($Nutriments{$nid}{$lang}, 0, $lang);
 				$label = <<HTML
 <td class="nutriment_label"><a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">${prefix}$Nutriments{$nid}{$lang}</a></td>
 HTML

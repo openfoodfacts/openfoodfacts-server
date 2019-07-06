@@ -407,10 +407,10 @@ sub load_tags_hierarchy($$) {
 			if ($line !~ /^(>|<)/) {
 				my @tags = split(/\s*,\s*/, $line);
 				$current_tag = shift @tags;
-				$current_tagid = get_fileid($current_tag);
+				$current_tagid = get_fileid($current_tag, 0, $lc);
 				$canon_tags{$lc}{$tagtype}{$current_tagid} = $current_tag;
 				foreach my $tag (@tags) {
-					my $tagid = get_fileid($tag);
+					my $tagid = get_fileid($tag, 0, $lc);
 					next if $tagid eq '';
 					$canon_tags{$lc}{$tagtype}{$tagid} = $current_tag;
 					(defined $synonyms_for{$lc}{$current_tagid}) or $synonyms_for{$lc}{$current_tagid} = [];
@@ -423,14 +423,14 @@ sub load_tags_hierarchy($$) {
 				my @tags = split(/\s*,\s*/, $line);
 				my $child = shift(@tags);
 				# print "line : $line\nchild: $child\n";
-				my $childid = get_fileid($child);
+				my $childid = get_fileid($child, 0, $lc);
 				$canon_tags{$lc}{$tagtype}{$childid} = $child;
 				defined $tags_direct_children{$lc}{$tagtype}{$current_tagid} or $tags_direct_children{$lc}{$tagtype}{$current_tagid} = {};
 				$tags_direct_children{$lc}{$tagtype}{$current_tagid}{$childid} = 1;
 				defined $tags_direct_parents{$lc}{$tagtype}{$childid} or $tags_direct_parents{$lc}{$tagtype}{$childid} = {};
 				$tags_direct_parents{$lc}{$tagtype}{$childid}{$current_tagid} = 1;
 				foreach my $tag (@tags) {
-					my $tagid = get_fileid($tag);
+					my $tagid = get_fileid($tag, 0, $lc);
 					next if $tagid eq '';
 					$canon_tags{$lc}{$tagtype}{$tagid} = $child;
 					(defined $synonyms_for{$lc}{$childid}) or $synonyms_for{$lc}{$childid} = [];
@@ -443,14 +443,14 @@ sub load_tags_hierarchy($$) {
 				my @tags = split(/\s*,\s*/, $line);
 				my $parent = shift(@tags);
 				# print "line : $line\nparent: $parent\n";
-				my $parentid = get_fileid($parent);
+				my $parentid = get_fileid($parent, 0, $lc);
 				$canon_tags{$lc}{$tagtype}{$parentid} = $parent;
 				defined $tags_direct_parents{$lc}{$tagtype}{$current_tagid} or $tags_direct_parents{$lc}{$tagtype}{$current_tagid} = {};
 				$tags_direct_parents{$lc}{$tagtype}{$current_tagid}{$parentid} = 1;
 				defined $tags_direct_children{$lc}{$tagtype}{$parentid} or $tags_direct_children{$lc}{$tagtype}{$parentid} = {};
 				$tags_direct_children{$lc}{$tagtype}{$parentid}{$current_tagid} = 1;
 				foreach my $tag (@tags) {
-					my $tagid = get_fileid($tag);
+					my $tagid = get_fileid($tag, 0, $lc);
 					next if $tagid eq '';
 					$canon_tags{$lc}{$tagtype}{$tagid} = $parent;
 					(defined $synonyms_for{$lc}{$parentid}) or $synonyms_for{$lc}{$parentid} = [];
@@ -510,7 +510,7 @@ sub load_tags_hierarchy($$) {
 		# foreach my $tagid (keys %{$tags_direct_parents{$lc}{$tagtype}}) {
 		foreach my $tag (values %{$canon_tags{$lc}{$tagtype}}) {
 
-			my $tagid = get_fileid($tag);
+			my $tagid = get_fileid($tag, 0, $lc);
 
 			print "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first - tagid: $tagid\n";
 
@@ -750,7 +750,7 @@ sub build_tags_taxonomy($$$) {
 				print "taxonomy - stopwords - tagtype: $tagtype - lc: $lc - $lc.orig: " . $stopwords{$tagtype}{$lc . ".orig"} . "\n";
 				my @tags = split(/\s*,\s*/, $line);
 				foreach my $tag (@tags) {
-					my $tagid = get_fileid($tag);
+					my $tagid = get_fileid($tag, 0, $lc);
 					next if $tagid eq '';
 					defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
 					push @{$stopwords{$tagtype}{$lc}}, $tagid;
@@ -772,7 +772,7 @@ sub build_tags_taxonomy($$$) {
 
 				$current_tag = $tags[0];
 				$current_tag = ucfirst($current_tag);
-				$current_tagid = get_fileid($current_tag);
+				$current_tagid = get_fileid($current_tag, 0, $lc);
 
 				# check if we already have an entry listed for one of the synonyms
 				# this is useful for taxonomies that need to be merged, and that are concatenated
@@ -787,7 +787,7 @@ sub build_tags_taxonomy($$$) {
 
 						$tag =~ s/^\s+//;
 						$tag = normalize_percentages($tag, $lc);
-						my $tagid = get_fileid($tag);
+						my $tagid = get_fileid($tag, 0, $lc);
 						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
 						if (not defined $possible_canon_tagid) {
 							my $stopped_tagid = $tagid;
@@ -807,7 +807,7 @@ sub build_tags_taxonomy($$$) {
 					# do we already have a translation from a previous definition?
 					if (defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
 						$current_tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
-						$current_tagid = get_fileid($current_tag);
+						$current_tagid = get_fileid($current_tag, 0, $lc);
 					}
 
 				}
@@ -840,7 +840,7 @@ sub build_tags_taxonomy($$$) {
 				defined $synonyms_for{$tagtype}{$lc}{$current_tagid} or $synonyms_for{$tagtype}{$lc}{$current_tagid} = [];
 
 				foreach my $tag (@tags) {
-					my $tagid = get_fileid($tag);
+					my $tagid = get_fileid($tag, 0, $lc);
 					next if $tagid eq '';
 
 					if (defined $synonyms{$tagtype}{$lc}{$tagid}) {
@@ -901,7 +901,7 @@ sub build_tags_taxonomy($$$) {
 				(defined $synonyms_for_extended{$tagtype}{$lc}) or $synonyms_for_extended{$tagtype}{$lc} = {};
 
 				foreach my $tag (@{$synonyms_for{$tagtype}{$lc}{$current_tagid}}) {
-					my $tagid = get_fileid($tag);
+					my $tagid = get_fileid($tag, 0, $lc);
 					(defined $synonyms_for_extended{$tagtype}{$lc}{$current_tagid}) or $synonyms_for_extended{$tagtype}{$lc}{$current_tagid} = {};
 					$synonyms_for_extended{$tagtype}{$lc}{$current_tagid}{$tagid} = 1;
 					print STDERR "synonyms_for_extended{$tagtype}{$lc}{$current_tagid}{$tagid} = 1 \n";
@@ -1117,7 +1117,7 @@ sub build_tags_taxonomy($$$) {
 				my $parent = $';
 				$parent =~ s/^\s+//;
 				$parent = normalize_percentages($parent, $lc);
-				my $parentid = get_fileid($parent);
+				my $parentid = get_fileid($parent, 0, $lc);
 				my $canon_parentid = $synonyms{$tagtype}{$lc}{$parentid};
 				if (not defined $canon_parentid) {
 					my $stopped_parentid = $parentid;
@@ -1137,7 +1137,7 @@ sub build_tags_taxonomy($$$) {
 				$line =~ s/^\s+//;
 				my @tags = split(/\s*,\s*/, $line);
 				$current_tag = normalize_percentages($tags[0], $lc);
-				$current_tagid = get_fileid($current_tag);
+				$current_tagid = get_fileid($current_tag, 0, $lc);
 
 				if (not defined $canon_tagid) {
 
@@ -1158,7 +1158,7 @@ sub build_tags_taxonomy($$$) {
 
 						$tag =~ s/^\s+//;
 						$tag = normalize_percentages($tag, $lc);
-						my $tagid = get_fileid($tag);
+						my $tagid = get_fileid($tag, 0, $lc);
 						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
 						if (not defined $possible_canon_tagid) {
 							my $stopped_tagid = $tagid;
@@ -1265,7 +1265,7 @@ sub build_tags_taxonomy($$$) {
 				$line =~ s/^\s+//;
 				my @tags = split(/\s*,\s*/, $line);
 				$current_tag = normalize_percentages($tags[0], $lc);
-				$current_tagid = get_fileid($current_tag);
+				$current_tagid = get_fileid($current_tag, 0, $lc);
 
 				if (not defined $canon_tagid) {
 
@@ -1438,7 +1438,7 @@ sub build_tags_taxonomy($$$) {
 				$taxonomy_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 				$taxonomy_full_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 
-				my $lc_tagid = get_fileid($translations_to{$tagtype}{$tagid}{$lc});
+				my $lc_tagid = get_fileid($translations_to{$tagtype}{$tagid}{$lc}, 0, $lc);
 
 				# print "taxonomy - lc: $lc - tagid: $tagid - lc_tagid: $lc_tagid\n";
 				if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
@@ -1784,7 +1784,7 @@ sub gen_tags_hierarchy($$) {
 	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
 		my $tag = $tag2;
 		$tag = canonicalize_tag2($tagtype, $tag);
-		my $tagid = get_fileid($tag);
+		my $tagid = get_fileid($tag, 0, $lc);
 		next if $tagid eq '';
 		$tags{$tag} = 1;
 		if ((defined $tags_all_parents{$lc}) and (defined $tags_all_parents{$lc}{$tagtype}) and (defined $tags_all_parents{$lc}{$tagtype}{$tagid})) {
@@ -1794,16 +1794,7 @@ sub gen_tags_hierarchy($$) {
 		}
 	}
 
-	if (0) {
-
-		foreach my $tag (sort { $tags_level{$lc}{$tagtype}{get_fileid($b)} <=> $tags_level{$lc}{$tagtype}{get_fileid($a)} } keys %tags) {
-			my $tagid = get_fileid($tag);
-			# print STDERR "hierarchy: tag: $tag - tagid: $tagid - tag_level: " . $tags_level{$lc}{$tagtype}{get_fileid($tag)} . " - tag_level2 : " . $tags_level{$lc}{$tagtype}{$tagid} . " \n";
-		}
-
-	}
-
-	my @sorted_list = sort { $tags_level{$lc}{$tagtype}{get_fileid($b)} <=> $tags_level{$lc}{$tagtype}{get_fileid($a)} } keys %tags;
+	my @sorted_list = sort { $tags_level{$lc}{$tagtype}{get_fileid($b, 0, $lc)} <=> $tags_level{$lc}{$tagtype}{get_fileid($a, 0, $lc)} } keys %tags;
 	return @sorted_list;
 }
 
@@ -1965,16 +1956,17 @@ sub display_tag_link($$) {
 	my $tag = shift;
 
 	$tag = canonicalize_tag2($tagtype, $tag);
-	my $tagid = get_fileid($tag);
-	my $tagurl = get_urlid($tagid);
 
 	my $path = $tag_type_singular{$tagtype}{$lc};
 
-	my $tag_lc;
+	my $tag_lc = $lc;
 	if ($tag =~ /^(\w\w):/) {
 		$tag_lc = $1;
 		$tag = $';
 	}
+
+	my $tagid = get_fileid($tag, 0, $tag_lc);
+	my $tagurl = get_urlid($tagid, 0, $tag_lc);
 
 	my $display_tag = display_tag_name($tagtype, $tag);
 
@@ -2004,7 +1996,7 @@ sub canonicalize_taxonomy_tag_link($$$) {
 	my $tagtype = shift;
 	my $tag = shift;
 	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
-	my $tagurl = get_taxonomyurl($tag);
+	my $tagurl = get_taxonomyurl($tag, 0, $target_lc);
 
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 
@@ -2152,7 +2144,7 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 		$display_tag = $';
 	}
 
-	my $tagurlid = get_fileid($display_tag);
+	my $tagurlid = get_fileid($display_tag, 0, $display_lc_prefix);
 	if ($tagurlid =~ /[^a-zA-Z0-9-]/) {
 		$tagurlid = URI::Escape::XS::encodeURIComponent($display_tag);
 	}
@@ -2212,8 +2204,9 @@ sub display_tags_list($$) {
 	foreach my $tag (split(/,/, $tags_list)) {
 		$html .= display_tag_link($tagtype, $tag) . ", ";
 
-		if (defined $tags_images{$lc}{$tagtype}{get_fileid($tag)}) {
-			my $img = $tags_images{$lc}{$tagtype}{get_fileid($tag)};
+		my $tagid = get_fileid($tag, 0, $lc);
+		if (defined $tags_images{$lc}{$tagtype}{$tagid}) {
+			my $img = $tags_images{$lc}{$tagtype}{$tagid};
 			my $size = '';
 			if ($img =~ /\.(\d+)x(\d+)/) {
 				$size = " width=\"$1\" height=\"$2\"";
@@ -2335,8 +2328,9 @@ sub display_tags_hierarchy($$) {
 
 #			print STDERR "abbio - lc: $lc - tagtype: $tagtype - tag: $tag\n";
 
-			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tag)}) {
-				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tag)};
+			my $tagid = get_fileid($tag, 0, $lc);
+			if (defined $tags_images{$lc}{$tagtype}{$tagid}) {
+				my $img = $tags_images{$lc}{$tagtype}{$tagid};
 				my $size = '';
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
@@ -2377,7 +2371,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 
 			my $img_lc = $target_lc;
 
-			my $lc_imgid = get_fileid($target_title);
+			my $lc_imgid = get_fileid($target_title, 0, $target_lc);
 			my $en_imgid = get_taxonomyid($canon_tagid);
 			my $tag_lc = undef;
 			if ($en_imgid =~ /^(\w\w):/) {
@@ -2450,7 +2444,7 @@ sub canonicalize_tag2($$)
 	$canon_tag =~ s/^ //g;
 	$canon_tag =~ s/ $//g;
 
-	my $tagid = get_fileid($tag);
+	my $tagid = get_fileid($tag, 0, $lc);
 
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
 		return $tagid;
@@ -2471,7 +2465,7 @@ sub canonicalize_tag2($$)
 	if (($tagtype ne "additives_debug") and ($tagtype =~ /^additives(|_prev|_next|_debug)$/)) {
 
 		# e322-lecithines -> e322
-		my $tagid = get_fileid($tag);
+		my $tagid = get_fileid($tag, 0, $lc);
 		$tagid =~ s/-.*//;
 		my $other_name = $ingredients_classes{$tagtype}{$tagid}{other_names};
 		$other_name =~ s/,.*//;
@@ -2482,7 +2476,7 @@ sub canonicalize_tag2($$)
 	}
 
 	elsif (($tagtype eq 'ingredients_from_palm_oil') or ($tagtype eq 'ingredients_that_may_be_from_palm_oil')) {
-		my $tagid = get_fileid($tag);
+		my $tagid = get_fileid($tag, 0, $lc);
 		$tag = $ingredients_classes{$tagtype}{$tagid}{name};
 	}
 
@@ -2513,10 +2507,10 @@ sub get_taxonomyid($) {
 
 	my $tagid = shift;
 	if ($tagid =~ /^(\w\w):/) {
-		return lc($1) . ':' . get_fileid($');
+		return lc($1) . ':' . get_fileid($', 0, lc($1));
 	}
 	else {
-		return get_fileid($tagid);
+		return get_fileid($tagid, 0, $lc);
 	}
 }
 
@@ -2524,10 +2518,10 @@ sub get_taxonomyurl($) {
 
 	my $tagid = shift;
 	if ($tagid =~ /^(\w\w):/) {
-		return lc($1) . ':' . get_urlid($');
+		return lc($1) . ':' . get_urlid($', 0, lc($1));
 	}
 	else {
-		return get_urlid($tagid);
+		return get_urlid($tagid, 0, $lc);
 	}
 }
 
@@ -2600,7 +2594,7 @@ sub canonicalize_taxonomy_tag($$$)
 	}
 
 	$tag = normalize_percentages($tag, $tag_lc);
-	my $tagid = get_fileid($tag);
+	my $tagid = get_fileid($tag, 0, $tag_lc);
 
 	if ($tagtype =~ /^additives/) {
 		# convert the E-number + name into just E-number (we get those in urls like /additives/e330-citric-acid)
@@ -2757,7 +2751,7 @@ sub spellcheck_taxonomy_tag($$$)
 		foreach my $candidate (@candidates) {
 
 			$last_candidate = $candidate;
-			my $tagid = get_fileid($candidate);
+			my $tagid = get_fileid($candidate, 0, $tag_lc);
 
 			if (exists $synonyms{$tagtype}{$tag_lc}{$tagid}) {
 				$result = $synonyms{$tagtype}{$tag_lc}{$tagid};
@@ -2851,7 +2845,7 @@ sub display_taxonomy_tag($$$)
 		$tag_lc = $lc;
 	}
 
-	my $tagid = $tag_lc . ':' . get_fileid($tag);
+	my $tagid = $tag_lc . ':' . get_fileid($tag, 0, $tag_lc);
 
 	my $display = '';
 
@@ -3175,7 +3169,7 @@ foreach my $l (@Langs) {
 			}
 
 			my $tag = sprintf($fmt, $nutrient_name, $level_quantity);
-			my $tagid = get_fileid($tag);
+			my $tagid = get_fileid($tag, 0, $lc);
 			$canon_tags{$lc}{nutrient_levels}{$tagid} = $tag;
 			# print "nutrient_levels : lc: $lc - tagid: $tagid - tag: $tag\n";
 		}
@@ -3261,7 +3255,7 @@ sub add_tags_to_field($$$$) {
 			$tagid = get_taxonomyid(canonicalize_taxonomy_tag($tag_lc, $field, $tag));
 		}
 		else {
-			$tagid = get_fileid($tag);
+			$tagid = get_fileid($tag, 0, $tag_lc);
 		}
 		if (not exists $existing{$tagid}) {
 			my $current_value = "current: does not exist";
@@ -3320,12 +3314,12 @@ sub compute_field_tags($$$) {
 		}
 
 		foreach my $tag (split(',', $value)) {
-			if (get_fileid($tag) ne '') {
-				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
+			if (get_fileid($tag, 0, $tag_lc) ne '') {
+				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag, 0, $tag_lc);
 				if ($field eq 'emb_codes') {
 					my $city_code = get_city_code($tag);
 					if (defined $emb_codes_cities{$city_code}) {
-						push @{$product_ref->{"cities_tags" }}, get_fileid($emb_codes_cities{$city_code}) ;
+						push @{$product_ref->{"cities_tags" }}, get_fileid($emb_codes_cities{$city_code}, 0, $tag_lc) ;
 					}
 				}
 			}
@@ -3346,8 +3340,8 @@ sub compute_field_tags($$$) {
 		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
 		$product_ref->{$field . "_tags" } = [];
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			if (get_fileid($tag) ne '') {
-				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
+			if (get_fileid($tag, 0, $tag_lc) ne '') {
+				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag, 0, $tag_lc);
 			}
 		}
 	}
@@ -3540,7 +3534,7 @@ sub add_users_translations_to_taxonomy($) {
 					$first_language_tag = $tag;
 					$first_lc = $l;
 					$tag =~ s/,.*//;
-					$tagid = $first_lc . ":" . get_fileid($tag);
+					$tagid = $first_lc . ":" . get_fileid($tag, 0, $first_lc);
 				}
 				else {
 					$translations{$l} = $tag;

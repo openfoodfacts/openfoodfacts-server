@@ -1349,8 +1349,8 @@ sub product_name_brand($) {
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
 		$brand =~ s/,.*//;	# take the first brand
-		my $brandid = '-' . get_fileid($brand) . '-';
-		my $full_name_id = '-' . get_fileid($full_name) . '-';
+		my $brandid = '-' . get_fileid($brand, 0, $lc) . '-';
+		my $full_name_id = '-' . get_fileid($full_name, 0, $lc) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
 			$full_name .= lang("title_separator") . $brand;
 		}
@@ -1365,11 +1365,11 @@ sub product_name_brand($) {
 sub product_name_brand_quantity($) {
 	my $ref = shift;
 	my $full_name = product_name_brand($ref);
-	my $full_name_id = '-' . get_fileid($full_name) . '-';
+	my $full_name_id = '-' . get_fileid($full_name, 0, $lc) . '-';
 
 	if (defined $ref->{quantity}) {
 		my $quantity = $ref->{quantity};
-		my $quantityid = '-' . get_fileid($quantity) . '-';
+		my $quantityid = '-' . get_fileid($quantity, 0, $lc) . '-';
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 			# Put non breaking spaces between numbers and units
 			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
@@ -1435,8 +1435,10 @@ sub index_product($)
 				if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
 					$tag =~ s/^\w\w://;
 				}
-				if (length(get_fileid($tag)) >= 2) {
-					$keywords{normalize_search_terms(get_fileid($tag))} = 1;
+
+				my $tagid = get_fileid($tag, 0, $lc);
+				if (length($tagid) >= 2) {
+					$keywords{normalize_search_terms($tagid)} = 1;
 				}
 			}
 		}
