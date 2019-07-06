@@ -40,7 +40,9 @@ my $expected_product_ref =
       {
         'id' => 'en:chocolate',
         'rank' => 2,
-        'text' => 'chocolat'
+        'text' => 'chocolat',
+	'vegan' => 'maybe',
+	'vegetarian' => 'yes',
       },
       {
         'id' => 'en:sugar',
@@ -81,14 +83,16 @@ my $expected_product_ref =
         'rank' => 8,
         'text' => 'e432',
         'vegan' => 'maybe',
-        'vegetarian' => 'maybe'
+        'vegetarian' => 'maybe',
+	'from_palm_oil' => 'maybe',
       },
       {
         'id' => 'en:e472',
         'rank' => 9,
         'text' => 'e472',
         'vegan' => 'maybe',
-        'vegetarian' => 'maybe'
+        'vegetarian' => 'maybe',
+	'from_palm_oil' => 'maybe',
       },
       {
         'id' => 'en:acidity-regulator',
@@ -154,9 +158,9 @@ my $expected_product_ref =
       }
     ],
     'ingredients_analysis_tags' => [
-      'en:palm-oil-free',
+      'en:may-contain-palm-oil',
       'en:non-vegan',
-      'en:vegetarian-status-unknown'
+      'en:maybe-vegetarian'
     ],
     'ingredients_hierarchy' => [
       'en:flour',
@@ -406,7 +410,9 @@ $expected_product_ref =
       {
         'id' => 'en:natural-orange-flavouring',
         'rank' => 9,
-        'text' => "ar\x{f4}me naturel d'orange"
+        'text' => "ar\x{f4}me naturel d'orange",
+	'vegan' => 'maybe',
+	'vegetarian' => 'maybe',
       },
       {
         'id' => 'en:thickener',
@@ -424,7 +430,9 @@ $expected_product_ref =
         'id' => 'en:chocolate',
         'percent' => '24.9',
         'rank' => 12,
-        'text' => 'chocolat'
+        'text' => 'chocolat',
+        'vegan' => 'maybe',
+        'vegetarian' => 'yes',
       },
       {
         'id' => 'en:lactose-and-milk-proteins',
@@ -580,7 +588,9 @@ $expected_product_ref =
       },
       {
         'id' => 'en:flavouring',
-        'text' => "ar\x{f4}me"
+        'text' => "ar\x{f4}me",
+	'vegan' => "maybe",
+	'vegetarian' => "maybe",
       },
       {
         'id' => 'en:emulsifier',
@@ -837,18 +847,22 @@ $expected_product_ref =
       {
         'id' => 'en:natural-orange-flavouring',
         'rank' => 1,
-        'text' => 'Natural orange flavor'
+        'text' => 'Natural orange flavor',
+	'vegan' => 'maybe',
+	'vegetarian' => 'maybe'
       },
       {
         'id' => 'en:lemon-flavouring',
         'rank' => 2,
-        'text' => 'Lemon flavouring'
+        'text' => 'Lemon flavouring',
+	'vegan' => 'maybe',
+	'vegetarian' => 'maybe'
       }
     ],
     'ingredients_analysis_tags' => [
       'en:palm-oil-free',
-      'en:vegan-status-unknown',
-      'en:vegetarian-status-unknown'
+      'en:maybe-vegan',
+      'en:maybe-vegetarian'
     ],
     'ingredients_hierarchy' => [
       'en:natural-orange-flavouring',
