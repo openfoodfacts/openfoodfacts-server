@@ -5378,6 +5378,9 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of octyl gallate (E 
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:E312 can normally be consumed by all religious groups, vegans and vegetarians. However, there is the possibility that the lauric acid used for lauryl alcohol is obtained from animal fat, although the main source is vegetable fat. Use of animal (incl. pork) fat cannot be ruled out completely. It does not contain alcohol (ethanol).
+# origin:en:animal:maybe
+
 en:E312, Dodecyl gallate
 bg:E312, Додецил галат
 cs:E312, Dodecylgallát
@@ -5405,8 +5408,8 @@ wikidata:en:Q418209
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4086
 efsa_evaluation_date:en: 2015-05-05
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of dodecyl gallate (E 312) as a food additive
-vegan:en:yes
-vegetarian:en:yes
+vegan:en:maybe
+vegetarian:en:maybe
 
 en:E313, Ethyl gallate
 bg:E313, E313 food additive
