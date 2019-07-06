@@ -999,6 +999,8 @@ fr => [
 'ne jamais recongeler un produit décongelé',
 'pensez au tri',
 'tenir à l\'abri',
+'Modes de pr(e|é)paration',
+'Mode de pr(e|é)paration',
 #Préparation:
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
