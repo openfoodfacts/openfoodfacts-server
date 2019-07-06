@@ -33,6 +33,8 @@ tg:Таркиб
 tr:lcindekiler
 uz:Tarkib
 zh::配料
+vegan:en:ignore
+vegetarian:en:ignore
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
@@ -5350,8 +5352,8 @@ pt:mono e diglicéridos de ácidos gordos de origem vegetal
 # fr:mono- et diglycérides d'acides gras d'origine végétale has 53 products @2018-11-12
 
 <en:mono- and diglycerides of fatty acids
-<en:palm
 fr:Mono- et diglycerides d'acides gras de palme, monoglycérides et diglycérides d'acide gras de palme
+from_palm_oil:en:yes
 
 <en:mono- and diglycerides of fatty acids
 fr:émulsifiant e471
@@ -16578,10 +16580,12 @@ fr:amidons de blé et de pomme de terre
 
 en:oil, cooking oil
 de:Öl, Speiseöl
-fr:huiles
+fr:huile, huiles
 it:olio
 nl:olie, oliën
 ru:масло, масла
+vegan:en:maybe
+vegetarian:en:maybe
 
 # description:en:Fat is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. 
 
@@ -19974,6 +19978,8 @@ es:aroma, aromas
 fr:arôme, arômes
 it:aroma, aromi
 nl:aroma, aroma's
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:flavouring
 en:flavouring preparation, spice preparation
@@ -19995,6 +20001,8 @@ es:aroma natural, aromas naturales
 fr:arôme naturel, arômes naturels
 it:aroma naturale, aromi naturali
 nl:Natuurlijke smaakstoffen, natuurlijk aroma
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:flavouring
 en:artificial flavouring, artificial flavour, artificial flavor, artificial flavoring
@@ -26586,6 +26594,8 @@ carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 carbon_footprint_fr_foodges_value:fr:6.5
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 carbon_footprint_fr_foodges_value:fr:4.9
+vegan:en:maybe
+vegetarian:en:yes
 
 <en:chocolate
 en:chocolate powder
@@ -26726,6 +26736,8 @@ carbon_footprint_fr_foodges_value:fr:5.9
 # ingredient/milk-chocolate has 4843 products in 20 languages @2019-05-25
 # category/milk-chocolates has 2071 products @2019-05-25
 # usage:fr:Chocolat au lait [sucre, beurre de cacao, pâte de cacao, poudre de lait écrémé, lactose, matière grasse de lait anhydre, émulsifiant:lécithines (tournesol), arôme]
+vegan:en:no
+vegetarian:en:yes
 
 <en:milk chocolate
 # <en:chocolate chips
@@ -27805,6 +27817,8 @@ en:baking powder
 fr:levure chimique
 nl:bakpoeder
 ro:praf de copt
+vegan:en:yes
+vegetarian:en:yes
 
 <en:yeast
 en:natural yeast
@@ -37086,7 +37100,6 @@ it:Galatto-oligosaccaridi di lattosio
 # BEETROOT is the taproot portion of the beet plant
 
 <en:vegetable
-<en:colour
 en:beetroot, beet
 af:Beet
 de:Rüben, Randen
@@ -37103,7 +37116,6 @@ carbon_footprint_fr_foodges_value:fr:0.2
 # Sometimes it is indicated as a colour.
 
 <en:beetroot
-<en:colour
 en:beetroot powder
 fr:poudre de betterave
 # fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
@@ -37994,7 +38006,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carrot_juice
 
 # Is used as colour, but always mentioned as such
 
-<en:colour
 <en:carrot juice
 en:concentrated carrot juice
 de:Karottensaftkonzentrat
@@ -43547,6 +43558,8 @@ nl:chia, Salvia hispanica
 pt:chia, Salvia hispanica
 wikidata:en:Q1071585
 # ingredient/chia has 44 products @2018-10-07
+vegan:en:yes
+vegetarian:en:yes
 
 <en:seed
 <en:chia
@@ -44666,7 +44679,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turmeric
 # This is sometimes mentioned as a colouring agent.
 
 <en:turmeric
-<en:colour
 en:turmeric powder
 de:Curcumapulver
 fr:poudre de curcuma, curcuma moulu, curcuma deshydraté
@@ -44677,7 +44689,6 @@ it:curcuma in polvere
 # This is sometimes mentioned as a colouring agent.
 
 <en:turmeric
-<en:colour
 en:turmeric extract
 de:Kurkumaextrakt
 es:extracto de cúrcuma
@@ -57860,6 +57871,8 @@ zh:咖啡因
 wikidata:en:Q60235
 wikipedia:en:https://en.wikipedia.org/wiki/Caffeine
 # ingredient/fr:caféine has 426 languages in 11 languages @2019-05-18
+vegan:en:yes
+vegetarian:en:yes
 
 
 # description:en:GLUCURONOLACTONE is a naturally occurring substance that is an important structural component of nearly all connective tissues.
@@ -60280,6 +60293,9 @@ wikidata:en:Q636056
 wikipedia:en:https://en.wikipedia.org/wiki/Purée
 # ingredient/fr:purée has 151 products @2018-10-05
 # usage:fr:kiwi 4% (purée)
+# used only to qualify another ingredient, ignore for ingredient analysis
+vegan:en:ignore
+vegetarian:en:ignore
 
 <en:purée
 en:concentrated purée
@@ -60761,7 +60777,8 @@ wikidata:en:Q745361
 wikipedia:en:https://en.wikipedia.org/wiki/Stuffing
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
 # ingredient/fr:farce has 884 products in 6 languages @2019-05-18
-
+vegan:en:ignore
+vegetarian:en:ignore
 
 
 # <en:compound
@@ -60774,6 +60791,7 @@ nl:melkvulling
 pt:recheio de leite
 # ingredient/fr:fourrage-lait has 42 products in 5 languages @2019-02-03
 # fourrage au _lait_ 16% (sucre, huile, ….)
+vegan:en:no
 
 # description:en:BRIOCHE is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
 
@@ -62314,6 +62332,8 @@ wikidata:en:Q177378
 wikipedia:en:https://en.wikipedia.org/wiki/Tofu
 # ingredient/fr:tofu has 369 products in 7 languages@2019-05-17
 # usage:fr:Tofu (graines de soja, eau, agents de coagulation :chlorure de magnésium, sulfate de calcium)
+vegan:en:yes
+vegetarian:en:yes
 
 
 
@@ -63062,6 +63082,8 @@ nl:korst
 # usage:fr: croûte: herbes aromatiques bio 
 # usage:fr: conservateur (croûte) : natamycine (contient lait)
 # usage/de: Kruste (mit Farbstoff [E 160b])
+vegan:en:ignore
+vegetarian:en:ignore
 
 # description:en:The outer layer of cheese. Mostly for cheeses that have a distinctive layer different from the cheese itself.
 
@@ -63079,6 +63101,7 @@ wikidata:en:Q19344541
 
 # <en:compound
 # <fr:saucissons
+<en:meat
 en:chorizo, chorizos
 af:Chorizo
 be:Чарыза

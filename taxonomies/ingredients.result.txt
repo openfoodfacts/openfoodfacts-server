@@ -195,15 +195,8 @@ synonyms:fr:monosodique, mono-sodique, sodique, disodique, trisodique, de sodium
 
 synonyms:fr:orthophosphate, phosphate
 
-additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
-e_number:en: 965
-efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965ii new production process. Change of specification
-efsa_evaluation_date:en: 2006-05-18
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2006.354
 vegan:en: yes
 vegetarian:en: yes
-wikidata:en: Q423882
-wikipedia:en: https://en.wikipedia.org/wiki/Maltitol
 
 < :
 en:Oncorhynchus gorbuscha
@@ -1449,6 +1442,8 @@ en:baking powder
 fr:levure chimique
 nl:bakpoeder
 ro:praf de copt
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Balsamic vinegar
 en:condiment with white balsamic
@@ -1705,7 +1700,6 @@ fr:viande hachée de bœuf
 fr:bière blonde
 
 < en:Beetroot
-< en:Colour
 en:beetroot powder
 fr:poudre de betterave
 
@@ -3616,6 +3610,8 @@ uz:Kofein
 vi:Caffein
 yi:קאפעין
 zh:咖啡因
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q60235
 wikipedia:en: https://en.wikipedia.org/wiki/Caffeine
 
@@ -4122,7 +4118,6 @@ de:Karottenfasern
 fr:jeunes carottes
 
 < en:Carrot juice
-< en:Colour
 en:concentrated carrot juice
 de:Karottensaftkonzentrat
 fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concentré
@@ -6362,6 +6357,8 @@ it:chia, Salvia hispanica
 nb:chia, Salvia hispanica
 nl:chia, Salvia hispanica
 pt:chia, Salvia hispanica
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q1071585
 
 < en:Chia
@@ -6752,6 +6749,8 @@ zh:巧克力
 zu:shokoledi
 carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau -noir-
 carbon_footprint_fr_foodges_value:fr: 4.9
+vegan:en: maybe
+vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Chocolate
 
 < en:Chocolate
@@ -6847,6 +6846,8 @@ sv:mjölkchoklad
 tr:Sütlü çikolata
 carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau -au lait-
 carbon_footprint_fr_foodges_value:fr: 5.9
+vegan:en: no
+vegetarian:en: yes
 wikidata:en: Q2164820
 
 < en:Chocolate
@@ -7026,45 +7027,6 @@ nl:tomatenpulp
 sv:krossade tomater
 carbon_footprint_fr_foodges_ingredient:fr: Tomate pelées ou pulpe de tomate
 carbon_footprint_fr_foodges_value:fr: 1.4
-
-en:chorizo, chorizos
-af:Chorizo
-be:Чарыза
-bg:Чорисо
-br:Chorizo
-ca:xoriço
-cs:Chorizo
-da:Chorizo
-el:Τσορίθο
-eo:Ĉorizo
-es:chorizo
-eu:Txorizo
-fa:چوریزو
-fi:chorizo
-fr:chorizo
-gl:Chourizo
-he:צ'וריסו
-hu:chorizo
-hy:Չորիսո
-id:Chorizo
-it:chorizo
-ja:チョリソ
-jv:Chorizo
-ko:초리소
-nb:chorizo
-nl:chorizo, chorizos
-oc:chorizo
-pl:chorizo
-pt:chouriço
-ru:Чоризо
-sc:Chorizo
-sv:chorizo
-tl:Longganisa
-uk:Чорісос
-vi:Chorizo
-zh:乔利佐
-wikidata:en: Q23374
-wikipedia:en: https://en.wikipedia.org/wiki/Chorizo
 
 < en:Chromium
 en:chromium chloride
@@ -9392,6 +9354,8 @@ es:corteza
 fr:croûte
 it:crosta
 nl:korst
+vegan:en: ignore
+vegetarian:en: ignore
 
 < en:Crust
 en:cheese rind, cheese crust
@@ -10640,6 +10604,8 @@ efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1331.pdf
 efsa_evaluation:en: Scientific Opinion on the re-evaluation Tartrazine -E 102-
 efsa_evaluation_date:en: 2009-11-12
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2009.1331
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q407158
 
 en:E103, Alkannin
@@ -14697,6 +14663,8 @@ e_number:en: 163
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of anthocyanins -E 163- as a food additive
 efsa_evaluation_date:en: 2013-04-23
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3145
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q262547
 
 < en:Carrot
@@ -17926,6 +17894,7 @@ e_number:en: 304
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of ascorbyl palmitate -E 304i- and ascorbyl stearate -E 304-ii-- as food additives
 efsa_evaluation_date:en: 2015-11-18
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4289
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q424521
@@ -20994,6 +20963,8 @@ vi:Natri canxi edetate
 zh:鈉鈣乙二胺四乙酸
 additives_classes:en: en:antioxidant, en:preservative, en:sequestrant
 e_number:en: 385
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q18967194
 
 en:E386, E386 food additive
@@ -21130,6 +21101,7 @@ sk:E390, E390 food additive
 sl:E390, E390 food additive
 sv:E390, E390 food additive
 e_number:en: 390
+from_palm_oil:en: maybe
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q13081806
@@ -22568,6 +22540,7 @@ sl:E431, Polioksietilen (40) stearat, polioksil (40) stearat
 sv:E431, Polyoxietylen(40)stearat, Polyoxyl(40)stearat
 additives_classes:en: en:emulsifier
 e_number:en: 431
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q18636149
@@ -22603,6 +22576,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:chi
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_overexposure_risk:en: en:moderate
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4152
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q413616
@@ -22638,6 +22612,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:chi
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_overexposure_risk:en: en:moderate
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4152
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q420358
@@ -22673,6 +22648,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:chi
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_overexposure_risk:en: en:moderate
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4152
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q1413823
@@ -24086,6 +24062,7 @@ sl:E470, E470 food additive
 sv:E470, E470 food additive
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en: 470
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24113,6 +24090,7 @@ sl:E470a, Natrijeve‚ kalijeve in kalcijeve soli maščobnih kislin, natrijeve
 sv:E470a, Natrium-‚ kalium- och kalciumsalter av fettsyror, Natrium-
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en: 470a
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24140,6 +24118,7 @@ sl:E470b, Magnezijeve soli maščobnih kislin
 sv:E470b, Magnesiumsalter av fettsyror
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en: 470b
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24172,6 +24151,7 @@ sv:E471, Mono- och diglycerider av fettsyror, Glycerylmonostearat, glycerylmonop
 th:โมโน- และไดกลีเซอไรด์ของกรดไขมัน
 additives_classes:en: en:emulsifier, en:stabilizer
 e_number:en: 471
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q416711
@@ -24188,6 +24168,10 @@ pt:mono e diglicéridos de ácidos gordos de origem vegetal
 
 < en:E471
 fr:émulsifiant e471
+
+< en:E471
+fr:Mono- et diglycerides d'acides gras de palme, monoglycérides et diglycérides d'acide gras de palme
+from_palm_oil:en: yes
 
 en:E472, acid esters of mono- and diglycerides of fatty acids, E 472
 bg:E472, E472 food additive
@@ -24214,6 +24198,7 @@ sl:E472, E472 food additive
 sv:E472, E472 food additive
 tr:yağ asitlerinin mono ve digiseridleri
 e_number:en: 472
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24248,6 +24233,7 @@ tr:acetic asit esters of mono- ve diglycerides of fatty asits
 uk:Естери гліцерину та оцтової і жирних кислот
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 e_number:en: 472a
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24282,6 +24268,7 @@ tr:laktik asit esterleri of mono- ve diglycerides of fatty asits
 uk:Естери гліцерину та молочної і жирних кислот
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 e_number:en: 472b
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24316,6 +24303,7 @@ tr:sitrik asit esterleri of mono- ve diglycerides of fatty asits
 uk:Естери гліцерину та лимонної і жирних кислот
 additives_classes:en: en:antioxidant, en:emulsifier, en:sequestrant, en:stabilizer
 e_number:en: 472c
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24349,6 +24337,7 @@ sv:E472d, Mono- och diglyceriders vinsyraestrar
 tr:tartarik asit esters of mono- ve diglycerides of fatty asits
 uk:Естери моно- та дигліцеридів та винної і жирних кислот
 e_number:en: 472d
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24383,6 +24372,7 @@ tr:diasetiltartarik asit esters of mono- ve diglycerides of fatty asits
 uk:Естери гліцерину та діацетилвинної і жирних кислот
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 e_number:en: 472e
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24421,6 +24411,7 @@ sv:E472f, Blandade ättik- och vinsyraestrar av mono- och diglycerider
 tr:mixed asetik ve tartarik asit esters of mono- ve diglycerides of fatty asits
 uk:Змішані естери гліцерину та винної, оцтової і жирних кислот
 e_number:en: 472f
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24447,6 +24438,7 @@ sk:E472g, E472g food additive
 sl:E472g, E472g food additive
 sv:E472g, E472g food additive
 e_number:en: 472g
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -24732,6 +24724,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:ado
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:adolescents, en:children, en:toddlers
 efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3144
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q416058
@@ -24767,6 +24760,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:ado
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:adolescents, en:children, en:toddlers
 efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3144
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q788535
@@ -24794,6 +24788,7 @@ sk:E483, Steary tartrát
 sl:E483, Stearil tartrat
 sv:E483, Stearyltartrat
 e_number:en: 483
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q673260
@@ -24822,6 +24817,7 @@ sl:E484, E484 food additive
 sv:E484, E484 food additive
 additives_classes:en: en:antioxidant, en:emulsifier, en:sequestrant
 e_number:en: 484
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q18608830
@@ -25158,6 +25154,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescen
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_url:en: hhttps://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4788
+from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q18601367
@@ -31385,6 +31382,15 @@ ta:E965, maltitol
 uk:E965, Мальтитол
 vi:E965, Maltitol
 zh:E965, 麦芽糖醇
+additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
+e_number:en: 965
+efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965ii new production process. Change of specification
+efsa_evaluation_date:en: 2006-05-18
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2006.354
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q423882
+wikipedia:en: https://en.wikipedia.org/wiki/Maltitol
 
 < en:E965
 en:E965i, D-Maltitol
@@ -31563,6 +31569,7 @@ efsa_evaluation:en: Statement in relation to the safety of erythritol -E 968- in
 efsa_evaluation_date:en: 2010-07-09
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2010.1650
 vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q421873
 
 en:E999, Quillaia extract, Soapbark extract, Quillay bark extract, Panama bark extract, Quillai extract, Murillo bark extract, Quillaia
@@ -32824,6 +32831,8 @@ th:อาหารยัดไส้
 tr:Dolgu
 uk:Фарш
 zh:餡
+vegan:en: ignore
+vegetarian:en: ignore
 wikidata:en: Q745361
 wikipedia:en: https://en.wikipedia.org/wiki/Stuffing
 
@@ -32834,6 +32843,7 @@ fr:fourrage lait, fourrage au lait
 it:farcitura al latte
 nl:melkvulling
 pt:recheio de leite
+vegan:en: no
 
 en:Firming agent, firming
 bg:Втвърдител
@@ -34341,6 +34351,8 @@ es:aroma, aromas
 fr:arôme, arômes
 it:aroma, aromi
 nl:aroma, aroma's
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:Flavouring
 en:aniseed aroma
@@ -34420,6 +34432,8 @@ es:aroma natural, aromas naturales
 fr:arôme naturel, arômes naturels
 it:aroma naturale, aromi naturali
 nl:Natuurlijke smaakstoffen, natuurlijk aroma
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:Flavouring
 en:orange flavouring
@@ -40067,6 +40081,8 @@ tg:Таркиб
 tr:lcindekiler
 uz:Tarkib
 zh::配料
+vegan:en: ignore
+vegetarian:en: ignore
 
 en:inosine 5â-phosphoric acid (IMP)
 
@@ -42600,6 +42616,46 @@ it:carne
 nl:Vlees
 vegan:en: no
 vegetarian:en: no
+
+< en:Meat
+en:chorizo, chorizos
+af:Chorizo
+be:Чарыза
+bg:Чорисо
+br:Chorizo
+ca:xoriço
+cs:Chorizo
+da:Chorizo
+el:Τσορίθο
+eo:Ĉorizo
+es:chorizo
+eu:Txorizo
+fa:چوریزو
+fi:chorizo
+fr:chorizo
+gl:Chourizo
+he:צ'וריסו
+hu:chorizo
+hy:Չորիսո
+id:Chorizo
+it:chorizo
+ja:チョリソ
+jv:Chorizo
+ko:초리소
+nb:chorizo
+nl:chorizo, chorizos
+oc:chorizo
+pl:chorizo
+pt:chouriço
+ru:Чоризо
+sc:Chorizo
+sv:chorizo
+tl:Longganisa
+uk:Чорісос
+vi:Chorizo
+zh:乔利佐
+wikidata:en: Q23374
+wikipedia:en: https://en.wikipedia.org/wiki/Chorizo
 
 < en:Meat
 en:goat meat
@@ -47254,10 +47310,12 @@ zh:砂蛸
 
 en:oil, cooking oil
 de:Öl, Speiseöl
-fr:huiles
+fr:huile, huiles
 it:olio
 nl:olie, oliën
 ru:масло, масла
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:Oil
 en:fish oil
@@ -47935,10 +47993,6 @@ fr:Gaz de conditionnement
 description:en: A food additive gas, which is introduced into a container before, during or after filling with food with the intention to protect the food, for example, from oxidation or spoilage.
 description:es: Aditivos alimentarios gaseosos, introducidos en un envase antes, durante o después de su llenado con un alimento, con la intención de proteger el alimento, por ejemplo, de la oxidación o descomposición.
 description:fr: Additif alimentaire gazeux, qui est introduit dans un conteneur pendant, durant ou après son remplissage avec une denrée alimentaire avec l'intention de protéger l'aliment par exemple de l'oxydation ou de l'altération.
-
-< en:E471
-< en:Palm
-fr:Mono- et diglycerides d'acides gras de palme, monoglycérides et diglycérides d'acide gras de palme
 
 < en:Palm kernel oil
 fr:palmiste totalement hydrogénée
@@ -51051,6 +51105,8 @@ sv:puré
 th:ปูว์เร
 uk:Пюре
 zh:原漿
+vegan:en: ignore
+vegetarian:en: ignore
 wikidata:en: Q636056
 wikipedia:en: https://en.wikipedia.org/wiki/Purée
 
@@ -58509,6 +58565,8 @@ tr:tofu
 uk:Тофу
 vi:Đậu phụ
 zh:豆腐
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q177378
 wikipedia:en: https://en.wikipedia.org/wiki/Tofu
 
@@ -58924,7 +58982,6 @@ fr:viande de dinde halal
 < en:Turkey meat
 fr:viande de dinde traitée en salaison
 
-< en:Colour
 < en:Turmeric
 en:turmeric powder
 de:Curcumapulver
@@ -60142,6 +60199,19 @@ wikidata:en: Q35922
 wikipedia:en: https://en.wikipedia.org/wiki/Bamboo
 
 < en:Vegetable
+en:beetroot, beet
+af:Beet
+de:Rüben, Randen
+es:remolacha
+fr:betterave, betteraves
+it:barbabietola
+nl:biet, bieten
+carbon_footprint_fr_foodges_ingredient:fr: Betteraves
+carbon_footprint_fr_foodges_value:fr: 0.2
+wikidata:en: Q165437
+wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
+
+< en:Vegetable
 en:Belgian endive
 cs:čekanka
 da:Julesalat
@@ -60668,20 +60738,6 @@ carbon_footprint_fr_foodges_ingredient:fr: Piment et poivre sec
 carbon_footprint_fr_foodges_value:fr: 3.4
 wikidata:en: Q165199
 wikipedia:en: https://en.wikipedia.org/wiki/Chili_pepper
-
-< en:Colour
-< en:Vegetable
-en:beetroot, beet
-af:Beet
-de:Rüben, Randen
-es:remolacha
-fr:betterave, betteraves
-it:barbabietola
-nl:biet, bieten
-carbon_footprint_fr_foodges_ingredient:fr: Betteraves
-carbon_footprint_fr_foodges_value:fr: 0.2
-wikidata:en: Q165437
-wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
 
 < en:Vegetable
 en:Courgette, zucchini
