@@ -11008,6 +11008,7 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 vegan:en:maybe
 vegetarian:en:maybe
 
+<en:E470
 en:E470a, Sodium\, potassium and calcium salts of fatty acids, Sodium\, potassium and calcium salts of fatty acids
 bg:E470a, Натриеви\, калиеви и калциеви соли на мастни киселини
 cs:E470a, Sodné\, draselné a vápenaté soli mastných kyselin
@@ -11117,6 +11118,7 @@ e_number:en:472
 vegan:en:maybe
 vegetarian:en:maybe
 
+<en:E472
 en:E472a, Acetic acid esters of mono- and diglycerides of fatty acids
 bg:E472a, Естери на оцетната киселина с моно- и диглицериди на мастни киселини
 cs:E472a, Estery mono- a diglyceridů mastných kyselin s kyselinou octovou
@@ -11144,6 +11146,7 @@ additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 
+<en:E472
 en:E472b, Lactic acid esters of mono- and diglycerides of fatty acids
 bg:E472b, Естери на млечната киселина с моно- и диглицериди на мастни киселини
 cs:E472b, Estery mono- a diglyceridů mastných kyselin s kyselinou mléčnou
@@ -11171,6 +11174,7 @@ additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 
+<en:E472
 en:E472c, Citric acid esters of mono- and diglycerides of fatty acids
 bg:E472c, Естери на лимонената киселина с моно- и диглицериди на мастни киселини
 cs:E472c, Estery mono- a diglyceridů mastných kyselin s kyselinou citronovou
@@ -11198,6 +11202,7 @@ additives_classes:en: en:antioxidant, en:emulsifier, en:sequestrant, en:stabiliz
 vegan:en:maybe
 vegetarian:en:maybe
 
+<en:E472
 en:E472d, Tartaric acid esters of mono- and diglycerides of fatty acids
 bg:E472d, Естери на винената киселина с моно- и диглицериди на мастни киселини
 cs:E472d, Estery mono- a diglyceridů mastných kyselin s kyselinou vinnou
@@ -11224,6 +11229,7 @@ e_number:en:472d
 vegan:en:maybe
 vegetarian:en:maybe
 
+<en:E472
 en:E472e, Mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids, Mono- and diacetyl tartaric acid esters of mono- and diglycerides of fatty acids, DATEM
 bg:E472e, Естери на моно- и диацетилвинената киселина с моно- и диглицериди на мастни киселини
 cs:E472e, Estery mono- a diglyceridů mastných kyselin s kyselinou mono- a diacetylvinnou
@@ -11251,6 +11257,7 @@ additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 
+en:E472
 en:E472f, Mixed acetic and tartaric acid esters of mono- and diglycerides of fatty acids
 bg:E472f, Смесени естери на оцетната и винената киселина с моно- и диглицериди на мастни киселини
 cs:E472f, Směsné estery mono- a diglyceridů mastných kyselin s kyselinou octovou a vinnou
@@ -11277,6 +11284,7 @@ e_number:en:472f
 vegan:en:maybe
 vegetarian:en:maybe
 
+en:E472
 en:E472g, Succinylated monoglycerides
 bg:E472g, E472g food additive
 cs:E472g, E472g food additive
@@ -11303,6 +11311,7 @@ e_number:en:472g
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E473, Sucrose esters of fatty acids, Sucroesters, sugar ester
 bg:E473, Естери на мастни киселини и захароза, Сукроестери
 cs:E473, Estery sacharosy s mastnými kyselinami, Estery sacharosy
@@ -11338,6 +11347,8 @@ additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
+<en:E473
 en:E473a, E473a food additive
 bg:E473a, E473a food additive
 cs:E473a, E473a food additive
@@ -11369,6 +11380,7 @@ efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourin
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E474, Sucroglycerides, Sucroglyceride
 bg:E474, Захароглицериди
 cs:E474, Sacharoglyceridy
@@ -11400,6 +11412,7 @@ additives_classes:en: en:emulsifier
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E475, Polyglycerol esters of fatty acids, Polyglycerol fatty acid esters
 bg:E475, Полиглицеролови естери на мастни киселини
 cs:E475, Estery polyglycerolu s mastnými kyselinami
@@ -11453,9 +11466,10 @@ sv:E476, Polyglycerolpolyricinoleat
 e_number:en:476
 wikidata:en:Q168686
 additives_classes:en: en:emulsifier
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
+# origin:en:pork:en:maybe
 en:E477, Propane-1\,2-diol esters of fatty acids, Propane-1\,2-diol esters of fatty acids
 bg:E477, Пропан-1\,2-диол естери на мастни киселини
 cs:E477, Estery propan-1\,2-diolu s mastnými kyselinami
@@ -11484,6 +11498,7 @@ additives_classes:en: en:emulsifier
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E478, Lactylated fatty acid esters of glycerol and propane-1 
 bg:E478, E478 food additive
 cs:E478, E478 food additive
@@ -11511,6 +11526,7 @@ wikidata:en:Q18935693
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E479b, Thermally oxidised soya bean oil interacted with mono- and diglycerides of fatty acids, Thermally oxidised soya bean oil interacted with mono­ and diglycerides of fatty acids
 bg:E479b, Термично окислено соево масло с моно-и диглицериди на мастни киселини
 cs:E479b, Směsný produkt interakce tepelně opracovaného sójového oleje s mono- a diglyceridy mastných kyselin
@@ -11538,6 +11554,7 @@ e_number:en:479b
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E481, Sodium stearoyl-2-lactylate, Sodium stearoyl lactylate
 bg:E481, Натриев стераоил-2-лактилат, Натриев стеароил лактилат
 cs:E481, Stearoyl-2-mléčnan sodný, Stearoyllaktylát sodný
@@ -11573,6 +11590,7 @@ additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E482, Calcium stearoyl-2-lactylate
 bg:E482, Калциев стераоил-2-лактилат
 cs:E482, Stearoyl-2-mléčnan vápenatý
