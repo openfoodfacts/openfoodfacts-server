@@ -80,7 +80,9 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-# e106 is the same as e101(ii)... 
+# description:en:used to be extracted from milk, but not anymore.
+
+# comment:en:e106 is the same as e101(ii)... 
 
 en:E106, flavin mononucleotide, phosphate lactoflavina
 bg:E106, E106 food additive
@@ -107,8 +109,8 @@ sl:E106, E106 food additive
 sv:E106, FMN
 e_number:en:106
 wikidata:en:Q376061
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E101, Riboflavin, Vitamin B2, Flavaxin, Vitamin B 2, Vitamin G, Riboflavine, Lactoflavine, 6\,7-Dimethyl-9-D-ribitylisoalloxazine, 7\,8-Dimethyl-10-ribitylisoalloxazine, Lactoflavin, 7\,8-Dimethyl-10-(D-ribo-2\,3\,4\,5-tetrahydroxypentyl)isoalloxazine, 7\,8-Dimethyl-10-(D-ribo-2\,3\,4\,5-tetrahydroxypentyl)benzo[g]pteridine-2\,4(3H\,10H)-dione, 1-Deoxy-1-(7\,8-dimethyl-2\,4-dioxo-3\,4-dihydrobenzo[g]pteridin-10(2H)-yl)pentitol
 bg:E101, E101 food additive
@@ -298,6 +300,8 @@ colour_index:en:CI 14270
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:E104 can be consumed by all religious groups, vegans and vegetarians
+
 en:E104, Quinoline yellow, Quinoline Yellow WS, C.I. 47005, Food Yellow 13
 bg:E104, Хинолин жълто
 cs:E104, Chinolinová žluť, Potravinářská žluť 13, E 104, Chinolinová žluť WS, Cl 47005
@@ -329,8 +333,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2009.1329
 efsa_evaluation_date:en: 2009-11-12
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of Quinoline Yellow (E 104) as a food additive
 additives_classes:en: en:colour
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E105, E105 food additive
 bg:E105, E105 food additive
@@ -1430,6 +1434,8 @@ colour_index:en:CI 27755
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:E153 can be consumed by all religious groups, vegans and vegetarians.
+
 en:E153, Vegetable carbon
 bg:E153, Растителен въглен
 cs:E153, Rostlinná uhlíková čerň
@@ -1460,8 +1466,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.2592
 efsa_evaluation_date:en: 2012-04-27
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of vegetable carbon (E 153) as a food additive
 organic_eu:en:authorized
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E154, Brown FK, Kipper Brown 
 bg:E154, E154 food additive
@@ -1590,6 +1596,7 @@ efsa_evaluation:en: Scientific Opinion on the reconsideration of the ADI and a r
 vegan:en:maybe
 vegetarian:en:maybe
 
+<en:E160
 en:E160a, Alpha-carotene, Beta-carotene, Gamma-carotene, carotene
 bg:E160a, Каротин
 cs:E160a, karoteny, E 160a, karoten
@@ -1624,6 +1631,8 @@ additives_classes:en: en:colour
 vegan:en:maybe
 vegetarian:en:maybe
 
+# description:en:E160a can be consumed by all religious groups, vegans and vegetarians.
+
 <en:E160a
 en:E160a(i), Beta-carotene
 bg:E160a(i), Бета-каротин
@@ -1655,6 +1664,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 efsa_evaluation_date:en: 2016-03-18
 efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160a(ii)] in foods for special medical purposes in young children
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
+
+# description:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
 <en:E160a
 en:E160a(ii), Plant carotenes
@@ -1686,6 +1699,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 efsa_evaluation_date:en: 2016-03-18
 efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160a(ii)] in foods for special medical purposes in young children
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
 
 <en:E160a
 en:E160a(iii), Beta-carotene from blakeslea trispora
@@ -1746,6 +1761,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 efsa_evaluation_date:en: 2016-03-18
 efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160a(ii)] in foods for special medical purposes in young children
 additives_classes:en: en:colour
+
+# description:en:E160b can be consumed by all religious groups, vegans and vegetarians.
 
 en:E160b, Annatto, bixin, norbixin, roucou, achiote
 bg:E160b, Анато, биксин, норбиксин (i), БИКСИН И НОРБИКСИН
@@ -1908,6 +1925,8 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
+# description:fr:Dans l'alimentation transformée, les xantophylles sont soit synthétiques, soit d'origine naturelle extraits par solvants chimiques.
+
 en:E161, Xanthophylls
 bg:E161, E161 food additive
 cs:E161, E161 food additive
@@ -1935,8 +1954,8 @@ e_number:en:161
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2010.1852
 efsa_evaluation_date:en: 2010-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 161 g) as a food additive
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 <en:E161
 en:E161a, Flavoxanthin
@@ -2124,6 +2143,8 @@ e_number:en:161f
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:E161g can be consumed by all religious groups, vegans and vegetarians.
+
 <en:E161
 en:E161g, Canthaxanthin
 bg:E161g, Кантаксантин
@@ -2154,8 +2175,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2010.1852
 efsa_evaluation_date:en: 2010-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 161 g) as a food additive
 additives_classes:en: en:colour
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
+
+# description:en:E161h can be consumed by all religious groups, vegans and vegetarians.
 
 <en:E161
 en:E161h, Zeaxanthin
@@ -2185,8 +2208,10 @@ efsa_evaluation_date:en: 2010-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 161 g) as a food additive
 e_number:en:161h
 additives_classes:en: en:colour
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
+
+# description:fr:La citranaxanthine est un pigment xantophylle  naturel (famille des caroténoïdes  ), mais elle est vraisemblablement produite par synthèse 
 
 <en:E161
 en:E161i, Citranaxanthin
@@ -2215,8 +2240,10 @@ e_number:en:161
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2010.1852
 efsa_evaluation_date:en: 2010-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 161 g) as a food additive
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
+
+# description:fr:La production commerciale d'astaxanthine serait d'origine naturelle ou synthétisée de sources pétrochimiques
 
 <en:E161
 en:E161j, Astaxanthin
@@ -2245,8 +2272,8 @@ e_number:en:161
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2010.1852
 efsa_evaluation_date:en: 2010-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 161 g) as a food additive
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E162, Beetroot red, betanin
 bg:E162, Оцветител от червено цвекло, бетанин
@@ -3825,6 +3852,8 @@ e_number:en:233
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:nisin can be consumed by all religious groups, vegans and vegetarians.
+
 en:E234, Nisin
 bg:E234, E234 food additive
 cs:E234, Nisin, E 234
@@ -3853,8 +3882,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2006.314
 efsa_evaluation_date:en: 2006-03-15
 efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to The use of nisin (E 234) as a food additive
 additives_classes:en: en:preservative
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E235, Natamycin, Pimaracin
 bg:E235, Натамицин
@@ -3887,6 +3916,8 @@ additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:formic acid and formates can be consumed by all religious groups, vegans and vegetarians.
+
 en:E236, Formic acid, methanoic acid
 bg:E236, Мравчена киселина, Метанова киселина
 cs:E236, Kyselina mravenčí, Metanová kyselina, E 236, Kyselina methanová, Formiát, Kyselina metanová, Methanová kyselina
@@ -3911,8 +3942,10 @@ sl:E236, Mravljinčna kislina, Metanojska kislina, Mravljična kislina, HCOOH
 sv:E236, Myrsyra, Metansyra
 e_number:en:236
 wikidata:en:Q161233
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
+
+# description:en:formic acid and formates can be consumed by all religious groups, vegans and vegetarians.
 
 en:E237, Sodium formiate, Sodium formate
 bg:E237, E237 food additive
@@ -3938,8 +3971,10 @@ sl:E237, E237 food additive
 sv:E237, Natriumformiat
 e_number:en:237
 wikidata:en:Q409209
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
+
+# description:en:formic acid and formates can be consumed by all religious groups, vegans and vegetarians.
 
 en:E238, Calcium formiate, calcium formate
 bg:E238, E238 food additive
@@ -3965,8 +4000,8 @@ sl:E238, E238 food additive
 sv:E238, E238 food additive
 e_number:en:238
 wikidata:en:Q221123
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E239, Hexamethylene tetramine, Hexamine, hexamethylenetetramine
 bg:E239, Хексаметилен тетрамин, Хексамин, Уротропин, Сух спирт, Хексаметилентетрамин
@@ -4222,6 +4257,8 @@ efsa_evaluation_adi:en: 3.7
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:nitrites and nitrates can be consumed by all religious groups, vegans and vegetarians
+
 en:E252, Potassium nitrate
 bg:E252, Калиев нитрат, Калиева селитра
 cs:E252, Dusičnan draselný, Salnytr, Sanitr, Ledek draselný, Salnitr, Draselný ledek, E 252, KNO3, Sanytr
@@ -4256,7 +4293,7 @@ efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
 efsa_evaluation_adi:en: 3.7
 organic_eu:en:authorized
-vegan:en:maybe
+vegan:en:yes
 vegetarian:en:yes
 
 en:E260, Acetic acid, ethanoic acid
@@ -4505,6 +4542,8 @@ wikidata:en:Q7553316
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is not made from milk and thus suitable for people with milk allergy or lactose intolerance.
+
 en:E270, Lactic acid, milk acid, 2-Hydroxypropanoic acid
 bg:E270, Млечна киселина, Лактат
 cs:E270, Kyselina mléčná, Laktát, E 270
@@ -4531,7 +4570,7 @@ sv:E270, Mjölksyra, Laktat, 2-hydroxipropansyra, E 270
 e_number:en:270
 wikidata:en:Q161249
 organic_eu:en:authorized
-vegan:en:maybe
+vegan:en:yes
 vegetarian:en:yes
 
 en:E280, Propionic acid, Propionic acid, Propanoic acid, CH3CH2COOH
@@ -5654,6 +5693,8 @@ additives_classes:en: en:antioxidant
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:The term lecithin refers to a group of compounds found in every living organism, as they are part of the cell wall of all cells. Lecithin is commercially isolated (mainly) from soybeans or egg yolk.
+
 en:E322, Lecithins, Phosphatides, Lecithin
 bg:E322, Лецитини, Фосфатиди, Лецитин
 cs:E322, Lecitiny, Fosfatidy, Lecitin
@@ -5796,6 +5837,9 @@ vegetarian:en:yes
 
 # description:en:SODIUM LACTATE is the sodium salt of lactic acid, and has a mild saline taste. It is produced by fermentation of a sugar source, such as corn or beets. It acts as a preservative, acidity regulator, and bulking agent.
 
+# description:en:lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is mot made from milk and thus suitable for people with milk allergy or lactose intolerance.
+
+
 en:E325, sodium lactate
 ar:E325, لاكتات الصوديوم
 # azb:E325, سودیوم لاوکتات
@@ -5846,11 +5890,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_lactate
 # additive/e325-sodium-lactate has 1960 products in 14 languages @2019-05-18
 # usage:sv:surhetsreglerande medel (natriumlaktat, natriumacetater)
 organic_eu:en:authorized
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 
-# description:en:POTASSIUM LACTATE is a compound with formula KC3H5O3. It is produced by neutralizing lactic acid which is fermented from a sugar source. Potassium lactate is commonly used in meat and poultry products to extend shelf life and increase food safety as it has a broad antimicrobial action.
+# description:en:POTASSIUM LACTATE is a compound with formula KC3H5O3. It is produced by neutralizing lactic acid which is fermented from a sugar source. Potassium lactate is commonly used in meat and poultry products to extend shelf life and increase food safety as it has a broad antimicrobial action. lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is not made from milk and thus suitable for people with milk allergy or lactose intolerance.
 
 en:E326, potassium lactate
 bg:E326, Калиев лактат
@@ -5887,10 +5931,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_lactate
 additives_classes:en:en:antioxidant, en:emulsifier, en:humectant
 # ingredient/fr:lactate-de-potassium has 630 products in 5 languages @2019-05-18
 # additive/e326-potassium-lactate has 2488 products in 12 languages @2019-05-18
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
-# description:en:CALCIUM LACTATE is a white crystalline salt with formula C6H10CaO6. The compound is a food additive for uses as firming agent, a flavor enhancer or flavoring agent, a leavening agent, a nutritional supplement, and a stabilizer and thickener. Calcium lactate is an ingredient in some baking powders. Calcium lactate is added to sugar-free foods to prevent tooth decay. The compound is also added to fresh-cut fruits, such as cantaloupes, to keep them firm and extend their shelf life.
+# description:en:CALCIUM LACTATE is a white crystalline salt with formula C6H10CaO6. The compound is a food additive for uses as firming agent, a flavor enhancer or flavoring agent, a leavening agent, a nutritional supplement, and a stabilizer and thickener. Calcium lactate is an ingredient in some baking powders. Calcium lactate is added to sugar-free foods to prevent tooth decay. The compound is also added to fresh-cut fruits, such as cantaloupes, to keep them firm and extend their shelf life. lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is mot made from milk and thus suitable for people with milk allergy or lactose intolerance.
 # comment:en:This covers E327, E-327, E 327, INS327, INS-327, INS 327, SIN327, SIN-327, SIN 327
 
 en:E327, calcium lactate
@@ -5936,8 +5980,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_lactate
 # ingredient/calcium-lactate has 1120 products @2019-05-17
 # additive/e327-calcium-lactate has 1257 products in 21 languages @2019-05-17
 # usage:en:acidity regulators (lactic acid, calcium lactate)
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E328, ammonium lactate
 bg:E328, E328 food additive
@@ -5963,6 +6007,8 @@ sl:E328, E328 food additive
 sv:E328, E328 food additive
 e_number:en:328
 wikidata:en:Q663358
+vegan:en:yes
+vegetarian:en:yes
 
 en:E329, Magnesium lactate
 bg:E329, E329 food additive
@@ -7814,6 +7860,9 @@ additives_classes:en: en:antioxidant, en:preservative, en:sequestrant, en:stabil
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:Although commercially (nearly always) prepared from vegetable oil, fatty acids of animal origin (incl. pork) cannot be excluded.
+
+
 en:E387, E387 food additive
 bg:E387, E387 food additive
 cs:E387, E387 food additive
@@ -8812,6 +8861,8 @@ additives_classes:en: en:humectant, en:stabilizer, en:sweetener, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:Glycerol can be used by all religious groups, vegans and vegetarians. The term carbohydrate alcohol is a chemical definition; glycerol does not contain alcohol (ethanol).
+
 en:E422, Glycerol, Glycerin, Glycerine, propane-1\,2\,3-triol, propanetriol, 1\,2\,3-trihydroxypropane, 1\,2\,3-propanetriol
 bg:E422, Глицерол, Глицерин
 cs:E422, Glycerol
@@ -8838,8 +8889,8 @@ e_number:en:422
 wikidata:en:Q132501
 additives_classes:en: en:humectant, en:thickener
 organic_eu:en:authorized
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E424, Curdlan
 bg:E424, E424 food additive
@@ -11626,6 +11677,7 @@ additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E483, Stearyl tartrate, Stearyl palmityl tartrate
 bg:E483, Стеарил тартарат
 cs:E483, Vinan stearylu
@@ -11653,6 +11705,7 @@ wikidata:en:Q673260
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E484, Stearyl citrate
 bg:E484, E484 food additive
 cs:E484, E484 food additive
@@ -11845,6 +11898,7 @@ wikidata:en:Q161495
 vegan:en:yes
 vegetarian:en:yes
 
+# origin:en:pork:en:maybe
 en:E491, Sorbitan monostearate
 bg:E491, Сорбитан моностеарат
 cs:E491, Sorbitanmonostearát
@@ -11880,6 +11934,7 @@ efsa_evaluation_adi:en: 26
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E492, Sorbitan tristearate
 bg:E492, Сорбитан тристеарат
 cs:E492, Sorbitantristearát
@@ -11914,6 +11969,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescen
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E493, Sorbitan monolaurate
 bg:E493, Сорбитан монолауарат
 cs:E493, Sorbitanmonolaurát
@@ -11948,6 +12004,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescen
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E494, Sorbitan monooleate
 bg:E494, Сорбитан моноолеат
 cs:E494, Sorbitanmonooleát
@@ -11982,6 +12039,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescen
 vegan:en:maybe
 vegetarian:en:maybe
 
+# origin:en:pork:en:maybe
 en:E495, Sorbitan monopalmitate
 bg:E495, Сорбитан монопалмитат
 cs:E495, Sorbitanmonopalmitát
@@ -13777,6 +13835,7 @@ wikidata:en:Q419390
 vegan:en:yes
 vegetarian:en:yes
 
+# origin:en:pork:en:maybe
 en:E570, Fatty acids, Linear fatty acids, caprylic acid (C8), capric acid (C10), lauric acid (C12), myristic acid (C14), palmitic acid (C16), stearic acid (C18), fatty acid
 bg:E570, Мастни киселини, Мастна киселина
 cs:E570, Mastné kyseliny, Mastné kyseliny s rovným, nerozvětveným řetězcem, kyselina kaprylová (C8), kyselina kaprinová (C10), kyselina laurová (C12), kyselina myristová (C14), kyselina palmitová (C16), kyselina stearová (C18), Mastná kyselina, Nenasycené mastné kyseliny, Nenasycená mastná kyselina, E 570
@@ -13830,6 +13889,7 @@ e_number:en:571
 vegan:en:yes
 vegetarian:en:yes
 
+# origin:en:pork:en:maybe
 en:E572, Magnesium stearate, calcium stearate
 bg:E572, E572 food additive
 cs:E572, Stearan hořečnatý, Hořečnatá sůl kyseliny oktadekanové, Oktadekanoát hořečnatý, Stearát hořečnatý
@@ -14078,6 +14138,8 @@ wikidata:en:Q6731392
 vegan:en:yes
 vegetarian:en:yes
 
+# comment:en:lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is mot made from milk and thus suitable for people with milk allergy or lactose intolerance.
+
 en:E585, Ferrous lactate, Iron(II) lactate
 bg:E585, Феро лактат, желязо(II) лактат
 cs:E585, Mléčnan železnatý
@@ -14102,7 +14164,7 @@ sl:E585, Železov (ii) laktat, železov (II) laktat
 sv:E585, Järnlaktat, Järn(II)laktat
 e_number:en:585
 wikidata:en:Q836793
-vegan:en:mabe
+vegan:en:yes
 vegetarian:en:yes
 
 en:E586, 4-hexylresorcinol, 4-Hexyl-1\,3-benzenediol
@@ -14354,6 +14416,9 @@ wikidata:en:Q422473
 vegan:en:no
 vegetarian:en:no
 
+# comment:en:Guanlyic acic and guanylates are generally produced from yeasts, but partly also from fish. They may thus not suitable for vegans and vegetarians.
+
+# origin:en:fish:maybe
 en:E627, Disodium guanylate, Sodium guanylate
 bg:E627, Динатриев гуанилат, Натриев гуанилат
 cs:E627, Guanylan sodný, Guanylát sodný
@@ -14381,6 +14446,9 @@ wikidata:en:Q905776
 vegan:en:maybe
 vegetarian:en:maybe
 
+# comment:en:Guanlyic acic and guanylates are generally produced from yeasts, but partly also from fish. They may thus not suitable for vegans and vegetarians.
+
+# origin:en:fish:maybe
 en:E628, Dipotassium guanylate, Potassium guanylate
 bg:E628, Дикалиев гуанилат, Калиев гуанилат
 cs:E628, Guanylan draselný, Guanylát draselný, guanylan didraselný
@@ -14405,9 +14473,12 @@ sl:E628, Dikalijev gvanilat, kalijev gvanilat
 sv:E628, Dikaliumguanylat, Kaliumguanylat
 e_number:en:628
 wikidata:en:Q5280047
-vegan:en:no
-vegetarian:en:no
+vegan:en:maybe
+vegetarian:en:maybe
 
+# comment:en:Guanlyic acic and guanylates are generally produced from yeasts, but partly also from fish. They may thus not suitable for vegans and vegetarians.
+
+# origin:en:fish:maybe
 en:E629, Calcium guanylate
 bg:E629, Калциев гуанилат
 cs:E629, Guanylan vápenatý, Guanylát vápenatý
@@ -14432,8 +14503,8 @@ sl:E629, Kalcijev gvanilat
 sv:E629, Kalciumguanylat
 e_number:en:629
 wikidata:en:Q5018832
-vegan:en:no
-vegetarian:en:no
+vegan:en:maybe
+vegetarian:en:maybe
 
 en:E630, Inosinic acid
 bg:E630, Инозинова киселина
@@ -14701,6 +14772,11 @@ e_number:en:639
 vegan:en:yes
 vegetarian:en:yes
 
+
+# description:en:Glycine is produced mainly from gelatin, which is derived from animal bones. It is therefore not suitable for vegans, vegetarians and, as long as the origin is not known, not for Jews, Muslims and Hindus. Only the producer can provide the origin of the product.
+
+# origin:en:animal:maybe
+
 en:E640, Glycine and its sodium salt
 bg:E640, Глицин и натриевата му сол
 cs:E640, Glycin a jeho sodná sůl
@@ -14727,6 +14803,7 @@ e_number:en:640
 wikidata:en:Q18967228
 vegan:en:maybe
 vegetarian:en:maybe
+
 
 <en:E640
 en:E640(i), Glycine
@@ -15463,6 +15540,8 @@ wikidata:en:Q369682
 vegan:en:yes
 vegetarian:en:yes
 
+# origin:en:animal:maybe
+
 en:E910, Wax ester
 bg:E910, E910 food additive
 cs:E910, E910 food additive
@@ -15544,7 +15623,7 @@ wikidata:en:Q18935695
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3236
 efsa_evaluation_date:en: 2013-06-07
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of montan acid esters (E 912) as a food additive.
-vegan:en:maybe
+vegan:en:yes
 vegetarian:en:yes
 
 en:E913, Lanolin, sheep wool grease, wool wax, wool grease
@@ -15741,6 +15820,10 @@ wikidata:en:Q419266
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en: E920 can be obtained from animal sources, including pork. It should thus be avoided by Muslims, Jews, Hindus and vegans.
+
+# origin:en:pork:maybe
+
 en:E920, L-cysteine hydrochloride, L-Cysteine, L-2-Amino-3-mercaptopropionic acid, L-Cys, (R)-2-Amino-3-mercaptopropanoic acid, (2R)-2-amino-3-sulfanylpropanoic acid, (2R)-2-amino-3-mercaptopropanoic acid
 bg:E920, L-цистеин
 cs:E920, L-cystein, Cystein
@@ -15766,8 +15849,12 @@ sv:E920, L-cystein, Cystein, E 910, Cysteiner, E 920
 e_number:en:920
 mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en:Q186474
-vegan:en:no
+vegan:en:maybe
 vegetarian:en:maybe
+
+# description:en: E921 can be obtained from animal sources, including pork. It should thus be avoided by Muslims, Jews, Hindus and vegans.
+
+# origin:en:pork:maybe
 
 en:E921, L-cysteine hydrochloride monohydrate
 bg:E921, E921 food additive
@@ -15792,7 +15879,7 @@ sk:E921, E921 food additive
 sl:E921, E921 food additive
 sv:E921, E921 food additive
 e_number:en:921
-vegan:en:no
+vegan:en:maybe
 vegetarian:en:maybe
 
 en:E922, Potassium persulfate
@@ -16992,10 +17079,11 @@ sv:E964, E964 food additive
 e_number:en:964
 wikidata:en:Q18601425
 additives_classes:en: en:sweetener
-
-# description:en:MALTITOL is a sugar alcohol (a polyol) used as a sugar substitute. It has 75–90% of the sweetness of sucrose (table sugar) and nearly identical properties, except for browning. Maltitol's high sweetness allows it to be used without being mixed with other sweeteners. It is used in candy manufacture, particularly sugar-free hard candy, chewing gum, chocolates, baked goods, and ice cream. 
 vegan:en:yes
 vegetarian:en:yes
+
+# description:en:MALTITOL is a sugar alcohol (a polyol) used as a sugar substitute. It has 75–90% of the sweetness of sucrose (table sugar) and nearly identical properties, except for browning. Maltitol's high sweetness allows it to be used without being mixed with other sweeteners. It is used in candy manufacture, particularly sugar-free hard candy, chewing gum, chocolates, baked goods, and ice cream.
+
 
 en:E965, maltitol
 ar:E965, مالتيتول
@@ -17036,7 +17124,6 @@ ta:E965, maltitol
 uk:E965, Мальтитол
 vi:E965, Maltitol
 zh:E965, 麦芽糖醇
-
 e_number:en:965
 wikidata:en:Q423882
 wikipedia:en:https://en.wikipedia.org/wiki/Maltitol
@@ -17046,6 +17133,8 @@ efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourin
 additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
 # ingredient/fr:maltitol has 656 products in 11 languages @2019-05-18
 # usage:de:Süssungsmittel (Maltit)
+vegan:en:yes
+vegetarian:en:yes
 
 <en:maltitol
 en:E965(i), D-Maltitol
@@ -17107,6 +17196,9 @@ efsa_evaluation_date:en: 2006-05-18
 efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965(ii) new production process. Change of specification
 additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
 
+# description:en:Lactitol can be used by all religious groups and vegetarians, but not by vegans, as the source is milk sugar. The term carbohydrate alcohol is a chemical definition; lactitol does not contain alcohol (ethanol).
+# origin:en:milk:yes
+
 en:E966, Lactitol, Lactit, Lactositol
 bg:E966, Лактитол, Лактит, лактозитол
 cs:E966, Laktitol, Laktit, laktositol
@@ -17133,7 +17225,7 @@ e_number:en:966
 wikidata:en:Q415020
 additives_classes:en: en:emulsifier, en:sweetener, en:thickener
 vegan:en:no
-vegetarian:en:maybe
+vegetarian:en:yes
 
 en:E967, Xylitol
 bg:E967, Ксилитол
@@ -18307,6 +18399,8 @@ e_number:en:1499
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:1503 can be used by all religious groups, vegetarians and vegans.
+
 en:E1503, Castor oil
 bg:E1503, E1503 food additive
 cs:E1503, Ricinový olej
@@ -18333,8 +18427,8 @@ sv:E1503, Ricinolja
 e_number:en:1503
 wikidata:en:Q337492
 additives_classes:en: en:carrier, en:emulsifier
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E1504, ethyl acetate, ethyl ethanoate
 bg:E1504, E1504 food additive
@@ -18447,6 +18541,8 @@ wikidata:en:Q904648
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:E1518 can be used by all religious groups, vegetarians and vegans.
+
 en:E1518, Glyceryl triacetate, Triacetin, glycerin triacetate, 1\,2\,3-triacetoxypropane
 bg:E1518, Глицерил триацетат
 cs:E1518, Glyceryl-triacetát, Glycerolester kyseliny octové
@@ -18472,8 +18568,8 @@ sv:E1518, Glyceryltriacetat
 e_number:en:1518
 wikidata:en:Q83253
 additives_classes:en: en:carrier, en:emulsifier, en:humectant
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
 en:E1519, Benzyl alcohol, Phenylcarbinol, Phenylmethyl alcohol, Benzenemethanol
 bg:E1519, Бензил алкохол, Фенилкарбинол, фенилметил алкохол, бензенметанол
