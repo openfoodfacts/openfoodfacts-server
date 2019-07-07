@@ -1597,10 +1597,10 @@ e_number:en:160
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3492
 efsa_evaluation_date:en: 2014-01-22
 efsa_evaluation:en: Scientific Opinion on the reconsideration of the ADI and a refined exposure assessment of beta-apo-8'-carotenal (E 160e)
-vegan:en:maybe
-vegetarian:en:maybe
+vegan:en:yes
+vegetarian:en:yes
 
-<en:E160
+# <en:E160
 en:E160a, Alpha-carotene, Beta-carotene, Gamma-carotene, carotene
 bg:E160a, Каротин
 cs:E160a, karoteny, E 160a, karoten
@@ -1633,12 +1633,12 @@ efsa_evaluation_date:en: 2016-03-18
 efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160a(ii)] in foods for special medical purposes in young children
 additives_classes:en: en:colour
 vegan:en:maybe
-vegetarian:en:maybe
-from_palm_oil:en:maybe
+vegetarian:en:yes
+from_palm_oil:en:yes
 
 # description:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
-<en:E160a
+# <en:E160a
 en:E160a(i), Beta-carotene
 bg:E160a(i), Бета-каротин
 cs:E160a(i), Beta-karoten
@@ -1674,7 +1674,7 @@ vegetarian:en:yes
 
 # description:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
-<en:E160a
+# <en:E160a
 en:E160a(ii), Plant carotenes
 bg:E160a(ii), Растителни каротини
 cs:E160a(ii), Rostlinné karoteny
@@ -1707,7 +1707,7 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-<en:E160a
+# <en:E160a
 en:E160a(iii), Beta-carotene from blakeslea trispora
 bg:E160a(iii), Бета-каротин от blakeslea trispora
 cs:E160a(iii), Beta-karoten z blakeslea trispora
@@ -1736,8 +1736,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 efsa_evaluation_date:en: 2016-03-18
 efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160a(ii)] in foods for special medical purposes in young children
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
 
-<en:E160a
+# <en:E160a
 en:E160a(iv), Algal carotenes
 bg:E160a(iv), Каротини от водорасли
 cs:E160a(iv), Karoteny z řas
@@ -1766,6 +1768,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 efsa_evaluation_date:en: 2016-03-18
 efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160a(ii)] in foods for special medical purposes in young children
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
 
 # description:en:E160b can be consumed by all religious groups, vegans and vegetarians.
 
