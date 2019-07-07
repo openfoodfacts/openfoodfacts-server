@@ -35,25 +35,16 @@ The key is used to keep track of which products have been updated. If there are 
 it is likely that the MongoDB cursor of products to be updated will expire, and the script will have to be re-run.
 
 --process-ingredients	compute allergens, additives detection
-
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
-
 --compute-nutrition-score	nutriscore
-
 --compute-serving-size	compute serving size values
-
+--compute-history	compute history and completeness
 --check-quality	run quality checks
-
 --compute-codes
-
 --fix-serving-size-mg-to-ml
-
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
-
 --user		create a separate .sto file and log the change in the product history, with the corresponding user
-
 --comment	comment for change in product history
-
 --pretend	do not actually update products
 TXT
 ;
@@ -99,8 +90,11 @@ my $compute_nova = '';
 my $check_quality = '';
 my $compute_codes = '';
 my $compute_carbon = '';
+my $compute_history = '';
 my $comment = '';
 my $fix_serving_size_mg_to_ml = '';
+my $run_ocr = '';
+my $autorotate = '';
 my $query_ref = {};	# filters for mongodb query
 
 GetOptions ("key=s"   => \$key,      # string
@@ -111,6 +105,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
 			"compute-nutrition-score" => \$compute_nutrition_score,
+			"compute-history" => \$compute_history,
 			"compute-serving-size" => \$compute_serving_size,
 			"compute-data-sources" => \$compute_data_sources,
 			"compute-nova" => \$compute_nova,
@@ -120,8 +115,10 @@ GetOptions ("key=s"   => \$key,      # string
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
 			"user_id=s" => \$User_id,
 			"comment=s" => \$comment,
+			"run-ocr" => \$run_ocr,
+			"autorotate" => \$autorotate,
 			)
-  or die("Error in command line arguments:\n$\nusage");
+  or die("Error in command line arguments:\n\n$usage");
  
 use Data::Dumper;
 
@@ -154,7 +151,8 @@ if ($unknown_fields > 0) {
 if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova) 
 	and (not $clean_ingredients)
 	and (not $compute_serving_size)
-	and (not $compute_data_sources)
+	and (not $compute_data_sources) and (not $compute_history)
+	and (not $run_ocr) and (not $autorotate)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0)) {
 	die("Missing fields to update:\n$usage");
 }  
@@ -174,7 +172,7 @@ else {
 	$key = "key_" . time();
 }
 
-#$query_ref->{code} = "3033490859206";
+#$query_ref->{code} = "3661112080648";
 #$query_ref->{categories_tags} = "en:plant-milks";
 #$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
 
@@ -197,7 +195,7 @@ while (my $product_ref = $cursor->next) {
 	my $code = $product_ref->{code};
 	my $path = product_path($code);
 	
-	# next if $code ne "7310865071804";
+	#next if $code ne "8480013072645";
 	
 	print STDERR "updating product $code\n";
 	
@@ -233,6 +231,52 @@ while (my $product_ref = $cursor->next) {
 		#		}
 		#	}
 		#}
+
+		if ($run_ocr) {
+			# run OCR on all selected ingredients and nutrition
+			# images
+			if (defined $product_ref->{images}) {
+				foreach my $imgid (sort keys %{$product_ref->{images}}) {
+					if ((not defined $product_ref->{images}{$imgid}{ocr}) or ($product_ref->{images}{$imgid}{ocr} == 0)) {
+						if ($imgid =~ /^ingredients_/) {
+							my $results_ref = {};
+							print STDERR "extract_ingredients_from_image: $imgid\n";
+							extract_ingredients_from_image($product_ref, $imgid, "google_cloud_vision", $results_ref);
+						}
+						elsif ($imgid =~ /^nutrition_/) {
+							my $results_ref = {};
+							print STDERR "extract_nutrition_from_image: $imgid\n";
+							extract_nutrition_from_image($product_ref, $imgid, "google_cloud_vision", $results_ref);
+						}
+					}
+				}
+			}
+		}
+		
+		if ($autorotate) {
+			# OCR needs to have been run first
+			if (defined $product_ref->{images}) {
+				foreach my $imgid (sort keys %{$product_ref->{images}}) {
+					if (($imgid =~ /^(ingredients|nutrition)_/) 
+						and (defined $product_ref->{images}{$imgid}{orientation}) and ($product_ref->{images}{$imgid}{orientation} != 0)
+						# only rotate images that have not been manually cropped
+						and ((not defined $product_ref->{images}{$imgid}{x1}) or ($product_ref->{images}{$imgid}{x1} <= 0))
+						and ((not defined $product_ref->{images}{$imgid}{y1}) or ($product_ref->{images}{$imgid}{y1} <= 0))
+						and ((not defined $product_ref->{images}{$imgid}{x2}) or ($product_ref->{images}{$imgid}{x2} <= 0))
+						and ((not defined $product_ref->{images}{$imgid}{y2}) or ($product_ref->{images}{$imgid}{y2} <= 0))
+						) {
+						print STDERR "rotating image $imgid by " .  (- $product_ref->{images}{$imgid}{orientation}) . "\n";
+						my $User_id_copy = $User_id;
+						$User_id = "autorotate-bot";
+						eval { 
+							my $updated_product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1);
+							$product_ref->{images}{$imgid} = $updated_product_ref->{images}{$imgid};
+						};
+						$User_id = $User_id_copy;
+					}
+				}
+			}		
+		}
 	
 		# Update all fields
 		
@@ -257,7 +301,7 @@ while (my $product_ref = $cursor->next) {
 			else {
 			}
 		}
-
+			
 		if ($server_domain =~ /openfoodfacts/) {
 				ProductOpener::Food::special_process_product($product_ref);
 		}
@@ -293,6 +337,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_nutrition_score) {
+			fix_salt_equivalent($product_ref);
 			compute_nutrition_score($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
@@ -303,6 +348,7 @@ while (my $product_ref = $cursor->next) {
 		
 		if ($compute_carbon) {
 			compute_carbon_footprint_from_ingredients($product_ref);
+			compute_carbon_footprint_from_meat_or_fish($product_ref);
 			compute_serving_size_data($product_ref);
 			delete $product_ref->{environment_infocard};
 			delete $product_ref->{environment_infocard_en};
@@ -315,6 +361,17 @@ while (my $product_ref = $cursor->next) {
 
 		if ($check_quality) {
 			ProductOpener::SiteQuality::check_quality($product_ref);
+		}
+		
+		if ($compute_history) {
+			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			if (not defined $changes_ref) {
+				$changes_ref = [];
+			}
+
+
+			compute_product_history_and_completeness($product_ref, $changes_ref);		
+			compute_data_sources($product_ref);
 		}
 		
 		if (not $pretend) {
