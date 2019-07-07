@@ -33,6 +33,8 @@ tg:Таркиб
 tr:lcindekiler
 uz:Tarkib
 zh::配料
+vegan:en:ignore
+vegetarian:en:ignore
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
@@ -4810,7 +4812,7 @@ zh:单硬脂酸甘油酯
 # en-gb:Glycerol monostearate
 wikipedia:en:https://en.wikipedia.org/wiki/Glycerol_monostearate
 # ingredient/fr:monostéarate-de-glycérol has 54 products in french @2019-03-28
-from_palm:en:maybe
+from_palm_oil:en:maybe
 
 # GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts. 
 
@@ -5355,8 +5357,8 @@ pt:mono e diglicéridos de ácidos gordos de origem vegetal
 # fr:mono- et diglycérides d'acides gras d'origine végétale has 53 products @2018-11-12
 
 <en:mono- and diglycerides of fatty acids
-<en:palm
 fr:Mono- et diglycerides d'acides gras de palme, monoglycérides et diglycérides d'acide gras de palme
+from_palm_oil:en:yes
 
 <en:mono- and diglycerides of fatty acids
 fr:émulsifiant e471
@@ -8661,6 +8663,8 @@ uz:fermentlar
 # xal:Фермент
 #ferments for yoghurts do not make them nova 3, commenting the line below
 #nova:en:3
+vegan:en:maybe
+vegetarian:en:maybe
 
 #
 # ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
@@ -8772,16 +8776,22 @@ zh:酶
 # yue:酵素
 wikipedia:en:https://en.wikipedia.org/wiki/Enzyme
 nova:en:3
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:enzyme
 en:coagulating enzyme
 fr:enzyme coagulante, enzymes coagulantes, coagulant enzymatique
 nl:stremmingsenzymen
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:coagulating enzyme
 en:microbial coagulating enzyme
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
 nl:microbiële stremmingsenzymen
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:ferment
 en:lactic ferments, lactic starters, lactic cultures
@@ -8795,6 +8805,8 @@ nl:melkfermenten, melkkiemen
 pt:fermentos lácteos
 # fr:ferments-lactique has 6494 products in 12 languages @2018-11-02
 # fr:culture-de-bactéries-lactiques has 19 products @2018-11-02
+vegan:en:maybe
+vegetarian:en:yes
 
 <en:lactic ferment
 en:lactic and aging ferments
@@ -8840,12 +8852,13 @@ nl:Microbiële cultuur
 wikipedia:en:https://en.wikipedia.org/wiki/Microbiological_culture
 # ingredient/culture has 683 products in 3 languages @2018-12-27
 nova:en:3
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:microbial culture
 # <en:dairy
 en:cheese culture
 de:Käsekultur
-fr:Arômes fromage
 # ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
 
 # Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
@@ -9032,6 +9045,7 @@ fr:présure animale
 nl:dierlijk stremsel
 nn:animalsk løpe
 # fr:présure-animale has 509 products in 5 languages @2018-11-03
+vegan:en:no
 vegetarian:en:no
 
 <en:animal-based rennet
@@ -9046,7 +9060,8 @@ fr:présure microbienne
 it:caglio microbico
 nl:microbieel stremsel
 # fr:présure-microbienne has 100 products in 6 languages @2018-11-03
-
+vegan:en:maybe
+vegetarian:en:maybe
 
 
 # Amylase are enzymes that catalyse the hydrolysis of starch into sugars. 
@@ -9895,6 +9910,7 @@ zu:Ubisi
 # zh-min-nan:Leng
 # yue:奶
 wikipedia:en:https://en.wikipedia.org/wiki/Milk
+vegan:en:no
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 carbon_footprint_fr_foodges_value:fr:1.2
@@ -10525,7 +10541,7 @@ it:lattosio e proteine del latte
 nl:lactose en melkeiwitten
 pt:lactose e proteínas do leite
 vegan:en:no
-vegetarian:en:maybe
+vegetarian:en:yes
 # ingredient/lactose-and-milk-proteins has 1395 products in 10 languages @2019-05-06
 
 #################### MILK POWDERS ################
@@ -10757,7 +10773,7 @@ zh:乳糖
 # sco:Lactose
 # yue:乳醣
 vegan:en:no
-vegetarian:en:maybe
+vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Lactose
 
 <en:Lactose
@@ -10775,7 +10791,7 @@ it:minerali del latte
 nl:melkmineralen
 wikipedia:en:https://en.wikipedia.org/wiki/Milk#Salts,_minerals,_and_vitamins
 vegan:en:no
-vegetarian:en:maybe
+vegetarian:en:yes
 # ingredient/fr:minéraux-du-lait has 107 products in 5 languages @2019-04-16
 
 <en:milk minerals
@@ -10931,7 +10947,7 @@ zh:乳清
 # sco:Whey, milk serum
 wikipedia:en:https://en.wikipedia.org/wiki/Whey
 vegan:en:no
-vegetarian:en:maybe
+vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey
@@ -16694,10 +16710,12 @@ fr:amidons de blé et de pomme de terre
 
 en:oil, cooking oil
 de:Öl, Speiseöl
-fr:huiles
+fr:huile, huiles
 it:olio
 nl:olie, oliën
 ru:масло, масла
+vegan:en:maybe
+vegetarian:en:maybe
 
 # description:en:Fat is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. 
 
@@ -16914,6 +16932,7 @@ it:olio e grasso vegetale
 nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
+from_palm_oil:en:maybe
 vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
@@ -17027,12 +17046,12 @@ en:palm oil and fat
 de:Palmöl und Palmfett, Palmöl und Fett
 fr:Huile et matière grasse de palme
 it:Olio e grasso di palma
-from_palm:en:yes
+from_palm_oil:en:yes
 
 <en:vegetable oil and fat
 en:palm kernel oil and fat
 fr:Huile et matière grasse de palmiste
-from_palm:en:yes
+from_palm_oil:en:yes
 
 # <en:palm
 <en:palm oil and fat
@@ -17187,7 +17206,7 @@ te:పామ్‌కెర్నల్‌ నూనె
 uk:Пальмоядрова олія
 wikidata:en:Q1960534
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_kernel_oil
-from_palm:en:yes
+from_palm_oil:en:yes
 
 <en:palm kernel oil and fat
 en:palm kernel fat
@@ -17217,6 +17236,7 @@ nl:palmolie of palmkernolie
 
 <en:vegetable oil
 en:pumpkin seed oil
+from_palm_oil:en:no
 
 <en:pumpkin seed oil
 en:organic pumpkin seed oil
@@ -17276,6 +17296,7 @@ zh:椰子油
 # yue:椰油
 wikipedia:en:https://en.wikipedia.org/wiki/Coconut_oil
 wikidata:en:Q216235
+from_palm_oil:en:no
 
 <en:coconut oil
 en:organic coconut oil
@@ -17308,6 +17329,7 @@ fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, ma
 it:grasso di cocco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière%20grasse%20de%20noix%20de%20coco
 # 36 products in 4 languages @2018-10-03
+from_palm_oil:en:no
 
 # description:en:OLIVE OIL is a liquid fat obtained from olives (the fruit of Olea europaea; family Oleaceae).
 
@@ -17394,6 +17416,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Olive_oil
 wikidata:en:Q93165
 carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
 carbon_footprint_fr_foodges_value:fr:2.6
+from_palm_oil:en:no
 
 <en:olive oil
 en:virgin olive oil
@@ -17438,6 +17461,7 @@ nl:olie van biologische Spaanse olijven
 
 <en:vegetable oil and fat
 en:rapeseed oil and fat
+from_palm_oil:en:no
 
 
 # Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
@@ -17450,6 +17474,7 @@ fi:Rypsiöljy
 fr:huile de navette, huile de canola
 nl:raapolie, canola olie, raapzaadolie
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
+from_palm_oil:en:no
 
 # Colza oil or colza is a non-drying oil obtained from the seeds of rapeseed (Brassica napus subsp. napus). Note that this a single rapeseed variety
 
@@ -17478,6 +17503,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 wikidata:en:Q697248
 carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
 carbon_footprint_fr_foodges_value:fr:2.2
+from_palm_oil:en:no
 
 <en:colza oil
 en:organic colza oil
@@ -17534,6 +17560,7 @@ th:น้ำมันวอลนัต
 zh:核桃油
 wikipedia:en:https://en.wikipedia.org/wiki/Walnut_oil
 wikidata:en:Q1434098
+from_palm_oil:en:no
 
 <en:walnut oil
 fr:huile vierge de noix
@@ -17563,13 +17590,14 @@ uz:Paxta moyi
 zh:棉籽油
 wikipedia:en:https://en.wikipedia.org/wiki/Cottonseed_oil
 wikidata:en:Q811663
+from_palm_oil:en:no
 
 <en:vegetable oil
 en:avocado oil
 fr:huile d'avocat
 de:Avocadoöl
 it:olio di avocado
-7in3@2019-06-12
+from_palm_oil:en:no
 
 # description:en:CORN OIL (maize oil) is oil extracted from the germ of corn (maize).
 
@@ -17604,6 +17632,7 @@ zh:粟米油
 # yue:粟米油
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_oil
 wikidata:en:Q856775
+from_palm_oil:en:no
 
 # PEANUT OIL, also known as groundnut oil or arachis oil, is a mild-tasting vegetable oil derived from peanuts.
 
@@ -17648,6 +17677,7 @@ zh:花生油
 wikidata:en:Q265878
 wikipedia:en:https://en.wikipedia.org/wiki/Peanut_oil
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/peanut-oil/
+from_palm_oil:en:no
 
 # description:en:SESAME OIL is an edible vegetable oil derived from sesame seeds.
 # comment:en:The parent en:sesam enables the sesam allergen detection
@@ -17702,6 +17732,7 @@ zh:芝麻油
 # yue:麻油
 wikipedia:en:https://en.wikipedia.org/wiki/Sesame_oil
 wikidata:en:Q212317
+from_palm_oil:en:no
 
 <en:sesame oil
 en:organic sesame oil
@@ -17749,6 +17780,7 @@ zh:大豆油
 # yue:豆油
 wikipedia:en:https://en.wikipedia.org/wiki/Soybean_oil
 wikidata:en:Q926892
+from_palm_oil:en:no
 
 # description:en:CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources. 
 
@@ -17757,6 +17789,7 @@ en:camelina oil
 fr:huile de caméline
 wikipedia:en:https://en.wikipedia.org/wiki/Camelina_sativa
 # ingredient/fr:huile-de-cameline has 10 products @2019-06-03
+from_palm_oil:en:no
 
 # description:en:GRAPE SEED OIL (also called grapeseed oil or grape oil) is pressed from the seeds of grapes, and is thus an abundant by-product of winemaking.
 
@@ -17785,6 +17818,7 @@ ru:Масло виноградных косточек
 zh:葡萄籽油
 wikipedia:en:https://en.wikipedia.org/wiki/Grape_seed_oil
 wikidata:en:Q898982
+from_palm_oil:en:no
 
 # description:en:RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk).
 
@@ -17813,6 +17847,7 @@ uk:Рисова олія
 zh:米糠油
 wikidata:en:Q175933
 wikipedia:en:https://en.wikipedia.org/wiki/Rice_bran_oil
+from_palm_oil:en:no
 
 
 # description:en:SHEA BUTTER is a fat extracted from the nut of the African shea tree (Vitellaria paradoxa). Shea butter is edible and is used in food preparation in some African countries. Occasionally, shea butter is mixed with other oils as a substitute for cocoa butter, although the taste is noticeably different.
@@ -17846,20 +17881,23 @@ zh:乳木果油
 wikidata:en:Q495857
 wikipedia:en:https://en.wikipedia.org/wiki/Shea_butter
 # ingredient/fr:beurre-de-karité has 93 products in 6 languages @2019-04-16
+from_palm_oil:en:no
 
 # description:en:ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree.
 
 <en:vegetable fat
-en:illipe
+en:illipe oil
 de:Illipebutter
-fr:illipé, huile d'illipé, graisse d'illipé
+fr:illipé, huile d'illipé, graisse d'illipé, huile végétale d'illipé
 uk:Ілліпе
 wikidata:en:Q6000160
 wikipedia:en:https://en.wikipedia.org/wiki/Illipe
+from_palm_oil:en:no
 
 <en:vegetable fat
 en:sunflower fat
 # ingredient/sunflower-fat has 2 products in english @2019-04-16
+from_palm_oil:en:no
 
 #<en:sunflower fat
 #en:partially hydrogenated sunflower fat
@@ -17898,6 +17936,7 @@ nl:saffloerolie
 pl:olej z krokosza bawierskiego
 ro:ulei de șofrănel
 wikidata:en:Q16642513
+from_palm_oil:en:no
 
 <en:vegetable oil
 # producedFrom:en:chia
@@ -17906,6 +17945,7 @@ de:Chiaöl
 es:aceite de chía
 fr:huile de chia
 nl:chia-olie
+from_palm_oil:en:no
 
 <en:vegetable oil
 # producedFrom:en:hazelnut
@@ -17916,17 +17956,20 @@ fr:huile de noisette
 it:Olio di nocciole
 nl:hazelnotenolie, hazelnootolie
 wikidata:en:Q1112606
+from_palm_oil:en:no
 
 <en:hazelnut oil
 en:virgin hazelnut oil
 fr:huile vierge de noisette
 # ingredient/fr:huile-vierge-de-noisette has 9 products @2019-06-02
+from_palm_oil:en:no
 
 <en:vegetable oil
 # <en:nut
 en:pistachio seed oil
 de:Pistazienöl
 fr:Huile de pistache
+from_palm_oil:en:no
 
 # LINSEED OIL, also known as flaxseed oil or flax oil, is a colourless to yellowish oil obtained from the dried, ripened seeds of the flax plant (Linum usitatissimum).
 
@@ -17973,6 +18016,7 @@ zh:亞麻子油
 # nap:Uoglio 'e lino
 # yue:亞麻籽油
 wikidata:en:Q818405
+from_palm_oil:en:no
 
 <en:linseed oil
 en:Organic linseed oil
@@ -18033,6 +18077,7 @@ vi:Dầu hướng dương
 zh:葵花籽植物油
 wikipedia:en:https://en.wikipedia.org/wiki/Sunflower_oil
 wikidata:en:Q94787
+from_palm_oil:en:no
 
 <en:sunflower oil
 en:organic sunflower oil
@@ -18135,16 +18180,20 @@ fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza
 en:lemon oil
 fr:huile de citron
 nl:Citroenolie
+from_palm_oil:en:no
 
 # <en:mango
 <en:vegetable oil
-fr:noyaux de mangue
+en:mango kernel oil, mango oil
+fr:huile de noyaux de mangue, huile végétale de noyeau de mangue
 # ingredient/fr:noyaux-de-mangue has 31 products in french @2019-03-01
 # matières grasses végétales (palme, karité, sal, noyaux de mangue, illipé, kokum gurgi dans des proportions variables)
-
+from_palm_oil:en:no
+  
 # ESSENTIAL OIL is a concentrated hydrophobic liquid containing volatile aroma compounds from plants.
 
-<en:vegetable oil
+# removing essential oils from vegetable oils (stephane 20190617)
+#<en:vegetable oil
 en:essential oil
 af:Eteriese olie
 ar:زيت عطري
@@ -18206,6 +18255,7 @@ zh:精油
 # tyv:Эфирлиг үстер
 wikipedia:en:https://en.wikipedia.org/wiki/Essential_oil
 wikidata:en:Q170885
+from_palm_oil:en:no
 
 <en:essential oil
 en:orange essential oil
@@ -18597,7 +18647,7 @@ fr:alcool
 it:Alcol or alcool
 nl:alcohol
 vegan:en:maybe
-vegetarian:en:maybe
+vegetarian:en:yes
 
 
 # ETHANOL, also called alcohol, ethyl alcohol, grain alcohol, and drinking alcohol, is a chemical compound, a simple alcohol with the chemical formula C2H5OH.
@@ -20079,6 +20129,8 @@ es:aroma, aromas
 fr:arôme, arômes
 it:aroma, aromi
 nl:aroma, aroma's
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:flavouring
 en:flavouring preparation, spice preparation
@@ -20100,6 +20152,8 @@ es:aroma natural, aromas naturales
 fr:arôme naturel, arômes naturels
 it:aroma naturale, aromi naturali
 nl:Natuurlijke smaakstoffen, natuurlijk aroma
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:flavouring
 en:artificial flavouring, artificial flavour, artificial flavor, artificial flavoring
@@ -26779,6 +26833,8 @@ carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 carbon_footprint_fr_foodges_value:fr:6.5
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 carbon_footprint_fr_foodges_value:fr:4.9
+vegan:en:maybe
+vegetarian:en:yes
 
 <en:chocolate
 en:chocolate powder
@@ -26920,6 +26976,8 @@ carbon_footprint_fr_foodges_value:fr:5.9
 # ingredient/milk-chocolate has 4843 products in 20 languages @2019-05-25
 # category/milk-chocolates has 2071 products @2019-05-25
 # usage:fr:Chocolat au lait [sucre, beurre de cacao, pâte de cacao, poudre de lait écrémé, lactose, matière grasse de lait anhydre, émulsifiant:lécithines (tournesol), arôme]
+vegan:en:no
+vegetarian:en:yes
 
 <en:milk chocolate
 # <en:chocolate chips
@@ -28052,6 +28110,8 @@ en:baking powder
 fr:levure chimique
 nl:bakpoeder
 ro:praf de copt
+vegan:en:yes
+vegetarian:en:yes
 
 <en:yeast
 en:natural yeast
@@ -30006,7 +30066,7 @@ es:zumo de frutas
 fr:jus de fruits
 it:succhi di frutta
 nl:vruchtensap
-vegan:en:maybe
+vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Juice
 
@@ -37395,7 +37455,6 @@ it:Galatto-oligosaccaridi di lattosio
 # BEETROOT is the taproot portion of the beet plant
 
 <en:root vegetable
-# <en:colour
 en:beetroot, beet
 af:Beet
 de:Rüben, Randen
@@ -37412,7 +37471,6 @@ carbon_footprint_fr_foodges_value:fr:0.2
 # Sometimes it is indicated as a colour.
 
 <en:beetroot
-<en:colour
 en:beetroot powder
 fr:poudre de betterave
 # fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
@@ -38303,7 +38361,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carrot_juice
 
 # Is used as colour, but always mentioned as such
 
-<en:colour
 <en:carrot juice
 en:concentrated carrot juice
 de:Karottensaftkonzentrat
@@ -44006,6 +44063,8 @@ nl:chia, Salvia hispanica
 pt:chia, Salvia hispanica
 wikidata:en:Q1071585
 # ingredient/chia has 44 products @2018-10-07
+vegan:en:yes
+vegetarian:en:yes
 
 <en:seed
 <en:chia
@@ -45142,7 +45201,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turmeric
 # This is sometimes mentioned as a colouring agent.
 
 <en:turmeric
-<en:colour
 en:turmeric powder
 de:Curcumapulver
 fr:poudre de curcuma, curcuma moulu, curcuma deshydraté
@@ -45153,7 +45211,6 @@ it:curcuma in polvere
 # This is sometimes mentioned as a colouring agent.
 
 <en:turmeric
-<en:colour
 en:turmeric extract
 de:Kurkumaextrakt
 es:extracto de cúrcuma
@@ -50108,6 +50165,8 @@ es:hojas de parra
 fr:feuilles de vigne
 it:foglie di vite
 # ingredient/fr:feuilles-de-vigne has 27 products in 5 languages @2019-02-10
+vegan:en:yes
+vegetarian:en:yes
 
 
 # WASABI (Japanese ワサビ, わさび or 山葵; Eutrema japonicum or Wasabia japonica) or Japanese horseradish is a plant of the Brassicaceae family
@@ -58415,6 +58474,8 @@ zh:咖啡因
 wikidata:en:Q60235
 wikipedia:en:https://en.wikipedia.org/wiki/Caffeine
 # ingredient/fr:caféine has 426 languages in 11 languages @2019-05-18
+vegan:en:yes
+vegetarian:en:yes
 
 
 # description:en:GLUCURONOLACTONE is a naturally occurring substance that is an important structural component of nearly all connective tissues.
@@ -60878,6 +60939,9 @@ wikidata:en:Q636056
 wikipedia:en:https://en.wikipedia.org/wiki/Purée
 # ingredient/fr:purée has 151 products @2018-10-05
 # usage:fr:kiwi 4% (purée)
+# used only to qualify another ingredient, ignore for ingredient analysis
+vegan:en:ignore
+vegetarian:en:ignore
 
 <en:purée
 en:concentrated purée
@@ -61359,7 +61423,8 @@ wikidata:en:Q745361
 wikipedia:en:https://en.wikipedia.org/wiki/Stuffing
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
 # ingredient/fr:farce has 884 products in 6 languages @2019-05-18
-
+vegan:en:ignore
+vegetarian:en:ignore
 
 
 # <en:compound
@@ -61372,6 +61437,7 @@ nl:melkvulling
 pt:recheio de leite
 # ingredient/fr:fourrage-lait has 42 products in 5 languages @2019-02-03
 # fourrage au _lait_ 16% (sucre, huile, ….)
+vegan:en:no
 
 # description:en:BRIOCHE is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
 
@@ -62918,6 +62984,8 @@ wikidata:en:Q177378
 wikipedia:en:https://en.wikipedia.org/wiki/Tofu
 # ingredient/fr:tofu has 369 products in 7 languages@2019-05-17
 # usage:fr:Tofu (graines de soja, eau, agents de coagulation :chlorure de magnésium, sulfate de calcium)
+vegan:en:yes
+vegetarian:en:yes
 
 
 
@@ -63669,6 +63737,8 @@ nl:korst
 # usage:fr: croûte: herbes aromatiques bio 
 # usage:fr: conservateur (croûte) : natamycine (contient lait)
 # usage/de: Kruste (mit Farbstoff [E 160b])
+vegan:en:ignore
+vegetarian:en:ignore
 
 # description:en:The outer layer of cheese. Mostly for cheeses that have a distinctive layer different from the cheese itself.
 
@@ -63686,6 +63756,7 @@ wikidata:en:Q19344541
 
 # <en:compound
 # <fr:saucissons
+<en:meat
 en:chorizo, chorizos
 af:Chorizo
 be:Чарыза

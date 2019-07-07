@@ -270,6 +270,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2009.1331
 efsa_evaluation_date:en: 2009-11-12
 efsa_evaluation:en: Scientific Opinion on the re-evaluation Tartrazine (E 102)
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
 
 en:E103, Alkannin
 bg:E103, E103 food additive
@@ -1632,6 +1634,7 @@ efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-ca
 additives_classes:en: en:colour
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
@@ -2337,6 +2340,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3145
 efsa_evaluation_date:en: 2013-04-23
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of anthocyanins (E 163) as a food additive
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
 
 en:E163a, Cyanidin
 bg:E163a, E163a food additive
@@ -5029,6 +5034,7 @@ additives_classes:en: en:antioxidant
 # could be made from animal fat
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 <en:E304
 en:E304(i), Ascorbyl palmitate, L-Ascorbyl Palmitate
@@ -7837,6 +7843,8 @@ sv:E385, Kalciumdinatriumetylendiamintetraacetat, Kalciumdinatrium-EDTA
 e_number:en:385
 wikidata:en:Q18967194
 additives_classes:en: en:antioxidant, en:preservative, en:sequestrant
+vegan:en:yes
+vegetarian:en:yes
 
 en:E386, E386 food additive
 bg:E386, E386 food additive
@@ -7978,6 +7986,7 @@ e_number:en:390
 wikidata:en:Q13081806
 vegan:en:yes
 vegetarian:en:yes
+from_palm_oil:en:maybe
 
 en:E391, Phytic acid
 bg:E391, E391 food additive
@@ -9177,6 +9186,7 @@ wikidata:en:Q18636149
 additives_classes:en: en:emulsifier
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin.
 # origin:en:pork:maybe
@@ -9215,6 +9225,7 @@ efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin.
 # origin:en:pork:maybe
@@ -9253,6 +9264,7 @@ efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin.
 # origin:en:pork:maybe
@@ -9291,6 +9303,7 @@ efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin.
 # origin:en:pork:maybe
@@ -11094,6 +11107,7 @@ e_number:en:470
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 <en:E470
 en:E470a, Sodium\, potassium and calcium salts of fatty acids, Sodium\, potassium and calcium salts of fatty acids
@@ -11122,6 +11136,7 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:470a
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E470b, Magnesium salts of fatty acids
 bg:E470b, Магнезиеви соли на мастни киселини
@@ -11149,6 +11164,7 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:470b
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E471, Mono- and diglycerides of fatty acids, Glyceryl monostearate, Glyceryl monopalmitate, Glyceryl monooleate, Monostearin, Monopalmitin, Monoolein, Mono and diglycerides
 bg:E471, Моно- и диглицериди на мастни киселини, Глицерил моностеарат, глицерил монопалмитат, глицерил моноолеат, и т.н., моностеарин, монопалмитин, моноолеин
@@ -11178,6 +11194,7 @@ wikidata:en:Q416711
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 # origin:en:pork:maybe
@@ -11207,6 +11224,7 @@ sv:E472, E472 food additive
 e_number:en:472
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 <en:E472
 en:E472a, Acetic acid esters of mono- and diglycerides of fatty acids
@@ -11235,6 +11253,7 @@ e_number:en:472a
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 <en:E472
 en:E472b, Lactic acid esters of mono- and diglycerides of fatty acids
@@ -11263,6 +11282,7 @@ e_number:en:472b
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 <en:E472
 en:E472c, Citric acid esters of mono- and diglycerides of fatty acids
@@ -11291,6 +11311,7 @@ e_number:en:472c
 additives_classes:en: en:antioxidant, en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 <en:E472
 en:E472d, Tartaric acid esters of mono- and diglycerides of fatty acids
@@ -11318,6 +11339,7 @@ sv:E472d, Mono- och diglyceriders vinsyraestrar
 e_number:en:472d
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 <en:E472
 en:E472e, Mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids, Mono- and diacetyl tartaric acid esters of mono- and diglycerides of fatty acids, DATEM
@@ -11346,6 +11368,7 @@ e_number:en:472e
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472
 en:E472f, Mixed acetic and tartaric acid esters of mono- and diglycerides of fatty acids
@@ -11373,6 +11396,7 @@ sv:E472f, Blandade ättik- och vinsyraestrar av mono- och diglycerider
 e_number:en:472f
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472
 en:E472g, Succinylated monoglycerides
@@ -11400,6 +11424,7 @@ sv:E472g, E472g food additive
 e_number:en:472g
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
@@ -11693,6 +11718,7 @@ efsa_evaluation_adi:en: 22
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products. 
 
@@ -11731,6 +11757,7 @@ efsa_evaluation_adi:en: 22
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products. 
 
@@ -11761,6 +11788,7 @@ e_number:en:483
 wikidata:en:Q673260
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products. 
 
@@ -11792,6 +11820,7 @@ wikidata:en:Q18608830
 additives_classes:en: en:antioxidant, en:emulsifier, en:sequestrant
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E485, Sodium stearoyl fumarate
 bg:E485, E485 food additive
@@ -12142,6 +12171,7 @@ efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E496, Sorbitan trioleate
 bg:E496, E496 food additive
@@ -17358,6 +17388,7 @@ efsa_evaluation_date:en: 2010-07-09
 efsa_evaluation:en: Statement in relation to the safety of erythritol (E 968) in light of new data, including a new paediatric study on the gastrointestinal tolerability of erythritol
 additives_classes:en: en:humectant, en:sweetener
 vegan:en:yes
+vegetarian:en:yes
 
 en:E999, Quillaia extract, Soapbark extract, Quillay bark extract, Panama bark extract, Quillai extract, Murillo bark extract, Quillaia
 bg:E999, Куилая екстракт

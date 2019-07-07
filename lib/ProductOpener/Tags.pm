@@ -116,7 +116,7 @@ BEGIN
 					&load_users_translations
 					&load_users_translations_for_lc
 					&add_users_translations_to_taxonomy
-					
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -673,7 +673,7 @@ sub build_tags_taxonomy($$$) {
 	$properties{$tagtype} = {};
 
 	my $errors = '';
-	
+
 	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file")) {
 
 		my $current_tagid;
@@ -870,9 +870,9 @@ sub build_tags_taxonomy($$$) {
 		}
 
 		close ($IN);
-		
+
 		if ($errors ne "") {
-		
+
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
@@ -1319,10 +1319,10 @@ sub build_tags_taxonomy($$$) {
 			while ($#queue > -1) {
 				my $parentid = shift @queue;
 				#print "- $parentid\n";
-				
+
 				if ($parentid eq $tagid) {
 					$errors .= "ERROR - $tagid is a parent of itself\n";
-				}				
+				}
 				elsif (not defined $seen{$parentid}) {
 					defined $all_parents{$tagtype}{$tagid} or $all_parents{$tagtype}{$tagid} = [];
 					push @{$all_parents{$tagtype}{$tagid}}, $parentid;
@@ -1489,16 +1489,16 @@ sub build_tags_taxonomy($$$) {
 		}
 
 		close $OUT;
-		
+
 		if ($errors ne "") {
-		
+
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			unless ($tagtype eq "ingredients") {
 				die("Errors in the $tagtype taxonomy definition");
 			}
-		}		
+		}
 
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 
@@ -1559,7 +1559,7 @@ sub retrieve_tags_taxonomy {
 		}
 	}
 
-	my $taxonomy_ref = retrieve("$data_root/taxonomies/$tagtype.result.sto");
+	my $taxonomy_ref = retrieve("$data_root/taxonomies/$tagtype.result.sto") or die("Could not load taxonomy: $data_root/taxonomies/$tagtype.result.sto");
 	if (defined $taxonomy_ref) {
 
 		$loaded_taxonomies{$tagtype} = 1;
@@ -1653,11 +1653,10 @@ closedir($DH2);
 
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
-	#print STDERR "loading taxonomy $taxonomyid\n";
+	# print STDERR "loading taxonomy $taxonomyid\n";
 	retrieve_tags_taxonomy($taxonomyid);
 
 }
-
 
 
 # Build map of language codes and names
@@ -1846,7 +1845,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	}
 
 	my @sorted_list = sort { (((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0) <=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)) || ($a cmp $b) } keys %tags;
-	
+
 	return @sorted_list;
 }
 
@@ -1950,9 +1949,9 @@ sub display_tag_name($$) {
 
 	my $tagtype = shift;
 	my $tag = shift;
-	
+
 	# do not display UUIDs yuka-UnY4RExZOGpoTVVWb01aajN4eUY2UHRJNDY2cWZFVzhCL1U0SVE9PQ
-	# but just yuka - user	
+	# but just yuka - user
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
 		$tag =~ s/\.(.*)/ - user/;
 	}
@@ -1964,7 +1963,7 @@ sub display_tag_link($$) {
 
 	my $tagtype = shift;
 	my $tag = shift;
-	
+
 	$tag = canonicalize_tag2($tagtype, $tag);
 	my $tagid = get_fileid($tag);
 	my $tagurl = get_urlid($tagid);
@@ -1978,7 +1977,7 @@ sub display_tag_link($$) {
 	}
 
 	my $display_tag = display_tag_name($tagtype, $tag);
-	
+
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
 		$html = "<a href=\"/$path/$tagurl\" lang=\"$tag_lc\">$display_tag</a>";
@@ -2452,11 +2451,11 @@ sub canonicalize_tag2($$)
 	$canon_tag =~ s/ $//g;
 
 	my $tagid = get_fileid($tag);
-	
+
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
 		return $tagid;
 	}
-	
+
 	if ((defined $canon_tags{$lc}) and (defined $canon_tags{$lc}{$tagtype}) and (defined $canon_tags{$lc}{$tagtype}{$tagid})) {
 		$canon_tag = $canon_tags{$lc}{$tagtype}{$tagid};
 	}
@@ -2676,11 +2675,11 @@ sub canonicalize_taxonomy_tag($$$)
 }
 
 
-sub generate_spellcheck_candidates($) {
+sub generate_spellcheck_candidates($$) {
 
 	my $tagid = shift;
 
-	my @candidates = [$tagid];
+	my $candidates_ref = shift;
 
 	# https://norvig.com/spell-correct.html
 	# "All edits that are one edit away from `word`."
@@ -2700,29 +2699,27 @@ sub generate_spellcheck_candidates($) {
 
 		# delete
 		if ($i < $l) {
-			push @candidates, $left . substr($right, 1);
+			push @$candidates_ref, $left . substr($right, 1);
 		}
 
 		foreach my $c ("a".."z") {
 
 			# insert
-			push @candidates, $left . $c . $right;
+			push @$candidates_ref, $left . $c . $right;
 
 			# replace
 			if ($i < $l) {
-				push @candidates, $left . $c . substr($right, 1);
+				push @$candidates_ref, $left . $c . substr($right, 1);
 			}
 		}
 
 		if (($i > 0) and ($i < $l)) {
-			push @candidates, $left . "-" . $right;
+			push @$candidates_ref, $left . "-" . $right;
 			if ($i < ($l - 1)) {
-				push @candidates, $left . "-" . substr($right, 1);
+				push @$candidates_ref, $left . "-" . substr($right, 1);
 			}
 		}
 	}
-
-	return @candidates;
 }
 
 
@@ -2742,18 +2739,11 @@ sub spellcheck_taxonomy_tag($$$)
 	}
 
 	$tag = normalize_percentages($tag, $tag_lc);
-	my $tagid = get_fileid($tag);
-
-	if ($tagtype =~ /^additives/) {
-		# convert the E-number + name into just E-number (we get those in urls like /additives/e330-citric-acid)
-		# check E + 1 digit in order to not convert Erythorbate-de-sodium to Erythorbate
-		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
-	}
 
 	my @candidates = ($tag);
 
 	if (length($tag) > 6) {
-		@candidates = generate_spellcheck_candidates($tag);
+		generate_spellcheck_candidates($tag, \@candidates);
 	}
 
 	my $result;
@@ -2762,38 +2752,41 @@ sub spellcheck_taxonomy_tag($$$)
 	my $correction;
 	my $last_candidate;
 
-	foreach my $candidate (@candidates) {
+	if ((exists $synonyms{$tagtype}) and (exists $synonyms{$tagtype}{$tag_lc})) {
 
-		$last_candidate = $candidate;
-		$tagid = get_fileid($candidate);
+		foreach my $candidate (@candidates) {
 
-		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid})) {
-			$result = $synonyms{$tagtype}{$tag_lc}{$tagid};
-			last;
-		}
-		else {
-			# try removing stopwords and plurals
-			# my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
-			# $tagid2 = remove_plurals($tag_lc,$tagid2);
-			my $tagid2 = remove_plurals($tag_lc,$tagid);
+			$last_candidate = $candidate;
+			my $tagid = get_fileid($candidate);
 
-			# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
-			my $tagid3 = $tagid2;
-			my $tagid4 = $tagid2;
-			$tagid3 =~ s/(anti)(-| )/$1/;
-			$tagid4 =~ s/(anti)([a-z])/$1-$2/;
-
-			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid2})) {
-				$result = $synonyms{$tagtype}{$tag_lc}{$tagid2};
+			if (exists $synonyms{$tagtype}{$tag_lc}{$tagid}) {
+				$result = $synonyms{$tagtype}{$tag_lc}{$tagid};
 				last;
 			}
-			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3})) {
-				$result = $synonyms{$tagtype}{$tag_lc}{$tagid3};
-				last;
-			}
-			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4})) {
-				$result = $synonyms{$tagtype}{$tag_lc}{$tagid4};
-				last;
+			else {
+				# try removing stopwords and plurals
+				# my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
+				# $tagid2 = remove_plurals($tag_lc,$tagid2);
+				my $tagid2 = remove_plurals($tag_lc,$tagid);
+
+				# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
+				my $tagid3 = $tagid2;
+				my $tagid4 = $tagid2;
+				$tagid3 =~ s/(anti)(-| )/$1/;
+				$tagid4 =~ s/(anti)([a-z])/$1-$2/;
+
+				if (exists $synonyms{$tagtype}{$tag_lc}{$tagid2}) {
+					$result = $synonyms{$tagtype}{$tag_lc}{$tagid2};
+					last;
+				}
+				elsif (exists $synonyms{$tagtype}{$tag_lc}{$tagid3}) {
+					$result = $synonyms{$tagtype}{$tag_lc}{$tagid3};
+					last;
+				}
+				elsif (exists $synonyms{$tagtype}{$tag_lc}{$tagid4}) {
+					$result = $synonyms{$tagtype}{$tag_lc}{$tagid4};
+					last;
+				}
 			}
 		}
 	}
@@ -2802,7 +2795,7 @@ sub spellcheck_taxonomy_tag($$$)
 	if (defined $result) {
 
 		$correction = $last_candidate;
-		$tagid = $tag_lc . ':' . $result;
+		my $tagid = $tag_lc . ':' . $result;
 		$resultid = $tagid;
 
 		if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})) {
@@ -3325,7 +3318,7 @@ sub compute_field_tags($$$) {
 			$product_ref->{"cities_tags" } = [];
 			$value = normalize_packager_codes($product_ref->{emb_codes});
 		}
-		
+
 		foreach my $tag (split(',', $value)) {
 			if (get_fileid($tag) ne '') {
 				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
