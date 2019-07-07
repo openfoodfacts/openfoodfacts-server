@@ -264,15 +264,20 @@ is (normalize_packager_codes("de by-718 ec"), "DE BY-718 EC", "DE: normalized co
 is (normalize_packager_codes(normalize_packager_codes("de by-718 ec")), "DE BY-718 EC", "DE: normalizing code twice does not change it any more than normalizing once");
 
 my $product_ref = {
-nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
+    nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
 };
 
 fix_salt_equivalent($product_ref);
 
 my $expected_product_ref = {
-nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg",
-sodium => 1.2, sodium_value => 1200, sodium_unit => "mg",
-},
+    nutriments => { 
+        salt => 3, 
+        salt_value => 3000, 
+        salt_unit => "mg",
+        sodium => 1.2, 
+        sodium_value => 1200,
+         sodium_unit => "mg"
+    }
 };
 
 
