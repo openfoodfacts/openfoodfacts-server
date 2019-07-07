@@ -290,7 +290,7 @@ label:en:The Central Islamic Committee of Thailand
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                    V E G E T A R I A N I S M     S E C T I O N
+#                             P O L L O - P E S C A T A R I A N I S M     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -351,6 +351,11 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                    P O L L O - V E G E T A R I A N I S M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
 Pollo-vegetarianism:en:no
@@ -413,6 +418,11 @@ other:en:taurine
 additive:en:E1001
 other:en:choline
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                    P E S C A T A R I A N I S M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
 Pescetarianism:en:no
@@ -473,7 +483,13 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                           O V O - L A C T O   V E G E T A R I A N I S M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# comment:en:Does eat egg and milk based ingredients.
 
 Ovo-lacto vegetarianism:en:no
 ingredient:en:animal
@@ -538,7 +554,16 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+Ovo-lacto vegetarianism:en:claim
+label:en:Ovo-lacto-vegetarian
 
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                           O V O - V E G E T A R I A N I S M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 Ovo vegetarianism:en:no
 ingredient:en:animal
@@ -616,7 +641,19 @@ additive:en:E910
 additive:en:E920
 additive:en:E921
 
+Ovo vegetarianism:en:claim
+label:en:Ovo-vegetarian
 
+Ovo vegetarianism:en:yes
+label:en:European Vegetarian Union Ovo-vegetarian
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                           O R T H O D O X   F A S T I N G     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 Orthodox Fasting:en:no
 ingredient:en:animal
@@ -691,6 +728,12 @@ other:en:taurine
 other:en:choline
 
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                           L A C T O - V E G E T A R I A N I S M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 
 Lacto vegetarianism:en:no
 ingredient:en:animal
@@ -757,6 +800,18 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+
+Lacto vegetarianism:en:claim
+label:en:Lacto-vegetarian
+
+Lacto vegetarianism:en:yes
+label:en:European Vegetarian Union Lacto-vegetarian
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                   V E G A N I S M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
 Veganism:en:no
@@ -846,7 +901,24 @@ additive:en:E1001
 other:en:taurine
 other:en:choline
 
+Veganism:en:claim
+label:en:Vegan
+label:en:European Vegetarian Union
 
+Veganism:en:yes
+label:en:Vegan Action
+label:en:Green Dot India
+label:en:Vegetarian Society
+label:en:The Vegan Society
+label:en:European Vegetarian Union Vegan
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                   J A I N   V E G E T A R I A N I S M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 Jain vegetarianism:en:no
 ingredient:en:animal
@@ -921,6 +993,11 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                   F R U I T A R I A N I S M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
 Fruitarianism:en:no
