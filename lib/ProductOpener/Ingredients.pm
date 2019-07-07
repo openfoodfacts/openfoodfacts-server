@@ -33,6 +33,7 @@ BEGIN
 
 		&preparse_ingredients_text
 		&extract_ingredients_from_text
+		&analyze_ingredients
 
 		&compute_carbon_footprint_from_ingredients
 		&compute_carbon_footprint_from_meat_or_fish
@@ -463,7 +464,7 @@ sub extract_ingredients_from_text($) {
 		my $between_level = $level;
 		my $percent = undef;
 
-		print STDERR "s: $s\n";
+		#print STDERR "s: $s\n";
 
 		# find the first separator or ( or [ or :
 		if ($s =~ $separators) {
@@ -717,6 +718,116 @@ sub extract_ingredients_from_text($) {
 	else {
 		delete $product_ref->{ingredients_n};
 		delete $product_ref->{ingredients_n_tags};
+	}
+
+	analyze_ingredients($product_ref);
+}
+
+
+# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+# and compute the resulting value for the complete product
+
+sub analyze_ingredients($) {
+
+	my $product_ref = shift;
+
+	delete $product_ref->{ingredients_analysis_tags};
+
+	if ((scalar @{$product_ref->{ingredients}}) > 0) {
+
+		my @properties = ("from_palm_oil", "vegan", "vegetarian");
+
+		$product_ref->{ingredients_analysis_tags} = [];
+
+		foreach my $property (@properties) {
+
+			my %values = ( all_ingredients => 0, unknown_ingredients => 0);
+
+			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+
+				$values{all_ingredients}++;
+
+				my $ingredientid = $ingredient_ref->{id};
+				my $value = get_inherited_property("ingredients", $ingredientid, $property . ":en");
+
+				if (defined $value) {
+					$ingredient_ref->{$property} = $value;
+				}
+				else {
+					$value = "undef";
+					if (not (exists_taxonomy_tag("ingredients", $ingredientid))) {
+						$values{unknown_ingredients}++;
+					}
+
+					# additives classes in ingredients are functions of a more specific ingredient
+					# if we don't have a property value for the ingredient class
+					# then ignore the additive class instead of considering the property undef
+					elsif (exists_taxonomy_tag("additives_classes", $ingredientid)) {
+						$value = "ignore";
+						#$ingredient_ref->{$property} = $value;
+					}
+				}
+
+				defined $values{$value} or $values{$value} = 0;
+				$values{$value}++;
+
+				print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
+			}
+
+			if ($property =~ /^from_/) {
+
+				my $from_what = $';
+
+				# For properties like from_palm, one positive ingredient triggers a positive result for the whole product
+				# We assume that all the positive ingredients have been marked as yes or maybe in the taxonomy
+				# So all known ingredients without a value for the property are assumed to be negative
+
+				if (defined $values{yes}) {
+					# One yes ingredient -> yes for the whole product
+					push @{$product_ref->{ingredients_analysis_tags}}, "en:" . $from_what ; # en:palm-oil
+				}
+				elsif (defined $values{maybe}) {
+					# One maybe ingredient -> maybe for the whole product
+					push @{$product_ref->{ingredients_analysis_tags}}, "en:may-contain-" . $from_what ; # en:may-contain-palm-oil
+				}
+				elsif ($values{unknown_ingredients} > 0) {
+					# Some ingredients were not recognized
+					push @{$product_ref->{ingredients_analysis_tags}}, "en:" . $from_what . "-content-unknown"; # en:palm-oil-content-unknown
+				}
+				else {
+					# no yes, maybe or unknown ingredients
+					push @{$product_ref->{ingredients_analysis_tags}}, "en:" . $from_what . "-free"; # en:palm-oil-free
+				}
+			}
+			else {
+
+				# For properties like vegan or vegetarian, one negative ingredient triggers a negative result for the whole product
+				# Known ingredients without a value for the property: we do not make any assumption
+				# We assume that all the positive ingredients have been marked as yes or maybe in the taxonomy
+				# So all known ingredients without a value for the property are assumed to be negative
+
+				if (defined $values{no}) {
+					# One no ingredient -> no for the whole product
+					push @{$product_ref->{ingredients_analysis_tags}}, "en:non-" . $property ; # en:non-vegetarian
+				}
+				elsif ($values{undef} > 0) {
+					# Some ingredients were not recognized or we do not have a property value for them
+					push @{$product_ref->{ingredients_analysis_tags}}, "en:" . $property . "-status-unknown"; # en:vegetarian-status-unknown
+				}
+				elsif (defined $values{maybe}) {
+					# One maybe ingredient -> maybe for the whole product
+					push @{$product_ref->{ingredients_analysis_tags}}, "en:maybe-" . $property ; # en:maybe-vegetarian
+				}
+				else {
+					# all ingredients known and with a value, no no or maybe value -> yes
+					push @{$product_ref->{ingredients_analysis_tags}}, "en:" . $property ; # en:vegetarian
+				}
+			}
+
+			for (my $i = 0; $i < scalar(@{$product_ref->{ingredients_analysis_tags}}); $i++) {
+				$product_ref->{ingredients_analysis_tags}[$i] =~ s/_/-/g;
+			}
+		}
 	}
 }
 
@@ -1853,9 +1964,7 @@ sub extract_ingredients_classes_from_text($) {
 
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
-	my $text = $product_ref->{ingredients_text};
-
-	$text = preparse_ingredients_text($product_ref->{lc}, $text);
+	my $text = preparse_ingredients_text($product_ref->{lc}, $product_ref->{ingredients_text});
 	my $and = $Lang{_and_}{$product_ref->{lc}};
 	$and =~ s/ /-/g;
 

@@ -1,8 +1,8 @@
+stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase
-stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
 stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès
-stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
+stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 
 
 synonyms:en:carbon, co2
@@ -120,6 +120,14 @@ nl:100% natuurlijk
 pt:100% natural
 ru:100% натуральное, 100% натуральный, 100% натуральная, 100% натуральные, 100% натуральный продукт, натуральный продукт
 
+< en:100% natural
+< en:Without vegetable oils
+en:Natural product without vegetable oils, Natural product without vegetable fats
+es:Producto natural sin aceites vegetales, Producto natural sin grasas vegetales
+fr:Produit naturel sans huiles végétales, Produit naturel sans matières grasses végétales
+nl:Zonder plantaardige vetten
+ru:натуральный продукт без растительных жиров
+
 en:100% vegetable
 ca:100% vegetal
 de:100% pflanzlich
@@ -158,6 +166,7 @@ es:Fabricado en Australia
 fr:Fabriqué en Australie
 he:בייצור אוסטרלי
 nl:Geproduceerd in Australië
+country:en: Australia
 wikidata:en: Q17000991
 
 en:Authentic Trappist Product
@@ -357,6 +366,11 @@ en:Champion Winter Beer of Britain
 en:Charte LU Harmony, Charte Harmony, LU Harmony, Charte LU
 nl:Charte LU Harmony
 
+< en:Chickens raised without antibiotics
+< en:Without antibiotics since birth
+en:Chickens raised without antibiotics since birth
+fr:Poulets élevés sans antibiotique dès la naissance
+
 en:Class I, class 1
 ca:Classe I
 de:Klasse I
@@ -431,6 +445,33 @@ es:DO, D.O., Denominación de Origen
 fr:Appellation d'origine
 wikidata:en: Q3139487
 
+< en:Designated Origin Denomination
+< en:Spanish protected product
+en:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
+ca:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
+es:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
+wikidata:en: Q5802762
+
+< en:Designated Origin Denomination
+< en:Spanish protected product
+en:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
+ca:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
+es:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
+wikidata:en: Q13157
+
+< en:Designated Origin Denomination
+< en:Spanish protected product
+en:DO Navarra, D.O. Navarra, Vino de Navarra
+es:DO Navarra, D.O. Navarra, Vino de Navarra
+wikidata:en: Q976624
+
+< en:Designated Origin Denomination
+< en:Spanish protected product
+en:DO Toro, D.O. Toro, Toro, Vino de Toro
+ca:DO Toro, D.O. Toro, Toro, Vi de Toro
+es:DO Toro, D.O. Toro, Toro, Vino de Toro
+wikidata:en: Q765567
+
 en:Distributor labels, Labels of distributors
 ca:Etiquetes de distribuïdors
 de:Handelsmarken
@@ -487,6 +528,7 @@ wikidata:en: Q18407253
 
 en:Egg laid in France
 fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France
+country:en: France
 
 en:Enriched wih minerals
 fr:Enrichi en minéraux
@@ -1590,6 +1632,19 @@ nl:European Beer Star, Europese Bier Ster
 en:European Fruit Juice Control System, EQCS, European Quality Control System for Juice, European Quality Control System for Juice and Nectars from Fruits and Vegetables
 
 < en:European Vegetarian Union
+< en:Ovo-lacto-vegetarian
+en:European Vegetarian Union Ovo-lacto-vegetarian
+de:Europäische Vegetarier-Union Ovo-lacto-vegetarisch
+
+< en:European Vegetarian Union
+< en:Vegan
+en:European Vegetarian Union Vegan
+ca:Unió Vegana Vegetariana Europea
+de:Europäische Vegetarier-Union Vegan
+fr:Union végétarienne européenne végétalien
+nl:Europese Vegetarische Unie Vegan, EVU Vegan
+
+< en:European Vegetarian Union
 < en:Lacto-vegetarian
 en:European Vegetarian Union Lacto-vegetarian
 de:Europäische Vegetarier-Union Lacto-vegetarisch
@@ -2605,6 +2660,7 @@ he:נוצר בבלגיה
 hu:Belgiumban készült
 it:Fatto in Belgio
 nl:Geproduceerd in België
+country:en: Belgium
 
 en:made in France
 ca:Fet a França
@@ -2617,6 +2673,7 @@ nl:Geproduceerd in Frankrijk
 pl:Wyprodukowano we Francji
 pt:Feito na França
 zh:法国制造
+country:en: France
 
 en:Made in Germany
 ca:Fet a Alemanya
@@ -2629,6 +2686,7 @@ it:Fatto in Germania
 nl:Geproduceerd in Duitsland
 pl:Wyprodukowano w Niemczech
 pt:Feito na Bélgica
+country:en: Germany
 
 en:Made in Hungary
 hu:Magyarországon készült
@@ -2644,12 +2702,14 @@ it:Fatto in Italia
 nl:Geproduceerd in Italië
 pl:Wyprodukowano we Włoszech
 pt:Feito na Itália
+country:en: Italy
 
 en:Made in Mexico
 es:Hecho en México
 he:מיוצר במקסיקו
 hu:Mexikóban készült
 nl:Geproduceerd in Mexico
+country:en: Mexico
 
 en:Made in Portugal
 de:Hergestellt in Portugal
@@ -2659,6 +2719,7 @@ he:מיוצר בפורטוגל
 hu:Portugáliában készült
 nl:Geproduceerd in Portugal
 pt:Feito em Portugal
+country:en: Portugal
 
 en:Made in Russia
 de:Hergestellt in Russland
@@ -2668,6 +2729,7 @@ he:מיוצר ברוסיה
 hu:Oroszországban készült
 nl:Geproduceerd in Rusland
 ru:Сделано в России
+country:en: Russia
 
 en:Made in Spain
 ca:Fet a Espanya
@@ -2677,6 +2739,7 @@ fr:Fabriqué en Espagne
 he:נוצר בספרד
 hu:Spanyolországban készült
 nl:Geproduceerd in Spanje
+country:en: Spain
 
 en:Made in Swiss
 de:Hergestellt in der Schweiz
@@ -2685,6 +2748,7 @@ fr:Fabriqué en Suisse
 hu:Svájcban készült
 nl:Geproduceerd in Zwitserland
 pt:Fabricado na Suíça
+country:en: Switzerland
 
 en:Made in the EU, Made in the European Union
 ca:Fet a la Unió Europea
@@ -2841,6 +2905,15 @@ nl:Vrij van kunstmatige kleurstoffen
 pt:Sem cores artificiais, sem cor artificial
 ru:без искусственных красителей
 
+< en:No artificial colors
+< en:No artificial flavors
+en:No artificial colours or flavours
+de:Keine künstlichen Farbstoffe oder Aromen
+es:Sin colorantes o saborizantes artificiales
+fr:Sans colorants ni arômes artificiels
+nl:Zonder kunstmatige kleurstoffen
+pt:Sem corantes nem aromas artificiais
+
 en:No artificial flavors, free of artificial flavor
 ca:Sense aromes artificials, Lliure d'aromes artificials
 de:Ohne künstliche Aromen
@@ -2853,15 +2926,6 @@ nl:Vrij van kunstmatige smaakstoffen, Zonder kunstmatige smaakstoffen
 pl:Bez sztucznych aromatów
 pt:Sem sabores artificiais, livre de sabor artificial
 ru:без искусственных ароматизаторов, без добавления искусственных ароматизаторов
-
-< en:No artificial colors
-< en:No artificial flavors
-en:No artificial colours or flavours
-de:Keine künstlichen Farbstoffe oder Aromen
-es:Sin colorantes o saborizantes artificiales
-fr:Sans colorants ni arômes artificiels
-nl:Zonder kunstmatige kleurstoffen
-pt:Sem corantes nem aromas artificiais
 
 en:No artificial flavour enhancer
 de:Ohne künstliche Geschmaksverstärker
@@ -2977,10 +3041,6 @@ ru:Без ГМО, Без использования ГМО, Не содержи�
 en:Non GMO project
 pt:Non GMO project, Projeto não OGM
 wikidata:en: Q7754286
-
-< en:No GMOs
-< fr:Soja Français
-fr:Soja Français sans OGM, Soja Français garanti sans OGM
 
 en:No hydrogenated fats
 ca:Sense greixos hidrogenats
@@ -3376,11 +3436,6 @@ fr:Bio-Cohérence
 < en:Organic
 fr:Bio-Solidaire, biosolidaire
 
-< en:European Vegetarian Union
-< en:Ovo-lacto-vegetarian
-en:European Vegetarian Union Ovo-lacto-vegetarian
-de:Europäische Vegetarier-Union Ovo-lacto-vegetarisch
-
 en:Ovo-vegetarian
 de:Ovo-vegetarisch
 es:Ovo-vegetariano
@@ -3429,6 +3484,104 @@ it:DOP, D.O.P, Denominazione di origine protetta
 nl:BGO, Beschermde Geografische Oorsprong, PDO, AOP
 wikidata:en: Q13439060
 
+< en:PDO
+< en:Spanish protected product
+en:PDO Aceituna Aloreña de Málaga, Aceituna Aloreña de Málaga
+es:DOP Aceituna Aloreña de Málaga, D.O.P Aceituna Aloreña de Málaga, Aceituna Aloreña de Málaga
+wikidata:en: Q5656396
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Arroz de Calasparra, Arroz de Calasparra
+ca:PDO Arroz de Calasparra, Arròs de Calasparra
+es:DOP Arroz de Calasparra, D.O.P Arroz de Calasparra, Arroz de Calasparra
+wikidata:en: Q5706327
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Arroz de Valencia, PDO Arròs de València, Arròs de València
+es:DOP Arroz de Valencia, D.O.P. Arroz de Valencia, Arroz de Valencia, DOP Arròs de València, D.O.P. Arròs de València, Arròs de València
+wikidata:en: Q8205083
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Azafrán de La Mancha, Azafrán de La Mancha
+ca:PDO Azafrán de La Mancha, Safrà de La Manxa
+es:DOP Azafrán de La Mancha, D.O.P. Azafrán de La Mancha, Azafrán de La Mancha
+wikidata:en: Q5714984
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Chufa de Valencia, Chufa de Valencia
+es:DOP Chufa de Valencia, D.O.P. Chufa de Valencia, Chufa de Valencia
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Estepa
+es:DOP Estepa, D.O.P. Estepa, Aceites de Estepa
+wikidata:en: Q5802756
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Montes de Granada, Montes de Granada
+es:DOP Montes de Granada, D.O.P. Montes de Granada, Montes de Granada
+wikidata:en: Q6022723
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Montes de Toledo, Montes de Toledo
+ca:PDO Montes de Toledo, Montes de Toledo
+es:DOP Montes de Toledo, D.O.P. Montes de Toledo, Montes de Toledo
+wikidata:en: Q6022738
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Pasas de Málaga, Pasas de Málaga
+ca:PDO Pasas de Málaga, Panses de Málaga
+es:DOP Pasas de Málaga, D.O.P. Pasas de Málaga, Pasas de Málaga
+wikidata:en: Q5491704
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Pera de Lleida, Pera de Lleida, PDO Pera de Lérida, Pera de Lérida
+es:DOP Pera de Lleida, D.O.P. Pera de Lleida, Pera de Lleida, DOP Pera de Lérida, D.O.P. Pera de Lérida, Pera de Lérida
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Peras de Rincón de Soto, Peras de Rincón de Soto
+ca:PDO Peras de Rincón de Soto, Peres de Rincón de Soto
+es:DOP Peras de Rincón de Soto, D.O.P. Peras de Rincón de Soto, Peras de Rincón de Soto
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Pimentón de la Vera, Pimentón de la Vera
+es:DOP Pimentón de la Vera, D.O.P. Pimentón de la Vera, Pimentón de la Vera
+wikidata:en: Q250271
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Pimentón de Murcia, Pimentón de Murcia
+es:DOP Pimentón de Murcia, D.O.P. Pimentón de Murcia, Pimentón de Murcia
+wikidata:en: Q2880604
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Sierra de Segura, Sierra de Segura
+ca:PDO Sierra de Segura, Serra de Segura
+es:DOP Sierra de Segura, D.O.P. Sierra de Segura, Sierra de Segura
+wikidata:en: Q6127894
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Sierra Mágina, Sierra Mágina
+es:DOP Sierra Mágina, D.O.P. Sierra Mágina, Sierra Mágina
+wikidata:en: Q6127611
+
+< en:PDO
+< en:Spanish protected product
+en:PDO Vinagre de Jerez, Vinagre de Jerez
+es:DOP Vinagre de Jerez, D.O.P. Vinagre de Jerez, Vinagre de Jerez
+
 en:Peanut Free
 fr:Sans arachide, sans arachides, sans cacahuète, sans cacahuètes
 he:ללא בוטנים
@@ -3454,12 +3607,107 @@ it:IGP, I.G.P., Indicazione geografica protetta
 nl:BGA, B.G.A., Beschermde geografische aanduiding
 wikidata:en: Q13533432
 
+< en:PGI
+< en:Spanish protected product
+en:PGI Alcachofa de Tudela, Alcachofa de Tudela
+ca:PGI Alcachofa de Tudela, Carxofa de Tudela
+es:IGP Alcachofa de Tudela, I.G.P. Alcachofa de Tudela, Alcachofa de Tudela
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Alubia de La Bañeza-León, Alubia de La Bañeza-León
+es:IGP Alubia de La Bañeza-León, I.G.P. Alubia de La Bañeza-León, Alubia de La Bañeza-León
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Berenjena de Almagro, Berenjena de Almagro
+es:IGP Berenjena de Almagro, I.G.P. Berenjena de Almagro, Berenjena de Almagro
+wikidata:en: Q5726314
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Espárrago de Navarra, Espárrago de Navarra
+es:IGP Espárrago de Navarra, I.G.P. Espárrago de Navarra, Espárrago de Navarran
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Garbanzo de Fuentesaúco, Garbanzo de Fuentesaúco
+es:IGP Garbanzo de Fuentesaúco, I.G.P. Garbanzo de Fuentesaúco, Garbanzo de Fuentesaúco
+wikidata:en: Q5875268
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Lenteja de La Armuña, Lenteja de La Armuña
+es:IGP Lenteja de La Armuña, I.G.P. Lenteja de La Armuña, Lenteja de La Armuña
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Lenteja Pardina de Tierra de Campos, Lenteja Pardina de Tierra de Campos
+es:IGP Lenteja Pardina de Tierra de Campos, I.G.P. Lenteja Pardina de Tierra de Campos, Lenteja Pardina de Tierra de Campos
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Mazapán de Toledo, Mazapán de Toledo
+es:IGP Mazapán de Toledo, I.G.P. Mazapán de Toledo, Mazapán de Toledo
+he:PGI מרציפן מטולדו
+wikidata:en: Q11691713
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Pataca de Galicia, Pataca de Galicia
+ca:PGI Pataca de Galicia, Patata de Galícia
+es:IGP Pataca de Galicia, I.G.P. Pataca de Galicia, Pataca de Galicia
+wikidata:en: Q3368616
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Pemento do Couto, Pemento do Couto
+es:IGP Pemento do Couto, I.G.P. Pemento do Couto, Pemento do Couto
+wikidata:en: Q16860936
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Plátano de Canarias, Plátano de Canarias
+es:IGP Plátano de Canarias, I.G.P. Plátano de Canarias, Plátano de Canarias
+wikidata:en: Q6080945
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Turrón de Alicante, Turrón de Alicante
+ca:PGI Turrón de Alicante, Torró d'Alacant
+es:IGP Turrón de Alicante, I.G.P. Turrón de Alicante, Turrón de Alicante
+wikidata:en: Q3995784
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Turrón de Jijona, Turrón de Jijona
+ca:PGI Turrón de Jijona, Torró de Xixona
+es:IGP Turrón de Jijona, I.G.P. Turrón de Jijona, Turrón de Jijona
+wikidata:en: Q3995785
+
 en:Phosphore source
 de:Phosphorquelle
 es:Fuente de fósforo
 fr:Source de phosphore
 nl:Bron van fosfor
 pt:Fonte de fosforo
+
+< en:Porks raised without antibiotics
+< en:Without antibiotics after first age
+en:Porks raised without antibiotics after first age
+ca:Porcs criats sense antibiòtics després del primer any de vida
+fr:Porcs élevés sans antibiotique après le premier âge, Porcs élevés sans antibiotique après le 1er âge
+
+< en:Porks raised without antibiotics
+< en:Without antibiotics after weaning
+en:Porks raised without antibiotics after weaning
+fr:Porcs élevés sans antibiotique après sevrage, Porcs élevés sans antibiotique dès la fin du sevrage, Cochons élevés sans antibiotique dès la fin du sevrage
+
+< en:Porks raised without antibiotics
+< en:Without antibiotics since birth
+en:Porks raised without antibiotics since birth
+de:Schweineaufzucht von Geburt an ohne Antibiotika
+fr:Porcs élevés sans antibiotique dès la naissance
 
 en:Potatoes from France
 fr:Pommes de terre de France
@@ -4113,209 +4361,6 @@ de:Geschütztes spanisches Produkt
 es:Producto protegido de España
 fr:Produit protégé espagnol
 
-< en:Designated Origin Denomination
-< en:Spanish protected product
-en:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
-ca:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
-es:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
-wikidata:en: Q5802762
-
-< en:Designated Origin Denomination
-< en:Spanish protected product
-en:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
-ca:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
-es:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
-wikidata:en: Q13157
-
-< en:Designated Origin Denomination
-< en:Spanish protected product
-en:DO Navarra, D.O. Navarra, Vino de Navarra
-es:DO Navarra, D.O. Navarra, Vino de Navarra
-wikidata:en: Q976624
-
-< en:Designated Origin Denomination
-< en:Spanish protected product
-en:DO Toro, D.O. Toro, Toro, Vino de Toro
-ca:DO Toro, D.O. Toro, Toro, Vi de Toro
-es:DO Toro, D.O. Toro, Toro, Vino de Toro
-wikidata:en: Q765567
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Aceituna Aloreña de Málaga, Aceituna Aloreña de Málaga
-es:DOP Aceituna Aloreña de Málaga, D.O.P Aceituna Aloreña de Málaga, Aceituna Aloreña de Málaga
-wikidata:en: Q5656396
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Arroz de Calasparra, Arroz de Calasparra
-ca:PDO Arroz de Calasparra, Arròs de Calasparra
-es:DOP Arroz de Calasparra, D.O.P Arroz de Calasparra, Arroz de Calasparra
-wikidata:en: Q5706327
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Arroz de Valencia, PDO Arròs de València, Arròs de València
-es:DOP Arroz de Valencia, D.O.P. Arroz de Valencia, Arroz de Valencia, DOP Arròs de València, D.O.P. Arròs de València, Arròs de València
-wikidata:en: Q8205083
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Azafrán de La Mancha, Azafrán de La Mancha
-ca:PDO Azafrán de La Mancha, Safrà de La Manxa
-es:DOP Azafrán de La Mancha, D.O.P. Azafrán de La Mancha, Azafrán de La Mancha
-wikidata:en: Q5714984
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Chufa de Valencia, Chufa de Valencia
-es:DOP Chufa de Valencia, D.O.P. Chufa de Valencia, Chufa de Valencia
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Estepa
-es:DOP Estepa, D.O.P. Estepa, Aceites de Estepa
-wikidata:en: Q5802756
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Montes de Granada, Montes de Granada
-es:DOP Montes de Granada, D.O.P. Montes de Granada, Montes de Granada
-wikidata:en: Q6022723
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Montes de Toledo, Montes de Toledo
-ca:PDO Montes de Toledo, Montes de Toledo
-es:DOP Montes de Toledo, D.O.P. Montes de Toledo, Montes de Toledo
-wikidata:en: Q6022738
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Pasas de Málaga, Pasas de Málaga
-ca:PDO Pasas de Málaga, Panses de Málaga
-es:DOP Pasas de Málaga, D.O.P. Pasas de Málaga, Pasas de Málaga
-wikidata:en: Q5491704
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Pera de Lleida, Pera de Lleida, PDO Pera de Lérida, Pera de Lérida
-es:DOP Pera de Lleida, D.O.P. Pera de Lleida, Pera de Lleida, DOP Pera de Lérida, D.O.P. Pera de Lérida, Pera de Lérida
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Peras de Rincón de Soto, Peras de Rincón de Soto
-ca:PDO Peras de Rincón de Soto, Peres de Rincón de Soto
-es:DOP Peras de Rincón de Soto, D.O.P. Peras de Rincón de Soto, Peras de Rincón de Soto
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Pimentón de la Vera, Pimentón de la Vera
-es:DOP Pimentón de la Vera, D.O.P. Pimentón de la Vera, Pimentón de la Vera
-wikidata:en: Q250271
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Pimentón de Murcia, Pimentón de Murcia
-es:DOP Pimentón de Murcia, D.O.P. Pimentón de Murcia, Pimentón de Murcia
-wikidata:en: Q2880604
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Sierra de Segura, Sierra de Segura
-ca:PDO Sierra de Segura, Serra de Segura
-es:DOP Sierra de Segura, D.O.P. Sierra de Segura, Sierra de Segura
-wikidata:en: Q6127894
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Sierra Mágina, Sierra Mágina
-es:DOP Sierra Mágina, D.O.P. Sierra Mágina, Sierra Mágina
-wikidata:en: Q6127611
-
-< en:PDO
-< en:Spanish protected product
-en:PDO Vinagre de Jerez, Vinagre de Jerez
-es:DOP Vinagre de Jerez, D.O.P. Vinagre de Jerez, Vinagre de Jerez
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Alcachofa de Tudela, Alcachofa de Tudela
-ca:PGI Alcachofa de Tudela, Carxofa de Tudela
-es:IGP Alcachofa de Tudela, I.G.P. Alcachofa de Tudela, Alcachofa de Tudela
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Alubia de La Bañeza-León, Alubia de La Bañeza-León
-es:IGP Alubia de La Bañeza-León, I.G.P. Alubia de La Bañeza-León, Alubia de La Bañeza-León
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Berenjena de Almagro, Berenjena de Almagro
-es:IGP Berenjena de Almagro, I.G.P. Berenjena de Almagro, Berenjena de Almagro
-wikidata:en: Q5726314
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Espárrago de Navarra, Espárrago de Navarra
-es:IGP Espárrago de Navarra, I.G.P. Espárrago de Navarra, Espárrago de Navarran
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Garbanzo de Fuentesaúco, Garbanzo de Fuentesaúco
-es:IGP Garbanzo de Fuentesaúco, I.G.P. Garbanzo de Fuentesaúco, Garbanzo de Fuentesaúco
-wikidata:en: Q5875268
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Lenteja de La Armuña, Lenteja de La Armuña
-es:IGP Lenteja de La Armuña, I.G.P. Lenteja de La Armuña, Lenteja de La Armuña
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Lenteja Pardina de Tierra de Campos, Lenteja Pardina de Tierra de Campos
-es:IGP Lenteja Pardina de Tierra de Campos, I.G.P. Lenteja Pardina de Tierra de Campos, Lenteja Pardina de Tierra de Campos
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Mazapán de Toledo, Mazapán de Toledo
-es:IGP Mazapán de Toledo, I.G.P. Mazapán de Toledo, Mazapán de Toledo
-he:PGI מרציפן מטולדו
-wikidata:en: Q11691713
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Pataca de Galicia, Pataca de Galicia
-ca:PGI Pataca de Galicia, Patata de Galícia
-es:IGP Pataca de Galicia, I.G.P. Pataca de Galicia, Pataca de Galicia
-wikidata:en: Q3368616
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Pemento do Couto, Pemento do Couto
-es:IGP Pemento do Couto, I.G.P. Pemento do Couto, Pemento do Couto
-wikidata:en: Q16860936
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Plátano de Canarias, Plátano de Canarias
-es:IGP Plátano de Canarias, I.G.P. Plátano de Canarias, Plátano de Canarias
-wikidata:en: Q6080945
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Turrón de Alicante, Turrón de Alicante
-ca:PGI Turrón de Alicante, Torró d'Alacant
-es:IGP Turrón de Alicante, I.G.P. Turrón de Alicante, Turrón de Alicante
-wikidata:en: Q3995784
-
-< en:PGI
-< en:Spanish protected product
-en:PGI Turrón de Jijona, Turrón de Jijona
-ca:PGI Turrón de Jijona, Torró de Xixona
-es:IGP Turrón de Jijona, I.G.P. Turrón de Jijona, Turrón de Jijona
-wikidata:en: Q3995785
-
 en:Spanish quality label
 es:Etiquetas de calidad de España
 fr:Label de qualité espagnol
@@ -4536,14 +4581,6 @@ pl:UTZ Certified Cacao
 en:UTZ Certified Coffee
 de:UTZ Certified Kaffee
 fr:Café certifié UTZ
-
-< en:European Vegetarian Union
-< en:Vegan
-en:European Vegetarian Union Vegan
-ca:Unió Vegana Vegetariana Europea
-de:Europäische Vegetarier-Union Vegan
-fr:Union végétarienne européenne végétalien
-nl:Europese Vegetarische Unie Vegan, EVU Vegan
 
 < en:Vegan
 en:The Vegan Society, Vegan Society, Vegan Flower
@@ -4803,28 +4840,6 @@ en:Without antibiotics since birth, no antibiotics ever
 fr:Sans antibiotique dès la naissance, sans antibiotique de la naissance à l'abattage, sans antibiotique sur toute la vie de l'animal, sans traitement antibiotique sur toute la vie de l'animal
 pt:Sem antibióticos desde o nascimento, nenhum antibiótico nunca
 
-< en:Porks raised without antibiotics
-< en:Without antibiotics after first age
-en:Porks raised without antibiotics after first age
-ca:Porcs criats sense antibiòtics després del primer any de vida
-fr:Porcs élevés sans antibiotique après le premier âge, Porcs élevés sans antibiotique après le 1er âge
-
-< en:Porks raised without antibiotics
-< en:Without antibiotics after weaning
-en:Porks raised without antibiotics after weaning
-fr:Porcs élevés sans antibiotique après sevrage, Porcs élevés sans antibiotique dès la fin du sevrage, Cochons élevés sans antibiotique dès la fin du sevrage
-
-< en:Chickens raised without antibiotics
-< en:Without antibiotics since birth
-en:Chickens raised without antibiotics since birth
-fr:Poulets élevés sans antibiotique dès la naissance
-
-< en:Porks raised without antibiotics
-< en:Without antibiotics since birth
-en:Porks raised without antibiotics since birth
-de:Schweineaufzucht von Geburt an ohne Antibiotika
-fr:Porcs élevés sans antibiotique dès la naissance
-
 en:without azo dyes, without azodyes
 fr:sans colorants azoïques
 
@@ -4883,14 +4898,6 @@ fr:Sans huiles végétales, sans matières grasses végétales
 he:ללא שמנים מהצומח, ללא שומן מהצומח
 nl:Zonder plantaardige olieën
 ru:без растительных жиров
-
-< en:100% natural
-< en:Without vegetable oils
-en:Natural product without vegetable oils, Natural product without vegetable fats
-es:Producto natural sin aceites vegetales, Producto natural sin grasas vegetales
-fr:Produit naturel sans huiles végétales, Produit naturel sans matières grasses végétales
-nl:Zonder plantaardige vetten
-ru:натуральный продукт без растительных жиров
 
 en:World Beer Awards
 
@@ -5241,6 +5248,7 @@ fr:Nou la fé
 fr:Nouvelle Agriculture
 
 fr:Origine France, Origine France Garantie, 100% origine France
+country:en: France
 
 fr:Pêché à la bolinche, Pêchés à la bolinche, Pêchée à la bolinche, Pêchées à la bolinche
 
@@ -5277,6 +5285,7 @@ es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra
 fr:Salage naturel
 
 fr:Saveurs de Normandie
+country:en: France
 
 fr:Saveurs en Or
 wikidata:en: Q3474531
@@ -5290,10 +5299,15 @@ fr:Soja de France
 
 fr:Soja Français, Soja de Français, Filière Soja Français
 
+< en:No GMOs
+< fr:Soja Français
+fr:Soja Français sans OGM, Soja Français garanti sans OGM
+
 fr:Source de Vitamine C
 es:Fuente de Vitamina C
 
 fr:Sud de France
+country:en: France
 
 fr:Tidy man
 wikidata:en: Q3528198
