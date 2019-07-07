@@ -32265,6 +32265,65 @@ wikipedia:en: https://en.wikipedia.org/wiki/Xylanase
 < en:Vitamin A
 fi:Vitamiini A- ja D2
 
+en:essential oil
+af:Eteriese olie
+ar:زيت عطري
+az:Efir yağı
+be:Эфірныя алеі
+bs:Eterično ulje
+ca:Oli essencial
+cs:Czech
+da:Æterisk olie
+de:Ätherische Öle
+el:Αιθέριο έλαιο
+eo:volatila oleo
+es:aceite esencial
+et:Eeterlikud õlid
+fa:اسانس
+fi:Eteerinen öljy
+fr:huile essentielle
+ga:Bláthola
+gl:Aceite esencial
+he:שמן אתרי
+hi:वाष्पशील तेल
+hr:Eterična ulja
+hu:Hungarian
+hy:Եթերային յուղ
+id:Minyak atsiri
+io:Esencala oleo
+it:olio essenziale
+ja:精油
+jv:Lenga Atsiri
+kk:Эфир майлары
+ko:방향유
+lt:Eterinis aliejus
+lv:Ēteriskās eļļas
+mk:етерично масло
+ml:സുഗന്ധ എണ്ണകൾ
+nb:eteriske oljer
+nl:etherische olie
+nn:Norwegian Nynorsk
+pl:Olejek eteryczny
+pt:óleo essencial
+ro:Ulei esențial
+ru:Эфирные масла
+sh:Eterično ulje
+si:සගන්ධ තෙල්
+sk:Éterický olej
+sl:Dišavno olje
+sv:Eterisk olja
+ta:ஆவி எண்ணை
+te:ఆవశ్యక నూనె
+th:น้ำมันหอมระเหย
+tr:Organik hidrosol
+uk:Ефірні олії
+uz:Efir moylari
+vi:Tinh dầu
+zh:精油
+from_palm_oil:en: no
+wikidata:en: Q170885
+wikipedia:en: https://en.wikipedia.org/wiki/Essential_oil
+
 < en:Essential oil
 en:orange essential oil
 de:Orangenöl
@@ -62262,11 +62321,12 @@ en:coconut fat
 de:Kokosfett
 fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
 it:grasso di cocco
+from_palm_oil:en: no
 
 < en:Vegetable fat
-en:illipe
+en:illipe oil
 de:Illipebutter
-fr:illipé, huile d'illipé, graisse d'illipé
+fr:illipé, huile d'illipé, graisse d'illipé, huile végétale d'illipé
 uk:Ілліпе
 from_palm_oil:en: no
 wikidata:en: Q6000160
@@ -62431,10 +62491,12 @@ en:avocado oil
 de:Avocadoöl
 fr:huile d'avocat
 it:olio di avocado
+from_palm_oil:en: no
 
 < en:Vegetable oil
 en:camelina oil
 fr:huile de caméline
+from_palm_oil:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Camelina_sativa
 
 < en:Vegetable oil
@@ -62500,6 +62562,7 @@ tr:Hindistan cevizi yağı
 uk:Кокосове масло
 vi:Dầu dừa
 zh:椰子油
+from_palm_oil:en: no
 wikidata:en: Q216235
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_oil
 
@@ -62558,6 +62621,7 @@ pt:Óleo de milho
 ru:Кукурузное масло
 uk:Кукурудзяна олія
 zh:粟米油
+from_palm_oil:en: no
 wikidata:en: Q856775
 wikipedia:en: https://en.wikipedia.org/wiki/Corn_oil
 
@@ -62581,67 +62645,9 @@ te:పత్తిగింజల నూనె
 uk:Бавовняна олія
 uz:Paxta moyi
 zh:棉籽油
+from_palm_oil:en: no
 wikidata:en: Q811663
 wikipedia:en: https://en.wikipedia.org/wiki/Cottonseed_oil
-
-< en:Vegetable oil
-en:essential oil
-af:Eteriese olie
-ar:زيت عطري
-az:Efir yağı
-be:Эфірныя алеі
-bs:Eterično ulje
-ca:Oli essencial
-cs:Czech
-da:Æterisk olie
-de:Ätherische Öle
-el:Αιθέριο έλαιο
-eo:volatila oleo
-es:aceite esencial
-et:Eeterlikud õlid
-fa:اسانس
-fi:Eteerinen öljy
-fr:huile essentielle
-ga:Bláthola
-gl:Aceite esencial
-he:שמן אתרי
-hi:वाष्पशील तेल
-hr:Eterična ulja
-hu:Hungarian
-hy:Եթերային յուղ
-id:Minyak atsiri
-io:Esencala oleo
-it:olio essenziale
-ja:精油
-jv:Lenga Atsiri
-kk:Эфир майлары
-ko:방향유
-lt:Eterinis aliejus
-lv:Ēteriskās eļļas
-mk:етерично масло
-ml:സുഗന്ധ എണ്ണകൾ
-nb:eteriske oljer
-nl:etherische olie
-nn:Norwegian Nynorsk
-pl:Olejek eteryczny
-pt:óleo essencial
-ro:Ulei esențial
-ru:Эфирные масла
-sh:Eterično ulje
-si:සගන්ධ තෙල්
-sk:Éterický olej
-sl:Dišavno olje
-sv:Eterisk olja
-ta:ஆவி எண்ணை
-te:ఆవశ్యక నూనె
-th:น้ำมันหอมระเหย
-tr:Organik hidrosol
-uk:Ефірні олії
-uz:Efir moylari
-vi:Tinh dầu
-zh:精油
-wikidata:en: Q170885
-wikipedia:en: https://en.wikipedia.org/wiki/Essential_oil
 
 < en:Vegetable oil
 en:Grape seed oil
@@ -62722,6 +62728,11 @@ vi:Dầu lanh
 zh:亞麻子油
 from_palm_oil:en: no
 wikidata:en: Q818405
+
+< en:Vegetable oil
+en:mango kernel oil, mango oil
+fr:huile de noyaux de mangue, huile végétale de noyeau de mangue
+from_palm_oil:en: no
 
 < en:Vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
@@ -62835,6 +62846,7 @@ sv:Jordnötsolja
 ta:கடலையெண்ணெய்
 te:వేరుశనగ నూనె
 zh:花生油
+from_palm_oil:en: no
 wikidata:en: Q265878
 wikipedia:en: https://en.wikipedia.org/wiki/Peanut_oil
 
@@ -62846,6 +62858,7 @@ from_palm_oil:en: no
 
 < en:Vegetable oil
 en:pumpkin seed oil
+from_palm_oil:en: no
 
 < en:Vegetable oil
 en:Rice bran oil
@@ -62932,6 +62945,7 @@ tr:Susam yağı
 uk:Кунжутна олія
 vi:Dầu mè
 zh:芝麻油
+from_palm_oil:en: no
 wikidata:en: Q212317
 wikipedia:en: https://en.wikipedia.org/wiki/Sesame_oil
 
@@ -62966,6 +62980,7 @@ ru:Соевое масло
 sv:Sojaolja
 uk:Соєва олія
 zh:大豆油
+from_palm_oil:en: no
 wikidata:en: Q926892
 wikipedia:en: https://en.wikipedia.org/wiki/Soybean_oil
 
@@ -63043,11 +63058,9 @@ sr:Орахово уље
 sv:Valnötsolja, Bomullsfröolja
 th:น้ำมันวอลนัต
 zh:核桃油
+from_palm_oil:en: no
 wikidata:en: Q1434098
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut_oil
-
-< en:Vegetable oil
-fr:huile de noyaux de mangue
 
 < en:Vegetable oil
 fr:huile végétale hydrogénée
@@ -63070,6 +63083,7 @@ from_palm_oil:en: yes
 
 < en:Vegetable oil and fat
 en:rapeseed oil and fat
+from_palm_oil:en: no
 
 < en:Vegetable oil and fat
 en:vegetable fat, vegetal fat, vegetable fats

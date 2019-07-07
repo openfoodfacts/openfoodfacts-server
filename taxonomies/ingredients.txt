@@ -17106,6 +17106,7 @@ nl:palmolie of palmkernolie
 
 <en:vegetable oil
 en:pumpkin seed oil
+from_palm_oil:en:no
 
 <en:pumpkin seed oil
 en:organic pumpkin seed oil
@@ -17165,6 +17166,7 @@ zh:椰子油
 # yue:椰油
 wikipedia:en:https://en.wikipedia.org/wiki/Coconut_oil
 wikidata:en:Q216235
+from_palm_oil:en:no
 
 <en:coconut oil
 en:organic coconut oil
@@ -17197,6 +17199,7 @@ fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, ma
 it:grasso di cocco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière%20grasse%20de%20noix%20de%20coco
 # 36 products in 4 languages @2018-10-03
+from_palm_oil:en:no
 
 # description:en:OLIVE OIL is a liquid fat obtained from olives (the fruit of Olea europaea; family Oleaceae).
 
@@ -17328,6 +17331,7 @@ nl:olie van biologische Spaanse olijven
 
 <en:vegetable oil and fat
 en:rapeseed oil and fat
+from_palm_oil:en:no
 
 
 # Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
@@ -17426,6 +17430,7 @@ th:น้ำมันวอลนัต
 zh:核桃油
 wikipedia:en:https://en.wikipedia.org/wiki/Walnut_oil
 wikidata:en:Q1434098
+from_palm_oil:en:no
 
 <en:walnut oil
 fr:huile vierge de noix
@@ -17455,13 +17460,14 @@ uz:Paxta moyi
 zh:棉籽油
 wikipedia:en:https://en.wikipedia.org/wiki/Cottonseed_oil
 wikidata:en:Q811663
+from_palm_oil:en:no
 
 <en:vegetable oil
 en:avocado oil
 fr:huile d'avocat
 de:Avocadoöl
 it:olio di avocado
-7in3@2019-06-12
+from_palm_oil:en:no
 
 # description:en:CORN OIL (maize oil) is oil extracted from the germ of corn (maize).
 
@@ -17496,6 +17502,7 @@ zh:粟米油
 # yue:粟米油
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_oil
 wikidata:en:Q856775
+from_palm_oil:en:no
 
 # PEANUT OIL, also known as groundnut oil or arachis oil, is a mild-tasting vegetable oil derived from peanuts.
 
@@ -17538,6 +17545,7 @@ zh:花生油
 wikidata:en:Q265878
 wikipedia:en:https://en.wikipedia.org/wiki/Peanut_oil
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/peanut-oil/
+from_palm_oil:en:no
 
 # SESAME OIL is an edible vegetable oil derived from sesame seeds.
 
@@ -17590,6 +17598,7 @@ zh:芝麻油
 # yue:麻油
 wikipedia:en:https://en.wikipedia.org/wiki/Sesame_oil
 wikidata:en:Q212317
+from_palm_oil:en:no
 
 <en:sesame oil
 en:organic sesame oil
@@ -17637,6 +17646,7 @@ zh:大豆油
 # yue:豆油
 wikipedia:en:https://en.wikipedia.org/wiki/Soybean_oil
 wikidata:en:Q926892
+from_palm_oil:en:no
 
 # description:en:CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources. 
 
@@ -17645,6 +17655,7 @@ en:camelina oil
 fr:huile de caméline
 wikipedia:en:https://en.wikipedia.org/wiki/Camelina_sativa
 # ingredient/fr:huile-de-cameline has 10 products @2019-06-03
+from_palm_oil:en:no
 
 # description:en:GRAPE SEED OIL (also called grapeseed oil or grape oil) is pressed from the seeds of grapes, and is thus an abundant by-product of winemaking.
 
@@ -17741,9 +17752,9 @@ from_palm_oil:en:no
 # description:en:ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree.
 
 <en:vegetable fat
-en:illipe
+en:illipe oil
 de:Illipebutter
-fr:illipé, huile d'illipé, graisse d'illipé
+fr:illipé, huile d'illipé, graisse d'illipé, huile végétale d'illipé
 uk:Ілліпе
 wikidata:en:Q6000160
 wikipedia:en:https://en.wikipedia.org/wiki/Illipe
@@ -18038,13 +18049,16 @@ from_palm_oil:en:no
 
 # <en:mango
 <en:vegetable oil
-fr:huile de noyaux de mangue
+en:mango kernel oil, mango oil
+fr:huile de noyaux de mangue, huile végétale de noyeau de mangue
 # ingredient/fr:noyaux-de-mangue has 31 products in french @2019-03-01
 # matières grasses végétales (palme, karité, sal, noyaux de mangue, illipé, kokum gurgi dans des proportions variables)
-
+from_palm_oil:en:no
+  
 # ESSENTIAL OIL is a concentrated hydrophobic liquid containing volatile aroma compounds from plants.
 
-<en:vegetable oil
+# removing essential oils from vegetable oils (stephane 20190617)
+#<en:vegetable oil
 en:essential oil
 af:Eteriese olie
 ar:زيت عطري
@@ -18106,6 +18120,7 @@ zh:精油
 # tyv:Эфирлиг үстер
 wikipedia:en:https://en.wikipedia.org/wiki/Essential_oil
 wikidata:en:Q170885
+from_palm_oil:en:no
 
 <en:essential oil
 en:orange essential oil
