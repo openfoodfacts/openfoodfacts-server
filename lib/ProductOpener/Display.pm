@@ -9061,11 +9061,11 @@ sub display_rev_info {
 HTML
 ;
 	if ($previous_link ne '') {
-		$html .= "<span style='margin-right: 2em;'><a href='$previous_link'><- Previous revision</a></span>";
+		$html .= "<span style='margin-right: 2em;'><a href='$previous_link'>← ${\lang('rev_previous')}</a></span>";
 	}
-	$html .= "<span"><a href='/product/$code'>Latest revision</a></span>";
+	$html .= "<span><a href='/product/$code'>${\lang('rev_latest')}</a></span>";
 	if ($next_link ne '') {
-		$html .= "<span style='margin-left: 2em;'><a href='$next_link'>Next revision -></a></span>";
+		$html .= "<span style='margin-left: 2em;'><a href='$next_link'>${\lang('rev_next')} →</a></span>";
 	}
 	$html .="</div>";
 	return $html;
