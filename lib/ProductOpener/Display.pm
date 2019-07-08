@@ -435,7 +435,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -443,7 +443,7 @@ sub analyze_request($)
 			if ($parameter eq "fields") {
 				$request_ref->{$parameter} =~ s/\%2C/,/g;
 			}
-			$log->debug("parameter was set from query string", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
+			$log->debug("parameter $parameter was set from query string: " . $request_ref->{$parameter}, { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}
 
@@ -1463,6 +1463,12 @@ sub display_list_of_tags($$) {
 			unknown_tags_products => 0,
 		);
 
+		my $missing_property = $request_ref->{missing_property};
+		if ((defined $missing_property) and ($missing_property !~ /:/)) {
+			$missing_property .= ":en";
+			$log->debug("missing_property defined", {missing_property => $missing_property});
+		}
+
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -1520,16 +1526,27 @@ sub display_list_of_tags($$) {
 					$td_nutriments .= "<td></td>";
 					$stats{known_tags}++;
 					$stats{known_tags_products} += $count;
+					# ?missing_property=vegan
+					# keep only known tags without a defined value for the property
+					if ($missing_property) {
+						next if (defined get_inherited_property($tagtype, $tagid, $missing_property));
+					}
 				}
 				else {
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
 					$stats{unknown_tags}++;
 					$stats{unknown_tags_products} += $count;
+
+					# ?missing_property=vegan
+					# keep only known tags
+					next if ($missing_property);
 				}
 			}
 
 			# do not compute the tag display if we just need stats
 			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
+
+
 
 			my $info = '';
 			my $css_class = '';
@@ -7063,6 +7080,69 @@ JS
 	$html .= display_field($product_ref, 'allergens');
 
 	$html .= display_field($product_ref, 'traces');
+
+	# Ingredient analysis
+
+	if (defined $product_ref->{ingredients_analysis_tags}) {
+
+		my $html_analysis = "";
+
+		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
+
+			# Skip unknown
+			next if $ingredients_analysis_tag =~ /unknown/;
+
+			my $color;
+			my $icon = "";
+
+			if ($ingredients_analysis_tag =~ /palm/) {
+
+				if ($ingredients_analysis_tag =~ /-free$/) {
+					$color = "#178c4f"; # green
+					$icon = '<i class="icon-monkey_happy"></i> ';
+				}
+				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
+					$color = "#bfb316"; # orange
+					$icon = '<i class="icon-monkey_uncertain"></i> ';
+				}
+				else {
+					$color = "#bf2316"; # red
+					$icon = '<i class="icon-monkey_unhappy"></i> ';
+				}
+
+			}
+			else {
+
+				if ($ingredients_analysis_tag =~ /vegan/) {
+					$icon = '<i class="icon-leaf"></i> ';
+				}
+				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
+					$icon = '<i class="icon-egg"></i> ';
+				}
+
+				if ($ingredients_analysis_tag =~ /^en:non-/) {
+					$color = "#bf2316"; # red
+				}
+				elsif ($ingredients_analysis_tag =~ /^en:maybe-$/) {
+					$color = "#4f8c17"; # yellow green
+				}
+				else {
+					$color = "#178c4f"; # green
+				}
+			}
+
+			$html_analysis .= "<span class=\"button small round disabled\" style=\"background-color:$color;color:white;padding:.5rem 1rem;\">"
+			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
+			. "</span> ";
+		}
+
+		if ($html_analysis ne "") {
+
+			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b> "
+			. $html_analysis
+			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
+		}
+	}
 
 
 	my $html_ingredients_classes = "";

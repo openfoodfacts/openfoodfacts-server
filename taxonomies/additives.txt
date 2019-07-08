@@ -139,7 +139,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101(i)) and riboflavin-5'-phosphate sodium (E 101(ii)) as food additives.
 additives_classes:en: en:colour
-vegan:en:yes
+vegan:en:maybe
 vegetarian:en:yes
 
 <en:E101
@@ -268,6 +268,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2009.1331
 efsa_evaluation_date:en: 2009-11-12
 efsa_evaluation:en: Scientific Opinion on the re-evaluation Tartrazine (E 102)
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
 
 en:E103, Alkannin
 bg:E103, E103 food additive
@@ -1254,6 +1256,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
 efsa_evaluation_date:en: 2011-03-08
 efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
 
 en:E150b, Caustic sulphite caramel
 bg:E150b, Карамел (основен сулфит)
@@ -1623,6 +1627,7 @@ efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-ca
 additives_classes:en: en:colour
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 <en:E160a
 en:E160a(i), Beta-carotene
@@ -2308,6 +2313,8 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3145
 efsa_evaluation_date:en: 2013-04-23
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of anthocyanins (E 163) as a food additive
 additives_classes:en: en:colour
+vegan:en:yes
+vegetarian:en:yes
 
 en:E163a, Cyanidin
 bg:E163a, E163a food additive
@@ -4532,7 +4539,7 @@ e_number:en:270
 wikidata:en:Q161249
 organic_eu:en:authorized
 vegan:en:maybe
-vegetarian:en:yes
+vegetarian:en:maybe
 
 en:E280, Propionic acid, Propionic acid, Propanoic acid, CH3CH2COOH
 bg:E280, Пропионова киселина, Пропионова киселина, Пропанова киселина
@@ -4985,8 +4992,10 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4289
 efsa_evaluation_date:en: 2015-11-18
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of ascorbyl palmitate (E 304(i)) and ascorbyl stearate (E 304(ii)) as food additives
 additives_classes:en: en:antioxidant
-vegan:en:yes
-vegetarian:en:yes
+# could be made from animal fat
+vegan:en:maybe
+vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 <en:E304
 en:E304(i), Ascorbyl palmitate, L-Ascorbyl Palmitate
@@ -7785,6 +7794,8 @@ sv:E385, Kalciumdinatriumetylendiamintetraacetat, Kalciumdinatrium-EDTA
 e_number:en:385
 wikidata:en:Q18967194
 additives_classes:en: en:antioxidant, en:preservative, en:sequestrant
+vegan:en:yes
+vegetarian:en:yes
 
 en:E386, E386 food additive
 bg:E386, E386 food additive
@@ -7923,6 +7934,7 @@ e_number:en:390
 wikidata:en:Q13081806
 vegan:en:yes
 vegetarian:en:yes
+from_palm_oil:en:maybe
 
 en:E391, Phytic acid
 bg:E391, E391 food additive
@@ -9031,6 +9043,7 @@ sk:E428, Želatína
 sl:E428, Želatina
 sv:E428, gelatin
 e_number:en:428
+vegan:en:no
 vegetarian:en:no
 
 en:E429, peptone, tryptone
@@ -9114,6 +9127,7 @@ wikidata:en:Q18636149
 additives_classes:en: en:emulsifier
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E432, Polyoxyethylene sorbitan monolaurate, Polysorbate 20, Alkest TW 20, Tween 20, PEG(20)sorbitan monolaurate
 bg:E432, Полиоксиетилен сорбитан монолаурат, Полисорбат 20
@@ -9149,6 +9163,7 @@ efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E433, Polyoxyethylene sorbitan monooleate, Polysorbate 80
 bg:E433, Полиоксиетилен сорбитан моноолеат, Полисорбат 80
@@ -9184,6 +9199,7 @@ efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E434, Polyoxyethylene sorbitan monopalmitate, Polysorbate 40
 bg:E434, Полиоксиетилен сорбитан монопалмитат, Полисорбат 40
@@ -9219,6 +9235,7 @@ efsa_evaluation_adi:en: 25
 additives_classes:en: en:emulsifier
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E435, Polyoxyethylene sorbitan monostearate, Polysorbate 60
 bg:E435, Полиоксиетилен сорбитан моностеарат, Полисорбат 60
@@ -11007,6 +11024,7 @@ e_number:en:470
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E470a, Sodium\, potassium and calcium salts of fatty acids, Sodium\, potassium and calcium salts of fatty acids
 bg:E470a, Натриеви\, калиеви и калциеви соли на мастни киселини
@@ -11034,6 +11052,7 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:470a
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E470b, Magnesium salts of fatty acids
 bg:E470b, Магнезиеви соли на мастни киселини
@@ -11061,6 +11080,7 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:470b
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E471, Mono- and diglycerides of fatty acids, Glyceryl monostearate, Glyceryl monopalmitate, Glyceryl monooleate, Monostearin, Monopalmitin, Monoolein, Mono and diglycerides
 bg:E471, Моно- и диглицериди на мастни киселини, Глицерил моностеарат, глицерил монопалмитат, глицерил моноолеат, и т.н., моностеарин, монопалмитин, моноолеин
@@ -11090,6 +11110,7 @@ wikidata:en:Q416711
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472, acid esters of mono- and diglycerides of fatty acids
 bg:E472, E472 food additive
@@ -11116,6 +11137,7 @@ sv:E472, E472 food additive
 e_number:en:472
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472a, Acetic acid esters of mono- and diglycerides of fatty acids
 bg:E472a, Естери на оцетната киселина с моно- и диглицериди на мастни киселини
@@ -11143,6 +11165,7 @@ e_number:en:472a
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472b, Lactic acid esters of mono- and diglycerides of fatty acids
 bg:E472b, Естери на млечната киселина с моно- и диглицериди на мастни киселини
@@ -11170,6 +11193,7 @@ e_number:en:472b
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472c, Citric acid esters of mono- and diglycerides of fatty acids
 bg:E472c, Естери на лимонената киселина с моно- и диглицериди на мастни киселини
@@ -11197,6 +11221,7 @@ e_number:en:472c
 additives_classes:en: en:antioxidant, en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472d, Tartaric acid esters of mono- and diglycerides of fatty acids
 bg:E472d, Естери на винената киселина с моно- и диглицериди на мастни киселини
@@ -11223,6 +11248,7 @@ sv:E472d, Mono- och diglyceriders vinsyraestrar
 e_number:en:472d
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472e, Mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids, Mono- and diacetyl tartaric acid esters of mono- and diglycerides of fatty acids, DATEM
 bg:E472e, Естери на моно- и диацетилвинената киселина с моно- и диглицериди на мастни киселини
@@ -11250,6 +11276,7 @@ e_number:en:472e
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472f, Mixed acetic and tartaric acid esters of mono- and diglycerides of fatty acids
 bg:E472f, Смесени естери на оцетната и винената киселина с моно- и диглицериди на мастни киселини
@@ -11276,6 +11303,7 @@ sv:E472f, Blandade ättik- och vinsyraestrar av mono- och diglycerider
 e_number:en:472f
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E472g, Succinylated monoglycerides
 bg:E472g, E472g food additive
@@ -11302,6 +11330,7 @@ sv:E472g, E472g food additive
 e_number:en:472g
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E473, Sucrose esters of fatty acids, Sucroesters, sugar ester
 bg:E473, Естери на мастни киселини и захароза, Сукроестери
@@ -11572,6 +11601,7 @@ efsa_evaluation_adi:en: 22
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E482, Calcium stearoyl-2-lactylate
 bg:E482, Калциев стераоил-2-лактилат
@@ -11607,6 +11637,7 @@ efsa_evaluation_adi:en: 22
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E483, Stearyl tartrate, Stearyl palmityl tartrate
 bg:E483, Стеарил тартарат
@@ -11634,6 +11665,7 @@ e_number:en:483
 wikidata:en:Q673260
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E484, Stearyl citrate
 bg:E484, E484 food additive
@@ -11662,6 +11694,7 @@ wikidata:en:Q18608830
 additives_classes:en: en:antioxidant, en:emulsifier, en:sequestrant
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E485, Sodium stearoyl fumarate
 bg:E485, E485 food additive
@@ -11997,6 +12030,7 @@ efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 en:E496, Sorbitan trioleate
 bg:E496, E496 food additive
@@ -14468,8 +14502,9 @@ sl:E631, Dinatrijev inozinat, natrijev inozinat
 sv:E631, Dinatriuminosinat, Natriuminosinat
 e_number:en:631
 wikidata:en:Q905782
-vegan:en:no
-vegetarian:en:no
+# from meat or fish or fermentation of sugar
+vegan:en:maybe
+vegetarian:en:maybe
 
 en:E632, Dipotassium inosinate, Potassium inosinate
 bg:E632, Дикалиев инозинат, Калиев инозинат
@@ -14576,8 +14611,8 @@ sl:E635, Dinatrijev 5'-ribonukleotid
 sv:E635, Dinatrium-5'-ribonukleotider
 e_number:en:635
 wikidata:en:Q18967210
-vegan:en:no
-vegetarian:en:no
+vegan:en:maybe
+vegetarian:en:maybe
 
 en:E636, Maltol
 bg:E636, E636 food additive
@@ -15748,7 +15783,8 @@ sv:E920, L-cystein, Cystein, E 910, Cysteiner, E 920
 e_number:en:920
 mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en:Q186474
-vegan:en:no
+# produced through fermentation of vegetal or from animal hair or feathers
+vegan:en:maybe
 vegetarian:en:maybe
 
 en:E921, L-cysteine hydrochloride monohydrate
@@ -17018,7 +17054,6 @@ ta:E965, maltitol
 uk:E965, Мальтитол
 vi:E965, Maltitol
 zh:E965, 麦芽糖醇
-
 e_number:en:965
 wikidata:en:Q423882
 wikipedia:en:https://en.wikipedia.org/wiki/Maltitol
@@ -17028,6 +17063,8 @@ efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourin
 additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
 # ingredient/fr:maltitol has 656 products in 11 languages @2019-05-18
 # usage:de:Süssungsmittel (Maltit)
+vegan:en:yes
+vegetarian:en:yes
 
 <en:maltitol
 en:E965(i), D-Maltitol
@@ -17174,6 +17211,7 @@ efsa_evaluation_date:en: 2010-07-09
 efsa_evaluation:en: Statement in relation to the safety of erythritol (E 968) in light of new data, including a new paediatric study on the gastrointestinal tolerability of erythritol
 additives_classes:en: en:humectant, en:sweetener
 vegan:en:yes
+vegetarian:en:yes
 
 en:E999, Quillaia extract, Soapbark extract, Quillay bark extract, Panama bark extract, Quillai extract, Murillo bark extract, Quillaia
 bg:E999, Куилая екстракт
