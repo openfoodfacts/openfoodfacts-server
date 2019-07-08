@@ -8634,8 +8634,14 @@ sv:Nukleotider
 ### THESE HAVE BEEN MOVED TO other_nutritional_subtsances.txt
 
 
-# Ferment is an agent, such as an enzyme, bacterium, or fungus, that brings about fermentation.
-# Ferment is thus more generic than enzyme.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                              F E R M E N T S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# description:en:FERMENT is an agent, such as an enzyme, bacterium, or fungus, that brings about fermentation.
+# comment:en:Ferment is thus more generic than enzyme.
 
 en:ferment
 az:fermentlər
@@ -8659,9 +8665,10 @@ uz:fermentlar
 #nova:en:3
 vegan:en:maybe
 vegetarian:en:maybe
+# ingredient/ferment has 33576 products in 28 languages @2019-07-08
 
-#
-# ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
+
+# description:en:ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
 #
 
 <en:ferment
@@ -8768,10 +8775,12 @@ zh:酶
 # wuu:酶
 # zh-min-nan:Kàⁿ-sò͘
 # yue:酵素
+wikidata:en:Q8047
 wikipedia:en:https://en.wikipedia.org/wiki/Enzyme
 nova:en:3
 vegan:en:maybe
 vegetarian:en:maybe
+# ingredient/enzyme has 20643 products in 23 languages @2019-07-08
 
 <en:enzyme
 en:coagulating enzyme
@@ -8779,24 +8788,43 @@ fr:enzyme coagulante, enzymes coagulantes, coagulant enzymatique
 nl:stremmingsenzymen
 vegan:en:maybe
 vegetarian:en:maybe
+# ingredient/coagulating%20enzyme has 6348 products in 20 languages @2019-07-08
 
 <en:coagulating enzyme
 en:microbial coagulating enzyme
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
 nl:microbiële stremmingsenzymen
+vegan:en:yes
+vegetarian:en:yes
+
+# description:en:A microbiological culture, or microbial culture, is a method of multiplying microbial organisms by letting them reproduce in predetermined culture medium under controlled laboratory conditions. All cultures in food are microbial cultures
+
+<en:ferment
+en:microbial culture, culture
+fr:culture bactérienne
+nl:Microbiële cultuur
+wikipedia:en:https://en.wikipedia.org/wiki/Microbiological_culture
+# ingredient/culture has 683 products in 3 languages @2018-12-27
+nova:en:3
 vegan:en:maybe
 vegetarian:en:maybe
 
-<en:ferment
-en:lactic ferments, lactic starters, lactic cultures
+<en:microbial culture
+en:cheese culture
+de:Käsekultur
+# ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
+
+<en:microbial culture
+en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria
 de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur
 el:γαλακτικά ένζυμα 
-es:fermentos lácticos
-fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques
+es:fermentos lácticos, cultivos lácticos 
+fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques
 hu:tejsavbaktériumok
-it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi
+it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi
 nl:melkfermenten, melkkiemen
-pt:fermentos lácteos
+pl:żywe kultury bakterii jogurtowych
+pt:fermentos lácteos, culturas lácteas
 # fr:ferments-lactique has 6494 products in 12 languages @2018-11-02
 # fr:culture-de-bactéries-lactiques has 19 products @2018-11-02
 vegan:en:maybe
@@ -8829,30 +8857,20 @@ fr:ferments lactiques sélectionnés
 nl:geselecteerde fermenten
 # fr:ferments-lactiques-sélectionnés has 124 products in 2 languages @2018-11-02
 
-# description:en:Lactobacillus acidophilus is a species of gram positive bacteria in the genus Lactobacillus. L. acidophilus is a homofermentative, microaerophilic species, fermenting sugars into lactic acid. These strains are commercially used in many dairy products in the production of acidophilus-type yogurt.
-
 <en:lactic ferments
-en:Lactobacillus acidophilus
-wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
+en:vegan lactic ferments
+da:vegansk yoghurtkultur
+de:vegane Joghurtkulturen
+fr:cultures lactiques véganes
+nb:vegansk yoghurtkultur
+sv:vegansk yoghurtkultur
+vegan:en:yes
+vegetarian:en:yes
+# usage:fr:cultures lactiques véganes (S. thermophilus, L. bulgaricus, L. acidophilus, B. lactis)
+
+# description:en:LACTOBACILLUS ACIDOPHILUS is a species of gram positive bacteria in the genus Lactobacillus. L. acidophilus is a homofermentative, microaerophilic species, fermenting sugars into lactic acid. These strains are commercially used in many dairy products in the production of acidophilus-type yogurt.
 
 
-# A microbiological culture, or microbial culture, is a method of multiplying microbial organisms by letting them reproduce in predetermined culture medium under controlled laboratory conditions. 
-# All cultures in food are microbial cultures
-
-<en:ferment
-en:microbial culture, culture
-fr:culture bactérienne
-nl:Microbiële cultuur
-wikipedia:en:https://en.wikipedia.org/wiki/Microbiological_culture
-# ingredient/culture has 683 products in 3 languages @2018-12-27
-nova:en:3
-vegan:en:maybe
-vegetarian:en:maybe
-
-<en:microbial culture
-en:cheese culture
-de:Käsekultur
-# ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
 
 # Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
 
@@ -8866,22 +8884,21 @@ nl:Melkzuurbacteriën
 wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
 # ingredient/fr:culture-de-bactéries-lactiques has 19 products in 3 languages @2018-12-27
 
-# Bifidobacterium is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. 
-# Les bifidobactéries appartiennent à la famille des bactéries lactiques.
+# description:en:Bifidobacterium is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. 
+# description:fr:Les bifidobactéries appartiennent à la famille des bactéries lactiques.
 
 <en:lactic ferments
 en:bifidus, bifidus culture
 ca:Bifidus, Bifidobacteri
-es:bifidus
+es:bifidus, Bifidobacterium
 et:Bifidobakter
 fa:بیفیدوباکتر
 fr:bifidus, culture de bifidus, bifidobactérium
-it:Bifidobacterium Lactis
 ja:ビフィズス菌
 ka:ბიფიდობაქტერიები
 kk:Бифидобактериялар
-la:Bifidobacterium, b. lactis, Bifidobacterium lactis
-nl:bifidus
+la:Bifidobacterium
+nl:bifidus, Bifidobacterium
 ru:Бифидобактерии
 tr:Bifido bakterisi
 uk:Біфідобактерії
@@ -8897,48 +8914,104 @@ zh:雙歧桿菌屬
 # zh-cn:双歧杆菌
 wikidata:en:Q132656
 wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium
-# ingredient/fr:bifidus has 45 products in 4 languages @2018-12-27
-# the name used on the ingredients is primary, wikidata secondary, no entry if in latin
+# ingredient/bifidus has 942 products in 10 languages @2018-12-27
 
-# Danone decided to add a probiotic strain:Bifidus Actiregularis. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
+<en:bifidus
+de:Bifidobacterium bifidum
+
+<en:bifidus
+de:Bifidobacterium Infantis
+
+<en:bifidus
+fi:Bifidobacterium lactis
+it:Bifidobacterium Lactis
+la:Bifidobacterium lactis, b. lactis
+pl:Bifidobacterium lactis
+
+<en:bifidus
+de:Bifidobacterium longum
+
+# description:en:Danone decided to add a probiotic strain:Bifidus Actiregularis. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
 
 <en:bifidus
 en:bifidus actiregularis
+bg:Bifidus ActiRegularis
+de:Bifidus ActiRegularis, Bifidus Kultur ActiRegularis
 fr:Bifidus actiregularis, bifidus actiregularis
 la:bifidus actiregularis
+nl:Bifidus Actiregularis
+# ingredient/bifidus-actiregularis has 142 products in 5 languages @2019-07-08
 
 <en:bifidus
 <en:lactic acid bacteria
 fr:ferments lactiques dont bifidobacterium
 
-<en:bifidus
-<en:Lactobacillus acidophilus
-nl:L. acidophilus en Bifidobacterium
-# Lactobacillus delbrueckii subsp. bulgaricus (until 2014 known as Lactobacillus bulgaricus) is the main bacteria used for the production of yogurt. 
+<en:lactic ferments
+en:Lactobacillus acidophilus, , L. acidophilus
+de:Lactobacillus acidophilus, L. acidophilus
+nl:Lactobacillus acidophilus, L. acidophilus
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
+
+# description:en:Lactobacillus delbrueckii subsp. bulgaricus (until 2014 known as Lactobacillus bulgaricus) is the main bacteria used for the production of yogurt. 
 
 <en:lactic ferments
-en:Lactobacillus bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus
-de:Lactobacillus bulgaricus
-es:Lactobacillus bulgaricus
+en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus
+cs:Lactobacillus bulgaricus, L. bulgaricus
+da:Lactobacillus bulgaricus, L. bulgaricus
+de:Lactobacillus bulgaricus, L. bulgaricus
+es:Lactobacillus bulgaricus, L. bulgaricus
 fr:Lactobacillus bulgaricus, l. bulgaricus, L bulgaricus, bulgaricus
-it:Lactobacillus bulgaricus
-nl:Lactobacillus bulgaricus
+it:Lactobacillus bulgaricus, L. bulgaricus
+nb:Lactobacillus bulgaricus, L. bulgaricus
+nl:Lactobacillus bulgaricus, L. bulgaricus
+pl:Lactobacillus bulgaricus, L. bulgaricus
+pt:Lactobacillus bulgaricus, L. bulgaricus
+sv:Lactobacillus bulgaricus, L. bulgaricus
 wikidata:en:Q47455075
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
-# ingredient/fr:l.-bulgaricus has 7 products @2019-02-15
+# ingredient/Lactobacillus-bulgaricus has 157 products in 13 languages @2019-07-08
 
 
-# LACTOBACILLUS CASEI is a species of genus Lactobacillus found in the human urinary tract and mouth. 
+# description:en:LACTOBACILLUS CASEI is a species of genus Lactobacillus found in the human urinary tract and mouth. 
 
 <en:lactic ferments
 en:lactobacillus casei
+de:Lactobacillus casei
 fr:Lactobacillus casei
 it:lactobacillus casei
 la:Lactobacillus casei 
+ru:Lactobacillus Casei
 zh:乾酪乳酸桿菌
 wikidata:en:Q139777
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_casei
-# fr:lactobacillus-casei has 7 products in 1 language @2018-11-02
+# ingredient/lactobacillus-casei has 77 products in 6 languages @2019-07-08
+
+<en:lactobacillus casei
+it: L.casei 431
+
+<en:lactic ferments
+de:Lactobacillus Helvetica
+
+<en:lactic ferments
+de:Lactobacillus lactis
+
+<en:lactic ferments
+de:Lactobacillus plantarum
+
+<en:lactic ferments
+de:Lactobacillus reuteri
+
+<en:lactic ferments
+de:Lactobacillus rhamnosus
+fi:Lactobacillus rhamnosus
+ru:Lactobacillus Rhamnosus
+
+<en:lactic ferments
+de:Lactobacillus sporogenes
+
+<en:lactic ferments
+de:Lactobacillus thermophilus
+
 
 <en:lactic ferments
 <en:lactobacillus casei
@@ -8946,35 +9019,43 @@ fr:ferments lactiques dont lactobacillus casei
 # fr:ferments-lactiques-dont-lactobacillus-casei has 28 products in 1 language @2018-11-02
 
 
-# Streptococcus thermophilus also known as Streptococcus salivarius subsp. thermophilus is a gram-positive bacterium, and a fermentative facultative anaerobe, of the viridans group. It is also classified as a lactic acid bacterium.
+# description:en:STREPTOCOCCUS THERMOPHILUS also known as Streptococcus salivarius subsp. thermophilus is a gram-positive bacterium, and a fermentative facultative anaerobe, of the viridans group. It is also classified as a lactic acid bacterium.
 
 <en:lactic ferments
-en:Streptococcus thermophilus, s. thermophilus
+en:Streptococcus thermophilus, s.thermophilus
+bg:streptococcus thermophilus
+de:Streptococcus thermophilus
+es:Streptococcus thermophilus
 fr:Streptococcus thermophilus
-it:S. thermophilus or Streptococcus thermophilus
+it:Streptococcus thermophilus, S.thermophilus
 ja:サーモフィラス菌
+pl:Streptococcus thermophilus
+pt:Streptococcus thermophilus
+sr:Streptococcus thermophilus, S.thermophilus.
 zh:嗜热链球菌
 # zh-hans:嗜熱鏈球菌
 # zh-tw:嗜熱性鏈球菌
 wikidata:en:Q1041276
 wikipedia:en:https://en.wikipedia.org/wiki/Streptococcus_thermophilus
-# ingredient/fr:s-thermophilus has 32 products in french @2019-03-22
-
+# ingredient/Streptococcus-thermophilus has 173 products in 11 languages @2019-07-08
 
 <en:ferments
 fr:ferments de maturation
-# fr:ferments-de-maturation has 82 products in 1 language @2018-11-02
+# ingredient/fr:ferments-de-maturation has 88 products in french @2019-07-08
 
 <en:ferments
 fr:ferments d'affinage
-# fr:ferments-d’affinage has 32 products in 1 language @2018-11-02
+# ingredient/fr:ferments-d’affinage has 34 products in french @2019-07-08
 
 <en:ferments
+en:selected ferments
+de:ausgewählte Kulturen
 fr:ferments sélectionnés
 es:fermentos seleccionados
+it:fermenti selezionati
 nl:geselecteerde fermenten
 pt:fermentos selecionados
-# fr:ferments-sélectionnés has 92 products in 4 languages @2018-11-02
+# ingredient/fr:ferments-sélectionnés has 134 products in 7 languages @2019-07-08
 
 <en:coagulating enzyme
 en:rennet
@@ -8984,7 +9065,7 @@ bs:Sirište
 ca:quall
 co:Pirrulu
 cs:Syřidlo
-da:osteløbe
+da:osteløbe, animalsk og mikrobiel løbe
 de:Lab
 el:πυτια
 es:cuajo
@@ -9005,7 +9086,7 @@ ko:레닛
 la:Coagulum
 lt:Šliužo fermentas
 ms:Renet
-nb:løype
+nb:løype, animalsk og mikrobiell løpe
 nl:stremsel
 nn:løpe, løype
 pl:podpuszczka
@@ -9027,36 +9108,48 @@ zh:凝乳酶
 # zh-tw:凝乳酶
 wikidata:en:Q326900
 wikipedia:en:https://en.wikipedia.org/wiki/Rennet
-# fr:présure has 2726 products in 15 languages @2018-11-03
+# ingredient/rennet has 5568 products in 19 languages @2019-07-08
 vegan:en:no
 vegetarian:en:no
 
 
 <en:rennet
 en:animal-based rennet
+da:animalsk løbe
 el:πυτία ζώων
 es:cuajo animal
 fr:présure animale
+nb:animalsk løpe
 nl:dierlijk stremsel
 nn:animalsk løpe
-# fr:présure-animale has 509 products in 5 languages @2018-11-03
+pt:coalho animal
 vegan:en:no
 vegetarian:en:no
+# ingredient/animal-based-rennet has 664 products in 5 languages @2019-07-08
 
 <en:animal-based rennet
+en:calf rennet
 fr:présure de veau
 es:cuajo bovino
-# fr:présure-de-veau has 34 products in 2 languages @2018-11-03
+nl:kalfsstremsel
+# fr:présure-de-veau has 40 products in 2 languages @2019-07-08
 
 <en:rennet
 en:microbial rennet
+da:mikrobiel osteløbe, mikrobiel løbe
 de:mikrobielles Lab
+es:cuajo microbial
+fi:mikrobiologinen juoksete
 fr:présure microbienne
+hu:mikrobiológiai oltóenzim
 it:caglio microbico
+nb:mikrobiell løpe
 nl:microbieel stremsel
-# fr:présure-microbienne has 100 products in 6 languages @2018-11-03
-vegan:en:maybe
-vegetarian:en:maybe
+ro:cheag microbian
+sv:ystenzym
+# ingredient/microbial-rennet has 537 products in 12 languages @2019-07-08
+vegan:en:yes
+vegetarian:en:yes
 
 
 # Amylase are enzymes that catalyse the hydrolysis of starch into sugars. 
@@ -14808,7 +14901,7 @@ pa:ਲੂਣ
 pl:Sól kuchenna
 ps:مالگه
 pt:Sal de cozinha, sal de cosina, sal de taula
-ro:Sare de bucătărie
+ro:sare, Sare de bucătărie
 ru:Поваренная соль
 rw:Umunyu
 sa:लवणम्
