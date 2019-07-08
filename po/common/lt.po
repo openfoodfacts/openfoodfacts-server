@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-03 21:34\n"
+"PO-Revision-Date: 2019-07-08 13:34\n"
 "Language-Team: Lithuanian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -17,35 +17,35 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 produktas"
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " ir "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Apie mane"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Pridėti"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Pridėti kalbą"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Pridėti produktą"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Registruotis"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Ačiū, kad prisijungėte. Dabar galite prisijungę pridėti arba redaguoti produktus.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -63,47 +63,60 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Labas <NAME>,\n\n"
+"Ačiū, kad prisijungėte prie https://openfoodfacts.org\n\n"
+"Jūsų vartotojo vardas: <USERID>\n\n"
+"Nuo šiol prisijungę prie svetainės galėsite pridėti ir redaguoti produktus.\n\n"
+"<<site_name>> yra bendradarbiavimu grįstas projektas prie kurio galite prisidėti daugiau nei produktų aprašais: savo energija, entuziazmu ir idėjomis!\n"
+"Patogesniam projekto pagalbininkų bendradarbiavimui, mes naudojame susirašinėjimo platformą Slack: https://slack.openfoodfacts.org\n\n"
+"Taip pat galite prisijungti prie mūsų Facebook grupės:\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"Naujiena: taip pat pradėti kurti Open Beauty Facts duombazė kosmetikai, kaip muilas, dantų pasta, makiažas.\n"
+"https://openbeautyfacts.org\n\n"
+"Ačiū!\n\n"
+"Stéphane ir Open Food Facts komanda\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Ačiū, kad prisijungėte prie <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Galimai pavojingas maisto priedas. Ribokite vartojimą."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Pavojingas maisto priedas. Vengti."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Europoje uždraustas maisto priedas. Vengti."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "priedai"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "priedas"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Išsamesnė paieška"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Išsamesnė paieška ir diagramos"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Nesaikingas gėrimas yra žalingas sveikatai."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Visos misijos"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -111,27 +124,27 @@ msgstr "Alergijas arba netoleravimą sukeliančios medžiagos arba produktai"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "alergenai"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "alergenas"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Produkto puslapį taip pat redagavo"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Raskite Google Play platformoje\" width=\"135\" height=\"47\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -141,39 +154,40 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Šio produkto dar nėra <<site_name>> duomenų bazėje. Prašau nufotografuoti patį produktą, barkodą, ingredientų sąrašą ir maistingumo informaciją ir įkelti į <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a></p>\n"
+"<p>Iš anksto ačiū!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Fotografuoti"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Pastaba: jūsų atsiųstos nuotraukos yra publikuojamos pagal Creative Commons Attribution and ShareAlike licenziją."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Galite pridėti nuotraukas:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Horizontalioji ašis"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Vertikalioji ašis"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Barkodas"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Barkodo numeris:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Taip pat galite finansiškai paremti Open Food Facts projektą"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -181,35 +195,35 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "Prisijungti prie misijos"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Prekės ženklai"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "prekės ženklai"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "%s prekės ženklo produktai"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "prekės ženklas"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "pridėti prekės ženklą"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "Produktai nepriklausantys %s prekės ženklui"
 
 msgctxt "by"
 msgid "by"
@@ -217,23 +231,23 @@ msgstr ""
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Kategorijos"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardinė alyvuogių aliejuje, apelsinų sultys iš koncentrato"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Nurodykite tik esminę kategoriją. \"Tėvai\" kategorija bus automatiškai pridėta."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "kategorijos"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "%s kategorijos produktai"
 
 msgctxt "categories_s"
 msgid "category"
@@ -441,52 +455,52 @@ msgstr ""
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "Žemiau esanti informacija yra matoma jūsų viešoje paskyroje."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "Keisti paskyros parametrus"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Paskyros parametrai"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Jūsų paskyros parametrai buvo pakeisti.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "redaguotojai"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "redaguotojas"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "el. pašto adresas"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "EMB kodai"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr ""
+msgstr "Produktai supakuoti kompanijos su %s emb kodu"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB kodas"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB kodas"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -936,7 +950,7 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -1277,7 +1291,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Pridėti produktą"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -2314,6 +2328,10 @@ msgctxt "sort_by"
 msgid "Sort by"
 msgstr ""
 
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr ""
+
 msgctxt "sort_created_t"
 msgid "Add date"
 msgstr ""
@@ -3205,7 +3223,7 @@ msgid "Help translate the %s to %s"
 msgstr ""
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
 msgstr ""
 
 msgctxt "translate_taxonomy_add"
@@ -3238,5 +3256,25 @@ msgstr ""
 
 msgctxt "button_caption_skip"
 msgid "Skip"
+msgstr ""
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr ""
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr ""
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
 msgstr ""
 
