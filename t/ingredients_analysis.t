@@ -29,6 +29,7 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "sucre, colour: e150" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 [ { lc => "en", ingredients_text => "fat, proteins" }, [ "en:may-contain-palm-oil", "en:maybe-vegan", "en:maybe-vegetarian"] ],
 [ { lc => "en", ingredients_text => "vegetable fat, vegetable proteins" }, [ "en:may-contain-palm-oil", "en:vegan", "en:vegetarian"] ],
+[ { lc => "en", ingredients_text => "modified palm oil" }, [ "en:palm-oil", "en:vegan", "en:vegetarian"] ],
 );
 
 
