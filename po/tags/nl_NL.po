@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-03 21:21\n"
+"PO-Revision-Date: 2019-07-08 13:15\n"
 "Language-Team: Dutch\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -427,12 +427,12 @@ msgstr "gebruiker"
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "misc:plural"
 msgid "misc"
-msgstr ""
+msgstr "diversen"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "misc:singular"
 msgid "misc"
-msgstr ""
+msgstr "diversen"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "quality:plural"
@@ -477,7 +477,7 @@ msgstr "aminozuren"
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "nucleotides:singular"
 msgid "nucleotide"
-msgstr ""
+msgstr "nucleotiden"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "nucleotides:plural"
@@ -496,28 +496,44 @@ msgstr "andere-voedingsstoffen"
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "nova_groups:singular"
 msgid "nova-group"
-msgstr ""
+msgstr "nova-groep"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "nova_groups:plural"
 msgid "nova-groups"
-msgstr ""
+msgstr "nova-groepen"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "last_check_dates:plural"
 msgid "last-check-dates"
-msgstr ""
+msgstr "laatste-controle-data"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "last_check_dates:singular"
 msgid "last-check-date"
-msgstr ""
+msgstr "laatste-controle-datum"
 
 msgctxt "data_sources:singular"
 msgid "data-source"
-msgstr ""
+msgstr "gegevensbron"
 
 msgctxt "data_sources:plural"
 msgid "data-sources"
+msgstr "gegevensbron"
+
+msgctxt "popularity:singular"
+msgid "popularity"
+msgstr "populariteit"
+
+msgctxt "popularity:plural"
+msgid "popularity"
+msgstr "populariteit"
+
+msgctxt "ingredients_analysis:singular"
+msgid "ingredients-analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis:plural"
+msgid "ingredients-analysis"
 msgstr ""
 
