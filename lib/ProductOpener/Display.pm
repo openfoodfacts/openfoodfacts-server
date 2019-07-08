@@ -1453,7 +1453,7 @@ sub display_list_of_tags($$) {
 		my $i = 0;
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
-		
+
 		my %stats = (
 			all_tags => 0,
 			all_tags_products => 0,
@@ -1475,7 +1475,7 @@ sub display_list_of_tags($$) {
 			my $count = $tagcount_ref->{count};
 
 			$products{$tagid} = $count;
-			
+
 			$stats{all_tags}++;
 			$stats{all_tags_products} += $count;
 
@@ -1527,7 +1527,7 @@ sub display_list_of_tags($$) {
 					$stats{unknown_tags_products} += $count;
 				}
 			}
-			
+
 			# do not compute the tag display if we just need stats
 			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
 
@@ -1677,14 +1677,14 @@ sub display_list_of_tags($$) {
 		}
 
 		$html .= "</tbody></table></div>";
-		
-		
+
+
 		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
-		
+
 			$html =~ s/<table(.*)<\/table>//is;
-		
+
 			if ($stats{all_tags} > 0) {
-			
+
 				$html .= <<"HTML"
 <table>
 <tr>
@@ -1698,9 +1698,9 @@ HTML
 					$html .= "<tr><td>" . $type . "</td>"
 					. "<td>" . $stats{$type . "_tags"} . " (" . sprintf("%2.2f", $stats{$type . "_tags"} / $stats{"all_tags"} * 100) . "%)</td>"
 					. "<td>" . $stats{$type . "_tags_products"} . " (" . sprintf("%2.2f", $stats{$type . "_tags_products"} / $stats{"all_tags_products"} * 100) . "%)</td>";
-		
+
 				}
-			
+
 				$html .=<<"HTML"
 </table>
 HTML
@@ -6780,7 +6780,7 @@ HTML
 ;
 	}
 	if (defined $rev) {
-		$html .= display_rev_info($product_ref);
+		$html .= display_rev_info($code, $rev);
 	}
 	if (not has_tag($product_ref, "states", "en:complete") and not defined $rev) {
 
@@ -8942,19 +8942,52 @@ sub display_rev_info {
 	if (not defined $changes_ref) {
 		return '';
 	}
-	my $change_ref = $changes_ref->[$rev];
+	my $change_ref = $changes_ref->[$rev-1];
 
 	my $date = display_date_tag($change_ref->{t});
 	my $userid = get_change_userid_or_uuid($change_ref);
 	my $user = display_tag_link("editors", $userid);
+	my $previous_link = '';
+	if ($rev > 1) {
+		$previous_link = '/product/' . $code . '?rev='. ($rev - 1);
+	}
+	my $next_link = '';
+	if ($rev < scalar @$changes_ref) {
+		$next_link = '/product/' . $code . '?rev=' . ($rev + 1);
+	}
 
-	$html .= ' <div id=\'rev_summary\'> ';
-	$html .= ' <span class=\'rev_warning\'> '. lang('rev_warning') . '</span>';
-	$html .= " Rev. <span class='rev_nb'>$change_ref->{rev}</span> ";
-	$html .= " <time datetime='$change_ref->{t}'>$date</time> - ";
-	$html .= " <a href='/contributor/$userid' class='rev_contributor'>$user</a> ";
+	my $comment = $change_ref->{comment};
+	$comment = lang($comment) if $comment eq 'product_created';
 
-	$html .= "</div>";
+	$comment =~ s/^Modification :\s+//;
+	if ($comment eq 'Modification :') {
+		$comment = '';
+	}
+	$comment =~ s/\new image \d+( -)?//;
+	if ($comment ne '') {
+		$comment = "<p>Comment: $comment</p>";
+	}
+
+
+	$html .= <<"HTML"
+<div id='rev_summary' class='panel callout'>
+	<h4 class='rev_warning'>${\lang('rev_warning')}</h4>
+	<p>
+		${\lang('rev_number')} <span class='rev_nb'>$change_ref->{rev}</span> -
+		<time datetime='$change_ref->{t}'>$date</time> -
+		${\lang('rev_contributor')} <a href='/contributor/$userid' class='rev_contributor'>$user</a>
+	</p>
+	$comment
+HTML
+;
+	if ($previous_link ne '') {
+		$html .= "<span style='margin-right: 2em;'><a href='$previous_link'><- Previous revision</a></span>";
+	}
+	$html .= "<span"><a href='/product/$code'>Latest revision</a></span>";
+	if ($next_link ne '') {
+		$html .= "<span style='margin-left: 2em;'><a href='$next_link'>Next revision -></a></span>";
+	}
+	$html .="</div>";
 	return $html;
 
 }
