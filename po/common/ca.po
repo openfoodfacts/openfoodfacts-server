@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-20 19:13\n"
+"PO-Revision-Date: 2019-07-08 13:09\n"
 "Language-Team: Catalan\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -675,7 +675,7 @@ msgstr "Codi de conducta"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/codi-de-conducta"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -697,16 +697,16 @@ msgstr "Preguntes més freqüents"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/pf"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Traducció"
 
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -755,7 +755,7 @@ msgstr "Condicions d'ús"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/condicions-d-us"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -764,16 +764,16 @@ msgstr "Qui som"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/qui-som"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr ""
+msgstr "Wiki <site_name> (en anglès)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -915,7 +915,7 @@ msgstr "Nombre d'ingredients"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "ingredients"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -923,7 +923,7 @@ msgstr "Els productes que contenen l'ingredient %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "ingredient"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -958,7 +958,7 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png \" alt=\"disponible a l'App Store \" width=\"135 \" height=\"40 \" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -1007,11 +1007,11 @@ msgstr "Idioma principal"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "Àrab"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Búlgar"
 
 msgctxt "lang_cs"
 msgid "Czech"
@@ -1039,11 +1039,11 @@ msgstr "Espanyol"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "Estonià"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "Finès"
 
 msgctxt "lang_fr"
 msgid "French"
@@ -1051,7 +1051,7 @@ msgstr "Francès"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "Irlandès"
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1059,11 +1059,11 @@ msgstr "Hebreu"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "Hongarès"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonesi"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1079,15 +1079,15 @@ msgstr "Coreà"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lituà"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "Letó"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "Maltès"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1107,7 +1107,7 @@ msgstr "Portuguès"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "Portuguès de Portugal"
 
 msgctxt "lang_ro"
 msgid "Romanian"
@@ -1119,11 +1119,11 @@ msgstr "Rus"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "Eslovac"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "Eslovè"
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1151,7 +1151,7 @@ msgstr "Idioma més present i més destacat en el producte"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "ca-ES"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1275,7 +1275,7 @@ msgstr "Llocs de fabricació o processament"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "Vic, Catalunya"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
@@ -1316,7 +1316,7 @@ msgstr "Afegir un producte"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/afegeix-producte"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1358,7 +1358,7 @@ msgstr "Objectiu:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Objectius"
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1410,11 +1410,11 @@ msgstr "Les dades nutricionals no s'especifiquen en el producte."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "Els productes especifiquen múltiples dades nutricionals (p. ex. amb aigua o llet afegida)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "Anoteu només les dades nutricionals pels productes no preparats, sense l'aigua o la llet afegida. Si hi ha diferents productes, anoteu només les dades nutricionals del primer producte llistat."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -1447,7 +1447,7 @@ msgstr "Nivells de nutrients per 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/nivells-nutrients"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1561,7 +1561,7 @@ msgstr "La taula mostra per defecte nutrients que sovint estan especificats. Dei
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1603,7 +1603,7 @@ msgstr "Origen dels ingredients"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "La Seu d'Urgell, Catalunya"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -1983,7 +1983,14 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr ""
+msgstr "Hola <NAME>,\n\n"
+"sembla que heu demanat restablir la vostra contrasenya a https://openfoodfacts.org per l'identificador: <USERID>\n\n"
+"Per continuar amb el restabliment, cliqueu l'enllaç que trobareu més avall.\n"
+"Si no heu demanat el restabliment de la contrasenya, simplement ignoreu aquest missatge.\n\n"
+"<RESET_URL>\n\n"
+"Fins aviat,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
@@ -2083,7 +2090,7 @@ msgstr "Descarregar resultats en format CSV (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr ""
+msgstr "Joc de caràcters: Unicode (UTF-8). Separador: tabulació (tab)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2213,7 +2220,7 @@ msgstr "Comerç just"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "comerç-just"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2346,11 +2353,15 @@ msgstr "Una base de dades col·laborativa, lliure i oberta dels ingredients, inf
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Ordena per"
+
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr ""
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2458,7 +2469,7 @@ msgstr "Nom d'usuari a Twitter (opcional)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr ""
+msgstr "OpenFoodFacts"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2556,7 +2567,7 @@ msgstr "Direcció del lloc o bloc"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Botiga de Windows Phone\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -2568,71 +2579,71 @@ msgstr "Està connectat com %s ."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "Desselecciona la imatge"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "Desseleccionant la imatge."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "Imatge desseleccionada."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "Error mentre es desselecionava la imatge."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Atenció: la quantitat de fibra no s'especifica, no es tindrà en compte la seva possible contribució positiva en la qualificació."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Atenció: no s'ha especificat la quantitat de fruites, verdures i fruits secs, no es té en compte la seva possible contribució positiva en la qualificació."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Atenció: la quantitat de fruita, verdura i fruits secs no s'especifica a l'etiqueta però s'ha fet una estimació a partir de la llista d'ingredients: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "Atenció: la quantitat de fruita, verdura i fruits secs no s'especifica a l'etiqueta, s'ha fet una estimació per la categoria (%s) del producte: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr ""
+msgstr "Qualificació nutricional en colors NutriScore"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr ""
+msgstr "Com es calcula la qualificació nutricional per colors"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr ""
+msgstr "Qualificació nutricional NutriScore"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "Elimina la pàgina del producte"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Eliminant producte"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "producte eliminat"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr ""
+msgstr "De debò voleu eliminar la pàgina d'aquest producte?"
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr ""
+msgstr "Elimina el compte d'usuari"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr ""
+msgstr "Algunes de les dades i/o imatges surten de la base de dades OpenFood.ch (la llista exacta està disponible a l'historial d'edicions del producte). Aquests elements estan llicenciats sota la <a href=\"https://creativecommons.org/licenses/by/4.0/\">Llicència Internacional Creative Commons amb Reconeixement 4.0</a>."
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
@@ -3244,7 +3255,7 @@ msgid "Help translate the %s to %s"
 msgstr ""
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
 msgstr ""
 
 msgctxt "translate_taxonomy_add"
@@ -3278,4 +3289,24 @@ msgstr "No"
 msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr "Ometre"
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr ""
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr ""
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "Anàlisi dels ingredients"
 
