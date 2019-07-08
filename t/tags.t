@@ -8,6 +8,7 @@ use Test::More;
 use Log::Any::Adapter 'TAP', filter => "none";;
 
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Store qw/:all/;
 
 
 ok (is_a( "categories", "en:beers", "en:beverages"), 'en:beers is a child of en:beverages');
@@ -338,5 +339,28 @@ is(get_inherited_property("test","en:unknown","vegan:en"), undef);
 is(get_inherited_property("test","en:roast-beef","carbon_footprint_fr_foodges_value:fr"), 15);
 is(get_inherited_property("test","en:fake-duck-meat","carbon_footprint_fr_foodges_value:fr"), undef);
 
+my $yuka_uuid = "yuka.R452afga432";
+my $tagtype = "editors";
+
+is(get_fileid($yuka_uuid), $yuka_uuid);
+
+my $display_tag  = canonicalize_tag2($tagtype, $yuka_uuid);
+my $newtagid = get_fileid($display_tag);
+
+is($display_tag, $yuka_uuid);
+is($newtagid, $yuka_uuid);
+
+# make sure synonyms are not counted as existing tags
+is(exists_taxonomy_tag("additives", "en:n"), '');
+is(exists_taxonomy_tag("additives", "en:no"), '');
+is(exists_taxonomy_tag("additives", "en:e330"), 1);
+
+is(get_inherited_property("ingredients","en:milk","vegetarian:en"), "yes");
+is(get_property("ingredients","en:milk","vegan:en"), "no");
+is(get_inherited_property("ingredients","en:milk","vegan:en"), "no");
+is(get_inherited_property("ingredients","en:semi-skimmed-milk","vegetarian:en"), "yes");
+is(get_inherited_property("ingredients","en:semi-skimmed-milk","vegan:en"), "no");
+
+is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
 
 done_testing();

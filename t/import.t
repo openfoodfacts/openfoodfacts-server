@@ -44,4 +44,9 @@ match_taxonomy_tags($product_ref, "some_field", "emb_codes",
 
 is($product_ref->{emb_codes}, "EMB59481");
 
+$product_ref = { "product_name" => "Champagne brut 35,5 CL" };
+assign_quantity_from_field($product_ref, "product_name");
+is($product_ref->{product_name}, "Champagne brut");
+is($product_ref->{quantity}, "35,5 CL");
+
 done_testing();
