@@ -8814,21 +8814,36 @@ en:cheese culture
 de:Käsekultur
 # ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
 
+# description:en:Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
+
 <en:microbial culture
-en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur
+en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien
 el:γαλακτικά ένζυμα 
 es:fermentos lácticos, cultivos lácticos 
-fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques
+fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
 hu:tejsavbaktériumok
-it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi
-nl:melkfermenten, melkkiemen
+it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
+nl:melkfermenten, melkkiemen, Melkzuurbacteriën
 pl:żywe kultury bakterii jogurtowych
 pt:fermentos lácteos, culturas lácteas
 # fr:ferments-lactique has 6494 products in 12 languages @2018-11-02
 # fr:culture-de-bactéries-lactiques has 19 products @2018-11-02
-vegan:en:maybe
+vegan:en:yes
 vegetarian:en:yes
+wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
+# ingredient/fr:culture-de-bactéries-lactiques has 19 products in 3 languages @2018-12-27
+
+<en:lactic ferments
+en:vegan lactic ferments
+da:vegansk yoghurtkultur
+de:vegane Joghurtkulturen
+fr:cultures lactiques véganes
+nb:vegansk yoghurtkultur
+sv:vegansk yoghurtkultur
+vegan:en:yes
+vegetarian:en:yes
+# usage:fr:cultures lactiques véganes (S. thermophilus, L. bulgaricus, L. acidophilus, B. lactis)
 
 <en:lactic ferment
 en:lactic and aging ferments
@@ -8838,12 +8853,6 @@ it:fermenti lattici e d'affinatura
 nl:melk- en rijpingsfermenten
 pt:fermentos lácticos e de maturação
 # ingredient/lactic-and-aging-ferments has 500 products in 10 languages @2019-05-18
-
-<en:lactic ferment
-en:yogurt lactic ferment
-fr:ferment lactique du yaourt, ferments lactiques du yaourt
-it:fermenti lattici dello yogurt
-# fr:ferments-lactiques-du-yaourt has 108 products in 2 languages @2018-11-02
 
 <fr:ferments d'affinage
 <en:lactic ferments
@@ -8857,43 +8866,22 @@ fr:ferments lactiques sélectionnés
 nl:geselecteerde fermenten
 # fr:ferments-lactiques-sélectionnés has 124 products in 2 languages @2018-11-02
 
-<en:lactic ferments
-en:vegan lactic ferments
-da:vegansk yoghurtkultur
-de:vegane Joghurtkulturen
-fr:cultures lactiques véganes
-nb:vegansk yoghurtkultur
-sv:vegansk yoghurtkultur
-vegan:en:yes
-vegetarian:en:yes
-# usage:fr:cultures lactiques véganes (S. thermophilus, L. bulgaricus, L. acidophilus, B. lactis)
-
-# description:en:LACTOBACILLUS ACIDOPHILUS is a species of gram positive bacteria in the genus Lactobacillus. L. acidophilus is a homofermentative, microaerophilic species, fermenting sugars into lactic acid. These strains are commercially used in many dairy products in the production of acidophilus-type yogurt.
+# comment:en: all industrial produced lactic ferments are vegan
 
 
 
-# Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
-
-<en:lactic ferments
-en:lactic acid bacteria
-de:Milchsäurebakterienkultur
-es:cultivos lácticos
-fr:culture de bactéries lactiques
-it:coltura di batteri acidolattici
-nl:Melkzuurbacteriën
-wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
-# ingredient/fr:culture-de-bactéries-lactiques has 19 products in 3 languages @2018-12-27
-
-# description:en:Bifidobacterium is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. 
+# description:en:BIFIDOBACTERIUM is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. They are ubiquitous inhabitants of the gastrointestinal tract, vagina and mouth of mammals humans.
 # description:fr:Les bifidobactéries appartiennent à la famille des bactéries lactiques.
 
 <en:lactic ferments
 en:bifidus, bifidus culture
 ca:Bifidus, Bifidobacteri
+de:Bifidus
 es:bifidus, Bifidobacterium
 et:Bifidobakter
 fa:بیفیدوباکتر
 fr:bifidus, culture de bifidus, bifidobactérium
+it:Bifidobacterium
 ja:ビフィズス菌
 ka:ბიფიდობაქტერიები
 kk:Бифидобактериялар
@@ -8914,7 +8902,7 @@ zh:雙歧桿菌屬
 # zh-cn:双歧杆菌
 wikidata:en:Q132656
 wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium
-# ingredient/bifidus has 942 products in 10 languages @2018-12-27
+# ingredient/bifidus has 942 products in 10 languages @2019-07-08
 
 <en:bifidus
 de:Bifidobacterium bifidum
@@ -8927,11 +8915,12 @@ fi:Bifidobacterium lactis
 it:Bifidobacterium Lactis
 la:Bifidobacterium lactis, b. lactis
 pl:Bifidobacterium lactis
+wikidata:en:Q62854400
 
 <en:bifidus
 de:Bifidobacterium longum
 
-# description:en:Danone decided to add a probiotic strain:Bifidus Actiregularis. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
+# description:en:Danone decided to add a probiotic strain: BIFIDUS ACTIREGULARIS. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
 
 <en:bifidus
 en:bifidus actiregularis
@@ -8946,15 +8935,109 @@ nl:Bifidus Actiregularis
 <en:lactic acid bacteria
 fr:ferments lactiques dont bifidobacterium
 
+# description:en:LACTOBACILLUS is a genus of Gram-positive, facultative anaerobic or microaerophilic, rod-shaped, non-spore-forming bacteria. Lactobacillus is the most common probiotic found in food such as yogurt, and it is diverse in its application to maintain human well-being. Some Lactobacillus species are used as starter cultures in industry for controlled fermentation in the production of wine, yogurt, cheese, sauerkraut, pickles, beer, cider, kimchi, cocoa, kefir, and other fermented foods.
+
 <en:lactic ferments
-en:Lactobacillus acidophilus, , L. acidophilus
+en:Lactobacillus
+ar:عصية لبنية
+# ast:Lactobacillus
+be:Малочнакіслыя бактэрыі
+bg:Lactobacillus
+ca:Lactobacil
+cs:Lactobacillus
+da:Lactobacillus, Mælkesyrebakterie
+de:Lactobacillus
+el:Γαλακτοβάκιλλοι
+eo:Laktobacilo
+es:Lactobacillus
+et:Laktobatsillus
+eu:Lactobacillus
+fa:لاکتوباسیلوس
+fi:Lactobacillus
+gl:Lactobacillus
+fr:Lactobacillus
+he:לקטובצילוס
+hi:लैक्टोबैसिलस
+id:Lactobacillus
+is:Mjólkursýrugerlar
+it:Lactobacillus
+ja:乳酸菌
+ka:ლაქტობაცილინი
+ko:젖산균
+la:Lactobacillus
+mk:Lactobacillus
+nb:Lactobacillus
+nl:Lactobacillus
+nn:laktobasillar
+pl:Lactobacillus
+pt:Lactobacillus
+# pt-br:Lactobacillus
+ro:Lactobacil
+ru:Лактобациллы
+sr:Lactobacillus
+# sr-el:Lactobacillus
+sv:Lactobacillus
+te:లాక్టోబాసిల్లస్
+th:Lactobacillus
+tl:Lactobacillus
+tr:Lactobacillus
+uk:Lactobacillus
+# wuu:乳杆菌属
+zh:乳桿菌屬
+# zh-hans:乳杆菌属
+# zh-hant:乳桿菌屬
+# zh-hk:乳桿菌屬
+wikidata:en:Q1061596
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus
+
+
+# description:en:LACTOBACILLUS ACIDOPHILUS is a species of gram positive bacteria in the genus Lactobacillus. L. acidophilus is a homofermentative, microaerophilic species, fermenting sugars into lactic acid. These strains are commercially used in many dairy products in the production of acidophilus-type yogurt.
+
+<en:Lactobacillus
+en:Lactobacillus acidophilus, L. acidophilus
+ar:عصية لبنية حمضية
+# ast:Lactobacillus acidophilus, L. acidophilus
+bg:Lactobacillus acidophilus, L. acidophilus
+ca:Lactobacillus acidophilus, L. acidophilus
+da:Lactobacillus acidophilus, L. acidophilus
 de:Lactobacillus acidophilus, L. acidophilus
+es:Lactobacillus acidophilus, L. acidophilus
+eu:Lactobacillus acidophilus, L. acidophilus
+fa:لاکنوباسیلوس اسیدوفیلوس
+fi:Lactobacillus acidophilus, L. acidophilus
+fr:Lactobacillus acidophilus, L. acidophilus
+hu:Lactobacillus acidophilus
+id:Lactobacillus acidophilus
+kk:Ацидофилин таяқшасы
+# kk-arab:اتسىيدوفىيلىين تاياقشاسى
+# kk-cn:اتسىيدوفىيلىين تاياقشاسى
+# kk-cyrl:Ацидофилин таяқшасы
+# kk-kz:Ацидофилин таяқшасы
+# kk-latn:Acïdofïlïn tayaqşası
+# kk-tr:Acïdofïlïn tayaqşası
+la:Lactobacillus acidophilus
+mk:Lactobacillus acidophilus
 nl:Lactobacillus acidophilus, L. acidophilus
+pl:Lactobacillus acidophilus
+pt:Lactobacillus acidophilus
+ro:Lapte acidofil
+ru:Lactobacillus acidophilus, Ацидофильная палочка
+sl:Lactobacillus acidophilus
+uk:Lactobacillus acidophilus
+vi:Lactobacillus acidophilus
+zh:嗜酸乳桿菌
+# zh-cn:嗜酸乳酸杆菌
+# zh-hans:嗜酸乳酸杆菌
+# zh-hant:嗜酸乳酸桿菌
+# zh-hk:嗜酸乳酸桿菌
+# zh-sg:嗜酸乳酸杆菌
+# zh-tw:嗜酸乳酸菌
+wikidata:en:Q132644
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
 
-# description:en:Lactobacillus delbrueckii subsp. bulgaricus (until 2014 known as Lactobacillus bulgaricus) is the main bacteria used for the production of yogurt. 
+# description:en:LACTOBACILLUS DELBRUECKII SUBSP. BULGARICUS (until 2014 known as Lactobacillus bulgaricus) is the main bacteria used for the production of yogurt. 
 
-<en:lactic ferments
+<en:Lactobacillus
 en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus
 cs:Lactobacillus bulgaricus, L. bulgaricus
 da:Lactobacillus bulgaricus, L. bulgaricus
@@ -8972,45 +9055,153 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulg
 # ingredient/Lactobacillus-bulgaricus has 157 products in 13 languages @2019-07-08
 
 
-# description:en:LACTOBACILLUS CASEI is a species of genus Lactobacillus found in the human urinary tract and mouth. 
+# description:en:LACTOBACILLUS CASEI is a species of genus Lactobacillus found in the human urinary tract and mouth. The most common application of L. casei is industrial, specifically for dairy production.
 
-<en:lactic ferments
+<en:Lactobacillus
 en:lactobacillus casei
+ar:ملبنة مجبنة
+# ast:Lactobacillus casei
+bg:Lactobacillus casei
+ca:Lactobacillus casei
 de:Lactobacillus casei
+es:Lactobacillus casei
+eu:Lactobacillus casei
 fr:Lactobacillus casei
 it:lactobacillus casei
-la:Lactobacillus casei 
+ko:락토바실러스 카제이
+la:Lactobacillus casei
+ms:Lactobacillus casei
+oc:Lactobacillus casei
+pl:Lactobacillus casei
+pt:Lactobacillus casei
+ro:Lactobacillus casei
 ru:Lactobacillus Casei
+tl:Lactobacillus casei
+uk:Lactobacillus casei
+vi:Lactobacillus casei
 zh:乾酪乳酸桿菌
 wikidata:en:Q139777
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_casei
 # ingredient/lactobacillus-casei has 77 products in 6 languages @2019-07-08
 
 <en:lactobacillus casei
-it: L.casei 431
+it:L.casei 431
 
-<en:lactic ferments
+# description:en:LACTOBACILLUS HELVETICUS is a lactic-acid producing, rod-shaped bacterium of the genus Lactobacillus. It is most commonly used in the production of American Swiss cheese and Emmental cheese, but is also sometimes used in making other styles of cheese, such as Cheddar, Parmesan, Romano, provolone, and mozzarella.
+
+<en:Lactobacillus
 de:Lactobacillus Helvetica
+fr:Lactobacillus helveticus
+it:Lactobacillus helveticus
+nl:Lactobacillus helveticus
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_helveticus
 
-<en:lactic ferments
+<en:Lactobacillus
+en:Lactobacillus lactis, Lactobacillus delbrueckii
+bg:Lactobacillus lactis
 de:Lactobacillus lactis
+es:Lactobacillus lactis
+fr:Lactobacillus lactis
+it:Lactobacillus lactis
+la:Lactobacillus lactis
+nl:Lactobacillus lactis
+ru:Lactobacillus lactis
+uk:Lactobacillus lactis
+wikidata:en:Q62877111
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii
 
-<en:lactic ferments
+# description:en:LACTOBACILLUS PLANTARUM is a widespread member of the genus Lactobacillus, commonly found in many fermented food products
+
+<en:Lactobacillus
+en:Lactobacillus plantarum
+# ast:Lactobacillus plantarum
+bg:Lactobacillus plantarum
+ca:Lactobacillus plantarum
 de:Lactobacillus plantarum
+fr:Lactobacillus plantarum
+it:Lactobacillus plantarum
+la:Lactobacillus plantarum
+nb:Lactobacillus plantarum
+nl:Lactobacillus plantarum
+pl:Lactobacillus plantarum
+pt:Lactobacillus plantarum
+ro:Lactobacillus plantarum
+ru:Lactobacillus plantarum
+sr:Lactobacillus plantarum
+uk:Lactobacillus plantarum
+zh:植物乳桿菌
+# zh-tw:胚芽乳酸菌
+wikidata:en:Q1756682
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_plantarum
 
-<en:lactic ferments
+# description:en:LACTOBACILLUS REUTERI is a Gram-positive bacterium that naturally inhabits the gut of mammals and birds. Although L. reuteri occurs naturally in humans, it is not found in all individuals. Dietary supplementation can sustain high levels of it in those with deficiencies.
+
+<en:Lactobacillus
+en:Lactobacillus reuteri
+# ast:Lactobacillus reuteri
+bg:Lactobacillus reuteri
 de:Lactobacillus reuteri
+es:Lactobacillus reuteri
+fr:Lactobacillus reuteri
+id:Lactobacillus reuteri
+it:Lactobacillus reuteri
+ja:ラクトバチルス・ロイテリ菌
+ka:Lactobacillus reuteri
+la:Lactobacillus reuteri
+nl:Lactobacillus reuteri
+pl:Lactobacillus reuteri
+ro:Lactobacillus reuteri
+ru:Lactobacillus reuteri
+uk:Lactobacillus reuteri
+zh:羅伊乳桿菌
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_reuteri
+wikidata:en:Q597078
 
-<en:lactic ferments
+# description:en:LACTOBACILLUS RHAMNOSUS sometimes is used in yogurt and dairy products such as fermented and unpasteurized milk and semi-hard cheese. 
+
+<en:Lactobacillus
+en:Lactobacillus rhamnosus
+# ast:Lactobacillus rhamnosus
+bg:Lactobacillus rhamnosus
+ca:Lactobacillus rhamnosus
+da:Lactobacillus rhamnosus
 de:Lactobacillus rhamnosus
+es:Lactobacillus rhamnosus
+fr:Lactobacillus rhamnosus
 fi:Lactobacillus rhamnosus
+it:Lactobacillus rhamnosus
+ja:ラクトバチルスラムノーザス
+ko:락토바실러스
+nl:Lactobacillus rhamnosus
+pl:Lactobacillus rhamnosus
+ro:Lactobacillus rhamnosus
 ru:Lactobacillus Rhamnosus
+uk:Lactobacillus rhamnosus
+wikidata:en:Q1607640
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_rhamnosus
+
+# description:en:BACILLUS COAGULANS is a lactic acid-forming bacterial species. B. coagulans is often marketed as Lactobacillus sporogenes or a 'sporeforming lactic acid bacterium' probiotic, but this is an outdated name due to taxonomic changes in 1939.
 
 <en:lactic ferments
-de:Lactobacillus sporogenes
+en:Bacillus coagulans
+# ast:Bacillus coagulans
+bg:Bacillus coagulans
+ca:Bacillus coagulans
+de:Bacillus coagulans, Lactobacillus sporogenes
+es:Bacillus coagulans
+eu:Bacillus coagulans
+fr:Bacillus coagulans
+la:Bacillus coagulans
+it:Bacillus coagulans
+nl:Bacillus coagulans
+pt:Bacillus coagulans
+ro:Bacillus coagulans
+uk:Bacillus coagulans
+zh:芽孢乳酸菌
+# zh-tw:凝結桿菌
+wikidata:en:Q2603895
+wikipedia:en:https://en.wikipedia.org/wiki/Bacillus_coagulans
 
-<en:lactic ferments
-de:Lactobacillus thermophilus
 
 
 <en:lactic ferments
