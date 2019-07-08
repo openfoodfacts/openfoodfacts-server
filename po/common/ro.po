@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-26 14:14\n"
+"PO-Revision-Date: 2019-07-08 13:43\n"
 "Language-Team: Romanian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -733,7 +733,7 @@ msgstr "Presa"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/press"
+msgstr "/presa"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -948,7 +948,7 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -1295,7 +1295,7 @@ msgstr "Adaugă un produs"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr "/add-a-product"
+msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1304,7 +1304,7 @@ msgstr "Contribuiți"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/contribute"
+msgstr "/contribuiți"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1313,7 +1313,7 @@ msgstr "Descoperiți"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/discover"
+msgstr "/descoperiți"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1426,7 +1426,7 @@ msgstr "Valori nutriționale pentru 100g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/nutrient-levels"
+msgstr "/valori-nutritionale"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2328,6 +2328,10 @@ msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Ordonează după"
 
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr ""
+
 msgctxt "sort_created_t"
 msgid "Add date"
 msgstr "Data adăugării"
@@ -3220,7 +3224,7 @@ msgid "Help translate the %s to %s"
 msgstr ""
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
 msgstr ""
 
 msgctxt "translate_taxonomy_add"
@@ -3254,4 +3258,24 @@ msgstr "Nu"
 msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr ""
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr ""
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr ""
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "Analiza ingredientelor"
 
