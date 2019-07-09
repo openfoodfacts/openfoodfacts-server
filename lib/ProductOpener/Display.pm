@@ -9045,7 +9045,7 @@ sub display_rev_info {
 	}
 	$comment =~ s/\new image \d+( -)?//;
 	if ($comment ne '') {
-		$comment = "<p>Comment: $comment</p>";
+		$comment = "<p> ${\lang('edit_comment')}: $comment</p>";
 	}
 
 
