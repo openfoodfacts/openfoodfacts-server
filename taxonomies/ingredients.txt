@@ -10,7 +10,8 @@ cs:Složení
 da:indeholder
 de:Zutaten, Zusammensetzung
 es:composición
-et:Koostisainsd, koostis
+et:Koostisainsd, koostis, Koostisosad
+fa:الكوتات
 fi:ainenosat
 fr:ingrédient, ingrédients, composition
 hu:összetétel
@@ -20,7 +21,8 @@ it:ingredienti, composizione
 kk:Курамы
 ky:Курамы
 lt:Sudedamosios dalys, Sudėtis
-lv:sastāvs
+lv:sastāvs, Sastāvdalas
+nb:Ingredienser
 nl:ingrediënt, ingrediënten, samenstelling, bestanddelen
 pl:skład, Skladniki
 pt:composição
@@ -8669,9 +8671,9 @@ vegetarian:en:maybe
 
 
 # description:en:ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
-#
+# comment:en:Although enzyme and ferment are the same from a biological point of view, it is unclear how it is used in the food context.
 
-<en:ferment
+# <en:ferment
 en:enzyme
 af:ensiem
 an:enzima
@@ -8782,22 +8784,31 @@ vegan:en:maybe
 vegetarian:en:maybe
 # ingredient/enzyme has 20643 products in 23 languages @2019-07-08
 
-<en:enzyme
+# comment:en:The list of products is very very wrong. So uncommenting it for the moment.
+# comment:en:en:coagulating enzyme Might need to be merged with en:rennet.
+
+# en:enzyme
 en:coagulating enzyme
 fr:enzyme coagulante, enzymes coagulantes, coagulant enzymatique
-nl:stremmingsenzymen
+pt:coagulante
+nl:stremmingsenzymen, stollingsmiddel
 vegan:en:maybe
 vegetarian:en:maybe
-# ingredient/coagulating%20enzyme has 6348 products in 20 languages @2019-07-08
+# ingredient/coagulating%20enzyme has 8697 products in 33 languages @2019-07-09
 
 <en:coagulating enzyme
-en:microbial coagulating enzyme
+en:microbial coagulating enzyme, microbial enzyme
+de:vegetarisches Lab
+es:coagulante de leche microbiano
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
-nl:microbiële stremmingsenzymen
+it:enzima microbico, caglio microbico
+nl:microbiële stremmingsenzymen, vegetarisch stremsel, microbieel stremsel, microbieel stremmiddel
+# ingredient/microbial-coagulating-enzyme has 453 products in 7 languages @2019-07-09
 vegan:en:yes
 vegetarian:en:yes
 
 # description:en:A microbiological culture, or microbial culture, is a method of multiplying microbial organisms by letting them reproduce in predetermined culture medium under controlled laboratory conditions. All cultures in food are microbial cultures
+# comment:en:Should this be kept separate from lactic ferments?
 
 <en:ferment
 en:microbial culture, culture
@@ -8809,16 +8820,14 @@ nova:en:3
 vegan:en:maybe
 vegetarian:en:maybe
 
-<en:microbial culture
-en:cheese culture
-de:Käsekultur
-# ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
-
 # description:en:Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
+# comment:en:All vegan sites state that industrial produced lactic ferments is vegan. Unclear if exceptions do occur. Still need an authoritative source for this.
+# comment:en:A wide variety of synonyms are used, but they all seem to point to the same bacteria.
 
 <en:microbial culture
-en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien
+en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
+da:yoghurtkultur
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur
 el:γαλακτικά ένζυμα 
 es:fermentos lácticos, cultivos lácticos 
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
@@ -8826,13 +8835,12 @@ hu:tejsavbaktériumok
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nl:melkfermenten, melkkiemen, Melkzuurbacteriën
 pl:żywe kultury bakterii jogurtowych
-pt:fermentos lácteos, culturas lácteas
-# fr:ferments-lactique has 6494 products in 12 languages @2018-11-02
-# fr:culture-de-bactéries-lactiques has 19 products @2018-11-02
+pt:fermentos lácteos, culturas lácteas, leveduras lacteas
+ru:Молочные ферменты, пробиотические микроорганизмы 
+# fr:ferments-lactique has 10437 products in 23 languages @2019-07-09
 vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
-# ingredient/fr:culture-de-bactéries-lactiques has 19 products in 3 languages @2018-12-27
 
 <en:lactic ferments
 en:vegan lactic ferments
@@ -8854,19 +8862,11 @@ nl:melk- en rijpingsfermenten
 pt:fermentos lácticos e de maturação
 # ingredient/lactic-and-aging-ferments has 500 products in 10 languages @2019-05-18
 
-<fr:ferments d'affinage
 <en:lactic ferments
-fr:ferments lactiques et d'affinage
-es:fermentos lácticos y de maduración
-pt:fermentos lácticos e de maturação
-# fr:ferments-lactiques-et-d’affinage has 419 products in 10 languages @2018-11-02
-
-<en:lactic ferments
+en:selected lactic ferments
 fr:ferments lactiques sélectionnés
 nl:geselecteerde fermenten
-# fr:ferments-lactiques-sélectionnés has 124 products in 2 languages @2018-11-02
-
-# comment:en: all industrial produced lactic ferments are vegan
+# fr:ferments-lactiques-sélectionnés has 140 products in 2 languages @2019-07-09
 
 
 
@@ -8904,21 +8904,72 @@ wikidata:en:Q132656
 wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium
 # ingredient/bifidus has 942 products in 10 languages @2019-07-08
 
+# description:en:BIFIDOBACTERIUM BIFIDUM is a bacterial species of the genus Bifidobacterium. B. bifidum is one of the most common probiotic bacteria that can be found in the body of mammals, including humans.
+
 <en:bifidus
+en:Bifidobacterium bifidum
+# ast:Bifidobacterium bifidum
+bg:Bifidobacterium bifidum
+ca:Bifidobacterium bifidum
 de:Bifidobacterium bifidum
+es:Bifidobacterium bifidum
+fr:Bifidobacterium bifidum
+it:Bifidobacterium bifidum
+la:Bifidobacterium bifidum
+nl:Bifidobacterium bifidum
+# pt-br:Bifidobacterium bifidum
+ro:Bifidobacterium bifidum
+ru:Bifidobacterium bifidum
+uk:Bifidobacterium bifidum
+zh:比菲德氏菌
+# zh-tw:比菲德氏菌
+wikidata:en:Q2902072
+wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_bifidum
+
+# description:en:BIFIDOBACTERIUM ANIMALIS is a gram-positive, anaerobic, rod-shaped bacterium of the Bifidobacterium genus which can be found in the large intestines of humans. Both old names B. animalis and B. lactis are still used on product labels, as this species is frequently used as a probiotic. In most cases, which subspecies is used in the product is not clear. Several companies have attempted to trademark particular strains, and as a marketing technique, have invented scientific-sounding names for the strains.
 
 <en:bifidus
-de:Bifidobacterium Infantis
-
-<en:bifidus
+en:Bifidobacterium lactis, Bifidobacterium animalis
+# ast:Bifidobacterium lactis
+bg:Bifidobacterium lactis
+de:Bifidobacterium lactis
+es:Bifidobacterium lactis
 fi:Bifidobacterium lactis
+fr:Bifidobacterium lactis
 it:Bifidobacterium Lactis
 la:Bifidobacterium lactis, b. lactis
+nl:Bifidobacterium lactis
 pl:Bifidobacterium lactis
+ru:Bifidobacterium lactis
+uk:Bifidobacterium lactis
 wikidata:en:Q62854400
+wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_animalis
+
+# description:en:BIFIDOBACTERIUM LONGUM is a Gram-positive, catalase-negative, rod-shaped bacterium present in the human gastrointestinal tract. B. longum is non-pathogenic and is often added to food products.
 
 <en:bifidus
-de:Bifidobacterium longum
+en:Bifidobacterium longum
+# ast:Bifidobacterium longum
+bg:Bifidobacterium longum
+de:Bifidobacterium longum, Bifidobacterium Infantis
+es:Bifidobacterium longum
+fr:Bifidobacterium longum
+he:ביפידובקטריה
+id:Bifidobacterium longum
+it:Bifidobacterium longum
+ko:비피도박테리움 룽검
+la:Bifidobacterium longum
+nl:Bifidobacterium longum
+nn:Bifidobacterium longum
+ro:Bifidobacterium longum
+ru:Bifidobacterium longum
+uk:Bifidobacterium longum
+zh:龍根菌
+# zh-cn:长双歧杆菌
+# zh-hans:长双歧杆菌
+# zh-hant:長雙歧桿菌
+wikidata:en:Q4904768
+wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_longum
 
 # description:en:Danone decided to add a probiotic strain: BIFIDUS ACTIREGULARIS. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
 
