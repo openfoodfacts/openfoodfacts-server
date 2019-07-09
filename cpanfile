@@ -47,6 +47,7 @@ requires 'XML::Rules';
 requires 'Email::Stuffer';
 requires 'Text::CSV', '>= 1.99, < 2.0';
 requires 'Text::Fuzzy';
+requires 'Try::Tiny', '>= 0.30';
 requires 'File::Copy::Recursive';
 
 # Logging
