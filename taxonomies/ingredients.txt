@@ -9299,6 +9299,8 @@ nl:geselecteerde fermenten
 pt:fermentos selecionados
 # ingredient/fr:ferments-sélectionnés has 134 products in 7 languages @2019-07-08
 
+# description:en:RENNET is a complex set of enzymes produced in the stomachs of ruminant mammals. Chymosin, its key component, is a protease enzyme that curdles the casein in milk
+
 <en:coagulating enzyme
 en:rennet
 an:Cuallo
@@ -9351,9 +9353,11 @@ zh:凝乳酶
 wikidata:en:Q326900
 wikipedia:en:https://en.wikipedia.org/wiki/Rennet
 # ingredient/rennet has 5568 products in 19 languages @2019-07-08
-vegan:en:no
-vegetarian:en:no
+vegan:en:maybe
+vegetarian:en:maybe
 
+# description:en:CALF RENNET is extracted from the inner mucosa of the fourth stomach chamber (the abomasum) of young, unweaned calves as part of livestock butchering.
+# comment:en:It seems that this is always calf rennet.
 
 <en:rennet
 en:animal-based rennet
@@ -9369,12 +9373,16 @@ vegan:en:no
 vegetarian:en:no
 # ingredient/animal-based-rennet has 664 products in 5 languages @2019-07-08
 
+# description:en:CALF RENNET is extracted from the inner mucosa of the fourth stomach chamber (the abomasum) of young, unweaned calves as part of livestock butchering.
+
 <en:animal-based rennet
 en:calf rennet
 fr:présure de veau
 es:cuajo bovino
 nl:kalfsstremsel
 # fr:présure-de-veau has 40 products in 2 languages @2019-07-08
+
+# description:en:Some molds such as Rhizomucor miehei are able to produce proteolytic enzymes. Cheeses produced this way are suitable for vegetarians, provided no animal-based alimentation was used during the production.
 
 <en:rennet
 en:microbial rennet
@@ -9394,8 +9402,8 @@ vegan:en:yes
 vegetarian:en:yes
 
 
-# Amylase are enzymes that catalyse the hydrolysis of starch into sugars. 
-# when indicated, it is probably alpha-amylase is meant
+# description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars. 
+# coment:en:when indicated, it is probably alpha-amylase is meant
 
 <en:enzyme
 en:amylase
