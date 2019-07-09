@@ -1,3 +1,27 @@
+#This file uses the following structure:
+#- A compliance set defines the rules for product cross sections. This can be allergen rules (gluten free), origin rules (sustainable palm free), religious rules (halal), etc. Each set can have multiple compliancy levels. There will always be a default compliancy level. Each compliancy set is preceded by a comment ("compliance set X section") for easy human reading. A compliancy set is defined by a tag, such as *gluten free compliant*  . A human understandable tag is preferred.
+#- A compliancy set should comprise of two or more levels. These levels are ordered, so that one level can be more compliant than the other. This order is indicated by an positive number (a higher number implies better compliance). Thus a compliancy level consists of a compliancy set tag and a number (*vegan compliant:en:level:en:3*).
+#- Each compliancy as a default compliancy level. The default simplifies the definition of a compliancy set. A product has a default compliancy level, unless one of the other levels is triggered. The default can be any of the levels of a compliancy set. The default is defined by for instance: *nova level compliant:en:default:en:yes* is added on a separate line.
+#- In order to understand each level better, an explanatory tag can be added, such as *pescatarianism compliant:en:label:en:product contains certification label*. This could be used as key for translation purposes.
+#- A compliancy level tag is followed by one or more taxonomy keys. These taxonomy keys act as triggers for a level. A taxonomy consists of the name of the relevant taxonomy and the key within that taxonomy. For instance *additive:en:E962*. For human readability keys from the same taxonomy should be kept together and the keys should be alphabetically ordered.
+#
+#
+#Each product can be matched against one or more compliancy sets. The information of each product is analysed and matched against the taxonomies. The product keys can then be matched against the keys listed in each compliancy set. This matching should include all the parents that are available in the taxonomies. If the keys are matched the corresponding level is triggered.
+#
+#It might occur that triggers contradict each other. This can be due to contradictory information on the product itself or issues with the determination of the product keys. These could be flagged as quality issues. For instance a product with beef and a vegetarian label is clearly wrong.
+#
+#These contradictions might imply that one level takes precedence over another level. The principle is that the higher level is right. For instance a product might contain ingredients that trigger nova level 1, but just one nova level 4 ingredient might triggers level 4 and that will be assigned to the entire product.
+#
+#There is also the possibility that a parent and child key contradict each other. In that case the child is right, as it contains more specific information. For instance a product might have the ingredient *en:fat*, which origin is animal or vegetable, and the ingredient *en:palm*, which is definitely from vegetable origin. Then the *en:palm* key takes prevalence. (is this always true?)
+#
+#
+#In order to maintain the integrity of the compliant file, several tests can be performed:
+#- One can define the compliancy set internal integrity in multiple ways.
+#    - No double levels
+#    - Taxonomy keys are unique over the entire compliancy set
+#    - Each compliancy set contains one and the same compliancy set tag 
+#- The taxonomy names should be one of the available enumerated taxonomies (ingredient, additive, category, label, mineral, enzyme, other).
+#- Each key should exist in the defined taxonomy.
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -5,10 +29,12 @@
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-novagroup:en:1
-# anything is nova 1, unless ....
+novagroup compliant:en:level:en:1
+novagroup compliant:en:default:en:yes
+novagroup compliant:en:label:en:unprocessed ingredients
 
-novagroup:en:2
+
+novagroup compliant:en:level:en:2
 category:en:fats
 category:en:salts
 category:en:vinegars
@@ -17,7 +43,7 @@ category:en:honeys
 category:en:maple-syrups
 category:en:spices
 
-novagroup:en:3
+novagroup compliant:en:level:en:3
 ingredient:en:preservative
 ingredient:en:salt
 ingredient:en:spice
@@ -64,7 +90,7 @@ additive:en:e250"  # sodium nitrite
 additive:en:e251"  # potassium nitrate
 additive:en:e252"  # sodium nitrite
 
-novagroup:en:4
+novagroup compliant:en:level:en:4
 ingredient:en:whey
 ingredient:en:milk-powder
 # tags only found in group 4
@@ -360,11 +386,12 @@ additive:en:e290 # carbon dioxyde
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                       A L L E R G E N S     S E C T I O N
+#                                        G L U T E N   A L L E R G E N    S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-gluten-free:en:no
+gluten-free compliant:en:1
+gluten-free compliant:en:label:ingredient contains gluten
 ingredient:en:gluten
 ingredient:en:wheat
 ingredient:en:emmer
@@ -382,8 +409,10 @@ ingredient:en:Petit-Beurre
 ingredient:en:crouton
 ingredient:en:wheat starch
 ingredient:en:müesli
+label:en:contains gluten
 
-gluten-free:en:maybe
+gluten-free compliant:en:level:en:2
+gluten-free compliant:en:label:en:ingredients possibly contains gluten
 ingredient:en:bran
 ingredient:en:cereal
 ingredient:en:coating
@@ -391,27 +420,117 @@ ingredient:en:tamari
 ingredient:en:cereal
 ingredient:en:cereal flour
 
-gluten-free:en:yes
+gluten-free compliant:en:level:en:3
+gluten-free compliant:en:label:en:The manufacturer uses eggs in its production facility
+trace:en:gluten
+
+gluten-free compliant:en:level:en:4
+gluten-free:en:default:en:yes
+gluten-free compliant:en:label:no ingredients based on eggs detected
+
+gluten-free compliant:en:level:en:5
+gluten-free:en:default:en:yes
+gluten-free compliant:en:label:the product is labeled as gluten free
+label:en:gluten-free
+
+gluten-free compliant:en:6
+gluten-free compliant:en:label:the product has a gluten free certification label
+label:en:FACE
 label:fr:afdiag
 
-egg-free:en:no
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                        E G G   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+egg-free compliant:en:level:en:1
+egg-free compliant:en:label:en:Ingredients based on eggs have been detected
 ingredient:en:egg
 
-fish-free:en:no
+egg-free compliant:en:level:en:2
+egg-free compliant:en:label:en:The manufacturer uses eggs in its production facility
+trace:en:eggs
+
+egg-free compliant:en:level:en:3
+egg-free compliant:en:label:en:No ingredients based on eggs have been detected
+egg-free:en:default:en:yes
+
+egg-free compliant:en:level:en:4
+egg-free compliant:en:label:en:The product is labeled as egg free
+label:en:No eggs
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                        F I S H   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+fish-free compliant:en:level:en:1
+fish-free compliant:en:label:en:Ingredients based on fish have been detected
 # ingredient:from:en:fish
 ingredient:en:fish
 ingredient:en:fish oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 
-peanut-free:en:no
+fish-free compliant:en:level:en:2
+fish-free compliant:en:label:en:The manufacturer uses fish in its production facility
+trace:en:fish
+
+fish-free compliant:en:level:en:3
+fish-free compliant:en:label:en:No ingredients based on fish have been detected
+fish-free:en:default:en:yes
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                        P E A N U T S   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+peanut-free compliant:en:level:en:1
+peanut-free compliant:en:label:en:Ingredients based on peanut have been detected
 ingredient:en:peanut
 ingredient:en:peanut oil
 
-crustacean-free:en:no
+peanut-free compliant:en:level:en:2
+peanut-free compliant:en:label:en:The manufacturer uses peanut in its production facility
+trace:en:peanuts
+
+peanut-free compliant:en:level:en:3
+peanut-free compliant:en:label:en:No ingredients based on peanut have been detected
+peanut-free:en:default:en:yes
+
+peanut-free compliant:en:level:en:4
+peanut-free compliant:en:label:en:The product is labeled as peanut free by the manufacturer
+label:en:peanut free
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                        C R U S T A C E A N S   A L L E R G E N   S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+crustacean-free compliant:en:level:en:1
+crustacean-free compliant:en:label:en:Ingredients based on crustacean have been detected
 ingredient:en:crustacean
 
-soya-free:en:no
+crustacean-free compliant:en:level:en:2
+crustacean-free compliant:en:label:en:The manufacturer uses crustacean in its production facility
+trace:en:crustaceans
+
+crustacean-free compliant:en:level:en:3
+crustacean-free compliant:en:label:en:No ingredients based on crustacean have been detected
+crustacean-free:en:default:en:yes
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                        S O Y A   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+soya-free compliant:en:level:en:1
+soya-free compliant:en:label:en:Ingredients based on soya have been detected/claimed
 ingredient:en:soya
 ingredient:en:soya
 ingredient:en:soya oil
@@ -421,11 +540,33 @@ ingredient:en:tofu
 ingredient:en:soy preparation
 ingredient:en:soy sauce
 ingredient:en:soya lecithin
+label:en:en:Contains soy
 
-soya-free:en:maybe
+soya-free compliant:en:level:en:2
+soya-free compliant:en:label:en:Ingredients that might be based on soya have been detected
 ingredient:en:E476
 
-milk-free:en:no
+soya-free compliant:en:level:en:3
+soya-free compliant:en:label:en:No ingredients based on soya have been detected
+soya-free:en:default:en:yes
+
+soya-free compliant:en:level:en:4
+soya-free compliant:en:label:en:The manufacturer uses soya in its production facility
+trace:en:soya
+
+soya-free compliant:en:level:en:5
+soya-free compliant:en:label:en:The product is labeled as soya free by the manufacturer
+label:en:No soja lecithine
+label:en:no soy
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                        M I L K   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+milk-free compliant:en:level:en:1
+milk-free compliant:en:label:en:Ingredients based on milk have been detected/claimed
 ingredient:en:dairy
 ingredient:en:lactose
 ingredient:en:milk minerals
@@ -435,7 +576,29 @@ ingredient:en:milk filling
 ingredient:en:ice cream
 ingredient:en:bechamel sauce
 
-nut-free:en:no
+milk-free compliant:en:level:en:2
+milk-free compliant:en:label:en:No ingredients based on milk have been detected
+milk-free:en:default:en:yes
+
+milk-free compliant:en:level:en:3
+milk-free compliant:en:label:en:The manufacturer uses milk in its production facility
+trace:en:milk
+
+
+milk-free compliant:en:level:en:4
+milk-free compliant:en:label:en:The product is labeled as milk free by the manufacturer
+label:en:No milk
+label:en:Without addition of dairy products
+label:en:No lactose
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                        N U T S   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+nuts-free compliant:en:level:en:1
+nuts-free compliant:en:label:en:Ingredients based on nut have been detected
 ingredient:en:nut
 ingredient:en:peanut
 ingredient:en:crocant
@@ -446,46 +609,169 @@ ingredient:en:walnut oil
 ingredient:en:hazelnut oil
 ingredient:en:pink peppercorn
 
-celery-free:en:no
+nuts-free compliant:en:level:en:2
+nuts-free compliant:en:label:en:No ingredients based on nuts have been detected
+nuts-free:en:default:en:yes
+
+nuts-free compliant:en:level:en:3
+nuts-free compliant:en:label:en:The manufacturer uses nuts in its production facility
+trace:en:nuts
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                        C E L E R Y   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+celery-free compliant:en:level:en:1
+celery-free compliant:en:label:en:Ingredients based on celery have been detected
 ingredient:en:celery
 ingredient:en:celeraic
 
-mustard-free:en:no
+celery-free compliant:en:level:en:2
+celery-free compliant:en:label:en:No ingredients based on celery have been detected
+celery-free:en:default:en:yes
+
+celery-free compliant:en:level:en:3
+celery-free compliant:en:label:en:The manufacturer uses celery in its production facility
+trace:en:celery
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                     M U S T A R D   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+mustard-free compliant:en:level:en:1
+mustard-free compliant:en:label:en:Ingredients based on mustard have been detected
 ingredient:en:mustard
 ingredient:en:brassica
 
-sesame-free:en:no
+mustard-free compliant:en:level:en:2
+mustard-free compliant:en:label:en:No ingredients based on mustard have been detected
+mustard-free:en:default:en:yes
+
+mustard-free compliant:en:level:en:3
+mustard-free compliant:en:label:en:The manufacturer uses mustard in its production facility
+trace:en:mustard
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                    S E S A M E   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+sesame-free compliant:en:level:en:1
+sesame-free compliant:en:label:en:Ingredients based on sesame have been detected
 ingredient:en:sesame
 ingredient:en:sesame oil
 
-lupin-free:en:maybe
+sesame-free compliant:en:level:en:2
+sesame-free compliant:en:label:en:No ingredients based on sesame have been detected
+sesame-free:en:default:en:yes
+
+sesame-free compliant:en:level:en:3
+sesame-free compliant:en:label:en:The manufacturer uses sesame in its production facility
+trace:en:sesame
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                    L U P I N   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+lupin-free compliant:en:level:en:1
+lupin-free compliant:en:label:en:Ingredients based on lupin have been detected
 ingredient:en:lupin
 
-mollusc-free:en:no
+lupin-free compliant:en:level:en:2
+lupin-free compliant:en:label:en:No ingredients based on lupin have been detected
+lupin-free:en:default:en:yes
+
+lupin-free compliant:en:level:en:3
+lupin-free compliant:en:label:en:The manufacturer uses lupin in its production facility
+trace:en:lupin
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                    M O L L U S C S   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+mollusc-free compliant:en:level:en:1
+mollusc-free compliant:en:label:en:Ingredients based on mollusc have been detected
 ingredient:en:molluscs
 
-sulphur dioxide and sulphites-free:en:no
+mollusc-free compliant:en:level:en:2
+mollusc-free compliant:en:label:en:No ingredients based on mollusc have been detected
+mollusc-free:en:default:en:yes
+
+mollusc-free compliant:en:level:en:3
+mollusc-free compliant:en:label:en:The manufacturer uses mollusc in its production facility
+trace:en:mollusc
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                  S U L P H E R +   A L L E R G E N    S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+sulphur dioxide and sulphites-free compliant:en:level:en:1
+sulphur dioxide and sulphites-free compliant:en:label:en:Ingredients based on sulphur dioxide and sulphites have been detected
 ingredient:en:sulfite
 ingredient:en:sulphur dioxide
 additive:en:E220
 additive:en:E221
+label:en:With sulfites
+
+sulphur dioxide and sulphites-free compliant:en:level:en:2
+sulphur dioxide and sulphites-free compliant:en:label:en:No ingredients based on sulphur dioxide and sulphites have been detected
+sulphur dioxide and sulphites-free:en:default:en:yes
+
+sulphur dioxide and sulphites-free compliant:en:level:en:3
+sulphur dioxide and sulphites-free compliant:en:label:en:The manufacturer uses sulphur dioxide and sulphites in its production facility
+trace:en:sulfites
+
+sulphur dioxide and sulphites-free compliant:en:level:en:4
+sulphur dioxide and sulphites-free compliant:en:label:en:The manufacturer added sulphite/sulfur free labels to its product
+label:en:Without sulfites
+label:en:Without sulfur
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                       P A L M O I L - F R E E     S E C T I O N
+#                         U N S U S T A I N A B L E   P A L M O I L   F R E E     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-palm oil free:en:no
+unsustainable palm oil free compliant:en:level:en:1
+unsustainable palm oil free compliant:en:label:en:Ingredients based on unsustainable palm oil have been detected
 ingredient:en:palm
 ingredient:en:palm oil and fat
 ingredient:en:palm kernel oil and fat
 additive:en:E304i
 
-palm oil free:en:maybe
+unsustainable palm oil free compliant:en:level:en:2
+unsustainable palm oil free compliant:en:label:en:Ingredients that might be based on unsustainable palm oil have been detected
 ingredient:en:vegetable oil and fat
 additive:en:E304
 additive:en:glycerol monostearate
+
+unsustainable palm oil free compliant compliant:en:level:en:3
+unsustainable palm oil free compliant compliant:en:label:en:No ingredients based on unsustainable palm oil have been detected
+unsustainable palm oil free compliant:en:default:en:yes
+
+unsustainable palm oil free compliant compliant:en:level:en:4
+unsustainable palm oil free compliant compliant:en:label:en:The manufacturer added palm oil free labels to its product
+label:en:Palm oil free
+
+unsustainable palm oil free compliant compliant:en:level:en:5
+unsustainable palm oil free compliant compliant:en:label:en:The manufacturer added sustainable palm oil free labels to its product
+label:en:Sustainable Palm Oil
+
+unsustainable palm oil free compliant compliant:en:level:en:6
+unsustainable palm oil free compliant compliant:en:label:en:The manufacturer certified sustainable palm oil labels to its product
+label:en:Roundtable on Sustainable Palm Oil
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
