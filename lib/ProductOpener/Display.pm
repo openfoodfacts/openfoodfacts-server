@@ -6799,7 +6799,7 @@ HTML
 	if (defined $rev) {
 		$html .= display_rev_info($code, $rev);
 	}
-	if (not has_tag($product_ref, "states", "en:complete") and not defined $rev) {
+	elsif (not has_tag($product_ref, "states", "en:complete")) {
 
 		$html .= <<HTML
 <div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
