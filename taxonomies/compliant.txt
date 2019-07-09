@@ -757,20 +757,20 @@ ingredient:en:vegetable oil and fat
 additive:en:E304
 additive:en:glycerol monostearate
 
-unsustainable palm oil free compliant compliant:en:level:en:3
-unsustainable palm oil free compliant compliant:en:label:en:No ingredients based on unsustainable palm oil have been detected
+unsustainable palm oil free compliant:en:level:en:3
+unsustainable palm oil free compliant:en:label:en:No ingredients based on unsustainable palm oil have been detected
 unsustainable palm oil free compliant:en:default:en:yes
 
-unsustainable palm oil free compliant compliant:en:level:en:4
-unsustainable palm oil free compliant compliant:en:label:en:The manufacturer added palm oil free labels to its product
+unsustainable palm oil free compliant:en:level:en:4
+unsustainable palm oil free compliant:en:label:en:The manufacturer added palm oil free labels to its product
 label:en:Palm oil free
 
-unsustainable palm oil free compliant compliant:en:level:en:5
-unsustainable palm oil free compliant compliant:en:label:en:The manufacturer added sustainable palm oil free labels to its product
+unsustainable palm oil free compliant:en:level:en:5
+unsustainable palm oil free compliant:en:label:en:The manufacturer added sustainable palm oil free labels to its product
 label:en:Sustainable Palm Oil
 
-unsustainable palm oil free compliant compliant:en:level:en:6
-unsustainable palm oil free compliant compliant:en:label:en:The manufacturer certified sustainable palm oil labels to its product
+unsustainable palm oil free compliant:en:level:en:6
+unsustainable palm oil free compliant:en:label:en:The manufacturer certified sustainable palm oil labels to its product
 label:en:Roundtable on Sustainable Palm Oil
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -875,14 +875,19 @@ ingredient:en:tea
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Kosher:en:no
+Kosher compliant:en:level:en:1
+Kosher compliant:en:label:en:Non-kosher ingredients have been detected
 
-Kosher:en:maybe
+Kosher compliant:en:level:en:2
+Kosher compliant:en:label:en:No non-kosher ingredients have been detected
+Kosher compliant:en:default:en:yes
 
-Kosher:en:claim
+Kosher compliant:en:level:en:3
+Kosher compliant:en:label:en:The manufacturer added a kosher label 
 label:en:Kosher
 
-Kosher:en:yes
+Kosher compliant:en:level:en:3
+Kosher compliant:en:label:en:The manufacturer added a certified kosher label 
 label:en:cRc Pareve
 label:en:Kof-K
 label:en:Kosher Supervision of America
@@ -910,6 +915,8 @@ label:en:Union of Orthodox Synagogues of South Africa
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+Halal compliant:en:level:en:1
+Halal compliant:en:label:en:Haram ingredients have been detected
 Halal:en:no # haram
 ingredient:en:alcohol
 ingredient:en:animal
@@ -919,7 +926,8 @@ additive:en:E428
 additive:en:E542
 additive:en:E904
 
-Halal:en:maybe # mushbooh
+Halal compliant:en:level:en:2
+Halal compliant:en:label:en:Mushbooh ingredients have been detected
 ingredient:en:rennet
 ingredient:en:vinegar
 additive:en:E312
@@ -955,10 +963,16 @@ additive:en:E640
 additive:en:E920
 additive:en:E921
 
-Halal:en:claim
+Halal compliant:en:level:en:3
+Halal compliant:en:label:en:No haram or mushbooh ingredients have been detected
+Halal compliant:en:default:en:yes
+
+Halal compliant:en:level:en:4
+Halal compliant:en:label:en:The manufacturer claims the ingredients are halal
 label:en:Halal
 
-Halal:en:yes
+Halal compliant:en:level:en:5
+Halal compliant:en:label:en:The manufacturer added a certified halal label
 label:fr:Association Culturelle Musulmane d’Ile de France
 label:fr:Association Rituelle de la Grande Mosquée de Lyon
 label:fr:A Votre Service
@@ -984,14 +998,16 @@ label:en:The Central Islamic Committee of Thailand
 
 # comment:en:Information on E-numbers is taken from http://www.food-info.net/
 
-Pollo-pescetarianism:en:no
+Pollo-pescetarianism compliant:en:level:en:1
+Pollo-pescetarianism compliant:en:label:en:Non-Pollo-pescetarianism ingredients have been detected
 ingredient:en:animal
 additive:en:E120
 additive:en:E428
 additive:en:E542
 additive:en:E904
 
-Pollo-pescetarianism:en:maybe
+Pollo-pescetarianism compliant:en:level:en:2
+Pollo-pescetarianism compliant:en:label:en:Possible non-Pollo-pescetarianism ingredients have been detected
 ingredient:en:rennet
 additive:en:E312
 additive:en:E387
@@ -1039,14 +1055,18 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+Pollo-pescetarianism compliant:en:level:en:3
+Pollo-pescetarianism compliant:en:label:en:No Non-Pollo-pescetarianism ingredients have been detected
+Pollo-pescetarianism compliant:en:default:en:yes
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                    P O L L O - V E G E T A R I A N I S M     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
-Pollo-vegetarianism:en:no
+Pollo-vegetarianism compliant:en:level:en:2
+Pollo-vegetarianism compliant:en:label:en:non-Pollo-vegetarianism ingredients have been detected
 ingredient:en:animal
 # ingredient:from:en:fish
 ingredient:en:fish
@@ -1066,7 +1086,8 @@ additive:en:E635
 additive:en:E904
 additive:en:E1000
 
-Pollo-vegetarianism:en:maybe
+Pollo-vegetarianism compliant:en:level:en:2
+Pollo-vegetarianism compliant:en:label:en:non-Pollo-vegetarianism ingredients might be  detected
 ingredient:en:rennet
 additive:en:E312
 additive:en:E387
@@ -1110,6 +1131,10 @@ other:en:taurine
 additive:en:E1001
 other:en:choline
 
+Pollo-vegetarianism compliant:en:level:en:3
+Pollo-vegetarianism compliant:en:label:en:No Pollo-vegetarianism ingredients have been detected
+Pollo-vegetarianism compliant:en:default:en:yes
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                    P E S C A T A R I A N I S M     S E C T I O N
@@ -1117,6 +1142,8 @@ other:en:choline
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
+Pescetarianism compliant:en:level:en:1
+Pescetarianism compliant:en:label:en:non-Pescetarianism ingredients have been detected
 Pescetarianism:en:no
 ingredient:en:animal
 ingredient:en:poultry
@@ -1127,6 +1154,8 @@ additive:en:E542
 additive:en:E904
 additive:en:E1000
 
+Pescetarianism compliant:en:level:en:2
+Pescetarianism compliant:en:label:en:non-Pescetarianism ingredients might have been detected
 Pescetarianism:en:maybe
 ingredient:en:rennet
 additive:en:E312
@@ -1175,6 +1204,10 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+Pescetarianism compliant:en:level:en:3
+Pescetarianism compliant:en:label:en:No non-Pescetarianism ingredients have been detected
+Pescetarianism compliant:en:default:en:yes
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                           O V O - L A C T O   V E G E T A R I A N I S M     S E C T I O N
@@ -1183,7 +1216,8 @@ other:en:choline
 
 # comment:en:Does eat egg and milk based ingredients.
 
-Ovo-lacto vegetarianism:en:no
+Ovo-lacto vegetarianism compliant:en:level:en:1
+Ovo-lacto vegetarianism compliant:en:label:en:non-Ovo-lacto vegetarianism ingredients have been detected
 ingredient:en:animal
 ingredient:en:poultry
 ingredient:en:game animal
@@ -1205,7 +1239,8 @@ additive:en:E635
 additive:en:E904
 additive:en:E1000
 
-Ovo-lacto vegetarianism:en:maybe
+Ovo-lacto vegetarianism compliant:en:level:en:2
+Ovo-lacto vegetarianism compliant:en:label:en:Possible non-Ovo-lacto vegetarianism ingredients have been detected
 ingredient:en:rennet
 additive:en:E312
 additive:en:E387
@@ -1250,9 +1285,17 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
-Ovo-lacto vegetarianism:en:claim
+Ovo-lacto vegetarianism compliant:en:level:en:3
+Ovo-lacto vegetarianism compliant:en:label:en:No non-Ovo-lacto vegetarianism ingredients have been detected
+Ovo-lacto vegetarianism compliant:en:default:en:yes
+
+Ovo-lacto vegetarianism compliant:en:level:en:4
+Ovo-lacto vegetarianism compliant:en:label:en:The manufacturer added a label claiming the product is Ovo-lacto vegetarianism compliant
 label:en:Ovo-lacto-vegetarian
 
+Ovo-lacto vegetarianism compliant:en:level:en:5
+Ovo-lacto vegetarianism compliant:en:label:en:The product has Ovo-lacto vegetarianism compliant certification
+label:en:European Vegetarian Union
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1261,7 +1304,8 @@ label:en:Ovo-lacto-vegetarian
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Ovo vegetarianism:en:no
+Ovo vegetarianism compliant:en:level:en:1
+Ovo vegetarianism compliant:en:label:en:non-Ovo vegetarianism ingredients have been detected
 ingredient:en:animal
 ingredient:en:poultry
 ingredient:en:game animal
@@ -1299,7 +1343,8 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
-Ovo vegetarianism:en:maybe
+Ovo vegetarianism compliant:en:level:en:2
+Ovo vegetarianism compliant:en:label:en:Possible non-Ovo vegetarianism ingredients have been detected
 ingredient:en:rennet
 additive:en:E312
 additive:en:E387
@@ -1341,10 +1386,16 @@ additive:en:E910
 additive:en:E920
 additive:en:E921
 
-Ovo vegetarianism:en:claim
+Ovo vegetarianism compliant:en:level:en:3
+Ovo vegetarianism compliant:en:label:en:No non-Ovo vegetarianism ingredients have been detected
+Ovo vegetarianism compliant:en:default:en:yes
+
+Ovo vegetarianism compliant:en:level:en:4
+Ovo vegetarianism compliant:en:label:en:The manufacturer added a label claiming the product is Ovo vegetarianism compliant
 label:en:Ovo-vegetarian
 
-Ovo vegetarianism:en:yes
+Ovo vegetarianism compliant:en:level:en:5
+Ovo vegetarianism compliant:en:label:en:The product has Ovo vegetarianism compliant certification
 label:en:European Vegetarian Union Ovo-vegetarian
 
 
@@ -1355,7 +1406,8 @@ label:en:European Vegetarian Union Ovo-vegetarian
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Orthodox Fasting:en:no
+Orthodox Fasting compliant:en:level:en:1
+Orthodox Fasting compliant:en:label:en:non-Orthodox Fasting compliant ingredients have been detected
 ingredient:en:animal
 ingredient:en:poultry
 ingredient:en:game animal
@@ -1378,7 +1430,8 @@ additive:en:E963
 additive:en:E966
 additive:en:E1000
 
-Orthodox Fasting:en:maybe
+Orthodox Fasting compliant:en:level:en:2
+Orthodox Fasting compliant:en:label:en:Possible non-Orthodox Fasting compliant ingredients have been detected
 ingredient:en:rennet
 additive:en:E312
 additive:en:E387
@@ -1427,6 +1480,10 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+Orthodox Fasting compliant:en:level:en:3
+Orthodox Fasting compliant:en:label:en:No non-Orthodox Fasting ingredients have been detected
+Orthodox Fasting compliant:en:default:en:yes
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1435,7 +1492,8 @@ other:en:choline
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-Lacto vegetarianism:en:no
+Lacto vegetarianism compliant:en:level:en:1
+Lacto vegetarianism compliant:en:label:en:non-Lacto-vegetarianism compliant ingredients have been detected
 ingredient:en:animal
 ingredient:en:poultry
 ingredient:en:game animal
@@ -1459,7 +1517,8 @@ additive:en:E904
 additive:en:E1000
 additive:en:E1105
 
-Lacto vegetarianism:en:maybe
+Lacto vegetarianism compliant:en:level:en:2
+Lacto vegetarianism compliant:en:label:en:Possible non-Lacto-vegetarianism compliant ingredients have been detected
 ingredient:en:rennet
 additive:en:E312
 additive:en:E387
@@ -1504,11 +1563,16 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+Lacto vegetarianism compliant:en:level:en:3
+Lacto vegetarianism compliant:en:label:en:No non-Lacto vegetarianism ingredients have been detected
+Lacto vegetarianism compliant:en:default:en:yes
 
-Lacto vegetarianism:en:claim
+Lacto vegetarianism compliant:en:level:en:4
+Lacto vegetarianism compliant:en:label:en:The manufacturer added a label claiming the product is Lacto-vegetarianism compliant
 label:en:Lacto-vegetarian
 
-Lacto vegetarianism:en:yes
+Lacto vegetarianism compliant:en:level:en:5
+Lacto vegetarianism compliant:en:label:en:The manufacturer added a label claiming the product is certified Lacto-vegetarianism compliant
 label:en:European Vegetarian Union Lacto-vegetarian
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1518,7 +1582,8 @@ label:en:European Vegetarian Union Lacto-vegetarian
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-Veganism:en:no
+Veganism compliant:en:level:en:1
+Veganism compliant:en:label:en:non-Veganism compliant ingredients have been detected
 ingredient:en:animal
 ingredient:en:poultry
 ingredient:en:game animal
@@ -1565,6 +1630,8 @@ additive:en:E1000
 additive:en:E1105
 other:en:Carnitine
 
+Veganism compliant:en:level:en:2
+Veganism compliant:en:label:en:Possible non-Veganism compliant ingredients have been detected
 Veganism:en:maybe
 ingredient:en:rennet
 additive:en:E312
@@ -1609,11 +1676,17 @@ additive:en:E1001
 other:en:taurine
 other:en:choline
 
-Veganism:en:claim
+Veganism compliant:en:level:en:3
+Veganism compliant:en:label:en:No non-Veganism ingredients have been detected
+Veganism compliant:en:default:en:yes
+
+Veganism compliant:en:level:en:4
+Veganism compliant:en:label:en:The manufacturer added a label claiming the product is Veganism compliant
 label:en:Vegan
 label:en:European Vegetarian Union
 
-Veganism:en:yes
+Veganism compliant:en:level:en:5
+Veganism compliant:en:label:en:The manufacturer added a label claiming the product is certified Veganism compliant
 label:en:Vegan Action
 label:en:Green Dot India
 label:en:Vegetarian Society
@@ -1628,6 +1701,8 @@ label:en:European Vegetarian Union Vegan
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+Jain vegetarianism compliant:en:level:en:1
+Jain vegetarianism compliant:en:label:en:non-Jain vegetarianism compliant ingredients have been detected
 Jain vegetarianism:en:no
 ingredient:en:animal
 ingredient:en:poultry
@@ -1659,7 +1734,8 @@ additive:en:E635
 additive:en:E1000
 additive:en:E1105
 
-Jain vegetarianism:en:maybe
+Jain vegetarianism compliant:en:level:en:2
+Jain vegetarianism compliant:en:label:en:Possible non-Jain-vegetarianism compliant ingredients have been detected
 ingredient:en:rennet
 additive:en:E312
 additive:en:E387
@@ -1705,6 +1781,10 @@ other:en:Carnitine
 other:en:taurine
 other:en:choline
 
+Jain vegetarianism compliant:en:level:en:3
+Jain vegetarianism compliant:en:label:en:No non-Jain vegetarianism ingredients have been detected
+Jain vegetarianism compliant:en:default:en:yes
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                   F R U I T A R I A N I S M     S E C T I O N
@@ -1712,7 +1792,8 @@ other:en:choline
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-Fruitarianism:en:no
+Fruitarianism compliant:en:level:en:1
+Fruitarianism compliant:en:label:en:non-Fruitarianism compliant ingredients have been detected
 ingredient:en:animal
 ingredient:en:poultry
 ingredient:en:game animal
@@ -1763,7 +1844,8 @@ additive:en:E1000
 additive:en:E1105
 other:en:Carnitine
 
-Fruitarianism:en:maybe
+Fruitarianism compliant:en:level:en:2
+Fruitarianism compliant:en:label:en:Possible non-Fruitarianism compliant ingredients have been detected
 ingredient:en:rennet
 additive:en:E312
 additive:en:E387
@@ -1806,3 +1888,7 @@ additive:en:E921
 additive:en:E1001
 other:en:taurine
 other:en:choline
+
+Fruitarianism compliant:en:level:en:3
+Fruitarianism compliant:en:label:en:No non-Fruitarianism ingredients have been detected
+Fruitarianism compliant:en:default:en:yes
