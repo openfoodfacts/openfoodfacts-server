@@ -49,6 +49,7 @@ BEGIN
 					&display_points
 					&display_mission
 					&display_tag
+					&display_field
 					&display_error
 					&gen_feeds
 
