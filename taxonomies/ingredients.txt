@@ -9405,44 +9405,12 @@ vegetarian:en:yes
 
 
 # description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars. 
-# coment:en:when indicated, it is probably alpha-amylase is meant
+# coment:en:when indicated, probably alpha-amylase is meant
 
 <en:enzyme
-en:amylase
-ar:أميلاز
-bs:Amilaza
-ca:amilasa
-cs:amyláza
-da:Amylase
-de:Amylasen
-el:αμυλάση
-eo:amelazo
-es:amilasa
-et:Amülaas
-eu:Amilasa
-fa:آمیلاز
-fi:Amylaasi
-fr:amylase, amylases
-hu:Amiláz
-it:amilasi
-lv:amilāze
-nl:Amylase
-nn:amylase
-pl:Amylazy
-pt:amilase
-ro:Amilază
-ru:Амилаза
-sk:Amyláza
-sl:Amilaza
-sv:Amylas
-wikidata:en:Q17153
-wikipedia:en:https://en.wikipedia.org/wiki/Amylase
-# ingredient/fr:amylase has 96 products in french @2019-01-30
-# enzymes (amylase, cellulase) 
+en:E1100
 
-# alpha-amlyse is listed as E1100
-
-# Cellulase is any of several enzymes produced chiefly by fungi, bacteria, and protozoans that catalyze cellulolysis, the decomposition of cellulose and of some related polysaccharides.
+# description:en:CELLULASE is any of several enzymes produced chiefly by fungi, bacteria, and protozoans that catalyze cellulolysis, the decomposition of cellulose and of some related polysaccharides. Cellulase is used for commercial food processing in coffee. 
 
 <en:enzyme
 en:cellulase
@@ -9481,14 +9449,14 @@ zh:纤维素酶
 # zh-tw:纖維素酶
 wikidata:en:Q410324
 wikipedia:en:https://en.wikipedia.org/wiki/Cellulase
-# ingredient/fr:cellulase has 66 products in 2 languages @2019–02-01
+# ingredient/fr:cellulase has 173 products in 6 languages @2019–07-09
 
 <en:cellulase
 fr:hémicellulase
 # ingredient/fr:hémicellulase has 27 products in french @2019-02-01
 
 
-# LACTASE - is an enzyme produced by many organisms.
+# description:en:LACTASE is essential to the complete digestion of whole milk; it breaks down lactose, a sugar which gives milk its sweetness. Lactase is an enzyme that some people are unable to produce in their small intestine.[5] Without it they can't break down the natural lactose in milk. Lactase produced commercially can be extracted both from yeasts such as Kluyveromyces fragilis and Kluyveromyces lactis and from molds, such as Aspergillus niger and Aspergillus oryzae.
 
 <en:enzyme
 en:Lactase
@@ -9532,6 +9500,9 @@ zh:乳糖酶
 # yue:乳糖水解酶
 wikidata:en:Q379764
 wikipedia:en:https://en.wikipedia.org/wiki/Lactase
+# ingredient/lactase has 346 products in 8 languages @2019-07-09
+
+# description:en:Β-GALACTOSIDASE is a glycoside hydrolase enzyme that catalyzes the hydrolysis of β-galactosides into monosaccharides through the breaking of a glycosidic bond. β-galactosidase is important for the lactose intolerant community as it is responsible for making lactose-free milk and other dairy products. Many adult humans lack the lactase enzyme, which has the same function of beta-gal, so they are not able to properly digest dairy products. Beta-galactose is used in such dairy products as yogurt, sour cream, and some cheeses which are treated with the enzyme to break down any lactose before human consumption. 
 
 
 <en:lactase
@@ -9549,77 +9520,16 @@ sh:Beta-galaktozidaza
 sr:Beta-galaktozidaza
 uk:Бета-галактозидаза
 zh:Β-半乳糖苷酶
-β-galactosidase, also called lactase, beta-gal or β-gal, is a glycoside hydrolase enzyme that catalyzes the hydrolysis of β-galactosides into monosaccharides through the breaking of a glycosidic bond.
+# ingredient/beta-galactosidase has 19 products @2019-07-09
 wikidata:en:Q286379
 wikipedia:en:https://en.wikipedia.org/wiki/Beta-galactosidase
 
 
 <en:enzyme
-en:lipase
-ar:ليباز
-bs:Lipaza
-ca:lipasa
-cs:lipáza
-da:Lipase
-de:Lipase
-el:λιπάση
-eo:lipazo
-es:lipasa
-eu:Lipasa
-fa:لیپاز
-fi:Lipaasi
-fr:lipase
-ga:Liopáis
-gl:Lipase
-he:ליפאז
-hi:लाइपेज
-id:Lipase
-it:Lipasi
-ja:リパーゼ
-kk:Липазалар
-ko:라이페이스
-ky:Липазалар
-lv:lipāze
-ms:Lipase
-nb:lipase
-nl:lipase
-nn:lipase
-pa:ਲਾਈਪੇਸ
-pl:Lipazy
-pt:lipase
-ru:Липаза
-sh:Lipaza
-sl:Lipaza
-sr:липаза
-sv:Lipas
-ta:கொழுமியச்சிதைப்பி
-tr:Lipaz
-uk:Ліпаза
-uz:Lipaza
-vi:Lipase
-zh:脂酶
-# kk-arab:لىيپازالار
-# kk-cn:لىيپازالار
-# kk-cyrl:Липазалар
-# kk-kz:Липазалар
-# kk-latn:Lïpazalar
-# kk-tr:Lïpazalar
-# sr-ec:липаза
-# sr-el:Lipaza
-# zh-cn:脂酶
-# zh-hans:脂酶
-# zh-hant:脂酶
-# zh-hk:脂酶
-# zh-sg:脂酶
-# zh-tw:脂酶
-wikidata:en:Q380967
-# ingredient/fr:lipase has 81 products in 2 languages @2019-02-01
+en:E1104
 
 
-# comment:en:protease is listed as E1101
-
-
-# description:en:In commercial food processing, transglutaminase is used to bond proteins together. It is produced by Streptoverticillium mobaraense fermentation in commercial quantities or extracted from animal blood
+# description:en:In commercial food processing, TRANSGLUTAMINASE is used to bond proteins together. It is produced by Streptoverticillium mobaraense fermentation in commercial quantities or extracted from animal blood.
 
 <en:enzyme
 en:transglutaminase
@@ -9645,8 +9555,10 @@ sr:трансглутаминаза
 # sr-el:transglutaminaza
 wikidata:en:Q423646
 wikipedia:en:https://en.wikipedia.org/wiki/Transglutaminase
-# ingredient/fr:transglutaminase 27 products in 4 languages @2019-02-01
-
+# ingredient/fr:transglutaminase 29 products in 4 languages @2019-07-09
+# usage:es:agente de tratamiento de la harina (transglutaminasa)
+vegetarian:en:maybe
+vegan:en:maybe
 
 # Xylanase is any of a class of enzymes that degrade the linear polysaccharide xylan into xylose,[1] thus breaking down hemicellulose, one of the major components of plant cell walls.
 
@@ -9670,9 +9582,9 @@ sv:Xylanas
 zh:木聚糖酶
 wikidata:en:Q419510
 wikipedia:en:https://en.wikipedia.org/wiki/Xylanase
-# ingredient/fr:xylanase has 46 products in 2 languages @2019-02-01
-
-
+# ingredient/fr:xylanase has 96 products in 6 languages @2019-07-09
+# usage:fr:xylanase (contient blé)
+# usage:fr:enzymes (xylanases)
 #
 # BUTTER - a dairy product containing at least 80% butterfat.
 #
@@ -10331,6 +10243,7 @@ it:latte magro pastorizzato
 
 <en:pasteurized skimmed milk
 en:UHT sterilised skimmed milk
+de:Fettarme Haltbarmilch, Fettarme H-milch
 fr:Lait écrémé stérilisé UHT, lait écrémé stérilisé u h t, lait sterilise uht ecreme
 nl:UHT-gesteriliseerde magere melk
 # ingredient/fr:lait-ecreme-sterilise-uht has 14 products in french @2019-05-23
