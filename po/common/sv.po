@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 23:24\n"
+"PO-Revision-Date: 2019-07-10 09:02\n"
 "Language-Team: Swedish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -150,7 +150,7 @@ msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=sv"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -1313,7 +1313,7 @@ msgstr "Bidra"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -2659,7 +2659,7 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2772,79 +2772,79 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
-msgstr ""
+msgstr "Vuxna"
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "18 till 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr ""
+msgstr "Från 18 år till och med 64 år"
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "Äldre"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr ""
+msgstr "Från 65 år och äldre"
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "Yngling"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "10 till 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "Från 10 år till och med 17 år"
 
 msgctxt "children"
 msgid "Children"
-msgstr ""
+msgstr "Barn"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "3 till 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "Från 36 månader till och med 9 år"
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "Småbarn"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "1 till 2"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
-msgstr ""
+msgstr "Från 12 månader till och med 35 månader"
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "Spädbarn"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "Från mer än 12 veckor till och med 11 månaders ålder"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
@@ -2912,19 +2912,19 @@ msgstr ""
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "över 5%"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "De flesta"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
-msgstr ""
+msgstr "över 50%"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 msgctxt "additives_classes"
 msgid "Functions"
@@ -3132,19 +3132,19 @@ msgstr ""
 
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "Skaffa appen"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "Skaffa Android-appen"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "Skaffa iPhone-appen"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "Skaffa iPad-appen"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3276,11 +3276,11 @@ msgstr ""
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "popularitet"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "popularitet"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
