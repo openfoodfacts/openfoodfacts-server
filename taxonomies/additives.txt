@@ -17326,25 +17326,34 @@ wikidata:en:Q18668392
 vegan:en:yes
 vegetarian:en:yes
 
-en:E1100, Alpha-Amylase, Diastase, Glycogenase, Ptyalin, amylase
-bg:E1100, E1100 food additive
+# description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars. 
+
+en:E1100, Alpha-Amylase, amylase
+ar:E1100, أميلاز
+bg:E1100
+bs:E1100, Amilaza
+ca:E1100, amilasa
 cs:E1100, Amyláza
 da:E1100, Amylase
 de:E1100, Amylasen
 el:E1100, Αμυλάση
+eo:E1100, amelazo
 es:E1100, Amilasa
 et:E1100, Amülaas
+eu:E1100, Amilasa
+fa:E1100, آمیلاز
 fi:E1100, Amylaasi
-fr:E1100, Amylases, Amylase, α-amylase, a-amylase, alpha-amylase, alpha-amylases, diastase, takadiastase, glycogénase, endoamylase, Taka-amylase A
+fr:E1100, Amylases, Amylase, α-amylase, a-amylase, alpha-amylase, alpha-amylases
 hu:E1100, Amiláz
 it:E1100, Β-amilasi
-lt:E1100, E1100 food additive
-lv:E1100, E1100 food additive
-mt:E1100, E1100 food additive
+lt:E1100
+lv:E110, amilāze
+mt:E1100
 nl:E1100, Amylase
+nn:E1100, amylase
 pl:E1100, Amylazy
 pt:E1100, Amilase
-ro:E1100, E1100 food additive
+ro:E1100, Amilază
 ru:E1100, Амилазы, Амилаза
 sk:E1100, Amyláza
 sl:E1100, Amilaza
@@ -17353,6 +17362,9 @@ e_number:en:1100
 wikidata:en:Q17153
 vegan:en:yes
 vegetarian:en:yes
+wikipedia:en:https://en.wikipedia.org/wiki/Amylase
+# ingredient/fr:amylase has 438 products in french @2019-07-09
+# usage:fr: enzymes (amylase, cellulase) 
 
 en:E1101, Protease, peptidase, proteinase, EC 3.4
 bg:E1101, E1101 food additive
@@ -17438,32 +17450,76 @@ additives_classes:en: en:stabilizer
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:A lipase is any enzyme that catalyzes the hydrolysis of fats (lipids). Lipases serve important roles in human practices as ancient as yogurt and cheese fermentation. Lipases are generally animal sourced, but can also be sourced microbially.
+
 en:E1104, lipase
-bg:E1104, E1104 food additive
-cs:E1104, Lipáza, Triacylglycerol acylhydrolasa, Lipasa, Triacylglycerol acylhydroláza
+ar:E1104, ليباز
+bg:E1104
+bs:E1104, Lipaza
+ca:E1104, lipasa
+cs:E1104, Lipáza, Lipasa
 da:E1104, Lipase
 de:E1104, Lipasen, Lipase
-el:E1104, E1104 food additive
+el:E1104, λιπάση
+eo:E1104, lipazo
 es:E1104, Lipasa
-et:E1104, E1104 food additive
+et:E1104, E1104
+eu:E1104, Lipasa
+fa:E1104, لیپاز
 fi:E1104, Lipaasi
 fr:E1104, Lipases, Lipase
-hu:E1104, E1104 food additive
+ga:E1104, Liopáis
+gl:E1104, Lipase
+he:E1104, ליפאז
+hi:E1104, लाइपेज
+hu:E1104
+id:E1104, Lipase
 it:E1104, Lipasi
-lt:E1104, E1104 food additive
-lv:E1104, E1104 food additive
-mt:E1104, E1104 food additive
+ja:E1104, リパーゼ
+kk:E1104, Липазалар
+ko:E1104, 라이페이스
+ky:E1104, Липазалар
+lt:E1104
+lv:E1104
+ms:E1104, Lipase
+mt:E1104
+nb:E1104, lipase
 nl:E1104, Lipase
+nn:E1104, lipase
+pa:E1104, ਲਾਈਪੇਸ
 pl:E1104, Lipazy, Lipaza, Enzymy lipolityczne
 pt:E1104, Lipase, Lipases
-ro:E1104, E1104 food additive
-sk:E1104, E1104 food additive
+ro:E1104, E1104
+ru:E1104, Липаза
+sh:E1104, Lipaza
+sk:E1104, Lipaza
 sl:E1104, Lipaza
+sr:E1104, липаза
 sv:E1104, Lipas, Lipaser
+tr:E1104, Lipaz
+uk:E1104, Ліпаза
+uz:E1104, Lipaza
+vi:E1104, Lipase
+zh:E1104, 脂酶
+# kk-arab:E1104, لىيپازالار
+# kk-cn:E1104, لىيپازالار
+# kk-cyrl:E1104, Липазалар
+# kk-kz:E1104, Липазалар
+# kk-latn:E1104, Lïpazalar
+# kk-tr:E1104, Lïpazalar
+# sr-ec:E1104, липаза
+# sr-el:E1104, Lipaza
+# zh-cn:E1104, 脂酶
+# zh-hans:E1104, 脂酶
+# zh-hant:E1104, 脂酶
+# zh-hk:E1104, 脂酶
+# zh-sg:E1104, 脂酶
+# zh-tw:E1104, 脂酶
 e_number:en:1104
 wikidata:en:Q380967
-vegan:en:yes
-vegetarian:en:yes
+vegan:en:maybe
+vegetarian:en:maybe
+# ingredient/fr:lipase has 155 products in 3 languages @2019-07-09
 
 en:E1105, Lysozyme, Lysozyme hydrochloride
 bg:E1105, Лизоцим, Лизоцим хидрохлорид
