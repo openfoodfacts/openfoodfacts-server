@@ -4,6 +4,7 @@
 # comment:en:These are words that start a list of ingredients
 
 en:ingredient, ingredients, composition
+az:Tarkibi
 bg:Състав
 bs:Sastoji
 cs:Složení
@@ -9817,133 +9818,6 @@ fr:poudre au beurre, poudre de beurre
 # ingredient/fr:poudre-au-beurre has 62 products in 3 languages @2019-02-23
 # poudre au beurre (BEURRE, maltodextrines, protéines de LAIT, émulsifiant : E471)
 
-# BUTTERFAT - the fatty portion of milk.
-
-en:butterfat, milkfat, pastry butter
-bs:mliječna mast
-cy:braster menyn
-da:smørolie
-de:Butterreinfett, Milchfett, wasserfreies Milchfett
-eo:laktograso
-es:grasa butírica
-fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait, matière grasse du lait
-id:lemak susu
-it:burro anidro, burro di pasticceria, burro concentrato
-ja:乳脂肪
-ko:유지방
-ms:lemak mentega, lemak susu
-nb:melkefett
-nl:melkvet, boterconcentraat, botervet
-pl:tłuszcz mlecny
-pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
-ru:Молочный жир
-sl:mlečna maščoba
-sv:mølkfett
-th:ไขมันเนย
-tl:taba ng gatas
-uk:Молочний жир
-zh:乳脂
-# en-gb:butterfat
-# zh-hans:乳脂
-# zh-hant:乳脂
-# zh-hk:乳脂
-wikidata:en:Q909729
-wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
-vegan:en:no
-vegetarian:en:yes
-
-# CLARIFIED BUTTER - milk fat rendered from butter to separate the milk solids and water from the butterfat
-
-<en:butterfat
-en:clarified butter
-ar:عدل
-ca:mantega clarificada
-cs:přepuštěné máslo
-de:Butterschmalz
-es:mantequilla clarificada, mantequilla concentrada
-fr:beurre clarifié, beurre purifié, beurre fondu, beurre pâtissier
-he:חמאה מזוקקת
-it:burro chiarificato, burro fuso
-ja:澄ましバター
-kk:Сары май
-ko:버터기름
-ky:Сары май
-lt:lydytas sviestas
-ms:mentega jernihan
-nl:boterolie
-os:Царв
-pl:masło klarowane
-ru:Топлёное масло
-sq:gjalpi i kthjelluar
-th:เนยใส
-uk:Пряжене масло
-zh:无水黄油
-# bxr:Шара тоһон
-wikidata:en:Q909729
-wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
-
-# GHEE - a class of butterfat that originated from the Indian subcontinent.
-
-<en:butterfat
-en:ghee
-ar:سمن حيواني
-az:sarı yağ
-bn:ঘি
-cs:ghí
-da:ghee
-de:ghee
-dv:ދަހީ
-eo:gio
-es:ghee
-fa:روغن کرمانشاهی
-fi:ghi, ghee
-fr:ghi, ghee
-ga:gí
-gu:ઘી
-he:גהי
-hi:घी
-hr:ghee
-hu:ghi
-id:minyak samin
-is:skírt smjör
-it:ghi
-ja:ギー
-ka:ერბო
-kn:ತುಪ್ಪ
-ko:기
-lt:ghi
-ml:നെയ്യ്
-mr:तूप
-ms:minyak sapi
-nb:ghi, ghee
-ne:घिउ
-nl:ghee, ghi
-nn:ghi, ghee
-pa:ਘਿਉ
-pl:ghi, ghee
-pt:ghi, ghee
-ru:Гхи
-sa:घृतम्
-si:ගිතෙල්
-sl:ghee
-sv:ghee
-ta:நெய்
-te:నెయ్యి
-uk:Ґгі, Гхі, Ґі
-ur:گھی
-zh:酥油
-# mai:घी
-# pnb:گھیؤ
-# sco:ghee
-wikidata:en:https://www.wikidata.org/wiki/Q323225
-
-
-# description:en:CONCENTRATED BUTTER - is an industrially-made “clarified butter.”
-
-<en:butterfat
-en:concentrated butter
-fr:beurre concentré
-nl:geconcentreerde boter
 
 
 # description:en:MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
@@ -16833,20 +16707,50 @@ fr:amidons de blé et de pomme de terre
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+en:oil and fat
+de:Öl und Fett
+vegan:en:maybe
+vegetarian:en:maybe
+
+# description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
+# comment:en:In some languages one distinghuishes between edible and non-edible oils
+
+<en:oil and fat
+en:vegetable oil and fat
+de:pflanzliche Öle und Fette
+es:aceites y grasas vegetales
+fr:huile et graisse végétale, huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
+it:olio e grasso vegetale
+nl:plantaardige vetten en olie
+pl:tłuszcz olej roślinne
+pt:gordura e óleo vegetais
+from_palm_oil:en:maybe
+vegan:en:yes
+vegetarian:en:yes
+carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
+carbon_footprint_fr_foodges_value:fr:2.6
 
 # Cooking oil is plant, animal, or synthetic fat used in frying, baking, and other types of cooking
 
+<en:oil and fat
 en:oil, cooking oil
 de:Öl, Speiseöl
 fr:huile, huiles
 it:olio
 nl:olie, oliën
 ru:масло, масла
-vegan:en:maybe
-vegetarian:en:maybe
+
+
+# nova:en:hydrogenated-oil
+<en:oil
+en:hydrogenated oil
+fr:Huile hydrogénée
+nl:Gehydrogeneerde olie
+
 
 # description:en:Fat is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. 
 
+<en:oil and fat
 #  nova:en:fats
 en:fat, fats
 af:Vet
@@ -16946,8 +16850,6 @@ zh:脂肪
 wikidata:en:Q127980
 wikipedia:en:https://en.wikipedia.org/wiki/Fat
 # ingredient/fr:graisse has 143 products in 6 languages @2019-03-30
-vegetarian:en:maybe
-vegan:en:maybe
 
 # comment:en: fr:gras is often not an ingredient but an adjective. Might require repairs to the ingredient lists.
 
@@ -17040,32 +16942,6 @@ fr:gras de veau
 fr:gras de bœuf, graisse de bœuf
 # ingredient/fr:gras-de-bœuf has 109 products in french @2019-03-01
 
-# description:This parent is used to indicate ingredients that might have been derived from palm oil. Note that this includes also those that have been derived from palm oil.
-
-# nova:en:hydrogenated-oil
-<en:oil
-en:hydrogenated oil
-fr:Huile hydrogénée
-nl:Gehydrogeneerde olie
-
-# description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
-# comment:en:In some languages one distinghuishes between edible and non-edible oils
-
-<en:oil
-en:vegetable oil and fat
-de:pflanzliche Öle und Fette
-es:aceites y grasas vegetales
-fr:huile et graisse végétale, huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
-it:olio e grasso vegetale
-nl:plantaardige vetten en olie
-pl:tłuszcz olej roślinne
-pt:gordura e óleo vegetais
-from_palm_oil:en:maybe
-vegan:en:yes
-vegetarian:en:yes
-carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
-carbon_footprint_fr_foodges_value:fr:2.6
-
 # In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
 
 # nova:en:vegetal-oil
@@ -17157,6 +17033,149 @@ nl:volledig gehydrogeneerde plantaardig vet
 en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
 fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée, graisses végétales non hydrogénées
 
+
+# comment:en:MILKFAT might be a synonym for butter
+
+<en:fat
+en:milkfat, milk fat
+de:Milchfett
+fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
+nb:melkefett
+nl:melkvet
+ro:grasimi din lapte
+
+
+# description:en:BUTTERFAT - the fatty portion of milk.
+# comment:en:BUTTERFAT seems to be more than just butter, water has been removed
+
+<en:milkfat
+en:butterfat, pastry butter, anhydrous milk fat, concentrated butter
+bg:безводно масло
+bs:mliječna mast
+cs:mléčný tuk
+cy:braster menyn
+da:smørolie
+de:Butterreinfett, wasserfreies Milchfett
+el:βούτυρο τηγμένο
+eo:laktograso
+es:grasa butírica, mantequilla concentrada
+fi:voirasva
+fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré
+hu:vajolaj, mogyoromassza
+id:lemak susu
+it:burro anidro, burro di pasticceria, burro concentrato
+ja:乳脂肪
+ko:유지방
+ms:lemak mentega, lemak susu
+nb:vannfritt melkefett
+nl:boterconcentraat, botervet, watervrij melkvet, boterolie, geconcentreerde boter
+pl:tłuszcz mlecny
+pt:gordura butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra
+ro:grasimi din unt
+ru:Молочный жир
+sl:mlečna maščoba
+sr:anhidrovana mlečna
+sv:mjölkfett, mølkfett
+th:ไขมันเนย
+tl:taba ng gatas
+uk:Молочний жир
+zh:乳脂
+# en-gb:butterfat
+# zh-hans:乳脂
+# zh-hant:乳脂
+# zh-hk:乳脂
+wikidata:en:Q909729
+wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
+vegan:en:no
+vegetarian:en:yes
+# ingredient/butterfat has 9828 products in 35 languages @2019-07-10
+
+# decription:en:CLARIFIED BUTTER is milk fat rendered from butter to separate the milk solids and water from the butterfat
+# comment:en:Not sure if this is really different from butterfat. Maybe the clarification is a special process.
+
+<en:butterfat
+en:clarified butter
+ar:عدل
+ca:mantega clarificada
+cs:přepuštěné máslo
+de:Butterschmalz, 
+es:mantequilla clarificada, 
+fr:beurre clarifié
+he:חמאה מזוקקת
+it:burro chiarificato, burro fuso
+ja:澄ましバター
+kk:Сары май
+ko:버터기름
+ky:Сары май
+lt:lydytas sviestas
+ms:mentega jernihan
+os:Царв
+pl:masło klarowane
+ru:Топлёное масло
+sq:gjalpi i kthjelluar
+th:เนยใส
+uk:Пряжене масло
+zh:无水黄油
+# bxr:Шара тоһон
+wikidata:en:Q909729
+wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
+
+# description:en:GHEE is a type of butterfat that originated from the Indian subcontinent.
+
+<en:butterfat
+en:ghee
+ar:سمن حيواني
+az:sarı yağ
+bn:ঘি
+cs:ghí
+da:ghee
+de:ghee
+dv:ދަހީ
+eo:gio
+es:ghee
+fa:روغن کرمانشاهی
+fi:ghi, ghee
+fr:ghi, ghee
+ga:gí
+gu:ઘી
+he:גהי
+hi:घी
+hr:ghee
+hu:ghi
+id:minyak samin
+is:skírt smjör
+it:ghi
+ja:ギー
+ka:ერბო
+kn:ತುಪ್ಪ
+ko:기
+lt:ghi
+ml:നെയ്യ്
+mr:तूप
+ms:minyak sapi
+nb:ghi, ghee
+ne:घिउ
+nl:ghee, ghi
+nn:ghi, ghee
+pa:ਘਿਉ
+pl:ghi, ghee
+pt:ghi, ghee
+ru:Гхи
+sa:घृतम्
+si:ගිතෙල්
+sl:ghee
+sv:ghee
+ta:நெய்
+te:నెయ్యి
+uk:Ґгі, Гхі, Ґі
+ur:گھی
+zh:酥油
+# mai:घी
+# pnb:گھیؤ
+# sco:ghee
+wikidata:en:https://www.wikidata.org/wiki/Q323225
+# ingredient/ghee has 24 products in 3 languages @2019-07-10
+
 <en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
 es:aceite vegetales no hidrogenados
@@ -17167,7 +17186,7 @@ it:oli vegetali non idrogenati
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
 
-# description:en:Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
+# description:en:PALM OIL is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
 <en:vegetable oil and fat
 en:palm oil and fat
