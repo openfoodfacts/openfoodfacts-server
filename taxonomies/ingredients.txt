@@ -240,7 +240,7 @@ stopwords:zh::配料
 
 
 fr:additifs alimentaires
-# ingredient/fr:additifs%20alimentaires has 52 products @2019-04-20
+# ingredient/fr:additifs-alimentaires has 52 products @2019-04-20
 # usage:fr: additif alimentaire (acide citrique)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -918,7 +918,7 @@ uk:Діамантовий синій
 # sr-el:Brilijantno plavo FCF
 wikidata:en:Q420093
 wikipedia:en:https://en.wikipedia.org/wiki/Brilliant_Blue_FCF
-# ingredient/fr:colorant%20e133 has 36 products in french @2019-03-27
+# ingredient/fr:colorant-e133 has 36 products in french @2019-03-27
 # additive/e133-brilliant-blue-fcf has 8106 products in 18 languages @2019-03-27
 
 <en:brilliant blue
@@ -1422,7 +1422,7 @@ sk:Rastlinné uhlie
 sl:Rastlinsko oglje
 sv:Vegetabiliskt kol
 wikidata:en: Q59557415
-# ingredient/fr:charbon%20végétal%20médicinal has 82 products in 6 languages @2019-04-05
+# ingredient/fr:charbon-végétal-médicinal has 82 products in 6 languages @2019-04-05
 
 
 # description:en:Carotenoids are yellow, orange, and red organic pigments that are produced by plants and algae, as well as several bacteria and fungi. Carotenoids from the diet are stored in the fatty tissues of animals. There is insufficient evidence to state that carotenoids have an antioxidant function in humans or that carotenoid dietary supplements lower the risk of or prevent diseases.
@@ -1761,7 +1761,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Titanium_dioxide
 <en:titanium dioxide
 en:colorant E171
 fr:colorant e171
-# ingredient/fr:colorant%20e171 has 75 products in 2 languages @2019-03-27
+# ingredient/fr:colorant-e171 has 75 products in 2 languages @2019-03-27
 
 # nova:en:firming-agent
 en:Firming agent, firming
@@ -3885,7 +3885,7 @@ pt:citratos de potássio
 sv:Kaliumcitrater
 wikidata:en:Q59543257
 # additive/e332-potassium-citrates has 261 products @2019-04-22
-# ingredient/fr:citrate%20de%20potassium has 353 products in 7 languages @2019-04-22
+# ingredient/fr:citrate-de-potassium has 353 products in 7 languages @2019-04-22
 # usage:pt:regulador de acidez (citratos de potássio)
 
 <en:potassium citrates
@@ -6304,7 +6304,7 @@ vi:Natri hiđroxit
 # zh-tw:氫氧化鈉
 wikidata:en: Q102769
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_hydroxide
-# ingredient/fr:hydroxyde%20de%20sodium has 268 products in 13 languages @2019-05-14
+# ingredient/fr:hydroxyde-de-sodium has 268 products in 13 languages @2019-05-14
 # usage:fr:correcteur d'acidité (hydroxyde de sodium)
 
 
@@ -8039,7 +8039,7 @@ sr:Aspartam-acesulfamska so
 sv:Salt av aspartam och acesulfam
 wikidata:en:Q409847
 wikipedia:en:https://en.wikipedia.org/wiki/Aspartame-acesulfame_salt
-# ingredient/fr:sel%20d'aspartame-acésulfame has 15 products in french @2019-04-20
+# ingredient/fr:sel-d'aspartame-acésulfame has 15 products in french @2019-04-20
 # additive/e962-salt-of-aspartame-acesulfame has 51 products in 4 languages @2019-04-20
 
 
@@ -8680,7 +8680,7 @@ pt:coagulante
 nl:stremmingsenzymen, stollingsmiddel
 vegan:en:maybe
 vegetarian:en:maybe
-# ingredient/coagulating%20enzyme has 8697 products in 33 languages @2019-07-09
+# ingredient/coagulating-enzyme has 8697 products in 33 languages @2019-07-09
 
 <en:coagulating enzyme
 en:microbial coagulating enzyme, microbial enzyme
@@ -9586,11 +9586,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Xylanase
 # usage:fr:xylanase (contient blé)
 # usage:fr:enzymes (xylanases)
 #
-# BUTTER - a dairy product containing at least 80% butterfat.
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
+#                                           B U T T E R     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# description:en:BUTTER is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk. It is generally used as a spread on plain or toasted bread products and a condiment on cooked vegetables, as well as in cooking, such as baking, sauce making, and pan frying. 
 
 # nova:en:butter
-
+# from:en:milk
+<en:dairy
 en:butter
 am:ቅቤ
 an:manteca
@@ -9721,10 +9728,14 @@ zh:黄油
 # wuu:白脱
 # zh-min-nan:bá-tah
 # yue:牛油
+wikidata:en:Q34172
+wikipedia:en:https://en.wikipedia.org/wiki/Butter
 vegan:en:no
 vegetarian:en:yes
+# ingredient/butter has 19735 products @2019-07-10
 
-# BEURRE DOUX - en:Butter avec une salinité moins de 0,5 %
+# description:en:All categories of butter are sold in both salted and unsalted forms. Either granular salt or a strong brine are added to salted butter during processing. In addition to enhanced flavor, the addition of salt acts as a preservative. 
+# description:fr:Beurre avec une salinité moins de 0,5 %
 
 <en:butter
 en:unsalted butter
@@ -9733,89 +9744,122 @@ fr:beurre doux
 nl:ongezouten boter
 carbon_footprint_fr_foodges_ingredient:fr:Beurre doux
 carbon_footprint_fr_foodges_value:fr:9.5
+wikidata:en:Q57312618
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_doux
+# ingredient/unsalted-butter has 755 products in 5 languages @2019-07-10
 
-# BEURRE DEMI-SEL - en:Butter avec une salinité moyenne de 0,5 % à 3 %
+# description:en:BEURRE DEMI-SEL is a butter with a salt percentage between 0,5 % and 3 %
+# description:fr:BEURRE DEMI-SEL - beurre avec une salinité moyenne de 0,5 % à 3 %
 
 <en:butter
 fr:beurre demi-sel
 nl:halfgezouten boter
-wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_demi-sel
+wikipedia:fr:https://fr.wikipedia.org/wiki/Beurre_demi-sel
+# ingredient/fr:beurre-demi-sel has 115 products in french @2019-07-10
 
-# BEURRE SALÉ - en:Butter avec un taux de sel supérieur à 3%
+# description:fr:BEURRE SALÉ a un taux de sel supérieur à 3%
 
 <en:butter
 en:salted butter
 de:gesalzene Butter, gesalzenes Butter
+es:mantequilla salada
 fr:beurre salé
 ja:塩バター
 nl:gezouten boter
+pt:manteiga com sal
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_salé
+# ingredient/salted-butter has 633 products in 8 languages @2019-07-10
 
-# CHURNED BUTTER - A butter churn is a device used to convert cream into butter. Is this traditional butter?
+# description:en:CHURNED BUTTER is butter churned in a butter churn to convert cream into butter. 
+# comment:en:Is this traditional butter?
 
 <en:butter
 en:churned butter
 es:manteca batida
 fr:beurre de baratte
 nl:gekarnde boter
+# ingredient/churned-butter has 71 products in 3 languages @2019-07-10
 
-# PASTEURIZED BUTTER - butter created from pasteurized milk
+# description:en:PASTEURIZED BUTTER is butter created from pasteurized milk
 
 <en:butter
 en:pasteurized butter, pasteurised butter
+de:pasteurisierter Butter
 fr:beurre pasteurisé
+it:burro pastorizzato
 nl:gepasteuriseerde boter
+# ingredient/pasteurized-butter has 64 products in 4 languages @2019-07-10
+
+<en:pasteurized butter
+en:organic pasteurized butter
+de:pasteurisierter Bio Butter
+fr:beurre bio pasteurisé
+it:burro pastorizzato bio
 
 <en:pasteurized butter
 fr:Beurre pasteurisé doux
 # 5@2019-06-05
 
-# BEURRE D'ISIGNY - butter produced in Europe with protected geographical indications
+# description:en:BEURRE D'ISIGNY - butter produced in Europe with protected geographical indications
 
 <en:butter
 fr:beurre d'isigny AOP
+# ingredient/fr:beurre-d'isigny-AOP has 60 products in 4 languages @2019-07-10
 
-# BEURRE DE CUISINE - beurre pasteurisé déshydraté, contenant environ 95% de matières grasses laitières
+# description:fr:BEURRE DE CUISINE - beurre pasteurisé déshydraté, contenant environ 95% de matières grasses laitières
 
 <en:butter
 fr:beurre de cuisine, beurre cuisinier
+# ingredient/fr:beurre-de-cuisine has 127 products in french @2019-07-10
 
-
-# FRESH BUTTER - Not sure what the definition is. It is normally homemade butter. Maybe products use it to indicated not reconstituted butter.
+# description:en:FRESH BUTTER
+# comment:en:Not sure what the definition is. It is normally homemade butter. Maybe products use it to indicated not reconstituted butter.
 
 <en:butter
 en:fresh butter
 de:frische Butter
 es:mantequilla fresca
 fr:beurre frais
+it:burro fresco
 nl:verse boter
 pt:manteiga fresca
+# ingredient/fresh-butter has 424 products in 7 languages @2019-07-10
 
-# BEURRE LAITIER - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
+# description:en:BEURRE LAITIER - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
 
 <en:butter
 fr:beurre laitier
 nl:melkerijboter
+# ingredient/fr:beurre-laitier has 9 products in 3 languages @2019-07-10
 
-# RECONSTITUTED BUTTER - When combined with the correct ratio of water to restore a normal water / butterfat balance for butter, Concentrated Butter is called “reconstituted butter.”
+# description:en:RECONSTITUTED BUTTER - When combined with the correct ratio of water to restore a normal water / butterfat balance for butter, Concentrated Butter is called “reconstituted butter.”
 
-<en:concentrated butter
+<en:butter
 en:reconstituted butter
 fr:beurre concentré reconstitué, beurre déshydraté reconstitué
 nl:gereconstitueerde boter
+# ingredient/reconstituted-butter has 92 products in 2 languages @2019-07-10
 
-# SWEET CREAM BUTTER - Butter made from pasteurized fresh cream is called sweet cream butter.
+# description:en:SWEET CREAM BUTTER is Butter made from pasteurized fresh cream is called sweet cream butter.
 
 <en:butter
 en:sweet cream butter
 wikidata:en:Q26882140
+# ingredient/sweet-cream-butter has 16 products in english @2019-07-10
 
 # <en:compound
 <en:butter
 fr:poudre au beurre, poudre de beurre
-# ingredient/fr:poudre-au-beurre has 62 products in 3 languages @2019-02-23
+nl:boterpoeder
+# ingredient/fr:poudre-au-beurre has 66 products in 2 languages @2019-07-10
 # poudre au beurre (BEURRE, maltodextrines, protéines de LAIT, émulsifiant : E471)
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                         B U T T E R F A T     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # BUTTERFAT - the fatty portion of milk.
 
@@ -15871,7 +15915,7 @@ tr:Koyun eti
 uk:баранина
 wikidata:en:Q14566073
 wikipedia:en:https://en.wikipedia.org/wiki/Lamb_and_mutton
-# ingredient/fr:viande%20de%20mouton has 91 products in 2 languages @2019-04-19
+# ingredient/fr:viande-de-mouton has 91 products in 2 languages @2019-04-19
 
 # description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 
@@ -17459,7 +17503,7 @@ en:coconut fat
 de:Kokosfett
 fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
 it:grasso di cocco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière%20grasse%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
 # 36 products in 4 languages @2018-10-03
 from_palm_oil:en:no
 
@@ -19934,7 +19978,7 @@ zh:加强葡萄酒
 # zh-hk:加強葡萄酒
 wikidata:en:Q722338
 wikipedia:en:https://en.wikipedia.org/wiki/Fortified_wine
-# ingredient/fr:vin%20de%20liqueur has 18 products in 4 languages @2109-04-26
+# ingredient/fr:vin-de-liqueur has 18 products in 4 languages @2109-04-26
 
 
 # description:en:MADEIRA is a fortified wine made on the Portuguese Madeira Islands, off the coast of Africa. Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert.
@@ -20267,7 +20311,7 @@ nl:aromatiserende bereiding
 pt:preparacao aromatizante
 # ingredient/fr:préparation-aromatisante has  50 products in 5 languages @2019-03-04
 # usage:de:Aromaextrakte (Pfefferminzextrakt)
-# ingredient/fr:préparation%20aromatique has 64 products in 3 languages @2019-04-11
+# ingredient/fr:préparation-aromatique has 64 products in 3 languages @2019-04-11
 # usage:fr: préparation aromatique (arôme naturel, colorants : caramel, curcumine, extrait de paprika, céleri)
 
 
@@ -21243,7 +21287,7 @@ en:puffed cereal
 de:Weizenpops
 fr:blé soufflé
 it:frumento soffiato
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20soufflé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-soufflé
 # 15 products in 3 languages @2018-09-22
 
 <en:wheat
@@ -21266,7 +21310,7 @@ zh:全麥小麥
 <en:wheat
 fr:pétales de blé
 pl:chrupki pszenno-żytnie
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20blé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales-de-blé
 # 57 products in 2 languages @2018-09-22
 
 <fr:pétales de blé
@@ -21275,7 +21319,7 @@ de:Vollkornflocken
 es:copos de trigo integral
 fr:pétales de blé complet
 pt:flocos de trigo integral
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20blé%20complet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales-de-blé-complet
 # 22 products in 5 languages @2018-09-22
 
 # Durum wheat (Triticum durum or Triticum turgidum subsp. durum) is a tetraploid species of wheat.
@@ -21328,21 +21372,21 @@ fr:Blé dur biologique
 
 <en:durum wheat
 fr:blé dur précuit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20dur%20précuit/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-dur-précuit/
 
 <en:durum wheat
 fr:blé dur concassé
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20dur%20concassé/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-dur-concassé/
 
 <fr:blé dur précuit
 fr:blé dur précuit concassé
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20dur%20précuit%20concassé/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-dur-précuit-concassé/
 
 <en:durum wheat
 de:Hartweizendunst
 fr:fins finots de blé dur
 it:friscello di grano duro
-# https://world.openfoodfacts.org/ingredient/fr:fins%20finots%20de%20blé%20dur/
+# https://world.openfoodfacts.org/ingredient/fr:fins-finots-de-blé-dur/
 # 17 products in 3 languages @20180922
 
 
@@ -21437,7 +21481,7 @@ carbon_footprint_fr_foodges_value:fr:0.6
 
 <en:wheat semolina
 fr:semoule de blé tendre
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20tendre/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-tendre/
 # 20 products in 1 language @20180922
 
 <en:semolina
@@ -21576,7 +21620,7 @@ en:semi-whole durum wheat semolina
 fr:semoule de blé dur demi-complète. semoule semi-complète de blé dur, semoule demi-complète de blé dur, Semoule de blé dur semi-complète
 nl:halfvolkoren harde tarwegriesmeel
 # ingredient/fr:semoule-de-ble-dur-demi-complete has 22 products in 2 languages @2019-05-24
-# ingredient/fr:semoule%20semi-complète-de-blé-dur has 18 products in 1 language @2018-09-22
+# ingredient/fr:semoule-semi-complète-de-blé-dur has 18 products in 1 language @2018-09-22
 
 <en:semi-whole durum wheat semolina
 en:organic semi-whole durum wheat semolina
@@ -21594,13 +21638,13 @@ hu:teljes kiőrlésű búzaliszt
 nl:volkoren griesmeel van harde tarwe
 sl:polnozrnati pšenični zdrob durum
 sr:integralna krupica durum pšenice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20dur%20complète/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-dur-complète/
 # 33+49 products in 11 languages @20180922
 
 
 <en:durum wheat semolina
 fr:semoule de blé dur précuite
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20dur%20précuite/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-dur-précuite/
 # 75 products in 1 language @20180922
 
 # BULGUR is a cereal food made from the parboiled groats of several different wheat species, most often from durum wheat.
@@ -21660,7 +21704,7 @@ pl:płatki pszenne
 <en:wheat flakes
 de:Weizenvollkornflocken
 fr:flocons de blé complet
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20blé%20complet/languages
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-blé-complet/languages
 
 <en:wheat
 <en:vegetable fiber
@@ -22034,14 +22078,14 @@ wikidata:en:Q12099
 de:Roggenschrot
 fr:seigle broyé
 it:faricello di segale
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20broyé/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle-broyé/
 # 16 entries @ 2018-09-22
 
 <en:rye
 fr:flocons de seigle
 de:Roggenflocken
 it:fiocchi di segale
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-seigle/
 # 87 entries @ 2018-09-22
 
 # Question
@@ -22049,14 +22093,14 @@ it:fiocchi di segale
 <fr:flocons de seigle
 <en:malt
 fr:flocons de seigle malté
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle%20malté/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-seigle-malté/
 # 71 entries @ 2018-09-22
 
 <en:rye
 de:Vollkornhafer
 fr:seigle complet
 nl:volkorenrogge
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20complet/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle-complet/
 # 37 entries @ 2018-09-22
 
 # Malt is germinated cereal grains that have been dried in a process known as "malting".
@@ -22483,12 +22527,12 @@ nl:gierst
 de:Hirseflocken
 fr:flocons de millet
 it:fiocchi di miglio
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20millet/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-millet/
 # 46 products in 3 languages @2018-09-22
 
 <en:millet
 fr:graines de millet
-# https://world.openfoodfacts.org/ingredient/fr:graines%20de%20millet/
+# https://world.openfoodfacts.org/ingredient/fr:graines-de-millet/
 # 111 products in 1 languages @1018-09-22
 
 # Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
@@ -22589,7 +22633,7 @@ pt:quinoa branco
 
 <en:quinoa
 fr:quinoa cuit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa%20cuit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa-cuit
 # 49 products in 1 language @2018-09-22
 
 # SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
@@ -22883,7 +22927,7 @@ carbon_footprint_fr_foodges_value:fr:1.2
 
 <en:wheat flour
 fr:farine de blé malté torréfié
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20blé%20malté%20torréfié
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-blé-malté-torréfié
 # 33 products in 3 languages @2018-09-22 (has translation issues)
 
 <en:wheat flour
@@ -23173,7 +23217,7 @@ sk:kukuričná múka
 sl:koruzna moka
 sv:majsmjöl
 zh:玉米淀粉
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20mais
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-mais
 # 1291 products in 19 languages @2018-09-23
 
 <en:corn flour
@@ -23245,7 +23289,7 @@ en:pea flour
 de:Erbsenmehl
 fr:farine de pois
 it:farina di piselli
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20pois
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-pois
 # 36 products in 4 languages @2018-09-22
 
 <en:flour
@@ -23478,7 +23522,7 @@ ro:porumb boabe
 sk:kukuričná krupic
 sl:koruzni zdrob
 sv:majsgryn
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20mais
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-mais
 # 597 products in 15 languages @2018-09-23
 wikipedia:en:https://en.wikipedia.org/wiki/Cornmeal
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cornmeal
@@ -23486,7 +23530,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cornmeal
 
 <en:cornmeal
 fr:semoule de maïs précuite
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20maïs%20précuite
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-maïs-précuite
 # 27 products in 1 language @2018-09-24
 
 <en:cornmeal
@@ -23509,29 +23553,29 @@ pl:płatki kukurydziane
 pt:flocos de milho
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cornflakes
 # 11 products in 2 languages @2018-09-23
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/corn%20flakes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-flakes
 # 82 products in 5 languages @2018-09-23
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20maïs
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-maïs
 # 22 products in 5 languages @2018-09-23
-# ingredient/fr:pétales%20de%20maïs 180 products in 8 languages @2018-09-24
+# ingredient/fr:pétales-de-maïs 180 products in 8 languages @2018-09-24
 
 <en:corn
 de:Maiskölbchen
 fr:épis de maïs
 it:pannocchiette di granoturco
-# ingredient/fr:épis%20de%20maïs 19 products in 4 languages @2018-09-23
+# ingredient/fr:épis-de-maïs 19 products in 4 languages @2018-09-23
 
 <en:corn
 de:Wachmais
 fr:maïs cireux
 it:maïs ceroso
-# ingredient/fr:maïs%20cireux24 products in 3 languages @2018-09-24
+# ingredient/fr:maïs-cireux24 products in 3 languages @2018-09-24
 
 <en:corn
 fr:grains de maïs
 de:Maiskörner
 sr:kukuruzni griz
-# ingredient/fr:grains%20de%20maïs 41 products in 3 languages @2018-09-24
+# ingredient/fr:grains-de-maïs 41 products in 3 languages @2018-09-24
 
 <fr:grains de maïs
 fr:grains de maïs à éclater
@@ -23543,11 +23587,11 @@ fr:grains de maïs à éclater
 fr:maïs doux en grains
 nl:zoete maïskorrels
 pt:milho doce em grão
-# ingredient/fr:maïs%20doux%20en%20grains 66 products in 1 language @2018-09-24
+# ingredient/fr:maïs-doux-en-grains 66 products in 1 language @2018-09-24
 
 <fr:maïs doux en grains
 fr:maïs doux en grains sans ogm
-# ingredient/fr:maïs%20doux%20en%20grains%20sans%20ogm 65 products in 4 languages @2018-09-24
+# ingredient/fr:maïs-doux-en-grains-sans-ogm 65 products in 4 languages @2018-09-24
 
 <en:corn
 en:sweetcorn
@@ -23555,13 +23599,13 @@ de:Süssmais
 es:maíz dulce
 fr:maïs doux
 it:mais dolce
-# ingredient/fr:maïs%20doux 103 products in 5 languages @2018-09-24
+# ingredient/fr:maïs-doux 103 products in 5 languages @2018-09-24
 
 <en:cornmeal
 fr:maïs moulu
 nl:gemalen maïs
 pt:milho moído
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20moulu 28 products in 3 languages @2018-09-24
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs-moulu 28 products in 3 languages @2018-09-24
 
 
 # Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). 
@@ -25422,19 +25466,19 @@ sv:torkad glukossirap
 fr:sirop de glucose de blé en poudre
 nl:tarweglucosestrooppoeder
 sv:glukossirap från vetemjöl
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose%20de%20blé%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-de-blé-en-poudre
 # 49 products in 3 languages @2018-09-24
 
 <en:corn syrup
 <en:glucose
 fr:sirop de glucose de maïs
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose%20de%20maïs
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-de-maïs
 # 148 products in 1 language @2018-09-24
 
 <en:wheat
 <en:glucose
 fr:glucose de blé
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:glucose%20de%20blé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:glucose-de-blé
 # 30 products in 1 language @2018-09-24
 
 <en:glucose syrup
@@ -25529,7 +25573,7 @@ vegetarian:en:yes
 <en:fructose
 <en:wheat
 fr:fructose de blé
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fructose%20de%20blé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fructose-de-blé
 # 39 products in 4 languages @2018-09-24
 
 en:fructose syrup
@@ -25567,7 +25611,7 @@ fr:fibres végétales d'oligofructose
 en:oligofructose syrup
 fr:sirop d'oligofructose
 it:sciroppo di oligofruttosio
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20d'oligofructose
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-d'oligofructose
 # 29 products in 3 languages @2018-09-24
 
 <en:glucose
@@ -25613,7 +25657,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-and-fructose-sy
 fr:sirop de glucose-fructose de blé
 de:Glukose-und Fruktosesirup (Weizen)
 nl:glucose-fructosestroop van tarwe
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose-fructose%20de%20blé
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-blé
 # 271 products in 4 languages @2018-09-24
 
 # High-fructose corn syrup (HFCS) (also called glucose-fructose, isoglucose and glucose-fructose syrup) is a sweetener made from corn starch
@@ -25636,7 +25680,7 @@ sv:Isoglukos
 zh:高果糖浆
 # wikipedia:en:https://en.wikipedia.org/wiki/High-fructose_corn_syrup
 # wikidata:en:Q11422173
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose-fructose%20de%20maïs
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-maïs
 # 28 products in 2 languages @2018-09-24
 
 <en:invert sugar
@@ -27563,14 +27607,14 @@ fr:Eau minérale naturelle renforcée au gaz de la source
 en:filtered water, purified water
 fr:eau filtrée, eau purifiée
 nl:gezuiverd water
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20filtrée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau-filtrée
 # 134 products in 2 languages @2018-09-29
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20purifiée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau-purifiée
 # 43 products in 1 language @2018-09-29
 
 <en:water
 fr:eau de cuisson
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20de%20cuisson
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau-de-cuisson
 # 410 products in 2 languages @2018-09-29
 
 <en:water
@@ -27844,7 +27888,7 @@ nl:biologische sojabonen
 
 <en:soya bean
 fr:fèves de soja sans ogm décortiquées
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fèves%20de%20soja%20sans%20ogm%20décortiquées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fèves-de-soja-sans-ogm-décortiquées
 # 31 products in 5 languages @2018-09-25
 
 <en:soya bean
@@ -27852,7 +27896,7 @@ fr:soja dépelliculé, graines de soja dépelliculées, fèves de soja décortiq
 de:geschälte Sojabohnen
 es:habas de soja descascarilladas
 it:semi di soia decorticati
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soja%20dépelliculé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soja-dépelliculé
 # 95 products in 4 languages @2018-09-25
 
 <en:soya
@@ -27861,13 +27905,13 @@ de:Sojaflocken
 fr:flocons de soja
 it:fiocchi di soia
 nl:Sojavlokken
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20soja
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-soja
 # 77 products in 4 languages @2018-09-25
 
 
 <en:soya
 fr:pousses de soja
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pousses%20de%20soja
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pousses-de-soja
 # 24 products in 1 language @2018-09-25
 
 # fr:Jus de soja is a compound ingredient:soybean + water
@@ -27876,7 +27920,7 @@ fr:pousses de soja
 fr:jus de soja
 es:zumo de soja
 # it:salsa di soia translation error
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20soja
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-soja
 # 253 products in 7 languages @2018-09-25
 
 
@@ -29776,7 +29820,7 @@ zh:碳酸铵
 # pt-br:Carbonato de amônio
 wikidata:en:Q204873
 wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_carbonate
-# ingredient/fr:carbonate%20d'ammonium has 1983 products in 19 languages @2019-04-05
+# ingredient/fr:carbonate-d'ammonium has 1983 products in 19 languages @2019-04-05
 # additive/e503i-ammonium-carbonate has 584 products in 21 languages @2019-04-05
 
 # Ammonium bicarbonate is an inorganic compound with formula (NH4)HCO3, simplified to NH5CO3. Ammonium bicarbonate is used in the food industry as a raising agent for flat baked goods, such as cookies and crackers, and in China in steamed buns and Chinese almond cookies. It was commonly used in the home before modern day baking powder was made available.
@@ -29983,7 +30027,7 @@ wikidata:en:Q1364
 <en:fruit
 fr:fruits des bois
 nl:bosvruchten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20des%20bois
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-des-bois
 # 35 products in 1 language @2018-09-29
 
 # description:en:A berry is a small, pulpy, and often edible fruit. Typically, berries are juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present. Common examples are strawberries, raspberries, blueberries, blackberries, red currants, white currants and blackcurrants
@@ -30002,18 +30046,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Berry
 fr:fruits confits
 de:Früchte kandiert
 it:frutta candita
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20confits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-confits
 # 75 products in 3 languages @2018-10-02
 
 <en:fruit
 fr:fruits exotiques
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20exotiques
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-exotiques
 # 24 products in 1 language @2018-10-02
 
 <en:fruit
 <en:vegetable
 fr:fruits et légumes concentrés, concentrés de fruits et de légumes
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20et%20légumes%20concentrés
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-et-légumes-concentrés
 # 18 products in 1 language @2018-10-02
 
 
@@ -30023,7 +30067,7 @@ es:frutos secos
 fr:fruits séchés, fruits secs
 de:Trockenfrüchte
 it:frutta secca
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20séchés
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-séchés
 # 33 products @2018-10-02
 
 # Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables.
@@ -30054,7 +30098,7 @@ vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Juice
 
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits
 # 1687 products in 6 languages @2018-10-04
 
 <fr:jus de fruits
@@ -30064,7 +30108,7 @@ es:zumo de frutas a partir de concentrado
 fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés, fr:jus concentré de fruits, jus de fruits concentrés
 it:succhi di frutta a base di concentrato, succhi di frutta a base di concentrati
 nl:vruchtsap van concentraat, vruchtensap uit concentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruits%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits-à-base-de-concentré
 # 650 products in 7 languages @2018-10-04
 
 
@@ -30074,7 +30118,7 @@ nl:vruchtsap van concentraat, vruchtensap uit concentraat
 fr:purée de fruits, purées de fruits
 de:Fruchtmark
 it:popa di frutti
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fruits
 # Is and Compound, i.e. ingredient:jus et purées de fruits à base de concentré :pomme, mangue, orange, ananas et fruits de la passion.
 
 <fr:purée de fruits
@@ -30082,7 +30126,7 @@ fr:purées de fruits à base de concentrés, purees de fruits à base de concent
 
 <fr:jus et purées de fruits
 fr:jus et purées de fruits à base de concentrés
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20et%20purées%20de%20fruits%20à%20base%20de%20concentrés
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-et-purées-de-fruits-à-base-de-concentrés
 # 49 products in 1 language @2018-10-04
 
 # Is an AGGREGATE ingredient, i.e.:extrait de fruit (caroube);
@@ -30091,14 +30135,14 @@ fr:jus et purées de fruits à base de concentrés
 en:fruit extract
 fr:extrait de fruit
 nl:vruchtenextract
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20fruit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
 # 54 products in 4 languages @2018-10-04
 
 <en:fruit
 fr:pulpe de fruits, pulpes de fruits
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-fruits
 # 41 in 1 language products @2018-10-04
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpes%20de%20fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpes-de-fruits
 # 63 products in 1 language @2018-10-04
 
 # Is an AGGREGATE ingredient, i.e.:fruit and plant concentrates:safflower, apple, spirulina, radish, lemon, sweet potato, carrot, blackcurrant, hibiscus;
@@ -30109,7 +30153,7 @@ de:Frucht- und Pflanzenkonzentrate
 fr:concentré de fruits et de plantes, concentrés de fruits et de plantes
 it:concentrati di frutta e plante
 nl:vruchten- en plantenconcentraten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré%20de%20fruits%20et%20de%20plantes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-fruits-et-de-plantes
 # 282 products in 5 languages @2018-10-04
 
 # Is an AGGREGATE ingredient, i.e.:concentrés de fruits (framboise, orange, citron)
@@ -30118,7 +30162,7 @@ nl:vruchten- en plantenconcentraten
 fr:concentrés de fruits
 de:Früchtekonzentrate
 it:concentrati di frutta
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés%20de%20fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés-de-fruits
 # 42 products in 3 languages @2018-10-04
 
 <en:fruit
@@ -30274,9 +30318,9 @@ de:Aprikosenpüree
 fr:purée d'abricots, purée d'abricot, pulpe d'abricot
 it:purea di albicocca
 nl:abrikozenpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20d'abricots
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-d'abricots
 # 265 products in 5 languages @2018-09-29
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20d'abricot
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-d'abricot
 # 40 products in 1 language @2018-09-29
 
 <en:apricot
@@ -30286,7 +30330,7 @@ es:albaricoques deshidratados
 fr:abricots secs, abricots séchés
 it:albicocche secche
 nl:gedroogde abrikozen
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:abricots%20secs
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:abricots-secs
 # 138 products in 5 languages @2018-09-29
 
 <en:dried apricots
@@ -30618,7 +30662,7 @@ it:cranberry secchi
 fr:jus de cranberry à base de concentré
 de:Cranberrysaft (Moosbeerensaft) aus Cranberrysaftkonzentrat
 it:succo di mirtillo rosso da concentrato
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20cranberry%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cranberry-à-base-de-concentré
 # 32 products in 3 languages @2018-10-02
 
 
@@ -30741,7 +30785,7 @@ de:Mangopüree, Mangomark
 fr:purée de mangue, purée de mangues, pulpe de mangue
 it:polpa di mango
 nl:mangopuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-mangue
 # 393 products @2018-09-27
 
 
@@ -30809,7 +30853,7 @@ de:Pfirsichpurée
 fr:purée de pêches, purée de pêche
 it:purea di pesche
 nl:Perzikkenpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pêches
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pêches
 # 147 products in 4 languages @2018-09-26
 
 <en:peach
@@ -30963,7 +31007,7 @@ es:puré de para
 fr:purée de poires, purée de poire
 it:purea di pere
 nl:perenpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20poires
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-poires
 # 233 products in 5 langauges @2018-09-28
 
 <en:pear
@@ -30986,7 +31030,7 @@ wikidata:en:Q2461726
 fr:jus de poire concentré
 de:Birnendicksaft
 it:Succo di pere concentrato
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20poire%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-poire-concentré
 # 25 products in 3 languages @2018-09-28
 
 <en:pear juice
@@ -30996,7 +31040,7 @@ es:zumo de pera a partir de concentrado
 fr:jus de poire à base de concentré
 it:succo di pera da concentrato
 nl:perensap uit concentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20poire%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-poire-à-base-de-concentré
 # 23 products in 4 languages @2018-09-28
 
 
@@ -31382,14 +31426,14 @@ de:Apfelstücke
 fr:morceaux de pomme, morceaux de pommes
 it:pezzi di mela
 nl:stukjes appel
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:morceaux%20de%20pomme
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:morceaux-de-pomme
 # 45 products in 4 languages @2018-10-04
 
 <en:apple
 fr:compote de pommes
 de:Apfelmus
 nl:appelcompote
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:compote%20de%20pommes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:compote-de-pommes
 # 74 products in 4 languages @2018-10-04
 
 <fr:compote de pommes
@@ -31401,7 +31445,7 @@ fr:pulpe de pomme
 de:Apfelmark
 it:polpa di mele
 nl:appelmoes
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20pomme
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-pomme
 # 46 products @2018-10-04
 
 # This can be a compound ingredient
@@ -31413,21 +31457,21 @@ de:Apfelpüree
 fr:purée de pomme
 it:purea di mele
 nl:Appelmoes
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pomme
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pomme
 # 1022 products @2018-10-04
 
 <en:apple purée
 fr:purée de pommes françaises
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pommes%20françaises
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pommes-françaises
 # 28 products in 1 language @2018-10-04
 
 <en:apple purée
 fr:purée de pommes concentrée, purée de pomme concentrée, concentrés végétaux de pomme
 de:Apfel-Püree konzentriert
 nl:geconcentreerde appelpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pommes%20concentrée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pommes-concentrée
 # 65 products in 3 languages @2018-10-04
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pomme%20concentrée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pomme-concentrée
 # 56 products in 4 languages @2018-10-04
 
 <en:apple
@@ -31443,14 +31487,14 @@ nl:appelextract
 fr:pommes en poudre
 de:Apfelpulver
 it:mele in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pommes%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pommes-en-poudre
 # 6 products in 3 languages @2018-10-04
 
 <en:apple
 fr:flocons de pomme
 de:Apfelflocken
 it:fiocchi di mela
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20pomme
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-pomme
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
@@ -31564,7 +31608,7 @@ fr:pur jus de pommes à cidre bio
 <en:orange juice
 <en:citrus fruit
 fr:jus d'orange et autres agrumes à base de concentrés
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'orange%20et%20autres%20agrumes%20à%20base%20de%20concentrés
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'orange-et-autres-agrumes-à-base-de-concentrés
 # 46 products in 1 language @2018-09-30
 
 <en:fiber
@@ -31791,7 +31835,7 @@ zh:青檸
 # zh-hant:萊姆
 wikidata:en:Q13195
 wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron%20vert
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
 # 251 products @2018-10-01
 carbon_footprint_fr_foodges_ingredient:fr:Citron
 carbon_footprint_fr_foodges_value:fr:0.9
@@ -31804,19 +31848,19 @@ fr:jus de citron vert
 it:succo di lime
 nl:limoensap
 sv:limejuice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20citron%20vert
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
 # 342 products @2018-10-01
 
 <en:lime juice
 fr:jus de citron vert concentré
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20citron%20vert%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-concentré
 # 43 products in 1 language @2018-10-01
 
 <en:lime juice
 en:reconstituted lime juice
 fr:jus de citron vert à base de concentré
 nl:limoensap uit concentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20citron%20vert%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
 # 74 products in 3 languages @2018-10-01
 
 <en:lime
@@ -31836,7 +31880,7 @@ wikidata:en:Q1093742
 
 <en:lemon
 fr:citron confit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron%20confit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-confit
 # 70 products in 1 language @2018-10-01
 
 <fr:citron confit
@@ -31847,7 +31891,7 @@ en:lemon pulpe
 de:Zitronenpulpe
 fr:pulpe de citron, pulpes de citron
 nl:Citroenpulp
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20citron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-citron
 # 95 products in 3 languages @2018-10-01
 
 <en:lemon
@@ -31859,13 +31903,13 @@ fr:purée de citron
 it:purea di limone
 nl:puree van citroen
 pt:puré de limão
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20citron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-citron
 # 104 products @2018-10-01
 
 <en:lemon puree
 fr:purée de citron sucrée
 nl:gesuikerde citroenpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20citron%20sucrée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-citron-sucrée
 # 41 products @2018-10-01
 
 <en:lemon
@@ -31886,7 +31930,7 @@ fr:écorce de citron, écorces de citron, écorces de citrons, zestes de citron,
 it:scorza d’arancia
 nl:citroenschil, schillen citroen
 pt:casca de limão
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce%20de%20citron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce-de-citron
 # 314 products @2018-10-01
 
 # Is this the oil from the rind?
@@ -31897,7 +31941,7 @@ de:Zitronenöl
 fr:essence de citron, huile essentielle de citron
 it:essenza di limone, olio essenziale di limone
 nl:Citroenolie
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:essence%20de%20citron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:essence-de-citron
 # 28 products @2018-10-01
 
 # <en:lemon
@@ -31913,7 +31957,7 @@ nl:citroensap
 nn:sitronsaft
 pt:sumo de limão
 sv:citronjuice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon%20juice
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon-juice
 # 9259 products in 16 languages @2018-10-01
 
 <en:lemon juice
@@ -31937,7 +31981,7 @@ nl:gedroogd citroensap
 nn:tørket sitronsaft
 pt:sumo de limão desidratado
 sv:torkad citronjuice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-en-poudre
 # 25 products in 3 languages @2018-10-01
 
 <en:lemon
@@ -31947,7 +31991,7 @@ es:zumo concentrado de limón, extracto de limón
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de citron, extrait de citron, concentré de jus de citron
 it:succo di limone concentrato, concentrato di limone, estratto di limone
 nl:citroenextract
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré%20de%20citron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-citron
 # 170 products @2018-10-01
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon-extract
 # 137 products @2018-10-01
@@ -31955,7 +31999,7 @@ nl:citroenextract
 
 <en:lemon
 fr:extrait naturel de citron, extraits naturels de citron
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20naturel%20de%20citron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-naturel-de-citron
 # 40 products in 1 language @2018-10-01
 
 <en:lemon juice
@@ -31969,12 +32013,12 @@ nl:citroensap uit concentraat
 
 <en:lemon
 fr:jus concentré pulpé de citron
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20concentré%20pulpé%20de%20citron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-pulpé-de-citron
 # 12 products in 1 language @2018-10-02
 
 <en:lemon juice from concentrate
 fr:jus de citron bio concentré
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20citron%20bio%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-bio-concentré
 # 26 products in 1 lamguage @2018-10-02
 
 # The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
@@ -32220,7 +32264,7 @@ de:Orangensaft aus Konzentrat
 fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré
 it:succo d'arancia a base di concentrato
 nl:Sinaasappelsap uit sapconcentraat
-# fr:jus%20d'orange%20à%20base%20de%20concentré 269 products @2018-09-28
+# fr:jus-d'orange-à-base-de-concentré 269 products @2018-09-28
 
 <en:orange juice
 en:concentrated orange juice, Orange juice from Concentrat
@@ -32228,7 +32272,7 @@ de:Orangensaftkonzentrat
 fr:jus d'orange concentré, concentré de jus d'orange
 it:succo d'arancia concentrato
 nl:sinaasappelconcentraat, geconcentreerd sinaasappelsap
-# fr:jus%20d'orange%20concentré 144 products in 4 languages @2018-09-28
+# fr:jus-d'orange-concentré 144 products in 4 languages @2018-09-28
 
 <en:orange juice
 de:Orangensaft mit Fruchtfleisch
@@ -32246,7 +32290,7 @@ de:Blutorangensaft
 fr:jus d'orange sanguine
 it:succo d'arancia sanguigna
 nl:bloedsinaasappelsap
-# fr:jus%20d'orange%20sanguine 40 products in 3 languages @2018-09-28
+# fr:jus-d'orange-sanguine 40 products in 3 languages @2018-09-28
 
 # no corresponding products
 # <en:orange juice
@@ -32273,7 +32317,7 @@ de:Orangenfruchtfleisch
 fr:pulpe d'orange
 hu:narancs püré
 it:polpe d'arancia
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20d'orange
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-d'orange
 # 139 products in 5 languages @2018-09-28
 
 <en:orange
@@ -32291,13 +32335,13 @@ nl:sinaasappelschil, sinaasappelschillen, schillen sinaasappel, appelsienschil
 pl:skórka pomarańczowa
 pt:casca de laranja, gasca de laranja
 sv:apelsinskal
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:zeste%20d'orange
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:zeste-d'orange
 # 136 products in 4 languages @2018-09-28
 
 <en:orange zest
 de:Orangeschalenextrakt
 fr:extrait de zeste d'orange
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20zeste%20d'orange
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-zeste-d'orange
 # 54 products in 2 languages @2018-09-28
 
 # CANDIED ORANGE PEEL is a compound ingredient
@@ -32309,8 +32353,8 @@ es:corteza de naranja confitada
 fr:écorces d'orange confites, écorces d'oranges confites, orangeat
 it:scorze d'arancia candite, cubetti di scorza di limone
 nl:gekonfijte sinaasappelschillen
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces%20d'orange%20confites/
-# 303 products in 6 languages @2018-09-28openfoodfacts:https://world.openfoodfacts.org/ingredient/en:candied%20orange%20zest
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces-d'orange-confites/
+# 303 products in 6 languages @2018-09-28openfoodfacts:https://world.openfoodfacts.org/ingredient/en:candied-orange-zest
 # 3 products in 1 language @2018-09-28
 
 # What is the difference between arome and extrait
@@ -32319,13 +32363,13 @@ fr:extrait d'orange
 de:Orangenextrakt
 it:estratto di arancia
 nl:sinaasappelextracten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20d'orange
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-d'orange
 # 44 products @2018-09-28
 
 <fr:extrait d'orange
 fr:extraits naturels d'orange
 es:extracto natural de naranja dulce
-#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extraits%20naturels%20d'orange
+#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extraits-naturels-d'orange
 # 28 products in 3 languages @2018-09-28
 
 <en:orange juice
@@ -32380,7 +32424,7 @@ carbon_footprint_fr_foodges_value:fr:1.3
 fr:jus de mandarine
 de:Mandarinesaft
 it:succo di mandarino
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20mandarine
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
 # 52 products in 3 languages @2018-10-01
 
 # A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
@@ -32432,7 +32476,7 @@ wikidata:en:https://www.wikidata.org/wiki/Q460517
 <en:fruit juice
 fr:jus de clémentine
 de:Clementinensaft
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20clémentine
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
 # 75 products in 2 languages @2018-10-01
 
 
@@ -32470,7 +32514,7 @@ nl:zwarte bessensap
 <en:blackcurrant juice
 fr:jus concentré de cassis, jus de cassis concentré, concentré de cassis
 nl:zwarte bessensapconcentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20concentré%20de%20cassis
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-de-cassis
 # 58 products in 1 language @2018-10-01
 
 <en:blackcurrant juice
@@ -32478,7 +32522,7 @@ en:blackcurrant juice from concentrate
 es:zumo de cassis a base de concentrado
 fr:jus de cassis à base de concentré
 nl:zwarte bessensap op basis van concentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20cassis%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cassis-à-base-de-concentré
 # 75 languages @2018-10-01
 
 <en:blackcurrant
@@ -32488,7 +32532,7 @@ de:schwarzes Johannisbeerenpüree
 es:puré de cassis
 fr:purée de cassis
 nl:Zwarte bessenpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20cassis
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-cassis
 # 118 products in 5 languages @2018-10-01
 
 # no products
@@ -32593,7 +32637,7 @@ fr:purée de framboise concentrée
 de:konzentriertes Himbeerpuree
 es:puré de frambuesa concentrado
 pt:concentrado de polme de framboesa
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20framboise%20concentrée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-framboise-concentrée
 # 51 products in 4 languages @2018-09-27
 
 <en:raspberry
@@ -32603,7 +32647,7 @@ de:Himbeersaft
 fr:jus de framboise
 it:succo di lamponi
 nl:Frambozensap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20framboise
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-framboise
 # 72 products in 4 languages @2018-09-27
 
 <fr:jus de framboise
@@ -32646,7 +32690,7 @@ en:freeze-dried raspberries
 de:Himbeeren gefriergetrockent
 fr:framboises lyophilisées
 it:lamponi liofilizzati
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:framboises%20lyophilisées
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:framboises-lyophilisées
 # 46 products in 4 languages @2018-09-27
 
 # The garden strawberry (or simply strawberry; Fragaria × ananassa)[1] is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.
@@ -32774,7 +32818,7 @@ fr:morceaux de fraise
 <en:strawberry
 en:strawberry filling
 fr:nappage à la fraise
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:nappage%20à%20la%20fraise
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:nappage-à-la-fraise
 # 33 products @2018-10-01
 
 <en:strawberry
@@ -32782,14 +32826,14 @@ fr:nappage à la fraise
 fr:jus de fraise à base de concentré
 de:Erdbeersaft aus Konzentrat
 nl:geconcentreerd aardbeiensap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fraise%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fraise-à-base-de-concentré
 # 58 products @2018-10-01
 
 <en:strawberry
 fr:fraises lyophilisées
 de:Erdbeeren gefriergetrocknet
 it:fragole liofilizzate
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fraises%20lyophilisées
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fraises-lyophilisées
 # 38 products in 3 languages @2108-10-01
 
 <en:strawberry
@@ -32800,7 +32844,7 @@ es:puré de fresa
 fr:purée de fraise, purée de fraises
 it:purea di fragola
 nl:aardbeienpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20fraise
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fraise
 # 450 products in 6 languages @2018-10-01
 
 <en:strawberry puree
@@ -32850,7 +32894,7 @@ fr:myrtilles bio
 <en:blueberry
 fr:myrtilles sauvages
 de:Wilde Heidelbeeren
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles%20sauvages
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
 # 55 products in 2 languages @2018-10-01
 
 <en:blueberry
@@ -32859,7 +32903,7 @@ en:blueberry puree, blueberries puree
 de:Blaubeerenpuree
 fr:purée de myrtilles
 nl:bosbessenpuree, bosbessenmoes
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20myrtilles
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-myrtilles
 # 105 products @2018-10-01
 
 
@@ -33295,14 +33339,14 @@ fr:bigarreaux confits
 <en:cherry
 fr:cerises confites
 de:kandierte Kirschen
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cerises%20confites
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cerises-confites
 # 42 products @2018-09-29
 
 <en:cherry
 <en:purée
 en:cherry purée
 fr:Purée de cerises
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/en:cherry%20purée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/en:cherry-purée
 # 35 products @2018-09-29
 
 # PASSION FRUIT is the fruit of a number of plants in the Passiflora family.Edible passion fruits can be divided into three main types:purple ones (fruits of Passiflora edulis Sims), yellow ones (Passiflora edulis f. flavicarpa Deg.), and giant granadilla (Passiflora quadrangularis L.),[4] as well as sweet granadilla (Passiflora ligularis).
@@ -33319,9 +33363,9 @@ ru:маракуйя
 ta:தாட்பூட்
 wikipedia:en:https://en.wikipedia.org/wiki/Passion_fruit_(fruit)
 wikidata:en:Q28836257
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/passion%20fruit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/passion-fruit
 # 48 products in 2 languages @2018-09-29
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit%20de%20la%20passion
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit-de-la-passion
 # 559 products in 5 languages @2018-09-29
 
 <en:passion fruit
@@ -33332,7 +33376,7 @@ es:zumo de maracuyá
 fr:jus de fruit de la passion, jus de fruits de la passion
 it:succo di frutto della passione
 nl:passievruchtsap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion
 # 262 products in 6 languages @2018-09-29
 
 <en:passion fruit juice
@@ -33340,14 +33384,14 @@ en:reconstituted passion fruit juice
 de:Passionfruchtsaft aus Konzentrat
 es:zumo de maracuyá a partir de concentrado
 fr:jus de fruit de la passion à base de concentré
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion-à-base-de-concentré
 # 82 products in 4 languages @2018-09-29
 
 <en:passion fruit
 <en:purée
 fr:purée de fruit de la passion
 nl:passievruchtenpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20fruit%20de%20la%20passion
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fruit-de-la-passion
 # 66 products in 2 languages @2018-09-29
 
 
@@ -33512,7 +33556,7 @@ carbon_footprint_fr_foodges_value:fr:0.5
 fr:melons confits
 de:kandierte Melonen
 it:meloni canditi
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melons%20confits 59 products in 3 languages @2018-09-29
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melons-confits 59 products in 3 languages @2018-09-29
 
 # Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
 
@@ -33759,7 +33803,7 @@ fr:figues séchées, figues sèches
 de:Feigen getrocknet
 es:higo seco
 it:fichi essiccati
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:figues%20séchées
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:figues-séchées
 # 91 products in 3 languages @2018-09-29
 
 <en:fruit
@@ -33797,20 +33841,20 @@ fr:jus de sureau
 de:Holundersaft
 it:succo di sambuco
 nl:vlierbessap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau
 # 52 products @2018-09-29
 
 <fr:jus de sureau
 fr:jus de sureau concentré, jus concentré de sureau
 de:konzentrierter Holundersaft
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20sureau%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau-concentré
 # 40 products @2018-09-29
 
 <fr:jus de sureau concentré
 fr:jus de sureau à base de concentré
 de:Holundersaft aus Konzentrat
 it:succo di sambuco a base di concentrato
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20sureau%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau-à-base-de-concentré
 # 25 products @2018-09-29
 
 <en:elderberry
@@ -33819,9 +33863,9 @@ de:Holunderbeerenextrakt
 fr:extrait de baie de sureau, extrait de sureau
 it:estratto di sambuco
 sv:fläderbär extract
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-sureau
 # 29 products @2018-09-29
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20baie%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-baie-de-sureau
 # 57 products in 1 language @2018-09-29
 
 <en:elderberry extract
@@ -33831,7 +33875,7 @@ en:natural elderberry extract
 fr:concentré de sureau
 de:Holunderbeerenkonzentrat
 es:concentrato di coccole di sambuco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-sureau
 # 33 products @2018-09-29
 
 <en:elder
@@ -33840,7 +33884,7 @@ de:Holunderblüten
 fr:fleurs de sureau
 it:fiori di sambuco
 nl:vlierbloesem
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs%20de%20sureau
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs-de-sureau
 # 51 products @2018-09-29
 
 <en:fruit
@@ -33964,7 +34008,7 @@ fr:kiwis biologiques
 <en:purée
 fr:purée de kiwi
 de:Kiwipüree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20kiwi
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-kiwi
 # 27 products in 2 languages @2018-09-30
 
 <en:kiwi
@@ -33974,7 +34018,7 @@ de:Kiwisaft
 es:zumo de kiwi
 fr:jus de kiwi
 nl:kiwisap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/en:kiwi%20juice
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/en:kiwi-juice
 # 8 products in 3 languages 22018-09-30
 
 # No products
@@ -34044,7 +34088,7 @@ wikidata:en:Q10817602
 
 <en:pineapple
 fr:segments d'ananas
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:segments%20d'ananas
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:segments-d'ananas
 # 36 products in 1 language @2018-09-30
 
 <en:pineapple
@@ -34062,7 +34106,7 @@ nl:ananasvezels
 <en:purée
 fr:purée d'ananas
 de:Ananaspüree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20d'ananas
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-d'ananas
 # 33 products in 2 languages @2018-09-30
 
 <en:pineapple
@@ -34072,7 +34116,7 @@ de:Ananassaft
 fr:jus d'ananas
 it:succo di ananas
 nl:Ananassap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'ananas
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'ananas
 # 287 products in 6 languages @2018-09-30
 
 <en:pineapple juice
@@ -34148,13 +34192,13 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneau
 
 <fr:pruneau
 fr:pruneaux d'agen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneaux%20d'agen
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneaux-d'agen
 # 57 products @2018-09-30
 
 <fr:pruneau
 <en:purée
 fr:purée de pruneaux
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pruneaux
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
 # 39 products in 1 language @2018-09-30
 
 # The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet, somewhat bitter fruit.
@@ -34187,14 +34231,14 @@ en:grapefruit juice
 de:Grape-fruitsaft
 fr:jus de pamplemousse
 nl:Grapefruitsap
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20pamplemousse
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse
 # 42 products in 2 languages @2018-09-30
 
 <en:grapefruit juice
 fr:jus de pamplemousse à base de concentré
 de:Grapefruitsaft aus Konzentrat
 it:succo di pompelmo a base di concentrato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20pamplemousse%20à%20base%20de%20concentré
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-à-base-de-concentré
 # 32 products @2018-09-30
 
 <en:grapefruit
@@ -34202,7 +34246,7 @@ en:pink grapefruit
 de:Pink grapefruit
 fr:pamplemousse rose
 it:pompelmo rosa
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pamplemousse%20rose
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pamplemousse-rose
 # 20 products @2018-09-30
 
 <en:pink grapefruit
@@ -34211,7 +34255,7 @@ en:pink grapefruit juice
 de:Pink grapefruit saft
 fr:Jus de pamplemousse rose
 it:succo di pompelmo rosa
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20pamplemousse%20rose
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-rose
 # 53 products @2018-09-30
 
 <en:pink grapefruit juice
@@ -34219,7 +34263,7 @@ en:pink grapefruit juice from concentrate
 de:Pink grapefruit Saft aus Konzentrat
 fr:jus de pamplemousse rose à base de concentré
 it:succo di pompelmo rosa ricavata di concentrato
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20pamplemousse%20rose%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-rose-à-base-de-concentré
 # 30 products @2018-09-30
 
 # Guavas (singular guava) are common tropical fruits cultivated and enjoyed in many tropical and subtropical regions.
@@ -34511,12 +34555,12 @@ carbon_footprint_fr_foodges_value:fr:0.8
 <en:grape
 en:white grape
 fr:raisin blanc, raisins blancs
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin%20blanc
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin-blanc
 # 81 products in 2 languages @2018-10-02
 
 <en:grape
 fr:raisins noirs
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins%20noirs
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-noirs
 # 51 products in 1 language @2018-10-02
 
 # A RAISIN is a dried grape.
@@ -34606,7 +34650,7 @@ zh:葡萄乾
 # yue:提子乾
 wikidata:en:Q13186
 wikipedia:en:https://en.wikipedia.org/wiki/Raisin
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin%20sec
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin-sec
 carbon_footprint_fr_foodges_ingredient:fr:Raisin
 carbon_footprint_fr_foodges_value:fr:0.8
 
@@ -34624,7 +34668,7 @@ de:Sultaninen
 fr:raisins secs sultanines
 it:uva sultanina
 wikipedia:en:https://en.wikipedia.org/wiki/Sultana_(grape)
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins%20secs%20sultanines
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
 # 46 products in 3 languages @2018-10-02
 
 # Zante currants, Corinth raisins, or Corinthian raisins, also called simply currants, are dried berries of the small, sweet, seedless grape cultivar 'Black Corinth' (Vitis vinifera).
@@ -34652,7 +34696,7 @@ tr:Kuş üzümü
 # tg:Мавиз translation error?
 wikipedia:en:https://en.wikipedia.org/wiki/Zante_currant
 wikidata:en:Q1382423
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins%20de%20corinthe
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-de-corinthe
 # 57 products in 3 languages @2018-10-02
 
 # Grape juice is obtained from crushing and blending grapes into a liquid.
@@ -34712,7 +34756,7 @@ es:zumo de uva blanca
 fr:jus de raisin blanc
 it:succo d'uva bianca
 nl:Witte druivensap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20raisin%20blanc
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-raisin-blanc
 # 71 products in 4 languages @2018-10-02
 
 <en:white grape juice
@@ -34730,7 +34774,7 @@ fr:jus de raisin rouge
 de:roter Traubensaft
 it:succo d'uva rossa
 pt:sumo de uva tinta
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20raisin%20rouge
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-raisin-rouge
 # 35 products in 4 languages @2018-10-02
 
 <fr:jus de raisin rouge
@@ -34785,7 +34829,7 @@ zh:葡萄漿
 # zh-tw:水果酒
 wikipedia:en:https://en.wikipedia.org/wiki/Must
 wikidata:en:Q278818
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
 # 273 products in 4 languages @2018-10-02
 
 <en:must
@@ -34794,13 +34838,13 @@ de:Traubenmostkonzentrat, konzentrierter Traubenmost
 fr:moût de raisin concentré
 it:mosto d'uva concentrato
 nl:geconcentreerde druivenmost
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-concentré
 # 183 products in 5 languages @2018-10-02
 
 <en:concentrated grape must
 <fr:moût de raisin cuit
 fr:moût de raisin concentré et cuit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20concentré%20et%20cuit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-concentré-et-cuit
 # 36 products in 1 language @2018-10-02
 
 <en:must
@@ -34808,7 +34852,7 @@ fr:moût de raisin cuit
 de:gekochter Traubenmost
 it:mosto cotto
 nl:gekookte druivenmost
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20cuit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-cuit
 # 117 products in 4 languages @2018-10-02
 
 <en:fruit juice
@@ -35403,7 +35447,7 @@ zh:亞歷山大麝香
 # zh-hant:亞歷山大麝香葡萄
 wikidata:en:Q1651827
 wikipedia:en:https://en.wikipedia.org/wiki/Muscat_of_Alexandria
-# ingredient/fr:Muscat%20d'Alexandrie has 2 products @2019-01-19
+# ingredient/fr:Muscat-d'Alexandrie has 2 products @2019-01-19
 
 
 <en:varietal
@@ -35534,7 +35578,7 @@ zh:黑比诺
 # zh-sg:黑比诺
 # zh-tw:黑比诺
 wikidata:en:Q223701
-wikipedia:en:https://world.openfoodfacts.org/ingredient/fr:pinot%20noir
+wikipedia:en:https://world.openfoodfacts.org/ingredient/fr:pinot-noir
 # fr:pinot-noir has 20 products in 1 language @2018-10-29
 
 
@@ -35742,7 +35786,7 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
 <en:pomegranate
 fr:graines de grenade
 de:Granatapfelkerne
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20grenade
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
 # 4 products in 3 languages @2018-10-03
 
 <en:pomegranate
@@ -35751,7 +35795,7 @@ en:pomegranate juice
 fr:jus de grenade
 de:Granatapfelsaft
 it:succo di melagrana
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20grenade
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-grenade
 # 61 products in 3 languages @2018-10-03
 
 <en:pomegranate juice
@@ -35828,7 +35872,7 @@ zh:野櫻莓
 fr:jus d'aronia
 de:Aroniasaft
 it:succo d'aronia
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'aronia
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'aronia
 # 20 products in 3 languages @2018-10-03
 
 <en:fruit
@@ -35855,16 +35899,16 @@ fr:extrait d'acérola, jus concentré d'acérola
 de:Acerolaextrakt
 it:estratto d'acerola
 nl:acerola-extract
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20concentré%20d'acérola
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
 # 3 products in 1 language @2018-10-03
-# ingredient/fr:extrait%20d'acérola has 215 products in 4 languages @2018-10-03
+# ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
 
 <en:acerola
 en:acerola powder
 de:Acerolapulver
 fr:poudre d'acérola
 it:acerola in polvere
-# ingredient/fr:poudre%20d'acérola has 37 products @2018-10-03
+# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
 
 <fr:poudre d'acérola
 en:acerola powder on manioc starch
@@ -35912,7 +35956,7 @@ za:Makyehswj
 # pt-br:coco
 wikipedia:en:https://fr.wikipedia.org/wiki/Noix_de_coco
 wikidata:en:Q3342808
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
 # 1209 products in 11 languages @2018-10-03
 
 <en:coconut
@@ -35920,7 +35964,7 @@ en:coconut cream
 de:Kokosnusscreme
 fr:crème de noix de coco, crème de coco
 it:Crema di noce di cocco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
 # 33 products @2018-10-03
 
 # Is this a compound product? coconut cream + water?
@@ -35932,16 +35976,16 @@ fr:lait de noix de coco, lait de coco, eau de coco
 it:latte di noce di cocco
 nl:kokosmelk
 sv:kokosmjòlk
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
 # 87 products @2018-10-03
 
 <fr:lait de noix de coco
 fr:lait de noix de coco en poudre, lait de coco en poudre
 de:Kokosnussmilchpulver, Kokosmilchpulver
 it:latte di noci di cocco in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20noix%20de%20coco%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco-en-poudre
 # 53 products in 3 languages @2018-10-03
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait%20de%20coco%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-coco-en-poudre
 # 69 products in 3 languages @2018-10-03
 
 <fr:lait de noix de coco en poudre
@@ -35954,7 +35998,7 @@ es:extracto de coco
 fr:extrait de noix de coco, extrait de coco
 it:estratto di noce di cocco
 nl:Kokosextract
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-noix-de-coco
 # 216 products in 6 languages @2018-10-03
 
 <en:coconut
@@ -35962,14 +36006,14 @@ en:coconut pulp
 de:Kokosfruchtfleisch
 fr:pulpe de noix de coco
 nl:Kokospulp
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-noix-de-coco
 # 21 products in 3 languages @2018-10-03
 
 <en:coconut pulp
 fr:noix de coco séchée, noix de coco deshydratée
 nl:gedroogde kokosnoot
 ro:nuca de cocos deshidratata
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20séchée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-séchée
 # 130 in 5 languages products @2018-10-03
 
 <en:coconut
@@ -35978,7 +36022,7 @@ de:Kokosnussepulver
 fr:noix de coco en poudre
 it:noce di cocco in polvere
 nl:kokospoeder
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-en-poudre
 # 86 products in 5 languages @2108-10-03
 
 <en:coconut
@@ -35988,7 +36032,7 @@ es:coco rallado
 fr:noix de coco râpée
 it:cocco grattugiato
 nl:Gemalen kokos
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20coco%20râpée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-râpée
 # 575 products in 7 languages @2018-10-03
 
 <en:coconut
@@ -35997,9 +36041,9 @@ de:Kokosflocken
 fr:flocons de coco, fr:flocons de noix de coco
 it:fiocchi di cocco
 nl:Kokosschilfers
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-coco
 # 15 products in 4 languages @2018-10-03
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-noix-de-coco
 # 44 products @2018-10-03
 
 <en:coconut
@@ -38990,7 +39034,7 @@ sq:qepë e kuqe
 sv:rödlök
 # pnb:لال پیاز
 # ingredient/red-onions has 76 products in english @2018-12-06
-# ingredient/fr:oignon%20rouge has 93 products in 6 languages @2018-12-06
+# ingredient/fr:oignon-rouge has 93 products in 6 languages @2018-12-06
 
 <en:onion
 en:Roscoff onions
@@ -42959,11 +43003,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nut_(fruit)
 wikidata:en:Q11009
 vegan:en:yes
 vegetarian:en:yes
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit%20à%20coque
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit-à-coque
 # 158 products in 1 languages @2018-10-07
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20à%20coques
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-à-coques
 # 438 products in 4 languages @2010-10-08
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20à%20coque
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-à-coque
 # 2099 products in 5 languages @2018-10-07
 
 <en:nut
@@ -42984,7 +43028,7 @@ en:puréed chestnuts
 fr:purée de châtaignes
 it:purea di castagne
 nl:kastanjepuree
-# ingredient/fr:purée%20de%20châtaignes has 33 products in 2 languages @2018-10-07
+# ingredient/fr:purée-de-châtaignes has 33 products in 2 languages @2018-10-07
 
 <en:chestnut
 en:cooked chestnuts
@@ -43020,14 +43064,14 @@ fr:Marrons entiers bio
 # <en:compound
 <fr:marron
 fr:crème de marrons
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème%20de%20marrons
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-marrons
 # 53 products in 1 language @2018-10-07
 # usage:fr:(sucre, châtaignes, eau, extrait pur de vanille)
 
 <fr:marron
 fr:purée de marrons
 de:Marronipüree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20marrons
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-marrons
 # 41 products in 3 languages @2018-10-07
 
 <en:nut
@@ -43048,13 +43092,13 @@ fr:pistaches en coques
 <en:pistachio nuts
 fr:pâte de pistache
 de:Pistazienpaste
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte%20de%20pistache
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-pistache
 # 75 products @2018-10-05
 
 <en:pistachio nuts
 fr:morceaux de pistache
 de:Pistazienstücke
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:morceaux%20de%20pistache
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:morceaux-de-pistache
 # 5 products in 2 languages @2018-10-07
 
 <en:nut
@@ -43122,7 +43166,7 @@ en:wallnuts shelled
 de:Walnusskerne
 fr:cerneaux de noix
 nl:Gepelde walnoot
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cerneaux%20de%20noix
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cerneaux-de-noix
 # 78 products in 4 languages @2018-10-05
 
 <en:nut
@@ -43133,7 +43177,7 @@ it:Paranüsse
 nl:paranoot, paranoten
 ru:бразильский орех
 wikidata:en:Q22810770
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20du%20brésil
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-du-brésil
 # 87 products in 4 languages @2018-10-05
 
 <en:nut
@@ -43147,7 +43191,7 @@ nn:Makadamianøtter
 pt:macadâmia
 ru:макадамия
 wikidata:en:Q11027461
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20macadamia
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-macadamia
 # 84 products in 4 languages @2018-10-05
 
 <en:nut
@@ -43208,7 +43252,7 @@ es:cacahuetes tostados
 fr:cacahuètes grillées
 it:arachidi tostate
 nl:geroosterde pinda's, geroosterde pindanoten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes%20grillées
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes-grillées
 # 66 products in 6 languages @2018-10-06
 
 <en:roasted peanuts
@@ -43228,7 +43272,7 @@ fr:cacahuètes grillées moulues, arachides grillées moulues
 it:arachidi tostate macinate
 nl:geroosterde germalen pinda's
 pt:amendoins torrados moídos
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes%20grillées%20moulues
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes-grillées-moulues
 # 53 products in 6 languages @2018-10-06
 
 <en:peanut
@@ -43316,27 +43360,27 @@ de:geröstete Haselnüsse, Haselnüsse geröstet
 es:avellanas tostadas
 fr:noisettes grillées, noisettes torréfiées
 it:nocciole tostate
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20grillées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-grillées
 # 100 in 5 languages products @2018-10-07
 
 <en:hazelnut
 fr:noisettes décortiquées
 de:Haselnusskerne
 it:nocciole sgusciate
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20décortiquées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-décortiquées
 # 42 products in 4 languages @2018-10-07
 
 <en:hazelnut
 fr:noisettes entières,
 de:ganze Haselnüsse, Haselnüsse ganz
 it:nocciole intere
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20entières
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-entières
 # 118 products in 4 languages @2018-10-07
 
 <fr:noisettes entières
 fr:noisettes entières torréfiées
 nl:hele gegrilde hazelnoten
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20entières%20torréfiées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-entières-torréfiées
 # 15 products in 1 language @2018-10-007
 
 <en:hazelnut
@@ -43344,7 +43388,7 @@ en:chopped hazelnuts
 de:gehackte Haselnüsse
 fr:noisettes hachées
 it:nocciole tritate
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20hachées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-hachées
 # 44 products @2018-10-07
 
 <en:chopped hazelnuts
@@ -43352,7 +43396,7 @@ en:roasted nibbed hazelnuts
 fr:noisettes hachées grillées, noisettes hachées et grillées
 nl:geroosterde gehakte hazelnoten
 pl:siekane i prażone orzeszki ziemne
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20hachées%20grillées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-hachées-grillées
 # 55 products in 3 languages @2018-10-07
 
 <en:hazelnut
@@ -43360,23 +43404,23 @@ en:ground hazelnuts
 de:gemahlene Haselnüsse, Haselnüsse gemahlen
 fr:noisettes moulues, noisettes broyées
 it:nocciole macinate
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20moulues
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-moulues
 # 76 products @2018-10-07
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes%20broyées
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-broyées
 # 28 products in 3 languages @2018-10-07
 
 <en:hazelnut
 fr:éclats de noisettes
 de:Haselnüsse gemahlen, Haselnusssplitter
 it:nocciole a scaglie
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats%20de%20noisettes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-de-noisettes
 # 145 products in 4 languages @2018-10-06
 
 # éclats de noisettes caramélisés is a compound producte, i.e. (noisettes, sucre de canne)
 
 <fr:éclats de noisettes
 fr:éclats de noisettes caramélisés
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats%20de%20noisettes%20caramélisés
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-de-noisettes-caramélisés
 # 54 products in 1 language @2018-10-07
 
 <en:hazelnut
@@ -43402,7 +43446,7 @@ en:hazelnut praline
 fr:praliné noisettes
 it:pralinato di nocciole
 nl:hazelnootpraliné
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:praliné%20noisettes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:praliné-noisettes
 # 121 products in 3 languages @2018-10-07
 
 <fr:éclats de noisettes
@@ -43411,7 +43455,7 @@ en:nibbed and ground hazelnuts
 de:Haselnüsse gesplittert und gemahlen
 fr:éclats de noisettes et noisettes moulues
 it:nocciole a scaglie é macinate
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats%20de%20noisettes%20et%20noisettes%20moulues
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-de-noisettes-et-noisettes-moulues
 # 14 products in 3 languages @2018-10-07
 
 # No products
@@ -43539,16 +43583,16 @@ es:almendras molidas
 fr:amandes hachées, amandes moulues
 it:mandorle macinate
 nl:gemalen amandelen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes%20hachées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes-hachées
 # 51 products in 4 languages @2018-10-06
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes%20moulues
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes-moulues
 # 60 products in 5 languages @2018-10-06
 
 <en:almond
 fr:amandes décortiquées
 de:Mandelkerne
 it:mandorle sgusciate
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes%20décortiquées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes-décortiquées
 # 64 products in 3 languages @2018-10-06
 
 <en:almond
@@ -43556,7 +43600,7 @@ en:almonds pieces
 de:Mandelstückchen
 fr:éclats d'amandes
 it:mandorle spezzate
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats%20d'amandes
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-d'amandes
 # 73 products in 4 languages @2018-10-06
 
 <en:almond
@@ -43564,7 +43608,7 @@ fr:amandes grillées
 de:geröstete Mandeln, Mandeln geröstet
 it:mandorle tostate
 nl:geroosterde amandelen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes%20grillées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes-grillées
 # 159 products in 5 languages @2018-10-06
 
 <en:almond
@@ -43587,7 +43631,7 @@ nl:bittere amandel, bittere amandelen
 sv:Bittermandel
 # aeb-arab:لوز مرّ
 wikidata:en:Q902704
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes%20amères
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes-amères
 # 39 products in 3 languages @2018-10-06
 
 # fr:pâte d'amande can be a compound ingredient
@@ -43597,7 +43641,7 @@ fr:pâte d'amande, pâte d'amandes
 de:Mandelpaste
 es:masa fina de mazapán
 it:pasta di mandorle
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte%20d'amande
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-d'amande
 # 216 products in 5 languages @2018-10-06
 
 # fr:praliné aux amandes et aux noisettes is a compound ingredient
@@ -43606,7 +43650,7 @@ it:pasta di mandorle
 <en:hazelnut
 fr:praliné aux amandes et aux noisettes
 nl:amandelen-hazelnotenpraliné
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:praliné%20aux%20amandes%20et%20aux%20noisettes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:praliné-aux-amandes-et-aux-noisettes
 # 31 products in 2 languages @2018-10-06
 
 <en:nut
@@ -43616,7 +43660,7 @@ fr:noix de pécan
 it:noci del pekan, noci di pecan
 nl:pecannoot, pecannoten
 wikidata:en:Q1119911
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix%20de%20pécan
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-pécan
 # 323 products in 5 languages 2018-10-05
 
 
@@ -43785,14 +43829,14 @@ fr:graines de moutarde jaunes
 <en:seed
 fr:graines de céleri
 de:Selleriesamen
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20céleri
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-céleri
 # 66 products in 3 languages @2018-10-07
 
 <fr:graines de céleri
 fr:céleri en poudre
 de:Selleriepulver
 it:sedano in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri-en-poudre
 # 41 products in 4 languages @2018-10-07
 
 <en:seed
@@ -43815,7 +43859,7 @@ de:Fenchelsamen
 fr:graines de fenouil
 it:semi di finocchio
 nl:Venkelzaad
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20fenouil
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-fenouil
 # 115 products in 4 languages @2018-10-07
 
 <en:fennel seed
@@ -43860,14 +43904,14 @@ es:comino
 fr:graines de cumin, cumin
 it:grani di cumino
 nl:komijnzaad, komijnzaden, komijn
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20cumin
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-cumin
 # 87 products in 4 languages @2018-10-07
 
 <en:cumin seeds
 fr:cumin moulu
 de:gemahlener Kümmel
 it:cumino macinato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin%20moulu
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin-moulu
 # 52 products in 3 languages @2018-10-07
 
 
@@ -43955,7 +43999,7 @@ es:semillas de calebaza
 fr:graine de courge, graines de courge, graines de potiron, graines de citrouille
 it:semi di zucca
 nl:pompoenpitten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20de%20courge
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-courge
 # 234 products in 5 languages @2018-10-07
 
 <en:pumpkin seed
@@ -44031,12 +44075,12 @@ sv:linfrön
 tr:keten
 # nah:Lino xināchtli
 wikidata:en:Q911332
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20de%20lin
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-lin
 # 449 in 7 languages products @2018-10-08
 
 <en:flax seed
 fr:graines de lin doré
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20lin%20doré
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-lin-doré
 # 40 products in 1 language @2018-10-08
 
 <en:flax seed
@@ -44048,7 +44092,7 @@ fr:graines de lin brun, lin brun
 it:semi di lino scuro
 nl:bruin lijnzaad
 nn:brune linfrø
-# ingredient/fr:graines%20de%20lin%20brun has 181 products in 3 languages @2018-10-08
+# ingredient/fr:graines-de-lin-brun has 181 products in 3 languages @2018-10-08
 
 # description:en:Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
 
@@ -44114,7 +44158,7 @@ nl:peperextract
 
 <en:pepper extract
 fr:extrait naturel de poivre
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20naturel%20de%20poivre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-naturel-de-poivre
 # 81 products in 1 language @2018-10-08
 
 <en:pepper
@@ -44123,25 +44167,25 @@ de:weisser Pfeffer
 fr:poivre blanc
 it:pepe bianco
 nl:witte peper
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre%20blanc
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc
 # 1596 products in 6 languages @2018-10-08
 
 <fr:poivre blanc
 en:ground white pepper
 fr:poivre blanc moulu
 nl:gemalen witte peper
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre%20blanc%20moulu
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc-moulu
 # 66 products in 3 languages @2018-10-08
 
 <en:pepper
 fr:poivre vert
 de:grüner Pfeffer
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre%20vert
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-vert
 # 193 products @2018-10-08
 
 <en:pepper
 fr:poivre gris
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre%20gris
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-gris
 # 53 products in 1 language @2018-10-08
 
 <fr:poivre gris
@@ -44184,14 +44228,14 @@ nl:zwarte peperkorrels
 en:cracked black pepper
 fr:poivre noir concassé
 nl:grove zwarte peper
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre%20noir%20concassé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-noir-concassé
 # 64 products @2018-10-08
 
 <en:black pepper
 en:ground black pepper
 fr:poivre noir moulu
 nl:Gemalen zwarte peper
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre%20noir%20moulu
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-noir-moulu
 # 106 products in 4 languages @2018-10-08
 
 <en:black pepper
@@ -44350,7 +44394,7 @@ nl:biologisch sesamzaad
 
 <en:sesame
 fr:sésame complet
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sésame%20complet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sésame-complet
 # 35 products in 4 languages @2018-10-05
 
 <en:sesame
@@ -44360,7 +44404,7 @@ es:pasta de sésamo
 fr:pâte de sésame, pâte de graines de sésame
 it:pasta di sesamo
 sv:sesam-kräm
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte%20de%20sésame
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
 # 105 products in 4 languages @2018-10-05
 
 
@@ -44960,7 +45004,7 @@ en:turmeric powder
 de:Curcumapulver
 fr:poudre de curcuma, curcuma moulu, curcuma deshydraté
 it:curcuma in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poudre%20de%20curcuma
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poudre-de-curcuma
 # 40 products @2018-10-11
 
 # This is sometimes mentioned as a colouring agent.
@@ -46083,12 +46127,12 @@ fr:extrait de romarin, extraits de romarin
 it:estratti di rosmarino
 nl:extracten van rozemarijn
 sv:extrakt av rosmarin
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20romarin
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-romarin
 # 1304 products in 9 languages @2018-10-09
 
 <en:extracts of rosemary
 fr:extrait naturel de romarin
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20naturel%20de%20romarin
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-naturel-de-romarin
 # 70 products in 1 language @2018-10-09
 
 
@@ -46316,7 +46360,7 @@ zh:留蘭香
 # zh-tw:留蘭香
 wikidata:en:Q160114
 wikipedia:en:https://en.wikipedia.org/wiki/Spearmint
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:menthe%20verte
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:menthe-verte
 # 29 products @2018-10-10
 
 # Peppermint (Mentha × piperita, also known as Mentha balsamea Wild.) is a hybrid mint, a cross between watermint and spearmint.
@@ -46420,7 +46464,7 @@ nl:biologische pepermuntolie
 
 <en:mint
 fr:menthe douce
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:menthe%20douce
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:menthe-douce
 # 81 products in 1 language @018-10-10
 
 <en:mint
@@ -46749,7 +46793,7 @@ en:dehydrated parsley
 de:Petersilie getrocknet
 fr:persil déshydraté, persil séché
 it:prezzemolo essiccato
-# fr:persil%20déshydraté has 204 products in 4 languages @2018-10-10
+# fr:persil-déshydraté has 204 products in 4 languages @2018-10-10
 
 # BASIL (Ocimum basilicum), also called great basil or Saint-Joseph's-wort, is a culinary herb of the family Lamiaceae (mints).
 
@@ -46875,7 +46919,7 @@ en:basil extract
 de:Basilikumextrakt
 fr:extrait de basilic
 pt:extracto de manjericão
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20basilic
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-basilic
 # 32 products in 4 languages @2108-10-10
 
 <en:basil
@@ -47419,7 +47463,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chives
 fr:ciboulette déshydratée
 de:Schnittlauch getrocknet
 it:erba cipollina essiccata
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette%20déshydratée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette-déshydratée
 # 69 products in 3 languages @2018-10-08
 
 
@@ -48647,7 +48691,7 @@ en:orange leaves
 de:Orangenblätter
 fr:feuilles d'oranger
 it:foglie d'arancio
-# ingredient/fr:feuilles%20d'oranger has 65 products in 4@2019-04-13
+# ingredient/fr:feuilles-d'oranger has 65 products in 4@2019-04-13
 
 
 
@@ -50286,7 +50330,7 @@ fr:algues de Bretagne nord
 
 <en:seaweed
 fr:paillettes d'algues
-# ingredient/fr:paillettes%20d'algues has 1 product @2019-02-22
+# ingredient/fr:paillettes-d'algues has 1 product @2019-02-22
 
 
 <en:algae
@@ -52934,7 +52978,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/European_plaice
 en:Pleuronectes platessa
 fr:Pleuronectes platessa, Plie commune, Carrelet, Plie d'europe, Plie
 la:Pleuronectes platessa
-# ingredient/fr:Pleuronectes%20platessa has 6 products in 3 languages @2018-12-31
+# ingredient/fr:Pleuronectes-platessa has 6 products in 3 languages @2018-12-31
 # structure:inner:role:synonym, eg carrelet (Pleuronectes platessa)
 
 
@@ -54369,7 +54413,7 @@ wikidata:en:Q30153
 en:scomber scombrus
 fr:maquereau scomber scombrus
 la:scomber scombrus
-# ingredient/fr:scomber%20scombrus has 63 products in 3 languages @2018-12-30
+# ingredient/fr:scomber-scombrus has 63 products in 3 languages @2018-12-30
 # structure:inner:role:synonym, eg sgombri (Scomber scombrus)
 
 # compound product eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
@@ -54596,7 +54640,7 @@ en:Xiphias gladius
 fr:Xiphias gladius, Espadon
 it:Xiphias gladius - pesce spada
 la:Xiphias gladius
-# ingredient/Xiphias%20gladius has 3 products in english @2018-12-30
+# ingredient/Xiphias-gladius has 3 products in english @2018-12-30
 # structure:inner:role:synonym,  eg:swordfish (xiphias gladius)
 
 
@@ -54735,7 +54779,7 @@ zh:虹鱒
 # zh-tw:麥奇鉤吻鮭
 wikidata:en:Q187986
 wikipedia:en:https://en.wikipedia.org/wiki/Rainbow_trout
-# ingredient/fr:truite%20arc-en-ciel has 81 products in 3 languages @2018-12-30
+# ingredient/fr:truite-arc-en-ciel has 81 products in 3 languages @2018-12-30
 # structure:outer:role:synonym,  eg Truite arc-en-ciel (oncorhynchus mykiss)
 carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
 carbon_footprint_fr_foodges_value:fr:4.9
@@ -55710,7 +55754,7 @@ fr:Argopecten irradians, Pétoncle
 la:Argopecten irradians
 wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_irradians
 wikidata:en:Q3018372
-# ingredient/fr:Argopecten%20irradians has 10 products @2019-01-13
+# ingredient/fr:Argopecten-irradians has 10 products @2019-01-13
 
 
 <en:scallop
@@ -56140,7 +56184,7 @@ en:Illex Argentinus
 fr:Illex Argentinus, Encornet rouge argentin
 la:Illex Argentinus
 wikipedia:en:https://en.wikipedia.org/wiki/Illex_argentinus
-# ingredient/fr:Illex%20Argentinus has 7 products @2019-01-07
+# ingredient/fr:Illex-Argentinus has 7 products @2019-01-07
 
 
 # The Humboldt squid (Dosidicus gigas), also known as jumbo squid, jumbo flying squid, pota, or diablo rojo (red devil), is a large, predatory squid living in the waters of the Humboldt Current in the eastern Pacific Ocean.
@@ -56759,7 +56803,7 @@ en:Homarus gammarus
 fr:Homarus gammarus, Homard européen
 la:Homarus gammarus
 wikipedia:en:https://en.wikipedia.org/wiki/Homarus_gammarus
-# fr:Homarus%20gammarus has 4 products @2019-01-11
+# fr:Homarus-gammarus has 4 products @2019-01-11
 
 
 # The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey. 
@@ -57015,7 +57059,7 @@ fr:poudre de crevette
 
 <en:shrimp
 fr:queues de crevettes
-# ingredient/fr:queues%20de%20crevettes has 11 products in french @2019-01-13
+# ingredient/fr:queues-de-crevettes has 11 products in french @2019-01-13
 
 <fr:queues de crevettes
 fr:queues de crevettes décortiquées
@@ -57202,7 +57246,7 @@ en:Parapenaeopsis stylifera
 la:Parapenaeopsis stylifera
 wikidata:en:Q6491649
 wikipedia:nl:https://nl.wikipedia.org/wiki/Parapenaeopsis_stylifera
-# ingredient/fr:Parapenaeopsis%20stylifera has 1 product @2019-01-06
+# ingredient/fr:Parapenaeopsis-stylifera has 1 product @2019-01-06
 
 <en:shrimp
 la:Solenocera spp
@@ -58820,13 +58864,13 @@ nl:augurken op azijn
 en:vinegar cucumbers
 fr:concombres au vinaigre
 it:cetrioli all'aceto
-# ingredient/fr:concombres%20au%20vinaigre has 19 products in 4 languages @2019-05-15
+# ingredient/fr:concombres-au-vinaigre has 19 products in 4 languages @2019-05-15
 
 
 # <en:cucumber
 # fr:Concombre produit sous serre chauffée
 # carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
-# ingredient/fr:Concombre%20produit%20sous%20serre%20chauffée has no products @2019-05-15
+# ingredient/fr:Concombre-produit-sous-serre-chauffée has no products @2019-05-15
 
 <en:juice
 <en:cucumber
@@ -60121,7 +60165,7 @@ nl:extra verse eieren
 <en:fresh egg
 en:pasteurized fresh egg
 fr:œufs frais pasteurisés, oeufs frais pasteurisés
-# ingredient/fr:oeufs%20frais%20pasteurisés has 60 products in 2 languages @2018-12-18
+# ingredient/fr:oeufs-frais-pasteurisés has 60 products in 2 languages @2018-12-18
 
 <en:fresh egg
 fr:œufs frais de poules élevées en plein air, oeufs frais de poules élevées en plein air
@@ -64271,7 +64315,7 @@ zh:酱油
 # zh-tw:醬油
 wikidata:en:Q229385
 wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20au%20soja
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-au-soja
 # 449 products in 5 languages @2018-09-25
 
 
