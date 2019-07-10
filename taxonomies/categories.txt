@@ -16826,7 +16826,7 @@ it:Biscotti al cioccolato fondente
 nl:Pure chocoladebiscuits, Pure chocoladebiscuit
 
 <en:Chocolate biscuits
-fr:Biscuits tablette de chocolat
+fr:Biscuits tablette de chocolat, Petits beurres au chocolat
 it:Biscotti con tavoletta di cioccolato
 oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
 
@@ -16843,12 +16843,6 @@ it:Biscotti con tavoletta di cioccolato fondente
 <en:Milk chocolate biscuits
 fr:Biscuits tablette de chocolat au lait, Petits beurres au chocolat au lait
 it:Biscotti con tavoletta di cioccolato al latte
-
-#Should contain only biscuits with butter and no [palm, sunflower...] oil
-<en:Chocolate biscuits
-en:Petits beurres with chocolate
-fr:Petits beurres au chocolat
-nl:Scholiertjes, Biscuit met chocola
 
 <en:Biscuits
 fr:Biscuits édulcorés, Biscuits avec édulcorants
@@ -18206,6 +18200,7 @@ de:Schokolade mit Mandelcremefüllung
 fr:Chocolats fourrés à la pâte d'amande
 nl:Chocolade met amandelpasta
 
+#Dark chocolate is a chocolate without milk or vegetable milk. It contains at least 43% cocoa in the EU.
 <en:Chocolates
 en:Dark chocolates, dark chocolate
 ca:Xocolata negra
@@ -18215,19 +18210,21 @@ fr:Chocolats noirs, chocolat noir
 hu:Feketecsokoládé
 it:Cioccolato fondente
 nl:Pure chocolades
-pl:Ciemna czekolada, gorzka czekolada
+pl:Czekolada deserowa, czekolada ciemna
+pt:Chocolates amargos
 ru:Тёмный шоколад
 zh:黑巧克力
 wikidata:en:Q2366206
 #if you use all those german synonyms you have nothing left for the subcategories. I'd say "Dunkle Schokoladen" would be enough
 
-# Very dark chocolate, could be similar to fr:Chocolats noirs extra fin, chocolat noir extra fin
 <en:Dark chocolates
-en:Bitter chocolates
-de:Herbe Schokoladen
-fr:Chocolats amers
+en:Extra fine dark chocolates, extra fine black chocolates, bitter chocolates
+de:Extrafeine dunkle Schokoladen, Herbe Schokoladen
+es:Chocolates negros extra finos
+fr:Chocolats noirs extra fin, chocolat noir extra fin, chocolats amers
+nl:Extra fijne pure chocolade
+pl:Czekolada gorzka
 ru:Горький шоколад, Чёрный шоколад
-#de:Bitterschokoladen, Herbe Schokoladen if you remove it from previous category
 
 <en:Dark chocolates
 <en:Chocolates with sweeteners
@@ -18284,13 +18281,6 @@ nl:Pure chocola met stukjes
 fr:Chocolats noirs au gingembre
 de:Dunkle Schokoladen mit Ingwer
 it:Cioccolato fondente con zenzero, cioccolato fondente allo zenzero
-
-<en:Dark chocolates
-en:Extra fine black chocolates
-de:Extrafeine dunkle Schokoladen
-es:Chocolates negros extra finos
-fr:Chocolats noirs extra fin, chocolat noir extra fin
-nl:Extra fijne pure chocolade
 
 <en:Chocolates
 en:Salted chocolates
@@ -24731,6 +24721,11 @@ hu:Héjas mandula
 nl:Gepelde amandelen
 
 <en:Almonds
+en:Whole almonds
+fr:Amandes entières
+
+<en:Almonds
+en:Almond flakes, Sliced almonds
 fr:Amandes effilées
 
 <en:Almonds
@@ -29258,7 +29253,7 @@ fr:Cocktail de fruits au sirop, Mélange de fruits au sirop
 nl:Fruitcocktails op siroop
 
 <en:Fruits in syrup
-en:Cherries in syrup
+en:Cherries in syrup, Maraschino cherries
 de:Kirschen in Sirup
 es:Cerezas en almíbar
 fr:Cerises au sirop
