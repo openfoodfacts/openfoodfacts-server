@@ -16703,14 +16703,21 @@ fr:amidons de blé et de pomme de terre
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                         V E G E T A B L E    O I L S   A N D   F A T S     S E C T I O N
+#                                 O I L S   A N D   F A T S   S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-en:oil and fat
+# comment:en:This is a convenience ingredient, so that there is only ONE parent for all oils and fats
+
+en:oil and fat, oils and fats
 de:Öl und Fett
+es:aceites y grasas
+fr:huiles et graisses
+it:oli e grassi
+nl:vetten en olie
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
 
 # description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
 # comment:en:In some languages one distinghuishes between edible and non-edible oils
@@ -16719,7 +16726,7 @@ vegetarian:en:maybe
 en:vegetable oil and fat
 de:pflanzliche Öle und Fette
 es:aceites y grasas vegetales
-fr:huile et graisse végétale, huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
+fr:huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
 it:olio e grasso vegetale
 nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
@@ -16729,24 +16736,83 @@ vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
 carbon_footprint_fr_foodges_value:fr:2.6
+# ingredient/vegetable-oil-and-fat has 120986 products @2019-07-10
 
-# Cooking oil is plant, animal, or synthetic fat used in frying, baking, and other types of cooking
+# description:en:Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
 
 <en:oil and fat
 en:oil, cooking oil
-de:Öl, Speiseöl
+ak:nwo
+an:Aceite
+ar:زيت
+# ast:Aceite
+az:Yağ
+# azb:یاغ
+# be-tarask:алей
+bg:масло
+bn:তেল
+br:Eoul
+bs:Ulje
+# bxr:Тоһон
+ca:oli
+cs:olej
+cy:Olew
+da:Olie
+de:Öl, Speiseöl, Öle
+# de-ch:Öle
+# din:Miök
+el:Λάδι, Έλαιο
+# eml:Òli
+# en-ca:Oil
+# en-gb:Oil
+eo:oleo
+es:aceite, aceites
+et:Õli
+eu:Olio
+fa:روغن
+fi:öljy
 fr:huile, huiles
+ga:Ola
+gd:Ola
+gl:Aceite
+he:שמן
+hr:Ulja, Ulje
+ht:Lwil
+hu:olaj
+hy:յուղ
+id:minyak
+io:Oleo
+is:Olía
 it:olio
+ja:油
+# jam:Ail
+jv:Lenga
+kg:Mafuta
+kn:ಎಣ್ಣೆ
+lt:Aliejus
+lv:eļļa
 nl:olie, oliën
+nn:olje
+pl:oleje
+pt:óleo
+ro:Ulei
 ru:масло, масла
-
+sk:Olej
+sl:Olje
+sv:olja
+wikidata:en:Q42962
+wikipedia:en:https://en.wikipedia.org/wiki/Cooking_oil
 
 # nova:en:hydrogenated-oil
 <en:oil
 en:hydrogenated oil
+bg:хидрогенирано масло
+de:gehärtetes öl
+es:aceite hidrogenado
 fr:Huile hydrogénée
+it:olio idrogenato
 nl:Gehydrogeneerde olie
-
+# ingredient/hydrogenated-oil has 283 products in 9 languages @2019-07-10
 
 # description:en:Fat is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. 
 
@@ -17183,6 +17249,7 @@ fr:huiles végétales non hydrogénées, huile végétale non hydrogénée
 it:oli vegetali non idrogenati
 
 <en:vegetable oil
+<en:hydrogenated oil
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
 
@@ -17319,16 +17386,18 @@ fr:huile de palme non hydrogénée
 nl:niet-gehydrogeneerde palm, niet gehydrogeneerde palmolie
 
 <en:palm oil
-<en:hydrogenated oil
+<en:hydrogenated vegetable oil
 en:hydrogenated palm oil
-de:teilweise gehärtetes Palmöl
+bg:хидрогенирано палмово масло
+de:gehärtetes Palmöl
 es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
+it:olio di palma idrogenato
 nl:gehydrogeneerde palmolie
 
 <en:palm oil
 fr:huile de palme partiellement hydrogénée
-de:teilweise hydriertes Palmöl
+de:teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 nl:gedeeltelijk geharde palmolie
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis.[1] It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
