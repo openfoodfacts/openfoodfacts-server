@@ -12,14 +12,15 @@
 #
 #These contradictions might imply that one level takes precedence over another level. The principle is that the higher level is right. For instance a product might contain ingredients that trigger nova level 1, but just one nova level 4 ingredient might triggers level 4 and that will be assigned to the entire product.
 #
-#There is also the possibility that a parent and child key contradict each other. In that case the child is right, as it contains more specific information. For instance a product might have the ingredient *en:fat*, which origin is animal or vegetable, and the ingredient *en:palm*, which is definitely from vegetable origin. Then the *en:palm* key takes prevalence. (is this always true?)
+#There is also the possibility that a parent and child key contradict each other. In that case the child is right, as it contains more specific information. For instance a product might have the ingredient *en:fat*, which origin is animal or vegetable, and the ingredient *en:palm*, which is  from vegetable origin. Then the *en:palm* key takes prevalence.
 #
 #
 #In order to maintain the integrity of the compliant file, several tests can be performed:
 #- One can define the compliancy set internal integrity in multiple ways.
 #    - No double levels
 #    - Taxonomy keys are unique over the entire compliancy set
-#    - Each compliancy set contains one and the same compliancy set tag 
+#    - Each compliancy set contains one and the same compliancy set tag
+#    - (the existence of a parent-child relation could be added, so that it can be tested)
 #- The taxonomy names should be one of the available enumerated taxonomies (ingredient, additive, category, label, mineral, enzyme, other).
 #- Each key should exist in the defined taxonomy.
 
@@ -419,6 +420,8 @@ ingredient:en:coating
 ingredient:en:tamari
 ingredient:en:cereal
 ingredient:en:cereal flour
+ingredient:en:cellulase
+ingredient:en:xylanase
 
 gluten-free compliant:en:level:en:3
 gluten-free compliant:en:label:en:The manufacturer uses eggs in its production facility
@@ -429,7 +432,6 @@ gluten-free:en:default:en:yes
 gluten-free compliant:en:label:no ingredients based on eggs detected
 
 gluten-free compliant:en:level:en:5
-gluten-free:en:default:en:yes
 gluten-free compliant:en:label:the product is labeled as gluten free
 label:en:gluten-free
 
@@ -470,17 +472,22 @@ fish-free compliant:en:level:en:1
 fish-free compliant:en:label:en:Ingredients based on fish have been detected
 # ingredient:from:en:fish
 ingredient:en:fish
-ingredient:en:fish oil
+ingredient:en:fish oil # child of en:oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 
 fish-free compliant:en:level:en:2
+fish-free compliant:en:label:en:Possible ingredients based on fish have been detected
+ingredient:en:oil # parent of en:vegetable oil and fat, and en:fish oil
+
+fish-free compliant:en:level:en:3
 fish-free compliant:en:label:en:The manufacturer uses fish in its production facility
 trace:en:fish
 
-fish-free compliant:en:level:en:3
+fish-free compliant:en:level:en:4
 fish-free compliant:en:label:en:No ingredients based on fish have been detected
 fish-free:en:default:en:yes
+ingredient:en:vegetable oil and fat # child of en:oil
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -540,7 +547,7 @@ ingredient:en:tofu
 ingredient:en:soy preparation
 ingredient:en:soy sauce
 ingredient:en:soya lecithin
-label:en:en:Contains soy
+label:en:Contains soy
 
 soya-free compliant:en:level:en:2
 soya-free compliant:en:label:en:Ingredients that might be based on soya have been detected
@@ -573,6 +580,7 @@ ingredient:en:milk minerals
 ingredient:en:milk proteins
 ingredient:en:milk chocolate
 ingredient:en:milk filling
+ingredient:en:cheese
 ingredient:en:ice cream
 ingredient:en:bechamel sauce
 
@@ -746,20 +754,45 @@ label:en:Without sulfur
 
 unsustainable palm oil free compliant:en:level:en:1
 unsustainable palm oil free compliant:en:label:en:Ingredients based on unsustainable palm oil have been detected
-ingredient:en:palm
-ingredient:en:palm oil and fat
-ingredient:en:palm kernel oil and fat
+ingredient:en:palm # child of en:oil and fat
+ingredient:en:palm oil and fat # child of en:oil and fat
+ingredient:en:palm kernel oil and fat # child of en:oil and fat
 additive:en:E304i
 
 unsustainable palm oil free compliant:en:level:en:2
 unsustainable palm oil free compliant:en:label:en:Ingredients that might be based on unsustainable palm oil have been detected
-ingredient:en:vegetable oil and fat
+ingredient:en:oil and fat # parent of en:palm
 additive:en:E304
 additive:en:glycerol monostearate
 
 unsustainable palm oil free compliant:en:level:en:3
 unsustainable palm oil free compliant:en:label:en:No ingredients based on unsustainable palm oil have been detected
 unsustainable palm oil free compliant:en:default:en:yes
+ingredient:en:animal fat # child of en:oil and fat
+ingredient:en:pumpkin seed oil
+ingredient:en:coconut oil
+ingredient:en:olive oil
+ingredient:en:rapeseed oil and fat
+ingredient:en:canola oil
+ingredient:en:colza oil
+ingredient:en:walnut oil
+ingredient:en:Cottonseed oil
+ingredient:en:avocado oil
+ingredient:en:peanut oil
+ingredient:en:sesame oil
+ingredient:en:soya oil
+ingredient:en:camelina oil
+ingredient:en:Grape seed oil
+ingredient:en:Rice bran oil
+ingredient:en:safflower oil
+ingredient:en:chia oil
+ingredient:en:hazelnut oil
+ingredient:en:pistachio seed oil
+ingredient:en:linseed oil
+ingredient:en:sunflower oil
+ingredient:en:lemon oil
+ingredient:en:mango kernel oil
+ingredient:en:essential oil
 
 unsustainable palm oil free compliant:en:level:en:4
 unsustainable palm oil free compliant:en:label:en:The manufacturer added palm oil free labels to its product
@@ -850,7 +883,7 @@ ingredient:en:orange
 ingredient:en:meat
 # ingredient:from:en:fish
 ingredient:en:fish
-ingredient:en:fish oil
+ingredient:en:fish oil # child of en:oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 ingredient:en:egg
@@ -877,16 +910,27 @@ ingredient:en:tea
 
 Kosher compliant:en:level:en:1
 Kosher compliant:en:label:en:Non-kosher ingredients have been detected
+ingredient:en:animal
+ingredient:en:en:animal protein # child of en:protein
 
 Kosher compliant:en:level:en:2
-Kosher compliant:en:label:en:No non-kosher ingredients have been detected
-Kosher compliant:en:default:en:yes
+Kosher compliant:en:label:en:Possible non-kosher ingredients have been detected
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 
 Kosher compliant:en:level:en:3
+Kosher compliant:en:label:en:No non-kosher ingredients have been detected
+Kosher compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:cheese
+ingredient:en:vegetable protein # child of en:protein
+ingredient:en:milk proteins # child of en:protein
+
+Kosher compliant:en:level:en:4
 Kosher compliant:en:label:en:The manufacturer added a kosher label 
 label:en:Kosher
 
-Kosher compliant:en:level:en:3
+Kosher compliant:en:level:en:5
 Kosher compliant:en:label:en:The manufacturer added a certified kosher label 
 label:en:cRc Pareve
 label:en:Kof-K
@@ -920,6 +964,7 @@ Halal compliant:en:label:en:Haram ingredients have been detected
 Halal:en:no # haram
 ingredient:en:alcohol
 ingredient:en:animal
+ingredient:en:en:animal protein # child of en:protein
 ingredient:en:poultry
 additive:en:E120
 additive:en:E428
@@ -930,6 +975,11 @@ Halal compliant:en:level:en:2
 Halal compliant:en:label:en:Mushbooh ingredients have been detected
 ingredient:en:rennet
 ingredient:en:vinegar
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 additive:en:E312
 additive:en:E387
 additive:en:E430
@@ -966,6 +1016,11 @@ additive:en:E921
 Halal compliant:en:level:en:3
 Halal compliant:en:label:en:No haram or mushbooh ingredients have been detected
 Halal compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable protein # child of en:protein
+ingredient:en:milk proteins # child of en:protein
+ingredient:en:cheese
 
 Halal compliant:en:level:en:4
 Halal compliant:en:label:en:The manufacturer claims the ingredients are halal
@@ -1001,6 +1056,8 @@ label:en:The Central Islamic Committee of Thailand
 Pollo-pescetarianism compliant:en:level:en:1
 Pollo-pescetarianism compliant:en:label:en:Non-Pollo-pescetarianism ingredients have been detected
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
+ingredient:en:animal-based rennet # child of #en:rennet
 additive:en:E120
 additive:en:E428
 additive:en:E542
@@ -1008,7 +1065,13 @@ additive:en:E904
 
 Pollo-pescetarianism compliant:en:level:en:2
 Pollo-pescetarianism compliant:en:label:en:Possible non-Pollo-pescetarianism ingredients have been detected
-ingredient:en:rennet
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
+ingredient:en:rennet # parent of en:animal-based rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:cheese
 additive:en:E312
 additive:en:E387
 additive:en:E430
@@ -1058,6 +1121,10 @@ other:en:choline
 Pollo-pescetarianism compliant:en:level:en:3
 Pollo-pescetarianism compliant:en:label:en:No Non-Pollo-pescetarianism ingredients have been detected
 Pollo-pescetarianism compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable protein # child of en:protein
+ingredient:en:milk proteins # child of en:protein
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1068,9 +1135,11 @@ Pollo-pescetarianism compliant:en:default:en:yes
 Pollo-vegetarianism compliant:en:level:en:2
 Pollo-vegetarianism compliant:en:label:en:non-Pollo-vegetarianism ingredients have been detected
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
+ingredient:en:animal-based rennet # child of #en:rennet
 # ingredient:from:en:fish
 ingredient:en:fish
-ingredient:en:fish oil
+ingredient:en:fish oil # child of en:oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 ingredient:en:shellfish
@@ -1089,6 +1158,13 @@ additive:en:E1000
 Pollo-vegetarianism compliant:en:level:en:2
 Pollo-vegetarianism compliant:en:label:en:non-Pollo-vegetarianism ingredients might be  detected
 ingredient:en:rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:cheese
+ingredient:en:oil # parent of en:vegetable oil and fat, and en:fish oil
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 additive:en:E312
 additive:en:E387
 additive:en:E430
@@ -1134,6 +1210,11 @@ other:en:choline
 Pollo-vegetarianism compliant:en:level:en:3
 Pollo-vegetarianism compliant:en:label:en:No Pollo-vegetarianism ingredients have been detected
 Pollo-vegetarianism compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable oil and fat # child of en:oil
+ingredient:en:vegetable protein # child of en:protein
+ingredient:en:milk proteins # child of en:protein
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1146,6 +1227,8 @@ Pescetarianism compliant:en:level:en:1
 Pescetarianism compliant:en:label:en:non-Pescetarianism ingredients have been detected
 Pescetarianism:en:no
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:poultry
 ingredient:en:game animal
 additive:en:E120
@@ -1158,6 +1241,12 @@ Pescetarianism compliant:en:level:en:2
 Pescetarianism compliant:en:label:en:non-Pescetarianism ingredients might have been detected
 Pescetarianism:en:maybe
 ingredient:en:rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:cheese
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 additive:en:E312
 additive:en:E387
 additive:en:E430
@@ -1207,6 +1296,8 @@ other:en:choline
 Pescetarianism compliant:en:level:en:3
 Pescetarianism compliant:en:label:en:No non-Pescetarianism ingredients have been detected
 Pescetarianism compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1219,11 +1310,13 @@ Pescetarianism compliant:en:default:en:yes
 Ovo-lacto vegetarianism compliant:en:level:en:1
 Ovo-lacto vegetarianism compliant:en:label:en:non-Ovo-lacto vegetarianism ingredients have been detected
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:poultry
 ingredient:en:game animal
 # ingredient:from:en:fish
 ingredient:en:fish
-ingredient:en:fish oil
+ingredient:en:fish oil # child of en:oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 ingredient:en:shellfish
@@ -1242,6 +1335,13 @@ additive:en:E1000
 Ovo-lacto vegetarianism compliant:en:level:en:2
 Ovo-lacto vegetarianism compliant:en:label:en:Possible non-Ovo-lacto vegetarianism ingredients have been detected
 ingredient:en:rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:cheese
+ingredient:en:oil # parent of en:vegetable oil and fat, and en:fish oil
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 additive:en:E312
 additive:en:E387
 additive:en:E430
@@ -1288,6 +1388,9 @@ other:en:choline
 Ovo-lacto vegetarianism compliant:en:level:en:3
 Ovo-lacto vegetarianism compliant:en:label:en:No non-Ovo-lacto vegetarianism ingredients have been detected
 Ovo-lacto vegetarianism compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable oil and fat # child of en:oil
 
 Ovo-lacto vegetarianism compliant:en:level:en:4
 Ovo-lacto vegetarianism compliant:en:label:en:The manufacturer added a label claiming the product is Ovo-lacto vegetarianism compliant
@@ -1307,23 +1410,27 @@ label:en:European Vegetarian Union
 Ovo vegetarianism compliant:en:level:en:1
 Ovo vegetarianism compliant:en:label:en:non-Ovo vegetarianism ingredients have been detected
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:poultry
 ingredient:en:game animal
 # ingredient:from:en:fish
 ingredient:en:fish
-ingredient:en:fish oil
+ingredient:en:fish oil # child of en:oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 ingredient:en:shellfish
 ingredient:en:dairy
 ingredient:en:lactose
-ingredient:en:animal-based rennet
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:milk minerals
 ingredient:en:milk proteins
 ingredient:en:milk chocolate
 ingredient:en:milk filling
 ingredient:en:ice cream
 ingredient:en:bechamel sauce
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
+ingredient:en:milk proteins # child of en:protein
 # additive:en:E106 can be produced from milk, but is not done so commercially
 additive:en:E120
 additive:en:E428
@@ -1346,6 +1453,12 @@ other:en:choline
 Ovo vegetarianism compliant:en:level:en:2
 Ovo vegetarianism compliant:en:label:en:Possible non-Ovo vegetarianism ingredients have been detected
 ingredient:en:rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:cheese
+ingredient:en:oil # parent of en:vegetable oil and fat, and en:fish oil
 additive:en:E312
 additive:en:E387
 additive:en:E430
@@ -1389,6 +1502,10 @@ additive:en:E921
 Ovo vegetarianism compliant:en:level:en:3
 Ovo vegetarianism compliant:en:label:en:No non-Ovo vegetarianism ingredients have been detected
 Ovo vegetarianism compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable oil and fat # child of en:oil
+ingredient:en:vegetable protein # child of en:protein
 
 Ovo vegetarianism compliant:en:level:en:4
 Ovo vegetarianism compliant:en:label:en:The manufacturer added a label claiming the product is Ovo vegetarianism compliant
@@ -1409,10 +1526,12 @@ label:en:European Vegetarian Union Ovo-vegetarian
 Orthodox Fasting compliant:en:level:en:1
 Orthodox Fasting compliant:en:label:en:non-Orthodox Fasting compliant ingredients have been detected
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:poultry
 ingredient:en:game animal
 ingredient:en:dairy
-ingredient:en:animal-based rennet
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:lactose
 ingredient:en:milk minerals
 ingredient:en:milk proteins
@@ -1420,7 +1539,9 @@ ingredient:en:milk chocolate
 ingredient:en:milk filling
 ingredient:en:ice cream
 ingredient:en:bechamel sauce
+ingredient:en:cheese
 ingredient:en:egg
+ingredient:en:milk proteins # child of en:protein
 # additive:en:E106 can be produced from milk, but is not done so commercially
 additive:en:E120
 additive:en:E428
@@ -1433,6 +1554,11 @@ additive:en:E1000
 Orthodox Fasting compliant:en:level:en:2
 Orthodox Fasting compliant:en:label:en:Possible non-Orthodox Fasting compliant ingredients have been detected
 ingredient:en:rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 additive:en:E312
 additive:en:E387
 additive:en:E322
@@ -1483,6 +1609,9 @@ other:en:choline
 Orthodox Fasting compliant:en:level:en:3
 Orthodox Fasting compliant:en:label:en:No non-Orthodox Fasting ingredients have been detected
 Orthodox Fasting compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable protein # child of en:protein
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1495,11 +1624,13 @@ Orthodox Fasting compliant:en:default:en:yes
 Lacto vegetarianism compliant:en:level:en:1
 Lacto vegetarianism compliant:en:label:en:non-Lacto-vegetarianism compliant ingredients have been detected
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:poultry
 ingredient:en:game animal
 # ingredient:from:en:fish
 ingredient:en:fish
-ingredient:en:fish oil
+ingredient:en:fish oil # child of en:oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 ingredient:en:shellfish
@@ -1520,6 +1651,13 @@ additive:en:E1105
 Lacto vegetarianism compliant:en:level:en:2
 Lacto vegetarianism compliant:en:label:en:Possible non-Lacto-vegetarianism compliant ingredients have been detected
 ingredient:en:rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:cheese
+ingredient:en:oil # parent of en:vegetable oil and fat, and en:fish oil
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 additive:en:E312
 additive:en:E387
 additive:en:E430
@@ -1566,6 +1704,11 @@ other:en:choline
 Lacto vegetarianism compliant:en:level:en:3
 Lacto vegetarianism compliant:en:label:en:No non-Lacto vegetarianism ingredients have been detected
 Lacto vegetarianism compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable oil and fat # child of en:oil
+ingredient:en:vegetable protein # child of en:protein
+ingredient:en:milk proteins # child of en:protein
 
 Lacto vegetarianism compliant:en:level:en:4
 Lacto vegetarianism compliant:en:label:en:The manufacturer added a label claiming the product is Lacto-vegetarianism compliant
@@ -1585,21 +1728,25 @@ label:en:European Vegetarian Union Lacto-vegetarian
 Veganism compliant:en:level:en:1
 Veganism compliant:en:label:en:non-Veganism compliant ingredients have been detected
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:poultry
 ingredient:en:game animal
 # ingredient:from:en:fish
 ingredient:en:fish
-ingredient:en:fish oil
+ingredient:en:fish oil # child of en:oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 ingredient:en:shellfish
 ingredient:en:dairy
-ingredient:en:animal-based rennet
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:lactose
 ingredient:en:milk minerals
 ingredient:en:milk proteins
 ingredient:en:milk chocolate
 ingredient:en:milk filling
+ingredient:en:milk proteins # child of en:protein
+ingredient:en:cheese
 ingredient:en:ice cream
 ingredient:en:bechamel sauce
 ingredient:en:egg
@@ -1634,6 +1781,12 @@ Veganism compliant:en:level:en:2
 Veganism compliant:en:label:en:Possible non-Veganism compliant ingredients have been detected
 Veganism:en:maybe
 ingredient:en:rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:oil # parent of en:vegetable oil and fat, and en:fish oil
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 additive:en:E312
 additive:en:E387
 additive:en:E322
@@ -1679,6 +1832,10 @@ other:en:choline
 Veganism compliant:en:level:en:3
 Veganism compliant:en:label:en:No non-Veganism ingredients have been detected
 Veganism compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable oil and fat # child of en:oil
+ingredient:en:milk proteins # child of en:protein
 
 Veganism compliant:en:level:en:4
 Veganism compliant:en:label:en:The manufacturer added a label claiming the product is Veganism compliant
@@ -1705,11 +1862,13 @@ Jain vegetarianism compliant:en:level:en:1
 Jain vegetarianism compliant:en:label:en:non-Jain vegetarianism compliant ingredients have been detected
 Jain vegetarianism:en:no
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:poultry
 ingredient:en:game animal
 # ingredient:from:en:fish
 ingredient:en:fish
-ingredient:en:fish oil
+ingredient:en:fish oil # child of en:oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 ingredient:en:shellfish
@@ -1737,6 +1896,13 @@ additive:en:E1105
 Jain vegetarianism compliant:en:level:en:2
 Jain vegetarianism compliant:en:label:en:Possible non-Jain-vegetarianism compliant ingredients have been detected
 ingredient:en:rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:cheese
+ingredient:en:oil # parent of en:vegetable oil and fat, and en:fish oil
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 additive:en:E312
 additive:en:E387
 additive:en:E322
@@ -1784,6 +1950,11 @@ other:en:choline
 Jain vegetarianism compliant:en:level:en:3
 Jain vegetarianism compliant:en:label:en:No non-Jain vegetarianism ingredients have been detected
 Jain vegetarianism compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable oil and fat # child of en:oil
+ingredient:en:vegetable protein # child of en:protein
+ingredient:en:milk proteins # child of en:protein
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1795,21 +1966,24 @@ Jain vegetarianism compliant:en:default:en:yes
 Fruitarianism compliant:en:level:en:1
 Fruitarianism compliant:en:label:en:non-Fruitarianism compliant ingredients have been detected
 ingredient:en:animal
+ingredient:en:animal protein # child of en:protein
 ingredient:en:poultry
 ingredient:en:game animal
 # ingredient:from:en:fish
 ingredient:en:fish
-ingredient:en:fish oil
+ingredient:en:fish oil # child of en:oil
 ingredient:en:fish sauce
 ingredient:en:fish gelatine
 ingredient:en:shellfish
 ingredient:en:dairy
 ingredient:en:lactose
-ingredient:en:animal-based rennet
+ingredient:en:animal-based rennet # child of #en:rennet
 ingredient:en:milk minerals
 ingredient:en:milk proteins
 ingredient:en:milk chocolate
 ingredient:en:milk filling
+ingredient:en:milk proteins # child of en:protein
+ingredient:en:cheese
 ingredient:en:ice cream
 ingredient:en:bechamel sauce
 ingredient:en:egg
@@ -1847,6 +2021,12 @@ other:en:Carnitine
 Fruitarianism compliant:en:level:en:2
 Fruitarianism compliant:en:label:en:Possible non-Fruitarianism compliant ingredients have been detected
 ingredient:en:rennet
+ingredient:en:lipase
+ingredient:en:transglutaminase
+ingredient:en:ferment # parent of en:lactic ferments
+ingredient:en:enzyme # parent of en:microbial coagulating enzyme
+ingredient:en:oil # parent of en:vegetable oil and fat, and en:fish oil
+ingredient:en:protein # parent of en:vegetable protein, en:milk proteins and en:animal protein
 additive:en:E312
 additive:en:E387
 additive:en:E322
@@ -1892,3 +2072,8 @@ other:en:choline
 Fruitarianism compliant:en:level:en:3
 Fruitarianism compliant:en:label:en:No non-Fruitarianism ingredients have been detected
 Fruitarianism compliant:en:default:en:yes
+ingredient:en:microbial coagulating enzyme # child of en:enzyme
+ingredient:en:microbial rennet # child of en:rennet
+ingredient:en:vegetable oil and fat # child of en:oil
+ingredient:en:vegetable protein # child of en:protein
+ingredient:en:milk proteins # child of en:protein
