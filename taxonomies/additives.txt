@@ -1267,6 +1267,7 @@ efsa_evaluation:en: Scientific Opinion on re-evaluation of copper complexes of c
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+# ingredient/fr:complexes-cuivre has 86 products in 4 languages @2019-02-25
 
 <en:E141
 en:E141(i), Copper complexes of chlorophylls, CI Natural Green 3, Copper Chlorophyll
@@ -1278,14 +1279,14 @@ el:E141(i), Συμπλοκα των χλωροφυλλων με χαλκο, Πρ
 es:E141(i), Complejos cúpricos de clorofilas, CI Natural Green 3, clorofila cúprica
 et:E141(i), Klorofüllide vasekompleksid, CI looduslik roheline 3, vaskklorofüll
 fi:E141(i), Klorofyllikuparikompleksit, CI Natural Green 3, Kupariklorofylli
-fr:E141(i), Complexes cuivriques de chlorophylles, Vert naturel C. I. no 3, chlorophylle cuivrique
+fr:E141(i), Complexes cuivriques de chlorophylles, Vert naturel C. I. no 3, chlorophylle cuivrique, complexes cuivre-chlorophylles
 hu:E141(i), Klorofillok rézkomplexei, CI Natural Green 3, Réz-klorofill
 it:E141(i), Complessi rameici delle clorofille, CI verde naturale 3, clorofilla rameica
 lt:E141(i), Chlorofilų vario kompleksiniai junginiai, Natūralus žaliasis CI Nr. 3, vario chlorofilas
 lv:E141(i), Hlorofilu vara kompleksi, CI dabīgais zaļais 3, vara hlorofils
 mt:E141(i), Kumplessi tar-ram tal-klorofilli, CI Natural Green 3, Klorofill tar-Ram
 nl:E141(i), Kopercomplexen van chlorofylen, CI Natural Green 3, koperchlorofyl
-nl_be:E141(i), Kopercomplexen van chlorofylen, CI Natural Green 3, koperchlorofyl
+# nl_be:E141(i), Kopercomplexen van chlorofylen, CI Natural Green 3, koperchlorofyl
 pl:E141(i), Kompleksy miedziowe chrolofili, CI zieleń naturalna 3, chlorofil miedziowy
 pt:E141(i), Complexos cúpricos de clorofilas, Verde natural CI 3, clorofila cúprica
 ro:E141(i), Complexe de cupru ale clorofilelor, Verde natural CI 3, Clorofilă de cupru
@@ -1310,14 +1311,14 @@ el:E141(ii), Συμπλοκα των χλωροφυλλινων με χαλκο,
 es:E141(ii), Complejos cúpricos de clorofilinas, Clorofilina cúprica de sodio, clorofilina cúprica de potasio
 et:E141(ii), Klorofülliinide vasekompleksid, Naatriumvaskklorofülliin, kaaliumvaskklorofülliin
 fi:E141(ii), Klorofylliinikuparikompleksit, Natriumkupariklorofylliini, Kaliumkupariklorofylliini
-fr:E141(ii), Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium, Cuivre phaeophytin a, C55H72CuN4O5, Cuivre phaeophytin b, C55H70CuN4O6, complexes cuivre-chlorophyllines, laque aluminique de chlorophylline
+fr:E141(ii), Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium, Cuivre phaeophytin a, Cuivre phaeophytin b, complexes cuivre-chlorophyllines, laque aluminique de chlorophylline, cuivre - chlorophyllines, chlorophyllines, cuivre-chlorophyllines
 hu:E141(ii), Klorofillinek rézkomplexei, Nátrium-réz-klorofillin, Kálium-réz-klorofillin
 it:E141(ii), Complessi rameici delle clorofilline
 lt:E141(ii), Chlorofilinų vario kompleksiniai junginiai, Natrio-vario chlorofilinas, kalio-vario chlorofilinas
 lv:E141(ii), Hlorofilīnu vara kompleksi, Nātrija vara hlorofilīns, kālija vara hlorofilīns
 mt:E141(ii), Kumplessi tar-ram tal-klorofillini
 nl:E141(ii), Kopercomplexen van chlorofylinen, Natriumkoperchlorofyline, kaliumkoperchlorofyline
-nl_be:E141(ii), Kopercomplexen van chlorofylinen, Natriumkoperchlorofyline, kaliumkoperchlorofyline
+# nl_be:E141(ii), Kopercomplexen van chlorofylinen, Natriumkoperchlorofyline, kaliumkoperchlorofyline
 pl:E141(ii), Kompleksy miedziowe chlorofilin
 pt:E141(ii), Complexos cúpricos de clorofilinas
 ro:E141(ii), Complexe de cupru ale clorofilinelor
@@ -1330,6 +1331,11 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4151
 efsa_evaluation_date:en: 2015-06-30
 efsa_evaluation:en: Scientific Opinion on re-evaluation of copper complexes of chlorophylls (E 141(i)) and chlorophyllins (E 141(ii)) as food additives
 additives_classes:en: en:colour
+# ingredient/fr:chlorophyllines has  51 products in french @2019-02-03
+# colorants :complexe cuivre - chlorophylline 
+# additive/e141ii-copper-complexes-of-chlorophyllins has 138 products in 4 languages @2019-02-03
+
+# description:en:GREEN S is a green synthetic coal tar triarylmethane dye with the molecular formula C27H25N2O7S2Na. It can be used in mint sauce, desserts, gravy granules, sweets, ice creams, and tinned peas.
 
 en:E142, Green s, CI Food Green 4
 bg:E142, Зелено s, CI хранително зелено 4
@@ -1339,23 +1345,36 @@ de:E142, Grün s, Food Green 4, E 142, Brillantsäuregrün BS, Brillantsäuregr�
 el:E142, Πρασινο s, Πράσινο CI food 4
 es:E142, Verde s, CI Food Green 4, Green S, E 142, Verde ácido brillante BS, Verde lisamina
 et:E142, Roheline s, CI roheline toiduvärv 4
+fa:E142, سبز اس
 fi:E142, Vihreä s, CI Food Green 4
-fr:E142, Vert acide brillant BS, Vert lissamine, Vert s
+fr:E142, Vert acide brillant BS, Vert lissamine, Vert s, colorant e142
+ga:E142, uaine aigéadach lonrach BS
+he:E142, ירוק S
 hu:E142, Zöld S, CI Food Green 4
 it:E142, Verde s, CI verde per alimenti 4, C27H25N2O7S2Na, Verde Brillante BS
 lt:E142, Žaliasis s, Maistinis žaliasis CI Nr. 4, Maisto žaliasis S
 lv:E142, Zaļais s, CI Pārtikas zaļais 4
 mt:E142, Aħdar s
 nl:E142, Groen s, CI Food Green 4, Briljantzuurgroen BS
-nl_be:E142, Groen s, CI Food Green 4, Briljantzuurgroen BS
+# nl_be:E142, Groen s, CI Food Green 4, Briljantzuurgroen BS
 pl:E142, Zieleń s, CI zieleń spożywcza 4, Zieleń brylantowa BS
 pt:E142, Verde s, Verde alimentar CI 4
 ro:E142, Verde s, Colorant alimentar verde CI 4
+ru:E142, Зелёный S
+sh:E142, Zeleno S
 sk:E142, Zelená s, CI potravinárska zelená 4
 sl:E142, Zeleno s, CI Food Green 4
+sr:E142, Zeleno S
 sv:E142, Grön s, CI Food Green 4, E 142
-e_number:en:142
+uk:E142, Зелений S
+# azb:E142, سبز اس
+# sr-el:E142, Zeleno S
 wikidata:en:Q420143
+wikipedia:en:https://en.wikipedia.org/wiki/Green_S
+# ingredient/fr:colorant-e142 has 23 products in 3 languages @2019-03-27
+# additive/e142-green-s has 152 products in 9 languages @2019-03-27
+# usage:es:espesante (E-142)
+e_number:en:142
 colour_index:en:CI 5
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1851.pdf
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2010.1851
