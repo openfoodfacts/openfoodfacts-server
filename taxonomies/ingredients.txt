@@ -629,91 +629,7 @@ fr:friture
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
-
-
-# Caramel is a medium to dark-orange confectionery product made by heating a variety of sugars.
-
-#<source:en:sugar
-#<en:colorant
-en:caramel, E150, E-150, E 150
-ar:كراميل
-be:карамель
-bg:Карамел
-ca:caramel
-cs:karamel
-da:Karamel
-de:Karamell
-el:καραμέλα
-eo:karamelo
-es:caramelo
-et:Karamell
-eu:Karamelu
-fa:کارامل
-fi:karamelli
-fr:caramel
-ga:Caramal
-gl:Caramelo
-he:קרמל
-hr:Karamela
-hu:Karamell
-hy:Կարամել
-id:Karamel
-io:Karamelo
-is:Karamella
-it:caramello
-ja:キャラメル
-ka:კარამელი
-kk:Карамель
-kn:ಕ್ಯಾರಮೆಲ್
-ko:캐러멜
-ky:Карамель
-li:Sjloek
-lt:Karamelė
-lv:karameles
-mk:Карамела
-ms:Karamel
-nb:karamell
-nl:karamel
-nn:Karamell
-oc:caramèl
-pl:karmel
-pt:caramelo
-ro:karmel
-ru:карамель
-sk:Karamel
-sl:Karamel
-sr:Karamela
-sv:karameli
-ta:கேரமல்
-th:คาราเมล
-tl:Karamelo
-tr:Karamel
-uk:карамель
-ur:محروق
-uz:Karamel
-vi:Nước caramen
-zh:焦糖 # zh-cn:焦糖 # zh-hans:焦糖 # zh-hant:焦糖
-# be-tarask:карамэль
-# kk-arab:كارامەل
-# kk-cn:كارامەل
-# kk-cyrl:Карамель
-# kk-kz:Карамель
-# kk-latn:Karamelʹ
-# kk-tr:Karamelʹ
-# sco:caramel
-# yue:焦糖
-# zh-hk:焦糖 # zh-sg:焦糖
-# zh-tw:焦糖
-wikidata:en:Q183440
-wikipedia:en:https://en.wikipedia.org/wiki/Caramel
-# ingredient/caramel has 3422 products in 19 languages @2019-03-09
-# caramel (sucre, eau)
-# caramel (sirop de glucose, sucre, eau)
-# Colour (Caramel, Phosphoric Acid )
-
 # <en:syrup
-<en:caramel
 en:caramel syrup
 de:Karamellsirup, Caramelsirup
 es:jarabe de caramelo
@@ -734,136 +650,15 @@ pl:cukier skarmelizowanny
 sv:karamellisoitu sokeri
 # ingredient/caramelised-sugar-syrup has 56 products @2019-03-09
 
-<en:caramel
+# <en:caramel
 fr:caramel au lait
 
-# plain caramel can be used as food colorant E150a
 
-<en:caramel
-en:plain caramel
-bg:Обикновен карамел
-el:Απλο καραμελοχρωμα
-es:caramelo natural
-fr:caramel ordinaire
-it:caramello semplice
-lt:Paprastoji karamelė
-mt:Karamella naturali
-pt:caramelo simples
-ro:Caramel simplu
-sk:Obyčajný karamel
-# ingredient/fr:caramel-ordinaire has 1547 products in 7 languages @2019-03-09
 
-# Caramel color or caramel coloring is a water-soluble food coloring.
-
-<en:plain caramel
-en:caramel color, E150a, E-150a, E 150a
-ar:لون الكراميل
-bs:Karamel boja
-ca:colorant de caramel
-da:Madkulør
-de:Zuckerkulor, Zuckercouleur
-es:color caramelo
-fi:sokerikulööri
-fr:colorant caramel, caramel e150a
-hu:karamell színezék
-it:colorante caramello
-ja:カラメル色素
-nb:Sukkerkulør
-nl:karamelkleurstof
-ru:карамельный краситель
-sv:sockerkulör
-tt:кәрәмил буягычы
-vi:Màu caramel
-zh:焦糖色素
-# en-ca:Caramel color # en-gb:Caramel color
-wikidata:en:Q227816
-wikipedia:en:https://en.wikipedia.org/wiki/Caramel_color
-# färgämne (sockerkulör, paprikaoleoresin)
-# is translated as caramel
-
-<en:caramel
-en:caustic sulphite caramel, caramel E150b
-bg:Карамел основен сулфит
-cs:Kaustický sulfitový karamel
-da:Kaustisk sulfiteret karamel
-de:Sulfitlaugen-zuckerkulör, Karamell E150b
-el:Καυστικο θειωδες καραμελοχρωμα
-es:caramelo de sulfito caustico
-et:Leeliseline sulfitkaramell
-fi:Emäksinen sulfiittisokerikulööri
-fr:Caramel de sulfite caustique, caramel e150b
-hu:Szulfitos karamell
-it:caramello E150b
-lt:Šarminė sulfitinė karamelė
-lv:Sulfīta karamele
-mt:Karamella tas-sulfit kawstiku
-nl:alkali-sulfietkaramel
-pl:karmel siarczynowy
-pt:Caramelo sulfítico cáustico
-ro:Caramel de sulfit caustic
-sk:Kaustický sulfitový karamel
-sl:Alkalni sulfitni karamel
-# ingredient/fr:caramel-e150b has 29 products in 3 languages @2019-03-09
-# additive/e150b-caustic-sulphite-caramel has 332 products in 9 languages @2019-03-09
-
-# This only seems to be used as colorant, otherwise it should be split in the ammonia caramel and E150c
-
-<en:caramel
-en:ammonia caramel, E150c, E-150c, E 150c
-bg:Амониев карамел
-cs:Amoniakový karamel
-da:Ammonieret karamel
-de:Ammoniak-zuckerkulör
-el:Εναμμωνιο καραμελοχρωμα
-es:caramelo amónico
-et:Ammooniumkaramell
-fi:Ammoniummenetelmän sokerikulööri
-fr:caramel ammoniacal, caramel e150c, colorant e150c
-hu:Ammóniás karamell
-it:caramello ammoniacale
-lt:Amoniakinė karamelė
-lv:Amonija karamele
-mt:Karamella tal-ammonja
-nl:ammoniakkaramel
-pl:Karmel amoniakalny
-pt:Caramelo de amónia
-ro:Caramel amoniacal
-sk:Amoniakový karamel
-sl:Amonijev karamel
-sv:ammoniaksockerkulör
-wikidata:en:Q11735907
-# ingredient/fr:caramel-ammoniacal has 123 products in 6 languages @2019-03-09
-
-<en:caramel
-en:sulphite ammonia caramel, E150d, E-150d E 150d, INS150d, INS 150d
-bg:Карамел амониев сулфит
-cs:Amoniak-sulfitový karamel
-da:Ammonieret sulfiteret karamel
-de:Ammoniumsulfit-Zuckerkulör
-el:Εναμμωνιο θειωδες καραμελοχρωμα
-es:Caramelo de sulfito amónico
-et:Ammooniumsulfitkaramell
-fi:Ammoniumsulfiittimenetelmän sokerikulööri
-fr:caramel au sulfite d'ammonium, caramel e150d, colorant e150d
-hu:Szulfitos ammóniás karamell
-it:caramello solfito-ammoniacale
-lt:Sulfitinė amoniakinė karamelė
-lv:Amonija sulfīta karamele
-mt:Karamella tal-ammonja tas-sulfit
-nl:sulfiet-ammoniakkaramel
-pl:Karmel amoniakalno-siarczynowy
-pt:Caramelo sulfítico de amónia
-ro:Caramel cu sulfit de amoniu
-ru:карамель сульфата аммиака
-sk:Amoniak-sulfitový karamel
-sl:Amonijev sulfitni karamel
-sv:sulfitammoniaksockerkulör
-wikidata:en:Q13081740
-# ingredient/fr:caramel-au-sulfite-d’ammonium has 147 products in 5 languages @2019-03-09
 
 # Assumed to be a synonym of plain caramel, as it has the same ingredients
 
-<en:plain caramel
+<en:E150
 en:aromatic caramel
 de:aromatisches Karamell
 es:caramelo aromático
@@ -878,7 +673,7 @@ pt:caramelo aromático
 <en:aromatic caramel
 it:zucchero caramellato aromatico
 
-<en:caramel
+<en:E150
 fr:caramel en poudre
 de:Karamell-Pulver, Caramelpulver
 it:caramello in polvere
@@ -886,7 +681,6 @@ nl:karamelpoeder
 # ingredient/fr:caramel-en-poudre has 69 products in 5 languages @2019-03-09
 
 # <en:compound
-<en:caramel
 en:salted butter caramel
 es:caramelo a la mantequilla salada
 fr:caramel au beurre salé
@@ -894,41 +688,16 @@ nl:gekarameliseerde gezouten boter, karamel en gezouten boter
 # ingredient/fr:caramel-au-beurre-salé has 185 products in 5 languages @2019-03-09
 # salted butter caramel (glucose syrup, sugar, butter, water, fresh cream, Guérande salt)
 
-<en:caramel
+# <en:compound
 fr:éclats de caramel
-de: Caramelstücke
+de:Caramelstücke
 # ingredient/fr:éclats-de-caramel has 120 products in 3 languages @2019-03-09
 
-<en:caramel
+# <en:compound
 fr:éclats de caramel au beurre salé
 # ingredient/fr:éclats-de-caramel-au-beurre-salé has 53 products in 2 languages @2019-02-21
 # éclats de caramel au beurre salé (sucre, sirop de glucose, crème fraîche de Normandie, beurre salé , lait écrémé en poudre, fleur de sel de Guérande, caramel (sirop de glucose-fructose, eau))
 
-
-en:vegetable carbon, E153, E-153, E 153
-bg:Растителен въглен
-cs:Rostlinná uhlíková čerň
-da:Vegetabilsk kul
-de:Pflanzenkohle
-el:Φυτικος ανθρακας
-es:Carbón vegetal
-et:Taimne süsi
-fi:Kasviperäinen lääkehiili
-fr:charbon végétal, charbon végétal médicinal
-hu:Növényi szén
-it:carbone vegetale
-lt:Augalinės anglys
-lv:Augogle
-mt:Karbonju tal-ħxejjex
-nl:plantaardige koolstof
-pl:wegiel roslinny
-pt:Carvão vegetal
-ro:Carbon vegetal
-sk:Rastlinné uhlie
-sl:Rastlinsko oglje
-sv:Vegetabiliskt kol
-wikidata:en: Q59557415
-# ingredient/fr:charbon%20végétal%20médicinal has 82 products in 6 languages @2019-04-05
 
 
 # description:en:Carotenoids are yellow, orange, and red organic pigments that are produced by plants and algae, as well as several bacteria and fungi. Carotenoids from the diet are stored in the fatty tissues of animals. There is insufficient evidence to state that carotenoids have an antioxidant function in humans or that carotenoid dietary supplements lower the risk of or prevent diseases.
