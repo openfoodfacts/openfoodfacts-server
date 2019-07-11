@@ -16707,14 +16707,33 @@ fr:amidons de blé et de pomme de terre
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# description:en:Several edible vegetable and animal oils, and also fats, are used for various purposes in cooking and food preparation. In particular, many foods are fried in oil much hotter than boiling water. Oils are also used for flavoring and for modifying the texture of foods (e.g. Stir Fry). Cooking oils are derived either from animal fat, as butter, lard and other types, or plant oils from the olive, maize, sunflower and many other species.
+
 # comment:en:This is a convenience ingredient, so that there is only ONE parent for all oils and fats
 
 en:oil and fat, oils and fats
-de:Öl und Fett
+bg:масла и мазнини
+cs:oleji a tuky
+da:olier og fedtstoffer
+de:Speiseöle und -fette
+el:έλαια και λίπη
 es:aceites y grasas
+et:õlid ja rasvad
+fi:öljyt ja rasvat
 fr:huiles et graisses
+hu:Olajok és zsírok
 it:oli e grassi
-nl:vetten en olie
+lt:Aliejus ir riebalai
+lv:Eļļas un tauki
+mt:żjut u xaħmijiet
+nl:oliën en vetten
+pl:oleje i tłuszcze
+pt:óleos e gorduras
+ro:uleiuri și grăsimi
+ru:растительным и животным жирам
+sk:Oleje a tuky
+sl:olja in maščobe
+sv:oljor och fetter
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
@@ -16726,8 +16745,11 @@ from_palm_oil:en:maybe
 en:vegetable oil and fat
 de:pflanzliche Öle und Fette
 es:aceites y grasas vegetales
+et:taimsed rasvad ja õlid
 fr:huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
 it:olio e grasso vegetale
+lv:Augu eļļas un tauki
+mt:xaħam u żejt veġetali
 nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
@@ -16789,32 +16811,88 @@ ja:油
 jv:Lenga
 kg:Mafuta
 kn:ಎಣ್ಣೆ
+ko:기름
+# lad:Azete
+# lmo:Oli
+ln:Mafúta
+lo:ນ້ຳມັນ
 lt:Aliejus
 lv:eļļa
+# lzh:油
+mg:Menaka
+mk:масло
+ml:എണ്ണ
+ms:Minyak
+my:ဆီ
+# myv:Ой
+# mzn:راغون
+# nan:Iû
+nb:olje
+# new:चिकं
 nl:olie, oliën
 nn:olje
+oc:Òli
+pa:ਤੇਲ
+# pcd:Eule
 pl:oleje
+# pnb:تیل
 pt:óleo
+# pt-br:óleo
 ro:Ulei
 ru:масло, масла
+sa:तैलम्
+# sco:Ile
+# sgs:Alėjos
+sh:Ulje
+si:තෙල්
 sk:Olej
 sl:Olje
+so:Saliid
+sr:уље
+# sr-ec:уље
+# sr-el:ulje
+su:Minyak
 sv:olja
+sw:Mafuta
+ta:எண்ணெய்
+te:నూనె
+th:น้ำมัน
+tl:Langis
+tr:yağ
+tt:Näft
+uk:Олія
+ur:تیل
+uz:Moy
+# vec:Ojo
+vi:dầu
+# vro:Õli
+wa:ôle
+# war:Asayti
+yi:בוימל
+yo:Epo
+# yue:油
+zh:油
+# zh-hans:油
+# zh-hant:油
 wikidata:en:Q42962
 wikipedia:en:https://en.wikipedia.org/wiki/Cooking_oil
+
+# description:en:Hydrogenation converts liquid vegetable oils into solid or semi-solid fats, such as those present in margarine. Changing the degree of saturation of the fat changes some important physical properties, such as the melting range, which is why liquid oils become semi-solid.
 
 # nova:en:hydrogenated-oil
 <en:oil
 en:hydrogenated oil
-bg:хидрогенирано масло
 de:gehärtetes öl
 es:aceite hidrogenado
 fr:Huile hydrogénée
 it:olio idrogenato
 nl:Gehydrogeneerde olie
+wikidata:en:Q57656844
+wikidata:en:Q11587683
+wikipedia:en:https://en.wikipedia.org/wiki/Hydrogenation#Food_industry
 # ingredient/hydrogenated-oil has 283 products in 9 languages @2019-07-10
 
-# description:en:Fat is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. 
+# description:en:FAT is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. 
 
 <en:oil and fat
 #  nova:en:fats
@@ -16915,37 +16993,78 @@ zh:脂肪
 # zh-tw:脂肪
 wikidata:en:Q127980
 wikipedia:en:https://en.wikipedia.org/wiki/Fat
-# ingredient/fr:graisse has 143 products in 6 languages @2019-03-30
-
-# comment:en: fr:gras is often not an ingredient but an adjective. Might require repairs to the ingredient lists.
-
-<en:fat
-fr:gras
-
+# ingredient/fat has 7494 products in 29 languages @2019-07-10
 
 <en:fat
 en:hydrogenated fat
-fr:Graisse hydrogénée
+bg:хидрогенирано масло
+de:hydriertes Fett
+es:grasa hidrogenada
+fr:graisse hydrogénée
+it:grassi idrogenati
+nl:gehydrogeneerd vet
+# ingredient/hydrogenated-fat has 277 products in 8 languages @2019-07-10
 
+<en:hydrogenated fat
+en:fully hydrogenated fat
+de:komplett hydriertes Fett
+es:grasa totalmente hidrogenada
+fr:graisse totalement hydrogénée
+it:grassi totalmente idrogenati
+nl:volledig gehydrogeneerde vet
+
+######################################## animal fat #################################
+
+# description:en:ANIMAL FATS and oils are lipid materials derived from animals. Physically, oils are liquid at room temperature, and fats are solid. Although many animal parts and secretions may yield oil, in commercial practice, oil is extracted primarily from rendered tissue fats obtained from livestock animals like pigs, chickens and cows.
 
 
 <en:fat
 en:animal fat
+an:Saín
+ar:دهن حيواني
+ca:sagí
+da:Animalsk fedt
 de:Tierfett, tierisches Fett
+es:Grasa animal
+eu:Gantz
+fi:Eläinrasva
 fr:Graisse animale
-it:grassi animali
+hy:Կենդանական յուղ
+it:grassi animali, grasso animale
+ja:動物性脂肪
+kk:Жануар майы
+# kk-arab:جانۋار مايى
+# kk-cn:جانۋار مايى
+# kk-cyrl:Жануар майы
+# kk-kz:Жануар майы
+# kk-latn:Janwar maýı
+# kk-tr:Janwar maýı
+ko:동물성 기름
+ln:Mpɔ́ngɔ
+nl:dierlijk vet
+pl:tłuszcz zwierzęcy
+ru:Животные жиры
+sv:Animaliskt fett
+tr:Hayvansal yağ
+uk:Тваринні жири
+zh:動物脂肪
+# zh-hans:动物性油脂
+# zh-hant:動物性油脂
+wikidata:en:Q1423543
+wikipedia:en:https://en.wikipedia.org/wiki/Animal_fat
+# ingredient/animal-fat has 3013 products in 11 languages @2019-07-10
 
 <en:animal fat
-<en:sheep
+# from:en:sheep
 en:sheeps fat
 fr:gras de mouton
 nl:schaapsvet
-# ingredient/fr:gras-de-mouton has 41 products in 3 languages @2019-03-01
+# ingredient/sheeps-fat has 79 products in 3 languages @2019-07-10
 
 
 # description:en:LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
 
-<en:pork
+# from:en:pork
 <en:animal fat
 en:lard, pork fat
 an:Redetiu
@@ -16998,107 +17117,25 @@ zh:豬油
 # yue:豬油
 wikidata:en:Q72827
 wikipedia:en:https://en.wikipedia.org/wiki/Lard
-# ingredient/fr:saindoux has 377 products in 4 languages @2019-05-08
-# ingredient/fr:gras-de-porc has 2110 products in 6 languages @2019-03-01
+# ingredient/lard has 2818 products in 10 languages @2019-07-10
 
 <en:animal fat
+en:calf fat
 fr:gras de veau
-# ingredient/fr:gras-de-bovin has 70 products in french @2019-03-29
+nl:kalfsvet
+# ingredient/fr:gras-de-bovin has 90 products in french @2019-07-10
 
+<en:animal fat
+en:beef fat
+de:Rinderfett
 fr:gras de bœuf, graisse de bœuf
-# ingredient/fr:gras-de-bœuf has 109 products in french @2019-03-01
+it:grasso di manzo
+nl:rundvet
+# ingredient/fr:gras-de-bœuf has 365 products in 5 languages @2019-07-10
 
-# In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
+########################################## milk fat ################################
 
-# nova:en:vegetal-oil
-# nova:en:vegetable-oil
-<en:vegetable oil and fat
-en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
-af:Plantaardige olie
-ar:زيت نباتي
-az:Bitki yağı
-be:Алеі
-bg:Растително масло
-ca:Oli vegetal
-da:vegetabilisk olie
-de:Pflanzenöle
-eo:Legoma oleo
-es:Aceite vegetal, aceites vegetales
-et:Taimeõli
-eu:Landare-olio
-fa:دانه‌های روغنی
-fi:Kasviöljy
-fr:huile végétale, huiles végétales, huiles végétale, huile végétales
-gl:Aceite vexetal
-hi:वनस्पति तेल
-id:Minyak nabati
-is:Grænmetisolía
-it:Olio vegetale
-ja:植物油
-ko:식물성 기름
-ky:Өсүмдүк майлары
-ml:സസ്യ എണ്ണകൾ
-mr:वनस्पती तूप
-ms:Minyak sayur
-nl:plantaardige olie, Spijsolie
-nn:vegetabilisk olie
-pl:Oleje roślinne
-pt:Óleo vegetal
-ro:Ulei vegetal
-ru:растительные масла, Растительное масло
-sh:Biljno ulje
-sr:Биљно уље
-sv:vegetabilisk olja
-th:น้ำมันพืช
-tr:Bitkisel yağ
-uk:Рослинні жири й олії
-vi:Dầu thực vật
-zh:植物油
-# roa-rup:Untulemnu
-# sco:Vegetable ile
-wikipedia:en:https://en.wikipedia.org/wiki/Vegetable_oil
-
-<en:vegetable oil
-fr:huile végétale raffinée
-
-<en:vegetable oil and fat
-en:vegetable fat, vegetal fat, vegetable fats
-da:vegetabilsk fedt
-de:pflanzliche Fette
-el:φυτικά λίπη
-es:grasas vegetales, grasa vegetal
-fi:kasvirasva
-fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales
-is:jurtafeiti
-it:grassi vegetali
-nl:plantaardige vetten
-nn:vegetabilisk fett
-pt:gorduras vegetais
-sv:vegetabiliska fetter
-
-<en:vegetable oil and fat
-en:vegetable fat/oil non hydrogenated
-de:Pflanzenfett/-öl ungehärtet
-fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
-it:oli/grassi vegetali non idrogenati
-
-<en:vegetable fat
-<en:hydrogenated fat
-en:hydrogenated vegetable fat
-fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée, graisses végétales hydrogénées
-
-<en:hydrogenated vegetable fat
-en:fully hydrogenated vegetable fat
-de:komplett hydriertes Pflanzenfett
-es:grasa vegetal totalmente hidrogenada
-fr:graisse végétale totalement hydrogénée
-it:grassi vegetali totalmente idrogenati
-nl:volledig gehydrogeneerde plantaardig vet
-
-<en:vegetable fat
-en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
-fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée, graisses végétales non hydrogénées
-
+# comment:en:milkfat shoild formally a child of en:animal fat. However on products we never see this happen.
 
 # comment:en:MILKFAT might be a synonym for butter
 
@@ -17241,6 +17278,103 @@ zh:酥油
 # sco:ghee
 wikidata:en:https://www.wikidata.org/wiki/Q323225
 # ingredient/ghee has 24 products in 3 languages @2019-07-10
+
+
+################################# vegetable oil ####################
+
+# description:en:In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
+
+# nova:en:vegetal-oil
+# nova:en:vegetable-oil
+<en:vegetable oil and fat
+en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
+af:Plantaardige olie
+ar:زيت نباتي
+az:Bitki yağı
+be:Алеі
+bg:Растително масло
+ca:Oli vegetal
+da:vegetabilisk olie
+de:Pflanzenöle
+eo:Legoma oleo
+es:Aceite vegetal, aceites vegetales
+et:Taimeõli
+eu:Landare-olio
+fa:دانه‌های روغنی
+fi:Kasviöljy
+fr:huile végétale, huiles végétales, huiles végétale, huile végétales
+gl:Aceite vexetal
+hi:वनस्पति तेल
+id:Minyak nabati
+is:Grænmetisolía
+it:Olio vegetale
+ja:植物油
+ko:식물성 기름
+ky:Өсүмдүк майлары
+ml:സസ്യ എണ്ണകൾ
+mr:वनस्पती तूप
+ms:Minyak sayur
+nl:plantaardige olie, Spijsolie
+nn:vegetabilisk olie
+pl:Oleje roślinne
+pt:Óleo vegetal
+ro:Ulei vegetal
+ru:растительные масла, Растительное масло
+sh:Biljno ulje
+sr:Биљно уље
+sv:vegetabilisk olja
+th:น้ำมันพืช
+tr:Bitkisel yağ
+uk:Рослинні жири й олії
+vi:Dầu thực vật
+zh:植物油
+# roa-rup:Untulemnu
+# sco:Vegetable ile
+wikipedia:en:https://en.wikipedia.org/wiki/Vegetable_oil
+# ingredient/vegetable oil has 103341 products @2019-07-10
+
+<en:vegetable oil
+fr:huile végétale raffinée
+
+<en:vegetable oil and fat
+en:vegetable fat, vegetal fat, vegetable fats
+da:vegetabilsk fedt
+de:pflanzliche Fette
+el:φυτικά λίπη
+es:grasas vegetales, grasa vegetal
+fi:kasvirasva
+fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales
+is:jurtafeiti
+it:grassi vegetali
+nl:plantaardige vetten
+nn:vegetabilisk fett
+pt:gorduras vegetais
+sv:vegetabiliska fetter
+
+<en:vegetable oil and fat
+en:vegetable fat/oil non hydrogenated
+de:Pflanzenfett/-öl ungehärtet
+fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
+it:oli/grassi vegetali non idrogenati
+
+<en:vegetable fat
+<en:hydrogenated fat
+en:hydrogenated vegetable fat
+fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée, graisses végétales hydrogénées
+
+<en:hydrogenated vegetable fat
+en:fully hydrogenated vegetable fat
+de:komplett hydriertes Pflanzenfett
+es:grasa vegetal totalmente hidrogenada
+fr:graisse végétale totalement hydrogénée
+it:grassi vegetali totalmente idrogenati
+nl:volledig gehydrogeneerde plantaardig vet
+
+<en:vegetable fat
+en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
+fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée, graisses végétales non hydrogénées
+
+
 
 <en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
@@ -40905,6 +41039,8 @@ nl:Jamaicaanse peper
 # ingredient/fr:piment-de-la-jamaïque has 148 products in 5 languages @2019-04-15
 # description:en:The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
 
+<en:chili pepper
+fr:piment Oiseau
 
 # en:paprika is very often indicated as a spice. This is probably the same as en:paprika powder
 
