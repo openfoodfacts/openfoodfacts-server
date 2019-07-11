@@ -938,8 +938,8 @@ es:E131, Azul patentado V, Azul patente v, Azul sulfán
 et:E131, Patentsinine v
 fi:E131, Patenttisininen v, Patenttisininen
 fr:E131, Bleu patenté V, bleu CI n°5, bleu patenté E 131
-ga:gorm paitinne V
-he:פטנט כחול V
+ga:E131, gorm paitinne V
+he:E131, פטנט כחול V
 hu:E131, Patentkék V
 it:E131, Blu patentato v, blu patentato, blu patentato E 131
 lt:E131, Mėlynasis patentuotas v
@@ -950,12 +950,12 @@ nl:E131, Patentblauw v, Patentblauw
 pl:E131, Błękit patentowy v
 pt:E131, Azul patenteado v
 ro:E131, Albastru patent v
-ru:синий патентованный V
+ru:E131, синий патентованный V
 sk:E131, Patentná modrá v
 sl:E131, Patentno modro v
 sv:E131, Patentblått v, E 131
-uk:Синій патентований V
-zh:專利藍V
+uk:E131, Синій патентований V
+zh:E131, 專利藍V
 wikidata:en:Q420087
 wikipedia:en:https://en.wikipedia.org/wiki/Patent_Blue_V
 # ingredient/fr:bleu-patenté-v has 219 products @2019-05-15
@@ -989,7 +989,7 @@ lt:E132, Indigotinas, indigokarminas
 lv:E132, Indigotīns, indigokarmīns
 mt:E132, Indigotina, karminju indigo
 nl:E132, Indigotine, indigokarmijn
-nl_be:E132, Indigotine, indigokarmijn
+# nl_be:E132, Indigotine, indigokarmijn
 pl:E132, Indygotyna, indygokarmin
 pt:E132, Indigotina, carmim de indigo, Índigo-carmim
 ro:E132, Indigotină, carmin indigo
@@ -1008,31 +1008,45 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en: BRILLIANT BLUE FCF (Blue 1) is an organic compound classified as a blue triarylmethane dye, reflecting its chemical structure. Known under various commercial names, it is a colorant for foods and other substances.
+
 en:E133, Brilliant blue FCF, FD&C Blue 1, FD and C Blue 1, Blue 1, fd&c blue no. 1.
 bg:E133, Брилянтно синьо FCF
 cs:E133, Brilantní modř FCF
-da:E133, Brilliant blue FCF
+da:E133, Brilliant blue FCF, brillant blue
 de:E133, Brilliantblau FCF, Brillantblau FCF, E 133, Brillantblau
 el:E133, Λαμπρο κυανο FCF
 es:E133, Azul brillante FCF, Azul brillante FCP, E 133, Brilliant Blue FCF
 et:E133, Briljantsinine FCF
 fi:E133, Briljanttisininen FCF
-fr:E133, Bleu brillant FCF, C.I. Acid Blue 9, C.I. Food Blue 2, Blue 2 lake, Blue 2, CI 42090, C-Blau 21, Erioglaucin A, Blue 1, Brilliant Blue FCF, bleu brillant, FD&C Blue No.1, FD&C Blue #1, BB FCF, Acid Blue 9, D&C Blue No. 4, Alzen Food Blue No. 1, Atracid Blue FG, Erioglaucine, Eriosky blue, Patent Blue AR, Xylene Blue VSG, CAS 25305-78-6, CAS 2650-18-2, CAS 3844-45-9, CAS 71701-18-3, CAS 15792-67-3, 2650-18-2, 15792-67-3, 71701-18-3, 25305-78-6, C37H34N2Na2O9S3, 3844-45-9
+fr:E133, Bleu brillant FCF, C.I. Acid Blue 9, C.I. Food Blue 2, Blue 2 lake, Blue 2, CI 42090, C-Blau 21, Erioglaucin A, Blue 1, Brilliant Blue FCF, bleu brillant, FD&C Blue No.1, FD&C Blue #1, BB FCF, Acid Blue 9, D&C Blue No. 4, Alzen Food Blue No. 1, Atracid Blue FG, Erioglaucine, Eriosky blue, Patent Blue AR, Xylene Blue VSG, CAS 25305-78-6, CAS 2650-18-2, CAS 3844-45-9, CAS 71701-18-3, CAS 15792-67-3, 2650-18-2, 15792-67-3, colorant e133
+ga:E133, gorm lonrach FCF
+he:E133, כחול בוהק FCF
 hu:E133, Brilliánskék FCF
-it:E133, Blu brillante FCF, C37H34N2Na2O9S3
+id:E133, Brilliant Blue FCF
+it:E133, Blu brillante FCF
+ja:E133, ブリリアントブルーFCF
 lt:E133, Briliantinis mėlinasis FCF, Briliantinis mėlynasis FCF
 lv:E133, Briljantzilais FCF
 mt:E133, Blu brillanti FCF
+nb:E133, briljantblà FCF
 nl:E133, Briljantblauw FCF, Briljantblauw
-nl_be:E133, Briljantblauw FCF, Briljantblauw
+# nl_be:E133, Briljantblauw FCF, Briljantblauw
 pl:E133, Błękit brylantowy FCF
 pt:E133, Azul brilhante FCF
 ro:E133, Albastru briliant FCF
+sh:E133, Brilijantno plavo FCF
 sk:E133, Brilantná modrá FCF
 sl:E133, Briljantno modro FCF
+sr:E133, Brilijantno plavo FCF
 sv:E133, Briljantblått FCF
-e_number:en:133
+uk:E133, Діамантовий синій
+# sr-el:E133, Brilijantno plavo FCF
 wikidata:en:Q420093
+wikipedia:en:https://en.wikipedia.org/wiki/Brilliant_Blue_FCF
+# ingredient/fr:colorant%20e133 has 36 products in french @2019-03-27
+# additive/e133-brilliant-blue-fcf has 8106 products in 18 languages @2019-03-27
+e_number:en:133
 colour_index:en:CI 42090
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1853.pdf
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2010.1853
