@@ -495,7 +495,7 @@ nutrient_levels misc ingredients ingredients_analysis nova_groups);
 # fields currently not shown in the default edit form, can be used in imports or advanced edit forms
 
 @product_other_fields = qw(
-	producter_product_id
+	producer_product_id
 	producer_version_id
 	net_weight_value
 	net_weight_unit
