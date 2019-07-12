@@ -2270,6 +2270,7 @@ nl:Druivensappen uit concentraat, Druivensap uit concentraat
 <en:Grape juices
 <en:Squeezed juices
 en:Squeezed grape juices, Non-refrigerated squeezed grape juices
+fr:Jus de raisin pur jus
 de:Traubendirektsäfte
 es:Zumos de uva exprimidos no refrigerados, Zumos de uva exprimidos, Zumos de uva exprimidos ambiente
 nl:Pure Druivensappen, Pure Druivensap
@@ -2752,6 +2753,10 @@ es:Néctares de piña
 fr:Nectars d'ananas
 it:Nettare di ananas
 nl:Ananasnectars, Ananasnectar
+
+<en:Fruit nectars
+en:Kiwi nectars
+fr:Nectars de kiwi
 
 <en:Fruit nectars
 en:Pomegranate nectars
@@ -4081,6 +4086,12 @@ en:Unsweetened flavored waters, non-sweetened flavored waters, non-sugared flavo
 de:Zuckerfreies Wasser mit Geschmack
 fr:Eaux aromatisées sans sucre ajouté, eau aromatisée sans sucre ajouté, eaux aromatisées non sucrées, eau aromatisée non sucrée
 nl:Suikervrije waters, Suikervrij water
+
+<en:Flavored waters
+<en:Sparkling waters
+en:Flavored sparkling waters, Sparkling flavored waters
+fr:Eaux gazeuses aromatisées, eux aromatisées gazeuses
+it:Acque gassate aromatizzate, acqua aromatizzata gassata
 
 <en:Mountain products
 <en:Waters
@@ -16814,8 +16825,9 @@ fr:Biscuits au chocolat noir
 it:Biscotti al cioccolato fondente
 nl:Pure chocoladebiscuits, Pure chocoladebiscuit
 
-<Chocolate biscuits
-fr:Biscuits tablette de chocolat
+<en:Chocolate biscuits
+es:Galletas con tableta de chocolate
+fr:Biscuits tablette de chocolat, Petits beurres au chocolat
 it:Biscotti con tavoletta di cioccolato
 oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
 
@@ -16825,19 +16837,15 @@ oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec t
 
 <fr:Biscuits tablette de chocolat
 <en:Dark chocolate biscuits
+es:Galletas con tableta de chocolate negro
 fr:Biscuits tablette de chocolat noir, Petits beurres au chocolat noir
 it:Biscotti con tavoletta di cioccolato fondente
 
 <fr:Biscuits tablette de chocolat
 <en:Milk chocolate biscuits
+es:Galletas con tableta de chocolate con leche
 fr:Biscuits tablette de chocolat au lait, Petits beurres au chocolat au lait
 it:Biscotti con tavoletta di cioccolato al latte
-
-#Should contain only biscuits with butter and no [palm, sunflower...] oil
-<en:Chocolate biscuits
-en:Petits beurres with chocolate
-fr:Petits beurres au chocolat
-nl:Scholiertjes, Biscuit met chocola
 
 <en:Biscuits
 fr:Biscuits édulcorés, Biscuits avec édulcorants
@@ -16849,6 +16857,8 @@ fr:Biscuits feuilletés, biscuit feuilleté
 nl:Bladerdeegkoekjes, Bladerdeegkoekje
 
 <en:Flaky biscuits
+en:Palmiers
+es:Palmeras, palmeritas
 fr:Palmiers, Palmiers feuilletés
 nl:Krakelingen
 wikidata:en:Q2096475
@@ -17153,7 +17163,7 @@ nl:Graanbroden, Graanbrood
 <en:Flatbreads
 en:Wheat flatbreads, wheat tortillas
 de:Weizenfladenbrote, Weizenfladenbrot, Soft Bröd
-fr:Pains plats au blé, galettes de blé pour tortillas, tortillas de blé, wraps de blé, galettes au blé pour tortillas, tortillas au blé, wraps au blé
+fr:Tortillas de blé, pains plats au blé, galettes de blé pour tortillas, wraps de blé, galettes au blé pour tortillas, tortillas au blé, wraps au blé
 nl:Platte graanbroden, Platte graanbrood
 sv:Halvtjockkakor, Hällakaka
 wikidata:en:Q10516678
@@ -18193,6 +18203,7 @@ de:Schokolade mit Mandelcremefüllung
 fr:Chocolats fourrés à la pâte d'amande
 nl:Chocolade met amandelpasta
 
+#Dark chocolate is a chocolate without milk or vegetable milk. It contains at least 43% cocoa in the EU.
 <en:Chocolates
 en:Dark chocolates, dark chocolate
 ca:Xocolata negra
@@ -18202,19 +18213,21 @@ fr:Chocolats noirs, chocolat noir
 hu:Feketecsokoládé
 it:Cioccolato fondente
 nl:Pure chocolades
-pl:Ciemna czekolada, gorzka czekolada
+pl:Czekolada deserowa, czekolada ciemna
+pt:Chocolates amargos
 ru:Тёмный шоколад
 zh:黑巧克力
 wikidata:en:Q2366206
 #if you use all those german synonyms you have nothing left for the subcategories. I'd say "Dunkle Schokoladen" would be enough
 
-# Very dark chocolate, could be similar to fr:Chocolats noirs extra fin, chocolat noir extra fin
 <en:Dark chocolates
-en:Bitter chocolates
-de:Herbe Schokoladen
-fr:Chocolats amers
+en:Extra fine dark chocolates, extra fine black chocolates, bitter chocolates
+de:Extrafeine dunkle Schokoladen, Herbe Schokoladen
+es:Chocolates negros extra finos
+fr:Chocolats noirs extra fin, chocolat noir extra fin, chocolats amers
+nl:Extra fijne pure chocolade
+pl:Czekolada gorzka
 ru:Горький шоколад, Чёрный шоколад
-#de:Bitterschokoladen, Herbe Schokoladen if you remove it from previous category
 
 <en:Dark chocolates
 <en:Chocolates with sweeteners
@@ -18271,13 +18284,6 @@ nl:Pure chocola met stukjes
 fr:Chocolats noirs au gingembre
 de:Dunkle Schokoladen mit Ingwer
 it:Cioccolato fondente con zenzero, cioccolato fondente allo zenzero
-
-<en:Dark chocolates
-en:Extra fine black chocolates
-de:Extrafeine dunkle Schokoladen
-es:Chocolates negros extra finos
-fr:Chocolats noirs extra fin, chocolat noir extra fin
-nl:Extra fijne pure chocolade
 
 <en:Chocolates
 en:Salted chocolates
@@ -18419,6 +18425,9 @@ nl:Chocoladesnoep
 pl:Cukierki czekoladowe
 
 <en:Chocolate candies
+fr:Guimauves enrobées de chocolat
+
+<en:Chocolate candies
 en:Bonbons
 ca:Bombons
 de:Pralinen, schokoladenbonbons
@@ -18477,6 +18486,10 @@ de:Schokoladenrosinen
 fr:Raisins secs enrobés de chocolat
 nl:Chocoladerozijnen
 wikidata:en:Q5103586
+
+<en:Chocolate covered fruits
+en:Chocolate covered cranberries
+fr:Canneberges enrobées de chocolat
 
 <en:Chocolate covered fruits
 en:Chocolate covered cherries
@@ -23019,7 +23032,7 @@ nl:Koffiemelken, Koffiemelk
 <en:Dairy drinks
 <en:Fruit-based beverages
 en:Fruit and milk juices, milk and fruit juices
-fr:Jus de fruits au lait, jus de fruits lactés
+fr:Boissons au lait et au jus de fruits, jus de fruits au lait, jus de fruits lactés
 nl:Fruit- en melksap
 
 <en:Milks
@@ -24205,6 +24218,7 @@ fr:Desserts au café
 nl:Koffietoetjes, koffiedesserts
 zh:咖啡甜品, 咖啡甜点
 
+<en:Plant-based spreads
 <en:Fruits based foods
 en:Fruit chutneys
 fr:Chutneys de fruit
@@ -24212,12 +24226,12 @@ nl:Fruitchutney
 
 <en:Fruit chutneys
 en:Apple chutneys
-fr:Chutneys de pomme
+fr:Confits de pommme, Chutneys de pomme
 nl:Appelchutney
 
 <en:Fruit chutneys
 en:Fig chutneys
-fr:Chutneys de figues 
+fr:Confits de figues, chutneys de figues 
 nl:Vijgenchutney
 
 
@@ -24492,6 +24506,9 @@ nl:vanilla vla's
 fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
 nl:Caramel vla's
 
+<en:Dessert creams
+fr:Crèmes dessert café
+
 <en:Desserts
 en:Non-dairy desserts, vegetal desserts, vegan desserts
 de:Milchfreie Nachtische, vegetarische Nachtische, vegane Nachtische
@@ -24714,6 +24731,11 @@ hu:Héjas mandula
 nl:Gepelde amandelen
 
 <en:Almonds
+en:Whole almonds
+fr:Amandes entières
+
+<en:Almonds
+en:Almond flakes, Sliced almonds
 fr:Amandes effilées
 
 <en:Almonds
@@ -25352,6 +25374,7 @@ it:Miele di agrumi
 nl:Citrusvruchtenhoningen
 
 <fr:Miels d’agrumes
+es:Mieles de azahar, Mieles de naranjo
 fr:Miels d’oranger, Miel d’oranger
 de:Orangenbaumhonige
 it:Miele di arancio
@@ -25369,6 +25392,7 @@ de:Mandarinenbaumhonige
 nl:Mandarijnbloesemhoningen
 
 <en:Honeys
+es:Mieles de eucaliptus
 fr:Miels d'eucalyptus
 de:Eukalyptushonige
 it:Miele di eucalipto
@@ -25383,6 +25407,7 @@ fr:Miels de bleuet
 nl:Korenbloemenhoningen
 
 <en:Honeys
+es:Mieles de brezo
 fr:Miels de bruyère
 nl:Heidehoningen
 
@@ -25397,6 +25422,7 @@ nl:Stuikheidehoningen
 
 <en:Honeys
 en:Chestnut honey
+es:Mieles de castaño
 fr:Miels de châtaignier
 it:Miele di castagno
 nl:Kastanjebloesemhoningen
@@ -25423,6 +25449,7 @@ fr:Miels de pin
 nl:Pijnboomhoningen
 
 <en:Honeys
+es:Mieles de flores
 fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
 nl:Bloemenhoningen
 
@@ -25461,6 +25488,7 @@ nl:Lavendelhoningen
 
 <en:Honeys
 en:Thyme honey
+es:Mieles de tomillo
 fr:Miels de thym
 it:Miele di timo
 nl:Tijmhoning
@@ -25541,6 +25569,7 @@ nl:Vloeibare honingen
 pt:Méis líquidos
 
 <fr:Miels
+es:Mieles de romero
 fr:Miels de romarin
 it:Miele di rosmarino
 nl:Rozemarijnhoningen
@@ -29234,7 +29263,7 @@ fr:Cocktail de fruits au sirop, Mélange de fruits au sirop
 nl:Fruitcocktails op siroop
 
 <en:Fruits in syrup
-en:Cherries in syrup
+en:Cherries in syrup, Maraschino cherries
 de:Kirschen in Sirup
 es:Cerezas en almíbar
 fr:Cerises au sirop
@@ -38450,10 +38479,14 @@ nl:Zoute smeerpastas
 pl:Słone smarowidła, słone pasty do smarowania
 pnns_group_2:en:Salty and fatty products
 
-<en:Spreads
+<en:Salted spreads
+<en:Onions and their products
 en:Onion chutneys
-fr:Chutneys d'oignons
+fr:Confits d'oignons, Chutneys d'oignons
 nl:Uienchutney
+
+<en:Salted spreads
+fr:Crèmes d'artichaut
 
 <en:Salted spreads
 en:Tapenades, tapenade
@@ -39205,8 +39238,7 @@ la:Allium cepa
 nl:Ui en afgeleide producten
 wikidata:en:Q23485
 
-<en:Onions and their products
-fr:Confits d'oignons
+
 
 <en:Onions and their products
 en:Fried onions
@@ -43746,11 +43778,14 @@ nl:Plantaardige steaks voor hamburgers
 
 <en:Veggie burger patties 
 en:Soy steak
-fr:Steaks de soja
+fr:Galettes de soja, steaks de soja
 nl:Sojasteaks
 
 <en:Veggie burger patties
-fr:Steaks de tofu
+fr:Galettes de tofu, steaks de tofu
+
+<en:Veggie burger patties
+fr:Galettes de céréales aux légumes
 
 <en:Meat analogues
 en:Vegetarian sausages
@@ -43789,10 +43824,14 @@ fr:Substituts du fromage, fromages végétaux
 nl:Vegetarische kazen
 
 <en:Cereals and their products
+en:Rice paper
+fr:Galettes de riz pour rouleau de printemps
+
+<en:Cereals and their products
 en:Puffed cereal cakes
 de:gepuffte Getreidewaffeln
 es:Tortitas de cereales
-fr:Galettes de céréales
+fr:Galettes de céréales soufflées, galettes de céréales
 hu:Puffasztott gabonakészítmények
 it:Gallette di cereali
 nl:Graanwafels
@@ -43801,7 +43840,7 @@ nl:Graanwafels
 en:Puffed corn cakes
 de:gepuffte Maiswaffeln
 es:Tortitas de maíz
-fr:Galettes de maïs
+fr:Galettes de maïs soufflé, galettes de maïs
 hu:Puffasztott kukorica készítményak
 it:Gallette di mais
 nl:Maiswafels
@@ -43825,7 +43864,7 @@ nl:Maiswafels met melkchocolade
 en:Puffed rice cakes
 de:gepuffte Reiswaffeln
 es:Tortitas de arroz
-fr:Galettes de riz
+fr:Galettes de riz soufflé, galettes de riz
 hu: Puffasztott rizs
 it:Gallette di riso
 nl:Rijstwafels
@@ -43834,7 +43873,7 @@ nl:Rijstwafels
 en:Puffed wholegrain rice cakes
 de:Gepuffte Vollkornreiskuchen
 es:Tortitas de arroz integral
-fr:Galettes de riz complet
+fr:Galettes de riz complet soufflé, galettes de riz complet
 it:Gallette di riso integrale
 nl:Volkoren rijstwafels
 
@@ -43863,38 +43902,40 @@ nl:Witte chocolade rijstwafels
 en:Puffed oat cakes
 de:Gepuffte Haferkuchen
 es:Tortitas de avena
-fr:Galettes d'avoine
+fr:Galettes d'avoine soufflé, galettes d'avoine
 it:Gallette di avena
 nl:Haverwafels
+
+<en:Puffed cereal cakes
+fr:Galettes de sarrasin soufflé
 
 <en:Puffed cereal cakes
 en:Puffed wheat cakes
 de:gepuffte Weizenwaffeln
 es:Tortitas de trigo
-fr:Galettes de blé
+fr:Galettes de blé soufflé, galettes de blé
 nl:Tarwewafels
 
 <en:Puffed wheat cakes
 en:Puffed spelt cakes
 de:Gepuffte Dinkelkuchen
 es:Tortitas de espelta
-fr:Galettes d'épeautre
+fr:Galettes d'épeautre soufflé, galettes d'épeautre
 nl:Speltwafels
 
 <en:Puffed wheat cakes
 en:Puffed Khorasan wheat cakes, Puffed Kamut cakes
 de:Kamutwaffeln
 es:Tortitas de trigo de Jorasán, Tortitas de Kamut
-fr:Galettes de blé khorasan, Galettes de blé de Khorasan, Galettes de Kamut
+fr:Galettes de blé khorasan soufflé, galettes de blé khorasan, Galettes de blé de Khorasan, Galettes de Kamut
 nl:Kamutwafels
 
 <en:Puffed cereal cakes
 en:Puffed multigrain cakes
 de:Gepuffte Vollkornkuchen
 es:Tortitas multicereales, Tortitas de varios cereales
-fr:Galettes multicéréales
+fr:Galettes multicéréales soufflées, galettes muticéréales
 nl:Meergranen wafels
-
 
 
 <en:Appetizers
@@ -43903,6 +43944,10 @@ de:Crackers
 fr:Biscuits apéritifs, biscuits pour l'apéritif, gâteaux pour l'apéritif, Gâteaux apéritifs, Biscuits crackers, Crackers, Biscuits salés, Crackers salés
 hu:Krékerek
 nl:Zoutjes
+
+<en:Crackers
+en:Salty palmiers
+fr:Palmiers salés
 
 <en:Crackers
 en:Pretzel

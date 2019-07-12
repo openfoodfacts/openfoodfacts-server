@@ -294,7 +294,7 @@ if ((defined $images_dir) and ($images_dir ne '')) {
 			}
 
 			if ($file2 =~ /(\d+)(_|-|\.)?([^\.-]*)?((-|\.)(.*))?\.(jpg|jpeg|png)/i) {
-			
+
 				if ((-s "$images_dir/$file") < 10000) {
 					print "Size of $images_dir/$file is < 10000 : " . (-s "$images_dir/$file") . " , skipping\n";
 					next;
@@ -328,6 +328,8 @@ if ((defined $images_dir) and ($images_dir ne '')) {
 	else {
 		die ("Could not open images_dir $images_dir : $!\n");
 	}
+
+
 }
 
 print "importing products\n";
@@ -368,6 +370,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		next;
 	}
 
+	# next if $code ne "3410280020266";
+
 	$skip_until and next;
 
 
@@ -387,7 +391,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		next;
 	}
 
-	#next if ($code !~ /^80/);
+	#next if ($code ne "3162050010259");
 
 	$stats{products_in_file}{$code} = 1;
 
@@ -407,14 +411,14 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 	# image paths can be passed in fields image_front / nutrition / ingredients / other
 	# several values can be passed in others
-	
+
 	foreach my $imagefield ("front", "ingredients", "nutrition", "other") {
 		my $k = 0;
 		if (defined $imported_product_ref->{"image_" . $imagefield}) {
 			foreach my $file (split(/,/, $imported_product_ref->{"image_" . $imagefield})) {
 				$file =~ s/^\s+//;
 				$file =~ s/\s+$//;
-				
+
 				defined $images_ref->{$code} or $images_ref->{$code} = {};
 				if ($imagefield ne "other") {
 					$images_ref->{$code}{$imagefield} = $file;
@@ -422,24 +426,24 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				else {
 					$k++;
 					$images_ref->{$code}{$imagefield . "_$k"} = $file;
-					
+
 					# No front image?
 					if (not (defined $images_ref->{$code}{front})) {
 						$images_ref->{$code}{front} = $file;
 					}
-					
+
 					if (	((defined $images_ref->{$code}{front}) and ($images_ref->{$code}{front} eq $images_ref->{$code}{$imagefield . "_$k"}))
 						or	((defined $images_ref->{$code}{ingredients}) and ($images_ref->{$code}{ingredients} eq $images_ref->{$code}{$imagefield . "_$k"}))
 						or	((defined $images_ref->{$code}{nutrition}) and ($images_ref->{$code}{nutrition} eq $images_ref->{$code}{$imagefield . "_$k"})) ) {
 						# File already selected
 						delete $images_ref->{$code}{$imagefield . "_$k"};
 					}
-					
+
 				}
 			}
 		}
 	}
-	
+
 
 	# next if ($i < 2665);
 
@@ -541,7 +545,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 	foreach my $field ('lc', 'product_name', 'generic_name',
 		@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
-		'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang', 'data_sources') {
+		'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang', 'data_sources') {
 
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -559,15 +563,15 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 
 	foreach my $field (@param_fields) {
-	
+
 		# fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
-		
+
 		if (not ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/))
 			and ((defined $imported_product_ref->{$field . "_if_not_existing"}) and ($imported_product_ref->{$field . "_if_not_existing"} !~ /^\s*$/))) {
 			print STDERR "no existing value for $field, using value from ${field}_if_not_existing: " . $imported_product_ref->{$field . "_if_not_existing"} . "\n";
 			$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};
 		}
-		
+
 
 		if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/)) {
 
@@ -577,10 +581,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			if (($field =~ /product_name/) or ($field eq "brands")) {
 				$stats{products_with_info}{$code} = 1;
 			}
-			
+
 			if ($field =~ /^ingredients/) {
 				$stats{products_with_ingredients}{$code} = 1;
-			}			
+			}
 
 			# for tag fields, only add entries to it, do not remove other entries
 
@@ -630,6 +634,13 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					}
 					else {
 						#print "- $tagid already in $field\n";
+						# update the case (e.g. for brands)
+						if ($field eq "brands") {
+							my $regexp = $tag;
+							$regexp =~ s/( |-)/\( \|-\)/g;
+							$product_ref->{$field} =~ s/\b$tagid\b/$tag/i;
+							$product_ref->{$field} =~ s/\b$regexp\b/$tag/i;
+						}
 					}
 
 				}
@@ -793,9 +804,9 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		);
 
 
-		my $value = remove_tags_and_quote($imported_product_ref->{$nid . "_value"});
-		my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"});
-		my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"});
+		my $value = remove_tags_and_quote($imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"});
+		my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"});
+		my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"});
 
 
 		if ($nid eq 'alcohol') {
@@ -808,6 +819,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		normalize_nutriment_value_and_modifier(\$value, \$modifier);
 		normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 
+		# print STDERR "nid: $nid - value: $value - unit: $unit\n";
+
 
 		if ((defined $value) and ($value ne '')) {
 
@@ -815,7 +828,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				$seen_salt = 1;
 			}
 
-			print "nutrient with defined and non empty value: nid: $nid - value: $value\n";
+			print "nutrient with defined and non empty value: nid: $nid - value: $value - unit: $unit\n";
 			$stats{products_with_nutrition}{$code} = 1;
 
 			assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
@@ -823,7 +836,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 		if ((defined $valuep) and ($valuep ne '')) {
 
-			print "nutrient with defined and non empty prepared value: nidp: $nidp - valuep: $valuep\n";
+			print "nutrient with defined and non empty prepared value: nidp: $nidp - valuep: $valuep - unit: $unit\n";
 			$stats{products_with_nutrition}{$code} = 1;
 
 			assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
@@ -859,7 +872,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		}
 
 	}
-	
+
 	# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
 	if (defined $stats{products_with_nutrition}{$code}) {
 		if (not defined $imported_product_ref->{nutrition_data_per}) {
@@ -898,7 +911,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	}
 	if (not defined $stats{products_with_ingredients}{$code}) {
 		$stats{products_without_ingredients}{$code} = 1;
-	}	
+	}
 	if (not defined $stats{products_with_nutrition}{$code}) {
 		$stats{products_without_nutrition}{$code} = 1;
 	}
@@ -1105,7 +1118,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					# upload a photo
 					my $imgid;
 					my $return_code = process_image_upload($code, "$images_dir/$file", $User_id, undef, $product_comment, \$imgid);
-					print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";
+					print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid - imagefield_with_lc: $imagefield_with_lc\n";
 
 					if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 						$stats{products_images_added}{$code} = 1;

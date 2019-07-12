@@ -37,7 +37,7 @@ BEGIN
 		&retrieve
 		&unac_string_perl
 	);
-	%EXPORT_TAGS = (all => [@EXPORT_OK]);  
+	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
 
@@ -77,37 +77,50 @@ sub unac_string_perl($) {
 sub get_fileid($) {
 
 	my $file = shift;
-	
+
 	if (not defined $file) {
 		return "";
 	}
-	
+
+	# do not lowercase UUIDs
+	# e.g.
+	# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
+	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
+	if ($file !~ /^([a-z\-]+)\.([a-zA-Z0-9-_]{8})([a-zA-Z0-9-_]*)$/) {
+		$file = lc($file);
+		$file =~ tr/./-/;
+	}
+
+	#$file = decode("UTF-16", unac_string('UTF-16',encode("UTF-16", $file)));
+
+	# Remove one call to a subfunction and just inline the subfunction content
+	# $file = unac_string_perl($file);
+
+	$file =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
+
 	$file =~ s/œ|Œ/oe/g;
 	$file =~ s/æ|Æ/ae/g;
-	
 	$file =~ s/ß/ss/g;
-	
-	$file =~ s/ç/c/g;
-	$file =~ s/ñ/n/g;
-	
-	$file = lc($file);
-	
-	#$file = decode("UTF-16", unac_string('UTF-16',encode("UTF-16", $file)));
-	$file = unac_string_perl($file);
-	
+
 	# turn characters that are not letters and numbers to -
 	# except extended UTF-8 characters
 	# $file =~ s/[^a-z0-9-]/-/g;
-	
+
+	# turn special chars to -
+	$file =~ s/[\000-\037]/-/g;
+
+	# zero width space
+	$file =~ s/\x{200B}/-/g;
+
 	# avoid turning &quot; in -quot-
-	$file =~ s/\&(quot|lt|gt);/-/g;	
-	
-	$file =~ s/[\s!"#\$%&'()*+,.\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
+	$file =~ s/\&(quot|lt|gt);/-/g;
+
+	$file =~ s/[\s!"#\$%&'()*+,\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
 	$file =~ s/-+/-/g;
 	$file =~ s/^-//;
 	$file =~ s/-$//;
-	
-	return $file;	
+
+	return $file;
 }
 
 
@@ -115,15 +128,15 @@ sub get_urlid($) {
 
 	my $input = shift;
 	my $file = $input;
-	
+
 	$file = get_fileid($file);
-	
+
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
 	}
-	
+
 	$log->trace("get_urlid", { in => $input, out => $file }) if $log->is_trace();
-	
+
 	return $file;
 }
 
@@ -131,16 +144,16 @@ sub get_urlid($) {
 sub get_ascii_fileid($) {
 
 	my $file = shift;
-	
+
 	$file = get_fileid($file);
 
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = "xn--" .  encode('Punycode',$file);
 	}
-	
+
 	$log->debug("get_ascii_fileid", { file => $file }) if $log->is_debug();
 
-	return $file;	
+	return $file;
 }
 
 
@@ -148,7 +161,7 @@ sub get_ascii_fileid($) {
 sub store {
 	my $file = shift @_;
 	my $ref = shift @_;
-	
+
 	return lock_store($ref, $file);
 }
 

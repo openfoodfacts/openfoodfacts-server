@@ -74,7 +74,7 @@ BEGIN
 					&get_canon_local_authority
 
 					&special_process_product
-					
+
 					&extract_nutrition_from_image
 
 					);	# symbols to export on request
@@ -138,13 +138,13 @@ sub normalize_nutriment_value_and_modifier($$) {
 sub default_unit_for_nid($) {
 
 	my $nid = shift;
-	
+
 	if ($nid eq "energy") {
 		return "kJ";
 	}
 	elsif ($nid eq "alcohol") {
 		return "% vol";
-	}	
+	}
 	elsif (($nid =~ /^fruits/) or ($nid =~ /^collagen/)) {
 		return "%";
 	}
@@ -163,7 +163,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	my $modifier = shift;
 	my $value = shift;
 	my $unit = shift;
-	
+
 	# empty unit?
 	if ((not defined $unit) or ($unit eq "")) {
 		$unit = default_unit_for_nid($nid);
@@ -191,10 +191,10 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$unit = $Nutriments{$nid}{unit};
 	}
 	if ($nid eq 'water-hardness') {
-		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 	}
 	else {
-		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
 	}
 
 }
@@ -244,7 +244,7 @@ sub unit_to_g($$) {
 	$unit eq 'dl' and return $value * 100;
 	$unit eq 'cl' and return $value * 10;
 	$unit eq 'fl oz' and return $value * 30;
-	return $value + 0; # + 0 to make sure the value is treated as number 
+	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 }
 
@@ -277,7 +277,7 @@ sub g_to_unit($$) {
 	$unit eq 'dl' and return $value / 100;
 	$unit eq 'cl' and return $value / 10;
 	$unit eq 'fl oz' and return $value / 30;
-	return $value + 0; # + 0 to make sure the value is treated as number 
+	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 }
 
@@ -3608,19 +3608,19 @@ foreach my $group (keys %pnns) {
 sub special_process_product($) {
 
 	my $product_ref = shift;
-	
+
 	delete $product_ref->{pnns_groups_1};
 	delete $product_ref->{pnns_groups_1_tags};
 	delete $product_ref->{pnns_groups_2};
-	delete $product_ref->{pnns_groups_2_tags};	
-	
+	delete $product_ref->{pnns_groups_2_tags};
+
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq "")) {
 		$product_ref->{pnns_groups_2} = "unknown";
 		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-category"];
 		$product_ref->{pnns_groups_1} = "unknown";
 		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-category"];
 		return;
-	}	
+	}
 
 	# For Open Food Facts, add special categories for beverages that are computed from
 	# nutrition facts (alcoholic or not) or the ingredients (sweetened, artificially sweetened or unsweetened)
@@ -3838,7 +3838,7 @@ sub special_process_product($) {
 	}
 	else {
 		# We have a category for the product, but no PNNS groups are associated with this category or a parent category
-	
+
 		$product_ref->{pnns_groups_2} = "unknown";
 		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-association"];
 		$product_ref->{pnns_groups_1} = "unknown";
@@ -3854,14 +3854,27 @@ sub fix_salt_equivalent($) {
 
 	# salt
 
+	# EU fixes the conversion: sodium = salt / 2.5 (instead of 2.54 previously)
+
 	foreach my $product_type ("", "_prepared") {
 
 		# use the salt value by default
-		if ((defined $product_ref->{nutriments}{'salt' . $product_type}) and ($product_ref->{nutriments}{'salt' . $product_type} ne '')) {
-			$product_ref->{nutriments}{'sodium' . $product_type} = $product_ref->{nutriments}{'salt' . $product_type} / 2.54;
+		if ((defined $product_ref->{nutriments}{'salt' . $product_type . "_value"})
+			and ($product_ref->{nutriments}{'salt' . $product_type . "_value"} ne '')) {
+		assign_nid_modifier_value_and_unit(
+			$product_ref,
+			'sodium' . $product_type,
+			$product_ref->{nutriments}{'salt' . $product_type . '_modifier'},
+			$product_ref->{nutriments}{'salt' . $product_type . "_value"} / 2.5,
+			$product_ref->{nutriments}{'salt' . $product_type . '_unit'} );
 		}
-		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type}) and ($product_ref->{nutriments}{'sodium' . $product_type} ne '')) {
-			$product_ref->{nutriments}{'salt' . $product_type} = $product_ref->{nutriments}{'sodium' . $product_type} * 2.54;
+		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type  . "_value"}) and ($product_ref->{nutriments}{'sodium' . $product_type . "_value"} ne '')) {
+			assign_nid_modifier_value_and_unit(
+			$product_ref,
+			'salt' . $product_type,
+			$product_ref->{nutriments}{'sodium' . $product_type . '_modifier'},
+			$product_ref->{nutriments}{'sodium' . $product_type  . "_value"} * 2.5,
+			$product_ref->{nutriments}{'sodium' . $product_type . '_unit'});
 		}
 	}
 }
@@ -3984,7 +3997,7 @@ sub compute_nutrition_score($) {
 	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
 	# do not display warnings about missing fiber and fruits
 
-	if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+	if (not ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
 
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known
@@ -4378,22 +4391,22 @@ sub compute_nutrition_grade($$) {
 		# D/Rose 6 – 9
 		# E/Rouge 10 – Max
 
-		if (has_tag($product_ref, "categories", "en:spring-waters")) {
+		if (((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
 			$grade = 'a';
-		} 
+		}
 		elsif ($fr_score <= 1) {
 			$grade = 'b';
-		} 
+		}
 		elsif ($fr_score <= 5) {
 			$grade = 'c';
-		} 
+		}
 		elsif ($fr_score <= 9) {
 			$grade = 'd';
-		} 
+		}
 		else {
 			$grade = 'e';
 		}
-	} 
+	}
 	else {
 
 		# New grades from HCSP avis 20150602 hcspa20150625_infoqualnutprodalim.pdf
@@ -4408,16 +4421,16 @@ sub compute_nutrition_grade($$) {
 
 		if ($fr_score <= -1) {
 			$grade = 'a';
-		} 
+		}
 		elsif ($fr_score <= 2) {
 			$grade = 'b';
-		} 
+		}
 		elsif ($fr_score <= 10) {
 			$grade = 'c';
-		} 
+		}
 		elsif ($fr_score <= 18) {
 			$grade = 'd';
-		} 
+		}
 		else {
 			$grade = 'e';
 		}
@@ -4522,6 +4535,7 @@ sub compute_serving_size_data($) {
 		}
 
 		# Carbon footprint
+
 		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"}) {
 
 			if (defined $product_ref->{serving_quantity}) {
@@ -4532,6 +4546,19 @@ sub compute_serving_size_data($) {
 			if (defined $product_ref->{product_quantity}) {
 				$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"}
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
+			}
+		}
+
+		if (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"}) {
+
+			if (defined $product_ref->{serving_quantity}) {
+				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_serving"}
+				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{serving_quantity}) + 0.0;
+			}
+
+			if (defined $product_ref->{product_quantity}) {
+				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_product"}
+				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
 		}
 
@@ -4546,10 +4573,10 @@ sub compute_carbon_footprint_infocard($) {
 
 	# compute the environment impact level
 	# -> currently only for prepared meals
-	
+
 	# Limit to France, as the carbon values from ADEME are intended for France
-	
-	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients_text}) 
+
+	if (not ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients_text})
 		and (length($product_ref->{ingredients_text}) > 5))) {
 		delete $product_ref->{environment_impact_level};
 		delete $product_ref->{environment_impact_level_tags};
@@ -4558,7 +4585,7 @@ sub compute_carbon_footprint_infocard($) {
 		delete $product_ref->{environment_infocard_fr};
 		return;
 	}
-	
+
 	if (has_tag($product_ref, "categories", "en:meals")) {
 
 		$product_ref->{environment_impact_level} = "en:low";
@@ -4994,14 +5021,14 @@ sub compute_nova_group($) {
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
 			return;
 	}
-	
+
 	# do not compute a score when it is not food
 	if (has_tag($product_ref,"categories","en:non-food-products")) {
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
 			$product_ref->{nova_group_debug} = "no nova group for non food products";
-			return;	
+			return;
 	}
-	
+
 
 	# determination process:
 	# - start by assigning group 1
@@ -5182,9 +5209,9 @@ sub compute_nova_group($) {
 
 
 	# Unless we found a marker for NOVA 4, do not compute a score if there are too many unknown ingredients:
-	
+
 	if ($product_ref->{nova_group} != 4) {
-	
+
 		# do not compute a score if we have too many unknown ingredients
 		if ( has_tag($product_ref,"quality","en:ingredients-100-percent-unknown") or
 			has_tag($product_ref,"quality","en:ingredients-90-percent-unknown") or
@@ -5197,13 +5224,13 @@ sub compute_nova_group($) {
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown";
 				return;
 		}
-		
+
 		if ($product_ref->{unknown_ingredients_n} > ($product_ref->{ingredients_n} / 2)) {
 				delete $product_ref->{nova_group};
 				$product_ref->{nova_group_tags} = [ "not-applicable" ];
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown: "
 					. $product_ref->{unknown_ingredients_n} . " out of " . $product_ref->{ingredients_n};
-				return;	
+				return;
 		}
 
 		# do not compute a score when we don't have a category
@@ -5212,7 +5239,7 @@ sub compute_nova_group($) {
 				$product_ref->{nova_group_tags} = [ "not-applicable" ];
 				$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
 				return;
-		}	
+		}
 	}
 
 
@@ -5233,7 +5260,7 @@ sub extract_nutrition_from_image($$$$) {
 	my $id = shift;
 	my $ocr_engine = shift;
 	my $results_ref = shift;
-		
+
 	extract_text_from_image($product_ref, $id, "nutrition_text_from_image", $ocr_engine, $results_ref);
 
 	# clean and process text

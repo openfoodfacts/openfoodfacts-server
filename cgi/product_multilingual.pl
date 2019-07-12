@@ -365,6 +365,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	extract_ingredients_classes_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 	compute_carbon_footprint_from_ingredients($product_ref);
+	compute_carbon_footprint_from_meat_or_fish($product_ref);
 
 	# Nutrition data
 
@@ -407,6 +408,30 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	my $new_max = remove_tags_and_quote(param('new_max'));
 	for (my $i = 1; $i <= $new_max; $i++) {
 		push @new_nutriments, "new_$i";
+	}
+
+	# fix_salt_equivalent always prefers the 'salt' value of the product by default
+	# the 'sodium' value should be preferred, though, if the 'salt' parameter is not
+	# present. Therefore, delete the 'salt' value and let it be fixed by
+	# fix_salt_equivalent afterwards.
+	foreach my $product_type ("", "_prepared") {
+		my $saltnid = "salt${product_type}";
+		my $sodiumnid = "sodium${product_type}";
+
+		my $salt = param("nutriment_${saltnid}");
+		my $sodium = param("nutriment_${sodiumnid}");
+
+		if (((not defined $salt) or ($salt eq ''))
+			and (defined $sodium) and ($sodium ne ''))
+		{
+			delete $product_ref->{nutriments}{$saltnid};
+			delete $product_ref->{nutriments}{$saltnid . "_unit"};
+			delete $product_ref->{nutriments}{$saltnid . "_value"};
+			delete $product_ref->{nutriments}{$saltnid . "_modifier"};
+			delete $product_ref->{nutriments}{$saltnid . "_label"};
+			delete $product_ref->{nutriments}{$saltnid . "_100g"};
+			delete $product_ref->{nutriments}{$saltnid . "_serving"};
+		}
 	}
 
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
@@ -510,7 +535,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 
 	}
-
 
 	# product check
 
@@ -865,18 +889,18 @@ HTML
 
 	$html .= <<HTML
 <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
-<span>$Lang{warning_3rd_party_content}{$lang}
- <a href="#" class="close">&times;</a>
+	<span>$Lang{warning_3rd_party_content}{$lang}</span>
+ 	<a href="#" class="close">&times;</a>
 </div>
 
 <div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
-<span>$Lang{licence_accept}{$lang}</span>
- <a href="#" class="close">&times;</a>
+	<span>$Lang{licence_accept}{$lang}</span>
+ 	<a href="#" class="close">&times;</a>
 </div>
 HTML
 ;
 
-	$scripts .= <<JS
+	$scripts .= <<HTML
 <script type="text/javascript">
 'use strict';
 \$(function() {
@@ -894,7 +918,7 @@ HTML
   });
 });
 </script>
-JS
+HTML
 ;
 
 	# Main language
@@ -945,7 +969,7 @@ JS
 		$html .= <<HTML
 <ul id="manage_images_accordion" class="accordion" data-accordion>
   <li class="accordion-navigation">
-<a href="#manage_images_drop"><i class="fi-page-multiple"></i> $Lang{manage_images}{$lc}</a>
+<a href="#manage_images_drop"><i class="icon-collections"></i> $Lang{manage_images}{$lc}</a>
 
 
 <div id="manage_images_drop" class="content" style="background:#eeeeee">
@@ -955,10 +979,10 @@ HTML
 <<HTML
 
 	<p>$Lang{manage_images_info}{$lc}</p>
-	<a id="delete_images" class="button small disabled"><i class="fi-trash"></i> $Lang{delete_the_images}{$lc}</a><br/>
+	<a id="delete_images" class="button small disabled"><i class="icon-delete"></i> $Lang{delete_the_images}{$lc}</a><br/>
 	<div class="row">
 		<div class="small-12 medium-5 columns">
-			<button id="move_images" class="button small disabled"><i class="fi-arrow-right"></i> $Lang{move_images_to_another_product}{$lc}</a>
+			<button id="move_images" class="button small disabled"><i class="icon-arrow_right_alt"></i> $Lang{move_images_to_another_product}{$lc}</a>
 		</div>
 		<div class="small-4 medium-2 columns">
 			<label for="move_to" class="right inline">$Lang{barcode}{$lc}</label>
@@ -1811,10 +1835,10 @@ HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td class="nutriment_col" $column_display_style{"nutrition_data"}>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled />
+<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
 </td>
 <td class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
-<input class="nutriment_value" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled/>
+<input class="nutriment_value" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
 </td>
 HTML
 ;
@@ -1972,22 +1996,22 @@ HTML
 });
 
 \$("#nutriment_sodium").change( function () {
-	swapSalt(\$("#nutriment_sodium"), \$("#nutriment_salt"), 2.54);
+	swapSalt(\$("#nutriment_sodium"), \$("#nutriment_salt"), 2.5);
 }
 );
 
 \$("#nutriment_salt").change( function () {
-	swapSalt(\$("#nutriment_salt"), \$("#nutriment_sodium"), 1/2.54);
+	swapSalt(\$("#nutriment_salt"), \$("#nutriment_sodium"), 1/2.5);
 }
 );
 
 \$("#nutriment_sodium_prepared").change( function () {
-	swapSalt(\$("#nutriment_sodium_prepared"), \$("#nutriment_salt_prepared"), 2.54);
+	swapSalt(\$("#nutriment_sodium_prepared"), \$("#nutriment_salt_prepared"), 2.5);
 }
 );
 
 \$("#nutriment_salt_prepared").change( function () {
-	swapSalt(\$("#nutriment_salt_prepared"), \$("#nutriment_sodium_prepared"), 1/2.54);
+	swapSalt(\$("#nutriment_salt_prepared"), \$("#nutriment_sodium_prepared"), 1/2.5);
 }
 );
 
@@ -2128,14 +2152,21 @@ JS
 ;
 
 	if ($type eq 'edit') {
-		$html .= <<HTML
+		$html .= <<"HTML"
 <div class="row">
-<div class="small-12 medium-12 large-8 xlarge-10 columns">
-<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text">
-</div>
-<div class="small-12 medium-12 large-4 xlarge-2 columns">
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small">
-</div>
+	<div class="small-12 medium-12 large-8 xlarge-8 columns">
+		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
+	</div>
+	<div class="small-6 medium-6 large-2 xlarge-2 columns">
+		<button type="submit" name=".submit" class="button postfix small">
+			<i class="icon-check"></i> $Lang{save}{$lc}
+		</button>
+	</div>
+	<div class="small-6 medium-6 large-2 xlarge-2 columns">
+		<button type="button" id="back-btn" class="button postfix small secondary">
+			<i class="icon-cancel"></i> $Lang{cancel}{$lc}
+		</button>
+	</div>
 </div>
 HTML
 ;
@@ -2253,8 +2284,8 @@ MAIL
 
 }
 
-$html = "<p id=\"barcode_paragraph\">" . lang("barcode") 
-	. separator_before_colon($lc) 
+$html = "<p id=\"barcode_paragraph\">" . lang("barcode")
+	. separator_before_colon($lc)
 	. ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span></p>\n" . $html;
 
 display_new( {
