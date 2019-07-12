@@ -5472,10 +5472,14 @@ wikidata:en: Q6038850
 en:Puffed cereal cakes
 de:gepuffte Getreidewaffeln
 es:Tortitas de cereales
-fr:Galettes de céréales
+fr:Galettes de céréales soufflées, galettes de céréales
 hu:Puffasztott gabonakészítmények
 it:Gallette di cereali
 nl:Graanwafels
+
+< en:Cereals and their products
+en:Rice paper
+fr:Galettes de riz pour rouleau de printemps
 
 < en:Cereals and their products
 < en:Seeds
@@ -6759,6 +6763,11 @@ de:Kekse mit weisser Schokolade
 fr:Biscuits au chocolat blanc
 it:Biscotti al cioccolato bianco
 nl:Witte chocoladebiscuits, Witte chocoladebiscuit
+
+< en:Chocolate biscuits
+fr:Biscuits tablette de chocolat
+it:Biscotti con tavoletta di cioccolato
+oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
 
 < en:Chocolate biscuity bars
 fr:Barre chocolatée biscuitée type KitKat, Kitkat
@@ -8114,6 +8123,10 @@ nl:Pretzels, Pretzel
 oqali_family:en: fr:Aperitifs a croquer - Sticks et bretzels
 
 < en:Crackers
+en:Salty palmiers
+fr:Palmiers salés
+
+< en:Crackers
 fr:Biscuits apéritifs allégé
 
 < en:Crackers
@@ -8841,6 +8854,9 @@ es:Garbanzos de tipo Pedrosillano, Garbanzo Pedrosillano
 < en:Dessert creams
 fr:Crèmes dessert chocolat, Crème dessert chocolat, Crèmes dessert au chocolat, Crème dessert au chocolat
 nl:Chocolade vla's
+
+< en:Dessert creams
+fr:Crèmes dessert café
 
 < en:Dessert creams
 fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
@@ -10691,6 +10707,8 @@ fr:Flocons de légumineuses
 nl:Peulvruchtenvlokken
 
 < en:Flaky biscuits
+en:Palmiers
+es:Palmeras, palmeritas
 fr:Palmiers, Palmiers feuilletés
 nl:Krakelingen
 wikidata:en: Q2096475
@@ -10724,6 +10742,12 @@ nl:Gearomatiseerde zwarte theeën, Gearomatiseerde zwarte thee
 en:Teas with bergamot, Bergamot teas
 fr:Thés à la bergamote
 nl:Bergamottheeën, Bergamotthee
+
+< en:Carbonated waters
+< en:Flavored waters
+en:Flavored sparkling waters, Sparkling flavored waters
+fr:Eaux gazeuses aromatisées, eux aromatisées gazeuses
+it:Acque gassate aromatizzate, acqua aromatizzata gassata
 
 < en:Flavored waters
 en:Unsweetened flavored waters, non-sweetened flavored waters, non-sugared flavored waters
@@ -12741,7 +12765,7 @@ wikidata:en: Q3819066
 < en:Dairy drinks
 < en:Fruit-based beverages
 en:Fruit and milk juices, milk and fruit juices
-fr:Jus de fruits au lait, jus de fruits lactés
+fr:Boissons au lait et au jus de fruits, jus de fruits au lait, jus de fruits lactés
 nl:Fruit- en melksap
 
 < en:Fruit-based beverages
@@ -12757,12 +12781,12 @@ nl:Dranken met sinaasappel
 
 < en:Fruit chutneys
 en:Apple chutneys
-fr:Chutneys de pomme
+fr:Confits de pommme, Chutneys de pomme
 nl:Appelchutney
 
 < en:Fruit chutneys
 en:Fig chutneys
-fr:Chutneys de figues
+fr:Confits de figues, chutneys de figues
 nl:Vijgenchutney
 
 < en:Fruit jams
@@ -13243,6 +13267,10 @@ es:Néctares de guayaba
 fr:Nectars de goyave, nectar de goyave, nectar goyave
 it:Nettare di guaiava
 nl:Guavanectars, Guavanectar
+
+< en:Fruit nectars
+en:Kiwi nectars
+fr:Nectars de kiwi
 
 < en:Fruit nectars
 en:Mango nectars
@@ -13880,11 +13908,6 @@ zh:蜜饯
 wikidata:en: Q635999
 
 < en:Fruits based foods
-en:Fruit chutneys
-fr:Chutneys de fruit
-nl:Fruitchutney
-
-< en:Fruits based foods
 en:Fruit salads
 fr:Salades de fruits
 nl:Fruitsalade
@@ -13906,6 +13929,12 @@ fr:Coulis de fruits
 hu:Gyümölcs öntet
 nl:Vruchtencoulis
 wikidata:en: Q1136961
+
+< en:Fruits based foods
+< en:Plant-based spreads
+en:Fruit chutneys
+fr:Chutneys de fruit
+nl:Fruitchutney
 
 < en:Fruits cereal bars
 en:Apple cereal bars
@@ -15512,6 +15541,7 @@ nl:Pijnboomhoningen
 
 < en:Honeys
 en:Chestnut honey
+es:Mieles de castaño
 fr:Miels de châtaignier
 it:Miele di castagno
 nl:Kastanjebloesemhoningen
@@ -15592,6 +15622,7 @@ nl:Zonnebloemhoningen
 
 < en:Honeys
 en:Thyme honey
+es:Mieles de tomillo
 fr:Miels de thym
 it:Miele di timo
 nl:Tijmhoning
@@ -15600,6 +15631,29 @@ nl:Tijmhoning
 en:White honeys from Tigrai
 fr:Miels blancs du Tigrai
 nl:Witte honingen van de Tigrai
+
+< en:Honeys
+es:Mieles de brezo
+fr:Miels de bruyère
+nl:Heidehoningen
+
+< en:Honeys
+es:Mieles de eucaliptus
+de:Eukalyptushonige
+fr:Miels d'eucalyptus
+it:Miele di eucalipto
+nl:Eucalyptushoningen
+
+< en:Honeys
+es:Mieles de flores
+fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
+nl:Bloemenhoningen
+
+< en:Honeys
+es:Mieles de romero
+fr:Miels de romarin
+it:Miele di rosmarino
+nl:Rozemarijnhoningen
 
 < en:Honeys
 fr:Miels crémeux
@@ -15618,12 +15672,6 @@ it:Miele di agrumi
 nl:Citrusvruchtenhoningen
 
 < en:Honeys
-fr:Miels d'eucalyptus
-de:Eukalyptushonige
-it:Miele di eucalipto
-nl:Eucalyptushoningen
-
-< en:Honeys
 fr:Miels d'ulmo, Miels de Eucryphia cordifolia
 nl:Honingen van de Eucryphia cordifolia
 
@@ -15632,17 +15680,9 @@ fr:Miels de bleuet
 nl:Korenbloemenhoningen
 
 < en:Honeys
-fr:Miels de bruyère
-nl:Heidehoningen
-
-< en:Honeys
 fr:Miels de colza
 it:Miele di colza
 nl:Koolzaadbloesemhoningen
-
-< en:Honeys
-fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
-nl:Bloemenhoningen
 
 < en:Honeys
 fr:Miels de forêt
@@ -15664,11 +15704,6 @@ nl:Paardebloemhoningen
 < en:Honeys
 fr:Miels de robinier
 nl:Vlinderbloemhoningen
-
-< en:Honeys
-fr:Miels de romarin
-it:Miele di rosmarino
-nl:Rozemarijnhoningen
 
 < en:Honeys
 fr:Miels de ronce
@@ -20125,7 +20160,10 @@ wikidata:en: Q3406628
 wikipedia:en: https://en.wikipedia.org/wiki/Onion
 
 < en:Onions and their products
-fr:Confits d'oignons
+< en:Salted spreads
+en:Onion chutneys
+fr:Confits d'oignons, Chutneys d'oignons
+nl:Uienchutney
 
 < en:Open Beauty Facts
 en:Medicine
@@ -22944,7 +22982,7 @@ nl:Vol au vent
 en:Puffed corn cakes
 de:gepuffte Maiswaffeln
 es:Tortitas de maíz
-fr:Galettes de maïs
+fr:Galettes de maïs soufflé, galettes de maïs
 hu:Puffasztott kukorica készítményak
 it:Gallette di mais
 nl:Maiswafels
@@ -22968,14 +23006,14 @@ nl:Maiswafels met melkchocolade
 en:Puffed multigrain cakes
 de:Gepuffte Vollkornkuchen
 es:Tortitas multicereales, Tortitas de varios cereales
-fr:Galettes multicéréales
+fr:Galettes multicéréales soufflées, galettes muticéréales
 nl:Meergranen wafels
 
 < en:Puffed cereal cakes
 en:Puffed oat cakes
 de:Gepuffte Haferkuchen
 es:Tortitas de avena
-fr:Galettes d'avoine
+fr:Galettes d'avoine soufflé, galettes d'avoine
 it:Gallette di avena
 nl:Haverwafels
 
@@ -22983,7 +23021,7 @@ nl:Haverwafels
 en:Puffed rice cakes
 de:gepuffte Reiswaffeln
 es:Tortitas de arroz
-fr:Galettes de riz
+fr:Galettes de riz soufflé, galettes de riz
 hu:Puffasztott rizs
 it:Gallette di riso
 nl:Rijstwafels
@@ -22992,8 +23030,11 @@ nl:Rijstwafels
 en:Puffed wheat cakes
 de:gepuffte Weizenwaffeln
 es:Tortitas de trigo
-fr:Galettes de blé
+fr:Galettes de blé soufflé, galettes de blé
 nl:Tarwewafels
+
+< en:Puffed cereal cakes
+fr:Galettes de sarrasin soufflé
 
 < en:Puffed cereals
 en:Mixed puffed cereals
@@ -23096,7 +23137,7 @@ nl:Witte chocolade rijstwafels
 en:Puffed wholegrain rice cakes
 de:Gepuffte Vollkornreiskuchen
 es:Tortitas de arroz integral
-fr:Galettes de riz complet
+fr:Galettes de riz complet soufflé, galettes de riz complet
 it:Gallette di riso integrale
 nl:Volkoren rijstwafels
 
@@ -23117,14 +23158,14 @@ nl:Gepofte spelt
 en:Puffed Khorasan wheat cakes, Puffed Kamut cakes
 de:Kamutwaffeln
 es:Tortitas de trigo de Jorasán, Tortitas de Kamut
-fr:Galettes de blé khorasan, Galettes de blé de Khorasan, Galettes de Kamut
+fr:Galettes de blé khorasan soufflé, galettes de blé khorasan, Galettes de blé de Khorasan, Galettes de Kamut
 nl:Kamutwafels
 
 < en:Puffed wheat cakes
 en:Puffed spelt cakes
 de:Gepuffte Dinkelkuchen
 es:Tortitas de espelta
-fr:Galettes d'épeautre
+fr:Galettes d'épeautre soufflé, galettes d'épeautre
 nl:Speltwafels
 
 < en:Pulses
@@ -24472,6 +24513,9 @@ pt:Tapenade
 ru:Тапенада
 sv:Tapenade
 wikidata:en: Q129031
+
+< en:Salted spreads
+fr:Crèmes d'artichaut
 
 < en:Salts
 en:Liquid salts
@@ -26983,11 +27027,6 @@ pl:Słodkie produkty do smarowania
 ru:Сладкие намазки
 pnns_group_2:en: Sweets
 
-< en:Spreads
-en:Onion chutneys
-fr:Chutneys d'oignons
-nl:Uienchutney
-
 < en:Plant-based foods
 < en:Spreads
 en:Plant-based spreads, Vegetable spreads, vegetable pastes
@@ -27062,6 +27101,7 @@ wikidata:en: Q2157176
 en:Squeezed grape juices, Non-refrigerated squeezed grape juices
 de:Traubendirektsäfte
 es:Zumos de uva exprimidos no refrigerados, Zumos de uva exprimidos, Zumos de uva exprimidos ambiente
+fr:Jus de raisin pur jus
 nl:Pure Druivensappen, Pure Druivensap
 
 < en:Grapefruit juices
@@ -30219,11 +30259,14 @@ nl:Vegetarische weense worstjes
 
 < en:Veggie burger patties
 en:Soy steak
-fr:Steaks de soja
+fr:Galettes de soja, steaks de soja
 nl:Sojasteaks
 
 < en:Veggie burger patties
-fr:Steaks de tofu
+fr:Galettes de céréales aux légumes
+
+< en:Veggie burger patties
+fr:Galettes de tofu, steaks de tofu
 
 < en:Aromatic herbs
 < en:Verbena family
@@ -30649,7 +30692,7 @@ wikidata:en: Q27877006
 < en:Wheat breads
 en:Wheat flatbreads, wheat tortillas
 de:Weizenfladenbrote, Weizenfladenbrot, Soft Bröd
-fr:Pains plats au blé, galettes de blé pour tortillas, tortillas de blé, wraps de blé, galettes au blé pour tortillas, tortillas au blé, wraps au blé
+fr:Tortillas de blé, pains plats au blé, galettes de blé pour tortillas, wraps de blé, galettes au blé pour tortillas, tortillas au blé, wraps au blé
 nl:Platte graanbroden, Platte graanbrood
 sv:Halvtjockkakor, Hällakaka
 wikidata:en: Q10516678
@@ -36950,6 +36993,27 @@ fr:Biscottes pauvres en sel
 de:Salzarmer Zwieback
 nl:Zoutarme beschuiten, Zoutarme beschuit
 
+< es:Mieles de brezo
+fr:Miels de bruyère blanche, Miels de bruyère arborescente, Miels de bruyère en arbre, Miels d'Erica arborea
+nl:Boomheidehoningen
+
+< es:Mieles de brezo
+fr:Miels de bruyère callune, Miels de Callune, Miel de bruyère commune, Miel de Calluna vulgaris
+it:Miele di calluna
+nl:Stuikheidehoningen
+
+< es:Mieles de flores
+fr:Miels de garrigue
+nl:Garriguehoningen
+
+< en:Mountain products
+< es:Mieles de flores
+en:Honeys from the mountains
+de:Berghonige
+fr:miels de montagne
+hu:Hegyi mézek
+nl:Berghoningen
+
 < es:Pastas de trigo duro integrales o semi-integrales
 en:Durum wheat farfalle integral or semi-integral
 es:Farfalle de trigo duro integrales o semi-integrales
@@ -37749,9 +37813,9 @@ fr:Biscuits apéritifs soufflés à base de maïs
 < fr:Biscuits apéritifs soufflés
 fr:Biscuits apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre type Monster Munch, Monster Munch
 
-fr:Biscuits tablette de chocolat
-it:Biscotti con tavoletta di cioccolato
-oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
+< fr:Biscuits tablette de chocolat
+fr:Biscuits tablette fourrée
+oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette fourree
 
 < en:Dark chocolate biscuits
 < fr:Biscuits tablette de chocolat
@@ -37762,10 +37826,6 @@ it:Biscotti con tavoletta di cioccolato fondente
 < fr:Biscuits tablette de chocolat
 fr:Biscuits tablette de chocolat au lait, Petits beurres au chocolat au lait
 it:Biscotti con tavoletta di cioccolato al latte
-
-< fr:Biscuits tablette de chocolat
-fr:Biscuits tablette fourrée
-oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette fourree
 
 < fr:Blagny
 fr:Blagny Hameau de Blagny, Blagny premier cru Hameau de Blagny
@@ -40286,8 +40346,9 @@ fr:Miels d'acacia du Jura
 nl:Acaciahoningen uit de Jura
 
 < fr:Miels d'agrumes
-fr:Miels d'oranger, Miel d'oranger
+es:Mieles de azahar, Mieles de naranjo
 de:Orangenbaumhonige
+fr:Miels d'oranger, Miel d'oranger
 it:Miele di arancio
 nl:Sinaasappelbloesemhoningen
 
@@ -40327,27 +40388,6 @@ nl:Lindebloesemhoningen uit de Alsace
 en:Acacia honeys from Alsace
 fr:Miels d'acacia d'Alsace
 nl:Acaciahoningen ui tde Alsace
-
-< fr:Miels de bruyère
-fr:Miels de bruyère blanche, Miels de bruyère arborescente, Miels de bruyère en arbre, Miels d'Erica arborea
-nl:Boomheidehoningen
-
-< fr:Miels de bruyère
-fr:Miels de bruyère callune, Miels de Callune, Miel de bruyère commune, Miel de Calluna vulgaris
-it:Miele di calluna
-nl:Stuikheidehoningen
-
-< fr:Miels de fleurs
-fr:Miels de garrigue
-nl:Garriguehoningen
-
-< en:Mountain products
-< fr:Miels de fleurs
-en:Honeys from the mountains
-de:Berghonige
-fr:miels de montagne
-hu:Hegyi mézek
-nl:Berghoningen
 
 < en:Honeys from Yemen
 < fr:Miels de jujubier

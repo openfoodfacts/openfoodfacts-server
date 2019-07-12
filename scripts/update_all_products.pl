@@ -374,9 +374,9 @@ while (my $product_ref = $cursor->next) {
 				$changes_ref = [];
 			}
 
-			compute_data_sources($product_ref);
 
 			compute_product_history_and_completeness($product_ref, $changes_ref);		
+			compute_data_sources($product_ref);
 		}
 		
 		if (not $pretend) {

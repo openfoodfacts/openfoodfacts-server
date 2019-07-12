@@ -191,10 +191,10 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$unit = $Nutriments{$nid}{unit};
 	}
 	if ($nid eq 'water-hardness') {
-		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 	}
 	else {
-		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
 	}
 
 }
@@ -3853,26 +3853,29 @@ sub fix_salt_equivalent($) {
 	my $product_ref = shift;
 
 	# salt
-	
+
 	# EU fixes the conversion: sodium = salt / 2.5 (instead of 2.54 previously)
 
 	foreach my $product_type ("", "_prepared") {
 
 		# use the salt value by default
-		if ((defined $product_ref->{nutriments}{'salt' . $product_type}) and ($product_ref->{nutriments}{'salt' . $product_type} ne '')) {
+		if ((defined $product_ref->{nutriments}{'salt' . $product_type . "_value"})
+			and ($product_ref->{nutriments}{'salt' . $product_type . "_value"} ne '')) {
 		assign_nid_modifier_value_and_unit(
 			$product_ref,
 			'sodium' . $product_type,
 			$product_ref->{nutriments}{'salt' . $product_type . '_modifier'},
-			$product_ref->{nutriments}{'salt' . $product_type} / 2.5,
-			$product_ref->{nutriments}{'salt' . $product_type . '_unit'} );
+
+			$product_ref->{nutriments}{'salt' . $product_type . "_value"} / 2.5,
+
+$product_ref->{nutriments}{'salt' . $product_type . '_unit'} );
 		}
-		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type}) and ($product_ref->{nutriments}{'sodium' . $product_type} ne '')) {
+		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type  . "_value"}) and ($product_ref->{nutriments}{'sodium' . $product_type . "_value"} ne '')) {
 			assign_nid_modifier_value_and_unit(
 			$product_ref,
 			'salt' . $product_type,
 			$product_ref->{nutriments}{'sodium' . $product_type . '_modifier'},
-			$product_ref->{nutriments}{'sodium' . $product_type} * 2.5,
+			$product_ref->{nutriments}{'sodium' . $product_type  . "_value"} * 2.5,
 			$product_ref->{nutriments}{'sodium' . $product_type . '_unit'});
 		}
 	}
@@ -3996,7 +3999,7 @@ sub compute_nutrition_score($) {
 	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
 	# do not display warnings about missing fiber and fruits
 
-	if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+	if (not ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
 
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known
@@ -4390,7 +4393,7 @@ sub compute_nutrition_grade($$) {
 		# D/Rose 6 – 9
 		# E/Rouge 10 – Max
 
-		if (has_tag($product_ref, "categories", "en:spring-waters")) {
+		if (((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
 			$grade = 'a';
 		}
 		elsif ($fr_score <= 1) {
@@ -4534,7 +4537,7 @@ sub compute_serving_size_data($) {
 		}
 
 		# Carbon footprint
-				
+
 		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"}) {
 
 			if (defined $product_ref->{serving_quantity}) {
@@ -4547,7 +4550,7 @@ sub compute_serving_size_data($) {
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
 		}
-		
+
 		if (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"}) {
 
 			if (defined $product_ref->{serving_quantity}) {
@@ -4559,7 +4562,7 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_product"}
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
-		}		
+		}
 
 	}
 

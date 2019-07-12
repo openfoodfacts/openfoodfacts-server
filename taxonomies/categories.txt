@@ -2270,6 +2270,7 @@ nl:Druivensappen uit concentraat, Druivensap uit concentraat
 <en:Grape juices
 <en:Squeezed juices
 en:Squeezed grape juices, Non-refrigerated squeezed grape juices
+fr:Jus de raisin pur jus
 de:Traubendirektsäfte
 es:Zumos de uva exprimidos no refrigerados, Zumos de uva exprimidos, Zumos de uva exprimidos ambiente
 nl:Pure Druivensappen, Pure Druivensap
@@ -2752,6 +2753,10 @@ es:Néctares de piña
 fr:Nectars d'ananas
 it:Nettare di ananas
 nl:Ananasnectars, Ananasnectar
+
+<en:Fruit nectars
+en:Kiwi nectars
+fr:Nectars de kiwi
 
 <en:Fruit nectars
 en:Pomegranate nectars
@@ -4081,6 +4086,12 @@ en:Unsweetened flavored waters, non-sweetened flavored waters, non-sugared flavo
 de:Zuckerfreies Wasser mit Geschmack
 fr:Eaux aromatisées sans sucre ajouté, eau aromatisée sans sucre ajouté, eaux aromatisées non sucrées, eau aromatisée non sucrée
 nl:Suikervrije waters, Suikervrij water
+
+<en:Flavored waters
+<en:Sparkling waters
+en:Flavored sparkling waters, Sparkling flavored waters
+fr:Eaux gazeuses aromatisées, eux aromatisées gazeuses
+it:Acque gassate aromatizzate, acqua aromatizzata gassata
 
 <en:Mountain products
 <en:Waters
@@ -16814,8 +16825,8 @@ fr:Biscuits au chocolat noir
 it:Biscotti al cioccolato fondente
 nl:Pure chocoladebiscuits, Pure chocoladebiscuit
 
-<Chocolate biscuits
-fr:Biscuits tablette de chocolat
+<en:Chocolate biscuits
+fr:Biscuits tablette de chocolat, Petits beurres au chocolat
 it:Biscotti con tavoletta di cioccolato
 oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
 
@@ -16833,12 +16844,6 @@ it:Biscotti con tavoletta di cioccolato fondente
 fr:Biscuits tablette de chocolat au lait, Petits beurres au chocolat au lait
 it:Biscotti con tavoletta di cioccolato al latte
 
-#Should contain only biscuits with butter and no [palm, sunflower...] oil
-<en:Chocolate biscuits
-en:Petits beurres with chocolate
-fr:Petits beurres au chocolat
-nl:Scholiertjes, Biscuit met chocola
-
 <en:Biscuits
 fr:Biscuits édulcorés, Biscuits avec édulcorants
 nl:Biscuits met zoetstoffen
@@ -16849,6 +16854,8 @@ fr:Biscuits feuilletés, biscuit feuilleté
 nl:Bladerdeegkoekjes, Bladerdeegkoekje
 
 <en:Flaky biscuits
+en:Palmiers
+es:Palmeras, palmeritas
 fr:Palmiers, Palmiers feuilletés
 nl:Krakelingen
 wikidata:en:Q2096475
@@ -18193,6 +18200,7 @@ de:Schokolade mit Mandelcremefüllung
 fr:Chocolats fourrés à la pâte d'amande
 nl:Chocolade met amandelpasta
 
+#Dark chocolate is a chocolate without milk or vegetable milk. It contains at least 43% cocoa in the EU.
 <en:Chocolates
 en:Dark chocolates, dark chocolate
 ca:Xocolata negra
@@ -18202,19 +18210,21 @@ fr:Chocolats noirs, chocolat noir
 hu:Feketecsokoládé
 it:Cioccolato fondente
 nl:Pure chocolades
-pl:Ciemna czekolada, gorzka czekolada
+pl:Czekolada deserowa, czekolada ciemna
+pt:Chocolates amargos
 ru:Тёмный шоколад
 zh:黑巧克力
 wikidata:en:Q2366206
 #if you use all those german synonyms you have nothing left for the subcategories. I'd say "Dunkle Schokoladen" would be enough
 
-# Very dark chocolate, could be similar to fr:Chocolats noirs extra fin, chocolat noir extra fin
 <en:Dark chocolates
-en:Bitter chocolates
-de:Herbe Schokoladen
-fr:Chocolats amers
+en:Extra fine dark chocolates, extra fine black chocolates, bitter chocolates
+de:Extrafeine dunkle Schokoladen, Herbe Schokoladen
+es:Chocolates negros extra finos
+fr:Chocolats noirs extra fin, chocolat noir extra fin, chocolats amers
+nl:Extra fijne pure chocolade
+pl:Czekolada gorzka
 ru:Горький шоколад, Чёрный шоколад
-#de:Bitterschokoladen, Herbe Schokoladen if you remove it from previous category
 
 <en:Dark chocolates
 <en:Chocolates with sweeteners
@@ -18271,13 +18281,6 @@ nl:Pure chocola met stukjes
 fr:Chocolats noirs au gingembre
 de:Dunkle Schokoladen mit Ingwer
 it:Cioccolato fondente con zenzero, cioccolato fondente allo zenzero
-
-<en:Dark chocolates
-en:Extra fine black chocolates
-de:Extrafeine dunkle Schokoladen
-es:Chocolates negros extra finos
-fr:Chocolats noirs extra fin, chocolat noir extra fin
-nl:Extra fijne pure chocolade
 
 <en:Chocolates
 en:Salted chocolates
@@ -23019,7 +23022,7 @@ nl:Koffiemelken, Koffiemelk
 <en:Dairy drinks
 <en:Fruit-based beverages
 en:Fruit and milk juices, milk and fruit juices
-fr:Jus de fruits au lait, jus de fruits lactés
+fr:Boissons au lait et au jus de fruits, jus de fruits au lait, jus de fruits lactés
 nl:Fruit- en melksap
 
 <en:Milks
@@ -24718,6 +24721,11 @@ hu:Héjas mandula
 nl:Gepelde amandelen
 
 <en:Almonds
+en:Whole almonds
+fr:Amandes entières
+
+<en:Almonds
+en:Almond flakes, Sliced almonds
 fr:Amandes effilées
 
 <en:Almonds
@@ -29245,7 +29253,7 @@ fr:Cocktail de fruits au sirop, Mélange de fruits au sirop
 nl:Fruitcocktails op siroop
 
 <en:Fruits in syrup
-en:Cherries in syrup
+en:Cherries in syrup, Maraschino cherries
 de:Kirschen in Sirup
 es:Cerezas en almíbar
 fr:Cerises au sirop
@@ -43806,6 +43814,7 @@ fr:Substituts du fromage, fromages végétaux
 nl:Vegetarische kazen
 
 <en:Cereals and their products
+en:Rice paper
 fr:Galettes de riz pour rouleau de printemps
 
 <en:Cereals and their products
@@ -43925,6 +43934,10 @@ de:Crackers
 fr:Biscuits apéritifs, biscuits pour l'apéritif, gâteaux pour l'apéritif, Gâteaux apéritifs, Biscuits crackers, Crackers, Biscuits salés, Crackers salés
 hu:Krékerek
 nl:Zoutjes
+
+<en:Crackers
+en:Salty palmiers
+fr:Palmiers salés
 
 <en:Crackers
 en:Pretzel
