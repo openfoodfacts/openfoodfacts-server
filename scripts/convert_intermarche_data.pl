@@ -202,6 +202,12 @@ foreach my $code (sort keys %products) {
 	# Traces éventuelles d'
 	$product_ref->{traces} =~ s/Traces( éventuelles|possibles)?\s?(de:d')?\s?:?//;
 
+	# Serving size 0,00g
+	# Serving size 100g --> ignore (sometime used on products that are less than 100g)
+	if (($product_ref->{serving_size} =~ /^0/) or ($product_ref->{serving_size} =~ /^100/)) {
+		delete $product_ref->{serving_size};
+	}
+
 	clean_weights($product_ref); # needs the language code
 
 
