@@ -463,6 +463,8 @@ sub extract_ingredients_from_text($) {
 		my $between = '';
 		my $between_level = $level;
 		my $percent = undef;
+		my $origin = undef;
+		my $label = undef;
 
 		#print STDERR "s: $s\n";
 
@@ -501,8 +503,8 @@ sub extract_ingredients_from_text($) {
 					$after = $';
 
 					# print STDERR "sub-ingredients - between: $between - after: $after\n";
-
-					if ($between =~ $separators) {
+					# : is in $separators but we want to keep "origine : France"
+					if (($between =~ $separators) and ($` !~ /\s*(origin|origine)\s*/i)) {
 						$between_level = $level + 1;
 					}
 					else {
@@ -513,6 +515,25 @@ sub extract_ingredients_from_text($) {
 							$between = '';
 						}
 						else {
+							# label? (organic)
+							# origin? (origine : France)
+
+							# try to remove the origin and store it as property
+							if ($between =~ /\s*(origin|origine)\s?:?\s?\b(.*)$/i) {
+								$between = '';
+								$origin = $2;
+								$origin =~ s/^\s+//;
+								$origin =~ s/\s+$//;
+							}
+							else {
+
+								my $labelid = canonicalize_taxonomy_tag($lc, "labels", $between);
+								if (exists_taxonomy_tag("labels", $labelid)) {
+									$label = $labelid;
+									$between = '';
+								}
+							}
+
 							# single ingredient, stay at same level
 							# print STDERR "single ingredient, stay at same level\n";
 						}
@@ -612,11 +633,8 @@ sub extract_ingredients_from_text($) {
 
 			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
-			my $origin;
-			my $label;
-
 			# try to remove the origin and store it as property
-			if ($ingredient =~ /\b(origin|origine)\b/i) {
+			if ($ingredient =~ /\b(origin|origine)\s?:?\s?\b/i) {
 				$ingredient = $`;
 				$origin = $';
 				$origin =~ s/^\s+//;

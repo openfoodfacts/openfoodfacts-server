@@ -1037,4 +1037,83 @@ is_deeply ($product_ref->{ingredients},
 
 
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "Fraise origine France, Cassis (origine Afrique du Sud), Framboise (origine : Belgique), Pamplemousse bio, Orange (bio), Citron (issue de l'agriculture biologique), cacao et beurre de cacao (commerce équitable)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+
+is_deeply ($product_ref->{ingredients}, 
+	   [
+	        {
+	          'id' => 'en:strawberry',
+	          'origin' => 'France',
+	          'rank' => 1,
+	          'text' => 'Fraise',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:blackcurrant',
+	          'origin' => 'Afrique du Sud',
+	          'rank' => 2,
+	          'text' => 'Cassis',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:raspberry',
+	          'origin' => 'Belgique',
+	          'rank' => 3,
+	          'text' => 'Framboise',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:grapefruit',
+	          'label' => 'en:organic',
+	          'rank' => 4,
+	          'text' => 'Pamplemousse',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:orange',
+	          'label' => 'en:organic',
+	          'rank' => 5,
+	          'text' => 'Orange',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:lemon',
+	          'label' => 'en:organic',
+	          'rank' => 6,
+	          'text' => 'Citron',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:cocoa',
+	          'label' => 'en:fair-trade',
+	          'rank' => 7,
+	          'text' => 'cacao',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:cocoa-butter',
+	          'label' => 'en:fair-trade',
+	          'rank' => 8,
+	          'text' => 'beurre de cacao',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        }
+	      ],
+	
+) or diag explain $product_ref;
+
+
 done_testing();
