@@ -939,10 +939,10 @@ $expected_product_ref = {
         'vegetarian' => 'yes'
       },
       {
-        'id' => "fr:issus du commerce \x{e9}quitable et de l'agriculture",
-        'label' => 'en:organic',
+        'id' => "fr:issus du et de l'",
+        'label' => 'en:fair-trade',
         'rank' => 4,
-        'text' => "issus du commerce \x{e9}quitable et de l'agriculture"
+        'text' => "issus du et de l'"
       }
     ],
     'ingredients_analysis_tags' => [
@@ -956,7 +956,7 @@ $expected_product_ref = {
       'en:sugar',
       'en:cocoa-butter',
       'en:cocoa',
-      "fr:issus du commerce \x{e9}quitable et de l'agriculture"
+      "fr:issus du et de l'"
     ],
     'ingredients_n' => 4,
     'ingredients_n_tags' => [
@@ -967,7 +967,7 @@ $expected_product_ref = {
       "fr:p\x{e2}te de cacao* de Madagascar",
       'en:cane-sugar',
       'en:cocoa-butter',
-      "fr:issus du commerce \x{e9}quitable et de l'agriculture"
+      "fr:issus du et de l'"
     ],
     'ingredients_tags' => [
       'fr:pate-de-cacao-de-madagascar',
@@ -975,7 +975,7 @@ $expected_product_ref = {
       'en:sugar',
       'en:cocoa-butter',
       'en:cocoa',
-      'fr:issus-du-commerce-equitable-et-de-l-agriculture'
+      'fr:issus-du-et-de-l'
     ],
     'ingredients_text' => "p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).",
     'lc' => 'fr',
@@ -1039,7 +1039,7 @@ is_deeply ($product_ref->{ingredients},
 
 $product_ref = {
         lc => "fr",
-        ingredients_text => "Fraise origine France, Cassis (origine Afrique du Sud), Framboise (origine : Belgique), Pamplemousse bio, Orange (bio), Citron (issue de l'agriculture biologique), cacao et beurre de cacao (commerce équitable)",
+        ingredients_text => "Fraise origine France, Cassis (origine Afrique du Sud), Framboise (origine : Belgique), Pamplemousse bio, Orange (bio), Citron (issue de l'agriculture biologique), cacao et beurre de cacao (commerce équitable), cerises issues de l'agriculture biologique",
 };
 
 extract_ingredients_from_text($product_ref);
@@ -1110,10 +1110,80 @@ is_deeply ($product_ref->{ingredients},
 	          'text' => 'beurre de cacao',
 	          'vegan' => 'yes',
 	          'vegetarian' => 'yes'
-	        }
+	        },
+     {
+            'id' => 'en:cherry',
+            'label' => 'en:organic',
+            'rank' => 9,
+            'text' => 'cerises',
+            'vegan' => 'yes',
+            'vegetarian' => 'yes'
+          }
+
 	      ],
 	
 ) or diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "émulsifiant : lécithines (tournesol), arôme)(UE), farine de blé 33% (France), sucre, beurre concentré* 6,5% (France)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+
+is_deeply ($product_ref->{ingredients}, 
+[
+	     {
+	            'id' => 'en:emulsifier',
+	            'rank' => 1,
+	            'text' => "\x{e9}mulsifiant"
+	          },
+	          {
+	            'id' => 'en:sunflower-lecithin',
+	            'rank' => 2,
+	            'text' => "l\x{e9}cithines de tournesol",
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:flavouring',
+	            'origin' => 'en:european-union',
+	            'rank' => 3,
+	            'text' => "ar\x{f4}me",
+	            'vegan' => 'maybe',
+	            'vegetarian' => 'maybe'
+	          },
+	          {
+	            'id' => 'en:wheat-flour',
+	            'origin' => 'en:france',
+	            'percent' => '33',
+	            'rank' => 4,
+	            'text' => "farine de bl\x{e9}",
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:sugar',
+	            'rank' => 5,
+	            'text' => 'sucre',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:concentrated-butter',
+	            'origin' => 'en:france',
+	            'percent' => '6.5',
+	            'rank' => 6,
+	            'text' => "beurre concentr\x{e9}",
+	            'vegan' => 'no',
+	            'vegetarian' => 'yes'
+	          }
+	        ],
+	
+) or diag explain $product_ref;
+
 
 
 done_testing();

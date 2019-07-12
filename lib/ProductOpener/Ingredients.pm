@@ -399,7 +399,9 @@ sub extract_ingredients_from_text($) {
 
 	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
 
-	$text = preparse_ingredients_text($product_ref->{lc}, $text);
+	my $product_lc = $product_ref->{lc};
+
+	$text = preparse_ingredients_text($product_lc, $text);
 
 	$log->debug("preparsed ingredients from text", { text => $text }) if $log->is_debug();
 
@@ -407,7 +409,7 @@ sub extract_ingredients_from_text($) {
 	# jus de pomme, eau, sucre. Traces possibles de c\x{e9}leri, moutarde et gluten.",
 	# -> jus de pomme, eau, sucre. Traces éventuelles : céleri, Traces éventuelles : moutarde, Traces éventuelles : gluten.
 
-	my $traces = $Lang{traces}{$product_ref->{lc}};
+	my $traces = $Lang{traces}{$product_lc};
 
 	$text =~ s/\b($traces)\s?:\s?([^,\.]+)//ig;
 
@@ -440,11 +442,48 @@ sub extract_ingredients_from_text($) {
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
 
-	my $and = $Lang{_and_}{$product_ref->{lc}};
+	my $and = $Lang{_and_}{$product_lc};
 
 	my $ignore_strings_after_percent = "";
-	if (defined $ignore_strings_after_percent{$product_ref->{lc}}) {
-		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_ref->{lc}}
+	if (defined $ignore_strings_after_percent{$product_lc}) {
+		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc}
+	}
+
+	# Labels that we want to recognize in the ingredients
+	# e.g. "fraises issues de l'agriculture biologique"
+
+	my @labels = ("en:organic", "en:fair-trade");
+	my %labels_regexps = ();
+
+	foreach my $labelid (@labels) {
+
+		if (defined $translations_to{labels}{$labelid}{$product_lc}) {
+			# the synonyms below also contain the main translation as the first entry
+
+			my $product_lc_labelid = get_fileid($translations_to{labels}{$labelid}{$product_lc});
+
+			my @synonyms = ();
+
+			foreach my $synonym (@{$synonyms_for{labels}{$product_lc}{$product_lc_labelid}}) {
+				push @synonyms, $synonym;
+			}
+
+			my $label_regexp = "";
+			foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
+				# simple singulars and plurals
+				my $singular = $synonym;
+				$synonym =~ s/s$//;
+				$label_regexp .= '|' . $synonym . '|' . $synonym . 's'  ;
+
+				my $unaccented_synonym = unac_string_perl($synonym);
+				if ($unaccented_synonym ne $synonym) {
+					$label_regexp .= '|' . $unaccented_synonym . '|' . $unaccented_synonym . 's';
+				}
+
+			}
+			$label_regexp =~ s/^\|//;
+			$labels_regexps{$labelid} = $label_regexp;
+		}
 	}
 
 	my $analyze_ingredients = sub($$$$$) {
@@ -527,10 +566,20 @@ sub extract_ingredients_from_text($) {
 							}
 							else {
 
-								my $labelid = canonicalize_taxonomy_tag($lc, "labels", $between);
-								if (exists_taxonomy_tag("labels", $labelid)) {
-									$label = $labelid;
+								# origin:   Fraise (France)
+								my $countryid = canonicalize_taxonomy_tag($product_lc, "countries", $between);
+								if (exists_taxonomy_tag("countries", $countryid)) {
+									$origin = $countryid;
 									$between = '';
+								}
+								# put origin first because the country can be associated with the label "Made in ..."
+								else {
+
+									my $labelid = canonicalize_taxonomy_tag($product_lc, "labels", $between);
+									if (exists_taxonomy_tag("labels", $labelid)) {
+										$label = $labelid;
+										$between = '';
+									}
 								}
 							}
 
@@ -584,15 +633,15 @@ sub extract_ingredients_from_text($) {
 			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
 
 			# check if the whole ingredient is an ingredient
-			my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $before);
+			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
 
 			# print STDERR "canon_ingredient - $canon_ingredient\n";
 
 			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
 				# otherwise check the 2 sub ingredients
-				my $canon_ingredient1 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient1);
-				my $canon_ingredient2 = canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient2);
+				my $canon_ingredient1 = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient1);
+				my $canon_ingredient2 = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient2);
 
 				# print STDERR "canon_ingredient1 - $canon_ingredient1\n";
 				# print STDERR "canon_ingredient2 - $canon_ingredient2\n";
@@ -641,17 +690,20 @@ sub extract_ingredients_from_text($) {
 				$origin =~ s/\s+$//;
 			}
 
-			if ($ingredient =~ /\b(bio|biologique|biologico|organic|halal)\b/i) {
-				$label = canonicalize_taxonomy_tag($product_ref->{lc}, "labels", $1);
-				$ingredient =~ s/\b(bio|biologique|biologico|organic|halal)\b//i;
-				$ingredient =~ s/\s+/ /g;
+			foreach my $labelid (@labels) {
+				my $regex = $labels_regexps{$labelid};
+				if ($ingredient =~ /\b($regex)\b/i) {
+					$label = $labelid;
+					$ingredient = $` . ' ' . $';
+					$ingredient =~ s/\s+/ /g;
+				}
 			}
 
 			$ingredient =~ s/^\s+//;
 			$ingredient =~ s/\s+$//;
 
 			my %ingredient = (
-				id => canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient),
+				id => canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient),
 				text => $ingredient
 			);
 			if (defined $percent) {
@@ -707,7 +759,7 @@ sub extract_ingredients_from_text($) {
 	$product_ref->{ingredients_original_tags} = $product_ref->{ingredients_tags};
 
 	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_original_tags}} )) ];
+		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_lc, join(", ", @{$product_ref->{ingredients_original_tags}} )) ];
 		$product_ref->{$field . "_tags" } = [];
 		my $unknown = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
@@ -789,7 +841,7 @@ sub analyze_ingredients($) {
 				defined $values{$value} or $values{$value} = 0;
 				$values{$value}++;
 
-				print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
+				# print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
 			}
 
 			if ($property =~ /^from_/) {
