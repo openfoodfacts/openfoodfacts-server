@@ -3865,10 +3865,8 @@ sub fix_salt_equivalent($) {
 			$product_ref,
 			'sodium' . $product_type,
 			$product_ref->{nutriments}{'salt' . $product_type . '_modifier'},
-
 			$product_ref->{nutriments}{'salt' . $product_type . "_value"} / 2.5,
-
-$product_ref->{nutriments}{'salt' . $product_type . '_unit'} );
+			$product_ref->{nutriments}{'salt' . $product_type . '_unit'} );
 		}
 		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type  . "_value"}) and ($product_ref->{nutriments}{'sodium' . $product_type . "_value"} ne '')) {
 			assign_nid_modifier_value_and_unit(
