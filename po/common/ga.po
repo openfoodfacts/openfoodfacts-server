@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ga\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-12 09:41\n"
+"PO-Revision-Date: 2019-07-12 09:52\n"
 "Language-Team: Irish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -123,11 +123,11 @@ msgstr ""
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
@@ -969,7 +969,7 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "lipéad"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1273,7 +1273,7 @@ msgstr ""
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Clár"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1858,15 +1858,15 @@ msgstr ""
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Ainm táirge"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "Kinder Bueno White"
 
 msgctxt "products"
 msgid "products"
-msgstr ""
+msgstr "táirgí"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
@@ -1878,7 +1878,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "Táirgí"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2010,7 +2010,7 @@ msgstr "Cuardaigh"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Cuardaigh táirge"
 
 msgctxt "search_button"
 msgid "Search"
@@ -2308,7 +2308,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2332,7 +2332,7 @@ msgstr ""
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Ainm táirge"
 
 msgctxt "state"
 msgid "State"
@@ -2348,7 +2348,7 @@ msgstr "stát"
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Siopaí"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2356,7 +2356,7 @@ msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "siopaí"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2376,7 +2376,7 @@ msgstr ""
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr ""
+msgstr "Liostáil"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
@@ -2424,7 +2424,7 @@ msgstr ""
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr ""
+msgstr "OpenFoodFacts"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2713,7 +2713,7 @@ msgstr ""
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "Ullmhaithe"
 
 msgctxt "unit"
 msgid "Unit"
@@ -2729,15 +2729,15 @@ msgstr ""
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "Grúpa NOVA"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
+msgstr "Grúpaí NOVA"
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Comhpháirtithe"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -2882,11 +2882,11 @@ msgstr ""
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "níos mó ná 5%"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "Chuid is mó daoine"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
@@ -2894,7 +2894,7 @@ msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 msgctxt "additives_classes"
 msgid "Functions"
