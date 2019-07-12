@@ -39,10 +39,10 @@ server {
 	include snippets/ssl.openbeautyfacts.org;
         include snippets/ssl-params.conf;
 
-	root /home/obf/html;
+	root /srv/obf/html;
 
-	access_log /home/obf/logs/nginx.access2.log;
-	error_log /home/obf/logs/nginx.error2.log;
+	access_log /srv/obf/logs/nginx.access2.log;
+	error_log /srv/obf/logs/nginx.error2.log;
 
         # Redirect GET requests to https. POST requests will be transformed
         # to GET by most browsers when redirected, and it breaks apps that
@@ -116,7 +116,7 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location ~ ^/(.well-known|fonts|images|css|js|rss|files|resources)/ {
+	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
