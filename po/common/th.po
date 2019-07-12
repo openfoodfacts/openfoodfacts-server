@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 23:11\n"
+"PO-Revision-Date: 2019-07-12 03:52\n"
 "Language-Team: Thai\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -80,39 +80,39 @@ msgstr "สวัสดี <NAME>,\n\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "ขอบคุณที่เป็นส่วนหนึ่งของ<<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "สารปรุงแต่งอาหารนี้อาจเป็นอันตราย ใช้งานในปริมารจำกัด"
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "สารปรุงแต่งอาหารนี้เป็นอันตราย เลี่ยงการใช้"
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "สารปรุงแต่งอาหารนี้ห้ามใช้ในยุโรป เลี่ยงการใช้"
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "สารปรุงแต่งอาหาร"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "สารปรุงแต่งอาหาร"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "การค้นหาขั้นสูง"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "การค้นหาขั้นสูงและกราฟ"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "การดื่มมากเกินไปเป็นอันตรายต่อสุขภาพ"
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -124,15 +124,15 @@ msgstr "สารหรือผลิตภัณฑ์ที่ก่อให
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "สารก่อภูมิแพ้"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "สารก่อภูมิแพ้"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "หน้าผลิตภัณฑ์แก้ไขโดย"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
@@ -154,7 +154,8 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>ผลิตภัณฑ์นี้ยังไม่ได้อยู่ในฐานข้อมูล <<site_name>> คุณช่วยกรุณาถ่ายรูปสินค้า บาร์โค้ด ส่วนผสม และข้อมูลโภชนาการเพื่อเพิ่มลงใน <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>ไหม</p>\n"
+"<p>ขอบคุณล่วงหน้า!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -162,7 +163,7 @@ msgstr "การถ่ายภาพ"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "หมายเหตุ: รูปภาพที่คุณส่งจะได้รับการเผยแพร่ภายใต้สัญญาอนุญาต Creative Commons Attribution และ ShareAlike ที่ให้สิทธิ์ใช้งานฟรี"
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -170,11 +171,11 @@ msgstr "คุณสามารถเพิ่มรูปภาพ:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "แกนแนวนอน"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "แกนตั้ง"
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -182,11 +183,11 @@ msgstr "บาร์โค้ด"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "หมายเลขบาร์โค้ด:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "นอกจากนี้คุณยังสามารถช่วยสนับสนุนทางการเงินให้กับโครงการ Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
