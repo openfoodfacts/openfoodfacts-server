@@ -49,6 +49,7 @@ BEGIN
 					&display_points
 					&display_mission
 					&display_tag
+					&display_field
 					&display_error
 					&gen_feeds
 
@@ -6536,7 +6537,11 @@ sub display_field($$) {
 
 
 	if ((defined $value) and ($value ne '')) {
-		if (($field eq 'link') and ($value =~ /^http/)) {
+		# See https://stackoverflow.com/a/3809435
+		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/)) {
+			if ($value !~ /https?:\/\//) {
+				$value = 'http://' . $value;
+			}
 			my $link = $value;
 			$link =~ s/"|<|>|'//g;
 			my $link2 = $link;

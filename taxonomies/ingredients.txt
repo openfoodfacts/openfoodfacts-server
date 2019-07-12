@@ -10,7 +10,8 @@ cs:Složení
 da:indeholder
 de:Zutaten, Zusammensetzung
 es:composición
-et:Koostisainsd, koostis
+et:Koostisainsd, koostis, Koostisosad
+fa:الكوتات
 fi:ainenosat
 fr:ingrédient, ingrédients, composition
 hu:összetétel
@@ -20,7 +21,8 @@ it:ingredienti, composizione
 kk:Курамы
 ky:Курамы
 lt:Sudedamosios dalys, Sudėtis
-lv:sastāvs
+lv:sastāvs, Sastāvdalas
+nb:Ingredienser
 nl:ingrediënt, ingrediënten, samenstelling, bestanddelen
 pl:skład, Skladniki
 pt:composição
@@ -8674,136 +8676,31 @@ vegetarian:en:maybe
 # ingredient/ferment has 33576 products in 28 languages @2019-07-08
 
 
-# description:en:ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
-#
+# comment:en:The list of products is very very wrong. So uncommenting it for the moment.
+# comment:en:en:coagulating enzyme Might need to be merged with en:rennet.
 
-<en:ferment
-en:enzyme
-af:ensiem
-an:enzima
-ar:ئەنزیم
-as:উৎসেচক
-bg:Ензим
-bn:উৎসেচক
-br:enzim
-bs:enzim
-ca:enzim
-cs:enzym
-cy:ensym
-da:enzym
-de:Enzym
-el:Ένζυμο
-eo:enzimo
-es:enzima
-et:ensüüm
-eu:entzima
-fa:آنزیم
-fi:entsyymi
-fo:kveiki
-fr:Enzyme
-ga:einsím
-gl:enzima
-he:אנזים
-hi:प्रकिण्व
-hr:enzim
-ht:anzim
-hu:enzim
-hy:Ֆերմենտ
-ia:enzyma
-id:enzim
-io:enzimo
-is:ensím
-it:enzima
-ja:酵素
-jv:Ènzim
-ka:ფერმენტები
-ko:효소
-ku:enzîm
-la:enzymum
-li:enzym
-mk:Ензим
-ml:രാസാഗ്നി
-mn:Фермент
-mr:उत्प्रेरक
-ms:eEnzim
-my:အင်န်ဇိုင်း
-nb:enzym
-nl:enzym
-nn:enzym
-oc:enzim
-pa:ਐੱਨਜ਼ਾਈਮ
-pl:enzymy
-ps:انزايم
-pt:enzima
-qu:huptana
-ro:enzimă
-ru:Ферменты
-se:entsyma
-sh:enzim
-si:එන්සයිම
-sk:enzým
-sl:encim
-so:Ensiim
-sq:enzima
-sr:Ензим
-su:Énzim
-sv:enzym
-sw:kimeng'enya
-ta:நொதியம்
-te:ఎంజైము
-th:เอนไซม์
-tl:ensaym
-tr:enzim
-ur:خامرہ
-vi:enzym
-yi:ענזים
-zh:酶
-# als:Enzym
-# ast:enzima
-# azb:آنزیم
-# ckb:ئەنزیم
-# ext:enzima
-# hif:enzyme
-# ilo:ensima
-# ksh:enzym
-# lez:Ферментар
-# lfn:enzimolojia
-# lmo:enzima
-# new:इन्जाइम
-# nov:ensime
-# pam:enzyme
-# pnb:انزائم
-# rue:Ензім
-# sah:Энзим
-# sco:enzyme
-# stq:enzyme
-# war:ensaym
-# wuu:酶
-# zh-min-nan:Kàⁿ-sò͘
-# yue:酵素
-wikidata:en:Q8047
-wikipedia:en:https://en.wikipedia.org/wiki/Enzyme
-nova:en:3
-vegan:en:maybe
-vegetarian:en:maybe
-# ingredient/enzyme has 20643 products in 23 languages @2019-07-08
-
-<en:enzyme
+# en:enzyme
 en:coagulating enzyme
 fr:enzyme coagulante, enzymes coagulantes, coagulant enzymatique
-nl:stremmingsenzymen
+pt:coagulante
+nl:stremmingsenzymen, stollingsmiddel
 vegan:en:maybe
 vegetarian:en:maybe
-# ingredient/coagulating%20enzyme has 6348 products in 20 languages @2019-07-08
+# ingredient/coagulating%20enzyme has 8697 products in 33 languages @2019-07-09
 
 <en:coagulating enzyme
-en:microbial coagulating enzyme
+en:microbial coagulating enzyme, microbial enzyme
+de:vegetarisches Lab
+es:coagulante de leche microbiano
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
-nl:microbiële stremmingsenzymen
+it:enzima microbico, caglio microbico
+nl:microbiële stremmingsenzymen, vegetarisch stremsel, microbieel stremsel, microbieel stremmiddel
+# ingredient/microbial-coagulating-enzyme has 453 products in 7 languages @2019-07-09
 vegan:en:yes
 vegetarian:en:yes
 
 # description:en:A microbiological culture, or microbial culture, is a method of multiplying microbial organisms by letting them reproduce in predetermined culture medium under controlled laboratory conditions. All cultures in food are microbial cultures
+# comment:en:Should this be kept separate from lactic ferments?
 
 <en:ferment
 en:microbial culture, culture
@@ -8815,14 +8712,14 @@ nova:en:3
 vegan:en:maybe
 vegetarian:en:maybe
 
-<en:microbial culture
-en:cheese culture
-de:Käsekultur
-# ingredient/en:cheese-culture has 4841 products in 2 languages @2018-12-27
+# description:en:Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
+# comment:en:All vegan sites state that industrial produced lactic ferments is vegan. Unclear if exceptions do occur. Still need an authoritative source for this.
+# comment:en:A wide variety of synonyms are used, but they all seem to point to the same bacteria.
 
-<en:ferment
-en:lactic ferments, lactic starters, lactic cultures
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Joghurtkulturen
+<en:microbial culture
+en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
+da:yoghurtkultur
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur
 el:γαλακτικά ένζυμα 
 es:fermentos lácticos, cultivos lácticos 
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
@@ -8830,13 +8727,12 @@ hu:tejsavbaktériumok
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nl:melkfermenten, melkkiemen, Melkzuurbacteriën
 pl:żywe kultury bakterii jogurtowych
-pt:fermentos lácteos, culturas lácteas
-# fr:ferments-lactique has 6494 products in 12 languages @2018-11-02
-# fr:culture-de-bactéries-lactiques has 19 products @2018-11-02
+pt:fermentos lácteos, culturas lácteas, leveduras lacteas
+ru:Молочные ферменты, пробиотические микроорганизмы 
+# fr:ferments-lactique has 10437 products in 23 languages @2019-07-09
 vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
-# ingredient/fr:culture-de-bactéries-lactiques has 19 products in 3 languages @2018-12-27
 
 <en:lactic ferments
 en:vegan lactic ferments
@@ -8858,20 +8754,11 @@ nl:melk- en rijpingsfermenten
 pt:fermentos lácticos e de maturação
 # ingredient/lactic-and-aging-ferments has 500 products in 10 languages @2019-05-18
 
-<fr:ferments d'affinage
 <en:lactic ferments
-fr:ferments lactiques et d'affinage
-es:fermentos lácticos y de maduración
-pt:fermentos lácticos e de maturação
-# fr:ferments-lactiques-et-d’affinage has 419 products in 10 languages @2018-11-02
-
-<en:lactic ferments
+en:selected lactic ferments
 fr:ferments lactiques sélectionnés
 nl:geselecteerde fermenten
-# fr:ferments-lactiques-sélectionnés has 124 products in 2 languages @2018-11-02
-
-# comment:en:All industrial produced lactic ferments are vegan, is the accepted answer on vegan sites. Still need an authoritive source for this.
-
+# fr:ferments-lactiques-sélectionnés has 140 products in 2 languages @2019-07-09
 
 # description:en:BIFIDOBACTERIUM is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. They are ubiquitous inhabitants of the gastrointestinal tract, vagina and mouth of mammals humans.
 # description:fr:Les bifidobactéries appartiennent à la famille des bactéries lactiques.
@@ -8907,21 +8794,72 @@ wikidata:en:Q132656
 wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium
 # ingredient/bifidus has 942 products in 10 languages @2019-07-08
 
+# description:en:BIFIDOBACTERIUM BIFIDUM is a bacterial species of the genus Bifidobacterium. B. bifidum is one of the most common probiotic bacteria that can be found in the body of mammals, including humans.
+
 <en:bifidus
+en:Bifidobacterium bifidum
+# ast:Bifidobacterium bifidum
+bg:Bifidobacterium bifidum
+ca:Bifidobacterium bifidum
 de:Bifidobacterium bifidum
+es:Bifidobacterium bifidum
+fr:Bifidobacterium bifidum
+it:Bifidobacterium bifidum
+la:Bifidobacterium bifidum
+nl:Bifidobacterium bifidum
+# pt-br:Bifidobacterium bifidum
+ro:Bifidobacterium bifidum
+ru:Bifidobacterium bifidum
+uk:Bifidobacterium bifidum
+zh:比菲德氏菌
+# zh-tw:比菲德氏菌
+wikidata:en:Q2902072
+wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_bifidum
+
+# description:en:BIFIDOBACTERIUM ANIMALIS is a gram-positive, anaerobic, rod-shaped bacterium of the Bifidobacterium genus which can be found in the large intestines of humans. Both old names B. animalis and B. lactis are still used on product labels, as this species is frequently used as a probiotic. In most cases, which subspecies is used in the product is not clear. Several companies have attempted to trademark particular strains, and as a marketing technique, have invented scientific-sounding names for the strains.
 
 <en:bifidus
-de:Bifidobacterium Infantis
-
-<en:bifidus
+en:Bifidobacterium lactis, Bifidobacterium animalis
+# ast:Bifidobacterium lactis
+bg:Bifidobacterium lactis
+de:Bifidobacterium lactis
+es:Bifidobacterium lactis
 fi:Bifidobacterium lactis
+fr:Bifidobacterium lactis
 it:Bifidobacterium Lactis
 la:Bifidobacterium lactis, b. lactis
+nl:Bifidobacterium lactis
 pl:Bifidobacterium lactis
+ru:Bifidobacterium lactis
+uk:Bifidobacterium lactis
 wikidata:en:Q62854400
+wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_animalis
+
+# description:en:BIFIDOBACTERIUM LONGUM is a Gram-positive, catalase-negative, rod-shaped bacterium present in the human gastrointestinal tract. B. longum is non-pathogenic and is often added to food products.
 
 <en:bifidus
-de:Bifidobacterium longum
+en:Bifidobacterium longum
+# ast:Bifidobacterium longum
+bg:Bifidobacterium longum
+de:Bifidobacterium longum, Bifidobacterium Infantis
+es:Bifidobacterium longum
+fr:Bifidobacterium longum
+he:ביפידובקטריה
+id:Bifidobacterium longum
+it:Bifidobacterium longum
+ko:비피도박테리움 룽검
+la:Bifidobacterium longum
+nl:Bifidobacterium longum
+nn:Bifidobacterium longum
+ro:Bifidobacterium longum
+ru:Bifidobacterium longum
+uk:Bifidobacterium longum
+zh:龍根菌
+# zh-cn:长双歧杆菌
+# zh-hans:长双歧杆菌
+# zh-hant:長雙歧桿菌
+wikidata:en:Q4904768
+wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_longum
 
 # description:en:Danone decided to add a probiotic strain: BIFIDUS ACTIREGULARIS. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
 
@@ -9251,6 +9189,124 @@ nl:geselecteerde fermenten
 pt:fermentos selecionados
 # ingredient/fr:ferments-sélectionnés has 134 products in 7 languages @2019-07-08
 
+
+
+# description:en:ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
+# comment:en:Although enzyme and ferment are the same from a biological point of view, it is unclear how it is used in the food context.
+
+# <en:ferment
+en:enzyme
+af:ensiem
+an:enzima
+ar:ئەنزیم
+as:উৎসেচক
+bg:Ензим
+bn:উৎসেচক
+br:enzim
+bs:enzim
+ca:enzim
+cs:enzym
+cy:ensym
+da:enzym
+de:Enzym
+el:Ένζυμο
+eo:enzimo
+es:enzima
+et:ensüüm
+eu:entzima
+fa:آنزیم
+fi:entsyymi
+fo:kveiki
+fr:Enzyme
+ga:einsím
+gl:enzima
+he:אנזים
+hi:प्रकिण्व
+hr:enzim
+ht:anzim
+hu:enzim
+hy:Ֆերմենտ
+ia:enzyma
+id:enzim
+io:enzimo
+is:ensím
+it:enzima
+ja:酵素
+jv:Ènzim
+ka:ფერმენტები
+ko:효소
+ku:enzîm
+la:enzymum
+li:enzym
+mk:Ензим
+ml:രാസാഗ്നി
+mn:Фермент
+mr:उत्प्रेरक
+ms:eEnzim
+my:အင်န်ဇိုင်း
+nb:enzym
+nl:enzym
+nn:enzym
+oc:enzim
+pa:ਐੱਨਜ਼ਾਈਮ
+pl:enzymy
+ps:انزايم
+pt:enzima
+qu:huptana
+ro:enzimă
+ru:Ферменты
+se:entsyma
+sh:enzim
+si:එන්සයිම
+sk:enzým
+sl:encim
+so:Ensiim
+sq:enzima
+sr:Ензим
+su:Énzim
+sv:enzym
+sw:kimeng'enya
+ta:நொதியம்
+te:ఎంజైము
+th:เอนไซม์
+tl:ensaym
+tr:enzim
+ur:خامرہ
+vi:enzym
+yi:ענזים
+zh:酶
+# als:Enzym
+# ast:enzima
+# azb:آنزیم
+# ckb:ئەنزیم
+# ext:enzima
+# hif:enzyme
+# ilo:ensima
+# ksh:enzym
+# lez:Ферментар
+# lfn:enzimolojia
+# lmo:enzima
+# new:इन्जाइम
+# nov:ensime
+# pam:enzyme
+# pnb:انزائم
+# rue:Ензім
+# sah:Энзим
+# sco:enzyme
+# stq:enzyme
+# war:ensaym
+# wuu:酶
+# zh-min-nan:Kàⁿ-sò͘
+# yue:酵素
+wikidata:en:Q8047
+wikipedia:en:https://en.wikipedia.org/wiki/Enzyme
+nova:en:3
+vegan:en:maybe
+vegetarian:en:maybe
+# ingredient/enzyme has 20643 products in 23 languages @2019-07-08
+
+# description:en:RENNET is a complex set of enzymes produced in the stomachs of ruminant mammals. Chymosin, its key component, is a protease enzyme that curdles the casein in milk
+
 <en:coagulating enzyme
 en:rennet
 an:Cuallo
@@ -9303,9 +9359,11 @@ zh:凝乳酶
 wikidata:en:Q326900
 wikipedia:en:https://en.wikipedia.org/wiki/Rennet
 # ingredient/rennet has 5568 products in 19 languages @2019-07-08
-vegan:en:no
-vegetarian:en:no
+vegan:en:maybe
+vegetarian:en:maybe
 
+# description:en:CALF RENNET is extracted from the inner mucosa of the fourth stomach chamber (the abomasum) of young, unweaned calves as part of livestock butchering.
+# comment:en:It seems that this is always calf rennet.
 
 <en:rennet
 en:animal-based rennet
@@ -9321,12 +9379,16 @@ vegan:en:no
 vegetarian:en:no
 # ingredient/animal-based-rennet has 664 products in 5 languages @2019-07-08
 
+# description:en:CALF RENNET is extracted from the inner mucosa of the fourth stomach chamber (the abomasum) of young, unweaned calves as part of livestock butchering.
+
 <en:animal-based rennet
 en:calf rennet
 fr:présure de veau
 es:cuajo bovino
 nl:kalfsstremsel
 # fr:présure-de-veau has 40 products in 2 languages @2019-07-08
+
+# description:en:Some molds such as Rhizomucor miehei are able to produce proteolytic enzymes. Cheeses produced this way are suitable for vegetarians, provided no animal-based alimentation was used during the production.
 
 <en:rennet
 en:microbial rennet
@@ -9346,45 +9408,13 @@ vegan:en:yes
 vegetarian:en:yes
 
 
-# Amylase are enzymes that catalyse the hydrolysis of starch into sugars. 
-# when indicated, it is probably alpha-amylase is meant
+# description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars. 
+# coment:en:when indicated, probably alpha-amylase is meant
 
 <en:enzyme
-en:amylase
-ar:أميلاز
-bs:Amilaza
-ca:amilasa
-cs:amyláza
-da:Amylase
-de:Amylasen
-el:αμυλάση
-eo:amelazo
-es:amilasa
-et:Amülaas
-eu:Amilasa
-fa:آمیلاز
-fi:Amylaasi
-fr:amylase, amylases
-hu:Amiláz
-it:amilasi
-lv:amilāze
-nl:Amylase
-nn:amylase
-pl:Amylazy
-pt:amilase
-ro:Amilază
-ru:Амилаза
-sk:Amyláza
-sl:Amilaza
-sv:Amylas
-wikidata:en:Q17153
-wikipedia:en:https://en.wikipedia.org/wiki/Amylase
-# ingredient/fr:amylase has 96 products in french @2019-01-30
-# enzymes (amylase, cellulase) 
+en:E1100
 
-# alpha-amlyse is listed as E1100
-
-# Cellulase is any of several enzymes produced chiefly by fungi, bacteria, and protozoans that catalyze cellulolysis, the decomposition of cellulose and of some related polysaccharides.
+# description:en:CELLULASE is any of several enzymes produced chiefly by fungi, bacteria, and protozoans that catalyze cellulolysis, the decomposition of cellulose and of some related polysaccharides. Cellulase is used for commercial food processing in coffee. 
 
 <en:enzyme
 en:cellulase
@@ -9423,14 +9453,14 @@ zh:纤维素酶
 # zh-tw:纖維素酶
 wikidata:en:Q410324
 wikipedia:en:https://en.wikipedia.org/wiki/Cellulase
-# ingredient/fr:cellulase has 66 products in 2 languages @2019–02-01
+# ingredient/fr:cellulase has 173 products in 6 languages @2019–07-09
 
 <en:cellulase
 fr:hémicellulase
 # ingredient/fr:hémicellulase has 27 products in french @2019-02-01
 
 
-# LACTASE - is an enzyme produced by many organisms.
+# description:en:LACTASE is essential to the complete digestion of whole milk; it breaks down lactose, a sugar which gives milk its sweetness. Lactase is an enzyme that some people are unable to produce in their small intestine.[5] Without it they can't break down the natural lactose in milk. Lactase produced commercially can be extracted both from yeasts such as Kluyveromyces fragilis and Kluyveromyces lactis and from molds, such as Aspergillus niger and Aspergillus oryzae.
 
 <en:enzyme
 en:Lactase
@@ -9474,6 +9504,9 @@ zh:乳糖酶
 # yue:乳糖水解酶
 wikidata:en:Q379764
 wikipedia:en:https://en.wikipedia.org/wiki/Lactase
+# ingredient/lactase has 346 products in 8 languages @2019-07-09
+
+# description:en:Β-GALACTOSIDASE is a glycoside hydrolase enzyme that catalyzes the hydrolysis of β-galactosides into monosaccharides through the breaking of a glycosidic bond. β-galactosidase is important for the lactose intolerant community as it is responsible for making lactose-free milk and other dairy products. Many adult humans lack the lactase enzyme, which has the same function of beta-gal, so they are not able to properly digest dairy products. Beta-galactose is used in such dairy products as yogurt, sour cream, and some cheeses which are treated with the enzyme to break down any lactose before human consumption. 
 
 
 <en:lactase
@@ -9491,77 +9524,16 @@ sh:Beta-galaktozidaza
 sr:Beta-galaktozidaza
 uk:Бета-галактозидаза
 zh:Β-半乳糖苷酶
-β-galactosidase, also called lactase, beta-gal or β-gal, is a glycoside hydrolase enzyme that catalyzes the hydrolysis of β-galactosides into monosaccharides through the breaking of a glycosidic bond.
+# ingredient/beta-galactosidase has 19 products @2019-07-09
 wikidata:en:Q286379
 wikipedia:en:https://en.wikipedia.org/wiki/Beta-galactosidase
 
 
 <en:enzyme
-en:lipase
-ar:ليباز
-bs:Lipaza
-ca:lipasa
-cs:lipáza
-da:Lipase
-de:Lipase
-el:λιπάση
-eo:lipazo
-es:lipasa
-eu:Lipasa
-fa:لیپاز
-fi:Lipaasi
-fr:lipase
-ga:Liopáis
-gl:Lipase
-he:ליפאז
-hi:लाइपेज
-id:Lipase
-it:Lipasi
-ja:リパーゼ
-kk:Липазалар
-ko:라이페이스
-ky:Липазалар
-lv:lipāze
-ms:Lipase
-nb:lipase
-nl:lipase
-nn:lipase
-pa:ਲਾਈਪੇਸ
-pl:Lipazy
-pt:lipase
-ru:Липаза
-sh:Lipaza
-sl:Lipaza
-sr:липаза
-sv:Lipas
-ta:கொழுமியச்சிதைப்பி
-tr:Lipaz
-uk:Ліпаза
-uz:Lipaza
-vi:Lipase
-zh:脂酶
-# kk-arab:لىيپازالار
-# kk-cn:لىيپازالار
-# kk-cyrl:Липазалар
-# kk-kz:Липазалар
-# kk-latn:Lïpazalar
-# kk-tr:Lïpazalar
-# sr-ec:липаза
-# sr-el:Lipaza
-# zh-cn:脂酶
-# zh-hans:脂酶
-# zh-hant:脂酶
-# zh-hk:脂酶
-# zh-sg:脂酶
-# zh-tw:脂酶
-wikidata:en:Q380967
-# ingredient/fr:lipase has 81 products in 2 languages @2019-02-01
+en:E1104
 
 
-# comment:en:protease is listed as E1101
-
-
-# description:en:In commercial food processing, transglutaminase is used to bond proteins together. It is produced by Streptoverticillium mobaraense fermentation in commercial quantities or extracted from animal blood
+# description:en:In commercial food processing, TRANSGLUTAMINASE is used to bond proteins together. It is produced by Streptoverticillium mobaraense fermentation in commercial quantities or extracted from animal blood.
 
 <en:enzyme
 en:transglutaminase
@@ -9587,8 +9559,10 @@ sr:трансглутаминаза
 # sr-el:transglutaminaza
 wikidata:en:Q423646
 wikipedia:en:https://en.wikipedia.org/wiki/Transglutaminase
-# ingredient/fr:transglutaminase 27 products in 4 languages @2019-02-01
-
+# ingredient/fr:transglutaminase 29 products in 4 languages @2019-07-09
+# usage:es:agente de tratamiento de la harina (transglutaminasa)
+vegetarian:en:maybe
+vegan:en:maybe
 
 # Xylanase is any of a class of enzymes that degrade the linear polysaccharide xylan into xylose,[1] thus breaking down hemicellulose, one of the major components of plant cell walls.
 
@@ -9612,9 +9586,9 @@ sv:Xylanas
 zh:木聚糖酶
 wikidata:en:Q419510
 wikipedia:en:https://en.wikipedia.org/wiki/Xylanase
-# ingredient/fr:xylanase has 46 products in 2 languages @2019-02-01
-
-
+# ingredient/fr:xylanase has 96 products in 6 languages @2019-07-09
+# usage:fr:xylanase (contient blé)
+# usage:fr:enzymes (xylanases)
 #
 # description:en:BUTTER - a dairy product containing at least 80% butterfat.
 
@@ -10315,6 +10289,7 @@ it:latte magro pastorizzato
 
 <en:pasteurized skimmed milk
 en:UHT sterilised skimmed milk
+de:Fettarme Haltbarmilch, Fettarme H-milch
 fr:Lait écrémé stérilisé UHT, lait écrémé stérilisé u h t, lait sterilise uht ecreme
 nl:UHT-gesteriliseerde magere melk
 # ingredient/fr:lait-ecreme-sterilise-uht has 14 products in french @2019-05-23
