@@ -1,6 +1,8 @@
 # please keep an extra line between synonyms
 # also: don't add synonyms if they are already the name of an individual category, in that case add the synonym to the category
 
+synonyms:de:Saure Sahne, Sauerrahm, Schmand
+
 synonyms:en:flavoured, flavored
 
 synonyms:en:pasteurised, pasteurized, pasterized
@@ -22564,16 +22566,13 @@ fr:Crème Fraîche d'Isigny
 
 <en:Creams
 <en:Fermented milk products
-en:Sour creams, Crèmes fraîches
-de:Sauerrahm
+en:Sour creams, Crèmes fraîches, Smetana
+de:Sauerrahm, Schmand, Saure Sahne
 fr:Crèmes fraîches, Crème fraîche
 hu:Tejföl
 nl:Zure romen
+ru:Сметана
 pnns_group_2:en:Milk and yogurt
-
-<en:Sour creams
-de:Saure Sahne
-
 
 <en:Sour creams
 fr:Crèmes fraîches allégées en matière grasse, Crème fraîche allégée, Crèmes fraîches allégées, Crème fraîche allegée en matière grasse
@@ -22588,30 +22587,67 @@ fr:Crèmes fraîches légères, Crème fraîche légère, crème légère
 <en:Sour creams
 fr:Crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
 
+# Consider making this a synonym for Sour creams.
 <en:Sour creams
-en:Smetana
-de:Schmand
 fr:Smetana
 nl:Smetana
-ru:Сметана
-wikidata:ru:Q326061
+wikidata:en:Q326061
 
 <en:Smetana
 en:Smetana with 15% to 34% fat
-de:Schmand mit 15% bis 34% Fettanteil
+de:Schmand mit 15% bis 34% Fettanteil, Sour Cream mit 15% bis 34% Fettanteil, Saure Sahne mit 15% bis 34% Fettanteil
 fr:Smetana avec 15% à 34% de matières grasses
 ru:Сметана от 15% до 34% жирности, Сметана с массовой долей жира от 15% до 34%
+wikidata:en:Q26868900
 
 <en:Smetana with 15% to 34% fat
-en:Smetana with 15% to 19% fat
-de:Schmand mit 15% bis 19% Fettanteil
+en:Sour creams with 15% to 19% fat, Smetana with 15% to 19% fat
+de:Saure Sahne mit 15% bis 19% Fettanteil
 fr:Smetana avec 15% à 19% de matières grasses
 ru:Сметана от 15% до 19% жирности, Сметана с массовой долей жира от 15% до 19%
+wikidata:en:Q26868928
 
+<en:Smetana with 15% to 19% fat
 en:Smetana with 15% fat
-de:Schmand mit 15% Fettanteil
+de:Saure Sahne mit 15% Fettanteil
 fr:Smetana avec 15% de matières grasses
 ru:Сметана 15%, Сметана 15%, Сметана 15% жирности, Сметана с массовой долей жира 15%
+
+<en:Smetana with 15% to 34% fat
+en:Sour creams with 20% to 24% fat, Smetana with 20% to 24% fat
+de:Schmand mit 20% bis 24% Fettanteil, Saure Sahne mit 20% bis 24% Fettanteil, Sour Cream mit 20% bis 24% Fettanteil
+fr:Smetana avec 20% à 24% de matières grasses
+ru:Сметана от 20% до 24% жирности, Сметана с массовой долей жира от 20% до 24%
+wikidata:en:Q27160227
+
+<en:Smetana with 15% to 34% fat
+en:Sour creams with 25% to 29% fat, Smetana with 25% to 29% fat
+de:Schmand mit 25% bis 29% Fettanteil, Saure Sahne mit 25% bis 29% Fettanteil, Crème légère mit 25% bis 29% Fettanteil
+fr:Smetana avec 25% à 29% de matières grasses
+ru:Сметана от 25% до 29% жирности, Сметана с массовой долей жира от 25% до 29%
+
+<en:Smetana with 15% to 34% fat
+en:Sour creams with 30% to 34% fat, Smetana with 30% to 34% fat
+de:Schmand mit 30% bis 34% Fettanteil, Saure Sahne mit 30% bis 34% Fettanteil, Crème fraîche mit 30% bis 34% Fettanteil
+fr:Smetana avec 30% à 34% de matières grasses
+ru:Сметана от 30% до 34% жирности, Сметана с массовой долей жира от 30% до 34%
+
+<en:Smetana
+en:Smetana with at least 35% fat
+de:Schmand mit mindestens 35% Fettanteil, Saure Sahne mit mindestens 35% Fettanteil, Crème fraîche mit mindestens 35% Fettanteil
+ru:Сметана с массовой долей жира более 35%, Сметана с не менее 35% жирности
+
+<en:Smetana with at least 35% fat
+en:Sour creams with 35% to 48% fat, Smetana with 35% to 48% fat
+de:Schmand mit 35% bis 48% Fettanteil, Saure Sahne mit 35% bis 48% Fettanteil, Crème fraîche mit 35% bis 48% Fettanteil
+fr:Smetana avec 35% à 48% de matières grasses
+ru:Сметана от 35% до 48% жирности, Сметана с массовой долей жира от 35% до 48%
+
+<en:Smetana with at least 50% fat
+en:Sour creams with 50% to 58% fat, Smetana with 50% to 58% fat
+de:Schmand mit 50% bis 58% Fettanteil, Saure Sahne mit 50% bis 58% Fettanteil, Crème fraîche mit 50% bis 58% Fettanteil
+fr:Smetana avec 50% à 58% de matières grasses
+ru:Сметана от 50% до 58% жирности, Сметана с массовой долей жира от 50% до 58%
 
 <en:Creams
 en:Whipped creams
