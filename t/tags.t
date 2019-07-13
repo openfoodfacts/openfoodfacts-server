@@ -121,7 +121,7 @@ is($product_ref->{categories}, "Aliments et boissons à base de végétaux, Alim
 
 add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
 
-compute_field_tags($product_ref, "en", "categories");
+compute_field_tags($product_ref, "fr", "categories");
 
 is_deeply($product_ref->{categories_tags},
  [
