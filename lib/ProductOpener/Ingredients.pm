@@ -883,6 +883,14 @@ ru => [
 'Ингредиенты(\s*)(\s|-|:|\r|\n)+',
 ],
 
+hr => [
+'(ö|ő|o)sszetev(ö|ő|o)k(\s*)(\s|-|:|\r|\n)+',
+],
+
+el => [
+'Συστατικά(\s|-|:|\r|\n)+',
+],
+
 );
 
 
@@ -896,12 +904,13 @@ fr => [
 ],
 
 cs => [
-'SLOŽENÍ',
+'SLOŽENÍ(\s*)(-|:|\r|\n)+',
 ],
 
 de => [
 'ZUTATEN(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 #@hangy Does that regex handle ZUTAT: ?
+#'ZUTAT(\s*)(-|:|\r|\n)+',
 ],
 
 es => [
@@ -938,15 +947,19 @@ de => [
 ],
 
 fi => [
-'AINESOTAT:(\s*)(\s|-|:|\r|\n)+',
+'AINESOTAT(\s*)(\s|-|:|\r|\n)+',
 ],
 
 si => [
-'SESTAVINE:(\s*)(\s|-|:|\r|\n)+',
+'SESTAVINE(\s*)(\s|-|:|\r|\n)+',
 ],
 
 sv => [
-'INGREDIENSER:(\s*)(\s|-|:|\r|\n)+',
+'INGREDIENSER(\s*)(\s|-|:|\r|\n)+',
+],
+
+vi => [
+'THANH PHAN(\s*)(\s|-|:|\r|\n)+',
 ],
 
 
@@ -1113,10 +1126,23 @@ ro => [
 'declaratie nutritional(a|ă)',
 'a si pastra la frigider dup(a|ă) deschidere',
 'a se agita inainte de deschidere',
+'Valori nutritionale medii',
 ],
 
 cs => [
 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+],
+
+hr => [
+'Atlagos tápérték 100g termékben',
+],
+
+el => [
+'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
+],
+
+vi => [
+'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
 ],
 
 
