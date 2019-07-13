@@ -1106,12 +1106,17 @@ pt => [
 pl => [
 'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
 'n(a|o)jlepiej spożyć przed', #Best before
+'Przechowywanie',
 ],
 
 ro => [
 'declaratie nutritional(a|ă)',
 'a si pastra la frigider dup(a|ă) deschidere',
 'a se agita inainte de deschidere',
+],
+
+cs => [
+'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
 ],
 
 
