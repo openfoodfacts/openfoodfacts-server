@@ -878,6 +878,10 @@ sv => [
 'ingredienser(\s*)(\s|-|:|\r|\n)+',
 ],
 
+dk => [
+'ingredienser(\s*)(\s|-|:|\r|\n)+',
+],
+
 ru => [
 'Состав(\s*)(\s|-|:|\r|\n)+',
 'Ингредиенты(\s*)(\s|-|:|\r|\n)+',
@@ -955,6 +959,10 @@ si => [
 ],
 
 sv => [
+'INGREDIENSER(\s*)(\s|-|:|\r|\n)+',
+],
+
+dk => [
 'INGREDIENSER(\s*)(\s|-|:|\r|\n)+',
 ],
 
@@ -1144,6 +1152,10 @@ el => [
 
 vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
+],
+
+dk => [
+'N(æ|ae)ringsindhold',
 ],
 
 
