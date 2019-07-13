@@ -916,74 +916,67 @@ delete $product_ref->{minerals_prev};
 
 
 $expected_product_ref = {
-
-    'ingredients' => [
-      {
-        'id' => "fr:p\x{e2}te de cacao* de Madagascar",
-        'percent' => '75',
-        'rank' => 1,
-        'text' => "p\x{e2}te de cacao* de Madagascar"
-      },
-      {
-        'id' => 'en:cane-sugar',
-        'rank' => 2,
-        'text' => 'sucre de canne',
-        'vegan' => 'yes',
-        'vegetarian' => 'yes'
-      },
-      {
-        'id' => 'en:cocoa-butter',
-        'rank' => 3,
-        'text' => 'beurre de cacao',
-        'vegan' => 'yes',
-        'vegetarian' => 'yes'
-      },
-      {
-        'id' => "fr:issus du et de l'",
-        'label' => 'en:fair-trade',
-        'rank' => 4,
-        'text' => "issus du et de l'"
-      }
-    ],
-    'ingredients_analysis_tags' => [
-      'en:palm-oil-content-unknown',
-      'en:vegan-status-unknown',
-      'en:vegetarian-status-unknown'
-    ],
-    'ingredients_hierarchy' => [
-      "fr:p\x{e2}te de cacao* de Madagascar",
-      'en:cane-sugar',
-      'en:sugar',
-      'en:cocoa-butter',
-      'en:cocoa',
-      "fr:issus du et de l'"
-    ],
-    'ingredients_n' => 4,
-    'ingredients_n_tags' => [
-      '4',
-      '1-10'
-    ],
-    'ingredients_original_tags' => [
-      "fr:p\x{e2}te de cacao* de Madagascar",
-      'en:cane-sugar',
-      'en:cocoa-butter',
-      "fr:issus du et de l'"
-    ],
-    'ingredients_tags' => [
-      'fr:pate-de-cacao-de-madagascar',
-      'en:cane-sugar',
-      'en:sugar',
-      'en:cocoa-butter',
-      'en:cocoa',
-      'fr:issus-du-et-de-l'
-    ],
-    'ingredients_text' => "p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).",
-    'lc' => 'fr',
-    'unknown_ingredients_n' => 2
-
+	    'ingredients' => [
+	      {
+	        'id' => "fr:p\x{e2}te de cacao de Madagascar",
+	        'labels' => 'en:fair-trade, en:organic',
+	        'percent' => '75',
+	        'rank' => 1,
+	        'text' => "p\x{e2}te de cacao de Madagascar"
+	      },
+	      {
+	        'id' => 'en:cane-sugar',
+	        'labels' => 'en:fair-trade, en:organic',
+	        'rank' => 2,
+	        'text' => 'sucre de canne',
+	        'vegan' => 'yes',
+	        'vegetarian' => 'yes'
+	      },
+	      {
+	        'id' => 'en:cocoa-butter',
+	        'labels' => 'en:fair-trade, en:organic',
+	        'rank' => 3,
+	        'text' => 'beurre de cacao',
+	        'vegan' => 'yes',
+	        'vegetarian' => 'yes'
+	      }
+	    ],
+	    'ingredients_analysis_tags' => [
+	      'en:palm-oil-content-unknown',
+	      'en:vegan-status-unknown',
+	      'en:vegetarian-status-unknown'
+	    ],
+	    'ingredients_hierarchy' => [
+	      "fr:p\x{e2}te de cacao de Madagascar",
+	      'en:cane-sugar',
+	      'en:sugar',
+	      'en:cocoa-butter',
+	      'en:cocoa'
+	    ],
+	    'ingredients_n' => 3,
+	    'ingredients_n_tags' => [
+	      '3',
+	      '1-10'
+	    ],
+	    'ingredients_original_tags' => [
+	      "fr:p\x{e2}te de cacao de Madagascar",
+	      'en:cane-sugar',
+	      'en:cocoa-butter'
+	    ],
+	    'ingredients_tags' => [
+	      'fr:pate-de-cacao-de-madagascar',
+	      'en:cane-sugar',
+	      'en:sugar',
+	      'en:cocoa-butter',
+	      'en:cocoa'
+	    ],
+	    'ingredients_text' => "p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).",
+	    'lc' => 'fr',
+	    'unknown_ingredients_n' => 1
 };
 
-is_deeply($product_ref, $expected_product_ref);
+is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+
 
 $product_ref = {
         lc => "fr",
@@ -1073,7 +1066,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:grapefruit',
-	          'label' => 'en:organic',
+	          'labels' => 'en:organic',
 	          'rank' => 4,
 	          'text' => 'Pamplemousse',
 	          'vegan' => 'yes',
@@ -1081,7 +1074,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:orange',
-	          'label' => 'en:organic',
+	          'labels' => 'en:organic',
 	          'rank' => 5,
 	          'text' => 'Orange',
 	          'vegan' => 'yes',
@@ -1089,7 +1082,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:lemon',
-	          'label' => 'en:organic',
+	          'labels' => 'en:organic',
 	          'rank' => 6,
 	          'text' => 'Citron',
 	          'vegan' => 'yes',
@@ -1097,7 +1090,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:cocoa',
-	          'label' => 'en:fair-trade',
+	          'labels' => 'en:fair-trade',
 	          'rank' => 7,
 	          'text' => 'cacao',
 	          'vegan' => 'yes',
@@ -1105,7 +1098,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:cocoa-butter',
-	          'label' => 'en:fair-trade',
+	          'labels' => 'en:fair-trade',
 	          'rank' => 8,
 	          'text' => 'beurre de cacao',
 	          'vegan' => 'yes',
@@ -1113,7 +1106,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
      {
             'id' => 'en:cherry',
-            'label' => 'en:organic',
+            'labels' => 'en:organic',
             'rank' => 9,
             'text' => 'cerises',
             'vegan' => 'yes',

@@ -57,9 +57,9 @@ use experimental 'smartmatch';
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Products qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Products qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -146,6 +146,54 @@ my %the = (
 	it => " il | lo | la | i | gli | le | l'",
 );
 
+
+# Labels that we want to recognize in the ingredients
+# e.g. "fraises issues de l'agriculture biologique"
+
+# Put composed labels like fair-trade-organic first
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade");
+my %labels_regexps = ();
+
+# Needs to be called after Tags.pm has loaded taxonomies
+
+sub init_labels_regexps() {
+
+	foreach my $labelid (@labels) {
+
+		foreach my $label_lc (keys %{$translations_to{labels}{$labelid}}) {
+
+			# the synonyms below also contain the main translation as the first entry
+
+			my $label_lc_labelid = get_fileid($translations_to{labels}{$labelid}{$label_lc});
+
+			my @synonyms = ();
+
+			foreach my $synonym (@{$synonyms_for{labels}{$label_lc}{$label_lc_labelid}}) {
+				push @synonyms, $synonym;
+			}
+
+			my $label_regexp = "";
+			foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
+				# simple singulars and plurals
+				my $singular = $synonym;
+				$synonym =~ s/s$//;
+				$label_regexp .= '|' . $synonym . '|' . $synonym . 's'  ;
+
+				my $unaccented_synonym = unac_string_perl($synonym);
+				if ($unaccented_synonym ne $synonym) {
+					$label_regexp .= '|' . $unaccented_synonym . '|' . $unaccented_synonym . 's';
+				}
+
+			}
+			$label_regexp =~ s/^\|//;
+			defined $labels_regexps{$label_lc} or $labels_regexps{$label_lc} = {};
+			$labels_regexps{$label_lc}{$labelid} = $label_regexp;
+			# print STDERR "labels_regexps - label_lc: $label_lc - labelid: $labelid - regexp: $label_regexp\n";
+		}
+	}
+}
+
+if ((keys %labels_regexps) > 0) { exit; }
 
 # load ingredients classes
 opendir(DH, "$data_root/ingredients") or $log->error("cannot open ingredients directory", { path => "$data_root/ingredients", error => $! });
@@ -388,6 +436,8 @@ my %ignore_strings_after_percent = (
 );
 
 
+
+
 sub extract_ingredients_from_text($) {
 
 	my $product_ref = shift;
@@ -449,43 +499,6 @@ sub extract_ingredients_from_text($) {
 		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc}
 	}
 
-	# Labels that we want to recognize in the ingredients
-	# e.g. "fraises issues de l'agriculture biologique"
-
-	my @labels = ("en:organic", "en:fair-trade");
-	my %labels_regexps = ();
-
-	foreach my $labelid (@labels) {
-
-		if (defined $translations_to{labels}{$labelid}{$product_lc}) {
-			# the synonyms below also contain the main translation as the first entry
-
-			my $product_lc_labelid = get_fileid($translations_to{labels}{$labelid}{$product_lc});
-
-			my @synonyms = ();
-
-			foreach my $synonym (@{$synonyms_for{labels}{$product_lc}{$product_lc_labelid}}) {
-				push @synonyms, $synonym;
-			}
-
-			my $label_regexp = "";
-			foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
-				# simple singulars and plurals
-				my $singular = $synonym;
-				$synonym =~ s/s$//;
-				$label_regexp .= '|' . $synonym . '|' . $synonym . 's'  ;
-
-				my $unaccented_synonym = unac_string_perl($synonym);
-				if ($unaccented_synonym ne $synonym) {
-					$label_regexp .= '|' . $unaccented_synonym . '|' . $unaccented_synonym . 's';
-				}
-
-			}
-			$label_regexp =~ s/^\|//;
-			$labels_regexps{$labelid} = $label_regexp;
-		}
-	}
-
 	my $analyze_ingredients = sub($$$$$) {
 		my $analyze_ingredients_self = shift;
 		my $ranked_ingredients_ref = shift;
@@ -503,7 +516,7 @@ sub extract_ingredients_from_text($) {
 		my $between_level = $level;
 		my $percent = undef;
 		my $origin = undef;
-		my $label = undef;
+		my $labels = undef;
 
 		#print STDERR "s: $s\n";
 
@@ -577,7 +590,12 @@ sub extract_ingredients_from_text($) {
 
 									my $labelid = canonicalize_taxonomy_tag($product_lc, "labels", $between);
 									if (exists_taxonomy_tag("labels", $labelid)) {
-										$label = $labelid;
+										if (defined $labels) {
+											$labels .= ", " . $labelid;
+										}
+										else {
+											$labels = $labelid;
+										}
 										$between = '';
 									}
 								}
@@ -690,12 +708,21 @@ sub extract_ingredients_from_text($) {
 				$origin =~ s/\s+$//;
 			}
 
-			foreach my $labelid (@labels) {
-				my $regex = $labels_regexps{$labelid};
-				if ($ingredient =~ /\b($regex)\b/i) {
-					$label = $labelid;
-					$ingredient = $` . ' ' . $';
-					$ingredient =~ s/\s+/ /g;
+			if (defined $labels_regexps{$product_lc}) {
+				# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
+				foreach my $labelid (reverse @labels) {
+					my $regexp = $labels_regexps{$product_lc}{$labelid};
+					print STDERR "labelid: $labelid - regexp: $regexp - ingredient: $ingredient\n";
+					if ($ingredient =~ /\b($regexp)\b/i) {
+						if (defined $labels) {
+							$labels .= ", " . $labelid;
+						}
+						else {
+							$labels = $labelid;
+						}
+						$ingredient = $` . ' ' . $';
+						$ingredient =~ s/\s+/ /g;
+					}
 				}
 			}
 
@@ -712,8 +739,8 @@ sub extract_ingredients_from_text($) {
 			if (defined $origin) {
 				$ingredient{origin} = $origin;
 			}
-			if (defined $label) {
-				$ingredient{label} = $label;
+			if (defined $labels) {
+				$ingredient{labels} = $labels;
 			}
 
 			if ($ingredient ne '') {
@@ -880,7 +907,7 @@ sub analyze_ingredients($) {
 					# One no ingredient -> no for the whole product
 					push @{$product_ref->{ingredients_analysis_tags}}, "en:non-" . $property ; # en:non-vegetarian
 				}
-				elsif ($values{undef} > 0) {
+				elsif (defined $values{undef}) {
 					# Some ingredients were not recognized or we do not have a property value for them
 					push @{$product_ref->{ingredients_analysis_tags}}, "en:" . $property . "-status-unknown"; # en:vegetarian-status-unknown
 				}
@@ -1548,6 +1575,10 @@ sub preparse_ingredients_text($$) {
 	my $lc = shift;
 	my $text = shift;
 
+	if ((scalar keys %labels_regexps) == 0) {
+		init_labels_regexps();
+	}
+
 	my $and = $Lang{_and_}{$lc};
 	my $of = ' - ';
 	if (defined $of{$lc}) {
@@ -2043,8 +2074,38 @@ INFO
 	}
 
 
+	# Try to find the signification of symbols like *
+	# Jus de pomme*** 68%, jus de poire***32% *** Ingrédients issus de l'agriculture biologique
+	# Pâte de cacao°* du Pérou 65 %, sucre de canne°*, beurre de cacao°*. °Issus de l'agriculture biologique (100 %). *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
+
+	if (defined $labels_regexps{$lc}) {
+		my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°');
+
+		foreach my $symbol (@symbols) {
+			# Find the last occurence of the symbol
+			if ($text =~ /^(.*)$symbol\s*:?\s*/) {
+				my $after = $';
+				# print STDERR "symbol: $symbol - after: $after\n";
+				foreach my $labelid (@labels) {
+					my $regexp = $labels_regexps{$lc}{$labelid};
+					# print STDERR "-- label: $labelid - regexp: $regexp\n";
+					# try to also match optional precisions like "Issus de l'agriculture biologique (100 % du poids total)"
+					# *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
+					if ($after =~ /^($regexp)\s*(\([^\)]+\))?\s*\.?\s*/i) {
+						my $label = $1;
+						$text =~ s/^(.*)$symbol\s?:?\s?$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
+						my $lc_label = display_taxonomy_tag($lc, "labels", $labelid);
+						$text =~ s/$symbol/ $lc_label /g;
+						last;
+					}
+				}
+			}
+		}
+	}
+
 	# remove extra spaces
 	$text =~ s/\s(\s)+/ /g;
+	$text =~ s/ (\.|,)( |$)/$1$2/g;
 	$text =~ s/^\s+//;
 	$text =~ s/\s+$//;
 

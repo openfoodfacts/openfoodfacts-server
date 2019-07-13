@@ -99,6 +99,11 @@ my @lists =(
 	["it","Puo contenere tracce di frutta a guscio, sesamo, soia e uova","tracce : frutta a guscio, tracce : sesamo, tracce : soia, tracce : uova."],
 	["it","Il prodotto può contenere tracce di GRANO, LATTE, UOVA, FRUTTA A GUSCIO e SOIA.","tracce : grano, tracce : latte, tracce : uova, tracce : frutta a guscio, tracce : soia."],
 
+	["fr","Jus de pomme*** 68%, jus de poire***32% *** Ingrédients issus de l'agriculture biologique","jus de pomme bio 68%, jus de poire bio 32%"],
+	["fr","Pâte de cacao°* du Pérou 65 %, sucre de canne°*, beurre de cacao°*, sel *, lait °. °Issus de l'agriculture biologique (100 %). *Issus du commerce équitable (100 % du poids total avec 93 % SPP).","Pâte de cacao Bio Commerce équitable du Pérou 65 %, sucre de canne Bio Commerce équitable, beurre de cacao Bio Commerce équitable, sel Commerce équitable, lait Bio."],
+
+	["fr","p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).","pâte de cacao Commerce équitable Bio de Madagascar 75%, sucre de canne Commerce équitable Bio, beurre de cacao Commerce équitable Bio."],
+
 );
 
 foreach my $test_ref (@lists) {
