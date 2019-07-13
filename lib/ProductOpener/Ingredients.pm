@@ -912,7 +912,7 @@ cs => [
 ],
 
 de => [
-'ZUTATEN(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
+'ZUTAT(EN)(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 #@hangy Does that regex handle ZUTAT: ?
 #'ZUTAT(\s*)(-|:|\r|\n)+',
 ],
