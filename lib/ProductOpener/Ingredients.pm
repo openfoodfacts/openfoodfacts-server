@@ -989,8 +989,9 @@ fr => [
 'valeur nutritionnelle',
 'information nutritionnelle',
 'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
-'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
-'moyennes pour 100g',
+'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
+'moyennes pour 100(g|ml)',
+'Nutrition pour 100 (g|ml)', 
 'valeur(s?) (e|é)nerg(e|é)tique',
 'valeur(s?) nutritives',
 'valeur nutritive',
@@ -1022,6 +1023,8 @@ fr => [
 'tenir à l\'abri',
 'Modes de pr(e|é)paration',
 'Mode de pr(e|é)paration',
+#'Pour votre santé',
+#'La certification Fairtrade assure',
 #Préparation:
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
@@ -1071,6 +1074,8 @@ de => [
 'Vorbereitung Tipps',
 'Mindestens altbar bis',
 'Mindestens haltbar bis',
+'Durchschnittliche N(â|a|ä)hrwerte',
+'DURCHSCHNITTLICHE NÄHRWERTE',
 'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
 'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
@@ -1083,6 +1088,8 @@ de => [
 'verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
 'Durchschnittlich enthalten 100 (ml|g)',
+'davon ges(â|a|ä)tigte Fettsäuren',
+'davon Zuckerarten',
 ],
 
 nl => [
@@ -1090,6 +1097,7 @@ nl => [
 'voedingswaarde',
 'voorbereidingstips',
 'gemiddelde voedingswaarden',
+'Gemiddeldevoedingswaardel',
 'gemiddelde voedingswaarde per 100 g',
 #'waarvan suikers',
 ],
