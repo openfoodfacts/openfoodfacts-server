@@ -148,6 +148,8 @@ else {
 
 		my %lc_overrides = (
 				au => "en",
+				br => "pt",
+				co => "es",
 				es => "es",
 				it => "it",
 				de => "de",
@@ -155,6 +157,7 @@ else {
 				gb => "en",
 				pt => "pt",
 				nl => "nl",
+				no => "no",
 				us => "en",
 				ie => "en",
 				nz => "en",
