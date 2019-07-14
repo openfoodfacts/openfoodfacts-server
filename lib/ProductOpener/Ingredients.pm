@@ -2112,7 +2112,7 @@ INFO
 	}
 
 	# Add synonyms in target language
-	my $vitamin_in_lc = get_fileid(display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"), 0, $product_lc
+	my $vitamin_in_lc = get_fileid(display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"), 0, $product_lc);
 	$vitamin_in_lc =~ s/^\w\w://;
 
 	if ((defined $synonyms_for{ingredients}) and (defined $synonyms_for{ingredients}{$product_lc}) and (defined $synonyms_for{ingredients}{$product_lc}{$vitamin_in_lc})) {
