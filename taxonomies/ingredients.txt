@@ -54238,13 +54238,24 @@ fr:poisson blanc, poissons blancs
 # Theragra chalcogramma ou Merluccius productus ou Merluccius gayi ou Merluccius hubbsi
 # Les Œufs de Cyclopterus lumpus (lump, lompe), poisson de l'Atlantique Nord, sont des œufs de poisson présentés comme succédané du caviar d'esturgeon.
 
-
-fr:œufs de lompe, oeufs de lompe
+# <category:fr:fr:Œufs de lump
+fr:œufs de lompe, oeufs de lompe, cyclopterus lumpus
 vegetarian:en:no
 vegan:en:no
 wikipedia:en:https://fr.wikipedia.org/wiki/Œufs_de_lump
 # ingredient/fr:oeufs-de-lompe has 38 products in french @2019-02-20
 
+# comment:en:Is the only difference the colorant added?
+
+# <en:compound
+<fr:œufs de lompe
+fr:oeufs de lompe noirs
+# usage:fr:oeufs de lompe noirs: oeufs de lompe  (cyclopterus lumpus); eau; sel; stabilisants : e422, e415; conservateur : e211; colorants : e414, e151, e150d, e163
+
+# <en:compound
+<fr:œufs de lompe
+fr:oeufs de lompe rouges
+# usage:fr:oeufs de lompe rouges: oeufs de lompe (cyclopterus lumpus); eau; sel; stabilisants : e422, e415; conservateur : e211; colorants : e160a, e101, e120; sucre
 
 # Shellfish is a food source and fisheries term for exoskeleton-bearing aquatic invertebrates used as food, including various species of molluscs, crustaceans, and echinoderms. 
 
