@@ -1179,4 +1179,55 @@ is_deeply ($product_ref->{ingredients},
 
 
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "80% jus de pomme biologique, 20% de coing biologique, sel marin, 98% chlorure de sodium (France, Italie)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+
+is_deeply ($product_ref->{ingredients}, 
+
+[
+	     {
+	            'id' => 'en:apple-juice',
+	            'labels' => 'en:organic',
+	            'percent' => '80',
+	            'rank' => 1,
+	            'text' => 'jus de pomme',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:quince',
+	            'labels' => 'en:organic',
+	            'percent' => '20',
+	            'rank' => 2,
+	            'text' => 'coing',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:sea-salt',
+	            'rank' => 3,
+	            'text' => 'sel marin',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:sodium-chloride',
+	            'origin' => 'France, Italie',
+	            'percent' => '98',
+	            'rank' => 4,
+	            'text' => 'chlorure de sodium'
+	          }
+	        ],
+	
+	
+) or diag explain $product_ref;
+
+
+
+
 done_testing();

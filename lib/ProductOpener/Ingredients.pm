@@ -555,6 +555,14 @@ sub extract_ingredients_from_text($) {
 					$after = $';
 
 					# print STDERR "sub-ingredients - between: $between - after: $after\n";
+
+					# sel marin (France, Italie)
+					# -> if we have countries, put "origin:" before
+					if (($between =~ $separators)
+						and (exists_taxonomy_tag("countries", canonicalize_taxonomy_tag($product_lc, "countries", $`)))) {
+						$between =~ s/^(.*?$separators)/origin:$1/;
+					}
+
 					# : is in $separators but we want to keep "origine : France"
 					if (($between =~ $separators) and ($` !~ /\s*(origin|origine)\s*/i)) {
 						$between_level = $level + 1;
