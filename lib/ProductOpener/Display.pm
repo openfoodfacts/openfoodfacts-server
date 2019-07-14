@@ -7106,47 +7106,51 @@ JS
 			if ($ingredients_analysis_tag =~ /palm/) {
 
 				if ($ingredients_analysis_tag =~ /-free$/) {
-					$color = "#178c4f"; # green
-					$icon = '<i class="icon-monkey_happy"></i> ';
+					$color = "#00aa00"; # green
+					$icon = "icon-monkey_happy";
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
-					$color = "#bfb316"; # orange
-					$icon = '<i class="icon-monkey_uncertain"></i> ';
+					$color = "#ff6600"; # orange
+					$icon = "icon-monkey_uncertain";
 				}
 				else {
-					$color = "#bf2316"; # red
-					$icon = '<i class="icon-monkey_unhappy"></i> ';
+					$color = "#ff0000"; # red
+					$icon = "icon-monkey_unhappy";
 				}
 
 			}
 			else {
 
 				if ($ingredients_analysis_tag =~ /vegan/) {
-					$icon = '<i class="icon-leaf"></i> ';
+					$icon = "icon-leaf";
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
-					$icon = '<i class="icon-egg"></i> ';
+					$icon = "icon-egg";
 				}
 
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = "#bf2316"; # red
+					$color = "#ff0000"; # red
 				}
-				elsif ($ingredients_analysis_tag =~ /^en:maybe-$/) {
-					$color = "#4f8c17"; # yellow green
+				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
+					$color = "#ff6600"; # orange
 				}
 				else {
-					$color = "#178c4f"; # green
+					$color = "#00aa00"; # green
 				}
 			}
 
-			$html_analysis .= "<span class=\"button small round disabled\" style=\"background-color:$color;color:white;padding:.5rem 1rem;\">"
+			if ($icon ne "") {
+				$icon = "<i style=\"font-size:32px;margin-right:0.2em;vertical-align:text-top;line-height:24px;\" class=\"$icon\"></i>";
+			}
+
+			$html_analysis .= "<span class=\"alert round label\" style=\"background-color:$color;color:white;font-size:1rem;padding-right:1em;\">"
 			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
 			. "</span> ";
 		}
 
 		if ($html_analysis ne "") {
 
-			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b> "
+			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
 			. $html_analysis
 			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
 		}
