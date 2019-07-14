@@ -218,8 +218,8 @@ sub init_product($) {
 		if (defined param('cc')) {
 			$country = lc(param('cc'));
 			$country =~ s/^en://;
-			
-			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it 
+
+			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
 			my %lc_overrides = (
 				au => "en",
 				es => "es",
@@ -233,10 +233,10 @@ sub init_product($) {
 				ie => "en",
 				nz => "en",
 			);
-			
+
 			if (defined $lc_overrides{$country}) {
 				$lc = $lc_overrides{$country};
-			}					
+			}
 		}
 		else {
 			$country = "france";
@@ -247,11 +247,11 @@ sub init_product($) {
 	if ($creator eq 'elcoco') {
 		$country = "spain";
 	}
-	
+
 	if (defined $lc) {
 		$product_ref->{lc} = $lc;
 		$product_ref->{lang} = $lc;
-	}	
+	}
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
@@ -530,7 +530,7 @@ sub store_product($$) {
 	compute_languages($product_ref);
 
 	compute_product_history_and_completeness($product_ref, $changes_ref);
-	
+
 	compute_data_sources($product_ref);
 
 	# sort_key
@@ -630,7 +630,7 @@ sub compute_data_sources($) {
 			if ($source_ref->{id} eq 'biscuiterie-sainte-victoire') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Biscuiterie Sainte Victoire"} = 1;
-			}			
+			}
 
 			if ($source_ref->{id} eq 'openfood-ch') {
 				$data_sources{"Databases"} = 1;
@@ -643,16 +643,16 @@ sub compute_data_sources($) {
 		}
 	}
 
-	
+
 	# Add a data source forapps
-	
+
 	%data_sources = ();
 
 	if (defined $product_ref->{editors_tags}) {
 		foreach my $editor (@{$product_ref->{editors_tags}}) {
-		
+
 			if ($editor =~ /\./) {
-			
+
 				my $app = $`;
 
 				$data_sources{"Apps"} = 1;
@@ -664,7 +664,7 @@ sub compute_data_sources($) {
 	if ((scalar keys %data_sources) > 0) {
 		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
 		compute_field_tags($product_ref, "en", "data_sources");
-	}	
+	}
 }
 
 
@@ -844,25 +844,25 @@ sub compute_completeness_and_missing_tags($$$) {
 sub get_change_userid_or_uuid($) {
 
 	my $change_ref = shift;
-	
+
 	my $userid = $change_ref->{userid};
 
 	my $app = "";
 	my $uuid;
-	
+
 	if ((defined $userid) and (defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
 		$app = $options{apps_userids}{$userid} . "\.";
 	}
 	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
 		$app = $options{official_app_id} . "\.";
 	}
-		
+
 	# use UUID provided by some apps like Yuka
 	# UUIDs are mix of [a-zA-Z0-9] chars, they must not be lowercased by getfile_id
 
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
-	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A	
+	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
 	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
 		$uuid =~ s/^(\s*)//;
@@ -879,9 +879,9 @@ sub get_change_userid_or_uuid($) {
 	if ((not defined $userid) or ($userid eq '')) {
 		$userid = "openfoodfacts-contributors";
 	}
-	
+
 	return $userid;
-}		
+}
 
 
 sub compute_product_history_and_completeness($$) {
@@ -938,7 +938,9 @@ sub compute_product_history_and_completeness($$) {
 
 	# Read all previous versions to see which fields have been added or edited
 
-	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per);
+	my @fields = ('lang', 'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
+		'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text');
 
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 	my %last = %previous;
