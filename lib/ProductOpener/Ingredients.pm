@@ -720,7 +720,7 @@ sub extract_ingredients_from_text($) {
 				# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 				foreach my $labelid (reverse @labels) {
 					my $regexp = $labels_regexps{$product_lc}{$labelid};
-					print STDERR "labelid: $labelid - regexp: $regexp - ingredient: $ingredient\n";
+					#print STDERR "labelid: $labelid - regexp: $regexp - ingredient: $ingredient\n";
 					if ($ingredient =~ /\b($regexp)\b/i) {
 						if (defined $labels) {
 							$labels .= ", " . $labelid;
@@ -1614,6 +1614,27 @@ sub preparse_ingredients_text($$) {
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
 
+	# remove extra spaces in compound words width dashes
+	# e.g. céleri - rave -> céleri-rave
+
+	sub is_compound_word_with_dash($) {
+
+		my $compound_word = shift;
+
+		print STDERR "compound_word: $compound_word\n";
+
+		if (exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($lc, "ingredients", $compound_word))) {
+			$compound_word =~ s/ - /-/;
+			return $compound_word;
+		}
+		else {
+			return $compound_word;
+		}
+	}
+
+	# céleri - rave 3.9% -> stop at numbers
+	$text =~ s/((^|$separators)([^,;\-\/\.0-9]+?) - ([^,;\-\/\.0-9]+?)(?=[0-9]|$separators|$))/is_compound_word_with_dash($1)/ieg;
+
 	# vitamins...
 	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait)
 
@@ -2009,8 +2030,8 @@ INFO
 	}
 	$vitaminssuffixregexp =~ s/^\|//;
 
-	$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
-	$log->debug("vitamins text", { text => $text }) if $log->is_debug();
+	#$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
+	#$log->debug("vitamins text", { text => $text }) if $log->is_debug();
 
 	$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($lc,$3)/ieg;
 
@@ -2072,8 +2093,8 @@ INFO
 			$text =~ s/([a-z]) ($ucfirst_traces_regexp)/$1, $2/g;
 		}
 
-		$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
-		$log->debug("allergens", { lc => $lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
+		#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
+		#$log->debug("allergens", { lc => $lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
 
 		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)*($allergenssuffixregexp))\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$lc,$4)/ieg;
 		# we may have added an extra dot in order to make sure we have at least one
