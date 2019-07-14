@@ -1174,6 +1174,7 @@ it => [
 
 cs => [
 'složení(\s*)(\s|-|:|\r|\n)+',
+'Složeni(\s*)(\s|-|:|\r|\n)+',
 ],
 
 pt => [
@@ -1208,9 +1209,21 @@ sv => [
 'ingredienser(\s*)(\s|-|:|\r|\n)+',
 ],
 
+dk => [
+'ingredienser(\s*)(\s|-|:|\r|\n)+',
+],
+
 ru => [
 'Состав(\s*)(\s|-|:|\r|\n)+',
 'Ингредиенты(\s*)(\s|-|:|\r|\n)+',
+],
+
+hr => [
+'(ö|ő|o)sszetev(ö|ő|o)k(\s*)(\s|-|:|\r|\n)+',
+],
+
+el => [
+'Συστατικά(\s|-|:|\r|\n)+',
 ],
 
 );
@@ -1226,12 +1239,13 @@ fr => [
 ],
 
 cs => [
-'SLOŽENÍ',
+'SLOŽENÍ(\s*)(-|:|\r|\n)+',
 ],
 
 de => [
-'ZUTATEN(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
+'ZUTAT(EN)(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 #@hangy Does that regex handle ZUTAT: ?
+#'ZUTAT(\s*)(-|:|\r|\n)+',
 ],
 
 es => [
@@ -1268,15 +1282,23 @@ de => [
 ],
 
 fi => [
-'AINESOTAT:(\s*)(\s|-|:|\r|\n)+',
+'AINESOTAT(\s*)(\s|-|:|\r|\n)+',
 ],
 
 si => [
-'SESTAVINE:(\s*)(\s|-|:|\r|\n)+',
+'SESTAVINE(\s*)(\s|-|:|\r|\n)+',
 ],
 
 sv => [
-'INGREDIENSER:(\s*)(\s|-|:|\r|\n)+',
+'INGREDIENSER(\s*)(\s|-|:|\r|\n)+',
+],
+
+dk => [
+'INGREDIENSER(\s*)(\s|-|:|\r|\n)+',
+],
+
+vi => [
+'THANH PHAN(\s*)(\s|-|:|\r|\n)+',
 ],
 
 
@@ -1298,8 +1320,9 @@ fr => [
 'valeur nutritionnelle',
 'information nutritionnelle',
 'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
-'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
-'moyennes pour 100g',
+'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
+'moyennes pour 100(g|ml)',
+'Nutrition pour 100 (g|ml)', 
 'valeur(s?) (e|é)nerg(e|é)tique',
 'valeur(s?) nutritives',
 'valeur nutritive',
@@ -1329,6 +1352,11 @@ fr => [
 'ne jamais recongeler un produit décongelé',
 'pensez au tri',
 'tenir à l\'abri',
+'Modes de pr(e|é)paration',
+'Mode de pr(e|é)paration',
+#'Pour votre santé',
+#'La certification Fairtrade assure',
+#Préparation:
 #'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
 #`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #'dont sucres',
@@ -1377,6 +1405,8 @@ de => [
 'Vorbereitung Tipps',
 'Mindestens altbar bis',
 'Mindestens haltbar bis',
+'Durchschnittliche N(â|a|ä)hrwerte',
+'DURCHSCHNITTLICHE NÄHRWERTE',
 'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
 'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
@@ -1389,6 +1419,8 @@ de => [
 'verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
 'Durchschnittlich enthalten 100 (ml|g)',
+'davon ges(â|a|ä)tigte Fettsäuren',
+'davon Zuckerarten',
 ],
 
 nl => [
@@ -1396,6 +1428,7 @@ nl => [
 'voedingswaarde',
 'voorbereidingstips',
 'gemiddelde voedingswaarden',
+'Gemiddeldevoedingswaardel',
 'gemiddelde voedingswaarde per 100 g',
 #'waarvan suikers',
 ],
@@ -1408,6 +1441,7 @@ it => [
 'Conservare in luogo fresco e asciutto',
 'MODALITA D\'USO',
 'MODALITA DI CONSERVAZIONE',
+'Preparazione:',
 ],
 
 cs => [
@@ -1432,12 +1466,35 @@ pt => [
 pl => [
 'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
 'n(a|o)jlepiej spożyć przed', #Best before
+'Przechowywanie',
 ],
 
 ro => [
 'declaratie nutritional(a|ă)',
 'a si pastra la frigider dup(a|ă) deschidere',
 'a se agita inainte de deschidere',
+'Valori nutritionale medii',
+],
+
+cs => [
+'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+],
+
+hr => [
+'Atlagos tápérték 100g termékben',
+],
+
+el => [
+'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
+'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
+],
+
+vi => [
+'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
+],
+
+dk => [
+'N(æ|ae)ringsindhold',
 ],
 
 
