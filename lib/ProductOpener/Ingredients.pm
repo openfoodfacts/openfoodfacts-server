@@ -1348,6 +1348,18 @@ fr => [
 );
 
 
+# phrases that can be removed
+my %ignore_phrases = (
+en => [
+"na|n/a|not applicable",
+],
+fr => [
+"non applicable|non concerné",
+],
+
+);
+
+
 sub clean_ingredients_text_for_lang($$) {
 
 	my $text = shift;
@@ -1396,6 +1408,17 @@ sub clean_ingredients_text_for_lang($$) {
 		}
 	}
 
+	# Remove phrases
+
+	$log->debug("clean_ingredients_text_for_lang - 4", { language=>$language, text=>$text }) if $log->is_debug();
+
+	if (defined $ignore_phrases{$language}) {
+
+		foreach my $regexp (@{$ignore_phrases{$language}}) {
+			$text =~ s/^\s*$regexp(\.)?\s*$//is;
+		}
+	}
+
 	# Non language specific cleaning
 	# Try to add missing spaces around dashes - separating ingredients
 
@@ -1409,7 +1432,7 @@ sub clean_ingredients_text_for_lang($$) {
 	$text =~ s/^\s*(:|-)\s*//;
 	$text =~ s/\s+$//;
 
-	$log->debug("clean_ingredients_text_for_lang - 4", { language=>$language, text=>$text }) if $log->is_debug();
+	$log->debug("clean_ingredients_text_for_lang - 5", { language=>$language, text=>$text }) if $log->is_debug();
 
 	return $text;
 }

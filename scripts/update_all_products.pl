@@ -217,6 +217,11 @@ while (my $product_ref = $cursor->next) {
 			}			
 		}
 		
+		# Fix ingredients_n that was set as string
+		if (defined $product_ref->{ingredients_n}) {
+			$product_ref->{ingredients_n} += 0;
+		}
+		
 		# Fix nutrient _label fields that were mistakenly set to 0
 		# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/772
 		
