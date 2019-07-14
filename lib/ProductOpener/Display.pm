@@ -436,7 +436,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats', 'missing_property') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -1532,6 +1532,9 @@ sub display_list_of_tags($$) {
 					if ($missing_property) {
 						next if (defined get_inherited_property($tagtype, $tagid, $missing_property));
 					}
+					if ((defined $request_ref->{status}) and ($request_ref->{status} eq "unknown")) {
+						next;
+					}
 				}
 				else {
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
@@ -1541,6 +1544,9 @@ sub display_list_of_tags($$) {
 					# ?missing_property=vegan
 					# keep only known tags
 					next if ($missing_property);
+					if ((defined $request_ref->{status}) and ($request_ref->{status} eq "known")) {
+						next;
+					}
 				}
 			}
 
@@ -1713,11 +1719,12 @@ sub display_list_of_tags($$) {
 HTML
 ;
 				foreach my $type ("known", "unknown", "all") {
-					$html .= "<tr><td>" . $type . "</td>"
+					$html .= "<tr><td><a href=\"?status=$type\">" . $type . "</a></td>"
 					. "<td>" . $stats{$type . "_tags"} . " (" . sprintf("%2.2f", $stats{$type . "_tags"} / $stats{"all_tags"} * 100) . "%)</td>"
 					. "<td>" . $stats{$type . "_tags_products"} . " (" . sprintf("%2.2f", $stats{$type . "_tags_products"} / $stats{"all_tags_products"} * 100) . "%)</td>";
 
 				}
+				$html =~ s/\?status=all//;
 
 				$html .=<<"HTML"
 </table>
