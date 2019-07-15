@@ -1577,6 +1577,22 @@ sub clean_ingredients_text($) {
 }
 
 
+sub is_compound_word_with_dash($$) {
+
+	my $word_lc = shift;
+	my $compound_word = shift;
+
+	print STDERR "compound_word: $compound_word\n";
+
+	if (exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($word_lc, "ingredients", $compound_word))) {
+		$compound_word =~ s/ - /-/;
+		return $compound_word;
+	}
+	else {
+		return $compound_word;
+	}
+}
+
 
 sub preparse_ingredients_text($$) {
 
@@ -1616,22 +1632,6 @@ sub preparse_ingredients_text($$) {
 
 	# remove extra spaces in compound words width dashes
 	# e.g. céleri - rave -> céleri-rave
-
-	sub is_compound_word_with_dash($$) {
-
-		my $word_lc = shift;
-		my $compound_word = shift;
-
-		print STDERR "compound_word: $compound_word\n";
-
-		if (exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($word_lc, "ingredients", $compound_word))) {
-			$compound_word =~ s/ - /-/;
-			return $compound_word;
-		}
-		else {
-			return $compound_word;
-		}
-	}
 
 	# céleri - rave 3.9% -> stop at numbers
 	$text =~ s/((^|$separators)([^,;\-\/\.0-9]+?) - ([^,;\-\/\.0-9]+?)(?=[0-9]|$separators|$))/is_compound_word_with_dash($product_lc,$1)/ieg;
