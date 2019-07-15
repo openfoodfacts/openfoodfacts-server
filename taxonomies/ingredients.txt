@@ -10595,6 +10595,9 @@ fr:crème stérilisée uht
 # ingredient/fr:crème-stérilisée-uht has 10 products in french @2019-07-12
 
 <en:cream
+fr:Crème fraîche liquide
+
+<en:cream
 en:light cream
 de:leichte Sahne
 fr:crème légère, Crème fraîche légère, Crème légère fraîche
@@ -10634,6 +10637,10 @@ de:Magermilch und pasteurisiertes Sahne
 fr:lait écrémé et crème pasteurisés
 # ingredient/fr:lait-écrémé-et-crème-pasteurisés has 64 products in 4 languages @2019-02-03
 
+<en:cream
+en:fresh cream
+fr:crème fraîche
+nl:verse room
 
 # description:SOUR CREAM is a dairy product obtained by fermenting regular cream with certain kinds of lactic acid bacteria. The bacterial culture, which is introduced either deliberately or naturally, sours and thickens the cream. Its name comes from the production of lactic acid by bacterial fermentation, which is called souring. Fat percentage is 18-20%
 # comment:en:In dutch zure room is sometimes wrongly translated to creme fraiche
@@ -10665,6 +10672,9 @@ zh:酸忌廉
 wikipedia:en:https://en.wikipedia.org/wiki/Sour_cream
 # ingredient/Sour-cream has 773 products in 7 languages @2019-07-12
 
+<en:sour cream
+de:Schmand, Schmant
+
 # description:en:Smetana is a type of sour cream from Central and Eastern Europe. It is a dairy product produced by souring heavy cream. It is similar to crème fraîche (28% fat), but nowadays mainly sold with 9% to 36% milkfat content depending on the country. Its cooking properties are different from crème fraîche and the lighter sour creams sold in the US, which contain 12 to 16% butterfat. It is widely used in cooking and baking.
 
 <en:sour cream
@@ -10676,7 +10686,7 @@ ca:Smetana
 cs:Zakysaná smetana
 cv:Хăйма
 da:Smetana
-de:Schmand, Schmant, Schmetten
+de:Schmetten
 es:Smetana
 et:Hapukoor
 eu:Smetana
@@ -10695,7 +10705,7 @@ mk:Павлака
 ms:Smetana
 nb:Smetana
 nl:Smetana
-pl:Śmietana
+pl:Śmietana, świeża śmietana
 ru:Сметана
 sl:Kisla smetana
 sr:Павлака
@@ -10713,10 +10723,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
 # ingredient/smetana has 18 products @2019-07-12
 
 # description:en:Crème fraîche is a dairy product, a soured cream, with a pH of approximately 4.5. It is soured with a bacterial culture. European labeling regulations disallow any ingredients other than cream and bacterial culture. Fat percentage is more than 30%
-# comment:en:fr:Creme fraiche is often translated into creme. Even the wikidata page does this. The save approach seems to be to not translate it.
+# comment:en:fr:Creme fraiche is often translated into creme. Even the wikidata page does this. The save approach seems to be to not translate it. Note that in french it means just fresh cream.
 
 <en:sour cream
-en:Crème fraîche, fresh cream
+en:Crème fraîche
 af:Crème fraîche
 cs:Crème fraîche
 da:Cremefraiche, creme fraiche
@@ -10724,7 +10734,7 @@ de:Crème fraîche
 es:Crème fraîche
 eu:Esne-gain gordina, esne-gain freskoa
 fi:crème fraîche
-fr:crème fraîche épaisse, crème fraîche fermentée, Crème fraîche, Crème fraîche liquide
+fr:crème fraîche épaisse, crème fraîche fermentée 
 he:קרם פרש
 hy:Կրեմ-ֆրեշ
 is:Crème fraîche
@@ -10734,7 +10744,7 @@ ko:크렘 프레슈
 ms:Crème fraîche
 nb:Crème fraîche
 nl:Crème fraîche
-pl:Crème fraîche, świeża śmietana
+pl:Crème fraîche
 pt:Crème fraîche
 ru:Крем-фреш
 sv:Crème fraîche
@@ -10754,7 +10764,8 @@ it:panna fresca pastorizzata
 # ingredient/fr:creme-fraiche-pasteurisee has 164 products in 5 languages @2019-07-12
 # usage:fr:Crème fraîche pasteurisée 99.99%, ferments lactiques
 
-# BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
+
+# description:en:BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
 en:buttermilk
 af:Karringmelk
