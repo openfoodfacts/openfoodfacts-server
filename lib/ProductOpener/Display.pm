@@ -6545,7 +6545,7 @@ sub display_field($$) {
 
 	if ((defined $value) and ($value ne '')) {
 		# See https://stackoverflow.com/a/3809435
-		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/)) {
+		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()\@:%_\+.~#?&\/\/=]*)/)) {
 			if ($value !~ /https?:\/\//) {
 				$value = 'http://' . $value;
 			}
@@ -7097,15 +7097,16 @@ JS
 
 		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
 
-			# Skip unknown
-			next if $ingredients_analysis_tag =~ /unknown/;
-
 			my $color;
 			my $icon = "";
 
+			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
+
 			if ($ingredients_analysis_tag =~ /palm/) {
 
-				if ($ingredients_analysis_tag =~ /-free$/) {
+				if (has_tag($product_ref, "labels", "en:palm-oil-free")
+					or ($ingredients_analysis_tag =~ /-free$/)) {
+					$ingredients_analysis_tag = "en:palm-oil-free";
 					$color = "#00aa00"; # green
 					$icon = "icon-monkey_happy";
 				}
@@ -7123,9 +7124,23 @@ JS
 
 				if ($ingredients_analysis_tag =~ /vegan/) {
 					$icon = "icon-leaf";
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegan";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegan")
+						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegan";
+					}
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
 					$icon = "icon-egg";
+					if (has_tag($product_ref, "labels", "en:vegetarian")
+						or has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegetarian";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegetarian";
+					}
 				}
 
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
@@ -7138,6 +7153,9 @@ JS
 					$color = "#00aa00"; # green
 				}
 			}
+
+			# Skip unknown
+			next if $ingredients_analysis_tag =~ /unknown/;
 
 			if ($icon ne "") {
 				$icon = "<i style=\"font-size:32px;margin-right:0.2em;vertical-align:text-top;line-height:24px;\" class=\"$icon\"></i>";
