@@ -436,7 +436,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats', 'missing_property') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -1532,6 +1532,9 @@ sub display_list_of_tags($$) {
 					if ($missing_property) {
 						next if (defined get_inherited_property($tagtype, $tagid, $missing_property));
 					}
+					if ((defined $request_ref->{status}) and ($request_ref->{status} eq "unknown")) {
+						next;
+					}
 				}
 				else {
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
@@ -1541,6 +1544,9 @@ sub display_list_of_tags($$) {
 					# ?missing_property=vegan
 					# keep only known tags
 					next if ($missing_property);
+					if ((defined $request_ref->{status}) and ($request_ref->{status} eq "known")) {
+						next;
+					}
 				}
 			}
 
@@ -1713,11 +1719,12 @@ sub display_list_of_tags($$) {
 HTML
 ;
 				foreach my $type ("known", "unknown", "all") {
-					$html .= "<tr><td>" . $type . "</td>"
+					$html .= "<tr><td><a href=\"?status=$type\">" . $type . "</a></td>"
 					. "<td>" . $stats{$type . "_tags"} . " (" . sprintf("%2.2f", $stats{$type . "_tags"} / $stats{"all_tags"} * 100) . "%)</td>"
 					. "<td>" . $stats{$type . "_tags_products"} . " (" . sprintf("%2.2f", $stats{$type . "_tags_products"} / $stats{"all_tags_products"} * 100) . "%)</td>";
 
 				}
+				$html =~ s/\?status=all//;
 
 				$html .=<<"HTML"
 </table>
@@ -6538,7 +6545,7 @@ sub display_field($$) {
 
 	if ((defined $value) and ($value ne '')) {
 		# See https://stackoverflow.com/a/3809435
-		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/)) {
+		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()\@:%_\+.~#?&\/\/=]*)/)) {
 			if ($value !~ /https?:\/\//) {
 				$value = 'http://' . $value;
 			}
@@ -6732,7 +6739,6 @@ HTML
 	}
 
 
-
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
 
@@ -6802,8 +6808,10 @@ $Lang{warning_gs1_company_prefix}{$lc}
 HTML
 ;
 	}
-
-	if (not has_tag($product_ref, "states", "en:complete")) {
+	if (defined $rev) {
+		$html .= display_rev_info($code, $rev);
+	}
+	elsif (not has_tag($product_ref, "states", "en:complete")) {
 
 		$html .= <<HTML
 <div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
@@ -7090,56 +7098,78 @@ JS
 
 		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
 
-			# Skip unknown
-			next if $ingredients_analysis_tag =~ /unknown/;
-
 			my $color;
 			my $icon = "";
 
+			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
+
 			if ($ingredients_analysis_tag =~ /palm/) {
 
-				if ($ingredients_analysis_tag =~ /-free$/) {
-					$color = "#178c4f"; # green
-					$icon = '<i class="icon-monkey_happy"></i> ';
+				if (has_tag($product_ref, "labels", "en:palm-oil-free")
+					or ($ingredients_analysis_tag =~ /-free$/)) {
+					$ingredients_analysis_tag = "en:palm-oil-free";
+					$color = "#00aa00"; # green
+					$icon = "icon-monkey_happy";
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
-					$color = "#bfb316"; # orange
-					$icon = '<i class="icon-monkey_uncertain"></i> ';
+					$color = "#ff6600"; # orange
+					$icon = "icon-monkey_uncertain";
 				}
 				else {
-					$color = "#bf2316"; # red
-					$icon = '<i class="icon-monkey_unhappy"></i> ';
+					$color = "#ff0000"; # red
+					$icon = "icon-monkey_unhappy";
 				}
 
 			}
 			else {
 
 				if ($ingredients_analysis_tag =~ /vegan/) {
-					$icon = '<i class="icon-leaf"></i> ';
+					$icon = "icon-leaf";
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegan";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegan")
+						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegan";
+					}
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
-					$icon = '<i class="icon-egg"></i> ';
+					$icon = "icon-egg";
+					if (has_tag($product_ref, "labels", "en:vegetarian")
+						or has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegetarian";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegetarian";
+					}
 				}
 
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = "#bf2316"; # red
+					$color = "#ff0000"; # red
 				}
-				elsif ($ingredients_analysis_tag =~ /^en:maybe-$/) {
-					$color = "#4f8c17"; # yellow green
+				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
+					$color = "#ff6600"; # orange
 				}
 				else {
-					$color = "#178c4f"; # green
+					$color = "#00aa00"; # green
 				}
 			}
 
-			$html_analysis .= "<span class=\"button small round disabled\" style=\"background-color:$color;color:white;padding:.5rem 1rem;\">"
+			# Skip unknown
+			next if $ingredients_analysis_tag =~ /unknown/;
+
+			if ($icon ne "") {
+				$icon = "<i style=\"font-size:32px;margin-right:0.2em;vertical-align:text-top;line-height:24px;\" class=\"$icon\"></i>";
+			}
+
+			$html_analysis .= "<span class=\"alert round label\" style=\"background-color:$color;color:white;font-size:1rem;padding-right:1em;\">"
 			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
 			. "</span> ";
 		}
 
 		if ($html_analysis ne "") {
 
-			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b> "
+			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
 			. $html_analysis
 			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
 		}
@@ -9015,7 +9045,66 @@ HTML
 
 	display_structured_response($request_ref);
 }
+sub display_rev_info {
+	my $code = shift;
+	my $rev = shift;
 
+	my $html = '';
+
+	my $path = product_path($code);
+	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	if (not defined $changes_ref) {
+		return '';
+	}
+	my $change_ref = $changes_ref->[$rev-1];
+
+	my $date = display_date_tag($change_ref->{t});
+	my $userid = get_change_userid_or_uuid($change_ref);
+	my $user = display_tag_link("editors", $userid);
+	my $previous_link = '';
+	if ($rev > 1) {
+		$previous_link = '/product/' . $code . '?rev='. ($rev - 1);
+	}
+	my $next_link = '';
+	if ($rev < scalar @$changes_ref) {
+		$next_link = '/product/' . $code . '?rev=' . ($rev + 1);
+	}
+
+	my $comment = $change_ref->{comment};
+	$comment = lang($comment) if $comment eq 'product_created';
+
+	$comment =~ s/^Modification :\s+//;
+	if ($comment eq 'Modification :') {
+		$comment = '';
+	}
+	$comment =~ s/\new image \d+( -)?//;
+	if ($comment ne '') {
+		$comment = "<p> ${\lang('edit_comment')}: $comment</p>";
+	}
+
+
+	$html .= <<"HTML"
+<div id='rev_summary' class='panel callout'>
+	<h4 class='rev_warning'>${\lang('rev_warning')}</h4>
+	<p>
+		${\lang('rev_number')} <span class='rev_nb'>$change_ref->{rev}</span> -
+		<time datetime='$change_ref->{t}'>$date</time> -
+		${\lang('rev_contributor')} <a href='/contributor/$userid' class='rev_contributor'>$user</a>
+	</p>
+	$comment
+HTML
+;
+	if ($previous_link ne '') {
+		$html .= "<span style='margin-right: 2em;'><a href='$previous_link'>← ${\lang('rev_previous')}</a></span>";
+	}
+	$html .= "<span><a href='/product/$code'>${\lang('rev_latest')}</a></span>";
+	if ($next_link ne '') {
+		$html .= "<span style='margin-left: 2em;'><a href='$next_link'>${\lang('rev_next')} →</a></span>";
+	}
+	$html .="</div>";
+	return $html;
+
+}
 sub display_product_history($$) {
 
 	my $code = shift;
