@@ -114,6 +114,16 @@ my %allergens_stopwords = (
 
 );
 
+# Semoule de blé dur de qualité supérieure, précuite à la vapeur :
+
+my %abbreviations = (
+
+fr => [
+["Mat. Gr.", "Matières Grasses"]
+],
+
+);
+
 my %of = (
 	en => " of ",
 	de => " von ",
@@ -145,6 +155,8 @@ my %the = (
 	fr => " le | la | les | l'",
 	it => " il | lo | la | i | gli | le | l'",
 );
+
+
 
 
 # Labels that we want to recognize in the ingredients
@@ -517,6 +529,8 @@ sub extract_ingredients_from_text($) {
 		my $percent = undef;
 		my $origin = undef;
 		my $labels = undef;
+		my $vegan = undef;
+		my $vegetarian = undef;
 
 		#print STDERR "s: $s\n";
 
@@ -563,6 +577,8 @@ sub extract_ingredients_from_text($) {
 						$between =~ s/^(.*?$separators)/origin:$1/;
 					}
 
+					print STDERR "between: $between\n";
+
 					# : is in $separators but we want to keep "origine : France"
 					if (($between =~ $separators) and ($` !~ /\s*(origin|origine)\s*/i)) {
 						$between_level = $level + 1;
@@ -579,11 +595,19 @@ sub extract_ingredients_from_text($) {
 							# origin? (origine : France)
 
 							# try to remove the origin and store it as property
-							if ($between =~ /\s*(origin|origine)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(de origine|d'origine|origine|origin)\s?:?\s?\b(.*)$/i) {
 								$between = '';
-								$origin = $2;
-								$origin =~ s/^\s+//;
-								$origin =~ s/\s+$//;
+								my $origin_string = $2;
+								# d'origine végétale -> not a geographic origin, add en:vegan
+								if ($origin_string =~ /vegetal|végétal/i) {
+									$vegan = "en:yes";
+									$vegetarian = "en:yes";
+								}
+								else {
+									$origin = $origin_string;
+									$origin =~ s/^\s+//;
+									$origin =~ s/\s+$//;
+								}
 							}
 							else {
 
@@ -709,11 +733,19 @@ sub extract_ingredients_from_text($) {
 			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
 			# try to remove the origin and store it as property
-			if ($ingredient =~ /\b(origin|origine)\s?:?\s?\b/i) {
+			if ($ingredient =~ /\b(de origine|d'origine|origine|origin)\s?:?\s?\b/i) {
 				$ingredient = $`;
-				$origin = $';
-				$origin =~ s/^\s+//;
-				$origin =~ s/\s+$//;
+				my $origin_string = $';
+				# d'origine végétale -> not a geographic origin, add en:vegan
+				if ($origin_string =~ /vegetal|végétal/i) {
+					$vegan = "en:yes";
+					$vegetarian = "en:yes";
+				}
+				else {
+					$origin = $origin_string;
+					$origin =~ s/^\s+//;
+					$origin =~ s/\s+$//;
+				}
 			}
 
 			if (defined $labels_regexps{$product_lc}) {
@@ -749,6 +781,12 @@ sub extract_ingredients_from_text($) {
 			}
 			if (defined $labels) {
 				$ingredient{labels} = $labels;
+			}
+			if (defined $vegan) {
+				$ingredient{vegan} = $vegan;
+			}
+			if (defined $vegetarian) {
+				$ingredient{vegetarian} = $vegetarian;
 			}
 
 			if ($ingredient ne '') {
@@ -852,26 +890,33 @@ sub analyze_ingredients($) {
 
 				$values{all_ingredients}++;
 
-				my $ingredientid = $ingredient_ref->{id};
-				my $value = get_inherited_property("ingredients", $ingredientid, $property . ":en");
+				# We may already have a value. e.g. for "matières grasses d'origine végétale" or "gélatine (origine végétale)"
+				my $value = $ingredient_ref->{$property};
 
-				if (defined $value) {
-					$ingredient_ref->{$property} = $value;
-				}
-				else {
-					$value = "undef";
-					if (not (exists_taxonomy_tag("ingredients", $ingredientid))) {
-						$values{unknown_ingredients}++;
-					}
+				if (not defined $value) {
 
-					# additives classes in ingredients are functions of a more specific ingredient
-					# if we don't have a property value for the ingredient class
-					# then ignore the additive class instead of considering the property undef
-					elsif (exists_taxonomy_tag("additives_classes", $ingredientid)) {
-						$value = "ignore";
-						#$ingredient_ref->{$property} = $value;
+					my $ingredientid = $ingredient_ref->{id};
+					$value = get_inherited_property("ingredients", $ingredientid, $property . ":en");
+
+					if (defined $value) {
+						$ingredient_ref->{$property} = $value;
+					}
+					else {
+						if (not (exists_taxonomy_tag("ingredients", $ingredientid))) {
+							$values{unknown_ingredients}++;
+						}
+
+						# additives classes in ingredients are functions of a more specific ingredient
+						# if we don't have a property value for the ingredient class
+						# then ignore the additive class instead of considering the property undef
+						elsif (exists_taxonomy_tag("additives_classes", $ingredientid)) {
+							$value = "ignore";
+							#$ingredient_ref->{$property} = $value;
+						}
 					}
 				}
+
+				not defined $value and $value = "undef";
 
 				defined $values{$value} or $values{$value} = 0;
 				$values{$value}++;
@@ -1630,6 +1675,16 @@ sub preparse_ingredients_text($$) {
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
 
+	# abbreviations
+	if (defined $abbreviations{$product_lc}) {
+		foreach my $abbreviation_ref (@{$abbreviations{$product_lc}}) {
+			my $source = $abbreviation_ref->[0];
+			my $target = $abbreviation_ref->[1];
+			$source =~ s/\./\\\./g;
+			$text =~ s/$source/$target/ig;
+		}
+	}
+
 	# remove extra spaces in compound words width dashes
 	# e.g. céleri - rave -> céleri-rave
 
@@ -1750,6 +1805,8 @@ sub preparse_ingredients_text($$) {
 "huiles végétales",
 "matière grasse",
 "matières grasses",
+"matière grasse végétale",
+"matières grasses végétales",
 "graisses",
 "graisses végétales",
 "lécithine",

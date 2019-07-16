@@ -1228,6 +1228,42 @@ is_deeply ($product_ref->{ingredients},
 ) or diag explain $product_ref;
 
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "mono - et diglycérides d'acides gras d'origine végétale, huile d'origine végétale, gélatine (origine végétale)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+
+is_deeply ($product_ref->{ingredients}, 
+
+[
+     {
+            'from_palm_oil' => 'maybe',
+            'id' => 'en:e471',
+            'rank' => 1,
+            'text' => "mono- et diglyc\x{e9}rides d'acides gras",
+            'vegan' => 'en:yes',
+            'vegetarian' => 'en:yes'
+          },
+          {
+            'id' => 'en:oil',
+            'rank' => 2,
+            'text' => 'huile',
+            'vegan' => 'en:yes',
+            'vegetarian' => 'en:yes'
+          },
+          {
+            'id' => 'en:e428',
+            'rank' => 3,
+            'text' => "g\x{e9}latine",
+            'vegan' => 'en:yes',
+            'vegetarian' => 'en:yes'
+          }
+        ],	
+	
+) or diag explain $product_ref;
 
 
 done_testing();
