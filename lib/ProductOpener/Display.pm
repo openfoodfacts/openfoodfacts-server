@@ -6545,7 +6545,7 @@ sub display_field($$) {
 
 	if ((defined $value) and ($value ne '')) {
 		# See https://stackoverflow.com/a/3809435
-		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/)) {
+		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()\@:%_\+.~#?&\/\/=]*)/)) {
 			if ($value !~ /https?:\/\//) {
 				$value = 'http://' . $value;
 			}
@@ -7098,56 +7098,78 @@ JS
 
 		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
 
-			# Skip unknown
-			next if $ingredients_analysis_tag =~ /unknown/;
-
 			my $color;
 			my $icon = "";
 
+			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
+
 			if ($ingredients_analysis_tag =~ /palm/) {
 
-				if ($ingredients_analysis_tag =~ /-free$/) {
-					$color = "#178c4f"; # green
-					$icon = '<i class="icon-monkey_happy"></i> ';
+				if (has_tag($product_ref, "labels", "en:palm-oil-free")
+					or ($ingredients_analysis_tag =~ /-free$/)) {
+					$ingredients_analysis_tag = "en:palm-oil-free";
+					$color = "#00aa00"; # green
+					$icon = "icon-monkey_happy";
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
-					$color = "#bfb316"; # orange
-					$icon = '<i class="icon-monkey_uncertain"></i> ';
+					$color = "#ff6600"; # orange
+					$icon = "icon-monkey_uncertain";
 				}
 				else {
-					$color = "#bf2316"; # red
-					$icon = '<i class="icon-monkey_unhappy"></i> ';
+					$color = "#ff0000"; # red
+					$icon = "icon-monkey_unhappy";
 				}
 
 			}
 			else {
 
 				if ($ingredients_analysis_tag =~ /vegan/) {
-					$icon = '<i class="icon-leaf"></i> ';
+					$icon = "icon-leaf";
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegan";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegan")
+						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegan";
+					}
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
-					$icon = '<i class="icon-egg"></i> ';
+					$icon = "icon-egg";
+					if (has_tag($product_ref, "labels", "en:vegetarian")
+						or has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegetarian";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegetarian";
+					}
 				}
 
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = "#bf2316"; # red
+					$color = "#ff0000"; # red
 				}
-				elsif ($ingredients_analysis_tag =~ /^en:maybe-$/) {
-					$color = "#4f8c17"; # yellow green
+				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
+					$color = "#ff6600"; # orange
 				}
 				else {
-					$color = "#178c4f"; # green
+					$color = "#00aa00"; # green
 				}
 			}
 
-			$html_analysis .= "<span class=\"button small round disabled\" style=\"background-color:$color;color:white;padding:.5rem 1rem;\">"
+			# Skip unknown
+			next if $ingredients_analysis_tag =~ /unknown/;
+
+			if ($icon ne "") {
+				$icon = "<i style=\"font-size:32px;margin-right:0.2em;vertical-align:text-top;line-height:24px;\" class=\"$icon\"></i>";
+			}
+
+			$html_analysis .= "<span class=\"alert round label\" style=\"background-color:$color;color:white;font-size:1rem;padding-right:1em;\">"
 			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
 			. "</span> ";
 		}
 
 		if ($html_analysis ne "") {
 
-			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b> "
+			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
 			. $html_analysis
 			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
 		}
