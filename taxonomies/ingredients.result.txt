@@ -270,7 +270,7 @@ it:succo di acerola
 nl:acerolasap
 
 < en:Acerola juice
-fr:extrait d'acérola, jus concentré d'acérola
+fr:extrait d'acérola, jus concentré d'acérola, extrait sec d'acérola
 de:Acerolaextrakt
 it:estratto d'acerola
 nl:acerola-extract
@@ -717,6 +717,9 @@ pt:amêndoas inteiras
 
 < en:Almond
 fr:amandes biologiques
+
+< en:Almond
+fr:amandes caramélisées
 
 < en:Almond
 fr:amandes décortiquées
@@ -1294,7 +1297,7 @@ it:zucchero caramellato aromatico
 en:Artichoke hearts
 de:Artischockenherzen
 es:Corazones de alcachofa
-fr:cœurs d'artichauts
+fr:cœurs d'artichauts, Fonds d'artichaut
 it:Cuori di carciofo
 nl:artisjokharten
 
@@ -1371,7 +1374,7 @@ la:Gadus morhua
 
 < en:Atlantic herring
 en:Clupea harengus
-fr:Clupea harengus
+fr:Clupea harengus, clupea harengus pêché en Atlantique Nord
 la:Clupea harengus
 
 < en:Atlantic mackarel
@@ -1408,7 +1411,7 @@ vegetarian:en: maybe
 en:lardon, lardoon
 br:lardez
 es:mechar
-fr:lardons
+fr:lardons, lardons supérieurs
 ja:ラードン
 nl:spekjes
 carbon_footprint_fr_foodges_ingredient:fr: Lardons
@@ -2332,7 +2335,7 @@ ru:Новозеландский макруронус
 
 < en:Blue mussel
 en:Mytilus edulis
-fr:Mytilus edulis
+fr:Mytilus edulis, Mytilus edulis pêchées en Atlantique Nord
 la:Mytilus edulis
 
 < en:Blue whiting
@@ -6306,6 +6309,9 @@ fr:cerises confites
 de:kandierte Kirschen
 
 < en:Cherry
+fr:jus de cerise
+
+< en:Cherry
 < en:Purée
 en:cherry purée
 fr:Purée de cerises
@@ -6472,6 +6478,9 @@ fr:viande de cuisse de poulet
 
 < en:Chicken meat
 fr:viande de poitrine de poulet
+
+< en:Chicken meat
+fr:viande de poulet rôtie
 
 < en:Chicken meat
 fr:viande de poulet séparée mécaniquement
@@ -6809,7 +6818,7 @@ eo:laktoĉokolado
 es:chocolate con leche
 eu:Esnedun txokolate
 fi:maitosuklaa
-fr:chocolat au lait
+fr:chocolat au lait, Chocolat au lait extra fin
 gl:Chocolate con leite
 he:שוקולד חלב
 it:cioccolato al latte
@@ -6882,11 +6891,20 @@ carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau -blanc-
 carbon_footprint_fr_foodges_value:fr: 6.5
 wikidata:en: Q742385
 
+< en:Chocolate
+en:white chocolate powder
+fr:chocolat blanc en poudre
+
 < en:Chokeberry
 < en:Fruit juice
-fr:jus d'aronia
+en:chokeberry juice
 de:Aroniasaft
+fr:jus d'aronia
 it:succo d'aronia
+
+< en:Chokeberry juice
+en:concentrated chokeberry juice
+fr:Jus concentré d'aronia
 
 en:Choline
 ar:كولين
@@ -7845,7 +7863,7 @@ en:fat reduced cocoa powder, low-fat cocoa powder
 de:fettarmes Kakaopulver
 es:cacao magro en polvo, cacao desgrasado en polvo
 fi:vähärasvainen kaakaojauhe
-fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre
+fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé
 it:cacao magro in polvere
 nl:magere cacaopoeder
 pt:cacao magro em pó
@@ -7928,7 +7946,7 @@ fr:huile de coco biologique
 nl:Biologische kokosolie
 
 < en:Coconut oil
-fr:huile de coco non-hydrogénée
+fr:huile de coco non-hydrogénée, huile de coprah non hydrogénée
 
 < en:Coconut oil
 fr:huile de noix de coco totalement hydrogénée, huile de coprah totalement hydrogénée
@@ -8562,7 +8580,7 @@ wikidata:en: Q2596997
 wikipedia:en: https://en.wikipedia.org/wiki/Condiment
 
 < en:Condiment
-en:mixed condiments, seasoning mix, flavored seasoning
+en:mixed condiments, seasoning mix, flavored seasoning, mélange aromatique
 de:Würzmischung
 fr:mélange de condiments, assaisonnement aromatisé
 it:condimenti misti
@@ -9199,6 +9217,10 @@ sk:Kyslá smotana
 vi:Kem chua
 zh:酸忌廉
 wikipedia:en: https://en.wikipedia.org/wiki/Sour_cream
+
+< en:Cream
+en:whipped cream
+fr:crème fouettée
 
 < en:Cream
 en:whole cream
@@ -10277,6 +10299,9 @@ fr:morceaux de foie gras de canard
 
 < en:Duck meat
 fr:cuisses de canard
+
+< en:Duck meat
+fr:gésiers de canard
 
 < en:Duck meat
 fr:magret de canard
@@ -24805,7 +24830,7 @@ eo:Natria stearoila laktilato
 es:E481, Estearoil-2-lactilato de sodio, Estearoil-lactilato de sodio, estearoil-2-lactilato sódico
 et:E481, Naatriumstearoüül-2-laktülaat, Naatriumstearoüüllaktülaat
 fi:E481, Natriumstearoyyli-2-laktylaatti, Natriumstearoyylilaktylaatti, E 481
-fr:E481, Stéaroyl-2-lactylate de sodium, Stéaryl de sodium lactylé, Oléyl de sodium lactylé, Stéaroyllactylate de sodium
+fr:E481, Stéaroyl-2-lactylate de sodium, Stéaryl de sodium lactylé, Oléyl de sodium lactylé, Stéaroyllactylate de sodium, lactylates de sodium
 ga:lachtaláit stéiril sóidiam
 hr:natrijev stearoil-2-laktilat
 hu:E481, Nátrium-sztearoil-2-laktilát, Nátrium-sztearoil-laktilát
@@ -33042,7 +33067,7 @@ pt:fibras de acácia
 
 < en:Citrus fruit
 < en:Fiber
-fr:fibre d'agrume
+fr:fibre d'agrume, fibre végétale d'agrumes
 
 < en:Fiber
 en:inulin
@@ -33117,6 +33142,9 @@ de:Feigen getrocknet
 es:higo seco
 it:fichi essiccati
 
+< en:Fig
+fr:pâte de figue
+
 en:filling, stuffing
 be:Фарш
 bg:Кайма
@@ -33131,7 +33159,7 @@ es:relleno
 et:Hakkliha
 fa:گوشت چرخ کرده
 fi:Jauheliha
-fr:garniture, fourrage, nappage, farce
+fr:garniture, fourrage, nappage, farce, fourrage blanc
 gl:Recheo
 he:מלית
 id:Isian
@@ -37425,6 +37453,9 @@ sv:limejuice
 < en:Fruit juice
 fr:Jus de pruneau obtenu par extraction hydrique
 
+< en:Fruit juice from concentrate
+fr:jus de fruits rouges à base de concentrés
+
 en:galacto-oligosaccharides
 de:Galacto-oligosaccharides
 fr:galacto-oligosaccharides
@@ -39745,7 +39776,7 @@ et:räim
 eu:Sardinzar arrunt
 fa:شاه‌ماهی اطلسی
 fi:silli
-fr:Clupea harengus
+fr:hareng
 he:מליח אטלנטי
 hi:हेरिंग साटन
 hy:Ատլանտյան տառեխ
@@ -40921,6 +40952,9 @@ nl:kiwisap
 fr:purée de kiwi
 de:Kiwipüree
 
+< en:Kiwi juice
+fr:jus de kiwi à base de concentré
+
 < en:Kombu
 en:Saccharina japonica
 la:Saccharina japonica, Laminaria Japonica
@@ -41909,6 +41943,10 @@ fr:jus de citron bio, jus de citron issu de l'agriculture biologique, jus de cit
 nl:biologisch citroensap
 
 < en:Lemon juice
+en:pasteurized lemon juice
+fr:jus de citron pasteurisé
+
+< en:Lemon juice
 fr:pur jus de citron
 
 < en:Lemon juice from concentrate
@@ -42145,7 +42183,7 @@ de:Marsala
 es:Marsala
 fi:Marsala
 fo:Marsalavínfi:Marsala
-fr:vin marsala
+fr:vin marsala, vin Marsala AOC
 hr:Marsala
 id:Anggur Marsala
 ja:強化ワイン
@@ -43919,6 +43957,9 @@ fr:chocolat au lait de couverture
 fr:chocolat au lait du pays alpin
 
 < en:Milk chocolate
+fr:chocolat au lait en poudre
+
+< en:Milk chocolate
 fr:pépites de chocolat au lait
 de:Milchschokoladenstückchen
 it:pezzetti di cioccolato di latte
@@ -43989,6 +44030,9 @@ fr:lait en poudre enrichi en matière grasse
 
 < en:Milk powder
 fr:lait maigre en poudre
+
+< en:Milk powder
+fr:poudre de lait réhydratée
 
 < en:Milk powder
 fr:produits laitiers en poudre
@@ -47227,6 +47271,10 @@ fr:eau minérale naturelle gazeuse
 nl:gashoudend natuurlijk mineraalwater
 
 < en:Natural mineral water
+en:Luchon natural mineral water
+fr:Eau minérale naturelle de Luchon
+
+< en:Natural mineral water
 en:Natural mineral water from the Valais Alps
 de:Natürliches Mineralwasser aus den Walliser Alpen
 fr:Eau minérale naturelle des Alpes Valaisannes
@@ -48757,6 +48805,9 @@ ro:dexpantenol
 sk:dexpantenol
 sl:dekspantenol
 sv:dexpantenol
+
+< en:Papaya
+fr:papayes séchées
 
 < en:Paprika
 en:paprika powder
@@ -52656,6 +52707,10 @@ en:Roscoff PDO onions
 fr:oignon de Roscoff AOP
 nl:Roscoffui met BOB-keurmerk
 
+< en:Carrot
+< en:Roselle flower
+fr:concentré d'hibiscus et de carotte
+
 < en:Rosemary
 en:organic rosemary
 fr:romarin bio
@@ -54133,6 +54188,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Worcestershire_sauce
 fr:préparation deshydratée pour sauce
 
 < en:Sauce
+fr:sauce au café
+
+< en:Sauce
 fr:sauce au vinaigre balsamique
 
 < en:Sauce
@@ -55511,6 +55569,10 @@ carbon_footprint_fr_foodges_value:fr: 10.7
 wikidata:en: Q25326
 wikipedia:en: https://en.wikipedia.org/wiki/Mollusca
 
+< en:Shellfish
+en:shellfish extract
+fr:extrait de crustacé
+
 < en:Shiitake
 en:Lentinula edodes, Lentinus edodes
 la:Lentinula edodes
@@ -56030,7 +56092,7 @@ fr:fromage frais à la ciboulette
 fr:fromage frais au lait demi-écrémé
 
 < en:Soft white cheese
-fr:fromage frais au lait demi-écrémé pasteurisé
+fr:fromage frais au lait demi-écrémé pasteurisé, Fromage frais nature au lait demi-écrémé pasteurisé
 
 en:sourdough
 an:Emprenyatuera
@@ -56371,6 +56433,9 @@ de:dextriniertes Dinkelmehl
 es:harina de espelta dextrinada
 fr:farine d'épeautre dextrinée
 nl:gedextrineerd speltmeel
+
+< en:Spelt flour
+fr:Farine de blé d'épeautre T110
 
 < en:Spelt flour
 fr:farine de petit épeautre
@@ -57329,7 +57394,7 @@ nl:groene spliterwten
 < en:Spring water
 en:Carbonated mineral water, sparkling mineral water
 de:Mineralwasser mit Kohlensäure, kohlensäurehaltiges Mineralwasser
-fr:eau de source gazéifiée, Eau minérale gazeuse
+fr:Eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique, Eau minérale gazeuse
 nl:Bruisend mineraalwater, gashoudendmineraalwater
 
 < en:Spring water
@@ -57342,7 +57407,10 @@ en:natural spring water
 fr:eau de source naturelle
 
 < en:Spring water
-fr:Eau de source avec adjonction de gaz carbonique
+fr:Eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique, Eau minérale gazeuse
+
+< en:Spring water
+fr:eau de source St Benoît, Eau de source Saint Benoît
 
 < en:Squid
 en:argentine shortfin squid
@@ -63569,7 +63637,7 @@ from_palm_oil:en: yes
 < en:Vegetable oil and fat
 en:palm oil and fat
 de:Palmöl und Palmfett, Palmöl und Fett
-fr:Huile et matière grasse de palme
+fr:Huile et matière grasse de palme, Matieres grasses et huile végétale de palme
 it:Olio e grasso di palma
 from_palm_oil:en: yes
 
@@ -65878,6 +65946,10 @@ fr:lait entier pasteurisé de vache
 es:Leche entera pasteurizada de vaca
 
 < en:Whole egg
+en:concentrated whole egg
+fr:oeuf entier concentré
+
+< en:Whole egg
 en:liquid whole egg
 de:Vollei flüssig
 fr:œuf entier liquide, œufs entiers liquides
@@ -65984,6 +66056,9 @@ it:farina integrale di frumento
 en:black wild rice
 fr:riz sauvage noir
 nl:zwarte wilde rijst
+
+< en:Wild rice
+fr:riz sauvage cuit
 
 < en:Wine
 en:liqueur wine, fortified wine
@@ -66810,10 +66885,16 @@ fr:concentré de fruits et de plantes, concentrés de fruits et de plantes
 it:concentrati di frutta e plante
 nl:vruchten- en plantenconcentraten
 
+fr:confiserie
+
 fr:conservateur de surface
 
 fr:cornet biscuit
 nl:ijshoorntje
+
+fr:Crème dessert au chocolat
+
+fr:Crème dessert saveur vanille
 
 < fr:Crème stérilisée
 < fr:Crème uht
@@ -66844,6 +66925,10 @@ fr:d'élevage en plein air
 de:aus Freilandhaltung
 it:d'allevamento all'aperto
 
+fr:Décor orange
+
+fr:décoration au cacao
+
 fr:dextrine de tapioca, dextrine de manioc
 de:Tapiokadextrine
 it:destrina di tapioca
@@ -66867,6 +66952,9 @@ ru:Натрия сахаринат
 
 it:
 nl:
+
+< fr:Eau de source gazéifiée
+fr:Eau de source St Benoît gazéifiée
 
 < fr:Eau minérale naturelle gazéifiée
 fr:Eau minérale naturelle de Spa gazéifiée
@@ -66941,6 +67029,9 @@ it:galletta
 
 fr:génoise
 
+< fr:Gésiers de canard
+fr:Gésiers de canard maigre traités en salaison
+
 < en:Vanilla beans exhausted
 < fr:Gousse de vanille épuisée
 fr:gousses de vanille épuisées broyées, gousses de vanille broyées épuisées
@@ -66963,6 +67054,8 @@ nl:zoete maïskorrels
 pt:milho doce em grão
 
 fr:gras de bœuf, graisse de bœuf
+
+fr:Gratinage
 
 < fr:Haricot mungo
 fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
@@ -67045,6 +67138,9 @@ fr:longe de porc
 
 < fr:Maïs doux en grains
 fr:maïs doux en grains sans ogm
+
+< fr:Manchons de canard
+fr:Manchons de canard du Sud-Ouest
 
 < en:Chestnut
 < fr:Marron
@@ -67137,10 +67233,19 @@ vegetarian:en: no
 < fr:Œufs de cabillaud
 fr:œufs de cabillaud fumés et salés
 
-fr:œufs de lompe
+< fr:Oeufs de cabillaud fumés
+fr:oeufs de cabillaud salés et fumés
+
+fr:œufs de lompe, cyclopterus lumpus
 vegan:en: no
 vegetarian:en: no
 wikipedia:en: https://fr.wikipedia.org/wiki/Œufs_de_lump
+
+< fr:Œufs de lompe
+fr:oeufs de lompe noirs
+
+< fr:Œufs de lompe
+fr:oeufs de lompe rouges
 
 < en:Category A egg
 < fr:Œufs de poules élevées en cage
@@ -67278,12 +67383,16 @@ de:Surimi-Krebsfleischimitat aus Fischmuskeleiweiß geformt
 < fr:Tomates semi-séchées
 fr:tomates semi-séchées marinées, tomates semi-deshydratées et marinées
 
+fr:Tortillas de blé
+
 fr:vermicelle de pois
 nl:vermicelli van erwten
 
 < fr:Vermicelle de pois
 fr:vermicelle de pois réhydraté, vermicelles de pois réhydratés
 nl:gerehydrateerde vermicelli van erwten
+
+fr:Viande cuisinée
 
 < fr:Viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
