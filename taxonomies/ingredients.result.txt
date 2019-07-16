@@ -199,109 +199,6 @@ vegan:en: yes
 vegetarian:en: yes
 
 < :
-en:butter
-am:ቅቤ
-an:manteca
-ar:زبدة
-az:kərə yağı
-ba:aҡ май
-be:cметанковае масла
-bg:kраве масло
-bn:মাখন
-br:amanenn
-bs:maslac
-ca:mantega
-cs:máslo
-cv:Çу
-cy:menyn
-da:smør
-de:Butter
-el:βούτυρο
-eo:butero
-es:mantequilla
-et:või
-eu:gurin
-fa:کره
-fi:voi
-fo:smør
-fr:beurre
-fy:bûter
-ga:im
-gl:manteiga
-gu:માખણ
-he:חמאה
-hi:मक्खन
-hr:maslac
-ht:bè
-hu:vaj
-hy:Կարագ
-id:mentega
-io:butro
-is:smjör
-it:burro
-ja:バター
-jv:mertéga
-ka:კარაქი
-kn:ಬೆಣ್ಣೆ
-ko:버터
-ku:nivîşk
-la:butyrum
-lb:botter
-li:bótter
-lo:ເນີຍ
-lt:sviestas
-lv:sviests
-mk:Путер
-ml:വെണ്ണ
-mr:लोणी
-ms:mentega
-my:ထောပတ်
-nb:smør
-ne:नौनी
-nl:Boter
-nn:smør
-oc:burre
-os:hæлхæ
-pa:ਮੱਖਣ
-pl:masło
-pt:manteiga
-qu:mantikilla
-ro:unt
-ru:cли́вочное ма́сло
-sa:नवनीतम्
-sc:butiru
-sd:مکڻ
-sh:maslac
-si:බටර්
-sk:maslo
-sl:maslo
-so:subag
-sq:gjalpa
-sr:mаслац
-su:mentéga
-sv:smör
-sw:siagi
-ta:வெண்ணெய்
-te:వెన్న
-tg:Равғани зард
-th:เนย
-tl:mantekilya, mantikilya
-tr:tereyağı
-tt:atlan may, aq may
-uk:mасло вершкове
-ur:مکھن
-uz:sariyogʻ
-vi:bơ
-vo:bör
-wa:boure
-yi:פוטער
-zh:黄油
-vegan:en: no
-vegetarian:en: yes
-wikidata:en: Q34172
-wikipedia:en: https://en.wikipedia.org/wiki/Butter
-
-< :
 en:Oncorhynchus gorbuscha
 fr:Oncorhynchus gorbuscha, Saumon rose à bosse
 la:Oncorhynchus gorbuscha
@@ -310,6 +207,10 @@ la:Oncorhynchus gorbuscha
 en:rehydrated soy protein
 fr:protéines de soja réhydratées, protéines végétales de soja réhydratées
 nl:gerehydrateerde soja-eiwit
+
+< :
+< en:Strawberry
+fr:morceaux de fraise
 
 < :
 fr:extrait naturel d'épice, extraits naturels d'épices
@@ -9829,6 +9730,113 @@ fr:Sepiella inermis, Seiche sans épines
 zh:曼氏无针乌贼
 
 en:cytidine 5â-monophosphoric acid (CMP)
+
+en:dairy, dairy product
+fr:produit laitier, produits laitiers
+vegan:en: no
+
+< en:Dairy
+en:butter
+am:ቅቤ
+an:manteca
+ar:زبدة
+az:kərə yağı
+ba:aҡ май
+be:cметанковае масла
+bg:kраве масло
+bn:মাখন
+br:amanenn
+bs:maslac
+ca:mantega
+cs:máslo
+cv:Çу
+cy:menyn
+da:smør
+de:Butter
+el:βούτυρο
+eo:butero
+es:mantequilla
+et:või
+eu:gurin
+fa:کره
+fi:voi
+fo:smør
+fr:beurre
+fy:bûter
+ga:im
+gl:manteiga
+gu:માખણ
+he:חמאה
+hi:मक्खन
+hr:maslac
+ht:bè
+hu:vaj
+hy:Կարագ
+id:mentega
+io:butro
+is:smjör
+it:burro
+ja:バター
+jv:mertéga
+ka:კარაქი
+kn:ಬೆಣ್ಣೆ
+ko:버터
+ku:nivîşk
+la:butyrum
+lb:botter
+li:bótter
+lo:ເນີຍ
+lt:sviestas
+lv:sviests
+mk:Путер
+ml:വെണ്ണ
+mr:लोणी
+ms:mentega
+my:ထောပတ်
+nb:smør
+ne:नौनी
+nl:Boter
+nn:smør
+oc:burre
+os:hæлхæ
+pa:ਮੱਖਣ
+pl:masło
+pt:manteiga
+qu:mantikilla
+ro:unt
+ru:cли́вочное ма́сло
+sa:नवनीतम्
+sc:butiru
+sd:مکڻ
+sh:maslac
+si:බටර්
+sk:maslo
+sl:maslo
+so:subag
+sq:gjalpa
+sr:mаслац
+su:mentéga
+sv:smör
+sw:siagi
+ta:வெண்ணெய்
+te:వెన్న
+tg:Равғани зард
+th:เนย
+tl:mantekilya, mantikilya
+tr:tereyağı
+tt:atlan may, aq may
+uk:mасло вершкове
+ur:مکھن
+uz:sariyogʻ
+vi:bơ
+vo:bör
+wa:boure
+yi:פוטער
+zh:黄油
+vegan:en: no
+vegetarian:en: yes
+wikidata:en: Q34172
+wikipedia:en: https://en.wikipedia.org/wiki/Butter
 
 < en:Dark chocolate
 en:dark chocolate chunks, dark chocolate chips
@@ -43899,9 +43907,6 @@ fr:lait entier reconstitué
 fr:lait fermenté
 nl:gefermenteerde melk
 
-< en:Milk
-fr:produits laitiers
-
 < en:Milk chocolate
 de:Feine Milchschokolade, Vollmilchschokolade
 fr:chocolat supérieur au lait
@@ -57672,10 +57677,6 @@ la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 wikidata:en: Q641656
 wikipedia:en: https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
 
-< :
-< en:Strawberry
-fr:morceaux de fraise
-
 < en:Strawberry
 en:strawberry filling
 fr:nappage à la fraise
@@ -67190,6 +67191,7 @@ fr:poulet rôti traité en salaison
 
 < fr:Poulet traité en salaison
 fr:viande de poulet traitée en salaison
+
 
 < fr:Protéines de blé
 fr:protéines de blé deshydratées
