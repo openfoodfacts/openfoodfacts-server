@@ -11906,7 +11906,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gouda_cheese
 # GRANA PADANO is a hard, slow-ripened, semi-fat, cow's-milk cheese from Italy, comparable to Parmigiano Reggiano ("Parmesan").
 
 <en:cheese
-en:Grana Padano
+en:Grana Padano, Grana Padano PDO cheese
 bg:Грана Падано
 ca:grana padano
 cs:Grana Padano
@@ -12251,7 +12251,7 @@ et:parma juust
 eu:Parmigiano-Reggiano
 fa:پنیر پارمیجانو
 fi:parmesaani
-fr:parmesan, parmigiano reggiano
+fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano aop
 gl:Parmesano
 he:פרמזן
 hr:Parmezan
@@ -12347,13 +12347,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 # fr:pecorino has 45 products in 3 languages @2018-10-27
 
 <en:pecorino
-en:pecorino romano, romano
-fr:pecorino romano, romano
+en:pecorino romano, romano, Peccorino Romano PDO cheese
+fr:pecorino romano, romano, fromage pecorino romano aop
 # en:romano has 65 products in 1 language @2018-10-28
 # fr:pecorino-romano has 30 products in 1 language @2018-10-27
-
-<en:pecorino romano
-fr:fromage pecorino romano aop
 # fr:pecorino-romano-aop has 10 product in 1 language @2018-10-27
 
 
@@ -40453,8 +40450,6 @@ fr:tomates séchées réhydratées
 en:peeled tomatoes
 de:geschälte Tomaten
 fr:tomates pelées, tomate pelée
-carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
-carbon_footprint_fr_foodges_value:fr:1.4
 it:pomodori pelati
 nl:gepelde tomaten
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
@@ -40531,7 +40526,7 @@ carbon_footprint_fr_foodges_value:fr:2.9
 
 <en:tomato
 en:tomato purée, tomato paste, tomato concentrate
-de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat
+de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat
 es:concentrado de tomate
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 it:passata di pomodoro, concentrato di pomodoro
@@ -43346,13 +43341,14 @@ sv:linfrön
 tr:keten
 # nah:Lino xināchtli
 wikidata:en:Q911332
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-lin
-# 449 in 7 languages products @2018-10-08
+# ingredient/fr:graine-de-lin has 449 in 7 languages products @2018-10-08
 
 <en:flax seed
 fr:graines de lin doré
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-lin-doré
-# 40 products in 1 language @2018-10-08
+# ingredient/fr:graines-de-lin-doré has 40 products in 1 language @2018-10-08
+
+<en:flax seed
+fr:lin jaune
 
 <en:flax seed
 en:brown flax seeds
@@ -43364,6 +43360,10 @@ it:semi di lino scuro
 nl:bruin lijnzaad
 nn:brune linfrø
 # ingredient/fr:graines-de-lin-brun has 181 products in 3 languages @2018-10-08
+
+<en:brown flax seeds
+<fr:lin jaune
+fr:lin brun et lin jaune
 
 # description:en:Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
 
