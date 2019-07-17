@@ -10096,7 +10096,7 @@ fr:matière grasse de lait anhydre
 fr:lait écrémé en poudre reconstitué, lait écrémé en poudre réhydraté
 
 <en:milk
-fr:lait entier reconstitué
+fr:lait entier reconstitué, lait reconstitué à partir de lait entier en poudre
 
 <en:milk
 en:modified milk ingredients
@@ -10405,7 +10405,7 @@ vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey
-de:Molkenpulver
+de:Molkenpulver, Molkepulver
 fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre de lactosérum
 it:siero di latte in polvere
 nl:weipoeder
@@ -11552,7 +11552,7 @@ es:emmenthal, emmental
 eu:Emmental
 fa:پنیر امنتال
 fi:Emmental
-fr:emmental
+fr:emmental, fromage emmental
 gl:Emmental
 he:אמנטל
 hr:Ementaler
@@ -11943,10 +11943,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Grana_Padano
 # fr:grana-padano has 159 products in 4 languages @2018-10-27
 
 <en:Grana Padano
-en:Grana Padano PDO cheese
+en:Grana Padano PDO cheese, grana padano cheese pdo
 de:Grana Padano g.U. Käse, Grana Padano Käse g.U.
-fr:fromage grana padano aop, fr:grana padano dop
-it:grana padano dop
+fr:fromage grana padano aop, grana padano dop, fromage grana padano pdo
+it:grana padano dop, formaggio grana padano dop 
 pt:queijo Grana Padano DOP
 # fr:fromage-grana-padano-aop has 36 products in 5 languages @2018-10-27
 
@@ -12251,7 +12251,7 @@ et:parma juust
 eu:Parmigiano-Reggiano
 fa:پنیر پارمیجانو
 fi:parmesaani
-fr:parmesan, parmigiano reggiano
+fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano aop
 gl:Parmesano
 he:פרמזן
 hr:Parmezan
@@ -12347,13 +12347,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 # fr:pecorino has 45 products in 3 languages @2018-10-27
 
 <en:pecorino
-en:pecorino romano, romano
-fr:pecorino romano, romano
+en:pecorino romano, romano, Peccorino Romano PDO cheese
+fr:pecorino romano, romano, fromage pecorino romano aop
 # en:romano has 65 products in 1 language @2018-10-28
 # fr:pecorino-romano has 30 products in 1 language @2018-10-27
-
-<en:pecorino romano
-fr:fromage pecorino romano aop
 # fr:pecorino-romano-aop has 10 product in 1 language @2018-10-27
 
 
@@ -15519,6 +15516,13 @@ fr:chipolatas
 
 <en:pork meat
 fr:chipolatas aux herbes
+
+# <en:compound
+<en:pork meat
+en:stewed porc
+de:geschmortes Schweinefleisch
+fr:viandes de porc à l'étouffée
+it:maiale in umido
 
 <en:pork meat
 en:ham
@@ -20801,7 +20805,7 @@ zh:硬质粗粒小麦粉
 <en:durum wheat semolina
 en:organic durum wheat semolina
 de:Bio Hartweizengriess
-fr:semoule de blé dur bio, semoule de blé dur biologique
+fr:semoule de blé dur bio, semoule de blé dur biologique, Semoule de blé dur issu de l'agriculture biologique
 it:semola di grano duro bio
 nl:biologische harde tarwegries
 # ingredient/fr:semoule-de-ble-dur-bio has 9 products @2019-05-27
@@ -20924,6 +20928,9 @@ nl:tarwevlokken
 pl:płatki pszenne
 
 <en:wheat flakes
+fr:flocons de blé malté
+
+<en:wheat flakes
 de:Weizenvollkornflocken
 fr:flocons de blé complet
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-blé-complet/languages
@@ -21010,6 +21017,10 @@ nl:panko
 ru:Панко
 wikidata:en:Q1820454
 # en:panko has 20 products in english @2018-11-12
+
+# <en:compound
+fr:préparation pain d'épices
+# usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
 
 # Barley (Hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
 # The translations taken from wikipedia need to be checked. They can refer to the plant species.
@@ -21420,6 +21431,9 @@ fi:vehnämallas
 fr:malt de blé, malt de froment, blé malté
 it:malto di frumento, malto di grano
 nl:tarwemout
+
+<en:wheat malt
+fr:blé malté torréfié concassé
 
 <en:malt
 en:malted barley
@@ -21858,6 +21872,10 @@ fr:quinoa cuit
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa-cuit
 # 49 products in 1 language @2018-09-22
 
+<en:red quinoa
+<en:white quinoa
+fr:quinoa rouge et blanc
+
 # SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
 
 <en:cereal
@@ -22096,9 +22114,12 @@ fr:farine de céréales, farines de céréales
 it:farine di cereali
 nl:granenmeel
 
-# WHEAT FLOUR is a powder made from the grinding of wheat used for human consumption
+<en:cereal flour
+fr:farines de graines et céréales
+# usage:fr:farines de graines et céréales (riz, quinoa, millet, riz complet, maïs)
 
-# Question
+# description:en:WHEAT FLOUR is a powder made from the grinding of wheat used for human consumption
+
 
 <en:cereal flour
 <en:wheat
@@ -22727,6 +22748,9 @@ en:organic corn
 fr:Maïs biologique
 nl:biologische mais
 # ingredient/nl:biologische-mais has 1 product @2019-05-24
+
+<en:corn
+fr:maïs torréfié concassé
 
 # CORN MEAL is a meal (coarse flour) ground from dried maize (corn).
 # Is wongly translated in wikipedia as a flour
@@ -23428,7 +23452,7 @@ en:Thai rice, jasmine rice,
 de:Thai-Reis, Jasmin-Reis
 es:Arroz jazmín, Arroz tailandes
 fi:Jasmiiniriisi
-fr:riz thaï, riz jasmin, riz au jasmin, riz parfumé, riz parfume de thailande, riz au jasmin thai
+fr:riz thaï, riz jasmin, riz au jasmin, riz parfumé, riz parfume de thailande, riz au jasmin thai, Riz thaï au jasmin
 it:riso tailandese, di riso tailandese, riso algelsomino
 nl:thaise rijst, jasmijnrijst
 wikidata:en:Q2733021
@@ -23471,7 +23495,7 @@ fr:riz-blanc-thailandais-a-grains-longs-issu-de-l-agriculture-biologique
 
 <en:Thai rice
 en:Thaï brown rice
-fr:Riz thaï complet
+fr:Riz thaï complet, riz complet thaï
 # ingredient/fr:riz-thai-complet has 7 products @2019-05-29
 
 <en:Thaï brown rice
@@ -23485,6 +23509,9 @@ fr:Riz thaï long grain de qualité supérieure
 de:qualitativ hochwertiger thailändischer Langkornreis
 nl:Thaise langkorrelrijst van hoge kwaliteit
 # ingredient/fr:riz-thai-long-grain-de-qualite-superieure has 16 products @2019-05-23
+
+<en:Thai rice
+fr:riz rouge complet thaï au jasmin
 
 # description:fr:Le riz de Camargue est protégé par une IGP dans ses différentes variétés.
 
@@ -26317,6 +26344,10 @@ fr:chocolat au lait de couverture
 <en:milk chocolate
 fr:chocolat au lait en poudre
 
+# <en:compound
+<en:milk chocolate
+fr:barre de chocolat au lait
+
 # description:en:WHITE CHOCOLATE is made of sugar, milk, and cocoa butter, without the cocoa solids. It is pale ivory colour, and lacks many of the compounds found in milk and dark chocolates.
 
 # <en:category:en:White chocolates
@@ -27137,6 +27168,9 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fèves-de-soja-sans-
 # 31 products in 5 languages @2018-09-25
 
 <en:soya bean
+fr:graines de soja toastées
+
+<en:soya bean
 fr:soja dépelliculé, graines de soja dépelliculées, fèves de soja décortiquées
 de:geschälte Sojabohnen
 es:habas de soja descascarilladas
@@ -27152,7 +27186,6 @@ it:fiocchi di soia
 nl:Sojavlokken
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-soja
 # 77 products in 4 languages @2018-09-25
-
 
 <en:soya
 fr:pousses de soja
@@ -27547,6 +27580,9 @@ es:masa madre deshidratada de trigo
 
 <fr:levain de blé
 fr:levain de blé dévitalisé
+
+<de:Sauerteig getrocknet
+fr:levain déshydraté et dévitalisé
 
 <en:sourdough
 de:Roggensauerteig
@@ -36480,7 +36516,9 @@ vegan:en:maybe
 vegetarian:en:maybe
 # fr:aubergines-frites has 41 products in 1 language @2018-10-17
 
-
+<en:aubergine
+en:dried aubergine
+fr:aubergines séchées
 
 # The bamboos are evergreen perennial flowering plants in the subfamily Bambusoideae of the grass family Poaceae. 
 
@@ -37597,7 +37635,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carrot_juice
 
 <en:carrot juice
 en:concentrated carrot juice
-de:Karottensaftkonzentrat
+de:Karottensaftkonzentrat, konzentrierter Karottensaft
 fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concentré
 nl:Geconcentreerd wortelsap
 # fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
@@ -39414,6 +39452,9 @@ pt:pó de espinafre
 # fr:épinards-en-poudre 17 products in 4 languages @2018-10-14
 
 <en:spinach
+fr:épinards déshydratés
+
+<en:spinach
 fr:épinards en branches
 de:Blattspinat
 it:foglie di spinaci
@@ -40425,7 +40466,7 @@ sv:cherrytomater
 
 <en:tomato
 fr:tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
-de:Tomaten halbgetrocknete
+de:Tomaten halbgetrocknete, halbgetrocknete Tomaten
 it:pomodori semiseccchi
 # ingredient/fr:tomates-semi-séchées has 38 products in 4 languages @2018-12-26
 
@@ -40446,6 +40487,10 @@ sv:torkad tomat
 # ingredient/fr:tomate-séchée has 423 products in 9 languages @2018-12-26
 
 <en:dried tomatoes
+en:sundried tomatoes
+de:an der Sonne getrocknete Tomaten
+
+<en:dried tomatoes
 fr:tomates séchées réhydratées
 # ingredient/fr:tomates-séchées-réhydratées has 47 products in french @2018-12-26
 
@@ -40453,8 +40498,6 @@ fr:tomates séchées réhydratées
 en:peeled tomatoes
 de:geschälte Tomaten
 fr:tomates pelées, tomate pelée
-carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
-carbon_footprint_fr_foodges_value:fr:1.4
 it:pomodori pelati
 nl:gepelde tomaten
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
@@ -40469,7 +40512,7 @@ nl:gepelde hele tomaten
 
 <en:tomato
 en:chopped tomatoes
-de:gehackte Tomaten, Tomatenhack
+de:gehackte Tomaten, Tomatenhack, Tomatenfruchtfleisch
 el:ψιλοκαμμένη ντομάτα
 fr:tomate concassée, tomates concassées, tomates concassées, concassé de tomates
 hu:szeletelt paradicsom
@@ -40531,7 +40574,7 @@ carbon_footprint_fr_foodges_value:fr:2.9
 
 <en:tomato
 en:tomato purée, tomato paste, tomato concentrate
-de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat
+de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat
 es:concentrado de tomate
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 it:passata di pomodoro, concentrato di pomodoro
@@ -40629,6 +40672,14 @@ nl:tomatensap uit sapconcentraat
 <en:tomato pulp
 fr:purée et pulpe de tomates
 
+<en:vegetable
+en:green tomato
+de:grüne Tomaten
+fr:tomates vertes
+
+<en:green tomato
+fr:Purée de tomates vertes
+de:Püree aus grünen Tomaten
 
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
@@ -41039,6 +41090,9 @@ nl:gegrilde courgette
 
 <en:Courgette
 fr:courgettes en rondelles
+<en:Courgette
+en:dried courgette
+fr:courgettes séchées
 
 # Watercress or yellowcress is an aquatic plant species with the botanical name Nasturtium officinale. 
 
@@ -42132,6 +42186,9 @@ fr:lentilles corail issues de l'agriculture biologique
 <fr:lentilles rouges
 fr:lentilles rouges décortiquées
 # ingredient/fr:lentilles-rouges-decortiquees has 11 products @2019-06-02
+
+<en:red lentils
+fr:farine de lentilles corail
 
 <en:lentils
 fr:lentillons
@@ -43346,13 +43403,14 @@ sv:linfrön
 tr:keten
 # nah:Lino xināchtli
 wikidata:en:Q911332
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-lin
-# 449 in 7 languages products @2018-10-08
+# ingredient/fr:graine-de-lin has 449 in 7 languages products @2018-10-08
 
 <en:flax seed
 fr:graines de lin doré
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-lin-doré
-# 40 products in 1 language @2018-10-08
+# ingredient/fr:graines-de-lin-doré has 40 products in 1 language @2018-10-08
+
+<en:flax seed
+fr:lin jaune
 
 <en:flax seed
 en:brown flax seeds
@@ -43364,6 +43422,10 @@ it:semi di lino scuro
 nl:bruin lijnzaad
 nn:brune linfrø
 # ingredient/fr:graines-de-lin-brun has 181 products in 3 languages @2018-10-08
+
+<en:brown flax seeds
+<fr:lin jaune
+fr:lin brun et lin jaune
 
 # description:en:Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
 
@@ -46293,8 +46355,11 @@ zh:鼠尾草
 # zh-tw:鼠尾草
 wikidata:en:Q1111359
 wikipedia:en:https://en.wikipedia.org/wiki/Salvia_officinalis
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauge
-# 175 products in 5 languages @2018-10-10
+# ingredient/fr:sauge has 175 products in 5 languages @2018-10-10
+
+<en:sage
+en:sage extract
+fr:extrait de sauge
 
 # Lovage, Levisticum officinale, is a tall perennial plant, the sole species in the genus Levisticum in the family Apiaceae
 
@@ -50223,7 +50288,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Boletus_edulis
 
 <en:cep
 en:Boletus edulis
-fr:Boletus edulis, Cèpe de Bordeaux
+fr:Boletus edulis
 it:funghi porcini
 la:Boletus edulis
 
@@ -50231,7 +50296,22 @@ la:Boletus edulis
 en:dried cep
 fr:cèpes deshydratés
 
-# AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America. 
+<en:mushroom
+en:summer cep, Boletus reticulatus, reticulatus
+fr:Cèpe d'été, reticulatus
+la:Boletus reticulatus
+
+<en:mushroom
+en:dark cep
+fr:Cèpe bronzé
+la:Boletus aereus, aereus
+
+<en:mushroom
+en:pine bolete
+fr:Bolet pinicole
+la:Boletus pinophilus, Boletus pinicola, pinicola
+
+# description:en:AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America. 
 
 <en:mushroom
 en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus
@@ -59821,6 +59901,10 @@ nl:plantaardig extract, plantaardige extracten
 # ingredient/fr:extraits-végétaux has 224 products in 11 languages @2019-05-15
 # usage:fr: extraits végétaux (spiruline, chlorelle, brocoli, épinard, pousses d'orge, pousses de blé, persil, gingembre, algues bleu-vert, ail)
 # usage:fr: arômes naturels (extraits végétaux)
+
+# <en:compound
+<en:vegetable extract
+fr:extraits végétaux à pouvoir colorant
 
 # description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 
