@@ -29390,6 +29390,7 @@ it:succo concentrato
 
 
 <en:fruit
+<en:juice
 en:fruit juice
 de:Fruchtsaft
 es:zumo de frutas
@@ -29399,19 +29400,27 @@ nl:vruchtensap
 vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Juice
-
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits
 # 1687 products in 6 languages @2018-10-04
 
-<fr:jus de fruits
+<en:fruit juice
+en:fruit juice concentrate
+de:Fruchtsaftkonzentrat
+fr:jus concentré de fruits, jus de fruits concentrés
+
+<en:fruit juice concentrate
+fr:jus concentré de fruits rouges
+
+<en:fruit juice concentrate
 en:fruit juice from concentrate, fruit juices from concentrate
 de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
 es:zumo de frutas a partir de concentrado
-fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés, fr:jus concentré de fruits, jus de fruits concentrés
+fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés,
 it:succhi di frutta a base di concentrato, succhi di frutta a base di concentrati
 nl:vruchtsap van concentraat, vruchtensap uit concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits-à-base-de-concentré
 # 650 products in 7 languages @2018-10-04
+
 
 <en:fruit juice from concentrate
 fr:jus de fruits rouges à base de concentrés
