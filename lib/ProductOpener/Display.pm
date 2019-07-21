@@ -6422,7 +6422,7 @@ sub display_image_box($$$) {
 		$img = <<"HTML"
 <figure id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 $img
-<figcaption><a href="/cgi/product_image.pl?code=$code&amp;id=$linkid" title="$alt"><img src="/images/svg/cc.svg" alt="Creative Commons icon"></a></figcaption>
+<figcaption><a href="/cgi/product_image.pl?code=$code&amp;id=$linkid" title="$alt"><i class="icon-cc"></i></a></figcaption>
 </figure>
 HTML
 ;
