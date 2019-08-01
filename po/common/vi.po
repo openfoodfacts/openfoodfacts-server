@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 23:12\n"
+"PO-Revision-Date: 2019-08-01 18:15\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -368,11 +368,11 @@ msgstr "Nguồn dữ liệu"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "các nguồn dữ liệu"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "nguồn dữ liệu"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -657,7 +657,7 @@ msgstr "<a href=\"https://world-vi.openfoodfacts.org/legal\">Pháp lý</a> -\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "và nhóm Facebook<a href=\"https://www.facebook.com/groups/openfoodfacts/\"> cho các cộng tác viên</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -712,7 +712,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Theo dõi chúng tôi trên<a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -797,7 +799,7 @@ msgstr "Hẹn gặp lại!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "các sản phẩm %d phù hợp với tiêu chí tìm kiếm, trong đó các sản phẩm %i có các giá trị được xác định cho biểu đồ hình trục."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -863,15 +865,15 @@ msgstr "Bạn phải nhập các ký tự của mã vạch hoặc gửi hình �
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr ""
+msgstr "Các sản phẩm bạn đã thêm cần được hoàn thành"
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr ""
+msgstr "người cung cấp thông tin"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr ""
+msgstr "những người cung cấp thông tin"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -891,11 +893,11 @@ msgstr "Lưu ý: các thành phần có thể được liệt kê với nhiều 
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr ""
+msgstr "các thành phần từ hoặc có thể từ dầu cọ"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "thành phần từ hoặc có thể từ dầu cọ"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
@@ -903,7 +905,7 @@ msgstr "các thành phần từ dầu cọ"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "thành phần từ dầu cọ"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -935,11 +937,11 @@ msgstr "Các thành phần được liệt kê theo thứ tự tầm quan trọn
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "Ngũ cốc 85,5% (_bột_lúa-_mì, bột_lúa-_mì-_nguyên-_chất 11%), chiết xuất mạch nha, ca cao 4,8%, vitamin C"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "Làm theo hướng dẫn, chỉ ra % khi được chỉ định, tách với dấu phẩy hoặc - , dúng () cho nhiều thành phần hoặc một thành phần, bao quanh các chất gây dị ứng với _e.g._milk_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
@@ -947,7 +949,7 @@ msgstr "nguyên liệu có thể từ dầu cọ"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "thành phần có thể làm từ dầu cọ"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
@@ -963,7 +965,7 @@ msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "các chất dinh dưỡng đã biết"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
@@ -983,7 +985,7 @@ msgstr "Chỉ hiển thị các nhãn cụ thể nhất. Nhãn \"Cha mẹ\" sẽ
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "nhãn hiệu"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
@@ -991,7 +993,7 @@ msgstr "Các sản phẩm có nhãn %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "nhãn hiệu"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1171,11 +1173,11 @@ msgstr "Ngày chỉnh sửa cuối cùng"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Những ngày hình ảnh cuối cùng"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Ngày hình ảnh cuối cùng"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
@@ -1299,7 +1301,7 @@ msgstr "Các sản phẩm không được sản xuất hoặc chế biến ở %
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr ""
+msgstr "Các sản phẩm %d phù hợp với tiêu chí tìm kiếm, trong đó các sản phẩm %i có nơi sản xuất đã xác định."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1338,7 +1340,7 @@ msgstr "/discover"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Nhiệm vụ: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
@@ -1346,7 +1348,7 @@ msgstr "Nhiệm vụ này đã được hoàn thành bởi:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "Được hoàn thành bởi %d người."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
@@ -1354,15 +1356,15 @@ msgstr "Hãy là người đầu tiên hoàn thành nhiệm vụ này!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Mục tiêu:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Các nhiệm vụ"
 
 msgctxt "moderate"
 msgid "moderate"
-msgstr ""
+msgstr "chủ tọa"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
@@ -1382,7 +1384,7 @@ msgstr "Tên"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "Những cái tên"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
@@ -1451,11 +1453,11 @@ msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "các mức độ dinh dưỡng"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "mức độ dinh dưỡng"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
@@ -1463,15 +1465,15 @@ msgstr "nguồn Thực Phẩm"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Các sản phẩm có chứ thành phần %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "chất dinh dưỡng"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Các sản phẩm không chứa thành phần %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1487,7 +1489,7 @@ msgstr "Sự kiện dinh dưỡng trung bình cho %d sản phẩm thuộc loại
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "% chênh lệch"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -1499,7 +1501,7 @@ msgstr "So sánh với giá trị trung bình của sản phẩm trong cùng m�
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Xin lưu ý: đới với mỗi loại ding dưỡng, trung bình được tính cho các sản phẩm mà số liệu dinh dưỡng đã được biết, không phải tất cả sản phẩm trong danh mục."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
@@ -1507,7 +1509,7 @@ msgstr "Nếu hình ảnh đủ sắc nét và mức độ, sự kiện dinh dư
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "Phần trăm thứ 10"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
@@ -1515,19 +1517,19 @@ msgstr "cho 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup>th</sup> phần trăm"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Trung bình"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "Phần trăm thứ 90"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95<sup>th</sup> phần trăm"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1535,7 +1537,7 @@ msgstr "Tối đa"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Trung bình"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
@@ -1565,11 +1567,11 @@ msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Các lớp dinh dưỡng"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Lớp dinh dưỡng"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
@@ -1585,7 +1587,7 @@ msgstr "<p>Để tìm hiểu thêm về <<site_name>>, hãy truy cập <a href=\
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Thời sự"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -2311,9 +2313,8 @@ msgid "Serving size"
 msgstr "Kích thước phục vụ"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3309,6 +3310,30 @@ msgstr "phân tích thành phần"
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Phân tích thành phần"
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr ""
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
