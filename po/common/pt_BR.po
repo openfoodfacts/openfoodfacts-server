@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 23:01\n"
+"PO-Revision-Date: 2019-08-01 17:43\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2312,9 +2312,8 @@ msgid "Serving size"
 msgstr "Tamanho da porção"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3301,17 +3300,41 @@ msgstr "popularidade"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "análise de ingredientes"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "análise de ingredientes"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Análise de ingredientes"
 
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr ""
+
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "A análise basea somente nos ingredientes listados e não leva métodos de processamento em conta."
 
