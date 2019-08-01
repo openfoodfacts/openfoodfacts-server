@@ -1,6 +1,6 @@
 <div id="main_column" class="XXLarge-11 xlarge-10 wide-9 medium-8 columns" style="padding-top: 1REM; height: 4313px;" data-equalizer-watch="">
 
-<!-- Hand column content - how used to remove left column and center glad On Some pages -->  
+<!-- Hand column content - how used to remove left column and center glad On Some pages -->
 
 <h1>Nutri-Score Nutritional Score and Color grades</h1>
 
@@ -10,7 +10,8 @@
 
 <img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
 
-<p>De waardering worden bepaald door een voedingsscore te berekenen die overeenkomt met ten eerste door het aandeel energie, verzadigd vet, suikers, natrium (veel wordt als ongezond beschouwd) en ten tweede door het aandeel fruit, groenten en noten, vezels en eiwitten  (veel wordt als gezond beschouwd).</p>
+<p>These color accents are set by calculating a nutritional score that reflects for the 1st part of the energy, saturated fat, sugars, sodium (high levels are considered unhealthy), and for the 2nd part of the proportion of fruits, vegetables and nuts, fibers and proteins
+  (high levels are considered good for health).</p>
 
 <p>om meer te leren.</p>
 
@@ -25,8 +26,8 @@
 
 <p>De formule voor het berekenen van de voedingswaarde, de waarderingsdrempels en de verschillende aanpassingen werden door het team van professor Hercberg ingebracht. Deze formule is onderzocht en aangepast voor de Franse markt.</p>
 
-<p>De door Open Food Facts geïmplementeerde versie van de formule is gebaseerd op het rapport 
-"<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">NOTICE of the High Council for Public Health relating to information on the nutritional quality of food products published on June 25, 2015</a>".</p>
+<p>The version adopted officially and implementated on Open Food Facts is the one from the report
+<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">NOTICE of the High Council for Public Health relating to information on the nutritional quality of food products published on June 25, 2015</a>.</p>
 
 <p>We berekenen zelf de voedingsscore van levensmiddelen in de database Open Food Facts, en bepalen zelf de overeenkomstige A tot E-waarderingen. Dit maakt het met name mogelijk om de voedingsscore van verschillende producten te vergelijken en om de distributie binnen elke productcategorie te bestuderen.</p>
 
@@ -146,31 +147,31 @@
   <td>≤40</td>
   <td>≤0.7</td>
   <td>≤1.6</td>
-</tr> 
+</tr>
 <tr>
     <td>1</td>
     <td>&gt;40</td>
     <td>&gt;0.7</td>
     <td>&gt;1.6</td>
-</tr> 
+</tr>
 <tr>
   <td>2</td>
   <td>&gt;60</td>
   <td>&gt;1.4</td>
   <td>&gt;3.2</td>
-</tr> 
+</tr>
 <tr>
   <td>3</td>
   <td>-</td>
   <td>&gt;2.1</td>
   <td>&gt;4.8</td>
-</tr> 
+</tr>
 <tr>
   <td>4</td>
   <td>-</td>
   <td>&gt;2.8</td>
   <td>&gt;6.4</td>
-  </tr> 
+  </tr>
 <tr>
   <td>5</td>
   <td>&gt;80</td>
@@ -197,10 +198,11 @@
 
 <h3>Aanpassingen voor de Franse markt</h3>
 
-<p>De bovenstaande formule van voedingsscore komt overeen met de formule van de 
-  voedingswaarde van het Food Standards Agency (FSA) in het Verenigd Koninkrijk.</p>
+<p>The formula of nutritional score indicated above corresponds to the formula of the
+  nutritional score of the Food Standards Agency (FSA) in the UK.</p>
 
-<p>Het team van professor Hercberg heeft aanpassingen voor de Franse markt bepaald, die zijn geïmplementeerd om de score op Open Food Facts te berekenen.</p>
+<p>The team of Professor Hercberg offers adaptations for the French market that
+  are implemented to calculate the score on Open Food Facts.</p>
 
 <h4>Aanpassing voor kaas</h4>
 
@@ -208,8 +210,9 @@
 
 <h4>Aanpassing voor vet</h4>
 
-<p>Om rekening te houden met producten met een groot percentage verzadigde vetten (oliën, margarines, crèmes fraîches), is er een aparte tabel waarbij rekening gehouden wordt met de verhouding van verzadigde vetzuren op het totale vet. 
-Dit betekent:</p>
+<p>To help differentiate between fats (oils, margarines, crèmes fraîches), all of which have rates of
+  saturated fat higher than the maximum threshold of 10 g,
+  another grid that takes into account the ratio of saturated fatty acids on the total fat is applied:</p>
 
 <table class="points">
 <tbody>
@@ -218,47 +221,47 @@ Dit betekent:</p>
     <td>Verhouding verzadigd / totaal vet</td>
   </tr>
 <tr>
-  <td>0</td> 
+  <td>0</td>
   <td>&lt; 10</td>
 </tr>
 <tr>
-  <td>1</td> 
+  <td>1</td>
   <td>&lt; 16</td>
 </tr>
 <tr>
-  <td>2</td> 
+  <td>2</td>
   <td>&lt; 22</td>
 </tr>
 <tr>
-  <td>3</td> 
+  <td>3</td>
   <td>&lt; 28</td>
 </tr>
 <tr>
-  <td>4</td> 
+  <td>4</td>
   <td>&lt; 34</td>
 </tr>
 <tr>
-  <td>5</td> 
+  <td>5</td>
   <td>&lt; 40</td>
 </tr>
 <tr>
-  <td>6</td> 
+  <td>6</td>
   <td>&lt; 46</td>
 </tr>
 <tr>
-  <td>7</td> 
+  <td>7</td>
   <td>&lt; 52</td>
 </tr>
 <tr>
-  <td>8</td> 
+  <td>8</td>
   <td>&lt; 58</td>
 </tr>
 <tr>
-  <td>9</td> 
+  <td>9</td>
   <td>&lt; 64</td>
 </tr>
 <tr>
-  <td>10</td> 
+  <td>10</td>
   <td>&gt;64</td>
 </tr>
 </tbody>
@@ -270,7 +273,8 @@ Dit betekent:</p>
 
 <h4>Aanpassingen voor dranken</h4>
 
-<p>Let op: de voedingswaarde voor melk en groente wordt berekend met de algemene formule en niet met de formule voor dranken.</p>
+<p>Warning: the nutritional score for milk and vegetable milks is calculated with the general formula and
+  not the formula for drinks.</p>
 
 <p>De energie- en suikers-drempels zijn aangepast voor dranken en de Punten voor fruit worden verdubbeld:</p>
 
@@ -285,64 +289,64 @@ Dit betekent:</p>
 <tr>
   <td>0</td>
   <td>0</td>
-  <td>0</td> 
+  <td>0</td>
   <td>&lt; 40</td>
 </tr>
 <tr>
-  <td>1</td> <td>≤30</td> 
-  <td>≤ 1,5 of zoetstoffen</td> 
+  <td>1</td> <td>≤30</td>
+  <td>≤ 1,5 of zoetstoffen</td>
   <td></td>
 </tr>
 <tr>
-  <td>2</td> <td>&gt;30</td> 
-  <td>&gt;1.5</td> 
+  <td>2</td> <td>&gt;30</td>
+  <td>&gt;1.5</td>
   <td>&gt;40</td>
 </tr>
 <tr>
-  <td>3</td> <td>&gt;60</td> 
-  <td>&gt;3</td> 
+  <td>3</td> <td>&gt;60</td>
+  <td>&gt;3</td>
   <td></td>
 </tr>
 <tr>
   <td>4</td>
-  <td>&gt;90</td> 
-  <td>&gt;4.5</td> 
+  <td>&gt;90</td>
+  <td>&gt;4.5</td>
   <td>&gt;60</td>
 </tr>
 <tr>
-  <td>5</td> 
-  <td>&gt;120</td> 
-  <td>&gt;6</td> 
+  <td>5</td>
+  <td>&gt;120</td>
+  <td>&gt;6</td>
   <td></td>
 </tr>
 <tr>
-  <td>6</td> 
-  <td>&gt;150</td> 
-  <td>&gt;7.5</td> 
+  <td>6</td>
+  <td>&gt;150</td>
+  <td>&gt;7.5</td>
   <td></td>
 </tr>
 <tr>
-  <td>7</td> 
-  <td>&gt;180</td> 
-  <td>&gt;9</td> 
+  <td>7</td>
+  <td>&gt;180</td>
+  <td>&gt;9</td>
   <td></td>
 </tr>
 <tr>
-  <td>8</td> 
-  <td>&gt;210</td> 
-  <td>&gt;10.5</td> 
+  <td>8</td>
+  <td>&gt;210</td>
+  <td>&gt;10.5</td>
   <td></td>
 </tr>
 <tr>
-  <td>9</td> 
-  <td>&gt;240</td> 
-  <td>&gt;12</td> 
+  <td>9</td>
+  <td>&gt;240</td>
+  <td>&gt;12</td>
   <td></td>
 </tr>
 <tr>
-  <td>10</td> 
-  <td>&gt;270</td> 
-  <td>&gt;13.5</td> 
+  <td>10</td>
+  <td>&gt;270</td>
+  <td>&gt;13.5</td>
   <td>&gt;80</td>
   </tr>
 </tbody>
@@ -373,8 +377,9 @@ Dit betekent:</p>
 <p><b>Waarschuwing: deze waarderingen komen mogelijk niet overeen met de aanbevolen waarderingen:</b></p>
 
 <ul>
-<li>De vezels zijn niet altijd vermeld in de voedingswaardentabel. Indien de vezels niet zijn vermeld, is de positieve bijdrage van deze vezels niet in rekening genomen. We moedigen alle producenten aan om de hoeveelheid vezels van hun producten op de verpakking te zetten.</li>
-  
+<li>De vezels zijn niet altijd vermeld in de voedingswaardentabel. Indien de vezels niet zijn vermeld, is de positieve bijdrage van deze vezels niet in rekening genomen. We encourage all producers to indicate
+  the fiber content of their products on the packaging thereof.</li>
+
   <--end of current proofread -->
 <li>Punten die overeenkomen met de niveaus in groente en fruit worden niet voor alle producten in in rekening genomen. Het fruit- en groente-gehalte staat niet in de voedingswaardentabellen en moeten bepaald worden door andere informatie (zoals de woorden "minimale fruitinhoud", de categorie producten (bijv. jam bevatten 50% fruit) en/of de ingrediëntenlijst.)
 <ul>
@@ -391,13 +396,14 @@ Dit betekent:</p>
 Voor het berekenen van de voedingswaarde is het belangrijk om niveaus boven 40%, 60% en 80% te onderscheiden.
 </li>
 </ul>
-  
+
 </li>
 
 <li>Voor gevriesdroogde levensmiddelen (verpakte soepen, enz.) moet de score worden berekend voor het uiteindelijke product, niet het ruwe product zoals momenteel het geval is.</li>
 </ul>
 
-<p>Je kan ons helpen met het vaststellen van de hoeveelheid groente, fruit en noten van producten. Voor meer informatie, zie het <a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">de Nutritional Labeling</a> project op de wiki.</p>
+<p>Je kan ons helpen met het vaststellen van de hoeveelheid groente, fruit en noten van producten. For more information, see
+<a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">the Nutritional Labeling</a> project on the wiki.</p>
 
 <p>Opmerking: knolgewassen, zoals aardappelen en zoete aardappelen, worden niet als groente beschouwd om voedingswaardering te berekenen.</p>
 <h2>Dankwoord</h2>
