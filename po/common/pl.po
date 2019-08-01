@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 22:56\n"
+"PO-Revision-Date: 2019-08-01 17:41\n"
 "Language-Team: Polish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -767,7 +767,7 @@ msgstr "Kim jesteśmy"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/kim jesteśmy"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -962,7 +962,7 @@ msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1318,7 +1318,7 @@ msgstr "Dodaj produkt"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/dodaj produkt"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1327,7 +1327,7 @@ msgstr "Wnieś wkład"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/współpracuj"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1336,7 +1336,7 @@ msgstr "Odkryj"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/odkrywaj"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1449,7 +1449,7 @@ msgstr "Żywnościowe poziomy 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/zawartość składników odżywczych"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2311,9 +2311,8 @@ msgid "Serving size"
 msgstr "Porcja"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2788,7 +2787,7 @@ msgstr "Partnerzy"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partnerzy"
 
 msgctxt "adults"
 msgid "Adults"
@@ -3256,7 +3255,7 @@ msgstr "Pomóż przetłumaczyć %s na %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr ""
+msgstr "Możesz zaproponować tłumaczenia poniższych wpisów, które nie zostały jeszcze przetłumaczone na Twój język. Niebieski link w języku angielskim pokazuje odpowiednie produkty, czarny tekst w języku angielskim pokazuje oryginalny wpis z opcjonalnymi synonimami oddzielonymi przecinkami. Wprowadź tłumaczenie w polu tekstowym, razem z opcjonalnymi synonimami, a następnie kliknij przycisk Zapisz. Dzięki!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3292,25 +3291,49 @@ msgstr "Pomiń"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "popularność"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "popularność"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "analiza składu"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "analiza składu"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Analiza składników"
 
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr ""
+
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "Analiza opiera się wyłącznie na wymienionych składnikach i nie uwzględnia metod przetwarzania."
 
