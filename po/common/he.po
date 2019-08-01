@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 22:44\n"
+"PO-Revision-Date: 2019-08-01 17:32\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2313,9 +2313,8 @@ msgid "Serving size"
 msgstr "גודל ההגשה"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3217,15 +3216,15 @@ msgstr "השפעה פחמנית עקב בשר או דג"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
-msgstr ""
+msgstr "מתוך פליטות פחמן מבשר או דגים עבור המוצר כולו"
 
 msgctxt "of_sustainable_daily_emissions_of_1_person"
 msgid "of sustainable daily emissions of 1 person"
-msgstr ""
+msgstr "מתוך פליטות יומיות בנות קיימא לאדם"
 
 msgctxt "of_sustainable_weekly_emissions_of_1_person"
 msgid "of sustainable weekly emissions of 1 person"
-msgstr ""
+msgstr "מתוך פליטות שבועיות בנות קיימא לאדם"
 
 msgctxt "for_one_serving"
 msgid "for one serving"
@@ -3237,15 +3236,15 @@ msgstr "מתודולוגיה"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
-msgstr ""
+msgstr "חישובי פליטות פחמן מסתמכות על ערכי ה־CO₂ לקילוגרם שנתרמו מהתכנית FoodGES מאת <a href=\"https://www.ademe.fr\">ADEME</a>."
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
-msgstr ""
+msgstr "פליטות שנתיות בנות קיימא: 2 טונות של CO₂ או כל חומר תואם לאדם כדי להגיע ליעדים שנקבעו ב־COP21."
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr ""
+msgstr "חישובי טביעת רגל פחמנית הם לא חד משמעיים. יש להתייחס לנתונים בזהירות רבה משום שהם יותר מיועדים להשוואה יחסית מאשר כערכים מוחלטים."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
@@ -3301,17 +3300,41 @@ msgstr "פופולריות"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ניתוח רכיבים"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ניתוח רכיבים"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "ניתוח מרכיבים"
 
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr ""
+
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "הניתוח מבוסס לחלוטין על הרכיבים שמופיעים ושיטות העיבוד אינן נלקחות בחשבון."
 
