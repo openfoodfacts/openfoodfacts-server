@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-12 17:21\n"
+"PO-Revision-Date: 2019-08-01 15:32\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -193,7 +193,7 @@ msgstr "您还可以帮助资助Open Food Facts项目"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"赞助 Open Food Facts\" /></a><p><<site_name>> 由非营利性机构创办，独立于食品，倡导服务人人，人人贡献。通过<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">捐助 Open Food Facts</a> 以及 <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">使用 Lilo 搜索引擎</a>我们就能获得帮助。<br/><b>谢谢您的支持！</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -733,7 +733,7 @@ msgstr "相关法律"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "法律"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -755,7 +755,7 @@ msgstr "使用条款"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "使用条件"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -764,7 +764,7 @@ msgstr "我们是谁"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "我们是谁"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -1322,7 +1322,7 @@ msgstr "贡献"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/贡献"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1331,7 +1331,7 @@ msgstr "发现"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/发现"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1444,7 +1444,7 @@ msgstr "每一百克含有的营养成分"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/营养水平"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2302,9 +2302,8 @@ msgid "Serving size"
 msgstr "分量"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3299,6 +3298,30 @@ msgstr ""
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "分析成分"
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr ""
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
