@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 23:02\n"
+"PO-Revision-Date: 2019-08-01 17:51\n"
 "Language-Team: Romanian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -733,7 +733,7 @@ msgstr "Presa"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/presa"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -1304,7 +1304,7 @@ msgstr "Contribuiți"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribuiți"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1313,7 +1313,7 @@ msgstr "Descoperiți"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/descoperiți"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1426,7 +1426,7 @@ msgstr "Valori nutriționale pentru 100g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/valori-nutritionale"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2280,9 +2280,8 @@ msgid "Serving size"
 msgstr "Cantitatea unei porții"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3278,6 +3277,30 @@ msgstr ""
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Analiza ingredientelor"
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr ""
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
