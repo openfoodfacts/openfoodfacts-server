@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 17:57\n"
+"PO-Revision-Date: 2019-08-02 12:21\n"
 "Language-Team: Thai\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -135,16 +135,16 @@ msgid "Product page also edited by"
 msgstr "หน้าผลิตภัณฑ์แก้ไขโดย"
 
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" /><img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" /><img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"ดาวน์โหลดที่ Google Play\" width=\"135\" height=\"47\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -191,7 +191,7 @@ msgstr "นอกจากนี้คุณยังสามารถช่ว
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> ทำโดยสมาคมที่ไม่แสวงหาผลกำไรซึ่งเป็นอิสระจากอุตสาหกรรม มันถูกสร้างขึ้นมาสำหรับทุกคนโดยทั้งหมดและได้รับทุนจากทุกคน คุณสามารถสนับสนุนการทำงานของเราโดย <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">บริจาคเพื่อเปิด Food Facts</a> และโดย <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">โดยใช้เครื่องมือค้นหา Lilo</a><br/><b>ขอบคุณ!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
