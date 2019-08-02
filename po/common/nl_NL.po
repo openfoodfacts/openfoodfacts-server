@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 22:39\n"
+"PO-Revision-Date: 2019-08-01 18:21\n"
 "Language-Team: Dutch\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -714,7 +714,7 @@ msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 msgstr "Volg ons op <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
-"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Google+</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -961,7 +961,7 @@ msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2311,9 +2311,8 @@ msgid "Serving size"
 msgstr "Grootte van een portie"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "Bereide portiegrootte"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3291,25 +3290,49 @@ msgstr "Overslaan"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "populariteit"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "populariteit"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ingrediënten analyse"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ingrediënten analyse"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "ingrediënten_analyse"
 
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "Je bekijkt een oude versie van deze productpagina!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Revisie nummer: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Gewijzigd door: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Vorige versie"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Volgende versie"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Laatste versie"
+
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "De analyse is uitsluitend gebaseerd op de vermelde ingrediënten en houdt geen rekening met verwerkingsmethoden."
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-12 03:52\n"
+"PO-Revision-Date: 2019-08-01 17:57\n"
 "Language-Team: Thai\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -116,7 +116,7 @@ msgstr "การดื่มมากเกินไปเป็นอันต
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "ภารกิจทั้งหมด"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -136,7 +136,7 @@ msgstr "หน้าผลิตภัณฑ์แก้ไขโดย"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" /><img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" /><img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
@@ -2280,9 +2280,8 @@ msgid "Serving size"
 msgstr "ขนาดให้บริการ"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3276,6 +3275,30 @@ msgstr ""
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
+msgstr ""
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
 msgstr ""
 
 msgctxt "ingredients_analysis_disclaimer"

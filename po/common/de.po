@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-09 13:31\n"
+"PO-Revision-Date: 2019-08-01 17:24\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -712,7 +712,7 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr "Folgen Sie uns auf <a href=\"https://twitter.com/openfoodfactsde\">Twitter</a>,\n"
+msgstr "Folgen Sie uns auf <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> und\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
@@ -1327,7 +1327,7 @@ msgstr "Mitwirken"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/mitwirken"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1336,7 +1336,7 @@ msgstr "Entdecken"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/entdecken"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1449,7 +1449,7 @@ msgstr "Nährstoffwerte für 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/naehrwertstufen"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1562,7 +1562,7 @@ msgstr "Die Tabelle listet standardmäßig Nährstoffe auf, die häufig angegebe
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr "-"
+msgstr "•"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -2313,9 +2313,8 @@ msgid "Serving size"
 msgstr "Portionsgröße"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "Zubereitete Portionsgröße"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3311,6 +3310,30 @@ msgstr "Analyse der Inhaltsstoffe"
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Analyse der Inhaltsstoffe"
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "Sie betrachten eine veraltete Version dieser Produktseite!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Revisionsnummer: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Bearbeitet von: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Vorherige Version"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Nächste Version"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Aktuelle Version"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."

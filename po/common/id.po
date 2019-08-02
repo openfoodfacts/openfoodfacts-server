@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 22:48\n"
+"PO-Revision-Date: 2019-08-01 17:31\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -748,7 +748,7 @@ msgstr "/siapa-kita"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr "<<site_name>> wiki (en)"
+msgstr "<< site_name >> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
@@ -1415,7 +1415,7 @@ msgstr "Tingkat hara untuk 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/-tingkat-hara"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2271,9 +2271,8 @@ msgid "Serving size"
 msgstr "Melayani ukuran"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2313,7 +2312,7 @@ msgstr "Database bahan, fakta gizi dan informasi tentang produk makanan yang kol
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr "membuka fakta makanan"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -3268,6 +3267,30 @@ msgstr ""
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Analisis bahan"
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr ""
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
