@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 17:32\n"
+"PO-Revision-Date: 2019-08-04 21:54\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -137,7 +137,7 @@ msgstr "עמוד המוצר נערך גם על ידי"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
@@ -2314,7 +2314,7 @@ msgstr "גודל ההגשה"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "גודל הגשה לאחר הכנה"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2864,7 +2864,7 @@ msgstr "מגיל 12 שבועות ומעלה עד וכולל גיל 11 חודשי
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "הערכת EFSA"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
@@ -2872,15 +2872,15 @@ msgstr "סיכון לחשיפת יתר"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "הרשות האירופית לבטיחות מזון (EFSA) קבעה כי בחלק מקבוצות האוכלוסיה יש סכנה גבוהה בצריכה מוגברת של <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr ""
+msgstr "הרשות האירופית לבטיחות מזון (EFSA) קבעה כי בחלק מקבוצות האוכלוסיה יש סכנה מסוימת בצריכה מוגברת של <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr ""
+msgstr "כדי להעריך את החשיפה של למוצר המזון <tag> ניתן לעיין ברשימת המוצרים שלנו שמכילה אותו. ניתן לעיין ברשימת מוצרי <nb_products> שיש בהם <tag> להלן."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
@@ -2904,15 +2904,15 @@ msgstr "סכנת חריגה מהכמות היומית המומלצת"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "סכנת חריגה מהמינון המקסימלי ללא השפעה שלילית (אין רמת השפעה שלילית ניכרת - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־50% מהחברים חורגים מהצריכה היומית המקובלת (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־5% מהחברים חורגים מהצריכה היומית המקובלת (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
@@ -3312,27 +3312,27 @@ msgstr "ניתוח מרכיבים"
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "הגרסה שמופיעה לפניך היא גרסה ישנה של עמוד המוצר!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "מספר מהדורה: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "נערך על ידי: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "גרסה קודמת"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "גרסה הבאה"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "הגרסה העדכנית ביותר"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
