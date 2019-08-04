@@ -22,6 +22,10 @@ In this Docker image, Product Opener is configured to run on [localhost](http://
 
 If you want to have a look at the running MongoDB database, run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec mongodb mongo`.
 
+### Import sample dataset
+
+By default, the container comes without a dataset, because it is intended to be used to run any Product Opener instance in a production cluster. If you require sample data for local development, you can import an extract from [OpenFoodFacts](https://world.openfoodfacts.org) with `docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend /opt/scripts/import_sample_data.sh`.
+
 ## Kubernetes
 
 The `productopener` directory contains a <a href="https://helm.sh">Helm</a> template, so that you can set up a new ProductOpener instance on <a href="https://kubernetes.io">Kubernetes</a>. Note that the deployments will create a `PersistentVolumeClaim` (PVC) with `ReadWriteMany` access mode, because the nginx container(s) and Apache container(s) will need to access the volume at the same time. This mode is not supported by every storage plugin. See [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) for more information.

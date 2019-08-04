@@ -6,6 +6,10 @@ services:
       context: ../
       dockerfile: ./docker/backend/Dockerfile
       target: runnable
+    volumes:
+      - type: bind
+        source: ./backend-dev/scripts/
+        target: /opt/scripts/
   frontend:
     image: nginx:1.17.2-alpine
     volumes:
