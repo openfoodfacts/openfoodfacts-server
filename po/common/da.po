@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-06-30 14:29\n"
+"PO-Revision-Date: 2019-08-01 21:01\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2312,9 +2312,8 @@ msgid "Serving size"
 msgstr "Portionsstørrelse"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "Forberedt serveringsstørrelse"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3298,4 +3297,44 @@ msgstr "popularitet"
 msgctxt "popularity_p"
 msgid "popularity"
 msgstr "popularitet"
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr "ingrediensanalyse"
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr "ingrediensanalyse"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "Analyse af ingredienser"
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "Du ser en gammel version af denne produktside!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Revisionsnummer: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Redigeret af: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Foregående version"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Næste version"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Seneste version"
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "Analysen baserer sig alne på de angivne ingredienser og tager ikke højde for behandlingsmetoder."
 
