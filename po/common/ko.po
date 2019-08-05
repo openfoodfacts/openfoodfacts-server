@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-05 04:41\n"
+"PO-Revision-Date: 2019-08-05 04:51\n"
 "Language-Team: Korean\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1267,43 +1267,43 @@ msgstr "이미지 관리"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr ""
+msgstr "하나 이상의 이미지를 선택하시고:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "제조 또는 가공 장소"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "미국 몬타나"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "제조 또는 가공 장소"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr ""
+msgstr "%s에서 제조되거나 가공된 제품"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr ""
+msgstr "제조 또는 가공 장소"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "장소 추가하기"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr ""
+msgstr "%s에서 제조되거나 가공되지 않은 제품"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr ""
+msgstr "%d 제품이 검색 기준과 일치하며 그 중 %i 제품은 생산장소에 대한 정보가 있습니다."
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "지도 제목"
 
 msgctxt "menu"
 msgid "Menu"
@@ -1316,7 +1316,7 @@ msgstr "제품 추가"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/제품-추가"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1338,31 +1338,31 @@ msgstr "/발견"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "미션: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "이 미션은 이미 완료되었습니다.:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "%d명이 완성하였습니다."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr ""
+msgstr "첫 번째로 이 미션을 완료해 보세요!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "목표:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "미션"
 
 msgctxt "moderate"
 msgid "moderate"
-msgstr ""
+msgstr "저렴한"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
@@ -1370,7 +1370,7 @@ msgstr "적당한 양"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr ""
+msgstr "다른 제품으로 사진 이동하기"
 
 msgctxt "n_products"
 msgid "%d products"
@@ -1382,19 +1382,19 @@ msgstr "이름"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "이름"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "바코드가 정확하지 않다면 여기서 수정해주세요.:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "바코드가 없는 제품들은 내부코드가 자동으로 설정됩니다."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "뉴스레터 구독하기 (매달 최대 2개의 이메일)"
 
 msgctxt "next"
 msgid "Next"
@@ -1406,19 +1406,19 @@ msgstr "바코드가없는 제품"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
+msgstr "영양성분표가 제품에 명시되어 있지 않습니다."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "제품에 여러가지 영양성분표가 명시되어 있습니다 (예: 물 또는 우유가 추가됨)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "물이나 우유가 첨가되지 않고 준비되어있지 않은 제품의 영양성분표만 입력해주세요. 다른 제품이 있는 경우엔 첫 번째로 나열된 제품에 영양성분표를 입력해 주세요."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "바코드 %s로 나열할 제품이 없습니다."
 
 msgctxt "no_products"
 msgid "No products."
