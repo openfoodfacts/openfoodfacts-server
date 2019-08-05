@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-05 04:11\n"
+"PO-Revision-Date: 2019-08-05 04:21\n"
 "Language-Team: Korean\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -646,11 +646,17 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/legal\">법률 </a>\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">이용 약관</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">저희는 어떤 사람이냐면</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">자주 묻는 질문</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">아이디어 포럼</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">블로그</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">기사와 블로그</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "그리고 기여자를위한 <a href=\"https://www.facebook.com/groups/openfoodfacts/\">페이스북 그룹</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -659,16 +665,16 @@ msgstr "<<site_name>> 블로그"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr ""
+msgstr "운영 규정"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/운영-규정"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -690,11 +696,11 @@ msgstr "자주 묻는 질문"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/자주-묻는-질문"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "번역에 도움을 주신 분들"
 
 # Do not translate
 msgctxt "footer_translators_link"
@@ -705,7 +711,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "<a href=\"https://twitter.com/openfoodfacts\">트위터</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">페이스북</a> 그리고\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">인스타그램</a>에서 저희를 팔로해 주세요.\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -748,7 +756,7 @@ msgstr "이용 약관"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/이용-약관"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -757,11 +765,11 @@ msgstr "누가 우리가"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/저희는-어떤-사람이냐면"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr ""
+msgstr "<site_name> 위키 (ko)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
@@ -770,7 +778,7 @@ msgstr ""
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "위해"
 
 msgctxt "front_alt"
 msgid "Product"
@@ -782,7 +790,7 @@ msgstr "일반 이름"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "우유와 헤이즐넛이 든 초콜렛 바"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -790,15 +798,15 @@ msgstr "곧 당신을 참조하십시오!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "%d 제품이 검색 기준과 일치하며 그 중 %i 제품으로 그래프 축에 대한 값을 정의했습니다."
 
 msgctxt "graph_title"
 msgid "Graph title"
-msgstr ""
+msgstr "그래프 제목"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
-msgstr ""
+msgstr "그래프와 지도"
 
 msgctxt "hello"
 msgid "Hello"
@@ -806,7 +814,7 @@ msgstr "안녕하세요."
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "높음"
 
 msgctxt "high_quantity"
 msgid "high quantity"
@@ -814,11 +822,11 @@ msgstr "높은 양"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "히스토리 변경"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "전면 사진"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
@@ -826,11 +834,11 @@ msgstr "성분 목록의 그림"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "사진이 충분히 깨끗하면 사진에서 성분을 자동으로 추출해낼 수 있습니다."
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "영양성분표 사진"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
@@ -838,20 +846,21 @@ msgstr "이 사진은 이미 보냈습니다."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "사진이 너무 작습니다. 인터넷에서 찾은 사진을 업로드 하지 마시고 본인이 촬영한 사진만 보내주세요."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "사진 속의 바코드를 읽을 수 없거나 사진에 바코드가 없습니다.\n"
+"다른 사진으로 다시 시도하거나 바코드를 직접 입력해 보세요."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "사진에서 바코드를 찾을 수 없습니다."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr ""
+msgstr "바코드를 직접 입력하거나 바코드가 보이는 제품사진을 보내야합니다."
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
