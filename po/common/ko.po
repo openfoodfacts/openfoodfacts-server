@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-05 05:21\n"
+"PO-Revision-Date: 2019-08-05 06:21\n"
 "Language-Team: Korean\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1728,15 +1728,15 @@ msgstr ""
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%d명의 조사자와 %d명의 대사가 있습니다."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "%d개국의 조사자와 %d개국의 대사가 있습니다."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s에는 %d명의 조사자와 %d명의 대사가 있습니다."
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -1748,23 +1748,23 @@ msgstr "참여자 국가의 순위"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s는 %d를 위한 조사자와 %d를 위한 대사입니다."
 
 msgctxt "previous"
 msgid "Previous"
-msgstr ""
+msgstr "이전"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "영양소 추가하기"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr ""
+msgstr "추가된 제품"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr ""
+msgstr "변경사항이 저장되었습니다."
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -1772,15 +1772,15 @@ msgstr "제품 특징"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "생성된 제품"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr ""
+msgstr "%s에 대한 성분, 알레르기 항원, 첨가제, 영양성분, 라벨, 성분 원산지 및 정보"
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "제품 사진"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
@@ -1788,11 +1788,11 @@ msgstr "바코드 사진 :"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "현재 이미지:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "이미지를 삭제하는 중입니다."
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -1800,15 +1800,15 @@ msgstr "사진에서 성분을 추출"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "성분 글자를 읽을 수 없습니다. 더 선명하거나, 해상도가 높거나 글자가 잘 나온 사진으로 다시 시도해 보세요."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "성분 글자가 추출되었습니다. 글자 인식이 완벽하지 않으므로 아래 텍스트를 확인하고 필요한 경우 오류를 수정해주세요."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr ""
+msgstr "성분을 추출하는 중입니다."
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
