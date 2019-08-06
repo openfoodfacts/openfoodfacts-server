@@ -988,10 +988,6 @@ fr:anis bio
 it:anice bio
 nl:biologisch anijszaad, anijs bio
 
-< en:Aniseed aroma
-fr:arôme naturel d'anis étoilé
-de:natürliches Sternanisaroma
-
 en:anti-bulking agent
 
 en:Anti-caking agent, anticaking agent, anti-stick agent, drying agent, dusting agent
@@ -6424,6 +6420,9 @@ nl:verhitte gepekelde kipfilet
 
 < en:Chicken fillet
 fr:Filets de poulet jaune
+
+en:chicken flavouring
+fr:arôme de poulet, arôme de poule
 
 < en:Chicken meat
 en:chicken cutlet
@@ -34680,7 +34679,7 @@ vegetarian:en: maybe
 en:aniseed aroma
 de:Anisaroma
 es:aroma de anís
-fr:arôme anis
+fr:arôme d'anis
 nl:anijsaroma
 
 < en:Flavouring
@@ -34693,6 +34692,10 @@ de:künstliches Aroma
 fr:arôme artificiel, arômes artificiels
 
 < en:Flavouring
+en:banana flavouring
+fr:arôme de banane
+
+< en:Flavouring
 en:caramel flavouring
 fr:arôme caramel
 nl:caramelaroma
@@ -34700,6 +34703,10 @@ nl:caramelaroma
 < en:Flavouring
 en:celery flavouring
 fr:arôme de céleri
+
+< en:Flavouring
+en:chocolate flavouring
+fr:arôme de chocolat
 
 < en:Flavouring
 en:citrus flavouring
@@ -34766,6 +34773,18 @@ en:passion fruit flavouring
 fr:arôme de fruit de la passion
 
 < en:Flavouring
+en:peach flavouring
+fr:arôme de pêche
+
+< en:Flavouring
+en:pear flavouring
+fr:arôme de poire
+
+< en:Flavouring
+en:pepper flavouring
+fr:arôme de poivre
+
+< en:Flavouring
 en:peppermint flavouring
 fr:arôme de menthe poivrée
 
@@ -34791,6 +34810,10 @@ en:strawberry flavouring
 de:Erdbeergeschmack
 fr:arôme de fraise
 nl:aardbeienaroma
+
+< en:Flavouring
+en:sweet lime flavouring
+fr:arôme de limette
 
 < en:Flavouring
 en:vanilla flavouring
@@ -47034,6 +47057,10 @@ fr:arôme naturel d'amande
 it:aroma naturale di mandorle
 
 < en:Natural flavouring
+en:natural aniseed aroma
+fr:arôme naturel d'anis
+
+< en:Natural flavouring
 en:natural apple flavouring
 fr:arôme naturel de pomme
 nl:natuurlijk appelaroma
@@ -47043,10 +47070,18 @@ en:natural apricot flavouring, natural apricot flavor
 fr:arôme naturel d'abricot
 
 < en:Natural flavouring
+en:natural banana flavouring
+fr:arôme naturel de banane
+
+< en:Natural flavouring
 en:natural basil flavouring
 de:natürliches Basilikumaroma
 fr:arôme naturel de basilic
 it:aroma naturale del basilico
+
+< en:Natural flavouring
+en:natural blueberry flavouring
+fr:arôme naturel de myrtille
 
 < en:Natural flavouring
 en:natural caramel flavouring
@@ -47057,6 +47092,10 @@ nl:natuurlijk caramelaroma
 < en:Natural flavouring
 en:natural carrot flavouring
 fr:arôme naturel de carotte
+
+< en:Natural flavouring
+en:natural cherry flavouring
+fr:arôme naturel de cerise
 
 < en:Natural flavouring
 en:natural chicken flavouring
@@ -47076,6 +47115,10 @@ it:aroma naturale di cacao
 nl:natuurlijk cacao-aroma
 
 < en:Natural flavouring
+en:natural cola flavouring
+fr:arôme naturel de cola
+
+< en:Natural flavouring
 en:natural estragon flavouring
 fr:arôme naturel d'estragon
 
@@ -47092,6 +47135,14 @@ en:natural garlic flavouring, natural garlic aroma
 de:natürliches Knoblaucharoma
 fr:arôme naturel d'ail
 ml:natuurlijk knoflookaroma
+
+< en:Natural flavouring
+en:natural ginger flavouring
+fr:arôme naturel de gingembre
+
+< en:Natural flavouring
+en:natural hot pepper flavouring
+fr:arôme naturel de piment
 
 < en:Natural flavouring
 en:natural laurel flavouring
@@ -47114,6 +47165,14 @@ de:natürliches Limettenaroma
 fr:arôme naturel de citron vert
 it:aroma naturale di lime
 nl:natuurlijk aroma van limoen
+
+< en:Natural flavouring
+en:natural mandarin orange flavour
+fr:arôme naturel de mandarine
+
+< en:Natural flavouring
+en:natural mango flavouring
+fr:arôme naturel de mangue
 
 < en:Natural flavouring
 en:natural onion flavouring
@@ -47140,6 +47199,14 @@ en:natural paprika flavor, natural flavor of paprika
 fr:arôme naturel de paprika
 
 < en:Natural flavouring
+en:natural peach flavouring
+fr:arôme naturel de pêche
+
+< en:Natural flavouring
+en:natural pear flavouring
+fr:arôme naturel de poire
+
+< en:Natural flavouring
 en:natural pepper flavouring, natural pepper flavor, natural pepper flavors
 de:natürliches Pfefferaroma
 fr:arôme naturel de poivre, arôme naturel poivre, arômes naturels de poivre
@@ -47150,6 +47217,12 @@ en:natural pork flavouring
 fr:arôme naturel de porc
 
 < en:Natural flavouring
+en:natural poultry flavouring
+fr:arôme naturel de volaille
+vegan:en: no
+vegetarian:en: no
+
+< en:Natural flavouring
 en:natural raspberry flavouring
 de:natürliches Himbeeraroma
 fr:arôme naturel de framboise
@@ -47157,6 +47230,10 @@ fr:arôme naturel de framboise
 < en:Natural flavouring
 en:natural rum flavouring
 fr:arôme naturel de rhum
+
+< en:Natural flavouring
+en:natural shallot flavouring
+fr:arôme naturel d'échalotte
 
 < en:Natural flavouring
 en:natural sour almond flavouring
@@ -47170,6 +47247,15 @@ fr:arôme naturel d'orange amère
 en:natural spice flavouring
 de:natürliches Gewürzaroma
 fr:arôme naturel d'épices
+
+< en:Natural flavouring
+en:natural star anise aroma
+de:natürliches Sternanisaroma
+fr:arôme naturel d'anis étoilé
+
+< en:Natural flavouring
+en:natural sweet lime flavouring
+fr:arôme naturel de limette
 
 < en:Natural flavouring
 en:natural tarragon flavouring
