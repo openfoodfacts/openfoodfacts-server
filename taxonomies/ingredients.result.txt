@@ -40208,13 +40208,13 @@ description:sl: Sredstva za ohranjanje vlage so snovi, ki preprečujejo izsušit
 description:sv: Fuktighetsbevarande medel: ämnen som förhindrar uttorkning av livsmedel genom att motverka effekten av luft med låg fuktighet, eller förbättrar upplösningen av pulver i vattenlösningar.
 wikidata:en: Q911854
 
-< en:Hydrogenated oil
-< en:Palm oil
-en:hydrogenated palm oil
-de:teilweise gehärtetes Palmöl
-es:aceite de palma hidrogenado
-fr:huile de palme hydrogénée
-nl:gehydrogeneerde palmolie
+< en:Hydrogenated palm oil
+en:partially hydrogenated palm oil
+fr:huile de palme partiellement hydrogénée
+
+< en:Hydrogenated palm oil
+en:totally hydrogenated palm oil
+fr:huile de palme totalement hydrogénée
 
 < en:Hydrogenated vegetable fat
 en:fully hydrogenated vegetable fat
@@ -47964,9 +47964,9 @@ fr:poulpe en lamelles
 < en:Octopus
 zh:砂蛸
 
-en:oil, cooking oil
+en:oil, cooking oil, frying oil
 de:Öl, Speiseöl
-fr:huile, huiles
+fr:huile, huiles, huile de cuisine, huile de friture
 it:olio
 nl:olie, oliën
 ru:масло, масла
@@ -48650,6 +48650,14 @@ description:en: A food additive gas, which is introduced into a container before
 description:es: Aditivos alimentarios gaseosos, introducidos en un envase antes, durante o después de su llenado con un alimento, con la intención de proteger el alimento, por ejemplo, de la oxidación o descomposición.
 description:fr: Additif alimentaire gazeux, qui est introduit dans un conteneur pendant, durant ou après son remplissage avec une denrée alimentaire avec l'intention de protéger l'aliment par exemple de l'oxydation ou de l'altération.
 
+< en:Palm fat
+en:non-hydrogenated palm fat
+fr:graisse de palme non hydrogénée
+
+< en:Palm fat
+en:totally hydrogenated palm fat
+fr:graisse de palme totalement hydrogénée
+
 < en:Palm kernel oil
 fr:palmiste totalement hydrogénée
 
@@ -48683,6 +48691,14 @@ uk:Пальмоядрова олія
 from_palm_oil:en: yes
 wikidata:en: Q1960534
 wikipedia:en: https://en.wikipedia.org/wiki/Palm_kernel_oil
+
+< en:Hydrogenated oil
+< en:Palm oil
+en:hydrogenated palm oil
+de:teilweise gehärtetes Palmöl
+es:aceite de palma hidrogenado
+fr:huile de palme hydrogénée
+nl:gehydrogeneerde palmolie
 
 < en:Palm kernel oil
 < en:Palm oil
@@ -48773,7 +48789,7 @@ et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
 fi:Palmuöljy
-fr:huile de palme, huile végétale de palme, huile palmique
+fr:huile de palme, huile végétale de palme, huile palmique, huile de palme issue de plantations durables et certifiées
 ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
@@ -56318,6 +56334,10 @@ en:Merluccius gayi, Merluccius gayi gayi, Merlucius gayigay
 fr:Merluccius gayi, Merlu blanc du Chili
 la:Merluccius gayi, Merluccius gayi gayi, Merlucius gayigay
 
+< en:Soy oil
+en:hydrogenated soy oil
+fr:huile de soja hydrogénée
+
 en:soy preparation
 nl:sojabereiding
 pt:preparado à base de soja
@@ -63841,12 +63861,6 @@ nl:plantaardige vetten
 nn:vegetabilisk fett
 pt:gorduras vegetais
 sv:vegetabiliska fetter
-
-< en:Vegetable oil and fat
-en:vegetable fat/oil non hydrogenated
-de:Pflanzenfett/-öl ungehärtet
-fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
-it:oli/grassi vegetali non idrogenati
 
 < en:Vegetable oil and fat
 en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
