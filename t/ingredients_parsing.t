@@ -109,6 +109,8 @@ my @lists =(
 	["en","FD&C Red #40 Lake and silicon dioxide","FD&C Red #40 Lake and silicon dioxide"],
 	["fr","Lait pasteurisé à 1,1% de Mat. Gr.","Lait pasteurisé à 1,1% de Matières Grasses"],
 	["fr","matière grasse végétale (palme) raffinée","matière grasse végétale de palme raffinée"],
+	["fr","huile d'olive vierge, origan", "huile d'olive vierge, origan"],
+	["fr","huile de tournesol, cacao maigre en poudre 5.2%", "huile de tournesol, cacao maigre en poudre 5.2%"],
 
 );
 
