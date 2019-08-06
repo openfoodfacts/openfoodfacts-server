@@ -1485,7 +1485,7 @@ sub display_list_of_tags($$) {
 			if (defined $request_ref->{regexp}) {
 				my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 				my $display = $tag_ref->{display};
-				my $regexp = $request_ref->{regexp};
+				my $regexp = quotemeta(decode("utf8",URI::Escape::XS::decodeURIComponent($request_ref->{regexp})));
 				next if ($display !~ /$regexp/i);
 			}
 
