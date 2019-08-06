@@ -420,7 +420,7 @@ en:Fair trade
 ca:Comerç Just
 de:Fairer Handel
 es:Comercio justo, Fairtrade-Comercio Justo
-fr:Commerce équitable, équitable
+fr:Commerce équitable, équitable, issu du commerce équitable, issus du commerce équitable, issue du commerce équitable, issues du commerce équitable
 he:סחר הוגן
 hu:Fair trade
 it:Commercio equo
@@ -2258,11 +2258,11 @@ fr:Déconseillé aux enfants de moins de 3 ans
 nl:Niet aanbevolen voor kinder jonger dan 3 jaar
 ru:Не рекомендовано для детей младше 3 лет
 
-en:Organic
+en:Organic, organically grown, organically produced
 ca:Orgànic
 de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
 es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio
-fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
+fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
 he:אורגני
 hu:Bio, Öko, Organikus
 it:Biologico
@@ -2270,6 +2270,15 @@ nl:Biologisch
 pt:Orgânico
 zh:有机
 wikidata:en:Q380778
+
+# The entry below is needed to correctly parse ingredients lists that
+# have things like: * issus du commerce équitable et de l'agriculture biologique
+# the first entry needs to be "Fair-Trade Organic", "Commerce équitable Bio"
+# without "and" 
+<en:Organic
+<en:Fair-trade
+en:Fair-Trade Organic, Fair-Trade and Organic
+fr:Commerce équitable Bio, Commerce équitable et Bio, Issus du commerce équitable et de l'agriculture biologique, Issus de l'agriculture biologique et du commerce équitable
 
 <en:Organic
 en:Biodynamic agriculture

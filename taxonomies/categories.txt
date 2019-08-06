@@ -20249,7 +20249,13 @@ wikidata:en:Q13393
 pnns_group_2:en:Appetizers
 
 <en:Salty snacks
+<en:Breaded cheeses
 fr:Croquettes au fromage
+nl:Kaaskroketten
+
+<en:Salty snacks
+fr:Croquettes aux crevettes
+nl:Garnalenkroketten
 
 <en:Crisps
 en:Cassava crisps
@@ -22527,21 +22533,22 @@ fr:Petits suisses
 nl:Petits suisses
 wikidata:en:Q585246
 
+#"Crème anglaise" is a preparation made from milk or cream, eggs and sugar
+<en:Dairies
+fr:Crèmes anglaises, crèmes anglaise, creme anglaise
+de:Englische Creme
+nl:Vanillesauzen
+wikidata:en:Q1342574
+
 <en:Dairies
 en:Creams
 de:Rahm, Sahne
-es:Crema de leche
+es:Nata, crema de leche
 fr:Crèmes, Crème
 hu:Krémek
 nl:Romen
 pnns_group_2:en:Milk and yogurt
 wikidata:en:Q13228
-
-<en:Creams
-fr:Crèmes anglaises, crèmes anglaise, creme anglaise
-de:Englische Creme
-nl:Vanillesauzen
-wikidata:en:Q1342574
 
 <en:Creams
 en:Whipped creams
@@ -22550,44 +22557,60 @@ fr:Crèmes fouettées
 nl:Slagromen
 wikidata:en:Q625957
 
+#According to French regulation, Crème Chantilly is a whipped cream with none other addition than sugar and aroma.
 <en:Whipped creams
 fr:Crèmes Chantilly, Crème Chantilly, Chantilly
 de:Crème Chantilly
 wikidata:en:Q6384329
 
 <en:Creams
+fr:Crèmes sous pression
+de:Sprühsahne
+
+<en:Creams
+en:UHT Creams
+fr:Crèmes UHT
+
+<en:Creams
 fr:Crèmes entières, Crème entière
 nl:Volle slagromen
 
+#Cream that haven't been pasteurized
+<en:Creams
+fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
+
+#Cream with 12% to 30% fat according to French regulation. All other creams have >30% fat.
+<en:Creams
+fr:Crèmes légères, crèmes fraîches légères, Crème fraîche légère, crème légère
+
+<en:Creams
+fr:Crèmes allégées en matière grasse, Crèmes fraîches allégées en matière grasse, Crème fraîche allégée, Crèmes fraîches allégées, Crème fraîche allegée en matière grasse
+nl:Light zure romen
+
+#According to French regulation Crème Fraîche is a cream that did not undergo other heat treatment than pasteurization and that have #been packaged on the place of production under 24h 
+<en:Creams
+fr:Crèmes fraîches
+
+#AOP French cream, it contains no additives and have at least 35% fat.
+<fr:Crèmes épaisses
 <fr:Crèmes entières
-<en:Sour creams
 fr:Crème Fraîche d'Isigny
 
 <en:Creams
 <en:Fermented milk products
+en:Fermented creams
+fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse
+
+<en:Fermented creams
 en:Sour creams, Crèmes fraîches
 de:Sauerrahm
-fr:Crèmes fraîches, Crème fraîche
+fr:Crèmes aigres
 hu:Tejföl
 nl:Zure romen
 pnns_group_2:en:Milk and yogurt
 
 <en:Sour creams
 de:Saure Sahne
-
-
-<en:Sour creams
-fr:Crèmes fraîches allégées en matière grasse, Crème fraîche allégée, Crèmes fraîches allégées, Crème fraîche allegée en matière grasse
-nl:Light zure romen
-
-<en:Sour creams
-fr:Crèmes fraîches épaisses, Crème fraîche épaisse, crèmes épaisses
-
-<en:Sour creams
-fr:Crèmes fraîches légères, Crème fraîche légère, crème légère
-
-<en:Sour creams
-fr:Crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
 
 <en:Sour creams
 en:Smetana
@@ -22614,10 +22637,6 @@ de:Schmand mit 15% Fettanteil
 fr:Smetana avec 15% de matières grasses
 ru:Сметана 15%, Сметана 15%, Сметана 15% жирности, Сметана с массовой долей жира 15%
 
-<en:Creams
-en:Whipped creams
-de:Schlagsahne
-wikidata:en:Q625957
 
 <en:Plant-based foods
 en:Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes
@@ -28181,6 +28200,13 @@ nl:Diepvriesijsjes
 en:Frozen cakes and pastries, frozen cakes, frozen pastries
 fr:Gâteaux et pâtisseries surgelés, gâteaux surgelés, pâtisseries surgelées, desserts pâtissiers surgelés, Gâteaux et pâtisseries surgelées
 nl:Diepvriesgebak
+
+<en:Frozen desserts
+en:Mochi ice cream
+es:Helado de mochi
+fr:Mochi glacés
+ja:餅アイス, もちアイス
+wikidata:en:Q977539
 
 <en:Frozen foods
 <en:Breads
@@ -36543,6 +36569,17 @@ nl:Gebak
 <en:Desserts
 fr:Pastel de nata, Pastéis de nata
 pt:Pastéis de nata, Pastel de nata
+
+<en:Pastries
+<en:Desserts
+en:Mochi
+de:Mochi
+es:Mochi
+fr:Mochi, Mochis
+it:Mochi
+ja:餅, もち
+nl:Mochi
+wikidata:en:Q470519
 
 <en:Pastries
 <en:Desserts
