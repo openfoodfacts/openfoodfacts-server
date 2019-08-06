@@ -135,8 +135,8 @@ msgid "Product page also edited by"
 msgstr "Product page also edited by"
 
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
@@ -893,6 +893,30 @@ msgstr "No barcode found in the image."
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "You must enter the characters of the barcode or send a product image when the barcode is visible."
+
+msgctxt "image_full_size"
+msgid "Full size";
+msgstr "Full size"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license.";
+msgstr "This file was uploaded to product %s and is licensed under the %s license."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s";
+msgstr "Attribution: Photo by %s per %s"
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "Attribution: Photo by %s with additional modifications by %s per %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Original Image)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "Photo detail and attribution information"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -3216,8 +3240,8 @@ msgid "Carbon footprint calculations have high uncertainty. Values should be loo
 msgstr "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
 
 msgctxt "error_too_many_products_to_export"
-msgid "Too many products (%d products, the limit is %d) to export, please download the <a href="/data">complete database export</a> instead."
-msgstr "Too many products (%d products, the limit is %d) to export, please download the <a href="/data">complete database export</a> instead."
+msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
+msgstr "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
@@ -3274,6 +3298,30 @@ msgstr "Collapsed changes"
 msgctxt "cancel"
 msgid "Cancel"
 msgstr "Cancel"
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "You are viewing an old version of this product page!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Revision number: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Edited by: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Previous version"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Next version"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Latest version"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"

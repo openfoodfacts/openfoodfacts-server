@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-11 14:35\n"
+"PO-Revision-Date: 2019-08-01 18:13\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -122,7 +122,7 @@ msgid "Product page also edited by"
 msgstr "crwdns102148:0crwdne102148:0"
 
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 msgstr "crwdns102150:0crwdne102150:0"
 
 msgctxt "android_apk_app_link"
@@ -936,8 +936,8 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "crwdns102544:0crwdne102544:0"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
-msgstr "crwdns102546:0crwdne102546:0"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr "crwdns119548:0crwdne119548:0"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2266,9 +2266,8 @@ msgid "Serving size"
 msgstr "crwdns103194:0crwdne103194:0"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "crwdns120538:0crwdne120538:0"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2313,6 +2312,10 @@ msgstr "crwdns103212:0crwdne103212:0"
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "crwdns103214:0crwdne103214:0"
+
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr "crwdns119222:0crwdne119222:0"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -3205,8 +3208,8 @@ msgid "Help translate the %s to %s"
 msgstr "crwdns116860:0%scrwdnd116860:0%scrwdne116860:0"
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr "crwdns116862:0crwdne116862:0"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr "crwdns119224:0crwdne119224:0"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3239,4 +3242,52 @@ msgstr "crwdns116876:0crwdne116876:0"
 msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr "crwdns116878:0crwdne116878:0"
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr "crwdns119550:0crwdne119550:0"
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr "crwdns119552:0crwdne119552:0"
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr "crwdns119838:0crwdne119838:0"
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr "crwdns119840:0crwdne119840:0"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "crwdns119842:0crwdne119842:0"
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "crwdns120540:0crwdne120540:0"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "crwdns120542:0crwdne120542:0"
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "crwdns120544:0crwdne120544:0"
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "crwdns120546:0crwdne120546:0"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "crwdns120548:0crwdne120548:0"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "crwdns120550:0crwdne120550:0"
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "crwdns119970:0crwdne119970:0"
 

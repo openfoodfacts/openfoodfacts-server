@@ -3802,7 +3802,7 @@ HTML
 			my $img_h;
 
 			my $code = $product_ref->{code};
-			my $img = display_image_thumb($product_ref, 'front', 1);	# lazyload
+			my $img = display_image_thumb($product_ref, 'front');
 
 
 
@@ -4526,7 +4526,7 @@ sub display_scatter_plot($$$) {
 				}
 				$data{product_name} = $product_ref->{product_name};
 				$data{url} = $url;
-				$data{img} = display_image_thumb($product_ref, 'front', 0);	# no lazyload
+				$data{img} = display_image_thumb($product_ref, 'front');
 
 				defined $series{$seriesid} or $series{$seriesid} = '';
 				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
@@ -5353,7 +5353,7 @@ JS
 				$origins = $manufacturing_places . $origins;
 
 				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
-					. escape_single_quote(display_image_thumb($product_ref, 'front', 0)) . "', origins:'" . $origins . "'";	# no lazyload
+					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";
 
 
 
@@ -6184,8 +6184,6 @@ HTML
 <div id="fb-root"></div>
 
 <script src="$static_subdomain/js/dist/modernizr.js"></script>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-<script src="$static_subdomain/js/dist/iolazy.min.js" defer></script>
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
 
@@ -6242,8 +6240,6 @@ function doWebShare(e) {
 }
 
 function onLoad() {
-	new IOlazy();
-
 	var buttons = document.getElementsByClassName('share_button');
 	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
 
@@ -6410,6 +6406,11 @@ sub display_image_box($$$) {
 
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {
+		my $code = $product_ref->{code};
+		my $linkid = $id;
+		if ($img =~ /<meta itemprop="imgid" content="([^"]+)"/) {
+			$linkid = $1;
+		}
 
 		if ($id eq 'front') {
 
@@ -6417,10 +6418,12 @@ sub display_image_box($$$) {
 
 		}
 
-		$img = <<HTML
-<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+		my $alt = lang('image_attribution_link_title');
+		$img = <<"HTML"
+<figure id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 $img
-</div>
+<figcaption><a href="/cgi/product_image.pl?code=$code&amp;id=$linkid" title="$alt"><i class="icon-cc"></i></a></figcaption>
+</figure>
 HTML
 ;
 
@@ -6430,8 +6433,6 @@ HTML
 
 		# Unselect button for admins
 		if ($admin) {
-
-			my $code = $product_ref->{code};
 
 			my $idlc = $id;
 
@@ -6619,6 +6620,28 @@ JS
 	margin-bottom:2rem;
 }
 
+figure.image_box  {
+	position: relative;
+	padding: 0;
+}
+
+.image_box > img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+figure.image_box figcaption {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+figure.image_box figcaption img {
+	width: 16px;
+	height: 16px;
+}
+
 .field_div {
 	display:inline;
 	float:left;
@@ -6739,7 +6762,6 @@ HTML
 	}
 
 
-
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
 
@@ -6809,8 +6831,10 @@ $Lang{warning_gs1_company_prefix}{$lc}
 HTML
 ;
 	}
-
-	if (not has_tag($product_ref, "states", "en:complete")) {
+	if (defined $rev) {
+		$html .= display_rev_info($code, $rev);
+	}
+	elsif (not has_tag($product_ref, "states", "en:complete")) {
 
 		$html .= <<HTML
 <div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
@@ -6929,7 +6953,7 @@ HTML
 
 	# Take the last (biggest) image
 	my $product_image_url;
-	if ($html_image =~ /.*src="([^"]+)"/is) {
+	if ($html_image =~ /.*src="(.*\/products\/[^"]+)"/is) {
 		$product_image_url = $1;
 	}
 
@@ -9044,7 +9068,66 @@ HTML
 
 	display_structured_response($request_ref);
 }
+sub display_rev_info {
+	my $code = shift;
+	my $rev = shift;
 
+	my $html = '';
+
+	my $path = product_path($code);
+	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	if (not defined $changes_ref) {
+		return '';
+	}
+	my $change_ref = $changes_ref->[$rev-1];
+
+	my $date = display_date_tag($change_ref->{t});
+	my $userid = get_change_userid_or_uuid($change_ref);
+	my $user = display_tag_link("editors", $userid);
+	my $previous_link = '';
+	if ($rev > 1) {
+		$previous_link = '/product/' . $code . '?rev='. ($rev - 1);
+	}
+	my $next_link = '';
+	if ($rev < scalar @$changes_ref) {
+		$next_link = '/product/' . $code . '?rev=' . ($rev + 1);
+	}
+
+	my $comment = $change_ref->{comment};
+	$comment = lang($comment) if $comment eq 'product_created';
+
+	$comment =~ s/^Modification :\s+//;
+	if ($comment eq 'Modification :') {
+		$comment = '';
+	}
+	$comment =~ s/\new image \d+( -)?//;
+	if ($comment ne '') {
+		$comment = "<p> ${\lang('edit_comment')}: $comment</p>";
+	}
+
+
+	$html .= <<"HTML"
+<div id='rev_summary' class='panel callout'>
+	<h4 class='rev_warning'>${\lang('rev_warning')}</h4>
+	<p>
+		${\lang('rev_number')} <span class='rev_nb'>$change_ref->{rev}</span> -
+		<time datetime='$change_ref->{t}'>$date</time> -
+		${\lang('rev_contributor')} <a href='/contributor/$userid' class='rev_contributor'>$user</a>
+	</p>
+	$comment
+HTML
+;
+	if ($previous_link ne '') {
+		$html .= "<span style='margin-right: 2em;'><a href='$previous_link'>← ${\lang('rev_previous')}</a></span>";
+	}
+	$html .= "<span><a href='/product/$code'>${\lang('rev_latest')}</a></span>";
+	if ($next_link ne '') {
+		$html .= "<span style='margin-left: 2em;'><a href='$next_link'>${\lang('rev_next')} →</a></span>";
+	}
+	$html .="</div>";
+	return $html;
+
+}
 sub display_product_history($$) {
 
 	my $code = shift;
