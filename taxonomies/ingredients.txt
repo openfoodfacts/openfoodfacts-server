@@ -8819,6 +8819,7 @@ vegan:en:no
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # description:en:BUTTER is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk. It is generally used as a spread on plain or toasted bread products and a condiment on cooked vegetables, as well as in cooking, such as baking, sauce making, and pan frying. 
+# comment:en:Butter is not added to the fat section (to much water?)
 
 # nova:en:butter
 # from:en:milk
@@ -10124,7 +10125,7 @@ fr:lait écrémé caillé
 <en:milk
 fr:produits laitiers
 
-#################### MILK and ? ###########
+#################### MILK and CREAM ###########
 
 <en:milk
 <en:cream
@@ -10255,7 +10256,7 @@ fr:poudre de lactose
 nl:Lactosepoeder
 
 
-# <en:source:en:bovine milk
+# <from:en:milk
 en:milk minerals
 de:Milchmineralien
 es:minerales de la leche
@@ -10479,7 +10480,9 @@ fr:perméat de petit lait en poudre
 
 
 # description:en:CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
+# comment:en:wikipedia defines crème fraîche as non-sterilisee. Probably makes no sense in the context of OFF
 
+<en:dairy
 en:cream
 af:Room
 ar:قشدة
@@ -10544,8 +10547,7 @@ vi:Kem, Kem
 zh:鮮奶油
 # ast:Crema de lleche
 # bar:Rahm
-# bxr:Сүсэгы, ᠴᠦᠴᠦᠭᠡᠢ
-# wikipedia defines crème fraîche as non-sterilisee. Probably makes no sense in the context of OFF
+# bxr:Сүсэгы
 # lmo:Panera
 # nds-nl:Vlödde, flödde, vlodde, room
 # pdc:Raahm
@@ -10560,43 +10562,57 @@ vegan:en:no
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Crème, 40% MG, pasteurisée
 carbon_footprint_fr_foodges_value:fr:4.2
+# ingredient/cream has 27881 products in 29 languages @2019-07-12
 
 <en:cream
 en:pasteurized cream
 de:pasteurisierte Sahne
-fr:crème pasteurisée, crème de lait pasteurisée
-# ingredient/fr:crème-pasteurisé has 86 products in 4 languages @2019-02-03
-
-<en:Pasteurized cream
-fr:crème de lait pasteurisé
 es:nata pasteurizada
-nl:Gepasteuriseerde room
+fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé, crème pasteurisés
+it:crema pastorizzata
+nl:gepasteuriseerde room
+pt:nata pasteurizada
+# ingredient/pasteurized-cream has 1877 products in 9 languages @2019-07-12
 
 <en:cream
 en:cream powder, Powdered cream
+de:Cremepulver
+es:nata en polvo
 fr:crème en poudre, crème en poudre, poudre de crème
 it:panna in polvere
 nl:Poederroom, poederroom
+# ingredient/cream-powder has 910 products in 6 languages @2019-07-12
 
 <en:cream powder
 en:rehydrated cream powder
 fr:crème en poudre rehydratée
+# ingredient/rehydrated-cream-powder has 2 products @2019-07-12
 
 <en:cream
-en:Cream from Normandy
-fr:Crème fraîche de normandie
-nl:Room uit Normandië
+en:cream from Normandy
+fr:crème fraîche de Normandie
+ja:ノルマンディー産生クリーム
+nl:room uit Normandië
+# ingredient/Cream-from-Normandy has 50 products in 5 languages @2019-07-12
 
 <en:cream
+en:sterilized cream
 fr:crème stérilisée
+# ingredient/fr:crème-stérilisée has 56 products in french @2019-07-12
 
 <en:cream
+en:UHT cream
 fr:crème uht
-# ingredient/fr:crème-uht has 100 products @2019-02-03
+# ingredient/fr:crème-uht has 114 products in french @2019-07-12
 
-<fr:crème stérilisée
-<fr:crème uht
+<en:sterilized cream
+<en:UHT cream
+en:sterilized UHT cream
 fr:crème stérilisée uht
+# ingredient/fr:crème-stérilisée-uht has 10 products in french @2019-07-12
+
+<en:cream
+fr:Crème fraîche liquide
 
 <en:cream
 en:light cream
@@ -10604,32 +10620,32 @@ de:leichte Sahne
 fr:crème légère, Crème fraîche légère, Crème légère fraîche
 it:crema leggera
 nl:Lichte room
-# ingredient/fr:crème-légère has 399 products in 8 languages @2019-02-03
+# ingredient/light-cream has 579 products in 8 languages @2019-07-12
 
 <en:light cream
 fr:crème fraîche légère epaisse
+# ingredient/fr:crème-fraîche-légère-epaisse has 13 products in french @2019-07-12
 
 # Recipes calling for 'single cream' are referring to pure or thickened cream with about 35% fat.
+
 <en:cream
 en:single cream
 de:Halbrahm, Haldsahne
 fr:crème liquide, demi-crème
 nl:vloeibare room
 sv:flytande grädde
-# ingredient/fr:crème-liquide has 676 products in 7 languages @2019-02-03
-# ingredient/fr:demi-crème has 31 products in 4 languages @2019-02-03
+# ingredient/single-cream has 608 products in 8 languages @2019-07-12
+
+# comment:en:Seems to have a 35% fat percentage
 
 <en:cream
-en:whole cream
+en:whole cream, full cream
 de:Vollrahm, ganze Sahne
 fr:crème entière
 it:panna intera
 nl:volle room
-# ingredient/fr:crème-entière has 71 products in 4 languages @2019-02-03
+# ingredient/whole-cream has 66 products in 4 languages @2019-07-12
 
-<en:cream
-fr:crème pâtissière
-# ingredient/fr:crème-pâtissière has 105 products in french  @2019-02-03
 
 <en:cream
 en:whipped cream
@@ -10642,8 +10658,16 @@ de:Magermilch und pasteurisiertes Sahne
 fr:lait écrémé et crème pasteurisés
 # ingredient/fr:lait-écrémé-et-crème-pasteurisés has 64 products in 4 languages @2019-02-03
 
+<en:cream
+en:fresh cream
+fr:crème fraîche
+nl:verse room
+
+# description:SOUR CREAM is a dairy product obtained by fermenting regular cream with certain kinds of lactic acid bacteria. The bacterial culture, which is introduced either deliberately or naturally, sours and thickens the cream. Its name comes from the production of lactic acid by bacterial fermentation, which is called souring. Fat percentage is 18-20%
+# comment:en:In dutch zure room is sometimes wrongly translated to creme fraiche
+
 <en:Cream
-en:Sour cream
+en:sour cream, soured cream, grade a cultured cream
 ar:كريمة حامضة
 ca:Crema agra, crema àcida
 de:saure Sahne, Sauerrahm
@@ -10664,12 +10688,17 @@ pt:Creme azedo
 sk:Kyslá smotana
 vi:Kem chua
 zh:酸忌廉
-# bxr:Зөөхэй, ᠵᠦᠭᠡᠭᠡᠢ
+# bxr:Зөөхэй
 # yue:酸忌廉
 wikipedia:en:https://en.wikipedia.org/wiki/Sour_cream
-# ingredient/fr:crème-acidulée has 27 products @2019-02-03
+# ingredient/Sour-cream has 773 products in 7 languages @2019-07-12
 
-<en:Cream
+<en:sour cream
+de:Schmand, Schmant
+
+# description:en:Smetana is a type of sour cream from Central and Eastern Europe. It is a dairy product produced by souring heavy cream. It is similar to crème fraîche (28% fat), but nowadays mainly sold with 9% to 36% milkfat content depending on the country. Its cooking properties are different from crème fraîche and the lighter sour creams sold in the US, which contain 12 to 16% butterfat. It is widely used in cooking and baking.
+
+<en:sour cream
 en:Smetana
 az:Xama
 be:Смятана
@@ -10678,7 +10707,7 @@ ca:Smetana
 cs:Zakysaná smetana
 cv:Хăйма
 da:Smetana
-de:Schmand, Schmant, Schmetten
+de:Schmetten
 es:Smetana
 et:Hapukoor
 eu:Smetana
@@ -10697,7 +10726,7 @@ mk:Павлака
 ms:Smetana
 nb:Smetana
 nl:Smetana
-pl:Śmietana
+pl:Śmietana, świeża śmietana
 ru:Сметана
 sl:Kisla smetana
 sr:Павлака
@@ -10710,19 +10739,23 @@ zh:斯美塔那酸奶油
 # olo:Kannates
 # szl:Zana
 # vep:Kandatez
+wikidata:en:Q326061
 wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
+# ingredient/smetana has 18 products @2019-07-12
 
-# comment:en:fr:Creme fraiche is often translated into creme.
+# description:en:Crème fraîche is a dairy product, a soured cream, with a pH of approximately 4.5. It is soured with a bacterial culture. European labeling regulations disallow any ingredients other than cream and bacterial culture. Fat percentage is more than 30%
+# comment:en:fr:Creme fraiche is often translated into creme. Even the wikidata page does this. The save approach seems to be to not translate it. Note that in french it means just fresh cream.
 
-<en:Cream
-en:Crème fraîche, fresh cream
+<en:sour cream
+en:Crème fraîche
 af:Crème fraîche
 cs:Crème fraîche
-da:Cremefraiche
+da:Cremefraiche, creme fraiche
 de:Crème fraîche
 es:Crème fraîche
 eu:Esne-gain gordina, esne-gain freskoa
-fr:crème fraîche épaisse, crème fraîche fermentée, Crème fraîche, Crème fraîche liquide
+fi:crème fraîche
+fr:crème fraîche épaisse, crème fraîche fermentée 
 he:קרם פרש
 hy:Կրեմ-ֆրեշ
 is:Crème fraîche
@@ -10732,22 +10765,28 @@ ko:크렘 프레슈
 ms:Crème fraîche
 nb:Crème fraîche
 nl:Crème fraîche
-pl:Crème fraîche, świeża śmietana
+pl:Crème fraîche
 pt:Crème fraîche
 ru:Крем-фреш
 sv:Crème fraîche
 uk:Крем-фреш
 vi:Kem fraîche
 zh:法式酸奶油
+wikidata:en:Q1142459
 wikipedia:en:https://en.wikipedia.org/wiki/Crème_fraîche
+# ingredient/Crème-fraîche has 4440 products in 15 languages @2019-07-12
 
+# comment:en:Is creme fraiche really different from creme. Not according to the translations.
 
 <en:cream
+en:pasteurized crème fraîche
 fr:creme fraiche pasteurisée
 it:panna fresca pastorizzata
-# ingredient/fr:creme-fraiche-pasteurisee has products in 5 languages @2018-06-05
+# ingredient/fr:creme-fraiche-pasteurisee has 164 products in 5 languages @2019-07-12
+# usage:fr:Crème fraîche pasteurisée 99.99%, ferments lactiques
 
-# BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
+
+# description:en:BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
 en:buttermilk
 af:Karringmelk
@@ -16129,9 +16168,9 @@ fr:amidons de blé et de pomme de terre
 
 # Cooking oil is plant, animal, or synthetic fat used in frying, baking, and other types of cooking
 
-en:oil, cooking oil
+en:oil, cooking oil, frying oil
 de:Öl, Speiseöl
-fr:huile, huiles
+fr:huile, huiles, huile de cuisine, huile de friture
 it:olio
 nl:olie, oliën
 ru:масло, масла
@@ -16436,10 +16475,8 @@ fr:préparation de matières grasses végétales
 # usage:fr:préparation de matières grasses végétales (graisse de palme, huile de colza, colorant : caroténoïdes)
 
 <en:vegetable oil and fat
-en:vegetable fat/oil non hydrogenated
-de:Pflanzenfett/-öl ungehärtet
-fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
-it:oli/grassi vegetali non idrogenati
+en:non hydrogenated vegetable oil and fat
+fr:graisse et huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
 
 <en:vegetable fat
 <en:hydrogenated fat
@@ -16498,7 +16535,7 @@ et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
 fi:Palmuöljy
-fr:huile de palme, huile végétale de palme, huile palmique
+fr:huile de palme, huile végétale de palme, huile palmique, huile de palme issue de plantations durables et certifiées
 ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
@@ -16593,6 +16630,14 @@ pt:gordura de palma
 se:palmina mast
 sv:palmfett
 
+<en:palm fat
+en:non-hydrogenated palm fat
+fr:graisse de palme non hydrogénée
+
+<en:palm fat
+en:totally hydrogenated palm fat
+fr:graisse de palme totalement hydrogénée
+
 <en:palm oil
 en:non-hydrogenated palm oil
 de:ungehärtetes Palmöl, nicht-hydriertes Palm
@@ -16607,6 +16652,14 @@ de:teilweise gehärtetes Palmöl
 es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
 nl:gehydrogeneerde palmolie
+
+<en:hydrogenated palm oil
+en:totally hydrogenated palm oil
+fr:huile de palme totalement hydrogénée
+
+<en:hydrogenated palm oil
+en:partially hydrogenated palm oil
+fr:huile de palme partiellement hydrogénée
 
 <en:palm oil
 fr:huile de palme partiellement hydrogénée
@@ -17210,6 +17263,10 @@ zh:大豆油
 wikipedia:en:https://en.wikipedia.org/wiki/Soybean_oil
 wikidata:en:Q926892
 from_palm_oil:en:no
+
+<en:soy oil
+en:hydrogenated soy oil
+fr:huile de soja hydrogénée
 
 # description:en:CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources. 
 
@@ -19680,6 +19737,14 @@ nl:natuurlijk sinaasappelaroma met andere natuurlijke aroma's
 pl:naturalny aromat pomarańczowy z innymi naturalnymi aromatami
 
 <en:flavouring
+en:sweet lime flavouring
+fr:arôme de limette
+
+<en:natural flavouring
+en:natural sweet lime flavouring
+fr:arôme naturel de limette
+
+<en:flavouring
 # derivedFrom:en:lemon
 en:lemon flavouring
 de:ZitronenAroma
@@ -19751,6 +19816,56 @@ fr:arôme naturel de pamplemousse
 en:pink grapefruit natural flavouring
 fr:arôme naturel de pamplemousse rose
 
+<en:natural flavouring
+en:natural mandarin orange flavour
+fr:arôme naturel de mandarine
+
+<en:natural flavouring
+en:natural cherry flavouring
+fr:arôme naturel de cerise
+
+<en:natural flavouring
+en:natural hot pepper flavouring
+fr:arôme naturel de piment
+
+<en:natural flavouring
+en:natural mango flavouring
+fr:arôme naturel de mangue
+
+<en:natural flavouring
+en:natural blueberry flavouring
+fr:arôme naturel de myrtille
+
+<en:natural flavouring
+en:natural poultry flavouring
+fr:arôme naturel de volaille
+vegan:en:no
+vegetarian:en:no
+
+<en:natural flavouring
+en:natural ginger flavouring
+fr:arôme naturel de gingembre
+
+<en:flavouring
+en:banana flavouring
+fr:arôme de banane
+
+<en:natural flavouring
+en:natural banana flavouring
+fr:arôme naturel de banane
+
+<en:natural flavouring
+en:natural shallot flavouring
+fr:arôme naturel d'échalotte
+
+<en:natural flavouring
+en:natural cola flavouring
+fr:arôme naturel de cola
+
+<en:flavouring
+en:chocolate flavouring
+fr:arôme de chocolat
+
 <en:flavouring
 fr:arôme de sureau
 
@@ -19768,6 +19883,9 @@ fr:arôme naturel de fruit, arômes naturels de fruit
 <en:natural flavouring
 en:natural chicken flavouring
 fr:arôme naturel de poulet, arôme naturel de poule
+
+en:chicken flavouring
+fr:arôme de poulet, arôme de poule
 
 <en:natural flavouring
 en:natural cinammon flavouring
@@ -19792,6 +19910,30 @@ fr:arôme de pomme
 en:natural apple flavouring
 fr:arôme naturel de pomme
 nl:natuurlijk appelaroma
+
+<en:flavouring
+en:pear flavouring
+fr:arôme de poire
+
+<en:natural flavouring
+en:natural pear flavouring
+fr:arôme naturel de poire
+
+<en:flavouring
+en:peach flavouring
+fr:arôme de pêche
+
+<en:natural flavouring
+en:natural peach flavouring
+fr:arôme naturel de pêche
+
+<en:flavouring
+en:pepper flavouring
+fr:arôme de poivre
+
+<en:natural flavouring
+en:natural pepper flavouring
+fr:arôme naturel de poivre
 
 # Two parents due to and/or ingredient
 
@@ -20113,12 +20255,17 @@ fr:arôme identique nature
 en:aniseed aroma
 de:Anisaroma
 es:aroma de anís
-fr:arôme anis
+fr:arôme d'anis
 nl:anijsaroma
 
-<en:aniseed aroma
+<en:natural flavouring
+en:natural star anise aroma
 fr:arôme naturel d'anis étoilé
 de:natürliches Sternanisaroma
+
+<en:natural flavouring
+en:natural aniseed aroma
+fr:arôme naturel d'anis
 
 <en:flavouring
 fr:arôme framboise
@@ -62986,6 +63133,10 @@ ru:сырная корочка
 wikidata:en:Q19344541
 
 
+# <en:compound
+fr:crème pâtissière
+# ingredient/fr:crème-pâtissière has 113 products in french @2019-02-03
+# usage:fr:Crème pâtissière 30% (eau, sucre, transforméamidon, blancs d’œufs frais, poudre de lait entier, lactosérum en poudre, arômes naturels, arôme, maltodextrine, épaississant (gomme de xanthane), colorant (béta carotène))
 
 # description:en:CHORIZO or chouriço is a type of pork sausage. In Europe, chorizo is a fermented, cured, smoked sausage, which may be sliced and eaten without cooking, or added as an ingredient to add flavor to other dishes. Elsewhere, some sausages sold as chorizo may not be fermented and cured, and require cooking before eating. Spanish chorizo and Portuguese chouriço get their distinctive smokiness and deep red color from dried, smoked, red peppers.
 

@@ -436,7 +436,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats', 'status', 'missing_property') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -1390,7 +1390,7 @@ sub display_list_of_tags($$) {
 			close $IN;
 		}
 
-		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
+		$html .= "<p>" . "<nb_tags>" . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
 
 		my $th_nutriments = '';
 
@@ -1481,6 +1481,14 @@ sub display_list_of_tags($$) {
 			my $tagid = $tagcount_ref->{_id};
 			my $count = $tagcount_ref->{count};
 
+			# allow filtering tags with a search pattern
+			if (defined $request_ref->{filter}) {
+				my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
+				my $display = $tag_ref->{display};
+				my $regexp = quotemeta(decode("utf8",URI::Escape::XS::decodeURIComponent($request_ref->{filter})));
+				next if ($display !~ /$regexp/i);
+			}
+
 			$products{$tagid} = $count;
 
 			$stats{all_tags}++;
@@ -1515,9 +1523,13 @@ sub display_list_of_tags($$) {
 				else {
 					if (exists_taxonomy_tag('categories', $tagid)) {
 						$td_nutriments .= "<td></td>";
+						$stats{known_tags}++;
+						$stats{known_tags_products} += $count;
 					}
 					else {
 						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+						$stats{unknown_tags}++;
+						$stats{unknown_tags_products} += $count;
 					}
 				}
 			}
@@ -1552,8 +1564,6 @@ sub display_list_of_tags($$) {
 
 			# do not compute the tag display if we just need stats
 			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
-
-
 
 			my $info = '';
 			my $css_class = '';
@@ -1699,6 +1709,9 @@ sub display_list_of_tags($$) {
 				}
 			}
 		}
+
+		my $nb_tags = $stats{all_tags}++;
+		$html =~ s/<nb_tags>/$nb_tags/;
 
 		$html .= "</tbody></table></div>";
 
@@ -3802,7 +3815,7 @@ HTML
 			my $img_h;
 
 			my $code = $product_ref->{code};
-			my $img = display_image_thumb($product_ref, 'front', 1);	# lazyload
+			my $img = display_image_thumb($product_ref, 'front');
 
 
 
@@ -4526,7 +4539,7 @@ sub display_scatter_plot($$$) {
 				}
 				$data{product_name} = $product_ref->{product_name};
 				$data{url} = $url;
-				$data{img} = display_image_thumb($product_ref, 'front', 0);	# no lazyload
+				$data{img} = display_image_thumb($product_ref, 'front');
 
 				defined $series{$seriesid} or $series{$seriesid} = '';
 				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
@@ -5353,7 +5366,7 @@ JS
 				$origins = $manufacturing_places . $origins;
 
 				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
-					. escape_single_quote(display_image_thumb($product_ref, 'front', 0)) . "', origins:'" . $origins . "'";	# no lazyload
+					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";
 
 
 
@@ -6184,8 +6197,6 @@ HTML
 <div id="fb-root"></div>
 
 <script src="$static_subdomain/js/dist/modernizr.js"></script>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-<script src="$static_subdomain/js/dist/iolazy.min.js" defer></script>
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
 
@@ -6242,8 +6253,6 @@ function doWebShare(e) {
 }
 
 function onLoad() {
-	new IOlazy();
-
 	var buttons = document.getElementsByClassName('share_button');
 	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
 
@@ -6410,6 +6419,11 @@ sub display_image_box($$$) {
 
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {
+		my $code = $product_ref->{code};
+		my $linkid = $id;
+		if ($img =~ /<meta itemprop="imgid" content="([^"]+)"/) {
+			$linkid = $1;
+		}
 
 		if ($id eq 'front') {
 
@@ -6417,10 +6431,12 @@ sub display_image_box($$$) {
 
 		}
 
-		$img = <<HTML
-<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+		my $alt = lang('image_attribution_link_title');
+		$img = <<"HTML"
+<figure id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 $img
-</div>
+<figcaption><a href="/cgi/product_image.pl?code=$code&amp;id=$linkid" title="$alt"><i class="icon-cc"></i></a></figcaption>
+</figure>
 HTML
 ;
 
@@ -6430,8 +6446,6 @@ HTML
 
 		# Unselect button for admins
 		if ($admin) {
-
-			my $code = $product_ref->{code};
 
 			my $idlc = $id;
 
@@ -6617,6 +6631,28 @@ JS
 .image_box {
 	text-align:center;
 	margin-bottom:2rem;
+}
+
+figure.image_box  {
+	position: relative;
+	padding: 0;
+}
+
+.image_box > img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+figure.image_box figcaption {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+figure.image_box figcaption img {
+	width: 16px;
+	height: 16px;
 }
 
 .field_div {
@@ -6930,7 +6966,7 @@ HTML
 
 	# Take the last (biggest) image
 	my $product_image_url;
-	if ($html_image =~ /.*src="([^"]+)"/is) {
+	if ($html_image =~ /.*src="(.*\/products\/[^"]+)"/is) {
 		$product_image_url = $1;
 	}
 
