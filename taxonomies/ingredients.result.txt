@@ -209,8 +209,14 @@ fr:protéines de soja réhydratées, protéines végétales de soja réhydratée
 nl:gerehydrateerde soja-eiwit
 
 < :
-< en:Strawberry
-fr:morceaux de fraise
+en:shiitake
+de:shiitake, schwarzer Pilz
+es:setas negro
+fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé
+it:funghi shiitake
+la:Lentinula edodes
+nl:shiitake, zwarte paddestoel, Chinese champignons
+sv:svart champinjon
 
 < :
 fr:extrait naturel d'épice, extraits naturels d'épices
@@ -420,14 +426,15 @@ it:Fietti di Merluzzo dell'Alaska
 nl:Alaska koolvisfilet
 
 < en:Alaska pollock
-en:Theragra chalcogramma
-fr:Theragra chalcogramma
-la:Theragra chalcogramma
+fr:Portions de bloc de filets de COLIN d'Alaska MSC
 
 < en:Albacore
 en:Thunnus alalonga, Thunnus alalunga
 fr:Thunnus alalunga, Germon
 la:Thunnus alalonga
+
+< en:Alcohol vinegar
+fr:poudre de vinaigre d'alcool
 
 en:algae
 af:Alg
@@ -1678,6 +1685,9 @@ fr:carpaccio de boeuf
 fr:cœur de bœuf
 
 < en:Beef meat
+fr:extrait de viande de bœuf
+
+< en:Beef meat
 fr:viande-bovine-de-race-charolaise
 
 < en:Beef meat
@@ -1976,6 +1986,9 @@ carbon_footprint_fr_foodges_ingredient:fr: Fraise "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr: 0.8
 wikidata:en: Q14458220
 wikipedia:en: https://en.wikipedia.org/wiki/Strawberry
+
+< en:Berries
+fr:fruits rouges lyophilisés
 
 < en:Berries
 < en:Fruit
@@ -2347,6 +2360,13 @@ fr:Micromesistius poutassou
 la:Micromesistius poutassou
 
 < en:Blueberry
+en:blueberry juice
+de:Preiselbeersaft
+fr:jus de myrtille
+it:succo di mirtillo
+nl:bosbessensap
+
+< en:Blueberry
 en:organic blueberry
 fr:myrtilles bio
 
@@ -2688,6 +2708,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Breadfruit
 fr:pain de mie au son de blé
 
 < en:Breadmeal
+fr:Pain de mie aux céréales
+
+< en:Breadmeal
 fr:pain de mie complet
 
 en:brine
@@ -2972,6 +2995,14 @@ fr:sarrasin rehydraté
 
 < en:Buckwheat flour
 fr:galette en blé noir
+
+< en:Bulgur
+en:cooked bulgur
+fr:boulgour cuit
+
+< en:Bulgur
+en:precooked bulgur
+fr:boulgour précuit
 
 en:Bulking agent, filler
 bg:Пълнител
@@ -4059,6 +4090,10 @@ en:carrot purée
 fr:purée de carotte
 
 < en:Carrot
+en:cooked carrot
+fr:carotte cuite
+
+< en:Carrot
 en:orange carrot
 fr:carottes oranges
 
@@ -4840,6 +4875,9 @@ en:wholemeal cereal
 de:Vollkorngetreide
 fr:céréale complète, céréales complètes
 nl:Volkorengraan
+
+< en:Cereal
+fr:billes de céréales
 
 < en:Cereal
 fr:billettes de céréales
@@ -6415,6 +6453,9 @@ en:superior chicken fillet
 fr:filet de poulet de qualité supérieure
 
 < en:Chicken fillet
+fr:émincé de filet de poulet traité en salaison cuit rôti
+
+< en:Chicken fillet
 fr:filet de poulet traité en salaison cuit
 nl:verhitte gepekelde kipfilet
 
@@ -7640,7 +7681,16 @@ wikidata:en: Q658413
 wikipedia:en: https://en.wikipedia.org/wiki/Bread_crumbs
 
 < en:Coating
+fr:chocolat de couverture
+
+< en:Coating
+fr:chocolat noir de couverture
+
+< en:Coating
 fr:décor au cacao maigre, enrobage au cacao maigre
+
+< en:Coating
+fr:Enrobage chocolat au lait
 
 en:cocoa
 ar:كاكاو
@@ -8409,7 +8459,7 @@ description:fr: Additif alimentaire qui stabilise, retient ou intensifie la coul
 
 < en:Colza oil
 < en:Sunflower oil
-fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza
+fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
 
 < en:Colza oil
 en:organic colza oil
@@ -8488,6 +8538,11 @@ pt:sumo de uva tinta à base de concentrado
 < en:Concentrated grape must
 < fr:Moût de raisin cuit
 fr:moût de raisin concentré et cuit
+
+en:concentrated juice
+de:konzentrierter Saft
+fr:jus concentré
+it:succo concentrato
 
 < en:Concentrated pineapple juice
 en:organic concentrated pineapple juice
@@ -9514,6 +9569,13 @@ za:Gungq
 zh:虾
 wikidata:en: Q1517781
 wikipedia:en: https://en.wikipedia.org/wiki/Shrimp
+
+< en:Cucumber
+en:cucumber juice
+de:Gurkensaft
+es:zumo de pepino
+fr:jus de concombre
+nl:komkommersap
 
 < en:Cucumber
 en:gherkin
@@ -11093,7 +11155,7 @@ es:E120, Cochinilla, ácido carmínico, carmines
 et:E120, Košenill, karmiinhape, karmiinid
 eu:E120, Gorrimin
 fi:E120, Kokkiniili, karmiinihappo
-fr:E120, Acide carminique, carmin, carmins, Rouge cochenille, cochenille, Carmine, Crimson Lake, Cochineal, Natural Red 4, C.I. 75470, Rouge naturel CI n°4, 1260-17-9, colorant e120
+fr:E120, Acide carminique, carmin, carmins, Rouge cochenille, cochenille, Carmine, Crimson Lake, Cochineal, Natural Red 4, C.I. 75470, Rouge naturel CI n°4, 1260-17-9, colorant e120, carmin de cochenille
 he:E120, קרמין
 hu:E120, Kosnil, kárminsav, kárminok, Kárminvörös
 hy:E120, Կարմին
@@ -16131,7 +16193,7 @@ es:E224, Metabisulfito potásico, Metabisulfito de potasio, Disulfito de potasio
 et:E224, Kaaliumdisulfit, Kaaliumpürosulfit
 fa:پتاسیم متابی‌سولفیت
 fi:E224, Kaliummetabisulfiitti
-fr:E224, Disulfite de potassium, Métabisulfite de potassium, Pyrosulfite de potassium
+fr:E224, Disulfite de potassium, Métabisulfite de potassium, Pyrosulfite de potassium, di sulfite de potassium
 hr:Kalijev metabisulfit
 hu:E224, Kálium-metabiszulfit
 it:E224, Metabisolfito di potassio, Pirosolfito di potassio, K2S2O5, Disolfito di potassio, Potassio metabisolfito
@@ -24265,10 +24327,6 @@ pt:mono e diglicéridos de ácidos gordos de origem vegetal
 < en:E471
 fr:émulsifiant e471
 
-< en:E471
-fr:Mono- et diglycerides d'acides gras de palme, monoglycérides et diglycérides d'acide gras de palme
-from_palm_oil:en: yes
-
 en:E472, acid esters of mono- and diglycerides of fatty acids, E 472
 bg:E472, E472 food additive
 cs:E472, E472 food additive
@@ -24832,6 +24890,10 @@ from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q416058
+
+< en:E471
+< en:E481
+fr:mono- et diglycérides d'acides gras et stéaroyl-2-lactylate de sodium
 
 en:E482, Calcium stearoyl-2-lactylate
 bg:E482, Калциев стераоил-2-лактилат
@@ -32134,6 +32196,9 @@ fr:blanc d'œuf frais, blancs d'œufs frais, blanc d'œufs frais
 < en:Egg white
 fr:blancs d'œufs pasteurisés
 
+< en:Egg white
+fr:meringue
+
 < en:Egg yolk
 en:egg yolk powder, eggs yolk powder, powdered egg yolk
 de:Eigelbpulver
@@ -33107,6 +33172,9 @@ vegan:en: yes
 vegetarian:en: yes
 wikipedia:en: Q20026824
 
+< en:Fiber
+fr:fibres solubles
+
 < en:Fig
 fr:figues séchées, figues sèches
 de:Feigen getrocknet
@@ -33377,7 +33445,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Fish
 de:Fischmuskeleiweiß
 
 < en:Fish
-en:alaska pollock, Alaskan pollock
+en:alaska pollock, Alaskan pollock, Theragra chalcogramma
 az:Mintay
 bg:treska pestrá
 ca:peix carboner d'Alaska
@@ -33393,6 +33461,7 @@ ka:მინტაი
 kk:Минтай
 ko:명태
 ky:Минтай
+la:Theragra chalcogramma
 ms:Pollock Alaska
 nb:Alaskatheragra
 nl:Alaskakoolvis, alaskapollak, Alaska koolvis
@@ -34851,6 +34920,9 @@ nl:frambozenaroma
 
 < en:Flavouring
 fr:arôme identique nature
+
+< en:Flavouring
+fr:arôme naturel de poire
 
 < en:Flavouring
 fr:base aromatisante barbecue
@@ -37420,10 +37492,10 @@ it:succo di sambuco
 nl:vlierbessap
 
 < en:Fruit juice
-en:fruit juice from concentrate, fruit juices from concentrate
-de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
+en:fruit juice concentrate, fruit juice from concentrate, fruit juices from concentrate
+de:Fruchtsaftkonzentrat, Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
 es:zumo de frutas a partir de concentrado
-fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés, fr:jus concentré de fruits, jus de fruits concentrés
+fr:jus concentré de fruits, jus de fruits concentrés, jus de fruits à base de concentré, jus de fruits à base de jus concentrés
 it:succhi di frutta a base di concentrato, succhi di frutta a base di concentrati
 nl:vruchtsap van concentraat, vruchtensap uit concentraat
 
@@ -37451,7 +37523,10 @@ sv:limejuice
 < en:Fruit juice
 fr:Jus de pruneau obtenu par extraction hydrique
 
-< en:Fruit juice from concentrate
+< en:Fruit juice concentrate
+fr:jus concentré de fruits rouges
+
+< en:Fruit juice concentrate
 fr:jus de fruits rouges à base de concentrés
 
 en:galacto-oligosaccharides
@@ -37484,9 +37559,12 @@ fr:petits pois extra fins
 < en:Garden peas
 fr:petits pois fins
 
+< en:Garden peas
+fr:petits pois très fins
+
 < en:Garlic
 en:garlic paste
-fr:pâte d'ail, pulpe d'ail
+fr:pâte d'ail, pulpe d'ail, ail en purée
 
 < en:Garlic
 en:garlic powder
@@ -37971,8 +38049,8 @@ la:cantharellus cibarius
 < en:Grana Padano
 en:Grana Padano PDO cheese, grana padano cheese pdo
 de:Grana Padano g.U. Käse, Grana Padano Käse g.U.
-fr:fromage grana padano aop, grana padano dop, fromage grana padano pdo
-it:grana padano dop, formaggio grana padano dop
+fr:fromage grana padano aop, fr:grana padano dop, Grana Padano AOP
+it:grana padano dop
 pt:queijo Grana Padano DOP
 
 < en:Grape
@@ -40877,28 +40955,6 @@ de:Saft
 fr:jus
 it:succo
 
-< en:Blueberry
-< en:Juice
-en:blueberry juice
-de:Preiselbeersaft
-fr:jus de myrtille
-it:succo di mirtillo
-nl:bosbessensap
-
-< en:Juice
-en:concentrated juice
-de:konzentrierter Saft
-fr:jus concentré
-it:succo concentrato
-
-< en:Cucumber
-< en:Juice
-en:cucumber juice
-de:Gurkensaft
-es:zumo de pepino
-fr:jus de concombre
-nl:komkommersap
-
 < en:Juniper
 en:juniper berry, juniper berries
 af:Jenewerbessie
@@ -41935,7 +41991,7 @@ sv:torkad citronjuice
 en:lemon juice from concentrate
 de:Zitronensaft aus Zitronensaftkonzentrat
 es:zumo de limón a partir de concentrado
-fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré
+fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré, jus de citron reconstitué à base de concentré
 it:succo di limone da concentrato
 nl:citroensap uit concentraat
 
@@ -42445,6 +42501,14 @@ fr:riz long semi complet
 en:superior quality long grain white rice
 fr:riz blanc long grain de qualite superieure
 
+< en:Lovage
+en:dried lovage
+fr:livèche séchée
+
+< en:Lovage
+en:lovage leaves
+fr:feuilles de livèche
+
 < en:Flour
 < en:Lupin
 en:lupin flour
@@ -42800,6 +42864,9 @@ nl:Gerstemoutextract
 zh:大麥芽精
 
 < en:Malted barley
+fr:blé malté concassé
+
+< en:Malted barley
 fr:sirop d'orge malté
 
 en:Maltodextrins, maltodextrin
@@ -42830,6 +42897,9 @@ fr:maltodextrine de pomme de terre, malto-dextrine de pomme de terre
 en:tapioca maltodextrin
 fr:maltodextrine de tapioca, malto-dextrine de tapioca
 it:maltodestrine da tapioca
+
+< en:Maltodextrins
+fr:maltodextrine de blé
 
 < en:Maltodextrins
 fr:maltodextrine fumée
@@ -43111,6 +43181,12 @@ vegetarian:en: yes
 
 < en:Margarine
 fr:margarine végétale non hydrogénée
+
+< en:Marinade
+fr:marinade barbecue
+
+< en:Marinade
+fr:marinade tex mex
 
 en:marzipan
 ar:مرصبان
@@ -43941,7 +44017,7 @@ fr:lait écrémé reconstitué
 nl:gereconstitueerde melk
 
 < en:Milk
-fr:lait entier reconstitué, lait reconstitué à partir de lait entier en poudre
+fr:lait entier en poudre reconstitué, lait entier reconstitué
 
 < en:Milk
 fr:lait fermenté
@@ -46166,6 +46242,13 @@ zh:钼酸钠
 wikidata:en: Q414518
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_molybdate
 
+< en:Mono and diglycerides of fatty acids of vegetable origin
+fr:mono et diglycérides d'acides gras de colza
+
+< en:Mono and diglycerides of fatty acids of vegetable origin
+fr:Mono- et diglycerides d'acides gras de palme, monoglycérides et diglycérides d'acide gras de palme
+from_palm_oil:en: yes
+
 < en:Morels
 en:common morel
 ar:غوشنة حلوة
@@ -46744,15 +46827,6 @@ wikidata:en: Q752492
 wikipedia:en: https://en.wikipedia.org/wiki/Marasmius_oreades
 
 < en:Mushroom
-en:shiitake
-de:shiitake, schwarzer Pilz
-es:setas negro
-fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé
-it:funghi shiitake
-nl:shiitake, zwarte paddestoel, Chinese champignons
-sv:svart champinjon
-
-< en:Mushroom
 en:slippery jack, sticky bun, Suillus luteus
 bg:обикновена масловка
 ca:pinetell de calceta, Suillus luteus
@@ -47034,6 +47108,9 @@ fr:moutarde forte
 en:yellow mustard seed
 fr:graines de moutarde jaunes
 
+< en:Mustard seed
+fr:graines de moutarde moulues
+
 < en:Nameko
 en:Pholiota nameko
 fr:Pholiota microspora, Pholiota nameko, Nameko
@@ -47303,6 +47380,9 @@ nl:natuurlijk selderijaroma
 
 < en:Natural flavouring
 fr:arôme naturel de gentiane
+
+< en:Natural flavouring
+fr:arôme naturel de limette
 
 < en:Natural flavouring
 fr:arôme naturel de moutarde
@@ -47894,6 +47974,9 @@ pl:płatki owsiane z pełnego przemiału
 pt:flocos de aveia integral
 sv:fullkornshavregryn
 
+< en:Oat
+fr:avoine complète
+
 < en:Oat bran
 nl:Haverzemelen met kiem
 
@@ -48081,6 +48164,9 @@ fr:olive verte, olives vertes
 it:olive verdi
 nl:groene olijven
 wikidata:en: Q26879770
+
+< en:Olives
+fr:olives farcies
 
 en:omelette, omelet
 ar:العجة
@@ -49292,6 +49378,9 @@ fr:jus de poire concentré
 de:Birnendicksaft
 it:Succo di pere concentrato
 
+< en:Pecan nut
+fr:noix de pécan caramélisées
+
 < en:Pecorino
 en:pecorino romano, romano, Peccorino Romano PDO cheese
 fr:pecorino romano, romano, fromage pecorino romano aop
@@ -50471,6 +50560,9 @@ zh:山葵
 wikipedia:en: https://en.wikipedia.org/wiki/Wasabi
 
 < en:Plant
+fr:feuilles de mûres douces
+
+< en:Plant
 fr:pin sylvestre
 la:Pinus sylvestris
 
@@ -50885,6 +50977,9 @@ fr:jarret de porc
 
 < en:Pork meat
 fr:langue de porc
+
+< en:Pork meat
+fr:longe de porc
 
 < en:Pork meat
 fr:maigre de porc
@@ -52012,6 +52107,10 @@ fr:Oncorhynchus mykiss
 la:Oncorhynchus mykiss
 
 < en:Raisin
+en:raisin concentrate
+fr:concentré de raisin
+
+< en:Raisin
 fr:raisins secs rehydratés
 
 en:Raising agent, leavening agent
@@ -52174,6 +52273,9 @@ fr:jambon cru fumé
 < en:Raw milk
 < en:Whole milk
 fr:lait cru entier
+
+< en:Reblochon
+fr:Reblochon AOP
 
 < en:Red beans
 fr:haricots rouges précuits
@@ -54300,6 +54402,9 @@ fr:sauce au vinaigre balsamique
 < en:Sauce
 fr:sauce aux fruits rouges
 
+< en:Sauce
+fr:sauce hamburger
+
 < en:Sauerkraut
 < en:Vegetable juice
 en:sauerkraut juice
@@ -54456,7 +54561,7 @@ nl:Zout uit de Camargue
 < en:Sea salt
 en:Salt from Guérande
 de:Salz aus Guérande
-fr:Sel de Guérande, sel marin de guérande
+fr:Sel de Guérande, sel marin de guérande, sel de Guérande IGP
 nl:Zout uit Guérande
 
 < en:Sea salt
@@ -54925,6 +55030,9 @@ wikidata:en: Q2763698
 < en:Seed
 fr:graines de céleri
 de:Selleriesamen
+
+< en:Seed
+fr:graines grillées
 
 < en:Selenium
 en:selenium enriched yeast
@@ -55678,8 +55786,8 @@ en:shellfish extract
 fr:extrait de crustacé
 
 < en:Shiitake
-en:Lentinula edodes, Lentinus edodes
-la:Lentinula edodes
+en:dehydrated shiitake
+fr:champignon noir déshydraté
 
 < en:Shiitake
 fr:champignon noir réhydraté, champignons noirs réhydratés
@@ -55943,6 +56051,10 @@ zh:煙熏液
 wikidata:en: Q909463
 wikipedia:en: https://en.wikipedia.org/wiki/Liquid_smoke
 
+< en:Flavouring
+< en:Smoke flavouring
+fr:arôme dont arôme de fumée
+
 < en:Smoked lardoons
 en:smoked cooked lardoons
 de:Speckwürfel gekocht und geräuchert
@@ -56197,6 +56309,9 @@ fr:fromage frais au lait demi-écrémé
 
 < en:Soft white cheese
 fr:fromage frais au lait demi-écrémé pasteurisé, Fromage frais nature au lait demi-écrémé pasteurisé
+
+< en:Soft white cheese
+fr:fromage frais au lait pasteurisé
 
 < en:Sour cream
 de:Schmand, Schmant
@@ -57706,6 +57821,9 @@ description:sl: Stabilizatorji so snovi, ki vzdržujejo fizikalno-kemično stanj
 description:sv: Stabiliseringsmedel: ämnen som gör det möjligt att bevara ett livsmedels fysikaliska och kemiska tillstånd; stabiliseringsmedel inkluderar ämnen som gör det möjligt att bibehålla en homogen blandning av två eller flera icke blandbara ämnen i ett livsmedel, ämnen som stabiliserar, bevarar eller förstärker ett livsmedels existerande färg samt ämnen som ökar ett livsmedels bindande egenskaper, inklusive bildande av tvärgående bindningar mellan proteiner så att bitar av livsmedel kan bindas samman till ett rekonstituerat livsmedel.
 wikidata:en: Q7595716
 
+< en:Star anise
+fr:anéthol de badiane
+
 en:starch
 an:Amelón
 ar:نشا
@@ -57935,6 +58053,10 @@ fr:Volvariella volvacea, Volvaire cultivée, Volvaire asiatique
 la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 wikidata:en: Q641656
 wikipedia:en: https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
+
+< :
+< en:Strawberry
+fr:morceaux de fraise
 
 < en:Strawberry
 en:strawberry filling
@@ -58493,7 +58615,7 @@ vegetarian:en: yes
 < en:Sugar syrup
 en:invert sugar syrup, invert syrup, liquid invert syrup
 de:Invertzuckersirup
-fr:sirop de sucre inverti
+fr:sirop de sucre inverti, sucre liquide inverti, sirop de sucre inverti cristallisé
 it:sciroppo di zucchero invertito
 nl:Invertsuikerstroop
 
@@ -61176,6 +61298,10 @@ wikidata:en: Q47722
 wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
 < en:Vegetable
+en:butternut squash
+fr:courge butternut
+
+< en:Vegetable
 en:cabbage
 de:Kohl
 fr:chou, choux
@@ -63132,6 +63258,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Shea_butter
 en:sunflower fat
 from_palm_oil:en: no
 
+< en:Vegetable fat
+fr:préparation de matières grasses végétales
+
 < en:Apple
 < en:Vegetable fiber
 en:apple fiber
@@ -63830,6 +63959,10 @@ de:pflanzliches Öl gehärtet
 
 < en:Vegetable oil
 fr:huile végétale raffinée
+
+< en:Vegetable oil and fat
+en:non hydrogenated vegetable oil and fat
+fr:graisse et huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
 
 < en:Vegetable oil and fat
 en:palm kernel oil and fat
@@ -65798,6 +65931,9 @@ pt:trigo integral
 zh:全麥小麥
 
 < en:Wheat
+fr:blé dur concassé précuit
+
+< en:Wheat
 fr:Grains de blé dur précuits
 
 < en:Wheat
@@ -65891,6 +66027,9 @@ fr:farine de gonflement de blé
 < en:Wheat flour
 fr:farine mi-blanche
 
+< en:Wheat gluten
+fr:gluten vital de blé
+
 < en:Wheat malt
 fr:blé malté torréfié concassé
 
@@ -65966,7 +66105,7 @@ nl:Zoete weipoeder
 
 < en:Whey protein
 en:concentrated whey protein
-fr:concentré de protéines de lactosérum
+fr:concentré de protéines de lactosérum, concentré de protéines de sérum
 
 < en:Whiskey
 en:Irish whiskey
@@ -66122,6 +66261,9 @@ fr:vin blanc de France, vin-blanc-arbois-aoc, vinblanc coteaux du layon aop, vin
 
 < en:White wine
 fr:vin blanc réduit
+
+< en:White wine extract
+fr:extrait de vin blanc distillé
 
 < en:Spirit vinegar
 < en:White wine vinegar
@@ -67035,6 +67177,10 @@ nl:natuurlijke aroma's van citrusvruchten met andere natuurlijke aroma's
 nn:naturlig sitrusaroma med andre naturlige aromaer
 sv:naturlig citrusarom med andra naturliga aromer
 
+< en:Flavouring
+< fr:Arôme naturel de poire
+fr:arôme naturel de poire avec d'autres arômes naturels
+
 fr:biscuit d'enrobage
 
 < fr:Blé dur précuit
@@ -67186,8 +67332,6 @@ es:extracto natural de naranja dulce
 
 fr:extrait de bœuf
 
-fr:extrait de viande de bœuf
-
 < fr:Filet de poulet traité en salaison cuit
 fr:préparation à base de filets de poulet traités en salaison
 
@@ -67236,6 +67380,10 @@ fr:génoise
 < fr:Gésiers de canard
 fr:Gésiers de canard maigre traités en salaison
 
+< en:E415
+< fr:Glycérol d'origine végétale
+fr:glycérol de colza et gomme xanthane
+
 < en:Vanilla beans exhausted
 < fr:Gousse de vanille épuisée
 fr:gousses de vanille épuisées broyées, gousses de vanille broyées épuisées
@@ -67282,6 +67430,7 @@ fr:haricots mogettes de Vendée, mogettes de Vendée
 < fr:Haricots verts coupés
 < fr:Haricots verts très fins
 fr:haricots vertes très fins coupés, haricots verts extra fines coupés
+
 
 fr:Ile flottante sur lit de crème anglaise
 
@@ -67338,7 +67487,8 @@ es:masa madre deshidratada de trigo
 < fr:Levain de blé
 fr:levain de blé dévitalisé
 
-fr:longe de porc
+< fr:Longe de porc
+fr:longe de porc traitée en salaison
 
 < fr:Maïs doux en grains
 fr:maïs doux en grains sans ogm
@@ -67372,6 +67522,9 @@ de:Marronipüree
 fr:Marrons entiers bio
 
 fr:matière grasse de lait anhydre
+
+< fr:Mélange de salades
+fr:salade mélangée verte et rouge
 
 fr:mélasse de sucre de canne, mélasse de canne
 
@@ -67501,6 +67654,8 @@ fr:poulet rôti traité en salaison
 < fr:Poulet traité en salaison
 fr:viande de poulet traitée en salaison
 
+fr:préparation de viande de boeuf cuite
+
 fr:préparation pain d'épices
 
 
@@ -67580,8 +67735,6 @@ de:Speisesalzersatz
 
 it:zucchero di fiori di cocco, zucchero di cocco
 nl:biologische kokosbloesem siroop
-
-fr:sucre liquide inverti
 
 fr:surimi à base de protéines de muscles de poisson
 de:Surimi-Krebsfleischimitat aus Fischmuskeleiweiß geformt
