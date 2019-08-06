@@ -3995,6 +3995,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Glycerol
 fr:glycérol d'origine végétale
 # ingredient/fr:glycérol-d’origine-végétale has 27 products in french @2019-03-11
 
+<fr:glycérol d'origine végétale
+<en:xanthan gum
+fr:glycérol de colza et gomme xanthane
+
 <en:glycerol
 fr:humectant glycérol
 # ingredient/fr:humectant-glycérol has 53 products in 4 languages @2019-03-30
@@ -4569,13 +4573,19 @@ nl:mono- en diglyceriden van plantaardige vetzuren
 pt:mono e diglicéridos de ácidos gordos de origem vegetal
 # fr:mono- et diglycérides d'acides gras d'origine végétale has 53 products @2018-11-12
 
-<en:mono- and diglycerides of fatty acids
+<en:mono and diglycerides of fatty acids of vegetable origin
 fr:Mono- et diglycerides d'acides gras de palme, monoglycérides et diglycérides d'acide gras de palme
 from_palm_oil:en:yes
+
+<en:mono and diglycerides of fatty acids of vegetable origin
+fr:mono et diglycérides d'acides gras de colza
 
 <en:mono- and diglycerides of fatty acids
 fr:émulsifiant e471
 
+<en:mono- and diglycerides of fatty acids
+<en:sodium stearoyl-2-lactylate
+fr:mono- et diglycérides d'acides gras et stéaroyl-2-lactylate de sodium
 
 #   SUCROSE ESTERS OR SUCROSE FATTY ACID ESTERS   are a group of surfactants chemically synthesized from esterification of sucrose and fatty acids (or glycerides).
 
@@ -10151,7 +10161,7 @@ fr:matière grasse de lait anhydre
 fr:lait écrémé en poudre reconstitué, lait écrémé en poudre réhydraté
 
 <en:milk
-fr:lait entier reconstitué, lait reconstitué à partir de lait entier en poudre
+fr:lait entier en poudre reconstitué, lait entier reconstitué
 
 <en:milk
 en:modified milk ingredients
@@ -11356,6 +11366,9 @@ fr:fromage frais à 0% de matière grasse
 <en:soft white cheese
 fr:fromage frais à la ciboulette
 
+<en:soft white cheese
+fr:fromage frais au lait pasteurisé
+
 # <en:compound
 <en:cheese
 en:melted cheese
@@ -12088,8 +12101,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Grana_Padano
 <en:Grana Padano
 en:Grana Padano PDO cheese, grana padano cheese pdo
 de:Grana Padano g.U. Käse, Grana Padano Käse g.U.
-fr:fromage grana padano aop, grana padano dop, fromage grana padano pdo
-it:grana padano dop, formaggio grana padano dop 
+fr:fromage grana padano aop, fr:grana padano dop, Grana Padano AOP
+it:grana padano dop
 pt:queijo Grana Padano DOP
 # fr:fromage-grana-padano-aop has 36 products in 5 languages @2018-10-27
 
@@ -12602,6 +12615,8 @@ wikidata:en:Q543805
 wikipedia:en:https://en.wikipedia.org/wiki/Reblochon
 # ingredient/fr:reblochon has 64 products @2018-12-27
 
+<en:reblochon
+fr:Reblochon AOP
 
 # RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses.
 
@@ -14632,7 +14647,7 @@ nl:Ongeraffineerd zeezout uit de Atlantische Oceaan
 <en:sea salt
 en:Salt from Guérande
 de:Salz aus Guérande
-fr:Sel de Guérande, sel de guérande, sel marin de guérande
+fr:Sel de Guérande, sel de guérande, sel marin de guérande, sel de Guérande IGP
 nl:Zout uit Guérande
 
 <en:sea salt
@@ -14807,10 +14822,14 @@ fr:carpaccio de boeuf
 <en:beef meat
 fr:viande hachée de bœuf, viande hachée de boeuf
 
+<en:beef meat
 fr:extrait de viande de bœuf, extrait de viande de boeuf
 
 <fr:viande hachée de bœuf
 fr:préparation viande hachée de boeuf
+
+# <en:compound
+fr:préparation de viande de boeuf cuite
 
 <en:beef meat
 fr:cœur de bœuf, coeur de boeuf
@@ -15753,9 +15772,13 @@ fr:sang de porc
 <en:pork by-product
 fr:plasma de porc
 
+<en:pork meat
 fr:longe de porc
 
-<fr:viande de porc
+<fr:longe de porc
+fr:longe de porc traitée en salaison
+
+<en:pork meat
 fr:viande séparée mécaniquement de porc
 
 <en:pork meat
@@ -16274,14 +16297,17 @@ fr:amidons de blé et de pomme de terre
 
 # Cooking oil is plant, animal, or synthetic fat used in frying, baking, and other types of cooking
 
-en:oil, cooking oil
+en:oil, cooking oil, frying oil
 de:Öl, Speiseöl
-fr:huile, huiles
+fr:huile, huiles, huile de cuisine, huile de friture
 it:olio
 nl:olie, oliën
 ru:масло, масла
 vegan:en:maybe
 vegetarian:en:maybe
+
+<en:oil
+fr:Huile de friture
 
 # description:en:Fat is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. 
 
@@ -16572,11 +16598,14 @@ nn:vegetabilisk fett
 pt:gorduras vegetais
 sv:vegetabiliska fetter
 
+# <en:compound
+<en:vegetable fat
+fr:préparation de matières grasses végétales
+# usage:fr:préparation de matières grasses végétales (graisse de palme, huile de colza, colorant : caroténoïdes)
+
 <en:vegetable oil and fat
-en:vegetable fat/oil non hydrogenated
-de:Pflanzenfett/-öl ungehärtet
-fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
-it:oli/grassi vegetali non idrogenati
+en:non hydrogenated vegetable oil and fat
+fr:graisse et huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
 
 <en:vegetable fat
 <en:hydrogenated fat
@@ -16635,7 +16664,7 @@ et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
 fi:Palmuöljy
-fr:huile de palme, huile végétale de palme, huile palmique
+fr:huile de palme, huile végétale de palme, huile palmique, huile de palme issue de plantations durables et certifiées
 ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
@@ -16730,6 +16759,14 @@ pt:gordura de palma
 se:palmina mast
 sv:palmfett
 
+<en:palm fat
+en:non-hydrogenated palm fat
+fr:graisse de palme non hydrogénée
+
+<en:palm fat
+en:totally hydrogenated palm fat
+fr:graisse de palme totalement hydrogénée
+
 <en:palm oil
 en:non-hydrogenated palm oil
 de:ungehärtetes Palmöl, nicht-hydriertes Palm
@@ -16744,6 +16781,14 @@ de:teilweise gehärtetes Palmöl
 es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
 nl:gehydrogeneerde palmolie
+
+<en:hydrogenated palm oil
+en:totally hydrogenated palm oil
+fr:huile de palme totalement hydrogénée
+
+<en:hydrogenated palm oil
+en:partially hydrogenated palm oil
+fr:huile de palme partiellement hydrogénée
 
 <en:palm oil
 fr:huile de palme partiellement hydrogénée
@@ -17352,6 +17397,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Soybean_oil
 wikidata:en:Q926892
 from_palm_oil:en:no
 
+<en:soy oil
+en:hydrogenated soy oil
+fr:huile de soja hydrogénée
+
 # description:en:CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources. 
 
 <en:vegetable oil
@@ -17743,7 +17792,7 @@ nl:ontgeurde zonnebloemolie
 
 <en:colza oil
 <en:sunflower oil
-fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza
+fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
 
 <en:vegetable oil
 # <en:lemon
@@ -18056,6 +18105,9 @@ fr:vinaigre d’alcool
 nl:alcoholazijn
 pt:vinagre de álcool
 sv:ättiksprit
+
+<en:alcohol vinegar
+fr:poudre de vinaigre d'alcool
 
 # CIDER VINEGAR, a vinegar made from apples, sugar and yeast,
 
@@ -19144,7 +19196,10 @@ de:Weissweinextrakt
 it:estratto di vino bianco
 # fr:extrait-de-vin-blanc has 221 products in 3 languages @2018-10-29
 
-# MUSCADET is a French white wine.
+<en:white wine extract
+fr:extrait de vin blanc distillé
+
+# description:en:MUSCADET is a French white wine.
 
 <en:white wine
 en:Muscadet
@@ -19774,6 +19829,13 @@ en:orange flavouring
 fr:arôme d'orange
 
 <en:flavouring
+fr:arôme naturel de poire
+
+<en:flavouring
+<fr:arôme naturel de poire
+fr:arôme naturel de poire avec d'autres arômes naturels
+
+<en:flavouring
 en:sour orange flavouring
 fr:arôme d'orange amère
 
@@ -19797,6 +19859,9 @@ pt:aroma de laranja natural
 en:natural rum flavouring
 fr:arôme naturel de rhum
 
+<en:natural flavouring
+fr:arôme naturel de limette
+
 # Two parents due to and/or ingredient
 
 <en:natural orange flavouring
@@ -19805,6 +19870,14 @@ fr:arômes naturels d'orange avec autres arômes naturels, arôme naturel d'oran
 de:natürliches Orangenaroma mit anderen natürlichen Aromen
 nl:natuurlijk sinaasappelaroma met andere natuurlijke aroma's
 pl:naturalny aromat pomarańczowy z innymi naturalnymi aromatami
+
+<en:flavouring
+en:sweet lime flavouring
+fr:arôme de limette
+
+<en:natural flavouring
+en:natural sweet lime flavouring
+fr:arôme naturel de limette
 
 <en:flavouring
 # derivedFrom:en:lemon
@@ -19878,6 +19951,56 @@ fr:arôme naturel de pamplemousse
 en:pink grapefruit natural flavouring
 fr:arôme naturel de pamplemousse rose
 
+<en:natural flavouring
+en:natural mandarin orange flavour
+fr:arôme naturel de mandarine
+
+<en:natural flavouring
+en:natural cherry flavouring
+fr:arôme naturel de cerise
+
+<en:natural flavouring
+en:natural hot pepper flavouring
+fr:arôme naturel de piment
+
+<en:natural flavouring
+en:natural mango flavouring
+fr:arôme naturel de mangue
+
+<en:natural flavouring
+en:natural blueberry flavouring
+fr:arôme naturel de myrtille
+
+<en:natural flavouring
+en:natural poultry flavouring
+fr:arôme naturel de volaille
+vegan:en:no
+vegetarian:en:no
+
+<en:natural flavouring
+en:natural ginger flavouring
+fr:arôme naturel de gingembre
+
+<en:flavouring
+en:banana flavouring
+fr:arôme de banane
+
+<en:natural flavouring
+en:natural banana flavouring
+fr:arôme naturel de banane
+
+<en:natural flavouring
+en:natural shallot flavouring
+fr:arôme naturel d'échalotte
+
+<en:natural flavouring
+en:natural cola flavouring
+fr:arôme naturel de cola
+
+<en:flavouring
+en:chocolate flavouring
+fr:arôme de chocolat
+
 <en:flavouring
 fr:arôme de sureau
 
@@ -19895,6 +20018,9 @@ fr:arôme naturel de fruit, arômes naturels de fruit
 <en:natural flavouring
 en:natural chicken flavouring
 fr:arôme naturel de poulet, arôme naturel de poule
+
+en:chicken flavouring
+fr:arôme de poulet, arôme de poule
 
 <en:natural flavouring
 en:natural cinammon flavouring
@@ -19919,6 +20045,30 @@ fr:arôme de pomme
 en:natural apple flavouring
 fr:arôme naturel de pomme
 nl:natuurlijk appelaroma
+
+<en:flavouring
+en:pear flavouring
+fr:arôme de poire
+
+<en:natural flavouring
+en:natural pear flavouring
+fr:arôme naturel de poire
+
+<en:flavouring
+en:peach flavouring
+fr:arôme de pêche
+
+<en:natural flavouring
+en:natural peach flavouring
+fr:arôme naturel de pêche
+
+<en:flavouring
+en:pepper flavouring
+fr:arôme de poivre
+
+<en:natural flavouring
+en:natural pepper flavouring
+fr:arôme naturel de poivre
 
 # Two parents due to and/or ingredient
 
@@ -20185,6 +20335,10 @@ fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee
 it:aroma di affumicato
 nl:rookaroma
 
+<en:flavouring
+<en:smoke flavouring
+fr:arôme dont arôme de fumée
+
 <en:natural flavouring
 fr:arôme naturel de noisette
 
@@ -20238,12 +20392,17 @@ fr:arôme identique nature
 en:aniseed aroma
 de:Anisaroma
 es:aroma de anís
-fr:arôme anis
+fr:arôme d'anis
 nl:anijsaroma
 
-<en:aniseed aroma
+<en:natural flavouring
+en:natural star anise aroma
 fr:arôme naturel d'anis étoilé
 de:natürliches Sternanisaroma
+
+<en:natural flavouring
+en:natural aniseed aroma
+fr:arôme naturel d'anis
 
 <en:flavouring
 fr:arôme framboise
@@ -20478,6 +20637,11 @@ vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Mélange de céréales
 carbon_footprint_fr_foodges_value:fr:0.3
 
+# <en:compound
+<en:cereal
+fr:billes de céréales
+# usage:fr:billes de céréales 2.7% (farine de riz 2.3%, sucre, sel, beurre de cacao)
+
 <en:cereal
 en:wholemeal cereal
 de:Vollkorngetreide
@@ -20697,6 +20861,11 @@ it:frumento soffiato
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-soufflé
 # 15 products in 3 languages @2018-09-22
 
+<en:wheat
+fr:Grains de blé dur précuits
+
+<en:wheat
+fr:blé dur concassé précuit
 
 <en:wheat
 en:whole wheat
@@ -21103,6 +21272,14 @@ zh:布格麦
 # ckb:ساوار
 wikipedia:en:https://en.wikipedia.org/wiki/Bulgur
 wikidata:en:Q250432
+
+<en:bulgur
+en:precooked bulgur
+fr:boulgour précuit
+
+<en:bulgur
+en:cooked bulgur
+fr:boulgour cuit
 
 <en:wheat
 en:wheat flakes
@@ -21655,6 +21832,9 @@ sv:korn malt
 zh:含大麥芽片
 
 <en:malted barley
+fr:blé malté concassé
+
+<en:malted barley
 en:barley malt extract
 de:Gerstenmalzextrakt
 es:extracto de malta de cebada
@@ -21880,6 +22060,7 @@ fr:avoine biologique
 en:wholemeal oat
 de:Vollkornhafer, Vollkorn-Hafer
 nl:volkoren haver
+fr:avoine complète
 
 # description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
@@ -24692,7 +24873,7 @@ fr:pâte à tarte
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 carbon_footprint_fr_foodges_value:fr:7.3
 
-fr:sucre liquide inverti
+
 
 fr:mélasse de sucre de canne
 
@@ -25200,9 +25381,12 @@ zh:高果糖浆
 <en:sugar syrup
 en:invert sugar syrup, invert syrup, liquid invert syrup
 de:Invertzuckersirup
-fr:sirop de sucre inverti
+fr:sirop de sucre inverti, sucre liquide inverti
 it:sciroppo di zucchero invertito
 nl:Invertsuikerstroop
+
+en:invert sugar syrup
+fr:sirop de sucre inverti cristallisé
 
 <en:invert sugar syrup
 en:cane invert syrup, invert cane syrup
@@ -25846,7 +26030,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Whey_protein
 
 <en:whey protein
 en:concentrated whey protein
-fr:concentré de protéines de lactosérum
+fr:concentré de protéines de lactosérum, concentré de protéines de sérum
 
 # Casein is a family of related phosphoproteins. These proteins are commonly found in mammalian milk, comprising c. 80% of the proteins in cow's milk and between 20% and 45% of the proteins in human milk.
 
@@ -27536,6 +27720,9 @@ fr:gluten de blé, gluten de froment
 nl:tarwegluten
 pl:gluten pszenny
 
+<en:wheat gluten
+fr:gluten vital de blé
+
 # nova:en:maltodextrin
 en:Maltodextrins, maltodextrin
 de:Maltodextrine
@@ -27571,6 +27758,9 @@ fr:maltodextrine de pomme de terre, malto-dextrine de pomme de terre
 <en:maltodextrin
 en:corn maltodextrin
 fr:maltodextrine de maïs, malto-dextrine de maïs
+
+<en:maltodextrin
+fr:maltodextrine de blé
 
 # a raising agent is any one of a number of substances used in doughs and batters that cause a foaming action (gas bubbles) that lightens and softens the mixture.
 # This contains chemical and biological raising agents. Often a raising agent is synonymous to chemical.
@@ -29638,8 +29828,10 @@ nl:rode vruchten
 wikipedia:en:https://en.wikipedia.org/wiki/Berry
 # ingredient/fr:fruits-rouges 205 products @2018-10-01
 
-# This is a compound ingredient
+<en:berries
+fr:fruits rouges lyophilisés
 
+# <compound:en:This is a compound ingredient
 <en:fruit
 fr:fruits confits
 de:Früchte kandiert
@@ -29676,14 +29868,12 @@ fr:jus
 it:succo
 # ingredient/fr:jus has 156 products in 4 languages @2019-02-02
 
-<en:juice
 en:concentrated juice
 de:konzentrierter Saft
 fr:jus concentré
 it:succo concentrato
 # ingredient/fr:jus-concentré has 184 products in 5 languages @2019-02-02
 # concentrated juice:lemon and orange
-
 
 <en:fruit
 en:fruit juice
@@ -29695,19 +29885,27 @@ nl:vruchtensap
 vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Juice
-
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits
 # 1687 products in 6 languages @2018-10-04
 
-<fr:jus de fruits
+<en:fruit juice
+en:fruit juice concentrate
+de:Fruchtsaftkonzentrat
+fr:jus concentré de fruits, jus de fruits concentrés
+
+<en:fruit juice concentrate
+fr:jus concentré de fruits rouges
+
+<en:fruit juice concentrate
 en:fruit juice from concentrate, fruit juices from concentrate
 de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
 es:zumo de frutas a partir de concentrado
-fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés, fr:jus concentré de fruits, jus de fruits concentrés
+fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés,
 it:succhi di frutta a base di concentrato, succhi di frutta a base di concentrati
 nl:vruchtsap van concentraat, vruchtensap uit concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits-à-base-de-concentré
 # 650 products in 7 languages @2018-10-04
+
 
 <en:fruit juice from concentrate
 fr:jus de fruits rouges à base de concentrés
@@ -31610,7 +31808,7 @@ fr:extrait naturel de citron, extraits naturels de citron
 en:lemon juice from concentrate
 de:Zitronensaft aus Zitronensaftkonzentrat
 es:zumo de limón a partir de concentrado
-fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré
+fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré, jus de citron reconstitué à base de concentré
 it:succo di limone da concentrato
 nl:citroensap uit concentraat
 
@@ -32512,7 +32710,6 @@ nl:bosbessenpuree, bosbessenmoes
 
 
 <en:blueberry
-<en:juice
 en:blueberry juice
 de:Preiselbeersaft
 fr:jus de myrtille
@@ -34274,6 +34471,10 @@ carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:raisin
 fr:raisins secs rehydratés
+
+<en:raisin
+en:raisin concentrate
+fr:concentré de raisin
 
 # 1314 products in 6 languages @2018-10-02
 
@@ -36522,7 +36723,7 @@ nl:knoflookpuree
 
 <en:garlic
 en:garlic paste
-fr:pâte d'ail, pulpe d'ail
+fr:pâte d'ail, pulpe d'ail, ail en purée
 # en:garlic-paste has 35 products in 2 languages @2018-10-23
 
 <en:garlic
@@ -37873,6 +38074,10 @@ carbon_footprint_fr_foodges_value:fr:0.3
 wikidata:en:Q81
 wikipedia:en:https://en.wikipedia.org/wiki/Carrot
 # en:carot has 8224 products in 15 languages @2018-10-21
+
+<en:carrot
+en:cooked carrot
+fr:carotte cuite
 
 <en:carrot
 # <en:organic
@@ -39532,6 +39737,8 @@ it:Insalata mista
 # Salade mélangée (laitue, chicorée et roquette)
 # Mélange de salade  (scarole, frisée, chicorée rouge, roquette)
 
+<fr:mélange de salades
+fr:salade mélangée verte et rouge
 
 # <en:compound
 <en:salad
@@ -41387,6 +41594,10 @@ nl:Pompoensap
 en:concentrated pumpkin juice
 fr:jus de potiron concentré, jus concentré de potiron
 
+<en:vegetable
+en:butternut squash
+fr:courge butternut
+
 # Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 
 <en:vegetable
@@ -42340,6 +42551,9 @@ carbon_footprint_fr_foodges_value:fr:0.7
 
 <en:garden peas
 fr:petits pois fins
+
+<en:garden peas
+fr:petits pois très fins
 
 <en:garden peas
 fr:petits pois doux
@@ -43527,6 +43741,9 @@ zh:银杏果, 白果
 en:chinese chestnut
 zh:板栗
 
+<en:pecan nut
+fr:noix de pécan caramélisées
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                     S E E D     S E C T I O N
@@ -43655,6 +43872,9 @@ vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines
 # 304 products in 7 languages @2018-10-06
 
+<en:seed
+fr:graines grillées
+
 # description:en:Anise, also called aniseed, is a flowering plant in the family Apiaceae. It is widely cultivated and used to flavor food and alcoholic drinks, especially around the Mediterranean.
 # comment:en: wikidata page Q28692 refers anise in general terms, not to the seed
 
@@ -43681,6 +43901,9 @@ nl:biologisch anijszaad, anijs bio
 <en:mustard seed
 en:yellow mustard seed
 fr:graines de moutarde jaunes
+
+<en:mustard seed
+fr:graines de moutarde moulues
 
 <en:seed
 en:celery seed
@@ -45703,6 +45926,9 @@ wikidata:en:Q1760637
 carbon_footprint_fr_foodges_ingredient:fr:Anis - Badiane
 carbon_footprint_fr_foodges_value:fr:2.7
 
+<en:star anise
+fr:anéthol de badiane
+
 # description:en:A PINK PEPPERCORN is a dried berry of the shrub Schinus molle, commonly known as the Peruvian peppertree. Although a peppercorn is the dried fruit of a plant from the genus Piper, pink peppercorns came to be called such because they resemble peppercorns, and because they, too, have a peppery flavour. As they are members of the cashew family, they may cause allergic reactions including anaphylaxis for persons with a tree nut allergy.
 
 <en:spice
@@ -46974,7 +47200,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lovage
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:livèche
 # 241 products in 5 languages @2018-10-10
 
-# In french bleuets are either en:cornflower or en:blueberry
+<en:lovage
+en:lovage leaves
+fr:feuilles de livèche
+
+<en:lovage
+en:dried lovage
+fr:livèche séchée
+
+# Comment:en:In french bleuets are either en:cornflower or en:blueberry
+
 <en:cornflower
 <en:blueberry
 fr:bleuets
@@ -47565,6 +47800,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Coriander
 fr:arôme de coriandre
 es:aroma de cilantro
 # ingredient/fr:arôme de coriandre has 1 products in 2 languages @2018-12-05
+
+
+<en:plant
+fr:feuilles de mûres douces
 
 
 # GUARANA is a climbing plant in the maple family, Sapindaceae, native to the Amazon basin and especially common in Brazil.
@@ -48585,6 +48824,10 @@ en:olive paté
 de:Olivenpastete
 fr:pâte d'olives
 
+# <en:compound
+<en:olive
+fr:olives farcies
+# usage:fr:Olives farcies  [olives vertes dénoyautées, farce à la pâte d'ail (eau, ail, épaississant : alginate de sodium, conservateur : sorbate de potassium)]
 
 <en:plant
 en:orange leaves
@@ -51403,20 +51646,21 @@ wikidata:en:Q1142857
 
 # The SHIITAKE (Lentinula edodes) is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries.
 
-<en:mushroom
+<en:mushroom, Lentinula edodes, Lentinus edodes
 en:shiitake
 de:shiitake, schwarzer Pilz
 es:setas negro
 fr:shiitake, champignon noir, champignons noirs, shiitakes, , Lentin du chêne, Lentin comestible, Champignon parfumé
 it:funghi shiitake
+la:Lentinula edodes
 nl:shiitake, zwarte paddestoel, Chinese champignons
 sv:svart champinjon
 # fr:champignon-noir has 111 products in 2 languages @2018-11-01
+# ingredient/fr:Lentinus-edodes has 21 products in french @2018-01-22
 
 <en:shiitake
-en:Lentinula edodes, Lentinus edodes
-la:Lentinula edodes
-# ingredient/fr:Lentinus-edodes has 21 products in french @2018-01-22
+en:dehydrated shiitake
+fr:champignon noir déshydraté
 
 <en:shiitake
 fr:champignon noir réhydraté, champignons noirs réhydratés
@@ -52166,7 +52410,7 @@ fr:poissons entiers pêchés en Méditerranée
 # The Alaska pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
 
 <en:fish
-en:alaska pollock, Alaskan pollock
+en:alaska pollock, Alaskan pollock, Theragra chalcogramma
 az:Mintay
 bg:treska pestrá
 ca:peix carboner d'Alaska
@@ -52182,6 +52426,7 @@ ka:მინტაი
 kk:Минтай
 ko:명태
 ky:Минтай
+la:Theragra chalcogramma
 ms:Pollock Alaska
 nb:Alaskatheragra
 nl:Alaskakoolvis, alaskapollak, Alaska koolvis
@@ -52213,6 +52458,8 @@ en:Theragra chalcogramma
 fr:Theragra chalcogramma, Colin d'Alaska
 la:Theragra chalcogmaquereauramma
 
+<en:alaska pollock
+fr:Portions de bloc de filets de COLIN d'Alaska MSC
 
 # An anchovy is a small, common forage fish of the family Engraulidae. 
 
@@ -58879,7 +59126,6 @@ it:cetrioli all'aceto
 # carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
 # ingredient/fr:Concombre-produit-sous-serre-chauffée has no products @2019-05-15
 
-<en:juice
 <en:cucumber
 en:cucumber juice
 de:Gurkensaft
@@ -59449,6 +59695,10 @@ fr:filet de poulet, viande de filet de poulet
 it:Filetto di pollo
 nl:kipfilet
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
+
+# <en:compound
+<en:chicken fillet
+fr:émincé de filet de poulet traité en salaison cuit rôti
 
 <en:chicken fillet
 en:superior chicken fillet
@@ -60319,6 +60569,11 @@ fr:protéine d'œuf, protéine d'oeuf
 it:proteina dell'uovo
 # ingredient/egg-protein has 47 products in 5 languages @2018-12-18
 
+# <en:compound
+<en:egg white
+fr:meringue
+# usage:fr:meringue (blanc d'OEUF, sucre)
+
 # description:en:EGG YOLK is the part of an egg which feeds the developing chicken embryo.
 
 <en:egg
@@ -60775,7 +61030,10 @@ wikidata:en:Q161
 wikipedia:en:https://en.wikipedia.org/wiki/Fiber
 # fibre has 270 products in 8 languages @2019-03-10
 
-# description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants,[1] industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
+<en:fiber
+fr:fibres solubles
+
+# description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
 
 # fodmap:en:yes
 <en:fiber
@@ -61912,6 +62170,9 @@ it:pane per toast
 # ingredient/fr:pain-de-mie has 104 products in 4 languages @2019-03-07
 
 <en:breadmeal
+fr:Pain de mie aux céréales
+
+<en:breadmeal
 fr:pain de mie complet
 
 <en:special bread
@@ -62268,6 +62529,15 @@ vegetarian:en:ignore
 
 <en:coating
 fr:décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
+
+<en:coating
+fr:chocolat de couverture
+
+<en:coating
+fr:Enrobage chocolat au lait 
+
+<en:coating
+fr:chocolat noir de couverture
 
 # comment:en:The inside part of an ice cream cone
 
@@ -64128,6 +64398,11 @@ wikidata:en:Q56296569
 # ingredient/fr:marinade has 146 products in in 4 languages @2019-04-27
 # usage:fr:marinade (olive oil, rapeseed oil, chives 4%, lemon essential oil 3%)
 
+<en:marinade
+fr:marinade barbecue 
+
+<en:marinade
+fr:marinade tex mex
 
 # description:en:MAYONNAISE, informally mayo, is a thick cold sauce or dressing usually used in sandwiches and composed salads or on chips. It is a stable emulsion of oil, egg yolk, and acid, either vinegar or lemon juice.
 
@@ -64720,6 +64995,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vinaigrette
 # vinaigrette (maltodextrine de maïs, vinaigre de vin, sucre, sel, oignon 0,2%, mélange d'épices, arômes naturels, arôme, épaississants:gomme de xanthane et pectine)
 # usage:fr:sauce vinaigrette (huile de colza, eau, huile d'olive vierge extra, vinaigre d'alcool, moutarde de Dijon, sel, amidon modifié de pomme de terre, épaississant :gomme xanthane)
 
+<en:sauce
+fr:sauce hamburger
 
 <en:sauce
 en:prepared sauce
