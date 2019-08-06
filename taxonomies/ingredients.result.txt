@@ -227,6 +227,9 @@ fr:pur jus de pommes à cidre bio
 < :
 fr:yaourt maigre en poudre
 
+< de:Sauerteig getrocknet
+fr:levain déshydraté et dévitalisé
+
 fr:
 it:
 
@@ -985,10 +988,6 @@ fr:anis bio
 it:anice bio
 nl:biologisch anijszaad, anijs bio
 
-< en:Aniseed aroma
-fr:arôme naturel d'anis étoilé
-de:natürliches Sternanisaroma
-
 en:anti-bulking agent
 
 en:Anti-caking agent, anticaking agent, anti-stick agent, drying agent, dusting agent
@@ -1389,6 +1388,10 @@ fr:saumon Atlantique fumé
 < en:Atlantic wolffish
 en:Anarhichas lupus
 la:Anarhichas lupus
+
+< en:Aubergine
+en:dried aubergine
+fr:aubergines séchées
 
 < en:Aubergine
 en:grilled aubergines
@@ -2871,6 +2874,10 @@ fr:bouillon déshydraté
 < en:Brown basmati rice
 en:Organic Brown Basmati Rice, Certified Organic Brown Basmati Rice
 
+< en:Brown flax seeds
+< fr:Lin jaune
+fr:lin brun et lin jaune
+
 < en:Brown long grain rice
 < en:Parboiled rice
 en:parboiled brown long grain rice
@@ -4099,7 +4106,7 @@ fr:jeunes carottes
 
 < en:Carrot juice
 en:concentrated carrot juice
-de:Karottensaftkonzentrat
+de:Karottensaftkonzentrat, konzentrierter Karottensaft
 fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concentré
 nl:Geconcentreerd wortelsap
 
@@ -4954,6 +4961,9 @@ fr:farine complète
 it:farina integrale
 nl:volkorenmeel
 
+< en:Cereal flour
+fr:farines de graines et céréales
+
 < en:Ceylon black tea
 en:organic Ceylon black tea
 fr:Thé noir de Ceylan bio
@@ -5325,7 +5335,7 @@ es:emmenthal, emmental
 eu:Emmental
 fa:پنیر امنتال
 fi:Emmental
-fr:emmental
+fr:emmental, fromage emmental
 gl:Emmental
 he:אמנטל
 hr:Ementaler
@@ -5846,7 +5856,7 @@ et:parma juust
 eu:Parmigiano-Reggiano
 fa:پنیر پارمیجانو
 fi:parmesaani
-fr:parmesan, parmigiano reggiano
+fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano aop
 gl:Parmesano
 he:פרמזן
 hr:Parmezan
@@ -6410,6 +6420,9 @@ nl:verhitte gepekelde kipfilet
 
 < en:Chicken fillet
 fr:Filets de poulet jaune
+
+en:chicken flavouring
+fr:arôme de poulet, arôme de poule
 
 < en:Chicken meat
 en:chicken cutlet
@@ -8793,6 +8806,9 @@ fr:grains de maïs
 de:
 sr:kukuruzni griz
 
+< en:Corn
+fr:maïs torréfié concassé
+
 < en:Corn flour
 en:organic corn flour
 fr:farine de mais biologique
@@ -8889,7 +8905,8 @@ it:zucchine grigliate
 nl:gegrilde courgette
 
 < en:Courgette
-fr:courgettes en rondelles
+fr:courgettes en rondelles, courgettes séchées
+en:dried courgette
 
 en:Couscous, cous cous
 ar:كسكس
@@ -9020,111 +9037,24 @@ zh:克氏原螯虾
 wikidata:en: Q1133124
 wikipedia:en: https://en.wikipedia.org/wiki/Procambarus_clarkii
 
-en:cream
-af:Room
-ar:قشدة
-ba:Ҡаймаҡ
-be:Вяршкі
-bg:Сметана
-br:dienn
-ca:nata, crema de la llet, crespell, cresp de la llet, doga
-cs:Smetana
-cy:Hufen
-da:Fløde
-de:Rahm, Sahne, Obers, Nidel, Nidle
-el:Κρέμα γάλακτος
-eo:kremo
-es:crema de leche, nata
-eu:esne-gaina
-fa:خامه
-fi:Kerma
-fr:Crème, crème de lait
-ga:Uachtar
-gd:Bàrr a' bhainne
-gl:Crema de leite
-he:שמנת
-hr:Vrhnje
-io:Kremo
-is:Rjómi
-it:panna, crema di latte
-ja:クリーム
-kk:Кілегей
-ko:크림
-ky:Каймак
-la:Cramum
-lb:Rahm, Ram, Schmant
-lt:Grietinėlė
-lv:Krējums
-mr:साय
-ms:Krim
-nb:Fløte
-nl:room
-nn:Kremfløyte
-pl:Śmietanka
-pt:nata, creme de leite
-qu:Nata
-ro:Smântână
-ru:Сливки
-sh:Krem
-sk:Smotana
-sl:Smetana
-sn:Ruomba
-so:Labeen
-sq:Pana
-sv:Grädde
-sw:Samli
-ta:பாலாடை
-te:మీగడ
-th:ครีม
-tr:Krema
-uk:Вершки
-ur:ملائی
-uz:Qaymoq
-vi:Kem
-zh:鮮奶油
-carbon_footprint_fr_foodges_ingredient:fr: Crème, 40% MG, pasteurisée
-carbon_footprint_fr_foodges_value:fr: 4.2
-vegan:en: no
-vegetarian:en: yes
-wikipedia:en: https://en.wikipedia.org/wiki/Cream
-
 < en:Cream
-en:Cream from Normandy
-fr:Crème fraîche de normandie
-nl:Room uit Normandië
+en:cream from Normandy
+fr:crème fraîche de Normandie
+ja:ノルマンディー産生クリーム
+nl:room uit Normandië
 
 < en:Cream
 en:cream powder, Powdered cream
+de:Cremepulver
+es:nata en polvo
 fr:crème en poudre, poudre de crème
 it:panna in polvere
 nl:Poederroom
 
 < en:Cream
-en:Crème fraîche, fresh cream
-af:Crème fraîche
-cs:Crème fraîche
-da:Cremefraiche
-de:Crème fraîche
-es:Crème fraîche
-eu:Esne-gain gordina, esne-gain freskoa
-fr:crème fraîche épaisse, crème fraîche fermentée, Crème fraîche, Crème fraîche liquide
-he:קרם פרש
-hy:Կրեմ-ֆրեշ
-is:Crème fraîche
-it:Crème fraîche
-ja:クレームフレーシュ
-ko:크렘 프레슈
-ms:Crème fraîche
-nb:Crème fraîche
-nl:Crème fraîche
-pl:Crème fraîche, świeża śmietana
-pt:Crème fraîche
-ru:Крем-фреш
-sv:Crème fraîche
-uk:Крем-фреш
-vi:Kem fraîche
-zh:法式酸奶油
-wikipedia:en: https://en.wikipedia.org/wiki/Crème_fraîche
+en:fresh cream
+fr:crème fraîche
+nl:verse room
 
 < en:Cream
 en:light cream
@@ -9146,7 +9076,16 @@ pt:Leite e natas pateurizados
 < en:Cream
 en:pasteurized cream
 de:pasteurisierte Sahne
-fr:crème pasteurisée, crème de lait pasteurisée
+es:nata pasteurizada
+fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé, crème pasteurisés
+it:crema pastorizzata
+nl:gepasteuriseerde room
+pt:nata pasteurizada
+
+< en:Cream
+en:pasteurized crème fraîche
+fr:creme fraiche pasteurisée
+it:panna fresca pastorizzata
 
 < en:Cream
 en:single cream
@@ -9156,46 +9095,7 @@ nl:vloeibare room
 sv:flytande grädde
 
 < en:Cream
-en:Smetana
-az:Xama
-be:Смятана
-bs:Pavlaka
-ca:Smetana
-cs:Zakysaná smetana
-cv:Хăйма
-da:Smetana
-de:Schmand, Schmant, Schmetten
-es:Smetana
-et:Hapukoor
-eu:Smetana
-fi:Smetana
-fr:Smetana
-gl:Smetana
-hy:Թթվասեր
-it:Smetana
-ja:スメタナ
-ka:არაჟანი
-kk:Қаймақ
-ko:스메타나
-lt:Grietinė
-lv:Skābais krējums
-mk:Павлака
-ms:Smetana
-nb:Smetana
-nl:Smetana
-pl:Śmietana
-ru:Сметана
-sl:Kisla smetana
-sr:Павлака
-sv:Smetana
-uk:Сметана
-uz:Smetana
-vi:Smetana
-zh:斯美塔那酸奶油
-wikipedia:en: https://en.wikipedia.org/wiki/Smetana_-dairy_product-
-
-< en:Cream
-en:Sour cream
+en:sour cream, soured cream, grade a cultured cream
 ar:كريمة حامضة
 ca:Crema agra, crema àcida
 de:saure Sahne, Sauerrahm
@@ -9219,28 +9119,26 @@ zh:酸忌廉
 wikipedia:en: https://en.wikipedia.org/wiki/Sour_cream
 
 < en:Cream
+en:sterilized cream
+fr:crème stérilisée
+
+< en:Cream
+en:UHT cream
+fr:crème uht
+
+< en:Cream
 en:whipped cream
 fr:crème fouettée
 
 < en:Cream
-en:whole cream
+en:whole cream, full cream
 de:Vollrahm, ganze Sahne
 fr:crème entière
 it:panna intera
 nl:volle room
 
 < en:Cream
-fr:creme fraiche pasteurisée
-it:panna fresca pastorizzata
-
-< en:Cream
-fr:crème pâtissière
-
-< en:Cream
-fr:crème stérilisée
-
-< en:Cream
-fr:crème uht
+fr:Crème fraîche liquide
 
 < en:Cream powder
 en:rehydrated cream powder
@@ -9860,6 +9758,75 @@ vegetarian:en: yes
 wikidata:en: Q34172
 wikipedia:en: https://en.wikipedia.org/wiki/Butter
 
+< en:Dairy
+en:cream
+af:Room
+ar:قشدة
+ba:Ҡаймаҡ
+be:Вяршкі
+bg:Сметана
+br:dienn
+ca:nata, crema de la llet, crespell, cresp de la llet, doga
+cs:Smetana
+cy:Hufen
+da:Fløde
+de:Rahm, Sahne, Obers, Nidel, Nidle
+el:Κρέμα γάλακτος
+eo:kremo
+es:crema de leche, nata
+eu:esne-gaina
+fa:خامه
+fi:Kerma
+fr:Crème, crème de lait
+ga:Uachtar
+gd:Bàrr a' bhainne
+gl:Crema de leite
+he:שמנת
+hr:Vrhnje
+io:Kremo
+is:Rjómi
+it:panna, crema di latte
+ja:クリーム
+kk:Кілегей
+ko:크림
+ky:Каймак
+la:Cramum
+lb:Rahm, Ram, Schmant
+lt:Grietinėlė
+lv:Krējums
+mr:साय
+ms:Krim
+nb:Fløte
+nl:room
+nn:Kremfløyte
+pl:Śmietanka
+pt:nata, creme de leite
+qu:Nata
+ro:Smântână
+ru:Сливки
+sh:Krem
+sk:Smotana
+sl:Smetana
+sn:Ruomba
+so:Labeen
+sq:Pana
+sv:Grädde
+sw:Samli
+ta:பாலாடை
+te:మీగడ
+th:ครีม
+tr:Krema
+uk:Вершки
+ur:ملائی
+uz:Qaymoq
+vi:Kem
+zh:鮮奶油
+carbon_footprint_fr_foodges_ingredient:fr: Crème, 40% MG, pasteurisée
+carbon_footprint_fr_foodges_value:fr: 4.2
+vegan:en: no
+vegetarian:en: yes
+wikipedia:en: https://en.wikipedia.org/wiki/Cream
+
 < en:Dark chocolate
 en:dark chocolate chunks, dark chocolate chips
 de:Bitterschokoladenstückchen
@@ -10274,6 +10241,10 @@ en:pitted dried apricots
 fr:abricots secs denoyautés
 
 < en:Dried tomatoes
+en:sundried tomatoes
+de:an der Sonne getrocknete Tomaten
+
+< en:Dried tomatoes
 fr:tomates séchées réhydratées
 
 < en:Duck
@@ -10374,7 +10345,7 @@ fr:blé dur précuit
 < en:Durum wheat semolina
 en:organic durum wheat semolina
 de:Bio Hartweizengriess
-fr:semoule de blé dur bio, semoule de blé dur biologique
+fr:semoule de blé dur bio, semoule de blé dur biologique, Semoule de blé dur issu de l'agriculture biologique
 it:semola di grano duro bio
 nl:biologische harde tarwegries
 
@@ -34708,7 +34679,7 @@ vegetarian:en: maybe
 en:aniseed aroma
 de:Anisaroma
 es:aroma de anís
-fr:arôme anis
+fr:arôme d'anis
 nl:anijsaroma
 
 < en:Flavouring
@@ -34721,6 +34692,10 @@ de:künstliches Aroma
 fr:arôme artificiel, arômes artificiels
 
 < en:Flavouring
+en:banana flavouring
+fr:arôme de banane
+
+< en:Flavouring
 en:caramel flavouring
 fr:arôme caramel
 nl:caramelaroma
@@ -34728,6 +34703,10 @@ nl:caramelaroma
 < en:Flavouring
 en:celery flavouring
 fr:arôme de céleri
+
+< en:Flavouring
+en:chocolate flavouring
+fr:arôme de chocolat
 
 < en:Flavouring
 en:citrus flavouring
@@ -34794,6 +34773,18 @@ en:passion fruit flavouring
 fr:arôme de fruit de la passion
 
 < en:Flavouring
+en:peach flavouring
+fr:arôme de pêche
+
+< en:Flavouring
+en:pear flavouring
+fr:arôme de poire
+
+< en:Flavouring
+en:pepper flavouring
+fr:arôme de poivre
+
+< en:Flavouring
 en:peppermint flavouring
 fr:arôme de menthe poivrée
 
@@ -34819,6 +34810,10 @@ en:strawberry flavouring
 de:Erdbeergeschmack
 fr:arôme de fraise
 nl:aardbeienaroma
+
+< en:Flavouring
+en:sweet lime flavouring
+fr:arôme de limette
 
 < en:Flavouring
 en:vanilla flavouring
@@ -34877,6 +34872,9 @@ nn:brune linfrø
 
 < en:Flax seed
 fr:graines de lin doré
+
+< en:Flax seed
+fr:lin jaune
 
 < en:Fleur de sel
 < en:Salt from Guérande
@@ -37971,10 +37969,10 @@ fr:Cantharellus cibarius, Girolle, Girole, Chanterelle, chanterelles
 la:cantharellus cibarius
 
 < en:Grana Padano
-en:Grana Padano PDO cheese
+en:Grana Padano PDO cheese, grana padano cheese pdo
 de:Grana Padano g.U. Käse, Grana Padano Käse g.U.
-fr:fromage grana padano aop, fr:grana padano dop
-it:grana padano dop
+fr:fromage grana padano aop, grana padano dop, fromage grana padano pdo
+it:grana padano dop, formaggio grana padano dop
 pt:queijo Grana Padano DOP
 
 < en:Grape
@@ -38287,6 +38285,10 @@ fr:thé vert au jasmin
 < en:Green tea extract
 en:green tea extract powder
 pt:extrato de ché verde em po
+
+< en:Green tomato
+fr:Purée de tomates vertes
+de:Püree aus grünen Tomaten
 
 < en:Grey shrimp
 en:Crangon crangon
@@ -40206,13 +40208,13 @@ description:sl: Sredstva za ohranjanje vlage so snovi, ki preprečujejo izsušit
 description:sv: Fuktighetsbevarande medel: ämnen som förhindrar uttorkning av livsmedel genom att motverka effekten av luft med låg fuktighet, eller förbättrar upplösningen av pulver i vattenlösningar.
 wikidata:en: Q911854
 
-< en:Hydrogenated oil
-< en:Palm oil
-en:hydrogenated palm oil
-de:teilweise gehärtetes Palmöl
-es:aceite de palma hidrogenado
-fr:huile de palme hydrogénée
-nl:gehydrogeneerde palmolie
+< en:Hydrogenated palm oil
+en:partially hydrogenated palm oil
+fr:huile de palme partiellement hydrogénée
+
+< en:Hydrogenated palm oil
+en:totally hydrogenated palm oil
+fr:huile de palme totalement hydrogénée
 
 < en:Hydrogenated vegetable fat
 en:fully hydrogenated vegetable fat
@@ -43939,7 +43941,7 @@ fr:lait écrémé reconstitué
 nl:gereconstitueerde melk
 
 < en:Milk
-fr:lait entier reconstitué
+fr:lait entier reconstitué, lait reconstitué à partir de lait entier en poudre
 
 < en:Milk
 fr:lait fermenté
@@ -43949,6 +43951,9 @@ nl:gefermenteerde melk
 de:Feine Milchschokolade, Vollmilchschokolade
 fr:chocolat supérieur au lait
 it:Cioccolato superiore al latte
+
+< en:Milk chocolate
+fr:barre de chocolat au lait
 
 < en:Milk chocolate
 fr:chocolat au lait de couverture
@@ -46512,6 +46517,11 @@ en:concentrated mushroom juice
 fr:jus concentré de champignon
 
 < en:Mushroom
+en:dark cep
+fr:Cèpe bronzé
+la:Boletus aereus, aereus
+
+< en:Mushroom
 en:golden chanterelle
 ar:فطر الشانتريل
 be:лісічка сапраўдная
@@ -46699,6 +46709,11 @@ zh:鱗傘屬
 wikipedia:en: https://en.wikipedia.org/wiki/Pholiota
 
 < en:Mushroom
+en:pine bolete
+fr:Bolet pinicole
+la:Boletus pinophilus, Boletus pinicola, pinicola
+
+< en:Mushroom
 en:Scotch bonnet
 bg:обикновена челядинка
 ca:cama-sec
@@ -46819,6 +46834,11 @@ tr:Kavak mantarı
 uk:Плеврот черепичастий
 vi:Nấm rơm, Nấm sò
 zh:草菇, 平菇
+
+< en:Mushroom
+en:summer cep, Boletus reticulatus, reticulatus
+fr:Cèpe d'été, reticulatus
+la:Boletus reticulatus
 
 < en:Mushroom
 en:summer truffle
@@ -47037,6 +47057,10 @@ fr:arôme naturel d'amande
 it:aroma naturale di mandorle
 
 < en:Natural flavouring
+en:natural aniseed aroma
+fr:arôme naturel d'anis
+
+< en:Natural flavouring
 en:natural apple flavouring
 fr:arôme naturel de pomme
 nl:natuurlijk appelaroma
@@ -47046,10 +47070,18 @@ en:natural apricot flavouring, natural apricot flavor
 fr:arôme naturel d'abricot
 
 < en:Natural flavouring
+en:natural banana flavouring
+fr:arôme naturel de banane
+
+< en:Natural flavouring
 en:natural basil flavouring
 de:natürliches Basilikumaroma
 fr:arôme naturel de basilic
 it:aroma naturale del basilico
+
+< en:Natural flavouring
+en:natural blueberry flavouring
+fr:arôme naturel de myrtille
 
 < en:Natural flavouring
 en:natural caramel flavouring
@@ -47060,6 +47092,10 @@ nl:natuurlijk caramelaroma
 < en:Natural flavouring
 en:natural carrot flavouring
 fr:arôme naturel de carotte
+
+< en:Natural flavouring
+en:natural cherry flavouring
+fr:arôme naturel de cerise
 
 < en:Natural flavouring
 en:natural chicken flavouring
@@ -47079,6 +47115,10 @@ it:aroma naturale di cacao
 nl:natuurlijk cacao-aroma
 
 < en:Natural flavouring
+en:natural cola flavouring
+fr:arôme naturel de cola
+
+< en:Natural flavouring
 en:natural estragon flavouring
 fr:arôme naturel d'estragon
 
@@ -47095,6 +47135,14 @@ en:natural garlic flavouring, natural garlic aroma
 de:natürliches Knoblaucharoma
 fr:arôme naturel d'ail
 ml:natuurlijk knoflookaroma
+
+< en:Natural flavouring
+en:natural ginger flavouring
+fr:arôme naturel de gingembre
+
+< en:Natural flavouring
+en:natural hot pepper flavouring
+fr:arôme naturel de piment
 
 < en:Natural flavouring
 en:natural laurel flavouring
@@ -47117,6 +47165,14 @@ de:natürliches Limettenaroma
 fr:arôme naturel de citron vert
 it:aroma naturale di lime
 nl:natuurlijk aroma van limoen
+
+< en:Natural flavouring
+en:natural mandarin orange flavour
+fr:arôme naturel de mandarine
+
+< en:Natural flavouring
+en:natural mango flavouring
+fr:arôme naturel de mangue
 
 < en:Natural flavouring
 en:natural onion flavouring
@@ -47143,6 +47199,14 @@ en:natural paprika flavor, natural flavor of paprika
 fr:arôme naturel de paprika
 
 < en:Natural flavouring
+en:natural peach flavouring
+fr:arôme naturel de pêche
+
+< en:Natural flavouring
+en:natural pear flavouring
+fr:arôme naturel de poire
+
+< en:Natural flavouring
 en:natural pepper flavouring, natural pepper flavor, natural pepper flavors
 de:natürliches Pfefferaroma
 fr:arôme naturel de poivre, arôme naturel poivre, arômes naturels de poivre
@@ -47153,6 +47217,12 @@ en:natural pork flavouring
 fr:arôme naturel de porc
 
 < en:Natural flavouring
+en:natural poultry flavouring
+fr:arôme naturel de volaille
+vegan:en: no
+vegetarian:en: no
+
+< en:Natural flavouring
 en:natural raspberry flavouring
 de:natürliches Himbeeraroma
 fr:arôme naturel de framboise
@@ -47160,6 +47230,10 @@ fr:arôme naturel de framboise
 < en:Natural flavouring
 en:natural rum flavouring
 fr:arôme naturel de rhum
+
+< en:Natural flavouring
+en:natural shallot flavouring
+fr:arôme naturel d'échalotte
 
 < en:Natural flavouring
 en:natural sour almond flavouring
@@ -47173,6 +47247,15 @@ fr:arôme naturel d'orange amère
 en:natural spice flavouring
 de:natürliches Gewürzaroma
 fr:arôme naturel d'épices
+
+< en:Natural flavouring
+en:natural star anise aroma
+de:natürliches Sternanisaroma
+fr:arôme naturel d'anis étoilé
+
+< en:Natural flavouring
+en:natural sweet lime flavouring
+fr:arôme naturel de limette
 
 < en:Natural flavouring
 en:natural tarragon flavouring
@@ -47881,9 +47964,9 @@ fr:poulpe en lamelles
 < en:Octopus
 zh:砂蛸
 
-en:oil, cooking oil
+en:oil, cooking oil, frying oil
 de:Öl, Speiseöl
-fr:huile, huiles
+fr:huile, huiles, huile de cuisine, huile de friture
 it:olio
 nl:olie, oliën
 ru:масло, масла
@@ -48567,6 +48650,14 @@ description:en: A food additive gas, which is introduced into a container before
 description:es: Aditivos alimentarios gaseosos, introducidos en un envase antes, durante o después de su llenado con un alimento, con la intención de proteger el alimento, por ejemplo, de la oxidación o descomposición.
 description:fr: Additif alimentaire gazeux, qui est introduit dans un conteneur pendant, durant ou après son remplissage avec une denrée alimentaire avec l'intention de protéger l'aliment par exemple de l'oxydation ou de l'altération.
 
+< en:Palm fat
+en:non-hydrogenated palm fat
+fr:graisse de palme non hydrogénée
+
+< en:Palm fat
+en:totally hydrogenated palm fat
+fr:graisse de palme totalement hydrogénée
+
 < en:Palm kernel oil
 fr:palmiste totalement hydrogénée
 
@@ -48600,6 +48691,14 @@ uk:Пальмоядрова олія
 from_palm_oil:en: yes
 wikidata:en: Q1960534
 wikipedia:en: https://en.wikipedia.org/wiki/Palm_kernel_oil
+
+< en:Hydrogenated oil
+< en:Palm oil
+en:hydrogenated palm oil
+de:teilweise gehärtetes Palmöl
+es:aceite de palma hidrogenado
+fr:huile de palme hydrogénée
+nl:gehydrogeneerde palmolie
 
 < en:Palm kernel oil
 < en:Palm oil
@@ -48690,7 +48789,7 @@ et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
 fi:Palmuöljy
-fr:huile de palme, huile végétale de palme, huile palmique
+fr:huile de palme, huile végétale de palme, huile palmique, huile de palme issue de plantations durables et certifiées
 ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
@@ -48945,11 +49044,6 @@ en:Skim milk and pasteurized cream
 de:Magermilch und pasteurisiertes Sahne
 fr:lait écrémé et crème pasteurisés
 
-< en:Pasteurized cream
-fr:crème de lait pasteurisé
-es:nata pasteurizada
-nl:Gepasteuriseerde room
-
 < en:Pasteurized skimmed milk
 en:organic pasteurized skimmed milk
 nl:magere melkpoeder van biologische oorsprong
@@ -49199,11 +49293,8 @@ de:Birnendicksaft
 it:Succo di pere concentrato
 
 < en:Pecorino
-en:pecorino romano, romano
-fr:pecorino romano, romano
-
-< en:Pecorino romano
-fr:fromage pecorino romano aop
+en:pecorino romano, romano, Peccorino Romano PDO cheese
+fr:pecorino romano, romano, fromage pecorino romano aop
 
 < en:Peeled tomatoes
 fr:tomates entières pelées
@@ -50739,6 +50830,12 @@ fr:jambon de porc, jambon
 it:prosciutto
 
 < en:Pork meat
+en:stewed porc
+de:geschmortes Schweinefleisch
+fr:viandes de porc à l'étouffée
+it:maiale in umido
+
+< en:Pork meat
 fr:barde de porc
 
 < en:Pork meat
@@ -52110,6 +52207,9 @@ en:organic red lentils
 fr:lentilles corail issues de l'agriculture biologique
 
 < en:Red lentils
+fr:farine de lentilles corail
+
+< en:Red lentils
 fr:lentilles rouges décortiquées
 
 < en:Red pepper
@@ -52462,7 +52562,7 @@ en:Thai rice, jasmine rice
 de:Thai-Reis, Jasmin-Reis
 es:Arroz jazmín, Arroz tailandes
 fi:Jasmiiniriisi
-fr:riz thaï, riz jasmin, riz au jasmin, riz parfumé, riz parfume de thailande, riz au jasmin thai
+fr:riz thaï, riz jasmin, riz au jasmin, riz parfumé, riz parfume de thailande, riz au jasmin thai, Riz thaï au jasmin
 it:riso tailandese, di riso tailandese, riso algelsomino
 nl:thaise rijst, jasmijnrijst
 wikidata:en: Q2733021
@@ -52842,6 +52942,10 @@ nl:saffraanpoeder
 en:lactarus deliciosus
 fr:Lactarius deliciosus
 la:lactarius deliciosus
+
+< en:Sage
+en:sage extract
+fr:extrait de sauge
 
 < en:Saithe
 en:Pollachius virens
@@ -56094,6 +56198,78 @@ fr:fromage frais au lait demi-écrémé
 < en:Soft white cheese
 fr:fromage frais au lait demi-écrémé pasteurisé, Fromage frais nature au lait demi-écrémé pasteurisé
 
+< en:Sour cream
+de:Schmand, Schmant
+
+< en:Sour cream
+en:Crème fraîche
+af:Crème fraîche
+cs:Crème fraîche
+da:Cremefraiche, creme fraiche
+de:Crème fraîche
+es:Crème fraîche
+eu:Esne-gain gordina, esne-gain freskoa
+fi:crème fraîche
+fr:crème fraîche épaisse, crème fraîche fermentée
+he:קרם פרש
+hy:Կրեմ-ֆրեշ
+is:Crème fraîche
+it:Crème fraîche
+ja:クレームフレーシュ
+ko:크렘 프레슈
+ms:Crème fraîche
+nb:Crème fraîche
+nl:Crème fraîche
+pl:Crème fraîche
+pt:Crème fraîche
+ru:Крем-фреш
+sv:Crème fraîche
+uk:Крем-фреш
+vi:Kem fraîche
+zh:法式酸奶油
+wikidata:en: Q1142459
+wikipedia:en: https://en.wikipedia.org/wiki/Crème_fraîche
+
+< en:Sour cream
+en:Smetana
+az:Xama
+be:Смятана
+bs:Pavlaka
+ca:Smetana
+cs:Zakysaná smetana
+cv:Хăйма
+da:Smetana
+de:Schmetten
+es:Smetana
+et:Hapukoor
+eu:Smetana
+fi:Smetana
+fr:Smetana
+gl:Smetana
+hy:Թթվասեր
+it:Smetana
+ja:スメタナ
+ka:არაჟანი
+kk:Қаймақ
+ko:스메타나
+lt:Grietinė
+lv:Skābais krējums
+mk:Павлака
+ms:Smetana
+nb:Smetana
+nl:Smetana
+pl:Śmietana, świeża śmietana
+ru:Сметана
+sl:Kisla smetana
+sr:Павлака
+sv:Smetana
+uk:Сметана
+uz:Smetana
+vi:Smetana
+zh:斯美塔那酸奶油
+wikidata:en: Q326061
+wikipedia:en: https://en.wikipedia.org/wiki/Smetana_-dairy_product-
+
 en:sourdough
 an:Emprenyatuera
 ar:خبز عجينة متخمرة
@@ -56157,6 +56333,10 @@ la:Merluccius capensis
 en:Merluccius gayi, Merluccius gayi gayi, Merlucius gayigay
 fr:Merluccius gayi, Merlu blanc du Chili
 la:Merluccius gayi, Merluccius gayi gayi, Merlucius gayigay
+
+< en:Soy oil
+en:hydrogenated soy oil
+fr:huile de soja hydrogénée
 
 en:soy preparation
 nl:sojabereiding
@@ -56345,6 +56525,9 @@ nl:biologische sojabonen
 
 < en:Soya bean
 fr:fèves de soja sans ogm décortiquées
+
+< en:Soya bean
+fr:graines de soja toastées
 
 < en:Soya bean
 fr:soja dépelliculé, graines de soja dépelliculées, fèves de soja décortiquées
@@ -57275,6 +57458,9 @@ nl:spinaziepoeder
 pt:pó de espinafre
 
 < en:Spinach
+fr:épinards déshydratés
+
+< en:Spinach
 fr:épinards en branches
 de:Blattspinat
 it:foglie di spinaci
@@ -57730,6 +57916,11 @@ nl:gepasteuriseerde melk
 
 < en:Sterilised milk
 fr:lait thermisé
+
+< en:Sterilized cream
+< en:UHT cream
+en:sterilized UHT cream
+fr:crème stérilisée uht
 
 < en:Straw mushroom
 en:Pleurotus ostreatus
@@ -58908,13 +59099,16 @@ nl:Thaise langkorrelrijst van hoge kwaliteit
 
 < en:Thai rice
 en:Thaï brown rice
-fr:Riz thaï complet
+fr:Riz thaï complet, riz complet thaï
 
 < en:Thai rice
 en:Thai long grain rice
 de:Langkorn Thai-Reis
 fr:riz thai long grain, riz long grain thai, riz long thai, Riz long grain de Thailande
 nl:Langkorrelige Thaise rijst
+
+< en:Thai rice
+fr:riz rouge complet thaï au jasmin
 
 en:Thiamin, Vitamin B1, Thiamine, B1
 af:Tiamien
@@ -59202,7 +59396,7 @@ sv:cherrytomater
 
 < en:Tomato
 en:chopped tomatoes
-de:gehackte Tomaten, Tomatenhack
+de:gehackte Tomaten, Tomatenhack, Tomatenfruchtfleisch
 el:ψιλοκαμμένη ντομάτα
 fr:tomate concassée, tomates concassées, concassé de tomates
 hu:szeletelt paradicsom
@@ -59288,7 +59482,7 @@ sv:tomatpulver
 
 < en:Tomato
 en:tomato purée, tomato paste, tomato concentrate
-de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat
+de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat
 es:concentrado de tomate
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates
 it:passata di pomodoro, concentrato di pomodoro
@@ -59305,7 +59499,7 @@ carbon_footprint_fr_foodges_value:fr: 2.9
 
 < en:Tomato
 fr:tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
-de:Tomaten halbgetrocknete
+de:Tomaten halbgetrocknete, halbgetrocknete Tomaten
 it:pomodori semiseccchi
 
 < en:Tomato cubes
@@ -61729,6 +61923,11 @@ wikidata:en: Q21546392
 wikipedia:en: https://en.wikipedia.org/wiki/Garlic
 
 < en:Vegetable
+en:green tomato
+de:grüne Tomaten
+fr:tomates vertes
+
+< en:Vegetable
 en:Heart of palm, Hearts of palm
 ar:جمار
 de:Palmherzen, Palmherz
@@ -62871,6 +63070,9 @@ fr:légumes verts
 < en:Vegetable
 fr:mélange de légumes
 
+< en:Vegetable extract
+fr:extraits végétaux à pouvoir colorant
+
 < en:Hydrogenated fat
 < en:Vegetable fat
 en:hydrogenated vegetable fat
@@ -63659,12 +63861,6 @@ nl:plantaardige vetten
 nn:vegetabilisk fett
 pt:gorduras vegetais
 sv:vegetabiliska fetter
-
-< en:Vegetable oil and fat
-en:vegetable fat/oil non hydrogenated
-de:Pflanzenfett/-öl ungehärtet
-fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
-it:oli/grassi vegetali non idrogenati
 
 < en:Vegetable oil and fat
 en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
@@ -65623,6 +65819,9 @@ nl:dextrose van tarwe of maïs
 de:Weizenvollkornflocken
 fr:flocons de blé complet
 
+< en:Wheat flakes
+fr:flocons de blé malté
+
 < en:Wheat flour
 de:Weichweizenmehl
 fr:farine de blé tendre
@@ -65692,6 +65891,9 @@ fr:farine de gonflement de blé
 < en:Wheat flour
 fr:farine mi-blanche
 
+< en:Wheat malt
+fr:blé malté torréfié concassé
+
 < en:Wheat semolina
 fr:semoule de blé tendre
 
@@ -65727,7 +65929,7 @@ nl:melkweipermeaat
 
 < en:Whey
 en:whey powder, powdered whey
-de:Molkenpulver
+de:Molkenpulver, Molkepulver
 fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre de lactosérum
 it:siero di latte in polvere
 nl:weipoeder
@@ -65863,6 +66065,10 @@ nl:Geconcentreerd grapefruitsap
 en:ground white pepper
 fr:poivre blanc moulu
 nl:gemalen witte peper
+
+< en:Red quinoa
+< en:White quinoa
+fr:quinoa rouge et blanc
 
 < en:Long grain rice
 < en:White rice
@@ -66896,9 +67102,7 @@ fr:Crème dessert au chocolat
 
 fr:Crème dessert saveur vanille
 
-< fr:Crème stérilisée
-< fr:Crème uht
-fr:crème stérilisée uht
+fr:crème pâtissière
 
 < en:Shrimp
 < fr:Crevettes roses
@@ -67296,6 +67500,8 @@ fr:poulet rôti traité en salaison
 
 < fr:Poulet traité en salaison
 fr:viande de poulet traitée en salaison
+
+fr:préparation pain d'épices
 
 
 < fr:Protéines de blé
