@@ -134,7 +134,7 @@ msgid "Product page also edited by"
 msgstr ""
 
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 msgstr ""
 
 msgctxt "android_apk_app_link"
@@ -899,6 +899,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid ""
 "You must enter the characters of the barcode or send a product image when "
 "the barcode is visible."
+msgstr ""
+
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr ""
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr ""
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr ""
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr ""
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr ""
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
 msgstr ""
 
 msgctxt "incomplete_products_you_added"
@@ -2414,7 +2438,7 @@ msgid "Serving size"
 msgstr ""
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
 
 msgctxt "serving_size_example"
@@ -3447,3 +3471,31 @@ msgstr ""
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr ""
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr ""
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "You are viewing an old version of this product page!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Revision number: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Edited by: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Previous version"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Next version"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Latest version"

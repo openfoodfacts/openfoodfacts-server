@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-28 22:11\n"
+"PO-Revision-Date: 2019-08-01 21:01\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -136,8 +136,8 @@ msgid "Product page also edited by"
 msgstr "Produktside også redigeret af"
 
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
@@ -959,8 +959,8 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Tilgængelig på App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2312,9 +2312,8 @@ msgid "Serving size"
 msgstr "Portionsstørrelse"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "Forberedt serveringsstørrelse"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2359,6 +2358,10 @@ msgstr "Open Food Facts"
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Sortér efter"
+
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr "Fuldstændighed"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -3252,8 +3255,8 @@ msgid "Help translate the %s to %s"
 msgstr "Hjælp med at oversætte %s til %s"
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr "Du kan foreslå oversættelser til nedenstående poster, som endnu ikke er oversat til dit sprog. Det blå link på engelsk viser de korresponderende produkter, den sorte tekst på engelsk viser den oprindelige post med valgfrie synonymer adskilt af kommaer. Angiv oversættelsen i tekstfeltet, med valgfrie synonymer, og klik derefter på knappen Gem. Tak!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgstr "Du kan foreslå oversættelser til de poster nedenfor, som endnu ikke er oversat til dit sprog. Det blå link samt den sorte tekst, begge på engelsk, viser hhv. det ikke-lokaliserede produkt samt den oprindelige post inkl. valgfrie synonymer adskilt af kommaer. Angiv oversættelsen i tekstfeltet, inkl. valgfrie synonymer, og klik derefter på knappen Gem. Tak!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3286,4 +3289,52 @@ msgstr "Nej"
 msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr "Spring over"
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr "popularitet"
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr "popularitet"
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr "ingrediensanalyse"
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr "ingrediensanalyse"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "Analyse af ingredienser"
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "Du ser en gammel version af denne produktside!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Revisionsnummer: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Redigeret af: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Foregående version"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Næste version"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Seneste version"
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "Analysen baserer sig alne på de angivne ingredienser og tager ikke højde for behandlingsmetoder."
 
