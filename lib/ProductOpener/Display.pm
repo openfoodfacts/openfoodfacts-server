@@ -6469,16 +6469,10 @@ HTML
 			}
 
 			my $path = product_path($product_ref->{code});
-			if (-e "$www_root/images/products/$path/$filename.full.jpg.google_cloud_vision.json") {
-				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.jpg.google_cloud_vision.json" class="button tiny">Cloud Vision</a>
-HTML
-;
-			}
 
 			if (-e "$www_root/images/products/$path/$filename.full.json") {
 				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.json" class="button tiny">OCR</a>
+<a href="/images/products/$path/$filename.full.json">OCR result</a>
 HTML
 ;
 			}
@@ -6966,7 +6960,7 @@ HTML
 
 	# Take the last (biggest) image
 	my $product_image_url;
-	if ($html_image =~ /.*src="(.*\/products\/[^"]+)"/is) {
+	if ($html_image =~ /.*src="([^"]*\/products\/[^"]+)"/is) {
 		$product_image_url = $1;
 	}
 
