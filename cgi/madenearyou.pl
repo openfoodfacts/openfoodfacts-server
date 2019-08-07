@@ -255,7 +255,7 @@ Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http
 src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFacts&amp;count=vertical&amp;lang=$lc"
 style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><!-- TODO insert instagram --></div>
+
 </div>
 
 </div>
