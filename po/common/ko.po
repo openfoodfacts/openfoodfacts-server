@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-07 20:55\n"
+"PO-Revision-Date: 2019-08-08 02:32\n"
 "Language-Team: Korean\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -17,11 +17,11 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr "1 상품"
+msgstr "1개의 제품"
 
 msgctxt "_and_"
 msgid " and "
-msgstr " 및 "
+msgstr " 그리고 "
 
 msgctxt "about"
 msgid "About me"
@@ -29,15 +29,15 @@ msgstr "내 소개"
 
 msgctxt "add"
 msgid "Add"
-msgstr "추가"
+msgstr "추가하기"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr "언어 추가"
+msgstr "언어 추가하기"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr "제품 추가"
+msgstr "제품 추가하기"
 
 msgctxt "add_user"
 msgid "Register"
@@ -1211,7 +1211,7 @@ msgstr "정보, 데이터 또는 이미지를 추가함으로써 귀하는 정�
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr "생산자의 공식 사이트의 제품 페이지에 링크"
+msgstr "생산자의 공식 사이트의 제품 페이지에 링크하기"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1235,7 +1235,7 @@ msgstr "여러분의 계정을 만들어보세요."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr "아직 등록하지?"
+msgstr "아직 가입하지 않으셨나요?"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1261,11 +1261,11 @@ msgstr "<p>제품을 추가하거나 편집하려면 로그인 하세요.</p>\n\
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "로그인에"
+msgstr "로그인하기"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr "로그인에 추가하거나 편집 제품."
+msgstr "제품을 추가하거나 편집하려면 로그인하세요."
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
@@ -1275,7 +1275,7 @@ msgstr "<p>제품을 추가하거나 편집하려면 로그인 하세요.</p>\n\
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "아이디 나 이메일 주소 :"
+msgstr "아이디 또는 이메일 주소:"
 
 msgctxt "low"
 msgid "low"
@@ -1344,21 +1344,21 @@ msgstr "/제품-추가"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "기부"
+msgstr "기여하기"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/기부"
+msgstr "/기여하기"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "발견"
+msgstr "둘러보기"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/발견"
+msgstr "/둘러보기"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1370,7 +1370,7 @@ msgstr "이 미션은 이미 완료되었습니다.:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr "%d명이 완성하였습니다."
+msgstr "%d명이 완료하였습니다."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
@@ -1483,7 +1483,7 @@ msgstr "영양소 수치"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr "영양물"
+msgstr "영양소"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
@@ -3267,35 +3267,35 @@ msgstr "탄소영향 계산은 매우 불확실합니다. 값은 주의해서 �
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "** 제품이 너무 많음 (%d개의 제품, 제한: %d), 대신 <a href=\"/data\">완전한 데이터베이스 **</a>을 다운로드해주세요."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "%s를 %s로 번역하는 데에 도움을 주세요."
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr ""
+msgstr "아직 귀하의 언어로 번역되지 않은 아래 항목에 대한 번역을 제안 할 수 있습니다. 영어로 된 파란색 링크는 해당 제품을 표시하고 검은색 텍스트는 선택된 동의어가 쉼표로 구분 되어 원래 항목을 표시합니다. 선택된 동의어를 이용해 텍스트 상자에 번역을 한 다음 저장 버튼을 클릭해주세요. 고맙습니다!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "번역 대기 중이 아닌 항목만 표시하기."
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "또한 본인 또는 다른 사용자의 보류중인 번역이있는 항목을 표시합니다."
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "번역되었습니다."
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "번역될"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "현재 번역"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3311,19 +3311,19 @@ msgstr "건너뛰기"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "인기도"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "인기도"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "성분 분석"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "성분 분석"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -3331,29 +3331,29 @@ msgstr "성분 분석"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "분석은 오직 성분 나열만을 기준으로하며 처리 방법은 고려하지 않습니다."
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "이 제품 페이지의 이전 버전을보고 있습니다!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "수정 번호: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "편집자: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "이전 버전"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "다음 버전"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "최신 버전"
 
