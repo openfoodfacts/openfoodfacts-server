@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-08 02:32\n"
+"PO-Revision-Date: 2019-08-08 02:41\n"
 "Language-Team: Korean\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1696,7 +1696,7 @@ msgstr "페이지 :"
 
 msgctxt "password"
 msgid "Password"
-msgstr "암호"
+msgstr "비밀번호"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -1820,7 +1820,7 @@ msgstr "이미지를 삭제하는 중입니다."
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "사진에서 성분을 추출"
+msgstr "사진에서 성분을 추출하기"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -1852,11 +1852,11 @@ msgstr "필요한 경우 사진을 회전시킨 다음 클릭하고 끌어서 �
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr "회전 왼쪽"
+msgstr "왼쪽으로 돌리기"
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-msgstr "오른쪽으로 회전"
+msgstr "오른쪽으로 돌리기"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
@@ -1900,7 +1900,7 @@ msgstr "사진을 옮기는 중입니다."
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr "사진 추가"
+msgstr "사진 추가하기"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -1908,7 +1908,7 @@ msgstr "→ Chrome, Firefox 및 Safari를 사용하면 Ctrl 키를 누른 상태
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr "업로드 이미지"
+msgstr "사진을 업로드 중입니다."
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
@@ -1948,7 +1948,7 @@ msgstr "추가 또는 편집한 제품"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "도시, 주 및 구매의 나라"
+msgstr "구매한 도시, 주 그리고 국가"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1984,7 +1984,7 @@ msgstr "2리터, 250그램, 1킬로그램, 25센티리터, 6액량 온스, 1파�
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr "저를 기억"
+msgstr "기억하기"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
@@ -2044,15 +2044,15 @@ msgstr ""
 
 msgctxt "risk_level_1"
 msgid "Low risks"
-msgstr "낮은 위험"
+msgstr "낮은 위험도"
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
-msgstr "보통 위험"
+msgstr "보통 위험도"
 
 msgctxt "risk_level_3"
 msgid "High risks"
-msgstr "높은 위험"
+msgstr "높은 위험도"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
@@ -2060,7 +2060,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr "저장"
+msgstr "저장하기"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2072,15 +2072,15 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr "수색"
+msgstr "검색하기"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr "제품 검색"
+msgstr "제품 검색하기"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr "수색"
+msgstr "검색하기"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2088,7 +2088,7 @@ msgstr ""
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr "등 특정 브랜드, 종류, 라벨, 재료의 기원, 제조 장소와 제품 선택"
+msgstr "특정 브랜드, 카테고리, 라벨, 원산지, 제조 장소 등이있는 제품을 선택하세요."
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2144,7 +2144,7 @@ msgstr ""
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr "그래프에 결과"
+msgstr "그래프로 결과보기"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
@@ -2181,7 +2181,7 @@ msgstr ""
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr "제품 목록에서 결과"
+msgstr "제품 목록으로 결과보기"
 
 msgctxt "search_map"
 msgid "Map"
@@ -2189,7 +2189,7 @@ msgstr ""
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
-msgstr "지도 결과"
+msgstr "지도로 결과보기"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
@@ -2209,7 +2209,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr "영양물"
+msgstr "영양소"
 
 msgctxt "search_or"
 msgid "or"
@@ -2305,7 +2305,7 @@ msgstr ""
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr "제품 페이지를 참조하십시오"
+msgstr "제품 페이지를 참조하세요."
 
 msgctxt "select_country"
 msgid "Country"
@@ -2317,7 +2317,7 @@ msgstr "언어"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr "사진을 보내기를..."
+msgstr "사진 전송하기"
 
 msgctxt "send_image_error"
 msgid "Upload error"
@@ -2345,11 +2345,11 @@ msgstr "영양성분표에 준비된 제품의 값이 포함된 경우 준비된
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "로그인에"
+msgstr "로그인"
 
 msgctxt "share"
 msgid "Share"
-msgstr "공유"
+msgstr "공유하기"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
