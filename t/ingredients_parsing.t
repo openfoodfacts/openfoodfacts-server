@@ -99,6 +99,19 @@ my @lists =(
 	["it","Puo contenere tracce di frutta a guscio, sesamo, soia e uova","tracce : frutta a guscio, tracce : sesamo, tracce : soia, tracce : uova."],
 	["it","Il prodotto può contenere tracce di GRANO, LATTE, UOVA, FRUTTA A GUSCIO e SOIA.","tracce : grano, tracce : latte, tracce : uova, tracce : frutta a guscio, tracce : soia."],
 
+	["fr","Jus de pomme*** 68%, jus de poire***32% *** Ingrédients issus de l'agriculture biologique","jus de pomme bio 68%, jus de poire bio 32%"],
+	["fr","Pâte de cacao°* du Pérou 65 %, sucre de canne°*, beurre de cacao°*, sel *, lait °. °Issus de l'agriculture biologique (100 %). *Issus du commerce équitable (100 % du poids total avec 93 % SPP).","Pâte de cacao Bio Commerce équitable du Pérou 65 %, sucre de canne Bio Commerce équitable, beurre de cacao Bio Commerce équitable, sel Commerce équitable, lait Bio."],
+
+	["fr","p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).","pâte de cacao Commerce équitable Bio de Madagascar 75%, sucre de canne Commerce équitable Bio, beurre de cacao Commerce équitable Bio."],
+
+	["fr","Céleri - rave 21% - Eau, légumes 33,6% (carottes, céleri - rave, poivrons rouges 5,8% - haricots - petits pois bio - haricots verts - courge - radis, pommes de terre - patates - fenouil - cerfeuil tubéreux - persil plat)","Céleri-rave 21% - Eau, légumes 33,6% (carottes, céleri-rave, poivrons rouges 5,8% - haricots - petits pois bio - haricots verts - courge - radis, pommes de terre - patates - fenouil - cerfeuil tubéreux - persil plat)"],
+	["fr","poudres à lever : carbonates d'ammonium - carbonates de sodium - phosphates de calcium, farine, sel","poudres à lever : carbonates d'ammonium - carbonates de sodium - phosphates de calcium, farine, sel"],
+	["en","FD&C Red #40 Lake and silicon dioxide","FD&C Red #40 Lake and silicon dioxide"],
+	["fr","Lait pasteurisé à 1,1% de Mat. Gr.","Lait pasteurisé à 1,1% de Matières Grasses"],
+	["fr","matière grasse végétale (palme) raffinée","matière grasse végétale de palme raffinée"],
+	["fr","huile d'olive vierge, origan", "huile d'olive vierge, origan"],
+	["fr","huile de tournesol, cacao maigre en poudre 5.2%", "huile de tournesol, cacao maigre en poudre 5.2%"],
+
 );
 
 foreach my $test_ref (@lists) {
