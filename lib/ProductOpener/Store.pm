@@ -36,10 +36,14 @@ BEGIN
 		&store
 		&retrieve
 		&unac_string_perl
+		&get_string_id_for_lang
+		&get_url_id_for_lang
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
+
+use ProductOpener::Config qw/:all/;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
 #use Text::Unaccent "unac_string";
@@ -69,10 +73,71 @@ sub unac_string_perl($) {
 
 # Tags in European characters (iso-8859-1 / Latin-1 / Windows-1252) are canonicalized:
 # 1. lowercase
-# 2. deaccent: é -> è, + German umlauts: ä -> ae if $unaccent is 1 OR $lc is 'fr'
+# 2. unaccent: é -> è, + German umlauts: ä -> ae if $unaccent is 1 OR $lc is 'fr'
 # 3. turn ascii characters that are not letters / numbers to -
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
+
+sub get_string_id_for_lang {
+
+	my $string = shift;
+	my $lc = shift;
+
+	defined $lc or die("Undef \$lc in call to get_string_id_for_lang (string: $string)\n");
+
+	my $unaccent = $string_normalization_for_lang{default}{unaccent};
+	my $lowercase = $string_normalization_for_lang{default}{lowercase};
+
+	if (defined $string_normalization_for_lang{$lc}) {
+		if (defined $string_normalization_for_lang{$lc}{unaccent}) {
+			$unaccent = $string_normalization_for_lang{$lc}{unaccent};
+		}
+		if (defined $string_normalization_for_lang{$lc}{lowercase}) {
+			$lowercase = $string_normalization_for_lang{$lc}{lowercase};
+		}
+	}
+
+	if (not defined $string) {
+		return "";
+	}
+
+	if ($lowercase) {
+		# do not lowercase UUIDs
+		# e.g.
+		# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
+		# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
+		if ($string !~ /^([a-z\-]+)\.([a-zA-Z0-9-_]{8})([a-zA-Z0-9-_]*)$/) {
+			$string =~ s/\N{U+1E9E}/\N{U+00DF}/g; # Actual lower-case for capital ß
+			$string = lc($string);
+			$string =~ tr/./-/;
+		}
+	}
+
+	if ($unaccent) {
+		$string =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
+		$string =~ s/œ|Œ/oe/g;
+		$string =~ s/æ|Æ/ae/g;
+		$string =~ s/ß/ss/g;
+		$string =~ s/\N{U+1E9E}/ss/g;
+	}
+
+	# turn special chars to -
+	$string =~ s/[\000-\037]/-/g;
+
+	# zero width space
+	$string =~ s/\x{200B}/-/g;
+
+	# avoid turning &quot; in -quot-
+	$string =~ s/\&(quot|lt|gt);/-/g;
+
+	$string =~ s/[\s!"#\$%&'()*+,\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
+	$string =~ s/-+/-/g;
+	$string =~ s/^-//;
+	$string =~ s/-$//;
+
+	return $string;
+}
+
 
 sub get_fileid {
 
@@ -122,6 +187,25 @@ sub get_fileid {
 	$file =~ s/-$//;
 
 	return $file;
+}
+
+
+sub get_url_id_for_lang {
+
+	my $input = shift;
+	my $string = $input;
+	my $unaccent = shift;
+	my $lc = shift;
+
+	$string = get_string_id_for_lang($string, $lc);
+
+	if ($string =~ /[^a-zA-Z0-9-]/) {
+		$string = URI::Escape::XS::encodeURIComponent($string);
+	}
+
+	$log->trace("get_urlid", { in => $input, out => $string }) if $log->is_trace();
+
+	return $string;
 }
 
 
