@@ -290,6 +290,13 @@ sub match_taxonomy_tags($$$$) {
 		foreach my $value (@values) {
 
 			next if not defined $value;
+			
+			# remove stopwords
+			if (defined $options_ref->{stopwords}) {
+				my $stopwords = $options_ref->{stopwords};
+				$value =~ s/\b$stopwords\b//ig;
+			}
+			
 			$value =~ s/^\s+//;
 			$value =~ s/\s+$//;
 

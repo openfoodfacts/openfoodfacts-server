@@ -49,6 +49,7 @@ BEGIN
 					&display_points
 					&display_mission
 					&display_tag
+					&display_field
 					&display_error
 					&gen_feeds
 
@@ -435,7 +436,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -443,7 +444,7 @@ sub analyze_request($)
 			if ($parameter eq "fields") {
 				$request_ref->{$parameter} =~ s/\%2C/,/g;
 			}
-			$log->debug("parameter was set from query string", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
+			$log->debug("parameter $parameter was set from query string: " . $request_ref->{$parameter}, { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}
 
@@ -1389,7 +1390,7 @@ sub display_list_of_tags($$) {
 			close $IN;
 		}
 
-		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
+		$html .= "<p>" . "<nb_tags>" . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
 
 		my $th_nutriments = '';
 
@@ -1454,6 +1455,21 @@ sub display_list_of_tags($$) {
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
 
+		my %stats = (
+			all_tags => 0,
+			all_tags_products => 0,
+			known_tags => 0,
+			known_tags_products => 0,
+			unknown_tags => 0,
+			unknown_tags_products => 0,
+		);
+
+		my $missing_property = $request_ref->{missing_property};
+		if ((defined $missing_property) and ($missing_property !~ /:/)) {
+			$missing_property .= ":en";
+			$log->debug("missing_property defined", {missing_property => $missing_property});
+		}
+
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -1465,7 +1481,18 @@ sub display_list_of_tags($$) {
 			my $tagid = $tagcount_ref->{_id};
 			my $count = $tagcount_ref->{count};
 
+			# allow filtering tags with a search pattern
+			if (defined $request_ref->{filter}) {
+				my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
+				my $display = $tag_ref->{display};
+				my $regexp = quotemeta(decode("utf8",URI::Escape::XS::decodeURIComponent($request_ref->{filter})));
+				next if ($display !~ /$regexp/i);
+			}
+
 			$products{$tagid} = $count;
+
+			$stats{all_tags}++;
+			$stats{all_tags_products} += $count;
 
 			my $link;
 			my $products = $count;
@@ -1496,9 +1523,13 @@ sub display_list_of_tags($$) {
 				else {
 					if (exists_taxonomy_tag('categories', $tagid)) {
 						$td_nutriments .= "<td></td>";
+						$stats{known_tags}++;
+						$stats{known_tags_products} += $count;
 					}
 					else {
 						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+						$stats{unknown_tags}++;
+						$stats{unknown_tags_products} += $count;
 					}
 				}
 			}
@@ -1506,11 +1537,33 @@ sub display_list_of_tags($$) {
 			elsif (defined $taxonomy_fields{$tagtype}) {
 				if (exists_taxonomy_tag($tagtype, $tagid)) {
 					$td_nutriments .= "<td></td>";
+					$stats{known_tags}++;
+					$stats{known_tags_products} += $count;
+					# ?missing_property=vegan
+					# keep only known tags without a defined value for the property
+					if ($missing_property) {
+						next if (defined get_inherited_property($tagtype, $tagid, $missing_property));
+					}
+					if ((defined $request_ref->{status}) and ($request_ref->{status} eq "unknown")) {
+						next;
+					}
 				}
 				else {
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+					$stats{unknown_tags}++;
+					$stats{unknown_tags_products} += $count;
+
+					# ?missing_property=vegan
+					# keep only known tags
+					next if ($missing_property);
+					if ((defined $request_ref->{status}) and ($request_ref->{status} eq "known")) {
+						next;
+					}
 				}
 			}
+
+			# do not compute the tag display if we just need stats
+			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
 
 			my $info = '';
 			my $css_class = '';
@@ -1593,6 +1646,7 @@ sub display_list_of_tags($$) {
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
+				$display = display_tag_name($tagtype, $display);
 			}
 
 			$css_class =~ s/^\s+|\s+$//g;
@@ -1656,7 +1710,41 @@ sub display_list_of_tags($$) {
 			}
 		}
 
+		my $nb_tags = $stats{all_tags}++;
+		$html =~ s/<nb_tags>/$nb_tags/;
+
 		$html .= "</tbody></table></div>";
+
+
+		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
+
+			$html =~ s/<table(.*)<\/table>//is;
+
+			if ($stats{all_tags} > 0) {
+
+				$html .= <<"HTML"
+<table>
+<tr>
+<th>Type</th>
+<th>Unique tags</th>
+<th>Occurrences</th>
+</tr>
+HTML
+;
+				foreach my $type ("known", "unknown", "all") {
+					$html .= "<tr><td><a href=\"?status=$type\">" . $type . "</a></td>"
+					. "<td>" . $stats{$type . "_tags"} . " (" . sprintf("%2.2f", $stats{$type . "_tags"} / $stats{"all_tags"} * 100) . "%)</td>"
+					. "<td>" . $stats{$type . "_tags_products"} . " (" . sprintf("%2.2f", $stats{$type . "_tags_products"} / $stats{"all_tags_products"} * 100) . "%)</td>";
+
+				}
+				$html =~ s/\?status=all//;
+
+				$html .=<<"HTML"
+</table>
+HTML
+;
+			}
+		}
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
@@ -2336,6 +2424,7 @@ sub display_points($) {
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
 			$newtagid = get_fileid($display_tag);
+			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
 				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
@@ -2474,6 +2563,7 @@ sub display_tag($) {
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
 			$newtagid = get_fileid($display_tag);
+			$display_tag = display_tag_name($tagtype2, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
 				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
@@ -2519,8 +2609,10 @@ sub display_tag($) {
 		}
 		else {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
-			$title .= " / " . $display_tag2;
 			$newtagid2 = get_fileid($display_tag2);
+			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
+			$title .= " / " . $display_tag2;
+
 			if ($tagtype2 eq 'emb_codes') {
 				$canon_tagid2 = $newtagid2;
 				$canon_tagid2 =~ s/-(eec|eg|ce)$/-ec/i;
@@ -3723,7 +3815,7 @@ HTML
 			my $img_h;
 
 			my $code = $product_ref->{code};
-			my $img = display_image_thumb($product_ref, 'front', 1);	# lazyload
+			my $img = display_image_thumb($product_ref, 'front');
 
 
 
@@ -4447,7 +4539,7 @@ sub display_scatter_plot($$$) {
 				}
 				$data{product_name} = $product_ref->{product_name};
 				$data{url} = $url;
-				$data{img} = display_image_thumb($product_ref, 'front', 0);	# no lazyload
+				$data{img} = display_image_thumb($product_ref, 'front');
 
 				defined $series{$seriesid} or $series{$seriesid} = '';
 				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
@@ -5274,7 +5366,7 @@ JS
 				$origins = $manufacturing_places . $origins;
 
 				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
-					. escape_single_quote(display_image_thumb($product_ref, 'front', 0)) . "', origins:'" . $origins . "'";	# no lazyload
+					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";
 
 
 
@@ -5482,7 +5574,7 @@ HTML
 	</form>
 </li>
 <li>
-	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="icon-gear"></i></a>
+	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="icon-settings"></i></a>
 </li>
 </ul>
 $links
@@ -5971,20 +6063,20 @@ HTML
 							<input name="action" value="process" type="hidden">
 						</div>
 						<div class="small-4 columns">
-							<button type="submit" title="$Lang{search}{$lang}"><i class="icon-ui-search"></i></button>
+							<button type="submit" title="$Lang{search}{$lang}"><i class="icon-search"></i></button>
 						</div>
 					</div>
 				</form>
 			</li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-plus"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="icon-plus"></i> $Lang{advanced_search}{$lang}</span></a></li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="icon-chart-bar-graph"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="icon-chart-bar-graph"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-add"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="icon-add"></i> $Lang{advanced_search}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="icon-bar_chart"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="icon-bar_chart"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-stock-mobile"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-stock-mobile"></i> $Lang{get_the_app}{$lc}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-phone_android"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-phone_android"></i> $Lang{get_the_app}{$lc}</a></li>
 		</ul>
 	</section>
 </nav>
@@ -5992,7 +6084,7 @@ HTML
 <nav class="tab-bar show-for-small-only">
 	<div class="left-small" style="padding-top:4px;">
 		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
-		<i class="icon-user" style="color:$torso_color;font-size:1.8rem"></i></a>
+		<i class="icon-account_box" style="color:$torso_color;font-size:1.8rem"></i></a>
 	</div>
 	<div class="middle tab-bar-section" style="padding-top:4px;">
 		<form action="/cgi/search.pl">
@@ -6003,10 +6095,10 @@ HTML
 					<input name="action" value="process" type="hidden">
 				</div>
 				<div class="small-2 columns">
-					<button type="submit" class="button postfix"><i class="icon-ui-search"></i></button>
+					<button type="submit" class="button postfix"><i class="icon-search"></i></button>
 				</div>
 				<div class="small-2 columns">
-					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-ui-search"></i> <i class="icon-plus"></i></a>
+					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-search"></i> <i class="icon-add"></i></a>
 				</div>
 			</div>
 		</form>
@@ -6038,11 +6130,11 @@ HTML
 								<input name="action" value="process" type="hidden">
 							</div>
 							<div class="small-2 columns">
-								<button type="submit" class="button postfix"><i class="icon-ui-search"></i></button>
+								<button type="submit" class="button postfix"><i class="icon-search"></i></button>
 							</div>
 							<div class="small-1 columns">
 								<label class="right inline">
-									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-plus"></i></a>
+									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-add"></i></a>
 								</label>
 							</div>
 						</div>
@@ -6105,8 +6197,6 @@ HTML
 <div id="fb-root"></div>
 
 <script src="$static_subdomain/js/dist/modernizr.js"></script>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-<script src="$static_subdomain/js/dist/iolazy.min.js" defer></script>
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
 
@@ -6163,8 +6253,6 @@ function doWebShare(e) {
 }
 
 function onLoad() {
-	new IOlazy();
-
 	var buttons = document.getElementsByClassName('share_button');
 	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
 
@@ -6331,6 +6419,11 @@ sub display_image_box($$$) {
 
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {
+		my $code = $product_ref->{code};
+		my $linkid = $id;
+		if ($img =~ /<meta itemprop="imgid" content="([^"]+)"/) {
+			$linkid = $1;
+		}
 
 		if ($id eq 'front') {
 
@@ -6338,10 +6431,12 @@ sub display_image_box($$$) {
 
 		}
 
-		$img = <<HTML
-<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+		my $alt = lang('image_attribution_link_title');
+		$img = <<"HTML"
+<figure id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 $img
-</div>
+<figcaption><a href="/cgi/product_image.pl?code=$code&amp;id=$linkid" title="$alt"><i class="icon-cc"></i></a></figcaption>
+</figure>
 HTML
 ;
 
@@ -6351,8 +6446,6 @@ HTML
 
 		# Unselect button for admins
 		if ($admin) {
-
-			my $code = $product_ref->{code};
 
 			my $idlc = $id;
 
@@ -6376,16 +6469,10 @@ HTML
 			}
 
 			my $path = product_path($product_ref->{code});
-			if (-e "$www_root/images/products/$path/$filename.full.jpg.google_cloud_vision.json") {
-				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.jpg.google_cloud_vision.json" class="button tiny">Cloud Vision</a>
-HTML
-;
-			}
 
 			if (-e "$www_root/images/products/$path/$filename.full.json") {
 				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.json" class="button tiny">OCR</a>
+<a href="/images/products/$path/$filename.full.json">OCR result</a>
 HTML
 ;
 			}
@@ -6465,7 +6552,11 @@ sub display_field($$) {
 
 
 	if ((defined $value) and ($value ne '')) {
-		if (($field eq 'link') and ($value =~ /^http/)) {
+		# See https://stackoverflow.com/a/3809435
+		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()\@:%_\+.~#?&\/\/=]*)/)) {
+			if ($value !~ /https?:\/\//) {
+				$value = 'http://' . $value;
+			}
 			my $link = $value;
 			$link =~ s/"|<|>|'//g;
 			my $link2 = $link;
@@ -6534,6 +6625,28 @@ JS
 .image_box {
 	text-align:center;
 	margin-bottom:2rem;
+}
+
+figure.image_box  {
+	position: relative;
+	padding: 0;
+}
+
+.image_box > img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+figure.image_box figcaption {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+figure.image_box figcaption img {
+	width: 16px;
+	height: 16px;
 }
 
 .field_div {
@@ -6638,7 +6751,7 @@ HTML
 </a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
-	<i class="icon-pencil"></i>
+	<i class="icon-edit"></i>
 	<span class="show-for-large-up"> $Lang{edit_product_page}{$lc}</span>
 </a></div>
 HTML
@@ -6648,13 +6761,12 @@ HTML
 		$html .= <<HTML
 <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
 <a href="/cgi/product.pl?type=delete&code=$code" class="button small icon">
-	<i class="icon-trash"></i>
+	<i class="icon-delete"></i>
 	<span class="show-for-large-up"> $Lang{delete_product_page}{$lc}</span>
 </a></div>
 HTML
 ;
 	}
-
 
 
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
@@ -6726,8 +6838,10 @@ $Lang{warning_gs1_company_prefix}{$lc}
 HTML
 ;
 	}
-
-	if (not has_tag($product_ref, "states", "en:complete")) {
+	if (defined $rev) {
+		$html .= display_rev_info($code, $rev);
+	}
+	elsif (not has_tag($product_ref, "states", "en:complete")) {
 
 		$html .= <<HTML
 <div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
@@ -6846,7 +6960,7 @@ HTML
 
 	# Take the last (biggest) image
 	my $product_image_url;
-	if ($html_image =~ /.*src="([^"]+)"/is) {
+	if ($html_image =~ /.*src="([^"]*\/products\/[^"]+)"/is) {
 		$product_image_url = $1;
 	}
 
@@ -7005,6 +7119,91 @@ JS
 	$html .= display_field($product_ref, 'allergens');
 
 	$html .= display_field($product_ref, 'traces');
+
+	# Ingredient analysis
+
+	if (defined $product_ref->{ingredients_analysis_tags}) {
+
+		my $html_analysis = "";
+
+		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
+
+			my $color;
+			my $icon = "";
+
+			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
+
+			if ($ingredients_analysis_tag =~ /palm/) {
+
+				if (has_tag($product_ref, "labels", "en:palm-oil-free")
+					or ($ingredients_analysis_tag =~ /-free$/)) {
+					$ingredients_analysis_tag = "en:palm-oil-free";
+					$color = "#00aa00"; # green
+					$icon = "icon-monkey_happy";
+				}
+				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
+					$color = "#ff6600"; # orange
+					$icon = "icon-monkey_uncertain";
+				}
+				else {
+					$color = "#ff0000"; # red
+					$icon = "icon-monkey_unhappy";
+				}
+
+			}
+			else {
+
+				if ($ingredients_analysis_tag =~ /vegan/) {
+					$icon = "icon-leaf";
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegan";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegan")
+						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegan";
+					}
+				}
+				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
+					$icon = "icon-egg";
+					if (has_tag($product_ref, "labels", "en:vegetarian")
+						or has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegetarian";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegetarian";
+					}
+				}
+
+				if ($ingredients_analysis_tag =~ /^en:non-/) {
+					$color = "#ff0000"; # red
+				}
+				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
+					$color = "#ff6600"; # orange
+				}
+				else {
+					$color = "#00aa00"; # green
+				}
+			}
+
+			# Skip unknown
+			next if $ingredients_analysis_tag =~ /unknown/;
+
+			if ($icon ne "") {
+				$icon = "<i style=\"font-size:32px;margin-right:0.2em;vertical-align:text-top;line-height:24px;\" class=\"$icon\"></i>";
+			}
+
+			$html_analysis .= "<span class=\"alert round label\" style=\"background-color:$color;color:white;font-size:1rem;padding-right:1em;\">"
+			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
+			. "</span> ";
+		}
+
+		if ($html_analysis ne "") {
+
+			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
+			. $html_analysis
+			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
+		}
+	}
 
 
 	my $html_ingredients_classes = "";
@@ -7187,7 +7386,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="/nova">
-<i class="icon-info-circle"></i></a>
+<i class="icon-info"></i></a>
 </h4>
 
 
@@ -7325,12 +7524,12 @@ HTML
 	my $other_editors = "";
 
 	foreach my $editor (sort @other_editors) {
-		$other_editors .= "<a href=\"" . canonicalize_tag_link("users", get_fileid($editor)) . "\">" . $editor . "</a>, ";
+		$other_editors .= display_tag_link("editors", $editor) . ", ";
 	}
 	$other_editors =~ s/, $//;
 
-	my $creator = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{creator})) . "\">" . $product_ref->{creator} . "</a>";
-	my $last_editor = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_editor})) . "\">" . $product_ref->{last_editor} . "</a>";
+	my $creator = display_tag_link("editors", $product_ref->{creator});
+	my $last_editor = display_tag_link("editors", $product_ref->{last_editor});
 
 	if ($other_editors ne "") {
 		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
@@ -7339,7 +7538,7 @@ HTML
 	my $checked = "";
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
-		my $last_checker = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_checker})) . "\">" . $product_ref->{last_checker} . "</a>";
+		my $last_checker = display_tag_link("editors", $product_ref->{last_checker});
 		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
 	}
 
@@ -7369,7 +7568,7 @@ HTML
 	$html .= <<HTML
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small">
-	<i class="icon-pencil"></i>
+	<i class="icon-edit"></i>
 	$Lang{edit_product_page}{$lc}
 </a></div>
 HTML
@@ -7552,7 +7751,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="https://world.openfoodfacts.org/nova" title="NOVA groups for food processing">
-<i class="icon-info-circle"></i></a>
+<i class="icon-info"></i></a>
 </h4>
 
 
@@ -7921,7 +8120,7 @@ sub display_nutrient_levels($) {
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}">
-<i class="icon-info-circle"></i></a>
+<i class="icon-info"></i></a>
 </h4>
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%"></a><br>
 $warning
@@ -7943,7 +8142,7 @@ HTML
 	if ($html_nutrient_levels ne '') {
 		$html_nutrient_levels = <<HTML
 <h4>$Lang{nutrient_levels_info}{$lc}
-<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="icon-info-circle"></i></a>
+<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="icon-info"></i></a>
 </h4>
 $html_nutrient_levels
 HTML
@@ -8730,7 +8929,9 @@ sub display_product_api($)
 	my $product_ref = retrieve_product($code);
 
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		$request_ref->{status} = 404;
+		if ($request_ref->{api_version} >= 1) {
+			$request_ref->{status} = 404;
+		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
 		if ($request_ref->{jqm}) {
@@ -8874,7 +9075,66 @@ HTML
 
 	display_structured_response($request_ref);
 }
+sub display_rev_info {
+	my $code = shift;
+	my $rev = shift;
 
+	my $html = '';
+
+	my $path = product_path($code);
+	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	if (not defined $changes_ref) {
+		return '';
+	}
+	my $change_ref = $changes_ref->[$rev-1];
+
+	my $date = display_date_tag($change_ref->{t});
+	my $userid = get_change_userid_or_uuid($change_ref);
+	my $user = display_tag_link("editors", $userid);
+	my $previous_link = '';
+	if ($rev > 1) {
+		$previous_link = '/product/' . $code . '?rev='. ($rev - 1);
+	}
+	my $next_link = '';
+	if ($rev < scalar @$changes_ref) {
+		$next_link = '/product/' . $code . '?rev=' . ($rev + 1);
+	}
+
+	my $comment = $change_ref->{comment};
+	$comment = lang($comment) if $comment eq 'product_created';
+
+	$comment =~ s/^Modification :\s+//;
+	if ($comment eq 'Modification :') {
+		$comment = '';
+	}
+	$comment =~ s/\new image \d+( -)?//;
+	if ($comment ne '') {
+		$comment = "<p> ${\lang('edit_comment')}: $comment</p>";
+	}
+
+
+	$html .= <<"HTML"
+<div id='rev_summary' class='panel callout'>
+	<h4 class='rev_warning'>${\lang('rev_warning')}</h4>
+	<p>
+		${\lang('rev_number')} <span class='rev_nb'>$change_ref->{rev}</span> -
+		<time datetime='$change_ref->{t}'>$date</time> -
+		${\lang('rev_contributor')} <a href='/contributor/$userid' class='rev_contributor'>$user</a>
+	</p>
+	$comment
+HTML
+;
+	if ($previous_link ne '') {
+		$html .= "<span style='margin-right: 2em;'><a href='$previous_link'>← ${\lang('rev_previous')}</a></span>";
+	}
+	$html .= "<span><a href='/product/$code'>${\lang('rev_latest')}</a></span>";
+	if ($next_link ne '') {
+		$html .= "<span style='margin-left: 2em;'><a href='$next_link'>${\lang('rev_next')} →</a></span>";
+	}
+	$html .="</div>";
+	return $html;
+
+}
 sub display_product_history($$) {
 
 	my $code = shift;
@@ -8896,10 +9156,8 @@ sub display_product_history($$) {
 		foreach my $change_ref (reverse @{$changes_ref}) {
 
 			my $date = display_date_tag($change_ref->{t});
-			my $user = "";
-			if (defined $change_ref->{userid}) {
-				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
-			}
+			my $userid = get_change_userid_or_uuid($change_ref);
+			my $user = display_tag_link("editors", $userid);
 
 			my $comment = $change_ref->{comment};
 			$comment = lang($comment) if $comment eq 'product_created';

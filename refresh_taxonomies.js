@@ -25,6 +25,7 @@ async function main() {
     'categories',
     'countries',
     'ingredients',
+    'ingredients_analysis',
     'labels',
     'languages',
     'minerals',

@@ -154,40 +154,44 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					$code = normalize_packager_codes("DE $code EC");
 				}
 				elsif ($country eq 'it') {
-                                        $code = $fields[$headers{approvalnumber}];
+					$code = $fields[$headers{approvalnumber}];
 					$code =~ s/^CE //;
-                                        $code = normalize_packager_codes("$code EC");
-                                }
+					$code = normalize_packager_codes("$code EC");
+				}
 				elsif ($country eq 'be') {
-                                        $code = $fields[$headers{no_agrement}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("BE $code EC");
-                                }
-                                elsif ($country eq 'hu') {
-                                        $code = $fields[$headers{code}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("$code EC");
-                                }
-                                elsif ($country eq 'lu') {
-                                        $code = $fields[$headers{zulassungsnummer}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("LU $code EC");
-                                }
+					$code = $fields[$headers{no_agrement}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("BE $code EC");
+				}
+				elsif ($country eq 'hu') {
+					$code = $fields[$headers{code}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("$code EC");
+				}
+				elsif ($country eq 'lu') {
+					$code = $fields[$headers{zulassungsnummer}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("LU $code EC");
+				}
 				elsif ($country eq 'lt') {
-                                        $code = $fields[$headers{vet_approval_no}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("LT $code EC");
-                                }
-                                elsif ($country eq 'sv') {
-                                        $code = $fields[$headers{nr}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("SV $code EC");
-                                }
-                                elsif ($country eq 'rs') {
-                                        $code = $fields[$headers{approval_number}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("$code EC");
-                                }
+					$code = $fields[$headers{vet_approval_no}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("LT $code EC");
+				}
+				elsif ($country eq 'pl') {
+					$code = $fields[$headers{code}];
+					$code = normalize_packager_codes("PL $code EC");
+				}
+				elsif ($country eq 'sv') {
+					$code = $fields[$headers{nr}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("SV $code EC");
+				}
+				elsif ($country eq 'rs') {
+					$code = $fields[$headers{approval_number}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("$code EC");
+				}
 
 				$code = get_fileid($code);
 				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;

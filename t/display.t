@@ -17,4 +17,13 @@ $lc = 'de';
 is( display_date($t), '27. August 2016 um 12:08:49 CEST' );
 is( display_date_tag($t), '<time datetime="2016-08-27T12:08:49">27. August 2016 um 12:08:49 CEST</time>' );
 
+is(
+	display_field({link => "https://www.brouwerijdebrabandere.be/fr/marques/bavik-super-pils"}, "link"),
+	'<p><span class="field">Link to the product page on the official site of the producer:</span> <a href="https://www.brouwerijdebrabandere.be/fr/marques/bavik-super-pils">https://www.brouwerijdebrabandere.be/fr/...</a></p>'
+);
+
+is(
+	display_field({link => "producer.com"}, "link"),
+	'<p><span class="field">Link to the product page on the official site of the producer:</span> <a href="http://producer.com">http://producer.com</a></p>'
+);
 done_testing();

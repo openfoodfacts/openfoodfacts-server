@@ -420,7 +420,7 @@ en:Fair trade
 ca:Comerç Just
 de:Fairer Handel
 es:Comercio justo, Fairtrade-Comercio Justo
-fr:Commerce équitable, équitable
+fr:Commerce équitable, équitable, issu du commerce équitable, issus du commerce équitable, issue du commerce équitable, issues du commerce équitable
 he:סחר הוגן
 hu:Fair trade
 it:Commercio equo
@@ -1621,6 +1621,7 @@ fr:Fabriqué en Australie
 he:בייצור אוסטרלי
 nl:Geproduceerd in Australië
 wikidata:en:Q17000991
+country:en:Australia
 
 en:Made in Germany
 ca:Fet a Alemanya
@@ -1633,6 +1634,7 @@ it:Fatto in Germania
 nl:Geproduceerd in Duitsland
 pl:Wyprodukowano w Niemczech
 pt:Feito na Bélgica
+country:en:Germany
 
 en:Made in Belgium
 ca:Fet a Bèlgica
@@ -1643,6 +1645,7 @@ he:נוצר בבלגיה
 hu:Belgiumban készült
 it:Fatto in Belgio
 nl:Geproduceerd in België
+country:en:Belgium
 
 en:made in France
 ca:Fet a França
@@ -1655,6 +1658,7 @@ nl:Geproduceerd in Frankrijk
 pl:Wyprodukowano we Francji
 pt:Feito na França
 zh:法国制造
+country:en:France
 
 en:Cooked in France
 ca:Cuinat a França
@@ -1686,6 +1690,7 @@ it:Fatto in Italia
 nl:Geproduceerd in Italië
 pl:Wyprodukowano we Włoszech
 pt:Feito na Itália
+country:en:Italy
 
 en:Made in Portugal
 de:Hergestellt in Portugal
@@ -1695,6 +1700,7 @@ he:מיוצר בפורטוגל
 hu:Portugáliában készült
 nl:Geproduceerd in Portugal
 pt:Feito em Portugal
+country:en:Portugal
 
 en:Made in Russia
 de:Hergestellt in Russland
@@ -1704,6 +1710,7 @@ he:מיוצר ברוסיה
 hu:Oroszországban készült
 nl:Geproduceerd in Rusland
 ru:Сделано в России
+country:en:Russia
 
 en:Made in Spain
 ca:Fet a Espanya
@@ -1713,6 +1720,7 @@ fr:Fabriqué en Espagne
 he:נוצר בספרד
 hu:Spanyolországban készült
 nl:Geproduceerd in Spanje
+country:en:Spain
 
 en:Made in Swiss
 de:Hergestellt in der Schweiz
@@ -1721,12 +1729,14 @@ fr:Fabriqué en Suisse
 hu:Svájcban készült
 nl:Geproduceerd in Zwitserland
 pt:Fabricado na Suíça
+country:en:Switzerland
 
 en:Made in Mexico
 es:Hecho en México
 he:מיוצר במקסיקו
 hu:Mexikóban készült
 nl:Geproduceerd in Mexico
+country:en:Mexico
 
 en:Made in the EU, Made in the European Union
 ca:Fet a la Unió Europea
@@ -1748,8 +1758,10 @@ ru:Лимитированное издание
 
 en:Egg laid in France
 fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France
+country:en:France
 
 fr:Origine France, Origine France Garantie, 100% origine France
+country:en:France
 
 fr:Farine de sarrasin français, Farine de blé noir français
 
@@ -1760,6 +1772,7 @@ fr:PIL, Produit de l'Industrie Locale
 # Fabriqué en Gourmandie, Produit en Gourmandie are old brands of Saveurs de Normandie
 
 fr:Saveurs de Normandie
+country:en:France
 
 fr:Fabriqué en Gourmandie, Produit en Gourmandie
 
@@ -1775,6 +1788,7 @@ fr:Savourez l'Alsace
 nl:Proef de Elzas
 
 fr:Sud de France
+country:en:France
 
 en:natural colorings
 ca:Colorants naturals
@@ -2244,11 +2258,11 @@ fr:Déconseillé aux enfants de moins de 3 ans
 nl:Niet aanbevolen voor kinder jonger dan 3 jaar
 ru:Не рекомендовано для детей младше 3 лет
 
-en:Organic
+en:Organic, organically grown, organically produced
 ca:Orgànic
 de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
 es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio
-fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
+fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
 he:אורגני
 hu:Bio, Öko, Organikus
 it:Biologico
@@ -2256,6 +2270,15 @@ nl:Biologisch
 pt:Orgânico
 zh:有机
 wikidata:en:Q380778
+
+# The entry below is needed to correctly parse ingredients lists that
+# have things like: * issus du commerce équitable et de l'agriculture biologique
+# the first entry needs to be "Fair-Trade Organic", "Commerce équitable Bio"
+# without "and" 
+<en:Organic
+<en:Fair-trade
+en:Fair-Trade Organic, Fair-Trade and Organic
+fr:Commerce équitable Bio, Commerce équitable et Bio, Issus du commerce équitable et de l'agriculture biologique, Issus de l'agriculture biologique et du commerce équitable
 
 <en:Organic
 en:Biodynamic agriculture
@@ -3694,6 +3717,8 @@ it:IGP, I.G.P., Indicazione geografica protetta
 nl:BGA, B.G.A., Beschermde geografische aanduiding
 wikidata:en:Q13533432
 
+it:Indicazione geografica tipica
+
 en:GOST
 fr:GOST
 ru:ГОСТ, GOST
@@ -4688,6 +4713,8 @@ fr:Viande Chevaline Française, Viande chevaline origine France, Cheval 100% Fra
 it:DOC, D.O.C, Denominazione di origine controllata
 wikidata:en:Q654824
 
+it:DOCG, Denominazione di origine controllata e garantita
+
 fr:Concours Mondial de Bruxelles
 
 <fr:Concours Mondial de Bruxelles
@@ -4882,6 +4909,31 @@ fr:Médaille de bronze du Concours de Bordeaux 2012, Concours de Bordeaux médai
 
 <fr:médaille de bronze du Concours de Bordeaux
 fr:Médaille de bronze du Concours de Bordeaux 2011, Concours de Bordeaux médaille de bronze 2011, Médaille de Bronze Bordeaux 2011 Concours de Bordeaux, Médaille de Bronze Bordeaux 2011
+
+
+#Wine Related labels
+
+fr:Premier cru
+
+fr:Grand cru
+
+fr:Mis en bouteille au château
+
+fr:Mis en bouteille à la propriété
+
+fr:Mis en bouteille au domaine
+
+fr:fermenté en barrique
+
+fr:fermenté en fût de chêne
+
+fr:élevé en fût de chêne
+
+fr:vieilli en fût de chêne
+
+fr:Vigneron indépendant
+
+fr:Viticulture durable
 
 de:Berliner Wein Trophy
 

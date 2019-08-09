@@ -47,7 +47,7 @@ ro:Grisine artizanale
 en:Baby foods
 ca:Alimentació per a nadons
 de:Babynahrung, Säuglingsnahrung
-es:Alimentos infantiles, Alimentos para bebés, Alimentos para lactantes, Alimentos para niños de corta edad
+es:Alimentos infantiles, Alimentos para bebés, Alimentos para lactantes, Alimentos para niños de corta edad, Alimentación infantil
 fr:Aliments pour bébé, aliment pour bébé, alimentation pour bébé, aliment bébé, alimentation bébé, aliments bébé, alimentation infantile
 hu:Bébiételek
 nl:Babyvoeding
@@ -2270,6 +2270,7 @@ nl:Druivensappen uit concentraat, Druivensap uit concentraat
 <en:Grape juices
 <en:Squeezed juices
 en:Squeezed grape juices, Non-refrigerated squeezed grape juices
+fr:Jus de raisin pur jus
 de:Traubendirektsäfte
 es:Zumos de uva exprimidos no refrigerados, Zumos de uva exprimidos, Zumos de uva exprimidos ambiente
 nl:Pure Druivensappen, Pure Druivensap
@@ -2754,6 +2755,10 @@ it:Nettare di ananas
 nl:Ananasnectars, Ananasnectar
 
 <en:Fruit nectars
+en:Kiwi nectars
+fr:Nectars de kiwi
+
+<en:Fruit nectars
 en:Pomegranate nectars
 de:Granatapfelnektare
 es:Néctares de granada
@@ -3067,6 +3072,12 @@ de:Rote Früchtetees
 fr:Infusions aux fruits rouges, Infusion aux fruits rouges
 nl:Rode vruchtentheeën, Rode vruchtenthee
 
+<en:Fruit teas
+<en:Herbal teas in tea bags
+en:Herbal fruit teas in tea bags
+fr:Infusions aux fruits en sachets
+es:infusiones con frutas en bolsitas
+
 <en:Herbal teas
 en:Ginkgo
 de:Gingko
@@ -3090,6 +3101,9 @@ en:Good nightrest tea blends
 de:Gute Nacht Tee, Gute-Nacht-Tee
 fr:Infusions Bonne Nuit, Infusions douce nuit, Infusions nuit calme
 nl:Goede nachtrusttheeën, Goede nachtrustthee
+
+<en:Herbal tea blends
+es:Infusiones relajantes
 
 <en:Herbal tea blends
 en:Weight-loss tea blends
@@ -4081,6 +4095,12 @@ en:Unsweetened flavored waters, non-sweetened flavored waters, non-sugared flavo
 de:Zuckerfreies Wasser mit Geschmack
 fr:Eaux aromatisées sans sucre ajouté, eau aromatisée sans sucre ajouté, eaux aromatisées non sucrées, eau aromatisée non sucrée
 nl:Suikervrije waters, Suikervrij water
+
+<en:Flavored waters
+<en:Sparkling waters
+en:Flavored sparkling waters, Sparkling flavored waters
+fr:Eaux gazeuses aromatisées, eux aromatisées gazeuses
+it:Acque gassate aromatizzate, acqua aromatizzata gassata
 
 <en:Mountain products
 <en:Waters
@@ -16670,6 +16690,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Biscuit au beurre
 <en:Biscuits
 en:Gluten-free biscuits
 de:Glutenfreie Kekse
+es:Galletas sin gluten
 fr:Biscuits sans gluten
 hu:Gluténmentes kekszek
 nl:Glutenvrije koekjes, Koekjes zonder gluten, Glutenvrij koekje
@@ -16743,8 +16764,10 @@ ru:Печенье овсяное, овсяное печенье
 
 <en:Biscuits
 en:Filled biscuits
+es:Galletas rellenas
 fr:Biscuits fourrés
 nl:Gevulde koekjes
+
 
 #Oreo like biscuits
 <en:Filled Biscuits
@@ -16814,8 +16837,9 @@ fr:Biscuits au chocolat noir
 it:Biscotti al cioccolato fondente
 nl:Pure chocoladebiscuits, Pure chocoladebiscuit
 
-<Chocolate biscuits
-fr:Biscuits tablette de chocolat
+<en:Chocolate biscuits
+es:Galletas con tableta de chocolate
+fr:Biscuits tablette de chocolat, Petits beurres au chocolat
 it:Biscotti con tavoletta di cioccolato
 oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
 
@@ -16825,19 +16849,15 @@ oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec t
 
 <fr:Biscuits tablette de chocolat
 <en:Dark chocolate biscuits
+es:Galletas con tableta de chocolate negro
 fr:Biscuits tablette de chocolat noir, Petits beurres au chocolat noir
 it:Biscotti con tavoletta di cioccolato fondente
 
 <fr:Biscuits tablette de chocolat
 <en:Milk chocolate biscuits
+es:Galletas con tableta de chocolate con leche
 fr:Biscuits tablette de chocolat au lait, Petits beurres au chocolat au lait
 it:Biscotti con tavoletta di cioccolato al latte
-
-#Should contain only biscuits with butter and no [palm, sunflower...] oil
-<en:Chocolate biscuits
-en:Petits beurres with chocolate
-fr:Petits beurres au chocolat
-nl:Scholiertjes, Biscuit met chocola
 
 <en:Biscuits
 fr:Biscuits édulcorés, Biscuits avec édulcorants
@@ -16849,6 +16869,8 @@ fr:Biscuits feuilletés, biscuit feuilleté
 nl:Bladerdeegkoekjes, Bladerdeegkoekje
 
 <en:Flaky biscuits
+en:Palmiers
+es:Palmeras, palmeritas
 fr:Palmiers, Palmiers feuilletés
 nl:Krakelingen
 wikidata:en:Q2096475
@@ -17153,7 +17175,7 @@ nl:Graanbroden, Graanbrood
 <en:Flatbreads
 en:Wheat flatbreads, wheat tortillas
 de:Weizenfladenbrote, Weizenfladenbrot, Soft Bröd
-fr:Pains plats au blé, galettes de blé pour tortillas, tortillas de blé, wraps de blé, galettes au blé pour tortillas, tortillas au blé, wraps au blé
+fr:Tortillas de blé, pains plats au blé, galettes de blé pour tortillas, wraps de blé, galettes au blé pour tortillas, tortillas au blé, wraps au blé
 nl:Platte graanbroden, Platte graanbrood
 sv:Halvtjockkakor, Hällakaka
 wikidata:en:Q10516678
@@ -18193,6 +18215,7 @@ de:Schokolade mit Mandelcremefüllung
 fr:Chocolats fourrés à la pâte d'amande
 nl:Chocolade met amandelpasta
 
+#Dark chocolate is a chocolate without milk or vegetable milk. It contains at least 43% cocoa in the EU.
 <en:Chocolates
 en:Dark chocolates, dark chocolate
 ca:Xocolata negra
@@ -18202,19 +18225,21 @@ fr:Chocolats noirs, chocolat noir
 hu:Feketecsokoládé
 it:Cioccolato fondente
 nl:Pure chocolades
-pl:Ciemna czekolada, gorzka czekolada
+pl:Czekolada deserowa, czekolada ciemna
+pt:Chocolates amargos
 ru:Тёмный шоколад
 zh:黑巧克力
 wikidata:en:Q2366206
 #if you use all those german synonyms you have nothing left for the subcategories. I'd say "Dunkle Schokoladen" would be enough
 
-# Very dark chocolate, could be similar to fr:Chocolats noirs extra fin, chocolat noir extra fin
 <en:Dark chocolates
-en:Bitter chocolates
-de:Herbe Schokoladen
-fr:Chocolats amers
+en:Extra fine dark chocolates, extra fine black chocolates, bitter chocolates
+de:Extrafeine dunkle Schokoladen, Herbe Schokoladen
+es:Chocolates negros extra finos
+fr:Chocolats noirs extra fin, chocolat noir extra fin, chocolats amers
+nl:Extra fijne pure chocolade
+pl:Czekolada gorzka
 ru:Горький шоколад, Чёрный шоколад
-#de:Bitterschokoladen, Herbe Schokoladen if you remove it from previous category
 
 <en:Dark chocolates
 <en:Chocolates with sweeteners
@@ -18268,16 +18293,10 @@ it:Cioccolato fondente con semi di cacao, cioccolato fondente con fave di cacao
 nl:Pure chocola met stukjes
 
 <en:Dark chocolates
+en:Dark chocolates with ginger
 fr:Chocolats noirs au gingembre
 de:Dunkle Schokoladen mit Ingwer
 it:Cioccolato fondente con zenzero, cioccolato fondente allo zenzero
-
-<en:Dark chocolates
-en:Extra fine black chocolates
-de:Extrafeine dunkle Schokoladen
-es:Chocolates negros extra finos
-fr:Chocolats noirs extra fin, chocolat noir extra fin
-nl:Extra fijne pure chocolade
 
 <en:Chocolates
 en:Salted chocolates
@@ -18419,6 +18438,9 @@ nl:Chocoladesnoep
 pl:Cukierki czekoladowe
 
 <en:Chocolate candies
+fr:Guimauves enrobées de chocolat
+
+<en:Chocolate candies
 en:Bonbons
 ca:Bombons
 de:Pralinen, schokoladenbonbons
@@ -18479,6 +18501,10 @@ nl:Chocoladerozijnen
 wikidata:en:Q5103586
 
 <en:Chocolate covered fruits
+en:Chocolate covered cranberries
+fr:Canneberges enrobées de chocolat
+
+<en:Chocolate covered fruits
 en:Chocolate covered cherries
 de:Kirschen mit Schokoladenüberzug
 es:Cerezas recubiertas de chocolate
@@ -18512,7 +18538,7 @@ fr:Amandes enrobées de chocolat
 en:Candies, candy, sweets
 ca:Caramels
 de:Bonbons, Bonbon
-es:Golosinas
+es:Golosinas, chuchería, chuche, galguería, guarrería
 fr:Bonbons, Bonbon
 hu:Cukorkák, édességek
 nl:Snoep
@@ -20235,7 +20261,13 @@ wikidata:en:Q13393
 pnns_group_2:en:Appetizers
 
 <en:Salty snacks
+<en:Breaded cheeses
 fr:Croquettes au fromage
+nl:Kaaskroketten
+
+<en:Salty snacks
+fr:Croquettes aux crevettes
+nl:Garnalenkroketten
 
 <en:Crisps
 en:Cassava crisps
@@ -20277,6 +20309,18 @@ nl:Aardappelchips
 nl_be:Aardappelchips
 zh:马铃薯薯片
 wikidata:en:Q173265
+
+<en:Potato crisps
+fr:Chips de pommes de terre classiques
+es:Chips de patatas fritas clasicas
+
+<en:Potato crisps
+fr:Chips de pommes de terre lisses
+es:Chips de patatas fritas lisas
+
+<en:Potato crisps
+fr:Chips de pommes de terre ondulées
+es:Chips de patatas fritas onduladas
 
 <en:Potato crisps
 en:Light potato crisps
@@ -20536,6 +20580,7 @@ wikidata:en:Q2632885
 
 <en:Cheeses
 en:Sliced cheeses
+es:Quesos en lonchas
 de:Scheibenkäse, Käseaufschnitt, Schnittkäse
 fr:Fromages en tranches, tranches de fromage, tranches de fromages
 hu:Szeletel sajtok
@@ -21438,6 +21483,7 @@ oqali_family:en: fr:Fromages - Cancoillotte
 <en:Cheeses
 en:Cream cheeses
 de:Frischkäse
+es:Queso fresco
 fr:Fromages à pâte fraîche, Fromage frais
 nl:Verse kazen
 wikidata:en:Q3323634
@@ -22492,6 +22538,7 @@ nl:Gepasteuriseerde kazen
 <en:Cheeses
 en:Grated cheese
 de:Geriebener Käse
+es:Queso rallado
 fr:Fromages râpés, fromage rapé
 nl:Geraspte kzen
 
@@ -22513,21 +22560,22 @@ fr:Petits suisses
 nl:Petits suisses
 wikidata:en:Q585246
 
+#"Crème anglaise" is a preparation made from milk or cream, eggs and sugar
+<en:Dairies
+fr:Crèmes anglaises, crèmes anglaise, creme anglaise
+de:Englische Creme
+nl:Vanillesauzen
+wikidata:en:Q1342574
+
 <en:Dairies
 en:Creams
 de:Rahm, Sahne
-es:Crema de leche
+es:Nata, crema de leche
 fr:Crèmes, Crème
 hu:Krémek
 nl:Romen
 pnns_group_2:en:Milk and yogurt
 wikidata:en:Q13228
-
-<en:Creams
-fr:Crèmes anglaises, crèmes anglaise, creme anglaise
-de:Englische Creme
-nl:Vanillesauzen
-wikidata:en:Q1342574
 
 <en:Creams
 en:Whipped creams
@@ -22536,44 +22584,60 @@ fr:Crèmes fouettées
 nl:Slagromen
 wikidata:en:Q625957
 
+#According to French regulation, Crème Chantilly is a whipped cream with none other addition than sugar and aroma.
 <en:Whipped creams
 fr:Crèmes Chantilly, Crème Chantilly, Chantilly
 de:Crème Chantilly
 wikidata:en:Q6384329
 
 <en:Creams
+fr:Crèmes sous pression
+de:Sprühsahne
+
+<en:Creams
+en:UHT Creams
+fr:Crèmes UHT
+
+<en:Creams
 fr:Crèmes entières, Crème entière
 nl:Volle slagromen
 
+#Cream that haven't been pasteurized
+<en:Creams
+fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
+
+#Cream with 12% to 30% fat according to French regulation. All other creams have >30% fat.
+<en:Creams
+fr:Crèmes légères, crèmes fraîches légères, Crème fraîche légère, crème légère
+
+<en:Creams
+fr:Crèmes allégées en matière grasse, Crèmes fraîches allégées en matière grasse, Crème fraîche allégée, Crèmes fraîches allégées, Crème fraîche allegée en matière grasse
+nl:Light zure romen
+
+#According to French regulation Crème Fraîche is a cream that did not undergo other heat treatment than pasteurization and that have #been packaged on the place of production under 24h 
+<en:Creams
+fr:Crèmes fraîches
+
+#AOP French cream, it contains no additives and have at least 35% fat.
+<fr:Crèmes épaisses
 <fr:Crèmes entières
-<en:Sour creams
 fr:Crème Fraîche d'Isigny
 
 <en:Creams
 <en:Fermented milk products
+en:Fermented creams
+fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse
+
+<en:Fermented creams
 en:Sour creams, Crèmes fraîches
 de:Sauerrahm
-fr:Crèmes fraîches, Crème fraîche
+fr:Crèmes aigres
 hu:Tejföl
 nl:Zure romen
 pnns_group_2:en:Milk and yogurt
 
 <en:Sour creams
 de:Saure Sahne
-
-
-<en:Sour creams
-fr:Crèmes fraîches allégées en matière grasse, Crème fraîche allégée, Crèmes fraîches allégées, Crème fraîche allegée en matière grasse
-nl:Light zure romen
-
-<en:Sour creams
-fr:Crèmes fraîches épaisses, Crème fraîche épaisse, crèmes épaisses
-
-<en:Sour creams
-fr:Crèmes fraîches légères, Crème fraîche légère, crème légère
-
-<en:Sour creams
-fr:Crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
 
 <en:Sour creams
 en:Smetana
@@ -22600,10 +22664,6 @@ de:Schmand mit 15% Fettanteil
 fr:Smetana avec 15% de matières grasses
 ru:Сметана 15%, Сметана 15%, Сметана 15% жирности, Сметана с массовой долей жира 15%
 
-<en:Creams
-en:Whipped creams
-de:Schlagsahne
-wikidata:en:Q625957
 
 <en:Plant-based foods
 en:Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes
@@ -23019,7 +23079,7 @@ nl:Koffiemelken, Koffiemelk
 <en:Dairy drinks
 <en:Fruit-based beverages
 en:Fruit and milk juices, milk and fruit juices
-fr:Jus de fruits au lait, jus de fruits lactés
+fr:Boissons au lait et au jus de fruits, jus de fruits au lait, jus de fruits lactés
 nl:Fruit- en melksap
 
 <en:Milks
@@ -23243,7 +23303,7 @@ wikidata:en:Q18404541
 <en:Milk substitute
 en:Plant milks, Vegetable milks, Vegetable drinks, Non-dairy milks
 de:Pflanzenmilch, Pflanzenmilche, Pflanzenmilchen
-es:Bebidas vegetales, Leches vegetales
+es:Bebidas vegetales, Leches vegetales, Leche vegetal
 fr:Boissons végétales, Laits végétaux, lait végétal, laits végétaliens
 hu:Névényi tejek, Zöldség tejek, Zöldség italok
 nl:Plantaardige melken
@@ -24718,6 +24778,11 @@ hu:Héjas mandula
 nl:Gepelde amandelen
 
 <en:Almonds
+en:Whole almonds
+fr:Amandes entières
+
+<en:Almonds
+en:Almond flakes, Sliced almonds
 fr:Amandes effilées
 
 <en:Almonds
@@ -28163,6 +28228,13 @@ en:Frozen cakes and pastries, frozen cakes, frozen pastries
 fr:Gâteaux et pâtisseries surgelés, gâteaux surgelés, pâtisseries surgelées, desserts pâtissiers surgelés, Gâteaux et pâtisseries surgelées
 nl:Diepvriesgebak
 
+<en:Frozen desserts
+en:Mochi ice cream
+es:Helado de mochi
+fr:Mochi glacés
+ja:餅アイス, もちアイス
+wikidata:en:Q977539
+
 <en:Frozen foods
 <en:Breads
 en:Frozen breads
@@ -28290,8 +28362,6 @@ nl:Zoete appels
 en:Acidic apples, Tart Apples, Sour Apples
 fr:Pommes acides
 nl:Zure appels
-
-
 
 <en:Apples
 <en:Sweet apples
@@ -28605,6 +28675,11 @@ es:Caquis, Kakis
 fr:Kakis
 la:Diospyros kaki
 nl:Kakis
+
+<en:Fruits
+en:Golden berries
+fr:Physalis
+nl:Kaapse goudbessen
 
 <en:Fruits
 en:Kiwifruits, kiwis
@@ -29136,6 +29211,7 @@ nl:Gedroogde goji bessen
 wikidata:en:Q2617260
 
 <en:Dried fruits
+en:Dried golden berries
 fr:Physalis séchées, baies de physalis séchées
 
 <en:Dried fruits
@@ -29245,7 +29321,7 @@ fr:Cocktail de fruits au sirop, Mélange de fruits au sirop
 nl:Fruitcocktails op siroop
 
 <en:Fruits in syrup
-en:Cherries in syrup
+en:Cherries in syrup, Maraschino cherries
 de:Kirschen in Sirup
 es:Cerezas en almíbar
 fr:Cerises au sirop
@@ -32848,6 +32924,10 @@ nl:Bonen in tomatensaus
 wikidata:en:Q804297
 
 <en:Prepared vegetables
+es:alubias con verduras
+fr:haricots aux légumes
+
+<en:Prepared vegetables
 en:Refried beans
 es:Frijoles refritos
 fr:Haricots refrits
@@ -34214,6 +34294,7 @@ nl:Kippeborst
 <en:Chickens
 en:Cooked chicken
 de:Gekochte Hühnchen
+es:Pollo Preparado
 fr:Poulets cuisinés, Poulet cuisiné, Poulets préparés, Poulet préparé
 nl:Geprepareerde kip
 
@@ -34273,16 +34354,23 @@ nl:Kalkoenfilets
 <fr:Filets de dinde
 fr:Filets mignons de dinde
 
+# Embutidos seems to be sausages
+
 <en:Meats
 en:Prepared meats, processed meats
 ca:Carns preparades, processades
 de:Zubereitetes Fleisch, verarbeitetes Fleisch
-es:Embutidos
+es:Embutidos, Fiambre 
 fr:Charcuteries
 hu:Feldolgozott húsok
 nl:Verwerkte vleesproducten
 pl:Mięsa przetworzone
 pnns_group_2:en:Processed meat
+
+<en:Prepared meats
+fr:Fricadelles, fricandelles
+nl:Frikandel
+wikidata:en:Q1464898
 
 <en:Prepared meats
 fr:Andouilles
@@ -36508,13 +36596,28 @@ wikidata:en:Q20055
 en:Pastries, pastry
 ca:Pastisseria
 de:Gebäck
+es:Bolleria
 fr:Pâtisseries, pâtisserie
 nl:Gebak
+
+<en:Pastries
+es:Torta sevillana, Torta de aceite, Torta de anís
 
 <en:Pastries
 <en:Desserts
 fr:Pastel de nata, Pastéis de nata
 pt:Pastéis de nata, Pastel de nata
+
+<en:Pastries
+<en:Desserts
+en:Mochi
+de:Mochi
+es:Mochi
+fr:Mochi, Mochis
+it:Mochi
+ja:餅, もち
+nl:Mochi
+wikidata:en:Q470519
 
 <en:Pastries
 <en:Desserts
@@ -37422,6 +37525,7 @@ nl:Gerookte vis
 <en:Smoked fishes
 en:Smoked salmons
 de:Räucherlachs, Geräucherter Lachs
+es:Salmón ahumado
 fr:Saumons fumés, saumon fumé
 it:Salmoni affumicati, salmone affumicato
 nl:Gerookte zalm
@@ -37542,6 +37646,7 @@ nl:Tonggoltonijn
 wikidata:en:Q1411265
 
 <en:Tunas
+en:Tunas in oil
 fr:Thons à l’huile
 de:Thunfische in Öl
 es:Atún en aceite
@@ -37553,13 +37658,18 @@ fr:Thons à la Catalane
 <en:Tunas
 fr:Thons à la tomate
 
-<fr:Thons à l’huile
+<en:Tunas in oil
+en:tuna in olive oil
 fr:Thons à l’huile d’olive
 de:Thunfische in Olivenöl, Thunfisch in Olivenöl
 es:Atún en aceite de oliva
 nl:Tonijn op olijfolie
 
-<fr:Thons à l’huile
+<en:tuna in olive oil
+es:atún claro en aceite de oliva
+fr:thons pales à l'huile d'olive
+
+<en:Tunas in oil
 fr:Thons à l’huile de tournesol
 de:Thunfische in Sonnenblumenöl, Thunfisch in Sonnenblumenöl
 es:Atún en aceite de girasol
@@ -37580,12 +37690,14 @@ nl:Witte tonijn natuur
 <en:Tunas
 en:Albacore
 de:Weißer Thun
+es:Bonito del Norte
 fr:Thons blancs, Thons germon, thons blanc germon, germon, thon blanc germon
 la:Thunnus alalunga
 nl:Witte tonijn
 wikidata:en:Q239977
 
 <en:Tunas
+es:atún claro
 fr:thons pales, thon pale
 
 <en:Tunas
@@ -37779,6 +37891,7 @@ wikidata:en:Q42863988
 <en:Canned foods
 <en:Mussels
 en:Canned mussels
+es:Mejillones enlatados
 fr:Moules en conserve
 nl:Mossels in blik
 
@@ -39252,7 +39365,7 @@ wikidata:en:Q23501
 en:Canned vegetables
 ca:Vegetals enllaunats
 de:Gemüsekonserven, Dosengemüse
-es:Verduras y hortalizas en conserva, Hortalizas en conserva, Verduras en conserva
+es:Verduras y hortalizas en conserva, Hortalizas en conserva, Verduras en conserva, Conservas de vegetales
 fr:Légumes en conserve, conserves de légumes
 hu:Zöldségkonzervek
 nl:Groenten in blik, Groenteconserven
@@ -43760,11 +43873,14 @@ nl:Plantaardige steaks voor hamburgers
 
 <en:Veggie burger patties 
 en:Soy steak
-fr:Steaks de soja
+fr:Galettes de soja, steaks de soja
 nl:Sojasteaks
 
 <en:Veggie burger patties
-fr:Steaks de tofu
+fr:Galettes de tofu, steaks de tofu
+
+<en:Veggie burger patties
+fr:Galettes de céréales aux légumes
 
 <en:Meat analogues
 en:Vegetarian sausages
@@ -43803,10 +43919,14 @@ fr:Substituts du fromage, fromages végétaux
 nl:Vegetarische kazen
 
 <en:Cereals and their products
+en:Rice paper
+fr:Galettes de riz pour rouleau de printemps
+
+<en:Cereals and their products
 en:Puffed cereal cakes
 de:gepuffte Getreidewaffeln
 es:Tortitas de cereales
-fr:Galettes de céréales
+fr:Galettes de céréales soufflées, galettes de céréales
 hu:Puffasztott gabonakészítmények
 it:Gallette di cereali
 nl:Graanwafels
@@ -43815,7 +43935,7 @@ nl:Graanwafels
 en:Puffed corn cakes
 de:gepuffte Maiswaffeln
 es:Tortitas de maíz
-fr:Galettes de maïs
+fr:Galettes de maïs soufflé, galettes de maïs
 hu:Puffasztott kukorica készítményak
 it:Gallette di mais
 nl:Maiswafels
@@ -43839,7 +43959,7 @@ nl:Maiswafels met melkchocolade
 en:Puffed rice cakes
 de:gepuffte Reiswaffeln
 es:Tortitas de arroz
-fr:Galettes de riz
+fr:Galettes de riz soufflé, galettes de riz
 hu: Puffasztott rizs
 it:Gallette di riso
 nl:Rijstwafels
@@ -43848,7 +43968,7 @@ nl:Rijstwafels
 en:Puffed wholegrain rice cakes
 de:Gepuffte Vollkornreiskuchen
 es:Tortitas de arroz integral
-fr:Galettes de riz complet
+fr:Galettes de riz complet soufflé, galettes de riz complet
 it:Gallette di riso integrale
 nl:Volkoren rijstwafels
 
@@ -43877,38 +43997,40 @@ nl:Witte chocolade rijstwafels
 en:Puffed oat cakes
 de:Gepuffte Haferkuchen
 es:Tortitas de avena
-fr:Galettes d'avoine
+fr:Galettes d'avoine soufflé, galettes d'avoine
 it:Gallette di avena
 nl:Haverwafels
+
+<en:Puffed cereal cakes
+fr:Galettes de sarrasin soufflé
 
 <en:Puffed cereal cakes
 en:Puffed wheat cakes
 de:gepuffte Weizenwaffeln
 es:Tortitas de trigo
-fr:Galettes de blé
+fr:Galettes de blé soufflé, galettes de blé
 nl:Tarwewafels
 
 <en:Puffed wheat cakes
 en:Puffed spelt cakes
 de:Gepuffte Dinkelkuchen
 es:Tortitas de espelta
-fr:Galettes d'épeautre
+fr:Galettes d'épeautre soufflé, galettes d'épeautre
 nl:Speltwafels
 
 <en:Puffed wheat cakes
 en:Puffed Khorasan wheat cakes, Puffed Kamut cakes
 de:Kamutwaffeln
 es:Tortitas de trigo de Jorasán, Tortitas de Kamut
-fr:Galettes de blé khorasan, Galettes de blé de Khorasan, Galettes de Kamut
+fr:Galettes de blé khorasan soufflé, galettes de blé khorasan, Galettes de blé de Khorasan, Galettes de Kamut
 nl:Kamutwafels
 
 <en:Puffed cereal cakes
 en:Puffed multigrain cakes
 de:Gepuffte Vollkornkuchen
 es:Tortitas multicereales, Tortitas de varios cereales
-fr:Galettes multicéréales
+fr:Galettes multicéréales soufflées, galettes muticéréales
 nl:Meergranen wafels
-
 
 
 <en:Appetizers
@@ -43917,6 +44039,10 @@ de:Crackers
 fr:Biscuits apéritifs, biscuits pour l'apéritif, gâteaux pour l'apéritif, Gâteaux apéritifs, Biscuits crackers, Crackers, Biscuits salés, Crackers salés
 hu:Krékerek
 nl:Zoutjes
+
+<en:Crackers
+en:Salty palmiers
+fr:Palmiers salés
 
 <en:Crackers
 en:Pretzel

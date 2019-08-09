@@ -12,11 +12,11 @@ const fontName = 'Icons';
 const sassOptions = {
   errLogToConsole: true,
   outputStyle: 'expanded',
-  includePaths: ['./html/bower_components/foundation/scss']
+  includePaths: ['./node_modules/foundation-sites/scss']
 }
 
 function icons() {
-  return src('**/*.svg', { cwd: './icons'  })
+  return src('*.svg', { cwd: './icons'  })
   .pipe(iconfontCss({
     fontName: fontName,
     path: './scss/templates/_icons.scss',
@@ -50,8 +50,7 @@ function js() {
       './node_modules/papaparse/papaparse.min.js',
       './node_modules/osmtogeojson/osmtogeojson.js',
       './node_modules/leaflet/dist/**/*.*',
-      './node_modules/leaflet.markercluster/dist/**/*.*',
-      './node_modules/iolazyload/dist/js/iolazy.min.js'
+      './node_modules/leaflet.markercluster/dist/**/*.*'
     ], { sourcemaps: true })
     .pipe(dest('./html/js/dist', { sourcemaps: true }))
 }

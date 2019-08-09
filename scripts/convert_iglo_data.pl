@@ -79,7 +79,7 @@ my @csv_fields_mapping = (
 ["fibers", "nutriments.fiber_g"],
 ["proteins", "nutriments.proteins_g"],
 ["salt", "nutriments.salt_g"],
-["fruits vegetables nuts", "nutriments.fruits-vegetables-nuts_value"],
+["fruits vegetables nuts", "nutriments.fruits-vegetables-nuts_g"],
 ["labels", "labels"],
 ["nutri_score", "nutrition_grade_fr_producer"],
 ["Link", "link"],

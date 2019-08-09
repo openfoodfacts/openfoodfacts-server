@@ -38,17 +38,16 @@
   "dependencies": {
     "jqueryui": "components/jqueryui#^1.12.1",
     "foundation-sites": "zurb/bower-foundation#^5.5.3",
-    "iolazyload": "cdowdy/io-lazyload#^1.2.0",
     "leaflet": "Leaflet/Leaflet#>=1.5.1",
     "leaflet.markercluster": "Leaflet/Leaflet.markercluster#>=1.0.0",
     "opencollective": "^1.0.3",
     "opencollective-postinstall": "^2.0.1",
     "osmtogeojson": "tyrasd/osmtogeojson#^2.2.12",
-    "papaparse": "mholt/papaparse#^5.0.0",
-    "yarn": "^1.2.1"
+    "papaparse": "mholt/papaparse#^5.0.1",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.1.0",
     "gulp": "^4.0.2",
     "gulp-csso": "^3.0.1",
     "gulp-iconfont": "^10.0.3",
@@ -57,7 +56,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended-scss": "^3.3.0",
-    "stylelint-scss": "^3.8.0"
+    "stylelint-scss": "^3.9.2"
   },
   "engines": {
     "yarn": ">= 1.0.0"

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:42\n"
+"PO-Revision-Date: 2019-08-03 14:21\n"
 "Language-Team: Thai\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -17,15 +17,15 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 รายการ"
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr "และ"
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "เกี่ยวกับฉัน"
 
 msgctxt "add"
 msgid "Add"
@@ -33,7 +33,7 @@ msgstr "เพิ่ม"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "เพิ่มภาษา"
 
 msgctxt "add_product"
 msgid "Add a product"
@@ -41,11 +41,11 @@ msgstr "เพิ่มสินค้า"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "สมัครสมาชิก"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>ขอบคุณที่เข้าร่วม ตอนนี้คุณสามารถลงชื่อเข้าใช้บนเว็บไซต์เพื่อเพิ่มและแก้ไขผลิตภัณฑ์</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -63,47 +63,60 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "สวัสดี <NAME>,\n\n"
+"ขอบคุณมากที่เข้าร่วม https://openfoodfacts.org\n"
+"นี่คือชื่อผู้ใช้ของคุณ:\n\n"
+"ชื่อผู้ใช้: <USERID>\n\n"
+"ตอนนี้คุณสามารถลงชื่อเข้าใช้บนเว็บไซต์เพื่อเพิ่มและแก้ไขข้อมูลผลิตภัณฑ์ได้ทันที\n\n"
+"<<site_name>> เป็นโครงการความร่วมมือที่คุณสามารถมีส่วนร่วมมากกว่าแค่เพิ่มผลิตภัณฑ์ใหม่ คุณสามารถร่วมเสนอข้อคิดเห็นต่างๆ เพื่อพัฒนาชุมชนของเราให้ดีขึ้น! พูดคุยแลกเปลี่ยนความคิดกันในระบบ Slack: https://slack.openfoodfacts.org ซึ่งช่วยให้เราคุยกันได้ง่ายขึ้น\n\n"
+"หรือเข้าร่วมกับเราที่\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"และ เราเพิ่งเปิด Open Beauty Facts เพื่อสร้างฐานข้อมูลเครื่องสำอาง: สบู่ยาสีฟันเครื่องสำอางและอื่น ๆ\n"
+"https://openbeautyfacts.org\n\n"
+"ขอบคุณมาก!\n\n"
+"Stéphane และทีม Open Food Facts\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "ขอบคุณที่เป็นส่วนหนึ่งของ<<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "สารปรุงแต่งอาหารนี้อาจเป็นอันตราย ใช้งานในปริมารจำกัด"
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "สารปรุงแต่งอาหารนี้เป็นอันตราย เลี่ยงการใช้"
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "สารปรุงแต่งอาหารนี้ห้ามใช้ในยุโรป เลี่ยงการใช้"
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "สารปรุงแต่งอาหาร"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "สารปรุงแต่งอาหาร"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "การค้นหาขั้นสูง"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "การค้นหาขั้นสูงและกราฟ"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "การดื่มมากเกินไปเป็นอันตรายต่อสุขภาพ"
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "ภารกิจทั้งหมด"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -111,27 +124,27 @@ msgstr "สารหรือผลิตภัณฑ์ที่ก่อให
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "สารก่อภูมิแพ้"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "สารก่อภูมิแพ้"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "หน้าผลิตภัณฑ์แก้ไขโดย"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" /><img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" /><img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"ดาวน์โหลดที่ Google Play\" width=\"135\" height=\"47\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -141,7 +154,8 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>ผลิตภัณฑ์นี้ยังไม่ได้อยู่ในฐานข้อมูล <<site_name>> คุณช่วยกรุณาถ่ายรูปสินค้า บาร์โค้ด ส่วนผสม และข้อมูลโภชนาการเพื่อเพิ่มลงใน <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>ไหม</p>\n"
+"<p>ขอบคุณล่วงหน้า!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -149,7 +163,7 @@ msgstr "การถ่ายภาพ"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "หมายเหตุ: รูปภาพที่คุณส่งจะได้รับการเผยแพร่ภายใต้สัญญาอนุญาต Creative Commons Attribution และ ShareAlike ที่ให้สิทธิ์ใช้งานฟรี"
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -157,11 +171,11 @@ msgstr "คุณสามารถเพิ่มรูปภาพ:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "แกนแนวนอน"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "แกนตั้ง"
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -169,19 +183,19 @@ msgstr "บาร์โค้ด"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "หมายเลขบาร์โค้ด:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "นอกจากนี้คุณยังสามารถช่วยสนับสนุนทางการเงินให้กับโครงการ Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"บริจาคให้ Open Food Facts\" /></a><p><<site_name>> ดำเนินงานโดยกลุ่มคนที่ไม่หวังผลกำไร มีวัตถุประสงค์เพื่อสร้างฐานข้อมูลฉลากโภชนาการเพื่อให้ทุกคนได้ใช้ โดยความร่วมมือของอาสาสมัครทุกคน คุณสามารถสนับสนุนโครงการโดย <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">บริจาคให้กับ Open Food Facts</a> และ <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> โดยการใช้ Lilo search engine </a><br/><b>ขอบคุณ!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "เราข้อท้าทายคุณ"
 
 msgctxt "brands"
 msgid "Brands"
@@ -189,7 +203,7 @@ msgstr "ยี่ห้อสินค้า"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "ไวไวปรุงสำเร็จ, คาลบี้รสดั้งเดิม, ป็อกกี้รสสตรอเบอรี่"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -197,19 +211,19 @@ msgstr "แบรนด์"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "ผลิตภัณฑ์จาก %s แบรนด์"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "ยี่ห้อสินค้า"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "เพิ่มแบรนด์"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "ผลิตภัณฑ์จาก %s แบรนด์"
 
 msgctxt "by"
 msgid "by"
@@ -221,7 +235,7 @@ msgstr "หมวดหมู่"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "ปลาซาร์ดีนในน้ำมันมะกอก, น้ำส้มเข้มข้น"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -233,7 +247,7 @@ msgstr "หมวดหมู่"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "ผลิตภัณฑ์จากหมวด %s"
 
 msgctxt "categories_s"
 msgid "category"
@@ -241,11 +255,11 @@ msgstr ""
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "เพิ่ม​หมวดหมู่"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "ผลิตภัณฑ์จากหมวด %s"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -261,7 +275,7 @@ msgstr ""
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "รูปภาพที่อัพโหลด"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -349,6 +363,14 @@ msgstr ""
 
 msgctxt "data_source"
 msgid "Data source"
+msgstr ""
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
 msgstr ""
 
 msgctxt "debug_p"
@@ -682,7 +704,7 @@ msgstr ""
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
-"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 msgstr ""
 
 msgctxt "footer_install_the_app"
@@ -713,7 +735,7 @@ msgstr "กด"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -928,7 +950,7 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -1283,7 +1305,7 @@ msgstr "สนับสนุน"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1292,7 +1314,7 @@ msgstr "ค้นพบ"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/discover"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -2258,9 +2280,8 @@ msgid "Serving size"
 msgstr "ขนาดให้บริการ"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2304,6 +2325,10 @@ msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
+msgstr ""
+
+msgctxt "sort_completeness"
+msgid "Completeness"
 msgstr ""
 
 msgctxt "sort_created_t"
@@ -2605,6 +2630,10 @@ msgstr ""
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
+msgstr ""
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
 msgstr ""
 
 msgctxt "warning_not_complete"
@@ -3193,7 +3222,7 @@ msgid "Help translate the %s to %s"
 msgstr ""
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
 msgstr ""
 
 msgctxt "translate_taxonomy_add"
@@ -3218,13 +3247,61 @@ msgstr ""
 
 msgctxt "button_caption_yes"
 msgid "Yes"
-msgstr ""
+msgstr "ถูกต้อง"
 
 msgctxt "button_caption_no"
 msgid "No"
-msgstr ""
+msgstr "ไม่ใช่"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
+msgstr ""
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr ""
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr ""
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr ""
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr ""
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
 msgstr ""
 
