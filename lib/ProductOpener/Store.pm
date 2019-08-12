@@ -80,8 +80,8 @@ sub unac_string_perl($) {
 
 sub get_string_id_for_lang {
 
-	my $string = shift;
 	my $lc = shift;
+	my $string = shift;
 
 	defined $lc or die("Undef \$lc in call to get_string_id_for_lang (string: $string)\n");
 
@@ -192,12 +192,11 @@ sub get_fileid {
 
 sub get_url_id_for_lang {
 
+	my $lc = shift;
 	my $input = shift;
 	my $string = $input;
-	my $unaccent = shift;
-	my $lc = shift;
 
-	$string = get_string_id_for_lang($string, $lc);
+	$string = get_string_id_for_lang($lc, $string);
 
 	if ($string =~ /[^a-zA-Z0-9-]/) {
 		$string = URI::Escape::XS::encodeURIComponent($string);

@@ -26,10 +26,10 @@ is(get_fileid("Farine de blé 56g *", 0, 'fr'),"farine-de-ble-56g");
 is(get_fileid('ẞ'), 'ß');
 is(get_fileid('ẞ', 1), 'ss');
 
-is(get_string_id_for_lang("Café crème","no_language"),"cafe-creme");
-is(get_string_id_for_lang("Café crème","fr"),"cafe-creme");
-is(get_string_id_for_lang("Café crème","de"),"café-crème");
-is(get_string_id_for_lang("Äpfel","de"),"äpfel"); 
-is(get_string_id_for_lang("Äpfel","en"),"apfel"); 
+is(get_string_id_for_lang("no_language","Café crème"),"cafe-creme");
+is(get_string_id_for_lang("fr","Café crème"),"cafe-creme");
+is(get_string_id_for_lang("de","Café crème"),"café-crème");
+is(get_string_id_for_lang("de","Äpfel"),"äpfel"); 
+is(get_string_id_for_lang("en","Äpfel"),"apfel"); 
 
 done_testing();

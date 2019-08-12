@@ -363,4 +363,38 @@ is(get_inherited_property("ingredients","en:semi-skimmed-milk","vegan:en"), "no"
 
 is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
 
+is(canonicalize_taxonomy_tag("de","test","Grünkohl"), "en:kale");
+is(display_taxonomy_tag("de","test","en:kale"), "Grünkohl");
+is(display_taxonomy_tag_link("de","test","en:kale"), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
+is(display_tags_hierarchy_taxonomy("de","test",["en:kale"]), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
+
+$product_ref = {
+	lc => "de",
+	test => "Grünkohl, Äpfel, café, test",
+};
+
+compute_field_tags($product_ref, "de", "test");
+
+is_deeply($product_ref,
+	 {
+	    'lc' => 'de',
+	    'test' => "Gr\x{fc}nkohl, \x{c4}pfel, caf\x{e9}, test",
+	    'test_hierarchy' => [
+	      'en:kale',
+	      "de:caf\x{e9}",
+	      'de:test',
+	      "de:\x{c4}pfel"
+	    ],
+	    'test_lc' => 'de',
+	    'test_tags' => [
+	      'en:kale',
+	      "de:caf\x{e9}",
+	      'de:test',
+	      "de:\x{e4}pfel"
+	    ]
+	  }
+	
+)
+	or diag explain $product_ref;
+
 done_testing();

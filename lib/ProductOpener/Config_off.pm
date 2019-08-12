@@ -110,9 +110,10 @@ use ProductOpener::Config2;
 	},
 	# default is used for languages that do not have specified values
 	default => {
-		unaccent => 1,
+		unaccent => 0,
 		lowercase => 1,
 	},
+	# German umlauts should not be converted (e.g. ä -> ae) as there are many conflicts
 	de => {
 		unaccent => 0,
 		lowercase => 1,
@@ -120,6 +121,24 @@ use ProductOpener::Config2;
 	# French has very few actual conflicts caused by unaccenting (one counter example is "pâtes" and "pâtés")
 	# Accents or often not present in capital letters (beginning of word, or in all caps text).
 	fr => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# Same for Spanish, Italian and Portuguese
+	es => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	it => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	pt => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
+	en => {
 		unaccent => 1,
 		lowercase => 1,
 	},
