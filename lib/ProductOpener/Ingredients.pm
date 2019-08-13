@@ -577,7 +577,7 @@ sub extract_ingredients_from_text($) {
 						$between =~ s/^(.*?$separators)/origin:$1/;
 					}
 
-					print STDERR "between: $between\n";
+					# print STDERR "between: $between\n";
 
 					# : is in $separators but we want to keep "origine : France"
 					if (($between =~ $separators) and ($` !~ /\s*(origin|origine)\s*/i)) {
@@ -753,7 +753,7 @@ sub extract_ingredients_from_text($) {
 				foreach my $labelid (reverse @labels) {
 					my $regexp = $labels_regexps{$product_lc}{$labelid};
 					#print STDERR "labelid: $labelid - regexp: $regexp - ingredient: $ingredient\n";
-					if ($ingredient =~ /\b($regexp)\b/i) {
+					if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
 						if (defined $labels) {
 							$labels .= ", " . $labelid;
 						}
@@ -1855,8 +1855,9 @@ sub preparse_ingredients_text($$) {
 		$text =~ s/( en)? proportion(s)? variable(s)?//i;
 
 		# simple plural (just an additional "s" at the end) will be added in the regexp
-		my @prefixes = (
-"extrait",
+		my @prefixes_suffixes_list = (
+# huiles
+[[
 "huile",
 "huile végétale",
 "huiles végétales",
@@ -1866,43 +1867,90 @@ sub preparse_ingredients_text($$) {
 "matières grasses végétales",
 "graisses",
 "graisses végétales",
+],
+[
+"arachide",
+"avocat",
+"coco",
+"colza",
+"illipe",
+"karité",
+"lin",
+"mangue",
+"noisette",
+"noix",
+"olive",
+"olive vierge",
+"olive extra vierge",
+"palme",
+"palmiste",
+"pépins de raisin",
+"sal",
+"sésame",
+"soja",
+"tournesol",
+]
+],
+
+
+[[
+"extrait",
+"extrait naturel",
+],
+[
+"café",
+"chicorée",
+"curcuma",
+"houblon",
+"levure",
+"malt",
+"muscade",
+"poivre",
+"poivre noir",
+"romarin",
+"thé",
+"thé vert",
+"thym",
+]
+],
+
+[[
 "lécithine",
+],
+[
+"colza",
+"soja",
+"soja sans ogm",
+"tournesol",
+]
+],
+
+[
+[
 "arôme naturel",
 "arômes naturels",
 "arôme artificiel",
 "arômes artificiels",
+"arômes naturels et artificiels",
 "arômes",
-
-"carbonate",
-"carbonates acides",
-"chlorure",
-"citrate",
-"iodure",
-"nitrate",
-"diphosphate",
-"diphosphate",
-"phosphate",
-"sélénite",
-"sulfate",
-"hydroxyde",
-"sulphate",
-	);
-
-		my @suffixes = (
-"curcuma",
-"romarin",
-
-# arômes
-
+],
+[
+"abricot",
+"ail",
+"amande",
+"amande amère",
 "agrumes",
 "aneth",
 "boeuf",
 "cacao",
 "cannelle",
+"caramel",
+"carotte",
 "carthame",
 "cassis",
 "céleri",
 "cerise",
+"curcuma",
 "cumin",
 "citron",
 "citron vert",
@@ -1930,6 +1978,8 @@ sub preparse_ingredients_text($$) {
 "menthe poivrée",
 "muscade",
 "noix",
+"noix de coco",
+"oignon",
 "olive",
 "orange",
 "orange amère",
@@ -1939,11 +1989,14 @@ sub preparse_ingredients_text($$) {
 "pêche",
 "piment",
 "pistache",
+"porc",
 "pomme",
 "poire",
+"poivre",
 "poisson",
 "poulet",
 "réglisse",
+"romarin",
 "rose",
 "rhum",
 "sauge",
@@ -1954,22 +2007,27 @@ sub preparse_ingredients_text($$) {
 "vanille",
 "vanille de Madagascar",
 "autres agrumes",
+]
+],
 
 
-"colza",
-"palme",
-"tournesol",
-"arachide",
-"pépins de raisin",
-"olive",
-"olive vierge",
-"noix",
-"avocat",
-"illipe",
-"mangue",
-"sal",
-"karité",
-
+[
+[
+"carbonate",
+"carbonates acides",
+"chlorure",
+"citrate",
+"iodure",
+"nitrate",
+"diphosphate",
+"diphosphate",
+"phosphate",
+"sélénite",
+"sulfate",
+"hydroxyde",
+"sulphate",
+],
+[
 "aluminium",
 "ammonium",
 "calcium",
@@ -1980,54 +2038,57 @@ sub preparse_ingredients_text($$) {
 "potassium",
 "sodium",
 "zinc",
+]
+],
+
 );
 
+		foreach my $prefixes_suffixes_ref (@prefixes_suffixes_list) {
 
-		my $prefixregexp = "";
-		foreach my $prefix (@prefixes) {
-			$prefixregexp .= '|' . $prefix . '|' . $prefix . 's';
-			my $unaccented_prefix = unac_string_perl($prefix);
-			if ($unaccented_prefix ne $prefix) {
-				$prefixregexp .= '|' . $unaccented_prefix . '|' . $unaccented_prefix . 's';
+			my $prefixregexp = "";
+			foreach my $prefix (@{$prefixes_suffixes_ref->[0]}) {
+				$prefixregexp .= '|' . $prefix . '|' . $prefix . 's';
+				my $unaccented_prefix = unac_string_perl($prefix);
+				if ($unaccented_prefix ne $prefix) {
+					$prefixregexp .= '|' . $unaccented_prefix . '|' . $unaccented_prefix . 's';
+				}
+
 			}
+			$prefixregexp =~ s/^\|//;
+
+			my $suffixregexp = "";
+			foreach my $suffix (@{$prefixes_suffixes_ref->[1]}) {
+				$suffixregexp .= '|' . $suffix . '|' . $suffix . 's';
+				my $unaccented_suffix = unac_string_perl($suffix);
+				if ($unaccented_suffix ne $suffix) {
+					$suffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
+				}
+
+			}
+			$suffixregexp =~ s/^\|//;
+
+			# arôme naturel de citron-citron vert et d'autres agrumes
+			# -> separate suffixes
+			$text =~ s/($suffixregexp)-($suffixregexp)/$1, $2/g;
+
+			# arôme naturel de pomme avec d'autres âromes
+			$text =~ s/ (ou|et|avec) (d')?autres /, /g;
+
+			$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $2, $4)/ieg;
+
+			# old:
+
+			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
+			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
+			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
+			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
+
+			$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$3)/ieg;
+
+			# Huiles végétales de palme, de colza et de tournesol
+			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp))\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$3)/ieg;
 
 		}
-		$prefixregexp =~ s/^\|//;
-
-
-
-		my $suffixregexp = "";
-		foreach my $suffix (@suffixes) {
-			$suffixregexp .= '|' . $suffix . '|' . $suffix . 's';
-			my $unaccented_suffix = unac_string_perl($suffix);
-			if ($unaccented_suffix ne $suffix) {
-				$suffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
-			}
-
-		}
-		$suffixregexp =~ s/^\|//;
-
-		# arôme naturel de citron-citron vert et d'autres agrumes
-		# -> separate suffixes
-		$text =~ s/($suffixregexp)-($suffixregexp)/$1, $2/g;
-
-		# arôme naturel de pomme avec d'autres âromes
-		$text =~ s/ (ou|et|avec) (d')?autres /, /g;
-
-		$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $2, $4)/ieg;
-
-		# old:
-
-		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
-		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
-		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
-		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
-
-		$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$3)/ieg;
-
-		# Huiles végétales de palme, de colza et de tournesol
-		$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp))\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$3)/ieg;
-
 
 		# Caramel ordinaire et curcumine
 		# $text =~ s/ et /, /ig;
@@ -2889,7 +2950,7 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $field = "allergens";
 
 
-	print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
+	# print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = $allergens_stopwords{$language};
 

@@ -47,7 +47,7 @@ ro:Grisine artizanale
 en:Baby foods
 ca:Alimentació per a nadons
 de:Babynahrung, Säuglingsnahrung
-es:Alimentos infantiles, Alimentos para bebés, Alimentos para lactantes, Alimentos para niños de corta edad
+es:Alimentos infantiles, Alimentos para bebés, Alimentos para lactantes, Alimentos para niños de corta edad, Alimentación infantil
 fr:Aliments pour bébé, aliment pour bébé, alimentation pour bébé, aliment bébé, alimentation bébé, aliments bébé, alimentation infantile
 hu:Bébiételek
 nl:Babyvoeding
@@ -3072,6 +3072,12 @@ de:Rote Früchtetees
 fr:Infusions aux fruits rouges, Infusion aux fruits rouges
 nl:Rode vruchtentheeën, Rode vruchtenthee
 
+<en:Fruit teas
+<en:Herbal teas in tea bags
+en:Herbal fruit teas in tea bags
+fr:Infusions aux fruits en sachets
+es:infusiones con frutas en bolsitas
+
 <en:Herbal teas
 en:Ginkgo
 de:Gingko
@@ -3095,6 +3101,9 @@ en:Good nightrest tea blends
 de:Gute Nacht Tee, Gute-Nacht-Tee
 fr:Infusions Bonne Nuit, Infusions douce nuit, Infusions nuit calme
 nl:Goede nachtrusttheeën, Goede nachtrustthee
+
+<en:Herbal tea blends
+es:Infusiones relajantes
 
 <en:Herbal tea blends
 en:Weight-loss tea blends
@@ -16681,6 +16690,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Biscuit au beurre
 <en:Biscuits
 en:Gluten-free biscuits
 de:Glutenfreie Kekse
+es:Galletas sin gluten
 fr:Biscuits sans gluten
 hu:Gluténmentes kekszek
 nl:Glutenvrije koekjes, Koekjes zonder gluten, Glutenvrij koekje
@@ -16754,8 +16764,10 @@ ru:Печенье овсяное, овсяное печенье
 
 <en:Biscuits
 en:Filled biscuits
+es:Galletas rellenas
 fr:Biscuits fourrés
 nl:Gevulde koekjes
+
 
 #Oreo like biscuits
 <en:Filled Biscuits
@@ -18526,7 +18538,7 @@ fr:Amandes enrobées de chocolat
 en:Candies, candy, sweets
 ca:Caramels
 de:Bonbons, Bonbon
-es:Golosinas
+es:Golosinas, chuchería, chuche, galguería, guarrería
 fr:Bonbons, Bonbon
 hu:Cukorkák, édességek
 nl:Snoep
@@ -20299,6 +20311,18 @@ zh:马铃薯薯片
 wikidata:en:Q173265
 
 <en:Potato crisps
+fr:Chips de pommes de terre classiques
+es:Chips de patatas fritas clasicas
+
+<en:Potato crisps
+fr:Chips de pommes de terre lisses
+es:Chips de patatas fritas lisas
+
+<en:Potato crisps
+fr:Chips de pommes de terre ondulées
+es:Chips de patatas fritas onduladas
+
+<en:Potato crisps
 en:Light potato crisps
 de:Leichte Kartoffelchips
 fr:Chips de pommes de terre allégées
@@ -20556,6 +20580,7 @@ wikidata:en:Q2632885
 
 <en:Cheeses
 en:Sliced cheeses
+es:Quesos en lonchas
 de:Scheibenkäse, Käseaufschnitt, Schnittkäse
 fr:Fromages en tranches, tranches de fromage, tranches de fromages
 hu:Szeletel sajtok
@@ -21458,6 +21483,7 @@ oqali_family:en: fr:Fromages - Cancoillotte
 <en:Cheeses
 en:Cream cheeses
 de:Frischkäse
+es:Queso fresco
 fr:Fromages à pâte fraîche, Fromage frais
 nl:Verse kazen
 wikidata:en:Q3323634
@@ -22512,6 +22538,7 @@ nl:Gepasteuriseerde kazen
 <en:Cheeses
 en:Grated cheese
 de:Geriebener Käse
+es:Queso rallado
 fr:Fromages râpés, fromage rapé
 nl:Geraspte kzen
 
@@ -23276,7 +23303,7 @@ wikidata:en:Q18404541
 <en:Milk substitute
 en:Plant milks, Vegetable milks, Vegetable drinks, Non-dairy milks
 de:Pflanzenmilch, Pflanzenmilche, Pflanzenmilchen
-es:Bebidas vegetales, Leches vegetales
+es:Bebidas vegetales, Leches vegetales, Leche vegetal
 fr:Boissons végétales, Laits végétaux, lait végétal, laits végétaliens
 hu:Névényi tejek, Zöldség tejek, Zöldség italok
 nl:Plantaardige melken
@@ -28832,7 +28859,7 @@ wikidata:en:Q961769
 
 <en:Tropical fruits
 en:Bananas
-de:Banenen
+de:Bananen
 es:Plátanos, Bananas
 fr:Bananes
 it:Banane
@@ -32897,6 +32924,10 @@ nl:Bonen in tomatensaus
 wikidata:en:Q804297
 
 <en:Prepared vegetables
+es:alubias con verduras
+fr:haricots aux légumes
+
+<en:Prepared vegetables
 en:Refried beans
 es:Frijoles refritos
 fr:Haricots refrits
@@ -34263,6 +34294,7 @@ nl:Kippeborst
 <en:Chickens
 en:Cooked chicken
 de:Gekochte Hühnchen
+es:Pollo Preparado
 fr:Poulets cuisinés, Poulet cuisiné, Poulets préparés, Poulet préparé
 nl:Geprepareerde kip
 
@@ -34322,11 +34354,13 @@ nl:Kalkoenfilets
 <fr:Filets de dinde
 fr:Filets mignons de dinde
 
+# Embutidos seems to be sausages
+
 <en:Meats
 en:Prepared meats, processed meats
 ca:Carns preparades, processades
 de:Zubereitetes Fleisch, verarbeitetes Fleisch
-es:Embutidos
+es:Embutidos, Fiambre 
 fr:Charcuteries
 hu:Feldolgozott húsok
 nl:Verwerkte vleesproducten
@@ -36562,8 +36596,12 @@ wikidata:en:Q20055
 en:Pastries, pastry
 ca:Pastisseria
 de:Gebäck
+es:Bolleria
 fr:Pâtisseries, pâtisserie
 nl:Gebak
+
+<en:Pastries
+es:Torta sevillana, Torta de aceite, Torta de anís
 
 <en:Pastries
 <en:Desserts
@@ -37487,6 +37525,7 @@ nl:Gerookte vis
 <en:Smoked fishes
 en:Smoked salmons
 de:Räucherlachs, Geräucherter Lachs
+es:Salmón ahumado
 fr:Saumons fumés, saumon fumé
 it:Salmoni affumicati, salmone affumicato
 nl:Gerookte zalm
@@ -37607,6 +37646,7 @@ nl:Tonggoltonijn
 wikidata:en:Q1411265
 
 <en:Tunas
+en:Tunas in oil
 fr:Thons à l’huile
 de:Thunfische in Öl
 es:Atún en aceite
@@ -37618,13 +37658,18 @@ fr:Thons à la Catalane
 <en:Tunas
 fr:Thons à la tomate
 
-<fr:Thons à l’huile
+<en:Tunas in oil
+en:tuna in olive oil
 fr:Thons à l’huile d’olive
 de:Thunfische in Olivenöl, Thunfisch in Olivenöl
 es:Atún en aceite de oliva
 nl:Tonijn op olijfolie
 
-<fr:Thons à l’huile
+<en:tuna in olive oil
+es:atún claro en aceite de oliva
+fr:thons pales à l'huile d'olive
+
+<en:Tunas in oil
 fr:Thons à l’huile de tournesol
 de:Thunfische in Sonnenblumenöl, Thunfisch in Sonnenblumenöl
 es:Atún en aceite de girasol
@@ -37645,12 +37690,14 @@ nl:Witte tonijn natuur
 <en:Tunas
 en:Albacore
 de:Weißer Thun
+es:Bonito del Norte
 fr:Thons blancs, Thons germon, thons blanc germon, germon, thon blanc germon
 la:Thunnus alalunga
 nl:Witte tonijn
 wikidata:en:Q239977
 
 <en:Tunas
+es:atún claro
 fr:thons pales, thon pale
 
 <en:Tunas
@@ -37844,6 +37891,7 @@ wikidata:en:Q42863988
 <en:Canned foods
 <en:Mussels
 en:Canned mussels
+es:Mejillones enlatados
 fr:Moules en conserve
 nl:Mossels in blik
 
@@ -39317,7 +39365,7 @@ wikidata:en:Q23501
 en:Canned vegetables
 ca:Vegetals enllaunats
 de:Gemüsekonserven, Dosengemüse
-es:Verduras y hortalizas en conserva, Hortalizas en conserva, Verduras en conserva
+es:Verduras y hortalizas en conserva, Hortalizas en conserva, Verduras en conserva, Conservas de vegetales
 fr:Légumes en conserve, conserves de légumes
 hu:Zöldségkonzervek
 nl:Groenten in blik, Groenteconserven
