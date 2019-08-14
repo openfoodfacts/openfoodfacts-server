@@ -421,6 +421,7 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:honeys
 	en:vinegars
 	en:salts
+	en:spices
 	en:pet-food
 	en:non-food-products
 
