@@ -176,7 +176,7 @@ sub init_labels_regexps() {
 
 			# the synonyms below also contain the main translation as the first entry
 
-			my $label_lc_labelid = get_fileid($translations_to{labels}{$labelid}{$label_lc});
+			my $label_lc_labelid = get_string_id_for_lang($label_lc, $translations_to{labels}{$labelid}{$label_lc});
 
 			my @synonyms = ();
 
@@ -229,7 +229,7 @@ foreach my $f (readdir(DH)) {
 		next if /^\#/;
 
 		my ($canon_name, $other_names, $misc, $desc, $level, $warning) = split("\t");
-		my $id = get_fileid($canon_name);
+		my $id = get_string_id_for_lang("no_language", $canon_name);
 		next if (not defined $id) or ($id eq '');
 		(not defined $level) and $level = 0;
 
@@ -245,7 +245,7 @@ foreach my $f (readdir(DH)) {
 			foreach my $other_name (split(/,/, $other_names)) {
 				$other_name =~ s/^\s+//;
 				$other_name =~ s/\s+$//;
-				my $other_id = get_fileid($other_name);
+				my $other_id = get_string_id_for_lang("no_language",$other_name);
 				next if $other_id eq '';
 				next if $other_name eq '';
 				if (not defined $ingredients_classes{$class}{$other_id}) { # Take the first one
@@ -577,7 +577,7 @@ sub extract_ingredients_from_text($) {
 						$between =~ s/^(.*?$separators)/origin:$1/;
 					}
 
-					# print STDERR "between: $between\n";
+					print STDERR "between: $between\n";
 
 					# : is in $separators but we want to keep "origine : France"
 					if (($between =~ $separators) and ($` !~ /\s*(origin|origine)\s*/i)) {
@@ -836,7 +836,7 @@ sub extract_ingredients_from_text($) {
 		$product_ref->{$field . "_tags" } = [];
 		my $unknown = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			my $tagid = get_taxonomyid($tag);
+			my $tagid = get_taxonomyid($product_lc, $tag);
 			push @{$product_ref->{$field . "_tags" }}, $tagid;
 			if (not exists_taxonomy_tag("ingredients", $tagid)) {
 				$unknown++;
@@ -2173,7 +2173,7 @@ INFO
 	}
 
 	# Add synonyms in target language
-	my $vitamin_in_lc = get_fileid(display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"), 0, $product_lc);
+	my $vitamin_in_lc = get_string_id_for_lang($product_lc, display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"));
 	$vitamin_in_lc =~ s/^\w\w://;
 
 	if ((defined $synonyms_for{ingredients}) and (defined $synonyms_for{ingredients}{$product_lc}) and (defined $synonyms_for{ingredients}{$product_lc}{$vitamin_in_lc})) {
@@ -2228,7 +2228,7 @@ INFO
 					# push @allergenssuffixes, $translations_to{allergens}{$allergen}{$product_lc};
 					# the synonyms below also contain the main translation as the first entry
 
-					my $product_lc_allergenid = get_fileid($translations_to{allergens}{$allergen}{$product_lc}, 0, $product_lc);
+					my $product_lc_allergenid = get_string_id_for_lang($product_lc, $translations_to{allergens}{$allergen}{$product_lc});
 
 					foreach my $synonym (@{$synonyms_for{allergens}{$product_lc}{$product_lc_allergenid}}) {
 						push @allergenssuffixes, $synonym;
@@ -2334,7 +2334,7 @@ sub extract_ingredients_classes_from_text($) {
 
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
-		my $ingredientid = get_fileid($ingredient, 0, $product_ref->{lc});
+		my $ingredientid = get_string_id_for_lang($product_ref->{lc}, $ingredient);
 		if ((defined $ingredientid) and ($ingredientid ne '')) {
 
 			# split additives
@@ -2950,7 +2950,7 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $field = "allergens";
 
 
-	# print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
+	print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = $allergens_stopwords{$language};
 
@@ -3089,7 +3089,7 @@ sub detect_allergens_from_text($) {
 		$product_ref->{$field . "_tags" } = [];
 		# print STDERR "result for $field : ";
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($product_ref->{lc}, $tag);
 			# print STDERR " - $tag";
 		}
 		# print STDERR "\n";

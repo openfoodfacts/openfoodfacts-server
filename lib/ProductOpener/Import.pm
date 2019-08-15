@@ -787,7 +787,7 @@ sub load_xml_file($$$$) {
 			$fuzzy_match = $xml_fields_mapping_ref->[0][1]{fuzzy_match};
 			if (defined $xml_ref->{$fuzzy_match}) {
 				@fuzzy_match_keys = sort keys %{$xml_ref->{$fuzzy_match}};
-				@fuzzy_match_keysid = map { get_fileid($_, 0, $lc) } @fuzzy_match_keys;
+				@fuzzy_match_keysid = map { get_string_id_for_lang($lc, $_) } @fuzzy_match_keys;
 			}
 		}
 
@@ -816,7 +816,7 @@ sub load_xml_file($$$$) {
 					$log->info("Fuzzy match", { fuzzy_from => $fuzzy_from }) if $log->is_info();
 
 					if (defined $new_xml_ref->{$fuzzy_from}) {
-						my $tf = Text::Fuzzy->new (get_fileid($new_xml_ref->{$fuzzy_from}, 0, $lc));
+						my $tf = Text::Fuzzy->new (get_string_id_for_lang($lc, $new_xml_ref->{$fuzzy_from}));
 						my $nearestid = $tf->nearest (\@fuzzy_match_keysid);
 						my $nearest = $fuzzy_match_keys[$nearestid];
 						$log->info("Fuzzy match found", { fuzzy_from => $fuzzy_from, value => $new_xml_ref->{$fuzzy_from}, nearest => $nearest }) if $log->is_info();

@@ -31,5 +31,7 @@ is(get_string_id_for_lang("fr","Café crème"),"cafe-creme");
 is(get_string_id_for_lang("de","Café crème"),"café-crème");
 is(get_string_id_for_lang("de","Äpfel"),"äpfel"); 
 is(get_string_id_for_lang("en","Äpfel"),"apfel"); 
+is(get_string_id_for_lang("es","Trazas : cacahuete, Trazas : huevo. frutos de cáscara."),"trazas-cacahuete-trazas-huevo-frutos-de-cascara"); 
+is(get_string_id_for_lang("fr","Pâte de cacao"), "pate-de-cacao");
 
 done_testing();

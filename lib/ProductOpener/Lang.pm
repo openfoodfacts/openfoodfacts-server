@@ -266,12 +266,12 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 
 				foreach my $field ("", "_s", "_p") {
 					defined $Lang{$taxonomy . "_$suffix" . $field } or $Lang{$taxonomy . "_$suffix" . $field } = {};
-					$Lang{$taxonomy . "_$suffix" . $field }{$l} = get_fileid($taxonomy, 0, $l) . "-$suffix";
+					$Lang{$taxonomy . "_$suffix" . $field }{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
 				}
 				defined $tag_type_singular{$taxonomy . "_$suffix"} or $tag_type_singular{$taxonomy . "_$suffix"} = {};
 				defined $tag_type_plural{$taxonomy . "_$suffix"} or $tag_type_plural{$taxonomy . "_$suffix"} = {};
-				$tag_type_singular{$taxonomy . "_$suffix"}{$l} = get_fileid($taxonomy, 0, $l) . "-$suffix";
-				$tag_type_plural{$taxonomy . "_$suffix"}{$l} = get_fileid($taxonomy, 0, $l) . "-$suffix";
+				$tag_type_singular{$taxonomy . "_$suffix"}{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
+				$tag_type_plural{$taxonomy . "_$suffix"}{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
 			}
 		}
 
@@ -363,7 +363,7 @@ sub build_lang($) {
 		foreach my $suffix ("prev", "next", "debug") {
 
 			foreach my $field ("", "_s", "_p") {
-				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
+				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_string_id_for_lang("no_language",$taxonomy) . "-$suffix" };
 			}
 		}
 	}
@@ -426,7 +426,7 @@ sub build_lang($) {
 					}
 				}
 
-				my $tagid = get_fileid($Lang{$key}{$l}, 0, $l);
+				my $tagid = get_string_id_for_lang($l, $Lang{$key}{$l});
 			}
 		}
 	}
