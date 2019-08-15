@@ -2,29 +2,29 @@
 
 <!-- Hand column content - how used to remove left column and center glad On Some pages -->
 
-<h1>Nutri-Score Nutritional Score and Color grades</h1>
+<h1>Nutri-Score prehranske ocene in barvni razredi</h1>
 
-<h2>A system of grades from A to E to simplify nutritional labeling</h2>
+<h2>Sistem razredov od A do E za poenostavitev označevanja hranil</h2>
 
-<p>In the report "Proposals for a new impetus to the French public health nutrition policy in the framework of the National Health Strategy" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>),
-Professor Serge Hercberg advocates for the adoption of a system of grades from A to E on the front of food
-to allow to simply compare the nutritional quality of products.</p>
+<p>V poročilu "Predlogi za nov zagon francoske javne prehranske politike v okviru nacionalne zdravstvene strategije" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf"> pdf </a>),
+profesor Serge Hercberg se zavzema za uvedbo sistema ocen od A do E na sprednji strani hrane
+da bi omogočili preprosto primerjavo prehranske kakovosti izdelkov.</p>
 
 <img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
 
 <p>These color accents are set by calculating a nutritional score that reflects for the 1st part of the energy, saturated fat, sugars, sodium (high levels are considered unhealthy), and for the 2nd part of the proportion of fruits, vegetables and nuts, fibers and proteins
   (high levels are considered good for health).</p>
 
-<p>To learn more:</p>
+<p>Če želite izvedeti več:</p>
 
 <ul>
-<li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score">Nutri-Score official presentation</a> and <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN">Nutri-Score Scientific and Technical FAQ</a> on the web site of the French national public health agency Santé Publique France.</li>
+<li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score"> Nutri-Score uradna predstavitev </a> in <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN"> Nutri-Score Znanstvena in tehnična vprašanja </a> na spletni strani francoske nacionalne agencije za javno zdravje Santé Publique France.</li>
 <li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">A 2 minutes video : What labeling for food products?</a></li>
-<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petition for a simple , intuitive and understandable by all nutritional labeling on the front of food packages</a>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Peticija za preprosto, intuitivno in razumljivo z vsemi označbami prehrane na sprednji strani živilskih paketov</a>
 </li>
 </ul>
 
-<h2>The nutritional score on Open Food Facts</h2>
+<h2>Prehranska ocena za Open Food Facts</h2>
 
 <p>The formula for calculating the nutritional score, the thresholds of the grades and the various tweaking proposals were transmitted by Professor Hercberg's team. This formula was the subject of studies and adaptations for the French market.</p>
 
@@ -40,16 +40,16 @@ and determined the corresponding A to E grades. This allows in particular to com
 
 <p>A Points are given for the nutrients considered "bad" and C points are given for the "good" nutrients and the content in fruits, vegetables and nuts.</p>
 
-<h3>A Points</h3>
+<h3>A Točke</h3>
 
 <p>Točke so vsota točk za energijo, nasičene maščobe, sladkorje in natrij.</p>
 
 <table class="points">
 <tbody>
   <tr>
-    <th>Points</th>
-    <th>Energy (kJ)</th>
-    <th>Saturated Fat (g)</th>
+    <th>Točke</th>
+    <th>Energija (kJ)</th>
+    <th>Nasičene maščobe (g)</th>
     <th>Sladkorji (g)</th>
     <th>Natrij (mg)</th>
   </tr>
@@ -133,17 +133,17 @@ and determined the corresponding A to E grades. This allows in particular to com
 </tbody>
   </table>
 
-<h3>C Points</h3>
+<h3>C Točke</h3>
 
-<p>The C points are the sum of points for fruits, vegetables and nuts, for fiber and protein.</p>
+<p>Točke C so vsota točk za sadje, zelenjavo in oreščke, za vlaknine in beljakovine.</p>
 
 <table class="points">
 <tbody>
   <tr>
-    <th>Points</th>
-    <th>Fruits, vegetables and nuts (%)</th>
-    <th>Fibre (g)</th>
-    <th>Protein (g)</th>
+    <th>Točke</th>
+    <th>Sadje, zelenjava in oreški (%)</th>
+    <th>Vlakna (g)</th>
+    <th>Beljakovine (g)</th>
   </tr>
 <tr>
   <td>0</td>
@@ -184,22 +184,22 @@ and determined the corresponding A to E grades. This allows in particular to com
 </tbody>
 </table>
 
-<p>Note: potatoes, sweet potatoes, taro, cassava and tapioca are not included in fruits, vegetables and nuts.</p>
+<p>Opomba: krompir, sladek krompir, taro, kasava in tapioka niso vključeni v sadje, zelenjavo in oreščke.</p>
 
-<h3>Nutritional score calculation</h3>
+<h3>Prehranski izračun ocene</h3>
 
 <ul>
 <li>If A points &lt; 11 then score = A points - C points</li>
-<li>If A points ≥ 11
+<li>Če je A točk ≥ 11
 <ul>
-<li>If the points for fruit, vegetables and nuts = 5, then score = A points - C points</li>
-<li>If the points for fruit, vegetables and nuts &lt; 5, then score = A points - (fiber points + points for points fruits, vegetables and nuts)</li>
+<li>Če so točke za sadje, zelenjavo in oreščke = 5, potem je rezultat = A točke - C točke</li>
+<li>Če so točke za sadje, zelenjavo in oreščke &lt; 5, potem je rezultat = A točke - (točke vlaknin + točke za točke sadja, zelenjave in oreščkov)</li>
 </ul>
 
 </li>
 </ul>
 
-<h3>Adaptations for the French market</h3>
+<h3>Prilagoditve za francoski trg</h3>
 
 <p>The formula of nutritional score indicated above corresponds to the formula of the
   nutritional score of the Food Standards Agency (FSA) in the UK.</p>
@@ -207,9 +207,9 @@ and determined the corresponding A to E grades. This allows in particular to com
 <p>The team of Professor Hercberg offers adaptations for the French market that
   are implemented to calculate the score on Open Food Facts.</p>
 
-<h4>Adaptation for cheese</h4>
+<h4>Prilagoditev za sir</h4>
 
-<p>For cheeses, points for the proteins are substracted from the score even if the A points are ≥ 11.</p>
+<p>Pri sirih se točke beljakovin odštevajo od ocene, tudi če so točke A ≥ 11.</p>
 
 <h4>Adaptation for fat</h4>
 
@@ -270,24 +270,24 @@ and determined the corresponding A to E grades. This allows in particular to com
 </tbody>
 </table>
 
-<h4>Adaptations for fruits and vegetables</h4>
+<h4>Prilagoditve za sadje in zelenjavo</h4>
 
-<p>The nuts are not taken into account for the calculation of the content of fruits and vegetables.</p>
+<p>Oreščki se pri izračunu vsebnosti sadja in zelenjave ne upoštevajo.</p>
 
-<h4>Adaptations for drinks</h4>
+<h4>Prilagoditve za pijače</h4>
 
 <p>Warning: the nutritional score for milk and vegetable milks is calculated with the general formula and
   not the formula for drinks.</p>
 
-<p>The threshold of points for energy and for sugars are modified for drinks, and points are doubled for fruits:</p>
+<p>Prag točk za energijo in za sladkorje je za pijače spremenjen, točke za sadje pa so podvojene:</p>
 
 <table class="points">
 <tbody>
 <tr>
-  <th>Points</th>
-  <th>Energy (kJ)</th>
+  <th>Točke</th>
+  <th>Energija (kJ)</th>
   <th>Sladkorji (g)</th>
-  <th>Fruits, vegetables (%)</th>
+  <th>Sadje, zelenjava (%)</th>
 </tr>
 <tr>
   <td>0</td>
@@ -358,26 +358,26 @@ and determined the corresponding A to E grades. This allows in particular to com
 <h2>Nutri-Score grades thresholds</h2>
 
 <p>The thresholds used to assign the A to E grades are:</p> <p>
-</p><h3>Solid Foods:</h3>
+</p><h3>Trdna hrana:</h3>
 <ul>
-<li>A: up to -1</li>
-<li>B: from 0 to 2</li>
-<li>C: from 3 to 10</li>
-<li>D: from 11 to 18</li>
-<li>E: 19 and more</li>
+<li>A: do -1</li>
+<li>B: od 0 do 2</li>
+<li>C: od 3 do 10</li>
+<li>D: od 11 do 18</li>
+<li>E: 19 in več</li>
 </ul>
-<h3>Beverages:</h3>
-<p>Only water (mineral and spring, with the exclusion of flavored waters) is graded A.</p>
+<h3>Pijače:</h3>
+<p>Samo voda (mineralna in izvirska, z izjemo aromatiziranih voda) je razvrščena v razred A.</p>
 
 <ul>
-<li>A: mineral waters and spring waters</li>
-<li>B: up to 1</li>
-<li>C: from 2 to 5</li>
-<li>D: from 6 to 9</li>
-<li>E: 10 and more</li>
+<li>A: mineralne in izvirske vode</li>
+<li>B: do 1</li>
+<li>C: od 2 do 5</li>
+<li>D: od 6 do 9</li>
+<li>E: 10 in več</li>
 </ul>
 
-<p><b>Warning: This score may still not match the recommended score:</b></p>
+<p><b>Opozorilo: Ta rezultat morda še vedno ne ustreza priporočenemu:</b></p>
 
 <ul>
 <li>The fiber content is not necessarily present in the nutrition table. When the latter is not indicated, any
