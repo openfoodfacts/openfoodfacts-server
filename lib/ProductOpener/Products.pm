@@ -865,14 +865,14 @@ sub get_change_userid_or_uuid($) {
 	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
 	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
-		$uuid =~ s/^(\s*)//;
-		$uuid =~ s/(\s*)$//;
 	}
 	elsif ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
 		$uuid = $7;
 	}
 
-	if (defined $uuid) {
+	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
+		$uuid =~ s/^(\s*)//;
+		$uuid =~ s/(\s*)$//;
 		$userid = $app . $uuid;
 	}
 
