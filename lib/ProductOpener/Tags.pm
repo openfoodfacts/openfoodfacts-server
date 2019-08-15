@@ -1967,6 +1967,10 @@ sub display_tag_link($$) {
 		$tag = $';
 	}
 
+	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+		$tag_lc = "no_language";
+	}
+
 	my $tagid = get_string_id_for_lang($tag_lc, $tag);
 	my $tagurl = get_urlid($tagid, 0, $tag_lc);
 
