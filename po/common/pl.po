@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-07 18:50\n"
+"PO-Revision-Date: 2019-08-15 12:14\n"
 "Language-Team: Polish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -137,7 +137,7 @@ msgstr "Stronę produktu również edytuje"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
@@ -145,7 +145,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/pl_get.svg\" alt=\"Dostępny w Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -767,7 +767,7 @@ msgstr "Kim jesteśmy"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/kim jesteśmy"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -866,27 +866,27 @@ msgstr "Należ wprowadzić elementy kodu kreskowego lub wysłać zdjęcie produk
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Pełny rozmiar"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "Ten plik został przesłany do produktu %s i jest objęty licencją %s."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Uznanie autorstwa: Zdjęcie %s na %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Uznanie autorstwa: Zdjęcie %s z dodatkowymi modyfikacjami %s na %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Oryginalne zdjęcie)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Szczegóły zdjęcia i informacje o autorze"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -982,7 +982,7 @@ msgstr "Produkty które nie zawierają składnika %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Dostępny w Google Play\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1342,7 +1342,7 @@ msgstr "Dodaj produkt"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/dodaj produkt"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1351,7 +1351,7 @@ msgstr "Wnieś wkład"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/współpraca"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1360,7 +1360,7 @@ msgstr "Odkryj"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/odkryj"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1473,7 +1473,7 @@ msgstr "Żywnościowe poziomy 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/poziom składników odżywczych"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2590,7 +2590,7 @@ msgstr "Adres strony lub bloga"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/microsoft/Polish.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
