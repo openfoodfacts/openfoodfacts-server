@@ -417,10 +417,11 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:coffees
 	en:teas
 	en:herbal-teas
-	fr:levure
-	fr:levures
+	en:food-additives
 	en:honeys
 	en:vinegars
+	en:salts
+	en:spices
 	en:pet-food
 	en:non-food-products
 
