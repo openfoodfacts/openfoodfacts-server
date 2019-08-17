@@ -331,7 +331,7 @@ my %baby_food_brands = ();
 
 foreach my $brand (@baby_food_brands) {
 
-	my $brandid = get_fileid($brand);
+	my $brandid = get_string_id_for_lang("no_language", $brand);
 	$baby_food_brands{$brandid} = 1;
 
 }
@@ -341,7 +341,7 @@ my %cigarette_brands = ();
 
 foreach my $brand (@cigarette_brands) {
 
-	my $brandid = get_fileid($brand);
+	my $brandid = get_string_id_for_lang("no_language", $brand);
 	$cigarette_brands{$brandid} = 1;
 
 }
@@ -427,9 +427,9 @@ sub check_nutrition_grades($) {
 
 sub check_carbon_footprint($) {
 	my $product_ref = shift;
-	
+
 	if (defined $product_ref->{nutriments}) {
-	
+
 		if ((defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
 			and not (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
 			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-meat-or-fish-but-not-from-known-ingredients";
@@ -447,7 +447,7 @@ sub check_carbon_footprint($) {
 			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})
 			and ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} < $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})) {
 			push @{$product_ref->{quality_tags}}, "carbon-footprint-from-known-ingredients-more-than-from-meat-or-fish";
-		}			
+		}
 	}
 }
 

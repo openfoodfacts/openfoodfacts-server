@@ -34,6 +34,7 @@ BEGIN
 		&preparse_ingredients_text
 		&extract_ingredients_from_text
 		&analyze_ingredients
+		&separate_additive_class
 
 		&compute_carbon_footprint_from_ingredients
 		&compute_carbon_footprint_from_meat_or_fish
@@ -176,7 +177,7 @@ sub init_labels_regexps() {
 
 			# the synonyms below also contain the main translation as the first entry
 
-			my $label_lc_labelid = get_fileid($translations_to{labels}{$labelid}{$label_lc});
+			my $label_lc_labelid = get_string_id_for_lang($label_lc, $translations_to{labels}{$labelid}{$label_lc});
 
 			my @synonyms = ();
 
@@ -205,6 +206,49 @@ sub init_labels_regexps() {
 	}
 }
 
+# Additives classes regexps
+
+my %additives_classes_regexps = ();
+
+sub init_additives_classes_regexps() {
+
+	# Create a regexp with all synonyms of all additives classes
+	my %additives_classes_synonyms = ();
+
+	foreach my $additives_class (keys %{$translations_to{additives_classes}}) {
+
+		# do not turn vitamin a in vitamin : a-z
+		next if $additives_class eq "en:vitamins";
+
+		foreach my $l (keys %{$translations_to{additives_classes}{$additives_class}}) {
+
+			defined $additives_classes_synonyms{$l} or $additives_classes_synonyms{$l} = {};
+
+			# the synonyms below also contain the main translation as the first entry
+
+			my $l_additives_class = get_string_id_for_lang($l, $translations_to{additives_classes}{$additives_class}{$l});
+
+			foreach my $synonym (@{$synonyms_for{additives_classes}{$l}{$l_additives_class}}) {
+				$additives_classes_synonyms{$l}{$synonym} = 1;
+				# simple singulars and plurals + unaccented forms
+				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
+				$synonym =~ s/s$//;
+				$additives_classes_synonyms{$l}{$synonym} = 1;
+				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
+				$additives_classes_synonyms{$l}{$synonym . "s"} = 1;
+				$additives_classes_synonyms{$l}{unac_string_perl($synonym . "s")} = 1;
+			}
+		}
+	}
+
+	foreach my $l (sort keys %additives_classes_synonyms) {
+		# Match the longest strings first
+		$additives_classes_regexps{$l} = join('|', sort { length($b) <=> length($a) } keys %{$additives_classes_synonyms{$l}});
+		# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
+	}
+}
+
+
 if ((keys %labels_regexps) > 0) { exit; }
 
 # load ingredients classes
@@ -229,7 +273,7 @@ foreach my $f (readdir(DH)) {
 		next if /^\#/;
 
 		my ($canon_name, $other_names, $misc, $desc, $level, $warning) = split("\t");
-		my $id = get_fileid($canon_name);
+		my $id = get_string_id_for_lang("no_language", $canon_name);
 		next if (not defined $id) or ($id eq '');
 		(not defined $level) and $level = 0;
 
@@ -245,7 +289,7 @@ foreach my $f (readdir(DH)) {
 			foreach my $other_name (split(/,/, $other_names)) {
 				$other_name =~ s/^\s+//;
 				$other_name =~ s/\s+$//;
-				my $other_id = get_fileid($other_name);
+				my $other_id = get_string_id_for_lang("no_language",$other_name);
 				next if $other_id eq '';
 				next if $other_name eq '';
 				if (not defined $ingredients_classes{$class}{$other_id}) { # Take the first one
@@ -836,7 +880,7 @@ sub extract_ingredients_from_text($) {
 		$product_ref->{$field . "_tags" } = [];
 		my $unknown = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			my $tagid = get_taxonomyid($tag);
+			my $tagid = get_taxonomyid($product_lc, $tag);
 			push @{$product_ref->{$field . "_tags" }}, $tagid;
 			if (not exists_taxonomy_tag("ingredients", $tagid)) {
 				$unknown++;
@@ -1695,6 +1739,44 @@ sub is_compound_word_with_dash($$) {
 	}
 }
 
+# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
+# warning: the additive class may also be the start of the name of an additive.
+# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
+sub separate_additive_class($$$$$) {
+
+	my $product_lc = shift;
+	my $additive_class = shift;
+	my $spaces = shift;
+	my $colon = shift;
+	my $after = shift;
+
+	my $and = $Lang{_and_}{$product_lc};
+
+	# check that we have an additive after the additive class
+	# keep only what is before the first separator
+	$after =~ s/^$separators+//;
+	#print STDERR "separate_additive_class - after 1 : $after\n";
+	$after =~ s/^(.*?)$separators(.*)$/$1/;
+	#print STDERR "separate_additive_class - after 2 : $after\n";
+
+	# also look if we have additive 1 and additive 2
+	my $after2;
+	if ($after =~ /$and/) {
+		$after2 = $`;
+	}
+
+	if (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
+		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) ))
+	) {
+		#print STDERR "separate_additive_class - after is an additive\n";
+		return $additive_class . " : ";
+	}
+	else {
+		#print STDERR "separate_additive_class - after is not an additive\n";
+		return $additive_class . $spaces . $colon;
+	}
+}
+
 
 sub preparse_ingredients_text($$) {
 
@@ -1703,6 +1785,7 @@ sub preparse_ingredients_text($$) {
 
 	if ((scalar keys %labels_regexps) == 0) {
 		init_labels_regexps();
+		init_additives_classes_regexps();
 	}
 
 	my $and = $Lang{_and_}{$product_lc};
@@ -1811,6 +1894,16 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)+(:)?(?!\(| \()/$1$2 : /ig;
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
+
+	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
+	# warning: the additive class may also be the start of the name of an additive.
+	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
+	if (defined $additives_classes_regexps{$product_lc}) {
+		my $regexp = $additives_classes_regexps{$product_lc};
+		#$text =~ s/\b($regexp)(\s)+(:)?(?!\(| \()/$1 : /ig;
+		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
+		#print STDERR "additives_classes_regexps result: $text\n";
+	}
 
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
@@ -2173,7 +2266,7 @@ INFO
 	}
 
 	# Add synonyms in target language
-	my $vitamin_in_lc = get_fileid(display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"));
+	my $vitamin_in_lc = get_string_id_for_lang($product_lc, display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"));
 	$vitamin_in_lc =~ s/^\w\w://;
 
 	if ((defined $synonyms_for{ingredients}) and (defined $synonyms_for{ingredients}{$product_lc}) and (defined $synonyms_for{ingredients}{$product_lc}{$vitamin_in_lc})) {
@@ -2228,7 +2321,7 @@ INFO
 					# push @allergenssuffixes, $translations_to{allergens}{$allergen}{$product_lc};
 					# the synonyms below also contain the main translation as the first entry
 
-					my $product_lc_allergenid = get_fileid($translations_to{allergens}{$allergen}{$product_lc});
+					my $product_lc_allergenid = get_string_id_for_lang($product_lc, $translations_to{allergens}{$allergen}{$product_lc});
 
 					foreach my $synonym (@{$synonyms_for{allergens}{$product_lc}{$product_lc_allergenid}}) {
 						push @allergenssuffixes, $synonym;
@@ -2334,10 +2427,7 @@ sub extract_ingredients_classes_from_text($) {
 
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
-
-		print STDERR "ingredients_classes - ingredient: $ingredient\n";
-
-		my $ingredientid = get_fileid($ingredient);
+		my $ingredientid = get_string_id_for_lang($product_ref->{lc}, $ingredient);
 		if ((defined $ingredientid) and ($ingredientid ne '')) {
 
 			# split additives
@@ -3092,7 +3182,7 @@ sub detect_allergens_from_text($) {
 		$product_ref->{$field . "_tags" } = [];
 		# print STDERR "result for $field : ";
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($product_ref->{lc}, $tag);
 			# print STDERR " - $tag";
 		}
 		# print STDERR "\n";
