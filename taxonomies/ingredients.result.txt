@@ -181,60 +181,6 @@ synonyms:en:no8, n8, 8
 
 synonyms:en:no9, n9, 9
 
-synonyms:en:sulfate, sulphate, sulfates
-synonyms:af:Sulfaat
-synonyms:ar:كبريتات
-synonyms:az:Sulfatlar
-synonyms:be:Сульфаты
-synonyms:bg:Сулфат
-synonyms:bn:সালফেট আয়ন
-synonyms:bs:Sulfati, Sulfat
-synonyms:ca:Sulfatar, Sulfat
-synonyms:cs:Sulfáty, Sulfát
-synonyms:da:Sulfat
-synonyms:de:Sulfate, Sulfat
-synonyms:eo:sulfato
-synonyms:es:Sulfatos, Sulfato
-synonyms:et:Sulfaadid
-synonyms:eu:Sulfatoa, Sulfato
-synonyms:fa:سولفات
-synonyms:fi:Sulfaatit, Sulfaatti
-synonyms:fr:sulfates
-synonyms:gl:Sulfato
-synonyms:he:סולפט
-synonyms:hi:सल्फेट
-synonyms:hr:Sulfati
-synonyms:hu:Szulfát
-synonyms:hy:Սուլֆատներ
-synonyms:id:Sulfat
-synonyms:it:Solfato
-synonyms:ja:硫酸塩
-synonyms:kk:Сульфаттар
-synonyms:ko:황산염
-synonyms:lt:Sulfatas, Sulfatai
-synonyms:lv:Sulfāti
-synonyms:ms:Sulfat
-synonyms:nb:sulfat
-synonyms:nl:sulfaten, Sulfaat
-synonyms:nn:sulfat
-synonyms:pl:siarczan, siarczany
-synonyms:pt:sulfato
-synonyms:ro:Sulfat
-synonyms:ru:сульфаты, сульфат
-synonyms:sh:Sulfati, Sulfat
-synonyms:sk:Síran
-synonyms:sl:Sulfat
-synonyms:sq:Sulfat
-synonyms:sr:Сулфати, Сулфат
-synonyms:sv:Sulfater, Sulfat
-synonyms:ta:சல்பேற்று
-synonyms:th:ซัลเฟต
-synonyms:tl:Sulfato
-synonyms:tr:Sülfat
-synonyms:uk:Сульфати, Сульфат
-synonyms:vi:Sulfat
-synonyms:zh:硫酸鹽
-
 synonyms:en:sulfide, sulphide
 
 synonyms:fr:de fer, ferreux, ferrique
@@ -384,7 +330,7 @@ lt:Rūgštis
 lv:Skābe
 mt:Aċidu
 nl:Voedingszuur
-pl:Kwas
+pl:Kwas, Kwasy
 pt:Acidificante
 ro:Acidifiant
 sk:Kyselina
@@ -428,7 +374,7 @@ lt:Rūgštingumą reguliuojanti medžiaga
 lv:Skābuma regulētājs
 mt:Regolatur tal-Aċidità
 nl:Zuurteregelaar
-pl:Regulator kwasowości
+pl:Regulator kwasowości, Regulatory kwasowości
 pt:Regulador de acidez
 ro:Corector de aciditate
 sk:Regulátor kyslosti
@@ -1327,7 +1273,7 @@ lt:Lipnumą reguliuojanti medžiaga
 lv:Pretsalipes viela
 mt:Aġent kontra t-tagħqid
 nl:Antiklontermiddel
-pl:Substancja przeciwzbrylająca
+pl:Substancja przeciwzbrylająca, Substancje przeciwzbrylające, Substancja przeciwzbrylajaca
 pt:Antiaglomerante
 ro:Agent antiaglomerant
 sk:Protihrudkovacia látka
@@ -1371,7 +1317,7 @@ lt:Medžiaga nuo putojimo
 lv:Putu dzēsējs
 mt:Aġent kontra r-ragħwa
 nl:Antischuimmiddel
-pl:Substancja przeciwpieniąca
+pl:Substancja przeciwpieniąca, Substancje przeciwpieniące
 pt:Antiespuma
 ro:Antispumant
 sk:Odpeňovacie činidlo
@@ -1413,7 +1359,7 @@ lt:Antioksidantas
 lv:Antioksidants
 mt:Antiossidant
 nl:Antioxydant, Antioxydanten
-pl:Przeciwutleniacz
+pl:Przeciwutleniacz, przeciwutleniacze
 pt:Antioxidante
 sl:Antioksidant
 sv:Antioxidationsmedel
@@ -2134,14 +2080,14 @@ en:peppercorns
 fr:grains de poivre
 
 < en:Bell pepper
-en:red pepper, red bell pepper, red chili pepper, roter Pfeffer
+en:red pepper, red bell pepper
 da:rød peberfrugt
-de:rote Paprika, roter Chili, rote Chili-Schoten
+de:rote Paprika
 el:κόκκινη πιπεριά
 es:pimiento rojo, pimiento morrón rojo
 fi:punainen paprika
-fr:poivron rouge, poivrons rouge, piment rouge, piments rouges
-it:peperoni rossi, peperoncini rossi
+fr:poivron rouge, poivrons rouge
+it:peperoni rossi
 lv:sarkanā paprika
 nl:rode paprika
 pt:pimento vermelho
@@ -3319,7 +3265,7 @@ lt:Užpildas
 lv:Apjoma palielinātājs
 mt:Aġent li jżid il-volum
 nl:Vulstof, Vulstoffen
-pl:Substancja wypełniająca
+pl:Substancja wypełniająca, Substancje wypełniające
 pt:Agente de volume
 ro:Agent de încărcare
 sk:Objemové činidlo
@@ -6789,6 +6735,13 @@ it:Peperoncini jalapeños
 nl:Jalapeno pepers
 
 < en:Chili pepper
+en:red chili pepper
+de:roter Chili, rote Chili-Schoten
+es:chile rojo, chiles rojos
+fr:piment rouge, piments rouges
+it:peperoncini rossi
+
+< en:Chili pepper
 en:smoked chili pepper
 fr:piment fumé
 
@@ -8541,7 +8494,7 @@ lt:Dažiklis
 lv:Krāsa
 mt:Kulur
 nl:Kleuren, Kleurstof, kleurstoffen
-pl:Barwnik
+pl:Barwnik, Barwniki
 pt:Corante
 ro:Colorant
 sk:Farbivo
@@ -11770,17 +11723,17 @@ vegetarian:en: no
 wikidata:en: Q416860
 wikipedia:en: https://en.wikipedia.org/wiki/Carmine
 
-en:E1200, Polydextrose
+en:E1200, Polydextrose, 68424-04-4
 bg:E1200, Полидекстроза
 ca:E1200, Polidextrosa
 cs:E1200, Polydextrosa
 da:E1200, Polydextrose
-de:E1200, Polydextrose, E 1200
+de:E1200, Polydextrose
 el:E1200, Πολυδεξτροζη
 es:E1200, Polidextrosa
 et:E1200, Polüdekstroos
 fi:E1200, Polydekstroosi
-fr:E1200, Polydextrose, E 1200, 68424-04-4
+fr:E1200, Polydextrose
 gl:Polidextrosa
 hu:E1200, Polidextróz
 it:E1200, Polidestrosio
@@ -19767,7 +19720,7 @@ lt:E331, E331 food additive
 lv:E331, E331 food additive
 mt:E331, E331 food additive
 nl:E331, Natriumcitraten
-pl:E331, E331 food additive
+pl:E331, cytryniany sodu
 pt:E331, E331 food additive
 ro:E331, E331 food additive
 ru:E331, Натрия гидроцетрат
@@ -19841,7 +19794,10 @@ e_number:en: 331
 organic_eu:en: authorized
 wikidata:en: Q6460572
 
-en:E331iii
+< en:E331
+en:E331iii, Trisodium citrate
+fr:E331iii, Citrate trisodique
+pl:E331iii, Cytrynian trisodowy
 
 en:E332, Potassium citrates, Potassium citrate, E-332
 bg:E332, E332 food additive, Калиев цитрат
@@ -26285,7 +26241,7 @@ lv:E503, Amonija karbonāts, E503i
 mt:E503, E503 food additive, E503i, Karbonat tal-ammonju
 nl:E503, Ammoniumcarbonaat, E503i, ammoniumcarbonaten
 nn:ammoniumkarbonat
-pl:E503, Węglan amonu, E503i, węglany amonu
+pl:E503, Węglan amonu, węglany amonu, E503i
 pt:E503, Carbonato de amônio, E503i, carbonatos de amónio
 ro:E503, E503 food additive, E503i, Carbonat de amoniu, carbonati de amoniu
 ru:E503, Карбонаты аммония: карбонат аммония, гидрокарбонат аммония, карбонат аммония
@@ -31799,46 +31755,46 @@ vegetarian:en: yes
 wikidata:en: Q412068
 wikipedia:en: https://en.wikipedia.org/wiki/Isomalt
 
-en:E954, Saccharin and its Na, K and Ca salts, Saccharin, E-954
+en:E954, Saccharin and its salts, Saccharin, Saccharin sodium salt, saccharin sodium, sodium saccharin salt, Saccharin calcium salt, Saccharin calcium, Calcium saccharine, Saccharin potassium salt, Saccharine potassium, Potassium saccharine, E-954
 ar:سكارين
 be:Сахарын
 bg:E954, Захарин и неговите натриеви, калиеви и калциеви соли, Захарин
-ca:E954, Sacarina i les seves sals de sodi, potassi i calci, sacarina
-cs:E954, Sacharin a jeho sodná, draselná a vápenatá sůl, Sacharin, Cukerín, Zuckerin, E 954
+ca:E954, Sacarina i les seves sals de sodi potassi i calci, sacarina
+cs:E954, Sacharin a jeho sodná draselná a vápenatá sůl, Sacharin, Cukerín, Zuckerin, E 954
 da:E954, Saccharin and its na. k and ca salts, Sakkarin, Saccharin
 de:E954, Saccharin, Benzoesäuresulfimid, E 954
 el:E954, Σακχαρινες
 eo:Sakarino
-es:E954, Sacarina, Sacarina y sus sales de sodio, potasio y calcio, E 954, sacarinas
-et:E954, Sahhariin ning selle naatrium-, kaalium- ja kaltsiumsoolad, Sahhariin
+es:E954, Sacarina, Sacarina y sus sales de sodio potasio y calcio, E 954, sacarinas
+et:E954, Sahhariin ning selle naatrium- kaalium- ja kaltsiumsoolad, Sahhariin
 eu:Sakarina
 fa:ساخارین
-fi:E954, Sakariini ja sen na-, k- ja ca-suolat i, Sakariini, Sakkariini
+fi:E954, Sakariini ja sen na- k- ja ca-suolat i, Sakariini, Sakkariini
 fr:E954, Saccharine et ses sels, saccharinates, Saccharine, Saccharine de calcium, Saccharine de potassium, Saccharine de sodium, sels de Saccharine, saccharinate de calcium, saccharinate de potassium, saccharinate de sodium, Sulphimide benzoïque, Saccharine et ses sels de na, k et ca, 6155-57-3, 10332-51-1, Saccharinate, E-954, 81-07-2, 6381-91-5, C7H5NO3S, 128-44-9, 6485-34-3, Saccarine, saccharides
 ga:Siúicrín
 gl:Sacarina
 he:סכרין
 hi:सेकेरिन
 hr:Saharin
-hu:E954, Szacharin és na-, k- és ca-sói, Szacharin
+hu:E954, Szacharin és na- k- és ca-sói, Szacharin
 hy:Սախարին
 id:Sakarin
 io:Sakarino
-it:E954, Saccarina e suoi sali na, k e ca, Saccarina, C7H5NO3S
+it:E954, Saccarina e suoi sali na k e ca, Saccarina, C7H5NO3S
 ja:サッカリン
 ko:사카린
-lt:E954, Sacharinas ir jo na, k ir ca druskos, Sacharinas
+lt:E954, Sacharinas ir jo na k ir ca druskos, Sacharinas
 lv:E954, Saccharin and its na. k and ca salts, Saccharin
 mt:E954, Saccharin and its na. k and ca salts, Saccharin
 nb:Sakkarin
-nl:E954, Sacharine en het natrium-, kalium- en calciumzout daarvan, Sacharine, Saccharine
-pl:E954, Sacharyna i jej sole: sodowa, potasowa i wapniowa, Sacharyna, Sacharynian sodu, sacharyny
-pt:E954, — sacarina e seus sais de sódio, potássio e cálcio, Sacarina
+nl:E954, Sacharine en het natrium- kalium- en calciumzout daarvan, Sacharine, Saccharine
+pl:E954, Sacharyna i jej sole: sodowa potasowa i wapniowa, Sacharyna, Sacharynian sodu, sacharyny
+pt:E954, Sacarina e seus sais de sódio potássio e cálcio, Sacarina
 ro:E954, Saccharin and its na. k and ca salts, Zaharină
 ru:Сахарин
 sh:Saharin
-sk:E954, — sacharín a jeho soli na k a ca, sacharín
-sl:E954, Saharin in njegove natrijeve, kalijeve in kalcijeve soli, Saharin
+sk:E954, Sacharín a jeho soli na k a ca, sacharín
+sl:E954, Saharin in njegove natrijeve kalijeve in kalcijeve soli, Saharin
 sr:сахарин
 sv:E954, Saccharin and its na. k and ca salts, Sackarin, Sackarinat, Sackarinater, E 954
 ta:சாக்கரின்
@@ -32891,7 +32847,7 @@ lt:Emulsiklis
 lv:Emulgators
 mt:Emulsifikant
 nl:Emulgator, Emulgatoren
-pl:Emulgator
+pl:Emulgator, Emulgatory
 pt:Emulsionante
 ro:Emulsifiant
 sk:Emulgátor
@@ -32938,7 +32894,7 @@ nl:Smeltzout, Smeltzouten
 pl:Sole emulgujące
 pt:Sais de fusão
 ro:Săruri de topire
-sk:Emulgujúce (taviace) soli
+sk:Emulgujúce soli, Emulgujúce (taviace) soli
 sl:Emulgirne soli
 sv:Smältsalter
 description:cs: Tavicími solemi se rozumějí látky, které převádějí bílkoviny obsažené v sýru do disperzní formy za účelem homogenního rozložení tuků a ostatních složek.
@@ -33842,7 +33798,7 @@ lt:Kietiklis
 lv:Cietinātājs
 mt:Aġent li jissoda
 nl:Verstevigingsmiddel, Verstevigingsmiddelen
-pl:Substancja wiążąca
+pl:Substancja wiążąca, Substancje wiążące
 pt:Agente de endurecimento
 ro:Agent de întărire
 sk:Stužovadlo
@@ -35343,7 +35299,7 @@ lt:Aromato ir skonio stipriklis
 lv:Garšas pastiprinātājs
 mt:Tejjieb il-ħwawar
 nl:Smaakversterker, Smaakversterkers
-pl:Wzmacniacz smaku
+pl:Wzmacniacz smaku, Wzmacniacze smaku
 pt:Intensificador de sabor
 ro:Potențiator de aromă
 sk:Stimulátor/zvýrazňovač chuti
@@ -35780,7 +35736,7 @@ lt:Miltų apdorojimo medžiaga
 lv:Miltu apstrādes līdzeklis
 mt:Aġent għat-trattament tad-dqiq
 nl:Meelverbeteraar, Meelverbeteraars
-pl:Środek do przetwarzania mąki (polepszacz), Środek do przetwarzania mąki
+pl:Środek do przetwarzania mąki, Środki do przetwarzania mąki
 pt:Agente de tratamento da farinha
 ro:Agent de tratare a făinii
 sk:Múku upravujúca látka
@@ -35889,7 +35845,7 @@ lt:Putojimą sukelianti medžiaga
 lv:Putu veidotājs
 mt:Aġent li jagħmel ir-ragħwa
 nl:Schuimmiddel, Schuimmiddelen
-pl:Substancja pianotwórcza
+pl:Substancja pianotwórcza, Substancje pianotwórcze
 pt:Agente espumante
 ro:Agenți de spumare
 sk:Penotvorná látka
@@ -38285,7 +38241,7 @@ lt:Stingdiklis
 lv:Recinātājs
 mt:Aġent li jgħaqqad f'ġel
 nl:Geleermiddel, Geleermiddelen
-pl:Substancja żelująca
+pl:Substancja żelująca, Substancje żelujące
 pt:Gelificante
 ro:Agent gelatinizant
 ru:загустители
@@ -38387,10 +38343,10 @@ lt:Glajinė medžiaga
 lv:Glazētājviela
 mt:Aġent li jagħmel l-ikel ileqq
 nl:Glansmiddel, Glansmiddelen
-pl:Substancja glazurująca
+pl:Substancja glazurująca, Substancje glazurujące
 pt:Agente de revestimento
 ro:Agent de glazurare
-sk:Povlaková látka (poleva, leštiaca látka), Povlaková látka, poleva
+sk:Povlaková látka, poleva, leštiaca látka
 sl:Sredstvo za glaziranje
 description:cs: Lešticími látkami -včetně lubrikantů- se rozumějí látky, které po nanesení na vnější povrch udělují potravině lesklý vzhled nebo vytvářejí ochranný povlak.
 description:da: Overfladebehandlingsmidler -herunder glittemidler-: stoffer, der giver en fødevare et skinnende udseende eller udgør et beskyttende lag, når de påføres fødevarens overflade.
@@ -40855,7 +40811,7 @@ it:Umidificanti
 lt:Drėgmę išlaikanti medžiaga
 lv:Mitrumuzturētājs
 nl:Bevochtigingsmiddel
-pl:Substancja utrzymująca wilgoć
+pl:Substancja utrzymująca wilgoć, Substancje utrzymujące wilgoć
 pt:Humidificante
 ro:Agent de umezire
 sk:Zvlhčovadlo
@@ -45861,6 +45817,63 @@ yo:Sodiomu
 zh:钠
 wikidata:en: Q658
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium
+
+< en:Minerals
+en:sulfates, sulfate, sulphate
+af:Sulfaat
+ar:كبريتات
+az:Sulfatlar
+be:Сульфаты
+bg:Сулфат
+bn:সালফেট আয়ন
+bs:Sulfati, Sulfat
+ca:Sulfatar, Sulfat
+cs:Sulfáty, Sulfát
+da:Sulfat
+de:Sulfate, Sulfat
+eo:sulfato
+es:Sulfatos, Sulfato
+et:Sulfaadid
+eu:Sulfatoa, Sulfato
+fa:سولفات
+fi:Sulfaatit, Sulfaatti
+fr:sulfates
+gl:Sulfato
+he:סולפט
+hi:सल्फेट
+hr:Sulfati
+hu:Szulfát
+hy:Սուլֆատներ
+id:Sulfat
+it:Solfato
+ja:硫酸塩
+kk:Сульфаттар
+ko:황산염
+lt:Sulfatas, Sulfatai
+lv:Sulfāti
+ms:Sulfat
+nb:sulfat
+nl:sulfaten, Sulfaat
+nn:sulfat
+pl:siarczan, siarczany
+pt:sulfato
+ro:Sulfat
+ru:сульфаты, сульфат
+sh:Sulfati, Sulfat
+sk:Síran
+sl:Sulfat
+sq:Sulfat
+sr:Сулфати, Сулфат
+sv:Sulfater, Sulfat
+ta:சல்பேற்று
+th:ซัลเฟต
+tl:Sulfato
+tr:Sülfat
+uk:Сульфати, Сульфат
+vi:Sulfat
+zh:硫酸鹽
+wikidata:en: Q172290
+wikipedia:en: https://en.wikipedia.org/wiki/Sulfate
 
 < en:Minerals
 en:zinc
@@ -52047,7 +52060,7 @@ lv:Konservants
 mt:Preservattiv
 nb:Konserveringsmiddel
 nl:Conserveermiddel, Conserveermiddelen
-pl:Substancja konserwująca
+pl:Substancja konserwująca, Substancje konserwujące
 pt:Conservante
 ro:Conservant
 sk:Konzervačná látka
@@ -52096,7 +52109,7 @@ lt:Suslėgtosios dujos
 lv:Propelents
 mt:Gass propellent
 nl:Drijfgas, drijfgassen
-pl:Gaz nośny
+pl:Gaz nośny, Gazy nośne
 pt:Gás propulsor
 ro:Agent de propulsare
 sk:Hnací plyn
@@ -52534,7 +52547,7 @@ ms:Agen penaik
 mt:Aġent li jgħolli l-ikel
 nb:Hevemiddel
 nl:Rijsmiddel, Rijsmiddelen
-pl:Substancja spulchniająca
+pl:Substancja spulchniająca, Substancje spulchniające
 pt:Levedante
 ro:Agent de afânare
 ru:Разрыхлитель
@@ -52699,6 +52712,15 @@ fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus 
 de:Rote Bete-Saftkonzentrat
 nl:geconcentreerd rodebietensap
 
+< en:Red chili pepper
+en:red pepper seed oil
+de:roter Pfeffer Kernöl
+fr:huile de graines de piment rouge
+nl:rode peper zaad olie
+
+< en:Red chili pepper
+it:purè di peperoncino rosso
+
 < en:Red lentils
 en:organic red lentils
 fr:lentilles corail issues de l'agriculture biologique
@@ -52710,21 +52732,12 @@ fr:farine de lentilles corail
 fr:lentilles rouges décortiquées
 
 < en:Red pepper
-en:red pepper seed oil
-de:roter Pfeffer Kernöl
-fr:huile de graines de piment rouge
-nl:rode peper zaad olie
-
-< en:Red pepper
 fr:poivrons rouges déshydratés
 
 < en:Red pepper
 fr:poivrons rouges grillés
 de:Rote Peperoni gegrillt
 it:peperoni rossi grigliati
-
-< en:Red pepper
-it:purè di peperoncino rosso
 
 < en:Red port
 en:modified red port
@@ -56836,7 +56849,7 @@ nl:Complexvormer, Complexvormers
 pl:Sekwestranty
 pt:Sequestrante
 ro:Agenți de sechestrare
-sk:Komplexotvorné látky (sekvestranty), Komplexotvorné látky
+sk:Komplexotvorné látky, sekvestranty
 sl:Sredstvo za vzhajanje
 sv:Bakpulver
 description:cs: Sekvestranty se rozumějí látky, které vytvářejí chemické komplexy s ionty kovů.
@@ -59313,7 +59326,7 @@ lt:Stabilizatorius
 lv:Stabilizētājs
 mt:Stabbilizzatur
 nl:Stabilisator, Stabilisatoren
-pl:Stabilizator
+pl:Stabilizator, Stabilizatory
 pt:Estabilizador
 ro:Stabilizator
 sk:Stabilizátor
@@ -60345,7 +60358,7 @@ lt:Saldiklis
 lv:Saldinātājs
 mt:Dolċifikant
 nl:Zoetstof, Zoetstoffen
-pl:Substancja słodząca
+pl:Substancja słodząca, Substancje słodzące
 pt:Edulcorante
 ro:Îndulcitor
 sk:Sladidlo
@@ -60910,7 +60923,7 @@ lt:Tirštiklis
 lv:Biezinātājs
 mt:Aġent li jgħaqqad
 nl:Verdikkingsmiddel, Verdikkingsmiddelen
-pl:Substancja zagęszczająca
+pl:Substancja zagęszczająca, Substancje zagęszczające
 pt:Espessante
 ro:Agent de îngroșare
 sk:Zahusťovadlo

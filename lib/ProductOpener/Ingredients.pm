@@ -621,7 +621,7 @@ sub extract_ingredients_from_text($) {
 						$between =~ s/^(.*?$separators)/origin:$1/;
 					}
 
-					print STDERR "between: $between\n";
+					# print STDERR "between: $between\n";
 
 					# : is in $separators but we want to keep "origine : France"
 					if (($between =~ $separators) and ($` !~ /\s*(origin|origine)\s*/i)) {
@@ -1755,9 +1755,9 @@ sub separate_additive_class($$$$$) {
 	# check that we have an additive after the additive class
 	# keep only what is before the first separator
 	$after =~ s/^$separators+//;
-	print STDERR "separate_additive_class - after 1 : $after\n";
+	#print STDERR "separate_additive_class - after 1 : $after\n";
 	$after =~ s/^(.*?)$separators(.*)$/$1/;
-	print STDERR "separate_additive_class - after 2 : $after\n";
+	#print STDERR "separate_additive_class - after 2 : $after\n";
 
 	# also look if we have additive 1 and additive 2
 	my $after2;
@@ -1768,11 +1768,11 @@ sub separate_additive_class($$$$$) {
 	if (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
 		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) ))
 	) {
-		print STDERR "separate_additive_class - after is an additive\n";
+		#print STDERR "separate_additive_class - after is an additive\n";
 		return $additive_class . " : ";
 	}
 	else {
-		print STDERR "separate_additive_class - after is not an additive\n";
+		#print STDERR "separate_additive_class - after is not an additive\n";
 		return $additive_class . $spaces . $colon;
 	}
 }
@@ -1902,7 +1902,7 @@ sub preparse_ingredients_text($$) {
 		my $regexp = $additives_classes_regexps{$product_lc};
 		#$text =~ s/\b($regexp)(\s)+(:)?(?!\(| \()/$1 : /ig;
 		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
-		print STDERR "additives_classes_regexps result: $text\n";
+		#print STDERR "additives_classes_regexps result: $text\n";
 	}
 
 	# dash with 1 missing space
@@ -3043,7 +3043,7 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $field = "allergens";
 
 
-	print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
+	# print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = $allergens_stopwords{$language};
 

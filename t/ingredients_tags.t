@@ -71,7 +71,7 @@ my @tests = (
 	[ { lc => "en", ingredients_text => "Organically grown green tea"}, [ "en:green-tea" ], ],
 	[ { lc => "fr", ingredients_text => "Céleri - rave, choux - fleurs, béta - carotène"}, [ "en:celeriac", "en:cauliflower", "en:e160" ], ],
 	[ { lc => "fr", ingredients_text => "Pâte de cacao de Madagascar, café"},["fr:Pâte de cacao de Madagascar", "en:coffee"]],
-	[ { lc => "es", ingredients_text => "Vinagre, chile rojo y sal."},["en:vinegar", "en:red-pepper", "en:salt"]],
+	[ { lc => "es", ingredients_text => "Vinagre, chile rojo y sal."},["en:vinegar", "en:red-chili-pepper", "en:salt"]],
 );
 
 foreach my $test_ref (@tests) {
