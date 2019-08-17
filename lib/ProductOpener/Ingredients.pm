@@ -725,7 +725,7 @@ sub extract_ingredients_from_text($) {
 
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
-			
+
 			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//i;
 			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//i;
 			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//i;
@@ -817,37 +817,56 @@ sub extract_ingredients_from_text($) {
 			$ingredient =~ s/^\s+//;
 			$ingredient =~ s/\s+$//;
 
-			my %ingredient = (
-				id => canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient),
-				text => $ingredient
-			);
-			if (defined $percent) {
-				$ingredient{percent} = $percent;
-			}
-			if (defined $origin) {
-				$ingredient{origin} = $origin;
-			}
-			if (defined $labels) {
-				$ingredient{labels} = $labels;
-			}
-			if (defined $vegan) {
-				$ingredient{vegan} = $vegan;
-			}
-			if (defined $vegetarian) {
-				$ingredient{vegetarian} = $vegetarian;
+			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+			my $label_id;
+
+			if (not exists_taxonomy_tag("ingredients", $ingredient_id)) {
+				# Unknown ingredient, check if it is a label
+				$label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
+				if (exists_taxonomy_tag("labels", $label_id)) {
+					# Add the label to the product
+					add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
+					compute_field_tags($product_ref, $product_lc, "labels");
+				}
+				else {
+					$label_id = undef;
+				}
 			}
 
-			if ($ingredient ne '') {
+			if (not defined $label_id) {
 
-				# ingredients tags that are too long (greater than 1024, mongodb max index key size)
-				# will cause issues for the mongodb ingredients_tags index, just drop them
+				my %ingredient = (
+					id => $ingredient_id,
+					text => $ingredient
+				);
+				if (defined $percent) {
+					$ingredient{percent} = $percent;
+				}
+				if (defined $origin) {
+					$ingredient{origin} = $origin;
+				}
+				if (defined $labels) {
+					$ingredient{labels} = $labels;
+				}
+				if (defined $vegan) {
+					$ingredient{vegan} = $vegan;
+				}
+				if (defined $vegetarian) {
+					$ingredient{vegetarian} = $vegetarian;
+				}
 
-				if (length($ingredient{id}) < 500) {
-					if ($level == 0) {
-						push @$ranked_ingredients_ref, \%ingredient;
-					}
-					else {
-						push @$unranked_ingredients_ref, \%ingredient;
+				if ($ingredient ne '') {
+
+					# ingredients tags that are too long (greater than 1024, mongodb max index key size)
+					# will cause issues for the mongodb ingredients_tags index, just drop them
+
+					if (length($ingredient{id}) < 500) {
+						if ($level == 0) {
+							push @$ranked_ingredients_ref, \%ingredient;
+						}
+						else {
+							push @$unranked_ingredients_ref, \%ingredient;
+						}
 					}
 				}
 			}
@@ -1876,7 +1895,7 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/e( |-|\.)?($additivesregexp)-/E$2 -/ig;
 
 	# Canonicalize additives to remove the dash that can make further parsing break
-	$text =~ s/(\b)e( |-|\.)?(\d+)()?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b)/e$3$5$7/ig;
+	$text =~ s/(\b)e( |-|\.)?(\d+)()?([abcdefgh]?)(\))?((i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?)(\))?(\b)/e$3$5$7/ig;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
