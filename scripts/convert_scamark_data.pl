@@ -481,9 +481,7 @@ foreach my $code (sort keys %products) {
 	
 	my $product_ref = $products{$code};
 	
-	if (defined $brands{$product_ref->{brands}}) {
-		$product_ref->{brands} = $brands{$product_ref->{brands}};
-	}	
+
 	
 	assign_quantity_from_field($product_ref, "product_name_fr");
 	
@@ -504,6 +502,14 @@ foreach my $code (sort keys %products) {
 	if ((defined $product_ref->{brands}) and (defined $non_food_brands{$product_ref->{brands}})) {
 		delete $products{$code};
 	}
+	elsif (defined $brands{$product_ref->{brands}}) {
+		$product_ref->{brands} = "Marque Repère, " . $brands{$product_ref->{brands}};
+	}
+	
+	$product_ref->{allergens} =~ s/COQUE/FRUITS A COQUE/i;
+	
+	$product_ref->{traces} =~ s/COQUE/FRUITS A COQUE/i;
+	
 }
 
 

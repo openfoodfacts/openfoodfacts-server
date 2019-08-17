@@ -2265,7 +2265,7 @@ MAIL
 		if ((defined $options{display_random_sample_of_products_after_edits}) and ($options{display_random_sample_of_products_after_edits})) {
 
 			my %request = (
-				'titleid'=>get_fileid(product_name_brand($product_ref)),
+				'titleid'=>get_string_id_for_lang($lc,product_name_brand($product_ref)),
 				'query_string'=>$ENV{QUERY_STRING},
 				'referer'=>referer(),
 				'code'=>$code,

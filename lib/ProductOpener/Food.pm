@@ -191,10 +191,10 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$unit = $Nutriments{$nid}{unit};
 	}
 	if ($nid eq 'water-hardness') {
-		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 	}
 	else {
-		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
 	}
 
 }
@@ -3424,7 +3424,7 @@ sub canonicalize_nutriment($$) {
 
 	my $lc = shift;
 	my $label = shift;
-	my $nid = get_fileid($label);
+	my $nid = get_string_id_for_lang($lc, $label);
 	if ($lc eq 'fr') {
 		$nid =~ s/^dont-//;
 	}
@@ -3601,7 +3601,7 @@ my %pnns = (
 );
 
 foreach my $group (keys %pnns) {
-	$pnns{get_fileid($group)} = get_fileid($pnns{$group});
+	$pnns{get_string_id_for_lang("en", $group)} = get_string_id_for_lang("en", $pnns{$group});
 }
 
 
@@ -3818,7 +3818,7 @@ sub special_process_product($) {
 					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
 
 			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
-			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2}), "known"];
+			$product_ref->{pnns_groups_2_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_2}), "known"];
 
 			# Let waters and teas take precedence over unsweetened-beverages
 			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
@@ -3830,7 +3830,7 @@ sub special_process_product($) {
 	if (defined $product_ref->{pnns_groups_2}) {
 		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
 			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
-			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1}), "known"];
+			$product_ref->{pnns_groups_1_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_1}), "known"];
 		}
 		else {
 			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
@@ -3853,26 +3853,27 @@ sub fix_salt_equivalent($) {
 	my $product_ref = shift;
 
 	# salt
-	
+
 	# EU fixes the conversion: sodium = salt / 2.5 (instead of 2.54 previously)
 
 	foreach my $product_type ("", "_prepared") {
 
 		# use the salt value by default
-		if ((defined $product_ref->{nutriments}{'salt' . $product_type}) and ($product_ref->{nutriments}{'salt' . $product_type} ne '')) {
+		if ((defined $product_ref->{nutriments}{'salt' . $product_type . "_value"})
+			and ($product_ref->{nutriments}{'salt' . $product_type . "_value"} ne '')) {
 		assign_nid_modifier_value_and_unit(
 			$product_ref,
 			'sodium' . $product_type,
 			$product_ref->{nutriments}{'salt' . $product_type . '_modifier'},
-			$product_ref->{nutriments}{'salt' . $product_type} / 2.5,
+			$product_ref->{nutriments}{'salt' . $product_type . "_value"} / 2.5,
 			$product_ref->{nutriments}{'salt' . $product_type . '_unit'} );
 		}
-		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type}) and ($product_ref->{nutriments}{'sodium' . $product_type} ne '')) {
+		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type  . "_value"}) and ($product_ref->{nutriments}{'sodium' . $product_type . "_value"} ne '')) {
 			assign_nid_modifier_value_and_unit(
 			$product_ref,
 			'salt' . $product_type,
 			$product_ref->{nutriments}{'sodium' . $product_type . '_modifier'},
-			$product_ref->{nutriments}{'sodium' . $product_type} * 2.5,
+			$product_ref->{nutriments}{'sodium' . $product_type  . "_value"} * 2.5,
 			$product_ref->{nutriments}{'sodium' . $product_type . '_unit'});
 		}
 	}
@@ -4534,7 +4535,7 @@ sub compute_serving_size_data($) {
 		}
 
 		# Carbon footprint
-				
+
 		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"}) {
 
 			if (defined $product_ref->{serving_quantity}) {
@@ -4547,7 +4548,7 @@ sub compute_serving_size_data($) {
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
 		}
-		
+
 		if (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"}) {
 
 			if (defined $product_ref->{serving_quantity}) {
@@ -4559,7 +4560,7 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_product"}
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
-		}		
+		}
 
 	}
 
@@ -4742,8 +4743,8 @@ sub compute_nutrient_levels($) {
 			else {
 				$product_ref->{nutrient_levels}{$nid} = 'moderate';
 			}
-			# push @{$product_ref->{nutrient_levels_tags}}, get_fileid(sprintf(lang("nutrient_in_quantity"), $Nutriments{$nid}{$lc}, lang($product_ref->{nutrient_levels}{$nid} . "_quantity")));
-			push @{$product_ref->{nutrient_levels_tags}}, 'en:' . get_fileid(sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
+			push @{$product_ref->{nutrient_levels_tags}},
+				'en:' . get_string_id_for_lang("en", sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
 
 		}
 		else {
@@ -4981,7 +4982,7 @@ sub get_canon_local_authority($) {
 	$canon_local_authority =~ s/ +/ /g;
 	$canon_local_authority =~ s/^ //;
 	$canon_local_authority =~ s/ $//;
-	$canon_local_authority = get_fileid($canon_local_authority);
+	$canon_local_authority = get_string_id_for_lang("en",$canon_local_authority);
 
 	return $canon_local_authority;
 }

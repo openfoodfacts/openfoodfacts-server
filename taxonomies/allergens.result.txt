@@ -65,8 +65,8 @@ en:eggs, egg
 ar:بيض, بيضة
 bg:яйца, яйце
 cs:vejce
-da:æg
-de:Eier, Eiern, Ei, Eigelb, Eigelbpulver, Eiklar, Eiklarpulver, Eipulver, Hühnerei, Hühnereier, Hühnerei-Trockeneiweiß, Hühnereiweiß, Hühnereieiweiß, Hühnereieigelb, Hühnervollei, Hühnervolleipulver, Hühnereieiweißpulver, Hühnereigelbpulver, Hühnerei-Eiweiß, Vollei, Volleipulver, Frischei, Hühnerei-Eiweißpulver, Hühnereiklarpulver, Hühnereigelb, Hühnertrockeneiweiß, Hühnertrockeneieiweiß, Hühnereiklar, Eiweiß, Hühnereiweißpulver
+da:æg, aeg
+de:Eier, Eiern, Ei, Eigelb, Eigelbpulver, Eiklar, Eiklarpulver, Eipulver, Hühnerei, Hühnereier, Hühnerei-Trockeneiweiß, Hühnereiweiß, Hühnereieiweiß, Hühnereieigelb, Hühnervollei, Hühnervolleipulver, Hühnereieiweißpulver, Hühnereigelbpulver, Hühnerei-Eiweiß, Vollei, Volleipulver, Frischei, Hühnerei-Eiweißpulver, Hühnerei-Eiweisspulver, Hühnereiklarpulver, Hühnereigelb, Hühnertrockeneiweiß, Hühnertrockeneiweiss, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnereiklar, Eiweiß, Eiweiss, Hühnereiweißpulver, Hühnereiweisspulver
 el:αυγά, αυγό
 es:huevos, huevo, productos derivados de huevo
 et:munad, muna
@@ -126,7 +126,7 @@ ar:غلوتين
 bg:глутен, ечемик, ечемичен, ечемично-малцов, пшеница, пшенично, ръж, овес, шпелта, камут, вид едра твърда пшеница
 cs:lepek, pšenice, žito, ječmen, oves, špalda, kamut
 da:gluten, hvede, rug, byg, havre, spelt, kamut
-de:Gluten, Weizen, Roggen, Gerste, Hafer, Dinkel, Kamut, Gerstenmehl, Gerstenvollkornmehl, Hafer-Vollkornmehl, Haferflocken, Haferkleie, Hafervollkornflocken, Hafervollkornmehl, Vollkorn-Hafer, Vollkorn-Haferflocken, Vollkorn-Hafermehl, Vollkornhafermehl, Vollkornhafer, Vollkornhaferflocken, Vollkornhaferschrot, Vollkornweizenmehl, Weizenvollkornmehl, Weizenmehl, Weizengluten, Weizensauerteig, Hartweizen, Gluten enthaltendes Getreide, Gerstenmalzextrakt, Gerstenmalz, Weizenstärke, Hartweizengriess, Roggenmehl, Weizenmalzmehl, Dinkelmehl, Gerstenmalzmehl, Weizenmalz, Roggenvollkornmehl, Weizenkleber, Roggenvollkornschrot, Dinkelvollkornmehl, Hafermehl, Weizenflocken, Weizenvollkornflocken, Weizengrieß, Weizenkleie, Gerstenflocken, Weizenquellmehl, Roggenflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot, Weizenspeisekleie, Weichweizenmehl, Dinkelflocken, Roggenvollkornflocken, Malzmehl, Dinkelvollkornflocken, Dinkelvollkornschrot, Roggenschrot, Gersten, Weizenrostmalzmehl, Vollkornweizen
+de:Gluten, Weizen, Roggen, Gerste, Hafer, Dinkel, Kamut, Gerstenmehl, Gerstenvollkornmehl, Hafer-Vollkornmehl, Haferflocken, Haferkleie, Hafervollkornflocken, Hafervollkornmehl, Vollkorn-Hafer, Vollkorn-Haferflocken, Vollkorn-Hafermehl, Vollkornhafermehl, Vollkornhafer, Vollkornhaferflocken, Vollkornhaferschrot, Vollkornweizenmehl, Weizenvollkornmehl, Weizenmehl, Weizengluten, Weizensauerteig, Hartweizen, Gluten enthaltendes Getreide, Gerstenmalzextrakt, Gerstenmalz, Weizenstärke, Hartweizengriess, Hartweizengrieß, Roggenmehl, Weizenmalzmehl, Dinkelmehl, Gerstenmalzmehl, Weizenmalz, Roggenvollkornmehl, Weizenkleber, Roggenvollkornschrot, Dinkelvollkornmehl, Hafermehl, Weizenflocken, Weizenvollkornflocken, Weizengrieß, Weizengriess, Weizenkleie, Gerstenflocken, Weizenquellmehl, Roggenflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot, Weizenspeisekleie, Weichweizenmehl, Dinkelflocken, Roggenvollkornflocken, Malzmehl, Dinkelvollkornflocken, Dinkelvollkornschrot, Roggenschrot, Gersten, Weizenrostmalzmehl, Vollkornweizen
 ee:nisu, odrasiirup, odralinnaseekstrakt
 el:γλουτένη, σιτάρι, σίκαλη, κριθάρι, βρώμη, ντίνκελ, σιτηρό kamut
 es:gluten, trigo, centeno, cebada, espelta, kamut, cereales con gluten, cereales, harina de trigo, trigo de Jorasán Kamut, harina de trigo integral, cereales que contienen gluten
@@ -186,7 +186,7 @@ ar:حليبب, لاكتوز
 bg:суроватка, млечна, мляко, лактоза
 cs:mléko, laktózy
 da:mælk, laktose
-de:Milch, Bergkäse, Blauschimmelkäse, Butter, Buttermilch, Buttermilchpulver, Butterreinfett, Camembert, Cheddar, Edamer, Edamer-Käse, Emmentaler, Frischkäse, Gorgonzola, Gouda, Hartkäse, Joghurt, Joghurtpulver, Käse, Käsepulver, Kondensmilch, Kuhmilch, Kuhvollmilch, Laktose, Rohmilch, Milchzucker, Milcheiweiß, Milchpulver, Milcherzeugnisse, Magermilchpulver, Magermilchjoghurt, Magermilchkonzentrat, Magermilchjoghurtpulver, Magermilch, Magerquark, Molkenpulver, Molkenerzeugnis, Molkeneiweißkäse, Milchschokolade, Mozzarella, Pecorino, Quark, Ricotta, Speisequark, Sahne, Sahnepulver, Sahnejoghurt, Sauermilchquark, Sauerrahm, Rahm, Rahmjoghurt, Sauermilch, Sauerrahmpulver, Schlagsahne, Süssmolkenpulver, Vollmilch, Vollmilchschokolade, Vollmilchpulver, Ziegenmilch, Süßmolke, Butterfett, Kondensmagermilch, Joghurterzeugnis, Schafsmilch, Schafmilch, Käsereimilch, Milchfett, Milchprotein, Molke, Sauermolke, Molkeneiweiß, Molkepulver, Milcheiweißerzeugnis, Magermilchpulverzusatz, Molkenprotein, Joghurtkulturen, Buttereinfett, Süßmolkepulver, Hühnereitrockeneiweiß
+de:Milch, Bergkäse, Blauschimmelkäse, Butter, Buttermilch, Buttermilchpulver, Butterreinfett, Camembert, Cheddar, Edamer, Edamer-Käse, Emmentaler, Frischkäse, Gorgonzola, Gouda, Hartkäse, Joghurt, Joghurtpulver, Käse, Käsepulver, Kondensmilch, Kuhmilch, Kuhvollmilch, Laktose, Rohmilch, Milchzucker, Milcheiweiß, Milchpulver, Milcherzeugnisse, Magermilchpulver, Magermilchjoghurt, Magermilchkonzentrat, Magermilchjoghurtpulver, Magermilch, Magerquark, Molkenpulver, Molkenerzeugnis, Molkeneiweißkäse, Milchschokolade, Mozzarella, Pecorino, Quark, Ricotta, Speisequark, Sahne, Sahnepulver, Sahnejoghurt, Sauermilchquark, Sauerrahm, Rahm, Rahmjoghurt, Sauermilch, Sauerrahmpulver, Schlagsahne, Süssmolkenpulver, Süßmolkenpulver, Vollmilch, Vollmilchschokolade, Vollmilchpulver, Ziegenmilch, Süßmolke, Süssmolke, Butterfett, Kondensmagermilch, Joghurterzeugnis, Schafsmilch, Schafmilch, Käsereimilch, Milchfett, Milchprotein, Molke, Sauermolke, Molkeneiweiß, Molkeneiweiss, Molkepulver, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Molkenprotein, Joghurtkulturen, Buttereinfett, Süßmolkepulver, Süssmolkepulver, Hühnereitrockeneiweiß, Hühnereitrockeneiweiss
 ee:lõssi, piima, piimast
 el:γάλα, λακτόζης
 es:leche, lactosa, lácteos, derivados lácteos, productos lácteos, leche y derivados, queso, proteína de leche, leche y sus derivados
@@ -364,7 +364,7 @@ ar:فول الصويا
 bg:соя, соеви, соево
 cs:sójové boby, sójové
 da:soja
-de:Soja, Sojabohnen, Sojamilch, Sojalecithin, Sojalecithine, Soja-Lecithine, Sojaprotein, Sojabohnenöl, Sojaeiweiß, Sojaerzeugnis, Sojafett, Sojaflocken, Sojakerne, Sojakleie, Sojamehl, Sojaöl, Sojaproteinhydrolysat, Sojaproteinisolat, Sojasauce, Sojaschrot, Sojagrieß, Sojaeiweißkonzentrat, Sojasoße, Sojasoßenpulver
+de:Soja, Sojabohnen, Sojamilch, Sojalecithin, Sojalecithine, Soja-Lecithine, Sojaprotein, Sojabohnenöl, Sojaeiweiß, Sojaerzeugnis, Sojafett, Sojaflocken, Sojakerne, Sojakleie, Sojamehl, Sojaöl, Sojaproteinhydrolysat, Sojaproteinisolat, Sojasauce, Sojaschrot, Sojagrieß, Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojasoße, Sojasosse, Sojasoßenpulver, Sojasossenpulver
 el:σόγια
 es:soja, habas de soja, lecitina de soja, soya, habas de soya, lecitina de soya
 et:sojaoad

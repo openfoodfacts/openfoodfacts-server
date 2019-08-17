@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:30\n"
+"PO-Revision-Date: 2019-07-08 13:42\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -32,7 +32,7 @@ msgstr "Open Pet Food Facts"
 # Do not translate Open Pet Food Facts
 msgctxt "tagline"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
-msgstr ""
+msgstr "Open Pet Food Facts reúne informações e dados sobre produtos alimentares para animais de todo o mundo.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
 
 #. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
@@ -41,36 +41,36 @@ msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scann
 
 msgctxt "brands_example"
 msgid "Purina, Pedigree"
-msgstr ""
+msgstr "Purina, Pedigree"
 
 msgctxt "product_name_example"
 msgid "Pro Plan Adult, rich in chicken"
-msgstr ""
+msgstr "Pro Plan Adulto, com muito frango"
 
 msgctxt "generic_name_example"
 msgid "Complete pet food for adult cats"
-msgstr ""
+msgstr "Alimento completo para gatos adultos"
 
 msgctxt "categories_example"
 msgid "Dry adult cat food"
-msgstr ""
+msgstr "Comida para gato adulto seco"
 
 msgctxt "labels_example"
 msgid "No sugar, No colorings"
-msgstr ""
+msgstr "Sem açúcar, sem corantes"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, ascorbic acid"
-msgstr ""
+msgstr "Cereais 85,5% (farinha de _trigo_, farinha de _centeio_ 11%), extrato de malte (cevada), ácido ascórbico"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/apps/off.apk"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-beauty-facts/id1122926380"
-msgstr "https://itunes.apple.com/app/open-beauty-facts/id1122926380"
+msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
+msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
 msgid "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -82,7 +82,7 @@ msgid "OpenFoodFacts"
 msgstr "OpenFoodFactsPt"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> or <a href=\"https://itunes.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
 msgstr ""
 
 msgctxt "bottom_content"
@@ -91,11 +91,11 @@ msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formula
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"
-msgstr ""
+msgstr "Fazer um donativo ao Open Pet Food Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenPetFoodFacts"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
@@ -105,7 +105,13 @@ msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Termos de Uso</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Quem nós somos</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/faq\">Perguntas Frequentes</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Fórum de Ideias</a> -\n"
+"<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Imprensa e Blogs</a>\n"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
@@ -113,15 +119,15 @@ msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on pet food products from around the world"
-msgstr ""
+msgstr "Uma base de dados livre, aberta e colaborativa sobre ingredientes, informações nutricionais e produtos alimentares para animais de todo o mundo"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "e o <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">grupo do Facebook para colaboradores</a>"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares para animais de todo o mundo."
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
@@ -129,12 +135,12 @@ msgstr "https://pt.wiki.openfoodfacts.org"
 
 msgctxt "og_image_url"
 msgid "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
-msgstr ""
+msgstr "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Pet Food Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "É a <a href=\"/open-beauty-hunt\">Open Pet Food Hunt</a> no <<site_name>> de sábado, 21 de fevereiro a domingo, 1 de março! Os participantes são recompensados com pontos de Explorador para os produtos que adicionarem e com pontos de Embaixador para as novas contribuições que tiverem recrutado. Os pontos são actualizados a cada 30 minutos."
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -142,10 +148,10 @@ msgstr "→ Com o Chrome, Firefox e Safari, você pode selecionar várias fotos 
 
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
-msgstr ""
+msgstr "Open Pet Food Facts pesquisa de produto"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "open-pet-food-facts-mobile-app"
-msgstr ""
+msgstr "open-pet-food-facts-mobile-app"
 

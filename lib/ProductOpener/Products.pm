@@ -218,8 +218,8 @@ sub init_product($) {
 		if (defined param('cc')) {
 			$country = lc(param('cc'));
 			$country =~ s/^en://;
-			
-			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it 
+
+			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
 			my %lc_overrides = (
 				au => "en",
 				es => "es",
@@ -233,10 +233,10 @@ sub init_product($) {
 				ie => "en",
 				nz => "en",
 			);
-			
+
 			if (defined $lc_overrides{$country}) {
 				$lc = $lc_overrides{$country};
-			}					
+			}
 		}
 		else {
 			$country = "france";
@@ -247,11 +247,11 @@ sub init_product($) {
 	if ($creator eq 'elcoco') {
 		$country = "spain";
 	}
-	
+
 	if (defined $lc) {
 		$product_ref->{lc} = $lc;
 		$product_ref->{lang} = $lc;
-	}	
+	}
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
@@ -261,7 +261,7 @@ sub init_product($) {
 				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
 				$product_ref->{$field . "_tags" } = [];
 				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid("en",$tag);
 				}
 			}
 			# if lc is not defined or is set to en, set lc to main language of country
@@ -525,13 +525,13 @@ sub store_product($$) {
 		rev=>$rev,
 	};
 
-	compute_data_sources($product_ref);
-
 	compute_codes($product_ref);
 
 	compute_languages($product_ref);
 
 	compute_product_history_and_completeness($product_ref, $changes_ref);
+
+	compute_data_sources($product_ref);
 
 	# sort_key
 	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
@@ -630,7 +630,7 @@ sub compute_data_sources($) {
 			if ($source_ref->{id} eq 'biscuiterie-sainte-victoire') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Biscuiterie Sainte Victoire"} = 1;
-			}			
+			}
 
 			if ($source_ref->{id} eq 'openfood-ch') {
 				$data_sources{"Databases"} = 1;
@@ -639,6 +639,24 @@ sub compute_data_sources($) {
 			if ($source_ref->{id} eq 'usda-ndb') {
 				$data_sources{"Databases"} = 1;
 				$data_sources{"Database - USDA NDB"} = 1;
+			}
+		}
+	}
+
+
+	# Add a data source forapps
+
+	%data_sources = ();
+
+	if (defined $product_ref->{editors_tags}) {
+		foreach my $editor (@{$product_ref->{editors_tags}}) {
+
+			if ($editor =~ /\./) {
+
+				my $app = $`;
+
+				$data_sources{"Apps"} = 1;
+				$data_sources{"App - $app"} = 1;
 			}
 		}
 	}
@@ -703,10 +721,10 @@ sub compute_completeness_and_missing_tags($$$) {
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
 			$all_fields = 0;
-			push @states_tags, "en:" . get_fileid($field) . "-to-be-completed";
+			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-to-be-completed";
 		}
 		else {
-			push @states_tags, "en:" . get_fileid($field) . "-completed";
+			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-completed";
 			$notempty++;
 			$completeness += $step;
 		}
@@ -826,43 +844,44 @@ sub compute_completeness_and_missing_tags($$$) {
 sub get_change_userid_or_uuid($) {
 
 	my $change_ref = shift;
-	
+
 	my $userid = $change_ref->{userid};
 
 	my $app = "";
 	my $uuid;
-	
+
 	if ((defined $userid) and (defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
 		$app = $options{apps_userids}{$userid} . "\.";
 	}
 	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
 		$app = $options{official_app_id} . "\.";
 	}
-		
+
 	# use UUID provided by some apps like Yuka
 	# UUIDs are mix of [a-zA-Z0-9] chars, they must not be lowercased by getfile_id
-	if ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
-		$uuid = $7;
-	}
+
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
-	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A	
-	elsif ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
+	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
+	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
-		$uuid =~ s/^(\s*)//;
-		$uuid =~ s/(\s*)$//;
+	}
+	elsif ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
+		$uuid = $7;
 	}
 
-	if (defined $uuid) {
+	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
+		$uuid =~ s/^(\s*)//;
+		$uuid =~ s/(\s*)$//;
 		$userid = $app . $uuid;
 	}
 
 	if ((not defined $userid) or ($userid eq '')) {
 		$userid = "openfoodfacts-contributors";
 	}
-	
+
 	return $userid;
-}		
+}
 
 
 sub compute_product_history_and_completeness($$) {
@@ -919,7 +938,9 @@ sub compute_product_history_and_completeness($$) {
 
 	# Read all previous versions to see which fields have been added or edited
 
-	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per);
+	my @fields = ('lang', 'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
+		'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text');
 
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 	my %last = %previous;
@@ -1328,8 +1349,8 @@ sub product_name_brand($) {
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
 		$brand =~ s/,.*//;	# take the first brand
-		my $brandid = '-' . get_fileid($brand) . '-';
-		my $full_name_id = '-' . get_fileid($full_name) . '-';
+		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
+		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
 			$full_name .= lang("title_separator") . $brand;
 		}
@@ -1344,11 +1365,11 @@ sub product_name_brand($) {
 sub product_name_brand_quantity($) {
 	my $ref = shift;
 	my $full_name = product_name_brand($ref);
-	my $full_name_id = '-' . get_fileid($full_name) . '-';
+	my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 
 	if (defined $ref->{quantity}) {
 		my $quantity = $ref->{quantity};
-		my $quantityid = '-' . get_fileid($quantity) . '-';
+		my $quantityid = '-' . get_string_id_for_lang($lc, $quantity) . '-';
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 			# Put non breaking spaces between numbers and units
 			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
@@ -1388,7 +1409,7 @@ sub product_url($) {
 	my $titleid = '';
 	if (defined $ref) {
 		my $full_name = product_name_brand($ref);
-		$titleid = get_urlid($full_name);
+		$titleid = get_url_id_for_lang($product_lc, $full_name);
 		if ($titleid ne '') {
 			$titleid = '/' . $titleid;
 		}
@@ -1414,8 +1435,10 @@ sub index_product($)
 				if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
 					$tag =~ s/^\w\w://;
 				}
-				if (length(get_fileid($tag)) >= 2) {
-					$keywords{normalize_search_terms(get_fileid($tag))} = 1;
+
+				my $tagid = get_string_id_for_lang($lc, $tag);
+				if (length($tagid) >= 2) {
+					$keywords{normalize_search_terms($tagid)} = 1;
 				}
 			}
 		}

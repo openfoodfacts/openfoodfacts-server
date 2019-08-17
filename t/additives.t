@@ -501,7 +501,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 is_deeply($product_ref->{minerals_tags}, [
 	"en:ferrous-sulfate",
 	"en:zinc-sulfate",
-	"en:cupric-sulfate",
+	"en:copper-sulfate",
                               ],
 );
 
@@ -524,6 +524,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium-carbonate",
                               ],
 );
@@ -567,6 +568,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium-carbonate",
 	"en:calcium-chloride",
 	"en:potassium-chloride",
@@ -576,7 +578,7 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-phosphate",
 	"en:ferrous-sulfate",
 	"en:zinc-sulfate",
-	"en:cupric-sulfate",
+	"en:copper-sulfate",
 	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
@@ -611,7 +613,7 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-phosphate",
 	"en:ferrous-sulfate",
 	"en:zinc-sulfate",
-	"en:cupric-sulfate",
+	"en:copper-sulfate",
 	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
@@ -678,6 +680,7 @@ is_deeply($product_ref->{vitamins_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+          'en:mineral',
           'en:potassium',
           'en:calcium',
           'en:magnesium',
@@ -743,18 +746,19 @@ diag explain $product_ref->{additives};
 is_deeply($product_ref->{additives_original_tags}, [
         "en:e1400",
                               ],
-);
+) or diag explain($product_ref->{mineral_tags});
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium-phosphate",
 	"en:magnesium-oxide",
 	"en:ferric-diphosphate",
 	"en:zinc-gluconate",
-	"en:cupric-gluconate",
+	"en:copper-gluconate",
 	"en:potassium-iodate",
 	"en:sodium-selenite",
                              ],
-);
+) or diag explain($product_ref->{minerals_tags});
 
 is_deeply($product_ref->{vitamins_tags}, [
 	"en:sodium-l-ascorbate",
@@ -819,6 +823,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium",
 	"en:iron",
 	"en:magnesium",
@@ -942,11 +947,12 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+        "en:mineral",
         "en:calcium-citrate",
         "en:ferrous-sulfate",
         "en:magnesium-sulfate",
         "en:zinc-sulfate",
-        "en:cupric-sulfate",
+        "en:copper-sulfate",
         "en:manganese-sulfate",
         "en:sodium-citrate",
         "en:potassium-iodide",
@@ -999,6 +1005,7 @@ is_deeply($product_ref->{other_nutritional_substances_tags}, [
 
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium-phosphate",
 	"en:potassium-chloride",
 	"en:sodium-citrate",
@@ -1009,7 +1016,7 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:potassium-hydroxide",
 	"en:sodium-selenite",
 	"en:potassium-iodide",
-        "en:cupric-sulfate",
+        "en:copper-sulfate",
         "en:manganese-sulfate",
                               ],
 );

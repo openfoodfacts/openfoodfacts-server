@@ -182,8 +182,8 @@ while (my $product_ref = $cursor->next) {
 			next if has_tag($product_ref, "labels", "fr:informations-nutritionnelles-incorrectes");
 			next if has_tag($product_ref, "labels", "en:incorrect-nutrition-facts-on-label");
 
-			my $name = get_fileid($product_ref->{product_name});
-			my $brands = get_fileid($product_ref->{brands});
+			my $name = get_string_id_for_lang("no_language", $product_ref->{product_name});
+			my $brands = get_string_id_for_lang("no_language", $product_ref->{brands});
 
 			foreach my $nid (keys %{$product_ref->{nutriments}}) {
 				next if $nid =~ /_/;
