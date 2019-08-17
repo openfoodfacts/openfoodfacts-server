@@ -1409,7 +1409,7 @@ sub product_url($) {
 	my $titleid = '';
 	if (defined $ref) {
 		my $full_name = product_name_brand($ref);
-		$titleid = get_urlid($full_name);
+		$titleid = get_url_id_for_lang($product_lc, $full_name);
 		if ($titleid ne '') {
 			$titleid = '/' . $titleid;
 		}
