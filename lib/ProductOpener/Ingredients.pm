@@ -34,6 +34,7 @@ BEGIN
 		&preparse_ingredients_text
 		&extract_ingredients_from_text
 		&analyze_ingredients
+		&separate_additive_class
 
 		&compute_carbon_footprint_from_ingredients
 		&compute_carbon_footprint_from_meat_or_fish
@@ -176,7 +177,7 @@ sub init_labels_regexps() {
 
 			# the synonyms below also contain the main translation as the first entry
 
-			my $label_lc_labelid = get_fileid($translations_to{labels}{$labelid}{$label_lc});
+			my $label_lc_labelid = get_string_id_for_lang($label_lc, $translations_to{labels}{$labelid}{$label_lc});
 
 			my @synonyms = ();
 
@@ -205,6 +206,49 @@ sub init_labels_regexps() {
 	}
 }
 
+# Additives classes regexps
+
+my %additives_classes_regexps = ();
+
+sub init_additives_classes_regexps() {
+
+	# Create a regexp with all synonyms of all additives classes
+	my %additives_classes_synonyms = ();
+
+	foreach my $additives_class (keys %{$translations_to{additives_classes}}) {
+
+		# do not turn vitamin a in vitamin : a-z
+		next if $additives_class eq "en:vitamins";
+
+		foreach my $l (keys %{$translations_to{additives_classes}{$additives_class}}) {
+
+			defined $additives_classes_synonyms{$l} or $additives_classes_synonyms{$l} = {};
+
+			# the synonyms below also contain the main translation as the first entry
+
+			my $l_additives_class = get_string_id_for_lang($l, $translations_to{additives_classes}{$additives_class}{$l});
+
+			foreach my $synonym (@{$synonyms_for{additives_classes}{$l}{$l_additives_class}}) {
+				$additives_classes_synonyms{$l}{$synonym} = 1;
+				# simple singulars and plurals + unaccented forms
+				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
+				$synonym =~ s/s$//;
+				$additives_classes_synonyms{$l}{$synonym} = 1;
+				$additives_classes_synonyms{$l}{unac_string_perl($synonym)} = 1;
+				$additives_classes_synonyms{$l}{$synonym . "s"} = 1;
+				$additives_classes_synonyms{$l}{unac_string_perl($synonym . "s")} = 1;
+			}
+		}
+	}
+
+	foreach my $l (sort keys %additives_classes_synonyms) {
+		# Match the longest strings first
+		$additives_classes_regexps{$l} = join('|', sort { length($b) <=> length($a) } keys %{$additives_classes_synonyms{$l}});
+		# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
+	}
+}
+
+
 if ((keys %labels_regexps) > 0) { exit; }
 
 # load ingredients classes
@@ -229,7 +273,7 @@ foreach my $f (readdir(DH)) {
 		next if /^\#/;
 
 		my ($canon_name, $other_names, $misc, $desc, $level, $warning) = split("\t");
-		my $id = get_fileid($canon_name);
+		my $id = get_string_id_for_lang("no_language", $canon_name);
 		next if (not defined $id) or ($id eq '');
 		(not defined $level) and $level = 0;
 
@@ -245,7 +289,7 @@ foreach my $f (readdir(DH)) {
 			foreach my $other_name (split(/,/, $other_names)) {
 				$other_name =~ s/^\s+//;
 				$other_name =~ s/\s+$//;
-				my $other_id = get_fileid($other_name);
+				my $other_id = get_string_id_for_lang("no_language",$other_name);
 				next if $other_id eq '';
 				next if $other_name eq '';
 				if (not defined $ingredients_classes{$class}{$other_id}) { # Take the first one
@@ -577,7 +621,7 @@ sub extract_ingredients_from_text($) {
 						$between =~ s/^(.*?$separators)/origin:$1/;
 					}
 
-					print STDERR "between: $between\n";
+					# print STDERR "between: $between\n";
 
 					# : is in $separators but we want to keep "origine : France"
 					if (($between =~ $separators) and ($` !~ /\s*(origin|origine)\s*/i)) {
@@ -753,7 +797,7 @@ sub extract_ingredients_from_text($) {
 				foreach my $labelid (reverse @labels) {
 					my $regexp = $labels_regexps{$product_lc}{$labelid};
 					#print STDERR "labelid: $labelid - regexp: $regexp - ingredient: $ingredient\n";
-					if ($ingredient =~ /\b($regexp)\b/i) {
+					if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
 						if (defined $labels) {
 							$labels .= ", " . $labelid;
 						}
@@ -836,7 +880,7 @@ sub extract_ingredients_from_text($) {
 		$product_ref->{$field . "_tags" } = [];
 		my $unknown = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			my $tagid = get_taxonomyid($tag);
+			my $tagid = get_taxonomyid($product_lc, $tag);
 			push @{$product_ref->{$field . "_tags" }}, $tagid;
 			if (not exists_taxonomy_tag("ingredients", $tagid)) {
 				$unknown++;
@@ -1695,6 +1739,44 @@ sub is_compound_word_with_dash($$) {
 	}
 }
 
+# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
+# warning: the additive class may also be the start of the name of an additive.
+# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
+sub separate_additive_class($$$$$) {
+
+	my $product_lc = shift;
+	my $additive_class = shift;
+	my $spaces = shift;
+	my $colon = shift;
+	my $after = shift;
+
+	my $and = $Lang{_and_}{$product_lc};
+
+	# check that we have an additive after the additive class
+	# keep only what is before the first separator
+	$after =~ s/^$separators+//;
+	#print STDERR "separate_additive_class - after 1 : $after\n";
+	$after =~ s/^(.*?)$separators(.*)$/$1/;
+	#print STDERR "separate_additive_class - after 2 : $after\n";
+
+	# also look if we have additive 1 and additive 2
+	my $after2;
+	if ($after =~ /$and/) {
+		$after2 = $`;
+	}
+
+	if (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
+		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) ))
+	) {
+		#print STDERR "separate_additive_class - after is an additive\n";
+		return $additive_class . " : ";
+	}
+	else {
+		#print STDERR "separate_additive_class - after is not an additive\n";
+		return $additive_class . $spaces . $colon;
+	}
+}
+
 
 sub preparse_ingredients_text($$) {
 
@@ -1703,6 +1785,7 @@ sub preparse_ingredients_text($$) {
 
 	if ((scalar keys %labels_regexps) == 0) {
 		init_labels_regexps();
+		init_additives_classes_regexps();
 	}
 
 	my $and = $Lang{_and_}{$product_lc};
@@ -1812,6 +1895,16 @@ sub preparse_ingredients_text($$) {
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 
+	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
+	# warning: the additive class may also be the start of the name of an additive.
+	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
+	if (defined $additives_classes_regexps{$product_lc}) {
+		my $regexp = $additives_classes_regexps{$product_lc};
+		#$text =~ s/\b($regexp)(\s)+(:)?(?!\(| \()/$1 : /ig;
+		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
+		#print STDERR "additives_classes_regexps result: $text\n";
+	}
+
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
@@ -1855,8 +1948,9 @@ sub preparse_ingredients_text($$) {
 		$text =~ s/( en)? proportion(s)? variable(s)?//i;
 
 		# simple plural (just an additional "s" at the end) will be added in the regexp
-		my @prefixes = (
-"extrait",
+		my @prefixes_suffixes_list = (
+# huiles
+[[
 "huile",
 "huile végétale",
 "huiles végétales",
@@ -1866,43 +1960,90 @@ sub preparse_ingredients_text($$) {
 "matières grasses végétales",
 "graisses",
 "graisses végétales",
+],
+[
+"arachide",
+"avocat",
+"coco",
+"colza",
+"illipe",
+"karité",
+"lin",
+"mangue",
+"noisette",
+"noix",
+"olive",
+"olive vierge",
+"olive extra vierge",
+"palme",
+"palmiste",
+"pépins de raisin",
+"sal",
+"sésame",
+"soja",
+"tournesol",
+]
+],
+
+
+[[
+"extrait",
+"extrait naturel",
+],
+[
+"café",
+"chicorée",
+"curcuma",
+"houblon",
+"levure",
+"malt",
+"muscade",
+"poivre",
+"poivre noir",
+"romarin",
+"thé",
+"thé vert",
+"thym",
+]
+],
+
+[[
 "lécithine",
+],
+[
+"colza",
+"soja",
+"soja sans ogm",
+"tournesol",
+]
+],
+
+[
+[
 "arôme naturel",
 "arômes naturels",
 "arôme artificiel",
 "arômes artificiels",
+"arômes naturels et artificiels",
 "arômes",
-
-"carbonate",
-"carbonates acides",
-"chlorure",
-"citrate",
-"iodure",
-"nitrate",
-"diphosphate",
-"diphosphate",
-"phosphate",
-"sélénite",
-"sulfate",
-"hydroxyde",
-"sulphate",
-	);
-
-		my @suffixes = (
-"curcuma",
-"romarin",
-
-# arômes
-
+],
+[
+"abricot",
+"ail",
+"amande",
+"amande amère",
 "agrumes",
 "aneth",
 "boeuf",
 "cacao",
 "cannelle",
+"caramel",
+"carotte",
 "carthame",
 "cassis",
 "céleri",
 "cerise",
+"curcuma",
 "cumin",
 "citron",
 "citron vert",
@@ -1930,6 +2071,8 @@ sub preparse_ingredients_text($$) {
 "menthe poivrée",
 "muscade",
 "noix",
+"noix de coco",
+"oignon",
 "olive",
 "orange",
 "orange amère",
@@ -1939,11 +2082,14 @@ sub preparse_ingredients_text($$) {
 "pêche",
 "piment",
 "pistache",
+"porc",
 "pomme",
 "poire",
+"poivre",
 "poisson",
 "poulet",
 "réglisse",
+"romarin",
 "rose",
 "rhum",
 "sauge",
@@ -1954,22 +2100,27 @@ sub preparse_ingredients_text($$) {
 "vanille",
 "vanille de Madagascar",
 "autres agrumes",
+]
+],
 
 
-"colza",
-"palme",
-"tournesol",
-"arachide",
-"pépins de raisin",
-"olive",
-"olive vierge",
-"noix",
-"avocat",
-"illipe",
-"mangue",
-"sal",
-"karité",
-
+[
+[
+"carbonate",
+"carbonates acides",
+"chlorure",
+"citrate",
+"iodure",
+"nitrate",
+"diphosphate",
+"diphosphate",
+"phosphate",
+"sélénite",
+"sulfate",
+"hydroxyde",
+"sulphate",
+],
+[
 "aluminium",
 "ammonium",
 "calcium",
@@ -1980,54 +2131,57 @@ sub preparse_ingredients_text($$) {
 "potassium",
 "sodium",
 "zinc",
+]
+],
+
 );
 
+		foreach my $prefixes_suffixes_ref (@prefixes_suffixes_list) {
 
-		my $prefixregexp = "";
-		foreach my $prefix (@prefixes) {
-			$prefixregexp .= '|' . $prefix . '|' . $prefix . 's';
-			my $unaccented_prefix = unac_string_perl($prefix);
-			if ($unaccented_prefix ne $prefix) {
-				$prefixregexp .= '|' . $unaccented_prefix . '|' . $unaccented_prefix . 's';
+			my $prefixregexp = "";
+			foreach my $prefix (@{$prefixes_suffixes_ref->[0]}) {
+				$prefixregexp .= '|' . $prefix . '|' . $prefix . 's';
+				my $unaccented_prefix = unac_string_perl($prefix);
+				if ($unaccented_prefix ne $prefix) {
+					$prefixregexp .= '|' . $unaccented_prefix . '|' . $unaccented_prefix . 's';
+				}
+
 			}
+			$prefixregexp =~ s/^\|//;
+
+			my $suffixregexp = "";
+			foreach my $suffix (@{$prefixes_suffixes_ref->[1]}) {
+				$suffixregexp .= '|' . $suffix . '|' . $suffix . 's';
+				my $unaccented_suffix = unac_string_perl($suffix);
+				if ($unaccented_suffix ne $suffix) {
+					$suffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
+				}
+
+			}
+			$suffixregexp =~ s/^\|//;
+
+			# arôme naturel de citron-citron vert et d'autres agrumes
+			# -> separate suffixes
+			$text =~ s/($suffixregexp)-($suffixregexp)/$1, $2/g;
+
+			# arôme naturel de pomme avec d'autres âromes
+			$text =~ s/ (ou|et|avec) (d')?autres /, /g;
+
+			$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $2, $4)/ieg;
+
+			# old:
+
+			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
+			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
+			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
+			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
+
+			$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$3)/ieg;
+
+			# Huiles végétales de palme, de colza et de tournesol
+			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp))\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$3)/ieg;
 
 		}
-		$prefixregexp =~ s/^\|//;
-
-
-
-		my $suffixregexp = "";
-		foreach my $suffix (@suffixes) {
-			$suffixregexp .= '|' . $suffix . '|' . $suffix . 's';
-			my $unaccented_suffix = unac_string_perl($suffix);
-			if ($unaccented_suffix ne $suffix) {
-				$suffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
-			}
-
-		}
-		$suffixregexp =~ s/^\|//;
-
-		# arôme naturel de citron-citron vert et d'autres agrumes
-		# -> separate suffixes
-		$text =~ s/($suffixregexp)-($suffixregexp)/$1, $2/g;
-
-		# arôme naturel de pomme avec d'autres âromes
-		$text =~ s/ (ou|et|avec) (d')?autres /, /g;
-
-		$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $2, $4)/ieg;
-
-		# old:
-
-		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
-		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
-		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
-		#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
-
-		$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$3)/ieg;
-
-		# Huiles végétales de palme, de colza et de tournesol
-		$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp))\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$3)/ieg;
-
 
 		# Caramel ordinaire et curcumine
 		# $text =~ s/ et /, /ig;
@@ -2112,7 +2266,7 @@ INFO
 	}
 
 	# Add synonyms in target language
-	my $vitamin_in_lc = get_fileid(display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"), 0, $product_lc);
+	my $vitamin_in_lc = get_string_id_for_lang($product_lc, display_taxonomy_tag($product_lc, "ingredients", "en:vitamins"));
 	$vitamin_in_lc =~ s/^\w\w://;
 
 	if ((defined $synonyms_for{ingredients}) and (defined $synonyms_for{ingredients}{$product_lc}) and (defined $synonyms_for{ingredients}{$product_lc}{$vitamin_in_lc})) {
@@ -2167,7 +2321,7 @@ INFO
 					# push @allergenssuffixes, $translations_to{allergens}{$allergen}{$product_lc};
 					# the synonyms below also contain the main translation as the first entry
 
-					my $product_lc_allergenid = get_fileid($translations_to{allergens}{$allergen}{$product_lc}, 0, $product_lc);
+					my $product_lc_allergenid = get_string_id_for_lang($product_lc, $translations_to{allergens}{$allergen}{$product_lc});
 
 					foreach my $synonym (@{$synonyms_for{allergens}{$product_lc}{$product_lc_allergenid}}) {
 						push @allergenssuffixes, $synonym;
@@ -2273,7 +2427,7 @@ sub extract_ingredients_classes_from_text($) {
 
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
-		my $ingredientid = get_fileid($ingredient, 0, $product_ref->{lc});
+		my $ingredientid = get_string_id_for_lang($product_ref->{lc}, $ingredient);
 		if ((defined $ingredientid) and ($ingredientid ne '')) {
 
 			# split additives
@@ -2889,7 +3043,7 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $field = "allergens";
 
 
-	print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
+	# print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = $allergens_stopwords{$language};
 
@@ -3028,7 +3182,7 @@ sub detect_allergens_from_text($) {
 		$product_ref->{$field . "_tags" } = [];
 		# print STDERR "result for $field : ";
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($product_ref->{lc}, $tag);
 			# print STDERR " - $tag";
 		}
 		# print STDERR "\n";

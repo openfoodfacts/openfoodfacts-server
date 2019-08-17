@@ -13,7 +13,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /po/openbeautyfacts/openbeautyfacts.pot
     translation: /po/openbeautyfacts/%two_letters_code%.po
     languages_mapping:
@@ -28,7 +30,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /po/openfoodfacts/openfoodfacts.pot
     translation: /po/openfoodfacts/%two_letters_code%.po
     languages_mapping:
@@ -43,7 +47,9 @@ files:
         pt-PT: pt_PT
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /po/openproductsfacts/openproductsfacts.pot
     translation: /po/openproductsfacts/%two_letters_code%.po
     languages_mapping:
@@ -58,7 +64,9 @@ files:
         pt-PT: pt_PT
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /po/openpetfoodfacts/openpetfoodfacts.pot
     translation: /po/openpetfoodfacts/%two_letters_code%.po
     languages_mapping:
@@ -72,21 +80,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
-  - source: /po/tags/tags.pot
-    translation: /po/tags/%two_letters_code%.po
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/code-of-conduct.html
     translation: /lang/%two_letters_code%/texts/code-of-conduct.html
     languages_mapping:
@@ -100,7 +96,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/contact.en.html
     translation: /lang/%two_letters_code%/texts/contact.en.html
     languages_mapping:
@@ -114,7 +112,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/contribute.html
     translation: /lang/%two_letters_code%/texts/contribute.html
     languages_mapping:
@@ -128,7 +128,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/data.en.html
     translation: /lang/%two_letters_code%/texts/data.en.html
     languages_mapping:
@@ -142,7 +144,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/discover.html
     translation: /lang/%two_letters_code%/texts/discover.html
     languages_mapping:
@@ -156,7 +160,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/faq.html
     translation: /lang/%two_letters_code%/texts/faq.html
     languages_mapping:
@@ -170,7 +176,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/how-to-add-a-product.html
     translation: /lang/%two_letters_code%/texts/how-to-add-a-product.html
     languages_mapping:
@@ -184,7 +192,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/index.en.html
     translation: /lang/%two_letters_code%/texts/index.en.html
     languages_mapping:
@@ -198,7 +208,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/index.foundation.en.html
     translation: /lang/%two_letters_code%/texts/index.foundation.en.html
     languages_mapping:
@@ -212,7 +224,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/legal.html
     translation: /lang/%two_letters_code%/texts/legal.html
     languages_mapping:
@@ -226,7 +240,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/missions.html
     translation: /lang/%two_letters_code%/texts/missions.html
     languages_mapping:
@@ -240,7 +256,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/nutrition-score-uk.html
     translation: /lang/%two_letters_code%/texts/nutrition-score-uk.html
     languages_mapping:
@@ -254,7 +272,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/open-food-hunt-2015.html
     translation: /lang/%two_letters_code%/texts/open-food-hunt.html
     languages_mapping:
@@ -268,7 +288,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/press-and-blogs.html
     translation: /lang/%two_letters_code%/texts/press-and-blogs.html
     languages_mapping:
@@ -282,7 +304,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/press.html
     translation: /lang/%two_letters_code%/texts/press.html
     languages_mapping:
@@ -296,7 +320,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/products.html
     translation: /lang/%two_letters_code%/texts/products.html
     languages_mapping:
@@ -310,7 +336,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/terms-of-use.html
     translation: /lang/%two_letters_code%/texts/terms-of-use.html
     languages_mapping:
@@ -324,7 +352,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/who-we-are.html
     translation: /lang/%two_letters_code%/texts/who-we-are.html
     languages_mapping:
@@ -338,7 +368,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/rateyourvendingmachine.html
     translation: /lang/%two_letters_code%/texts/rateyourvendingmachine.html
     languages_mapping:
@@ -352,7 +384,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/scan-parties.html
     translation: /lang/%two_letters_code%/texts/scan-parties.html
     languages_mapping:
@@ -366,7 +400,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /openfoodfacts-server/madenearme/madenearme-world.html
     translation: /openfoodfacts-server/madenearme/madenearme_%two_letters_code%.html
     languages_mapping:
@@ -380,7 +416,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/obf/en/texts/open-beauty-hunt.html
     translation: /lang/obf/%two_letters_code%/texts/open-beauty-hunt.html
     languages_mapping:
@@ -394,7 +432,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/obf/en/texts/press-and-blogs.html
     translation: /lang/obf/%two_letters_code%/texts/press-and-blogs.html
     languages_mapping:
@@ -408,7 +448,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/obf/en/texts/index.html
     translation: /lang/obf/%two_letters_code%/texts/index.html
     languages_mapping:
@@ -422,7 +464,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/obf/en/texts/contribute.html
     translation: /lang/obf/%two_letters_code%/texts/contribute.html
     languages_mapping:
@@ -436,7 +480,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/obf/en/texts/data.en.html
     translation: /lang/obf/%two_letters_code%/texts/data.en.html
     languages_mapping:
@@ -450,7 +496,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/obf/en/texts/discover.html
     translation: /lang/obf/%two_letters_code%/texts/discover.html
     languages_mapping:
@@ -464,7 +512,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/obf/en/texts/faq.html
     translation: /lang/obf/%two_letters_code%/texts/faq.html
     languages_mapping:
@@ -478,7 +528,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/nova-groups-for-food-processing.html
     translation: /lang/%two_letters_code%/texts/nova-groups-for-food-processing.html
     languages_mapping:
@@ -492,7 +544,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/producers.html
     translation: /lang/%two_letters_code%/texts/producers.html
     languages_mapping:
@@ -506,7 +560,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/donate.html
     translation: /lang/%two_letters_code%/texts/donate.html
     languages_mapping:
@@ -520,7 +576,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/mobile-app-open-food-facts.html
     translation: /lang/%two_letters_code%/texts/mobile-app-open-food-facts.html
     languages_mapping:
@@ -534,7 +592,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/obf/texts/mobile-app-open-beauty-facts.html
     translation: /lang/%two_letters_code%/obf/texts/mobile-app-open-beauty-facts.html
     languages_mapping:
@@ -548,7 +608,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/traffic-lights.html
     translation: /lang/%two_letters_code%/texts/traffic-lights.html
     languages_mapping:
@@ -562,7 +624,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/nutriscore-formula.html
     translation: /lang/%two_letters_code%/texts/nutriscore-formula.html
     languages_mapping:
@@ -576,7 +640,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/nutriscore.html
     translation: /lang/%two_letters_code%/texts/nutriscore.html
     languages_mapping:
@@ -590,7 +656,9 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
   - source: /lang/en/texts/presentations.html
     translation: /lang/%two_letters_code%/texts/presentations.html
     languages_mapping:
@@ -604,4 +672,6 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr

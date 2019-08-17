@@ -261,7 +261,7 @@ sub init_product($) {
 				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
 				$product_ref->{$field . "_tags" } = [];
 				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid("en",$tag);
 				}
 			}
 			# if lc is not defined or is set to en, set lc to main language of country
@@ -721,10 +721,10 @@ sub compute_completeness_and_missing_tags($$$) {
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
 			$all_fields = 0;
-			push @states_tags, "en:" . get_fileid($field) . "-to-be-completed";
+			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-to-be-completed";
 		}
 		else {
-			push @states_tags, "en:" . get_fileid($field) . "-completed";
+			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-completed";
 			$notempty++;
 			$completeness += $step;
 		}
@@ -865,14 +865,14 @@ sub get_change_userid_or_uuid($) {
 	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
 	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
-		$uuid =~ s/^(\s*)//;
-		$uuid =~ s/(\s*)$//;
 	}
 	elsif ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
 		$uuid = $7;
 	}
 
-	if (defined $uuid) {
+	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
+		$uuid =~ s/^(\s*)//;
+		$uuid =~ s/(\s*)$//;
 		$userid = $app . $uuid;
 	}
 
@@ -1349,8 +1349,8 @@ sub product_name_brand($) {
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
 		$brand =~ s/,.*//;	# take the first brand
-		my $brandid = '-' . get_fileid($brand, 0, $lc) . '-';
-		my $full_name_id = '-' . get_fileid($full_name, 0, $lc) . '-';
+		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
+		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
 			$full_name .= lang("title_separator") . $brand;
 		}
@@ -1365,11 +1365,11 @@ sub product_name_brand($) {
 sub product_name_brand_quantity($) {
 	my $ref = shift;
 	my $full_name = product_name_brand($ref);
-	my $full_name_id = '-' . get_fileid($full_name, 0, $lc) . '-';
+	my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 
 	if (defined $ref->{quantity}) {
 		my $quantity = $ref->{quantity};
-		my $quantityid = '-' . get_fileid($quantity, 0, $lc) . '-';
+		my $quantityid = '-' . get_string_id_for_lang($lc, $quantity) . '-';
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 			# Put non breaking spaces between numbers and units
 			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
@@ -1436,7 +1436,7 @@ sub index_product($)
 					$tag =~ s/^\w\w://;
 				}
 
-				my $tagid = get_fileid($tag, 0, $lc);
+				my $tagid = get_string_id_for_lang($lc, $tag);
 				if (length($tagid) >= 2) {
 					$keywords{normalize_search_terms($tagid)} = 1;
 				}

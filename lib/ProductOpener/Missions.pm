@@ -95,7 +95,7 @@ sub gen_missions_html() {
 			elsif ($n > 0) {
 				$html2 .= "<p>$Lang{mission_accomplished_by}{$lang}</p>";
 				foreach my $userid (sort {$missions_ref->{$missionid}{$a} <=> $missions_ref->{$missionid}{$b} } keys %{$missions_ref->{$missionid}}) {
-					$html2 .= "<a href=\"" . canonicalize_tag_link("users", get_fileid($userid, 1)) . "\">$userid</a>, ";
+					$html2 .= "<a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language", $userid)) . "\">$userid</a>, ";
 				}
 				$html2 =~ s/, $//;
 			}
@@ -104,7 +104,7 @@ sub gen_missions_html() {
 				$html2 .= "<p>$Missions{$missionid}{image_legend}</p>\n";
 			}
 
-			$html2 .= "<p>&rarr; <a href=\"/" . get_fileid(lang("missions"), 1) . "\">$Lang{all_missions}{$lang}</a></p>";
+			$html2 .= "<p>&rarr; <a href=\"/" . get_string_id_for_lang("no_language", lang("missions")) . "\">$Lang{all_missions}{$lang}</a></p>";
 
 			$missionid =~ s/(.*)\.//;
 			(-e "$data_root/lang/$lang/missions") or mkdir("$data_root/lang/$lang/missions", 0755);
@@ -205,7 +205,7 @@ sub compute_missions_for_user($) {
 					if (defined $taxonomy_fields{$tagtype}) {
 						my $tag = $query_ref->{$field};
 						$tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
-						my $tagid = get_taxonomyid($tag);
+						my $tagid = get_taxonomyid($l,$tag);
 						print "compute_missions - taxonomy - $field - orig: $query_ref->{$field} - new: $tagid\n";
 						$query_ref->{$field} = $tagid;
 					}

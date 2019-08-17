@@ -76,7 +76,7 @@ if ($action eq 'process') {
 			}
 		}
 		else {
-			$id = get_fileid($id, 1);
+			$id = get_string_id_for_lang("no_language", $id);
 			if (! -e "$data_root/users/$id.sto") {
 				push @errors, $Lang{error_reset_unknown_id}{$lang};
 			}
@@ -191,7 +191,7 @@ if ($type eq 'send_email') {
 
 }
 elsif ($type eq 'reset') {
-	my $userid = get_fileid(param('resetid'), 1);
+	my $userid = get_string_id_for_lang("no_language", param('resetid'));
 	my $user_ref = retrieve("$data_root/users/$userid.sto");
 	if (defined $user_ref) {
 

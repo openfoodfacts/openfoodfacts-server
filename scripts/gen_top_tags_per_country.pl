@@ -370,8 +370,8 @@ while (my $product_ref = $cursor->next) {
 		while (<$IN>) {
 			chomp();
 			if (/\s+/) {
-				my $user = get_fileid($`, 1);
-				my $ambassador = get_fileid($', 1);
+				my $user = get_string_id_for_lang("no_language", $`);
+				my $ambassador = get_string_id_for_lang("no_language", $');
 				$ambassadors{$user} = $ambassador;
 			}
 		}
@@ -522,8 +522,8 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 
 		my $html = "<h1>" . sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang}) . "</h1>";
 
-		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}, 1) . ".list.html") {
-			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}, 1) . ".list.html");
+		if (-e "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html");
 			$html .= join("\n", (<$IN>));
 			close $IN;
 		}
@@ -639,7 +639,7 @@ oTable = \$('#tagstable').DataTable({
 HTML
 ;
 
-		 open (my $OUT, ">:encoding(UTF-8)", "$data_root/lists/" . get_fileid(lang($tagtype . "_p"), 1) . ".$cc.$lang.html");
+		 open (my $OUT, ">:encoding(UTF-8)", "$data_root/lists/" . get_string_id_for_lang("no_language", lang($tagtype . "_p")) . ".$cc.$lang.html");
 		 print $OUT $html;
 		 close $OUT;
 

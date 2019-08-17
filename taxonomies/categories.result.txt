@@ -905,7 +905,7 @@ wikidata:en: Q12104
 en:Baby foods
 ca:Alimentació per a nadons
 de:Babynahrung, Säuglingsnahrung
-es:Alimentos infantiles, Alimentos para bebés, Alimentos para lactantes, Alimentos para niños de corta edad
+es:Alimentos infantiles, Alimentos para bebés, Alimentos para lactantes, Alimentos para niños de corta edad, Alimentación infantil
 fr:Aliments pour bébé, aliment pour bébé, alimentation pour bébé, aliment bébé, alimentation bébé, aliments bébé, alimentation infantile
 hu:Bébiételek
 nl:Babyvoeding
@@ -2166,6 +2166,7 @@ nl:Droge biscuits
 
 < en:Biscuits
 en:Filled biscuits
+es:Galletas rellenas
 fr:Biscuits fourrés
 nl:Gevulde koekjes
 
@@ -2177,6 +2178,7 @@ nl:Bladerdeegkoekjes, Bladerdeegkoekje
 < en:Biscuits
 en:Gluten-free biscuits
 de:Glutenfreie Kekse
+es:Galletas sin gluten
 fr:Biscuits sans gluten
 hu:Gluténmentes kekszek
 nl:Glutenvrije koekjes, Koekjes zonder gluten, Glutenvrij koekje
@@ -2371,6 +2373,7 @@ wikidata:en: Q178600
 en:Pastries, pastry
 ca:Pastisseria
 de:Gebäck
+es:Bolleria
 fr:Pâtisseries, pâtisserie
 nl:Gebak
 
@@ -5824,6 +5827,7 @@ wikidata:en: Q3088299
 < en:Cheeses
 en:Cream cheeses
 de:Frischkäse
+es:Queso fresco
 fr:Fromages à pâte fraîche, Fromage frais
 nl:Verse kazen
 wikidata:en: Q3323634
@@ -5859,6 +5863,7 @@ wikidata:en: Q198815
 < en:Cheeses
 en:Grated cheese
 de:Geriebener Käse
+es:Queso rallado
 fr:Fromages râpés, fromage rapé
 nl:Geraspte kzen
 
@@ -5965,6 +5970,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sheep_milk_cheese
 < en:Cheeses
 en:Sliced cheeses
 de:Scheibenkäse, Käseaufschnitt, Schnittkäse
+es:Quesos en lonchas
 fr:Fromages en tranches, tranches de fromage, tranches de fromages
 hu:Szeletel sajtok
 nl:Kazen in plakjes
@@ -6534,6 +6540,7 @@ zh:鸡翅
 < en:Chickens
 en:Cooked chicken
 de:Gekochte Hühnchen
+es:Pollo Preparado
 fr:Poulets cuisinés, Poulet cuisiné, Poulets préparés, Poulet préparé
 nl:Geprepareerde kip
 
@@ -7805,7 +7812,7 @@ nl:Calissons
 en:Candies, candy, sweets
 ca:Caramels
 de:Bonbons, Bonbon
-es:Golosinas
+es:Golosinas, chuchería, chuche, galguería, guarrería
 fr:Bonbons, Bonbon
 hu:Cukorkák, édességek
 nl:Snoep
@@ -15081,6 +15088,9 @@ de:Abnehm-Tee
 fr:Infusions minceur, Tisanes minceur, Infusion minceur, Tisane minceur
 nl:Afslank thee melanges, Afslank thee melange
 
+< en:Herbal tea blends
+es:Infusiones relajantes
+
 < en:Aromatic herbs
 < en:Herbal teas
 en:Hyssop
@@ -15525,6 +15535,12 @@ fr:Étoiles de badiane, Badiane chinoise, Anis étoilé
 la:Illicium verum
 nl:Steranijsthee
 wikidata:en: Q1760637
+
+< en:Fruit teas
+< en:Herbal teas in tea bags
+en:Herbal fruit teas in tea bags
+es:infusiones con frutas en bolsitas
+fr:Infusions aux fruits en sachets
 
 < en:Canned fishes
 < en:Herring
@@ -18358,7 +18374,7 @@ zh:家禽
 en:Prepared meats, processed meats
 ca:Carns preparades, processades
 de:Zubereitetes Fleisch, verarbeitetes Fleisch
-es:Embutidos
+es:Embutidos, Fiambre
 fr:Charcuteries
 hu:Feldolgozott húsok
 nl:Verwerkte vleesproducten
@@ -18512,7 +18528,7 @@ wikidata:en: Q1154989
 < en:Plant-based beverages
 en:Plant milks, Vegetable milks, Vegetable drinks, Non-dairy milks
 de:Pflanzenmilch, Pflanzenmilche, Pflanzenmilchen
-es:Bebidas vegetales, Leches vegetales
+es:Bebidas vegetales, Leches vegetales, Leche vegetal
 fr:Boissons végétales, Laits végétaux, lait végétal, laits végétaliens
 hu:Névényi tejek, Zöldség tejek, Zöldség italok
 nl:Plantaardige melken
@@ -19120,6 +19136,7 @@ fr:Melons Tendral
 < en:Canned foods
 < en:Mussels
 en:Canned mussels
+es:Mejillones enlatados
 fr:Moules en conserve
 nl:Mossels in blik
 
@@ -20625,6 +20642,9 @@ fr:Gaufres
 nl:Wavels
 
 < en:Pastries
+es:Torta sevillana, Torta de aceite, Torta de anís
+
+< en:Pastries
 fr:Éclairs
 nl:Eclairs
 wikidata:en: Q273426
@@ -22109,6 +22129,18 @@ de:Salz und Essig Chips
 fr:Chips au sel et vinaigre
 nl:Zout en azijn chips
 
+< en:Potato crisps
+fr:Chips de pommes de terre classiques
+es:Chips de patatas fritas clasicas
+
+< en:Potato crisps
+fr:Chips de pommes de terre lisses
+es:Chips de patatas fritas lisas
+
+< en:Potato crisps
+fr:Chips de pommes de terre ondulées
+es:Chips de patatas fritas onduladas
+
 < en:Potato gratin
 en:Tartiflettes
 fr:Tartiflettes
@@ -22865,6 +22897,10 @@ nl:Gevulde tomaat
 < en:Prepared vegetables
 en:Stuffed vegetables
 fr:Légumes farcis
+
+< en:Prepared vegetables
+es:alubias con verduras
+fr:haricots aux légumes
 
 < en:Prepared vegetables
 fr:Céleris Rémoulade, Céleri Rémoulade, Céleris Rémoulades
@@ -26027,6 +26063,7 @@ nl:Gerookte haring
 < en:Smoked fishes
 en:Smoked salmons
 de:Räucherlachs, Geräucherter Lachs
+es:Salmón ahumado
 fr:Saumons fumés, saumon fumé
 it:Salmoni affumicati, salmone affumicato
 nl:Gerookte zalm
@@ -28726,7 +28763,7 @@ wikidata:en: Q961769
 
 < en:Tropical fruits
 en:Bananas
-de:Banenen
+de:Bananen
 es:Plátanos, Bananas
 fr:Bananes
 it:Banane
@@ -28880,6 +28917,10 @@ nl:Wintertruffels
 fr:Thons blancs au naturel
 nl:Witte tonijn natuur
 
+< en:Tuna in olive oil
+es:atún claro en aceite de oliva
+fr:thons pales à l'huile d'olive
+
 < en:Canned fishes
 < en:Tunas
 en:Canned tunas
@@ -28900,6 +28941,7 @@ nl:Tonijnfilets
 < en:Tunas
 en:Albacore
 de:Weißer Thun
+es:Bonito del Norte
 fr:Thons blancs, Thons germon, thons blanc germon, germon, thon blanc germon
 la:Thunnus alalunga
 nl:Witte tonijn
@@ -28943,10 +28985,15 @@ fr:Thons au naturel
 nl:Tonijn natuur
 
 < en:Tunas
-fr:Thons à l'huile
+en:Tunas in oil
 de:Thunfische in Öl
 es:Atún en aceite
+fr:Thons à l'huile
 nl:Tonijn op olie
+
+< en:Tunas
+es:atún claro
+fr:thons pales, thon pale
 
 < en:Tunas
 fr:Thons à la Catalane
@@ -28954,8 +29001,18 @@ fr:Thons à la Catalane
 < en:Tunas
 fr:Thons à la tomate
 
-< en:Tunas
-fr:thons pales, thon pale
+< en:Tunas in oil
+en:tuna in olive oil
+de:Thunfische in Olivenöl, Thunfisch in Olivenöl
+es:Atún en aceite de oliva
+fr:Thons à l'huile d'olive
+nl:Tonijn op olijfolie
+
+< en:Tunas in oil
+fr:Thons à l'huile de tournesol
+de:Thunfische in Sonnenblumenöl, Thunfisch in Sonnenblumenöl
+es:Atún en aceite de girasol
+nl:Tonijn op zonnebloemolie
 
 < en:Tunisian Eaux-de-vie
 fr:Boukha
@@ -29781,7 +29838,7 @@ nl:Corgettesoep
 en:Canned vegetables
 ca:Vegetals enllaunats
 de:Gemüsekonserven, Dosengemüse
-es:Verduras y hortalizas en conserva, Hortalizas en conserva, Verduras en conserva
+es:Verduras y hortalizas en conserva, Hortalizas en conserva, Verduras en conserva, Conservas de vegetales
 fr:Légumes en conserve, conserves de légumes
 hu:Zöldségkonzervek
 nl:Groenten in blik, Groenteconserven
@@ -42718,18 +42775,6 @@ fr:Savigny-lès-Beaune premier cru Redrescul, Savigny-lès-Beaune Redrescul
 country:en: France
 instanceof:fr: AOP
 region:fr: Bourgogne
-
-< fr:Thons à l'huile
-fr:Thons à l'huile d'olive
-de:Thunfische in Olivenöl, Thunfisch in Olivenöl
-es:Atún en aceite de oliva
-nl:Tonijn op olijfolie
-
-< fr:Thons à l'huile
-fr:Thons à l'huile de tournesol
-de:Thunfische in Sonnenblumenöl, Thunfisch in Sonnenblumenöl
-es:Atún en aceite de girasol
-nl:Tonijn op zonnebloemolie
 
 < fr:Tommes
 fr:Tomme d'Italie, Tommes d'Italie

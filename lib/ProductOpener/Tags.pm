@@ -1597,7 +1597,7 @@ sub retrieve_tags_taxonomy {
 				$line = $';
 			}
 			my $tag = canonicalize_taxonomy_tag("en", $tagtype, $line);
-			my $tagid = get_taxonomyid($tag);
+			my $tagid = get_taxonomyid("en", $tag);
 
 			print "special_tag - line:<$line> - tag:<$tag> - tagid:<$tagid>\n";
 
@@ -1823,7 +1823,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		}
 		next if $tag eq '';
 		$tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
-		my $tagid = get_taxonomyid($tag);
+		my $tagid = get_taxonomyid($l,$tag);
 		next if $tagid eq '';
 		if ($tagid =~ /:$/) {
 			#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
@@ -1872,7 +1872,7 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 		}
 		next if $tag eq '';
 		$tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
-		my $tagid = get_taxonomyid($tag);
+		my $tagid = get_taxonomyid($l,$tag);
 		next if $tagid eq '';
 		if ($tagid =~ /:$/) {
 			#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
@@ -1967,6 +1967,10 @@ sub display_tag_link($$) {
 		$tag = $';
 	}
 
+	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+		$tag_lc = "no_language";
+	}
+
 	my $tagid = get_string_id_for_lang($tag_lc, $tag);
 	my $tagurl = get_urlid($tagid, 0, $tag_lc);
 
@@ -1998,7 +2002,7 @@ sub canonicalize_taxonomy_tag_link($$$) {
 	my $tagtype = shift;
 	my $tag = shift;
 	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
-	my $tagurl = get_taxonomyurl($tag, 0, $target_lc);
+	my $tagurl = get_taxonomyurl($target_lc, $tag);
 
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 
@@ -2015,11 +2019,11 @@ sub canonicalize_taxonomy_2tag_link($$$$$) {
 	my $tag2 = shift;
 
 	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
-	my $tagurl = get_taxonomyurl($tag);
+	my $tagurl = get_taxonomyurl($target_lc,$tag);
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 
 	$tag2 = display_taxonomy_tag($target_lc,$tagtype2, $tag2);
-	my $tagurl2 = get_taxonomyurl($tag2);
+	my $tagurl2 = get_taxonomyurl($target_lc,$tag2);
 	my $path2 = $tag_type_singular{$tagtype2}{$target_lc};
 
 	return "/$path/$tagurl/$path2/$tagurl2";
@@ -2035,8 +2039,8 @@ sub display_taxonomy_tag_link($$$) {
 	my $tagtype = shift;
 	my $tag = shift;
 	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
-	my $tagid = get_taxonomyid($tag);
-	my $tagurl = get_taxonomyurl($tagid);
+	my $tagid = get_taxonomyid($target_lc,$tag);
+	my $tagurl = get_taxonomyurl($target_lc,$tagid);
 
 	my $tag_lc;
 	if ($tag =~ /^(\w\w):/) {
@@ -2374,7 +2378,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 			my $img_lc = $target_lc;
 
 			my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
-			my $en_imgid = get_taxonomyid($canon_tagid);
+			my $en_imgid = get_taxonomyid("en",$canon_tagid);
 			my $tag_lc = undef;
 			if ($en_imgid =~ /^(\w\w):/) {
 				$en_imgid = $';
@@ -2505,25 +2509,27 @@ sub canonicalize_tag2($$)
 
 }
 
-sub get_taxonomyid($) {
+sub get_taxonomyid($$) {
 
+	my $tag_lc = shift;	# Default tag language if tagid is not prefixed by a language code
 	my $tagid = shift;
 	if ($tagid =~ /^(\w\w):/) {
-		return lc($1) . ':' . get_string_id_for_lang($lc, $');
+		return lc($1) . ':' . get_string_id_for_lang(lc($1), $');
 	}
 	else {
-		return get_string_id_for_lang($lc, $tagid);
+		return get_string_id_for_lang($tag_lc, $tagid);
 	}
 }
 
-sub get_taxonomyurl($) {
+sub get_taxonomyurl($$) {
 
+	my $tag_lc = shift;	# Default tag language if tagid is not prefixed by a language code
 	my $tagid = shift;
 	if ($tagid =~ /^(\w\w):/) {
-		return lc($1) . ':' . get_urlid($', 0, lc($1));
+		return lc($1) . ':' . get_url_id_for_lang(lc($1),$');
 	}
 	else {
-		return get_urlid($tagid, 0, $lc);
+		return get_url_id_for_lang($tag_lc, $tagid);
 	}
 }
 
@@ -3253,7 +3259,7 @@ sub add_tags_to_field($$$$) {
 		my $tagid;
 
 		if (defined $taxonomy_fields{$field}) {
-			$tagid = get_taxonomyid(canonicalize_taxonomy_tag($tag_lc, $field, $tag));
+			$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $field, $tag));
 		}
 		else {
 			$tagid = get_string_id_for_lang($tag_lc, $tag);
@@ -3302,9 +3308,29 @@ sub compute_field_tags($$$) {
 	my $tag_lc = shift;
 	my $field = shift;
 
+	# generate the hierarchy of tags from the field values
+
+	if (defined $taxonomy_fields{$field}) {
+		$product_ref->{$field . "_lc" } = $tag_lc;	# save the language for the field, useful for debugging
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
+		$product_ref->{$field . "_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag_lc, $tag);
+		}
+	}
+	elsif (defined $hierarchy_fields{$field}) {
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
+		$product_ref->{$field . "_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+			if (get_string_id_for_lang($tag_lc, $tag) ne '') {
+				push @{$product_ref->{$field . "_tags" }}, get_string_id_for_lang($tag_lc, $tag);
+			}
+		}
+	}
+
 	# tags fields without hierarchy or taxonomy
 
-	if (defined $tags_fields{$field}) {
+	elsif (defined $tags_fields{$field}) {
 
 		my $value = $product_ref->{$field};
 
@@ -3316,33 +3342,14 @@ sub compute_field_tags($$$) {
 
 		foreach my $tag (split(',', $value)) {
 			if (get_string_id_for_lang($tag_lc, $tag) ne '') {
-				push @{$product_ref->{$field . "_tags" }}, get_string_id_for_lang($tag_lc, $tag);
+				# There is only one field value for all languages, use "no_language" to normalize
+				push @{$product_ref->{$field . "_tags" }}, get_string_id_for_lang("no_language", $tag);
 				if ($field eq 'emb_codes') {
 					my $city_code = get_city_code($tag);
 					if (defined $emb_codes_cities{$city_code}) {
-						push @{$product_ref->{"cities_tags" }}, get_string_id_for_lang($tag_lc, $emb_codes_cities{$city_code}) ;
+						push @{$product_ref->{"cities_tags" }}, get_string_id_for_lang("no_language", $emb_codes_cities{$city_code}) ;
 					}
 				}
-			}
-		}
-	}
-
-	# generate the hierarchy of tags from the field values
-
-	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_lc" } = $tag_lc;	# save the language for the field, useful for debugging
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
-		$product_ref->{$field . "_tags" } = [];
-		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-		}
-	}
-	elsif (defined $hierarchy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
-		$product_ref->{$field . "_tags" } = [];
-		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			if (get_string_id_for_lang($tag_lc, $tag) ne '') {
-				push @{$product_ref->{$field . "_tags" }}, get_string_id_for_lang($tag_lc, $tag);
 			}
 		}
 	}
@@ -3367,7 +3374,7 @@ sub compute_field_tags($$$) {
 		$product_ref->{$field . "_prev_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field . "_prev", $product_ref->{$field}) ];
 		$product_ref->{$field . "_prev_tags" } = [];
 		foreach my $tag (@{$product_ref->{$field . "_prev_hierarchy" }}) {
-			push @{$product_ref->{$field . "_prev_tags" }}, get_taxonomyid($tag);
+			push @{$product_ref->{$field . "_prev_tags" }}, get_taxonomyid($tag_lc, $tag);
 		}
 
 		# compute differences
@@ -3397,7 +3404,7 @@ sub compute_field_tags($$$) {
 		$product_ref->{$field . "_next_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field . "_next", $product_ref->{$field}) ];
 		$product_ref->{$field . "_next_tags" } = [];
 		foreach my $tag (@{$product_ref->{$field . "_next_hierarchy" }}) {
-			push @{$product_ref->{$field . "_next_tags" }}, get_taxonomyid($tag);
+			push @{$product_ref->{$field . "_next_tags" }}, get_taxonomyid($tag_lc, $tag);
 		}
 
 		# compute differences

@@ -5,7 +5,7 @@ use Modern::Perl '2012';
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP', filter => "none";;
+#use Log::Any::Adapter 'TAP', filter => "none";;
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -367,6 +367,13 @@ is(canonicalize_taxonomy_tag("de","test","Grünkohl"), "en:kale");
 is(display_taxonomy_tag("de","test","en:kale"), "Grünkohl");
 is(display_taxonomy_tag_link("de","test","en:kale"), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
 is(display_tags_hierarchy_taxonomy("de","test",["en:kale"]), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
+is(canonicalize_taxonomy_tag("fr","test","Pâte de cacao"), "fr:Pâte de cacao");
+is(display_taxonomy_tag("fr","test","fr:Pâte de cacao"), "Pâte de cacao");
+is(get_taxonomyid("en","pâte de cacao"), "pate-de-cacao");
+is(get_taxonomyid("de","pâte de cacao"), "pâte-de-cacao");
+is(get_taxonomyid("fr","fr:pâte de cacao"), "fr:pate-de-cacao");
+is(get_taxonomyid("fr","de:pâte"), "de:pâte");
+is(get_taxonomyid("de","de:pâte"), "de:pâte");
 
 $product_ref = {
 	lc => "de",
@@ -396,5 +403,12 @@ is_deeply($product_ref,
 	
 )
 	or diag explain $product_ref;
+
+
+$product_ref = { "stores" => "Intermarché" };
+compute_field_tags($product_ref, "fr", "stores");
+is_deeply($product_ref->{stores_tags}, ["intermarche"]);
+compute_field_tags($product_ref, "de", "stores");
+is_deeply($product_ref->{stores_tags}, ["intermarche"]);
 
 done_testing();

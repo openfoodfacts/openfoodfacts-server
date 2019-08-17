@@ -193,7 +193,7 @@ foreach my $l (keys %Missions_by_lang) {
 
 	foreach my $mission_ref (@{$Missions_by_lang{$l}}) {
 
-		$mission_ref->{id} = $l . "." . get_fileid($mission_ref->{name}, 1);
+		$mission_ref->{id} = $l . "." . get_string_id_for_lang("no_language",$mission_ref->{name}, 1);
 		$Missions{$mission_ref->{id}} = $mission_ref;
 	}
 }

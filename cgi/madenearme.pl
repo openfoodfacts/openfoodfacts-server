@@ -197,8 +197,8 @@ if ($action eq 'process') {
 		my %terms = ();
 
 		foreach my $term (split(/,|'|\s/, $search_terms)) {
-			if (length(get_fileid($term)) >= 2) {
-				$terms{normalize_search_terms(get_fileid($term))} = 1;
+			if (length(get_string_id_for_lang($lc, $term)) >= 2) {
+				$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 			}
 		}
 		if (scalar keys %terms > 0) {
@@ -218,7 +218,7 @@ if ($action eq 'process') {
 
 		if (($tagtype ne 'search_tag') and ($tag ne '')) {
 
-			my $tagid = get_fileid(canonicalize_tag2($tagtype, $tag));
+			my $tagid = get_string_id_for_lang($lc, canonicalize_tag2($tagtype, $tag));
 
 			if ($tagtype eq 'additives') {
 				$tagid =~ s/-.*//;
