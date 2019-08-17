@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 18:09\n"
+"PO-Revision-Date: 2019-08-08 00:24\n"
 "Language-Team: Spanish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -144,8 +144,8 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"disponible en Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Disponible en Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -864,6 +864,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Debe introducir los caracteres del código de barras o enviar una imagen de un producto donde esté visible."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "Tamaño completo"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "Este archivo se cargó en el producto %s y está licenciado bajo la licencia %s."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr "Atribución: Foto por %s por %s"
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "Atribución: Foto realizada por %s con modificaciones adicionales por %s por %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Imagen original)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "Detalles de la foto e información de atribución"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Productos añadidos por usted que necesitan ser completados"
@@ -957,8 +981,8 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Productos que no contienen el ingrediente %s"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<Img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Disponible en el App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Disponible en Google Play\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2566,8 +2590,8 @@ msgid "Site or blog address"
 msgstr "Dirección del blog o del sitio web"
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Store\" width=\"109\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -3310,6 +3334,10 @@ msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Análisis de los ingredientes"
 
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "El análisis se basa únicamente en los ingredientes enumerados y no tiene en cuenta los métodos de procesamiento."
+
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
 msgstr ""
@@ -3333,8 +3361,4 @@ msgstr ""
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr ""
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr "El análisis se basa únicamente en los ingredientes enumerados y no tiene en cuenta los métodos de procesamiento."
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kmr_TR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 18:03\n"
+"PO-Revision-Date: 2019-08-08 21:16\n"
 "Language-Team: Kurmanji (Kurdish)\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -63,8 +63,7 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr "Merhabe <nav>, https: //openfoodfacts.org'a Gelek spas dikim ji bo beşdariya we. Navê te yê bikarhêner: navdêr:\n\n"
-"Tu niha dikarin li ser têkevim vê malperê ji bo lê zêde bike û mesaja tomar.<<site_name>>,, Gelo projeyeke hevbeş yên ku berhemên nû çiqas bêtir bîne: enerjî, coş û ramanên! Di nav contributors bo gengeşîkirina pir kêrhatî û em bikaranîna pergala mesajên ya bi navê Xwarin ji bo pêşxistina vê projeyê: https://slack.openfoodfacts.org tu dikarî koma Facebook ji bo gelê Ji destê tevlî: https://www.facebook.com/ komên / openfoodfacts / New: em dest bi agahî ji bo pêkanîna heye di Cosmetics Open Beauty yî: sabûn, macûna, makeup û da ser. https://openbeautyfacts.org gelek sipas! Stéphane û ekîba wî https://openfoodfacts.org https://twitter.com/openfoodfacts Facts Food Open\n"
+msgstr ""
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
@@ -131,8 +130,8 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -841,6 +840,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr ""
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr ""
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr ""
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr ""
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr ""
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr ""
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr ""
@@ -934,8 +957,8 @@ msgid "Products that do not contain the ingredient %s"
 msgstr ""
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2521,8 +2544,8 @@ msgid "Site or blog address"
 msgstr ""
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -3265,6 +3288,10 @@ msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr ""
 
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr ""
+
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
 msgstr ""
@@ -3287,9 +3314,5 @@ msgstr ""
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
 msgstr ""
 
