@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: br\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-18 06:31\n"
+"PO-Revision-Date: 2019-08-18 06:41\n"
 "Language-Team: Breton\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -201,11 +201,11 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "merk"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "ouzhpennañ ur merk"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
@@ -217,7 +217,7 @@ msgstr ""
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Rummadoù"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -229,7 +229,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "rummadoù"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -341,7 +341,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "bro"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -361,11 +361,11 @@ msgstr ""
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "diveugañ"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "diveugañ"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
@@ -373,31 +373,31 @@ msgstr ""
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Dilemel ur produ"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Dilemel ar bajenn"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Dilemel ar skeudennoù"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Dilemel un implijer"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Ouzhpennet:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Kemmet:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Dilamet:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -405,11 +405,11 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "Louc'had ekologel"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
@@ -449,7 +449,7 @@ msgstr ""
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Arventennoù ar gont"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
@@ -465,11 +465,11 @@ msgstr ""
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "postel"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "Kodoù EMB"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -477,11 +477,11 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "Kod EMB"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "Kod EMB"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -494,7 +494,7 @@ msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "kodoù ar pakataer"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
@@ -502,7 +502,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "kod ar pakataer"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
@@ -518,7 +518,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Fazi"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -538,11 +538,11 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Chomlec'h didalvoud."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Postel didalvoud"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
@@ -640,12 +640,12 @@ msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "blog <<site_name>>"
 
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -680,12 +680,12 @@ msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Troerien"
 
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
