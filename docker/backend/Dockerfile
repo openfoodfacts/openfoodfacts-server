@@ -1,4 +1,4 @@
-ARG ALPINE_VERSION=3.9.4
+ARG ALPINE_VERSION=3.10.1
 # mod_perl is only available in Alpine edge as a @testing package.
 # Unfortunately, as the edge version can have another version of Perl
 # than the stable version of Alpine Linux. In that case, mod_perl won't load.
