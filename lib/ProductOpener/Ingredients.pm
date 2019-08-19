@@ -206,6 +206,39 @@ sub init_labels_regexps() {
 	}
 }
 
+# Ingredients processing regexps
+
+my %ingredients_processing_regexps = ();
+
+sub init_ingredients_processing_regexps() {
+
+	foreach my $ingredients_processing (sort { length($b) <=> length($a) } keys %{$translations_to{ingredients_processing}}) {
+
+		foreach my $l (keys %{$translations_to{ingredients_processing}{$ingredients_processing}}) {
+
+			defined $ingredients_processing_regexps{$l}  or $ingredients_processing_regexps{$l}  = [];
+
+			my %synonyms = ();
+
+			# the synonyms below also contain the main translation as the first entry
+
+			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
+
+			foreach my $synonym (@{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}}) {
+				$synonyms{$synonym} = 1;
+				# unaccented forms
+				$synonyms{unac_string_perl($synonym)} = 1;
+			}
+
+			# Match the longest strings first
+			my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
+			push @{$ingredients_processing_regexps{$l}}, [$ingredients_processing , $regexp];
+			# print STDERR "ingredients_processing_regexps{$l}: ingredient_processing: $ingredient_processing - regexp: $regexp . "\n";
+		}
+	}
+}
+
+
 # Additives classes regexps
 
 my %additives_classes_regexps = ();
@@ -247,7 +280,6 @@ sub init_additives_classes_regexps() {
 		# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
 	}
 }
-
 
 if ((keys %labels_regexps) > 0) { exit; }
 
@@ -579,6 +611,7 @@ sub extract_ingredients_from_text($) {
 		my $labels = undef;
 		my $vegan = undef;
 		my $vegetarian = undef;
+		my $processing = '';
 
 		#print STDERR "s: $s\n";
 
@@ -818,22 +851,86 @@ sub extract_ingredients_from_text($) {
 			$ingredient =~ s/\s+$//;
 
 			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
-			my $label_id;
+			my $skip_ingredient = 0;
+			my $ingredient_recognized = 0;
 
-			if (not exists_taxonomy_tag("ingredients", $ingredient_id)) {
-				# Unknown ingredient, check if it is a label
-				$label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
-				if (exists_taxonomy_tag("labels", $label_id)) {
-					# Add the label to the product
-					add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
-					compute_field_tags($product_ref, $product_lc, "labels");
+			if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
+				$ingredient_recognized = 1;
+			}
+			else {
+
+				# Try to remove ingredients processing "cooked rice" -> "rice"
+				if (defined $ingredients_processing_regexps{$product_lc}) {
+					my $matches = 0;
+					my $new_ingredient = $ingredient;
+					foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
+						my $processing = $ingredient_processing_regexp_ref->[0];
+						my $regexp = $ingredient_processing_regexp_ref->[1];
+						if ($new_ingredient =~ /\b($regexp)\b/i) {
+							$new_ingredient = $` . $';
+							print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
+							print STDERR "new ingredient: $new_ingredient\n";
+							$matches++;
+							$processing .= ", " . $processing;
+						}
+					}
+					if ($matches) {
+						# remove starting or ending " and "
+						# viande traitée en salaison et cuite -> viande et
+						$new_ingredient =~ s/($and)+$//i;
+						$new_ingredient =~ s/^($and)+//i;
+						my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
+						if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+							print STDERR "new_ingredient_id $new_ingredient_id exists\n";
+							$ingredient = $new_ingredient;
+							$ingredient_id = $new_ingredient_id;
+							$ingredient_recognized = 1;
+						}
+						else {
+							print STDERR "new_ingredient_id $new_ingredient_id does not exist\n";
+							$processing = "";
+						}
+					}
 				}
-				else {
-					$label_id = undef;
+
+				if (not $ingredient_recognized) {
+					# Unknown ingredient, check if it is a label
+					my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
+					if (exists_taxonomy_tag("labels", $label_id)) {
+						# Add the label to the product
+						add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
+						compute_field_tags($product_ref, $product_lc, "labels");
+						$skip_ingredient = 1;
+						$ingredient_recognized = 1;
+					}
+				}
+
+				if (not $ingredient_recognized) {
+					# Check if it is a phrase we want to ignore
+
+					# Remove some sentences
+					my %ignore_regexps = (
+						'fr' => [
+							'(\%|pourcentage|pourcentages) (.*)(exprim)',
+							'(sur|de) produit fini',	# préparé avec 50g de fruits pour 100g de produit fini
+							'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
+							'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
+						],
+					);
+					if (defined $ignore_regexps{$product_lc}) {
+						foreach my $regexp (@{$ignore_regexps{$product_lc}}) {
+							if ($ingredient =~ /$regexp/i) {
+								print STDERR "ignoring ingredient $ingredient - regexp $regexp\n";
+								$skip_ingredient = 1;
+								$ingredient_recognized = 1;
+								last;
+							}
+						}
+					}
 				}
 			}
 
-			if (not defined $label_id) {
+			if (not $skip_ingredient) {
 
 				my %ingredient = (
 					id => $ingredient_id,
@@ -853,6 +950,10 @@ sub extract_ingredients_from_text($) {
 				}
 				if (defined $vegetarian) {
 					$ingredient{vegetarian} = $vegetarian;
+				}
+				if ($processing ne "") {
+					$processing =~ s/^,\s?//;
+					$ingredient{processing} = $processing;
 				}
 
 				if ($ingredient ne '') {
@@ -1808,6 +1909,7 @@ sub preparse_ingredients_text($$) {
 
 	if ((scalar keys %labels_regexps) == 0) {
 		init_labels_regexps();
+		init_ingredients_processing_regexps();
 		init_additives_classes_regexps();
 	}
 

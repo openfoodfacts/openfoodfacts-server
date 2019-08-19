@@ -538,7 +538,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 
 @taxonomy_fields = qw(states countries languages labels categories additives additives_classes
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
-nutrient_levels misc ingredients ingredients_analysis nova_groups);
+nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing);
 
 
 # fields in product edit form, above ingredients and nutrition facts
