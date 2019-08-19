@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb_NO\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-19 04:01\n"
+"PO-Revision-Date: 2019-08-19 04:11\n"
 "Language-Team: Norwegian Bokmal\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -192,7 +192,7 @@ msgstr "Du kan også bidra til finansieringen av Open Food Facts prosjektet"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /> er laget av en non - profit organisasjon som er uavhengige av industrien. Den er laget for alle, av alle og finansiert av alle. Du kan støtte arbeidet vårt ved å <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donere til Open Food Facts</a>og også ved å bruke søkemotoren Lily</a><br/><b>Tusen takk!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -416,7 +416,7 @@ msgstr "Slettet:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Doner til Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
@@ -460,15 +460,15 @@ msgstr "Informasjonen nedenfor er synlig i din offentlige profil."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "Endre dine kontoinnstillinger"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Kontoinnstillinger"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Dine kontoinnstillinger er endret</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -484,24 +484,24 @@ msgstr "epostadresse"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "EMB koder"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr ""
+msgstr "Produkter pakket av selskapet med emb kode %s"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB kode"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB kode"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
