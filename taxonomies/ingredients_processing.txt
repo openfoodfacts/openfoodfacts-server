@@ -1,0 +1,68 @@
+# This taxonomy lists prefixes and suffixes that:
+# 1. are often found in ingredients lists before or after an ingredient
+# 2. indicate some kind of processing done to the ingredient (like "cut", "dried" etc.)
+# 3. are not labels that specify the quality of the ingredient ("organic", "origin Italy", "superior quality")
+# The taxonomy is used for ingredient analysis:
+# The ingredient "cooked pork" will be recognized as "pork" with the processing "en:cooked".
+# This works only if "cooked pork" is not a known ingredient in the ingredients taxonomy,
+# and if "pork" is a known ingredient.
+
+en:cooked
+fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel
+
+en:pre-cooked
+fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
+
+en:fried
+fr:frit, frite, frits, frites
+
+en:roasted
+fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
+
+en:grilled
+fr:grillé, grillée, grillés, grillées
+
+en:cured
+fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
+
+en:cut
+fr:coupé, coupée, coupés, coupées
+
+en:peeled
+fr:pelé, pelée, pelés, pelées
+
+en:crushed
+fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
+
+en:sliced
+fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches
+
+en:diced
+fr:en dés
+
+en:powdered
+fr:en poudre
+
+en:shelled
+fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
+
+en:pitted
+fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
+
+en:dried
+fr:séché, séchée, séchés, séchées
+
+en:dehydrated
+fr:déshydraté, déshydratée, déshydratés, désyhydratées
+
+en:rehydrated
+fr:réhydraté, réhydratée, réhydratés, réhydratées
+
+en:reconstituted
+fr:reconstitué, reconstituée, reconstitués, reconstituées
+
+en:frozen
+fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
+
+en:unfrozen
+fr:décongelé, décongelée, décongelés, décongelées
