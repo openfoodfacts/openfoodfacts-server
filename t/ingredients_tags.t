@@ -61,6 +61,7 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, [ "en:banana" ], ],
 	[ { lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, [ "en:banana" ], ],
 	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "}, ["en:chicken-fillet" ], ],
+	[ { lc => "fr", ingredients_text => "sucre 22g**"}, [ "en:sugar" ], ],
 );
 
 foreach my $test_ref (@tests) {

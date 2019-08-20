@@ -212,7 +212,7 @@ my %ingredients_processing_regexps = ();
 
 sub init_ingredients_processing_regexps() {
 
-	foreach my $ingredients_processing (sort { length($b) <=> length($a) } keys %{$translations_to{ingredients_processing}}) {
+	foreach my $ingredients_processing (sort { (length($b) <=> length($a)) || ($a cmp $b) } keys %{$translations_to{ingredients_processing}}) {
 
 		foreach my $l (sort keys %{$translations_to{ingredients_processing}{$ingredients_processing}}) {
 
@@ -520,7 +520,7 @@ sub extract_ingredients_from_image($$$$) {
 
 my %ignore_strings_after_percent = (
 	en => "of (the )?total weight",
-	fr => "min|min\.|minimum( dans le chocolat( noir)?)?|du poids total|du poids",
+	fr => "(min|min\.|mini|minimum)|(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
 );
 
 
@@ -730,7 +730,7 @@ sub extract_ingredients_from_text($) {
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*($separators|$)/i) {
+			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*($separators|$)/i) {
 				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
@@ -759,9 +759,9 @@ sub extract_ingredients_from_text($) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 
-			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//i;
-			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//i;
-			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//i;
+			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
+			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
+			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
@@ -794,7 +794,7 @@ sub extract_ingredients_from_text($) {
 			chomp($ingredient);
 
 			# Strawberry 10.3%
-			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent)?\s*(\),\],\])*$/i) {
+			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$/i) {
 				# print STDERR "percent found: $before = $` + $1\%\n";
 				$percent = $1;
 				$ingredient = $`;
@@ -915,7 +915,8 @@ sub extract_ingredients_from_text($) {
 							'(sur|de) produit fini',	# préparé avec 50g de fruits pour 100g de produit fini
 							'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
 							'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
-							'^soit \d',	# soit 20g de beurre reconstitué
+							'^soit ',	# soit 20g de beurre reconstitué
+							'^équivalent ', # équivalent à 20% de fruits rouges
 							'^malgré ', # malgré les soins apportés...
 							'^il est possible', # il est possible qu'il contienne...
 							'^(facultatif|facultative)', # sometime indicated by producers when listing ingredients is not mandatory
