@@ -214,7 +214,7 @@ sub init_ingredients_processing_regexps() {
 
 	foreach my $ingredients_processing (sort { length($b) <=> length($a) } keys %{$translations_to{ingredients_processing}}) {
 
-		foreach my $l (keys %{$translations_to{ingredients_processing}{$ingredients_processing}}) {
+		foreach my $l (sort keys %{$translations_to{ingredients_processing}{$ingredients_processing}}) {
 
 			defined $ingredients_processing_regexps{$l}  or $ingredients_processing_regexps{$l}  = [];
 
@@ -224,7 +224,7 @@ sub init_ingredients_processing_regexps() {
 
 			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
 
-			foreach my $synonym (@{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}}) {
+			foreach my $synonym (sort @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}}) {
 				$synonyms{$synonym} = 1;
 				# unaccented forms
 				$synonyms{unac_string_perl($synonym)} = 1;
@@ -863,15 +863,15 @@ sub extract_ingredients_from_text($) {
 				if (defined $ingredients_processing_regexps{$product_lc}) {
 					my $matches = 0;
 					my $new_ingredient = $ingredient;
+					my $new_processing = '';
 					foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
-						my $processing = $ingredient_processing_regexp_ref->[0];
 						my $regexp = $ingredient_processing_regexp_ref->[1];
 						if ($new_ingredient =~ /\b($regexp)\b/i) {
 							$new_ingredient = $` . $';
 							print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
 							print STDERR "new ingredient: $new_ingredient\n";
 							$matches++;
-							$processing .= ", " . $processing;
+							$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
 						}
 					}
 					if ($matches) {
@@ -885,10 +885,10 @@ sub extract_ingredients_from_text($) {
 							$ingredient = $new_ingredient;
 							$ingredient_id = $new_ingredient_id;
 							$ingredient_recognized = 1;
+							$processing .= $new_processing;
 						}
 						else {
 							print STDERR "new_ingredient_id $new_ingredient_id does not exist\n";
-							$processing = "";
 						}
 					}
 				}
@@ -915,6 +915,10 @@ sub extract_ingredients_from_text($) {
 							'(sur|de) produit fini',	# préparé avec 50g de fruits pour 100g de produit fini
 							'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
 							'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
+							'^soit \d',	# soit 20g de beurre reconstitué
+							'^malgré ', # malgré les soins apportés...
+							'^il est possible', # il est possible qu'il contienne...
+							'^(facultatif|facultative)', # sometime indicated by producers when listing ingredients is not mandatory
 						],
 					);
 					if (defined $ignore_regexps{$product_lc}) {

@@ -27586,7 +27586,7 @@ eo:Sojfabo
 es:granos de soja, habas de soja, habas de soya
 et:Sojauba, sojaoad
 fi:Soijapapu, soijapavut
-fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja
+fr:fève de soja,fèves de soja, soja entier, graine de soja, graines de soja, graines soja, grains de soja
 ga:pónairí soighe
 hu:Szójabab
 id:kacang kedelai
@@ -41700,6 +41700,7 @@ nl:gegrilde courgette
 
 <en:Courgette
 fr:courgettes en rondelles
+
 <en:Courgette
 en:dried courgette
 fr:courgettes séchées
@@ -51647,8 +51648,8 @@ wikidata:en:Q1142857
 
 # The SHIITAKE (Lentinula edodes) is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries.
 
-<en:mushroom, Lentinula edodes, Lentinus edodes
-en:shiitake
+<en:mushroom
+en:shiitake, lentinula edodes, lentinus edodes
 de:shiitake, schwarzer Pilz
 es:setas negro
 fr:shiitake, champignon noir, champignons noirs, shiitakes, , Lentin du chêne, Lentin comestible, Champignon parfumé
@@ -59697,10 +59698,6 @@ it:Filetto di pollo
 nl:kipfilet
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
 
-# <en:compound
-<en:chicken fillet
-fr:émincé de filet de poulet traité en salaison cuit rôti
-
 <en:chicken fillet
 en:superior chicken fillet
 fr:filet de poulet de qualité supérieure
@@ -61852,7 +61849,7 @@ carbon_footprint_fr_foodges_value:fr:7.3
 
 # description:en:EGG PASTA (pasta all'uovo) – May only be manufactured using durum wheat semolina with at least 4 hens’ eggs (chicken) weighing at least 200 grams (without the shells) per kilogram of semolina, or a liquid egg product produced only with hen’s eggs. Pasta made and sold in Italy under this category must be labeled egg pasta.
 
-<en:dough
+<en:pasta
 en:egg pastas
 af:eier pasta
 de: Eierteigwaren
@@ -64692,6 +64689,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-au-soja
 # 449 products in 5 languages @2018-09-25
 
+<en:soy sauce
+en:soy and sesame sauce, sesame and soy sauce
+fr:sauce au soja et au sésame, sauce au sésame et au soja
 
 <en:soy sauce
 en:soy sauce powder

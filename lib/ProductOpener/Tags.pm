@@ -598,6 +598,13 @@ sub remove_stopwords($$$) {
 	my $tagid = shift;
 
 	if (defined $stopwords{$tagtype}{$lc}) {
+
+		if ($lc eq 'fr') {
+			# "Dés de tomates" -> "des-de-tomates" --> "dés" should not be a stopword
+			$tagid =~ s/\bdes-de\b/DES-DE/g;
+			$tagid =~ s/\ben-des\b/EN-DES/g;
+		}
+
 		foreach my $stopword (@{$stopwords{$tagtype}{$lc}}) {
 			$tagid =~ s/-${stopword}-/-/g;
 
@@ -614,6 +621,8 @@ sub remove_stopwords($$$) {
 				$tagid =~ s/-${stopword}$//g;
 			}
 		}
+
+		$tagid = lc($tagid);
 	}
 	return $tagid;
 

@@ -203,6 +203,16 @@ nl:gerstvlokken
 pl:płatki jęczmienne
 
 < :
+< en:Cereal flour
+en:barley flour
+de:Gerstenmehl
+es:harina de cebada
+fr:farine d'orge
+it:farina d'orzo
+nl:gerstemeel
+pt:farinha de cevada
+
+< :
 en:Oncorhynchus gorbuscha
 fr:Oncorhynchus gorbuscha, Saumon rose à bosse
 la:Oncorhynchus gorbuscha
@@ -218,14 +228,8 @@ fr:protéines de soja réhydratées, protéines végétales de soja réhydratée
 nl:gerehydrateerde soja-eiwit
 
 < :
-en:shiitake
-de:shiitake, schwarzer Pilz
-es:setas negro
-fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé
-it:funghi shiitake
-la:Lentinula edodes
-nl:shiitake, zwarte paddestoel, Chinese champignons
-sv:svart champinjon
+< en:Strawberry
+fr:morceaux de fraise
 
 < :
 en:wholemeal barley
@@ -5074,16 +5078,6 @@ fr:billettes de céréales
 < en:Cereal
 fr:céréales biscuitées
 
-< :
-< en:Cereal flour
-en:barley flour
-de:Gerstenmehl
-es:harina de cebada
-fr:farine d'orge
-it:farina d'orzo
-nl:gerstemeel
-pt:farinha de cevada
-
 < en:Cereal flour
 de:Malzmehl
 fr:farines de graines et céréales
@@ -6529,9 +6523,6 @@ nl:halal kipfilet
 < en:Chicken fillet
 en:superior chicken fillet
 fr:filet de poulet de qualité supérieure
-
-< en:Chicken fillet
-fr:émincé de filet de poulet traité en salaison cuit rôti
 
 < en:Chicken fillet
 fr:filet de poulet traité en salaison cuit
@@ -10630,16 +10621,6 @@ yi:טייג
 zh:生麵團
 wikidata:en: Q178024
 wikipedia:en: https://en.wikipedia.org/wiki/Dough
-
-< en:Dough
-en:egg pastas
-af:eier pasta
-de:Eierteigwaren
-fr:pâtes aux œufs
-id:pasta telur
-it:pasta all'uovo
-nl:eierpasta
-wikidata:en: Q53619707
 
 < en:Dough
 en:noodle, noodles
@@ -47170,6 +47151,16 @@ wikidata:en: Q752492
 wikipedia:en: https://en.wikipedia.org/wiki/Marasmius_oreades
 
 < en:Mushroom
+en:shiitake, lentinula edodes, lentinus edodes
+de:shiitake, schwarzer Pilz
+es:setas negro
+fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé
+it:funghi shiitake
+la:Lentinula edodes
+nl:shiitake, zwarte paddestoel, Chinese champignons
+sv:svart champinjon
+
+< en:Mushroom
 en:slippery jack, sticky bun, Suillus luteus
 bg:обикновена масловка
 ca:pinetell de calceta, Suillus luteus
@@ -49532,6 +49523,16 @@ fr:Pâtes alimentaires de semoule de blé dur, pâtes alimentaires de blé dur.
 it:pasta di semola di grano duro
 carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
 carbon_footprint_fr_foodges_value:fr: 0.5
+
+< en:Pasta
+en:egg pastas
+af:eier pasta
+de:Eierteigwaren
+fr:pâtes aux œufs
+id:pasta telur
+it:pasta all'uovo
+nl:eierpasta
+wikidata:en: Q53619707
 
 < en:Pasta
 en:fresh pasta
@@ -58003,6 +58004,10 @@ fr:protéines de soja i.p
 fr:protéines de soja texturées
 
 < en:Soy sauce
+en:soy and sesame sauce, sesame and soy sauce
+fr:sauce au soja et au sésame, sauce au sésame et au soja
+
+< en:Soy sauce
 en:soy sauce powder
 de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver
 fi:soijakastikejauhe
@@ -58107,7 +58112,7 @@ eo:Sojfabo
 es:granos de soja, habas de soja, habas de soya
 et:Sojauba, sojaoad
 fi:Soijapapu, soijapavut
-fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja
+fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja, grains de soja
 ga:pónairí soighe
 hu:Szójabab
 id:kacang kedelai
@@ -59573,10 +59578,6 @@ fr:Volvariella volvacea, Volvaire cultivée, Volvaire asiatique
 la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 wikidata:en: Q641656
 wikipedia:en: https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
-
-< :
-< en:Strawberry
-fr:morceaux de fraise
 
 < en:Strawberry
 en:strawberry filling
