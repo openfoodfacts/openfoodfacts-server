@@ -464,24 +464,24 @@ sub check_nutrition_data($) {
 			push @{$product_ref->{quality_tags}}, "not-comparable-nutrition-data";
 		}
 	}
-	my $is_dried_product = has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated");
 
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 
-	my $nutrition_data_prepared = defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq 'on';
-	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} &&  $product_ref->{no_nutrition_data} eq 'on';
-
-	$log->debug("nutrition_data_prepared: " . $nutrition_data_prepared) if $log->debug();
-
-	if ( $no_nutrition_data ) {
 		push @{$product_ref->{quality_tags}}, "no-nutrition-data";
-	} else {
-		if ( $nutrition_data_prepared ) {
+	}
+
+
+	if (defined $product_ref->{nutriments}) {
+
+		if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
 			push @{$product_ref->{quality_tags}}, "nutrition-data-prepared";
 
-			if (not $is_dried_product ) {
+			if (not has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
 				push @{$product_ref->{quality_tags}}, "nutrition-data-prepared-without-category-dried-products-to-be-rehydrated";
 			}
 		}
+
+
 		if ((defined $product_ref->{nutrition_data_per}) and ($product_ref->{nutrition_data_per} eq 'serving')) {
 
 			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
@@ -491,25 +491,15 @@ sub check_nutrition_data($) {
 				push @{$product_ref->{quality_tags}}, "nutrition-data-per-serving-missing-serving-quantity-is-zero";
 			}
 		}
-	}
 
-	my $has_prepared_data = 0;
 
-	if (defined $product_ref->{nutriments}) {
 
 		my $nid_n = 0;
 		my $nid_zero = 0;
 
 		my $total = 0;
 
-
 		foreach my $nid (keys %{$product_ref->{nutriments}}) {
-			$log->debug("nid: " . $nid . ": " . $product_ref->{nutriments}{$nid} ) if $log->is_debug();
-
-			if ( $nid =~ /_prepared_100g$/ && $product_ref->{nutriments}{$nid} > 0) {
-				$has_prepared_data = 1;
-			}
-
 			next if $nid =~ /_/;
 
 			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
@@ -530,9 +520,7 @@ sub check_nutrition_data($) {
 			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
-
 		}
-
 
 		if ($total > 105) {
 			push @{$product_ref->{quality_tags}}, "nutrition-value-total-over-105";
@@ -570,12 +558,6 @@ sub check_nutrition_data($) {
 		if ((defined $product_ref->{nutriments}{energy}) and ($product_ref->{nutriments}{energy} > 3800)) {
 			push @{$product_ref->{quality_tags}}, 'illogically-high-energy-value';
 		}
-	}
-	$log->debug("has_prepared_data: " . $has_prepared_data) if $log->debug();
-
-	# issue 1466: Add quality facet for dehydrated products that are missing prepared values
-	if ( $is_dried_product && ( $no_nutrition_data || not( $nutrition_data_prepared && $has_prepared_data ) )  ) {
-		push @{$product_ref->{quality_tags}}, "missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated";
 	}
 }
 
