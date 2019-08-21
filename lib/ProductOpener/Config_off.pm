@@ -396,7 +396,7 @@ $options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
 	en:chocolate-powders
 	en:soups
 	en:coffees
-	en:teas
+	en:tea-bags
 	en:herbal-teas
 )];
 
