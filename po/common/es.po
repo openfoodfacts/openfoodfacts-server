@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-21 19:02\n"
+"PO-Revision-Date: 2019-08-21 19:12\n"
 "Language-Team: Spanish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1376,7 +1376,7 @@ msgstr "Completada por %d personas."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr "¡Sé el primero en cumplir esta misión!"
+msgstr "¡Sé el primero en completar esta misión!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
@@ -1432,15 +1432,15 @@ msgstr "Producto sin código de barras"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr "El producto no trae información nutricional."
+msgstr "El producto no incluye información nutricional."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr "Múltiples hechos nutricionales se especifican en el producto (por ejemplo, con agua o leche añadida)."
+msgstr "En el producto se especifican múltiples datos nutricionales (por ejemplo, con agua o leche añadida)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr "Ingrese solo los datos nutricionales para el producto no preparado, sin agua ni leche agregada. Si hay diferentes productos, ingrese información nutricional para el primer producto en la lista."
+msgstr "Introduce solo los datos nutricionales para el producto no preparado, sin agua ni leche agregada. Si hay diferentes productos, introduce información nutricional para el primer producto de la lista."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -1452,7 +1452,7 @@ msgstr "No hay productos."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr "Se ha producido un error guardando los datos, por favor inténtelo de nuevo."
+msgstr "Se ha producido un error guardando los datos, por favor inténtalo de nuevo."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
@@ -1643,7 +1643,7 @@ msgstr "Productos originarios de %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr "origen"
+msgstr "origen de los ingredientes"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
@@ -1703,7 +1703,7 @@ msgstr "Contraseña"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr "Confirmar la contraseña"
+msgstr "Confirmar contraseña"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
