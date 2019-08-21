@@ -203,6 +203,16 @@ nl:gerstvlokken
 pl:płatki jęczmienne
 
 < :
+< en:Cereal flour
+en:barley flour
+de:Gerstenmehl
+es:harina de cebada
+fr:farine d'orge
+it:farina d'orzo
+nl:gerstemeel
+pt:farinha de cevada
+
+< :
 en:Oncorhynchus gorbuscha
 fr:Oncorhynchus gorbuscha, Saumon rose à bosse
 la:Oncorhynchus gorbuscha
@@ -218,14 +228,8 @@ fr:protéines de soja réhydratées, protéines végétales de soja réhydratée
 nl:gerehydrateerde soja-eiwit
 
 < :
-en:shiitake
-de:shiitake, schwarzer Pilz
-es:setas negro
-fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé
-it:funghi shiitake
-la:Lentinula edodes
-nl:shiitake, zwarte paddestoel, Chinese champignons
-sv:svart champinjon
+< en:Strawberry
+fr:morceaux de fraise
 
 < :
 en:wholemeal barley
@@ -1910,6 +1914,12 @@ carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr: 35.8
 
 < en:Beef meat
+en:beef meat extract
+fr:extrait de viande de bœuf, extrait de viande bovine
+vegan:en: no
+vegetarian:en: no
+
+< en:Beef meat
 en:cooked beef meat, cooked beef
 de:gekochtes Rindfleisch
 fr:viande de bœuf cuite, viande bovine cuite, bœuf cuit
@@ -1921,9 +1931,6 @@ fr:carpaccio de boeuf
 
 < en:Beef meat
 fr:cœur de bœuf
-
-< en:Beef meat
-fr:extrait de viande de bœuf
 
 < en:Beef meat
 fr:viande-bovine-de-race-charolaise
@@ -4350,12 +4357,13 @@ nl:collageendarm
 fr:boyau naturel
 ro:Membrana naturala comestibila
 
-< en:Category A egg
+< en:Category A eggs
+en:fresh category A eggs
 fr:oeufs frais de catégorie A
 it:uova fresche di categoria A
 nl:verse categorie A eieren
 
-< en:Category A egg
+< en:Category A eggs
 < en:Free range chicken eggs
 fr:Œufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air
 
@@ -5072,16 +5080,6 @@ fr:billettes de céréales
 
 < en:Cereal
 fr:céréales biscuitées
-
-< :
-< en:Cereal flour
-en:barley flour
-de:Gerstenmehl
-es:harina de cebada
-fr:farine d'orge
-it:farina d'orzo
-nl:gerstemeel
-pt:farinha de cevada
 
 < en:Cereal flour
 de:Malzmehl
@@ -6528,9 +6526,6 @@ nl:halal kipfilet
 < en:Chicken fillet
 en:superior chicken fillet
 fr:filet de poulet de qualité supérieure
-
-< en:Chicken fillet
-fr:émincé de filet de poulet traité en salaison cuit rôti
 
 < en:Chicken fillet
 fr:filet de poulet traité en salaison cuit
@@ -9053,6 +9048,10 @@ wikidata:en: Q2017562
 wikipedia:en: https://en.wikipedia.org/wiki/Cilus_gilberti
 
 < en:Courgette
+en:dried courgette
+fr:courgettes séchées
+
+< en:Courgette
 en:grilled courgette
 de:grillierte Zucchetti, gegrillte Zucchini, Zucchini geröstet
 es:calabacín asado
@@ -9061,8 +9060,7 @@ it:zucchine grigliate
 nl:gegrilde courgette
 
 < en:Courgette
-fr:courgettes en rondelles, courgettes séchées
-en:dried courgette
+fr:courgettes en rondelles
 
 < en:Cow's milk
 en:pasteurised cow's milk
@@ -10629,16 +10627,6 @@ yi:טייג
 zh:生麵團
 wikidata:en: Q178024
 wikipedia:en: https://en.wikipedia.org/wiki/Dough
-
-< en:Dough
-en:egg pastas
-af:eier pasta
-de:Eierteigwaren
-fr:pâtes aux œufs
-id:pasta telur
-it:pasta all'uovo
-nl:eierpasta
-wikidata:en: Q53619707
 
 < en:Dough
 en:noodle, noodles
@@ -32510,7 +32498,7 @@ zh:水煮蛋
 wikidata:en: Q1062531
 
 < en:Egg
-en:category A egg
+en:category A eggs
 fr:oeufs de categorie A
 it:uova di categoria A
 nl:categorie A eieren
@@ -32654,9 +32642,9 @@ fr:Oeufs élevés en plein air, oeufs d'élevage en plein air, oeufs plein air
 < en:Egg
 en:fresh egg, fresh eggs
 cs:čerstvá vejce
-de:frische Eier
+de:frische Eier, Frischei
 es:huevos frescos
-fr:
+fr:œuf frais, œufs frais
 it:uova fresche
 nl:verse eieren
 pl:jaja świeże
@@ -32664,9 +32652,8 @@ pt:ovos frescos
 sk:čerstvá vajcia
 
 < en:Egg
-en:organic egg, organic eggs
-fr:oeufs biologiques, oeuf bio, 0 oeufs biologiques, oeufs bio
-nl:biologische eieren
+en:large eggs
+fr:gros oeufs
 
 < en:Egg
 en:Quail eggs, Quail egg
@@ -32696,9 +32683,6 @@ nl:hele eieren, geheel eieren
 es:productos derivados de huevo
 
 < en:Egg
-fr:gros oeufs
-
-< en:Egg
 fr:œuf liquide pasteurisé
 nl:gepasteuriseerd vloeibaar ei
 
@@ -32706,11 +32690,6 @@ nl:gepasteuriseerd vloeibaar ei
 fr:œuf pasteurisé, œufs pasteurisés
 de:Eier pasteurisiert
 it:uova pastorizzate
-
-< en:Egg
-fr:œufs frais, oeuf frais, 6 oeufs frais, 18 oeufs frais, 10 oeufs frais
-de:Frischei
-nl:verse eieren
 
 < en:Egg white
 en:chicken egg white
@@ -38300,6 +38279,11 @@ sv:ingefärspuré
 en:organic ginger
 fr:gingembre bio
 
+en:ginger extract
+fr:extrait de gingembre
+vegan:en: yes
+vegetarian:en: yes
+
 en:glaze
 bn:গ্লেজ
 cs:glazování
@@ -38893,6 +38877,11 @@ it:succo di pompelmo a base di concentrato
 < en:Grapefruit natural flavouring
 en:pink grapefruit natural flavouring
 fr:arôme naturel de pamplemousse rose
+
+en:grapefruit syrup
+fr:sirop de pamplemousse
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Emmental from France
 < en:Grated emmental cheese
@@ -41983,6 +41972,11 @@ fr:lardons cuits
 < en:Lardon
 en:smoked lardoons
 fr:lardon fumé, lardons fumés
+
+en:laurel extract
+fr:extrait de laurier
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Honey from France
 < en:Lavander honey
@@ -47178,6 +47172,16 @@ wikidata:en: Q752492
 wikipedia:en: https://en.wikipedia.org/wiki/Marasmius_oreades
 
 < en:Mushroom
+en:shiitake, lentinula edodes, lentinus edodes
+de:shiitake, schwarzer Pilz
+es:setas negro
+fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé
+it:funghi shiitake
+la:Lentinula edodes
+nl:shiitake, zwarte paddestoel, Chinese champignons
+sv:svart champinjon
+
+< en:Mushroom
 en:slippery jack, sticky bun, Suillus luteus
 bg:обикновена масловка
 ca:pinetell de calceta, Suillus luteus
@@ -47538,6 +47542,18 @@ en:natural carrot flavouring
 fr:arôme naturel de carotte
 
 < en:Natural flavouring
+en:natural cheddar flavouring
+fr:arôme naturel de cheddar
+vegan:en: no
+vegetarian:en: maybe
+
+< en:Natural flavouring
+en:natural cheese flavouring
+fr:arôme naturel de fromage
+vegan:en: no
+vegetarian:en: maybe
+
+< en:Natural flavouring
 en:natural cherry flavouring
 fr:arôme naturel de cerise
 
@@ -47567,6 +47583,20 @@ en:natural estragon flavouring
 fr:arôme naturel d'estragon
 
 < en:Natural flavouring
+en:natural eucalyptus flavouring
+fr:arôme naturel d'eucalyptus
+
+< en:Natural flavouring
+en:natural fig flavouring
+fr:arôme naturel de figue
+
+< en:Natural flavouring
+en:natural fish flavouring
+fr:arôme naturel de poisson
+vegan:en: no
+vegetarian:en: no
+
+< en:Natural flavouring
 en:natural flavor of turmeric
 fr:arôme naturel de curcuma
 
@@ -47585,8 +47615,22 @@ en:natural ginger flavouring
 fr:arôme naturel de gingembre
 
 < en:Natural flavouring
+en:natural goat cheese flavouring
+fr:arôme naturel de fromage de chèvre
+vegan:en: no
+vegetarian:en: maybe
+
+< en:Natural flavouring
+en:natural herbs flavouring
+fr:arôme naturel d'herbes
+
+< en:Natural flavouring
 en:natural hot pepper flavouring
 fr:arôme naturel de piment
+
+< en:Natural flavouring
+en:natural jasmine flavouring
+fr:arôme naturel de jasmin
 
 < en:Natural flavouring
 en:natural laurel flavouring
@@ -47617,6 +47661,16 @@ fr:arôme naturel de mandarine
 < en:Natural flavouring
 en:natural mango flavouring
 fr:arôme naturel de mangue
+
+< en:Natural flavouring
+en:natural milk flavouring
+fr:arôme naturel de lait
+vegan:en: no
+vegetarian:en: yes
+
+< en:Natural flavouring
+en:natural nut flavouring
+fr:arôme naturel de noix
 
 < en:Natural flavouring
 en:natural onion flavouring
@@ -47674,6 +47728,16 @@ fr:arôme naturel de framboise
 < en:Natural flavouring
 en:natural rum flavouring
 fr:arôme naturel de rhum
+
+< en:Natural flavouring
+en:natural sage flavouring
+fr:arôme naturel de sauge
+
+< en:Natural flavouring
+en:natural salmon flavouring
+fr:arôme naturel de saumon
+vegan:en: no
+vegetarian:en: no
 
 < en:Natural flavouring
 en:natural shallot flavouring
@@ -49071,6 +49135,11 @@ fr:origan déshydraté
 < en:Oregano
 fr:origan en poudre
 
+en:oregano extract
+fr:extrait d'origan
+vegan:en: yes
+vegetarian:en: yes
+
 < en:Organic cane sugar
 < en:Unrefined cane sugar
 en:organic unrefined cane sugar
@@ -49079,10 +49148,6 @@ fr:Sucre roux de canne issu de l'agriculture biologique, Sucre de canne biologiq
 < en:Organic coconut oil
 < fr:Huile vierge de noix de coco
 fr:huile de coco vierge biologique, huile vierge de noix de coco bio
-
-< en:Organic egg
-fr:oeufs frais biologiques, oeufs frais issus de l'agriculture biologique
-de:Bio-Frischei
 
 < en:Honey from Spain
 < en:Organic flower honey
@@ -49546,6 +49611,16 @@ carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
 carbon_footprint_fr_foodges_value:fr: 0.5
 
 < en:Pasta
+en:egg pastas
+af:eier pasta
+de:Eierteigwaren
+fr:pâtes aux œufs
+id:pasta telur
+it:pasta all'uovo
+nl:eierpasta
+wikidata:en: Q53619707
+
+< en:Pasta
 en:fresh pasta
 de:frische Teigwaren
 fr:pâtes fraîches
@@ -49765,6 +49840,11 @@ nl:Perzikkenpuree
 
 < en:Peach juice
 fr:jus de pêche à base de concentré
+
+en:peach syrup
+fr:sirop de pêche
+vegan:en: yes
+vegetarian:en: yes
 
 en:peanut, peanuts
 ar:فول سوداني
@@ -51947,6 +52027,11 @@ fr:bouillon de volaille deshydraté
 
 < en:Poultry broth
 fr:fond de volaille aromatisé
+
+en:poultry extract
+fr:extrait de volaille
+vegan:en: no
+vegetarian:en: no
 
 < en:Poultry fat
 en:chicken fat
@@ -58015,6 +58100,10 @@ fr:protéines de soja i.p
 fr:protéines de soja texturées
 
 < en:Soy sauce
+en:soy and sesame sauce, sesame and soy sauce
+fr:sauce au soja et au sésame, sauce au sésame et au soja
+
+< en:Soy sauce
 en:soy sauce powder
 de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver
 fi:soijakastikejauhe
@@ -58119,7 +58208,7 @@ eo:Sojfabo
 es:granos de soja, habas de soja, habas de soya
 et:Sojauba, sojaoad
 fi:Soijapapu, soijapavut
-fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja
+fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja, grains de soja
 ga:pónairí soighe
 hu:Szójabab
 id:kacang kedelai
@@ -59585,10 +59674,6 @@ fr:Volvariella volvacea, Volvaire cultivée, Volvaire asiatique
 la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 wikidata:en: Q641656
 wikipedia:en: https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
-
-< :
-< en:Strawberry
-fr:morceaux de fraise
 
 < en:Strawberry
 en:strawberry filling
@@ -68172,15 +68257,15 @@ fr:oeufs de lompe noirs
 < fr:Œufs de lompe
 fr:oeufs de lompe rouges
 
-< en:Category A egg
+< en:Category A eggs
 < fr:Œufs de poules élevées en cage
 fr:oeufs de poules elevees en cage de categorie a
 
 < fr:Œufs de poules élevées en cage
 fr:Oeufs frais datés du jour de ponte de poules élevées en cage
 
+< :
 < en:Free range chicken eggs
-< en:Organic egg
 < fr:Oeufs frais de poule élevées en plein air
 fr:oeufs frais de poules elevees en plein air issus de l'agriculture biologique
 

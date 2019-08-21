@@ -833,7 +833,7 @@ pt:Proteínas altas, fonte de proteínas
 ru:Обогащено протеинами
 
 fr:Riche en fibres, source de fibres
-es:Rico en fibra, Fuente de fibra 
+es:Rico en fibra, Fuente de fibra
 
 fr:Source de Vitamine C
 es:Fuente de Vitamina C
@@ -943,7 +943,7 @@ es:Fuente de vitamina E
 fr:Source de vitamine E
 he:מקור לוויטמין E
 nl:Bron van Vitamine E
-pt:Fonte de vitamina 
+pt:Fonte de vitamina
 ru:Источник витамина E
 
 en:Source of iron
@@ -1008,7 +1008,7 @@ ru:Неверные данные на этикетке
 <en:Incorrect data on label
 en:Incorrect nutrition facts on label, Incorrect nutrition facts, Informations nutritionnelles incorrectes
 de:Falsche Nährwertangaben auf dem Etikett
-es:Información nutricional en la etiqueta incorrecta, Información nutricional incorrecta 
+es:Información nutricional en la etiqueta incorrecta, Información nutricional incorrecta
 fr:Informations nutritionnelles incorrectes sur l'emballage, Informations nutritionnelles incorrectes
 nl:Incorrecte gegevens op het etiket
 ru:Неверные данные о составе на этикетке
@@ -1765,7 +1765,7 @@ en:Egg laid in France
 fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France
 country:en:France
 
-fr:Origine France, Origine France Garantie, 100% origine France
+fr:Origine France, Origine France Garantie, 100% origine France, les ingrédients de ce produit proviennent de France
 country:en:France
 
 fr:Farine de sarrasin français, Farine de blé noir français
@@ -1821,7 +1821,7 @@ nl:Nooit bevroren
 
 en:Unfrozen
 de:Aufgetaut
-fr:Décongelé
+fr:Décongelé, Produit décongelé, produits décongelés, Ingrédient décongelé,Ingrédients décongelés, Mise en oeuvre d'ingrédients décongelés, peut contenir des ingrédients décongelés
 
 en:Do not freeze
 de:Nicht einfrieren
@@ -1834,10 +1834,19 @@ pt:Não congele
 en:Do not freeze again
 de:Nicht wieder einfrieren
 es:No volver a congelar, No congelar de nuevo
-fr:Ne pas recongeler
+fr:Ne pas recongeler, Ne jamais recongeler un produit décongelé
 he:אין להקפיא בשנית, אין להקפיא שוב, אין להפשיר ואז להקפיא, אין להפשיר ולהקפיא
 nl:Niet opnieuw invriezen
 pt:Não congelar novamente
+
+en:Some ingredients not from Italy, Some ingredients of this product do not come from Italy
+fr:Certains ingrédients ne proviennent pas d'Italie, Certains ingrédients de ce produit ne proviennent pas d'Italie
+
+en:Some ingredients not from France, Some ingredients of this product do not come from France
+fr:Certains ingrédients ne proviennent pas de France, Certains ingrédients de ce produit ne proviennent pas de France
+
+en:Without modified starches, without modified starch
+fr:Sans amidons modifiés, sans amidon modifié, sans amidons transformés, sans amidon transformé
 
 en:Without gelatin, Gelatinfree, Gelatin-free
 de:Ohne Gelatin, Gelatinefrei, Ohne Gelatine
@@ -1847,7 +1856,7 @@ he:ללא ג׳לטין, נטול ג׳לטין
 it:Senza gelatina
 nl:Zonder gelatine, Gelatinevrij
 
-en:No additives
+en:No additives, without additives
 ca:Sense additius
 de:Ohne Zusätze
 es:Sin aditivos
@@ -1864,7 +1873,7 @@ he:ללא תוספים מלאכותיים
 nl:Zonder kunstmatige toevoegingen
 pt:Sem aditivos artificiais
 
-en:No alcohol, alcohol-free
+en:No alcohol, alcohol-free, without alcohol
 ca:Sense alcohol, Lliure d'alcohol
 de:Ohne Alkohol
 es:Sin alcohol
@@ -1933,7 +1942,7 @@ es:Sin potenciador artificial del sabor
 fr:Sans exhausteurs de goût artificiels
 nl:Zonder smaakversterkers
 
-en:No aspartame, aspartame free
+en:No aspartame, aspartame free, without aspartame
 de:ohne Aspartam, aspartamfrei
 es:Sin aspartamo, Sin aspartame
 fr:Sans aspartame
@@ -1946,14 +1955,14 @@ es:Sin bisfenol A, Sin BPA
 fr:Sans bisphénol-A, Sans BPA
 nl:Zonder bisfenol A
 
-en:No caffeine, caffeine free
+en:No caffeine, caffeine free, without caffeine
 de:Koffeinfrei
 es:Sin cafeína
 fr:Sans caféine, sans théine
 nl:Cafeinevrij, Vrij van cafeine, Zonder cafeine
 pt:Sem cafeína, livre de cafeína
 
-en:No cholesterol, cholesterol-free
+en:No cholesterol, cholesterol-free, without cholesterol
 de:cholesterinfrei, ohne Cholesteri
 es:Sin colesterol
 fr:sans cholestérol
@@ -1990,7 +1999,7 @@ en:No flavors, no added flavors
 ca:Sense aromes afegits
 de:Ohne Zusatz von Aromen, Ohne Zusatz von Aromastoffen, Ohne Aromen
 es:Sin aromas, Sin aromas añadidos
-fr:sans arômes ajoutés, sans arômes
+fr:sans arômes ajoutés, sans arômes, sans arôme
 it:Senza aromi
 nl:Zonder toegevoegde smaakstoffen
 pt:Sem sabores, sem sabores adicionados
@@ -2005,7 +2014,7 @@ pt:Sem intensificador de sabor
 
 en:No Trans Fat, 0% Trans Fat, 0 g trans fat, 0g trans fat
 de:Ohne Transfette
-es:Sin ácidos grasos trans, Sin grasas trans, Libre de grasas trans, 0g grasas trans 
+es:Sin ácidos grasos trans, Sin grasas trans, Libre de grasas trans, 0g grasas trans
 fr:Sans acides gras trans, sans graisses trans
 nl:Geen transvetten
 ru:без трансжиров
@@ -2279,7 +2288,7 @@ wikidata:en:Q380778
 # The entry below is needed to correctly parse ingredients lists that
 # have things like: * issus du commerce équitable et de l'agriculture biologique
 # the first entry needs to be "Fair-Trade Organic", "Commerce équitable Bio"
-# without "and" 
+# without "and"
 <en:Organic
 <en:Fair-trade
 en:Fair-Trade Organic, Fair-Trade and Organic
@@ -3703,10 +3712,10 @@ nl:BGO, Beschermde Geografische Oorsprong, PDO, AOP
 wikidata:en:Q13439060
 
 en:PEFC, Programme for the Endorsement of Forest Certification, Pan European Forest Certification
-de:PEFC, Programme for the Endorsement of Forest Certification, Zertifizierungssystem für nachhaltige Waldbewirtschaftung 
-es:PEFC, Programme for the Endorsement of Forest Certification, Programa para el Reconocimiento de Certificación Forestal 
+de:PEFC, Programme for the Endorsement of Forest Certification, Zertifizierungssystem für nachhaltige Waldbewirtschaftung
+es:PEFC, Programme for the Endorsement of Forest Certification, Programa para el Reconocimiento de Certificación Forestal
 fr:PEFC, Programme for the Endorsement of Forest Certification, Programme de reconnaissance des certifications forestières
-it:PEFC, Programme for the Endorsement of Forest Certification 
+it:PEFC, Programme for the Endorsement of Forest Certification
 wikidata:en:Q2112204
 
 fr:Imprim'Vert
@@ -4485,6 +4494,10 @@ it:Con solfiti
 pt:Com sulfitos, contém sulfitos
 
 <en:With sulfites
+en:With natural sulfites, Contains natural sulfites
+fr:Contient naturellement des sulfites
+
+<en:With sulfites
 en:Sulfites and SO2 > 10ppm
 de:Sulfite und SO2 > 10ppm
 fr:Sulfites et SO2 > 10ppm
@@ -4574,16 +4587,14 @@ fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition omé
 
 fr:Nouvelle Agriculture
 
-<fr:Nouvelle Agriculture
-
 en:Smoked with beech wood
-fr:Fumé au bois de hêtre
+fr:Fumé au bois de hêtre, fumage au bois de hêtre
 
 en:Smoked with oak wood
-fr:Fumé au bois de chêne
+fr:Fumé au bois de chêne, fumage au bois de chêne
 he:מעושן בעץ אלון
 
-fr:Fumage naturel
+fr:Fumage naturel, fumé naturellement
 
 fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 
@@ -5006,7 +5017,7 @@ pt:Concurso Mundial de Vinhos
 
 ro:Concursul International de Vinuri
 
-en:The International Wine & Spirit Competition 
+en:The International Wine & Spirit Competition
 
 en:Decanter World Wine Awards
 
@@ -5398,7 +5409,7 @@ de:Nutriscore-Experiment
 es:Experimentación Nutriscore
 fr:Expérimentation Nutriscore
 it:Sperimentazione Nutriscore
-nl:Nutriscore experiment 
+nl:Nutriscore experiment
 
 <en:Nutriscore experiment
 en:Nutriscore experiment Grade A
@@ -5682,4 +5693,19 @@ hu:Magyar lista
 hu:100% magyar
 
 hu:Jó magyar árú
+
+en:raised in Norway
+fr:élevé en Norvège, élevés en Norvège, élevée en Norvège, élevées en Norvège
+
+en:raised in Scotland
+fr:élevé en Ecosse, élevés en Ecosse, élevée en Ecosse, élevées en Ecosse
+
+en:raised in Ireland
+fr:élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Irlande
+
+en:Contains a source of phenylalanine
+fr:Contient une source de phénylalanine
+
+en:excessive consumption can have laxative effects
+fr:une consommation excessive peut avoir des effets laxatifs
 
