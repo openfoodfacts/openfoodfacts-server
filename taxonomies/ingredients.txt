@@ -14823,7 +14823,10 @@ fr:carpaccio de boeuf
 fr:viande hachée de bœuf, viande hachée de boeuf
 
 <en:beef meat
-fr:extrait de viande de bœuf, extrait de viande de boeuf
+en:beef meat extract
+fr:extrait de viande de bœuf, extrait de viande de boeuf, extrait de viande bovine
+vegan:en:no
+vegetarian:en:no
 
 <fr:viande hachée de bœuf
 fr:préparation viande hachée de boeuf
@@ -15943,8 +15946,6 @@ fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine, pure via
 nl:Rundvlees
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr:35.8
-
-fr:extrait de viande de bœuf, extrait de viande de boeuf
 
 # SAUSAGES
 
@@ -20474,6 +20475,66 @@ es:aroma natural de coco
 fr:arôme naturel de noix de coco
 it:aroma naturale di cocco
 nl:natuurlijk kokosnoot-aroma
+
+<en:natural flavouring
+en:natural herbs flavouring
+fr:arôme naturel d'herbes
+
+<en:natural flavouring
+en:natural goat cheese flavouring
+fr:arôme naturel de fromage de chèvre
+vegan:en:no
+vegetarian:en:maybe
+
+<en:natural flavouring
+en:natural eucalyptus flavouring
+fr:arôme naturel d'eucalyptus
+
+<en:natural flavouring
+en:natural fish flavouring
+fr:arôme naturel de poisson
+vegan:en:no
+vegetarian:en:no
+
+<en:natural flavouring
+en:natural sage flavouring
+fr:arôme naturel de sauge
+
+<en:natural flavouring
+en:natural nut flavouring
+fr:arôme naturel de noix
+
+<en:natural flavouring
+en:natural milk flavouring
+fr:arôme naturel de lait
+vegan:en:no
+vegetarian:en:yes
+
+<en:natural flavouring
+en:natural salmon flavouring
+fr:arôme naturel de saumon
+vegan:en:no
+vegetarian:en:no
+
+<en:natural flavouring
+en:natural jasmine flavouring
+fr:arôme naturel de jasmin
+
+<en:natural flavouring
+en:natural fig flavouring
+fr:arôme naturel de figue
+
+<en:natural flavouring
+en:natural cheddar flavouring
+fr:arôme naturel de cheddar
+vegan:en:no
+vegetarian:en:maybe
+
+<en:natural flavouring
+en:natural cheese flavouring
+fr:arôme naturel de fromage
+vegan:en:no
+vegetarian:en:maybe
 
 
 # description:en:Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
@@ -65096,4 +65157,35 @@ en:Vegetal margarine
 fr:margarine végétale
 vegan:en:yes
 vegetarian:en:yes
+
+en:oregano extract
+fr:extrait d'origan
+vegan:en:yes
+vegetarian:en:yes
+
+en:laurel extract
+fr:extrait de laurier
+vegan:en:yes
+vegetarian:en:yes
+
+en:ginger extract
+fr:extrait de gingembre
+vegan:en:yes
+vegetarian:en:yes
+
+en:poultry extract
+fr:extrait de volaille
+vegan:en:no
+vegetarian:en:no
+
+en:grapefruit syrup
+fr:sirop de pamplemousse
+vegan:en:yes
+vegetarian:en:yes
+
+en:peach syrup
+fr:sirop de pêche
+vegan:en:yes
+vegetarian:en:yes
+
 

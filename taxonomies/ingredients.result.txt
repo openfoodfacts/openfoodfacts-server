@@ -1914,6 +1914,12 @@ carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr: 35.8
 
 < en:Beef meat
+en:beef meat extract
+fr:extrait de viande de bœuf, extrait de viande bovine
+vegan:en: no
+vegetarian:en: no
+
+< en:Beef meat
 en:cooked beef meat, cooked beef
 de:gekochtes Rindfleisch
 fr:viande de bœuf cuite, viande bovine cuite, bœuf cuit
@@ -1925,9 +1931,6 @@ fr:carpaccio de boeuf
 
 < en:Beef meat
 fr:cœur de bœuf
-
-< en:Beef meat
-fr:extrait de viande de bœuf
 
 < en:Beef meat
 fr:viande-bovine-de-race-charolaise
@@ -9045,6 +9048,10 @@ wikidata:en: Q2017562
 wikipedia:en: https://en.wikipedia.org/wiki/Cilus_gilberti
 
 < en:Courgette
+en:dried courgette
+fr:courgettes séchées
+
+< en:Courgette
 en:grilled courgette
 de:grillierte Zucchetti, gegrillte Zucchini, Zucchini geröstet
 es:calabacín asado
@@ -9053,8 +9060,7 @@ it:zucchine grigliate
 nl:gegrilde courgette
 
 < en:Courgette
-fr:courgettes en rondelles, courgettes séchées
-en:dried courgette
+fr:courgettes en rondelles
 
 < en:Cow's milk
 en:pasteurised cow's milk
@@ -38273,6 +38279,11 @@ sv:ingefärspuré
 en:organic ginger
 fr:gingembre bio
 
+en:ginger extract
+fr:extrait de gingembre
+vegan:en: yes
+vegetarian:en: yes
+
 en:glaze
 bn:গ্লেজ
 cs:glazování
@@ -38866,6 +38877,11 @@ it:succo di pompelmo a base di concentrato
 < en:Grapefruit natural flavouring
 en:pink grapefruit natural flavouring
 fr:arôme naturel de pamplemousse rose
+
+en:grapefruit syrup
+fr:sirop de pamplemousse
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Emmental from France
 < en:Grated emmental cheese
@@ -41956,6 +41972,11 @@ fr:lardons cuits
 < en:Lardon
 en:smoked lardoons
 fr:lardon fumé, lardons fumés
+
+en:laurel extract
+fr:extrait de laurier
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Honey from France
 < en:Lavander honey
@@ -47521,6 +47542,18 @@ en:natural carrot flavouring
 fr:arôme naturel de carotte
 
 < en:Natural flavouring
+en:natural cheddar flavouring
+fr:arôme naturel de cheddar
+vegan:en: no
+vegetarian:en: maybe
+
+< en:Natural flavouring
+en:natural cheese flavouring
+fr:arôme naturel de fromage
+vegan:en: no
+vegetarian:en: maybe
+
+< en:Natural flavouring
 en:natural cherry flavouring
 fr:arôme naturel de cerise
 
@@ -47550,6 +47583,20 @@ en:natural estragon flavouring
 fr:arôme naturel d'estragon
 
 < en:Natural flavouring
+en:natural eucalyptus flavouring
+fr:arôme naturel d'eucalyptus
+
+< en:Natural flavouring
+en:natural fig flavouring
+fr:arôme naturel de figue
+
+< en:Natural flavouring
+en:natural fish flavouring
+fr:arôme naturel de poisson
+vegan:en: no
+vegetarian:en: no
+
+< en:Natural flavouring
 en:natural flavor of turmeric
 fr:arôme naturel de curcuma
 
@@ -47568,8 +47615,22 @@ en:natural ginger flavouring
 fr:arôme naturel de gingembre
 
 < en:Natural flavouring
+en:natural goat cheese flavouring
+fr:arôme naturel de fromage de chèvre
+vegan:en: no
+vegetarian:en: maybe
+
+< en:Natural flavouring
+en:natural herbs flavouring
+fr:arôme naturel d'herbes
+
+< en:Natural flavouring
 en:natural hot pepper flavouring
 fr:arôme naturel de piment
+
+< en:Natural flavouring
+en:natural jasmine flavouring
+fr:arôme naturel de jasmin
 
 < en:Natural flavouring
 en:natural laurel flavouring
@@ -47600,6 +47661,16 @@ fr:arôme naturel de mandarine
 < en:Natural flavouring
 en:natural mango flavouring
 fr:arôme naturel de mangue
+
+< en:Natural flavouring
+en:natural milk flavouring
+fr:arôme naturel de lait
+vegan:en: no
+vegetarian:en: yes
+
+< en:Natural flavouring
+en:natural nut flavouring
+fr:arôme naturel de noix
 
 < en:Natural flavouring
 en:natural onion flavouring
@@ -47657,6 +47728,16 @@ fr:arôme naturel de framboise
 < en:Natural flavouring
 en:natural rum flavouring
 fr:arôme naturel de rhum
+
+< en:Natural flavouring
+en:natural sage flavouring
+fr:arôme naturel de sauge
+
+< en:Natural flavouring
+en:natural salmon flavouring
+fr:arôme naturel de saumon
+vegan:en: no
+vegetarian:en: no
 
 < en:Natural flavouring
 en:natural shallot flavouring
@@ -49054,6 +49135,11 @@ fr:origan déshydraté
 < en:Oregano
 fr:origan en poudre
 
+en:oregano extract
+fr:extrait d'origan
+vegan:en: yes
+vegetarian:en: yes
+
 < en:Organic cane sugar
 < en:Unrefined cane sugar
 en:organic unrefined cane sugar
@@ -49754,6 +49840,11 @@ nl:Perzikkenpuree
 
 < en:Peach juice
 fr:jus de pêche à base de concentré
+
+en:peach syrup
+fr:sirop de pêche
+vegan:en: yes
+vegetarian:en: yes
 
 en:peanut, peanuts
 ar:فول سوداني
@@ -51936,6 +52027,11 @@ fr:bouillon de volaille deshydraté
 
 < en:Poultry broth
 fr:fond de volaille aromatisé
+
+en:poultry extract
+fr:extrait de volaille
+vegan:en: no
+vegetarian:en: no
 
 < en:Poultry fat
 en:chicken fat
