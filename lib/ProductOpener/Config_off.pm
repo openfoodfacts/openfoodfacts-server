@@ -424,7 +424,6 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:spices
 	en:sugar-substitutes
 	en:vinegars
-	en:teas
 	en:pet-food
 	en:non-food-products
 
