@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-22 15:17\n"
+"PO-Revision-Date: 2019-08-22 15:27\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -965,19 +965,19 @@ msgstr "Viljatuotteita 85.5% (vehnäjauho, täysjyvävehnäjauho 11%), mallasuut
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "Säilytä järjestys. Ilmaise prosenttiosuus, jos ilmoitettu. Erottele pilkulla tai väliviivalla. Käytä sulkuja () ainesosan ainesosille. Laita allergeenit kahden alaviivan väliin esim. _maito_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "ainesosat, jotka voivat olla peräisin palmuöljystä"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "ainesosa, joka saattaa olla peräisin palmuöljystä"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "Tuotteet, jotka eivät sisällä ainesosaa %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
@@ -989,11 +989,11 @@ msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "tunnetut ravinteet"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "tunnettu ravinne"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
@@ -1005,27 +1005,27 @@ msgstr "Orgaaninen"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "Ilmoita vain kaikkein spesifisimmät merkit. Merkkien \"vanhemmat\" lisätään automaattisesti."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "merkit"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "Tuotteet, joilla on merkki %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "merkki"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "lisää merkki"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "Tuotteet, joilla ei ole merkkiä %s"
 
 msgctxt "lang"
 msgid "Main language"
@@ -1133,7 +1133,7 @@ msgstr "Portugali"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "Portugalin portugali"
 
 msgctxt "lang_ro"
 msgid "Romanian"
@@ -1173,7 +1173,7 @@ msgstr "muu kieli"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "Kaikkein näkyvin kieli tuotteessa"
 
 msgctxt "language"
 msgid "en-US"
@@ -1189,11 +1189,11 @@ msgstr "kieli"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "Viimeisimmät muokkauspäivämäärät"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "Viimeisin muokkauspäivä"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
@@ -1846,11 +1846,11 @@ msgstr ""
 
 msgctxt "product_js_image_received"
 msgid "Image received"
-msgstr ""
+msgstr "Kuva vastaanotettu"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr ""
+msgstr "Kierrä kuvaa, jos tarpeen ja sitten klikkaa ja raahaa valitaksesi kiintoisan tiedon sisältävä alueen:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
@@ -1862,7 +1862,7 @@ msgstr "Kierrä oikealle"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "Validoi ja/tai skaalaa kuvaa"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -1874,15 +1874,15 @@ msgstr "Tallennetaan kuvaa"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr ""
+msgstr "Virhe ladattaessa kuvaa"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "Kuva on otettu valkoista taustaa vasten: yritä erottaa tausta"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr ""
+msgstr "Virheitä poistettaessa kuvia"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
@@ -1890,15 +1890,15 @@ msgstr "Kuvat poistettu"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "Virheitä siirrettäessä kuvia"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Kuvat siirretty"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Siirretään kuvia"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
