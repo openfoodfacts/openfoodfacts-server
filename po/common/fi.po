@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-22 15:57\n"
+"PO-Revision-Date: 2019-08-22 16:12\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2624,75 +2624,75 @@ msgstr "Varoitus: hedelmien, vihannesten ja pähkinöiden määrää ei ole mä�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Varoitus: hedelmien, vihannesten ja pähkinöiden määrää ei ole ilmoitettu etiketissä, vaan se arvioitiin ainesosaluettelosta: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "Varoitus: hedelmien, vihannesten ja pähkinöiden määrää ei ole ilmoitettu etiketissä, vaan se arvioitiin kategoriasta (%s) johon tuote %d% kuuluu"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr ""
+msgstr "NutriScore-ravintoarvosana väreissä"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr ""
+msgstr "Kuinka ravintoarvosana lasketaan"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr ""
+msgstr "NutriScore-ravintoarvosana"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "Poista tuotesivu"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Poistetaan tuotetta"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "tuote on poistettu"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr ""
+msgstr "Oletko varma, että haluat poistaa tämän tuotteen tuotesivun?"
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr ""
+msgstr "Poista käyttäjä"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr ""
+msgstr "Osa tiedoista ja / tai kuvista tulee OpenFood.ch-tietokannasta (tarkka luettelo on saatavana tuotteen muokkaushistoriassa). Nämä elementit on lisensoitu <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International -lisenssin alaisuuteen</a>."
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
-msgstr ""
+msgstr "Tuotesivu sivustolla openfood.ch"
 
 msgctxt "sources_usda_ndb"
 msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr ""
+msgstr "Osa tiedoista tulee USDA n kansallisesta ravintotietokannasta brändättyjä tuotteita varten (tarkka luettelo on saatavana tuotteen muokkaushistoriassa)."
 
 msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
-msgstr ""
+msgstr "Tuotesivu USDA:n NDB:ssä"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr ""
+msgstr "Jotkut tiedoista ja kuvista on toimittanut suoraan valmistaja Fleury Michon."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr ""
+msgstr "Jotkut tämän tuotteen tiedoista on toimittanut suoraan valmistaja %s"
 
 msgctxt "sources_collaboration"
 msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr ""
+msgstr "Osa tämän tuotteen tiedoista on kerätty yhteistyössä %s:n kanssa"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "Tämä tuotesivu ei ole valmis. Voit auttaa sen täydentämisessä muokkaamalla sitä ja lisäämällä lisätietoja valokuvistamme tai ottamalla lisää valokuvia <a href=\"https://android.openfoodfacts.org\">Android</a> tai <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a> sovelluksella. Kiitos!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2700,19 +2700,19 @@ msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "Viimeaikaiset muutokset"
 
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr ""
+msgstr "Kääntäjämme"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr ""
+msgstr "Suuri kiitos mahtaville kääntäjillemme, jotka mahdollistavat meidän tuottaa Open Food Facts, Open Beauty Facts, and Open Pet Food Facts palvelut kaikilla näillä eri kielillä! <a href=\"https://translate.openfoodfacts.org/\">Voit liittyä meihin tässä maailmanlaajuisessa hankkeessa: se ei vaadi teknillistä tietämystä.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
-msgstr ""
+msgstr "Ystävällisesti huomioikaa, että taulukko päivitetään öisin ja tämän takia saattaa olla, ettei se ole ajan tassalla."
 
 msgctxt "translators_column_name"
 msgid "Name"
@@ -2720,43 +2720,43 @@ msgstr "Nimi"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
-msgstr ""
+msgstr "Käännetty (sanoja)"
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
-msgstr ""
+msgstr "Kohdesanat"
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
-msgstr ""
+msgstr "Hyväksytyt (sanat)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
+msgstr "Ääniä annettu"
 
 msgctxt "minerals_p"
 msgid "added minerals"
-msgstr ""
+msgstr "lisätty kivennäisaineita"
 
 msgctxt "minerals_s"
 msgid "added mineral"
-msgstr ""
+msgstr "lisätty kivennäisaine"
 
 msgctxt "vitamins_p"
 msgid "added vitamins"
-msgstr ""
+msgstr "lisättyjä vitamiineja"
 
 msgctxt "vitamins_s"
 msgid "added vitamin"
-msgstr ""
+msgstr "lisätty vitamiinia"
 
 msgctxt "amino_acids_p"
 msgid "added amino acids"
-msgstr ""
+msgstr "lisättyjä aminohappoja"
 
 msgctxt "amino_acids_s"
 msgid "added amino acid"
-msgstr ""
+msgstr "lisätty aminohappoa"
 
 msgctxt "nucleotides_p"
 msgid "added nucleotides"
