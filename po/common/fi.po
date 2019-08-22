@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-22 15:47\n"
+"PO-Revision-Date: 2019-08-22 15:57\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2154,23 +2154,23 @@ msgstr "Valitse mitä haluat kaavioon vaaka-akselille saadaksesi histogrammin, t
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Pysyvä linkki tähän kaavioon, jota voit jakaa sähköpostilla tai sosiaalisissa verkostoissa"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "Kaavio näyttää vain ne tuotteet, joiden kohdalla näytettävä arvo on tiedossa."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Näytä tulokset kaaviona"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "Huom: Tämä on käyttäjän generoimaa kaavio. Otsikon, esitetyt tuotteet ja visualisaation akselin on valinnut kaavion luoja."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Ei väliä"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2178,7 +2178,7 @@ msgstr "Ainekset"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Pysyvä linkki näihin tuloksiin. Linkkiä voit jakaa sähköpostilla ja sosiaalisissa verkostoissa"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
@@ -2194,11 +2194,11 @@ msgstr "Tulokset kartalla"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Pysyvä linkki tähän karttaan. Voit jakaa linkkiä sähköpostilla ja sosiaalisissa verkostoissa"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "Kartta näyttää vain tuotteet, joiden tuotantopaikka on tiedossa."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
@@ -2206,7 +2206,7 @@ msgstr "Näytä tulokset kartalla"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr ""
+msgstr "valitse ravintoaine..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
@@ -2222,11 +2222,11 @@ msgstr "Tuloksia sivulla"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Tuotehaku"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Hakutulokset"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
@@ -2566,7 +2566,7 @@ msgstr ""
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr ""
+msgstr "Katso lista täsmäävistä tuotteista koko maailmasta"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
@@ -2579,7 +2579,8 @@ msgstr "Näytä tulokset koko maailmasta"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"\">Why it matters</a>"
-msgstr ""
+msgstr "Tietojen ja datojen täytyy olla tuotteen pakkauksesta ja etiketistä (ja siis ei muilta sivustoilta tai valmistajan sivustolta), ja valokuvien täytyy olla sinun itsesi ottamia.<br/>\n"
+"→ <a href=\"\">Miksi tällä on väliä</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2595,31 +2596,31 @@ msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "Olet kirjautuneena nimellä %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "Poista kuvan valinta"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "Kuvan valintaa poistetaan."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "Kuvan valinta poistettiin."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "Virhe poistettaessa kuvan valintaa."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Varoitus: kuidun määrää ei ole määritelty, joten kuitujen mahdollista positiivista vaikutusta arvosanaan ei voitu ottaa huomioon."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Varoitus: hedelmien, vihannesten ja pähkinöiden määrää ei ole määritelty, joten niiden mahdollista positiivista vaikutusta arvosanaan ei voitu ottaa huomioon."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
