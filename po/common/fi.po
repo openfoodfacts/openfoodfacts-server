@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-22 14:37\n"
+"PO-Revision-Date: 2019-08-22 15:17\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -192,7 +192,7 @@ msgstr "Voit myös auttaa rahoittamaan Open Food Facts -hanketta"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Lahjoita Open Food Facts:ille\" /></a><p><<site_name>>:ä ylläpitää voittoa tavoittelematon yhdistys, jolla ei ole sidonnaisuuksia alan teollisuuteen. Sivusto on tehty kaikille, kaikkien toimesta ka kaikkien teidän rahoittamana. Voit tukea työtämme <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">lahjoittamalla Open Food Facts:ille</a> ja myöskin <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">käyttämällä Lilo-hakukonetta</a>.<br/><b>Kiitos!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -505,7 +505,7 @@ msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "Euroopassa koodi ellipsin sisällä, jossa kaksikirjaiminen maakoodi jota seuraa numero ja CE."
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
@@ -807,7 +807,7 @@ msgstr "Graafin otsikko"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
-msgstr ""
+msgstr "Kaaviot ja kartat"
 
 msgctxt "hello"
 msgid "Hello"
@@ -865,15 +865,15 @@ msgstr "Syötä viivakoodin merkit tai lähetä tuotekuva, jossa viivakoodi on n
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Täysikokoinen"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "Tämä tiedosto ladattiin tuotteeseen %s ja on lisensoitu %s lisenssin alaisuuteen."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Attribuutio: Kuvan lisäsi %s kohdetta %s varten"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
@@ -881,23 +881,23 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Alkuperäinen kuva)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Valokuvan tiedot ja attribuutiotiedot"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr ""
+msgstr "Tuotteita, jotka olet lisännyt, jotka kaipaavat täydentämistä"
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr ""
+msgstr "tiedonantajat"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr ""
+msgstr "tiedonantajat"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -909,19 +909,19 @@ msgstr "Ainekset"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "Ainesosien analyysi"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "Huom: Ainesosat voidaan luetella monilla eri nimillä. Ole ystävällinen ja kerro meille, jos arvelet, että ylläoleva analyysi ei pidä paikkaansa."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr ""
+msgstr "ainesosat, jotka voivat olla palmuöljyä tai peräisin palmuöljystä"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "ainesosa, joka saattaa olla palmuöljyä tai peräisin palmuöljystä"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
@@ -945,11 +945,11 @@ msgstr "ainekset"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "Tuotteet, jotka saattavat sisältää ainesosaa %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "ainesosa"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -961,7 +961,7 @@ msgstr "Ainesosat on lueteltu tärkeysjärjestyksessä (määrä)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "Viljatuotteita 85.5% (vehnäjauho, täysjyvävehnäjauho 11%), mallasuute, kaakao 4,8%, askorbiinihappo"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
