@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-22 14:19\n"
+"PO-Revision-Date: 2019-08-22 14:37\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1438,11 +1438,11 @@ msgstr "Useampia ravintotietoja määritetään tuotteessa (esim. lisätty vett�
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "Syötä ravintotiedot vain valmistamattomalle tuotteelle, ilman lisättyä vettä tai maitoa. Jos tuotteita on eirilaisia, lisää ravintotiedot ensimmäiselle listatulle tuotteelle."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "Viivakoodilla %s ei löydy tuotetta."
 
 msgctxt "no_products"
 msgid "No products."
@@ -1454,7 +1454,7 @@ msgstr "Virhe tallennettaessa, yritä uudelleen."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "Lisäaineiden lukumäärä"
 
 msgctxt "number_of_products"
 msgid "Number of products"
@@ -1462,7 +1462,7 @@ msgstr "Tuotteiden määrä"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s %s:ssä"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -1475,11 +1475,11 @@ msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "ravinnetasot"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "ravinnetaso"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
@@ -1487,15 +1487,15 @@ msgstr "ravinteet"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Tuotteet, jotka sisältävät ravinnetta %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "ravinne"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Tuotteet, jotka eivät sisällä ravinnetta %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1507,31 +1507,31 @@ msgstr "Ravintosisältö"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Ravinnetietojen keskiarvo %d tuotteelle %s-kategoriassa, joista ravinnetiedot ovat tiedossa (yht. %d tuotteesta)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "% ero"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "arvo 100 g / 100 ml kohden"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Vertailu saman kategorian tuotteiden keskiarvon kanssa:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Huom: jokaista ravinnetta kohden keskiarvo lasketaan niistä tuotteista, joiden ravinteiden määrä on tiedossa, ei kaikista kategorian tuotteista."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Jos kuva on riittävän tarkka ja taisainen, ravintofaktat voidaan kerätä automaattisesti kuvasta."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10. prosenttipiste"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
@@ -1539,19 +1539,19 @@ msgstr "100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5. prosenttipiste"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Mediaani"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "90. prosenttipiste"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95. prosenttipiste"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1559,7 +1559,7 @@ msgstr "Enintään"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Keskiarvo"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
@@ -1580,7 +1580,8 @@ msgstr "Ravintosisältö"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "Oletusarvoisesti taulukko listaa ravinteet, jotka löytyvät pakkauksista useimmiten. Jätä kenttä tyhjäksi, jos sitä ei ole etiketissä.<br/>Voit lisätä ylimääräisiä ravinteita (vitamiineja, kivennäisaineita, kolesterolia jne.)\n"
+"kirjoittamalla ravinteen nimestä muutaman kirjaimen taulukon viimeiselle riville."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1588,11 +1589,11 @@ msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Ravintoarvosanat"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Ravintoarvosana"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
@@ -1603,7 +1604,8 @@ msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.pn
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>Oppiaksesi lisää <<site_name>>stä, käy <a href=\"https://en.blog.openfoodfacts.org\">blogissamme</a>!</p>\n"
+"<p>Viimeaikaisia uutisia:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
