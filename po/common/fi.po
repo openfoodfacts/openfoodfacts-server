@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-22 13:43\n"
+"PO-Revision-Date: 2019-08-22 13:52\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -428,7 +428,7 @@ msgstr "Ekologinen jalanjälki"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "Jos hiilijalanjälki löytyy etiketistä (harvinaista vielä nyt), ilmoita se samaa määrää kohden kuin tuotteen koostumus on ilmaistu."
 
 msgctxt "edit"
 msgid "edit"
@@ -468,7 +468,7 @@ msgstr "Tilin parametrit"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Tilisi parametreja on muutettu.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -488,7 +488,7 @@ msgstr "EMB-koodit"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr ""
+msgstr "Tuotteet, jotka on paketoinut yritys, jolla on EMB-koodi %s"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
@@ -509,7 +509,7 @@ msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "paketoijan koodit"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
@@ -517,19 +517,19 @@ msgstr "Tuotteet, joissa on EMB-koodi %s"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "paketoijan koodi"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr ""
+msgstr "Tuotteet, joille ei ole EMB-koodia %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "Syöttöpäivät"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Syöttöpäivä"
 
 msgctxt "error"
 msgid "Error"
@@ -537,11 +537,11 @@ msgstr "Virhe"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Virheellinen käyttäjänimi tai salasana. <a href=\"/cgi/reset_password.pl\">Unohditko salasanan?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr ""
+msgstr "Virhetilanne ilmeni tietoja luettaessa, kokeile päivittää sivu."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
@@ -549,7 +549,7 @@ msgstr "Salasana ja vahvistussalasana eivät täsmää."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Sähköpostiosoite on jo käytössä. Ehkä sinulla on jo tili? Voit  <a href=\"/cgi/reset_password.pl\">resetoida tilisi salasanan</a>."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -569,15 +569,15 @@ msgstr "Virheellinen käyttäjä."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Käyttäjätunnuksessa on oltava vain aksenttimerkittömiä kirjaimia, numeroita ja väliviivoja."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Tällä koodilla löytyy jo tuote"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Syötä nimi tai lempinimi."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
@@ -585,7 +585,7 @@ msgstr "Käyttö estetty."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Syötä käyttäjänimi"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
@@ -593,7 +593,7 @@ msgstr "Olet jo kirjautunut sisään."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Salasanan resetointilinkki on epäkelpo tai se on jo vanhentunut."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
@@ -605,7 +605,7 @@ msgstr "Tätä käyttäjänimeä ei ole olemassa."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Tämä käyttäjätunnus on jo käytössä. Ole ystävällinen ja valitse jokin toinen."
 
 msgctxt "example"
 msgid "Example:"
