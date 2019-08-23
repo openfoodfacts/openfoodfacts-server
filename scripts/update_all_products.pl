@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 my $usage = <<TXT
@@ -34,6 +34,9 @@ update_all_products.pl --key some_string_value --fields categories,labels --inde
 The key is used to keep track of which products have been updated. If there are many products and field to updates,
 it is likely that the MongoDB cursor of products to be updated will expire, and the script will have to be re-run.
 
+--count		do not do any processing, just count the number of products matching the --query options
+--just-print-codes	do not do any processing, just print the barcodes
+--query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
 --compute-nutrition-score	nutriscore
@@ -48,8 +51,6 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --pretend	do not actually update products
 TXT
 ;
-
-use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -80,6 +81,8 @@ use Getopt::Long;
 my @fields_to_update = ();
 my $key;
 my $index = '';
+my $count = '';
+my $just_print_codes = '',
 my $pretend = '';
 my $process_ingredients = '';
 my $clean_ingredients = '';
@@ -93,12 +96,15 @@ my $compute_carbon = '';
 my $compute_history = '';
 my $comment = '';
 my $fix_serving_size_mg_to_ml = '';
+my $fix_missing_lc = '';
 my $run_ocr = '';
 my $autorotate = '';
 my $query_ref = {};	# filters for mongodb query
 
 GetOptions ("key=s"   => \$key,      # string
 			"query=s%" => $query_ref,
+			"count" => \$count,
+			"just-print-codes" => \$just_print_codes,
 			"fields=s" => \@fields_to_update,
 			"index" => \$index,
 			"pretend" => \$pretend,
@@ -113,6 +119,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"compute-carbon" => \$compute_carbon,
 			"check-quality" => \$check_quality,
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
+			"fix-missing-lc" => \$fix_missing_lc,
 			"user_id=s" => \$User_id,
 			"comment=s" => \$comment,
 			"run-ocr" => \$run_ocr,
@@ -153,17 +160,27 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $compute_serving_size)
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
-	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0)) {
-	die("Missing fields to update:\n$usage");
+	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml)
+	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
+	die("Missing fields to update or --count option:\n$usage");
 }
 
 # Make sure we have a user id and we will use a new .sto file for all edits that change values entered by users
-if ((not defined $User_id) and (($fix_serving_size_mg_to_ml))) {
+if ((not defined $User_id) and (($fix_serving_size_mg_to_ml) or ($fix_missing_lc))) {
 	die("Missing --user-id. We must have a user id and we will use a new .sto file for all edits that change values entered by users.\n");
 }
 
 # Get a list of all products not yet updated
 # Use query filtes entered using --query categories_tags=en:plant-milks
+
+use boolean;
+
+foreach my $field (sort keys %$query_ref) {
+	if ($query_ref->{$field} eq 'null') {
+		# $query_ref->{$field} = { '$exists' => false };
+		$query_ref->{$field} = undef;
+	}
+}
 
 if (defined $key) {
 	$query_ref->{update_key} = { '$ne' => "$key" };
@@ -176,19 +193,23 @@ else {
 #$query_ref->{categories_tags} = "en:plant-milks";
 #$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
 
-use boolean;
+
 # $query_ref->{unknown_nutrients_tags} = { '$exists' => true,  '$ne' => [] };
 
 print "Update key: $key\n\n";
 
-my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });;
+my $cursor = get_products_collection()->find($query_ref, { projection => { code => 1, id => 1, _id => 1 }});;
 $cursor->immortal(1);
-my $count = $cursor->count();
+my $cursor_count = $cursor->count();
 
 my $n = 0;	# number of products updated
 my $m = 0;	# number of products with a new version created
 
-print STDERR "$count products to update\n";
+print STDERR "$cursor_count products to update\n";
+
+# Stop without doing any processing if the --count option is specified
+
+exit if $count;
 
 while (my $product_ref = $cursor->next) {
 
@@ -197,7 +218,14 @@ while (my $product_ref = $cursor->next) {
 
 	#next if $code ne "8480013072645";
 
-	print STDERR "updating product $code\n";
+	if (not defined $code) {
+		print STDERR "code field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id} . "\n";
+	}
+	else {
+		print STDERR "updating product $code\n";
+	}
+
+	next if $just_print_codes;
 
 	$product_ref = retrieve_product($code);
 
@@ -213,6 +241,22 @@ while (my $product_ref = $cursor->next) {
 			if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} =~ /\d\s?mg\b/i)) {
 				$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
 				ProductOpener::Food::compute_serving_size_data($product_ref);
+				$product_values_changed = 1;
+			}
+		}
+
+		# Fix products that were created without the lc field, but that have a lang field
+		if ($fix_missing_lc) {
+			print STDERR "lang: " . $product_ref->{lang} . "\n";
+			if ((not defined $product_ref->{lc}) and (defined $product_ref->{lang}) and ($product_ref->{lang} =~ /^[a-z][a-z]$/)) {
+				print STDERR "fixing missing lc, using lang: " . $product_ref->{lang} . "\n";
+				$product_ref->{lc} = $product_ref->{lang};
+				$product_values_changed = 1;
+			}
+			elsif (not defined $product_ref->{lc}) {
+				print STDERR "fixing missing lc, lang also missing, assignin en";
+				$product_ref->{lc} = "en";
+				$product_ref->{lang} = "en";
 				$product_values_changed = 1;
 			}
 		}
