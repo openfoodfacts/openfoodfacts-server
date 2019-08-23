@@ -27,7 +27,7 @@
 # see http://apache.perl.org/docs/1.0/guide/performance.html#Code_Profiling_Techniques
 #
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 
 use Carp ();
 

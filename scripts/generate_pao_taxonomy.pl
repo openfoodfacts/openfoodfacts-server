@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 
 open (my $IN, q{<}, "periods_after_opening_logo.svg") or die ;
 my $svg = join ("",(<$IN>));

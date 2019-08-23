@@ -41,7 +41,7 @@ requires 'Email::Valid', '>= 1.202, < 2.0';
 requires 'CLDR::Number::Format::Decimal';
 requires 'CLDR::Number::Format::Percent';
 requires 'CLDR::Number';
-requires 'Modern::Perl', '>= 1.20150127';
+requires 'Modern::Perl', '>= 1.20190727';
 requires 'Data::Dumper::AutoEncode';
 requires 'XML::Rules';
 requires 'Email::Stuffer';

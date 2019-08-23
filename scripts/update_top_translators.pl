@@ -21,7 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 use ProductOpener::Config qw/:all/;
