@@ -14823,7 +14823,10 @@ fr:carpaccio de boeuf
 fr:viande hachée de bœuf, viande hachée de boeuf
 
 <en:beef meat
-fr:extrait de viande de bœuf, extrait de viande de boeuf
+en:beef meat extract
+fr:extrait de viande de bœuf, extrait de viande de boeuf, extrait de viande bovine
+vegan:en:no
+vegetarian:en:no
 
 <fr:viande hachée de bœuf
 fr:préparation viande hachée de boeuf
@@ -15943,8 +15946,6 @@ fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine, pure via
 nl:Rundvlees
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr:35.8
-
-fr:extrait de viande de bœuf, extrait de viande de boeuf
 
 # SAUSAGES
 
@@ -20474,6 +20475,66 @@ es:aroma natural de coco
 fr:arôme naturel de noix de coco
 it:aroma naturale di cocco
 nl:natuurlijk kokosnoot-aroma
+
+<en:natural flavouring
+en:natural herbs flavouring
+fr:arôme naturel d'herbes
+
+<en:natural flavouring
+en:natural goat cheese flavouring
+fr:arôme naturel de fromage de chèvre
+vegan:en:no
+vegetarian:en:maybe
+
+<en:natural flavouring
+en:natural eucalyptus flavouring
+fr:arôme naturel d'eucalyptus
+
+<en:natural flavouring
+en:natural fish flavouring
+fr:arôme naturel de poisson
+vegan:en:no
+vegetarian:en:no
+
+<en:natural flavouring
+en:natural sage flavouring
+fr:arôme naturel de sauge
+
+<en:natural flavouring
+en:natural nut flavouring
+fr:arôme naturel de noix
+
+<en:natural flavouring
+en:natural milk flavouring
+fr:arôme naturel de lait
+vegan:en:no
+vegetarian:en:yes
+
+<en:natural flavouring
+en:natural salmon flavouring
+fr:arôme naturel de saumon
+vegan:en:no
+vegetarian:en:no
+
+<en:natural flavouring
+en:natural jasmine flavouring
+fr:arôme naturel de jasmin
+
+<en:natural flavouring
+en:natural fig flavouring
+fr:arôme naturel de figue
+
+<en:natural flavouring
+en:natural cheddar flavouring
+fr:arôme naturel de cheddar
+vegan:en:no
+vegetarian:en:maybe
+
+<en:natural flavouring
+en:natural cheese flavouring
+fr:arôme naturel de fromage
+vegan:en:no
+vegetarian:en:maybe
 
 
 # description:en:Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
@@ -27586,7 +27647,7 @@ eo:Sojfabo
 es:granos de soja, habas de soja, habas de soya
 et:Sojauba, sojaoad
 fi:Soijapapu, soijapavut
-fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja
+fr:fève de soja,fèves de soja, soja entier, graine de soja, graines de soja, graines soja, grains de soja
 ga:pónairí soighe
 hu:Szójabab
 id:kacang kedelai
@@ -41700,6 +41761,7 @@ nl:gegrilde courgette
 
 <en:Courgette
 fr:courgettes en rondelles
+
 <en:Courgette
 en:dried courgette
 fr:courgettes séchées
@@ -51647,8 +51709,8 @@ wikidata:en:Q1142857
 
 # The SHIITAKE (Lentinula edodes) is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries.
 
-<en:mushroom, Lentinula edodes, Lentinus edodes
-en:shiitake
+<en:mushroom
+en:shiitake, lentinula edodes, lentinus edodes
 de:shiitake, schwarzer Pilz
 es:setas negro
 fr:shiitake, champignon noir, champignons noirs, shiitakes, , Lentin du chêne, Lentin comestible, Champignon parfumé
@@ -59697,10 +59759,6 @@ it:Filetto di pollo
 nl:kipfilet
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
 
-# <en:compound
-<en:chicken fillet
-fr:émincé de filet de poulet traité en salaison cuit rôti
-
 <en:chicken fillet
 en:superior chicken fillet
 fr:filet de poulet de qualité supérieure
@@ -60171,37 +60229,24 @@ vegan:en:no
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
 carbon_footprint_fr_foodges_value:fr:2.6
 
-<en:egg
+<en:eggs
+en:large eggs
 fr:gros oeufs
 # 3@2019-05-31
 
-<en:egg
-fr:œufs frais, oeufs frais, oeuf frais, œuf frais, 6 oeufs frais, 18 oeufs frais, 10 oeufs frais
-de:Frischei
-nl:verse eieren
-
-<en:egg
-en:organic egg, organic eggs
-fr:oeufs biologiques, oeuf bio, 0 oeufs biologiques, oeufs bio
-nl:biologische eieren
-# ingredient/fr:oeufs-biologiques has 8 products in french @2019-05-31
-
-<en:organic egg
-fr:oeufs frais biologiques, oeufs frais issus de l'agriculture biologique
-de:Bio-Frischei
-
-<en:egg
+<en:eggs
 en:free range eggs
 fr:Oeufs élevés en plein air, oeufs d'élevage en plein air, oeufs plein air, œufs d'élevage en plein air
 
-<en:egg
-en:category A egg
+<en:eggs
+en:category A eggs
 fr:oeufs de categorie A
 it:uova di categoria A
 nl:categorie A eieren
 # ingredient/fr:oeufs-de-categorie-a has 6 products @2019-05-31
 
-<en:category A egg
+<en:category A eggs
+en:fresh category A eggs
 fr:oeufs frais de catégorie A
 it:uova fresche di categoria A
 nl:verse categorie A eieren
@@ -61865,7 +61910,7 @@ carbon_footprint_fr_foodges_value:fr:7.3
 
 # description:en:EGG PASTA (pasta all'uovo) – May only be manufactured using durum wheat semolina with at least 4 hens’ eggs (chicken) weighing at least 200 grams (without the shells) per kilogram of semolina, or a liquid egg product produced only with hen’s eggs. Pasta made and sold in Italy under this category must be labeled egg pasta.
 
-<en:dough
+<en:pasta
 en:egg pastas
 af:eier pasta
 de: Eierteigwaren
@@ -64705,6 +64750,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-au-soja
 # 449 products in 5 languages @2018-09-25
 
+<en:soy sauce
+en:soy and sesame sauce, sesame and soy sauce
+fr:sauce au soja et au sésame, sauce au sésame et au soja
 
 <en:soy sauce
 en:soy sauce powder
@@ -65109,4 +65157,35 @@ en:Vegetal margarine
 fr:margarine végétale
 vegan:en:yes
 vegetarian:en:yes
+
+en:oregano extract
+fr:extrait d'origan
+vegan:en:yes
+vegetarian:en:yes
+
+en:laurel extract
+fr:extrait de laurier
+vegan:en:yes
+vegetarian:en:yes
+
+en:ginger extract
+fr:extrait de gingembre
+vegan:en:yes
+vegetarian:en:yes
+
+en:poultry extract
+fr:extrait de volaille
+vegan:en:no
+vegetarian:en:no
+
+en:grapefruit syrup
+fr:sirop de pamplemousse
+vegan:en:yes
+vegetarian:en:yes
+
+en:peach syrup
+fr:sirop de pêche
+vegan:en:yes
+vegetarian:en:yes
+
 

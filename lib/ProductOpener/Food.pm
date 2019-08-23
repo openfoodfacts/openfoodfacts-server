@@ -3098,6 +3098,7 @@ sub mmoll_to_unit {
 		nl => "Cafeïne",
 		nl_be => "Cafeïne",
 		pt => "Cafeína",
+		unit => "mg",
 	},
 	taurine => {
 		zh_hans => "牛磺酸",

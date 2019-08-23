@@ -206,6 +206,39 @@ sub init_labels_regexps() {
 	}
 }
 
+# Ingredients processing regexps
+
+my %ingredients_processing_regexps = ();
+
+sub init_ingredients_processing_regexps() {
+
+	foreach my $ingredients_processing (sort { (length($b) <=> length($a)) || ($a cmp $b) } keys %{$translations_to{ingredients_processing}}) {
+
+		foreach my $l (sort keys %{$translations_to{ingredients_processing}{$ingredients_processing}}) {
+
+			defined $ingredients_processing_regexps{$l}  or $ingredients_processing_regexps{$l}  = [];
+
+			my %synonyms = ();
+
+			# the synonyms below also contain the main translation as the first entry
+
+			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
+
+			foreach my $synonym (sort @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}}) {
+				$synonyms{$synonym} = 1;
+				# unaccented forms
+				$synonyms{unac_string_perl($synonym)} = 1;
+			}
+
+			# Match the longest strings first
+			my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
+			push @{$ingredients_processing_regexps{$l}}, [$ingredients_processing , $regexp];
+			# print STDERR "ingredients_processing_regexps{$l}: ingredient_processing: $ingredient_processing - regexp: $regexp . "\n";
+		}
+	}
+}
+
+
 # Additives classes regexps
 
 my %additives_classes_regexps = ();
@@ -247,7 +280,6 @@ sub init_additives_classes_regexps() {
 		# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
 	}
 }
-
 
 if ((keys %labels_regexps) > 0) { exit; }
 
@@ -488,7 +520,7 @@ sub extract_ingredients_from_image($$$$) {
 
 my %ignore_strings_after_percent = (
 	en => "of (the )?total weight",
-	fr => "minimum( dans le chocolat( noir)?)?|du poids total|du poids",
+	fr => "(min|min\.|mini|minimum)|(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
 );
 
 
@@ -538,8 +570,12 @@ sub extract_ingredients_from_text($) {
 	my @unranked_ingredients = ();
 	my $level = 0;
 
+	# Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g
+	# 56 g -> 56%
+	$text =~ s/(\d| )g(\*)/$1g/ig;
+
 	# transform 0,2% into 0.2%
-	$text =~ s/(\d),(\d+)( )?\%/$1.$2\%/g;
+	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
 	$text =~ s/—/-/g;
 
 	# assume commas between numbers are part of the name
@@ -575,6 +611,7 @@ sub extract_ingredients_from_text($) {
 		my $labels = undef;
 		my $vegan = undef;
 		my $vegetarian = undef;
+		my $processing = '';
 
 		#print STDERR "s: $s\n";
 
@@ -629,7 +666,7 @@ sub extract_ingredients_from_text($) {
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
-						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*$/) {
+						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i) {
 							# print STDERR "percent found:  $1\%\n";
 							$percent = $1;
 							$between = '';
@@ -693,7 +730,7 @@ sub extract_ingredients_from_text($) {
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*($separators|$)/) {
+			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*($separators|$)/i) {
 				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
@@ -722,9 +759,9 @@ sub extract_ingredients_from_text($) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 
-			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
-			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
-			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$//;
+			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
+			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
+			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
@@ -757,14 +794,14 @@ sub extract_ingredients_from_text($) {
 			chomp($ingredient);
 
 			# Strawberry 10.3%
-			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*($ignore_strings_after_percent)?\s*(\),\],\])*$/) {
+			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$/i) {
 				# print STDERR "percent found: $before = $` + $1\%\n";
 				$percent = $1;
 				$ingredient = $`;
 			}
 
 			# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-			if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
+			if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
 				# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
 				$percent = $1;
 				$ingredient = $';
@@ -813,37 +850,129 @@ sub extract_ingredients_from_text($) {
 			$ingredient =~ s/^\s+//;
 			$ingredient =~ s/\s+$//;
 
-			my %ingredient = (
-				id => canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient),
-				text => $ingredient
-			);
-			if (defined $percent) {
-				$ingredient{percent} = $percent;
-			}
-			if (defined $origin) {
-				$ingredient{origin} = $origin;
-			}
-			if (defined $labels) {
-				$ingredient{labels} = $labels;
-			}
-			if (defined $vegan) {
-				$ingredient{vegan} = $vegan;
-			}
-			if (defined $vegetarian) {
-				$ingredient{vegetarian} = $vegetarian;
-			}
+			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+			my $skip_ingredient = 0;
+			my $ingredient_recognized = 0;
 
-			if ($ingredient ne '') {
+			if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
+				$ingredient_recognized = 1;
+			}
+			else {
 
-				# ingredients tags that are too long (greater than 1024, mongodb max index key size)
-				# will cause issues for the mongodb ingredients_tags index, just drop them
-
-				if (length($ingredient{id}) < 500) {
-					if ($level == 0) {
-						push @$ranked_ingredients_ref, \%ingredient;
+				# Try to remove ingredients processing "cooked rice" -> "rice"
+				if (defined $ingredients_processing_regexps{$product_lc}) {
+					my $matches = 0;
+					my $new_ingredient = $ingredient;
+					my $new_processing = '';
+					foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
+						my $regexp = $ingredient_processing_regexp_ref->[1];
+						if ($new_ingredient =~ /\b($regexp)\b/i) {
+							$new_ingredient = $` . $';
+							print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
+							print STDERR "new ingredient: $new_ingredient\n";
+							$matches++;
+							$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
+						}
 					}
-					else {
-						push @$unranked_ingredients_ref, \%ingredient;
+					if ($matches) {
+						# remove starting or ending " and "
+						# viande traitée en salaison et cuite -> viande et
+						$new_ingredient =~ s/($and)+$//i;
+						$new_ingredient =~ s/^($and)+//i;
+						my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
+						if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+							print STDERR "new_ingredient_id $new_ingredient_id exists\n";
+							$ingredient = $new_ingredient;
+							$ingredient_id = $new_ingredient_id;
+							$ingredient_recognized = 1;
+							$processing .= $new_processing;
+						}
+						else {
+							print STDERR "new_ingredient_id $new_ingredient_id does not exist\n";
+						}
+					}
+				}
+
+				if (not $ingredient_recognized) {
+					# Unknown ingredient, check if it is a label
+					my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
+					if (exists_taxonomy_tag("labels", $label_id)) {
+						# Add the label to the product
+						add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
+						compute_field_tags($product_ref, $product_lc, "labels");
+						$skip_ingredient = 1;
+						$ingredient_recognized = 1;
+					}
+				}
+
+				if (not $ingredient_recognized) {
+					# Check if it is a phrase we want to ignore
+
+					# Remove some sentences
+					my %ignore_regexps = (
+						'fr' => [
+							'(\%|pourcentage|pourcentages) (.*)(exprim)',
+							'(sur|de) produit fini',	# préparé avec 50g de fruits pour 100g de produit fini
+							'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
+							'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
+							'^soit ',	# soit 20g de beurre reconstitué
+							'^équivalent ', # équivalent à 20% de fruits rouges
+							'^malgré ', # malgré les soins apportés...
+							'^il est possible', # il est possible qu'il contienne...
+							'^(facultatif|facultative)', # sometime indicated by producers when listing ingredients is not mandatory
+						],
+					);
+					if (defined $ignore_regexps{$product_lc}) {
+						foreach my $regexp (@{$ignore_regexps{$product_lc}}) {
+							if ($ingredient =~ /$regexp/i) {
+								print STDERR "ignoring ingredient $ingredient - regexp $regexp\n";
+								$skip_ingredient = 1;
+								$ingredient_recognized = 1;
+								last;
+							}
+						}
+					}
+				}
+			}
+
+			if (not $skip_ingredient) {
+
+				my %ingredient = (
+					id => $ingredient_id,
+					text => $ingredient
+				);
+				if (defined $percent) {
+					$ingredient{percent} = $percent;
+				}
+				if (defined $origin) {
+					$ingredient{origin} = $origin;
+				}
+				if (defined $labels) {
+					$ingredient{labels} = $labels;
+				}
+				if (defined $vegan) {
+					$ingredient{vegan} = $vegan;
+				}
+				if (defined $vegetarian) {
+					$ingredient{vegetarian} = $vegetarian;
+				}
+				if ($processing ne "") {
+					$processing =~ s/^,\s?//;
+					$ingredient{processing} = $processing;
+				}
+
+				if ($ingredient ne '') {
+
+					# ingredients tags that are too long (greater than 1024, mongodb max index key size)
+					# will cause issues for the mongodb ingredients_tags index, just drop them
+
+					if (length($ingredient{id}) < 500) {
+						if ($level == 0) {
+							push @$ranked_ingredients_ref, \%ingredient;
+						}
+						else {
+							push @$unranked_ingredients_ref, \%ingredient;
+						}
 					}
 				}
 			}
@@ -1785,6 +1914,7 @@ sub preparse_ingredients_text($$) {
 
 	if ((scalar keys %labels_regexps) == 0) {
 		init_labels_regexps();
+		init_ingredients_processing_regexps();
 		init_additives_classes_regexps();
 	}
 
@@ -1872,7 +2002,7 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/e( |-|\.)?($additivesregexp)-/E$2 -/ig;
 
 	# Canonicalize additives to remove the dash that can make further parsing break
-	$text =~ s/(\b)e( |-|\.)?(\d+)()?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b)/e$3$5$7/ig;
+	$text =~ s/(\b)e( |-|\.)?(\d+)()?([abcdefgh]?)(\))?((i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?)(\))?(\b)/e$3$5$7/ig;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
