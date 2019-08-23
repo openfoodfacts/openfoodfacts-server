@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-23 10:32\n"
+"PO-Revision-Date: 2019-08-23 10:52\n"
 "Language-Team: Spanish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2896,15 +2896,15 @@ msgstr "Riesgo de sobreexposición"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr "La Autoridad Europea de Seguridad Alimentaria (EFSA) ha determinado que algunos grupos de población tienen un alto riesgo de consumir demasiado <tag>."
+msgstr "La Autoridad Europea de Seguridad Alimentaria (EFSA) ha determinado que algunos grupos de población tienen un alto riesgo de consumir demasiada cantidad de <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr "La Autoridad Europea de Seguridad Alimentaria (EFSA) ha determinado que algunos grupos de población tienen un riesgo moderado de consumir demasiado <tag>."
+msgstr "La Autoridad Europea de Seguridad Alimentaria (EFSA) ha determinado que algunos grupos de población tienen un riesgo moderado de consumir demasiada cantidad de <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr "Para evaluar su exposición al aditivo alimentario <tag>, puede navegar por la lista de productos que lo contienen. Vea la lista de <nb_products> productos con <tag> a continuación."
+msgstr "Para evaluar tu exposición al aditivo alimentario <tag>, puedes navegar por la lista de productos que lo contienen. Puedes encontrar la lista de <nb_products> productos con <tag> a continuación."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
@@ -2912,7 +2912,7 @@ msgstr "%d productos con %s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
-msgstr "La Autoridad Europea de Seguridad Alimentaria (EFSA) ha determinado que ningún grupo de población tiene más del 5% de los miembros en riesgo de consumir más que la ingesta diaria aceptable de <tag>."
+msgstr "La Autoridad Europea de Seguridad Alimentaria (EFSA) ha determinado que ningún grupo de población tiene más del 5% de los miembros en riesgo de consumir más que la ingesta diaria admisible de <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
@@ -2920,11 +2920,11 @@ msgstr "Riesgo alto de sobreexposición"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr "Riesgo moderado de sobre exposición"
+msgstr "Riesgo moderado de sobreexposición"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr "Riesgo de superar la ingesta diaria aceptable (ADI)"
+msgstr "Riesgo de superar la ingesta diaria admisible (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
@@ -2932,11 +2932,11 @@ msgstr "Riesgo de exceder la dosis máxima sin efecto adverso (No se observa el 
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr "Grupos con más del 50% de miembros que exceden la ingesta diaria aceptable (ADI)"
+msgstr "Grupos con más del 50% de miembros que exceden la ingesta diaria admisible (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr "Grupos con más del 5% de miembros que exceden la ingesta diaria aceptable (ADI)"
+msgstr "Grupos con más del 5% de miembros que exceden la ingesta diaria admisible (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
@@ -3176,15 +3176,15 @@ msgstr "Descargar la aplicación"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr "Obtenga la aplicación para Android"
+msgstr "Descargar la aplicación para Android"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr "Obtenga la aplicación para iPhone"
+msgstr "Descargar la aplicación para iPhone"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr "Obtenga la aplicación para iPad"
+msgstr "Descargar la aplicación para iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
