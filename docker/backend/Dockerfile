@@ -58,8 +58,7 @@ RUN set -x \
   && rm /tmp/GeoLite2-Country.tar.gz \
   && mv /usr/local/share/GeoLite2-Country_* /usr/local/share/GeoLite2-Country \
   # Prepare Apache to include our custom config
-  && mkdir -p /usr/local/apache2/conf/sites-enabled \
-  && echo 'IncludeOptional conf/sites-enabled/*.conf' >> /usr/local/apache2/conf/httpd.conf
+  && rm /etc/apache2/sites-enabled/000-default.conf
 
 FROM modperlgeoip AS runnable
 
