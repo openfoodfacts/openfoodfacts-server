@@ -4092,7 +4092,6 @@ sub search_and_export_products($$$$$) {
 	$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref }) if $log->is_debug();
 
 	my $cursor;
-	my $count;
 
 	eval {
 		$cursor = execute_query(sub {
@@ -4101,16 +4100,17 @@ sub search_and_export_products($$$$$) {
 			# return get_products_collection()->query($query_ref)->sort($sort_ref);
 			return get_products_collection()->query($query_ref);
 		});
-		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 	}
 	else {
-		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+		$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 	}
 
-	$request_ref->{count} = $count + 0;
+	my @products = $cursor->all;
+	my $count = @products;
+	$request_ref->{count} = $count;
 
 	my $html = '';
 
@@ -4178,7 +4178,7 @@ sub search_and_export_products($$$$$) {
 
 		if ($flatten) {
 
-			while (my $product_ref = $cursor->next) {
+			foreach my $product_ref (@products) {
 
 				foreach my $field (%$flatten_ref) {
 					if (defined $product_ref->{$field . '_tags'}) {
@@ -4188,7 +4188,6 @@ sub search_and_export_products($$$$$) {
 					}
 				}
 			}
-			$cursor->reset;
 
 			foreach my $field (%$flatten_ref) {
 				$flattened_tags_sorted{$field} = [ sort keys %{$flattened_tags{$field}}];
@@ -4251,7 +4250,7 @@ sub search_and_export_products($$$$$) {
 		$csv->print (*STDOUT, \@row);
 
 		my $uri = format_subdomain($subdomain);
-		while (my $product_ref = $cursor->next) {
+		foreach my $product_ref (@products) {
 
 			@row = ();
 
@@ -4425,11 +4424,13 @@ unknown => { r => 128, g=> 128, b=>128},
 
 
 
-sub display_scatter_plot($$$) {
+sub display_scatter_plot($$) {
 
 		my $graph_ref = shift;
-		my $cursor = shift;
-		my $count = shift;
+		my $products_ref = shift;
+
+		my @products = @$products_ref;
+		my $count = @products;
 
 		my $html = '';
 
@@ -4477,7 +4478,7 @@ sub display_scatter_plot($$$) {
 		my %series = ();
 		my %series_n = ();
 
-		while (my $product_ref = $cursor->next) {
+		foreach my $product_ref (@products) {
 
 			# Keep only products that have known values for both x and y
 
@@ -4757,11 +4758,13 @@ HTML
 
 
 
-sub display_histogram($$$) {
+sub display_histogram($$) {
 
 		my $graph_ref = shift;
-		my $cursor = shift;
-		my $count = shift;
+		my $products_ref = shift;
+
+		my @products = @$products_ref;
+		my $count = @products;
 
 		my $html = '';
 
@@ -4802,7 +4805,7 @@ sub display_histogram($$$) {
 		my $min = 10000000000000;
 		my $max = -10000000000000;
 
-		while (my $product_ref = $cursor->next) {
+		foreach my $product_ref (@products) {
 
 			# Keep only products that have known values for x
 
@@ -5130,9 +5133,8 @@ sub search_and_graph_products($$$) {
 	delete $query_ref->{lc};
 
 	my $cursor;
-	my $count;
 
-	$log->info("retrieving products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
+	$log->info("retrieving products from MongoDB to display them in a graph") if $log->is_info();
 
 	if ($admin) {
 		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
@@ -5142,18 +5144,19 @@ sub search_and_graph_products($$$) {
 		$cursor = execute_query(sub {
 			return get_products_collection()->query($query_ref);
 		});
-		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 	}
 	else {
-		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+		$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 	}
 
-	$log->info("retrieved products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
+	$log->info("retrieved products from MongoDB to display them in a graph") if $log->is_info();
 
-	$request_ref->{count} = $count + 0;
+	my @products = $cursor->all;
+	my $count = @products;
+	$request_ref->{count} = $count;
 
 	my $html = '';
 
@@ -5185,10 +5188,10 @@ sub search_and_graph_products($$$) {
 		# 2 axis: scatter plot
 
 		if ($graph_ref->{axis_y} eq 'products_n') {
-			$html .= display_histogram($graph_ref, $cursor, $count);
+			$html .= display_histogram($graph_ref, \@products);
 		}
 		else {
-			$html .= display_scatter_plot($graph_ref, $cursor, $count);
+			$html .= display_scatter_plot($graph_ref, \@products);
 		}
 
 
@@ -5273,26 +5276,26 @@ sub search_and_map_products($$$) {
 	delete $query_ref->{lc};
 
 	my $cursor;
-	my $count;
 
-	$log->info("retrieving products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
+	$log->info("retrieving products from MongoDB to display them in a map") if $log->is_info();
 
 	eval {
 		$cursor = execute_query(sub {
 			return get_products_collection()->query($query_ref);
 		});
-		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 	}
 	else {
-		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+		$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 	}
 
-	$log->info("retrieved products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
+	$log->info("retrieved products from MongoDB to display them in a map") if $log->is_info();
 
-	$request_ref->{count} = $count + 0;
+	my @products = $cursor->all;
+	my $count = @products;
+	$request_ref->{count} = $count;
 
 	my $html = '';
 
@@ -5344,12 +5347,12 @@ JS
 		my $matching_products = 0;
 		my $places = 0;
 		my $emb_codes = 0;
-		my $products = 0;
+		my $seen_products = 0;
 
 		my %seen = ();
 		my $data = '';
 
-		while (my $product_ref = $cursor->next) {
+		foreach my $product_ref (@products) {
 
 			# Keep only products that have known values for both x and y
 
@@ -5409,7 +5412,7 @@ JS
 
 					}
 					if (scalar keys %current_seen > 0) {
-						$products++;
+						$seen_products++;
 					}
 				}
 
@@ -5417,7 +5420,7 @@ JS
 			}
 		}
 
-		$log->debug("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $products, emb_codes => $emb_codes }) if $log->is_debug();
+		$log->debug("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $seen_products, emb_codes => $emb_codes }) if $log->is_debug();
 
 		# Points to display?
 
@@ -5478,7 +5481,7 @@ JS
 ;
 			$initjs .= $js;
 
-			my $count_string = sprintf(lang("map_count"), $count, $products);
+			my $count_string = sprintf(lang("map_count"), $count, $seen_products);
 
 			$html .= <<HTML
 <p>$count_string</p>
