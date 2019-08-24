@@ -59,7 +59,6 @@ my $connection = MongoDB->connect();
 my $database = $connection->get_database("off");
 my $products_collection = $database->get_collection('products');
 my $cursor = $products_collection->query({})->fields({ code => 1 });;
-my $count = $cursor->count();
 
 };
 

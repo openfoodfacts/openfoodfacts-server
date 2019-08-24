@@ -77,8 +77,7 @@ use JSON::PP;
  
 my $query_ref = {};
 
-my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });;
-my $count = $cursor->count();
+my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });
 
 my $n = 0;
 my $i = 0;
@@ -87,8 +86,6 @@ binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDIN, ":encoding(UTF-8)");
 
 my %ingredient_ids = ();
-	
-print STDERR "$count products in the database\n";
 	
 while (<STDIN>) {
 

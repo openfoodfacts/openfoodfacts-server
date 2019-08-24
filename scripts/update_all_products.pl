@@ -200,18 +200,11 @@ else {
 
 print "Update key: $key\n\n";
 
-my $cursor = get_products_collection()->find($query_ref, { projection => { code => 1, id => 1, _id => 1 }});;
+my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });
 $cursor->immortal(1);
-my $cursor_count = $cursor->count();
 
 my $n = 0;	# number of products updated
 my $m = 0;	# number of products with a new version created
-
-print STDERR "$cursor_count products to update\n";
-
-# Stop without doing any processing if the --count option is specified
-
-exit if $count;
 
 while (my $product_ref = $cursor->next) {
 

@@ -149,8 +149,6 @@ if ($country ne "") {
 
 # Select the products in reverse order
 my $cursor = get_products_collection()->query($query)->fields({ code => 1 })->sort({code =>-1});
-my $count = $cursor->count();
-print STDERR "$count products to update\n";
 
 # If --order parameter is random, select all the products again, but in a random order
 if ($product_order eq "random") {

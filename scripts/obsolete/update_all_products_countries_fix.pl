@@ -63,10 +63,7 @@ my %new_countries = ();
 		my $products_with_country = 0;
 		my $products_without_country = 0;
 
-my $cursor = $products_collection->query({})->fields({ code => 1 });;
-my $count = $cursor->count();
-
-	print  "$count products to update\n";
+my $cursor = $products_collection->query({})->fields({ code => 1 });
 
 	my $new = 0;
 	my $existing = 0;

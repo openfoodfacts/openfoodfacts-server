@@ -148,11 +148,6 @@ $fields_ref->{nutrition_grade_fr} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
 my $cursor = get_products_collection()->query({'empty' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
-$total = $cursor->count();
-
-
-print STDERR "$total products\n";
-
 
 my %products_nutriments = ();
 my %countries_categories = ();
@@ -178,6 +173,7 @@ e => 5,
 );
 
 while (my $product_ref = $cursor->next) {
+	$total++;
 
 	my $code = $product_ref->{code};
 	if (not defined $codes{$code}) {

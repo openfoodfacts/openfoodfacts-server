@@ -57,16 +57,9 @@ if (defined $agemax) {
 
 my $cursor = $products_collection->query($query_ref )->fields({ code => 1, images=>1, last_modified_t=>1 } )->sort({"unique_scans_n" => -1})->limit(10000);
 
-
-
-my $count = $cursor->count();
 my $i = 0;
 my $j = 0;
 
-	
-	print STDERR "$count products to update\n";
-	
-	
 	while (my $product_ref = $cursor->next) {
         
 if (defined $agemin) {

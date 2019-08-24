@@ -80,15 +80,12 @@ if (! -e $target_dir) {
 my $query_ref = {states_tags => "en:complete", lc => "en"};
 
 #my $cursor = $products_collection->query($query_ref)->fields({ code => 1 , images => 1, lc => 1 });;
-my $cursor = $products_collection->query($query_ref);;
+my $cursor = $products_collection->query($query_ref);
 $cursor->immortal(1);
-my $count = $cursor->count();
 
 my $i = 0;
 my $images_copied = 0;
 	
-print STDERR "$count products to update\n";
-
 my $n = 0;
 	
 while (my $product_ref = $cursor->next) {

@@ -57,12 +57,9 @@ foreach my $l (values %lang_lc) {
 	$lang = $l;
 
 
-my $cursor = get_products_collection()->query({ lc => $lc })->fields({ _id=>1, id=>1, code => 1});;
-my $count = $cursor->count();
+my $cursor = get_products_collection()->query({ lc => $lc })->fields({ _id=>1, id=>1, code => 1});
 my $removed = 0;
 my $notfound = 0;
-	
-	print STDERR "$count products to check\n";
 	
 	while (my $product_ref = $cursor->next) {
         
