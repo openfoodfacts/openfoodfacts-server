@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb_NO\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-24 19:11\n"
+"PO-Revision-Date: 2019-08-24 21:51\n"
 "Language-Team: Norwegian Bokmal\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -260,7 +260,7 @@ msgstr "legg til en kategori"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "Produkter ikke fra %s kategori"
+msgstr "Produkter som ikke er fra kategori %s"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -268,11 +268,11 @@ msgstr "Data"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr "Næring"
+msgstr "Næringsinnhold"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr "Valgte bilder"
+msgstr "Utvalgte bilder"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
@@ -288,19 +288,19 @@ msgstr "kontrollør"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr "innpakningsbyer"
+msgstr "emballert i"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "By der produktene ble emballert: %s"
+msgstr "Produktene er emballert i %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr "innpakningsbyer"
+msgstr "emballert i"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr "Produkter ikke innpakket i byen %s"
+msgstr "Produkter ikke emballert i %s"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -312,11 +312,11 @@ msgstr "Kode"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "fullført %d oppdrag:"
+msgstr "fullførte %d oppdrag:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "Du er tilkoblet med Facebook-kontoen din."
+msgstr "Du er logget inn med Facebook-kontoen din."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -324,7 +324,7 @@ msgstr "Bidragsyter siden"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "Kopier data fra aktuelle produktet til nytt produkt"
+msgstr "Kopier data fra dette produktet til nytt produkt"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -368,11 +368,11 @@ msgstr "Datakilde"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "datakilder"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "datakilde"
 
 msgctxt "debug_p"
 msgid "debug"
