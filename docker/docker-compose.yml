@@ -1,7 +1,7 @@
 ﻿version: "3.7"
 services:
   mongodb:
-    image: mongo:4.0.11
+    image: mongo:4.0.12
     volumes:
       - dbdata:/var/lib/mongodb
     ports:
@@ -38,7 +38,7 @@ services:
         target: /mnt/podata/log.conf
       - type: bind
         source: ./backend-dev/conf/apache.conf
-        target: /etc/apache2/conf.d/product-opener.conf
+        target: /etc/apache2/sites-enabled/product-opener.conf
       - type: bind
         source: ./backend-dev/conf/po-foreground.sh
         target: /usr/local/bin/po-foreground.sh

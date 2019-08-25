@@ -21,7 +21,7 @@
 package ProductOpener::Config2;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
