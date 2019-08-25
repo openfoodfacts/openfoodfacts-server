@@ -254,7 +254,7 @@ while (my $product_ref = $cursor->next) {
 				$product_values_changed = 1;
 			}
 			elsif (not defined $product_ref->{lc}) {
-				print STDERR "fixing missing lc, lang also missing, assignin en";
+				print STDERR "fixing missing lc, lang also missing, assigning en\n";
 				$product_ref->{lc} = "en";
 				$product_ref->{lang} = "en";
 				$product_values_changed = 1;
