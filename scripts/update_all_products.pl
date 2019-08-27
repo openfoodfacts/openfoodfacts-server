@@ -238,23 +238,45 @@ while (my $product_ref = $cursor->next) {
 		# Fix products and record if we have changed them so that we can create a new product version and .sto file
 		if ($fix_serving_size_mg_to_ml) {
 
-			if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} =~ /\d\s?mg\b/i)) {
-				$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
-				ProductOpener::Food::compute_serving_size_data($product_ref);
-				$product_values_changed = 1;
+			# do not update the quantity if it is both in ml and mg
+			# e.g. 8 ml (240 mg)
+
+			if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} =~ /\d\s?mg\b/i)
+				and ($product_ref->{serving_size} !~ /sml\b/i)) {
+
+				# if the nutrition data is specified per 100g, just delete the serving size
+
+				if ($product_ref->{nutrition_data_per} eq "100g") {
+					print STDERR "code $code deleting serving size " . $product_ref->{serving_size} . "\n";
+					delete $product_ref->{serving_size};
+					ProductOpener::Food::compute_serving_size_data($product_ref);
+					$product_values_changed = 1;
+				}
+
+				# if the quantity is in L, ml etc. and the quantity
+				# is in mg, we can assume it should be ml instead
+
+				elsif ((defined $product_ref->{quantity}) and ($product_ref->{quantity} =~ /(l|litre|litres|liter|liters)$/i)) {
+
+					print STDERR "code $code changing " . $product_ref->{serving_size} . "\n";
+					$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
+					print STDERR "code $code changed to " . $product_ref->{serving_size} . "\n";
+					ProductOpener::Food::compute_serving_size_data($product_ref);
+					$product_values_changed = 1;
+				}
 			}
 		}
 
 		# Fix products that were created without the lc field, but that have a lang field
-		if ($fix_missing_lc) {
+		if (($fix_missing_lc) and (not defined $product_ref->{lc})) {
 			print STDERR "lang: " . $product_ref->{lang} . "\n";
-			if ((not defined $product_ref->{lc}) and (defined $product_ref->{lang}) and ($product_ref->{lang} =~ /^[a-z][a-z]$/)) {
+			if ((defined $product_ref->{lang}) and ($product_ref->{lang} =~ /^[a-z][a-z]$/)) {
 				print STDERR "fixing missing lc, using lang: " . $product_ref->{lang} . "\n";
 				$product_ref->{lc} = $product_ref->{lang};
 				$product_values_changed = 1;
 			}
-			elsif (not defined $product_ref->{lc}) {
-				print STDERR "fixing missing lc, lang also missing, assigning en\n";
+			else {
+				print STDERR "fixing missing lc, lang also missing, assignin en";
 				$product_ref->{lc} = "en";
 				$product_ref->{lang} = "en";
 				$product_values_changed = 1;
