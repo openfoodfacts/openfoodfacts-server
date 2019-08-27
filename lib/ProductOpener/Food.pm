@@ -3098,6 +3098,7 @@ sub mmoll_to_unit {
 		nl => "Cafeïne",
 		nl_be => "Cafeïne",
 		pt => "Cafeína",
+
 		unit => "mg",
 	},
 	taurine => {
@@ -3252,6 +3253,11 @@ sub mmoll_to_unit {
 		en => "Nutrition score - France",
 		nl => "Voedingsscore - FR",
 		el => "Βαθμολογία θρεπτικής αξίας-FR",
+		unit => "",
+	},
+	"nova-group" => {
+		en => "NOVA group",
+		fr => "Groupe NOVA",
 		unit => "",
 	},
 	"beta-carotene" => {
