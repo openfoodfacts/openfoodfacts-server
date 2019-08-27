@@ -436,7 +436,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate', 'stats', 'status', 'missing_property') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -641,8 +641,12 @@ sub analyze_request($)
 					if ($request_ref->{tag} !~ /^(\w\w):/) {
 						$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
 					}
+					$request_ref->{tagid} = get_taxonomyid($lc,$request_ref->{tag});
 				}
-				$request_ref->{tagid} = get_taxonomyid($request_ref->{tag});
+				else {
+					# Use "no_language" normalization
+					$request_ref->{tagid} = get_string_id_for_lang("no_language",$request_ref->{tag});
+				}
 			}
 
 			$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag_prefix} . $request_ref->{tagid};
@@ -676,8 +680,12 @@ sub analyze_request($)
 						if ($request_ref->{tag2} !~ /^(\w\w):/) {
 							$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
 						}
+						$request_ref->{tagid2} = get_taxonomyid($lc,$request_ref->{tag2});
 					}
-					$request_ref->{tagid2} = get_taxonomyid($request_ref->{tag2});
+					else {
+						# Use "no_language" normalization
+						$request_ref->{tagid2} = get_string_id_for_lang("no_language",$request_ref->{tag2});
+					}
 				}
 
 				$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag2_prefix} . $request_ref->{tagid2};
@@ -1039,7 +1047,7 @@ sub display_text($)
 			my $header_id = $header;
 			# Remove tags
 			$header_id =~ s/<(([^>]|\n)*)>//g;
-			$header_id = get_fileid($header_id);
+			$header_id = get_string_id_for_lang("no_language",$header_id);
 			$header_id =~ s/-/_/g;
 
 			my $header_id_html = " id=\"$header_id\"";
@@ -1384,13 +1392,13 @@ sub display_list_of_tags($$) {
 
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 
-		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+		if (-e "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html");
 			$html .= join("\n", (<$IN>));
 			close $IN;
 		}
 
-		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
+		$html .= "<p>" . "<nb_tags>" . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
 
 		my $th_nutriments = '';
 
@@ -1481,6 +1489,14 @@ sub display_list_of_tags($$) {
 			my $tagid = $tagcount_ref->{_id};
 			my $count = $tagcount_ref->{count};
 
+			# allow filtering tags with a search pattern
+			if (defined $request_ref->{filter}) {
+				my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
+				my $display = $tag_ref->{display};
+				my $regexp = quotemeta(decode("utf8",URI::Escape::XS::decodeURIComponent($request_ref->{filter})));
+				next if ($display !~ /$regexp/i);
+			}
+
 			$products{$tagid} = $count;
 
 			$stats{all_tags}++;
@@ -1515,9 +1531,13 @@ sub display_list_of_tags($$) {
 				else {
 					if (exists_taxonomy_tag('categories', $tagid)) {
 						$td_nutriments .= "<td></td>";
+						$stats{known_tags}++;
+						$stats{known_tags_products} += $count;
 					}
 					else {
 						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+						$stats{unknown_tags}++;
+						$stats{unknown_tags_products} += $count;
 					}
 				}
 			}
@@ -1655,8 +1675,8 @@ sub display_list_of_tags($$) {
 				$tagentry->{sameAs} = \@sameAs;
 			}
 
-			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
-				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
+			if (defined $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$icid)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$icid)};
 				$tagentry->{image} = format_subdomain('static') . "/images/lang/$lc/$tagtype/$img";
 			}
 
@@ -1699,6 +1719,9 @@ sub display_list_of_tags($$) {
 				}
 			}
 		}
+
+		my $nb_tags = $stats{all_tags}++;
+		$html =~ s/<nb_tags>/$nb_tags/;
 
 		$html .= "</tbody></table></div>";
 
@@ -2116,7 +2139,7 @@ sub display_list_of_tags_translate($$) {
 			my $display_lc = $tag_ref->{display_lc};
 
 			my $synonyms = "";
-			my $lc_tagid = get_fileid($display);
+			my $lc_tagid = get_string_id_for_lang($display_lc, $display);
 
 			if ((defined $synonyms_for{$tagtype}{$display_lc}) and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
@@ -2399,7 +2422,7 @@ sub display_points($) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc,$tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc,$tagtype,$canon_tagid);
 			$title = $display_tag;
-			$newtagid = get_taxonomyid($display_tag);
+			$newtagid = get_taxonomyid($lc,$display_tag);
 			$log->debug("displaying points for a taxonomy tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_debug();
 			if ($newtagid !~ /^(\w\w):/) {
 				$newtagid = $lc . ':' . $newtagid;
@@ -2410,7 +2433,7 @@ sub display_points($) {
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
-			$newtagid = get_fileid($display_tag);
+			$newtagid = get_string_id_for_lang($lc, $display_tag);
 			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
@@ -2538,7 +2561,7 @@ sub display_tag($) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc,$tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc,$tagtype,$canon_tagid);
 			$title = $display_tag;
-			$newtagid = get_taxonomyid($display_tag);
+			$newtagid = get_taxonomyid($lc,$display_tag);
 			$log->info("displaying taxonomy tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_info();
 			if ($newtagid !~ /^(\w\w):/) {
 				$newtagid = $lc . ':' . $newtagid;
@@ -2549,7 +2572,8 @@ sub display_tag($) {
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
-			$newtagid = get_fileid($display_tag);
+			# Use "no_language" normalization for tags types without a taxonomy
+			$newtagid = get_string_id_for_lang("no_language",$display_tag);
 			$display_tag = display_tag_name($tagtype2, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
@@ -2585,7 +2609,7 @@ sub display_tag($) {
 			$canon_tagid2 = canonicalize_taxonomy_tag($lc,$tagtype2, $tagid2);
 			$display_tag2 = display_taxonomy_tag($lc,$tagtype2,$canon_tagid2);
 			$title .= " / " . $display_tag2;
-			$newtagid2 = get_taxonomyid($display_tag2);
+			$newtagid2 = get_taxonomyid($lc,$display_tag2);
 			$log->info("2nd level tag is a taxonomy tag", { tagtype2 => $tagtype2, tagid2 => $tagid2, canon_tagid2 => $canon_tagid2, newtagid2 => $newtagid2, title => $title }) if $log->is_info();
 			if ($newtagid2 !~ /^(\w\w):/) {
 				$newtagid2 = $lc . ':' . $newtagid2;
@@ -2596,7 +2620,7 @@ sub display_tag($) {
 		}
 		else {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
-			$newtagid2 = get_fileid($display_tag2);
+			$newtagid2 = get_string_id_for_lang("no_language",$display_tag2);
 			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
 			$title .= " / " . $display_tag2;
 
@@ -2839,7 +2863,7 @@ HTML
 			}
 
 
-			my $fieldid = get_fileid($field);
+			my $fieldid = get_string_id_for_lang($lc,$field);
 			$fieldid =~ s/-/_/g;
 
 			my %propertyid = ();
@@ -3298,7 +3322,7 @@ HTML
 			}
 
 			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
-				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
+				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
 
 			}
 
@@ -3313,8 +3337,8 @@ HTML
 				# Display links to products edited, photographed etc.
 
 				$description .= "\n<ul>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($tagid)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($tagid)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
 				. "</ul>\n";
 
 
@@ -3449,7 +3473,7 @@ HTML
 
 	# unknown / empty value
 	# warning: unknown is a value for pnns_groups_1 and 2
-	if ((($tagid eq get_fileid(lang("unknown"))) or ($tagid eq ($lc . ":" . get_fileid(lang("unknown")))))
+	if ((($tagid eq get_string_id_for_lang($lc,lang("unknown"))) or ($tagid eq ($lc . ":" . get_string_id_for_lang($lc, lang("unknown")))))
 		and ($tagtype !~ /^pnns_groups_/)) {
 		#$query_ref = { ($tagtype . "_tags") => "[]"};
 		$query_ref = { "\$or" => [ { ($tagtype ) => undef}, { $tagtype => ""} ] };
@@ -3479,7 +3503,7 @@ HTML
 			$query_ref->{"\$and"} = $and;
 		}
 		# unknown / empty value
-		elsif ((($tagid2 eq get_fileid(lang("unknown"))) or ($tagid2 eq ($lc . ":" . get_fileid(lang("unknown")))))
+		elsif ((($tagid2 eq get_string_id_for_lang($lc,lang("unknown"))) or ($tagid2 eq ($lc . ":" . get_string_id_for_lang($lc,lang("unknown")))))
 			and ($tagtype2 !~ /^pnns_groups_/)) {
 			$query_ref->{"\$or"} = [ { ($tagtype2 ) => undef}, { $tagtype2 => ""} ] ;
 		}
@@ -3802,7 +3826,7 @@ HTML
 			my $img_h;
 
 			my $code = $product_ref->{code};
-			my $img = display_image_thumb($product_ref, 'front', 1);	# lazyload
+			my $img = display_image_thumb($product_ref, 'front');
 
 
 
@@ -4526,7 +4550,7 @@ sub display_scatter_plot($$$) {
 				}
 				$data{product_name} = $product_ref->{product_name};
 				$data{url} = $url;
-				$data{img} = display_image_thumb($product_ref, 'front', 0);	# no lazyload
+				$data{img} = display_image_thumb($product_ref, 'front');
 
 				defined $series{$seriesid} or $series{$seriesid} = '';
 				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
@@ -5353,7 +5377,7 @@ JS
 				$origins = $manufacturing_places . $origins;
 
 				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
-					. escape_single_quote(display_image_thumb($product_ref, 'front', 0)) . "', origins:'" . $origins . "'";	# no lazyload
+					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";
 
 
 
@@ -5536,8 +5560,8 @@ sub display_my_block($)
 	if (defined $User_id) {
 
 		my $links = '<ul class="side-nav" style="padding-top:0">';
-		$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
-		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
+		$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
+		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
 		$links .= "</ul>";
 
 		my $content = '';
@@ -6184,8 +6208,6 @@ HTML
 <div id="fb-root"></div>
 
 <script src="$static_subdomain/js/dist/modernizr.js"></script>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-<script src="$static_subdomain/js/dist/iolazy.min.js" defer></script>
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
 
@@ -6242,8 +6264,6 @@ function doWebShare(e) {
 }
 
 function onLoad() {
-	new IOlazy();
-
 	var buttons = document.getElementsByClassName('share_button');
 	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
 
@@ -6410,6 +6430,11 @@ sub display_image_box($$$) {
 
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {
+		my $code = $product_ref->{code};
+		my $linkid = $id;
+		if ($img =~ /<meta itemprop="imgid" content="([^"]+)"/) {
+			$linkid = $1;
+		}
 
 		if ($id eq 'front') {
 
@@ -6417,10 +6442,12 @@ sub display_image_box($$$) {
 
 		}
 
-		$img = <<HTML
-<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+		my $alt = lang('image_attribution_link_title');
+		$img = <<"HTML"
+<figure id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 $img
-</div>
+<figcaption><a href="/cgi/product_image.pl?code=$code&amp;id=$linkid" title="$alt"><i class="icon-cc"></i></a></figcaption>
+</figure>
 HTML
 ;
 
@@ -6430,8 +6457,6 @@ HTML
 
 		# Unselect button for admins
 		if ($admin) {
-
-			my $code = $product_ref->{code};
 
 			my $idlc = $id;
 
@@ -6455,16 +6480,10 @@ HTML
 			}
 
 			my $path = product_path($product_ref->{code});
-			if (-e "$www_root/images/products/$path/$filename.full.jpg.google_cloud_vision.json") {
-				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.jpg.google_cloud_vision.json" class="button tiny">Cloud Vision</a>
-HTML
-;
-			}
 
 			if (-e "$www_root/images/products/$path/$filename.full.json") {
 				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.json" class="button tiny">OCR</a>
+<a href="/images/products/$path/$filename.full.json">OCR result</a>
 HTML
 ;
 			}
@@ -6619,6 +6638,28 @@ JS
 	margin-bottom:2rem;
 }
 
+figure.image_box  {
+	position: relative;
+	padding: 0;
+}
+
+.image_box > img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+figure.image_box figcaption {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+figure.image_box figcaption img {
+	width: 16px;
+	height: 16px;
+}
+
 .field_div {
 	display:inline;
 	float:left;
@@ -6663,7 +6704,7 @@ CSS
 	}
 
 	$title = product_name_brand_quantity($product_ref);
-	my $titleid = get_fileid(product_name_brand($product_ref));
+	my $titleid = get_string_id_for_lang($lc, product_name_brand($product_ref));
 
 	if (not $title) {
 		$title = $code;
@@ -6930,7 +6971,7 @@ HTML
 
 	# Take the last (biggest) image
 	my $product_image_url;
-	if ($html_image =~ /.*src="([^"]+)"/is) {
+	if ($html_image =~ /.*src="([^"]*\/products\/[^"]+)"/is) {
 		$product_image_url = $1;
 	}
 
@@ -7196,8 +7237,8 @@ JS
 
 			$html_ingredients_classes .= "<div class=\"column_class\"><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br>";
 
-			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
-				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
+			if (defined $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$tagtype)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$tagtype)};
 				my $size = '';
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
@@ -7494,12 +7535,12 @@ HTML
 	my $other_editors = "";
 
 	foreach my $editor (sort @other_editors) {
-		$other_editors .= display_tag_link("editors", $editor) . ", ";
+		$other_editors .= "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$editor)) . "\">" . $editor . "</a>, ";
 	}
 	$other_editors =~ s/, $//;
 
-	my $creator = display_tag_link("editors", $product_ref->{creator});
-	my $last_editor = display_tag_link("editors", $product_ref->{last_editor});
+	my $creator = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$product_ref->{creator})) . "\">" . $product_ref->{creator} . "</a>";
+	my $last_editor = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$product_ref->{last_editor})) . "\">" . $product_ref->{last_editor} . "</a>";
 
 	if ($other_editors ne "") {
 		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
@@ -7508,7 +7549,7 @@ HTML
 	my $checked = "";
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
-		my $last_checker = display_tag_link("editors", $product_ref->{last_checker});
+		my $last_checker = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$product_ref->{last_checker})) . "\">" . $product_ref->{last_checker} . "</a>";
 		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
 	}
 
@@ -8565,7 +8606,6 @@ HTML
 				$shown = 0;
 			}
 			else {
-				my $labelid = get_fileid($Nutriments{$nid}{$lang});
 				$label = <<HTML
 <td class="nutriment_label"><a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">${prefix}$Nutriments{$nid}{$lang}</a></td>
 HTML
@@ -9127,7 +9167,10 @@ sub display_product_history($$) {
 
 			my $date = display_date_tag($change_ref->{t});
 			my $userid = get_change_userid_or_uuid($change_ref);
-			my $user = display_tag_link("editors", $userid);
+			my $user = "";
+			if (defined $change_ref->{userid}) {
+				$user = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+			}
 
 			my $comment = $change_ref->{comment};
 			$comment = lang($comment) if $comment eq 'product_created';
@@ -9493,7 +9536,7 @@ sub display_change($$) {
 	my $date = display_date_tag($change_ref->{t});
 	my $user = "";
 	if (defined $change_ref->{userid}) {
-		$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+		$user = "<a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 	}
 
 	my $comment = $change_ref->{comment};

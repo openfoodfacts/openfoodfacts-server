@@ -61,6 +61,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:egg',
+	'percent' => 1,
         'rank' => 5,
         'text' => 'oeuf',
         'vegan' => 'no',
@@ -263,7 +264,7 @@ extract_ingredients_classes_from_text($product_ref);
 #diag explain $product_ref;
 
 
-my $expected_product_ref =
+$expected_product_ref =
  {
     'additives_n' => 0,
     'additives_old_n' => 0,
@@ -339,7 +340,7 @@ is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 
 
-my $product_ref = {
+$product_ref = {
         lc => "fr",
         ingredients_text => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentré 1.4% (équivalent jus d'orange 7.8%), pulpe d'orange concentrée 0.6% (équivalent pulpe d'orange 2.6%), gélifiant (pectines), acidifiant (acide citrique), correcteurs d'acidité (citrate de calcium, citrate de sodium), arôme naturel d'orange, épaississant (gomme xanthane)), chocolat 24.9% (sucre, pâte de cacao, beurre de cacao, graisses végétales (illipe, mangue, sal, karité et palme en proportions variables), arôme, émulsifiant (lécithine de soja), lactose et protéines de lait), farine de blé, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre à lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, émulsifiant (lécithine de soja)."
 };
@@ -367,61 +368,58 @@ $expected_product_ref =
         'text' => 'Marmelade d\'oranges'
       },
       {
-        'id' => "fr:pulpe d'orange concentr\x{e9}e",
+        'id' => 'en:orange-pulp',
         'percent' => '0.6',
+        'processing' => 'en:concentrated',
         'rank' => 2,
-        'text' => "pulpe d'orange concentr\x{e9}e"
-      },
-      {
-        'id' => "fr:\x{e9}quivalent pulpe d'orange",
-        'percent' => '2.6',
-        'rank' => 3,
-        'text' => "\x{e9}quivalent pulpe d'orange"
+        'text' => 'pulpe d\'orange ',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
       },
       {
         'id' => 'en:gelling-agent',
-        'rank' => 4,
+        'rank' => 3,
         'text' => "g\x{e9}lifiant"
       },
       {
         'id' => 'en:e440a',
-        'rank' => 5,
+        'rank' => 4,
         'text' => 'pectines',
         'vegan' => 'yes',
         'vegetarian' => 'yes'
       },
       {
         'id' => 'en:acid',
-        'rank' => 6,
+        'rank' => 5,
         'text' => 'acidifiant'
       },
       {
         'id' => 'en:e330',
-        'rank' => 7,
+        'rank' => 6,
         'text' => 'acide citrique',
         'vegan' => 'yes',
         'vegetarian' => 'yes'
       },
       {
         'id' => 'en:acidity-regulator',
-        'rank' => 8,
+        'rank' => 7,
         'text' => "correcteurs d'acidit\x{e9}"
       },
       {
         'id' => 'en:natural-orange-flavouring',
-        'rank' => 9,
+        'rank' => 8,
         'text' => "ar\x{f4}me naturel d'orange",
-	'vegan' => 'maybe',
-	'vegetarian' => 'maybe',
+        'vegan' => 'maybe',
+        'vegetarian' => 'maybe'
       },
       {
         'id' => 'en:thickener',
-        'rank' => 10,
+        'rank' => 9,
         'text' => "\x{e9}paississant"
       },
       {
         'id' => 'en:e415',
-        'rank' => 11,
+        'rank' => 10,
         'text' => 'gomme xanthane',
         'vegan' => 'yes',
         'vegetarian' => 'yes'
@@ -429,42 +427,42 @@ $expected_product_ref =
       {
         'id' => 'en:chocolate',
         'percent' => '24.9',
-        'rank' => 12,
+        'rank' => 11,
         'text' => 'chocolat',
         'vegan' => 'maybe',
-        'vegetarian' => 'yes',
+        'vegetarian' => 'yes'
       },
       {
         'id' => 'en:lactose-and-milk-proteins',
-        'rank' => 13,
+        'rank' => 12,
         'text' => "lactose et prot\x{e9}ines de lait",
         'vegan' => 'no',
         'vegetarian' => 'yes'
       },
       {
         'id' => 'en:wheat-flour',
-        'rank' => 14,
+        'rank' => 13,
         'text' => "farine de bl\x{e9}",
         'vegan' => 'yes',
         'vegetarian' => 'yes'
       },
       {
         'id' => 'en:sugar',
-        'rank' => 15,
+        'rank' => 14,
         'text' => 'sucre',
         'vegan' => 'yes',
         'vegetarian' => 'yes'
       },
       {
         'id' => 'en:egg',
-        'rank' => 16,
+        'rank' => 15,
         'text' => 'oeufs',
         'vegan' => 'no',
         'vegetarian' => 'yes'
       },
       {
         'id' => 'en:glucose-fructose-syrup',
-        'rank' => 17,
+        'rank' => 16,
         'text' => 'sirop de glucose-fructose',
         'vegan' => 'yes',
         'vegetarian' => 'yes'
@@ -472,31 +470,31 @@ $expected_product_ref =
       {
         'from_palm_oil' => 'no',
         'id' => 'en:colza-oil',
-        'rank' => 18,
+        'rank' => 17,
         'text' => 'huile de colza',
         'vegan' => 'yes',
         'vegetarian' => 'yes'
       },
       {
         'id' => 'en:raising-agent',
-        'rank' => 19,
+        'rank' => 18,
         'text' => "poudre \x{e0} lever"
       },
       {
         'id' => 'en:salt',
-        'rank' => 20,
+        'rank' => 19,
         'text' => 'sel',
         'vegan' => 'yes',
         'vegetarian' => 'yes'
       },
       {
         'id' => 'en:emulsifier',
-        'rank' => 21,
+        'rank' => 20,
         'text' => "\x{e9}mulsifiant"
       },
       {
         'id' => 'en:soya-lecithin',
-        'rank' => 22,
+        'rank' => 21,
         'text' => "l\x{e9}cithine de soja",
         'vegan' => 'yes',
         'vegetarian' => 'yes'
@@ -526,11 +524,6 @@ $expected_product_ref =
         'text' => "jus d'orange concentr\x{e9}",
         'vegan' => 'yes',
         'vegetarian' => 'yes'
-      },
-      {
-        'id' => "fr:\x{e9}quivalent jus d'orange",
-        'percent' => '7.8',
-        'text' => "\x{e9}quivalent jus d'orange"
       },
       {
         'id' => 'en:e333',
@@ -589,8 +582,8 @@ $expected_product_ref =
       {
         'id' => 'en:flavouring',
         'text' => "ar\x{f4}me",
-	'vegan' => "maybe",
-	'vegetarian' => "maybe",
+        'vegan' => 'maybe',
+        'vegetarian' => 'maybe'
       },
       {
         'id' => 'en:emulsifier',
@@ -628,8 +621,10 @@ $expected_product_ref =
     ],
     'ingredients_hierarchy' => [
       'fr:Marmelade d\'oranges',
-      "fr:pulpe d'orange concentr\x{e9}e",
-      "fr:\x{e9}quivalent pulpe d'orange",
+      'en:orange-pulp',
+      'en:fruit',
+      'en:citrus-fruit',
+      'en:orange',
       'en:gelling-agent',
       'en:e440a',
       'en:acid',
@@ -665,14 +660,9 @@ $expected_product_ref =
       'en:emulsifier',
       'en:soya-lecithin',
       'en:e322',
-      'en:orange-pulp',
-      'en:fruit',
-      'en:citrus-fruit',
-      'en:orange',
       'en:concentrated-orange-juice',
       'en:fruit-juice',
       'en:orange-juice',
-      "fr:\x{e9}quivalent jus d'orange",
       'en:e333',
       'en:sodium-citrate',
       'en:minerals',
@@ -692,15 +682,14 @@ $expected_product_ref =
       'en:e450',
       'en:e500'
     ],
-    'ingredients_n' => 43,
+    'ingredients_n' => 41,
     'ingredients_n_tags' => [
-      '43',
+      '41',
       '41-50'
     ],
     'ingredients_original_tags' => [
       'fr:Marmelade d\'oranges',
-      "fr:pulpe d'orange concentr\x{e9}e",
-      "fr:\x{e9}quivalent pulpe d'orange",
+      'en:orange-pulp',
       'en:gelling-agent',
       'en:e440a',
       'en:acid',
@@ -724,7 +713,6 @@ $expected_product_ref =
       'en:sugar',
       'en:orange-pulp',
       'en:concentrated-orange-juice',
-      "fr:\x{e9}quivalent jus d'orange",
       'en:e333',
       'en:sodium-citrate',
       'en:sugar',
@@ -744,8 +732,10 @@ $expected_product_ref =
     ],
     'ingredients_tags' => [
       'fr:marmelade-d-oranges',
-      'fr:pulpe-d-orange-concentree',
-      'fr:equivalent-pulpe-d-orange',
+      'en:orange-pulp',
+      'en:fruit',
+      'en:citrus-fruit',
+      'en:orange',
       'en:gelling-agent',
       'en:e440a',
       'en:acid',
@@ -781,14 +771,9 @@ $expected_product_ref =
       'en:emulsifier',
       'en:soya-lecithin',
       'en:e322',
-      'en:orange-pulp',
-      'en:fruit',
-      'en:citrus-fruit',
-      'en:orange',
       'en:concentrated-orange-juice',
       'en:fruit-juice',
       'en:orange-juice',
-      'fr:equivalent-jus-d-orange',
       'en:e333',
       'en:sodium-citrate',
       'en:minerals',
@@ -810,9 +795,10 @@ $expected_product_ref =
     ],
     'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
     'lc' => 'fr',
-    'unknown_ingredients_n' => 7
-  };
-	
+    'unknown_ingredients_n' => 4
+  }
+
+ ;
 
 is_deeply($product_ref->{ingredients_original_tags}, $expected_product_ref->{ingredients_original_tags}) || diag explain $product_ref->{ingredients_original_tags};
 
@@ -820,7 +806,7 @@ is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 
 # test synonyms for flavouring/flavour/flavor/flavoring
-my $product_ref = {
+$product_ref = {
         lc => "en",
         ingredients_text => "Natural orange flavor, Lemon flavouring"
 };
@@ -895,7 +881,7 @@ $expected_product_ref =
 is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
 
 
-my $product_ref = {
+$product_ref = {
         lc => "fr",
         ingredients_text => "pâte de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce équitable et de l'agriculture biologique (100% du poids total)."
 };
@@ -1264,6 +1250,82 @@ is_deeply ($product_ref->{ingredients},
         ],	
 	
 ) or diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "jus d'orange (sans conservateur), saumon (msc), sans gluten",
+};
+
+extract_ingredients_from_text($product_ref);
+
+is ($product_ref->{labels}, "en:gluten-free") or diag explain $product_ref;
+is_deeply ($product_ref->{labels_tags}, ["en:gluten-free"]) or diag explain $product_ref;
+
+is_deeply ($product_ref->{ingredients}, 
+
+[
+	     {
+	            'id' => 'en:orange-juice',
+	            'labels' => 'en:no-preservatives',
+	            'rank' => 1,
+	            'text' => 'jus d\'orange',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:salmon',
+	            'labels' => 'en:sustainable-seafood-msc',
+	            'rank' => 2,
+	            'text' => 'saumon',
+	            'vegan' => 'no',
+	            'vegetarian' => 'no'
+	          }
+	
+        ],	
+	
+) or diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "tomates pelées cuites, rondelle de citron, dés de courgette",
+};
+
+extract_ingredients_from_text($product_ref);
+
+is_deeply ($product_ref->{ingredients}, 
+
+[
+	     {
+	            'id' => 'en:tomato',
+	            'processing' => 'en:cooked, en:peeled',
+	            'rank' => 1,
+	            'text' => 'tomates  ',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:lemon',
+	            'processing' => 'en:sliced',
+	            'rank' => 2,
+	            'text' => ' citron',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:courgette',
+	            'processing' => 'en:diced',
+	            'rank' => 3,
+	            'text' => ' courgette',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          }
+	
+        ],	
+	
+) or diag explain $product_ref;
+
 
 
 done_testing();

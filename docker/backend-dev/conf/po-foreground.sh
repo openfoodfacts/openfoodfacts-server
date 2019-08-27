@@ -1,11 +1,41 @@
 #!/bin/sh
-mkdir -p /mnt/podata/products /mnt/podata/logs /mnt/podata/users
-ln -sf /opt/product-opener/lang /mnt/podata/lang
-ln -sf /opt/product-opener/po /mnt/podata/po
-ln -sf /opt/product-opener/po/openfoodfacts /opt/product-opener/po/site-specific
-ln -sf /opt/product-opener/taxonomies /mnt/podata/taxonomies
-ln -sf /opt/product-opener/ingredients /mnt/podata/ingredients
-ln -sf /opt/product-opener/emb_codes /mnt/podata/emb_codes
+mkdir -p /mnt/podata/products /mnt/podata/logs /mnt/podata/users /mnt/podata/po
+
+if [ ! -e /mnt/podata/lang ]
+then
+  ln -sf /opt/product-opener/lang /mnt/podata/lang
+fi
+
+if [ ! -e /mnt/podata/po/common ]
+then
+  ln -sf /opt/product-opener/po/common /mnt/podata/po/common
+fi
+
+if [ ! -e /mnt/podata/po/site-specific ]
+then
+  ln -sf /opt/product-opener/po/openfoodfacts /mnt/podata/po/site-specific
+fi
+
+if [ ! -e /mnt/podata/po/tags ]
+then
+  ln -sf /opt/product-opener/po/tags /mnt/podata/po/tags
+fi
+
+if [ ! -e /mnt/podata/taxonomies ]
+then
+  ln -sf /opt/product-opener/taxonomies /mnt/podata/taxonomies
+fi
+
+if [ ! -e /mnt/podata/ingredients ]
+then
+  ln -sf /opt/product-opener/ingredients /mnt/podata/ingredients
+fi
+
+if [ ! -e /mnt/podata/emb_codes ]
+then
+  ln -sf /opt/product-opener/emb_codes /mnt/podata/emb_codes
+fi
+
 perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 chown -R apache:apache /mnt/podata
 chown -R apache:apache /opt/product-opener/html/images/products

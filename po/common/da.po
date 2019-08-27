@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-06-30 14:29\n"
+"PO-Revision-Date: 2019-08-08 02:32\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -136,16 +136,16 @@ msgid "Product page also edited by"
 msgstr "Produktside også redigeret af"
 
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Tilgængelig på Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Tilgængelig i Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -862,6 +862,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Du skal indtaste alle tegn fra stregkoden, eller indsende et produktbillede hvor stregkoden er synlig."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "Fuld størrelse"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "Denne fil blev uploadet til produktet %s og er licenseret under %s-licensen."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr "Tilskrivning: Foto af %s pr. %s"
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "Tilskrivning: Foto af %s med yderligere ændringer af %s pr. %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Originalt Billede)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "Fotodetaljer og tilskrivningsoplysninger"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Produkter tilføjet af dig, som mangler udfyldelse"
@@ -955,8 +979,8 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Produkter som ikke indeholder ingrediensen %s"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Tilgængelig på App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Tilgængelig i App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2312,9 +2336,8 @@ msgid "Serving size"
 msgstr "Portionsstørrelse"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "Forberedt serveringsstørrelse"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2567,8 +2590,8 @@ msgid "Site or blog address"
 msgstr "URL eller blog-adresse"
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -3298,4 +3321,44 @@ msgstr "popularitet"
 msgctxt "popularity_p"
 msgid "popularity"
 msgstr "popularitet"
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr "ingrediensanalyse"
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr "ingrediensanalyse"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "Analyse af ingredienser"
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "Analysen baserer sig alne på de angivne ingredienser og tager ikke højde for behandlingsmetoder."
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "Du ser en gammel version af denne produktside!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Revisionsnummer: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Redigeret af: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Foregående version"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Næste version"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Seneste version"
 

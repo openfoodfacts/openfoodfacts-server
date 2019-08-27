@@ -383,6 +383,9 @@ de:Klasse II
 es:Categoría II
 fr:Catégorie II, qualité marchande, catégorie 2
 
+en:Contains a source of phenylalanine
+fr:Contient une source de phénylalanine
+
 en:Contains gluten
 de:Enthält Gluten
 es:Contiene gluten
@@ -508,7 +511,7 @@ pt:Não congele
 en:Do not freeze again
 de:Nicht wieder einfrieren
 es:No volver a congelar, No congelar de nuevo
-fr:Ne pas recongeler
+fr:Ne pas recongeler, Ne jamais recongeler un produit décongelé
 he:אין להקפיא בשנית, אין להקפיא שוב, אין להפשיר ואז להקפיא, אין להפשיר ולהקפיא
 nl:Niet opnieuw invriezen
 pt:Não congelar novamente
@@ -1654,6 +1657,9 @@ de:Europäische Vegetarier-Union Lacto-vegetarisch
 en:European Vegetarian Union Ovo-vegetarian
 de:Europäische Vegetarier-Union Ovo-vegetarisch
 
+en:excessive consumption can have laxative effects
+fr:une consommation excessive peut avoir des effets laxatifs
+
 en:“Extra” Class
 de:Klasse “Extra”
 es:Categoría “Extra”
@@ -2457,6 +2463,9 @@ wikidata:en: Q7688982
 < en:Kosher
 en:Union of Orthodox Synagogues of South Africa
 
+< en:Kosher
+fr:Rabbi Schlesinger Strasbourg, Rabbi Schlesinger
+
 en:Label Rouge
 ca:Etiqueta Vermella
 es:Label Rouge
@@ -2872,7 +2881,7 @@ fr:Sans épaississant ajouté, Sans epaissisant ajoute
 pt:Sem adição de espessantes
 ru:Без добавления загустителя
 
-en:No additives
+en:No additives, without additives
 ca:Sense additius
 de:Ohne Zusätze
 es:Sin aditivos
@@ -2881,7 +2890,7 @@ hu:Nincs adalékanyag, Adalékanyagmentes
 nl:Zonder toevoegingen
 pt:Sem aditivos
 
-en:No alcohol, alcohol-free
+en:No alcohol, alcohol-free, without alcohol
 ca:Sense alcohol, Lliure d'alcohol
 de:Ohne Alkohol
 es:Sin alcohol
@@ -2955,7 +2964,7 @@ it:Senza dolcificanti artificiali
 nl:Zonder kunstmatige suikers, Zonder suikervervangers
 pt:Sem adoçantes artificiais
 
-en:No aspartame, aspartame free
+en:No aspartame, aspartame free, without aspartame
 de:ohne Aspartam, aspartamfrei
 es:Sin aspartamo, Sin aspartame
 fr:Sans aspartame
@@ -2968,14 +2977,14 @@ es:Sin bisfenol A, Sin BPA
 fr:Sans bisphénol-A, Sans BPA
 nl:Zonder bisfenol A
 
-en:No caffeine, caffeine free
+en:No caffeine, caffeine free, without caffeine
 de:Koffeinfrei
 es:Sin cafeína
 fr:Sans caféine, sans théine
 nl:Cafeinevrij, Vrij van cafeine, Zonder cafeine
 pt:Sem cafeína, livre de cafeína
 
-en:No cholesterol, cholesterol-free
+en:No cholesterol, cholesterol-free, without cholesterol
 de:cholesterinfrei, ohne Cholesteri
 es:Sin colesterol
 fr:sans cholestérol
@@ -3012,7 +3021,7 @@ en:No flavors, no added flavors
 ca:Sense aromes afegits
 de:Ohne Zusatz von Aromen, Ohne Zusatz von Aromastoffen, Ohne Aromen
 es:Sin aromas, Sin aromas añadidos
-fr:sans arômes ajoutés, sans arômes
+fr:sans arômes ajoutés, sans arômes, sans arôme
 it:Senza aromi
 nl:Zonder toegevoegde smaakstoffen
 pt:Sem sabores, sem sabores adicionados
@@ -3783,6 +3792,15 @@ fr:Rainforest Alliance, Vérifié Rainforest Alliance, Rainforest minimum 30% ca
 nl:Rainforest Alliance
 wikidata:en: Q2034373
 
+en:raised in Ireland
+fr:élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Irlande
+
+en:raised in Norway
+fr:élevé en Norvège, élevés en Norvège, élevée en Norvège, élevées en Norvège
+
+en:raised in Scotland
+fr:élevé en Ecosse, élevés en Ecosse, élevée en Ecosse, élevées en Ecosse
+
 en:Real California Cheese
 
 en:Real California Milk
@@ -4346,11 +4364,17 @@ de:DLG Silberner Preis 2019
 fr:Médaille d'argent 2019 de la Société Allemande d'Agriculture
 
 en:Smoked with beech wood
-fr:Fumé au bois de hêtre
+fr:Fumé au bois de hêtre, fumage au bois de hêtre
 
 en:Smoked with oak wood
-fr:Fumé au bois de chêne
+fr:Fumé au bois de chêne, fumage au bois de chêne
 he:מעושן בעץ אלון
+
+en:Some ingredients not from France, Some ingredients of this product do not come from France
+fr:Certains ingrédients ne proviennent pas de France, Certains ingrédients de ce produit ne proviennent pas de France
+
+en:Some ingredients not from Italy, Some ingredients of this product do not come from Italy
+fr:Certains ingrédients ne proviennent pas d'Italie, Certains ingrédients de ce produit ne proviennent pas d'Italie
 
 en:Source of iron
 de:Eisenquelle
@@ -4569,7 +4593,7 @@ uk:Знак відповідності державної системи сер�
 
 en:Unfrozen
 de:Aufgetaut
-fr:Décongelé
+fr:Décongelé, Produit décongelé, produits décongelés, Ingrédient décongelé, Ingrédients décongelés, Mise en oeuvre d'ingrédients décongelés, peut contenir des ingrédients décongelés
 
 < en:USDA Organic
 en:CCOF certified organic, certified CCOF organic, California Certified Organic Farmers
@@ -4788,6 +4812,10 @@ en:Sulfites and SO2 > 10ppm
 de:Sulfite und SO2 > 10ppm
 fr:Sulfites et SO2 > 10ppm
 
+< en:With sulfites
+en:With natural sulfites, Contains natural sulfites
+fr:Contient naturellement des sulfites
+
 en:With Sunflower oil
 ca:Amb oli de gira-sol
 de:Mit Sonnenblumenöl
@@ -4868,6 +4896,9 @@ fr:Sans hormone, élevé sans hormone
 en:Without antibiotics or hormones, Without hormones or antibiotics
 de:ohne Antibiotika oder Hormone, Aufzucht ohne Hormone oder Antibiotika
 fr:Sans antibiotique ni hormone, sans antibiotiques ni hormones
+
+en:Without modified starches, without modified starch
+fr:Sans amidons modifiés, sans amidon modifié, sans amidons transformés, sans amidon transformé
 
 en:without nano-particles
 de:ohne Nanopartikel
@@ -5077,6 +5108,8 @@ nl:Niet aanbevolen voor zwangere vrouwen
 ru:Не рекомендовано для беременных женщин
 se:Recommanderas ej till gravida
 
+fr:élevé en fût de chêne
+
 fr:Entrepreneurs + Engagés, E+
 
 fr:Entreprise du Patrimoine Vivant, EPV
@@ -5093,6 +5126,10 @@ fr:Farine de sarrasin français, Farine de blé noir français
 
 fr:Femmes et Vins du Monde
 
+fr:fermenté en barrique
+
+fr:fermenté en fût de chêne
+
 fr:Fruits et Légumes de France
 
 < fr:Fruits et Légumes de France
@@ -5101,9 +5138,11 @@ fr:Fruits de France, fruits français
 < fr:Fruits et Légumes de France
 fr:Légumes de France, Légumes français
 
-fr:Fumage naturel
+fr:Fumage naturel, fumé naturellement
 
 fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
+
+fr:Grand cru
 
 fr:Imprim'Vert
 wikidata:en: Q3149493
@@ -5242,6 +5281,12 @@ fr:Médaille de bronze du concours général agricole 2017, Concours général a
 < fr:Médaille de bronze du Concours général agricole
 fr:Médaille de bronze du concours général agricole 2018, Concours général agricole médaille de bronze 2018, Médaille de Bronze Paris 2018 Concours Général Agricole, Médaille de Bronze Paris 2018
 
+fr:Mis en bouteille à la propriété
+
+fr:Mis en bouteille au château
+
+fr:Mis en bouteille au domaine
+
 fr:Mondial des Pinots by VINEA
 
 fr:Mondial du Chasselas
@@ -5252,7 +5297,7 @@ fr:Nou la fé
 
 fr:Nouvelle Agriculture
 
-fr:Origine France, Origine France Garantie, 100% origine France
+fr:Origine France, Origine France Garantie, 100% origine France, les ingrédients de ce produit proviennent de France
 country:en: France
 
 fr:Pêché à la bolinche, Pêchés à la bolinche, Pêchée à la bolinche, Pêchées à la bolinche
@@ -5265,6 +5310,8 @@ fr:Pêché au poison
 fr:Pêché au toc
 
 fr:PIL, Produit de l'Industrie Locale
+
+fr:Premier cru
 
 < fr:Prix d'excellence du Concours général agricole
 fr:prix d'excellence du concours général agricole 2011, Concours général agricole prix d'excellence 2011
@@ -5324,6 +5371,10 @@ it:Trafilata al bronzo
 
 fr:Triman, tri-man
 
+fr:vieilli en fût de chêne
+
+fr:Vigneron indépendant
+
 fr:Vinalies
 
 < fr:Vinalies
@@ -5340,6 +5391,8 @@ fr:Vinalies nationales
 
 fr:Vins S.A.I.N.S.
 
+fr:Viticulture durable
+
 hu:100% magyar
 
 hu:Biokontroll Hungária
@@ -5350,31 +5403,27 @@ hu:Hazai Feldolgozású Termék
 
 hu:Hazai-termék
 
-hu:Hír, Hagyomámyok ízek régiók
-
 hu:Hungaricum club
 
 hu:Hungarika
 
 hu:Hungarikum baromfitermékek, HU-Ba
 
-hu:Íz és hagyomány
+hu:Hír, Hagyomámyok ízek régiók
 
 hu:Jó magyar árú
 
 hu:Kiváló minöségű sertéshús
 
-hu:Magyar áruk
-
 hu:Magyar Baromfi, Hatósági állatorvos ellenörizte
 
 hu:Magyar lista
 
-hu:Magyar méz
-
 hu:Magyar minőség
 
-hu:Magyar-termek
+hu:Magyar méz
+
+hu:Magyar Termék
 
 hu:Magyar termék - magyar gyártótol
 
@@ -5382,14 +5431,22 @@ hu:Magyar termék nagydíj
 
 hu:Magyar termék világszínvonalon
 
+hu:Magyar áruk
+
 hu:Minősegi magyar tej
 
 hu:Nemzeti Parki Termék, Bükki Nemzeti Park
 
 hu:Premium Hungaricum
 
+hu:Íz és hagyomány
+
 it:DOC, D.O.C, Denominazione di origine controllata
 wikidata:en: Q654824
+
+it:DOCG, Denominazione di origine controllata e garantita
+
+it:Indicazione geografica tipica
 
 la:Mundus Vini, Grand Prix International du Vin de Neustadt
 

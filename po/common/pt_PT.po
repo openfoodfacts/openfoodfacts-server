@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-05-11 14:08\n"
+"PO-Revision-Date: 2019-08-17 20:14\n"
 "Language-Team: Portuguese\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -136,16 +136,16 @@ msgid "Product page also edited by"
 msgstr "Página de produto também editada por"
 
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"APK Android\" />"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Disponível no Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -863,6 +863,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Deverá introduzir os caracteres do código de barras ou enviar uma imagem do produto com o código visível."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr ""
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr ""
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr ""
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr ""
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr ""
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Produtos adicionados por si que precisam de ser concluídos"
@@ -956,12 +980,12 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Produtos que não contêm o ingrediente %s"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Disponível na App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr "https://apps.apple.com/pt/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2311,9 +2335,8 @@ msgid "Serving size"
 msgstr "Tamanho da porção"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "Tamanho da porção preparada"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2358,6 +2381,10 @@ msgstr "Open Food Facts - Portugal"
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Ordenar por"
+
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr "Completude"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2562,8 +2589,8 @@ msgid "Site or blog address"
 msgstr "Endereço de site ou blog"
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Aplicações do Windows Phone\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -3251,7 +3278,7 @@ msgid "Help translate the %s to %s"
 msgstr "Ajude a traduzir o %s para %s"
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
 msgstr "Você pode sugerir traduções para as entradas abaixo que ainda não foram traduzidas para o seu idioma. O link azul em inglês mostra os produtos correspondentes, o texto em preto em inglês mostra a entrada original com sinônimos opcionais separados por vírgulas. Digite a tradução na caixa de texto, com sinônimos opcionais e, em seguida, clique no botão Salvar. Obrigado!"
 
 msgctxt "translate_taxonomy_add"
@@ -3285,4 +3312,52 @@ msgstr "Não"
 msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr "Pular"
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr "popularidade"
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr "popularidade"
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr "análise de ingredientes"
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr "análise de ingredientes"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "Análise dos ingredientes"
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "A análise basea somente nos ingredientes listados e não leva métodos de processamento em conta."
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "Você está vendo uma versão antiga desta página do produto!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Número de revisão: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Editado por: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Versão anterior"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Próxima versão"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Versão mais recente"
 
