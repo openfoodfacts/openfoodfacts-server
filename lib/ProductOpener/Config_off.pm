@@ -21,7 +21,7 @@
 package ProductOpener::Config;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -449,7 +449,7 @@ $options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
 	en:chocolate-powders
 	en:soups
 	en:coffees
-	en:teas
+	en:tea-bags
 	en:herbal-teas
 )];
 
@@ -463,18 +463,20 @@ $options{categories_considered_as_beverages_for_nutriscore} = [qw(
 )];
 
 $options{categories_exempted_from_nutriscore} = [qw(
+	en:alcoholic-beverages
+	en:aromatic-herbs
 	en:baby-foods
 	en:baby-milks
-	en:meal-replacements
-	en:alcoholic-beverages
+	en:chewing-gum
 	en:coffees
-	en:teas
-	en:herbal-teas
 	en:food-additives
+	en:herbal-teas
 	en:honeys
-	en:vinegars
+	en:meal-replacements
 	en:salts
 	en:spices
+	en:sugar-substitutes
+	en:vinegars
 	en:pet-food
 	en:non-food-products
 

@@ -482,7 +482,7 @@ en:emulsifier
 bg:Емулгатор
 cs:Emulgátor
 da:Emulgator
-de:Emulgator
+de:Emulgator, Emulgatoren
 el:Γαλακτωματοποιητής
 es:Emulgente, Emulsificante
 et:Emulgaator
@@ -1255,7 +1255,7 @@ wikidata:en:Q905648
 en:stabiliser, stabilizer, stabilizers
 bg:Стабилизатор
 cs:Stabilizátor
-de:Stabilisator
+de:Stabilisator, Stabilisatoren
 el:Σταθεροποιητής
 es:Estabilizador
 et:Stabilisaator
@@ -2692,6 +2692,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carbon_dioxide
 # ingredient/fr:anhydride-carbonique has 17 products in 4 languages @2019-02-05
 # additive/e290-carbon-dioxide has 1474 products in 20 languages @2019-02-05
 
+<en:carbon dioxide
+de:Quellkohlensäure
+
+<de:Quellkohlensäure
+de:natürliche Quellkohlensäure
 
 # Malic acid is an organic compound with the molecular formula C4H6O5.
 # Malic acid has two stereoisomeric forms (L- and D-enantiomers), though only the L-isomer exists naturally.
@@ -11857,14 +11862,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quark_(dairy_product)
 # category/quark has 221 products @2019-05-24
 
 <en:Quark
-en:lean stern
-de:Magerquark
+en:Lean stern
+de:Magerquark, Speisequark Magerstufe
 fr:séré maigre
 it:quark magro
 # ingredient/fr:séré-maigre has 33 products in 4 languages @2019-03-01
 
 <en:Quark
 de:Sauermilchquark
+
+<en:Quark
+de:Speisequarkzubereitung
+# Speisequarkzubereitung (Speisequark, Joghurt mild aus entrahmter Milch)
+
+<en:Lean stern
+de:Magerquarkpulver
 
 <en:cheese
 en:cottage cheese
@@ -16245,6 +16257,9 @@ pt:amido de trigo
 se:pšenični skrob
 sv:vetestärkelse
 
+<en:wheat starch
+de:Weizenquellstärke
+
 <en:modified starch
 <en:wheat starch
 en:modified wheat starch
@@ -17049,6 +17064,7 @@ fr:huile d'olive extra
 <en:virgin olive oil
 en:extra virgin olive oil
 da:ekstra jomfruolivenolie
+de:natives Olivenöl Extra, Olivenöl nativ extra
 es:aceite de oliva virgen extra
 fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva
@@ -21906,6 +21922,9 @@ nl:Gerstemoutextract
 zh:大麥芽精
 
 <en:barley malt extract
+de:getrockneter Gerstenmalzextrakt
+
+<en:barley malt extract
 fr:extrait de malte d'orge houblonné
 
 
@@ -22300,12 +22319,16 @@ wikidata:en:Q139925
 # 425 products in 6 languages @2018-09-22
 
 <en:quinoa
+de:Quinoa gepufft
+
+<en:quinoa
 en:red quinoa
 fr:quinoa rouge
 # ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
 
 <en:red quinoa
 fr:quinoa rouge précuit
+de:Quinoa gegart
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/red-quinoa
 # 115 products in 2 languages @2018-09-22
 
@@ -22598,8 +22621,8 @@ nl:granenmeel
 
 <en:cereal flour
 de:Malzmehl
+
 # WHEAT FLOUR is a powder made from the grinding of wheat used for human consumption
-=======
 fr:farines de graines et céréales
 # usage:fr:farines de graines et céréales (riz, quinoa, millet, riz complet, maïs)
 
@@ -22651,6 +22674,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wheat_flour
 wikidata:en:Q2249305
 carbon_footprint_fr_foodges_ingredient:fr:Farine de blé
 carbon_footprint_fr_foodges_value:fr:1.2
+
+<en:wheat flour
+de:Weizenquellmehl
 
 <en:wheat flour
 en:malted wheat flour
@@ -23017,7 +23043,7 @@ nl:volkoren rijstmeel
 <en:flour
 <en:quinoa
 en:quinoa flour
-de:Quinoa-Mehl
+de:Quinoa-Mehl, Quinoamehl
 es:Harina de quinoa
 fr:farine de quinoa
 it:Farina di Quinoa
@@ -26963,7 +26989,7 @@ cs:Voda
 cv:Шыв
 cy:Dŵr
 da:Vand
-de:Wasser
+de:Wasser, Trinkwasser
 dv:ފެން
 el:Νερό
 eo:Akvo
@@ -27182,6 +27208,7 @@ wikipedia:en:https://de.wikipedia.org/wiki/Brauwasser
 
 <en:water
 en:spring water
+de:Quellwasser
 fr:eau de source
 nl:bronwater
 
@@ -33729,7 +33756,7 @@ it:succo di sambuco a base di concentrato
 
 <en:elderberry
 en:elderberry extract
-de:Holunderbeerenextrakt
+de:Holunderbeerenextrakt, Holunderbeerextrakt
 fr:extrait de baie de sureau, extrait de sureau
 it:estratto di sambuco
 sv:fläderbär extract
@@ -44718,7 +44745,7 @@ carbon_footprint_fr_foodges_value:fr:2.2
 # 903 products in 4 languages @2018-10-08
 
 en:herb
-de:Gewürz
+de:Gewürz, Kräuter
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, plantes aromatiques, herbes aromatiques
 nl:Kruiden
 vegan:en:yes
@@ -44734,7 +44761,7 @@ fr:plantes aromatiques et épices dont herbes aromatiques
 
 en:spice extract, spices extract
 fr:extrait d'épice, extraits d'épices
-de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte
+de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte, Gewürzextrakt
 vegan:en:yes
 vegetarian:en:yes
 
@@ -50032,7 +50059,7 @@ de:Bourbon Vanille gemahlen
 
 <en:vanilla
 en:vanilla extract
-de:Vanilleextrakt
+de:Vanilleextrakt, Vanille Extrakt
 es:extracto de vainilla
 fi:vaniljauute
 fr:extrait de vanille
@@ -50069,7 +50096,7 @@ sv:naturlig vaniljextrakt
 en:Bourbon Vanille Extrakt
 cs:extrakt z burbonské vanilky
 da:bourbon vaniljeekstrakt
-de:Bourbon Vanille Extrakt, Vanille-Extrakt Bourbon, Bourbon-Vanille-Extrakt
+de:Bourbon Vanille Extrakt, Vanille-Extrakt Bourbon, Bourbon-Vanille-Extrakt, Bourbon Vanilleextrakt
 es:extracto de vainilla de Bourbon
 fi:bourbon vaniljauute
 fr:extrait de vanille bourbon, extrait de vanille de Bourbon

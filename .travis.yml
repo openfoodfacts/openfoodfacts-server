@@ -1,9 +1,7 @@
+dist: bionic
 branches:
   except:
   - l10n_master
-language: perl
-perl:
-  - "5.18.4"
 env: COVERAGE=1
 cache:
   yarn: true
@@ -15,12 +13,29 @@ cache:
 addons:
   apt:
     packages:
-    - libapache2-request-perl
-    - libimage-magick-perl
-    - libbarcode-zbar-perl
+    - cpanminus
     - tesseract-ocr
     - graphviz
-sudo: false
+    # Packages from ./cpanfile
+    - libwww-perl
+    - libimage-magick-perl
+    - libxml-encoding-perl
+    - libtext-unaccent-perl
+    - libmime-lite-perl
+    - libcache-memcached-fast-perl
+    - libjson-pp-perl
+    - libclone-perl
+    - libcrypt-passwdmd5-perl
+    - libencode-detect-perl
+    - libgraphics-color-perl
+    - libbarcode-zbar-perl
+    - libxml-feedpp-perl
+    - liburi-find-perl
+    - libxml-simple-perl
+    - libexperimental-perl
+    - libapache2-request-perl
+    - libdigest-md5-perl
+    - libtime-local-perl
 before_install:
   - nvm install --lts
   - cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
@@ -40,5 +55,7 @@ before_script:
   - node refresh_taxonomies.js
 script:
   - yarn test
+after_failure:
+  - cat $HOME/.cpanm/build.log
 notifications:
   slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
