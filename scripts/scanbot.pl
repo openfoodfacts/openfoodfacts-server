@@ -217,7 +217,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
 				$product_ref->{$field . "_tags" } = [];
 				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($lc, $tag);
 				}
 			}
 			
