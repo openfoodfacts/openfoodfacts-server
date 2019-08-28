@@ -97,6 +97,7 @@ my $compute_history = '';
 my $comment = '';
 my $fix_serving_size_mg_to_ml = '';
 my $fix_missing_lc = '';
+my $fix_zulu_lang = '';
 my $run_ocr = '';
 my $autorotate = '';
 my $query_ref = {};	# filters for mongodb query
@@ -120,6 +121,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"check-quality" => \$check_quality,
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
 			"fix-missing-lc" => \$fix_missing_lc,
+			"fix-zulu-lang" => \$fix_zulu_lang,
 			"user_id=s" => \$User_id,
 			"comment=s" => \$comment,
 			"run-ocr" => \$run_ocr,
@@ -160,7 +162,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $compute_serving_size)
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
-	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml)
+	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -234,6 +236,102 @@ while (my $product_ref = $cursor->next) {
 		$lc = $product_ref->{lc};
 
 		my $product_values_changed = 0;
+
+		# Fix zulu lang, bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2063
+
+		if ($fix_zulu_lang) {
+
+			# Products that still have "zu" as the main language
+
+			if ($product_ref->{lang} eq "zu") {
+
+				if ($product_ref->{lc} ne "zu") {
+					print STDERR "lang zu, lc: " . $product_ref->{lc} . " -- assigning lc value to lang\n";
+					$product_ref->{lang} = $product_ref->{lc};
+					$product_values_changed = 1;
+				}
+
+				# Do we have ingredients text
+				foreach my $l ("fr", "de", "it", "es", "nl", "en") {
+					if (((defined $product_ref->{"ingredients_text_" . $l}) and ($product_ref->{"ingredients_text_" . $l} ne ""))
+						or ((defined $product_ref->{"product_name_" . $l}) and ($product_ref->{"product_name_" . $l} ne ""))) {
+						print STDERR "ingredients_text or product_name in $l exists, assigning $l to lang and lc\n";
+						$product_ref->{lang} = $l;
+						$product_ref->{lc} = $l;
+						$product_values_changed = 1;
+						last;
+					}
+				}
+
+
+				if ($product_values_changed) {
+					# For fields that can have different values in different languages, copy the main language value to the non suffixed field
+
+					foreach my $field (keys %language_fields) {
+						if ($field !~ /_image/) {
+
+							if (defined $product_ref->{$field . "_" . $product_ref->{lc}}) {
+								$product_ref->{$field} = $product_ref->{$field . "_" . $product_ref->{lc}};
+							}
+						}
+					}
+				}
+
+			}
+
+			# Products that do not have "zu" as the main language any more (or that were just changed above)
+
+			if ($product_ref->{lang} ne "zu") {
+
+				# Move the zu value to the main language if we don't have a value for the main language
+				# otherwise remove the zu value
+
+				foreach my $field (keys %language_fields) {
+					if ($field !~ /_image/) {
+
+						if ((defined $product_ref->{$field . "_zu"}) and ( $product_ref->{$field . "_zu"} ne "")) {
+							if ((not defined $product_ref->{$field . "_" . $product_ref->{lc}}) or ( $product_ref->{$field . "_" . $product_ref->{lc}} eq "") ) {
+								print STDERR "moving zu value to " . $product_ref->{lc} . " for field $field\n";
+								$product_ref->{$field . "_" . $product_ref->{lc}} = $product_ref->{$field . "_zu"};
+								delete $product_ref->{$field . "_zu"};
+							}
+							else {
+								print STDERR "deleting zu value for field $field - " .  $product_ref->{lc} . " value already exists\n";
+								delete $product_ref->{$field . "_zu"};
+							}
+							$product_values_changed = 1;
+						}
+
+						if ((defined $product_ref->{$field . "_zu"}) and ( $product_ref->{$field . "_zu"} eq "")) {
+							print STDERR "removing empty zu value for field $field\n";
+							delete $product_ref->{$field . "_zu"};
+							$product_values_changed = 1;
+						}
+					}
+				}
+
+
+				# Remove selected "zu" images
+				if (defined $product_ref->{images}) {
+					foreach my $imgid ("front", "ingredients", "nutrition") {
+						if (defined $product_ref->{images}{$imgid . "_zu"}) {
+							# Already selected image in correct language? remove the zu selected image
+							if (defined $product_ref->{images}{$imgid . "_" . $product_ref->{lc}}) {
+								print STDERR "image " . $imgid . "_zu exists, and " . $imgid . "_" . $product_ref->{lc} . " exists too, unselect zu image\n";
+								delete $product_ref->{images}{$imgid . "_zu"};
+							}
+							else {
+								print STDERR "image " . $imgid . "_zu exists, and " . $imgid . "_" . $product_ref->{lc} . " does not exist, turn selected zu image to " . $product_ref->{lc} . "\n";
+								$product_ref->{images}{$imgid . "_" . $product_ref->{lc}} = $product_ref->{images}{$imgid . "_zu"};
+								delete $product_ref->{images}{$imgid . "_zu"};
+							}
+							$product_values_changed = 1;
+						}
+					}
+				}
+
+			}
+		}
 
 		# Fix products and record if we have changed them so that we can create a new product version and .sto file
 		if ($fix_serving_size_mg_to_ml) {
@@ -436,12 +534,11 @@ while (my $product_ref = $cursor->next) {
 			ProductOpener::SiteQuality::check_quality($product_ref);
 		}
 
-		if ($compute_history) {
+		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
-
 
 			compute_product_history_and_completeness($product_ref, $changes_ref);
 			compute_data_sources($product_ref);
