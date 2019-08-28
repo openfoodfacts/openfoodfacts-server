@@ -3559,7 +3559,15 @@ sub add_users_translations_to_taxonomy($) {
 
 				foreach my $l (keys %{$users_translations_ref}) {
 					if (defined $users_translations_ref->{$l}{$tagid}) {
-						$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
+
+						if (not defined $translations{$l}) {
+							$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
+						}
+						elsif (defined $users_translations_ref->{$l}{$tagid}) {
+							print STDERR "ignoring translation for already existing translation:\n";
+							print STDERR "existing: " . $translations{$l} . "\n";
+							print STDERR "new: " . $users_translations_ref->{$l}{$tagid}{to} . "\n";
+						}
 					}
 				}
 
@@ -3586,7 +3594,14 @@ sub add_users_translations_to_taxonomy($) {
 
 				foreach my $l (keys %{$users_translations_ref}) {
 					if (defined $users_translations_ref->{$l}{$tagid}) {
-						$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
+						if (not defined $translations{$l}) {
+							$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
+						}
+						else {
+							print STDERR "ignoring translation for already existing translation:\n";
+							print STDERR "existing: " . $translations{$l} . "\n";
+							print STDERR "new: " . $users_translations_ref->{$l}{$tagid}{to} . "\n";
+						}
 					}
 				}
 
