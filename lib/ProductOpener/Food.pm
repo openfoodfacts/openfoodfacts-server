@@ -68,9 +68,11 @@ BEGIN
 
 					&compare_nutriments
 
+					$ec_code_regexp
 					%packager_codes
 					%geocode_addresses
 					&normalize_packager_codes
+					&localize_packager_code
 					&get_canon_local_authority
 
 					&special_process_product
@@ -3098,6 +3100,7 @@ sub mmoll_to_unit {
 		nl => "Cafeïne",
 		nl_be => "Cafeïne",
 		pt => "Cafeína",
+
 		unit => "mg",
 	},
 	taurine => {
@@ -3252,6 +3255,11 @@ sub mmoll_to_unit {
 		en => "Nutrition score - France",
 		nl => "Voedingsscore - FR",
 		el => "Βαθμολογία θρεπτικής αξίας-FR",
+		unit => "",
+	},
+	"nova-group" => {
+		en => "NOVA group",
+		fr => "Groupe NOVA",
 		unit => "",
 	},
 	"beta-carotene" => {
@@ -4860,6 +4868,7 @@ foreach my $key (keys %Nutriments) {
 
 Hash::Util::lock_keys(%Nutriments);
 
+$ec_code_regexp = "ce|eec|ec|eg|we|ek";
 
 sub normalize_packager_codes($) {
 
@@ -4908,7 +4917,7 @@ sub normalize_packager_codes($) {
 		my $code3 = shift;
 		$countrycode = uc($countrycode);
 		$code3 = uc($code3);
-		return "$countrycode $code1.$code2/$code3 CE";
+		return "$countrycode $code1.$code2/$code3 EC";
 	};
 
 	my $normalize_ce_code = sub ($$) {
@@ -4937,28 +4946,58 @@ sub normalize_packager_codes($) {
 
 	# CE codes -- FR 67.145.01 CE
 	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	 # without CE, only for FR
-	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;
+	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;
 
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
 
 	# NO-RGSEAA-21-21552-SE -> ES 21.21552/SE
 
 
 	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . $normalize_es_ce_code->('es',$5,$7,$9)/ieg;
-	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?(?=,|$)/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
+	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?($ec_code_regexp)?(?=,|$)/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
 
 	# LU L-2 --> LU L2
 
-	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;
+	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;
 
 	# RS 731 -> RS 731 EC
 
-	$codes =~ s/(^|,|, )(rs)(\s|-|_|\.|\/)*(\w+)(\.|_|\s|-)?(ce|eec|ec|eg|we)?\b/$1 . $normalize_rs_ce_code->('rs',$4)/ieg;
+	$codes =~ s/(^|,|, )(rs)(\s|-|_|\.|\/)*(\w+)(\.|_|\s|-)?($ec_code_regexp)?\b/$1 . $normalize_rs_ce_code->('rs',$4)/ieg;
 
-	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we|ek)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
+	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
 
 	return $codes;
+}
+
+my %local_ec = (
+	DE => "EG",
+	ES => "CE",
+	FR => "CE",
+	IT => "CE",
+	NL => "EG",
+	PL => "WE",
+	PT => "CE",
+	UK => "EC",
+);
+
+sub localize_packager_code($) {
+
+	my $code = shift;
+
+	my $local_code = $code;
+
+	if ($code =~ /^(\w\w) (.*) EC$/i) {
+
+		my $country_code = uc($1);
+		my $actual_code = $2;
+
+		if (defined $local_ec{$country_code}) {
+			$local_code = $country_code . " " . $actual_code . " " . $local_ec{$country_code};
+		}
+	}
+
+	return $local_code;
 }
 
 

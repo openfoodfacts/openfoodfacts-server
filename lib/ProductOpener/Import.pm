@@ -711,6 +711,11 @@ sub load_xml_file($$$$) {
 
 	$log->trace("XML::Rules output", { file => $file, xml_ref => $xml_ref }) if $log->is_trace();
 
+	# Skip empty XML files
+	if (not defined $xml_ref) {
+		return;
+	}
+
 	if ($log->is_trace()) {
 		binmode STDOUT, ":encoding(UTF-8)";
 		open (my $OUT_JSON, ">", "$www_root/data/import_debug_xml.json");

@@ -2500,12 +2500,7 @@ sub canonicalize_tag2($$)
 		$tag = uc($tag);
 
 		$tag = normalize_packager_codes($tag);
-		if ($lc =~ /fr|es|it|pt/) {
-			$tag =~ s/EC$/CE/;
-		}
-		elsif ($lc =~ /de|nl/) {
-			$tag =~ s/EC$/EG/;
-		}
+		$tag = localize_packager_code($tag);
 	}
 
 	elsif ($tagtype eq 'cities') {

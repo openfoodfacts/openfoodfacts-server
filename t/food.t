@@ -263,6 +263,9 @@ is (normalize_packager_codes(normalize_packager_codes("RS 731")), "RS 731 EC", "
 is (normalize_packager_codes("de by-718 ec"), "DE BY-718 EC", "DE: normalized code correctly");
 is (normalize_packager_codes(normalize_packager_codes("de by-718 ec")), "DE BY-718 EC", "DE: normalizing code twice does not change it any more than normalizing once");
 
+is (normalize_packager_codes("PL 14281601 WE"), "PL 14281601 EC", "PL: normalized code correctly");
+is (localize_packager_code(normalize_packager_codes("PL 14281601 WE")), "PL 14281601 WE", "PL: normalized code correctly");
+
 $product_ref = {
     nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
 };
@@ -283,5 +286,32 @@ my $expected_product_ref = {
 
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
+$product_ref = {
+	nutriments => { "nova-group" => 4, "nova-group_100g" => 4, "nova-group_serving" => 4},
+	nutrition_data_per => "serving",
+	quantity => "100 g",
+	serving_size => "25 g",
+};
+
+compute_serving_size_data($product_ref);
+
+my $expected_product_ref = 
+ {
+    'nutriments' => {
+      'nova-group' => 4,
+      'nova-group_100g' => 4,
+      'nova-group_serving' => 4
+    },
+    'nutrition_data_per' => 'serving',
+    'nutrition_data_prepared_per' => '100g',
+    'product_quantity' => 100,
+    'quantity' => '100 g',
+    'serving_quantity' => 25,
+    'serving_size' => '25 g'
+  }
+
+ ;
+
+is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 done_testing();
