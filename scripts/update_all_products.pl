@@ -276,7 +276,7 @@ while (my $product_ref = $cursor->next) {
 				$product_values_changed = 1;
 			}
 			else {
-				print STDERR "fixing missing lc, lang also missing, assignin en";
+				print STDERR "fixing missing lc, lang also missing, assigning en";
 				$product_ref->{lc} = "en";
 				$product_ref->{lang} = "en";
 				$product_values_changed = 1;
