@@ -263,6 +263,9 @@ is (normalize_packager_codes(normalize_packager_codes("RS 731")), "RS 731 EC", "
 is (normalize_packager_codes("de by-718 ec"), "DE BY-718 EC", "DE: normalized code correctly");
 is (normalize_packager_codes(normalize_packager_codes("de by-718 ec")), "DE BY-718 EC", "DE: normalizing code twice does not change it any more than normalizing once");
 
+is (normalize_packager_codes("PL 14281601 WE"), "PL 14281601 EC", "PL: normalized code correctly");
+is (localize_packager_code(normalize_packager_codes("PL 14281601 WE")), "PL 14281601 WE", "PL: normalized code correctly");
+
 $product_ref = {
     nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
 };
