@@ -283,5 +283,32 @@ my $expected_product_ref = {
 
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
+$product_ref = {
+	nutriments => { "nova-group" => 4, "nova-group_100g" => 4, "nova-group_serving" => 4},
+	nutrition_data_per => "serving",
+	quantity => "100 g",
+	serving_size => "25 g",
+};
+
+compute_serving_size_data($product_ref);
+
+my $expected_product_ref = 
+ {
+    'nutriments' => {
+      'nova-group' => 4,
+      'nova-group_100g' => 4,
+      'nova-group_serving' => 4
+    },
+    'nutrition_data_per' => 'serving',
+    'nutrition_data_prepared_per' => '100g',
+    'product_quantity' => 100,
+    'quantity' => '100 g',
+    'serving_quantity' => 25,
+    'serving_size' => '25 g'
+  }
+
+ ;
+
+is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 done_testing();
