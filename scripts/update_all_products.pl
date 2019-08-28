@@ -324,6 +324,18 @@ while (my $product_ref = $cursor->next) {
 								print STDERR "image " . $imgid . "_zu exists, and " . $imgid . "_" . $product_ref->{lc} . " does not exist, turn selected zu image to " . $product_ref->{lc} . "\n";
 								$product_ref->{images}{$imgid . "_" . $product_ref->{lc}} = $product_ref->{images}{$imgid . "_zu"};
 								delete $product_ref->{images}{$imgid . "_zu"};
+
+								# Rename the image file
+								my $path =  product_path($code);
+								my $rev = $product_ref->{images}{$imgid . "_" . $product_ref->{lc}}{rev};
+
+								use File::Copy "move";
+								foreach my $size (100, 200, 400, "full") {
+									my $source = "$www_root/images/products/$path/${imgid}_zu.$rev.$size.jpg";
+									my $target = "$www_root/images/products/$path/${imgid}_" . $product_ref->{lc} . ".$rev.$size.jpg";
+									print STDERR "move $source to $target\n";
+									move($source, $target);
+								}
 							}
 							$product_values_changed = 1;
 						}
