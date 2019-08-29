@@ -766,7 +766,7 @@ sub extract_ingredients_from_text($) {
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
 
-			# print STDERR "canon_ingredient - $canon_ingredient\n";
+			# print STDERR "before: $before - canon_ingredient: $canon_ingredient\n";
 
 			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
@@ -2516,15 +2516,17 @@ INFO
 				# print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
 					my $regexp = $labels_regexps{$product_lc}{$labelid};
-					# print STDERR "-- label: $labelid - regexp: $regexp\n";
-					# try to also match optional precisions like "Issus de l'agriculture biologique (100 % du poids total)"
-					# *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
-					if ($after =~ /^($regexp)\s*(\([^\)]+\))?\s*\.?\s*/i) {
-						my $label = $1;
-						$text =~ s/^(.*)$symbol\s?:?\s?$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
-						my $product_lc_label = display_taxonomy_tag($product_lc, "labels", $labelid);
-						$text =~ s/$symbol/ $product_lc_label /g;
-						last;
+					if (defined $regexp) {
+						# print STDERR "-- label: $labelid - regexp: $regexp\n";
+						# try to also match optional precisions like "Issus de l'agriculture biologique (100 % du poids total)"
+						# *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
+						if ($after =~ /^($regexp)\s*(\([^\)]+\))?\s*\.?\s*/i) {
+							my $label = $1;
+							$text =~ s/^(.*)$symbol\s?:?\s?$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
+							my $product_lc_label = display_taxonomy_tag($product_lc, "labels", $labelid);
+							$text =~ s/$symbol/ $product_lc_label /g;
+							last;
+						}
 					}
 				}
 			}
