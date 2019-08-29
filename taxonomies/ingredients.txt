@@ -7945,7 +7945,7 @@ vegetarian:en:maybe
 <en:microbial culture
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
 da:yoghurtkultur
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen
 el:γαλακτικά ένζυμα 
 es:fermentos lácticos, cultivos lácticos 
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
@@ -10371,16 +10371,18 @@ nl:biologische yoghurt
 
 <en:yogurt
 fr:yogourt maigre
-de:Magermilchjoghurt
+de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch
 it:yogurt magro
 nl:magere yoghurt
 # ingredient/nl:magere-yoghurt has 1 product @2019-05-24
 
 <fr:yaourt maigre
 fr:yaourt maigre en poudre
+de:Magermilch-Joghurtpulver
 
 <en:yogurt
 fr:yogourt au lait pasteurisé
+de:Joghurt aus pasteurisierter MIlch
 
 <en:yogurt
 fr:yogourt partiellement écrémé
@@ -10408,14 +10410,28 @@ it:yogurt intero
 
 <en:yogurt
 fr:yaourt au lait entier
+de:Joghurt aus Vollmilch, Vollmilchjoghurt
 
 <en:yogurt
 de:Sahnejoghurt
 
+<de:Sahnejoghurt
+de:Sahnejoghurt mild
+
 <en:yogurt
 en:mild yogurt
+nl:milde yogurt
 nl:ingredient/nl:milde-yoghurt
 # ingredient/nl:milde-yoghurt has 1 product @2019-05-24
+
+<en:mild yogurt
+de:Joghurt mild aus entrahmter Milch, Joghurt mild aus Magermilch
+
+<en:mild yogurt
+de:Fettarmer Joghurt mild
+
+<en:mild yogurt
+de:Joghurt mild mit Magermilchpulverzusatz
 
 <en:yogurt
 de:Joghurterzeugnis
@@ -60721,6 +60737,7 @@ fr:blanc d'œuf frais, blancs d'œufs frais, blanc d'œufs frais, blanc d'oeuf f
 
 <en:egg white
 en:liquid egg white
+de:Flüssiges Hühnereiklar
 es:clara de huevo liquida
 fr:blanc d’œuf liquide, blanc d’oeuf liquide
 # ingredient/fr:blanc-d’_œuf_-liquide has 47 products in 3 languages @2018-12-18
