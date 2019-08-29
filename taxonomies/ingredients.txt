@@ -147,6 +147,7 @@ stopwords:zh::配料
 #	'dans le compartiment (a|à) gla(c|ç)ons',
 #	'dont sucres',
 #	'dontSUcres',
+#	'dont acides gras satur(e|é)s
 # 	'dont acides ras satur(e|é)s
 #	`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #Fabriqué dans un atelier utilisant
@@ -239,7 +240,6 @@ stopwords:zh::配料
 
 
 fr:additifs alimentaires
-	'dont acides gras satur(e|é)s
 # ingredient/fr:additifs-alimentaires has 52 products @2019-04-20
 # usage:fr: additif alimentaire (acide citrique)
 
