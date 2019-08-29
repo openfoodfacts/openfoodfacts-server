@@ -15408,11 +15408,12 @@ de:Ziegenfleisch
 es:carne de cabra
 nl:geitenvlees
 
-
+<en:animal
 en:pork
 de:Schwein
 fr:porc
 it:suino
+nl:varken
 vegan:en:no
 vegetarian:en:no
 
@@ -15430,12 +15431,6 @@ carbon_footprint_fr_foodges_value:fr:7.4
 carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
-
-<en:animal
-en:pork
-de:Schweinefleisch
-fr:porc
-it:suino
 
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
@@ -15555,7 +15550,7 @@ cs:slanina
 cv:Бекон
 cy:Bacwn
 da:Bacon, svinefedt
-de:Speck
+de:Speck, Schweinespeck
 el:Μπέικον, χοιρινό λίπος
 eo:lardo
 es:panceta, manteca de cerdo, tocino de cerdo
@@ -15830,7 +15825,10 @@ fr:couenne de porc
 fr:foie de porc
 
 <en:pork meat
+en:pork liver
 fr:poitrine de porc
+de:Schweineleber
+nl:varkenslever
 
 <en:pork meat
 fr:viande et gras de porc
@@ -15866,6 +15864,8 @@ fr:fond de porc
 
 <en:pork
 fr:coeur de porc
+
+
 
 # viande bovine in ingredients refers to (aged) beef, not veal
 #<fr:viande bovine
@@ -41214,7 +41214,7 @@ fr:tomates séchées réhydratées
 
 <en:tomato
 en:peeled tomatoes
-de:geschälte Tomaten
+de:geschälte Tomaten, Schältomaten
 fr:tomates pelées, tomate pelée
 it:pomodori pelati
 nl:gepelde tomaten
@@ -41260,7 +41260,7 @@ nl:tomatenblokjes in tomatensap van biologische oorsprong
 
 <en:chopped tomatoes
 en:crushed peeled tomato
-de:zerkleinerte geschälte Tomate
+de:zerkleinerte geschälte Tomate, zerkleinerte Schältomaten
 fr:tomate pelée concassée, tomates pelées concassées
 nl:gepelde gehakte tomaten
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
