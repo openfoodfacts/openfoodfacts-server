@@ -62,6 +62,12 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, [ "en:banana" ], ],
 	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "}, ["en:chicken-fillet" ], ],
 	[ { lc => "fr", ingredients_text => "sucre 22g**"}, [ "en:sugar" ], ],
+
+	# [ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"}, [ "en:sugar" ], ],
+	 [ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"}, [ "en:water", "en:e290", "en:sweetener", "en:e951", "en:e950" ], ],
+	 [ { lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, [ "en:e951", "en:e950" ], ],
+	 [ { lc => "de", ingredients_text => "Farbstoffe (Betenrot, Paprikaextrakt, Kurkumin)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
+
 );
 
 foreach my $test_ref (@tests) {
