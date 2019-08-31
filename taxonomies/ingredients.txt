@@ -1,5 +1,5 @@
 
-
+synonyms:en:pasteurised, pasteurized
 
 # comment:en:These are words that start a list of ingredients
 
@@ -9565,7 +9565,7 @@ fr:lait maigre
 # description:en:Skimmed milk (British English) is made when all the cream is removed from whole milk. It tends to contain around 0.1% fat. Láit écrémé has a maximum of 0.5% fat.
 
 <en:milk
-en:skimmed milk
+en:skimmed milk, non-fat milk, nonfat milk
 ar:حليب منزوع الدسم
 de:Magermilch
 es:Leche descremada, Leche desnatada
@@ -11620,7 +11620,7 @@ fr:camembert au lait pasteurisé
 # CHEDDAR cheese is a relatively hard, off-white (or orange if spices such as annatto are added), sometimes sharp-tasting, natural cheese.
 
 <en:cheese
-en:cheddar
+en:cheddar, cheddar cheese
 af:Cheddarkaas
 ar:جبنة تشيدر
 ca:Cheddar
@@ -14913,7 +14913,6 @@ nl:rundvleesextrakt
 en:cooked beef meat
 fr:viande de bœuf cuite, viande bovine cuite, bœuf cuit
 
-
 <en:beef meat
 fr:Viande bovine fraîche protégée sous vide
 
@@ -14934,6 +14933,10 @@ fr:carpaccio de boeuf
 
 <en:beef meat
 fr:viande hachée de bœuf, viande hachée de boeuf
+
+<en:beef meat
+en:beef tongue
+fr:langue de bœuf, langue de boeuf
 
 <en:beef meat
 en:beef meat extract
@@ -15772,8 +15775,8 @@ fr:jarret avant de porc
 <en:pork meat
 fr:pièces de tête de porc, morceaux de tête de porc
 
-
 <en:pork meat
+en:pork tongue
 fr:langue de porc
 
 <en:pork meat
@@ -16130,7 +16133,7 @@ fr:Cuisses de grenouilles
 # STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds.
 
 # nova:en:starch
-en:starch
+en:starch, food starch
 an:Amelón
 ar:نشا
 az:Nişasta
@@ -16216,7 +16219,7 @@ vegetarian:en:yes
 # usage:fr:fécules (dont blé)
 
 <en:starch
-en:modified starch, modified starches
+en:modified starch, modified starches, modified food starch, modified food starches, food starch modified
 ar:نشا معدل
 bg:Модифицирано нишесте
 cs:Modifikovaný škrob
@@ -16250,7 +16253,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Modified_starch
 # Corn starch or maize starch is the starch derived from the corn (maize) grain.
 
 <en:starch
-en:corn starch, corn starch, maize starch
+en:corn starch, corn starch, maize starch, cornstarch
 ar:نشا الذرة
 ca:Midó de blat de moro
 cs:Kukuřičný škrob
@@ -16742,6 +16745,9 @@ nn:vegetabilisk fett
 pt:gorduras vegetais
 ru:растительные жиры
 sv:vegetabiliska fetter
+
+<en:vegetable fat
+fr:matières grasses végétales de colza, matières grasses de colza
 
 # <en:compound
 <en:vegetable fat
@@ -20597,12 +20603,19 @@ en:natural aniseed aroma
 fr:arôme naturel d'anis
 
 <en:flavouring
+en:raspberry flavouring
 fr:arôme framboise
 nl:frambozenaroma
 
 <en:flavouring
+en:orange blossom flavouring
 fr:arôme fleur d'oranger
 nl:sinaasappelbloemaroma
+
+<en:natural flavouring
+<en:orange blossom flavouring
+en:natural orange blossom flavouring
+fr:arôme naturel de fleur d'oranger
 
 <en:flavouring
 en:citrus flavouring
@@ -20729,6 +20742,45 @@ en:natural cheese flavouring
 fr:arôme naturel de fromage
 vegan:en:no
 vegetarian:en:maybe
+
+<en:flavouring
+en:bergamot orange flavouring, bergamot flavouring
+fr:arôme de bergamote
+
+<en:natural flavouring
+en:natural bergamot orange flavouring
+fr:arôme naturel de bergamote
+
+<en:flavouring
+en:truffle flavouring
+fr:arôme de truffe
+
+<en:natural flavouring
+en:natural honey flavouring
+fr:arôme naturel de miel
+
+<en:natural flavouring
+en:natural shallot flavouring
+fr:arôme naturel d'échalote
+
+<en:natural flavouring
+en:butter natural flavouring
+fr:arôme naturel de beurre
+vegan:en:no
+
+<en:flavouring
+en:beef flavouring
+fr:arôme de boeuf
+vegan:en:no
+vegetarian:en:no
+
+<en:natural flavouring
+en:natural chocolate flavouring
+fr:arôme naturel de chocolat
+
+<en:natural flavouring
+en:natural rose flavouring
+fr:arôme naturel de rose
 
 
 # description:en:Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
@@ -22917,6 +22969,7 @@ nl:durum tarwemeel
 
 <en:wheat flour
 <en:wholemeal flour
+en:whole wheat flour
 de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
@@ -22942,7 +22995,7 @@ fr:farine de gonflement de blé
 fr:farine de germes de blé stabilisé
 
 <en:wheat flour
-en:fortified wheat flour
+en:fortified wheat flour, enriched wheat flour
 de:angereichertes Weizenmehl
 fr:farine de blé enrichie
 it:farina di frumento fortificada
@@ -30742,7 +30795,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Durian
 # In Britain, cranberry may refer to the native species Vaccinium oxycoccos, while in North America, cranberry may refer to Vaccinium macrocarpon.
 
 <en:fruit
-en:cranberry
+en:cranberry, cranberries
 ar:عنبية حادة الخباء
 az:Mərcanı
 ba:Мүк еләге
@@ -32887,7 +32940,7 @@ it:lamponi liofilizzati
 
 <en:fruit
 <fr:fruit rouge
-en:strawberry, stawberries
+en:strawberry, strawberries
 an:Fraga
 ar:فراولة
 as:ষ্ট্ৰবেৰী
