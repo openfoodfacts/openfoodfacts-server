@@ -3641,7 +3641,6 @@ sub search_and_display_products($$$$$) {
 	}
 
 
-	my $cursor;
 	my $count;
 
 	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
@@ -3680,8 +3679,15 @@ sub search_and_display_products($$$$$) {
 			products => [],
 		};
 
+		my $cursor;
 		eval {
 			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
+				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
+				$count = execute_query(sub {
+					return get_products_tags_collection()->count_documents($query_ref);
+				});
+				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
+
 				my $aggregate_parameters = [
 					{ "\$match" => $query_ref },
 					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
@@ -3692,6 +3698,12 @@ sub search_and_display_products($$$$$) {
 				});
 			}
 			else {
+				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
+				$count = execute_query(sub {
+					return get_products_collection()->count_documents($query_ref);
+				});
+				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
+
 				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 				$cursor = execute_query(sub {
 					return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
@@ -3708,7 +3720,6 @@ sub search_and_display_products($$$$$) {
 
 			while (my $product_ref = $cursor->next) {
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
-				$count++;
 			}
 			$request_ref->{structured_response}{count} = $count;
 
@@ -3716,7 +3727,6 @@ sub search_and_display_products($$$$$) {
 
 			$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
 		}
-
   }
   else {
     $log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
