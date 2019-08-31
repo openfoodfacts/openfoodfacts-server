@@ -34,6 +34,8 @@ BEGIN
 					%Visitor
 					$Visitor_id
 					$Facebook_id
+					%Org
+					$Org_id
 
 					$cookie
 
@@ -367,19 +369,26 @@ sub init_user()
 {
 	my $user_id = undef ;
 	my $user_ref = undef;
+	my $org_ref = undef;
+
 	my $cookie_name = 'session';
+	my $cookie_domain = "." . $server_domain;	# e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+	if (defined $server_options{cookie_domain}) {
+		$cookie_domain = "." . $server_options{cookie_domain};	# e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
+	}
 
 	$cookie = undef;
 
 	$Visitor_id = undef;
 	$Facebook_id = undef;
 	$User_id = undef;
+	$Org_id = undef;
 
 	# Remove persistent cookie if user is logging out
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {} ;
-		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 	}
 
 	# Retrieve user_id and password from form parameters
@@ -494,14 +503,14 @@ sub init_user()
 			    {
 					# Set a persistent cookie
 					$log->debug("setting persistent cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax',
+					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>"$cookie_domain", -samesite=>'Lax',
 							-expires=>'+' . $length . 's');
 			    }
 			    else
 			    {
 				# Set a session cookie
 					$log->debug("setting session cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax');
+					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>"$cookie_domain", -samesite=>'Lax');
 			    }
 			}
 		    }
@@ -513,9 +522,9 @@ sub init_user()
 			return ($Lang{error_bad_login_password}{$lang}) ;
 		    }
 		}
-	    }
+	}
 
-	# Retrieve user_id and password from cookie
+	# Retrieve user_id and session from cookie
 	elsif ((defined cookie($cookie_name)) or ((defined param('user_session')) and (defined param('user_id')))) {
 		my $user_session;
 		if (defined param('user_session')) {
@@ -568,7 +577,7 @@ sub init_user()
 			$user_id = undef;
 			# Remove the cookie
 			my $session = {} ;
-			$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+			$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 		    }
 		    else
 		    {
@@ -588,7 +597,7 @@ sub init_user()
 		{
 		    # Remove the cookie
 		    my $session = {} ;
-		    $cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+		    $cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
 		    $user_id = undef ;
 		}
@@ -597,7 +606,7 @@ sub init_user()
 	    {
 		# Remove the cookie
 		my $session = {} ;
-		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
 		$user_id = undef ;
 	    }
@@ -639,6 +648,13 @@ sub init_user()
 	}
 	else {
 		%User = ();
+	}
+
+	if (defined $Org_id) {
+		%Org = %$org_ref;
+	}
+	else {
+		%Org = ();
 	}
 
 	return 0;

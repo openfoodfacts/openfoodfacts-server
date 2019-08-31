@@ -6479,7 +6479,7 @@ HTML
 				$filename = $idlc . '.' . $product_ref->{images}{$idlc}{rev} ;
 			}
 
-			my $path = product_path($product_ref->{code});
+			my $path = product_path($product_ref);
 
 			if (-e "$www_root/images/products/$path/$filename.full.json") {
 				$html .= <<HTML
@@ -6618,6 +6618,8 @@ sub display_product($)
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
 
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+
 	my $html = '';
 	my $blocks_ref = [];
 	my $title = undef;
@@ -6682,7 +6684,7 @@ CSS
 
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
-	$log->info("displaying product", { request_code => $request_code }) if $log->is_info();
+	$log->info("displaying product", { request_code => $request_code, product_id => $product_id }) if $log->is_info();
 
 	$title = $code;
 
@@ -6692,11 +6694,11 @@ CSS
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->info("displaying product revision") if $log->is_info();
-		$product_ref = retrieve_product_rev($code, $rev);
+		$product_ref = retrieve_product_rev($product_id, $rev);
 		$header .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
-		$product_ref = retrieve_product($code);
+		$product_ref = retrieve_product($product_id);
 	}
 
 	if (not defined $product_ref) {
@@ -6850,7 +6852,7 @@ HTML
 ;
 	}
 	if (defined $rev) {
-		$html .= display_rev_info($code, $rev);
+		$html .= display_rev_info($product_ref, $rev);
 	}
 	elsif (not has_tag($product_ref, "states", "en:complete")) {
 
@@ -7632,8 +7634,9 @@ sub display_product_jqm ($) # jquerymobile
 	my $request_ref = shift;
 
 	my $code = normalize_code($request_ref->{code});
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
 	local $log->context->{code} = $code;
-
+	local $log->context->{product_id} = $product_id;
 
 	my $html = '';
 	my $title = undef;
@@ -7653,10 +7656,10 @@ sub display_product_jqm ($) # jquerymobile
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->info("displaying product revision on jquery mobile") if $log->is_info();
-		$product_ref = retrieve_product_rev($code, $rev);
+		$product_ref = retrieve_product_rev($product_id, $rev);
 	}
 	else {
-		$product_ref = retrieve_product($code);
+		$product_ref = retrieve_product($product_id);
 	}
 
 	if (not defined $product_ref) {
@@ -8927,6 +8930,7 @@ sub display_product_api($)
 	my $request_ref = shift;
 
 	my $code = normalize_code($request_ref->{code});
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
 
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
@@ -8936,7 +8940,7 @@ sub display_product_api($)
 
 	$response{code} = $code;
 
-	my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve_product($product_id);
 
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
 		if ($request_ref->{api_version} >= 1) {
@@ -9085,13 +9089,16 @@ HTML
 
 	display_structured_response($request_ref);
 }
+
 sub display_rev_info {
-	my $code = shift;
+
+	my $product_ref = shift;
 	my $rev = shift;
+	my $code = $product_ref->{code};
 
 	my $html = '';
 
-	my $path = product_path($code);
+	my $path = product_path($product_ref);
 	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
 		return '';
@@ -9145,6 +9152,7 @@ HTML
 	return $html;
 
 }
+
 sub display_product_history($$) {
 
 	my $code = shift;
@@ -9153,7 +9161,7 @@ sub display_product_history($$) {
 	my $html = '';
 	if ($product_ref->{rev} > 0) {
 
-		my $path = product_path($code);
+		my $path = product_path($product_ref);
 		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 		if (not defined $changes_ref) {
 			$changes_ref = [];
@@ -9212,7 +9220,7 @@ sub add_images_urls_to_product($) {
 	my $product_ref = shift;
 
 	my $staticdom = format_subdomain('static');
-	my $path = product_path($product_ref->{code});
+	my $path = product_path($product_ref);
 
 	foreach my $imagetype ('front','ingredients','nutrition') {
 
