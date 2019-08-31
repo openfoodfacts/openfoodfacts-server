@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: br\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-18 09:31\n"
+"PO-Revision-Date: 2019-08-27 15:03\n"
 "Language-Team: Breton\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -21,11 +21,11 @@ msgstr "1 produ"
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " ha/hag "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Diwar ma fenn"
 
 msgctxt "add"
 msgid "Add"
@@ -45,7 +45,7 @@ msgstr "Enskrivañ"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Mersi bras evit bezañ en em enskrivet. Gellout a rit kevreañ ouzh al lec'hienn hag aozit ar produioù.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -63,23 +63,37 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Deiz mat <NAME>,\n\n"
+"Trugarez vras evit hoc'h enskrivadur war: https://openfoodfacts.org\n"
+"Setu amañ hoc'h anv-implijer:\n\n"
+"Anv-implijer: <USERID>\n\n"
+"Gellout a rit kevreañ ouzh al lec'hienn evit ouzhpennañ hag aozañ produioù.\n\n"
+"<<site_name>> a zo ur raktres kenlabourus a c'hellit degas kalz muioc'h evit produioù nevez: hoc'h energiezh, hoc'h entan hag ho mennozhioù!\n"
+"Evit gellet eskemm kendaolerien hag ober e-seurt ez afe pelloc'h ho raktres, ober a reomp gant ur sistem kaozeerezh aezet-kenañ anvet Slack: https://slack.openfoodfacts.org\n\n"
+"Gellout a rit mont e-barzh strollad Facebook ar gendaolerien ivez:\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"Nevez: lañset hon eus al labour evit ur raktres nevez anvet Open Beauty Facts evit krouiñ un diaz-roadennoù koaradoù: soavoñs, toaz-dent, livajoù-dremm ha kement all 'zo c'hoazh.\n"
+"https://openbeautyfacts.org\n"
+"Trugarez vras deoc'h!\n\n"
+"Stéphane ha skipailh Open Food Facts\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Trugarez vras evit hoc'h enskrivadur war <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Danvezioù boued ouzhpenn a c'hall bezañ dañjerus. Da vezañ implijet gant aked."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Danvezioù boued ouzhpenn risklus. Tremenit hebiou."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Danvezioù boued ouzhpenn forbannet en Europa. Tremenit hebiou net ha pizh."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -95,7 +109,7 @@ msgstr "Klask kempleshoc'h"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Enklaskoù araokaet ha grafikoù"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
@@ -103,11 +117,11 @@ msgstr "Re a alkool a noaz d'ar yec'hed."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "An holl gefridioù"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Danvez pe produ a zo abeg allergiezhioù pe dic'houzañvioù"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -213,7 +227,7 @@ msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "gant"
 
 msgctxt "categories"
 msgid "Categories"
@@ -253,11 +267,11 @@ msgstr "Roadennoù"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Magaennoù"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Skeudennoù diuzet"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
@@ -265,15 +279,15 @@ msgstr ""
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "gwirierien"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "gwirier"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "kêr enpakadur"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
@@ -297,15 +311,15 @@ msgstr "Kod"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "klokaet %d a gefridioù:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Kevreet emaoc'h gant ho kont Facebook."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Kendaoler abaoe"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -658,7 +672,7 @@ msgstr ""
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr ""
+msgstr "Roadennoù"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -885,7 +899,7 @@ msgstr "Aozennoù"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "Dielfennadur an aozennoù"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -925,7 +939,7 @@ msgstr ""
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "aozenn"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -1319,7 +1333,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "Dizoleiñ"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -2167,7 +2181,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Magaennoù"
 
 msgctxt "search_or"
 msgid "or"
@@ -2548,7 +2562,7 @@ msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."

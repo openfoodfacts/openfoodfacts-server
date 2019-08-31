@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-07 18:20\n"
+"PO-Revision-Date: 2019-08-27 15:06\n"
 "Language-Team: Catalan\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -150,7 +150,7 @@ msgstr ""
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=ca"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -657,7 +657,8 @@ msgstr "<a href=\"https://world-ca.openfoodfacts.org/legal\">Legal</a> -\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "i el grup de <a href=\"https://www.facebook.com/groups/openfoodfacts/\"> \n"
+"Facebook per a persones col·laboradores</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -1598,7 +1599,7 @@ msgstr "Grau de nutrició"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2594,7 +2595,7 @@ msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2670,23 +2671,23 @@ msgstr "Algunes de les dades i/o imatges surten de la base de dades OpenFood.ch 
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
-msgstr ""
+msgstr "Pàgina del producte a openfood.ch"
 
 msgctxt "sources_usda_ndb"
 msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr ""
+msgstr "Algunes de les dades provenen de la Base de dades Nacional de Nutrients USDA per Fabricants d'Aliments (la llista exacta està disponible a l'historial d'edició del producte)."
 
 msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
-msgstr ""
+msgstr "Pàgina del producte a la BDNFA USDA"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr ""
+msgstr "Algunes de les dades i imatges han estat aportades per l'empresa Fleury Michon."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr ""
+msgstr "Alguna de les dades d'aquest producte ha estat aportada per l'empresa %s"
 
 msgctxt "sources_collaboration"
 msgid "Some of the data for this product has been collected in collaboration with %s"
