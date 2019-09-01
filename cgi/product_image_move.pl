@@ -191,7 +191,7 @@ if ($move_to ne 'trash') {
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
 }
 
-my $error = process_image_move($code, $imgids, $move_to, $User_id);
+my $error = process_image_move($code, $imgids, $move_to, $User_id, $Org_id);
 
 my $data;
 
@@ -202,7 +202,7 @@ if ($error) {
 }
 
 
-	my $product_ref = retrieve_product($code);
+	$product_ref = retrieve_product($product_id);
 
 	defined $product_ref->{images} or $product_ref->{images} = {};
 
