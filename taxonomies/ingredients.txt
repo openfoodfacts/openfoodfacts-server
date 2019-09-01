@@ -9543,17 +9543,6 @@ de:Käsereimilch
 fr:lait de montagne
 
 
-############################### NO FAT MILK #################
-
-# Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
-
-<en:milk
-en:skim milk, fat-free milk
-es:Leche sin grasas
-it:latte scremato, latte senza grassi
-nl:vetvrije melk
-wikidata:en:Q2352187
-
 ############################# LOW FAT MILK #####################
 
 # LOW-FAT MILK is a 1% fat milk, sold in the United States
@@ -9564,11 +9553,18 @@ fr:lait maigre
 
 # description:en:Skimmed milk (British English) is made when all the cream is removed from whole milk. It tends to contain around 0.1% fat. Láit écrémé has a maximum of 0.5% fat.
 
+# Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
+
+# Nonfat, skim milk and skimmed milk are often used as synonyms and the 
+# regulatory differences are small, with the average being between 0.0% and
+# 0.2% fat. We are thus using only one taxonomy entry for all milks with
+# a maximum of 0.5% fat
+
 <en:milk
-en:skimmed milk, non-fat milk, nonfat milk
+en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk
 ar:حليب منزوع الدسم
 de:Magermilch
-es:Leche descremada, Leche desnatada
+es:Leche descremada, Leche desnatada, leche sin grasas
 et:Lõss
 fa:شیر خشک بدون چربی
 fi:Kuorittu maito
@@ -9576,12 +9572,12 @@ fr:lait écrémé
 gl:Leite desnatado
 id:Susu skim
 is:Undanrenna
-it:Latte scremato
+it:Latte scremato, latte senza grassi
 ja:脱脂粉乳
 lt:Nugriebtas pienas
 ms:Susu skim
 nb:Skummet melk
-nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk
+nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
 pa:ਸਪਰੇਟਾ
 pt:Leite desnatado
 ru:Обезжиренное молоко
