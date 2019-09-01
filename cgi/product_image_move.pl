@@ -138,7 +138,7 @@ my %response = ('status' => 'ok');
 if ($move_to ne 'trash') {
 
 	my $move_to_id = product_id_for_user($User_id, $Org_id, $move_to);
-	my $new_path = product_path($move_to_id);
+	my $new_path = product_path_from_id($move_to_id);
 
 	if ($new_path eq 'invalid') {
 		# non numeric code was given
