@@ -14703,6 +14703,8 @@ ms:Garam kosher
 sv:Koshersalt
 wikipedia:en:https://en.wikipedia.org/wiki/Kosher_salt
 
+<en:salt
+de:Steinsalz
 
 # SEA SALT - is salt that is produced by the evaporation of seawater
 
@@ -14861,6 +14863,9 @@ vi:Muối iốt
 zh:碘盐
 wikipedia:en:https://en.wikipedia.org/wiki/Iodised_salt
 
+# <en:compound
+de:Nitritpökelsalz
+#usage:de:Nitritpökelsalz (Speisesalz, Konservierungsstoff: Natriumnitrit)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -16686,7 +16691,7 @@ bg:Растително масло
 ca:Oli vegetal
 cs:Rostlinný olej
 da:vegetabilisk olie
-de:Pflanzenöle, pflanzliche Öle
+de:Pflanzenöle, pflanzliche Öle, pflanzliches Öl
 eo:Legoma oleo
 es:Aceite vegetal, aceites vegetales
 et:Taimeõli
@@ -16730,7 +16735,7 @@ fr:huile végétale raffinée
 en:vegetable fat, vegetal fat, vegetable fats
 cs:Rostlinný tuk
 da:vegetabilsk fedt
-de:pflanzliche Fette
+de:pflanzliche Fette, pflanzliches Fett
 el:φυτικά λίπη
 es:grasas vegetales, grasa vegetal
 fi:kasvirasva
@@ -17229,14 +17234,14 @@ nl:olie van biologische Spaanse olijven
 # nl:olie-van-biologische-spaanse-olijven has 2 products @2019-05-24
 
 <en:vegetable oil and fat
-en:rapeseed oil and fat
+en:rapeseed oil, rapeseed fat, rapeseed oil and fat
 from_palm_oil:en:no
 
 
 # Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
 # The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
 
-<en:vegetable oil
+<en:rapeseed oil
 en:canola oil
 de:Ölrübsenöl
 es:aceite de canola
@@ -17248,11 +17253,11 @@ from_palm_oil:en:no
 
 # Colza oil or colza is a non-drying oil obtained from the seeds of rapeseed (Brassica napus subsp. napus). Note that this a single rapeseed variety
 
-<en:vegetable oil
+<en:rapeseed oil
 en:colza oil
 bg:рапично олио
 cs:řepkový olej
-de:Rapsöl, Raps
+de:Rapsöl
 el:κραμβέλαιο
 es:aceite de colza, aceite de nabina
 fi:rapsiöljy, rypsiöljy
@@ -26237,7 +26242,7 @@ fr:protéines de soja i.p
 
 <en:vegetable protein
 en:wheat protein
-de:Weizenprotein
+de:Weizenprotein, Weizeneiweiß
 es:Proteina de trigo
 fr:protéine de blé, protéines de blé, protéines de froment
 hu:búzafehérje
@@ -27650,6 +27655,7 @@ nl:gashoudend natuurlijk mineraalwater
 
 <en:carbonated natural mineral water
 fr:eau minérale naturelle gazéifiée, eau minérale naturelle avec adjonction de gaz carbonique
+de:Natürliches Mineralwasser mit Kohlensäure versetzt
 
 <fr:eau minérale naturelle gazéifiée
 fr:Eau minérale naturelle de Spa gazéifiée
@@ -27838,10 +27844,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ice
 <en:water
 <en:salt
 fr:eau et sel
-
-
-
-
 
 
 
@@ -32442,7 +32444,7 @@ carbon_footprint_fr_foodges_value:fr:1.3
 
 <en:orange juice
 en:orange juice from concentrate
-de:Orangensaft aus Konzentrat
+de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat
 es:Zumo de naranja desde concentrado
 fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré
 it:succo d'arancia a base di concentrato
@@ -42175,6 +42177,15 @@ wikidata:en:Q2963415
 wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
 # ingredient/fr:frisée has 158 products in 4 languages @2019-05-10
 
+<en:root vegetable
+en:Rapeseed, rape, oilseed rape
+de:Raps
+la:Brassica napus
+wikidata:en:Q177932
+wikipedia:en:https://en.wikipedia.org/wiki/Rapeseed
+
+<en:Rapeseed
+en:Canola
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
