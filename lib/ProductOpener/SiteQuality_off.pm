@@ -469,6 +469,7 @@ sub check_nutrition_data($) {
 
 	my $nutrition_data_prepared = defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq 'on';
 	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} &&  $product_ref->{no_nutrition_data} eq 'on';
+	my $nutrition_data = defined $product_ref->{nutrition_data} &&  $product_ref->{nutrition_data} eq 'on';
 
 	$log->debug("nutrition_data_prepared: " . $nutrition_data_prepared) if $log->debug();
 
@@ -482,7 +483,7 @@ sub check_nutrition_data($) {
 				push @{$product_ref->{quality_tags}}, "nutrition-data-prepared-without-category-dried-products-to-be-rehydrated";
 			}
 		}
-		if ((defined $product_ref->{nutrition_data_per}) and ($product_ref->{nutrition_data_per} eq 'serving')) {
+		if ($nutrition_data and (defined $product_ref->{nutrition_data_per}) and ($product_ref->{nutrition_data_per} eq 'serving')) {
 
 			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
 				push @{$product_ref->{quality_tags}}, "nutrition-data-per-serving-missing-serving-size";

@@ -2437,7 +2437,7 @@ sub display_points($) {
 			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
-				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
+				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
 			$title = $display_tag;
 			$newtagidpath = canonicalize_tag_link($tagtype, $newtagid);
@@ -2577,7 +2577,7 @@ sub display_tag($) {
 			$display_tag = display_tag_name($tagtype2, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
-				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
+				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
 			$title = $display_tag;
 			$newtagidpath = canonicalize_tag_link($tagtype, $newtagid);
@@ -2626,7 +2626,7 @@ sub display_tag($) {
 
 			if ($tagtype2 eq 'emb_codes') {
 				$canon_tagid2 = $newtagid2;
-				$canon_tagid2 =~ s/-(eec|eg|ce)$/-ec/i;
+				$canon_tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
 			$newtagid2path = canonicalize_tag_link($tagtype2, $newtagid2);
 			$request_ref->{current_link} .= $newtagid2path;
