@@ -181,6 +181,8 @@ synonyms:en:no8, n8, 8
 
 synonyms:en:no9, n9, 9
 
+synonyms:en:pasteurised, pasteurized
+
 synonyms:en:sulfide, sulphide
 
 synonyms:fr:de fer, ferreux, ferrique
@@ -1985,6 +1987,10 @@ vegan:en: no
 vegetarian:en: no
 
 < en:Beef meat
+en:beef tongue
+fr:langue de bœuf
+
+< en:Beef meat
 en:cooked beef meat, cooked beef
 de:gekochtes Rindfleisch
 fr:viande de bœuf cuite, viande bovine cuite, bœuf cuit
@@ -2228,7 +2234,7 @@ wikidata:en: Q5812410
 
 < en:Berries
 < en:Fruit
-en:strawberry, stawberries
+en:strawberry, strawberries
 an:Fraga
 ar:فراولة
 as:ষ্ট্ৰবেৰী
@@ -5375,7 +5381,7 @@ wikidata:en: Q131480
 wikipedia:en: https://en.wikipedia.org/wiki/Camembert
 
 < en:Cheese
-en:cheddar
+en:cheddar, cheddar cheese
 af:Cheddarkaas
 ar:جبنة تشيدر
 ca:Cheddar
@@ -35600,6 +35606,16 @@ en:banana flavouring
 fr:arôme de banane
 
 < en:Flavouring
+en:beef flavouring
+fr:arôme de boeuf
+vegan:en: no
+vegetarian:en: no
+
+< en:Flavouring
+en:bergamot orange flavouring, bergamot flavouring
+fr:arôme de bergamote
+
+< en:Flavouring
 en:caramel flavouring
 fr:arôme caramel
 nl:caramelaroma
@@ -35676,6 +35692,11 @@ vegan:en: maybe
 vegetarian:en: maybe
 
 < en:Flavouring
+en:orange blossom flavouring
+fr:arôme fleur d'oranger
+nl:sinaasappelbloemaroma
+
+< en:Flavouring
 en:orange flavouring
 de:Orangenaroma
 fr:arôme d'orange
@@ -35699,6 +35720,11 @@ fr:arôme de poivre
 < en:Flavouring
 en:peppermint flavouring
 fr:arôme de menthe poivrée
+
+< en:Flavouring
+en:raspberry flavouring
+fr:arôme framboise
+nl:frambozenaroma
 
 < en:Flavouring
 en:seafood flavouring
@@ -35728,6 +35754,10 @@ en:sweet lime flavouring
 fr:arôme de limette
 
 < en:Flavouring
+en:truffle flavouring
+fr:arôme de truffe
+
+< en:Flavouring
 en:vanilla flavouring
 da:vanilijaroma
 de:VanilleAroma
@@ -35748,14 +35778,6 @@ fr:arôme de malt d'orge
 
 < en:Flavouring
 fr:arôme de sureau
-
-< en:Flavouring
-fr:arôme fleur d'oranger
-nl:sinaasappelbloemaroma
-
-< en:Flavouring
-fr:arôme framboise
-nl:frambozenaroma
 
 < en:Flavouring
 fr:arôme identique nature
@@ -37214,7 +37236,7 @@ wikidata:en: Q3342808
 wikipedia:en: https://fr.wikipedia.org/wiki/Noix_de_coco
 
 < en:Fruit
-en:cranberry
+en:cranberry, cranberries
 ar:عنبية حادة الخباء
 az:Mərcanı
 ba:Мүк еләге
@@ -44659,17 +44681,10 @@ wikidata:en: Q10572454
 wikipedia:en: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
 < en:Milk
-en:skim milk, fat-free milk
-es:Leche sin grasas
-it:latte scremato, latte senza grassi
-nl:vetvrije melk
-wikidata:en: Q2352187
-
-< en:Milk
-en:skimmed milk
+en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk
 ar:حليب منزوع الدسم
 de:Magermilch
-es:Leche descremada, Leche desnatada
+es:Leche descremada, Leche desnatada, leche sin grasas
 et:Lõss
 fa:شیر خشک بدون چربی
 fi:Kuorittu maito
@@ -44677,12 +44692,12 @@ fr:lait écrémé
 gl:Leite desnatado
 id:Susu skim
 is:Undanrenna
-it:latte scremato, latte senza grassi
+it:Latte scremato, latte senza grassi
 ja:脱脂粉乳
 lt:Nugriebtas pienas
 ms:Susu skim
 nb:Skummet melk
-nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk
+nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
 pa:ਸਪਰੇਟਾ
 pt:Leite desnatado
 ru:Обезжиренное молоко
@@ -47930,6 +47945,11 @@ de:natürliches Selleriearoma
 nl:natuurlijk selderijaroma
 
 < en:Natural flavouring
+en:butter natural flavouring
+fr:arôme naturel de beurre
+vegan:en: no
+
+< en:Natural flavouring
 en:natural almond flavouring
 de:natürliches Mandelaroma
 fr:arôme naturel d'amande
@@ -47958,6 +47978,10 @@ en:natural basil flavouring
 de:natürliches Basilikumaroma
 fr:arôme naturel de basilic
 it:aroma naturale del basilico
+
+< en:Natural flavouring
+en:natural bergamot orange flavouring
+fr:arôme naturel de bergamote
 
 < en:Natural flavouring
 en:natural blueberry flavouring
@@ -47993,6 +48017,10 @@ fr:arôme naturel de cerise
 < en:Natural flavouring
 en:natural chicken flavouring
 fr:arôme naturel de poulet, arôme naturel de poule
+
+< en:Natural flavouring
+en:natural chocolate flavouring
+fr:arôme naturel de chocolat
 
 < en:Natural flavouring
 en:natural cinammon flavouring
@@ -48060,6 +48088,10 @@ vegetarian:en: maybe
 < en:Natural flavouring
 en:natural herbs flavouring
 fr:arôme naturel d'herbes
+
+< en:Natural flavouring
+en:natural honey flavouring
+fr:arôme naturel de miel
 
 < en:Natural flavouring
 en:natural hot pepper flavouring
@@ -48168,6 +48200,10 @@ de:natürliches Himbeeraroma
 fr:arôme naturel de framboise
 
 < en:Natural flavouring
+en:natural rose flavouring
+fr:arôme naturel de rose
+
+< en:Natural flavouring
 en:natural rum flavouring
 fr:arôme naturel de rhum
 
@@ -48183,7 +48219,7 @@ vegetarian:en: no
 
 < en:Natural flavouring
 en:natural shallot flavouring
-fr:arôme naturel d'échalotte
+fr:arôme naturel d'échalotte, arôme naturel d'échalote
 
 < en:Natural flavouring
 en:natural sour almond flavouring
@@ -49671,6 +49707,11 @@ yi:מאראנצן זאפט
 zh:橙汁
 wikidata:en: Q219059
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_juice
+
+< en:Natural flavouring
+< en:Orange blossom flavouring
+en:natural orange blossom flavouring
+fr:arôme naturel de fleur d'oranger
 
 < en:Orange blossom honey
 fr:miel d'oranger biologique
@@ -52162,6 +52203,10 @@ fr:poitrine de porc
 nl:varkenslever
 
 < en:Pork meat
+en:pork tongue
+fr:langue de porc
+
+< en:Pork meat
 en:stewed porc
 de:geschmortes Schweinefleisch
 fr:viandes de porc à l'étouffée
@@ -52214,9 +52259,6 @@ fr:jarret avant de porc
 
 < en:Pork meat
 fr:jarret de porc
-
-< en:Pork meat
-fr:langue de porc
 
 < en:Pork meat
 fr:longe de porc
@@ -60076,7 +60118,7 @@ wikidata:en: Q7595716
 < en:Star anise
 fr:anéthol de badiane
 
-en:starch
+en:starch, food starch
 an:Amelón
 ar:نشا
 az:Nişasta
@@ -60153,7 +60195,7 @@ wikidata:en: Q41534
 wikipedia:en: https://en.wikipedia.org/wiki/Starch
 
 < en:Starch
-en:corn starch, maize starch
+en:corn starch, maize starch, cornstarch
 ar:نشا الذرة
 ca:Midó de blat de moro
 cs:Kukuřičný škrob
@@ -60182,7 +60224,7 @@ zh:玉米澱粉
 wikipedia:en: https://en.wikipedia.org/wiki/Corn_starch
 
 < en:Starch
-en:Modified starch, E1401, Modified starch ((Acid-treated starch) Stabilizer (food)stabiliser), E14XX, modified starches
+en:Modified starch, E1401, Modified starch ((Acid-treated starch) Stabilizer (food)stabiliser), E14XX, modified starches, modified food starch, modified food starches, food starch modified
 ar:نشا معدل
 bg:Модифицирано нишесте, E1401, E1401 food additive, E14XX, E14XX food additive
 cs:Modifikovaný škrob, E1401, E1401 food additive, E14XX, E14XX food additive
@@ -64528,6 +64570,9 @@ en:sunflower fat
 from_palm_oil:en: no
 
 < en:Vegetable fat
+fr:matières grasses végétales de colza, matières grasses de colza
+
+< en:Vegetable fat
 fr:préparation de matières grasses végétales
 
 < en:Apple
@@ -67346,7 +67391,7 @@ it:farina di grano duro
 nl:durum tarwemeel
 
 < en:Wheat flour
-en:fortified wheat flour
+en:fortified wheat flour, enriched wheat flour
 de:angereichertes Weizenmehl
 fr:farine de blé enrichie
 it:farina di frumento fortificada
@@ -67787,6 +67832,7 @@ nl:volkoren speltmeel
 
 < en:Wheat flour
 < en:Wholemeal flour
+en:whole wheat flour
 de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
