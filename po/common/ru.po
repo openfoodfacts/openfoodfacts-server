@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-07 18:57\n"
+"PO-Revision-Date: 2019-08-29 13:14\n"
 "Language-Team: Russian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -136,7 +136,7 @@ msgstr "Страницу продукта также редактировали:
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
@@ -144,7 +144,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/ru_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -864,7 +864,7 @@ msgstr "Надо ввести символы штрихкода, или загр
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Полный размер"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
@@ -880,7 +880,7 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Исходное изображение)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
@@ -980,7 +980,7 @@ msgstr "Продукты которые не содержат %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/appstore/black/appstore_RU.svg\" alt=\"Доступно в App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2592,7 +2592,7 @@ msgstr "Адрес сайта или блога"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/microsoft/Russian.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -3341,7 +3341,7 @@ msgstr "Анализ основан исключительно на перечи
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "Вы просматриваете старую версию страницы продукта!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
@@ -3349,17 +3349,17 @@ msgstr ""
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "Отредактировал(а): "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "Предыдущая версия"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "Следующая версия"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "Последняя версия"
 

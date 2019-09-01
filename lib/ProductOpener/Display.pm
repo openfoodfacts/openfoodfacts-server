@@ -5519,25 +5519,25 @@ sub display_login_register($)
 <p>$Lang{login_to_add_and_edit_products}{$lc}</p>
 
 <form method="post" action="/cgi/session.pl">
-<div class="row">
-<div class="small-12 columns">
-	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" autocomplete="username" required>
-	</label>
-</div>
-<div class="small-12 columns">
-	<label>$Lang{password}{$lc}
-		<input type="password" name="password" autocomplete="current-password" required>
-	</label>
-</div>
-<div class="small-12 columns">
-	<label>
-		<input type="checkbox" name="remember_me" value="on">
-		$Lang{remember_me}{$lc}
-	</label>
-</div>
-</div>
-<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
+	<div class="row">
+		<div class="small-12 columns">
+			<label>$Lang{login_username_email}{$lc}
+				<input type="text" name="user_id" autocomplete="username" required>
+			</label>
+		</div>
+		<div class="small-12 columns">
+			<label>$Lang{password}{$lc}
+				<input type="password" name="password" autocomplete="current-password" required>
+			</label>
+		</div>
+		<div class="small-12 columns">
+			<label>
+				<input type="checkbox" name="remember_me" value="on">
+				$Lang{remember_me}{$lc}
+			</label>
+		</div>
+	</div>
+	<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
 </form>
 <p>$Lang{login_not_registered_yet}{$lc}
 <a href="/cgi/user.pl">$Lang{login_create_your_account}{$lc}</a></p>
