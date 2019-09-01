@@ -1003,7 +1003,7 @@ ble => "bouteille",
 							$tag =~ s/\s+$//;
 
 							if (defined $taxonomy_fields{$field}) {
-								$tagid = get_taxonomyid(canonicalize_taxonomy_tag($params{lc}, $field, $tag));
+								$tagid = get_taxonomyid($params{lc}, canonicalize_taxonomy_tag($params{lc}, $field, $tag));
 							}
 							else {
 								$tagid = get_fileid($tag);

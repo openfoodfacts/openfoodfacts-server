@@ -74,8 +74,8 @@ foreach my $file (@files) {
 
 		my @csv_fields_mapping = (
 
-["[Produit] EAN", "code"],
-["[Produit] Nomenclature", "nomenclature_fr"],
+["[produit] ean", "code"],
+["[produit] nomenclature", "nomenclature_fr"],
 
 );
 

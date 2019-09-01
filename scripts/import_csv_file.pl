@@ -402,11 +402,14 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		}
 	}
 
-	if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} !~ /^\w\w$/)) {
-		print "lc " . $imported_product_ref->{lc} . " for product code $code is not a 2 letter language code\n";
+	if (not defined $imported_product_ref->{lc})  {
+		die ("missing language code lc in csv file or global field values for product code $code \n");
+	}
+
+	if ($imported_product_ref->{lc} !~ /^\w\w$/) {
 		use Data::Dumper;
 		print Dumper($imported_product_ref);
-		die;
+		die ("lc " . $imported_product_ref->{lc} . " for product code $code is not a 2 letter language code\n");
 	}
 
 	# image paths can be passed in fields image_front / nutrition / ingredients / other
@@ -474,11 +477,6 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 	my $product_ref = product_exists($code); # returns 0 if not
 
-
-	if ((not defined $imported_product_ref->{lc}) and (not defined $import_lc))  {
-		die ("missing language code lc in csv file, global field values, or import_lc for product code $code \n");
-	}
-
 	my $product_comment = $comment;
 	if ((defined $imported_product_ref->{comment}) and ($imported_product_ref->{comment} ne "")) {
 		$product_comment .= " - " . $imported_product_ref->{comment};
@@ -501,13 +499,11 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 			$User_id = $User_id;
 			$product_ref = init_product($code);
-			$product_ref->{interface_version_created} = "import_csv_file.pl - version 2019/01/28";
-			if (defined $global_values{lc}) {
-				$product_ref->{lc} = $global_values{lc};
-			}
-			else {
-				delete $product_ref->{lc};
-			}
+			$product_ref->{interface_version_created} = "import_csv_file.pl - version 2019/08/28";
+
+			$product_ref->{lc} = $imported_product_ref->{lc};
+			$product_ref->{lang} = $imported_product_ref->{lc};
+
 			delete $product_ref->{countries};
 			delete $product_ref->{countries_tags};
 			delete $product_ref->{countries_hierarchy};
@@ -621,7 +617,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					}
 
 					if (defined $taxonomy_fields{$field}) {
-						$tagid = get_taxonomyid(canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
+						$tagid = get_taxonomyid($imported_product_ref->{lc}, canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
 					}
 					else {
 						$tagid = get_fileid($tag);
