@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-02 18:51\n"
+"PO-Revision-Date: 2019-09-02 19:01\n"
 "Language-Team: Czech\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1856,7 +1856,7 @@ msgstr "Ukládání obrázku"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr ""
+msgstr "Při nahrávání fotky došlo k chybě"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
@@ -1868,7 +1868,7 @@ msgstr ""
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Fotky smazány"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
@@ -1896,7 +1896,7 @@ msgstr "Nahrávání image"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr ""
+msgstr "Poslední editace stránky produktu"
 
 msgctxt "product_name"
 msgid "Product name"
@@ -1992,11 +1992,11 @@ msgstr ""
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "Obnovte své heslo na <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Vaše heslo bylo změněno, nyní se můžete přihlásit s tímto heslem."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
@@ -2004,7 +2004,7 @@ msgstr "Zadejte nové heslo."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "Na e-mailovou adresu spojenou s vaším účtem byl zaslán e-mail s odkazem na obnovu hesla."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
@@ -2012,7 +2012,7 @@ msgstr ""
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "Riziko"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
@@ -2032,7 +2032,7 @@ msgstr "Vysoké riziko"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "ekvivalent soli"
 
 msgctxt "save"
 msgid "Save"
@@ -2040,11 +2040,11 @@ msgstr "Uložit"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Uloženo."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Ukládání."
 
 msgctxt "search"
 msgid "Search"
@@ -2100,15 +2100,15 @@ msgstr "(Nepovinné) - Vytvořit sloupec pro každý:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr ""
+msgstr "Generovat graf"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "Generovat mapu"
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "Graf"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
@@ -2297,11 +2297,11 @@ msgstr "Odeslat obrázek..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr ""
+msgstr "Chyba nahrávání"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr ""
+msgstr "Odesílání obrázku"
 
 msgctxt "serving_size"
 msgid "Serving size"
@@ -2329,7 +2329,7 @@ msgstr "Sdílet"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr ""
+msgstr "Zobrazit podrobné statistiky"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
@@ -2357,7 +2357,7 @@ msgstr "Seřadit podle"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "Úplnost"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2365,11 +2365,11 @@ msgstr "Přidat datum"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr ""
+msgstr "Datum úpravy"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr ""
+msgstr "Oblíbenost"
 
 msgctxt "sort_product_name"
 msgid "Product name"
@@ -2377,15 +2377,15 @@ msgstr "Jméno výrobku"
 
 msgctxt "state"
 msgid "State"
-msgstr ""
+msgstr "Stát"
 
 msgctxt "states_p"
 msgid "states"
-msgstr ""
+msgstr "státy"
 
 msgctxt "states_s"
 msgid "state"
-msgstr ""
+msgstr "stát"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2393,7 +2393,7 @@ msgstr "Prodejny"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr ""
+msgstr "Název řetězce obchodů nebo supermarketů"
 
 msgctxt "stores_p"
 msgid "stores"
@@ -2421,15 +2421,15 @@ msgstr ""
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
-msgstr ""
+msgstr "Patří do:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Obsahuje:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
-msgstr ""
+msgstr "Odkazy"
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
@@ -2445,7 +2445,7 @@ msgstr "Stopy"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr ""
+msgstr "Mléko, Lepek, Ořechy"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
@@ -2501,7 +2501,7 @@ msgstr ""
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "Přezdívka nebo e-mailová adresa"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -2521,7 +2521,7 @@ msgstr ""
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "přispěvatelé"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2529,7 +2529,7 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "přispěvatel"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2537,7 +2537,7 @@ msgstr ""
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "zobrazit"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2670,15 +2670,15 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "Poslední změny"
 
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr ""
+msgstr "Naši překladatelé"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
@@ -2694,7 +2694,7 @@ msgstr "Jméno"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
-msgstr ""
+msgstr "Přeloženo (slova)"
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
@@ -2710,15 +2710,15 @@ msgstr ""
 
 msgctxt "minerals_p"
 msgid "added minerals"
-msgstr ""
+msgstr "přidané minerály"
 
 msgctxt "minerals_s"
 msgid "added mineral"
-msgstr ""
+msgstr "přidaný minerál"
 
 msgctxt "vitamins_p"
 msgid "added vitamins"
-msgstr ""
+msgstr "přidané vitamíny"
 
 msgctxt "vitamins_s"
 msgid "added vitamin"
