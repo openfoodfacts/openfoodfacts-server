@@ -56,9 +56,6 @@ open (my $NEW, q{>}, "$www_root/images/$class.new.html");
 
 
 my $cursor = $products_collection->query({})->fields({ code => 1 })->sort({code =>1});
-my $count = $cursor->count();
-	
-	print STDERR "$count products to update\n";
 	
 	while (my $product_ref = $cursor->next) {
         

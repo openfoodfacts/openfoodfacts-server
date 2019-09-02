@@ -181,6 +181,8 @@ synonyms:en:no8, n8, 8
 
 synonyms:en:no9, n9, 9
 
+synonyms:en:pasteurised, pasteurized
+
 synonyms:en:sulfide, sulphide
 
 synonyms:fr:de fer, ferreux, ferrique
@@ -260,6 +262,8 @@ nl:scharrelkipeiwitpoeder
 
 < de:Joghurtpulver
 de:Magermilchjoghurtpulver
+
+de:Nitritpökelsalz
 
 < de:Quellkohlensäure
 de:natürliche Quellkohlensäure
@@ -1985,6 +1989,10 @@ vegan:en: no
 vegetarian:en: no
 
 < en:Beef meat
+en:beef tongue
+fr:langue de bœuf
+
+< en:Beef meat
 en:cooked beef meat, cooked beef
 de:gekochtes Rindfleisch
 fr:viande de bœuf cuite, viande bovine cuite, bœuf cuit
@@ -2228,7 +2236,7 @@ wikidata:en: Q5812410
 
 < en:Berries
 < en:Fruit
-en:strawberry, stawberries
+en:strawberry, strawberries
 an:Fraga
 ar:فراولة
 as:ষ্ট্ৰবেৰী
@@ -4179,6 +4187,7 @@ nl:natuurlijk gashoudend natuurlijk mineraalwater
 
 < en:Carbonated natural mineral water
 fr:eau minérale naturelle gazéifiée, eau minérale naturelle avec adjonction de gaz carbonique
+de:Natürliches Mineralwasser mit Kohlensäure versetzt
 
 < en:Carbonated natural mineral water
 fr:Eau minérale naturelle renforcée au gaz de la source
@@ -5375,7 +5384,7 @@ wikidata:en: Q131480
 wikipedia:en: https://en.wikipedia.org/wiki/Camembert
 
 < en:Cheese
-en:cheddar
+en:cheddar, cheddar cheese
 af:Cheddarkaas
 ar:جبنة تشيدر
 ca:Cheddar
@@ -7825,7 +7834,7 @@ en:coagulum, coagulating agent, agente coagulante, agentes coagulantes
 de:Koagulat
 es:Agentes coagulantes
 fr:agent de coagulation, coagulant
-it:coagulo
+it:agente coagulante, coagulante
 
 en:coating, seasoning
 bg:Покритие
@@ -8675,10 +8684,6 @@ description:es: Aditivos alimentarios que estabilizan, retienen o intensifican e
 description:fr: Additif alimentaire qui stabilise, retient ou intensifie la couleur d'une denrée alimentaire.
 
 < en:Colza oil
-< en:Sunflower oil
-fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
-
-< en:Colza oil
 en:organic colza oil
 fr:colza bio
 nl:olie van biologisch koolzaad
@@ -8695,6 +8700,10 @@ fr:huile de colza vierge
 < en:Colza oil
 fr:monodiglycérides de colza
 de:Mono- und Diglyceride von Raps
+
+< en:Colza oil
+< en:Sunflower oil
+fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
 
 < en:Common cuttlefish
 en:Sepia officinalis
@@ -35600,6 +35609,16 @@ en:banana flavouring
 fr:arôme de banane
 
 < en:Flavouring
+en:beef flavouring
+fr:arôme de boeuf
+vegan:en: no
+vegetarian:en: no
+
+< en:Flavouring
+en:bergamot orange flavouring, bergamot flavouring
+fr:arôme de bergamote
+
+< en:Flavouring
 en:caramel flavouring
 fr:arôme caramel
 nl:caramelaroma
@@ -35676,6 +35695,11 @@ vegan:en: maybe
 vegetarian:en: maybe
 
 < en:Flavouring
+en:orange blossom flavouring
+fr:arôme fleur d'oranger
+nl:sinaasappelbloemaroma
+
+< en:Flavouring
 en:orange flavouring
 de:Orangenaroma
 fr:arôme d'orange
@@ -35699,6 +35723,11 @@ fr:arôme de poivre
 < en:Flavouring
 en:peppermint flavouring
 fr:arôme de menthe poivrée
+
+< en:Flavouring
+en:raspberry flavouring
+fr:arôme framboise
+nl:frambozenaroma
 
 < en:Flavouring
 en:seafood flavouring
@@ -35728,6 +35757,10 @@ en:sweet lime flavouring
 fr:arôme de limette
 
 < en:Flavouring
+en:truffle flavouring
+fr:arôme de truffe
+
+< en:Flavouring
 en:vanilla flavouring
 da:vanilijaroma
 de:VanilleAroma
@@ -35748,14 +35781,6 @@ fr:arôme de malt d'orge
 
 < en:Flavouring
 fr:arôme de sureau
-
-< en:Flavouring
-fr:arôme fleur d'oranger
-nl:sinaasappelbloemaroma
-
-< en:Flavouring
-fr:arôme framboise
-nl:frambozenaroma
 
 < en:Flavouring
 fr:arôme identique nature
@@ -37214,7 +37239,7 @@ wikidata:en: Q3342808
 wikipedia:en: https://fr.wikipedia.org/wiki/Noix_de_coco
 
 < en:Fruit
-en:cranberry
+en:cranberry, cranberries
 ar:عنبية حادة الخباء
 az:Mərcanı
 ba:Мүк еләге
@@ -44659,17 +44684,10 @@ wikidata:en: Q10572454
 wikipedia:en: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
 < en:Milk
-en:skim milk, fat-free milk
-es:Leche sin grasas
-it:latte scremato, latte senza grassi
-nl:vetvrije melk
-wikidata:en: Q2352187
-
-< en:Milk
-en:skimmed milk
+en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk
 ar:حليب منزوع الدسم
 de:Magermilch
-es:Leche descremada, Leche desnatada
+es:Leche descremada, Leche desnatada, leche sin grasas
 et:Lõss
 fa:شیر خشک بدون چربی
 fi:Kuorittu maito
@@ -44677,12 +44695,12 @@ fr:lait écrémé
 gl:Leite desnatado
 id:Susu skim
 is:Undanrenna
-it:latte scremato, latte senza grassi
+it:Latte scremato, latte senza grassi
 ja:脱脂粉乳
 lt:Nugriebtas pienas
 ms:Susu skim
 nb:Skummet melk
-nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk
+nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
 pa:ਸਪਰੇਟਾ
 pt:Leite desnatado
 ru:Обезжиренное молоко
@@ -47930,6 +47948,11 @@ de:natürliches Selleriearoma
 nl:natuurlijk selderijaroma
 
 < en:Natural flavouring
+en:butter natural flavouring
+fr:arôme naturel de beurre
+vegan:en: no
+
+< en:Natural flavouring
 en:natural almond flavouring
 de:natürliches Mandelaroma
 fr:arôme naturel d'amande
@@ -47958,6 +47981,10 @@ en:natural basil flavouring
 de:natürliches Basilikumaroma
 fr:arôme naturel de basilic
 it:aroma naturale del basilico
+
+< en:Natural flavouring
+en:natural bergamot orange flavouring
+fr:arôme naturel de bergamote
 
 < en:Natural flavouring
 en:natural blueberry flavouring
@@ -47993,6 +48020,10 @@ fr:arôme naturel de cerise
 < en:Natural flavouring
 en:natural chicken flavouring
 fr:arôme naturel de poulet, arôme naturel de poule
+
+< en:Natural flavouring
+en:natural chocolate flavouring
+fr:arôme naturel de chocolat
 
 < en:Natural flavouring
 en:natural cinammon flavouring
@@ -48060,6 +48091,10 @@ vegetarian:en: maybe
 < en:Natural flavouring
 en:natural herbs flavouring
 fr:arôme naturel d'herbes
+
+< en:Natural flavouring
+en:natural honey flavouring
+fr:arôme naturel de miel
 
 < en:Natural flavouring
 en:natural hot pepper flavouring
@@ -48168,6 +48203,10 @@ de:natürliches Himbeeraroma
 fr:arôme naturel de framboise
 
 < en:Natural flavouring
+en:natural rose flavouring
+fr:arôme naturel de rose
+
+< en:Natural flavouring
 en:natural rum flavouring
 fr:arôme naturel de rhum
 
@@ -48183,7 +48222,7 @@ vegetarian:en: no
 
 < en:Natural flavouring
 en:natural shallot flavouring
-fr:arôme naturel d'échalotte
+fr:arôme naturel d'échalotte, arôme naturel d'échalote
 
 < en:Natural flavouring
 en:natural sour almond flavouring
@@ -49672,6 +49711,11 @@ zh:橙汁
 wikidata:en: Q219059
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_juice
 
+< en:Natural flavouring
+< en:Orange blossom flavouring
+en:natural orange blossom flavouring
+fr:arôme naturel de fleur d'oranger
+
 < en:Orange blossom honey
 fr:miel d'oranger biologique
 
@@ -49707,7 +49751,7 @@ nl:sinaasappelconcentraat, geconcentreerd sinaasappelsap
 
 < en:Orange juice
 en:orange juice from concentrate
-de:Orangensaft aus Konzentrat
+de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat
 es:Zumo de naranja desde concentrado
 fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré
 it:succo d'arancia a base di concentrato
@@ -52162,6 +52206,10 @@ fr:poitrine de porc
 nl:varkenslever
 
 < en:Pork meat
+en:pork tongue
+fr:langue de porc
+
+< en:Pork meat
 en:stewed porc
 de:geschmortes Schweinefleisch
 fr:viandes de porc à l'étouffée
@@ -52214,9 +52262,6 @@ fr:jarret avant de porc
 
 < en:Pork meat
 fr:jarret de porc
-
-< en:Pork meat
-fr:langue de porc
 
 < en:Pork meat
 fr:longe de porc
@@ -53346,6 +53391,46 @@ description:sl: Sredstva za vzhajanje so snovi ali njihove kombinacije, ki spro�
 description:sv: Bakpulver: ämnen eller kombinationer av ämnen som frigör gaser och därigenom ökar volymen på en deg eller smet.
 wikidata:en: Q908833
 wikipedia:en: https://en.wikipedia.org/wiki/Leavening_agent
+
+< en:Rapeseed
+en:Canola
+
+< en:Rapeseed oil
+en:canola oil
+de:Ölrübsenöl
+es:aceite de canola
+fi:Rypsiöljy
+fr:huile de navette, huile de canola
+nl:raapolie, canola olie, raapzaadolie
+from_palm_oil:en: no
+wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
+
+< en:Rapeseed oil
+en:colza oil
+bg:рапично олио
+cs:řepkový olej
+de:Rapsöl
+el:κραμβέλαιο
+es:aceite de colza, aceite de nabina
+fi:rapsiöljy
+fr:huile de colza, huile végétale de colza, huile colza, colza, graisses végétales de colza
+hr:repičino ulje
+hu:repceolaj
+it:olio di colza
+lt:rapšu ella
+lv:rapsų aliejus
+nl:koolzaadolie, plantaardige koolzaadolie
+pl:olej rzepakowy, olej roślinny rzepakowy
+pt:óleo de colza
+ro:ulei de rapiță
+ru:рапсове масло
+sk:repkový olej
+sv:rapsolja
+carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
+carbon_footprint_fr_foodges_value:fr: 2.2
+from_palm_oil:en: no
+wikidata:en: Q697248
+wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
 
 < en:Raspberry
 en:freeze-dried raspberries
@@ -54967,6 +55052,13 @@ wikidata:en: Q7224565 # for the plant
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
 
 < en:Root vegetable
+en:Rapeseed, rape, oilseed rape
+de:Raps
+la:Brassica napus
+wikidata:en: Q177932
+wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
+
+< en:Root vegetable
 en:salsify, black salsify
 ar:سلسفي هسباني
 az:İspan təkəsaqqalı
@@ -55926,6 +56018,9 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
+
+< en:Salt
+de:Steinsalz
 
 < en:Salt
 en:finegrained salt
@@ -60076,7 +60171,7 @@ wikidata:en: Q7595716
 < en:Star anise
 fr:anéthol de badiane
 
-en:starch
+en:starch, food starch
 an:Amelón
 ar:نشا
 az:Nişasta
@@ -60153,7 +60248,7 @@ wikidata:en: Q41534
 wikipedia:en: https://en.wikipedia.org/wiki/Starch
 
 < en:Starch
-en:corn starch, maize starch
+en:corn starch, maize starch, cornstarch
 ar:نشا الذرة
 ca:Midó de blat de moro
 cs:Kukuřičný škrob
@@ -60182,7 +60277,7 @@ zh:玉米澱粉
 wikipedia:en: https://en.wikipedia.org/wiki/Corn_starch
 
 < en:Starch
-en:Modified starch, E1401, Modified starch ((Acid-treated starch) Stabilizer (food)stabiliser), E14XX, modified starches
+en:Modified starch, E1401, Modified starch ((Acid-treated starch) Stabilizer (food)stabiliser), E14XX, modified starches, modified food starch, modified food starches, food starch modified
 ar:نشا معدل
 bg:Модифицирано нишесте, E1401, E1401 food additive, E14XX, E14XX food additive
 cs:Modifikovaný škrob, E1401, E1401 food additive, E14XX, E14XX food additive
@@ -64528,6 +64623,9 @@ en:sunflower fat
 from_palm_oil:en: no
 
 < en:Vegetable fat
+fr:matières grasses végétales de colza, matières grasses de colza
+
+< en:Vegetable fat
 fr:préparation de matières grasses végétales
 
 < en:Apple
@@ -64661,16 +64759,6 @@ from_palm_oil:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Camelina_sativa
 
 < en:Vegetable oil
-en:canola oil
-de:Ölrübsenöl
-es:aceite de canola
-fi:Rypsiöljy
-fr:huile de navette, huile de canola
-nl:raapolie, canola olie, raapzaadolie
-from_palm_oil:en: no
-wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
-
-< en:Vegetable oil
 en:chia oil
 de:Chiaöl
 es:aceite de chía
@@ -64727,33 +64815,6 @@ zh:椰子油
 from_palm_oil:en: no
 wikidata:en: Q216235
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_oil
-
-< en:Vegetable oil
-en:colza oil
-bg:рапично олио
-cs:řepkový olej
-de:Rapsöl, Raps
-el:κραμβέλαιο
-es:aceite de colza, aceite de nabina
-fi:rapsiöljy
-fr:huile de colza, huile végétale de colza, huile colza, colza, graisses végétales de colza
-hr:repičino ulje
-hu:repceolaj
-it:olio di colza
-lt:rapšu ella
-lv:rapsų aliejus
-nl:koolzaadolie, plantaardige koolzaadolie
-pl:olej rzepakowy, olej roślinny rzepakowy
-pt:óleo de colza
-ro:ulei de rapiță
-ru:рапсове масло
-sk:repkový olej
-sv:rapsolja
-carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
-carbon_footprint_fr_foodges_value:fr: 2.2
-from_palm_oil:en: no
-wikidata:en: Q697248
-wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
 
 < en:Vegetable oil
 en:corn oil, maize oil
@@ -65254,14 +65315,14 @@ it:Olio e grasso di palma
 from_palm_oil:en: yes
 
 < en:Vegetable oil and fat
-en:rapeseed oil and fat
+en:rapeseed oil, rapeseed fat, rapeseed oil and fat
 from_palm_oil:en: no
 
 < en:Vegetable oil and fat
 en:vegetable fat, vegetal fat, vegetable fats
 cs:Rostlinný tuk
 da:vegetabilsk fedt
-de:pflanzliche Fette
+de:pflanzliche Fette, pflanzliches Fett
 el:φυτικά λίπη
 es:grasas vegetales, grasa vegetal
 fi:kasvirasva
@@ -65284,7 +65345,7 @@ bg:Растително масло
 ca:Oli vegetal
 cs:Rostlinný olej
 da:vegetabilisk olie
-de:Pflanzenöle, pflanzliche Öle
+de:Pflanzenöle, pflanzliche Öle, pflanzliches Öl
 eo:Legoma oleo
 es:Aceite vegetal, aceites vegetales
 et:Taimeõli
@@ -65336,7 +65397,7 @@ nl:boneneiwit
 
 < en:Vegetable protein
 en:wheat protein
-de:Weizenprotein
+de:Weizenprotein, Weizeneiweiß
 es:Proteina de trigo
 fr:protéine de blé, protéines de froment
 hu:búzafehérje
@@ -67346,7 +67407,7 @@ it:farina di grano duro
 nl:durum tarwemeel
 
 < en:Wheat flour
-en:fortified wheat flour
+en:fortified wheat flour, enriched wheat flour
 de:angereichertes Weizenmehl
 fr:farine de blé enrichie
 it:farina di frumento fortificada
@@ -67787,6 +67848,7 @@ nl:volkoren speltmeel
 
 < en:Wheat flour
 < en:Wholemeal flour
+en:whole wheat flour
 de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment

@@ -25,7 +25,7 @@ requires 'Digest::MD5'; # libdigest-md5-perl
 requires 'Time::Local'; # libtime-local-perl
 
 # Probably not available as Debian packages
-requires 'MongoDB', '>= 1.8.1, < 2.0'; # libmongodb-perl has an older version
+requires 'MongoDB', '>= 2.2.0, < 2.3'; # libmongodb-perl has an older version
 requires 'URI::Escape::XS';
 requires 'Encode::Punycode';
 requires 'GraphViz2';

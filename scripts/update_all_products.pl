@@ -200,18 +200,12 @@ else {
 
 print "Update key: $key\n\n";
 
-my $cursor = get_products_collection()->find($query_ref, { projection => { code => 1, id => 1, _id => 1 }});;
+my $products_collection = get_products_collection();
+my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });
 $cursor->immortal(1);
-my $cursor_count = $cursor->count();
 
 my $n = 0;	# number of products updated
 my $m = 0;	# number of products with a new version created
-
-print STDERR "$cursor_count products to update\n";
-
-# Stop without doing any processing if the --count option is specified
-
-exit if $count;
 
 while (my $product_ref = $cursor->next) {
 
@@ -578,7 +572,7 @@ while (my $product_ref = $cursor->next) {
 				# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
 				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
 				$product_ref->{code} = $product_ref->{code} . '';
-				get_products_collection()->save($product_ref);
+				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
 			}
 		}
 
