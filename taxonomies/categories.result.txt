@@ -124,7 +124,7 @@ ia:bira
 id:Bir
 io:biro
 is:bjór
-it:birra
+it:Birre
 ja:ビール
 jv:Bir
 ka:ლუდი
@@ -310,6 +310,7 @@ en:Duck fat
 de:Entenfette
 fr:Graisse de canard, gras de canard
 hu:Kacsa zsír
+it:Grasso d'anatra
 nl:Eendenvetten
 
 < en:Animal fats
@@ -323,6 +324,7 @@ zh:鱼油
 < en:Animal fats
 en:Lards
 fr:Saindoux
+it:Lardo
 nl:Varkensreuzels
 wikidata:en: Q72827
 
@@ -910,6 +912,11 @@ es:Espárragos verdes
 fi:vihreä parsa
 fr:Asperges vertes
 nl:Groene asperges
+
+< en:Asparagus
+en:Miniature asparagus
+fr:Asperges miniatures
+nl:Mini asperges
 
 < en:Asparagus
 en:Purple asparagus
@@ -2077,7 +2084,7 @@ es:Bebidas endulzadas artificialmente
 fi:keinotekoisesti makeutetut juomat
 fr:Boissons édulcorées, boissons aux édulcorants
 hu:Mesterségesen édesített italok
-it:Bevande artificialmente zuccherate
+it:Bevande artificialmente zuccherate, Bevande artificialmente dolcificate, Bevande artificialmente edulcorate
 nl:Kunstmatig gezoete dranken
 pt:Bebidas artificialmente doçeadas
 ro:Băuturi îndulcite artificial, Băuturi cu îndulcitori artificiali, Bauturi indulcite artificial, Bauturi cu indulcitori artificiali
@@ -2136,6 +2143,7 @@ es:Bebidas para tomar calientes
 fi:kuumat juomat
 fr:Boissons chaudes
 hu:Forró italok, Meleg italok
+it:Bevande calde
 nl:Warme dranken, Warme drank
 pl:Napoje gorące, ciepłe napoje
 pt:Bebidas quentes
@@ -2253,7 +2261,7 @@ es:Aguas, aguas embotelladas, agua embotellada
 fi:vedet
 fr:Eaux, eau, eaux en bouteilles, eau en bouteille
 hu:Vízek
-it:Acqua
+it:Acque, acqua, acque in bottiglia, acqua in bottiglia
 nl:Waters, Water
 pt:Águas, águas engarrafadas, água engarrafada
 ru:Вода
@@ -2315,6 +2323,7 @@ es:Cookies
 fi:keksit
 fr:Cookies
 hu:Kekszek, Keksz
+it:Cookie, cookies
 nl:Koekjes, cookies
 ru:Печенье
 zh:曲奇, 曲奇饼干
@@ -2453,7 +2462,7 @@ es:Galletas y pasteles
 fi:Keksit ja kakut
 fr:Biscuits et gâteaux
 hu:Kekszek és sütemények
-it:Biscotti e torte
+it:Biscotti e torte, Biscotti e dolci
 nl:Koekjes en cakes
 pt:Biscoitos e Bolos
 th:ขนมปังกรอบและเค๊ก
@@ -8046,6 +8055,7 @@ de:Eiskaffees, Eiskaffee
 fi:jääkahvit
 fr:Cafés glacés
 hu:Jegeskávé
+it:Caffè freddo
 nl:Ice coffees, Ice coffee, IJskoffie
 wikidata:en: Q968554
 
@@ -8418,6 +8428,15 @@ fr:Barbes à papa
 it:Zucchero filato
 nl:Suikerspin
 wikidata:en: Q49737
+
+< en:Confectioneries
+en:Dragées
+de:Dragées, Dragees
+es:Grageados
+fi:drageet
+fr:Dragées
+nl:Dragees
+wikidata:en: Q1255306
 
 < en:Confectioneries
 en:French confectioneries
@@ -9623,7 +9642,7 @@ es:Postres
 fi:jälkiruuat
 fr:Desserts
 hu:Desszertek
-it:Dolci
+it:Dolci, dolce
 nl:Desserts, Nagerechten
 pl:Desery
 pt:Sobremesas
@@ -9845,14 +9864,6 @@ en:Doogh
 de:Dugh
 ru:Тан
 wikidata:en: Q1264142
-
-en:Dragées
-de:Dragées, Dragees
-es:Grageados
-fi:drageet
-fr:Dragées
-nl:Dragees
-wikidata:en: Q1255306
 
 < en:Dragées
 < en:Nut confectioneries
@@ -10405,6 +10416,7 @@ nl:Eendenbouten
 
 < en:Ducks
 fr:Filets de canard
+it:Filetti di anatra
 
 < en:Dried seaweeds
 < en:Dulse seaweeds
@@ -10566,6 +10578,7 @@ de:Hühnereier
 es:Huevos de gallina
 fi:kananmunat
 fr:Œufs de poules
+it:Uovo di gallina
 nl:Kippeneieren
 ru:Яйца куриные, куриные яйца, яйца кур
 zh:鸡蛋
@@ -10574,6 +10587,7 @@ wikidata:en: Q15260613
 < en:Eggs
 en:Duck eggs
 fr:Oeufs de canards
+it:Uova d'anatra
 nl:Eende-ei
 ru:Яйца уток, яйца утиные, утиные яйца
 zh:鸭蛋
@@ -10596,6 +10610,7 @@ zh:鲜鸡蛋
 < en:Eggs
 en:Goose eggs
 fr:Œufs d'oies
+it:Uova d'oca
 ru:Яйца гусей, яйца гусиные, гусиные яйца
 zh:鹅蛋
 
@@ -10605,6 +10620,7 @@ fr:Œufs de pintade
 
 < en:Eggs
 en:Gull eggs
+it:Uova di gabbiano
 
 < en:Eggs
 en:Ostrich eggs
@@ -10615,6 +10631,7 @@ wikidata:en: Q28969642
 < en:Eggs
 en:Pheasant eggs
 fr:Œufs de faisan
+it:Uova di fagiano
 
 < en:Eggs
 en:Quail eggs, Quail egg
@@ -10813,7 +10830,7 @@ es:Grasas vegetales, Grasas de origen vegetal
 fi:kasvirasvat
 fr:Matières grasses végétales, matière grasse végétale, graisses végétales
 hu:Növényi zsírok, növényi eredetű zsírok
-it:Grassi vegetali
+it:Grassi vegetali, Grassi di origine vegetale
 nl:Plantaardige vetten
 pl:Tłuszcze roślinne
 pt:Gorduras vegetals
@@ -10962,7 +10979,7 @@ es:Productos fermentados de la leche
 fi:fermentoidut maitotuotteet
 fr:Produits laitiers fermentés
 hu:Fermentált tejtermékek, Erjesztett tejtermékek
-it:Prodotti lattiero-caseari fermentati, Alimenti caseari fermentati, Prodotti a base di latte fermentato
+it:Prodotti lattiero-caseari fermentati, Alimenti caseari fermentati, Prodotti a base di latte fermentato, Prodotti caseari fermentati, latticini fermentati
 nl:Gefermenteerde zuivelproducten
 pt:Produtos lácteos fermentados
 ru:Кисломолочные продукты
@@ -11044,7 +11061,7 @@ ia:Caseo
 id:keju
 io:Fromajo
 is:Ostur
-it:formaggio, formaggi
+it:Formaggi, formaggio
 ja:チーズ
 jv:Kèju
 ka:ყველი
@@ -11181,7 +11198,7 @@ nl:Pannenkoeken gevuld met jam
 en:Fish and meat and eggs, Fish meat eggs
 ca:Peix carn i ous
 de:Fisch und Fleisch und Eier, Fisch Fleisch Eier
-es:Pescado y carne y huevos
+es:Pescado carne y huevos
 fi:Kala liha ja munat
 fr:Poissons et viandes et oeufs, Poissons viandes oeufs
 nl:Vis vlees en eieren
@@ -13036,7 +13053,7 @@ es:Helados y sorbetes
 fi:jäätelöt ja sorbetit
 fr:Glaces et sorbets, glace et sorbet, sorbets et glaces
 hu:Jégkrém és parfé
-it:Gelato e Sorbetto
+it:Gelati e sorbetti
 nl:IJs en sorbets
 pl:Lody i sorbety
 pt:Gelados e sorvetes
@@ -17775,7 +17792,7 @@ es:Zumos de frutas, Zumo de frutas, Jugos de frutas
 fi:Hedelmämehut
 fr:Jus de fruits, jus de fruit
 hu:Gyümölcslevek és nektárok
-it:Succo di frutta
+it:Succhi di frutta
 nl:Vruchtensappen, Fruitsappen
 pl:Soki owocowe
 pt:Sumos de fruta
@@ -18711,6 +18728,7 @@ nl:Gezouten margarine
 en:Unsalted margarines
 es:Margarinas sin sal
 fr:Margarines sans sel
+it:Margarina senza sale
 nl:Ongezouten margarine
 
 < en:Green cracked olives
@@ -19632,6 +19650,7 @@ es:Carne de cerdo
 fi:possu
 fr:Porc, Viande de porc, Viandes de porc
 hu:Disznóhús
+it:Maiale, Carne di maiale
 nl:Varken, Varkensvlezen
 pt:Carne de porco
 ru:Свинина
@@ -19645,6 +19664,7 @@ es:Aves
 fi:siipikarja
 fr:Volailles, viande de volailles
 hu:Szárnyasok
+it:Pollami
 nl:Gevogelten
 pl:Mięso drobiowe, Drób
 pt:Avícolas
@@ -20005,10 +20025,6 @@ fr:Eaux minérales naturelles, eau minérale naturelle
 nl:Natuurlijke mineraalwaters, Natuurlijk mineraalwater
 ru:Природная минеральная вода
 zh:天然矿泉水, 天然矿物质水
-
-en:Miniature asparagus
-fr:Asperges miniatures
-nl:Mini asperges
 
 < en:Mint
 en:Pennyroyal
@@ -21299,6 +21315,7 @@ de:Nüsse
 es:Frutos de cáscara
 fi:pähkinät
 fr:Fruits à coques, Fruit à coque, Fruits à coque, Fruits à éclacle
+it:Noci, Frutti a noce, Frutti a guscio, Frutta a guscio
 nl:Noten
 th:ถั่วเปลือกแข็ง
 zh:坚果
@@ -22520,6 +22537,12 @@ en:Tartlets
 fr:Tartelettes, tartelette
 nl:Taartjes
 
+< en:Pies
+en:Two-crust Pies, 2 crust pies
+fr:Tourtes, Tourte
+nl:Pies, pie
+wikidata:en: Q13360264
+
 < en:Pine nuts
 < en:Shelled nuts
 en:Shelled pine nuts, Pine nuts kernels, In shell pine nuts
@@ -22542,6 +22565,7 @@ es:Pistachos tostados
 fi:paahdetut pistaasit
 fr:Pistaches grillées
 hu:Pörkölt pisztácia
+it:Pistacchio tostato
 nl:Geroosterde pistachenootjes
 
 < en:Pistachios
@@ -23087,7 +23111,6 @@ wikidata:en: Q2724976
 
 < en:Plant-based foods
 en:Nuts and their products
-ca:Fruits secs i derivats
 cs:Ořechy a výrobky z nich
 de:Nüsse und Nussprodukte
 es:Frutos de cáscara y derivados, Frutos de cáscara y sus productos
@@ -23551,6 +23574,7 @@ de:Speck, Schweinespeck
 es:Bacon
 fi:pekoni
 fr:Bacon, lard, lardum, lard hypodermique, bardière
+it:Bacon
 nl:Spek
 zh:培根, 猪培根, 猪肉培根
 
@@ -23558,6 +23582,7 @@ zh:培根, 猪培根, 猪肉培根
 en:Pig heart
 fr:Cœur de porc
 hu:Disznó szív
+it:Cuore di maiale
 zh:猪心
 
 < en:Pork
@@ -23976,6 +24001,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chicken_as_food
 en:Ducks, Duck fresh meat, Duck
 fi:ankat
 fr:Canards
+it:Anatre
 nl:Eendevlezen
 zh:鸭肉, 新鸭肉, 鸭
 wikidata:en: Q3736439
@@ -23995,6 +24021,7 @@ zh:鹅, 鹅肉
 < en:Poultries
 en:Pigeon, pigeon fresh meat
 fr:Pigeons, viande de pigeon, pigeon
+it:Piccione
 nl:Duifvlezen
 zh:鸽子, 鸽
 
@@ -24030,6 +24057,7 @@ de:Putenfleisch
 es:Pavo
 fi:kalkkunat
 fr:Dindes, dinde
+it:Tacchini, Tacchino
 nl:Kalkoenvlezen
 zh:火鸡, 鲜火鸡肉, 鲜火鸡
 
@@ -27970,7 +27998,7 @@ es:Snacks salados
 fi:suolaiset naposteltavat
 fr:Snacks salés
 hu:Sós ételek, Sós élelmiszerek
-it:Snack salati
+it:Snacks salati
 nl:Zoute snacks
 pl:Słone przekąski
 pt:Petiscos salgados
@@ -29005,7 +29033,7 @@ es:Untables
 fi:levitteet
 fr:Produits à tartiner, préparations à tartiner, tartinables, produit à tartiner
 hu:Kenhető élelmiszerek
-it:Spalmabili
+it:Spalmabili, prodotti spalmabili, preparazioni spalmabili
 nl:Smeerbare producten
 pt:Produtos para barrar, preparações para barrar
 ru:Намазки
@@ -29079,7 +29107,7 @@ es:Aguas minerales
 fi:kivennäisvedet
 fr:Eaux minérales, eau minérale
 hu:Ásványvízek
-it:Acqua minerale
+it:Acque minerali, acqua minerale
 nl:Mineraalwaters, Mineraalwater, Mineraal water
 pt:Água Mineral
 ru:Минеральная вода, Минеральные воды, Минералка
@@ -29913,7 +29941,7 @@ es:Dulces
 fi:Sokerileipomotuotteet
 fr:Confiseries, confiserie
 hu:Sütemények, sütemény, Cukrász áruk
-it:Dolce
+it:Dolci, dolce
 nl:Confiserie, Suikerwerk
 pt:Confeitaria
 ru:Кондитерские изделия
@@ -29995,7 +30023,7 @@ es:Endulzantes, Edulcorantes
 fi:makeutusaineet
 fr:Édulcorants
 hu:Édesítőszerek
-it:Dolcificanti
+it:Edulcoranti, dolcificanti
 nl:Zoetstoffen
 pl:Produkty wykorzystywane do słodzenia, słodzące
 pt:Adoçantes
@@ -31049,6 +31077,13 @@ es:Atún en aceite
 fr:Thons à l'huile
 nl:Tonijn op olie
 
+< en:Fishes
+< en:Tunas
+en:Whole tunas
+fi:kokonaiset tonnikalat
+fr:Thons entiers
+nl:Hele tonijn
+
 < en:Tunas
 es:atún claro
 fr:thons pales, thon pale
@@ -31231,21 +31266,16 @@ es:Turrones a la piedra
 < en:Turrón
 es:Turrones de mazapán de cabello de ángel
 
-en:Two-crust Pies, 2 crust pies
-fr:Tourtes, Tourte
-nl:Pies, pie
-wikidata:en: Q13360264
+< en:Two-crust Pies
+fr:Tielles Sétoises, tielles, tielle, tielle sétoise, tielle à la sétoise, tielles à la sétoise
+pnns_group_2:en: Appetizers
+wikidata:en: Q3528208
 
 < en:Salted pies
 < en:Two-crust Pies
 en:Mushroom pies
 fr:Tourtes aux champignons
 nl:Champignontaarten
-
-< en:Two-crust Pies
-fr:Tielles Sétoises, tielles, tielle, tielle sétoise, tielle à la sétoise, tielles à la sétoise
-pnns_group_2:en: Appetizers
-wikidata:en: Q3528208
 
 < en:UHT Milks
 ru:Молоко питьевое ультрапастеризованное (ультравысокотемпературно-обработанное), Молоко питьевое ультрапастеризованное, Молоко ультрапастеризованное питьевое, Молоко питьевое ультравысокотемпературно-обработанное
@@ -32858,6 +32888,7 @@ en:Flavored waters, Flavored water
 de:Wasser mit Geschmack, Wässer mit Geschmack
 fi:maustetut vedet
 fr:Eaux aromatisées, eau aromatisée
+it:Acque aromatizzate, acqua aromatizzata
 nl:Gearomatiseerde waters, Gearomatiseerd water, Waters met smaak, Water met smaak
 pl:Wody smakowe, woda smakowa
 
@@ -32878,6 +32909,7 @@ es:Aguas de manantial
 fi:lähdevedet
 fr:Eaux de sources, Eau de source
 hu:Forrás vízek
+it:Acque di sorgente, acqua di sorgente
 nl:Bronwaters, Bronwater
 zh:泉水
 wikidata:en: Q3046697
@@ -32897,6 +32929,7 @@ es:Aguas carbonatadas, Agua carbonatada
 fi:hiilihapotetut vedet
 fr:Eaux gazeuses, eau gazeuse, eaux pétillantes, eau pétillante
 hu:Szénsavas vízek
+it:Acque frizzanti, acqua frizzante
 nl:Koolzuurhoudende waters, Koolzuurhoudend water
 pl:Woda gazowana
 ru:Газированная вода
@@ -33838,11 +33871,6 @@ es:Aceitunas verdes enteras, Aceitunas verdes con hueso
 fi:kokonaiset vihreät oliivit
 fr:Olives vertes entières
 nl:Hele groene olijven
-
-en:Whole tunas
-fi:kokonaiset tonnikalat
-fr:Thons entiers
-nl:Hele tonijn
 
 < en:Whole durum wheat pasta
 < en:Whole wheat spaghetti
