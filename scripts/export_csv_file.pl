@@ -109,13 +109,10 @@ my @fields = split(/,/, $fields);
 $csv->print ($fh, \@fields);
 print "\n";
 
-my $cursor = get_products_collection()->query($query_ref);;
+my $cursor = get_products_collection()->query($query_ref);
 $cursor->immortal(1);
-my $count = $cursor->count();
 
 my $i = 0;
-	
-print STDERR "$count products to export\n";
 	
 while (my $product_ref = $cursor->next) {
 

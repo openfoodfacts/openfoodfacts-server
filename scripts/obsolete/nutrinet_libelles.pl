@@ -154,12 +154,10 @@ foreach my $libelle_marque_id (sort { $libelle_marque_id{$b} <=> $libelle_marque
 	my $sort_ref = { last_modified_t_complete_first => -1 };
 
 	my $cursor;
-	my $count = 0;
 
 	eval {
 
 	$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit(20)->skip(0);
-	$count = $cursor->count() + 0;
 
 	};
 
@@ -175,7 +173,6 @@ foreach my $libelle_marque_id (sort { $libelle_marque_id{$b} <=> $libelle_marque
 			$products_collection = $database->get_collection('products');
 	
         $cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit(20)->skip(0);
-        $count = $cursor->count() + 0;
 
 		};
 	}
@@ -184,12 +181,10 @@ foreach my $libelle_marque_id (sort { $libelle_marque_id{$b} <=> $libelle_marque
 
 	print STDERR "\n:current_link: " . $current_link . "\n";
 
-	print STDERR "\ncount: $count\n";
-
 	my $off_produit = "";
 	my $off_url = "";
 
-	if ($count > 0) {
+	if ($cursor->has_next) {
 		my $product_ref = $cursor->next;
 
 		$off_produit = $product_ref->{product_name} 
@@ -205,7 +200,7 @@ foreach my $libelle_marque_id (sort { $libelle_marque_id{$b} <=> $libelle_marque
 	. $libelle_marque_id_libelle{$libelle_marque_id} . "\t"
 	. $libelle_marque_id_id_nutrinet_aliments{$libelle_marque_id} . "\t"
 	
-  	. $libelle_marque_id_marque{$libelle_marque_id} . "\t" . $current_link . "\t" . $count . "\t" . $off_url . "\t" . $off_produit . "\n";
+  	. $libelle_marque_id_marque{$libelle_marque_id} . "\t" . $current_link . "\t" . $off_url . "\t" . $off_produit . "\n";
 
 }
 

@@ -15,9 +15,10 @@
     "lint:js": "eslint html/js/product-multilingual.js html/js/search.js html/js/display-tag.js",
     "lint:css": "stylelint html/css/product-multilingual.css",
     "lint:scss": "stylelint scss/app.scss",
-    "perlc": "yarn run perlc:startup && yarn run perlc:cgi",
+    "perlc": "yarn run perlc:startup && yarn run perlc:cgi && yarn run perlc:scripts",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
-    "perlc:cgi": "node compile_cgi.js",
+    "perlc:cgi": "node compile_cgi.js cgi/*.pl",
+    "perlc:scripts": "node compile_cgi.js scripts/*.pl",
     "postinstall": "opencollective-postinstall"
   },
   "repository": {

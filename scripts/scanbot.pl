@@ -276,7 +276,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 		else {
 			print "updating scan count for $code\n";
 			store("$data_root/products/$path/product.sto", $product_ref);		
-			get_products_collection()->save($product_ref);
+			get_products_collection()->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
 		}		
 	}
 	

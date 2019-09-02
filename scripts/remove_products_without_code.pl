@@ -52,12 +52,8 @@ use JSON::PP;
 
 my $cursor = get_products_collection()->query({})->fields( {'code' => 1, '_id'=>1, 'lc'=>1});
 
-my $count = $cursor->count();
-
 my $i = 0;
 my $j = 0;
-	
-	print STDERR "$count products to update\n";
 	
 	while (my $product_ref = $cursor->next) {
         
