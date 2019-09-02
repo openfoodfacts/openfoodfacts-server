@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-02 19:01\n"
+"PO-Revision-Date: 2019-09-02 19:11\n"
 "Language-Team: Czech\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2722,23 +2722,23 @@ msgstr "přidané vitamíny"
 
 msgctxt "vitamins_s"
 msgid "added vitamin"
-msgstr ""
+msgstr "přidaný vitamin"
 
 msgctxt "amino_acids_p"
 msgid "added amino acids"
-msgstr ""
+msgstr "přidané aminokyseliny"
 
 msgctxt "amino_acids_s"
 msgid "added amino acid"
-msgstr ""
+msgstr "přidaná aminokyselina"
 
 msgctxt "nucleotides_p"
 msgid "added nucleotides"
-msgstr ""
+msgstr "přidané nukleotidy"
 
 msgctxt "nucleotides_s"
 msgid "added nucleotide"
-msgstr ""
+msgstr "přidaný nukleotid"
 
 msgctxt "other_nutritional_substances_p"
 msgid "other nutritional substances added"
@@ -2754,7 +2754,7 @@ msgstr ""
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "Připravené"
 
 msgctxt "unit"
 msgid "Unit"
@@ -2819,7 +2819,7 @@ msgstr "10 až 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "Od 10 let do 17 let včetně"
 
 msgctxt "children"
 msgid "Children"
@@ -2831,7 +2831,7 @@ msgstr "3 až 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "Od 36 měsíců do 9 let včetně"
 
 msgctxt "toddlers"
 msgid "Toddlers"
@@ -2843,7 +2843,7 @@ msgstr "1 až 2"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
-msgstr ""
+msgstr "Od 12 měsíců do 35 měsíců včetně"
 
 msgctxt "infants"
 msgid "Infants"
@@ -2855,7 +2855,7 @@ msgstr "<1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "Od více než 12 týdnů do 11 měsíců včetně"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
@@ -2939,11 +2939,11 @@ msgstr "Wikipedie"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "Funkce"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
-msgstr ""
+msgstr "Kontrola fotografií a dat"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
@@ -2951,19 +2951,19 @@ msgstr ""
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "Fotografie a data zkontrolovány"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "Zkontroloval jsem fotky a data."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "Znovu jsem zkontroloval fotografie a data."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "Datum poslední kontroly"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
@@ -3083,7 +3083,7 @@ msgstr ""
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "Výrobky zkontrolované %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
@@ -3091,7 +3091,7 @@ msgstr ""
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "Výrobky opravené %s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
@@ -3127,7 +3127,7 @@ msgstr ""
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "Tento produkt již není v prodeji."
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
@@ -3135,7 +3135,7 @@ msgstr ""
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY or YYYY-MM"
-msgstr ""
+msgstr "Formát: RRRR nebo RRRR-MM"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3151,11 +3151,11 @@ msgstr "Získej aplikaci pro Android"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "Získejte aplikaci pro iPhone"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "Získejte aplikaci pro iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3171,7 +3171,7 @@ msgstr "Varování"
 
 msgctxt "preparation"
 msgid "Preparation"
-msgstr ""
+msgstr "Příprava"
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
@@ -3179,15 +3179,15 @@ msgstr ""
 
 msgctxt "origin"
 msgid "Origin"
-msgstr ""
+msgstr "Původ"
 
 msgctxt "customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "Zákaznická podpora"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr ""
+msgstr "Výrobce"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3199,7 +3199,7 @@ msgstr ""
 
 msgctxt "environment_impact_level"
 msgid "Environment impact level"
-msgstr ""
+msgstr "Úroveň dopadu na životní prostředí"
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
@@ -3207,7 +3207,7 @@ msgstr ""
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr ""
+msgstr "Uhlíková stopa z masa nebo ryb"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
@@ -3223,7 +3223,7 @@ msgstr ""
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "na jednu porci"
 
 msgctxt "methodology"
 msgid "Methodology"
@@ -3247,7 +3247,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Pomozte překládat %s do %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
@@ -3263,15 +3263,15 @@ msgstr ""
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "přeloženo"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "k překladu"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "Aktuální překlad"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3283,7 +3283,7 @@ msgstr "Ne"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Přeskočit"
 
 msgctxt "popularity_s"
 msgid "popularity"
