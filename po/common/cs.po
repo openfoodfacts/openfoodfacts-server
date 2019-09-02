@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-02 18:41\n"
+"PO-Revision-Date: 2019-09-02 18:51\n"
 "Language-Team: Czech\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -297,15 +297,15 @@ msgstr "baleno ve městě"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Výrobky nebalené ve městě %s"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Zdrojové kódy"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Zdrojový kód"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -325,7 +325,7 @@ msgstr ""
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "Prosím, opravte následující chyby:"
 
 msgctxt "correctors_p"
 msgid "correctors"
@@ -923,15 +923,15 @@ msgstr "suroviny z palmového oleje"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "surovina z palmového oleje"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "Počet surovin"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "Počet surovin"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -939,7 +939,7 @@ msgstr "složení"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "Produkty obsahující surovinu %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -967,7 +967,7 @@ msgstr "přísady, které mohou být z palmového oleje"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "surovina, která může být z palmového oleje"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
@@ -1191,11 +1191,11 @@ msgstr "Datum poslední úpravy"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Datum posledního obrázku"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Datum posledního obrázku"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
@@ -1366,7 +1366,7 @@ msgstr "Cíl:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Mise"
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1390,19 +1390,19 @@ msgstr "Jméno"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "Názvy"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "Pokud není čárový kód správný, opravte jej zde:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "U produktů bez čárového kódu je automaticky nastaven interní kód."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "Přihlaste se k odběru novinek (maximálně 2 e-maily za měsíc)"
 
 msgctxt "next"
 msgid "Next"
@@ -1430,11 +1430,11 @@ msgstr ""
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "Žádné produkty."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr ""
+msgstr "Při ukládání došlo k chybě. Zkuste to prosím znovu."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
@@ -1446,7 +1446,7 @@ msgstr "Počet výrobků"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s v %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -1568,11 +1568,11 @@ msgstr ""
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Nutriční hodnoty"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
@@ -1848,11 +1848,11 @@ msgstr ""
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr ""
+msgstr "Obrázek uložen"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "Ukládání obrázku"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
