@@ -50,11 +50,9 @@ use JSON::PP;
 # Get a list of all products
 
 
-my $cursor = $products_collection->query({})->fields({ code => 1 });;
-my $count = $cursor->count();
+my $cursor = $products_collection->query({})->fields({ code => 1 });
 	
 my $i=0;	
-	print STDERR "$count products to update\n";
 	
 	while (my $product_ref = $cursor->next) {
         
