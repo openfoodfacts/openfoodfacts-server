@@ -263,6 +263,8 @@ nl:scharrelkipeiwitpoeder
 < de:Joghurtpulver
 de:Magermilchjoghurtpulver
 
+de:Nitritpökelsalz
+
 < de:Quellkohlensäure
 de:natürliche Quellkohlensäure
 
@@ -4185,6 +4187,7 @@ nl:natuurlijk gashoudend natuurlijk mineraalwater
 
 < en:Carbonated natural mineral water
 fr:eau minérale naturelle gazéifiée, eau minérale naturelle avec adjonction de gaz carbonique
+de:Natürliches Mineralwasser mit Kohlensäure versetzt
 
 < en:Carbonated natural mineral water
 fr:Eau minérale naturelle renforcée au gaz de la source
@@ -7831,7 +7834,7 @@ en:coagulum, coagulating agent, agente coagulante, agentes coagulantes
 de:Koagulat
 es:Agentes coagulantes
 fr:agent de coagulation, coagulant
-it:coagulo
+it:agente coagulante, coagulante
 
 en:coating, seasoning
 bg:Покритие
@@ -8681,10 +8684,6 @@ description:es: Aditivos alimentarios que estabilizan, retienen o intensifican e
 description:fr: Additif alimentaire qui stabilise, retient ou intensifie la couleur d'une denrée alimentaire.
 
 < en:Colza oil
-< en:Sunflower oil
-fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
-
-< en:Colza oil
 en:organic colza oil
 fr:colza bio
 nl:olie van biologisch koolzaad
@@ -8701,6 +8700,10 @@ fr:huile de colza vierge
 < en:Colza oil
 fr:monodiglycérides de colza
 de:Mono- und Diglyceride von Raps
+
+< en:Colza oil
+< en:Sunflower oil
+fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
 
 < en:Common cuttlefish
 en:Sepia officinalis
@@ -49748,7 +49751,7 @@ nl:sinaasappelconcentraat, geconcentreerd sinaasappelsap
 
 < en:Orange juice
 en:orange juice from concentrate
-de:Orangensaft aus Konzentrat
+de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat
 es:Zumo de naranja desde concentrado
 fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré
 it:succo d'arancia a base di concentrato
@@ -53389,6 +53392,46 @@ description:sv: Bakpulver: ämnen eller kombinationer av ämnen som frigör gase
 wikidata:en: Q908833
 wikipedia:en: https://en.wikipedia.org/wiki/Leavening_agent
 
+< en:Rapeseed
+en:Canola
+
+< en:Rapeseed oil
+en:canola oil
+de:Ölrübsenöl
+es:aceite de canola
+fi:Rypsiöljy
+fr:huile de navette, huile de canola
+nl:raapolie, canola olie, raapzaadolie
+from_palm_oil:en: no
+wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
+
+< en:Rapeseed oil
+en:colza oil
+bg:рапично олио
+cs:řepkový olej
+de:Rapsöl
+el:κραμβέλαιο
+es:aceite de colza, aceite de nabina
+fi:rapsiöljy
+fr:huile de colza, huile végétale de colza, huile colza, colza, graisses végétales de colza
+hr:repičino ulje
+hu:repceolaj
+it:olio di colza
+lt:rapšu ella
+lv:rapsų aliejus
+nl:koolzaadolie, plantaardige koolzaadolie
+pl:olej rzepakowy, olej roślinny rzepakowy
+pt:óleo de colza
+ro:ulei de rapiță
+ru:рапсове масло
+sk:repkový olej
+sv:rapsolja
+carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
+carbon_footprint_fr_foodges_value:fr: 2.2
+from_palm_oil:en: no
+wikidata:en: Q697248
+wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
+
 < en:Raspberry
 en:freeze-dried raspberries
 de:Himbeeren gefriergetrockent
@@ -55009,6 +55052,13 @@ wikidata:en: Q7224565 # for the plant
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
 
 < en:Root vegetable
+en:Rapeseed, rape, oilseed rape
+de:Raps
+la:Brassica napus
+wikidata:en: Q177932
+wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
+
+< en:Root vegetable
 en:salsify, black salsify
 ar:سلسفي هسباني
 az:İspan təkəsaqqalı
@@ -55968,6 +56018,9 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
+
+< en:Salt
+de:Steinsalz
 
 < en:Salt
 en:finegrained salt
@@ -64706,16 +64759,6 @@ from_palm_oil:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Camelina_sativa
 
 < en:Vegetable oil
-en:canola oil
-de:Ölrübsenöl
-es:aceite de canola
-fi:Rypsiöljy
-fr:huile de navette, huile de canola
-nl:raapolie, canola olie, raapzaadolie
-from_palm_oil:en: no
-wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
-
-< en:Vegetable oil
 en:chia oil
 de:Chiaöl
 es:aceite de chía
@@ -64772,33 +64815,6 @@ zh:椰子油
 from_palm_oil:en: no
 wikidata:en: Q216235
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_oil
-
-< en:Vegetable oil
-en:colza oil
-bg:рапично олио
-cs:řepkový olej
-de:Rapsöl, Raps
-el:κραμβέλαιο
-es:aceite de colza, aceite de nabina
-fi:rapsiöljy
-fr:huile de colza, huile végétale de colza, huile colza, colza, graisses végétales de colza
-hr:repičino ulje
-hu:repceolaj
-it:olio di colza
-lt:rapšu ella
-lv:rapsų aliejus
-nl:koolzaadolie, plantaardige koolzaadolie
-pl:olej rzepakowy, olej roślinny rzepakowy
-pt:óleo de colza
-ro:ulei de rapiță
-ru:рапсове масло
-sk:repkový olej
-sv:rapsolja
-carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
-carbon_footprint_fr_foodges_value:fr: 2.2
-from_palm_oil:en: no
-wikidata:en: Q697248
-wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
 
 < en:Vegetable oil
 en:corn oil, maize oil
@@ -65299,14 +65315,14 @@ it:Olio e grasso di palma
 from_palm_oil:en: yes
 
 < en:Vegetable oil and fat
-en:rapeseed oil and fat
+en:rapeseed oil, rapeseed fat, rapeseed oil and fat
 from_palm_oil:en: no
 
 < en:Vegetable oil and fat
 en:vegetable fat, vegetal fat, vegetable fats
 cs:Rostlinný tuk
 da:vegetabilsk fedt
-de:pflanzliche Fette
+de:pflanzliche Fette, pflanzliches Fett
 el:φυτικά λίπη
 es:grasas vegetales, grasa vegetal
 fi:kasvirasva
@@ -65329,7 +65345,7 @@ bg:Растително масло
 ca:Oli vegetal
 cs:Rostlinný olej
 da:vegetabilisk olie
-de:Pflanzenöle, pflanzliche Öle
+de:Pflanzenöle, pflanzliche Öle, pflanzliches Öl
 eo:Legoma oleo
 es:Aceite vegetal, aceites vegetales
 et:Taimeõli
@@ -65381,7 +65397,7 @@ nl:boneneiwit
 
 < en:Vegetable protein
 en:wheat protein
-de:Weizenprotein
+de:Weizenprotein, Weizeneiweiß
 es:Proteina de trigo
 fr:protéine de blé, protéines de froment
 hu:búzafehérje

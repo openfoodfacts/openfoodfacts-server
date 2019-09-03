@@ -148,17 +148,17 @@ if ($country ne "") {
 }
 
 # Select the products in reverse order
-my $cursor = get_products_collection()->query($query)->fields({ code => 1 })->sort({code =>-1});
-my $count = $cursor->count();
-print STDERR "$count products to update\n";
+my $products_collection = get_products_collection();
+my $cursor = $products_collection->query($query)->fields({ code => 1 })->sort({code =>-1});
 
 # If --order parameter is random, select all the products again, but in a random order
 if ($product_order eq "random") {
+	my $count = $products_collection->count_documents($query);
 	my $aggregate_parameters = [
 		{ "\$match" => $query },
 		{ "\$sample" => { "size" => $count } }
 	];
-	$cursor = get_products_collection()->aggregate($aggregate_parameters);
+	$cursor = $products_collection->aggregate($aggregate_parameters);
 }
 
 
