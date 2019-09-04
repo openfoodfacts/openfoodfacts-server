@@ -497,8 +497,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 			$stats{products_created}{$code} = 1;
 
-			$User_id = $User_id;
-			$product_ref = init_product($code);
+			$product_ref = init_product($User_id, undef, $code);
 			$product_ref->{interface_version_created} = "import_csv_file.pl - version 2019/08/28";
 
 			$product_ref->{lc} = $imported_product_ref->{lc};

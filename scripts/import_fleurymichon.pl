@@ -276,7 +276,7 @@ print STDERR "importing products\n";
 				if (1 and (not $product_ref)) {
 					print "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
-					$product_ref = init_product($code);
+					$product_ref = init_product($User_id, undef, $code);
 					$product_ref->{interface_version_created} = "import_fleurymichon_ch.pl - version 2017/09/04";
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
