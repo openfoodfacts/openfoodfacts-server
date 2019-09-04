@@ -592,6 +592,13 @@ sub store_product($$) {
 		$product_ref->{creator} = $creator;
 	}
 
+	if (defined $product_ref->{owner}) {
+		$product_ref->{owners_tags} = $product_ref->{owner};
+	}
+	else {
+		delete $product_ref->{owners_tags};
+	}
+
 	push @$changes_ref, {
 		userid=>$User_id,
 		ip=>remote_addr(),

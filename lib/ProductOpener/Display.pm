@@ -71,6 +71,7 @@ BEGIN
 					$moderator
 					$memd
 					$default_request_ref
+					$owner
 
 					$scripts
 					$initjs
@@ -384,6 +385,19 @@ CSS
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 	$static_subdomain = format_subdomain('static');
+
+	# if products are private, select the owner used to restrict the product set with the owners_tags field
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if (defined $Org_id) {
+			$owner = "org-" . $Org_id;
+		}
+		else {
+			$owner = "user-" . $User_id;
+		}
+	}
+	else {
+		$owner = undef;
+	}
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -1161,6 +1175,11 @@ sub query_list_of_tags($$) {
 
 	my $request_ref = shift;
 	my $query_ref = shift;
+
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 
@@ -3607,6 +3626,10 @@ sub search_and_display_products($$$$$) {
 		$page = 1;
 	}
 
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	# support for returning structured results in json / xml etc.
 
@@ -4062,10 +4085,14 @@ sub search_and_export_products($$$$$) {
 		if ($country ne 'en:world') {
 			$query_ref->{countries_tags} = $country;
 		}
-		delete $query_ref->{lc};
 	}
 
 	delete $query_ref->{lc};
+
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	my $sort_ref = Tie::IxHash->new();
 
@@ -5142,6 +5169,11 @@ sub search_and_graph_products($$$) {
 
 	delete $query_ref->{lc};
 
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
+
 	my $cursor;
 
 	$log->info("retrieving products from MongoDB to display them in a graph") if $log->is_info();
@@ -5284,6 +5316,11 @@ sub search_and_map_products($$$) {
 	}
 
 	delete $query_ref->{lc};
+
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	my $cursor;
 
@@ -9447,6 +9484,11 @@ sub display_recent_changes {
 	}
 
 	delete $query_ref->{lc};
+
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	if (defined $limit) {
 	}
