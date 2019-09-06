@@ -44,9 +44,10 @@ use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON;
 use Log::Any qw($log);
 use Spreadsheet::CSV();
+use Text::CSV();
 
 
 ProductOpener::Display::init();
@@ -125,7 +126,7 @@ if ($action eq "display") {
 	else {
 		$log->debug("opening Excel file", { file => $file, extension => $extension }) if $log->is_debug();
 
-		open (my $io,  $file) or die("Could not open Excel $file: $!");
+		open (my $io, "<", $file) or die("Could not open Excel $file: $!");
 
 		my $csv_options_ref = { binary => 1 , sep_char => "\t" };
 
