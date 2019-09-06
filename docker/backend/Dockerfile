@@ -13,8 +13,8 @@ RUN set -x \
     make \
     wget \
     imagemagick \
-		graphviz \
-		tesseract-ocr \
+    graphviz \
+    tesseract-ocr \
     # perlmagick \
     # Packages from ./cpanfile
     libwww-perl \
@@ -66,6 +66,28 @@ FROM modperlgeoip AS runnable
 COPY --from=builder /tmp/local/ /opt/perl/local/
 
 EXPOSE 80
+
+FROM runnable AS vscode
+# This Dockerfile adds a non-root 'vscode' user with sudo access. However, for Linux,
+# this user's GID/UID must match your local user UID/GID to avoid permission issues
+# with bind mounts. Update USER_UID / USER_GID if yours is not 1000. See
+# https://aka.ms/vscode-remote/containers/non-root-user for details.
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+# Configure apt and install packages
+RUN install_packages apt-utils dialog 2>&1 \
+    #
+    # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
+    && install_packages git iproute2 procps lsb-release \
+    # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
+    && groupadd --gid $USER_GID $USERNAME \
+    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    # [Optional] Add sudo support for the non-root user
+    && install_packages sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 FROM runnable AS withsrc
 
