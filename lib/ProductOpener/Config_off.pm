@@ -682,6 +682,22 @@ nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_pr
 );
 
 
+$options{import_export_fields_groups} = [
+	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
+		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "packaging",
+		"brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores"]
+	],
+	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	],
+	["ingredients", ["ingredients_text", "allergens", "traces"]
+	],
+	["nutrition"],
+	["nutrition_other"],
+	["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+	],
+];
+
+
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
 # %tesseract_ocr_available_languages provides mapping between OFF 2 letter language codes

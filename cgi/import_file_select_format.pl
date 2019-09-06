@@ -35,6 +35,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
+use ProductOpener::Producers qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -46,6 +47,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 use Spreadsheet::CSV();
+
 
 ProductOpener::Display::init();
 
@@ -141,6 +143,14 @@ if ($action eq "display") {
 		}
 	}
 
+	# Analyze the headers column names and rows content to pre-assign fields to columns
+
+	my $columns_fields_ref = init_columns_fields_match($headers_ref, \@rows);
+
+	# Create an options array for select2
+
+	my $select2_options_ref = generate_import_export_columns_groups_for_select2($options{import_export_fields_groups}, [ $lc ]);
+	my $select2_options_json = to_json($select2_options_ref);
 
 	# Upload a file
 
@@ -153,8 +163,60 @@ if ($action eq "display") {
 
 	$html .= start_multipart_form(-id=>"select_format_form") ;
 
+	$html .= <<HTML
+<table>
+<tr><th>Column in file</th><th>Field on Open Food Facts</th></tr>
+HTML
+;
+
+	my $i = 0;
+
+	foreach my $column (@$headers_ref) {
+
+		$i++;
+
+		$html .= <<HTML
+<tr id="column_$i"><td>$column</td>
+<td>
+<select class="select2_field" name="select_field_$i" id="select_field_$i">
+</select>
+</td>
+</tr>
+HTML
+;
+
+	}
+
+	$html .= <<HTML
+</table>
+HTML
+;
 
 	$html .= end_form();
+
+
+	$scripts .= <<JS
+
+JS
+;
+
+	$initjs .= <<JS
+
+var select2_options = $select2_options_json ;
+
+
+\$('.select2_field').select2({
+	placeholder: "Select a field",
+	data:select2_options,
+	allowClear: true
+}).on("select2:select", function(e) {
+	var id = e.params.data.id;
+	alert("id");
+}).on("select2:unselect", function(e) {
+	alert("unselect");
+});
+JS
+;
 
 	display_new( {
 		title=>$title,
