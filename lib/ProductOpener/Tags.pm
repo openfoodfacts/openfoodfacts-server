@@ -2014,7 +2014,7 @@ sub canonicalize_taxonomy_tag_link($$$) {
 	my $tagurl = get_taxonomyurl($target_lc, $tag);
 
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
-
+	$log->info("tax tag 1 /$path/$tagurl") if $log->is_info();
 	return "/$path/$tagurl";
 }
 
@@ -2034,7 +2034,7 @@ sub canonicalize_taxonomy_2tag_link($$$$$) {
 	$tag2 = display_taxonomy_tag($target_lc,$tagtype2, $tag2);
 	my $tagurl2 = get_taxonomyurl($target_lc,$tag2);
 	my $path2 = $tag_type_singular{$tagtype2}{$target_lc};
-
+	$log->info("tax tag 2 /$path/$tagurl/$path2/$tagurl2") if $log->is_info();
 	return "/$path/$tagurl/$path2/$tagurl2";
 }
 
@@ -2942,6 +2942,7 @@ sub canonicalize_tag_link($$)
 	#}
 
 	#print STDERR "tagtype: $tagtype - $lc: $lc - lang: $lang - link: $link\n";
+	$log->info("canonicalize_tag_link $tagtype $tagid $path $link" ) if $log->is_info();
 
 	return $link;
 

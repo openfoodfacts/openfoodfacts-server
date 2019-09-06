@@ -64,6 +64,7 @@ BEGIN
 					&search_and_graph_products
 					&search_and_map_products
 					&display_recent_changes
+					&add_tag_prefix_to_link
 
 					@search_series
 
@@ -713,16 +714,8 @@ sub analyze_request($)
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
 
-	if ($log->is_debug()) {
-		my $debug_log = "";
-		foreach my $log_field (qw/text product tagtype tagid tagtype2 tagid2 groupby_tagtype points/) {
-			if (defined $request_ref->{$log_field}) {
-				$debug_log .= " - $log_field: $request_ref->{$log_field}";
-			}
-		}
+	$log->debug("request analyzed", { lc => $lc, lang => $lang, request_ref => Dumper($request_ref)}) if $log->is_debug();
 
-		$log->debug("request analyzed", { lc => $lc, lang => $lang, log_fields => $debug_log });
-	}
 
 	return 1;
 }
@@ -1455,6 +1448,13 @@ sub display_list_of_tags($$) {
 			$nofollow = ' rel="nofollow"';
 		}
 
+		# add back leading dash when a tag is excluded
+		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
+			my $prefix = $request_ref->{tag_prefix};
+			$main_link = add_tag_prefix_to_link($main_link,$prefix);
+			$log->debug("Found tag prefix for main_link " . Dumper($request_ref)) if $log->is_debug();
+		}
+
 		my %products = ();	# number of products by tag, used for histogram of nutrition grades colors
 
 		$log->debug("going through all tags", {}) if $log->is_debug();
@@ -1585,6 +1585,7 @@ sub display_list_of_tags($$) {
 				$tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 				$link = "/$path/" . $tag_ref->{tagurl};
 				$css_class = $tag_ref->{css_class};
+				$log->info("tag ref: " . Dumper($tag_ref)) if $log->is_info();
 			}
 			else {
 				$link = canonicalize_tag_link($tagtype, $tagid);
@@ -1848,7 +1849,7 @@ SCRIPTS
 
 
 		$html = <<HTML
-<div id="container" style="height: 400px"></div>​
+<div id="container" style="height: 400px"></div>
 <p>&nbsp;</p>
 HTML
 	. $html;
@@ -2517,8 +2518,17 @@ HEADER
 
 }
 
-
-
+# See issue 1960
+# a tag prefix, such as a minus sign, can indicate that a tag value should be excluded from a query
+# during processing this prefix may be removed from the current url link
+# this will add the prefix back
+# it will put the prefix before the string following the last forward slash in the link
+sub add_tag_prefix_to_link($$) {
+	my $link = shift;
+	my $tag_prefix = shift;
+	$link =~ s/^(.*)\/(.*)$/$1\/$tag_prefix$2/;
+	return $link;
+}
 
 sub display_tag($) {
 
@@ -2595,8 +2605,9 @@ sub display_tag($) {
 		# add back leading dash when a tag is excluded
 		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
 			my $prefix = $request_ref->{tag_prefix};
-			$request_ref->{current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
-			$request_ref->{world_current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link},$prefix);
+			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link},$prefix);
+			$log->debug("Found tag prefix " . Dumper($request_ref)) if $log->is_debug();
 		}
 	}
 	else {
@@ -2636,14 +2647,16 @@ sub display_tag($) {
 			$lc = 'en';
 			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype2, $newtagid2);
 			$lang = $current_lang;
+			$log->info("2nd level tag is a normal tag", { tagtype2 => $tagtype2, tagid2 => $tagid2, canon_tagid2 => $canon_tagid2, newtagid2 => $newtagid2, title => $title }) if $log->is_info();
 			$lc = $current_lc;
 		}
 
 		# add back leading dash when a tag is excluded
 		if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} ne '')) {
 			my $prefix = $request_ref->{tag2_prefix};
-			$request_ref->{current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
-			$request_ref->{world_current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link},$prefix);
+			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link},$prefix);
+			$log->debug("Found tag prefix 2 " . Dumper($request_ref)) if $log->is_debug();
 		}
 
 	}
@@ -3264,7 +3277,7 @@ HTML
 		$description
 	</div>
 	<div id="tag_map" class="large-9 columns" style="display: none;">
-		<div id="container" style="height: 300px"></div>​
+		<div id="container" style="height: 300px"></div>
 	</div>
 
 </div>
@@ -3556,7 +3569,7 @@ sub search_and_display_products($$$$$) {
 	my $limit = shift;
 	my $page = shift;
 
-
+	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
 	if (defined $country) {
 		if ($country ne 'en:world') {
@@ -3583,6 +3596,7 @@ sub search_and_display_products($$$$$) {
 		}
 
 	}
+	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
 	delete $query_ref->{lc};
 
@@ -3952,6 +3966,8 @@ sub display_pagination($$$$) {
 
 	my $current_link = $request_ref->{current_link};
 	my $current_link_query = $request_ref->{current_link_query};
+
+	$log->info("current link: $current_link, current_link_query: $current_link_query") if $log->is_info();
 
 	if ($request_ref->{jqm}) {
 		$current_link_query .= "&jqm=1";
@@ -4746,7 +4762,7 @@ SCRIPTS
 
 		$html .= <<HTML
 <p>$count_string</p>
-<div id="container" style="height: 400px"></div>​
+<div id="container" style="height: 400px"></div>
 
 HTML
 ;
@@ -5111,7 +5127,7 @@ SCRIPTS
 
 		$html .= <<HTML
 <p>$count_string</p>
-<div id="container" style="height: 400px"></div>​
+<div id="container" style="height: 400px"></div>
 <p>&nbsp;</p>
 HTML
 ;
@@ -5495,7 +5511,7 @@ JS
 
 			$html .= <<HTML
 <p>$count_string</p>
-<div id="container" style="height: 600px"></div>​
+<div id="container" style="height: 600px"></div>
 <p>&nbsp;</p>
 HTML
 ;
@@ -5697,6 +5713,7 @@ $block_ref->{content}
 sub display_new($) {
 
 	my $request_ref = shift;
+	$log->info("Start of display_new " . Dumper($request_ref)) if $log->is_info();
 
 	# If the client is requesting json, jsonp, xml or jqm,
 	# and if we have a response in structure format,
