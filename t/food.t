@@ -3,6 +3,8 @@
 use strict;
 use warnings;
 
+use utf8;
+
 use Test::More;
 use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
@@ -66,6 +68,19 @@ is( normalize_quantity("42\N{U+516C}\N{U+5347}"), 42000 );
 is( normalize_serving_size("42\N{U+516C}\N{U+5347}"), 42000 );
 is( unit_to_g(42, "\N{U+516C}\N{U+5347}"), 42000 );
 is( g_to_unit(42000, "\N{U+516C}\N{U+5347}"), 42 );
+
+# Russian units
+
+is( unit_to_g(1, "г"), 1 );
+is( unit_to_g(1, "мг"), 0.001 );
+
+is ( normalize_quantity("1 г"), 1);
+is ( normalize_quantity("1 мг"), 0.001);
+is ( normalize_quantity("1 кг"), 1000);
+is ( normalize_quantity("1 л"), 1000);
+is ( normalize_quantity("1 дл"), 100);
+is ( normalize_quantity("1 кл"), 10);
+is ( normalize_quantity("1 мл"), 1);
 
 my $product_ref = {
 	lc => "en",
@@ -295,7 +310,7 @@ $product_ref = {
 
 compute_serving_size_data($product_ref);
 
-my $expected_product_ref = 
+my $expected_product_ref =
  {
     'nutriments' => {
       'nova-group' => 4,
