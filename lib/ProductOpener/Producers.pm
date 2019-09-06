@@ -46,8 +46,10 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -83,7 +85,7 @@ sub generate_import_export_columns_groups_for_select2($$) {
 
 	# Sample select2 groups and fields definition format from Config.pm:
 	my $sample_fields_groups_ref = [
-		["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
+		["identification", ["code", "producer_product_id", "producer_version_id", "lang", "product_name", "generic_name",
 			"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "packaging",
 			"brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores"]
 		],
@@ -135,22 +137,58 @@ JSON
 
 	# Populate the select2 options array from the groups and fields definition
 
-	my $select2_options_ref  = [];
+	my $select2_options_ref  = [ ];
 
 	foreach my $group_ref (@$fields_groups_ref) {
 
 		my $group_id = $group_ref->[0];
-		my $select2_group_ref = { text => lang("fields_group_" . $group_id), children => [] };
+		my $select2_group_ref = { text => lang("fields_group_" . $group_id), children => [ ] };
 
 		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
-			# TODO
+			# Go through the nutriment table
+			foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
+
+				next if $nutriment =~ /^\#/;
+				my $nid = $nutriment;
+
+				# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
+
+				if ($group_id eq "nutrition") {
+					if ($nid =~ /-$/) {
+						next;
+					}
+				}
+				else {
+					if ($nid !~ /-$/) {
+						next;
+					}
+				}
+
+				$nid =~ s/^(-|!)+//g;
+				$nid =~ s/-$//g;
+
+				my $field = $nid;
+
+				my $name;
+				if (exists $Nutriments{$nid}{$lc}) {
+					$name = $Nutriments{$nid}{$lc};
+				}
+				else {
+					$name = $Nutriments{$nid}{en};
+				}
+
+				push @{$select2_group_ref->{children}}, { id => $nid . "_100g_value_unit", text => ucfirst($name) };
+			}
 		}
 		else {
 
 			foreach my $field (@{$group_ref->[1]}) {
 				my $name;
-				if ($field =~ /_value_unit$/) {
+				if ($field eq "code") {
+					$name = lang("barcode");
+				}
+				elsif ($field =~ /_value_unit$/) {
 					# Column can contain value + unit, value, or unit for a specific field
 					my $field_name = $`;
 					$name = lang($field_name);
@@ -165,10 +203,26 @@ JSON
 					my $tagtype = $field;
 					$name = lang($tagtype . "_p");
 				}
+				else {
+					$name = lang($field);
+				}
 
-				# TODO language specific fields
+				$log->debug("Select2 option", { group_id => $group_id, field=>$field, name=>$name }) if $log->is_debug();
 
-				push @{$select2_group_ref->{children}}, { id => $field, text => $name };
+				if (defined $language_fields{$field}) {
+
+					foreach my $l (@$lcs_ref) {
+						my $language = "";	# Don't specify the language if there is just one
+						if (@$lcs_ref > 1) {
+							$language = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$l}) . ")";
+						}
+						$log->debug("Select2 option - language field", { group_id => $group_id, field=>$field, name=>$name, lc=>$lc, l=>$l, language=>$language }) if $log->is_debug();
+						push @{$select2_group_ref->{children}}, { id => $field . "_$l", text => ucfirst($name) . $language };
+					}
+				}
+				else {
+					push @{$select2_group_ref->{children}}, { id => $field, text => ucfirst($name) };
+				}
 			}
 		}
 

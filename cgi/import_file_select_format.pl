@@ -179,12 +179,14 @@ HTML
 		$html .= <<HTML
 <tr id="column_$i"><td>$column</td>
 <td>
-<select class="select2_field" name="select_field_$i" id="select_field_$i">
+<select class="select2_field" name="select_field_$i" id="select_field_$i" style="width:420px">
+<option></option>
 </select>
 </td>
 </tr>
 HTML
 ;
+		# Empty option is needed for select2 to display the placeholder
 
 	}
 
@@ -207,14 +209,13 @@ var select2_options = $select2_options_json ;
 
 
 \$('.select2_field').select2({
-	placeholder: "Select a field",
+	placeholder: "$Lang{select_a_field}{$lc}",
 	data:select2_options,
+	width: '500px',
 	allowClear: true
 }).on("select2:select", function(e) {
 	var id = e.params.data.id;
-	alert("id");
 }).on("select2:unselect", function(e) {
-	alert("unselect");
 });
 JS
 ;
