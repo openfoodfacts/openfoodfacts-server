@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-06 08:43\n"
+"PO-Revision-Date: 2019-09-07 08:32\n"
 "Language-Team: Polish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -907,10 +907,6 @@ msgstr "Składniki"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Składniki"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Analiza składników"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -3109,50 +3105,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "Strona %s"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Produkty sprawdzone przez %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Produkty niesprawdzone przez %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Produkty poprawione przez %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Produkty niepoprawione przez %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Produkty edytowane przez %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Produkty nieedytowane przez %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "Produkty ukończone przez %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "Produkty nieukończone przez %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "Produkty sfotografowane przez %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "Produkty niesfotografowane przez %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "Strona %s"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "Produkt nie jest już sprzedawany."
@@ -3188,34 +3140,6 @@ msgstr "Pobierz aplikację na iPada"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Niejednoznaczny kod kreskowy</em>: Ten kod kreskowy nie jest przypisany wyłącznie dla tego produktu. Oznacza to, że różni producenci i sklepy mogą używać tego samego kodu kreskowego dla różnych produktów."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Identyfikator produktu"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Ostrzeżenie"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Przygotowanie"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Pomysł na przepis"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Pochodzenie"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Obsługa klienta"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Producent"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3360,20 +3284,4 @@ msgstr "Następna wersja"
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "Najnowsza wersja"
-
-msgctxt "ingredients_analysis_p"
-msgid "ingredients analysis"
-msgstr "analiza składu"
-
-msgctxt "ingredients_analysis_s"
-msgid "ingredients analysis"
-msgstr "analiza składu"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Analiza składników"
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr "Analiza opiera się wyłącznie na wymienionych składnikach i nie uwzględnia metod przetwarzania."
 
