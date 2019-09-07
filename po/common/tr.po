@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-06 14:59\n"
+"PO-Revision-Date: 2019-09-07 09:31\n"
 "Language-Team: Turkish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -903,10 +903,6 @@ msgstr "İçindekiler"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "İçindekiler"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Malzeme analizi"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -3109,50 +3105,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "%s'in sayfası"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "%s tarafından kontrol edilen ürünler"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "%s tarafından kontrol edilmeyen ürünler"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "%s tarafından düzeltilen ürünler"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "%s tarafından düzeltilmeyen ürünler"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "%s tarafından düzenlenen ürünler"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "%s tarafından düzenlenmeyen ürünler"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "%s tarafından tamamlanan ürünler"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "%s tarafından tamamlanmayan ürünler"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "%s tarafından fotoğraflanan ürünler"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "%s tarafından fotoğraflanmayan ürünler"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "%s'in sayfası"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "Ürün artık satılmamaktadır."
@@ -3188,34 +3140,6 @@ msgstr "iPad uygulamasını edinin"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Belirsiz barkod</em>: Bu ürün, bir şirket içindeki ürünler için geçerli olan bir Sınırlı Dolaşım Numarası barkoduna sahiptir. Bu, farklı üreticiler ve mağazaların aynı barkodu farklı ürünler için kullanabileceği anlamına gelir."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Üretici ürün tanımlayıcısı"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Uyarı"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Hazırlık"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Yemek tarifi fikri"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Menşei"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Müşteri servisi"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Üretici"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3360,20 +3284,4 @@ msgstr "Bir sonraki versiyon"
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "En son versiyon"
-
-msgctxt "ingredients_analysis_p"
-msgid "ingredients analysis"
-msgstr "içerik analizi"
-
-msgctxt "ingredients_analysis_s"
-msgid "ingredients analysis"
-msgstr "içerik analizi"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "İçerik analizi"
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr "Analiz yalnızca listelenen bileşenlere dayanmaktadır ve işleme yöntemlerini dikkate almamaktadır."
 
