@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-06 08:34\n"
+"PO-Revision-Date: 2019-09-07 08:19\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -906,10 +906,6 @@ msgstr "Ainekset"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Ainekset"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Ainesosa-analyysi"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -3107,50 +3103,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "%s:n sivu"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Tuotteet tarkisti %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Tuotteita ei ole tarkistanut %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Tuotteita korjannut %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Tuotteita ei ole korjannut %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Tuotteita on muokannut %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Tuotteita ei ole muokannut %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "Tuotteita täyttänyt %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "Tuotteita, joita ei ole täyttänyt %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "Tuotteita, jotka on valokuvannut %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "Tuotteita, joita ei ole valokuvannut %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "%s:n sivu"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "Tuotetta ei enään myydä."
@@ -3186,34 +3138,6 @@ msgstr "Hanki iPad-äppsi"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Moniselitteinen viivakoodi</em>: Tällä tuotteella on Restricted Circulation Number -viivakoodi yrityksen sisäiseen käyttöön. Tämä tarkoittaa, että eri tuottajat ja kaupat voivat käyttää samaa viivakoodia eri tuotteille."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Tuottajan koodi tuotteelle"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Varoitus"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Valmistelu"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Resepti-idea"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Alkuperä"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Asiakaspalvelu"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Tuottaja"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3358,20 +3282,4 @@ msgstr "Seuraava versio"
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "Viimeisin versio"
-
-msgctxt "ingredients_analysis_p"
-msgid "ingredients analysis"
-msgstr "ainesosa-analyysi"
-
-msgctxt "ingredients_analysis_s"
-msgid "ingredients analysis"
-msgstr "ainesosa-analyysi"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Ainesosa-analyysi"
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr "Analyysi perustuu yksinomaan lueteltuihin ainesosiin, eikä siinä oteta huomioon prosessointimenetelmiä."
 
