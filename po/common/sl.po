@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-06 08:48\n"
+"PO-Revision-Date: 2019-09-07 08:36\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -903,10 +903,6 @@ msgstr "Sestavine"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Sestavine"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Analiza sestavin"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -3105,50 +3101,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Izdeleki preverjeni od %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Nepreverjeni izdelki od %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Izdelki popravljeni od %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Nepopravljeni izdelki od %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Izdeleki urejeni od %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Neurejeni izdelki od %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr ""
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr ""
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr ""
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr ""
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr ""
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr ""
@@ -3184,34 +3136,6 @@ msgstr "Prenesite aplikacijo iPad"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Dvoumna črtna koda</em>: Ta izdelek ima črtno kodo z omejeno količino kod za izdelke znotraj podjetja. To pomeni, da lahko različni proizvajalci in prodajalne uporabljajo isto črtno kodo za različne izdelke."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr ""
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Opozorilo"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Priprava"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Ideja za recept"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Izvor"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Podpora uporabnikom"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Proizvajalec"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3355,21 +3279,5 @@ msgstr ""
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
-
-msgctxt "ingredients_analysis_p"
-msgid "ingredients analysis"
-msgstr ""
-
-msgctxt "ingredients_analysis_s"
-msgid "ingredients analysis"
-msgstr ""
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Analiza sestavin"
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
 msgstr ""
 
