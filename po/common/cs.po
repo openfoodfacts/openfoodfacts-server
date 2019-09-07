@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-06 08:34\n"
+"PO-Revision-Date: 2019-09-07 08:23\n"
 "Language-Team: Czech\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -900,10 +900,6 @@ msgstr "Složení"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Složení"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr ""
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -3081,50 +3077,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Výrobky zkontrolované %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr ""
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Výrobky opravené %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr ""
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr ""
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr ""
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr ""
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr ""
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr ""
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr ""
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr ""
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "Tento produkt již není v prodeji."
@@ -3160,34 +3112,6 @@ msgstr "Získejte aplikaci pro iPad"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr ""
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Varování"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Příprava"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr ""
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Původ"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Zákaznická podpora"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Výrobce"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3331,21 +3255,5 @@ msgstr ""
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
-
-msgctxt "ingredients_analysis_p"
-msgid "ingredients analysis"
-msgstr ""
-
-msgctxt "ingredients_analysis_s"
-msgid "ingredients analysis"
-msgstr ""
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr ""
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
 msgstr ""
 
