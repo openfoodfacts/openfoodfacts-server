@@ -18159,6 +18159,13 @@ ru:Пудинги, Пудинг
 wikidata:en:Q9053
 pnns_group_2:en:Dairy desserts
 
+#Do not confound with the fruit preserve called jelly
+<en:Desserts
+en:Jellies (dessert)
+es:Jaleas (postre)
+fr:Gelées (dessert)
+it:Gelatina (dolce)
+wikidata:en:Q4545971
 
 <en:Cakes
 en:Cheesecakes
@@ -23246,10 +23253,18 @@ de:Rahm, Sahne
 es:Nata, crema de leche
 fi:kermatuotteet
 fr:Crèmes, Crème
+it:Panne, panna
 hu:Krémek
 nl:Romen
+se:Grädde
 pnns_group_2:en:Milk and yogurt
 wikidata:en:Q13228
+
+<en:Creams
+en:Lactose-free creams
+es:Nata sin lactosa
+fr:Crèmes sans lactose
+se:Laktosfri grädde
 
 <en:Creams
 en:Whipped creams
@@ -23274,12 +23289,17 @@ en:UHT Creams
 fr:Crèmes UHT
 
 <en:Creams
-fr:Crèmes entières, Crème entière
-nl:Volle slagromen
+en:Raw creams
+fr:Crèmes crues
 
 #Cream that haven't been pasteurized
 <en:Creams
 fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
+
+#Cream with at least 30% fat according to French regulation. This mention is not mandatory as all non light creams are whole.
+<en:Creams
+fr:Crèmes entières, Crème entière
+nl:Volle slagromen
 
 #Cream with 12% to 30% fat according to French regulation. All other creams have >30% fat.
 <en:Creams
