@@ -1165,7 +1165,7 @@ is_deeply ($product_ref->{ingredients},
 	            'vegetarian' => 'yes'
 	          },
 	          {
-	            'id' => 'en:concentrated-butter',
+	            'id' => 'en:butterfat',
 	            'origin' => 'en:france',
 	            'percent' => '6.5',
 	            'rank' => 6,
