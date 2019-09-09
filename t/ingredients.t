@@ -293,7 +293,7 @@ my $expected_product_ref =
     ],
     'ingredients_hierarchy' => [
       'en:palm-kernel-fat',
-      'en:oil',
+      'en:oil-and-fat',
       'en:vegetable-oil-and-fat',
       'en:palm-kernel-oil-and-fat'
     ],
@@ -307,7 +307,7 @@ my $expected_product_ref =
     ],
     'ingredients_tags' => [
       'en:palm-kernel-fat',
-      'en:oil',
+      'en:oil-and-fat',
       'en:vegetable-oil-and-fat',
       'en:palm-kernel-oil-and-fat'
     ],
@@ -657,7 +657,7 @@ $expected_product_ref =
       'en:glucose',
       'en:fructose',
       'en:colza-oil',
-      'en:oil',
+      'en:oil-and-fat',
       'en:vegetable-oil-and-fat',
       'en:vegetable-oil',
       'en:raising-agent',
@@ -773,7 +773,7 @@ $expected_product_ref =
       'en:glucose',
       'en:fructose',
       'en:colza-oil',
-      'en:oil',
+      'en:oil-and-fat',
       'en:vegetable-oil-and-fat',
       'en:vegetable-oil',
       'en:raising-agent',
