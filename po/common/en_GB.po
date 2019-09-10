@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_GB\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-07 18:26\n"
+"PO-Revision-Date: 2019-09-07 08:20\n"
 "Language-Team: English, United Kingdom\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -137,7 +137,7 @@ msgstr "Product page also edited by"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
@@ -145,7 +145,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -865,27 +865,27 @@ msgstr "You must enter the characters of the barcode or send a product image whe
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Full size"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "This file was uploaded to product %s and is licensed under the %s license."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Attribution: Photo by %s per %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Attribution: Photo by %s with additional modifications by %s per %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Original Image)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Photo detail and attribution information"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -906,10 +906,6 @@ msgstr "Ingredients"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Ingredients"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Ingredients analysis"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -981,7 +977,7 @@ msgstr "Products that do not contain the ingredient %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2339,7 +2335,7 @@ msgstr "Serving size"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Prepared serving size"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2593,7 +2589,7 @@ msgstr "Site or blog address"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -3112,50 +3108,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "%s's page"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Products checked by %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Products not checked by %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Products corrected by %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Products not corrected by %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Products edited by %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Products not edited by %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "Products completed by %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "Products not completed by %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "Products photographed by %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "Products not photographed by %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "%s's page"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "The product is no longer sold."
@@ -3191,34 +3143,6 @@ msgstr "Get the iPad app"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Producer product identifier"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Warning"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Preparation"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Recipe idea"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Origin"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Customer service"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Producer"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3342,25 +3266,25 @@ msgstr "The analysis is based solely on the ingredients listed and does not take
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "You are viewing an old version of this product page!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "Revision number: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "Edited by: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "Previous version"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "Next version"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "Latest version"
 

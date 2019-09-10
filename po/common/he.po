@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-27 15:11\n"
+"PO-Revision-Date: 2019-09-07 08:25\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -905,10 +905,6 @@ msgstr "רכיבים"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "רכיבים"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "ניתוח מרכיבים"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -3110,50 +3106,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "העמוד של %s"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "מוצרים שנבדקו על־ידי %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "מוצרים שלא נבדקו על־ידי %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "מוצרים שתוקנו על־ידי %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "מוצרים שלא תוקנו על־ידי %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "מוצרים שנערכו על־ידי %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "מוצרים שלא נערכו על־ידי %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "מוצרים שהושלמו על־ידי %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "מוצרים שלא הושלמו על־ידי %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "מוצרים שצולמו על־ידי %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "מוצרים שלא צולמו על־ידי %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "העמוד של %s"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "המוצר לא נמכר עוד."
@@ -3189,34 +3141,6 @@ msgstr "הורדת היישומון ל־iPad"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "מזהה מוצר לפי המפיק"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "אזהרה"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "הכנה"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "רעיון למתכון"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "מקור"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "שירות לקוחות"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "מפיק"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
