@@ -4021,7 +4021,7 @@ sub compute_nutrition_score($) {
 		# for fiber, compute score without fiber points if the value is not known
 		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
 
-		foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
+		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
 				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 				push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";
