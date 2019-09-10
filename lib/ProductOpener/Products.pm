@@ -556,6 +556,13 @@ sub store_product($$) {
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
+	my $change_ref = @$changes_ref[-1];
+	my $diffs = $change_ref->{diffs};
+	my %diffs = %{$diffs};
+	if ((!$diffs) or (!keys %diffs)) {
+		$log->info("changes not stored because of empty diff", { change_ref => $change_ref }) if $log->is_info();
+		return 0;
+	}
 
 	# 2018-12-26: remove obsolete products from the database
 	# another option could be to keep them and make them searchable only in certain conditions
@@ -576,9 +583,9 @@ sub store_product($$) {
 	symlink("$rev.sto", $link) or $log->error("could not symlink to new revision", { source => "$new_data_root/products/$path/$rev.sto", link => $link, error => $! });
 
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
-
-	my $change_ref = @$changes_ref[-1];
 	log_change($product_ref, $change_ref);
+
+	return 1;
 
 }
 
