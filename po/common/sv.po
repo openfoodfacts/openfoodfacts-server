@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-27 15:27\n"
+"PO-Revision-Date: 2019-09-07 08:35\n"
 "Language-Team: Swedish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -905,10 +905,6 @@ msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Ingredienser"
 
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Ingrediensanalys"
-
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
 msgstr "Obs: ingredienser kan listas med många olika namn. Låt oss veta om du tycker att resultatet ovan är felaktigt."
@@ -1644,7 +1640,7 @@ msgstr "Förpackning"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Färsk, konserverad, frusen, flaska, låda, glas, plast..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
@@ -3093,50 +3089,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr ""
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr ""
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr ""
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr ""
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr ""
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr ""
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr ""
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr ""
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr ""
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr ""
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr ""
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr ""
@@ -3172,34 +3124,6 @@ msgstr "Skaffa iPad-appen"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr ""
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Varning"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Förberedelse"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Receptidé"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Ursprung"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Kundservice"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Producent"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"

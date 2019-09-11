@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-27 15:20\n"
+"PO-Revision-Date: 2019-09-07 08:27\n"
 "Language-Team: Korean\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -905,10 +905,6 @@ msgstr "성분"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "성분"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "성분 분석"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -3105,50 +3101,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr ""
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr ""
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr ""
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr ""
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr ""
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr ""
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr ""
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr ""
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr ""
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr ""
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr ""
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr ""
@@ -3184,34 +3136,6 @@ msgstr "아이패드 앱 다운받기"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>모호한 바코드</em>: 이 제품은 회사 내의 제한된 순환 바코드를 쓰고 있습니다. 이 때문에 다른 생산자나 상점이 이 제품이랑 같은 바코드를 쓸 수가 있습니다."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "생산자 제품 식별자"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "경고"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "준비"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "레시피"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "출발지"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "고객 서비스"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "생산자"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"

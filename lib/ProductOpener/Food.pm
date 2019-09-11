@@ -3200,8 +3200,8 @@ sub mmoll_to_unit {
 		unit => "mmol/l",
 	},
 	"fruits-vegetables-nuts" => {
-		en => "Fruits, vegetables and nuts",
-		fr => "Fruits, légumes et noix",
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive",
 		es => "Frutas, verduras y nueces",
 		el => "Φρούτα, λαχανικά, καρποί",
 		nl => "Fruit, groenten en noten",
@@ -3216,8 +3216,8 @@ sub mmoll_to_unit {
 	},
 
 	"fruits-vegetables-nuts-estimate" => {
-		en => "Fruits, vegetables and nuts (estimate from ingredients list)",
-		fr => "Fruits, légumes et noix (estimation avec la liste des ingrédients)",
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation avec la liste des ingrédients)",
 		es => "Frutas, verduras y nueces (estimación de la lista de ingredientes)",
 		nl => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		nl_be => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
@@ -3906,6 +3906,13 @@ my %fruits_vegetables_nuts_by_category = (
 	"en:jams" => 50,
 	"en:fruits-based-foods" => 85,
 	"en:vegetables-based-foods" => 85,
+	# 2019/08/31: olive oil, walnut oil and colza oil are now considered in the same fruits, vegetables and nuts category
+	"en:olive-oils" => 100,
+	"en:walnut-oils" => 100,
+	# adding multiple wordings for colza/rapeseed oil in case we change it at some point
+	"en:colza-oils" => 100,
+	"en:rapeseed-oils" => 100,
+	"en:rapeseeds-oils" => 100,
 );
 
 my @fruits_vegetables_nuts_by_category_sorted = sort { $fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a} } keys %fruits_vegetables_nuts_by_category;
@@ -4014,7 +4021,7 @@ sub compute_nutrition_score($) {
 		# for fiber, compute score without fiber points if the value is not known
 		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
 
-		foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
+		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
 				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 				push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";

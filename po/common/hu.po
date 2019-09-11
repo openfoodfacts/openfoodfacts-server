@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-27 15:17\n"
+"PO-Revision-Date: 2019-09-07 08:24\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -897,10 +897,6 @@ msgstr "Összetevők"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Összetevők"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Összetevők elemzése"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -3098,50 +3094,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "A termékeket ellenőrizte: %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "A termékeket nem ellenőrizte: %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "A termékeket korrigálta: %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr ""
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "A termékeket szerkesztette: %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "A termékeket nem szerkesztette: %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "A termékadatokat teljessé tette: %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "A termékadatokat nem tette készé: %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "%s által fényképezett termékek"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "A termékeket nem fotózta: %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr ""
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "A termék már nem kapható."
@@ -3177,34 +3129,6 @@ msgstr "Szerezd meg az iPad alkalmazást"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Termelői termék azonosító"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Figyelmeztetés"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Előkészítés"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Recept ötlet"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Származás"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Vevőszolgálat"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Gyártó"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"

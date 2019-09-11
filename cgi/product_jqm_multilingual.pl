@@ -281,7 +281,7 @@ else {
 	detect_allergens_from_text($product_ref);
 	compute_carbon_footprint_from_ingredients($product_ref);
 	compute_carbon_footprint_from_meat_or_fish($product_ref);
-	
+
 	# Nutrition data
 
 	# Do not allow nutrition edits through API for data provided by producers
@@ -441,13 +441,17 @@ else {
 
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
-	store_product($product_ref, $comment);
+	if (store_product($product_ref, $comment)) {
+		# Notify robotoff
+		send_notification_for_product_change($product_ref, "updated");
 
-	# Notify robotoff
-	send_notification_for_product_change($product_ref, "updated");
-
-	$response{status} = 1;
-	$response{status_verbose} = 'fields saved';
+		$response{status} = 1;
+		$response{status_verbose} = 'fields saved';
+	}
+	else {
+		$response{status} = 0;
+		$response{status_verbose} = 'not modified';
+	}
 }
 
 my $data =  encode_json(\%response);

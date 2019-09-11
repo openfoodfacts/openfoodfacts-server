@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-29 13:14\n"
+"PO-Revision-Date: 2019-09-07 08:23\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -906,10 +906,6 @@ msgstr "Ingrediënten"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Ingrediënten"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "ingrediënten_analyse"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -3108,50 +3104,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "%s's pagina"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Producten gecontroleerd door %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Producten niet gecontroleerd door %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Producten gecorrigeerd door %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Producten niet gecorrigeerd door %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Producten bewerkt door %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Producten niet bewerkt door %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "Producten voltooid door %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "Producten niet voltooid door %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "Producten gefotografeerd door %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "Producten niet gefotografeerd door %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "%s's pagina"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "Het product wordt niet langer verkocht."
@@ -3187,34 +3139,6 @@ msgstr "Download de iPad-app"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Productidentificatie Producent"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Let op"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Bereidingswijze"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Recept idee"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Herkomst"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Klantenservice"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Producent"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
