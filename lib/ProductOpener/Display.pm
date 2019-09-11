@@ -9493,23 +9493,22 @@ sub display_recent_changes {
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
 
-	$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
-	my $cursor = get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-	$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
+	$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
+	my $count = execute_query(sub {
+		return get_recent_changes_collection()->count_documents($query_ref);
+	});
+	$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
-	if ($@) {
-		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
-		$cursor = get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
-	}
+	$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
+	my $cursor = execute_query(sub {
+		return get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+	});
+	$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 
 	my $html .= "<ul>\n";
 	my $last_change_ref = undef;
 	my @cumulate_changes = ();
-	my $count = 0;
 	while (my $change_ref = $cursor->next) {
-		$count++;
 		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
 		my $change_hash = {
 			code => $change_ref->{code},
