@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -8713,8 +8713,11 @@ HTML
 
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
+					my $percent_numeric_value = $percent;
 					$percent = $perf->format($percent / 100.0);
-					if ($percent !~ /^-/) {
+					# issue 2273 -  minus signs are rendered with different characters in different locales, e.g. Finnish
+					# so just test positivity of numeric value
+					if ($percent_numeric_value > 0 ) {
 						$percent = "+" . $percent;
 					}
 					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
