@@ -70,7 +70,85 @@ sub init_columns_fields_match($$) {
 
 	my $columns_fields_ref = {};
 
-	# TODO
+	# Go through all rows to extract examples, compute stats etc.
+
+	my $row = 0;
+
+	foreach my $row_ref (@$rows_ref) {
+
+		my $col = 0;
+
+		foreach my $value (@$row_ref) {
+
+			my $column = $headers_ref->[$col];
+
+			defined $columns_fields_ref->{$column} or $columns_fields_ref->{$column} = { examples => [], existing_examples => {}, n => 0, numbers => 0, letters => 0, both => 0 };
+
+			# empty value?
+
+			if ($value =~ /^\s*$/) {
+
+			}
+			else {
+				# defined value
+				$columns_fields_ref->{$column}{n}++;
+
+				# examples
+				if (@{$columns_fields_ref->{$column}{examples}} < 3) {
+					if (not defined $columns_fields_ref->{$column}{existing_examples}{$value}) {
+						$columns_fields_ref->{$column}{existing_examples}{$value} = 1;
+						push @{$columns_fields_ref->{$column}{examples}}, $value;
+					}
+				}
+
+				# content
+				if ($value =~ /[0-9]/) {
+					$columns_fields_ref->{$column}{numbers}++;
+				}
+				if ($value =~ /[a-z]/i) {
+					$columns_fields_ref->{$column}{letters}++;
+				}
+				if ($value =~ /[0-9].*[a-z]/i) {
+					$columns_fields_ref->{$column}{both}++;
+				}
+			}
+
+			$col++;
+		}
+
+		$row++;
+	}
+
+	# Match known column names to OFF fields
+
+	foreach my $column (@$headers_ref) {
+
+		my ($field, $value_or_unit, $tag);
+
+		my $column_id = get_string_id_for_lang("no_language", $column);
+
+		if ($column_id =~ /^(code|barcode|ean|ean13|ean-13)$/) {
+			$field = "code";
+		}
+
+		# If we don't know if the column contains value + unit, value, or unit,
+		# try to guess from the content of the column
+		if (not defined $value_or_unit) {
+			if ($columns_fields_ref->{$column}{both}) {
+				$value_or_unit = "value_unit";
+			}
+			elsif ($columns_fields_ref->{$column}{numbers}) {
+				$value_or_unit = "value";
+			}
+			elsif ($columns_fields_ref->{$column}{letters}) {
+				$value_or_unit = "unit";
+			}
+		}
+
+		$columns_fields_ref->{$column}{field} = $field;
+		$columns_fields_ref->{$column}{value_unit} = $value_or_unit;
+		$columns_fields_ref->{$column}{tag} = $tag;
+	}
 
 	return $columns_fields_ref;
 }

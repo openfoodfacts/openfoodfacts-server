@@ -147,51 +147,79 @@ if ($action eq "display") {
 	# Analyze the headers column names and rows content to pre-assign fields to columns
 
 	my $columns_fields_ref = init_columns_fields_match($headers_ref, \@rows);
+	my $columns_fields_json = to_json($columns_fields_ref);
 
 	# Create an options array for select2
 
 	my $select2_options_ref = generate_import_export_columns_groups_for_select2($options{import_export_fields_groups}, [ $lc ]);
 	my $select2_options_json = to_json($select2_options_ref);
 
+	# Number of pre-selected columns
+	my $selected = 0;
+
 	# Upload a file
 
 	$html .= "<h1>" . lang("import_data_file_select_format_title") . "</h1>\n";
 	$html .= "<p>" . lang("import_data_file_select_format_description") . "</p>\n";
 
-	$html .= "<p>Columns:</p><p>" . join(" ", @$headers_ref) . "</p>";
+	$html .= "<p>" . sprintf(lang("import_file_rows_columns"), @rows + 0, @$headers_ref + 0) . "</p>";
 
-	$html .= "<p>" . @rows . " lines</p>";
+	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns">' . $selected . '</span>', @$headers_ref + 0);
 
 	$html .= start_multipart_form(-id=>"select_format_form") ;
 
 	$html .= <<HTML
-<table>
-<tr><th>Column in file</th><th>Field on Open Food Facts</th></tr>
+<input type="submit" class="button small" value="$Lang{import_data}{$lc}">
+$selected_columns_count
+
+<table id="select_fields">
+<tr><th>Column in file</th><th colspan="2">Field on Open Food Facts</th></tr>
 HTML
 ;
 
-	my $i = 0;
+	my $col = 0;
 
 	foreach my $column (@$headers_ref) {
 
-		$i++;
+		my $examples = "";
+
+		foreach my $example (@{$columns_fields_ref->{$column}{examples}}) {
+			$examples .= $example . "\n";
+		}
+
+		if ($examples ne "") {
+			$examples = "<p>" . lang("examples") . "</p>\n<pre>$examples</pre>\n";
+		}
 
 		$html .= <<HTML
-<tr id="column_$i"><td>$column</td>
+<tr id="column_$column" class="column_row"><td>$column</td>
 <td>
-<select class="select2_field" name="select_field_$i" id="select_field_$i" style="width:420px">
+<select class="select2_field" name="select_field_$column" id="select_field_$column" style="width:420px">
 <option></option>
 </select>
+</td>
+<td id="select_field_option_$column">
+</td>
+</tr>
+<tr id="column_info_$column" class="column_info_row" style="display:none">
+<td>
+$examples
+</td>
+<td colspan="2" id="column_instructions_$column">
 </td>
 </tr>
 HTML
 ;
-		# Empty option is needed for select2 to display the placeholder
-
+		$column++;
 	}
 
 	$html .= <<HTML
 </table>
+<input type="hidden" name="columns_fields_json" id="columns_fields_json">
+<input type="hidden" name="file_id" id="$file_id">
+
+<input type="submit" class="button small" value="$Lang{import_data}{$lc}">
+$selected_columns_count
 HTML
 ;
 
@@ -203,22 +231,142 @@ HTML
 JS
 ;
 
+	$styles .= <<CSS
+.select2-container--default .select2-results > .select2-results__options {
+    max-height: 400px
+}
+
+pre {
+	max-width:16em;
+	overflow-x:auto;
+}
+CSS
+;
+
 	$initjs .= <<JS
+
+var columns_fields = $columns_fields_json ;
 
 var select2_options = $select2_options_json ;
 
 
-\$('.select2_field').select2({
-	placeholder: "$Lang{select_a_field}{$lc}",
-	data:select2_options,
-	width: '500px',
-	allowClear: true
-}).on("select2:select", function(e) {
-	var id = e.params.data.id;
-}).on("select2:unselect", function(e) {
+function show_column_info(column) {
+
+	\$('.column_info_row').hide();
+	\$('#column_info_' + column).show();
+}
+
+\$('.column_row').click( function() {
+	var column = this.id.replace(/column_/, '');
+	show_column_info(column);
+}
+);
+
+function init_select_field_option(column) {
+
+	// Based on the field, display the different field options and instructions
+
+	var field = columns_fields[column]["field"];
+
+	var instructions = "";
+
+	\$("#select_field_option_" + column).empty();
+
+	if (field) {
+		if (field.match(/_value_unit/)) {
+
+			var select = '<select id="select_field_option_value_unit_' + column + '" name="select_field_option_value_unit_' + column + '" style="width:150px">'
+			+ '<option></option>';
+
+			if (field.match(/^energy/)) {
+				select += '<option value="value_in_kj">$Lang{value_in_kj}{$lc}</option>'
+				+ '<option value="value_in_kcal">$Lang{value_in_kcal}{$lc}</option>';
+			}
+
+			select += '<option value="value_unit">$Lang{value_unit}{$lc}</option>'
+			+ '<option value="value">$Lang{value}{$lc}</option>'
+			+ '<option value="unit">$Lang{unit}{$lc}</option>'
+			+ '</select>';
+
+			\$("#select_field_option_" + column).html(select);
+
+			if (columns_fields[column]["value_unit"]) {
+				\$('#select_field_option_value_unit_' + column).val(columns_fields[column]["value_unit"]);
+			}
+
+			\$('#select_field_option_value_unit_' + column).select2({
+				placeholder: "$Lang{specify}{$lc}"
+			}).on("select2:select", function(e) {
+				var id = e.params.data.id;
+				var column = this.id.replace(/select_field_option_value_unit_/, '');
+				columns_fields[column]["value_unit"] = \$(this).val();
+			}).on("select2:unselect", function(e) {
+			});
+
+			instructions += "<p>$Lang{value_unit_dropdown}{$lc}</p>"
+			+ "<ul>"
+			+ "<li>$Lang{value_unit_dropdown_value_specific_unit}{$lc}</li>"
+			+ "<li>$Lang{value_unit_dropdown_value_unit}{$lc}</li>"
+			+ "<li>$Lang{value_unit_dropdown_value}{$lc}</li>"
+			+ "<li>$Lang{value_unit_dropdown_unit}{$lc}</li>"
+			+ "</ul>";
+		}
+	}
+
+	\$("#column_instructions_" + column).html(instructions);
+}
+
+
+function init_select_field() {
+
+	var options = {
+		placeholder: "$Lang{select_a_field}{$lc}",
+		data:select2_options,
+		allowClear: true
+	};
+
+	var column = this.id.replace(/select_field_/, '');
+
+	\$(this).select2(options).on("select2:select", function(e) {
+		var id = e.params.data.id;
+		var column = this.id.replace(/select_field_/, '');
+		columns_fields[column]["field"] = \$(this).val();
+		init_select_field_option(column);
+	}).on("select2:unselect", function(e) {
+	});
+
+	if (columns_fields[column]["field"]) {
+		\$(this).val(columns_fields[column]["field"]);
+		\$(this).trigger('change');
+	}
+
+	init_select_field_option(column);
+
+}
+
+\$('.select2_field').each(init_select_field);
+
+
+\$( "#select_format_form" ).submit(function( event ) {
+  \$('#columns_fields_json').val(JSON.stringify(columns_fields));
+  //event.preventDefault();
 });
+
+
+
 JS
 ;
+
+	display_new( {
+		title=>$title,
+		content_ref=>\$html,
+	});
+}
+elsif ($action eq "process") {
+
+	my $columns_fields_json = param("columns_fields_json");
+
+	$html .= "<p>columns_fields_json:</p>" . $columns_fields_json;
 
 	display_new( {
 		title=>$title,

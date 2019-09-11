@@ -3518,48 +3518,148 @@ msgstr ""
 
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "Import a product data file"
 
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel .xslx files or a tab separated CSV file) with products data."
-msgstr ""
+msgstr "Upload a spreadsheet file (Excel .xslx files or a tab separated CSV file) with products data."
 
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr ""
+msgstr "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
 
 msgctxt "upload_products_data_file"
 msgid "Upload a products data file"
-msgstr ""
+msgstr "Upload a products data file"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "File being uploaded."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "The file could not be uploaded."
+
+msgctxt "import_data_file_select_format_title"
+msgid "Select and import data"
+msgstr "Select and import data"
+
+msgctxt "import_data_file_select_format_description"
+msgid "Use the form below to indicate which columns to import and what data they contain."
+msgstr "Use the form below to indicate which columns to import and what data they contain."
+
+msgctxt "import_data"
+msgid "Import data"
+msgstr "Import data"
+
+msgctxt "import_file_rows_columns"
+msgid "The uploaded file contains %s rows and %s columns."
+msgstr "The uploaded file contains %s rows and %s columns."
+
+msgctxt "import_file_selected_columns"
+msgid "%s columns out of %s have been selected and will be imported."
+msgstr "%s columns out of %s have been selected and will be imported."
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Product identification"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Origins"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutrition facts"
 
-msgctxt "fileds_group_nutrition_other"
+msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Optional nutrition facts"
 
 msgctxt "fields_group_other"
 msgid "Other information"
-msgstr ""
+msgstr "Other information"
+
+msgctxt "specific"
+msgid "specific"
+msgstr "specific"
+
+msgctxt "select_a_field"
+msgid "Select a field"
+msgstr "Select a field"
+
+msgctxt "specify"
+msgid "Specify"
+msgstr "Specify"
+
+msgctxt "value_unit_dropdown"
+msgid "In the dropdown menu on the right, specify if the column contains:"
+msgstr "In the dropdown menu on the right, specify if the column contains:"
+
+msgctxt "value_unit_dropdown_value_unit"
+msgid "the value and the unit"
+msgstr "the value and the unit"
+
+msgctxt "value_unit_dropdown_value_specific_unit"
+msgid "the value in a specific unit"
+msgstr "the value in a specific unit"
+
+msgctxt "value_unit_dropdown_value"
+msgid "only the value, with the unit in another column"
+msgstr "only the value, with the unit in another column"
+
+msgctxt "value_unit_dropdown_unit"
+msgid "only the unit, with the value in another column"
+msgstr "only the unit, with the value in another column"
+
+msgctxt "specific_tag_label"
+msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr "Select a field"
+
+msgctxt "specific_tag_label_value"
+msgid "Type the name of the label in the text field on the right."
+msgstr "Type the name of the label in the text field on the right."
+
+msgctxt "specific_tag_category"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr "Select this option if the column indicates the presence of a specific category (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+
+msgctxt "specific_tag_category_value"
+msgid "Type the name of the category in the text field on the right."
+msgstr "Type the name of the category in the text field on the right."
+
+msgctxt "value"
+msgid "Value"
+msgstr "Value"
+
+msgctxt "value_unit"
+msgid "Value + Unit"
+msgstr "Value + Unit"
+
+msgctxt "value_in_g"
+msgid "Value in g"
+msgstr "Value in g"
+
+msgctxt "value_in_mg"
+msgid "Value in mg"
+msgstr "Value in mg"
+
+msgctxt "value_in_mg"
+msgid "Value in mg"
+msgstr "Value in mg"
+
+msgctxt "value_in_kcal"
+msgid "Value in kcal"
+msgstr "Value in kcal"
+
+msgctxt "value_in_kj"
+msgid "Value in kJ"
+msgstr "Value in kJ"
+
+msgctxt "value_in_%"
+msgid "Value in %"
+msgstr "Value in %"
