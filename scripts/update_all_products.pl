@@ -182,6 +182,9 @@ foreach my $field (sort keys %$query_ref) {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
 	}
+	if ($query_ref->{$field} eq 'exists') {
+		$query_ref->{$field} = { '$exists' => true };
+	}
 }
 
 if (defined $key) {
@@ -191,16 +194,21 @@ else {
 	$key = "key_" . time();
 }
 
-#$query_ref->{code} = "3661112080648";
-#$query_ref->{categories_tags} = "en:plant-milks";
-#$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
-
-
 # $query_ref->{unknown_nutrients_tags} = { '$exists' => true,  '$ne' => [] };
 
-print "Update key: $key\n\n";
+print STDERR "Update key: $key\n\n";
+
+use Data::Dumper;
+print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $products_collection = get_products_collection();
+
+my $count = $products_collection->count_documents($query_ref);
+
+print STDERR "$count documents to update.\n";
+sleep(2);
+
+
 my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });
 $cursor->immortal(1);
 
@@ -211,8 +219,6 @@ while (my $product_ref = $cursor->next) {
 
 	my $code = $product_ref->{code};
 	my $path = product_path($code);
-
-	#next if $code ne "8480013072645";
 
 	if (not defined $code) {
 		print STDERR "code field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id} . "\n";
