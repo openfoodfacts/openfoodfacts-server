@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-11 08:55\n"
+"PO-Revision-Date: 2019-09-11 09:41\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2143,8 +2143,8 @@ msgid "Scatter plot"
 msgstr "פיזור התוואי"
 
 msgctxt "search_graph_blog"
-msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>← מידע נוסף על התרשימים ב<<site_name>>: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">תרשימים ב־3 לחיצות</a> (בלוג).</p>"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr "<p>← מידע נוסף על התרשימים ב<<site_name>>: <a href=\"/graphs-in-3-clicks\">תרשימים ב־3 לחיצות</a> (בלוג).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2597,7 +2597,7 @@ msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"החנות של Wi
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/he-il/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
