@@ -235,16 +235,16 @@ sub unit_to_g($$) {
 
 	$value eq '' and return $value;
 
-	$unit eq 'kcal' and return int($value * 4.184 + 0.5);
-	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value * 1000;
+	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);
+	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value * 1000;
 	$unit eq "\N{U+65A4}" and return $value * 500;
-	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value / 1000;
+	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value / 1000;
 	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value / 1000000;
 	$unit eq 'oz' and return $value * 28.349523125;
 
-	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value * 1000;
-	$unit eq 'dl' and return $value * 100;
-	$unit eq 'cl' and return $value * 10;
+	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value * 1000;
+	(($unit eq 'dl') or ($unit eq 'дл')) and return $value * 100;
+	(($unit eq 'cl') or ($unit eq 'кл')) and return $value * 10;
 	$unit eq 'fl oz' and return $value * 30;
 	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
@@ -268,16 +268,16 @@ sub g_to_unit($$) {
 
 	$value eq '' and return $value;
 
-	$unit eq 'kcal' and return int($value / 4.184 + 0.5);
-	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value / 1000;
+	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
+	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value / 1000;
 	$unit eq "\N{U+65A4}" and return $value / 500;
-	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value * 1000;
+	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value * 1000;
 	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value * 1000000;
 	$unit eq 'oz' and return $value / 28.349523125;
 
-	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value / 1000;
-	$unit eq 'dl' and return $value / 100;
-	$unit eq 'cl' and return $value / 10;
+	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value / 1000;
+	(($unit eq 'dl') or ($unit eq 'дл')) and return $value / 100;
+	(($unit eq 'cl') or ($unit eq 'кл')) and return $value / 10;
 	$unit eq 'fl oz' and return $value / 30;
 	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
@@ -3505,7 +3505,9 @@ foreach my $nid (keys %Nutriments) {
 
 my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
 my $chinese_units = qr/(?:\N{U+6BEB}?\N{U+514B})|(?:\N{U+516C}?\N{U+65A4})|(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|\N{U+5428}/i;
-my $units = qr/$international_units|$chinese_units/i;
+my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
+my $units = qr/$international_units|$chinese_units|$russian_units/i;
+
 sub normalize_quantity($) {
 
 	# return the size in g or ml for the whole product

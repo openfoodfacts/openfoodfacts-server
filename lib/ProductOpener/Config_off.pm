@@ -158,6 +158,7 @@ use ProductOpener::Config2;
 	lucaa
 	mbe
 	moon-rabbit
+	raphael0202
 	sebleouf
 	segundo
 	stephane
