@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bn\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-07 08:15\n"
+"PO-Revision-Date: 2019-09-11 08:39\n"
 "Language-Team: Bengali\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -74,6 +74,7 @@ msgstr "হ্যালো <NAME>,\n\n"
 "অনেক ধন্যবাদ!\n\n"
 "স্টেফেন এবং open food facts দল https://openfoodfacts.org https://twitter.com/OpenFoodFacts\n"
 
+# please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
 msgstr "যুক্ত হবার জন্য ধন্যবাদ <<site_name>>"
@@ -130,14 +131,17 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "পণ্য পাতাটি যারা সম্পাদনা করেছেন"
 
+# Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 msgstr ""
 
+# DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 msgstr ""
@@ -2548,12 +2552,14 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr ""
 
+# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 msgstr ""
 
+# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
