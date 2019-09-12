@@ -49,21 +49,15 @@ use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
 
+my $action = param('action') || 'display';
 
 ProductOpener::Display::init();
-
-my $type = param('type') || 'upload';
-my $action = param('action') || 'display';
 
 my $title = '';
 my $html = '';
 
-local $log->context->{type} = $type;
-local $log->context->{action} = $action;
-
-my $owner = "user-" . $User_id;
-if (defined $Org_id) {
-	$owner = "org-" . $Org_id;
+if (not defined $owner) {
+	display_error(lang("no_owner_defined"), 200);
 }
 
 my $import_files_ref = retrieve("$data_root/import_files/$owner/import_files.sto");
@@ -92,67 +86,23 @@ $log->debug("File found in import_files.sto", { file_id => $file_id,  file => $f
 
 if ($action eq "display") {
 
-	# Spreasdsheet::CSV does not like CSV files with a BOM:
-	# Wide character in print at /usr/local/share/perl/5.24.1/Spreadsheet/CSV.pm line 87.
-	#
+	my $results_ref = load_csv_or_excel_file($file);
 
-	# There are many issues with Spreadsheet::CSV handling of CSV files
-	# (depending on whether there is a BOM, encoding, line endings etc.
-	# -> use Spreadsheet::CSV only for Excel files
-	# -> use Text::CSV directly for CSV files
-
-	my $headers_ref = undef;
-	my @rows = ();
-
-	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
-
-		my $encoding = "UTF-8";
-
-		$log->debug("opening CSV file", { file => $file, extension => $extension }) if $log->is_debug();
-
-		my $csv_options_ref = { binary => 1 , sep_char => "\t" };
-
-		my $csv = Text::CSV->new ( $csv_options_ref )  # should set binary attribute.
-                 or die "Cannot use CSV: " . Text::CSV->error_diag ();
-
-		open (my $io, "<:encoding($encoding)", $file) or die("Could not open CSV $file: $!");
-
-		$headers_ref = [$csv->header ($io, { detect_bom => 1 })];
-
-		while (my $row = $csv->getline ($io)) {
-			push @rows, $row;
-		}
+	if ($results_ref->{error}) {
+		display_error($results_ref->{error}, 200);
 	}
-	else {
-		$log->debug("opening Excel file", { file => $file, extension => $extension }) if $log->is_debug();
 
-		open (my $io, "<", $file) or die("Could not open Excel $file: $!");
-
-		my $csv_options_ref = { binary => 1 , sep_char => "\t" };
-
-		my $csv = Spreadsheet::CSV->new();
-
-		# Assume first line is headers line
-		$headers_ref = $csv->getline ($io);
-
-		if (not defined $headers_ref) {
-			display_error("Unsupported file format (extension: $extension).", 200);
-		}
-
-		while (my $row = $csv->getline ($io)) {
-			push @rows, $row;
-		}
-	}
+	my $headers_ref = $results_ref->{headers};
+	my $rows_ref = $results_ref->{rows};
 
 	# Analyze the headers column names and rows content to pre-assign fields to columns
 
-	my $columns_fields_ref = init_columns_fields_match($headers_ref, \@rows);
+	my $columns_fields_ref = init_columns_fields_match($headers_ref, $rows_ref);
 	my $columns_fields_json = to_json($columns_fields_ref);
 
 	# Create an options array for select2
 
 	my $select2_options_ref = generate_import_export_columns_groups_for_select2($options{import_export_fields_groups}, [ $lc ]);
-	my $select2_options_json = to_json($select2_options_ref);
 
 	# Number of pre-selected columns
 	my $selected = 0;
@@ -162,11 +112,11 @@ if ($action eq "display") {
 	$html .= "<h1>" . lang("import_data_file_select_format_title") . "</h1>\n";
 	$html .= "<p>" . lang("import_data_file_select_format_description") . "</p>\n";
 
-	$html .= "<p>" . sprintf(lang("import_file_rows_columns"), @rows + 0, @$headers_ref + 0) . "</p>";
+	$html .= "<p>" . sprintf(lang("import_file_rows_columns"), @$rows_ref + 0, @$headers_ref + 0) . "</p>";
 
 	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns">' . $selected . '</span>', @$headers_ref + 0);
 
-	$html .= start_multipart_form(-id=>"select_format_form") ;
+	$html .= start_multipart_form(-id=>"select_format_form", -action=>"/cgi/import_file_process.pl") ;
 
 	$html .= <<HTML
 <input type="submit" class="button small" value="$Lang{import_data}{$lc}">
@@ -187,36 +137,39 @@ HTML
 			$examples .= $example . "\n";
 		}
 
+		# We don't need the examples anymore
+		delete $columns_fields_ref->{$column}{examples};
+
 		if ($examples ne "") {
 			$examples = "<p>" . lang("examples") . "</p>\n<pre>$examples</pre>\n";
 		}
 
 		$html .= <<HTML
-<tr id="column_$column" class="column_row"><td>$column</td>
+<tr id="column_$col" class="column_row"><td>$column</td>
 <td>
-<select class="select2_field" name="select_field_$column" id="select_field_$column" style="width:420px">
+<select class="select2_field" name="select_field_$col" id="select_field_$col" style="width:420px">
 <option></option>
 </select>
 </td>
-<td id="select_field_option_$column">
+<td id="select_field_option_$col">
 </td>
 </tr>
-<tr id="column_info_$column" class="column_info_row" style="display:none">
+<tr id="column_info_$col" class="column_info_row" style="display:none">
 <td>
 $examples
 </td>
-<td colspan="2" id="column_instructions_$column">
+<td colspan="2" id="column_instructions_$col">
 </td>
 </tr>
 HTML
 ;
-		$column++;
+		$col++;
 	}
 
 	$html .= <<HTML
 </table>
 <input type="hidden" name="columns_fields_json" id="columns_fields_json">
-<input type="hidden" name="file_id" id="$file_id">
+<input type="hidden" name="file_id" id="file_id" value="$file_id">
 
 <input type="submit" class="button small" value="$Lang{import_data}{$lc}">
 $selected_columns_count
@@ -243,44 +196,103 @@ pre {
 CSS
 ;
 
+	# JSON structures to pass to the javascript
+
+	my $columns_json = to_json($headers_ref);
+
+	my $columns_fields_json = to_json($columns_fields_ref);
+
+	my $select2_options_json = to_json($select2_options_ref);
+
 	$initjs .= <<JS
+
+var columns = $columns_json;
 
 var columns_fields = $columns_fields_json ;
 
 var select2_options = $select2_options_json ;
 
+\$( '#select_format_form' ).submit(function( event ) {
+  \$('#columns_fields_json').val(JSON.stringify(columns_fields));
+});
 
-function show_column_info(column) {
+
+function show_column_info(col) {
 
 	\$('.column_info_row').hide();
-	\$('#column_info_' + column).show();
+	\$('#column_info_' + col).show();
 }
 
 \$('.column_row').click( function() {
-	var column = this.id.replace(/column_/, '');
-	show_column_info(column);
+	var col = this.id.replace(/column_/, '');
+	show_column_info(col);
 }
 );
 
-function init_select_field_option(column) {
+function init_select_field_option(col) {
 
 	// Based on the field, display the different field options and instructions
+
+	var column = columns[col];
 
 	var field = columns_fields[column]["field"];
 
 	var instructions = "";
 
-	\$("#select_field_option_" + column).empty();
+	\$("#select_field_option_" + col).empty();
 
 	if (field) {
-		if (field.match(/_value_unit/)) {
+		if (field == "labels_specific") {
 
-			var select = '<select id="select_field_option_value_unit_' + column + '" name="select_field_option_value_unit_' + column + '" style="width:150px">'
+			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$Lang{labels_s}{$lc}" style="width:150px">';
+
+			\$("#select_field_option_" + column).html(input);
+
+			if (columns_fields[column]["tag"]) {
+				\$('#select_field_option_tag_' + col).val(columns_fields[column]["tag"]);
+			}
+
+			\$('#select_field_option_input_' + col)
+			.on("change", function(e) {
+				var id = e.params.data.id;
+				var col = this.id.replace(/select_field_option_tag_/, '');
+				var column = columns[col];
+				columns_fields[column]["tag"] = \$(this).val();
+			});
+
+			instructions += "<p>$Lang{specific_tag_label}{$lc}</p>"
+			+ "<p>$Lang{specific_tag_label_value}{$lc}</p>";
+		}
+		else if (field.match(/_value_unit/)) {
+
+			var select = '<select id="select_field_option_value_unit_' + col + '" name="select_field_option_value_unit_' + col + '" style="width:150px">'
 			+ '<option></option>';
 
 			if (field.match(/^energy/)) {
 				select += '<option value="value_in_kj">$Lang{value_in_kj}{$lc}</option>'
 				+ '<option value="value_in_kcal">$Lang{value_in_kcal}{$lc}</option>';
+			}
+			else if (field.match(/weight/)) {
+				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>';
+			}
+			else if (field.match(/volume/)) {
+				select += '<option value="value_in_l">$Lang{value_in_l}{$lc}</option>'
+				+ '<option value="value_in_dl">$Lang{value_in_dl}{$lc}</option>'
+				+ '<option value="value_in_cl">$Lang{value_in_cl}{$lc}</option>'
+				+ '<option value="value_in_ml">$Lang{value_in_ml}{$lc}</option>';
+			}
+			else if (field.match(/quantity/)) {
+				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>'
+				+ '<option value="value_in_l">$Lang{value_in_l}{$lc}</option>'
+				+ '<option value="value_in_dl">$Lang{value_in_dl}{$lc}</option>'
+				+ '<option value="value_in_cl">$Lang{value_in_cl}{$lc}</option>'
+				+ '<option value="value_in_ml">$Lang{value_in_ml}{$lc}</option>';
+			}
+			else {
+				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>'
+				+ '<option value="value_in_mg">$Lang{value_in_mg}{$lc}</option>'
+				+ '<option value="value_in_mcg">$Lang{value_in_mcg}{$lc}</option>'
+				+ '<option value="value_in_percent">$Lang{value_in_percent}{$lc}</option>';
 			}
 
 			select += '<option value="value_unit">$Lang{value_unit}{$lc}</option>'
@@ -288,17 +300,18 @@ function init_select_field_option(column) {
 			+ '<option value="unit">$Lang{unit}{$lc}</option>'
 			+ '</select>';
 
-			\$("#select_field_option_" + column).html(select);
+			\$("#select_field_option_" + col).html(select);
 
 			if (columns_fields[column]["value_unit"]) {
-				\$('#select_field_option_value_unit_' + column).val(columns_fields[column]["value_unit"]);
+				\$('#select_field_option_value_unit_' + col).val(columns_fields[column]["value_unit"]);
 			}
 
-			\$('#select_field_option_value_unit_' + column).select2({
+			\$('#select_field_option_value_unit_' + col).select2({
 				placeholder: "$Lang{specify}{$lc}"
 			}).on("select2:select", function(e) {
 				var id = e.params.data.id;
-				var column = this.id.replace(/select_field_option_value_unit_/, '');
+				var col = this.id.replace(/select_field_option_value_unit_/, '');
+				var column = columns[col];
 				columns_fields[column]["value_unit"] = \$(this).val();
 			}).on("select2:unselect", function(e) {
 			});
@@ -313,7 +326,7 @@ function init_select_field_option(column) {
 		}
 	}
 
-	\$("#column_instructions_" + column).html(instructions);
+	\$("#column_instructions_" + col).html(instructions);
 }
 
 
@@ -325,13 +338,15 @@ function init_select_field() {
 		allowClear: true
 	};
 
-	var column = this.id.replace(/select_field_/, '');
+	var col = this.id.replace(/select_field_/, '');
+	var column = columns[col];
 
 	\$(this).select2(options).on("select2:select", function(e) {
 		var id = e.params.data.id;
-		var column = this.id.replace(/select_field_/, '');
+		var col = this.id.replace(/select_field_/, '');
+		var column = columns[col];
 		columns_fields[column]["field"] = \$(this).val();
-		init_select_field_option(column);
+		init_select_field_option(col);
 	}).on("select2:unselect", function(e) {
 	});
 
@@ -340,18 +355,13 @@ function init_select_field() {
 		\$(this).trigger('change');
 	}
 
-	init_select_field_option(column);
+	init_select_field_option(col);
 
 }
 
+
+
 \$('.select2_field').each(init_select_field);
-
-
-\$( "#select_format_form" ).submit(function( event ) {
-  \$('#columns_fields_json').val(JSON.stringify(columns_fields));
-  //event.preventDefault();
-});
-
 
 
 JS
@@ -362,17 +372,7 @@ JS
 		content_ref=>\$html,
 	});
 }
-elsif ($action eq "process") {
 
-	my $columns_fields_json = param("columns_fields_json");
-
-	$html .= "<p>columns_fields_json:</p>" . $columns_fields_json;
-
-	display_new( {
-		title=>$title,
-		content_ref=>\$html,
-	});
-}
 
 exit(0);
 

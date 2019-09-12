@@ -23,6 +23,9 @@
 use Modern::Perl '2017';
 use utf8;
 
+binmode(STDOUT, ":encoding(UTF-8)");
+binmode(STDERR, ":encoding(UTF-8)");
+
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
@@ -54,9 +57,8 @@ my $html = '';
 local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
-my $owner = "user-" . $User_id;
-if (defined $Org_id) {
-	$owner = "org-" . $Org_id;
+if (not defined $owner) {
+	display_error(lang("no_owner_defined"), 200);
 }
 
 if ($action eq "process") {

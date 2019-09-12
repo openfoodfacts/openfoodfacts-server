@@ -33,8 +33,10 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 
+		&load_csv_or_excel_file
 		&init_columns_fields_match
 		&generate_import_export_columns_groups_for_select2
+		&convert_file
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -58,7 +60,165 @@ use Encode;
 use JSON::PP;
 use Time::Local;
 use Data::Dumper;
-use Text::CSV;
+use Spreadsheet::CSV();
+use Text::CSV();
+
+
+# Load a CSV or Excel file
+
+sub load_csv_or_excel_file($) {
+
+	my $file = shift;	# path and file name
+
+	my $headers_ref;
+	my $rows_ref = [];
+	my $results_ref = { };
+
+	# Spreadsheet::CSV does not like CSV files with a BOM:
+	# Wide character in print at /usr/local/share/perl/5.24.1/Spreadsheet/CSV.pm line 87.
+	#
+
+	# There are many issues with Spreadsheet::CSV handling of CSV files
+	# (depending on whether there is a BOM, encoding, line endings etc.
+	# -> use Spreadsheet::CSV only for Excel files
+	# -> use Text::CSV directly for CSV files
+
+	my $extension = $file;
+	$extension =~ s/^(.*)\.//;
+	$extension = lc($extension);
+
+	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
+
+		my $encoding = "UTF-8";
+
+		$log->debug("opening CSV file", { file => $file, extension => $extension }) if $log->is_debug();
+
+		my $csv_options_ref = { binary => 1 , sep_char => "\t" };	# should set binary attribute.
+
+		my $csv = Text::CSV->new ( $csv_options_ref )
+			or die("Cannot use CSV: " . Text::CSV->error_diag ());
+
+		if (open (my $io, "<:encoding($encoding)", $file)) {
+
+			@$headers_ref = $csv->header ($io, { detect_bom => 1 });
+
+			while (my $row = $csv->getline ($io)) {
+				push @$rows_ref, $row;
+			}
+		}
+		else {
+			$results_ref->{error} = "Could not open CSV $file: $!";
+		}
+	}
+	else {
+		$log->debug("opening Excel file", { file => $file, extension => $extension }) if $log->is_debug();
+
+		if (open (my $io, "<", $file)) {
+
+		my $csv_options_ref = { binary => 1 , sep_char => "\t" };
+
+			my $csv = Spreadsheet::CSV->new();
+
+			# Assume first line is headers line
+			$headers_ref = $csv->getline ($io);
+
+			if (not defined $headers_ref) {
+				$results_ref->{error} = "Unsupported file format (extension: $extension).";
+			}
+			else {
+				while (my $row = $csv->getline ($io)) {
+					push @$rows_ref, $row;
+				}
+			}
+		}
+		else {
+			$results_ref->{error} = "Could not open Excel $file: $!";
+		}
+	}
+
+	if (not $results_ref->{error}) {
+		$results_ref = { headers=>$headers_ref, rows=>$rows_ref };
+	}
+
+	return $results_ref;
+}
+
+
+# Convert an uploaded file to OFF CSV format
+
+sub convert_file($$$) {
+
+	my $file = shift;	# path and file name
+	my $columns_fields_file = shift;
+	my $converted_file = shift;
+
+	my $load_results_ref = load_csv_or_excel_file($file);
+
+	if ($load_results_ref->{error}) {
+		return($load_results_ref);
+	}
+
+	my $headers_ref = $load_results_ref->{headers};
+	my $rows_ref = $load_results_ref->{rows};
+
+	my $results_ref = { };
+
+	my $columns_fields_ref = retrieve($columns_fields_file);
+
+	my $csv_out = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
+                 or die "Cannot use CSV: ".Text::CSV->error_diag ();
+
+	open (my $out, ">:encoding(UTF-8)", $converted_file) or die("Cannot write $converted_file: $!\n");
+
+	# Output CSV header
+
+	my @headers = ();
+	my %headers_cols = ();
+
+	my $col = 0;
+
+	foreach my $column (@$headers_ref) {
+
+		if ((defined $columns_fields_ref->{$column}) and (defined $columns_fields_ref->{$column}{field})) {
+			my $field = $columns_fields_ref->{$column}{field};
+			if ($field =~ /_value_unit/) {
+				$field = $`;
+				if (defined $columns_fields_ref->{$column}{value_unit}) {
+					$field .= "_" . $columns_fields_ref->{$column}{value_unit};
+				}
+				else {
+					$field = undef;
+				}
+			}
+
+			if (defined $field) {
+				push @headers, $field;
+				$headers_cols{$field} = $col;
+			}
+		}
+
+		$col++;
+	}
+
+	$csv_out->print ($out, \@headers);
+
+	# Output CSV product data
+
+	foreach my $row_ref (@$rows_ref) {
+		my @values = ();
+		foreach my $field (@headers) {
+			my $col = $headers_cols{$field};
+			push @values, $row_ref->[$col];
+		}
+		$csv_out->print ($out, \@values);
+	}
+
+	close($out);
+
+	return $results_ref;
+}
+
+
 
 
 # Analyze the headers column names and rows content to pre-assign fields to columns
@@ -148,6 +308,8 @@ sub init_columns_fields_match($$) {
 		$columns_fields_ref->{$column}{field} = $field;
 		$columns_fields_ref->{$column}{value_unit} = $value_or_unit;
 		$columns_fields_ref->{$column}{tag} = $tag;
+
+		delete $columns_fields_ref->{$column}{existing_examples};
 	}
 
 	return $columns_fields_ref;
@@ -270,12 +432,6 @@ JSON
 					# Column can contain value + unit, value, or unit for a specific field
 					my $field_name = $`;
 					$name = lang($field_name);
-				}
-				elsif ($field =~ /_specific$/) {
-					# Column is for a specific tag with a Yes/No value (e.g. a single column for the "Organic" label)
-					# e.g. labels_specific -> Label (specific)
-					my $tagtype = $`;
-					$name = lang($tagtype . "_s") . " (" . lang("specific") . ")";
 				}
 				elsif (defined $tags_fields{$field}) {
 					my $tagtype = $field;
