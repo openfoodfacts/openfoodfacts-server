@@ -159,7 +159,7 @@ my $expected_product_ref =
     ],
     'ingredients_analysis_tags' => [
       'en:may-contain-palm-oil',
-      'en:maybe-vegan',
+      'en:not-vegan',
       'en:maybe-vegetarian'
     ],
     'ingredients_hierarchy' => [
@@ -1171,7 +1171,7 @@ is_deeply ($product_ref->{ingredients},
 	            'rank' => 6,
 	            'text' => "beurre concentr\x{e9}",
 	            'vegan' => 'no',
-	            'vegetarian' => 'yes'
+	            'vegetarian' => 'yes',
 	            'from_palm_oil' => 'no',
 	          }
 	        ],
@@ -1249,6 +1249,7 @@ is_deeply ($product_ref->{ingredients},
             'vegetarian' => 'en:yes'
           },
           {
+            'from_palm_oil' => 'maybe',
             'id' => 'en:oil',
             'rank' => 2,
             'text' => 'huile',
