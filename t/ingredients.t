@@ -1171,7 +1171,7 @@ is_deeply ($product_ref->{ingredients},
 	            'rank' => 6,
 	            'text' => "beurre concentr\x{e9}",
 	            'vegan' => 'no',
-	            'vegetarian' => 'yes'
+	            'vegetarian' => 'yes',
 	            'from_palm_oil' => 'no',
 	          }
 	        ],
