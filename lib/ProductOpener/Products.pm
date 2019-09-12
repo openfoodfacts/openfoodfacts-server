@@ -561,7 +561,10 @@ sub store_product($$) {
 	my %diffs = %{$diffs};
 	if ((!$diffs) or (!keys %diffs)) {
 		$log->info("changes not stored because of empty diff", { change_ref => $change_ref }) if $log->is_info();
-		return 0;
+		# 2019/09/12 - this was deployed today, but it causes changes not to be saved
+		# compute_product_history_and_completeness() was not written to make sure that it sees all changes
+		# keeping the log and disabling the "return 0" so that all changes are saved
+		#return 0;
 	}
 
 	# 2018-12-26: remove obsolete products from the database
