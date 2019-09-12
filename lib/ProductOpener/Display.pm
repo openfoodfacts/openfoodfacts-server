@@ -4014,6 +4014,13 @@ sub display_pagination($$$$) {
 						}
 
 						$link = $current_link_query . "&page=$i";
+
+						# issue 2010: the limit, aka page_size is not persisted through the navigation links from some workflows,
+						# so it is lost on subsequent pages
+						if ( defined $limit && $link !~ /page_size/ ) {
+							$log->info("Using limit " .$limit) if $log->is_info();
+							$link .= "&page_size=" . $limit;
+						}
 					}
 
 					$html_pages .=  '<li><a href="' . $link . '">' . $i . '</a></li>';
