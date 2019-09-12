@@ -162,7 +162,7 @@ while (my $product_ref = $cursor->next) {
 		elsif ($field =~ /^image_(.*)_full_url$/) {
 			if (defined $product_ref->{"image_$1_url"}) {
 				$value = $product_ref->{"image_$1_url"};
-				$value =~ s/(\d+)\.jpg/.full.jpg/;
+				$value =~ s/\.(\d+)\.jpg/.full.jpg/;
 			}
 		}
 		elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
