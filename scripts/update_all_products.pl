@@ -249,7 +249,7 @@ while (my $product_ref = $cursor->next) {
 				my $last_rev = $change_ref->{rev};
 				my $current_rev = $product_ref->{rev};
 				print STDERR "current_rev: $current_rev - last_rev: $last_rev\n";
-				if ($last_rev != $current_rev) {
+				if ($last_rev < $current_rev) {
 					$fix_rev_not_incremented_fixed++;
 					$product_ref->{rev} = $last_rev;
 				}
