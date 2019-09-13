@@ -498,7 +498,11 @@ sub store_product($$) {
 		# The product was updated after the form was loaded..
 
 		# New product over deleted product?
-		if ($rev == 0) {
+		# can be also bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2321
+		# where 2 changes were recorded in the same rev
+		# to avoid similar bugs, and to have the same number of changes and rev,
+		# assign the number of changes to the rev
+		if ($rev < $current_rev) {
 			$rev = $current_rev;
 		}
 	}
@@ -1084,7 +1088,11 @@ sub compute_product_history_and_completeness($$) {
 				foreach my $current_or_previous_ref (\%current, \%previous) {
 					if (defined $current_or_previous_ref->{languages_codes}) {
 						foreach my $language_code (@{$current_or_previous_ref->{languages_codes}}) {
-							next if $language_code eq $current_or_previous_ref->{lc};
+							# commenting next line so that we see changes for both ingredients_text and ingredients_text_$lc
+							# even if they are the same.
+							# keeping ingredients_text as at the start of the project, we had only ingredients_text and
+							# not language specific versions
+							# next if $language_code eq $current_or_previous_ref->{lc};
 							next if defined $languages_codes{$language_code};
 							push @languages_codes, $language_code;
 							$languages_codes{$language_code} = 1;
