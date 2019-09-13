@@ -257,6 +257,12 @@ while (my $product_ref = $cursor->next) {
 					compute_data_sources($product_ref);
 					store("$data_root/products/$path/changes.sto", $changes_ref);
 				}
+				else {
+					next;
+				}
+			}
+			else {
+				next;
 			}
 		}
 
