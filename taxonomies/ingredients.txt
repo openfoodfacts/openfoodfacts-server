@@ -3191,6 +3191,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
 # comment:en:The generic form (E333) is written in plural to distinguish it from E333iii
 
 en:calcium citrates, E333, E-333, E 333
+de:Calciumcitrate, Calciumcitrat
 es:Citratos de calcio
 fr:Citrates de calcium
 it:citrati di calcio
@@ -3338,7 +3339,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
 en:soya lecithin, soy lecithin, sin 322
 cs:sójový lecitin
 da:sojalecitin
-de:Sojalecithine, Sojalecithin, Soja-Lecithine
+de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
 el:λεκιθίνη σόγιας
 es:lecitina de soja, lecitina de soya
 fi:soijalesitiini
@@ -3370,7 +3371,7 @@ nl:GMO-vrije sojalecithine
 en:sunflower lecithin
 cs:Slunečnicový lecitin
 da:solsikkelecithin
-de:Sonnenblumenlecithine
+de:Sonnenblumenlecithine, Sonnenblumenlecithin
 el:λεκιθίνες ηλιστροπιου
 es:lecitina de girasol
 fi:auringonkukkalesitiini
@@ -7967,7 +7968,7 @@ vegetarian:en:maybe
 <en:microbial culture
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
 da:yoghurtkultur
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, Käsereikulturen, Starterkulturen
 el:γαλακτικά ένζυμα 
 es:fermentos lácticos, cultivos lácticos 
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
@@ -9565,7 +9566,7 @@ fr:lait maigre
 <en:milk
 en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk
 ar:حليب منزوع الدسم
-de:Magermilch
+de:Magermilch, entrahmte Milch
 es:Leche descremada, Leche desnatada, leche sin grasas
 et:Lõss
 fa:شیر خشک بدون چربی
@@ -9593,7 +9594,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Skimmed_milk
 <en:skimmed milk
 <en:pasteurised milk
 en:pasteurized skimmed milk
-de:pasteurisierter Magermilch
+de:pasteurisierte Magermilch
 es:leche desnatada pasteurizada
 fr:lait écrémé pasteurisé
 it:latte magro pastorizzato
@@ -9614,7 +9615,7 @@ fr:lait écrémé stérilisé uht issu de l'agriculture biologique
 
 <en:milk
 en:semi-skimmed milk, reduced-fat milk
-de:teilentrahmte milch
+de:teilentrahmte Milch, fettarme Milch
 es:leche parcialmente desnatada
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
 it:latte parzialmente scremato
@@ -10425,7 +10426,7 @@ nl:biologische yoghurt
 
 <en:yogurt
 fr:yogourt maigre
-de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch
+de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch, Joghurt mild
 it:yogurt magro
 nl:magere yoghurt
 # ingredient/nl:magere-yoghurt has 1 product @2019-05-24
@@ -17039,7 +17040,7 @@ bg:Кокосово масло
 bn:নারিকেল তেল
 cs:Kokosový olej
 da:kokosolie
-de:Kokosnussöl
+de:Kokosnussöl, Kokosöl
 es:aceite de coco
 et:Kookosõli
 eu:Koko olio
@@ -17651,7 +17652,7 @@ en:shea butter
 ak:Nkuto
 ar:زبدة الشيا
 bg:Масло от ший
-de:Shea Butter, Sheabutter
+de:Shea Butter, Sheabutter, Shea
 el:λίπος shea
 eo:karitea butero
 es:manteca de karité
@@ -18270,7 +18271,7 @@ carbon_footprint_fr_foodges_value:fr:4.2
 
 <en:wine vinegar
 en:white wine vinegar
-de:Weissweinessig
+de:Weissweinessig, Weißweinessig
 es:Vinagre de vino blanco
 fr:vinaigre de vin blanc
 it:aceto di vino bianco
@@ -25578,7 +25579,7 @@ bs:Fruktoza
 ca:Fructosa
 cs:Fruktóza
 da:Fruktose
-de:Fructose
+de:Fructose, Fruktose
 el:Φρουκτόζη
 eo:Fruktozo
 es:fructosa
@@ -26219,7 +26220,7 @@ vegetarian:en:maybe
 # nova:en:hydrolysed-proteins
 <en:protein
 en:hydrolysed proteins, hydrolysed protein
-de:Proteinhydrolysat
+de:Proteinhydrolysat, Würze
 es:proteína hidrolizada
 fr:protéine hydrolysée
 nl:gehydroliseerd eiwit
@@ -34867,7 +34868,7 @@ bs:Grožđica
 ca:pansa
 cs:rozinka
 da:Rosin
-de:Rosine
+de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
 es:pasas
@@ -36235,7 +36236,7 @@ ar:نارجيل
 bg:Кокосов орех
 ca:coco
 cs:kokosový ořech
-de:Kokos
+de:Kokos, Kokosnuss
 ee:Eneh
 el:καρύδα
 eo:kokosnukso
@@ -38429,7 +38430,7 @@ co:rundonu
 cs:mrkev
 cy:moronen
 da:gulerødder, Have-Gulerod
-de:Karotten, Karotte
+de:Karotten, Karotte, Möhre, Möhren
 dv:ކެރެޓް
 el:καρότο
 eo:karoto
@@ -42953,7 +42954,7 @@ ca:cigró
 cs:cizrna beraní
 cy:Gwygbysen gwygbys
 da:kikærter
-de:Kichererbse
+de:Kichererbse, Kichererbsen
 dv:ސަނާ މުގު
 el:ρεβίθι, Ρεβιθιά
 es:garbanzo, garbanzos
@@ -49730,7 +49731,7 @@ az:Məkkə çayı
 bg:চুকাই
 ca:rosa de Jamaica
 cs:ibišek súdánský
-de:Karkadeblüten, Roselle
+de:Karkadeblüten, Roselle, Hibiskus
 eo:Sabdarifo
 es:Flor Roselle
 fa:روزل
@@ -49783,7 +49784,7 @@ bo:གུར་ཀུམ།
 ca:càrtam
 cs:Saflor, světlice barvířská
 cy:Safflwr
-de:Safflor, Färberdistel
+de:Safflor, Färberdistel, Saflor
 es:Cártamo
 et:Värvisafloor
 eu:Kartamo
@@ -59000,7 +59001,7 @@ ca:cafeïna
 cs:kofein
 cy:Caffein
 da:Koffein
-de:Coffein
+de:Coffein, Koffein
 el:Καφεΐνη
 eo:kafeino
 es:cafeina
@@ -62036,7 +62037,7 @@ br:Fars
 ca:farciment
 cs:Nadívání
 cv:Фарш
-de:Belag, Farce
+de:Belag, Farce, Füllung
 el:Γέμιση
 eo:farĉo
 es:relleno
