@@ -690,6 +690,10 @@ sub compute_completeness_and_missing_tags($$$) {
 	my $previous_ref = shift;
 
 	my $lc = $product_ref->{lc};
+	if (not defined $lc) {
+		# Try lang field
+		$lc = $product_ref->{lang};
+	}
 
 	# Compute completeness and missing tags
 
