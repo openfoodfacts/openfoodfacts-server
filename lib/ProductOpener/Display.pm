@@ -6587,7 +6587,7 @@ sub display_field($$) {
 	elsif (defined $hierarchy_fields{$field}) {
 		$value = display_tags_hierarchy($field, $product_ref->{$field . "_hierarchy"});
 	}
-	elsif (defined $tags_fields{$field}) {
+	elsif ((defined $tags_fields{$field}) and (defined $value)) {
 		$value = display_tags_list($field, $value);
 	}
 
@@ -7044,6 +7044,10 @@ HTML
 	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
 		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
 		$ingredients_text_lang = $lc;
+	}
+
+	if (not defined $ingredients_text) {
+		$ingredients_text = "";
 	}
 
 
@@ -7557,8 +7561,8 @@ HTML
 	my @other_editors = ();
 
 	foreach my $editor (@{$product_ref->{editors_tags}}) {
-		next if $editor eq $product_ref->{creator};
-		next if $editor eq $product_ref->{last_editor};
+		next if ((defined $product_ref->{creator}) and ($editor eq $product_ref->{creator}));
+		next if ((defined $product_ref->{last_editor}) and ($editor eq $product_ref->{last_editor}));
 		push @other_editors, $editor;
 	}
 
@@ -7629,6 +7633,14 @@ HTML
 #<meta name="twitter:label2" content="Location">
 #<meta name="twitter:data2" content="National">
 
+	my $meta_product_image_url = "";
+	if (defined $product_image_url) {
+		$meta_product_image_url = <<HTML
+<meta name="twitter:image" content="$product_image_url">
+<meta property="og:image" content="$product_image_url">
+HTML
+;
+	}
 
 	$header .= <<HTML
 <meta name="twitter:card" content="product">
@@ -7636,13 +7648,12 @@ HTML
 <meta name="twitter:creator" content="@<twitter_account>">
 <meta name="twitter:title" content="$title">
 <meta name="twitter:description" content="$description">
-<meta name="twitter:image" content="$product_image_url">
 <meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
 <meta name="twitter:data1" content="$product_ref->{brand}">
 <meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
 <meta name="twitter:data2" content="$product_ref->{category}">
+$meta_product_image_url
 
-<meta property="og:image" content="$product_image_url">
 HTML
 ;
 
@@ -8411,7 +8422,6 @@ sub display_nutrition_table($$) {
 
 			push @cols, $colid;
 			$col_class{$colid} = $colid;
-			$col_name{$colid} =  sprintf(lang("nutrition_data_compare_with_category"), $comparison_ref->{name});
 			$col_name{$colid} =  $comparison_ref->{name};
 
 			$log->debug("displaying nutrition table comparison column", { colid => $colid, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
@@ -8722,6 +8732,9 @@ HTML
 					}
 					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
 				}
+				else {
+					$percent = "";
+				}
 
 				$values .= "<td class=\"nutriment_value${col_class}\">$value_unit</td>";
 
@@ -8817,7 +8830,10 @@ HTML
 					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
 				}
 				elsif ($nid eq 'salt') {
-					my $sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
+					my $sodium = "";
+					if (defined $product_ref->{nutriments}{$nid . "_$col"}) {
+						$sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
+					}
 					if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
 						$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
 					}
@@ -9356,8 +9372,10 @@ sub display_structured_response($)
 		elsif (defined param('callback')) {
 			$jsonp = param('callback');
 		}
-
-		$jsonp =~ s/[^a-zA-Z0-9_]//g;
+	
+		if (defined $jsonp) {
+			$jsonp =~ s/[^a-zA-Z0-9_]//g;
+		}
 
 		my $status = $request_ref->{status};
 		if (defined $status) {

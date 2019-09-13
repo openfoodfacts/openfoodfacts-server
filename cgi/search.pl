@@ -129,8 +129,8 @@ if ((not defined param('json')) and (not defined param('jsonp')) and
 
 my @search_tags = ();
 my @search_nutriments = ();
-my %search_ingredient_classes = {};
-my %search_ingredient_classes_checked = {};
+my %search_ingredient_classes = ();
+my %search_ingredient_classes_checked = ();
 
 for (my $i = 0; defined param("tagtype_$i") ; $i++) {
 
@@ -719,16 +719,16 @@ elsif ($action eq 'process') {
 	# Graphs
 
 	foreach my $axis ('x','y') {
-		if (param("axis_$axis") ne '') {
+		if ((defined param("axis_$axis")) and (param("axis_$axis") ne '')) {
 			$current_link .= "\&axis_$axis=" .  URI::Escape::XS::encodeURIComponent(decode utf8=>param("axis_$axis"));
 		}
 	}
 
-	if (param('graph_title') ne '') {
+	if ((defined param('graph_title')) and (param('graph_title') ne '')) {
 		$current_link .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("graph_title"));
 	}
 
-	if (param('map_title') ne '') {
+	if ((defined param('map_title')) and (param('map_title') ne '')) {
 		$current_link .= "\&map_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("map_title"));
 	}
 
