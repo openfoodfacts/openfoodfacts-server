@@ -249,9 +249,13 @@ while (my $product_ref = $cursor->next) {
 				my $last_rev = $change_ref->{rev};
 				my $current_rev = $product_ref->{rev};
 				print STDERR "current_rev: $current_rev - last_rev: $last_rev\n";
-				if ($last_rev != $current_rev) {
+				if ($last_rev > $current_rev) {
+					print STDERR "-> setting rev to $last_rev\n";
 					$fix_rev_not_incremented_fixed++;
 					$product_ref->{rev} = $last_rev;
+					compute_product_history_and_completeness($product_ref, $changes_ref);
+					compute_data_sources($product_ref);
+					store("$data_root/products/$path/changes.sto", $changes_ref);
 				}
 			}
 		}
@@ -580,6 +584,7 @@ while (my $product_ref = $cursor->next) {
 
 			compute_product_history_and_completeness($product_ref, $changes_ref);
 			compute_data_sources($product_ref);
+			store("$data_root/products/$path/changes.sto", $changes_ref);
 		}
 
 		if (not $pretend) {
