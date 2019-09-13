@@ -159,7 +159,7 @@ my $expected_product_ref =
     ],
     'ingredients_analysis_tags' => [
       'en:may-contain-palm-oil',
-      'en:not-vegan',
+      'en:non-vegan',
       'en:maybe-vegetarian'
     ],
     'ingredients_hierarchy' => [
@@ -623,7 +623,7 @@ $expected_product_ref =
     ],
     'ingredients_analysis_tags' => [
       'en:palm-oil',
-      'en:not-vegan',
+      'en:non-vegan',
       'en:vegetarian-status-unknown'
     ],
     'ingredients_hierarchy' => [
