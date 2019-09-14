@@ -368,7 +368,7 @@ $expected_product_ref =
         'text' => 'Marmelade d\'oranges'
       },
       {
-        'id' => "fr:pulpe d'orange concentr\x{e9}e",
+        'id' => "en:orange-pulp",
         'percent' => '0.6',
         'rank' => 2,
         'text' => "pulpe d'orange concentr\x{e9}e"
@@ -629,7 +629,7 @@ $expected_product_ref =
     ],
     'ingredients_hierarchy' => [
       'fr:Marmelade d\'oranges',
-      "fr:pulpe d'orange concentr\x{e9}e",
+      "en:orange-pulp",
       "fr:\x{e9}quivalent pulpe d'orange",
       'en:gelling-agent',
       'en:e440a',
@@ -700,7 +700,7 @@ $expected_product_ref =
     ],
     'ingredients_original_tags' => [
       'fr:Marmelade d\'oranges',
-      "fr:pulpe d'orange concentr\x{e9}e",
+      "en:orange-pulp",
       "fr:\x{e9}quivalent pulpe d'orange",
       'en:gelling-agent',
       'en:e440a',
@@ -745,7 +745,7 @@ $expected_product_ref =
     ],
     'ingredients_tags' => [
       'fr:marmelade-d-oranges',
-      'fr:pulpe-d-orange-concentree',
+      'en:orange-pulp',
       'fr:equivalent-pulpe-d-orange',
       'en:gelling-agent',
       'en:e440a',
