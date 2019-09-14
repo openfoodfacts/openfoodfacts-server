@@ -1,4 +1,4 @@
-# This file is part of Product Opener.
+﻿# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -3407,7 +3407,10 @@ HTML
 
 
 	if (defined $tagid2) {
-		$products_title .= lang("title_separator") . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
+		$products_title .= lang("title_separator") .
+		# issue 2285: make sure the product title reflects the 'not' condition for tag2 if present
+		(defined $request_ref->{tag2_prefix} and $request_ref->{tag2_prefix} eq '-' ? lang("not_tag2_prefix") . " ": "")  .
+		lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
 	}
 
 	if (not defined $request_ref->{groupby_tagtype}) {
@@ -3521,7 +3524,12 @@ HTML
 			$query_ref->{"\$or"} = [ { ($tagtype2 ) => undef}, { $tagtype2 => ""} ] ;
 		}
 		else {
-			$query_ref->{$field} = $value;
+			# issue 2285: second tag was not supporting the 'minus' query
+			if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} eq '-')) {
+				$query_ref->{$field} = { "\$ne" => $value};
+			} else {
+				$query_ref->{$field} = $value;
+			}
 		}
 
 	}

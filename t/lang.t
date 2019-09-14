@@ -75,4 +75,9 @@ sub test_logo_exists {
 test_logo_exists('logo');
 test_logo_exists('logo2x');
 
+$lang = "en";
+# issue 2285: test for product title
+is( lang("not_tag2_prefix"), "not" );
+is( lang("rev_latest"), "Latest version" );
+
 done_testing();
