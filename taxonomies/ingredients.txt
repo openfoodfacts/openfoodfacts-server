@@ -457,7 +457,7 @@ pt:Corante
 ro:Colorant
 sk:Farbivo
 sl:Barvilo
-sv:Färgämne
+sv:färgämne, färgämnen
 wikidata:en:Q753009
 # ingredient/fr:colorant-alimentaire has 67 products in 5 languages @2019-03-27
 
@@ -8746,7 +8746,7 @@ sh:laktaza
 sk:laktáza
 sl:laktaza
 sr:laktaza
-sv:laktas
+sv:laktas, laktasenzym
 tl:lactase
 uk:Лактаза
 uz:laktaza
@@ -9145,7 +9145,8 @@ pl:tłuszcz mlecny
 pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
 ru:Молочный жир
 sl:mlečna maščoba
-sv:mølkfett
+sv:mjölkfett, smörfett
+#?:mølkfett
 th:ไขมันเนย
 tl:taba ng gatas
 uk:Молочний жир
@@ -9278,7 +9279,7 @@ pl:tłuszcz mlecny
 pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
 ru:Молочный жир
 sl:mlečna maščoba
-sv:mølkfett
+sv:mjölkfett, smörfett
 th:ไขมันเนย
 tl:taba ng gatas
 uk:Молочний жир
@@ -9495,11 +9496,23 @@ de:Pasteurisierte Milch
 es:leche pasteurizada
 fr:lait pasteurisé
 nl:gepasteuriseerde melk
+sv:pastöriserad mjölk
 
 <en:pasteurised milk
 en:UHT pasteurised milk
 de:UHT Milch
 fr:lait stérilisé U.H.T
+
+#pasteurisation of 15s under 72–74 °C
+<en:pasteurised milk
+sv:lågpastöriserad mjölk
+
+#pasteurisation of 5s under 80 °C
+<en:pasteurised milk
+sv:högpastöriserad mjölk
+
+<en:pasteurised milk
+sv:opastöriserad mjölk
 
 <en:sterilised milk
 fr:lait thermisé
@@ -9583,7 +9596,7 @@ nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
 pa:ਸਪਰੇਟਾ
 pt:Leite desnatado
 ru:Обезжиренное молоко
-sv:Skummjölk
+sv:Skummjölk, lättmjölk
 uk:Знежирене молоко
 vi:Sữa gầy
 # yue:脫脂奶
@@ -9620,7 +9633,7 @@ fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matiè
 it:latte parzialmente scremato
 nb:Ekstra lett melk
 nl:halfvolle melk, gedeeltelijk afgeroomde melk
-sv:Lättmjölk
+sv:mellanmjölk
 wikidata:en:Q10572454
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
@@ -9836,7 +9849,7 @@ es:Leche de vaca pasteurizada
 fr:lait de vache pasteurisé, lait pasteurisé de vache
 it:latte di mucca pastorizzato
 nl:gepasteuriseerde koemelk
-
+sv:pastöriserad komjölk
 
 <en:whole cow's milk
 fr:lait entier pasteurisé de vache
@@ -10137,6 +10150,7 @@ hu:tejpor
 it:latte in polvere
 nl:melkpoeder
 ru:сухое молоко
+sv:mjölkpulver
 vegan:en:no
 vegetarian:en:yes
 nova:en:3
@@ -10144,6 +10158,7 @@ nova:en:3
 <en:milk powder
 en:whole milk powder
 fr:poudre de lait écrémé
+sv:skummjölkspulver
 
 <en:whole milk powder
 <en:milk from France
@@ -10415,6 +10430,7 @@ ja:ヨーグルト
 nl:Joghurt, yoghurt, jogurt
 ru:йогурт
 th:นมเปรี้ยว
+sv:yoghurt
 carbon_footprint_fr_foodges_ingredient:fr:Yaourt
 carbon_footprint_fr_foodges_value:fr:2.9
 vegetarian:en:yes
@@ -10573,6 +10589,7 @@ fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre
 hu:Tejsavópor
 it:siero di latte in polvere
 nl:weipoeder
+sv:vasslepulver
 
 <en:whey powder
 en:partially demineralized powdered whey
@@ -10628,6 +10645,7 @@ de:Molkenerzeugnis, formel auf molkebasis
 es:Producto de suero
 fr:produit de lactosérum, produit de petit-lait, produit à base de lactosérum, préparation à base de lactosérum, dérivé de lactosérum
 it:derivati del siero di latte, la preparazione del siero di latte
+sv:vassleprodukt
 # ingredient/fr:produit-de-lactosérum has 22 products in 4 languages @2019-02-07
 # ingredient/fr:préparation-à-base-de-lactosérum has 34 products @2019-03-18
 
@@ -10744,6 +10762,7 @@ fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé,
 it:crema pastorizzata
 nl:gepasteuriseerde room
 pt:nata pasteurizada
+sv:pastöriserad grädde
 # ingredient/pasteurized-cream has 1877 products in 9 languages @2019-07-12
 
 <en:cream
@@ -14904,6 +14923,7 @@ es:carne de vaca
 fr:bœuf, boeuf, Boeufs
 it:manzo
 nl:rund
+sv:nötkött
 vegan:en:no
 vegetarian:en:no
 # ingredient/fr:bœuf has 257 products in 7 languages @2019-04-19
@@ -15533,6 +15553,7 @@ es:cerdo
 fr:porc
 it:suino
 nl:varken
+sv:gris
 vegan:en:no
 vegetarian:en:no
 
@@ -15545,6 +15566,7 @@ es:carne de cerdo
 fr:viande de porc
 it:carne di suino
 nl:Varkensvlees
+sv:griskött
 carbon_footprint_fr_foodges_ingredient:fr:Viande de porc
 carbon_footprint_fr_foodges_value:fr:7.4
 # Facteur GES kg CO2 eq / kg d'ingrédient en sortie de magasin (poids net)
@@ -15847,6 +15869,7 @@ de:Schinken
 es:Jamón
 fr:jambon de porc, jambon
 it:prosciutto
+sv:skinka
 
 <en:ham
 fr:jambon de porc issu d'animaux nourris sans ogm
@@ -16073,6 +16096,7 @@ fr:boyau naturel de porc
 
 # <en:broth
 fr:bouillon de boeuf
+sv:nötköttsbuljong
 
 fr:extrait de boeuf
 
@@ -16307,6 +16331,7 @@ es:Almidón modificado de maiz
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidon de maïs modifié, amidons modifiés de maïs
 it:amido modificato di mais
 nl:Gemodificeerd maïszetmeel
+sv:modifierad majsstärkelse
 
 <en:modified starch
 <fr:amidon de maïs cireux
@@ -16338,7 +16363,7 @@ nn:Potetmjøl
 pl:Mąka ziemniaczana
 pt:fecula de batata
 ru:Картофельный крахмал
-sv:potatismjöl
+sv:potatismjöl, potatisstärkelse
 uk:Картопляний крохмаль
 zh:太白粉
 wikipedia:en:https://en.wikipedia.org/wiki/Potato_starch
@@ -18224,7 +18249,7 @@ sk:Ocot
 sl:Kis
 so:Khal
 sr:sirće, Сирће
-sv:Vinäger
+sv:ättika, vinäger
 ta:புளிங்காடி
 tg:Suka
 th:น้ำส้มสายชู
@@ -18265,6 +18290,7 @@ es:vinagre de vino
 fr:vinaigre de vin
 it:aceto di vino
 nl:wijnazijn
+sv:vinsvinäger
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
 carbon_footprint_fr_foodges_value:fr:4.2
 
@@ -18275,6 +18301,7 @@ es:Vinagre de vino blanco
 fr:vinaigre de vin blanc
 it:aceto di vino bianco
 nl:witte wijnazijn
+sv:vitvinsvinäger
 
 <en:vinegar
 en:alcohol vinegar
@@ -19950,6 +19977,7 @@ es:aroma, aromas
 fr:arôme, arômes
 it:aroma, aromi
 nl:aroma, aroma's
+sv:arom, aromer
 vegan:en:maybe
 vegetarian:en:maybe
 
@@ -19973,6 +20001,7 @@ es:aroma natural, aromas naturales
 fr:arôme naturel, arômes naturels
 it:aroma naturale, aromi naturali
 nl:Natuurlijke smaakstoffen, natuurlijk aroma, natuurlijke aroma's
+sv:naturlig arom, naturliga aromer
 vegan:en:maybe
 vegetarian:en:maybe
 
@@ -22980,6 +23009,7 @@ es:harina de trigo duro
 fr:farine de blé dur
 it:farina di grano duro
 nl:durum tarwemeel
+sv:durumvetemjöl
 
 # Question
 
@@ -24769,6 +24799,7 @@ es:azúcar caramelizado
 fr:sucre brun, sucre caramel, sucre caramélisé
 it:zucchero caramellato
 nl:gekarameliseerde suiker
+sv:karamelliserat socker
 
 <en:sugar
 en:white sugar
@@ -25931,6 +25962,7 @@ pl:dekstroza
 ro:dextroza
 sk:dextróza
 sl:dekstroza
+sv:druvsocker, dextros
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrose
 # 29818 products in 30 languages @2018-09-24
 
@@ -26375,6 +26407,7 @@ hu:tejfehérje
 it:proteine del latte
 nl:melkeiwit, melkeiwitten
 ru:молочный белок, молочные белки
+sv:mjölkprotein
 nova:en:4
 vegetarian:en:yes
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
@@ -28131,6 +28164,7 @@ et:nisugluteen
 fr:gluten de blé, gluten de froment
 nl:tarwegluten
 pl:gluten pszenny
+sv:vetegluten
 
 <en:wheat gluten
 fr:gluten vital de blé
@@ -32116,6 +32150,7 @@ es:limón
 fr:citron, citrons
 it:limone
 nl:citroen
+sv:citron
 wikidata:en:Q1093742
 
 <en:lemon
@@ -32202,7 +32237,7 @@ it:succo di limone
 nl:citroensap
 nn:sitronsaft
 pt:sumo de limão
-sv:citronjuice
+sv:citronsaft, citronjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon-juice
 # 9259 products in 16 languages @2018-10-01
 
@@ -33020,7 +33055,7 @@ ru:клубника
 sa:तृणबदरफलम्
 sd:اسٽرا بيري
 sq:luleshtrydhe
-sv:Jordgubbe
+sv:Jordgubbe, jordgubbar
 sw:Mstroberi
 ta:செம்புற்று
 tg:Қулфинай
@@ -36420,6 +36455,7 @@ es:verduras
 fr:légume
 it:vegetale
 nl:Groente, groenten
+sv:grönsak, grönsaker
 vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
@@ -38499,7 +38535,7 @@ so:kaaroot
 sq:karrotë
 sr:шаргарепа
 su:wortel
-sv:morot
+sv:morot, morötter
 sw:karoti
 ta:மஞ்சள் முள்ளங்கி
 te:కారెట్
@@ -40898,6 +40934,7 @@ de:Kartoffelfasern, Kartoffelballaststoffe
 es:fibra de patata
 fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
 nl:aardappelvezel, aardappelvezels
+sv:potatisfiber
 # en:potato-fibre has 110 products in 4 languages @2018-10-15
 
 # fr:pommes de terre préfrites is a compound ingredient:Pomme de terre préfrite [pomme de terre, huile de tournesol, dextrose de blé]
@@ -41500,7 +41537,7 @@ sk:paradajky
 sn:Madomasi
 so:Yaanyo
 sr:paradajz
-sv:tomater
+sv:tomat, tomater
 th:มะเขือเทศ
 ug:پەمىدۇر
 za:makyungz
@@ -41705,6 +41742,7 @@ es:concentrado de tomate
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 it:passata di pomodoro, concentrato di pomodoro
 nl:tomatenpurée, tomatenconcentraat
+sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
 # ingredient/fr:purée-de-tomate has 2637 products @2018-12-26
@@ -42883,7 +42921,7 @@ sl:Grah
 sq:Bizelja
 sr:грашак
 su:Kacang polong
-sv:ärt
+sv:ärt, ärter
 sw:Njegere
 ta:பட்டாணி
 te:బఠానీ
@@ -44526,6 +44564,7 @@ es:comino
 fr:graines de cumin, cumin
 it:grani di cumino
 nl:komijnzaad, komijnzaden, komijn
+sv:spiskummin
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-cumin
 # 87 products in 4 languages @2018-10-07
 
@@ -44788,6 +44827,7 @@ es:Pimienta blanca
 fr:poivre blanc
 it:pepe bianco
 nl:witte peper
+sv:vitpeppar
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc
 # 1596 products in 6 languages @2018-10-08
 
@@ -45194,6 +45234,7 @@ es:hierbas
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, plantes aromatiques, herbes aromatiques
 it:erba
 nl:Kruiden
+sv:örter
 vegan:en:yes
 vegetarian:en:yes
 
@@ -45216,6 +45257,7 @@ en:spice extract, spices extract
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte, Gewürzextrakt
 es:Extracto de especias
 fr:extrait d'épice, extraits d'épices
+sv:kryddextrakt
 vegan:en:yes
 vegetarian:en:yes
 
@@ -45231,6 +45273,7 @@ en:mixed spices
 de:gemischte Gewürze
 fr:mélange d'épices
 nl:gemengde specerijen
+sv:kryddblandning
 # ingredient/nl:gemengde-specerijen has 2 products @2019-05-24
 
 <en:spice
@@ -45732,7 +45775,7 @@ sh:Muškatov oraščić
 si:සාදික්කා
 sl:Muškatovec
 su:Pala
-sv:Muskotsläktet
+sv:Muskotsläktet, muskot
 sw:Kungumanga
 ta:ஜாதிக்காய்
 te:జాజికాయ
@@ -46425,6 +46468,7 @@ hu:káposztafélék, Mustármag
 ja:カラシナ,シロガラシ
 nl:mosterdzaad, mosterdzaden
 sl:gorčično seme
+sv:senapsfrö
 
 <en:mustard seed
 en:yellow mustard seed
@@ -47441,7 +47485,7 @@ sk:Petržlen
 sl:peteršilj
 sq:Majdanozi
 sr:першун
-sw:Persilja
+sv:persilja
 ta:வோக்கோசு
 tl:kinchay
 tr:Maydanoz
@@ -48062,6 +48106,7 @@ nl:laurier, laurierblad
 or:ତେଜପତ୍ର
 pl:liść laurowy
 ru:Лавровый лист
+sv:lagerblad
 te:మాసాల ఆకు
 tg:Барги ғор
 th:ใบกระวาน
@@ -60134,7 +60179,7 @@ so:Dooro
 sq:Pula
 sr:кокошка
 su:Hayam
-sv:Tamhöna
+sv:kyckling, tamhöna
 sw:Kuku
 ta:கோழி
 te:కోడి
