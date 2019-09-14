@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -74,8 +74,8 @@ foreach my $file (@files) {
 
 		my @csv_fields_mapping = (
 
-["[Produit] EAN", "code"],
-["[Produit] Nomenclature", "nomenclature_fr"],
+["[produit] ean", "code"],
+["[produit] nomenclature", "nomenclature_fr"],
 
 );
 

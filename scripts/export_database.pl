@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -31,7 +31,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -131,12 +131,9 @@ foreach my $l ("en", "fr") {
 
 
 	my $cursor = get_products_collection()->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
-	my $count = $cursor->count();
 
-	$langs{$l} = $count;
-	$total += $count;
+	$langs{$l} = 0;
 
-	print STDERR "lc: $lc - $count products\n";
 	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.csv\n";
 	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.rdf\n";
 
@@ -463,6 +460,9 @@ XML
 		print $RDF $rdf;
 
 	}
+
+	$langs{$l} = $ct;
+	$total += $ct;
 
 	close $OUT;
 	close $BAD;

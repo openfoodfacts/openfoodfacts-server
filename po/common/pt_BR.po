@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 17:43\n"
+"PO-Revision-Date: 2019-09-07 08:30\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -144,13 +144,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Disponível na Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/pt_get.svg\" alt=\"Disponível no Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=pt-br"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -863,6 +863,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Você deve digitar os caracteres do código de barras ou enviar uma imagem do produto quando o código de barras estiver visível."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "Tamanho total"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "Este ficheiro foi enviado para o produto %s e está licenciado sob a licença %s."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr "Atribuição: Foto por %s por %s"
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "Atribuição: Foto por %s com modificações adicionais por %s por %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Imagem Original)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "Detalhes da foto e informações de atribuição"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Produtos que você adicionou que precisam ser completados"
@@ -882,10 +906,6 @@ msgstr "Ingredientes"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Ingredientes"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Análise de ingredientes"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -956,12 +976,12 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Produtos que não contêm o ingrediente %s"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Disponível na loja de aplicativos\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_PT_BR.svg\" alt=\"Disponível na App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr "https://apps.apple.com/pt/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2313,7 +2333,7 @@ msgstr "Tamanho da porção"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Tamanho da porção preparada"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2566,8 +2586,8 @@ msgid "Site or blog address"
 msgstr "Endereço de site ou blog"
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Loja do Windows Phone\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/Portuguese-Brazilian.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -3086,50 +3106,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "Página de %s"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Produtos verificados por %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Produtos não verificados por %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Produtos corrigidos por %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Produtos não corrigidos por %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Produtos editados por %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Produtos não editados por %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "Produtos completados por %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "Produtos não completados por %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "Produtos fotografados por %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "Produtos não fotografados por %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "Página de %s"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "O produto não é mais vendido."
@@ -3165,34 +3141,6 @@ msgstr "Obtenha o aplicativo para iPad"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Código de barras ambíguo</em>: Este produto tem um código de barras de Número de Circulação Restrito para produtos dentro de uma empresa. Isso significa que diferentes produtores e lojas podem usar o mesmo código de barras para diferentes produtos."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Identificador do produto do produtor"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Aviso"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Preparação"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Ideia de receita"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Origem"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Serviço ao cliente"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Produtor"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3310,31 +3258,31 @@ msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Análise de ingredientes"
 
-msgctxt "rev_warning"
-msgid "You are viewing an old version of this product page!"
-msgstr ""
-
-msgctxt "rev_number"
-msgid "Revision number: "
-msgstr ""
-
-msgctxt "rev_contributor"
-msgid "Edited by: "
-msgstr ""
-
-msgctxt "rev_previous"
-msgid "Previous version"
-msgstr ""
-
-msgctxt "rev_next"
-msgid "Next version"
-msgstr ""
-
-msgctxt "rev_latest"
-msgid "Latest version"
-msgstr ""
-
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
 msgstr "A análise basea somente nos ingredientes listados e não leva métodos de processamento em conta."
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "Você está vendo uma versão antiga desta página do produto!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Número de revisão: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Editado por: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Versão anterior"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Próxima versão"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Versão mais recente"
 

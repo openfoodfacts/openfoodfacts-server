@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -568,15 +568,15 @@ elsif ($action eq 'process') {
 		if (($search_terms !~/,/) and
 			(($search_terms =~ /^(\w\w)(\s|-|\.)?(\d(\s|-|\.)?){5}(\s|-|\.|\d)*C(\s|-|\.)?E/i)
 			or ($search_terms =~ /^(emb|e)(\s|-|\.)?(\d(\s|-|\.)?){5}/i))) {
-				$query_ref->{"emb_codes_tags"} = get_fileid(normalize_packager_codes($search_terms));
+				$query_ref->{"emb_codes_tags"} = get_string_id_for_lang("no_language", normalize_packager_codes($search_terms));
 		}
 		else {
 
 			my %terms = ();
 
 			foreach my $term (split(/,|'|\s/, $search_terms)) {
-				if (length(get_fileid($term)) >= 2) {
-					$terms{normalize_search_terms(get_fileid($term))} = 1;
+				if (length(get_string_id_for_lang($lc, $term)) >= 2) {
+					$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 				}
 			}
 			if (scalar keys %terms > 0) {
@@ -598,11 +598,11 @@ elsif ($action eq 'process') {
 
 			my $tagid;
 			if (defined $taxonomy_fields{$tagtype}) {
-				$tagid = get_taxonomyid(canonicalize_taxonomy_tag($lc,$tagtype, $tag));
+				$tagid = get_taxonomyid($lc, canonicalize_taxonomy_tag($lc,$tagtype, $tag));
 				$log->debug("taxonomy", { tag => $tag, tagid => $tagid }) if $log->is_debug();
 			}
 			else {
-				$tagid = get_fileid(canonicalize_tag2($tagtype, $tag));
+				$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
 			}
 
 			if ($tagtype eq 'additives') {

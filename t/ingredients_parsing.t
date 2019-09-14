@@ -23,6 +23,14 @@ is (normalize_enumeration("en", "phosphates", "calcium and sodium"), "calcium ph
 is (normalize_enumeration("en", "vegetal oil", "sunflower, palm"), "sunflower vegetal oil, palm vegetal oil");
 is (normalize_enumeration("fr", "huile", "colza, tournesol et olive"), "huile de colza, huile de tournesol, huile d'olive");
 
+is (separate_additive_class("fr", "colorant", " ", "", "naturel"), "colorant ");
+is (separate_additive_class("fr", "colorant", " ", "", "carmins"), "colorant : ");
+is (separate_additive_class("fr", "colorant", " ", "", "E120, sel"), "colorant : ");
+is (separate_additive_class("fr", "colorant", " ", "", "E120 et E150b"), "colorant : ");
+is (separate_additive_class("fr", "colorant", " ", "", "caramel au sulfite d'ammonium"), "colorant : ");
+is (separate_additive_class("fr", "colorant", " ", "", "caramel au sulfite d'ammonium et rocou"), "colorant : ");
+
+
 my @lists =(
 
 	["fr","Sel marin, blé, lécithine de soja", "Sel marin, blé, lécithine de soja"],
@@ -111,6 +119,11 @@ my @lists =(
 	["fr","matière grasse végétale (palme) raffinée","matière grasse végétale de palme raffinée"],
 	["fr","huile d'olive vierge, origan", "huile d'olive vierge, origan"],
 	["fr","huile de tournesol, cacao maigre en poudre 5.2%", "huile de tournesol, cacao maigre en poudre 5.2%"],
+
+	["pl","regulatory kwasowości: kwas cytrynowy i cytryniany sodu.","regulatory kwasowości: kwas cytrynowy i cytryniany sodu."],
+
+	["de","Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle", "Wasser, Kohlensäure, Farbstoff : Zuckerkulör e150d, Süßungsmittel : Aspartam* und Acesulfam-K, Säuerungsmittel : Phosphorsäure und Citronensäure, Säureregulator : Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"],
+	["de","Farbstoffe Betenrot, Paprikaextrakt, Kurkumin","farbstoffe : betenrot, paprikaextrakt, kurkumin"],
 
 );
 

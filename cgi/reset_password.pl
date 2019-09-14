@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -76,7 +76,7 @@ if ($action eq 'process') {
 			}
 		}
 		else {
-			$id = get_fileid($id);
+			$id = get_string_id_for_lang("no_language", $id);
 			if (! -e "$data_root/users/$id.sto") {
 				push @errors, $Lang{error_reset_unknown_id}{$lang};
 			}
@@ -191,7 +191,7 @@ if ($type eq 'send_email') {
 
 }
 elsif ($type eq 'reset') {
-	my $userid = get_fileid(param('resetid'));
+	my $userid = get_string_id_for_lang("no_language", param('resetid'));
 	my $user_ref = retrieve("$data_root/users/$userid.sto");
 	if (defined $user_ref) {
 

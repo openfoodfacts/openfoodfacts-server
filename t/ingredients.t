@@ -61,6 +61,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:egg',
+	'percent' => 1,
         'rank' => 5,
         'text' => 'oeuf',
         'vegan' => 'no',
@@ -263,7 +264,7 @@ extract_ingredients_classes_from_text($product_ref);
 #diag explain $product_ref;
 
 
-my $expected_product_ref =
+$expected_product_ref =
  {
     'additives_n' => 0,
     'additives_old_n' => 0,
@@ -339,7 +340,7 @@ is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 
 
-my $product_ref = {
+$product_ref = {
         lc => "fr",
         ingredients_text => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentré 1.4% (équivalent jus d'orange 7.8%), pulpe d'orange concentrée 0.6% (équivalent pulpe d'orange 2.6%), gélifiant (pectines), acidifiant (acide citrique), correcteurs d'acidité (citrate de calcium, citrate de sodium), arôme naturel d'orange, épaississant (gomme xanthane)), chocolat 24.9% (sucre, pâte de cacao, beurre de cacao, graisses végétales (illipe, mangue, sal, karité et palme en proportions variables), arôme, émulsifiant (lécithine de soja), lactose et protéines de lait), farine de blé, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre à lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, émulsifiant (lécithine de soja)."
 };
@@ -820,7 +821,7 @@ is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 
 # test synonyms for flavouring/flavour/flavor/flavoring
-my $product_ref = {
+$product_ref = {
         lc => "en",
         ingredients_text => "Natural orange flavor, Lemon flavouring"
 };
@@ -895,7 +896,7 @@ $expected_product_ref =
 is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
 
 
-my $product_ref = {
+$product_ref = {
         lc => "fr",
         ingredients_text => "pâte de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce équitable et de l'agriculture biologique (100% du poids total)."
 };
@@ -1266,6 +1267,82 @@ is_deeply ($product_ref->{ingredients},
         ],	
 	
 ) or diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "jus d'orange (sans conservateur), saumon (msc), sans gluten",
+};
+
+extract_ingredients_from_text($product_ref);
+
+is ($product_ref->{labels}, "en:gluten-free") or diag explain $product_ref;
+is_deeply ($product_ref->{labels_tags}, ["en:gluten-free"]) or diag explain $product_ref;
+
+is_deeply ($product_ref->{ingredients}, 
+
+[
+	     {
+	            'id' => 'en:orange-juice',
+	            'labels' => 'en:no-preservatives',
+	            'rank' => 1,
+	            'text' => 'jus d\'orange',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:salmon',
+	            'labels' => 'en:sustainable-seafood-msc',
+	            'rank' => 2,
+	            'text' => 'saumon',
+	            'vegan' => 'no',
+	            'vegetarian' => 'no'
+	          }
+	
+        ],	
+	
+) or diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "tomates pelées cuites, rondelle de citron, dés de courgette",
+};
+
+extract_ingredients_from_text($product_ref);
+
+is_deeply ($product_ref->{ingredients}, 
+
+[
+	     {
+	            'id' => 'en:tomato',
+	            'processing' => 'en:cooked, en:peeled',
+	            'rank' => 1,
+	            'text' => 'tomates  ',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:lemon',
+	            'processing' => 'en:sliced',
+	            'rank' => 2,
+	            'text' => ' citron',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:courgette',
+	            'processing' => 'en:diced',
+	            'rank' => 3,
+	            'text' => ' courgette',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          }
+	
+        ],	
+	
+) or diag explain $product_ref;
+
 
 
 done_testing();

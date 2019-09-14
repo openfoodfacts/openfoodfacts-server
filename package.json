@@ -15,9 +15,10 @@
     "lint:js": "eslint html/js/product-multilingual.js html/js/search.js html/js/display-tag.js",
     "lint:css": "stylelint html/css/product-multilingual.css",
     "lint:scss": "stylelint scss/app.scss",
-    "perlc": "yarn run perlc:startup && yarn run perlc:cgi",
+    "perlc": "yarn run perlc:startup && yarn run perlc:cgi && yarn run perlc:scripts",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
-    "perlc:cgi": "node compile_cgi.js",
+    "perlc:cgi": "node compile_cgi.js cgi/*.pl",
+    "perlc:scripts": "node compile_cgi.js scripts/*.pl",
     "postinstall": "opencollective-postinstall"
   },
   "repository": {
@@ -43,11 +44,11 @@
     "opencollective": "^1.0.3",
     "opencollective-postinstall": "^2.0.1",
     "osmtogeojson": "tyrasd/osmtogeojson#^2.2.12",
-    "papaparse": "mholt/papaparse#^5.0.1",
+    "papaparse": "mholt/papaparse#^5.0.2",
     "yarn": "^1.17.3"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^6.2.0",
     "gulp": "^4.0.2",
     "gulp-csso": "^3.0.1",
     "gulp-iconfont": "^10.0.3",

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 17:41\n"
+"PO-Revision-Date: 2019-09-07 08:32\n"
 "Language-Team: Polish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -144,8 +144,8 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Dostepny w Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/pl_get.svg\" alt=\"Dostępny w Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -647,13 +647,13 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Kwestie prawne</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Warunki użytkowania</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Kim jesteśmy</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Często zadawane pytania</a> -\n"
+msgstr "<a href=\"https://world-pl.openfoodfacts.org/legal\">Kwestie prawne</a> -\n"
+"<a href=\"https://world-pl.openfoodfacts.org/terms-of-use\">Warunki użytkowania</a> -\n"
+"<a href=\"https://world-pl.openfoodfacts.org/who-we-are\">Kim jesteśmy</a> -\n"
+"<a href=\"https://world-pl.openfoodfacts.org/faq\">Często zadawane pytania</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">rasa i Blogi</a>\n"
+"<a href=\"https://world-pl.openfoodfacts.org/press-and-blogs\">rasa i Blogi</a>\n"
 " \n"
 
 msgctxt "footer_and_the_facebook_group"
@@ -713,7 +713,7 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr "Śledź nas na <a href=\"https://twitter.com/openfoodfacts\">Twitterze</a>,\n"
+msgstr "Śledź nas na <a href=\"https://twitter.com/openfoodfactspl\">Twitterze</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebooku</a> i\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagramie</a>\n"
 
@@ -864,6 +864,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Należ wprowadzić elementy kodu kreskowego lub wysłać zdjęcie produktu gdy kod kreskowy jest widoczny."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "Pełny rozmiar"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "Ten plik został przesłany do produktu %s i jest objęty licencją %s."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr "Uznanie autorstwa: Zdjęcie %s na %s"
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "Uznanie autorstwa: Zdjęcie %s z dodatkowymi modyfikacjami %s na %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Oryginalne zdjęcie)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "Szczegóły zdjęcia i informacje o autorze"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Dodane produkty, które należy uzupełnić"
@@ -883,10 +907,6 @@ msgstr "Składniki"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Składniki"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Analiza składników"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -957,12 +977,12 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Produkty które nie zawierają składnika %s"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Dostepny w App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_PL.svg\" alt=\"Dostępny w Google Play\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr "https://apps.apple.com/pl/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1327,7 +1347,7 @@ msgstr "Wnieś wkład"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1336,7 +1356,7 @@ msgstr "Odkryj"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/discover"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1449,7 +1469,7 @@ msgstr "Żywnościowe poziomy 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1576,7 +1596,7 @@ msgstr "Stopień odżywienia"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgstr "https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-pl-712x600.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2312,7 +2332,7 @@ msgstr "Porcja"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Przygotowana wielkość porcji"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2565,12 +2585,12 @@ msgid "Site or blog address"
 msgstr "Adres strony lub bloga"
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/Polish.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/pl-pl/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2787,7 +2807,7 @@ msgstr "Partnerzy"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -3085,50 +3105,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "Strona %s"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Produkty sprawdzone przez %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Produkty niesprawdzone przez %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Produkty poprawione przez %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Produkty niepoprawione przez %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Produkty edytowane przez %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Produkty nieedytowane przez %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "Produkty ukończone przez %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "Produkty nieukończone przez %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "Produkty sfotografowane przez %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "Produkty niesfotografowane przez %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "Strona %s"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "Produkt nie jest już sprzedawany."
@@ -3164,34 +3140,6 @@ msgstr "Pobierz aplikację na iPada"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Niejednoznaczny kod kreskowy</em>: Ten kod kreskowy nie jest przypisany wyłącznie dla tego produktu. Oznacza to, że różni producenci i sklepy mogą używać tego samego kodu kreskowego dla różnych produktów."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Identyfikator produktu"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Ostrzeżenie"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Przygotowanie"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Pomysł na przepis"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Pochodzenie"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Obsługa klienta"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Producent"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3309,31 +3257,31 @@ msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Analiza składników"
 
-msgctxt "rev_warning"
-msgid "You are viewing an old version of this product page!"
-msgstr ""
-
-msgctxt "rev_number"
-msgid "Revision number: "
-msgstr ""
-
-msgctxt "rev_contributor"
-msgid "Edited by: "
-msgstr ""
-
-msgctxt "rev_previous"
-msgid "Previous version"
-msgstr ""
-
-msgctxt "rev_next"
-msgid "Next version"
-msgstr ""
-
-msgctxt "rev_latest"
-msgid "Latest version"
-msgstr ""
-
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
 msgstr "Analiza opiera się wyłącznie na wymienionych składnikach i nie uwzględnia metod przetwarzania."
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "Oglądasz starą wersję tej strony produktu!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Numer wersji: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Edytowany przez: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Poprzednia wersja"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Następna wersja"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Najnowsza wersja"
 

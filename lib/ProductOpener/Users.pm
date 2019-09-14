@@ -21,7 +21,7 @@
 package ProductOpener::Users;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -119,7 +119,7 @@ sub userpath($) {
 sub create_user($) {
 
 	my $user_ref = shift;
-	my $name_id = get_fileid($user_ref->{name});
+	my $name_id = get_string_id_for_lang("no_language", $user_ref->{name});
 
 	if (length($name_id) > 3) {
 
@@ -285,7 +285,7 @@ sub check_user_form($$) {
 
 	if (($type eq 'add') or ($type eq 'suggest')) {
 
-		my $userid = get_fileid($user_ref->{userid});
+		my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 
 		if (length($user_ref->{userid}) < 2) {
 			push @$errors_ref, $Lang{error_no_username}{$lang};
@@ -413,7 +413,7 @@ sub init_user()
 
 		# If the user exists
 		if (defined $user_id) {
-           my  $user_file = "$data_root/users/" . get_fileid($user_id) . ".sto";
+           my  $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 
 			if (-e $user_file) {
 			$user_ref = retrieve($user_file) ;
@@ -533,9 +533,9 @@ sub init_user()
 
 	    if (defined $user_id)
 	    {
-			my $user_file = "$data_root/users/" . get_fileid($user_id) . ".sto";
+			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 			if ($user_id =~/f\/(.*)$/) {
-				$user_file = "$data_root/facebook_users/" . get_fileid($1) . ".sto";
+				$user_file = "$data_root/facebook_users/" . get_string_id_for_lang("no_language", $1) . ".sto";
 			}
 
 		if (-e $user_file)
@@ -652,7 +652,7 @@ sub check_session($$) {
 
 	$log->debug("checking session", { user_id => $user_id, users_session => $user_session }) if $log->is_debug();
 
-	my $user_file = "$data_root/users/" . get_fileid($user_id) . ".sto";
+	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 
 	my $results_ref = {};
 
@@ -709,7 +709,7 @@ sub check_session($$) {
 sub save_user() {
 
 	if (defined $Facebook_id) {
-		store("$data_root/facebook_users/" . get_fileid($Facebook_id) . ".sto", \%User);
+		store("$data_root/facebook_users/" . get_string_id_for_lang("no_language", $Facebook_id) . ".sto", \%User);
 	}
 	elsif (defined $User_id) {
 		store("$data_root/users/$User_id.sto", \%User);

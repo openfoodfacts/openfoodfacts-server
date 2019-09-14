@@ -21,7 +21,7 @@
 package ProductOpener::Import;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 use Log::Any qw($log);
@@ -290,13 +290,13 @@ sub match_taxonomy_tags($$$$) {
 		foreach my $value (@values) {
 
 			next if not defined $value;
-			
+
 			# remove stopwords
 			if (defined $options_ref->{stopwords}) {
 				my $stopwords = $options_ref->{stopwords};
 				$value =~ s/\b$stopwords\b//ig;
 			}
-			
+
 			$value =~ s/^\s+//;
 			$value =~ s/\s+$//;
 
@@ -711,6 +711,11 @@ sub load_xml_file($$$$) {
 
 	$log->trace("XML::Rules output", { file => $file, xml_ref => $xml_ref }) if $log->is_trace();
 
+	# Skip empty XML files
+	if (not defined $xml_ref) {
+		return;
+	}
+
 	if ($log->is_trace()) {
 		binmode STDOUT, ":encoding(UTF-8)";
 		open (my $OUT_JSON, ">", "$www_root/data/import_debug_xml.json");
@@ -745,9 +750,9 @@ sub load_xml_file($$$$) {
 #			},
 
 	my @xml_refs = ();
-	
+
 	# Multiple products in an array?
-	
+
 	if ($xml_fields_mapping_ref->[0][0] eq "multiple_products") {
 
 		my $array = $xml_fields_mapping_ref->[0][1];
@@ -787,7 +792,7 @@ sub load_xml_file($$$$) {
 			$fuzzy_match = $xml_fields_mapping_ref->[0][1]{fuzzy_match};
 			if (defined $xml_ref->{$fuzzy_match}) {
 				@fuzzy_match_keys = sort keys %{$xml_ref->{$fuzzy_match}};
-				@fuzzy_match_keysid = map { get_fileid($_)} @fuzzy_match_keys;
+				@fuzzy_match_keysid = map { get_string_id_for_lang($lc, $_) } @fuzzy_match_keys;
 			}
 		}
 
@@ -816,7 +821,7 @@ sub load_xml_file($$$$) {
 					$log->info("Fuzzy match", { fuzzy_from => $fuzzy_from }) if $log->is_info();
 
 					if (defined $new_xml_ref->{$fuzzy_from}) {
-						my $tf = Text::Fuzzy->new (get_fileid($new_xml_ref->{$fuzzy_from}));
+						my $tf = Text::Fuzzy->new (get_string_id_for_lang($lc, $new_xml_ref->{$fuzzy_from}));
 						my $nearestid = $tf->nearest (\@fuzzy_match_keysid);
 						my $nearest = $fuzzy_match_keys[$nearestid];
 						$log->info("Fuzzy match found", { fuzzy_from => $fuzzy_from, value => $new_xml_ref->{$fuzzy_from}, nearest => $nearest }) if $log->is_info();
@@ -838,7 +843,7 @@ sub load_xml_file($$$$) {
 		shift @{$xml_fields_mapping_ref};
 
 	}
-	
+
 	else {
 		push @xml_refs, $xml_ref;
 	}
@@ -897,7 +902,7 @@ sub load_xml_file($$$$) {
 			elsif ($source_tag eq '*') {
 				foreach my $tag ( keys %{$current_tag}) {
 					my $tag_target = $target;
-					
+
 					# special case where we have something like allergens.nuts = traces
 					if ($tag_target eq "value_as_target_and_source_as_value") {
 						print STDERR "* tag key: $tag - target: $tag_target\n";
@@ -905,10 +910,10 @@ sub load_xml_file($$$$) {
 							print STDERR "assign $tag to $current_tag->{$tag}\n";
 
 							assign_value($product_ref, $current_tag->{$tag}, $tag);
-						}						
+						}
 					}
 					else {
-						
+
 						$tag_target =~ s/\*/$tag/;
 						$tag_target = lc($tag_target);
 						print STDERR "* tag key: $tag - target: $tag_target\n";
@@ -940,11 +945,11 @@ sub load_xml_file($$$$) {
 					$current_tag = $current_tag->[$i];
 				}
 			}
-			
+
 			# Array with several versions identified by a number, take the highest one
-			# <ADO LIB="JUS DE RAISIN" LIB2="Pur jus de raisin 1L" ADO="01" SECT_OQALI="Jus et nectars" 
+			# <ADO LIB="JUS DE RAISIN" LIB2="Pur jus de raisin 1L" ADO="01" SECT_OQALI="Jus et nectars"
 			# ["ADO.[max.ADO].COMP.ING", "ingredients_text_fr"],
-			
+
 			elsif ($source_tag =~ /^\[max:([^\]]+)\]$/) {
 				my $version = $1;
 				if (ref($current_tag) eq 'ARRAY') {
@@ -962,7 +967,7 @@ sub load_xml_file($$$$) {
 					}
 				}
 			}
-			
+
 			elsif (defined $current_tag->{$source_tag}) {
 				if ((ref($current_tag->{$source_tag}) eq 'HASH') or (ref($current_tag->{$source_tag}) eq 'ARRAY')) {
 					print STDERR "going down to hash $source_tag\n";
@@ -1000,7 +1005,7 @@ sub load_xml_file($$$$) {
 						}
 						elsif ($target =~ /^(.*)_unit$/) {
 							assign_value($product_ref, $target, $value);
-						}						
+						}
 						elsif ($target =~ /^(.*)_([^_]+)$/) {
 								$target = $1;
 								my $unit = $2;
@@ -1051,9 +1056,9 @@ sub load_csv_file($) {
 	# e.g. load_csv_file($file, "UTF-8", "\t", 4);
 
 	$log->info("Loading CSV file", { file => $file }) if $log->is_info();
-	
+
 	my $csv_options_ref = { binary => 1 , sep_char => $separator };
-	
+
 	if (defined $options_ref->{escape_char}) {
 		$csv_options_ref->{escape_char} = $options_ref->{escape_char};
 	}
@@ -1062,7 +1067,7 @@ sub load_csv_file($) {
                  or die "Cannot use CSV: " . Text::CSV->error_diag ();
 
 	open (my $io, "<:encoding($encoding)", $file) or die("Could not open $file: $!");
-	
+
 	my $i = 0;	# line number
 
 	if (defined $skip_lines) {
@@ -1074,7 +1079,7 @@ sub load_csv_file($) {
 
 	#my $headers_ref = $csv->getline ($io);
 	$i++;
-	
+
 	$csv->header ($io, { detect_bom => 1 });
 
 	if (defined $skip_lines_after_header) {
@@ -1094,7 +1099,7 @@ sub load_csv_file($) {
 	while (my $csv_product_ref = $csv->getline_hr ($io)) {
 
 		$i++; # line number
-		
+
 		$log->info("Reading line $i") if $log->is_info();
 
 		my $code = undef;	# code must be first
@@ -1169,7 +1174,7 @@ sub load_csv_file($) {
 						$file =~ s/.*\///;
 
 						$file =~ s/[^A-Za-z0-9-_\.]/_/g;
-						
+
 						# get big images from equadis
 						$csv_product_ref->{$source_field} =~ s/thumb=true&//;
 

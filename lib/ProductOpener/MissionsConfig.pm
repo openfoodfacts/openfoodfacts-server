@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::MissionsConfig;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -193,7 +193,7 @@ foreach my $l (keys %Missions_by_lang) {
 
 	foreach my $mission_ref (@{$Missions_by_lang{$l}}) {
 
-		$mission_ref->{id} = $l . "." . get_fileid($mission_ref->{name});
+		$mission_ref->{id} = $l . "." . get_string_id_for_lang("no_language",$mission_ref->{name}, 1);
 		$Missions{$mission_ref->{id}} = $mission_ref;
 	}
 }

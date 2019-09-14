@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::Store;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -36,10 +36,14 @@ BEGIN
 		&store
 		&retrieve
 		&unac_string_perl
+		&get_string_id_for_lang
+		&get_url_id_for_lang
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
+
+use ProductOpener::Config qw/:all/;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
 #use Text::Unaccent "unac_string";
@@ -68,18 +72,85 @@ sub unac_string_perl($) {
 }
 
 # Tags in European characters (iso-8859-1 / Latin-1 / Windows-1252) are canonicalized:
-# 1. deaccent: é -> è, + German umlauts: ä -> ae
-# 2. lowercase
+# 1. lowercase
+# 2. unaccent: é -> è, + German umlauts: ä -> ae if $unaccent is 1 OR $lc is 'fr'
 # 3. turn ascii characters that are not letters / numbers to -
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
 
-sub get_fileid($) {
+sub get_string_id_for_lang {
+
+	my $lc = shift;
+	my $string = shift;
+
+	defined $lc or die("Undef \$lc in call to get_string_id_for_lang (string: $string)\n");
+
+	my $unaccent = $string_normalization_for_lang{default}{unaccent};
+	my $lowercase = $string_normalization_for_lang{default}{lowercase};
+
+	if (defined $string_normalization_for_lang{$lc}) {
+		if (defined $string_normalization_for_lang{$lc}{unaccent}) {
+			$unaccent = $string_normalization_for_lang{$lc}{unaccent};
+		}
+		if (defined $string_normalization_for_lang{$lc}{lowercase}) {
+			$lowercase = $string_normalization_for_lang{$lc}{lowercase};
+		}
+	}
+
+	if (not defined $string) {
+		return "";
+	}
+
+	if ($lowercase) {
+		# do not lowercase UUIDs
+		# e.g.
+		# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
+		# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
+		if ($string !~ /^([a-z\-]+)\.([a-zA-Z0-9-_]{8})([a-zA-Z0-9-_]*)$/) {
+			$string =~ s/\N{U+1E9E}/\N{U+00DF}/g; # Actual lower-case for capital ß
+			$string = lc($string);
+			$string =~ tr/./-/;
+		}
+	}
+
+	if ($unaccent) {
+		$string =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
+		$string =~ s/œ|Œ/oe/g;
+		$string =~ s/æ|Æ/ae/g;
+		$string =~ s/ß/ss/g;
+		$string =~ s/\N{U+1E9E}/ss/g;
+	}
+
+	# turn special chars to -
+	$string =~ s/[\000-\037]/-/g;
+
+	# zero width space
+	$string =~ s/\x{200B}/-/g;
+
+	# avoid turning &quot; in -quot-
+	$string =~ s/\&(quot|lt|gt);/-/g;
+
+	$string =~ s/[\s!"#\$%&'()*+,\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
+	$string =~ s/-+/-/g;
+	$string =~ s/^-//;
+	$string =~ s/-$//;
+
+	return $string;
+}
+
+
+sub get_fileid {
 
 	my $file = shift;
+	my $unaccent = shift;
+	my $lc = shift;
 
 	if (not defined $file) {
 		return "";
+	}
+
+	if ((defined $lc) and ($lc eq 'fr')) {
+		$unaccent = 1;
 	}
 
 	# do not lowercase UUIDs
@@ -87,24 +158,19 @@ sub get_fileid($) {
 	# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	if ($file !~ /^([a-z\-]+)\.([a-zA-Z0-9-_]{8})([a-zA-Z0-9-_]*)$/) {
+		$file =~ s/\N{U+1E9E}/\N{U+00DF}/g; # Actual lower-case for capital ß
 		$file = lc($file);
 		$file =~ tr/./-/;
 	}
 
-	#$file = decode("UTF-16", unac_string('UTF-16',encode("UTF-16", $file)));
+	if ((defined $unaccent) and ($unaccent eq 1)) {
+		$file =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
 
-	# Remove one call to a subfunction and just inline the subfunction content
-	# $file = unac_string_perl($file);
-
-	$file =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
-
-	$file =~ s/œ|Œ/oe/g;
-	$file =~ s/æ|Æ/ae/g;
-	$file =~ s/ß/ss/g;
-
-	# turn characters that are not letters and numbers to -
-	# except extended UTF-8 characters
-	# $file =~ s/[^a-z0-9-]/-/g;
+		$file =~ s/œ|Œ/oe/g;
+		$file =~ s/æ|Æ/ae/g;
+		$file =~ s/ß/ss/g;
+		$file =~ s/\N{U+1E9E}/ss/g;
+	}
 
 	# turn special chars to -
 	$file =~ s/[\000-\037]/-/g;
@@ -124,12 +190,32 @@ sub get_fileid($) {
 }
 
 
-sub get_urlid($) {
+sub get_url_id_for_lang {
+
+	my $lc = shift;
+	my $input = shift;
+	my $string = $input;
+
+	$string = get_string_id_for_lang($lc, $string);
+
+	if ($string =~ /[^a-zA-Z0-9-]/) {
+		$string = URI::Escape::XS::encodeURIComponent($string);
+	}
+
+	$log->trace("get_urlid", { in => $input, out => $string }) if $log->is_trace();
+
+	return $string;
+}
+
+
+sub get_urlid {
 
 	my $input = shift;
 	my $file = $input;
+	my $unaccent = shift;
+	my $lc = shift;
 
-	$file = get_fileid($file);
+	$file = get_fileid($file, $unaccent, $lc);
 
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
@@ -139,24 +225,6 @@ sub get_urlid($) {
 
 	return $file;
 }
-
-
-sub get_ascii_fileid($) {
-
-	my $file = shift;
-
-	$file = get_fileid($file);
-
-	if ($file =~ /[^a-zA-Z0-9-]/) {
-		$file = "xn--" .  encode('Punycode',$file);
-	}
-
-	$log->debug("get_ascii_fileid", { file => $file }) if $log->is_debug();
-
-	return $file;
-}
-
-
 
 sub store {
 	my $file = shift @_;

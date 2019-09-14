@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 16:14\n"
+"PO-Revision-Date: 2019-09-07 08:22\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -137,15 +137,15 @@ msgstr "產品頁編輯由"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"可於 Google Play 上載\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -701,7 +701,7 @@ msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "翻譯員"
 
 # Do not translate
 msgctxt "footer_translators_link"
@@ -861,6 +861,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "您必須輸入條碼或者是當條碼是可見時送出產品的圖片。"
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "原始大小"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr ""
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr ""
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr ""
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(原始圖片)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "您上傳的產品需要更完善。"
@@ -880,10 +904,6 @@ msgstr "成分"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "成分"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "成分分析"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -954,8 +974,8 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "產品不含 %s 成分"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"可於 App Store 下載\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2345,7 +2365,7 @@ msgstr "排序依"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "完成度"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2549,8 +2569,8 @@ msgid "Site or blog address"
 msgstr "網站或部落格地址"
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -2658,11 +2678,11 @@ msgstr "此產品頁面不完整。您可以通過編輯它並從我們的照片
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "近期變動"
 
 msgctxt "translators_title"
 msgid "Our Translators"
@@ -2742,11 +2762,11 @@ msgstr ""
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "準備就緒"
 
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
+msgstr "單位"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
@@ -3069,50 +3089,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr ""
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr ""
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr ""
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr ""
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr ""
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr ""
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr ""
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr ""
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr ""
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr ""
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr ""
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr ""
@@ -3147,34 +3123,6 @@ msgstr ""
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr ""
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "警告"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr ""
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr ""
-
-msgctxt "origin"
-msgid "Origin"
-msgstr ""
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr ""
-
-msgctxt "producer"
-msgid "Producer"
 msgstr ""
 
 msgctxt "environment_infocard"
@@ -3293,6 +3241,10 @@ msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "成分分析"
 
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr ""
+
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
 msgstr ""
@@ -3315,9 +3267,5 @@ msgstr ""
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
 msgstr ""
 

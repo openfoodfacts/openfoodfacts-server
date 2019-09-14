@@ -21,7 +21,7 @@
 package ProductOpener::Images;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -379,7 +379,7 @@ sub process_search_image_form($) {
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
 
 			my $extension = lc($1) ;
-			my $filename = get_fileid(remote_addr(). '_' . $`);
+			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
 			open (my $out, ">", "$data_root/tmp/$filename.$extension") ;
 			while (my $chunk = <$file>) {
@@ -466,7 +466,7 @@ sub process_image_upload($$$$$$) {
 				$extension = lc($1) ;
 			}
 			$extension eq 'jpeg' and $extension = 'jpg';
-			my $filename = get_fileid(remote_addr(). '_' . $`);
+			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
 			my $current_product_ref = retrieve_product($code);
 			$imgid = $current_product_ref->{max_imgid} + 1;
@@ -1332,32 +1332,32 @@ HTML
 sub compute_orientation_from_cloud_vision_annotations($) {
 
 	my $annotations_ref = shift;
-	
+
 	if ((defined $annotations_ref) and (defined $annotations_ref->{responses})
 		and (defined $annotations_ref->{responses}[0])
 		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation})
 		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation}{pages})
 		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation}{pages}[0])
 		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation}{pages}[0]{blocks})) {
-		
+
 		my $blocks_ref = $annotations_ref->{responses}[0]{fullTextAnnotation}{pages}[0]{blocks};
-		
+
 		# compute the number of blocks in each orientation
 		my %orientations = (0 => 0, 90 => 0, 180 => 0, 270 => 0);
 		my $total = 0;
-		
+
 		foreach my $block_ref (@{$blocks_ref}) {
 			next if $block_ref->{blockType} ne "TEXT";
-			
+
 			my $x_center = ($block_ref->{boundingBox}{vertices}[0]{x} + $block_ref->{boundingBox}{vertices}[1]{x}
 				+ $block_ref->{boundingBox}{vertices}[2]{x} + $block_ref->{boundingBox}{vertices}[3]{x}) / 4;
-				
+
 			my $y_center = ($block_ref->{boundingBox}{vertices}[0]{y} + $block_ref->{boundingBox}{vertices}[1]{y}
 				+ $block_ref->{boundingBox}{vertices}[2]{y} + $block_ref->{boundingBox}{vertices}[3]{y}) / 4;
-				
+
 			# Check where the first corner is compared to the center.
 			# If the image is correctly oriented, the first corner is at the top left
-				
+
 			if ($block_ref->{boundingBox}{vertices}[0]{x} < $x_center) {
 				if ($block_ref->{boundingBox}{vertices}[0]{y} < $y_center) {
 					$orientations{0}++;
@@ -1372,11 +1372,11 @@ sub compute_orientation_from_cloud_vision_annotations($) {
 				}
 				else {
 					$orientations{180}++;
-				}			
+				}
 			}
 			$total++;
 		}
-		
+
 		foreach my $orientation (keys %orientations) {
 			if ($orientations{$orientation} > ($total * 0.90)) {
 				return $orientation;

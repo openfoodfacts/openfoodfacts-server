@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -114,7 +114,7 @@ if (opendir (DH, "$data_root/packager-codes")) {
 			my %headers = ();
 			foreach my $field (@fields) {
 				$field =~ s/\/.*//;
-				$field = get_fileid($field);
+				$field = get_string_id_for_lang("no_language", $field);
 				$field =~ s/-/_/g;
 				($field eq 'latitude') and $field = 'lat';
 				($field eq 'longitude') and $field = 'lng';
@@ -193,7 +193,7 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					$code = normalize_packager_codes("$code EC");
 				}
 
-				$code = get_fileid($code);
+				$code = get_string_id_for_lang("no_language", $code);
 				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;
 
 				if ($country eq 'it') {

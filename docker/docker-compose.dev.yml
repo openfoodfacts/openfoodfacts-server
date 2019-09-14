@@ -11,7 +11,7 @@ services:
         source: ./backend-dev/scripts/
         target: /opt/scripts/
   frontend:
-    image: nginx:1.17.2-alpine
+    image: nginx:1.17.3-alpine
     volumes:
       - type: bind
         source: ../

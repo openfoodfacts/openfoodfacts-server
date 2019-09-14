@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 my $usage = <<TXT
@@ -37,12 +37,9 @@ use boolean; # imports 'true' and 'false'
 my $query_ref = {};
 my $sort_ref = { last_modified_t => 1 };
 my $cursor = get_products_collection()->query($query_ref)->sort($sort_ref)->fields({ code => 1, countries_tags => 2 });
-my $count = get_products_collection()->count($query_ref);
 
 my $n = 0;
 	
-print STDERR "$count products to update\n";
-
 $recent_changes_collection->drop;
 
 my $cmd = [

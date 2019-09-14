@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 17:33\n"
+"PO-Revision-Date: 2019-09-07 08:24\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -143,8 +143,8 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world-hu.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Elérhető Google Play-en\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -650,7 +650,7 @@ msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Jogi nyilatkozat</a> -
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "és a <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook csoport a támogatóknak</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -854,6 +854,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Be kell küldened a vonalkód számát, vagy egy olyan képet a termékről, amin látható a vonalkód!"
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "Teljes méret"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "Ezt a fájlt a(z) %s termékre töltötték fel, és az %s licenccel."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr ""
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr ""
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Eredeti kép)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Termékek, amiket hozzáadott és befejezésre vár"
@@ -873,10 +897,6 @@ msgstr "Összetevők"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Összetevők"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Összetevők elemzése"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -947,8 +967,8 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Termékek, amelyek nem tartalmaznak %s összetevőt"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2554,8 +2574,8 @@ msgid "Site or blog address"
 msgstr "Webhely vagy blog címe"
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -2848,7 +2868,7 @@ msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "12 hetes kortól legfeljebb 11 hónapos korig"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
@@ -2932,7 +2952,7 @@ msgstr "Wikipédia"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "Funkciók"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
@@ -3074,50 +3094,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "A termékeket ellenőrizte: %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "A termékeket nem ellenőrizte: %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "A termékeket korrigálta: %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr ""
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "A termékeket szerkesztette: %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "A termékeket nem szerkesztette: %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "A termékadatokat teljessé tette: %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "A termékadatokat nem tette készé: %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "%s által fényképezett termékek"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "A termékeket nem fotózta: %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr ""
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "A termék már nem kapható."
@@ -3153,34 +3129,6 @@ msgstr "Szerezd meg az iPad alkalmazást"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Termelői termék azonosító"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Figyelmeztetés"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Előkészítés"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Recept ötlet"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Származás"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Vevőszolgálat"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Gyártó"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3298,6 +3246,10 @@ msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Összetevők elemzése"
 
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "Az elemzés kizárólag a felsorolt összetevőkre épül, de nem veszi figyelembe a feldolgozási módszereket."
+
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
 msgstr ""
@@ -3321,8 +3273,4 @@ msgstr ""
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr ""
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr "Az elemzés kizárólag a felsorolt összetevőkre épül, de nem veszi figyelembe a feldolgozási módszereket."
 

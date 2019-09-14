@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 16:14\n"
+"PO-Revision-Date: 2019-09-07 08:16\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -63,7 +63,21 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Здравейте <NAME>,\n\n"
+"Благодаря много за присъединяването към https://bg.openfoodfacts.org\n"
+"Ето вашето потребителско име:\n\n"
+"Потребителско име: <USERID>\n\n"
+"Вече можете да влезете в сайта, за да добавяте и редактирате продукти.\n\n"
+"<<site_name>> е съвместен проект, към който можете да донесете много повече от нови продукти: вашата енергия, ентусиазъм и идеи!\n"
+"За да обсъдим между участниците и да накараме проекта да продължи напред, използваме много удобна система за съобщения, наречена Slack: https://slack.openfoodfacts.org\n\n"
+"Можете също да се присъедините към групата на Facebook за участници:\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"Ново: ние също започваме Open Beauty Facts за създаване на база данни за козметика: сапун, паста за зъби, грим и т.н.\n"
+"https://bg.openbeautyfacts.org\n\n"
+"Благодаря ви много!\n\n"
+"Stéphane и екипът на Open Food Facts\n"
+"https://bg.openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
@@ -71,7 +85,7 @@ msgstr "Благодарим Ви, че се присъединихте към <
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Потенциално опасна хранителна добавка. Ограничете използването."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
@@ -103,7 +117,7 @@ msgstr "Прекаленото пиене е вредно за здравето.
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Всички мисии"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -123,20 +137,20 @@ msgstr "страница на продукта е редактирана от"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"мързелив\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/bg_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=bg"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -150,7 +164,7 @@ msgstr "Направете снимка"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Снимките, които изпращате, се публикуват под свободния лиценз на Creative Commons Attribution и ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -174,7 +188,7 @@ msgstr "Баркод номер:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Можете също да помогнете за финансирането на Open Food Facts проектът"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -206,155 +220,155 @@ msgstr ""
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "добавяне на марка"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "Продукти не са от марката %s"
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "от"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Категории"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Сардини в зехтин, портокалов сок от концентрат"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Посочете само най-специфичната категория. Категориите „Родители“ ще бъдат добавени автоматично."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "категории"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "Продукти от категория %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "категория"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "добави категория"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "Продукти, които не са от категория %s"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Данни"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Хранителни съставки"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Избрани изображения"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Качени изображения"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "проверители"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "проверител"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "градове за опаковане"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Продукти опаковани в град %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "опаковъчен град"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Продукти, които не са опаковани в града от %s"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Кодове"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "изпълнени %d мисии:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Свързани сте с вашия Facebook акаунт."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Сътрудник от"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "Копирайте данните от текущия продукт в нов продукт"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "Моля, поправете следните грешки:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "коректори"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "коректор"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Държави, където се продават"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr ""
+msgstr "Държави, в които продуктът е широко достъпен (без магазините, специализирани в чужди продукти)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "държави"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Продукти, продавани в %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "държава"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Продукти, които не се продават в %s"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Източник на данни"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "източници на данни"
 
 msgctxt "data_sources_s"
 msgid "data source"
@@ -519,47 +533,48 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Не правилен юзърнейм или парола.\n"
+" <a href=\"/cgi/reset_password.pl\">Забравена парола?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr ""
+msgstr "При четенето на данните възникна грешка, опитайте да опресните страницата."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Паролата и паролата за потвърждение са различни."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Адресът на електронната поща вече се използва от друг потребител. Може би вече имате акаунт? Можете да  <a href=\"/cgi/reset_password.pl\">смените паролата</a> от другия си профил."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Невалиден адрес."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Невалиден имейл адрес"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "Паролата трябва да е поне 6 знака."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Невалиден потребител."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Потребителското име трябва да съдържа само нецентрирани букви, цифри и тирета."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Продукт вече съществува с новия код"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
@@ -789,7 +804,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Здравейте"
 
 msgctxt "high"
 msgid "high"
@@ -840,6 +855,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr ""
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr ""
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr ""
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr ""
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr ""
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr ""
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr ""
@@ -859,10 +898,6 @@ msgstr "Съставки"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Съставки"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr ""
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -933,7 +968,7 @@ msgid "Products that do not contain the ingredient %s"
 msgstr ""
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
 msgstr ""
 
 msgctxt "ios_app_link"
@@ -1903,7 +1938,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Продукти, продавани в %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1915,7 +1950,7 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Продукти, които не се продават в %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2144,7 +2179,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Хранителни съставки"
 
 msgctxt "search_or"
 msgid "or"
@@ -2520,7 +2555,7 @@ msgid "Site or blog address"
 msgstr ""
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 msgstr ""
 
 msgctxt "windows_phone_app_link"
@@ -3040,50 +3075,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr ""
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr ""
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr ""
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr ""
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr ""
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr ""
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr ""
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr ""
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr ""
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr ""
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr ""
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr ""
@@ -3118,34 +3109,6 @@ msgstr ""
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr ""
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Предупреждение"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr ""
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr ""
-
-msgctxt "origin"
-msgid "Origin"
-msgstr ""
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr ""
-
-msgctxt "producer"
-msgid "Producer"
 msgstr ""
 
 msgctxt "environment_infocard"
@@ -3264,6 +3227,10 @@ msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr ""
 
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr ""
+
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
 msgstr ""
@@ -3286,9 +3253,5 @@ msgstr ""
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
 msgstr ""
 

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -22,7 +22,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -72,16 +72,10 @@ if (defined $agemax) {
 #	$query_ref->{ last_modified_t }{'$gt' => (time() - $agemax * 86400)};
 }
 
-my $cursor = $products_collection->query($query_ref )->sort({unique_scans_n => -1})->fields({ code => 1, images=>1, last_modified_t=>1 } );;
+my $cursor = $products_collection->query($query_ref )->sort({unique_scans_n => -1})->fields({ code => 1, images=>1, last_modified_t=>1 } );
 
-
-
-my $count = $cursor->count();
 my $i = 0;
 my $j = 0;
-	
-	print STDERR "$count products to update\n";
-	
 	
 	my @products;
 

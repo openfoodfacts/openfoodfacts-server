@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 21:01\n"
+"PO-Revision-Date: 2019-09-07 08:24\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -144,8 +144,8 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Tilgængelig på Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Tilgængelig i Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -862,6 +862,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Du skal indtaste alle tegn fra stregkoden, eller indsende et produktbillede hvor stregkoden er synlig."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "Fuld størrelse"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "Denne fil blev uploadet til produktet %s og er licenseret under %s-licensen."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr "Tilskrivning: Foto af %s pr. %s"
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "Tilskrivning: Foto af %s med yderligere ændringer af %s pr. %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Originalt Billede)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "Fotodetaljer og tilskrivningsoplysninger"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Produkter tilføjet af dig, som mangler udfyldelse"
@@ -881,10 +905,6 @@ msgstr "Ingredienser"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Ingredienser"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Analyse af ingredienser"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -955,8 +975,8 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Produkter som ikke indeholder ingrediensen %s"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Tilgængelig på App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Tilgængelig i App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2566,8 +2586,8 @@ msgid "Site or blog address"
 msgstr "URL eller blog-adresse"
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
@@ -3086,50 +3106,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "%s side"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Produkter tjekket af %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Produkter ikke tjekket af %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Produkter korrigeret af %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Produkter ikke korrigeret af %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Produkter redigeret af %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Produkter ikke redigeret af %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "Produkter færdiggjort af %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "Produkter ikke færdiggjort af %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "Produkter fotograferet af %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "Produkter ikke fotograferet af %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "%s side"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "Produktet sælges ikke længere."
@@ -3165,34 +3141,6 @@ msgstr "Hent iPad-appen"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Tvetydig stregkode</em>: Dette produkt har et strejkkode med begrænset antal cirkulationsnumre for produkter inden for et firma. Det betyder, at forskellige producenter og butikker kan benytte den samme stregkode til forskellige produkter."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Fabrikantproduktsidentifikator"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Advarsel"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Forberedelse"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Opskriftidé"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Oprindelse"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Kundeservice"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Fabrikant"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3310,6 +3258,10 @@ msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "Analyse af ingredienser"
 
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "Analysen baserer sig alne på de angivne ingredienser og tager ikke højde for behandlingsmetoder."
+
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
 msgstr "Du ser en gammel version af denne produktside!"
@@ -3333,8 +3285,4 @@ msgstr "Næste version"
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "Seneste version"
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr "Analysen baserer sig alne på de angivne ingredienser og tager ikke højde for behandlingsmetoder."
 

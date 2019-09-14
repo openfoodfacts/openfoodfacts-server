@@ -21,7 +21,7 @@
 package ProductOpener::Products;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -261,7 +261,7 @@ sub init_product($) {
 				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
 				$product_ref->{$field . "_tags" } = [];
 				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid("en",$tag);
 				}
 			}
 			# if lc is not defined or is set to en, set lc to main language of country
@@ -556,6 +556,16 @@ sub store_product($$) {
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
+	my $change_ref = @$changes_ref[-1];
+	my $diffs = $change_ref->{diffs};
+	my %diffs = %{$diffs};
+	if ((!$diffs) or (!keys %diffs)) {
+		$log->info("changes not stored because of empty diff", { change_ref => $change_ref }) if $log->is_info();
+		# 2019/09/12 - this was deployed today, but it causes changes not to be saved
+		# compute_product_history_and_completeness() was not written to make sure that it sees all changes
+		# keeping the log and disabling the "return 0" so that all changes are saved
+		#return 0;
+	}
 
 	# 2018-12-26: remove obsolete products from the database
 	# another option could be to keep them and make them searchable only in certain conditions
@@ -576,9 +586,9 @@ sub store_product($$) {
 	symlink("$rev.sto", $link) or $log->error("could not symlink to new revision", { source => "$new_data_root/products/$path/$rev.sto", link => $link, error => $! });
 
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
-
-	my $change_ref = @$changes_ref[-1];
 	log_change($product_ref, $change_ref);
+
+	return 1;
 
 }
 
@@ -721,10 +731,10 @@ sub compute_completeness_and_missing_tags($$$) {
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
 			$all_fields = 0;
-			push @states_tags, "en:" . get_fileid($field) . "-to-be-completed";
+			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-to-be-completed";
 		}
 		else {
-			push @states_tags, "en:" . get_fileid($field) . "-completed";
+			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-completed";
 			$notempty++;
 			$completeness += $step;
 		}
@@ -865,14 +875,14 @@ sub get_change_userid_or_uuid($) {
 	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
 	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
-		$uuid =~ s/^(\s*)//;
-		$uuid =~ s/(\s*)$//;
 	}
 	elsif ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
 		$uuid = $7;
 	}
 
-	if (defined $uuid) {
+	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
+		$uuid =~ s/^(\s*)//;
+		$uuid =~ s/(\s*)$//;
 		$userid = $app . $uuid;
 	}
 
@@ -1349,8 +1359,8 @@ sub product_name_brand($) {
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
 		$brand =~ s/,.*//;	# take the first brand
-		my $brandid = '-' . get_fileid($brand) . '-';
-		my $full_name_id = '-' . get_fileid($full_name) . '-';
+		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
+		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
 			$full_name .= lang("title_separator") . $brand;
 		}
@@ -1365,11 +1375,11 @@ sub product_name_brand($) {
 sub product_name_brand_quantity($) {
 	my $ref = shift;
 	my $full_name = product_name_brand($ref);
-	my $full_name_id = '-' . get_fileid($full_name) . '-';
+	my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 
 	if (defined $ref->{quantity}) {
 		my $quantity = $ref->{quantity};
-		my $quantityid = '-' . get_fileid($quantity) . '-';
+		my $quantityid = '-' . get_string_id_for_lang($lc, $quantity) . '-';
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 			# Put non breaking spaces between numbers and units
 			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
@@ -1409,7 +1419,7 @@ sub product_url($) {
 	my $titleid = '';
 	if (defined $ref) {
 		my $full_name = product_name_brand($ref);
-		$titleid = get_urlid($full_name);
+		$titleid = get_url_id_for_lang($product_lc, $full_name);
 		if ($titleid ne '') {
 			$titleid = '/' . $titleid;
 		}
@@ -1435,8 +1445,10 @@ sub index_product($)
 				if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
 					$tag =~ s/^\w\w://;
 				}
-				if (length(get_fileid($tag)) >= 2) {
-					$keywords{normalize_search_terms(get_fileid($tag))} = 1;
+
+				my $tagid = get_string_id_for_lang($lc, $tag);
+				if (length($tagid) >= 2) {
+					$keywords{normalize_search_terms($tagid)} = 1;
 				}
 			}
 		}

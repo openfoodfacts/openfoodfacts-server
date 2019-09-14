@@ -2,7 +2,7 @@
 
 <!-- Hand column content - how used to remove left column and center glad On Some pages -->
 
-<h1>Nutri-Score Nutritional Score and Color grades</h1>
+<h1>Nutri-Score en kleurbeoordelingen</h1>
 
 <h2>Een waarderingssysteem van A tot E om de voedingswaarde-etikettering te vereenvoudigen</h2>
 
@@ -10,13 +10,12 @@
 
 <img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
 
-<p>These color accents are set by calculating a nutritional score that reflects for the 1st part of the energy, saturated fat, sugars, sodium (high levels are considered unhealthy), and for the 2nd part of the proportion of fruits, vegetables and nuts, fibers and proteins
-  (high levels are considered good for health).</p>
+<p>De waardering worden bepaald door een voedingsscore te berekenen die overeenkomt met ten eerste door het aandeel energie, verzadigd vet, suikers, natrium (veel wordt als ongezond beschouwd) en ten tweede door het aandeel fruit, groenten en noten, vezels en eiwitten  (veel wordt als gezond beschouwd).</p>
 
 <p>om meer te leren.</p>
 
 <ul>
-<li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score">Nutri-Score official presentation</a> and <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN">Nutri-Score Scientific and Technical FAQ</a> on the web site of the French national public health agency Santé Publique France.</li>
+<li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score"> Officiële Nutri-Score presentatie</a> en <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN"> Veelgestelde wetenschappelijke en technische vragen over Nutri-Score </a> op de website van het Franse nationale volksgezondheidsbureau Santé Publique Frankrijk.</li>
 <li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">A 2 minutes video : What labeling for food products?</a></li>
 <li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petitie voor een eenvoudig, intuitief, begrijpbaar gezondheidslabel op levensmiddelen</a>
 </li>
@@ -26,8 +25,8 @@
 
 <p>De formule voor het berekenen van de voedingswaarde, de waarderingsdrempels en de verschillende aanpassingen werden door het team van professor Hercberg ingebracht. Deze formule is onderzocht en aangepast voor de Franse markt.</p>
 
-<p>The version adopted officially and implementated on Open Food Facts is the one from the report
-<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">NOTICE of the High Council for Public Health relating to information on the nutritional quality of food products published on June 25, 2015</a>.</p>
+<p>De door Open Food Facts geïmplementeerde versie van de formule is gebaseerd op het rapport 
+"<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">NOTICE of the High Council for Public Health relating to information on the nutritional quality of food products published on June 25, 2015</a>".</p>
 
 <p>We berekenen zelf de voedingsscore van levensmiddelen in de database Open Food Facts, en bepalen zelf de overeenkomstige A tot E-waarderingen. Dit maakt het met name mogelijk om de voedingsscore van verschillende producten te vergelijken en om de distributie binnen elke productcategorie te bestuderen.</p>
 
@@ -198,11 +197,10 @@
 
 <h3>Aanpassingen voor de Franse markt</h3>
 
-<p>The formula of nutritional score indicated above corresponds to the formula of the
-  nutritional score of the Food Standards Agency (FSA) in the UK.</p>
+<p>De bovenstaande formule van voedingsscore komt overeen met de formule van de 
+  voedingswaarde van het Food Standards Agency (FSA) in het Verenigd Koninkrijk.</p>
 
-<p>The team of Professor Hercberg offers adaptations for the French market that
-  are implemented to calculate the score on Open Food Facts.</p>
+<p>Het team van professor Hercberg heeft aanpassingen voor de Franse markt bepaald, die zijn geïmplementeerd om de score op Open Food Facts te berekenen.</p>
 
 <h4>Aanpassing voor kaas</h4>
 
@@ -210,9 +208,8 @@
 
 <h4>Aanpassing voor vet</h4>
 
-<p>To help differentiate between fats (oils, margarines, crèmes fraîches), all of which have rates of
-  saturated fat higher than the maximum threshold of 10 g,
-  another grid that takes into account the ratio of saturated fatty acids on the total fat is applied:</p>
+<p>Om rekening te houden met producten met een groot percentage verzadigde vetten (oliën, margarines, crèmes fraîches), is er een aparte tabel waarbij rekening gehouden wordt met de verhouding van verzadigde vetzuren op het totale vet. 
+Dit betekent:</p>
 
 <table class="points">
 <tbody>
@@ -273,8 +270,7 @@
 
 <h4>Aanpassingen voor dranken</h4>
 
-<p>Warning: the nutritional score for milk and vegetable milks is calculated with the general formula and
-  not the formula for drinks.</p>
+<p>Let op: de voedingswaarde voor melk en groente wordt berekend met de algemene formule en niet met de formule voor dranken.</p>
 
 <p>De energie- en suikers-drempels zijn aangepast voor dranken en de Punten voor fruit worden verdubbeld:</p>
 
@@ -352,33 +348,32 @@
 </tbody>
 </table>
 
-<h2>Nutri-Score grades thresholds</h2>
+<h2>Nutri-Score drempelwaarden</h2>
 
-<p>The thresholds used to assign the A to E grades are:</p> <p>
+<p>De drempelwaarden die worden gebruikt om de waarderingen toe te wijzen zijn:</p> <p>
 </p><h3>Vast voedsel:</h3>
 <ul>
-<li>A: up to -1</li>
-<li>B: from 0 to 2</li>
-<li>C: from 3 to 10</li>
-<li>D: from 11 to 18</li>
-<li>E: 19 and more</li>
+<li>A: tot -1</li>
+<li>B: van 0 tot 2</li>
+<li>C: van 3 tot 10</li>
+<li>D: van 11 tot 18</li>
+<li>E: 19 en meer</li>
 </ul>
 <h3>Dranken:</h3>
 <p>Alleen water (mineraal- en bronwater, met uitzondering van gearomatiseerd water) krijgt een A.</p>
 
 <ul>
-<li>A: mineral waters and spring waters</li>
-<li>B: up to 1</li>
-<li>C: from 2 to 5</li>
-<li>D: from 6 to 9</li>
-<li>E: 10 and more</li>
+<li>A: mineraalwater en bronwater</li>
+<li>B: maximaal 1</li>
+<li>C: van 2 tot 5</li>
+<li>D: van 6 tot 9</li>
+<li>E: 10 en meer</li>
 </ul>
 
 <p><b>Waarschuwing: deze waarderingen komen mogelijk niet overeen met de aanbevolen waarderingen:</b></p>
 
 <ul>
-<li>De vezels zijn niet altijd vermeld in de voedingswaardentabel. Indien de vezels niet zijn vermeld, is de positieve bijdrage van deze vezels niet in rekening genomen. We encourage all producers to indicate
-  the fiber content of their products on the packaging thereof.</li>
+<li>De vezels zijn niet altijd vermeld in de voedingswaardentabel. Indien de vezels niet zijn vermeld, is de positieve bijdrage van deze vezels niet in rekening genomen. We moedigen alle producenten aan om de hoeveelheid vezels van hun producten op de verpakking te zetten.</li>
 
   <--end of current proofread -->
 <li>Punten die overeenkomen met de niveaus in groente en fruit worden niet voor alle producten in in rekening genomen. Het fruit- en groente-gehalte staat niet in de voedingswaardentabellen en moeten bepaald worden door andere informatie (zoals de woorden "minimale fruitinhoud", de categorie producten (bijv. jam bevatten 50% fruit) en/of de ingrediëntenlijst.)
@@ -402,8 +397,7 @@ Voor het berekenen van de voedingswaarde is het belangrijk om niveaus boven 40%,
 <li>Voor gevriesdroogde levensmiddelen (verpakte soepen, enz.) moet de score worden berekend voor het uiteindelijke product, niet het ruwe product zoals momenteel het geval is.</li>
 </ul>
 
-<p>Je kan ons helpen met het vaststellen van de hoeveelheid groente, fruit en noten van producten. For more information, see
-<a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">the Nutritional Labeling</a> project on the wiki.</p>
+<p>Je kan ons helpen met het vaststellen van de hoeveelheid groente, fruit en noten van producten. Voor meer informatie, zie het <a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">de Nutritional Labeling</a> project op de wiki.</p>
 
 <p>Opmerking: knolgewassen, zoals aardappelen en zoete aardappelen, worden niet als groente beschouwd om voedingswaardering te berekenen.</p>
 <h2>Dankwoord</h2>

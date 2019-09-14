@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -21,7 +21,7 @@
 package ProductOpener::Display;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -64,6 +64,7 @@ BEGIN
 					&search_and_graph_products
 					&search_and_map_products
 					&display_recent_changes
+					&add_tag_prefix_to_link
 
 					@search_series
 
@@ -641,8 +642,12 @@ sub analyze_request($)
 					if ($request_ref->{tag} !~ /^(\w\w):/) {
 						$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
 					}
+					$request_ref->{tagid} = get_taxonomyid($lc,$request_ref->{tag});
 				}
-				$request_ref->{tagid} = get_taxonomyid($request_ref->{tag});
+				else {
+					# Use "no_language" normalization
+					$request_ref->{tagid} = get_string_id_for_lang("no_language",$request_ref->{tag});
+				}
 			}
 
 			$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag_prefix} . $request_ref->{tagid};
@@ -676,8 +681,12 @@ sub analyze_request($)
 						if ($request_ref->{tag2} !~ /^(\w\w):/) {
 							$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
 						}
+						$request_ref->{tagid2} = get_taxonomyid($lc,$request_ref->{tag2});
 					}
-					$request_ref->{tagid2} = get_taxonomyid($request_ref->{tag2});
+					else {
+						# Use "no_language" normalization
+						$request_ref->{tagid2} = get_string_id_for_lang("no_language",$request_ref->{tag2});
+					}
 				}
 
 				$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag2_prefix} . $request_ref->{tagid2};
@@ -705,16 +714,8 @@ sub analyze_request($)
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
 
-	if ($log->is_debug()) {
-		my $debug_log = "";
-		foreach my $log_field (qw/text product tagtype tagid tagtype2 tagid2 groupby_tagtype points/) {
-			if (defined $request_ref->{$log_field}) {
-				$debug_log .= " - $log_field: $request_ref->{$log_field}";
-			}
-		}
+	$log->debug("request analyzed", { lc => $lc, lang => $lang, request_ref => Dumper($request_ref)}) if $log->is_debug();
 
-		$log->debug("request analyzed", { lc => $lc, lang => $lang, log_fields => $debug_log });
-	}
 
 	return 1;
 }
@@ -1039,7 +1040,7 @@ sub display_text($)
 			my $header_id = $header;
 			# Remove tags
 			$header_id =~ s/<(([^>]|\n)*)>//g;
-			$header_id = get_fileid($header_id);
+			$header_id = get_string_id_for_lang("no_language",$header_id);
 			$header_id =~ s/-/_/g;
 
 			my $header_id_html = " id=\"$header_id\"";
@@ -1384,8 +1385,8 @@ sub display_list_of_tags($$) {
 
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 
-		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+		if (-e "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html");
 			$html .= join("\n", (<$IN>));
 			close $IN;
 		}
@@ -1445,6 +1446,13 @@ sub display_list_of_tags($$) {
 				$log->debug("main_link determined from the canonical tag", { main_link => $main_link }) if $log->is_debug();
 			}
 			$nofollow = ' rel="nofollow"';
+		}
+
+		# add back leading dash when a tag is excluded
+		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
+			my $prefix = $request_ref->{tag_prefix};
+			$main_link = add_tag_prefix_to_link($main_link,$prefix);
+			$log->debug("Found tag prefix for main_link " . Dumper($request_ref)) if $log->is_debug();
 		}
 
 		my %products = ();	# number of products by tag, used for histogram of nutrition grades colors
@@ -1565,6 +1573,8 @@ sub display_list_of_tags($$) {
 			# do not compute the tag display if we just need stats
 			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
 
+
+
 			my $info = '';
 			my $css_class = '';
 
@@ -1575,6 +1585,7 @@ sub display_list_of_tags($$) {
 				$tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 				$link = "/$path/" . $tag_ref->{tagurl};
 				$css_class = $tag_ref->{css_class};
+				$log->info("tag ref: " . Dumper($tag_ref)) if $log->is_info();
 			}
 			else {
 				$link = canonicalize_tag_link($tagtype, $tagid);
@@ -1665,8 +1676,8 @@ sub display_list_of_tags($$) {
 				$tagentry->{sameAs} = \@sameAs;
 			}
 
-			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
-				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
+			if (defined $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$icid)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$icid)};
 				$tagentry->{image} = format_subdomain('static') . "/images/lang/$lc/$tagtype/$img";
 			}
 
@@ -1838,7 +1849,7 @@ SCRIPTS
 
 
 		$html = <<HTML
-<div id="container" style="height: 400px"></div>​
+<div id="container" style="height: 400px"></div>
 <p>&nbsp;</p>
 HTML
 	. $html;
@@ -2129,7 +2140,7 @@ sub display_list_of_tags_translate($$) {
 			my $display_lc = $tag_ref->{display_lc};
 
 			my $synonyms = "";
-			my $lc_tagid = get_fileid($display);
+			my $lc_tagid = get_string_id_for_lang($display_lc, $display);
 
 			if ((defined $synonyms_for{$tagtype}{$display_lc}) and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
@@ -2412,7 +2423,7 @@ sub display_points($) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc,$tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc,$tagtype,$canon_tagid);
 			$title = $display_tag;
-			$newtagid = get_taxonomyid($display_tag);
+			$newtagid = get_taxonomyid($lc,$display_tag);
 			$log->debug("displaying points for a taxonomy tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_debug();
 			if ($newtagid !~ /^(\w\w):/) {
 				$newtagid = $lc . ':' . $newtagid;
@@ -2423,11 +2434,11 @@ sub display_points($) {
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
-			$newtagid = get_fileid($display_tag);
+			$newtagid = get_string_id_for_lang($lc, $display_tag);
 			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
-				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
+				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
 			$title = $display_tag;
 			$newtagidpath = canonicalize_tag_link($tagtype, $newtagid);
@@ -2507,8 +2518,17 @@ HEADER
 
 }
 
-
-
+# See issue 1960
+# a tag prefix, such as a minus sign, can indicate that a tag value should be excluded from a query
+# during processing this prefix may be removed from the current url link
+# this will add the prefix back
+# it will put the prefix before the string following the last forward slash in the link
+sub add_tag_prefix_to_link($$) {
+	my $link = shift;
+	my $tag_prefix = shift;
+	$link =~ s/^(.*)\/(.*)$/$1\/$tag_prefix$2/;
+	return $link;
+}
 
 sub display_tag($) {
 
@@ -2551,7 +2571,7 @@ sub display_tag($) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc,$tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc,$tagtype,$canon_tagid);
 			$title = $display_tag;
-			$newtagid = get_taxonomyid($display_tag);
+			$newtagid = get_taxonomyid($lc,$display_tag);
 			$log->info("displaying taxonomy tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_info();
 			if ($newtagid !~ /^(\w\w):/) {
 				$newtagid = $lc . ':' . $newtagid;
@@ -2562,11 +2582,12 @@ sub display_tag($) {
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
-			$newtagid = get_fileid($display_tag);
+			# Use "no_language" normalization for tags types without a taxonomy
+			$newtagid = get_string_id_for_lang("no_language",$display_tag);
 			$display_tag = display_tag_name($tagtype2, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
-				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
+				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
 			$title = $display_tag;
 			$newtagidpath = canonicalize_tag_link($tagtype, $newtagid);
@@ -2584,8 +2605,9 @@ sub display_tag($) {
 		# add back leading dash when a tag is excluded
 		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
 			my $prefix = $request_ref->{tag_prefix};
-			$request_ref->{current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
-			$request_ref->{world_current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link},$prefix);
+			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link},$prefix);
+			$log->debug("Found tag prefix " . Dumper($request_ref)) if $log->is_debug();
 		}
 	}
 	else {
@@ -2598,7 +2620,7 @@ sub display_tag($) {
 			$canon_tagid2 = canonicalize_taxonomy_tag($lc,$tagtype2, $tagid2);
 			$display_tag2 = display_taxonomy_tag($lc,$tagtype2,$canon_tagid2);
 			$title .= " / " . $display_tag2;
-			$newtagid2 = get_taxonomyid($display_tag2);
+			$newtagid2 = get_taxonomyid($lc,$display_tag2);
 			$log->info("2nd level tag is a taxonomy tag", { tagtype2 => $tagtype2, tagid2 => $tagid2, canon_tagid2 => $canon_tagid2, newtagid2 => $newtagid2, title => $title }) if $log->is_info();
 			if ($newtagid2 !~ /^(\w\w):/) {
 				$newtagid2 = $lc . ':' . $newtagid2;
@@ -2609,13 +2631,13 @@ sub display_tag($) {
 		}
 		else {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
-			$newtagid2 = get_fileid($display_tag2);
+			$newtagid2 = get_string_id_for_lang("no_language",$display_tag2);
 			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
 			$title .= " / " . $display_tag2;
 
 			if ($tagtype2 eq 'emb_codes') {
 				$canon_tagid2 = $newtagid2;
-				$canon_tagid2 =~ s/-(eec|eg|ce)$/-ec/i;
+				$canon_tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
 			$newtagid2path = canonicalize_tag_link($tagtype2, $newtagid2);
 			$request_ref->{current_link} .= $newtagid2path;
@@ -2625,14 +2647,16 @@ sub display_tag($) {
 			$lc = 'en';
 			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype2, $newtagid2);
 			$lang = $current_lang;
+			$log->info("2nd level tag is a normal tag", { tagtype2 => $tagtype2, tagid2 => $tagid2, canon_tagid2 => $canon_tagid2, newtagid2 => $newtagid2, title => $title }) if $log->is_info();
 			$lc = $current_lc;
 		}
 
 		# add back leading dash when a tag is excluded
 		if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} ne '')) {
 			my $prefix = $request_ref->{tag2_prefix};
-			$request_ref->{current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
-			$request_ref->{world_current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link},$prefix);
+			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link},$prefix);
+			$log->debug("Found tag prefix 2 " . Dumper($request_ref)) if $log->is_debug();
 		}
 
 	}
@@ -2852,7 +2876,7 @@ HTML
 			}
 
 
-			my $fieldid = get_fileid($field);
+			my $fieldid = get_string_id_for_lang($lc,$field);
 			$fieldid =~ s/-/_/g;
 
 			my %propertyid = ();
@@ -3253,7 +3277,7 @@ HTML
 		$description
 	</div>
 	<div id="tag_map" class="large-9 columns" style="display: none;">
-		<div id="container" style="height: 300px"></div>​
+		<div id="container" style="height: 300px"></div>
 	</div>
 
 </div>
@@ -3311,7 +3335,7 @@ HTML
 			}
 
 			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
-				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
+				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
 
 			}
 
@@ -3326,8 +3350,8 @@ HTML
 				# Display links to products edited, photographed etc.
 
 				$description .= "\n<ul>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($tagid)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($tagid)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
 				. "</ul>\n";
 
 
@@ -3462,7 +3486,7 @@ HTML
 
 	# unknown / empty value
 	# warning: unknown is a value for pnns_groups_1 and 2
-	if ((($tagid eq get_fileid(lang("unknown"))) or ($tagid eq ($lc . ":" . get_fileid(lang("unknown")))))
+	if ((($tagid eq get_string_id_for_lang($lc,lang("unknown"))) or ($tagid eq ($lc . ":" . get_string_id_for_lang($lc, lang("unknown")))))
 		and ($tagtype !~ /^pnns_groups_/)) {
 		#$query_ref = { ($tagtype . "_tags") => "[]"};
 		$query_ref = { "\$or" => [ { ($tagtype ) => undef}, { $tagtype => ""} ] };
@@ -3492,7 +3516,7 @@ HTML
 			$query_ref->{"\$and"} = $and;
 		}
 		# unknown / empty value
-		elsif ((($tagid2 eq get_fileid(lang("unknown"))) or ($tagid2 eq ($lc . ":" . get_fileid(lang("unknown")))))
+		elsif ((($tagid2 eq get_string_id_for_lang($lc,lang("unknown"))) or ($tagid2 eq ($lc . ":" . get_string_id_for_lang($lc,lang("unknown")))))
 			and ($tagtype2 !~ /^pnns_groups_/)) {
 			$query_ref->{"\$or"} = [ { ($tagtype2 ) => undef}, { $tagtype2 => ""} ] ;
 		}
@@ -3545,7 +3569,7 @@ sub search_and_display_products($$$$$) {
 	my $limit = shift;
 	my $page = shift;
 
-
+	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
 	if (defined $country) {
 		if ($country ne 'en:world') {
@@ -3572,6 +3596,7 @@ sub search_and_display_products($$$$$) {
 		}
 
 	}
+	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
 	delete $query_ref->{lc};
 
@@ -3630,7 +3655,6 @@ sub search_and_display_products($$$$$) {
 	}
 
 
-	my $cursor;
 	my $count;
 
 	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
@@ -3669,8 +3693,15 @@ sub search_and_display_products($$$$$) {
 			products => [],
 		};
 
+		my $cursor;
 		eval {
 			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
+				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
+				$count = execute_query(sub {
+					return get_products_tags_collection()->count_documents($query_ref);
+				});
+				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
+
 				my $aggregate_parameters = [
 					{ "\$match" => $query_ref },
 					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
@@ -3681,12 +3712,17 @@ sub search_and_display_products($$$$$) {
 				});
 			}
 			else {
+				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
+				$count = execute_query(sub {
+					return get_products_collection()->count_documents($query_ref);
+				});
+				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
+
 				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 				$cursor = execute_query(sub {
 					return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				});
-				$count = $cursor->count() + 0;
-				$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+				$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 			}
 		};
 		if ($@) {
@@ -3694,18 +3730,17 @@ sub search_and_display_products($$$$$) {
 		}
 		else
 		{
-			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+			$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 
 			while (my $product_ref = $cursor->next) {
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
 			}
-			$request_ref->{structured_response}{count} = $count + 0;
+			$request_ref->{structured_response}{count} = $count;
 
 			$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
 
 			$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
 		}
-
   }
   else {
     $log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
@@ -3932,6 +3967,8 @@ sub display_pagination($$$$) {
 	my $current_link = $request_ref->{current_link};
 	my $current_link_query = $request_ref->{current_link_query};
 
+	$log->info("current link: $current_link, current_link_query: $current_link_query") if $log->is_info();
+
 	if ($request_ref->{jqm}) {
 		$current_link_query .= "&jqm=1";
 	}
@@ -3977,6 +4014,13 @@ sub display_pagination($$$$) {
 						}
 
 						$link = $current_link_query . "&page=$i";
+
+						# issue 2010: the limit, aka page_size is not persisted through the navigation links from some workflows,
+						# so it is lost on subsequent pages
+						if ( defined $limit && $link !~ /page_size/ ) {
+							$log->info("Using limit " .$limit) if $log->is_info();
+							$link .= "&page_size=" . $limit;
+						}
 					}
 
 					$html_pages .=  '<li><a href="' . $link . '">' . $i . '</a></li>';
@@ -4081,7 +4125,6 @@ sub search_and_export_products($$$$$) {
 	$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref }) if $log->is_debug();
 
 	my $cursor;
-	my $count;
 
 	eval {
 		$cursor = execute_query(sub {
@@ -4090,16 +4133,17 @@ sub search_and_export_products($$$$$) {
 			# return get_products_collection()->query($query_ref)->sort($sort_ref);
 			return get_products_collection()->query($query_ref);
 		});
-		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 	}
 	else {
-		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+		$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 	}
 
-	$request_ref->{count} = $count + 0;
+	my @products = $cursor->all;
+	my $count = @products;
+	$request_ref->{count} = $count;
 
 	my $html = '';
 
@@ -4167,7 +4211,7 @@ sub search_and_export_products($$$$$) {
 
 		if ($flatten) {
 
-			while (my $product_ref = $cursor->next) {
+			foreach my $product_ref (@products) {
 
 				foreach my $field (%$flatten_ref) {
 					if (defined $product_ref->{$field . '_tags'}) {
@@ -4177,7 +4221,6 @@ sub search_and_export_products($$$$$) {
 					}
 				}
 			}
-			$cursor->reset;
 
 			foreach my $field (%$flatten_ref) {
 				$flattened_tags_sorted{$field} = [ sort keys %{$flattened_tags{$field}}];
@@ -4240,7 +4283,7 @@ sub search_and_export_products($$$$$) {
 		$csv->print (*STDOUT, \@row);
 
 		my $uri = format_subdomain($subdomain);
-		while (my $product_ref = $cursor->next) {
+		foreach my $product_ref (@products) {
 
 			@row = ();
 
@@ -4414,11 +4457,13 @@ unknown => { r => 128, g=> 128, b=>128},
 
 
 
-sub display_scatter_plot($$$) {
+sub display_scatter_plot($$) {
 
 		my $graph_ref = shift;
-		my $cursor = shift;
-		my $count = shift;
+		my $products_ref = shift;
+
+		my @products = @$products_ref;
+		my $count = @products;
 
 		my $html = '';
 
@@ -4466,7 +4511,7 @@ sub display_scatter_plot($$$) {
 		my %series = ();
 		my %series_n = ();
 
-		while (my $product_ref = $cursor->next) {
+		foreach my $product_ref (@products) {
 
 			# Keep only products that have known values for both x and y
 
@@ -4724,7 +4769,7 @@ SCRIPTS
 
 		$html .= <<HTML
 <p>$count_string</p>
-<div id="container" style="height: 400px"></div>​
+<div id="container" style="height: 400px"></div>
 
 HTML
 ;
@@ -4746,11 +4791,13 @@ HTML
 
 
 
-sub display_histogram($$$) {
+sub display_histogram($$) {
 
 		my $graph_ref = shift;
-		my $cursor = shift;
-		my $count = shift;
+		my $products_ref = shift;
+
+		my @products = @$products_ref;
+		my $count = @products;
 
 		my $html = '';
 
@@ -4791,7 +4838,7 @@ sub display_histogram($$$) {
 		my $min = 10000000000000;
 		my $max = -10000000000000;
 
-		while (my $product_ref = $cursor->next) {
+		foreach my $product_ref (@products) {
 
 			# Keep only products that have known values for x
 
@@ -5087,7 +5134,7 @@ SCRIPTS
 
 		$html .= <<HTML
 <p>$count_string</p>
-<div id="container" style="height: 400px"></div>​
+<div id="container" style="height: 400px"></div>
 <p>&nbsp;</p>
 HTML
 ;
@@ -5119,9 +5166,8 @@ sub search_and_graph_products($$$) {
 	delete $query_ref->{lc};
 
 	my $cursor;
-	my $count;
 
-	$log->info("retrieving products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
+	$log->info("retrieving products from MongoDB to display them in a graph") if $log->is_info();
 
 	if ($admin) {
 		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
@@ -5131,18 +5177,19 @@ sub search_and_graph_products($$$) {
 		$cursor = execute_query(sub {
 			return get_products_collection()->query($query_ref);
 		});
-		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 	}
 	else {
-		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+		$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 	}
 
-	$log->info("retrieved products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
+	$log->info("retrieved products from MongoDB to display them in a graph") if $log->is_info();
 
-	$request_ref->{count} = $count + 0;
+	my @products = $cursor->all;
+	my $count = @products;
+	$request_ref->{count} = $count;
 
 	my $html = '';
 
@@ -5174,10 +5221,10 @@ sub search_and_graph_products($$$) {
 		# 2 axis: scatter plot
 
 		if ($graph_ref->{axis_y} eq 'products_n') {
-			$html .= display_histogram($graph_ref, $cursor, $count);
+			$html .= display_histogram($graph_ref, \@products);
 		}
 		else {
-			$html .= display_scatter_plot($graph_ref, $cursor, $count);
+			$html .= display_scatter_plot($graph_ref, \@products);
 		}
 
 
@@ -5262,26 +5309,26 @@ sub search_and_map_products($$$) {
 	delete $query_ref->{lc};
 
 	my $cursor;
-	my $count;
 
-	$log->info("retrieving products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
+	$log->info("retrieving products from MongoDB to display them in a map") if $log->is_info();
 
 	eval {
 		$cursor = execute_query(sub {
 			return get_products_collection()->query($query_ref);
 		});
-		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 	}
 	else {
-		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+		$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 	}
 
-	$log->info("retrieved products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
+	$log->info("retrieved products from MongoDB to display them in a map") if $log->is_info();
 
-	$request_ref->{count} = $count + 0;
+	my @products = $cursor->all;
+	my $count = @products;
+	$request_ref->{count} = $count;
 
 	my $html = '';
 
@@ -5333,12 +5380,12 @@ JS
 		my $matching_products = 0;
 		my $places = 0;
 		my $emb_codes = 0;
-		my $products = 0;
+		my $seen_products = 0;
 
 		my %seen = ();
 		my $data = '';
 
-		while (my $product_ref = $cursor->next) {
+		foreach my $product_ref (@products) {
 
 			# Keep only products that have known values for both x and y
 
@@ -5398,7 +5445,7 @@ JS
 
 					}
 					if (scalar keys %current_seen > 0) {
-						$products++;
+						$seen_products++;
 					}
 				}
 
@@ -5406,7 +5453,7 @@ JS
 			}
 		}
 
-		$log->debug("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $products, emb_codes => $emb_codes }) if $log->is_debug();
+		$log->debug("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $seen_products, emb_codes => $emb_codes }) if $log->is_debug();
 
 		# Points to display?
 
@@ -5467,11 +5514,11 @@ JS
 ;
 			$initjs .= $js;
 
-			my $count_string = sprintf(lang("map_count"), $count, $products);
+			my $count_string = sprintf(lang("map_count"), $count, $seen_products);
 
 			$html .= <<HTML
 <p>$count_string</p>
-<div id="container" style="height: 600px"></div>​
+<div id="container" style="height: 600px"></div>
 <p>&nbsp;</p>
 HTML
 ;
@@ -5508,25 +5555,25 @@ sub display_login_register($)
 <p>$Lang{login_to_add_and_edit_products}{$lc}</p>
 
 <form method="post" action="/cgi/session.pl">
-<div class="row">
-<div class="small-12 columns">
-	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" autocomplete="username" required>
-	</label>
-</div>
-<div class="small-12 columns">
-	<label>$Lang{password}{$lc}
-		<input type="password" name="password" autocomplete="current-password" required>
-	</label>
-</div>
-<div class="small-12 columns">
-	<label>
-		<input type="checkbox" name="remember_me" value="on">
-		$Lang{remember_me}{$lc}
-	</label>
-</div>
-</div>
-<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
+	<div class="row">
+		<div class="small-12 columns">
+			<label>$Lang{login_username_email}{$lc}
+				<input type="text" name="user_id" autocomplete="username" required>
+			</label>
+		</div>
+		<div class="small-12 columns">
+			<label>$Lang{password}{$lc}
+				<input type="password" name="password" autocomplete="current-password" required>
+			</label>
+		</div>
+		<div class="small-12 columns">
+			<label>
+				<input type="checkbox" name="remember_me" value="on">
+				$Lang{remember_me}{$lc}
+			</label>
+		</div>
+	</div>
+	<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
 </form>
 <p>$Lang{login_not_registered_yet}{$lc}
 <a href="/cgi/user.pl">$Lang{login_create_your_account}{$lc}</a></p>
@@ -5549,8 +5596,8 @@ sub display_my_block($)
 	if (defined $User_id) {
 
 		my $links = '<ul class="side-nav" style="padding-top:0">';
-		$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
-		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
+		$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
+		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
 		$links .= "</ul>";
 
 		my $content = '';
@@ -5673,6 +5720,7 @@ $block_ref->{content}
 sub display_new($) {
 
 	my $request_ref = shift;
+	$log->info("Start of display_new " . Dumper($request_ref)) if $log->is_info();
 
 	# If the client is requesting json, jsonp, xml or jqm,
 	# and if we have a response in structure format,
@@ -6693,7 +6741,7 @@ CSS
 	}
 
 	$title = product_name_brand_quantity($product_ref);
-	my $titleid = get_fileid(product_name_brand($product_ref));
+	my $titleid = get_string_id_for_lang($lc, product_name_brand($product_ref));
 
 	if (not $title) {
 		$title = $code;
@@ -7226,8 +7274,8 @@ JS
 
 			$html_ingredients_classes .= "<div class=\"column_class\"><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br>";
 
-			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
-				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
+			if (defined $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$tagtype)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$tagtype)};
 				my $size = '';
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
@@ -7524,12 +7572,12 @@ HTML
 	my $other_editors = "";
 
 	foreach my $editor (sort @other_editors) {
-		$other_editors .= display_tag_link("editors", $editor) . ", ";
+		$other_editors .= "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$editor)) . "\">" . $editor . "</a>, ";
 	}
 	$other_editors =~ s/, $//;
 
-	my $creator = display_tag_link("editors", $product_ref->{creator});
-	my $last_editor = display_tag_link("editors", $product_ref->{last_editor});
+	my $creator = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$product_ref->{creator})) . "\">" . $product_ref->{creator} . "</a>";
+	my $last_editor = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$product_ref->{last_editor})) . "\">" . $product_ref->{last_editor} . "</a>";
 
 	if ($other_editors ne "") {
 		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
@@ -7538,7 +7586,7 @@ HTML
 	my $checked = "";
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
-		my $last_checker = display_tag_link("editors", $product_ref->{last_checker});
+		my $last_checker = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$product_ref->{last_checker})) . "\">" . $product_ref->{last_checker} . "</a>";
 		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
 	}
 
@@ -8595,7 +8643,6 @@ HTML
 				$shown = 0;
 			}
 			else {
-				my $labelid = get_fileid($Nutriments{$nid}{$lang});
 				$label = <<HTML
 <td class="nutriment_label"><a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">${prefix}$Nutriments{$nid}{$lang}</a></td>
 HTML
@@ -8673,8 +8720,11 @@ HTML
 
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
+					my $percent_numeric_value = $percent;
 					$percent = $perf->format($percent / 100.0);
-					if ($percent !~ /^-/) {
+					# issue 2273 -  minus signs are rendered with different characters in different locales, e.g. Finnish
+					# so just test positivity of numeric value
+					if ($percent_numeric_value > 0 ) {
 						$percent = "+" . $percent;
 					}
 					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
@@ -9157,7 +9207,10 @@ sub display_product_history($$) {
 
 			my $date = display_date_tag($change_ref->{t});
 			my $userid = get_change_userid_or_uuid($change_ref);
-			my $user = display_tag_link("editors", $userid);
+			my $user = "";
+			if (defined $change_ref->{userid}) {
+				$user = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+			}
 
 			my $comment = $change_ref->{comment};
 			$comment = lang($comment) if $comment eq 'product_created';
@@ -9447,18 +9500,17 @@ sub display_recent_changes {
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
 
-	$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
-	my $cursor = get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-	my $count = $cursor->count() + 0;
-	$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+	$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
+	my $count = execute_query(sub {
+		return get_recent_changes_collection()->count_documents($query_ref);
+	});
+	$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
-	if ($@) {
-		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
-		$cursor = get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$count = $cursor->count() + 0;
-		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-	}
+	$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
+	my $cursor = execute_query(sub {
+		return get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+	});
+	$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 
 	my $html .= "<ul>\n";
 	my $last_change_ref = undef;
@@ -9523,7 +9575,7 @@ sub display_change($$) {
 	my $date = display_date_tag($change_ref->{t});
 	my $user = "";
 	if (defined $change_ref->{userid}) {
-		$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+		$user = "<a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 	}
 
 	my $comment = $change_ref->{comment};

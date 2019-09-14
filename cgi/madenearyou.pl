@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -255,7 +255,6 @@ Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http
 src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFacts&amp;count=vertical&amp;lang=$lc"
 style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
-
 </div>
 
 </div>
@@ -401,8 +400,8 @@ if ($action eq 'process') {
 		my %terms = ();
 
 		foreach my $term (split(/,|'|\s/, $search_terms)) {
-			if (length(get_fileid($term)) >= 2) {
-				$terms{normalize_search_terms(get_fileid($term))} = 1;
+			if (length(get_string_id_for_lang($lc, $term)) >= 2) {
+				$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 			}
 		}
 		if (scalar keys %terms > 0) {
@@ -422,7 +421,7 @@ if ($action eq 'process') {
 
 		if (($tagtype ne 'search_tag') and ($tag ne '')) {
 
-			my $tagid = get_fileid(canonicalize_tag2($tagtype, $tag));
+			my $tagid = get_string_id_for_lang($lc, canonicalize_tag2($tagtype, $tag));
 
 			if ($tagtype eq 'additives') {
 				$tagid =~ s/-.*//;

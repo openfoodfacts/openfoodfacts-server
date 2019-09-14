@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 16:15\n"
+"PO-Revision-Date: 2019-09-07 08:23\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -144,8 +144,8 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Beschikbaar in Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/nl_get.svg\" alt=\"Beschikbaar in Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -863,6 +863,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Je moet de tekens van de barcode invoeren, of verstuur de productafbeelding als de barcode zichtbaar is ."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "Volledige grootte"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "Dit bestand is geüpload naar product %s en valt onder de licentie %s."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr "Naamsvermelding: door %s per %s"
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "Naamsvermelding: foto van %s met aanvullende wijzigingen van %s per %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Originele foto)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "Fotodetail en toeschrijvingsinformatie"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Producten die u toegevoegd heeft en nog onvolledig zijn"
@@ -882,10 +906,6 @@ msgstr "Ingrediënten"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Ingrediënten"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "ingrediënten_analyse"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -956,12 +976,12 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Producten die ingrediënt %en niet bevatten"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Beschikbaar in de App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_NL.svg\" alt=\"Beschikbaar in de App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/nl/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2312,7 +2332,7 @@ msgstr "Grootte van een portie"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Bereide portiegrootte"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2564,12 +2584,12 @@ msgid "Site or blog address"
 msgstr "Adres van website of blog"
 
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/Dutch.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/nl-nl/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -3084,50 +3104,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "%s's pagina"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Producten gecontroleerd door %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Producten niet gecontroleerd door %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Producten gecorrigeerd door %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Producten niet gecorrigeerd door %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Producten bewerkt door %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Producten niet bewerkt door %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "Producten voltooid door %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "Producten niet voltooid door %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "Producten gefotografeerd door %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "Producten niet gefotografeerd door %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "%s's pagina"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "Het product wordt niet langer verkocht."
@@ -3163,34 +3139,6 @@ msgstr "Download de iPad-app"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Productidentificatie Producent"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Let op"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Bereidingswijze"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Recept idee"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Herkomst"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Klantenservice"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Producent"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3290,49 +3238,49 @@ msgstr "Overslaan"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "populariteit"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "populariteit"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ingrediënten analyse"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ingrediënten analyse"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
 msgstr "ingrediënten_analyse"
 
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "De analyse is uitsluitend gebaseerd op de vermelde ingrediënten en houdt geen rekening met verwerkingsmethoden."
+
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "Je bekijkt een oude versie van deze productpagina!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "Revisie nummer: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "Gewijzigd door: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "Vorige versie"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "Volgende versie"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
-
-msgctxt "ingredients_analysis_disclaimer"
-msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "Laatste versie"
 
