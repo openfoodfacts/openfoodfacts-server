@@ -9565,7 +9565,7 @@ fr:lait maigre
 <en:milk
 en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk
 ar:حليب منزوع الدسم
-de:Magermilch
+de:Magermilch, entrahmte Milch
 es:Leche descremada, Leche desnatada, leche sin grasas
 et:Lõss
 fa:شیر خشک بدون چربی
@@ -9601,7 +9601,6 @@ it:latte magro pastorizzato
 
 <en:pasteurized skimmed milk
 en:UHT sterilised skimmed milk
-de:Fettarme Haltbarmilch, Fettarme H-milch
 fr:Lait écrémé stérilisé UHT, lait écrémé stérilisé u h t, lait sterilise uht ecreme
 nl:UHT-gesteriliseerde magere melk
 # ingredient/fr:lait-ecreme-sterilise-uht has 14 products in french @2019-05-23
@@ -9610,11 +9609,13 @@ nl:UHT-gesteriliseerde magere melk
 en:organic UHT sterilised skimmed milk
 fr:lait écrémé stérilisé uht issu de l'agriculture biologique
 
+######################## SEMI-SKIMMED MILK #####################
+
 # description:en:LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 
 <en:milk
 en:semi-skimmed milk, reduced-fat milk
-de:teilentrahmte milch
+de:fettarme Milch, teilentrahmte milch
 es:leche parcialmente desnatada
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
 it:latte parzialmente scremato
@@ -9627,13 +9628,14 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 <en:semi-skimmed milk
 fr:lait demi écrémé uht, lait sterilise u h t demi-ecreme, lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
 nl:halfvolle melk uht verhit
+de:fettarme Haltbarmilch, fettarme H-milch
 
 <fr:lait demi écrémé uht
 fr:lait de montagne demi écrémé sterilisé uht
 
 <en:semi-skimmed milk
 en:organic semi-skimmed milk, semi-skimmed milk from organic farming
-de:Magermilch aus biologischer Landwirtschaft
+de:Fettarme Milch aus biologischer Landwirtschaft
 fr:Lait demi-écrémé issu de l'agriculture biologique
 it:latte parzialmente scremato da agricoltura biologica
 nl:biologische halfvolle melk
@@ -9646,7 +9648,6 @@ fr:lait demi-écrémé sterilisé uht biologique,lait demi-écrémé issu de l'a
 
 <en:semi-skimmed milk
 en:pasteurized skimmed milk
-de:pasteurisierte magermilch
 fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé, lait pasteurise demi ecreme
 nl:gepasteuriseerde halfvolle melk
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
