@@ -3405,23 +3405,25 @@ HTML
 		$products_title = sprintf(lang($tagtype . '_products'), $products_title);
 	}
 
-
 	if (defined $tagid2) {
-		$products_title .= lang("title_separator") .
-		# issue 2285: make sure the product title reflects the 'not' condition for tag2 if present
-		(defined $request_ref->{tag2_prefix} and $request_ref->{tag2_prefix} eq '-' ? lang("not_tag2_prefix") . " ": "")  .
-		lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
+		$products_title .= lang("title_separator");
+		if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} eq '-')) {
+			$products_title .= sprintf(lang($tagtype2 . '_without_products'), $display_tag2);
+		}
+		else {
+			$products_title .= sprintf(lang($tagtype2 . '_products'), $display_tag2);
+		}
 	}
 
 	if (not defined $request_ref->{groupby_tagtype}) {
 		if (defined $tagid2) {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc)
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_s')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagidpath\">$display_tag</a>"
-				. "\n<br><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . separator_before_colon($lc)
+				. "\n<br><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_s')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagid2path\">$display_tag2</a></p>";
 		}
 		else {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc). ": $display_tag</p>";
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_s')) . "</a>" . separator_before_colon($lc). ": $display_tag</p>";
 
 			my $tag_html .= display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
 
@@ -3444,19 +3446,23 @@ HTML
 
 
 
-		$html .= "<h2>" . $products_title . lang("title_separator") . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
+		$html .= "<h2>" . $products_title . "</h2>\n";
 	}
 
 	} # end of if (defined $tagtype)
 
 	if ($country ne 'en:world') {
+
 		my $worlddom = format_subdomain('world');
+		my $word_link = "";
 		if (defined $request_ref->{groupby_tagtype}) {
-			$html .= "<p>&rarr; <a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . lang('view_list_for_products_from_the_entire_world') . "</a></p>";
+			$word_link = lang('view_list_for_products_from_the_entire_world');
 		}
 		else {
-			$html .= "<p>&rarr; <a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . lang('view_products_from_the_entire_world') . "</a></p>";
+			$word_link = lang('view_products_from_the_entire_world');
 		}
+		$html .= "<p>" . ucfirst(lang('countries_s')) . separator_before_colon($lc). ": " . display_taxonomy_tag($lc,"countries",$country) . " - "
+		. "<a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . $word_link . "</a></p>";
 	}
 
 	my $query_ref = {};
