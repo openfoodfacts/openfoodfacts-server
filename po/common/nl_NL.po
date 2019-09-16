@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-07 08:23\n"
+"PO-Revision-Date: 2019-09-11 09:36\n"
 "Language-Team: Dutch\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -79,6 +79,7 @@ msgstr "Hallo <NAME>,\n\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
+# please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
 msgstr "Bedankt voor uw inschrijving op <<site_name>>"
@@ -135,14 +136,17 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Productpagina ook bewerkt door"
 
+# Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
+# DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/nl_get.svg\" alt=\"Beschikbaar in Google Play\" width=\"102\" height=\"40\" />"
@@ -2138,8 +2142,8 @@ msgid "Scatter plot"
 msgstr "Grafiek met 2 assen"
 
 msgctxt "search_graph_blog"
-msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>→ meer weten over de grafieken van <<site_name>>: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafieken in drie muisklikken</a> (blog).</p>"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr ""
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2583,12 +2587,14 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr "Adres van website of blog"
 
+# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/microsoft/Dutch.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
+# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 msgstr "https://www.microsoft.com/nl-nl/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"

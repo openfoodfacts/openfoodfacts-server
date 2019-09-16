@@ -2194,6 +2194,9 @@ sub display_tags_list($$) {
 	my $tags_list = shift;
 	my $html = '';
 	my $images = '';
+	if (not defined $tags_list) {
+		return '';
+	}
 	foreach my $tag (split(/,/, $tags_list)) {
 		$html .= display_tag_link($tagtype, $tag) . ", ";
 
