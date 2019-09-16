@@ -2313,8 +2313,6 @@ sub preparse_ingredients_text($$) {
 
 			# Huiles végétales de palme, de colza et de tournesol
 			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp))\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
-			print STDERR "\n\n$prefixregexp\n\n";
-
 		}
 
 		# Caramel ordinaire et curcumine
