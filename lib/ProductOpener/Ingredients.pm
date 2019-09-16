@@ -941,6 +941,16 @@ sub extract_ingredients_from_text($) {
 					id => $ingredient_id,
 					text => $ingredient
 				);
+
+				# Record if the ingredient has sub-ingredients
+				# useful for ingredients that are specified
+				# like "vegetable oils (sunflower oil, palm oil)
+
+				if ($between ne '') {
+					$ingredient{has_sub_ingredients} = "yes";
+					$ingredient{from_palm_oil} = "ignore";
+				}
+
 				if (defined $percent) {
 					$ingredient{percent} = $percent;
 				}
@@ -1104,6 +1114,8 @@ sub analyze_ingredients($) {
 				# For properties like from_palm, one positive ingredient triggers a positive result for the whole product
 				# We assume that all the positive ingredients have been marked as yes or maybe in the taxonomy
 				# So all known ingredients without a value for the property are assumed to be negative
+
+				# value can can be "ignore"
 
 				if (defined $values{yes}) {
 					# One yes ingredient -> yes for the whole product
@@ -2095,6 +2107,7 @@ sub preparse_ingredients_text($$) {
 [
 "arachide",
 "avocat",
+"chanvre",
 "coco",
 "colza",
 "illipe",
@@ -2113,6 +2126,7 @@ sub preparse_ingredients_text($$) {
 "sésame",
 "soja",
 "tournesol",
+"tournesol oléique",
 ]
 ],
 

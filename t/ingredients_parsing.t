@@ -126,6 +126,7 @@ my @lists =(
 	["de","Farbstoffe Betenrot, Paprikaextrakt, Kurkumin","farbstoffe : betenrot, paprikaextrakt, kurkumin"],
 
 	["fr","graisse végétale bio (colza)","graisse végétale bio de colza"],
+	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
 
 );
 
