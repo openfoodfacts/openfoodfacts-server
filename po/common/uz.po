@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uz\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-11 11:35\n"
+"PO-Revision-Date: 2019-09-16 16:43\n"
 "Language-Team: Uzbek\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -17,35 +17,35 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 mahsulot"
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " va "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Men haqimda"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Qoʻshish"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Til qoʻshish"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Mahsulot qoʻshish"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Roʻyxatdan oʻtish"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Safimizga qoʻshilganingiz uchun rahmat. Endi siz mahsulotlarni qoʻshish va tahrir qilish uchun saytga kirishingiz mumkin.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -63,84 +63,98 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Salom <NAME>,\n\n"
+"https://openfoodfacts.org saytiga roʻyxatdan oʻtganingiz uchun tashakkur\n"
+"Bu yerda sizning foydalanuvchi nomingiz (loginingiz):\n\n"
+"Foydalanuvchi ismi: <USERID>\n\n"
+"Endi siz mahsulotlarni qoʻshish va tahrir qilish uchun saytga kirishingiz mumkin.\n\n"
+"<<site_name>> hamkorlik qiluvchi loyiha boʻlib, bu sizga mahsulotlardan tashqari sizga yana energiya, ichki baxtiyorlik va yangi gʻoyalar beradi!\n"
+"Ishtirokchilar orasida muhokamalarni olib borish va loyihani rivojlantirish maqsadida biz juda qulay boʻlgan Slack nomli tizimdan foydalanamiz: https//slack.openfoodfacts.org\n\n"
+"Undan tashqari siz Facebook ijtimoiy tarmogʻidagi guruhimizga ham aʻzo boʻlishingiz mumkin:\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"Yangiligi: biz sovun, tish pastasi, pardoz va boshqa kosmetik vositalarning maʼlumotlar omborini yaratish uchun OpenBeauty Facts loyihasini ham boshladik.\n"
+"https://openbeautyfacts.org\n\n"
+"Sizga katta tashakkur!\n\n"
+"Stefan va Open Food Facts jamosi\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Qoʻshilganingiz uchun rahmat <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Potensial xavfli ozuqa qoʻshimchasi. Foydalanishni cheklang."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Zaharli ozuqa qoʻshimchasi. Saqlaning."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Ozuqa qoʻshimchalari Yevropada taʼqiqlangan. Har qanday holatda ham saqlaning."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "qoʻshimchalar"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "qoʻshimcha"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Kengaytirilgan qidiruv"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Kengaytirilgan qidiruv va grafiklar"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Ortiqcha ichish sogʻliq uchun zararli."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Barcha topshiriqlar"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Allergiya va noqulay holatlarni vujudga keltiruvchi moddalar yoki mahsulotlar"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "allergenlar"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "allergen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Mahsulot sahifasi ham tahrirlangan"
 
 # Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"sekin\" alt=\"Android APK\" />"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Google Playda mavjud\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -184,7 +198,7 @@ msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulai
 msgstr ""
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
+msgid "Donate to support our work"
 msgstr ""
 
 msgctxt "brands"
@@ -1301,7 +1315,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Mahsulot qoʻshish"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
