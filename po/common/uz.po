@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uz\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-16 18:22\n"
+"PO-Revision-Date: 2019-09-16 18:38\n"
 "Language-Team: Uzbek\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -565,7 +565,7 @@ msgstr "Notoʻgʻri e-mail manzili"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr "Xavfsizlik kodi kamida 6 ta belgidan iborat boʻlishi kerak."
+msgstr "Maxfiy soʻz kamida 6 ta belgidan iborat boʻlishi kerak."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -573,75 +573,75 @@ msgstr "Notoʻgʻri foydalanuvchi nomi."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Foydalanuvchi nomi faqat harflar, raqamlar va chiziqlardan iborat boʻlishi lozim."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Mahsulot allaqachon yangi kod bilan mavjud"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Siz ism yoki taxallusingizni kiritishingiz lozim."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Ruxsat berilmadi."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Siz foydalanuvch nomini kiritishingiz kerak"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Siz allaqachon tizimga kirgansiz."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Maxfiy soʻzni qayta tiklash havolasi yaroqsiz yoki muddati tugagan."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "Ushbu elektron pochtasi bilan bogʻlangan foydalanuvchi yoʻq"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "Bunday foydalanuvchi nomi mavjud emas."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Bunday foydalanuvchi nomi allaqachon mavjud, iltimos boshqasini tanlang."
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "Misol uchun:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Misol uchun:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "Yaroqlilik muddati"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "Amal qilish muddati - vaqt oʻtishi bilan mahsulotda oʻzgarishlar sodir boʻlishi va uni foydalanish mumkin boʻlgan eng soʻnggi vaqti."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr ""
+msgstr "Mahsulotlarni saralash..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "en_US"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "Agar berilgan maʼlumotlar notoʻgʻri yoki xato boʻlsa, siz ularni ushbu sahifani tahrirlash oqali toʻldirishingiz yoki toʻgʻrilashingiz mumkin."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -651,51 +651,57 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Huquqiy asoslar</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Foydalanish shartlari</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">Biz haqimizda</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">Koʻp soʻraladigan savollar</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Gʻoyalar forumi</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Bosma nashrlar va Blogs</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "va <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebookdagi guruhimiz</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "<<site_name>> blogi"
 
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr ""
+msgstr "Odob-ahloq qoidalari"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr ""
+msgstr "Maʻlumot"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Loyihani koʻzdan kechirish"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Tez-tez soʻraladigan savollar"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
