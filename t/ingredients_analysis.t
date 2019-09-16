@@ -32,6 +32,7 @@ my @tests = (
 [ { lc => "en", ingredients_text => "modified palm oil" }, [ "en:palm-oil", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huiles végétales (huile de tournesol', huile de colza)" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huiles végétales" }, [ "en:may-contain-palm-oil", "en:vegan", "en:vegetarian"] ],
+[ { lc => "fr", ingredients_text => "huile de poisson" }, [ "en:palm-oil-free", "en:non-vegan", "en:non-vegetarian"] ],
 );
 
 

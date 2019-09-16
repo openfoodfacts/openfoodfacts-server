@@ -948,7 +948,6 @@ sub extract_ingredients_from_text($) {
 
 				if ($between ne '') {
 					$ingredient{has_sub_ingredients} = "yes";
-					$ingredient{from_palm_oil} = "ignore";
 				}
 
 				if (defined $percent) {
@@ -1097,6 +1096,12 @@ sub analyze_ingredients($) {
 							#$ingredient_ref->{$property} = $value;
 						}
 					}
+				}
+
+				# Vegetable oil (rapeseed oil, ...) : ignore "from_palm_oil:en:maybe" if the ingredient has sub-ingredients
+				if (($property eq "from_palm_oil") and (defined $value) and ($value eq "maybe")
+					and (defined $ingredient_ref->{has_sub_ingredients}) and ($ingredient_ref->{has_sub_ingredients} eq "yes")) {
+					$value = "ignore";
 				}
 
 				not defined $value and $value = "undef";
