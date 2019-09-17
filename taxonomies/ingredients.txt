@@ -707,14 +707,13 @@ fr:éclats de caramel au beurre salé
 # description:en:Carotenoids are yellow, orange, and red organic pigments that are produced by plants and algae, as well as several bacteria and fungi. Carotenoids from the diet are stored in the fatty tissues of animals. There is insufficient evidence to state that carotenoids have an antioxidant function in humans or that carotenoid dietary supplements lower the risk of or prevent diseases.
 # comment:en:Translations mix carotene and carotenoids.
 
-<en:carotene
-en:cartenoid, carotenoids
+en:carotenoids, cartenoids, tetraterpenoids
 ar:كاروتينات
 be:каратыноід
 bg:Каротиноид
 ca:Carotenoide
 cs:karotenoidy
-de:Carotinoide
+de:Carotinoide, Karotinoide
 el:Καροτενοειδές
 eo:Karotenoido
 es:Carotenoides
@@ -767,6 +766,58 @@ zh:類胡蘿蔔素
 wikidata:en:Q191907
 wikipedia:en:https://en.wikipedia.org/wiki/Carotenoid
 # ingredient/fr:caroténoïde has 2195 products in 12 languages @2019-04-29
+
+<en:carotenoids
+en:carotene, carotin
+ar:كاروتين
+be:Карацін
+bg:Каротин
+bs:Karoten
+ca:Carotè
+cs:Karoteny
+da:Karotin
+de:Carotine, Carotin
+eo:Karoteno
+es:Caroteno
+et:Karoteenid
+eu:Karoteno
+fa:کاروتن
+fi:Karoteenit
+fr:Carotène
+ga:Caraitéin
+gl:Caroteno
+he:קרוטן
+hu:Karotinok
+hy:Կարոտին
+id:Karotena
+io:Karotino
+it:Carotene
+ja:カロテン
+kk:Каротин
+ko:카로틴
+lt:Karotinas
+mk:Каротен
+ms:Karotena
+my:ကဲရော့တင်း
+nl:Caroteen
+nn:Karoten
+no:Karoten
+pl:Karoteny
+pt:Caroteno
+ro:Caroten
+ru:Каротин
+sco:Carotene
+sh:Karoten
+sk:Karotén
+sr:Karoten
+sv:Karoten
+th:แคโรทีน
+tr:Karoten
+uk:Каротин
+wuu:胡萝卜素
+zh:胡蘿蔔素
+wikidata:en:Q190156
+wikipedia:en:https://en.wikipedia.org/wiki/Carotene
 
 # <en:paprika
 en:paprika extract, e160c
@@ -2715,7 +2766,7 @@ bg:Ябълчна киселина
 ca:àcid màlic
 cs:Kyselina jablečná
 da:Æblesyre, ablesyre
-de:Apfelsäure
+de:Äpfelsäure, Apfelsäure
 el:Μηλικο οξυ
 eo:Pomacido
 es:ácido málico
@@ -7967,7 +8018,7 @@ vegetarian:en:maybe
 <en:microbial culture
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
 da:yoghurtkultur
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen
 el:γαλακτικά ένζυμα 
 es:fermentos lácticos, cultivos lácticos 
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
@@ -8841,10 +8892,97 @@ wikipedia:en:https://en.wikipedia.org/wiki/Xylanase
 # usage:fr:xylanase (contient blé)
 # usage:fr:enzymes (xylanases)
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                               D A I R Y     P R O D U C T S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-en:dairy, dairy product
-fr:produit laitier
+en:dairy, dairy product, dairy products, dairy food, dairy foods, milk product, milk products
+af:Suiwelproduk
+als:Milcherzeugnis
+ar:منتجات الألبان
+ast:Llacteu
+be:Малочныя прадукты
+br:Boued-laezh
+bs:Mliječni proizvodi
+bxr:Сагаан эдеэн
+ca:Làctic
+ckb:سپیاتی
+cs:Mléčný výrobek
+cy:Cynnyrch llaeth
+da:Mejeriprodukter
+de:Milcherzeugnisse, Milchprodukte, Molkereiprodukte, Milcherzeugnis, Milchprodukt, Molkereiprodukt
+el:Γαλακτοκομικά προϊόντα
+en:Dairy product
+eo:Laktoprodukto
+es:productos lácteos, leche y sus derivados, leche y derivados, derivados lácteos, lácteos, lácteo
+et:Piimatoode
+eu:Esneki
+fa:فراورده لبنی
+fi:Maitotuote
+fr:produits laitiers et dérivées, laits et dérivés y compris lactose, dérivés laitiers, produits laitiers, produit laitier, produits laitiers et dérivés, lactique, lactiques, laitage
+fy:Suvel
+gl:Produtos lácteos
+he:מוצרי חלב
+hi:दुग्ध-उत्पाद
+hy:Կաթնամթերք
+id:Produk susu
+is:Mjólkurafurð
+it:Latticini
+ja:乳製品
+kab:Ifarisen n yiɣi
+kk:Сүт тағамдары
+kn:ಕ್ಷೀರೋತ್ಪನ್ನ
+ko:유제품
+lt:Pieno produktas
+lv:Piena produkti
+mn:Сүүн бүтээгдэхүүн
+ms:Produk tenusu
+nl:Zuivel
+oc:Produch lachièr
+pl:Przetwory mleczne
+pt:Lacticínios
+ro:Produse lactate
+ru:Молочные продукты
+sco:Dairy product
+si:ගව කිරි ආශ්‍රිත නිෂ්පාදන
+sl:Mlečni izdelek
+sr:Млечни производи
+sv:Mejeriprodukt
+ta:பால் பொருள்
+th:ผลิตภัณฑ์นม
+tr:Mandıra ürünü
+uk:Молочні продукти
+uz:Sut mahsulotlari
+yi:מילכיגס
+zh:奶制品
+wikipedia:en:https://en.wikipedia.org/wiki/Dairy_product
+wikidata:en:Q185217
 vegan:en:no
+vegetarian:en:maybe
+
+<en:dairy
+en:fermented milk products, cultured dairy foods, cultured dairy products, cultured milk products
+be:Кісламалочныя прадукты
+ca:Llet fermentada
+cs:Kysaný mléčný výrobek
+de:Sauermilchprodukte, Sauermilchprodukt, Sauermilcherzeugnis, Sauermilcherzeugnisse
+en:Fermented milk products
+es:Producto fermentado de la leche
+hy:Կաթնաթթվային մթերք
+ko:발효유
+lv:Skābpiena produkti
+ru:Кисломолочные продукты
+uk:Кисломолочний продукт
+wikipedia:en:https://en.wikipedia.org/wiki/Fermented_milk_products
+wikidata:en:Q3506176
+vegan:en:no
+vegetarian:en:maybe
+
+<en:dairy
+en:powdered milk products, dried milk products, product on base on milk powder
+de:Trockenmilcherzeugnis
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -9544,6 +9682,13 @@ de:Käsereimilch
 <en:milk
 fr:lait de montagne
 
+<en:milk
+en:haymilk
+de:Heumilch, Heumilch g.t.S.
+es:leche de heno
+fr:lait de foin
+it:latte fieno
+wikidata:en:Q1616491
 
 ############################# LOW FAT MILK #####################
 
@@ -9794,8 +9939,9 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
 
 # description:en:RAW COW MILK - milk produced by female cows before any treatment
 
-en:cow's milk
+<en:cow's milk
 en:raw cow's milk
+de:Kuhrohmilch
 es:leche cruda de vaca
 fr:lait cru de vache, lait de vache cru
 nl:rauwe koemelk
@@ -9809,7 +9955,7 @@ fr:lait de vache bio thermisé
 # WHOLE COWS MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
 
 <en:whole milk
-<en:Cow's milk
+<en:cow's milk
 en:whole cow's milk
 de:Kuhvollmilch
 es:Leche entera de vaca
@@ -9819,6 +9965,11 @@ fr:Lait de vache entier, lait entier de vache
 en:raw whole cow's milk
 fr:lait de vache entier cru
 # ingredient/fr:lait-de-vache-entier-cru has 10 products @2019-05-27
+
+<en:whole cow's milk
+en:pasteurised whole cow's milk
+de:pasteurisierte Kuhvollmilch
+fr:lait de vache entier pasteurisé, lait pasteurisé de vache entier, lait entier de vache pasteurisé
 
 <en:cow's milk
 en:semi-skimmed cow's milk
@@ -9898,7 +10049,7 @@ fr:lait de chevre pasteurisé issu de l'agriculture biologique
 # description:en:SHEEPS MILK -  milk produced by female sheep 
 
 <en:milk
-en:scheeps milk, sheep milk
+en:sheeps milk, sheep milk
 de:Schafsmilch, Schafmilch
 fr:lait de brebis
 it:latte di pecora
@@ -9918,7 +10069,7 @@ nl:rauwe schapenmelk
 
 <en:sheeps milk
 en:pasteurized sheeps milk, pasteurised sheep's milk
-de:pasteurisierter Schafsmilch
+de:pasteurisierte Schafsmilch, pasteurisierter Schafsmilch
 fr:lait de brebis pasteurisé, lait pasteurisé de brebis
 nl:gepasteuriseerde schapenmelk
 
@@ -9955,7 +10106,7 @@ fr:lait de bufflonne pasteurisé
 
 <en:milk
 en:evaporated milk
-de:Kondensmilch
+de:evaporierte Milch, evaporierte Kondensmilch
 es:leche evaporada
 eu:Esne lurrundu
 fa:شیر تغلیظ‌شده
@@ -9982,7 +10133,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Evaporated_milk
 
 <en:evaporated milk
 en:coffee cream
-de:Kaffeerahm
+de:Kaffeerahm, Kaffeesahne
 fr:crème à café
 it:panna da caffè
 nl:koffieroom
@@ -9998,7 +10149,7 @@ az:Qatılaşdırılmış süd
 be:згушчанае малако
 ca:llet condensada
 cs:kondenzované mléko
-de:Kondensmilch, Dosenmilch, Büchsenmilch
+de:Kondensmilch, Dosenmilch, Büchsenmilch, eingedickte Milch
 eo:kondensita lakto
 es:leche condensada
 et:kondenspiim
@@ -10042,7 +10193,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Condensed_milk
 
 <en:condensed milk
 en:sweetened condensed milk
-de:gezuckerte Kondensmilch
+de:gezuckerte Kondensmilch, gezuckerte eingedickte Milch
 es:Leche condensada endulzada
 fr:lait concentré sucré, lait condensé sucré
 it:latte concentrato zuccherato
@@ -10052,7 +10203,7 @@ wikidata:en:Q57271749
 
 <en:condensed milk
 en:condensed semi-skimmed milk
-de:Kondensmagermilch
+de:Kondensmagermilch, eingedickte entrahmte Milch
 
 <en:sweetened condensed milk
 en:sweetened condensed semi-skimmed milk
@@ -10115,7 +10266,7 @@ nl:gecondenseerde magere poedermelk
 <en:milk proteins
 <en:lactose
 en:lactose and milk proteins
-de:Milchzucker und Milcheiweiss
+de:Milchzucker und Milcheiweiß, Milchzucker und Milcheiweiss
 es:lactosa y proteínas de la leche
 fr:lactose et protéine de lait, lactose et protéines de lait, protéines de lait et lactose, protéine de lait et lactose
 it:lattosio e proteine del latte
@@ -10229,8 +10380,40 @@ fr:substances laitières modifiées
 
 
 <en:milk
-fr:lait fermenté
-nl:gefermenteerde melk
+en:soured milk
+bar:Gschdeglde
+bg:Кисело мляко
+ca:Llet agra
+cv:Турăх
+da:Tykmælk
+de:Dickmilch, Setzmilch, Stockmilch, Sauermilch
+es:Leche agria
+et:Hapupiim
+fr:lait fermenté, lait aigre, lait caillé
+is:Súrmjólk
+it:Latte acido
+ko:산유
+la:Oxygala
+lt:Rūgpienis
+mk:Кисело млеко
+nl:Dikmelk, gefermenteerde melk
+nn:Surmjølk
+no:Kulturmelk
+pl:Zsiadłe mleko
+pnb:لسی
+pt:Leite fermentado
+ro:Lapte acru
+ru:Простокваша
+sl:Kislo mleko
+so:Caano ciir
+sv:Surmjölk
+uk:Кисляк (молоко)
+zh_yue:酸奶
+zh:酸乳
+vegan:en:no
+vegetarian:en:yes
+wikipedia:en:https://en.wikipedia.org/wiki/Soured_milk
+wikidata:en:Q253333
 
 <en:milk
 fr:lait écrémé caillé
@@ -10419,6 +10602,7 @@ th:นมเปรี้ยว
 carbon_footprint_fr_foodges_ingredient:fr:Yaourt
 carbon_footprint_fr_foodges_value:fr:2.9
 vegetarian:en:yes
+vegan:en:no
 
 <en:yogurt
 en:organic yogurt
@@ -10459,7 +10643,7 @@ fr:yaourt brassé sucré
 
 <en:yogurt
 en:whole yogurt
-de:Rahmjoghurt
+de:Rahmjoghurt, Sahnejoghurt
 fr:yaourt entier
 it:yogurt intero
 
@@ -10467,11 +10651,9 @@ it:yogurt intero
 fr:yaourt au lait entier
 de:Joghurt aus Vollmilch, Vollmilchjoghurt
 
-<en:yogurt
-de:Sahnejoghurt
-
-<de:Sahnejoghurt
-de:Sahnejoghurt mild
+<en:whole yogurt
+en:mild whole yogurt
+de:Sahnejoghurt mild, Rahmjoghurt mild
 
 <en:yogurt
 en:mild yogurt
@@ -10495,6 +10677,78 @@ de:Joghurterzeugnis
 # <en:Whey
 # en:Filtrated whey
 # fr:Perméat de lactosérum
+
+################################## KEFIR related stuff ######################
+
+# Kefir or kephir is a fermented milk drink similar to a thin yogurt that is made from kefir grains, a specific type of mesophilic symbiotic culture. The drink originated in the Caucasus, Eastern Europe and Russia, where it is prepared by inoculating cow, goat, or sheep milk with kefir grains. Wikipedia contributors. (2019, September 6). Kefir. In Wikipedia, The Free Encyclopedia.
+
+<en:dairy
+en:kefir, kephir
+ar:فطر هندي
+az:Kefir
+be:Кефір
+bg:Кефир
+bs:Kefir
+ca:Quefir de llet
+cs:Kefír
+da:Kefir
+de:Kefir
+el:Κεφίρ
+eo:Kefiro
+es:Kéfir
+et:Keefir
+eu:Kefir
+fa:کفیر
+fi:Kefiiri
+fr:kéfir, képhir
+gl:Quefir
+he:קפיר
+hr:Kefir
+hu:Kefir
+id:Kefir
+it:Kefir
+ja:ケフィア
+kk:Кефир
+ko:케피르
+ky:Кефир
+lt:Kefyras
+mk:Кефир
+nl:Kefir
+no:Kefir
+olo:Kefiiru
+pl:Kefir
+pt:Kefir
+ro:Chefir
+ru:Кефир
+sk:Kefír
+sl:Kefir
+sq:Kefiri
+sr:Кефир
+sv:Kefir
+th:คีเฟอร์
+tr:Kefir
+uk:Кефір
+wa:Kefir
+zh_yue:克菲爾乳酪
+zh:克非尔
+wikipedia:en:https://de.wikipedia.org/wiki/Kefir
+wikidata:en:Q185749
+vegan:en:no
+vegetarian:en:maybe
+
+<en:kefir
+en:whole kefir
+de:Sahnekefir
+
+<en:whole kefir
+en:mild whole kefir
+de:Sahnekefir mild, milder Sahnekefir
+
+<en:kefir
+en:mild kefir
+de:Kefir mild, milder Kefir
+
+################################## WHEY related stuff ######################
 
 # WHEY is the liquid remaining after milk has been curdled and strained.
 
@@ -10633,8 +10887,8 @@ it:derivati del siero di latte, la preparazione del siero di latte
 # ingredient/fr:préparation-à-base-de-lactosérum has 34 products @2019-03-18
 
 <en:whey
-en:whey permeate
-de:Molkepermeat
+en:whey permeate, milk permeate
+de:Molkepermeat, Milchpermeat
 fr:perméat de petit lait
 nl:melkweipermeaat
 # ingredient/fr:perméat-de-petit-lait has 126 products in 5 languages @2019-04-21
@@ -10644,12 +10898,7 @@ en:whey permeate powder
 de:Molkepermeat Pulver
 fr:perméat de petit lait en poudre
 
-en:dairy
-de:Milcherzeugnisse
-es:productos lácteos, leche y sus derivados, leche y derivados, derivados lácteos, lácteos
-fr:Produits laitiers et dérivées, laits et dérivés y compris lactose, dérivés laitiers, Produits laitiers, Produits laitiers et dérivés, lactique, lactiques
-hu:tejtermékek, tejtermék
-nl:zuivel
+################################## CREAM related stuff #####################
 
 # description:en:CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 # comment:en:wikipedia defines crème fraîche as non-sterilisee. Probably makes no sense in the context of OFF
@@ -10971,6 +11220,7 @@ it:panna fresca pastorizzata
 # ingredient/fr:creme-fraiche-pasteurisee has 164 products in 5 languages @2019-07-12
 # usage:fr:Crème fraîche pasteurisée 99.99%, ferments lactiques
 
+############################### BUTTERMILK related stuff ##################
 
 # description:en:BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
@@ -10986,7 +11236,7 @@ cs:Podmáslí
 cv:Уйран
 cy:Llaeth enwyn
 da:Kærnemælk
-de:Buttermilch, Sauermilch
+de:Buttermilch, Reine Buttermilch
 eo:Buterlakto
 es:Suero de mantequilla
 et:Pett
@@ -13226,6 +13476,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Retinyl_palmitate
 # comment:en:The greek letter β, has not been used in this ingredient.
 
 <en:vitamin A
+<en:carotene
 en:beta-carotene
 bg:Бета каротин
 ca:beta-carotè
@@ -13284,8 +13535,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Beta-Carotene
 
 # description:en: A provitamin is a substance that may be converted within the body to a vitamin. For example, "provitamin A" is a name for β-carotene, Whether beta-carotene is used as colour or vitamin depends on additional information on the ingredient list. It can be preceded by the wording colorant or provitamin A. Or it occurs in a (non-obvious) listing of other vitamins.
 
-<en:vitamin A
-<en:beta-Carotene
+<en:beta-carotene
 en:provitamin A
 de:Provitamin A
 fr:pro-vitamine A
@@ -26281,7 +26531,7 @@ it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
 
 <en:soy protein
-de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat
+de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat
 
 <en:soy protein
 en:dehydrated soy protein
@@ -26369,7 +26619,7 @@ vegetarian:en:no
 <en:animal protein
 # <en:dairy
 en:milk proteins
-de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss
+de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss, Milchproteine
 es:proteína de leche
 fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
 hu:tejfehérje
@@ -26391,7 +26641,7 @@ fr:protéines solubles de lait
 <en:hydrolysed protein
 <en:milk proteins
 en:hydrolysed milk protein
-de:Milchproteinhydrolysat
+de:Milchproteinhydrolysat, hydrolysiertes Milcheiweiß, hydrolysiertes Milcheiweiss
 es:proteína de leche hidrolizada
 fr:protéine de lait hydrolysée
 nl:gehydroliseerd melkeiwit
@@ -27175,7 +27425,7 @@ vegetarian:en:yes
 <en:milk chocolate
 # <en:chocolate chips
 fr:pépites de chocolat au lait
-de:Milchschokoladenstückchen
+de:Milchschokoladenstückchen, Vollmilchschokoladenstückchen
 it:pezzetti di cioccolato di latte
 nl:stukjes melkchocolade
 pl:kawalki czekolady mlecznej
@@ -27184,7 +27434,7 @@ pt:pepitas de chocolate de leite
 # usage:nl:stukjes melkchocolade (suiker, volle melkpoeder, cacaomassa, cacaoboter, weipoeder, emulgator (zonnebloemlecithine)),
 
 <en:milk chocolate
-de:Feine Milchschokolade, Vollmilchschokolade
+de:Feine Milchschokolade, Vollmilchschokolade, Edel-Vollmilchschokolade
 fr:chocolat supérieur au lait
 it:Cioccolato superiore al latte
 # ingredient/fr:chocolat-supérieur-au-lait has 207 products in 12 languages @2019-05-25
@@ -49857,7 +50107,7 @@ it:fiore di cartamo
 
 <en:safflower
 en:safflower concentrate
-de:Saflorkonzentrat
+de:Saflorkonzentrat, Saflorextrakt
 fr:extrait de carthame, concentré de carthame
 it:concentrato di cartamo
 nl:saffloerconcentraat
