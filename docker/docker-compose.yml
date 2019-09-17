@@ -19,7 +19,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=productopener
       - POSTGRES_USER=productopener
-      - POSTGRES_DB=productopener
+      - POSTGRES_DB=minion
   backend:
     image: openfoodfacts/productopener-backend:latest
     depends_on:
