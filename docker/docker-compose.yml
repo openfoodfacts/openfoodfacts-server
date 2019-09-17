@@ -10,11 +10,22 @@ services:
     image: memcached:1.5.16-alpine
     networks:
       - webnet
+  postgres:
+    image: postgres:11.5-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - webnet
+    environment:
+      - POSTGRES_PASSWORD=productopener
+      - POSTGRES_USER=productopener
+      - POSTGRES_DB=productopener
   backend:
     image: openfoodfacts/productopener-backend:latest
     depends_on:
       - mongodb
       - memcached
+      - postgres
     volumes:
       - podata:/mnt/podata
       - type: tmpfs
@@ -58,5 +69,6 @@ networks:
   webnet:
 volumes:
   dbdata:
+  pgdata:
   podata:
   product_images:

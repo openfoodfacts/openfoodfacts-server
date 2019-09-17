@@ -63,6 +63,7 @@ BEGIN
 		$page_size
 
 		%options
+		%server_options
 
 		%wiki_texts
 
@@ -229,6 +230,7 @@ $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+%server_options = %ProductOpener::Config2::server_options;
 
 $reference_timezone = 'Europe/Paris';
 
