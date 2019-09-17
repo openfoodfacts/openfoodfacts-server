@@ -36,7 +36,7 @@ Pueden contener elementos gráficos sujetos a derechos de autor u otros derechos
 <p>Las exportaciones deltas diarias son proporcionadas para los 14 días previos. La lista de archivos delta disponibles se puede encontrar en <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
  Cada línea representa un archivo que está disponible en <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
  El nombre del archivo contiene una marca de tiempo UNIX del primer y último cambio que contiene el archivo JSON, por lo que los archivos delta pueden ser importados (después de la extracción) con <code>mongoimport</code> en orden alfabético.</p>
-<p>Por favor, tenga en cuenta que debido a la naturaleza de <code>mongoexport</code>, los archivos delta no pueden informarle sobre los productos eliminados. Para borrar
+<p>Tenga en cuenta que debido a la naturaleza de <code>mongoexport</code> , los archivos delta no pueden informarle sobre productos eliminados. Para borrar
  productos eliminados de su base de datos, deberá importar el volcado completo de MongoDB.</p>
  
 <h3>Exportar datos en formato CSV</h3>
