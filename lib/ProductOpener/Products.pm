@@ -252,7 +252,7 @@ sub init_product($$$) {
 
 	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code }) if $log->is_debug();
 
-	my $creator = $User_id;
+	my $creator = $userid;
 
 	if ((not defined $userid) or ($userid eq '')) {
 		$creator = "openfoodfacts-contributors";
