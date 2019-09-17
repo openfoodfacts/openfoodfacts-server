@@ -144,18 +144,15 @@ my $args_ref = {
 	import_id => $import_id,
 };
 
-my $job = $minion->enqueue(import_csv_file => [$args_ref]);
+my $job_id = $minion->enqueue(import_csv_file => [$args_ref]);
 
-$import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job->{id};
+$import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 
 store("$data_root/import_files/$owner/import_files.sto", $import_files_ref);
 
-use Data::Dumper;
-$html .= "<p>Job:</p><pre>" . Dumper($job) . "</pre>";
-
 $html .= "<p>job_id: " . $results_ref->{job_id} . "</p>";
 
-$html .= "<a href=\"http://$server_domain/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id\">status</a>";
+$html .= "<a href=\"/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id\">status</a>";
 
 display_new( {
 	title=>$title,

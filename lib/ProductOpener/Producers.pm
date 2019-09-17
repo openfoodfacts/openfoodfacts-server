@@ -514,14 +514,14 @@ sub import_csv_file_task() {
 	my $job_id = $job->{id};
 
 	open(my $log, ">>", "$data_root/logs/minion.log");
-	print $log "import_csv_file_task - job: $job_id started - args: " . to_json($args_ref) . "\n";
+	print $log "import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 	close($log);
 
-	print STDERR "import_csv_file_task - job: $job_id started - args: " . to_json($args_ref) . "\n";
+	print STDERR "import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 
 	sleep(10);
 
-	"import_csv_file_task - job: $job_id - done\n";
+	print STDERR "import_csv_file_task - job: $job_id - done\n";
 
 	$job->finish("done");
 }

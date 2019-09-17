@@ -100,14 +100,9 @@ if (not $data{error}) {
 	my $job = $minion->job($job_id);
 	# Get Minion::Job object without making any changes to the actual job or return undef if job does not exist.
 
-	# Check job state
-	$data{job_state} = $minion->job($job_id)->info->{state};
-
-	# Get job metadata
-	$data{job_progress} = $minion->$job($job_id)->info->{notes}{progress};
-
-	# Get job result
-	$data{job_result} = $minion->job($job_id)->info->{result};
+	# Check job info
+	$log->debug("import_file_job_status.pl - get job_info", { data => \%data }) if $log->is_debug();
+	$data{job_info} = $minion->job($job_id)->info;
 }
 
 my $data = encode_json(\%data);
