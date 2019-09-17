@@ -56,6 +56,8 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Import qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -162,8 +164,9 @@ sub load_csv_or_excel_file($) {
 
 # Convert an uploaded file to OFF CSV format
 
-sub convert_file($$$) {
+sub convert_file($$$$) {
 
+	my $default_values_ref = shift;	# default values for lc, countries
 	my $file = shift;	# path and file name
 	my $columns_fields_file = shift;
 	my $converted_file = shift;
@@ -216,18 +219,48 @@ sub convert_file($$$) {
 		$col++;
 	}
 
-	$csv_out->print ($out, \@headers);
+	# Add headers from default values
+
+	my @default_headers = ();
+	my @default_values = ();
+
+	foreach my $field (sort keys %$default_values_ref) {
+
+		if (not defined $headers_cols{$field}) {
+			push @default_headers, $field;
+			push @default_values, $default_values_ref->{$field};
+		}
+	}
+
+	$csv_out->print ($out, [@default_headers, @headers]);
 	print $out "\n";
 
 	# Output CSV product data
 
 	foreach my $row_ref (@$rows_ref) {
-		my @values = ();
+
+		# Go through all fields to populate $product_ref with OFF field names
+		# so that we can run clean_fields() or other OFF functions
+
+		my $product_ref = {};
 		foreach my $field (@headers) {
 			my $col = $headers_cols{$field};
-			push @values, $row_ref->[$col];
+			$product_ref->{$field} = $row_ref->[$col];
+
+			# If no value specified, use default value
+			if ((defined $default_values_ref->{$field}) and (not defined $product_ref->{$field}) or ($product_ref->{$field} eq "")) {
+				$product_ref->{$field} = $default_values_ref->{$field};
+			}
 		}
-		$csv_out->print ($out, \@values);
+
+		clean_fields($product_ref);
+
+		my @values = ();
+		foreach my $field (@headers) {
+			push @values, $product_ref->{$field};
+		}
+
+		$csv_out->print ($out, [@default_values, @values]);
 		print $out "\n";
 	}
 
@@ -519,9 +552,9 @@ sub import_csv_file_task() {
 
 	print STDERR "import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 
-	sleep(10);
+	print STDERR "import_csv_file_task - job: $job_id - running import_csv_file\n";
 
-	print STDERR "import_csv_file_task - job: $job_id - done\n";
+	ProductOpener::Import::import_csv_file($args_ref);
 
 	$job->finish("done");
 }

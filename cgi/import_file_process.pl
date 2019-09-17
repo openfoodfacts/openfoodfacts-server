@@ -126,7 +126,13 @@ store($columns_fields_file, $columns_fields_ref);
 
 store("$data_root/import_files/$owner/all_columns_fields.sto", $all_columns_fields_ref);
 
-my $results_ref = convert_file($file, $columns_fields_file, $converted_file);
+# Default values: use the language and country of the interface
+my $default_values_ref = {
+	lc => $lc,
+	countries => $cc,
+};
+
+my $results_ref = convert_file($default_values_ref, $file, $columns_fields_file, $converted_file);
 
 $import_files_ref->{$file_id}{imports}{$import_id}{converted_t} = time();
 
@@ -138,11 +144,21 @@ if ($results_ref->{error}) {
 
 my $args_ref = {
 	user_id => $User_id,
+	org_id => $Org_id,
 	owner => $owner,
-	file => $converted_file,
+	csv_file => $converted_file,
 	file_id => $file_id,
 	import_id => $import_id,
 };
+
+if (defined $Org_id) {
+	$args_ref->{manufacturer} = 1;
+	$args_ref->{source_id} = $Org_id;
+	$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id};
+}
+else {
+	$args_ref->{no_source} = 1;
+}
 
 my $job_id = $minion->enqueue(import_csv_file => [$args_ref]);
 
