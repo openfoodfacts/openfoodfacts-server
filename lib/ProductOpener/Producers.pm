@@ -228,7 +228,7 @@ sub convert_file($$$) {
 			push @values, $row_ref->[$col];
 		}
 		$csv_out->print ($out, \@values);
-		print $out . "\n";
+		print $out "\n";
 	}
 
 	close($out);
