@@ -3407,9 +3407,13 @@ msgctxt "fields_group_other"
 msgid "Other information"
 msgstr "Other information"
 
-msgctxt "specific"
-msgid "specific"
-msgstr "specific"
+msgctxt "labels_specific"
+msgid "Specific label"
+msgstr "Specific label"
+
+msgctxt "categories_specific"
+msgid "Specific category"
+msgstr "Specific category"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3441,7 +3445,7 @@ msgstr "only the unit, with the value in another column"
 
 msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr "Select a field"
+msgstr "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 
 msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
@@ -3463,6 +3467,26 @@ msgctxt "value_unit"
 msgid "Value + Unit"
 msgstr "Value + Unit"
 
+msgctxt "value_in_l"
+msgid "Value in L"
+msgstr "Value in L"
+
+msgctxt "value_in_dl"
+msgid "Value in dl"
+msgstr "Value in dl"
+
+msgctxt "value_in_cl"
+msgid "Value in cl"
+msgstr "Value in cl"
+
+msgctxt "value_in_ml"
+msgid "Value in ml"
+msgstr "Value in ml"
+
+msgctxt "value_in_kg"
+msgid "Value in kg"
+msgstr "Value in kg"
+
 msgctxt "value_in_g"
 msgid "Value in g"
 msgstr "Value in g"
@@ -3471,9 +3495,9 @@ msgctxt "value_in_mg"
 msgid "Value in mg"
 msgstr "Value in mg"
 
-msgctxt "value_in_mg"
-msgid "Value in mg"
-msgstr "Value in mg"
+msgctxt "value_in_mcg"
+msgid "Value in μg"
+msgstr "Value in μg"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3483,6 +3507,17 @@ msgctxt "value_in_kj"
 msgid "Value in kJ"
 msgstr "Value in kJ"
 
-msgctxt "value_in_%"
+msgctxt "value_in_percent"
 msgid "Value in %"
 msgstr "Value in %"
+
+msgctxt "no_owner_defined"
+msgid "Please log-in to use this feature."
+msgstr "Please log-in to use this feature."
+
+msgctxt "org"
+msgid "Organization"
+msgstr "Organization"
+
+
+

@@ -228,6 +228,31 @@ sub display_user_form_optional($) {
 }
 
 
+sub display_user_form_admin_only($) {
+
+	my $user_ref = shift;
+
+	my $type = param('type') || 'add';
+
+	my $html = '';
+
+	if (not $admin) {
+		return '';
+	}
+
+	# $html .= "\n<tr><td>$Lang{twitter}{$lang}</td><td>"
+	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
+
+	if (($type eq 'add') or ($type eq 'edit')) {
+
+		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
+		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{organization}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
+	}
+
+	return $html;
+}
+
+
 sub check_user_form($$) {
 
 	my $user_ref = shift;
@@ -265,6 +290,17 @@ sub check_user_form($$) {
 		$user_ref->{initial_cc} = $cc;
 		$user_ref->{initial_user_agent} = user_agent();
 
+	}
+
+	if ($admin) {
+		$user_ref->{org} = remove_tags_and_quote(param('org'));
+		if ($user_ref->{org} ne "") {
+			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+		}
+		else {
+			delete $user_ref->{org};
+			delete $user_ref->{org_id};
+		}
 	}
 
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
@@ -648,6 +684,15 @@ sub init_user()
 	}
 	else {
 		%User = ();
+	}
+
+	# The org and org_id fields are currently properties of the user object (created by administrators through user.pl)
+	# Populate $Org_id and %org_ref from the user profile.
+	# TODO: create org profiles with customer service info etc.
+
+	if (defined $user_ref->{org_id}) {
+		$Org_id = $user_ref->{org_id};
+		$org_ref = { org => $user_ref->{org}, org_id => $user_ref->{org_id} };
 	}
 
 	if (defined $Org_id) {
