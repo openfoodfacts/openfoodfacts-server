@@ -392,7 +392,7 @@ CSS
 		if (defined $Org_id) {
 			$owner = "org-" . $Org_id;
 		}
-		else {
+		elsif (defined $User_id) {
 			$owner = "user-" . $User_id;
 		}
 	}
@@ -5750,7 +5750,7 @@ $block_ref->{content}
 sub display_new($) {
 
 	my $request_ref = shift;
-	$log->info("Start of display_new " . Dumper($request_ref)) if $log->is_info();
+	$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
 
 	# If the client is requesting json, jsonp, xml or jqm,
 	# and if we have a response in structure format,
