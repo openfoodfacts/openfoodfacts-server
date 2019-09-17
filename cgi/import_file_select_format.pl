@@ -242,9 +242,17 @@ function init_select_field_option(col) {
 	\$("#select_field_option_" + col).empty();
 
 	if (field) {
-		if (field == "labels_specific") {
+JS
+;
 
-			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$Lang{labels_s}{$lc}" style="width:150px">';
+	foreach my $tagtype ("categories", "labels") {
+
+		my $tagtype_specific = $tagtype . "_specific";
+		my $placeholder = $Lang{$tagtype . "_s"}{$lc};
+		$initjs .= <<JS
+		if (field == "$tagtype_specific") {
+
+			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px">';
 
 			\$("#select_field_option_" + column).html(input);
 
@@ -263,6 +271,11 @@ function init_select_field_option(col) {
 			instructions += "<p>$Lang{specific_tag_label}{$lc}</p>"
 			+ "<p>$Lang{specific_tag_label_value}{$lc}</p>";
 		}
+JS
+;
+	}
+
+	$initjs .= <<JS
 		else if (field.match(/_value_unit/)) {
 
 			var select = '<select id="select_field_option_value_unit_' + col + '" name="select_field_option_value_unit_' + col + '" style="width:150px">'

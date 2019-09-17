@@ -100,7 +100,7 @@ my $rows_ref = $results_ref->{rows};
 my $columns_fields_json = param("columns_fields_json");
 my $columns_fields_ref = decode_json($columns_fields_json);
 
-foreach my $field (keys %$columns_fields_json) {
+foreach my $field (keys %$columns_fields_ref) {
 	delete $columns_fields_ref->{$field}{numbers};
 	delete $columns_fields_ref->{$field}{letters};
 	delete $columns_fields_ref->{$field}{both};
@@ -108,16 +108,15 @@ foreach my $field (keys %$columns_fields_json) {
 	$all_columns_fields_ref->{$field} = $columns_fields_ref->{$field};
 }
 
-defined $import_files_ref->{$file_id}{imports} or $import_files_ref->{$file_id}{imports} = [];
+defined $import_files_ref->{$file_id}{imports} or $import_files_ref->{$file_id}{imports} = {};
 
 my $started_t = time();
-my $import_id = $started_t . "_" . sprintf("%4s". rand(1000));
+my $import_id = $started_t;
 
-my $columns_fields_file = "$data_root/import_files/$owner/$file.import.$import_id.columns_fields.sto";
-my $converted_file = "$data_root/import_files/$owner/$file.import.$import_id.converted.csv";
+my $columns_fields_file = "$file.import.$import_id.columns_fields.sto";
+my $converted_file = "$file.import.$import_id.converted.csv";
 
-push @{$import_files_ref->{$file_id}{imports}}, {
-	import_id => $import_id,
+$import_files_ref->{$file_id}{imports}{$import_id} = {
 	started_t => $started_t,
 	columns_fields => $columns_fields_file,
 	converted_file => $converted_file,
@@ -127,9 +126,36 @@ store($columns_fields_file, $columns_fields_ref);
 
 store("$data_root/import_files/$owner/all_columns_fields.sto", $all_columns_fields_ref);
 
-$html .= "<p>columns_fields_json:</p>" . $columns_fields_json;
+my $results_ref = convert_file($file, $columns_fields_file, $converted_file);
 
-convert_file($file, $columns_fields_file, $converted_file);
+$import_files_ref->{$file_id}{imports}{$import_id}{converted_t} = time();
+
+if ($results_ref->{error}) {
+	$import_files_ref->{$file_id}{imports}{$import_id}{convert_error} = $results_ref->{error};
+	store("$data_root/import_files/$owner/import_files.sto", $import_files_ref);
+	display_error($results_ref->{error}, 200);
+}
+
+my $args_ref = {
+	user_id => $User_id,
+	owner => $owner,
+	file => $converted_file,
+	file_id => $file_id,
+	import_id => $import_id,
+};
+
+my $job = $minion->enqueue(import_csv_file => [$args_ref]);
+
+$import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job->{id};
+
+store("$data_root/import_files/$owner/import_files.sto", $import_files_ref);
+
+use Data::Dumper;
+$html .= "<p>Job:</p><pre>" . Dumper($job) . "</pre>";
+
+$html .= "<p>job_id: " . $results_ref->{job_id} . "</p>";
+
+$html .= "<a href=\"http://$server_domain/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id\">status</a>";
 
 display_new( {
 	title=>$title,

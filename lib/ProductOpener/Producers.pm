@@ -33,10 +33,14 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 
+		$minion
+
 		&load_csv_or_excel_file
 		&init_columns_fields_match
 		&generate_import_export_columns_groups_for_select2
 		&convert_file
+
+		&import_csv_file_task
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -62,6 +66,18 @@ use Time::Local;
 use Data::Dumper;
 use Spreadsheet::CSV();
 use Text::CSV();
+use Minion;
+
+# Minion backend
+
+if (not defined $server_options{minion_backend}) {
+
+	print STDERR "No Minion backend configured in lib/ProductOpener/Config2.pm\n";
+}
+else {
+	print STDERR "Initializing Minion backend configured in lib/ProductOpener/Config2.pm\n";
+	$minion = Minion->new(%{$server_options{minion_backend}});
+}
 
 
 # Load a CSV or Excel file
@@ -201,6 +217,7 @@ sub convert_file($$$) {
 	}
 
 	$csv_out->print ($out, \@headers);
+	print $out . "\n";
 
 	# Output CSV product data
 
@@ -211,6 +228,7 @@ sub convert_file($$$) {
 			push @values, $row_ref->[$col];
 		}
 		$csv_out->print ($out, \@values);
+		print $out . "\n";
 	}
 
 	close($out);
@@ -279,34 +297,51 @@ sub init_columns_fields_match($$) {
 		$row++;
 	}
 
+	# Load previously assigned fields by the user_agent
+
+	my $all_columns_fields_ref = {};
+
+	if (defined $owner) {
+		$all_columns_fields_ref = retrieve("$data_root/import_files/$owner/all_columns_fields.sto");
+	}
+
 	# Match known column names to OFF fields
 
 	foreach my $column (@$headers_ref) {
 
-		my ($field, $value_or_unit, $tag);
+		my ($field, $value_unit, $tag);
 
-		my $column_id = get_string_id_for_lang("no_language", $column);
+		if (defined $all_columns_fields_ref->{$field}) {
 
-		if ($column_id =~ /^(code|barcode|ean|ean13|ean-13)$/) {
-			$field = "code";
+			$field = $all_columns_fields_ref->{$column}{field};
+			$value_unit = $all_columns_fields_ref->{$column}{value_unit};
+			$tag = $all_columns_fields_ref->{$column}{tag};
 		}
+		else {
 
-		# If we don't know if the column contains value + unit, value, or unit,
-		# try to guess from the content of the column
-		if (not defined $value_or_unit) {
-			if ($columns_fields_ref->{$column}{both}) {
-				$value_or_unit = "value_unit";
+			my $column_id = get_string_id_for_lang("no_language", $column);
+
+			if ($column_id =~ /^(code|barcode|ean|ean13|ean-13)$/) {
+				$field = "code";
 			}
-			elsif ($columns_fields_ref->{$column}{numbers}) {
-				$value_or_unit = "value";
-			}
-			elsif ($columns_fields_ref->{$column}{letters}) {
-				$value_or_unit = "unit";
+
+			# If we don't know if the column contains value + unit, value, or unit,
+			# try to guess from the content of the column
+			if (not defined $value_unit) {
+				if ($columns_fields_ref->{$column}{both}) {
+					$value_unit = "value_unit";
+				}
+				elsif ($columns_fields_ref->{$column}{numbers}) {
+					$value_unit = "value";
+				}
+				elsif ($columns_fields_ref->{$column}{letters}) {
+					$value_unit = "unit";
+				}
 			}
 		}
 
 		$columns_fields_ref->{$column}{field} = $field;
-		$columns_fields_ref->{$column}{value_unit} = $value_or_unit;
+		$columns_fields_ref->{$column}{value_unit} = $value_unit;
 		$columns_fields_ref->{$column}{tag} = $tag;
 
 		delete $columns_fields_ref->{$column}{existing_examples};
@@ -466,6 +501,30 @@ JSON
 	return $select2_options_ref;
 }
 
+
+# Minion tasks
+
+sub import_csv_file_task() {
+
+	my $job = shift;
+	my $args_ref = shift;
+
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	open(my $log, ">>", "$data_root/logs/minion.log");
+	print $log "import_csv_file_task - job: $job_id started - args: " . to_json($args_ref) . "\n";
+	close($log);
+
+	print STDERR "import_csv_file_task - job: $job_id started - args: " . to_json($args_ref) . "\n";
+
+	sleep(10);
+
+	"import_csv_file_task - job: $job_id - done\n";
+
+	$job->finish("done");
+}
 
 
 1;
