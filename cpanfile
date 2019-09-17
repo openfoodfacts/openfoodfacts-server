@@ -48,6 +48,8 @@ requires 'Email::Stuffer';
 requires 'Text::CSV', '>= 1.99, < 2.0';
 requires 'Text::Fuzzy';
 requires 'File::Copy::Recursive';
+requires 'HTTP::Accept', '>= 0.03';
+requires 'HAL::Tiny', '>= 0.03';
 
 # Logging
 requires 'Log::Any', '>= 1.705';
