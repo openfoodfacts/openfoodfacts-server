@@ -18,7 +18,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package ProductOpener::Import;
+# This package is used to convert CSV or XML file sent by producers to
+# an Open Food Facts CSV file that can be loaded with import_csv_file.pl / Import.pm
+
+package ProductOpener::ImportConvert;
 
 use utf8;
 use Modern::Perl '2017';
@@ -630,7 +633,7 @@ sub clean_fields($) {
 
 				# _d'arachide_
 				# morceaux _d’amandes_ grillées
-				if (($field =~ /_fr/) or (($lc eq 'fr') and ($field !~ /_\w\w$/))) {
+				if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
 					$product_ref->{$field} =~ s/_(d|l)('|’)([^_,-;]+)_/$1'_$2_/ig;
 				}
 			}
