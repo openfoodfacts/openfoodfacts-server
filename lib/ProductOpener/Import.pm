@@ -73,7 +73,10 @@ sub import_csv_file($) {
 
 	my $args_ref = shift;
 
-	my %global_values = %{$args_ref->{global_values}};
+	my %global_values = ();
+	if (defined $args_ref->{global_values}) {
+		%global_values = %{$args_ref->{global_values}};
+	}
 
 	my %stats = (
 	'products_in_file' => {},
@@ -442,7 +445,7 @@ sub import_csv_file($) {
 
 		my @param_fields = ();
 
-		foreach my $field ('lc', 'product_name', 'generic_name',
+		foreach my $field ('owner', 'lc', 'product_name', 'generic_name',
 			@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
 			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang', 'data_sources') {
 
