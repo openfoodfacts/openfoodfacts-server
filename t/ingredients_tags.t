@@ -68,6 +68,8 @@ my @tests = (
 	 [ { lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, [ "en:e951", "en:e950" ], ],
 	 [ { lc => "de", ingredients_text => "Farbstoffe (Betenrot, Paprikaextrakt, Kurkumin)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
 
+	 [ { lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
+
 );
 
 foreach my $test_ref (@tests) {
