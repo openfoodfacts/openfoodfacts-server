@@ -217,7 +217,7 @@ sub convert_file($$$) {
 	}
 
 	$csv_out->print ($out, \@headers);
-	print $out . "\n";
+	print $out "\n";
 
 	# Output CSV product data
 
