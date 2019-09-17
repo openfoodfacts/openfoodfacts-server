@@ -89,6 +89,7 @@ data:
     		$page_size
 
     		%options
+        %server_options
 
     		%wiki_texts
 
@@ -258,6 +259,7 @@ data:
     $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
     $robotoff_url = $ProductOpener::Config2::robotoff_url;
+    %server_options = %ProductOpener::Config2::server_options;
 
     $csrf_secret = $Blogs::Config2::csrf_secret;
 
@@ -550,7 +552,7 @@ data:
     	  $facebook_app_secret
         $csrf_secret
         $robotoff_url
-
+        %server_options
     	);
     	%EXPORT_TAGS = (all => [@EXPORT_OK]);
     }
@@ -581,6 +583,11 @@ data:
     # enable an in-site robotoff-asker in the product page
     $robotoff_url = '';
 
+    %server_options = (
+        private_products => 1,  # Make products visible only to the owner
+        export_servers => { public => "off", experiment => "off-exp" },
+        minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
+    );
     1;
 
   log.conf: |
