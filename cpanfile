@@ -50,6 +50,8 @@ requires 'Text::CSV', '>= 1.99, < 2.0';
 requires 'Text::Fuzzy';
 requires 'File::Copy::Recursive';
 requires 'Spreadsheet::CSV';
+requires 'Mojolicious::Lite';
+requires 'Minion';
 
 
 # Logging
