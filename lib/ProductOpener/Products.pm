@@ -72,7 +72,6 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -414,6 +413,8 @@ sub retrieve_product_rev($$) {
 
 sub change_product_server_or_code($$$) {
 
+	# Currently only called by admins, can cause issues because of bug #677
+
 	my $product_ref = shift;
 	my $new_code = shift;
 	my $errors_ref = shift;
@@ -473,10 +474,7 @@ sub store_product($$) {
 	my $products_collection = get_products_collection();
 	my $new_products_collection = $products_collection;
 
-
-	# Changing the code?
-	# 26/01/2017 - disallow code changes until we fix #677
-	if ($admin and (defined $product_ref->{old_code})) {
+	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
 		my $old_path =  product_path_from_id($old_code);
@@ -668,7 +666,7 @@ sub store_product($$) {
 	log_change($product_ref, $change_ref);
 
 	$log->debug("store_product - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
-	
+
 	return 1;
 }
 
@@ -1867,11 +1865,11 @@ sub process_product_edit_rules($) {
 							}
 							else {
 								$log->debug("condition matches") if $log->is_debug();
-								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
+								$action_log = "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							}
 						}
 						else {
-							$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+							$action_log = "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
 						}
 
 						if ($condition_ok) {
