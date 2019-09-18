@@ -410,33 +410,6 @@ wikidata:en:Q3139487
 es:DOCa, D.O.Ca., Denominación de Origen Calificada
 ru: Обозначение происхождения
 
-en:EU/non-EU Agriculture, EU and non EU Agriculture
-ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
-de:EU-/Nicht-EU-Landwirtschaft
-fr:Agriculture UE/Non UE
-it:Agricoltura EU/non-EU
-nl:EU/Non EU landbouw
-ru:EU/не-EU агрокультура
-
-en:non-EU Agriculture
-ca:Agricultura No-UE
-de:Nicht EU-Landwirtschaft
-es:Agricultura no UE
-fi:EU:n ulkopuolinen maatalous
-fr:Agriculture non UE
-it:Agricoltura non-UE
-nl:Non EU landbouw
-ru:не-EU агрокультура
-
-en:EU Agriculture, European Union agriculture
-ca:Agricultura UE
-de:EU-Landwirtschaft
-es:Agricultura UE, Agricultura Unión Europea, Agricultura de la UE
-fi:EU-maatalous
-fr:Agriculture UE, Agriculture Union Européeenne
-nl:EU landbouw
-ru:EU агрокультура, агрокультура Европейского Союза
-
 en:EAC
 ca:EAC
 de:EAC
@@ -2532,7 +2505,6 @@ nl:Niet aanbevolen voor zwangere vrouwen
 pt:Não recomendado para mulheres grávidas
 th:ไม่แนะนำสำหรับคนท้อง
 
-
 fr:Déconseillé aux femmes enceintes
 nl:Niet aanbevolen voor zwangere vrouwen
 ru:Не рекомендовано для беременных женщин
@@ -2612,10 +2584,6 @@ en:Biodyvin
 ca:Vi biodinàmic
 
 <en:Organic
-en:BO-BIO-126
-pt:BO-BIO-126
-
-<en:Organic
 en:India Organic
 wikidata:en:Q17055995
 
@@ -2634,14 +2602,77 @@ pt:Orgânico EU, Orgânico Europeu, Folha Europeia, Folha Orgânica Europeia
 zh:欧盟有机
 wikidata:en:Q380448
 
-<en:Organic
-de:EG-Öko-Verordnung
+<en:EU Organic
+en:EU/non-EU Agriculture, EU and non EU Agriculture
+ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
+de:EU-/Nicht-EU-Landwirtschaft
+fr:Agriculture UE/Non UE
+it:Agricoltura EU/non-EU
+nl:EU/Non EU landbouw
+ru:EU/не-EU агрокультура
 
 <en:EU Organic
-de:Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel
+en:non-EU Agriculture
+ca:Agricultura No-UE
+de:Nicht EU-Landwirtschaft
+es:Agricultura no UE
+fi:EU:n ulkopuolinen maatalous
+fr:Agriculture non UE
+it:Agricoltura non-UE
+nl:Non EU landbouw
+ru:не-EU агрокультура
 
+<en:EU Organic
+en:EU Agriculture, European Union agriculture
+ca:Agricultura UE
+de:EU-Landwirtschaft
+es:Agricultura UE, Agricultura Unión Europea, Agricultura de la UE
+fi:EU-maatalous
+fr:Agriculture UE, Agriculture Union Européeenne
+nl:EU landbouw
+ru:EU агрокультура, агрокультура Европейского Союза
+
+<en:Organic
 en:Bio Austria
+de:Bio Austria
+cuontry:Austria
 image:en:bio-austria.67x90.svg
+
+<en:Organic
+en:Austria Bio Garantie
+de:Austria Bio Garantie
+country:en:Austria
+image:en:austria-bio-biogarantie.90x90.png
+# Control agency with numbers AT-BIO-301, AT-BIO-302
+
+<en:Organic
+en:Biogarantie
+de:Biogarantie
+fr:Biogarantie
+nl:Biogarantie
+country:en:Belgium
+image:en:biogarantie.90x90.svg
+
+<en:Biogarantie
+en:Biogarantie BEL, Biogarantie Made in Belgium
+de:Biogarantie BEL, Biogarantie Made in Belgium
+fr:Biogarantie BEL, Biogarantie Made in Belgium
+nl:Biogarantie BEL, Biogarantie Made in Belgium
+country:en:Belgium
+image:en:biogarantie-bel.90x90.svg
+
+<en:Organic
+en:EG-Öko-Verordnung
+de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel
+country:en:Germany
+image:en:eg-oko-verordnung.110x90.svg
+
+<en:EU organic
+en:AB Agriculture Biologique
+fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié
+hu:AB Agriculture Biologique
+country:France
+wikidata:en:Q396709
 
 <en:EU Organic
 en:AT-BIO-004
@@ -2654,6 +2685,11 @@ de:AT-BIO-301
 it:AT-BIO-301
 pl:AT-BIO-301
 pt:AT-BIO-301
+country:Austria
+
+<en:EU Organic
+en:AT-BIO-302
+de:AT-BIO-302
 country:Austria
 
 <en:EU Organic
@@ -2774,6 +2810,10 @@ country:Bulgaria
 en:BG-BIO-16
 pt:BG-BIO-16
 country:Bulgaria
+
+<en:non-EU Agriculture
+en:BO-BIO-126
+pt:BO-BIO-126
 
 <en:EU Organic
 en:CH-BIO-004
@@ -4923,14 +4963,6 @@ fr:100% filet
 
 en:Without brown muscle
 fr:Sans muscle brun, Sans chair brune
-
-<en:EU organic
-fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié
-hu:AB Agriculture Biologique
-wikidata:en:Q396709
-
-en:Biogarantie
-image:en:biogarantie.90x90.png
 
 fr:AOC, A.O.C, Appellation d'Origine Contrôlée, Appelation d'Origine Contrôlée, aoc
 
