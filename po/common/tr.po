@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-09 17:12\n"
+"PO-Revision-Date: 2019-09-14 19:26\n"
 "Language-Team: Turkish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -78,6 +78,7 @@ msgstr "Merhaba <NAME>,\n\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
+# please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
 msgstr "Katıldığınız için teşekkür ederiz <<site_name>>"
@@ -134,14 +135,17 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Ürün sayfasını da düzenleyen"
 
+# Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
+# DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/tr_get.svg\" alt=\"Google Play'de Mevcut\" width=\"102\" height=\"40\" />"
@@ -163,7 +167,7 @@ msgstr "Resim çek"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Not: gönderdiğiniz resimler ücretsiz lisans Creative Commons Attribution ve ShareAlike altında yayınlanmaktadır."
+msgstr "Not: gönderdiğiniz resimler özgür bir lisans olan Creative Commons Attribution and ShareAlike kapsamında yayınlanmaktadır."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -745,7 +749,7 @@ msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Dünyanın dört bir yanından ortak çalışan, ücretsiz ve açık, yiyecek ürünleri veritabanı."
+msgstr "Dünyanın dört bir yanından katılımcı, özgür ve açık gıda ürünleri veritabanı."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -1923,7 +1927,7 @@ msgstr "ürünler"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr "<<site_name>> üzerindeki ürün sayısının güncellenmesi"
+msgstr "<<site_name>> üzerindeki ürünlerin sayısının gelişimi"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
@@ -2134,8 +2138,8 @@ msgid "Scatter plot"
 msgstr "Dağılım grafiği"
 
 msgctxt "search_graph_blog"
-msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p> → <<site_name>> grafikleri hakkında daha fazla bilgi edinin: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\"> 3 tıklamayla grafikler </ a> (blog). </ p>"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr "<p> → <<site_name>> grafikleri hakkında daha fazla bilgi edinin: <a href=\"/graphs-in-3-clicks\"> 3 tıklamayla grafikler</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2581,13 +2585,15 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr "Site veya blog adresi"
 
+# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/microsoft/Turkish.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
+# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/tr-tr/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."

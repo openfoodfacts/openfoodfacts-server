@@ -4398,6 +4398,10 @@ sub compute_nutrition_grade($$) {
 
 	my $grade = "";
 
+	if (not defined $fr_score) {
+		return '';
+	}
+
 	if ($product_ref->{nutrition_score_beverage}) {
 
 		# Tableau 6 : Seuils du score FSA retenus pour les boissons
@@ -4453,6 +4457,7 @@ sub compute_nutrition_grade($$) {
 			$grade = 'e';
 		}
 	}
+	return $grade;
 }
 
 

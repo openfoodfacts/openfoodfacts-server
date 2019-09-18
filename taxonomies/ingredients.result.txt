@@ -257,6 +257,8 @@ fr:pur jus de pommes à cidre bio
 fr:yaourt maigre en poudre
 de:Magermilch-Joghurtpulver
 
+de:Fruchtzubereitung
+
 < de:Hühnerei-Trockeneiweiß
 nl:scharrelkipeiwitpoeder
 
@@ -336,7 +338,7 @@ en:Acid, Acidifier
 bg:Киселина
 cs:Kyselina
 da:Syre, Almindelig Syre
-de:Säuerungsmittel
+de:Säuerungsmittel, Sauerungsmittel
 el:Μέσο οξίνισης
 es:Acidulante, acidulant
 et:Hape
@@ -742,7 +744,7 @@ it:mandorle spezzate
 
 < en:Almond
 en:blanches almonds, almonds blanched
-de:blanchierte Mandlen
+de:blanchierte Mandlen, Mandeln blanchiert
 es:almendras peladas
 fr:amandes blanchies
 
@@ -985,6 +987,7 @@ la:Lophius piscatorius
 en:animal
 de:tierisch
 es:animal
+nl:dier
 
 < en:Animal
 en:beef, steers
@@ -993,6 +996,7 @@ es:carne de vaca
 fr:bœuf, Boeufs
 it:manzo
 nl:rund
+sv:nötkött
 vegan:en: no
 vegetarian:en: no
 
@@ -1003,6 +1007,7 @@ es:cerdo
 fr:porc
 it:suino
 nl:varken
+sv:gris
 vegan:en: no
 vegetarian:en: no
 
@@ -1229,7 +1234,18 @@ fr:présure de veau
 nl:kalfsstremsel
 
 < en:Animal fat
-< en:Pork
+en:beef fat
+de:Rinderfett
+fr:gras de bœuf, graisse de bœuf
+it:grasso di manzo
+nl:rundvet
+
+< en:Animal fat
+en:calf fat
+fr:gras de veau
+nl:kalfsvet
+
+< en:Animal fat
 en:lard, pork fat
 an:Redetiu
 ar:دهن خنزير
@@ -1275,7 +1291,9 @@ wikidata:en: Q72827
 wikipedia:en: https://en.wikipedia.org/wiki/Lard
 
 < en:Animal fat
-fr:gras de veau
+en:sheeps fat
+fr:gras de mouton
+nl:schaapsvet
 
 < en:Animal protein
 en:blood proteins
@@ -1284,13 +1302,14 @@ vegetarian:en: no
 
 < en:Animal protein
 en:milk proteins
-de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz
+de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss
 es:proteína de leche
 fr:protéine de lait, protéines de lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
 hu:tejfehérje
 it:proteine del latte
-nl:melkeiwit
+nl:melkeiwit, melkeiwitten
 ru:молочный белок, молочные белки
+sv:mjölkprotein
 nova:en: 4
 vegetarian:en: yes
 
@@ -2164,7 +2183,7 @@ fr:grains de poivre
 < en:Bell pepper
 en:red pepper, red bell pepper
 da:rød peberfrugt
-de:rote Paprika
+de:rote Paprika, roter Paprika
 el:κόκκινη πιπεριά
 es:pimiento rojo, pimiento morrón rojo
 fi:punainen paprika
@@ -2185,11 +2204,12 @@ it:peperoni dolci
 < en:Bell pepper
 en:white pepper
 cs:Bílý pepř
-de:weisser Pfeffer
+de:weißer Pfeffer, weisser Pfeffer
 es:Pimienta blanca
 fr:poivre blanc
 it:pepe bianco
 nl:witte peper
+sv:vitpeppar
 
 < en:Bell pepper
 en:yellow pepper
@@ -2295,7 +2315,7 @@ ru:клубника
 sa:तृणबदरफलम्
 sd:اسٽرا بيري
 sq:luleshtrydhe
-sv:Jordgubbe
+sv:Jordgubbe, jordgubbar
 sw:Mstroberi
 ta:செம்புற்று
 tg:Қулфинай
@@ -2341,7 +2361,7 @@ ca:Gerd
 cs:Malina
 cy:Mafon cochion
 da:hindbær
-de:Himbeeren
+de:Himbeeren, Himbeere
 eo:Frambo
 es:frambuesa
 fa:تمشک
@@ -3466,8 +3486,8 @@ ar:عدل
 ca:mantega clarificada
 cs:přepuštěné máslo
 de:Butterschmalz
-es:mantequilla clarificada, mantequilla concentrada
-fr:beurre clarifié, beurre purifié, beurre fondu, beurre pâtissier
+es:mantequilla clarificada
+fr:beurre clarifié
 he:חמאה מזוקקת
 it:burro chiarificato, burro fuso
 ja:澄ましバター
@@ -3476,7 +3496,6 @@ ko:버터기름
 ky:Сары май
 lt:lydytas sviestas
 ms:mentega jernihan
-nl:boterolie
 os:Царв
 pl:masło klarowane
 ru:Топлёное масло
@@ -3486,14 +3505,6 @@ uk:Пряжене масло
 zh:无水黄油
 wikidata:en: Q909729
 wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
-
-< en:Butterfat
-en:concentrated butter
-de:konzentrierte Butter
-es:
-fr:beurre concentré
-it:
-nl:geconcentreerde boter
 
 < en:Butterfat
 en:ghee
@@ -4105,7 +4116,7 @@ fr:camembert au lait pasteurisé
 
 < en:Cane sugar
 en:brown cane sugar
-de:brauner Rohrzucker
+de:brauner Rohrzucker, Vollrohrzucker
 fr:sucre de canne brun
 it:zucchero di canna grezzo
 nl:Bruine rietsuiker
@@ -4336,6 +4347,12 @@ fr:Support, agent d'encapsulation, diluant d'autres additifs alimentaires, solva
 description:en: A food additive used to dissolve, dilute, disperse or otherwise physically modify a food additive or nutrient without altering its function -and without exerting any technological effect itself- in order to facilitate its handling, application or use of the food additive or nutrient.
 description:es: Aditivos alimentarios que se utilizan para disolver, diluir, dispersar o modificar de otras maneras un aditivo alimentario o nutriente sin alterar su función -y sin generar por sí mismos efecto tecnológico alguno- con el fin de facilitar la manipulación, la aplicación o uso del aditivo alimentario o nutriente.
 description:fr: Additif alimentaire utilisé pour dissoudre, diluer, disperser ou modifier physiquement de toute autre façon un additif alimentaire ou un nutriment sans altérer sa fonction -et sans produire lui-même d'effet technologique- afin de faciliter sa manipulation, son application ou son utilisationde l'additif alimentaire ou du nutriment.
+
+< en:Carrot
+de:Karottengranulat
+
+< en:Carrot
+de:Karottenpulver
 
 < en:Carrot
 en:carrot extract
@@ -4633,7 +4650,7 @@ cs:Kukuřice setá
 cv:Чакан тулă
 cy:Indrawn
 da:majs
-de:Mais
+de:Mais, Gemüsemais
 dv:ޒުވާރި
 el:αραβόσιτος, Καλαμπόκι
 eo:Maizo
@@ -5250,7 +5267,7 @@ ar:طحين القمح
 bg:пшенично брашно
 bs:pšenično brašno
 cs:pšeničná mouka
-de:Weizenmehl
+de:Weizenmehl, Weizen-mehl
 el:αλεύρι σίτου
 es:harina de trigo
 et:nisujahu
@@ -6867,6 +6884,9 @@ fr:piment de la jamaïque, piment de Jamaïque
 de:Jamaikapfeffer
 nl:Jamaicaanse peper
 
+< en:Chili pepper
+fr:piment Oiseau
+
 < en:Chives
 fr:ciboulette déshydratée
 de:Schnittlauch getrocknet
@@ -7520,6 +7540,7 @@ es:limón
 fr:citron, citrons
 it:limone
 nl:citroen
+sv:citron
 wikidata:en: Q1093742
 
 < en:Citrus fruit
@@ -7650,7 +7671,7 @@ cs:pomeranč
 cv:Апельсин
 cy:Oren
 da:appelsin
-de:Orange
+de:Orange, Orangen
 dv:ނާރިނގު
 el:πορτοκάλι
 eo:oranĝo
@@ -8139,7 +8160,7 @@ fr:pâte et beurre de cacao, pâte de cacao et beurre de cacao
 < en:Cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder
 cs:Kakaový prášek se sníženým obsahem tuku
-de:fettarmes Kakaopulver
+de:fettarmes Kakaopulver, Kakaopulver stark entölt
 es:cacao magro en polvo, cacao desgrasado en polvo
 fi:vähärasvainen kaakaojauhe
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé
@@ -8175,7 +8196,7 @@ nl:Kokosschilfers
 
 < en:Coconut
 en:coconut milk
-de:Kokosnussmilch
+de:Kokosnussmilch, Kokosmilch
 es:Leche de coco
 fr:lait de noix de coco, lait de coco, eau de coco
 it:latte di noce di cocco
@@ -8198,7 +8219,7 @@ nl:Kokospulp
 
 < en:Coconut
 en:grated coconut
-de:Kokosraspel
+de:Kokosraspel, Kokosraspeln
 es:coco rallado
 fr:noix de coco râpée
 it:cocco grattugiato
@@ -8640,7 +8661,7 @@ pt:Corante
 ro:Colorant
 sk:Farbivo
 sl:Barvilo
-sv:Färgämne
+sv:Färgämne, färgämnen
 description:cs: Barvivy se rozumějí látky, které potravině dodávají barvu nebo barvu obnovují a zahrnují přírodní složky potravin a přírodních zdrojů, jež jako takové nejsou obvykle požívány jako potraviny a nejsou obvykle používány jako charakteristické složky potravin.
 description:da: Farvestoffer: stoffer, der giver en fødevare farve eller giver den dens farve tilbage og omfatter naturlige bestanddele af fødevarer og andre naturlige kildematerialer, som normalt ikke i sig selv fortæres som fødevarer, og som ikke normalt anvendes som karakteristiske ingredienser i fødevarer.
 description:de: Farbstoffe sind Stoffe, die einem Lebensmittel Farbe geben oder die Farbe in einem Lebensmittel wiederherstellen; hierzu gehören natürliche Bestandteile von Lebensmitteln sowie natürliche Ausgangsstoffe, die normalerweise weder als Lebensmittel verzehrt noch als charakteristische Lebensmittelzutaten verwendet werden.
@@ -9224,6 +9245,7 @@ es:Leche de vaca pasteurizada
 fr:lait de vache pasteurisé, lait pasteurisé de vache
 it:latte di mucca pastorizzato
 nl:gepasteuriseerde koemelk
+sv:pastöriserad komjölk
 
 < en:Cow's milk
 en:semi-skimmed cow's milk
@@ -9305,7 +9327,7 @@ nl:room uit Normandië
 
 < en:Cream
 en:cream powder, Powdered cream
-de:Cremepulver
+de:Cremepulver, Sahnepulver
 es:nata en polvo
 fr:crème en poudre, poudre de crème
 it:panna in polvere
@@ -9333,6 +9355,7 @@ fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé,
 it:crema pastorizzata
 nl:gepasteuriseerde room
 pt:nata pasteurizada
+sv:pastöriserad grädde
 
 < en:Cream
 en:pasteurized crème fraîche
@@ -10013,7 +10036,7 @@ ms:mentega
 my:ထောပတ်
 nb:smør
 ne:नौनी
-nl:boter
+nl:boter, roomboter
 nn:smør
 oc:burre
 os:hæлхæ
@@ -10055,37 +10078,6 @@ vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q34172
 wikipedia:en: https://en.wikipedia.org/wiki/Butter
-
-< en:Dairy
-en:butterfat, milkfat, pastry butter
-bs:mliječna mast
-cs:Mléčný tuk
-cy:braster menyn
-da:smørolie
-de:Butterreinfett, Milchfett, wasserfreies Milchfett, Buttereinfett
-eo:laktograso
-es:grasa butírica
-fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait, matière grasse du lait
-id:lemak susu
-it:burro anidro, burro di pasticceria, burro concentrato
-ja:乳脂肪
-ko:유지방
-ms:lemak mentega, lemak susu
-nb:melkefett
-nl:melkvet, boterconcentraat, botervet
-pl:tłuszcz mlecny
-pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
-ru:Молочный жир
-sl:mlečna maščoba
-sv:mølkfett
-th:ไขมันเนย
-tl:taba ng gatas
-uk:Молочний жир
-zh:乳脂
-vegan:en: no
-vegetarian:en: yes
-wikidata:en: Q909729
-wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
 
 < en:Dairy
 en:buttermilk
@@ -10495,6 +10487,7 @@ hu:tejpor
 it:latte in polvere
 nl:melkpoeder
 ru:сухое молоко
+sv:mjölkpulver
 nova:en: 3
 vegan:en: no
 vegetarian:en: yes
@@ -10553,7 +10546,7 @@ tr:Peynir altı suyu
 uk:Сироватка, Сиро́ватка моло́чна
 zh:乳清
 vegan:en: no
-vegetarian:en: yes
+vegetarian:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Whey
 
 < en:Dairy
@@ -10567,6 +10560,7 @@ it:yogurt
 ja:ヨーグルト
 nl:Joghurt, yoghurt, jogurt
 ru:йогурт
+sv:yoghurt
 th:นมเปรี้ยว
 carbon_footprint_fr_foodges_ingredient:fr: Yaourt
 carbon_footprint_fr_foodges_value:fr: 2.9
@@ -19578,7 +19572,7 @@ fi:auringonkukkalesitiini
 fr:lécithine de tournesol
 it:lecitina girasole, lecitina di girasole
 lv:lecitinai iš saulègrąžų
-nl:zonnebloem-lecithine
+nl:zonnebloemlecithine, zonnebloem-lecithine
 nn:solsikkelecithin
 pl:lecytyny ze slonecznika
 pt:lecitina de girassol
@@ -19990,8 +19984,12 @@ wikidata:en: Q6460572
 < en:E331
 en:E331iii, Trisodium citrate
 de:Trinatriumcitrat
+es:E331iii, Citrato trisódico
 fr:E331iii, Citrate trisodique
 pl:E331iii, Cytrynian trisodowy
+pt:E331iii, Citrato trissódico
+sv:E331iii, Trinatriumcitrat
+e_number:en: 331
 
 en:E332, Potassium citrates, Potassium citrate, E-332
 bg:E332, E332 food additive, Калиев цитрат
@@ -33410,7 +33408,7 @@ sh:laktaza
 sk:laktáza
 sl:laktaza
 sr:laktaza
-sv:laktas
+sv:laktas, laktasenzym
 tl:lactase
 uk:Лактаза
 uz:laktaza
@@ -33643,94 +33641,55 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q118843
 
-en:fat, fats
-af:Vet
-ak:sradeɛ
-an:Graixa
-ar:دهن
-ay:Lik'i
-bg:Мазнина, мазнини
-bn:স্নেহ পদার্থ
-br:Druzoni
-ca:greix
-cs:tuky, tuk
-cy:Braster
-da:Fedtstof, fed
-de:Fett
-el:λίπος, λιπαρός
-eo:graso
-es:gordo, grasa
-et:Rasvad
-eu:koipe
-fa:چربی
-fi:Rasva
-fr:Graisse
-ga:Saill
-gl:greix
-gu:ચરબી
-he:שומן
-hi:वसा
-hr:Masti
-ht:Kò gra
-hu:zsír
-id:Lemak
-it:grasso
-ja:脂肪
-jv:Gajih
-ka:ცხიმი
-kk:Май
-kn:ಕೊಬ್ಬು
-ko:지방
-la:Pingue
-li:Vèt
-lv:Tauki
-mk:масти
-ml:കൊഴുപ്പ്
-mr:चरबी
-ms:Lemak
-mt:xaħam
-nb:fett
-nl:vet
-nn:feitt
-pl:tłuszcz
-pt:gordura
-qu:Wira
-ro:Grăsime
-ru:жиры
-sd:چرٻي
-sh:Mast
-si:මේදය
-sl:Maščobe, maščoba
-sn:Mafuta
-so:Dux
-sq:Yndyra
-sr:Масти
-su:Lemak
-sv:Fett, fet
-sw:Mafuta
-ta:கொழுப்பு
-te:కొలెస్టరాల్‌
-th:ไขมัน
-tr:Yağ
-uk:Жири
-ur:شحم
-vi:chất béo
-zh:脂肪
-vegan:en: maybe
-vegetarian:en: maybe
-wikidata:en: Q127980
-wikipedia:en: https://en.wikipedia.org/wiki/Fat
-
 < en:Fat
 en:animal fat
+an:Saín
+ar:دهن حيواني
+ca:sagí
+da:Animalsk fedt
 de:Tierfett, tierisches Fett
 es:Grasa animal
+eu:Gantz
+fi:Eläinrasva
 fr:Graisse animale
-it:grassi animali
+hy:Կենդանական յուղ
+it:grassi animali, grasso animale
+ja:動物性脂肪
+kk:Жануар майы
+ko:동물성 기름
+ln:Mpɔ́ngɔ
+nl:dierlijk vet
+pl:tłuszcz zwierzęcy
+ru:Животные жиры
+sv:Animaliskt fett
+tr:Hayvansal yağ
+uk:Тваринні жири
+zh:動物脂肪
+vegan:en: no
+vegetarian:en: maybe
+wikidata:en: Q1423543
+wikipedia:en: https://en.wikipedia.org/wiki/Animal_fat
 
 < en:Fat
 en:hydrogenated fat
-fr:Graisse hydrogénée
+bg:хидрогенирано масло
+de:hydriertes Fett
+es:grasa hidrogenada
+fr:graisse hydrogénée
+it:grassi idrogenati
+nl:gehydrogeneerd vet
+vegan:en: no
+vegetarian:en: maybe
+
+< en:Fat
+en:milkfat, milk fat
+de:Milchfett
+fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
+nb:melkefett
+nl:melkvet
+ro:grasimi din lapte
+vegan:en: no
+vegetarian:en: yes
 
 < en:Fat
 en:poultry fat
@@ -33739,9 +33698,6 @@ es:Grasa de aves
 fr:graisse de volaille
 vegan:en: no
 vegetarian:en: no
-
-< en:Fat
-fr:gras
 
 < en:Fat reduced cocoa powder
 fr:cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
@@ -33822,6 +33778,7 @@ pt:fermentos selecionados
 
 < en:Ferment
 fr:ferments d'affinage
+de:Reifungskulturen
 
 < en:Ferment
 fr:ferments de maturation
@@ -35583,8 +35540,12 @@ es:aroma, aromas
 fr:arôme, arômes
 it:aroma, aromi
 nl:aroma, aroma's
+sv:arom, aromer
 vegan:en: maybe
 vegetarian:en: maybe
+
+< en:Flavouring
+de:Aroma Koffein
 
 < en:Flavouring
 en:aniseed aroma
@@ -35690,7 +35651,8 @@ de:natürliches Aroma
 es:aroma natural, aromas naturales
 fr:arôme naturel, arômes naturels
 it:aroma naturale, aromi naturali
-nl:Natuurlijke smaakstoffen, natuurlijk aroma
+nl:Natuurlijke smaakstoffen, natuurlijk aroma, natuurlijke aroma's
+sv:naturlig arom, naturliga aromer
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -35972,7 +35934,7 @@ es:harina de arroz
 fi:riisijauho
 fr:Farine de riz
 it:farina di riso
-nl:rijstbloem
+nl:rijstebloem, rijstbloem
 pt:farinha de arroz
 sv:rismjöl
 
@@ -36465,7 +36427,7 @@ fr:glucose-fructose
 en:glucose-fructose syrup, fructose-glutose syrup, glucose and fructose syrup
 cs:glukózový-fruktózový sirup
 da:glukos-fruktossirap
-de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup
+de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glucose-Fructose-Sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
 es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
 fi:glukoosi-fruktoosi siirappi
@@ -36486,7 +36448,7 @@ sv:glukos-fruktossirap
 fr:fructose de blé
 
 en:fructose syrup
-de:Fruktose Sirup
+de:Fruktose Sirup, Fruktosesirup
 es:Jarabe de fructosa
 fr:sirop de fructose
 it:sciroppo di fruttosio
@@ -37928,7 +37890,7 @@ br:Pechez
 bs:Breskva
 ca:préssec
 cs:broskev
-de:Pfirsich
+de:Pfirsich, Pfirsiche
 el:Ροδάκινο
 eo:persiko
 es:Melocotón
@@ -38380,7 +38342,7 @@ it:succo di limone
 nl:citroensap
 nn:sitronsaft
 pt:sumo de limão
-sv:citronjuice
+sv:citronsaft, citronjuice
 
 < en:Fruit juice
 en:lime juice
@@ -38778,6 +38740,7 @@ pl:dekstroza
 ro:dextroza
 sk:dextróza
 sl:dekstroza
+sv:druvsocker, dextros
 
 < en:Glucose
 en:glucose syrup
@@ -38785,7 +38748,7 @@ bg:глюкозе сироп
 ca:Almívar
 cs:glukózový sirup
 da:glukosesirup
-de:Glukosesirup
+de:Glukosesirup, Glucosesirup
 el:σιρόπι γλυκόζης
 es:jarabe de glucosa
 et:glükoosisiirup
@@ -38844,7 +38807,7 @@ sv:glukos-fruktossirap
 < en:Glucose syrup
 en:dehydrated glucose syrup, powdered glucose syrup, dried glucose syrup
 da:tørret glukosesirup
-de:dehydrierter Glukosesirup
+de:getrockneter Glukosesirup, dehydrierter Glukosesirup
 es:Sirope deshidratado de glucosa
 fi:kuivattu glukoosisiirappi
 fr:sirop de glucose déshydraté, sirop de glucose en poudre
@@ -38922,6 +38885,7 @@ et:nisugluteen
 fr:gluten de blé, gluten de froment
 nl:tarwegluten
 pl:gluten pszenny
+sv:vetegluten
 
 en:Glycerol monostearate
 ar:أحادي ستيرات الغليسرول
@@ -39363,7 +39327,7 @@ it:estratto di guarana
 
 < en:Guava
 en:guava puree, guavas puree
-de:Guavenmus
+de:Guavenmus, Guavenmark
 fr:purée de goyave
 it:purea di guaiave
 
@@ -39501,7 +39465,7 @@ cs:oříšková pasta
 de:Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es:pasta de avellana, pasta de avellanas
 fr:pâte de noisette, purée de noisettes
-hu:mogyoromassza
+hu:
 it:pasta di nocciole
 nl:hazelnootpasta
 pl:masa orzechowa
@@ -39552,7 +39516,8 @@ de:Gewürz, Kräuter
 es:hierbas
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, herbes aromatiques
 it:erba
-nl:kruiden
+nl:Kruiden
+sv:örter
 vegan:en: yes
 vegetarian:en: yes
 
@@ -39727,6 +39692,7 @@ nl:laurier, laurierblad
 or:ତେଜପତ୍ର
 pl:liść laurowy
 ru:Лавровый лист
+sv:lagerblad
 te:మాసాల ఆకు
 tg:Барги ғор
 th:ใบกระวาน
@@ -40458,7 +40424,7 @@ sk:Petržlen
 sl:peteršilj
 sq:Majdanozi
 sr:першун
-sw:Persilja
+sv:persilja
 ta:வோக்கோசு
 tl:kinchay
 tr:Maydanoz
@@ -41192,6 +41158,19 @@ description:sl: Sredstva za ohranjanje vlage so snovi, ki preprečujejo izsušit
 description:sv: Fuktighetsbevarande medel: ämnen som förhindrar uttorkning av livsmedel genom att motverka effekten av luft med låg fuktighet, eller förbättrar upplösningen av pulver i vattenlösningar.
 wikidata:en: Q911854
 
+< en:Hydrogenated fat
+en:fully hydrogenated fat
+de:komplett hydriertes Fett
+es:grasa totalmente hidrogenada
+fr:graisse totalement hydrogénée
+it:grassi totalmente idrogenati
+nl:volledig gehydrogeneerde vet
+
+< en:Hydrogenated oil
+< en:Vegetable oil
+fr:huile végétale hydrogénée
+de:pflanzliches Öl gehärtet
+
 < en:Hydrogenated palm oil
 en:partially hydrogenated palm oil
 fr:huile de palme partiellement hydrogénée
@@ -41392,6 +41371,7 @@ wikidata:en: Q3829827
 wikipedia:en: https://en.wikipedia.org/wiki/Uroteuthis_duvauceli
 
 en:ingredient, ingredients, composition
+az:Tarkibi
 bg:Състав
 bs:Sastoji
 cs:Složení
@@ -42846,7 +42826,7 @@ sl:Grah
 sq:Bizelja
 sr:грашак
 su:Kacang polong
-sv:ärt
+sv:ärt, ärter
 sw:Njegere
 ta:பட்டாணி
 te:బఠానీ
@@ -42929,7 +42909,7 @@ fr:mélisse bio
 < en:Lemon juice
 en:dried lemon juice
 da:tørket citronsaft
-de:Zitronenpulver
+de:Zitronenpulver, Zitronensaftpulver
 es:zumo de limón seco
 fr:jus de citron en poudre, citron en poudre, poudre de citron, jus de citron déshydraté
 it:limone in polvere
@@ -43823,7 +43803,7 @@ nl:biologische maltosestroop
 < en:Fruit juice
 < en:Mandarin
 fr:jus de mandarine
-de:Mandarinesaft
+de:Mandarinesaft, Mandarinensaft
 it:succo di mandarino
 
 < en:Manganese
@@ -44155,7 +44135,7 @@ de:Fleisch
 es:carne
 fr:viande
 it:carne
-nl:Vlees
+nl:vlees
 vegan:en: no
 vegetarian:en: no
 
@@ -44489,13 +44469,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Menthol
 < en:Microbial culture
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
 da:yoghurtkultur
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen
 el:γαλακτικά ένζυμα
 es:fermentos lácticos, cultivos lácticos
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
 hu:tejsavbaktériumok
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
-nl:melkfermenten, melkkiemen, Melkzuurbacteriën
+nl:melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel
 pl:żywe kultury bakterii jogurtowych
 pt:fermentos lácteos, culturas lácteas, leveduras lacteas
 ru:Молочные ферменты, пробиотические микроорганизмы
@@ -44679,7 +44659,7 @@ fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matiè
 it:latte parzialmente scremato
 nb:Ekstra lett melk
 nl:halfvolle melk, gedeeltelijk afgeroomde melk
-sv:Lättmjölk
+sv:mellanmjölk
 wikidata:en: Q10572454
 wikipedia:en: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
@@ -44704,7 +44684,7 @@ nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
 pa:ਸਪਰੇਟਾ
 pt:Leite desnatado
 ru:Обезжиренное молоко
-sv:Skummjölk
+sv:Skummjölk, lättmjölk
 uk:Знежирене молоко
 vi:Sữa gầy
 wikidata:en: Q2352187
@@ -44814,7 +44794,7 @@ nl:volle melkpoeder
 pl:pelne mleko w proszku
 pt:leite entero em pó, leite em pó gordo
 sk:sušené plnotučné mlieko
-sv:helmjölkspulver
+sv:skummjölkspulver, helmjölkspulver
 
 < en:Milk powder
 fr:lait écrémé à base de poudre de lait
@@ -44984,6 +44964,43 @@ uk:Рижик смачний
 zh:松乳菇
 wikidata:en: Q62138
 wikipedia:en: https://en.wikipedia.org/wiki/Lactarius_deliciosus
+
+< en:Milkfat
+en:butterfat, pastry butter, anhydrous milk fat, concentrated butter
+bg:безводно масло
+bs:mliječna mast
+cs:mléčný tuk
+cy:braster menyn
+da:smørolie
+de:Butterreinfett, wasserfreies Milchfett
+el:βούτυρο τηγμένο
+eo:laktograso
+es:grasa butírica, mantequilla concentrada
+fi:voirasva
+fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré
+hu:vajolaj, mogyoromassza
+id:lemak susu
+it:burro anidro, burro di pasticceria, burro concentrato
+ja:乳脂肪
+ko:유지방
+ms:lemak mentega, lemak susu
+nb:vannfritt melkefett
+nl:boterconcentraat, botervet, watervrij melkvet, boterolie, geconcentreerde boter
+pl:tłuszcz mlecny
+pt:gordura butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra
+ro:grasimi din unt
+ru:Молочный жир
+sl:mlečna maščoba
+sr:anhidrovana mlečna
+sv:mjölkfett, mølkfett
+th:ไขมันเนย
+tl:taba ng gatas
+uk:Молочний жир
+zh:乳脂
+vegan:en: no
+vegetarian:en: yes
+wikidata:en: Q909729
+wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
 
 < en:Millet
 de:Hirseflocken
@@ -46430,7 +46447,7 @@ ca:menta pebrera
 cs:máta peprná
 cy:Mintys poeth
 da:Pebermynte
-de:Pfefferminz
+de:Pfefferminz, Pfefferminze
 eo:Pipromento
 es:menta
 et:Piparmünt
@@ -46548,6 +46565,7 @@ es:Almidón modificado de maiz
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidons modifiés de maïs
 it:amido modificato di mais
 nl:Gemodificeerd maïszetmeel
+sv:modifierad majsstärkelse
 
 < en:Modified starch
 fr:amidon transformé de manioc
@@ -47560,6 +47578,10 @@ it:estratti di funghi
 nl:champignonextract
 
 < en:Mushroom
+en:mushroom powder
+de:Champignonpulver
+
+< en:Mushroom
 en:pholiota
 be:Лускаўніца
 cs:šupinovka
@@ -47899,6 +47921,7 @@ hu:káposztafélék
 ja:カラシナ, シロガラシ
 nl:mosterdzaad, mosterdzaden
 sl:gorčično seme
+sv:senapsfrö
 
 < en:Mustard
 fr:moutarde à l'ancienne
@@ -49215,17 +49238,6 @@ fr:poulpe en lamelles
 < en:Octopus
 zh:砂蛸
 
-en:oil, cooking oil, frying oil
-cs:Olej
-de:Öl, Speiseöl
-es:aceite
-fr:huile, huiles, huile de cuisine, huile de friture
-it:olio
-nl:olie, oliën
-ru:масло, масла
-vegan:en: maybe
-vegetarian:en: maybe
-
 < en:Oil
 en:fish oil
 ar:زيت السمك
@@ -49260,20 +49272,233 @@ tr:Balık yağı
 uk:Риб'ячий жир
 vi:Dầu cá
 zh:魚油
+from_palm_oil:en: no
+vegan:en: no
+vegetarian:en: no
 wikidata:en: Q1786125
 
 < en:Oil
-en:hydrogenated oil
-fr:Huile hydrogénée
-nl:Gehydrogeneerde olie
+en:frying oil
+fr:Huile de friture
 
 < en:Oil
+en:hydrogenated oil
+de:gehärtetes öl
+es:aceite hidrogenado
+fr:Huile hydrogénée
+it:olio idrogenato
+nl:Gehydrogeneerde olie
+wikidata:en: Q11587683
+wikipedia:en: https://en.wikipedia.org/wiki/Hydrogenation#Food_industry
+
+< en:Oil
+en:marine oil
+fr:huile marine
+from_palm_oil:en: no
+vegan:en: no
+vegetarian:en: no
+
+en:oil and fat, oils and fats
+bg:масла и мазнини
+cs:oleji a tuky
+da:olier og fedtstoffer
+de:Speiseöle und -fette
+el:έλαια και λίπη
+es:aceites y grasas
+et:õlid ja rasvad
+fi:öljyt ja rasvat
+fr:huiles et graisses
+hu:Olajok és zsírok
+it:oli e grassi
+lt:Aliejus ir riebalai
+lv:Eļļas un tauki
+mt:żjut u xaħmijiet
+nl:oliën en vetten
+pl:oleje i tłuszcze
+pt:óleos e gorduras
+ro:uleiuri și grăsimi
+ru:растительным и животным жирам
+sk:Oleje a tuky
+sl:olja in maščobe
+sv:oljor och fetter
+from_palm_oil:en: maybe
+vegan:en: maybe
+vegetarian:en: maybe
+
+< en:Oil and fat
+en:fat, fats
+af:Vet
+ak:sradeɛ
+an:Graixa
+ar:دهن
+ay:Lik'i
+bg:Мазнина, мазнини
+bn:স্নেহ পদার্থ
+br:Druzoni
+ca:greix
+cs:tuky, tuk
+cy:Braster
+da:Fedtstof, fed
+de:Fett
+el:λίπος, λιπαρός
+eo:graso
+es:gordo, grasa
+et:Rasvad
+eu:koipe
+fa:چربی
+fi:Rasva
+fr:Graisse
+ga:Saill
+gl:greix
+gu:ચરબી
+he:שומן
+hi:वसा
+hr:Masti
+ht:Kò gra
+hu:zsír
+id:Lemak
+it:grasso
+ja:脂肪
+jv:Gajih
+ka:ცხიმი
+kk:Май
+kn:ಕೊಬ್ಬು
+ko:지방
+la:Pingue
+li:Vèt
+lv:Tauki
+mk:масти
+ml:കൊഴുപ്പ്
+mr:चरबी
+ms:Lemak
+mt:xaħam
+nb:fett
+nl:vet
+nn:feitt
+pl:tłuszcz
+pt:gordura
+qu:Wira
+ro:Grăsime
+ru:жиры
+sd:چرٻي
+sh:Mast
+si:මේදය
+sl:Maščobe, maščoba
+sn:Mafuta
+so:Dux
+sq:Yndyra
+sr:Масти
+su:Lemak
+sv:Fett, fet
+sw:Mafuta
+ta:கொழுப்பு
+te:కొలెస్టరాల్‌
+th:ไขมัน
+tr:yağ
+uk:Жири
+ur:شحم
+vi:chất béo
+zh:脂肪
+from_palm_oil:en: no
+vegan:en: no
+vegetarian:en: maybe
+wikidata:en: Q127980
+wikipedia:en: https://en.wikipedia.org/wiki/Fat
+
+< en:Oil and fat
+en:oil, cooking oil
+ak:nwo
+an:Aceite
+ar:زيت
+az:Yağ
+bg:масло
+bn:তেল
+br:Eoul
+bs:Ulje
+ca:oli
+cs:olej
+cy:Olew
+da:Olie
+de:Öl, Speiseöl, Öle
+el:Λάδι, Έλαιο
+eo:oleo
+es:aceite, aceites
+et:Õli
+eu:Olio
+fa:روغن
+fi:öljy
+fr:huile, huiles, huile de cuisine
+ga:Ola
+gd:Ola
+gl:Aceite
+he:שמן
+hr:Ulja, Ulje
+ht:Lwil
+hu:olaj
+hy:յուղ
+id:minyak
+io:Oleo
+is:Olía
+it:olio
+ja:油
+jv:Lenga
+kg:Mafuta
+kn:ಎಣ್ಣೆ
+ko:기름
+ln:Mafúta
+lo:ນ້ຳມັນ
+lt:Aliejus
+lv:eļļa
+mg:Menaka
+mk:масло
+ml:എണ്ണ
+ms:Minyak
+my:ဆီ
+nb:olje
+nl:olie, oliën
+nn:olje
+oc:Òli
+pa:ਤੇਲ
+pl:oleje
+pt:óleo
+ro:Ulei
+ru:масло, масла
+sa:तैलम्
+sh:Ulje
+si:තෙල්
+sk:Olej
+sl:Olje
+so:Saliid
+sr:уље
+su:Minyak
+sv:olja
+sw:Mafuta
+ta:எண்ணெய்
+te:నూనె
+th:น้ำมัน
+tl:Langis
+tr:yağ
+tt:Näft
+uk:Олія
+ur:تیل
+uz:Moy
+vi:dầu
+wa:ôle
+yi:בוימל
+yo:Epo
+zh:油
+wikidata:en: Q42962
+wikipedia:en: https://en.wikipedia.org/wiki/Cooking_oil
+
+< en:Oil and fat
 en:vegetable oil and fat
-cs:Rostlinné oleje a tuky
 de:pflanzliche Öle und Fette
 es:aceites y grasas vegetales
-fr:huile et graisse végétale, huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
+et:taimsed rasvad ja õlid
+fr:huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
 it:olio e grasso vegetale
+lv:Augu eļļas un tauki
+mt:xaħam u żejt veġetali
 nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
@@ -49925,7 +50150,7 @@ description:fr: Additif alimentaire gazeux, qui est introduit dans un conteneur 
 
 < en:Palm fat
 en:non-hydrogenated palm fat
-de:unhydriertes Palmfett
+de:unhydriertes Palmfett, Palmfett ungehärtet
 fr:graisse de palme non hydrogénée
 
 < en:Palm fat
@@ -49945,7 +50170,7 @@ en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
 ca:Oli de palmist
 cs:Palmojádrový olej
-de:Palmkernöl
+de:Palmkernöl, Palmkern
 es:palmiste
 eu:Palmiste olio
 fa:روغن هسته پالم
@@ -49966,12 +50191,14 @@ from_palm_oil:en: yes
 wikidata:en: Q1960534
 wikipedia:en: https://en.wikipedia.org/wiki/Palm_kernel_oil
 
-< en:Hydrogenated oil
+< :
 < en:Palm oil
 en:hydrogenated palm oil
-de:teilweise gehärtetes Palmöl
+bg:хидрогенирано палмово масло
+de:gehärtetes Palmöl
 es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
+it:olio di palma idrogenato
 nl:gehydrogeneerde palmolie
 
 < en:Palm kernel oil
@@ -50028,7 +50255,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Palm_stearin
 
 < en:Palm oil
 fr:huile de palme partiellement hydrogénée
-de:teilweise hydriertes Palmöl
+de:teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 nl:gedeeltelijk geharde palmolie
 
 < en:Palm oil and fat
@@ -50057,7 +50284,7 @@ bg:Палмово масло
 ca:Oli de palma
 cs:Palmový olej
 cz:palmu olejovou
-de:Palmöl
+de:Palmöl, Ölpalme
 eo:Palmoleo
 es:aceite de palma, grasa de palma
 et:Palmiõli
@@ -50240,7 +50467,7 @@ it:prezzemolo essiccato
 < en:Fruit juice
 < en:Passion fruit
 en:passion fruit juice
-de:Passionsfruchtsaft
+de:Maracujasaft, Passionsfruchtsaft
 es:zumo de maracuyá
 fr:jus de fruit de la passion, jus de fruits de la passion
 it:succo di frutto della passione
@@ -50253,7 +50480,7 @@ nl:passievruchtenpuree
 
 < en:Passion fruit juice
 en:reconstituted passion fruit juice
-de:Passionfruchtsaft aus Konzentrat
+de:Maracujasaft aus Maracujasaftkonzentrat, Passionfruchtsaft aus Konzentrat
 es:zumo de maracuyá a partir de concentrado
 fr:jus de fruit de la passion à base de concentré
 
@@ -50314,6 +50541,15 @@ fr:lait de chevre pasteurisé issu de l'agriculture biologique
 en:UHT pasteurised milk
 de:UHT Milch
 fr:lait stérilisé U.H.T
+
+< en:Pasteurised milk
+sv:högpastöriserad mjölk
+
+< en:Pasteurised milk
+sv:lågpastöriserad mjölk
+
+< en:Pasteurised milk
+sv:opastöriserad mjölk
 
 < en:Pasteurised whole milk
 fr:Lait pasteurisé entier pasteurisation haute
@@ -51577,7 +51813,7 @@ bg:слънчоглед
 cs:slunečnice
 cv:Хĕвелçаврăнăш ретĕнчисем
 da:Solsikke
-de:Sonnenblumen
+de:Sonnenblumen, Sonnenblume
 el:ηλίανθος
 eo:helianto
 es:girasol
@@ -52104,6 +52340,7 @@ es:carne de cerdo
 fr:viande de porc
 it:carne di suino
 nl:Varkensvlees
+sv:griskött
 carbon_footprint_fr_foodges_ingredient:fr: Viande de porc
 carbon_footprint_fr_foodges_value:fr: 7.4
 
@@ -52198,6 +52435,7 @@ de:Schinken
 es:Jamón
 fr:jambon de porc, jambon
 it:prosciutto
+sv:skinka
 
 < en:Pork meat
 en:pork liver
@@ -52378,6 +52616,7 @@ de:Kartoffelfasern, Kartoffelballaststoffe
 es:fibra de patata
 fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
 nl:aardappelvezel, aardappelvezels
+sv:potatisfiber
 
 < en:Potato
 en:potato flakes
@@ -52596,7 +52835,7 @@ so:Dooro
 sq:Pula
 sr:кокошка
 su:Hayam
-sv:Tamhöna
+sv:kyckling, tamhöna
 sw:Kuku
 ta:கோழி
 te:కోడి
@@ -53419,7 +53658,7 @@ hu:repceolaj
 it:olio di colza
 lt:rapšu ella
 lv:rapsų aliejus
-nl:koolzaadolie, plantaardige koolzaadolie
+nl:koolzaadolie, plantaardige koolzaadolie, raapzaad, raap
 pl:olej rzepakowy, olej roślinny rzepakowy
 pt:óleo de colza
 ro:ulei de rapiță
@@ -53465,7 +53704,7 @@ nl:Frambozensap
 < en:Purée
 < en:Raspberry
 en:raspberry puree
-de:Himbeermark
+de:Himbeermark, Himbeerpüree
 es:puré de frambuesa
 fr:purée de framboises, purée de framboise
 it:purea di lamponi
@@ -53557,7 +53796,7 @@ nl:rodebietensap
 
 < en:Red beetroot
 fr:betterave rouge déshydratée, betterave rouge en poudre, poudre de betterave rouge
-de:Randenpulver
+de:Rote Bete-Pulver, Rote Beete-Pulver, Randenpulver
 it:barbabietole in polvere
 
 < en:Red beetroot juice
@@ -54274,7 +54513,7 @@ so:kaaroot
 sq:karrotë
 sr:шаргарепа
 su:wortel
-sv:morot
+sv:morot, morötter
 sw:karoti
 ta:மஞ்சள் முள்ளங்கி
 te:కారెట్
@@ -54723,7 +54962,7 @@ co:Porru
 cs:pór zahradní
 cy:Cenhinen
 da:Porre
-de:Lauch, Lauche, Porrees
+de:Lauch, Lauche, Porrees, Porree
 el:Πράσο
 eo:Poreo
 es:Puerro, Puerros
@@ -54835,7 +55074,7 @@ ca:xirivia
 cs:pastinák
 cy:Panasen
 da:pastinak
-de:Pastinake
+de:Pastinake, Pastinaken
 el:Παστινάκη
 eo:pastinako
 es:Pastinaca
@@ -57366,6 +57605,7 @@ es:comino
 fr:graines de cumin, cumin
 it:grani di cumino
 nl:komijnzaad, komijnzaden, komijn
+sv:spiskummin
 
 < en:Seed
 en:fennel seed
@@ -57899,12 +58139,6 @@ pt:cordeiro
 qu:Achkash
 ru:ягнёнок
 wikidata:en: Q4575936
-
-< en:Animal fat
-< en:Sheep
-en:sheeps fat
-fr:gras de mouton
-nl:schaapsvet
 
 < en:Meat
 < en:Sheep
@@ -58685,7 +58919,7 @@ it:
 ja:サワードウ
 ko:사워도
 nb:Surdeig
-nl:Zuurdesem
+nl:Zuurdesem, zuurdeeg
 nn:Surdeig
 pl:Zakwas chlebowy
 pt:Massa lêveda
@@ -58696,6 +58930,9 @@ sr:Кисело тесто
 sv:Surdeg
 zh:老麵
 wikipedia:en: https://en.wikipedia.org/wiki/Sourdough
+
+< en:Sourdough
+de:Natursauerteig
 
 < en:Sourdough
 de:Roggensauerteig
@@ -59074,7 +59311,7 @@ de:Gewürze
 es:especias
 fr:épice, épices, aromate
 it:spezie
-nl:kruiden
+nl:specerijen
 sv:kryddor
 carbon_footprint_fr_foodges_ingredient:fr: Épices
 carbon_footprint_fr_foodges_value:fr: 2.2
@@ -59575,6 +59812,7 @@ en:herbs and spices
 de:Kräuter und Gewürze
 es:hierbas y especias
 fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique, plantes aromatiques et épices, extraits d'épices et d'herbes, herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques, épice et aromate, épices et aromates, épices et aromate, épice et aromates, épices et arômes, aromates et épices
+nl:kruiden en specerijen
 
 < en:Spice
 en:mace
@@ -59599,6 +59837,7 @@ en:mixed spices
 de:gemischte Gewürze
 fr:mélange d'épices
 nl:gemengde specerijen
+sv:kryddblandning
 
 < en:Spice
 en:mustard
@@ -59680,7 +59919,7 @@ ca:nou moscada
 cs:Muškátový oříšek
 cv:Мускат мăйăрĕ
 da:Muskatnød
-de:Muskatnuss
+de:Muskat, Muskatnuss
 dv:ތަކޫވައް
 el:Μοσχοκαρυδιά
 eo:Muskato
@@ -59726,7 +59965,7 @@ sh:Muškatov oraščić
 si:සාදික්කා
 sl:Muškatovec
 su:Pala
-sv:Muskotsläktet
+sv:Muskotsläktet, muskot
 sw:Kungumanga
 ta:ஜாதிக்காய்
 te:జాజికాయ
@@ -59904,6 +60143,7 @@ en:spice extract, spices extract
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte, Gewürzextrakt
 es:Extracto de especias
 fr:extrait d'épice, extraits d'épices
+sv:kryddextrakt
 vegan:en: yes
 vegetarian:en: yes
 
@@ -60017,7 +60257,7 @@ nl:gedehydrateerde spirulina
 
 < en:Spirulina
 en:spirulina concentrate, spirulina extract
-de:Spirulina-konzentrat
+de:Spirulina-konzentrat, Spirulinakonzentrat
 fr:concentré de spiruline
 it:concentrato di spirulina
 
@@ -60329,7 +60569,7 @@ nn:Potetmjøl
 pl:Mąka ziemniaczana
 pt:fecula de batata
 ru:Картофельный крахмал
-sv:potatismjöl
+sv:potatismjöl, potatisstärkelse
 uk:Картопляний крохмаль
 zh:太白粉
 wikidata:en: Q715160
@@ -60349,7 +60589,7 @@ sv:risstärkelse
 < en:Starch
 en:tapioca starch, tapioca
 da:tapiokastivelse
-de:Tapiocastärke
+de:Tapiocastärke, Tapiokastärke
 el:άμυλο ταπιόκαζ, Ταπιόκα
 es:almidón de tapioca
 fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc, manioc
@@ -60383,6 +60623,7 @@ de:Pasteurisierte Milch
 es:leche pasteurizada
 fr:lait pasteurisé
 nl:gepasteuriseerde melk
+sv:pastöriserad mjölk
 
 < en:Sterilised milk
 fr:lait thermisé
@@ -60551,6 +60792,9 @@ wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
 
 < en:Sugar
+de:Zuckerrübensirup
+
+< en:Sugar
 en:beet sugar
 de:Rübenzucker
 fr:sucre de betterave
@@ -60628,6 +60872,7 @@ es:azúcar caramelizado
 fr:sucre brun, sucre caramel, sucre caramélisé
 it:zucchero caramellato
 nl:gekarameliseerde suiker
+sv:karamelliserat socker
 
 < en:Sugar
 en:coconut sugar
@@ -60919,7 +61164,19 @@ fr:sucre blanc
 it:Zucchero bianco
 
 < en:Sugar
+fr:sirop de blé
+
+< en:Sugar
+fr:sirop de sucre candi
+
+< en:Sugar
+fr:sirop de sucre de canne
+
+< en:Sugar
 fr:sirop de sucre mélassé
+
+< en:Sugar
+fr:sirop de sucre partiellement inverti
 
 < en:Sugar
 fr:sucre blond
@@ -61985,11 +62242,12 @@ sv:tomatpulver
 
 < en:Tomato
 en:tomato purée, tomato paste, tomato concentrate
-de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat
+de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat, Tomatenpüree
 es:concentrado de tomate
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates
 it:passata di pomodoro, concentrato di pomodoro
 nl:tomatenpurée, tomatenconcentraat
+sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
 carbon_footprint_fr_foodges_value:fr: 2.9
 
@@ -62446,7 +62704,7 @@ it:estratto puro di vaniglia
 < en:Vanilla flavouring
 en:natural vanilla flavouring
 da:naturlig vanillearoma
-de:natürliches Vanillearoma
+de:natürliches Vanillearoma, natürliches Vanille-Aroma
 es:aroma natural de vainilla
 fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
 it:aroma naturale di vaniglia
@@ -63115,7 +63373,8 @@ de:Gemüse
 es:verduras
 fr:légume, légumes en proportions variables, légumes en proportion variable
 it:vegetale
-nl:Groente
+nl:Groente, groenten
+sv:grönsak, grönsaker
 carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen de saison, produit localement
 carbon_footprint_fr_foodges_value:fr: 0.3
 vegan:en: yes
@@ -64477,7 +64736,7 @@ sk:paradajky
 sn:Madomasi
 so:Yaanyo
 sr:paradajz
-sv:tomater
+sv:tomat, tomater
 th:มะเขือเทศ
 ug:پەمىدۇر
 za:makyungz
@@ -65288,10 +65547,6 @@ wikidata:en: Q1434098
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut_oil
 
 < en:Vegetable oil
-fr:huile végétale hydrogénée
-de:pflanzliches Öl gehärtet
-
-< en:Vegetable oil
 fr:huile végétale raffinée
 
 < en:Vegetable oil and fat
@@ -65308,10 +65563,10 @@ from_palm_oil:en: yes
 < en:Vegetable oil and fat
 en:palm oil and fat
 cs:Palmový olej a tuk
-de:Palmöl und Palmfett, Palmöl und Fett
-es:aceite de palma, grasa de palma
-fr:Huile et matière grasse de palme, Matieres grasses et huile végétale de palme
-it:Olio e grasso di palma
+de:palmöl und Palmfett, Palmöl und Fett
+fr:huile et matière grasse de palme, Matieres grasses et huile végétale de palme
+it:olio e grasso di palma
+nl:palm olie en vet
 from_palm_oil:en: yes
 
 < en:Vegetable oil and fat
@@ -65496,7 +65751,7 @@ sk:Ocot
 sl:Kis
 so:Khal
 sr:sirće, Сирће
-sv:Vinäger
+sv:ättika, vinäger
 ta:புளிங்காடி
 tg:Suka
 th:น้ำส้มสายชู
@@ -65633,6 +65888,7 @@ es:vinagre de vino
 fr:vinaigre de vin
 it:aceto di vino
 nl:wijnazijn
+sv:vinsvinäger
 carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
 carbon_footprint_fr_foodges_value:fr: 4.2
 
@@ -67405,6 +67661,7 @@ es:harina de trigo duro
 fr:farine de blé dur
 it:farina di grano duro
 nl:durum tarwemeel
+sv:durumvetemjöl
 
 < en:Wheat flour
 en:fortified wheat flour, enriched wheat flour
@@ -67484,6 +67741,11 @@ de:Molkeneiweißkäse
 de:Sauermolke
 
 < en:Whey
+en:acid whey
+vegan:en: no
+vegetarian:en: yes
+
+< en:Whey
 en:Concentrated whey
 de:konzentrierte Molke
 fr:lactosérum concentré
@@ -67498,6 +67760,7 @@ nl:Gedemineraliseerde wei
 < en:Whey
 en:sweet whey
 de:Süßmolke, Süssmolke
+fr:lactosérum doux
 
 < en:Whey
 en:whey permeate
@@ -67513,6 +67776,7 @@ fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre
 hu:Tejsavópor
 it:siero di latte in polvere
 nl:weipoeder
+sv:vasslepulver
 
 < en:Whey
 en:whey product, whey based formula
@@ -67521,6 +67785,7 @@ de:Molkenerzeugnis, formel auf molkebasis
 es:Producto de suero
 fr:produit de lactosérum, produit de petit-lait, produit à base de lactosérum, préparation à base de lactosérum, dérivé de lactosérum
 it:derivati del siero di latte, la preparazione del siero di latte
+sv:vassleprodukt
 
 < en:Whey permeate
 en:whey permeate powder
@@ -68117,6 +68382,7 @@ es:Vinagre de vino blanco
 fr:vinaigre de vin blanc
 it:aceto di vino bianco
 nl:witte wijnazijn
+sv:vitvinsvinäger
 
 < en:Natural orange flavouring
 < en:With other natural flavouring
@@ -68655,6 +68921,7 @@ fr:Grains de blé dur précuits
 fr:bonbon au cacao maigre
 
 fr:bouillon de boeuf
+sv:nötköttsbuljong
 
 fr:bouillon de porc déshydraté
 
@@ -68858,8 +69125,6 @@ fr:maïs doux en grains
 nl:zoete maïskorrels
 pt:milho doce em grão
 
-fr:gras de bœuf, graisse de bœuf
-
 fr:Gratinage
 
 < fr:Haricot mungo
@@ -68883,7 +69148,6 @@ fr:haricots mogettes de Vendée, mogettes de Vendée
 < fr:Haricots verts coupés
 < fr:Haricots verts très fins
 fr:haricots vertes très fins coupés, haricots verts extra fines coupés
-
 
 fr:Ile flottante sur lit de crème anglaise
 
@@ -69163,15 +69427,7 @@ fr:sirop d'amidon de maïs
 < fr:Sirop d'orge malté
 fr:sirop de malt d'orge déshydraté
 
-fr:sirop de blé
-
 fr:sirop de candi, sirop de scucre candi
-
-fr:sirop de sucre candi
-
-fr:sirop de sucre de canne
-
-fr:sirop de sucre partiellement inverti
 
 fr:sous-produit du boeuf
 

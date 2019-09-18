@@ -59,7 +59,6 @@ BEGIN
 
 					&canonicalize_taxonomy_tag
 					&canonicalize_taxonomy_tag_link
-					&canonicalize_taxonomy_2tag_link
 					&exists_taxonomy_tag
 					&display_taxonomy_tag
 					&display_taxonomy_tag_link
@@ -2018,27 +2017,6 @@ sub canonicalize_taxonomy_tag_link($$$) {
 	return "/$path/$tagurl";
 }
 
-
-
-sub canonicalize_taxonomy_2tag_link($$$$$) {
-	my $target_lc = shift; $target_lc =~ s/_.*//;
-	my $tagtype = shift;
-	my $tag = shift;
-	my $tagtype2 = shift;
-	my $tag2 = shift;
-
-	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
-	my $tagurl = get_taxonomyurl($target_lc,$tag);
-	my $path = $tag_type_singular{$tagtype}{$target_lc};
-
-	$tag2 = display_taxonomy_tag($target_lc,$tagtype2, $tag2);
-	my $tagurl2 = get_taxonomyurl($target_lc,$tag2);
-	my $path2 = $tag_type_singular{$tagtype2}{$target_lc};
-	$log->info("tax tag 2 /$path/$tagurl/$path2/$tagurl2") if $log->is_info();
-	return "/$path/$tagurl/$path2/$tagurl2";
-}
-
-
 # The display_taxonomy_tag_link function makes many calls to other functions, in particular it calls twice display_taxonomy_tag_link
 # Will be replaced by display_taxonomy_tag_link_new function
 
@@ -2216,6 +2194,9 @@ sub display_tags_list($$) {
 	my $tags_list = shift;
 	my $html = '';
 	my $images = '';
+	if (not defined $tags_list) {
+		return '';
+	}
 	foreach my $tag (split(/,/, $tags_list)) {
 		$html .= display_tag_link($tagtype, $tag) . ", ";
 
