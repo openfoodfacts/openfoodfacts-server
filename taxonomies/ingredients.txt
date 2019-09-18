@@ -8984,11 +8984,8 @@ vegetarian:en:maybe
 en:powdered milk products, dried milk products, product on base on milk powder
 de:Trockenmilcherzeugnis
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
-#                                           B U T T E R     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+################################ BUTTER related stuff ##########################
 
 # description:en:BUTTER is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk. It is generally used as a spread on plain or toasted bread products and a condiment on cooked vegetables, as well as in cooking, such as baking, sauce making, and pan frying. 
 # comment:en:Butter is not added to the fat section (to much water?)
@@ -9254,12 +9251,7 @@ nl:boterpoeder
 # ingredient/fr:poudre-au-beurre has 66 products in 2 languages @2019-07-10
 # poudre au beurre (BEURRE, maltodextrines, protéines de LAIT, émulsifiant : E471)
 
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
-#                                         B U T T E R F A T     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+############################## BUTTERFAT related stuff #########################
 
 # BUTTERFAT - the fatty portion of milk.
 
@@ -9428,6 +9420,7 @@ zh:乳脂
 wikidata:en:Q909729
 wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 
+################################## MILK related stuff ##########################
 
 # description:en:MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
@@ -9690,7 +9683,7 @@ fr:lait de foin
 it:latte fieno
 wikidata:en:Q1616491
 
-############################# LOW FAT MILK #####################
+########################## LOW FAT and SKIMMED MILK ############################
 
 # LOW-FAT MILK is a 1% fat milk, sold in the United States
 
@@ -9754,7 +9747,7 @@ nl:UHT-gesteriliseerde magere melk
 en:organic UHT sterilised skimmed milk
 fr:lait écrémé stérilisé uht issu de l'agriculture biologique
 
-######################## SEMI-SKIMMED MILK #####################
+################################# SEMI-SKIMMED MILK ############################
 
 # description:en:LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 
@@ -9905,7 +9898,7 @@ fr:Lait pasteurisé entier pasteurisation haute
 <en:whole milk
 fr:lait entier standardisé
 
-################################## RAW MILKS ##############################
+################################## RAW MILKS ###################################
 
 # description:en:RAW MILK - milk produced by female mammals (probably cow) before any treatment
 
@@ -9922,7 +9915,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
 <en:whole milk
 fr:lait cru entier
 
-################################## COW MILKS ##############################
+################################## COW MILKS ###################################
 
 # description:en:COW MILK - raw cow milk that probably has been treated (pasteurisation)
 
@@ -10000,7 +9993,7 @@ fr:lait de vache thermisé
 <en:Cow's milk
 fr:lait frais de nos vaches non homogeneise
 
-################################# GOAT MILKS ##########################
+################################# GOAT MILKS ###################################
 
 # description:en:RAW GOAT MILK - milk produced by female goats before any treatment
 
@@ -10044,7 +10037,7 @@ it:latte di capra pastorizzato
 en:organic pasteurised goat milk
 fr:lait de chevre pasteurisé issu de l'agriculture biologique
 
-################################# SHEEP MILKS ##########################
+################################# SHEEP MILKS ##################################
 
 # description:en:SHEEPS MILK -  milk produced by female sheep 
 
@@ -10079,7 +10072,7 @@ fr:lait de brebis thermisé
 <en:sheeps milk
 fr:lait entier de brebis
 
-################################# BUFFALO MILKS ##########################
+################################# BUFFALO MILKS ################################
 
 <en:milk
 en:buffalo milk
@@ -10100,7 +10093,7 @@ en:pasteurised buffalo milk
 fr:lait de bufflonne pasteurisé
 
 
-############################## CONCENTRATED MILKS ###############
+################################# CONCENTRATED MILKS ###########################
 
 # description:en:EVAPORATED MILK, known in some countries as "unsweetened condensed milk", is a shelf-stable canned milk product with about 60% of the water removed from fresh milk. It differs from sweetened condensed milk, which contains added sugar. Sweetened condensed milk requires less processing since the added sugar inhibits bacterial growth.
 
@@ -10276,7 +10269,7 @@ vegan:en:no
 vegetarian:en:yes
 # ingredient/lactose-and-milk-proteins has 1395 products in 10 languages @2019-05-06
 
-#################### MILK POWDERS ################
+################################ MILK POWDERS ##################################
 
 # nova:en:milk-powder
 <en:dairy
@@ -10378,50 +10371,13 @@ en:modified milk ingredients
 fr:substances laitières modifiées
 # ingredient/fr:substances-laitières-modifiées has 86 products @2019-02-22
 
-
-<en:milk
-en:soured milk
-bar:Gschdeglde
-bg:Кисело мляко
-ca:Llet agra
-cv:Турăх
-da:Tykmælk
-de:Dickmilch, Setzmilch, Stockmilch, Sauermilch
-es:Leche agria
-et:Hapupiim
-fr:lait fermenté, lait aigre, lait caillé
-is:Súrmjólk
-it:Latte acido
-ko:산유
-la:Oxygala
-lt:Rūgpienis
-mk:Кисело млеко
-nl:Dikmelk, gefermenteerde melk
-nn:Surmjølk
-no:Kulturmelk
-pl:Zsiadłe mleko
-pnb:لسی
-pt:Leite fermentado
-ro:Lapte acru
-ru:Простокваша
-sl:Kislo mleko
-so:Caano ciir
-sv:Surmjölk
-uk:Кисляк (молоко)
-zh_yue:酸奶
-zh:酸乳
-vegan:en:no
-vegetarian:en:yes
-wikipedia:en:https://en.wikipedia.org/wiki/Soured_milk
-wikidata:en:Q253333
-
 <en:milk
 fr:lait écrémé caillé
 
 <en:milk
 fr:produits laitiers
 
-#################### MILK and CREAM ###########
+######################### MILK and CREAM related stuff #########################
 
 <en:dairy
 <en:cream
@@ -10585,12 +10541,12 @@ nl:lactose en melkmineralen
 # ingredient/fr:lactose-et-minéraux-du-lait has 139 products in 5 languages @2019-04-16
 
 
-################################## Yogurt related stuff ####################
+################################## YOGURT related stuff ########################
 
-<en:dairy
-en:yogurt
+<en:fermented milk products
+en:yogurt, yoghurt, yogourt, yoghourt
 cs:Jogurt
-de:Joghurt
+de:Joghurt, Jogurt
 es:Yogur
 fr:yaourt
 hu:joghurt
@@ -10640,7 +10596,6 @@ de:Magermilchjoghurtpulver
 <en:yogurt
 fr:yaourt brassé sucré
 
-
 <en:yogurt
 en:whole yogurt
 de:Rahmjoghurt, Sahnejoghurt
@@ -10651,24 +10606,29 @@ it:yogurt intero
 fr:yaourt au lait entier
 de:Joghurt aus Vollmilch, Vollmilchjoghurt
 
-<en:whole yogurt
-en:mild whole yogurt
-de:Sahnejoghurt mild, Rahmjoghurt mild
-
+# mild yogurt is a fermented milk product using other species of lactobacillus than Lactobacillus bulgaricus. See https://de.wikipedia.org/wiki/Sauermilchprodukte#G%C3%A4rung_mit_speziellen_Kulturen (German)
 <en:yogurt
 en:mild yogurt
 nl:milde yogurt
+de:Joghurt mild
 nl:ingredient/nl:milde-yoghurt
 # ingredient/nl:milde-yoghurt has 1 product @2019-05-24
 
 <en:mild yogurt
+en:skimmed mild yogurt
 de:Joghurt mild aus entrahmter Milch, Joghurt mild aus Magermilch
 
 <en:mild yogurt
+en:semi-skimmed mild yogurt
 de:Fettarmer Joghurt mild
 
 <en:mild yogurt
 de:Joghurt mild mit Magermilchpulverzusatz
+
+<en:whole yogurt
+<en:mild yogurt
+en:mild whole yogurt
+de:Sahnejoghurt mild, Rahmjoghurt mild
 
 <en:yogurt
 de:Joghurterzeugnis
@@ -10678,11 +10638,11 @@ de:Joghurterzeugnis
 # en:Filtrated whey
 # fr:Perméat de lactosérum
 
-################################## KEFIR related stuff ######################
+################################## KEFIR related stuff #########################
 
 # Kefir or kephir is a fermented milk drink similar to a thin yogurt that is made from kefir grains, a specific type of mesophilic symbiotic culture. The drink originated in the Caucasus, Eastern Europe and Russia, where it is prepared by inoculating cow, goat, or sheep milk with kefir grains. Wikipedia contributors. (2019, September 6). Kefir. In Wikipedia, The Free Encyclopedia.
 
-<en:dairy
+<en:fermented milk products
 en:kefir, kephir
 ar:فطر هندي
 az:Kefir
@@ -10748,7 +10708,7 @@ de:Sahnekefir mild, milder Sahnekefir
 en:mild kefir
 de:Kefir mild, milder Kefir
 
-################################## WHEY related stuff ######################
+################################## WHEY related stuff ##########################
 
 # WHEY is the liquid remaining after milk has been curdled and strained.
 
@@ -10898,7 +10858,7 @@ en:whey permeate powder
 de:Molkepermeat Pulver
 fr:perméat de petit lait en poudre
 
-################################## CREAM related stuff #####################
+################################## CREAM related stuff #########################
 
 # description:en:CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 # comment:en:wikipedia defines crème fraîche as non-sterilisee. Probably makes no sense in the context of OFF
@@ -11220,11 +11180,49 @@ it:panna fresca pastorizzata
 # ingredient/fr:creme-fraiche-pasteurisee has 164 products in 5 languages @2019-07-12
 # usage:fr:Crème fraîche pasteurisée 99.99%, ferments lactiques
 
-############################### BUTTERMILK related stuff ##################
+############################## SOURED MILK related stuff #######################
+
+<en:fermented milk products
+en:soured milk
+bar:Gschdeglde
+bg:Кисело мляко
+ca:Llet agra
+cv:Турăх
+da:Tykmælk
+de:Dickmilch, Setzmilch, Stockmilch, Sauermilch
+es:Leche agria
+et:Hapupiim
+fr:lait fermenté, lait aigre, lait caillé
+is:Súrmjólk
+it:Latte acido
+ko:산유
+la:Oxygala
+lt:Rūgpienis
+mk:Кисело млеко
+nl:Dikmelk, Hangop, gefermenteerde melk
+nn:Surmjølk
+no:Kulturmelk
+pl:Zsiadłe mleko
+pnb:لسی
+pt:Leite fermentado
+ro:Lapte acru
+ru:Простокваша
+sl:Kislo mleko
+so:Caano ciir
+sv:Surmjölk
+uk:Кисляк (молоко)
+zh_yue:酸奶
+zh:酸乳
+vegan:en:no
+vegetarian:en:yes
+wikipedia:en:https://en.wikipedia.org/wiki/Soured_milk
+wikidata:en:Q253333
+
+############################### BUTTERMILK related stuff #######################
 
 # description:en:BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
-<en:dairy
+<en:fermented milk products
 en:buttermilk
 af:Karringmelk
 am:አሬራ
@@ -12216,6 +12214,7 @@ it:quark magro
 de:Sauermilchquark
 
 <en:Quark
+<en:mild yogurt
 de:Speisequarkzubereitung
 # Speisequarkzubereitung (Speisequark, Joghurt mild aus entrahmter Milch)
 
