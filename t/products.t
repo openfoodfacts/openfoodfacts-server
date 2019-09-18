@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 
 use Test::More;
 use Test::Number::Delta;

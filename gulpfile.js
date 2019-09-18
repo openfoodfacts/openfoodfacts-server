@@ -50,8 +50,7 @@ function js() {
       './node_modules/papaparse/papaparse.min.js',
       './node_modules/osmtogeojson/osmtogeojson.js',
       './node_modules/leaflet/dist/**/*.*',
-      './node_modules/leaflet.markercluster/dist/**/*.*',
-      './node_modules/iolazyload/dist/js/iolazy.min.js'
+      './node_modules/leaflet.markercluster/dist/**/*.*'
     ], { sourcemaps: true })
     .pipe(dest('./html/js/dist', { sourcemaps: true }))
 }

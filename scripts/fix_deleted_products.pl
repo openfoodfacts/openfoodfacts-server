@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -22,7 +22,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -57,12 +57,9 @@ foreach my $l (values %lang_lc) {
 	$lang = $l;
 
 
-my $cursor = get_products_collection()->query({ lc => $lc })->fields({ _id=>1, id=>1, code => 1});;
-my $count = $cursor->count();
+my $cursor = get_products_collection()->query({ lc => $lc })->fields({ _id=>1, id=>1, code => 1});
 my $removed = 0;
 my $notfound = 0;
-	
-	print STDERR "$count products to check\n";
 	
 	while (my $product_ref = $cursor->next) {
         

@@ -21,7 +21,7 @@
 package ProductOpener::Food;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -68,9 +68,11 @@ BEGIN
 
 					&compare_nutriments
 
+					$ec_code_regexp
 					%packager_codes
 					%geocode_addresses
 					&normalize_packager_codes
+					&localize_packager_code
 					&get_canon_local_authority
 
 					&special_process_product
@@ -233,16 +235,16 @@ sub unit_to_g($$) {
 
 	$value eq '' and return $value;
 
-	$unit eq 'kcal' and return int($value * 4.184 + 0.5);
-	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value * 1000;
+	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);
+	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value * 1000;
 	$unit eq "\N{U+65A4}" and return $value * 500;
-	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value / 1000;
+	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value / 1000;
 	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value / 1000000;
 	$unit eq 'oz' and return $value * 28.349523125;
 
-	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value * 1000;
-	$unit eq 'dl' and return $value * 100;
-	$unit eq 'cl' and return $value * 10;
+	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value * 1000;
+	(($unit eq 'dl') or ($unit eq 'дл')) and return $value * 100;
+	(($unit eq 'cl') or ($unit eq 'кл')) and return $value * 10;
 	$unit eq 'fl oz' and return $value * 30;
 	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
@@ -266,16 +268,16 @@ sub g_to_unit($$) {
 
 	$value eq '' and return $value;
 
-	$unit eq 'kcal' and return int($value / 4.184 + 0.5);
-	($unit eq 'kg' or $unit eq "\N{U+516C}\N{U+65A4}") and return $value / 1000;
+	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
+	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value / 1000;
 	$unit eq "\N{U+65A4}" and return $value / 500;
-	($unit eq 'mg' or $unit eq "\N{U+6BEB}\N{U+514B}") and return $value * 1000;
+	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value * 1000;
 	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value * 1000000;
 	$unit eq 'oz' and return $value / 28.349523125;
 
-	($unit eq 'l' or $unit eq "\N{U+516C}\N{U+5347}") and return $value / 1000;
-	$unit eq 'dl' and return $value / 100;
-	$unit eq 'cl' and return $value / 10;
+	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value / 1000;
+	(($unit eq 'dl') or ($unit eq 'дл')) and return $value / 100;
+	(($unit eq 'cl') or ($unit eq 'кл')) and return $value / 10;
 	$unit eq 'fl oz' and return $value / 30;
 	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
@@ -3098,6 +3100,8 @@ sub mmoll_to_unit {
 		nl => "Cafeïne",
 		nl_be => "Cafeïne",
 		pt => "Cafeína",
+
+		unit => "mg",
 	},
 	taurine => {
 		zh_hans => "牛磺酸",
@@ -3196,8 +3200,8 @@ sub mmoll_to_unit {
 		unit => "mmol/l",
 	},
 	"fruits-vegetables-nuts" => {
-		en => "Fruits, vegetables and nuts",
-		fr => "Fruits, légumes et noix",
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive",
 		es => "Frutas, verduras y nueces",
 		el => "Φρούτα, λαχανικά, καρποί",
 		nl => "Fruit, groenten en noten",
@@ -3212,8 +3216,8 @@ sub mmoll_to_unit {
 	},
 
 	"fruits-vegetables-nuts-estimate" => {
-		en => "Fruits, vegetables and nuts (estimate from ingredients list)",
-		fr => "Fruits, légumes et noix (estimation avec la liste des ingrédients)",
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation avec la liste des ingrédients)",
 		es => "Frutas, verduras y nueces (estimación de la lista de ingredientes)",
 		nl => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		nl_be => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
@@ -3251,6 +3255,11 @@ sub mmoll_to_unit {
 		en => "Nutrition score - France",
 		nl => "Voedingsscore - FR",
 		el => "Βαθμολογία θρεπτικής αξίας-FR",
+		unit => "",
+	},
+	"nova-group" => {
+		en => "NOVA group",
+		fr => "Groupe NOVA",
 		unit => "",
 	},
 	"beta-carotene" => {
@@ -3424,7 +3433,7 @@ sub canonicalize_nutriment($$) {
 
 	my $lc = shift;
 	my $label = shift;
-	my $nid = get_fileid($label);
+	my $nid = get_string_id_for_lang($lc, $label);
 	if ($lc eq 'fr') {
 		$nid =~ s/^dont-//;
 	}
@@ -3496,7 +3505,9 @@ foreach my $nid (keys %Nutriments) {
 
 my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
 my $chinese_units = qr/(?:\N{U+6BEB}?\N{U+514B})|(?:\N{U+516C}?\N{U+65A4})|(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|\N{U+5428}/i;
-my $units = qr/$international_units|$chinese_units/i;
+my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
+my $units = qr/$international_units|$chinese_units|$russian_units/i;
+
 sub normalize_quantity($) {
 
 	# return the size in g or ml for the whole product
@@ -3601,7 +3612,7 @@ my %pnns = (
 );
 
 foreach my $group (keys %pnns) {
-	$pnns{get_fileid($group)} = get_fileid($pnns{$group});
+	$pnns{get_string_id_for_lang("en", $group)} = get_string_id_for_lang("en", $pnns{$group});
 }
 
 
@@ -3818,7 +3829,7 @@ sub special_process_product($) {
 					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
 
 			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
-			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2}), "known"];
+			$product_ref->{pnns_groups_2_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_2}), "known"];
 
 			# Let waters and teas take precedence over unsweetened-beverages
 			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
@@ -3830,7 +3841,7 @@ sub special_process_product($) {
 	if (defined $product_ref->{pnns_groups_2}) {
 		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
 			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
-			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1}), "known"];
+			$product_ref->{pnns_groups_1_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_1}), "known"];
 		}
 		else {
 			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
@@ -3895,6 +3906,13 @@ my %fruits_vegetables_nuts_by_category = (
 	"en:jams" => 50,
 	"en:fruits-based-foods" => 85,
 	"en:vegetables-based-foods" => 85,
+	# 2019/08/31: olive oil, walnut oil and colza oil are now considered in the same fruits, vegetables and nuts category
+	"en:olive-oils" => 100,
+	"en:walnut-oils" => 100,
+	# adding multiple wordings for colza/rapeseed oil in case we change it at some point
+	"en:colza-oils" => 100,
+	"en:rapeseed-oils" => 100,
+	"en:rapeseeds-oils" => 100,
 );
 
 my @fruits_vegetables_nuts_by_category_sorted = sort { $fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a} } keys %fruits_vegetables_nuts_by_category;
@@ -4003,7 +4021,7 @@ sub compute_nutrition_score($) {
 		# for fiber, compute score without fiber points if the value is not known
 		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
 
-		foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
+		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
 				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 				push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";
@@ -4380,6 +4398,10 @@ sub compute_nutrition_grade($$) {
 
 	my $grade = "";
 
+	if (not defined $fr_score) {
+		return '';
+	}
+
 	if ($product_ref->{nutrition_score_beverage}) {
 
 		# Tableau 6 : Seuils du score FSA retenus pour les boissons
@@ -4435,6 +4457,7 @@ sub compute_nutrition_grade($$) {
 			$grade = 'e';
 		}
 	}
+	return $grade;
 }
 
 
@@ -4743,8 +4766,8 @@ sub compute_nutrient_levels($) {
 			else {
 				$product_ref->{nutrient_levels}{$nid} = 'moderate';
 			}
-			# push @{$product_ref->{nutrient_levels_tags}}, get_fileid(sprintf(lang("nutrient_in_quantity"), $Nutriments{$nid}{$lc}, lang($product_ref->{nutrient_levels}{$nid} . "_quantity")));
-			push @{$product_ref->{nutrient_levels_tags}}, 'en:' . get_fileid(sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
+			push @{$product_ref->{nutrient_levels_tags}},
+				'en:' . get_string_id_for_lang("en", sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
 
 		}
 		else {
@@ -4859,6 +4882,7 @@ foreach my $key (keys %Nutriments) {
 
 Hash::Util::lock_keys(%Nutriments);
 
+$ec_code_regexp = "ce|eec|ec|eg|we|ek";
 
 sub normalize_packager_codes($) {
 
@@ -4907,7 +4931,7 @@ sub normalize_packager_codes($) {
 		my $code3 = shift;
 		$countrycode = uc($countrycode);
 		$code3 = uc($code3);
-		return "$countrycode $code1.$code2/$code3 CE";
+		return "$countrycode $code1.$code2/$code3 EC";
 	};
 
 	my $normalize_ce_code = sub ($$) {
@@ -4936,28 +4960,58 @@ sub normalize_packager_codes($) {
 
 	# CE codes -- FR 67.145.01 CE
 	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	 # without CE, only for FR
-	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;
+	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;
 
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
 
 	# NO-RGSEAA-21-21552-SE -> ES 21.21552/SE
 
 
 	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . $normalize_es_ce_code->('es',$5,$7,$9)/ieg;
-	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?(?=,|$)/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
+	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?($ec_code_regexp)?(?=,|$)/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
 
 	# LU L-2 --> LU L2
 
-	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;
+	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;
 
 	# RS 731 -> RS 731 EC
 
-	$codes =~ s/(^|,|, )(rs)(\s|-|_|\.|\/)*(\w+)(\.|_|\s|-)?(ce|eec|ec|eg|we)?\b/$1 . $normalize_rs_ce_code->('rs',$4)/ieg;
+	$codes =~ s/(^|,|, )(rs)(\s|-|_|\.|\/)*(\w+)(\.|_|\s|-)?($ec_code_regexp)?\b/$1 . $normalize_rs_ce_code->('rs',$4)/ieg;
 
-	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we|ek)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
+	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
 
 	return $codes;
+}
+
+my %local_ec = (
+	DE => "EG",
+	ES => "CE",
+	FR => "CE",
+	IT => "CE",
+	NL => "EG",
+	PL => "WE",
+	PT => "CE",
+	UK => "EC",
+);
+
+sub localize_packager_code($) {
+
+	my $code = shift;
+
+	my $local_code = $code;
+
+	if ($code =~ /^(\w\w) (.*) EC$/i) {
+
+		my $country_code = uc($1);
+		my $actual_code = $2;
+
+		if (defined $local_ec{$country_code}) {
+			$local_code = $country_code . " " . $actual_code . " " . $local_ec{$country_code};
+		}
+	}
+
+	return $local_code;
 }
 
 
@@ -4982,7 +5036,7 @@ sub get_canon_local_authority($) {
 	$canon_local_authority =~ s/ +/ /g;
 	$canon_local_authority =~ s/^ //;
 	$canon_local_authority =~ s/ $//;
-	$canon_local_authority = get_fileid($canon_local_authority);
+	$canon_local_authority = get_string_id_for_lang("en",$canon_local_authority);
 
 	return $canon_local_authority;
 }

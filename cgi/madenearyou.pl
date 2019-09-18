@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -207,7 +207,7 @@ est également possible que l'emballeur importe des aliments préparés dans d'a
 
 <p>Si vous ne trouvez pas de produits vraiment locaux à côté de chez vous sur cette carte (les Noix de Saint-Jacques conditionnés à Fécamp qui viennent du Pérou ? Les fameux coeurs de palmiers et les crevettes géantes tigrées d'Ivry-sur-Seine ?),
 vous pouvez partir à leur recherche dans votre frigo, vos placards ou le magasin du coin et les ajouter sur le site d'<a href="https://fr.openfoodfacts.org">Open Food Facts</a>
-ou avec l'app <a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner">Android</a>. Merci d'avance !</p>
+ou avec l'app <a href="https://apps.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner">Android</a>. Merci d'avance !</p>
 
 <p>Les données qui permettent de générer la carte sont issues du projet collaboratif <a href="https://openstreetmap.fr/">OpenStreetMap</a> qui créé une carte libre du monde.</p>
 
@@ -225,18 +225,18 @@ ou de route. Vous nous rejoignez ?</p>
 
 <p>
 &rarr; <a href="https://twitter.com/OpenFoodFactsFR">Twitter</a><br/>
-&rarr; <a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a><br />
-&rarr; <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> + <a href="https://www.facebook.com/groups/356858984359591/">groupe des contributeurs</a><br />
+&rarr; <a href="https://www.instagram.com/open.food.facts/">Instagram</a><br />
+&rarr; <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> + <a href="https://www.facebook.com/groups/openfoodfacts.fr/">groupe des contributeurs</a><br />
 </p>
 </div>
 
 <div style="width:480px;float:left;">
-<p>Vous pouvez ajouter des produits avec l'app iPhone ou Android :</p>
+<p>Vous pouvez ajouter des produits avec l'app iPhone, Android ou Windows Phone :</p>
 
-<a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" style="margin-right:30px" /></a>
+<a href="https://apps.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" style="margin-right:30px" /></a>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a><br/>
-
+<!--<a href="https://www.microsoft.com/fr-fr/p/openfoodfacts/9nblggh0dkqr"><img src="/images/misc/**.png" alt="Disponible sur le Microsoft Store" width="135" height="47" /></a><br/>-->
 <p>C'est fabriqué (et pas seulement emballé !) <s>près de</s> chez vous : le plus court des circuits-courts passe par votre cuisine !
 Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http://recettes.de/cuisine">recettes de cuisine</a> proposées par les blogueuses et blogueurs culinaires.</p>
 </div>
@@ -255,7 +255,6 @@ Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http
 src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFacts&amp;count=vertical&amp;lang=$lc"
 style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://cestemballepresdechezvous.fr"></g:plusone></div>
 </div>
 
 </div>
@@ -280,9 +279,6 @@ style="width:65px; height:63px;"></iframe></div>
 
     </script>
 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-  {lang: 'fr'}
-</script>
 
 </body>
 </html>
@@ -404,8 +400,8 @@ if ($action eq 'process') {
 		my %terms = ();
 
 		foreach my $term (split(/,|'|\s/, $search_terms)) {
-			if (length(get_fileid($term)) >= 2) {
-				$terms{normalize_search_terms(get_fileid($term))} = 1;
+			if (length(get_string_id_for_lang($lc, $term)) >= 2) {
+				$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 			}
 		}
 		if (scalar keys %terms > 0) {
@@ -425,7 +421,7 @@ if ($action eq 'process') {
 
 		if (($tagtype ne 'search_tag') and ($tag ne '')) {
 
-			my $tagid = get_fileid(canonicalize_tag2($tagtype, $tag));
+			my $tagid = get_string_id_for_lang($lc, canonicalize_tag2($tagtype, $tag));
 
 			if ($tagtype eq 'additives') {
 				$tagid =~ s/-.*//;

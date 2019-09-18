@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 #use ProductOpener::Config qw/:all/;
@@ -59,7 +59,6 @@ my $connection = MongoDB->connect();
 my $database = $connection->get_database("off");
 my $products_collection = $database->get_collection('products');
 my $cursor = $products_collection->query({})->fields({ code => 1 });;
-my $count = $cursor->count();
 
 };
 

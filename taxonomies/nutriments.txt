@@ -5254,7 +5254,7 @@ el:Διττανθρακικό
 es:Bicarbonato
 et:nikkarbonaat
 fi:bikarbonaatti
-fr:Bicarbonate
+fr:Bicarbonate, hydrogénocarbonates
 ga:décharbónáit
 he:ביקרבונט (מימן פחמתי)
 hu:bikarbonát
@@ -5455,7 +5455,7 @@ es:cloruro
 et:Kloriidid
 fa:کلرید
 fi:Kloridi
-fr:chlorure
+fr:chlorure, chlorures
 ga:Clóirídí
 he:כלוריד
 hr:Kloridi
@@ -6296,7 +6296,85 @@ wikipedia:en:https://en.wikipedia.org/wiki/Magnesium
 unit:en:mg
 daily_value:en:400,
 daily_value_2016:en:420,
- 
+
+# comment:en:Probably plural is preferred on mineral waters.
+
+# <en:Mineral
+en:sulfates, sulfate
+af:Sulfaat
+ar:كبريتات
+# ast:Sulfatu
+az:Sulfatlar
+# azb:سولفات
+be:Сульфаты
+bg:Сулфат
+bn:সালফেট আয়ন
+bs:Sulfati, Sulfat
+ca:Sulfatar, Sulfat
+cs:Sulfáty, Sulfát
+da:Sulfat
+de:Sulfate, Sulfat
+eo:sulfato
+es:Sulfatos, Sulfato
+et:Sulfaadid
+eu:Sulfatoa, Sulfato
+fa:سولفات
+fi:Sulfaatit, Sulfaatti
+fr:sulfates
+# frr:Sulfaat
+gl:Sulfato
+he:סולפט
+hi:सल्फेट
+hr:Sulfati
+hu:Szulfát
+hy:Սուլֆատներ
+id:Sulfat
+it:Solfato
+ja:硫酸塩
+kk:Сульфаттар
+# kk-cn:سۋلفاتتار
+# kk-arab:سۋلفاتتار
+# kk-kz:Сульфаттар
+# kk-cyrl:Сульфаттар
+# kk-tr:Swlʹfattar
+# kk-latn:Swlʹfattar
+ko:황산염
+lt:Sulfatas, Sulfatai
+lv:Sulfāti
+ms:Sulfat
+nb:sulfat
+nl:sulfaten, Sulfaat
+nn:sulfat
+pl:siarczan, siarczany
+pt:sulfato
+ro:Sulfat
+ru:сульфаты, сульфат
+# sco:sulphate
+sh:Sulfati, Sulfat
+sk:Síran
+sl:Sulfat
+sq:Sulfat
+sr:Сулфати, Сулфат
+# sr-el:Сулфати
+# sr-el:Sulfati
+sv:Sulfater, Sulfat
+ta:சல்பேற்று
+th:ซัลเฟต
+tl:Sulfato
+tr:Sülfat
+uk:Сульфати, Сульфат
+vi:Sulfat
+zh:硫酸鹽
+# zh-cn:硫酸盐
+# zh-hans:硫酸盐
+# zh-hant:硫酸鹽
+# zh-hk:硫酸鹽
+# zh-sg:硫酸盐
+# zh-tw:硫酸鹽
+unit:en:mg
+wikidata:en:Q172290
+wikipedia:en:https://en.wikipedia.org/wiki/Sulfate
+
 # description:en:ZINC is a chemical element with symbol Zn and atomic number 30. Zinc is an essential mineral, including to prenatal and postnatal development. Zinc deficiency affects about two billion people in the developing world and is associated with many diseases. mal products such as meat, fish, shellfish, fowl, eggs, and dairy contain zinc. The concentration of zinc in plants varies with the level in the soil. With adequate zinc in the soil, the food plants that contain the most zinc are wheat (germ and bran) and various seeds, including sesame, poppy, alfalfa, celery, and mustard.
 # comment:zinc is also in ingredients.txt
 
@@ -7559,6 +7637,7 @@ vi:Caffein
 yi:קאפעין
 # yue:咖啡因
 zh:咖啡因
+unit:en:mg
 wikidata:en:Q60235
 wikipedia:en:https://en.wikipedia.org/wiki/Caffeine
 # ingredient/fr:caféine has 426 languages in 11 languages @2019-05-18
@@ -8317,3 +8396,52 @@ zh:肉碱
 # zh-tw:肉鹼
 wikidata:en:Q243309
 wikipedia:en:https://en.wikipedia.org/wiki/Carnitine
+
+en:dry residue at 180 °C
+bg:сух остатък
+de:Trockenrückstand
+el:ξηρό υπόλειμμα
+es:residuo seco
+et:kuivjääk
+fi:kuiva jäännös
+fr:residu sec à 180°C
+ga:iarmhar tirim
+hu:iarmhar tirim
+it:iarmhar tirim
+lv:sausais atlikums
+mt:residwu niexef
+nl:drrogrest bij 180 °C
+pl:sucha pozostałość
+ro:reziduu uscat
+sk:sušina
+sl:suhi ostanek
+unit:en:mg
+
+# description:en:The European Bitterness Units scale, often abbreviated as EBU, is a bitterness scale[21] in which lower values are generally "less bitter" and higher values "more bitter". The scale and method are defined by the European Brewery Convention, and the numerical value should be the same as of the International Bittering Units scale (IBU). However, the exact process of determining EBU and IBU values differs slightly, which may in theory result with slightly smaller values for EBU than IBU.
+
+de:EBU, European Bitterness Unit
+nl:EBU, European Bitterness Unit
+unit:en:
+wikidata:en:Q21694667
+wikipedia:nl:https://nl.wikipedia.org/wiki/European_Bitterness_Unit
+
+# description:en:The International Bittering Units scale, or simply IBU scale, is used to approximately quantify the bitterness of beer. This scale is not measured on the perceived bitterness of the beer, but rather the amount of iso-alpha acids. The scale and method are defined by the American Society of Brewing Chemists, and the numerical value should be the same as of the International Bittering Units scale (IBU). However, the exact process of determining EBU and IBU values differs slightly, which may in theory result with slightly smaller values for EBU than IBU.
+
+en:IBU, International Bittering Unit
+ar:IBU, وحدات قياس المرارة الدولية
+# ast:IBU, Escala internacional d'unidaes d'amargor
+da:IBU, International Bitterness Unit
+de:IBU, International Bitterness Unit
+es:IBU, Unidad Internacional de Amargor
+fr:IBU, International Bittering Unit
+it:IBU, International Bitterness Unit
+ja:IBU, 国際苦味単位
+pl:IBU, International Bittering Units
+pt:IBU, International Bitterness Unit
+sv:IBU, International Bitterness Unit
+uk:IBU, шкала міжнародних одиниць гіркості
+zh:IBU, 国際苦味単位
+unit:en:
+wikidata:en:Q2000486
+wikipedia:fr:https://fr.wikipedia.org/wiki/International_Bitterness_Unit
+

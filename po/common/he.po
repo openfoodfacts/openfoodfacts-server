@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-06-21 15:38\n"
+"PO-Revision-Date: 2019-09-11 09:41\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -79,6 +79,7 @@ msgstr "שלום <NAME>,\n\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
+# please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
 msgstr "תודה לך על הצטרפותך ל־<<site_name>>"
@@ -135,22 +136,25 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "עמוד המוצר נערך גם על ידי"
 
+# Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgstr ""
 
+# DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"זמין ב־Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=he"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -862,6 +866,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "עליך להזין את התווים של הברקוד או לשלוח את תמונת המוצר עם הברקוד גלוי."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "גודל מלא"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "הקובץ הועלה למוצר %s ומוגש תחת הרישיון %s."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr "ייחוס: תמונה מאת %s עבור %s"
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "ייחוס: תמונה מאת %s עם שינויים נוספים מאת %s עבור %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(תמונה מקורית)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "פרטי תמונה ומידע על ייחוס"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "מוצרים שהוספת שדורשים השלמה"
@@ -881,10 +909,6 @@ msgstr "רכיבים"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "רכיבים"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "ניתוח מרכיבים"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -955,8 +979,8 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "מוצרים שאינם מכילים את הרכיב %s"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"זמין ב־App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2119,8 +2143,8 @@ msgid "Scatter plot"
 msgstr "פיזור התוואי"
 
 msgctxt "search_graph_blog"
-msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>← מידע נוסף על התרשימים ב<<site_name>>: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">תרשימים ב־3 לחיצות</a> (בלוג).</p>"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr "<p>← מידע נוסף על התרשימים ב<<site_name>>: <a href=\"/graphs-in-3-clicks\">תרשימים ב־3 לחיצות</a> (בלוג).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2313,9 +2337,8 @@ msgid "Serving size"
 msgstr "גודל ההגשה"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "גודל הגשה לאחר הכנה"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2566,13 +2589,15 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr "כתובת אתר או בלוג"
 
+# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"החנות של Windows Phone\" width=\"109\" height=\"40\" />"
 
+# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/he-il/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2865,7 +2890,7 @@ msgstr "מגיל 12 שבועות ומעלה עד וכולל גיל 11 חודשי
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "הערכת EFSA"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
@@ -2873,15 +2898,15 @@ msgstr "סיכון לחשיפת יתר"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "הרשות האירופית לבטיחות מזון (EFSA) קבעה כי בחלק מקבוצות האוכלוסיה יש סכנה גבוהה בצריכה מוגברת של <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr ""
+msgstr "הרשות האירופית לבטיחות מזון (EFSA) קבעה כי בחלק מקבוצות האוכלוסיה יש סכנה מסוימת בצריכה מוגברת של <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr ""
+msgstr "כדי להעריך את החשיפה של למוצר המזון <tag> ניתן לעיין ברשימת המוצרים שלנו שמכילה אותו. ניתן לעיין ברשימת מוצרי <nb_products> שיש בהם <tag> להלן."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
@@ -2905,15 +2930,15 @@ msgstr "סכנת חריגה מהכמות היומית המומלצת"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "סכנת חריגה מהמינון המקסימלי ללא השפעה שלילית (אין רמת השפעה שלילית ניכרת - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־50% מהחברים חורגים מהצריכה היומית המקובלת (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־5% מהחברים חורגים מהצריכה היומית המקובלת (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
@@ -3087,50 +3112,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "העמוד של %s"
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "מוצרים שנבדקו על־ידי %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "מוצרים שלא נבדקו על־ידי %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "מוצרים שתוקנו על־ידי %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "מוצרים שלא תוקנו על־ידי %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "מוצרים שנערכו על־ידי %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "מוצרים שלא נערכו על־ידי %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "מוצרים שהושלמו על־ידי %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "מוצרים שלא הושלמו על־ידי %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "מוצרים שצולמו על־ידי %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "מוצרים שלא צולמו על־ידי %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "העמוד של %s"
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "המוצר לא נמכר עוד."
@@ -3167,34 +3148,6 @@ msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr ""
 
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "מזהה מוצר לפי המפיק"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "אזהרה"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "הכנה"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "רעיון למתכון"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "מקור"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "שירות לקוחות"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "מפיק"
-
 msgctxt "environment_infocard"
 msgid "Environment infocard"
 msgstr "כרטיס פרטי סביבה"
@@ -3217,15 +3170,15 @@ msgstr "השפעה פחמנית עקב בשר או דג"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
-msgstr ""
+msgstr "מתוך פליטות פחמן מבשר או דגים עבור המוצר כולו"
 
 msgctxt "of_sustainable_daily_emissions_of_1_person"
 msgid "of sustainable daily emissions of 1 person"
-msgstr ""
+msgstr "מתוך פליטות יומיות בנות קיימא לאדם"
 
 msgctxt "of_sustainable_weekly_emissions_of_1_person"
 msgid "of sustainable weekly emissions of 1 person"
-msgstr ""
+msgstr "מתוך פליטות שבועיות בנות קיימא לאדם"
 
 msgctxt "for_one_serving"
 msgid "for one serving"
@@ -3237,15 +3190,15 @@ msgstr "מתודולוגיה"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
-msgstr ""
+msgstr "חישובי פליטות פחמן מסתמכות על ערכי ה־CO₂ לקילוגרם שנתרמו מהתכנית FoodGES מאת <a href=\"https://www.ademe.fr\">ADEME</a>."
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
-msgstr ""
+msgstr "פליטות שנתיות בנות קיימא: 2 טונות של CO₂ או כל חומר תואם לאדם כדי להגיע ליעדים שנקבעו ב־COP21."
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr ""
+msgstr "חישובי טביעת רגל פחמנית הם לא חד משמעיים. יש להתייחס לנתונים בזהירות רבה משום שהם יותר מיועדים להשוואה יחסית מאשר כערכים מוחלטים."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
@@ -3298,4 +3251,44 @@ msgstr "פופולריות"
 msgctxt "popularity_p"
 msgid "popularity"
 msgstr "פופולריות"
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr "ניתוח רכיבים"
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr "ניתוח רכיבים"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "ניתוח מרכיבים"
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "הניתוח מבוסס לחלוטין על הרכיבים שמופיעים ושיטות העיבוד אינן נלקחות בחשבון."
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "הגרסה שמופיעה לפניך היא גרסה ישנה של עמוד המוצר!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "מספר מהדורה: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "נערך על ידי: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "גרסה קודמת"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "גרסה הבאה"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "הגרסה העדכנית ביותר"
 

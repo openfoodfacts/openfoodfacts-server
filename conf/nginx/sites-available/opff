@@ -21,8 +21,8 @@ server {
         listen 80 ;
         listen [::]:80 ;
 
-        listen 443 http2 ssl;
-        listen [::]:443 http2 ssl;
+        listen 443 ssl;
+        listen [::]:443 ssl;
 
         include snippets/ssl.openpetfoodfacts.org;
         include snippets/ssl-params-opff.conf;
@@ -38,8 +38,8 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	listen 443 http2 ssl;
-	listen [::]:443 http2 ssl;
+	listen 443 ssl;
+	listen [::]:443 ssl;
 
 	server_name *.openpetfoodfacts.org openpetfoodfacts.eu *.openpetfoodfacts.eu;
 
@@ -58,10 +58,10 @@ server {
         include snippets/ssl-params-opff.conf;
 
 
-	root /home/opff/html;
+	root /srv/opff/html;
 
-	access_log /home/opff/logs/nginx.access2.log;
-	error_log /home/opff/logs/nginx.error2.log;
+	access_log /srv/opff/logs/nginx.access2.log;
+	error_log /srv/opff/logs/nginx.error2.log;
 
         # Redirect GET requests to https. POST requests will be transformed
         # to GET by most browsers when redirected, and it breaks apps that
@@ -137,7 +137,7 @@ server {
 	}
 
 
-	location ~ ^/(.well-known|fonts|images|css|js|rss|files|resources)/ {
+	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;

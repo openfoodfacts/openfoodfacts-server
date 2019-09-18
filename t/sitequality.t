@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 
 use Test::More;
 use Log::Any::Adapter 'TAP';
@@ -183,5 +183,89 @@ $product_ref = {
 };
 ProductOpener::SiteQuality::check_quality($product_ref);
 ok( !has_tag($product_ref, 'quality', 'ingredients-over-30-percent-digits'), 'product with no ingredients text has no ingredients-over-30-percent-digits tag' ) or diag explain $product_ref;
+
+# issue 1466: Add quality facet for dehydrated products that are missing prepared values
+
+$product_ref = {
+	categories_tags => undef
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( ! has_tag($product_ref, 'quality', 'missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'product without dried category with no other qualities is not flagged for issue 1466' ) or diag explain $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:dried-products-to-be-rehydrated']
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'quality', 'missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'dried product category with no other qualities is flagged for issue 1466' ) or diag explain $product_ref;
+
+# positive control 1
+$product_ref = {
+	categories_tags => ['en:dried-products-to-be-rehydrated'],
+	nutrition_data_prepared => 'on',
+	nutriments => {
+		energy_prepared_100g => 5
+	}
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( ! has_tag($product_ref, 'quality', 'missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'dried product category with prepared data is not flagged for issue 1466' ) or diag explain $product_ref;
+
+# positive control 2
+$product_ref = {
+	categories_tags => ['en:dried-products-to-be-rehydrated'],
+	nutrition_data_prepared => 'on',
+	nutriments => {
+		energy_prepared_100g => 5,
+		fat_prepared_100g => 2.7
+	}
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( ! has_tag($product_ref, 'quality', 'missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'dried product category with 2 prepared data values is not flagged for issue 1466' ) or diag explain $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:dried-products-to-be-rehydrated'],
+	nutrition_data_prepared => 'on',
+	nutriments => undef
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'quality', 'missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'dried product category with undefined nutriments hash is flagged for issue 1466' ) or diag explain $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:dried-products-to-be-rehydrated'],
+	nutrition_data_prepared => 'on',
+	nutriments => {
+		energy => 46
+	}
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'quality', 'missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'dried product category with nutriments hash with unrelated data is flagged for issue 1466' ) or diag explain $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:dried-products-to-be-rehydrated'],
+	nutriments => {
+		energy_prepared_100g => 5
+	}
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'quality', 'missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'dried product category with nutrition_data_prepared off is flagged for issue 1466' ) or diag explain $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:dried-products-to-be-rehydrated'],
+	nutrition_data_prepared => 'on',
+	nutriments => {
+		energy_prepared_100g => 5
+	},
+	no_nutrition_data => 'on'
+
+};
+ProductOpener::SiteQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'quality', 'missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'dried product category with no nutrition data checked prepared data is flagged for issue 1466' ) or diag explain $product_ref;
 
 done_testing();
