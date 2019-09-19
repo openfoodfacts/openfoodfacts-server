@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-16 16:15\n"
+"PO-Revision-Date: 2019-09-19 09:43\n"
 "Language-Team: Japanese\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -140,7 +140,7 @@ msgstr "製品ページの編集者"
 # Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -150,7 +150,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Google Play で利用できます\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -201,7 +201,7 @@ msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formula
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "私たちの作業を支援するために寄付する"
 
 msgctxt "brands"
 msgid "Brands"
@@ -373,11 +373,11 @@ msgstr "情報元"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "情報元"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "情報元"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -717,7 +717,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "<a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a> でフォローしてください\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -868,27 +870,27 @@ msgstr "バーコードの文字を入力するか、バーコードが表示さ
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "フルサイズ"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "このファイルは製品 %s にアップロードされ、 %s ライセンスでライセンスされます。"
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "帰属: %s 撮影 %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "帰属: %s 撮影 %s 追加変更 %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(元の画像)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "写真の詳細と帰属情報"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -980,11 +982,11 @@ msgstr "原材料 %s を含まない製品"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"App Store で利用できます\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
