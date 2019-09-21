@@ -1165,7 +1165,7 @@ sub mmoll_to_unit {
 		pt => "Hidratos de carbono",
 		pt_br => "Carboidratos",
 		pt_pt => "Hidratos de carbono",
-		ro => "gGlucide",
+		ro => "Glucide",
 		rs => "Ugljeni hidrati",
 		ru => "Углеводы",
 		sk => "Sacharidy",
@@ -2145,6 +2145,7 @@ sub mmoll_to_unit {
 		nl => "Natrium",
 		nl_be => "Sodium",
 		ja => "ナトリウム",
+		ro => "Sodiu",
 		unit_us => "mg",
 	},
 	salt => {
@@ -2205,7 +2206,7 @@ sub mmoll_to_unit {
 		lt => "Vitaminas",
 		mt => "Vitamina",
 		sk => "Vitamín",
-		ro => "Vitamina",
+		ro => "Vitamine",
 		bg => "Витамин",
 	},
 	'vitamin-a' => {
