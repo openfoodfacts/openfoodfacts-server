@@ -2145,7 +2145,7 @@ sub mmoll_to_unit {
 		nl => "Natrium",
 		nl_be => "Sodium",
 		ja => "ナトリウム",
-		ro => "Sodiu"
+		ro => "Sodiu",
 		unit_us => "mg",
 	},
 	salt => {
