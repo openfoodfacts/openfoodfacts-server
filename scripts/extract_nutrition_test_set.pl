@@ -212,7 +212,7 @@ while (my $product_ref = $cursor->next) {
 		print $OUT encode_json($product_ref->{nutriments});
 		close $OUT;
 
-		print $csv join("\t", $code, $angle, $ox1, $oy1, $ox2, $oy2 . "\n";
+		print $csv join("\t", $code, $angle, $ox1, $oy1, $ox2, $oy2) . "\n";
 
 
 		$n++;
