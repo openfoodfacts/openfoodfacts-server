@@ -307,7 +307,7 @@ fi:Happamuudensäätöaine
 fr:correcteur d’acidité, régulateur d'acidité
 ga:Rialtán aigéadachta
 hu:Savanyúságot szabályozó anyag
-it:Correttori di acidità
+it:correttore di acidità, correttori di acidità, regolatore di acidità
 lt:Rūgštingumą reguliuojanti medžiaga
 lv:Skābuma regulētājs
 mt:Regolatur tal-Aċidità
@@ -4257,6 +4257,7 @@ nl:Niet-geamideerde pectines
 fr:pectine de fruit, pectines de fruits
 de:Fruchtpektin
 nl:vruchtenpectine
+it:pectina di frutta
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
 
 <en:pectin
@@ -4560,7 +4561,7 @@ et:Rasvhapete mono- ja diglütseriidid
 fi:rasvahappojen mono- ja diglyseridit
 fr:mono- et diglycérides d'acides gras, mono et diglycérides d'acide gras, diglycérides d'acide gras, diglycérides d'acides gras, mono et di glycérides d'acides gras, diglycérides d'acides gras
 hu:zsírsavak mono- és digliceridjei
-it:mono e digliceridi degli acidi grassi
+it:mono-e digliceridi degli acidi grassi, mono e digliceridi degli acidi grassi
 lt:Riebalų rūgščių mono- ir digliceridai
 lv:Taukskābju mono- un diglicerīdi
 mt:Mono- u digliċeridi tal-aċidi grassi
@@ -7590,7 +7591,7 @@ en:lysozyme from eggs
 de:Lysozym aus Ei
 es:lisozima de huevo
 fr:lysozyme d'œuf, lysozyme d'oeuf
-it:lisozima de uovo
+it:lisozima da uovo
 nl:lysozym uit ei
 sv:lysozym av ägg, av ägg
 # ingredient/fr:lysozyme-d’oeuf has 289 products in 10 languages @2018-12-18
@@ -9369,11 +9370,9 @@ en:fresh milk
 de:Frischmilch
 es:Leche fresca
 fr:lait frais
+it:latte fresco
 nl:verse melk
 # ingredient/fr:lait-frais has 79 products in 2 languages 2019-04-05
-
-<en:fresh milk
-fr:lait frais entier
 
 <en:fresh milk
 fr:lait frais pasteurisé
@@ -9505,7 +9504,7 @@ nl:magere melkpoeder van biologische oorsprong
 <en:semi-skimmed milk
 <en:sterilised milk
 en:sterilised semi-skimmed milk
-fr:lait demi écrémé stérilisé
+fr:lait demi-écrémé stérilisé
 
 <en:sterilised semi-skimmed milk
 en:organic UHT pasteurised semi-skimmed milk
@@ -9547,13 +9546,15 @@ nl:volle melk
 <en:fresh milk
 en:fresh whole milk
 de:Frische Vollmilch
-fr:lait entier frais
+fr:lait entier frais, lait frais entier
+it:latte intero fresco, latte fresco intero
 
 <en:fresh whole milk
 fr:lait frais entier microfiltré
 
 <en:fresh whole milk
-fr:lait frais pasteurisé entier
+fr:lait frais entier pasteurisé, lait frais pasteurisé entier
+it:latte intero fresco pastorizzato
 
 <en:fresh whole milk
 fr:lait frais de montagne entier pasteurisé
@@ -16343,7 +16344,7 @@ de:pflanzliche Öle und Fette
 es:aceites y grasas vegetales
 et:taimsed rasvad ja õlid
 fr:huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
-it:olio e grasso vegetale
+it:oli e grassi vegetali, olio e grasso vegetale
 lv:Augu eļļas un tauki
 mt:xaħam u żejt veġetali
 nl:plantaardige vetten en olie
@@ -17130,7 +17131,7 @@ de:Palmfett
 es:grasa de palma, grasa vegetal de palma
 fi:palmurasva
 fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
-it:grasso di palma
+it:grasso di palma, grasso vegetale di palma
 nl:palmvet
 pt:gordura de palma
 se:palmina mast
@@ -17150,6 +17151,7 @@ en:non-hydrogenated palm oil
 de:ungehärtetes Palmöl, nicht-hydriertes Palm
 es:aceite de palma no hidrogenado
 fr:huile de palme non hydrogénée
+it:olio di palma non idrogenato
 nl:niet-gehydrogeneerde palm, niet gehydrogeneerde palmolie
 
 <en:palm oil
@@ -17617,7 +17619,7 @@ gl:Aceite de millo
 he:שמן תירס
 hu:Kukoricaolaj
 id:Minyak jagung
-it:Olio di semi di mais
+it:Olio di semi di mais, olio di mais
 ja:コーン油
 kk:Жүгері майы
 ko:옥수수기름
@@ -20652,7 +20654,7 @@ da:naturlig vanillearoma
 de:natürliches Vanillearoma, natürliches Vanille-Aroma
 es:aroma natural de vainilla
 fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
-it:aroma naturale di vaniglia
+it:aroma naturale di vaniglia, aroma naturale vaniglia
 nb:naturlig vanilijarom
 nl:natuurlijk vanillearoma
 pl:naturalny aromat wanilii
@@ -20775,7 +20777,7 @@ da:røgaroma
 de:Raucharoma
 es:aroma de humo
 fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee
-it:aroma di affumicato
+it:aroma di affumicato, aroma di affumicatura
 nl:rookaroma
 
 <en:flavouring
@@ -23252,8 +23254,6 @@ fr:farine de blé tendre
 it:farina di grano tenero
 
 <en:wheat flour
-<en:wheat flour
-de:Weissmehl
 de:Weissmehl
 fr:farine blanche
 it:farina bianca
@@ -23322,7 +23322,7 @@ fr:Farine de blé d'épeautre T110
 en:wholemeal spelt flour
 de:Dinkelvollkornmehl
 es:harina de espelta integral
-fr:farine complète d’épeautre
+fr:farine complète d’épeautre, farine d'épeautre complète, farine d'épeautre complet
 it:farina integrale di spelta
 nl:volkoren speltmeel
 
@@ -23337,11 +23337,6 @@ fr:farine d'épeautre dextrinée
 nl:gedextrineerd speltmeel
 
 # Question
-
-<en:spelt flour
-<en:wholemeal flour
-en:wholemeal spelt flour
-fr:farine d'épeautre complète, farine d'épeautre complet
 
 <en:cereal flour
 en:oat flour
@@ -26913,7 +26908,7 @@ el:κακαόμαζα
 es:Pasta de cacao
 fi:kaakaomassa
 fr:pâte de cacao, cacao en pâte, masse de cacao
-it:pasta di cacao
+it:pasta di cacao, massa di cacao
 kk:үгілген какао
 ky:майдаланган какао
 lv:kakavos masė
@@ -30675,7 +30670,7 @@ hy:ծիրան
 id:aprikot
 io:Abrikoto
 is:apríkósa
-it:albicocca
+it:albicocca, albicocche
 ja:杏子
 ka:გარგარი
 kk:өрік
@@ -32826,7 +32821,7 @@ es:cáscara de naranja, corteza de naranja
 et:apelsinikoor
 fi:appelsiininkuori
 fr:zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges
-it:buccla d'arancia, scorza d'arancia, scorze di arancia
+it:scorza d'arancia, scorze di arancia, scorze d'arancia, buccla d'arancia
 lt:apelsinų žievelė
 lv:apelsīna mizņas
 nl:sinaasappelschil, sinaasappelschillen, schillen sinaasappel, appelsienschil
@@ -43809,7 +43804,7 @@ fi:pistaasipähkinät
 fr:pistache, pistaches
 ga:cnónna pistéise
 hu:pisztácia
-it:pistacci
+it:pistacchi
 ja:ピスタチオ
 lt:pistacijos
 lv:pistāciju rieksti
@@ -47060,7 +47055,7 @@ da:ekstrakter af rosmarin
 de:Rosmarinextrakt
 fi:rosmariiniuutteet
 fr:extrait de romarin, extraits de romarin
-it:estratti di rosmarino
+it:estratto di rosmarino, estratti di rosmarino
 nl:extracten van rozemarijn
 sv:extrakt av rosmarin
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-romarin
