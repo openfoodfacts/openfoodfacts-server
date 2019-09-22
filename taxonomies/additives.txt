@@ -1938,6 +1938,9 @@ wikidata:en:Q191907
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3492
 efsa_evaluation_date:en: 2014-01-22
 efsa_evaluation:en: Scientific Opinion on the reconsideration of the ADI and a refined exposure assessment of beta-apo-8'-carotenal (E 160e)
+# Stabiliser/carrier may not be vegetarian, can be e.g. fish gelatine, which does not need to be labeled in EU right
+# https://www.vrg.org/blog/2012/02/15/beta-carotene-in-us-beverages-not-stabilized-with-gelatin-unlike-some-products-in-the-uk
+# https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32007L0068
 vegan:en:maybe
 vegetarian:en:maybe
 
@@ -2118,8 +2121,8 @@ en:E160b, Annatto, bixin, norbixin, roucou, achiote
 bg:E160b, Анато, биксин, норбиксин (i), БИКСИН И НОРБИКСИН
 ca:E160b, Bixina
 cs:E160b, Annatto, bixin, norbixin
-da:E160b, Annattoekstrakter (bixin, norbixin)
-de:E160b, Annatto (Bixin; Norbixin), BIXIN UND NORBIXIN, Annatto, Achote, Orlean, E 160b, Anatto
+da:E160b, Annattoekstrakter (bixin og norbixin)
+de:E160b, Annatto (Bixin und Norbixin), Bixin und Norbixin, Annatto, Achote, Orlean, E 160b, Anatto, Bixin, Norbixin
 el:E160b, Αννατο, μπιξινη, νορμπιξινη (i)
 es:E160b, Annato, bixina, norbixina, Achiote
 et:E160b, Annaato, biksiin, norbiksiin (i)
@@ -2152,8 +2155,8 @@ en:E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin
 bg:E160c, Паприка екстракт, капсантин, капсорубин
 ca:E160c, Capsantina
 cs:E160c, Paprikový extrakt, kapsanthin, kapsorubin, Capsanthin
-da:E160c, Paprikaekstrakt (capsanthin, capsorubin)
-de:E160c, Paprikaextrakt (Capsanthin; Capsorubin), Capsanthin, E 160c
+da:E160c, Paprikaekstrakt (capsanthin og capsorubin)
+de:E160c, Paprikaextrakt (Capsanthin und Capsorubin), Capsanthin, E 160c, Capsorubin
 el:E160c, Εκχυλισμα παπρικας, καψανθινη, καψορουμπινη
 es:E160c, Extracto de pimentón, capsantina, capsorrubina, Oleorresina de pimentón, Oleoresina de pimentón, Extracto de paprika, Oleoresina del pimentón, E 160c, Extracto del pimentón
 et:E160c, Paprikaekstrakt, kapsantiin, kapsorubiin
@@ -3016,8 +3019,11 @@ efsa_evaluation:en:Scientific Opinion on re‐evaluation of calcium carbonate (E
 efsa_evaluation_overexposure_risk:en: en:no
 additives_classes:en: en:colour, en:stabilizer
 organic_eu:en:authorized
-vegan:en:yes
-vegetarian:en:yes
+#“Eggshells, snail shells and most seashells are predominantly calcium carbonate and can be used as industrial sources of that chemical.” https://en.wikipedia.org/wiki/Calcium_carbonate#Biological_sources
+#Oyster shell source may not be needed to label in USA
+#https://www.vrg.org/blog/2011/12/12/calcium-carbonate-in-most-soy-rice-beverages-and-in-calcium-supplements-derived-from-a-mineral-source-not-oyster-shell-source-does-not-have-to-be-labeled/
+vegan:en:maybe
+vegetarian:en:maybe
 
 en:E171, Titanium dioxide
 bg:E171, Титанов диоксид, Титанов двуокис, Титаниев двуокис, Титаниев диоксид
@@ -6700,7 +6706,7 @@ bg:E333, E333 food additive
 ca:E333, Citrats de calci
 cs:E333, Citrát vápenatý
 da:E333, E333 food additive
-de:E333, Calciumcitrat, Tricalciumcitrat, E 333, Kalziumzitrat
+de:E333, Calciumcitrat, Tricalciumcitrat, E 333, Kalziumzitrat, Calciumcitrate
 el:E333, E333 food additive
 es:E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga, E 333
 et:E333, E333 food additive
@@ -6822,7 +6828,7 @@ el:E334, L(+)-τρυγικο οξυ, τρυγικο οξυ
 es:E334, Ácido tartárico, Ácido l(+)-tartárico, E 334, Crémor tartaro, Ácido tártrico
 et:E334, L(+)-viinhape, viinhape, L-viinhape, L-2\,3-dihüdroksübutaandihape
 fi:E334, L(+)-viinihappo, viinihappo, L-Viinihappo, L-2\,3-Dihydroksibutaanidihappo, 2\,3-dihydroksibutaanidihappo, E 334
-fr:E334, Acide L-tartrique, Acide tartrique, Acide L(+)tartrique, Acide d-α, β-dihydroxysuccinique, Acide dextrotartarique ; acide 3-hydroxy malique, CAS 87-69-4, Acide DL-tartrique, 147-71-7, 147-73-9, Acide DL-tartrique monohydraté, 87-69-4, Acide racémique, 133-37-9, Acide D-tartrique, Tartrate, Acide mesotartrique, C4H6O6
+fr:E334, Acide L-tartrique, Acide tartrique, Acide L(+)tartrique, Acide d-α, β-dihydroxysuccinique, Acide dextrotartarique, acide 3-hydroxy malique, CAS 87-69-4, Acide DL-tartrique, 147-71-7, 147-73-9, Acide DL-tartrique monohydraté, 87-69-4, Acide racémique, 133-37-9, Acide D-tartrique, Tartrate, Acide mesotartrique, C4H6O6
 hu:E334, L(+)-borkősav, borkősav, L-Borkősav, L-2\,3-Dihidroxi-butándisav
 it:E334, L(+)-acido tartarico, acido tartarico, Acido 2\,3-diidrossibutandioico, Tartaro emetico, Tartrato, C4H6O6
 lt:E334, Vyno rūgštis (l(+)-), vyno rūgštis
@@ -8283,7 +8289,7 @@ additives_classes:en: en:antioxidant, en:preservative, en:sequestrant
 vegan:en:yes
 vegetarian:en:yes
 
-en:E385, Calcium disodium ethylenediaminetetraacetate, Calcium disodium EDTA, Calcium disodium ethylene diamine tetra-acetate, Calcium disodium ethylene diamine tetra-acetate; calcium disodium EDTA, calcium-dinatrium-EDTA
+en:E385, Calcium disodium ethylenediaminetetraacetate, Calcium disodium EDTA, Calcium disodium ethylene diamine tetra-acetate, Calcium disodium ethylene diamine tetra-acetate, calcium disodium EDTA, calcium-dinatrium-EDTA
 bg:E385, Калциев динатриев етилен диамин тетраацетат, Калциев динатриев ЕДТА
 ca:E385, Etilendiaminotetracetat de calci i disodi, EDTA de calci i disodi
 cs:E385, Dvojsodnovápenatá sůl kyseliny diamintetraoctové
@@ -9013,7 +9019,7 @@ lv:E413, Tragakants, Tragakantsveķi
 mt:E413, Tragakant, Gomma Tragacant
 nl:E413, Tragant, Tragacanthgom, Tragacanth
 pl:E413, Tragakanta, Guma tragakantowa, Guma tragankowa
-pt:E413, Tragacanto, Goma de tragacanto, alcatira;goma adragante, goma adraganta
+pt:E413, Tragacanto, Goma de tragacanto, alcatira, goma adragante, goma adraganta
 ro:E413, Adragant, Gumă tragacant, Tragacant
 sk:E413, Tragant, Tragantová guma
 sl:E413, Tragakant, gumi tragakant
@@ -11477,7 +11483,7 @@ en:E466, Sodium carboxy methyl cellulose, carboxy methyl cellulose, Carboxymethy
 bg:E466, Натриева карбокси метил целулоза, карбокси метил целулоза, целулозна гума, CMC, NaCMC
 ca:E466, Carboximetilcel·lulosa sòdica
 cs:E466, Sodná sůl karboxymethylcelulosy, karboxymethylcelulosa, celulosová guma, CMC, NaCMC, Karboxymethylcelulóza, Karboxymetylcelulóza, Karboxymetylcelulosa, E 466
-da:E466, Natriumcarboxymethylcellulose (carboxymethylcellulose, cellulosegummi)
+da:E466, Natriumcarboxymethylcellulose (carboxymethylcellulose og cellulosegummi)
 de:E466, Carboxymethylcellulose, natrium-carboxymethylcellulose, cellulosegummi, CMC, NaCMC, Carboxymethylcellulosen, Carboxymethylzellulose, E 466, Natriumcarboxymethylcellulose
 el:E466, Αλας με νατριο της καρβοξυμεθυλοκυτταρινης, καρβοξυμεθυλοκυτταρινη, κομμι κυτταρινης, CMC, NaCMC
 es:E466, Carboximetilcelulosa sódica, carboximetilcelulosa, carboximetil celulosa, goma de celulosa, CMC, NaCMC
@@ -11491,7 +11497,7 @@ lv:E466, Nātrija karboksimetilceluloze, karboksimetilceluloze, celulozes sveķi
 mt:E466, Ċelluloża karbossimetilika tas-sodju, ċelluloża karbossimetilika, gomma taċ-ċelluloża, CMC, NaCMC
 nl:E466, Natriumcarboxymethylcellulose, carboxymethylcellulose, cellulosegom, CMC, NaCMC
 pl:E466, Sól sodowa karboksymetylocelulozy, karboksymetyloceluloza, guma celulozowa, CMC, NaCMC
-pt:E466, Carboximetilcelulose de sódio; carboximetilcelulose; goma de celulose, CMC, NaCMC, Carboximetilcelulose
+pt:E466, Carboximetilcelulose de sódio, carboximetilcelulose, goma de celulose, CMC, NaCMC
 ro:E466, Carboximetilceluloză de sodiu, carboximetilceluloză, gumă de celuloză, CMC, NaCMC
 sk:E466, Sodná soľ karboxymetylcelulózy, karboxymetylcelulóza, celulózová guma, CMC, NaCMC
 sl:E466, Natrijeva karboksimetil celuloza, karboksimetil celuloza, celulozni gumi, CMC, NaCMC
@@ -11568,7 +11574,7 @@ de:E469, Enzymatisch hydrolysierte carboxymethylcellulose, enzymatisch hydrolysi
 el:E469, Ενζυμικα υδρολυμενη καρβοξυμεθυλοκυτταρινη, ενζυμικα υδρολυμενο κομμι κυτταρινησ
 es:E469, Carboximetilcelulosa hidrolizada enzimáticamente, goma de celulosa hidrolizada enzimáticamente
 et:E469, Ensümaatiliselt hüdrolüüsitud karboksümetüültselluloos
-fi:E469, Entsymaattisesti hydrolysoitu karboksimetyyliselluloosa; entsymaattisesti hydrolysoitu selluloosakumi
+fi:E469, Entsymaattisesti hydrolysoitu karboksimetyyliselluloosa, entsymaattisesti hydrolysoitu selluloosakumi
 fr:E469, Carboxyméthylcellulose hydrolysée de manière enzymatique, gomme de cellulose hydrolysée de manière enzymatique
 hu:E469, Enzimesen hidrolizált karboxi-metil-cellulóz, enzimesen hidrolizált cellulózgumi, Nátrium-karboxi-metil-cellulóz
 it:E469, Carbossimetilcellulosa idrolizzata enzimaticamente, gomma di cellulosa idrolizzata enzimaticamente
@@ -12669,7 +12675,7 @@ el:E495, Μονοπαλμιτικη σορβιτανη
 es:E495, Monopalmitato de sorbitano
 et:E495, Sorbitaanmonopalmitaat
 fi:E495, Sorbitaanimonopalmitaatti
-fr:E495, Monopalmitate de sorbitane, Palmitate de sorbitane, mélange d'esters de sorbitol; de sorbitan et d'isosorbide, Span 40
+fr:E495, Monopalmitate de sorbitane
 hu:E495, Szorbitan-monopalmitát
 it:E495, Monopalmitato di sorbitano
 lt:E495, Sorbitano monopalmitatas
@@ -15762,29 +15768,29 @@ e_number:en:900b
 vegan:en:yes
 vegetarian:en:yes
 
-en:E901, White and Yellow Beeswax, beeswax, White wax
-bg:E901, Пчелен восък, бял и жълт, Бял восък
+en:E901, white and yellow beeswax, beeswax, white beeswax, yellow beeswax, white wax
+bg:E901, Пчелен восък бял и жълт, Пчелен восък, Пчелен восък бял, Пчелен восък жълт, Бял восък
 ca:E901, Cera d'abelles
-cs:E901, Včelí vosk, bílý a žlutý, Bílý vosk, E 901
-da:E901, Bivoks, hvidt og gult, Hvidt voks, E-901
-de:E901, Bienenwachs; weiß und gelb, weißes Wachs, Bienenwachs, E 901, Myricin, Cera Flava, Bienenwachs; weiß und gelb
+cs:E901, Včelí vosk bílý a žlutý, Včelí vosk, Včelí vosk bílý, Včelí vosk žlutý, Bílý vosk, E 901
+da:E901, Bivoks hvidt og gult, Bivoks, Bivoks hvidt, Bivoks gult, Hvidt voks, E-901
+de:E901, Bienenwachs weiß und gelb, Bienenwachs, Bienenwachs weiß, Bienenwachs gelb, weißes Wachs, Bienenwachs, E 901, Myricin, Cera Flava, Bienenwachs weiss und gelb
 el:E901, Κηρος μελισσων, λευκος και κιτρινος, Λευκός κηρός
-es:E901, Cera de abeja, blanca y amarilla, Cera blanca, Cera estampada
+es:E901, Cera de abeja blanca y amarilla, Cera de abeja, Cera de abeja blanca, Cera de abeja amarilla, Cera blanca, Cera estampada
 et:E901, Kollane ja valge meevaha, Valge vaha, Mesilasvaha, Vaha
-fi:E901, Mehiläisvaha, valkoinen ja keltainen, Valkoinen mehiläisvaha
+fi:E901, Mehiläisvaha valkoinen ja keltainen, Mehiläisvaha, Mehiläisvaha valkoinen, Mehiläisvaha keltainen, Valkoinen mehiläisvaha
 fr:E901, Cire d'abeille, Cire d'abeille alimentaire, Cire d'abeille blanchâtre, Cire d'abeille jaunâtre, Cire blanche, cire jaune, Cire d'abeilles, Cire d'abeille blanche et jaune, 8012-89-3, 8006-40-4
-hu:E901, Fehér és sárga méhviasz, Fehér viasz, Méhviasz
-it:E901, Cera d'api, binaca e gialla, Cera vergine
-lt:E901, Bičių vaškas, baltas ir geltonas, Baltasis vaškas
-lv:E901, Baltais un dzeltenais bišu vasks, Baltais vasks, Bišu vasks
+hu:E901, Fehér és sárga méhviasz, Méhviasz, Fehér méhviasz, Sárga méhviasz, Fehér viasz
+it:E901, Cera d'api binaca e gialla, Cera d'api, Cera d'api binaca, Cera d'api gialla, Cera vergine
+lt:E901, Bičių vaškas baltas ir geltonas, Bičių vaškas, Bičių vaškas baltas, Bičių vaškas geltonas, Baltasis vaškas
+lv:E901, Baltais un dzeltenais bišu vasks, Bišu vasks, Baltais bišu vasks, Dzeltenais bišu vasks, Baltais vasks
 mt:E901, Xama' tan-naħal, bajda u safra, Xama' bajda
-nl:E901, Bijenwas, wit en geel, Witte was, Ceratiet
-pl:E901, Wosk pszczeli, biały i żółty, Wosk biały
+nl:E901, Bijenwas wit en geel, Bijenwas, Bijenwas wit, Bijenwas geel, Witte was, Ceratiet
+pl:E901, Wosk pszczeli biały i żółty, Wosk pszczeli, Wosk pszczeli biały, Wosk pszczeli żółty, Wosk biały
 pt:E901, Cera de abelhas (branca e amarela), Cera branca, Cera
-ro:E901, Ceară de albine, albă și galbenă, Ceară albă
-sk:E901, Biely a žltý včelí vosk, Biely vosk
-sl:E901, Čebelji vosek, beli in rumeni, beli vosek
-sv:E901, Bivax, vitt och gult, Vitt vax, E 901, Keromanti, Vaxkaka
+ro:E901, Ceară de albine albă și galbenă, Ceară de albine, Ceară de albine albă, Ceară de albine galbenă, Ceară albă
+sk:E901, Biely a žltý včelí vosk, včelí vosk, biely včelí vosk, žltý včelí vosk, biely vosk
+sl:E901, Čebelji vosek beli in rumeni, Čebelji vosek, Čebelji vosek beli, Čebelji vosek rumeni, beli vosek
+sv:E901, Bivax vitt och gult, Bivax, Bivax vitt, Bivax gult, Vitt vax, E 901, Keromanti, Vaxkaka
 e_number:en:901
 wikidata:en:Q143739
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2007.615
