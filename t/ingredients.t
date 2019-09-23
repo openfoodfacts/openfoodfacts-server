@@ -39,6 +39,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:chocolate',
+	'has_sub_ingredients' => 'yes',
         'rank' => 2,
         'text' => 'chocolat',
 	'vegan' => 'maybe',
@@ -69,6 +70,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:emulsifier',
+	'has_sub_ingredients' => 'yes',
         'rank' => 6,
         'text' => "\x{e9}mulsifiants"
       },
@@ -97,6 +99,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:acidity-regulator',
+	'has_sub_ingredients' => 'yes',
         'rank' => 10,
         'text' => "correcteurs d'acidit\x{e9}"
       },
@@ -116,6 +119,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:acid',
+	'has_sub_ingredients' => 'yes',
         'rank' => 13,
         'text' => 'acidifiant'
       },
@@ -363,12 +367,14 @@ $expected_product_ref =
     'ingredients' => [
       {
         'id' => 'fr:Marmelade d\'oranges',
+	'has_sub_ingredients' => 'yes',
         'percent' => '41',
         'rank' => 1,
         'text' => 'Marmelade d\'oranges'
       },
       {
         'id' => 'en:orange-pulp',
+	'has_sub_ingredients' => 'yes',
         'percent' => '0.6',
         'processing' => 'en:concentrated',
         'rank' => 2,
@@ -378,6 +384,7 @@ $expected_product_ref =
       },
       {
         'id' => 'en:gelling-agent',
+	'has_sub_ingredients' => 'yes',
         'rank' => 3,
         'text' => "g\x{e9}lifiant"
       },
@@ -390,6 +397,7 @@ $expected_product_ref =
       },
       {
         'id' => 'en:acid',
+	'has_sub_ingredients' => 'yes',
         'rank' => 5,
         'text' => 'acidifiant'
       },
@@ -402,6 +410,7 @@ $expected_product_ref =
       },
       {
         'id' => 'en:acidity-regulator',
+	'has_sub_ingredients' => 'yes',
         'rank' => 7,
         'text' => "correcteurs d'acidit\x{e9}"
       },
@@ -414,6 +423,7 @@ $expected_product_ref =
       },
       {
         'id' => 'en:thickener',
+	'has_sub_ingredients' => 'yes',
         'rank' => 9,
         'text' => "\x{e9}paississant"
       },
@@ -426,6 +436,7 @@ $expected_product_ref =
       },
       {
         'id' => 'en:chocolate',
+	'has_sub_ingredients' => 'yes',
         'percent' => '24.9',
         'rank' => 11,
         'text' => 'chocolat',
@@ -477,6 +488,7 @@ $expected_product_ref =
       },
       {
         'id' => 'en:raising-agent',
+	'has_sub_ingredients' => 'yes',
         'rank' => 18,
         'text' => "poudre \x{e0} lever"
       },
@@ -489,6 +501,7 @@ $expected_product_ref =
       },
       {
         'id' => 'en:emulsifier',
+	'has_sub_ingredients' => 'yes',
         'rank' => 20,
         'text' => "\x{e9}mulsifiant"
       },
@@ -520,6 +533,7 @@ $expected_product_ref =
       },
       {
         'id' => 'en:concentrated-orange-juice',
+	'has_sub_ingredients' => 'yes',
         'percent' => '1.4',
         'text' => "jus d'orange concentr\x{e9}",
         'vegan' => 'yes',
@@ -587,6 +601,7 @@ $expected_product_ref =
       },
       {
         'id' => 'en:emulsifier',
+	'has_sub_ingredients' => 'yes',
         'text' => "\x{e9}mulsifiant"
       },
       {
@@ -1117,6 +1132,7 @@ is_deeply ($product_ref->{ingredients},
 	     {
 	            'id' => 'en:emulsifier',
 	            'rank' => 1,
+		    'has_sub_ingredients' => 'yes',
 	            'text' => "\x{e9}mulsifiant"
 	          },
 	          {
