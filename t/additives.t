@@ -362,6 +362,7 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin",
         "en:vitamin-a",
         "en:vitamin-c",
                               ],
@@ -378,6 +379,7 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin",
         "en:vitamin-e",
         "en:vitamin-b6",
                               ],
@@ -394,6 +396,7 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin",
         "en:folic-acid",
         "en:vitamin-b12",
                               ],
@@ -412,6 +415,7 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin",
         "en:vitamin-d",
         "en:vitamin-k",
         "en:niacin",
@@ -432,6 +436,7 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin",
         "en:vitamin-c",
         "en:niacin",
         "en:folic-acid",
