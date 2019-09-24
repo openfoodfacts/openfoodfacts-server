@@ -6002,7 +6002,7 @@ HTML
 	$initjs .= $aside_initjs;
 
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
-	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack-ssl-openfoodfacts.herokuapp.com/">Slack</a>');
+	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
 	my $twitter_account = lang("twitter_account");
 	if (defined $Lang{twitter_account_by_country}{$cc}) {
@@ -6226,10 +6226,10 @@ HTML
 	</div>
 	<div class="small-12 medium-6 large-3 columns app">
 		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
-		<a href="$Lang{ios_app_link}{$lc}">$Lang{ios_app_badge}{$lc}</a>
-		<a href="$Lang{android_app_link}{$lc}">$Lang{android_app_badge}{$lc}</a>
-		<a href="$Lang{windows_phone_app_link}{$lc}">$Lang{windows_phone_app_badge}{$lc}</a>
-		<a href="$Lang{android_apk_app_link}{$lc}">$Lang{android_apk_app_badge}{$lc}</a>
+		<a href="$Lang{ios_app_link}{$lc}" alt="iPhone & iPad">$Lang{ios_app_badge}{$lc}</a>
+		<a href="$Lang{android_app_link}{$lc}" alt="Android">$Lang{android_app_badge}{$lc}</a>
+		<a href="$Lang{windows_phone_app_link}{$lc}" alt="Windows Phone">$Lang{windows_phone_app_badge}{$lc}</a>
+		<a href="$Lang{android_apk_app_link}{$lc}" alt="Android APK">$Lang{android_apk_app_badge}{$lc}</a>
 	</div>
 	<div class="small-12 medium-6 large-3 columns project">
 		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
