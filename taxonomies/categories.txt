@@ -22373,7 +22373,7 @@ fr:Fromages blancs au lait de chèvre
 # <en:ingredient:en:cheese
 # <en:sheeps milk
 <en:Cheeses
-en:sheep's-milk cheeses, Sheep Cheeses, Cheeses from sheep milk
+en:sheep's-milk cheeses, Sheep cheeses, Cheeses from sheep milk
 ca:formatge de llet d'ovella
 cs:ovčí sýr
 de:Schafmilchkäse, Schafskäse, Schafkäse, Käse aus Schafsmilch
@@ -23172,6 +23172,19 @@ en:Spanish cheeses, cheeses from Spain
 de:Spanischer Käse
 fr:Fromages espagnols, Fromages d'Espagne
 nl:Spaanse kazen
+
+<en:Spanish cheeses
+<en:sheep's-milk cheeses
+en:Manchego
+ca:Manxego
+de:Manchego
+es:Manchego, queso manchego
+fr:Manchego
+it:Manchego
+nl:Manchego
+pt:Manchego, queijo manchego
+country:en:Spain
+wikidata:en:Q72305
 
 <en:Spanish cheeses
 es:Afuega'l Pitu
@@ -40027,6 +40040,7 @@ pt:Doces para barrar
 ru:Сладкие намазки
 pnns_group_2:en:Sweets
 
+#Do not put it in plant-based spreads, some lemon curd contains only lemon oil.
 <en:Sweet spreads
 en:Lemon curds
 de:Zitronen-Aufstrich
@@ -40042,6 +40056,10 @@ fr:Confitures de lait, Confiture de lait
 nl:Dulce de leche
 ru:варёная сгущёнка
 wikidata:en:Q917761
+
+<en:Sweet spreads
+en:Ginger preserves, ginger jams
+fr:Confitures de gingembre
 
 <en:Plant-based spreads
 <en:Sweet spreads
