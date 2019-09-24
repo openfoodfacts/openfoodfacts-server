@@ -29,6 +29,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin",
         "en:thiamin",
         "en:vitamin-c",
         "en:vitamin-e",
@@ -669,6 +670,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{vitamins_tags}, [
+          "en:vitamin",
           'en:vitamin-a',
           'en:thiamin',
           'en:riboflavin',
@@ -767,6 +769,7 @@ is_deeply($product_ref->{minerals_tags}, [
 
 is_deeply($product_ref->{vitamins_tags}, [
 	"en:sodium-l-ascorbate",
+    "en:vitamin",
 	"en:vitamin-c",
 	"en:vitamin-b12",
 	"en:niacin",
@@ -836,6 +839,7 @@ is_deeply($product_ref->{minerals_tags}, [
 );
 
 is_deeply($product_ref->{vitamins_tags}, [
+    "en:vitamin",
 	"en:vitamin-e",
 	"en:thiamin",
 	"en:riboflavin",
