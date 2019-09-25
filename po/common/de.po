@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-11 09:40\n"
+"PO-Revision-Date: 2019-09-16 20:11\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -73,11 +73,11 @@ msgstr "Hallo <NAME>,\n\n"
 "Sie können auch der Facebook-Gruppe für Mitwirkende beitreten:\n"
 "https://www.facebook.com/groups/openfoodfacts.de/\n\n"
 "Neu: Wir starten nun auch Open Beauty Facts, um eine Datenbank über Kosmetika wie zum Beispiel Seife, Zahncreme, Make-up u.s.w. zu schaffen\n"
-"https://openbeautyfacts.org\n\n"
+"https://world-de.openbeautyfacts.org\n\n"
 "Vielen Dank!\n\n"
 "Stéphane und das Open-Food-Facts-Team\n"
-"https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts\n"
+"https://world-de.openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFactsDE\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -199,8 +199,8 @@ msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulai
 msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Für Open Food Facts spenden\" /></a><p><<site_name>> wird von einem gemeinnützigen, branchenunabhängigen Verein geführt. Sie ist für alle gemacht, von allen, und sie wird von allen finanziert. Sie können unsere Arbeit unterstützen, <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">indem Sie an Open Food Facts spenden</a> und auch die <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo-Suchmaschine nutzen</a>.<br/><b>Vielen Dank!</b></p>"
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
-msgstr "Begeben Sie sich auf Mission"
+msgid "Donate to support our work"
+msgstr "Spenden Sie bitte, um unsere Arbeit zu unterstützen"
 
 msgctxt "brands"
 msgid "Brands"
@@ -2144,7 +2144,7 @@ msgstr "Punktwolke"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ mehr über <<site_name>> Diagramme erfahren: <a href=\"/graphs-in-3-clicks\">Diagramme in 3 Klicks</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2593,7 +2593,7 @@ msgstr "Webseiten- oder Blog-Adresse"
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/German.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
