@@ -309,7 +309,7 @@ sv:retinylacetat
 # en-ca:Retinyl acetate
 wikidata:en:Q7316808
 wikipedia:en:https://en.wikipedia.org/wiki/Retinyl_acetate
-# vitamin/retinyl-acetate has 42 products @2018-11-20
+# vitamin/retinyl-acetate has 83 products in 6 languages @2019-09-23
 
 # description:en:Retinyl palmitate, or vitamin A palmitate, is the ester of retinol (vitamin A) and palmitic acid.
 
@@ -342,7 +342,7 @@ sv:retinylpalmitat
 # azb:رتینیل پالمیتات
 wikidata:en:Q7316807
 wikipedia:en:https://en.wikipedia.org/wiki/Retinyl_palmitate
-# vitamin/retinyl-palmitate has 14 products in 5 languages @2018-11-20
+# vitamin/retinyl-palmitate has 22 products in 6 languages @2019-09-23
 
 # description:en:β-Carotene is an organic, strongly colored red-orange pigment abundant in plants and fruits. Plant carotenoids are the primary dietary source of provitamin A worldwide, with β-carotene as the best-known provitamin A carotenoid.
 # comment:en:The greek letter β, has not been used in this ingredient.
@@ -411,6 +411,8 @@ en:provitamin A
 de:Provitamin A
 fr:pro-vitamine A
 it:provitamina A
+sl:provitamin A
+# ingredient/provitamin-A has 5 products in 5 languages @2019-09-23
 
 ################################## V I T A M I N    B 1 #############################
 
@@ -554,7 +556,7 @@ wikidata:en:Q68478785
 
 ################################## V I T A M I N    B 2 #############################
 
-# description:en:Riboflavin, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement.
+# description:en:Riboflavin, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement (also known as E101).
 
 <en:vitamin
 en:Riboflavin, vitamin b2
@@ -642,53 +644,62 @@ zh:核黄素
 # zh-tw:核黄素
 wikidata:en:Q130365
 wikipedia:en:https://en.wikipedia.org/wiki/Riboflavin
-# ingredient/vitamin-b2 has 4263 products in 10 languages @2018-11-23
+# ingredient/e101 has 26086 products in 46 languages @2019-09-23
 vegetarian:en:yes
 vegan:en:maybe
 
 <en:Riboflavin
 en:riboflavin 5'-phosphate sodium
-# ingredient/riboflavin%205'-phosphate%20sodium has 1 product @2019-09-23
+# ingredient/riboflavin-5'-phosphate-sodium has 1 product @2019-09-23
 
 ################################## V I T A M I N    B 3 #############################
 
 # description:en:Niacin, also known as nicotinic acid, is an organic compound and a form of vitamin B3, an essential human nutrient (also E375).
 
 <en:vitamin
-en:niacin, vitamin b3, vitamin PP, B3, PP
+en:niacin, nicotinic acid, vitamin b3, vitamin PP, B3, PP
 af:Niasien
 ar:نياسين
 be:Нікацінавая кіслата
 bg:Никотинова киселина, Витамин B3, Витамин PP
 bs:Vitamin B3
 ca:niacina, Vitamina B3, Vitamina PP
-cs:niacin, vitamín B3, vitamín PP
+cs:niacin, kyselina nikotinová, vitamín B3, vitamín PP
 cy:Niacin, Fitamin B3
 da:Niacin
-de:Niacin, Vitamin B3
+de:Niacin, Nicotinsäure, Vitamin B3
 dv:ވިޓަމިން ބީ3
+el:νικοτινικό οξύ
 eo:niacino, vitamino B3
-es:niacina, Vitamina B3, vitamina PP
-et:Niatsiin, Vitamiin B3
+es:niacina, ácido nicotínico, Vitamina B3, vitamina PP
+et:Niatsiin, nikotiinhape, Vitamiin B3
 eu:Niazina, B3 bitamina
 fa:ویتامین ب۳
-fi:Niasiini, B3-vitamiini
+fi:Niasiini, nikotiinihappo, B3-vitamiini
 fo:Niacin
-fr:niacine, vitamine b3, Vitamine PP
+fr:niacine, acide nicotinique, vitamine b3, Vitamine PP
 ga:Aigéad nicitíneach
 gl:Niacina, Vitamina B3
 he:ויטמין B3
 hi:नाइयासिन
 hr:Niacin, Vitamin B3
-hu:Niacin
+hu:Niacin, nikotinsav
 hy:Վիտամին B3
 id:Niasin, Vitamin B3
-it:niacina, vitamina PP
+it:niacina, acido nicotinico, vitamina PP
 ja:ナイアシン, ビタミンB3, ビタミンPP
 mk:ниацин
-nl:Niacine, Vitamine B3, Vitamine PP
+mt:aċidu nikotoniku
+lt:nikotino rūgštis
+lv:nikotīnskābe
+nl:Niacine, nicotinezuur, Vitamine B3, Vitamine PP
+pl:kwas nikotynowy
+pt:ácido nicotínico
+ro:acid nicotinic
 ru:Ниацин, витамин B3, витамин PP, E375, B3, никотиновая кислота
-sv:vitamin B3
+sk:kyselina nikotínová
+sl:nikotinska kislina
+sv:nikotinsyra, vitamin B3
 # ast:Vitamina B3
 # azb:ویتامین ب۳
 # en-ca:Niacin
@@ -697,28 +708,6 @@ wikidata:en:Q134658
 wikipedia:en:https://en.wikipedia.org/wiki/Niacin
 # ingredient/vitamin-b3 has 27601 products in 40 languages @2019-09-23
 
-<en:Niacin
-en:nicotinic acid
-bg:Никотинова киселина
-cs:kyselina nikotinová
-de:Nicotinsäure
-el:νικοτινικό οξύ
-es:ácido nicotínico
-et:nikotiinhape
-fi:nikotiinihappo
-fr:acide nicotinique
-hu:nikotinsav
-it:acido nicotinico
-lt:nikotino rūgštis
-lv:nikotīnskābe
-mt:aċidu nikotoniku
-nl:nicotinezuur
-pl:kwas nikotynowy
-pt:ácido nicotínico
-ro:acid nicotinic
-sk:kyselina nikotínová
-sl:nikotinska kislina
-sv:nikotinsyra
 
 # description:en:Nicotinamide is a form of vitamin B3 found in food and used as a dietary supplement and medication.
 
@@ -845,7 +834,7 @@ zh:泛酸
 # zh-tw:泛酸
 wikidata:en:Q179894
 wikipedia:en:https://en.wikipedia.org/wiki/Pantothenic_acid
-# ingredient/pantothenic-acid has 2531 products in 24 languages @2019-11-23
+# ingredient/pantothenic-acid has 2531 products in 24 languages @2019-09-23
 
 # description:en:Another common supplemental form of the vitamin is CALCIUM PANTOTHENATE. Calcium pantothenate is often used in dietary supplements because, as a salt, it is more stable than pantothenic acid.
 
@@ -940,27 +929,87 @@ uk:Декспантенол
 wikidata:en:Q47495755
 # has 6 products in english @2019-09-23
 
-en:Vitamin B6, Pyridoxin
-bg:Витамин B6
-de:de:Vitamin B6, Pyridoxin
-el:Βιταμίνη B6
-es:Vitamina B6
-et:B6-vitamiin
-fi:B6-vitamiini
-fr:Vitamine B6, Pyridoxine
-hu:B6-vitamin
-it:Vitamina B6, piridoxina
-lt:Vitaminas B6
-lv:B6 vitamīns
-mt:Vitamina B6
-nl:Vitamine B6
-pl:Witamina B6
-pt:Vitamina B6
-ro:Vitamina B6
-sk:Vitamín B6
-zh:维生素B6
+################################## VITAMIN B6 #############################
 
-<en:Vitamin B6
+# Vitamin B6 refers to a group of chemically similar compounds which can be interconverted in biological systems.
+# Should this be split up in several chemical compounds?
+
+<en:vitamin
+en:vitamin b6, pyridoxamine, B6
+ar:فيتامين بي6
+az:Piridoksalfosfat
+bg:Витамин B6
+bn:পাইরিডক্সিন
+bs:Vitamin B6
+ca:vitamina B6
+cs:vitamín B6
+de:Vitamin B6
+dv:ވިޓަމިން ބީ6
+eo:vitamino B6
+es:vitamina b6, piridoxina
+et:Vitamiin B6
+eu:B6 bitamina
+fa:ویتامین ب۶
+fi:B6-vitamiini
+fr:vitamine b6, B6
+fy:Fitamine B6
+gl:Vitamina B6
+gu:વિટામિન બી૬
+he:B6 ויטמין
+hi:विटामिन बी६
+hr:Vitamin B6
+hu:B6-vitamin
+hy:Վիտամին B6
+id:Vitamin B6
+it:vitamina B6
+ja:ビタミンB6
+jv:Vitamin B6
+ko:비타민 B6
+ky:Витамин В6
+lv:B6 vitamīns
+mk:Витамин Б6
+mn:B6 витамин
+ms:Vitamin B6
+my:ဗီတာမင်ဘီ-၆
+ne:भिटामिन बी-६
+nl:vitamine B6
+oc:Vitamina B6
+pl:witamina B6
+pt:vitamina B6
+ro:Vitamina B6
+ru:Витамин B6
+rw:Vitamini B6
+sh:Vitamin B6
+sk:vitamín B6
+sl:Vitamin B6
+sr:vitamin B6
+sv:vitamin B6
+ta:உயிர்ச்சத்து பி6
+th:วิตามินบี6
+uk:Вітамін B6
+uz:Piridoksin
+vi:Vitamin B6
+zh:维生素B6
+# ast:Vitamina B6
+# en-ca:Vitamin B6
+# en-gb:Vitamin B6
+# pt-br:Vitamina B6
+# sco:Vitamin B6
+# sr-ec:Витамин Б6
+# sr-el:vitamin B6
+# tyv:Витамин Б6
+# zh-cn:维生素B6
+# zh-hans:维生素B6
+# zh-hant:维生素B6
+# zh-hk:维生素B6
+# zh-sg:维生素B6
+# sh-tw:维生素B6
+wikidata:en:Q205130
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_B6
+# ingredient/vitamin-b6 has 5823 products in 33 languages @2019-09-23
+
+
+<en:vitamin B6
 en:pyridoxine hydrochloride
 bg:Пиридоксин хидрохлорид
 cs:pyridoxin-hydrochlorid
@@ -974,6 +1023,7 @@ hu:piridoxin-hidroklorid
 it:cloridrato di piridossina
 lt:piridoksino hidrochloridas
 lv:piridoksīna hidrohlorīds
+mk:пиридоксин хидрохлорид
 mt:idroklorur tal-piridossina
 nl:pyridoxinehydrochloride
 pl:chlorowodorek pirydoksyny
@@ -981,33 +1031,39 @@ pt:cloridrato de piridoxina
 ro:clorhidrat de piridoxină
 sk:pyridoxínhydrochlorid
 sl:piridoksin hidroklorid
+sr:piridoksin-hidrohlorid
+# sr-el:piridoksin-hidrohlorid
 sv:pyridoxinhydroklorid
+wikidata:en:Q26841284
+# ingredient/pyridoxine-hydrochloride has 1751 products in 5 languages @2018-11-24
 
-<en:Vitamin B6
-en:pyridoxine 5'-phosphate
+# <en:Vitamin B6
+# en:pyridoxine 5'-phosphate
+# has no products 22019-09-23
 
-<en:Vitamin B6
-en:pyridoxine dipalmitate
-bg:Пиридоксин дипалмитат
-cs:pyridoxin-dipalmitát
-de:Pyridoxindipalmitat
-el:διπαλμιτική πυριδοξίνη
-es:dipalmitato de piridixona
-et:püridoksiindipalmitaat
-fi:pyridoksiinidipalmitaatti
-fr:dipalmitate de pyridoxine
-hu:piridoxin-dipalmitát
-it:dipalmitato di piridossina
-lt:piridoksino dipalmitatas
-lv:piridoksīna dipalmitāts
-mt:dipalmitat tal-piridossina
-nl:pyridoxinedipalmitaat
-pl:dwupalmitynian pirydoksyny
-pt:dipalmitato de piridoxina
-ro:dipalmitat de piridoxină
-sk:pyridoxíndipalmitát
-sl:piridoksin dipalmitat
-sv:pyridoxindipalmitat
+#<en:Vitamin B6
+#en:pyridoxine dipalmitate
+#bg:Пиридоксин дипалмитат
+#cs:pyridoxin-dipalmitát
+#de:Pyridoxindipalmitat
+#el:διπαλμιτική πυριδοξίνη
+#es:dipalmitato de piridixona
+#et:püridoksiindipalmitaat
+#fi:pyridoksiinidipalmitaatti
+#fr:dipalmitate de pyridoxine
+#hu:piridoxin-dipalmitát
+#it:dipalmitato di piridossina
+#lt:piridoksino dipalmitatas
+#lv:piridoksīna dipalmitāts
+#mt:dipalmitat tal-piridossina
+#nl:pyridoxinedipalmitaat
+#pl:dwupalmitynian pirydoksyny
+#pt:dipalmitato de piridoxina
+#ro:dipalmitat de piridoxină
+#sk:pyridoxíndipalmitát
+#sl:piridoksin dipalmitat
+#sv:pyridoxindipalmitat
+# has no products @2019-09-23
 
 en:Folate
 bg:Фолат
