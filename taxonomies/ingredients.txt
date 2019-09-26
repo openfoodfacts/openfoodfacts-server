@@ -50172,7 +50172,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wasabi
 # ingredient/wasabi has 132 products in 5 languages @2019-03-13
 
 
-# Algae is an informal term for a large, diverse group of photosynthetic eukaryotic organisms that are not necessarily closely related, and is thus polyphyletic.
+# description:en:Algae is an informal term for a large, diverse group of photosynthetic eukaryotic organisms that are not necessarily closely related, and is thus polyphyletic.
 
 en:algae
 af:Alg
@@ -50823,8 +50823,8 @@ wikidata:en:Q26736348
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-# A MUSHROOM, or toadstool, is the fleshy, spore-bearing fruiting body of a fungus, typically produced above ground on soil or on its food source.
-# There is a wikipedia translation issue. Mushroom often refers to spores, so edible mushroom is better. However the edible part is not found on packages.
+# description:en:A MUSHROOM, or toadstool, is the fleshy, spore-bearing fruiting body of a fungus, typically produced above ground on soil or on its food source.
+# comment:en:There is a wikipedia translation issue. Mushroom often refers to spores, so edible mushroom is better. However the edible part is not found on packages.
 
 en:mushroom
 an:Potrecón
@@ -50965,7 +50965,7 @@ nl:champignonextract
 en:mushroom powder
 de:Champignonpulver
 
-# CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus. 
+# description:en:CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus. 
 
 <en:mushroom
 en:golden chanterelle
@@ -50996,6 +50996,7 @@ it:Gallinaccio
 ja:アンズタケ
 ka:მიქლიო
 ko:꾀꼬리버섯
+la:cantharellus cibarius
 lt:Valgomoji voveraitė
 lv:Parastā gailene
 mk:лисичарка
@@ -51031,11 +51032,6 @@ wikidata:en:Q188749
 wikipedia:en:https://en.wikipedia.org/wiki/Cantharellus_cibarius
 # ingredient/fr:cantharellus-cibarius has 26 products in 3 languages @2018-12-16
 # ingredient/fr:girolles has 90 products in 3 languages @2018-12-16
-
-<en:golden chanterelle
-en:cantharellus cibarius
-fr:Cantharellus cibarius, Girolle, Girole, Chanterelle
-la:cantharellus cibarius
 
 # description:en:BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus. 
 
@@ -51073,6 +51069,7 @@ ja:ヤマドリタケ
 ka:დათვისსოკო
 kk:Ақ саңырауқұлақ
 ku:Fîqeroş
+la:Boletus edulis
 lt:Tikrinis baravykas
 lv:Egļu baravika
 mk:летен вргањ
@@ -51116,13 +51113,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Boletus_edulis
 # en:cep has 98 products in 5 languages @2018-11-02
 
 <en:cep
-en:Boletus edulis
-de:Steinpilze
-fr:Boletus edulis
-it:funghi porcini
-la:Boletus edulis
-
-<en:cep
 en:dried cep
 fr:cèpes deshydratés
 
@@ -51139,7 +51129,6 @@ la:Boletus aereus, aereus
 
 <en:mushroom
 en:pine bolete
-de:Steinpilz
 fr:Bolet pinicole
 la:Boletus pinophilus, Boletus pinicola, pinicola
 
@@ -51202,7 +51191,6 @@ carbon_footprint_fr_foodges_value:fr:1.9
 fr:champignons de Paris émincés
 
 
-
 # description:en:HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
 
 <en:mushroom
@@ -51218,6 +51206,7 @@ fr:Trompettes de la mort
 gl:Trompeta dos mortos
 hr:Crna trubača
 hu:Sötét trombitagomba
+la:Craterellus cornucopioides
 li:Trompèt van d'r doeëd
 lt:Paprastasis trimitėlis
 mk:црна труба
@@ -51232,10 +51221,6 @@ sv:Svart trumpetsvamp
 # vec:Tronbeta da morto
 # zh-tw:灰喇叭菌
 wikidata:en:Q857903
-
-<en:horn of plenty
-en:Craterellus cornucopioides
-la:Craterellus cornucopioides
 wikipedia:en:https://en.wikipedia.org/wiki/Craterellus_cornucopioides
 
 <en:mushroom
@@ -51247,6 +51232,7 @@ fr:Trémelle fucus
 id:Jamur kuping putih
 ja:シロキクラゲ
 jv:Jamur kuping putih
+la:Tremella fuciformis
 su:Lémbér bodas
 uk:Сніжний гриб
 vi:Mộc nhĩ trắng
@@ -51257,12 +51243,8 @@ zh:銀耳
 wikidata:en:Q1309195
 wikipedia:en:https://en.wikipedia.org/wiki/Tremella_fuciformis
 
-<en:kikurage mushroom
-en:Tremella fuciformis
-la:Tremella fuciformis
 
-
-# LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species. 
+# description:en:LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species. 
 
 <en:mushroom
 en:milkcap
@@ -51300,7 +51282,7 @@ wikidata:en:Q748899
 wikipedia:en:https://en.wikipedia.org/wiki/Lactarius
 # ingredient/fr:lactaires has 53 products in french @2019-0121
 
-# LACTARIUS DELICIOSUS, commonly known as the saffron milk cap and red pine mushroom, is one of the best known members of the large milk-cap genus Lactarius in the order Russulales. 
+# description:en:LACTARIUS DELICIOSUS, commonly known as the saffron milk cap and red pine mushroom, is one of the best known members of the large milk-cap genus Lactarius in the order Russulales. 
 
 <en:milkcap
 en:saffron milk cap
@@ -51325,6 +51307,7 @@ gl:Níscaro
 hr:Rujnica
 hu:Ízletes rizike
 ka:მჭადა სოკო
+la:lactarius deliciosus
 lt:Pušyninė rudmėsė
 lv:Priežu rudmiese
 mk:рујница
@@ -51347,14 +51330,9 @@ zh:松乳菇
 # zh-tw:松乳菇
 wikidata:en:Q62138
 wikipedia:en:https://en.wikipedia.org/wiki/Lactarius_deliciosus
-
-<en:saffron milk cap
-en:lactarus deliciosus, lactarus déliciosus
-fr:Lactarius deliciosus, Lactaire délicieux
-la:lactarius deliciosus
 # ingredient/fr:lactarus-déliciosus has 2 products in french @2019-01-22
 
-# LACTARIUS SANGUIFLUUS, commonly known as the bloody milk cap, is a species of fungus in the family Russulaceae.
+# description:en:LACTARIUS SANGUIFLUUS, commonly known as the bloody milk cap, is a species of fungus in the family Russulaceae.
 
 <en:milkcap
 en:bloody milk cap
@@ -51364,20 +51342,17 @@ de:Weinroter Kiefern-Reizker
 et:Veririisikas
 fr:Lactaire sanguin
 gl:Níscaro de sangue
+la:Lactarius sanguifluus
 pl:Mleczaj czerwieniejący
 ru:Рыжик красный
 sr:Врсовница
 sv:Vinriska
-
-<en:bloody milk cap
-en:Lactarius sanguifluus, lactarus sanguifluus
-la:Lactarius sanguifluus
 wikidata:en:Q961386
 wikipedia:en:https://en.wikipedia.org/wiki/Lactarius_sanguifluus
 
 
 
-# Morchella, the true morels, is a genus of edible sac fungi closely related to anatomically simpler cup fungi in the order Pezizales (division Ascomycota). 
+# description:en:Morchella, the true morels, is a genus of edible sac fungi closely related to anatomically simpler cup fungi in the order Pezizales (division Ascomycota). 
 
 <en:mushroom
 en:morels
@@ -51428,7 +51403,6 @@ it:spugnole secche
 # description:en:MORCHELLA CONICA is an old binomial name previously applied to species of fungi in the Morchellaceae family.
 
 <en:morels
-la:Morchella conica
 ar:غوشنة مخروطية
 be:смаржок канічны
 bg:островърха смръчкула
@@ -51439,6 +51413,7 @@ et:Kuhikmürkel
 fi:Kartiohuhtasieni
 he:גמצוץ חרוטי
 hu:Hegyes kucsmagomba
+la:Morchella conica
 mk:конусна смрчка
 ro:Zbârciog țuguiat
 ru:Сморчок конический
@@ -51453,7 +51428,7 @@ zh:羊肚菌
 wikidata:en:Q1327882
 wikipedia:en:https://en.wikipedia.org/wiki/Morchella_conica
 
-# Morchella esculenta, (commonly known as common morel, morel, yellow morel, true morel, morel mushroom, and sponge morel) is a species of fungus in the Morchellaceae family of the Ascomycota. 
+# description:en:Morchella esculenta, (commonly known as common morel, morel, yellow morel, true morel, morel mushroom, and sponge morel) is a species of fungus in the Morchellaceae family of the Ascomycota. 
 
 <en:morels
 en:common morel
@@ -51468,6 +51443,7 @@ gl:Cogomelo de coresma
 hu:Ízletes kucsmagomba
 ja:アミガサタケ
 ko:곰보버섯
+la:Morchella esculenta
 lt:Valgomasis briedžiukas
 mk:смрчка
 nl:Gewone morielje
@@ -51484,13 +51460,10 @@ uk:Зморшок їстівний
 zh:美味羊肚菌
 # csb:Przëdatny mùrchel
 # sgs:Brėidielis
-
-<en:common morel
-la:Morchella esculenta
 wikipedia:en:https://en.wikipedia.org/wiki/Morchella_esculenta
 
 
-# PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae. 
+# description:en:PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae. 
 
 <en:mushroom
 en:pholiota
@@ -51513,7 +51486,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pholiota
 # ingredient/fr:pholiotes has 69 products in french @2019-01-22
 
 
-# Pholiota microspora, commonly known as Pholiota nameko or shortly nameko (ナメコ),[1] is a small, amber-brown mushroom with a slightly gelatinous coating
+# description:en:Pholiota microspora, commonly known as Pholiota nameko or shortly nameko (ナメコ),[1] is a small, amber-brown mushroom with a slightly gelatinous coating
 
 <en:pholiota
 en:nameko
@@ -51523,20 +51496,16 @@ de:Japanisches Stockschwämmchen
 fr:Pholiota microspora, Pholiota nameko, Nameko
 ja:ナメコ
 ko:나도팽나무버섯
+la:Pholiota nameko, Pholiota microspora
 ru:Чешуйчатка съедобная
 sv:Namekotofsskivling
 zh:滑菇
 # zh-tw:光滑環銹傘
-
-<en:nameko
-en:Pholiota nameko
-fr:Pholiota microspora, Pholiota nameko, Nameko
-la:Pholiota nameko, Pholiota microspora
 wikipedia:en:https://en.wikipedia.org/wiki/Pholiota_microspora
 # ingredient/fr:Pholiota-nameko has 5 products @2019-01-22
 
 
-# KUEHNEROMYCES MUTABILIS (synonym:Pholiota mutabilis), commonly known as the sheathed woodtuft, is an edible mushroom that grows in clumps on tree stumps or other dead wood. 
+# description:en:KUEHNEROMYCES MUTABILIS (synonym:Pholiota mutabilis), commonly known as the sheathed woodtuft, is an edible mushroom that grows in clumps on tree stumps or other dead wood. 
 
 <en:pholiota
 en:sheathed woodtuft
@@ -51545,11 +51514,12 @@ cs:opeňka měnlivá
 cy:Siobyn coed bacsiog
 de:Gemeines Stockschwämmchen
 fi:Koivunkantosieni
-fr:Pholiote changeante
+fr:Pholiote changeante, Souchette, Agaric à soupe
 hu:Ízletes tőkegomba
 is:Hverfisveppur
 ja:センボンイチメガサ
 ka:ზაფხულის მანჭკვალა
+la:Pholiota mutabilis, Kuehneromyces mutabilis
 lt:Paprastoji kelmiukė
 nl:Stobbezwammetje
 pl:łuskwiak zmienny
@@ -51557,16 +51527,11 @@ ro:Gheba ciobanilor
 ru:Опёнок летний
 sv:Föränderlig tofsskivling
 zh:庫恩菇
-
-<en:sheathed woodtuft
-en:Pholiota mutabilis
-fr:Kuehneromyces mutabilis, Pholiota mutabilis, Pholiote changeante, Souchette, Agaric à soupe
-la:Pholiota mutabilis, Kuehneromyces mutabilis
 wikidata:en:Q732640
 wikipedia:en:https://en.wikipedia.org/wiki/Kuehneromyces_mutabilis
 
 
-# SUILLUS LUTEUS is a bolete fungus, and the type species of the genus Suillus. 
+# description:en:SUILLUS LUTEUS is a bolete fungus, and the type species of the genus Suillus. 
 
 <en:mushroom
 en:slippery jack, sticky bun, Suillus luteus
@@ -51607,7 +51572,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Suillus_luteus
 # fr:bolets-jaunes has 72 products @2018-11-01
 
 
-# Vdescription:en:olvariella volvacea (also known as paddy straw mushroom or straw mushroom) is a species of edible mushroom cultivated throughout East and Southeast Asia and used extensively in Asian cuisines.
+# description:en:olvariella volvacea (also known as paddy straw mushroom or straw mushroom) is a species of edible mushroom cultivated throughout East and Southeast Asia and used extensively in Asian cuisines.
 
 <en:mushroom
 en:straw mushroom
@@ -51667,7 +51632,7 @@ wikidata:en:Q1142857
 # fr:Suillus granulatus has 4 products in 1 language @2018-11-01
 
 
-# The SHIITAKE (Lentinula edodes) is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries.
+# description:en:The SHIITAKE (Lentinula edodes) is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries.
 
 <en:mushroom
 en:shiitake, lentinula edodes, lentinus edodes
@@ -51692,7 +51657,7 @@ sv:rekonstituerad svart champinjon
 # fr:champignon-noir-réhydraté has 121 products in 3 languages @2018-11-01
 
 
-# PLEUROTUS OSTREATUS, the oyster mushroom, is a common edible mushroom. 
+# description:en:PLEUROTUS OSTREATUS, the oyster mushroom, is a common edible mushroom. 
 
 <en:mushroom
 en:oyster mushroom, straw mushroom
@@ -51711,17 +51676,18 @@ et:Austerservik
 eu:Belarri landu
 fa:قارچ چروک
 fi:Osterivinokas
-fr:pleurotes, pleurote en huitre, Pleurote en huître
+fr:pleurotes, pleurote en huitre, Pleurote en huître, Pleurote en forme d'huître
 ga:Arc oisreach
 gl:Pleuroto
 hu:Késői laskagomba
 id:Jamur tiram
-it:ostrica funga
+it:ostrica funga, orecchione
 ja:ヒラタケ
 jv:Jamur tiram
 ka:ხეთამხალი
 kk:Устрицалық вешенка
 ko:느타리
+la:Pleurotus ostreatus
 lb:Austerechampignon
 lt:Gluosninė kreivabudė
 lv:austeru sānause
@@ -51763,12 +51729,6 @@ zh:平菇
 # zh-tw:糙皮側耳:
 wikidata:en:Q186451
 # fr:pleurotes has 119 products @2018-11-01
-
-<en:oyster mushroom
-en:Pleurotus ostreatus
-fr:Pleurotus ostreatus, Pleurote en forme d'huître
-it:orecchione
-la:Pleurotus ostreatus
 wikipedia:en:https://en.wikipedia.org/wiki/Pleurotus_ostreatus
 
 
@@ -51807,7 +51767,6 @@ zh:硬柄小皮傘
 wikidata:en:Q752492
 wikipedia:en:https://en.wikipedia.org/wiki/Marasmius_oreades
 # ingredient/fr:Marasmius-Oreades has 1 product @2018-01-22
-
 
 
 # description:en:AURICULARIA AURICULA-JUDAE, known as the Jew's ear, wood ear, jelly ear or by a number of other common names, is a species of edible Auriculariales fungus found worldwide.
@@ -51885,6 +51844,7 @@ fr:truffe noire, truffes noires
 hu:Francia szarvasgomba
 it:Tartufo nero
 kk:Жерқұлақ
+la:tuber melanosporium
 nl:zwarte truffel
 pl:trufla czarnozarodnikowa
 ro:Trufă neagră franceză
@@ -51894,13 +51854,6 @@ sv:Perigordtryffel
 tr:Perigord trüfü
 zh:黑松露
 # ingredient/black-truffle has 39 products in 4 languages @2019-04-23
-
-# description:en:TUBER MELANOSPORUM, called the black truffle, Périgord truffle or French black truffle, is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto. 
-# comment:en:The latin name is kept separate as it is often found as a separate ingredient. It also allows to detect wrong translations. 
-
-<en:black truffle
-en:tuber melanosporium
-la:tuber melanosporium
 wikidata:en:Q1093314
 wikipedia:en:https://en.wikipedia.org/wiki/Tuber_melanosporum
 # usage:fr:truffes noires (tuber melanosporium)
@@ -51921,6 +51874,7 @@ eu:Udako boilur
 fr:truffle d’été, tuber aestivum
 hu:Nyári szarvasgomba
 it:Tartufo Scorzione
+la:Tuber aestivum
 lt:Vasarinis trumas
 nl:Zomertruffel
 pl:trufla letnia
@@ -51931,10 +51885,6 @@ wikidata:en:Q74692
 wikipedia:en:https://en.wikipedia.org/wiki/Tuber_aestivum
 # ingredient/fr:tuber-aestivum has 35 products in 4 languages @2018-12-14
 
-<en:summer truffle
-en:Tuber aestivum
-la:Tuber aestivum
-# comment:en:The latin name is kept separate as it is often found as a separate ingredient. It also allows to detect wrong translations. 
 
 # comment:fr:Chanterelle est un nom français ambigu recouvrant plusieurs espèces de champignons distinctes. Il peut désigner la girolle (Cantharellus cibarius), ou d'autres espèces, en particulier des genres Cantharellus et Craterellus, par exemple la chanterelle en tubes (Craterellus tubaeformis) ou la chanterelle jaune (Craterellus lutescens), généralement vendues sous le seul nom de chanterelles.
 
@@ -51944,7 +51894,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Chanterelle
 # ingredient/fr:chanterelles has 51 products @2019-04-06
 
 
-# Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
+# description:en:Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
 
 # <en:fungus
 en:Penicillium
@@ -51987,7 +51937,8 @@ la:pencillium roqueforti
 # ingredient/fr:penicillium-roqueforti has 103 products @2019-01-30
 
 
-# QUORN is a meat substitute product originating in the UK and sold primarily in Europe, but also available in 19 countries.
+# description:en:la:pencillium roqueforti
+QUORN is a meat substitute product originating in the UK and sold primarily in Europe, but also available in 19 countries.
 
 en:Quorn mushroom product, quorn
 fr:produit champignon quorn
