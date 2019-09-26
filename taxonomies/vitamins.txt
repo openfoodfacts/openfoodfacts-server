@@ -1152,7 +1152,20 @@ sr:D-biotin
 sv:D-biotin
 # ingredient/d-biotin has 52 product in 9 languages @2019-09-23
 
+# description:en:Vitamin B8 is a former designation given to several distinct chemical compounds, which is not considered a true vitamin
+
+<en:vitamin
+en:vitamin b8, B8
+de:Vitamin B8
+es:vitamina b8
+fr:vitamine b8, b8
+it:vitamina b8, B8
+# ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
+
+
 # description:en:Folate, distinct forms of which are known as folic acid, folacin, and vitamin B9, is one of the B vitamins.
+
+
 
 <en:vitamin
 en:Folate
@@ -1177,28 +1190,84 @@ sl:Folat
 sv:Folat
 
 <en:Folate
-en:folic acid, pteroylmonoglutamic acid,Vitamin B9
-bg:Фолиева киселина, птероилмоноглутаминова киселина, Витамин B9
-cs:kyselina listová, kyselina pteroylmonoglutamová
-de:Folsäure, Pteroylmonoglutaminsäure, Vitamin B9
-el:φολικό οξύ, πτεροϋλομονογλουταμικό οξύ
-es:ácido fólico, ácido pteroilmonoglutámico, Vitamina B9
-et:foolhape, pteroüülmonoglutaamhape
-fi:foolihappo, pteroyylimonoglutamiinihappo
-fr:acide folique, acide ptéroylmonoglutamique,Vitamine B9
-hu:folsav, pteroil-monoglutaminsav, B9-vitamin
-it:acido folico, acido pteroil-monoglutammico, Vitamina B9
-lt:folio rūgštis, pteroilmonoglutamo rūgštis
-lv:Folijskābe, pteroilmonoglutamīnskābe
-mt:aċidu foliku, aċidu pterojlmonoglutamiku
-nl:foliumzuur, pteroylmonoglutaminezuur, Vitamine B9
-pl:kwas foliowy, kwas pteroilomonoglutaminowy, Witamina B9
-pt:ácido fólico, ácido pteroilmonoglutâmico, Vitamina B9
-ro:acid folic, acid pteroilmonoglutamic, Vitamina B9
-sk:kyselina listová, kyselina pteroylmonoglutámová
-sl:folna kislina, pteroilmonoglutaminska kislina
-sv:folsyra, pteroylmonoglutaminsyra
-zh:维生素B9,叶酸
+en:folic acid, vitamin B9, B9, vitamin M
+ar:حمض الفوليك
+be:Фоліевая кіслата
+bg:Фолиева киселина
+bn:ফলিক এসিড
+bs:Folna kiselina
+ca:àcid fòlic
+cs:kyselina listová, vitamín B9
+cy:Asid Ffolig
+da:Folsyre, folinsyre
+de:Folsäure
+dv:ވިޓަމިން ބީ9
+el:Φυλλικό οξύ, Βιταμίνη Β9
+eo:foliata acido
+es:Ácido fólico
+et:Foolhape
+eu:Azido foliko
+fa:اسید فولیک
+fi:foolihappo
+fr:acide folique, folacine
+ga:Aigéad fólach
+gd:Searbhag dhuilleagach
+gl:Ácido fólico
+he:חומצה פולית
+hi:फोलिक एसिड
+hr:Folsav
+hy:Վիտամին B9
+id:Asam folat
+is:Fólínsýra
+it:acido folico
+ja:葉酸, B9
+kk:Птероилглютамин
+ko:엽산
+ky:Фоли кычкылы
+lb:Folsaier
+lt:Folio rūgštis
+lv:folijskābe
+mk:Фолна киселина
+ml:ഫോളിക് ആസിഡ്
+ms:Asid folik
+nb:Folsyre
+nl:foliumzuur, vitamine B9, B9/M
+nn:folsyre, vitamin B9
+oc:Vitamina B9
+or:ଫୋଲିକ ଏସିଡ
+pl:kwas foliowy, B9/M, Vitamin B9
+pt:ácido fólico, B9/M
+ro:acid folic, vitamina B9
+ru:фолиевая кислота, Витамин B9
+sh:Vitamin B9
+sk:Kyselina listová
+sl:Folna kislina
+sq:Acidi folik
+sr:фолна киселина
+sv:folsyra
+ta:இலைக்காடி
+te:ఫోలిక్ ఆమ్లం
+th:กรดโฟลิก
+tr:Folik asit
+uk:Фолієва кислота
+ur:فولک تیزاب
+vi:axit folic
+zh:叶酸
+# ast:Ácidu fólicu
+# en-ca:Folic acid
+# en-gb:Folic acid
+# frr:Folsüren
+# lmo:Acid foleg
+# pt-br:Ácido fólico
+# scn:Àcitu fòlicu
+# sco:folic acid
+# sr-ec:фолна киселина
+# yue:葉酸
+wikipedia:en:https://en.wikipedia.org/wiki/Folate
+wikidata:en:Q127060
+# en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
+# ingredient/fr:acide-folique has 22121 products in 13 languages @2018-11-19
+# ingredient/fr:folacine has 48 products in 2 languages @2019-04-16
 
 <en:Folate
 en:calcium-L-methylfolate
@@ -1222,27 +1291,83 @@ ro:L-metilfolat de calciu
 sk:L- metylfolát vápenatý
 sl:kalcijev-L-metilfolat
 sv:kalcium-L-metylfolat
+# ingredient/calcium-L-methylfolate has 1 product @2019-09-26
 
-en:Vitamin B12, Cobalamin
-bg:Витамин B12
-el:Βιταμίνη B12
-es:Vitamina B12
-et:B12-vitamiin
-fi:B12-vitamiini
-fr:Vitamine B12, Cobalamine
+<en:vitamin
+en:cobalamin, vitamin b12
+af:Vitamien B12
+ar:فيتامين بي 12
+az:B12 vitamini
+bg:витамин В12
+bn:সায়ানোকোবালেমিন
+bs:Vitamin B12
+cs:kobalamin, vitamín B12
+cy:cobalamin, Fitamin B12
+da:Vitamin B12
+de:Cobalamine, Vitamin B12
+dv:ވިޓަމިން ބީ12
+eo:Kobalamino, Vitamino B12
+es:cobalamina, vitamina B12, cianocobalamina
+et:B12-vitamiin, Vitamiin B12
+eu:Kobalamina, B12 bitamina
+fa:ویتامین ب۱۲
+fi:Kobalamiini, B12-vitamiini, Vitamiini B12
+fr:Cobalamine, vitamine b12, b12
+he:ויטמין B12
+hi:विटामिन बी१२
+hr:Kobalamin, Vitamin B12
 hu:B12-vitamin
-it:Vitamina B12, Cobalamina
-ja:ビタミン B12
-lt:Vitaminas B12
+hy:Վիտամին B12
+id:Vitamin B12
+is:B12-vítamín
+it:Cobalamina, vitamina B12
+ja:シアノコバラミン
+jv:Vitamin b12
+kk:Кобаламин
+ko:비타민 B12
+ky:Витамин В12
+lb:Cobalamin, Vitamin B12
+lt:Kobalaminas, Vitaminas B12
 lv:B12 vitamīns
-mt:Vitamina B12
-nl:Vitamine B12
-pl:Witamina B12
-pt:Vitamina B12
-ro:Vitamina B12
-sk:Vitamín B12
+mk:Кобаламин
+mn:Витамин В12
+ms:Vitamin B12
+nb:Kobalamin, Cyanocobalamin, Vitamin B12
+ne:भिटामिन बी-१२
+nl:Cobalamine, vitamine B12
+nn:kobalamin, B12-vitamin, vitamin B12
+oc:Cobalamina, Cianocobalamina, Vitamina B12
+pl:Kobalamina, Cyjanokobalamina, witamina B12
+pt:Cobalamina, Cianocobalamina, vitamina B12
+ro:Cobalamină, Cianocobalamină, Vitamina B12
+ru:витамин B12
+rw:Vitamini B12
+sh:Vitamin B12
+sk:Kobalamín
+sl:Vitamin B12
+sr:kobalamin, cijanokobalamin, vitamin B12
+sv:Kobalamin, vitamin B12
+ta:உயிர்ச்சத்து பி12
+te:విటమిన్ బీ12
+th:วิตามินบี12
+tr:Siyanokobalamin, B12 vitamini, Vitamin B12
+uk:Кобаламін
+vi:Vitamin B12
+zh:维生素B12
+# azb:ویتامین ب۱۲
+# sco:Vitamin B12
+# sr-ec:Кобаламин, Цијанокобаламин, витамин Б12
+# sr-el:kobalamin, cijanokobalamin, vitamin B12
+# zh-cn:维生素B12
+# zh-hans:维生素B12
+# zh-hant:维生素B12
+# zh-hk:维生素B12
+# zh-sg:维生素B12
+# zh-tw:维生素B12
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_B12
+# ingredient/Vitamin-B12 has 4472 products in 25 languages @2019-09-26
 
-<en:Vitamin B12
+<en:cobalamin
 en:cyanocobalamin
 bg:Цианокобаламин
 cs:kyanokobalamin
@@ -1263,31 +1388,36 @@ ro:cianocobalamină
 sk:kyanokobalamín
 sl:cianokobalamin
 sv:cyanokobalamin
+# ingredient/cyanocobalamin has 772 products in 9 languages @2019-09-26
 
-<en:Vitamin B12
-en:hydroxocobalamin
-bg:Хидроксокобаламин
-cs:hydroxokobalamin
-el:υδροξοκοβαλαμίνη
-es:hidroxocobalamina
-et:hüdroksokobalamiin
-fi:hydroksokobalamiini
-fr:hydroxocobalamine
-hu:hidroxokobalamin
-it:idrossocobalamina
-lt:hidroksokobalaminas
-lv:hidroksokobalamīns
-mt:idrossokobalamina
-nl:hydroxocobalamine
-pl:hydroksokobalamina
-pt:hidroxocobalamine
-ro:hidroxocobalamină
-sk:hydroxokobalamín
-sl:hidroksokobalamin
-sv:hydroxykobalamin
+#<en:cobalamin
+#en:hydroxocobalamin
+#bg:Хидроксокобаламин
+#cs:hydroxokobalamin
+#el:υδροξοκοβαλαμίνη
+#es:hidroxocobalamina
+#et:hüdroksokobalamiin
+#fi:hydroksokobalamiini
+#fr:hydroxocobalamine
+#hu:hidroxokobalamin
+#it:idrossocobalamina
+#lt:hidroksokobalaminas
+#lv:hidroksokobalamīns
+#mt:idrossokobalamina
+#nl:hydroxocobalamine
+#pl:hydroksokobalamina
+#pt:hidroxocobalamine
+#ro:hidroxocobalamină
+#sk:hydroxokobalamín
+#sl:hidroksokobalamin
+#sv:hydroxykobalamin
+# ingredient/hydroxocobalamin has no products @2019-09-26
 
+<en:thiamine
+<en:cobalamin
+nl:Vitamines B2 en B9
 
-
+<en:vitamin
 en:Vitamin D
 bg:Витамин D
 de:Vitamin D
