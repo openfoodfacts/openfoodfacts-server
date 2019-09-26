@@ -1152,6 +1152,8 @@ sr:D-biotin
 sv:D-biotin
 # ingredient/d-biotin has 52 product in 9 languages @2019-09-23
 
+################################## VITAMIN   B 8  #############################
+
 # description:en:Vitamin B8 is a former designation given to several distinct chemical compounds, which is not considered a true vitamin
 
 <en:vitamin
@@ -1164,8 +1166,6 @@ it:vitamina b8, B8
 
 
 # description:en:Folate, distinct forms of which are known as folic acid, folacin, and vitamin B9, is one of the B vitamins.
-
-
 
 <en:vitamin
 en:Folate
@@ -1293,6 +1293,8 @@ sl:kalcijev-L-metilfolat
 sv:kalcium-L-metylfolat
 # ingredient/calcium-L-methylfolate has 1 product @2019-09-26
 
+################################## VITAMIN   B 1 2  #############################
+
 <en:vitamin
 en:cobalamin, vitamin b12
 af:Vitamien B12
@@ -1416,6 +1418,234 @@ sv:cyanokobalamin
 <en:thiamine
 <en:cobalamin
 nl:Vitamines B2 en B9
+
+################################## VITAMIN   C  #############################
+
+# description:en:Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in food and used as a dietary supplement. Also known as E300
+# comment:en:The more use friendly synonym vitamin C over ascorbic acid is preferred
+
+en:Vitamin C, ascorbic acid
+af:Vitamien C
+ar:فيتامين سي
+az:C vitamini
+bg:Витамин C, Аскорбинова киселина
+bn:ভিটামিন সি
+bs:Vitamin C, Askorbinska kiselina
+ca:vitamina C
+cs:vitamín C, Kyselina askorbová
+cy:Fitamin C
+da:C-vitamin, ascorbinsyre
+de:Vitamin C, Ascorbinsäure
+dv:ވިޓަމިން ސީ
+el:Βιταμίνη C, Ασκορβικο οξυ, ασκορβικό
+eo:Vitamino C
+es:vitamina C, ácido ascórbico
+et:C-vitamiin, Askorbiinhape
+eu:C bitamina
+fa:ویتامین ث
+fi:C-vitamiini, askorbiinihappo
+fr:vitamine C, acide ascorbique, acide L-ascorbique, acide l-ascorbique, antioxydant e300
+gl:Vitamina C, Ácido ascórbico
+he:ויטמין C
+hi:विटामिन सी
+hr:vitamin C, askorbinska kiselina
+hu:C-vitamin, Aszkorbinsav
+hy:Վիտամին C
+id:Vitamin C
+is:C-vítamín
+it:vitamina C, acido ascorbico
+ja:ビタミンC
+jv:Vitamin C
+ka:vitamine c
+kn:C ಜೀವ ಸತ್ವ
+ko:비타민 C
+ky:Витамин С
+lt:Vitaminas C, Askorbo rūgštis
+lv:C vitamīns, Askorbīnskābe
+mk:Витамин Ц
+ml:ജീവകം സി
+mr:क-जीवनसत्त्व
+ms:Vitamin C
+mt:Aċidu askorbiku
+nb:Vitamin C
+ne:भिटामिन सी
+nl:Vitamine C, ascorbinezuur
+oc:Vitamina C
+or:ଜୀବସାର ଗ
+pa:ਵਿਟਾਮਿਨ ਸੀ
+pl:witamina C, kwas askorbinowy
+pt:vitamina C, ácido ascórbico
+ro:Vitamina C, Acid ascorbic
+ru:Аскорбиновая кислота
+rw:Vitamini C
+sh:Vitamin C
+sk:Kyselina askorbová
+sl:Vitamin C, Askorbinska kislina
+sq:Vitamina C
+sr:витамин Ц
+su:Vitamin C
+sv:Askorbinsyra
+sw:Vitamini C
+ta:உயிர்ச்சத்து சி
+te:విటమిన్ సి
+th:วิตามินซี
+tl:Bitamina C
+tr:C vitamini, askorbik asit
+ug:ۋىتامىن C
+uk:Вітамін C
+ur:حیاتین ج
+vi:Vitamin C
+yi:וויטאמין C
+zh:维生素C
+# ast:Vitamina C
+# azb:ویتامین ث
+# nan:Bî-tá-mín C
+# pt-br:vitamina C
+# scn:Vitamina C, Ascurbatu
+# sco:Vitamin C
+# sr-ec:витамин Ц
+# sr-el:vitamin C
+# tyv:ВИТАМИН С
+# wuu:维生素C
+# yue:維他命C
+# zh-cn:维生素C
+# zh-hans:维生素C
+# zh-hant:维生素C
+# zh-hk:维生素C
+# zh-sg:维生素C
+# zh-tw:维生素C
+wikidata:en:Q199678
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_C
+# en:ascorbic-acid has 17518 products in 17 languages @2018-11-17
+
+<en:Vitamin C
+en:L-ascorbic acid, ascorbic acid
+bg:L-аскорбинова киселина, аскорбинова киселина
+cs:L-askorbová kyselina, askorbová kyselina
+de:L-Ascorbinsäure, Ascorbinsäure
+el:L-ασκορβικό οξύ, ασκορβικό οξύ
+es:Ácido L-ascórbico, Ácido ascórbico
+et:L-askorbiinhape, askorbiinhape
+fi:L-askorbiinihappo, askorbiinihappo
+fr:acide L-ascorbique, acide ascorbique
+hu:L-aszkorbinsav, aszkorbinsav
+it:acido L-Ascorbico, acido Ascorbico
+lt:L–askorbo rūgštis, askorbo rūgštis
+lv:L-askorbīnskābe, askorbīnskābe
+mt:L-aċidu askorbiku, aċidu askorbiku
+nl:L-ascorbinezuur, ascorbinezuur
+pl:kwas L-askorbinowy, kwas askorbinowy
+pt:Ácido L-ascórbico, Ácido ascórbico
+ro:acid L-ascorbic, acid ascorbic
+sk:kyselina L-askorbová, kyselina askorbová
+sl:L-askorbinska kislina, askorbinska kislina
+sv:L-askorbinsyra, askorbinsyra
+zh:抗坏血酸
+
+# Also known as E301
+
+<en:Vitamin C
+en:sodium-L-ascorbate, sodium ascorbate
+bg:Натриев-L-аскорбат
+cs:L-askorbát sodný
+da:natriumascorbat
+de:Natrium-L-ascorbat
+el:L-ασκορβικό νάτριο
+es:L-ascorbato sódico
+et:naatrium-L-askorbaat
+fi:natrium-L-askorbaatti
+fr:L-ascorbate de sodium, ascorbate de sodium
+hu:nátrium-L-aszkorbát
+it:L-ascorbato di sodio
+lt:natrio L-askorbatas
+lv:nātrija L-askorbāts
+mt:L-assorbat tas-sodju
+nl:natrium-L-ascorbaat
+pl:L-askorbinian sodu
+pt:L-ascorbato de sódio
+ro:L-ascorbat de sodiu
+ru:аскорбат натрия
+sk:L-askorban sodný
+sl:natrijev-L-askorbat, natrijev askorbat
+sv:natrium-L-askorbat
+# ingredient/e301 has 8459 products in 28 languages @2019-09-26
+
+# Also known as E302
+
+<en:Vitamin C
+en:calcium-L-ascorbate, calcium ascorbate
+bg:Калциев-L-аскорбат
+cs:L-askorbát vápenatý
+de:Calcium-L-ascorbat
+el:L-ασκορβικό ασβέστιο
+es:L-ascorbato cálcico
+et:kaltsium-L-askorbaat
+fi:kalsium-L-askorbaatti
+fr:L-ascorbate de calcium, ascorbate de calcium
+hu:kalcium-L-aszkorbát
+it:L-ascorbato di calcio
+lt:kalcio L-askorbatas
+lv:kalcija L-askorbāts
+mt:L-assorbat tal-kalċju
+nl:calcium-L-ascorbaat
+pl:L-askorbinian wapnia
+pt:L-ascorbato de cálcio
+ro:L-ascorbat de calciu
+sk:L-askorban vápenatý
+sl:kalcijev-L-askorbat
+sv:kalcium-L-askorbat
+# ingredient/e302 has 192 products in 5 languages @2019-09-26
+
+# description:Also known as E303
+
+<en:Vitamin C
+en:potassium-L-ascorbate, potassium ascorbate
+bg:Калиев-L-аскорбат
+cs:L-askorbát draselný
+de:Kalium-L-ascorbat
+el:L-ασκορβικό κάλιο
+es:L-ascorbato potásico
+et:kaalium-L-askorbaat
+fi:kalium-L-askorbaatti
+fr:L-ascorbate de potassium, ascorbate de potassium
+hu:kálium-L-aszkorbát
+it:L-ascorbato di potassio
+lt:kalio L-askorbatas
+lv:kālija L-askorbāts
+mt:L-assorbat tal-potassju
+nl:kalium-L-ascorbaat
+pl:L-askorbinian potasu
+pt:L-ascorbato de potássio
+ro:L-ascorbat de potasiu
+sk:L-askorban draselný
+sl:kalijev-L-askorbat
+sv:kalium-L-askorbat
+# ingredient/e303 has 7 products in french @2019-09-26
+
+<en:Vitamin C
+en:L-ascorbyl 6-palmitate, ascorbyle palmitate
+bg:L-аскорбил 6-палмитат
+cs:L-askorbyl-6-palmitát
+de:L-Ascorbyl-6-palmitat
+el:αλμιτικό L-ασκορβύλιο
+es:almitato de L-ascorbilo
+et:L-askorbüül-6-palmitaat
+fi:L-askorbyyli-6-palmitaatti
+fr:L-ascorbyle 6-palmitate, palmitate d'ascorbyle
+hu:L-aszkorbil-6-palmitát
+it:almitato di L-ascorbile
+lt:L-askorbil- 6-palmitatas
+lv:L-askorbil-6-palmitāts
+mt:L-assorbil 6-palmitat
+nl:almityl-L-ascorbinezuur
+pl:almitynian-L-askorbylu
+pt:almitato de L-ascorbilo
+ro:L-ascorbil 6-palmitat
+sk:L-askorbyl-6-palmitát
+sl:L-askorbil 6-palmitat
+sv:L-askorbyl-6-palmitat
+# ingredient/L-ascorbyl-6-palmitate has 2 ingredients in french @2019-09-26
+
 
 <en:vitamin
 en:Vitamin D
@@ -1732,143 +1962,6 @@ hu:K3-vitamin
 pl:Witamina K3
 lt:Vitaminas K3
 mt:Vitamina K3
-sK3:Vitamín K3
 ro:Vitamina K3
 bg:Витамин K3
 zh:维生素K3
-
-en:Vitamin C
-bg:Витамин C
-el:Βιταμίνη C
-es:Vitamina C
-et:C-vitamiin
-fi:C-vitamiini
-fr:Vitamine C
-hu:C-vitamin
-it:Vitamina C
-lt:Vitaminas C
-lv:C vitamīns
-mt:Vitamina Ċ
-nl:Vitamine C
-pl:Witamina C
-pt:Vitamina C
-ro:Vitamina C
-sk:Vitamín C
-zh:维生素C
-
-<en:Vitamin C
-en:L-ascorbic acid, ascorbic acid
-bg:L-аскорбинова киселина, аскорбинова киселина
-cs:L-askorbová kyselina, askorbová kyselina
-de:L-Ascorbinsäure, Ascorbinsäure
-el:L-ασκορβικό οξύ, ασκορβικό οξύ
-es:Ácido L-ascórbico, Ácido ascórbico
-et:L-askorbiinhape, askorbiinhape
-fi:L-askorbiinihappo, askorbiinihappo
-fr:acide L-ascorbique, acide ascorbique
-hu:L-aszkorbinsav, aszkorbinsav
-it:acido L-Ascorbico, acido Ascorbico
-lt:L–askorbo rūgštis, askorbo rūgštis
-lv:L-askorbīnskābe, askorbīnskābe
-mt:L-aċidu askorbiku, aċidu askorbiku
-nl:L-ascorbinezuur, ascorbinezuur
-pl:kwas L-askorbinowy, kwas askorbinowy
-pt:Ácido L-ascórbico, Ácido ascórbico
-ro:acid L-ascorbic, acid ascorbic
-sk:kyselina L-askorbová, kyselina askorbová
-sl:L-askorbinska kislina, askorbinska kislina
-sv:L-askorbinsyra, askorbinsyra
-zh:抗坏血酸
-
-<en:Vitamin C
-en:sodium-L-ascorbate, sodium ascorbate
-bg:Натриев-L-аскорбат
-cs:L-askorbát sodný
-de:Natrium-L-ascorbat
-el:L-ασκορβικό νάτριο
-es:L-ascorbato sódico
-et:naatrium-L-askorbaat
-fi:natrium-L-askorbaatti
-fr:L-ascorbate de sodium, ascorbate de sodium
-hu:nátrium-L-aszkorbát
-it:L-ascorbato di sodio
-lt:natrio L-askorbatas
-lv:nātrija L-askorbāts
-mt:L-assorbat tas-sodju
-nl:natrium-L-ascorbaat
-pl:L-askorbinian sodu
-pt:L-ascorbato de sódio
-ro:L-ascorbat de sodiu
-sk:L-askorban sodný
-sl:natrijev-L-askorbat
-sv:natrium-L-askorbat
-
-<en:Vitamin C
-en:calcium-L-ascorbate, calcium ascorbate
-bg:Калциев-L-аскорбат
-cs:L-askorbát vápenatý
-de:Calcium-L-ascorbat
-el:L-ασκορβικό ασβέστιο
-es:L-ascorbato cálcico
-et:kaltsium-L-askorbaat
-fi:kalsium-L-askorbaatti
-fr:L-ascorbate de calcium, ascorbate de calcium
-hu:kalcium-L-aszkorbát
-it:L-ascorbato di calcio
-lt:kalcio L-askorbatas
-lv:kalcija L-askorbāts
-mt:L-assorbat tal-kalċju
-nl:calcium-L-ascorbaat
-pl:L-askorbinian wapnia
-pt:L-ascorbato de cálcio
-ro:L-ascorbat de calciu
-sk:L-askorban vápenatý
-sl:kalcijev-L-askorbat
-sv:kalcium-L-askorbat
-
-<en:Vitamin C
-en:potassium-L-ascorbate, potassium ascorbate
-bg:Калиев-L-аскорбат
-cs:L-askorbát draselný
-de:Kalium-L-ascorbat
-el:L-ασκορβικό κάλιο
-es:L-ascorbato potásico
-et:kaalium-L-askorbaat
-fi:kalium-L-askorbaatti
-fr:L-ascorbate de potassium, ascorbate de potassium
-hu:kálium-L-aszkorbát
-it:L-ascorbato di potassio
-lt:kalio L-askorbatas
-lv:kālija L-askorbāts
-mt:L-assorbat tal-potassju
-nl:kalium-L-ascorbaat
-pl:L-askorbinian potasu
-pt:L-ascorbato de potássio
-ro:L-ascorbat de potasiu
-sk:L-askorban draselný
-sl:kalijev-L-askorbat
-sv:kalium-L-askorbat
-
-<en:Vitamin C
-en:L-ascorbyl 6-palmitate, ascorbyle palmitate
-bg:L-аскорбил 6-палмитат
-cs:L-askorbyl-6-palmitát
-de:L-Ascorbyl-6-palmitat
-el:αλμιτικό L-ασκορβύλιο
-es:almitato de L-ascorbilo
-et:L-askorbüül-6-palmitaat
-fi:L-askorbyyli-6-palmitaatti
-fr:L-ascorbyle 6-palmitate, palmitate d'ascorbyle
-hu:L-aszkorbil-6-palmitát
-it:almitato di L-ascorbile
-lt:L-askorbil- 6-palmitatas
-lv:L-askorbil-6-palmitāts
-mt:L-assorbil 6-palmitat
-nl:almityl-L-ascorbinezuur
-pl:almitynian-L-askorbylu
-pt:almitato de L-ascorbilo
-ro:L-ascorbil 6-palmitat
-sk:L-askorbyl-6-palmitát
-sl:L-askorbil 6-palmitat
-sv:L-askorbyl-6-palmitat
-
