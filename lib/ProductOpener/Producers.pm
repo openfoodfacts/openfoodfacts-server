@@ -37,8 +37,8 @@ BEGIN
 
 		&load_csv_or_excel_file
 
-		&init_nutrients_columns_names_for_lang
-		&match_column_name_to_nutrient
+		&init_fields_columns_names_for_lang
+		&match_column_name_to_field
 		&init_columns_fields_match
 
 		&generate_import_export_columns_groups_for_select2
@@ -275,17 +275,50 @@ sub convert_file($$$$) {
 }
 
 
-# Initialize the list of synonyms of nutrients in the different languages only once
+# Initialize the list of synonyms of fields and nutrients in the different languages only once
 
-my %nutrients_columns_names_for_lang = ();
+my %fields_columns_names_for_lang = ();
+
+# Extra synonyms
+
+my %fields_synonyms = (
+
+en => {
+	code => ["code", "barcode", "ean", "ean-13", "ean13", "gtin"],
+},
+
+fr => {
+
+	product_name_fr => ["nom", "nom produit", "nom du produit"],
+	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
+},
+
+);
+
+sub init_fields_columns_names_for_lang($) {
+
+	my $l = shift;
+
+	defined $fields_columns_names_for_lang{$l} and next;
+
+	$fields_columns_names_for_lang{$l} = {};
+
+	init_nutrients_columns_names_for_lang($l);
+	init_other_fields_columns_names_for_lang($l);
+
+	# Other known fields
+
+	foreach my $column_id (qw(calories kcal)) {
+		$fields_columns_names_for_lang{$l}{$column_id} = { field=>"energy_100g_value_unit", value_unit=>"value_in_kcal" };
+	}
+
+
+}
+
 
 sub init_nutrients_columns_names_for_lang($) {
 
 	my $l = shift;
-
-	defined $nutrients_columns_names_for_lang{$l} and next;
-
-	$nutrients_columns_names_for_lang{$l} = {};
 
 	$nutriment_table = $cc_nutriment_table{default};
 
@@ -298,25 +331,98 @@ sub init_nutrients_columns_names_for_lang($) {
 		$nid =~ s/-$//g;
 
 		if (exists $Nutriments{$nid}{$l}) {
-			$nutrients_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Nutriments{$nid}{$l})} = $nid . "_100g_value_unit";
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Nutriments{$nid}{$l})} = { field => $nid . "_100g_value_unit"};
 			$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
+		}
+		if (exists $Nutriments{$nid}{$l . "_synonyms"}) {
+			foreach my $synonym (@{$Nutriments{$nid}{$l . "_synonyms"}}) {
+				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = { field => $nid . "_100g_value_unit"};
+			}
 		}
 	}
 }
 
 
-sub match_column_name_to_nutrient($$) {
+sub init_other_fields_columns_names_for_lang($) {
+
+	my $l = shift;
+	my $fields_groups_ref = $options{import_export_fields_groups};
+
+	foreach my $group_ref (@$fields_groups_ref) {
+
+		my $group_id = $group_ref->[0];
+
+		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
+		}
+		else {
+
+			foreach my $field (@{$group_ref->[1]}) {
+
+				if ($field =~ /_value_unit$/) {
+					# Column can contain value + unit, value, or unit for a specific field
+					my $field_name = $`;
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field_name}{$l})} = {field => $field};
+				}
+				elsif (defined $tags_fields{$field}) {
+					my $tagtype = $field;
+					# Plural and singular
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$l})} = {field => $field};
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$tagtype . "_s"}{$l})} = {field => $field};
+				}
+				elsif (defined $language_fields{$field}) {
+
+					# Example matches: Ingredients list / Ingredients list (en) / Ingredients list (English)
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field . "_$l"};
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l} . " " . $language_codes{$l})} = {field => $field . "_$l"};
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l} . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
+				}
+				else {
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
+				}
+			}
+		}
+	}
+
+	# Specific labels that can have a dedicated column
+	my @labels = ("en:organic", "en:fair-trade", "fr:ab-agriculture-biologique","fr:label-rouge");
+	foreach my $labelid (@labels) {
+		next if not defined $translations_to{labels}{$labelid}{$l};
+		my $results_ref = { field => "labels_specific", tag => $translations_to{labels}{$labelid}{$l} };
+		my @synonyms = ();
+		my $label_lc_labelid = get_string_id_for_lang($l, $translations_to{labels}{$labelid}{$l});
+		foreach my $synonym (@{$synonyms_for{labels}{$l}{$label_lc_labelid}}) {
+			$log->debug("labels_specific", { l=>$l, label_lc_labelid=>$label_lc_labelid, label=>$labelid, synonym=>$synonym }) if $log->is_debug();
+
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym) } = $results_ref;
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $Lang{"labels_s"}{$l}) } = $results_ref;
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{"labels_s"}{$l} . " " . $synonym) } = $results_ref;
+		}
+	}
+
+	# Extra synonyms
+	if (defined $fields_synonyms{$l}) {
+		foreach my $field (keys %{$fields_synonyms{$l}}) {
+			foreach my $synonym (@{$fields_synonyms{$l}{$field}}) {
+				$log->debug("synonyms", { l=>$l, field=>$field, synonym=>$synonym }) if $log->is_debug();
+				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym) } = {field => $field};
+			}
+		}
+	}
+}
+
+
+sub match_column_name_to_field($$) {
 
 	my $l = shift;
 	my $column_id = shift;
 
 	my $results_ref = {};
 
-	if (defined $nutrients_columns_names_for_lang{$l}{$column_id}) {
-		$results_ref->{field} = $nutrients_columns_names_for_lang{$l}{$column_id};
+	if (defined $fields_columns_names_for_lang{$l}{$column_id}) {
+		$results_ref = $fields_columns_names_for_lang{$l}{$column_id};
 	}
-	elsif (defined $nutrients_columns_names_for_lang{en}{$column_id}) {
-		$results_ref->{field} = $nutrients_columns_names_for_lang{en}{$column_id};
+	elsif (defined $fields_columns_names_for_lang{en}{$column_id}) {
+		$results_ref = $fields_columns_names_for_lang{en}{$column_id};
 	}
 
 	return $results_ref;
@@ -390,8 +496,6 @@ sub init_columns_fields_match($$) {
 
 	my $columns_fields_ref = {};
 
-	$log->debug("init_columns_fields_match", { lc=>$lc }) if $log->is_debug();
-
 	# Go through all rows to extract examples, compute stats etc.
 
 	compute_statistics_and_examples($headers_ref, $rows_ref, $columns_fields_ref);
@@ -406,9 +510,9 @@ sub init_columns_fields_match($$) {
 
 	# Match known column names to OFF fields
 
-	init_nutrients_columns_names_for_lang($lc);
+	init_fields_columns_names_for_lang($lc);
 	if ($lc ne "en") {
-		init_nutrients_columns_names_for_lang("en");
+		init_fields_columns_names_for_lang("en");
 	}
 
 	foreach my $column (@$headers_ref) {
@@ -417,23 +521,15 @@ sub init_columns_fields_match($$) {
 
 		if ((defined $all_columns_fields_ref->{$column_id}) and (defined $all_columns_fields_ref->{$column_id}{field})) {
 
-			$columns_fields_ref->{$column} = $all_columns_fields_ref->{$column_id};
+			$columns_fields_ref->{$column} = { %{$columns_fields_ref->{$column}}, %{$all_columns_fields_ref->{$column_id}} };
 		}
 		else {
 
 			# Name of a field in the current language or in English?
 
-			$columns_fields_ref->{$column} = match_column_name_to_nutrient($lc, $column_id);
+			$columns_fields_ref->{$column} = { %{$columns_fields_ref->{$column}}, %{match_column_name_to_field($lc, $column_id)} };
 
-			$log->debug("after match_column_name_to_nutrient", { lc=>$lc, column=>$column, column_id=>$column_id, column_field=>$columns_fields_ref->{$column} }) if $log->is_debug();
-
-			# Other known name?
-
-			if (not defined $columns_fields_ref->{$column}{field}) {
-				if ($column_id =~ /^(code|barcode|ean|ean13|ean-13)$/) {
-					$columns_fields_ref->{$column}{field} = "code";
-				}
-			}
+			$log->debug("after match_column_name_to_field", { lc=>$lc, column=>$column, column_id=>$column_id, column_field=>$columns_fields_ref->{$column} }) if $log->is_debug();
 
 			# If we don't know if the column contains value + unit, value, or unit,
 			# try to guess from the content of the column
@@ -459,10 +555,10 @@ sub init_columns_fields_match($$) {
 
 # Generate an array of options for select2
 
-sub generate_import_export_columns_groups_for_select2($$) {
+sub generate_import_export_columns_groups_for_select2($) {
 
-	my $fields_groups_ref = shift;
 	my $lcs_ref = shift; # array of language codes
+	my $fields_groups_ref = $options{import_export_fields_groups};
 
 	# Sample select2 groups and fields definition format from Config.pm:
 	my $sample_fields_groups_ref = [

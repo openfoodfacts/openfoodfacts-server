@@ -100,11 +100,10 @@ if ($action eq "display") {
 	$log->debug("before init_columns_fields_match", { lc=>$lc }) if $log->is_debug();
 
 	my $columns_fields_ref = init_columns_fields_match($headers_ref, $rows_ref);
-	my $columns_fields_json = to_json($columns_fields_ref);
 
 	# Create an options array for select2
 
-	my $select2_options_ref = generate_import_export_columns_groups_for_select2($options{import_export_fields_groups}, [ $lc ]);
+	my $select2_options_ref = generate_import_export_columns_groups_for_select2([ $lc ]);
 
 	# Number of pre-selected columns
 	my $selected = 0;
@@ -258,7 +257,7 @@ JS
 
 			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px">';
 
-			\$("#select_field_option_" + column).html(input);
+			\$("#select_field_option_" + col).html(input);
 
 			if (columns_fields[column]["tag"]) {
 				\$('#select_field_option_tag_' + col).val(columns_fields[column]["tag"]);
