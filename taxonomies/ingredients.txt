@@ -55153,6 +55153,7 @@ vegetarian:en:no
 en:shellfish extract
 fr:extrait de crustacé
 
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                           M O L L U S C S     S E C T I O N
@@ -55274,7 +55275,7 @@ en:abalone
 ja:アワビ
 wikipedia:en:https://en.wikipedia.org/wiki/Abalone
 
-# A cockle is an edible, marine bivalve mollusc. Although many small edible bivalves are loosely called cockles, true cockles are species in the family Cardiidae.
+# description:en:A COCKLE is an edible, marine bivalve mollusc. Although many small edible bivalves are loosely called cockles, true cockles are species in the family Cardiidae.
 
 <en:mollusc
 en:cockles
@@ -55395,7 +55396,7 @@ wikidata:en:Q184479
 wikipedia:en:https://en.wikipedia.org/wiki/Cuttlefish
 
 
-# The common cuttlefish or European common cuttlefish (Sepia officinalis) is one of the largest and best-known cuttlefish species.
+# description:en:The common cuttlefish or European common cuttlefish (Sepia officinalis) is one of the largest and best-known cuttlefish species.
 
 <en:cuttlefish
 en:common cuttlefish
@@ -55434,22 +55435,18 @@ la:Sepia officinalis
 en:spineless cuttlefish
 ar:سپیداج سست‌کمر
 fr:Sepiella inermis, Seiche sans épines
-zh:曼氏无针乌贼
-
-<en:spineless cuttlefish
-en:Sepiella inermis
-fr:Sepiella inermis, Seiche sans épines
-it:Sepiella inermis
 la:Sepiella inermis
+zh:曼氏无针乌贼
 wikipedia:en:https://en.wikipedia.org/wiki/Sepiella_inermis
 # ingredient/fr:Sepiella-inermis has 2 products in french @2019-01-05
 
-# The pharaoh cuttlefish (Sepia pharaonis) is a large cuttlefish species, growing to 42 cm in mantle length and 5 kg in weight
+# description:en:The pharaoh cuttlefish (Sepia pharaonis) is a large cuttlefish species, growing to 42 cm in mantle length and 5 kg in weight
 
 <en:cuttlefish
 en:pharaoh cuttlefish
 ar:ماهی مرکب ببری
 fr:Sepia pharaonis
+la:Sépia Pharaonis, Sepia pharaonica
 th:หมึกกระดองลายเสือ
 vi:Mực nang vân hổ
 zh:虎斑乌贼
@@ -55460,12 +55457,8 @@ zh:虎斑乌贼
 wikidata:en:Q2701934
 wikipedia:en:https://en.wikipedia.org/wiki/Pharaoh_cuttlefish
 
-<en:pharaoh cuttlefish
-en:Sépia Pharaonis, Sepia pharaonica
-la:Sépia Pharaonis
 
-
-# Mussel is the common name used for members of several families of bivalve molluscs, from saltwater and freshwater habitats.
+# description:en:Mussel is the common name used for members of several families of bivalve molluscs, from saltwater and freshwater habitats.
 
 <en:mollusc
 en:mussel, mussels
@@ -55510,7 +55503,7 @@ fr:moules cuites
 <fr:moules cuites
 fr:moules du Pacifique décoquillées cuites
 
-# The Mediterranean mussel (Mytilus galloprovincialis) is a species of bivalve, a marine mollusc in the family Mytilidae. 
+# description:en:The Mediterranean mussel (Mytilus galloprovincialis) is a species of bivalve, a marine mollusc in the family Mytilidae. 
 
 <en:mussel
 en:Mediterranean mussel
@@ -55524,6 +55517,7 @@ gl:Mexillón
 hr:Dagnja
 it:Mitilo mediterraneo
 ja:ムラサキイガイ
+la:Mytilus galloprovincialis
 nl:diepwatermossel
 pl:omułek śródziemnomorski
 ru:Черноморская мидия
@@ -55534,13 +55528,9 @@ zh:地中海貽貝
 # roa-tara:Cozze
 # scn:Còzzula
 wikipedia:en:https://en.wikipedia.org/wiki/Mediterranean_mussel
-
-<en:Mediterranean mussel
-en:Mytilus galloprovincialis
-la:Mytilus galloprovincialis
 # ingredient/fr:Mytilus-galloprovincialis has 13 products @2019-01-04
 
-# The blue mussel (Mytilus edulis), also known as the common mussel, is a medium-sized edible marine bivalve mollusc in the family Mytilidae, the mussels. 
+# description:en:The blue mussel (Mytilus edulis), also known as the common mussel, is a medium-sized edible marine bivalve mollusc in the family Mytilidae, the mussels. 
 
 <en:mussel
 en:blue mussel, common mussel
@@ -55551,10 +55541,11 @@ da:Blåmusling
 de:Gemeine Miesmuschel
 et:Söödav rannakarp
 fi:Sinisimpukka
-fr:moule commune
+fr:moule commune, Mytilus edulis pêchées en Atlantique Nord
 hu:Ehető kékkagyló
 ja:ヨーロッパイガイ
 ko:섭조개
+la:Mytilus edulis
 ml:കല്ലുമ്മക്കായ
 nb:blåskjell
 pl:omułek jadalny
@@ -55569,34 +55560,24 @@ zh:藍貝
 # yue:藍青口
 # zh-tw:紫殼菜蛤
 wikidata:en:Q27855
-
-<en:blue mussel
-en:Mytilus edulis
-fr:Mytilus edulis, Mytilus edulis pêchées en Atlantique Nord
-la:Mytilus edulis
 # ingredient/fr:Mytilus-edulis has 55 products @2019-01-05
 
 
-# The Chilean mussel or Chilean blue mussel (Mytilus platensis) is a species of blue mussel native to the coasts of Chile, Argentina
+# description:en:The Chilean mussel or Chilean blue mussel (Mytilus platensis) is a species of blue mussel native to the coasts of Chile, Argentina
 
 <en:mussel
 en:Chilean mussel
-fr:moules chiliennes
+fr:Moule du Chili, moules chiliennes, Mytilus chilensis
 it:cozze cilene
+la:Mytilus chilensis
 sl:Čilska klapavica
 uk:Мідія чилійська
 wikipedia:en:https://en.wikipedia.org/wiki/Chilean_mussel
-
-<en:Chilean mussel
-en:Mytilus chilensis
-fr:Mytilus chilensis, Moule du Chili
-it:Mytilus chilensis
-la:Mytilus chilensis
 wikidata:en:Q384733
 # ingredient/fr:Mytilus-chilensis has 26 products in 3 languages @2019-01-14
 
 
-# The octopus is a soft-bodied, eight-limbed mollusc of the order Octopoda. 
+# description:en:The octopus is a soft-bodied, eight-limbed mollusc of the order Octopoda. 
 
 <en:mollusc
 en:octopus
@@ -55628,13 +55609,11 @@ nl:gekookte inktvis
 
 
 <en:octopus
-zh:砂蛸
-# zh-tw:白線章魚
-
-<zh:砂蛸
 en:Octopus Aegina
 fr:Amphioctopus Aegina, Pieuvre marbrée
-la:Octopus Aegina
+la:Octopus Aegina, Amphioctopus Aegina
+zh:砂蛸
+# zh-tw:白線章魚
 wikidata:en:Q2936535
 wikipedia:nl:https://nl.wikipedia.org/wiki/Octopus_aegina
 # ingredient/fr:Octopus-Aegina has 1 product in french @2019-01-07
@@ -55668,6 +55647,7 @@ it:Polpo comune
 ja:マダコ
 ka:რვაფეხა
 ko:참문어
+la:Octopus vulgaris
 lb:Gewéinlechen Tëntefësch
 lt:Paprastasis aštuonkojis
 lv:Astoņkājis
@@ -55688,10 +55668,6 @@ zh:普通章魚
 # zh-tw:真蛸
 wikidata:en:Q651361
 wikipedia:en:https://en.wikipedia.org/wiki/Common_octopus
-
-<en:common octopus
-en:Octopus vulgaris
-la:Octopus vulgaris
 # ingredient/fr:Octopus-vulgaris has 7 products @2019-01-03
 # poulpes (Octopus vulgaris)
 
@@ -55706,18 +55682,15 @@ eu:Musketadun olagarroa
 fr:Élédone musquée, Pieuvre musquée
 ga:Ochtapas muscach
 it:moscardino
+la:Eledone moschata
 nl:Muskus achtarm
 sl:Moškatna hobotnica
-
-<en:musky octopus
-en:Eledone moschata
-la:Eledone moschata
 wikidata:en:https://www.wikidata.org/wiki/Q2296077
 wikipedia:en:https://en.wikipedia.org/wiki/Eledone_moschata
 # ingredient/fr:Eledone-moschata has 2 products @2019-01-04
 
 
-# Oyster is the common name for a number of different families of salt-water bivalve molluscs that live in marine or brackish habitats.
+# description:en:Oyster is the common name for a number of different families of salt-water bivalve molluscs that live in marine or brackish habitats.
 
 <en:mollusc
 en:oyster, oysters
@@ -55811,7 +55784,7 @@ gl:Ostra portuguesa
 hu:Csendes-óceáni osztriga
 is:Kyrrahafsostra
 ja:マガキ
-la:참굴
+la:Crassostrea gigas
 nb:Stillehavsøsters
 nl:Japanse oester
 nn:Stillehavsøsters
@@ -55826,14 +55799,10 @@ zh:长牡蛎
 # zh-cn:长牡蛎
 # zh-hans:长牡蛎
 # zh-tw:長牡蠣
-
-<en:Pacific oyster
-en:Crassostrea gigas
-la:Crassostrea gigas
 wikidata:en:Q20857
 wikipedia:en:https://en.wikipedia.org/wiki/Pacific_oyster
 
-# Scallop is a common name that is primarily applied to any one of numerous species of saltwater clams or marine bivalve mollusks in the taxonomic family Pectinidae, the scallops.
+# description:en:Scallop is a common name that is primarily applied to any one of numerous species of saltwater clams or marine bivalve mollusks in the taxonomic family Pectinidae, the scallops.
 
 <en:mollusc
 en:scallop, scallops
@@ -55874,11 +55843,8 @@ en:Atlantic bay scallop, bay scallop
 fa:گوش‌ماهی خلیج
 fr:Pétoncle, pétoncles
 is:Flóaskel
-zh:海湾扇贝
-
-<en:Atlantic bay scallop
-en:Argopecten irradians
 la:Argopecten irradians
+zh:海湾扇贝
 wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_irradians
 wikidata:en:Q3018372
 # ingredient/fr:Argopecten-irradians has 10 products @2019-01-13
@@ -55896,9 +55862,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_gibbus
 
 <en:scallop
 en:distant scallop
-
-<en:distant scallop
-en:Bractechlamys vexillum
 la:Bractechlamys vexillum
 wikipedia:nl:https://nl.wikipedia.org/wiki/Bractechlamys_vexillum
 wikidata:en:Q13444410
@@ -55906,7 +55869,7 @@ wikidata:en:Q13444410
 # http://www.marinespecies.org/aphia.php?p=taxdetails&id=394391
 
 
-# Pecten maximus, common names the great scallop, king scallop, St James shell or escallop, is a northeast Atlantic species of scallop, an edible saltwater clam, a marine bivalve mollusc in the family Pectinidae. 
+# description:en:Pecten maximus, common names the great scallop, king scallop, St James shell or escallop, is a northeast Atlantic species of scallop, an edible saltwater clam, a marine bivalve mollusc in the family Pectinidae. 
 
 <en:scallop
 en:great scallop, king scallop, St James shell, escallop
@@ -55924,6 +55887,7 @@ gl:Vieira
 id:Simping
 io:Petonklo
 is:Risadiskur
+la:Pecten maximus
 nl:grote mantel
 pl:Przegrzebek zwyczajny
 pt:Vieira
@@ -55934,18 +55898,11 @@ sv:Pilgrimsmussla
 wikidata:en:Q1249634
 wikipedia:en:https://en.wikipedia.org/wiki/Pecten_maximus
 # ingredient/fr:noix-de-Saint-Jacques has 216 products @2019-01-12
-
-<en:great scallop
-en:Pecten maximus
-la:Pecten maximus
 # ingredient/fr:Pecten-maximus has 25 products @2019-01-12
 
 <en:scallop
 en:Patagonian scallop
 fr:Pétoncle de Patagonie
-
-<en:Patagonian scallop
-en:Zygochlamys patagonica
 la:Zygochlamys patagonica, Chlamys zygopatagonica
 # ingredient/fr:Zygochlamys-patagonica has 87 products @2019-01-12
 
@@ -55953,21 +55910,18 @@ la:Zygochlamys patagonica, Chlamys zygopatagonica
 <en:scallop
 en:noble scallop
 ja:ヒオウギガイ
+la:Chlamys nobilis, Mimachlamys nobilis
 vi:Sò điệp
 zh:华贵栉孔扇贝
 # zh-hans:华贵栉孔扇贝
 # zh-hant:高貴海扇蛤
 # zh-hk:高貴海扇蛤
 # zh-tw:高貴海扇蛤
-
-<en:noble scallop
-en:Mimachlamys nobilis
-la:Chlamys nobilis, Mimachlamys nobilis
 wikidata:en:Q8010071
 # ingredient/fr:Chlamys-nobilis has 20 products in french @2019-01-13
 
 
-# Argopecten purpuratus, common names the "Peruvian scallop", is an edible species of saltwater clam, a scallop
+# description:en:Argopecten purpuratus, common names the "Peruvian scallop", is an edible species of saltwater clam, a scallop
 
 <en:scallop
 en:Peruvian scallop
@@ -55978,7 +55932,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_purpuratus
 # ingredient/fr:Argopecten-purpuratus has 68 products @2019-01-12
 
 
-# The queen scallop (Chlamys opercularis) is a medium-sized species of scallop, an edible marine bivalve mollusk in the family Pectinidae, the scallops. 
+# description:en:The queen scallop (Chlamys opercularis) is a medium-sized species of scallop, an edible marine bivalve mollusk in the family Pectinidae, the scallops. 
 
 <en:scallop
 en:queen scallop
@@ -55988,6 +55942,7 @@ fr:Pétoncle blanc, Vanneau
 gl:Volandeira
 it:Canestrello
 ja:クイーンホタテ
+la:Chlamys opercularis, Aequipecten opercularis
 nl:Wijde mantel
 sr:Ostrea elegans
 zh:女王扇貝
@@ -55995,20 +55950,12 @@ wikidata:en:Q1746507
 wikipedia:en:https://en.wikipedia.org/wiki/Queen_scallop
 # ingredient/fr:Chlamys-opercularis has 81 products @2019-01-12
 
-<en:queen scallop
-en:Chlamys opercularis
-la:Chlamys opercularis, Aequipecten opercularis
 
-
-# Argopecten gibbus (Atlantic calico scallop) is a species of medium-sized edible marine bivalve mollusk in the family Pectinidae, the scallops
+# description:en:Argopecten gibbus (Atlantic calico scallop) is a species of medium-sized edible marine bivalve mollusk in the family Pectinidae, the scallops
 
 <en:scallop
 en:speckled Scallop
 fr:Pétoncle moucheté
-
-<en:speckled Scallop
-en:Argopecten irradians concentricus
-fr:Argopecten irradians concentricus, Coquille Saint-Jacques (Pétoncle)
 la:Argopecten irradians concentricus, Argopecten circularis
 wikidata:en:Q30749478
 # ingredient/fr:Argopecten-circularis has 10 products in french @2019-01-13
@@ -56017,18 +55964,15 @@ wikidata:en:Q30749478
 <en:scallop
 en:white scallop
 fr:Pétoncle blanc
-
-<en:white scallop
 la:Chlamys albida, Chlamys albidus
-wikipedia:nl:https://nl.wikipedia.org/wiki/Chlamys_albida
 wikidata:en:Q3802698
 # https://www.sealifebase.ca/summary/Chlamys-albida.html
 # ingredient/fr:Chlamys-albidus has 12 products @2018-01-13
 
 
-# Ascidiacea (commonly known as the ascidians or sea squirts) is a paraphyletic class in the subphylum Tunicata of sac-like marine invertebrate filter feeders.
+# description:en:Ascidiacea (commonly known as the ascidians or sea squirts) is a paraphyletic class in the subphylum Tunicata of sac-like marine invertebrate filter feeders.
+#comment:en: not sure whether this should be counted as a mollusc
 
-#? not sure whether this should be counted as a mollusc
 <en:mollusc
 en:sea squirt
 ar:كيسيات
@@ -56192,7 +56136,7 @@ la:Helix pomatia
 <en:snail
 fr:chairs d'escargots
 
-# Squid are cephalopods in the order Teuthida with elongated bodies, large eyes, eight arms and two tentacles.
+# desription:en:Squid are cephalopods in the order Teuthida with elongated bodies, large eyes, eight arms and two tentacles.
 
 <en:mollusc
 en:squid
@@ -56230,6 +56174,7 @@ ka:კალმარები
 kk:Кальмар
 ko:살오징어목
 ky:Кальмарлар
+la:Teuthida
 lt:Kalmarai
 lv:Kalmāri
 ml:കൂന്തൾ
@@ -56272,10 +56217,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Squid
 # ingredient/fr:calmar has 25 products in 2 languages @2019-01-04
 
 <en:squid
-en:Teuthida
-la:Teuthida
-
-<en:squid
 fr:anneaux de calmar
 # anneaux de calmar (calmar, eau)
 
@@ -56292,7 +56233,7 @@ fr:calmar géant
 # calmar (mollusques) géant
 
 
-# Illex argentinus, commonly known as the Argentine shortfin squid is a species of squid in the family Ommastrephidae from the south western Atlantic Ocean.
+# description:en:Illex argentinus, commonly known as the Argentine shortfin squid is a species of squid in the family Ommastrephidae from the south western Atlantic Ocean.
 
 <en:squid
 en:argentine shortfin squid
@@ -56301,17 +56242,13 @@ de:Argentinischer Kurzflossenkalmar
 es:pota argentina, calamar illex
 fr:encornet rouge argentin
 ga:Scuid ghearreiteach na hAirgintíne
-wikidata:en:Q2262870
-
-<en:argentine shortfin squid
-en:Illex Argentinus
-it:Illex Argentinus
 la:Illex Argentinus
+wikidata:en:Q2262870
 wikipedia:en:https://en.wikipedia.org/wiki/Illex_argentinus
 # ingredient/fr:Illex-Argentinus has 7 products @2019-01-07
 
 
-# The Humboldt squid (Dosidicus gigas), also known as jumbo squid, jumbo flying squid, pota, or diablo rojo (red devil), is a large, predatory squid living in the waters of the Humboldt Current in the eastern Pacific Ocean.
+# description:en:The Humboldt squid (Dosidicus gigas), also known as jumbo squid, jumbo flying squid, pota, or diablo rojo (red devil), is a large, predatory squid living in the waters of the Humboldt Current in the eastern Pacific Ocean.
 
 <en:squid
 en:Humboldt squid, Giant Squid, Chuka Ika
@@ -56324,6 +56261,7 @@ he:דיונון הומבולדט
 id:Cumi-cumi jumbo
 it:Totano gigante
 ja:アメリカオオアカイカ
+la:Dosidicus Gigas
 nb:humboldtblekksprut
 pl:Kałamarnica Humboldta
 pt:Pota gigante, Lula-de-humboldt
@@ -56335,24 +56273,17 @@ vi:Mực Humboldt
 zh:美洲大赤魷 
 wikidata:en:Q925444
 wikipedia:en:https://en.wikipedia.org/wiki/Humboldt_squid
-
-<en:humboldt squid
-en:Dosidicus Gigas
-la:Dosidicus Gigas
 # ingredient/fr:Dosidicus-Gigas has 28 products in 5 languages @2019-01–03
 
 
-# Uroteuthis duvaucelii, also known as the Indian Ocean Squid or Indian Squid, is an Indo-West Pacific species of squid with a wide range throughout the Indian Ocean
+# description:en:Uroteuthis duvaucelii, also known as the Indian Ocean Squid or Indian Squid, is an Indo-West Pacific species of squid with a wide range throughout the Indian Ocean
 
 <en:squid
 en:indian squid
 de:indischer Tintenfisch
 fr:calmar indien
-zh:杜氏槍魷
-
-<en:indian squid
-en:Uroteuthis duvaucelii
 la:Uroteuthis duvaucelii, Loligo duvauceli
+zh:杜氏槍魷
 wikidata:en:Q3829827
 wikipedia:en:https://en.wikipedia.org/wiki/Uroteuthis_duvauceli
 # ingredient/fr:Loligo-duvauceli has 7 products in french @2019-01-04
@@ -56360,11 +56291,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Uroteuthis_duvauceli
 <en:squid
 en:mitre squid
 fr:Calmar mitre
-zh:中國槍魷
-
-<en:mitre squid
-en:Uroteuthis chinensis
 la:Uroteuthis chinensis, Loligo chinensis
+zh:中國槍魷
 wikidata:en:Q920979
 # ingredient/fr:Loligo-chinensis has 2 products @2019-01-04
 
@@ -56372,29 +56300,23 @@ wikidata:en:Q920979
 en:swordtip squid
 fr:Calmar épée, Calmar, Encornet
 ja:ケンサキイカ
-zh:剑尖枪乌贼
-
-<en:swordtip squid
-en:Uroteuthis edulis
 la:Uroteuthis edulis, Loligo edulis
+zh:剑尖枪乌贼
 wikidata:en:Q2202434
 
-# Doryteuthis gahi, also known as the Patagonian squid and locally as calamar, is a small-sized squid belonging to the family Loliginidae.
+# description:en:Doryteuthis gahi, also known as the Patagonian squid and locally as calamar, is a small-sized squid belonging to the family Loliginidae.
 
 <en:squid
 en:Patagonian squid
 es:Calamar de patagonia
 fr:calmar de Patagonie
-
-<en:Patagonian squid
-en:Doryteuthis gahi
 la:Doryteuthis gahi, Loligo Gahi
 wikidata:en:Q13596602
 wikipedia:en:https://en.wikipedia.org/wiki/Doryteuthis_gahi
 # ingredient/fr:Loligo-Gahi has 1 product @2019-01-04
 
 
-# Clam is a common name for several kinds of bivalve molluscs.
+# description:en:Clam is a common name for several kinds of bivalve molluscs.
 
 <en:mollusc
 en:clam, clams
@@ -56444,13 +56366,11 @@ en:clam meat
 <en:clam
 en:undulate venus
 it:vongola del Pacifico
+la:Paratapes undulatus, Paphia undulata
 th:หอยลาย
 vi:Sò lụa
 zh:波纹巴非蛤, 波紋橫簾蛤
 
-<en:undulate venus
-en:Paratapes undulatus
-la:Paratapes undulatus, Paphia undulata
 
 <en:clam
 fr:palourdes précuites
