@@ -36,8 +36,13 @@ BEGIN
 		$minion
 
 		&load_csv_or_excel_file
+
+		&init_nutrients_columns_names_for_lang
+		&match_column_name_to_nutrient
 		&init_columns_fields_match
+
 		&generate_import_export_columns_groups_for_select2
+
 		&convert_file
 
 		&import_csv_file_task
@@ -270,18 +275,62 @@ sub convert_file($$$$) {
 }
 
 
+# Initialize the list of synonyms of nutrients in the different languages only once
+
+my %nutrients_columns_names_for_lang = ();
+
+sub init_nutrients_columns_names_for_lang($) {
+
+	my $l = shift;
+
+	defined $nutrients_columns_names_for_lang{$l} and next;
+
+	$nutrients_columns_names_for_lang{$l} = {};
+
+	$nutriment_table = $cc_nutriment_table{default};
+
+	# Go through the nutriment table
+	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
+
+		next if $nutriment =~ /^\#/;
+		my $nid = $nutriment;
+		$nid =~ s/^(-|!)+//g;
+		$nid =~ s/-$//g;
+
+		if (exists $Nutriments{$nid}{$l}) {
+			$nutrients_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Nutriments{$nid}{$l})} = $nid . "_100g_value_unit";
+			$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
+		}
+	}
+}
 
 
-# Analyze the headers column names and rows content to pre-assign fields to columns
+sub match_column_name_to_nutrient($$) {
 
-sub init_columns_fields_match($$) {
+	my $l = shift;
+	my $column_id = shift;
+
+	my $results_ref = {};
+
+	if (defined $nutrients_columns_names_for_lang{$l}{$column_id}) {
+		$results_ref->{field} = $nutrients_columns_names_for_lang{$l}{$column_id};
+	}
+	elsif (defined $nutrients_columns_names_for_lang{en}{$column_id}) {
+		$results_ref->{field} = $nutrients_columns_names_for_lang{en}{$column_id};
+	}
+
+	return $results_ref;
+}
+
+
+
+# Go through all rows to extract examples, compute stats etc.
+
+sub compute_statistics_and_examples($$$) {
 
 	my $headers_ref = shift;
 	my $rows_ref = shift;
-
-	my $columns_fields_ref = {};
-
-	# Go through all rows to extract examples, compute stats etc.
+	my $columns_fields_ref = shift;
 
 	my $row = 0;
 
@@ -329,6 +378,23 @@ sub init_columns_fields_match($$) {
 
 		$row++;
 	}
+}
+
+
+# Analyze the headers column names and rows content to pre-assign fields to columns
+
+sub init_columns_fields_match($$) {
+
+	my $headers_ref = shift;
+	my $rows_ref = shift;
+
+	my $columns_fields_ref = {};
+
+	$log->debug("init_columns_fields_match", { lc=>$lc }) if $log->is_debug();
+
+	# Go through all rows to extract examples, compute stats etc.
+
+	compute_statistics_and_examples($headers_ref, $rows_ref, $columns_fields_ref);
 
 	# Load previously assigned fields by the user_agent
 
@@ -340,42 +406,49 @@ sub init_columns_fields_match($$) {
 
 	# Match known column names to OFF fields
 
+	init_nutrients_columns_names_for_lang($lc);
+	if ($lc ne "en") {
+		init_nutrients_columns_names_for_lang("en");
+	}
+
 	foreach my $column (@$headers_ref) {
 
-		my ($field, $value_unit, $tag);
+		my $column_id = get_string_id_for_lang("no_language", $column);
 
-		if (defined $all_columns_fields_ref->{$field}) {
+		if ((defined $all_columns_fields_ref->{$column_id}) and (defined $all_columns_fields_ref->{$column_id}{field})) {
 
-			$field = $all_columns_fields_ref->{$column}{field};
-			$value_unit = $all_columns_fields_ref->{$column}{value_unit};
-			$tag = $all_columns_fields_ref->{$column}{tag};
+			$columns_fields_ref->{$column} = $all_columns_fields_ref->{$column_id};
 		}
 		else {
 
-			my $column_id = get_string_id_for_lang("no_language", $column);
+			# Name of a field in the current language or in English?
 
-			if ($column_id =~ /^(code|barcode|ean|ean13|ean-13)$/) {
-				$field = "code";
+			$columns_fields_ref->{$column} = match_column_name_to_nutrient($lc, $column_id);
+
+			$log->debug("after match_column_name_to_nutrient", { lc=>$lc, column=>$column, column_id=>$column_id, column_field=>$columns_fields_ref->{$column} }) if $log->is_debug();
+
+			# Other known name?
+
+			if (not defined $columns_fields_ref->{$column}{field}) {
+				if ($column_id =~ /^(code|barcode|ean|ean13|ean-13)$/) {
+					$columns_fields_ref->{$column}{field} = "code";
+				}
 			}
 
 			# If we don't know if the column contains value + unit, value, or unit,
 			# try to guess from the content of the column
-			if (not defined $value_unit) {
+			if (not defined $columns_fields_ref->{$column}{value_unit}) {
 				if ($columns_fields_ref->{$column}{both}) {
-					$value_unit = "value_unit";
+					$columns_fields_ref->{$column}{value_unit} = "value_unit";
 				}
 				elsif ($columns_fields_ref->{$column}{numbers}) {
-					$value_unit = "value";
+					$columns_fields_ref->{$column}{value_unit} = "value";
 				}
 				elsif ($columns_fields_ref->{$column}{letters}) {
-					$value_unit = "unit";
+					$columns_fields_ref->{$column}{value_unit} = "unit";
 				}
 			}
 		}
-
-		$columns_fields_ref->{$column}{field} = $field;
-		$columns_fields_ref->{$column}{value_unit} = $value_unit;
-		$columns_fields_ref->{$column}{tag} = $tag;
 
 		delete $columns_fields_ref->{$column}{existing_examples};
 	}

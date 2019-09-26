@@ -105,7 +105,7 @@ foreach my $field (keys %$columns_fields_ref) {
 	delete $columns_fields_ref->{$field}{letters};
 	delete $columns_fields_ref->{$field}{both};
 
-	$all_columns_fields_ref->{$field} = $columns_fields_ref->{$field};
+	$all_columns_fields_ref->{get_string_id_for_lang("no_language", $field)} = $columns_fields_ref->{$field};
 }
 
 defined $import_files_ref->{$file_id}{imports} or $import_files_ref->{$file_id}{imports} = {};

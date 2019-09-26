@@ -97,6 +97,8 @@ if ($action eq "display") {
 
 	# Analyze the headers column names and rows content to pre-assign fields to columns
 
+	$log->debug("before init_columns_fields_match", { lc=>$lc }) if $log->is_debug();
+
 	my $columns_fields_ref = init_columns_fields_match($headers_ref, $rows_ref);
 	my $columns_fields_json = to_json($columns_fields_ref);
 
@@ -118,12 +120,14 @@ if ($action eq "display") {
 
 	$html .= start_multipart_form(-id=>"select_format_form", -action=>"/cgi/import_file_process.pl") ;
 
+	my $field_on_site = sprintf(lang("field_on_site"), lang("site_name"));
+
 	$html .= <<HTML
 <input type="submit" class="button small" value="$Lang{import_data}{$lc}">
 $selected_columns_count
 
 <table id="select_fields">
-<tr><th>Column in file</th><th colspan="2">Field on Open Food Facts</th></tr>
+<tr><th>$Lang{column_in_file}{$lc}</th><th colspan="2">$field_on_site</th></tr>
 HTML
 ;
 
