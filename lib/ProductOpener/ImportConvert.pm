@@ -64,7 +64,6 @@ BEGIN
 		&clean_weights
 		&clean_fields_for_all_products
 
-		$lc
 		%global_params
 
 		@xml_errors
@@ -485,7 +484,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 
 	# empty or incomplete quantity, but net_weight etc. present
 	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "")
-		or (($lc eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
+		or (($product_ref->{lc} eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
 		or ($product_ref->{quantity} =~ /^\(.+\)$/)	#  (4 x 125 g)
 		) {
 
@@ -795,7 +794,7 @@ sub load_xml_file($$$$) {
 			$fuzzy_match = $xml_fields_mapping_ref->[0][1]{fuzzy_match};
 			if (defined $xml_ref->{$fuzzy_match}) {
 				@fuzzy_match_keys = sort keys %{$xml_ref->{$fuzzy_match}};
-				@fuzzy_match_keysid = map { get_string_id_for_lang($lc, $_) } @fuzzy_match_keys;
+				@fuzzy_match_keysid = map { get_string_id_for_lang("no_language", $_) } @fuzzy_match_keys;
 			}
 		}
 
@@ -824,7 +823,7 @@ sub load_xml_file($$$$) {
 					$log->info("Fuzzy match", { fuzzy_from => $fuzzy_from }) if $log->is_info();
 
 					if (defined $new_xml_ref->{$fuzzy_from}) {
-						my $tf = Text::Fuzzy->new (get_string_id_for_lang($lc, $new_xml_ref->{$fuzzy_from}));
+						my $tf = Text::Fuzzy->new (get_string_id_for_lang("no_language", $new_xml_ref->{$fuzzy_from}));
 						my $nearestid = $tf->nearest (\@fuzzy_match_keysid);
 						my $nearest = $fuzzy_match_keys[$nearestid];
 						$log->info("Fuzzy match found", { fuzzy_from => $fuzzy_from, value => $new_xml_ref->{$fuzzy_from}, nearest => $nearest }) if $log->is_info();
