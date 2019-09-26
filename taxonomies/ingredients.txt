@@ -51962,7 +51962,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quorn
 # The same generic name is often used to (incorrectly) designate multiple fish species.
 
 
-# Fish are gill-bearing aquatic craniate animals that lack limbs with digits.
+# description:en:Fish are gill-bearing aquatic craniate animals that lack limbs with digits.
 
 en:fish
 ab:Аҧсыӡ
@@ -52287,7 +52287,7 @@ fr:fumet de poisson aromatisé
 <en:fish
 de:Fischmuskeleiweiß
 
-# Rockfish is a common term for several species of fish, referring to their tendency to hide among rocks.
+# description:en:Rockfish is a common term for several species of fish, referring to their tendency to hide among rocks.
 
 <en:fish
 en:rockfish
@@ -52299,7 +52299,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rockfish
 # structure:inner:role:synonym:optional, eg poissons de roche (congre, rascasse, grondin) 
 
 
-#  Freshwater fish are those that spend some or all of their lives in fresh water, such as rivers and lakes, with a salinity of less than 0.05%. 
+#  description:en:Freshwater fish are those that spend some or all of their lives in fresh water, such as rivers and lakes, with a salinity of less than 0.05%. 
 
 <en:fish
 en:fresh water fish
@@ -52378,7 +52378,7 @@ carbon_footprint_fr_foodges_value:fr:10.7
 <en:fish
 fr:poissons entiers pêchés en Méditerranée
 
-# The Alaska pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
+# description:en:The Alaska pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
 
 <en:fish
 en:alaska pollock, Alaskan pollock, Theragra chalcogramma
@@ -52538,7 +52538,7 @@ it:filetti di acciughe salate
 # ingredient/fr:filets-d’anchois-salés has 41 products in 4 languages @2019-02-06
 
 
-# The European anchovy (Engraulis encrasicolus) is a forage fish somewhat related to the herring. 
+# description:en:The European anchovy (Engraulis encrasicolus) is a forage fish somewhat related to the herring. 
 
 <en:anchovy
 en:European anchovy
@@ -52560,7 +52560,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/European_anchovy
 
 
 
-# The anglerfish is a fish of the teleost order Lophiiformes
+# description:en:The anglerfish is a fish of the teleost order Lophiiformes
 
 <en:fish
 en:Anglerfish, angler fish
@@ -52591,6 +52591,7 @@ is:Skötuselur
 it:Rana Pescatrice
 ja:ニシアンコウ
 ka:ზღვის ეშმაკი
+la:Lophius piscatorius
 nb:breiflabb
 nl:Zeeduivel
 nn:Breiflabb
@@ -52616,11 +52617,6 @@ lij:Budego
 wikipedia:en:https://en.wikipedia.org/wiki/Anglerfish
 # ingredient/en:angler-fish has 2 products @2019-01-12
 
-# latin name is kept separate as there are multiple species for an anglerfish
-
-<en:anglerfish
-en:Lophius piscatorius
-la:Lophius piscatorius
 
 # description:fr:Loup est un nom vernaculaire ambigu désignant en français certains poissons prédateurs marins.
 
@@ -52716,6 +52712,7 @@ it:bottatrice
 ja:カワメンタイ
 ka:ღლაბუტა
 kk:Нәлім
+la:lota lota
 lt:Vėgėlė
 nb:lake
 nl:kwabaal
@@ -52761,12 +52758,8 @@ zh:江鱈
 wikipedia:en:https://en.wikipedia.org/wiki/Burbot
 # ingredient/fr:lotte has 10 products in french @2018-12-31
 
-<en:burbot
-en:lota lota
-la:lota lota
 
-
-# The capelin or caplin (Mallotus villosus) is a small forage fish of the smelt family found in the North Atlantic, North Pacific, and Arctic oceans.
+# description:en:The capelin or caplin (Mallotus villosus) is a small forage fish of the smelt family found in the North Atlantic, North Pacific, and Arctic oceans.
 
 <en:fish
 en:capelin, caplin
@@ -52792,6 +52785,7 @@ jv:Capelin
 ka:მოივა
 kk:Мойва
 ko:열빙어
+la:Mallotus villosus
 lt:Stintenė
 mk:капелин
 ms:Capelin
@@ -52822,12 +52816,8 @@ wikidata:en:Q143359
 wikipedia:en:https://en.wikipedia.org/wiki/Capelin
 # ingredient/fr:capelan has 2 products in french @2019-01-01
 
-<en:capelin
-en:Mallotus villosus
-la:Mallotus villosus
 
-
-# Cod is the common name for the demersal fish genus Gadus, belonging to the family Gadidae.
+# description:en:Cod is the common name for the demersal fish genus Gadus, belonging to the family Gadidae.
 
 <en:fish
 en:cod, codfish
@@ -52911,7 +52901,6 @@ wikidata:en:Q199788
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_cod
 
 
-
 # description:en:The Pacific cod, Gadus macrocephalus, is a species of ray-finned fish in the family Gadidae.
 
 <en:cod
@@ -52941,7 +52930,6 @@ wikidata:en:Q783575
 
 
 # <en:cod
-
 fr:œufs de cabillaud, oeufs de cabillaud
 vegetarian:en:no
 vegan:en:no
@@ -52952,17 +52940,14 @@ fr:œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
 # ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
 
 
-# The corvina, also known as the corvina drum (Cilus gilberti), is a saltwater fish of the Sciaenidae family (commonly called croakers or drums).
+# description:en:The corvina, also known as the corvina drum (Cilus gilberti), is a saltwater fish of the Sciaenidae family (commonly called croakers or drums).
 
 <en:fish
 en:corvina
+la:Cilus gilberti
 pl:Corvina
 zh:吉氏毛突石首魚
 # ingredient/corvina has 2 products @2019-01-13
-
-<en:corvina
-en:Cilus gilberti
-la:Cilus gilberti
 wikidata:en:Q2017562
 wikipedia:en:https://en.wikipedia.org/wiki/Cilus_gilberti
 
@@ -52976,6 +52961,7 @@ fa:صخره‌ماهی ژرف‌زی
 fo:Trantkongafiskur
 fr:dorade sébaste, Dorade-sébaste
 is:Djúpkarfi
+la:Sebastes mentella
 nb:Snabeluer
 nl:Diepzeeroodbaars
 sv:Djuphavskungsfisk
@@ -52986,12 +52972,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Deepwater_redfish
 carbon_footprint_fr_foodges_ingredient:fr:Bar ou dorade d'élevage (filet)
 carbon_footprint_fr_foodges_value:fr:12
 
-<en:deepwater redfish
-en:Sebastes mentella
-la:Sebastes mentella
 
-
-# The European conger (Conger conger) is a species of conger of the family Congridae. It is the largest eel in the world and native to the northeast Atlantic, including the Mediterranean Sea.
+# description:en:The European conger (Conger conger) is a species of conger of the family Congridae. It is the largest eel in the world and native to the northeast Atlantic, including the Mediterranean Sea.
 
 # should there be a separate group for en:conger?
 
@@ -53020,6 +53002,7 @@ io:Kongro
 it:Grongo
 ja:ヨーロッパアナゴ
 kg:Musikimbila
+la:Conger conger
 lt:Jūrinis ungurys
 nb:Havål
 nl:zeepaling, Kongeraal
@@ -53042,12 +53025,8 @@ wikidata:en:Q212552
 wikipedia:en:https://en.wikipedia.org/wiki/European_conger
 # ingredient/fr:congre has 9 products @2018-12-31
 
-<en:European conger
-en:Conger conger
-la:Conger conger
 
-
-# The European plaice (Pleuronectes platessa) is a commercially important flatfish
+# description:en:The European plaice (Pleuronectes platessa) is a commercially important flatfish
 
 <en:fish
 en:European plaice
@@ -53115,7 +53094,7 @@ tl:Tatampal
 tr:Bayağı pisi balığı
 wikipedia:en:https://en.wikipedia.org/wiki/Flounder
 
-# The Triglidae, commonly known as sea robins or gurnard, are a family of bottom-feeding scorpaeniform fish. 
+# description:en:The Triglidae, commonly known as sea robins or gurnard, are a family of bottom-feeding scorpaeniform fish. 
 
 <en:fish
 <en:rockfish
@@ -53159,7 +53138,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Triglidae
 # ingredient/fr:grondin has 8 products in french @2019-01-01
 
 
-# The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
+# description:en:The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
 
 <en:fish
 en:haddock
@@ -53280,21 +53259,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_paradoxus
 en:South Pacific hake
 de:Südpazifischer Seehecht
 es:Merluza chilena
-fr:Merluccius productus, Merlu du Pacifique sud
+fr:Merluccius productus, Merlu du Pacifique sud, Merlu blanc du Chili
+la:Merluccius gayi, Merluccius gayi gayi , Merlucius gayigay
 ru:Чилийско-перуанская мерлуза
 sv:Chilensk kummel
 zh:秘魯無鬚鱈
 wikidata:en:Q2348852
 wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_gayi
-
-<en:South Pacific hake
-en:Merluccius gayi, Merluccius gayi gayi , Merlucius gayigay
-fr:Merluccius gayi, Merlu blanc du Chili
-la:Merluccius gayi, Merluccius gayi gayi , Merlucius gayigay
 # ingredient/fr:Merluccius-gayi has 2 products @2018-12-30
 # structure:inner:role:synonym, eg Merlu blanc (Merluccius capensis, Merluccius gayi, Merlusccius productus)
 
-# The North Pacific hake, Pacific hake, Pacific whiting, or jack salmon (Merluccius productus) is a ray-finned fish in the genus Merluccius, found in the northeast Pacific Ocean
+# description:en:The North Pacific hake, Pacific hake, Pacific whiting, or jack salmon (Merluccius productus) is a ray-finned fish in the genus Merluccius, found in the northeast Pacific Ocean
 
 <en:hake
 en:north pacific hake
@@ -53307,6 +53282,7 @@ fr:merlu du Pacifique, Merlu du Pacifique nord
 is:Kyrrahafslýsingur
 it:nasello del Pacifico, merluzzo del Pacifico
 ja:シロガネダラ
+la:Merluccius productus, Merlusccius productus
 nl:Pacifische heek
 sv:Stillahavskummel
 uk:Хек тихоокеанський, орегонський
@@ -53314,17 +53290,11 @@ zh:北太平洋梭鳕
 wikidata:en:Q919598
 wikipedia:en:https://en.wikipedia.org/wiki/North_Pacific_hake
 # structure:outer:role:synonym, eg nasello del Pacifico (Merluccius productus)
-
-<en:north pacific hake
-en:Merluccius productus
-de:Pazifischer Seehecht
-fr:Merluccius productus, Merlu du Pacifique nord
-la:Merluccius productus, Merlusccius productus
 # ingredient/fr:Merluccius-productus has 6 products @2018-12-30
 # structure:inner:role:synonym, eg nasello del Pacifico (Merluccius productus)
 
 
-# The Argentine hake (Merluccius hubbsi) is a merluccid hake of the genus Merluccius, found in the southwestern Atlantic Ocean
+# description:en:The Argentine hake (Merluccius hubbsi) is a merluccid hake of the genus Merluccius, found in the southwestern Atlantic Ocean
 
 <en:hake
 en:Argentine hake
@@ -53352,7 +53322,7 @@ en:halibut
 fr:flétan
 wikipedia:en:https://en.wikipedia.org/wiki/Halibut
 
-# Herring are forage fish, mostly belonging to the family Clupeidae.
+# description:en:Herring are forage fish, mostly belonging to the family Clupeidae.
 
 <en:fish
 en:herring
@@ -53438,12 +53408,13 @@ et:räim
 eu:Sardinzar arrunt
 fa:شاه‌ماهی اطلسی
 fi:silli
-fr:Hareng
+fr:Hareng, clupea harengus pêché en Atlantique Nord
 he:מליח אטלנטי
 hi:हेरिंग साटन
 hy:Ատլանտյան տառեխ
 id:Haring atlantik
 ja:タイセイヨウニシン
+la:Clupea harengus
 lb:Atlanteschen Hierk
 lt:Strimelė
 lv:strimala
@@ -53459,15 +53430,10 @@ zh:大西洋鯡
 # en-gb:Atlantic herring
 wikidata:en:Q2396858
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_herring
-
-<en:Atlantic herring
-en:Clupea harengus
-fr:Clupea harengus, clupea harengus pêché en Atlantique Nord
-la:Clupea harengus
 # structure:inner:role:synonym,  eg:Hareng (Clupea Harengus)
 
 
-# Jack mackerels or saurels are marine fish in the genus Trachurus of the family Carangidae. 
+# description:en:Jack mackerels or saurels are marine fish in the genus Trachurus of the family Carangidae. 
 
 <en:fish
 en:jack mackarels
@@ -53533,7 +53499,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Oarfish
 # ingredient/fr:ruban has 1 product in french @2019-01-01
 
 
-# Trisopterus luscus (bib, pout whiting, pout or most commonly pouting) is a seafish belonging to the cod family (Gadidae).
+# description:en:Trisopterus luscus (bib, pout whiting, pout or most commonly pouting) is a seafish belonging to the cod family (Gadidae).
 
 <en:fish
 en:pouting, bib, pout
@@ -53545,10 +53511,11 @@ de:Franzosendorsch
 es:Faneca
 eu:Paneka handi
 fi:Partaturska
-fr:tacaud
+fr:tacaud, Tacaud commun
 gl:Faneca
 hu:Francia tőkehal
 it:merluzzetto bruno
+la:Trisopterus luscus
 nb:Skjeggtorsk
 nl:steenbolk
 pl:Bielmik
@@ -53557,11 +53524,6 @@ sl:Francoski molič
 sv:Skäggtorsk
 zh:條長臀鱈
 # ingredient/fr:tacaud has 11 products in french @2018-12-31
-
-<en:pouting
-en:Trisopterus luscus
-fr:Trisopterus luscus, Tacaud commun
-la:Trisopterus luscus
 wikidata:en:Q599799
 wikipedia:en:https://en.wikipedia.org/wiki/Trisopterus_luscus
 # structure:inner:role:synonym, eg tacaud (Trisopterus luscus)
@@ -53714,7 +53676,7 @@ carbon_footprint_fr_foodges_value:fr:5.5
 <en:smoked salmon
 fr:chutes de saumon fumé
 
-# The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae. 
+# description:en:The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae. 
 
 <en:salmon
 en:atlantic salmon, salmo salar salmon
@@ -53797,7 +53759,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_salmon
 en:smoked atlantic salmon
 fr:saumon Atlantique fumé
 
-# The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family. 
+# description:en:The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family. 
 
 <en:salmon
 en:chum salmon
@@ -53817,6 +53779,7 @@ ja:サケ
 ka:კეტა
 kk:Кете
 ko:연어
+la:Oncorhynchus kéta
 mk:кучешки лосос
 nb:ketalaks
 nl:Chumzalm
@@ -53841,15 +53804,10 @@ zh:鈎吻鮭
 # zh-tw:鈎吻鮭
 wikidata:en:Q475211
 wikipedia:en:https://en.wikipedia.org/wiki/Chum_salmon
-
-<en:chum salmon
-en:Oncorhynchus kéta
-fr:Oncorhynchus kéta, Saumon du Pacifique, Saumon kéta, Saumon chien
-la:Oncorhynchus kéta
 # ingredient/fr:Oncorhynchus-kéta has 22 products @2019-01-14
 
 
-# Pink salmon or humpback salmon (Oncorhynchus gorbuscha) is a species of anadromous fish in the salmon family.
+# description:en:Pink salmon or humpback salmon (Oncorhynchus gorbuscha) is a species of anadromous fish in the salmon family.
 
 <en:salmon
 en:pink salmon
@@ -53862,7 +53820,7 @@ de:Buckellachs
 eo:Gorbuŝo
 fa:آزادماهی صورتی
 fi:Kyttyrälohi
-fr:saumon rose du pacifique
+fr:saumon rose du pacifique, Saumon rose à bosse
 he:אלתית דבשתית
 hu:Gorbusalazac
 hy:Սապատաձուկ
@@ -53873,6 +53831,7 @@ ja:カラフトマス
 ka:ღურკანა
 ko:곱사연어
 ky:Бүкүр сом
+la:Oncorhynchus gorbuscha
 nb:Pukkellaks
 nl:Roze zalm
 pl:Gorbusza
@@ -53891,17 +53850,11 @@ zh:驼背大马哈鱼
 wikidata:en:Q673380
 wikipedia:en:https://en.wikipedia.org/wiki/Pink_salmon
 # ingredient/fr:saumon-rose-du-pacifique has 46 products in french @2018-12-29
-
-<en:pink salmon
-en:Oncorhynchus gorbuscha
-fr:Oncorhynchus gorbuscha, Saumon rose à bosse
-la:Oncorhynchus gorbuscha
 # ingredient/oncorhynchus-gorbuscha has 27 products @2019-01-14
 # http://www.marinespecies.org/aphia.php?p=taxdetails&id=127182
 
 
-
-# Sockeye salmon (Oncorhynchus nerka), also called red salmon, kokanee salmon, or blueback salmon, is an anadromous species of salmon found in the Northern Pacific Ocean and rivers discharging into it. 
+# description:en:Sockeye salmon (Oncorhynchus nerka), also called red salmon, kokanee salmon, or blueback salmon, is an anadromous species of salmon found in the Northern Pacific Ocean and rivers discharging into it. 
 
 <en:salmon
 en:Sockeye salmon
@@ -53921,6 +53874,7 @@ it:salmone rosso
 ja:ベニザケ
 ka:ნერკა
 ko:홍연어
+la:oncorhynchus nerka
 mk:црвен лосос
 nb:Rødlaks
 nl:Rode zalm
@@ -53936,11 +53890,6 @@ zh:紅鮭
 # zh-hant:紅鮭
 wikidata:en:Q44064
 wikipedia:en:https://en.wikipedia.org/wiki/Sockeye_salmon
-
-<en:Sockeye salmon
-en:oncorhynchus nerka
-it:Oncorhynchus nerka - salmone rosso
-la:oncorhynchus nerka
 # ingredient/fr:oncorhynchus-nerka has 54 products in 4 languages @2019-03-01
 
 
@@ -54166,7 +54115,7 @@ he:נימי
 # pam:Bisugo
 # ingredient/fr:cohana has 5 products in french @2019-01-07
 
-# Nemipterus is a genus of fish in the family Nemipteridae found in the Indian and Pacific Ocean
+# description:en:Nemipterus is a genus of fish in the family Nemipteridae found in the Indian and Pacific Ocean
 
 <en:thread-fin bream
 en:Nemipterus spp
@@ -54175,7 +54124,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nemipterus
 # ingredient/fr:Nemipterus-spp has 2 products in french @2019-01-07
 
 
-# A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
+# description:en:A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
 
 <en:fish
 en:tuna
@@ -54366,10 +54315,11 @@ es:atún claro
 eu:Atun hegats-hori
 fa:گیدر
 fi:Keltaevätonnikala
-fr:thon albacore
+fr:thon albacore, Thon jaune, Albacore
 gl:Atún de aleta amarela
 hu:Sárgaúszójú tonhal
 it:Tonno a pinna gialla
+la:Thunnus albacares
 nl:Geelvintonijn
 pt:atum albacora
 ru:желтопёрый тунец
@@ -54380,12 +54330,6 @@ sv:Gulfenad tonfisk
 wikidata:en:Q269781
 wikipedia:en:https://en.wikipedia.org/wiki/Yellowfin_tuna
 # ingredient/fr:thon-albacore has 172 products in 2 languages 2019-01-02
-
-<en:yellowfin tuna
-en:Thunnus albacares
-fr:Thunnus albacares, Thon jaune, Albacore
-it:tonno pinna gialla
-la:Thunnus albacares
 # ingredient/fr:Thunnus-albacares has 58 products @2019-01-02
 # THON albacore (Thunnus albacares) 
 
@@ -54423,7 +54367,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Blue_grenadier
 # structure:inner:role:synonym, egnasello azzurro (Macruronus novaezelandiae)
 
 
-# Le grenadier patagonien appelé en espagnol merluza de cola (Macruronus magellanicus) est un poisson marin de la famille des Merlucciidae qui appartient de ce fait à l'ordre des Gadiformes.
+# description:en:Le grenadier patagonien appelé en espagnol merluza de cola (Macruronus magellanicus) est un poisson marin de la famille des Merlucciidae qui appartient de ce fait à l'ordre des Gadiformes.
 
 <en:hake
 en:Patagonian grenadier
@@ -54431,20 +54375,17 @@ bg:патагонски гренадир
 es:merluza de cola
 fr:grenadier patagonien, merluche patagonienne, Hoku argentin
 it:nasello patagonico, merluzzo patagonico
+la:Macruronus magellanicus
 nl:Patagonische grenadier
 sv:Chilensk hoki
 zh:南美尖尾無鬚鱈
 wikidata:en:Q648967
 wikipedia:fr:https://fr.wikipedia.org/wiki/Grenadier_patagonien
-
-<en:Patagonian grenadier
-en:Macruronus magellanicus
-la:Macruronus magellanicus
 # ingredient/fr:Macruronus-magellanicus has 1 product @2018-12-31
 # structure:inner:role:synonym, eg Hoku argentin (Macruronus magellanicus)
 
 
-# Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae. 
+# description:en:Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae. 
 
 <en:fish
 en:mackarel
@@ -54517,6 +54458,7 @@ fr:Maquereau de l'Atlantique
 ga:ronnach an Atlantaigh
 hu:Közönséges makréla
 ko:대서양고등어
+la:scomber scombrus
 lt:Atlantinė skumbrė
 lv:Atlantijas makrele
 nl:atlantische makreel
@@ -54527,11 +54469,6 @@ sv:atlantisk makrill
 uk:Скумбрія атлантична
 vi:Cá thu Đại Tây Dương
 wikidata:en:Q30153
-
-<en:atlantic mackarel
-en:scomber scombrus
-fr:maquereau scomber scombrus
-la:scomber scombrus
 # ingredient/fr:scomber-scombrus has 63 products in 3 languages @2018-12-30
 # structure:inner:role:synonym, eg sgombri (Scomber scombrus)
 
@@ -54542,7 +54479,7 @@ fr:filets de maquereaux cuits au court-bouillon
 # structure:outer:role:compound, eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
 
 
-# Molva est un genre de poissons appelés lingues, élingues ou juliennes.
+# description:en:Molva est un genre de poissons appelés lingues, élingues ou juliennes.
 
 <en:fish
 fr:lingue
@@ -54550,7 +54487,7 @@ la:Molva
 # ingredient/fr:lingue has 1 product @2019-01-16
 
 
-# The Sparidae are a family of fish in the order Perciformes, commonly called sea breams and porgies.
+# description:en:The Sparidae are a family of fish in the order Perciformes, commonly called sea breams and porgies.
 
 <en:fish
 en:sea breams, seabream
@@ -54648,8 +54585,7 @@ wikidata:en:Q1135606
 wikipedia:en:https://en.wikipedia.org/wiki/Black_seabream
 
 
-
-# Les pageots (Pagellus) forment un genre de poissons marins perciformes de la famille des Sparidae
+# description:en:Les pageots (Pagellus) forment un genre de poissons marins perciformes de la famille des Sparidae
 
 <en:sea bream
 en:porgies
@@ -54664,7 +54600,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Pagellus
 # ingredient/fr:pageot has 1 product in french @2019-01-01
 
 
-# Swordfish (Xiphias gladius), also known as broadbills in some countries, are large, highly migratory, predatory fish characterized by a long, flat bill. 
+# description:en:Swordfish (Xiphias gladius), also known as broadbills in some countries, are large, highly migratory, predatory fish characterized by a long, flat bill. 
 
 <en:fish
 en:swordfish
@@ -54821,7 +54757,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trout
 # structure:outer:role:synonym,  eg Truite (Oncorhynchus mykiss)
 
 
-# The rainbow trout (Oncorhynchus mykiss) is a trout and species of salmonid native to cold-water tributaries of the Pacific Ocean in Asia and North America.
+# description:en:The rainbow trout (Oncorhynchus mykiss) is a trout and species of salmonid native to cold-water tributaries of the Pacific Ocean in Asia and North America.
 
 <en:trout
 en:rainbow trout
@@ -54942,7 +54878,7 @@ en:turbot
 fr:turbot
 wikipedia:en:https://en.wikipedia.org/wiki/Turbot
 
-# Weevers (or weeverfish) are 9 extant species of fishes of family Trachinidae, order Trachiniformes, part of the Percomorpha clade.
+# description:en:Weevers (or weeverfish) are 9 extant species of fishes of family Trachinidae, order Trachiniformes, part of the Percomorpha clade.
 
 <en:fish
 en:weever
@@ -54975,7 +54911,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Weever
 # ingredient/fr:vive has 1 product in french @2019-01-01
 
 
-# Merlangius merlangus, commonly known as whiting or merling, is an important food fish in the eastern North Atlantic Ocean and the northern Mediterranean
+# description:en:Merlangius merlangus, commonly known as whiting or merling, is an important food fish in the eastern North Atlantic Ocean and the northern Mediterranean
 
 <en:fish
 en:whiting, merling
@@ -55004,6 +54940,7 @@ it:Merlango
 ja:ホワイティング
 ka:მერლანგი
 kk:Мерланг
+la:Merlangius merlangus
 nb:hvitting
 nl:wijting
 pl:Witlinek
@@ -55029,16 +54966,11 @@ zh:牙鱈
 # zh-sg:牙鳕
 # zh-tw:牙鳕
 # ingredient/fr:merlan has 11 products @2019-01-15
-
-<en:whiting
-en:Merlangius merlangus
-fr:Merlangius merlangus, Merlan
-la:Merlangius merlangus
 wikidata:en:Q273083
 wikipedia:en:https://en.wikipedia.org/wiki/Merlangius
 
 
-# Brochet est un nom vernaculaire ambigu désignant en français certains poissons prédateurs. 
+# description:en:Brochet est un nom vernaculaire ambigu désignant en français certains poissons prédateurs. 
 
 <en:fish
 fr:brochet
@@ -55059,7 +54991,7 @@ fr:lieu
 # lieu (lieu 25%, huile de colza, sel, échalotes, gélatine de poisson)
 # ... Crabe, lieu, crème liquide, échalotes,
 
-# Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
+# description:en:Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
 <en:fish
 fr:mulet
@@ -55069,7 +55001,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Mulet_(poisson)
 # ingredient/fr:mulet has 2 products in french @2019-01-01
 
 
-# Le mot rascasse est un nom vernaculaire ambigu en français, pouvant désigner plusieurs espèces différentes de poissons réparties dans plusieurs genres, principalement de la famille des scorpaenidés.
+# description:en:Le mot rascasse est un nom vernaculaire ambigu en français, pouvant désigner plusieurs espèces différentes de poissons réparties dans plusieurs genres, principalement de la famille des scorpaenidés.
 
 <en:rockfish
 fr:rascasse
@@ -55100,7 +55032,7 @@ fr:oeufs de lompe noirs
 fr:oeufs de lompe rouges
 # usage:fr:oeufs de lompe rouges: oeufs de lompe (cyclopterus lumpus); eau; sel; stabilisants : e422, e415; conservateur : e211; colorants : e160a, e101, e120; sucre
 
-# Shellfish is a food source and fisheries term for exoskeleton-bearing aquatic invertebrates used as food, including various species of molluscs, crustaceans, and echinoderms. 
+# description:en:Shellfish is a food source and fisheries term for exoskeleton-bearing aquatic invertebrates used as food, including various species of molluscs, crustaceans, and echinoderms. 
 
 en:shellfish
 ar:بكلويز
