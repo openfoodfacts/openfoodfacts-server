@@ -56463,7 +56463,7 @@ fr:palourdes précuites
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# Crustaceans form a large, diverse arthropod taxon which includes such familiar animals as crabs, lobsters, crayfish, shrimp, krill, woodlice, and barnacles.
+# description:en:CRUSTACEANS form a large, diverse arthropod taxon which includes such familiar animals as crabs, lobsters, crayfish, shrimp, krill, woodlice, and barnacles.
 
 <en:shellfish
 en:crustacean, crustaceans
@@ -56564,7 +56564,7 @@ vegetarian:en:no
 carbon_footprint_fr_foodges_ingredient:fr:Moules/autres crustacés
 carbon_footprint_fr_foodges_value:fr:10.7
 
-# Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail"
+# description:en:CRABS are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail"
 
 <en:crustacean
 en:crab
@@ -56690,7 +56690,7 @@ fr:extrait de crabe
 # ingredient/fr:extrait-de-crabe has 25 products in french @2019-01-07
 
 
-# Cancer pagurus, commonly known as the edible crab or brown crab, is a species of crab found in the North Sea, North Atlantic Ocean,
+# description:en:Cancer pagurus, commonly known as the EDIBLE CRAB or brown crab, is a species of crab found in the North Sea, North Atlantic Ocean,
 
 <en:crab
 en:edible crab, brown crab
@@ -56701,6 +56701,7 @@ es:Buey de mar
 fi:Isotaskurapu
 fr:tourteau, Crabe dormeur, Dormeur, Poupard, Poupart, Tourteau, Crabe-de-lune, Poing-clos, Clos-poing, Ouvet
 hu:Nagy tarisznyarák
+la:cancer pagurus
 nl:Noordzeekrab
 nn:taskekrabbe
 pt:Caranguejola
@@ -56708,16 +56709,12 @@ ru:Большой сухопутный краб
 sk:Krab piesočný
 sv:Krabbtaska
 # ingredient/fr:tourteau has 13 products @2019-01-14
-
-<en:edible crab
-en:cancer pagurus
-la:cancer pagurus
 wikidata:en:Q752188
 wikipedia:en:https://en.wikipedia.org/wiki/Cancer_pagurus
 # ingredient/fr:cancer-pagurus has 12 products @2019-01-14
 
 
-# Crayfish, also known as crawfish, crawdads, crawlfish,[1] crawldads,[2] freshwater lobsters, mountain lobsters, mudbugs, or yabbies, are freshwater crustaceans resembling small lobsters
+# description:en:CRAYFISH, also known as crawfish, crawdads, crawlfish,[1] crawldads,[2] freshwater lobsters, mountain lobsters, mudbugs, or yabbies, are freshwater crustaceans resembling small lobsters
 
 <en:crustacean
 en:crayfish
@@ -56773,7 +56770,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crayfish
 # ingredient/fr:écrevisse has 10 products @2019-01-12
 # ingredient/fr:écrevisses has 13 products @2019-01-12
 
-# Procambarus clarkii is a species of cambarid freshwater crayfish, native to northern Mexico, and southern and southeastern United States, but also introduced elsewhere
+# description:en:Procambarus clarkii is a species of cambarid freshwater crayfish, native to northern Mexico, and southern and southeastern United States, but also introduced elsewhere
 
 <en:crayfish
 en:red swamp crayfish
@@ -56807,7 +56804,7 @@ wikidata:en:Q1133124
 wikipedia:en:https://en.wikipedia.org/wiki/Procambarus_clarkii
 
 
-# Lobsters comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
+# description:en:Lobsters comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
 
 <en:crustacean
 en:lobster
@@ -56892,7 +56889,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lobster
 # ingredient/en:lobster has 48 products in english @2019-01-07
 # ingredient/fr:homard has 79 products in 3 languages @2019-01-07
 
-# Homarus gammarus, known as the European lobster or common lobster, is a species of clawed lobster from the eastern Atlantic Ocean, Mediterranean Sea and parts of the Black Sea. 
+# description:en:Homarus gammarus, known as the EUROPEAN LOBSTER or common lobster, is a species of clawed lobster from the eastern Atlantic Ocean, Mediterranean Sea and parts of the Black Sea. 
 
 <en:lobster
 en:European lobster, common lobster
@@ -56906,6 +56903,7 @@ ga:Gliomach Eorpach
 hu:Európai homár
 is:Evrópskur Humar
 it:gambero europeo
+la:Homarus gammarus
 lt:Europinis omaras
 nl:Europese kreeft
 nn:Europeisk hummar
@@ -56917,15 +56915,11 @@ sl:Evropski jastog
 sv:Europeisk hummer
 zh:歐洲螯龍蝦
 wikidata:en:Q27690
-
-<en:European lobster
-en:Homarus gammarus
-la:Homarus gammarus
 wikipedia:en:https://en.wikipedia.org/wiki/Homarus_gammarus
 # fr:Homarus-gammarus has 4 products @2019-01-11
 
 
-# The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey. 
+# description:en:The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey. 
 
 <en:lobster
 en:American lobster
@@ -56945,6 +56939,7 @@ hi:अमेरिकी झींगा मछली
 id:Lobster amerika
 it:Astice americano
 ka:ამერიკული ასთაკვი
+la:Homarus americanus
 lt:Amerikinis omaras
 mn:Amerikansk hummer
 nn:Amerikansk hummar
@@ -56963,10 +56958,6 @@ zh:美洲螯龍蝦
 # pnb:امریکی لابسٹر
 wikidata:en:Q37668
 wikipedia:en:https://en.wikipedia.org/wiki/American_lobster
-
-<en:American lobster
-en:Homarus americanus
-la:Homarus americanus
 
 <en:American lobster
 fr:pulpe de homard
@@ -57042,13 +57033,11 @@ en:Caribbean spiny lobster
 bg:карибски гръбначен омар
 de:Karibik-Languste
 fr:Langouste blanche
-zh:眼斑龍蝦
-
-<en:Caribbean spiny lobster
-en:Panulirus argus, Panulirue argus
 la:Panulirus argus, Panulirue argus
+zh:眼斑龍蝦
 wikipedia:en:https://en.wikipedia.org/wiki/Panulirus_argus
 
+# description:en:Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long,
 
 <en:spiny lobster
 en:Norway lobster
@@ -57072,6 +57061,7 @@ is:Leturhumar
 it:Scampi, Scampo
 ja:ヨーロッパアカザエビ
 ko:스캄피
+la:Nephrops norvegicus
 nb:Sjøkreps
 nl:Noorse kreeft
 nn:Sjøkreps
@@ -57086,17 +57076,11 @@ zh:挪威海螯蝦
 # zh-hant:挪威海螯蝦
 # zh-hk:挪威海螯蝦
 # ingredient/fr:langoustines has 68 products @2019-01-11
-
-# Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long,
-
-<en:norway lobster
-en:Nephrops norvegicus
-la:Nephrops norvegicus
 wikidata:en:Q551915
 # ingredient/fr:Nephrops-norvegicus has 5 products in french @2019-01-11
 
 
-# The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
+# description:en:The term SHRIMP is used to refer to some decapod crustaceans, although the exact animals covered can vary.
 
 <en:crustacean
 en:shrimp, prawn
@@ -57185,7 +57169,7 @@ fr:queues de crevettes décortiquées
 fr:Crevettes entières crues
 # ingredient/fr:Crevettes-entières-crues has 5 products @2019-01-13
 
-# Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns. 
+# description:en:Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns. 
 
 <en:shrimp
 en:penaeid shrimp
@@ -57222,7 +57206,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Aristeidae
 fr:Gambas cuites
 # Gambas cuites (gambas, sel, conservateur :sorbate de potassium, antioxydant :disulfite de sodium, acidifiants :acide citrique, carbonate acide de sodium)
 
-# Penaeus monodon, commonly known as the giant tiger prawn or Asian tiger shrimp (and also known by other common names), is a marine crustacean that is widely reared for food.
+# description:en:Penaeus monodon, commonly known as the giant tiger prawn or Asian tiger shrimp (and also known by other common names), is a marine crustacean that is widely reared for food.
 
 <en:deep-sea shrimp
 en:giant tiger prawn, Asian tiger shrimp
@@ -57232,6 +57216,7 @@ fr:Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées, c
 id:Udang windu
 ja:ウシエビ
 ko:블랙타이거
+la:Penaeus monodon
 ms:Udang harimau
 pl:krewetka tygrysia
 pt:Camarão-tigre-gigante
@@ -57243,11 +57228,6 @@ zh:草蝦
 # pam:Paro sakdagul
 # yue:大虎蝦
 # zh-tw:斑節對蝦
-
-<en:giant tiger prawn
-en:Penaeus monodon
-fr:Penaeus monodon, Crevette géante tigrée
-la:Penaeus monodon
 wikipedia:en:https://en.wikipedia.org/wiki/Penaeus_monodon
 # ingredient/fr:Penaeus-monodon has 16 products @2019-01-13
 
@@ -57260,32 +57240,30 @@ en:mantis shrimp
 th:กั้ง
 wikipedia:en:https://en.wikipedia.org/wiki/Mantis_shrimp
 
-# Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
+# description:en:Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 
 <en:shrimp
 en:whiteleg shrimp
 de:Penaeus vannamei
 es:camarón
 fr:Crevette à pattes blanches
+la:Litopenaeus vannamei, Penaeus vannamei, 
 pl:krewetka białonoga
 pt:camarão-de-patas-brancas
 wikidata:en:Q3002564
 wikipedia:en:https://en.wikipedia.org/wiki/Whiteleg_shrimp
 
-<en:whiteleg shrimp
-en:Penaeus vannamei, Penaeus vannamel, Litopenaus vanamei, penaeus vannamei
-la:Litopenaeus vannamei
 
-
-# Heterocarpus is a genus of deep-sea shrimp, mainly of tropical areas all over the world.
+# description:en:Heterocarpus is a genus of deep-sea shrimp, mainly of tropical areas all over the world.
 
 <en:shrimp
 en:Heterocarpus
-fr:Heterocarpus, Crevette
 la:Heterocarpus, Heterocarpus spp
 wikidata:en:Q3932367
 wikipedia:en:https://en.wikipedia.org/wiki/Heterocarpus
 # ingredient/fr:Heterocarpus-spp has 2 products in french @2019-01-06
+
+# description:en:Crangon crangon is a commercially important species of caridean shrimp fished mainly in the southern North Sea
 
 <en:shrimp
 en:grey shrimp
@@ -57302,6 +57280,7 @@ io:Kreveto
 it:Gamberetto grigio
 ja:ヨーロッパエビジャコ
 kk:Креветка
+la:Crangon crangon
 nb:Sandreke
 nl:grijze garnalen, Noordzeegarnaal
 sl:Navadna peščena kozica
@@ -57312,12 +57291,6 @@ uk:Шримс звичайний
 # pcd:Soetréle
 # vls:Nôordzêegeirnoar
 # ingredient/fr:crevettes-grises has 9 products in french @2019-01-06
-
-# Crangon crangon is a commercially important species of caridean shrimp fished mainly in the southern North Sea
-
-<en:grey shrimp
-en:Crangon crangon
-la:Crangon crangon
 wikipedia:en:https://en.wikipedia.org/wiki/Crangon_crangon
 # ingredient/fr:Crangon-crangon has 6 products @2019-01-06
 
@@ -57335,6 +57308,7 @@ hu:Norvég garnéla
 is:Stóri kampalampi
 it:Gamberetti del Canada
 ja:ホッコクアカエビ
+la:Pandalus borealis
 lt:Paprastoji šiaurinė krevetė
 nb:dypvannsreke
 pl:krewetka północna
@@ -57342,18 +57316,14 @@ sv:Nordhavsräka
 vi:Tôm hồng
 zh:北极虾
 wikidata:en:Q122181
-
-<en:northern prawn
-en:Pandalus borealis
-la:Pandalus borealis
 # ingredient/fr:Pandalus-borealis has 22 products @2019-01-06
 
-# Parapenaeopsis sculptilis, commonly known as the Rainbow Shrimp, is a marine crustacean that is widely reared for food
+# description:en:Parapenaeopsis sculptilis, commonly known as the Rainbow Shrimp, is a marine crustacean that is widely reared for food
 
 <en:shrimp
 en:rainbow shrimp
 fr:Crevette arc-en-ciel
-la:Parapenaeopsis sculptilis,  Parapenaeopsis, Parapenaeopsis spp
+la:Parapenaeopsis sculptilis, Parapenaeopsis, Parapenaeopsis spp
 wikidata:en:Q14025149
 wikipedia:en:https://en.wikipedia.org/wiki/Parapenaeopsis_sculptilis
 # ingredient/fr:Parapenaeopsis-spp has 1 product @2019-01-06
@@ -57375,7 +57345,7 @@ la:Metapenaeus affinis, Metapaneus affinis
 wikipedia:nl:https://nl.wikipedia.org/wiki/Metapenaeus_affinis
 # ingredient/fr:Metapaneus-affinis has 1 product @2019-01-06
 
-# Pandalus jordani is een garnalensoort uit de familie van de Pandalidae. 
+# description:en:Pandalus jordani is een garnalensoort uit de familie van de Pandalidae. 
 
 <en:shrimp
 en:Pandalus jordani
@@ -57392,7 +57362,7 @@ la:Solenocera Crassicornis
 wikipedia:nl:https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 
 
-# Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns. 
+# description:en:Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns. 
 
 <en:shrimp
 en:Penaeidae
@@ -57407,41 +57377,6 @@ vi:Họ Tôm he
 zh:對蝦科
 wikipedia:en:https://en.wikipedia.org/wiki/Penaeidae
 # ingredient/fr:Penaeidae has 5 products @2018-12-14
-
-
-# Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
-
-# psyllium can be used for the fibres or as infusion
-
-<en:vegetable fiber
-en:Psyllium, plantago
-ar:بزر قطونة
-da:Psyllium
-de:Psyllium
-fa:بارهنگ کتانی
-fi:Psyllium
-fr:fibres de psyllium, psyllium
-he:פסיליום
-hi:isabgol
-it:psyllium
-nl:Psyllium
-pl:Babka
-ro:Psyllium
-ru:Подорожник
-sd:اسپنگر
-sv:Loppfrö
-ta:Isabgol
-uk:Подорожник
-ur:اسپغول
-# pam:Apang psyllium
-wikidata:en:Q15258700
-wikipedia:en:https://en.wikipedia.org/wiki/Psyllium
-# ingredient/fr:psyllium has 89 products in 4 languages @2018-12-17
-
-<en:psyllium
-es:tegumento de psyllium rubio
-fr:tégument de psyllium blond
-la:Plantago ovata
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -61019,6 +60954,38 @@ nl:erwtenvezel
 ro:fibre de mazare
 # ingredient/fr:fibre-de-pois has 173 products in 7 languages @2019-04-21
 
+
+# description:en:Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage. Psyllium can be used for the fibres or as infusion
+
+<en:vegetable fiber
+en:Psyllium, plantago
+ar:بزر قطونة
+da:Psyllium
+de:Psyllium
+fa:بارهنگ کتانی
+fi:Psyllium
+fr:fibres de psyllium, psyllium
+he:פסיליום
+hi:isabgol
+it:psyllium
+nl:Psyllium
+pl:Babka
+ro:Psyllium
+ru:Подорожник
+sd:اسپنگر
+sv:Loppfrö
+ta:Isabgol
+uk:Подорожник
+ur:اسپغول
+# pam:Apang psyllium
+wikidata:en:Q15258700
+wikipedia:en:https://en.wikipedia.org/wiki/Psyllium
+# ingredient/fr:psyllium has 89 products in 4 languages @2018-12-17
+
+<en:psyllium
+es:tegumento de psyllium rubio
+fr:tégument de psyllium blond
+la:Plantago ovata
 
 # <en:part
 # en:animal part
