@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -6226,10 +6226,10 @@ HTML
 	</div>
 	<div class="small-12 medium-6 large-3 columns app">
 		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
-		<a href="$Lang{ios_app_link}{$lc}" alt="iPhone & iPad">$Lang{ios_app_badge}{$lc}</a>
-		<a href="$Lang{android_app_link}{$lc}" alt="Android">$Lang{android_app_badge}{$lc}</a>
-		<a href="$Lang{windows_phone_app_link}{$lc}" alt="Windows Phone">$Lang{windows_phone_app_badge}{$lc}</a>
-		<a href="$Lang{android_apk_app_link}{$lc}" alt="Android APK">$Lang{android_apk_app_badge}{$lc}</a>
+		<a href="$Lang{ios_app_link}{$lc}">$Lang{ios_app_badge}{$lc}</a>
+		<a href="$Lang{android_app_link}{$lc}">$Lang{android_app_badge}{$lc}</a>
+		<a href="$Lang{windows_phone_app_link}{$lc}">$Lang{windows_phone_app_badge}{$lc}</a>
+		<a href="$Lang{android_apk_app_link}{$lc}">$Lang{android_apk_app_badge}{$lc}</a>
 	</div>
 	<div class="small-12 medium-6 large-3 columns project">
 		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
