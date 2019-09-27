@@ -1646,52 +1646,148 @@ sl:L-askorbil 6-palmitat
 sv:L-askorbyl-6-palmitat
 # ingredient/L-ascorbyl-6-palmitate has 2 ingredients in french @2019-09-26
 
+################################## VITAMIN   D  #############################
+
+# description:en:Vitamin D is a group of fat-soluble secosteroids responsible for increasing intestinal absorption of calcium, magnesium, and phosphate, and multiple other biological effects.
 
 <en:vitamin
-en:Vitamin D
+en:vitamin D, D
+af:Vitamien D
+ar:فيتامين دي
+az:D vitamini
 bg:Витамин D
+bs:Vitamin D
+ca:vitamina D
+cs:vitamín D
+cy:Fitamin D
+da:Vitamin D
 de:Vitamin D
-he:ויטמין D
-ja:ビタミン D
-ga:Vitimín D
+dv:ވިޓަމިން ޑީ
 el:Βιταμίνη D
-es:Vitamina D
+eo:Vitamino D
+es:vitamina D
 et:D-vitamiin
+eu:D bitamina
+fa:ویتامین د
 fi:D-vitamiini
-fr:Vitamine D
+fr:vitamine D
+gl:Vitamina D
+he:ויטמין D
+hi:विटामिन डी
+hr:Vitamin D
 hu:D-vitamin
-it:Vitamina D
+hy:Վիտամին D
+id:Vitamin D
+is:D-vítamín
+it:vitamina D
+ja:ビタミンD
+ka:ვიტამინი D
+ko:비타민 D
+ky:Кальциферол
 lt:Vitaminas D
 lv:D vitamīns
-mt:Vitamina D
-nl:Vitamine D
+ml:ജീവകം ഡി
+mn:Д витамин
+mr:ड-जीवनसत्त्व
+ms:Vitamin D
+nb:vitamin D
+ne:भिटामिन डी
+nl:vitamine D
+nn:vitamin D, D-vitamin
+oc:Vitamina D
+pa:ਵਿਟਾਮਿਨ ਡੀ
 pl:Witamina D
-pt:Vitamina D
-ro:Vitamina D
+pt:vitamina D, vitaminas D
+ro:vitamina D
+ru:Витамин D
+sh:Vitamin D
+si:විටමින් D
 sk:Vitamín D
+sl:Vitamin D
+sq:Vitamina D
+sr:витамин Д
+su:Vitamin D
+sv:vitamin D
+ta:உயிர்ச்சத்து டி
+te:విటమిన్ డి
+tg:Витамини D
+th:วิตามินดี
+tr:D vitamini
+tt:D витамины
+ug:ۋىتامىن D
+uk:Вітамін D
+vi:vitamin D
+yi:וויטאמין D
+zh:维生素D
+# ast:Vitamina D
+# csb:ڤیتامین دی
+# en-ca:Vitamin D
+# en-gb:Vitamin D
+# kaa:D Vitamini
+# pt-br:Vitamina D
+# sco:vitamin D
+# sr-ec:витамин Д
+# sr-el:vitamin D
+# tyv:Витамини Д
+# wuu:维生素D
+# zh-cn:维生素D
+# zh-hans:维生素D
+# zh-hant:维生素D
+# zh-hk:维生素D
+# zh-sg:维生素D
+# zh-tw:维生素D
 wikidata:en:Q175621
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_D
+# vitamin/vitamin-d has 2516 products in 13 languages @2018-11-21
 
-<en:Vitamin D
-en:ergocalciferol, Vitamin D2
-bg:Ергокалциферол
-cs:ergokalciferol
+
+# description:en:Ergocalciferol, also known as vitamin D2 and calciferol, is a type of vitamin D found in food and used as a dietary supplement.
+
+<en:vitamin D
+en:Ergocalciferol, Vitamin D2, D2
+ar:إرغوكالسيفيرول
+ca:Ergocalciferol
+cs:ergokalciferol, Vitamín D2
+cy:ergocalcifferol
+de:Ergocalciferol, Vitamin D2
 el:εργοκαλσιφερόλη
-es:ergocalciferol
-et:ergokaltsiferool
-fi:ergokalsiferoli
-fr:ergocalciférol, Vitamine D2
-hu:ergokalciferol
-it:ergocalciferolo
-lt:ergokalciferolis
-lv:ergokalciferols
-mt:ergokalċiferol
-pl:ergokalcyferol
-sk:ergokalciferol
-sl:ergokalciferol
-sv:ergokalciferol
+eo:Ergokalciferolo
+es:ergocalciferol, vitamina D2
+fa:ارگوکالسیفرول
+fi:Ergokalsiferoli, D2-vitamiini
+fr:ergocalciférol, vitamine D2
+hi:एर्गोकैल्सिफेरॉल
+it:Ergocalciferolo, Vitamina D2
+ja:エルゴカルシフェロール
+nl:Ergocalciferol, vitamine D2
+nn:ergokalsiferol, vitamin D2
+oc:Ergocalciferol
+or:ଏର୍ଗୋକ୍ୟାଲସିଫେରଲ
+pl:Ergokalcyferol, Witamina D2
+pt:ergocalciferol
+ro:Ergocalciferol, Vitamina D2
+ru:эргокальциферол, Витамин D2
+sh:Ergokalciferol
+sk:Ergokalciferol, Vitamín D2
+sr:ергокалциферол
+sv:vitamin D2
+uk:Ергокальциферол
+zh:麦角钙化醇, 维生素D2
+# sr-ec:ергокалциферол
+# sr-el:Ergokalciferol
+# zh-cn:维生素D2
+# zh-hans:维生素D2
+# zh-hant:维生素D2
+# zh-hk:维生素D2
+# zh-sg:维生素D2
+# zh-tw:维生素D2
 wikidata:en:Q139200
+wikipedia:en:https://en.wikipedia.org/wiki/Ergocalciferol
+# vitamin/ergocalciferol has 690 products @2018-11-21
 vegan:en:yes
 vegetarian:en:yes
+
+# description:en:CHOLECALCIFEROL, also known as vitamin D3 and colecalciferol, is a type of vitamin D which is made by the skin, found in some foods, and taken as a dietary supplement.
 
 <en:Vitamin D
 en:cholecalciferol, Vitamin D3
