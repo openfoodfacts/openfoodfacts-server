@@ -1740,6 +1740,7 @@ wikidata:en:Q175621
 wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_D
 # vitamin/vitamin-d has 2516 products in 13 languages @2018-11-21
 
+################################## VITAMIN   D 2 #############################
 
 # description:en:Ergocalciferol, also known as vitamin D2 and calciferol, is a type of vitamin D found in food and used as a dietary supplement.
 
@@ -1784,59 +1785,187 @@ zh:麦角钙化醇, 维生素D2
 wikidata:en:Q139200
 wikipedia:en:https://en.wikipedia.org/wiki/Ergocalciferol
 # vitamin/ergocalciferol has 690 products @2018-11-21
+# vitamin/ergocalciferol has 805 products in 16 languages @2019-08-28
 vegan:en:yes
 vegetarian:en:yes
 
+################################## VITAMIN   D 3 #############################
+
 # description:en:CHOLECALCIFEROL, also known as vitamin D3 and colecalciferol, is a type of vitamin D which is made by the skin, found in some foods, and taken as a dietary supplement.
 
-<en:Vitamin D
-en:cholecalciferol, Vitamin D3
-bg:Холекалциферол
-cs:cholekalciferol
-el:χοληκαλσιφερόλη
-es:colecalciferol
-et:kolekaltsiferool
-fi:kolekalsiferoli
+<en:vitamin D
+en:Cholecalciferol, vitamin D3, D3
+af:Vitamien D3
+ar:كوليكالسيفيرول
+az:D3 vitamini
+bg:Витамин D3
+bs:Holekalciferol, Vitamin D3
+ca:Cholecalciferol, vitamina D3
+cs:cholekalciferol, Vitamín D3
+cy:colecalcifferol, Fitamin D3
+de:Cholecalciferol, Vitamin D3
+el:χοληκαλσιφερόλη, Βιταμίνη D3
+eo:Vitamino D3
+es:colecalciferol, vitamina D3
+fa:کلکلسیفرول
 fr:cholécalciférol, Vitamine D3
-hu:kolekalciferol
-it:colecalciferolo
-lt:cholekalciferolis
-lv:holekalciferols
-mt:kolekalċiferol
-pl:cholekalcyferol
-pt:colecalciferol
-ro:colecalciferol
-sk:cholekalciferol
-sl:holekalciferol
-sv:kolekalciferol
-wikidata:en:Q27089148
+hi:कॉलेकैल्सिफेरॉल
+hr:Vitamin D3
+hu:Kolekalciferol, D3-vitamin
+it:Colecalciferolo, Vitamina D3
+ja:ビタミンD3
+ka:ვიტამინი D3
+ko:비타민 D3
+lt:Vitaminas D3
+lv:D3 vitamīns
+mn:Д3 витамин
+ms:Kolekalsiferol, Vitamin D3
+nb:vitamin D3
+nl:Cholecalciferol, vitamine D3
+nn:kolekalciferol, kolekalsiferol, vitamin D3, D3-vitamin
+oc:Cholecalciferol, Vitamina D3
+or:କୋଲିକ୍ୟାଲସିଫେରଲ
+pl:cholekalcyferol, Witamina D3
+pt:colecalciferol, Vitamina D3
+ro:colecalciferol, Vitamina D3
+ru:Холекальциферол, Витамин д3
+sh:Holekalciferol
+sk:Cholekalciferol
+sl:Holekalciferol
+sq:Vitamina D3
+sr:holekalciferol, Vitamin D3
+su:Vitamin D3
+sv:vitamin D3
+tg:Витамини D3
+tr:Kolekalsiferol, Vitamin D3
+tt:D3 витамины
+ug:ۋىتامىن D3
+uk:Холекальциферол, Вітамін D3
+vi:cholecalciferol, vitamin D3
+yi:וויטאמין D3
+zh:胆钙化醇, 维生素D3
+# ast:Vitamina D3
+# en-ca:Vitamin D3
+# en-gb:Vitamin D3
+# kaa:D3 Vitamini
+# pt-br:colecalciferol, Vitamina D3
+# sco:vitamin D3
+# sr-ec:холекалциферол
+# sr-el:Holekalciferol, Vitamin D3
+# tyv:Витамини Д3
+# wuu:维生素D3
+# zh-cn:胆钙化醇, 维生素D3
+# zh-hans:胆钙化醇, 维生素D3
+# zh-hant:膽鈣化醇, 维生素D3
+# zh-hk:膽鈣化醇, 维生素D3
+# zh-sg:胆钙化醇, 维生素D3
+# zh-tw:膽鈣化醇, 维生素D3
+wikidata:en:Q139347
+wikipedia:en:https://en.wikipedia.org/wiki/Cholecalciferol
+# vitamin/cholecalciferol has 2996 products in 8 languages @2018-11-21
+# vitamin/cholecalciferol has 3270 products in 18 languages @2019-09-28
 vegan:en:maybe
 vegetarian:en:maybe
 
-en:Vitamin E, tocopherol
-bg:Витамин Е
-el:Βιταμίνη E
-es:Vitamina E
-et:E-vitamiin
-fi:E-vitamiini
-fr:Vitamine E, tocophérol
-hu:E-vitamin
-it:Vitamina E
-ja:ビタミン E
-lt:Vitaminas E
-lv:E vitamīns
-mt:Vitamina E
-nl:Vitamine E
-pl:Witamina E
-pt:Vitamina E
-ro:Vitamina E
-sk:Vitamín E
-wikidata:en:Q141180
+<en:vitamin A
+<en:vitamin D2
+fi:Vitamiini A- ja D2
 
-<en:Vitamin E
-en:D-alpha tocopherol
+<en:vitamin A
+<en:vitamin D
+da:vitamin A og D
+de:Vitamin A und D
+fi:A- ja D-vitamiini
+fr:vitamines A et D, A et D
+nl:vitamine A en D, A en D
+sv:vitamin A och D, vitamin A och vitamin D
+
+################################## VITAMIN   E  #############################
+
+# description:en:VITAMIN E is a group of eight fat soluble compounds that include four tocopherols and four tocotrienols. In order to distinguish between the vitamin and antioxidant role, vitamin E is call tocoferol. The oxidant is called Tocopherol-rich extract or E306.
+
+<en:vitamin
+en:tocoferol, vitamin e
+af:Vitamien E
+ar:فيتامين إي
+bg:Токоферол, Витамин Е
+ca:Tocoferol, vitamina E
+cs:tokoferol, vitamín E
+da:Vitamin E
+de:Vitamin E
+dv:ވިޓަމިން އީ
+el:τοκοφερολεσ
+eo:Tokoferolo, vitamino E
+es:vitamina e
+et:Tokoferoolid, E-vitamiin, Vitamiin E
+eu:E bitamina
+fa:ویتامین ای
+fi:Tokoferoli, E-vitamiini
+fr:tocophérol, tocophérol, vitamine e, vitamines e
+gl:Vitamina E
+he:E ויטמין
+hi:विटामिन ई
+hr:vitamin E
+hy:Վիտամին E
+id:Vitamin E
+it:vitamina E
+ja:ビタミンE
+jv:Vitamin E
+ka:ვიტამინი E
+kk:Е дәрумені
+ko:비타민 E
+ky:Витамин Е
+lt:Tokoferolis, Vitaminas E
+lv:E vitamīns
+mk:vitamin e
+ml:ജീവകം ഇ
+mr:इ-जीवनसत्त्व
+mt:tokoferol
+nb:vitamin E
+ne:भिटामिन ई
+nl:Tocoferol, vitamine E
+nn:vitamin E, E-vitamin
+oc:Vitamina E
+pa:ਵਿਟਾਮਿਨ ਈ
+pl:witamina E
+pt:vitamina E
+ru:токоферол, витамин E
+sh:Vitamin E
+si:විටමින් E
+sk:vitamín E
+sl:Tokoferol, vitamin E
+sr:vitamin E
+sv:Vitamin E
+ta:உயிர்ச்சத்து ஈ
+te:vitamin e
+th:วิตามินอี
+tr:Tokoferol, E vitamini
+ug:ۋىتامىنE
+uk:Вітамін E
+vi:Vitamin E
+zh:维生素E
+# ast:Vitamina Y
+# pt-br:vitamina E
+# sco:vitamin E
+# sr-ec:витамин Е
+# sr-el:vitamin E
+# tyv:витамин Е
+# zh-cn:维生素E
+# zh-hans:维生素E
+# zh-hant:维生素E
+# zh-hk:维生素E
+# zh-sg:维生素E
+# zh-tw:维生素E
+wikidata:en:Q141180
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_E
+# ingredient/vitamin-e has 1830 products in 13 languages @2018-11-25
+# ingredient/e307a has 2944 products in 23 languages @2019-09-28
+
+
+<en:tocoferol
+en:D-alpha tocopherol, alpha-tocopherol
 bg:D-алфа токоферол
-cs:D- α-tokoferol
+cs:D-α-tokoferol
 de:D-alpha-Tocopherol
 el:D-α-τοκοφερόλη
 es:D-alfa tocoferol
@@ -1849,6 +1978,7 @@ lt:D-alfa-tokoferolis
 lv:D-alfa-tokoferols
 mt:D-alfa tokoferol
 nl:D-alfa-tocoferol
+nn:alfatokoferol
 pl:D-alfa tokoferol
 pt:D-alfa-tocoferol
 ro:tocoferol D-alfa
@@ -1856,11 +1986,12 @@ sk:D-alfa-tokoferol
 sl:D-alfa tokoferol
 sv:D-alfa-tokoferol
 wikidata:en:Q158348
+# ingredient/D-alpha-tocopherol has 95 in 4 languages products @2019-09-28
 
-<en:Vitamin E
-en:DL-alpha tocopherol
+<en:tocoferol
+en:DL-alpha tocopherol, γ-tocopherol
 bg:DL-алфа токоферол
-cs:DL- α-tokoferol
+cs:DL-α-tokoferol
 de:DL-alpha-Tocopherol
 el:DL-α-τοκοφερόλη
 es:DL-alfa tocoferol
@@ -1880,31 +2011,43 @@ sk:DL-alfa-tokoferol
 sl:DL-alfa tokoferol
 sv:DL-alfa-tokoferol
 wikidata:en:Q155753
+# ingredient/DL-alpha-tocopherol has 35 products in 5 languages @2019-09-28
 
-<en:Vitamin E
+<en:tocoferol
 en:D-alpha tocopheryl acetate
+ar:أسيتات التوكوفيرول
+# azb:توکوفریل استات
 bg:D-алфатокоферил ацетат
-cs:D- α-tokoferyl-acetát
-de:D-alpha-Tocopherylacetat
+cs:D-α-tokoferyl-acetát
+de:D-alpha-Tocopherylacetat, Tocopherylacetat
 el:οξική D-α-τοκοφερόλη
 es:acetato de D-alfa tocoferilo
 et:D-alfa-tokoferüülatsetaat
+fa:توکوفریل استات
 fi:D-alfa-tokoferyyliasetaatti
 fr:acétate de D-alpha-tocophérol
 hu:D-alfa-tokoferil-acetát
-it:acetato di D-alfa-tocoferile
+id:tocopheryl acetate
+it:acetato di D-alfa-tocoferile, Tocoferolo acetato
 lt:D-alfa-tokoferilacetatas
 lv:D-alfa-tokoferilacetāts
+ms:Tocopheryl acetate
 mt:Aċetat ta’ D-alfa-tokoferil
-nl:D-alfa-tocoferylacetaat
-pl:octan D-alfa-tokoferylu
+nl:D-alfa-tocoferylacetaat, α-Tocoferylacetaat
+pl:octan D-alfa-tokoferylu, Octan tokoferylu
 pt:acetato de D-alfa-tocoferilo
 ro:acetat de tocoferil D-alfa
+sh:Tokoferil acetat
 sk:D-alfa-tokoferylacetát
 sl:D-alfa-tokoferil acetat
+sr:Tokoferil acetat
 sv:D-alfa-tokoferylacetat
+wikidata:en:Q364160
+# ingredient/D-alpha-tocopheryl-acetate/ has 89 products in 4 languages @2019-09-28
 
-<en:Vitamin E
+# Also E307a
+
+<en:tocoferol
 en:DL-alpha tocopheryl acetate
 bg:DL-алфатокоферил ацетат
 cs:DL-α-tokoferyl-acetát
@@ -1914,109 +2057,195 @@ es:acetato de DL-alfa tocoferilo
 et:DL-alfa-tokoferüülatsetaat
 fi:DL-alfa-tokoferyyliasetaatti
 fr:acétate de DL-alpha-tocophérol
+hr:DL-alfa-tokoferil-acetat
 hu:DL-alfa-tokoferil-acetát
 it:acetato di DL-alfa-tocoferile
 lt:DL-alfa-tokoferilacetatas
 lv:DL-alfa-tokoferilacetāts
 mt:Aċetat ta’ DL-alfa-tokoferil
 nl:DL-alfa-tocoferylacetaat
+nn:dl-α-tokoferylacetat
 pl:octan DL-alfa-tokoferylu
 pt:acetato de DL-alfa-tocoferilo
 ro:acetat de tocoferil DL-alfa
 sk:DL-alfa-tokoferylacetát
 sl:DL-alfa-tokoferil acetat
+sr:DL-a-tokoferil-acetat
 sv:DL-alfa-tokoferylacetat
+# ingredient/DL-alpha-tocopheryl-acetate has 198 products in 7 languages @2019-09-28
 
-<en:Vitamin E
-en:D-alpha-tocopheryl acid succinate
-bg:D-алфа-токоферил кисел сукцинат
-cs:D-α-tokoferyl-sukcinát
-de:D-alpha-Tocopherylsäuresuccinat
-el:όξινη ηλεκτρική D-α-τοκοφερόλη
-es:Succinato ácido de D-alfa tocoferilo
-et:D-alfa-tokoferüülhappe suktsinaat
-fi:D-alfa-tokoferyylihapon sukkinaatti
-fr:succinate acide de D-alpha-tocophérol
-hu:D-alfa-tokoferil-szukcinát
-it:succinato acido di D-alfa-tocoferile
-lt:D-alfa-tokoferilo rūgšties sukcinatas
-lv:skābais D-alfa-tokoferilsukcināts
-mt:Suċċinat aċidu ta’ D-alfa-tokoferil
-nl:D-alfa-tocoferylwaterstof-succinaat
-pl:bursztynian D-alfa-tokoferylu
-pt:succinato ácido de D-alfa-tocoferilo
-ro:succinat acid de tocoferil D-alfa
-sk:jantáran kyseliny D-alfa-tokoferolovej
-sl:D-alfa-tokoferil kisli sukcinat
-sv:D-alfa-tokoferylvätesuccinat
+# Also E307a
 
-<en:Vitamin E
-en:D-alpha-tocopheryl polyethylene glycol-1000 succinate, TPGS
-bg:D-алфа-токоферил полиетилен гликол-1000 сукцинат, TPGS
-cs:polyethylenglykol 1000, ether s -α-tokoferolem, sukcinát, TPGS
-de:D-alpha-Tocopheryl-Polyethylenglycol-1000-Succinat, TPGS
-el:D-α-τοκοφερυλο-ηλεκτρική πολυαιθυλενο 1000 γλυκόλη, TPGS
-es:Succinado de D-alfa-tocoferil polietilenglicol-1000, TPGS
-et:D-alfa-tokoferüülpolüeteenglükool-1000-suktsinaat, TPGS
-fi:D-alfa-tokoferyylipolyetyleeniglykoli-1000 sukkinaatti
-fr:succinate de D-alpha-tocophéryl polyéthylène glycol 1000, TPGS
-hu:D-alfa-tokoferil-polietilén-glikol-1000-szukcinát, TPGS
-it:succinato D-alfa-tocoferile polietilenglicole 1000, TPGS
-lt:D-alfa-tokoferilpolietilenglikol-1000-sukcinatas, TPGS
-lv:D-alfa-tokoferilpolietilēnglikola-1000-sukcināts, TPGS
-mt:D-alfa-tokoferil polietilene glikol -1000 suċċinat, TPGS
-nl:D-alfa-tocoferylpolyethyleenglycolsuccinaat 1000, TPGS
-pl:bursztynian D-alfa-tokoferolu polietylen glikolu -1000, TPGS
-pt:succinato de D-alfa-tocoferil-polietilenoglicol-1000, TPGS
-ro:succinat polietilen glicol 1000 de tocoferil D-alfa, TPGS
-sk:D-alfa –tokoferolpolyetylénglykol-1000 sukcinát, TPGS
-sl:D-alfa-tokoferil polietilen glikol-1000 sukcinat, TPGS
-sv:D-alfa-tokoferyl-polyetylenglykol 1000 succinat, TPGS
+#<en:tocoferol
+#en:D-alpha-tocopheryl acid succinate
+#bg:D-алфа-токоферил кисел сукцинат
+#cs:D-α-tokoferyl-sukcinát
+#de:D-alpha-Tocopherylsäuresuccinat
+#el:όξινη ηλεκτρική D-α-τοκοφερόλη
+#es:Succinato ácido de D-alfa tocoferilo
+#et:D-alfa-tokoferüülhappe suktsinaat
+#fi:D-alfa-tokoferyylihapon sukkinaatti
+#fr:succinate acide de D-alpha-tocophérol
+#hu:D-alfa-tokoferil-szukcinát
+#it:succinato acido di D-alfa-tocoferile
+#lt:D-alfa-tokoferilo rūgšties sukcinatas
+#lv:skābais D-alfa-tokoferilsukcināts
+#mt:Suċċinat aċidu ta’ D-alfa-tokoferil
+#nl:D-alfa-tocoferylwaterstof-succinaat
+#pl:bursztynian D-alfa-tokoferylu
+#pt:succinato ácido de D-alfa-tocoferilo
+#ro:succinat acid de tocoferil D-alfa
+#sk:jantáran kyseliny D-alfa-tokoferolovej
+#sl:D-alfa-tokoferil kisli sukcinat
+#sv:D-alfa-tokoferylvätesuccinat
+# ingredient/D-alpha-tocopheryl%20acid%20succinate has no products @2019-09-28
 
-en:Vitamin K
+# Also E307a
+
+#<en:tocoferol
+#en:D-alpha-tocopheryl polyethylene glycol-1000 succinate, TPGS
+#bg:D-алфа-токоферил полиетилен гликол-1000 сукцинат, TPGS
+#cs:polyethylenglykol 1000, ether s -α-tokoferolem, sukcinát, TPGS
+#de:D-alpha-Tocopheryl-Polyethylenglycol-1000-Succinat, TPGS
+#el:D-α-τοκοφερυλο-ηλεκτρική πολυαιθυλενο 1000 γλυκόλη, TPGS
+#es:Succinado de D-alfa-tocoferil polietilenglicol-1000, TPGS
+#et:D-alfa-tokoferüülpolüeteenglükool-1000-suktsinaat, TPGS
+#fi:D-alfa-tokoferyylipolyetyleeniglykoli-1000 sukkinaatti
+#fr:succinate de D-alpha-tocophéryl polyéthylène glycol 1000, TPGS
+#hu:D-alfa-tokoferil-polietilén-glikol-1000-szukcinát, TPGS
+#it:succinato D-alfa-tocoferile polietilenglicole 1000, TPGS
+#lt:D-alfa-tokoferilpolietilenglikol-1000-sukcinatas, TPGS
+#lv:D-alfa-tokoferilpolietilēnglikola-1000-sukcināts, TPGS
+#mt:D-alfa-tokoferil polietilene glikol -1000 suċċinat, TPGS
+#nl:D-alfa-tocoferylpolyethyleenglycolsuccinaat 1000, TPGS
+#pl:bursztynian D-alfa-tokoferolu polietylen glikolu -1000, TPGS
+#pt:succinato de D-alfa-tocoferil-polietilenoglicol-1000, TPGS
+#ro:succinat polietilen glicol 1000 de tocoferil D-alfa, TPGS
+#sk:D-alfa –tokoferolpolyetylénglykol-1000 sukcinát, TPGS
+#sl:D-alfa-tokoferil polietilen glikol-1000 sukcinat, TPGS
+#sv:D-alfa-tokoferyl-polyetylenglykol 1000 succinat, TPGS
+# ingredient/D-alpha-tocopheryl-polyethylene-glycol-1000-succinate has no products @2019-09-28
+
+# description:en:Vitamin K is a group of structurally similar, fat-soluble vitamins that the human body requires for complete synthesis of certain proteins that are prerequisites for blood coagulation and which the body also needs for controlling binding of calcium in bones and other tissues.
+
+<en:vitamin
+en:vitamin K
+af:Vitamien K
+ar:فيتامين ك
+az:K vitamini
 bg:Витамин K
-el:Βιταμίνη K
+bs:Vitamin K
+ca:Vitamina K
+cs:vitamín K
+da:Vitamin K
+de:Vitamin K
+dv:ވިޓަމިން ކޭ
 es:Vitamina K
-et:K-vitamiin
-fi:K-vitamiini
-fr:Vitamine K
-hu:K-vitamin
-it:Vitamina K
-ja:ビタミン K
+eu:K bitamina
+fa:ویتامین کا
+fi:K-vitamiinit
+fr:vitamine K
+gl:Vitamina K
+he:ויטמין K
+hi:विटामिन के
+hr:Vitamin K
+hu:k vitamin
+hy:Վիտամին K
+id:Vitamin K
+is:K-vítamín
+it:vitamina K
+ja:ビタミンK
+jv:Vitamin K
+ka:ვიტამინი K
+ko:비타민 K
+ky:Витамин К
 lt:Vitaminas K
 lv:K vitamīns
-mt:Vitamina K
-nl:Vitamine K
+ml:ജീവകം കെ
+mr:के-जीवनसत्त्व
+ms:Vitamin K
+my:ဗီတာမင်ကေ
+nb:Vitamin K
+ne:भिटामिन के
+nl:vitamine K
+nn:Vitamin K
+oc:Vitamina K
 pl:Witamina K
-pt:Vitamina K
+pt:vitamina K
 ro:Vitamina K
-sk:Vitamín K
+ru:Витамин K
+sh:Vitamin K
+sl:Vitamin K
+sr:витамин К
+su:Vitamin K
+sv:K-vitamin
+ta:உயிர்ச்சத்து கே
+th:วิตามินเค
+tr:K vitamini
+uk:Вітамін K
+vi:Vitamin K
+zh:维生素K
+# ast:Vitamina K
+# nan:Bî-tá-mín K
+# sco:Vitamin K
+# sr-ec:витамин К
+# sr-el:vitamin K
+# tyv:Витамин К
+# zh-cn:维生素K
+# zh-hans:维生素K
+# zh-hant:维生素K
+# zh-hk:维生素K
+# zh-sg:维生素K
+# zh-tw:维生素K
+wikidata:en:Q182338
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_K
+# ingredient/vitamin-k has 501 products in 10 languages @2019-09-28
 
 <en:Vitamin K
-en:phylloquinone, phytomenadione, Vitamin K1
+en:phylloquinone, vitamin K1, K1
+ar:فايتوميناديون
 bg:Филохинон, фитоменадион
-cs:fyllochinon, fytomenadion
-de:Phyllochinon, Phytomenadion
+ca:filloquinona, Vitamina K1
+cs:fyllochinon, fytomenadion, Vitamin K1
+da:Fyllokinon
+de:Phyllochinon, Phytomenadion, Vitamin K1
 el:φυλλοκινόνη, φυτομεναδιόνη
 es:filoquinona, fitomenadiona
 et:füllokinoon, fütomenadioon
+fa:فیلوکینون
 fi:fyllokinoni, fytomenadioni
-fr:phylloquinone, phytoménadione, phytonadione, Vitamine K1
+fr:phylloquinone, phytoménadione, phytonadione,  vitamine K1
 hu:fillokinon, fitomenadion
-it:fillochinone, fitomenadione
+it:fillochinone, vitamina K1
+ja:フィロキノン
+ko:필로퀴논
+ky:Филлохинон
 lt:filochinonas, fitomenadionas
 lv:filohinons, fitomenadions
 mt:fillokinona, fitomenadjona
-nl:fyllochinon, fytomenadion
+nl:fyllochinon, fytomenadion, Vitamine K1
+or:ଫାଇଟୋମେନାଡିଓନ
 pl:filochinon, fitomenadion
 pt:filoquinona, fitomenadiona
 ro:filochinonă, fitomenadionă
-sk:fylochinón, fytomenadion
+ru:Филлохинон
+sh:Filohinon
+sk:fylochinón, fytomenadion, Vitamín K
 sl:filokinon, fitomenadion
+sr:Filohinon
 sv:fyllokinon, fytomenadion
+vi:Phytomenadione
+zh:叶绿基甲萘醌
+# sr-el:Filohinon
+wikidata:en:Q186093
+wikipedia:en:https://en.wikipedia.org/wiki/Phytomenadione
+# vitamin/phylloquinone has 206 products in 9 languages @2019-9-28
+
+# description:en:Vitamin K2 or menaquinone is a bacterial product and is usually found in fermented foods or animal products. Vitamin K2 has a protective effect on bone mineral density and reduced risk of hip, vertebral and non-vertebral fractures.
 
 <en:Vitamin K
 en:Menaquinone, Vitamin K2
+ar:فيتامين ك2
 bg:Менахинон
 cs:menachinon
 de:Menachinon
@@ -2027,6 +2256,7 @@ fi:menakinoni
 fr:ménaquinone, Vitamine K2
 hu:menakinon
 it:menachinone
+ja:メナキノン
 lt:menachinonas
 lv:menahinons
 mt:menakinona
@@ -2034,30 +2264,36 @@ nl:menachinon
 pl:menachinon
 pt:menaquinona
 ro:menachinonă
+ru:Менахинон
 sk:menachinón
 sl:menakinon
 sv:Menakinon
+zh:四烯甲萘醌
+wikidata:en:Q7936967
+# ingredient/Menaquinone has 8 products in 2 languages @2019-09-28
 
-<en:Vitamin K
-en:Vitamin K3
-fr:Vitamine K3, ménadione
-es:Vitamina K3
-ja:ビタミン K3
-it:Vitamina K3
-pt:Vitamina K3
-de:Vitamin K3
-he:ויטמין K3, מנדיון
-ga:Vitimín K3
-el:Βιταμίνη K3
-fi:K3-vitamiini
-nl:Vitamine K3
-nl_be:Vitamine K3
-lv:K3 vitamīns
-et:Vitamiin K3
-hu:K3-vitamin
-pl:Witamina K3
-lt:Vitaminas K3
-mt:Vitamina K3
-ro:Vitamina K3
-bg:Витамин K3
-zh:维生素K3
+# description:en:Menadione is occasionally used as a nutritional supplement in animal feed because of its vitamin K activity.
+
+#<en:Vitamin K
+#en:Menadione, Vitamin K3
+#bg:Витамин K3
+#fr:Vitamine K3, ménadione
+#es:Vitamina K3
+#ja:ビタミン K3
+#it:Vitamina K3
+#pt:Vitamina K3
+#de:Vitamin K3
+#he:ויטמין K3, מנדיון
+#ga:Vitimín K3
+#el:Βιταμίνη K3
+#fi:K3-vitamiini
+#nl:Vitamine K3
+#lv:K3 vitamīns
+#et:Vitamiin K3
+#hu:K3-vitamin
+#pl:Witamina K3
+#lt:Vitaminas K3
+#mt:Vitamina K3
+#ro:Vitamina K3
+#zh:维生素K3
+# ingredient/Vitamin-K3 has no product @2019-09-28
