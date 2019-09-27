@@ -3549,32 +3549,57 @@ additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
+
+# description:en:Potassium sorbate is the potassium salt of sorbic acid, chemical formula CH3CH=CH−CH=CH−CO2K. 
+
 en:E202, Potassium sorbate
 bg:E202, Калиев сорбат
+bs:E202, Kalij sorbat
 ca:E202, Sorbat de potassi
 cs:E202, Sorban draselný
 da:E202, Kaliumsorbat
 de:E202, Kaliumsorbat
 el:E202, Σορβικο καλιο
+eo:E202, Kalia sorbato
 es:E202, Sorbato potásico, Sorbato de potasio
 et:E202, Kaaliumsorbaat
+fa:E202, پتاسیم سوربات
 fi:E202, Kaliumsorbaatti
 fr:E202, Sorbate de potassium, 24634-61-5, C6H7O2K, C6H7KO2
+he:E202, אשלגן סורבט
 hu:E202, Kálium-szorbát
 it:E202, Sorbato di potassio, C6H7KO2
+ja:E202, ソルビン酸カリウム
 lt:E202, Kalio sorbatas
 lv:E202, Kālija sorbāts
 mt:E202, Sorbat tal-potassju
 nl:E202, Kaliumsorbaat
+nn:E202, kaliumsorbat
 pl:E202, Sorbinian potasu
 pt:E202, Sorbato de potássio
 ro:E202, Sorbat de potasiu
 ru:E202, Сорбат калия
 sk:E202, Sorban draselný
 sl:E202, Kalijev sorbat
+sr:E202, kalijum-sorbat, kalijum sorbat
 sv:E202, Kaliumsorbat
-e_number:en:202
+uk:E202, Сорбат калію
+vi:E202, Kali Sorbate
+zh:E202, 山梨酸钾
+# azb:E202, پوتاسیوم سوربات
+# en-ca:E202, Potassium sorbate
+# en-gb:E202, Potassium sorbate
+# pt-br:E202, Sorbato de potássio
+# zh-cn:E202, 山梨酸钾
+# zh-hans:E202, 山梨酸钾
+# zh-hant:E202, 山梨酸鉀
+# zh-hk:E202, 山梨酸鉀
+# zh-sg:E202, 山梨酸钾
+# zh-tw:E202, 山梨酸鉀
 wikidata:en:Q410744
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_sorbate
+# ingredient/potassium-sorbate has 9927 products in 21 languages @2019-02-02
+e_number:en:202
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2015.4144
 efsa_evaluation_date:en: 2015/06/30
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of sorbic acid (E 200), potassium sorbate (E 202) and calcium sorbate (E 203) as food additives
@@ -3586,7 +3611,19 @@ additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
+<en:E202
+en:preservative potassium sorbate, preservative E202
+de:Konservierungsmittel Kaliumsorbat, Konservierungsstoff Kaliumsorbat
+fr:conservateur sorbate de potassium, conservateur e 202, conservateurs e202
+it:conservante sorbati di pottassio
+nl:conserveermiddelen E202
+# ingredient/fr:conservateur-sorbate-de-potassium has 70 products in 5 languages @2019-02-02
+# ingredient/fr:conservateurs-e202 has 233 products in 5 languages @2019-03-27
+
+#  description:en: CALCIUM SORBATE  is the calcium salt of sorbic acid. Calcium sorbate is a polyunsaturated fatty acid salt.
+
 en:E203, Calcium sorbate
+ar:E203, سوربات الكالسيوم
 bg:E203, Калциев сорбат
 ca:E203, Sorbat de calci
 cs:E203, Sorban vápenatý
@@ -3595,10 +3632,12 @@ de:E203, Calciumsorbat
 el:E203, Σορβικο ασβεστιο
 es:E203, Sorbato cálcico
 et:E203, Kaltsiumsorbaat
+fa:E203, کلسیم سوربات
 fi:E203, Kalsiumsorbaatti
 fr:E203, Sorbate de calcium
 hu:E203, Kalcium-szorbát
 it:E203, Sorbato di calcio
+ja:E203, ソルビン酸カルシウム
 lt:E203, Kalcio sorbatas
 lv:E203, Kalcija sorbāts
 mt:E203, Sorbat tal-kalċju
@@ -3606,11 +3645,19 @@ nl:E203, Calciumsorbaat
 pl:E203, Sorbinian wapnia
 pt:E203, Sorbato de cálcio
 ro:E203, Sorbat de calciu
+sh:E203, Kalcijum sorbat
 sk:E203, Sorban vápenatý
 sl:E203, Kalcijev sorbat
+sr:E203, Kalcijum sorbat
 sv:E203, Kalciumsorbat
-e_number:en:203
+ta:E203, கால்சியம் சார்பேட்டு
+vi:E203, Canxi sorbat
+# azb:E203, کلسیوم سوربات
 wikidata:en:Q425183
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_sorbate
+# ingredient/fr:sorbate-de-calcium has 38 products in french @2019-03-03
+# conservateur : sorbate de calcium (papier traité)
+e_number:en:203
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4144
 efsa_evaluation_date:en: 2015-06-30
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sorbic acid (E 200), potassium sorbate (E 202) and calcium sorbate (E 203) as food additives
