@@ -662,23 +662,6 @@ fr:caramel au lait
 
 
 
-# Assumed to be a synonym of plain caramel, as it has the same ingredients
-
-<en:E150
-en:aromatic caramel
-de:aromatisches Karamell
-es:caramelo aromático
-fr:caramel aromatique, sirop de glucose caramélisé
-it:caramello aromatico
-nl:aromatische karamel, aromatiserende karamel
-pl:aromat karmelowy
-pt:caramelo aromático
-# ingredient/fr:caramel-aromatique has 279 products in 9 languages @2019-03-09
-# caramel aromatique (sirop de glucose, sucre, eau)
-
-<en:aromatic caramel
-it:zucchero caramellato aromatico
-
 <en:E150
 fr:caramel en poudre
 de:Karamell-Pulver, Caramelpulver
@@ -821,94 +804,8 @@ wikidata:en:Q53792073
 
 
 
-# <en:beetroot
-# <en:colour
-# <en:root vegetable
-en:betanin, E162, E-162, E 162, INS162, INS-162, INS 162
-ar:بيتانين
-cs:Betanin
-de:Betanin
-es:Betanina
-fa:بتانین
-fr:Betanina
-hu:Betanin
-it:Betanina
-ja:ベタニン
-lt:Betaninas
-ml:ബെറ്റാനിൻ
-nl:Betanine
-pl:Betanina
-pt:Betanina
-sh:Betanin
-sr:Betanin
-sv:Betanin
-# azb:بتانین
-wikidata:en:Q420138
 
-<en:betanin
-en:beetroot red
-es:Rojo remolacha
-fr:Betterave rouge
-it:rosso di barbabietola
-nl:bietenrood
-pl:Czerwień buraczana
-pt:vermelho beterraba
-sv:rödbetsrött
-# fr:rouge-de-betterave has 426 products in 7 languages @2018-10-21
-carbon_footprint_fr_foodges_ingredient:fr:Betteraves
-carbon_footprint_fr_foodges_value:fr:0.2
-
-<en:colour
-en:anthocyanin, anthocyanins, E163, E-163, E 163
-ar:أنثوسيان
-be:Антацыяны
-bg:Антоциани
-ca:Antocianina
-cs:Antokyan
-da:Anthocyanin
-de:Anthocyane
-eo:Antocianino
-es:Antocianina
-eu:Antozianina
-fa:آنتوسیانین
-fi:Antosyaanit
-fr:anthocyane
-he:אנתוציאנין
-hu:Antociánok
-hy:Անտոցիաններ
-id:Antosianin
-is:Antósýanefni
-it:Antociano
-ja:アントシアニン
-jv:Antosianin
-kk:Антоциандар
-ko:안토시아닌
-ky:Антоциандар
-ml:ആൻതോസയാനിൻ
-mn:Anthocyanin
-ms:Antosianin
-nb:antocyanin
-nl:anthocyaan
-pl:antocyjany
-pt:antocianina
-ro:Antocianină
-ru:Антоцианы
-sk:Antokyán
-sl:Antocian
-sr:Антоцијан
-sw:Antocyanin
-tg:Антосианҳо
-th:แอนโทไซยานิน
-uk:Антоціани
-uz:Antotsianinlar
-zh:花色素苷
-# ext:Antocianina
-# gsw:Anthocyane
-wikidata:en:Q262547
-wikipedia:en:https://en.wikipedia.org/wiki/Anthocyanin
-
-
-# description:en:  TITANIUM DIOXIDE  , also known as titanium(IV) oxide or titania, is the naturally occurring oxide of titanium, chemical formula TiO2. Generally, it is sourced from ilmenite, rutile and anatase. It has a wide range of applications, including paint, sunscreen and food coloring.
+# description:en:  TITANIUM DIOXIDE, also known as titanium(IV) oxide or titania, is the naturally occurring oxide of titanium, chemical formula TiO2. Generally, it is sourced from ilmenite, rutile and anatase. It has a wide range of applications, including paint, sunscreen and food coloring.
 # A translation with dioxide in it is preferred
 
 en:titanium dioxide, e171, E-171, E 171

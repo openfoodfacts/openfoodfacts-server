@@ -1444,6 +1444,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 # description:en:CARAMEL is a medium to dark-orange confectionery product made by heating a variety of sugars.
+# comment:en:Assumed to be a synonym of plain caramel, as it has the same ingredients
 
 en:E150, Caramel
 ar:E150, كراميل
@@ -1537,30 +1538,30 @@ vegetarian:en:yes
 
 # description:en:Caramel color or caramel coloring is a water-soluble food coloring.
 
-en:E150a, Plain caramel, caramel color, caramel coloring
+en:E150a, Plain caramel, caramel color, caramel coloring, aromatic caramel
 ar:E150a, لون الكراميل
 bg:E150a, Обикновен карамел
 bs:E150a, Karamel boja
 ca:E150a, colorant de caramel
 cs:E150a
 da:E150a, Madkulør
-de:E150a, Zuckerkulör, Zuckercouleur
+de:E150a, Zuckerkulör, Zuckercouleur, aromatisches Karamell
 el:E150a, Απλο καραμελοχρωμα
-es:E150a, Caramelo natural, color caramelo, colorante «Color Caramelo», caramelo para licores, caramelo natural, Color Caramelo
+es:E150a, Caramelo natural, color caramelo, colorante «Color Caramelo», caramelo para licores, caramelo natural, Color Caramelo, caramelo aromático
 et:E150a
 fi:E150a, Plain caramel, Sokerikulööri
-fr:E150a, Caramel E150a, caramel ordinaire, Plain caramel, caustic caramel, spirit caramel, Caramelo simple, caramel colorant
+fr:E150a, Caramel E150a, caramel ordinaire, Plain caramel, caustic caramel, spirit caramel, Caramelo simple, caramel colorant, caramel aromatique, sirop de glucose caramélisé
 hu:E150a, Tömény karamell, karamell színezék
-it:E150a, Caramello semplice, colorante caramello
+it:E150a, Caramello semplice, colorante caramello, caramello aromatico, zucchero caramellato aromatico
 ja:E150a, カラメル色素
 lt:E150a, Paprastoji karamelė
 lv:E150a
 mt:E150a, Karamella naturali
 nb:E150a, Sukkerkulør
-nl:E150a, karamelkleurstof
+nl:E150a, karamelkleurstof, aromatische karamel, aromatiserende karamel
 # nl_be:E150a, karamelkleurstof
-pl:E150a, Karmel, karmel amoniakalno-siarczynowy
-pt:E150a, Caramelo simples, caramelo e 150
+pl:E150a, Karmel, karmel amoniakalno-siarczynowy, aromat karmelowy
+pt:E150a, Caramelo simples, caramelo e 150, caramelo aromático
 ro:E150a, Caramel simplu
 ru:E150a, карамельный краситель
 sk:E150a, Obyčajný karamel
@@ -1588,6 +1589,8 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 # ingredient/fr:caramel-ordinaire has 1547 products in 7 languages @2019-03-09
+# ingredient/fr:caramel-aromatique has 279 products in 9 languages @2019-03-09
+# caramel aromatique (sirop de glucose, sucre, eau)
 
 en:E150b, Caustic sulphite caramel, caramel E150b
 bg:E150b, Карамел основен сулфит
@@ -2658,6 +2661,8 @@ vegan:en:yes
 vegetarian:en:yes
 
 en:E162, Beetroot red, betanin
+ar:E162, بيتانين
+# azb:E162, بتانین
 bg:E162, Оцветител от червено цвекло, бетанин
 ca:E162, Betanina, vermell de remolatxa
 cs:E162, Betalainová červeň, betanin
@@ -2666,17 +2671,21 @@ de:E162, Betanin, Beetenrot, Betanoin, Betenrot
 el:E162, Ερυθρα χρωστικη της ριζας των τευτλων, βετανινη
 es:E162, Rojo de remolacha, Betanina, Betacianina, E 162, Rojo remolacha
 et:E162, Peedipunane, betaniin
+fa:E162, بتانین
 fi:E162, Punajuuriväri, betalaiini
-fr:E162, Rouge de betterave, bétanine, rouge betterave, E 162, 7659-95-2, C24H27N2O13
+fr:E162, Rouge de betterave, bétanine, rouge betterave, EBetterave rouge
 hu:E162, Céklavörös, betanin
-it:E162, Rosso di radice di barbabietola, betanina, C24H27N2O13
+it:E162, Rosso di radice di barbabietola, betanina, rosso di barbabietola
+ja:ベタニン
 lt:E162, Burokėlių raudonasis, betaninas
 lv:E162, Biešu sarkanais, betanīns
+ml:E162, :ബെറ്റാനിൻ
 mt:E162, Aħmar tal-pitravi, betanina
 nl:E162, Betanine, Bietenrood
 pl:E162, Czerwień buraczana, betanina
-pt:E162, Vermelho de beterraba, betanina
+pt:E162, Vermelho de beterraba, betanina, vermelho beterraba
 ro:E162, Roșu de sfeclă, betanină
+sh:E162, Betanin
 sk:E162, Cviklová červená, betanín
 sl:E162, Betalain, betanin
 sv:E162, Rödbetsrött, betanin, E 162
@@ -2688,31 +2697,63 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of beetroot red (E 1
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+sv:rödbetsrött
+# fr:rouge-de-betterave has 426 products in 7 languages @2018-10-21
+carbon_footprint_fr_foodges_ingredient:fr:Betteraves
+carbon_footprint_fr_foodges_value:fr:0.2
 
 
 en:E163, Anthocyanins, Anthocyanin
+ar:E163,أنثوسيان
+be:E163,Антацыяны
 bg:E163, Антоцианини, Антоциани
-ca:E163, Antocianines
+ca:E163, Antocianines, Antocianina
 cs:E163, Anthokyany, Antokyan
 da:E163, Anthocyaniner, Anthocyanin
 de:E163, Anthocyane
 el:E163, Ανθοκυανινες
+eo:E163, Antocianino
 es:E163, Antocianinas, Antocianina
 et:E163, Antotsüaniinid
+eu:E163, Antozianina
+fa:E163, آنتوسیانین
 fi:E163, Antosyaanit
 fr:E163, Anthocyanes, Anthocyane
+he:E163, אנתוציאנין
 hu:E163, Antocianinok, Antociánok
+hy:E163, Անտոցիաններ
+id:E163, Antosianin
+is:E163, Antósýanefni
 it:E163, Antociani, Antociano
+ja:E163, アントシアニン
+jv:E163, Antosianin
+kk:E163, Антоциандар
+ko:E163, 안토시아닌
+ky:E163, Антоциандар
 lt:E163, Antocianinai
 lv:E163, Antocianīni
+ml:E163, ആൻതോസയാനിൻ
+mn:E163, Anthocyanin
+ms:E163, Antosianin
 mt:E163, Antocijanini
+nb:E163, antocyanin
 nl:E163, Anthocyanen, Anthocyaan
 pl:E163, Antocyjany
 pt:E163, Antocianinas, Antocianina
 ro:E163, Antocianine
+ru:E163, Антоцианы
 sk:E163, Antokyaníny
 sl:E163, Antocianini, Antocian
+sr:E163, Антоцијан
 sv:E163, Antocyaner, Antocyanin
+sw:E163, Antocyanin
+tg:E163, Антосианҳо
+th:E163, แอนโทไซยานิน
+uk:E163, Антоціани
+uz:E163, Antotsianinlar
+zh:E163, 花色素苷
+# ext:E163, Antocianina
+# gsw:E163, Anthocyane
 e_number:en:163
 wikidata:en:Q262547
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3145
