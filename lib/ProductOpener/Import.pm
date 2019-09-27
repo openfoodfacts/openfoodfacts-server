@@ -494,12 +494,13 @@ sub import_csv_file($) {
 
 					my $current_field = $product_ref->{$field};
 
-					# brands -> remove existing values;
-					# allergens -> remove existing values;
-					if (($field eq 'brands') and ($product_ref->{$field} =~ /coq/i) ) {
-						$product_ref->{$field} = "";
-						delete $product_ref->{$field . "_tags"};
-					}
+					# we may want to replace brands completely at some point
+					# disabling for now
+
+					#if ($field eq 'brands') {
+					#	$product_ref->{$field} = "";
+					#	delete $product_ref->{$field . "_tags"};
+					#}
 
 					my %existing = ();
 						if (defined $product_ref->{$field . "_tags"}) {
