@@ -149,6 +149,7 @@ my $args_ref = {
 	csv_file => $converted_file,
 	file_id => $file_id,
 	import_id => $import_id,
+	comment => "Import from producers platform",
 };
 
 if (defined $Org_id) {
@@ -160,7 +161,7 @@ else {
 	$args_ref->{no_source} = 1;
 }
 
-my $job_id = $minion->enqueue(import_csv_file => [$args_ref]);
+my $job_id = $minion->enqueue(import_csv_file => [$args_ref] => { queue => $server_options{minion_local_queue}});
 
 $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 

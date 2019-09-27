@@ -280,6 +280,8 @@ sub export_csv($) {
 		}
 
 		@sorted_populated_fields = sort ({ $populated_fields{$a} cmp $populated_fields{$b} } keys %populated_fields);
+
+		push @sorted_populated_fields, "data_sources";
 	}
 	else {
 		# The fields to export are specified by the fields parameter

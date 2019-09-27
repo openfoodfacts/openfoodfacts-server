@@ -61,6 +61,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Export qw/:all/;
 use ProductOpener::Import qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 
@@ -724,6 +725,42 @@ sub import_csv_file_task() {
 	print STDERR "import_csv_file_task - job: $job_id - running import_csv_file\n";
 
 	ProductOpener::Import::import_csv_file($args_ref);
+
+	$job->finish("done");
+}
+
+
+sub export_csv_file_task() {
+
+	my $job = shift;
+	my $args_ref = shift;
+
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	open(my $log, ">>", "$data_root/logs/minion.log");
+	print $log "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	close($log);
+
+	print STDERR "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+
+	print STDERR "export_csv_file_task - job: $job_id - running export_csv_file\n";
+
+	my $filehandle;
+	open($filehandle, ">:encoding(UTF-8)", $args_ref->{csv_file}) or die ("Could not write " . $args_ref->{csv_file} . " : $!\n");
+
+	$args_ref->{filehandle} = $filehandle;
+
+	ProductOpener::Export::export_csv($args_ref);
+
+	close($filehandle);
+
+	print STDERR "export_csv_file_task - job: $job_id - done\n";
+
+	open(my $log, ">>", "$data_root/logs/minion.log");
+	print $log "export_csv_file_task - job: $job_id done\n";
+	close($log);
 
 	$job->finish("done");
 }

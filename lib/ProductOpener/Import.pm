@@ -73,6 +73,9 @@ sub import_csv_file($) {
 
 	my $args_ref = shift;
 
+	$User_id = $args_ref->{user_id};
+	$Org_id = $args_ref->{org_id};
+
 	my %global_values = ();
 	if (defined $args_ref->{global_values}) {
 		%global_values = %{$args_ref->{global_values}};
@@ -958,7 +961,7 @@ sub import_csv_file($) {
 				#exit;
 
 
-				store_product($product_ref, "Editing product (import_csv_file.pl) - " . $product_comment );
+				store_product($product_ref, "Editing product (import) - " . $product_comment );
 
 				push @edited, $code;
 				$edited{$code}++;

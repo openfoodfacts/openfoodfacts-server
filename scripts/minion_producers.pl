@@ -48,18 +48,22 @@ use Data::Dumper;
 use Text::CSV;
 use Getopt::Long;
 
+
+use Mojolicious::Lite;
+
 use Minion;
 
-$minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_file_task);
+# Minion backend
 
-print STDERR "Perform 1 job in current process\n";
+if (not defined $server_options{minion_backend}) {
 
-# Perform one job manually in this process
-my $worker = $minion->repair->worker->register;
+	die("No Minion backend configured in lib/ProductOpener/Config2.pm\n");
+}
 
-my $job = $worker->dequeue(0 => {queues => [$server_options{minion_local_queue}]});;
-if (my $err = $job->execute) { print STDERR "Error: $err\n"; $job->fail($err);  }
-else                         {print STDERR "Done\n";  $job->finish }
-$worker->unregister;
+plugin Minion => $server_options{minion_backend};
 
+app->minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_file_task);
 
+app->minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file_task);
+
+app->start;
