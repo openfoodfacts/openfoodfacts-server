@@ -15,6 +15,6 @@ is_deeply(match_column_name_to_field("fr", "glucides"), { field=>"carbohydrates_
 is_deeply(match_column_name_to_field("fr", "nom-produit"), { field=>"product_name_fr"});
 is_deeply(match_column_name_to_field("fr", "marque"), { field=>"brands"});
 is_deeply(match_column_name_to_field("fr", "liste-ingredients"), { field=>"ingredients_text_fr"});
-is_deeply(match_column_name_to_field("fr", "bio"), { field=>"labels_specific", tag_value=>"en:organic"});
+is_deeply(match_column_name_to_field("fr", "bio"), { field=>"labels_specific", tag=>"Bio"});
 
 done_testing();
