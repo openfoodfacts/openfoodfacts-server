@@ -3081,9 +3081,9 @@ nl:Bruine broden, Bruinbrood, Bruin brood
 wikidata:en: Q940999
 
 < en:Breads
-en:buns, rolls
+en:Buns, rolls
 de:Brötchen, Semmeln
-fr:Buns (petits pains)
+fr:Petits pains
 nl:Broodjes
 
 < en:Breads
@@ -6395,7 +6395,7 @@ ru:Плавленый сыр
 wikidata:en: Q1570052
 
 < en:Cheeses
-en:sheep's-milk cheeses, Sheep Cheeses, Cheeses from sheep milk
+en:sheep's-milk cheeses, Sheep cheeses, Cheeses from sheep milk
 ca:formatge de llet d'ovella
 cs:ovčí sýr
 de:Schafmilchkäse, Schafskäse, Schafkäse, Käse aus Schafsmilch
@@ -9726,10 +9726,11 @@ ru:Молочные десерты, Десерты молочные
 pnns_group_2:en: Dairy desserts
 
 < en:Desserts
-en:Jellies (dessert)
-es:Jaleas (postre)
-fr:Gelées (dessert)
-it:Gelatina (dolce)
+en:Jelly desserts, jellies dessert, gelatin desserts
+de:Götterspeisen, götterspeise
+es:Gelatinas, postres gelificados
+fr:Desserts gélifiées
+it:Gelatina dolce
 wikidata:en: Q4545971
 
 < en:Desserts
@@ -9765,10 +9766,10 @@ fr:Mousses sucrées, mousse sucrée
 nl:Mousses met suiker
 
 < en:Desserts
-en:Tartufo (dessert)
-fr:Tartufo (dessert)
-it:Tartufo (dolce)
-nl:Tartufo (roomijs)
+en:Tartufo dessert
+fr:Desserts Tartufo
+it:Tartufo dolce
+nl:Tartufo roomijs
 wikidata:en: Q1432826
 
 < en:Desserts
@@ -13420,7 +13421,7 @@ nl:Diepvries gele paprika
 en:Frozen pies
 es:Tartas saladas congeladas, tartas congeladas
 fi:pakastetut piiraat
-fr:Tartes surgelées (salées), Tartes surgelées, tarte surgelée
+fr:Tartes surgelées salées, Tartes surgelées, tarte surgelée
 nl:Diepvries hartige taarten
 
 < en:Aromatic plants
@@ -15517,7 +15518,7 @@ wikidata:en: Q954122
 < en:French cheeses
 < en:Goat cheeses
 en:Valençay cheese
-fr:Valençay (fromage)
+fr:Fromages Valençay
 nl:Velençay kaas
 wikidata:en: Q659277
 
@@ -19098,7 +19099,7 @@ nl:Aligot
 
 < en:Meals
 en:Banh Bao
-fr:Banh Bao (Pain brioché farci)
+fr:Banh Bao
 nl:Banh Bao
 
 < en:Canned foods
@@ -23814,6 +23815,18 @@ en:pork skewers
 fr:Brochettes de porc, brochette de porc
 nl:Varkensspiesjes
 
+< en:Pork Pâtés
+en:Country-style Pâtés
+fi:maaseutupateet
+fr:Pâtés de campagne
+nl:Landelijke pasteien
+
+< en:Pork Pâtés
+en:Pork liver Pâtés
+es:Patés de hígado de cerdo
+fr:Pâtés de foie de porc
+pt:Patês de figado de porco
+
 < en:Portuguese cheeses
 pt:Queijo de Azeitão
 country:en: Portugal
@@ -26519,6 +26532,10 @@ fr:Anchoïade
 nl:Ansjovispasta
 
 < en:Salted spreads
+en:Artichoke spreads
+fr:Crèmes d'artichaut
+
+< en:Salted spreads
 en:Tapenades, tapenade
 ca:Tapenada
 de:Tapenade
@@ -26536,9 +26553,6 @@ pt:Tapenade
 ru:Тапенада
 sv:Tapenade
 wikidata:en: Q129031
-
-< en:Salted spreads
-fr:Crèmes d'artichaut
 
 < en:Salts
 en:Himalaya salts
@@ -27212,10 +27226,10 @@ nl:Yakitorisauzen
 fr:Piccalillis, Sauces piccalilli, piccalilli
 
 < en:Sauces
-fr:Sauces à base d'extrait de levure, Sauces à base d'extrait de levure (type Marmite, Cenovis)
+fr:Sauces à base d'extrait de levure
 
 < en:Sauces
-fr:Sauces à base d'extrait de viande, Sauces à base d'extrait de viande (type Viandox)
+fr:Sauces à base d'extrait de viande
 
 < en:Sauces
 fr:Sauces à l'oseille, Sauce à l'oseille
@@ -28862,6 +28876,19 @@ country:en: Spain
 es:Torta del Casar
 country:en: Spain
 
+< en:Sheep's-milk cheeses
+< en:Spanish cheeses
+en:Manchego
+ca:Manxego
+de:Manchego
+es:Manchego, queso manchego
+fr:Manchego
+it:Manchego
+nl:Manchego
+pt:Manchego, queijo manchego
+country:en: Spain
+wikidata:en: Q72305
+
 < en:Spanish omelettes
 en:Egg-free spanish omelettes
 de:Eierfreie Kartoffel Tortillas
@@ -30146,6 +30173,10 @@ pt:Conservas de fruta
 th:ผลไม้แปรรูป
 
 < en:Sweet spreads
+en:Ginger preserves, ginger jams
+fr:Confitures de gingembre
+
+< en:Sweet spreads
 en:Lemon curds
 de:Zitronen-Aufstrich
 es:Crema de limón
@@ -30587,6 +30618,11 @@ nl:Visterrines
 pnns_group_2:en: Fish and seafood
 
 < en:Meat-based products
+< en:Terrines
+en:Pork terrines
+fr:Terrines de porc
+
+< en:Meat-based products
 < en:Prepared meats
 < en:Terrines
 en:Bison terrines
@@ -30615,14 +30651,6 @@ nl:Everzijnterrines, Everzwijnterrine, Everzwijnvleespotten
 en:Chicken terrines
 fr:Terrines de poulet
 nl:Kipterrines, Kipterrine, Kippevleespotten
-
-< en:Meat-based products
-< en:Prepared meats
-< en:Terrines
-en:Country terrines
-fi:maaseututerriinit
-fr:Terrines de campagne
-nl:Landvleespotten
 
 < en:Meat-based products
 < en:Prepared meats
@@ -30665,6 +30693,13 @@ nl:Hertevleesterrines, Hertevleespotten
 < en:Prepared meats
 < en:Terrines
 fr:Terrines de chevreuil
+
+< en:Prepared meats
+< en:Terrines
+en:Country terrines
+fi:maaseututerriinit
+fr:Terrines de campagne
+nl:Landvleespotten
 
 < en:Terrines
 en:Terrines from Brittany
@@ -34923,7 +34958,7 @@ wikidata:en: Q1151017
 
 < en:Wines from France
 en:Valençay Wine
-fr:Valençay (Vin)
+fr:Vin Valençay
 country:en: France
 wikidata:en: Q3553671
 
@@ -40993,12 +41028,6 @@ fr:Andouillettes
 wikidata:en: Q11164
 
 < fr:Charcuteries diverses
-en:Country-style Pâtés
-fi:maaseutupateet
-fr:Pâtés de campagne
-nl:Landelijke pasteien
-
-< fr:Charcuteries diverses
 en:Duck Pâtés
 de:Entenpasteten
 fr:Pâtés de canard
@@ -41009,6 +41038,12 @@ en:Head cheese
 fr:Pâtés de tête, Pâté de tête
 nl:Hoofdkazen
 wikidata:en: Q4675762
+
+< fr:Charcuteries diverses
+en:Pork Pâtés
+es:Patés de cerdo
+fr:Pâtés de porc
+pt:Patês de porco
 
 < fr:Charcuteries diverses
 en:Rabbit Pâtés
