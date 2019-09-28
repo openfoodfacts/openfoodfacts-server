@@ -100,9 +100,7 @@ foreach my $field (sort keys %$query_ref) {
 use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
-
 # CSV export
-
 
 my $args_ref = {filehandle=>*STDOUT, separator=>$separator, query=>$query_ref };
 
@@ -115,6 +113,4 @@ if ((defined $extra_fields) and ($extra_fields ne "")) {
 }
 
 export_csv($args_ref);
-
-
 

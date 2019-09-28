@@ -39,6 +39,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:chocolate',
+	'has_sub_ingredients' => 'yes',
         'rank' => 2,
         'text' => 'chocolat',
 	'vegan' => 'maybe',
@@ -69,6 +70,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:emulsifier',
+	'has_sub_ingredients' => 'yes',
         'rank' => 6,
         'text' => "\x{e9}mulsifiants"
       },
@@ -97,6 +99,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:acidity-regulator',
+	'has_sub_ingredients' => 'yes',
         'rank' => 10,
         'text' => "correcteurs d'acidit\x{e9}"
       },
@@ -116,6 +119,7 @@ my $expected_product_ref =
       },
       {
         'id' => 'en:acid',
+	'has_sub_ingredients' => 'yes',
         'rank' => 13,
         'text' => 'acidifiant'
       },
@@ -294,7 +298,7 @@ $expected_product_ref =
     ],
     'ingredients_hierarchy' => [
       'en:palm-kernel-fat',
-      'en:oil',
+      'en:oil-and-fat',
       'en:vegetable-oil-and-fat',
       'en:palm-kernel-oil-and-fat'
     ],
@@ -308,7 +312,7 @@ $expected_product_ref =
     ],
     'ingredients_tags' => [
       'en:palm-kernel-fat',
-      'en:oil',
+      'en:oil-and-fat',
       'en:vegetable-oil-and-fat',
       'en:palm-kernel-oil-and-fat'
     ],
@@ -359,445 +363,457 @@ delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
 $expected_product_ref = 
-{
-   'ingredients' => [
-     {
-       'id' => 'fr:Marmelade d\'oranges',
-       'percent' => '41',
-       'rank' => 1,
-       'text' => 'Marmelade d\'oranges'
-     },
-     {
-       'id' => 'en:orange-pulp',
-       'percent' => '0.6',
-       'processing' => 'en:concentrated',
-       'rank' => 2,
-       'text' => 'pulpe d\'orange ',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:gelling-agent',
-       'rank' => 3,
-       'text' => "g\x{e9}lifiant"
-     },
-     {
-       'id' => 'en:e440a',
-       'rank' => 4,
-       'text' => 'pectines',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:acid',
-       'rank' => 5,
-       'text' => 'acidifiant'
-     },
-     {
-       'id' => 'en:e330',
-       'rank' => 6,
-       'text' => 'acide citrique',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:acidity-regulator',
-       'rank' => 7,
-       'text' => "correcteurs d'acidit\x{e9}"
-     },
-     {
-       'id' => 'en:natural-orange-flavouring',
-       'rank' => 8,
-       'text' => "ar\x{f4}me naturel d'orange",
-       'vegan' => 'maybe',
-       'vegetarian' => 'maybe'
-     },
-     {
-       'id' => 'en:thickener',
-       'rank' => 9,
-       'text' => "\x{e9}paississant"
-     },
-     {
-       'id' => 'en:e415',
-       'rank' => 10,
-       'text' => 'gomme xanthane',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:chocolate',
-       'percent' => '24.9',
-       'rank' => 11,
-       'text' => 'chocolat',
-       'vegan' => 'maybe',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:lactose-and-milk-proteins',
-       'rank' => 12,
-       'text' => "lactose et prot\x{e9}ines de lait",
-       'vegan' => 'no',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:wheat-flour',
-       'rank' => 13,
-       'text' => "farine de bl\x{e9}",
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:sugar',
-       'rank' => 14,
-       'text' => 'sucre',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:egg',
-       'rank' => 15,
-       'text' => 'oeufs',
-       'vegan' => 'no',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:glucose-fructose-syrup',
-       'rank' => 16,
-       'text' => 'sirop de glucose-fructose',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'from_palm_oil' => 'no',
-       'id' => 'en:colza-oil',
-       'rank' => 17,
-       'text' => 'huile de colza',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:raising-agent',
-       'rank' => 18,
-       'text' => "poudre \x{e0} lever"
-     },
-     {
-       'id' => 'en:salt',
-       'rank' => 19,
-       'text' => 'sel',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:emulsifier',
-       'rank' => 20,
-       'text' => "\x{e9}mulsifiant"
-     },
-     {
-       'id' => 'en:soya-lecithin',
-       'rank' => 21,
-       'text' => "l\x{e9}cithine de soja",
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:glucose-fructose-syrup',
-       'text' => 'sirop de glucose-fructose',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:sugar',
-       'text' => 'sucre',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:orange-pulp',
-       'percent' => '4.5',
-       'text' => 'pulpe d\'orange',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:concentrated-orange-juice',
-       'percent' => '1.4',
-       'text' => "jus d'orange concentr\x{e9}",
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:e333',
-       'text' => 'citrate de calcium',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:sodium-citrate',
-       'text' => 'citrate de sodium'
-     },
-     {
-       'id' => 'en:sugar',
-       'text' => 'sucre',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:cocoa-paste',
-       'text' => "p\x{e2}te de cacao",
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:cocoa-butter',
-       'text' => 'beurre de cacao',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
-       'text' => "graisses v\x{e9}g\x{e9}tales d'illipe"
-     },
-     {
-       'id' => "fr:graisses v\x{e9}g\x{e9}tales de mangue",
-       'text' => "graisses v\x{e9}g\x{e9}tales de mangue"
-     },
-     {
-       'id' => "fr:graisses v\x{e9}g\x{e9}tales de sal",
-       'text' => "graisses v\x{e9}g\x{e9}tales de sal"
-     },
-     {
-       'from_palm_oil' => 'no',
-       'id' => 'en:shea-butter',
-       'text' => "graisses v\x{e9}g\x{e9}tales de karit\x{e9}",
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'from_palm_oil' => 'yes',
-       'id' => 'en:palm-fat',
-       'text' => "graisses v\x{e9}g\x{e9}tales de palme",
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:flavouring',
-       'text' => "ar\x{f4}me",
-       'vegan' => 'maybe',
-       'vegetarian' => 'maybe'
-     },
-     {
-       'id' => 'en:emulsifier',
-       'text' => "\x{e9}mulsifiant"
-     },
-     {
-       'id' => 'en:soya-lecithin',
-       'text' => "l\x{e9}cithine de soja",
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:e503',
-       'text' => 'carbonate acide d\'ammonium',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:e450i',
-       'text' => 'diphosphate disodique',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     },
-     {
-       'id' => 'en:e500',
-       'text' => 'carbonate acide de sodium',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
-     }
-   ],
-   'ingredients_analysis_tags' => [
-     'en:palm-oil',
-     'en:non-vegan',
-     'en:vegetarian-status-unknown'
-   ],
-   'ingredients_hierarchy' => [
-     'fr:Marmelade d\'oranges',
-     'en:orange-pulp',
-     'en:fruit',
-     'en:citrus-fruit',
-     'en:orange',
-     'en:gelling-agent',
-     'en:e440a',
-     'en:acid',
-     'en:e330',
-     'en:acidity-regulator',
-     'en:natural-orange-flavouring',
-     'en:flavouring',
-     'en:natural-flavouring',
-     'en:thickener',
-     'en:e415',
-     'en:chocolate',
-     'en:lactose-and-milk-proteins',
-     'en:protein',
-     'en:animal-protein',
-     'en:milk-proteins',
-     'en:lactose',
-     'en:wheat-flour',
-     'en:cereal',
-     'en:wheat',
-     'en:flour',
-     'en:cereal-flour',
-     'en:sugar',
-     'en:egg',
-     'en:glucose-fructose-syrup',
-     'en:glucose',
-     'en:fructose',
-     'en:colza-oil',
-     'en:oil',
-     'en:vegetable-oil-and-fat',
-     'en:rapeseed-oil',
-     'en:raising-agent',
-     'en:salt',
-     'en:emulsifier',
-     'en:soya-lecithin',
-     'en:e322',
-     'en:concentrated-orange-juice',
-     'en:fruit-juice',
-     'en:orange-juice',
-     'en:e333',
-     'en:sodium-citrate',
-     'en:minerals',
-     'en:sodium',
-     'en:cocoa-paste',
-     'en:cocoa',
-     'en:cocoa-butter',
-     "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
-     "fr:graisses v\x{e9}g\x{e9}tales de mangue",
-     "fr:graisses v\x{e9}g\x{e9}tales de sal",
-     'en:shea-butter',
-     'en:vegetable-fat',
-     'en:palm-fat',
-     'en:palm-oil-and-fat',
-     'en:e503',
-     'en:e450i',
-     'en:e450',
-     'en:e500'
-   ],
-   'ingredients_n' => 41,
-   'ingredients_n_tags' => [
-     '41',
-     '41-50'
-   ],
-   'ingredients_original_tags' => [
-     'fr:Marmelade d\'oranges',
-     'en:orange-pulp',
-     'en:gelling-agent',
-     'en:e440a',
-     'en:acid',
-     'en:e330',
-     'en:acidity-regulator',
-     'en:natural-orange-flavouring',
-     'en:thickener',
-     'en:e415',
-     'en:chocolate',
-     'en:lactose-and-milk-proteins',
-     'en:wheat-flour',
-     'en:sugar',
-     'en:egg',
-     'en:glucose-fructose-syrup',
-     'en:colza-oil',
-     'en:raising-agent',
-     'en:salt',
-     'en:emulsifier',
-     'en:soya-lecithin',
-     'en:glucose-fructose-syrup',
-     'en:sugar',
-     'en:orange-pulp',
-     'en:concentrated-orange-juice',
-     'en:e333',
-     'en:sodium-citrate',
-     'en:sugar',
-     'en:cocoa-paste',
-     'en:cocoa-butter',
-     "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
-     "fr:graisses v\x{e9}g\x{e9}tales de mangue",
-     "fr:graisses v\x{e9}g\x{e9}tales de sal",
-     'en:shea-butter',
-     'en:palm-fat',
-     'en:flavouring',
-     'en:emulsifier',
-     'en:soya-lecithin',
-     'en:e503',
-     'en:e450i',
-     'en:e500'
-   ],
-   'ingredients_tags' => [
-     'fr:marmelade-d-oranges',
-     'en:orange-pulp',
-     'en:fruit',
-     'en:citrus-fruit',
-     'en:orange',
-     'en:gelling-agent',
-     'en:e440a',
-     'en:acid',
-     'en:e330',
-     'en:acidity-regulator',
-     'en:natural-orange-flavouring',
-     'en:flavouring',
-     'en:natural-flavouring',
-     'en:thickener',
-     'en:e415',
-     'en:chocolate',
-     'en:lactose-and-milk-proteins',
-     'en:protein',
-     'en:animal-protein',
-     'en:milk-proteins',
-     'en:lactose',
-     'en:wheat-flour',
-     'en:cereal',
-     'en:wheat',
-     'en:flour',
-     'en:cereal-flour',
-     'en:sugar',
-     'en:egg',
-     'en:glucose-fructose-syrup',
-     'en:glucose',
-     'en:fructose',
-     'en:colza-oil',
-     'en:oil',
-     'en:vegetable-oil-and-fat',
-     'en:rapeseed-oil',
-     'en:raising-agent',
-     'en:salt',
-     'en:emulsifier',
-     'en:soya-lecithin',
-     'en:e322',
-     'en:concentrated-orange-juice',
-     'en:fruit-juice',
-     'en:orange-juice',
-     'en:e333',
-     'en:sodium-citrate',
-     'en:minerals',
-     'en:sodium',
-     'en:cocoa-paste',
-     'en:cocoa',
-     'en:cocoa-butter',
-     'fr:graisses-vegetales-d-illipe',
-     'fr:graisses-vegetales-de-mangue',
-     'fr:graisses-vegetales-de-sal',
-     'en:shea-butter',
-     'en:vegetable-fat',
-     'en:palm-fat',
-     'en:palm-oil-and-fat',
-     'en:e503',
-     'en:e450i',
-     'en:e450',
-     'en:e500'
-   ],
-   'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
-   'lc' => 'fr',
-   'unknown_ingredients_n' => 4
- }
- ;
+ {
+    'ingredients' => [
+      {
+        'id' => 'fr:Marmelade d\'oranges',
+	'has_sub_ingredients' => 'yes',
+        'percent' => '41',
+        'rank' => 1,
+        'text' => 'Marmelade d\'oranges'
+      },
+      {
+        'id' => 'en:orange-pulp',
+	'has_sub_ingredients' => 'yes',
+        'percent' => '0.6',
+        'processing' => 'en:concentrated',
+        'rank' => 2,
+        'text' => 'pulpe d\'orange ',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:gelling-agent',
+	'has_sub_ingredients' => 'yes',
+        'rank' => 3,
+        'text' => "g\x{e9}lifiant"
+      },
+      {
+        'id' => 'en:e440a',
+        'rank' => 4,
+        'text' => 'pectines',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:acid',
+	'has_sub_ingredients' => 'yes',
+        'rank' => 5,
+        'text' => 'acidifiant'
+      },
+      {
+        'id' => 'en:e330',
+        'rank' => 6,
+        'text' => 'acide citrique',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:acidity-regulator',
+	'has_sub_ingredients' => 'yes',
+        'rank' => 7,
+        'text' => "correcteurs d'acidit\x{e9}"
+      },
+      {
+        'id' => 'en:natural-orange-flavouring',
+        'rank' => 8,
+        'text' => "ar\x{f4}me naturel d'orange",
+        'vegan' => 'maybe',
+        'vegetarian' => 'maybe'
+      },
+      {
+        'id' => 'en:thickener',
+	'has_sub_ingredients' => 'yes',
+        'rank' => 9,
+        'text' => "\x{e9}paississant"
+      },
+      {
+        'id' => 'en:e415',
+        'rank' => 10,
+        'text' => 'gomme xanthane',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:chocolate',
+	'has_sub_ingredients' => 'yes',
+        'percent' => '24.9',
+        'rank' => 11,
+        'text' => 'chocolat',
+        'vegan' => 'maybe',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:lactose-and-milk-proteins',
+        'rank' => 12,
+        'text' => "lactose et prot\x{e9}ines de lait",
+        'vegan' => 'no',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:wheat-flour',
+        'rank' => 13,
+        'text' => "farine de bl\x{e9}",
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:sugar',
+        'rank' => 14,
+        'text' => 'sucre',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:egg',
+        'rank' => 15,
+        'text' => 'oeufs',
+        'vegan' => 'no',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:glucose-fructose-syrup',
+        'rank' => 16,
+        'text' => 'sirop de glucose-fructose',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'from_palm_oil' => 'no',
+        'id' => 'en:colza-oil',
+        'rank' => 17,
+        'text' => 'huile de colza',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:raising-agent',
+	'has_sub_ingredients' => 'yes',
+        'rank' => 18,
+        'text' => "poudre \x{e0} lever"
+      },
+      {
+        'id' => 'en:salt',
+        'rank' => 19,
+        'text' => 'sel',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:emulsifier',
+	'has_sub_ingredients' => 'yes',
+        'rank' => 20,
+        'text' => "\x{e9}mulsifiant"
+      },
+      {
+        'id' => 'en:soya-lecithin',
+        'rank' => 21,
+        'text' => "l\x{e9}cithine de soja",
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:glucose-fructose-syrup',
+        'text' => 'sirop de glucose-fructose',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:sugar',
+        'text' => 'sucre',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:orange-pulp',
+        'percent' => '4.5',
+        'text' => 'pulpe d\'orange',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:concentrated-orange-juice',
+	'has_sub_ingredients' => 'yes',
+        'percent' => '1.4',
+        'text' => "jus d'orange concentr\x{e9}",
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:e333',
+        'text' => 'citrate de calcium',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:sodium-citrate',
+        'text' => 'citrate de sodium'
+      },
+      {
+        'id' => 'en:sugar',
+        'text' => 'sucre',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:cocoa-paste',
+        'text' => "p\x{e2}te de cacao",
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:cocoa-butter',
+        'text' => 'beurre de cacao',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
+        'text' => "graisses v\x{e9}g\x{e9}tales d'illipe"
+      },
+      {
+        'id' => "fr:graisses v\x{e9}g\x{e9}tales de mangue",
+        'text' => "graisses v\x{e9}g\x{e9}tales de mangue"
+      },
+      {
+        'id' => "fr:graisses v\x{e9}g\x{e9}tales de sal",
+        'text' => "graisses v\x{e9}g\x{e9}tales de sal"
+      },
+      {
+        'from_palm_oil' => 'no',
+        'id' => 'en:shea-butter',
+        'text' => "graisses v\x{e9}g\x{e9}tales de karit\x{e9}",
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'from_palm_oil' => 'yes',
+        'id' => 'en:palm-fat',
+        'text' => "graisses v\x{e9}g\x{e9}tales de palme",
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:flavouring',
+        'text' => "ar\x{f4}me",
+        'vegan' => 'maybe',
+        'vegetarian' => 'maybe'
+      },
+      {
+        'id' => 'en:emulsifier',
+	'has_sub_ingredients' => 'yes',
+        'text' => "\x{e9}mulsifiant"
+      },
+      {
+        'id' => 'en:soya-lecithin',
+        'text' => "l\x{e9}cithine de soja",
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:e503',
+        'text' => 'carbonate acide d\'ammonium',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:e450i',
+        'text' => 'diphosphate disodique',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:e500',
+        'text' => 'carbonate acide de sodium',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      }
+    ],
+    'ingredients_analysis_tags' => [
+      'en:palm-oil',
+      'en:non-vegan',
+      'en:vegetarian-status-unknown'
+    ],
+    'ingredients_hierarchy' => [
+      'fr:Marmelade d\'oranges',
+      'en:orange-pulp',
+      'en:fruit',
+      'en:citrus-fruit',
+      'en:orange',
+      'en:gelling-agent',
+      'en:e440a',
+      'en:acid',
+      'en:e330',
+      'en:acidity-regulator',
+      'en:natural-orange-flavouring',
+      'en:flavouring',
+      'en:natural-flavouring',
+      'en:thickener',
+      'en:e415',
+      'en:chocolate',
+      'en:lactose-and-milk-proteins',
+      'en:protein',
+      'en:animal-protein',
+      'en:milk-proteins',
+      'en:lactose',
+      'en:wheat-flour',
+      'en:cereal',
+      'en:wheat',
+      'en:flour',
+      'en:cereal-flour',
+      'en:sugar',
+      'en:egg',
+      'en:glucose-fructose-syrup',
+      'en:glucose',
+      'en:fructose',
+      'en:colza-oil',
+      'en:oil-and-fat',
+      'en:vegetable-oil-and-fat',
+      'en:rapeseed-oil',
+      'en:raising-agent',
+      'en:salt',
+      'en:emulsifier',
+      'en:soya-lecithin',
+      'en:e322',
+      'en:concentrated-orange-juice',
+      'en:fruit-juice',
+      'en:orange-juice',
+      'en:e333',
+      'en:sodium-citrate',
+      'en:minerals',
+      'en:sodium',
+      'en:cocoa-paste',
+      'en:cocoa',
+      'en:cocoa-butter',
+      "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
+      "fr:graisses v\x{e9}g\x{e9}tales de mangue",
+      "fr:graisses v\x{e9}g\x{e9}tales de sal",
+      'en:shea-butter',
+      'en:vegetable-fat',
+      'en:palm-fat',
+      'en:palm-oil-and-fat',
+      'en:e503',
+      'en:e450i',
+      'en:e450',
+      'en:e500'
+    ],
+    'ingredients_n' => 41,
+    'ingredients_n_tags' => [
+      '41',
+      '41-50'
+    ],
+    'ingredients_original_tags' => [
+      'fr:Marmelade d\'oranges',
+      'en:orange-pulp',
+      'en:gelling-agent',
+      'en:e440a',
+      'en:acid',
+      'en:e330',
+      'en:acidity-regulator',
+      'en:natural-orange-flavouring',
+      'en:thickener',
+      'en:e415',
+      'en:chocolate',
+      'en:lactose-and-milk-proteins',
+      'en:wheat-flour',
+      'en:sugar',
+      'en:egg',
+      'en:glucose-fructose-syrup',
+      'en:colza-oil',
+      'en:raising-agent',
+      'en:salt',
+      'en:emulsifier',
+      'en:soya-lecithin',
+      'en:glucose-fructose-syrup',
+      'en:sugar',
+      'en:orange-pulp',
+      'en:concentrated-orange-juice',
+      'en:e333',
+      'en:sodium-citrate',
+      'en:sugar',
+      'en:cocoa-paste',
+      'en:cocoa-butter',
+      "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
+      "fr:graisses v\x{e9}g\x{e9}tales de mangue",
+      "fr:graisses v\x{e9}g\x{e9}tales de sal",
+      'en:shea-butter',
+      'en:palm-fat',
+      'en:flavouring',
+      'en:emulsifier',
+      'en:soya-lecithin',
+      'en:e503',
+      'en:e450i',
+      'en:e500'
+    ],
+    'ingredients_tags' => [
+      'fr:marmelade-d-oranges',
+      'en:orange-pulp',
+      'en:fruit',
+      'en:citrus-fruit',
+      'en:orange',
+      'en:gelling-agent',
+      'en:e440a',
+      'en:acid',
+      'en:e330',
+      'en:acidity-regulator',
+      'en:natural-orange-flavouring',
+      'en:flavouring',
+      'en:natural-flavouring',
+      'en:thickener',
+      'en:e415',
+      'en:chocolate',
+      'en:lactose-and-milk-proteins',
+      'en:protein',
+      'en:animal-protein',
+      'en:milk-proteins',
+      'en:lactose',
+      'en:wheat-flour',
+      'en:cereal',
+      'en:wheat',
+      'en:flour',
+      'en:cereal-flour',
+      'en:sugar',
+      'en:egg',
+      'en:glucose-fructose-syrup',
+      'en:glucose',
+      'en:fructose',
+      'en:colza-oil',
+      'en:oil-and-fat',
+      'en:vegetable-oil-and-fat',
+      'en:rapeseed-oil',
+      'en:raising-agent',
+      'en:salt',
+      'en:emulsifier',
+      'en:soya-lecithin',
+      'en:e322',
+      'en:concentrated-orange-juice',
+      'en:fruit-juice',
+      'en:orange-juice',
+      'en:e333',
+      'en:sodium-citrate',
+      'en:minerals',
+      'en:sodium',
+      'en:cocoa-paste',
+      'en:cocoa',
+      'en:cocoa-butter',
+      'fr:graisses-vegetales-d-illipe',
+      'fr:graisses-vegetales-de-mangue',
+      'fr:graisses-vegetales-de-sal',
+      'en:shea-butter',
+      'en:vegetable-fat',
+      'en:palm-fat',
+      'en:palm-oil-and-fat',
+      'en:e503',
+      'en:e450i',
+      'en:e450',
+      'en:e500'
+    ],
+    'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
+    'lc' => 'fr',
+    'unknown_ingredients_n' => 4
+  };
+
+	
 
 is_deeply($product_ref->{ingredients_original_tags}, $expected_product_ref->{ingredients_original_tags}) || diag explain $product_ref->{ingredients_original_tags};
 
@@ -1116,6 +1132,7 @@ is_deeply ($product_ref->{ingredients},
 	     {
 	            'id' => 'en:emulsifier',
 	            'rank' => 1,
+		    'has_sub_ingredients' => 'yes',
 	            'text' => "\x{e9}mulsifiant"
 	          },
 	          {
@@ -1150,13 +1167,14 @@ is_deeply ($product_ref->{ingredients},
 	            'vegetarian' => 'yes'
 	          },
 	          {
-	            'id' => 'en:concentrated-butter',
+	            'id' => 'en:butterfat',
 	            'origin' => 'en:france',
 	            'percent' => '6.5',
 	            'rank' => 6,
 	            'text' => "beurre concentr\x{e9}",
 	            'vegan' => 'no',
-	            'vegetarian' => 'yes'
+	            'vegetarian' => 'yes',
+	            'from_palm_oil' => 'no',
 	          }
 	        ],
 	
@@ -1233,6 +1251,7 @@ is_deeply ($product_ref->{ingredients},
             'vegetarian' => 'en:yes'
           },
           {
+            'from_palm_oil' => 'maybe',
             'id' => 'en:oil',
             'rank' => 2,
             'text' => 'huile',

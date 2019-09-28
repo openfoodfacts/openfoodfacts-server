@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-07 08:27\n"
+"PO-Revision-Date: 2019-09-17 22:24\n"
 "Language-Team: Korean\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -79,6 +79,7 @@ msgstr "안녕하세요 <NAME>님,\n\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
+# please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
 msgstr "<<site_name>>에 가입해주셔서 감사합니다."
@@ -135,14 +136,17 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "상품 페이지는 다음 사람들에 의해 수정되었습니다."
 
+# Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 msgstr ""
 
+# DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world-ko.openfoodfacts.org/files/off.apk"
 
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 msgstr ""
@@ -194,8 +198,8 @@ msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulai
 msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> 는 회사와 무관한 비영리 협회에서 만들어집니다. 여러분들을 위해, 여러분들에 의해 그리고 여러분들의 기부에 의해 운영됩니다. <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">Open Food Facts에게 기부하거나</a> <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">릴로 서치를 이용해서 저희에게 힘이 되어주세요</a>. <br/><b>감사합니다!</b></p>"
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
-msgstr "미션 받기"
+msgid "Donate to support our work"
+msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
@@ -379,7 +383,7 @@ msgstr "오류 수정"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "오류 수정"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
@@ -2135,7 +2139,7 @@ msgid "Scatter plot"
 msgstr ""
 
 msgctxt "search_graph_blog"
-msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
 msgstr ""
 
 msgctxt "search_graph_choice"
@@ -2580,12 +2584,14 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr ""
 
+# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 msgstr ""
 
+# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"

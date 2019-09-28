@@ -3424,20 +3424,25 @@ HTML
 		$products_title = sprintf(lang($tagtype . '_products'), $products_title);
 	}
 
-
 	if (defined $tagid2) {
-		$products_title .= lang("title_separator") . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
+		$products_title .= lang("title_separator");
+		if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} eq '-')) {
+			$products_title .= sprintf(lang($tagtype2 . '_without_products'), $display_tag2);
+		}
+		else {
+			$products_title .= sprintf(lang($tagtype2 . '_products'), $display_tag2);
+		}
 	}
 
 	if (not defined $request_ref->{groupby_tagtype}) {
 		if (defined $tagid2) {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc)
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_s')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagidpath\">$display_tag</a>"
-				. "\n<br><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . separator_before_colon($lc)
+				. "\n<br><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_s')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagid2path\">$display_tag2</a></p>";
 		}
 		else {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc). ": $display_tag</p>";
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_s')) . "</a>" . separator_before_colon($lc). ": $display_tag</p>";
 
 			my $tag_html .= display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
 
@@ -3460,19 +3465,23 @@ HTML
 
 
 
-		$html .= "<h2>" . $products_title . lang("title_separator") . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
+		$html .= "<h2>" . $products_title . "</h2>\n";
 	}
 
 	} # end of if (defined $tagtype)
 
 	if ($country ne 'en:world') {
+
 		my $worlddom = format_subdomain('world');
+		my $word_link = "";
 		if (defined $request_ref->{groupby_tagtype}) {
-			$html .= "<p>&rarr; <a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . lang('view_list_for_products_from_the_entire_world') . "</a></p>";
+			$word_link = lang('view_list_for_products_from_the_entire_world');
 		}
 		else {
-			$html .= "<p>&rarr; <a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . lang('view_products_from_the_entire_world') . "</a></p>";
+			$word_link = lang('view_products_from_the_entire_world');
 		}
+		$html .= "<p>" . ucfirst(lang('countries_s')) . separator_before_colon($lc). ": " . display_taxonomy_tag($lc,"countries",$country) . " - "
+		. "<a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . $word_link . "</a></p>";
 	}
 
 	my $query_ref = {};
@@ -3540,7 +3549,12 @@ HTML
 			$query_ref->{"\$or"} = [ { ($tagtype2 ) => undef}, { $tagtype2 => ""} ] ;
 		}
 		else {
-			$query_ref->{$field} = $value;
+			# issue 2285: second tag was not supporting the 'minus' query
+			if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} eq '-')) {
+				$query_ref->{$field} = { "\$ne" => $value};
+			} else {
+				$query_ref->{$field} = $value;
+			}
 		}
 
 	}
@@ -4037,6 +4051,13 @@ sub display_pagination($$$$) {
 						}
 
 						$link = $current_link_query . "&page=$i";
+
+						# issue 2010: the limit, aka page_size is not persisted through the navigation links from some workflows,
+						# so it is lost on subsequent pages
+						if ( defined $limit && $link !~ /page_size/ ) {
+							$log->info("Using limit " .$limit) if $log->is_info();
+							$link .= "&page_size=" . $limit;
+						}
 					}
 
 					$html_pages .=  '<li><a href="' . $link . '">' . $i . '</a></li>';
@@ -6018,7 +6039,7 @@ HTML
 	$initjs .= $aside_initjs;
 
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
-	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack-ssl-openfoodfacts.herokuapp.com/">Slack</a>');
+	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
 	my $twitter_account = lang("twitter_account");
 	if (defined $Lang{twitter_account_by_country}{$cc}) {
@@ -6624,7 +6645,7 @@ sub display_field($$) {
 	elsif (defined $hierarchy_fields{$field}) {
 		$value = display_tags_hierarchy($field, $product_ref->{$field . "_hierarchy"});
 	}
-	elsif (defined $tags_fields{$field}) {
+	elsif ((defined $tags_fields{$field}) and (defined $value)) {
 		$value = display_tags_list($field, $value);
 	}
 
@@ -7085,6 +7106,10 @@ HTML
 		$ingredients_text_lang = $lc;
 	}
 
+	if (not defined $ingredients_text) {
+		$ingredients_text = "";
+	}
+
 
 
 		$html .= <<HTML
@@ -7269,7 +7294,7 @@ JS
 			next if $ingredients_analysis_tag =~ /unknown/;
 
 			if ($icon ne "") {
-				$icon = "<i style=\"font-size:32px;margin-right:0.2em;vertical-align:text-top;line-height:24px;\" class=\"$icon\"></i>";
+				$icon = "<i style=\"font-size:32px;margin-right:0.2em;vertical-align:middle;line-height:24px;\" class=\"$icon\"></i>";
 			}
 
 			$html_analysis .= "<span class=\"alert round label\" style=\"background-color:$color;color:white;font-size:1rem;padding-right:1em;\">"
@@ -7596,8 +7621,8 @@ HTML
 	my @other_editors = ();
 
 	foreach my $editor (@{$product_ref->{editors_tags}}) {
-		next if $editor eq $product_ref->{creator};
-		next if $editor eq $product_ref->{last_editor};
+		next if ((defined $product_ref->{creator}) and ($editor eq $product_ref->{creator}));
+		next if ((defined $product_ref->{last_editor}) and ($editor eq $product_ref->{last_editor}));
 		push @other_editors, $editor;
 	}
 
@@ -7668,6 +7693,14 @@ HTML
 #<meta name="twitter:label2" content="Location">
 #<meta name="twitter:data2" content="National">
 
+	my $meta_product_image_url = "";
+	if (defined $product_image_url) {
+		$meta_product_image_url = <<HTML
+<meta name="twitter:image" content="$product_image_url">
+<meta property="og:image" content="$product_image_url">
+HTML
+;
+	}
 
 	$header .= <<HTML
 <meta name="twitter:card" content="product">
@@ -7675,13 +7708,12 @@ HTML
 <meta name="twitter:creator" content="@<twitter_account>">
 <meta name="twitter:title" content="$title">
 <meta name="twitter:description" content="$description">
-<meta name="twitter:image" content="$product_image_url">
 <meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
 <meta name="twitter:data1" content="$product_ref->{brand}">
 <meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
 <meta name="twitter:data2" content="$product_ref->{category}">
+$meta_product_image_url
 
-<meta property="og:image" content="$product_image_url">
 HTML
 ;
 
@@ -8451,7 +8483,6 @@ sub display_nutrition_table($$) {
 
 			push @cols, $colid;
 			$col_class{$colid} = $colid;
-			$col_name{$colid} =  sprintf(lang("nutrition_data_compare_with_category"), $comparison_ref->{name});
 			$col_name{$colid} =  $comparison_ref->{name};
 
 			$log->debug("displaying nutrition table comparison column", { colid => $colid, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
@@ -8762,6 +8793,9 @@ HTML
 					}
 					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
 				}
+				else {
+					$percent = "";
+				}
 
 				$values .= "<td class=\"nutriment_value${col_class}\">$value_unit</td>";
 
@@ -8857,7 +8891,10 @@ HTML
 					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
 				}
 				elsif ($nid eq 'salt') {
-					my $sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
+					my $sodium = "";
+					if (defined $product_ref->{nutriments}{$nid . "_$col"}) {
+						$sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
+					}
 					if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
 						$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
 					}
@@ -9401,8 +9438,10 @@ sub display_structured_response($)
 		elsif (defined param('callback')) {
 			$jsonp = param('callback');
 		}
-
-		$jsonp =~ s/[^a-zA-Z0-9_]//g;
+	
+		if (defined $jsonp) {
+			$jsonp =~ s/[^a-zA-Z0-9_]//g;
+		}
 
 		my $status = $request_ref->{status};
 		if (defined $status) {

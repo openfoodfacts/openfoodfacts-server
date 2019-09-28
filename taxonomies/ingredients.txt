@@ -4,12 +4,13 @@ synonyms:en:pasteurised, pasteurized
 # comment:en:These are words that start a list of ingredients
 
 en:ingredient, ingredients, composition
+az:Tarkibi
 bg:Състав
 bs:Sastoji
 cs:Složení
 da:indeholder
 de:Zutaten, Zusammensetzung
-es:composición
+es:composición, ingredientes
 et:Koostisainsd, koostis, Koostisosad
 fa:الكوتات
 fi:ainenosat
@@ -306,7 +307,7 @@ fi:Happamuudensäätöaine
 fr:correcteur d’acidité, régulateur d'acidité
 ga:Rialtán aigéadachta
 hu:Savanyúságot szabályozó anyag
-it:Correttori di acidità
+it:correttore di acidità, correttori di acidità, regolatore di acidità
 lt:Rūgštingumą reguliuojanti medžiaga
 lv:Skābuma regulētājs
 mt:Regolatur tal-Aċidità
@@ -457,7 +458,7 @@ pt:Corante
 ro:Colorant
 sk:Farbivo
 sl:Barvilo
-sv:Färgämne
+sv:färgämne, färgämnen
 wikidata:en:Q753009
 # ingredient/fr:colorant-alimentaire has 67 products in 5 languages @2019-03-27
 
@@ -1257,7 +1258,7 @@ sv:Bakpulver
 # da:Hævemiddel
 wikidata:en:Q905648
 
-en:stabiliser, stabilizer, stabilizers
+en:stabilizer, stabiliser, stabilizers
 bg:Стабилизатор
 cs:Stabilizátor
 de:Stabilisator, Stabilisatoren
@@ -3191,6 +3192,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
 # comment:en:The generic form (E333) is written in plural to distinguish it from E333iii
 
 en:calcium citrates, E333, E-333, E 333
+de:Calciumcitrate, Calciumcitrat
 es:Citratos de calcio
 fr:Citrates de calcium
 it:citrati di calcio
@@ -3338,7 +3340,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
 en:soya lecithin, soy lecithin, sin 322
 cs:sójový lecitin
 da:sojalecitin
-de:Sojalecithine, Sojalecithin, Soja-Lecithine
+de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
 el:λεκιθίνη σόγιας
 es:lecitina de soja, lecitina de soya
 fi:soijalesitiini
@@ -3370,7 +3372,7 @@ nl:GMO-vrije sojalecithine
 en:sunflower lecithin
 cs:Slunečnicový lecitin
 da:solsikkelecithin
-de:Sonnenblumenlecithine
+de:Sonnenblumenlecithine, Sonnenblumenlecithin
 el:λεκιθίνες ηλιστροπιου
 es:lecitina de girasol
 fi:auringonkukkalesitiini
@@ -3743,7 +3745,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Agar
 # description:en:CARRAGEENAN or carrageenins are a family of linear sulfated polysaccharides that are extracted from red edible seaweeds.
 
 # <en:gelling agent
-# <en:stabiliser
+# <en:stabilizer
 en:carrageenan, E407, e 407, e-407, INS 407
 bg:Карагенан
 ca:carragenina
@@ -4255,6 +4257,7 @@ nl:Niet-geamideerde pectines
 fr:pectine de fruit, pectines de fruits
 de:Fruchtpektin
 nl:vruchtenpectine
+it:pectina di frutta
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
 
 <en:pectin
@@ -4558,7 +4561,7 @@ et:Rasvhapete mono- ja diglütseriidid
 fi:rasvahappojen mono- ja diglyseridit
 fr:mono- et diglycérides d'acides gras, mono et diglycérides d'acide gras, diglycérides d'acide gras, diglycérides d'acides gras, mono et di glycérides d'acides gras, diglycérides d'acides gras
 hu:zsírsavak mono- és digliceridjei
-it:mono e digliceridi degli acidi grassi
+it:mono-e digliceridi degli acidi grassi, mono e digliceridi degli acidi grassi
 lt:Riebalų rūgščių mono- ir digliceridai
 lv:Taukskābju mono- un diglicerīdi
 mt:Mono- u digliċeridi tal-aċidi grassi
@@ -7588,7 +7591,7 @@ en:lysozyme from eggs
 de:Lysozym aus Ei
 es:lisozima de huevo
 fr:lysozyme d'œuf, lysozyme d'oeuf
-it:lisozima de uovo
+it:lisozima da uovo
 nl:lysozym uit ei
 sv:lysozym av ägg, av ägg
 # ingredient/fr:lysozyme-d’oeuf has 289 products in 10 languages @2018-12-18
@@ -7967,7 +7970,7 @@ vegetarian:en:maybe
 <en:microbial culture
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
 da:yoghurtkultur
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, Käsereikulturen, Starterkulturen
 el:γαλακτικά ένζυμα 
 es:fermentos lácticos, cultivos lácticos 
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
@@ -8746,7 +8749,7 @@ sh:laktaza
 sk:laktáza
 sl:laktaza
 sr:laktaza
-sv:laktas
+sv:laktas, laktasenzym
 tl:lactase
 uk:Лактаза
 uz:laktaza
@@ -9116,181 +9119,6 @@ nl:boterpoeder
 # ingredient/fr:poudre-au-beurre has 66 products in 2 languages @2019-07-10
 # poudre au beurre (BEURRE, maltodextrines, protéines de LAIT, émulsifiant : E471)
 
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
-#                                         B U T T E R F A T     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-# BUTTERFAT - the fatty portion of milk.
-
-en:butterfat, milkfat, pastry butter
-bs:mliječna mast
-cs:Mléčný tuk
-cy:braster menyn
-da:smørolie
-de:Butterreinfett, Milchfett, wasserfreies Milchfett
-eo:laktograso
-es:grasa butírica
-fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait, matière grasse du lait
-id:lemak susu
-it:burro anidro, burro di pasticceria, burro concentrato
-ja:乳脂肪
-ko:유지방
-ms:lemak mentega, lemak susu
-nb:melkefett
-nl:melkvet, boterconcentraat, botervet
-pl:tłuszcz mlecny
-pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
-ru:Молочный жир
-sl:mlečna maščoba
-sv:mølkfett
-th:ไขมันเนย
-tl:taba ng gatas
-uk:Молочний жир
-zh:乳脂
-# en-gb:butterfat
-# zh-hans:乳脂
-# zh-hant:乳脂
-# zh-hk:乳脂
-wikidata:en:Q909729
-wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
-vegan:en:no
-vegetarian:en:yes
-
-# CLARIFIED BUTTER - milk fat rendered from butter to separate the milk solids and water from the butterfat
-
-<en:butterfat
-en:clarified butter
-ar:عدل
-ca:mantega clarificada
-cs:přepuštěné máslo
-de:Butterschmalz
-es:mantequilla clarificada, mantequilla concentrada
-fr:beurre clarifié, beurre purifié, beurre fondu, beurre pâtissier, beurre patissier
-he:חמאה מזוקקת
-it:burro chiarificato, burro fuso
-ja:澄ましバター
-kk:Сары май
-ko:버터기름
-ky:Сары май
-lt:lydytas sviestas
-ms:mentega jernihan
-nl:boterolie
-os:Царв
-pl:masło klarowane
-ru:Топлёное масло
-sq:gjalpi i kthjelluar
-th:เนยใส
-uk:Пряжене масло
-zh:无水黄油
-# bxr:Шара тоһон
-wikidata:en:Q909729
-wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
-
-# GHEE - a class of butterfat that originated from the Indian subcontinent.
-
-<en:butterfat
-en:ghee
-ar:سمن حيواني
-az:sarı yağ
-bn:ঘি
-cs:ghí
-da:ghee
-de:ghee
-dv:ދަހީ
-eo:gio
-es:ghee
-fa:روغن کرمانشاهی
-fi:ghi, ghee
-fr:ghi, ghee
-ga:gí
-gu:ઘી
-he:גהי
-hi:घी
-hr:ghee
-hu:ghi
-id:minyak samin
-is:skírt smjör
-it:ghi
-ja:ギー
-ka:ერბო
-kn:ತುಪ್ಪ
-ko:기
-lt:ghi
-ml:നെയ്യ്
-mr:तूप
-ms:minyak sapi
-nb:ghi, ghee
-ne:घिउ
-nl:ghee, ghi
-nn:ghi, ghee
-pa:ਘਿਉ
-pl:ghi, ghee
-pt:ghi, ghee
-ru:Гхи
-sa:घृतम्
-si:ගිතෙල්
-sl:ghee
-sv:ghee
-ta:நெய்
-te:నెయ్యి
-uk:Ґгі, Гхі, Ґі
-ur:گھی
-zh:酥油
-# mai:घी
-# pnb:گھیؤ
-# sco:ghee
-wikidata:en:https://www.wikidata.org/wiki/Q323225
-
-
-# description:en:CONCENTRATED BUTTER - is an industrially-made “clarified butter.”
-
-<en:butterfat
-en:concentrated butter
-de:konzentrierte Butter
-es:Mantequilla concentrada
-fr:beurre concentré
-it:burro concentrato
-nl:geconcentreerde boter
-
-# BUTTERFAT - the fatty portion of milk.
-
-<en:dairy
-en:butterfat, milkfat, pastry butter
-bs:mliječna mast
-cs:Mléčný tuk
-cy:braster menyn
-da:smørolie
-de:Butterreinfett, Milchfett, wasserfreies Milchfett, Buttereinfett
-eo:laktograso
-es:grasa butírica
-fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait, matière grasse du lait
-id:lemak susu
-it:burro anidro, burro di pasticceria, burro concentrato
-ja:乳脂肪
-ko:유지방
-ms:lemak mentega, lemak susu
-nb:melkefett
-nl:melkvet, boterconcentraat, botervet
-pl:tłuszcz mlecny
-pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
-ru:Молочный жир
-sl:mlečna maščoba
-sv:mølkfett
-th:ไขมันเนย
-tl:taba ng gatas
-uk:Молочний жир
-zh:乳脂
-# en-gb:butterfat
-# zh-hans:乳脂
-# zh-hant:乳脂
-# zh-hk:乳脂
-wikidata:en:Q909729
-wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
-
-
 # description:en:MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
 <en:dairy
@@ -9494,12 +9322,25 @@ ca:llet pasteuritzada
 de:Pasteurisierte Milch
 es:leche pasteurizada
 fr:lait pasteurisé
+it:latte pastorizzato
 nl:gepasteuriseerde melk
+sv:pastöriserad mjölk
 
 <en:pasteurised milk
 en:UHT pasteurised milk
 de:UHT Milch
 fr:lait stérilisé U.H.T
+
+#pasteurisation of 15s under 72–74 °C
+<en:pasteurised milk
+sv:lågpastöriserad mjölk
+
+#pasteurisation of 5s under 80 °C
+<en:pasteurised milk
+sv:högpastöriserad mjölk
+
+<en:pasteurised milk
+sv:opastöriserad mjölk
 
 <en:sterilised milk
 fr:lait thermisé
@@ -9529,11 +9370,9 @@ en:fresh milk
 de:Frischmilch
 es:Leche fresca
 fr:lait frais
+it:latte fresco
 nl:verse melk
 # ingredient/fr:lait-frais has 79 products in 2 languages 2019-04-05
-
-<en:fresh milk
-fr:lait frais entier
 
 <en:fresh milk
 fr:lait frais pasteurisé
@@ -9565,7 +9404,7 @@ fr:lait maigre
 <en:milk
 en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk
 ar:حليب منزوع الدسم
-de:Magermilch
+de:Magermilch, entrahmte Milch
 es:Leche descremada, Leche desnatada, leche sin grasas
 et:Lõss
 fa:شیر خشک بدون چربی
@@ -9583,7 +9422,7 @@ nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
 pa:ਸਪਰੇਟਾ
 pt:Leite desnatado
 ru:Обезжиренное молоко
-sv:Skummjölk
+sv:Skummjölk, lättmjölk
 uk:Знежирене молоко
 vi:Sữa gầy
 # yue:脫脂奶
@@ -9593,7 +9432,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Skimmed_milk
 <en:skimmed milk
 <en:pasteurised milk
 en:pasteurized skimmed milk
-de:pasteurisierter Magermilch
+de:pasteurisierte Magermilch, pasteurisierter Magermilch
 es:leche desnatada pasteurizada
 fr:lait écrémé pasteurisé
 it:latte magro pastorizzato
@@ -9614,13 +9453,13 @@ fr:lait écrémé stérilisé uht issu de l'agriculture biologique
 
 <en:milk
 en:semi-skimmed milk, reduced-fat milk
-de:teilentrahmte milch
-es:leche parcialmente desnatada
+de:teilentrahmte Milch, fettarme Milch
+es:leche parcialmente desnatada, leche semidesnatada
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
 it:latte parzialmente scremato
 nb:Ekstra lett melk
 nl:halfvolle melk, gedeeltelijk afgeroomde melk
-sv:Lättmjölk
+sv:mellanmjölk
 wikidata:en:Q10572454
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
@@ -9665,7 +9504,7 @@ nl:magere melkpoeder van biologische oorsprong
 <en:semi-skimmed milk
 <en:sterilised milk
 en:sterilised semi-skimmed milk
-fr:lait demi écrémé stérilisé
+fr:lait demi-écrémé stérilisé
 
 <en:sterilised semi-skimmed milk
 en:organic UHT pasteurised semi-skimmed milk
@@ -9707,13 +9546,15 @@ nl:volle melk
 <en:fresh milk
 en:fresh whole milk
 de:Frische Vollmilch
-fr:lait entier frais
+fr:lait entier frais, lait frais entier
+it:latte intero fresco, latte fresco intero
 
 <en:fresh whole milk
 fr:lait frais entier microfiltré
 
 <en:fresh whole milk
-fr:lait frais pasteurisé entier
+fr:lait frais entier pasteurisé, lait frais pasteurisé entier
+it:latte intero fresco pastorizzato
 
 <en:fresh whole milk
 fr:lait frais de montagne entier pasteurisé
@@ -9821,6 +9662,7 @@ fr:lait de vache entier cru
 
 <en:cow's milk
 en:semi-skimmed cow's milk
+es:leche semidesnatada de vaca, leche de vaca semidesnatada
 fr:lait de vache demi écrémé
 
 <en:semi-skimmed cow's milk
@@ -9836,7 +9678,7 @@ es:Leche de vaca pasteurizada
 fr:lait de vache pasteurisé, lait pasteurisé de vache
 it:latte di mucca pastorizzato
 nl:gepasteuriseerde koemelk
-
+sv:pastöriserad komjölk
 
 <en:whole cow's milk
 fr:lait entier pasteurisé de vache
@@ -10137,6 +9979,7 @@ hu:tejpor
 it:latte in polvere
 nl:melkpoeder
 ru:сухое молоко
+sv:mjölkpulver
 vegan:en:no
 vegetarian:en:yes
 nova:en:3
@@ -10144,6 +9987,7 @@ nova:en:3
 <en:milk powder
 en:whole milk powder
 fr:poudre de lait écrémé
+sv:skummjölkspulver
 
 <en:whole milk powder
 <en:milk from France
@@ -10415,6 +10259,7 @@ ja:ヨーグルト
 nl:Joghurt, yoghurt, jogurt
 ru:йогурт
 th:นมเปรี้ยว
+sv:yoghurt
 carbon_footprint_fr_foodges_ingredient:fr:Yaourt
 carbon_footprint_fr_foodges_value:fr:2.9
 vegetarian:en:yes
@@ -10425,7 +10270,7 @@ nl:biologische yoghurt
 
 <en:yogurt
 fr:yogourt maigre
-de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch
+de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch, Joghurt mild
 it:yogurt magro
 nl:magere yoghurt
 # ingredient/nl:magere-yoghurt has 1 product @2019-05-24
@@ -10573,6 +10418,7 @@ fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre
 hu:Tejsavópor
 it:siero di latte in polvere
 nl:weipoeder
+sv:vasslepulver
 
 <en:whey powder
 en:partially demineralized powdered whey
@@ -10628,6 +10474,7 @@ de:Molkenerzeugnis, formel auf molkebasis
 es:Producto de suero
 fr:produit de lactosérum, produit de petit-lait, produit à base de lactosérum, préparation à base de lactosérum, dérivé de lactosérum
 it:derivati del siero di latte, la preparazione del siero di latte
+sv:vassleprodukt
 # ingredient/fr:produit-de-lactosérum has 22 products in 4 languages @2019-02-07
 # ingredient/fr:préparation-à-base-de-lactosérum has 34 products @2019-03-18
 
@@ -10744,6 +10591,7 @@ fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé,
 it:crema pastorizzata
 nl:gepasteuriseerde room
 pt:nata pasteurizada
+sv:pastöriserad grädde
 # ingredient/pasteurized-cream has 1877 products in 9 languages @2019-07-12
 
 <en:cream
@@ -14554,7 +14402,7 @@ bn:লবণ
 bo:ཚྭ།
 br:Holen
 bs:So
-ca:Sal comuna, sal de cuina
+ca:sal, sal comuna, sal de cuina
 cs:Sůl
 cy:Halen
 da:Husholdningssalt, køkkensalt, bordsalt, salt
@@ -14904,6 +14752,7 @@ es:carne de vaca
 fr:bœuf, boeuf, Boeufs
 it:manzo
 nl:rund
+sv:nötkött
 vegan:en:no
 vegetarian:en:no
 # ingredient/fr:bœuf has 257 products in 7 languages @2019-04-19
@@ -15533,6 +15382,7 @@ es:cerdo
 fr:porc
 it:suino
 nl:varken
+sv:gris
 vegan:en:no
 vegetarian:en:no
 
@@ -15545,6 +15395,7 @@ es:carne de cerdo
 fr:viande de porc
 it:carne di suino
 nl:Varkensvlees
+sv:griskött
 carbon_footprint_fr_foodges_ingredient:fr:Viande de porc
 carbon_footprint_fr_foodges_value:fr:7.4
 # Facteur GES kg CO2 eq / kg d'ingrédient en sortie de magasin (poids net)
@@ -15847,6 +15698,7 @@ de:Schinken
 es:Jamón
 fr:jambon de porc, jambon
 it:prosciutto
+sv:skinka
 
 <en:ham
 fr:jambon de porc issu d'animaux nourris sans ogm
@@ -15925,6 +15777,7 @@ fr:jarret de porc
 
 <en:pork meat
 fr:cuisse de porc
+it:coscia di suino
 
 <en:pork meat
 fr:gorge de porc
@@ -16073,6 +15926,7 @@ fr:boyau naturel de porc
 
 # <en:broth
 fr:bouillon de boeuf
+sv:nötköttsbuljong
 
 fr:extrait de boeuf
 
@@ -16307,6 +16161,7 @@ es:Almidón modificado de maiz
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidon de maïs modifié, amidons modifiés de maïs
 it:amido modificato di mais
 nl:Gemodificeerd maïszetmeel
+sv:modifierad majsstärkelse
 
 <en:modified starch
 <fr:amidon de maïs cireux
@@ -16338,7 +16193,7 @@ nn:Potetmjøl
 pl:Mąka ziemniaczana
 pt:fecula de batata
 ru:Картофельный крахмал
-sv:potatismjöl
+sv:potatismjöl, potatisstärkelse
 uk:Картопляний крохмаль
 zh:太白粉
 wikipedia:en:https://en.wikipedia.org/wiki/Potato_starch
@@ -16445,29 +16300,204 @@ fr:amidons de blé et de pomme de terre
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                         V E G E T A B L E    O I L S   A N D   F A T S     S E C T I O N
+#                                 O I L S   A N D   F A T S   S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# description:en:Several edible vegetable and animal oils, and also fats, are used for various purposes in cooking and food preparation. In particular, many foods are fried in oil much hotter than boiling water. Oils are also used for flavoring and for modifying the texture of foods (e.g. Stir Fry). Cooking oils are derived either from animal fat, as butter, lard and other types, or plant oils from the olive, maize, sunflower and many other species.
 
-# Cooking oil is plant, animal, or synthetic fat used in frying, baking, and other types of cooking
+# comment:en:This is a convenience ingredient, so that there is only ONE parent for all oils and fats
 
-en:oil, cooking oil, frying oil
-cs:Olej
-de:Öl, Speiseöl
-es:aceite
-fr:huile, huiles, huile de cuisine, huile de friture
-it:olio
-nl:olie, oliën
-ru:масло, масла
+en:oil and fat, oils and fats
+bg:масла и мазнини
+cs:oleji a tuky
+da:olier og fedtstoffer
+de:Speiseöle und -fette
+el:έλαια και λίπη
+es:aceites y grasas
+et:õlid ja rasvad
+fi:öljyt ja rasvat
+fr:huiles et graisses
+hu:Olajok és zsírok
+it:oli e grassi
+lt:Aliejus ir riebalai
+lv:Eļļas un tauki
+mt:żjut u xaħmijiet
+nl:oliën en vetten
+pl:oleje i tłuszcze
+pt:óleos e gorduras
+ro:uleiuri și grăsimi
+ru:растительным и животным жирам
+sk:Oleje a tuky
+sl:olja in maščobe
+sv:oljor och fetter
 vegan:en:maybe
 vegetarian:en:maybe
+from_palm_oil:en:maybe
+
+# description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
+# comment:en:In some languages one distinghuishes between edible and non-edible oils
+
+<en:oil and fat
+en:vegetable oil and fat
+de:pflanzliche Öle und Fette
+es:aceites y grasas vegetales
+et:taimsed rasvad ja õlid
+fr:huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
+it:oli e grassi vegetali, olio e grasso vegetale
+lv:Augu eļļas un tauki
+mt:xaħam u żejt veġetali
+nl:plantaardige vetten en olie
+pl:tłuszcz olej roślinne
+pt:gordura e óleo vegetais
+from_palm_oil:en:maybe
+vegan:en:yes
+vegetarian:en:yes
+carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
+carbon_footprint_fr_foodges_value:fr:2.6
+# ingredient/vegetable-oil-and-fat has 120986 products @2019-07-10
+
+# description:en:Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
+
+<en:oil and fat
+en:oil, cooking oil
+ak:nwo
+an:Aceite
+ar:زيت
+# ast:Aceite
+az:Yağ
+# azb:یاغ
+# be-tarask:алей
+bg:масло
+bn:তেল
+br:Eoul
+bs:Ulje
+# bxr:Тоһон
+ca:oli
+cs:olej
+cy:Olew
+da:Olie
+de:Öl, Speiseöl, Öle
+# de-ch:Öle
+# din:Miök
+el:Λάδι, Έλαιο
+# eml:Òli
+# en-ca:Oil
+# en-gb:Oil
+eo:oleo
+es:aceite, aceites
+et:Õli
+eu:Olio
+fa:روغن
+fi:öljy
+fr:huile, huiles, huile de cuisine
+ga:Ola
+gd:Ola
+gl:Aceite
+he:שמן
+hr:Ulja, Ulje
+ht:Lwil
+hu:olaj
+hy:յուղ
+id:minyak
+io:Oleo
+is:Olía
+it:olio
+ja:油
+# jam:Ail
+jv:Lenga
+kg:Mafuta
+kn:ಎಣ್ಣೆ
+ko:기름
+# lad:Azete
+# lmo:Oli
+ln:Mafúta
+lo:ນ້ຳມັນ
+lt:Aliejus
+lv:eļļa
+# lzh:油
+mg:Menaka
+mk:масло
+ml:എണ്ണ
+ms:Minyak
+my:ဆီ
+# myv:Ой
+# mzn:راغون
+# nan:Iû
+nb:olje
+# new:चिकं
+nl:olie, oliën
+nn:olje
+oc:Òli
+pa:ਤੇਲ
+# pcd:Eule
+pl:oleje
+# pnb:تیل
+pt:óleo
+# pt-br:óleo
+ro:Ulei
+ru:масло, масла
+sa:तैलम्
+# sco:Ile
+# sgs:Alėjos
+sh:Ulje
+si:තෙල්
+sk:Olej
+sl:Olje
+so:Saliid
+sr:уље
+# sr-ec:уље
+# sr-el:ulje
+su:Minyak
+sv:olja
+sw:Mafuta
+ta:எண்ணெய்
+te:నూనె
+th:น้ำมัน
+tl:Langis
+tr:yağ
+tt:Näft
+uk:Олія
+ur:تیل
+uz:Moy
+# vec:Ojo
+vi:dầu
+# vro:Õli
+wa:ôle
+# war:Asayti
+yi:בוימל
+yo:Epo
+# yue:油
+zh:油
+# zh-hans:油
+# zh-hant:油
+wikidata:en:Q42962
+wikipedia:en:https://en.wikipedia.org/wiki/Cooking_oil
+
+# description:en:Hydrogenation converts liquid vegetable oils into solid or semi-solid fats, such as those present in margarine. Changing the degree of saturation of the fat changes some important physical properties, such as the melting range, which is why liquid oils become semi-solid.
+
+
+# nova:en:hydrogenated-oil
+<en:oil
+en:hydrogenated oil
+de:gehärtetes öl
+es:aceite hidrogenado
+fr:Huile hydrogénée
+it:olio idrogenato
+nl:Gehydrogeneerde olie
+wikidata:en:Q57656844
+wikidata:en:Q11587683
+wikipedia:en:https://en.wikipedia.org/wiki/Hydrogenation#Food_industry
+# ingredient/hydrogenated-oil has 283 products in 9 languages @2019-07-10
 
 <en:oil
+en:frying oil
 fr:Huile de friture
 
-# description:en:Fat is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. 
 
+# description:en:FAT is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules. 
+
+<en:oil and fat
 #  nova:en:fats
 en:fat, fats
 af:Vet
@@ -16564,40 +16594,85 @@ zh:脂肪
 # zh-tw:脂肪
 wikidata:en:Q127980
 wikipedia:en:https://en.wikipedia.org/wiki/Fat
-# ingredient/fr:graisse has 143 products in 6 languages @2019-03-30
+# ingredient/fat has 7494 products in 29 languages @2019-07-10
+vegan:en:no
 vegetarian:en:maybe
-vegan:en:maybe
-
-# comment:en: fr:gras is often not an ingredient but an adjective. Might require repairs to the ingredient lists.
-
-<en:fat
-fr:gras
-
+from_palm_oil:en:no
 
 <en:fat
 en:hydrogenated fat
-fr:Graisse hydrogénée
+bg:хидрогенирано масло
+de:hydriertes Fett
+es:grasa hidrogenada
+fr:graisse hydrogénée
+it:grassi idrogenati
+nl:gehydrogeneerd vet
+# ingredient/hydrogenated-fat has 277 products in 8 languages @2019-07-10
+vegan:en:no
+vegetarian:en:maybe
 
+<en:hydrogenated fat
+en:fully hydrogenated fat
+de:komplett hydriertes Fett
+es:grasa totalmente hidrogenada
+fr:graisse totalement hydrogénée
+it:grassi totalmente idrogenati
+nl:volledig gehydrogeneerde vet
+
+######################################## animal fat #################################
+
+# description:en:ANIMAL FATS and oils are lipid materials derived from animals. Physically, oils are liquid at room temperature, and fats are solid. Although many animal parts and secretions may yield oil, in commercial practice, oil is extracted primarily from rendered tissue fats obtained from livestock animals like pigs, chickens and cows.
 
 
 <en:fat
 en:animal fat
+an:Saín
+ar:دهن حيواني
+ca:sagí
+da:Animalsk fedt
 de:Tierfett, tierisches Fett
 es:Grasa animal
+eu:Gantz
+fi:Eläinrasva
 fr:Graisse animale
-it:grassi animali
+hy:Կենդանական յուղ
+it:grassi animali, grasso animale
+ja:動物性脂肪
+kk:Жануар майы
+# kk-arab:جانۋار مايى
+# kk-cn:جانۋار مايى
+# kk-cyrl:Жануар майы
+# kk-kz:Жануар майы
+# kk-latn:Janwar maýı
+# kk-tr:Janwar maýı
+ko:동물성 기름
+ln:Mpɔ́ngɔ
+nl:dierlijk vet
+pl:tłuszcz zwierzęcy
+ru:Животные жиры
+sv:Animaliskt fett
+tr:Hayvansal yağ
+uk:Тваринні жири
+zh:動物脂肪
+# zh-hans:动物性油脂
+# zh-hant:動物性油脂
+wikidata:en:Q1423543
+wikipedia:en:https://en.wikipedia.org/wiki/Animal_fat
+# ingredient/animal-fat has 3013 products in 11 languages @2019-07-10
+vegan:en:no
+vegetarian:en:maybe
 
 <en:animal fat
-<en:sheep
+# from:en:sheep
 en:sheeps fat
 fr:gras de mouton
 nl:schaapsvet
-# ingredient/fr:gras-de-mouton has 41 products in 3 languages @2019-03-01
+# ingredient/sheeps-fat has 79 products in 3 languages @2019-07-10
 
 
 # description:en:LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
 
-<en:pork
+# from:en:pork
 <en:animal fat
 en:lard, pork fat
 an:Redetiu
@@ -16650,44 +16725,174 @@ zh:豬油
 # yue:豬油
 wikidata:en:Q72827
 wikipedia:en:https://en.wikipedia.org/wiki/Lard
-# ingredient/fr:saindoux has 377 products in 4 languages @2019-05-08
-# ingredient/fr:gras-de-porc has 2110 products in 6 languages @2019-03-01
+# ingredient/lard has 2818 products in 10 languages @2019-07-10
 
 <en:animal fat
+en:calf fat
 fr:gras de veau
-# ingredient/fr:gras-de-bovin has 70 products in french @2019-03-29
+nl:kalfsvet
+# ingredient/fr:gras-de-bovin has 90 products in french @2019-07-10
 
+<en:animal fat
+en:beef fat
+de:Rinderfett
 fr:gras de bœuf, graisse de bœuf
-# ingredient/fr:gras-de-bœuf has 109 products in french @2019-03-01
+it:grasso di manzo
+nl:rundvet
+# ingredient/fr:gras-de-bœuf has 365 products in 5 languages @2019-07-10
 
-# description:This parent is used to indicate ingredients that might have been derived from palm oil. Note that this includes also those that have been derived from palm oil.
+########################################## milk fat ################################
 
-# nova:en:hydrogenated-oil
-<en:oil
-en:hydrogenated oil
-fr:Huile hydrogénée
-nl:Gehydrogeneerde olie
+# comment:en:milkfat shoild formally a child of en:animal fat. However on products we never see this happen.
 
-# description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
-# comment:en:In some languages one distinghuishes between edible and non-edible oils
+# comment:en:MILKFAT might be a synonym for butter
 
-<en:oil
-en:vegetable oil and fat
-cs:Rostlinné oleje a tuky
-de:pflanzliche Öle und Fette
-es:aceites y grasas vegetales
-fr:huile et graisse végétale, huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
-it:olio e grasso vegetale
-nl:plantaardige vetten en olie
-pl:tłuszcz olej roślinne
-pt:gordura e óleo vegetais
-from_palm_oil:en:maybe
-vegan:en:yes
+<en:fat
+en:milkfat, milk fat
+de:Milchfett
+fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
+nb:melkefett
+nl:melkvet
+ro:grasimi din lapte
+vegan:en:no
 vegetarian:en:yes
-carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
-carbon_footprint_fr_foodges_value:fr:2.6
 
-# In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
+
+# description:en:BUTTERFAT - the fatty portion of milk.
+# comment:en:BUTTERFAT seems to be more than just butter, water has been removed
+
+<en:milkfat
+en:butterfat, pastry butter, anhydrous milk fat, concentrated butter
+bg:безводно масло
+bs:mliječna mast
+cs:mléčný tuk
+cy:braster menyn
+da:smørolie
+de:Butterreinfett, wasserfreies Milchfett
+el:βούτυρο τηγμένο
+eo:laktograso
+es:grasa butírica, mantequilla concentrada
+fi:voirasva
+fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré
+hu:vajolaj, mogyoromassza
+id:lemak susu
+it:burro anidro, burro di pasticceria, burro concentrato
+ja:乳脂肪
+ko:유지방
+ms:lemak mentega, lemak susu
+nb:vannfritt melkefett
+nl:boterconcentraat, botervet, watervrij melkvet, boterolie, geconcentreerde boter
+pl:tłuszcz mlecny
+pt:gordura butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra
+ro:grasimi din unt
+ru:Молочный жир
+sl:mlečna maščoba
+sr:anhidrovana mlečna
+sv:mjölkfett, mølkfett
+th:ไขมันเนย
+tl:taba ng gatas
+uk:Молочний жир
+zh:乳脂
+# en-gb:butterfat
+# zh-hans:乳脂
+# zh-hant:乳脂
+# zh-hk:乳脂
+wikidata:en:Q909729
+wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
+vegan:en:no
+vegetarian:en:yes
+# ingredient/butterfat has 9828 products in 35 languages @2019-07-10
+
+# decription:en:CLARIFIED BUTTER is milk fat rendered from butter to separate the milk solids and water from the butterfat
+# comment:en:Not sure if this is really different from butterfat. Maybe the clarification is a special process.
+
+<en:butterfat
+en:clarified butter
+ar:عدل
+ca:mantega clarificada
+cs:přepuštěné máslo
+de:Butterschmalz, 
+es:mantequilla clarificada, 
+fr:beurre clarifié
+he:חמאה מזוקקת
+it:burro chiarificato, burro fuso
+ja:澄ましバター
+kk:Сары май
+ko:버터기름
+ky:Сары май
+lt:lydytas sviestas
+ms:mentega jernihan
+os:Царв
+pl:masło klarowane
+ru:Топлёное масло
+sq:gjalpi i kthjelluar
+th:เนยใส
+uk:Пряжене масло
+zh:无水黄油
+# bxr:Шара тоһон
+wikidata:en:Q909729
+wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
+
+# description:en:GHEE is a type of butterfat that originated from the Indian subcontinent.
+
+<en:butterfat
+en:ghee
+ar:سمن حيواني
+az:sarı yağ
+bn:ঘি
+cs:ghí
+da:ghee
+de:ghee
+dv:ދަހީ
+eo:gio
+es:ghee
+fa:روغن کرمانشاهی
+fi:ghi, ghee
+fr:ghi, ghee
+ga:gí
+gu:ઘી
+he:גהי
+hi:घी
+hr:ghee
+hu:ghi
+id:minyak samin
+is:skírt smjör
+it:ghi
+ja:ギー
+ka:ერბო
+kn:ತುಪ್ಪ
+ko:기
+lt:ghi
+ml:നെയ്യ്
+mr:तूप
+ms:minyak sapi
+nb:ghi, ghee
+ne:घिउ
+nl:ghee, ghi
+nn:ghi, ghee
+pa:ਘਿਉ
+pl:ghi, ghee
+pt:ghi, ghee
+ru:Гхи
+sa:घृतम्
+si:ගිතෙල්
+sl:ghee
+sv:ghee
+ta:நெய்
+te:నెయ్యి
+uk:Ґгі, Гхі, Ґі
+ur:گھی
+zh:酥油
+# mai:घी
+# pnb:گھیؤ
+# sco:ghee
+wikidata:en:https://www.wikidata.org/wiki/Q323225
+# ingredient/ghee has 24 products in 3 languages @2019-07-10
+
+
+################################# vegetable oil ####################
+
+# description:en:In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
 
 # nova:en:vegetal-oil
 # nova:en:vegetable-oil
@@ -16713,7 +16918,7 @@ gl:Aceite vexetal
 hi:वनस्पति तेल
 id:Minyak nabati
 is:Grænmetisolía
-it:Olio vegetale
+it:Olio vegetale, oli vegetali
 ja:植物油
 ko:식물성 기름
 ky:Өсүмдүк майлары
@@ -16737,6 +16942,7 @@ zh:植物油
 # roa-rup:Untulemnu
 # sco:Vegetable ile
 wikipedia:en:https://en.wikipedia.org/wiki/Vegetable_oil
+# ingredient/vegetable oil has 103341 products @2019-07-10
 
 <en:vegetable oil
 fr:huile végétale raffinée
@@ -16787,6 +16993,8 @@ nl:volledig gehydrogeneerde plantaardig vet
 en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
 fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée, graisses végétales non hydrogénées
 
+
+
 <en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
 de:Emulgator Mono- und Diglyceride von Fettsäuren
@@ -16795,18 +17003,19 @@ fr:huiles végétales non hydrogénées, huile végétale non hydrogénée
 it:oli vegetali non idrogenati
 
 <en:vegetable oil
+<en:hydrogenated oil
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
 
-# description:en:Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
+# description:en:PALM OIL is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
 <en:vegetable oil and fat
 en:palm oil and fat
 cs:Palmový olej a tuk
-de:Palmöl und Palmfett, Palmöl und Fett
-es:aceite de palma
-fr:Huile et matière grasse de palme, Matieres grasses et huile végétale de palme
-it:Olio e grasso di palma
+de:palmöl und Palmfett, Palmöl und Fett
+fr:huile et matière grasse de palme, Matieres grasses et huile végétale de palme
+it:olio e grasso di palma
+nl:palm olie en vet
 from_palm_oil:en:yes
 
 <en:vegetable oil and fat
@@ -16922,7 +17131,7 @@ de:Palmfett
 es:grasa de palma, grasa vegetal de palma
 fi:palmurasva
 fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
-it:grasso di palma
+it:grasso di palma, grasso vegetale di palma
 nl:palmvet
 pt:gordura de palma
 se:palmina mast
@@ -16942,14 +17151,17 @@ en:non-hydrogenated palm oil
 de:ungehärtetes Palmöl, nicht-hydriertes Palm
 es:aceite de palma no hidrogenado
 fr:huile de palme non hydrogénée
+it:olio di palma non idrogenato
 nl:niet-gehydrogeneerde palm, niet gehydrogeneerde palmolie
 
 <en:palm oil
-<en:hydrogenated oil
+<en:hydrogenated vegetable oil
 en:hydrogenated palm oil
-de:teilweise gehärtetes Palmöl
+bg:хидрогенирано палмово масло
+de:gehärtetes Palmöl
 es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
+it:olio di palma idrogenato
 nl:gehydrogeneerde palmolie
 
 <en:hydrogenated palm oil
@@ -16962,7 +17174,7 @@ fr:huile de palme partiellement hydrogénée
 
 <en:palm oil
 fr:huile de palme partiellement hydrogénée
-de:teilweise hydriertes Palmöl
+de:teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 nl:gedeeltelijk geharde palmolie
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis. It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
@@ -17039,7 +17251,7 @@ bg:Кокосово масло
 bn:নারিকেল তেল
 cs:Kokosový olej
 da:kokosolie
-de:Kokosnussöl
+de:Kokosnussöl, Kokosöl
 es:aceite de coco
 et:Kookosõli
 eu:Koko olio
@@ -17407,7 +17619,7 @@ gl:Aceite de millo
 he:שמן תירס
 hu:Kukoricaolaj
 id:Minyak jagung
-it:Olio di semi di mais
+it:Olio di semi di mais, olio di mais
 ja:コーン油
 kk:Жүгері майы
 ko:옥수수기름
@@ -17651,7 +17863,7 @@ en:shea butter
 ak:Nkuto
 ar:زبدة الشيا
 bg:Масло от ший
-de:Shea Butter, Sheabutter
+de:Shea Butter, Sheabutter, Shea
 el:λίπος shea
 eo:karitea butero
 es:manteca de karité
@@ -18113,6 +18325,17 @@ uk:Риб'ячий жир
 vi:Dầu cá
 zh:魚油
 wikidata:en:Q1786125
+vegan:en:no
+vegetarian:en:no
+from_palm_oil:en:no
+
+<en:oil
+en:marine oil
+fr:huile marine
+vegan:en:no
+vegetarian:en:no
+from_palm_oil:en:no
+
 
 
 <en:fat
@@ -18224,7 +18447,7 @@ sk:Ocot
 sl:Kis
 so:Khal
 sr:sirće, Сирће
-sv:Vinäger
+sv:ättika, vinäger
 ta:புளிங்காடி
 tg:Suka
 th:น้ำส้มสายชู
@@ -18265,16 +18488,18 @@ es:vinagre de vino
 fr:vinaigre de vin
 it:aceto di vino
 nl:wijnazijn
+sv:vinsvinäger
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
 carbon_footprint_fr_foodges_value:fr:4.2
 
 <en:wine vinegar
 en:white wine vinegar
-de:Weissweinessig
+de:Weißweinessig, Weissweinessig
 es:Vinagre de vino blanco
 fr:vinaigre de vin blanc
 it:aceto di vino bianco
 nl:witte wijnazijn
+sv:vitvinsvinäger
 
 <en:vinegar
 en:alcohol vinegar
@@ -18297,7 +18522,7 @@ en:cider vinegar, apple cider vinegar
 ar:خل التفاح
 bg:Ябълков оцет
 de:Apfelessig
-es:vinagre de sidra, vinagre de sidra de manzana
+es:vinagre de sidra, vinagre de sidra de manzana, vinagre de manzana
 fa:سرکه سیب
 fr:vinaigre de cidre, vinaigre de cidre de pomme, vinaigre de pomme
 he:חומץ תפוחים
@@ -19950,6 +20175,7 @@ es:aroma, aromas
 fr:arôme, arômes
 it:aroma, aromi
 nl:aroma, aroma's
+sv:arom, aromer
 vegan:en:maybe
 vegetarian:en:maybe
 
@@ -19965,6 +20191,10 @@ pt:preparacao aromatizante
 # ingredient/fr:préparation-aromatique has 64 products in 3 languages @2019-04-11
 # usage:fr: préparation aromatique (arôme naturel, colorants : caramel, curcumine, extrait de paprika, céleri)
 
+<en:flavouring preparation
+de:Würze, Speisewürze, Suppenwürze
+# liquid, pasty or dry product found in 132 German products products @2019-09-15
+wikidata:en:Q2596994
 
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
@@ -19973,6 +20203,7 @@ es:aroma natural, aromas naturales
 fr:arôme naturel, arômes naturels
 it:aroma naturale, aromi naturali
 nl:Natuurlijke smaakstoffen, natuurlijk aroma, natuurlijke aroma's
+sv:naturlig arom, naturliga aromer
 vegan:en:maybe
 vegetarian:en:maybe
 
@@ -20423,7 +20654,7 @@ da:naturlig vanillearoma
 de:natürliches Vanillearoma, natürliches Vanille-Aroma
 es:aroma natural de vainilla
 fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
-it:aroma naturale di vaniglia
+it:aroma naturale di vaniglia, aroma naturale vaniglia
 nb:naturlig vanilijarom
 nl:natuurlijk vanillearoma
 pl:naturalny aromat wanilii
@@ -20546,7 +20777,7 @@ da:røgaroma
 de:Raucharoma
 es:aroma de humo
 fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee
-it:aroma di affumicato
+it:aroma di affumicato, aroma di affumicatura
 nl:rookaroma
 
 <en:flavouring
@@ -22171,7 +22402,7 @@ de:Gerstenmalzextrakt
 es:extracto de malta de cebada
 et:odralinnaseekstrakt
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
-it:estratto di mato d'orzo
+it:estratto di malto d'orzo
 nl:Gerstemoutextract
 zh:大麥芽精
 
@@ -22410,7 +22641,7 @@ eu:Olo-malutak
 fi:kaurahiutaleet
 fr:flocons d'avoine, flocon d'avoine
 hu:zabpehely
-it:fiocchi di avena
+it:fiocchi di avena, fiocchi d'avena
 ja:ロールド・オーツ
 ko:납작귀리
 lt:avižiniai dribsniai
@@ -22893,7 +23124,7 @@ fr:farines de graines et céréales
 
 <en:cereal flour
 <en:wheat
-en:wheat flour
+en:wheat flour, wheatflour
 ar:طحين القمح
 bg:пшенично брашно
 bs:pšenično brašno
@@ -22980,6 +23211,7 @@ es:harina de trigo duro
 fr:farine de blé dur
 it:farina di grano duro
 nl:durum tarwemeel
+sv:durumvetemjöl
 
 # Question
 
@@ -23022,8 +23254,6 @@ fr:farine de blé tendre
 it:farina di grano tenero
 
 <en:wheat flour
-<en:wheat flour
-de:Weissmehl
 de:Weissmehl
 fr:farine blanche
 it:farina bianca
@@ -23062,6 +23292,7 @@ en:barley malt flour
 de:Gerstenmalzmehl
 es:harina de malta de cebada
 fr:farine de malt d'orge, farine d'orge malté
+it:farina di orzo maltato, farina di orzo maltato
 
 <en:barley flour
 fr:farine d'orge malté toasté, farine d'orge maltée torréfiée, farine d'orge malté torréfié
@@ -23091,7 +23322,7 @@ fr:Farine de blé d'épeautre T110
 en:wholemeal spelt flour
 de:Dinkelvollkornmehl
 es:harina de espelta integral
-fr:farine complète d’épeautre
+fr:farine complète d’épeautre, farine d'épeautre complète, farine d'épeautre complet
 it:farina integrale di spelta
 nl:volkoren speltmeel
 
@@ -23106,11 +23337,6 @@ fr:farine d'épeautre dextrinée
 nl:gedextrineerd speltmeel
 
 # Question
-
-<en:spelt flour
-<en:wholemeal flour
-en:wholemeal spelt flour
-fr:farine d'épeautre complète, farine d'épeautre complet
 
 <en:cereal flour
 en:oat flour
@@ -23316,7 +23542,7 @@ en:quinoa flour
 de:Quinoa-Mehl, Quinoamehl
 es:Harina de quinoa
 fr:farine de quinoa
-it:Farina di Quinoa
+it:Farina di quinoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa-flour
 # 173 products in 5 languages @2018-09-22
 
@@ -24384,6 +24610,7 @@ nl:rijst gemalen
 #en:rice flour
 
 <en:rice
+es:sémola de arroz
 fr:semoule de riz, son de riz
 de:Reisgriess
 it:semolino di riso
@@ -24769,6 +24996,7 @@ es:azúcar caramelizado
 fr:sucre brun, sucre caramel, sucre caramélisé
 it:zucchero caramellato
 nl:gekarameliseerde suiker
+sv:karamelliserat socker
 
 <en:sugar
 en:white sugar
@@ -25578,7 +25806,7 @@ bs:Fruktoza
 ca:Fructosa
 cs:Fruktóza
 da:Fruktose
-de:Fructose
+de:Fructose, Fruktose
 el:Φρουκτόζη
 eo:Fruktozo
 es:fructosa
@@ -25931,6 +26159,7 @@ pl:dekstroza
 ro:dextroza
 sk:dextróza
 sl:dekstroza
+sv:druvsocker, dextros
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrose
 # 29818 products in 30 languages @2018-09-24
 
@@ -26375,6 +26604,7 @@ hu:tejfehérje
 it:proteine del latte
 nl:melkeiwit, melkeiwitten
 ru:молочный белок, молочные белки
+sv:mjölkprotein
 nova:en:4
 vegetarian:en:yes
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
@@ -26678,7 +26908,7 @@ el:κακαόμαζα
 es:Pasta de cacao
 fi:kaakaomassa
 fr:pâte de cacao, cacao en pâte, masse de cacao
-it:pasta di cacao
+it:pasta di cacao, massa di cacao
 kk:үгілген какао
 ky:майдаланган какао
 lv:kakavos masė
@@ -26737,7 +26967,7 @@ fr:poudre de cacao cru
 en:fat reduced cocoa powder, low-fat cocoa powder
 cs:Kakaový prášek se sníženým obsahem tuku
 de:fettarmes Kakaopulver, Kakaopulver stark entölt
-es:cacao magro en polvo, cacao desgrasado en polvo
+es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado
 fi:vähärasvainen kaakaojauhe
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé
 it:cacao magro in polvere
@@ -26782,7 +27012,7 @@ et:Kakaopuu seemned
 fr:fèves de cacao
 hu:kakaóbab
 id:Biji kakao
-it:granelli di cacao
+it:fave di cacao, semi di cacao, granelli di cacao
 mk:какаово зрно
 ms:Biji koko
 nl:cacaobonen, cacaoboon
@@ -26812,14 +27042,15 @@ nl:bio cacaobonen
 <en:cocoa bean
 en:cocoa bean chips
 de:kakaobohnenchips
-es:pepitas de cacao, trozos de habas de cacao
+es:pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fr:éclats de fèves de cacao, éclats de fèves de cacao
-it:scaglie di cacao
+it:granella di semi di cacao, scaglie di cacao
 # ingredient/fr:éclats-de-fèves-de-cacao has 122 products in 6 languages @2019-05-26
 
 <en:cocoa bean chips
 fr:éclats de fèves de cacao torréfiés
-es:trozos de habas de cacao tostados
+es:trozos de habas de cacao tostados, trocitos de pepitas de cacao tostadas
+it:granella di fave di cacao tostate
 nl:geroosterde schilfers van cacaobonen
 # ingredient/fr:éclats-de-fèves-de-cacao-torréfiés has 34 products in 4 languages @2019-05-25
 # usage:es:trozos de habas de cacao caramelizados (trozos de habas de cacao tostados, azúcar)
@@ -26828,6 +27059,7 @@ nl:geroosterde schilfers van cacaobonen
 <en:cocoa bean chips
 es:pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
 fr:éclats de fèves de cacao caramélisés
+it:granella caramellata di semi di cacao
 nl:gekaramelliseerde schilfers van cacaobonen
 # ingredient/fr:éclats-de-fèves-de-cacao-caramélisés has 35 products @2019-05-25
 # usage:es:pepitas de cacao caramelizadas (cacao, azúcar)
@@ -28129,8 +28361,10 @@ de:Weizengluten, Weizenkleber
 es:gluten de trigo
 et:nisugluteen
 fr:gluten de blé, gluten de froment
+it:glutine di grano, glutine di frumento
 nl:tarwegluten
 pl:gluten pszenny
+sv:vetegluten
 
 <en:wheat gluten
 fr:gluten vital de blé
@@ -30436,7 +30670,7 @@ hy:ծիրան
 id:aprikot
 io:Abrikoto
 is:apríkósa
-it:albicocca
+it:albicocca, albicocche
 ja:杏子
 ka:გარგარი
 kk:өрік
@@ -31422,7 +31656,7 @@ id:Apel
 ie:pom
 io:pomo
 is:Epli
-it:meleiu:ᑭᒻᒥᓇᐅᔭᖅ
+it:mela, mele
 ja:リンゴ
 jv:Apel
 ka:ვაშლი
@@ -31824,7 +32058,7 @@ nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap
 <en:concentrated apple juice
 en:apple juice from concentrate
 de:Apfelsaft aus Konzentrat, Apfelsaft aus Apfelsaftkonzentrat
-es:Zumo de manzana desde concentrado
+es:Zumo de manzana desde concentrado, zumo de manzana a partir de concentrado
 fr:jus de pomme à base de concentré, jus de pomme à base de jus concentré, Jus de pomme à base de jus de pomme concentré, jus de pomme à partir de concentré
 it:succo di mele a base di concentrato
 nl:appelsap uit concentraat
@@ -32116,6 +32350,7 @@ es:limón
 fr:citron, citrons
 it:limone
 nl:citroen
+sv:citron
 wikidata:en:Q1093742
 
 <en:lemon
@@ -32202,7 +32437,7 @@ it:succo di limone
 nl:citroensap
 nn:sitronsaft
 pt:sumo de limão
-sv:citronjuice
+sv:citronsaft, citronjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon-juice
 # 9259 products in 16 languages @2018-10-01
 
@@ -32517,7 +32752,7 @@ carbon_footprint_fr_foodges_value:fr:1.3
 <en:orange juice
 en:orange juice from concentrate
 de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat
-es:Zumo de naranja desde concentrado
+es:Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado
 fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré
 it:succo d'arancia a base di concentrato
 nl:Sinaasappelsap uit sapconcentraat
@@ -32586,7 +32821,7 @@ es:cáscara de naranja, corteza de naranja
 et:apelsinikoor
 fi:appelsiininkuori
 fr:zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges
-it:buccla d'arancia, scorza d'arancia, scorze di arancia
+it:scorza d'arancia, scorze di arancia, scorze d'arancia, buccla d'arancia
 lt:apelsinų žievelė
 lv:apelsīna mizņas
 nl:sinaasappelschil, sinaasappelschillen, schillen sinaasappel, appelsienschil
@@ -33020,7 +33255,7 @@ ru:клубника
 sa:तृणबदरफलम्
 sd:اسٽرا بيري
 sq:luleshtrydhe
-sv:Jordgubbe
+sv:Jordgubbe, jordgubbar
 sw:Mstroberi
 ta:செம்புற்று
 tg:Қулфинай
@@ -34867,10 +35102,10 @@ bs:Grožđica
 ca:pansa
 cs:rozinka
 da:Rosin
-de:Rosine
+de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
-es:pasas
+es:uvas pasas, pasas
 et:Rosin
 eu:Mahaspasa
 fa:کشمش
@@ -36235,7 +36470,7 @@ ar:نارجيل
 bg:Кокосов орех
 ca:coco
 cs:kokosový ořech
-de:Kokos
+de:Kokos, Kokosnuss
 ee:Eneh
 el:καρύδα
 eo:kokosnukso
@@ -36420,6 +36655,7 @@ es:verduras
 fr:légume
 it:vegetale
 nl:Groente, groenten
+sv:grönsak, grönsaker
 vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
@@ -38429,7 +38665,7 @@ co:rundonu
 cs:mrkev
 cy:moronen
 da:gulerødder, Have-Gulerod
-de:Karotten, Karotte
+de:Karotten, Karotte, Möhre, Möhren
 dv:ކެރެޓް
 el:καρότο
 eo:karoto
@@ -38452,7 +38688,7 @@ hy:Գազար
 id:wortel
 io:karoto
 is:gulrót
-it:carote
+it:carota, carote
 ja:ニンジン
 jv:wortel
 ka:სტაფილო
@@ -38499,7 +38735,7 @@ so:kaaroot
 sq:karrotë
 sr:шаргарепа
 su:wortel
-sv:morot
+sv:morot, morötter
 sw:karoti
 ta:மஞ்சள் முள்ளங்கி
 te:కారెట్
@@ -40898,6 +41134,7 @@ de:Kartoffelfasern, Kartoffelballaststoffe
 es:fibra de patata
 fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
 nl:aardappelvezel, aardappelvezels
+sv:potatisfiber
 # en:potato-fibre has 110 products in 4 languages @2018-10-15
 
 # fr:pommes de terre préfrites is a compound ingredient:Pomme de terre préfrite [pomme de terre, huile de tournesol, dextrose de blé]
@@ -41293,6 +41530,8 @@ nl:Jamaicaanse peper
 # ingredient/fr:piment-de-la-jamaïque has 148 products in 5 languages @2019-04-15
 # description:en:The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
 
+<en:chili pepper
+fr:piment Oiseau
 
 # en:paprika is very often indicated as a spice. This is probably the same as en:paprika powder
 
@@ -41500,7 +41739,7 @@ sk:paradajky
 sn:Madomasi
 so:Yaanyo
 sr:paradajz
-sv:tomater
+sv:tomat, tomater
 th:มะเขือเทศ
 ug:پەمىدۇر
 za:makyungz
@@ -41705,6 +41944,7 @@ es:concentrado de tomate
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 it:passata di pomodoro, concentrato di pomodoro
 nl:tomatenpurée, tomatenconcentraat
+sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
 # ingredient/fr:purée-de-tomate has 2637 products @2018-12-26
@@ -42883,7 +43123,7 @@ sl:Grah
 sq:Bizelja
 sr:грашак
 su:Kacang polong
-sv:ärt
+sv:ärt, ärter
 sw:Njegere
 ta:பட்டாணி
 te:బఠానీ
@@ -42953,7 +43193,7 @@ ca:cigró
 cs:cizrna beraní
 cy:Gwygbysen gwygbys
 da:kikærter
-de:Kichererbse
+de:Kichererbse, Kichererbsen
 dv:ސަނާ މުގު
 el:ρεβίθι, Ρεβιθιά
 es:garbanzo, garbanzos
@@ -43564,7 +43804,7 @@ fi:pistaasipähkinät
 fr:pistache, pistaches
 ga:cnónna pistéise
 hu:pisztácia
-it:pistacci
+it:pistacchi
 ja:ピスタチオ
 lt:pistacijos
 lv:pistāciju rieksti
@@ -43826,6 +44066,11 @@ pt:amendoins torrados moídos
 en:shelled peanuts
 nl:Pinda's in de dop
 # ingredient/nl:pinda-s-in-de-dop has 1 product @2019-05-24
+
+<en:peanut
+en:peanut with shell
+es:cacahuete con cáscara
+fr:cacahuète avec coque
 
 <en:nut
 en:cashew nuts, cashews, cashew
@@ -44526,6 +44771,7 @@ es:comino
 fr:graines de cumin, cumin
 it:grani di cumino
 nl:komijnzaad, komijnzaden, komijn
+sv:spiskummin
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-cumin
 # 87 products in 4 languages @2018-10-07
 
@@ -44788,6 +45034,7 @@ es:Pimienta blanca
 fr:poivre blanc
 it:pepe bianco
 nl:witte peper
+sv:vitpeppar
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc
 # 1596 products in 6 languages @2018-10-08
 
@@ -45192,8 +45439,9 @@ cs:Bylina
 de:Gewürz, Kräuter
 es:hierbas
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, plantes aromatiques, herbes aromatiques
-it:erba
+it:erba, piante aromatiche
 nl:Kruiden
+sv:örter
 vegan:en:yes
 vegetarian:en:yes
 
@@ -45216,6 +45464,7 @@ en:spice extract, spices extract
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte, Gewürzextrakt
 es:Extracto de especias
 fr:extrait d'épice, extraits d'épices
+sv:kryddextrakt
 vegan:en:yes
 vegetarian:en:yes
 
@@ -45231,6 +45480,7 @@ en:mixed spices
 de:gemischte Gewürze
 fr:mélange d'épices
 nl:gemengde specerijen
+sv:kryddblandning
 # ingredient/nl:gemengde-specerijen has 2 products @2019-05-24
 
 <en:spice
@@ -45581,7 +45831,7 @@ hu:Kurkuma
 id:Kunyit
 io:Kurkumo
 is:Kúrkúma
-it:Turmeric
+it:curcuma, turmerico
 ja:ウコン
 jv:Kunir
 kn:ಅರಿಸಿನ
@@ -45732,7 +45982,7 @@ sh:Muškatov oraščić
 si:සාදික්කා
 sl:Muškatovec
 su:Pala
-sv:Muskotsläktet
+sv:Muskotsläktet, muskot
 sw:Kungumanga
 ta:ஜாதிக்காய்
 te:జాజికాయ
@@ -46425,6 +46675,7 @@ hu:káposztafélék, Mustármag
 ja:カラシナ,シロガラシ
 nl:mosterdzaad, mosterdzaden
 sl:gorčično seme
+sv:senapsfrö
 
 <en:mustard seed
 en:yellow mustard seed
@@ -46809,7 +47060,7 @@ da:ekstrakter af rosmarin
 de:Rosmarinextrakt
 fi:rosmariiniuutteet
 fr:extrait de romarin, extraits de romarin
-it:estratti di rosmarino
+it:estratto di rosmarino, estratti di rosmarino
 nl:extracten van rozemarijn
 sv:extrakt av rosmarin
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-romarin
@@ -47441,7 +47692,7 @@ sk:Petržlen
 sl:peteršilj
 sq:Majdanozi
 sr:першун
-sw:Persilja
+sv:persilja
 ta:வோக்கோசு
 tl:kinchay
 tr:Maydanoz
@@ -48062,6 +48313,7 @@ nl:laurier, laurierblad
 or:ତେଜପତ୍ର
 pl:liść laurowy
 ru:Лавровый лист
+sv:lagerblad
 te:మాసాల ఆకు
 tg:Барги ғор
 th:ใบกระวาน
@@ -49730,7 +49982,7 @@ az:Məkkə çayı
 bg:চুকাই
 ca:rosa de Jamaica
 cs:ibišek súdánský
-de:Karkadeblüten, Roselle
+de:Karkadeblüten, Roselle, Hibiskus
 eo:Sabdarifo
 es:Flor Roselle
 fa:روزل
@@ -49783,7 +50035,7 @@ bo:གུར་ཀུམ།
 ca:càrtam
 cs:Saflor, světlice barvířská
 cy:Safflwr
-de:Safflor, Färberdistel
+de:Safflor, Färberdistel, Saflor
 es:Cártamo
 et:Värvisafloor
 eu:Kartamo
@@ -59000,7 +59252,7 @@ ca:cafeïna
 cs:kofein
 cy:Caffein
 da:Koffein
-de:Coffein
+de:Coffein, Koffein
 el:Καφεΐνη
 eo:kafeino
 es:cafeina
@@ -60134,7 +60386,7 @@ so:Dooro
 sq:Pula
 sr:кокошка
 su:Hayam
-sv:Tamhöna
+sv:kyckling, tamhöna
 sw:Kuku
 ta:கோழி
 te:కోడి
@@ -61622,7 +61874,7 @@ da:Fiber
 de:Faser
 el:ίνα
 eo:fibro
-es:fibra
+es:fibra, fibra alimentaria
 et:Kiud
 eu:zuntz
 fa:الیاف
@@ -62036,7 +62288,7 @@ br:Fars
 ca:farciment
 cs:Nadívání
 cv:Фарш
-de:Belag, Farce
+de:Belag, Farce, Füllung
 el:Γέμιση
 eo:farĉo
 es:relleno

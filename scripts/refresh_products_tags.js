@@ -53,7 +53,9 @@ db.products.aggregate( [
 	quality_tags:1,
 	unknown_nutrients_tags:1,
 	last_image_dates_tags:1,
-	cities_tags:1
+	cities_tags:1,
+	ingredients_analysis_tags:1,
+	popularity_tags:1
 	}},
 {"$out": "products_tags"}
 ]);

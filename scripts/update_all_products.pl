@@ -98,6 +98,7 @@ my $comment = '';
 my $fix_serving_size_mg_to_ml = '';
 my $fix_missing_lc = '';
 my $fix_zulu_lang = '';
+my $fix_rev_not_incremented = '';
 my $run_ocr = '';
 my $autorotate = '';
 my $query_ref = {};	# filters for mongodb query
@@ -122,6 +123,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
 			"fix-missing-lc" => \$fix_missing_lc,
 			"fix-zulu-lang" => \$fix_zulu_lang,
+			"fix-rev-not-incremented" => \$fix_rev_not_incremented,
 			"user_id=s" => \$User_id,
 			"comment=s" => \$comment,
 			"run-ocr" => \$run_ocr,
@@ -162,7 +164,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $compute_serving_size)
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
-	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang)
+	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -182,6 +184,9 @@ foreach my $field (sort keys %$query_ref) {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
 	}
+	if ($query_ref->{$field} eq 'exists') {
+		$query_ref->{$field} = { '$exists' => true };
+	}
 }
 
 if (defined $key) {
@@ -191,34 +196,39 @@ else {
 	$key = "key_" . time();
 }
 
-#$query_ref->{code} = "3661112080648";
-#$query_ref->{categories_tags} = "en:plant-milks";
-#$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
-
-
 # $query_ref->{unknown_nutrients_tags} = { '$exists' => true,  '$ne' => [] };
 
-print "Update key: $key\n\n";
+print STDERR "Update key: $key\n\n";
+
+use Data::Dumper;
+print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $products_collection = get_products_collection();
+
+my $count = $products_collection->count_documents($query_ref);
+
+print STDERR "$count documents to update.\n";
+sleep(2);
+
+
 my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });
 $cursor->immortal(1);
 
 my $n = 0;	# number of products updated
 my $m = 0;	# number of products with a new version created
 
+my $fix_rev_not_incremented_fixed = 0;
+
 while (my $product_ref = $cursor->next) {
 
 	my $code = $product_ref->{code};
 	my $path = product_path($code);
 
-	#next if $code ne "8480013072645";
-
 	if (not defined $code) {
 		print STDERR "code field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id} . "\n";
 	}
 	else {
-		print STDERR "updating product $code\n";
+		print STDERR "updating product $code ($n)\n";
 	}
 
 	next if $just_print_codes;
@@ -230,6 +240,31 @@ while (my $product_ref = $cursor->next) {
 		$lc = $product_ref->{lc};
 
 		my $product_values_changed = 0;
+
+		if ($fix_rev_not_incremented) { # https://github.com/openfoodfacts/openfoodfacts-server/issues/2321
+
+			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			if (defined $changes_ref) {
+				my $change_ref = @$changes_ref[-1];
+				my $last_rev = $change_ref->{rev};
+				my $current_rev = $product_ref->{rev};
+				print STDERR "current_rev: $current_rev - last_rev: $last_rev\n";
+				if ($last_rev > $current_rev) {
+					print STDERR "-> setting rev to $last_rev\n";
+					$fix_rev_not_incremented_fixed++;
+					$product_ref->{rev} = $last_rev;
+					compute_product_history_and_completeness($product_ref, $changes_ref);
+					compute_data_sources($product_ref);
+					store("$data_root/products/$path/changes.sto", $changes_ref);
+				}
+				else {
+					next;
+				}
+			}
+			else {
+				next;
+			}
+		}
 
 		# Fix zulu lang, bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2063
 
@@ -443,9 +478,16 @@ while (my $product_ref = $cursor->next) {
 						print STDERR "rotating image $imgid by " .  (- $product_ref->{images}{$imgid}{orientation}) . "\n";
 						my $User_id_copy = $User_id;
 						$User_id = "autorotate-bot";
+
+						# Save product so that OCR results now:
+						# autorotate may call image_process_crop which will read the product file on disk and
+						# write a new one
+						store("$data_root/products/$path/product.sto", $product_ref);
+
 						eval {
-							my $updated_product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1);
-							$product_ref->{images}{$imgid} = $updated_product_ref->{images}{$imgid};
+
+							# process_image_crops saves a new version of the product
+							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1);
 						};
 						$User_id = $User_id_copy;
 					}
@@ -548,6 +590,7 @@ while (my $product_ref = $cursor->next) {
 
 			compute_product_history_and_completeness($product_ref, $changes_ref);
 			compute_data_sources($product_ref);
+			store("$data_root/products/$path/changes.sto", $changes_ref);
 		}
 
 		if (not $pretend) {
@@ -582,6 +625,10 @@ while (my $product_ref = $cursor->next) {
 }
 
 print "$n products updated (pretend: $pretend) - $m new versions created\n";
+
+if ($fix_rev_not_incremented_fixed) {
+	print "$fix_rev_not_incremented_fixed rev fixed\n";
+}
 
 exit(0);
 

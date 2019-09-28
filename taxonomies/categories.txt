@@ -1889,6 +1889,35 @@ fr:Curaçao
 it:Curaçao
 wikidata:en:Q10223
 
+<en:Liqueurs
+en:Advocaat
+de:Eierlikör
+fr:Liqueur aux œufs, Liqueur aux oeufs
+nl:Advocaat, eierlikeur
+az:Advokat
+ca:Advocaat
+el:Αυγό
+eo:Ovobrando
+es:Advocaat
+fi:Munalikööri
+he: אדבוקט
+ia:Advocaat
+id: Advocaat
+it: Advocaat
+ja:アドヴォカート
+ko: 아드보카트
+li: Advokäötje
+lt: Advokatas
+nn: Advocaat
+pl: Advocaat
+pt:Advocaat
+ru: Адвокат
+sv:Advocaat
+uk:Адвокат
+yi:אייער ליקער
+zh:蛋黄酒
+wikidata:en:Q496934
+
 <en:Beverages
 en:Carbonated drinks
 ca:Begudes carbonatades
@@ -3829,7 +3858,7 @@ nl:Geroosterde groene theeën, Geroosterde groene thee
 <en:Teas
 en:Lemon teas
 de:Zitronentees
-es:Tés con limón
+es:Tés con limón, Té sabor limón
 fi:sitruunateet
 fr:Thés au citron, Thé au citron
 nl:Theeën met citroen, Thee met citroen, Citroentheeën, Citroenthee
@@ -18161,11 +18190,20 @@ pnns_group_2:en:Dairy desserts
 
 #Do not confound with the fruit preserve called jelly
 <en:Desserts
-en:Jellies (dessert)
-es:Jaleas (postre)
-fr:Gelées (dessert)
-it:Gelatina (dolce)
+en:Jelly desserts, jellies dessert, gelatin desserts
+de:Götterspeisen, götterspeise
+es:Gelatinas, postres gelificados
+fr:Desserts gélifiées
+it:Gelatina dolce
 wikidata:en:Q4545971
+
+#Tartufo is an italian dessert made of ice cream with chocolate in the center. Tartufo di Pizzo is a PGI.
+<en:Desserts
+en:Tartufo (dessert)
+fr:Tartufo (dessert)
+it:Tartufo (dolce)
+nl:Tartufo (roomijs)
+wikidata:en:Q1432826
 
 <en:Cakes
 en:Cheesecakes
@@ -19984,6 +20022,7 @@ de:Kartiffelgnocchi
 fi:perunagnocchi
 fr:Gnocchi de pommes de terre
 nl:Aardappelgnocchi
+it:gnocchi di patate
 pnns_group_2:en:Potatoes
 
 <en:Gnocchi
@@ -20918,6 +20957,10 @@ es:Chips de patatas fritas en aceite de oliva
 fi:oliiviöljyllä paistettuja sipsejä
 fr:Chips de pommes de terre à l’huile d'olive
 nl:Aardappelchips gebakken in olijfolie
+
+<en:Potato crisps
+en:potato crisps in coco oil
+fr:Chips de pommes de terre à l’huile de coco
 
 <en:Potato crisps
 en:Flavoured potato crisps
@@ -22336,7 +22379,7 @@ fr:Fromages blancs au lait de chèvre
 # <en:ingredient:en:cheese
 # <en:sheeps milk
 <en:Cheeses
-en:sheep's-milk cheeses, Sheep Cheeses, Cheeses from sheep milk
+en:sheep's-milk cheeses, Sheep cheeses, Cheeses from sheep milk
 ca:formatge de llet d'ovella
 cs:ovčí sýr
 de:Schafmilchkäse, Schafskäse, Schafkäse, Käse aus Schafsmilch
@@ -22374,6 +22417,10 @@ it:Formaggio di capra
 nl:Geitenkazen
 ru:Сыр из козьего молока
 wikidata:en:Q198815
+
+<en:Goat cheeses
+es:Rulo de cabra, Rulo de queso de cabra
+fr:Bûche de chèvre
 
 <en:Cheeses
 en:Cheeses from the United Kingdom
@@ -23137,6 +23184,19 @@ fr:Fromages espagnols, Fromages d'Espagne
 nl:Spaanse kazen
 
 <en:Spanish cheeses
+<en:sheep's-milk cheeses
+en:Manchego
+ca:Manxego
+de:Manchego
+es:Manchego, queso manchego
+fr:Manchego
+it:Manchego
+nl:Manchego
+pt:Manchego, queijo manchego
+country:en:Spain
+wikidata:en:Q72305
+
+<en:Spanish cheeses
 es:Afuega'l Pitu
 country:en:Spain
 
@@ -23893,6 +23953,10 @@ nl:Volle melken
 se:Standardmjölk
 wikidata:en:Q3374445
 
+<en:whole milks
+es:Leche entera esterilizada
+fr:Laits entiers stérilisés
+
 <en:Milks
 en:homogenized milks, homogenized milk
 ca:Llet homogeneïtzada
@@ -24605,10 +24669,10 @@ hu:Ivójoghurtok, Iható joghurtok
 nl:Drinkyoghurts
 
 <en:Drinkable yogurts
-fr:Yaourts à boire goût fraise, Yaourts à boire fraise
+fr:Yaourts à boire goût fraise, Yaourts à boire fraise, Yaourts à boire saveur fraise
 
 <en:Drinkable yogurts
-fr:Yaourts à boire goût vanille, Yaourts à boire vanille
+fr:Yaourts à boire goût vanille, Yaourts à boire vanille, Yaourts à boire saveur vanille
 
 <en:Drinkable yogurts
 fr:Yaourts à boire sans sucres
@@ -24674,63 +24738,68 @@ nl:Multifruityoghurts
 <en:Fruit yogurts
 en:Lemon yogurts
 de:Zitronenjoghurt, Zitronenjogurt, Zitronenjoghurts, Zitronenjogurts
-es:Yogures de limón
+es:Yogures con limón, Yogures de limón
 fi:Sitruunajugurtit
 fr:Yaourts au citron
 hu:Citromos joghurtok
 it:Yogurt al limone
-nl:Citroenyoghurts
+nl:Citroenyoghurt, Citroenyoghurts, Yoghurt met citroen, Yoghurts met citroen
 
 <en:Fruit yogurts
 en:Strawberry yogurts
 de:Erdbeerjoghurt, Erdbeerjogurt, Erdbeerjoghurts, Erdbeerjogurts
-es:Yogures de fresa
+es:Yogures con fresa, yogures de fresa
 fi:mansikkajugurtit
 fr:Yaourts à la fraise
 hu:Epres joghurtok
 it:Yogurt alla fragola
-nl:Aardbeienyoghurts
+nl:Aardbeienyoghurt, Aardbeienyoghurts, Yoghurt met aardbeien, Yoghurts met aardbeien
 
 <en:Fruit yogurts
 en:Blueberry yogurts
 de:Heidelbeer-Joghurt
-es:Yogures de arándanos
+es:Yogures con arándanos, yogures de arándanos
 fi:mustikkajugurtit
 fr:Yaourts à la myrtille
 hu:Áfonyás joghurtok
 it:Yogurt al mirtillo
-nl:Blauwe bessenyoghurts
+nl:Bosbessenyoghurt, Bosbessenyoghurts, Yoghurt met bosbessen, Yoghurts met bosbessen
 
 <en:Fruit yogurts
 en:Blackberry yogurts
+es:Yogures con mora
 fr:Yaourts à la mûre
 it:Yogurt al more
 
 <en:Fruit yogurts
 en:Mango yogurts
 de:Mango-Joghurt
+es:Yogures con mango
 fi:mangojugurtit
 fr:Yaourts à la mangue
 hu:Mangós joghurtok
 it:Yogurt al mango
-nl:Mangoyoghurt
+nl:Mangoyoghurt, Mangoyoghurts, Yoghurt met mango, Yoghurts met mango
 
 <en:Fruit yogurts
 en:Peach yogurts
 de:Pfirsischjoghurt
+es:Yogures con melocotón
 fi:persikkajugurtit
 fr:Yaourts à la pêche
 hu:Barackos joghurtok
 it:Yogurt alla pesca
 nl:Perzikkenyoghurt
+nl:Perzikenyoghurt, Perzikenyoghurts, Perzikyoghurt, Perzikyoghurts, Yoghurt met perzik, Yoghurt met perziken, Yoghurts met perziken
 
 <en:Fruit yogurts
 en:Pineapple yogurts
 de:Ananas-Joghurt
+es:Yogures con piña
 fr:Yaourts à l'ananas
 hu:Ananászos joghurtok
 it:Yogurt all'ananas
-nl:Yoghurt met ananas
+nl:Ananasyoghurt, Ananasyoghurts, Yoghurt met ananas, Yoghurts met ananas
 
 <en:Fruit yogurts
 en:Cherry yogurts
@@ -24744,33 +24813,60 @@ nl:Kersenyoghurts, Kersenyoghurt
 <en:Fruit yogurts
 en:Raspberry yogurts
 de:Himbeer-Joghurt
-es:Yogures de frambuesa
+es:Yogures con frambuesa, yogures de frambuesa
 fi:vadelmajugurtit
 fr:Yaourts à la framboise
 hu:Málnás joghurtok
 it:Yogurt al lampone
-nl:Frambozenyoghurt
+nl:Frambozenyoghurt, Frambozenyoghurts, Yoghurt met framboos, Yoghurt met frambozen, Yoghurts met framboos, Yoghurts met frambozen
 
 <en:Fruit yogurts
 en:Apricot yogurts
 de:Aprikosenjoghurt
-es:Yogures de albaricoque
+es:Yogures con albaricoque, yogures de albaricoque
 fi:aprikoosijugurtit
 fr:Yaourts à l'abricot
 hu:Sárgabarackos joghurtok
 it:Yogurt all'albicocca
-nl:Abrikozenyoghurt, Abrikozenyoghurts
+nl:abrikozenyoghurt, Abrikozenyoghurts, Yoghurt met abrikoos, Yoghurt met abrikozen, Yoghurts met abrikoos, Yoghurt met abrikozen
 
 <en:Fruit yogurts
 en:Pear yogurts
 de:Birnenjoghurt
+es:Yogures con pera
 fr:Yaourts à la poire
 it:Yogurt alla pera
-nl:Yoghurt met peer
+nl:Perenyoghurt, Perenyoghurts, Yoghurt met peer, Yoghurt met peren
+
+<en:Fruit yogurts 
+en:Apple yogurts 
+es:Yogures con manzana 
+fr:Yaourts à la pomme 
+it:Yogurt alla mela 
+nl:Appelyoghurt, Appelyoghurts, Yoghurt met appel
+
+<en:Fruit yogurts 
+en:Plum yogurts 
+es:Yogures con ciruela 
+fr:Yaourts à la prune 
+it:Yogurt alla prugna, yogurt alla susina
+nl:Pruimenyoghurt, Pruimenyoghurts, Yoghurt met pruimen
+
+<en:Fruit yogurts 
+en:Prune yogurts
+es:Yogures con ciruela pasa
+fr:Yaourts au pruneau
+it:Yogurt alla prugna secca
+nl:Gedroogde pruimenyoghurt, Gedroogde pruimenyoghurts, Yoghurt met gedroogde pruimen
+
+<en:Fruit yogurts
+en:Rhubarb yogurts
+fr:Yaourts à la rhubarbe
 
 <en:Fruit yogurts
 en:Banana yogurts
 de:Bananenjoghurt
+es:Yogures con plátano
 fr:Yaourts à la banane
 hu:Banános joghurtok
 it:Yogurt alla banana
@@ -24790,9 +24886,9 @@ fr:Yaourts au pamplemousse
 en:Kiwi yogurts
 de:Kiwi-Joghurt
 fr:Yaourts au kiwi
-hu:Kiwis  joghurtok
+hu:Kiwis joghurtok
 it:Yogurt al kiwi
-nl:Yoghurt met kiwi
+nl:Kiwiyoghurt, Kiwiyoghurts, Yoghurt met kiwi, Yoghurts met kiwi
 
 #should contain only yogurt with real coco, yogurt with lemon extract or aroma should be in "Flavoured yogurts"
 <en:Fruit yogurts
@@ -24804,8 +24900,10 @@ it:Yogurt al cocco
 nl:Yoghurt met kokos
 
 <en:Fruit yogurts
+en:Hazelnut yogurts
 fr:Yaourts aux noisettes, Yaourt aux noisettes
 it:Yogurt alla nocciola
+nl:Hazelnootyoghurt, Hazelnootyoghurts, Yoghurt met hazelnoot
 
 <en:Fruit yogurts
 en:Chestnut yogurts
@@ -24843,7 +24941,7 @@ nl:Honingyoghurts
 <en:Yogurts
 en:Greek yogurts
 de:Griechische Joghurt, Griechische Jogurt, Griechische Joghurts, Griechische Jogurts, Griechischer Joghurt
-es:Yogures estilo griego
+es:Yogures estilo griego, Yogurt al estilo griego, Yogures al estilo griego
 fi:kreikkalaiset jugurtit
 fr:Yaourts à la grecque
 hu:Görög joghurtok
@@ -24924,7 +25022,6 @@ fr:Yaourts de soja aux fruits, Yaourts soja aux fruits, Yaourts au soja aux frui
 nl:Fruit sojayoghurts
 
 <en:Fruit soy yogurts
-<en:Strawberry yogurts
 en:Strawberry soy yogurts
 de:Erdbeer-Soja-Joghurt
 es:Yogures de soja con fresa
@@ -24932,12 +25029,11 @@ fr:Yaourts de soja à la fraise
 nl:Aardbeiensojayoghurts
 
 <en:Fruit soy yogurts
-<en:Lemon yogurts
 en:Lemon soy yogurts, Soy yogurt with lemon
 de:Zitronensojajoghurt, Sojajoghurt mit Zitrone
 es:Yogures de soja con limón
 fr:Yaourts soja au citron
-nl:Citroensojayoghurts
+nl:Citroensojayoghurt, Citroensojayoghurts, Sojayoghurt met citroen
 
 <en:Fruit soy yogurts
 en:Banana soy yogurts
@@ -25265,7 +25361,7 @@ nl:Aardbeien-bosbessencompotes
 en:Apple compotes, Apple compote
 ca:Compotes de poma, compota de poma
 de:Apfelkompott
-es:Compotas de manzana, Purés de manzana
+es:Compotas de manzana, Purés de manzana, Compota de manzana
 fi:omenakompotit
 fr:Compotes de pomme
 it:Composte di mela
@@ -27220,7 +27316,7 @@ wikidata:en:Q93165
 en:Extra-virgin olive oils
 ca:Oli d'oliva verge extra
 de:Native Olivenöle Extra, Natives Olivenöl Extra
-es:Aceites de oliva virgen extra
+es:Aceites de oliva virgen extra, Aceite de oliva virgen extra
 fi:Ekstra-neitsytoliiviöljyt
 fr:Huiles d'olive vierges extra
 hu:Extra szűz olívaolajok, Extra szűz olívaolaj
@@ -28657,6 +28753,7 @@ wikidata:en:Q421991
 en:Gelatin, Gelatine
 fr:Gélatine
 nl:Gelatines
+es:Gelatina
 zh:明胶
 
 <en:Thickeners
@@ -28685,6 +28782,10 @@ nl:Gefrituurde producten
 pt:Comidas fritas
 zh:油炸食物
 wikidata:en:Q300472
+
+<en:Fried foods
+en:Mozzarella sticks
+fr:Sticks à la Mozzarella
 
 en:Frozen foods, Frozen
 ca:Aliments congelats
@@ -30577,7 +30678,7 @@ nl:Mangos op siroop
 <en:Fruits in syrup
 en:Pineapple in syrup
 de:Ananas in Sirup
-es:Piña en almíbar
+es:Piña en almíbar, Piña en almíbar ligero
 fi:ananasta sokeriliemessä
 fr:Ananas au sirop
 nl:Ananas op siroop
@@ -31460,6 +31561,11 @@ nl:Vloeibare zouten
 fr:Sels des mines de sel
 de:Steinsalze, Steinsalz
 nl:Steenzouten
+
+<en:Salts
+en:Himalaya salts
+es:Sal del himalaya
+fr:Sels de l'Himalaya
 
 <en:Salts
 en:Sea salts, Bay salts, Solar salt
@@ -33378,6 +33484,9 @@ fr:Veau marengo
 fr:Sauté de veau
 
 <en:Veal meat dishes
+fr:Axoa de veau
+
+<en:Veal meat dishes
 en:Veal blanquette, Veal blanquettes
 fr:Blanquettes de veau, blanquettes de veaux, blanquette de veau
 nl:Witte kalfsvlees
@@ -33520,6 +33629,9 @@ fi:ankan rinnat
 fr:Magrets de canard
 nl:Eendenfilets, Eendenborst
 zh:鸭胸
+
+<en:Duck dishes
+fr:Tournedos de magret de canard
 
 <en:Duck dishes
 fr:Cuisses de canard confites
@@ -35063,6 +35175,10 @@ fr:Viande de lapin, lapin, lapins, viande de lapins, viandes de lapin, viandes d
 nl:Konijn, Konijnenvlezen
 wikidata:en:Q3556748
 
+en:Rabbit liver
+fr:Foies de lapin
+wikidata:en:Q67883965
+
 <en:Fresh meats
 en:Horse fresh meat
 fr:Viande de cheval fraîche
@@ -36007,7 +36123,7 @@ nl:Capocollo
 en:Hams
 ca:Pernil
 de:Schinken
-es: jamón
+es:jamón
 fi:kinkut
 fr:Jambons, Jambon
 hu:Sonkák
@@ -36053,6 +36169,8 @@ hu:Fehér sonka
 it:Prosciutti cotti
 nl:Gekookte ham
 wikidata:en:Q3820622
+
+es:Jamón Curado
 
 <en:Hams
 en:Diced ham, Dices of ham
@@ -36614,6 +36732,9 @@ fr:Graisserons
 <fr:Charcuteries diverses
 fr:Grattons
 
+<fr:Grattons
+fr:Grattons de canard
+
 <fr:Charcuteries diverses
 fr:Grenier médocain
 wikidata:en:Q3116472
@@ -36649,6 +36770,19 @@ nl:Hoofdkazen
 wikidata:en:Q4675762
 
 <fr:Charcuteries diverses
+en:Pork Pâtés
+es:Patés de cerdo
+fr:Pâtés de porc
+pt:Patês de porco
+
+<en:Pork Pâtés
+en:Pork liver Pâtés
+fr:Pâtés de foie de porc
+es:Patés de hígado de cerdo
+pt:Patês de figado de porco
+
+#According to french regulation, pâté de campagne contains only pork meat. Some additives are banned.
+<en:Pork Pâtés
 en:Country-style Pâtés
 fi:maaseutupateet
 fr:Pâtés de campagne
@@ -37713,6 +37847,14 @@ nl:Soba
 wikidata:en:Q753910
 
 <en:Pastas
+en:Spätzle
+de:Spätzle
+es:Spätzle
+fr:Spätzle
+it:Spätzle
+wikidata:en:Q20065
+
+<en:Pastas
 en:Egg pastas
 fi:munapastat
 fr:Pâtes aux œufs, Pâtes alimentaires aux œufs 
@@ -38151,6 +38293,21 @@ hu:Sonkás ravioli, Ravioli sonkával
 nl:Ravioli met ham
 
 <en:Pastas
+en:Bucatini
+de:Bucatini
+es:Bucatini
+fr:Bucatini
+it:Bucatini
+wikidata:en:Q20007
+
+<en:Pastas
+en:Capellini
+de:Capellini
+fr:Capellini
+it:Capellini
+wikidata:en:Q20029
+
+<en:Pastas
 en:Spaghetti
 de:Spaghettis, Spaghetti
 es:Espaguetis, Spaghetti
@@ -38159,7 +38316,7 @@ fr:Spaghetti, spaghettis
 hu:Spagetti
 it:Spaghetti
 nl:Spaghettis
-pt:Esparguette
+pt:Esparguete, espaguete
 ru:Спагетти
 wikidata:en:Q20026
 
@@ -39790,6 +39947,10 @@ fi:purkitetut simpukat
 fr:Moules en conserve
 nl:Mossels in blik
 
+<en:Canned mussels
+es:Mejillones en escabeche
+fr:Moules à l'escabèche
+
 <en:Mollusc
 en:Oysters
 es:Ostras
@@ -39922,6 +40083,7 @@ pt:Doces para barrar
 ru:Сладкие намазки
 pnns_group_2:en:Sweets
 
+#Do not put it in plant-based spreads, some lemon curd contains only lemon oil.
 <en:Sweet spreads
 en:Lemon curds
 de:Zitronen-Aufstrich
@@ -39937,6 +40099,10 @@ fr:Confitures de lait, Confiture de lait
 nl:Dulce de leche
 ru:варёная сгущёнка
 wikidata:en:Q917761
+
+<en:Sweet spreads
+en:Ginger preserves, ginger jams
+fr:Confitures de gingembre
 
 <en:Plant-based spreads
 <en:Sweet spreads
@@ -40569,6 +40735,7 @@ fr:Confits d'oignons, Chutneys d'oignons
 nl:Uienchutney
 
 <en:Salted spreads
+en:Artichoke spreads
 fr:Crèmes d'artichaut
 
 <en:Salted spreads
@@ -41352,6 +41519,9 @@ la:Allium sativum
 nl:Knoflook en -afgeleide producten
 wikidata:en:Q23400
 
+<en:Garlic and their products
+ga:Ajos aliñados en vinagre
+
 <en:Vegetables based foods
 <en:Culinary plants
 en:Onions and their products
@@ -41752,6 +41922,9 @@ es:Berenjenas
 fr:Aubergines
 la:Solanum melongena
 nl:Aubergines
+
+fr:Ristes d’aubergines
+wikidata:en:Q53560342
 
 <en:Vegetables
 en:Beet, Beetroots
@@ -45742,12 +45915,12 @@ nl:Chocolade croissants, Chocolade croissant
 wikidata:en:Q1190838
 
 <en:Viennoiseries
-en: Milk bread rolls
-de:Milchbrotrollen
-es: Panes de leche
+en:Milk bread rolls
+de:Milchbrötchen, Milchbrotrollen
+es:Panes de leche
 fr:Pains au lait, pain au lait
 nl:Melkbroodjes
-pt: Pães de leite
+pt:Pães de leite
 wikidata:en:Q3360557
 
 <en:Milk bread rolls
@@ -45833,6 +46006,10 @@ fr:Brioches pur beurre, Brioche pur beurre
 <fr:Brioches tranchées
 <fr:Brioches pur beurre
 fr:Brioches tranchées pur beurre, Brioches tranchées pur beurre
+
+<fr:Brioches pur beurre
+<fr:Brioches tressées
+fr:Brioche tressée pur beurre
 
 <en:Brioches
 fr:Brioches Vendéennes, Brioche vendéenne
@@ -46725,8 +46902,8 @@ de:Blutwurst-Terrinen
 fr:Terrines de boudin, terrine de boudin
 nl:Bloedworstterinnes, Bloedworstterrine
 
+#Unlike the term "Pâté de campagne", terrine de campagne is not reglemented in France.
 <en:Terrines
-<en:Meat-based products
 <en:Prepared meats
 en:Country terrines
 fi:maaseututerriinit
@@ -46762,6 +46939,11 @@ nl:Leverterrines, Lverterrine, Levervleespotten
 <en:Liver terrines
 fr:Terrine de foie gras au sauternes
 wikidata:en:Q3518776
+
+<en:Terrines
+<en:Meat-based products
+en:Pork terrines
+fr:Terrines de porc
 
 <en:Terrines
 <en:Meat-based products

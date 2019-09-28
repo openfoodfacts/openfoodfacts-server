@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-07 08:21\n"
+"PO-Revision-Date: 2019-09-16 16:08\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -79,6 +79,7 @@ msgstr "Bonjour <NAME>,\n\n"
 "https://fr.openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFactsFR\n"
 
+# please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
 msgstr "Merci de votre inscription sur <<site_name>>"
@@ -125,24 +126,27 @@ msgstr "Substances ou produits provoquant des allergies ou intolérances"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr "allergenes"
+msgstr "allergènes"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr "allergene"
+msgstr "allergène"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Fiche produit également modifiée par"
 
+# Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"APK Android\" />"
 
+# DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/fr_get.svg\" alt=\"Disponible sur Google Play\" width=\"102\" height=\"40\" />"
@@ -196,8 +200,8 @@ msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulai
 msgstr "<a href=\"http://donner.openfoodfacts.org\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donner à Open Food Facts\" /></a><p><<site_name>> est développé par une association à but non lucratif indépendante de l'industrie. Open Food Facts est fait pour tous, par tous, et est financé par tous. Vous pouvez soutenir notre travail en <a href=\"http://donner.openfoodfacts.org\">donnant à Open Food Facts</a> et également en <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilisant le moteur de recherche Lilo</a>.<br/><b>Merci beaucoup !</b></p>"
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
-msgstr "Donnez pour soutenir notre travail"
+msgid "Donate to support our work"
+msgstr "Faites un don pour soutenir notre travail"
 
 msgctxt "brands"
 msgid "Brands"
@@ -253,7 +257,7 @@ msgstr "Les produits de la catégorie %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "categorie"
+msgstr "catégorie"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -281,11 +285,11 @@ msgstr "Images téléchargées"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "verificateurs"
+msgstr "vérificateurs"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "verificateur"
+msgstr "vérificateur"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -473,11 +477,11 @@ msgstr "<p>Les paramètres de votre compte ont bien été modifiés.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr "editeurs"
+msgstr "éditeurs"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr "editeur"
+msgstr "éditeur"
 
 msgctxt "email"
 msgid "e-mail address"
@@ -2144,8 +2148,8 @@ msgid "Scatter plot"
 msgstr "Graphique sur 2 axes"
 
 msgctxt "search_graph_blog"
-msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>→ en savoir plus sur les graphiques d'<<site_name>> : <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Des graphiques en 3 clics</a> (blog).</p>"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr "<p>→ en savoir plus sur les graphiques d'<<site_name>>: <a href=\"/des-graphiques-en-trois-clics\">graphiques en 3 clics</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2591,12 +2595,14 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr "Adresse de blog ou de site web"
 
+# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/microsoft/French.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
+# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 msgstr "https://www.microsoft.com/fr-fr/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"

@@ -257,6 +257,8 @@ fr:pur jus de pommes à cidre bio
 fr:yaourt maigre en poudre
 de:Magermilch-Joghurtpulver
 
+de:Fruchtzubereitung
+
 < de:Hühnerei-Trockeneiweiß
 nl:scharrelkipeiwitpoeder
 
@@ -336,7 +338,7 @@ en:Acid, Acidifier
 bg:Киселина
 cs:Kyselina
 da:Syre, Almindelig Syre
-de:Säuerungsmittel
+de:Säuerungsmittel, Sauerungsmittel
 el:Μέσο οξίνισης
 es:Acidulante, acidulant
 et:Hape
@@ -388,7 +390,7 @@ fi:Happamuudensäätöaine
 fr:Correcteur d'acidité, régulateur de l'acidité, agent tampon, adjusteur du pH, alcali, base, tampon, régulateur d'acidité
 ga:Rialtán aigéadachta
 hu:Savanyúságot szabályozó anyag
-it:Correttori di acidità
+it:Correttori di acidità, correttore di acidità, regolatore di acidità
 lt:Rūgštingumą reguliuojanti medžiaga
 lv:Skābuma regulētājs
 mt:Regolatur tal-Aċidità
@@ -742,7 +744,7 @@ it:mandorle spezzate
 
 < en:Almond
 en:blanches almonds, almonds blanched
-de:blanchierte Mandlen
+de:blanchierte Mandlen, Mandeln blanchiert
 es:almendras peladas
 fr:amandes blanchies
 
@@ -985,6 +987,7 @@ la:Lophius piscatorius
 en:animal
 de:tierisch
 es:animal
+nl:dier
 
 < en:Animal
 en:beef, steers
@@ -993,6 +996,7 @@ es:carne de vaca
 fr:bœuf, Boeufs
 it:manzo
 nl:rund
+sv:nötkött
 vegan:en: no
 vegetarian:en: no
 
@@ -1003,6 +1007,7 @@ es:cerdo
 fr:porc
 it:suino
 nl:varken
+sv:gris
 vegan:en: no
 vegetarian:en: no
 
@@ -1229,7 +1234,18 @@ fr:présure de veau
 nl:kalfsstremsel
 
 < en:Animal fat
-< en:Pork
+en:beef fat
+de:Rinderfett
+fr:gras de bœuf, graisse de bœuf
+it:grasso di manzo
+nl:rundvet
+
+< en:Animal fat
+en:calf fat
+fr:gras de veau
+nl:kalfsvet
+
+< en:Animal fat
 en:lard, pork fat
 an:Redetiu
 ar:دهن خنزير
@@ -1275,7 +1291,9 @@ wikidata:en: Q72827
 wikipedia:en: https://en.wikipedia.org/wiki/Lard
 
 < en:Animal fat
-fr:gras de veau
+en:sheeps fat
+fr:gras de mouton
+nl:schaapsvet
 
 < en:Animal protein
 en:blood proteins
@@ -1284,13 +1302,14 @@ vegetarian:en: no
 
 < en:Animal protein
 en:milk proteins
-de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz
+de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss
 es:proteína de leche
 fr:protéine de lait, protéines de lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
 hu:tejfehérje
 it:proteine del latte
-nl:melkeiwit
+nl:melkeiwit, melkeiwitten
 ru:молочный белок, молочные белки
+sv:mjölkprotein
 nova:en: 4
 vegetarian:en: yes
 
@@ -1849,6 +1868,7 @@ en:barley malt flour
 de:Gerstenmalzmehl
 es:harina de malta de cebada
 fr:farine de malt d'orge, farine d'orge malté
+it:farina di orzo maltato
 
 < en:Barley flour
 en:dextrinated barley flour
@@ -2164,7 +2184,7 @@ fr:grains de poivre
 < en:Bell pepper
 en:red pepper, red bell pepper
 da:rød peberfrugt
-de:rote Paprika
+de:rote Paprika, roter Paprika
 el:κόκκινη πιπεριά
 es:pimiento rojo, pimiento morrón rojo
 fi:punainen paprika
@@ -2185,11 +2205,12 @@ it:peperoni dolci
 < en:Bell pepper
 en:white pepper
 cs:Bílý pepř
-de:weisser Pfeffer
+de:weißer Pfeffer, weisser Pfeffer
 es:Pimienta blanca
 fr:poivre blanc
 it:pepe bianco
 nl:witte peper
+sv:vitpeppar
 
 < en:Bell pepper
 en:yellow pepper
@@ -2295,7 +2316,7 @@ ru:клубника
 sa:तृणबदरफलम्
 sd:اسٽرا بيري
 sq:luleshtrydhe
-sv:Jordgubbe
+sv:Jordgubbe, jordgubbar
 sw:Mstroberi
 ta:செம்புற்று
 tg:Қулфинай
@@ -2341,7 +2362,7 @@ ca:Gerd
 cs:Malina
 cy:Mafon cochion
 da:hindbær
-de:Himbeeren
+de:Himbeeren, Himbeere
 eo:Frambo
 es:frambuesa
 fa:تمشک
@@ -3466,8 +3487,8 @@ ar:عدل
 ca:mantega clarificada
 cs:přepuštěné máslo
 de:Butterschmalz
-es:mantequilla clarificada, mantequilla concentrada
-fr:beurre clarifié, beurre purifié, beurre fondu, beurre pâtissier
+es:mantequilla clarificada
+fr:beurre clarifié
 he:חמאה מזוקקת
 it:burro chiarificato, burro fuso
 ja:澄ましバター
@@ -3476,7 +3497,6 @@ ko:버터기름
 ky:Сары май
 lt:lydytas sviestas
 ms:mentega jernihan
-nl:boterolie
 os:Царв
 pl:masło klarowane
 ru:Топлёное масло
@@ -3486,14 +3506,6 @@ uk:Пряжене масло
 zh:无水黄油
 wikidata:en: Q909729
 wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
-
-< en:Butterfat
-en:concentrated butter
-de:konzentrierte Butter
-es:
-fr:beurre concentré
-it:
-nl:geconcentreerde boter
 
 < en:Butterfat
 en:ghee
@@ -3816,7 +3828,7 @@ ca:cafeïna
 cs:kofein
 cy:Caffein
 da:Koffein
-de:Coffein
+de:Coffein, Koffein
 el:Καφεΐνη
 eo:kafeino
 es:cafeina
@@ -4105,7 +4117,7 @@ fr:camembert au lait pasteurisé
 
 < en:Cane sugar
 en:brown cane sugar
-de:brauner Rohrzucker
+de:brauner Rohrzucker, Vollrohrzucker
 fr:sucre de canne brun
 it:zucchero di canna grezzo
 nl:Bruine rietsuiker
@@ -4336,6 +4348,12 @@ fr:Support, agent d'encapsulation, diluant d'autres additifs alimentaires, solva
 description:en: A food additive used to dissolve, dilute, disperse or otherwise physically modify a food additive or nutrient without altering its function -and without exerting any technological effect itself- in order to facilitate its handling, application or use of the food additive or nutrient.
 description:es: Aditivos alimentarios que se utilizan para disolver, diluir, dispersar o modificar de otras maneras un aditivo alimentario o nutriente sin alterar su función -y sin generar por sí mismos efecto tecnológico alguno- con el fin de facilitar la manipulación, la aplicación o uso del aditivo alimentario o nutriente.
 description:fr: Additif alimentaire utilisé pour dissoudre, diluer, disperser ou modifier physiquement de toute autre façon un additif alimentaire ou un nutriment sans altérer sa fonction -et sans produire lui-même d'effet technologique- afin de faciliter sa manipulation, son application ou son utilisationde l'additif alimentaire ou du nutriment.
+
+< en:Carrot
+de:Karottengranulat
+
+< en:Carrot
+de:Karottenpulver
 
 < en:Carrot
 en:carrot extract
@@ -4633,7 +4651,7 @@ cs:Kukuřice setá
 cv:Чакан тулă
 cy:Indrawn
 da:majs
-de:Mais
+de:Mais, Gemüsemais
 dv:ޒުވާރި
 el:αραβόσιτος, Καλαμπόκι
 eo:Maizo
@@ -5245,12 +5263,12 @@ nl:speltmeel
 
 < en:Cereal flour
 < en:Wheat
-en:wheat flour
+en:wheat flour, wheatflour
 ar:طحين القمح
 bg:пшенично брашно
 bs:pšenično brašno
 cs:pšeničná mouka
-de:Weizenmehl
+de:Weizenmehl, Weizen-mehl
 el:αλεύρι σίτου
 es:harina de trigo
 et:nisujahu
@@ -6867,6 +6885,9 @@ fr:piment de la jamaïque, piment de Jamaïque
 de:Jamaikapfeffer
 nl:Jamaicaanse peper
 
+< en:Chili pepper
+fr:piment Oiseau
+
 < en:Chives
 fr:ciboulette déshydratée
 de:Schnittlauch getrocknet
@@ -7520,6 +7541,7 @@ es:limón
 fr:citron, citrons
 it:limone
 nl:citroen
+sv:citron
 wikidata:en: Q1093742
 
 < en:Citrus fruit
@@ -7650,7 +7672,7 @@ cs:pomeranč
 cv:Апельсин
 cy:Oren
 da:appelsin
-de:Orange
+de:Orange, Orangen
 dv:ނާރިނގު
 el:πορτοκάλι
 eo:oranĝo
@@ -7972,7 +7994,7 @@ et:Kakaopuu seemned
 fr:fèves de cacao
 hu:kakaóbab
 id:Biji kakao
-it:granelli di cacao
+it:fave di cacao, semi di cacao, granelli di cacao
 mk:какаово зрно
 ms:Biji koko
 nl:cacaobonen, cacaoboon
@@ -8039,7 +8061,7 @@ el:κακαόμαζα
 es:Pasta de cacao
 fi:kaakaomassa
 fr:pâte de cacao, cacao en pâte, masse de cacao
-it:pasta di cacao
+it:pasta di cacao, massa di cacao
 kk:үгілген какао
 ky:майдаланган какао
 lv:kakavos masė
@@ -8084,9 +8106,9 @@ fr:cacao cru
 < en:Cocoa bean
 en:cocoa bean chips
 de:kakaobohnenchips
-es:pepitas de cacao, trozos de habas de cacao
+es:pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fr:éclats de fèves de cacao
-it:scaglie di cacao
+it:granella di semi di cacao, scaglie di cacao
 
 < en:Cocoa bean
 en:organic cocoa beans
@@ -8097,11 +8119,13 @@ nl:bio cacaobonen
 < en:Cocoa bean chips
 es:pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
 fr:éclats de fèves de cacao caramélisés
+it:granella caramellata di semi di cacao
 nl:gekaramelliseerde schilfers van cacaobonen
 
 < en:Cocoa bean chips
 fr:éclats de fèves de cacao torréfiés
-es:trozos de habas de cacao tostados
+es:trozos de habas de cacao tostados, trocitos de pepitas de cacao tostadas
+it:granella di fave di cacao tostate
 nl:geroosterde schilfers van cacaobonen
 
 < en:Cocoa butter
@@ -8139,8 +8163,8 @@ fr:pâte et beurre de cacao, pâte de cacao et beurre de cacao
 < en:Cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder
 cs:Kakaový prášek se sníženým obsahem tuku
-de:fettarmes Kakaopulver
-es:cacao magro en polvo, cacao desgrasado en polvo
+de:fettarmes Kakaopulver, Kakaopulver stark entölt
+es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado
 fi:vähärasvainen kaakaojauhe
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé
 it:cacao magro in polvere
@@ -8175,7 +8199,7 @@ nl:Kokosschilfers
 
 < en:Coconut
 en:coconut milk
-de:Kokosnussmilch
+de:Kokosnussmilch, Kokosmilch
 es:Leche de coco
 fr:lait de noix de coco, lait de coco, eau de coco
 it:latte di noce di cocco
@@ -8198,7 +8222,7 @@ nl:Kokospulp
 
 < en:Coconut
 en:grated coconut
-de:Kokosraspel
+de:Kokosraspel, Kokosraspeln
 es:coco rallado
 fr:noix de coco râpée
 it:cocco grattugiato
@@ -8640,7 +8664,7 @@ pt:Corante
 ro:Colorant
 sk:Farbivo
 sl:Barvilo
-sv:Färgämne
+sv:Färgämne, färgämnen
 description:cs: Barvivy se rozumějí látky, které potravině dodávají barvu nebo barvu obnovují a zahrnují přírodní složky potravin a přírodních zdrojů, jež jako takové nejsou obvykle požívány jako potraviny a nejsou obvykle používány jako charakteristické složky potravin.
 description:da: Farvestoffer: stoffer, der giver en fødevare farve eller giver den dens farve tilbage og omfatter naturlige bestanddele af fødevarer og andre naturlige kildematerialer, som normalt ikke i sig selv fortæres som fødevarer, og som ikke normalt anvendes som karakteristiske ingredienser i fødevarer.
 description:de: Farbstoffe sind Stoffe, die einem Lebensmittel Farbe geben oder die Farbe in einem Lebensmittel wiederherstellen; hierzu gehören natürliche Bestandteile von Lebensmitteln sowie natürliche Ausgangsstoffe, die normalerweise weder als Lebensmittel verzehrt noch als charakteristische Lebensmittelzutaten verwendet werden.
@@ -8743,7 +8767,7 @@ wikidata:en: Q1355665
 < en:Concentrated apple juice
 en:apple juice from concentrate
 de:Apfelsaft aus Konzentrat, Apfelsaft aus Apfelsaftkonzentrat
-es:Zumo de manzana desde concentrado
+es:Zumo de manzana desde concentrado, zumo de manzana a partir de concentrado
 fr:jus de pomme à base de concentré, jus de pomme à base de jus concentré, Jus de pomme à base de jus de pomme concentré, jus de pomme à partir de concentré
 it:succo di mele a base di concentrato
 nl:appelsap uit concentraat
@@ -9224,9 +9248,11 @@ es:Leche de vaca pasteurizada
 fr:lait de vache pasteurisé, lait pasteurisé de vache
 it:latte di mucca pastorizzato
 nl:gepasteuriseerde koemelk
+sv:pastöriserad komjölk
 
 < en:Cow's milk
 en:semi-skimmed cow's milk
+es:leche semidesnatada de vaca, leche de vaca semidesnatada
 fr:lait de vache demi écrémé
 
 < en:Cow's milk
@@ -9305,7 +9331,7 @@ nl:room uit Normandië
 
 < en:Cream
 en:cream powder, Powdered cream
-de:Cremepulver
+de:Cremepulver, Sahnepulver
 es:nata en polvo
 fr:crème en poudre, poudre de crème
 it:panna in polvere
@@ -9333,6 +9359,7 @@ fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé,
 it:crema pastorizzata
 nl:gepasteuriseerde room
 pt:nata pasteurizada
+sv:pastöriserad grädde
 
 < en:Cream
 en:pasteurized crème fraîche
@@ -10013,7 +10040,7 @@ ms:mentega
 my:ထောပတ်
 nb:smør
 ne:नौनी
-nl:boter
+nl:boter, roomboter
 nn:smør
 oc:burre
 os:hæлхæ
@@ -10055,37 +10082,6 @@ vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q34172
 wikipedia:en: https://en.wikipedia.org/wiki/Butter
-
-< en:Dairy
-en:butterfat, milkfat, pastry butter
-bs:mliječna mast
-cs:Mléčný tuk
-cy:braster menyn
-da:smørolie
-de:Butterreinfett, Milchfett, wasserfreies Milchfett, Buttereinfett
-eo:laktograso
-es:grasa butírica
-fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré, matière grasse butyrique, graisse butyrique, matière grasse laitière, matière grasse de lait, matière grasse du lait
-id:lemak susu
-it:burro anidro, burro di pasticceria, burro concentrato
-ja:乳脂肪
-ko:유지방
-ms:lemak mentega, lemak susu
-nb:melkefett
-nl:melkvet, boterconcentraat, botervet
-pl:tłuszcz mlecny
-pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
-ru:Молочный жир
-sl:mlečna maščoba
-sv:mølkfett
-th:ไขมันเนย
-tl:taba ng gatas
-uk:Молочний жир
-zh:乳脂
-vegan:en: no
-vegetarian:en: yes
-wikidata:en: Q909729
-wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
 
 < en:Dairy
 en:buttermilk
@@ -10495,6 +10491,7 @@ hu:tejpor
 it:latte in polvere
 nl:melkpoeder
 ru:сухое молоко
+sv:mjölkpulver
 nova:en: 3
 vegan:en: no
 vegetarian:en: yes
@@ -10553,7 +10550,7 @@ tr:Peynir altı suyu
 uk:Сироватка, Сиро́ватка моло́чна
 zh:乳清
 vegan:en: no
-vegetarian:en: yes
+vegetarian:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Whey
 
 < en:Dairy
@@ -10567,6 +10564,7 @@ it:yogurt
 ja:ヨーグルト
 nl:Joghurt, yoghurt, jogurt
 ru:йогурт
+sv:yoghurt
 th:นมเปรี้ยว
 carbon_footprint_fr_foodges_ingredient:fr: Yaourt
 carbon_footprint_fr_foodges_value:fr: 2.9
@@ -11266,7 +11264,7 @@ mt:E1001, E1001 food additive
 nl:E1001, E1001 food additive
 pl:E1001, E1001 food additive
 pt:E1001, E1001 food additive
-ro:E1001, E1001 food additive
+ro:E1001, Esteri și săruri de colină
 sk:E1001, E1001 food additive
 sl:E1001, E1001 food additive
 sv:E1001, E1001 food additive
@@ -11405,7 +11403,7 @@ mt:E101a, E101a food additive
 nl:E101a, E101a food additive
 pl:E101a, E101a food additive
 pt:E101a, E101a food additive
-ro:E101a, E101a food additive
+ro:E101a, Riboflavină 5-fosfat
 sk:E101a, E101a food additive
 sl:E101a, E101a food additive
 sv:E101a, E101a food additive
@@ -11486,7 +11484,7 @@ mt:E103, E103 food additive
 nl:E103, Alkannin
 pl:E103, Alkanina
 pt:E103, E103 food additive
-ro:E103, E103 food additive
+ro:E103, Alcanet, Alkanet
 sk:E103, E103 food additive
 sl:E103, E103 food additive
 sv:E103, Alkannin
@@ -11549,7 +11547,7 @@ mt:E105, E105 food additive
 nl:E105, Resorcinolgeel (verboden)
 pl:E105, E105 food additive
 pt:E105, E105 food additive
-ro:E105, E105 food additive
+ro:E105, Galben puternic AB, Rapid galben AB
 sk:E105, E105 food additive
 sl:E105, E105 food additive
 sv:E105, E105 food additive
@@ -11575,7 +11573,7 @@ mt:E106, E106 food additive
 nl:E106, Riboflavine-5'-fosfaat
 pl:E106, mononukleotyd flawinowy
 pt:E106, Mononucleótido de flavina
-ro:E106, E106 food additive
+ro:E106, Riboflavin-5-sodiu fosfat
 sk:E106, E106 food additive
 sl:E106, E106 food additive
 sv:E106, FMN
@@ -11602,7 +11600,7 @@ mt:E107, E107 food additive
 nl:E107, Geel 2G, CI 18965
 pl:E107, Żółcień 2G
 pt:E107, E107 food additive
-ro:E107, E107 food additive
+ro:E107, Galben 2G
 sk:E107, E107 food additive
 sl:E107, E107 food additive
 sv:E107, Gul 2G, E 107
@@ -11617,7 +11615,7 @@ bg:E110, Сънсет жълто FCF, CI хранително жълто 3, Yell
 ca:E110, Groc ataronjat S
 cs:E110, Sunset yellow FCF, Yellow 6, Žluť SY, E 110
 da:E110, Sunset yellow FCF, Yellow 6
-de:E110, Gelborange s, Food Yellow 3, Sunsetgelb FCF, Yellow 6, Gelborange
+de:E110, Gelborange S, Food Yellow 3, Sunsetgelb FCF, Yellow 6, Gelborange
 el:E110, Κιτρινο sunset FCF, Κίτρινο CI food 3, Yellow 6
 es:E110, Amarillo anaranjado s, CI food yellow 3, Yellow 6, Amarillo crepúsculo, C.I. 15985, Amarillo ocaso, E 110
 et:E110, Päikeseloojangukollane FCF, CI kollane toiduvärv 3, Yellow 6
@@ -11631,7 +11629,7 @@ mt:E110, Sunset yellow FCF, Yellow 6
 nl:E110, Zonnegeel FCF, CI Food Yellow 3, Yellow 6, Geeloranje S
 pl:E110, Żółcień pomarańczowa FCF, CI żółcień spożywcza 3, Yellow 6, Żółcień pomarańczowa S
 pt:E110, Amarelo-sol FCF, Amarelo alimentar CI 3, Yellow 6, Amarelo crepúsculo
-ro:E110, Sunset yellow FCF, Colorant alimentar galben CI 3, Yellow 6
+ro:E110, Apus galben FCF, Colorant alimentar galben CI 3, Yellow 6, Portocaliu galben S
 sk:E110, Žltá FCF, CI potravinárska žltá 3, Yellow 6, Žltá SY, Oranžová žltá, Žlť SY, Žltooranžová S, Žlť-oranž S, Žlť SY FCF, C.I. 15985, Žlť FCF, Oranžová žlť, Žltá SY FCF, Pomarančovožltá S
 sl:E110, Sončno rumeno FCF, CI Food Yellow 3, Yellow 6
 sv:E110, Para-orange, CI Food Yellow 3, Yellow 6, E 110
@@ -11677,7 +11675,7 @@ nb:protease
 nl:E1101, Protease, Endopeptidase, Peptidase
 pl:E1101, proteazy, Proteaza, Enzymy proteolityczne, Peptydazy, Peptydaza
 pt:E1101, Protease, Exopeptidases, Carboxipeptidase, Endopeptidase, Endopeptidases, Aminopeptidases, Proteases, Carboxipeptidases, Aminopeptidase, Enzima proteolítica, Peptidase, Peptidases, Proteinase, Enzimas proteolíticas, Protease sérica, Exopeptidase
-ro:E1101, E1101 food additive
+ro:E1101, Proteaze
 ru:Протеаза
 sh:Proteaza
 sk:E1101, Proteáza, Proteináza, Proteolytický enzým, Proteázy
@@ -11712,7 +11710,7 @@ mt:E1102, E1102 food additive
 nl:E1102, E1102 food additive
 pl:E1102, Oksydaza glukozowa
 pt:E1102, Glicose oxidase, Glucose oxidase
-ro:E1102, E1102 food additive
+ro:E1102, Glucozoxidaza
 sk:E1102, E1102 food additive
 sl:E1102, E1102 food additive
 sv:E1102, E1102 food additive
@@ -11819,7 +11817,7 @@ en:lysozyme from eggs
 de:Lysozym aus Ei
 es:lisozima de huevo
 fr:lysozyme d'œuf
-it:lisozima de uovo
+it:lisozima da uovo
 nl:lysozym uit ei
 sv:lysozym av ägg, av ägg
 
@@ -11842,7 +11840,7 @@ mt:E111, E111 food additive
 nl:E111, E111 food additive
 pl:E111, Oranż GGN
 pt:E111, E111 food additive
-ro:E111, E111 food additive
+ro:E111, Portocaliu alfa-naftol, Portocaliu GGN
 sk:E111, E111 food additive
 sl:E111, E111 food additive
 sv:E111, E111 food additive
@@ -12102,7 +12100,7 @@ mt:E121, E121 food additive
 nl:E121, E121 food additive
 pl:E121, E121 food additive
 pt:E121, E121 food additive
-ro:E121, E121 food additive
+ro:E121, Colorant citric roşu
 sk:E121, E121 food additive
 sl:E121, E121 food additive
 sv:E121, E121 food additive
@@ -12130,7 +12128,7 @@ mt:E122, Ażorubina, karmoisina
 nl:E122, Azorubine, karmozijn, CI 14720
 pl:E122, Azorubina, karmoizyna
 pt:E122, Azorubina, carmosina, Azorrubina
-ro:E122, Azorubină, carmoizină
+ro:E122, Azorubină, Carmoizină
 sk:E122, Azorubín, karmoizín
 sl:E122, Azorubin, karmoizin
 sv:E122, Azorubin, karmosin, E 122
@@ -12201,7 +12199,7 @@ mt:E124, Ponceau 4r, aħmar tal-kuċċinilja a
 nl:E124, Ponceau 4r, cochenillerood a, CI Food Red 7
 pl:E124, Pąs 4r, czerwień koszenilowa a, CI czerwień spożywcza 7
 pt:E124, Ponceau 4r, vermelho de cochonilha a, Vermelho alimentar CI 7
-ro:E124, Ponceau 4r, coșenilă roșie a, Colorant alimentar roșu CI 7
+ro:E124, Ponceau 4r, Coșenilă roșie a, Colorant alimentar roșu CI 7, Roșu ponceau
 sk:E124, Ponceau 4r, košenilová červeň a, CI potravinárska červená 7
 sl:E124, Rdeče 4r, košenil rdeče a
 sv:E124, Nykockin, CI Food Red 7, ponceau 4R
@@ -12234,7 +12232,7 @@ mt:E125, E125 food additive
 nl:E125, E125 food additive
 pl:E125, Szkarłat GN
 pt:E125, E125 food additive
-ro:E125, E125 food additive
+ro:E125, Ponceau SX
 sk:E125, E125 food additive
 sl:E125, E125 food additive
 sv:E125, E125 food additive
@@ -12262,7 +12260,7 @@ mt:E126, E126 food additive
 nl:E126, Ponceau 6R
 pl:E126, Pąs 6R
 pt:E126, E126 food additive
-ro:E126, E126 food additive
+ro:E126, Ponceau 6R
 sk:E126, E126 food additive
 sl:E126, E126 food additive
 sv:E126, E126 food additive
@@ -12332,7 +12330,7 @@ mt:E128, E128 food additive
 nl:E128, Rood 2G, CI 18050
 pl:E128, Czerwień 2G
 pt:E128, Vermelho 2G, E128 Vermelho 2G
-ro:E128, E128 food additive
+ro:E128, Roșu 2G
 sk:E128, E128 food additive
 sl:E128, E128 food additive
 sv:E128, Röd 2G, E 128
@@ -12401,7 +12399,7 @@ mt:E130, E130 food additive
 nl:E130, Indantreen
 pl:E130, Błękit indantrenowy RS
 pt:E130, E130 food additive
-ro:E130, E130 food additive
+ro:E130, Albastru indantren RS
 sk:E130, E130 food additive
 sl:E130, E130 food additive
 sv:E130, E130 food additive
@@ -12415,7 +12413,7 @@ bg:E131, Патент синьо v
 ca:E131, Blau patentat V
 cs:E131, Patentní modř v
 da:E131, Patent blue v
-de:E131, Patentblau v, Patentblau, patentblau E 131
+de:E131, Patentblau V, Patentblau, patentblau E 131
 el:E131, Πατεντ μπλε v
 es:E131, Azul patentado V, Azul patente v, Azul sulfán
 et:E131, Patentsinine v
@@ -12458,7 +12456,7 @@ bg:E132, Индиготин, индиго кармин
 ca:E132, Indigotina, carmí indi
 cs:E132, Indigotin, indigocarmine, Indigo karmín
 da:E132, Indigotin (indigocarmin)
-de:E132, Indigotin (indigokarmin), Indigokarmin, Indigotin, E 132, Indigocarmin, Indigotin I
+de:E132, Indigotin (Indigokarmin), Indigokarmin, Indigotin, E 132, Indigocarmin, Indigotin I
 el:E132, Ινδικοτινη, ινδικοκαρμινη
 es:E132, Indigotina, carmín de índigo, E 132
 et:E132, Indigotiin, indigokarmiin
@@ -12539,7 +12537,7 @@ bg:E140, E140 food additive
 ca:E140, Clorofil i Clorofilines
 cs:E140, E140 food additive
 da:E140, E140 food additive
-de:E140, Chlorophyll c1
+de:E140, Chlorophyll C1
 el:E140, E140 food additive
 es:E140, Clorofilas
 et:E140, E140 food additive
@@ -12553,7 +12551,7 @@ mt:E140, E140 food additive
 nl:E140, Chlorofylen en chlorofyllinen
 pl:E140, Chlorofil A
 pt:E140, E140 food additive
-ro:E140, E140 food additive
+ro:E140, Clorofile și clorofiline
 sk:E140, E140 food additive
 sl:E140, E140 food additive
 sv:E140, Klorofyll b
@@ -12580,7 +12578,7 @@ ca:E140i, clorofilla
 cs:E140i, Chlorofyly, CI přírodní zeleň 3, chlorofyl hořčíku, E141i, Měďnaté komplexy chlorofylů, chlorofyl mědi
 cy:E140i, Cloroffyl
 da:E140i, Chlorophyll, CI Natural Green 3, E141i, Chlorophyll-kobber-kompleks
-de:E140i, Chlorophylle, E141i, Kupferkomplexe der chlorophylle
+de:E140i, Chlorophylle, E141i, Kupferkomplexe der Chlorophylle
 el:E140i, Χλωροφυλλες, Πράσινο CI natural 3, μαγνησιοχλωροφύλλη, E141i, Συμπλοκα των χλωροφυλλων με χαλκο, χαλκοχλωροφύλλη
 eo:E140i, klorofilo
 es:E140i, CI Natural Green 3, clorofila magnésica, E141i, clorofila cúprica
@@ -12720,7 +12718,7 @@ pt:E1400, Dextrina
 ro:E1400, Dextrină
 ru:декстрин
 sh:Dekstrin
-sk:E1400, E1400 food additive
+sk:E1400, Dextríny
 sl:E1400, E1400 food additive
 sr:Dekstrin
 sv:E1400, Dextrin
@@ -12743,11 +12741,39 @@ fr:dextrine de maïs
 de:Maisdextrin
 nl:maïsdextrine
 
+en:E1401, Acid-treated modified starch
+bg:E1401, E1401 food additive
+cs:E1401, E1401 food additive
+da:E1401, E1401 food additive
+de:E1401, säurebehandelte Stärke, säurebehandelte modifizierte Stärke
+el:E1401, E1401 food additive
+es:E1401, E1401 food additive
+et:E1401, E1401 food additive
+fi:E1401, E1401 food additive
+fr:E1401, Amidon traité aux acides
+hu:E1401, E1401 food additive
+it:E1401, E1401 food additive
+lt:E1401, E1401 food additive
+lv:E1401, E1401 food additive
+mt:E1401, E1401 food additive
+nl:E1401, Zuur-behandeld zetmeel
+pl:E1401, skrobia modyfikowana kwasami
+pt:E1401, E1401 food additive
+ro:E1401, E1401 food additive
+sk:E1401, Kyselinami modifikované škroby
+sl:E1401, E1401 food additive
+sv:E1401, E1401 food additive
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+e_number:en: 1401
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q18967250
+
 en:E1402, Alkaline modified starch
 bg:E1402, E1402 food additive
 cs:E1402, E1402 food additive
 da:E1402, E1402 food additive
-de:E1402, E1402 food additive
+de:E1402, alkalisch modifizierte Stärke
 el:E1402, E1402 food additive
 es:E1402, E1402 food additive
 et:E1402, E1402 food additive
@@ -12759,7 +12785,7 @@ lt:E1402, E1402 food additive
 lv:E1402, E1402 food additive
 mt:E1402, E1402 food additive
 nl:E1402, Alkali-behandeld zetmeel
-pl:E1402, E1402 food additive
+pl:E1402, skrobia modyfikowana zasadami
 pt:E1402, E1402 food additive
 ro:E1402, E1402 food additive
 sk:E1402, E1402 food additive
@@ -12771,11 +12797,11 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18636175
 
-en:E1403, Bleached starch, Bleached starch (Stabilizer (food)stabiliser)
+en:E1403, Bleached starch
 bg:E1403, E1403 food additive
 cs:E1403, E1403 food additive
 da:E1403, E1403 food additive
-de:E1403, E1403 food additive
+de:E1403, gebleichte Stärke
 el:E1403, E1403 food additive
 es:E1403, E1403 food additive
 et:E1403, E1403 food additive
@@ -12787,10 +12813,10 @@ lt:E1403, E1403 food additive
 lv:E1403, E1403 food additive
 mt:E1403, E1403 food additive
 nl:E1403, Gebleekt zetmeel
-pl:E1403, E1403 food additive
+pl:E1403, skrobia bielona
 pt:E1403, E1403 food additive
 ro:E1403, E1403 food additive
-sk:E1403, E1403 food additive
+sk:E1403, Bielené škroby
 sl:E1403, E1403 food additive
 sv:E1403, E1403 food additive
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
@@ -12832,7 +12858,7 @@ en:E1405, Enzyme treated starch
 bg:E1405, E1405 food additive
 cs:E1405, E1405 food additive
 da:E1405, E1405 food additive
-de:E1405, E1405 food additive
+de:E1405, enzymatisch modifizierte Stärke
 el:E1405, E1405 food additive
 es:E1405, E1405 food additive
 et:E1405, E1405 food additive
@@ -12844,10 +12870,10 @@ lt:E1405, E1405 food additive
 lv:E1405, E1405 food additive
 mt:E1405, E1405 food additive
 nl:E1405, E1405 food additive
-pl:E1405, E1405 food additive
+pl:E1405, skrobia modyfikowana enzymatycznie
 pt:E1405, E1405 food additive
 ro:E1405, E1405 food additive
-sk:E1405, E1405 food additive
+sk:E1405, Enzymaticky modifikované škroby
 sl:E1405, E1405 food additive
 sv:E1405, E1405 food additive
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
@@ -12861,7 +12887,7 @@ bg:E141, E141 food additive
 ca:E141, Complexos cúprics de clorofil i clorofilines
 cs:E141, E141 food additive
 da:E141, E141 food additive
-de:E141, E141 food additive
+de:E141, Kupferhaltigen Komplexe der Chlorophylle und Chlorophylline
 el:E141, E141 food additive
 es:E141, Complejos cúpricos de clorofilas, Complejos cúpricos de clorofilas y clorofilinas
 et:E141, E141 food additive
@@ -12875,7 +12901,7 @@ mt:E141, E141 food additive
 nl:E141, Kopercomplexen van chlorophyllen
 pl:E141, E141 food additive
 pt:E141, E141 food additive
-ro:E141, E141 food additive
+ro:E141, Complexe de cupru ale clorofilelor și clorofilinei
 sk:E141, E141 food additive
 sl:E141, E141 food additive
 sv:E141, E141 food additive
@@ -12893,7 +12919,7 @@ en:E141ii, Copper complexes of chlorophyllins, Sodium Copper Chlorophyllin, Pota
 bg:E141ii, Медни комплекси на хлорофилини, Натриев меден хлорофилин, калиев меден хлорофилин
 cs:E141ii, Měďnaté komplexy chlorofylinů
 da:E141ii, Chlorophyllin-kobber-kompleks, Natriumkobberchlorophyllin, kaliumkobberchlorophyllin
-de:E141ii, Kupferkomplexe der chlorophylline synonyme
+de:E141ii, Kupferkomplexe der Chlorophylline
 el:E141ii, Συμπλοκα των χλωροφυλλινων με χαλκο, Χαλκοχλωροφυλλινικό νάτριο, χαλκοχλωροφυλλινικό κάλιο
 es:E141ii, Complejos cúpricos de clorofilinas, Clorofilina cúprica de sodio, clorofilina cúprica de potasio
 et:E141ii, Klorofülliinide vasekompleksid, Naatriumvaskklorofülliin, kaaliumvaskklorofülliin
@@ -12947,13 +12973,13 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18631008
 
-en:E1411, Distarch glycerol (thickening agent)
+en:E1411, Distarch glycerol
 bg:E1411, E1411 food additive
 cs:E1411, E1411 food additive
 da:E1411, E1411 food additive
 de:E1411, E1411 food additive
 el:E1411, E1411 food additive
-es:E1411, E1411 food additive
+es:E1411, Glicerol de dialmidón
 et:E1411, E1411 food additive
 fi:E1411, E1411 food additive
 fr:E1411, Glycérol de diamidon
@@ -12963,12 +12989,13 @@ lt:E1411, E1411 food additive
 lv:E1411, E1411 food additive
 mt:E1411, E1411 food additive
 nl:E1411, Dizetmeelglycerol
-pl:E1411, E1411 food additive
+pl:E1411, glicerol diskrobiowy
 pt:E1411, E1411 food additive
 ro:E1411, E1411 food additive
-sk:E1411, E1411 food additive
+sk:E1411, Diškrobový glycerol
 sl:E1411, E1411 food additive
 sv:E1411, E1411 food additive
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en: 1411
 vegan:en: yes
 vegetarian:en: yes
@@ -13037,7 +13064,7 @@ bg:E1414, Ацетилиран динишестен фосфат
 ca:E1414, Fosfat de dimidó acetilat
 cs:E1414, Acetylovaný zesíťovaný fosforečnan škrobu
 da:E1414, Acetyleret distivelsephosphat
-de:E1414, Acetyliertes distärkephosphat
+de:E1414, acetyliertes Distärkephosphat
 el:E1414, Ακετυλιωμενο οξινο φωσφορικο αμυλο
 es:E1414, Fosfato de dialmidón acetilado
 et:E1414, Atsetüülitud ditärklisfosfaat
@@ -13110,7 +13137,7 @@ bg:E1420, Ацетилирано нишесте, E1421, E1421 food additive
 ca:E1420, Midó acetilat
 cs:E1420, Acetylovaný škrob, E1421, E1421 food additive
 da:E1420, Acetyleret stivelse, E1421, E1421 food additive
-de:E1420, Acetylierte stärke, E1421, E1421 food additive
+de:E1420, acetylierte Stärke, E1421, E1421 food additive
 el:E1420, Ακετυλιωμενο αμυλο, E1421, E1421 food additive
 es:E1420, Almidón acetilado, E1421, E1421 food additive
 et:E1420, Atsetüülitud tärklis, E1421, E1421 food additive
@@ -13125,7 +13152,7 @@ nl:E1420, Geacetyleerd zetmeel, E1421, Zetmeelacetaat
 pl:E1420, Skrobia acetylowana, E1421, E1421 food additive
 pt:E1420, Amido acetilado, E1421, E1421 food additive
 ro:E1420, Amidon acetilat, E1421, E1421 food additive
-sk:E1420, Acetylovaný škrob, E1421, E1421 food additive
+sk:E1420, Acetylovaný škrob, E1421, Acetylovaný škrob esterifikovaný vinylacetátom
 sl:E1420, Acetilirani škrob, E1421, E1421 food additive
 sv:E1420, Stärkelseacetat, E1421, E1421 food additive
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
@@ -13139,7 +13166,7 @@ bg:E1422, Ацетилиран динишестен адипат
 ca:E1422, Adipat de dimidó acetilat
 cs:E1422, Acetylovaný zesíťovaný adipan škrobu
 da:E1422, Acetyleret distivelseadipat
-de:E1422, Acetyliertes distärkeadipat
+de:E1422, acetyliertes Distärkeadipat
 el:E1422, Ακετυλιωμενο οξινο αδιπικο αμυλο
 es:E1422, Adipato de almidón acetilado
 et:E1422, Atsetüülitud ditärk lisadipaat
@@ -13167,9 +13194,9 @@ en:E1423, Acetylated distarch glycerol
 bg:E1423, E1423 food additive
 cs:E1423, E1423 food additive
 da:E1423, E1423 food additive
-de:E1423, E1423 food additive
+de:E1423, acetyliertes Distärkeglycerin
 el:E1423, E1423 food additive
-es:E1423, E1423 food additive
+es:E1423, Glicerol de dialmidón acetilado
 et:E1423, E1423 food additive
 fi:E1423, E1423 food additive
 fr:E1423, Glycérol de diamidon acétylé, Glycérol acétylé de diamidon
@@ -13179,12 +13206,13 @@ lt:E1423, E1423 food additive
 lv:E1423, E1423 food additive
 mt:E1423, E1423 food additive
 nl:E1423, Geacetyleerd dizetmeelglycerol
-pl:E1423, E1423 food additive
+pl:E1423, acetylowany glicerol diskrobiowy
 pt:E1423, E1423 food additive
 ro:E1423, E1423 food additive
-sk:E1423, E1423 food additive
+sk:E1423, Acetylovaný škrobový glycerol
 sl:E1423, E1423 food additive
 sv:E1423, E1423 food additive
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en: 1423
 vegan:en: yes
 vegetarian:en: yes
@@ -13208,7 +13236,7 @@ mt:E143, E143 food additive
 nl:E143, E143 food additive
 pl:E143, E143 food additive
 pt:E143, Verde rápido, Verde rápido FCF
-ro:E143, E143 food additive
+ro:E143, Verde solid FCF
 sk:E143, E143 food additive
 sl:E143, E143 food additive
 sv:E143, E143 food additive
@@ -13218,11 +13246,11 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q898299
 
-en:E1430, Distarch glycerine, Distarch glycerine (Stabilizer (food)stabiliser)
+en:E1430, Distarch glycerine
 bg:E1430, E1430 food additive
 cs:E1430, E1430 food additive
 da:E1430, E1430 food additive
-de:E1430, E1430 food additive
+de:E1430, Distärkeglycerin
 el:E1430, E1430 food additive
 es:E1430, E1430 food additive
 et:E1430, E1430 food additive
@@ -13240,6 +13268,7 @@ ro:E1430, E1430 food additive
 sk:E1430, E1430 food additive
 sl:E1430, E1430 food additive
 sv:E1430, E1430 food additive
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en: 1430
 vegan:en: yes
 vegetarian:en: yes
@@ -13274,11 +13303,11 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1640437
 
-en:E1441, Hydroxy propyl distarch glycerine, Hydroxy propyl distarch glycerine (Stabilizer (food)stabiliser)
+en:E1441, Hydroxy propyl distarch glycerine
 bg:E1441, E1441 food additive
 cs:E1441, E1441 food additive
 da:E1441, E1441 food additive
-de:E1441, E1441 food additive
+de:E1441, Hydroxypropyldistärkeglycerin
 el:E1441, E1441 food additive
 es:E1441, E1441 food additive
 et:E1441, E1441 food additive
@@ -13296,6 +13325,7 @@ ro:E1441, E1441 food additive
 sk:E1441, E1441 food additive
 sl:E1441, E1441 food additive
 sv:E1441, E1441 food additive
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en: 1441
 vegan:en: yes
 vegetarian:en: yes
@@ -13336,7 +13366,7 @@ cs:E1443, E1443 food additive
 da:E1443, E1443 food additive
 de:E1443, E1443 food additive
 el:E1443, E1443 food additive
-es:E1443, E1443 food additive
+es:E1443, Glicerol de dialmidón hidroxipropilo
 et:E1443, E1443 food additive
 fi:E1443, E1443 food additive
 fr:E1443, Glycérol de diamidon hydroxypropyle
@@ -13352,6 +13382,7 @@ ro:E1443, E1443 food additive
 sk:E1443, E1443 food additive
 sl:E1443, E1443 food additive
 sv:E1443, E1443 food additive
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en: 1443
 vegan:en: yes
 vegetarian:en: yes
@@ -13364,7 +13395,7 @@ cs:E1450, Sodná sůl oktenyljantaranu škrobu
 da:E1450, Stivelsenatriumoctenylsuccinat
 de:E1450, Stärkenatriumoctenylsuccinat
 el:E1450, Οκτενυληλεκτρικο αμυλονατριο
-es:E1450, Octenilsuccinato sódico de almidón, Octenil succinato sódico de almidón
+es:E1450, Octenilsuccinato sódico de almidón, Octenil succinato sódico de almidón, Almidón succinato octenilo de sodio
 et:E1450, Naatriumoktenüülsuktsinaattärklis
 fi:E1450, Tärkkelysnatriumoktenyylisukkinaatti
 fr:E1450, Octényle succinate d'amidon sodique
@@ -13438,6 +13469,7 @@ ro:E1452, Octenilsuccinat de amidon și aluminiu
 sk:E1452, Škrobový oktenyljantaran hlinitý
 sl:E1452, Aluminijev oktenil sukcinat škroba
 sv:E1452, Stärkelse-aluminium-oktenyl-succinat
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en: 1452
 vegan:en: yes
 vegetarian:en: yes
@@ -13487,7 +13519,7 @@ nn:E150, Karamell
 oc:E150, caramèl
 pl:E150, karmel
 pt:E150, caramelo
-ro:E150, karmel
+ro:E150, Carmel
 ru:E150, карамель
 sk:E150, Karamel
 sl:E150, Karamel
@@ -13627,7 +13659,7 @@ bs:E150a, Karamel boja
 ca:E150a, colorant de caramel
 cs:E150a, E150c, Amoniakový karamel
 da:E150a, Madkulør, E150c, Ammonieret karamel
-de:E150a, Zuckerkulör, Zuckercouleur, E150c, Ammoniak-zuckerkulör
+de:E150a, Zuckerkulör, Zuckercouleur, E150c, Ammoniak-Zuckerkulör, Ammoniak-Zuckercouleur
 el:E150a, Απλο καραμελοχρωμα, E150c, Εναμμωνιο καραμελοχρωμα
 es:E150a, Caramelo natural, color caramelo, colorante «Color Caramelo», caramelo para licores, E150c, Caramelo amónico, El caramelo amónico, caramelo de panadería, caramelo de confitería, caramelo de cerveza
 et:E150a, E150c, Ammooniumkaramell
@@ -13670,7 +13702,7 @@ en:E150b, Caustic sulphite caramel, caramel E150b
 bg:E150b, Карамел основен сулфит
 cs:E150b, Kaustický sulfitový karamel
 da:E150b, Kaustisk sulfiteret karamel
-de:E150b, Sulfitlaugen-zuckerkulör, Karamell E150b
+de:E150b, Sulfitlaugen-Zuckerkulör, Karamell E150b, Sulfitlaugen-Zuckercouleur
 el:E150b, Καυστικο θειωδες καραμελοχρωμα
 es:E150b, Caramelo de sulfito cáustico, caramelo cáustico
 et:E150b, Leeliseline sulfitkaramell
@@ -13703,7 +13735,7 @@ en:E150d, Sulphite ammonia caramel, Sulfite ammonia caramel, Caramel Colour Ammo
 bg:E150d, Карамел амониев сулфит
 cs:E150d, Amoniak-sulfitový karamel
 da:E150d, Ammonieret sulfiteret karamel
-de:E150d, Ammoniumsulfit-zuckerkulör, Zuckerkulör E150d
+de:E150d, Ammoniumsulfit-Zuckerkulör, Zuckerkulör E150d, Ammoniumsulfit-Zuckercouleur
 el:E150d, Εναμμωνιο θειωδες καραμελοχρωμα
 es:E150d, Caramelo de sulfito amónico, Caramelo sulfito de amoníaco, caramelo clase iv, caramelo a prueba de ácidos, caramelo de bebidas gaseosas
 et:E150d, Ammooniumsulfitkaramell
@@ -14460,7 +14492,7 @@ mt:E152, E152 food additive
 nl:E152, carbon black
 pl:E152, E152 food additive
 pt:E152, E152 food additive
-ro:E152, E152 food additive
+ro:E152, Cărbune negru
 sk:E152, E152 food additive
 sl:E152, E152 food additive
 sv:E152, Kimrök
@@ -14553,7 +14585,7 @@ mt:E154, E154 food additive
 nl:E154, E154 food additive
 pl:E154, Brąz FK
 pt:E154, E154 food additive
-ro:E154, E154 food additive
+ro:E154, Brun FK
 sk:E154, E154 food additive
 sl:E154, E154 food additive
 sv:E154, Brun FK, E 154
@@ -14621,7 +14653,7 @@ mt:E15x, E15x food additive
 nl:E15x, E15x food additive
 pl:E15x, E15x food additive
 pt:E15x, E15x food additive
-ro:E15x, E15x food additive
+ro:E15x, CI 77266, Categorie de aditivi a lui E152 și E153
 sk:E15x, E15x food additive
 sl:E15x, E15x food additive
 sv:E15x, E15x food additive
@@ -14630,107 +14662,121 @@ e_number:en: 159
 vegan:en: yes
 vegetarian:en: yes
 
-en:E160, carotene, E160a, Alpha-carotene, Beta-carotene, Gamma-carotene, E160ai
-bg:E160, E160 food additive, E160a, Каротин, E160ai, Бета-каротин, Бета-каротен
-ca:E160, Carotenoides, E160a, Carotè, beta-carotè
-cs:E160, E160 food additive, E160a, karoteny, E 160a, karoten, E160ai, Beta-karoten, β-karoten
-da:E160, E160 food additive, E160a, Karotin, Carotenoider, Karotenoid, E 160, Karoten, Caroten, Carotenoid, E160ai, Beta-caroten, Betakaroten
-de:E160, E160 food additive, E160a, Carotine, Provitamin A, Karotin, E 160a, Beta-Carotin, Betacarotin, Carotin, Gamma-Carotin, Betakarotin, Alpha-Carotin, Beta-Karotin, γ-Carotin, β-Carotin, β-Karotin, α-Carotin, E160ai
-el:E160, E160 food additive, E160a, E160a food additive, E160ai, Β-καροτενιο, β-καροτένιο
-es:E160, Carotenoides, Caroteno, E160a, Carotenos, Alfa-caroteno, Alfacaroteno, α-caroteno, Beta-caroteno, Betacaroteno, ß-caroteno, Gamma-caroteno, Gammacaroteno, γ-caroteno, Carotina, Tetraterpeno, E160ai
-et:E160, E160 food additive, E160a, Karoteenid, Karotiinid, Karotiin, Karoteen, E160ai, Beetakaroteen
-eu:Beta-karoteno
-fa:بتاکاروتن
-fi:E160, E160 food additive, E160a, Karoteeni, E160ai, Beta-karoteeni, beetakaroteeni
-fr:E160, Caroténoïdes, carotène, carotènes, Caroténoïde, caroténoïdes mélangés, carotènes mélangés, E160a, Bêta-carotène, bétacarotène, β-carotène, Caroténoïdes extrait de légumes, β-carotène extrait de Blakeslea trispora, β-carotène extrait d'algue, γ-Carotène, gamma-carotène, Pro-vitamine A, Alphacarotene, Α-Carotène, Provitamine A, carotéinodes mélangés, E160ai
-gl:Beta-caroteno
-he:בטא-קרוטן
-hi:बीटा कैरोटीन
-hu:E160, Karotin, E160a, Karotinok, E160ai, Béta-karotin
-id:Beta-karoten
-is:Beta-karótín
-it:E160, E160 food additive, E160a, Carotene, Beta-carotene, Carotina, Β-carotene, Caroteni, Betacarotene, E160ai
-ja:β-カロテン
-ko:베타카로틴
-lt:E160, E160 food additive, E160a, Karotinas, Beta karotinas, E160ai, Beta karotenas, b-karotenas
-lv:E160, E160 food additive, E160a, E160a food additive, E160ai, Beta-karotīns
-mk:Бета-каротен
-mn:Бета каротин
-ms:Beta-Karotena
-mt:E160, E160 food additive, E160a, E160a food additive, E160ai, Beta-karotên, beta-karotina
-nl:E160, E160 food additive, E160a, caroteen, Carotenen, Beta-caroteen, Β-caroteen, E160ai, Bèta-caroteen
-nn:betakaroten
-pl:E160, E160 food additive, E160a, karoteny, karoten, E160ai, Beta-karoten
-pt:E160, E160 food additive, E160a, Caroteno, E160ai, Beta-caroteno, Betacaroteno
-ro:E160, E160 food additive, E160a, Caroten, E160ai, Beta-caroten
-ru:E160a, Бета-каротин, β-Каротин, каротин, Е160a, каротины
-sh:Beta-karoten
-sk:E160, E160 food additive, E160a, Karotén, E160ai, Beta-karotén, Betakarotén
-sl:E160, E160 food additive, E160a, E160a food additive, E160ai, Beta karoten
-sr:бета-каротен
-sv:E160, E160 food additive, E160a, Karoten, E 160, Karotener, Karotin, E 160a, Alfakaroten, E 160 a, E160ai, Betakaroten
-ta:பீட்டா கரோட்டீன்
-th:บีตา-แคโรทีน
-vi:Beta-Carotene
-zh:Β-胡萝卜素
-e_number:en: 160
-efsa_evaluation:en: Scientific Opinion on the reconsideration of the ADI and a refined exposure assessment of beta-apo-8'-carotenal -E 160e-
-efsa_evaluation_date:en: 2014-01-22
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3492
-vegan:en: yes
-vegetarian:en: yes
-
-< en:E160
-en:beta-carotene dye
-de:Farbstoff Beta-Carotin
-fr:colorant bêta-carotène
-
-< en:E160
-en:cartenoid, carotenoids
+en:E160, Carotenoids, cartenoid
 ar:كاروتينات
 be:каратыноід
-bg:Каротиноид
-ca:Carotenoide
-cs:karotenoidy
-de:Carotinoide
-el:Καροτενοειδές
+bg:E160, E160 food additive, Каротиноид
+ca:E160, Carotenoides, Carotenoide
+cs:E160, E160 food additive, karotenoidy
+da:E160, E160 food additive
+de:E160, Carotinoide
+el:E160, E160 food additive, Καροτενοειδές
 eo:Karotenoido
-es:
-et:Karotenoidid
+es:E160, Carotenoides, Caroteno
+et:E160, E160 food additive, Karotenoidid
 eu:Karotenoide
 fa:کاروتنوئید
-fi:Karotenoidi
-fr:
+fi:E160, E160 food additive, Karotenoidi
+fr:E160, Caroténoïdes, carotène, carotènes, Caroténoïde, caroténoïdes mélangés, carotènes mélangés
 ga:Caraitéinóideach
 gl:Carotenoide
 he:קרוטנואיד
 hr:Karotenoidi
+hu:E160, Karotin
 hy:Կարոտինոիդներ
 id:Karotenoid
-it:Carotenoidi
+it:E160, E160 food additive, Carotenoidi
 ja:カロテノイド
 kk:Каратиноидтар
 ko:카로티노이드
 ku:Karotenoîd
 ky:Каротиноиддер
-lv:Karotinoīdi
-nl:carotenoïde
+lt:E160, E160 food additive
+lv:E160, E160 food additive, Karotinoīdi
+mt:E160, E160 food additive
+nl:E160, E160 food additive, carotenoïde
 nn:karotenoid
-pl:karotenoidy
-pt:carotenoide
-ro:Carotenoidă
+pl:E160, E160 food additive, karotenoidy
+pt:E160, E160 food additive, carotenoide
+ro:E160, Carotenoide, Carotenoidă
 ru:каротиноид
 sh:Karotenoid
+sk:E160, E160 food additive
+sl:E160, E160 food additive
 sr:Каротеноид
-sv:Karotenoid
+sv:E160, E160 food additive, Karotenoid
 tr:Karotenoid
 uk:Каротиноїди
 vi:Carotenoid
 zh:類胡蘿蔔素
+e_number:en: 160
+efsa_evaluation:en: Scientific Opinion on the reconsideration of the ADI and a refined exposure assessment of beta-apo-8'-carotenal -E 160e-
+efsa_evaluation_date:en: 2014-01-22
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3492
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q191907
-wikipedia:en: https://en.wikipedia.org/wiki/Carotenoid
 
-< en:E160
+en:E160a, Alpha-carotene, Beta-carotene, Gamma-carotene, carotene, E160ai
+bg:E160a, Каротин, E160ai, Бета-каротин, Бета-каротен
+ca:E160a, Carotè, beta-carotè
+cs:E160a, karoteny, E 160a, karoten, E160ai, Beta-karoten, β-karoten
+da:E160a, Karotin, Carotenoider, Karotenoid, E 160, Karoten, Caroten, Carotenoid, E160ai, Beta-caroten, Betakaroten
+de:E160a, Carotine, Provitamin A, Karotin, E 160a, Beta-Carotin, Betacarotin, Carotin, Gamma-Carotin, Betakarotin, Alpha-Carotin, Beta-Karotin, γ-Carotin, β-Carotin, β-Karotin, α-Carotin, E160ai
+el:E160a, E160a food additive, E160ai, Β-καροτενιο, β-καροτένιο
+es:E160a, Carotenos, Alfa-caroteno, Alfacaroteno, α-caroteno, Beta-caroteno, Betacaroteno, ß-caroteno, Gamma-caroteno, Gammacaroteno, γ-caroteno, Carotina, Tetraterpeno, E160ai
+et:E160a, Karoteenid, Karotiinid, Karotiin, Karoteen, E160ai, Beetakaroteen
+eu:Beta-karoteno
+fa:بتاکاروتن
+fi:E160a, Karoteeni, E160ai, Beta-karoteeni, beetakaroteeni
+fr:E160a, Bêta-carotène, bétacarotène, β-carotène, Caroténoïdes extrait de légumes, β-carotène extrait de Blakeslea trispora, β-carotène extrait d'algue, γ-Carotène, gamma-carotène, Pro-vitamine A, Alphacarotene, Α-Carotène, Provitamine A, carotéinodes mélangés, E160ai
+gl:Beta-caroteno
+he:בטא-קרוטן
+hi:बीटा कैरोटीन
+hu:E160a, Karotinok, E160ai, Béta-karotin
+id:Beta-karoten
+is:Beta-karótín
+it:E160a, Carotene, Beta-carotene, Carotina, Β-carotene, Caroteni, Betacarotene, E160ai
+ja:β-カロテン
+ko:베타카로틴
+lt:E160a, Karotinas, Beta karotinas, E160ai, Beta karotenas, b-karotenas
+lv:E160a, E160a food additive, E160ai, Beta-karotīns
+mk:Бета-каротен
+mn:Бета каротин
+ms:Beta-Karotena
+mt:E160a, E160a food additive, E160ai, Beta-karotên, beta-karotina
+nl:E160a, caroteen, Carotenen, Beta-caroteen, Β-caroteen, E160ai, Bèta-caroteen
+nn:betakaroten
+pl:E160a, karoteny, karoten, E160ai, Beta-karoten
+pt:E160a, Caroteno, E160ai, Beta-caroteno, Betacaroteno
+ro:E160a, Caroten, E160ai, Beta-caroten
+ru:E160a, Бета-каротин, β-Каротин, каротин, Е160a, каротины
+sh:Beta-karoten
+sk:E160a, Karotén, E160ai, Beta-karotén, Betakarotén
+sl:E160a, E160a food additive, E160ai, Beta karoten
+sr:бета-каротен
+sv:E160a, Karoten, E 160, Karotener, Karotin, E 160a, Alfakaroten, E 160 a, E160ai, Betakaroten
+ta:பீட்டா கரோட்டீன்
+th:บีตา-แคโรทีน
+vi:Beta-Carotene
+zh:Β-胡萝卜素
+additives_classes:en: en:colour
+e_number:en: 160a
+efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-carotene [E 160aii] in foods for special medical purposes in young children
+efsa_evaluation_date:en: 2016-03-18
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
+from_palm_oil:en: maybe
+mandatory_additive_class:en: en:colour
+vegan:en: maybe
+vegetarian:en: maybe
+wikidata:en: Q190156
+
+< en:E160a
+en:beta-carotene dye
+de:Farbstoff Beta-Carotin
+fr:colorant bêta-carotène
+
+< en:E160a
 en:E160aii, Plant carotenes
 bg:E160aii, Растителни каротини
 cs:E160aii, Rostlinné karoteny
@@ -14762,7 +14808,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 vegan:en: yes
 vegetarian:en: yes
 
-< en:E160
+< en:E160a
 en:E160aiii, Beta-carotene from blakeslea trispora
 bg:E160aiii, Бета-каротин от blakeslea trispora
 cs:E160aiii, Beta-karoten z blakeslea trispora
@@ -14793,7 +14839,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 vegan:en: yes
 vegetarian:en: yes
 
-< en:E160
+< en:E160a
 en:E160aiv, Algal carotenes
 bg:E160aiv, Каротини от водорасли
 cs:E160aiv, Karoteny z řas
@@ -14828,8 +14874,8 @@ en:E160b, Annatto, bixin, norbixin, roucou, achiote
 bg:E160b, Анато, биксин, норбиксин i, БИКСИН И НОРБИКСИН
 ca:E160b, Bixina
 cs:E160b, Annatto, bixin, norbixin
-da:E160b, Annattoekstrakter (bixin, norbixin)
-de:E160b, Annatto (bixin, norbixin), BIXIN UND NORBIXIN, Annatto, Achote, Orlean, E 160b, Anatto
+da:E160b, Annattoekstrakter (bixin og norbixin)
+de:E160b, Annatto (Bixin und Norbixin), Bixin und Norbixin, Annatto, Achote, Orlean, E 160b, Anatto, Bixin, Norbixin
 el:E160b, Αννατο, μπιξινη, νορμπιξινη i
 es:E160b, Annato, bixina, norbixina, Achiote
 et:E160b, Annaato, biksiin, norbiksiin i
@@ -14861,8 +14907,8 @@ en:E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin
 bg:E160c, Паприка екстракт, капсантин, капсорубин
 ca:E160c, Capsantina
 cs:E160c, Paprikový extrakt, kapsanthin, kapsorubin, Capsanthin
-da:E160c, Paprikaekstrakt (capsanthin, capsorubin), paprikaekstrakt
-de:E160c, Paprikaextrakt (capsanthin, capsorubin), Capsanthin, E 160c, Paprikaextrakt
+da:E160c, Paprikaekstrakt (capsanthin og capsorubin), paprikaekstrakt
+de:E160c, Paprikaextrakt (Capsanthin und Capsorubin), Capsanthin, E 160c, Capsorubin, Paprikaextrakt
 el:E160c, Εκχυλισμα παπρικας, καψανθινη, καψορουμπινη, εκχύλισμα πάπρικας
 es:E160c, Extracto de pimentón, capsantina, capsorrubina, Oleorresina de pimentón, Oleoresina de pimentón, Extracto de paprika, Oleoresina del pimentón, E 160c, Extracto del pimentón
 et:E160c, Paprikaekstrakt, kapsantiin, kapsorubiin
@@ -14937,7 +14983,7 @@ en:E160e, Beta-apo-8′-carotenal (c30), Apocarotenal, Beta-apo-8'-carotenal, C.
 bg:E160e, Бета-апо-8′-каротенал (c30)
 cs:E160e, Β-apo-8′-karotenal (c 30)
 da:E160e, Beta-apo-8′-carotenal(c30)
-de:E160e, Beta-apo-8′-carotinal (c 30), 8′-Apo-β-caroten-8′-al, E 160e, Apocarotinal, Beta-Apocarotinal, 8'-Apo-β-caroten-8'-al
+de:E160e, Beta-apo-8′-carotinal (C30), 8′-Apo-β-caroten-8′-al, E 160e, Apocarotinal, Beta-Apocarotinal, 8'-Apo-β-caroten-8'-al
 el:E160e, Β-απο-8′-καροτεναλη (c30)
 es:E160e, Beta-apo-8′-carotenal (c30), Apocarotenal, Beta-apo-8'-carotenal, E 160e
 et:E160e, Beeta-apo-8′-karotenaal (c30)
@@ -14982,7 +15028,7 @@ mt:E160f, E160f food additive
 nl:E160f, Beta-8'-caroteenzure ethylester
 pl:E160f, β-apo-8′-karotenian etylu, ester etylowy kwasu β-apo-8′-karotenowego
 pt:E160f, E160f food additive
-ro:E160f, E160f food additive
+ro:E160f, Beta-apo-carotenic, Acid metil, Etil ester
 sk:E160f, E160f food additive
 sl:E160f, E160f food additive
 sv:E160f, Beta-apo-8'-karotensyraetylester
@@ -15042,7 +15088,7 @@ mt:E161a, E161a food additive
 nl:E161a, Flavoxanthine
 pl:E161a, Flawoksantyna
 pt:E161a, E161a food additive
-ro:E161a, E161a food additive
+ro:E161a, Flavoxantină
 sk:E161a, E161a food additive
 sl:E161a, E161a food additive
 sv:E161a, E161a food additive
@@ -15122,7 +15168,7 @@ mt:E161c, E161c food additive
 nl:E161c, Kryptoxanthine
 pl:E161c, Kryptoksantyna
 pt:E161c, E161c food additive
-ro:E161c, E161c food additive
+ro:E161c, Kryptoxantină
 sk:E161c, E161c food additive
 sl:E161c, E161c food additive
 sv:E161c, Kryptoxantin
@@ -15151,7 +15197,7 @@ mt:E161d, E161d food additive
 nl:E161d, Rubixanthine
 pl:E161d, Rubiksantyna
 pt:E161d, E161d food additive
-ro:E161d, E161d food additive
+ro:E161d, Rubixantină
 sk:E161d, E161d food additive
 sl:E161d, E161d food additive
 sv:E161d, E161d food additive
@@ -15182,7 +15228,7 @@ mt:E161e, E161e food additive
 nl:E161e, Violoxanthine, Violaxanthine
 pl:E161e, Wiolaksantyna
 pt:E161e, E161e food additive
-ro:E161e, E161e food additive
+ro:E161e, Violoxantină
 sk:E161e, E161e food additive
 sl:E161e, E161e food additive
 sv:E161e, Violaxantin
@@ -15211,7 +15257,7 @@ mt:E161f, E161f food additive
 nl:E161f, Rhodoxanthine
 pl:E161f, Rodoksantyna
 pt:E161f, E161f food additive
-ro:E161f, E161f food additive
+ro:E161f, Rodoxantină
 sk:E161f, E161f food additive
 sl:E161f, E161f food additive
 sv:E161f, E161f food additive
@@ -15348,7 +15394,7 @@ bg:E162, Оцветител от червено цвекло, бетанин
 ca:E162, Betanina, vermell de remolatxa
 cs:E162, Betalainová červeň, betanin
 da:E162, Rødbedefarve (betaniner)
-de:E162, Betanin (betenrot), Betanin, Beetenrot, Betanoin, E 162, Betenrot
+de:E162, Betanin, Beetenrot, Betanoin, Betenrot
 el:E162, Ερυθρα χρωστικη της ριζας των τευτλων, βετανινη
 es:E162, Rojo de remolacha, Betanina, Betacianina, E 162, Rojo remolacha
 et:E162, Peedipunane, betaniin
@@ -15650,7 +15696,7 @@ mt:E164, E164 food additive
 nl:E164, E164 food additive
 pl:E164, E164 food additive
 pt:E164, E164 food additive
-ro:E164, E164 food additive
+ro:E164, Șofran
 sk:E164, E164 food additive
 sl:E164, E164 food additive
 sv:E164, E164 food additive
@@ -15703,7 +15749,7 @@ mt:E166, E166 food additive
 nl:E166, E166 food additive
 pl:E166, E166 food additive
 pt:E166, E166 food additive
-ro:E166, E166 food additive
+ro:E166, Lemn de santal
 sk:E166, E166 food additive
 sl:E166, E166 food additive
 sv:E166, E166 food additive
@@ -15780,10 +15826,10 @@ efsa_evaluation:en: Scientific Opinion on re‐evaluation of calcium carbonate -
 efsa_evaluation_date:en: 2011/07/26
 efsa_evaluation_overexposure_risk:en: en:no
 efsa_evaluation_url:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2318.pdf
-mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabiliser, en:firming-agent, en:flour-treatment-agent, en:glazing-agent, en:colour
+mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabilizer, en:firming-agent, en:flour-treatment-agent, en:glazing-agent, en:colour
 organic_eu:en: authorized
-vegan:en: yes
-vegetarian:en: yes
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q23767
 
 < en:E170
@@ -15856,7 +15902,7 @@ bg:E172, Железни оксиди и железни хидроксиди
 ca:E172, Òxids i hidròxids de ferro
 cs:E172, Oxidy a hydroxidy železa
 da:E172, Jernoxider og jernhydroxider
-de:E172, Eisenoxide und eisenhydroxide synonyme
+de:E172, Eisenoxide und Eisenhydroxide, Eisenoxide, Eisenhydroxide
 el:E172, Οξειδια του σιδηρου και υδροξειδια του σιδηρου συνώνυμα
 es:E172, Óxidos e hidróxidos de hierro
 et:E172, Raudoksiidid ja raudhüdroksiidid
@@ -15887,11 +15933,11 @@ vegetarian:en: yes
 wikidata:en: Q3045754
 
 < en:E172
-en:E172i, E172(i) food additive
+en:E172i, Black iron oxide
 bg:E172i, E172(i) food additive
 cs:E172i, E172(i) food additive
 da:E172i, E172(i) food additive
-de:E172i, E172(i) food additive
+de:E172i, Eisenoxidschwarz
 el:E172i, E172(i) food additive
 es:E172i, E172(i) food additive
 et:E172i, E172(i) food additive
@@ -15905,7 +15951,7 @@ mt:E172i, E172(i) food additive
 nl:E172i, E172(i) food additive
 pl:E172i, E172(i) food additive
 pt:E172i, E172(i) food additive
-ro:E172i, E172(i) food additive
+ro:E172i, Oxid de fier negru
 sk:E172i, E172(i) food additive
 sl:E172i, E172(i) food additive
 sv:E172i, E172(i) food additive
@@ -15919,11 +15965,11 @@ vegetarian:en: yes
 wikidata:en: Q3045754
 
 < en:E172
-en:E172ii, E172(ii) food additive, iron(III) oxide, ferric oxide
+en:E172ii, Red iron oxide, iron(III) oxide, ferric oxide
 bg:E172ii, E172(ii) food additive
 cs:E172ii, E172(ii) food additive, Oxid železitý, Fe2O3
 da:E172ii, E172(ii) food additive
-de:E172ii, E172(ii) food additive, Eisen(III)-oxid, Fe2O3, Oxidrot, Dieisentrioxid, Eisenoxide
+de:E172ii, Eisen(III)-oxid, Fe2O3, Oxidrot, Dieisentrioxid, Eisenoxidrot
 el:E172ii, E172(ii) food additive
 es:E172ii, E172(ii) food additive, óxido férrico, Fe2O3, herrumbre, óxido de hierro, sesquióxido de hierro, trióxido de hierro, óxido de hierro (III)
 et:E172ii, E172(ii) food additive, Raud(III)oksiid
@@ -15937,7 +15983,7 @@ mt:E172ii, E172(ii) food additive
 nl:E172ii, E172(ii) food additive, IJzer(III)oxide, Fe2O3, Rood ijzeroxide
 pl:E172ii, E172(ii) food additive, Tlenek żelaza(III), Tritlenek diżelaza
 pt:E172ii, E172(ii) food additive, Óxido de ferro, Óxido férrico, Óxido de ferro III, Trióxido de diferro
-ro:E172ii, E172(ii) food additive, Oxid de fier
+ro:E172ii, Oxid de fier roșu
 sk:E172ii, E172(ii) food additive, Oxid železitý
 sl:E172ii, E172(ii) food additive, Železov(III) oksid
 sv:E172ii, E172(ii) food additive, Järn(III)oxid, Rödrost, Ytrost
@@ -15949,11 +15995,11 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4317
 wikidata:en: Q3045754
 
 < en:E172
-en:E172iii, E172(iii) food additive
+en:E172iii, Yellow iron oxide
 bg:E172iii, E172(iii) food additive
 cs:E172iii, E172(iii) food additive
 da:E172iii, E172(iii) food additive
-de:E172iii, E172(iii) food additive
+de:E172iii, Eisenoxidgelb
 el:E172iii, E172(iii) food additive
 es:E172iii, E172(iii) food additive
 et:E172iii, E172(iii) food additive
@@ -15967,7 +16013,7 @@ mt:E172iii, E172(iii) food additive
 nl:E172iii, E172(iii) food additive
 pl:E172iii, E172(iii) food additive
 pt:E172iii, E172(iii) food additive
-ro:E172iii, E172(iii) food additive
+ro:E172iii, Oxid de fier galben
 sk:E172iii, E172(iii) food additive
 sl:E172iii, E172(iii) food additive
 sv:E172iii, E172(iii) food additive
@@ -16073,13 +16119,13 @@ en:E180, Litholrubine bk, CI Pigment Red 57, Rubinpigment, Pigment Rubine, Litho
 bg:E180, Литолрубин bk, CI червен пигмент 57, рубин пигмент
 ca:E180, Litol-Rubina BK, Pigment Rubí
 cs:E180, Litholrubin bk, CI červený pigment 57, rubínový pigment
-da:E180, Rubinpigment bk (litholrubin bk), CI Pigment Red 57
-de:E180, Litholrubin bk, E 180, Litholrubin, Rubinpigment BK
+da:E180, Rubinpigment bk, litholrubin bk, CI Pigment Red 57
+de:E180, Litholrubin BK, E 180, Litholrubin, Rubinpigment BK
 el:E180, Λιθορουμπινη βκ, Κόκκινο CI Pigment 57, rubinpigment
 es:E180, Litolrubina bk, CI Pigment Red 57, rubinpigment, Litol-rubina BK
 et:E180, Litoolrubiin bk, CI punane pigment 57, rubiinpigment
 fi:E180, Litolirubiini bk, CI Pigment Red 57, Rubiinipigmentti
-fr:E180, Lithol-rubine BK, Litholrubine BK, Pigment Rubine, Carmin 6B, TANNIC ACID, Fuchsine lithol BK, D&C Red No. 7, D et C Red No. 7, Carmine 6B, Brilliant Carmine 6B, Permanent Rubin L6B, Litholrubine, Latolrubine, C.I. Pigment Red 57, C.I. Pigment Red 57:1, C.I. 15850:1, Rubinpigment BK, Rubinpigment, 4B-Toner, pigmento rubí, CI 15850, D&C red 7 (USA), Lithol rubin toner BKL, Pigment rouge C. I. no 57, pigment rubis
+fr:E180, Lithol-rubine BK, Litholrubine BK, Pigment Rubine, Carmin 6B, TANNIC ACID, Fuchsine lithol BK, D&C Red No. 7, D et C Red No. 7, Carmine 6B, Brilliant Carmine 6B, Permanent Rubin L6B, Litholrubine, Latolrubine, C.I. Pigment Red 57, C.I. Pigment Red 57:1, C.I. 15850:1, Rubinpigment BK, Rubinpigment, 4B-Toner, pigmento rubí, CI 15850, D&C red 7, Lithol rubin toner BKL, Pigment rouge C. I. no 57, pigment rubis
 hu:E180, Litolrubin BK, CI Pigment Red 57, Rubinpigment
 it:E180, Litolrubino bk, CI pigmento rosso 57, pigmento rubino
 lt:E180, Litolrubinas bk, Raudonasis pigmentas CI Nr. 57, rubino pigmentas
@@ -16148,7 +16194,7 @@ mt:E182, E182 food additive
 nl:E182, Orcein
 pl:E182, E182 food additive
 pt:E182, E182 food additive
-ro:E182, E182 food additive
+ro:E182, Orchil
 sk:E182, E182 food additive
 sl:E182, E182 food additive
 sv:E182, E182 food additive
@@ -16228,7 +16274,7 @@ mt:E201, E201 food additive
 nl:E201, Natriumsorbaat
 pl:E201, Sorbinian sodu
 pt:E201, E201 food additive
-ro:E201, E201 food additive
+ro:E201, Sorbat de sodiu
 sk:E201, E201 food additive
 sl:E201, E201 food additive
 sv:E201, E201 food additive
@@ -18655,7 +18701,7 @@ mt:E303, E303 food additive, L-assorbat tal-potassju
 nl:E303, E303 food additive, kalium-L-ascorbaat
 pl:E303, E303 food additive, L-askorbinian potasu
 pt:E303, E303 food additive, L-ascorbato de potássio
-ro:E303, E303 food additive, L-ascorbat de potasiu
+ro:E303, Ascorbat de potasiu, L-ascorbat de potasiu
 sk:E303, E303 food additive, L-askorban draselný
 sl:E303, E303 food additive, kalijev-L-askorbat
 sv:E303, E303 food additive, kalium-L-askorbat
@@ -18685,7 +18731,7 @@ mt:E304, E304 food additive, E304i, Palmitat askorbili
 nl:E304, Ascorbylpalmitaat, E304i, vetzuuresters van ascorbinezuur
 pl:E304, Palmitynian askorbylu, E304i
 pt:E304, E304 food additive, E304i, Palmitato de ascorbilo
-ro:E304, E304 food additive, E304i, Palmitat de ascorbil
+ro:E304, Esteri acizi grași ai acidului ascorbic, E304i, Palmitat de ascorbil
 sh:Askorbil palmitat
 sk:E304, E304 food additive, E304i, Askorbyl-palmitan
 sl:E304, E304 food additive, E304i, Askorbil palmitat
@@ -18733,12 +18779,12 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q424521
 
-en:E306, Tocopherol-rich extract, tocopherol rich extracts, E 306
+en:E306, Tocopherol-rich extract, Tocopherols, tocopherol rich extracts, E 306
 bg:E306, Токоферол-обогатен екстракт
 ca:E306, Extracte ric en tocoferols
 cs:E306, Extrakt s vysokým obsahem tokoferolů
 da:E306, Tocopherolrig ekstrakt, tocopherolrig ekstrakter
-de:E306, Stark tocopherolhaltige extrakte
+de:E306, Stark tocopherolhaltige Extrakte, Tocopherol-haltige Extrakte
 el:E306, Εκχυλισμα πλουσιο σε τοκοφερολες
 es:E306, Extracto rico en tocoferoles, Extracto rico en tocoferol
 et:E306, Tokoferoolikontsentraat
@@ -18770,98 +18816,29 @@ hu:antioxidáns E306
 nl:antioxidant E306
 ru:антиокислитель E306, антиокислитель E 306
 
-en:E307, Alpha-tocopherol, dl-α-Tocopherol
-bg:E307, Алфа-токоферол, dl-α-токоферол
+en:E307a, Alpha-tocopherol, E307b, E307c, E307, dl-α-Tocopherol
+bg:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Алфа-токоферол, dl-α-токоферол
 ca:E307, α-tocoferol
-cs:E307, Alfa-tokoferol
-da:E307, Alfa-tocopherol, dl-α-Tocopherol
-de:E307, Alpha-tocopherol, DL-α-Tocopherol
-el:E307, Α-τοκοφερολη, dl-α-Τοκοφερόλη
-es:E307, Alfa-tocoferol, Tocoferol alfa, DL-α-tocoferol, Α-Tocoferol, tocoferoles, Vitamina E(sintética)
-et:E307, Alfa-tokoferool, dl-α-tokoferool
-fi:E307, Alfatokoferoli, Alfa-tokoferoli
-fr:E307, Alphatocophérol, Alpha-tocophérol, Alpha-tocophérol de synthèse, dl-α-Tocophérol, 59-02-9
-hu:E307, Alfa-tokoferol, DL-α-Tokoferol
-it:E307, Alfa-tocoferolo, dl-α-tocoferolo
-lt:E307, Alfa tokoferolis, dl-α-tokoferolis
-lv:E307, Alfa-tokoferols, dl-α-tokoferols
-mt:E307, Alfa-tokoferol, dl-α-Tokoferol
-nl:E307, Alfa-tocoferol, dl-α-Tocoferol
-pl:E307, Alfa-tokoferol, dl-α-tokoferol
-pt:E307, Alfa-tocoferol, dl-α-Tocoferol
-ro:E307, Alfa-tocoferol, dl-α-tocoferol
-sk:E307, -tokoferol, DL-α-tokoferol
-sl:E307, Alfa tokoferol, dl alfa tokoferol
-sv:E307, Alfa-tokoferol, DL-α-Tokoferol
-e_number:en: 307
-efsa_evaluation:en: Scientific Opinion on the re-evaluation of tocopherol-rich extract -E 306-, alpha-tocopherol -E 307-, gamma-tocopherol -E 308- and delta-tocopherol -E 309- as food additives
-efsa_evaluation_date:en: 2015-09-30
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4247
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q158348
-
-en:E307a, tocopherol, E307b, E307c, Vitamin E, tocoferol
-af:Vitamien E
-ar:فيتامين إي
-bg:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Витамин Е, Токоферол
-ca:Tocoferol, vitamina E
-cs:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, tokoferol, vitamín E
-da:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamin E
-de:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamin E
-dv:ވިޓަމިން އީ
-el:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Βιταμίνη E, τοκοφερολεσ
-eo:Tokoferolo, vitamino E
-es:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamina E
-et:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E-vitamiin, Tokoferoolid, Vitamiin E
-eu:E bitamina
-fa:ویتامین ای
-fi:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E-vitamiini, Tokoferoli
-fr:E307a, Tocophérol, E307b, Tocophérol concentré, E307c, vitamines e
-gl:Vitamina E
-he:E ויטמין
-hi:विटामिन ई
-hr:vitamin E
-hu:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E-vitamin
-hy:Վիտամին E
-id:Vitamin E
-it:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamina E
-ja:ビタミン E, ビタミンE
-jv:Vitamin E
-ka:ვიტამინი E
-kk:Е дәрумені
-ko:비타민 E
-ky:Витамин Е
-lt:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitaminas E, Tokoferolis
-lv:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E vitamīns
-mk:vitamin e
-ml:ജീവകം ഇ
-mr:इ-जीवनसत्त्व
-mt:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamina E, tokoferol
-nb:vitamin E
-ne:भिटामिन ई
-nl:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamine E, Tocoferol
-nn:vitamin E, E-vitamin
-oc:Vitamina E
-pa:ਵਿਟਾਮਿਨ ਈ
-pl:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Witamina E
-pt:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamina E
-ro:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamina E
-ru:токоферол, витамин E
-sh:Vitamin E
-si:විටමින් E
-sk:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamín E
-sl:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Tokoferol, vitamin E
-sr:vitamin E
-sv:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, Vitamin E
-ta:உயிர்ச்சத்து ஈ
-te:vitamin e
-th:วิตามินอี
-tr:Tokoferol, E vitamini
-ug:ۋىتامىنE
-uk:Вітамін E
-vi:Vitamin E
-zh:维生素E
+cs:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tokoferol
+da:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tocopherol, dl-α-Tocopherol
+de:E307a, Alpha-Tocopherol, α-Tocopherol, E307b, E307c, E307, DL-α-Tocopherol
+el:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Α-τοκοφερολη, dl-α-Τοκοφερόλη
+es:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tocoferol, Tocoferol alfa, DL-α-tocoferol, Α-Tocoferol, tocoferoles, Vitamina E(sintética)
+et:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tokoferool, dl-α-tokoferool
+fi:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfatokoferoli, Alfa-tokoferoli
+fr:E307a, Tocophérol, E307b, Tocophérol concentré, E307c, E307, Alphatocophérol, Alpha-tocophérol, Alpha-tocophérol de synthèse, dl-α-Tocophérol, 59-02-9
+hu:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tokoferol, DL-α-Tokoferol
+it:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tocoferolo, dl-α-tocoferolo
+lt:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa tokoferolis, dl-α-tokoferolis
+lv:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tokoferols, dl-α-tokoferols
+mt:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tokoferol, dl-α-Tokoferol
+nl:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tocoferol, dl-α-Tocoferol
+pl:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tokoferol, dl-α-tokoferol
+pt:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tocoferol, dl-α-Tocoferol
+ro:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tocoferol, dl-α-tocoferol
+sk:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, -tokoferol, DL-α-tokoferol
+sl:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa tokoferol, dl alfa tokoferol
+sv:E307a, E307a food additive, E307b, E307b food additive, E307c, E307c food additive, E307, Alfa-tokoferol, DL-α-Tokoferol
 additives_classes:en: en:antioxidant
 e_number:en: 307a
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of tocopherol-rich extract -E 306-, alpha-tocopherol -E 307-, gamma-tocopherol -E 308- and delta-tocopherol -E 309- as food additives
@@ -18871,159 +18848,12 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q158348
 
-< en:E307a
-en:D-alpha tocopherol
-bg:D-алфа токоферол
-cs:D- α-tokoferol
-de:D-alpha-Tocopherol
-el:D-α-τοκοφερόλη
-es:D-alfa tocoferol
-et:D-alfa-tokoferool
-fi:D-alfa-tokoferoli
-fr:D-alpha-tocophérol
-hu:D-alfa tokoferol
-it:D-alfa-tocoferolo
-lt:D-alfa-tokoferolis
-lv:D-alfa-tokoferols
-mt:D-alfa tokoferol
-nl:D-alfa-tocoferol
-pl:D-alfa tokoferol
-pt:D-alfa-tocoferol
-ro:tocoferol D-alfa
-sk:D-alfa-tokoferol
-sl:D-alfa tokoferol
-sv:D-alfa-tokoferol
-wikidata:en: Q158348
-
-< en:E307a
-en:D-alpha tocopheryl acetate
-bg:D-алфатокоферил ацетат
-cs:D- α-tokoferyl-acetát
-de:D-alpha-Tocopherylacetat
-el:οξική D-α-τοκοφερόλη
-es:acetato de D-alfa tocoferilo
-et:D-alfa-tokoferüülatsetaat
-fi:D-alfa-tokoferyyliasetaatti
-fr:acétate de D-alpha-tocophérol
-hu:D-alfa-tokoferil-acetát
-it:acetato di D-alfa-tocoferile
-lt:D-alfa-tokoferilacetatas
-lv:D-alfa-tokoferilacetāts
-mt:Aċetat ta' D-alfa-tokoferil
-nl:D-alfa-tocoferylacetaat
-pl:octan D-alfa-tokoferylu
-pt:acetato de D-alfa-tocoferilo
-ro:acetat de tocoferil D-alfa
-sk:D-alfa-tokoferylacetát
-sl:D-alfa-tokoferil acetat
-sv:D-alfa-tokoferylacetat
-
-< en:E307a
-en:D-alpha-tocopheryl acid succinate
-bg:D-алфа-токоферил кисел сукцинат
-cs:D-α-tokoferyl-sukcinát
-de:D-alpha-Tocopherylsäuresuccinat
-el:όξινη ηλεκτρική D-α-τοκοφερόλη
-es:Succinato ácido de D-alfa tocoferilo
-et:D-alfa-tokoferüülhappe suktsinaat
-fi:D-alfa-tokoferyylihapon sukkinaatti
-fr:succinate acide de D-alpha-tocophérol
-hu:D-alfa-tokoferil-szukcinát
-it:succinato acido di D-alfa-tocoferile
-lt:D-alfa-tokoferilo rūgšties sukcinatas
-lv:skābais D-alfa-tokoferilsukcināts
-mt:Suċċinat aċidu ta' D-alfa-tokoferil
-nl:D-alfa-tocoferylwaterstof-succinaat
-pl:bursztynian D-alfa-tokoferylu
-pt:succinato ácido de D-alfa-tocoferilo
-ro:succinat acid de tocoferil D-alfa
-sk:jantáran kyseliny D-alfa-tokoferolovej
-sl:D-alfa-tokoferil kisli sukcinat
-sv:D-alfa-tokoferylvätesuccinat
-
-< en:E307a
-en:D-alpha-tocopheryl polyethylene glycol-1000 succinate, TPGS
-bg:D-алфа-токоферил полиетилен гликол-1000 сукцинат, TPGS
-cs:polyethylenglykol 1000, ether s -α-tokoferolem, TPGS
-de:D-alpha-Tocopheryl-Polyethylenglycol-1000-Succinat, TPGS
-el:D-α-τοκοφερυλο-ηλεκτρική πολυαιθυλενο 1000 γλυκόλη, TPGS
-es:Succinado de D-alfa-tocoferil polietilenglicol-1000, TPGS
-et:D-alfa-tokoferüülpolüeteenglükool-1000-suktsinaat, TPGS
-fi:D-alfa-tokoferyylipolyetyleeniglykoli-1000 sukkinaatti
-fr:succinate de D-alpha-tocophéryl polyéthylène glycol 1000, TPGS
-hu:D-alfa-tokoferil-polietilén-glikol-1000-szukcinát, TPGS
-it:succinato D-alfa-tocoferile polietilenglicole 1000, TPGS
-lt:D-alfa-tokoferilpolietilenglikol-1000-sukcinatas, TPGS
-lv:D-alfa-tokoferilpolietilēnglikola-1000-sukcināts, TPGS
-mt:D-alfa-tokoferil polietilene glikol -1000 suċċinat, TPGS
-nl:D-alfa-tocoferylpolyethyleenglycolsuccinaat 1000, TPGS
-pl:bursztynian D-alfa-tokoferolu polietylen glikolu -1000, TPGS
-pt:succinato de D-alfa-tocoferil-polietilenoglicol-1000, TPGS
-ro:succinat polietilen glicol 1000 de tocoferil D-alfa, TPGS
-sk:D-alfa –tokoferolpolyetylénglykol-1000 sukcinát, TPGS
-sl:D-alfa-tokoferil polietilen glikol-1000 sukcinat, TPGS
-sv:D-alfa-tokoferyl-polyetylenglykol 1000 succinat, TPGS
-
-< en:E307a
-en:DL-alpha tocopherol
-bg:DL-алфа токоферол
-cs:DL- α-tokoferol
-de:DL-alpha-Tocopherol
-el:
-es:DL-alfa tocoferol
-et:DL-alfa-tokoferool
-fi:DL-alfa-tokoferoli
-fr:DL-alpha-tocophérol
-hu:DL-alfa tokoferol
-it:DL-alfa-tocoferolo
-lt:DL-alfa-tokoferolis
-lv:DL-alfa-tokoferols
-mt:DL-alfa tokoferol
-nl:DL-alfa-tocoferol
-pl:DL-alfa tokoferol
-pt:DL-alfa-tocoferol
-ro:tocoferol DL-alfa
-sk:DL-alfa-tokoferol
-sl:
-sv:DL-alfa-tokoferol
-wikidata:en: Q155753
-
-< en:E307a
-en:DL-alpha tocopheryl acetate
-bg:DL-алфатокоферил ацетат
-cs:DL-α-tokoferyl-acetát
-de:DL-alpha-Tocopherylacetat
-el:οξική DL-α-τοκοφερόλη
-es:acetato de DL-alfa tocoferilo
-et:DL-alfa-tokoferüülatsetaat
-fi:DL-alfa-tokoferyyliasetaatti
-fr:acétate de DL-alpha-tocophérol
-hu:DL-alfa-tokoferil-acetát
-it:acetato di DL-alfa-tocoferile
-lt:DL-alfa-tokoferilacetatas
-lv:DL-alfa-tokoferilacetāts
-mt:Aċetat ta' DL-alfa-tokoferil
-nl:DL-alfa-tocoferylacetaat
-pl:octan DL-alfa-tokoferylu
-pt:acetato de DL-alfa-tocoferilo
-ro:acetat de tocoferil DL-alfa
-sk:DL-alfa-tokoferylacetát
-sl:DL-alfa-tokoferil acetat
-sv:DL-alfa-tokoferylacetat
-
-< en:E307a
-hr:DL-alfa-tokoferil-acetat
-nn:dl-α-tokoferylacetat
-ro:
-sl:DL-alfa-tokoferil acetat
-sr:DL-a-tokoferil-acetat
-
 en:E308, Gamme-tocopherol, gamma-Tocopherol
 bg:E308, E308 food additive
 ca:E308, γ-tocoferol
 cs:E308, E308 food additive
 da:E308, E308 food additive
-de:E308, E308 food additive
+de:E308, Gamma-Tocopherol, γ-Tocopherol
 el:E308, E308 food additive
 es:E308, E308 food additive
 et:E308, E308 food additive
@@ -19037,7 +18867,7 @@ mt:E308, E308 food additive
 nl:E308, gamma-Tocopherol
 pl:E308, γ-Tokoferol, Gamma-tokoferol
 pt:E308, E308 food additive
-ro:E308, E308 food additive
+ro:E308, Gamma-tocoferol
 sk:E308, E308 food additive
 sl:E308, E308 food additive
 sv:E308, E308 food additive
@@ -19054,7 +18884,7 @@ bg:E309, E309 food additive
 ca:E309, δ-tocoferol
 cs:E309, E309 food additive
 da:E309, E309 food additive
-de:E309, δ-Tocopherol
+de:E309, Delta-Tocopherol, δ-Tocopherol
 el:E309, E309 food additive
 es:E309, E309 food additive
 et:E309, E309 food additive
@@ -19189,7 +19019,7 @@ mt:E313, E313 food additive
 nl:E313, Thiodipropionzuur
 pl:E313, E313 food additive
 pt:E313, E313 food additive
-ro:E313, E313 food additive
+ro:E313, Gelat de etil
 sk:E313, E313 food additive
 sl:E313, E313 food additive
 sv:E313, E313 food additive
@@ -19215,7 +19045,7 @@ mt:E314, E314 food additive
 nl:E314, Guaiac gum
 pl:E314, E314 food additive
 pt:E314, E314 food additive
-ro:E314, E314 food additive
+ro:E314, Rășină de guaiac
 sk:E314, E314 food additive
 sl:E314, E314 food additive
 sv:E314, E314 food additive
@@ -19319,7 +19149,7 @@ mt:E317, E317 food additive
 nl:E317, E317 food additive
 pl:E317, E317 food additive
 pt:E317, E317 food additive
-ro:E317, E317 food additive
+ro:E317, Isoascorbat de potasiu
 sk:E317, E317 food additive
 sl:E317, E317 food additive
 sv:E317, E317 food additive
@@ -19346,7 +19176,7 @@ mt:E318, E318 food additive
 nl:E318, E318 food additive
 pl:E318, E318 food additive
 pt:E318, E318 food additive
-ro:E318, E318 food additive
+ro:E318, Isoascorbat de calciu
 sk:E318, E318 food additive
 sl:E318, E318 food additive
 sv:E318, E318 food additive
@@ -19360,7 +19190,7 @@ bg:E319, Третичен бутилхидроквинон (тбхк), Терт-
 ca:E319, Tertbutilhidroquinona, TBHQ
 cs:E319, Terciární butylhydrochinon (tbhq), Terc-butyl-1‚4-benzendiol
 da:E319, Tert-butylhydroquinon (tbhq), tert-Butyl-1‚4-benzendiol
-de:E319, Tertiär-butylhydrochinon (tbhq), tert-Butyl-1‚4-benzendiol
+de:E319, Tertiär-butylhydrochinon, TBHQ, tert-Butyl-1‚4-benzendiol
 el:E319, Τριτοταγης βουτυλ-υδροκινονη (tbhq), τριτ. βουτυλο-βενζολοδιόλη-1‚4
 es:E319, Terbutilhidroquinona (tbhq), t-butil-1‚4-bencenodiol
 et:E319, Tertsiaarbutüülhüdrokinoon (tbhq), Tert-butüül-1‚4-benseendiool
@@ -19392,7 +19222,7 @@ bg:E320, Бутил хидроксианизол (бха)
 ca:E320, Butilhidroxianisol, BHA
 cs:E320, Butylhydroxyanisol (bha), 3-terc-butyl-4-hydroxyanisol
 da:E320, Butylhydroxyanisol (bha), 3-tert-Butyl-4-hydroxyanisol, Butylhydroxyanisol
-de:E320, Butylhydroxyanisol (bha), 3-tert-Butyl-4-hydroxyanisol, Butylhydroxyanisol, E 320
+de:E320, Butylhydroxyanisol, BHA, 3-tert-Butyl-4-hydroxyanisol, E 320
 el:E320, Βουτυλ-υδροξυανισολη (bha), 3-τριτ. βουτυλ-4-υδροξυανισόλη
 es:E320, Butilhidroxianisol, 3-t-butil-4-hidroxianisol, BHA, E 320, Hidroxibutilanisol
 et:E320, Butüülhüdroksüanisool (bha)
@@ -19419,12 +19249,12 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q409401
 
-en:E321, Butylated hydroxytoluene (bht), 2‚6-Ditertiary-butyl-p-cresol, Butylated hydroxytoluene, BHT, bht added to preserve freshness
+en:E321, Butylated hydroxytoluene, BHT, 2‚6-Ditertiary-butyl-p-cresol, bht added to preserve freshness
 bg:E321, Бутилхидрокситолуол (бхт), 2‚6-дитретичен-бутил-р-крезол
 ca:E321, Butilhidroxitoluè, BHT
 cs:E321, Butylhydroxytoluen (bht), 2‚6-diterciární butyl-p-krezol, Butylhydroxytoluen
 da:E321, Butylhydroxytoluen (bht), 2‚6-Di-tert-butyl-p-cresol
-de:E321, Butylhydroxytoluen (bht), 2‚6-Di-tert-butyl-p-kresol, Butylhydroxytoluol
+de:E321, Butylhydroxytoluen, BHT, 2‚6-Di-tert-butyl-p-kresol, Butylhydroxytoluol
 el:E321, Βουτυλ-υδροξυτολουολιο (βητ), 2‚6-Δι-τριτ. βουτυλο-p-κρεσόλη
 es:E321, Butilhidroxitolueno, 2‚6-di-t-butil-p-cresol
 et:E321, Butüülhüdroksütolueen (bht), 2‚6-di-tert-butüül-p-kresool
@@ -19546,7 +19376,7 @@ vegetarian:en: yes
 en:soya lecithin, soy lecithin, sin 322
 cs:sójový lecitin
 da:sojalecitin
-de:Sojalecithine, Sojalecithin, Soja-Lecithine
+de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
 el:λεκιθίνη σόγιας
 es:lecitina de soya
 fi:soijalesitiini
@@ -19571,14 +19401,14 @@ vegetarian:en: yes
 en:sunflower lecithin
 cs:Slunečnicový lecitin
 da:solsikkelecithin
-de:Sonnenblumenlecithine
+de:Sonnenblumenlecithine, Sonnenblumenlecithin
 el:λεκιθίνες ηλιστροπιου
 es:
 fi:auringonkukkalesitiini
 fr:lécithine de tournesol
 it:lecitina girasole, lecitina di girasole
 lv:lecitinai iš saulègrąžų
-nl:zonnebloem-lecithine
+nl:zonnebloemlecithine, zonnebloem-lecithine
 nn:solsikkelecithin
 pl:lecytyny ze slonecznika
 pt:lecitina de girassol
@@ -19638,7 +19468,7 @@ mt:E324, E324 food additive
 nl:E324, E324 food additive
 pl:E324, ethoxyquin
 pt:E324, Etoxiquina, Etoxiquin
-ro:E324, E324 food additive
+ro:E324, Etoxiquină
 sk:E324, E324 food additive
 sl:E324, E324 food additive
 sv:E324, E324 food additive
@@ -19672,7 +19502,7 @@ mt:E325, Lattat tas-sodju, laktat tas-sodju
 nl:E325, natriumlactaat
 pl:E325, mleczan sodu
 pt:E325, lactato de sódio
-ro:E325, lactat de sodiu
+ro:E325, Lactat de sodiu
 ru:E325, лактат натрия
 sh:E325, Natrijum laktat
 sk:E325, Mliečnan sodný
@@ -19710,7 +19540,7 @@ mt:E326, Lattat tal-potassju, laktat tal-potassju
 nl:E326, kaliumlactaat
 pl:E326, mleczan potasu
 pt:E326, lactato de potássio
-ro:E326, Iactat de potasiu, lactat de potasiu
+ro:E326, Lactat de potasiu
 ru:E326, лактат калия
 sh:E326, Kalijum laktat
 sk:E326, mliečnan draselný
@@ -19782,7 +19612,7 @@ mt:E328, E328 food additive
 nl:E328, E328 food additive
 pl:E328, Mleczan amonu
 pt:E328, Lactato de amônio
-ro:E328, E328 food additive
+ro:E328, Lactat de amoniu
 sk:E328, E328 food additive
 sl:E328, E328 food additive
 sv:E328, E328 food additive
@@ -19901,7 +19731,7 @@ en:E331, Sodium citrates, e-331
 bg:E331, E331 food additive
 cs:E331, E331 food additive
 da:E331, E331 food additive
-de:E331, E331 food additive, Natriumcitrate
+de:E331, Natriumcitrat, Natriumzitrat, Natriumcitrate
 el:E331, E331 food additive
 es:E331, Citratos de sodio
 et:E331, E331 food additive
@@ -19931,7 +19761,7 @@ en:E331i, Monosodium citrate, E-331i
 bg:E331i, Мононатриев цитрат
 cs:E331i, Citronan monosodný
 da:E331i, Mononatriumcitrat
-de:E331i, Mononatriumcitrat, Natriumcitrat, Monoatriumcitrat
+de:E331i, Mononatriumcitrat, Monoatriumcitrat
 el:E331i, Δισοξινο κιτρικο νατριο
 eo:Ununatria citrato
 es:E331i, Citrato monosódico
@@ -19990,8 +19820,12 @@ wikidata:en: Q6460572
 < en:E331
 en:E331iii, Trisodium citrate
 de:Trinatriumcitrat
+es:E331iii, Citrato trisódico
 fr:E331iii, Citrate trisodique
 pl:E331iii, Cytrynian trisodowy
+pt:E331iii, Citrato trissódico
+sv:E331iii, Trinatriumcitrat
+e_number:en: 331
 
 en:E332, Potassium citrates, Potassium citrate, E-332
 bg:E332, E332 food additive, Калиев цитрат
@@ -20019,7 +19853,7 @@ sl:E332, E332 food additive, kalijev citrat
 sv:E332, Kaliumcitrat, Kaliumcitrater, E 332
 additives_classes:en: en:sequestrant, en:stabilizer
 e_number:en: 332
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q419921
@@ -20049,7 +19883,7 @@ sl:E332i, Monokalijev citrat
 sv:E332i, Monokaliumcitrat
 additives_classes:en: en:sequestrant, en:stabilizer
 e_number:en: 332
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 wikidata:en: Q419921
 
 < en:E332
@@ -20088,7 +19922,7 @@ te:పొటాషియం సిట్రేట్
 zh:檸檬酸鉀
 additives_classes:en: en:sequestrant, en:stabilizer
 e_number:en: 332
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 wikidata:en: Q419921
 
 en:E333, Calcium citrates, Calcium citrate, E-333
@@ -20096,7 +19930,7 @@ bg:E333, E333 food additive
 ca:E333, Citrats de calci
 cs:E333, Citrát vápenatý
 da:E333, E333 food additive
-de:E333, Calciumcitrat, Tricalciumcitrat, E 333, Kalziumzitrat
+de:E333, Calciumcitrat, Tricalciumcitrat, E 333, Kalziumzitrat, Calciumcitrate
 el:E333, E333 food additive
 es:E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga, E 333
 et:E333, E333 food additive
@@ -20116,7 +19950,7 @@ sl:E333, E333 food additive
 sv:E333, E333 food additive
 additives_classes:en: en:sequestrant, en:stabilizer
 e_number:en: 333
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:firming-agent
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
@@ -20147,7 +19981,7 @@ sl:E333i, Monokalcijev citrat
 sv:E333i, Monokalciumcitrat
 additives_classes:en: en:sequestrant, en:stabilizer
 e_number:en: 333
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:firming-agent
 organic_eu:en: authorized
 wikidata:en: Q420280
 
@@ -20213,7 +20047,7 @@ sv:E333iii, Trikalciumcitrat
 zh:柠檬酸钙
 additives_classes:en: en:sequestrant, en:stabilizer
 e_number:en: 333
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:firming-agent
 organic_eu:en: authorized
 wikidata:en: Q420280
 
@@ -20226,7 +20060,7 @@ ca:E334, Àcid tartàric, àcid L(+)-tartàric, àcid tàrtric
 cs:E334, L(+)-kyselina vinná, Kyselina vinná, E 334, Kyselina hroznová
 cy:Asid tartarig
 da:E334, L(+)-tartaric acid, tartaric acid, L-Vinsyre, L-2‚3-dihydroxybutandisyre, Vinsyre, E-334
-de:E334, Weinsäure (l+), L-Weinsäure, L-2‚3-Dihydroxybutandisäure, Weinsäure, Threarsäure, Tartaric acid, 2‚3-Dihydroxybutandisäure, 2‚3-Dihydroxybernsteinsäure, E 334, Dihydroxybernsteinsäure, D-(-)-Weinsäure, Traubensäure, Weinsteinsäure
+de:E334, L(+)-Weinsäure, Weinsäure (L+), L-2‚3-Dihydroxybutandisäure, Weinsäure, Threarsäure, Tartaric acid, 2‚3-Dihydroxybutandisäure, 2‚3-Dihydroxybernsteinsäure, E 334, Dihydroxybernsteinsäure, D-(-)-Weinsäure, Traubensäure, Weinsteinsäure
 el:E334, L(+)-τρυγικο οξυ, τρυγικο οξυ
 eo:Tartrata acido
 es:E334, Ácido tartárico, Ácido l(+)-tartárico, E 334, Crémor tartaro, Ácido tártrico
@@ -20234,7 +20068,7 @@ et:E334, L(+)-viinhape, viinhape, L-2‚3-dihüdroksübutaandihape
 eu:Azido tartariko
 fa:اسید تارتاریک
 fi:E334, L(+)-viinihappo, viinihappo, L-2‚3-Dihydroksibutaanidihappo, 2‚3-dihydroksibutaanidihappo, E 334
-fr:E334, Acide L-tartrique, Acide tartrique, Acide d-α, β-dihydroxysuccinique, Acide dextrotartarique ; acide 3-hydroxy malique, CAS 87-69-4, Acide DL-tartrique, 147-71-7, 147-73-9, Acide DL-tartrique monohydraté, 87-69-4, Acide racémique, 133-37-9, Acide D-tartrique, Tartrate, Acide mesotartrique, C4H6O6
+fr:E334, Acide L-tartrique, Acide tartrique, Acide d-α, β-dihydroxysuccinique, Acide dextrotartarique, acide 3-hydroxy malique, CAS 87-69-4, Acide DL-tartrique, 147-71-7, 147-73-9, Acide DL-tartrique monohydraté, 87-69-4, Acide racémique, 133-37-9, Acide D-tartrique, Tartrate, Acide mesotartrique, C4H6O6
 ga:Aigéad tartarach
 gl:Ácido tartárico
 he:חומצה טרטרית
@@ -20519,7 +20353,7 @@ bg:E339, E339 food additive
 ca:E339, Fosfat de sodi
 cs:E339, E339 food additive
 da:E339, E339 food additive
-de:E339, E339 food additive, Natriumphosphate
+de:E339, Natriumphosphate
 el:E339, E339 food additive
 es:E339, Fosfatos de sodio, Fosfato de sodio, Fosfato sódico, Fosfatos sodicos, E 339, Ortofosfatos de sodio
 et:E339, E339 food additive
@@ -20542,7 +20376,7 @@ sl:E339, E339 food additive
 sv:E339, Natriumfosfat
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
 e_number:en: 339
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:emulsifier, en:thickener, en:humectant, en:raising-agent
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:emulsifier, en:thickener, en:humectant, en:raising-agent
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q3249706
@@ -20659,7 +20493,7 @@ bg:E340, E340 food additive
 ca:E340, Fosfat de potassi
 cs:E340, E340 food additive
 da:E340, E340 food additive
-de:E340, E340 food additive, Kaliumphosphate
+de:E340, Kaliumphosphate
 el:E340, E340 food additive
 es:E340, Fosfatos de potasio, Fosfato de potasio, Fosfato potásico
 et:E340, E340 food additive
@@ -20932,15 +20766,15 @@ vi:Tricanxi photphat
 zh:磷酸钙
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 e_number:en: 341
-mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabiliser, en:acid
+mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabilizer, en:acid
 organic_eu:en: authorized
 wikidata:en: Q426664
 
-en:E342, Ammonium phosphates: i monoammonium phosphate (ii) diammonium phosphate
+en:E342, Ammonium phosphate, monoammonium phosphate, diammonium phosphate
 bg:E342, E342 food additive
 cs:E342, E342 food additive
 da:E342, E342 food additive
-de:E342, E342 food additive
+de:E342, Ammoniumphosphat
 el:E342, E342 food additive
 es:E342, E342 food additive
 et:E342, E342 food additive
@@ -21117,8 +20951,8 @@ ar:مالات صوديوم
 bg:E350, E350 food additive, E350i, Натриев малат
 ca:E350, Malat de sodi
 cs:E350, E350 food additive, E350i, Jablečnan disodný
-da:E350, E350 food additive, E350i, Natriummalat, natriummalater
-de:E350, E350 food additive, E350i, Natriummalat, Natriummalate
+da:E350, E350 food additive, E350i, Natriummalat, Dinatriummalat, natriummalater
+de:E350, Natriummalate, E350i, Natriummalat
 el:E350, E350 food additive, E350i, Μηλικο νατριο, άλατα του μηλικού οξέος με νάτριο
 eo:Natria malikato
 es:E350, Malato de sodio, Malato disodico, Malato sódico, E350i, malatos de sodio
@@ -21774,13 +21608,13 @@ e_number:en: 384
 vegan:en: yes
 vegetarian:en: yes
 
-en:E385, Calcium disodium ethylenediaminetetraacetate, Calcium disodium EDTA, Calcium disodium ethylene diamine tetra-acetate, Calcium disodium ethylene diamine tetra-acetate; calcium disodium EDTA, calcium-dinatrium-EDTA, E-385
+en:E385, Calcium disodium ethylenediaminetetraacetate, Calcium disodium EDTA, Calcium disodium ethylene diamine tetra-acetate, calcium-dinatrium-EDTA, E-385
 ar:ثنائي صوديوم كالسيوم الإيديتات
 bg:E385, Калциев динатриев етилен диамин тетраацетат, Калциев динатриев ЕДТА
 ca:E385, Etilendiaminotetracetat de calci i disodi, EDTA de calci i disodi
 cs:E385, Dvojsodnovápenatá sůl kyseliny diamintetraoctové
 da:E385, Calciumdinatriumethylendiamintetraacetat, Calciumdinatrium-EDTA
-de:E385, Calcium-dinatrium-ethylendiamintetraacetat, Calcium-Dinatrium-EDTA
+de:E385, Calcium-Dinatrium-Ethylendiamintetraacetat, Calcium-Dinatrium-EDTA
 el:E385, Αιθυλενοδιαμινοτετραοξικο ασβεστιονατριο
 es:E385, Ácido etilendiaminotetraacético, EDTA, AEDT, Etilendiamino-tetracetato de calcio y disodio, EDTA disódico y cálcico
 et:E385, Kaltsiumdinaatriumetüleendiamiintetraatsetaat, Kaltsiumdinaatrium-EDTA
@@ -21979,14 +21813,14 @@ bg:E392, Екстракти от розмарин
 ca:E392, Extracte de romaní
 cs:E392, Výtažky z rozmarýnu, Rozmarýnové extrakty
 da:E392, Ekstrakter af rosmarin
-de:E392, Extrakt aus rosmarin, Rosmarinextrakt
+de:E392, Extrakt aus Rosmarin, Rosmarinextrakt
 el:E392, Εκχυλισματα δενδρολιβανου
 es:E392, Extractos de romero
 et:E392, Rosmariiniekstrakt
 fi:E392, Rosmariiniuutteet
 fr:E392, Extrait de romarin, Extraits de romarin
 hu:E392, Rozmaringkivonatok
-it:E392, Estratti di rosmarino
+it:E392, Estratti di rosmarino, estratto di rosmarino
 lt:E392, Rozmarinų ekstraktai
 lv:E392, Ekstrakti no rozmarīna
 mt:E392, Estratti tar-rosmarin
@@ -22245,7 +22079,7 @@ bn:আগার
 ca:E406, Agar, agar-agar
 cs:E406, Agar, Agar agar, Japonská želatina, E 406, Kanten
 da:E406, Agar, E-406
-de:E406, Agar-agar, Agar, Chinesische Gelatine, E 406, Agartang, Japanische Gelatine, Nähragar, Japanischer Fischleim
+de:E406, Agar-Agar, Agar, Chinesische Gelatine, E 406, Agartang, Japanische Gelatine, Nähragar, Japanischer Fischleim
 el:E406, Agar, άγαρ
 eo:agaragaro
 es:E406, Agar-agar, Agar, E 406, Agaragar, Kanten
@@ -22333,7 +22167,7 @@ nn:Karragenan
 pl:E407, Karagen
 pt:E407, Carragenina, Carragenano, Carragenanos
 ro:E407, Caragenan
-ru:E407, Каррагинан и его соли, Каррагинан, E407a, Ирландский мох, Карраген
+ru:E407, Каррагинан и его соли, Каррагинан, Ирландский мох, Карраген
 sk:E407, Karagénan, Karagén
 sl:E407, Karagenan
 sv:E407, Karragenan, E 407
@@ -22367,7 +22201,7 @@ en:E407a, Processed eucheuma seaweed, e 407a
 bg:E407a, Обработени eucheuma водорасли
 cs:E407a, Guma eucheuma / afinát řasy eucheuma, Zpracovaná řasa eucheuma
 da:E407a, Forarbejdet eucheuma-tang
-de:E407a, Verarbeitete euchema-algen
+de:E407a, Verarbeitete Euchema-Algen
 el:E407a, Τροποποιημενα φυκη eucheuma
 es:E407a, Alga eucheuma transformada
 et:E407a, Tselluloosi sisaldav karrageen
@@ -22579,7 +22413,7 @@ mt:E413, Tragakant, Gomma Tragacant
 nb:Tragant
 nl:E413, Tragant, Tragacanthgom, Tragacanth
 pl:E413, Tragakanta, Guma tragakantowa, Guma tragankowa
-pt:E413, Tragacanto, Goma de tragacanto, alcatira;goma adragante, goma adraganta
+pt:E413, Tragacanto, Goma de tragacanto, alcatira, goma adragante, goma adraganta
 ro:E413, Adragant, Gumă tragacant, Tragacant
 sk:E413, Tragant, Tragantová guma
 sl:E413, Tragakant, gumi tragakant
@@ -22840,7 +22674,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q416694
 
-en:E419, Gum ghatti (thickener) (Stabilizer (food)stabiliser)
+en:E419, Gum ghatti
 bg:E419, E419 food additive
 cs:E419, E419 food additive
 da:E419, E419 food additive
@@ -22862,6 +22696,7 @@ ro:E419, E419 food additive
 sk:E419, E419 food additive
 sl:E419, E419 food additive
 sv:E419, E419 food additive
+additives_classes:en: en:stabilizer, en:thickener
 e_number:en: 419
 vegan:en: yes
 vegetarian:en: yes
@@ -22886,7 +22721,7 @@ mt:E420, E420 food additive, E420i, sorbitol, D-gluċitol
 nl:E420, Sorbitol, E420i, D-glucitol
 pl:E420, Sorbitole, Sorbitol, E420i
 pt:E420, Sorbitol, E420i
-ro:E420, E420 food additive, E420i, sorbitol
+ro:E420, Sorbitol, Sirop de sorbitol, E420i
 ru:E420, Сорбит, сорбитовый сироп, Сорбитол, Глюцит, Е420
 sk:E420, Sorbitol, E420i
 sl:E420, Sorbitol, E420i
@@ -22916,7 +22751,7 @@ mt:E420ii, ġulepp tas-sorbitol
 nl:E420ii, Sorbitolstroop
 pl:E420ii, Syrop sorbitolowy
 pt:E420ii, xarope de sorbitol
-ro:E420ii, sirop de sorbitol
+ro:E420ii
 sk:E420ii, sorbitolový sirup
 sl:E420ii, Sirup sorbitola
 sv:E420ii, Sorbitolsirap
@@ -23527,7 +23362,7 @@ bg:E435, Полиоксиетилен сорбитан моностеарат, �
 ca:E435, Monoestearat de sorbitan polioxietilenat, polisorbat 60
 cs:E435, Polyoxyethylensorbitanmonostearát, polysorbát 60
 da:E435, Polyoxyethylen(20)sorbitanmonostearat, Polysorbat 60
-de:E435, Polyoxyethylen-sorbitanmonostearat, Polysorbat 60, E 435, Polyoxyethylen-sorbitan-monostearat, Polyoxyethylen(20)-sorbitan-monostearat
+de:E435, Polyoxyethylen-Sorbitanmonostearat, Polysorbat 60, E 435, Polyoxyethylen-sorbitan-monostearat, Polyoxyethylen(20)-sorbitan-monostearat
 el:E435, Μονοστεατικη πολυοξυ-αιθυλενο-σορβιτανη, Polysorbate 60
 es:E435, Monoestearato de sorbitán polioxietilenado, Polisorbato 60
 et:E435, Polüosküetüleen sorbitaanmonostearaat, Polüsorbaat 60
@@ -23738,6 +23573,7 @@ wikidata:en: Q188154
 < en:E440a
 fr:pectine de fruit, pectines de fruits
 de:Fruchtpektin
+it:pectina di frutta
 nl:vruchtenpectine
 
 en:E440b, pectin amide, amidated pectin, E440ii, E 440ii, E440 ii
@@ -23866,7 +23702,7 @@ bg:E445, Глицеролови естери на дървесна смола
 ca:E445, Èster glicèrid de la colofònia de fusta
 cs:E445, Glycerolestery dřevných pryskyřic
 da:E445, Glycerolestere af fyrreharpiks
-de:E445, Glycerinester aus wurzelharz, Harzester, Estergummi, Glycerinester, E 445, Glyzerinester
+de:E445, Glycerinester aus Wurzelharz, Harzester, Estergummi, Glycerinester, E 445, Glyzerinester
 el:E445, Εστερες γλυκερολης με κολοφωνιο ξυλου
 es:E445, Ésteres glicéridos de resina de madera, Éster glicérido de resina de madera, Ésteres glicéridos de colofonia de madera
 et:E445, Glycerol esters of wood rosin
@@ -23882,7 +23718,7 @@ nb:Glyserolestere av trekolofonium
 nl:E445, Glycerolesters van houthars
 pl:E445, Estry glicerolu i żywicy roślinnej
 pt:E445, Ésteres de glicerol da colofónia
-ro:E445, Esteri glicerinici ai colofoniului din lemn
+ro:E445, Esteri glicerinici ai colofoniului din lemn, Esteri glicerici ai răşinilor din lemn, Esteri glicerici ai răşinilor de lemn
 sk:E445, Glycerolestery živíc z dreva
 sl:E445, Glicerolni estri lesne smole
 sv:E445, Glycerolestrar av trähartser, E 445
@@ -24277,7 +24113,7 @@ bg:E452, E452 food additive
 ca:E452, Polifosfat
 cs:E452, E 452
 da:E452, E452 food additive
-de:E452, E452 food additive, Polyphosphate, e 452
+de:E452, Polyphosphate, e 452
 el:E452, E452 food additive
 es:E452, Polifosfatos, e 452
 et:E452, E452 food additive
@@ -24588,7 +24424,7 @@ en:E460i, Microcrystalline cellulose, E-460i
 bg:E460i, Микрокристална целулоза
 cs:E460i, Mikrokrystalická celulosa
 da:E460i, Mikrokrystallinsk cellulose
-de:E460i, Mikrokristalline cellulose
+de:E460i, Mikrokristalline Cellulose
 el:E460i, Μικροκρυσταλλικη κυτταρινη
 es:E460i, Celulosa microcristalina
 et:E460i, Mikrokristalne tselluloos
@@ -24808,7 +24644,7 @@ ar:كربوكسي ميثيل السليولوز
 bg:E466, Натриева карбокси метил целулоза, карбокси метил целулоза, целулозна гума, CMC, NaCMC
 ca:E466, Carboximetilcel·lulosa sòdica
 cs:E466, Sodná sůl karboxymethylcelulosy, karboxymethylcelulosa, celulosová guma, CMC, NaCMC, Karboxymethylcelulóza, Karboxymetylcelulóza, Karboxymetylcelulosa, E 466
-da:E466, Natriumcarboxymethylcellulose (carboxymethylcellulose, cellulosegummi), carboxymethylcellulose
+da:E466, Natriumcarboxymethylcellulose (carboxymethylcellulose og cellulosegummi), carboxymethylcellulose
 de:E466, Carboxymethylcellulose, natrium-carboxymethylcellulose, cellulosegummi, CMC, NaCMC, Carboxymethylcellulosen, Carboxymethylzellulose, E 466, Natriumcarboxymethylcellulose
 el:E466, Αλας με νατριο της καρβοξυμεθυλοκυτταρινης, καρβοξυμεθυλοκυτταρινη, κομμι κυτταρινης, CMC, NaCMC
 es:E466, Carboximetilcelulosa sódica, carboximetilcelulosa, carboximetil celulosa, goma de celulosa, CMC, NaCMC
@@ -24824,7 +24660,7 @@ lv:E466, Nātrija karboksimetilceluloze, karboksimetilceluloze, celulozes sveķi
 mt:E466, Ċelluloża karbossimetilika tas-sodju, ċelluloża karbossimetilika, gomma taċ-ċelluloża, CMC, NaCMC
 nl:E466, Natriumcarboxymethylcellulose, carboxymethylcellulose, cellulosegom, CMC, NaCMC
 pl:E466, Sól sodowa karboksymetylocelulozy, karboksymetyloceluloza, guma celulozowa, CMC, NaCMC
-pt:E466, Carboximetilcelulose de sódio; carboximetilcelulose; goma de celulose, CMC, NaCMC, Carboximetilcelulose, goma de celulose
+pt:E466, Carboximetilcelulose de sódio, carboximetilcelulose, goma de celulose, CMC, NaCMC
 ro:E466, Carboximetilceluloză de sodiu, carboximetilceluloză, gumă de celuloză, CMC, NaCMC
 sk:E466, Sodná soľ karboxymetylcelulózy, karboxymetylcelulóza, celulózová guma, CMC, NaCMC
 sl:E466, Natrijeva karboksimetil celuloza, karboksimetil celuloza, celulozni gumi, CMC, NaCMC
@@ -24903,7 +24739,7 @@ de:E469, Enzymatisch hydrolysierte carboxymethylcellulose, enzymatisch hydrolysi
 el:E469, Ενζυμικα υδρολυμενη καρβοξυμεθυλοκυτταρινη, ενζυμικα υδρολυμενο κομμι κυτταρινησ
 es:E469, Carboximetilcelulosa hidrolizada enzimáticamente, goma de celulosa hidrolizada enzimáticamente
 et:E469, Ensümaatiliselt hüdrolüüsitud karboksümetüültselluloos
-fi:E469, Entsymaattisesti hydrolysoitu karboksimetyyliselluloosa; entsymaattisesti hydrolysoitu selluloosakumi
+fi:E469, Entsymaattisesti hydrolysoitu karboksimetyyliselluloosa, entsymaattisesti hydrolysoitu selluloosakumi
 fr:E469, Carboxyméthylcellulose hydrolysée de manière enzymatique, gomme de cellulose hydrolysée de manière enzymatique
 hu:E469, Enzimesen hidrolizált karboxi-metil-cellulóz, enzimesen hidrolizált cellulózgumi
 it:E469, Carbossimetilcellulosa idrolizzata enzimaticamente, gomma di cellulosa idrolizzata enzimaticamente
@@ -24957,7 +24793,7 @@ bg:E470a, Натриеви‚ калиеви и калциеви соли на �
 ca:E470a, Sal sòdica d'àcids grassos
 cs:E470a, Sodné‚ draselné a vápenaté soli mastných kyselin
 da:E470a, Natrium-‚ kalium- og calciumsalte af fedtsyrer
-de:E470a, Natrium-‚ kalium- und calciumsalze der speisefettsäuren
+de:E470a, Natrium-‚ Kalium- und Calciumsalze der Speisefettsäuren
 el:E470a, Αλατα λιπαρων οξεων με νατριο, καλιο και ασβεστιο, Άλατα με νάτριο
 es:E470a, Sales sódicas‚ potásicas y cálcicas de ácidos grasos
 et:E470a, Rasvhapete naatrium-‚ kaalium- ja kaltsiumsoolad
@@ -24981,12 +24817,30 @@ from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
+< en:E470a
+en:E470ai, Sodium salts of fatty acids
+ro:E470ai, Săruri de sodiu ale acizilor grași
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+e_number:en: 470a
+
+< en:E470a
+en:E470aii, Potassium salts of fatty acids
+ro:E470aii, Săruri de potasiu ale acizilor grași
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+e_number:en: 470a
+
+< en:E470a
+en:E470aiii, Calcium salts of fatty acids
+ro:E470aiii, Săruri de calciu ale acizilor grași
+additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+e_number:en: 470a
+
 en:E470b, Magnesium salts of fatty acids
 bg:E470b, Магнезиеви соли на мастни киселини
 ca:E470b, Sal magnèsica d'àcids grassos
 cs:E470b, Hořečnaté soli mastných kyselin
 da:E470b, Magnesiumsalte af fedtsyrer
-de:E470b, Magnesiumsalze der speisefettsäuren
+de:E470b, Magnesiumsalze der Speisefettsäuren
 el:E470b, Αλατα λιπαρων οξεων με μαγνησιο
 es:E470b, Sales magnésicas de ácidos grasos
 et:E470b, Rasvhapete magneesiumisoolad
@@ -25016,7 +24870,7 @@ bg:E471, Моно- и диглицериди на мастни киселини,
 ca:E471, Monoglicèrid o diglicèrid d'àcids grassos
 cs:E471, Mono- a diglyceridy mastných kyselin, Glycerylmonostearát, glycerylmonopalmitát, glycerylmonooleát, monostearin, monopalmitin, monoolein
 da:E471, Mono- og diglycerider af fedtsyrer, Glycerylmonostearat, glycerylmonopalmitat
-de:E471, Mono- und diglyceride von speisefettsäuren, Glycerylmonostearat, Glycerylmonopalmitat, Glycerylmonooleat, Monostearin, Monopalmitin, Monoolein, E 471
+de:E471, Mono- und Diglyceride von Speisefettsäuren, Glycerylmonostearat, Glycerylmonopalmitat, Glycerylmonooleat, Monostearin, Monopalmitin, Monoolein, E 471
 el:E471, Μονο- και διγλυκεριδια λιπαρων οξεων, Μονοστεατικό γλυκερύλιο, μονοπαλμιτικό γλυκερύλιο, μονοελαϊκό γλυκερύλιο, μονοστεατίνη, μονοπαλμιτίνη, μόνο- και διγλυκερίδια λιπαρών οξέων
 es:E471, mono- y diglicéridos de ácidos grasos, Monoglicéridos y diglicéridos de ácidos grasos, Monodiglicéridos de ácidos grasos, Monoestearato de glicerilo, monopalmitato de glicerilo, monooleato de glicerilo, monoestearina, monopalmitina, monooleína
 et:E471, Rasvhapete mono- ja diglütseriidid, Glütserüülmonostearaat, glütserüülmonopalmitaat, glütserüülmonooleaat, monosteariin, monopalmitiin
@@ -25063,7 +24917,7 @@ en:E472, acid esters of mono- and diglycerides of fatty acids, E 472
 bg:E472, E472 food additive
 cs:E472, E472 food additive
 da:E472, E472 food additive
-de:E472, E472 food additive
+de:E472, Säureester von Mono- und Diglyceride von Speisefettsäuren
 el:E472, E472 food additive
 es:E472, E472 food additive
 et:E472, E472 food additive
@@ -25094,7 +24948,7 @@ bs:Acetatni esteri mono- i diglicerida masnih kiselina
 ca:E472a, Èster acètic de monoglicèrids o diglicèrids d'àcids grassos
 cs:E472a, Estery mono- a diglyceridů mastných kyselin s kyselinou octovou
 da:E472a, Edikkesyreestere af mono- og diglycerider af fedtsyrer, eddikesyreestere af mono- og diglycerider af fedtsyrer
-de:E472a, Essigsäureester von mono- und diglyceriden von speisefettsäuren
+de:E472a, Essigsäureester von Mono- und Diglyceriden von Speisefettsäuren
 el:E472a, Εστερες του οξικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων
 es:E472a, Ésteres acéticos de monoglicéridos y diglicéridos de ácidos grasos
 et:E472a, Rasvhapete mono- ja diglütseriidide estrid äädikhappega
@@ -25129,7 +24983,7 @@ bg:E472b, Естери на млечната киселина с моно- и д
 bs:Lactatni esteri mono- i diglicerida masnih kiselina
 cs:E472b, Estery mono- a diglyceridů mastných kyselin s kyselinou mléčnou
 da:E472b, Mælkesyreestere af mono- og diglycerider af fedtsyrer
-de:E472b, Milchsäureester von mono- und diglyceriden von speisefettsäuren
+de:E472b, Milchsäureester von Mono- und Diglyceriden von Speisefettsäuren
 el:E472b, Εστερες του γαλακτικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων
 es:E472b, Ésteres lácticos de monoglicéridos y diglicéridos de ácidos grasos
 et:E472b, Rasvhapete mono- ja diglütseriidide estrid piimhappega
@@ -25164,7 +25018,7 @@ bg:E472c, Естери на лимонената киселина с моно- �
 bs:citratni esteri mono- i diglicerida masnih kiselina
 cs:E472c, Estery mono- a diglyceridů mastných kyselin s kyselinou citronovou
 da:E472c, Citronsyreestere af mono- og diglycerider af fedtsyrer
-de:E472c, Citronensäureester von mono- und diglyceriden von speisefettsäuren
+de:E472c, Citronensäureester von Mono- und Diglyceriden von Speisefettsäuren
 el:E472c, Εστερες του κιτρικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων
 es:E472c, Ésteres cítricos de monoglicéridos y diglicéridos de ácidos grasos, Ésteres cítricos de mono y diglicéridos de ácidos grasos, Rasvhapete mono- ja diglütseriidide estrid sidrunhappega
 et:E472c, Rasvhapete mono- ja diglütseriidide estrid sidrunhappega
@@ -25199,7 +25053,7 @@ bg:E472d, Естери на винената киселина с моно- и д
 bs:Tartaratni esteri mono- i diglicerida masnih kiselina
 cs:E472d, Estery mono- a diglyceridů mastných kyselin s kyselinou vinnou
 da:E472d, Vinsyreestere af mono- og diglycerider af fedtsyrer
-de:E472d, Weinsäureester von mono- und diglyceriden von speisefettsäuren
+de:E472d, Weinsäureester von Mono- und Diglyceriden von Speisefettsäuren
 el:E472d, Εστερες του τρυγικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων
 es:E472d, Ésteres tartáricos de monoglicéridos y diglicéridos de ácidos grasos
 et:E472d, Rasvhapete mono- ja diglütseriidide estrid viinhappega
@@ -25234,7 +25088,7 @@ bs:Mono- i diacetil tartaratni esteri mono- i diglicerida masnih kiselina
 ca:E472e, Èster monoacetiltartàric o diacetiltartàric de monoglicèrids o diglicèrids d'àcids grassos
 cs:E472e, Estery mono- a diglyceridů mastných kyselin s kyselinou mono- a diacetylvinnou
 da:E472e, Mono- og diacetylvinsyreestere af mono- og diglycerider af fedtsyrer
-de:E472e, Mono- und diacetylweinsäureester von mono- und diglyceriden von speisefettsäuren, Diacetylweinsäureglyceride, Diacetylweinsäureester von Mono- und Diglyceriden von Speisefettsäuren, E 472e
+de:E472e, Mono- und Diacetylweinsäureester von Mono- und Diglyceriden von Speisefettsäuren, Diacetylweinsäureglyceride, Diacetylweinsäureester von Mono- und Diglyceriden von Speisefettsäuren, E 472e
 el:E472e, Εστερες του μονο- και διακετυλοτρυγικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων
 es:E472e, Ésteres monoacetiltartárico y diacetiltartárico de monoglicéridos y diglicéridos de ácidos grasos, Éster monoacetiltartárico de mono- y diglicéridos de ácidos grasos
 et:E472e, Rasvhapete mono- ja diglütseriidide estrid mono- ja diatsetüülviinhappega
@@ -25275,7 +25129,7 @@ bg:E472f, Смесени естери на оцетната и винената 
 bs:Miješani acetatni i tartaratni esteri mono- i diglicerida masnih kiselina
 cs:E472f, Směsné estery mono- a diglyceridů mastných kyselin s kyselinou octovou a vinnou
 da:E472f, Blandede eddikesyre- og vinsyreestere af mono- og diglycerider af fedtsyrer
-de:E472f, Gemischte essig- und weinsäureester von mono- und diglyceriden von speisefettsäuren
+de:E472f, Gemischte Essig- und Weinsäureester von Mono- und Diglyceriden von Speisefettsäuren
 el:E472f, Μεικτοι εστερες του οξικου και τρυγικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων
 es:E472f, Mixed acetic and tartaric acid esters of mono- and diglycerides of fatty acids
 et:E472f, Rasvhapete mono- ja diglütseriidide estrid äädik- ja viinhappe seguga
@@ -25307,7 +25161,7 @@ en:E472g, Succinylated monoglycerides
 bg:E472g, E472g food additive
 cs:E472g, E472g food additive
 da:E472g, E472g food additive
-de:E472g, E472g food additive
+de:E472g, Succinylierte Monoglyceride
 el:E472g, E472g food additive
 es:E472g, E472g food additive
 et:E472g, E472g food additive
@@ -25335,7 +25189,7 @@ bg:E473, Естери на мастни киселини и захароза, С
 ca:E473, Sucroèster d'àcids grassos
 cs:E473, Estery sacharosy s mastnými kyselinami, Estery sacharosy
 da:E473, Saccharoseestere af fedtsyrer
-de:E473, Zuckerester von speisefettsäuren, Saccharoseester, Zuckerester, E 473, Saccharoseester von Speisefettsäuren
+de:E473, Zuckerester von Speisefettsäuren, Saccharoseester, Zuckerester, E 473, Saccharoseester von Speisefettsäuren
 el:E473, Εστερες λιπαρων οξεων με σακχαροζη, Εστεροσάκχαρα
 es:E473, Sucroésteres de ácidos grasos, Sucroésteres, Ésteres de sacarosa de los ácidos grasos
 et:E473, Rasvhapete sahharoosestrid
@@ -25350,7 +25204,7 @@ nl:E473, Sucrose-esters van vetzuren, Sucro-esters
 nn:sukroseestere av fettsyrer
 pl:E473, Estry kwasów tłuszczowych i sacharozy, Cukroestry
 pt:E473, Ésteres de sacarose de ácidos gordos, Ésteres de sacarose
-ro:E473, Esteri ai zaharozei cu acizi grași, Zaharoesteri, sucroesteri
+ro:E473, Esteri ai zaharozei cu acizi grași, Zaharoesteri, Sucroesteri
 sk:E473, Estery sacharózy s mastnými kyselinami, Sacharoestery
 sl:E473, Saharozni estri maščobnih kislin, saharozni estri
 sv:E473, Sackarosestrar av fettsyror, Sackarosestrar
@@ -25435,7 +25289,7 @@ bg:E475, Полиглицеролови естери на мастни кисе�
 ca:E475, Èster poliglicèrid d'àcids grassos
 cs:E475, Estery polyglycerolu s mastnými kyselinami
 da:E475, Polyglycerolestere af fedtsyrer
-de:E475, Polyglycerinester von speisefettsäuren, Polyglycerinester aus Fettsäuren
+de:E475, Polyglycerinester von Speisefettsäuren, Polyglycerinester aus Fettsäuren
 el:E475, Πολυγλυκεριδια λιπαρων οξεων
 es:E475, Ésteres poliglicéricos de ácidos grasos, ésteres poliglicéridos de ácidos grasos
 et:E475, Rasvhapete polüglütseroolestrid
@@ -25467,7 +25321,7 @@ bs:Poliglicerol poliricinoleat
 ca:E476, Poliricinoleat de poligliceril, Poliricinoleat de poliglicerol
 cs:E476, Polyglycerylpolyricinoleát
 da:E476, Polyglycerolpolyricinoleat
-de:E476, Polyglycerin-polyricinoleat, E 476, PGPR
+de:E476, Polyglycerin-Polyricinoleat, E 476, PGPR
 el:E476, Πολυγλυκεριδια του πολυρικινελαϊκου οξεος, Πολυγλυκεριδια του πολυρικινελαϊκου
 es:E476, Polirricinoleato de poliglicerol, Polyglycerol polyricinoleate
 et:E476, Ritsinoolhappe polüglütseroolestrid
@@ -25501,7 +25355,7 @@ bg:E477, Пропан-1‚2-диол естери на мастни кисели
 ca:E477, Èster d'1‚2-propà-diol d'àcids grassos
 cs:E477, Estery propan-1‚2-diolu s mastnými kyselinami
 da:E477, Propylenglycolestere af fedtsyrer
-de:E477, Propylenglycolester von speisefettsäuren
+de:E477, Propylenglycolester von Speisefettsäuren
 el:E477, Εστερες λιπαρων οξεων με προπανοδιολη-1‚2
 es:E477, Ésteres de propano-1‚2-diol de ácidos grasos
 et:E477, Rasvhapete propüleenglükoolestrid
@@ -25557,7 +25411,7 @@ bg:E479b, Термично окислено соево масло с моно-и
 ca:E479b, Oli de soja oxidat tèrmicament i en interacció amb monoglicèrids i diglicèrids d'àcids grassos
 cs:E479b, Směsný produkt interakce tepelně opracovaného sójového oleje s mono- a diglyceridy mastných kyselin
 da:E479b, Termisk oxideret sojaolie omsat med mono- og diglycerider af fedtsyrer
-de:E479b, Thermooxidiertes sojaöl verestert mit mono- und diglyceriden von speisefettsäuren
+de:E479b, Thermooxidiertes Sojaöl verestert mit Mono- und Diglyceriden von Speisefettsäuren
 el:E479b, Θερμικως οξειδωμενο σογιελαιο που εχει αντιδρασει με μονο- και διγλυκεριδια λιπαρων οξεων
 es:E479b, Aceite de soja oxidado térmicamente en interacción con monoglicéridos y diglicéridos de ácidos grasos
 et:E479b, Termiliselt oksüdeeritud sojaõli rasvhapete mono- ja diglütseriidide estrid
@@ -25711,7 +25565,7 @@ mt:E484, E484 food additive
 nl:E484, E484 food additive
 pl:E484, E484 food additive
 pt:E484, E484 food additive
-ro:E484, E484 food additive
+ro:E484, Citrat de stearil
 sk:E484, E484 food additive
 sl:E484, E484 food additive
 sv:E484, E484 food additive
@@ -25739,7 +25593,7 @@ mt:E485, E485 food additive
 nl:E485, E485 food additive
 pl:E485, E485 food additive
 pt:E485, E485 food additive
-ro:E485, E485 food additive
+ro:E485, Fumaratul de stearoil de sodiu, Stearoil fumarat de sodiu
 sk:E485, E485 food additive
 sl:E485, E485 food additive
 sv:E485, E485 food additive
@@ -25766,7 +25620,7 @@ mt:E486, E486 food additive
 nl:E486, E486 food additive
 pl:E486, E486 food additive
 pt:E486, E486 food additive
-ro:E486, E486 food additive
+ro:E486, Fumarat de stearoil de calciu
 sk:E486, E486 food additive
 sl:E486, E486 food additive
 sv:E486, E486 food additive
@@ -25793,7 +25647,7 @@ mt:E487, E487 food additive
 nl:E487, natriumdodecylsulfaat, Sodium lauryl sulfate, Natriumlaurylsulfaat, Natrium dodecyl sulfaat, Sodium dodecyl sulfate, 151-21-3
 pl:E487, Laurylosiarczan sodu, Sól sodowa siarczanu laurylu, Dodecylosiarczan sodu
 pt:E487, Dodecil sulfato de sódio, Lauril sulfato de sódio
-ro:E487, E487 food additive
+ro:E487, Laurii sulfat de sodiu
 sk:E487, E487 food additive
 sl:E487, E487 food additive
 sv:E487, Natriumdodecylsulfat, Sodium laurilsulfate, Natriumlaurylsulfat, Sodium laureth sulfate, NaDS, Sodium lauryl sulfate, Sodium dodecyl sulfate, Sodium laureth sulphate
@@ -25820,7 +25674,7 @@ mt:E488, E488 food additive
 nl:E488, E488 food additive
 pl:E488, E488 food additive
 pt:E488, E488 food additive
-ro:E488, E488 food additive
+ro:E488, Mono și digliceride etoxilate, Mono- și di-gliceride etoxilate
 sk:E488, E488 food additive
 sl:E488, E488 food additive
 sv:E488, E488 food additive
@@ -25847,7 +25701,7 @@ mt:E489, E489 food additive
 nl:E489, E489 food additive
 pl:E489, E489 food additive
 pt:E489, E489 food additive
-ro:E489, E489 food additive
+ro:E489, Ulei de nucă de cocos și ester de metil glucozidă, Glucozidă de metil - ester de ulei de nucă de cocos
 sk:E489, E489 food additive
 sl:E489, E489 food additive
 sv:E489, E489 food additive
@@ -25905,7 +25759,7 @@ mt:E491, Sorbitan monostearat
 nl:E491, Sorbitaanmonostearaat, sorbitanmonostearaat
 pl:E491, Monostearynian sorbitolu
 pt:E491, Monoestearato de sorbitano
-ro:E491, Monostearat de sorbitan
+ro:E491, Monostearat de sorbitan, Sorbitan monostearat
 sh:Sorbitan monostearat
 sk:E491, Sorbitanmonostearát
 sl:E491, Sorbitan monostearat
@@ -26039,7 +25893,7 @@ el:E495, Μονοπαλμιτικη σορβιτανη
 es:E495, Monopalmitato de sorbitano
 et:E495, Sorbitaanmonopalmitaat
 fi:E495, Sorbitaanimonopalmitaatti
-fr:E495, Monopalmitate de sorbitane, Palmitate de sorbitane, mélange d'esters de sorbitol; de sorbitan et d'isosorbide, Span 40
+fr:E495, Monopalmitate de sorbitane
 hu:E495, Szorbitan-monopalmitát
 it:E495, Monopalmitato di sorbitano
 lt:E495, Sorbitano monopalmitatas
@@ -26083,7 +25937,7 @@ mt:E496, E496 food additive
 nl:E496, E496 food additive
 pl:E496, E496 food additive
 pt:E496, E496 food additive
-ro:E496, E496 food additive
+ro:E496, Sorbitan trioleat
 sk:E496, E496 food additive
 sl:E496, E496 food additive
 sv:E496, E496 food additive
@@ -26326,7 +26180,7 @@ nl:E501, Kaliumcarbonaat, E501i, kaliumcarbonaten
 nn:kaliumkarbonat, pottaske
 pl:E501, Węglan potasu, WęglanIV potasu, E501i, węglany potasu
 pt:E501, Carbonato de potássio, E501i, carbonatos de potássio
-ro:E501, E501 food additive, E501i, Carbonat de potasiu, carbonați de potasiu
+ro:E501, Carbonați de potasiu, E501i, Carbonat de potasiu
 ru:Карбонат калия
 sh:Kalijum karbonat
 sk:E501, Uhličitan draselný, Potaš, E501i, uhličitany draselné
@@ -26392,7 +26246,7 @@ en:E502, Carbonates
 bg:E502, E502 food additive
 cs:E502, E502 food additive
 da:E502, E502 food additive
-de:E502, E502 food additive
+de:E502, Carbonate
 el:E502, E502 food additive
 es:E502, Carbonatos
 et:E502, E502 food additive
@@ -26443,7 +26297,7 @@ nl:E503, Ammoniumcarbonaat, E503i, ammoniumcarbonaten
 nn:ammoniumkarbonat
 pl:E503, Węglan amonu, węglany amonu, E503i
 pt:E503, Carbonato de amônio, E503i, carbonatos de amónio
-ro:E503, E503 food additive, E503i, Carbonat de amoniu, carbonati de amoniu
+ro:E503, Carbonați de amoniu, E503i, Carbonat de amoniu, carbonati de amoniu
 ru:E503, Карбонаты аммония: карбонат аммония, гидрокарбонат аммония, карбонат аммония
 sh:Amonijum karbonat
 sk:E503, E503 food additive, E503i, Uhličitan amónny
@@ -26492,7 +26346,7 @@ nl:E503ii, Ammoniumwaterstofcarbonaat
 nn:Hjortetakksalt
 pl:E503ii, Wodorowęglan amonu
 pt:E503ii, Hidrogenocarbonato de amónio, bicarbonato de amónio, carbonato ácido de amónio
-ro:E503ii, Bicarbonat de amoniu
+ro:E503ii, Bicarbonat de amoniu, Carbonat acid de amoniu
 ru:
 sh:Amonijum bikarbonat
 sk:E503ii, Hydrogenuhličitan amónny
@@ -26698,7 +26552,7 @@ vi:Kali clorua
 zh:氯化钾
 additives_classes:en: en:stabilizer, en:thickener
 e_number:en: 508
-mandatory_additive_class:en: en:flavour-enhancer, en:stabiliser, en:thickener
+mandatory_additive_class:en: en:flavour-enhancer, en:stabilizer, en:thickener
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q184630
@@ -26753,7 +26607,7 @@ vi:canxi clorua
 zh:氯化钙
 additives_classes:en: en:stabilizer, en:thickener
 e_number:en: 509
-mandatory_additive_class:en: en:firming-agent, en:stabiliser, en:thickener
+mandatory_additive_class:en: en:firming-agent, en:stabilizer, en:thickener
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
@@ -27146,7 +27000,7 @@ vi:Canxi sulfat
 zh:硫酸钙
 additives_classes:en: en:sequestrant, en:stabilizer
 e_number:en: 516
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent, en:flour-treatment-agent
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:firming-agent, en:flour-treatment-agent
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
@@ -28238,7 +28092,7 @@ zh:二氧化硅
 additives_classes:en: en:carrier
 colour_index:en: CI 7811
 e_number:en: 551
-mandatory_additive_class:en: en:anti-caking-agent, en:anti-foaming-agent, en:stabiliser
+mandatory_additive_class:en: en:anti-caking-agent, en:anti-foaming-agent, en:stabilizer
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
@@ -28296,7 +28150,7 @@ mt:E553, E553 food additive, E553a, E553a food additive
 nl:E553, Magnesiumsilicaat, E553a, E553a food additive
 pl:E553, E553 food additive, E553a, E553a food additive
 pt:E553, E553 food additive, E553a, E553a food additive
-ro:E553, E553 food additive, E553a, E553a food additive
+ro:E553, E553 food additive, E553a, Silicați de magneziu
 sk:E553, E553 food additive, E553a, E553a food additive
 sl:E553, E553 food additive, E553a, E553a food additive
 sv:E553, E553 food additive, E553a, Magnesiumsilikat
@@ -28611,7 +28465,7 @@ mt:E560, E560 food additive
 nl:E560, kaliumsilicaat
 pl:E560, E560 food additive
 pt:E560, E560 food additive
-ro:E560, E560 food additive
+ro:E560, Silicat de potasiu
 sk:E560, E560 food additive
 sl:E560, E560 food additive
 sv:E560, E560 food additive
@@ -28908,7 +28762,7 @@ bg:E579, Феро глюконат, Феро-ди-D-глюконат дихид�
 ca:E579, Gluconat ferrós
 cs:E579, Glukonan železnatý
 da:E579, Ferrogluconat, Ferrodi-D-gluconatdihydrat
-de:E579, Eisenii-gluconat, Eisengluconat, E 579, Eisen(II)Gluconat
+de:E579, Eisengluconat, EisenII-gluconat, Eisen(II)Gluconat
 el:E579, Γλυκονικος σιδηρος
 es:E579, Gluconato ferroso
 et:E579, Ferroglükonaat
@@ -29904,7 +29758,7 @@ mt:E710, E710 food additive
 nl:E710, Spiramycines, Spiramycine
 pl:E710, Spiramycyna
 pt:E710, E710 food additive
-ro:E710, E710 food additive
+ro:E710, Spiramicine
 sk:E710, E710 food additive
 sl:E710, E710 food additive
 sv:E710, spiramycin
@@ -29931,7 +29785,7 @@ mt:E713, E713 food additive
 nl:E713, Tylosine
 pl:E713, E713 food additive
 pt:E713, E713 food additive
-ro:E713, E713 food additive
+ro:E713, Tilosin
 sk:E713, E713 food additive
 sl:E713, E713 food additive
 sv:E713, E713 food additive
@@ -29986,7 +29840,7 @@ mt:E900a, E900a food additive
 nl:E900a, E900a food additive
 pl:E900a, E900a food additive
 pt:E900a, E900a food additive
-ro:E900a, E900a food additive
+ro:E900a, Poli-dimetil-siloxan
 sk:E900a, E900a food additive
 sl:E900a, E900a food additive
 sv:E900a, E900a food additive
@@ -30014,7 +29868,7 @@ mt:E900b, E900b food additive
 nl:E900b, E900b food additive
 pl:E900b, E900b food additive
 pt:E900b, E900b food additive
-ro:E900b, E900b food additive
+ro:E900b, Metil-fenil-poli-siloxan, Metilfenilpolisiloxan
 sk:E900b, E900b food additive
 sl:E900b, E900b food additive
 sv:E900b, E900b food additive
@@ -30023,25 +29877,25 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q411955
 
-en:E901, White and Yellow Beeswax, beeswax, White wax, beewax, E-901, INS901, INS-901, SIN901, SIN-901
+en:E901, white and yellow beeswax, beeswax, white beeswax, yellow beeswax, white wax, beewax, E-901, INS901, INS-901, SIN901, SIN-901
 af:Byewas
 ar:شمع العسل
 az:Arı mumu
 be:Пчаліны воск
-bg:E901, Пчелен восък, бял и жълт, Бял восък, пчелен восък - бял и жълт
+bg:E901, Пчелен восък бял и жълт, Пчелен восък, Пчелен восък бял, Пчелен восък жълт, Бял восък
 bn:মোম
 bs:Pčelinji vosak
 ca:E901, Cera d'abelles, Cera d'abella
-cs:E901, Včelí vosk, bílý a žlutý, Bílý vosk, E 901, včelí vosk bílý a žlutý
-da:E901, Bivoks, hvidt og gult, Hvidt voks, E-901, bivoks hvidt og gult
-de:E901, Bienenwachs; weiss und gelb, weißes Wachs, Bienenwachs, E 901, Myricin, Cera Flava, Bienenwachs Weiß und Gelb
+cs:E901, Včelí vosk bílý a žlutý, Včelí vosk, Včelí vosk bílý, Včelí vosk žlutý, Bílý vosk, E 901
+da:E901, Bivoks hvidt og gult, Bivoks, Bivoks hvidt, Bivoks gult, Hvidt voks, E-901
+de:E901, Bienenwachs weiß und gelb, Bienenwachs, Bienenwachs weiß, Bienenwachs gelb, weißes Wachs, E 901, Myricin, Cera Flava, Bienenwachs weiss und gelb
 el:E901, Κηρος μελισσων, λευκος και κιτρινος, Λευκός κηρός, κηρός μελισσών λευκός και κίτρινος
 eo:Abelvakso
-es:E901, Cera de abeja, blanca y amarilla, Cera blanca, Cera estampada, cera de abejas, cera de abejas blanca y amarilla
+es:E901, Cera de abeja blanca y amarilla, Cera de abeja, Cera de abeja blanca, Cera de abeja amarilla, Cera blanca, Cera estampada, cera de abejas, cera de abejas blanca y amarilla
 et:E901, Kollane ja valge meevaha, Valge vaha, Mesilasvaha, Vaha, meevaha, toonitamata ja toonitatud meevaha
 eu:Erle-argizari
 fa:موم زنبور عسل
-fi:E901, Mehiläisvaha, valkoinen ja keltainen, Valkoinen mehiläisvaha, mehiläisvaha valkoinen ja keltainen
+fi:E901, Mehiläisvaha valkoinen ja keltainen, Mehiläisvaha, Mehiläisvaha valkoinen, Mehiläisvaha keltainen, Valkoinen mehiläisvaha
 fr:E901, Cire d'abeille, Cire d'abeille alimentaire, Cire d'abeille blanchâtre, Cire d'abeille jaunâtre, Cire blanche, cire jaune, Cire d'abeilles, Cire d'abeille blanche et jaune, 8012-89-3, 8006-40-4
 fy:Bijewaaks
 ga:céir bheach
@@ -30049,37 +29903,37 @@ gl:Cera estampada
 he:דונג דבורים
 hi:मधुमोम
 hr:pčelinji vosak
-hu:E901, Fehér és sárga méhviasz, Fehér viasz, Méhviasz
+hu:E901, Fehér és sárga méhviasz, Méhviasz, Fehér méhviasz, Sárga méhviasz, Fehér viasz
 hy:Մեղրամոմ
 id:Lilin lebah
-it:E901, Cera d'api, binaca e gialla, Cera vergine, cera d'api bianca e gialla
+it:E901, Cera d'api binaca e gialla, Cera d'api, Cera d'api binaca, Cera d'api gialla, Cera vergine, cera d'api bianca e gialla
 ja:蜜蝋
 jv:Malam
 ka:ფუტკრის ცვილი
 ko:밀랍
 ku:şima
-lt:E901, Bičių vaškas, baltas ir geltonas, Baltasis vaškas
-lv:E901, Baltais un dzeltenais bišu vasks, Baltais vasks, Bišu vasks, bišu vasks baltais un dzeltenais
+lt:E901, Bičių vaškas baltas ir geltonas, Bičių vaškas, Bičių vaškas baltas, Bičių vaškas geltonas, Baltasis vaškas
+lv:E901, Baltais un dzeltenais bišu vasks, Bišu vasks, Baltais bišu vasks, Dzeltenais bišu vasks, Baltais vasks, bišu vasks baltais un dzeltenais
 ml:തേനീച്ചയുടെ മെഴുക്
 ms:Lilin lebah
 mt:E901, Xama' tan-naħal, bajda u safra, Xama' bajda, xama' tan-naħal bajda u safra
 nb:Bivoks, bivoks hvit og gull
 ne:मौरीको मैन
-nl:E901, Bijenwas, wit en geel, Witte was, Ceratiet, bijenwas - wit en geel
+nl:E901, Bijenwas wit en geel, Bijenwas, Bijenwas wit, Bijenwas geel, Witte was, Ceratiet, wit en geel
 nn:Bivoks
 oc:Cera d'abelha
-pl:E901, Wosk pszczeli, biały i żółty, Wosk biały, wosk pszczeli biały i żółty
+pl:E901, Wosk pszczeli biały i żółty, Wosk pszczeli, Wosk pszczeli biały, Wosk pszczeli żółty, Wosk biały
 pt:E901, Cera de abelhas (branca e amarela), Cera branca, Cera, cera de abelhas, cera de abelhas branca ou amarela
-ro:E901, Ceară de albine, albă și galbenă, Ceară albă, ceară de albine albă și galbenă
+ro:E901, Ceară de albine albă și galbenă, Ceară de albine, Ceară de albine albă, Ceară de albine galbenă, Ceară albă
 ru:пчелиный воск
 rw:Igishashara
 sh:Pčelinji vosak
 si:මී ඉටි
-sk:E901, Biely a žltý včelí vosk, Biely vosk, včelí vosk
-sl:E901, Čebelji vosek, beli in rumeni, beli vosek, čebelji vosek beli in rumeni
+sk:E901, Biely a žltý včelí vosk, včelí vosk, biely včelí vosk, žltý včelí vosk, biely vosk
+sl:E901, Čebelji vosek beli in rumeni, Čebelji vosek, Čebelji vosek beli, Čebelji vosek rumeni, beli vosek
 sq:Dylli
 sr:пчелињи восак
-sv:E901, Bivax, vitt och gult, Vitt vax, E 901, Keromanti, Vaxkaka, bivax vitt och gult
+sv:E901, Bivax vitt och gult, Bivax, Bivax vitt, Bivax gult, Vitt vax, E 901, Keromanti, Vaxkaka
 tg:Муми занбӯри асал
 th:ขี้ผึ้ง
 tl:Mantika de papel
@@ -30279,7 +30133,7 @@ mt:E905a, E905a food additive
 nl:E905a, Minerale olie
 pl:E905a, Oleje mineralne
 pt:E905a, Óleo mineral
-ro:E905a, E905a food additive
+ro:E905a, Ulei mineral calitate alimentară
 sk:E905a, E905a food additive
 sl:E905a, Mineralno olje
 sv:E905a, E905a food additive
@@ -30309,7 +30163,7 @@ mt:E905b, E905b food additive
 nl:E905b, E905b food additive
 pl:E905b, Wazelina
 pt:E905b, vaselina, gelatina de petróleo
-ro:E905b, E905b food additive
+ro:E905b, Vaselină
 sk:E905b, E905b food additive
 sl:E905b, E905b food additive
 sv:E905b, E905b food additive
@@ -30489,7 +30343,7 @@ mt:E906, E906 food additive
 nl:E906, Benzoïnegum, Benzoë
 pl:E906, Styraks, Benzoin, benzoë
 pt:E906, E906 food additive
-ro:E906, E906 food additive
+ro:E906, Gumă de benzoia
 sk:E906, E906 food additive
 sl:E906, E906 food additive
 sv:E906, Bensoeharts
@@ -30544,7 +30398,7 @@ mt:E908, E908 food additive
 nl:E908, Riijstkorrelwas
 pl:E908, E908 food additive
 pt:E908, E908 food additive
-ro:E908, E908 food additive
+ro:E908, Ceară de tărâțe dde orez
 sk:E908, E908 food additive
 sl:E908, E908 food additive
 sv:E908, E908 food additive
@@ -30571,7 +30425,7 @@ mt:E909, E909 food additive
 nl:E909, Walschot
 pl:E909, Spermacet
 pt:E909, Espermacete
-ro:E909, E909 food additive
+ro:E909, Ceară de spermaceti
 sk:E909, E909 food additive
 sl:E909, E909 food additive
 sv:E909, Valrav
@@ -30598,7 +30452,7 @@ mt:E910, E910 food additive
 nl:E910, E910 food additive
 pl:E910, E910 food additive
 pt:E910, E910 food additive
-ro:E910, E910 food additive
+ro:E910, Esteri de ceară
 sk:E910, E910 food additive
 sl:E910, E910 food additive
 sv:E910, E910 food additive
@@ -30625,7 +30479,7 @@ mt:E911, E911 food additive
 nl:E911, E911 food additive
 pl:E911, E911 food additive
 pt:E911, E911 food additive
-ro:E911, E911 food additive
+ro:E911, Metil esteri ai acizilor grași
 sk:E911, E911 food additive
 sl:E911, E911 food additive
 sv:E911, E911 food additive
@@ -30683,7 +30537,7 @@ mt:E913, E913 food additive
 nl:E913, Lanoline, Wolvet
 pl:E913, Lanolina
 pt:E913, Lanolina
-ro:E913, E913 food additive
+ro:E913, Lanolină
 sk:E913, Lanolín
 sl:E913, E913 food additive
 sv:E913, Lanolin, Adeps lanæ, E 913
@@ -30741,7 +30595,7 @@ mt:E915, E915 food additive
 nl:E915, Colofonium esters
 pl:E915, E915 food additive
 pt:E915, E915 food additive
-ro:E915, E915 food additive
+ro:E915, Esterii colofoniului
 sk:E915, E915 food additive
 sl:E915, E915 food additive
 sv:E915, E915 food additive
@@ -30771,7 +30625,7 @@ mt:E916, E916 food additive
 nl:E916, Calciumjodaat
 pl:E916, Jodan wapnia
 pt:E916, E916 food additive, iodato de cálcio
-ro:E916, E916 food additive
+ro:E916, Iodat de calciu
 ru:Иодат кальция
 sh:Kalcijum jodat sr:Kalcijum jodat
 sk:E916, E916 food additive
@@ -30804,7 +30658,7 @@ mt:E917, E917 food additive, jodat tal-potassju
 nl:E917, Kaliumjodaat, KIO3
 pl:E917, Jodan potasu, JodanV potasu
 pt:E917, Iodato de potássio
-ro:E917, E917 food additive, iodat de potasiu
+ro:E917, Iodat de potasiu
 sk:E917, E917 food additive, jodičnan draselný
 sl:E917, E917 food additive, kalijev jodat
 sv:E917, E917 food additive, kaliumjodat
@@ -30833,7 +30687,7 @@ mt:E918, E918 food additive
 nl:E918, E918 food additive
 pl:E918, E918 food additive
 pt:E918, E918 food additive
-ro:E918, E918 food additive
+ro:E918, Oxizi de azot
 sk:E918, E918 food additive
 sl:E918, E918 food additive
 sv:E918, E918 food additive
@@ -30860,7 +30714,7 @@ mt:E919, E919 food additive
 nl:E919, Nitrosylchloride
 pl:E919, Chlorek nitrozylu, Nocl
 pt:E919, Cloreto de nitrosilo
-ro:E919, E919 food additive
+ro:E919, Clorură de nitrozil
 sk:E919, E919 food additive
 sl:E919, E919 food additive
 sv:E919, Nitrosylklorid, Nitrosoniumklorid, Kväveoxyklorid
@@ -30895,7 +30749,7 @@ nl:E920, L-cysteïne, cysteïne
 nn:L-cystein
 pl:E920, L-cysteina, Cysteina
 pt:E920, L-cisteína, Cisteína, L-Cysteina
-ro:E920, L-cisteină, Cisteină
+ro:E920, L-cisteină, Cisteină, Cisteina hidrolorică și sărurile ei de sodiu și potasiu
 ru:L-Цистеин
 sh:L-Cistein
 sk:E920, L-cysteín, Cysteín
@@ -30930,7 +30784,7 @@ mt:E921, E921 food additive
 nl:E921, L-Cystine
 pl:E921, E921 food additive
 pt:E921, E921 food additive
-ro:E921, E921 food additive
+ro:E921, Cistina hidroclorică și sărurile ei de sodiu și potasiu
 sk:E921, E921 food additive
 sl:E921, E921 food additive
 sv:E921, E921 food additive
@@ -30956,7 +30810,7 @@ mt:E922, E922 food additive
 nl:E922, Kaliumpersulfaat, Kaliumperoxodisulfaat
 pl:E922, Nadsiarczan potasu
 pt:E922, E922 food additive
-ro:E922, E922 food additive
+ro:E922, Persulfat de potasiu
 ru:E922, Пероксодисульфат калия
 sk:E922, E922 food additive
 sl:E922, E922 food additive
@@ -30984,7 +30838,7 @@ mt:E923, E923 food additive
 nl:E923, Ammoniumpersulfaat, Ammoniumperoxydisulfaat
 pl:E923, Nadsiarczan amonu
 pt:E923, Persulfato de amônia
-ro:E923, E923 food additive
+ro:E923, Persulfat de amoniu
 sk:E923, E923 food additive
 sl:E923, E923 food additive
 sv:E923, Ammoniumpersulfat, Ammoniumperoxidisulfat, Ammoniumperoxiddisulfat, Ammoniumperoxodisulfat
@@ -31011,7 +30865,7 @@ mt:E924, E924 food additive, E924a, E924a food additive
 nl:E924, Kaliumbromaten, Kaliumbromaat, KBrO3, E924a, E924a food additive
 pl:E924, Bromian potasu, E924a, E924a food additive
 pt:E924, Bromato de potássio, E924a, E924a food additive
-ro:E924, E924 food additive, E924a, E924a food additive
+ro:E924, Bromat de potasiu, E924a
 ru:E924, Бромат калия
 sk:E924, E924 food additive, E924a, E924a food additive
 sl:E924, E924 food additive, E924a, E924a food additive
@@ -31039,7 +30893,7 @@ mt:E924b, E924b food additive
 nl:E924b, E924b food additive
 pl:E924b, E924b food additive
 pt:E924b, Bromato de cálcio
-ro:E924b, E924b food additive
+ro:E924b, Bromat de calciu
 sk:E924b, E924b food additive
 sl:E924b, E924b food additive
 sv:E924b, E924b food additive
@@ -31066,7 +30920,7 @@ mt:E925, kloru
 nl:E925, Chloor
 pl:E925, chlor
 pt:E925, cloro
-ro:E925, clor
+ro:E925, Clor
 sk:E925, chlór
 sl:E925, klor
 sv:E925, klor
@@ -31093,7 +30947,7 @@ mt:E926, E926 food additive
 nl:E926, Chloordioxide
 pl:E926, Ditlenek chloru, Tlenek chloruIV, Dwutlenek chloru
 pt:E926, Dióxido de cloro
-ro:E926, E926 food additive
+ro:E926, Dioxid de clor
 sk:E926, E926 food additive
 sl:E926, E926 food additive
 sv:E926, Klordioxid
@@ -31120,7 +30974,7 @@ mt:E927, E927 food additive
 nl:E927, E927 food additive
 pl:E927, E927 food additive
 pt:E927, E927 food additive
-ro:E927, E927 food additive
+ro:E927, Azodicarbonamidă
 sk:E927, E927 food additive
 sl:E927, E927 food additive
 sv:E927, E927 food additive
@@ -31146,7 +31000,7 @@ mt:E927a, E927a food additive
 nl:E927a, Azodicarbonamide, 1‚1'-azobisformamide
 pl:E927a, E927a food additive
 pt:E927a, Azodicarbonamida
-ro:E927a, E927a food additive
+ro:E927a
 sk:E927a, E927a food additive
 sl:E927a, E927a food additive
 sv:E927a, E927a food additive
@@ -31227,7 +31081,7 @@ mt:E929, E929 food additive
 nl:E929, Acetonperoxide, Peroxyaceton, Triaceton-triperoxide, TATP, Aceton-peroxide, Tricycloaceton-peroxide
 pl:E929, Nadtlenek acetonu, CTAP, TCAP, TATP
 pt:E929, Triperóxido de triacetona, Peróxido de acetona, TATP
-ro:E929, E929 food additive
+ro:E929, Peroxid de acetonă
 sk:E929, E929 food additive
 sl:E929, Aceton peroksid
 sv:E929, Acetonperoxid, ATCP, Tricykloacetonperoxid, TATP, Triacetontriperoxid, TCAP, Acetontricykloperoxid
@@ -31254,7 +31108,7 @@ mt:E930, E930 food additive
 nl:E930, Calciumperoxide
 pl:E930, Nadtlenek wapnia
 pt:E930, E930 food additive
-ro:E930, E930 food additive
+ro:E930, Citrat de monoizopropil, Peroxid de calciu
 ru:E930, Пероксид кальция
 sk:E930, E930 food additive
 sl:E930, E930 food additive
@@ -31282,7 +31136,7 @@ mt:E931, E931 food additive
 nl:E931, E931 food additive
 pl:E931, E931 food additive
 pt:E931, E931 food additive
-ro:E931, E931 food additive
+ro:E931, Nitrogen
 sk:E931, E931 food additive
 sl:E931, E931 food additive
 sv:E931, E931 food additive
@@ -31394,7 +31248,7 @@ mt:E940, E940 food additive
 nl:E940, Dichlorodifluormethaan, Dichloordifluormethaan, Dichlorodifluoromethaan
 pl:E940, Dichlorodifluorometan, Dwuchlorodwufluorometan, Freon-12, CCl2F2
 pt:E940, Diclorodifluorometano, Diclorodifluormetano
-ro:E940, E940 food additive
+ro:E940, Diclorodifluoro-metan
 ru:E940, Дихлордифторметан, Дифтордихлорметан, Фреон-12, R-12, Хладон - 12
 sk:E940, E940 food additive
 sl:E940, E940 food additive
@@ -31700,7 +31554,7 @@ mt:E945, E945 food additive
 nl:E945, Chloorpentafluorethaan, 1-chloor-1‚1‚2‚2‚2-pentafluorethaan
 pl:E945, E945 food additive
 pt:E945, E945 food additive
-ro:E945, E945 food additive
+ro:E945, Cloropentafluoro-etan
 sk:E945, E945 food additive
 sl:E945, E945 food additive
 sv:E945, E945 food additive
@@ -31727,7 +31581,7 @@ mt:E946, E946 food additive
 nl:E946, Octafluorcyclobutaan, Perfluorcyclobutaan, Freon C318
 pl:E946, E946 food additive
 pt:E946, E946 food additive
-ro:E946, E946 food additive
+ro:E946, Octafluorociclo-butan
 sk:E946, E946 food additive
 sl:E946, E946 food additive
 sv:E946, E946 food additive
@@ -31785,7 +31639,7 @@ mt:E949, E949 food additive
 nl:E949, Waterstof
 pl:E949, E949 food additive
 pt:E949, E949 food additive
-ro:E949, E949 food additive
+ro:E949, Hidrogen
 ru:E949, Водород
 sk:E949, E949 food additive
 sl:E949, E949 food additive
@@ -31800,7 +31654,7 @@ bg:E950, Ацесулфам к, Калиев ацесулфам
 ca:E950, Acesulfam K, Acesulfame-k
 cs:E950, Acesulfam k, Acesulfam draselný
 da:E950, Acesulfamkalium, Acesulfam K
-de:E950, Acesulfam k
+de:E950, Acesulfam-K
 el:E950, Ακεσουλφαμη κ, Ακεσουλφάμη (άλας με Κ)
 eo:Acesulfamo
 es:E950, Acesulfamo K, Acesulfamo potásico, acesulfame potásico
@@ -32093,7 +31947,7 @@ mt:E956, E956 food additive
 nl:E956, Alitame
 pl:E956, E956 food additive
 pt:E956, E956 food additive
-ro:E956, E956 food additive
+ro:E956, Alitame
 sk:E956, E956 food additive
 sl:E956, Alitam
 sv:E956, Alitam, E 956
@@ -32122,7 +31976,7 @@ mt:E957, E957 food additive
 nl:E957, Thaumatine
 pl:E957, Taumatyna
 pt:E957, Taumatina
-ro:E957, E957 food additive
+ro:E957, Thaumatina
 sk:E957, E957 food additive
 sl:E957, Taumatin
 sv:E957, Taumatin, E 957
@@ -32153,7 +32007,7 @@ mt:E958, E958 food additive
 nl:E958, Glycyrrhizinezuur, (3-beta‚20-beta)-20-carboxy-11-oxo-30-norolean-12-en-3-yl 2-O-beta-D-glucopyraanuronosyl-alfa-D-glucopyranosiduronzuur, Glycyrrhizine
 pl:E958, E958 food additive
 pt:E958, E958 food additive
-ro:E958, E958 food additive
+ro:E958, Glicirizină
 sk:E958, E958 food additive
 sl:E958, Glicirizin
 sv:E958, E958 food additive
@@ -32320,7 +32174,7 @@ mt:E963, E963 food additive
 nl:E963, E963 food additive
 pl:E963, E963 food additive
 pt:E963, E963 food additive
-ro:E963, E963 food additive
+ro:E963, Tagatoză
 sk:E963, E963 food additive
 sl:E963, E963 food additive
 sv:E963, E963 food additive
@@ -32346,7 +32200,7 @@ mt:E964, E964 food additive
 nl:E964, E964 food additive
 pl:E964, E964 food additive
 pt:E964, E964 food additive
-ro:E964, E964 food additive
+ro:E964, Sirop de poliglicitol
 sk:E964, E964 food additive
 sl:E964, E964 food additive
 sv:E964, E964 food additive
@@ -32380,7 +32234,7 @@ nb:E965, Maltitol
 nl:E965, Maltitol
 pl:E965, Maltitol
 pt:E965, maltitol
-ro:E965, maltitol
+ro:E965, Maltitol
 ru:E965, Мальтит
 sh:E965, Maltitol
 si:E965, මෝල්ටිටෝල්
@@ -33410,7 +33264,7 @@ sh:laktaza
 sk:laktáza
 sl:laktaza
 sr:laktaza
-sv:laktas
+sv:laktas, laktasenzym
 tl:lactase
 uk:Лактаза
 uz:laktaza
@@ -33643,94 +33497,55 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q118843
 
-en:fat, fats
-af:Vet
-ak:sradeɛ
-an:Graixa
-ar:دهن
-ay:Lik'i
-bg:Мазнина, мазнини
-bn:স্নেহ পদার্থ
-br:Druzoni
-ca:greix
-cs:tuky, tuk
-cy:Braster
-da:Fedtstof, fed
-de:Fett
-el:λίπος, λιπαρός
-eo:graso
-es:gordo, grasa
-et:Rasvad
-eu:koipe
-fa:چربی
-fi:Rasva
-fr:Graisse
-ga:Saill
-gl:greix
-gu:ચરબી
-he:שומן
-hi:वसा
-hr:Masti
-ht:Kò gra
-hu:zsír
-id:Lemak
-it:grasso
-ja:脂肪
-jv:Gajih
-ka:ცხიმი
-kk:Май
-kn:ಕೊಬ್ಬು
-ko:지방
-la:Pingue
-li:Vèt
-lv:Tauki
-mk:масти
-ml:കൊഴുപ്പ്
-mr:चरबी
-ms:Lemak
-mt:xaħam
-nb:fett
-nl:vet
-nn:feitt
-pl:tłuszcz
-pt:gordura
-qu:Wira
-ro:Grăsime
-ru:жиры
-sd:چرٻي
-sh:Mast
-si:මේදය
-sl:Maščobe, maščoba
-sn:Mafuta
-so:Dux
-sq:Yndyra
-sr:Масти
-su:Lemak
-sv:Fett, fet
-sw:Mafuta
-ta:கொழுப்பு
-te:కొలెస్టరాల్‌
-th:ไขมัน
-tr:Yağ
-uk:Жири
-ur:شحم
-vi:chất béo
-zh:脂肪
-vegan:en: maybe
-vegetarian:en: maybe
-wikidata:en: Q127980
-wikipedia:en: https://en.wikipedia.org/wiki/Fat
-
 < en:Fat
 en:animal fat
+an:Saín
+ar:دهن حيواني
+ca:sagí
+da:Animalsk fedt
 de:Tierfett, tierisches Fett
 es:Grasa animal
+eu:Gantz
+fi:Eläinrasva
 fr:Graisse animale
-it:grassi animali
+hy:Կենդանական յուղ
+it:grassi animali, grasso animale
+ja:動物性脂肪
+kk:Жануар майы
+ko:동물성 기름
+ln:Mpɔ́ngɔ
+nl:dierlijk vet
+pl:tłuszcz zwierzęcy
+ru:Животные жиры
+sv:Animaliskt fett
+tr:Hayvansal yağ
+uk:Тваринні жири
+zh:動物脂肪
+vegan:en: no
+vegetarian:en: maybe
+wikidata:en: Q1423543
+wikipedia:en: https://en.wikipedia.org/wiki/Animal_fat
 
 < en:Fat
 en:hydrogenated fat
-fr:Graisse hydrogénée
+bg:хидрогенирано масло
+de:hydriertes Fett
+es:grasa hidrogenada
+fr:graisse hydrogénée
+it:grassi idrogenati
+nl:gehydrogeneerd vet
+vegan:en: no
+vegetarian:en: maybe
+
+< en:Fat
+en:milkfat, milk fat
+de:Milchfett
+fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
+nb:melkefett
+nl:melkvet
+ro:grasimi din lapte
+vegan:en: no
+vegetarian:en: yes
 
 < en:Fat
 en:poultry fat
@@ -33739,9 +33554,6 @@ es:Grasa de aves
 fr:graisse de volaille
 vegan:en: no
 vegetarian:en: no
-
-< en:Fat
-fr:gras
 
 < en:Fat reduced cocoa powder
 fr:cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
@@ -33822,6 +33634,7 @@ pt:fermentos selecionados
 
 < en:Ferment
 fr:ferments d'affinage
+de:Reifungskulturen
 
 < en:Ferment
 fr:ferments de maturation
@@ -33841,7 +33654,7 @@ da:Fiber
 de:Faser
 el:ίνα
 eo:fibro
-es:fibra
+es:fibra, fibra alimentaria
 et:Kiud
 eu:zuntz
 fa:الیاف
@@ -33987,7 +33800,7 @@ br:Fars
 ca:farciment
 cs:Nadívání
 cv:Фарш
-de:Belag, Farce
+de:Belag, Farce, Füllung
 el:Γέμιση
 eo:farĉo
 es:relleno
@@ -35583,8 +35396,12 @@ es:aroma, aromas
 fr:arôme, arômes
 it:aroma, aromi
 nl:aroma, aroma's
+sv:arom, aromer
 vegan:en: maybe
 vegetarian:en: maybe
+
+< en:Flavouring
+de:Aroma Koffein
 
 < en:Flavouring
 en:aniseed aroma
@@ -35690,7 +35507,8 @@ de:natürliches Aroma
 es:aroma natural, aromas naturales
 fr:arôme naturel, arômes naturels
 it:aroma naturale, aromi naturali
-nl:Natuurlijke smaakstoffen, natuurlijk aroma
+nl:Natuurlijke smaakstoffen, natuurlijk aroma, natuurlijke aroma's
+sv:naturlig arom, naturliga aromer
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -35739,7 +35557,7 @@ da:røgaroma
 de:Raucharoma
 es:aroma de humo
 fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee
-it:aroma di affumicato
+it:aroma di affumicato, aroma di affumicatura
 nl:rookaroma
 
 < en:Flavouring
@@ -35790,6 +35608,10 @@ fr:arôme naturel de poire
 
 < en:Flavouring
 fr:base aromatisante barbecue
+
+< en:Flavouring preparation
+de:Würze, Speisewürze, Suppenwürze
+wikidata:en: Q2596994
 
 en:flax
 es:lino
@@ -35972,7 +35794,7 @@ es:harina de arroz
 fi:riisijauho
 fr:Farine de riz
 it:farina di riso
-nl:rijstbloem
+nl:rijstebloem, rijstbloem
 pt:farinha de arroz
 sv:rismjöl
 
@@ -36343,9 +36165,6 @@ nl:extra verse eieren
 fr:œufs frais de poules élevées en plein air
 
 < en:Fresh milk
-fr:lait frais entier
-
-< en:Fresh milk
 fr:lait frais pasteurisé
 
 < en:Fresh milk
@@ -36362,7 +36181,8 @@ fr:lait frais demi-écrémé pasteurisé
 < en:Whole milk
 en:fresh whole milk
 de:Frische Vollmilch
-fr:lait entier frais
+fr:lait entier frais, lait frais entier
+it:latte intero fresco, latte fresco intero
 
 < en:Fresh pasta
 en:cooked fresh pasta
@@ -36378,7 +36198,8 @@ fr:lait frais de montagne entier pasteurisé
 fr:lait frais entier microfiltré
 
 < en:Fresh whole milk
-fr:lait frais pasteurisé entier
+fr:lait frais entier pasteurisé, lait frais pasteurisé entier
+it:latte intero fresco pastorizzato
 
 < en:Fried onion
 fr:oignon grillé en poudre
@@ -36396,7 +36217,7 @@ bs:Fruktoza
 ca:Fructosa
 cs:Fruktóza
 da:Fruktose
-de:Fructose
+de:Fructose, Fruktose
 el:Φρουκτόζη
 eo:Fruktozo
 es:fructosa
@@ -36465,7 +36286,7 @@ fr:glucose-fructose
 en:glucose-fructose syrup, fructose-glutose syrup, glucose and fructose syrup
 cs:glukózový-fruktózový sirup
 da:glukos-fruktossirap
-de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup
+de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glucose-Fructose-Sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
 es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
 fi:glukoosi-fruktoosi siirappi
@@ -36486,7 +36307,7 @@ sv:glukos-fruktossirap
 fr:fructose de blé
 
 en:fructose syrup
-de:Fruktose Sirup
+de:Fruktose Sirup, Fruktosesirup
 es:Jarabe de fructosa
 fr:sirop de fructose
 it:sciroppo di fruttosio
@@ -36630,7 +36451,7 @@ id:Apel
 ie:pom
 io:pomo
 is:Epli
-it:meleiu:ᑭᒻᒥᓇᐅᔭᖅ
+it:mela, mele
 ja:リンゴ
 jv:Apel
 ka:ვაშლი
@@ -36758,7 +36579,7 @@ hy:ծիրան
 id:aprikot
 io:Abrikoto
 is:apríkósa
-it:albicocca
+it:albicocca, albicocche
 ja:杏子
 ka:გარგარი
 kk:өрік
@@ -37214,7 +37035,7 @@ ar:نارجيل
 bg:Кокосов орех
 ca:coco
 cs:kokosový ořech
-de:Kokos
+de:Kokos, Kokosnuss
 ee:Eneh
 el:καρύδα
 eo:kokosnukso
@@ -37928,7 +37749,7 @@ br:Pechez
 bs:Breskva
 ca:préssec
 cs:broskev
-de:Pfirsich
+de:Pfirsich, Pfirsiche
 el:Ροδάκινο
 eo:persiko
 es:Melocotón
@@ -38380,7 +38201,7 @@ it:succo di limone
 nl:citroensap
 nn:sitronsaft
 pt:sumo de limão
-sv:citronjuice
+sv:citronsaft, citronjuice
 
 < en:Fruit juice
 en:lime juice
@@ -38778,6 +38599,7 @@ pl:dekstroza
 ro:dextroza
 sk:dextróza
 sl:dekstroza
+sv:druvsocker, dextros
 
 < en:Glucose
 en:glucose syrup
@@ -38785,7 +38607,7 @@ bg:глюкозе сироп
 ca:Almívar
 cs:glukózový sirup
 da:glukosesirup
-de:Glukosesirup
+de:Glukosesirup, Glucosesirup
 el:σιρόπι γλυκόζης
 es:jarabe de glucosa
 et:glükoosisiirup
@@ -38844,7 +38666,7 @@ sv:glukos-fruktossirap
 < en:Glucose syrup
 en:dehydrated glucose syrup, powdered glucose syrup, dried glucose syrup
 da:tørret glukosesirup
-de:dehydrierter Glukosesirup
+de:getrockneter Glukosesirup, dehydrierter Glukosesirup
 es:Sirope deshidratado de glucosa
 fi:kuivattu glukoosisiirappi
 fr:sirop de glucose déshydraté, sirop de glucose en poudre
@@ -38920,8 +38742,10 @@ de:Weizengluten, Weizenkleber
 es:gluten de trigo
 et:nisugluteen
 fr:gluten de blé, gluten de froment
+it:glutine di grano, glutine di frumento
 nl:tarwegluten
 pl:gluten pszenny
+sv:vetegluten
 
 en:Glycerol monostearate
 ar:أحادي ستيرات الغليسرول
@@ -39035,10 +38859,10 @@ bs:Grožđica
 ca:pansa
 cs:rozinka
 da:Rosin
-de:Rosine
+de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
-es:pasas
+es:uvas pasas, pasas
 et:Rosin
 eu:Mahaspasa
 fa:کشمش
@@ -39363,7 +39187,7 @@ it:estratto di guarana
 
 < en:Guava
 en:guava puree, guavas puree
-de:Guavenmus
+de:Guavenmus, Guavenmark
 fr:purée de goyave
 it:purea di guaiave
 
@@ -39501,7 +39325,7 @@ cs:oříšková pasta
 de:Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es:pasta de avellana, pasta de avellanas
 fr:pâte de noisette, purée de noisettes
-hu:mogyoromassza
+hu:
 it:pasta di nocciole
 nl:hazelnootpasta
 pl:masa orzechowa
@@ -39551,8 +39375,9 @@ cs:Bylina
 de:Gewürz, Kräuter
 es:hierbas
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, herbes aromatiques
-it:erba
-nl:kruiden
+it:erba, piante aromatiche
+nl:Kruiden
+sv:örter
 vegan:en: yes
 vegetarian:en: yes
 
@@ -39727,6 +39552,7 @@ nl:laurier, laurierblad
 or:ତେଜପତ୍ର
 pl:liść laurowy
 ru:Лавровый лист
+sv:lagerblad
 te:మాసాల ఆకు
 tg:Барги ғор
 th:ใบกระวาน
@@ -40458,7 +40284,7 @@ sk:Petržlen
 sl:peteršilj
 sq:Majdanozi
 sr:першун
-sw:Persilja
+sv:persilja
 ta:வோக்கோசு
 tl:kinchay
 tr:Maydanoz
@@ -41192,6 +41018,19 @@ description:sl: Sredstva za ohranjanje vlage so snovi, ki preprečujejo izsušit
 description:sv: Fuktighetsbevarande medel: ämnen som förhindrar uttorkning av livsmedel genom att motverka effekten av luft med låg fuktighet, eller förbättrar upplösningen av pulver i vattenlösningar.
 wikidata:en: Q911854
 
+< en:Hydrogenated fat
+en:fully hydrogenated fat
+de:komplett hydriertes Fett
+es:grasa totalmente hidrogenada
+fr:graisse totalement hydrogénée
+it:grassi totalmente idrogenati
+nl:volledig gehydrogeneerde vet
+
+< en:Hydrogenated oil
+< en:Vegetable oil
+fr:huile végétale hydrogénée
+de:pflanzliches Öl gehärtet
+
 < en:Hydrogenated palm oil
 en:partially hydrogenated palm oil
 fr:huile de palme partiellement hydrogénée
@@ -41392,12 +41231,13 @@ wikidata:en: Q3829827
 wikipedia:en: https://en.wikipedia.org/wiki/Uroteuthis_duvauceli
 
 en:ingredient, ingredients, composition
+az:Tarkibi
 bg:Състав
 bs:Sastoji
 cs:Složení
 da:indeholder
 de:Zutaten, Zusammensetzung
-es:composición
+es:composición, ingredientes
 et:Koostisainsd, koostis, Koostisosad
 fa:الكوتات
 fi:ainenosat
@@ -42846,7 +42686,7 @@ sl:Grah
 sq:Bizelja
 sr:грашак
 su:Kacang polong
-sv:ärt
+sv:ärt, ärter
 sw:Njegere
 ta:பட்டாணி
 te:బఠానీ
@@ -42889,7 +42729,7 @@ en:lemon rind
 de:Zitronenzeste, Zitronenschale
 es:cáscara de limón
 fr:écorce de citron, écorces de citron, écorces de citrons, zestes de citron, zeste de citron
-it:scorza d'arancia
+it:scorza d'arancia, scorze di arancia, scorze d'arancia, buccla d'arancia
 nl:citroenschil, schillen citroen
 pt:casca de limão
 
@@ -42929,7 +42769,7 @@ fr:mélisse bio
 < en:Lemon juice
 en:dried lemon juice
 da:tørket citronsaft
-de:Zitronenpulver
+de:Zitronenpulver, Zitronensaftpulver
 es:zumo de limón seco
 fr:jus de citron en poudre, citron en poudre, poudre de citron, jus de citron déshydraté
 it:limone in polvere
@@ -43761,7 +43601,7 @@ de:Gerstenmalzextrakt
 es:extracto de malta de cebada
 et:odralinnaseekstrakt
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
-it:estratto di mato d'orzo
+it:estratto di malto d'orzo
 nl:Gerstemoutextract
 zh:大麥芽精
 
@@ -43823,7 +43663,7 @@ nl:biologische maltosestroop
 < en:Fruit juice
 < en:Mandarin
 fr:jus de mandarine
-de:Mandarinesaft
+de:Mandarinesaft, Mandarinensaft
 it:succo di mandarino
 
 < en:Manganese
@@ -44155,7 +43995,7 @@ de:Fleisch
 es:carne
 fr:viande
 it:carne
-nl:Vlees
+nl:vlees
 vegan:en: no
 vegetarian:en: no
 
@@ -44489,13 +44329,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Menthol
 < en:Microbial culture
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
 da:yoghurtkultur
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, Käsereikulturen, Starterkulturen
 el:γαλακτικά ένζυμα
 es:fermentos lácticos, cultivos lácticos
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
 hu:tejsavbaktériumok
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
-nl:melkfermenten, melkkiemen, Melkzuurbacteriën
+nl:melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel
 pl:żywe kultury bakterii jogurtowych
 pt:fermentos lácteos, culturas lácteas, leveduras lacteas
 ru:Молочные ферменты, пробиотические микроорганизмы
@@ -44615,6 +44455,7 @@ en:fresh milk
 de:Frischmilch
 es:Leche fresca
 fr:lait frais
+it:latte fresco
 nl:verse melk
 
 < en:Milk
@@ -44673,20 +44514,20 @@ wikidata:en: Q2736146
 
 < en:Milk
 en:semi-skimmed milk, reduced-fat milk
-de:teilentrahmte milch
-es:leche parcialmente desnatada
+de:teilentrahmte Milch, fettarme Milch
+es:leche parcialmente desnatada, leche semidesnatada
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
 it:latte parzialmente scremato
 nb:Ekstra lett melk
 nl:halfvolle melk, gedeeltelijk afgeroomde melk
-sv:Lättmjölk
+sv:mellanmjölk
 wikidata:en: Q10572454
 wikipedia:en: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
 < en:Milk
 en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk
 ar:حليب منزوع الدسم
-de:Magermilch
+de:Magermilch, entrahmte Milch
 es:Leche descremada, Leche desnatada, leche sin grasas
 et:Lõss
 fa:شیر خشک بدون چربی
@@ -44704,7 +44545,7 @@ nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
 pa:ਸਪਰੇਟਾ
 pt:Leite desnatado
 ru:Обезжиренное молоко
-sv:Skummjölk
+sv:Skummjölk, lättmjölk
 uk:Знежирене молоко
 vi:Sữa gầy
 wikidata:en: Q2352187
@@ -44814,7 +44655,7 @@ nl:volle melkpoeder
 pl:pelne mleko w proszku
 pt:leite entero em pó, leite em pó gordo
 sk:sušené plnotučné mlieko
-sv:helmjölkspulver
+sv:skummjölkspulver, helmjölkspulver
 
 < en:Milk powder
 fr:lait écrémé à base de poudre de lait
@@ -44985,6 +44826,43 @@ zh:松乳菇
 wikidata:en: Q62138
 wikipedia:en: https://en.wikipedia.org/wiki/Lactarius_deliciosus
 
+< en:Milkfat
+en:butterfat, pastry butter, anhydrous milk fat, concentrated butter
+bg:безводно масло
+bs:mliječna mast
+cs:mléčný tuk
+cy:braster menyn
+da:smørolie
+de:Butterreinfett, wasserfreies Milchfett
+el:βούτυρο τηγμένο
+eo:laktograso
+es:grasa butírica, mantequilla concentrada
+fi:voirasva
+fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré
+hu:vajolaj, mogyoromassza
+id:lemak susu
+it:burro anidro, burro di pasticceria, burro concentrato
+ja:乳脂肪
+ko:유지방
+ms:lemak mentega, lemak susu
+nb:vannfritt melkefett
+nl:boterconcentraat, botervet, watervrij melkvet, boterolie, geconcentreerde boter
+pl:tłuszcz mlecny
+pt:gordura butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra
+ro:grasimi din unt
+ru:Молочный жир
+sl:mlečna maščoba
+sr:anhidrovana mlečna
+sv:mjölkfett, mølkfett
+th:ไขมันเนย
+tl:taba ng gatas
+uk:Молочний жир
+zh:乳脂
+vegan:en: no
+vegetarian:en: yes
+wikidata:en: Q909729
+wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
+
 < en:Millet
 de:Hirseflocken
 fr:flocons de millet
@@ -45015,7 +44893,7 @@ ca:Mineral
 cs:Minerální látky, Minerál
 cy:Mwyn
 da:Mineral
-de:Mineralstoffe, Mineral
+de:Mineralstoffe, Mineral, Minerale, Mineralien
 el:Ανόργανα συστατικά, Ορυκτό, Ανόργανα άλατα
 eo:Mineralo
 es:Minerales, Mineral, Sales minerales
@@ -46430,7 +46308,7 @@ ca:menta pebrera
 cs:máta peprná
 cy:Mintys poeth
 da:Pebermynte
-de:Pfefferminz
+de:Pfefferminz, Pfefferminze
 eo:Pipromento
 es:menta
 et:Piparmünt
@@ -46548,6 +46426,7 @@ es:Almidón modificado de maiz
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidons modifiés de maïs
 it:amido modificato di mais
 nl:Gemodificeerd maïszetmeel
+sv:modifierad majsstärkelse
 
 < en:Modified starch
 fr:amidon transformé de manioc
@@ -47560,6 +47439,10 @@ it:estratti di funghi
 nl:champignonextract
 
 < en:Mushroom
+en:mushroom powder
+de:Champignonpulver
+
+< en:Mushroom
 en:pholiota
 be:Лускаўніца
 cs:šupinovka
@@ -47899,6 +47782,7 @@ hu:káposztafélék
 ja:カラシナ, シロガラシ
 nl:mosterdzaad, mosterdzaden
 sl:gorčično seme
+sv:senapsfrö
 
 < en:Mustard
 fr:moutarde à l'ancienne
@@ -49004,7 +48888,7 @@ fi:pistaasipähkinät
 fr:pistache, pistaches
 ga:cnónna pistéise
 hu:pisztácia
-it:pistacci
+it:pistacchi
 ja:ピスタチオ
 lt:pistacijos
 lv:pistāciju rieksti
@@ -49102,7 +48986,7 @@ eu:Olo-malutak
 fi:kaurahiutaleet
 fr:flocons d'avoine, flocon d'avoine
 hu:zabpehely
-it:fiocchi di avena
+it:fiocchi di avena, fiocchi d'avena
 ja:ロールド・オーツ
 ko:납작귀리
 lt:avižiniai dribsniai
@@ -49215,17 +49099,6 @@ fr:poulpe en lamelles
 < en:Octopus
 zh:砂蛸
 
-en:oil, cooking oil, frying oil
-cs:Olej
-de:Öl, Speiseöl
-es:aceite
-fr:huile, huiles, huile de cuisine, huile de friture
-it:olio
-nl:olie, oliën
-ru:масло, масла
-vegan:en: maybe
-vegetarian:en: maybe
-
 < en:Oil
 en:fish oil
 ar:زيت السمك
@@ -49260,20 +49133,233 @@ tr:Balık yağı
 uk:Риб'ячий жир
 vi:Dầu cá
 zh:魚油
+from_palm_oil:en: no
+vegan:en: no
+vegetarian:en: no
 wikidata:en: Q1786125
 
 < en:Oil
-en:hydrogenated oil
-fr:Huile hydrogénée
-nl:Gehydrogeneerde olie
+en:frying oil
+fr:Huile de friture
 
 < en:Oil
+en:hydrogenated oil
+de:gehärtetes öl
+es:aceite hidrogenado
+fr:Huile hydrogénée
+it:olio idrogenato
+nl:Gehydrogeneerde olie
+wikidata:en: Q11587683
+wikipedia:en: https://en.wikipedia.org/wiki/Hydrogenation#Food_industry
+
+< en:Oil
+en:marine oil
+fr:huile marine
+from_palm_oil:en: no
+vegan:en: no
+vegetarian:en: no
+
+en:oil and fat, oils and fats
+bg:масла и мазнини
+cs:oleji a tuky
+da:olier og fedtstoffer
+de:Speiseöle und -fette
+el:έλαια και λίπη
+es:aceites y grasas
+et:õlid ja rasvad
+fi:öljyt ja rasvat
+fr:huiles et graisses
+hu:Olajok és zsírok
+it:oli e grassi
+lt:Aliejus ir riebalai
+lv:Eļļas un tauki
+mt:żjut u xaħmijiet
+nl:oliën en vetten
+pl:oleje i tłuszcze
+pt:óleos e gorduras
+ro:uleiuri și grăsimi
+ru:растительным и животным жирам
+sk:Oleje a tuky
+sl:olja in maščobe
+sv:oljor och fetter
+from_palm_oil:en: maybe
+vegan:en: maybe
+vegetarian:en: maybe
+
+< en:Oil and fat
+en:fat, fats
+af:Vet
+ak:sradeɛ
+an:Graixa
+ar:دهن
+ay:Lik'i
+bg:Мазнина, мазнини
+bn:স্নেহ পদার্থ
+br:Druzoni
+ca:greix
+cs:tuky, tuk
+cy:Braster
+da:Fedtstof, fed
+de:Fett
+el:λίπος, λιπαρός
+eo:graso
+es:gordo, grasa
+et:Rasvad
+eu:koipe
+fa:چربی
+fi:Rasva
+fr:Graisse
+ga:Saill
+gl:greix
+gu:ચરબી
+he:שומן
+hi:वसा
+hr:Masti
+ht:Kò gra
+hu:zsír
+id:Lemak
+it:grasso
+ja:脂肪
+jv:Gajih
+ka:ცხიმი
+kk:Май
+kn:ಕೊಬ್ಬು
+ko:지방
+la:Pingue
+li:Vèt
+lv:Tauki
+mk:масти
+ml:കൊഴുപ്പ്
+mr:चरबी
+ms:Lemak
+mt:xaħam
+nb:fett
+nl:vet
+nn:feitt
+pl:tłuszcz
+pt:gordura
+qu:Wira
+ro:Grăsime
+ru:жиры
+sd:چرٻي
+sh:Mast
+si:මේදය
+sl:Maščobe, maščoba
+sn:Mafuta
+so:Dux
+sq:Yndyra
+sr:Масти
+su:Lemak
+sv:Fett, fet
+sw:Mafuta
+ta:கொழுப்பு
+te:కొలెస్టరాల్‌
+th:ไขมัน
+tr:yağ
+uk:Жири
+ur:شحم
+vi:chất béo
+zh:脂肪
+from_palm_oil:en: no
+vegan:en: no
+vegetarian:en: maybe
+wikidata:en: Q127980
+wikipedia:en: https://en.wikipedia.org/wiki/Fat
+
+< en:Oil and fat
+en:oil, cooking oil
+ak:nwo
+an:Aceite
+ar:زيت
+az:Yağ
+bg:масло
+bn:তেল
+br:Eoul
+bs:Ulje
+ca:oli
+cs:olej
+cy:Olew
+da:Olie
+de:Öl, Speiseöl, Öle
+el:Λάδι, Έλαιο
+eo:oleo
+es:aceite, aceites
+et:Õli
+eu:Olio
+fa:روغن
+fi:öljy
+fr:huile, huiles, huile de cuisine
+ga:Ola
+gd:Ola
+gl:Aceite
+he:שמן
+hr:Ulja, Ulje
+ht:Lwil
+hu:olaj
+hy:յուղ
+id:minyak
+io:Oleo
+is:Olía
+it:olio
+ja:油
+jv:Lenga
+kg:Mafuta
+kn:ಎಣ್ಣೆ
+ko:기름
+ln:Mafúta
+lo:ນ້ຳມັນ
+lt:Aliejus
+lv:eļļa
+mg:Menaka
+mk:масло
+ml:എണ്ണ
+ms:Minyak
+my:ဆီ
+nb:olje
+nl:olie, oliën
+nn:olje
+oc:Òli
+pa:ਤੇਲ
+pl:oleje
+pt:óleo
+ro:Ulei
+ru:масло, масла
+sa:तैलम्
+sh:Ulje
+si:තෙල්
+sk:Olej
+sl:Olje
+so:Saliid
+sr:уље
+su:Minyak
+sv:olja
+sw:Mafuta
+ta:எண்ணெய்
+te:నూనె
+th:น้ำมัน
+tl:Langis
+tr:yağ
+tt:Näft
+uk:Олія
+ur:تیل
+uz:Moy
+vi:dầu
+wa:ôle
+yi:בוימל
+yo:Epo
+zh:油
+wikidata:en: Q42962
+wikipedia:en: https://en.wikipedia.org/wiki/Cooking_oil
+
+< en:Oil and fat
 en:vegetable oil and fat
-cs:Rostlinné oleje a tuky
 de:pflanzliche Öle und Fette
 es:aceites y grasas vegetales
-fr:huile et graisse végétale, huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
-it:olio e grasso vegetale
+et:taimsed rasvad ja õlid
+fr:huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
+it:oli e grassi vegetali, olio e grasso vegetale
+lv:Augu eļļas un tauki
+mt:xaħam u żejt veġetali
 nl:plantaardige vetten en olie
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
@@ -49653,7 +49739,7 @@ es:cáscara de naranja, corteza de naranja
 et:apelsinikoor
 fi:appelsiininkuori
 fr:zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges
-it:buccla d'arancia, scorze di arancia
+it:scorza d'arancia, scorze di arancia, scorze d'arancia, buccla d'arancia
 lt:apelsinų žievelė
 lv:apelsīna mizņas
 nl:sinaasappelschil, sinaasappelschillen, schillen sinaasappel, appelsienschil
@@ -49744,7 +49830,7 @@ nl:Sinaasappelsap met vruchtvlees
 < en:Orange juice
 en:concentrated orange juice, Orange juice from Concentrat
 de:Orangensaftkonzentrat
-es:Zumo de naranja desde concentrado
+es:Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado
 fr:jus d'orange concentré, concentré de jus d'orange
 it:succo d'arancia concentrato
 nl:sinaasappelconcentraat, geconcentreerd sinaasappelsap
@@ -49752,7 +49838,7 @@ nl:sinaasappelconcentraat, geconcentreerd sinaasappelsap
 < en:Orange juice
 en:orange juice from concentrate
 de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat
-es:Zumo de naranja desde concentrado
+es:Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado
 fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré
 it:succo d'arancia a base di concentrato
 nl:Sinaasappelsap uit sapconcentraat
@@ -49925,7 +50011,7 @@ description:fr: Additif alimentaire gazeux, qui est introduit dans un conteneur 
 
 < en:Palm fat
 en:non-hydrogenated palm fat
-de:unhydriertes Palmfett
+de:unhydriertes Palmfett, Palmfett ungehärtet
 fr:graisse de palme non hydrogénée
 
 < en:Palm fat
@@ -49945,7 +50031,7 @@ en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
 ca:Oli de palmist
 cs:Palmojádrový olej
-de:Palmkernöl
+de:Palmkernöl, Palmkern
 es:palmiste
 eu:Palmiste olio
 fa:روغن هسته پالم
@@ -49966,12 +50052,14 @@ from_palm_oil:en: yes
 wikidata:en: Q1960534
 wikipedia:en: https://en.wikipedia.org/wiki/Palm_kernel_oil
 
-< en:Hydrogenated oil
+< :
 < en:Palm oil
 en:hydrogenated palm oil
-de:teilweise gehärtetes Palmöl
+bg:хидрогенирано палмово масло
+de:gehärtetes Palmöl
 es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
+it:olio di palma idrogenato
 nl:gehydrogeneerde palmolie
 
 < en:Palm kernel oil
@@ -49997,6 +50085,7 @@ en:non-hydrogenated palm oil
 de:ungehärtetes Palmöl, nicht-hydriertes Palm
 es:aceite de palma no hidrogenado
 fr:huile de palme non hydrogénée
+it:olio di palma non idrogenato
 nl:niet-gehydrogeneerde palm, niet gehydrogeneerde palmolie
 
 < en:Palm oil
@@ -50028,7 +50117,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Palm_stearin
 
 < en:Palm oil
 fr:huile de palme partiellement hydrogénée
-de:teilweise hydriertes Palmöl
+de:teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 nl:gedeeltelijk geharde palmolie
 
 < en:Palm oil and fat
@@ -50043,7 +50132,7 @@ de:Palmfett
 es:grasa vegetal de palma
 fi:palmurasva
 fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
-it:grasso di palma
+it:grasso di palma, grasso vegetale di palma
 nl:palmvet
 pt:gordura de palma
 se:palmina mast
@@ -50057,7 +50146,7 @@ bg:Палмово масло
 ca:Oli de palma
 cs:Palmový olej
 cz:palmu olejovou
-de:Palmöl
+de:Palmöl, Ölpalme
 eo:Palmoleo
 es:aceite de palma, grasa de palma
 et:Palmiõli
@@ -50240,7 +50329,7 @@ it:prezzemolo essiccato
 < en:Fruit juice
 < en:Passion fruit
 en:passion fruit juice
-de:Passionsfruchtsaft
+de:Maracujasaft, Passionsfruchtsaft
 es:zumo de maracuyá
 fr:jus de fruit de la passion, jus de fruits de la passion
 it:succo di frutto della passione
@@ -50253,7 +50342,7 @@ nl:passievruchtenpuree
 
 < en:Passion fruit juice
 en:reconstituted passion fruit juice
-de:Passionfruchtsaft aus Konzentrat
+de:Maracujasaft aus Maracujasaftkonzentrat, Passionfruchtsaft aus Konzentrat
 es:zumo de maracuyá a partir de concentrado
 fr:jus de fruit de la passion à base de concentré
 
@@ -50315,6 +50404,15 @@ en:UHT pasteurised milk
 de:UHT Milch
 fr:lait stérilisé U.H.T
 
+< en:Pasteurised milk
+sv:högpastöriserad mjölk
+
+< en:Pasteurised milk
+sv:lågpastöriserad mjölk
+
+< en:Pasteurised milk
+sv:opastöriserad mjölk
+
 < en:Pasteurised whole milk
 fr:Lait pasteurisé entier pasteurisation haute
 
@@ -50372,7 +50470,7 @@ ca:cigró
 cs:cizrna beraní
 cy:Gwygbysen gwygbys
 da:kikærter
-de:Kichererbse
+de:Kichererbse, Kichererbsen
 dv:ސަނާ މުގު
 el:ρεβίθι, Ρεβιθιά
 es:garbanzo, garbanzos
@@ -50568,6 +50666,11 @@ uz:Yeryongʻoq
 yi:סטאשקע
 za:Duhdoem
 zh:花生仁, 花生
+
+< en:Peanut
+en:peanut with shell
+es:cacahuete con cáscara
+fr:cacahuète avec coque
 
 < en:Peanut
 en:roasted peanuts
@@ -51394,7 +51497,7 @@ az:Məkkə çayı
 bg:চুকাই
 ca:rosa de Jamaica
 cs:ibišek súdánský
-de:Karkadeblüten, Roselle
+de:Karkadeblüten, Roselle, Hibiskus
 eo:Sabdarifo
 es:Flor Roselle
 fa:روزل
@@ -51438,7 +51541,7 @@ bo:གུར་ཀུམ།
 ca:càrtam
 cs:Saflor, světlice barvířská
 cy:Safflwr
-de:Safflor, Färberdistel
+de:Safflor, Färberdistel, Saflor
 es:Cártamo
 et:Värvisafloor
 eu:Kartamo
@@ -51538,7 +51641,7 @@ pa:ਕੇਸਰ
 pl:Zastosowanie szafranu
 ps:ګنګو
 pt:açafrão
-ro:șofran
+ro:
 ru:шафран
 sa:केसरम्
 sc:Zafferano
@@ -51577,7 +51680,7 @@ bg:слънчоглед
 cs:slunečnice
 cv:Хĕвелçаврăнăш ретĕнчисем
 da:Solsikke
-de:Sonnenblumen
+de:Sonnenblumen, Sonnenblume
 el:ηλίανθος
 eo:helianto
 es:girasol
@@ -52104,6 +52207,7 @@ es:carne de cerdo
 fr:viande de porc
 it:carne di suino
 nl:Varkensvlees
+sv:griskött
 carbon_footprint_fr_foodges_ingredient:fr: Viande de porc
 carbon_footprint_fr_foodges_value:fr: 7.4
 
@@ -52198,6 +52302,7 @@ de:Schinken
 es:Jamón
 fr:jambon de porc, jambon
 it:prosciutto
+sv:skinka
 
 < en:Pork meat
 en:pork liver
@@ -52235,6 +52340,7 @@ fr:couenne de porc, couennes de porc
 
 < en:Pork meat
 fr:cuisse de porc
+it:coscia di suino
 
 < en:Pork meat
 fr:échine de porc
@@ -52378,6 +52484,7 @@ de:Kartoffelfasern, Kartoffelballaststoffe
 es:fibra de patata
 fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
 nl:aardappelvezel, aardappelvezels
+sv:potatisfiber
 
 < en:Potato
 en:potato flakes
@@ -52596,7 +52703,7 @@ so:Dooro
 sq:Pula
 sr:кокошка
 su:Hayam
-sv:Tamhöna
+sv:kyckling, tamhöna
 sw:Kuku
 ta:கோழி
 te:కోడి
@@ -53291,7 +53398,7 @@ en:quinoa flour
 de:Quinoa-Mehl, Quinoamehl
 es:Harina de quinoa
 fr:farine de quinoa
-it:Farina di Quinoa
+it:Farina di quinoa
 
 < en:Quinoa
 en:red quinoa
@@ -53419,7 +53526,7 @@ hu:repceolaj
 it:olio di colza
 lt:rapšu ella
 lv:rapsų aliejus
-nl:koolzaadolie, plantaardige koolzaadolie
+nl:koolzaadolie, plantaardige koolzaadolie, raapzaad, raap
 pl:olej rzepakowy, olej roślinny rzepakowy
 pt:óleo de colza
 ro:ulei de rapiță
@@ -53465,7 +53572,7 @@ nl:Frambozensap
 < en:Purée
 < en:Raspberry
 en:raspberry puree
-de:Himbeermark
+de:Himbeermark, Himbeerpüree
 es:puré de frambuesa
 fr:purée de framboises, purée de framboise
 it:purea di lamponi
@@ -53557,7 +53664,7 @@ nl:rodebietensap
 
 < en:Red beetroot
 fr:betterave rouge déshydratée, betterave rouge en poudre, poudre de betterave rouge
-de:Randenpulver
+de:Rote Bete-Pulver, Rote Beete-Pulver, Randenpulver
 it:barbabietole in polvere
 
 < en:Red beetroot juice
@@ -53952,6 +54059,13 @@ fr:riz sauvage
 it:riso selvatico
 
 < en:Rice
+es:sémola de arroz
+de:Reisgriess
+fr:semoule de riz, son de riz
+it:semolino di riso
+pt:sêmola de arroz
+
+< en:Rice
 fr:crème de riz
 nl:rijst crème
 
@@ -53984,12 +54098,6 @@ fr:riz riceberry mélangé
 
 < en:Rice
 fr:riz semi-complet
-
-< en:Rice
-fr:semoule de riz, son de riz
-de:Reisgriess
-it:semolino di riso
-pt:sêmola de arroz
 
 < en:Rice flour
 en:brown rice flour, full rice flour
@@ -54204,7 +54312,7 @@ co:rundonu
 cs:mrkev
 cy:moronen
 da:gulerødder, Have-Gulerod
-de:Karotten, Karotte
+de:Karotten, Karotte, Möhre, Möhren
 dv:ކެރެޓް
 el:καρότο
 eo:karoto
@@ -54227,7 +54335,7 @@ hy:Գազար
 id:wortel
 io:karoto
 is:gulrót
-it:carote
+it:carota, carote
 ja:ニンジン
 jv:wortel
 ka:სტაფილო
@@ -54274,7 +54382,7 @@ so:kaaroot
 sq:karrotë
 sr:шаргарепа
 su:wortel
-sv:morot
+sv:morot, morötter
 sw:karoti
 ta:மஞ்சள் முள்ளங்கி
 te:కారెట్
@@ -54723,7 +54831,7 @@ co:Porru
 cs:pór zahradní
 cy:Cenhinen
 da:Porre
-de:Lauch, Lauche, Porrees
+de:Lauch, Lauche, Porrees, Porree
 el:Πράσο
 eo:Poreo
 es:Puerro, Puerros
@@ -54835,7 +54943,7 @@ ca:xirivia
 cs:pastinák
 cy:Panasen
 da:pastinak
-de:Pastinake
+de:Pastinake, Pastinaken
 el:Παστινάκη
 eo:pastinako
 es:Pastinaca
@@ -55935,7 +56043,7 @@ bn:লবণ
 bo:ཚྭ།
 br:Holen
 bs:So
-ca:Sal comuna, sal de cuina
+ca:sal, sal comuna, sal de cuina
 cs:Sůl
 cy:Halen
 da:Husholdningssalt, køkkensalt, bordsalt, salt
@@ -57366,6 +57474,7 @@ es:comino
 fr:graines de cumin, cumin
 it:grani di cumino
 nl:komijnzaad, komijnzaden, komijn
+sv:spiskummin
 
 < en:Seed
 en:fennel seed
@@ -57677,7 +57786,7 @@ nl:halfvolle melk uht verhit
 < en:Semi-skimmed milk
 < en:Sterilised milk
 en:sterilised semi-skimmed milk
-fr:lait demi écrémé stérilisé
+fr:lait demi-écrémé stérilisé
 
 < en:Semi-whole durum wheat semolina
 en:organic semi-whole durum wheat semolina
@@ -57899,12 +58008,6 @@ pt:cordeiro
 qu:Achkash
 ru:ягнёнок
 wikidata:en: Q4575936
-
-< en:Animal fat
-< en:Sheep
-en:sheeps fat
-fr:gras de mouton
-nl:schaapsvet
 
 < en:Meat
 < en:Sheep
@@ -58316,7 +58419,7 @@ wikidata:en: Q10673156
 < en:Semi-skimmed milk
 < en:Skimmed milk
 en:pasteurized skimmed milk
-de:pasteurisierter Magermilch, pasteurisierte magermilch
+de:pasteurisierte Magermilch, pasteurisierter Magermilch
 es:leche desnatada pasteurizada
 fr:lait écrémé pasteurisé, lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé, lait pasteurise demi ecreme
 it:latte magro pastorizzato
@@ -58685,7 +58788,7 @@ it:
 ja:サワードウ
 ko:사워도
 nb:Surdeig
-nl:Zuurdesem
+nl:Zuurdesem, zuurdeeg
 nn:Surdeig
 pl:Zakwas chlebowy
 pt:Massa lêveda
@@ -58696,6 +58799,9 @@ sr:Кисело тесто
 sv:Surdeg
 zh:老麵
 wikipedia:en: https://en.wikipedia.org/wiki/Sourdough
+
+< en:Sourdough
+de:Natursauerteig
 
 < en:Sourdough
 de:Roggensauerteig
@@ -59074,7 +59180,7 @@ de:Gewürze
 es:especias
 fr:épice, épices, aromate
 it:spezie
-nl:kruiden
+nl:specerijen
 sv:kryddor
 carbon_footprint_fr_foodges_ingredient:fr: Épices
 carbon_footprint_fr_foodges_value:fr: 2.2
@@ -59575,6 +59681,7 @@ en:herbs and spices
 de:Kräuter und Gewürze
 es:hierbas y especias
 fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique, plantes aromatiques et épices, extraits d'épices et d'herbes, herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques, épice et aromate, épices et aromates, épices et aromate, épice et aromates, épices et arômes, aromates et épices
+nl:kruiden en specerijen
 
 < en:Spice
 en:mace
@@ -59599,6 +59706,7 @@ en:mixed spices
 de:gemischte Gewürze
 fr:mélange d'épices
 nl:gemengde specerijen
+sv:kryddblandning
 
 < en:Spice
 en:mustard
@@ -59680,7 +59788,7 @@ ca:nou moscada
 cs:Muškátový oříšek
 cv:Мускат мăйăрĕ
 da:Muskatnød
-de:Muskatnuss
+de:Muskat, Muskatnuss
 dv:ތަކޫވައް
 el:Μοσχοκαρυδιά
 eo:Muskato
@@ -59726,7 +59834,7 @@ sh:Muškatov oraščić
 si:සාදික්කා
 sl:Muškatovec
 su:Pala
-sv:Muskotsläktet
+sv:Muskotsläktet, muskot
 sw:Kungumanga
 ta:ஜாதிக்காய்
 te:జాజికాయ
@@ -59847,7 +59955,7 @@ hu:Kurkuma
 id:Kunyit
 io:Kurkumo
 is:Kúrkúma
-it:Turmeric
+it:curcuma, turmerico
 ja:ウコン
 jv:Kunir
 kn:ಅರಿಸಿನ
@@ -59904,6 +60012,7 @@ en:spice extract, spices extract
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte, Gewürzextrakt
 es:Extracto de especias
 fr:extrait d'épice, extraits d'épices
+sv:kryddextrakt
 vegan:en: yes
 vegetarian:en: yes
 
@@ -60017,7 +60126,7 @@ nl:gedehydrateerde spirulina
 
 < en:Spirulina
 en:spirulina concentrate, spirulina extract
-de:Spirulina-konzentrat
+de:Spirulina-konzentrat, Spirulinakonzentrat
 fr:concentré de spiruline
 it:concentrato di spirulina
 
@@ -60277,33 +60386,33 @@ zh:玉米澱粉
 wikipedia:en: https://en.wikipedia.org/wiki/Corn_starch
 
 < en:Starch
-en:Modified starch, E1401, Modified starch ((Acid-treated starch) Stabilizer (food)stabiliser), E14XX, modified starches, modified food starch, modified food starches, food starch modified
+en:Modified starch, E14XX, modified starches, modified food starch, modified food starches, food starch modified
 ar:نشا معدل
-bg:Модифицирано нишесте, E1401, E1401 food additive, E14XX, E14XX food additive
-cs:Modifikovaný škrob, E1401, E1401 food additive, E14XX, E14XX food additive
-da:Fugtighedsbevarende middel, E1401, E1401 food additive, E14XX, E14XX food additive
-de:Modifizierte Stärke, Modifizierte Stärken, E1401, E1401 food additive, E14XX, E14XX food additive
-el:Τροποποιημένο άμυλο, E1401, E1401 food additive, E14XX, E14XX food additive
-es:Almidón modificado, E1401, E1401 food additive, E14XX, E14XX food additive
-et:Modifitseeritud tärklis, E1401, E1401 food additive, E14XX, E14XX food additive
-fi:Muunnettu tärkkelys, E1401, E1401 food additive, E14XX, E14XX food additive, modifiotu tärkkelys
-fr:Amidon modifié, E1401, Amidon traité aux acides, E14XX, Amidons modifiés, amidons transformés, catégorie d'additifs de 1401 à 1452, almidón modificado
+bg:Модифицирано нишесте, E14XX, E14XX food additive
+cs:Modifikovaný škrob, E14XX, E14XX food additive
+da:Fugtighedsbevarende middel, E14XX, E14XX food additive
+de:Modifizierte Stärke, Modifizierte Stärken, E14XX
+el:Τροποποιημένο άμυλο, E14XX, E14XX food additive
+es:Almidón modificado, E14XX, E14XX food additive
+et:Modifitseeritud tärklis, E14XX, E14XX food additive
+fi:Muunnettu tärkkelys, E14XX, modifiotu tärkkelys
+fr:Amidon modifié, E14XX, Amidons modifiés, amidons transformés, catégorie d'additifs de 1401 à 1452, almidón modificado
 ga:Stáirse modhnaithe
-hu:Módosított keményítő, E1401, E1401 food additive, E14XX, E14XX food additive
+hu:Módosított keményítő, E14XX, E14XX food additive
 is:umbreytt sterkja
-it:Amidi modificati, E1401, E1401 food additive, E14XX, E14XX food additive, amido modificato
+it:Amidi modificati, E14XX, Amido modificato
 ja:加工デンプン
-lt:Modifikuotas krakmolas, E1401, E1401 food additive, E14XX, E14XX food additive
-lv:Modificēta ciete, E1401, E1401 food additive, E14XX, E14XX food additive
-mt:Lamtu mmodifikat, E1401, E1401 food additive, E14XX, E14XX food additive
+lt:Modifikuotas krakmolas, E14XX, E14XX food additive
+lv:Modificēta ciete, E14XX, E14XX food additive
+mt:Lamtu mmodifikat, E14XX, E14XX food additive
 nb:modifisert stivelse
-nl:Gemodificeerd zetmeel, E1401, Zuur-behandeld zetmeel, E14XX, E14XX food additive, Gemodificeerde zetmelen
-pl:Skrobia modyfikowana, E1401, E1401 food additive, E14XX, E14XX food additive, modyfikowana skrobia
-pt:Amido modificado, E1401, E1401 food additive, E14XX, E14XX food additive
-ro:Amidon modificat, E1401, E1401 food additive, E14XX, E14XX food additive
-sk:Modifikovaný škrob, E1401, E1401 food additive, E14XX, E14XX food additive
-sl:E1401, E1401 food additive, E14XX, E14XX food additive, modificiran skrob
-sv:Fuktighetsbevarande medel, E1401, E1401 food additive, E14XX, E14XX food additive
+nl:Gemodificeerd zetmeel, E14XX, E14XX food additive, Gemodificeerde zetmelen
+pl:Skrobia modyfikowana, E14XX, modyfikowana skrobia
+pt:Amido modificado, E14XX
+ro:Amidon modificat, E14XX, E14XX food additive
+sk:Modifikovaný škrob, E14XX, modifikované škroby
+sl:E14XX, E14XX food additive, modificiran skrob
+sv:Fuktighetsbevarande medel, E14XX, E14XX food additive
 zh:化製澱粉
 wikidata:en: Q415766
 wikipedia:en: https://en.wikipedia.org/wiki/Modified_starch
@@ -60329,7 +60438,7 @@ nn:Potetmjøl
 pl:Mąka ziemniaczana
 pt:fecula de batata
 ru:Картофельный крахмал
-sv:potatismjöl
+sv:potatismjöl, potatisstärkelse
 uk:Картопляний крохмаль
 zh:太白粉
 wikidata:en: Q715160
@@ -60349,7 +60458,7 @@ sv:risstärkelse
 < en:Starch
 en:tapioca starch, tapioca
 da:tapiokastivelse
-de:Tapiocastärke
+de:Tapiocastärke, Tapiokastärke
 el:άμυλο ταπιόκαζ, Ταπιόκα
 es:almidón de tapioca
 fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc, manioc
@@ -60382,7 +60491,9 @@ ca:llet pasteuritzada
 de:Pasteurisierte Milch
 es:leche pasteurizada
 fr:lait pasteurisé
+it:latte pastorizzato
 nl:gepasteuriseerde melk
+sv:pastöriserad mjölk
 
 < en:Sterilised milk
 fr:lait thermisé
@@ -60551,6 +60662,9 @@ wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
 
 < en:Sugar
+de:Zuckerrübensirup
+
+< en:Sugar
 en:beet sugar
 de:Rübenzucker
 fr:sucre de betterave
@@ -60628,6 +60742,7 @@ es:azúcar caramelizado
 fr:sucre brun, sucre caramel, sucre caramélisé
 it:zucchero caramellato
 nl:gekarameliseerde suiker
+sv:karamelliserat socker
 
 < en:Sugar
 en:coconut sugar
@@ -60919,7 +61034,19 @@ fr:sucre blanc
 it:Zucchero bianco
 
 < en:Sugar
+fr:sirop de blé
+
+< en:Sugar
+fr:sirop de sucre candi
+
+< en:Sugar
+fr:sirop de sucre de canne
+
+< en:Sugar
 fr:sirop de sucre mélassé
+
+< en:Sugar
+fr:sirop de sucre partiellement inverti
 
 < en:Sugar
 fr:sucre blond
@@ -61985,11 +62112,12 @@ sv:tomatpulver
 
 < en:Tomato
 en:tomato purée, tomato paste, tomato concentrate
-de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat
+de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat, Tomatenpüree
 es:concentrado de tomate
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates
 it:passata di pomodoro, concentrato di pomodoro
 nl:tomatenpurée, tomatenconcentraat
+sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
 carbon_footprint_fr_foodges_value:fr: 2.9
 
@@ -62446,10 +62574,10 @@ it:estratto puro di vaniglia
 < en:Vanilla flavouring
 en:natural vanilla flavouring
 da:naturlig vanillearoma
-de:natürliches Vanillearoma
+de:natürliches Vanillearoma, natürliches Vanille-Aroma
 es:aroma natural de vainilla
 fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
-it:aroma naturale di vaniglia
+it:aroma naturale di vaniglia, aroma naturale vaniglia
 nb:naturlig vanilijarom
 nl:natuurlijk vanillearoma
 pl:naturalny aromat wanilii
@@ -63115,7 +63243,8 @@ de:Gemüse
 es:verduras
 fr:légume, légumes en proportions variables, légumes en proportion variable
 it:vegetale
-nl:Groente
+nl:Groente, groenten
+sv:grönsak, grönsaker
 carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen de saison, produit localement
 carbon_footprint_fr_foodges_value:fr: 0.3
 vegan:en: yes
@@ -64477,7 +64606,7 @@ sk:paradajky
 sn:Madomasi
 so:Yaanyo
 sr:paradajz
-sv:tomater
+sv:tomat, tomater
 th:มะเขือเทศ
 ug:پەمىدۇر
 za:makyungz
@@ -64592,7 +64721,7 @@ en:shea butter
 ak:Nkuto
 ar:زبدة الشيا
 bg:Масло от ший
-de:Shea Butter, Sheabutter
+de:Shea Butter, Sheabutter, Shea
 el:λίπος shea
 eo:karitea butero
 es:manteca de karité
@@ -64773,7 +64902,7 @@ bg:Кокосово масло
 bn:নারিকেল তেল
 cs:Kokosový olej
 da:kokosolie
-de:Kokosnussöl
+de:Kokosnussöl, Kokosöl
 es:aceite de coco
 et:Kookosõli
 eu:Koko olio
@@ -64833,7 +64962,7 @@ gl:Aceite de millo
 he:שמן תירס
 hu:Kukoricaolaj
 id:Minyak jagung
-it:Olio di semi di mais
+it:Olio di semi di mais, olio di mais
 ja:コーン油
 kk:Жүгері майы
 ko:옥수수기름
@@ -65288,10 +65417,6 @@ wikidata:en: Q1434098
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut_oil
 
 < en:Vegetable oil
-fr:huile végétale hydrogénée
-de:pflanzliches Öl gehärtet
-
-< en:Vegetable oil
 fr:huile végétale raffinée
 
 < en:Vegetable oil and fat
@@ -65308,10 +65433,10 @@ from_palm_oil:en: yes
 < en:Vegetable oil and fat
 en:palm oil and fat
 cs:Palmový olej a tuk
-de:Palmöl und Palmfett, Palmöl und Fett
-es:aceite de palma, grasa de palma
-fr:Huile et matière grasse de palme, Matieres grasses et huile végétale de palme
-it:Olio e grasso di palma
+de:palmöl und Palmfett, Palmöl und Fett
+fr:huile et matière grasse de palme, Matieres grasses et huile végétale de palme
+it:olio e grasso di palma
+nl:palm olie en vet
 from_palm_oil:en: yes
 
 < en:Vegetable oil and fat
@@ -65357,7 +65482,7 @@ gl:Aceite vexetal
 hi:वनस्पति तेल
 id:Minyak nabati
 is:Grænmetisolía
-it:Olio vegetale
+it:Olio vegetale, oli vegetali
 ja:植物油
 ko:식물성 기름
 ky:Өсүмдүк майлары
@@ -65496,7 +65621,7 @@ sk:Ocot
 sl:Kis
 so:Khal
 sr:sirće, Сирће
-sv:Vinäger
+sv:ättika, vinäger
 ta:புளிங்காடி
 tg:Suka
 th:น้ำส้มสายชู
@@ -65557,7 +65682,7 @@ en:cider vinegar, apple cider vinegar
 ar:خل التفاح
 bg:Ябълков оцет
 de:Apfelessig
-es:vinagre de sidra, vinagre de sidra de manzana
+es:vinagre de sidra, vinagre de sidra de manzana, vinagre de manzana
 fa:سرکه سیب
 fr:vinaigre de cidre, vinaigre de cidre de pomme, vinaigre de pomme
 he:חומץ תפוחים
@@ -65633,6 +65758,7 @@ es:vinagre de vino
 fr:vinaigre de vin
 it:aceto di vino
 nl:wijnazijn
+sv:vinsvinäger
 carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
 carbon_footprint_fr_foodges_value:fr: 4.2
 
@@ -65650,7 +65776,7 @@ fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge 
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing
 
-< en:E160
+< en:E160a
 < en:Vitamin A
 en:provitamin A
 de:
@@ -66019,6 +66145,216 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q139200
 wikipedia:en: https://en.wikipedia.org/wiki/Ergocalciferol
+
+en:Vitamin E, tocopherol, tocoferol
+af:Vitamien E
+ar:فيتامين إي
+bg:Витамин Е, Токоферол
+ca:Tocoferol, vitamina E
+cs:tokoferol, vitamín E
+da:Vitamin E
+de:Vitamin E
+dv:ވިޓަމިން އީ
+el:Βιταμίνη E, τοκοφερολεσ
+eo:Tokoferolo, vitamino E
+es:Vitamina E
+et:E-vitamiin, Tokoferoolid, Vitamiin E
+eu:E bitamina
+fa:ویتامین ای
+fi:E-vitamiini, Tokoferoli
+fr:vitamines e
+gl:Vitamina E
+he:E ויטמין
+hi:विटामिन ई
+hr:vitamin E
+hu:E-vitamin
+hy:Վիտամին E
+id:Vitamin E
+it:Vitamina E
+ja:ビタミン E, ビタミンE
+jv:Vitamin E
+ka:ვიტამინი E
+kk:Е дәрумені
+ko:비타민 E
+ky:Витамин Е
+lt:Vitaminas E, Tokoferolis
+lv:E vitamīns
+mk:vitamin e
+ml:ജീവകം ഇ
+mr:इ-जीवनसत्त्व
+mt:Vitamina E, tokoferol
+nb:vitamin E
+ne:भिटामिन ई
+nl:Vitamine E, Tocoferol
+nn:vitamin E, E-vitamin
+oc:Vitamina E
+pa:ਵਿਟਾਮਿਨ ਈ
+pl:Witamina E
+pt:Vitamina E
+ro:Vitamina E
+ru:токоферол, витамин E
+sh:Vitamin E
+si:විටමින් E
+sk:Vitamín E
+sl:Tokoferol, vitamin E
+sr:vitamin E
+sv:Vitamin E
+ta:உயிர்ச்சத்து ஈ
+te:vitamin e
+th:วิตามินอี
+tr:Tokoferol, E vitamini
+ug:ۋىتامىنE
+uk:Вітамін E
+vi:Vitamin E
+zh:维生素E
+wikidata:en: Q141180
+
+< en:Vitamin E
+en:D-alpha tocopherol
+bg:D-алфа токоферол
+cs:D- α-tokoferol
+de:D-alpha-Tocopherol
+el:D-α-τοκοφερόλη
+es:D-alfa tocoferol
+et:D-alfa-tokoferool
+fi:D-alfa-tokoferoli
+fr:D-alpha-tocophérol
+hu:D-alfa tokoferol
+it:D-alfa-tocoferolo
+lt:D-alfa-tokoferolis
+lv:D-alfa-tokoferols
+mt:D-alfa tokoferol
+nl:D-alfa-tocoferol
+pl:D-alfa tokoferol
+pt:D-alfa-tocoferol
+ro:tocoferol D-alfa
+sk:D-alfa-tokoferol
+sl:D-alfa tokoferol
+sv:D-alfa-tokoferol
+wikidata:en: Q158348
+
+< en:Vitamin E
+en:D-alpha tocopheryl acetate
+bg:D-алфатокоферил ацетат
+cs:D- α-tokoferyl-acetát
+de:D-alpha-Tocopherylacetat
+el:οξική D-α-τοκοφερόλη
+es:acetato de D-alfa tocoferilo
+et:D-alfa-tokoferüülatsetaat
+fi:D-alfa-tokoferyyliasetaatti
+fr:acétate de D-alpha-tocophérol
+hu:D-alfa-tokoferil-acetát
+it:acetato di D-alfa-tocoferile
+lt:D-alfa-tokoferilacetatas
+lv:D-alfa-tokoferilacetāts
+mt:Aċetat ta' D-alfa-tokoferil
+nl:D-alfa-tocoferylacetaat
+pl:octan D-alfa-tokoferylu
+pt:acetato de D-alfa-tocoferilo
+ro:acetat de tocoferil D-alfa
+sk:D-alfa-tokoferylacetát
+sl:D-alfa-tokoferil acetat
+sv:D-alfa-tokoferylacetat
+
+< en:Vitamin E
+en:D-alpha-tocopheryl acid succinate
+bg:D-алфа-токоферил кисел сукцинат
+cs:D-α-tokoferyl-sukcinát
+de:D-alpha-Tocopherylsäuresuccinat
+el:όξινη ηλεκτρική D-α-τοκοφερόλη
+es:Succinato ácido de D-alfa tocoferilo
+et:D-alfa-tokoferüülhappe suktsinaat
+fi:D-alfa-tokoferyylihapon sukkinaatti
+fr:succinate acide de D-alpha-tocophérol
+hu:D-alfa-tokoferil-szukcinát
+it:succinato acido di D-alfa-tocoferile
+lt:D-alfa-tokoferilo rūgšties sukcinatas
+lv:skābais D-alfa-tokoferilsukcināts
+mt:Suċċinat aċidu ta' D-alfa-tokoferil
+nl:D-alfa-tocoferylwaterstof-succinaat
+pl:bursztynian D-alfa-tokoferylu
+pt:succinato ácido de D-alfa-tocoferilo
+ro:succinat acid de tocoferil D-alfa
+sk:jantáran kyseliny D-alfa-tokoferolovej
+sl:D-alfa-tokoferil kisli sukcinat
+sv:D-alfa-tokoferylvätesuccinat
+
+< en:Vitamin E
+en:D-alpha-tocopheryl polyethylene glycol-1000 succinate, TPGS
+bg:D-алфа-токоферил полиетилен гликол-1000 сукцинат, TPGS
+cs:polyethylenglykol 1000, ether s -α-tokoferolem, TPGS
+de:D-alpha-Tocopheryl-Polyethylenglycol-1000-Succinat, TPGS
+el:D-α-τοκοφερυλο-ηλεκτρική πολυαιθυλενο 1000 γλυκόλη, TPGS
+es:Succinado de D-alfa-tocoferil polietilenglicol-1000, TPGS
+et:D-alfa-tokoferüülpolüeteenglükool-1000-suktsinaat, TPGS
+fi:D-alfa-tokoferyylipolyetyleeniglykoli-1000 sukkinaatti
+fr:succinate de D-alpha-tocophéryl polyéthylène glycol 1000, TPGS
+hu:D-alfa-tokoferil-polietilén-glikol-1000-szukcinát, TPGS
+it:succinato D-alfa-tocoferile polietilenglicole 1000, TPGS
+lt:D-alfa-tokoferilpolietilenglikol-1000-sukcinatas, TPGS
+lv:D-alfa-tokoferilpolietilēnglikola-1000-sukcināts, TPGS
+mt:D-alfa-tokoferil polietilene glikol -1000 suċċinat, TPGS
+nl:D-alfa-tocoferylpolyethyleenglycolsuccinaat 1000, TPGS
+pl:bursztynian D-alfa-tokoferolu polietylen glikolu -1000, TPGS
+pt:succinato de D-alfa-tocoferil-polietilenoglicol-1000, TPGS
+ro:succinat polietilen glicol 1000 de tocoferil D-alfa, TPGS
+sk:D-alfa –tokoferolpolyetylénglykol-1000 sukcinát, TPGS
+sl:D-alfa-tokoferil polietilen glikol-1000 sukcinat, TPGS
+sv:D-alfa-tokoferyl-polyetylenglykol 1000 succinat, TPGS
+
+< en:Vitamin E
+en:DL-alpha tocopherol
+bg:DL-алфа токоферол
+cs:DL- α-tokoferol
+de:DL-alpha-Tocopherol
+el:
+es:DL-alfa tocoferol
+et:DL-alfa-tokoferool
+fi:DL-alfa-tokoferoli
+fr:DL-alpha-tocophérol
+hu:DL-alfa tokoferol
+it:DL-alfa-tocoferolo
+lt:DL-alfa-tokoferolis
+lv:DL-alfa-tokoferols
+mt:DL-alfa tokoferol
+nl:DL-alfa-tocoferol
+pl:DL-alfa tokoferol
+pt:DL-alfa-tocoferol
+ro:tocoferol DL-alfa
+sk:DL-alfa-tokoferol
+sl:
+sv:DL-alfa-tokoferol
+wikidata:en: Q155753
+
+< en:Vitamin E
+en:DL-alpha tocopheryl acetate
+bg:DL-алфатокоферил ацетат
+cs:DL-α-tokoferyl-acetát
+de:DL-alpha-Tocopherylacetat
+el:οξική DL-α-τοκοφερόλη
+es:acetato de DL-alfa tocoferilo
+et:DL-alfa-tokoferüülatsetaat
+fi:DL-alfa-tokoferyyliasetaatti
+fr:acétate de DL-alpha-tocophérol
+hu:DL-alfa-tokoferil-acetát
+it:acetato di DL-alfa-tocoferile
+lt:DL-alfa-tokoferilacetatas
+lv:DL-alfa-tokoferilacetāts
+mt:Aċetat ta' DL-alfa-tokoferil
+nl:DL-alfa-tocoferylacetaat
+pl:octan DL-alfa-tokoferylu
+pt:acetato de DL-alfa-tocoferilo
+ro:acetat de tocoferil DL-alfa
+sk:DL-alfa-tokoferylacetát
+sl:DL-alfa-tokoferil acetat
+sv:DL-alfa-tokoferylacetat
+
+< en:Vitamin E
+hr:DL-alfa-tokoferil-acetat
+nn:dl-α-tokoferylacetat
+ro:
+sl:DL-alfa-tokoferil acetat
+sr:DL-a-tokoferil-acetat
 
 < en:Vitamin K
 en:Menaquinone, Vitamin K2
@@ -67405,6 +67741,7 @@ es:harina de trigo duro
 fr:farine de blé dur
 it:farina di grano duro
 nl:durum tarwemeel
+sv:durumvetemjöl
 
 < en:Wheat flour
 en:fortified wheat flour, enriched wheat flour
@@ -67484,6 +67821,11 @@ de:Molkeneiweißkäse
 de:Sauermolke
 
 < en:Whey
+en:acid whey
+vegan:en: no
+vegetarian:en: yes
+
+< en:Whey
 en:Concentrated whey
 de:konzentrierte Molke
 fr:lactosérum concentré
@@ -67498,6 +67840,7 @@ nl:Gedemineraliseerde wei
 < en:Whey
 en:sweet whey
 de:Süßmolke, Süssmolke
+fr:lactosérum doux
 
 < en:Whey
 en:whey permeate
@@ -67513,6 +67856,7 @@ fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre
 hu:Tejsavópor
 it:siero di latte in polvere
 nl:weipoeder
+sv:vasslepulver
 
 < en:Whey
 en:whey product, whey based formula
@@ -67521,6 +67865,7 @@ de:Molkenerzeugnis, formel auf molkebasis
 es:Producto de suero
 fr:produit de lactosérum, produit de petit-lait, produit à base de lactosérum, préparation à base de lactosérum, dérivé de lactosérum
 it:derivati del siero di latte, la preparazione del siero di latte
+sv:vassleprodukt
 
 < en:Whey permeate
 en:whey permeate powder
@@ -68112,11 +68457,12 @@ fr:vin doux naturel
 
 < en:Wine vinegar
 en:white wine vinegar
-de:Weissweinessig
+de:Weißweinessig, Weissweinessig
 es:Vinagre de vino blanco
 fr:vinaigre de vin blanc
 it:aceto di vino bianco
 nl:witte wijnazijn
+sv:vitvinsvinäger
 
 < en:Natural orange flavouring
 < en:With other natural flavouring
@@ -68369,7 +68715,7 @@ de:Joghurt aus pasteurisierter MIlch
 
 < en:Yogurt
 fr:yogourt maigre
-de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch
+de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch, Joghurt mild
 it:yogurt magro
 nl:magere yoghurt
 
@@ -68655,6 +69001,7 @@ fr:Grains de blé dur précuits
 fr:bonbon au cacao maigre
 
 fr:bouillon de boeuf
+sv:nötköttsbuljong
 
 fr:bouillon de porc déshydraté
 
@@ -68754,7 +69101,6 @@ it:destrina di tapioca
 nl:tarwe- of tapiocadextrose
 sv:dextros av vete eller tapioka
 
-fr:E307, Alphatocophérol, Alpha-tocophérol, Alpha-tocophérol de synthèse, dl-α-Tocophérol, 59-02-9
 
 fr:E310, Gallate de propyle
 
@@ -68858,8 +69204,6 @@ fr:maïs doux en grains
 nl:zoete maïskorrels
 pt:milho doce em grão
 
-fr:gras de bœuf, graisse de bœuf
-
 fr:Gratinage
 
 < fr:Haricot mungo
@@ -68883,7 +69227,6 @@ fr:haricots mogettes de Vendée, mogettes de Vendée
 < fr:Haricots verts coupés
 < fr:Haricots verts très fins
 fr:haricots vertes très fins coupés, haricots verts extra fines coupés
-
 
 fr:Ile flottante sur lit de crème anglaise
 
@@ -69163,15 +69506,7 @@ fr:sirop d'amidon de maïs
 < fr:Sirop d'orge malté
 fr:sirop de malt d'orge déshydraté
 
-fr:sirop de blé
-
 fr:sirop de candi, sirop de scucre candi
-
-fr:sirop de sucre candi
-
-fr:sirop de sucre de canne
-
-fr:sirop de sucre partiellement inverti
 
 fr:sous-produit du boeuf
 

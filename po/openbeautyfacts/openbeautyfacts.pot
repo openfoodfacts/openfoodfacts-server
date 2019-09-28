@@ -12,7 +12,7 @@ msgstr ""
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
@@ -23,7 +23,7 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr ""
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
+#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid   "openbeautyfacts-logo-en-178x150.png"
 msgstr  ""
@@ -34,12 +34,13 @@ msgctxt "logo2x"
 msgid   "openbeautyfacts-logo-en-356x300.png"
 msgstr  ""
 
+
 msgctxt "site_name"
 msgid   "Open Beauty Facts"
-msgstr  ""
+msgstr  "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
-msgid "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "tagline"
@@ -73,7 +74,7 @@ msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openbeautyfacts.org\">Blog</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
 ""
 msgstr ""
@@ -114,6 +115,7 @@ msgctxt "product_name_example"
 msgid "Anti-Perspirant Stress Protect"
 msgstr ""
 
+#. make sure the image exists with your country code. https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "og_image_url"
 msgid "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
 msgstr ""
