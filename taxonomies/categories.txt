@@ -578,6 +578,7 @@ fi:alkoholijuomat
 fr:Boissons alcoolisées, boisson alcoolisée, alcool, alcools
 hu:Alkoholos italok, Alkohol tartalmú italok
 it:Bevande alcoliche
+ja:酒, さけ
 nl:Alcoholische dranken
 nl_be:Alcoholische dranken
 pl:Napoje alkoholowe, Alkohole
@@ -602,6 +603,7 @@ en:Sake
 de:Sake
 fr:Saké
 hu:Szaké, Sake
+ja:日本酒, にほんしゅ
 nl:Saké
 ro:Sake
 wikidata:en:Q170219
@@ -613,9 +615,9 @@ de:Craft Biere
 fi:Artesaani-oluet
 fr:Bières artisanales
 hu:Kraft sörök
+ja:クラフトビール
 nl:Ambachtelijke bieren
 ro:Beri artizanale, Bere artizanală
-zh:日本清酒
 wikidata:en:Q2905030
 
 <en:Beers
@@ -1900,10 +1902,10 @@ el:Αυγό
 eo:Ovobrando
 es:Advocaat
 fi:Munalikööri
-he: אדבוקט
+he:אדבוקט
 ia:Advocaat
-id: Advocaat
-it: Advocaat
+id:Advocaat
+it:Advocaat
 ja:アドヴォカート
 ko: 아드보카트
 li: Advokäötje
@@ -3432,7 +3434,7 @@ et:Lagritsa-magusjuur
 eu:Erregaliz
 fa:شیرین‌بیان
 fi:Lakritsikasvi
-fr:Infusions de Réglisse, réglisse
+fr:Infusions de réglisse, réglisse
 ga:Liocras
 gl:Regalicia
 he:שוש קירח
@@ -17428,7 +17430,7 @@ he:פירורי לחם
 id:Tepung roti
 io:Raspo-pano
 it:pangrattato
-ja:パン粉
+ja:パン粉, パンこ
 ko:빵가루
 lt:Malti džiūvėsiai
 nb:Strøkavring
@@ -18190,10 +18192,11 @@ pnns_group_2:en:Dairy desserts
 
 #Do not confound with the fruit preserve called jelly
 <en:Desserts
-en:Jellies (dessert)
-es:Jaleas (postre)
-fr:Gelées (dessert)
-it:Gelatina (dolce)
+en:Jelly desserts, jellies dessert, gelatin desserts
+de:Götterspeisen, götterspeise
+es:Gelatinas, postres gelificados
+fr:Desserts gélifiées
+it:Gelatina dolce
 wikidata:en:Q4545971
 
 #Tartufo is an italian dessert made of ice cream with chocolate in the center. Tartufo di Pizzo is a PGI.
@@ -22378,7 +22381,7 @@ fr:Fromages blancs au lait de chèvre
 # <en:ingredient:en:cheese
 # <en:sheeps milk
 <en:Cheeses
-en:sheep's-milk cheeses, Sheep Cheeses, Cheeses from sheep milk
+en:sheep's-milk cheeses, Sheep cheeses, Cheeses from sheep milk
 ca:formatge de llet d'ovella
 cs:ovčí sýr
 de:Schafmilchkäse, Schafskäse, Schafkäse, Käse aus Schafsmilch
@@ -23181,6 +23184,19 @@ en:Spanish cheeses, cheeses from Spain
 de:Spanischer Käse
 fr:Fromages espagnols, Fromages d'Espagne
 nl:Spaanse kazen
+
+<en:Spanish cheeses
+<en:sheep's-milk cheeses
+en:Manchego
+ca:Manxego
+de:Manchego
+es:Manchego, queso manchego
+fr:Manchego
+it:Manchego
+nl:Manchego
+pt:Manchego, queijo manchego
+country:en:Spain
+wikidata:en:Q72305
 
 <en:Spanish cheeses
 es:Afuega'l Pitu
@@ -25546,6 +25562,9 @@ nl:Caramel vla's
 <en:Dessert creams
 fr:Crèmes dessert café
 
+<en:Dessert creams
+fr:Crèmes dessert pistache
+
 <en:Desserts
 en:Non-dairy desserts, vegetal desserts, vegan desserts
 de:Milchfreie Nachtische, vegetarische Nachtische, vegane Nachtische
@@ -26315,6 +26334,7 @@ fi:hunajat
 fr:Miels
 hu:Mézek
 it:Miele
+ja:蜂蜜, はちみつ
 nl:Honingen
 pl:Miody
 pt:Méis
@@ -36756,6 +36776,19 @@ nl:Hoofdkazen
 wikidata:en:Q4675762
 
 <fr:Charcuteries diverses
+en:Pork Pâtés
+es:Patés de cerdo
+fr:Pâtés de porc
+pt:Patês de porco
+
+<en:Pork Pâtés
+en:Pork liver Pâtés
+fr:Pâtés de foie de porc
+es:Patés de hígado de cerdo
+pt:Patês de figado de porco
+
+#According to french regulation, pâté de campagne contains only pork meat. Some additives are banned.
+<en:Pork Pâtés
 en:Country-style Pâtés
 fi:maaseutupateet
 fr:Pâtés de campagne
@@ -40056,6 +40089,7 @@ pt:Doces para barrar
 ru:Сладкие намазки
 pnns_group_2:en:Sweets
 
+#Do not put it in plant-based spreads, some lemon curd contains only lemon oil.
 <en:Sweet spreads
 en:Lemon curds
 de:Zitronen-Aufstrich
@@ -40071,6 +40105,10 @@ fr:Confitures de lait, Confiture de lait
 nl:Dulce de leche
 ru:варёная сгущёнка
 wikidata:en:Q917761
+
+<en:Sweet spreads
+en:Ginger preserves, ginger jams
+fr:Confitures de gingembre
 
 <en:Plant-based spreads
 <en:Sweet spreads
@@ -40703,6 +40741,7 @@ fr:Confits d'oignons, Chutneys d'oignons
 nl:Uienchutney
 
 <en:Salted spreads
+en:Artichoke spreads
 fr:Crèmes d'artichaut
 
 <en:Salted spreads
@@ -43092,6 +43131,7 @@ es:Tomates
 fi:tomaatit
 fr:Tomates
 it:Pomodori
+ja:トマト
 nl:Tomaten
 
 <en:Tomatoes
@@ -43126,6 +43166,7 @@ en:Zucchini, Courgettes
 es:Calabacines, Zucchini
 fi:kesäkurpitsa
 fr:Courgettes
+ja:ズッキーニ
 la:Cucurbita pepo var. Zucchini
 nl:Courgettes
 
@@ -43361,6 +43402,7 @@ fi:palkokasvit
 fr:Légumineuses
 hu:Hüvelyesek
 it:Verdure
+ja:マメ科, まめか
 la:Fabaceae, Leguminosae
 nl:Bonen
 pl:Strączkowe
@@ -43390,6 +43432,7 @@ en:Fresh green beans
 es:Judías verdes
 fi:tuoreet vihreät pavut
 fr:Haricots verts
+ja:サヤインゲン
 nl:Groene bonen
 wikidata:en:Q2987371
 
@@ -43484,6 +43527,7 @@ de:Kichererbsen, Kichererbse
 es:Garbanzos
 fi:kikherneet
 fr:Pois chiches
+ja:ヒヨコマメ
 la:Cicer arietinum
 nl:Kikkererwten
 wikidata:en:Q81375
@@ -43528,6 +43572,7 @@ es:Alubias, Judías, Frijoles, Porotos, Fabas, Fabes
 fi:pavut
 fr:Haricots, Haricots communes
 it:Fagioli
+ja:インゲンマメ
 la:Phaseolus vulgaris
 nl:Gewone bonen
 wikidata:en:Q42339
@@ -43615,6 +43660,7 @@ es:Lentejas
 fi:linssit
 fr:Lentilles, Lentilles cultivées, Lentilles sèches, Lentilles à cuire
 it:Lenticchie
+ja:レンズマメ
 la:Lens culinaris
 nl:Linzen
 wikidata:en:Q131226
@@ -43718,10 +43764,10 @@ es:Guisantes, Chícharos, Arvejas
 fi:herneet
 fr:Pois, Pois cultivé
 la:Pisum sativum
+ja:エンドウ
 nl:Erwten
 ru:Горох посевной
 wikidata:en:Q25237
-
 
 <en:Pulses
 en:Pigeon peas, Gandule beans
@@ -43780,6 +43826,7 @@ de:Soja
 es:Soja
 fi:soija
 fr:Soja
+ja:大豆, ダイズ
 la:Glycine max
 nl:Soja
 ru:Соя, Семена сои
@@ -44139,6 +44186,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tofu
 en:Tempeh
 es:Tempeh
 fr:Tempeh
+ja:テンペ
 nl:Tempeh
 wikidata:en:Q120096
 
@@ -44154,6 +44202,7 @@ wikidata:en:Q2120234
 en:Misos
 es:Misos
 fr:Miso
+ja:味噌, みそ
 nl:Misos
 wikidata:en:Q235169
 
@@ -44166,6 +44215,7 @@ fi:etikat
 fr:Vinaigres, vinaigre
 hu:Ecetek, Ecet
 it:Aceti
+ja:酢
 nl:Azijnen
 pt:Vinagres
 pnns_group_2:en:Dressings and sauces
@@ -44179,6 +44229,7 @@ fi:balsamietikat
 fr:Vinaigres balsamiques
 hu:Balzsamecet
 it:Aceto balsamico
+ja:バルサミコ酢, バルサミコす
 nl:Balsamicoazijnen
 wikidata:en:Q170037
 
@@ -44239,6 +44290,7 @@ es:Vinagres de arroz
 fi:riisietikat
 fr:Vinaigres de riz
 hu:Rizsecet
+ja:米酢
 nl:Rijstazijnen
 
 <en:Rice vinegars
@@ -45882,12 +45934,12 @@ nl:Chocolade croissants, Chocolade croissant
 wikidata:en:Q1190838
 
 <en:Viennoiseries
-en: Milk bread rolls
-de:Milchbrotrollen
-es: Panes de leche
+en:Milk bread rolls
+de:Milchbrötchen, Milchbrotrollen
+es:Panes de leche
 fr:Pains au lait, pain au lait
 nl:Melkbroodjes
-pt: Pães de leite
+pt:Pães de leite
 wikidata:en:Q3360557
 
 <en:Milk bread rolls
@@ -46869,8 +46921,8 @@ de:Blutwurst-Terrinen
 fr:Terrines de boudin, terrine de boudin
 nl:Bloedworstterinnes, Bloedworstterrine
 
+#Unlike the term "Pâté de campagne", terrine de campagne is not reglemented in France.
 <en:Terrines
-<en:Meat-based products
 <en:Prepared meats
 en:Country terrines
 fi:maaseututerriinit
@@ -46906,6 +46958,11 @@ nl:Leverterrines, Lverterrine, Levervleespotten
 <en:Liver terrines
 fr:Terrine de foie gras au sauternes
 wikidata:en:Q3518776
+
+<en:Terrines
+<en:Meat-based products
+en:Pork terrines
+fr:Terrines de porc
 
 <en:Terrines
 <en:Meat-based products
