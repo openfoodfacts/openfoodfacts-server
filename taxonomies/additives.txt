@@ -4287,19 +4287,27 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+# descrption:en:POTASSIUM METABISULFITE, K2S2O5, also known as potassium pyrosulfite, is a white crystalline powder with a pungent sulfur odour. The main use for the chemical is as an antioxidant or chemical sterilant.
+# comment:en:The bisulfite name is preferred in the translations, as that occurs on products
+
 en:E224, Potassium metabisulphite, Potassium metabisulfite
+ar:E224, ميتابيسلفيت البوتاسيوم
 bg:E224, Калиев метабисулфит
 ca:E224, Metabisulfit de potassi
-cs:E224, Disiřičitan draselný, Disiřičitan didraselný, K2S2O5, E 224, Pyrosiřičitan draselný
+cs:E224, Disiřičitan draselný, Disiřičitan didraselný, Pyrosiřičitan draselný
 da:E224, Kaliumdisulfit
-de:E224, Kaliummetabisulfit, Kaliumdisulfit, K2S2O5, Dikaliumdisulfit, E 224, Kaliumpyrosulfit
+de:E224, Kaliummetabisulfit, Kaliumdisulfit, K2S2O5, Dikaliumdisulfit, Kaliumpyrosulfit
 el:E224, Μεταδιθειωδες καλιο
-es:E224, Metabisulfito potásico, Metabisulfito de potasio, Disulfito de potasio, E 224, Disulfito potásico, Pirosulfito de potasio
+eo:E224, Kalia pirosulfito
+es:E224, Metabisulfito potásico, Metabisulfito de potasio, Disulfito de potasio, Disulfito potásico, Pirosulfito de potasio
 et:E224, Kaaliumdisulfit, Kaaliumpürosulfit
+fa:E224, پتاسیم متابی‌سولفیت
 fi:E224, Kaliummetabisulfiitti
 fr:E224, Disulfite de potassium, Métabisulfite de potassium, Pyrosulfite de potassium, di sulfite de potassium
+hr:E224, Kalijev metabisulfit
 hu:E224, Kálium-metabiszulfit
-it:E224, Metabisolfito di potassio, Pirosolfito di potassio, K2S2O5, Disolfito di potassio, Potassio metabisolfito
+it:E224, Metabisolfito di potassio, Pirosolfito di potassio, Disolfito di potassio, Potassio metabisolfito
+ja:E224, ピロ亜硫酸カリウム
 lt:E224, Kalio metabisulfitas
 lv:E224, Kālija metabisulfīts
 mt:E224, Metabisulfit tal-potassju
@@ -4307,13 +4315,19 @@ nl:E224, Kaliumdisulfiet, Kaliummetabisulfiet
 pl:E224, Pirosiarczyn potasu, Metadisiarczek potasu
 pt:E224, Metabissulfito de potássio
 ro:E224, Metabisulfit de potasiu
-rs:E224, Kalijum-metabisulfit
 ru:E224, Пиросульфит калия, дисульфит калия
+sh:E224, Kalijum metabisulfit
 sk:E224, Disiričitan draselný
 sl:E224, Kalijev metabisulfit
+sr:E224, Kalijum metabisulfit
 sv:E224, Kaliumdisulfit, Kaliumpyrosulfit
-e_number:en:224
+vi:E224, Kali metabisunfit
+# azb:E224, پوتاسیوم متابی‌سولفیت
 wikidata:en:Q417881
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_metabisulfite
+# ingredient/fr:métabisulfite-de-potassium has 113 products in 4 languages @2019-05-07
+# additive/e224-potassium-metabisulphite has 2227 products in 10 languages @2019-03-26
+e_number:en:224
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
 efsa_evaluation_date:en: 2016-04-14
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
@@ -4325,6 +4339,10 @@ efsa_evaluation_adi:en: 0.7
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+
+<en:E224
+fr:conservateur e224
+# ingredient/fr:conservateur-e224 has 25 products in french @2019-03-26
 
 en:E225, Calcium Disulphite, Calcium Disulfite, Calcium Pyrosulphite, Calcium Pyrosulfite, potassium sulfite, potassium sulphite
 bg:E225, E225 food additive
@@ -4602,31 +4620,55 @@ additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:NATAMYCIN is used in the food industry as a preservative.
+
 en:E235, Natamycin, Pimaracin
+ar:E235, ناتاميسين
 bg:E235, Натамицин
 ca:E235, Natamicina
 cs:E235, Natamycin
-da:E235, E235 food additive
+cy:E235, natamycin
+da:E235, natamycin
 de:E235, Natamycin
-el:E235, E235 food additive
+el:E235, ναταμυκίνη
 es:E235, Natamicina, Pimaricina
 et:E235, E235 food additive
+fa:E235, ناتامایسین
 fi:E235, Natamysiini
 fr:E235, Natamycine, pimaricine
+gl:E235, Natamicina
 hu:E235, Natamicin
 it:E235, Natamicina
-lt:E235, E235 food additive
-lv:E235, E235 food additive
+ja:E235, ナタマイシン
+lt:E235, natamicinas
+lv:E235, natamicīns
 mt:E235, E235 food additive
 nl:E235, Pimaricine, Natamycine
+nn:E235, natamycin
+or:E235, ନାଟାମାଇସିନ
 pl:E235, Natamycyna
 pt:E235, Natamicina
-ro:E235, E235 food additive
-sk:E235, E235 food additive
+ro:E235, natamicină
+ru:E235, натамицин
+sh:E235, Natamicin
+sk:E235, natamycín
 sl:E235, E235 food additive
+sr:E235, натамицин
 sv:E235, Natamycin
-e_number:en:235
+uk:E235, Натаміцин
+vi:E235, Natamycin
+# arz:E235, ناتاميسين
+# be-tarask:E235, Натаміцын
+# de-ch:E235, Natamycin
+# en-ca:E235, Natamycin
+# en-gb:E235, Natamycin
+# pt-br:E235, Natamicina
+# sr-ec:E235, натамицин
+# sr-el:E235, Natamicin
 wikidata:en:Q248466
+wikipedia:en:https://en.wikipedia.org/wiki/Natamycin
+# ingredient/fr:natamycine has 445 products in 7 languages @2019-05-07
+e_number:en:235
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2009.1412
 efsa_evaluation_date:en: 2009-12-14
 efsa_evaluation:en: Scientific Opinion on the use of natamycin (E 235) as a food additive
@@ -4807,19 +4849,24 @@ e_number:en:241
 vegan:en:yes
 vegetarian:en:yes
 
+# descrption:en:Dimethyl dicarbonate (DMDC) is an organic compound which is a colorless liquid with a pungent odor at high concentration at room temperature. It is primarily used as a beverage preservative, processing aid, or sterilant
+
 en:E242, Dimethyl dicarbonate, DMDC, methoxycarbonyl methyl carbonate, dicarbonic acid dimethyl ester, Velcorin
+ar:E242, ثنائي ميثيل ثنائي الكربونات
 bg:E242, Диметил дикарбонат, DMDC
 ca:E242, Dicarbonat de dimetil, DMDC
 cs:E242, Dimethyldiuhličitan, DMDC
 da:E242, Dimethyldicarbonat, DMDC
-de:E242, Dimethyldicarbonat, DMDC, Velcorin, E 242
+de:E242, Dimethyldicarbonat, DMDC, Velcorin
 el:E242, Δικαρβονικος διμεθυλεστερας, DMDC
-es:E242, Dimetil dicarbonato, DMDC, Dicarbonato de dimetilo, E 242
+es:E242, Dimetil dicarbonato, DMDC, Dicarbonato de dimetilo
 et:E242, Dimetüüldikarbonaat, DMDC
+fa:E242,  دی‌متیل دی‌کربنات
 fi:E242, Dimetyylidikarbonaatti, DMDC
-fr:E242, Dicarbonate de diméthyle, DMDC, Velcorin, 4525-33-1, E-242, Acide dicarbonique diméthyle ester, Diméthyle pyrocarbonate, Méthoxycarbonyle méthyle carbonate
+fr:E242, Dicarbonate de diméthyle, DMDC, Velcorin, Acide dicarbonique diméthyle ester, Diméthyle pyrocarbonate, Méthoxycarbonyle méthyle carbonate
 hu:E242, Dimetil-dikarbonát, DMDC
-it:E242, Dimetildicarbonato, DMDC, C4H6O5
+it:E242, Dimetildicarbonato, DMDC
+ja:E242, 二炭酸ジメチル
 lt:E242, Dimetilo dikarbonatas, DMDC
 lv:E242, Dimetildikarbonāts, DMDC
 mt:E242, Dimetil dikarbonat, DMDC
@@ -4827,11 +4874,18 @@ nl:E242, Dimethyldicarbonaat, DMDC
 pl:E242, Dimetylodiwęglan, DMDC, Pirowęglan dimetylu
 pt:E242, Dicarbonato de dimetilo, DMDC, Dicarbonato de dimetila
 ro:E242, Dicarbonat de dimetil, DMDC
+sh:E242, Dimetil dikarbonat
 sk:E242, Dimetyl-dikarbonát, DMDC
 sl:E242, Dimetildikarbonat, DMDC
-sv:E242, Dimetyldikarbonat, DMDC, E 242
+sr:E242, Dimetil dikarbonat
+sv:E242, Dimetyldikarbonat, DMDC
+# azb:E242, دیومتیل دیکربونات
+wikidata:en: Q416985
+wikipedia:en:https://en.wikipedia.org/wiki/Dimethyl_dicarbonate
+# ingredient/fr:dicarbonate-de-dimethyle has 30 products in french @2019-02-21
+# additive/e242-dimethyl-dicarbonate has 84 products @2019-02-21
+# conservadores (E202, E242)
 e_number:en:242
-wikidata:en:Q416985
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4319
 efsa_evaluation_date:en: 2015-12-10
 efsa_evaluation:en: Scientific opinion on the re-evaluation of dimethyl dicarbonate (DMDC, E 242) as a food additive
@@ -4904,33 +4958,65 @@ additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:SODIUM NITRITE is an inorganic compound with the chemical formula NaNO2. it is a food additive used in processed meats and (in some countries) in fish products.
+
 en:E250, Sodium nitrite, NaNO2
+ar:E250, نتريت الصوديوم
 bg:E250, Натриев нитрит
+bs:E250, Natrijum nitrit
 ca:E250, Nitrit de sodi
 cs:E250, Dusitan sodný
 da:E250, Natriumnitrit
 de:E250, Natriumnitrit
 el:E250, Νιτρωδες νατριο
+eo:E250, natria nitrito
 es:E250, Nitrito sódico, Nitrito de sodio
 et:E250, Naatriumnitrit
-fi:E250, Natriumnitriitti, E 250
-fr:E250, Nitrite de sodium, Azotite, Nitrite de soude, Nitrite sodique, Sel nitrité
+fa:E250, سدیم نیتریت
+fi:E250, Natriumnitriitti
+fr:E250, Nitrite de sodium, Azotite, Nitrite de soude, Nitrite sodique, Sel nitrité, sel de salaison, sels de salaison, sel nitrité pour saumure
+ga:E250, nítrít sóidiam
+he:E250, נתרן חנקיתי
+hr:E250, natrijev nitrit
 hu:E250, Nátrium-nitrit
+id:E250, natrium nitrit
 it:E250, Nitrito di sodio
+ja:E250, 亜硝酸ナトリウム
+ko:E250, 아질산 나트륨
+ky:E250, Натрий нитрити
 lt:E250, Natrio nitritas
 lv:E250, Nātrija nitrīts
 mt:E250, Nitrit tas-sodju
+nb:E250, Natriumnitritt
 nl:E250, Natriumnitriet
 pl:E250, Azotyn sodu, Azotan(III) sodu
 pt:E250, Nitrito de sódio
 ro:E250, Nitrit de sodiu, Azotit de sodiu
-rs:E250, natrijum nitrit
 ru:E250, Нитрит натрия, Натрия нитрит, Натрий азотокислый
+sh:E250, Natrijum nitrit
 sk:E250, Dusitan sodný
 sl:E250, Natrijev nitrit
+sr:E250, натријум нитрит
 sv:E250, Natriumnitrit
-e_number:en:250
+tr:E250, Sodyum nitrit
+uk:E250, Нітрит натрію
+vi:E250, Natri nitrit
+zh:E250, 亚硝酸钠
+# azb:E250, سودیوم نیتریت
+# sco:E250, Sodium nitrite
+# sr-ec:E250, натријум нитрит
+# sr-el:E250, Natrijum nitrit
+# zh-cn:E250, 亚硝酸钠
+# zh-hans:E250, 亚硝酸钠
+# zh-hant:E250, 亞硝酸鈉
+# zh-hk:E250, 亞硝酸鈉
+# zh-sg:E250, 亚硝酸钠
+# zh-tw:E250, 亞硝酸鈉
 wikidata:en:Q339975
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_nitrite
+# ingredient/fr:nitrite-de-sodium has 6137 products in 11 languages @2019-05-07
+# usage:de:Stabilisator (Natriumnitrit)
+e_number:en:250
 # Mean>ADI adults	95th>ADI adults	Mean>ADI elderly	95th>ADI elderly	Mean>ADI adolescent	95>ADI adolescent	Mean>ADI children	95th>ADI children	Mean>ADI toddlers	95th>ADI toddlers	Mean>ADI infants	95th>ADI infants
 # 0	1	0	1			1	1	1	1	1	1
 efsa_evaluation_url:en: https://zenodo.org/record/1252752/files/EFSAOutputs_KJ_2018.xlsx
@@ -4944,31 +5030,89 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+<en:E250
+en:preservative sodium nitrite
+de:Konservierungsmittel Natriumnitrit
+fr:conservateur nitrite de sodium, conservateur e 250
+it:nitrito di sodio conservante
+# ingredient/fr:conservateur-nitrite-de-sodium has 132 products in 4 languages @2019-02-13
+
+# description:en:SODIUM NITRATE is the chemical compound with the formula NaNO3. Sodium nitrate is a food additive used as a preservative and colour fixative in cured meats and poultry
+
 en:E251, Sodium nitrate
+ar:E251, نترات الصوديوم
 bg:E251, Натриев нитрат i.
+bs:E251, Natrijum nitrat
 ca:E251, Nitrat de sodi
-cs:E251, Dusičnan sodný, Čilský ledek, Chilský ledek, Nitratin, E 251, NaNO3
-da:E251, Natriumnitrat, NaNO3
+cs:E251, Dusičnan sodný, Čilský ledek, Chilský ledek, Nitratin
+da:E251, Natriumnitrat
 de:E251, Natriumnitrat, Chilesalpeter, Natronsalpeter, NaNO3
 el:E251, Νιτρικο νατριο, Νίτρο της Χιλής
-es:E251, Nitrato sódico i., Nitrato de sodio, Conservante E-251, Nitrato sodico, E-251, Conservante E251, Nitrato de soda, Sal de Chile, NaNO3
+eo:E251, Natri-salpetro
+es:E251, Nitrato sódico i., Nitrato de sodio, Conservante E-251, Nitrato sodico, Conservante E251, Nitrato de soda, Sal de Chile
 et:E251, Naatriumnitraat i), Naatriumnitraat
-fi:E251, Natriumnitraatti i), Natriumnitraatti, Chilen salpietari, Perunsalpietari, Chilensalpietari, E 251
+eu:E251, Txileko nitrato
+fa:E251, سدیم نیترات
+fi:E251, Natriumnitraatti i), Natriumnitraatti, Chilen salpietari, Perunsalpietari, Chilensalpietari
 fr:E251, Nitrate de sodium, 7631-99-4, Salpêtre du Chili, Nitrate de soude, NaNO3
+ga:E251, níotráit sóidiam
+he:E251, נתרן חנקתי
+hi:E251, सोडियम नाइट्रेट
+hr:E251, Natrijev nitrat
 hu:E251, Nátrium-nitrát
-it:E251, Nitrato di sodio, Nitrato del Cile, NaNO3
+hy:E251, Նատրիումի նիտրատ
+id:E251, Natrium nitrat
+it:E251, Nitrato di sodio, Nitrato del Cile
+ja:E251, 硝酸ナトリウム
+kk:E251, Натрий нитраты
+ko:E251, 질산 나트륨
+ky:E251, Натрий нитраты
 lt:E251, Natrio nitratas
 lv:E251, Nātrija nitrāts i., Nātrija nitrāts, Čīles salpetris, Nātrija salpetris, NaNO3
+ms:E251, Natrium nitrat
 mt:E251, Nitrat tas-sodju i.
+nb:E251, Natriumnitrat
 nl:E251, Natriumnitraat, Chilisalpeter
+oc:E251, Nitrat de sòdi
 pl:E251, Azotan sodu, Saletra chilijska, Nitronatryt, Nitratyn, Azotan(V) sodu, Saletra sodowa
-pt:E251, Nitrato de sódio, NaNO3
+pt:E251, Nitrato de sódio
+qu:E251, Natriyu qullpa
 ro:E251, Nitrat de sodiu i., Azotat de sodiu, Nitrat de sodiu, Salpetru de Chile
+ru:E251, нитрат натрия
+sh:E251, Natrijum nitrat
 sk:E251, Dusičnan sodný i., Dusičnan sodný
 sl:E251, Natrijev nitrat
-sv:E251, Natriumnitrat, Chilesalpeter, Natronsalpeter, E 251
-e_number:en:251
+sq:E251, Nitrati i natriumit
+sr:E251, натријум нитрат
+sv:E251, Natriumnitrat, Chilesalpeter, Natronsalpeter
+ta:E251, சோடியம் நைட்ரேட்டு
+tr:E251, Sodyum nitrat
+uk:E251, Нітрат натрію
+vi:E251, Natri nitrat
+zh:E251, 硝酸鈉
+# ast:E251, Nitratu de sodiu
+# azb:E251, سودیوم نیترات
+# frr:E251, Natriumnitrat
+# kk-arab:E251, ناترىيي نىيتراتى
+# kk-cn:E251, ناترىيي نىيتراتى
+# kk-cyrl:E251, Натрий нитраты
+# kk-kz:E251, Натрий нитраты
+# kk-latn:E251, Natrïý nïtratı
+# kk-tr:E251, Natrïý nïtratı
+# pnb:E251, سوڈیم نائٹریٹ
+# sr-ec:E251, натријум нитрат
+# sr-el:E251, Natrijum nitrat
+# war:E251, Sodium nitrate
+# zh-cn:E251, 硝酸钠
+# zh-hans:E251, 硝酸钠
+# zh-hant:E251, 硝酸鈉
+# zh-hk:E251, 硝酸鈉
+# zh-sg:E251, 硝酸钠
+# zh-tw:E251, 硝酸鈉
 wikidata:en:Q184373
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_nitrate
+# ingredient/fr:nitrate-de-sodium has 138 products in 5 languages @2019-05-07
+e_number:en:251
 additives_classes:en: en:preservative
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4787
 efsa_evaluation_date:en: 2017/06/15
@@ -4980,34 +5124,96 @@ efsa_evaluation_adi:en: 3.7
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:nitrites and nitrates can be consumed by all religious groups, vegans and vegetarians
+# description:en:POTASSIUM NITRATE is a chemical compound with the chemical formula KNO3. The widespread adoption of nitrate use is more recent and is linked to the development of large-scale meat processing. potassium nitrate is still used in some food applications, such as salami, dry-cured ham, charcuterie.
+# comment:en:The chemical translation is preferred.
+# diets:en:nitrites and nitrates can be consumed by all religious groups, vegans and vegetarians
 
 en:E252, Potassium nitrate
+af:E252, Kaliumnitraat
+ar:E252, نترات البوتاسيوم
 bg:E252, Калиев нитрат, Калиева селитра
+bn:E252, পটাসিয়াম নাইট্রেট
+bs:E252, Kalij-nitrat
 ca:E252, Nitrat de potassi
-cs:E252, Dusičnan draselný, Salnytr, Sanitr, Ledek draselný, Salnitr, Draselný ledek, E 252, KNO3, Sanytr
+cs:E252, Dusičnan draselný, Salnytr, Sanitr, Ledek draselný, Salnitr, Draselný ledek, Sanytr
 da:E252, Kaliumnitrat, KNO3, Kalisalpeter
-de:E252, Kaliumnitrat, E 252, Kalisalpeter, Kaliumsalpeter, KNO3, Salpeter
+de:E252, Kaliumnitrat, Kalisalpeter, Kaliumsalpeter, Salpeter
 el:E252, Νιτρικο καλιο
-es:E252, Nitrato potásico, nitrato de potasio, Sal nitro, E 252, Conservante E-252, Nitrato de potasa, Conservante E252, KNO3
+eo:E252, kalia nitrato
+es:E252, Nitrato potásico, nitrato de potasio, Sal nitro, Conservante E-252, Nitrato de potasa, Conservante E252
 et:E252, Kaaliumnitraat
+fa:E252, نیترات پتاسیم
 fi:E252, Kaliumnitraatti, KNO3, Kalisalpietari
 fr:E252, Nitrate de potassium, Salpêtre, Nitre, Nitrate de potasse, 7757-79-1, Nitrate et de potassium, KNO3
+ga:E252, níotráit photaisiam
+he:E252, אשלגן חנקתי
+hi:E252, पोटैशियम नाइट्रेट
+hr:E252, kalijev nitrat
 hu:E252, Kálium-nitrát
+hy:E252, Կալիումի նիտրատ
+id:E252, Kalium nitrat
+io:E252, Salpetro
+is:E252, Saltpétur
 it:E252, Nitrato di potassio, Salnitro, KNO3
+ja:E252, 硝酸カリウム
+kk:E252, Калий селитрасы
+ko:E252, 질산 칼륨
+ky:E252, Калий нитраты
 lt:E252, Kalio nitratas, Kalio salietra, KNO3
 lv:E252, Kālija nitrāts, Kālija salpetris, KNO3
+mk:E252, калиум нитрат
+ms:E252, kalium nitrat
 mt:E252, Nitrat tal-potassju
+my:E252, ယမ်းစိမ်း
+nb:E252, Kaliumnitrat
 nl:E252, Kaliumnitraat, Kno3
+oc:E252, Saunitre
 pl:E252, Azotan potasu, Azotan(V) potasu
 pt:E252, Nitrato de potássio, Salitre do Chile, Kno3, Salito
+qu:E252, Kalyu qullpa
 ro:E252, Nitrat de potasiu, Azotat de potasiu, Salpetru de india, Salpetru
+ru:E252, нитрат калия
+sh:E252, Šalitra
 sk:E252, Dusičnan draselný
 sl:E252, Kalijev nitrat
+sr:E252, Калијум нитрат
 sv:E252, Kaliumnitrat, KNO3, E 252, Kalisalpeter
+ta:E252, பொட்டாசியம் நைத்திரேட்டு
+th:E252, ดินประสิว
+tl:E252, Salitre
+tr:E252, Potasyum nitrat
+uk:E252, Нітрат калію
+vi:E252, kali nitrat
+zh:E252, 硝酸钾
+# ast:E252, Nitratu de potasiu
+# azb:E252, پوتاسیوم نیترات
+# en-ca:E252, Potassium nitrate
+# en-gb:E252, Potassium nitrate
+# kk-arab:E252, كالىيي سەلىيتراسى
+# kk-cn:E252, كالىيي سەلىيتراسى
+# kk-cyrl:E252, Калий селитрасы
+# kk-kz:E252, Калий селитрасы
+# kk-latn:E252, Kalïý selïtrası
+# kk-tr:E252, Kalïý selïtrası
+# pnb:E252, پوٹاشیم نائٹریٹ
+# pt-br:E252, Nitrato de potássio
+# sco:E252, potassium nitrate
+# sr-ec:E252, Калијум нитрат
+# sr-el:E252, Šalitra
+# war:E252, Potassium nitrate
+# wuu:E252, 硝酸钾
+# zh-cn:E252, 硝酸钾
+# zh-hans:E252, 硝酸钾
+# zh-hant:E252, 硝酸鉀
+# zh-hk:E252, 硝酸鉀
+# zh-sg:E252, 硝酸钾
+# zh-tw:E252, 硝酸鉀
+wikidata:en:Q177836
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_nitrate
+# ingredient/fr:salpêtre has 167 products in french @2019-05-02
+# additive/e252-potassium-nitrate has 2820 products in 21 languages @2019-05-02
 e_number:en:252
 mandatory_additive_class:en: en:preservative
-wikidata:en:Q177836
 additives_classes:en: en:preservative
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4787
 efsa_evaluation_date:en: 2017/06/15
@@ -5020,48 +5226,116 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:ACETIC ACID, systematically named ethanoic acid, is a colourless liquid organic compound with the chemical formula CH3COOH (also written as CH3CO2H or C2H4O2).
+
 en:E260, Acetic acid, ethanoic acid
-bg:E260, Оцетна киселина, Оцетна киселина, Е260, Етанова киселина
+af:E260, Asynsuur
+ar:E260, حمض الخليك
+az:E260, Sirkə turşusu
+be:E260, воцатная кіслата
+bg:E260, Оцетна киселина, Оцетна киселина, Етанова киселина
+bn:E260, অ্যাসিটিক এসিড
+bs:E260, Acetatna kiselina
 ca:E260, Àcid acètic
-cs:E260, Kyselina octová, Kyselina octová, Etanová kyselina, Ethanová kyselina, E 260, Kyselina ethanová, Kyselina etanová, Acidum aceticum
-da:E260, Eddikesyre, Eddikesyre, Acetat, Ethansyre, C2H4O2, AcOH
-de:E260, Essigsäure, Essigsäure, Haushaltsessig, Methancarbonsäure, Acidum aceticum, Acetoxylsäure, Acetat-Ion, Ethansäure, Säureessig, Acetylsäure, Eisessig, CH3COOH, Ethoxylsäure, Äthansäure, Methylcarbonsäure, Holzsäure, Essigessenz, AcOH, E 260, HOAc
-el:E260, Οξικο οξυ, Οξικό οξύ, Αιθανικό οξύ, Αιθανοϊκό οξύ, CH3CO2H, CH3COOH, MeCOOH
-es:E260, Ácido acético, Conservante E260, Ácido acético glacial, E-260, Ácido etanoico, Conservante E 260, Etanoico
+cs:E260, Kyselina octová, Kyselina octová, Etanová kyselina, Ethanová kyselina, Kyselina ethanová, Kyselina etanová, Acidum aceticum
+cy:E260, Asid asetig
+da:E260, Eddikesyre, Eddikesyre, Acetat, Ethansyre
+de:E260, Essigsäure, Essigsäure, Haushaltsessig, Methancarbonsäure, Acidum aceticum, Acetoxylsäure, Acetat-Ion, Ethansäure, Säureessig, Acetylsäure, Eisessig, Ethoxylsäure, Äthansäure, Methylcarbonsäure, Holzsäure, Essigessenz
+el:E260, Οξικο οξυ, Οξικό οξύ, Αιθανικό οξύ, Αιθανοϊκό οξύ
+eo:E260, aceta acido
+es:E260, Ácido acético, Conservante E260, Ácido acético glacial, Ácido etanoico, Conservante E 260, Etanoico
 et:E260, Äädikhape, Äädikhape, Etaanhape
+eu:E260, azido azetiko
+fa:E260, استیک اسید
 fi:E260, Etikkahappo, Etikkahappo, Etaanihappo, Asetometri, E 260, Jääetikka, CH3COOH
 fr:E260, Acide acétique, Acétification, Acide éthanoïque, 64-19-7, CH3COOH, Acetic acid, Acétique, Acide acétique glacial, AcOH
+ga:E260, Aigéad aicéiteach
+gl:E260, Ácido acético
+he:E260, חומצה אצטית
+hi:E260, एसिटिक अम्ल
+hr:E260, Octena kiselina
 hu:E260, Ecetsav, Ecetsav, Jégecet, Ecet, CH3COOH, Acetic acid, Etánsav, Acetát
+hy:E260, Քացախաթթու
+ia:E260, Acido acetic
+id:E260, Asam asetat
+io:E260, Acetat-acido
+is:E260, Ediksýra
 it:E260, Acido acetico, Acido acetico, Acido etanoico, C2H4O2, AcOH, CH3COOH, Acido acetico glaciale
+ja:E260, 酢酸
+jv:E260, Asam asetat
+kk:E260, Сірке қышқылы
+kn:E260, ಅಸಿಟಿಕ್ ಆಮ್ಲ
+ko:E260, 아세트산
+la:E260, Acidum aceticum
+li:E260, Aekzoer
 lt:E260, Acto rūgštis, Acto rūgštis, Vandenilio acetatas, Metankarboksilinė rūgštis, CH3COOH, Acetilo hidroksidas, Etano rūgštis
 lv:E260, Etiķskābe, Etiķskābe, Acetāti, Ch3cooh, Acetāts, Metānkarbonskābe, Etānskābe, Ledus etiķskābe
+mk:E260, Оцетна киселина
+ml:E260, അസറ്റിക് അമ്ലം
+ms:E260, Asid asetik
 mt:E260, Aċidu aċetiku, Aċidu aċetiku
+nb:E260, eddiksyre
 nl:E260, Azijnzuur, Azijnzuur, 64-19-7, CH3COOH, ijsazijn, ethaanzuur
+pa:E260, ਐਸੀਟਿਕ ਤੇਜ਼ਾਬ
 pl:E260, Kwas octowy, Kwas octowy, CH3COOH, Kwas etanowy, Kwas metanokarboksylowy, Lodowaty kwas octowy
 pt:E260, Ácido acético, Ácido acético, Ácido etanoico, Ácido acético glacial, Ácido metanocarboxílico, CH3COOH
+qu:E260, Mama aqha p'uchqu
 ro:E260, Acid acetic, Acid acetic
+sh:E260, Sirćetna kiselina
+si:E260, ඇසිටික් අම්ලය
 sk:E260, Kyselina octová, Kyselina octová, Kyselina etánová
 sl:E260, Ocetna kislina, ocetna kislina
+sr:E260, сирћетна киселина
+su:E260, Asam asétat
 sv:E260, Ättiksyra, Ättiksyra, Ätiksyra, CH3COOH, Isättika, E 260, Ättikssyra, Etansyra
-e_number:en:260
+ta:E260, அசிட்டிக் காடி
+te:E260, ఎసిటిక్ ఆమ్లం
+th:E260, กรดน้ำส้ม
+tl:E260, Asidong asetiko
+tr:E260, Asetik asit
+uk:E260, оцтова кислота
+ur:E260, ایسیٹک ایسڈ
+vi:E260, axit axetic
+zh:E260, 乙酸
+# ast:E260, Ácidu acético
+# azb:E260, استیک اسید
+# csb:E260, Òctowi kwas
+# frr:E260, Eetjsüren
+# lzh:E260, 乙酸
+# nan:E260, Chhò͘-sng
+# sco:E260, acetic acid
+# sr-ec:E260, сирћетна киселина
+# war:E260, Aksido Asetico
+# wuu:E260, 乙酸
+# yue:E260, 醋酸
 wikidata:en:Q47512
+wikipedia:en:https://en.wikipedia.org/wiki/Acetic_acid
+# en:acetic-acid has 1571 products in 8 languages @2018-11-18
+# additive/e260-acetic-acid has 2143 products in 14 languages @2018-11-18
+e_number:en:260
 additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
 en:E261, Potassium acetate
+ar:E261, أسيتات البوتاسيوم
 bg:E261, Калиев ацетат
+bs:E261, Kalijev acetat
 ca:E261, Acetat de potassi
 cs:E261, Octan draselný, Draselná sůl kyseliny octové, Etanoát draselný, CH3COOK, Acetát draselný, Ethanoát draselný, Draselná sůl kyseliny etanové, E 261, Draselná sůl kyseliny ethanové
 da:E261, Kaliumacetat
 de:E261, Kaliumacetat, CH3COOK, Kalium aceticum, E 261
 el:E261, Οξικο καλιο
+eo:E261, kalia acetato
 es:E261, Acetato potásico, Acetato de potasio, Etanoato de potasio, E 261
 et:E261, Kaaliumatsetaat
+fa:E261, پتاسیم استات
 fi:E261, Kaliumasetaatti, E 261
 fr:E261, Acétates de potassium, Acétate de potassium, Diacétate de potassium, 127-08-2, E-261, E261(i)
 hu:E261, Kálium-acetát
+id:E261, Kalium asetat
 it:E261, Acetato di potassio, CH3COOK
+ja:E261, 酢酸カリウム
 lt:E261, Kalio acetatas
 lv:E261, Kālija acetāts
 mt:E261, Aċetat tal-potassju
@@ -5069,69 +5343,122 @@ nl:E261, Kaliumacetaat, CH3COOK
 pl:E261, Octan potasu
 pt:E261, Acetato de potássio, Etanoato de potássio
 ro:E261, Acetat de potasiu
+ru:E261, ацетат калия
+sh:E261, Kalijum acetat
 sk:E261, Octan draselný
 sl:E261, Kalijev acetat
+sr:Kalijum acetat
 sv:E261, Kaliumacetat
-e_number:en:261
+ta:E261, பொட்டாசியம் அசிட்டேட்டு
+tr:E261, Potasyum asetat
+uk:E261, Ацетат калію
+vi:E261, Kali axetat
+zh:E261, 乙酸钾
+# azb:E261, پوتاسیوم استات
+# zh-cn:E261, 乙酸钾
+# zh-hans:E261, 乙酸钾
+# zh-hant:E261, 乙酸鉀
+# zh-hk:E261, 乙酸鉀
+# zh-sg:E261, 乙酸钾
+# zh-tw:E261, 乙酸鉀
 wikidata:en:Q409199
+# ingredient/fr:acétate-de-potassium has 31 products in 3 languages @2019-02-09
+# additive/e261-potassium-acetate has 235 products @2019-02-09
+e_number:en:261
 additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
+
+# comment:en:Note that E262 must be in plural
 
 en:E262, Sodium acetates, sodium acetate
 bg:E262, Натриев ацетат
 ca:E262, Acetat de sodi
 cs:E262, Octan sodný, Etanoát sodný, Metylkarboxát sodný, Metylkarboxylát sodný, Sodná sůl kyseliny ethanové, CH3COONa, Methylkarboxylát sodný, Sodná sůl kyseliny octové, Ethanoát sodný, Sodná sůl kyseliny etanové, E 262, Methylkarboxát sodný
 da:E262, CH_3 COONa
-de:E262, Natriumacetat, Natriumacetate, Natrium aceticum, Natriumethanoat, Sodiumacetat, NaOAc, CH3COONa, Natriumacetat-Trihydrat, NaAc, E 262
+de:E262, Natriumacetate, Natriumacetat, Natrium aceticum, Natriumethanoat, Sodiumacetat, NaOAc, CH3COONa, Natriumacetat-Trihydrat
 el:E262, E262 food additive
-es:E262, Acetato de sodio, Acetato sódico, E 262
+es:E262, Acetato de sodio, Acetato sódico
 et:E262, Naatriumetanoaat, Naatriumatsetaat
 fi:E262, Natriumasetaatti
 fr:E262, Acétates de sodium, Acétate de sodium, Diacétate de sodium, Sodium Acetate, Acétate de soude, Sel sodique de l'acide acétique, Ethanoate de sodium, CAS 127-09-3, CAS 126-96-5, CAS 6131-90-4, Hydrogénodiacétate de sodium, Sel de sodium de l'acide éthanoïque, Sel de sodium de l'acide éthanoïque, 127-09-3, 6131-90-4, E262(i), CH3COONa, C2H3NaO2, NaC2H3O2, Acétate de sodium trihydraté
 hu:E262, Nátrium-acetát
-it:E262, Acetato di sodio, CH3COONa, Sodio acetato
+it:E262, Acetato di sodio, Sodio acetato
 lt:E262, E262 food additive
 lv:E262, E262 food additive
 mt:E262, E262 food additive
 nl:E262, Natriumacetaat, CH3COONa, NaAc
 pl:E262, Octany sodu, Octan sodu, Octan sodowy
-pt:E262, Acetato de sódio, Trihidratado, Etanoato de sódio, Sal anidro
+pt:E262, acétates de sodium, Acetato de sódio, Trihidratado, Etanoato de sódio, Sal anidro
 ro:E262, E262 food additive
-sk:E262, Octan sodný, E 262
+sk:E262, Octan sodný
 sl:E262, Natrijev acetat
-sv:E262, Natriumacetat, E 262
+sv:E262, Natriumacetat
+# additive/e262-sodium-acetates has 4654 products @2018-11-18
 e_number:en:262
 wikidata:en:Q339940
 additives_classes:en: en:preservative, en:sequestrant
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en: Sodium acetate, CH3COONa, also abbreviated NaOAc,[8] is the sodium salt of acetic acid.
+
 <en:E262
 en:E262(i), Sodium acetate
+ar:E262(i),أسيتات الصوديوم
 bg:E262(i), Натриев ацетат
+bs:E262(i),Natrij-acetat
+ca:E262(i),acetat de sodi
 cs:E262(i), Octan sodný
 da:E262(i), Natriumacetat
 de:E262(i), Natriumacetat
 el:E262(i), Οξικα αλατα του νατριου
+eo:E262(i),natria acetato
 es:E262(i), Acetato sódico, Acetato de sodio
 et:E262(i), Naatriumatsetaat
+eu:E262(i),sodio azetato
+fa:E262(i),سدیم استات
 fi:E262(i), Natriumasetaatti
 fr:E262(i), Acétate de sodium
+he:E262(i),סודיום אצטט
+hr:E262(i),Natrijev acetat
 hu:E262(i), Nátrium-acetát
+id:E262(i),Natrium asetat
 it:E262(i), Acetato di sodio
+ja:E262(i),酢酸ナトリウム
 lt:E262(i), Natrio acetatas
 lv:E262(i), Nātrija acetāts
 mt:E262(i), Aċetat tas-sodju
+nb:E262(i),Natriumacetat
 nl:E262(i), Natriumacetaat
 pl:E262(i), Octan sodu
 pt:E262(i), Acetato de sódio
 ro:E262(i), Acetat de sodiu
+sh:E262(i),Natrijum acetat
 sk:E262(i), Octan sodný
 sl:E262(i), Natrijev acetat
+sr:E262(i),натријум ацетат
 sv:E262(i), Natriumacetat
-e_number:en:262
+ta:E262(i),சோடியம் அசிட்டேட்
+te:E262(i),సోడియం అసిటేట్
+tr:E262(i),Sodyum asetat
+uk:E262(i),Ацетат натрію
+vi:E262(i),Natri axetat
+zh:E262(i),乙酸钠
+# azb:E262(i),سودیوم استات
+# sco:E262(i),Sodium acetate
+# sr-ec:E262(i),натријум ацетат
+# sr-el:E262(i),Natrijum acetat
+# zh-cn:E262(i),乙酸钠
+# zh-hans:E262(i),乙酸钠
+# zh-hant:E262(i),乙酸鈉
+# zh-hk:E262(i),乙酸鈉
+# zh-sg:E262(i),乙酸钠
+# zh-tw:E262(i),乙酸鈉
 wikidata:en:Q339940
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_acetate
+# additive/e262i-sodium-acetate has 1024 products in 8 languages @2018-11-18
+e_number:en:262
 additives_classes:en: en:preservative, en:sequestrant
 
 <en:E262
@@ -5141,12 +5468,14 @@ cs:E262(ii), Hydrogendvojoctan sodný
 da:E262(ii), Natriumdiacetat
 de:E262(ii), Natriumdiacetat
 el:E262(ii), Διοξικο νατριο
+eo:E262(ii),Natria duacetato
 es:E262(ii), Diacetato de sodio, Diacetato sódico
 et:E262(ii), Naatriumdiatsetaat
 fi:E262(ii), Natriumdiasetaatti
 fr:E262(ii), Diacétate de sodium
 hu:E262(ii), Nátrium-diacetát
 it:E262(ii), Diacetato di sodio
+ja:E262(ii),二酢酸ナトリウム
 lt:E262(ii), Natrio diacetatas
 lv:E262(ii), Nātrija diacetāts
 mt:E262(ii), Diaċetat tas-sodju
@@ -5154,26 +5483,47 @@ nl:E262(ii), Natriumdiacetaat
 pl:E262(ii), Dioctan sodu
 pt:E262(ii), Diacetato de sódio
 ro:E262(ii), Diacetat de sodiu
+sh:E262(ii),Natrijum diacetat
 sk:E262(ii), Dioctan sodný (kyslý octan sodný)
 sl:E262(ii), Natrijev diacetat
+sr:E262(ii),Natrijum diacetat
 sv:E262(ii), Natriumdiacetat
+ta:E262(ii),சோடியம் ஈரசிட்டேட்டு
+zh:E262(ii),双乙酸钠
+wikidata:en:Q409655
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_diacetate
+# additive/e262ii-sodium-diacetate has 2204 products in 9 languages @2018-11-18
 e_number:en:262
-wikidata:en:Q339940
 additives_classes:en: en:preservative, en:sequestrant
 
+<en:E262
+en:acidity regulator E262
+de:Säureregulator E262
+es:corrector de acidez E262
+fr:correcteur d'acidité E262
+nl:zuurteregelaar E262
+# correcteur d'acidité E262 has 8 products in 3 languages @2018-11-18
+
+# description:en:CALCIUM ACETATE is a chemical compound which is a calcium salt of acetic acid. It has the formula Ca(C2H3O2)2. Calcium acetate is used as a food additive, as a stabilizer, buffer and sequestrant, mainly in candy products under the number E263.
+
 en:E263, Calcium acetate
+ar:E263,أسيتات الكالسيوم
 bg:E263, Калциев ацетат
 ca:E263, Acetat de calci
-cs:E263, Octan vápenatý, Vápenatá sůl kyseliny ethanové, E 263, Vápenatá sůl kyseliny octové, Acetát vápenatý, Ethanoát vápenatý, Ca(CH3COO)2
+cs:E263, Octan vápenatý, Vápenatá sůl kyseliny ethanové, Vápenatá sůl kyseliny octové, Acetát vápenatý, Ethanoát vápenatý
+cy:E263,calsiwm asetad
 da:E263, Calciumacetat
 de:E263, Calciumacetat, (CH3COO)2Ca, E 263, Kalziumacetat, Calciumdiacetat
 el:E263, Οξικα αλατα του ασβεστιου
+eo:E263,kalcia acetato
 es:E263, Acetato de calcio, E-263, Conservante E-263, Conservante E263
 et:E263, Kaltsiumatsetaat
 fi:E263, Kalsiumasetaatti, E 263
 fr:E263, Acétate de calcium, C4H6O4Ca, C4H6CaO4, Ca(C2H3O2)2, 62-54-4
 hu:E263, Kalcium-acetát
+id:E263,Kalsium asetat
 it:E263, Acetato di calcio, (CH3COO)2Ca
+ja:E263,酢酸カルシウム
 lt:E263, Kalcio acetatas
 lv:E263, Kalcija acetāts
 mt:E263, Aċetat tal-kalċju
@@ -5181,14 +5531,33 @@ nl:E263, Calciumacetaat
 pl:E263, Octan wapnia, Wapno szare
 pt:E263, Acetato de cálcio
 ro:E263, Acetat de calciu
+sh:E263,Kalcijum acetat
 sk:E263, Octan vápenatý
 sl:E263, Kalcijev acetat
+sr:E263,Kalcijum acetat
 sv:E263, Kalciumacetat
-e_number:en:263
+ta:E263,கால்சியம் அசிட்டேட்டு
+tr:E263,Kalsiyum asetat
+vi:E263,Canxi axetat
+zh:E263,乙酸钙
+# azb:E263,استات کلسیوم
+# zh-cn:E263,乙酸钙
+# zh-hans:E263,乙酸钙
+# zh-hant:E263,乙酸鈣
+# zh-hk:E263,乙酸鈣
+# zh-sg:E263,乙酸钙
+# zh-tw:E263,乙酸鈣
 wikidata:en:Q409251
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_acetate
+# ingredient/fr:acétate-de-calcium has 63 products @2019-04-06
+# additive/e263-calcium-acetate has 293 products @2019-04-06
+e_number:en:263
 additives_classes:en: en:preservative, en:stabilizer
 vegan:en:yes
 vegetarian:en:yes
+
+<en:E263
+sr:regulator kiselosti E263
 
 en:E264, Ammonium acetate
 bg:E264, E264 food additive
@@ -5270,33 +5639,92 @@ wikidata:en:Q7553316
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is not made from milk and thus suitable for people with milk allergy or lactose intolerance.
+# description:en:  LACTIC ACID is an organic compound with the formula CH3CH(OH)CO2H. In the form of its conjugate base called lactate (this is thus different and kept as a separate ingredient). Lactic acid is chiral, consisting of two optical isomers. One is known as L-(+)-lactic acid or (S)-lactic acid and the other, its mirror image, is D-(−)-lactic acid or (R)-lactic acid in food the L-variant is used
+# diets:en:lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is not made from milk and thus suitable for people with milk allergy or lactose intolerance.
 
 en:E270, Lactic acid, milk acid, 2-Hydroxypropanoic acid
+ar:E270,حمض اللبنيك
+be:E270,Малочная кіслата
 bg:E270, Млечна киселина, Лактат
+bs:E270, Mliječna kiselina
 ca:E270, Àcid làctic
-cs:E270, Kyselina mléčná, Laktát, E 270
-da:E270, Mælkesyre, Laktat, E-270
-de:E270, Milchsäure, L-Lactat, 2-Hydroxypropionsäure, 2-Hydroxypropansäure, Hydroxypropansäure, E 270
+cs:E270, Kyselina mléčná, Laktát
+cy:E270, Asid lactig
+da:E270, Mælkesyre, Laktat
+de:E270, Milchsäure, L-Lactat, 2-Hydroxypropionsäure, 2-Hydroxypropansäure, Hydroxypropansäure
 el:E270, Γαλακτικο οξυ, 2-υδροξυπροπανικό οξύ, Κρεωγαλακτικό οξύ
+eo:E270, Lakta acido
 es:E270, Ácido láctico, Conservante E270, Acido 2 hidroxipropanoico, Ácido 2 propanoloico, E-270, Conservante E 270, Lactato
 et:E270, Piimhape, 2-hüdroksüpropaanhape
-fi:E270, Maitohappo, L(+) -maitohappo, Laktaatti, E 270
-fr:E270, Acide lactique, Acide L-lactique, 79-33-4, 50-21-5, Lactique, Lactate, 10326-41-7, 598-82-3
+fa:E270, اسید لاکتیک
+fi:E270, Maitohappo, L(+) -maitohappo, Laktaatti
+fr:E270, Acide lactique, Acide L-lactique, Lactique, Lactate
+ga:E270, Aigéad lachtach
+gl:E270, Ácido láctico
+he:E270, חומצה לקטית
+hi:E270, लैक्टिक अम्ल
+hr:E270, mliječna kiselina
 hu:E270, Tejsav
+hy:E270, Կաթնաթթու
+id:E270, Asam laktat
+is:E270, Mjólkursýra
 it:E270, Acido lattico, Acido DL-lattico, Acido 2-idrossipropanoico, Acido alfadipropionico, Lattato
+ja:E270, 乳酸
+ka:E270, რძემჟავა
+kk:E270, Сүт қышқылы
+ko:E270, 젖산
+lb:E270, Mëllechsaier
 lt:E270, Pieno rūgštis, Laktatas
 lv:E270, Pienskābe, Laktāti, Laktobacilīns, Hidroksipropionskābe
+mk:E270, Млечна киселина
+ms:E270, Asid laktik
 mt:E270, Aċidu lattiku
+nb:E270, Melkesyre
 nl:E270, Melkzuur
+nn:E270, melkesyre
+oc:E270, acid lactic
 pl:E270, Kwas mlekowy, Mleczan
 pt:E270, Ácido láctico, Lactato, Ácido lático, Latato
 ro:E270, Acid lactic
 ru:E270, Молочная кислота, C3H6O3, Лактат, Е270
+sh:E270, Mliječna kiselina
 sk:E270, Kyselina mliečna
 sl:E270, Mlečna kislina, Laktat
+sq:E270, Acidi Laktik
+sr:E270, млијечна киселина
+su:E270, Asam laktat
 sv:E270, Mjölksyra, Laktat, 2-hydroxipropansyra, E 270
-e_number:en:270
+ta:E270, லாக்டிக் அமிலம்
+te:E270, లాక్టికామ్లం
+th:E270, กรดแล็กติก
+tr:E270, Laktik asit
+uk:E270, Молочна кислота
+uz:E270, Sut kislota
+vi:E270, axit lactic
+zh:E270, 乳酸
+# ast:E270, Ácidu láctico
+# azb:E270, اسید لاکتیک
+# be-tarask:E270, Малочная кісьля
+# kk-arab:E270, ٴسۇت قىشقىلى
+# kk-cn:E270, ٴسۇت قىشقىلى
+# kk-cyrl:E270, Сүт қышқылы
+# kk-kz:E270, Сүт қышқылы
+# kk-latn:E270, Süt qışqılı
+# kk-tr:E270, Süt qışqılı
+# pt-br:E270, ácido lático
+# sco:E270, lactic acid
+# sr-ec:E270, млијечна киселина
+# sr-el:E270, Mliječna kiselina
+# war:E270, Aksido Lactico
+# zh-cn:E270, 乳酸
+# zh-hans:E270, 乳酸
+# zh-hant:E270, 乳酸
+# zh-hk:E270, 乳酸
+# zh-sg:E270, 乳酸
+# zh-tw:E270, 乳酸
+wikidata:en:Q56626856
+wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid
+# en:lactic-acid has 7496 products in 20 languages@2018-11-17
 wikidata:en:Q161249
 organic_eu:en:authorized
 vegan:en:yes
