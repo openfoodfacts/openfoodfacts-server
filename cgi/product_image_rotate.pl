@@ -28,9 +28,13 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Users qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
+
+ProductOpener::Display::init();
 
 my $code = normalize_code(param('code'));
 my $product_id = product_id_for_user($User_id, $Org_id, $code);
