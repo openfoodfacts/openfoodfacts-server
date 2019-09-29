@@ -174,18 +174,39 @@ A positive value indicates that the data is imported from the manufacturer of th
 
 =head4 test - optional
 
+Compute statistics on the number of products the import would add or change,
+but do not actually import and save the changes.
+
 =head4 skip_if_not_code - optional
+
+Only import one product with the corresponding code.
 
 =head4 skip_not_existing_products - optional
 
+Only import product data if the product already exists in the database.
+This can be useful when we have very sparse data to import
+(e.g. a list of codes of products sold in a given store chain), and we do not want
+to create products when we have no other existing data.
+
 =head4 skip_products_without_info - optional
+
+Do not import products when we do not have info (product name or brands)
 
 =head4 skip_products_without_images - optional
 
+Do not import products if there are no corresponding images in the directory
+specified by the images_dir argument/
+
 =head4 skip_existing_values - optional
+
+If a product already has existing values for some fields, do not overwrite it with
+values from the CSV file.
 
 =head4 only_select_not_existing_images - optional
 
+If the product already has an image for front, ingredients or nutrition in a given
+language, do not overwrite it with an image from the import. The image will still be
+uploaded and added to the product, but it will not be selected.
 
 =cut
 
