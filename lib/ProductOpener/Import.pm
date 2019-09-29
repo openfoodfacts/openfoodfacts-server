@@ -18,6 +18,40 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Import - import products data in CSV format and products photos
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Import> is used to import product data in the Open Food Facts CSV format
+and associated product photos.
+
+    use ProductOpener::Import qw/:all/;
+	import_csv_file( {
+		user_id => "user",
+		org_id => "organization",
+		csv_file => "/path/to/product_data.csv",
+	});
+
+This module is used to import product data provided by manufacturers on the producers platform:
+the data from manufacturers (in CSV or Excel files) is first converted to the Open Food Facts
+CSV format, then imported with C<import_csv_file>.
+
+It is also used to export product data from the producers platform to the public database.
+The data is first exported from the producers platform with the C<ProductOpener::Export> module,
+and then imported in the public database with the C<import_csv_file> function.
+
+In the producers platform, the C<import_csv_file> function is executed through a Minion worker.
+
+It is also used in the C<scripts/import_csv_file.pl> script.
+
+=head1 DESCRIPTION
+
+..
+
+=cut
+
 package ProductOpener::Import;
 
 use utf8;
@@ -68,6 +102,92 @@ use Time::Local;
 use Data::Dumper;
 use Text::CSV;
 
+=head1 FUNCTIONS
+
+=head2 import_csv_file ( ARGUMENTS )
+
+C<import_csv_file()> imporst product data in the Open Food Facts CSV format
+and associated product photos.
+
+=head3 Arguments
+
+Arguments are passed through a single hash reference with the following keys:
+
+=head4 user_id - required
+
+User id to which the changes (new products, added or changed values, new images)
+will be attributed.
+
+=head4 org_id - optional
+
+Organisation id to which the changes (new products, added or changed values, new images)
+will be attributed.
+
+=head4 csv_file - required
+
+Path and file name of the CSV file to import.
+
+The CSV file needs to be in the Open Food Facts CSV format, encoded in UTF-8
+with tabs as separators.
+
+=head4 global_values - optional
+
+Hash ref that specifies fields and values that will be used as default values.
+
+If the CSV contains a non-empty value for a field, the value from the CSV file is used.
+
+=head4 images_dir - optional
+
+Path to a directory that contains images for the products.
+
+=head4 comment - optional
+
+Comment that will be saved in the product history.
+
+=head4 no_source - optional
+
+Indicates that there should not be a data source attribution.
+
+=head4 source_id - required (unless no_source is indicated)
+
+Source id for the data and images.
+
+=head4 source_name - required (unless no_source is indicated)
+
+Name of the source.
+
+=head4 source_url - required (unless no_source is indicated)
+
+URL for the source.
+
+=head4 source_licence - optional (unless no_source is indicated)
+
+Licence that the source data is available in.
+
+=head4 source_licence_url - optional (unless no_source is indicated)
+
+URL for the licence.
+
+=head4 manufacturer - optional
+
+A positive value indicates that the data is imported from the manufacturer of the products.
+
+=head4 test - optional
+
+=head4 skip_if_not_code - optional
+
+=head4 skip_not_existing_products - optional
+
+=head4 skip_products_without_info - optional
+
+=head4 skip_products_without_images - optional
+
+=head4 skip_existing_values - optional
+
+=head4 only_select_not_existing_images - optional
+
+
+=cut
 
 sub import_csv_file($) {
 
@@ -110,10 +230,8 @@ sub import_csv_file($) {
 
 	);
 
-
 	my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
 					 or die "Cannot use CSV: ".Text::CSV->error_diag ();
-
 
 	my $time = time();
 
@@ -126,7 +244,6 @@ sub import_csv_file($) {
 	my @edited = ();
 	my %edited = ();
 	my %nutrients_edited = ();
-
 
 	# Read images if supplied
 
@@ -172,7 +289,7 @@ sub import_csv_file($) {
 			print STDERR "did not find images rules: $args_ref->{images_dir}/images.rules does not exist\n";
 		}
 
-		print "Opening images_dir $args_ref->{images_dir}\n";
+		print STDERR "Opening images_dir $args_ref->{images_dir}\n";
 
 		if (opendir (DH, "$args_ref->{images_dir}")) {
 			foreach my $file (sort { $a cmp $b } readdir(DH)) {
@@ -206,7 +323,7 @@ sub import_csv_file($) {
 				if ($file2 =~ /(\d+)(_|-|\.)?([^\.-]*)?((-|\.)(.*))?\.(jpg|jpeg|png)/i) {
 
 					if ((-s "$args_ref->{images_dir}/$file") < 10000) {
-						print "Size of $args_ref->{images_dir}/$file is < 10000 : " . (-s "$args_ref->{images_dir}/$file") . " , skipping\n";
+						print STDERR "Size of $args_ref->{images_dir}/$file is < 10000 : " . (-s "$args_ref->{images_dir}/$file") . " , skipping\n";
 						next;
 					}
 
@@ -220,7 +337,7 @@ sub import_csv_file($) {
 
 					$stats{products_with_images_even_if_no_data}{$code} = 1;
 
-					print "FOUND IMAGE FOR PRODUCT CODE $code - file $file - file2 $file2 - imagefield: $imagefield\n";
+					print STDERR "FOUND IMAGE FOR PRODUCT CODE $code - file $file - file2 $file2 - imagefield: $imagefield\n";
 
 					# skip jpg and keep png for front product image
 
@@ -232,29 +349,21 @@ sub import_csv_file($) {
 						$images_ref->{$code}{$imagefield} = $file;
 					}
 				}
-
 			}
 		}
 		else {
 			die ("Could not open images_dir $args_ref->{images_dir} : $!\n");
 		}
-
-
 	}
 
-	print "importing products\n";
+	print STDERR "importing products\n";
 
-	open (my $io, '<:encoding(UTF-8)', $args_ref->{csv_file}) or die("Could not open $args_ref->{csv_file}: $!");
+	open (my $io, '<:encoding(UTF-8)', $args_ref->{csv_file}) or die("Could not open " . $args_ref->{csv_file} . ": $!");
 
 	$csv->column_names ($csv->getline ($io));
 
 	my $skip_not_existing = 0;
 	my $skip_no_images = 0;
-
-	#my $skip_until = 8018759001393;
-	#my $skip_until = 0;
-
-	my $skip_until = 0;
 
 	while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
@@ -274,18 +383,7 @@ sub import_csv_file($) {
 			next;
 		}
 
-
-		if (($skip_until > 0) and ($code eq $skip_until)) {
-			$skip_until = 0;
-			next;
-		}
-
-		# next if $code ne "3410280020266";
-
-		$skip_until and next;
-
-
-		print "product $i - code: $code\n";
+		print STDERR "product $i - code: $code\n";
 
 		if ($code eq '') {
 			print "empty code\n";
@@ -300,8 +398,6 @@ sub import_csv_file($) {
 			print Dumper($imported_product_ref);
 			next;
 		}
-
-		#next if ($code ne "3162050010259");
 
 		$stats{products_in_file}{$code} = 1;
 
@@ -351,35 +447,31 @@ sub import_csv_file($) {
 							# File already selected
 							delete $images_ref->{$code}{$imagefield . "_$k"};
 						}
-
 					}
 				}
 			}
 		}
 
+		if ($args_ref->{skip_products_without_images}) {
 
-		# next if ($i < 2665);
-
-		if ($args_ref->{only_import_products_with_images}) {
-
-			print "PRODUCT LINE NUMBER $i - CODE $code\n";
+			print STDERR "PRODUCT LINE NUMBER $i - CODE $code\n";
 
 			if (not defined $images_ref->{$code}) {
-				print "MISSING IMAGES ALL - PRODUCT CODE $code\n";
+				print STDERR "MISSING IMAGES ALL - PRODUCT CODE $code\n";
 			}
 			if (not defined $images_ref->{$code}{front}) {
-				print "MISSING IMAGES FRONT - PRODUCT CODE $code\n";
+				print STDERR "MISSING IMAGES FRONT - PRODUCT CODE $code\n";
 			}
 			if (not defined $images_ref->{$code}{ingredients}) {
-				print "MISSING IMAGES INGREDIENTS - PRODUCT CODE $code\n";
+				print STDERR "MISSING IMAGES INGREDIENTS - PRODUCT CODE $code\n";
 			}
 			if (not defined $images_ref->{$code}{nutrition}) {
-				print "MISSING IMAGES NUTRITION - PRODUCT CODE $code\n";
+				print STDERR "MISSING IMAGES NUTRITION - PRODUCT CODE $code\n";
 			}
 
 			if ((not defined $images_ref->{$code}) or (not defined $images_ref->{$code}{front})
 				or ((not defined $images_ref->{$code}{ingredients}))) {
-				print "MISSING IMAGES SOME - PRODUCT CODE $code\n";
+				print STDERR "MISSING IMAGES SOME - PRODUCT CODE $code\n";
 				$skip_no_images++;
 				next;
 			}
@@ -393,7 +485,7 @@ sub import_csv_file($) {
 		}
 
 		if (not $product_ref) {
-			print "- does not exist in OFF yet\n";
+			print STDERR "- does not exist in OFF yet\n";
 
 			if ($args_ref->{skip_not_existing_products}) {
 				print STDERR "skip not existing products\n";
@@ -420,7 +512,6 @@ sub import_csv_file($) {
 					# store_product($product_ref, "Creating product - " . $product_comment );
 				}
 			}
-
 		}
 		else {
 			print "- already exists in OFF\n";
@@ -430,9 +521,6 @@ sub import_csv_file($) {
 
 		# First load the global params, then apply the product params on top
 		my %params = %global_values;
-
-
-
 
 		# Create or update fields
 
@@ -463,11 +551,6 @@ sub import_csv_file($) {
 		}
 
 		foreach my $field (@param_fields) {
-			print $field . "\n";
-		}
-
-
-		foreach my $field (@param_fields) {
 
 			# fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
 
@@ -477,9 +560,7 @@ sub import_csv_file($) {
 				$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};
 			}
 
-
 			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/)) {
-
 
 				print STDERR "defined and non empty value for field $field : " . $imported_product_ref->{$field} . "\n";
 
@@ -511,7 +592,6 @@ sub import_csv_file($) {
 							$existing{$tagid} = 1;
 						}
 					}
-
 
 					foreach my $tag (split(/,/, remove_tags_and_quote($imported_product_ref->{$field}))) {
 
@@ -548,7 +628,6 @@ sub import_csv_file($) {
 								$product_ref->{$field} =~ s/\b$regexp\b/$tag/i;
 							}
 						}
-
 					}
 
 					if ($product_ref->{$field} =~ /^, /) {
@@ -584,8 +663,6 @@ sub import_csv_file($) {
 					elsif ($field eq "brands") {	# we removed it earlier
 						compute_field_tags($product_ref, $tag_lc, $field);
 					}
-
-
 				}
 				else {
 					# non-tag field
@@ -641,14 +718,13 @@ sub import_csv_file($) {
 							$current_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
 						}
 
-
 						if (lc($current_value) ne lc($new_field_value)) {
 						# if ($current_value ne $new_field_value) {
-							print "differing value for product code $code - field $field - existing value:\n$product_ref->{$field}\nnew value:\n$new_field_value - https://world.openfoodfacts.org/product/$code\n";
+							print STDERR "differing value for product code $code - field $field - existing value:\n$product_ref->{$field}\nnew value:\n$new_field_value - https://world.openfoodfacts.org/product/$code\n";
 							$differing++;
 							$differing_fields{$field}++;
 
-							print "changing previously existing value for product code $code - field $field - value: $new_field_value\n";
+							print STDERR "changing previously existing value for product code $code - field $field - value: $new_field_value\n";
 							$product_ref->{$field} = $new_field_value;
 							push @modified_fields, $field;
 							$modified++;
@@ -657,18 +733,16 @@ sub import_csv_file($) {
 						}
 						elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
 							# normalize quantity
-							print "normalizing quantity for product code $code - field $field - existing value: $product_ref->{$field} - value: $new_field_value\n";
+							print STDERR "normalizing quantity for product code $code - field $field - existing value: $product_ref->{$field} - value: $new_field_value\n";
 							$product_ref->{$field} = $new_field_value;
 							push @modified_fields, $field;
 							$modified++;
 
 							$stats{products_info_changed}{$code} = 1;
 						}
-
-
 					}
 					else {
-						print "setting previously unexisting value for product code $code - field $field - value: $new_field_value\n";
+						print STDERR "setting previously unexisting value for product code $code - field $field - value: $new_field_value\n";
 						$product_ref->{$field} = $new_field_value;
 						push @modified_fields, $field;
 						$modified++;
@@ -677,7 +751,6 @@ sub import_csv_file($) {
 				}
 			}
 		}
-
 
 		# nutrients
 
@@ -696,7 +769,6 @@ sub import_csv_file($) {
 
 			# next if $nid =~ /^nutrition-score/;   #TODO
 
-
 			# for prepared product
 			my $nidp = $nid . "_prepared";
 
@@ -709,11 +781,9 @@ sub import_csv_file($) {
 				$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
 			);
 
-
 			my $value = remove_tags_and_quote($imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"});
 			my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"});
 			my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"});
-
 
 			if ($nid eq 'alcohol') {
 				$unit = '% vol';
@@ -724,9 +794,6 @@ sub import_csv_file($) {
 
 			normalize_nutriment_value_and_modifier(\$value, \$modifier);
 			normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
-
-			# print STDERR "nid: $nid - value: $value - unit: $unit\n";
-
 
 			if ((defined $value) and ($value ne '')) {
 
@@ -747,7 +814,6 @@ sub import_csv_file($) {
 
 				assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
 			}
-
 
 			# See which fields have changed
 
@@ -776,7 +842,6 @@ sub import_csv_file($) {
 					$nutrients_edited{$code}++;
 				}
 			}
-
 		}
 
 		# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
@@ -789,7 +854,6 @@ sub import_csv_file($) {
 				}
 			}
 		}
-
 
 		if ((defined $stats{products_info_added}{$code}) or (defined $stats{products_info_changed}{$code})) {
 			$stats{products_info_updated}{$code} = 1;
@@ -829,7 +893,6 @@ sub import_csv_file($) {
 			$stats{products_without_data}{$code} = 1;
 		}
 
-
 		if ($modified and not $stats{products_data_updated}{$code}) {
 			die("modified but not products_data_updated\n");
 		}
@@ -868,7 +931,6 @@ sub import_csv_file($) {
 				ProductOpener::Food::special_process_product($product_ref);
 			}
 
-
 			if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')
 				and not has_tag($product_ref, "labels", "en:carbon-footprint")) {
 				push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
@@ -881,8 +943,6 @@ sub import_csv_file($) {
 				push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
 			}
 
-
-
 			# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
 			foreach my $field (keys %language_fields) {
@@ -893,11 +953,6 @@ sub import_csv_file($) {
 				}
 			}
 
-
-			if ($server_domain =~ /openfoodfacts/) {
-				ProductOpener::Food::special_process_product($product_ref);
-			}
-
 			compute_languages($product_ref); # need languages for allergens detection and cleaning ingredients
 
 			# Ingredients classes
@@ -905,7 +960,6 @@ sub import_csv_file($) {
 			extract_ingredients_from_text($product_ref);
 			extract_ingredients_classes_from_text($product_ref);
 			detect_allergens_from_text($product_ref);
-
 
 			if (not $args_ref->{no_source}) {
 
@@ -932,7 +986,6 @@ sub import_csv_file($) {
 				defined $args_ref->{source_licence_url} and $source_ref->{source_licence_url} = $args_ref->{source_licence_url};
 
 				push @{$product_ref->{sources}}, $source_ref;
-
 			}
 
 			if (not $args_ref->{test}) {
@@ -951,15 +1004,7 @@ sub import_csv_file($) {
 
 				ProductOpener::SiteQuality::check_quality($product_ref);
 
-
 				print STDERR "Storing product code $code - product_ref->code: " . $product_ref->{code} . "\n";
-
-				if ($code eq "3245413832719") {
-					use Data::Dumper;
-					print Dumper($product_ref);
-				}
-				#exit;
-
 
 				store_product($product_ref, "Editing product (import) - " . $product_comment );
 
@@ -969,15 +1014,10 @@ sub import_csv_file($) {
 				$stats{products_updated}{$code} = 1;
 
 				$j++;
-
 			}
-
-
 		}
 
-
 		# Images need to be updated after the product is saved (and possibly created)
-
 
 		# Upload images
 
@@ -1061,47 +1101,35 @@ sub import_csv_file($) {
 					else {
 						print "did not find image file $args_ref->{images_dir}/$file\n";
 					}
-
 				}
 			}
-
 		}
 		else {
 			print STDERR "no images for product code $code\n";
 			$stats{products_without_images}{$code} = 1;
 		}
 
-
-		if ($modified) {
-			# $j++ > 10 and last;
-		}
-		#last if ($code eq "8024749600415");
 	}
 
-
-	print "\n\nimport done\n\n";
+	print STDERR "\n\nimport done\n\n";
 
 	foreach my $field (sort keys %differing_fields) {
-		print "field $field - $differing_fields{$field} differing values\n";
+		print STDERR "field $field - $differing_fields{$field} differing values\n";
 	}
 
+	print STDERR "$i products\n";
+	print STDERR "$new new products\n";
+	print STDERR "$skip_not_existing skipped not existing products\n";
+	print STDERR "$skip_no_images skipped no images products\n";
+	print STDERR "$existing existing products\n";
+	print STDERR "$differing differing values\n\n";
 
-	print "$i products\n";
-	print "$new new products\n";
-	print "$skip_not_existing skipped not existing products\n";
-	print "$skip_no_images skipped no images products\n";
-	print "$existing existing products\n";
-	print "$differing differing values\n\n";
+	print STDERR ((scalar keys %nutrients_edited) . " products with edited nutrients\n");
+	print STDERR ((scalar keys %edited) . " products with edited fields or nutrients\n");
 
-	print ((scalar keys %nutrients_edited) . " products with edited nutrients\n");
-	print ((scalar keys %edited) . " products with edited fields or nutrients\n");
+	print STDERR ((scalar @edited) . " products updated\n");
 
-	print ((scalar @edited) . " products updated\n");
-
-
-	print "\n\nstats:\n\n";
-
-
+	return \%stats;
 }
 
 
