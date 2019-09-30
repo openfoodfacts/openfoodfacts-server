@@ -3141,9 +3141,9 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-<en:E171
-en:colorant E171
-fr:colorant e171
+#<en:E171
+#en:colorant E171
+#fr:colorant e171
 # ingredient/fr:colorant-e171 has 75 products in 2 languages @2019-03-27
 
 en:E172, Iron oxides and iron hydroxides
@@ -3565,10 +3565,10 @@ es:E202, Sorbato potásico, Sorbato de potasio
 et:E202, Kaaliumsorbaat
 fa:E202, پتاسیم سوربات
 fi:E202, Kaliumsorbaatti
-fr:E202, Sorbate de potassium, 24634-61-5, C6H7O2K, C6H7KO2
+fr:E202, Sorbate de potassium
 he:E202, אשלגן סורבט
 hu:E202, Kálium-szorbát
-it:E202, Sorbato di potassio, C6H7KO2
+it:E202, Sorbato di potassio
 ja:E202, ソルビン酸カリウム
 lt:E202, Kalio sorbatas
 lv:E202, Kālija sorbāts
@@ -3611,12 +3611,12 @@ additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
-<en:E202
-en:preservative potassium sorbate, preservative E202
-de:Konservierungsmittel Kaliumsorbat, Konservierungsstoff Kaliumsorbat
-fr:conservateur sorbate de potassium, conservateur e 202, conservateurs e202
-it:conservante sorbati di pottassio
-nl:conserveermiddelen E202
+#<en:E202
+#en:preservative potassium sorbate, preservative E202
+#de:Konservierungsmittel Kaliumsorbat, Konservierungsstoff Kaliumsorbat
+#fr:conservateur sorbate de potassium, conservateur e 202, conservateurs e202
+#it:conservante sorbati di pottassio
+#nl:conserveermiddelen E202
 # ingredient/fr:conservateur-sorbate-de-potassium has 70 products in 5 languages @2019-02-02
 # ingredient/fr:conservateurs-e202 has 233 products in 5 languages @2019-03-27
 
@@ -4340,8 +4340,8 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
-<en:E224
-fr:conservateur e224
+#<en:E224
+#fr:conservateur e224
 # ingredient/fr:conservateur-e224 has 25 products in french @2019-03-26
 
 en:E225, Calcium Disulphite, Calcium Disulfite, Calcium Pyrosulphite, Calcium Pyrosulfite, potassium sulfite, potassium sulphite
@@ -5030,11 +5030,11 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
-<en:E250
-en:preservative sodium nitrite
-de:Konservierungsmittel Natriumnitrit
-fr:conservateur nitrite de sodium, conservateur e 250
-it:nitrito di sodio conservante
+#<en:E250
+#en:preservative sodium nitrite
+#de:Konservierungsmittel Natriumnitrit
+#fr:conservateur nitrite de sodium, conservateur e 250
+#it:nitrito di sodio conservante
 # ingredient/fr:conservateur-nitrite-de-sodium has 132 products in 4 languages @2019-02-13
 
 # description:en:SODIUM NITRATE is the chemical compound with the formula NaNO3. Sodium nitrate is a food additive used as a preservative and colour fixative in cured meats and poultry
@@ -5496,12 +5496,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_diacetate
 e_number:en:262
 additives_classes:en: en:preservative, en:sequestrant
 
-<en:E262
-en:acidity regulator E262
-de:Säureregulator E262
-es:corrector de acidez E262
-fr:correcteur d'acidité E262
-nl:zuurteregelaar E262
+#<en:E262
+#en:acidity regulator E262
+#de:Säureregulator E262
+#es:corrector de acidez E262
+#fr:correcteur d'acidité E262
+#nl:zuurteregelaar E262
 # correcteur d'acidité E262 has 8 products in 3 languages @2018-11-18
 
 # description:en:CALCIUM ACETATE is a chemical compound which is a calcium salt of acetic acid. It has the formula Ca(C2H3O2)2. Calcium acetate is used as a food additive, as a stabilizer, buffer and sequestrant, mainly in candy products under the number E263.
@@ -5556,8 +5556,8 @@ additives_classes:en: en:preservative, en:stabilizer
 vegan:en:yes
 vegetarian:en:yes
 
-<en:E263
-sr:regulator kiselosti E263
+#<en:E263
+#sr:regulator kiselosti E263
 
 en:E264, Ammonium acetate
 bg:E264, E264 food additive
@@ -6257,6 +6257,8 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:Sodium ascorbate is one of a number of mineral salts of ascorbic acid (vitamin C).
+
 en:E301, Sodium ascorbate, Sodium L-ascorbate
 bg:E301, Натриев аскорбат, Натриев L-аскорбат
 ca:E301, Ascorbat de sodi
@@ -6264,11 +6266,14 @@ cs:E301, Askorban sodný, L-askorban sodný
 da:E301, Natriumascorbat, Natrium-L-ascorbat
 de:E301, Natriumascorbat, E 301, Natrium-L-Ascorbat
 el:E301, Ασκορβικο νατριο, L-Ασκορβικό νάτριο
+eo:E301, Natria askorbato
 es:E301, Ascorbato sódico, Ascorbato de sodio, L-ascorbato sódico, E 301
 et:E301, Naatriumaskorbaat
+fa:E301, اسکوربات سدیم
 fi:E301, Natriumaskorbaatti
 fr:E301, Ascorbate de sodium, Ascorbate de sodium, L-ascorbate de sodium, sel monosodique de l’acide L-ascorbique, L-ascorbate de Sodium, 134-03-2, C6H7O6Na
 hu:E301, Nátrium-aszkorbát, Nátrium-L-aszkorbát
+hy:E301, Նատրիումի ասկորբատ
 it:E301, Ascorbato di sodio, L-Ascorbato di sodio
 lt:E301, Natrio askorbatas, Natrio L-askorbatas, Mononatrio askorbatas
 lv:E301, Nātrija askorbāts, Nātrija L-askorbāts
@@ -6277,14 +6282,20 @@ nl:E301, Natriumascorbaat, Natrium-L-ascorbaat
 pl:E301, Askorbinian sodu, L-askorbinian sodu
 pt:E301, Ascorbato de sódio, L-Ascorbato de sódio
 ro:E301, Ascorbat de sodiu, L-ascorbat de sodiu
-rs:E301, natrijum askorbat
 ru:E301, Аскорбат натрия, Е301
+sh:E301, Natrijum askorbat
 sk:E301, Askorban sodný, L-askorbát sodný
 sl:E301, Natrijev askorbat, natrijev L-askorbat
+sr:E301, Natrijum askorbat
 sv:E301, Natriumaskorbat, Natrium-L-askorbat
+uk:E301, Аскорбат натрію
+# azb:E301, اسکوربات سودیوم
+wikidata:en:Q424551
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_ascorbate
+# additive/e301-sodium-ascorbate has 5340 products in 17 languages @2018-11-10
+# en:sodium-ascorbate has 4161 products in 7 languages @2018-11-10
 e_number:en:301
 mandatory_additive_class:en: en:antioxidant, en:preservative
-wikidata:en:Q424551
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2015.4087
 efsa_evaluation_date:en: 2015/05/06
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of ascorbic acid (E 300), sodium ascorbate (E 301) and calcium ascorbate (E 302) as food additives
@@ -6293,6 +6304,10 @@ additives_classes:en: en:antioxidant
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+
+#<en:E301
+#en:antioxidant sodium ascorbate
+#fr:antioxydant e301
 
 en:E302, Calcium ascorbate
 bg:E302, Калциев аскорбат
@@ -6361,18 +6376,18 @@ bg:E304, E304 food additive
 ca:E304, Èster d'àcids grassos d'àcid ascòrbic
 cs:E304, E304 food additive
 da:E304, E304 food additive
-de:E304, Palmitinsäureascorbylester, Ascorbylpalmitat
+de:E304, Fettsäureester der Ascorbinsäure, Palmitinsäureascorbylester, Ascorbylpalmitat
 el:E304, E304 food additive
-es:E304, Palmitato ascorbilo, Palmitato de ascorbilo, E 304
+es:E304, ésteres de ácidos grasos del ácido ascórbico, Palmitato ascorbilo, Palmitato de ascorbilo, E 304
 et:E304, E304 food additive
 fi:E304, E304 food additive
 fr:E304, Acide palmityle-6-L-ascorbique, Palmitate d'ascorbyle, esters d'acides gras de l'acide ascorbique
 hu:E304, Aszkorbil-palmitát
-it:E304, Palmitato di ascorbile
+it:E304, esteri dell'acido ascorbico con acidi grassi, Palmitato di ascorbile
 lt:E304, E304 food additive
 lv:E304, E304 food additive
 mt:E304, E304 food additive
-nl:E304, Ascorbylpalmitaat
+nl:E304, vetzuuresters van ascorbinezuur, Ascorbylpalmitaat
 pl:E304, Palmitynian askorbylu
 pt:E304, E304 food additive
 ro:E304, Esteri acizi grași ai acidului ascorbic
@@ -6381,6 +6396,8 @@ sl:E304, E304 food additive
 sv:E304, Askorbylpalmitat
 e_number:en:304
 wikidata:en:Q424521
+wikipedia:en:https://en.wikipedia.org/wiki/Ascorbyl_palmitate
+# ingredient/fr:esters-d’acides-gras-de-l’acide-ascorbique has 62 products in 6 languages @2019-03-11
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4289
 efsa_evaluation_date:en: 2015-11-18
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of ascorbyl palmitate (E 304(i)) and ascorbyl stearate (E 304(ii)) as food additives
@@ -6390,9 +6407,13 @@ vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
 
+# description:en:Ascorbyl palmitate is an ester formed from ascorbic acid and palmitic acid creating a fat-soluble form of vitamin C.
+
 <en:E304
 en:E304(i), Ascorbyl palmitate, L-Ascorbyl Palmitate
+ar:E304(i), بالميتات الأسكوربيل
 bg:E304(i), Аскорбил палмитат
+ca:E304(i), Palmitat d'ascorbil
 cs:E304(i), Askorbylpalmitát
 da:E304(i), Ascorbylpalmitat
 de:E304(i), Ascorbylpalmitat
@@ -6403,6 +6424,7 @@ fi:E304(i), Askorbyylipalmitaatti
 fr:E304(i), Palmitate d'ascorbyle, Palmitate de L-ascorbyle
 hu:E304(i), Aszkorbil-palmitát
 it:E304(i), Palmitato di ascorbile
+ja:E304(i), パルミチン酸アスコルビル
 lt:E304(i), Askorbilpalmitatas
 lv:E304(i), Askorbilpalmitāts
 mt:E304(i), Palmitat askorbili
@@ -6410,11 +6432,18 @@ nl:E304(i), Ascorbylpalmitaat
 pl:E304(i), Palmitynian askorbylu
 pt:E304(i), Palmitato de ascorbilo
 ro:E304(i), Palmitat de ascorbil
+sh:E304(i), Askorbil palmitat
 sk:E304(i), Askorbyl-palmitan
 sl:E304(i), Askorbil palmitat
+sr:E304(i), Askorbil palmitat
 sv:E304(i), Askorbylpalmitat
+# en-ca:E304(i), Ascorbyl palmitate
+# en-gb:E304(i), Ascorbyl palmitate
+# sr-el:E304(i), Askorbil palmitat
 e_number:en:304
 wikidata:en:Q424521
+# ingredient/fr:e304i has 17 products in french @2018-11-27
+# additive/e304i-ascorbyl-palmitate has 433 products in 12 languages @2018-11-27
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4289
 efsa_evaluation_date:en: 2015-11-18
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of ascorbyl palmitate (E 304(i)) and ascorbyl stearate (E 304(ii)) as food additives
@@ -6456,7 +6485,7 @@ additives_classes:en: en:antioxidant
 vegan:en:yes
 vegetarian:en:yes
 
-
+# comment:en:For the Vitamin application of tocopherol, see the vitamins section<en:antioxidant
 
 en:E306, Tocopherol-rich extract, Tocopherols
 bg:E306, Токоферол-обогатен екстракт
@@ -6482,13 +6511,20 @@ sk:E306, Extrakt s vysokým obsahom tokoferolu
 sl:E306, Izvleček, bogat s tokoferolom
 sv:E306, Tokoferolrika extrakt
 e_number:en:306
-wikidata:en:Q13081782
+wikidata:en:Q141180
+wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_E
+# additive/e306-tocopherol-rich-extract has 1268 products in 16 languages @2018-11-25
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4247
 efsa_evaluation_date:en: 2015-09-30
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of tocopherol-rich extract (E 306), alpha-tocopherol (E 307), gamma-tocopherol (E 308) and delta-tocopherol (E 309) as food additives
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+
+#<en:E306
+#hu:antioxidáns E306
+#nl:antioxidant E306
+#ru:антиокислитель E306, антиокислитель E 306
 
 en:E307a, Alpha-tocopherol
 bg:E307a, E307a food additive
@@ -7415,31 +7451,96 @@ vegan:en:yes
 vegetarian:en:yes
 
 en:E330, Citric acid
+af:Sitroensuur
+ar:E330, حمض الليمون
+az:E330, Limon turşusu
+be:E330, Лімонная кіслата
 bg:E330, Лимонена киселина, Лимонова киселина
+bn:E330, সাইট্রিক অ্যাসিড
 ca:E330, Àcid cítric
-cs:E330, Kyselina citronová, E 330, Citrát, C6H8O7
-da:E330, Citronsyre, E-330, Citrat
+cs:E330, Kyselina citronová, Citrát
+cy:E330, Asid sitrig
+da:E330, Citronsyre, Citrat
 de:E330, Citronensäure, 2-Hydroxypropan-1\,2\,3-tricarbonsäure, Zitronensäure, 3-Carboxy-3-hydroxyglutarsäure, Zitronensalz, 2-Hydroxy-1\,2\,3-propantricarbonsäure, Zitrat, Citrate, Citrat, 3-Carboxy-3-hydroxypentandisäure
 el:E330, Κιτρικο οξυ
-es:E330, Ácido cítrico, E 330
+eo:E330, Citra acido
+es:E330, Ácido cítrico
 et:E330, Sidrunhape, 2-hüdroksüpropaan-1\,2\,3-trikarboksüülhape
+eu:E330, azido zitriko
+fa:E330, سیتریک اسید
 fi:E330, Sitruunahappo, E 330, 2-hydroksi-1\,2\,3-propaanitrikarboksyylihappo
-fr:E330, Acide citrique, C6H8O7, CAS 77-92-9, C6H8O7.H2O, Citric acid, 5949-29-1, E-330, Citrate, 77-92-9
+fr:E330, Acide citrique, Citric acid, Citrate
+ga:E330, Aigéad citreach
+gl:E330, Ácido cítrico
+he:E330, חומצה ציטרית
+hi:E330, सिट्रिक अम्ल
+hr:E330, Limunska kiselina
 hu:E330, Citromsav
+hy:E330, Կիտրոնաթթու
+id:E330, Asam sitrat
+is:E330, Sítrónusýra
 it:E330, Acido citrico, C6H8O7, Citrato
+ja:E330, クエン酸
+ka:E330, ლიმონმჟავა
+kk:E330, Лимон қышқылы
+ko:E330, 시트르산
+ky:E330, Лимон кислотасы
+lb:E330, Zitrounesaier
 lt:E330, Citrinų rūgštis
 lv:E330, Citronskābe, Citrāti, C6H8O7
+mk:E330, лимонска киселина
+ml:E330, സിട്രിക് ആസിഡ്
+ms:E330, Asid sitrik
 mt:E330, Aċidu ċitriku
-nl:E330, Citroenzuur, C6H8O7, Citraten
+nb:Sitronsyre
+nl:E330, E330, Citroenzuur, C6H8O7, Citraten
+nn:E330, sitronsyre
+pa:E330, ਸਿਟਰਿਕ ਤੇਜ਼ਾਬ
 pl:E330, Kwas cytrynowy, Kwas hydroksypropanotrikarboksylowy, Kwasek cytrynowy, Cytrynian
 pt:E330, Ácido cítrico, Ins 330
 ro:E330, Acid citric, Sare de lămâie
 ru:E330, Лимонная кислота, Е330, Бензилоранж, Цитраты, Лимонная кислота моногидрат, Кислота лимонная моногидрат
+sh:E330, Limunska kiselina
 sk:E330, Kyselina citrónová
 sl:E330, Citronska kislina
+sr:E330, limunska kiselina, limunska kiselina E330
 sv:E330, Citronsyra, E 330, Acidum citricum
-e_number:en:330
+ta:E330, சிட்ரிக் அமிலம்
+te:E330, సిట్రిక్ ఆమ్లం
+tr:E330, sitrik asit
+uk:E330, лимонная кислота
+ur:E330, سٹرک تیزاب
+vi:E330, Axít citric
+wa:E330, Seur di citron
+zh:E330, 檸檬酸
+# ast:E330, Ácidu cítricu
+# azb:E330, سیتریک اسید
+# be-tarask:E330, Лімонная кісьля
+# kk-arab:E330, لىيمون قىشقىلى
+# kk-cn:E330, لىيمون قىشقىلى
+# kk-cyrl:E330, Лимон қышқылы
+# kk-kz:E330, Лимон қышқылы
+# kk-latn:E330, Lïmon qışqılı
+# kk-tr:E330, Lïmon qışqılı
+# nan:E330, Lê-bóng-sng
+# pnb:E330, سٹرک تیزاب
+# sco:E330, citric acid
+# sr-ec:E330, лимунска киселина
+# sr-el:E330, Limunska kiselina
+# war:E330, Aksido Citrico
+# wuu:E330, 柠檬酸
+# yue:E330, 檸檬酸
+# zh-cn:E330, 柠檬酸
+# zh-hans:E330, 柠檬酸
+# zh-hant:E330, 檸檬酸
+# zh-hk:E330, 檸檬酸
+# zh-sg:E330, 柠檬酸
+# zh-tw:E330, 檸檬酸
 wikidata:en:Q159683
+wikipedia:en:https://en.wikipedia.org/wiki/Citric_acid
+# additive/e330-citric-acid has 63123 products in 39 languages @2018-11-17
+# ingredient/fr:citrique has 113 products in 5 languages @2019-03-16 (seems a recognition error)
+e_number:en:330
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
@@ -7447,6 +7548,15 @@ additives_classes:en: en:antioxidant, en:sequestrant
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+
+# comment:en:e330-acidity-corrector is kept separate as it makes explicit the role of E330, so it is more detailed
+
+#<en:E330
+#en:e330 acidity corrector
+#de:Säureregulator Citronensäure
+#fr:correcteur d'acidité acide citrique, correcteur d'acidité e330
+#t:correttore di acidità E330 - acido citrico
+# fr:correcteur-d’acidité-acide-citrique has 83 products in 3 languages @2018-11-17
 
 en:E331, Sodium citrates
 bg:E331, E331 food additive
