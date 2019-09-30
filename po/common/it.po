@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-16 17:40\n"
+"PO-Revision-Date: 2019-09-30 12:01\n"
 "Language-Team: Italian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -642,7 +642,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Se i dati sono incompleti o errati, puoi completarli o correggerli modificando questa pagina."
+msgstr "Se i dati sono incompleti o errati puoi completarli o correggerli modificando questa pagina."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -1510,7 +1510,7 @@ msgstr "Informazioni nutrizionali"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Valori nutrizionali medi per i prodotti%d  della categoria %s per la quale sono noti i valori nutrizionali (su %d prodotti)."
+msgstr "Valori nutrizionali medi per %d prodotti della categoria %s per i quali sono noti i valori nutrizionali (su %d prodotti)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1526,7 +1526,7 @@ msgstr "Confronto con i valori medi dei prodotti della stessa categoria:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr "Si prega di notare: per ogni nutrimento, la media è calcolata sui prodotti per i quali è nota la quantità nutrimento, non su tutti i prodotti della categoria."
+msgstr "Nota: per ogni nutrimento la media è calcolata sui prodotti per i quali è nota la quantità del nutrimento, non su tutti i prodotti della categoria."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
@@ -1918,7 +1918,7 @@ msgstr "Immagine Caricamento"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr "Ultima modifica della pagina del prodotto su"
+msgstr "Ultima modifica della pagina del prodotto il"
 
 msgctxt "product_name"
 msgid "Product name"
@@ -2364,7 +2364,7 @@ msgstr "Mostra statistiche dettagliate"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr "deviazione standard, minimo, massimo, 10° e 90° percentile"
+msgstr "deviazione standard, minima, massima, 10° e 90° percentile"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
@@ -2576,7 +2576,7 @@ msgstr "Visualizza l'elenco dei prodotti corrispondenti da tutto il mondo"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr "Guarda tutti i prodotti corrispondenti da tutto il mondo"
+msgstr "Visualizza prodotti corrispondenti da tutto il mondo"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
