@@ -8261,6 +8261,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_bitartrate
 # additive/e336i-monopotassium-tartrate has 127 products in 5 languages @2019-03-22
 organic_eu:en:authorized
 
+# description:en:Potassium tartrate, dipotassium tartrate or argol has formula K2C4H4O6.
+
 <en:E336
 en:E336(ii), Dipotassium tartrate, dipotassic tartrate
 bg:E336(ii), Дикалиев тартарат
@@ -8268,12 +8270,15 @@ cs:E336(ii), Dipotassium tartrate
 da:E336(ii), Dikaliumtartrat
 de:E336(ii), Dikaliumtartrat, Kaliumtartrat
 el:E336(ii), Τρυγικο καλιο
+eo:E336(ii), Kalia tartrato
 es:E336(ii), Tartrato dipotásico
 et:E336(ii), Kaaliumtartraat
+fa:E336(ii),  پتاسیم تارترات
 fi:E336(ii), Dikaliumtartraatti
-fr:E336(ii), Tartrate dipotassique
+fr:E336(ii), Tartrate dipotassique, tartrate de potassium
 hu:E336(ii), Dikálium-tartarát
-it:E336(ii), Tartrato dipotassico
+it:E336(ii), Tartrato dipotassico, Tartrato di potassio
+ja:E336(ii), 酒石酸カリウム
 lt:E336(ii), Dikalio tartratas
 lv:E336(ii), Dikālija tartrāts
 mt:E336(ii), Tartrat dipotassiku
@@ -8281,11 +8286,16 @@ nl:E336(ii), Dikaliumtartraat
 pl:E336(ii), Winian dipotasowy
 pt:E336(ii), Tartarato dipotássico
 ro:E336(ii), Tartrat dipotasic
+ru:E336(ii), тартрат калия
+sh:E336(ii), Kalijum tartrat
 sk:E336(ii), Vínan didraselný, Vínan draselný
 sl:E336(ii), Dikalijev tartrat
+sr:E336(ii), Kalijum tartrat
 sv:E336(ii), Dikaliumtartrat
+# azb:E336(ii), پوتاسیوم تارترات
+wikidata:en: Q418064
+# additive/e336ii-dipotassium-tartrate/ has 9 products in 3 languages @2019-03-22
 e_number:en:336
-wikidata:en:Q418064
 organic_eu:en:authorized
 
 en:E337, Potassium sodium tartrate
@@ -8878,45 +8888,51 @@ e_number:en:349
 wikidata:en:Q4747303
 vegan:en:yes
 vegetarian:en:yes
+# comment:E350 is written in plural to distinguish it from E350i.
 
-en:E350, Sodium malates, sodium malate
+en:E350, Sodium malates
 bg:E350, E350 food additive
 ca:E350, Malat de sodi
 cs:E350, E350 food additive
-da:E350, E350 food additive
+da:E350, natriummalater
 de:E350, Natriummalate
-el:E350, E350 food additive
-es:E350, Malato de sodio, Malato disodico, Malato sódico
+el:E350, άλατα του μηλικού οξέος με νάτριο
+es:E350, malatos de sodio
 et:E350, E350 food additive
 fi:E350, E350 food additive
-fr:E350, Malate de sodium, Malate acide de sodium, malates, malates de sodium
+fr:E350, malates de sodium
 hu:E350, Nátrium-malát
-it:E350, E350 food additive
-lt:E350, E350 food additive
+it:E350, malati di sodio
+lt:E350, natrio malatai
 lv:E350, E350 food additive
 mt:E350, E350 food additive
-nl:E350, Natriummalaat
+nl:E350, natriummalaten
 pl:E350, E350 food additive
-pt:E350, E350 food additive
+pt:E350, malatos de sódio
 ro:E350, E350 food additive
-sk:E350, E350 food additive
+sk:E350, jablčnany sodné
 sl:E350, E350 food additive
-sv:E350, E350 food additive
+sv:E350, natriummalater
 e_number:en:350
 wikidata:en:Q836788
 additives_classes:en: en:humectant
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:SODIUM MALATE is a compound with formula Na2(C2H4O(COO)2). It is the sodium salt of malic acid. 
+
 <en:E350
 en:E350(i), Sodium malate
+ar:E350(i), مالات صوديوم
 bg:E350(i), Натриев малат
 cs:E350(i), Jablečnan disodný
 da:E350(i), Natriummalat, Dinatriummalat
 de:E350(i), Natriummalat
 el:E350(i), Μηλικο νατριο
+eo:E350(i), Natria malikato
 es:E350(i), Malato sódico
 et:E350(i), Naatriummalaat
+fa:E350(i), سدیم مالات
 fi:E350(i), Natriummalaatti
 fr:E350(i), Malate de sodium
 hu:E350(i), Nátrium-malát
@@ -8928,11 +8944,19 @@ nl:E350(i), Natriummalaat
 pl:E350(i), Jabłczan sodu
 pt:E350(i), Malato de sódio
 ro:E350(i), Malat de sodiu
+sh:E350(i), Natrijum malat
 sk:E350(i), Jablčnan sodný
 sl:E350(i), Natrijev malat
+sr:E350(i), Natrijum malat
 sv:E350(i), Natriummalat
-e_number:en:350
+ta:E350(i), சோடியம் மேலேட்டு
+# azb:E350(i), سودیوم مالات
 wikidata:en:Q836788
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_malate
+# ingredient/fr:malate-de-sodium has 18 products @2019-02-25
+# additive/e350i-sodium-malate has 38 products in 3 languages @2019-02-25
+# usage:fr:correcteur d'acidité:malate de sodium
+e_number:en:350
 additives_classes:en: en:humectant
 
 <en:E350
@@ -8961,6 +8985,7 @@ sv:E350(ii), Natriumvätemalat
 e_number:en:350
 wikidata:en:Q836788
 additives_classes:en: en:humectant
+# ingredient/fr:malate-acide-de-sodium has 125 products in 5 languages @2019-05-06
 
 en:E351, Potassium malate
 bg:E351, Калиев малат
@@ -10022,53 +10047,127 @@ additives_classes:en: en:carrier, en:emulsifier, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
-en:E406, Agar, Gelose, Kanten, Bengal, Ceylon, Chinese or Japanese isinglass, agar-agar, E 406
+# description:en:Agar or agar-agar is a jelly-like substance, obtained from red algae.
+
+en:E406, Agar, Gelose, Kanten, Bengal, Ceylon, Chinese or Japanese isinglass, agar-agar, agar agar
+af:E406, Agar-agar
+ar:E406, أغار
+az:E406, Aqar
 bg:E406, Агар, Гелоза, бенгалски, цейлонски, китайски или японски желатин, Агар-агар
+bn:E406, আগার
 ca:E406, Agar, agar-agar
-cs:E406, Agar, Agar agar, Japonská želatina, E 406, Kanten
+cs:E406, Agar, Agar agar, Japonská želatina, Kanten
 da:E406, Agar, E-406
-de:E406, Agar-Agar, Agar, Chinesische Gelatine, E 406, Agartang, Japanische Gelatine, Nähragar, Japanischer Fischleim
+de:E406, Agar-Agar, Agar, Chinesische Gelatine, Agartang, Japanische Gelatine, Nähragar, Japanischer Fischleim
 el:E406, Agar
-es:E406, Agar-agar, Agar, E 406, Agaragar, Kanten
+eo:E406, agaragaro
+es:E406, Agar-agar, Agar, Agaragar, Kanten
 et:E406, Agar, Bengali, tseiloni, Agar-agar
-fi:E406, Agar, Agar-agar, Agaroosi, E 406
-fr:E406, Agar-agar, Agar, 9002-18-0, E 406
+eu:E406, Agar-agar
+fa:E406, آگار
+fi:E406, Agar, Agar-agar, Agaroosi
+fr:E406, Agar-agar, Agar
+ga:E406, Agar
+gl:E406, Ágar-ágar
+he:E406, אגר
+hi:E406, अगर
+hr:E406, Agar
 hu:E406, Agar-agar, Agar, Gelóz, Kantoni, bengáli, ceyloni, kínai vagy japán vizahólyag, Agaragar
-it:E406, Agar, Agar agar, Kanten
+id:E406, Agar-agar
+io:E406, Agar-agaro
+it:E406, Agar, Agar agar, Kanten, agar-agar
+ja:E406, 寒天
+jv:E406, Ager-ager
+kk:E406, Агар
+kn:E406, ಅಗಾರ್
+ko:E406, 우무
+ky:E406, Агар-агар
+la:E406, Agar
 lt:E406, Agaras, Agaragaras
 lv:E406, Agars
+mk:E406, Агар
+ml:E406, അഗർ
+ms:E406, Agar-agar
 mt:E406, Agar
+my:E406, ကျောက်ကျော
+nb:E406, agar
 nl:E406, Agaragar, Gelose, kanten, Bengaalse, Ceylonse, Chinese of Japanse vislijm, Agar, Agar agar, Agarose
+oc:E406, Agar-agar
+pa:E406, ਐਗਾਰ
 pl:E406, Agar, Geloza, agar japoński, karuk bengalski, cejloński, chiński lub japoński, Agar-agar
 pt:E406, Agar, Ágar-ágar, Agarófita, Agarose
 ro:E406, Agar, Agar-agar, Geloză
+sh:E406, Agar
 sk:E406, Agar
 sl:E406, Agar
+sq:E406, Agari
+sr:E406, агар
+su:E406, Ager
 sv:E406, Agar, Agar-agar, E 406
-e_number:en:406
+ta:E406, அகார்
+tg:E406, Агар-агар
+tl:E406, Agar
+tr:E406, Agar
+uk:E406, Агар-агар
+ur:E406, اگاروز
+uz:E406, Agar-agar
+zh:E406, 洋菜
+# bpy:E406, আগার
+# crh:E406, Agar-agar
+# kk-arab:E406, اگار
+# kk-cn:E406, اگار
+# kk-cyrl:E406, Агар
+# kk-kz:E406, Агар
+# kk-latn:E406, Agar
+# kk-tr:E406, Agar
+# nan:E406, Chhài-iàn
+# pnb:E406, ایگر
+# sco:E406, agar
+# sr-ec:E406, агар
+# sr-el:E406, Agar
+# tg-latn:E406, Agar-agar
+# yue:E406, 大菜
+# zh-cn:E406, 洋菜
+# zh-hans:E406, 洋菜
+# zh-hant:E406, 洋菜
+# zh-hk:E406, 洋菜
+# zh-sg:E406, 洋菜
+# zh-tw:E406, 洋菜
 wikidata:en:Q177998
+wikipedia:en:https://en.wikipedia.org/wiki/Agar
+# ingredient/fr:agar has 213 products in 5 languages @2018-12-4
+e_number:en:406
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:CARRAGEENAN or carrageenins are a family of linear sulfated polysaccharides that are extracted from red edible seaweeds.
+
 en:E407, Carrageenan
 bg:E407, Карагенан
 ca:E407, Carragahen
-cs:E407, Karagenan, Karagen, E 407
+cs:E407, Karagenan, Karagen
 da:E407, Carrageenan
-de:E407, Carrageen, Karragheen, Carrageene, Carragaheen, Karrageen, E 407
+de:E407, Carrageen, Karragheen, Carrageene, Carragaheen, Karrageen
 el:E407, Καραγενανη
-es:E407, Carragenatos, Carragenato, Carragenanos, Carragenano, Carragenina, Carragenana, E 407
+eo:E407, Karageno
+es:E407, Carragenatos, Carragenato, Carragenanos, Carragenano, Carragenina, Carragenana
 et:E407, Karrageen
+fa:E407, کاراگینان
 fi:E407, Karrageeni
-fr:E407, Carraghénanes, Carraghénane, Mousse d'Irlande, Eucheuman (d'Eucheuma spp.), Iridophycan (d'Iridaea spp.) Hypnean (d'Hypnea spp.), Furcellaran, mousse du Danemark (de Furcellaria fastigiata), Carraghénane (de Chondrus et Gigartina spp.), 9064-57-7, 11114-20-8, 9000-07-1, E-407, 9062-07-1, Carraghénine
+fr:E407, Carraghénanes, Carraghénane, Mousse d'Irlande, Eucheuman (d'Eucheuma spp.), Iridophycan (d'Iridaea spp.) Hypnean (d'Hypnea spp.), Furcellaran, mousse du Danemark (de Furcellaria fastigiata), Carraghénane (de Chondrus et Gigartina spp.), Carraghénine
 hu:E407, Karragén
+id:E407, Karagenan
 it:E407, Carragenina, Carraghenina
+ja:E407, カラギーナン
+jv:E407, Karagenan
 lt:E407, Karageninas
 lv:E407, Karagināns
 mt:E407, Carrageenan
+nb:E407, Karragenan
 nl:E407, Carrageen
+nn:E407, Karragenan
 pl:E407, Karagen
 pt:E407, Carragenina, Carragenano, Carragenanos
 ro:E407, Caragenan
@@ -10076,8 +10175,24 @@ ru:E407, Каррагинан и его соли, Каррагинан, Ирла
 sk:E407, Karagénan, Karagén
 sl:E407, Karagenan
 sv:E407, Karragenan, E 407
-e_number:en:407
+ta:E407, கராகீனன்
+uk:E407, Каррагінан
+vi:E407, Carrageenan
+zh:E407, 卡拉胶
+# de-ch:E407, Carrageen
+# en-ca:E407, Carrageenan
+# en-gb:E407, Carrageenan
+# pt-br:E407, Carragenina
+# zh-cn:E407, 卡拉胶
+# zh-hans:E407, 卡拉胶
+# zh-hant:E407, 卡拉膠
+# zh-hk:E407, 卡拉膠
+# zh-sg:E407, 卡拉胶
+# zh-tw:E407, 卡拉膠
 wikidata:en:Q421991
+wikipedia:en:https://en.wikipedia.org/wiki/Carrageenan
+# fr:carraghénane has 4521 products in 9 languages @2108-11-03
+e_number:en:407
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5238
 efsa_evaluation_date:en: 2018/04/26
 efsa_evaluation:en: Re‐evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives
@@ -10099,7 +10214,7 @@ el:E407a, Τροποποιημενα φυκη eucheuma
 es:E407a, Alga eucheuma transformada
 et:E407a, Tselluloosi sisaldav karrageen
 fi:E407a, Käsitelty eucheuma-levä
-fr:E407a, Algues euchema transformées, Algues euchema traitées, PES, Processed Eucheuma Seaweed, Algue eucheuma transformée
+fr:E407a, Algues euchema transformées, Algues euchema traitées, PES, Processed Eucheuma Seaweed, Algue eucheuma transformée, Carraghénane semi-raffinée
 hu:E407a, Feldolgozott euchema moszat
 it:E407a, Alga eucheuma trasformata
 lt:E407a, Apdoroti raudondumbliai
@@ -10113,6 +10228,7 @@ sk:E407a, Spracovaná chaluha eucheuma
 sl:E407a, Predelana morska alga eucheuma
 sv:E407a, Bearbetad eucheumaalg
 wikidata:en:Q421991
+# fr:e407a has 325 products in 4 languages @2018-11-03
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5238
 efsa_evaluation_date:en: 2018/04/26
 efsa_evaluation:en: Re‐evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives
@@ -10125,6 +10241,15 @@ e_number:en:407a
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+
+# comment:en:Should be handled by the processor
+
+#<en:E407
+#fr:épaississant carraghénane, épaississant carraghénane, gélifiant e407
+
+#<en:E407
+#en:e407 stabilizer
+#fr:stabilisant e407
 
 en:E408, Bakers yeast glycan
 bg:E408, E408 food additive
@@ -10272,7 +10397,10 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:TRAGACANTH is a natural gum obtained from the dried sap of several species of Middle Eastern legumes of the genus Astragalus
+
 en:E413, Tragacanth, Tragacanth gum
+ar:E413, صمغ الكثيراء
 bg:E413, Трагакант, Гума трагант
 ca:E413, Goma tragacant
 cs:E413, Tragant
@@ -10281,12 +10409,16 @@ de:E413, Traganth, Tragacanth, Tragakant, Tragakanth, E 413
 el:E413, Τραγανκανθινο κομμι
 es:E413, Goma tragacanto, Aldragante, Goma de dragón, E 413
 et:E413, Tragakant
+fa:E413, کتیرا
 fi:E413, Tragantti
 fr:E413, Gomme de dragon, Gomme du dragon, gomme adragante, Tragacanthe, Traganthe, Tragacanth gum, Tragacanth, Shiraz gum, Hog gum, CAS 9000-65-1, Goma tragacanto, Traganth, Tragant, Corne de bouc, 9000-65-1
 hu:E413, Tragantmézga, Tragantgumi
+io:E413, Tragakanto
 it:E413, Gomma adragante, Gomma da Tragacanto
+ja:E413, トラガカント
 lt:E413, Tragakantas, Tragakanto derva
 lv:E413, Tragakants, Tragakantsveķi
+mk:E413, Трагаканта
 mt:E413, Tragakant, Gomma Tragacant
 nl:E413, Tragant, Tragacanthgom, Tragacanth
 pl:E413, Tragakanta, Guma tragakantowa, Guma tragankowa
@@ -10295,8 +10427,12 @@ ro:E413, Adragant, Gumă tragacant, Tragacant
 sk:E413, Tragant, Tragantová guma
 sl:E413, Tragakant, gumi tragakant
 sv:E413, Dragant, Dragantgummi, E 413
+tr:E413, Kitre
+uk:E413, Трагакант
+uz:E413, Anzirat goʻshtxoʻr
+# ingredient/fr:gomme-adragante has 62 products in 4 languages @2019-03-23
+# additive/e413-tragacanth has 286 products in 6 languages @2019-03-24
 e_number:en:413
-wikidata:en:Q423901
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2017.4789
 efsa_evaluation_date:en: 2017/06/09
@@ -10432,6 +10568,8 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:TARA GUM is produced by separating and grinding the endosperm of T. spinosa seeds. Tara gum is used as a thickening agent and stabilizer in a number of food applications.
+
 en:E417, Tara gum
 bg:E417, Гума тара
 ca:E417, Goma tara
@@ -10457,6 +10595,8 @@ sl:E417, Tara gumi
 sv:E417, Taragummi, Tarakärnmjöl
 e_number:en:417
 wikidata:en:Q15089452
+wikipedia:en:https://en.wikipedia.org/wiki/Tara_spinosa#Uses
+# ingredient/fr:gomme-tara has 254 products in 6 languages -@2019-05-12
 additives_classes:en: en:stabilizer, en:thickener
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2017.4863
 efsa_evaluation_date:en: 2017/06/28
@@ -10610,66 +10750,167 @@ e_number:en:420
 wikidata:en:Q245280
 additives_classes:en: en:humectant, en:sequestrant, en:stabilizer, en:sweetener, en:thickener
 
+# description:en:MANNITOL is a type of sugar alcohol. It is often used as a sweetener in diabetic food, as it is poorly absorbed from the intestines. The pleasant taste and mouthfeel of mannitol also makes it a popular excipient for chewable tablets.
+
 en:E421, Mannitol
+ar:E421, مانيتول
 bg:E421, манитол
 ca:E421, Mannitol
-cs:E421, Mannitol, E 421
+cs:E421, Mannitol
+cy:E421, mannitol
 da:E421, Mannitol
-de:E421, Mannit, D-Mannitol, E 421, Mannitol, Bronchitol
+de:E421, Mannit, D-Mannitol, Mannitol, Bronchitol
 el:E421, Μαννιτολη
-es:E421, Manitol, E 421
+es:E421, Manitol
 et:E421, mannitool
+eu:E421, manitol
+fa:E421, مانیتول
 fi:E421, Mannitoli
-fr:E421, Mannitol, mannitol, 69-65-8
+fr:E421, Mannitol, mannitol
+ga:E421, mainníotól
+gl:E421, Manitol
+he:E421, מניטול
+hr:E421, Manit
 hu:E421, Mannit
 it:E421, mannitolo, Mannite, D-(-)-mannitolo
+ja:E421, マンニトール
+ko:E421, 만니톨
 lt:E421, manitolis, Manitas
 lv:E421, Mannīts
 mt:E421, mannitol
+nb:E421, Mannitol
 nl:E421, Mannitol, Hexitol
+or:E421, ମାନିଟଲ
 pl:E421, Mannitol, Mannit
 pt:E421, manitol, Mannitol
 ro:E421, manitol
+sh:E421, Manitol
 sk:E421, manitol
 sl:E421, Manitol
-sv:E421, Mannitol, E 421
-e_number:en:421
+sr:E421, манитол
+sv:E421, Mannitol
+uk:E421, Манітол
+vi:E421, Mannitol
+zh:E421, 甘露醇
+# azb:E421, مانیتول
+# sr-ec:E421, манитол
+# sr-el:E421, Manitol
+# zh-cn:E421, 甘露醇
+# zh-hans:E421, 甘露醇
+# zh-hant:E421, 甘露醇
+# zh-hk:E421, 甘露醇
+# zh-sg:E421, 甘露醇
+# zh-tw:E421, 甘露醇
 wikidata:en:Q407646
+wikipedia:en:https://en.wikipedia.org/wiki/Mannitol
+# ingredient/fr:mannitol has 177 products in 5 languages @2019-05-12
+e_number:en:421
 additives_classes:en: en:humectant, en:stabilizer, en:sweetener, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:Glycerol can be used by all religious groups, vegans and vegetarians. The term carbohydrate alcohol is a chemical definition; glycerol does not contain alcohol (ethanol).
+#  description:en:GLYCEROL is a simple polyol compound. In food and beverages, glycerol serves as a humectant, solvent, and sweetener, and may help preserve foods. It is also used as filler in commercially prepared low-fat foods (e.g., cookies), and as a thickening agent in liqueurs.
+# diets:en:Glycerol can be used by all religious groups, vegans and vegetarians. The term carbohydrate alcohol is a chemical definition; glycerol does not contain alcohol (ethanol).
 
 en:E422, Glycerol, Glycerin, Glycerine, propane-1\,2\,3-triol, propanetriol, 1\,2\,3-trihydroxypropane, 1\,2\,3-propanetriol
+ar:E422, غليسرول
+as:E422, গ্লিচাৰল
+az:E422, Qliserin
+be:E422, Гліцэрын
 bg:E422, Глицерол, Глицерин
+bn:E422, গ্লিসারল
+bs:E422, Glicerol
 ca:E422, Glicerol
 cs:E422, Glycerol
 da:E422, Glycerol, Glycerin
 de:E422, Glycerin, Glycerol
 el:E422, Γλυκερολη, Γλυκερίνη, Προπανοτριόλη, 1\,2\,3-προπανοτριόλη, Προπανο-1\,2\,3-τριόλη
+eo:E422, glicerolo
 es:E422, Glicerol
 et:E422, Glütserool
+eu:E422, glizerina
+fa:E422, گلیسیرین
 fi:E422, Glyseroli
 fr:E422, Glycérol, Trihydroxypropane, glycérine, propan-1\,2\,3-triol, 1\,2\,3-propanetriol
+ga:E422, Gliocról
+gl:E422, Glicerol
+gv:E422, glisreen
+he:E422, גליצרול
+hi:E422, ग्लीसरीन
+hr:E422, Glicerol
 hu:E422, Glycerol, Glicerin
+hy:E422, Գլիցերին
+id:E422, Gliserol
+io:E422, Glicerolo
+is:E422, Glýseról
 it:E422, Glicerolo
+ja:E422, グリセリン
+kk:E422, Глицерин
+ko:E422, 글리세롤
+ky:E422, Глицерин
+lb:E422, Glycerol
 lt:E422, Glicerolis
 lv:E422, Glicerīns
+mk:E422, глицерол
+ml:E422, ഗ്ലിസറിൻ
+ms:E422, Gliserol
 mt:E422, Gliċerol, Gliċerin
+my:E422, ဂလစ်ဆရင်း
+nb:E422, glyserol
+ne:E422, ग्लिसेरोल
 nl:E422, Glycerol
+nn:E422, glyserol
+oc:E422, Gliceròl
 pl:E422, Glicerol, Gliceryna
 pt:E422, Glicerol
 ro:E422, Glicerol
+ru:E422, глицерин
+sh:E422, Glicerol
 sk:E422, Glycerol, Glycerín
 sl:E422, Glicerol
+sr:E422, глицерол
+su:E422, Gliserol
 sv:E422, Glycerol, Propantriol
+ta:E422, கிளிசரால்
+tr:E422, Gliserin
+tt:E422, гөлсирин
+uk:E422, Гліцерин
+vi:E422, glyxêrin
+zh:E422, 甘油
+# azb:E422, قلیسیرین
+# en-ca:E422, glycerol
+# en-gb:E422, glycerol
+# frr:E422, Glycerin
+# lzh:E422, 甘油
+# sco:E422, Glycerol
+# wuu:E422, 甘油
+# yue:E422, 甘油
+# zh-cn:E422, 甘油
+# zh-hk:E422, 甘油
+# zh-sg:E422, 甘油
+# zh-tw:E422, 甘油
+wikidata:en:Q132501
+wikipedia:en:https://en.wikipedia.org/wiki/Glycerol
+# additive/e422-glycerol has 7288 products in 19 languages @2109-03-11
 e_number:en:422
 wikidata:en:Q132501
 additives_classes:en: en:humectant, en:thickener
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+
+<en:E422
+fr:glycérol d'origine végétale
+# ingredient/fr:glycérol-d’origine-végétale has 27 products in french @2019-03-11
+
+<fr:glycérol d'origine végétale
+<en:xanthan gum
+fr:glycérol de colza et gomme xanthane
+
+# Should be handles by the parser
+#<en:E422
+#fr:humectant glycérol
+# ingredient/fr:humectant-glycérol has 53 products in 4 languages @2019-03-30
 
 en:E424, Curdlan
 bg:E424, E424 food additive
@@ -10840,30 +11081,138 @@ vegetarian:en:yes
 # gelatin is listed as E428
 # E441 is listed as something else..
 # https://en.wikipedia.org/wiki/International_Numbering_System_for_Food_Additives
+# comment:en:The E-numbers for gelatin are removed by the EU. It should now be noted as an ingredient.
+
+# description:en:GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts. 
 
 en:E428, Gelatine, gelatin
+ar:E428, جيلاتين
+az:E428, Jelatin
+be:E428, Жэлацін
 bg:E428, Желатин
+bn:E428, জেলাটিন
+br:E428, gelatin
+bs:E428, Želatin
+ca:E428, gelatina
 cs:E428, želatina
+cv:E428, Желатин
+cy:E428, Gelatin
 da:E428, gelatine, Husblas
 de:E428, Gelatine, Speisegelatine, Gelatinpulver, Gelatinieren, Rindergelatine
 el:E428, ζελατίνη
+eo:E428, gelateno
 es:E428, Gelatina, Gelatinosa, Grenetina, Gelatinoso
 et:E428, želatiin
+eu:E428, Gelatina
+fa:E428, ژلاتین
 fi:E428, liivate, Gelatiini, Liivatejauhe
 fr:E428, Gélatine
+fy:E428, sjelatine
+ga:E428, Geilitín
+gl:E428, Xelatina
+he:E428, ג'לטין
+hi:E428, जिलेटिन
+hr:E428, Želatina
 hu:E428, Zselatin
+id:E428, Gelatin
+io:E428, Gelatino
 it:E428, Gelatina
+ja:E428, ゼラチン
+jv:E428, Gelatin
+ka:E428, ჟელატინი
+kk:E428, Желатин
+ko:E428, 젤라틴
+ky:E428, Желатина
+la:E428, Gelatinum
+li:E428, sjilletien
 lt:E428, Želatina
 lv:E428, E428 food additive
+mk:E428, Желатин
+ms:E428, Gelatin
 mt:E428, E428 food additive
+my:E428, ဂျယ်လတင်း
+nb:E428, gelatin
+ne:E428, geltain
 nl:E428, Gelatine, Geleermiddel
+nn:E428, gelatin
+oc:E428, Gelatina
+pa:E428, ਸਰੇਸ਼
 pl:E428, Żelatyna, Gelatin
+ps:E428, ژلاتین
 pt:E428, Gelatina
 ro:E428, Gelatină
+ru:E428, желатин
 sk:E428, Želatína
 sl:E428, Želatina
+sq:E428, xhelatinë
+sr:E428, Желатин
 sv:E428, gelatin
+th:E428, เจลาติน
+tr:E428, Jelatin
+uk:E428, Желатин
+vi:E428, Gelatin
+zh:E428, 明膠
+# ast:E428, Xelatina
+# kk-arab:E428, جەلاتىين
+# kk-cn:E428, جەلاتىين
+# kk-cyrl:E428, Желатин
+# kk-kz:E428, Желатин
+# kk-latn:E428, Jelatïn
+# kk-tr:E428, Jelatïn
+# sco:E428, gelatin
+# yue:E428, 魚膠
+# zh-cn:E428, 明胶
+# zh-hans:E428, 明胶
+# zh-hant:E428, 明膠
+# zh-hk:E428, 明膠
+# zh-sg:E428, 明胶
+# zh-tw:E428, 明膠
+wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
+# ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 e_number:en:428
+vegan:en:no
+vegetarian:en:no
+
+<en:E428
+#<en:beef
+en:beef gelatin
+de:Rindergelatine
+es:Gelatina de ternera
+fr:gélatine de bœuf, gélatine de boeuf, gélatine bovine
+it:gelatina di manzo
+# ingredient/fr:gélatine-de-bœuf has 216 products in 4 languages @2019-02-10
+vegan:en:no
+vegetarian:en:no
+
+<en:E428
+# from:en:fish
+en:fish gelatine
+de:Fisch-Gelatine
+fr:gélatine de poisson
+it:gelatina di pesce
+vegan:en:no
+vegetarian:en:no
+# ingredient/fr:gélatine-de-poisson has 71 products in 4 languages @2019-02-10
+
+<en:E428
+fr:gélatine non porcine
+# ingredient/fr:gélatine-non-porcine has 1 product in french @2019-02-10
+
+<en:E428
+#<en:poultry
+fr:gélatine de volaille
+# ingredient/fr:gélatine-de-volaille has 17 products in french @2019-02-10
+
+<en:E428
+#<en:pork
+en:pork gelatin
+de:Schweinegelatine
+es:gelatina de cerdo
+fr:gélatine de porc, gélatine porcine
+it:gelatina di maiale
+nl:varkensgelatine
+pl:zelatyna wieprzowa
+# ingredient/fr:gélatine-de-porc has 891 products in 8 languages @2019-02-10
 vegan:en:no
 vegetarian:en:no
 
@@ -10893,6 +11242,7 @@ e_number:en:429
 wikidata:en:Q424323
 vegan:en:yes
 vegetarian:en:yes
+
 
 # description:en:These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin.
 
@@ -11295,41 +11645,83 @@ e_number:en:440b
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:PECTIN is a structural heteropolysaccharide contained in the primary cell walls of terrestrial plants.
 
 
 en:E440, Pectins, pectin
+af:E440, Pektien
+ar:E440, بكتين
+az:E440, Pektin maddələri
+be:E440, пекцінавыя рэчывы
 bg:E440, Пектин
+bs:E440, Pektin
 ca:E440, Pectina
 cs:E440, Pektin, Pektiny
+cy:E440, Pectin
 da:E440, pektin
-de:E440, Pektine, Polygalacturonat, E 440, Pektin, Protopektin, E 440ii, Pectin, Rhamnogalacturonan
+de:E440, Pektine, Polygalacturonat, Pektin, Protopektin, Pectin, Rhamnogalacturonan
 el:E440, Πηκτίνη
+eo:E440, Pektino
 es:E440, Pectinas, Pectina
 et:E440, Pektiin
-fi:E440, Pektiini, Pektiinit, E 440
+eu:E440, Pektina
+fa:E440, پکتین
+fi:E440, Pektiini, Pektiinit
 fr:E440, Pectines, Pectine, E440(i)
+ga:E440, Peictin
+gl:E440, Pectina
+he:E440, פקטין
 hu:E440, Pektin
+hy:E440, Պեկտինյան նյութեր
+id:E440, Pektin
+io:E440, Pektino
 it:E440, Pectina, Pectine
+ja:E440, ペクチン
+kk:E440, Пектин
+ko:E440, 펙틴
+ky:E440, Пектиндер
 lt:E440, Pektinas
 lv:E440, E440 food additive
 mt:E440, E440 food additive
+nb:E440, pektin
 nl:E440, Pectine
+nn:E440, pektin
 pl:E440, Pektyny, Pektyna
 pt:E440, Pectina
 ro:E440, E440 food additive
-ru:E440, Пектин, Пектиновые вещества, Пектиновое вещество, Пектины, Е440
+ru:E440, Пектин, Пектиновые вещества, Пектиновое вещество, Пектины
+sh:E440, Pektin
 sk:E440, Pektín
 sl:E440, Pektin
-sv:E440, Pektin, E 440
-e_number:en:440
+sr:E440, пектин
+sv:E440, Pektin
+ta:E440, பெக்டின்
+th:E440, เพกทิน
+tr:E440, Pektin
+uk:E440, Pektin
+vi:E440, Pectin
+zh:E440, 果胶
+# be-tarask:E440, пэктынавыя рэчывы
+# sco:E440, pectin
+# sr-ec:E440, пектин
+# sr-el:E440, Pektin
+# zh-cn:E440, 果胶
+# zh-hans:E440, 果胶
+# zh-hant:E440, 果膠
+# zh-hk:E440, 果膠
+# zh-sg:E440, 果胶
+# zh-tw:E440, 果膠
 wikidata:en:Q188154
+wikipedia:en:https://en.wikipedia.org/wiki/Pectin
+# en:pectin has 9364 products in 20 languages @2018-11-03
+e_number:en:440
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
 <en:E440
-en:E440(i), Pectin
+en:E440(i), non-amidated pectines
 bg:E440(i), Пектин
 cs:E440(i), Pektin
 da:E440(i), Pectin
@@ -11338,13 +11730,13 @@ el:E440(i), Πηκτινη
 es:E440(i), Pectina
 et:E440(i), Pektiin
 fi:E440(i), Pektiini
-fr:E440(i), Pectine
+fr:E440(i), Pectine non amidée
 hu:E440(i), Pektin
 it:E440(i), Pectina
 lt:E440(i), Pektinas
 lv:E440(i), Pektīns
 mt:E440(i), Pektina
-nl:E440(i), Pectine
+nl:E440(i), Niet-geamideerde pectines
 pl:E440(i), Pektyna
 pt:E440(i), Pectina
 ro:E440(i), Pectină
@@ -11355,6 +11747,7 @@ e_number:en:440
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 organic_eu:en:authorized
+# fr:e440i has 18 products in 5 languages @2018-11-03
 
 <en:E440
 en:E440(ii), Amidated pectin
@@ -11381,8 +11774,15 @@ sl:E440(ii), Amidirani pektin
 sv:E440(ii), Amiderat pektin
 e_number:en:440
 wikidata:en:Q188154
+# fr:pectine-amidée has 74 products in 1 language @2018-11-03
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 
+<en:E440
+fr:pectine de fruit, pectines de fruits
+de:Fruchtpektin
+nl:vruchtenpectine
+it:pectina di frutta
+# fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
 
 
 # E441 is not officially listed as "animal gelatin"
