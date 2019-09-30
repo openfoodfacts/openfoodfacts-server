@@ -7104,38 +7104,153 @@ additives_classes:en: en:antioxidant
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:The term lecithin refers to a group of compounds found in every living organism, as they are part of the cell wall of all cells. Lecithin is commercially isolated (mainly) from soybeans or egg yolk.
+# description:en:Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogenizing liquid mixtures, and repelling sticking materials.
 
 en:E322, Lecithins, Phosphatides, Lecithin
+ar:E322, ليسيثين
 bg:E322, Лецитини, Фосфатиди, Лецитин
 ca:E322, Lecitina
 cs:E322, Lecitiny, Fosfatidy, Lecitin
 da:E322, Lecithiner, Phosphatider, Lecitin
 de:E322, Lecithine, Phosphatide
 el:E322, Λεκιθινες, Φωσφατίδια
+eo:E322, Lecitino
 es:E322, Lecitinas, Fosfátidos, Lecitina de soja, Lecitina de girasol, Lecitina
 et:E322, Letsitiinid, Fosfatiidid, Letsitiin
+eu:E322, Lezitina
+fa:E322, لسیتین
 fi:E322, Lesitiinit, Fosfatidit, Lesitiini
-fr:E322, Lécithines, Lécithine, Lécithine partiellement hydrolysée, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines, CAS 8002-43-5, Lecithin
+fr:E322, Lécithines, Lécithine, Lécithine partiellement hydrolysée, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines, Lecithin
+gl:E322, Lecitina
+he:E322, לציטין
+hr:E322, Lecitin
 hu:E322, Lecitinek, Foszfatidek, Lecitin
+hy:E322, Լեցիտիններ
+id:E322, Lesitin
+is:E322, Lesitín
 it:E322, Lecitine, Fosfatidi, Lecitina
+ja:E322, レシチン
+ko:E322, 레시틴
 lt:E322, Lecitinai, Fosfatidai
 lv:E322, Lecitīni, Fosfatīdi
+ms:E322, Lesitin
 mt:E322, Leċitini, Fosfatidi
 nl:E322, Lecithinen, Fosfatiden, Lecithine
 pl:E322, Lecytyny, Fosfatydy
 pt:E322, Lecitinas, Fosfatídeos, Lecitina
 ro:E322, Lecitine, Fosfatide, Lecitină
-ru:E322, Лецитин
+ru:E322, Лецитин, Лецитины
+sh:E322, Lecitin
 sk:E322, Lecitíny, Fosfatidy
 sl:E322, Lecitini, fosfatidi, Lecitin
+sr:E322, Лецитин
+su:E322, Lésitin
 sv:E322, Lecitiner, Fosfatider, Lecitin
+th:E322, เลซิทิน
+tr:E322, Lesitin
+uk:E322, Лецитин
+uz:E322, Letsinlar
+vi:E322, Lecithin
+zh:E322, 卵磷脂
 e_number:en:322
 wikidata:en:Q241595
+wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
 additives_classes:en: en:antioxidant, en:emulsifier
 organic_eu:en:authorized
 vegan:en:maybe
 vegetarian:en:maybe
+
+
+# nova:en:lecithin
+<en:E322
+en:soya lecithin, soy lecithin
+cs:sójový lecitin
+da:sojalecitin
+de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
+el:λεκιθίνη σόγιας
+es:lecitina de soja, lecitina de soya
+fi:soijalesitiini
+fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
+hu:szójalecitin, szójalecitinek
+it:lecitina di soia
+nl:sojalecithine
+nn:sojalecitin
+pl:lecytyna sojowa
+pt:lecitina de soja
+ro:lecitinã din soia
+ru:соевый лецитин
+sk:sójový lecitin
+sl:sojin lecitin
+sr:sojin lecitin
+sv:sojalecitin
+tr:soya lesitini
+# en:soya-lecithin has 27949 products in 29 languages @2018-11-10
+vegan:en:yes
+vegetarian:en:yes
+
+<en:soya lecithin
+en:GMO-free soy lecithin
+fr:lécithine de soja sans ogm
+nl:GMO-vrije sojalecithine
+# gmo-free-soy-lecithin has 73 products in 2 languages @2018-11-10
+
+<en:E322
+en:sunflower lecithin
+cs:Slunečnicový lecitin
+da:solsikkelecithin
+de:Sonnenblumenlecithine, Sonnenblumenlecithin
+el:λεκιθίνες ηλιστροπιου
+es:lecitina de girasol
+fi:auringonkukkalesitiini
+fr:lécithine de tournesol
+it:lecitina girasole, lecitina di girasole
+lv:lecitinai iš saulègrąžų
+nl:zonnebloemlecithine, zonnebloem-lecithine
+nn:solsikkelecithin
+pl:lecytyny ze slonecznika
+pt:lecitina de girassol
+sv:solroslecitin
+wikidata:en:Q57271747
+# fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
+vegan:en:yes
+vegetarian:en:yes
+
+# <en:emulsifier
+<en:sunflower lecithin
+fr:émulsifiant lécithine de tournesol
+# ingredient/fr:émulsifiant-lécithine-de-tournesol has 100 products in 6 languages @2019-02-22
+
+<en:soya lecithin
+<en:sunflower lecithin
+en:soya and sunflower lecithin
+de:Sojalecithin und Sonnenblumen
+fr:lécithine de soja et de tournesol
+it:lecitina di soia e di girasole
+# fr:lécithine-de-soja-et-de-tournesol has 50 products in 4 languages @2018-11-10
+vegan:en:yes
+vegetarian:en:yes
+
+<en:E322
+en:rapeseed lecithin
+de:Rapslecithin
+es:Lecitina de colza
+fr:lécithine de colza, lécithines de colza
+nl:raapzaadlecithine
+sr:lecitin uljane repice
+# fr:lécithines-de-colza has 609 products in 6 languages @2018-11-10
+vegan:en:yes
+vegetarian:en:yes
+
+# should be handled by the parser
+#<en:E322
+#fr:émulsifiant lécithines, émulsifiants lécithines
+#de:emulgator lecithine
+#it:emulsionante lecitine
+#nl:emulgator lecithinen
+#pt:emulsionante lecitinas
+# fr:émulsifiant-lécithines has 88 products in 6 languages @2018-11-10
+# fr:émulsifiants-lécithines has 21 products in 4 languages @2018-11-10
+
 
 <en:E322
 en:E322(i), Lecithin
@@ -7558,18 +7673,20 @@ vegetarian:en:yes
 #t:correttore di acidità E330 - acido citrico
 # fr:correcteur-d’acidité-acide-citrique has 83 products in 3 languages @2018-11-17
 
+# comment:en:The generic form of sodium citrates should be written in plural, do distinguish them from sodium citrate. 
+
 en:E331, Sodium citrates
 bg:E331, E331 food additive
 cs:E331, E331 food additive
 da:E331, E331 food additive
-de:E331, Natriumcitrat, Natriumzitrat
+de:E331, Natriumcitrate, Natriumzitrat
 el:E331, E331 food additive
 es:E331, Citratos de sodio
 et:E331, E331 food additive
 fi:E331, E331 food additive
 fr:E331, Citrates de sodium
 hu:E331, E331 food additive
-it:E331, E331 food additive
+it:E331, citrati di sodio
 lt:E331, E331 food additive
 lv:E331, E331 food additive
 mt:E331, E331 food additive
@@ -7582,10 +7699,13 @@ sl:E331, E331 food additive
 sv:E331, E331 food additive
 e_number:en:331
 wikidata:en:Q6460572
+# additive/e331-sodium-citrates has 11745 products @2019-04-24
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+
+# description:en:MONOSODIUM CITRATE, more correctly, sodium dihydrogen citrate, is an acid salt of citric acid.
 
 <en:E331
 en:E331(i), Monosodium citrate
@@ -7594,6 +7714,7 @@ cs:E331(i), Citronan monosodný
 da:E331(i), Mononatriumcitrat
 de:E331(i), Mononatriumcitrat, Natriumcitrat
 el:E331(i), Δισοξινο κιτρικο νατριο
+eo:E331(i), Ununatria citrato
 es:E331(i), Citrato monosódico
 et:E331(i), Naatriumdivesiniktsitraat
 fi:E331(i), Mononatriumsitraatti
@@ -7607,13 +7728,23 @@ nl:E331(i), Mononatriumcitraat
 pl:E331(i), Cytrynian monosodowy
 pt:E331(i), Citrato monossódico
 ro:E331(i), Citrat monosodic
+sh:E331(i), Mononatrijum citrat
 sk:E331(i), Citran sodný, Nátrium citrát
 sl:E331(i), Mononatrijev citrat
+sr:E331(i), Mononatrijum citrat
 sv:E331(i), Mononatriumcitrat
+ta:E331(i), ஒருசோடியம் சிட்ரேட்டு
+vi:E331(i), Natri dihydro citrat
+# sr-el:E331(i), Mononatrijum citrat
+wikidata:en:Q4179018
+wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_citrate
+# additive/e331i-monosodium-citrate has 112 products in 7 languages @2019-04-24
+# ingredient/fr:citrate-monosodique has 79 products in 5 languages @2019-04-24
 e_number:en:331
-wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 organic_eu:en:authorized
+
+# description:en:DISODIUM CITRATE, more properly, disodium hydrogen citrate, is an acid salt of citric acid with the chemical formula Na2C6H6O7. It is used as an antioxidant in food and to improve the effects of other antioxidants. It is also used as an acidity regulator and sequestrant. Typical products include gelatin, jam, sweets, ice cream, carbonated beverages, milk powder, wine, and processed cheeses.
 
 <en:E331
 en:E331(ii), Disodium citrate
@@ -7640,11 +7771,14 @@ sl:E331(ii), Dinatrijev citrat
 sv:E331(ii), Dinatriumcitrat
 e_number:en:331
 wikidata:en:Q6460572
+wikipedia:en:https://en.wikipedia.org/wiki/Disodium_citrate
+# additive/e331ii-disodium-citrate has 21 products in 2 languages @2019-04-24
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 
 <en:E331
 en:E331(iii), Trisodium citrate
+de:E331(iii), Trinatriumcitrat
 es:E331(iii), Citrato trisódico
 fr:E331(iii), Citrate trisodique
 pl:E331(iii), Cytrynian trisodowy
@@ -7652,33 +7786,38 @@ pt:E331(iii), Citrato trissódico
 sv:E331(iii), Trinatriumcitrat
 e_number:en:331
 
+# comment:en:The generic form of potassium citrates should be written in plural, do distinguish them from potassium citrate.
+
 en:E332, Potassium citrates, Potassium citrate
 bg:E332, E332 food additive
 ca:E332, Citrats de potassi
 cs:E332, E332 food additive
 da:E332, E332 food additive
-de:E332, Kaliumcitrat, Kaliumcitrate, Trikaliumcitrat, E 332
+de:E332, Kaliumcitrate, Kaliumcitrat, Trikaliumcitrat
 el:E332, E332 food additive
-es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico, E 332
+es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico
 et:E332, E332 food additive
 fi:E332, E332 food additive
 fr:E332, Citrates de potassium, Citrate de potassium, Citrate biacide de potassium, Citrate tripotassique
 hu:E332, Kálium-citrát
-it:E332, Citrato di potassio, C6H5K3O7·H2O, Citrato di tripotassio
+it:E332, citrati di potassio, Citrato di tripotassio
 lt:E332, E332 food additive
 lv:E332, E332 food additive
 mt:E332, E332 food additive
-nl:E332, Kaliumcitraat
+nl:E332, Kaliumcitraten
 pl:E332, E332 food additive
-pt:E332, Citrato de potássio
+pt:E332, Citratos de potássio
 ro:E332, E332 food additive
 ru:E332, Цитрат калия
 sk:E332, E332 food additive
 sl:E332, E332 food additive
-sv:E332, Kaliumcitrat, Kaliumcitrater, E 332
+sv:E332, Kaliumcitrat, Kaliumcitrater
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 e_number:en:332
 wikidata:en:Q419921
+# additive/e332-potassium-citrates has 261 products @2019-04-22
+# ingredient/fr:citrate-de-potassium has 353 products in 7 languages @2019-04-22
+# usage:pt:regulador de acidez (citratos de potássio)
 additives_classes:en: en:sequestrant, en:stabilizer
 vegan:en:yes
 vegetarian:en:yes
@@ -7710,52 +7849,84 @@ mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 e_number:en:332
 wikidata:en:Q419921
 additives_classes:en: en:sequestrant, en:stabilizer
+# additive/e332i-monopotassium-citrate has 3 products in french @2019-04-22
+
+
+
+# description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
+# comment:en:Not sure which word is preferred on packaged, either the more chemical tripotassium or just potassiumcitrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
 
 <en:E332
 en:E332(ii), Tripotassium citrate
 bg:E332(ii), Трикалиев цитрат
+bs:E332(ii), Kalij citrat
 cs:E332(ii), Tripotassium citrate
+cy:E332(ii), Potasiwm sitrad
 da:E332(ii), Trikaliumcitrat
 de:E332(ii), Trikaliumcitrat, Kaliumcitrat
 el:E332(ii), Κιτρικο καλιο
-es:E332(ii), Citrato tripotásico
+eo:E332(ii), Kalia citrato tribaza
+es:E332(ii), Citrato tripotásico, Citrato de potasio
 et:E332(ii), Kaaliumtsitraat
 fi:E332(ii), Trikaliumsitraatti
-fr:E332(ii), Citrate tripotassique
-hu:E332(ii), Trikálium-citrát
+fr:E332(ii), Citrate tripotassique, citrate de potassium
+hu:E332(ii), Trikálium-citrát, Kálium-citrát
 it:E332(ii), Citrato tripotassico
+ja:E332(ii), クエン酸カリウム
 lt:E332(ii), Trikalio citratas
 lv:E332(ii), Trikālija citrāts
 mt:E332(ii), Ċitrat tripotassiku
-nl:E332(ii), Trikaliumcitraat
-pl:E332(ii), Cytrynian tripotasowy
-pt:E332(ii), Citrato tripotássico
+nb:E332(ii), Kaliumsitrat
+nl:E332(ii), Trikaliumcitraat, kaliumcitraat
+pl:E332(ii), Cytrynian tripotasowy, cytrynian potasu
+pt:E332(ii), Citrato tripotássico, citrato de potássio
 ro:E332(ii), Citrat tripotasic
+ru:E332(ii), цитрат калия
+sh:E332(ii), Kalijum citrat
 sk:E332(ii), Citran tridraselný, Kálium-citrát
 sl:E332(ii), Trikalijev citrat
+sr:E332(ii), Kalijum citrat
+sv:E332(ii), Trikaliumcitrat, Kaliumcitrat
 sv:E332(ii), Trikaliumcitrat
+ta:E332(ii), பொட்டாசியம் சிட்ரேட்டு
+te:E332(ii), పొటాషియం సిట్రేట్
+zh:E332(ii), 檸檬酸鉀
+# azb:E332(ii), پوتاسیوم سیترات
+# zh-cn:E332(ii), 柠檬酸钾
+# zh-hans:E332(ii), 柠檬酸钾
+# zh-hant:E332(ii), 檸檬酸鉀
+# zh-hk:E332(ii), 檸檬酸鉀
+# zh-sg:E332(ii), 柠檬酸钾
+# zh-tw:E332(ii), 檸檬酸鉀
+wikidata:en:Q419921
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
+# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
 e_number:en:332
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
-wikidata:en:Q419921
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
+# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
 additives_classes:en: en:sequestrant, en:stabilizer
 
-en:E333, Calcium citrates , Calcium citrate
+# description:en:CALCIUM CITRATEs is the calcium salt of citric acid. It is commonly used as a food additive (E333), usually as a preservative, but sometimes for flavor. Calcium citrate is also found in some dietary calcium supplements.
+# comment:en:The generic form (E333) is written in plural to distinguish it from E333iii.
+
+en:E333, Calcium citrates
 bg:E333, E333 food additive
 ca:E333, Citrats de calci
 cs:E333, Citrát vápenatý
 da:E333, E333 food additive
-de:E333, Calciumcitrat, Tricalciumcitrat, E 333, Kalziumzitrat, Calciumcitrate
+de:E333, Calciumcitrate
 el:E333, E333 food additive
-es:E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga, E 333
+es:E333, Citratos de calcio
 et:E333, E333 food additive
 fi:E333, Kalsiumsitraatti
-fr:E333, Citrates de calcium, Citrate de calcium, Citrate de monocalcium, Citrate de dicalcium, Citrate de tricalcium, Citrate tricalcique
+fr:E333, Citrates de calcium
 hu:E333, Kalcium-citrát
-it:E333, Citrato di calcio, C12H10Ca3O14x4H2O
+it:E333, Citrati di calcio
 lt:E333, E333 food additive
 lv:E333, E333 food additive
 mt:E333, E333 food additive
-nl:E333, Calciumcitraat
+nl:E333, Calciumcitraten
 pl:E333, cytrynian wapnia
 pt:E333, Citrato de cálcio
 ro:E333, E333 food additive
@@ -7808,6 +7979,7 @@ de:E333(ii), Dicalciumcitrat, Calciumcitrat
 el:E333(ii), Οξινο κιτρικο ασβεστιο
 es:E333(ii), Citrato dicálcico
 et:E333(ii), Kaltsiumvesiniktsitraat
+fa:E333(ii), دی‌کلسیم سیترات
 fi:E333(ii), Dikalsiumsitraatti
 fr:E333(ii), Citrate dicalcique
 hu:E333(ii), Dikalcium-citrát
@@ -7819,9 +7991,12 @@ nl:E333(ii), Dicalciumcitraat
 pl:E333(ii), Cytrynian diwapniowy
 pt:E333(ii), Citrato dicálcico
 ro:E333(ii), Citrat dicalcic
+sh:E333(ii), Dikalcijum citrat
 sk:E333(ii), Citran divápenatý (dicitran divápenatý), Kalcium-citrát
 sl:E333(ii), Dikalcijev citrat
+sr:Dikalcijum citrat
 sv:E333(ii), Dikalciumcitrat
+# azb:E333(ii), دیکلسیوم سیترات
 e_number:en:333
 wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
@@ -7829,58 +8004,108 @@ organic_eu:en:authorized
 
 <en:E333
 en:E333(iii), Tricalcium citrate
+ar:E333(iii), سترات الكالسيوم
 bg:E333(iii), Трикалциев цитрат
-cs:E333(iii), Tricalcium citrate
+cs:E333(iii), Tricalcium citrate, Citrát vápenatý
 da:E333(iii), Tricalciumcitrat
 de:E333(iii), Tricalciumcitrat, Calciumcitrat
 el:E333(iii), Κιτρικο ασβεστιο
-es:E333(iii), Citrato tricálcico
+es:E333(iii), Citrato tricálcico, Citrato de calcio
 et:E333(iii), Kaltsiumtsitraat
+fa:E333(iii), کلسیم سیترات
 fi:E333(iii), Trikalsiumsitraatti
 fr:E333(iii), Citrate tricalcique
-hu:E333(iii), Trikalcium-citrát
-it:E333(iii), Citrato tricalcico
+hu:E333(iii), Trikalcium-citrát, Kalcium-citrát
+it:E333(iii), Citrato tricalcico, Citrato di calcio
 lt:E333(iii), Trikalcio citratas
 lv:E333(iii), Trikalcija citrāts
 mt:E333(iii), Ċitrat trikalċiku
 nl:E333(iii), Tricalciumcitraat
-pl:E333(iii), Cytrynian triwapniowy
+pl:E333(iii), Cytrynian triwapniowy, cytrynian wapnia
 pt:E333(iii), Citrato tricálcico
 ro:E333(iii), Citrat tricalcic
+ru:E333(iii), Цитрат кальция
+sh:E333(iii), Kalcijum citrat
 sk:E333(iii), Citran trivápenatý (dicitran trivápenatý), Kalcium-citrát
 sl:E333(iii), Trikalcijev citrat
+sr:E333(iii), Kalcijum citrat
 sv:E333(iii), Trikalciumcitrat
+zh:E333(iii), 柠檬酸钙
+# azb:E333(iii), کلسیوم سیترات
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:firming-agent
 e_number:en:333
 wikidata:en:Q420280
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_citrate
+# mineral/calcium-citrate has 630 products @2019-04-24
+# ingredient/fr:citrate-tricalcique has 107 products in 6 languages @2019-04-24
+# usage:de:Säureregulator:Tricalciumcitrat
 additives_classes:en: en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 
-en:E334, L(+)-tartaric acid, tartaric acid, 2\,3-dihydroxybutanedioic acid, 2\,3-dihydroxysuccinic acid, threaric acid, racemic acid, uvic acid, paratartaric acid
-bg:E334, L(+)-винена киселина, винена киселина, Лимонтузу, Лимонтозу
+# descrption:en:Tartaric acid is a white, crystalline organic acid that occurs naturally in many fruits, most notably in grapes, but also in bananas, tamarinds, and citrus
+
+en:E334, tartaric acid, L(+)-tartaric acid, 2\,3-dihydroxybutanedioic acid, 2\,3-dihydroxysuccinic acid, threaric acid, racemic acid, uvic acid, paratartaric acid
+ar:E334, حمض الطرطريك
+bg:E334, винена киселина, L(+)-винена киселина, Лимонтузу, Лимонтозу
+bn:E334, টারটারিক অ্যাসিড
+bs:E334, Vinska kiselina
 ca:E334, Àcid tartàric, àcid L(+)-tartàric
-cs:E334, L(+)-kyselina vinná, Kyselina vinná, E 334, Kyselina hroznová
-da:E334, L(+)-tartaric acid, tartaric acid, L-Vinsyre, L-2\,3-dihydroxybutandisyre, Vinsyre, E-334
-de:E334, L(+)-Weinsäure, Weinsäure (L+), L-Weinsäure, L-2\,3-Dihydroxybutandisäure, Weinsäure, Threarsäure, Tartaric acid, 2\,3-Dihydroxybutandisäure, 2\,3-Dihydroxybernsteinsäure, E 334, Dihydroxybernsteinsäure, D-(-)-Weinsäure, Traubensäure, Weinsteinsäure
+cs:E334, Kyselina vinná, L(+)-kyselina vinná, Kyselina hroznová
+cy:E334, Asid tartarig
+da:E334, L(+)-tartaric acid, tartaric acid, L-Vinsyre, L-2\,3-dihydroxybutandisyre, Vinsyre
+de:E334, L(+)-Weinsäure, Weinsäure (L+), L-Weinsäure, L-2\,3-Dihydroxybutandisäure, Weinsäure, Threarsäure, Tartaric acid, 2\,3-Dihydroxybutandisäure, 2\,3-Dihydroxybernsteinsäure, Dihydroxybernsteinsäure, D-(-)-Weinsäure, Traubensäure, Weinsteinsäure
 el:E334, L(+)-τρυγικο οξυ, τρυγικο οξυ
-es:E334, Ácido tartárico, Ácido l(+)-tartárico, E 334, Crémor tartaro, Ácido tártrico
+eo:E334, Tartrata acido
+es:E334, Ácido tartárico, Ácido l(+)-tartárico, Crémor tartaro, Ácido tártrico
 et:E334, L(+)-viinhape, viinhape, L-viinhape, L-2\,3-dihüdroksübutaandihape
-fi:E334, L(+)-viinihappo, viinihappo, L-Viinihappo, L-2\,3-Dihydroksibutaanidihappo, 2\,3-dihydroksibutaanidihappo, E 334
-fr:E334, Acide L-tartrique, Acide tartrique, Acide L(+)tartrique, Acide d-α, β-dihydroxysuccinique, Acide dextrotartarique, acide 3-hydroxy malique, CAS 87-69-4, Acide DL-tartrique, 147-71-7, 147-73-9, Acide DL-tartrique monohydraté, 87-69-4, Acide racémique, 133-37-9, Acide D-tartrique, Tartrate, Acide mesotartrique, C4H6O6
+eu:E334, Azido tartariko
+fa:E334, اسید تارتاریک
+fi:E334, L(+)-viinihappo, viinihappo, L-Viinihappo, L-2\,3-Dihydroksibutaanidihappo, 2\,3-dihydroksibutaanidihappo
+fr:E334, Acide L-tartrique, Acide tartrique, Acide L(+)tartrique, Acide d-α, β-dihydroxysuccinique, Acide dextrotartarique, acide 3-hydroxy malique, Acide DL-tartrique, Acide DL-tartrique monohydraté, Acide racémique, Acide D-tartrique, Tartrate, Acide mesotartrique
+ga:E334, Aigéad tartarach
+gl:E334, Ácido tartárico
+he:E334, חומצה טרטרית
+hi:E334, टार्टरिक अम्ल
+hr:E334, Vinska kiselina
 hu:E334, L(+)-borkősav, borkősav, L-Borkősav, L-2\,3-Dihidroxi-butándisav
+hy:E334, Գինեթթու
+id:E334, Asam tartarat
 it:E334, L(+)-acido tartarico, acido tartarico, Acido 2\,3-diidrossibutandioico, Tartaro emetico, Tartrato, C4H6O6
+ja:E334, 酒石酸
+ko:E334, 타타르산
 lt:E334, Vyno rūgštis (l(+)-), vyno rūgštis
 lv:E334, L(+)-vīnskābe, vīnskābe, L-vīnskābe, L-2\,3-dihidroksibutāndiskābe, Tartrāti, Mezovīnskābe, Vīnogskābe, C4H6O6
+mk:E334, Винска киселина
+ml:E334, ടാർട്ടാറിക് അമ്ലം
 mt:E334, L(+)-aċidu tartariku, aċidu tartariku
+my:E334, တာတာရစ် အက်ဆစ်
 nl:E334, L(+)-wijnsteenzuur, wijnsteenzuur, L-Wijnsteenzuur, L-2\,3-dihydroxybutaandizuur, Wijnsteenzuur, Druivenzuur
 pl:E334, Kwas winowy l(+), kwas winowy, Kwas winny, Winiany
 pt:E334, Ácido l(+)-tartárico, ácido tartárico, Ins 334, Tartarato
 ro:E334, Acid l(+)- tartric, acid tartric, Acid L-tartric, Acid L-2\,3-dihidroxibutandioic
+sh:E334, Vinska kiselina
 sk:E334, Kyselina l-(+)-vínna, kyselina vínna
 sl:E334, Vinska kislina (l (+) -), vinska kislina
+sr:E334, винска киселина
 sv:E334, L(+)-vinsyra, L-vinsyra, L-2\,3-dihydroxibutandisyra, Vinsyra, Tartrat, E 334, C4h6o6
+te:E334, టార్టారిక్ ఆమ్లం
+tr:E334, Tartarik asit
+uk:E334, Винна кислота
+uz:E334, Vino kislota
+zh:E334, 酒石酸
+# azb:E334, اسید تارتاریک
+# sr-ec:E334, винска киселина
+# sr-el:E334, Vinska kiselina
+# zh-cn:E334, 酒石酸
+# zh-hans:E334, 酒石酸
+# zh-hant:E334, 酒石酸
+# zh-hk:E334, 酒石酸
+# zh-sg:E334, 酒石酸
+# zh-tw:E334, 酒石酸
+wikipedia:en:https://en.wikipedia.org/wiki/Tartaric_acid
+# en:tartric acid has 360 products in 8 languages @2018-11-18
+# additive/e334-l-tartaric-acid has 1559 products in 21 languages @2018-11-18
 e_number:en:334
-wikidata:en:Q194322
 additives_classes:en: en:antioxidant, en:sequestrant
 organic_eu:en:authorized
 vegan:en:yes
@@ -7972,34 +8197,40 @@ wikidata:en:Q17997701
 additives_classes:en: en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 
-en:E336, Potassium tartrates, Potassium tartrate, dipotassium tartrate, argol
+# comment:en:Note the words should be in plural. The singular implies E336ii
+
+en:E336, Potassium tartrates
 bg:E336, E336 food additive
 ca:E336, Tartrat de potassi
 cs:E336, E336 food additive
 da:E336, E336 food additive
-de:E336, Kaliumtartrat, E 336
+de:E336, Kaliumtartrate
 el:E336, E336 food additive
 es:E336, E336 food additive
 et:E336, E336 food additive
 fi:E336, E336 food additive
-fr:E336, Tartrates de potassium, Tartrate de potassium, Tartrate monopotassique, Tartrate dipotassique, argol, Sels mono- et dipotassique de l'acide L(+)-tartrique, crème de tartre
-hu:E336, Dikálium-tartarát
-it:E336, Tartrato di potassio, C4H4K2O6
+fr:E336, Tartrates de potassium
+hu:E336, E336 food additive
+it:E336, Tartrati di potassio
 lt:E336, E336 food additive
 lv:E336, E336 food additive
 mt:E336, E336 food additive
-nl:E336, Kaliumtartraat
+nl:E336, Kaliumtartraten
 pl:E336, E336 food additive
 pt:E336, Tartarato de potássio
 ro:E336, E336 food additive
 sk:E336, E336 food additive
 sl:E336, E336 food additive
-sv:E336, Kaliumtartrat, E 336
+sv:E336, Kaliumtartrate
 e_number:en:336
 wikidata:en:Q418064
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_tartrate
+# ingredient/fr:tartrates-de-potassium has 199 products in 6 languages @2019-03-22
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+
+# description:en:Potassium bitartrate, also known as potassium hydrogen tartrate, with formula KC4H5O6, is a byproduct of winemaking. 
 
 <en:E336
 en:E336(i), Monopotassium tartrate, monopotassic tartrate
@@ -8025,7 +8256,9 @@ sk:E336(i), Vínan draselný, Vínan draselný
 sl:E336(i), Monokalijev tartrat
 sv:E336(i), Monokaliumtartrat
 e_number:en:336
-wikidata:en:Q418064
+wikidata:en: Q42807499
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_bitartrate
+# additive/e336i-monopotassium-tartrate has 127 products in 5 languages @2019-03-22
 organic_eu:en:authorized
 
 <en:E336
