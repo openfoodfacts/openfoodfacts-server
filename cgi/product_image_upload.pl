@@ -125,7 +125,7 @@ if ($imagefield) {
 
 		my $imgid;
 
-		my $imgid_returncode = process_image_upload($code, $imagefield, $User_id, time(), "image upload", \$imgid);
+		my $imgid_returncode = process_image_upload($product_id, $imagefield, $User_id, time(), "image upload", \$imgid);
 
 		$log->info("imgid created", { imgid => $imgid });
 
@@ -152,7 +152,7 @@ if ($imagefield) {
 
 
 			if ($admin) {
-				$product_ref = retrieve_product($code);
+				$product_ref = retrieve_product($product_id);
 				$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
 				$image_data_ref->{uploaded} = $product_ref->{images}{$imgid}{uploaded_t};
 			}
@@ -165,7 +165,7 @@ if ($imagefield) {
 			# If we don't have a picture for the imagefield yet, assign it
 			# (can be changed by the user later if necessary)
 			if ((($imagefield =~ /^front/) or ($imagefield =~ /^ingredients/) or ($imagefield =~ /^nutrition/)) and not defined $product_ref->{images}{$imagefield}) {
-				process_image_crop($code, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
+				process_image_crop($product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
 			}
 		}
 

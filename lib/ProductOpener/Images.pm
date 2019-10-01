@@ -1097,17 +1097,18 @@ sub process_image_crop($$$$$$$$$$) {
 
 sub process_image_unselect($$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $id = shift;
 
-	my $path = product_path($code);
-	local $log->context->{code} = $code;
+	my $path = product_path_from_id($product_id);
+
+	local $log->context->{product_id} = $product_id;
 	local $log->context->{id} = $id;
 
 	$log->info("unselecting image") if $log->is_info();
 
 	# Update the product image data
-	my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 	if (defined $product_ref->{images}{$id}) {
 		delete $product_ref->{images}{$id};

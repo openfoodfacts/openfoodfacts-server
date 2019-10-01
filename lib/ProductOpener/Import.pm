@@ -399,12 +399,13 @@ sub import_csv_file($) {
 
 		my $code = remove_tags_and_quote($imported_product_ref->{code});
 		$code = normalize_code($code);
+		my $product_id = product_id_for_user($User_id, $Org_id, $code);
 
 		if ((defined $args_ref->{skip_if_not_code}) and ($code ne $args_ref->{skip_if_not_code})) {
 			next;
 		}
 
-		print STDERR "product $i - code: $code\n";
+		print STDERR "product $i - code: $code - product_id: $product_id\n";
 
 		if ($code eq '') {
 			print "empty code\n";
@@ -498,7 +499,7 @@ sub import_csv_file($) {
 			}
 		}
 
-		my $product_ref = product_exists($code); # returns 0 if not
+		my $product_ref = product_exists($product_id); # returns 0 if not
 
 		my $product_comment = $args_ref->{comment};
 		if ((defined $imported_product_ref->{comment}) and ($imported_product_ref->{comment} ne "")) {
@@ -516,7 +517,7 @@ sub import_csv_file($) {
 
 			$new++;
 			if (1 and (not $product_ref)) {
-				print "product code $code does not exist yet, creating product\n";
+				print STDERR "product code $code - product_id $product_id does not exist yet, creating product\n";
 
 				$stats{products_created}{$code} = 1;
 
@@ -1025,7 +1026,7 @@ sub import_csv_file($) {
 
 				ProductOpener::SiteQuality::check_quality($product_ref);
 
-				print STDERR "Storing product code $code - product_ref->code: " . $product_ref->{code} . "\n";
+				print STDERR "Storing product code $code - product_id $product_id - product_ref->code: " . $product_ref->{code} . "\n";
 
 				store_product($product_ref, "Editing product (import) - " . $product_comment );
 
@@ -1084,7 +1085,7 @@ sub import_csv_file($) {
 
 						# upload a photo
 						my $imgid;
-						my $return_code = process_image_upload($code, "$args_ref->{images_dir}/$file", $args_ref->{user_id}, undef, $product_comment, \$imgid);
+						my $return_code = process_image_upload($product_id, "$args_ref->{images_dir}/$file", $args_ref->{user_id}, undef, $product_comment, \$imgid);
 						print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid - imagefield_with_lc: $imagefield_with_lc\n";
 
 						if (($imgid > 0) and ($imgid > $current_max_imgid)) {
@@ -1099,7 +1100,7 @@ sub import_csv_file($) {
 							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 
 								print "assigning image $imgid to ${imagefield_with_lc}\n";
-								eval { process_image_crop($code, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
 								# $modified++;
 
 							}
@@ -1112,7 +1113,7 @@ sub import_csv_file($) {
 									and (exists $product_ref->{images}{$imagefield_with_lc})
 									and ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)) {
 									print "re-assigning image $imgid to $imagefield_with_lc\n";
-									eval { process_image_crop($code, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
 									# $modified++;
 								}
 

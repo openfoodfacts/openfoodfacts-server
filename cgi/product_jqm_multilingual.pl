@@ -60,6 +60,7 @@ my $interface_version = '20150316.jqm2';
 my %response = ();
 
 my $code = normalize_code(param('code'));
+my $product_id;
 
 $log->debug("start", { code => $code, lc => $lc }) if $log->is_debug();
 
@@ -72,7 +73,9 @@ if ($code !~ /^\d+$/) {
 }
 else {
 
-	my $product_ref = retrieve_product($code);
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_ref = retrieve_product($product_id);
+
 	if (not defined $product_ref) {
 		$product_ref = init_product($User_id, $Org_id, $code);
 		$product_ref->{interface_version_created} = $interface_version;
