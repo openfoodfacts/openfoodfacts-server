@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-16 16:42\n"
+"PO-Revision-Date: 2019-10-01 17:13\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2535,8 +2535,8 @@ msgstr "crwdns103310:0crwdne103310:0"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"\">Why it matters</a>"
-msgstr "crwdns103312:0crwdne103312:0"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
+msgstr "crwdns122194:0crwdne122194:0"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3244,4 +3244,192 @@ msgstr "crwdns120548:0crwdne120548:0"
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "crwdns120550:0crwdne120550:0"
+
+msgctxt "import_data_file_title"
+msgid "Import a product data file"
+msgstr "crwdns122196:0crwdne122196:0"
+
+msgctxt "import_data_file_description"
+msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
+msgstr "crwdns122198:0crwdne122198:0"
+
+msgctxt "import_data_file_format"
+msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
+msgstr "crwdns122200:0crwdne122200:0"
+
+msgctxt "upload_products_data_file"
+msgid "Upload a products data file"
+msgstr "crwdns122202:0crwdne122202:0"
+
+msgctxt "uploading_file"
+msgid "File being uploaded."
+msgstr "crwdns122204:0crwdne122204:0"
+
+msgctxt "upload_error"
+msgid "The file could not be uploaded."
+msgstr "crwdns122206:0crwdne122206:0"
+
+msgctxt "import_data_file_select_format_title"
+msgid "Select and import data"
+msgstr "crwdns122208:0crwdne122208:0"
+
+msgctxt "import_data_file_select_format_description"
+msgid "Use the form below to indicate which columns to import and what data they contain."
+msgstr "crwdns122210:0crwdne122210:0"
+
+msgctxt "import_data"
+msgid "Import data"
+msgstr "crwdns122212:0crwdne122212:0"
+
+msgctxt "import_file_rows_columns"
+msgid "The uploaded file contains %s rows and %s columns."
+msgstr "crwdns122214:0%scrwdnd122214:0%scrwdne122214:0"
+
+msgctxt "import_file_selected_columns"
+msgid "%s columns out of %s have been selected and will be imported."
+msgstr "crwdns122216:0%scrwdnd122216:0%scrwdne122216:0"
+
+msgctxt "fields_group_identification"
+msgid "Product identification"
+msgstr "crwdns122218:0crwdne122218:0"
+
+msgctxt "fields_group_origins"
+msgid "Origins"
+msgstr "crwdns122220:0crwdne122220:0"
+
+msgctxt "fields_group_ingredients"
+msgid "Ingredients"
+msgstr "crwdns122222:0crwdne122222:0"
+
+msgctxt "fields_group_nutrition"
+msgid "Nutrition facts"
+msgstr "crwdns122224:0crwdne122224:0"
+
+msgctxt "fields_group_nutrition_other"
+msgid "Optional nutrition facts"
+msgstr "crwdns122226:0crwdne122226:0"
+
+msgctxt "fields_group_other"
+msgid "Other information"
+msgstr "crwdns122228:0crwdne122228:0"
+
+msgctxt "labels_specific"
+msgid "Specific label"
+msgstr "crwdns122230:0crwdne122230:0"
+
+msgctxt "categories_specific"
+msgid "Specific category"
+msgstr "crwdns122232:0crwdne122232:0"
+
+msgctxt "select_a_field"
+msgid "Select a field"
+msgstr "crwdns122234:0crwdne122234:0"
+
+msgctxt "specify"
+msgid "Specify"
+msgstr "crwdns122236:0crwdne122236:0"
+
+msgctxt "value_unit_dropdown"
+msgid "In the dropdown menu on the right, specify if the column contains:"
+msgstr "crwdns122238:0crwdne122238:0"
+
+msgctxt "value_unit_dropdown_value_unit"
+msgid "the value and the unit"
+msgstr "crwdns122240:0crwdne122240:0"
+
+msgctxt "value_unit_dropdown_value_specific_unit"
+msgid "the value in a specific unit"
+msgstr "crwdns122242:0crwdne122242:0"
+
+msgctxt "value_unit_dropdown_value"
+msgid "only the value, with the unit in another column"
+msgstr "crwdns122244:0crwdne122244:0"
+
+msgctxt "value_unit_dropdown_unit"
+msgid "only the unit, with the value in another column"
+msgstr "crwdns122246:0crwdne122246:0"
+
+msgctxt "specific_tag_label"
+msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr "crwdns122248:0crwdne122248:0"
+
+msgctxt "specific_tag_label_value"
+msgid "Type the name of the label in the text field on the right."
+msgstr "crwdns122250:0crwdne122250:0"
+
+msgctxt "specific_tag_category"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr "crwdns122252:0crwdne122252:0"
+
+msgctxt "specific_tag_category_value"
+msgid "Type the name of the category in the text field on the right."
+msgstr "crwdns122254:0crwdne122254:0"
+
+msgctxt "value"
+msgid "Value"
+msgstr "crwdns122256:0crwdne122256:0"
+
+msgctxt "value_unit"
+msgid "Value + Unit"
+msgstr "crwdns122258:0crwdne122258:0"
+
+msgctxt "value_in_l"
+msgid "Value in L"
+msgstr "crwdns122260:0crwdne122260:0"
+
+msgctxt "value_in_dl"
+msgid "Value in dl"
+msgstr "crwdns122262:0crwdne122262:0"
+
+msgctxt "value_in_cl"
+msgid "Value in cl"
+msgstr "crwdns122264:0crwdne122264:0"
+
+msgctxt "value_in_ml"
+msgid "Value in ml"
+msgstr "crwdns122266:0crwdne122266:0"
+
+msgctxt "value_in_kg"
+msgid "Value in kg"
+msgstr "crwdns122268:0crwdne122268:0"
+
+msgctxt "value_in_g"
+msgid "Value in g"
+msgstr "crwdns122270:0crwdne122270:0"
+
+msgctxt "value_in_mg"
+msgid "Value in mg"
+msgstr "crwdns122272:0crwdne122272:0"
+
+msgctxt "value_in_mcg"
+msgid "Value in μg"
+msgstr "crwdns122274:0crwdne122274:0"
+
+msgctxt "value_in_kcal"
+msgid "Value in kcal"
+msgstr "crwdns122276:0crwdne122276:0"
+
+msgctxt "value_in_kj"
+msgid "Value in kJ"
+msgstr "crwdns122278:0crwdne122278:0"
+
+msgctxt "value_in_percent"
+msgid "Value in %"
+msgstr "crwdns122280:0crwdne122280:0"
+
+msgctxt "no_owner_defined"
+msgid "Please log-in to use this feature."
+msgstr "crwdns122282:0crwdne122282:0"
+
+msgctxt "org"
+msgid "Organization"
+msgstr "crwdns122284:0crwdne122284:0"
+
+msgctxt "column_in_file"
+msgid "Column in file"
+msgstr "crwdns122286:0crwdne122286:0"
+
+msgctxt "field_on_site"
+msgid "Field on %"
+msgstr "crwdns122288:0crwdne122288:0"
 
