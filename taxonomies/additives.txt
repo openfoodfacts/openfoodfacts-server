@@ -7106,7 +7106,7 @@ vegetarian:en:yes
 
 # description:en:Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogenizing liquid mixtures, and repelling sticking materials.
 
-en:E322, Lecithins, Phosphatides, Lecithin
+en:E322, Lecithins, Phosphatides
 ar:E322, ليسيثين
 bg:E322, Лецитини, Фосфатиди, Лецитин
 ca:E322, Lecitina
@@ -7161,85 +7161,6 @@ vegan:en:maybe
 vegetarian:en:maybe
 
 
-# nova:en:lecithin
-<en:E322
-en:soya lecithin, soy lecithin
-cs:sójový lecitin
-da:sojalecitin
-de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
-el:λεκιθίνη σόγιας
-es:lecitina de soja, lecitina de soya
-fi:soijalesitiini
-fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
-hu:szójalecitin, szójalecitinek
-it:lecitina di soia
-nl:sojalecithine
-nn:sojalecitin
-pl:lecytyna sojowa
-pt:lecitina de soja
-ro:lecitinã din soia
-ru:соевый лецитин
-sk:sójový lecitin
-sl:sojin lecitin
-sr:sojin lecitin
-sv:sojalecitin
-tr:soya lesitini
-# en:soya-lecithin has 27949 products in 29 languages @2018-11-10
-vegan:en:yes
-vegetarian:en:yes
-
-<en:E322
-en:GMO-free soy lecithin
-fr:lécithine de soja sans ogm
-nl:GMO-vrije sojalecithine
-# gmo-free-soy-lecithin has 73 products in 2 languages @2018-11-10
-
-<en:E322
-en:sunflower lecithin
-cs:Slunečnicový lecitin
-da:solsikkelecithin
-de:Sonnenblumenlecithine, Sonnenblumenlecithin
-el:λεκιθίνες ηλιστροπιου
-es:lecitina de girasol
-fi:auringonkukkalesitiini
-fr:lécithine de tournesol
-it:lecitina girasole, lecitina di girasole
-lv:lecitinai iš saulègrąžų
-nl:zonnebloemlecithine, zonnebloem-lecithine
-nn:solsikkelecithin
-pl:lecytyny ze slonecznika
-pt:lecitina de girassol
-sv:solroslecitin
-wikidata:en:Q57271747
-# fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
-vegan:en:yes
-vegetarian:en:yes
-
-# <en:emulsifier
-<en:sunflower lecithin
-fr:émulsifiant lécithine de tournesol
-# ingredient/fr:émulsifiant-lécithine-de-tournesol has 100 products in 6 languages @2019-02-22
-
-<en:soya lecithin
-<en:sunflower lecithin
-en:soya and sunflower lecithin
-de:Sojalecithin und Sonnenblumen
-fr:lécithine de soja et de tournesol
-it:lecitina di soia e di girasole
-# fr:lécithine-de-soja-et-de-tournesol has 50 products in 4 languages @2018-11-10
-vegan:en:yes
-vegetarian:en:yes
-
-<en:E322
-en:rapeseed lecithin
-de:Rapslecithin
-es:Lecitina de colza
-fr:lécithine de colza, lécithines de colza
-nl:raapzaadlecithine
-sr:lecitin uljane repice
-# fr:lécithines-de-colza has 609 products in 6 languages @2018-11-10
-vegan:en:yes
-vegetarian:en:yes
 
 # should be handled by the parser
 #<en:E322
@@ -7280,6 +7201,85 @@ wikidata:en:Q241595
 additives_classes:en: en:antioxidant, en:emulsifier
 organic_eu:en:authorized
 
+
+<en:E322
+en:soya lecithin, soy lecithin
+cs:sójový lecitin
+da:sojalecitin
+de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
+el:λεκιθίνη σόγιας
+es:lecitina de soja, lecitina de soya
+fi:soijalesitiini
+fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
+hu:szójalecitin, szójalecitinek
+it:lecitina di soia
+nl:sojalecithine
+nn:sojalecitin
+pl:lecytyna sojowa
+pt:lecitina de soja
+ro:lecitinã din soia
+ru:соевый лецитин
+sk:sójový lecitin
+sl:sojin lecitin
+sr:sojin lecitin
+sv:sojalecitin
+tr:soya lesitini
+# en:soya-lecithin has 27949 products in 29 languages @2018-11-10
+vegan:en:yes
+vegetarian:en:yes
+
+<en:soya lecithin
+en:GMO-free soy lecithin
+fr:lécithine de soja sans ogm
+nl:GMO-vrije sojalecithine
+# gmo-free-soy-lecithin has 73 products in 2 languages @2018-11-10
+
+<en:E322(i)
+en:sunflower lecithin
+cs:Slunečnicový lecitin
+da:solsikkelecithin
+de:Sonnenblumenlecithine, Sonnenblumenlecithin
+el:λεκιθίνες ηλιστροπιου
+es:lecitina de girasol
+fi:auringonkukkalesitiini
+fr:lécithine de tournesol
+it:lecitina girasole, lecitina di girasole
+lv:lecitinai iš saulègrąžų
+nl:zonnebloemlecithine, zonnebloem-lecithine
+nn:solsikkelecithin
+pl:lecytyny ze slonecznika
+pt:lecitina de girassol
+sv:solroslecitin
+wikidata:en:Q57271747
+# fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
+vegan:en:yes
+vegetarian:en:yes
+
+# <en:emulsifier
+<en:sunflower lecithin
+fr:émulsifiant lécithine de tournesol
+# ingredient/fr:émulsifiant-lécithine-de-tournesol has 100 products in 6 languages @2019-02-22
+
+<en:soya lecithin
+<en:sunflower lecithin
+en:soya and sunflower lecithin
+de:Sojalecithin und Sonnenblumen
+fr:lécithine de soja et de tournesol
+it:lecitina di soia e di girasole
+# fr:lécithine-de-soja-et-de-tournesol has 50 products in 4 languages @2018-11-10
+vegan:en:yes
+vegetarian:en:yes
+
+<en:E322(i)
+en:rapeseed lecithin
+de:Rapslecithin
+es:Lecitina de colza
+fr:lécithine de colza, lécithines de colza
+nl:raapzaadlecithine
+sr:lecitin uljane repice
+# fr:lécithines-de-colza has 609 products in 6 languages @2018-11-10
+vegan:en:yes
+vegetarian:en:yes
 <en:E322
 en:E322(ii), E322(ii) food additive
 bg:E322(ii), E322(ii) food additive
