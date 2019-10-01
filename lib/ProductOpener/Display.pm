@@ -6129,6 +6129,22 @@ HTML
 		$system = "ios";
 	}
 
+	my $tagline = "<p>$Lang{tagline}{$lc}</p>";
+
+	if ($server_options{producers_platform}) {
+
+		$tagline = <<HTML
+<h2>$Lang{producers_platform}{$lc}</h2>
+<p>$Lang{producers_platform_description}{$lc}</p>
+<p>
+&rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
+&rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
+</p>
+HTML
+;
+
+		}
+
 	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"})) {
 
 		my $link = lang($system . "_app_link");
@@ -6220,7 +6236,7 @@ HTML
 					<div style="text-align:center">
 						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
 					</div>
-					<p>$Lang{tagline}{$lc}</p>
+					$tagline
 					<form action="/cgi/search.pl" class="hide-for-large-up">
 						<div class="row collapse">
 							<div class="small-9 columns">
@@ -9438,7 +9454,7 @@ sub display_structured_response($)
 		elsif (defined param('callback')) {
 			$jsonp = param('callback');
 		}
-	
+
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
 		}
