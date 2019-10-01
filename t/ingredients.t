@@ -540,7 +540,7 @@ $expected_product_ref =
         'vegetarian' => 'yes'
       },
       {
-        'id' => 'en:e333',
+        'id' => 'en:e333iii',
         'text' => 'citrate de calcium',
         'vegan' => 'yes',
         'vegetarian' => 'yes'
@@ -678,7 +678,7 @@ $expected_product_ref =
       'en:concentrated-orange-juice',
       'en:fruit-juice',
       'en:orange-juice',
-      'en:e333',
+      'en:e333iii',
       'en:sodium-citrate',
       'en:minerals',
       'en:sodium',
@@ -728,7 +728,7 @@ $expected_product_ref =
       'en:sugar',
       'en:orange-pulp',
       'en:concentrated-orange-juice',
-      'en:e333',
+      'en:e333iii',
       'en:sodium-citrate',
       'en:sugar',
       'en:cocoa-paste',
@@ -789,7 +789,7 @@ $expected_product_ref =
       'en:concentrated-orange-juice',
       'en:fruit-juice',
       'en:orange-juice',
-      'en:e333',
+      'en:e333iii',
       'en:sodium-citrate',
       'en:minerals',
       'en:sodium',
