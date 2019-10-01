@@ -148,7 +148,10 @@ HTML
 sub display_select_crop_init($) {
 
 	my $object_ref = shift;
-	my $path = product_path($object_ref->{code});
+
+	$log->debug("display_select_crop_init", { object_ref => $object_ref }) if $log->is_debug();
+
+	my $path = product_path($object_ref);
 
 	my $images = '';
 
@@ -406,17 +409,19 @@ sub dims {
 
 sub process_image_upload($$$$$$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $imagefield = shift;
 	my $userid = shift;
 	my $time = shift; # usually current time (images just uploaded), except for images moved from another product
 	my $comment = shift;
 	my $imgid_ref = shift; # to return the imgid (new image or existing image)
 
+	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
+
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($product_id);
 	my $imgid = -1;
 
 	my $new_product_ref = {};
@@ -468,7 +473,7 @@ sub process_image_upload($$$$$$) {
 			$extension eq 'jpeg' and $extension = 'jpg';
 			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
-			my $current_product_ref = retrieve_product($code);
+			my $current_product_ref = retrieve_product($product_id);
 			$imgid = $current_product_ref->{max_imgid} + 1;
 
 			# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
@@ -560,7 +565,7 @@ sub process_image_upload($$$$$$) {
 					# check the image was stored inside the
 					# product, it is sometimes missing
 					# (e.g. during crashes)
-					my $product_ref = retrieve_product($code);
+					my $product_ref = retrieve_product($product_id);
 					if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
 						$log->debug("unlinking image", { imgid => $imgid, file => "$www_root/images/products/$path/$imgid.$extension" }) if $log->is_debug();
 						unlink "$www_root/images/products/$path/$imgid.$extension";
@@ -627,7 +632,7 @@ sub process_image_upload($$$$$$) {
 			if (not "$x") {
 
 				# Update the product image data
-				my $product_ref = retrieve_product($code);
+				my $product_ref = retrieve_product($product_id);
 				defined $product_ref->{images} or $product_ref->{images} = {};
 				$product_ref->{images}{$imgid} = {
 					uploader => $userid,
@@ -656,6 +661,8 @@ sub process_image_upload($$$$$$) {
 				# and computer vision algorithms
 
 				(-e "$data_root/new_images") or mkdir("$data_root/new_images", 0755);
+				my $code = $product_id;
+				$code =~ s/.*\///;
 				symlink("$www_root/images/products/$path/$imgid.jpg", "$data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
 
 			}
@@ -689,22 +696,28 @@ sub process_image_upload($$$$$$) {
 
 
 
-sub process_image_move($$$$) {
+sub process_image_move($$$$$) {
 
 	my $code = shift;
 	my $imgids = shift;
 	my $move_to = shift;
 	my $userid = shift;
-
-	my $path = product_path($code);
-
-	my $product_ref = retrieve_product($code);
-	defined $product_ref->{images} or $product_ref->{images} = {};
+	my $orgid = shift;
 
 	# move images only to trash or another valid barcode (number)
 	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
 		return "invalid barcode number: $move_to";
 	}
+
+	my $product_id = product_id_for_user($userid, $orgid, $code);
+	my $move_to_id = product_id_for_user($userid, $orgid, $move_to);
+
+	$log->debug("process_image_move", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
+
+	my $path = product_path_from_id($product_id);
+
+	my $product_ref = retrieve_product($product_id);
+	defined $product_ref->{images} or $product_ref->{images} = {};
 
 	# iterate on each images
 
@@ -719,12 +732,12 @@ sub process_image_move($$$$) {
 			my $ok = 1;
 
 			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
 				if ($ok < 0) {
-					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", new_code => $code, user_id => $userid, result => $ok });
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, user_id => $userid, result => $ok });
 				}
 				else {
-					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", new_code => $code, user_id => $userid, result => $ok });
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, user_id => $userid, result => $ok });
 				}
 			}
 
@@ -758,7 +771,7 @@ sub process_image_move($$$$) {
 
 sub process_image_crop($$$$$$$$$$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $id = shift;
 	my $imgid = shift;
 	my $angle = shift;
@@ -769,14 +782,18 @@ sub process_image_crop($$$$$$$$$$) {
 	my $x2 = shift;
 	my $y2 = shift;
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($product_id);
 
-	my $new_product_ref = retrieve_product($code);
+	my $code = $product_id;
+	$code =~ s/.*\///;
+
+	my $new_product_ref = retrieve_product($product_id);
 	my $rev = $new_product_ref->{rev} + 1;	# For naming images
 
 	my $source_path = "$www_root/images/products/$path/$imgid.jpg";
 
 	local $log->context->{code} = $code;
+	local $log->context->{product_id} = $product_id;
 	local $log->context->{id} = $id;
 	local $log->context->{imgid} = $imgid;
 	local $log->context->{source_path} = $source_path;
@@ -1049,7 +1066,7 @@ sub process_image_crop($$$$$$$$$$) {
 	}
 
 	# Update the product image data
-	my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 	$product_ref->{images}{$id} = {
 		imgid => $imgid,
@@ -1080,17 +1097,18 @@ sub process_image_crop($$$$$$$$$$) {
 
 sub process_image_unselect($$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $id = shift;
 
-	my $path = product_path($code);
-	local $log->context->{code} = $code;
+	my $path = product_path_from_id($product_id);
+
+	local $log->context->{product_id} = $product_id;
 	local $log->context->{id} = $id;
 
 	$log->info("unselecting image") if $log->is_info();
 
 	# Update the product image data
-	my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 	if (defined $product_ref->{images}{$id}) {
 		delete $product_ref->{images}{$id};
@@ -1175,7 +1193,7 @@ sub display_image_thumb($$) {
 		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$thumb_size})) {
 
-			my $path = product_path($product_ref->{code});
+			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
@@ -1248,7 +1266,7 @@ sub display_image($$$) {
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 
-		my $path = product_path($product_ref->{code});
+		my $path = product_path($product_ref);
 		my $rev = $product_ref->{images}{$id}{rev};
 		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
@@ -1398,7 +1416,7 @@ sub extract_text_from_image($$$$$) {
 
 	delete $product_ref->{$field};
 
-	my $path = product_path($product_ref->{code});
+	my $path = product_path($product_ref);
 	$results_ref->{status} = 1;	# 1 = nok, 0 = ok
 
 	my $filename = '';
