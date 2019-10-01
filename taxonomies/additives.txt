@@ -11794,7 +11794,8 @@ es:E441, Aceite de semillas de colza superglicerinado hidrogenado
 fr:E441, Huile de colza superglycérinée hydrogénée
 e_number:en:441
 
-# description:en:E442 is generally produced with rapeseed oil and can thus be consumed by all religious groups. However, the use of animal fat (incl. pork) can not be completed excluded.
+# description:en:The mix of ammonium salts of phosphorylated glycerides can be either made synthetically or from mixture of glycerol and partially hardened plant (most often used:rapeseed oil) oils
+# diets:en:E442 is generally produced with rapeseed oil and can thus be consumed by all religious groups. However, the use of animal fat (incl. pork) can not be completed excluded.
 # origin:en:pork:maybe
 
 en:E442, Ammonium phosphatides, Mixed ammonium salts of phosphorylated glycerides, Emulsifier YN, Ammonium phosphatide
@@ -11822,6 +11823,9 @@ sl:E442, Amonijevi fosfatidi
 sv:E442, Ammoniumfosfatider, Ammoniumsalter av fosfatinsyra
 e_number:en:442
 wikidata:en:Q695975
+wikipedia:en:https://en.wikipedia.org/wiki/Mixed_ammonium_salts_of_phosphorylated_glycerides
+# fr:phosphatides-d’ammonium has 56 products in 6 languages @2018-11-06
+# additive/e442-ammonium-phosphatides has 246 products @2018-11-06
 additives_classes:en: en:emulsifier
 vegan:en:maybe
 vegetarian:en:maybe
@@ -11885,6 +11889,8 @@ additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:GLYCEROL ESTER OF WOOD ROSIN,  also known as glyceryl abietate or ester gum, is an oil-soluble food additive (E number E445).
+
 en:E445, Glycerol esters of wood rosin, Glycerol ester of wood rosin, glyceryl abietate, ester gum
 bg:E445, Глицеролови естери на дървесна смола
 ca:E445, Èster glicèrid de la colofònia de fusta
@@ -11898,6 +11904,7 @@ fi:E445, Puuhartsien glyseroliesterit
 fr:E445, Esters glycériques de résine de bois, Esters glycéroliques de résine de bois, Gomme ester, Ester glycérique de résine de bois
 hu:E445, Fagyanta glicerin-észterei, Fagyanták glicerin-észterei
 it:E445, Esteri della glicerina della resina del legno
+ja:E445, ウッドロジングリセリンエステル
 lt:E445, Medienos kanifolijos glicerolio esteriai
 lv:E445, Kolofonija glicerīna esteri
 mt:E445, Esteri tal-gliċerol tar-rożin tal-injam
@@ -11910,9 +11917,19 @@ sl:E445, Glicerolni estri lesne smole
 sv:E445, Glycerolestrar av trähartser, E 445
 e_number:en:445
 wikidata:en:Q836765
+wikipedia:en:https://en.wikipedia.org/wiki/Glycerol_ester_of_wood_rosin
+# additive/e445-glycerol-esters-of-wood-rosin has 1622 products @2019-03-23
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:yes
 vegetarian:en:yes
+
+# should be handles by the parser
+#<en:Glycerol esters of wood rosin
+#en:stabilizer e445
+#es:Estabilizador e445
+#fr:stabilisant e445
+#nl:stabilisator E445
+# ingredient/stabilizer-e445 has 32 products in 3 languages @2019-03-23
 
 en:E446, Succistearin
 bg:E446, E446 food additive
@@ -12926,6 +12943,8 @@ additives_classes:en:en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:Microcrystalline cellulose (MCC) is a term for refined wood pulp and is used as a texturizer, an anti-caking agent, a fat substitute, an emulsifier, an extender, and a bulking agent in food production.
+
 <en:E460
 en:E460(i), Microcrystalline cellulose
 bg:E460(i), Микрокристална целулоза
@@ -12951,6 +12970,9 @@ sl:E460(i), Mikrokristalna celuloza
 sv:E460(i), Mikrokristallin cellulosa
 e_number:en:460
 wikidata:en:Q80294
+wikipedia:en:https://en.wikipedia.org/wiki/Microcrystalline_cellulose
+# ingredient/fr:cellulose-microcristalline has 72 products in 5 languages @2019-03-19 # additive/e460i-microcrystalline-cellulose has 342 products in 7 languages @2019-03-19
+# stabilizzante:cellulosa microcristallina
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
 
 <en:E460
@@ -13089,7 +13111,10 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:Hypromellose (INN), short for HYDROXYPROPYL METHYLCELLULOSE (HPMC), is a semisynthetic, inert, viscoelastic polymer used as a food additive, as emulsifier, thickening and suspending agent, and an alternative to animal gelatin.
+
 en:E464, Hydroxypropyl methyl cellulose, hypromellose, hydroxypropyl methylcellulose, HPMC
+ar:E464, هيدروكسي بروبيل ميثيل سيللوز
 bg:E464, Хидроксипропил метил целулоза
 cs:E464, Hydroxypropylmethylcelulosa
 ca:E464, Hidroxipropilmetilcel·lulosa
@@ -13098,22 +13123,41 @@ de:E464, Hydroxypropylmethylcellulose, Methylhydroxypropylcellulose, Hydroxyprop
 el:E464, Υδροξυπροπυλομεθυλοκυτταρινη
 es:E464, Hidroxipropilmetilcelulosa, Hipromelosa, HPMC
 et:E464, Hüdroksüpropüülmetüültselluloos
+fa:E464, اشک مصنوعی
 fi:E464, Hydroxypropyl methyl cellulose
 fr:E464, Hydroxypropylméthylcellulose, Hypromellose, Hydroxypropyl methyl cellulose, Hydroxypropyl methylcellulose, HPMC, Cellulose hydroxypropyl methyl ether, Methylhydroxypropylcellulosum
 hu:E464, Hidroxi-propil-metil-cellulóz, Hidroxipropil-metilcellulóz
+id:E464, Hydroxypropyl methylcellulose
 it:E464, Idrossipropilmetilcellulosa
+ja:E464, ヒプロメロース
+ko:E464, 하이프로멜로스
 lt:E464, Hidroksipropilmetilceliuliozė
 lv:E464, Hidroksipropilmetilceluloze
+mk:E464, Хипермелоза
 mt:E464, Ċelluloża metilika idrossipropilika
 nl:E464, Hydroxypropylmethylcellulose, Hypromellose
 pl:E464, Hydroksypropylometyloceluloza, hypermyloza, Hipromeloza
 pt:E464, Hidroxipropilmetilcelulose, Hipromelose
 ro:E464, Hidroxipropilmetilceluloză
+ru:E464, Метилоксипропилцеллюлоза
+sh:E464, Hipromeloza
 sk:E464, Hydroxypropylmetylcelulóza
 sl:E464, Hidroksipropilmetil celuloza
+sr:E464, Hipromeloza
 sv:E464, Hydroxipropylmetylcellulosa
+zh:E464, 羟丙甲纤维素
+# sr-el:E464, Hipromeloza
+# zh-cn:E464, 羟丙甲纤维素
+# zh-hans:E464, 羟丙甲纤维素
+# zh-hant:E464, 羥丙甲纖維素
+# zh-hk:E464, 羥丙甲纖維素
+# zh-sg:E464, 羟丙甲纤维素
+# zh-tw:E464, 羥丙甲纖維素
 e_number:en:464
 wikidata:en:Q423846
+wikipedia:en:https://en.wikipedia.org/wiki/Hypromellose
+# ingredient/fr:hydroxypropylméthylcellulose has 165 products in 6 languages @2019-04-27
+# usage:nl:stabilisator:hydroxypropylmethylcellulose
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4088
 efsa_evaluation_date:en: 2015-05-05
 efsa_evaluation:en: Safety of a change in specifications for the food additive hydroxypropyl methyl cellulose (E 464)
@@ -13151,7 +13195,10 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:CARBOXYMETHYL CELLULOSE   (CMC) or cellulose gum or tylose powder is a cellulose derivative with carboxymethyl groups (-CH2-COOH) bound to some of the hydroxyl groups of the glucopyranose monomers that make up the cellulose backbone.
+
 en:E466, Sodium carboxy methyl cellulose, carboxy methyl cellulose, Carboxymethylcellulose, cellulose gum, carboxymethyl cellulose, CMC, NaCMC
+ar:E466, كربوكسي ميثيل السليولوز
 bg:E466, Натриева карбокси метил целулоза, карбокси метил целулоза, целулозна гума, CMC, NaCMC
 ca:E466, Carboximetilcel·lulosa sòdica
 cs:E466, Sodná sůl karboxymethylcelulosy, karboxymethylcelulosa, celulosová guma, CMC, NaCMC, Karboxymethylcelulóza, Karboxymetylcelulóza, Karboxymetylcelulosa, E 466
@@ -13160,10 +13207,12 @@ de:E466, Carboxymethylcellulose, natrium-carboxymethylcellulose, cellulosegummi,
 el:E466, Αλας με νατριο της καρβοξυμεθυλοκυτταρινης, καρβοξυμεθυλοκυτταρινη, κομμι κυτταρινης, CMC, NaCMC
 es:E466, Carboximetilcelulosa sódica, carboximetilcelulosa, carboximetil celulosa, goma de celulosa, CMC, NaCMC
 et:E466, Naatriumkarboksümetüültselluloos, Karboksümetüültselluloos
+fa:E466, کربوکسی متیل سلولز
 fi:E466, Sodium carboxy methyl cellulose, carboxy methyl cellulose, cellulose gum, Karboksimetyyliselluloosa, Natriumkarboksimetyyliselluloosa
 fr:E466, Carboxyméthylcellulose, Gomme cellulosique, CMC sodique, CMC, Carboxyméthylcellulose sodique, Carboxyméthylcellulose de sodium, Carboxyméthyl-cellulose sodique, Gomme de cellulose, Gommes de cellulose, épaississant 466, NaCMC, Carboxyméthyl cellulose, 9004-32-4, Carmellose sodique, Carboxyle méthyle cellulose
 hu:E466, Nátrium-karboxi-metil-cellulóz, karboxi-metil-cellulóz, cellulózgumi, CMC, NaCMC, Karboximetil-cellulóz
 it:E466, Carbossimetilcellulosa sodica, carbossimetilcellulosa, gomma di cellulosa, CMC, NaCMC
+ja:E466, カルボキシメチルセルロース
 lt:E466, Natrio karboksimetilceliuliozė, karboksimetilceliuliozė, celiuliozės derva, CMC, NaCMC
 lv:E466, Nātrija karboksimetilceluloze, karboksimetilceluloze, celulozes sveķi, CMC, NaCMC
 mt:E466, Ċelluloża karbossimetilika tas-sodju, ċelluloża karbossimetilika, gomma taċ-ċelluloża, CMC, NaCMC
@@ -13174,8 +13223,23 @@ ro:E466, Carboximetilceluloză de sodiu, carboximetilceluloză, gumă de celuloz
 sk:E466, Sodná soľ karboxymetylcelulózy, karboxymetylcelulóza, celulózová guma, CMC, NaCMC
 sl:E466, Natrijeva karboksimetil celuloza, karboksimetil celuloza, celulozni gumi, CMC, NaCMC
 sv:E466, Karboximetylcellulosa, natriumkarboximetylcellulosa, cellulosagummi, CMC, NaCMC
-e_number:en:466
+uk:E466, Карбоксиметилцелюлоза
+zh:E466, 羧甲基纖維素
+# azb:E466, کربوکسی متیل سلولز
+# en-ca:E466, Carboxymethyl cellulose
+# en-gb:E466, Carboxymethyl cellulose
+# pt-br:E466, carboximetilcelulose
+# zh-cn:E466, 羧甲基纖維素
+# zh-hans:E466, 羧甲基纖維素
+# zh-hant:E466, 羧甲基纖維素
+# zh-hk:E466, 羧甲基纖維素
+# zh-sg:E466, 羧甲基纖維素
+# zh-tw:E466, 羧甲基纖維素
 wikidata:en:Q411030
+wikipedia:en:https://en.wikipedia.org/wiki/Carboxymethyl_cellulose
+# ingredient/fr:gomme-cellulosique has 81 products in 5 languages @2019-03-13
+# ingredient/carboxymethyl-cellulose has 729 products in 11 languages @2019-04-21
+e_number:en:466
 additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
@@ -13347,6 +13411,7 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:470a
 
 en:E470b, Magnesium salts of fatty acids
+ar:E470b, ستيرات المغنسيوم
 bg:E470b, Магнезиеви соли на мастни киселини
 ca:E470b, Sal magnèsica d'àcids grassos
 cs:E470b, Hořečnaté soli mastných kyselin
@@ -13355,6 +13420,7 @@ de:E470b, Magnesiumsalze der Speisefettsäuren
 el:E470b, Αλατα λιπαρων οξεων με μαγνησιο
 es:E470b, Sales magnésicas de ácidos grasos
 et:E470b, Rasvhapete magneesiumisoolad
+fa:E470b, منیزیم استارات
 fi:E470b, Rasvahappojen magnesiumsuolat
 fr:E470b, Sels de magnésium d'acides gras, Sel de magnésium d'acides gras
 hu:E470b, Zsírsavak magnéziumsói
@@ -13366,9 +13432,13 @@ nl:E470b, Magnesiumzouten van vetzuren
 pl:E470b, Sole magnezowe kwasów tłuszczowych
 pt:E470b, Sais de magnésio de ácidos gordos
 ro:E470b, Săruri de magneziu ale acizilor grași
+ru:E470b, Стеарат магния
+sh:E470b, Magnezijum stearat
 sk:E470b, Horečnaté soli mastných kyselín
 sl:E470b, Magnezijeve soli maščobnih kislin
 sv:E470b, Magnesiumsalter av fettsyror
+zh:E470b, 硬脂酸镁
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_stearate
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:470b
 vegan:en:maybe
@@ -13376,6 +13446,7 @@ vegetarian:en:maybe
 from_palm_oil:en:maybe
 
 en:E471, Mono- and diglycerides of fatty acids, Glyceryl monostearate, Glyceryl monopalmitate, Glyceryl monooleate, Monostearin, Monopalmitin, Monoolein, Mono and diglycerides
+ar:E471, أحادي وثنائي الجليسريدات للأحماض الدهنية
 bg:E471, Моно- и диглицериди на мастни киселини, Глицерил моностеарат, глицерил монопалмитат, глицерил моноолеат, и т.н., моностеарин, монопалмитин, моноолеин
 ca:E471, Monoglicèrid o diglicèrid d'àcids grassos
 cs:E471, Mono- a diglyceridy mastných kyselin, Glycerylmonostearát, glycerylmonopalmitát, glycerylmonooleát, monostearin, monopalmitin, monoolein
@@ -13392,21 +13463,51 @@ lt:E471, Riebalų rūgščių mono- ir digliceridai, Glicerilmonostearatas, glic
 lv:E471, Taukskābju mono- un diglicerīdi, Glicerilmonostearāts, Glicerilmonopalmitāts, Glicerilmonooleāts, monostearīns, monopalmitīns, monooleīns
 mt:E471, Mono- u digliċeridi tal-aċidi grassi, Monostearat tal-gliċeril, Monopalmitat tal-gliċeril, Monooleat tal-gliċeril, Monostearina, Monopalmitina, Monooleina
 nl:E471, Mono- en diglyceriden van vetzuren, Glycerylmonostearaat, glycerylmonopalmitaat, glycerylmonoöleaat, monostearine, monopalmitine, monoöleïne
+nn:E471, mono- och diglycerider av fettsyror
 pl:E471, Mono- i diglicerydy kwasów tłuszczowych, Monostearynian glicerolu, monopalmitynian glicerolu, monooleinian glicerolu, monostearynian, monopalmitynian, monooleinian
 pt:E471, Mono e diglicéridos de ácidos gordos, Monoestearato de glicerilo, monopalmitato de glicerilo, monooleato de glicerilo, Monoestearina, monopalmitina, monooleína
 ro:E471, Mono- și digliceride ale acizilor grași, Monostearat de gliceril, Monopalmitat de gliceril, Monooleat de gliceril, Monostearină, Monopalmitină, Monooleină
-ru:E471, Моно- и диглицериды жирных кислот, Е471
+ru:E471, Моно- и диглицериды жирных кислот
 sk:E471, Mono- a diglyceridy mastných kyselín, Glycerylmonostearát, glycerilmonopalmitát, glycerylmonooleát, monostearín, monopalmitín, monooleín
 sl:E471, Mono- in digliceridi maščobnih kislin, gliceril monostearat, gliceril monopalmitat, gliceril monooleat, monostearin, monopalmitin, monoolein
 sv:E471, Mono- och diglycerider av fettsyror, Glycerylmonostearat, glycerylmonopalmitat, glycerylmonooleat, monostearin, monopalmitin, monoolein
-e_number:en:471
+th:E471, โมโน- และไดกลีเซอไรด์ของกรดไขมัน
 wikidata:en:Q416711
+wikipedia:en:https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acids
+# mono—and-diglycerides-of-fatty-acids has 2139 products in 19 languages @2018-11-12
+# fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
+e_number:en:471
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
+# should be handled by the parser
+#<en:E471
+#en:emulsifier mono- and diglycerides of fatty acids
+#de:Emulgator Mono- und Diglyceride von Fettsäuren
+#fr:émulsifiant e471
+
+<en:E471
+en:mono and diglycerides of fatty acids of vegetable origin
+fr:mono- et diglycérides d'acides gras d'origine végétale, mono et diglycérides d'acides gras d'origine végétale, mono et diglycérides d'acides gras d'origine végétale
+nl:mono- en diglyceriden van plantaardige vetzuren
+pt:mono e diglicéridos de ácidos gordos de origem vegetal
+# fr:mono- et diglycérides d'acides gras d'origine végétale has 53 products @2018-11-12
+
+<en:E471
+fr:Mono- et diglycerides d'acides gras de palme, monoglycérides et diglycérides d'acide gras de palme
+from_palm_oil:en:yes
+
+<en:E471
+fr:mono et diglycérides d'acides gras de colza
+
+
+<en:E471
+#<en:sodium stearoyl-2-lactylate
+fr:mono- et diglycérides d'acides gras et stéaroyl-2-lactylate de sodium
+
+# diets:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 # origin:en:pork:maybe
 
 en:E472, acid esters of mono- and diglycerides of fatty acids
@@ -13631,7 +13732,8 @@ vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
+# description:en:SUCROSE ESTERS OR SUCROSE FATTY ACID ESTERS   are a group of surfactants chemically synthesized from esterification of sucrose and fatty acids (or glycerides).
+# diets:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 # origin:en:pork:en:maybe
 en:E473, Sucrose esters of fatty acids, Sucroesters, sugar ester
@@ -13659,6 +13761,9 @@ sl:E473, Saharozni estri maščobnih kislin, saharozni estri
 sv:E473, Sackarosestrar av fettsyror, Sackarosestrar
 e_number:en:473
 wikidata:en:Q32418
+wikipedia:en:https://en.wikipedia.org/wiki/Sucrose_esters
+# ingredient/fr:sucroesters-d’acide-gras has 39 products in french @2019-02-26
+# additive/e473-sucrose-esters-of-fatty-acids has 438 products in 11 languages @2019-02-26
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5087
 efsa_evaluation_date:en: 2018/01/05
 efsa_evaluation:en: Refined exposure assessment of sucrose esters of fatty acids (E 473) from its use as a food additive
