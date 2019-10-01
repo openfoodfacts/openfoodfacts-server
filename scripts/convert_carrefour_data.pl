@@ -47,9 +47,6 @@ use Log::Any::Adapter ('Stderr');
 # find . -name "*.xml" -type f -exec sed -i 's/<\/TabNutXMLPF><TabNutXMLPF>.*/<\/TabNutXMLPF>/g' {} \;
 
 
-
-$lc = 'fr';
-
 %global_params = (
 	lc => 'fr',
 #	countries => "France",	# -> will be assigned based on which language fields are present
