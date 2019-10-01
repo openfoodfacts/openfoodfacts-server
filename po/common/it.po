@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-01 17:03\n"
+"PO-Revision-Date: 2019-10-01 17:22\n"
 "Language-Team: Italian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3297,55 +3297,55 @@ msgstr "Ultima versione"
 
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "Importa un file di dati del prodotto"
 
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
-msgstr ""
+msgstr "Carica un file di foglio di calcolo (file Excel o un file CSV codificato UTF-8 separato da tabulazioni) con i dati dei prodotti."
 
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr ""
+msgstr "Puoi caricare una tabella con le colonne in formato di importazione Apri fatti alimentari, oppure puoi caricare una tabella in qualsiasi formato e quindi selezionare le colonne da importare."
 
 msgctxt "upload_products_data_file"
 msgid "Upload a products data file"
-msgstr ""
+msgstr "Carica un file di dati dei prodotti"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "File in fase di caricamento."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "Impossibile caricare il file."
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "Seleziona e importa i dati"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
-msgstr ""
+msgstr "Utilizza il modulo sottostante per indicare quali colonne importare e quali dati contengono."
 
 msgctxt "import_data"
 msgid "Import data"
-msgstr ""
+msgstr "Importa dati"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
-msgstr ""
+msgstr "Il file caricato contiene %s righe e %s colonne."
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
-msgstr ""
+msgstr "Sono state selezionate %s colonne su %s e verranno importate."
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Identificazione prodotto"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Origini"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3357,7 +3357,7 @@ msgstr "Informazioni nutrizionali"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Informazioni nutrizionali opzionali"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3365,121 +3365,121 @@ msgstr "Altre informazioni"
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "Etichetta specifica"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "Categoria specifica"
 
 msgctxt "select_a_field"
 msgid "Select a field"
-msgstr ""
+msgstr "Selezionare un campo"
 
 msgctxt "specify"
 msgid "Specify"
-msgstr ""
+msgstr "Specifica"
 
 msgctxt "value_unit_dropdown"
 msgid "In the dropdown menu on the right, specify if the column contains:"
-msgstr ""
+msgstr "Nel menu a discesa a destra, specifica se la colonna contiene:"
 
 msgctxt "value_unit_dropdown_value_unit"
 msgid "the value and the unit"
-msgstr ""
+msgstr "il valore e l'unità"
 
 msgctxt "value_unit_dropdown_value_specific_unit"
 msgid "the value in a specific unit"
-msgstr ""
+msgstr "il valore in un'unità specifica"
 
 msgctxt "value_unit_dropdown_value"
 msgid "only the value, with the unit in another column"
-msgstr ""
+msgstr "solo il valore, con l'unità in un'altra colonna"
 
 msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
-msgstr ""
+msgstr "solo l'unità, con il valore in un'altra colonna"
 
 msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Selezionare questa opzione se la colonna indica la presenza di un'etichetta specifica (ad es. Organico, commercio equo) quando il valore è Y, Sì o 1."
 
 msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Digita il nome dell'etichetta nel campo di testo a destra."
 
 msgctxt "specific_tag_category"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Selezionare questa opzione se la colonna indica la presenza di una categoria specifica (ad es. Organico, commercio equo) quando il valore è Y, Sì o 1."
 
 msgctxt "specific_tag_category_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Digita il nome della categoria nel campo di testo a destra."
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Valore"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr ""
+msgstr "Valore + Unità"
 
 msgctxt "value_in_l"
 msgid "Value in L"
-msgstr ""
+msgstr "Valore in L"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr ""
+msgstr "Valore in dl"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr ""
+msgstr "Valore in cl"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr ""
+msgstr "Valore in ml"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
-msgstr ""
+msgstr "Valore in kg"
 
 msgctxt "value_in_g"
 msgid "Value in g"
-msgstr ""
+msgstr "Valore in g"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr ""
+msgstr "Valore in mg"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "Valore in μg"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr ""
+msgstr "Valore in kcal"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr ""
+msgstr "Valore in kJ"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "Valore in %"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
-msgstr ""
+msgstr "Effettua il login per utilizzare questa funzione."
 
 msgctxt "org"
 msgid "Organization"
-msgstr ""
+msgstr "Organizzazione"
 
 msgctxt "column_in_file"
 msgid "Column in file"
-msgstr ""
+msgstr "Colonna nel file"
 
 msgctxt "field_on_site"
 msgid "Field on %"
-msgstr ""
+msgstr "Campo su %"
 
