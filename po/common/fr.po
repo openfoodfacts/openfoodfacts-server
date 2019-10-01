@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-01 19:41\n"
+"PO-Revision-Date: 2019-10-01 20:04\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3311,8 +3311,8 @@ msgid "You can upload a table with the columns Open Food Facts import format, or
 msgstr "Vous pouvez envoyer un tableau avec des colonnes suivant le format d'import Open Food Facts ou envoyer un tableau dans n'importe quel autre format, puis sélectionner les colonnes à importer."
 
 msgctxt "upload_products_data_file"
-msgid "Upload a products data file"
-msgstr "Envoyer un fichier de données de produits"
+msgid "Upload a file with products data"
+msgstr ""
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
@@ -3402,6 +3402,7 @@ msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
 msgstr "seulement l'unité, avec la valeur dans une autre colonne"
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr "Sélectionnez cette option si la colonne indique la présence d'un label spécifique (par exemple : Biologique, Commerce équitable) lorsque la valeur est O, Oui ou 1."
@@ -3410,9 +3411,10 @@ msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr "Saisissez le nom du label dans le champ texte à droite."
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates the presence of a specific category (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr "Sélectionnez cette option si la colonne indique la présence d'une catégorie spécifique (par exemple : Biologique, Commerce équitable) lorsque la valeur est O, Oui ou 1."
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr ""
 
 msgctxt "specific_tag_category_value"
 msgid "Type the name of the category in the text field on the right."
@@ -3485,4 +3487,20 @@ msgstr "Colonne dans le fichier"
 msgctxt "field_on_site"
 msgid "Field on %"
 msgstr "Champ sur %"
+
+msgctxt "producers_platform"
+msgid "Platform for producers"
+msgstr ""
+
+msgctxt "producers_platform_description"
+msgid "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
+msgstr ""
+
+msgctxt "import_product_data"
+msgid "Import product data"
+msgstr ""
+
+msgctxt "import_product_photos"
+msgid "Import product photos"
+msgstr ""
 
