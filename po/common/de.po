@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-02 14:52\n"
+"PO-Revision-Date: 2019-10-02 15:02\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3335,15 +3335,15 @@ msgstr "Die hochgeladene Datei enthält %s Zeilen und %s Spalten."
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
-msgstr ""
+msgstr "%s von %s ausgewählten Spalten werden importiert."
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Produktkennzeichnung"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Herkunfte"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3355,7 +3355,7 @@ msgstr "Nährwertangaben"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Optionale Nährwertangaben"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3363,39 +3363,39 @@ msgstr "Weitere Informationen"
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "Spezifisches Etikett"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "Spezifische Kategorien"
 
 msgctxt "select_a_field"
 msgid "Select a field"
-msgstr ""
+msgstr "Feld auswählen"
 
 msgctxt "specify"
 msgid "Specify"
-msgstr ""
+msgstr "Angeben"
 
 msgctxt "value_unit_dropdown"
 msgid "In the dropdown menu on the right, specify if the column contains:"
-msgstr ""
+msgstr "Im Auswahlmenü auf der rechten Seite angeben, ob die Spalte Folgendes enthält:"
 
 msgctxt "value_unit_dropdown_value_unit"
 msgid "the value and the unit"
-msgstr ""
+msgstr "den Wert und die Einheit"
 
 msgctxt "value_unit_dropdown_value_specific_unit"
 msgid "the value in a specific unit"
-msgstr ""
+msgstr "den Wert in einer bestimmten Einheit"
 
 msgctxt "value_unit_dropdown_value"
 msgid "only the value, with the unit in another column"
-msgstr ""
+msgstr "nur den Wert, mit der Einheit in einer anderen Spalte"
 
 msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
-msgstr ""
+msgstr "nur die Einheit, mit dem Wert in einer anderen Spalte"
 
 # Please do not translate Y, Yes and 1
 msgctxt "specific_tag_label"
