@@ -944,8 +944,8 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
-    "en:e322",
-    "en:e322i",
+  #  "en:e322",
+  #  "en:e322i",
     "en:rapeseed-lecithin",
                               ],
 );
