@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fa\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-01 16:23\n"
+"PO-Revision-Date: 2019-10-01 20:06\n"
 "Language-Team: Persian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3258,7 +3258,7 @@ msgid "You can upload a table with the columns Open Food Facts import format, or
 msgstr ""
 
 msgctxt "upload_products_data_file"
-msgid "Upload a products data file"
+msgid "Upload a file with products data"
 msgstr ""
 
 msgctxt "uploading_file"
@@ -3349,6 +3349,7 @@ msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
 msgstr ""
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr ""
@@ -3357,8 +3358,9 @@ msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr ""
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates the presence of a specific category (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr ""
 
 msgctxt "specific_tag_category_value"
@@ -3431,5 +3433,21 @@ msgstr ""
 
 msgctxt "field_on_site"
 msgid "Field on %"
+msgstr ""
+
+msgctxt "producers_platform"
+msgid "Platform for producers"
+msgstr ""
+
+msgctxt "producers_platform_description"
+msgid "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
+msgstr ""
+
+msgctxt "import_product_data"
+msgid "Import product data"
+msgstr ""
+
+msgctxt "import_product_photos"
+msgid "Import product photos"
 msgstr ""
 
