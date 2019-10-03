@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-16 17:58\n"
+"PO-Revision-Date: 2019-10-01 17:41\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2581,9 +2581,9 @@ msgstr "Vis resultater fra hele verden"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"\">Why it matters</a>"
-msgstr "Oplysninger og data skal komme fra produktemballagen og -etiketten (og ikke fra andre websteder eller producentens websted), og du skal selv have taget fotoene.<br/>\n"
-"→ <a href=\"\">Hvorfor det har betydning</a>"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
+msgstr "Oplysninger og data skal hidrøre fra produktemballagen og -etiketten (og ikke fra andre websteder eller producentens websted), og fotos skal være taget af dig.<br/>\n"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Hvorfor dette har betydning</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3291,4 +3291,192 @@ msgstr "Næste version"
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "Seneste version"
+
+msgctxt "import_data_file_title"
+msgid "Import a product data file"
+msgstr "Importér en produktdatafil"
+
+msgctxt "import_data_file_description"
+msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
+msgstr "Upload en regnearksfil (Excel-fil eller en tabulatorsepareret UTF-8 kodet CSV-fil) med produktdata."
+
+msgctxt "import_data_file_format"
+msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
+msgstr "Du kan uploade en tabel med kolonnerne i Open Food Facts-importformatet, eller du kan uploade en tabel i ethvert format og derefter vælge de kolonner, som skal importeres."
+
+msgctxt "upload_products_data_file"
+msgid "Upload a products data file"
+msgstr "Upload en produktdatafil"
+
+msgctxt "uploading_file"
+msgid "File being uploaded."
+msgstr "Fil uploades."
+
+msgctxt "upload_error"
+msgid "The file could not be uploaded."
+msgstr "Filen kunne ikke uploades."
+
+msgctxt "import_data_file_select_format_title"
+msgid "Select and import data"
+msgstr "Vælg og importér data"
+
+msgctxt "import_data_file_select_format_description"
+msgid "Use the form below to indicate which columns to import and what data they contain."
+msgstr "Benyt formularen nedenfor til at indikere, hvilke kolonner, som skal importeres, og hvilke data de indeholder."
+
+msgctxt "import_data"
+msgid "Import data"
+msgstr "Importér data"
+
+msgctxt "import_file_rows_columns"
+msgid "The uploaded file contains %s rows and %s columns."
+msgstr "Den uploadede fil indeholder %s rækker og %s kolonner."
+
+msgctxt "import_file_selected_columns"
+msgid "%s columns out of %s have been selected and will be imported."
+msgstr "%s kolonner ud af %s er valgt og bliver importeret."
+
+msgctxt "fields_group_identification"
+msgid "Product identification"
+msgstr "Produktidentifikation"
+
+msgctxt "fields_group_origins"
+msgid "Origins"
+msgstr "Oprindelser"
+
+msgctxt "fields_group_ingredients"
+msgid "Ingredients"
+msgstr "Ingredienser"
+
+msgctxt "fields_group_nutrition"
+msgid "Nutrition facts"
+msgstr "Ernæringsindhold"
+
+msgctxt "fields_group_nutrition_other"
+msgid "Optional nutrition facts"
+msgstr "Valgfrie næringsfakta"
+
+msgctxt "fields_group_other"
+msgid "Other information"
+msgstr "Anden information"
+
+msgctxt "labels_specific"
+msgid "Specific label"
+msgstr "Specifik etiket"
+
+msgctxt "categories_specific"
+msgid "Specific category"
+msgstr "Specifik kategori"
+
+msgctxt "select_a_field"
+msgid "Select a field"
+msgstr "Vælg et felt"
+
+msgctxt "specify"
+msgid "Specify"
+msgstr "Specificér"
+
+msgctxt "value_unit_dropdown"
+msgid "In the dropdown menu on the right, specify if the column contains:"
+msgstr "Specoficér i rullemenuen til højre om kolonnen indeholder:"
+
+msgctxt "value_unit_dropdown_value_unit"
+msgid "the value and the unit"
+msgstr "værdien og enheden"
+
+msgctxt "value_unit_dropdown_value_specific_unit"
+msgid "the value in a specific unit"
+msgstr "værdien i en bestemt enhed"
+
+msgctxt "value_unit_dropdown_value"
+msgid "only the value, with the unit in another column"
+msgstr "kun værdien med enheden i en anden kolonne"
+
+msgctxt "value_unit_dropdown_unit"
+msgid "only the unit, with the value in another column"
+msgstr "kun enheden med værdien i en anden kolonne"
+
+msgctxt "specific_tag_label"
+msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr "Vælg denne indstilling, hvis kolonnen angiver tilstedeværelsen af en bestemt etiket (f.eks. Organisk, Fair-Trade), når værdien er enten J, Ja eller 1."
+
+msgctxt "specific_tag_label_value"
+msgid "Type the name of the label in the text field on the right."
+msgstr "Angiv navnet på etiketten i tekstfeltet til højre."
+
+msgctxt "specific_tag_category"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr "Vælg denne indstilling, hvis kolonnen angiver tilstedeværelsen af en bestemt kategori (f.eks. Organisk, Fair-Trade), når værdien er enten J, Ja eller 1."
+
+msgctxt "specific_tag_category_value"
+msgid "Type the name of the category in the text field on the right."
+msgstr "Angiv navnet på kategorien i tekstfeltet til højre."
+
+msgctxt "value"
+msgid "Value"
+msgstr "Værdi"
+
+msgctxt "value_unit"
+msgid "Value + Unit"
+msgstr "Værdi + enhed"
+
+msgctxt "value_in_l"
+msgid "Value in L"
+msgstr "Værdi i L"
+
+msgctxt "value_in_dl"
+msgid "Value in dl"
+msgstr "Værdi i dl"
+
+msgctxt "value_in_cl"
+msgid "Value in cl"
+msgstr "Værdi i cl"
+
+msgctxt "value_in_ml"
+msgid "Value in ml"
+msgstr "Værdi i ml"
+
+msgctxt "value_in_kg"
+msgid "Value in kg"
+msgstr "Værdi i kg"
+
+msgctxt "value_in_g"
+msgid "Value in g"
+msgstr "Værdi i g"
+
+msgctxt "value_in_mg"
+msgid "Value in mg"
+msgstr "Værdi i mg"
+
+msgctxt "value_in_mcg"
+msgid "Value in μg"
+msgstr "Værdi i μg"
+
+msgctxt "value_in_kcal"
+msgid "Value in kcal"
+msgstr "Værdi i kcal"
+
+msgctxt "value_in_kj"
+msgid "Value in kJ"
+msgstr "Værdi i kJ"
+
+msgctxt "value_in_percent"
+msgid "Value in %"
+msgstr "Værdi i %"
+
+msgctxt "no_owner_defined"
+msgid "Please log-in to use this feature."
+msgstr "Log ind for at benytte denne funktion."
+
+msgctxt "org"
+msgid "Organization"
+msgstr "Organisation"
+
+msgctxt "column_in_file"
+msgid "Column in file"
+msgstr "Kolonne i fil"
+
+msgctxt "field_on_site"
+msgid "Field on %"
+msgstr ""
 

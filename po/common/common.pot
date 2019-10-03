@@ -2691,7 +2691,7 @@ msgid ""
 "Information and data must come from the product package and label (and not "
 "from other sites or the manufacturer's site), and you must have taken the "
 "pictures yourself.<br/>\n"
-"→ <a href=\"\">Why it matters</a>"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
 msgstr ""
 
 msgctxt "website"
@@ -3533,6 +3533,7 @@ msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
 msgstr "only the unit, with the value in another column"
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
@@ -3541,6 +3542,7 @@ msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr "Type the name of the label in the text field on the right."
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_category"
 msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
@@ -3618,12 +3620,12 @@ msgid "Field on %"
 msgstr "Field on %"
 
 msgctxt "producers_platform"
-msgid "Producers platform"
-msgstr "Producers platform"
+msgid "Platform for producers"
+msgstr "Platform for producers"
 
 msgctxt "producers_platform_description"
-msgid "The producers platform allow manufacturers to easily manage their products photos and data on Open Food Facts."
-msgstr "The producers platform allow manufacturers to easily manage their products photos and data on Open Food Facts."
+msgid "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
+msgstr "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
 
 msgctxt "import_product_data"
 msgid "Import product data"
