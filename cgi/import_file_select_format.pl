@@ -255,7 +255,7 @@ JS
 		$initjs .= <<JS
 		if (field == "$tagtype_specific") {
 
-			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px">';
+			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px;margin-bottom:0;height:28px;">';
 
 			\$("#select_field_option_" + col).html(input);
 

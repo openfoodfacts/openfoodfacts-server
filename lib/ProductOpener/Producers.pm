@@ -292,6 +292,7 @@ fr => {
 
 	product_name_fr => ["nom", "nom produit", "nom du produit"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
+	image_front_url_fr => ["visuel", "photo", "photo produit"],
 },
 
 );
@@ -359,7 +360,19 @@ sub init_other_fields_columns_names_for_lang($) {
 
 			foreach my $field (@{$group_ref->[1]}) {
 
-				if ($field =~ /_value_unit$/) {
+				if ($group_id eq "images") {
+					# front / ingredients / nutrition : specific to one language
+					if ($field =~ /image_(front|ingredients|nutrition)/) {
+						$fields_columns_names_for_lang{$l}{$field} = {field => $field . "_$l"};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . $l)} = {field => $field . "_$l"};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . $language_codes{$l})} = {field => $field . "_$l"};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
+					}
+					else {
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
+					}
+				}
+				elsif ($field =~ /_value_unit$/) {
 					# Column can contain value + unit, value, or unit for a specific field
 					my $field_name = $`;
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field_name}{$l})} = {field => $field};
@@ -372,8 +385,9 @@ sub init_other_fields_columns_names_for_lang($) {
 				}
 				elsif (defined $language_fields{$field}) {
 
-					# Example matches: Ingredients list / Ingredients list (en) / Ingredients list (English)
+					# Example matches: Ingredients list / Ingredients list (fr) / Ingredients list (French) / Ingredients list (français)
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field . "_$l"};
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l} . " " . $l)} = {field => $field . "_$l"};
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l} . " " . $language_codes{$l})} = {field => $field . "_$l"};
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l} . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
 				}
@@ -681,7 +695,7 @@ JSON
 
 				$log->debug("Select2 option", { group_id => $group_id, field=>$field, name=>$name }) if $log->is_debug();
 
-				if (defined $language_fields{$field}) {
+				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition)/))) {
 
 					foreach my $l (@$lcs_ref) {
 						my $language = "";	# Don't specify the language if there is just one

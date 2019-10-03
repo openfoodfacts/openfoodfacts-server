@@ -696,6 +696,7 @@ $options{import_export_fields_groups} = [
 	["nutrition_other"],
 	["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
 	],
+	["images", ["image_front_url", "image_ingredients_url", "image_nutrition_url", "image_other_url"]],
 ];
 
 
