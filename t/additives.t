@@ -290,7 +290,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e171',
           'en:e422',
 #          'en:e322i',
-          'en:soya-lecithin',
+          'en:soy-lecithin',
           'en:e903',
           'en:e320'
                               ],
@@ -1345,7 +1345,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e412',
           'en:e336',
           'en:e500',
-          'en:e440i',
+          'en:e440',
           'en:e330',
 
                               ],

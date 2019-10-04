@@ -786,7 +786,7 @@ $expected_product_ref =
       'en:salt',
       'en:emulsifier',
       'en:soya-lecithin',
-      'en:e322i',
+      #'en:e322i',
       'en:concentrated-orange-juice',
       'en:fruit-juice',
       'en:orange-juice',
