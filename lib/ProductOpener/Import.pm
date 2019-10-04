@@ -807,6 +807,21 @@ sub import_csv_file($) {
 			my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"});
 			my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"});
 
+			# calcium_100g_value_in_mcg
+
+			foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml') {
+				my $value_in_u = remove_tags_and_quote($imported_product_ref->{$nid . "_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_value" . "_in_" . $u});
+				my $valuep_in_u = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_prepared_value" . "_in_" . $u});
+				if ((defined $value_in_u) and ($value_in_u ne "")) {
+					$value = $value_in_u;
+					$unit = $u;
+				}
+				if ((defined $valuep_in_u) and ($valuep_in_u ne "")) {
+					$valuep = $valuep_in_u;
+					$unit = $u;
+				}
+			}
+
 			if ($nid eq 'alcohol') {
 				$unit = '% vol';
 			}
