@@ -128,6 +128,7 @@ else {
 	# Upload a file
 
 	$html .= "<h1>" . lang("import_data_file_title") . "</h1>\n";
+	$html .= "<p>" . lang("producers_platform_private_database") . "</p>\n";
 	$html .= "<p>" . lang("import_data_file_description") . "</p>\n";
 	$html .= "<p>" . lang("import_data_file_format") . "</p>\n";
 

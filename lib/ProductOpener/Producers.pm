@@ -286,6 +286,10 @@ my %fields_synonyms = (
 
 en => {
 	code => ["code", "barcode", "ean", "ean-13", "ean13", "gtin"],
+	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
+	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
+	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
+	traces => ["traces", "traces list", "trace list", "list of traces"],
 },
 
 fr => {
@@ -301,7 +305,9 @@ sub init_fields_columns_names_for_lang($) {
 
 	my $l = shift;
 
-	defined $fields_columns_names_for_lang{$l} and next;
+	if (defined $fields_columns_names_for_lang{$l}) {
+		return;
+	}
 
 	$fields_columns_names_for_lang{$l} = {};
 
@@ -314,7 +320,7 @@ sub init_fields_columns_names_for_lang($) {
 		$fields_columns_names_for_lang{$l}{$column_id} = { field=>"energy_100g_value_unit", value_unit=>"value_in_kcal" };
 	}
 
-
+	$log->debug("fields_columns_names_for_lang", { l=>$l, fields_columns_names_for_lang=>$fields_columns_names_for_lang{$l} }) if $log->is_debug();
 }
 
 
@@ -385,11 +391,26 @@ sub init_other_fields_columns_names_for_lang($) {
 				}
 				elsif (defined $language_fields{$field}) {
 
-					# Example matches: Ingredients list / Ingredients list (fr) / Ingredients list (French) / Ingredients list (français)
-					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field . "_$l"};
-					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l} . " " . $l)} = {field => $field . "_$l"};
-					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l} . " " . $language_codes{$l})} = {field => $field . "_$l"};
-					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l} . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
+					# Example matches:
+					# Liste d'ingrédients / Liste d'ingrédients (fr) /
+					# Ingredients list / Ingredients list (fr) / Ingredients list (French) / Ingredients list (français)
+
+					foreach my $field_l ($l, "en") {
+
+						my @synonyms = ($Lang{$field}{$field_l});
+						if ((defined $fields_synonyms{$field_l}) and (defined $fields_synonyms{$field_l}{$field . "_" . $field_l})) {
+							foreach my $synonym (@{$fields_synonyms{$field_l}{$field . "_" . $field_l}}) {
+								push @synonyms, $synonym;
+							}
+						}
+
+						foreach my $synonym (@synonyms) {
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = {field => $field . "_$l"};
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $l)} = {field => $field . "_$l"};
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $language_codes{$l})} = {field => $field . "_$l"};
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
+						}
+					}
 				}
 				else {
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
@@ -463,11 +484,11 @@ sub compute_statistics_and_examples($$$) {
 
 			my $column = $headers_ref->[$col];
 
-			defined $columns_fields_ref->{$column} or $columns_fields_ref->{$column} = { examples => [], existing_examples => {}, n => 0, numbers => 0, letters => 0, both => 0 };
+			defined $columns_fields_ref->{$column} or $columns_fields_ref->{$column} = { examples => [], existing_examples => {}, n => 0, numbers => 0, letters => 0, both => 0, min => undef, max => undef };
 
 			# empty value?
 
-			if ($value =~ /^\s*$/) {
+			if ((not defined $value) or ($value =~ /^\s*$/)) {
 
 			}
 			else {
@@ -492,6 +513,15 @@ sub compute_statistics_and_examples($$$) {
 				if ($value =~ /[0-9].*[a-z]/i) {
 					$columns_fields_ref->{$column}{both}++;
 				}
+
+				# min and max number values
+				if ($value =~ /^(<|\s)*((\d+)((\.|\,)(\d+)))?$/) {
+					my $numeric_value = $2;
+					not defined $columns_fields_ref->{$column}{min} and $columns_fields_ref->{$column}{min} = $numeric_value;
+					not defined $columns_fields_ref->{$column}{max} and $columns_fields_ref->{$column}{max} = $numeric_value;
+					($numeric_value < $columns_fields_ref->{$column}{min}) and $columns_fields_ref->{$column}{min} = $numeric_value;
+					($numeric_value > $columns_fields_ref->{$column}{max}) and $columns_fields_ref->{$column}{max} = $numeric_value;
+				}
 			}
 
 			$col++;
@@ -513,6 +543,8 @@ sub init_columns_fields_match($$) {
 
 	# Go through all rows to extract examples, compute stats etc.
 
+	$log->debug("before compute_statistics_and_examples", { }) if $log->is_debug();
+
 	compute_statistics_and_examples($headers_ref, $rows_ref, $columns_fields_ref);
 
 	# Load previously assigned fields by the user_agent
@@ -525,10 +557,17 @@ sub init_columns_fields_match($$) {
 
 	# Match known column names to OFF fields
 
+	# Initialize the column matching (done only once)
+
+	$log->debug("before init_fields_columns_names_for_lang", { }) if $log->is_debug();
+
 	init_fields_columns_names_for_lang($lc);
+
 	if ($lc ne "en") {
 		init_fields_columns_names_for_lang("en");
 	}
+
+	$log->debug("after init_fields_columns_names_for_lang", { }) if $log->is_debug();
 
 	foreach my $column (@$headers_ref) {
 
@@ -554,6 +593,15 @@ sub init_columns_fields_match($$) {
 				}
 				elsif ($columns_fields_ref->{$column}{numbers}) {
 					$columns_fields_ref->{$column}{value_unit} = "value";
+
+					# Try to guess the unit
+
+					# Common nutrients usually in grams, max value <= 100
+					if (($columns_fields_ref->{$column}{field} =~ /^(energy|fat|saturated-fat|carbohydrates|sugars|proteins|salt|fiber|fruits-vegetables-nuts)_100g_value_unit$/)
+						and ($columns_fields_ref->{$column}{max} <= 100)) {
+						$columns_fields_ref->{$column}{value_unit} = "value_in_g";
+					}
+
 				}
 				elsif ($columns_fields_ref->{$column}{letters}) {
 					$columns_fields_ref->{$column}{value_unit} = "unit";
@@ -680,6 +728,9 @@ JSON
 				if ($field eq "code") {
 					$name = lang("barcode");
 				}
+				elsif ($field eq "lc") {
+					$name = lang("lang");
+				}
 				elsif ($field =~ /_value_unit$/) {
 					# Column can contain value + unit, value, or unit for a specific field
 					my $field_name = $`;
@@ -753,9 +804,9 @@ sub export_csv_file_task() {
 
 	my $job_id = $job->{id};
 
-	open(my $log, ">>", "$data_root/logs/minion.log");
-	print $log "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	close($log);
+	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	print $minion_log "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	close($minion_log);
 
 	print STDERR "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 
