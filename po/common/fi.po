@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-05 15:21\n"
+"PO-Revision-Date: 2019-10-05 15:31\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1758,11 +1758,11 @@ msgstr "Täällä on %d Tutkimusmatkailijaa ja %d Suurlähettilstä."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "Täällä on Tutkimusmatkailijoita %d maasta ja Suurlähettiläitä %d maasta."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s:lla on %d Tutkimusmatkailijaa ja %d Suurlähettilästä."
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -1774,7 +1774,7 @@ msgstr "Ranking avustajat ja maiden"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s on Tutkimusmatkailija %d maassa ja Suurlähettiläs %d maassa."
 
 msgctxt "previous"
 msgid "Previous"
@@ -1798,11 +1798,11 @@ msgstr "Tuotteen ominaisuudet"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "Tuote luotu"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr ""
+msgstr "Ainesosat, allergeenit, lisäaineet, ravintoarvot, etiketit, ainesosien alkuperä ja tietoja tuotteesta %s"
 
 msgctxt "product_image"
 msgid "Product picture"
@@ -1818,7 +1818,7 @@ msgstr "Nykyinen kuva:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "Poistetaan kuvia"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -1826,15 +1826,15 @@ msgstr "Ote ainesosat kuva"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Ainesosia ei voitu lukea automaattisesti. Kokeile terävämmällä kuvalla, paremmalla resoluutiolla tai paremmalla tekstin rajauksella."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Ainesosat tunnistettu automaattisesti. Tekstintunnistus ei ole täydellinen, joten tarkista alla oleva teksti ja korjaa virheet tarvittaessa."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr ""
+msgstr "Tunnistetaan ainesosia"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
@@ -1842,7 +1842,7 @@ msgstr "Normalisoi värit"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr ""
+msgstr "Avaa kuva alkuperäisessä koossa uudessa ikkunassa"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
@@ -2141,7 +2141,7 @@ msgstr "Pistekaavio"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ Opi lisää <<site_name>>:in kaavioista: <a href=\"/graphs-in-3-clicks\">Kaaviot kolmella klikkauksella</a> (blogi).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2230,7 +2230,7 @@ msgstr "Hakutulokset"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Käytä eri väriä seuraaville tuotteille:"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2242,7 +2242,7 @@ msgstr "Reilu kauppa"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "reilu kauppa"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2474,15 +2474,15 @@ msgstr ""
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr ""
+msgstr "Ilmoita mahdolliset ainesosajäämät \"Voi sisältää jäämiä\", \"Valmistettu tehtaassa, jossa käsitellään myös\" jne."
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "jäämät"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr ""
+msgstr "jäämä"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2498,19 +2498,19 @@ msgstr "Tuntematon"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
-msgstr ""
+msgstr "tuntemattomia ravinteita"
 
 msgctxt "unknown_nutrients_s"
 msgid "unknown nutrient"
-msgstr ""
+msgstr "tuntematon ravinne"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Peruuta tilaus"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr ""
+msgstr "Voit peruuttaa tilauksen milloin tahansa."
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
@@ -2522,7 +2522,7 @@ msgstr "Käyttäjätunnus"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
-msgstr ""
+msgstr "(aksentittomia kirjaimia, numeroita ja / tai viivoja)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
