@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-05 15:11\n"
+"PO-Revision-Date: 2019-10-05 15:21\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -881,7 +881,7 @@ msgstr "Attribuutio: Kuvan lisäsi %s kohdetta %s varten"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Attribuutio: Kuvan otti %s ja sitä on muokannut %s, johtuen %s:stä"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
@@ -981,7 +981,7 @@ msgstr "Tuotteet, jotka eivät sisällä ainesosaa %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Saatavilla App Storesta\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1630,15 +1630,15 @@ msgstr "Kalifornia, Yhdysvallat"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Ilmoita ainesosien alkuperä"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "ainesosien alkuperä"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Tuotteet, joiden ainesosat ovat peräisin %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -1646,11 +1646,11 @@ msgstr "alkuperä ainesosien"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "lisää alkuperä"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Tuotteet, jotka eivät sisällä ainesosia peräisin %s:sta"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1658,11 +1658,11 @@ msgstr "Pakkaus"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Tuore, purkitettu, pakastettu, pullo, laatikko, lasi, muovi..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Pakkauksen tyyppi, muoto, materiaali"
 
 msgctxt "packaging_p"
 msgid "packaging"
@@ -1670,7 +1670,7 @@ msgstr "pakkaus"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Tuotteet, joissa %s pakkaus"
 
 msgctxt "packaging_s"
 msgid "packaging"
@@ -1678,11 +1678,11 @@ msgstr "pakkaus"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "lisää tyyppi, muoto tai materiaali"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "Tuotteet ilman %s pakkausta"
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -1706,7 +1706,7 @@ msgstr "Vahvista salasana"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr ""
+msgstr "Aika avaamisen jälkeen"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
@@ -1714,11 +1714,11 @@ msgstr ""
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr ""
+msgstr "Jaksot avaamisen jälkeen"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "Jakso avaamisen jälkeen"
 
 msgctxt "photographers_p"
 msgid "photographers"
@@ -1754,7 +1754,7 @@ msgstr ""
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "Täällä on %d Tutkimusmatkailijaa ja %d Suurlähettilstä."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
