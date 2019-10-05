@@ -30,7 +30,10 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 		&normalize_code
+		&split_code
+		&product_id_for_user
 		&product_path
+		&product_path_from_id
 		&product_exists
 		&init_product
 		&retrieve_product
@@ -69,7 +72,6 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -151,9 +153,11 @@ sub normalize_code($) {
 	return $code;
 }
 
+# - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
+# - When products are private, the _id is [owner]/[code] (e.g. user-abc/1234567890123 or org-xyz/1234567890123
 
 # FIXME: bug #677
-sub product_path($) {
+sub split_code($) {
 
 	my $code = shift;
 	$code !~ /^\d+$/ and return "invalid";
@@ -170,12 +174,61 @@ sub product_path($) {
 	return $path;
 }
 
+sub product_id_for_user($$$) {
+
+	my $userid = shift;
+	my $orgid = shift;
+	my $code = shift;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if (defined $orgid) {
+			return "org-" . $orgid . "/" . $code;
+		}
+		else {
+			return "user-" . $userid . "/" . $code;
+		}
+	}
+	else {
+		return $code;
+	}
+}
+
+sub product_path_from_id($) {
+
+	my $product_id = shift;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id =~ /\//)) {
+		return $` . "/" . split_code($');
+	}
+	else {
+		return split_code($product_id);
+	}
+
+}
+
+sub product_path($) {
+
+	my $product_ref = shift;
+
+	# Previous version of product_path() was expecting the code instead of a reference to the product object
+	if (ref($product_ref) ne 'HASH') {
+		die("Argument of product_path() must be a reference to the product hash object, not a scalar: $product_ref\n");
+	}
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		return $product_ref->{owner} . "/" . split_code($product_ref->{code});
+	}
+	else {
+		return split_code($product_ref->{code});
+	}
+}
+
 
 sub product_exists($) {
 
-	my $code = shift;
+	my $id = shift;
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($id);
 	if (-e "$data_root/products/$path") {
 
 		my $product_ref = retrieve("$data_root/products/$path/product.sto");
@@ -191,13 +244,17 @@ sub product_exists($) {
 	}
 }
 
-sub init_product($) {
+sub init_product($$$) {
 
+	my $userid = shift;
+	my $orgid = shift;
 	my $code = shift;
 
-	my $creator = $User_id;
+	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code }) if $log->is_debug();
 
-	if ((not defined $User_id) or ($User_id eq '')) {
+	my $creator = $userid;
+
+	if ((not defined $userid) or ($userid eq '')) {
 		$creator = "openfoodfacts-contributors";
 	}
 
@@ -209,6 +266,17 @@ sub init_product($) {
 		creator=>$creator,
 		rev=>0,
 	};
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		my $owner = "user-" . $userid;
+		if (defined $orgid) {
+			$owner = "org-" . $orgid;
+		}
+		$product_ref->{owner} = $owner;
+		$product_ref->{_id} = $owner . "/" . $code;
+
+		$log->debug("init_product - private_products enabled", { userid => $userid, orgid => $orgid, code => $code, owner => $owner, product_id => $product_ref->{_id} }) if $log->is_debug();
+	}
 
 	use ProductOpener::GeoIP;
 	my $country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
@@ -293,8 +361,11 @@ sub send_notification_for_product_change($$) {
 
 sub retrieve_product($) {
 
-	my $code = shift;
-	my $path = product_path($code);
+	my $product_id = shift;
+	my $path = product_path_from_id($product_id);
+
+	$log->debug("retrieve_product", { product_id => $product_id, path => $path } ) if $log->is_debug();
+
 	my $product_ref = retrieve("$data_root/products/$path/product.sto");
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
@@ -306,30 +377,30 @@ sub retrieve_product($) {
 
 sub retrieve_product_or_deleted_product($$) {
 
-        my $code = shift;
+	my $id = shift;
 	my $deleted_ok = shift;
-        my $path = product_path($code);
-        my $product_ref = retrieve("$data_root/products/$path/product.sto");
+	my $path = product_path_from_id($id);
+	my $product_ref = retrieve("$data_root/products/$path/product.sto");
 
-        if ((defined $product_ref) and ($product_ref->{deleted})
-		and (not $deleted_ok)) {
-                return;
-        }
+	if ((defined $product_ref) and ($product_ref->{deleted})
+	and (not $deleted_ok)) {
+			return;
+	}
 
-        return $product_ref;
+	return $product_ref;
 }
 
 
 sub retrieve_product_rev($$) {
 
-	my $code = shift;
+	my $id = shift;
 	my $rev = shift;
 
 	if ($rev !~ /^\d+$/) {
 		return;
 	}
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($id);
 	my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
@@ -341,6 +412,8 @@ sub retrieve_product_rev($$) {
 
 
 sub change_product_server_or_code($$$) {
+
+	# Currently only called by admins, can cause issues because of bug #677
 
 	my $product_ref = shift;
 	my $new_code = shift;
@@ -362,7 +435,7 @@ sub change_product_server_or_code($$$) {
 	$new_code = normalize_code($new_code);
 	if ($new_code =~ /^\d+$/) {
 	# check that the new code is available
-		if (-e "$new_data_root/products/" . product_path($new_code)) {
+		if (-e "$new_data_root/products/" . product_path_from_id($new_code)) {
 			push @{$errors_ref}, lang("error_new_code_already_exists");
 			$log->warn("cannot change product code, because the new code already exists", { code => $code, new_code => $new_code, new_server => $new_server }) if $log->is_warn();
 		}
@@ -385,8 +458,11 @@ sub store_product($$) {
 	my $comment = shift;
 
 	my $code = $product_ref->{code};
-	my $path = product_path($code);
+	my $product_id = $product_ref->{_id};
+	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
+
+	$log->debug("store_product - start", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	# In case we need to move a product from OFF to OBF etc.
 	# then we first move the existing files (product and images)
@@ -398,13 +474,10 @@ sub store_product($$) {
 	my $products_collection = get_products_collection();
 	my $new_products_collection = $products_collection;
 
-
-	# Changing the code?
-	# 26/01/2017 - disallow code changes until we fix #677
-	if ($admin and (defined $product_ref->{old_code})) {
+	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
-		my $old_path =  product_path($old_code);
+		my $old_path =  product_path_from_id($old_code);
 
 
 		if (defined $product_ref->{new_server}) {
@@ -521,6 +594,13 @@ sub store_product($$) {
 		$product_ref->{creator} = $creator;
 	}
 
+	if (defined $product_ref->{owner}) {
+		$product_ref->{owners_tags} = $product_ref->{owner};
+	}
+	else {
+		delete $product_ref->{owners_tags};
+	}
+
 	push @$changes_ref, {
 		userid=>$User_id,
 		ip=>remote_addr(),
@@ -592,8 +672,9 @@ sub store_product($$) {
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
 	log_change($product_ref, $change_ref);
 
-	return 1;
+	$log->debug("store_product - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
+	return 1;
 }
 
 # Update the data-sources tag from the sources field
@@ -908,7 +989,10 @@ sub compute_product_history_and_completeness($$) {
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
 	my $code = $current_product_ref->{code};
-	my $path = product_path($code);
+	my $product_id = $current_product_ref->{_id};
+	my $path = product_path($current_product_ref);
+
+	$log->debug("compute_product_history_and_completeness", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	return if not defined $changes_ref;
 
@@ -1237,6 +1321,7 @@ sub compute_product_history_and_completeness($$) {
 
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
+	$log->debug("compute_product_history_and_completeness - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
 }
 
 
@@ -1252,7 +1337,7 @@ sub add_back_field_values_removed_by_user($$$$) {
 	my $field = shift;
 	my $userid = shift;
 	my $code = $current_product_ref->{code};
-	my $path = product_path($code);
+	my $path = product_path($current_product_ref);
 
 	return if not defined $changes_ref;
 
@@ -1487,7 +1572,7 @@ sub compute_codes($) {
 		if (product_exists('0' . $code)) {
 			push @codes, "conflict-with-ean-13";
 		}
-		elsif (-e ("$data_root/products/" . product_path("0" . $code)) ) {
+		elsif (-e ("$data_root/products/" . product_path_from_id("0" . $code)) ) {
 			push @codes, "conflict-with-deleted-ean-13";
 		}
 	}
@@ -1795,11 +1880,11 @@ sub process_product_edit_rules($) {
 							}
 							else {
 								$log->debug("condition matches") if $log->is_debug();
-								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
+								$action_log = "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							}
 						}
 						else {
-							$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+							$action_log = "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
 						}
 
 						if ($condition_ok) {

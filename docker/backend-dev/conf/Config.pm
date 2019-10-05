@@ -63,6 +63,7 @@ BEGIN
 		$page_size
 
 		%options
+		%server_options
 
 		%wiki_texts
 
@@ -229,6 +230,7 @@ $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+%server_options = %ProductOpener::Config2::server_options;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -459,6 +461,21 @@ nutrient_levels misc ingredients ingredients_analysis nova_groups);
 	pnns_groups_2
 	states
 );
+
+$options{import_export_fields_groups} = [
+	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
+		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "packaging",
+		"brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores"]
+	],
+	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	],
+	["ingredients", ["ingredients_text", "allergens", "traces"]
+	],
+	["nutrition"],
+	["nutrition_other"],
+	["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+	],
+];
 
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata

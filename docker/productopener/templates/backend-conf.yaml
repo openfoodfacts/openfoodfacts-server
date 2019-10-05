@@ -89,6 +89,7 @@ data:
     		$page_size
 
     		%options
+        %server_options
 
     		%wiki_texts
 
@@ -258,6 +259,7 @@ data:
     $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
     $robotoff_url = $ProductOpener::Config2::robotoff_url;
+    %server_options = %ProductOpener::Config2::server_options;
 
     $csrf_secret = $Blogs::Config2::csrf_secret;
 
@@ -490,6 +492,20 @@ data:
       states
     );
 
+    $options{import_export_fields_groups} = [
+      ["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
+        "quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "packaging",
+        "brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores"]
+      ],
+      ["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+      ],
+      ["ingredients", ["ingredients_text", "allergens", "traces"]
+      ],
+      ["nutrition"],
+      ["nutrition_other"],
+      ["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+      ],
+    ];
 
     # for ingredients OCR, we use tesseract-ocr
     # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
@@ -550,7 +566,7 @@ data:
     	  $facebook_app_secret
         $csrf_secret
         $robotoff_url
-
+        %server_options
     	);
     	%EXPORT_TAGS = (all => [@EXPORT_OK]);
     }
@@ -581,6 +597,11 @@ data:
     # enable an in-site robotoff-asker in the product page
     $robotoff_url = '';
 
+    %server_options = (
+        private_products => 1,  # Make products visible only to the owner
+        export_servers => { public => "off", experiment => "off-exp" },
+        minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
+    );
     1;
 
   log.conf: |

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-16 16:08\n"
+"PO-Revision-Date: 2019-10-01 22:25\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2587,7 +2587,7 @@ msgstr "Voir les résultats du monde entier"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"\">Why it matters</a>"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
 msgstr "Les informations doivent provenir de l'emballage du produit (et non d'autres sites ou du site du fabricant), et vous devez avoir pris vous-même les photos.<br/>\n"
 "→ <a href=\"https://openfoodfactsfr.uservoice.com/knowledgebase/articles/59183\" target=\"_blank\">Pourquoi est-ce important ?</a>"
 
@@ -3297,4 +3297,210 @@ msgstr "Version suivante"
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "Dernière version"
+
+msgctxt "import_data_file_title"
+msgid "Import a product data file"
+msgstr "Importer un fichier de données produit"
+
+msgctxt "import_data_file_description"
+msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
+msgstr "Envoyer un fichier tableur (fichier Excel ou un fichier CSV encodé en UTF-8 séparé par des tabulations) avec les données des produits."
+
+msgctxt "import_data_file_format"
+msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
+msgstr "Vous pouvez envoyer un tableau avec des colonnes suivant le format d'import Open Food Facts ou envoyer un tableau dans n'importe quel autre format, puis sélectionner les colonnes à importer."
+
+msgctxt "upload_products_data_file"
+msgid "Upload a file with products data"
+msgstr "Télécharger un fichier avec les données du produit"
+
+msgctxt "uploading_file"
+msgid "File being uploaded."
+msgstr "Fichier en cours d'envoi."
+
+msgctxt "upload_error"
+msgid "The file could not be uploaded."
+msgstr "Le fichier n'a pas pu être chargé."
+
+msgctxt "import_data_file_select_format_title"
+msgid "Select and import data"
+msgstr "Sélectionner et importer des données"
+
+msgctxt "import_data_file_select_format_description"
+msgid "Use the form below to indicate which columns to import and what data they contain."
+msgstr "Utilisez le formulaire ci-dessous pour indiquer les colonnes à importer et les données qu’elles contiennent."
+
+msgctxt "import_data"
+msgid "Import data"
+msgstr "Importer les données"
+
+msgctxt "import_file_rows_columns"
+msgid "The uploaded file contains %s rows and %s columns."
+msgstr "Le fichier envoyé contient %s lignes et %s colonnes."
+
+msgctxt "import_file_selected_columns"
+msgid "%s columns out of %s have been selected and will be imported."
+msgstr "%s colonnes sur %s ont été sélectionnées et seront importées."
+
+msgctxt "fields_group_identification"
+msgid "Product identification"
+msgstr "Identification du produit"
+
+msgctxt "fields_group_origins"
+msgid "Origins"
+msgstr "Origines"
+
+msgctxt "fields_group_ingredients"
+msgid "Ingredients"
+msgstr "Ingrédients"
+
+msgctxt "fields_group_nutrition"
+msgid "Nutrition facts"
+msgstr "Informations nutritionnelles"
+
+msgctxt "fields_group_nutrition_other"
+msgid "Optional nutrition facts"
+msgstr "Informations nutritionnelles facultatives"
+
+msgctxt "fields_group_other"
+msgid "Other information"
+msgstr "Autres informations"
+
+msgctxt "labels_specific"
+msgid "Specific label"
+msgstr "Label spécifique"
+
+msgctxt "categories_specific"
+msgid "Specific category"
+msgstr "Catégorie spécifique"
+
+msgctxt "select_a_field"
+msgid "Select a field"
+msgstr "Sélectionnez un champ"
+
+msgctxt "specify"
+msgid "Specify"
+msgstr "Indiquez"
+
+msgctxt "value_unit_dropdown"
+msgid "In the dropdown menu on the right, specify if the column contains:"
+msgstr "Dans le menu déroulant à droite, spécifiez si la colonne contient:"
+
+msgctxt "value_unit_dropdown_value_unit"
+msgid "the value and the unit"
+msgstr "la valeur et l'unité"
+
+msgctxt "value_unit_dropdown_value_specific_unit"
+msgid "the value in a specific unit"
+msgstr "la valeur dans une unité spécifique"
+
+msgctxt "value_unit_dropdown_value"
+msgid "only the value, with the unit in another column"
+msgstr "seule la valeur, avec l'unité dans une autre colonne"
+
+msgctxt "value_unit_dropdown_unit"
+msgid "only the unit, with the value in another column"
+msgstr "seulement l'unité, avec la valeur dans une autre colonne"
+
+# Please do not translate Y, Yes and 1
+msgctxt "specific_tag_label"
+msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr "Sélectionnez cette option si la colonne indique la présence d'un label spécifique (par exemple : Biologique, Commerce équitable) lorsque la valeur est O, Oui ou 1."
+
+msgctxt "specific_tag_label_value"
+msgid "Type the name of the label in the text field on the right."
+msgstr "Saisissez le nom du label dans le champ texte à droite."
+
+# Please do not translate Y, Yes and 1
+msgctxt "specific_tag_category"
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "Sélectionnez cette option si la colonne indique que le produit appartient à une catégorie spécifique (par exemple : Boissons) lorsque la valeur est O, Oui ou 1."
+
+msgctxt "specific_tag_category_value"
+msgid "Type the name of the category in the text field on the right."
+msgstr "Saisissez le nom de la catégorie dans le champ texte à droite."
+
+msgctxt "value"
+msgid "Value"
+msgstr "Valeur"
+
+msgctxt "value_unit"
+msgid "Value + Unit"
+msgstr "Valeur + Unité"
+
+msgctxt "value_in_l"
+msgid "Value in L"
+msgstr "Valeur en L"
+
+msgctxt "value_in_dl"
+msgid "Value in dl"
+msgstr "Valeur en dl"
+
+msgctxt "value_in_cl"
+msgid "Value in cl"
+msgstr "Valeur en cl"
+
+msgctxt "value_in_ml"
+msgid "Value in ml"
+msgstr "Valeur en ml"
+
+msgctxt "value_in_kg"
+msgid "Value in kg"
+msgstr "Valeur en kg"
+
+msgctxt "value_in_g"
+msgid "Value in g"
+msgstr "Valeur en g"
+
+msgctxt "value_in_mg"
+msgid "Value in mg"
+msgstr "Valeur en mg"
+
+msgctxt "value_in_mcg"
+msgid "Value in μg"
+msgstr "Valeur en μg"
+
+msgctxt "value_in_kcal"
+msgid "Value in kcal"
+msgstr "Valeur en kcal"
+
+msgctxt "value_in_kj"
+msgid "Value in kJ"
+msgstr "Valeur en kJ"
+
+msgctxt "value_in_percent"
+msgid "Value in %"
+msgstr "Valeur en %"
+
+msgctxt "no_owner_defined"
+msgid "Please log-in to use this feature."
+msgstr "Veuillez vous connecter pour utiliser cette fonctionnalité."
+
+msgctxt "org"
+msgid "Organization"
+msgstr "Organisation"
+
+msgctxt "column_in_file"
+msgid "Column in file"
+msgstr "Colonne dans le fichier"
+
+msgctxt "field_on_site"
+msgid "Field on %"
+msgstr "Champ sur %"
+
+msgctxt "producers_platform"
+msgid "Platform for producers"
+msgstr "Plateforme pour les producteurs"
+
+msgctxt "producers_platform_description"
+msgid "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
+msgstr "La plateforme des producteurs permet aux fabricants de gérer facilement les photos et données de leurs produits sur Open Food Facts."
+
+msgctxt "import_product_data"
+msgid "Import product data"
+msgstr "Importer les données du produit"
+
+msgctxt "import_product_photos"
+msgid "Import product photos"
+msgstr "Importer les photos du produit"
 

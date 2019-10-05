@@ -4,21 +4,28 @@ services:
     image: mongo:4.0.12
     volumes:
       - dbdata:/var/lib/mongodb
-    ports:
-      - 27017:27017
     networks:
       - webnet
   memcached:
     image: memcached:1.5.16-alpine
-    ports:
-      - 11211:11211
     networks:
       - webnet
+  postgres:
+    image: postgres:11.5-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - webnet
+    environment:
+      - POSTGRES_PASSWORD=productopener
+      - POSTGRES_USER=productopener
+      - POSTGRES_DB=minion
   backend:
     image: openfoodfacts/productopener-backend:latest
     depends_on:
       - mongodb
       - memcached
+      - postgres
     volumes:
       - podata:/mnt/podata
       - type: tmpfs
@@ -43,8 +50,6 @@ services:
         source: ./backend-dev/conf/po-foreground.sh
         target: /usr/local/bin/po-foreground.sh
     command: ["/bin/sh", "/usr/local/bin/po-foreground.sh"]
-    ports:
-      - 80
     networks:
       - webnet
   frontend:
@@ -64,5 +69,6 @@ networks:
   webnet:
 volumes:
   dbdata:
+  pgdata:
   podata:
   product_images:

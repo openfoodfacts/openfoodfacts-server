@@ -67,10 +67,11 @@ my @errors = ();
 
 my $html = '';
 my $code = normalize_code(param('code'));
+my $product_id;
 
 my $product_ref = undef;
 
-my $interface_version = '20120622';
+my $interface_version = '20190830';
 
 local $log->context->{type} = $type;
 local $log->context->{action} = $action;
@@ -94,9 +95,12 @@ if ($type eq 'search_or_add') {
 			$code = $$internal_code_ref;
 		}
 
-		while (-e ("$data_root/products/" . product_path($code))) {
+		$product_id = product_id_for_user($User_id, $Org_id, $code);
+
+		while (-e ("$data_root/products/" . product_path_from_id($product_id))) {
 
 			$code++;
+			$product_id = product_id_for_user($User_id, $Org_id, $code);
 		}
 
 		store("$data_root/products/internal_code.sto", \$code);
@@ -108,9 +112,10 @@ if ($type eq 'search_or_add') {
 
 	if (defined $code) {
 		$data{code} = $code;
-		$log->debug("we have a code", { code => $code }) if $log->is_debug();
+		$product_id = product_id_for_user($User_id, $Org_id, $code);
+		$log->debug("we have a code", { code => $code, product_id => $product_id }) if $log->is_debug();
 
-		$product_ref = product_exists($code); # returns 0 if not
+		$product_ref = product_exists($product_id); # returns 0 if not
 
 		if ($product_ref) {
 			$log->info("product exists, redirecting to page", { code => $code }) if $log->is_info();
@@ -129,15 +134,20 @@ if ($type eq 'search_or_add') {
 			}
 		}
 		else {
-			$log->info("product does not exist, creating product", { code => $code }) if $log->is_info();
-			$product_ref = init_product($code);
+			$log->info("product does not exist, creating product", { code => $code, product_id => $product_id }) if $log->is_info();
+			$product_ref = init_product($User_id, $Org_id, $code);
 			$product_ref->{interface_version_created} = $interface_version;
 			store_product($product_ref, 'product_created');
-			my $imgid;
-			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid);
+
 			$type = 'add';
 			$action = 'display';
 			$location = "/cgi/product.pl?type=add&code=$code";
+
+			# If we got a barcode image, upload it
+			if (defined $filename) {
+				my $imgid;
+				process_image_upload($product_ref->{_id},$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid);
+			}
 		}
 	}
 	else {
@@ -174,7 +184,8 @@ else {
 		display_error($Lang{no_barcode}{$lang}, 403);
 	}
 	else {
-		$product_ref = retrieve_product_or_deleted_product($code, $admin);
+		$product_id = product_id_for_user($User_id, $Org_id, $code);
+		$product_ref = retrieve_product_or_deleted_product($product_id, $admin);
 		if (not defined $product_ref) {
 			display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
@@ -321,9 +332,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# French PNNS groups from categories
 
 	if ($server_domain =~ /openfoodfacts/) {
+		$log->debug("Food::special_process_product") if $log->is_debug();
 		ProductOpener::Food::special_process_product($product_ref);
 	}
-
 
 	if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
@@ -356,18 +367,25 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 	}
 
+	$log->debug("compute_languages") if $log->is_debug();
 
 	compute_languages($product_ref); # need languages for allergens detection and cleaning ingredients
+	$log->debug("clean_ingredients") if $log->is_debug();
 
 	# Ingredients classes
 	clean_ingredients_text($product_ref);
+	$log->debug("extract_ingredients_from_text") if $log->is_debug();
 	extract_ingredients_from_text($product_ref);
+	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
 	extract_ingredients_classes_from_text($product_ref);
+	$log->debug("detect_allergens_from_text") if $log->is_debug();
 	detect_allergens_from_text($product_ref);
 	compute_carbon_footprint_from_ingredients($product_ref);
 	compute_carbon_footprint_from_meat_or_fish($product_ref);
 
 	# Nutrition data
+
+	$log->debug("Nutrition data") if $log->is_debug();
 
 	my $params_ref = Vars;
 
@@ -564,6 +582,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 
 	# Compute nutrition data per 100g and per serving
+
+	$log->debug("compute nutrition data") if $log->is_debug();
 
 	$log->trace("compute_serving_size_date - start") if $log->is_trace();
 
@@ -2234,7 +2254,7 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($product_ref, $comment);
 
-	 my $product_url = product_url($product_ref);
+	my $product_url = product_url($product_ref);
 
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.

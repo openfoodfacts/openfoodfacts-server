@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -72,6 +72,7 @@ BEGIN
 					$moderator
 					$memd
 					$default_request_ref
+					$owner
 
 					$scripts
 					$initjs
@@ -385,6 +386,19 @@ CSS
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 	$static_subdomain = format_subdomain('static');
+
+	# if products are private, select the owner used to restrict the product set with the owners_tags field
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if (defined $Org_id) {
+			$owner = "org-" . $Org_id;
+		}
+		elsif (defined $User_id) {
+			$owner = "user-" . $User_id;
+		}
+	}
+	else {
+		$owner = undef;
+	}
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -1154,6 +1168,11 @@ sub query_list_of_tags($$) {
 
 	my $request_ref = shift;
 	my $query_ref = shift;
+
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 
@@ -3635,6 +3654,10 @@ sub search_and_display_products($$$$$) {
 		$page = 1;
 	}
 
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	# support for returning structured results in json / xml etc.
 
@@ -4099,10 +4122,14 @@ sub search_and_export_products($$$$$) {
 		if ($country ne 'en:world') {
 			$query_ref->{countries_tags} = $country;
 		}
-		delete $query_ref->{lc};
 	}
 
 	delete $query_ref->{lc};
+
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	my $sort_ref = Tie::IxHash->new();
 
@@ -5179,6 +5206,11 @@ sub search_and_graph_products($$$) {
 
 	delete $query_ref->{lc};
 
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
+
 	my $cursor;
 
 	$log->info("retrieving products from MongoDB to display them in a graph") if $log->is_info();
@@ -5321,6 +5353,11 @@ sub search_and_map_products($$$) {
 	}
 
 	delete $query_ref->{lc};
+
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	my $cursor;
 
@@ -5734,7 +5771,7 @@ $block_ref->{content}
 sub display_new($) {
 
 	my $request_ref = shift;
-	$log->info("Start of display_new " . Dumper($request_ref)) if $log->is_info();
+	$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
 
 	# If the client is requesting json, jsonp, xml or jqm,
 	# and if we have a response in structure format,
@@ -6002,7 +6039,7 @@ HTML
 	$initjs .= $aside_initjs;
 
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
-	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack-ssl-openfoodfacts.herokuapp.com/">Slack</a>');
+	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
 	my $twitter_account = lang("twitter_account");
 	if (defined $Lang{twitter_account_by_country}{$cc}) {
@@ -6091,6 +6128,22 @@ HTML
 		$mobile = "ipad";
 		$system = "ios";
 	}
+
+	my $tagline = "<p>$Lang{tagline}{$lc}</p>";
+
+	if ($server_options{producers_platform}) {
+
+		$tagline = <<HTML
+<h2>$Lang{producers_platform}{$lc}</h2>
+<p>$Lang{producers_platform_description}{$lc}</p>
+<p>
+&rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
+&rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
+</p>
+HTML
+;
+
+		}
 
 	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"})) {
 
@@ -6183,7 +6236,7 @@ HTML
 					<div style="text-align:center">
 						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
 					</div>
-					<p>$Lang{tagline}{$lc}</p>
+					$tagline
 					<form action="/cgi/search.pl" class="hide-for-large-up">
 						<div class="row collapse">
 							<div class="small-9 columns">
@@ -6530,7 +6583,7 @@ HTML
 				$filename = $idlc . '.' . $product_ref->{images}{$idlc}{rev} ;
 			}
 
-			my $path = product_path($product_ref->{code});
+			my $path = product_path($product_ref);
 
 			if (-e "$www_root/images/products/$path/$filename.full.json") {
 				$html .= <<HTML
@@ -6669,6 +6722,8 @@ sub display_product($)
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
 
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+
 	my $html = '';
 	my $blocks_ref = [];
 	my $title = undef;
@@ -6733,7 +6788,7 @@ CSS
 
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
-	$log->info("displaying product", { request_code => $request_code }) if $log->is_info();
+	$log->info("displaying product", { request_code => $request_code, product_id => $product_id }) if $log->is_info();
 
 	$title = $code;
 
@@ -6743,11 +6798,11 @@ CSS
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->info("displaying product revision") if $log->is_info();
-		$product_ref = retrieve_product_rev($code, $rev);
+		$product_ref = retrieve_product_rev($product_id, $rev);
 		$header .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
-		$product_ref = retrieve_product($code);
+		$product_ref = retrieve_product($product_id);
 	}
 
 	if (not defined $product_ref) {
@@ -6901,7 +6956,7 @@ HTML
 ;
 	}
 	if (defined $rev) {
-		$html .= display_rev_info($code, $rev);
+		$html .= display_rev_info($product_ref, $rev);
 	}
 	elsif (not has_tag($product_ref, "states", "en:complete")) {
 
@@ -7694,8 +7749,9 @@ sub display_product_jqm ($) # jquerymobile
 	my $request_ref = shift;
 
 	my $code = normalize_code($request_ref->{code});
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
 	local $log->context->{code} = $code;
-
+	local $log->context->{product_id} = $product_id;
 
 	my $html = '';
 	my $title = undef;
@@ -7715,10 +7771,10 @@ sub display_product_jqm ($) # jquerymobile
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->info("displaying product revision on jquery mobile") if $log->is_info();
-		$product_ref = retrieve_product_rev($code, $rev);
+		$product_ref = retrieve_product_rev($product_id, $rev);
 	}
 	else {
-		$product_ref = retrieve_product($code);
+		$product_ref = retrieve_product($product_id);
 	}
 
 	if (not defined $product_ref) {
@@ -8997,6 +9053,7 @@ sub display_product_api($)
 	my $request_ref = shift;
 
 	my $code = normalize_code($request_ref->{code});
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
 
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
@@ -9006,7 +9063,7 @@ sub display_product_api($)
 
 	$response{code} = $code;
 
-	my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve_product($product_id);
 
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
 		if ($request_ref->{api_version} >= 1) {
@@ -9155,13 +9212,16 @@ HTML
 
 	display_structured_response($request_ref);
 }
+
 sub display_rev_info {
-	my $code = shift;
+
+	my $product_ref = shift;
 	my $rev = shift;
+	my $code = $product_ref->{code};
 
 	my $html = '';
 
-	my $path = product_path($code);
+	my $path = product_path($product_ref);
 	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
 		return '';
@@ -9215,6 +9275,7 @@ HTML
 	return $html;
 
 }
+
 sub display_product_history($$) {
 
 	my $code = shift;
@@ -9223,7 +9284,7 @@ sub display_product_history($$) {
 	my $html = '';
 	if ($product_ref->{rev} > 0) {
 
-		my $path = product_path($code);
+		my $path = product_path($product_ref);
 		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 		if (not defined $changes_ref) {
 			$changes_ref = [];
@@ -9282,7 +9343,7 @@ sub add_images_urls_to_product($) {
 	my $product_ref = shift;
 
 	my $staticdom = format_subdomain('static');
-	my $path = product_path($product_ref->{code});
+	my $path = product_path($product_ref);
 
 	foreach my $imagetype ('front','ingredients','nutrition') {
 
@@ -9393,7 +9454,7 @@ sub display_structured_response($)
 		elsif (defined param('callback')) {
 			$jsonp = param('callback');
 		}
-	
+
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
 		}
@@ -9498,6 +9559,11 @@ sub display_recent_changes {
 	}
 
 	delete $query_ref->{lc};
+
+	# Restrict the products to the owner on databases with private products
+	if (defined $owner) {
+		$query_ref->{owners_tags} = $owner;
+	}
 
 	if (defined $limit) {
 	}

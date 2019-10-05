@@ -529,7 +529,6 @@ my %ignore_strings_after_percent = (
 sub extract_ingredients_from_text($) {
 
 	my $product_ref = shift;
-	my $path = product_path($product_ref->{code});
 
 	return if not defined $product_ref->{ingredients_text};
 
@@ -2568,7 +2567,6 @@ INFO
 sub extract_ingredients_classes_from_text($) {
 
 	my $product_ref = shift;
-	my $path = product_path($product_ref->{code});
 	my $text = preparse_ingredients_text($product_ref->{lc}, $product_ref->{ingredients_text});
 	my $and = $Lang{_and_}{$product_ref->{lc}};
 	$and =~ s/ /-/g;
@@ -3250,7 +3248,6 @@ sub replace_allergen_between_separators($$$$$$) {
 sub detect_allergens_from_text($) {
 
 	my $product_ref = shift;
-	my $path = product_path($product_ref->{code});
 
 	# Keep allergens entered by users in the allergens and traces field
 

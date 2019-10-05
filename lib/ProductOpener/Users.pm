@@ -34,6 +34,8 @@ BEGIN
 					%Visitor
 					$Visitor_id
 					$Facebook_id
+					%Org
+					$Org_id
 
 					$cookie
 
@@ -226,6 +228,31 @@ sub display_user_form_optional($) {
 }
 
 
+sub display_user_form_admin_only($) {
+
+	my $user_ref = shift;
+
+	my $type = param('type') || 'add';
+
+	my $html = '';
+
+	if (not $admin) {
+		return '';
+	}
+
+	# $html .= "\n<tr><td>$Lang{twitter}{$lang}</td><td>"
+	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
+
+	if (($type eq 'add') or ($type eq 'edit')) {
+
+		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
+		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{organization}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
+	}
+
+	return $html;
+}
+
+
 sub check_user_form($$) {
 
 	my $user_ref = shift;
@@ -263,6 +290,17 @@ sub check_user_form($$) {
 		$user_ref->{initial_cc} = $cc;
 		$user_ref->{initial_user_agent} = user_agent();
 
+	}
+
+	if ($admin) {
+		$user_ref->{org} = remove_tags_and_quote(param('org'));
+		if ($user_ref->{org} ne "") {
+			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+		}
+		else {
+			delete $user_ref->{org};
+			delete $user_ref->{org_id};
+		}
 	}
 
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
@@ -367,19 +405,26 @@ sub init_user()
 {
 	my $user_id = undef ;
 	my $user_ref = undef;
+	my $org_ref = undef;
+
 	my $cookie_name = 'session';
+	my $cookie_domain = "." . $server_domain;	# e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+	if (defined $server_options{cookie_domain}) {
+		$cookie_domain = "." . $server_options{cookie_domain};	# e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
+	}
 
 	$cookie = undef;
 
 	$Visitor_id = undef;
 	$Facebook_id = undef;
 	$User_id = undef;
+	$Org_id = undef;
 
 	# Remove persistent cookie if user is logging out
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {} ;
-		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 	}
 
 	# Retrieve user_id and password from form parameters
@@ -494,14 +539,14 @@ sub init_user()
 			    {
 					# Set a persistent cookie
 					$log->debug("setting persistent cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax',
+					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>"$cookie_domain", -samesite=>'Lax',
 							-expires=>'+' . $length . 's');
 			    }
 			    else
 			    {
 				# Set a session cookie
 					$log->debug("setting session cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax');
+					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>"$cookie_domain", -samesite=>'Lax');
 			    }
 			}
 		    }
@@ -513,9 +558,9 @@ sub init_user()
 			return ($Lang{error_bad_login_password}{$lang}) ;
 		    }
 		}
-	    }
+	}
 
-	# Retrieve user_id and password from cookie
+	# Retrieve user_id and session from cookie
 	elsif ((defined cookie($cookie_name)) or ((defined param('user_session')) and (defined param('user_id')))) {
 		my $user_session;
 		if (defined param('user_session')) {
@@ -568,7 +613,7 @@ sub init_user()
 			$user_id = undef;
 			# Remove the cookie
 			my $session = {} ;
-			$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+			$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 		    }
 		    else
 		    {
@@ -588,7 +633,7 @@ sub init_user()
 		{
 		    # Remove the cookie
 		    my $session = {} ;
-		    $cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+		    $cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
 		    $user_id = undef ;
 		}
@@ -597,7 +642,7 @@ sub init_user()
 	    {
 		# Remove the cookie
 		my $session = {} ;
-		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
 		$user_id = undef ;
 	    }
@@ -639,6 +684,22 @@ sub init_user()
 	}
 	else {
 		%User = ();
+	}
+
+	# The org and org_id fields are currently properties of the user object (created by administrators through user.pl)
+	# Populate $Org_id and %org_ref from the user profile.
+	# TODO: create org profiles with customer service info etc.
+
+	if (defined $user_ref->{org_id}) {
+		$Org_id = $user_ref->{org_id};
+		$org_ref = { org => $user_ref->{org}, org_id => $user_ref->{org_id} };
+	}
+
+	if (defined $Org_id) {
+		%Org = %$org_ref;
+	}
+	else {
+		%Org = ();
 	}
 
 	return 0;

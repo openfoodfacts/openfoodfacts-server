@@ -117,7 +117,7 @@ if (opendir (DH, "$dir")) {
 				if (1 and (not $product_ref)) {
 					print STDERR "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
-					$product_ref = init_product($code);
+					$product_ref = init_product($User_id, undef, $code);
 					$product_ref->{interface_version_created} = "upload_photos.pl - version 2017/09/11";
 					$product_ref->{lc} = $params{lc};
 					#store_product($product_ref, "Creating product (upload_photos.pl bulk upload) - " . $comment );
