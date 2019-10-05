@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-05 15:31\n"
+"PO-Revision-Date: 2019-10-05 15:41\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2530,23 +2530,23 @@ msgstr "Käyttäjätunnus tai sähköpostiosoite"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr ""
+msgstr "Tuotteet, jotka käyttäjä %s on lisännyt"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr ""
+msgstr "Tuotteet, joita käyttäjä %s ei ole lisännyt"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr ""
+msgstr "Tuotteet, jotka käyttäjä %s on muokannut"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr ""
+msgstr "Tuotteet, joita käyttäjä %s ei ole muokannut"
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "myötävaikuttajat"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2554,15 +2554,15 @@ msgstr "Tuotteen lisäsi %s"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "myötävaikuttaja"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "Tuotteet, joita ei ole lisännyt %s"
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "katso"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2579,7 +2579,8 @@ msgstr "Näytä tulokset koko maailmasta"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "Tietojen ja datojen täytyy olla tuotteen pakkauksesta ja etiketistä (ja siis ei muilta sivustoilta tai valmistajan sivustolta), ja valokuvien täytyy olla sinun itsesi ottamia.<br/>\n"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Miksi tällä on väliä</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2588,7 +2589,7 @@ msgstr "Sivuston tai blogin osoite"
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2793,19 +2794,19 @@ msgstr "Ravintotiedot on ilmoitettu tuotteelle sellaisena kuin se myydään."
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "Ravintotiedot on ilmoitettu valmistettua tuotetta kohden."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA-ryhmä"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
+msgstr "NOVA-ryhmät"
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Kumppanit"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -2822,7 +2823,7 @@ msgstr "18 - 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr ""
+msgstr "18 - 64 vuotta (mukaan lukien 64)"
 
 msgctxt "elderly"
 msgid "Elderly"
