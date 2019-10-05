@@ -674,14 +674,11 @@ $expected_product_ref =
       'en:salt',
       'en:emulsifier',
       'en:soya-lecithin',
-#     $got->{ingredients_hierarchy}[39] = 'en:e322'
-#     $expected->{ingredients_hierarchy}[39] = 'en:e322i'
       'en:e322',
-      #'en:e322i',
       'en:concentrated-orange-juice',
       'en:fruit-juice',
       'en:orange-juice',
-      # 'en:e333iii',
+      'en:e333iii',
       'en:sodium-citrate',
       'en:minerals',
       'en:sodium',
