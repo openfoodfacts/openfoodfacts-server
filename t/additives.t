@@ -290,7 +290,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e171',
           'en:e422',
 #          'en:e322i',
-          'en:soy-lecithin',
+          'en:soya-lecithin',
           'en:e903',
           'en:e320'
                               ],
@@ -639,7 +639,7 @@ diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 #          'en:e322i',
-          'en:soy-lecithin',
+          'en:soya-lecithin',
                               ],
 );
 
@@ -1246,7 +1246,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 #          'en:e322',
 #          'en:e322i',
           'en:sunflower-lecithin',
-          'en:soy-lecithin',
+          'en:soya-lecithin',
           'en:e422',
           'en:e330',
           'en:fruit-pectin',
