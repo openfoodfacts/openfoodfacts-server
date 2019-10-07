@@ -1250,6 +1250,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e330',
           'en:fruit-pectin',
           'en:e331',
+          'en:soya-lecithin',
           'en:e500',
           'en:e503',
           'en:e450',
