@@ -1246,7 +1246,6 @@ is_deeply($product_ref->{additives_original_tags}, [
 #          'en:e322',
 #          'en:e322i',
           'en:sunflower-lecithin',
-          'en:soya-lecithin',
           'en:e422',
           'en:e330',
           'en:fruit-pectin',
