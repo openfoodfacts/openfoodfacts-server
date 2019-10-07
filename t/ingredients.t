@@ -362,6 +362,9 @@ delete $product_ref->{amino_acids_prev_tags};
 delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
+# added
+diag explain $product_ref->{ingredients_original_tags};
+
 $expected_product_ref = 
  {
     'ingredients' => [
@@ -678,7 +681,7 @@ $expected_product_ref =
       'en:concentrated-orange-juice',
       'en:fruit-juice',
       'en:orange-juice',
-      'en:e333iii',
+      #'en:e333iii',
       'en:sodium-citrate',
       'en:minerals',
       'en:sodium',
