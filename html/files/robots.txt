@@ -1,4 +1,6 @@
 User-agent: *
+Allow: /cgi/product_image.pl
+Allow: /cgi/opensearch.pl
 Disallow: /cgi
 Disallow: /code
 User-agent: Slurp
