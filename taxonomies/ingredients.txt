@@ -502,7 +502,7 @@ lv:Emulgators
 mt:Emulsifikant
 nl:Emulgator, Emulgatoren
 pl:Emulgator
-pt:Emulsionante
+pt:Emulsionante, emulsionantes
 ro:Emulsifiant
 sk:Emulgátor
 sl:Emulgator
@@ -1062,7 +1062,7 @@ mt:Preservattiv
 nb:Konserveringsmiddel
 nl:Conserveermiddel, Conserveermiddelen
 pl:Substancja konserwująca
-pt:Conservante
+pt:Conservante, conservantes
 ro:Conservant
 sk:Konzervačná látka
 sl:Modificirani škrob
@@ -7580,6 +7580,7 @@ es:leche pasteurizada
 fr:lait pasteurisé
 it:latte pastorizzato
 nl:gepasteuriseerde melk
+pt:leite pasteurizado
 sv:pastöriserad mjölk
 
 <en:pasteurised milk
@@ -7628,10 +7629,12 @@ es:Leche fresca
 fr:lait frais
 it:latte fresco
 nl:verse melk
+pt:leite fresco
 # ingredient/fr:lait-frais has 79 products in 2 languages 2019-04-05
 
 <en:fresh milk
 fr:lait frais pasteurisé
+pt:leite fresco pasteurizado
 
 <en:milk
 de:Käsereimilch
@@ -7654,6 +7657,7 @@ wikidata:en:Q1616491
 <en:milk
 en:low-fat milk, 1% fat milk
 fr:lait maigre
+pt:leite magro
 
 # description:en:Skimmed milk (British English) is made when all the cream is removed from whole milk. It tends to contain around 0.1% fat. Láit écrémé has a maximum of 0.5% fat.
 
@@ -7699,6 +7703,7 @@ de:pasteurisierte Magermilch, pasteurisierter Magermilch
 es:leche desnatada pasteurizada
 fr:lait écrémé pasteurisé
 it:latte magro pastorizzato
+pt:leite pasteurizado desnatado, leite desnatado pasteurizado
 # ingredient/fr:lait-ecreme-pasteurise has 429 products @2019-05-25
 
 <en:pasteurized skimmed milk
@@ -7723,6 +7728,7 @@ fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matiè
 it:latte parzialmente scremato
 nb:Ekstra lett melk
 nl:halfvolle melk, gedeeltelijk afgeroomde melk
+pt:leite meio gordo
 sv:mellanmjölk
 wikidata:en:Q10572454
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
@@ -7730,6 +7736,7 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 <en:semi-skimmed milk
 fr:lait demi écrémé uht, lait sterilise u h t demi-ecreme, lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
 nl:halfvolle melk uht verhit
+pt:leite UHT meio gordo, leite meio gordo UHT
 de:fettarme Haltbarmilch, fettarme H-milch
 
 <fr:lait demi écrémé uht
@@ -8231,7 +8238,7 @@ es:lactosa y proteínas de la leche
 fr:lactose et protéine de lait, lactose et protéines de lait, protéines de lait et lactose, protéine de lait et lactose
 it:lattosio e proteine del latte
 nl:lactose en melkeiwitten
-pt:lactose e proteínas do leite
+pt:lactose e proteínas do leite, lactose e proteínas lácteas
 vegan:en:no
 vegetarian:en:yes
 # ingredient/lactose-and-milk-proteins has 1395 products in 10 languages @2019-05-06
@@ -8273,7 +8280,8 @@ pt:leite meio gordo em pó
 fr:lait en poudre enrichi en matière grasse
 
 <en:milk powder
-fr:lait maigre en poudre
+fr:lait maigre en poudre, lait en poudre maigre
+pt:leite em pó magro, leite magro em pó
 
 <en:milk powder
 fr:lait écrémé à base de poudre de lait
@@ -8755,6 +8763,7 @@ fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre
 hu:Tejsavópor
 it:siero di latte in polvere
 nl:weipoeder
+pt:soro de leite em pó
 sv:vasslepulver
 
 <en:whey powder
@@ -14122,6 +14131,7 @@ vegetarian:en:no
 
 <en:pork by-product
 fr:graisse de porc
+pt:gordura de suíno
 
 <en:pork by-product
 fr:sang frais de porc
@@ -14533,6 +14543,7 @@ es:Almidón modificado de maiz
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidon de maïs modifié, amidons modifiés de maïs
 it:amido modificato di mais
 nl:Gemodificeerd maïszetmeel
+pt:amido de milho modificado, amido modificado de milho
 sv:modifierad majsstärkelse
 
 <en:modified starch
@@ -15197,6 +15208,7 @@ lt:lydytas sviestas
 ms:mentega jernihan
 os:Царв
 pl:masło klarowane
+pt:manteiga clarificada
 ru:Топлёное масло
 sq:gjalpi i kthjelluar
 th:เนยใส
@@ -15333,7 +15345,7 @@ is:jurtafeiti
 it:grassi vegetali
 nl:plantaardige vetten
 nn:vegetabilisk fett
-pt:gorduras vegetais
+pt:gorduras vegetais, matérias gordas vegetais
 ru:растительные жиры
 sv:vegetabiliska fetter
 
@@ -15437,7 +15449,7 @@ nl:palmolie
 nn:Palmeolje
 oc:Òli de palma
 pl:Olej palmowy
-pt:óleo de palma, óleo de palmeira
+pt:óleo de palma, óleo de palmeira, óleo vegetal de palma
 ro:Ulei de palmier
 ru:Пальмовое масло
 sk:Palmový olej
@@ -15506,7 +15518,7 @@ fi:palmurasva
 fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
 it:grasso di palma, grasso vegetale di palma
 nl:palmvet
-pt:gordura de palma
+pt:gordura de palma, gordura vegetal de palma
 se:palmina mast
 sv:palmfett
 
@@ -15514,6 +15526,7 @@ sv:palmfett
 en:non-hydrogenated palm fat
 de:unhydriertes Palmfett, Palmfett ungehärtet
 fr:graisse de palme non hydrogénée
+it:grasso di palma non idrogenato
 
 <en:palm fat
 en:totally hydrogenated palm fat
@@ -16438,7 +16451,7 @@ mr:Minyak bunga matahari
 nl:zonnebloemolie
 nn:solsikkeolje
 pl:Olej słonecznikowy
-pt:óleo de girassol
+pt:óleo de girassol, óleo vegetal de girassol
 ro:ulei de floarea soarelui, Ulei de floarea-soarelui
 ru:подсолнечное масло
 sa:सूर्यकान्तितैलम्
@@ -19152,6 +19165,7 @@ es:aroma de humo
 fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee
 it:aroma di affumicato, aroma di affumicatura
 nl:rookaroma
+pt:aroma de fumo
 
 <en:flavouring
 <en:smoke flavouring
@@ -20722,6 +20736,7 @@ de:Malzextrakt
 es:Extracto de malta
 fr:extrait de malt
 it:estratto di malto
+pt:extrato de malte
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/malt-extract/
 # 484 entries @ 2018-09-22
 
@@ -20777,6 +20792,7 @@ et:odralinnaseekstrakt
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
 it:estratto di malto d'orzo
 nl:Gerstemoutextract
+pt:extrato de malte de cevada
 zh:大麥芽精
 
 <en:barley malt extract
@@ -21595,7 +21611,7 @@ de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
 it:farina integrale di frumento, farina di frumento integrale
-pt:farinha de trigo integral
+pt:farinha de trigo integral, farinha integral de trigo
 
 <en:wheat flour
 en:dextrinated wheat flour
@@ -21828,6 +21844,7 @@ es:harina de soja
 fr:farine de soja
 it:farina di soia
 nl:sojabloem, sojameel
+pt:farinha de soja
 sr:sojino brašno
 
 <en:flour
@@ -24976,6 +24993,7 @@ fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait
 hu:tejfehérje
 it:proteine del latte
 nl:melkeiwit, melkeiwitten
+pt:proteína do leite, proteínas lácteas
 ru:молочный белок, молочные белки
 sv:mjölkprotein
 nova:en:4
@@ -25345,7 +25363,7 @@ fi:vähärasvainen kaakaojauhe
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé
 it:cacao magro in polvere
 nl:magere cacaopoeder
-pt:cacao magro em pó
+pt:cacau magro em pó
 sv:fettreducerat kakaopulver
 # ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
 
@@ -25649,6 +25667,7 @@ es:copos de chocolate
 fr:morceaux de chocolat, pépites de chocolat, copeaux de chocolat
 it:pezzi di cioccolato, goccie di cioccolato
 nl:Chocostukjes
+pt:raspas de chocolate
 # ingredient/fr:morceaux-de-chocolat has 63 products in 4 languages @2019-03-11
 # usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
 
@@ -26737,6 +26756,7 @@ fr:gluten de blé, gluten de froment
 it:glutine di grano, glutine di frumento
 nl:tarwegluten
 pl:gluten pszenny
+pt:glúten de trigo
 sv:vetegluten
 
 <en:wheat gluten
@@ -26814,7 +26834,7 @@ mt:Aġent li jgħolli l-ikel
 nb:Hevemiddel
 nl:Rijsmiddel, Rijsmiddelen
 pl:Substancja spulchniająca
-pt:Levedante
+pt:Levedante, levedantes
 ro:Agent de afânare
 ru:Разрыхлитель
 sk:Kypriaca látka
@@ -26827,6 +26847,9 @@ zh:膨松剂
 # zh-min-nan:Hoat-hún
 wikidata:en:Q908833
 wikipedia:en:https://en.wikipedia.org/wiki/Leavening_agent
+
+<en:raising agent
+pt:levedante químico
 
 # description:en:Yeasts are eukaryotic, single-celled microorganisms classified as members of the fungus kingdom.
 
@@ -31199,7 +31222,7 @@ lt:apelsinų žievelė
 lv:apelsīna mizņas
 nl:sinaasappelschil, sinaasappelschillen, schillen sinaasappel, appelsienschil
 pl:skórka pomarańczowa
-pt:casca de laranja, gasca de laranja
+pt:casca de laranja, gasca de laranja, raspa de laranja
 sv:apelsinskal
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:zeste-d'orange
 # 136 products in 4 languages @2018-09-28
@@ -60276,7 +60299,7 @@ nl:vezel
 nn:fiber
 oc:fibra
 pl:włókno
-pt:fibra
+pt:fibra, fibra alimentar
 qu:Q'aytucha
 ro:Fibră
 ru:волокна

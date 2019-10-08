@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-01 17:03\n"
+"PO-Revision-Date: 2019-10-01 21:08\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2577,7 +2577,8 @@ msgstr "Oglejte si rezultate iz celega sveta"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "Informacije in podatki morajo izhajati iz embalaže izdelka in nalepke (in ne iz drugih mest ali strani proizvajalca), slike pa morate posneti sami.<br/>\n"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Zakaj je to pomembno</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3288,43 +3289,43 @@ msgstr ""
 
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "Uvoz datoteke s podatki o izdelku"
 
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
-msgstr ""
+msgstr "Naložite preglednico (datoteka Excel ali z tabularjem ločeno datoteko CSV s kodo UTF-8) s podatki o izdelkih."
 
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr ""
+msgstr "Lahko naložite tabelo s stolpci, oblika uvoza Open Food Facts ali pa lahko tabelo naložite v kateri koli obliki in nato izberete stolpce za uvoz."
 
 msgctxt "upload_products_data_file"
-msgid "Upload a products data file"
-msgstr ""
+msgid "Upload a file with products data"
+msgstr "Naložite datoteko s podatki o izdelkih"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "Datoteka se nalaga."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "Datoteke ni bilo mogoče naložiti."
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "Izberite in uvozite podatke"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
-msgstr ""
+msgstr "S spodnjim obrazcem označite, katere stolpce želite uvoziti in katere podatke vsebujejo."
 
 msgctxt "import_data"
 msgid "Import data"
-msgstr ""
+msgstr "Uvoz podatkov"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
-msgstr ""
+msgstr "Naložena datoteka vsebuje vrstice: %s in stolpce: %s."
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
@@ -3332,11 +3333,11 @@ msgstr ""
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Identifikacija izdelka"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Poreklo"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3348,11 +3349,11 @@ msgstr "Dejstva o hranilni vrednosti"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Neobvezna prehranska dejstva"
 
 msgctxt "fields_group_other"
 msgid "Other information"
-msgstr ""
+msgstr "Ostale informacije"
 
 msgctxt "labels_specific"
 msgid "Specific label"
@@ -3390,6 +3391,7 @@ msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
 msgstr ""
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr ""
@@ -3398,9 +3400,10 @@ msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr ""
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates the presence of a specific category (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "Izberite to možnost, če stolpec kaže, da je izdelek v določeni kategoriji (npr. Pijače), če je vrednost Y, da ali 1."
 
 msgctxt "specific_tag_category_value"
 msgid "Type the name of the category in the text field on the right."
@@ -3408,63 +3411,63 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Vrednost"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr ""
+msgstr "Vrednost + enota"
 
 msgctxt "value_in_l"
 msgid "Value in L"
-msgstr ""
+msgstr "Vrednost v L"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr ""
+msgstr "Vrednost v dl"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr ""
+msgstr "Vrednost v cl"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr ""
+msgstr "Vrednost v ml"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
-msgstr ""
+msgstr "Vrednost v kg"
 
 msgctxt "value_in_g"
 msgid "Value in g"
-msgstr ""
+msgstr "Vrednost v g"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr ""
+msgstr "Vrednost v mg"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "Vrednost v μg"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr ""
+msgstr "Vrednost v kcal"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr ""
+msgstr "Vrednost v kJ"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "Vrednost v %"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
-msgstr ""
+msgstr "Za uporabo te funkcije se prijavite."
 
 msgctxt "org"
 msgid "Organization"
-msgstr ""
+msgstr "Organizacija"
 
 msgctxt "column_in_file"
 msgid "Column in file"
@@ -3472,5 +3475,21 @@ msgstr ""
 
 msgctxt "field_on_site"
 msgid "Field on %"
-msgstr ""
+msgstr "Polje v %"
+
+msgctxt "producers_platform"
+msgid "Platform for producers"
+msgstr "Platforma za proizvajalce"
+
+msgctxt "producers_platform_description"
+msgid "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
+msgstr "Platforma za proizvajalce, proizvajalcem omogoča enostavno upravljanje s fotografijami in podatki o izdelkih v Open Food Facts."
+
+msgctxt "import_product_data"
+msgid "Import product data"
+msgstr "Uvoz podatkov o izdelku"
+
+msgctxt "import_product_photos"
+msgid "Import product photos"
+msgstr "Uvoz fotografij izdelkov"
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-01 17:06\n"
+"PO-Revision-Date: 2019-10-03 07:01\n"
 "Language-Team: Russian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -199,7 +199,7 @@ msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formula
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "Пожертвовать, чтобы поддержать нашу работу"
 
 msgctxt "brands"
 msgid "Brands"
@@ -2338,7 +2338,7 @@ msgstr "Размер порции"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Размер готовой порции"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -3294,51 +3294,51 @@ msgstr "Последняя версия"
 
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "Импортировать файл данных о продукте"
 
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
-msgstr ""
+msgstr "Загрузите файл электронной таблицы (файл Excel или CSV-файл в кодировке UTF-8, разделенный табуляцией) с данными о продуктах."
 
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
 msgstr ""
 
 msgctxt "upload_products_data_file"
-msgid "Upload a products data file"
+msgid "Upload a file with products data"
 msgstr ""
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "Файл загружается."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "Файл не может быть загружен."
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "Выбрать и импортировать данные"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
-msgstr ""
+msgstr "Используйте форму ниже, чтобы указать, какие столбцы импортировать и какие данные они содержат."
 
 msgctxt "import_data"
 msgid "Import data"
-msgstr ""
+msgstr "Импорт данных"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
-msgstr ""
+msgstr "Загруженный файл содержит %s строк и %s столбцов."
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
-msgstr ""
+msgstr "%s столбцов из %s были выбраны и будут импортированы."
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Идентификация продукта"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
@@ -3370,7 +3370,7 @@ msgstr ""
 
 msgctxt "select_a_field"
 msgid "Select a field"
-msgstr ""
+msgstr "Выберите поле"
 
 msgctxt "specify"
 msgid "Specify"
@@ -3378,11 +3378,11 @@ msgstr ""
 
 msgctxt "value_unit_dropdown"
 msgid "In the dropdown menu on the right, specify if the column contains:"
-msgstr ""
+msgstr "В раскрывающемся меню справа укажите, содержит ли столбец:"
 
 msgctxt "value_unit_dropdown_value_unit"
 msgid "the value and the unit"
-msgstr ""
+msgstr "значение и единица"
 
 msgctxt "value_unit_dropdown_value_specific_unit"
 msgid "the value in a specific unit"
@@ -3390,12 +3390,13 @@ msgstr ""
 
 msgctxt "value_unit_dropdown_value"
 msgid "only the value, with the unit in another column"
-msgstr ""
+msgstr "только значение, единицы в другом столбце"
 
 msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
-msgstr ""
+msgstr "только единицы, значения в другом столбце"
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr ""
@@ -3404,8 +3405,9 @@ msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr ""
 
+# Please do not translate Y, Yes and 1
 msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates the presence of a specific category (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr ""
 
 msgctxt "specific_tag_category_value"
@@ -3414,55 +3416,55 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Значение"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr ""
+msgstr "Значение + Единица"
 
 msgctxt "value_in_l"
 msgid "Value in L"
-msgstr ""
+msgstr "Значение в л"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr ""
+msgstr "Значение в дл"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr ""
+msgstr "Значение в сл"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr ""
+msgstr "Значение в мл"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
-msgstr ""
+msgstr "Значение в кг"
 
 msgctxt "value_in_g"
 msgid "Value in g"
-msgstr ""
+msgstr "Значение в г"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr ""
+msgstr "Значение в мг"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "Значение в мкг"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr ""
+msgstr "Стоимость в ккал"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr ""
+msgstr "Значение в кДж"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "Значение в %"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
@@ -3470,7 +3472,7 @@ msgstr ""
 
 msgctxt "org"
 msgid "Organization"
-msgstr ""
+msgstr "Организация"
 
 msgctxt "column_in_file"
 msgid "Column in file"
@@ -3478,5 +3480,21 @@ msgstr ""
 
 msgctxt "field_on_site"
 msgid "Field on %"
+msgstr ""
+
+msgctxt "producers_platform"
+msgid "Platform for producers"
+msgstr ""
+
+msgctxt "producers_platform_description"
+msgid "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
+msgstr ""
+
+msgctxt "import_product_data"
+msgid "Import product data"
+msgstr ""
+
+msgctxt "import_product_photos"
+msgid "Import product photos"
 msgstr ""
 
