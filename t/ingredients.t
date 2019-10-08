@@ -732,7 +732,8 @@ $expected_product_ref =
       'en:sugar',
       'en:orange-pulp',
       'en:concentrated-orange-juice',
-      #'en:e333iii',
+# added 8/10/19 13:51
+      'en:e333iii',
       'en:sodium-citrate',
       'en:sugar',
       'en:cocoa-paste',
