@@ -180,6 +180,7 @@ HTML
 	$initjs .= <<JS
 
 \$('#file_input_$id').fileupload({
+	sequentialUploads: true,
 	dataType: 'json',
 	url: "/cgi/import_file_upload.pl",
 	formData : [{name: 'action', value: 'process'}],
