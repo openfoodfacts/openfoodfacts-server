@@ -77,11 +77,10 @@ sub display_madenearyou($) {
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
 <script type="text/javascript" src="/js/dist/jquery.cookie.js"></script>
 
-<script src="/js/jquery.iframe-transport.min.js"></script>
-<script src="/js/jquery.fileupload.min.js"></script>
-<script src="/js/load-image.min.js"></script>
-<script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.min.js"></script>
+<script src="/js/dist/jquery.iframe-transport.js"><script>
+<script src="/js/dist/jquery.fileupload.min.js"></script>
+<script src="/js/dist/load-image.all.min.js"></script>
+<script src="/js/dist/canvas-to-blob.min.js"></script>
 
 $header
 

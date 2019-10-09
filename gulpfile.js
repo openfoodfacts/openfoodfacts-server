@@ -50,7 +50,11 @@ function js() {
       './node_modules/papaparse/papaparse.min.js',
       './node_modules/osmtogeojson/osmtogeojson.js',
       './node_modules/leaflet/dist/**/*.*',
-      './node_modules/leaflet.markercluster/dist/**/*.*'
+      './node_modules/leaflet.markercluster/dist/**/*.*',
+      './node_modules/blueimp-tmpl/js/*.js',
+      './node_modules/blueimp-load-image/js/load-image.all.min.js',
+      './node_modules/blueimp-canvas-to-blob/js/*.js',
+      './node_modules/blueimp-file-upload/js/*.js'
     ], { sourcemaps: true })
     .pipe(dest('./html/js/dist', { sourcemaps: true }))
 }
