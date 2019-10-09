@@ -795,8 +795,8 @@ $expected_product_ref =
       'en:fruit-juice',
       'en:orange-juice',
 # added 9-10-19  13:50 for got en:e333 expected en:sodium-citrate
-# 15:31 try to remove again
-      #'en:e333iii',
+# 16:45 added
+      'en:e333iii',
       'en:sodium-citrate',
       'en:minerals',
       'en:sodium',
