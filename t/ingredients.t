@@ -681,7 +681,7 @@ $expected_product_ref =
       'en:concentrated-orange-juice',
       'en:fruit-juice',
       'en:orange-juice',
-#      'en:e333',
+      'en:e333',
       'en:e333iii',
       'en:sodium-citrate',
       'en:minerals',
