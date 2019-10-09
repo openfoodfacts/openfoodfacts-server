@@ -1056,13 +1056,28 @@ sub import_csv_file($) {
 
 		# Images need to be updated after the product is saved (and possibly created)
 
+		# Images can be specified as local paths to image files
+		# e.g. from the producers platform
+
+		foreach my $field (sort keys %{$imported_product_ref}) {
+
+			next if $field !~ /^image_(front|ingredients|nutrition|other)_file/;
+
+			print STDERR "image field (local path): $field - value: $imported_product_ref->{$field}\n";
+
+			my $imagefield = $field;
+
+			(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+			$images_ref->{$code}{$imagefield} = $file;
+		}
+
 		# Images can be specified as urls that we need to download
 
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
 			next if $field !~ /^image_(front|ingredients|nutrition|other)_url/;
 
-			print STDERR "image field: $field - value: $imported_product_ref->{$field}\n";
+			print STDERR "image field (url): $field - value: $imported_product_ref->{$field}\n";
 
 			$log->debug("image file", { field => $field, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
 

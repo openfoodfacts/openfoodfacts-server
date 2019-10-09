@@ -83,6 +83,7 @@ my $args_ref = {
 	export_id => $export_id,
 	query => { owner => $owner},
 	comment => "Import from producers platform",
+	include_images_paths => 1,	# Export file paths to images
 };
 
 if (defined $Org_id) {
