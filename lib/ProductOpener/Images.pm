@@ -307,6 +307,7 @@ JS
 \/\/ start off canvas blocks for small screens
 
     \$('#imgupload_search_$id').fileupload({
+		sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product.pl',
 		formData : [{name: 'jqueryfileupload', value: 1}],
