@@ -1061,14 +1061,16 @@ sub import_csv_file($) {
 
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
-			next if $field !~ /^image_(front|ingredients|nutrition|other)_file/;
+			print STDERR "image field (local path) aaa : $field - value: $imported_product_ref->{$field}\n";
+
+			next if $field !~ /^image_((front|ingredients|nutrition|other)(_\w\w)?)_file/;
 
 			print STDERR "image field (local path): $field - value: $imported_product_ref->{$field}\n";
 
-			my $imagefield = $field;
+			my $imagefield = $1;
 
 			(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-			$images_ref->{$code}{$imagefield} = $file;
+			$images_ref->{$code}{$imagefield} = $imported_product_ref->{$field};
 		}
 
 		# Images can be specified as urls that we need to download
