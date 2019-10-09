@@ -37,8 +37,9 @@
     "win32"
   ],
   "dependencies": {
-    "jqueryui": "components/jqueryui#^1.12.1",
+    "blueimp-file-upload": "^10.2.0",
     "foundation-sites": "zurb/bower-foundation#^5.5.3",
+    "jqueryui": "components/jqueryui#^1.12.1",
     "leaflet": "Leaflet/Leaflet#>=1.5.1",
     "leaflet.markercluster": "Leaflet/Leaflet.markercluster#>=1.0.0",
     "opencollective": "^1.0.3",

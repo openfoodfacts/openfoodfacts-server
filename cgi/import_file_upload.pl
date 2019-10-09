@@ -138,9 +138,8 @@ else {
 
 	# Already included in add product barcode image
 	#	$scripts .= <<HTML
-	#<script type="text/javascript" src="/js/jquery.iframe-transport.js"></script>
-	#<script type="text/javascript" src="/js/jquery.fileupload.js"></script>
-	#<script type="text/javascript" src="/js/jquery.fileupload-ip.js"></script>
+	#<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+	#<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 	#HTML
 	#;
 
@@ -181,6 +180,7 @@ HTML
 	$initjs .= <<JS
 
 \$('#file_input_$id').fileupload({
+	sequentialUploads: true,
 	dataType: 'json',
 	url: "/cgi/import_file_upload.pl",
 	formData : [{name: 'action', value: 'process'}],
