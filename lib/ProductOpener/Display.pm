@@ -5934,6 +5934,11 @@ $options{favicons}
 <link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
+<script type="text/javascript">
+  var _jipt = [];
+  _jipt.push(['project', 'openfoodfacts']);
+</script>
+<script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>
 <style media="all">
 HTML
 ;
