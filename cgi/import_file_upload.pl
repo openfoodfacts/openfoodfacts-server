@@ -138,7 +138,7 @@ else {
 	$html .= <<HTML
 <div id="file_input_div_$id">
 
-<a href="#" class="button small expand" id="file_input_button_$id"><i class="icon-arrow_upward"></i> $Lang{upload_products_data_file}{$lc}
+<a href="#" class="button small expand" id="file_input_button_$id"><i class="icon-arrow_upward"></i> $Lang{upload_product_data_file}{$lc}
 <input type="file" accept=".csv,.tsv,.xlsx" class="file_input" name="file_input_$id" id="file_input_$id" style="position: absolute;
 	right:0;
 	bottom:0;
