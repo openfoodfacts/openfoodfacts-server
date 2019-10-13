@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-13 12:03\n"
+"PO-Revision-Date: 2019-10-13 14:11\n"
 "Language-Team: Italian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3303,7 +3303,7 @@ msgstr "Importa un file di dati del prodotto"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Carica un file di foglio di calcolo (file Excel o un file CSV codificato UTF-8 separato da tabulazioni) con i dati del prodotto."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3313,7 +3313,7 @@ msgstr "Puoi caricare una tabella con le colonne in formato di importazione Apri
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
 msgid "Upload a file with product data"
-msgstr ""
+msgstr "Carica un file con i dati del prodotto"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
@@ -3369,23 +3369,23 @@ msgstr "Altre informazioni"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "Foto del prodotto"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
-msgstr ""
+msgstr "Link alla foto anteriore del prodotto"
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
-msgstr ""
+msgstr "Link alla foto della lista ingredienti"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "Link alla foto della tabella dei dati nutrizionali"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
-msgstr ""
+msgstr "Link ad altre foto del prodotto"
 
 msgctxt "labels_specific"
 msgid "Specific label"
@@ -3499,7 +3499,7 @@ msgstr "Effettua il login per utilizzare questa funzione."
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "Organizzazione"
 
 msgctxt "column_in_file"
 msgid "Column in file"
@@ -3507,7 +3507,7 @@ msgstr "Colonna nel file"
 
 msgctxt "field_on_site"
 msgid "Field on %s"
-msgstr ""
+msgstr "Campo su %s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
@@ -3516,17 +3516,17 @@ msgstr "Piattaforma per produttori"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "La piattaforma per i produttori permette ai produttori di gestire facilmente le foto e i dati dei propri prodotti su Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "I dati e le foto del prodotto che invii sulla piattaforma per i produttori sono memorizzati in un database privato. Sarai in grado di controllare che tutti i dati siano corretti prima di renderli disponibili nel database pubblico di Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "I dati e le foto del prodotto saranno disponibili pubblicamente nel database Open Food Facts, sotto la <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. I singoli contenuti del database sono disponibili sotto la licenza <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents</a> e le immagini dei prodotti sono disponibili sotto la <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Licenza Creative Commons Attribution ShareAlike</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3541,11 +3541,11 @@ msgstr "Importa le foto dei prodotti"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
 msgid "Export product data and photos to the public database"
-msgstr ""
+msgstr "Esporta i dati e le foto del prodotto nel database pubblico"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Controlla che i dati sulla piattaforma per i produttori siano corretti prima di esportarli nel database pubblico."
 
 msgctxt "cancel"
 msgid "Cancel"
