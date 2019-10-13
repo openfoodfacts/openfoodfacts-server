@@ -150,6 +150,7 @@ my $args_ref = {
 	file_id => $file_id,
 	import_id => $import_id,
 	comment => "Import from producers platform",
+	images_download_dir => "$data_root/import_files/$owner/downloaded_images",
 };
 
 if (defined $Org_id) {

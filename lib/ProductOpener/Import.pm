@@ -343,8 +343,8 @@ sub import_csv_file($) {
 
 				if ($file2 =~ /(\d+)(_|-|\.)?([^\.-]*)?((-|\.)(.*))?\.(jpg|jpeg|png)/i) {
 
-					if ((-s "$args_ref->{images_dir}/$file") < 10000) {
-						print STDERR "Size of $args_ref->{images_dir}/$file is < 10000 : " . (-s "$args_ref->{images_dir}/$file") . " , skipping\n";
+					if ((-s "$file") < 10000) {
+						print STDERR "Size of $file is < 10000 : " . (-s "$file") . " , skipping\n";
 						next;
 					}
 
@@ -367,7 +367,7 @@ sub import_csv_file($) {
 					# push @{$images_ref->{$code}}, $file;
 					# keep jpg if there is also a png
 					if (not defined $images_ref->{$code}{$imagefield}) {
-						$images_ref->{$code}{$imagefield} = $file;
+						$images_ref->{$code}{$imagefield} = $args_ref->{images_dir} . "/" . $file;
 					}
 				}
 			}
@@ -807,6 +807,21 @@ sub import_csv_file($) {
 			my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"});
 			my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"});
 
+			# calcium_100g_value_in_mcg
+
+			foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml') {
+				my $value_in_u = remove_tags_and_quote($imported_product_ref->{$nid . "_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_value" . "_in_" . $u});
+				my $valuep_in_u = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_prepared_value" . "_in_" . $u});
+				if ((defined $value_in_u) and ($value_in_u ne "")) {
+					$value = $value_in_u;
+					$unit = $u;
+				}
+				if ((defined $valuep_in_u) and ($valuep_in_u ne "")) {
+					$valuep = $valuep_in_u;
+					$unit = $u;
+				}
+			}
+
 			if ($nid eq 'alcohol') {
 				$unit = '% vol';
 			}
@@ -1041,6 +1056,111 @@ sub import_csv_file($) {
 
 		# Images need to be updated after the product is saved (and possibly created)
 
+		# Images can be specified as local paths to image files
+		# e.g. from the producers platform
+
+		foreach my $field (sort keys %{$imported_product_ref}) {
+
+			print STDERR "image field (local path) aaa : $field - value: $imported_product_ref->{$field}\n";
+
+			next if $field !~ /^image_((front|ingredients|nutrition|other)(_\w\w)?)_file/;
+
+			print STDERR "image field (local path): $field - value: $imported_product_ref->{$field}\n";
+
+			my $imagefield = $1;
+
+			(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+			$images_ref->{$code}{$imagefield} = $imported_product_ref->{$field};
+		}
+
+		# Images can be specified as urls that we need to download
+
+		foreach my $field (sort keys %{$imported_product_ref}) {
+
+			next if $field !~ /^image_(front|ingredients|nutrition|other)_url/;
+
+			print STDERR "image field (url): $field - value: $imported_product_ref->{$field}\n";
+
+			$log->debug("image file", { field => $field, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
+
+			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
+
+			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} =~ /^http/)) {
+
+				# Create a local filename from the url
+				my $filename = $imported_product_ref->{$field};
+				$filename =~ s/.*\///;
+				$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
+
+				# If the filename does not include the product code, prefix it
+				if ($filename !~ /$code/) {
+
+					$filename = $code . "_" . $filename;
+				}
+
+				my $images_download_dir = $args_ref->{images_download_dir};
+
+				if ((defined $images_download_dir) and ($images_download_dir ne '')) {
+					if (not -d $images_download_dir) {
+						$log->debug("Creating images_download_dir", { images_download_dir => $images_download_dir}) if $log->is_debug();
+						mkdir($images_download_dir, 0755) or $log->warn("Could not create images_download_dir", { images_download_dir => $images_download_dir, error=> $!}) if $log->is_warn();
+					}
+
+					my $file = $images_download_dir . "/" . $filename;
+
+					# Check if the image exists
+					if (-e $file) {
+
+						$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
+
+						# Is the image readable?
+						my $magick = Image::Magick->new();
+						my $x = $magick->Read($file);
+						if ("$x") {
+							$log->warn("cannot read image file", { error => $x, file => $file }) if $log->is_warn();
+							unlink($file);
+						}
+					}
+
+					# Download the image
+					if (! -e $file) {
+
+						# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
+						# -> remove thumb=true to get the full image
+
+						my $image_url = $imported_product_ref->{$field};
+						$image_url =~ s/thumb=true&//;
+
+						$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
+
+						use LWP::UserAgent ();
+
+						my $ua = LWP::UserAgent->new(timeout => 10);
+
+						my $response = $ua->get($image_url);
+
+						if ($response->is_success) {
+							$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
+							open (my $out, ">", $file);
+							print $out $response->decoded_content;
+							close($out);
+
+							# Assign the download image to the field
+							(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+							$images_ref->{$code}{$imagefield} = $file;
+						}
+						else {
+							$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
+						}
+					}
+				}
+				else {
+					$log->warn("no image download dir specified", { }) if $log->is_warn();
+				}
+			}
+		}
+
+
 		# Upload images
 
 		if (defined $images_ref->{$code}) {
@@ -1067,8 +1187,6 @@ sub import_csv_file($) {
 						}
 					}
 
-					my $imported_image_file = $images_ref->{$imagefield};
-
 					# if the language is not specified, assign it to the language of the product
 
 					my $imagefield_with_lc = $imagefield;
@@ -1078,15 +1196,15 @@ sub import_csv_file($) {
 					}
 
 					# upload the image
-					my $file = $imported_image_file;
+					my $file = $images_ref->{$imagefield};
 
-					if (-e "$args_ref->{images_dir}/$file") {
-						print "found image file $args_ref->{images_dir}/$file\n";
+					if (-e "$file") {
+						print "found image file $file\n";
 
 						# upload a photo
 						my $imgid;
-						my $return_code = process_image_upload($product_id, "$args_ref->{images_dir}/$file", $args_ref->{user_id}, undef, $product_comment, \$imgid);
-						print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid - imagefield_with_lc: $imagefield_with_lc\n";
+						my $return_code = process_image_upload($product_id, "$file", $args_ref->{user_id}, undef, $product_comment, \$imgid);
+						print STDERR "process_image_upload - file: $file - return code: $return_code - imgid: $imgid - imagefield_with_lc: $imagefield_with_lc\n";
 
 						if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 							$stats{products_images_added}{$code} = 1;
@@ -1099,7 +1217,7 @@ sub import_csv_file($) {
 
 							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 
-								print "assigning image $imgid to ${imagefield_with_lc}\n";
+								print STDERR "assigning image $imgid to ${imagefield_with_lc}\n";
 								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
 								# $modified++;
 
@@ -1112,7 +1230,7 @@ sub import_csv_file($) {
 									and (exists $product_ref->{images})
 									and (exists $product_ref->{images}{$imagefield_with_lc})
 									and ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)) {
-									print "re-assigning image $imgid to $imagefield_with_lc\n";
+									print STDERR "re-assigning image $imgid to $imagefield_with_lc\n";
 									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
 									# $modified++;
 								}
@@ -1121,7 +1239,7 @@ sub import_csv_file($) {
 						}
 					}
 					else {
-						print "did not find image file $args_ref->{images_dir}/$file\n";
+						print STDERR "did not find image file $file\n";
 					}
 				}
 			}
