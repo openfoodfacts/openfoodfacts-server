@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-13 12:04\n"
+"PO-Revision-Date: 2019-10-13 13:11\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3301,7 +3301,7 @@ msgstr "ייבוא קובץ נתוני מוצרים"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "יש להעלות גיליון נתונים (קובץ Excel או קובץ CSV עם הפרדה בטאבים בקידוד UTF-8) עם נתוני מוצרים."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3311,7 +3311,7 @@ msgstr "ניתן להעלות טבלה עם תצורת העמודות לייבו
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
 msgid "Upload a file with product data"
-msgstr ""
+msgstr "העלאת קובץ עם נתוני מוצרים"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
@@ -3367,23 +3367,23 @@ msgstr "פרטים נוספים"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "תמונות מוצרים"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
-msgstr ""
+msgstr "קישור לתמונת החזית של המוצר"
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
-msgstr ""
+msgstr "קישור לתמונת רשימת הרכיבים"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "קישור לתמונת טבלת העובדות התזונתיות"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
-msgstr ""
+msgstr "קישור לתמונה של מוצר אחר"
 
 msgctxt "labels_specific"
 msgid "Specific label"
@@ -3497,7 +3497,7 @@ msgstr "נא להיכנס כדי להשתמש בתכונה הזאת."
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "ארגון"
 
 msgctxt "column_in_file"
 msgid "Column in file"
@@ -3505,7 +3505,7 @@ msgstr "עמודה בקובץ"
 
 msgctxt "field_on_site"
 msgid "Field on %s"
-msgstr ""
+msgstr "שדה ב־%s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
@@ -3514,7 +3514,7 @@ msgstr "פלטפורמה ליצרנים"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "הפלטפורמה ליצרנים שמאפשרת להם לנהל בקלות את תמונות ונתוני המוצרים שלהם ב־Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
@@ -3539,11 +3539,11 @@ msgstr "ייבוא תמונות מוצרים"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
 msgid "Export product data and photos to the public database"
-msgstr ""
+msgstr "ייצוא נתונים ותמונות של מוצרים למסד הנתונים הציבורי"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "נא לוודא שהנתונים בפלטפורמה ליצרנים נכונים בטרם הייצוא למסד הנתונים הציבורי."
 
 msgctxt "cancel"
 msgid "Cancel"
