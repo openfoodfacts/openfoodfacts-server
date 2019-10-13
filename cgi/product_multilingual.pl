@@ -39,7 +39,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -599,7 +599,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	compute_unknown_nutrients($product_ref);
 
-	ProductOpener::SiteQuality::check_quality($product_ref);
+	ProductOpener::DataQuality::check_quality($product_ref);
 
 	$log->trace("end compute_serving_size_date - end") if $log->is_trace();
 

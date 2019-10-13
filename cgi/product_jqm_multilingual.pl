@@ -38,7 +38,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use Apache2::RequestRec ();
@@ -433,7 +433,7 @@ else {
 
 	compute_unknown_nutrients($product_ref);
 
-	ProductOpener::SiteQuality::check_quality($product_ref);
+	ProductOpener::DataQuality::check_quality($product_ref);
 
 
 	$log->info("saving product", { code => $code }) if ($log->is_info() and not $log->is_debug());

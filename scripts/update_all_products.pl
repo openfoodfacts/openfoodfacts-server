@@ -65,7 +65,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
 
 
@@ -579,7 +579,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($check_quality) {
-			ProductOpener::SiteQuality::check_quality($product_ref);
+			ProductOpener::DataQuality::check_quality($product_ref);
 		}
 
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
