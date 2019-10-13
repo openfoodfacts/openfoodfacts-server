@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-13 13:41\n"
+"PO-Revision-Date: 2019-10-13 13:51\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3371,7 +3371,7 @@ msgstr "Produktfotos"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
-msgstr "Link zur Vorderseite des Produktfotos"
+msgstr "Link zum Foto der Vorderseite des Produkts"
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
@@ -3379,11 +3379,11 @@ msgstr "Link zum Foto der Zutatenliste"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "Link zumFoto der den Nährwertangabentabelle"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
-msgstr ""
+msgstr "Link zu weiteren Produktfotos"
 
 msgctxt "labels_specific"
 msgid "Specific label"
@@ -3497,7 +3497,7 @@ msgstr "Bitte anmelden, um diese Funktion nutzen zu können."
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "Organisation"
 
 msgctxt "column_in_file"
 msgid "Column in file"
@@ -3514,17 +3514,17 @@ msgstr "Plattform für Produzenten"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "Die Plattform für Produzenten ermöglicht es Herstellern, ihre Produktfotos und Daten zu Open Food Facts einfach zu verwalten."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Die Produktdaten und Fotos, die Sie auf der Plattform für Produzenten senden, werden in einer privaten Datenbank gespeichert. Sie können überprüfen, ob alle Daten korrekt sind, bevor Sie diese in der öffentlichen Open Food Facts-Datenbank zur Verfügung stellen."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Die Produktdaten und Fotos werden in der Open Food Facts-Datenbank unter der <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a> öffentlich zugänglich gemacht. Einzelne Inhalte der Datenbank sind unter der <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> und Produktfotos unter der <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike license</a> verfügbar."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3539,11 +3539,11 @@ msgstr "Produktfotos importieren"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
 msgid "Export product data and photos to the public database"
-msgstr ""
+msgstr "Produktdaten und Fotos in die öffentliche Datenbank exportieren"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Bitte überprüfen Sie vor dem Export in die öffentliche Datenbank, ob die Daten auf der Plattform für Hersteller korrekt sind."
 
 msgctxt "cancel"
 msgid "Cancel"
