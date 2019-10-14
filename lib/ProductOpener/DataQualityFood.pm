@@ -570,7 +570,8 @@ sub check_nutrition_data($) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid";
 			}
 
-			if ($product_ref->{nutriments}{$nid . "_100g"} == 0) {
+			if ((defined $product_ref->{nutriments}{$nid . "_100g"})
+				and ($product_ref->{nutriments}{$nid . "_100g"} == 0)) {
 				$nid_zero++;
 			}
 			$nid_n++;
@@ -587,7 +588,8 @@ sub check_nutrition_data($) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-total-over-1000";
 		}
 
-		if ($product_ref->{nutriments}{"energy_100g"} > 3800) {
+		if ((defined $product_ref->{nutriments}{"energy_100g"})
+			and ($product_ref->{nutriments}{"energy_100g"} > 3800)) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
 		}
 
@@ -638,7 +640,7 @@ sub check_ingredients($) {
 
 	# spell corrected additives
 
-	if ($product_ref->{additives} =~ /spell correction/) {
+	if ((defined $product_ref->{additives}) and ($product_ref->{additives} =~ /spell correction/)) {
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:ingredients-spell-corrected-additives";
 	}
 
@@ -646,14 +648,15 @@ sub check_ingredients($) {
 
 	my $nb_languages = 0;
 
-	($product_ref->{ingredients_text} =~ /\b(ingrédients|sucre|eau|sel|farine)\b/i) and $nb_languages++;
-	($product_ref->{ingredients_text} =~ /\b(sugar|salt|flour|milk)\b/i) and $nb_languages++;
-	($product_ref->{ingredients_text} =~ /\b(ingrediënten|suiker|zout|bloem)\b/i) and $nb_languages++;
-	($product_ref->{ingredients_text} =~ /\b(ingredientes|azucar|agua|sal|harina)\b/i) and $nb_languages++;
-	($product_ref->{ingredients_text} =~ /\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i) and $nb_languages++;
-	($product_ref->{ingredients_text} =~ /\b(açúcar|farinha|água)\b/i) and $nb_languages++;
-	($product_ref->{ingredients_text} =~ /\b(ingredienti|zucchero|farina|acqua)\b/i) and $nb_languages++;
-
+	if (defined $product_ref->{ingredients_text}) {
+		($product_ref->{ingredients_text} =~ /\b(ingrédients|sucre|eau|sel|farine)\b/i) and $nb_languages++;
+		($product_ref->{ingredients_text} =~ /\b(sugar|salt|flour|milk)\b/i) and $nb_languages++;
+		($product_ref->{ingredients_text} =~ /\b(ingrediënten|suiker|zout|bloem)\b/i) and $nb_languages++;
+		($product_ref->{ingredients_text} =~ /\b(ingredientes|azucar|agua|sal|harina)\b/i) and $nb_languages++;
+		($product_ref->{ingredients_text} =~ /\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i) and $nb_languages++;
+		($product_ref->{ingredients_text} =~ /\b(açúcar|farinha|água)\b/i) and $nb_languages++;
+		($product_ref->{ingredients_text} =~ /\b(ingredienti|zucchero|farina|acqua)\b/i) and $nb_languages++;
+	}
 
 	if ($nb_languages > 1) {
 			foreach my $max (5, 4, 3, 2, 1) {
@@ -790,7 +793,8 @@ sub check_ingredients($) {
 		|(Zutaten aus ökol. Landwirtschaft)
 	/xx;
 
-	if (($product_ref->{ingredients_text} =~ /$agr_bio/is) && !has_tag($product_ref, "labels", "en:organic")) {
+	if ((defined $product_ref->{ingredients_text}) and
+		(($product_ref->{ingredients_text} =~ /$agr_bio/is) && !has_tag($product_ref, "labels", "en:organic"))) {
 		push @{$product_ref->{data_quality_warnings_tags}}, 'en:organic-ingredients-but-no-organic-label';
 	}
 
