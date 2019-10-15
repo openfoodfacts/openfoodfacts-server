@@ -2229,7 +2229,7 @@ oTable = \$('#tagstable').DataTable({
 
 var buttonId;
 
-\$("button.save").click(function(){
+\$("button.save").click(function(event){
 
 	event.stopPropagation();
 	event.preventDefault();
