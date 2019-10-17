@@ -50,8 +50,10 @@ BEGIN
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
+use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
+use ProductOpener::Food qw(:all);
 
 use Log::Any qw($log);
 
@@ -620,6 +622,62 @@ sub check_nutrition_data($) {
 	}
 }
 
+
+=head2 compare_nutrition_facts_with_products_from_the_same_category( PRODUCT_REF )
+
+Check that the product nutrition facts are comparable to other products from the same category.
+
+=cut
+
+sub compare_nutrition_facts_with_products_from_same_category($) {
+	my $product_ref = shift;
+
+	my $categories_nutriments_ref = $categories_nutriments_per_country{"world"};
+
+	$log->debug("compare_nutrition_facts_with_products_from_same_category - start") if $log->debug();
+
+	if ((defined $product_ref->{nutriments})
+		and (defined $product_ref->{categories_tags}) and (defined $product_ref->{categories_tags}[0])
+		and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[0]})
+		and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[0]}{nutriments})
+		) {
+
+		my $main_cid = $product_ref->{categories_tags}[0];
+
+		$log->debug("compare_nutrition_facts_with_products_from_same_category" , { main_cid => $main_cid}) if $log->is_debug();
+
+		# check major nutrients
+		my @nutrients = qw(energy fat saturated-fat carbohydrates sugars fiber proteins salt);
+
+		foreach my $nid (@nutrients) {
+
+			if ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne "")) {
+
+				# check if the value is in the range of the mean +- 3 * standard deviation
+				# (for Gaussian distributions, this range contains 99.7% of the values)
+
+				$log->debug("compare_nutrition_facts_with_products_from_same_category" ,
+					{ nid => $nid, product_100g => $product_ref->{nutriments}{$nid . "_100g"},
+					category_100g => $categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_100g"},
+					category_std => $categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_std"}
+					} ) if $log->is_debug();
+
+				if ($product_ref->{nutriments}{$nid . "_100g"}
+					< ($categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_100g"} - 3 * $categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_std"}) ) {
+
+					push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-very-low-for-category-" . $nid;
+				}
+				elsif ($product_ref->{nutriments}{$nid . "_100g"}
+					> ($categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_100g"} + 3 * $categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_std"}) ) {
+
+					push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-very-high-for-category-" . $nid;
+				}
+			}
+		}
+	}
+}
+
+
 sub calculate_digit_percentage($) {
 	my $text = shift;
 	return 0.0 if not defined $text;
@@ -892,6 +950,7 @@ sub check_categories($) {
 	}
 }
 
+
 =head2 check_quality_food( PRODUCT_REF )
 
 Run all quality checks defined in the module.
@@ -904,6 +963,7 @@ sub check_quality_food($) {
 
 	check_ingredients($product_ref);
 	check_nutrition_data($product_ref);
+	compare_nutrition_facts_with_products_from_same_category($product_ref);
 	check_nutrition_grades($product_ref);
 	check_carbon_footprint($product_ref);
 	check_quantity($product_ref);

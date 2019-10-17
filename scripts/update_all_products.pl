@@ -222,7 +222,7 @@ my $fix_rev_not_incremented_fixed = 0;
 while (my $product_ref = $cursor->next) {
 
 	my $code = $product_ref->{code};
-	my $path = product_path($code);
+	my $path = product_path($product_ref);
 
 	if (not defined $code) {
 		print STDERR "code field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id} . "\n";

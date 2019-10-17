@@ -40,6 +40,8 @@ BEGIN
 
 					@nutrient_levels
 
+					%categories_nutriments_per_country
+
 					&normalize_nutriment_value_and_modifier
 					&assign_nid_modifier_value_and_unit
 
@@ -96,6 +98,22 @@ use Hash::Util;
 use CGI qw/:cgi :form escapeHTML/;
 
 use Log::Any qw($log);
+
+# Load nutrient stats for all categories and countries
+# the stats are displayed on category pages and used in product pages,
+# as well as in data quality checks and improvement opportunity detection
+
+%categories_nutriments_per_country = ();
+
+foreach my $country (keys %{$properties{countries}}, 'en:world') {
+
+	my $country_cc = lc($properties{countries}{$country}{"country_code_2:en"});
+	if ($country eq 'en:world') {
+		$country_cc = 'world';
+	}
+	$categories_nutriments_per_country{$country_cc} = retrieve("$data_root/index/categories_nutriments_per_country.$country_cc.sto");
+}
+
 
 sub normalize_nutriment_value_and_modifier($$) {
 
