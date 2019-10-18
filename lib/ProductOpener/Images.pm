@@ -1526,7 +1526,7 @@ sub extract_text_from_image($$$$$) {
 			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
 			$json_response = decode("utf8", $json_response);
 
-			open (my $OUT, ">:encoding(UTF-8)", $json_file);
+			open ($OUT, ">:encoding(UTF-8)", $json_file);
 			print $OUT $json_response;
 			close $OUT;
 
