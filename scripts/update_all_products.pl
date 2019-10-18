@@ -94,6 +94,7 @@ my $check_quality = '';
 my $compute_codes = '';
 my $compute_carbon = '';
 my $compute_history = '';
+my $compute_sort_key = '';
 my $comment = '';
 my $fix_serving_size_mg_to_ml = '';
 my $fix_missing_lc = '';
@@ -120,6 +121,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"compute-codes" => \$compute_codes,
 			"compute-carbon" => \$compute_carbon,
 			"check-quality" => \$check_quality,
+			"compute-sort-key" => \$compute_sort_key,
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
 			"fix-missing-lc" => \$fix_missing_lc,
 			"fix-zulu-lang" => \$fix_zulu_lang,
@@ -165,6 +167,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented)
+	and (not $compute_sort_key)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -557,6 +560,7 @@ while (my $product_ref = $cursor->next) {
 
 		if ($compute_nutrition_score) {
 			fix_salt_equivalent($product_ref);
+			compute_nutriscore($product_ref);
 			compute_nutrition_score($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
@@ -591,6 +595,10 @@ while (my $product_ref = $cursor->next) {
 			compute_product_history_and_completeness($product_ref, $changes_ref);
 			compute_data_sources($product_ref);
 			store("$data_root/products/$path/changes.sto", $changes_ref);
+		}
+
+		if ($compute_sort_key) {
+			compute_sort_key($product_ref);
 		}
 
 		if (not $pretend) {
