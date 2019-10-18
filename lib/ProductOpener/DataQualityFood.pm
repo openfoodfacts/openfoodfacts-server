@@ -627,6 +627,8 @@ sub check_nutrition_data($) {
 
 Check that the product nutrition facts are comparable to other products from the same category.
 
+Compare with the most specific category that has enough products to compute stats.
+
 =cut
 
 sub compare_nutrition_facts_with_products_from_same_category($) {
@@ -636,39 +638,52 @@ sub compare_nutrition_facts_with_products_from_same_category($) {
 
 	$log->debug("compare_nutrition_facts_with_products_from_same_category - start") if $log->debug();
 
-	if ((defined $product_ref->{nutriments})
-		and (defined $product_ref->{categories_tags}) and (defined $product_ref->{categories_tags}[0])
-		and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[0]})
-		and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[0]}{nutriments})
-		) {
+	return if not defined $product_ref->{nutriments};
+	return if not defined $product_ref->{categories_tags};
 
-		my $main_cid = $product_ref->{categories_tags}[0];
+	my $i = @{$product_ref->{categories_tags}} - 1;
 
-		$log->debug("compare_nutrition_facts_with_products_from_same_category" , { main_cid => $main_cid}) if $log->is_debug();
+	while (($i >= 0)
+		and	not ((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
+			and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]}{nutriments}))) {
+		$i--;
+	}
+	# categories_tags has the most specific categories at the end
+
+	if ($i >= 0) {
+
+		my $specific_category = $product_ref->{categories_tags}[$i];
+		$product_ref->{compared_to_category} = $specific_category;
+
+		$log->debug("compare_nutrition_facts_with_products_from_same_category" , { specific_category => $specific_category}) if $log->is_debug();
 
 		# check major nutrients
 		my @nutrients = qw(energy fat saturated-fat carbohydrates sugars fiber proteins salt);
 
 		foreach my $nid (@nutrients) {
 
-			if ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne "")) {
+			if ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne "")
+				and (defined $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"})) {
 
 				# check if the value is in the range of the mean +- 3 * standard deviation
 				# (for Gaussian distributions, this range contains 99.7% of the values)
+				# note: we remove the bottom and top 5% before computing the std (to remove data errors that change the mean and std)
+				# the computed std is smaller.
+				# Too many values are outside mean +- 3 * std, try 4 * std
 
 				$log->debug("compare_nutrition_facts_with_products_from_same_category" ,
 					{ nid => $nid, product_100g => $product_ref->{nutriments}{$nid . "_100g"},
-					category_100g => $categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_100g"},
-					category_std => $categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_std"}
+					category_100g => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"},
+					category_std => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
 					} ) if $log->is_debug();
 
 				if ($product_ref->{nutriments}{$nid . "_100g"}
-					< ($categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_100g"} - 3 * $categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_std"}) ) {
+					< ($categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"} - 4 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}) ) {
 
 					push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-very-low-for-category-" . $nid;
 				}
 				elsif ($product_ref->{nutriments}{$nid . "_100g"}
-					> ($categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_100g"} + 3 * $categories_nutriments_ref->{$main_cid}{nutriments}{$nid . "_std"}) ) {
+					> ($categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"} + 4 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}) ) {
 
 					push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-very-high-for-category-" . $nid;
 				}
@@ -951,6 +966,35 @@ sub check_categories($) {
 }
 
 
+sub compare_nutriscore_computations($) {
+
+	my $product_ref = shift;
+
+	if ((defined $product_ref->{nutriments})
+		and (defined $product_ref->{nutriments}{"nutrition-score-fr"})
+		and (defined $product_ref->{nutriscore_score})) {
+
+		if ($product_ref->{nutriscore_score} != $product_ref->{nutriments}{"nutrition-score-fr"}) {
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutriscore-computations-different-score";
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, "en:nutriscore-computations-same-score";
+		}
+	}
+
+	if ((defined $product_ref->{nutrition_grade_fr})
+		and (defined $product_ref->{nutriscore_grade})) {
+
+		if ($product_ref->{nutriscore_grade} ne $product_ref->{nutrition_grade_fr}) {
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutriscore-computations-different-grade";
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, "en:nutriscore-computations-same-grade";
+		}
+	}
+}
+
+
 =head2 check_quality_food( PRODUCT_REF )
 
 Run all quality checks defined in the module.
@@ -969,6 +1013,7 @@ sub check_quality_food($) {
 	check_quantity($product_ref);
 	detect_categories($product_ref);
 	check_categories($product_ref);
+	compare_nutriscore_computations($product_ref);
 }
 
 1;
