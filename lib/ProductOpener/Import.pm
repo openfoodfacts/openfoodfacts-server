@@ -572,6 +572,11 @@ sub import_csv_file($) {
 			}
 		}
 
+		# Record fields that are set by the owner
+		if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
+			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
+		}
+
 		foreach my $field (@param_fields) {
 
 			# fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
@@ -585,6 +590,10 @@ sub import_csv_file($) {
 			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/)) {
 
 				print STDERR "defined and non empty value for field $field : " . $imported_product_ref->{$field} . "\n";
+
+				if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
+					$product_ref->{owner_fields}{$field} = $time;
+				}
 
 				if (($field =~ /product_name/) or ($field eq "brands")) {
 					$stats{products_with_info}{$code} = 1;
@@ -842,6 +851,10 @@ sub import_csv_file($) {
 				$stats{products_with_nutrition}{$code} = 1;
 
 				assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
+
+				if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
+					$product_ref->{owner_fields}{$nid} = $time;
+				}
 			}
 
 			if ((defined $valuep) and ($valuep ne '')) {
@@ -850,6 +863,10 @@ sub import_csv_file($) {
 				$stats{products_with_nutrition}{$code} = 1;
 
 				assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
+
+				if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
+					$product_ref->{owner_fields}{$nidp} = $time;
+				}
 			}
 
 			# See which fields have changed
@@ -1061,11 +1078,7 @@ sub import_csv_file($) {
 
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
-			print STDERR "image field (local path) aaa : $field - value: $imported_product_ref->{$field}\n";
-
 			next if $field !~ /^image_((front|ingredients|nutrition|other)(_\w\w)?)_file/;
-
-			print STDERR "image field (local path): $field - value: $imported_product_ref->{$field}\n";
 
 			my $imagefield = $1;
 
@@ -1078,8 +1091,6 @@ sub import_csv_file($) {
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
 			next if $field !~ /^image_(front|ingredients|nutrition|other)_url/;
-
-			print STDERR "image field (url): $field - value: $imported_product_ref->{$field}\n";
 
 			$log->debug("image file", { field => $field, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
 
