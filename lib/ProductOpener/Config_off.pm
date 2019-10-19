@@ -185,6 +185,8 @@ $options{users_who_can_upload_small_images} = {
 	)
 };
 
+$options{product_type} = "food";
+
 @edit_rules = (
 
 	{
@@ -546,7 +548,9 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 
 @taxonomy_fields = qw(states countries languages labels categories additives additives_classes
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
-nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing);
+nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
+data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors
+);
 
 
 # fields in product edit form, above ingredients and nutrition facts
