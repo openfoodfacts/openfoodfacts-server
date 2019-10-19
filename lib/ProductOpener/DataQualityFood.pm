@@ -975,7 +975,7 @@ sub compare_nutriscore_computations($) {
 		and (defined $product_ref->{nutriscore_score})) {
 
 		if ($product_ref->{nutriscore_score} != $product_ref->{nutriments}{"nutrition-score-fr"}) {
-			push @{$product_ref->{data_quality_errors_tags}}, "en:nutriscore-computations-different-score";
+			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutriscore-computations-different-score";
 		}
 		else {
 			push @{$product_ref->{data_quality_info_tags}}, "en:nutriscore-computations-same-score";
@@ -986,7 +986,7 @@ sub compare_nutriscore_computations($) {
 		and (defined $product_ref->{nutriscore_grade})) {
 
 		if ($product_ref->{nutriscore_grade} ne $product_ref->{nutrition_grade_fr}) {
-			push @{$product_ref->{data_quality_errors_tags}}, "en:nutriscore-computations-different-grade";
+			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutriscore-computations-different-grade";
 		}
 		else {
 			push @{$product_ref->{data_quality_info_tags}}, "en:nutriscore-computations-same-grade";
