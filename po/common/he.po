@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-13 13:11\n"
+"PO-Revision-Date: 2019-10-19 12:13\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3519,12 +3519,12 @@ msgstr "הפלטפורמה ליצרנים שמאפשרת להם לנהל בקל�
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "הנתונים והתמונות של המוצרים שבחרת לשלוח דרך הפלטפורמה ליצרנים מאוחסנים במסד נתונים פרטי. תינתן לך האפשרות לבדוק שכל הנתונים נכונים בטרם העברתם למסד הנתונים של Open Food Facts הנגיש לכלל."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "הנתונים והתמונות של המוצרים יהיו זמינים לרשות הציבור במסד הנתונים של Open Food Facts, תחת <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">רישיון מסדי הנתונים הפתוחים</a>. התכנים שבמסד הנתונים זמינים תחת <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">רישיון תכני מסדי הנתונים</a> ותמונות המוצרים זמינות תחת <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">הרישיון Creative Commons ייחוס שיתוף זהה</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3552,4 +3552,64 @@ msgstr "ביטול"
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
 msgstr "שינויים מצומצמים"
+
+msgctxt "data_quality_p"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_s"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_bugs_p"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_bugs_s"
+msgid "data quality bug"
+msgstr ""
+
+msgctxt "data_quality_bugs"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_info_p"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info_s"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_warnings_p"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_warnings_s"
+msgid "data quality warning"
+msgstr ""
+
+msgctxt "data_quality_warnings"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_errors_p"
+msgid "data quality errors"
+msgstr ""
+
+msgctxt "data_quality_errors_s"
+msgid "data quality error"
+msgstr ""
+
+msgctxt "data_quality_errors"
+msgid "data quality errors"
+msgstr ""
 
