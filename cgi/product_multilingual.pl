@@ -399,7 +399,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
 
-	if (($admin) and (defined param('obsolete_since_date'))) {
+	if (($admin or $owner) and (defined param('obsolete_since_date'))) {
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>param("obsolete_since_date"));
 	}
@@ -887,8 +887,9 @@ HTML
 ;
 	}
 
-	# obsolete products
-	if ($admin) {
+	# obsolete products: restrict to admin on public site
+	# authorize owners on producers platform
+	if ($admin or $owner) {
 
 		my $checked = '';
 		if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete} eq 'on')) {
