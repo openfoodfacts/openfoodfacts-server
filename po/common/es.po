@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-14 02:31\n"
+"PO-Revision-Date: 2019-10-19 12:45\n"
 "Language-Team: Spanish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3300,7 +3300,7 @@ msgstr "Importar un archivo de datos del producto"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Subir un archivo de hoja de cálculo (archivo de Excel o un archivo CSV con codificación UTF-8 separado por pestañas) con datos de producto."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3310,7 +3310,7 @@ msgstr "Puede cargar una tabla con el formato de importación de Open Food Facts
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
 msgid "Upload a file with product data"
-msgstr ""
+msgstr "Subir un archivo con datos de productos"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
@@ -3338,11 +3338,11 @@ msgstr "El archivo cargado contiene %s filas y %s columnas."
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
-msgstr ""
+msgstr "%s columnas de %s han sido seleccionadas y serán importadas."
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Indentificación de producto"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
@@ -3358,7 +3358,7 @@ msgstr "Información nutricional"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Datos nutricionales opcionales"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3386,11 +3386,11 @@ msgstr "Enlace a otra foto del producto"
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "Etiqueta específica"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "Categoría específica"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3406,37 +3406,37 @@ msgstr "En el menú desplegable de la derecha, especifica si la columna contiene
 
 msgctxt "value_unit_dropdown_value_unit"
 msgid "the value and the unit"
-msgstr ""
+msgstr "el valor y la unidad"
 
 msgctxt "value_unit_dropdown_value_specific_unit"
 msgid "the value in a specific unit"
-msgstr ""
+msgstr "el valor en una unidad específica"
 
 msgctxt "value_unit_dropdown_value"
 msgid "only the value, with the unit in another column"
-msgstr ""
+msgstr "solo el valor, con la unidad en otra columna"
 
 msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
-msgstr ""
+msgstr "solo la unidad, con el valor en otra columna"
 
 # Please do not translate Y, Yes and 1
 msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Seleccione esta opción si la columna indica la presencia de una etiqueta específica (por ejemplo, Orgánica, Comercio Justo) cuando el valor es Y, Yes o 1."
 
 msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Escriba el nombre de la etiqueta en el campo de texto a la derecha."
 
 # Please do not translate Y, Yes and 1
 msgctxt "specific_tag_category"
 msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Seleccione esta opción si la columna indica que el producto está en una categoría específica (por ejemplo, bebidas) cuando el valor es Y, Yes o 1."
 
 msgctxt "specific_tag_category_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Escriba el nombre de la categoría en el campo de texto a la derecha."
 
 msgctxt "value"
 msgid "Value"
@@ -3444,7 +3444,7 @@ msgstr "Valor"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr ""
+msgstr "Valor + Unidad"
 
 msgctxt "value_in_l"
 msgid "Value in L"
@@ -3452,15 +3452,15 @@ msgstr "Valor en L"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr ""
+msgstr "Valor en dl"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr ""
+msgstr "Valor en cl"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr ""
+msgstr "Valor en ml"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
@@ -3472,27 +3472,27 @@ msgstr "Valor en g"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr ""
+msgstr "Valor en mg"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "Valor en μg"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr ""
+msgstr "Valor en kcal"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr ""
+msgstr "Valor en kJ"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "Valor en %"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
-msgstr ""
+msgstr "Por favor, Inicia sesión para utilizar esta función."
 
 msgctxt "organization"
 msgid "Organization"
@@ -3508,7 +3508,7 @@ msgstr "Campo sobre %s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
-msgstr ""
+msgstr "Plataforma para productores"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
@@ -3528,7 +3528,7 @@ msgstr ""
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
-msgstr ""
+msgstr "Importar datos de productos"
 
 # "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
@@ -3550,5 +3550,65 @@ msgstr "Cancelar"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
+msgstr ""
+
+msgctxt "data_quality_p"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_s"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_bugs_p"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_bugs_s"
+msgid "data quality bug"
+msgstr ""
+
+msgctxt "data_quality_bugs"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_info_p"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info_s"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_warnings_p"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_warnings_s"
+msgid "data quality warning"
+msgstr ""
+
+msgctxt "data_quality_warnings"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_errors_p"
+msgid "data quality errors"
+msgstr ""
+
+msgctxt "data_quality_errors_s"
+msgid "data quality error"
+msgstr ""
+
+msgctxt "data_quality_errors"
+msgid "data quality errors"
 msgstr ""
 
