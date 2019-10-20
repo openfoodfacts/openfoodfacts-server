@@ -31,7 +31,7 @@ of a food product.
 
 	my $points_ref = {};	# will be populated with details about the computation
 
-	my ($nutriscore_score, $nutriscore_grade) ) compute_nutriscore_score_and_grade(
+	my ($nutriscore_score, $nutriscore_grade) = compute_nutriscore_score_and_grade(
 		{
 			# Nutrients
 			energy =>  518,	# in kJ
