@@ -883,7 +883,6 @@ $options{nova_groups_tags} = {
 	"categories/en:prepared-meats" => 3,
 	"categories/en:terrines" => 3,
 	"categories/en:pates" => 3,
-	"categories/en:pastas" => 3,
 	#"categories/en:breakfast-cereals" => 3,
 	"categories/en:tofu" => 3,
 	"categories/en:alcoholic-beverages" => 3,
