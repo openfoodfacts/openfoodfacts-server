@@ -8375,7 +8375,7 @@ sub compute_stats_for_products($$$$$$) {
 		$nutriments_ref->{"${nid}_mean"} = $mean_for_kept_values;
 
 		my $sum_of_square_differences_for_kept_values = 0;
-		my $i = 0;
+		$i = 0;
 		foreach my $value (@values) {
 			$i++;
 			next if ($i <= $nb_values * 0.05);
