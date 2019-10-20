@@ -587,6 +587,24 @@ sub import_csv_file($) {
 				$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};
 			}
 
+			# For labels and categories, we can have columns like labels:Bio with values like 1, Y, Yes
+			# concatenate them to the labels field
+			if (defined $tags_fields{$field}) {
+				foreach my $subfield (sort keys %{$imported_product_ref}) {
+					if ($subfield =~ /^$field:/) {
+						my $tag_name = $';
+						if ($imported_product_ref->{$subfield} =~ /^\s*(1|y|yes|o|oui)\s*$/i) {
+							if (defined $imported_product_ref->{$field}) {
+								$imported_product_ref->{$field} .= "," . $tag_name;
+							}
+							else {
+								$imported_product_ref->{$field} = $tag_name;
+							}
+						}
+					}
+				}
+			}
+
 			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/)) {
 
 				print STDERR "defined and non empty value for field $field : " . $imported_product_ref->{$field} . "\n";
