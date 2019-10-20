@@ -154,7 +154,7 @@ HTML
 
 		# Only numbers? Display min and max-height
 		if ((defined $columns_fields_ref->{$column}{min}) and ($columns_fields_ref->{$column}{letters} == 0)) {
-			$examples .= "<p>" . lang("minimum") . " " . $columns_fields_ref->{$column}{min} . "<br>" . lang("maximum") . " " . $columns_fields_ref->{$column}{max} . "</p>";
+			$examples .= "<br><p>" . lang("min") . " " . $columns_fields_ref->{$column}{min} . "<br>" . lang("max") . " " . $columns_fields_ref->{$column}{max} . "</p>";
 		}
 
 		$html .= <<HTML
