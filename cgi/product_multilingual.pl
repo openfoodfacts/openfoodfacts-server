@@ -39,7 +39,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -399,7 +399,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
 
-	if (($admin) and (defined param('obsolete_since_date'))) {
+	if (($admin or $owner) and (defined param('obsolete_since_date'))) {
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>param("obsolete_since_date"));
 	}
@@ -599,7 +599,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	compute_unknown_nutrients($product_ref);
 
-	ProductOpener::SiteQuality::check_quality($product_ref);
+	ProductOpener::DataQuality::check_quality($product_ref);
 
 	$log->trace("end compute_serving_size_date - end") if $log->is_trace();
 
@@ -805,11 +805,10 @@ HTML
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
 <script type="text/javascript" src="/js/jquery.rotate.js"></script>
-<script type="text/javascript" src="/js/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="/js/jquery.fileupload.js"></script>
-<script type="text/javascript" src="/js/load-image.min.js"></script>
-<script type="text/javascript" src="/js/canvas-to-blob.min.js"></script>
-<script type="text/javascript" src="/js/jquery.fileupload-ip.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
 <script type="text/javascript" src="/foundation/js/foundation/foundation.tab.js"></script>
 <script type="text/javascript" src="/js/product-multilingual.js"></script>
 HTML
@@ -888,8 +887,9 @@ HTML
 ;
 	}
 
-	# obsolete products
-	if ($admin) {
+	# obsolete products: restrict to admin on public site
+	# authorize owners on producers platform
+	if ($admin or $owner) {
 
 		my $checked = '';
 		if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete} eq 'on')) {

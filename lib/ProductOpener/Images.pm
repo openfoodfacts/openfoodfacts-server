@@ -78,6 +78,8 @@ use ProductOpener::URL qw/:all/;
 use Log::Any qw($log);
 use Encode;
 use JSON::PP;
+use MIME::Base64;
+use LWP::UserAgent;
 
 sub display_select_manage($) {
 
@@ -295,11 +297,10 @@ HTML
 
 
 	$scripts .= <<JS
-<script src="/js/jquery.iframe-transport.min.js"></script>
-<script src="/js/jquery.fileupload.min.js"></script>
-<script src="/js/load-image.min.js"></script>
-<script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.min.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
 JS
 ;
 
@@ -308,6 +309,7 @@ JS
 \/\/ start off canvas blocks for small screens
 
     \$('#imgupload_search_$id').fileupload({
+		sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product.pl',
 		formData : [{name: 'jqueryfileupload', value: 1}],
@@ -1479,12 +1481,20 @@ sub extract_text_from_image($$$$$) {
 
 		my $ua = LWP::UserAgent->new();
 
+		open (my $IMAGE, "<", $image) || die "Could not read $image: $!\n";
+		binmode($IMAGE);
+		local $/;
+		my $image_data = do { local $/; <$IMAGE> };	# https://www.perlmonks.org/?node_id=287647
+		close $IMAGE;
+
 		my $api_request_ref =
 			{
 				requests =>
 					[
 						{
-							features => [{ type => 'TEXT_DETECTION'}], image => { source => { imageUri => $image_url}}
+							features => [{ type => 'TEXT_DETECTION'}],
+							# image => { source => { imageUri => $image_url}}
+							image => { content => encode_base64($image_data)}
 						}
 					]
 			}
@@ -1501,6 +1511,10 @@ sub extract_text_from_image($$$$$) {
 
 			$log->info("request to google cloud vision was successful") if $log->is_info();
 
+			open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+			print $OUT "success\t" . $image_url . "\t" . $res->code . "\n";
+			close $OUT;
+
 			my $json_response = $res->decoded_content;
 
 			my $cloudvision_ref = decode_json($json_response);
@@ -1512,7 +1526,7 @@ sub extract_text_from_image($$$$$) {
 			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
 			$json_response = decode("utf8", $json_response);
 
-			open (my $OUT, ">:encoding(UTF-8)", $json_file);
+			open ($OUT, ">:encoding(UTF-8)", $json_file);
 			print $OUT $json_response;
 			close $OUT;
 
@@ -1536,6 +1550,10 @@ sub extract_text_from_image($$$$$) {
 		}
 		else {
 			$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
+
+			open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+			print $OUT "error\t" . $image_url . "\t" . $res->code . "\t" . $res->message . "\n";
+			close $OUT;
 		}
 	}
 

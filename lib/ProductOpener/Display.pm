@@ -1418,12 +1418,11 @@ sub display_list_of_tags($$) {
 		#	$th_nutriments = "<th>" . ucfirst($Lang{"products_with_nutriments"}{$lang}) . "</th>";
 		#}
 
-		my $categories_nutriments_ref;
+		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 		my @cols = ();
 
 		if ($tagtype eq 'categories') {
 			if (defined $request_ref->{stats_nid}) {
-				$categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
 				push @cols, '100g','std', 'min', '10', '50', '90', 'max';
 				foreach my $col (@cols) {
 					$th_nutriments .= "<th>" . lang("nutrition_data_per_$col") . "</th>";
@@ -2229,7 +2228,7 @@ oTable = \$('#tagstable').DataTable({
 
 var buttonId;
 
-\$("button.save").click(function(){
+\$("button.save").click(function(event){
 
 	event.stopPropagation();
 	event.preventDefault();
@@ -3402,7 +3401,7 @@ HTML
 
 	if ($tagtype eq 'categories') {
 
-		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
+		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 
 		$log->debug("checking if this category has stored statistics", { cc => $cc, tagtype => $tagtype, tagid => $tagid }) if $log->is_debug();
 		if ((defined $categories_nutriments_ref) and (defined $categories_nutriments_ref->{$canon_tagid})
@@ -4241,7 +4240,7 @@ sub search_and_export_products($$$$$) {
 			binary => 1
 		});
 
-		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
+		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 
 		# First pass needed if we flatten results
 		my %flattened_tags = ();
@@ -6139,6 +6138,7 @@ HTML
 <p>
 &rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
 &rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
+&rarr; <a href="/cgi/export_products.pl">$Lang{export_product_data_photos}{$lc}</a><br>
 </p>
 HTML
 ;
@@ -7554,7 +7554,7 @@ HTML
 	if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
 			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
-		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
+		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 
 		if (defined $categories_nutriments_ref) {
 
@@ -8353,17 +8353,38 @@ sub compute_stats_for_products($$$$$$) {
 
 		next if ($nutriments_ref->{"${nid}_n"} < $min_products);
 
-		$nutriments_ref->{"${nid}_mean"} = $nutriments_ref->{"${nid}_s"} / $nutriments_ref->{"${nid}_n"};
-
-		my $std = 0;
-		foreach my $value (@{$nutriments_ref->{"${nid}_array"}}) {
-			$std += ($value - $nutriments_ref->{"${nid}_mean"}) * ($value - $nutriments_ref->{"${nid}_mean"});
-		}
-		$std = sqrt($std / $nutriments_ref->{"${nid}_n"});
-
-		$nutriments_ref->{"${nid}_std"} = $std;
+		# Compute the mean and standard deviation, without the bottom and top 5% (so that huge outliers
+		# that are likely to be errors in the data do not completely overweight the mean and std)
 
 		my @values = sort { $a <=> $b } @{$nutriments_ref->{"${nid}_array"}};
+		my $nb_values = $#values + 1;
+		my $kept_values = 0;
+		my $sum_of_kept_values = 0;
+
+		my $i = 0;
+		foreach my $value (@values) {
+			$i++;
+			next if ($i <= $nb_values * 0.05);
+			next if ($i >= $nb_values * 0.95);
+			$kept_values++;
+			$sum_of_kept_values += $value;
+		}
+
+		my $mean_for_kept_values = $sum_of_kept_values / $kept_values;
+
+		$nutriments_ref->{"${nid}_mean"} = $mean_for_kept_values;
+
+		my $sum_of_square_differences_for_kept_values = 0;
+		$i = 0;
+		foreach my $value (@values) {
+			$i++;
+			next if ($i <= $nb_values * 0.05);
+			next if ($i >= $nb_values * 0.95);
+			$sum_of_square_differences_for_kept_values += ($value - $mean_for_kept_values) * ($value - $mean_for_kept_values);
+		}
+		my $std_for_kept_values = sqrt($sum_of_square_differences_for_kept_values / $kept_values);
+
+		$nutriments_ref->{"${nid}_std"} = $std_for_kept_values;
 
 		$stats_ref->{nutriments}{"${nid}_n"} = $nutriments_ref->{"${nid}_n"};
 		$stats_ref->{nutriments}{"$nid"} = $nutriments_ref->{"${nid}_mean"};

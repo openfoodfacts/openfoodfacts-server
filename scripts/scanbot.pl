@@ -124,11 +124,12 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 	$bot .= " -- ";
 	
-	my $path = product_path($code);
+	
 	
 	print "$i - checking product $code - scans: $scans_n unique_scans: $unique_scans_n \n";
 	
 	my $product_ref = retrieve_product($code);
+	my $path = product_path($product_ref);
 	
 	my $found = "NOT_FOUND";
 	my $added_countries_list = "";
