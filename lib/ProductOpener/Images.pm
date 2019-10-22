@@ -1178,6 +1178,13 @@ sub display_image_thumb($$) {
 
 	my $html = '';
 
+	my $css = "";
+
+	# Gray out images of obsolete products
+	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
+		$css = 'style="filter: grayscale(100%)"';
+	}
+
 	# first try the requested language
 	my @display_ids = ($imagetype . "_" . $display_lc);
 
@@ -1200,7 +1207,7 @@ sub display_image_thumb($$) {
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
 				$html .= <<HTML
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" />
+<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
 HTML
 ;
 
@@ -1225,7 +1232,7 @@ cc00ff
 
 		$html = <<HTML
 <div style="background-color:#$color">
-<img src="$static/images/misc/pacman.svg" width="$thumb_size" height="$thumb_size" alt="Please add pictures of the product if you have it!" />
+<img src="$static/images/misc/pacman.svg" width="$thumb_size" height="$thumb_size" alt="Please add pictures of the product if you have it!" $css/>
 </div>
 HTML
 ;

@@ -6928,7 +6928,7 @@ HTML
 
 	# obsolete product
 
-	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete} eq 'on')) {
+	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
 
 		my $warning = $Lang{obsolete_warning}{$lc};
 		if ((defined $product_ref->{obsolete_since_date}) and ($product_ref->{obsolete_since_date} ne '')) {

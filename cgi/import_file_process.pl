@@ -191,7 +191,7 @@ var job_info_state;
     },
     complete: function() {
       // Schedule the next request when the current one's complete
-	  if (job_info_state == "inactive") {
+	  if ((job_info_state == "inactive") || (job_info_state == "active")) {
 		setTimeout(poll, timeout);
 		timeout += 1000;
 	}

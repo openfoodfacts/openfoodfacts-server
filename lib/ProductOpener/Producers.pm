@@ -206,7 +206,18 @@ sub convert_file($$$$) {
 
 		if ((defined $columns_fields_ref->{$column}) and (defined $columns_fields_ref->{$column}{field})) {
 			my $field = $columns_fields_ref->{$column}{field};
-			if ($field =~ /_value_unit/) {
+
+			# For columns mapped to a specific label, output labels:Label name as the column name
+			if ($field =~ /^(labels|categories)_specific$/) {
+				$field = $1;
+				if (defined $columns_fields_ref->{$column}{tag}) {
+					$field .= ":" . $columns_fields_ref->{$column}{tag};
+				}
+				else {
+					$field = undef;
+				}
+			}
+			elsif ($field =~ /_value_unit/) {
 				$field = $`;
 				if (defined $columns_fields_ref->{$column}{value_unit}) {
 					$field .= "_" . $columns_fields_ref->{$column}{value_unit};
@@ -215,6 +226,8 @@ sub convert_file($$$$) {
 					$field = undef;
 				}
 			}
+
+			$log->debug("convert_file", { column => $column, field => $field, col => $col }) if $log->is_debug();
 
 			if (defined $field) {
 				push @headers, $field;
