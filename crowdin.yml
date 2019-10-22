@@ -872,8 +872,8 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/donate-to-openfoodfacts.html
-    translation: /lang/%two_letters_code%/texts/donate-to-openfoodfacts.html
+  - source: /srv/off/html/donate/en.html
+    translation: /srv/off/html/donate/%two_letters_code%.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
