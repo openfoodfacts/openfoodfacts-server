@@ -3154,8 +3154,12 @@ msgid "Withdrawal date"
 msgstr "Withdrawal date"
 
 msgctxt "obsolete_since_date_note"
-msgid "Format: YYYY or YYYY-MM"
-msgstr "Format: YYYY or YYYY-MM"
+msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
+msgstr "Format: YYYY-MM-DD or YYYY-MM or YYYY"
+
+msgctxt "obsolete_since_date_example"
+msgid "2019-09-30 or 2019-09 or 2019"
+msgstr "2019-09-30 or 2019-09 or 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3624,3 +3628,7 @@ msgstr "data quality error"
 msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "data quality erros"
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr "Cancel"
