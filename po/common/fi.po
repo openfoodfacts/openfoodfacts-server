@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-22 19:02\n"
+"PO-Revision-Date: 2019-10-23 09:52\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -159,7 +159,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Tämä tuote ei ole vielä <<site_name>> -tietokannassa. Voisitko ottaa kuvia tuotteesta, viivakoodista, ainesosaluettelosta ja ravitsemustiedoista lisätäksesi sen <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>>iin</a>?</p>\n"
+msgstr "<p>Tämä tuote ei ole vielä <<site_name>> -tietokannassa. Voisitko ottaa kuvia tuotteesta, viivakoodista, ainesosaluettelosta ja ravintosisällöstä lisätäksesi sen <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>>iin</a>?</p>\n"
 "<p>Kiitos jo etukäteen!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -244,7 +244,7 @@ msgstr "Sardiineja oliiviöljyssä, appelsiinimehu tiivisteestä"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "Ilmoita vain kaikkein tarkin luokka. Yläluokat lisätään automaattisesti."
+msgstr "Ilmoita vain kaikkein tarkin luokitus. Yläluokat lisätään automaattisesti."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -256,11 +256,11 @@ msgstr "%s luokan tuotteet"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "luokka"
+msgstr "luokitus"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr "lisää luokka"
+msgstr "lisää luokitus"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
@@ -843,7 +843,7 @@ msgstr "Jos kuva on tarpeeksi laadukas, ainesosat voidaan lukea automaattisesti"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr "Kuva ravintoarvoista"
+msgstr "Kuva ravintosisällöstä"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
@@ -1430,15 +1430,15 @@ msgstr "Tuote ilman viivakoodia"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr "Ravintoarvoja ei ole määritelty tuotteessa."
+msgstr "Ravintosisältöä ei ole määritelty tuotteessa."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr "Useampia ravintoarvoja määritetään tuotteessa (esim. lisätyllä vedellä tai maidolla)."
+msgstr "Useampia ravintosisältöjä määritetään tuotteessa (esim. lisätyllä vedellä tai maidolla)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr "Syötä ravintoarvot vain valmistamattomalle tuotteelle, ilman lisättyä vettä tai maitoa. Jos tuotteita on erilaisia, lisää ravintoarvot ensimmäiselle listatulle tuotteelle."
+msgstr "Syötä ravintosisältö vain valmistamattomalle tuotteelle, ilman lisättyä vettä tai maitoa. Jos tuotteita on erilaisia, lisää ravintosisältö ensimmäiselle listatulle tuotteelle."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -1499,15 +1499,15 @@ msgstr "Tuotteet, jotka eivät sisällä ravinnetta %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Ravintoarvot"
+msgstr "Ravintosisältö"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Ravintoarvot"
+msgstr "Ravintosisältö"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Ravintoarvojen keskiarvo %d tuotteelle %s-luokassa, joista ravintoarvot ovat tiedossa (yht. %d tuotteesta)."
+msgstr "Ravintosisätöjen keskiarvo %d tuotteelle %s-luokassa, joista ravintoarvot ovat tiedossa (yht. %d tuotteesta)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1527,7 +1527,7 @@ msgstr "Huom.: jokaista ravinnetta kohden keskiarvo lasketaan niistä tuotteista
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "Jos kuva on riittävän tarkka ja suorassa, ravintoarvot voidaan poimia automaattisesti kuvasta."
+msgstr "Jos kuva on riittävän tarkka ja suorassa, ravintosisältö voidaan poimia automaattisesti kuvasta."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1575,7 +1575,7 @@ msgstr "Keskihajonta"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Ravintoarvot"
+msgstr "Ravintosisältö"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1803,7 +1803,7 @@ msgstr "Tuote luotu"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr "Ainesosat, allergeenit, lisäaineet, ravintoarvot, merkit, ainesosien alkuperä ja tietoja tuotteesta %s"
+msgstr "Ainesosat, allergeenit, lisäaineet, ravintosisältö, merkit, ainesosien alkuperä ja tietoja tuotteesta %s"
 
 msgctxt "product_image"
 msgid "Product picture"
@@ -1907,7 +1907,7 @@ msgstr "Lisää kuva"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "→ Chromella, Firefoxilla ja Safarilla voit valita useampia kuvia (tuote, ainesosat, ravintoarvot jne.) klikkaamalla niitä pitäessäsi Ctrl-nappia pohjassa lisätäksesi ne kaikki yhteen näkymään."
+msgstr "→ Chromella, Firefoxilla ja Safarilla voit valita useampia kuvia (tuote, ainesosat, ravintosisältö jne.) klikkaamalla niitä pitäessäsi Ctrl-nappia pohjassa lisätäksesi ne kaikki yhteen näkymään."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
@@ -1943,7 +1943,7 @@ msgstr "Tuotteet"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr "joissa ravintoarvot"
+msgstr "joissa ravintosisältö"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
@@ -2791,11 +2791,11 @@ msgstr "Yksikkö"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr "Ravintoarvot on ilmoitettu tuotteelle sellaisena kuin se myydään."
+msgstr "Ravintosisältö on ilmoitettu tuotteelle sellaisena kuin se myydään."
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr "Ravintoarvot on ilmoitettu valmistettua tuotetta kohden."
+msgstr "Ravintosisältö on ilmoitettu valmistettua tuotetta kohden."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -3356,7 +3356,7 @@ msgstr "Ainekset"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Ravintoarvot"
+msgstr "Ravintosisältö"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3392,7 +3392,7 @@ msgstr "Tietty merkki"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr "Tietty luokka"
+msgstr "Tietty luokitus"
 
 msgctxt "select_a_field"
 msgid "Select a field"
