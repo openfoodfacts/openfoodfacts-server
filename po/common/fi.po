@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-23 10:06\n"
+"PO-Revision-Date: 2019-10-23 10:31\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -851,7 +851,7 @@ msgstr "Tämä kuva on jo lähetetty."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr "Kuva on liian pieni. Älä lähetä internetistä löydettyjä kuvia. Lähetä vain valokuvia, jotka olet ottanut itse."
+msgstr "Kuva on liian pieni. Älä lisää internetistä löydettyjä kuvia. Lisää vain valokuvia, jotka olet ottanut itse."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
@@ -873,7 +873,7 @@ msgstr "Täysikokoinen"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr "Tämä tiedosto ladattiin tuotteeseen %s ja on lisensoitu %s lisenssin alaisuuteen."
+msgstr "Tämä tiedosto lisättiin tuotteeseen %s ja on lisensoitu %s lisenssin alaisuuteen."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
@@ -1875,7 +1875,7 @@ msgstr "Tallennetaan kuvaa"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr "Virhe ladattaessa kuvaa"
+msgstr "Virhe lähetettäessä kuvaa"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
@@ -1911,7 +1911,7 @@ msgstr "→ Chromella, Firefoxilla ja Safarilla voit valita useampia kuvia (tuot
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr "Ladataan kuvaa"
+msgstr "Lähetetään kuvaa"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
@@ -2323,7 +2323,7 @@ msgstr "Lähetä kuva..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr "Latausvirhe"
+msgstr "Lähetysvirhe"
 
 msgctxt "sending_image"
 msgid "Sending image"
