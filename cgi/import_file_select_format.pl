@@ -103,7 +103,12 @@ if ($action eq "display") {
 
 	# Create an options array for select2
 
+	$log->debug("before generate_import_export_columns_groups_for_select2", { lc=>$lc }) if $log->is_debug();
+
 	my $select2_options_ref = generate_import_export_columns_groups_for_select2([ $lc ]);
+
+	$log->debug("after generate_import_export_columns_groups_for_select2", { lc=>$lc }) if $log->is_debug();
+
 
 	# Number of pre-selected columns
 	my $selected = 0;
@@ -145,6 +150,11 @@ HTML
 
 		if ($examples ne "") {
 			$examples = "<p>" . lang("examples") . "</p>\n<pre>$examples</pre>\n";
+		}
+
+		# Only numbers? Display min and max-height
+		if ((defined $columns_fields_ref->{$column}{min}) and ($columns_fields_ref->{$column}{letters} == 0)) {
+			$examples .= "<br><p>" . lang("min") . " " . $columns_fields_ref->{$column}{min} . "<br>" . lang("max") . " " . $columns_fields_ref->{$column}{max} . "</p>";
 		}
 
 		$html .= <<HTML
@@ -255,7 +265,7 @@ JS
 		$initjs .= <<JS
 		if (field == "$tagtype_specific") {
 
-			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px">';
+			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px;margin-bottom:0;height:28px;">';
 
 			\$("#select_field_option_" + col).html(input);
 

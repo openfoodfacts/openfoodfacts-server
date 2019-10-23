@@ -51,7 +51,7 @@ ProductOpener::Display::init();
 my $type = param('type') || 'upload';
 my $action = param('action') || 'display';
 
-my $title = '';
+my $title = lang("import_data_file_title");
 my $html = '';
 
 local $log->context->{type} = $type;
@@ -127,7 +127,7 @@ else {
 
 	# Upload a file
 
-	$html .= "<h1>" . lang("import_data_file_title") . "</h1>\n";
+	$html .= "<p>" . lang("producers_platform_private_database") . "</p>\n";
 	$html .= "<p>" . lang("import_data_file_description") . "</p>\n";
 	$html .= "<p>" . lang("import_data_file_format") . "</p>\n";
 
@@ -135,17 +135,10 @@ else {
 
 	my $id = "data";
 
-	# Already included in add product barcode image
-	#	$scripts .= <<HTML
-	#<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
-	#<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
-	#HTML
-	#;
-
 	$html .= <<HTML
 <div id="file_input_div_$id">
 
-<a href="#" class="button small expand" id="file_input_button_$id"><i class="icon-arrow_upward"></i> $Lang{upload_products_data_file}{$lc}
+<a href="#" class="button small expand" id="file_input_button_$id"><i class="icon-arrow_upward"></i> $Lang{upload_product_data_file}{$lc}
 <input type="file" accept=".csv,.tsv,.xlsx" class="file_input" name="file_input_$id" id="file_input_$id" style="position: absolute;
 	right:0;
 	bottom:0;
