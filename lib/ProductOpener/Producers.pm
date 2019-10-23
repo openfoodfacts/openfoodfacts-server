@@ -394,7 +394,7 @@ sub init_nutrients_columns_names_for_lang($) {
 			foreach my $unit (@units) {
 				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
 					field => $nid . "_100g_value_unit",
-					unit => $unit,
+					value_unit => "value_in_" . $unit,
 				};
 			}
 
