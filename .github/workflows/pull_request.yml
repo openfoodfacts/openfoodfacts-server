@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - master
+    branches-ignore:
+      - l10n_master
 
 jobs:
   gulp:
