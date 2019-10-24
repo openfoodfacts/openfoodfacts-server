@@ -1815,6 +1815,10 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	my $tagtype = shift;
 	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
 
+	if ((not defined $tags_list) or ($tags_list =~ /^\s*$/)) {
+		return ();
+	}
+
 	if (not defined $all_parents{$tagtype}) {
 		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
 		return (split(/(\s*),(\s*)/, $tags_list));
