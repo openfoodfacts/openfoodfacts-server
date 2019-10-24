@@ -51,9 +51,10 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(:all);
+use ProductOpener::Nutriscore qw(:all);
 
 use Log::Any qw($log);
-
+use Storable qw(dclone);
 
 =head1 FUNCTIONS
 
@@ -86,6 +87,39 @@ sub detect_possible_improvements_nutriscore($) {
 
 	$log->debug("detect_possible_improvements_nutriscore - start") if $log->debug();
 
+	return if not defined $product_ref->{nutriscore_data};
+
+	# Reduce negative nutrients
+
+	foreach my $nutrient (qw(sugars saturated_fat sodium)) {
+
+		my $lower_value =  get_value_with_one_less_negative_point($product_ref->{nutriscore_data}, $nutrient);
+
+		if (defined $lower_value) {
+			my $new_nutriscore_data_ref = dclone($product_ref->{nutriscore_data});
+			$new_nutriscore_data_ref->{$nutrient} = $lower_value;
+			my ($new_nutriscore_score, $new_nutriscore_grade) = ProductOpener::Food::compute_nutriscore_score_and_grade($new_nutriscore_data_ref);
+
+			# Store the result of the experiment
+			$product_ref->{nutriscore_data}{$nutrient . "_lower"} = $lower_value;
+			$product_ref->{nutriscore_data}{$nutrient . "_lower_score"} = $new_nutriscore_score;
+			$product_ref->{nutriscore_data}{$nutrient . "_lower_grade"} = $new_nutriscore_grade;
+
+			if ($new_nutriscore_grade lt $product_ref->{nutriscore_grade}) {
+				my $difference = $product_ref->{nutriscore_data}{$nutrient} - $lower_value;
+				my $difference_percent = $difference / $product_ref->{nutriscore_data}{$nutrient} * 100;
+				if ($difference_percent <= 5) {
+					push @{$product_ref->{improvements_tags}}, "en:better-nutriscore-with-slightly-less-" . $nutrient;
+				}
+				if ($difference_percent <= 10) {
+					push @{$product_ref->{improvements_tags}}, "en:better-nutriscore-with-less-" . $nutrient;
+				}
+			}
+		}
+	}
+
+	foreach my $nutrient (qw(fruits_vegetables_nuts_colza_walnut_olive_oils fiber proteins)) {
+	}
 }
 
 =head2 detect_possible_improvements_compare_nutrition_facts( PRODUCT_REF )
