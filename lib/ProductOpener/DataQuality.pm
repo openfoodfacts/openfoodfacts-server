@@ -88,6 +88,7 @@ use ProductOpener::Tags qw(:all);
 
 use ProductOpener::DataQualityCommon qw(:all);
 use ProductOpener::DataQualityFood qw(:all);
+use ProductOpener::ProducersFood qw(:all);
 
 
 =head1 FUNCTIONS
@@ -140,6 +141,11 @@ sub check_quality($) {
 					push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
 				}
 			}
+		}
+
+		# Detect possible improvements opportunities for food products
+		if ($options{product_type} eq "food") {
+			detect_possible_improvements($product_ref);
 		}
 	}
 
