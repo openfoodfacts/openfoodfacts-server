@@ -105,20 +105,55 @@ sub detect_possible_improvements_nutriscore($) {
 			$product_ref->{nutriscore_data}{$nutrient . "_lower_score"} = $new_nutriscore_score;
 			$product_ref->{nutriscore_data}{$nutrient . "_lower_grade"} = $new_nutriscore_grade;
 
+			my $nutrient_short = $nutrient;
+			($nutrient eq "saturated_fat") and $nutrient_short = "saturated-fat";
+
 			if ($new_nutriscore_grade lt $product_ref->{nutriscore_grade}) {
 				my $difference = $product_ref->{nutriscore_data}{$nutrient} - $lower_value;
 				my $difference_percent = $difference / $product_ref->{nutriscore_data}{$nutrient} * 100;
 				if ($difference_percent <= 5) {
-					push @{$product_ref->{improvements_tags}}, "en:better-nutriscore-with-slightly-less-" . $nutrient;
+					push @{$product_ref->{improvements_tags}}, "en:better-nutri-score-with-slightly-less-" . $nutrient_short;
 				}
 				if ($difference_percent <= 10) {
-					push @{$product_ref->{improvements_tags}}, "en:better-nutriscore-with-less-" . $nutrient;
+					push @{$product_ref->{improvements_tags}}, "en:better-nutri-score-with-less-" . $nutrient_short;
 				}
 			}
 		}
 	}
 
+	# Increase positive nutrients
+
 	foreach my $nutrient (qw(fruits_vegetables_nuts_colza_walnut_olive_oils fiber proteins)) {
+
+		# Skip if the current value of the nutrient is 0
+		next if ((not defined $product_ref->{nutriscore_data}{$nutrient}) or ($product_ref->{nutriscore_data}{$nutrient} == 0));
+
+		my $higher_value = get_value_with_one_more_positive_point($product_ref->{nutriscore_data}, $nutrient);
+
+		if (defined $higher_value) {
+			my $new_nutriscore_data_ref = dclone($product_ref->{nutriscore_data});
+			$new_nutriscore_data_ref->{$nutrient} = $higher_value;
+			my ($new_nutriscore_score, $new_nutriscore_grade) = ProductOpener::Food::compute_nutriscore_score_and_grade($new_nutriscore_data_ref);
+
+			# Store the result of the experiment
+			$product_ref->{nutriscore_data}{$nutrient . "_higher"} = $higher_value;
+			$product_ref->{nutriscore_data}{$nutrient . "_higher_score"} = $new_nutriscore_score;
+			$product_ref->{nutriscore_data}{$nutrient . "_higher_grade"} = $new_nutriscore_grade;
+
+			my $nutrient_short = $nutrient;
+			($nutrient eq "fruits_vegetables_nuts_colza_walnut_olive_oils") and $nutrient_short = "fruits-and-vegetables";
+
+			if ($new_nutriscore_grade lt $product_ref->{nutriscore_grade}) {
+				my $difference = $higher_value - $product_ref->{nutriscore_data}{$nutrient};
+				my $difference_percent = $difference / $product_ref->{nutriscore_data}{$nutrient} * 100;
+				if ($difference_percent <= 5) {
+					push @{$product_ref->{improvements_tags}}, "en:better-nutri-score-with-slightly-more-" . $nutrient_short;
+				}
+				if ($difference_percent <= 10) {
+					push @{$product_ref->{improvements_tags}}, "en:better-nutri-score-with-more-" . $nutrient_short;
+				}
+			}
+		}
 	}
 }
 

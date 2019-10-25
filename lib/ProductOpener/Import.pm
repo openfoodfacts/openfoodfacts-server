@@ -968,11 +968,11 @@ sub import_csv_file($) {
 		}
 
 		if ($modified and not $stats{products_data_updated}{$code}) {
-			die("modified but not products_data_updated\n");
+			print STDERR "Error: modified but not products_data_updated\n";
 		}
 
 		if ((not $modified) and $stats{products_data_updated}{$code}) {
-			die("not modified but not products_data_updated\n");
+			print STDERR "Error: not modified but products_data_updated\n";
 		}
 
 		if ($code ne $product_ref->{code}) {
