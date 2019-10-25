@@ -3802,7 +3802,7 @@ sub search_and_display_products($$$$$) {
 			$html_count .= lang("1_product");
 		}
 		elsif ($count > 1) {
-			$html_count .= sprintf(lang("n_products"), $count) ;
+			$html_count .= sprintf(lang("n_products"), "<span class='formatable'>$count</span>") ;
 		}
 	}
 
@@ -3851,11 +3851,21 @@ sub search_and_display_products($$$$$) {
 			}
 			$html .= <<HTML
 <ul class="button-group">
-<li><div style="font-size:1.2rem;background-color:#eeeeee;padding:0.3rem 1rem;height:2.75rem;margin:0">$html_count</div></li>
+<li>
+	<div style="font-size:1.2rem;background-color:#eeeeee;padding:0.3rem 1rem;height:2.75rem;margin:0">
+		$html_count
+	</div>
+</li>
 <li>
 <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">$Lang{explore_products_by}{$lc}</button>
 <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
 HTML
+;
+			$initjs .= <<JAVASCRIPT
+\$(".formatable").each(function(index, element) {
+	element.innerHTML = Intl.NumberFormat(navigator.language).format(element.innerHTML);
+});
+JAVASCRIPT
 ;
 			foreach my $newtagtype (@current_drilldown_fields) {
 
