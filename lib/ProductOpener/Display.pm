@@ -3791,6 +3791,9 @@ sub search_and_display_products($$$$$) {
 	my $html = '';
 	my $html_count = '';
 
+	my $cldr = CLDR::Number->new(locale => $lc);
+	my $decf = $cldr->decimal_formatter;
+
 	if (not defined $request_ref->{jqm_loadmore}) {
 		if ($count < 0) {
 			$html .= "<p>" . lang("error_database") . "</p>";
@@ -3802,7 +3805,7 @@ sub search_and_display_products($$$$$) {
 			$html_count .= lang("1_product");
 		}
 		elsif ($count > 1) {
-			$html_count .= sprintf(lang("n_products"), $count) ;
+			$html_count .= sprintf(lang("n_products"), $decf->format($count)) ;
 		}
 	}
 
