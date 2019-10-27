@@ -98,7 +98,7 @@ of a food product, and also returns the details of the points for each nutrient.
 
 1 hash references need to be passed as arguments. It is used for both input and output:
 
-=head4 Input keys: data to compute Nutri-Scote
+=head4 Input keys: data to compute Nutri-Score
 
 The hash must contain values for the following keys:
 
