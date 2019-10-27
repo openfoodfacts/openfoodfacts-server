@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 13:24\n"
+"PO-Revision-Date: 2019-10-24 14:36\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3122,11 +3122,11 @@ msgstr "Tilbagetrækningsdato"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "Format: ÅÅÅÅ-MM-DD, ÅÅÅÅ-MM eller ÅÅÅÅ"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30, 2019-09 eller 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3558,61 +3558,83 @@ msgstr "Sammenfoldede ændringer"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "datakvalitet"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "datakvalitet"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "datakvalitet"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "datakvalitetsfejl"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "datakvalitetsfejl"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "datakvalitetsfejl"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "datakvalitetsinfo"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "datakvalitetsinfo"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "datakvalitetsinfo"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "datakvalitetsadvarsler"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "datakvalitetsadvarsel"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "datakvalitetsadvarsler"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "datakvalitetsfejl"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "datakvalitetsinfo"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
+msgstr "datakvalitetsfejl"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "Min"
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "Maks"
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr ""
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr ""
+
+msgctxt "improvements"
+msgid "possible improvements"
 msgstr ""
 

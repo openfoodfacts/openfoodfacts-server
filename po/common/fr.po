@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 18:12\n"
+"PO-Revision-Date: 2019-10-24 17:58\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3564,15 +3564,15 @@ msgstr "Modifications masquées"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "qualité des données"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "qualité des données"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "qualité des données"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
@@ -3588,37 +3588,59 @@ msgstr ""
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "information sur la qualité des données"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "information sur la qualité des données"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "information sur la qualité des données"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "avertissements sur la qualité des données"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "avertissement sur la qualité des données"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "avertissements sur la qualité des données"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "erreurs sur la qualité des données"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "erreur sur la qualité des données"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "erreurs sur la qualité des données"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "Min"
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "Max"
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "améliorations possibles"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "amélioration possible"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "améliorations possibles"
 
