@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-27 20:41\n"
+"PO-Revision-Date: 2019-10-27 21:01\n"
 "Language-Team: Polish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3303,53 +3303,53 @@ msgstr "Zaimportuj plik z danymi produktów"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Prześlij plik arkusza kalkulacyjnego (plik Excel lub plik CSV w formacie UTF-8) z danymi produktów."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr ""
+msgstr "Możesz przesłać tabelę z kolumnami w formacie importu Open Food Facts lub możesz przesłać tabelę w dowolnym formacie, a następnie wybrać kolumny do zaimportowania."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
 msgid "Upload a file with product data"
-msgstr ""
+msgstr "Prześlij plik z danymi produktów"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "Plik jest wysyłany."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "Plik nie mógł zostać przesłany."
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "Wybierz i zaimportuj dane"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
-msgstr ""
+msgstr "Użyj poniższego formularza, aby kolumny oraz dane do zaimportowania."
 
 msgctxt "import_data"
 msgid "Import data"
-msgstr ""
+msgstr "Importuj dane"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
-msgstr ""
+msgstr "Przesłany plik zawiera %s wierszy i %s kolumn."
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
-msgstr ""
+msgstr "Wybrano %s kolumn z %s do zaimportowania."
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Identyfikacja produktu"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Pochodzenie"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3361,7 +3361,7 @@ msgstr "Wartości odżywcze"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Opcjonalnie wartość odżywcza"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3369,15 +3369,15 @@ msgstr "Pozostałe informacje"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "Zdjęcia produktu"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
-msgstr ""
+msgstr "Link do zdjęcia produktu z przodu"
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
-msgstr ""
+msgstr "Link do zdjęcia listy składników"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
