@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 18:12\n"
+"PO-Revision-Date: 2019-10-27 20:32\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1402,8 +1402,8 @@ msgid "Move the images to another product"
 msgstr "Déplacer les images sur un autre produit"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d produits"
+msgid "%s products"
+msgstr ""
 
 msgctxt "name"
 msgid "Name"
@@ -3533,7 +3533,7 @@ msgstr "Les données de produit et les photos que vous envoyez sur la plate-form
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Les données et photos du produit seront publiquement disponibles dans la base de données Open Food Facts, disponible sous <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">licence \"Open Database (Odbl)</a>. Les contenus individuels de la base de données sous disponibles sous licence <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents (DbCL)</a>. Les images des produits sont disponibles sous licence <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike - Cc By-Sa</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3564,61 +3564,83 @@ msgstr "Modifications masquées"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "qualité des données"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "qualité des données"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "qualité des données"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "bugs de qualité des données"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "bug de qualité des données"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "bugs de qualité des données"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "information sur la qualité des données"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "information sur la qualité des données"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "information sur la qualité des données"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "avertissements sur la qualité des données"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "avertissement sur la qualité des données"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "avertissements sur la qualité des données"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "erreurs sur la qualité des données"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "erreur sur la qualité des données"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "erreurs sur la qualité des données"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "Min"
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "Max"
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "améliorations possibles"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "amélioration possible"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "améliorations possibles"
 

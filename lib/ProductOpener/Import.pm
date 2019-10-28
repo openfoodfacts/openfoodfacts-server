@@ -560,6 +560,7 @@ sub import_csv_file($) {
 
 		foreach my $field ('owner', 'lc', 'product_name', 'generic_name',
 			@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
+			'obsolete', 'obsolete_since_date',
 			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang', 'data_sources') {
 
 			if (defined $language_fields{$field}) {
@@ -585,6 +586,24 @@ sub import_csv_file($) {
 				and ((defined $imported_product_ref->{$field . "_if_not_existing"}) and ($imported_product_ref->{$field . "_if_not_existing"} !~ /^\s*$/))) {
 				print STDERR "no existing value for $field, using value from ${field}_if_not_existing: " . $imported_product_ref->{$field . "_if_not_existing"} . "\n";
 				$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};
+			}
+
+			# For labels and categories, we can have columns like labels:Bio with values like 1, Y, Yes
+			# concatenate them to the labels field
+			if (defined $tags_fields{$field}) {
+				foreach my $subfield (sort keys %{$imported_product_ref}) {
+					if ($subfield =~ /^$field:/) {
+						my $tag_name = $';
+						if ($imported_product_ref->{$subfield} =~ /^\s*(1|y|yes|o|oui)\s*$/i) {
+							if (defined $imported_product_ref->{$field}) {
+								$imported_product_ref->{$field} .= "," . $tag_name;
+							}
+							else {
+								$imported_product_ref->{$field} = $tag_name;
+							}
+						}
+					}
+				}
 			}
 
 			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/)) {

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 14:30\n"
+"PO-Revision-Date: 2019-10-27 20:48\n"
 "Language-Team: Turkish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1394,8 +1394,8 @@ msgid "Move the images to another product"
 msgstr "Görüntüleri başka bir ürüne taşı"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "% d ürün"
+msgid "%s products"
+msgstr ""
 
 msgctxt "name"
 msgid "Name"
@@ -3611,4 +3611,26 @@ msgstr "veri kalitesi sorunu"
 msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "veri kalitesi sorunları"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "En az"
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "En çok"
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "olası iyileştirmeler"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "olası iyileştirme"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "olası iyileştirmeler"
 

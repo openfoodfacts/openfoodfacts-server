@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 14:32\n"
+"PO-Revision-Date: 2019-10-27 20:52\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1363,8 +1363,8 @@ msgid "Move the images to another product"
 msgstr "crwdns102738:0crwdne102738:0"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "crwdns102740:0%dcrwdne102740:0"
+msgid "%s products"
+msgstr "crwdns123570:0%scrwdne123570:0"
 
 msgctxt "name"
 msgid "Name"
@@ -3568,4 +3568,26 @@ msgstr "crwdns122936:0crwdne122936:0"
 msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "crwdns122938:0crwdne122938:0"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "crwdns122948:0crwdne122948:0"
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "crwdns122950:0crwdne122950:0"
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "crwdns123552:0crwdne123552:0"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "crwdns123554:0crwdne123554:0"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "crwdns123556:0crwdne123556:0"
 

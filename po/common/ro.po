@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 14:26\n"
+"PO-Revision-Date: 2019-10-27 20:43\n"
 "Language-Team: Romanian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -193,11 +193,11 @@ msgstr "Poți, de asemenea, să ne ajuți la finanțarea proiectului Open Food F
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donează pentru Open Food Facts\" /></a><p><<site_name>> este creată de o asociație non-profit, independentă de agenții industriei. Este pentru toți, construit de toți și finanțat de toți. Poți susține activitatea noastră prin <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donații către Open Food Facts</a>, respectiv <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">folosind motorul de căutare Lilo</a>.<br/><b>Mulțumim!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "Donează pentru a sprijini efortul nostru"
 
 msgctxt "brands"
 msgid "Brands"
@@ -857,7 +857,7 @@ msgstr "Trebuie să introduceți cifrele codului de bare sau să trimiteți o im
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Dimensiune completă"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
@@ -1376,8 +1376,8 @@ msgid "Move the images to another product"
 msgstr ""
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d produse"
+msgid "%s products"
+msgstr ""
 
 msgctxt "name"
 msgid "Name"
@@ -3582,4 +3582,26 @@ msgstr ""
 msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr ""
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr ""
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr ""
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "posibile îmbunătățiri"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "îmbunătățire posibilă"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "posibile îmbunătățiri"
 

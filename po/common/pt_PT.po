@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 19:02\n"
+"PO-Revision-Date: 2019-10-28 10:12\n"
 "Language-Team: Portuguese\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1399,8 +1399,8 @@ msgid "Move the images to another product"
 msgstr "Mover as imagens para outro produto"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d produtos"
+msgid "%s products"
+msgstr ""
 
 msgctxt "name"
 msgid "Name"
@@ -2376,7 +2376,7 @@ msgstr "Uma base de dados livre, aberta e colaborativa sobre ingredientes, infor
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts - Portugal"
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -3526,7 +3526,7 @@ msgstr "Os dados e as fotos do produto que envia na plataforma para produtores s
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Os dados e as fotos do produto serão disponibilizados publicamente no banco de dados Open Food Facts, sob a licença <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. O conteúdo individual do banco de dados está disponível sob a Licença <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> e as imagens dos produtos estão disponíveis sob a licença <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3541,11 +3541,11 @@ msgstr "Importar fotos de produtos"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
 msgid "Export product data and photos to the public database"
-msgstr ""
+msgstr "Exportar dados e fotos de produto para o banco de dados público"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Verifique se os dados na plataforma para produtores estão corretos antes de exportá-los para o banco de dados público."
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -3553,7 +3553,7 @@ msgstr "Cancelar"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "Alterações colapsadas"
 
 msgctxt "data_quality_p"
 msgid "data quality"
@@ -3614,4 +3614,26 @@ msgstr "erro de qualidade de dados"
 msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "erros de qualidade de dados"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "Min"
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "Máx"
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr ""
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr ""
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr ""
 

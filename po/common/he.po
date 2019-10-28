@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 13:22\n"
+"PO-Revision-Date: 2019-10-28 08:12\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -352,7 +352,7 @@ msgstr "מדינות בהן המוצר זמין לרווחה (לא כולל חנ
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr "medina"
+msgstr "מדינות"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -360,7 +360,7 @@ msgstr "מוצרים שנמכרים ב%s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr "medina"
+msgstr "מדינה"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -1398,8 +1398,8 @@ msgid "Move the images to another product"
 msgstr "העברת התמונות למוצר אחר"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d מוצרים"
+msgid "%s products"
+msgstr "%s מוצרים"
 
 msgctxt "name"
 msgid "Name"
@@ -2486,7 +2486,7 @@ msgstr "עקבות"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "ikvot"
+msgstr "עקבות"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -3559,61 +3559,83 @@ msgstr "שינויים מצומצמים"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "איכות הנתונים"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "איכות הנתונים"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "איכות הנתונים"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "תקלות באיכות הנתונים"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "תקלה באיכות הנתונים"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "תקלות באיכות הנתונים"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "פרטי איכות הנתונים"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "פרטי איכות הנתונים"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "פרטי איכות הנתונים"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "אזהרות איכות הנתונים"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "אזהרת איכות הנתונים"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "אזהרות איכות הנתונים"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "שגיאות איכות הנתונים"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "שגיאת איכות הנתונים"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
+msgstr "שגיאות איכות הנתונים"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
 msgstr ""
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr ""
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "שיפורים אפשריים"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "שיפור אפשרי"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "שיפורים אפשריים"
 

@@ -1,14 +1,14 @@
-FROM node:12.9.0-alpine as builder
+FROM node:12.13.0-alpine as builder
 
 # Install Product Opener from the workdir.
 COPY . /opt/product-opener/
 WORKDIR /opt/product-opener
 
-# Add ProductOpener runtime dependencies from yarn
-RUN yarn install
+# Add ProductOpener runtime dependencies from npm
+RUN npm install
 
 # Run gulp
-RUN yarn run build
+RUN npm run build
 
 FROM nginx:1.17.3-alpine
 WORKDIR /opt/product-opener

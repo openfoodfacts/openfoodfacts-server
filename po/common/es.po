@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 14:25\n"
+"PO-Revision-Date: 2019-10-27 20:44\n"
 "Language-Team: Spanish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1399,8 +1399,8 @@ msgid "Move the images to another product"
 msgstr "Mover las imágenes a otro producto"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d productos"
+msgid "%s products"
+msgstr ""
 
 msgctxt "name"
 msgid "Name"
@@ -3126,7 +3126,7 @@ msgstr ""
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "09-09-2019 o 2019-09 o 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3566,11 +3566,11 @@ msgstr ""
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "calidad de datos"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "errores de calidad de datos"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
@@ -3578,7 +3578,7 @@ msgstr ""
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "errores de calidad de datos"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -3614,5 +3614,27 @@ msgstr ""
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
+msgstr ""
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "Mín"
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "Máx"
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr ""
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr ""
+
+msgctxt "improvements"
+msgid "possible improvements"
 msgstr ""
 

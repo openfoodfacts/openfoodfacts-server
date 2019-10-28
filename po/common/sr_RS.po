@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 13:31\n"
+"PO-Revision-Date: 2019-10-27 20:45\n"
 "Language-Team: Serbian (Cyrillic)\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -82,19 +82,19 @@ msgstr "Поздрав <NAME>,\n\n"
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Кровдин"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Потенцијално опасан адитив за храну. Ограничите употребу."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Штетни адитиви за храну. Избегавајте."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Адитиви у храни забрањени су у Европи. Избегавајте по сваку цену."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -110,7 +110,7 @@ msgstr "Напредна претрага"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Напредна претрага и графикони"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
@@ -118,11 +118,11 @@ msgstr "Прекомерна конзумација алкохола је ште
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Све мисије"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Супстанце или производи који изазивају алергије или нетолеранције"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -134,7 +134,7 @@ msgstr "алерген"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Страницу производа такође уредио"
 
 # Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
@@ -1377,7 +1377,7 @@ msgid "Move the images to another product"
 msgstr ""
 
 msgctxt "n_products"
-msgid "%d products"
+msgid "%s products"
 msgstr ""
 
 msgctxt "name"
@@ -2337,7 +2337,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Одјавите се"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -3581,5 +3581,27 @@ msgstr ""
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
+msgstr ""
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr ""
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr ""
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr ""
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr ""
+
+msgctxt "improvements"
+msgid "possible improvements"
 msgstr ""
 

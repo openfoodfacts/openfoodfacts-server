@@ -139,12 +139,14 @@ sub load_csv_or_excel_file($) {
 
 		if (open (my $io, "<", $file)) {
 
-		my $csv_options_ref = { binary => 1 , sep_char => "\t" };
-
 			my $csv = Spreadsheet::CSV->new();
 
 			# Assume first line is headers line
 			$headers_ref = $csv->getline ($io);
+
+			# In fact, there may be empty lines,
+			while ((not defined $headers_ref) and ($headers_ref = $csv->getline ($io))) {
+			}
 
 			if (not defined $headers_ref) {
 				$results_ref->{error} = "Unsupported file format (extension: $extension).";
@@ -206,7 +208,18 @@ sub convert_file($$$$) {
 
 		if ((defined $columns_fields_ref->{$column}) and (defined $columns_fields_ref->{$column}{field})) {
 			my $field = $columns_fields_ref->{$column}{field};
-			if ($field =~ /_value_unit/) {
+
+			# For columns mapped to a specific label, output labels:Label name as the column name
+			if ($field =~ /^(labels|categories)_specific$/) {
+				$field = $1;
+				if (defined $columns_fields_ref->{$column}{tag}) {
+					$field .= ":" . $columns_fields_ref->{$column}{tag};
+				}
+				else {
+					$field = undef;
+				}
+			}
+			elsif ($field =~ /_value_unit/) {
 				$field = $`;
 				if (defined $columns_fields_ref->{$column}{value_unit}) {
 					$field .= "_" . $columns_fields_ref->{$column}{value_unit};
@@ -215,6 +228,8 @@ sub convert_file($$$$) {
 					$field = undef;
 				}
 			}
+
+			$log->debug("convert_file", { column => $column, field => $field, col => $col }) if $log->is_debug();
 
 			if (defined $field) {
 				push @headers, $field;
@@ -275,6 +290,21 @@ sub convert_file($$$$) {
 	return $results_ref;
 }
 
+# Normalize column names
+
+sub normalize_column_name($) {
+
+	my $name = shift;
+
+	# remove stopwords
+
+	# fr
+	$name =~ s/^(teneur|taux) (en |de |d')?//i;
+	$name =~ s/^dont //i;
+	$name =~ s/ en / /i;
+
+	return $name;
+}
 
 # Initialize the list of synonyms of fields and nutrients in the different languages only once
 
@@ -294,9 +324,10 @@ en => {
 
 fr => {
 
-	product_name_fr => ["nom", "nom produit", "nom du produit"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "dénomination"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
+	labels => ["signes qualité", "signe qualité"],
 },
 
 );
@@ -338,14 +369,36 @@ sub init_nutrients_columns_names_for_lang($) {
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;
 
-		if (exists $Nutriments{$nid}{$l}) {
-			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Nutriments{$nid}{$l})} = { field => $nid . "_100g_value_unit"};
-			$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
-		}
+		my @synonyms = ();
 		if (exists $Nutriments{$nid}{$l . "_synonyms"}) {
-			foreach my $synonym (@{$Nutriments{$nid}{$l . "_synonyms"}}) {
-				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = { field => $nid . "_100g_value_unit"};
+			@synonyms = @{$Nutriments{$nid}{$l . "_synonyms"}};
+		}
+		if (exists $Nutriments{$nid}{$l}) {
+			unshift @synonyms, $Nutriments{$nid}{$l};
+		}
+
+		foreach my $synonym (@synonyms) {
+
+			$synonym = normalize_column_name($synonym);
+
+			# Energy, saturated fat
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = { field => $nid . "_100g_value_unit"};
+
+			# Energy kcal, carbohydrates g, calcium mg
+
+			my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+			if ($nid eq "energy") {
+				@units = qw(kj kcal cal calories);
 			}
+
+			foreach my $unit (@units) {
+				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
+					field => $nid . "_100g_value_unit",
+					value_unit => "value_in_" . $unit,
+				};
+			}
+
+			$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 		}
 	}
 }
@@ -382,6 +435,15 @@ sub init_other_fields_columns_names_for_lang($) {
 					# Column can contain value + unit, value, or unit for a specific field
 					my $field_name = $`;
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field_name}{$l})} = {field => $field};
+
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field_name}{$l} . " " . $Lang{unit}{$l})} = {
+						field => $field,
+						value_unit => "unit",
+					};
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{unit}{$l} . " " . $Lang{$field_name}{$l})} = {
+						field => $field,
+						value_unit => "unit",
+					};
 				}
 				elsif (defined $tags_fields{$field}) {
 					my $tagtype = $field;
@@ -474,6 +536,21 @@ sub compute_statistics_and_examples($$$) {
 	my $rows_ref = shift;
 	my $columns_fields_ref = shift;
 
+	foreach my $column (@$headers_ref) {
+		if (not defined $columns_fields_ref->{$column}) {
+			$columns_fields_ref->{$column} = {
+				examples => [],
+				existing_examples => {},
+				n => 0,
+				numbers => 0,
+				letters => 0,
+				both => 0,
+				min => undef,
+				max => undef
+			};
+		}
+	}
+
 	my $row = 0;
 
 	foreach my $row_ref (@$rows_ref) {
@@ -483,8 +560,6 @@ sub compute_statistics_and_examples($$$) {
 		foreach my $value (@$row_ref) {
 
 			my $column = $headers_ref->[$col];
-
-			defined $columns_fields_ref->{$column} or $columns_fields_ref->{$column} = { examples => [], existing_examples => {}, n => 0, numbers => 0, letters => 0, both => 0, min => undef, max => undef };
 
 			# empty value?
 
@@ -571,7 +646,7 @@ sub init_columns_fields_match($$) {
 
 	foreach my $column (@$headers_ref) {
 
-		my $column_id = get_string_id_for_lang("no_language", $column);
+		my $column_id = get_string_id_for_lang("no_language", normalize_column_name($column));
 
 		if ((defined $all_columns_fields_ref->{$column_id}) and (defined $all_columns_fields_ref->{$column_id}{field})) {
 
@@ -580,6 +655,8 @@ sub init_columns_fields_match($$) {
 		else {
 
 			# Name of a field in the current language or in English?
+
+			$log->debug("before match_column_name_to_field", { lc=>$lc, column=>$column, column_id=>$column_id, column_field=>$columns_fields_ref->{$column} }) if $log->is_debug();
 
 			$columns_fields_ref->{$column} = { %{$columns_fields_ref->{$column}}, %{match_column_name_to_field($lc, $column_id)} };
 
