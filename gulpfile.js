@@ -46,7 +46,7 @@ function js() {
   return src([
       './node_modules/foundation-sites/js/vendor/*.js',
       './node_modules/foundation-sites/js/foundation.min.js',
-      './node_modules/jqueryui/jquery-ui.min.js',
+      './node_modules/jquery-ui-dist/jquery-ui.min.js',
       './node_modules/papaparse/papaparse.min.js',
       './node_modules/osmtogeojson/osmtogeojson.js',
       './node_modules/leaflet/dist/**/*.*',
@@ -60,7 +60,7 @@ function js() {
 }
 
 function jQueryUiThemes() {
-  return src('./node_modules/jqueryui/themes/base/**/*.css', { sourcemaps: true })
+  return src('./node_modules/jquery-ui-dist/**/*.css', { sourcemaps: true })
     .pipe(dest('./html/css/dist/jqueryui/themes/base', { sourcemaps: true }))
 }
 

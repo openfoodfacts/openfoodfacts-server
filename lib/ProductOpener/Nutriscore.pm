@@ -24,51 +24,44 @@ ProductOpener::Nutriscore - compute the Nutriscore grade of a food product
 
 =head1 SYNOPSIS
 
-C<ProductOpener::Export> is used to export the data of all populated fields
-of products matching a given MongoDB search query in Open Food Facts CSV format
-(UTF-8 encoding, tab separated).
+C<ProductOpener::Nutriscore> is used to compute the Nutriscore score and grade
+of a food product.
 
-    use ProductOpener::Export qw/:all/;
-	export_csv( { filehandle=>*STDOUT,
-		query=>{ countries_tags=>"en:france", labels_tags=>"en:organic" } });
+    use ProductOpener::Nutriscore qw/:all/;
 
-Only columns that are not completely empty will be included in the resulting CSV file.
-This is to avoid generating CSV files with thousands of empty columns (e.g. all possible
-nutrients and all the language specific fields like ingredients_text_[language code] for
-all the hundreds of possible languages.
+	my $points_ref = {};	# will be populated with details about the computation
 
-Fields that are computed from other fields are not directly provided by users or producers
-are not exported by default. They can be exported by passing a list of extra fields:
+	my ($nutriscore_score, $nutriscore_grade) = compute_nutriscore_score_and_grade(
+		{
+			# Nutrients
+			energy =>  518,	# in kJ
+			sugars => 3,
+			saturated_fat => 0.7,
+			saturated_fat_ratio => 0.7 / 3 * 100,
+			sodium => 0.61 / 2.5 * 1000,	# in mg, sodium = salt divided by 2.5
+			fruits_vegetables_nuts_colza_walnut_olive_oils => 20,	# in %
+			fiber => 2.2,
+			proteins => 6.7,
 
-	export_csv( { filehandle=>$fh,
-		extra_fields=>[qw(nova_group nutrition_grade_fr)] });
+			# The Nutri-Score computation is different for beverages, waters, cheeses and fats
+			is_beverage => 1,
+			is_water => 0,
+			is_cheese => 0,
+			is_fat => 0,
 
-It is also possible to restrict the set of fields to be exported:
+		},
+		$points_ref
+	);
 
-	export_csv( { filehandle=>$fh,
-		fields=>[qw(code ingredients_text_en additives_tags)] });
-
-This module is used in particular to export product data provided by manufacturers on
-the producers platform so that it can then be imported in the public database.
-
-In the producers platform, the C<export_csv> function is executed through a Minion worker.
-
-It is also used in the C<scripts/export_csv_file.pl> script.
-
+	print "Rounded value for sugars: " . $points_ref->{sugars_value} . "\n";
+	print "Points for sugars: " . $points_ref->{sugars}. "\n";
 
 =head1 DESCRIPTION
 
-Use the list of fields from C<Product::Opener::Config::options{import_export_fields_groups}>
-and the list of nutrients from C<Product::Opener::ProductOpener::nutriments_tables> to list fields
-that need to be exported.
+The modules implements the Nutri-Score computation as defined by Santé publique France.
 
-The results of the query are scanned a first time to compute the list of non-empty columns.
-
-The results of the query are scanned a second time to output the CSV file.
-
-This 2 phases approach is done to avoid having to store all the products data in memory.
-
-If the fields to exports are specified with the C<fields> parameter, the first phase is skipped.
+Input values for nutrients are rounded according to the Nutri-Score definition and returned
+in a hash with the corresponding amount of positive or negative points.
 
 =cut
 
@@ -121,10 +114,10 @@ The hash must contain values for the following keys:
 The values will be rounded according to the Nutri-Score rules, they do not need to be rounded before being passed as arguments.
 
 If the product is a beverage, water, cheese, or fat, it must contain a positive value for the corresponding keys:
-- beverage
-- water
-- cheese
-- fat
+- is_beverage
+- is_water
+- is_cheese
+- is_fat
 
 =head4 POINTS_REF - reference to an empty hash that will be populated with the
 details of the points for each nutrient.
