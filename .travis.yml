@@ -1,4 +1,3 @@
-language: ruby
 dist: bionic
 branches:
   except:
@@ -61,3 +60,5 @@ after_failure:
   - cat $HOME/.cpanm/build.log
 notifications:
   slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
+language: perl
+  - "5.30"
