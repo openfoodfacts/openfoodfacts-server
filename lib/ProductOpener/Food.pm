@@ -4667,7 +4667,7 @@ sub compute_nutriscore($) {
 
 	# Populate the data structure that will be passed to Food::Nutriscore
 
-	my $product_data_ref = {
+	$product_ref->{nutriscore_data} = {
 		is_beverage => $product_ref->{nutrition_score_beverage},
 		is_water => ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters"))),
 		is_cheese => ((has_tag($product_ref, "categories", "en:cheeses")) and not (has_tag($product_ref, "categories", "fr:fromages-blancs"))),
@@ -4684,9 +4684,7 @@ sub compute_nutriscore($) {
 		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
 	};
 
-	$product_ref->{nutriscore_points} = {};
-
-	my ($nutriscore_score, $nutriscore_grade) = ProductOpener::Food::compute_nutriscore_score_and_grade($product_data_ref, $product_ref->{nutriscore_points});
+	my ($nutriscore_score, $nutriscore_grade) = ProductOpener::Food::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
 
 	$product_ref->{nutriscore_score} = $nutriscore_score;
 	$product_ref->{nutriscore_grade} = $nutriscore_grade;

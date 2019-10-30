@@ -46,6 +46,8 @@ BEGIN
 		&convert_file
 
 		&import_csv_file_task
+		&export_csv_file_task
+		&import_products_categories_from_public_database_task
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -902,6 +904,33 @@ sub export_csv_file_task() {
 
 	open(my $log, ">>", "$data_root/logs/minion.log");
 	print $log "export_csv_file_task - job: $job_id done\n";
+	close($log);
+
+	$job->finish("done");
+}
+
+
+sub import_products_categories_from_public_database_task() {
+
+	my $job = shift;
+	my $args_ref = shift;
+
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	print $minion_log "import_products_categories_from_public_database_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	close($minion_log);
+
+	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+
+	ProductOpener::Import::import_products_categories_from_public_database($args_ref);
+
+	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id - done\n";
+
+	open(my $log, ">>", "$data_root/logs/minion.log");
+	print $log "import_products_categories_from_public_database_file_task - job: $job_id done\n";
 	close($log);
 
 	$job->finish("done");

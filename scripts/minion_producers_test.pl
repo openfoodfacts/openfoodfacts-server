@@ -26,30 +26,20 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Producers qw/:all/;
 
-use Mojolicious::Lite;
-
 use Minion;
 
-# Minion backend
+$minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_file_task);
+$minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file_task);
+$minion->add_task(import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
 
-if (not defined $server_options{minion_backend}) {
+print STDERR "Perform 1 job in current process\n";
 
-	die("No Minion backend configured in lib/ProductOpener/Config2.pm\n");
-}
+# Perform one job manually in this process
+my $worker = $minion->repair->worker->register;
 
-plugin Minion => $server_options{minion_backend};
+my $job = $worker->dequeue(0 => {queues => [$server_options{minion_local_queue}]});;
+if (my $err = $job->execute) { print STDERR "Error: $err\n"; $job->fail($err);  }
+else                         {print STDERR "Done\n";  $job->finish }
+$worker->unregister;
 
-app->minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_file_task);
 
-app->minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file_task);
-
-app->minion->add_task(import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
-
-app->config(
-    hypnotoad => {
-        listen => [ $server_options{minion_daemon_server_and_port} ],
-        proxy  => 1,
-    },
-);
-
-app->start;
