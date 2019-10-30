@@ -395,10 +395,15 @@ CSS
 		elsif (defined $User_id) {
 			$owner = "user-" . $User_id;
 		}
+		else {
+			$owner = undef;
+		}
 	}
 	else {
 		$owner = undef;
 	}
+
+	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner => $owner, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
 }
 
 # component was specified as en:product, fr:produit etc.
