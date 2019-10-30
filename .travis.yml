@@ -1,6 +1,4 @@
-language: perl
-perl:
-  - "5.30"
+language: node_js
 dist: bionic
 branches:
   except:
