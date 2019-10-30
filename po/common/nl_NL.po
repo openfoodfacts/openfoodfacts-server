@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-19 13:23\n"
+"PO-Revision-Date: 2019-10-24 14:37\n"
 "Language-Team: Dutch\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3121,11 +3121,11 @@ msgstr "Intrekkingsdatum"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "Formaat: JJJJ-MM-DD of JJJJ-MM of JJJJ"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 of 2019-09 of 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3561,7 +3561,7 @@ msgstr ""
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "kwaliteit van de gegevens"
 
 msgctxt "data_quality"
 msgid "data quality"
@@ -3581,19 +3581,19 @@ msgstr ""
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "kwaliteit van de gegevens"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "kwaliteit van de gegevens"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "kwaliteit van de gegevens"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "waarschuwingen voor gegevenskwaliteit"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
@@ -3601,11 +3601,11 @@ msgstr ""
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "waarschuwingen voor gegevenskwaliteit"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "fouten in gegevenskwaliteit"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
@@ -3613,5 +3613,27 @@ msgstr ""
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
+msgstr "fouten in gegevenskwaliteit"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr ""
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr ""
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr ""
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr ""
+
+msgctxt "improvements"
+msgid "possible improvements"
 msgstr ""
 
