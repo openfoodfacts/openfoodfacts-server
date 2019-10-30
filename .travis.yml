@@ -1,4 +1,6 @@
 language: perl
+perl:
+  - "5.24"
 dist: bionic
 branches:
   except:
