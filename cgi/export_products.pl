@@ -51,7 +51,9 @@ use Text::CSV();
 
 ProductOpener::Display::init();
 
-my $title = '';
+my $action = param('action') || 'display';
+
+my $title = lang("export_product_data_photos");
 my $html = '';
 
 if (not defined $owner) {
@@ -63,63 +65,81 @@ if (not defined $exports_ref) {
 	$exports_ref = {};
 }
 
-my $started_t = time();
-my $export_id = $started_t;
+if ($action eq "display") {
 
-my $exported_file = "$data_root/export_files/$owner/export.$export_id.exported.csv";
+	$html .= "<p>" . lang("producers_platform_licence") . "</p>";
+	$html .= "<p>" . lang("export_product_data_photos_please_check") . "</p>";
 
-$exports_ref->{$export_id} = {
-	started_t => $started_t,
-	exported_file => $exported_file,
-};
+	$html .= start_multipart_form(-id=>"export_products_form") ;
 
-# First export the data locally
-
-my $args_ref = {
-	user_id => $User_id,
-	org_id => $Org_id,
-	owner => $owner,
-	csv_file => $exported_file,
-	export_id => $export_id,
-	query => { owner => $owner},
-	comment => "Import from producers platform",
-};
-
-if (defined $Org_id) {
-	$args_ref->{manufacturer} = 1;
-	$args_ref->{source_id} = $Org_id;
-}
-else {
-	$args_ref->{no_source} = 1;
+	$html .= <<HTML
+<input type="submit" class="button small" value="$Lang{export_product_data_photos}{$lc}">
+<input type="hidden" name="action" value="process">
+HTML
+;
+	$html .= end_form();
 }
 
-my $local_export_job_id = $minion->enqueue(export_csv_file => [$args_ref]
-	=> { queue => $server_options{minion_local_queue}});
+elsif ($action eq "process") {
 
-$args_ref->{export_job_id} = $local_export_job_id;
+	my $started_t = time();
+	my $export_id = $started_t;
 
-my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref]
-	=> { queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
+	my $exported_file = "$data_root/export_files/$owner/export.$export_id.exported.csv";
 
-$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
-$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
+	$exports_ref->{$export_id} = {
+		started_t => $started_t,
+		exported_file => $exported_file,
+	};
 
-(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
-(-e "$data_root/export_files/$owner") or mkdir("$data_root/export_files/$owner", 0755);
+	# First export the data locally
 
-store("$data_root/export_files/$owner/exports.sto", $exports_ref);
+	my $args_ref = {
+		user_id => $User_id,
+		org_id => $Org_id,
+		owner => $owner,
+		csv_file => $exported_file,
+		export_id => $export_id,
+		query => { owner => $owner},
+		comment => "Import from producers platform",
+		include_images_paths => 1,	# Export file paths to images
+	};
 
-$html .= "<p>local export job_id: " . $local_export_job_id . "</p>";
+	if (defined $Org_id) {
+		$args_ref->{manufacturer} = 1;
+		$args_ref->{source_id} = $Org_id;
+	}
+	else {
+		$args_ref->{no_source} = 1;
+	}
 
-$html .= "<a href=\"/cgi/export_job_status.pl?export_id=$export_id\">status</a>";
+	my $local_export_job_id = $minion->enqueue(export_csv_file => [$args_ref]
+		=> { queue => $server_options{minion_local_queue}});
 
-$html .= "<p>remote import job_id: " . $remote_import_job_id . "</p>";
+	$args_ref->{export_job_id} = $local_export_job_id;
 
-$html .= "<a href=\"/cgi/export_job_status.pl?export_id=$export_id\">status</a>";
+	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref]
+		=> { queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
 
-$html .= "Poll: <div id=\"poll\"></div> Result:<div id=\"result\"></div>";
+	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
+	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
 
-$initjs .= <<JS
+	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
+	(-e "$data_root/export_files/$owner") or mkdir("$data_root/export_files/$owner", 0755);
+
+	store("$data_root/export_files/$owner/exports.sto", $exports_ref);
+
+	$html .= "<p>local export job_id: " . $local_export_job_id . "</p>";
+
+	$html .= "<a href=\"/cgi/export_job_status.pl?export_id=$export_id\">status</a>";
+
+	$html .= "<p>remote import job_id: " . $remote_import_job_id . "</p>";
+
+	$html .= "<a href=\"/cgi/export_job_status.pl?export_id=$export_id\">status</a>";
+
+	$html .= "Poll: <div id=\"poll\"></div> Result:<div id=\"result\"></div>";
+
+	$initjs .= <<JS
 
 var poll_n = 0;
 var timeout = 5000;
@@ -146,13 +166,12 @@ var job_info_state;
 JS
 ;
 
+}
+
 display_new( {
 	title=>$title,
 	content_ref=>\$html,
 });
-
-
-
 
 exit(0);
 

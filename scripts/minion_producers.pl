@@ -24,30 +24,7 @@ use strict;
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
 use ProductOpener::Producers qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
-
-use URI::Escape::XS;
-use Storable qw/dclone/;
-use Encode;
-use JSON::PP;
-use Time::Local;
-use Data::Dumper;
-use Text::CSV;
-use Getopt::Long;
-
 
 use Mojolicious::Lite;
 
@@ -65,5 +42,14 @@ plugin Minion => $server_options{minion_backend};
 app->minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_file_task);
 
 app->minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file_task);
+
+app->minion->add_task(import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
+
+app->config(
+    hypnotoad => {
+        listen => [ $server_options{minion_daemon_server_and_port} ],
+        proxy  => 1,
+    },
+);
 
 app->start;

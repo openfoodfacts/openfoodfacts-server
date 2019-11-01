@@ -246,7 +246,7 @@ sub display_user_form_admin_only($) {
 	if (($type eq 'add') or ($type eq 'edit')) {
 
 		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
-		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{organization}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
+		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
 	}
 
 	return $html;
@@ -293,7 +293,7 @@ sub check_user_form($$) {
 	}
 
 	if ($admin) {
-		$user_ref->{org} = remove_tags_and_quote(param('org'));
+		$user_ref->{org} = remove_tags_and_quote(param('organization'));
 		if ($user_ref->{org} ne "") {
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 		}

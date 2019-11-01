@@ -41,7 +41,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -174,7 +174,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($check_quality) {
-			ProductOpener::SiteQuality::check_quality($product_ref);
+			ProductOpener::DataQuality::check_quality($product_ref);
 		}
 
 		if (not $pretend) {

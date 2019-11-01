@@ -55,6 +55,7 @@ BEGIN
 		&compute_languages
 		&compute_changes_diff_text
 		&compute_data_sources
+		&compute_sort_key
 
 		&add_back_field_values_removed_by_user
 
@@ -451,6 +452,25 @@ sub change_product_server_or_code($$$) {
 	}
 }
 
+sub compute_sort_key($) {
+
+	my $product_ref = shift;
+
+	# put obsolete products last  		(add 200000000000 when products are not obsolete)
+	# then put complete products first	(add 100000000000 when products are complete)
+	# otherwise sort by last_modified_t (e.g.  1571384133)
+
+	my $sortkey = $product_ref->{last_modified_t};
+
+	if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
+		$sortkey += 200000000000;
+	}
+	if ($product_ref->{complete}) {
+		$sortkey += 100000000000;
+	}
+
+	$product_ref->{sortkey} = $sortkey + 0;
+}
 
 sub store_product($$) {
 
@@ -617,9 +637,7 @@ sub store_product($$) {
 
 	compute_data_sources($product_ref);
 
-	# sort_key
-	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
-	$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
+	compute_sort_key($product_ref);
 
 	if (not defined $product_ref->{_id}) {
 		$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string
@@ -651,9 +669,7 @@ sub store_product($$) {
 		#return 0;
 	}
 
-	# 2018-12-26: remove obsolete products from the database
-	# another option could be to keep them and make them searchable only in certain conditions
-	if (($product_ref->{deleted}) or ($product_ref->{obsolete})) {
+	if ($product_ref->{deleted}) {
 		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
 	else {

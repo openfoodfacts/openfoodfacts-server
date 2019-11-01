@@ -40,7 +40,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -791,7 +791,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				
 				compute_unknown_nutrients($product_ref);
 				
-				ProductOpener::SiteQuality::check_quality($product_ref);
+				ProductOpener::DataQuality::check_quality($product_ref);
 			
 			
 				#print STDERR "Storing product code $code\n";

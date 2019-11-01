@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-03 15:38\n"
+"PO-Revision-Date: 2019-10-30 11:51\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -195,8 +195,8 @@ msgid "You can also help to fund the Open Food Facts project"
 msgstr "ניתן גם לסייע במימון המיזם Open Food Facts"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"תרומה ל־Open Food Facts\" /></a><p><<site_name>> נוסד על ידי ארגון ללא מטרות רווח, ללא תלות בתעשייה. הוא נוצר לטובת כולם, על ידי כולם ובמימון כולם. ניתן לתמוך בעבודה שלנו על ידי <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">תרומה ל־Open Food Facts</a> וגם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">שימוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"תרומה ל־Open Food Facts\" /></a><p><<site_name>> נוסד על ידי ארגון ללא מטרות רווח, ללא תלות בתעשייה. הוא נוצר לטובת כולם, על ידי כולם ובמימון כולם. ניתן לתמוך בעבודה שלנו על ידי <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">תרומה ל־Open Food Facts</a> וגם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">שימוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -352,7 +352,7 @@ msgstr "מדינות בהן המוצר זמין לרווחה (לא כולל חנ
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr "medina"
+msgstr "מדינות"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -360,7 +360,7 @@ msgstr "מוצרים שנמכרים ב%s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr "medina"
+msgstr "מדינה"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -423,8 +423,8 @@ msgid "Donate to Open Food Facts"
 msgstr "תרומה ל־Open Food Facts"
 
 msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -682,8 +682,8 @@ msgid "/code-of-conduct"
 msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
-msgid "Data"
-msgstr "נתונים"
+msgid "Data, API and SDKs"
+msgstr "נתונים, API וערכות פיתוח"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -1398,8 +1398,8 @@ msgid "Move the images to another product"
 msgstr "העברת התמונות למוצר אחר"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d מוצרים"
+msgid "%s products"
+msgstr "%s מוצרים"
 
 msgctxt "name"
 msgid "Name"
@@ -2486,7 +2486,7 @@ msgstr "עקבות"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "ikvot"
+msgstr "עקבות"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -3122,8 +3122,12 @@ msgid "Withdrawal date"
 msgstr "מועד ההורדה מהמדפים"
 
 msgctxt "obsolete_since_date_note"
-msgid "Format: YYYY or YYYY-MM"
-msgstr "תבנית: YYYY או YYYY-MM"
+msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
+msgstr ""
+
+msgctxt "obsolete_since_date_example"
+msgid "2019-09-30 or 2019-09 or 2019"
+msgstr ""
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3293,20 +3297,24 @@ msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "הגרסה העדכנית ביותר"
 
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
 msgstr "ייבוא קובץ נתוני מוצרים"
 
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
-msgstr "העלאת קובץ גיליון נתונים (קובץ Excel או קובץ CSV עם הפרדה ב־Tab בקידוד UTF-8) עם נתוני מוצרים."
+msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
+msgstr "יש להעלות גיליון נתונים (קובץ Excel או קובץ CSV עם הפרדה בטאבים בקידוד UTF-8) עם נתוני מוצרים."
 
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
 msgstr "ניתן להעלות טבלה עם תצורת העמודות לייבוא לתוך Open Food Facts או שניתן להעלות טבלה מכל סוג שהוא ואז לבחור את העמודות לייבוא."
 
-msgctxt "upload_products_data_file"
-msgid "Upload a file with products data"
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "upload_product_data_file"
+msgid "Upload a file with product data"
 msgstr "העלאת קובץ עם נתוני מוצרים"
 
 msgctxt "uploading_file"
@@ -3360,6 +3368,26 @@ msgstr "מפרט תזונתי כרשות"
 msgctxt "fields_group_other"
 msgid "Other information"
 msgstr "פרטים נוספים"
+
+msgctxt "fields_group_images"
+msgid "Product photos"
+msgstr "תמונות מוצרים"
+
+msgctxt "image_front_url"
+msgid "Link to front product photo"
+msgstr "קישור לתמונת החזית של המוצר"
+
+msgctxt "image_ingredients_url"
+msgid "Link to ingredients list photo"
+msgstr "קישור לתמונת רשימת הרכיבים"
+
+msgctxt "image_nutrition_url"
+msgid "Link to nutrition facts table photo"
+msgstr "קישור לתמונת טבלת העובדות התזונתיות"
+
+msgctxt "image_other_url"
+msgid "Link to other product photo"
+msgstr "קישור לתמונה של מוצר אחר"
 
 msgctxt "labels_specific"
 msgid "Specific label"
@@ -3471,7 +3499,7 @@ msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
 msgstr "נא להיכנס כדי להשתמש בתכונה הזאת."
 
-msgctxt "org"
+msgctxt "organization"
 msgid "Organization"
 msgstr "ארגון"
 
@@ -3480,22 +3508,134 @@ msgid "Column in file"
 msgstr "עמודה בקובץ"
 
 msgctxt "field_on_site"
-msgid "Field on %"
-msgstr "עמודה על אחוזים"
+msgid "Field on %s"
+msgstr "שדה ב־%s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
 msgstr "פלטפורמה ליצרנים"
 
+# "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
-msgid "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
-msgstr "פלטפורמת היצרנים מאפשרת ליצרנים לנהל בקלות את תמונות ונתוני המוצרים שלהם ב־Open Food Facts."
+msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
+msgstr "הפלטפורמה ליצרנים שמאפשרת להם לנהל בקלות את תמונות ונתוני המוצרים שלהם ב־Open Food Facts."
 
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_private_database"
+msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
+msgstr "הנתונים והתמונות של המוצרים שבחרת לשלוח דרך הפלטפורמה ליצרנים מאוחסנים במסד נתונים פרטי. תינתן לך האפשרות לבדוק שכל הנתונים נכונים בטרם העברתם למסד הנתונים של Open Food Facts הנגיש לכלל."
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_licence"
+msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
+msgstr "הנתונים והתמונות של המוצרים יהיו זמינים לרשות הציבור במסד הנתונים של Open Food Facts, תחת <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">רישיון מסדי הנתונים הפתוחים</a>. התכנים שבמסד הנתונים זמינים תחת <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">רישיון תכני מסדי הנתונים</a> ותמונות המוצרים זמינות תחת <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">הרישיון Creative Commons ייחוס שיתוף זהה</a>."
+
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
 msgstr "ייבוא נתוני מוצרים"
 
+# "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
 msgid "Import product photos"
 msgstr "ייבוא תמונות מוצרים"
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "export_product_data_photos"
+msgid "Export product data and photos to the public database"
+msgstr "ייצוא נתונים ותמונות של מוצרים למסד הנתונים הציבורי"
+
+msgctxt "export_product_data_photos_please_check"
+msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
+msgstr "נא לוודא שהנתונים בפלטפורמה ליצרנים נכונים בטרם הייצוא למסד הנתונים הציבורי."
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr "ביטול"
+
+msgctxt "collapsed_changes"
+msgid "Collapsed changes"
+msgstr "שינויים מצומצמים"
+
+msgctxt "data_quality_p"
+msgid "data quality"
+msgstr "איכות הנתונים"
+
+msgctxt "data_quality_s"
+msgid "data quality"
+msgstr "איכות הנתונים"
+
+msgctxt "data_quality"
+msgid "data quality"
+msgstr "איכות הנתונים"
+
+msgctxt "data_quality_bugs_p"
+msgid "data quality bugs"
+msgstr "תקלות באיכות הנתונים"
+
+msgctxt "data_quality_bugs_s"
+msgid "data quality bug"
+msgstr "תקלה באיכות הנתונים"
+
+msgctxt "data_quality_bugs"
+msgid "data quality bugs"
+msgstr "תקלות באיכות הנתונים"
+
+msgctxt "data_quality_info_p"
+msgid "data quality info"
+msgstr "פרטי איכות הנתונים"
+
+msgctxt "data_quality_info_s"
+msgid "data quality info"
+msgstr "פרטי איכות הנתונים"
+
+msgctxt "data_quality_info"
+msgid "data quality info"
+msgstr "פרטי איכות הנתונים"
+
+msgctxt "data_quality_warnings_p"
+msgid "data quality warnings"
+msgstr "אזהרות איכות הנתונים"
+
+msgctxt "data_quality_warnings_s"
+msgid "data quality warning"
+msgstr "אזהרת איכות הנתונים"
+
+msgctxt "data_quality_warnings"
+msgid "data quality warnings"
+msgstr "אזהרות איכות הנתונים"
+
+msgctxt "data_quality_errors_p"
+msgid "data quality errors"
+msgstr "שגיאות איכות הנתונים"
+
+msgctxt "data_quality_errors_s"
+msgid "data quality error"
+msgstr "שגיאת איכות הנתונים"
+
+msgctxt "data_quality_errors"
+msgid "data quality errors"
+msgstr "שגיאות איכות הנתונים"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr ""
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr ""
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "שיפורים אפשריים"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "שיפור אפשרי"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "שיפורים אפשריים"
 

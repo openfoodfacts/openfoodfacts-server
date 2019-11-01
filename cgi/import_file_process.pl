@@ -150,6 +150,7 @@ my $args_ref = {
 	file_id => $file_id,
 	import_id => $import_id,
 	comment => "Import from producers platform",
+	images_download_dir => "$data_root/import_files/$owner/downloaded_images",
 };
 
 if (defined $Org_id) {
@@ -190,7 +191,7 @@ var job_info_state;
     },
     complete: function() {
       // Schedule the next request when the current one's complete
-	  if (job_info_state == "inactive") {
+	  if ((job_info_state == "inactive") || (job_info_state == "active")) {
 		setTimeout(poll, timeout);
 		timeout += 1000;
 	}

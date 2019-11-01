@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: br\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-01 20:09\n"
+"PO-Revision-Date: 2019-10-30 07:21\n"
 "Language-Team: Breton\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -139,7 +139,7 @@ msgstr ""
 # Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -149,12 +149,12 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Hegerz war Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -194,7 +194,7 @@ msgid "You can also help to fund the Open Food Facts project"
 msgstr ""
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -339,7 +339,7 @@ msgstr ""
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "reizher"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -351,7 +351,7 @@ msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "broioù"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -367,15 +367,15 @@ msgstr ""
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Mamenn ar roadennoù"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "mamenn ar roadennoù"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "mamenn ar roadenn"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -387,7 +387,7 @@ msgstr "diveugañ"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Abeg an dilemel"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -422,8 +422,8 @@ msgid "Donate to Open Food Facts"
 msgstr ""
 
 msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -435,23 +435,23 @@ msgstr ""
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "aozañ"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "Deskrivadur ar cheñchamantoù"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Aozañ ur produ"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Aozañ ar bajenn"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Aozañ ho profil foran"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
@@ -528,11 +528,11 @@ msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "Deiziadoù ouzhpennañ"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Deiziad ouzhpennañ"
 
 msgctxt "error"
 msgid "Error"
@@ -568,7 +568,7 @@ msgstr ""
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Implijer fall."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -616,11 +616,11 @@ msgstr "Skouer:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Skouerioù:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "Deiziad gwelloc'h a-raok"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
@@ -675,8 +675,8 @@ msgid "/code-of-conduct"
 msgstr ""
 
 msgctxt "footer_data"
-msgid "Data"
-msgstr "Roadennoù"
+msgid "Data, API and SDKs"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -689,7 +689,7 @@ msgstr "Dizoleiñ ar raktres"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Foar ar goulennoù"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
@@ -721,11 +721,11 @@ msgstr "Kejañ ouzh ar gumuniezh"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr "Kejit ouzhimp war %s:"
+msgstr "Deuit e-barzh war %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr ""
+msgstr "Meneg lezennel"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
@@ -747,7 +747,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr "Divizoù arver"
+msgstr "Termenoù Implij"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -756,7 +756,7 @@ msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr ""
+msgstr "Piv omp"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
@@ -774,7 +774,7 @@ msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "evit"
 
 msgctxt "front_alt"
 msgid "Product"
@@ -810,15 +810,15 @@ msgstr "Demat"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "uhel"
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr ""
+msgstr "kalite uhel"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "Roll-istor ar cheñchamantoù"
 
 msgctxt "image_front"
 msgid "Front picture"
@@ -1242,7 +1242,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Kevreañ"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1377,7 +1377,7 @@ msgid "Move the images to another product"
 msgstr ""
 
 msgctxt "n_products"
-msgid "%d products"
+msgid "%s products"
 msgstr ""
 
 msgctxt "name"
@@ -2317,7 +2317,7 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Kevreañ"
 
 msgctxt "share"
 msgid "Share"
@@ -2337,7 +2337,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Digevreañ"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -3088,7 +3088,11 @@ msgid "Withdrawal date"
 msgstr ""
 
 msgctxt "obsolete_since_date_note"
-msgid "Format: YYYY or YYYY-MM"
+msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
+msgstr ""
+
+msgctxt "obsolete_since_date_example"
+msgid "2019-09-30 or 2019-09 or 2019"
 msgstr ""
 
 msgctxt "obsolete_warning"
@@ -3259,20 +3263,24 @@ msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "Handelv diwezhañ"
 
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
 msgstr ""
 
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
+msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
 msgstr ""
 
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
 msgstr ""
 
-msgctxt "upload_products_data_file"
-msgid "Upload a file with products data"
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "upload_product_data_file"
+msgid "Upload a file with product data"
 msgstr ""
 
 msgctxt "uploading_file"
@@ -3325,6 +3333,26 @@ msgstr ""
 
 msgctxt "fields_group_other"
 msgid "Other information"
+msgstr ""
+
+msgctxt "fields_group_images"
+msgid "Product photos"
+msgstr ""
+
+msgctxt "image_front_url"
+msgid "Link to front product photo"
+msgstr ""
+
+msgctxt "image_ingredients_url"
+msgid "Link to ingredients list photo"
+msgstr ""
+
+msgctxt "image_nutrition_url"
+msgid "Link to nutrition facts table photo"
+msgstr ""
+
+msgctxt "image_other_url"
+msgid "Link to other product photo"
 msgstr ""
 
 msgctxt "labels_specific"
@@ -3437,7 +3465,7 @@ msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
 msgstr ""
 
-msgctxt "org"
+msgctxt "organization"
 msgid "Organization"
 msgstr ""
 
@@ -3446,22 +3474,134 @@ msgid "Column in file"
 msgstr ""
 
 msgctxt "field_on_site"
-msgid "Field on %"
+msgid "Field on %s"
 msgstr ""
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
 msgstr ""
 
+# "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
-msgid "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
+msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
 msgstr ""
 
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_private_database"
+msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
+msgstr ""
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_licence"
+msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
+msgstr ""
+
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
 msgstr ""
 
+# "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
 msgid "Import product photos"
+msgstr ""
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "export_product_data_photos"
+msgid "Export product data and photos to the public database"
+msgstr ""
+
+msgctxt "export_product_data_photos_please_check"
+msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
+msgstr ""
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "collapsed_changes"
+msgid "Collapsed changes"
+msgstr ""
+
+msgctxt "data_quality_p"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_s"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_bugs_p"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_bugs_s"
+msgid "data quality bug"
+msgstr ""
+
+msgctxt "data_quality_bugs"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_info_p"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info_s"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_warnings_p"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_warnings_s"
+msgid "data quality warning"
+msgstr ""
+
+msgctxt "data_quality_warnings"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_errors_p"
+msgid "data quality errors"
+msgstr ""
+
+msgctxt "data_quality_errors_s"
+msgid "data quality error"
+msgstr ""
+
+msgctxt "data_quality_errors"
+msgid "data quality errors"
+msgstr ""
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr ""
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr ""
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr ""
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr ""
+
+msgctxt "improvements"
+msgid "possible improvements"
 msgstr ""
 

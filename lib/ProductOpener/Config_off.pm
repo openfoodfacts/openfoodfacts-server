@@ -185,6 +185,8 @@ $options{users_who_can_upload_small_images} = {
 	)
 };
 
+$options{product_type} = "food";
+
 @edit_rules = (
 
 	{
@@ -546,7 +548,10 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 
 @taxonomy_fields = qw(states countries languages labels categories additives additives_classes
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
-nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing);
+nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
+data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors
+improvements
+);
 
 
 # fields in product edit form, above ingredients and nutrition facts
@@ -686,7 +691,7 @@ nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_pr
 $options{import_export_fields_groups} = [
 	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
 		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "packaging",
-		"brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores"]
+		"brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores", "obsolete", "obsolete_since_date"]
 	],
 	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
 	],
@@ -696,6 +701,7 @@ $options{import_export_fields_groups} = [
 	["nutrition_other"],
 	["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
 	],
+	["images", ["image_front_url", "image_ingredients_url", "image_nutrition_url", "image_other_url"]],
 ];
 
 
@@ -878,7 +884,6 @@ $options{nova_groups_tags} = {
 	"categories/en:prepared-meats" => 3,
 	"categories/en:terrines" => 3,
 	"categories/en:pates" => 3,
-	"categories/en:pastas" => 3,
 	#"categories/en:breakfast-cereals" => 3,
 	"categories/en:tofu" => 3,
 	"categories/en:alcoholic-beverages" => 3,
