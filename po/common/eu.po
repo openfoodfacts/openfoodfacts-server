@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-24 14:23\n"
+"PO-Revision-Date: 2019-10-30 07:21\n"
 "Language-Team: Basque\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -195,8 +195,8 @@ msgid "You can also help to fund the Open Food Facts project"
 msgstr "Open Food Facts proiektua finantzatzen ere lagun dezakezu"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> irabazi asmorik gabeko asoziazio batek egina da, industriatik independenteki. Guztion arten guztiontzako egina da, guztion artean finantziatuta. Gure lana bultzatu dezakezu <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">Open Food Facts-entzako donatzen</a> eta baita <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo bilatzailea erabiltzen ere</a>.<br/><b>Eskerrik asko!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -423,7 +423,7 @@ msgid "Donate to Open Food Facts"
 msgstr ""
 
 msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
 msgstr ""
 
 msgctxt "ecological_data_table"
@@ -676,8 +676,8 @@ msgid "/code-of-conduct"
 msgstr ""
 
 msgctxt "footer_data"
-msgid "Data"
-msgstr "Datuak"
+msgid "Data, API and SDKs"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -1378,7 +1378,7 @@ msgid "Move the images to another product"
 msgstr ""
 
 msgctxt "n_products"
-msgid "%d products"
+msgid "%s products"
 msgstr ""
 
 msgctxt "name"
