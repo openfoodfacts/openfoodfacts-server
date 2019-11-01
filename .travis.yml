@@ -57,5 +57,3 @@ script:
   - npm test
 after_failure:
   - cat $HOME/.cpanm/build.log
-notifications:
-  slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
