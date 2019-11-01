@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_AU\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-01 21:41\n"
+"PO-Revision-Date: 2019-11-01 21:51\n"
 "Language-Team: English, Australia\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -881,15 +881,15 @@ msgstr "Attribution: Photo by %s per %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Attribution: Photo by %s with additional modifications by %s per %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Original Image)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Photo detail and attribution information"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -981,11 +981,11 @@ msgstr "Products that do not contain the ingredient %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1325,7 +1325,7 @@ msgstr "Products not manufactured or processed in %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr ""
+msgstr "%d products match the search criteria, of which %i products have a known production place."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1400,7 +1400,7 @@ msgstr "Move the images to another product"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s products"
 
 msgctxt "name"
 msgid "Name"
@@ -1587,7 +1587,7 @@ msgstr "The table lists by default nutrients that are often specified. Leave the
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -2145,7 +2145,7 @@ msgstr "Scatter plot"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2339,7 +2339,7 @@ msgstr "Serving size"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Prepared serving size"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2347,7 +2347,7 @@ msgstr "60 g, 12 oz, 20cl, 2 fl oz"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2387,7 +2387,7 @@ msgstr "Sort by"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "Completeness"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2584,7 +2584,8 @@ msgstr "View results from the entire world"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2593,12 +2594,12 @@ msgstr "Site or blog address"
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2694,7 +2695,7 @@ msgstr "Some of the data for this product has been provided directly by the manu
 
 msgctxt "sources_collaboration"
 msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr ""
+msgstr "Some of the data for this product has been collected in collaboration with %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2702,7 +2703,7 @@ msgstr "This product page is not complete. You can help to complete it by editin
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2907,55 +2908,55 @@ msgstr "The European Food Safety Authority (EFSA) has determined that some popul
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr ""
+msgstr "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
-msgstr ""
+msgstr "%d products with %s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
-msgstr ""
+msgstr "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "High risk of over exposure"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "Moderate risk of over exposure"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Risk of exceeding the acceptable daily intake (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "Some people"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "over 5%"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
