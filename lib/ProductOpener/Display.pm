@@ -6572,12 +6572,10 @@ HTML
 
 			my $idlc = $id;
 
-			# <img src="/images/products/$path/$id.$rev.$size.jpg"
-
-			if ($img =~ /data-src="([^"]*)\/([^\.]+)\./) {
+			# <img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg"
+			if ($img =~ /src="([^"]*)\/([^\.]+)\./) {
 				$idlc = $2;
 			}
-
 
 			my $html = <<HTML
 <div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
