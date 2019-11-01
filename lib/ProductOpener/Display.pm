@@ -395,10 +395,15 @@ CSS
 		elsif (defined $User_id) {
 			$owner = "user-" . $User_id;
 		}
+		else {
+			$owner = undef;
+		}
 	}
 	else {
 		$owner = undef;
 	}
+
+	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner => $owner, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -1170,7 +1175,7 @@ sub query_list_of_tags($$) {
 	my $query_ref = shift;
 
 	# Restrict the products to the owner on databases with private products
-	if (defined $owner) {
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		$query_ref->{owners_tags} = $owner;
 	}
 
@@ -3654,7 +3659,7 @@ sub search_and_display_products($$$$$) {
 	}
 
 	# Restrict the products to the owner on databases with private products
-	if (defined $owner) {
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		$query_ref->{owners_tags} = $owner;
 	}
 
@@ -4129,7 +4134,7 @@ sub search_and_export_products($$$$$) {
 	delete $query_ref->{lc};
 
 	# Restrict the products to the owner on databases with private products
-	if (defined $owner) {
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		$query_ref->{owners_tags} = $owner;
 	}
 
@@ -5209,7 +5214,7 @@ sub search_and_graph_products($$$) {
 	delete $query_ref->{lc};
 
 	# Restrict the products to the owner on databases with private products
-	if (defined $owner) {
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		$query_ref->{owners_tags} = $owner;
 	}
 
@@ -5357,7 +5362,7 @@ sub search_and_map_products($$$) {
 	delete $query_ref->{lc};
 
 	# Restrict the products to the owner on databases with private products
-	if (defined $owner) {
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		$query_ref->{owners_tags} = $owner;
 	}
 
@@ -9585,7 +9590,7 @@ sub display_recent_changes {
 	delete $query_ref->{lc};
 
 	# Restrict the products to the owner on databases with private products
-	if (defined $owner) {
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		$query_ref->{owners_tags} = $owner;
 	}
 
