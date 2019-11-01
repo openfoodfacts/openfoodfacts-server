@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 
 my %Nutriments = (
 
@@ -77,7 +77,7 @@ energy	=> {
 	lt => "Energine verte",
 	mt => "Energija",
 	sk => "Energetická hodnota",
-	ro => "Valoarea energetica",
+	ro => "Valoarea energetică",
 	bg => "????????? ????????",
 },
 proteins => {
@@ -144,7 +144,7 @@ carbohydrates => {
 	lt => "Angliavandeniai",
 	mt => "Karboidrati",
 	sk => "Sacharidy",
-	ro => "gGlucide",
+	ro => "Glucide",
 	bg => "????????????",
 },
 sugars => {
@@ -302,7 +302,7 @@ fat => {
 	lt => "Riebalai",
 	mt => "Xahmijiet",
 	sk => "Tuky",
-	ro => "Grasimi",
+	ro => "Grăsimi",
 	bg => "???????",
 },
 'saturated-fat' => {
@@ -330,7 +330,7 @@ fat => {
 	lt => "Sociosios riebalu rugštys",
 	mt => "Saturati xahmijiet",
 	sk => "Nasýtené mastné kyseliny",
-	ro => "Acizi gra?i satura?i",
+	ro => "Acizi grași saturați",
 	bg => "???????? ?????? ????????",
 },
 'butyric-acid' => {
@@ -450,7 +450,7 @@ fat => {
 	lt => "Mononesociosios riebalu rugštys",
 	mt => "Mono-insaturati xahmijiet",
 	sk => "Mononenasýtené mastné kyseliny",
-	ro => "Acizi gra?i mononesatura?i",
+	ro => "Acizi grași mononesaturați",
 	bg => "?????????????? ?????? ????????",
 },
 'omega-9-fat' => {
@@ -525,7 +525,7 @@ fat => {
 	lt => "Polinesociosios riebalu rugštys",
 	mt => "Poli-insaturati xahmijiet",
 	sk => "Polynenasýtené mastné kyseliny",
-	ro => "Acizi gra?i polinesatura?i",
+	ro => "Acizi grași polinesaturați",
 	bg => "?????????????? ?????? ????????",
 },
 'omega-3-fat' => {
@@ -651,6 +651,7 @@ sodium => {
 	pt => "Sódio",
 	de => "Natrium",
 	he => "????",
+	ro => "Sodiu",
 },
 salt => {
 	fr => "Sel",
@@ -703,7 +704,7 @@ salt => {
 	lt => "Vitaminas",
 	mt => "Vitamina",
 	sk => "Vitamín",
-	ro => "Vitamina",
+	ro => "Vitamine",
 	bg => "???????",
 },
 'vitamin-a' => {
@@ -1088,7 +1089,7 @@ chloride => {
 	lt => "Chloridas",
 	mt => "Kloridu",
 	sk => "Chlorid",
-	ro => "Clorura",
+	ro => "Clorură",
 	bg => "??????",
 },
 silica => {
@@ -1315,7 +1316,7 @@ fluoride => {
 	lt => "Fluoridas",
 	mt => "Floridu",
 	sk => "Fluorid",
-	ro => "Fluorura",
+	ro => "Fluorură",
 	bg => "???????",
 },
 selenium => {

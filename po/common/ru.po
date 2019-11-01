@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 21:51\n"
+"PO-Revision-Date: 2019-10-30 08:00\n"
 "Language-Team: Russian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -78,6 +78,7 @@ msgstr "Привет, <NAME>!\n\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
+# please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
 msgstr "Спасибо, что присоединились к <<site_name>>"
@@ -134,17 +135,20 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Страницу продукта также редактировали:"
 
+# Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
+# DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Доступно в Google Play\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/ru_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -190,12 +194,12 @@ msgid "You can also help to fund the Open Food Facts project"
 msgstr "Вы также можете помочь финансировать проект Open Food Facts"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Поддержать Open Food Facts\" /></a><p><<site_name>> создан некоммерческой ассоциацией, независимой от индустрии. Он создан для всех, и он финансируется всеми. Вы можете поддержать нашу работу <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">пожертвованием на Open Food Facts</a>, а также<a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">используя поисковый сервис Lilo</a>.<br/><b>Спасибо!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
-msgstr "Принять задание"
+msgid "Donate to support our work"
+msgstr "Пожертвовать, чтобы поддержать нашу работу"
 
 msgctxt "brands"
 msgid "Brands"
@@ -365,6 +369,14 @@ msgctxt "data_source"
 msgid "Data source"
 msgstr "Источник данных"
 
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr "источники данных"
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr "источник данных"
+
 msgctxt "debug_p"
 msgid "debug"
 msgstr "отладка"
@@ -410,8 +422,8 @@ msgid "Donate to Open Food Facts"
 msgstr "Пожертвовать Open Food Facts"
 
 msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -531,7 +543,7 @@ msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgo
 msgstr "Неверное имя пользователя или пароль. <a href=\"/cgi/reset_password.pl\">Забыли пароль?</a>"
 
 msgctxt "error_database"
-msgid "An error occured while reading the data, try to refresh the page."
+msgid "An error occurred while reading the data, try to refresh the page."
 msgstr "Произошла ошибка при чтении данных, попробуйте обновить страницу."
 
 msgctxt "error_different_passwords"
@@ -669,8 +681,8 @@ msgid "/code-of-conduct"
 msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
-msgid "Data"
-msgstr "Данные"
+msgid "Data, API and SDKs"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -789,7 +801,7 @@ msgid "See you soon!"
 msgstr "Увидимся!"
 
 msgctxt "graph_count"
-msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
+msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
 msgstr "%d продуктов соответствуют критериям поиска, из них у %i продуктов имеются значения для оси графика."
 
 msgctxt "graph_title"
@@ -854,6 +866,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Надо ввести символы штрихкода, или загрузить изображение, на котором виден код."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "Полный размер"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "Этот файл был загружен в продукт %s и лицензирован под лицензией %s."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr ""
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "Атрибутация: Фото %s с дополнительными изменениями %s на %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Исходное изображение)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "Детали фото и информация о атрибуции"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Добавленные вами незавершенные продукты"
@@ -873,10 +909,6 @@ msgstr "Ингредиенты"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Ингредиенты"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Анализ ингредиентов"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -947,12 +979,12 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Продукты которые не содержат %s"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Доступно в App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_RU.svg\" alt=\"Доступно в App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/ru/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr "https://apps.apple.com/ru/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1291,7 +1323,7 @@ msgid "Products not manufactured or processed in %s"
 msgstr "Продукты, произведённые или переработанные не в %s"
 
 msgctxt "map_count"
-msgid "%d products match the search criterias, of which %i products have a known production place."
+msgid "%d products match the search criteria, of which %i products have a known production place."
 msgstr "%d продуктов соответствуют критериям поиска, из них у %i продуктов указано место производства."
 
 msgctxt "map_title"
@@ -1366,8 +1398,8 @@ msgid "Move the images to another product"
 msgstr "Переместить изображения в другой продукт"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d продуктов"
+msgid "%s products"
+msgstr ""
 
 msgctxt "name"
 msgid "Name"
@@ -2111,8 +2143,8 @@ msgid "Scatter plot"
 msgstr "Точечная диаграмма"
 
 msgctxt "search_graph_blog"
-msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>→ узнайте больше о графиках <<site_name>>: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Графики в 3 клика</a> (блог).</p>"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr ""
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2305,9 +2337,8 @@ msgid "Serving size"
 msgstr "Размер порции"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "Размер готовой порции"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2352,6 +2383,10 @@ msgstr "Open Food Facts"
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Сортировать по"
+
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr "Завершенность"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2547,20 +2582,21 @@ msgstr "Посмотреть результаты со всего мира"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"\">Why it matters</a>"
-msgstr "Информация и данные должны поступать  с упаковки товара и этикеток (а не с других сайтов или сайта производителя), а фотографии должны быть сняты вами.<br/>\n"
-"→ <а href=\"\">Почему это важно</а>"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Адрес сайта или блога"
 
+# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Магазин Windows Phone\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/Russian.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
+# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 msgstr "https://www.microsoft.com/ru-ru/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
@@ -2654,6 +2690,10 @@ msgstr "Некоторые данные и изображения были пр�
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Некоторые данные об этом продукте были предоставлены непосредственно производителем %s"
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr "Некоторые данные для этого продукта были собраны в сотрудничестве с %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -3072,50 +3112,6 @@ msgctxt "user_s_page"
 msgid "%s's page"
 msgstr "Страница %s "
 
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "Продукты проверены %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "Продукты не проверены %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "Продукты исправлены %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "Продукты не исправлены %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "Продукты отредактированы %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "Продукты не отредактированы %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "Продукты заполнены %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "Продукты не заполнены %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "Продуктов сфотографированных %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "Продуктов не сфотографированно %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "Страница %s "
-
 msgctxt "obsolete"
 msgid "The product is no longer sold."
 msgstr "Товар больше не продается."
@@ -3125,8 +3121,12 @@ msgid "Withdrawal date"
 msgstr "Дата вывода"
 
 msgctxt "obsolete_since_date_note"
-msgid "Format: YYYY or YYYY-MM"
-msgstr "Формат: ГГГГ или ГГГГ-ММ"
+msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
+msgstr ""
+
+msgctxt "obsolete_since_date_example"
+msgid "2019-09-30 or 2019-09 or 2019"
+msgstr ""
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3150,35 +3150,7 @@ msgstr "Скачать приложение для iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Идентификатор производителя продукта"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Предупреждение"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Подготовка"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Идея рецепта"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Происхождение"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Обслуживание клиентов"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Изготовитель"
+msgstr "<em>Неоднозначный штрих-код</em>: Этот продукт имеет штрих-код с ограниченным обращением для продуктов внутри компании. Это означает, что разные производители и магазины могут использовать один и тот же штрих-код для разных продуктов."
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3198,23 +3170,23 @@ msgstr "en:низкий, en:средний или en:высокий"
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr ""
+msgstr "Углеродный след от мяса или рыбы"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
-msgstr ""
+msgstr "выбросы углерода от мяса или рыбы для всего продукта"
 
 msgctxt "of_sustainable_daily_emissions_of_1_person"
 msgid "of sustainable daily emissions of 1 person"
-msgstr ""
+msgstr "устойчивые ежедневные выбросы 1 человека"
 
 msgctxt "of_sustainable_weekly_emissions_of_1_person"
 msgid "of sustainable weekly emissions of 1 person"
-msgstr ""
+msgstr "устойчивые еженедельные выбросы 1 человека"
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "за одну порцию"
 
 msgctxt "methodology"
 msgid "Methodology"
@@ -3222,26 +3194,26 @@ msgstr "Методология"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
-msgstr ""
+msgstr "Расчеты выбросов углерода основаны на значениях CO<sub>2</sub> на кг из программы FoodGES <a href=\"https://www.ademe.fr\">ADEME</a>."
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
-msgstr ""
+msgstr "Устойчивые ежегодные выбросы: 2 тонны эквивалента CO<sub>2</sub> на человека для достижения целей, поставленных в COP21."
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr ""
+msgstr "Расчет углеродного следа имеет высокую неопределенность. Значения следует рассматривать с осторожностью, они более применимы для относительного сравнения, чем в виде абсолютных значений."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "Слишком много продуктов (%d продуктов, ограничение %d) для экспорта, загрузите вместо этого <a href=\"/data\">данные полного экспорта базы данных</a>."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Помогите перевести %s на %s"
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
 msgstr "Вы можете предложить переводы для записей ниже, которые еще не были переведены на ваш язык. Синяя ссылка на английском языке показывает соответствующие продукты, черный текст на английском языке показывает исходную запись с необязательными синонимами, разделенными запятыми. Введите перевод в текстовое поле с необязательными синонимами и нажмите кнопку «Сохранить». Спасибо!"
 
 msgctxt "translate_taxonomy_add"
@@ -3250,7 +3222,7 @@ msgstr "Показывать только записи без ожидающих
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "Также показывать записи с ожидающими переводами от вас или других пользователей."
 
 msgctxt "translated"
 msgid "translated"
@@ -3275,4 +3247,394 @@ msgstr "Нет"
 msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr "Пропустить"
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr "популярность"
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr "популярность"
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr "анализ ингредиентов"
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr "анализ ингредиентов"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "Анализ ингредиентов"
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "Анализ основан исключительно на перечисленных ингредиентах и не учитывает методы обработки."
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "Вы просматриваете старую версию страницы продукта!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "Номер версии: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "Отредактировал(а): "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "Предыдущая версия"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "Следующая версия"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "Последняя версия"
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_title"
+msgid "Import a product data file"
+msgstr "Импортировать файл данных о продукте"
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_description"
+msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
+msgstr "Загрузите файл электронной таблицы (файл Excel или CSV-файл в кодировке UTF-8, разделенный табуляцией) с данными о продуктах."
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_format"
+msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
+msgstr ""
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "upload_product_data_file"
+msgid "Upload a file with product data"
+msgstr "Загрузить файл с данными о продуктах"
+
+msgctxt "uploading_file"
+msgid "File being uploaded."
+msgstr "Файл загружается."
+
+msgctxt "upload_error"
+msgid "The file could not be uploaded."
+msgstr "Файл не может быть загружен."
+
+msgctxt "import_data_file_select_format_title"
+msgid "Select and import data"
+msgstr "Выбрать и импортировать данные"
+
+msgctxt "import_data_file_select_format_description"
+msgid "Use the form below to indicate which columns to import and what data they contain."
+msgstr "Используйте форму ниже, чтобы указать, какие столбцы импортировать и какие данные они содержат."
+
+msgctxt "import_data"
+msgid "Import data"
+msgstr "Импорт данных"
+
+msgctxt "import_file_rows_columns"
+msgid "The uploaded file contains %s rows and %s columns."
+msgstr "Загруженный файл содержит %s строк и %s столбцов."
+
+msgctxt "import_file_selected_columns"
+msgid "%s columns out of %s have been selected and will be imported."
+msgstr "%s столбцов из %s были выбраны и будут импортированы."
+
+msgctxt "fields_group_identification"
+msgid "Product identification"
+msgstr "Идентификация продукта"
+
+msgctxt "fields_group_origins"
+msgid "Origins"
+msgstr ""
+
+msgctxt "fields_group_ingredients"
+msgid "Ingredients"
+msgstr "Ингредиенты"
+
+msgctxt "fields_group_nutrition"
+msgid "Nutrition facts"
+msgstr "Пищевая и энергетическая ценность"
+
+msgctxt "fields_group_nutrition_other"
+msgid "Optional nutrition facts"
+msgstr ""
+
+msgctxt "fields_group_other"
+msgid "Other information"
+msgstr "Доп. сведения"
+
+msgctxt "fields_group_images"
+msgid "Product photos"
+msgstr "Фотографии продукта"
+
+msgctxt "image_front_url"
+msgid "Link to front product photo"
+msgstr "Ссылка на основное фото продукта"
+
+msgctxt "image_ingredients_url"
+msgid "Link to ingredients list photo"
+msgstr "Ссылка на фото списка ингредиентов"
+
+msgctxt "image_nutrition_url"
+msgid "Link to nutrition facts table photo"
+msgstr "Ссылка на фото таблицы питательной ценности"
+
+msgctxt "image_other_url"
+msgid "Link to other product photo"
+msgstr "Ссылка на другие фото продукта"
+
+msgctxt "labels_specific"
+msgid "Specific label"
+msgstr ""
+
+msgctxt "categories_specific"
+msgid "Specific category"
+msgstr ""
+
+msgctxt "select_a_field"
+msgid "Select a field"
+msgstr "Выберите поле"
+
+msgctxt "specify"
+msgid "Specify"
+msgstr ""
+
+msgctxt "value_unit_dropdown"
+msgid "In the dropdown menu on the right, specify if the column contains:"
+msgstr "В раскрывающемся меню справа укажите, содержит ли столбец:"
+
+msgctxt "value_unit_dropdown_value_unit"
+msgid "the value and the unit"
+msgstr "значение и единица"
+
+msgctxt "value_unit_dropdown_value_specific_unit"
+msgid "the value in a specific unit"
+msgstr ""
+
+msgctxt "value_unit_dropdown_value"
+msgid "only the value, with the unit in another column"
+msgstr "только значение, единицы в другом столбце"
+
+msgctxt "value_unit_dropdown_unit"
+msgid "only the unit, with the value in another column"
+msgstr "только единицы, значения в другом столбце"
+
+# Please do not translate Y, Yes and 1
+msgctxt "specific_tag_label"
+msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr ""
+
+msgctxt "specific_tag_label_value"
+msgid "Type the name of the label in the text field on the right."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "specific_tag_category"
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr ""
+
+msgctxt "specific_tag_category_value"
+msgid "Type the name of the category in the text field on the right."
+msgstr ""
+
+msgctxt "value"
+msgid "Value"
+msgstr "Значение"
+
+msgctxt "value_unit"
+msgid "Value + Unit"
+msgstr "Значение + Единица"
+
+msgctxt "value_in_l"
+msgid "Value in L"
+msgstr "Значение в л"
+
+msgctxt "value_in_dl"
+msgid "Value in dl"
+msgstr "Значение в дл"
+
+msgctxt "value_in_cl"
+msgid "Value in cl"
+msgstr "Значение в сл"
+
+msgctxt "value_in_ml"
+msgid "Value in ml"
+msgstr "Значение в мл"
+
+msgctxt "value_in_kg"
+msgid "Value in kg"
+msgstr "Значение в кг"
+
+msgctxt "value_in_g"
+msgid "Value in g"
+msgstr "Значение в г"
+
+msgctxt "value_in_mg"
+msgid "Value in mg"
+msgstr "Значение в мг"
+
+msgctxt "value_in_mcg"
+msgid "Value in μg"
+msgstr "Значение в мкг"
+
+msgctxt "value_in_kcal"
+msgid "Value in kcal"
+msgstr "Стоимость в ккал"
+
+msgctxt "value_in_kj"
+msgid "Value in kJ"
+msgstr "Значение в кДж"
+
+msgctxt "value_in_percent"
+msgid "Value in %"
+msgstr "Значение в %"
+
+msgctxt "no_owner_defined"
+msgid "Please log-in to use this feature."
+msgstr "Войдите, чтобы использовать эту функцию."
+
+msgctxt "organization"
+msgid "Organization"
+msgstr "Организация"
+
+msgctxt "column_in_file"
+msgid "Column in file"
+msgstr "Столбец в файле"
+
+msgctxt "field_on_site"
+msgid "Field on %s"
+msgstr "Поле на %s"
+
+msgctxt "producers_platform"
+msgid "Platform for producers"
+msgstr "Платформа для производителей"
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_description"
+msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
+msgstr ""
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_private_database"
+msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
+msgstr ""
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_licence"
+msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
+msgstr ""
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_product_data"
+msgid "Import product data"
+msgstr "Импорт данных о продукте"
+
+# "product photos" in this sentence means data for many products, not just one product
+msgctxt "import_product_photos"
+msgid "Import product photos"
+msgstr "Импорт фото продукта"
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "export_product_data_photos"
+msgid "Export product data and photos to the public database"
+msgstr "Экспорт данных о продукте и фотографий в общедоступную базу данных"
+
+msgctxt "export_product_data_photos_please_check"
+msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
+msgstr ""
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr "Отмена"
+
+msgctxt "collapsed_changes"
+msgid "Collapsed changes"
+msgstr ""
+
+msgctxt "data_quality_p"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_s"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_bugs_p"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_bugs_s"
+msgid "data quality bug"
+msgstr ""
+
+msgctxt "data_quality_bugs"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_info_p"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info_s"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_warnings_p"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_warnings_s"
+msgid "data quality warning"
+msgstr ""
+
+msgctxt "data_quality_warnings"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_errors_p"
+msgid "data quality errors"
+msgstr ""
+
+msgctxt "data_quality_errors_s"
+msgid "data quality error"
+msgstr ""
+
+msgctxt "data_quality_errors"
+msgid "data quality errors"
+msgstr ""
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr ""
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr ""
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr ""
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr ""
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr ""
 

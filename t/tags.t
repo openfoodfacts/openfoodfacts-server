@@ -1,13 +1,14 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP', filter => "none";;
+#use Log::Any::Adapter 'TAP', filter => "none";;
 
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Store qw/:all/;
 
 
 ok (is_a( "categories", "en:beers", "en:beverages"), 'en:beers is a child of en:beverages');
@@ -85,9 +86,9 @@ is_deeply($product_ref,
      'en:fruits-and-vegetables-based-foods',
      'en:fruits-based-foods',
      'en:fruits',
+     'en:apples',
      'en:tropical-fruits',
      'en:bananas',
-     'en:apples',
    ],
    'categories_lc' => 'fr',
    'categories_tags' => [
@@ -96,14 +97,19 @@ is_deeply($product_ref,
      'en:fruits-and-vegetables-based-foods',
      'en:fruits-based-foods',
      'en:fruits',
+     'en:apples',
      'en:tropical-fruits',
      'en:bananas',
-     'en:apples',
    ],
    'lc' => 'fr'
  }
 
 ) or diag explain $product_ref;
+
+foreach my $tag (@{$product_ref->{categories_tags}}) {
+
+	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
+}
 
 add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
 
@@ -111,11 +117,11 @@ is($product_ref->{categories}, "pommes, bananes");
 
 add_tags_to_field($product_ref, "fr", "categories", "fraises");
 
-is($product_ref->{categories}, "Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments à base de fruits et de légumes, Fruits et produits dérivés, Fruits, Fruits tropicaux, Bananes, Pommes, fraises");
+is($product_ref->{categories}, "Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments à base de fruits et de légumes, Fruits et produits dérivés, Fruits, Pommes, Fruits tropicaux, Bananes, fraises");
 
 add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
 
-compute_field_tags($product_ref, "en", "categories");
+compute_field_tags($product_ref, "fr", "categories");
 
 is_deeply($product_ref->{categories_tags},
  [
@@ -124,10 +130,10 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits-and-vegetables-based-foods',
    'en:fruits-based-foods',
    'en:fruits',
+   'en:apples',
+   'en:berries',
    'en:tropical-fruits',
    'en:bananas',
-   'en:berries',
-   'en:apples',
    'en:plums',
    'en:raspberries',
  ]
@@ -145,11 +151,11 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits-and-vegetables-based-foods',
    'en:fruits-based-foods',
    'en:fruits',
+   'en:apples',
+   'en:berries',
+   'en:citrus',
    'en:tropical-fruits',
    'en:bananas',
-   'en:berries',
-   'en:apples',
-   'en:citrus',
    'en:lemons',
    'en:oranges',
    'en:plums',
@@ -158,7 +164,7 @@ is_deeply($product_ref->{categories_tags},
 
 ) or diag explain $product_ref->{categories_tags};
 
-is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Frutas tropicales, Plátanos, Frutas del bosque, Manzanas, Ciruelas, Frambuesas, naranjas, limones");
+is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Manzanas, Frutas del bosque, Frutas tropicales, Plátanos, Ciruelas, Frambuesas, naranjas, limones");
 
 add_tags_to_field($product_ref, "it", "categories", "bogus, limone");
 compute_field_tags($product_ref, "it", "categories");
@@ -170,11 +176,11 @@ is_deeply($product_ref->{categories_tags},
    'en:fruits-and-vegetables-based-foods',
    'en:fruits-based-foods',
    'en:fruits',
+   'en:apples',
+   'en:berries',
+   'en:citrus',
    'en:tropical-fruits',
    'en:bananas',
-   'en:berries',
-   'en:apples',
-   'en:citrus',
    'en:lemons',
    'en:oranges',
    'en:plums',
@@ -290,13 +296,20 @@ is_deeply (\@tags, [
    'en:fruit',
    'en:citrus-fruit',
    'en:fruit-juice',
-   'en:orange',
    'en:salt',
    'en:sugar',
+   'en:orange',
    'en:orange-juice',
    'en:concentrated-orange-juice'
  ]
- ) or diag explain(\@tags);;
+ ) or diag explain(\@tags);
+
+
+foreach my $tag (@tags) {
+
+	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
+}
+
 
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
@@ -312,5 +325,90 @@ is_deeply (\@tags, [
  ]
  ) or diag explain(\@tags);;
 
+ProductOpener::Tags::retrieve_tags_taxonomy("test");
+
+is(get_property("test","en:meat","vegan:en"), "no");
+is($properties{test}{"en:meat"}{"vegan:en"}, "no");
+is(get_inherited_property("test","en:meat","vegan:en"), "no");
+is(get_property("test","en:beef","vegan:en"), undef);
+is(get_inherited_property("test","en:beef","vegan:en"), "no");
+is(get_inherited_property("test","en:fake-meat","vegan:en"), "yes");
+is(get_inherited_property("test","en:fake-duck-meat","vegan:en"), "yes");
+is(get_inherited_property("test","en:yogurts","vegan:en"), undef);
+is(get_inherited_property("test","en:unknown","vegan:en"), undef);
+is(get_inherited_property("test","en:roast-beef","carbon_footprint_fr_foodges_value:fr"), 15);
+is(get_inherited_property("test","en:fake-duck-meat","carbon_footprint_fr_foodges_value:fr"), undef);
+
+my $yuka_uuid = "yuka.R452afga432";
+my $tagtype = "editors";
+
+is(get_fileid($yuka_uuid), $yuka_uuid);
+
+my $display_tag  = canonicalize_tag2($tagtype, $yuka_uuid);
+my $newtagid = get_fileid($display_tag);
+
+is($display_tag, $yuka_uuid);
+is($newtagid, $yuka_uuid);
+
+# make sure synonyms are not counted as existing tags
+is(exists_taxonomy_tag("additives", "en:n"), '');
+is(exists_taxonomy_tag("additives", "en:no"), '');
+is(exists_taxonomy_tag("additives", "en:e330"), 1);
+
+is(get_inherited_property("ingredients","en:milk","vegetarian:en"), "yes");
+is(get_property("ingredients","en:milk","vegan:en"), "no");
+is(get_inherited_property("ingredients","en:milk","vegan:en"), "no");
+is(get_inherited_property("ingredients","en:semi-skimmed-milk","vegetarian:en"), "yes");
+is(get_inherited_property("ingredients","en:semi-skimmed-milk","vegan:en"), "no");
+
+is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
+
+is(canonicalize_taxonomy_tag("de","test","Grünkohl"), "en:kale");
+is(display_taxonomy_tag("de","test","en:kale"), "Grünkohl");
+is(display_taxonomy_tag_link("de","test","en:kale"), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
+is(display_tags_hierarchy_taxonomy("de","test",["en:kale"]), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
+is(canonicalize_taxonomy_tag("fr","test","Pâte de cacao"), "fr:Pâte de cacao");
+is(display_taxonomy_tag("fr","test","fr:Pâte de cacao"), "Pâte de cacao");
+is(get_taxonomyid("en","pâte de cacao"), "pate-de-cacao");
+is(get_taxonomyid("de","pâte de cacao"), "pâte-de-cacao");
+is(get_taxonomyid("fr","fr:pâte de cacao"), "fr:pate-de-cacao");
+is(get_taxonomyid("fr","de:pâte"), "de:pâte");
+is(get_taxonomyid("de","de:pâte"), "de:pâte");
+
+$product_ref = {
+	lc => "de",
+	test => "Grünkohl, Äpfel, café, test",
+};
+
+compute_field_tags($product_ref, "de", "test");
+
+is_deeply($product_ref,
+	 {
+	    'lc' => 'de',
+	    'test' => "Gr\x{fc}nkohl, \x{c4}pfel, caf\x{e9}, test",
+	    'test_hierarchy' => [
+	      'en:kale',
+	      "de:caf\x{e9}",
+	      'de:test',
+	      "de:\x{c4}pfel"
+	    ],
+	    'test_lc' => 'de',
+	    'test_tags' => [
+	      'en:kale',
+	      "de:caf\x{e9}",
+	      'de:test',
+	      "de:\x{e4}pfel"
+	    ]
+	  }
+	
+)
+	or diag explain $product_ref;
+
+
+$product_ref = { "stores" => "Intermarché" };
+compute_field_tags($product_ref, "fr", "stores");
+is_deeply($product_ref->{stores_tags}, ["intermarche"]);
+compute_field_tags($product_ref, "de", "stores");
+is_deeply($product_ref->{stores_tags}, ["intermarche"]);
 
 done_testing();

@@ -14,7 +14,7 @@ indent_size = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# Perl files: tab identation (4 spaces)
+# Perl files: tab indentation (4 spaces)
 [*.{pm,pl,t}]
 indent_style = tab
 indent_size = 4

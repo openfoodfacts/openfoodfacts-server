@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ga\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:54\n"
+"PO-Revision-Date: 2019-09-11 08:54\n"
 "Language-Team: Irish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);\n"
@@ -17,33 +17,35 @@ msgstr ""
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
 
+#. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
+msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
+msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openproductsfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "openproductsfacts-logo-en-178x150.png"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openproductsfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "openproductsfacts-logo-en-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Products Facts"
-msgstr ""
+msgstr "Open Products Facts"
 
+#. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "tagline"
@@ -53,10 +55,10 @@ msgstr ""
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr ""
+msgstr "OpenFoodFacts"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://itunes.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
 msgstr ""
 
 msgctxt "bottom_content"
@@ -69,7 +71,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openproductsfacts.org/legal\">Legal</a> -\n"
@@ -77,13 +79,13 @@ msgid "<a href=\"https://world.openproductsfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://world.openproductsfacts.org/who-we-are\">Who we are</a> -\n"
 "<a href=\"https://world.openproductsfacts.org/faq\">Frequently Asked Questions</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openproductsfacts.org\">Blog</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openproductsfacts.org/press-and-blogs\">Press and Blogs</a>\n"
 msgstr ""
 
 msgctxt "brands_example"
 msgid "Nike, Apple"
-msgstr ""
+msgstr "Nike, Apple"
 
 msgctxt "categories_example"
 msgid "Mobile phone, Washing machine powder"
@@ -91,7 +93,7 @@ msgstr ""
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of information on products from around the world"
@@ -107,7 +109,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
@@ -119,7 +121,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-product-hunt\">Open Product Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"

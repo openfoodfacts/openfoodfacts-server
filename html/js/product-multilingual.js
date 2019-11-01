@@ -372,14 +372,15 @@ function change_image(imagefield, imgid) {
 	$(document).foundation('equalizer', 'reflow');
 }
 
-
-
+// https://jsperf.com/jquery-visibility-test
+$.fn.isVisible = function() {
+  return $.expr.filters.visible(this[0]);
+};
 function update_nutrition_image_copy() {
 
 	// width big enough to display a copy next to nutrition table?
-	if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
-
-		$('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
+  if ($("#nutrition_data_table").isVisible() && $('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+    $('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
 	}
 	else {
 		$('#nutrition_image_copy').hide();
@@ -493,7 +494,6 @@ function update_display(imagefield, first_display) {
 	$(document).foundation('equalizer', 'reflow');
 }
 
-
 (function( $ ){
 
 	var settings = {
@@ -573,7 +573,7 @@ function update_display(imagefield, first_display) {
 			if (! stringStartsWith(id, 'manage')) {
 
 			html += '<div style="clear:both" class="command upload_image_div">';
-			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"><i class="fi-camera"></i> ' + Lang.upload_image
+			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"><i class="icon-photo_camera"></i> ' + Lang.upload_image
 + '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
 + '" data-url="/cgi/product_image_upload.pl" multiple '
 + 'style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;font-size:40px;"/>'
@@ -608,6 +608,7 @@ function update_display(imagefield, first_display) {
 	var imagefield = id;
 
    $('#imgupload_' + id).fileupload({
+        sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product_image_upload.pl',
 		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'imagefield', value: imagefield}, {name: 'code', value: code} ],
@@ -715,5 +716,9 @@ function update_display(imagefield, first_display) {
     }
 
   };
+
+  $('#back-btn').click(function() {
+	window.location.href = window.location.origin + '/product/' + window.code;
+  });
 
 })( jQuery );

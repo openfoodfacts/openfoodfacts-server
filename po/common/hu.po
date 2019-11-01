@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:15\n"
+"PO-Revision-Date: 2019-10-30 07:30\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -78,6 +78,7 @@ msgstr "Kedves <NAME>!\n\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
+# please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
 msgstr "Köszönjük, hogy csatlakozott a(z) <<site_name>>-hoz!"
@@ -134,17 +135,20 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "A termékoldalt szerkesztette még"
 
+# Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"APK Androidhoz\" />"
 
+# DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world-hu.openfoodfacts.org/files/off.apk"
 
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Elérhető Google Play-en\" width=\"135\" height=\"47\" />"
+msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -190,12 +194,12 @@ msgid "You can also help to fund the Open Food Facts project"
 msgstr "Ön is segíthet az Open Food Facts program finanszírozásában"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p>A(z) <<site_name>> nonprofit egyesület által készült, független az ipartól. Mindenkinek készült, sokak által, a közösség támogatásával. Ön is támogathatja a munkánkat <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">az Open Food Facts-nek szánt adománnyal</a> továbbá a <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo search engine használatával</a>.<br/><b>Köszönjük!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
-msgstr "Teljesítse a küldetést"
+msgid "Donate to support our work"
+msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
@@ -365,6 +369,14 @@ msgctxt "data_source"
 msgid "Data source"
 msgstr "Adatforrás"
 
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr ""
+
+msgctxt "data_sources_s"
+msgid "data source"
+msgstr ""
+
 msgctxt "debug_p"
 msgid "debug"
 msgstr "debug"
@@ -410,8 +422,8 @@ msgid "Donate to Open Food Facts"
 msgstr "Adományozzon az Open Food Facts programnak"
 
 msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -531,7 +543,7 @@ msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgo
 msgstr "Helytelen felhasználónév vagy jelszó! <a href=\"/cgi/reset_password.pl\">Elfelejtetted a jelszavadat?</a>"
 
 msgctxt "error_database"
-msgid "An error occured while reading the data, try to refresh the page."
+msgid "An error occurred while reading the data, try to refresh the page."
 msgstr "Hiba történt az adatok olvasása közben, próbáld frissíteni az oldalt!"
 
 msgctxt "error_different_passwords"
@@ -642,7 +654,7 @@ msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Jogi nyilatkozat</a> -
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "és a <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook csoport a támogatóknak</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -663,8 +675,8 @@ msgid "/code-of-conduct"
 msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
-msgid "Data"
-msgstr "Adat"
+msgid "Data, API and SDKs"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -696,8 +708,8 @@ msgstr "/cgi/top_translators.pl"
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
-"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr "Kövessen minket a következőkön: <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>, <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> és <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
+msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -781,7 +793,7 @@ msgid "See you soon!"
 msgstr "Viszontlátásra!"
 
 msgctxt "graph_count"
-msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
+msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
 msgstr "%d termék felel meg a keresési követelményeknek, ezek közül %i esetén van a grafikon tengelyének megfelelő adat megadva."
 
 msgctxt "graph_title"
@@ -846,6 +858,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "Be kell küldened a vonalkód számát, vagy egy olyan képet a termékről, amin látható a vonalkód!"
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "Teljes méret"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "Ezt a fájlt a(z) %s termékre töltötték fel, és az %s licenccel."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr ""
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr ""
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(Eredeti kép)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Termékek, amiket hozzáadott és befejezésre vár"
@@ -865,10 +901,6 @@ msgstr "Összetevők"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "Összetevők"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "Összetevők elemzése"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -939,12 +971,12 @@ msgid "Products that do not contain the ingredient %s"
 msgstr "Termékek, amelyek nem tartalmaznak %s összetevőt"
 
 msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1282,7 +1314,7 @@ msgid "Products not manufactured or processed in %s"
 msgstr "Termékek, amelyeknek nem %s a gyártás vagy feldolgozás helye"
 
 msgctxt "map_count"
-msgid "%d products match the search criterias, of which %i products have a known production place."
+msgid "%d products match the search criteria, of which %i products have a known production place."
 msgstr "%d termék felel meg a keresési feltételeknek, amely(ek) közül %i termék rendelkezik ismert gyártási hellyel."
 
 msgctxt "map_title"
@@ -1357,8 +1389,8 @@ msgid "Move the images to another product"
 msgstr "A képek áthelyezése egy másik termékhez"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d termék"
+msgid "%s products"
+msgstr ""
 
 msgctxt "name"
 msgid "Name"
@@ -2099,8 +2131,8 @@ msgid "Scatter plot"
 msgstr "Szórásdiagram"
 
 msgctxt "search_graph_blog"
-msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>→ tudjon meg többet a(z) <<site_name>> grafikonjairól: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafikonok 3 kattintással</a> (blog).</p>"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr ""
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2292,9 +2324,8 @@ msgid "Serving size"
 msgstr "Adag"
 
 msgctxt "serving_size_prepared"
-msgid ""
+msgid "Prepared serving size"
 msgstr ""
-""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2339,6 +2370,10 @@ msgstr "Open Food Facts (Nyílt Élelmiszer Tények)"
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Rendezés"
+
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr ""
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2534,21 +2569,22 @@ msgstr "A világ minden tájáról származó eredmények megtekintése"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"\">Why it matters</a>"
-msgstr "Az információknak és adatoknak a termék csomagolásáról és címkéjéről kell származniuk (nem más weboldalról vagy a gyártó honlapjáról), a képeket pedig önnek kell készítenie.<br/>\n"
-"→ <a href=\"\">Miért fontos</a>"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Webhely vagy blog címe"
 
+# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr ""
 
+# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2641,6 +2677,10 @@ msgstr "Néhány adatot és képet közvetlenül a gyártó, a Fleury Michon biz
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "Néhány adatot ehhez a termékhez közvetlenül a gyártó, a(z) %s biztosított"
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr ""
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2833,7 +2873,7 @@ msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "12 hetes kortól legfeljebb 11 hónapos korig"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
@@ -2917,7 +2957,7 @@ msgstr "Wikipédia"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "Funkciók"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
@@ -3025,50 +3065,6 @@ msgstr "A termékeket nem ellenőrizte: %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr ""
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "A termékeket szerkesztette: %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "A termékeket nem szerkesztette: %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr ""
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr ""
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "%s által fényképezett termékek"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "A termékeket nem fotózta: %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr ""
-
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "A termékeket ellenőrizte: %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "A termékeket nem ellenőrizte: %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
 msgstr "A termékeket korrigálta: %s"
 
 msgctxt "correctors_without_products"
@@ -3112,8 +3108,12 @@ msgid "Withdrawal date"
 msgstr "Visszavonás dátuma"
 
 msgctxt "obsolete_since_date_note"
-msgid "Format: YYYY or YYYY-MM"
-msgstr "Formátum: ÉÉÉÉ, vagy ÉÉÉÉ-HH"
+msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
+msgstr ""
+
+msgctxt "obsolete_since_date_example"
+msgid "2019-09-30 or 2019-09 or 2019"
+msgstr ""
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3138,34 +3138,6 @@ msgstr "Szerezd meg az iPad alkalmazást"
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
 msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "Termelői termék azonosító"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "Figyelmeztetés"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "Előkészítés"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "Recept ötlet"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "Származás"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "Vevőszolgálat"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "Gyártó"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3201,7 +3173,7 @@ msgstr ""
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "egy adagra"
 
 msgctxt "methodology"
 msgid "Methodology"
@@ -3228,7 +3200,7 @@ msgid "Help translate the %s to %s"
 msgstr ""
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
 msgstr ""
 
 msgctxt "translate_taxonomy_add"
@@ -3241,15 +3213,15 @@ msgstr ""
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "lefordítva"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "Lefordítandó"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "Jelenlegi fordítás"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3261,5 +3233,395 @@ msgstr "Nem"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
+msgstr ""
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr ""
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr ""
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr ""
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "Összetevők elemzése"
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "Az elemzés kizárólag a felsorolt összetevőkre épül, de nem veszi figyelembe a feldolgozási módszereket."
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr ""
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr ""
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr ""
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr ""
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr ""
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr ""
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_title"
+msgid "Import a product data file"
+msgstr ""
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_description"
+msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
+msgstr ""
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_format"
+msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
+msgstr ""
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "upload_product_data_file"
+msgid "Upload a file with product data"
+msgstr ""
+
+msgctxt "uploading_file"
+msgid "File being uploaded."
+msgstr ""
+
+msgctxt "upload_error"
+msgid "The file could not be uploaded."
+msgstr ""
+
+msgctxt "import_data_file_select_format_title"
+msgid "Select and import data"
+msgstr ""
+
+msgctxt "import_data_file_select_format_description"
+msgid "Use the form below to indicate which columns to import and what data they contain."
+msgstr ""
+
+msgctxt "import_data"
+msgid "Import data"
+msgstr ""
+
+msgctxt "import_file_rows_columns"
+msgid "The uploaded file contains %s rows and %s columns."
+msgstr ""
+
+msgctxt "import_file_selected_columns"
+msgid "%s columns out of %s have been selected and will be imported."
+msgstr ""
+
+msgctxt "fields_group_identification"
+msgid "Product identification"
+msgstr ""
+
+msgctxt "fields_group_origins"
+msgid "Origins"
+msgstr ""
+
+msgctxt "fields_group_ingredients"
+msgid "Ingredients"
+msgstr "Összetevők"
+
+msgctxt "fields_group_nutrition"
+msgid "Nutrition facts"
+msgstr "Tápértékadatok"
+
+msgctxt "fields_group_nutrition_other"
+msgid "Optional nutrition facts"
+msgstr ""
+
+msgctxt "fields_group_other"
+msgid "Other information"
+msgstr "Egyéb információk"
+
+msgctxt "fields_group_images"
+msgid "Product photos"
+msgstr ""
+
+msgctxt "image_front_url"
+msgid "Link to front product photo"
+msgstr ""
+
+msgctxt "image_ingredients_url"
+msgid "Link to ingredients list photo"
+msgstr ""
+
+msgctxt "image_nutrition_url"
+msgid "Link to nutrition facts table photo"
+msgstr ""
+
+msgctxt "image_other_url"
+msgid "Link to other product photo"
+msgstr ""
+
+msgctxt "labels_specific"
+msgid "Specific label"
+msgstr ""
+
+msgctxt "categories_specific"
+msgid "Specific category"
+msgstr ""
+
+msgctxt "select_a_field"
+msgid "Select a field"
+msgstr ""
+
+msgctxt "specify"
+msgid "Specify"
+msgstr ""
+
+msgctxt "value_unit_dropdown"
+msgid "In the dropdown menu on the right, specify if the column contains:"
+msgstr ""
+
+msgctxt "value_unit_dropdown_value_unit"
+msgid "the value and the unit"
+msgstr ""
+
+msgctxt "value_unit_dropdown_value_specific_unit"
+msgid "the value in a specific unit"
+msgstr ""
+
+msgctxt "value_unit_dropdown_value"
+msgid "only the value, with the unit in another column"
+msgstr ""
+
+msgctxt "value_unit_dropdown_unit"
+msgid "only the unit, with the value in another column"
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "specific_tag_label"
+msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr ""
+
+msgctxt "specific_tag_label_value"
+msgid "Type the name of the label in the text field on the right."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "specific_tag_category"
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr ""
+
+msgctxt "specific_tag_category_value"
+msgid "Type the name of the category in the text field on the right."
+msgstr ""
+
+msgctxt "value"
+msgid "Value"
+msgstr ""
+
+msgctxt "value_unit"
+msgid "Value + Unit"
+msgstr ""
+
+msgctxt "value_in_l"
+msgid "Value in L"
+msgstr ""
+
+msgctxt "value_in_dl"
+msgid "Value in dl"
+msgstr ""
+
+msgctxt "value_in_cl"
+msgid "Value in cl"
+msgstr ""
+
+msgctxt "value_in_ml"
+msgid "Value in ml"
+msgstr ""
+
+msgctxt "value_in_kg"
+msgid "Value in kg"
+msgstr ""
+
+msgctxt "value_in_g"
+msgid "Value in g"
+msgstr ""
+
+msgctxt "value_in_mg"
+msgid "Value in mg"
+msgstr ""
+
+msgctxt "value_in_mcg"
+msgid "Value in μg"
+msgstr ""
+
+msgctxt "value_in_kcal"
+msgid "Value in kcal"
+msgstr ""
+
+msgctxt "value_in_kj"
+msgid "Value in kJ"
+msgstr ""
+
+msgctxt "value_in_percent"
+msgid "Value in %"
+msgstr ""
+
+msgctxt "no_owner_defined"
+msgid "Please log-in to use this feature."
+msgstr ""
+
+msgctxt "organization"
+msgid "Organization"
+msgstr ""
+
+msgctxt "column_in_file"
+msgid "Column in file"
+msgstr ""
+
+msgctxt "field_on_site"
+msgid "Field on %s"
+msgstr ""
+
+msgctxt "producers_platform"
+msgid "Platform for producers"
+msgstr ""
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_description"
+msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
+msgstr ""
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_private_database"
+msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
+msgstr ""
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_licence"
+msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
+msgstr ""
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_product_data"
+msgid "Import product data"
+msgstr ""
+
+# "product photos" in this sentence means data for many products, not just one product
+msgctxt "import_product_photos"
+msgid "Import product photos"
+msgstr ""
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "export_product_data_photos"
+msgid "Export product data and photos to the public database"
+msgstr ""
+
+msgctxt "export_product_data_photos_please_check"
+msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
+msgstr ""
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr "Mégse"
+
+msgctxt "collapsed_changes"
+msgid "Collapsed changes"
+msgstr ""
+
+msgctxt "data_quality_p"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_s"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality"
+msgid "data quality"
+msgstr ""
+
+msgctxt "data_quality_bugs_p"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_bugs_s"
+msgid "data quality bug"
+msgstr ""
+
+msgctxt "data_quality_bugs"
+msgid "data quality bugs"
+msgstr ""
+
+msgctxt "data_quality_info_p"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info_s"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_info"
+msgid "data quality info"
+msgstr ""
+
+msgctxt "data_quality_warnings_p"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_warnings_s"
+msgid "data quality warning"
+msgstr ""
+
+msgctxt "data_quality_warnings"
+msgid "data quality warnings"
+msgstr ""
+
+msgctxt "data_quality_errors_p"
+msgid "data quality errors"
+msgstr ""
+
+msgctxt "data_quality_errors_s"
+msgid "data quality error"
+msgstr ""
+
+msgctxt "data_quality_errors"
+msgid "data quality errors"
+msgstr ""
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr ""
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr ""
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr ""
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr ""
+
+msgctxt "improvements"
+msgid "possible improvements"
 msgstr ""
 

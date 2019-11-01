@@ -10,7 +10,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Import qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 # dummy product for testing
 
@@ -43,5 +43,10 @@ match_taxonomy_tags($product_ref, "some_field", "emb_codes",
 { split => ',|( \/ )|\r|\n|\+|:|;|=|\(|\)|\b(et|par|pour|ou)\b', });
 
 is($product_ref->{emb_codes}, "EMB59481");
+
+$product_ref = { "product_name" => "Champagne brut 35,5 CL" };
+assign_quantity_from_field($product_ref, "product_name");
+is($product_ref->{product_name}, "Champagne brut");
+is($product_ref->{quantity}, "35,5 CL");
 
 done_testing();

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -40,7 +40,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -53,7 +53,7 @@ use Data::Dumper;
 
 use Text::CSV;
 
-my $csv = Text::CSV->new ( { binary => 1 , sep_char => ";" } )  # should set binary attribute.
+my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
 $lc = "fr";
@@ -68,10 +68,10 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/srv/off/imports/systemeu/data/SUYQD_AKENEO_PU_201902.csv";
-my $categories_csv_file = "/srv/off/imports/systemeu/systeme-u-rubriques.csv";
-my $imagedir = "/srv/off/imports/systemeu/images";
-my $products_without_ingredients_lists = "/srv/off/imports/systemeu/systeme-u-products-without-ingredients-lists.txt";
+my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_201905_ok.csv";
+my $categories_csv_file = "/srv2/off/imports/systemeu/systeme-u-rubriques.csv";
+my $imagedir = "/srv2/off/imports/systemeu/images";
+my $products_without_ingredients_lists = "/srv2/off/imports/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
 #my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
 #my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
@@ -171,6 +171,7 @@ my @param_sorted_langs = qw(fr);
 
 my %global_params = (
 	lc => 'fr',
+	lang => 'fr',
 	countries => "France",
 	brands => "U",
 	stores => "Magasins U",
@@ -413,7 +414,6 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			my $code = $imported_product_ref->{UGC_ean};
 			
 
-			# next if $code ne "3256226790691";				
 	
 			if ($code eq '') {
 				print STDERR "empty code\n";
@@ -422,11 +422,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				print "EMPTY CODE\n";
 				next;
 			}			
-	
-			
-		
-			
-			# next if ($code ne "3256220126366");
+				
+			# next if ($code ne "3256225717477");				
 			
 			# next if ($i < 2665);
 			
@@ -465,7 +462,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				if (1 and (not $product_ref)) {
 					print "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
-					$product_ref = init_product($code);
+					$product_ref = init_product($User_id, undef, $code);
 					$product_ref->{interface_version_created} = "import_systemeu.pl - version 2018/03/04";
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
@@ -871,10 +868,13 @@ ble => "bouteille",
 				if ((defined $imported_product_ref->{UGC_MesureNette}) and ($imported_product_ref->{UGC_MesureNette} ne "")) {
 					my $quantity = $imported_product_ref->{UGC_MesureNette} . " " . $imported_product_ref->{UGC_uniteMesureNette};
 					$quantity =~ s/_net//ig;
+					# KILOGRAMME_NET_EGOUTTE
+					$quantity =~ s/_egoutte//ig;
 					$quantity =~ s/litre/l/ig;
 					$quantity =~ s/kilogramme/kg/ig;			
 					# Quantité : 12.0000 UNITE_DE_CONSOMMATION
 					$quantity =~ s/\.(0)+ UNITE_DE_CONSOMMATION/ unités/ig;		
+					$quantity =~ s/UNITE_DE_CONSOMMATION/unités/ig;		
 					$params{quantity} = $quantity;
 					print STDERR "setting quantity from UGC_MesureNette: $quantity\n";
 				}
@@ -1003,7 +1003,7 @@ ble => "bouteille",
 							$tag =~ s/\s+$//;
 
 							if (defined $taxonomy_fields{$field}) {
-								$tagid = get_taxonomyid(canonicalize_taxonomy_tag($params{lc}, $field, $tag));
+								$tagid = get_taxonomyid($params{lc}, canonicalize_taxonomy_tag($params{lc}, $field, $tag));
 							}
 							else {
 								$tagid = get_fileid($tag);
@@ -1257,6 +1257,8 @@ Sel (g) : 0.04
 Cette pâte sablée contient 6 parts d'environ 47 g."
 
 Minéraux  0 , Minéraux Calcium (mg) 4.1 , Minéraux Magnésium (mg) 1.7, Minéraux Potassium (mg) .9 , Minéraux Sodium (mg) 2.7 , Minéraux Bicarbonates (mg) 25.8 , Minéraux Sulfates (mg) 1.1 , Minéraux Nitrates(mg) .8 , Minéraux Chlorure (mg) .9
+
+Energie (kJ)  591 , Energie (kcal)  142 , Protéines (g)  12.5 , Glucides (g)  .7 , Glucides (g) Sucres (g) .7 , Graisses (g)  10 , Graisses (g) Acides gras saturés (g) 2.6 , Graisses (g) Acides gras polyinsaturés (g) 1.9 , Graisses (g) Oméga 3 (g) 485 , Graisses (g) Oméga 3 DHA (g) 132 , Fibres alimentaires (g)  0 , Sel (g)  .3
 			
 TXT
 ;			
@@ -1291,7 +1293,14 @@ TXT
 			
 			if ((defined $imported_product_ref->{UGC_nutritionalValues}) and ($imported_product_ref->{UGC_nutritionalValues} ne "xyz")) {
 			
-			my $nutrients = lc($imported_product_ref->{UGC_nutritionalValues});		
+			my $nutrients = $imported_product_ref->{UGC_nutritionalValues};		
+			
+			# Omega 3 is in mg even if the unit is listed as g...
+			# Graisses (g) Oméga 3 (g) 485 , Graisses (g) Oméga 3 DHA (g) 132 , Fibres alimentaires (g)  0 , Sel (g)  .3
+			$nutrients =~ s/Oméga 3 \(g\)/Oméga 3 \(mg\)/ig;
+			$nutrients =~ s/Oméga 3 DHA \(g\)/Oméga 3 DHA \(mg\)/ig;
+			
+			$nutrients = lc($nutrients);
 			
 			my $seen_salt = 0;
 			
@@ -1642,7 +1651,7 @@ TXT
 				
 				compute_unknown_nutrients($product_ref);
 		
-				ProductOpener::SiteQuality::check_quality($product_ref);
+				ProductOpener::DataQuality::check_quality($product_ref);
 			
 			
 				#print STDERR "Storing product code $code\n";

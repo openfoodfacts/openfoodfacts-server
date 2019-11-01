@@ -21,7 +21,7 @@
 package ProductOpener::Products;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -30,7 +30,10 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 		&normalize_code
+		&split_code
+		&product_id_for_user
 		&product_path
+		&product_path_from_id
 		&product_exists
 		&init_product
 		&retrieve_product
@@ -45,16 +48,21 @@ BEGIN
 		&index_product
 		&log_change
 
+		&get_change_userid_or_uuid
 		&compute_codes
+		&compute_completeness_and_missing_tags
 		&compute_product_history_and_completeness
 		&compute_languages
 		&compute_changes_diff_text
+		&compute_data_sources
+		&compute_sort_key
 
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
-		
+
 		&make_sure_numbers_are_stored_as_numbers
+		&change_product_server_or_code
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -65,7 +73,6 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -83,6 +90,7 @@ use Storable qw(dclone);
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
+use Scalar::Util qw(looks_like_number);
 
 sub make_sure_numbers_are_stored_as_numbers($) {
 
@@ -91,9 +99,9 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 	# Perl scalars are not typed, the internal type depends on the last operator
 	# used on the variable... e.g. if it is printed, then it's converted to a string.
 	# See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
-	
+
 	# Force all numbers to be stored as numbers in .sto files and MongoDB
-	
+
 	if (defined $product_ref->{nutriments}) {
 		foreach my $field (keys %{$product_ref->{nutriments}}) {
 			# _100g and _serving need to be numbers
@@ -101,16 +109,16 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 				# Store as number
 				$product_ref->{nutriments}{$field} += 0.0;
 			}
-			elsif ($field =~ /_(modifier|unit)/) {
+			elsif ($field =~ /_(modifier|unit|label)$/) {
 				# Store as string
 				$product_ref->{nutriments}{$field} .= "";
 			}
 			# fields like "salt", "salt_value"
 			# -> used internally, should not be used by apps
 			# store as numbers
-			else {	
+			elsif (looks_like_number($product_ref->{nutriments}{$field}))  {
 				# Store as number
-				$product_ref->{nutriments}{$field} += 0.0;			
+				$product_ref->{nutriments}{$field} += 0.0;
 			}
 		}
 	}
@@ -146,9 +154,11 @@ sub normalize_code($) {
 	return $code;
 }
 
+# - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
+# - When products are private, the _id is [owner]/[code] (e.g. user-abc/1234567890123 or org-xyz/1234567890123
 
 # FIXME: bug #677
-sub product_path($) {
+sub split_code($) {
 
 	my $code = shift;
 	$code !~ /^\d+$/ and return "invalid";
@@ -165,12 +175,61 @@ sub product_path($) {
 	return $path;
 }
 
+sub product_id_for_user($$$) {
+
+	my $userid = shift;
+	my $orgid = shift;
+	my $code = shift;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if (defined $orgid) {
+			return "org-" . $orgid . "/" . $code;
+		}
+		else {
+			return "user-" . $userid . "/" . $code;
+		}
+	}
+	else {
+		return $code;
+	}
+}
+
+sub product_path_from_id($) {
+
+	my $product_id = shift;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id =~ /\//)) {
+		return $` . "/" . split_code($');
+	}
+	else {
+		return split_code($product_id);
+	}
+
+}
+
+sub product_path($) {
+
+	my $product_ref = shift;
+
+	# Previous version of product_path() was expecting the code instead of a reference to the product object
+	if (ref($product_ref) ne 'HASH') {
+		die("Argument of product_path() must be a reference to the product hash object, not a scalar: $product_ref\n");
+	}
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		return $product_ref->{owner} . "/" . split_code($product_ref->{code});
+	}
+	else {
+		return split_code($product_ref->{code});
+	}
+}
+
 
 sub product_exists($) {
 
-	my $code = shift;
+	my $id = shift;
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($id);
 	if (-e "$data_root/products/$path") {
 
 		my $product_ref = retrieve("$data_root/products/$path/product.sto");
@@ -186,13 +245,17 @@ sub product_exists($) {
 	}
 }
 
-sub init_product($) {
+sub init_product($$$) {
 
+	my $userid = shift;
+	my $orgid = shift;
 	my $code = shift;
 
-	my $creator = $User_id;
+	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code }) if $log->is_debug();
 
-	if ((not defined $User_id) or ($User_id eq '')) {
+	my $creator = $userid;
+
+	if ((not defined $userid) or ($userid eq '')) {
 		$creator = "openfoodfacts-contributors";
 	}
 
@@ -204,9 +267,16 @@ sub init_product($) {
 		creator=>$creator,
 		rev=>0,
 	};
-	if (defined $lc) {
-		$product_ref->{lc} = $lc;
-		$product_ref->{lang} = $lc;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		my $owner = "user-" . $userid;
+		if (defined $orgid) {
+			$owner = "org-" . $orgid;
+		}
+		$product_ref->{owner} = $owner;
+		$product_ref->{_id} = $owner . "/" . $code;
+
+		$log->debug("init_product - private_products enabled", { userid => $userid, orgid => $orgid, code => $code, owner => $owner, product_id => $product_ref->{_id} }) if $log->is_debug();
 	}
 
 	use ProductOpener::GeoIP;
@@ -215,17 +285,42 @@ sub init_product($) {
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
 		if (defined param('cc')) {
-			$country = param('cc');
+			$country = lc(param('cc'));
+			$country =~ s/^en://;
+
+			# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
+			my %lc_overrides = (
+				au => "en",
+				es => "es",
+				it => "it",
+				de => "de",
+				uk => "en",
+				gb => "en",
+				pt => "pt",
+				nl => "nl",
+				us => "en",
+				ie => "en",
+				nz => "en",
+			);
+
+			if (defined $lc_overrides{$country}) {
+				$lc = $lc_overrides{$country};
+			}
 		}
 		else {
 			$country = "france";
 		}
 	}
-	
+
 	# ugly fix: elcoco -> Spain
 	if ($creator eq 'elcoco') {
 		$country = "spain";
-	}	
+	}
+
+	if (defined $lc) {
+		$product_ref->{lc} = $lc;
+		$product_ref->{lang} = $lc;
+	}
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
@@ -235,7 +330,7 @@ sub init_product($) {
 				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
 				$product_ref->{$field . "_tags" } = [];
 				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid("en",$tag);
 				}
 			}
 			# if lc is not defined or is set to en, set lc to main language of country
@@ -253,20 +348,25 @@ sub send_notification_for_product_change($$) {
 
 	my $product_ref = shift;
 	my $action = shift;
-	
-	my $ua = LWP::UserAgent->new();
-	
-	my $response = $ua->post( "https://robotoff.openfoodfacts.org/api/v1/webhook/product",  {
-		'barcode' => $product_ref->{code},
-		'action' => $action,
-		'server_domain' => "api." . $server_domain
-	} );
+
+	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
+		my $ua = LWP::UserAgent->new();
+
+		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
+			'barcode' => $product_ref->{code},
+			'action' => $action,
+			'server_domain' => "api." . $server_domain
+		} );
+	}
 }
 
 sub retrieve_product($) {
 
-	my $code = shift;
-	my $path = product_path($code);
+	my $product_id = shift;
+	my $path = product_path_from_id($product_id);
+
+	$log->debug("retrieve_product", { product_id => $product_id, path => $path } ) if $log->is_debug();
+
 	my $product_ref = retrieve("$data_root/products/$path/product.sto");
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
@@ -278,30 +378,30 @@ sub retrieve_product($) {
 
 sub retrieve_product_or_deleted_product($$) {
 
-        my $code = shift;
+	my $id = shift;
 	my $deleted_ok = shift;
-        my $path = product_path($code);
-        my $product_ref = retrieve("$data_root/products/$path/product.sto");
+	my $path = product_path_from_id($id);
+	my $product_ref = retrieve("$data_root/products/$path/product.sto");
 
-        if ((defined $product_ref) and ($product_ref->{deleted})
-		and (not $deleted_ok)) {
-                return;
-        }
+	if ((defined $product_ref) and ($product_ref->{deleted})
+	and (not $deleted_ok)) {
+			return;
+	}
 
-        return $product_ref;
+	return $product_ref;
 }
 
 
 sub retrieve_product_rev($$) {
 
-	my $code = shift;
+	my $id = shift;
 	my $rev = shift;
 
 	if ($rev !~ /^\d+$/) {
 		return;
 	}
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($id);
 	my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
@@ -312,14 +412,77 @@ sub retrieve_product_rev($$) {
 }
 
 
+sub change_product_server_or_code($$$) {
+
+	# Currently only called by admins, can cause issues because of bug #677
+
+	my $product_ref = shift;
+	my $new_code = shift;
+	my $errors_ref = shift;
+
+	my $code = $product_ref->{code};
+	my $new_server = "";
+	my $new_data_root = $data_root;
+
+	if ($new_code =~ /^([a-z]+)$/) {
+		$new_server = $1;
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
+			and ($options{other_servers}{$new_server}{data_root} ne $data_root)) {
+			$new_code = $code;
+			$new_data_root = $options{other_servers}{$new_server}{data_root};
+		}
+	}
+
+	$new_code = normalize_code($new_code);
+	if ($new_code =~ /^\d+$/) {
+	# check that the new code is available
+		if (-e "$new_data_root/products/" . product_path_from_id($new_code)) {
+			push @{$errors_ref}, lang("error_new_code_already_exists");
+			$log->warn("cannot change product code, because the new code already exists", { code => $code, new_code => $new_code, new_server => $new_server }) if $log->is_warn();
+		}
+		else {
+			$product_ref->{old_code} = $code;
+			$code = $new_code;
+			$product_ref->{code} = $code;
+			if ($new_server ne '') {
+				$product_ref->{new_server} = $new_server;
+			}
+			$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
+		}
+	}
+}
+
+sub compute_sort_key($) {
+
+	my $product_ref = shift;
+
+	# put obsolete products last  		(add 200000000000 when products are not obsolete)
+	# then put complete products first	(add 100000000000 when products are complete)
+	# otherwise sort by last_modified_t (e.g.  1571384133)
+
+	my $sortkey = $product_ref->{last_modified_t};
+
+	if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
+		$sortkey += 200000000000;
+	}
+	if ($product_ref->{complete}) {
+		$sortkey += 100000000000;
+	}
+
+	$product_ref->{sortkey} = $sortkey + 0;
+}
+
 sub store_product($$) {
 
 	my $product_ref = shift;
 	my $comment = shift;
 
 	my $code = $product_ref->{code};
-	my $path = product_path($code);
+	my $product_id = $product_ref->{_id};
+	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
+
+	$log->debug("store_product - start", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	# In case we need to move a product from OFF to OBF etc.
 	# then we first move the existing files (product and images)
@@ -331,13 +494,10 @@ sub store_product($$) {
 	my $products_collection = get_products_collection();
 	my $new_products_collection = $products_collection;
 
-
-	# Changing the code?
-	# 26/01/2017 - disallow code changes until we fix #677
-	if ($admin and (defined $product_ref->{old_code})) {
+	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
-		my $old_path =  product_path($old_code);
+		my $old_path =  product_path_from_id($old_code);
 
 
 		if (defined $product_ref->{new_server}) {
@@ -372,11 +532,24 @@ sub store_product($$) {
 
 		if ((! -e "$new_data_root/products/$path")
 			and (! -e "$new_www_root/images/products/$path")) {
-			use File::Copy;
+			# File::Copy move() is intended to move files, not
+			# directories. It does work on directories if the
+			# source and target are on the same file system
+			# (in which case the directory is just renamed),
+			# but fails otherwise.
+			# An alternative is to use File::Copy::Recursive
+			# but then it will do a copy even if it is the same
+			# file system...
+			# Another option is to call the system mv command.
+			#
+			# use File::Copy;
+
+			use File::Copy::Recursive qw(dirmove);
 			$log->debug("moving product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path" }) if $log->is_debug();
-			move("$data_root/products/$old_path", "$new_data_root/products/$path") or $log->error("could not move product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $! });
+			dirmove("$data_root/products/$old_path", "$new_data_root/products/$path") or $log->error("could not move product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $! });
+
 			$log->debug("moving product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path" }) if $log->is_debug();
-			move("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or $log->error("could not move product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path", error => $! });
+			dirmove("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or $log->error("could not move product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path", error => $! });
 			$log->debug("images and data moved");
 
 			delete $product_ref->{old_code};
@@ -418,7 +591,11 @@ sub store_product($$) {
 		# The product was updated after the form was loaded..
 
 		# New product over deleted product?
-		if ($rev == 0) {
+		# can be also bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2321
+		# where 2 changes were recorded in the same rev
+		# to avoid similar bugs, and to have the same number of changes and rev,
+		# assign the number of changes to the rev
+		if ($rev < $current_rev) {
 			$rev = $current_rev;
 		}
 	}
@@ -437,6 +614,13 @@ sub store_product($$) {
 		$product_ref->{creator} = $creator;
 	}
 
+	if (defined $product_ref->{owner}) {
+		$product_ref->{owners_tags} = $product_ref->{owner};
+	}
+	else {
+		delete $product_ref->{owners_tags};
+	}
+
 	push @$changes_ref, {
 		userid=>$User_id,
 		ip=>remote_addr(),
@@ -445,16 +629,15 @@ sub store_product($$) {
 		rev=>$rev,
 	};
 
-
 	compute_codes($product_ref);
 
 	compute_languages($product_ref);
 
 	compute_product_history_and_completeness($product_ref, $changes_ref);
 
-	# sort_key
-	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
-	$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
+	compute_data_sources($product_ref);
+
+	compute_sort_key($product_ref);
 
 	if (not defined $product_ref->{_id}) {
 		$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string
@@ -474,11 +657,19 @@ sub store_product($$) {
 
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
-	
 
-	# 2018-12-26: remove obsolete products from the database
-	# another option could be to keep them and make them searchable only in certain conditions
-	if (($product_ref->{deleted}) or ($product_ref->{obsolete})) {
+	my $change_ref = @$changes_ref[-1];
+	my $diffs = $change_ref->{diffs};
+	my %diffs = %{$diffs};
+	if ((!$diffs) or (!keys %diffs)) {
+		$log->info("changes not stored because of empty diff", { change_ref => $change_ref }) if $log->is_info();
+		# 2019/09/12 - this was deployed today, but it causes changes not to be saved
+		# compute_product_history_and_completeness() was not written to make sure that it sees all changes
+		# keeping the log and disabling the "return 0" so that all changes are saved
+		#return 0;
+	}
+
+	if ($product_ref->{deleted}) {
 		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
 	else {
@@ -495,10 +686,96 @@ sub store_product($$) {
 	symlink("$rev.sto", $link) or $log->error("could not symlink to new revision", { source => "$new_data_root/products/$path/$rev.sto", link => $link, error => $! });
 
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
-
-	my $change_ref = @$changes_ref[-1];
 	log_change($product_ref, $change_ref);
 
+	$log->debug("store_product - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
+
+	return 1;
+}
+
+# Update the data-sources tag from the sources field
+# This function is for historic products, new sources should set the data_sources_tags field directly
+# through import_csv_file.pl / upload_photos.pl etc.
+
+sub compute_data_sources($) {
+
+	my $product_ref = shift;
+
+	my %data_sources = ();
+
+	if (defined $product_ref->{sources}) {
+		foreach my $source_ref (@{$product_ref->{sources}}) {
+
+			if ($source_ref->{id} eq 'casino') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Casino"} = 1;
+			}
+			if ($source_ref->{id} eq 'carrefour') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Carrefour"} = 1;
+			}
+			if ($source_ref->{id} eq 'ferrero') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Ferrero"} = 1;
+			}
+			if ($source_ref->{id} eq 'fleurymichon') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Fleury Michon"} = 1;
+			}
+			if ($source_ref->{id} eq 'iglo') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Iglo"} = 1;
+			}
+			if ($source_ref->{id} eq 'ldc') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - LDC"} = 1;
+			}
+			if ($source_ref->{id} eq 'sodebo') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Sodebo"} = 1;
+			}
+			if ($source_ref->{id} eq 'systemeu') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Systeme U"} = 1;
+			}
+			if ($source_ref->{id} eq 'biscuiterie-sainte-victoire') {
+				$data_sources{"Producers"} = 1;
+				$data_sources{"Producer - Biscuiterie Sainte Victoire"} = 1;
+			}
+
+			if ($source_ref->{id} eq 'openfood-ch') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - FoodRepo / openfood.ch"} = 1;
+			}
+			if ($source_ref->{id} eq 'usda-ndb') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - USDA NDB"} = 1;
+			}
+		}
+	}
+
+
+	# Add a data source forapps
+
+	%data_sources = ();
+
+	if (defined $product_ref->{editors_tags}) {
+		foreach my $editor (@{$product_ref->{editors_tags}}) {
+
+			if ($editor =~ /\./) {
+
+				my $app = $`;
+
+				$data_sources{"Apps"} = 1;
+				$data_sources{"App - $app"} = 1;
+			}
+		}
+	}
+
+	if ((scalar keys %data_sources) > 0) {
+		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
+		compute_field_tags($product_ref, "en", "data_sources");
+	}
 }
 
 
@@ -510,6 +787,10 @@ sub compute_completeness_and_missing_tags($$$) {
 	my $previous_ref = shift;
 
 	my $lc = $product_ref->{lc};
+	if (not defined $lc) {
+		# Try lang field
+		$lc = $product_ref->{lang};
+	}
 
 	# Compute completeness and missing tags
 
@@ -519,6 +800,8 @@ sub compute_completeness_and_missing_tags($$$) {
 
 	my $complete = 1;
 	my $notempty = 0;
+	my $step = 1.0/10.0; # Currently, we check for 10 items.
+	my $completeness = 0.0;
 
 	if (scalar keys %{$current_ref->{uploaded_images}} < 1) {
 		push @states_tags, "en:photos-to-be-uploaded";
@@ -526,11 +809,20 @@ sub compute_completeness_and_missing_tags($$$) {
 	}
 	else {
 		push @states_tags, "en:photos-uploaded";
+		my $half_step = $step * 0.5;
+		$completeness += $half_step;
+
+		my $image_step = $half_step * (1.0 / 3.0);
+		$completeness += $image_step if defined $current_ref->{selected_images}{"front_$lc"};
+		$completeness += $image_step if defined $current_ref->{selected_images}{"ingredients_$lc"};
+		$completeness += $image_step if ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
+				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')));
 
 		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
 			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
 				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
 			push @states_tags, "en:photos-validated";
+
 		}
 		else {
 			push @states_tags, "en:photos-to-be-validated";
@@ -544,11 +836,12 @@ sub compute_completeness_and_missing_tags($$$) {
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
 			$all_fields = 0;
-			push @states_tags, "en:" . get_fileid($field) . "-to-be-completed";
+			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-to-be-completed";
 		}
 		else {
-			push @states_tags, "en:" . get_fileid($field) . "-completed";
+			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-completed";
 			$notempty++;
+			$completeness += $step;
 		}
 	}
 
@@ -563,6 +856,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	if ((defined $product_ref->{emb_codes}) and ($product_ref->{emb_codes} ne '')) {
 		push @states_tags, "en:packaging-code-completed";
 		$notempty++;
+		$completeness += $step;
 	}
 	else {
 		push @states_tags, "en:packaging-code-to-be-completed";
@@ -571,6 +865,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	if ((defined $product_ref->{expiration_date}) and ($product_ref->{expiration_date} ne '')) {
 		push @states_tags, "en:expiration-date-completed";
 		$notempty++;
+		$completeness += $step;
 	}
 	else {
 		push @states_tags, "en:expiration-date-to-be-completed";
@@ -580,6 +875,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} ne '') and (not ($product_ref->{ingredients_text} =~ /\?/))) {
 		push @states_tags, "en:ingredients-completed";
 		$notempty++;
+		$completeness += $step;
 	}
 	else {
 		push @states_tags, "en:ingredients-to-be-completed";
@@ -590,6 +886,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) ) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
+		$completeness += $step;
 	}
 	else {
 		push @states_tags, "en:nutrition-facts-to-be-completed";
@@ -621,6 +918,8 @@ sub compute_completeness_and_missing_tags($$$) {
 
 	$product_ref->{complete} = $complete;
 	$current_ref->{complete} = $complete;
+	$product_ref->{completeness} = $completeness;
+	$current_ref->{completeness} = $completeness;
 
 
 	if ($complete) {
@@ -657,13 +956,59 @@ sub compute_completeness_and_missing_tags($$$) {
 }
 
 
+sub get_change_userid_or_uuid($) {
+
+	my $change_ref = shift;
+
+	my $userid = $change_ref->{userid};
+
+	my $app = "";
+	my $uuid;
+
+	if ((defined $userid) and (defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
+		$app = $options{apps_userids}{$userid} . "\.";
+	}
+	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
+		$app = $options{official_app_id} . "\.";
+	}
+
+	# use UUID provided by some apps like Yuka
+	# UUIDs are mix of [a-zA-Z0-9] chars, they must not be lowercased by getfile_id
+
+	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
+	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
+	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
+	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
+		$uuid = $';
+	}
+	elsif ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
+		$uuid = $7;
+	}
+
+	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
+		$uuid =~ s/^(\s*)//;
+		$uuid =~ s/(\s*)$//;
+		$userid = $app . $uuid;
+	}
+
+	if ((not defined $userid) or ($userid eq '')) {
+		$userid = "openfoodfacts-contributors";
+	}
+
+	return $userid;
+}
+
+
 sub compute_product_history_and_completeness($$) {
 
 
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
 	my $code = $current_product_ref->{code};
-	my $path = product_path($code);
+	my $product_id = $current_product_ref->{_id};
+	my $path = product_path($current_product_ref);
+
+	$log->debug("compute_product_history_and_completeness", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	return if not defined $changes_ref;
 
@@ -711,7 +1056,9 @@ sub compute_product_history_and_completeness($$) {
 
 	# Read all previous versions to see which fields have been added or edited
 
-	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per);
+	my @fields = ('lang', 'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
+		'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text');
 
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 	my %last = %previous;
@@ -819,11 +1166,7 @@ sub compute_product_history_and_completeness($$) {
 
 		my %diffs = ();
 
-		my $userid = $change_ref->{userid};
-
-		if ((not defined $userid) or ($userid eq '')) {
-			$userid = "openfoodfacts-contributors";
-		}
+		my $userid = get_change_userid_or_uuid($change_ref);
 
 		$changed_by{$userid} = 1;
 
@@ -849,7 +1192,11 @@ sub compute_product_history_and_completeness($$) {
 				foreach my $current_or_previous_ref (\%current, \%previous) {
 					if (defined $current_or_previous_ref->{languages_codes}) {
 						foreach my $language_code (@{$current_or_previous_ref->{languages_codes}}) {
-							next if $language_code eq $current_or_previous_ref->{lc};
+							# commenting next line so that we see changes for both ingredients_text and ingredients_text_$lc
+							# even if they are the same.
+							# keeping ingredients_text as at the start of the project, we had only ingredients_text and
+							# not language specific versions
+							# next if $language_code eq $current_or_previous_ref->{lc};
 							next if defined $languages_codes{$language_code};
 							push @languages_codes, $language_code;
 							$languages_codes{$language_code} = 1;
@@ -990,6 +1337,7 @@ sub compute_product_history_and_completeness($$) {
 
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
+	$log->debug("compute_product_history_and_completeness - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
 }
 
 
@@ -1005,7 +1353,7 @@ sub add_back_field_values_removed_by_user($$$$) {
 	my $field = shift;
 	my $userid = shift;
 	my $code = $current_product_ref->{code};
-	my $path = product_path($code);
+	my $path = product_path($current_product_ref);
 
 	return if not defined $changes_ref;
 
@@ -1124,8 +1472,8 @@ sub product_name_brand($) {
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
 		$brand =~ s/,.*//;	# take the first brand
-		my $brandid = '-' . get_fileid($brand) . '-';
-		my $full_name_id = '-' . get_fileid($full_name) . '-';
+		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
+		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
 			$full_name .= lang("title_separator") . $brand;
 		}
@@ -1140,11 +1488,11 @@ sub product_name_brand($) {
 sub product_name_brand_quantity($) {
 	my $ref = shift;
 	my $full_name = product_name_brand($ref);
-	my $full_name_id = '-' . get_fileid($full_name) . '-';
+	my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 
 	if (defined $ref->{quantity}) {
 		my $quantity = $ref->{quantity};
-		my $quantityid = '-' . get_fileid($quantity) . '-';
+		my $quantityid = '-' . get_string_id_for_lang($lc, $quantity) . '-';
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 			# Put non breaking spaces between numbers and units
 			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
@@ -1184,7 +1532,7 @@ sub product_url($) {
 	my $titleid = '';
 	if (defined $ref) {
 		my $full_name = product_name_brand($ref);
-		$titleid = get_urlid($full_name);
+		$titleid = get_url_id_for_lang($product_lc, $full_name);
 		if ($titleid ne '') {
 			$titleid = '/' . $titleid;
 		}
@@ -1210,8 +1558,10 @@ sub index_product($)
 				if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
 					$tag =~ s/^\w\w://;
 				}
-				if (length(get_fileid($tag)) >= 2) {
-					$keywords{normalize_search_terms(get_fileid($tag))} = 1;
+
+				my $tagid = get_string_id_for_lang($lc, $tag);
+				if (length($tagid) >= 2) {
+					$keywords{normalize_search_terms($tagid)} = 1;
 				}
 			}
 		}
@@ -1238,7 +1588,7 @@ sub compute_codes($) {
 		if (product_exists('0' . $code)) {
 			push @codes, "conflict-with-ean-13";
 		}
-		elsif (-e ("$data_root/products/" . product_path("0" . $code)) ) {
+		elsif (-e ("$data_root/products/" . product_path_from_id("0" . $code)) ) {
 			push @codes, "conflict-with-deleted-ean-13";
 		}
 	}
@@ -1546,11 +1896,11 @@ sub process_product_edit_rules($) {
 							}
 							else {
 								$log->debug("condition matches") if $log->is_debug();
-								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
+								$action_log = "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							}
 						}
 						else {
-							$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+							$action_log = "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
 						}
 
 						if ($condition_ok) {

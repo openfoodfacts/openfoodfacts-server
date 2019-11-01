@@ -1,26 +1,26 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -52,15 +52,15 @@ $lang = 'fr';
 sub display_madenearyou($) {
 
 	my $request_ref = shift;
-	
+
 	not $request_ref->{blocks_ref} and $request_ref->{blocks_ref} = [];
-	
+
 
 	my $title = $request_ref->{title};
 	my $description = $request_ref->{description};
 	my $content_ref = $request_ref->{content_ref};
 	my $blocks_ref = $request_ref->{blocks_ref};
-	
+
 
 	my $html = <<HTML
 
@@ -75,13 +75,12 @@ sub display_madenearyou($) {
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
-<script type="text/javascript" src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>	
+<script type="text/javascript" src="/js/dist/jquery.cookie.js"></script>
 
-<script src="/js/jquery.iframe-transport.min.js"></script>
-<script src="/js/jquery.fileupload.min.js"></script>	
-<script src="/js/load-image.min.js"></script>
-<script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.min.js"></script>
+<script src="/js/dist/jquery.iframe-transport.js"><script>
+<script src="/js/dist/jquery.fileupload.min.js"></script>
+<script src="/js/dist/load-image.all.min.js"></script>
+<script src="/js/dist/canvas-to-blob.min.js"></script>
 
 $header
 
@@ -89,15 +88,15 @@ $header
 \$(function() {
 
 $initjs
-	
+
 });
 </script>
 
-<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-<script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<link rel="stylesheet" href="/js/dist/leaflet.css">
+<script src="/js/dist/leaflet.js"></script>
+<link rel="stylesheet" href="/js/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/js/dist/MarkerCluster.Default.css" />
+<script src="/js/dist/leaflet.markercluster.js"></script>
 
 <meta property="fb:admins" content="706410516" />
 <meta property="og:site_name" content="C'est emballé près de chez vous"/>
@@ -148,7 +147,7 @@ background: #ffffff;
 	margin-right:2em;
 }
 
-.sharebutton { float:left; padding-right:10px;padding-bottom:5px;}	
+.sharebutton { float:left; padding-right:10px;padding-bottom:5px;}
 
 a, a:visited {
 	color:blue;
@@ -177,7 +176,7 @@ font-size:48px;
 
 <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
 
-	
+
 </head>
 <body>
 
@@ -207,7 +206,7 @@ est également possible que l'emballeur importe des aliments préparés dans d'a
 
 <p>Si vous ne trouvez pas de produits vraiment locaux à côté de chez vous sur cette carte (les Noix de Saint-Jacques conditionnés à Fécamp qui viennent du Pérou ? Les fameux coeurs de palmiers et les crevettes géantes tigrées d'Ivry-sur-Seine ?),
 vous pouvez partir à leur recherche dans votre frigo, vos placards ou le magasin du coin et les ajouter sur le site d'<a href="https://fr.openfoodfacts.org">Open Food Facts</a>
-ou avec l'app <a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner">Android</a>. Merci d'avance !</p>
+ou avec l'app <a href="https://apps.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner">Android</a>. Merci d'avance !</p>
 
 <p>Les données qui permettent de générer la carte sont issues du projet collaboratif <a href="https://openstreetmap.fr/">OpenStreetMap</a> qui créé une carte libre du monde.</p>
 
@@ -225,18 +224,18 @@ ou de route. Vous nous rejoignez ?</p>
 
 <p>
 &rarr; <a href="https://twitter.com/OpenFoodFactsFR">Twitter</a><br/>
-&rarr; <a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a><br />
-&rarr; <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> + <a href="https://www.facebook.com/groups/356858984359591/">groupe des contributeurs</a><br />
+&rarr; <a href="https://www.instagram.com/open.food.facts/">Instagram</a><br />
+&rarr; <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> + <a href="https://www.facebook.com/groups/openfoodfacts.fr/">groupe des contributeurs</a><br />
 </p>
 </div>
 
 <div style="width:480px;float:left;">
-<p>Vous pouvez ajouter des produits avec l'app iPhone ou Android :</p>
+<p>Vous pouvez ajouter des produits avec l'app iPhone, Android ou Windows Phone :</p>
 
-<a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" style="margin-right:30px" /></a>
+<a href="https://apps.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" style="margin-right:30px" /></a>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a><br/>
-
+<!--<a href="https://www.microsoft.com/fr-fr/p/openfoodfacts/9nblggh0dkqr"><img src="/images/misc/**.png" alt="Disponible sur le Microsoft Store" width="135" height="47" /></a><br/>-->
 <p>C'est fabriqué (et pas seulement emballé !) <s>près de</s> chez vous : le plus court des circuits-courts passe par votre cuisine !
 Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http://recettes.de/cuisine">recettes de cuisine</a> proposées par les blogueuses et blogueurs culinaires.</p>
 </div>
@@ -255,7 +254,6 @@ Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http
 src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFacts&amp;count=vertical&amp;lang=$lc"
 style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://cestemballepresdechezvous.fr"></g:plusone></div>
 </div>
 
 </div>
@@ -267,7 +265,7 @@ style="width:65px; height:63px;"></iframe></div>
         FB.init({appId: '156259644527005', status: true, cookie: true,
                  xfbml: true});
      };
-	 
+
       (function() {
         var e = document.createElement('script');
         e.type = 'text/javascript';
@@ -276,13 +274,10 @@ style="width:65px; height:63px;"></iframe></div>
         e.async = true;
         document.getElementById('fb-root').appendChild(e);
       }());
-	  
 
-    </script>	
 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-  {lang: 'fr'}
-</script>
+    </script>
+
 
 </body>
 </html>
@@ -293,8 +288,8 @@ HTML
 ;
 
 	print header ( -expires=>'-1d', -charset=>'UTF-8');
-	
-	
+
+
 	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 
@@ -344,14 +339,14 @@ for (my $i = 0; $i < $tags_n ; $i++) {
 	my $tagtype = remove_tags_and_quote(decode utf8=>param("tagtype_$i"));
 	my $tag_contains = remove_tags_and_quote(decode utf8=>param("tag_contains_$i"));
 	my $tag = remove_tags_and_quote(decode utf8=>param("tag_$i"));
-		
+
 	push @search_tags, [
 		$tagtype, $tag_contains, $tag,
 	];
 }
 
 foreach my $tagtype (@search_ingredient_classes) {
-	
+
 	$search_ingredient_classes{$tagtype} = param($tagtype);
 	not defined $search_ingredient_classes{$tagtype} and $search_ingredient_classes{$tagtype} = 'indifferent';
 }
@@ -361,7 +356,7 @@ for (my $i = 0; $i < $nutriments_n ; $i++) {
 	my $nutriment = remove_tags_and_quote(decode utf8=>param("nutriment_$i"));
 	my $nutriment_compare = remove_tags_and_quote(decode utf8=>param("nutriment_compare_$i"));
 	my $nutriment_value = remove_tags_and_quote(decode utf8=>param("nutriment_value_$i"));
-		
+
 	push @search_nutriments, [
 		$nutriment, $nutriment_compare, $nutriment_value,
 	];
@@ -387,84 +382,84 @@ if ($action eq 'process') {
 	# Display the search results or construct CSV file for download
 
 	# analyze parameters and construct query
-	
+
 	my $current_link = "/cgi/search.pl?action=process";
-	
+
 	my $query_ref = {};
 
 	my $page = param('page') || 1;
 	if (($page < 1) or ($page > 1000)) {
 		$page = 1;
 	}
-	
+
 	# Search terms
-	
+
 	if ((defined $search_terms) and ($search_terms ne '')) {
-	
-		my %terms = ();	
-	
+
+		my %terms = ();
+
 		foreach my $term (split(/,|'|\s/, $search_terms)) {
-			if (length(get_fileid($term)) >= 2) {
-				$terms{normalize_search_terms(get_fileid($term))} = 1;
+			if (length(get_string_id_for_lang($lc, $term)) >= 2) {
+				$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 			}
 		}
 		if (scalar keys %terms > 0) {
 			$query_ref->{_keywords} = { '$all' => [keys %terms]};
 			$current_link .= "\&search_terms=" . URI::Escape::XS::encodeURIComponent($search_terms);
 		}
-			
+
 	}
-	
+
 	# Tags criteria
-	
+
 	my $and;
-	
+
 	for (my $i = 0; $i < $tags_n ; $i++) {
-	
+
 		my ($tagtype, $contains, $tag) = @{$search_tags[$i]};
-		
+
 		if (($tagtype ne 'search_tag') and ($tag ne '')) {
-		
-			my $tagid = get_fileid(canonicalize_tag2($tagtype, $tag));
-			
+
+			my $tagid = get_string_id_for_lang($lc, canonicalize_tag2($tagtype, $tag));
+
 			if ($tagtype eq 'additives') {
 				$tagid =~ s/-.*//;
-			}	
-			
+			}
+
 			if ($tagid ne '') {
-			
+
 				# 2 or 3 criterias on the same field?
 				my $remove = 0;
 				if (defined $query_ref->{$tagtype . "_tags"}) {
 					$remove = 1;
 					$and = [{ $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} }];
 				}
-			
+
 				if ($contains eq 'contains') {
 					$query_ref->{$tagtype . "_tags"} = $tagid;
 				}
 				else {
 					$query_ref->{$tagtype . "_tags"} =  { '$ne' => $tagid };
 				}
-				
+
 				if ($remove) {
 					push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
 					delete $query_ref->{$tagtype . "_tags"};
 					$query_ref->{"\$and"} = $and;
 				}
-				
+
 				$current_link .= "\&tagtype_$i=$tagtype\&tag_contains_$i=$contains\&tag_$i=" . URI::Escape::XS::encodeURIComponent($tag);
-				
+
 				# TODO: 2 or 3 criterias on the same field
 				# db.foo.find( { $and: [ { a: 1 }, { a: { $gt: 5 } } ] } ) ?
 			}
 		}
-	}	
-	
+	}
+
 	# Ingredient classes
-	
+
 	foreach my $tagtype (@search_ingredient_classes) {
-	
+
 		if ($search_ingredient_classes{$tagtype} eq 'with') {
 			$query_ref->{$tagtype . "_n"}{ '$gte'} = 1;
 			$current_link .= "\&$tagtype=with";
@@ -474,15 +469,15 @@ if ($action eq 'process') {
 			$current_link .= "\&$tagtype=without";
 		}
 	}
-	
+
 	# Nutriments
-	
+
 	for (my $i = 0; $i < $nutriments_n ; $i++) {
-	
+
 		my ($nutriment, $compare, $value, $unit) = @{$search_nutriments[$i]};
-		
+
 		if (($nutriment ne 'search_nutriment') and ($value ne '')) {
-					
+
 			if ($compare eq 'eq') {
 				$query_ref->{"nutriments.${nutriment}_100g"} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
 			}
@@ -493,50 +488,50 @@ if ($action eq 'process') {
 				else {
 					$query_ref->{"nutriments.${nutriment}_100g"} = { '$' . $compare  => $value + 0.0 };
 				}
-			}				
+			}
 			$current_link .= "\&nutriment_$i=$nutriment\&nutriment_compare_$i=$compare\&nutriment_value_$i=" . URI::Escape::XS::encodeURIComponent($value);
-			
+
 			# TODO support range queries: < and > on the same nutriment
 			# my $doc32 = $collection->find({'x' => { '$gte' => 2, '$lt' => 4 }});
 		}
-	}		
+	}
 
-	
+
 	my @fields = keys %tag_type_singular;
-	
+
 	foreach my $field (@fields) {
-	
+
 		next if defined $search_ingredient_classes{$field};
 
 		if ((defined param($field)) and (param($field) ne '')) {
-		
+
 			$query_ref->{$field} = decode utf8=>param($field);
 			$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param($field));
-		}	
+		}
 	}
-	
+
 	if (defined $sort_by) {
 		$current_link .= "&sort_by=$sort_by";
 	}
-	
+
 	$current_link .= "\&page_size=$limit";
-	
+
 	# Graphs
-	
+
 	foreach my $axis ('x','y') {
 		if (param("axis_$axis") ne '') {
 			$current_link .= "\&axis_$axis=" .  URI::Escape::XS::encodeURIComponent(decode utf8=>param("axis_$axis"));
 		}
-	}	
-	
+	}
+
 	if (param('graph_title') ne '') {
 		$current_link .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("graph_title"));
 	}
-	
+
 	if (param('map_title') ne '') {
 		$current_link .= "\&map_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("map_title"));
 	}
-		
+
 	foreach my $series (@search_series) {
 
 		next if $series eq 'default';
@@ -544,24 +539,24 @@ if ($action eq 'process') {
 			$current_link .= "\&series_$series=on";
 		}
 	}
-	
+
 	$request_ref->{current_link_query} = $current_link;
-	
+
 	my $html = '';
-	
+
 	$log->info("building query", { lc => $lc, cc => $cc, query => $query_ref }) if $log->is_info();
-	
+
 	$query_ref->{lc} = $lc;
-	
+
 	# Graph, map, export or search
 
 
-	
+
 		$request_ref->{current_link_query} .= "&generate_map=1";
-		
+
 		# We want products with emb codes
-		$query_ref->{"emb_codes_tags"} = { '$exists' => 1 };	
-		
+		$query_ref->{"emb_codes_tags"} = { '$exists' => 1 };
+
 		${$request_ref->{content_ref}} .= $html . search_and_map_products($request_ref, $query_ref, $graph_ref);
 
 		$request_ref->{title} = lang("search_title_map");
@@ -569,8 +564,8 @@ if ($action eq 'process') {
 			$request_ref->{title} = $map_title . " - " . lang("search_map");
 		}
 		$request_ref->{full_width} = 1;
-		
-		
+
+
 		my $html =	<<HTML
 <div id="container" style="height: 600px"></div>
 HTML
@@ -578,5 +573,5 @@ HTML
 		$request_ref->{content_ref} = \$html;
 
 	display_madenearyou($request_ref);
-	
+
 }

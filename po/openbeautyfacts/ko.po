@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:52\n"
+"PO-Revision-Date: 2019-09-15 20:03\n"
 "Language-Team: Korean\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -17,59 +17,59 @@ msgstr ""
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=ko"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
+msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
+msgstr "https://apps.apple.com/kr/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
+#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "openfoodfacts-logo-kr-178x150.png"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "openfoodfacts-logo-kr-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Beauty Facts"
-msgstr ""
+msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
-msgid "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr ""
+msgstr "Open Beauty Facts는 전 세계 화장품 정보 및 데이터를 수집합니다."
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenBeautyFacts"
-msgstr ""
+msgstr "OpenBeautyFacts"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner\">Android</a> or <a href=\"https://itunes.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
+msgstr "이 제품 페이지는 완성되지 않았습니다. 사진을 편집하거나, 더 많은 데이터를 추가하거나 <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=ko\">안드로이드</a> 또는 <a href=\"https://apps.apple.com/kr/app/open-beauty-facts/id1122926380\">iPhone / iPad</a>용 앱을 사용해 더 많은 사진을 찍어 제품 페이지를 완성하는 데 도움을 줄 수 있습니다. 고맙습니다!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>>는 회사와 무관한 비영리 협회에서 만들어집니다. 여러분들을 위해, 여러분들에 의해 그리고 여러분들의 기부에 의해 운영됩니다. <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">Open Beauty Facts에게 기부하거나</a><a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">릴로 서치를 이용해서 저희에게 힘이 되어주세요</a>.<br/><b>감사합니다!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Beauty Facts"
-msgstr ""
+msgstr "Open Beauty Facts에게 기부하기"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenBeautyFacts"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
@@ -77,29 +77,29 @@ msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openbeautyfacts.org\">Blog</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
 msgstr ""
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
-msgstr ""
+msgstr "니베아, 니베아 맨"
 
 msgctxt "categories_example"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr ""
+msgstr "비듬 방지 샴푸, 미백 치약"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
+msgstr "세계 각국의 화장품에 대한 성분 및 정보의 무료 공개 협업 데이터베이스"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "그리고 기여자를위한 <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">페이스북 그룹</a>"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
@@ -117,6 +117,7 @@ msgctxt "product_name_example"
 msgid "Anti-Perspirant Stress Protect"
 msgstr ""
 
+#. make sure the image exists with your country code. https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "og_image_url"
 msgid "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
 msgstr ""

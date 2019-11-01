@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:31\n"
+"PO-Revision-Date: 2019-09-17 09:14\n"
 "Language-Team: Polish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
@@ -22,13 +22,13 @@ msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=pl"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
+msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
+msgstr "https://apps.apple.com/pl/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
+#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openbeautyfacts-logo-en-178x150.png"
 msgstr "openbeautyfacts-logo-en-178x150.png"
@@ -43,7 +43,7 @@ msgid "Open Beauty Facts"
 msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
-msgid "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "tagline"
@@ -56,7 +56,7 @@ msgid "OpenBeautyFacts"
 msgstr "OpenBeautyFacts"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner\">Android</a> or <a href=\"https://itunes.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
 msgstr ""
 
 msgctxt "bottom_content"
@@ -69,7 +69,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenBeautyFacts"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
@@ -77,7 +77,7 @@ msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openbeautyfacts.org\">Blog</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openbeautyfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openbeautyfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
@@ -115,11 +115,12 @@ msgstr "Szampon przeciwłupieżowy"
 
 msgctxt "product_name_example"
 msgid "Anti-Perspirant Stress Protect"
-msgstr "Antyperspresyjna ochrona przed stresem"
+msgstr "Anti-Perspirant Stress Protect"
 
+#. make sure the image exists with your country code. https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "og_image_url"
 msgid "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Beauty Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"

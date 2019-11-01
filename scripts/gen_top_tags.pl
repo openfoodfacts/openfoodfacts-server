@@ -1,28 +1,28 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -50,15 +50,15 @@ use JSON::PP;
 # Generate a list of the top brands, categories, users, additives etc.
 
 my @fields = qw (
-brands 
+brands
 categories
-packaging 
+packaging
 origins
 manufacturing_places
-ingredients 
-labels 
-nutriments 
-traces 
+ingredients
+labels
+nutriments
+traces
 users
 photographers
 informers
@@ -90,15 +90,15 @@ foreach my $l (values %lang_lc) {
 
 	$lc = $l;
 	$lang = $l;
-	
-	
+
+
 	my %dates = ();
 	$langs_dates{$lc} = {};
 	foreach my $date (@dates) {
 		$dates{$date} = {};
 		$langs_dates{$lc}{$date} = {};
-	}	
-	
+	}
+
 	my $fields_ref = {code => 1};
 	my %tags = ();
 
@@ -113,23 +113,16 @@ foreach my $l (values %lang_lc) {
 	$fields_ref->{created_t} = 1;
 	$fields_ref->{complete} = 1;
 	$fields_ref->{completed_t} = 1;
-		
-	my $cursor = get_products_collection()->query({lc=>$lc})->fields($fields_ref);
-	my $count = $cursor->count();
-	
-	$langs{$l} = $count;
-	$total += $count;
-		
-	print STDERR "lc: $lc - $count products\n";
 
+	my $cursor = get_products_collection()->query({lc=>$lc})->fields($fields_ref);
 
 	my %codes = ();
 	my $true_end = 0;
 	my $true_start = 100000000000000000;
 	my $complete = 0;
-		
+
 	while (my $product_ref = $cursor->next) {
-		
+
 		my $code = $product_ref->{code};
 		if (not defined $codes{$code}) {
 			$codes{$code} = 1;
@@ -138,7 +131,7 @@ foreach my $l (values %lang_lc) {
 			$codes{$code} += 1;
 			#print STDERR "code $code seen $codes{$code} times!\n";
 		}
-		
+
 		foreach my $tagtype (@fields) {
 			if ($tagtype eq 'users') {
 				$tags{$tagtype}{$product_ref->{creator}}++;
@@ -146,11 +139,11 @@ foreach my $l (values %lang_lc) {
 			elsif (defined $product_ref->{$tagtype . "_tags"}) {
 				foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
 					$tags{$tagtype}{$tagid}++;
-					
+
 					if ($tagtype eq 'ingredients') {
 						#print STDERR "code: $code - ingredient: $tagid \n";
 					}
-					
+
 					# nutriment info?
 					next if (not defined $product_ref->{nutriments});
 					next if (not defined $product_ref->{nutriments}{energy});
@@ -161,7 +154,7 @@ foreach my $l (values %lang_lc) {
 				}
 			}
 		}
-		
+
 		foreach my $date (@dates) {
 			# print "dates products $lc $date : " . $product_ref->{$date} . "\n";
 			if ((defined $product_ref->{$date}) and ($product_ref->{$date} > 0)) {
@@ -171,10 +164,10 @@ foreach my $l (values %lang_lc) {
 				}
 				if ($product_ref->{$date} / 86400 < $true_start) {
 					$true_start = int($product_ref->{$date} / 86400);
-				}				
+				}
 			}
-		}		
-		
+		}
+
 		if (($product_ref->{complete} > 0) and ((not defined $product_ref->{completed_t}) or ($product_ref->{completed_t} <= 0)) ) {
 			print "product $code - complete: $product_ref->{complete} , completed_t: $product_ref->{completed_t}\n";
 		}
@@ -182,29 +175,32 @@ foreach my $l (values %lang_lc) {
 			$complete++;
 			print "completed products: $complete\n";
 		}
-		
+
 		$products{$lc}++;
-		
+
 	}
-	
+
+	$langs{$l} = $products{$lc};
+	$total += $products{$lc};
+
 	foreach my $date (@dates) {
 		my @sorted_dates = sort ( {$dates{$date}{$a} <=> $dates{$date}{$b}} keys %{$dates{$date}});
 		my $start = $sorted_dates[0];
 		my $end = $sorted_dates[$#sorted_dates];
-		
+
 		# somehow we don't get the biggest day...
 		if ($true_end > $end) {
 			$end = $true_end;
 		}
 		if ($true_start < $start) {
 			$start = $true_start;
-		}	
-		
+		}
+
 		$langs_dates{$lc}{$date . ".start"} = $start;
 		$langs_dates{$lc}{$date . ".end"} = $end;
-		
+
 		#print "dates_stats_$lc lc: $lc - date: $date - start: $start - end: $end\n";
-		
+
 		my $current = 0;
 		for (my $i = $start; $i <= $end; $i++) {
 			$current += $dates{$date}{$i};
@@ -227,47 +223,47 @@ foreach my $l (values %lang_lc) {
 		else {
 			@tags = sort ( { ($tags{$tagtype}{$b} <=> $tags{$tagtype}{$a}) || ($a cmp $b)  } keys %{$tags{$tagtype}});
 		}
-		
+
 		my $html = "<h1>" . sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang}) . "</h1>";
-		
-		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+
+		if (-e "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html");
 			$html .= join("\n", (<$IN>));
 			close $IN;
 		}
-		
+
 		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
-		
+
 		print "tagtype: $tagtype - " . $Lang{$tagtype . "_p"}{$lang} . " - count: " . ($#tags + 1) . "\n";
-		
+
 		my $th_nutriments = '';
-		
+
 		if ($tagtype eq 'categories') {
 			$th_nutriments = "<th>" . ucfirst($Lang{"products_with_nutriments"}{$lang}) . "</th>";
 		}
-		
+
 		if ($tagtype eq 'categories') {
 			$th_nutriments .= "<th>*</th>";
-		}		
-		
+		}
+
 		if ($tagtype eq 'additives') {
 			$th_nutriments .= "<th>" . lang("risk_level") . "</th>";
 		}
-		
+
 		$html .= "<div style=\"max-width:600px;\"><table id=\"tagstable\">\n<thead><tr><th>" . ucfirst($Lang{$tagtype . "_s"}{$lang}) . "</th><th>" . ucfirst($Lang{"products"}{$lang}) . "</th>" . $th_nutriments . "</tr></thead>\n<tbody>\n";
 
 #var availableTags = [
 #      "ActionScript",
 #      "Scala",
 #      "Scheme"
-#    ];		
+#    ];
 		my $js = <<JS
 var ${tagtype}Tags = [
 JS
 ;
-		
+
 		foreach my $tagid (@tags) {
-			
+
 			my $link;
 			my $products = $tags{$tagtype}{$tagid};
 			if ($products == 0) {
@@ -278,7 +274,7 @@ JS
 			if ($tagtype eq 'categories') {
 				$td_nutriments .= "<td style=\"text-align:right\">" . $tags{$tagtype . "_nutriments"}{$tagid} . "</td>";
 			}
-			
+
 			# known tag?
 			if ($tagtype eq 'categories') {
 				if ((defined $canon_tags{$lc}) and (defined $canon_tags{$lc}{$tagtype}) and (defined $canon_tags{$lc}{$tagtype}{$tagid})) {
@@ -288,12 +284,12 @@ JS
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
 				}
 			}
-			
+
 			my $link = canonicalize_tag_link($tagtype, $tagid);
-			
+
 			my $info = '';
 			my $extra_td = '';
-			
+
 			if ($tagtype eq 'additives') {
 				if ($tags_levels{$lc}{$tagtype}{$tagid}) {
 					# $info = ' class="additives_' . $ingredients_classes{$tagtype}{$tagid}{level} . '" title="' . $ingredients_classes{$tagtype}{$tagid}{warning} . '" ';
@@ -302,34 +298,34 @@ JS
 					$extra_td = '<td class="level_' . $tags_levels{$lc}{$tagtype}{$tagid} . '">' . $risk_level . '</td>';
 				}
 				else {
-					#$extra_td = '<td class="additives_0">' . lang("risk_level_0") . '</td>';				
+					#$extra_td = '<td class="additives_0">' . lang("risk_level_0") . '</td>';
 					$extra_td = '<td></td>';
 				}
 			}
-			
+
 				if ((defined $tags_levels{$lc}{$tagtype}) and (defined $tags_levels{$lc}{$tagtype}{$tagid})) {
 					$info = ' class="level_' . $tags_levels{$lc}{$tagtype}{$tagid} . '" ';
-				}			
-			
+				}
+
 			if (defined $taxonomy_fields{$tagtype}) {
 				$html .= "<tr><td>" . display_taxonomy_tag_link($lc,$tagtype,$tagid) . "</td><td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 				$js .= "\n\"" . display_taxonomy_tag($lc,$tagtype, $tagid) . "\",";
 			}
 			else {
-			
+
 				$html .= "<tr><td><a href=\"$link\"$info>" . canonicalize_tag2($tagtype, $tagid) . "</a></td><td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 			$js .= "\n\"" . canonicalize_tag2($tagtype, $tagid) . "\",";
 			}
 		}
-		
+
 		$html .= "</tbody></table></div>";
-		
+
 		if ($tagtype eq 'categories') {
 			$html .= "<p>La colonne * indique que la catégorie ne fait pas partie de la hiérarchie de la catégorie. S'il y a une *, la catégorie n'est pas dans la hiérarchie.</p>";
 		}
-		
+
 		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
-		
+
 		$html .= <<HTML
 <initjs>
     oTable = \$('#tagstable').dataTable({
@@ -349,11 +345,11 @@ JS
 </header>
 HTML
 ;
-		
-		 #open (OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/" . get_fileid(lang($tagtype . "_p")) . ".html");
+
+		 #open (OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/" . get_fileid(lang($tagtype . "_p"), 1) . ".html");
 		 #print OUT $html;
 		 #close OUT;
-		 
+
 		$js =~ s/,$//;
 		$js .= <<JS
 ];
@@ -364,8 +360,8 @@ JS
 		 open (my $OUT, ">:encoding(UTF-8)", "$www_root/js/lang/$lang/$tagtype.js");
 		 print $OUT $js;
 		 close $OUT;
-		 
-		 
+
+
 	}
 }
 
@@ -416,10 +412,10 @@ HTML
 	$lang = $lc;
 
 	my $series = '';
-	
+
 	my $end = 0;
 	my $start = 100000000000;
-	
+
 	foreach my $date (@dates) {
 		if ($langs_dates{$lc}{$date . ".start"} < $start) {
 			$start = $langs_dates{$lc}{$date . ".start"};
@@ -427,25 +423,25 @@ HTML
 		if ($langs_dates{$lc}{$date . ".end"} > $end) {
 			$end = $langs_dates{$lc}{$date . ".end"};
 		}
-	}	
+	}
 
 	foreach my $date (@dates) {
 		my @sorted_dates = sort ( {$langs_dates{$lc}{$date}{$a} <=> $langs_dates{$lc}{$b}} keys %{$langs_dates{$lc}{$date}});
 
 		my $series_start = $langs_dates{$lc}{$date . ".start"};
 		my $series_end = $langs_dates{$lc}{$date . ".end"};
-		
+
 		my $name = $Lang{"products_stats_$date"}{$lang};
 		my $series_point_start = $series_start * 86400 * 1000;
 		$series .= <<HTML
 {
 	name: '$name',
 	pointInterval: 24 * 3600 * 1000,
-    pointStart: $series_point_start,	
+    pointStart: $series_point_start,
 	data: [
 HTML
 ;
-		
+
 		my $current = 0;
 		my $i = 0;
 		for (my $t = $series_start ; $t < $end; $t++) {
@@ -461,11 +457,11 @@ HTML
 		$series =~ s/,\n?$//;
 		$series .= "\n]\n},\n";
 	}
-	
+
 	$series =~ s/,\n$//;
 
 
-	
+
 	my $html = <<HTML
 <initjs>
 
@@ -488,7 +484,7 @@ Highcharts.setOptions({
                     '$lc.openfoodfacts.org</a>'
             },
             xAxis: {
-		        type: 'datetime',	
+		        type: 'datetime',
             },
             yAxis: {
                 title: {
@@ -523,18 +519,18 @@ $series
 			]
         });
 
-</initjs>   
+</initjs>
 
 <scripts>
 <script src="/js/highcharts.4.0.4.js"></script></scripts>
 <header>
 $meta
 </header>
- 	
+
 <div id="container" style="height: 400px"></div>
-	
+
 HTML
-;	
+;
 
 	open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/products_stats.html");
 	print $OUT $html;
@@ -553,10 +549,10 @@ my $date = "created_t";
 
 
 	my $series = '';
-	
+
 	my $end = 0;
 	my $start = 100000000000;
-	
+
 	foreach my $lc (sort keys %langs) {
 		if ($langs_dates{$lc}{$date . ".start"} < $start) {
 			$start = $langs_dates{$lc}{$date . ".start"};
@@ -564,30 +560,30 @@ my $date = "created_t";
 		if ($langs_dates{$lc}{$date . ".end"} > $end) {
 			$end = $langs_dates{$lc}{$date . ".end"};
 		}
-	}	
+	}
 
 	foreach my $lc (sort  { $langs_dates{$a}{$date . ".start"} <=> $langs_dates{$b}{$date . ".start"} } keys %langs) {
 
-	$lang = $lc;	
-	
+	$lang = $lc;
+
 		my @sorted_dates = sort ( {$langs_dates{$lc}{$date}{$a} <=> $langs_dates{$lc}{$b}} keys %{$langs_dates{$lc}{$date}});
 
 		my $series_start = $langs_dates{$lc}{$date . ".start"};
 		my $series_end = $langs_dates{$lc}{$date . ".end"};
-		
+
 		next if $series_start < 100;
-		
+
 		my $name = $Langs{$lc};
 		my $series_point_start = $series_start * 86400 * 1000;
 		$series .= <<HTML
 {
 	name: '$name',
 	pointInterval: 24 * 3600 * 1000,
-    pointStart: $series_point_start,	
+    pointStart: $series_point_start,
 	data: [
 HTML
 ;
-		
+
 		my $current = 0;
 		my $i = 0;
 		for (my $t = $series_start ; $t < $end; $t++) {
@@ -603,12 +599,12 @@ HTML
 		$series =~ s/,\n?$//;
 		$series .= "\n]\n},\n";
 	}
-	
+
 	$series =~ s/,\n$//;
 
 $lang = 'en';
 $lc = 'en';
-	
+
 	my $html = <<HTML
 
 
@@ -627,7 +623,7 @@ $lc = 'en';
                 shared: true
 			},
             xAxis: {
-		        type: 'datetime',	
+		        type: 'datetime',
             },
             yAxis: {
                 title: {
@@ -659,9 +655,9 @@ $series
 			]
         });
 
-	
+
 HTML
-;	
+;
 
 	open (my $OUT, ">:encoding(UTF-8)", "$www_root/products.js");
 	print $OUT $html;
