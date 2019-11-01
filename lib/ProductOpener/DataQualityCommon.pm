@@ -92,7 +92,7 @@ sub check_bug_missing_or_unknown_main_language($) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:main-language-missing";
 	}
 	elsif ($product_ref->{lang} eq 'xx') {
-		push @{$product_ref->{data_quality_bugs_warnings}}, "en:main-language-unknown";
+		push @{$product_ref->{data_quality_warnings_tags}}, "en:main-language-unknown";
 	}
 }
 
