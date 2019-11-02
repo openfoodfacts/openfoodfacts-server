@@ -1,0 +1,86 @@
+<scripts>
+<script src="/js/jquery.dataTables.min.js"></script>
+</scripts>
+
+<header>
+<link rel="stylesheet" href="/js/datatables.css" />
+</header>
+
+<initjs>
+
+
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+    "date-euro-pre": function ( a ) {
+        if ($.trim(a) != '') {
+                var frDate = a;
+                var frDateParts = frDate[0].split('/');
+                var day = frDateParts[0] * 60 * 24;
+                var month = frDateParts[1] * 60 * 24 * 31;
+                var year = frDateParts[2] * 60 * 24 * 366;
+                var hour = 0;
+                var minutes = 0;
+                var x = day+month+year+hour+minutes;
+        } else {
+             
+            var x = new Date(0,0,0,0,0,0);
+             
+        }
+          
+        return x;
+    },
+  
+    "date-euro-asc": function ( a, b ) {
+        return a > b;
+    },
+  
+    "date-euro-desc": function ( a, b ) {
+        return b > a;
+    }
+} );
+
+
+ 
+press_datatable = $('#press_table').dataTable({
+	"bJQueryUI": true,
+	"bPaginate": false,
+	"aaSorting": [],
+
+"aoColumns": [
+                                null,
+                                null,
+                                null,
+                                 { "sType": "date-euro"}
+                        ],
+	"oLanguage": {
+		"sSearch": "Recherche :",
+		"sInfo": "_TOTAL_ mentions",
+		"sInfoFiltered": " - parmi _MAX_"
+	}
+});
+</initjs>
+
+<div style="max-width:914px;">
+<table id="press_table">
+
+<thead><tr><th>Type</th><th>Titre</th><th>Media</th><th>Date</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>Vidéo - Facebook (page)</td>
+<td><a href="https://www.facebook.com/lilosearch/videos/1244189375738358/">OPEN FOOD FACTS - Lilo</a></td>
+<td>Lilo</td>
+<td>06/05/2019</td>
+</tr>
+
+<tr>
+<td>Article - Média</td>
+<td><a href="https://www.tdg.ch/suisse/Quatre-applications-pour-vous-aider-a-mieux-manger/story/25778555">Quatre applications pour vous aider à mieux manger - </a></td>
+<td>TDG.ch</td>
+<td>03/04/2019</td>
+</tr>
+
+
+
+</table>
+</div>
