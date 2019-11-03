@@ -33,6 +33,13 @@ Data about food is of public interest and has to be open. The complete database 
 
 * <https://world.openfoodfacts.org>
 
+## Roadmap
+* Extracting HTML templates from Perl code
+* Creating an API product route that can also answer for cosmetics using the Open Beauty Facts database
+
+## Easy issues to get started
+* 5 minutes-fixes: https://github.com/openfoodfacts/openfoodfacts-server/labels/5%20minute%20fix
+
 ## Libraries used
 
 ### How do I get set up?
