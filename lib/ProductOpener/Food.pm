@@ -974,35 +974,43 @@ sub mmoll_to_unit {
 		unit => "% vol",
 	},
 	energy	=> {
-		fr => "Énergie",
-		fr_synonyms => ["valeurs énergétique", "valeur énergétique"],
+		ar => "الطاقه",
+		bg => "Енергийна стойност",
+		cs => "Energetická hodnota",
+		da => "Energi",
+		de => "Energie",
+		el => "Ενέργεια",
 		en => "Energy",
 		es => "Energía",
-		ar => "الطاقه",
-		it => "Energia",
-		pt => "Energia",
-		de => "Energie",
-		he => "אנרגיה - קלוריות",
-		ga => "Fuinneamh",
-		da => "Energi",
-		el => "Ενέργεια",
+		et => "Energia",
+		fa => "انرژی",
 		fi => "Energiav",
+		fr => "Énergie",
+		fr_synonyms => ["valeurs énergétique", "valeur énergétique"],
+		ga => "Fuinneamh",
+		he => "אנרגיה - קלוריות",
+		hu => "Energia",
+		it => "Energia",
+		lt => "Energinė vertė",
+		ja => "エネルギー",
+		lv => "Enerģētiskā vērtība",
+		mt => "Enerġija",
+		nb => "Energi",
 		nl => "Energie",
 		nl_be => "Energie",
-		sv => "Energi",
-		lv => "Enerģētiskā vērtība",
-		cs => "Energetická hodnota",
-		et => "Energia",
-		hu => "Energia",
+		pt => "Energia",
 		pl => "Wartość energetyczna",
-		sl => "Energijska vrednost",
-		lt => "Energinė vertė",
-		mt => "Enerġija",
-		sk => "Energetická hodnota",
 		ro => "Valoarea energetică",
-		bg => "Енергийна стойност",
+		rs => "Energetska vrednost",
+		ru => "Энергетическая ценность",
+		sl => "Energijska vrednost",
+		sk => "Energetická hodnota",
+		sv => "Energi",
+		tr => "Enerji",
 		zh => "能量",
-		ja => "エネルギー",
+		zh_CN => "能量",
+		zh_HK => "能量",
+		zh_TW => "能量",
 
 		unit => "kj",
 		unit_us => "kcal",
@@ -2197,20 +2205,25 @@ sub mmoll_to_unit {
 		zh_TW => "不可溶性纖維",
 	},
 	sodium => {
-		fr => "Sodium",
+		ar => "الصوديوم",
+		cs => "Sodík",
+		de => "Natrium",
 		en => "Sodium",
 		el => "Νάτριο",
 		es => "Sodio",
-		ar => "الصوديوم",
-		it => "Sodio",
-		pt => "Sódio",
-		de => "Natrium",
+		fr => "Sodium",
 		he => "נתרן",
-		zh => "钠",
+		it => "Sodio",
+		ja => "ナトリウム",
 		nl => "Natrium",
 		nl_be => "Sodium",
-		ja => "ナトリウム",
+		pt => "Sódio",
 		ro => "Sodiu",
+		zh => "钠",
+		zh_CN => "钠",
+		zh_HK => "鈉",
+		zh_TW => "鈉",
+
 		unit_us => "mg",
 	},
 	salt => {
@@ -2273,6 +2286,10 @@ sub mmoll_to_unit {
 		sk => "Vitamín",
 		ro => "Vitamine",
 		bg => "Витамин",
+		zh => "维生素",
+		zh_CN => "维生素",
+		zh_HK => "維他命",
+		zh_TW => "維生素",
 	},
 	'vitamin-a' => {
 		fr => "Vitamine A (rétinol)",
@@ -4667,7 +4684,7 @@ sub compute_nutriscore($) {
 
 	# Populate the data structure that will be passed to Food::Nutriscore
 
-	my $product_data_ref = {
+	$product_ref->{nutriscore_data} = {
 		is_beverage => $product_ref->{nutrition_score_beverage},
 		is_water => ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters"))),
 		is_cheese => ((has_tag($product_ref, "categories", "en:cheeses")) and not (has_tag($product_ref, "categories", "fr:fromages-blancs"))),
@@ -4684,9 +4701,7 @@ sub compute_nutriscore($) {
 		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
 	};
 
-	$product_ref->{nutriscore_points} = {};
-
-	my ($nutriscore_score, $nutriscore_grade) = ProductOpener::Food::compute_nutriscore_score_and_grade($product_data_ref, $product_ref->{nutriscore_points});
+	my ($nutriscore_score, $nutriscore_grade) = ProductOpener::Food::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
 
 	$product_ref->{nutriscore_score} = $nutriscore_score;
 	$product_ref->{nutriscore_grade} = $nutriscore_grade;

@@ -70,6 +70,7 @@ BEGIN
 	@EXPORT_OK = qw(
 
 		&import_csv_file
+		&import_products_categories_from_public_database
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -91,7 +92,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Import qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -106,7 +107,7 @@ use Text::CSV;
 
 =head2 import_csv_file ( ARGUMENTS )
 
-C<import_csv_file()> imporst product data in the Open Food Facts CSV format
+C<import_csv_file()> imports product data in the Open Food Facts CSV format
 and associated product photos.
 
 =head3 Arguments
@@ -680,7 +681,7 @@ sub import_csv_file($) {
 						}
 					}
 
-					if ($product_ref->{$field} =~ /^, /) {
+					if ((defined $product_ref->{$field}) and ($product_ref->{$field} =~ /^, /)) {
 						$product_ref->{$field} = $';
 					}
 
@@ -967,11 +968,11 @@ sub import_csv_file($) {
 		}
 
 		if ($modified and not $stats{products_data_updated}{$code}) {
-			die("modified but not products_data_updated\n");
+			print STDERR "Error: modified but not products_data_updated\n";
 		}
 
 		if ((not $modified) and $stats{products_data_updated}{$code}) {
-			die("not modified but not products_data_updated\n");
+			print STDERR "Error: not modified but products_data_updated\n";
 		}
 
 		if ($code ne $product_ref->{code}) {
@@ -1303,6 +1304,151 @@ sub import_csv_file($) {
 }
 
 
+
+=head2 import_products_categories_from_public_database ( ARGUMENTS )
+
+C<import_products_categories_from_public_database()> imports categories
+from the public Open Food Facts database to the producers platform, for
+products with a specific owner.
+
+The products have to already exist in the producers platform.
+
+=head3 Arguments
+
+Arguments are passed through a single hash reference with the following keys:
+
+=head4 user_id - required
+
+User id to which the changes (new products, added or changed values, new images)
+will be attributed.
+
+=head4 org_id - optional
+
+Organisation id to which the changes (new products, added or changed values, new images)
+will be attributed.
+
+=head4 owner - required
+
+Owner of the products on the producers platform.
+
+=cut
+
+sub import_products_categories_from_public_database($) {
+
+	my $args_ref = shift;
+
+	$User_id = $args_ref->{user_id};
+	$Org_id = $args_ref->{org_id};
+
+	my $query_ref = { owner => $args_ref->{owner} };
+
+	my $products_collection = get_products_collection();
+
+	my $cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
+	$cursor->immortal(1);
+
+	my $n = 0;
+
+	while (my $product_ref = $cursor->next) {
+
+		my $productid = $product_ref->{_id};
+		my $code = $product_ref->{code};
+		my $path = product_path($product_ref);
+
+		my $owner_info = "";
+		if (defined $product_ref->{owner}) {
+			$owner_info = "- owner: " . $product_ref->{owner} . " ";
+		}
+
+		if (not defined $code) {
+			print STDERR "code field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id} . "\n";
+		}
+		else {
+			print STDERR "updating product code: $code $owner_info ($n)\n";
+		}
+
+		# Load the product from the public database
+
+		my $imported_product_ref;
+
+		if (defined $server_options{export_data_root}) {
+
+			my $public_path = product_path_from_id($code);
+			my $file = $server_options{export_data_root} . "/products/$public_path/product.sto";
+
+			$imported_product_ref = retrieve($file);
+
+			if (not defined $imported_product_ref) {
+				$log->debug("import_product_categories - unable to load public product file", { code => $code, file => $file } ) if $log->is_debug();
+			}
+		}
+
+		if (defined $imported_product_ref) {
+
+			# Load the product from the producers platform
+
+			$product_ref = retrieve_product($productid);
+
+			if (defined $product_ref) {
+
+				my $field = "categories";
+
+				my $current_field = $product_ref->{$field};
+
+				my %existing = ();
+					if (defined $product_ref->{$field . "_tags"}) {
+					foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
+						$existing{$tagid} = 1;
+					}
+				}
+
+				foreach my $tag (split(/,/, remove_tags_and_quote($imported_product_ref->{$field}))) {
+
+					my $tagid;
+
+					next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
+
+					$tag =~ s/^\s+//;
+					$tag =~ s/\s+$//;
+
+					if (defined $taxonomy_fields{$field}) {
+						$tagid = get_taxonomyid($imported_product_ref->{lc}, canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
+					}
+
+					if (not exists $existing{$tagid}) {
+						$product_ref->{$field} .= ", $tag";
+						$existing{$tagid} = 1;
+					}
+				}
+
+				if ((defined $product_ref->{$field}) and ($product_ref->{$field} =~ /^, /)) {
+					$product_ref->{$field} = $';
+				}
+
+				if ((not defined $current_field) or ($current_field ne $product_ref->{$field})) {
+					$log->debug("import_product_categories - new categories", { categories => $product_ref->{$field} } ) if $log->is_debug();
+					compute_field_tags($product_ref, $product_ref->{lc}, $field);
+					if ($server_domain =~ /openfoodfacts/) {
+						$log->debug("Food::special_process_product") if $log->is_debug();
+						ProductOpener::Food::special_process_product($product_ref);
+					}
+					compute_nutrition_score($product_ref);
+					compute_nova_group($product_ref);
+					compute_nutrient_levels($product_ref);
+					compute_unknown_nutrients($product_ref);
+					ProductOpener::DataQuality::check_quality($product_ref);
+					store_product($product_ref, "imported categories from public database");
+				}
+
+			}
+			else {
+				$log->debug("import_product_categories - unable to load private product file", { code => $code } ) if $log->is_debug();
+			}
+		}
+
+		$n++;
+	}
+}
 
 1;
 
