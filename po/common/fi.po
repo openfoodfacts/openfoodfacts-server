@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-03 14:01\n"
+"PO-Revision-Date: 2019-11-03 21:11\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -196,7 +196,7 @@ msgstr "Voit myös auttaa rahoittamaan Open Food Facts -hanketta"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Lahjoita Open Food Factsille\" /></a><p><<site_name>>ia kehittää voittoa tavoittelematon ja toimialasta riippumaton yhdistys. Sitä kehittävät kaikki, kaikille, ja sitä rahoittavat kaikki. Voit tukea työtämme <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">lahjoittamalla Open Food Factsille</a> ja myös <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">käyttämällä Lilo-hakukonetta</a>.<br/><b>Kiitos!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Lahjoita Open Food Factsille\" /></a><p><<site_name>>ia kehittää voittoa tavoittelematon ja toimialasta riippumaton yhdistys. Sitä kehittävät kaikki, kaikille, ja sitä rahoittavat kaikki. Voit tukea työtämme <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">lahjoittamalla Open Food Factsille,</a> ja myös <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">käyttämällä Lilo-hakukonetta</a>.<br/><b>Kiitos!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -244,23 +244,23 @@ msgstr "Sardiineja oliiviöljyssä, appelsiinimehu tiivisteestä"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "Ilmoita vain kaikkein tarkin luokitus. Yläluokat lisätään automaattisesti."
+msgstr "Ilmoita vain kaikkein tarkin tuoteluokka. Yläluokat lisätään automaattisesti."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "luokat"
+msgstr "tuoteluokat"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "%s luokan tuotteet"
+msgstr "%s -luokan tuotteet"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "luokitus"
+msgstr "tuoteluokka"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr "lisää luokitus"
+msgstr "lisää tuoteluokka"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
@@ -272,7 +272,7 @@ msgstr "Tiedot"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr "Ravinteet"
+msgstr "Ravintoaineet"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -432,7 +432,7 @@ msgstr "Ekologinen jalanjälki"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr "Jos hiilijalanjälki löytyy etiketistä (harvinaista tällä hetkellä), ilmoita se samaa määrää kohden kuin tuotteen koostumus on ilmoitettu."
+msgstr "Jos hiilijalanjälki löytyy etiketistä (harvinaista tällä hetkellä), ilmoita se samaa määrää kohden kuin tuotteen ravintotiedot ovat ilmoitettu."
 
 msgctxt "edit"
 msgid "edit"
@@ -625,7 +625,7 @@ msgstr "Parasta ennen"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr "Vanhentumispäivä on tapa seurata tuotteen muutoksia ajan myötä ja tapa tunnistaa kaikkein uusin versio."
+msgstr "Parasta on tapa seurata tuotteen muutoksia ajan myötä ja tapa tunnistaa kaikkein uusin versio."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -1483,19 +1483,19 @@ msgstr "ravintoainepitoisuudet"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr "ravinteet"
+msgstr "ravintoaineet"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr "Tuotteet, jotka sisältävät ravinnetta %s"
+msgstr "Tuotteet, jotka sisältävät ravintoainetta %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr "ravinne"
+msgstr "ravintoaine"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr "Tuotteet, jotka eivät sisällä ravinnetta %s"
+msgstr "Tuotteet, jotka eivät sisällä ravintoainetta %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1511,7 +1511,7 @@ msgstr "Ravintosisältöjen keskiarvo %d tuotteelle %s-luokassa, joista ravintoa
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "% ero"
+msgstr "%:n ero"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -1523,11 +1523,11 @@ msgstr "Vertailu saman luokan tuotteiden keskiarvon kanssa:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr "Huom.: jokaista ravinnetta kohden keskiarvo lasketaan niistä tuotteista, joiden ravinteiden määrä on tiedossa, ei kaikista luokan tuotteista."
+msgstr "Huom: jokaista ravinnetta kohden keskiarvo lasketaan niistä tuotteista, joiden ravinteiden määrä on tiedossa, ei kaikista luokan tuotteista."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "Jos kuva on riittävän tarkka ja suorassa, ravintosisältö voidaan poimia automaattisesti kuvasta."
+msgstr "Ravintosisältö voidaan poimia automaattisesti kuvasta, jos kuva on riittävän tarkka ja suorassa."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1659,7 +1659,7 @@ msgstr "Pakkaus"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr "Tuore, purkitettu, pakastettu, pullo, laatikko, lasi, muovi..."
+msgstr "Tuore, Purkitettu, Pakastettu, Pullo, Laatikko, Lasi, Muovi..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
@@ -1695,7 +1695,7 @@ msgstr "Sivu %d/%d."
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr "Sivuja:"
+msgstr "Sivut:"
 
 msgctxt "password"
 msgid "Password"
@@ -1707,7 +1707,7 @@ msgstr "Vahvista salasana"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr "Aika avaamisen jälkeen"
+msgstr "Ajanjakso, jonka ajan valmistetta voi avaamisen jälkeen käyttää"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
@@ -1715,11 +1715,11 @@ msgstr "Löytyy logosta, jossa on avonainen purkki ja kuukausien määrä: esim.
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr "Ajat avaamisen jälkeen"
+msgstr "Ajanjaksot, jonka ajan valmistetta voi avaamisen jälkeen käyttää"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr "Aika avaamisen jälkeen"
+msgstr "Ajanjakso, jonka ajan valmistetta voi avaamisen jälkeen käyttää"
 
 msgctxt "photographers_p"
 msgid "photographers"
@@ -1827,7 +1827,7 @@ msgstr "Poimi ainesosat kuvasta"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr "Ainesosia ei voitu poimia. Kokeile terävämmällä kuvalla, paremmalla tarkkuudella tai paremmalla tekstin rajauksella."
+msgstr "Ainesosia ei voitu poimia. Kokeile terävämmällä kuvalla, paremmalla tarkkuudella, tai paremmalla tekstin rajauksella."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
@@ -2167,7 +2167,7 @@ msgstr "Näytä tulokset kaaviona"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr "Huom.: Tämä on käyttäjän luoma kaavio. Otsikon, esitetyt tuotteet ja visualisaation akselin on valinnut kaavion luoja."
+msgstr "Huom: Tämä on käyttäjän luoma kaavio. Otsikon, esitetyt tuotteet ja visualisaation akselin on valinnut kaavion luoja."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2471,11 +2471,11 @@ msgstr "Jäämät"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr "Maito, gluteeni, pähkinät"
+msgstr "Maito, Gluteeni, Pähkinät"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr "Ilmoita mahdolliset ainesosajäämät \"Voi sisältää jäämiä\", \"Valmistettu tehtaassa, jossa käsitellään myös\" jne."
+msgstr "Ilmoita mahdolliset ainesosajäämät pakkauksen kohdista kuten \"Voi sisältää jäämiä\", \"Valmistettu tehtaassa, jossa käsitellään myös\" jne."
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2635,7 +2635,7 @@ msgstr "Varoitus: hedelmien, vihannesten ja pähkinöiden määrää ei ole ilmo
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr "Värillinen NutriScore-ravintoarvosana"
+msgstr "NutriScore-ravintoväriarvosana"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
@@ -2711,11 +2711,11 @@ msgstr "Kääntäjämme"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr "Suuri KIITOS mahtaville kääntäjillemme, jotka mahdollistavat meidän tuottaa Open Food Facts, Open Beauty Facts, ja Open Pet Food Facts palvelut kaikilla näillä eri kielillä! <a href=\"https://translate.openfoodfacts.org/\">Voit liittyä meihin tässä maailmanlaajuisessa hankkeessa: se ei vaadi teknillistä tietämystä.</a>"
+msgstr "Suuri KIITOS mahtaville kääntäjillemme, jotka mahdollistavat meidän tuottaa Open Food Facts, Open Beauty Facts, ja Open Pet Food Facts -palvelut kaikilla näillä eri kielillä! <a href=\"https://translate.openfoodfacts.org/\">Voit liittyä meihin tässä maailmanlaajuisessa hankkeessa: se ei vaadi teknillistä tietämystä.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
-msgstr "Huom.: taulukko päivitetään öisin ja tämän takia saattaa olla, ettei se ole ajan tasalla."
+msgstr "Huom: taulukko päivitetään öisin ja tämän takia saattaa olla, ettei se ole ajan tasalla."
 
 msgctxt "translators_column_name"
 msgid "Name"
@@ -2904,7 +2904,7 @@ msgstr "Euroopan elintarviketurvallisuusviranomainen (EFSA) on todennut, että j
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr "Arvioidaksesi altistumistasi <tag> elintarvikelisäaineelle voit selata sitä sisältävien tuotteiden luetteloa. Katso alla olevaa <nb_products> tuotteen luetteloa joilla on <tag> tunniste."
+msgstr "Arvioidaksesi altistumistasi <tag> elintarvikelisäaineelle, voit selata sitä sisältävien tuotteiden luetteloa. Katso alla olevaa luetteloa <nb_products> tuotteesta, joilla on <tag> tunniste."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
@@ -3148,7 +3148,7 @@ msgstr "Hanki iPad-sovellus"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr "<em>Moniselitteinen viivakoodi</em>: Tällä tuotteella on Rajattu jakelu -viivakoodi yrityksen sisäiseen käyttöön. Tämä tarkoittaa, että eri tuottajat ja myymälät voivat käyttää samaa viivakoodia eri tuotteille."
+msgstr "<em>Moniselitteinen viivakoodi</em>: Tällä tuotteella on Rajattu jakelu -viivakoodi (RCN) yrityksen sisäiseen käyttöön. Tämä tarkoittaa, että eri tuottajat ja myymälät voivat käyttää samaa viivakoodia eri tuotteille."
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3392,7 +3392,7 @@ msgstr "Tietty merkki"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr "Tietty luokitus"
+msgstr "Tietty tuoteluokka"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3438,7 +3438,7 @@ msgstr "Valitse tämä valinta, jos sarake ilmaisee tuotteen kuuluvan tiettyyn l
 
 msgctxt "specific_tag_category_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr "Kirjoita luokan nimi oikealla olevaan tekstikenttään."
+msgstr "Kirjoita tuoteluokan nimi oikealla olevaan tekstikenttään."
 
 msgctxt "value"
 msgid "Value"
@@ -3520,7 +3520,7 @@ msgstr "Tuottajien alusta mahdollistaa valmistajille tuotteidensa kuvien ja tiet
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr "Tuotetiedot ja -kuvat, jotka lähetät tuottajien alustassa tallennetaan yksityiseen tietokantaan. Voit tarkistaa, että kaikki tiedot ovat oikein ennen kuin lisäät ne julkiseen Open Food Facts -tietokantaan."
+msgstr "Tuotetiedot ja -kuvat jotka lähetät tuottajien alustassa tallennetaan yksityiseen tietokantaan. Voit tarkistaa, että kaikki tiedot ovat oikein ennen kuin lisäät ne julkiseen Open Food Facts -tietokantaan."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
