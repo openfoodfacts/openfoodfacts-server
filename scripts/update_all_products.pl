@@ -431,6 +431,15 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
+		if (($fix_missing_lc) and (not defined $product_ref->{lang})) {
+			print STDERR "lc: " . $product_ref->{lc} . "\n";
+			if ((defined $product_ref->{lc}) and ($product_ref->{lc} =~ /^[a-z][a-z]$/)) {
+				print STDERR "fixing missing lang, using lc: " . $product_ref->{lc} . "\n";
+				$product_ref->{lang} = $product_ref->{lc};
+				$product_values_changed = 1;
+			}
+		}
+
 		# Fix ingredients_n that was set as string
 		if (defined $product_ref->{ingredients_n}) {
 			$product_ref->{ingredients_n} += 0;

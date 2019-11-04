@@ -18,6 +18,45 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Products - create and save products
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Products> is used to create products and save them in Product Opener's
+database and file system.
+
+    use ProductOpener::Products qw/:all/;
+
+	my $product_ref = init_product($User_id, $Org_id, $code);
+
+	$product_ref->{product_name_en} = "Chocolate cookies";
+
+	store_product($product_ref, 'helpful comment');
+
+
+=head1 DESCRIPTION
+
+=head2 Revisions
+
+When a product is saved, a new revision of the product is created. All revisions are saved
+in the file system:
+
+products/[barcode path]/1.sto - first revision
+products/[barcode path]/2.sto - 2nd revision
+...
+products/[barcode path]/product.sto - link to latest revision
+
+The latest revision is stored in the products collection of the MongoDB database.
+
+=head2 Completeness, data quality and edit history
+
+Before a product is saved, this module compute the completeness and quality of the data,
+and the edit history.
+
+=cut
+
 package ProductOpener::Products;
 
 use utf8;
@@ -30,6 +69,7 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 		&normalize_code
+		&assign_new_code
 		&split_code
 		&product_id_for_user
 		&product_path
@@ -92,15 +132,24 @@ my $ean_check = CheckDigits('ean');
 
 use Scalar::Util qw(looks_like_number);
 
+=head1 FUNCTIONS
+
+=head2 make_sure_numbers_are_stored_as_numbers ( PRODUCT_REF )
+
+C<make_sure_numbers_are_stored_as_numbers()> forces numbers contained in the product data to be stored
+as numbers (and not strings) in MongoDB.
+
+Perl scalars are not typed, the internal type depends on the last operator
+used on the variable... e.g. if it is printed with a string concatenation,
+then it's converted to a string.
+
+See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
+
+=cut
+
 sub make_sure_numbers_are_stored_as_numbers($) {
 
 	my $product_ref = shift;
-
-	# Perl scalars are not typed, the internal type depends on the last operator
-	# used on the variable... e.g. if it is printed, then it's converted to a string.
-	# See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
-
-	# Force all numbers to be stored as numbers in .sto files and MongoDB
 
 	if (defined $product_ref->{nutriments}) {
 		foreach my $field (keys %{$product_ref->{nutriments}}) {
@@ -124,6 +173,55 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 	}
 }
 
+=head2 assign_new_code ( )
+
+C<assign_new_code()> assigns a new unused code to store a new product
+that does not have a barcode.
+
+	my ($code, $product_id) = assign_new_code();
+
+=head3 Return values
+
+A list with the new code and the corresponding product_id.
+
+=head3 Caveats
+
+=head4 Invalid codes
+
+This function currently assign new codes in sequence starting from 2000000000001.
+We increment the number by 1 for each product (which means codes are not valid as the
+last digit is supposed to be the check digit), and check if there is already a product for that number.
+
+=head4 Code conflicts
+
+Codes starting with 2 are reserved for internal uses, there may be conflicts as other
+companies can use the same codes.
+
+=cut
+
+sub assign_new_code() {
+
+	my $code = 2000000000001; # Codes beginning with 2 are for internal use
+
+	my $internal_code_ref = retrieve("$data_root/products/internal_code.sto");
+	if ((defined $internal_code_ref) and ($$internal_code_ref > $code)) {
+		$code = $$internal_code_ref;
+	}
+
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+
+	while (-e ("$data_root/products/" . product_path_from_id($product_id))) {
+
+		$code++;
+		$product_id = product_id_for_user($User_id, $Org_id, $code);
+	}
+
+	store("$data_root/products/internal_code.sto", \$code);
+
+	$log->debug("assigning a new code", { code => $code, lc => $lc }) if $log->is_debug();
+
+	return ($code, $product_id);
+}
 
 
 sub normalize_code($) {

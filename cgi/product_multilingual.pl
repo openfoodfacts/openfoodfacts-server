@@ -88,23 +88,8 @@ if ($type eq 'search_or_add') {
 	my $r = Apache2::RequestUtil->request();
 	my $method = $r->method();
 	if ((not defined $code) and ((not defined param("imgupload_search")) or ( param("imgupload_search") eq '')) and ($method eq 'POST')) {
-		$code = 2000000000001; # Codes beginning with 2 are for internal use
-
-		my $internal_code_ref = retrieve("$data_root/products/internal_code.sto");
-		if ((defined $internal_code_ref) and ($$internal_code_ref > $code)) {
-			$code = $$internal_code_ref;
-		}
-
-		$product_id = product_id_for_user($User_id, $Org_id, $code);
-
-		while (-e ("$data_root/products/" . product_path_from_id($product_id))) {
-
-			$code++;
-			$product_id = product_id_for_user($User_id, $Org_id, $code);
-		}
-
-		store("$data_root/products/internal_code.sto", \$code);
-
+		
+		($code, $product_id) = assign_new_code();
 	}
 
 	my %data = ();
