@@ -403,6 +403,24 @@ CSS
 		$owner = undef;
 	}
 
+	# Change the color of the top nav bar for the platform for producers
+	if ($server_options{producers_platform}) {
+		$styles .= <<CSS
+.top-bar {
+    background: #a9e7ff;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+    background: #a9e7ff;
+}
+
+.top-bar-section .has-form {
+    background: #a9e7ff;
+}
+CSS
+;
+	}
+
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner => $owner, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
 }
 
@@ -508,6 +526,12 @@ sub analyze_request($)
 		$request_ref->{page} = pop @components;
 		$request_ref->{current_link} = '';
 		$request_ref->{text} = 'index';
+	}
+
+	# Index page on producers platform
+	if ((defined $request_ref->{text}) and ($request_ref->{text} eq "index")
+		and (defined $server_options{private_products}) and ($server_options{private_products})) {
+		$request_ref->{text} = 'index-pro';
 	}
 
 	# api
@@ -961,6 +985,12 @@ sub display_text($)
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
+	# Add org name to index title on producers platform
+
+	if (($textid eq 'index-pro') and (defined $Org_id)) {
+		$html =~ s/<\/h1>/ - $Org{org}<\/h1>/;
+	}
+
 	$log->info("displaying text from file", { cc => $cc, lc => $lc, lang => $lang, textid => $textid, textlang => $text_lang, file => $file }) if $log->is_info();
 
 	# if page number is higher than 1, then keep only the h1 header
@@ -997,12 +1027,16 @@ sub display_text($)
 	};
 
 
-	if ($file !~ /index.foundation/) {
-		$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
-	}
-	else {
+	if ($file =~ /\/index.foundation/) {
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
+	elsif (($file =~ /\/index-pro/) and (defined $Org_id)) {
+		$html .= "<h2>" . lang("your_products") . lang("sep") . ":" . "</h2>";
+		$html .= '<p>&rarr; <a href="' . lang("import_products_link") . '">' . lang("add_or_update_products") . '</a></p>';
+		$html .= search_and_display_products( $request_ref, {}, "last_modified_t", undef, undef);
+	}
+
+	$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 
 	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
 
@@ -5653,24 +5687,31 @@ sub display_my_block($)
 
 	if (defined $User_id) {
 
-		my $links = '<ul class="side-nav" style="padding-top:0">';
-		$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
-		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
-		$links .= "</ul>";
+		my $links = "";
 
 		my $content = '';
 
 
-		if (defined $Facebook_id) {
-			$content = lang("connected_with_facebook") . <<HTML
-<fb:login-button autologoutlink="true" perms="email"></fb:login-button>
-$links
-HTML
-;
+		my $signout = lang("signout");
+		$content = sprintf(lang("you_are_connected_as_x"), $User_id);
+
+		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+
+			if (defined $Org_id) {
+				$content .= "<br>" . lang("organization") . lang("sep") . ": " . $Org{org};
+			}
+			else {
+				$content .= "<p>" . lang("account_without_org") . "</p>";
+			}
 		}
 		else {
-			my $signout = lang("signout");
-			$content = sprintf(lang("you_are_connected_as_x"), $User_id) . <<HTML
+			$links = '<ul class="side-nav" style="padding-top:0">';
+			$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
+			$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
+			$links .= "</ul>";
+		}
+
+		$content .= <<HTML
 <ul class="button-group">
 <li>
 	<form method="post" action="/cgi/session.pl">
@@ -5685,7 +5726,6 @@ HTML
 $links
 HTML
 ;
-		}
 
 		push @$blocks_ref, {
 			'title'=> lang("hello") . ' ' . $User{name},
@@ -5823,7 +5863,11 @@ sub display_new($) {
 	display_on_the_blog($blocks_ref);
 
 	#display_top_block($blocks_ref);
-	display_bottom_block($blocks_ref);
+
+	# Bottom block is used for donations, do not display it on the producers platform
+	if (not $server_options{producers_platform}) {
+		display_bottom_block($blocks_ref);
+	}
 
 	my $site = "<a href=\"/\">" . lang("site_name") . "</a>";
 
@@ -5947,6 +5991,11 @@ HTML
 
 	$html .= lang("css");
 
+	my $site_name = $Lang{site_name}{$lang};
+	if ($server_options{producers_platform}) {
+		$site_name = $Lang{producers_platform}{$lc};
+	}
+
 	$html .= <<HTML
 $styles
 </style>
@@ -5956,7 +6005,7 @@ $google_analytics
 <nav class="top-bar" data-topbar id="top-bar">
 	<ul class="title-area">
 		<li class="name">
-			<h2><a href="/" style="font-size:1rem;">$Lang{site_name}{$lang}</a></h2>
+			<h2><a href="/" style="font-size:1rem;">$site_name</a></h2>
 		</li>
 		<li class="toggle-topbar menu-icon">
 			<a href="#"><span>Menu</span></a>
@@ -6140,20 +6189,10 @@ HTML
 
 	if ($server_options{producers_platform}) {
 
-		$tagline = <<HTML
-<h2>$Lang{producers_platform}{$lc}</h2>
-<p>$Lang{producers_platform_description}{$lc}</p>
-<p>
-&rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
-&rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
-&rarr; <a href="/cgi/export_products.pl">$Lang{export_product_data_photos}{$lc}</a><br>
-</p>
-HTML
-;
+		$tagline = "";
+	}
 
-		}
-
-	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"})) {
+	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"}) and (not $server_options{producers_platform})) {
 
 		my $link = lang($system . "_app_link");
 		my $link_text = lang("get_the_app_$mobile");
@@ -6173,6 +6212,15 @@ HTML
 
 HTML
 ;
+	}
+
+	my $get_the_app = <<HTML
+<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-phone_android"></i></a></li>
+<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-phone_android"></i> $Lang{get_the_app}{$lc}</a></li>
+HTML
+;
+	if ($server_options{producers_platform}) {
+		$get_the_app = "";
 	}
 
 	$html .= <<HTML
@@ -6198,8 +6246,7 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-phone_android"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-phone_android"></i> $Lang{get_the_app}{$lc}</a></li>
+			$get_the_app
 		</ul>
 	</section>
 </nav>
@@ -6500,7 +6547,25 @@ sub display_product_search_or_add($)
 
 	my $html = '';
 
-	$html .= start_multipart_form(-action=>"/cgi/product.pl") ;
+	# Producers platform: display an addition import products block
+
+	if ($server_options{producers_platform}) {
+
+		$html = <<HTML
+&rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
+&rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
+&rarr; <a href="/cgi/export_products.pl">$Lang{export_product_data_photos}{$lc}</a><br>
+</p>
+HTML
+;
+		push @$blocks_ref, {
+			'title'=>lang("import_products"),
+			'content'=>$html,
+		};
+
+	}
+
+	$html = start_multipart_form(-action=>"/cgi/product.pl") ;
 
 	$html .= display_search_image_form("block_side");
 
@@ -6520,16 +6585,11 @@ sub display_product_search_or_add($)
 HTML
 ;
 
-
-
-
-	unshift @$blocks_ref, {
+	push @$blocks_ref, {
 			'title'=>$title,
 			'content'=>$html,
 	};
-
 }
-
 
 
 sub display_image_box($$$) {
@@ -6572,12 +6632,10 @@ HTML
 
 			my $idlc = $id;
 
-			# <img src="/images/products/$path/$id.$rev.$size.jpg"
-
-			if ($img =~ /data-src="([^"]*)\/([^\.]+)\./) {
+			# <img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg"
+			if ($img =~ /src="([^"]*)\/([^\.]+)\./) {
 				$idlc = $2;
 			}
-
 
 			my $html = <<HTML
 <div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>

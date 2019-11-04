@@ -51,8 +51,8 @@ use Text::CSV();
 
 ProductOpener::Display::init();
 
-my $title = '';
-my $html = '';
+my $title = lang("import_file_status_title");
+my $html = "<p>" . lang("import_file_status_description") . "</p>";
 
 if (not defined $owner) {
 	display_error(lang("no_owner_defined"), 200);
@@ -156,7 +156,7 @@ my $args_ref = {
 if (defined $Org_id) {
 	$args_ref->{manufacturer} = 1;
 	$args_ref->{source_id} = $Org_id;
-	$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id};
+	$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id, imports => $import_id};
 }
 else {
 	$args_ref->{no_source} = 1;
@@ -168,13 +168,13 @@ $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 
 store("$data_root/import_files/$owner/import_files.sto", $import_files_ref);
 
-$html .= "<p>job_id: " . $results_ref->{job_id} . "</p>";
+$html .= "<p>" . lang("import_file_status") . lang("sep"). ': <span id="result">' . lang("job_status_inactive") . '</span>';
 
-$html .= "<a href=\"/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id\">status</a>";
+if ($admin) {
+	$html .= " (shown to admins only: <a href=\"/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id\">status</a>) - poll: <div id=\"span\"></span>";
+}
 
-
-
-$html .= "Poll: <div id=\"poll\"></div> Result:<div id=\"result\"></div>";
+$html .= "</p>";
 
 $initjs .= <<JS
 
@@ -182,11 +182,18 @@ var poll_n = 0;
 var timeout = 5000;
 var job_info_state;
 
+var statuses = {
+	"inactive" : "$Lang{job_status_inactive}{$lc}",
+	"active" : "$Lang{job_status_active}{$lc}",
+	"finished" : "$Lang{job_status_finished}{$lc}",
+	"failed" : "$Lang{job_status_failed}{$lc}"
+};
+
 (function poll() {
   \$.ajax({
     url: '/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id',
     success: function(data) {
-      \$('#result').html(data.job_info.state);
+      \$('#result').html(statuses[data.job_info.state]);
 	  job_info_state = data.job_info.state;
     },
     complete: function() {
@@ -194,6 +201,8 @@ var job_info_state;
 	  if ((job_info_state == "inactive") || (job_info_state == "active")) {
 		setTimeout(poll, timeout);
 		timeout += 1000;
+	}
+	if (job_info_state == "finished") {
 	}
 	  poll_n++;
 	  \$('#poll').html(poll_n);
