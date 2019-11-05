@@ -2,6 +2,7 @@
 # 1. are often found in ingredients lists before or after an ingredient
 # 2. indicate some kind of processing done to the ingredient (like "cut", "dried" etc.)
 # 3. are not labels that specify the quality of the ingredient ("organic", "origin Italy", "superior quality")
+#
 # The taxonomy is used for ingredient analysis:
 # The ingredient "cooked pork" will be recognized as "pork" with the processing "en:cooked".
 # This works only if "cooked pork" is not a known ingredient in the ingredients taxonomy,
@@ -9,12 +10,15 @@
 
 en:cooked
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
+it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
 
 en:pre-cooked
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
+it:precotto, precotta, precotti, precotte
 
 en:fried
 fr:frit, frite, frits, frites
+it:fritto, fritta, fritti, fritte
 
 en:pre-fried
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
@@ -27,15 +31,18 @@ fr:toasté, toastée, toastés, toastées
 
 en:grilled
 fr:grillé, grillée, grillés, grillées
+it:grigliato, grigliata, grigliati, grigliate
 
 en:cured
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
 
 en:whole
 fr:entier, entière, entiers, entières
+it:intero, intera, interi, intere
 
 en:cut
 fr:coupé, coupée, coupés, coupées, émincé, émincée, émincés, émincées, émincé de, en morceaux, morceaux de, morceaux d', en éclats, éclats de, éclats d', en copeaux, copeaux de, copeaux d'
+it:tagliato, tagliata, tagliati, tagliate
 
 en:peeled
 fr:pelé, pelée, pelés, pelées
@@ -63,6 +70,7 @@ fr:râpé, râpée, râpés, râpées
 
 en:powdered
 fr:en poudre, poudre de, poudre d'
+it:in polvere, polvere di, polvere d'
 
 en:shelled
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
@@ -72,9 +80,11 @@ fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
 
 en:dried
 fr:séché, séchée, séchés, séchées
+it:secco, secca, secchi, secche
 
 en:dehydrated
 fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
+it:disidratato, disidratata, disidratati, disidratate
 
 en:rehydrated
 fr:réhydraté, réhydratée, réhydratés, réhydratées
