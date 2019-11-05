@@ -549,7 +549,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 @taxonomy_fields = qw(states countries languages labels categories additives additives_classes
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
-data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors
+data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 improvements
 );
 
@@ -853,10 +853,7 @@ $options{nova_groups_tags} = {
 	"ingredients/en:preservative" => 3,
 	"ingredients/en:anti-caking-agent" => 3,
 
-
 	"ingredients/en:salt" => 3,
-	"ingredients/en:spice" => 3,
-	"ingredients/en:pepper" => 3,
 	"ingredients/en:sugar" => 3,
 	"ingredients/en:vegetable-oil" => 3,
 	"ingredients/en:vegetal-oil" => 3,
