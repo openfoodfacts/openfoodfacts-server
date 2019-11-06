@@ -59,7 +59,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 use JSON::PP;
-
+use Text::CSV;
 
 use Getopt::Long;
 
@@ -112,21 +112,28 @@ my $i = 0;
 
 my $n = 0;
 
-open (my $csv, ">", $target_dir . "/products.csv") or die("Cannot create products.csv: $!\n");
+open (my $csv_file, ">:encoding(UTF-8)", $target_dir . "/products.csv") or die("Cannot create products.csv: $!\n");
 
-print $csv join("\t", qw(code angle x1 y1 x2 y2)) . "\n";
+my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
+		or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
-my $imageid = "nutrition";
-my $imageid_lc = "nutrition_" . $lc;
+$csv->print($csv_file, [ qw(code angle x1 y1 x2 y2 ingredients_n unknown_ingredients_n ingredients_text) ]);
+print $csv_file "\n";
+
+my $imageid = "ingredients";
+my $imageid_lc = "ingredients_" . $lc;
 
 while (my $product_ref = $cursor->next) {
 
 	my $code = $product_ref->{code};
-	my $path = product_path($code);
+
+	my $product_id = product_id_for_user(undef, undef, $code);
+
+	my $path = product_path_from_id($product_id);
 
 	$i++;
 
-	$product_ref = retrieve_product($code);
+	$product_ref = retrieve_product($product_id);
 
 	if (defined $product_ref) {
 
@@ -134,13 +141,12 @@ while (my $product_ref = $cursor->next) {
 
 		next if ! -e $dir;
 
-		# Keep only products with a selected nutrition image
+		# Keep only products with a selected ingredients image
 		next if not defined $product_ref->{images};
 		next if not defined $product_ref->{images}{$imageid_lc};
 
-		# Keep only products that have nutrition data
-		next if not defined $product_ref->{nutriments};
-		next if not defined $product_ref->{nutriments}{energy_100g};
+		# Keep only products that have ingredients data
+		next if ((not defined $product_ref->{"ingredients_text_" . $lc}) or ($product_ref->{"ingredients_text_" . $lc} eq ""));
 
 		my $imgid = $product_ref->{images}{$imageid_lc}{imgid};
 		my $rev = $product_ref->{images}{$imageid_lc}{rev};
@@ -177,9 +183,6 @@ while (my $product_ref = $cursor->next) {
 			$oh = $oz;
 		}
 
-		next if not defined $w or $w == 0;
-		next if not defined $h or $h == 0;
-
 		my $ox1;
 		my $oy1;
 		my $ox2;
@@ -205,21 +208,11 @@ while (my $product_ref = $cursor->next) {
 		copy("$dir/$imageid_lc.$rev.full.jpg","$target_dir/$code" . '.' . $imageid . ".cropped.jpg") or print STDERR ("could not copy $dir/$imageid_lc.$rev.full.jpg : $!\n");
 		copy("$dir/$imageid_lc.$rev.json","$target_dir/$code" . '.' . $imageid . ".cropped.json") or print STDERR ("could not copy $dir/$imageid_lc.$rev.json : $!\n");
 
-		foreach my $nid (keys %{$product_ref->{nutriments}}) {
-			$product_ref->{nutriments}{$nid} =~ /nutrition/ and delete $product_ref->{nutriments}{$nid};
-			$product_ref->{nutriments}{$nid} eq "nova" and delete $product_ref->{nutriments}{$nid};
-		}
-
-		my $json_file = "$target_dir/$code" . ".nutriments.json";
-		open (my $OUT, ">:encoding(UTF-8)", "$json_file");
-		print $OUT encode_json($product_ref->{nutriments});
-		close $OUT;
-
-		print $csv join("\t", $code, $angle, $ox1, $oy1, $ox2, $oy2) . "\n";
-
+		$csv->print($csv_file, [ $code, $angle, $ox1, $oy1, $ox2, $oy2, $product_ref->{ingredients_n}, $product_ref->{unknown_ingredients_n}, $product_ref->{"ingredients_text_" . $lc} ] );
+		print $csv_file "\n";
 
 		$n++;
-#		($n > 10) and last;
+		#($n > 1000) and last;
 	}
 }
 
