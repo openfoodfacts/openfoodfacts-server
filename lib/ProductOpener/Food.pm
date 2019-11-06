@@ -40,6 +40,8 @@ BEGIN
 
 					@nutrient_levels
 
+					%categories_nutriments_per_country
+
 					&normalize_nutriment_value_and_modifier
 					&assign_nid_modifier_value_and_unit
 
@@ -57,6 +59,7 @@ BEGIN
 					&canonicalize_nutriment
 
 					&fix_salt_equivalent
+					&compute_nutriscore
 					&compute_nutrition_score
 					&compute_nutrition_grade
 					&compute_nova_group
@@ -90,12 +93,28 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
 
 use Hash::Util;
 
 use CGI qw/:cgi :form escapeHTML/;
 
 use Log::Any qw($log);
+
+# Load nutrient stats for all categories and countries
+# the stats are displayed on category pages and used in product pages,
+# as well as in data quality checks and improvement opportunity detection
+
+if (opendir (my $dh, "$data_root/index")) {
+	foreach my $file (readdir($dh)) {
+		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
+			my $country_cc = $1;
+			$categories_nutriments_per_country{$country_cc} = retrieve("$data_root/index/categories_nutriments_per_country.$country_cc.sto");
+		}
+	}
+	closedir $dh;
+}
+
 
 sub normalize_nutriment_value_and_modifier($$) {
 
@@ -955,35 +974,43 @@ sub mmoll_to_unit {
 		unit => "% vol",
 	},
 	energy	=> {
-		fr => "Énergie",
-		fr_synonyms => ["valeurs énergétique", "valeur énergétique"],
+		ar => "الطاقه",
+		bg => "Енергийна стойност",
+		cs => "Energetická hodnota",
+		da => "Energi",
+		de => "Energie",
+		el => "Ενέργεια",
 		en => "Energy",
 		es => "Energía",
-		ar => "الطاقه",
-		it => "Energia",
-		pt => "Energia",
-		de => "Energie",
-		he => "אנרגיה - קלוריות",
-		ga => "Fuinneamh",
-		da => "Energi",
-		el => "Ενέργεια",
+		et => "Energia",
+		fa => "انرژی",
 		fi => "Energiav",
+		fr => "Énergie",
+		fr_synonyms => ["valeurs énergétique", "valeur énergétique"],
+		ga => "Fuinneamh",
+		he => "אנרגיה - קלוריות",
+		hu => "Energia",
+		it => "Energia",
+		lt => "Energinė vertė",
+		ja => "エネルギー",
+		lv => "Enerģētiskā vērtība",
+		mt => "Enerġija",
+		nb => "Energi",
 		nl => "Energie",
 		nl_be => "Energie",
-		sv => "Energi",
-		lv => "Enerģētiskā vērtība",
-		cs => "Energetická hodnota",
-		et => "Energia",
-		hu => "Energia",
+		pt => "Energia",
 		pl => "Wartość energetyczna",
-		sl => "Energijska vrednost",
-		lt => "Energinė vertė",
-		mt => "Enerġija",
-		sk => "Energetická hodnota",
 		ro => "Valoarea energetică",
-		bg => "Енергийна стойност",
+		rs => "Energetska vrednost",
+		ru => "Энергетическая ценность",
+		sl => "Energijska vrednost",
+		sk => "Energetická hodnota",
+		sv => "Energi",
+		tr => "Enerji",
 		zh => "能量",
-		ja => "エネルギー",
+		zh_CN => "能量",
+		zh_HK => "能量",
+		zh_TW => "能量",
 
 		unit => "kj",
 		unit_us => "kcal",
@@ -1015,6 +1042,7 @@ sub mmoll_to_unit {
 		de => "Eiweiß",
 		el => "Πρωτεΐνες",
 		en => "Proteins",
+		en_synonyms => ["Protein"],
 		es => "Proteínas",
 		et => "Valgud",
 		fa => "ﭘﺮﻭﺗﺌ‍ین",
@@ -1188,6 +1216,7 @@ sub mmoll_to_unit {
 		de => "Zucker",
 		el => "Σάκχαρα",
 		en => "Sugars",
+		en_synonyms => ["Sugar"],
 		es => "Azúcares",
 		et => "Suhkrud",
 		fa => "شکر",
@@ -1421,6 +1450,7 @@ sub mmoll_to_unit {
 		de => "Fett",
 		el => "Λιπαρά",
 		en => "Fat",
+		en_synonyms => ["Total fat", "Lipids"],
 		es => "Grasas",
 		et => "Rasvad",
 		fi => "Rasva",
@@ -2116,6 +2146,7 @@ sub mmoll_to_unit {
 	},
 	fiber => {
 		en => "Dietary fiber",
+		en_synonyms => ["Fiber"],
 		bg => "Влакнини",
 		cs => "Vláknina",
 		da => "Kostfibre",
@@ -2174,20 +2205,25 @@ sub mmoll_to_unit {
 		zh_TW => "不可溶性纖維",
 	},
 	sodium => {
-		fr => "Sodium",
+		ar => "الصوديوم",
+		cs => "Sodík",
+		de => "Natrium",
 		en => "Sodium",
 		el => "Νάτριο",
 		es => "Sodio",
-		ar => "الصوديوم",
-		it => "Sodio",
-		pt => "Sódio",
-		de => "Natrium",
+		fr => "Sodium",
 		he => "נתרן",
-		zh => "钠",
+		it => "Sodio",
+		ja => "ナトリウム",
 		nl => "Natrium",
 		nl_be => "Sodium",
-		ja => "ナトリウム",
+		pt => "Sódio",
 		ro => "Sodiu",
+		zh => "钠",
+		zh_CN => "钠",
+		zh_HK => "鈉",
+		zh_TW => "鈉",
+
 		unit_us => "mg",
 	},
 	salt => {
@@ -2250,6 +2286,10 @@ sub mmoll_to_unit {
 		sk => "Vitamín",
 		ro => "Vitamine",
 		bg => "Витамин",
+		zh => "维生素",
+		zh_CN => "维生素",
+		zh_HK => "維他命",
+		zh_TW => "維生素",
 	},
 	'vitamin-a' => {
 		fr => "Vitamine A (rétinol)",
@@ -3252,7 +3292,9 @@ sub mmoll_to_unit {
 	},
 	"fruits-vegetables-nuts" => {
 		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils",
+		en_synonyms => ["Fruits, vegetables and nuts", "Fruits, vegetables, nuts"],
 		fr => "Fruits, légumes, noix et huiles de colza, noix et olive",
+		fr_synonyms => ["Fruits, légumes et noix", "Fruits, légumes, noix"],
 		es => "Frutas, verduras y nueces",
 		el => "Φρούτα, λαχανικά, καρποί",
 		nl => "Fruit, groenten en noten",
@@ -4429,10 +4471,6 @@ COMMENT
 # soient dans une catégorie supérieure à l'eau (qui est classée verte).
 # Nous ne disposons pour l'instant pas d'adaptations plus précises du score.
 
-
-
-
-
 	delete $product_ref->{"nutrition-grade-fr"};
 	delete $product_ref->{"nutrition_grade_fr"};
 
@@ -4444,6 +4482,229 @@ COMMENT
 	$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
 	$product_ref->{"nutrition_grades"} = $product_ref->{"nutrition_grade_fr"};  # needed for the /nutrition-grade/unknown query
 
+}
+
+
+sub compute_nutriscore($) {
+
+	my $product_ref = shift;
+
+	# Initialize values
+
+	delete $product_ref->{nutrition_score_debug};
+	delete $product_ref->{nutriments}{"nutrition-score"};
+	delete $product_ref->{nutriments}{"nutrition-score_100g"};
+	delete $product_ref->{nutriments}{"nutrition-score_serving"};
+	delete $product_ref->{nutriments}{"nutrition-score-fr"};
+	delete $product_ref->{nutriments}{"nutrition-score-fr_100g"};
+	delete $product_ref->{nutriments}{"nutrition-score-fr_serving"};
+	delete $product_ref->{nutriments}{"nutrition-score-uk"};
+	delete $product_ref->{nutriments}{"nutrition-score-uk_100g"};
+	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};
+	delete $product_ref->{"nutrition_grade_fr"};
+	delete $product_ref->{"nutrition_grades"};
+	delete $product_ref->{"nutrition_grades_tags"};
+	delete $product_ref->{nutrition_score_warning_no_fiber};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value};
+	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
+	delete $product_ref->{nutriscore_score};
+	delete $product_ref->{nutriscore_grade};
+
+	defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
+
+	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
+
+	my $prepared = '';
+
+	# do not compute a score when we don't have a category
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+		return;
+	}
+
+	if (not defined $product_ref->{nutrition_score_beverage}) {
+		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage";
+		return;
+	}
+
+
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
+	# unless we have nutrition data for the prepared product
+	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
+
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups", "en:instant-beverages") {
+
+		if (has_tag($product_ref, "categories", $category_tag)) {
+
+			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+				$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag";
+				$prepared = '_prepared';
+				last;
+			}
+			else {
+				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+				$product_ref->{nutrition_score_debug} = "no score for category $category_tag without data for prepared product";
+				return;
+			}
+		}
+	}
+
+	# do not compute a score for coffee, tea etc. except ice teas etc.
+
+	if (defined $options{categories_exempted_from_nutriscore}) {
+
+		my $not_exempted = 0;
+
+		foreach my $category_id (@{$options{categories_not_exempted_from_nutriscore}}) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$not_exempted = 1;
+				last;
+			}
+		}
+
+		if (not $not_exempted) {
+
+			foreach my $category_id (@{$options{categories_exempted_from_nutriscore}}) {
+
+				if (has_tag($product_ref, "categories", $category_id)) {
+					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
+					return;
+				}
+			}
+		}
+	}
+
+	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
+	# do not display warnings about missing fiber and fruits
+
+	if (not ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
+
+		# compute the score only if all values are known
+		# for fiber, compute score without fiber points if the value is not known
+		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
+
+		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
+			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
+				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
+				push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";
+				if (not defined $product_ref->{nutriments}{"saturated-fat"  . $prepared . "_100g"}) {
+					push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
+				}
+				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
+				return;
+			}
+		}
+
+		# some categories of products do not have fibers > 0.7g (e.g. sodas)
+		# for others, display a warning when the value is missing
+		if ((not defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
+			and not (has_tag($product_ref, "categories", "en:sodas"))) {
+			$product_ref->{nutrition_score_warning_no_fiber} = 1;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
+		}
+	}
+
+	if ($prepared ne '') {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-grade-computed-for-prepared-product";
+	}
+
+	# Compute the fruit % according to the Nutri-Score rules
+
+	my $fruits = undef;
+
+	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
+		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
+
+		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+		}
+
+		$fruits = $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
+	}
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+	}
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"}) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
+	}
+	# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+	else {
+		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted ) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$fruits = $fruits_vegetables_nuts_by_category{$category_id};
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value} = $fruits_vegetables_nuts_by_category{$category_id};
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category";
+				my $category = $category_id;
+				$category =~ s/:/-/;
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
+				last;
+			}
+		}
+
+		if (defined $fruits) {
+			$product_ref->{"fruits-vegetables-nuts_100g_estimate"} = $fruits;
+		}
+		else {
+			$fruits = 0;
+			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
+		}
+
+	}
+
+	if ((defined $product_ref->{nutrition_score_warning_no_fiber}) or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})) {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
+	}
+	else {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";
+	}
+
+	my $saturated_fat = $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"};
+	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
+	my $saturated_fat_ratio = 0;
+	if ((defined $saturated_fat) and ($saturated_fat > 0)) {
+		if ($fat <= 0) {
+			$fat = $saturated_fat;
+		}
+		$saturated_fat_ratio = $saturated_fat / $fat * 100;	# in %
+	}
+
+	# Populate the data structure that will be passed to Food::Nutriscore
+
+	$product_ref->{nutriscore_data} = {
+		is_beverage => $product_ref->{nutrition_score_beverage},
+		is_water => ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters"))),
+		is_cheese => ((has_tag($product_ref, "categories", "en:cheeses")) and not (has_tag($product_ref, "categories", "fr:fromages-blancs"))),
+		is_fat => has_tag($product_ref, "categories", "en:fats"),
+
+		energy => $product_ref->{nutriments}{"energy" . $prepared . "_100g"},
+		sugars => $product_ref->{nutriments}{"sugars" . $prepared . "_100g"},
+		saturated_fat => $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"},
+		saturated_fat_ratio => $saturated_fat_ratio,
+		sodium => $product_ref->{nutriments}{"sodium" . $prepared . "_100g"} * 1000,	# in mg,
+
+		fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
+		fiber => ((defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}) ? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"} : 0),
+		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
+	};
+
+	my ($nutriscore_score, $nutriscore_grade) = ProductOpener::Food::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
+
+	$product_ref->{nutriscore_score} = $nutriscore_score;
+	$product_ref->{nutriscore_grade} = $nutriscore_grade;
 }
 
 

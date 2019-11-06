@@ -10,7 +10,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Import qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 # dummy product for testing
 

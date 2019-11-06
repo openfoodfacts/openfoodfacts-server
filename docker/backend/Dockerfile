@@ -35,7 +35,8 @@ RUN set -x \
     libexperimental-perl \
     libapache2-request-perl \
     libdigest-md5-perl \
-    libtime-local-perl
+    libtime-local-perl \
+    libdbd-pg-perl
 
 # Stage for installing/compiling cpanfile dependencies
 FROM modperl AS builder

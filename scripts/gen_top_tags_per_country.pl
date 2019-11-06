@@ -147,7 +147,8 @@ $fields_ref->{nutriments} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
-my $cursor = get_products_collection()->query({'empty' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
+# do not include empty products and products that have been marked as obsolete
+my $cursor = get_products_collection()->query({'empty' => { "\$ne" => 1 }, 'obsolete' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
 
 my %products_nutriments = ();
 my %countries_categories = ();
@@ -410,7 +411,7 @@ while (my $product_ref = $cursor->next) {
 
 
 
-foreach my $country (keys %{$properties{countries}}, 'en:world') {
+foreach my $country ('en:world', keys %{$properties{countries}}) {
 
 	my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
 	if ($country eq 'en:world') {
