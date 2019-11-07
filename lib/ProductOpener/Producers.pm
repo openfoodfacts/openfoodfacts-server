@@ -261,6 +261,9 @@ sub convert_file($$$$) {
 	$csv_out->print ($out, [@default_headers, @headers]);
 	print $out "\n";
 
+	# Fields for clean_fields()
+	@fields = @headers;
+
 	# Output CSV product data
 
 	foreach my $row_ref (@$rows_ref) {
@@ -279,7 +282,9 @@ sub convert_file($$$$) {
 			}
 		}
 
+		$log->debug("convert_file - before clean_fields ", { }) if $log->is_debug();
 		clean_fields($product_ref);
+		$log->debug("convert_file - after clean_fields ", { }) if $log->is_debug();
 
 		my @values = ();
 		foreach my $field (@headers) {

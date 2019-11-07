@@ -3126,7 +3126,6 @@ sub extract_ingredients_classes_from_text($) {
 }
 
 
-
 sub replace_allergen($$$$) {
 	my $language = shift;
 	my $product_ref = shift;
@@ -3193,7 +3192,6 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	my $field = "allergens";
 
-
 	# print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = $allergens_stopwords{$language};
@@ -3249,6 +3247,8 @@ sub detect_allergens_from_text($) {
 
 	my $product_ref = shift;
 
+	$log->debug("detect_allergens_from_text - start", { }) if $log->is_debug();
+
 	# Keep allergens entered by users in the allergens and traces field
 
 	foreach my $field ("allergens", "traces") {
@@ -3261,6 +3261,9 @@ sub detect_allergens_from_text($) {
 	if (defined $product_ref->{languages_codes}) {
 
 		foreach my $language (keys %{$product_ref->{languages_codes}}) {
+
+			my $text = $product_ref->{"ingredients_text_" . $language };
+			next if not defined $text;
 
 			my $and = $Lang{_and_}{$language};
 			my $of = ' - ';
@@ -3277,10 +3280,7 @@ sub detect_allergens_from_text($) {
 				$traces_regexp = $traces_regexps{$language};
 			}
 
-			my $text = $product_ref->{"ingredients_text_" . $language };
 			$text =~ s/\&quot;/"/g;
-
-			next if not defined $text;
 
 			# allergens between underscores
 
@@ -3318,7 +3318,7 @@ sub detect_allergens_from_text($) {
 
 	foreach my $field ("allergens", "traces") {
 
-		# concatenate allergens and traces fiels from ingredients and entered by users
+		# concatenate allergens and traces fields from ingredients and entered by users
 
 		$product_ref->{$field . "_from_ingredients"} =~ s/, $//;
 
@@ -3338,6 +3338,7 @@ sub detect_allergens_from_text($) {
 		# print STDERR "\n";
 	}
 
+	$log->debug("detect_allergens_from_text - done", { }) if $log->is_debug();
 }
 
 1;
