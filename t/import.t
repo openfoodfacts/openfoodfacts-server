@@ -6,7 +6,8 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP';
+#use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP', filter => "info";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -48,5 +49,10 @@ $product_ref = { "product_name" => "Champagne brut 35,5 CL" };
 assign_quantity_from_field($product_ref, "product_name");
 is($product_ref->{product_name}, "Champagne brut");
 is($product_ref->{quantity}, "35,5 CL");
+
+$product_ref = { "lc" => "fr", "product_name_fr" => "Soupe bio" };
+@fields = qw(product_name_fr);
+match_labels_in_product_name($product_ref);
+is($product_ref->{labels}, 'en:organic') or diag explain $product_ref;
 
 done_testing();
