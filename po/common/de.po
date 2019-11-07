@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-11 09:40\n"
+"PO-Revision-Date: 2019-11-03 14:32\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -73,11 +73,11 @@ msgstr "Hallo <NAME>,\n\n"
 "Sie können auch der Facebook-Gruppe für Mitwirkende beitreten:\n"
 "https://www.facebook.com/groups/openfoodfacts.de/\n\n"
 "Neu: Wir starten nun auch Open Beauty Facts, um eine Datenbank über Kosmetika wie zum Beispiel Seife, Zahncreme, Make-up u.s.w. zu schaffen\n"
-"https://openbeautyfacts.org\n\n"
+"https://world-de.openbeautyfacts.org\n\n"
 "Vielen Dank!\n\n"
 "Stéphane und das Open-Food-Facts-Team\n"
-"https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts\n"
+"https://world-de.openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFactsDE\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -195,12 +195,12 @@ msgid "You can also help to fund the Open Food Facts project"
 msgstr "Sie können außerdem helfen, das Projekt Open Food Facts mitzufinanzieren."
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Für Open Food Facts spenden\" /></a><p><<site_name>> wird von einem gemeinnützigen, branchenunabhängigen Verein geführt. Sie ist für alle gemacht, von allen, und sie wird von allen finanziert. Sie können unsere Arbeit unterstützen, <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">indem Sie an Open Food Facts spenden</a> und auch die <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo-Suchmaschine nutzen</a>.<br/><b>Vielen Dank!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Für Open Food Facts spenden\" /></a><p><<site_name>> wird von einem gemeinnützigen, branchenunabhängigen Verband hergestellt. Sie ist für alle, von allen gemacht, und sie wird von allen finanziert. Sie können unsere Arbeit unterstützen, indem Sie <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">für Open Food Facts spenden</a> und auch dadurch das Sie die <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Suchmaschine „Lilo” nutzen</a>.<br/><b>Vielen Dank!</b></p>"
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
-msgstr "Begeben Sie sich auf Mission"
+msgid "Donate to support our work"
+msgstr "Spenden Sie bitte, um unsere Arbeit zu unterstützen"
 
 msgctxt "brands"
 msgid "Brands"
@@ -423,8 +423,8 @@ msgid "Donate to Open Food Facts"
 msgstr "An Open Food Facts spenden"
 
 msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -552,8 +552,8 @@ msgid "The password and confirmation password are different."
 msgstr "Die Passwörter müssen übereinstimmen."
 
 msgctxt "error_email_already_in_use"
-msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "Die angegebene E-Mail-Adresse ist bereits in Verwendung. Möglicherweise haben Sie schon ein Konto? Sie können das Passwort ihres Kontos <a href=\"/cgi/reset_password.pl\">zurücksetzen</a>."
+msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
+msgstr "Diese E-Mail-Adresse wird bereits von einem anderen Benutzer verwendet. Vielleicht haben Sie bereits ein Konto? Sie können <a href=\"/cgi/reset_password.pl\">das Passwort</a> Ihres anderen Kontos zurücksetzen."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -564,7 +564,7 @@ msgid "Invalid e-mail address"
 msgstr "Ungültige E-Mail-Adresse"
 
 msgctxt "error_invalid_password"
-msgid "The password needs to be a least 6 characters long."
+msgid "The password needs to be at least 6 characters long."
 msgstr "Das Passwort muss mindestens 6 Zeichen lang sein."
 
 msgctxt "error_invalid_user"
@@ -682,8 +682,8 @@ msgid "/code-of-conduct"
 msgstr "/verhaltensregeln"
 
 msgctxt "footer_data"
-msgid "Data"
-msgstr "Daten"
+msgid "Data, API and SDKs"
+msgstr "Daten, API und SDKs"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -1399,8 +1399,8 @@ msgid "Move the images to another product"
 msgstr "Fotos in ein anderes Produkt verschieben"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d Produkte"
+msgid "%s products"
+msgstr "%s Produkte"
 
 msgctxt "name"
 msgid "Name"
@@ -2144,7 +2144,7 @@ msgstr "Punktwolke"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ mehr über <<site_name>> Diagramme erfahren: <a href=\"/graphs-in-3-clicks\">Diagramme in 3 Klicks</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2582,9 +2582,9 @@ msgstr "Weltweite Ergebnisse anzeigen"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"\">Why it matters</a>"
-msgstr "Die Informationen müssen von der Produktverpackung stammen (nicht von anderen Webseiten oder der Webseite des Herstellers) und die Fotos müssen von Ihnen selbst gemacht worden sein.<br/>\n"
-"➜ <a href=\"https://openfoodfactsfr.uservoice.com/knowledgebase/articles/59183\" target=\"_blank\" hreflang=\"fr\">Warum ist das wichtig?</a>"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
+msgstr "Die Informationen müssen von der Produktverpackung stammen (nicht von anderen Webseiten oder der Webseite des Herstellers) und die Fotos müssen von Ihnen selbst aufgenommen worden sein.<br/>\n"
+"➜ <a href=\"/faq#pictures_and_data_from_other_sites\">Warum es wichtig ist</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2593,7 +2593,7 @@ msgstr "Webseiten- oder Blog-Adresse"
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/German.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -3122,8 +3122,12 @@ msgid "Withdrawal date"
 msgstr "Datum der Zurückziehung"
 
 msgctxt "obsolete_since_date_note"
-msgid "Format: YYYY or YYYY-MM"
-msgstr "Format: JJJJJ oder JJJJJ-MM"
+msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
+msgstr "Format: YYYY-MM-DD oder YYYY-MM oder YYYY"
+
+msgctxt "obsolete_since_date_example"
+msgid "2019-09-30 or 2019-09 or 2019"
+msgstr "2019-09-30 oder 2019-09 oder 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3210,8 +3214,8 @@ msgid "Help translate the %s to %s"
 msgstr "Helfen Sie mit, %s in %s zu übersetzen"
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr "Sie können für die folgenden Einträge Übersetzungen vorschlagen, die noch nicht in Ihre Sprache übersetzt wurden. Der blaue Link in Englisch zeigt die entsprechenden Produkte, der schwarze Text in Englisch zeigt den Originaleintrag mit optionalen Synonymen, die durch Kommata getrennt sind. Geben Sie die Übersetzung in das Textfeld mit optionalen Synonymen ein, und klicken Sie dann auf die Schaltfläche „Speichern”. Vielen Dank!"
+msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
+msgstr "Sie können Übersetzungen für die folgenden Einträge vorschlagen, die noch nicht in Ihre Sprache übersetzt wurden. Der blaue Link und der schwarze Text (beide in Englisch) zeigen jeweils das nicht übersetzte Produkt und den Originaleintrag einschließlich optionaler Synonyme getrennt durch Komma. Geben Sie die Übersetzung in das Textfeld ein, einschließlich optionaler Synonyme, und klicken Sie dann auf die Schaltfläche „Speichern”. Vielen Dank!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3292,4 +3296,346 @@ msgstr "Nächste Version"
 msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "Aktuelle Version"
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_title"
+msgid "Import a product data file"
+msgstr "Produktdatendatei importieren"
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_description"
+msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
+msgstr "Tabellenkalkulationsdatei mit Produktdaten hochladen (Excel-Datei oder eine durch Tabulatoren getrennte UTF-8-kodierte CSV-Datei)."
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_format"
+msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
+msgstr "Sie können eine Tabelle mit Spalten im Open Food Facts Importformat hochladen, oder Sie können eine Tabelle in einem beliebigen Format hochladen und dann die zu importierenden Spalten auswählen."
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "upload_product_data_file"
+msgid "Upload a file with product data"
+msgstr "Datei mit Produktdaten hochladen"
+
+msgctxt "uploading_file"
+msgid "File being uploaded."
+msgstr "Datei wird hochgeladen."
+
+msgctxt "upload_error"
+msgid "The file could not be uploaded."
+msgstr "Datei konnte nicht hochgeladen werden."
+
+msgctxt "import_data_file_select_format_title"
+msgid "Select and import data"
+msgstr "Daten auswählen und importieren"
+
+msgctxt "import_data_file_select_format_description"
+msgid "Use the form below to indicate which columns to import and what data they contain."
+msgstr "Verwenden Sie das nachfolgende Formular, um anzugeben, welche Spalten importiert werden sollen und welche Daten enthalten sind."
+
+msgctxt "import_data"
+msgid "Import data"
+msgstr "Daten importieren"
+
+msgctxt "import_file_rows_columns"
+msgid "The uploaded file contains %s rows and %s columns."
+msgstr "Die hochgeladene Datei enthält %s Zeilen und %s Spalten."
+
+msgctxt "import_file_selected_columns"
+msgid "%s columns out of %s have been selected and will be imported."
+msgstr "%s von %s ausgewählten Spalten werden importiert."
+
+msgctxt "fields_group_identification"
+msgid "Product identification"
+msgstr "Produktkennzeichnung"
+
+msgctxt "fields_group_origins"
+msgid "Origins"
+msgstr "Herkunfte"
+
+msgctxt "fields_group_ingredients"
+msgid "Ingredients"
+msgstr "Inhaltsstoffe"
+
+msgctxt "fields_group_nutrition"
+msgid "Nutrition facts"
+msgstr "Nährwertangaben"
+
+msgctxt "fields_group_nutrition_other"
+msgid "Optional nutrition facts"
+msgstr "Optionale Nährwertangaben"
+
+msgctxt "fields_group_other"
+msgid "Other information"
+msgstr "Weitere Informationen"
+
+msgctxt "fields_group_images"
+msgid "Product photos"
+msgstr "Produktfotos"
+
+msgctxt "image_front_url"
+msgid "Link to front product photo"
+msgstr "Link zum Foto der Vorderseite des Produkts"
+
+msgctxt "image_ingredients_url"
+msgid "Link to ingredients list photo"
+msgstr "Link zum Foto der Zutatenliste"
+
+msgctxt "image_nutrition_url"
+msgid "Link to nutrition facts table photo"
+msgstr "Link zumFoto der den Nährwertangabentabelle"
+
+msgctxt "image_other_url"
+msgid "Link to other product photo"
+msgstr "Link zu weiteren Produktfotos"
+
+msgctxt "labels_specific"
+msgid "Specific label"
+msgstr "Spezifisches Etikett"
+
+msgctxt "categories_specific"
+msgid "Specific category"
+msgstr "Spezifische Kategorien"
+
+msgctxt "select_a_field"
+msgid "Select a field"
+msgstr "Feld auswählen"
+
+msgctxt "specify"
+msgid "Specify"
+msgstr "Angeben"
+
+msgctxt "value_unit_dropdown"
+msgid "In the dropdown menu on the right, specify if the column contains:"
+msgstr "Im Auswahlmenü auf der rechten Seite angeben, ob die Spalte Folgendes enthält:"
+
+msgctxt "value_unit_dropdown_value_unit"
+msgid "the value and the unit"
+msgstr "den Wert und die Einheit"
+
+msgctxt "value_unit_dropdown_value_specific_unit"
+msgid "the value in a specific unit"
+msgstr "den Wert in einer bestimmten Einheit"
+
+msgctxt "value_unit_dropdown_value"
+msgid "only the value, with the unit in another column"
+msgstr "nur den Wert, mit der Einheit in einer anderen Spalte"
+
+msgctxt "value_unit_dropdown_unit"
+msgid "only the unit, with the value in another column"
+msgstr "nur die Einheit, mit dem Wert in einer anderen Spalte"
+
+# Please do not translate Y, Yes and 1
+msgctxt "specific_tag_label"
+msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr "Wählen Sie diese Option, wenn die Spalte das Vorhandensein eines bestimmten Kategorie (z.B. Bio, Fair-Trade, Fair gehandelt) zugeordnet ist, wenn der Wert entweder „Y”, „Yes” oder „1” ist."
+
+msgctxt "specific_tag_label_value"
+msgid "Type the name of the label in the text field on the right."
+msgstr "Geben Sie den Namen der Kategorie in das Textfeld auf der rechten Seite ein."
+
+# Please do not translate Y, Yes and 1
+msgctxt "specific_tag_category"
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "Wählen Sie diese Option, wenn die Rubrik angibt, dass das Produkt einer bestimmten Kategorie (z.B. Getränke) zugeordnet ist, wenn der Wert entweder „Y”, „Yes” oder „1” ist."
+
+msgctxt "specific_tag_category_value"
+msgid "Type the name of the category in the text field on the right."
+msgstr "Geben Sie den Namen der Kategorie in das Textfeld auf der rechten Seite ein."
+
+msgctxt "value"
+msgid "Value"
+msgstr "Wert"
+
+msgctxt "value_unit"
+msgid "Value + Unit"
+msgstr "Wert u. Einheit"
+
+msgctxt "value_in_l"
+msgid "Value in L"
+msgstr "Wert in L"
+
+msgctxt "value_in_dl"
+msgid "Value in dl"
+msgstr "Wert in dl"
+
+msgctxt "value_in_cl"
+msgid "Value in cl"
+msgstr "Wert in cl"
+
+msgctxt "value_in_ml"
+msgid "Value in ml"
+msgstr "Wert in ml"
+
+msgctxt "value_in_kg"
+msgid "Value in kg"
+msgstr "Wert in kg"
+
+msgctxt "value_in_g"
+msgid "Value in g"
+msgstr "Wert in g"
+
+msgctxt "value_in_mg"
+msgid "Value in mg"
+msgstr "Wert in mg"
+
+msgctxt "value_in_mcg"
+msgid "Value in μg"
+msgstr "Wert in µg"
+
+msgctxt "value_in_kcal"
+msgid "Value in kcal"
+msgstr "Wert in kcal"
+
+msgctxt "value_in_kj"
+msgid "Value in kJ"
+msgstr "Wert in kJ"
+
+msgctxt "value_in_percent"
+msgid "Value in %"
+msgstr "Wert in %"
+
+msgctxt "no_owner_defined"
+msgid "Please log-in to use this feature."
+msgstr "Bitte anmelden, um diese Funktion nutzen zu können."
+
+msgctxt "organization"
+msgid "Organization"
+msgstr "Organisation"
+
+msgctxt "column_in_file"
+msgid "Column in file"
+msgstr "Spalte in Datei"
+
+msgctxt "field_on_site"
+msgid "Field on %s"
+msgstr ""
+
+msgctxt "producers_platform"
+msgid "Platform for producers"
+msgstr "Plattform für Produzenten"
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_description"
+msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
+msgstr "Die Plattform für Produzenten ermöglicht es Herstellern, ihre Produktfotos und Daten zu Open Food Facts einfach zu verwalten."
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_private_database"
+msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
+msgstr "Die Produktdaten und Fotos, die Sie auf der Plattform für Produzenten senden, werden in einer privaten Datenbank gespeichert. Sie können überprüfen, ob alle Daten korrekt sind, bevor Sie diese in der öffentlichen Open Food Facts-Datenbank zur Verfügung stellen."
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_licence"
+msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
+msgstr "Die Produktdaten und Fotos werden in der Open Food Facts-Datenbank unter der <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a> öffentlich zugänglich gemacht. Einzelne Inhalte der Datenbank sind unter der <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> und Produktfotos unter der <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike license</a> verfügbar."
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_product_data"
+msgid "Import product data"
+msgstr "Produktdaten importieren"
+
+# "product photos" in this sentence means data for many products, not just one product
+msgctxt "import_product_photos"
+msgid "Import product photos"
+msgstr "Produktfotos importieren"
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "export_product_data_photos"
+msgid "Export product data and photos to the public database"
+msgstr "Produktdaten und Fotos in die öffentliche Datenbank exportieren"
+
+msgctxt "export_product_data_photos_please_check"
+msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
+msgstr "Bitte überprüfen Sie vor dem Export in die öffentliche Datenbank, ob die Daten auf der Plattform für Hersteller korrekt sind."
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgctxt "collapsed_changes"
+msgid "Collapsed changes"
+msgstr ""
+
+msgctxt "data_quality_p"
+msgid "data quality"
+msgstr "Datenqualität"
+
+msgctxt "data_quality_s"
+msgid "data quality"
+msgstr "Datenqualität"
+
+msgctxt "data_quality"
+msgid "data quality"
+msgstr "Datenqualität"
+
+msgctxt "data_quality_bugs_p"
+msgid "data quality bugs"
+msgstr "Datenqualitätsfehler"
+
+msgctxt "data_quality_bugs_s"
+msgid "data quality bug"
+msgstr "Datenqualitätsfehler"
+
+msgctxt "data_quality_bugs"
+msgid "data quality bugs"
+msgstr "Datenqualitätsfehler"
+
+msgctxt "data_quality_info_p"
+msgid "data quality info"
+msgstr "Datenqualität"
+
+msgctxt "data_quality_info_s"
+msgid "data quality info"
+msgstr "Datenqualität"
+
+msgctxt "data_quality_info"
+msgid "data quality info"
+msgstr "Datenqualität"
+
+msgctxt "data_quality_warnings_p"
+msgid "data quality warnings"
+msgstr "Datenqualitätswarnungen"
+
+msgctxt "data_quality_warnings_s"
+msgid "data quality warning"
+msgstr "Datenqualitätswarnung"
+
+msgctxt "data_quality_warnings"
+msgid "data quality warnings"
+msgstr "Datenqualitätswarnungen"
+
+msgctxt "data_quality_errors_p"
+msgid "data quality errors"
+msgstr "Datenqualitätsfehler"
+
+msgctxt "data_quality_errors_s"
+msgid "data quality error"
+msgstr "Datenqualitätsfehler"
+
+msgctxt "data_quality_errors"
+msgid "data quality errors"
+msgstr "Datenqualitätsfehler"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "Min."
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "Max."
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "Verbesserungsmöglichkeiten"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "Verbesserungsmöglichkeit"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "Verbesserungsmöglichkeiten"
 

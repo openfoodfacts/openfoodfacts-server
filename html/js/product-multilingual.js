@@ -608,6 +608,7 @@ function update_display(imagefield, first_display) {
 	var imagefield = id;
 
    $('#imgupload_' + id).fileupload({
+        sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product_image_upload.pl',
 		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'imagefield', value: imagefield}, {name: 'code', value: code} ],

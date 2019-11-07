@@ -68,6 +68,7 @@ BEGIN
 		$page_size
 
 		%options
+		%server_options
 
 		%wiki_texts
 
@@ -199,6 +200,10 @@ $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifie
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+
+# server options
+
+%server_options = %ProductOpener::Config2::server_options;
 
 $reference_timezone = 'Europe/Paris';
 

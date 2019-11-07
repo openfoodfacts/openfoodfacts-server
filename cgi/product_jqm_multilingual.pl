@@ -38,7 +38,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use Apache2::RequestRec ();
@@ -59,9 +59,20 @@ my $interface_version = '20150316.jqm2';
 
 my %response = ();
 
-my $code = normalize_code(param('code'));
+my $code = param('code');
+my $product_id;
 
 $log->debug("start", { code => $code, lc => $lc }) if $log->is_debug();
+
+# Allow apps to create products without barcodes
+# Assign a code and return it in the response.
+if ($code eq "new") {
+
+	($code, $product_id) = assign_new_code();
+	$response{code} = $code . "";	# Make sure the code is returned as a string
+}
+
+$code = normalize_code($code);
 
 if ($code !~ /^\d+$/) {
 
@@ -72,9 +83,11 @@ if ($code !~ /^\d+$/) {
 }
 else {
 
-	my $product_ref = retrieve_product($code);
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_ref = retrieve_product($product_id);
+
 	if (not defined $product_ref) {
-		$product_ref = init_product($code);
+		$product_ref = init_product($User_id, $Org_id, $code);
 		$product_ref->{interface_version_created} = $interface_version;
 	}
 
@@ -430,7 +443,7 @@ else {
 
 	compute_unknown_nutrients($product_ref);
 
-	ProductOpener::SiteQuality::check_quality($product_ref);
+	ProductOpener::DataQuality::check_quality($product_ref);
 
 
 	$log->info("saving product", { code => $code }) if ($log->is_info() and not $log->is_debug());

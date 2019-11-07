@@ -53,7 +53,9 @@ if (not defined $code) {
 	display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
-my $product_ref = retrieve_product($code);
+my $product_id = product_id_for_user($User_id, $Org_id, $code);
+
+my $product_ref = retrieve_product($product_id);
 
 if (not (defined $product_ref)) {
 	display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
@@ -71,7 +73,7 @@ else {
 	$imagetext = $id;
 }
 
-my $path = product_path($product_ref->{code});
+my $path = product_path_from_id($product_id);
 my $rev = $product_ref->{images}{$id}{rev};
 my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $imagetext;
 

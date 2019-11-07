@@ -47,6 +47,9 @@ my $type = param('type') || 'add';
 my $action = param('action') || 'display';
 
 my $code = normalize_code(param('code'));
+
+my $product_id = product_id_for_user($User_id, $Org_id, $code);
+
 my $imgid = param('imgid');
 my $angle = param('angle');
 my $id = param('id');
@@ -63,7 +66,7 @@ if (not defined $code) {
 
 # Check if we have a picture from the manufacturer
 
-my $product_ref = retrieve_product($code);
+my $product_ref = retrieve_product($product_id);
 
 if ((defined $product_ref) and (has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 	and (referer() !~ /\/cgi\/product.pl/)) {
@@ -76,11 +79,11 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 
 	# 2019/08/28: accept images if there is already an image selected for the language
 	if ((defined $product_ref) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$imgid})) {
-		$product_ref = process_image_crop($code, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2);
+		$product_ref = process_image_crop($product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2);
 	}
 }
 else {
-	$product_ref = process_image_crop($code, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2);
+	$product_ref = process_image_crop($product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2);
 }
 
 my $data =  encode_json({ status => 'status ok',
