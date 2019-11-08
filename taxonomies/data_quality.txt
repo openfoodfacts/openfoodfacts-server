@@ -1,0 +1,23 @@
+# Data quality taxonomy
+
+en:Nutrition value total over 105
+fr:Total des valeurs nutritionnelles supérieur à 105
+description:en:The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.
+description:fr:La somme des valeurs nutritionnelles pour 100 g ou 100 ml est supérieure à 100 g. Il est très probable qu'il y a au moins une erreur de valeur ou d'unité.
+show_on_producers_platform:en:yes
+
+en:Nutrition value total over 1000
+fr:Total des valeurs nutritionnelles supérieur à 1000
+description:en:The sum of nutrient values for 100 g or 100 ml is greater than 1000 g. There is at least one value or unit error.
+description:fr:La somme des valeurs nutritionnelles pour 100 g ou 100 ml est supérieure à 1000 g. Il y a au moins une erreur de valeur ou d'unité.
+show_on_producers_platform:en:yes
+
+en:Nutrition value over 3800 - Energy
+fr:Valeur nutritionnelle supérieure à 3800 - Energie
+description:en:The energy value per 100 g or 100 ml is greater than 3800 kJ, which is not possible.
+description:fr:La valeur de l'énergie pour 100 g ou 100 ml est supérieure à 3800 kJ, ce qui n'est pas possible.
+show_on_producers_platform:en:yes
+
+en:Nutrition - Sugars plus starch greater than carbohydrates
+fr:Nutrition - Sucres plus amidon supérieurs aux glucides
+show_on_producers_platform:en:yes

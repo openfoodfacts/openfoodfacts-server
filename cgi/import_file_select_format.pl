@@ -103,10 +103,11 @@ if ($action eq "display") {
 
 	# Create an options array for select2
 
+	$log->debug("before generate_import_export_columns_groups_for_select2", { lc=>$lc }) if $log->is_debug();
+
 	my $select2_options_ref = generate_import_export_columns_groups_for_select2([ $lc ]);
 
-	# Number of pre-selected columns
-	my $selected = 0;
+	$log->debug("after generate_import_export_columns_groups_for_select2", { lc=>$lc }) if $log->is_debug();
 
 	# Upload a file
 
@@ -115,7 +116,7 @@ if ($action eq "display") {
 
 	$html .= "<p>" . sprintf(lang("import_file_rows_columns"), @$rows_ref + 0, @$headers_ref + 0) . "</p>";
 
-	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns">' . $selected . '</span>', @$headers_ref + 0);
+	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns"></span>', @$headers_ref + 0);
 
 	$html .= start_multipart_form(-id=>"select_format_form", -action=>"/cgi/import_file_process.pl") ;
 
@@ -135,6 +136,7 @@ HTML
 	foreach my $column (@$headers_ref) {
 
 		my $examples = "";
+		my $instructions = "";
 
 		foreach my $example (@{$columns_fields_ref->{$column}{examples}}) {
 			$examples .= $example . "\n";
@@ -145,6 +147,15 @@ HTML
 
 		if ($examples ne "") {
 			$examples = "<p>" . lang("examples") . "</p>\n<pre>$examples</pre>\n";
+		}
+		else {
+			$examples = "<p>" . lang("empty_column") . "</p>\n";
+			$instructions = lang("empty_column_description");
+		}
+
+		# Only numbers? Display min and max-height
+		if ((defined $columns_fields_ref->{$column}{min}) and ($columns_fields_ref->{$column}{letters} == 0)) {
+			$examples .= "<br><p>" . lang("min") . " " . $columns_fields_ref->{$column}{min} . "<br>" . lang("max") . " " . $columns_fields_ref->{$column}{max} . "</p>";
 		}
 
 		$html .= <<HTML
@@ -162,6 +173,7 @@ HTML
 $examples
 </td>
 <td colspan="2" id="column_instructions_$col">
+$instructions
 </td>
 </tr>
 HTML
@@ -208,6 +220,7 @@ CSS
 	my $select2_options_json = to_json($select2_options_ref);
 
 	$initjs .= <<JS
+var selected_columns = 0;
 
 var columns = $columns_json;
 
@@ -219,7 +232,6 @@ var select2_options = $select2_options_json ;
   \$('#columns_fields_json').val(JSON.stringify(columns_fields));
 });
 
-
 function show_column_info(col) {
 
 	\$('.column_info_row').hide();
@@ -229,6 +241,7 @@ function show_column_info(col) {
 \$('.column_row').click( function() {
 	var col = this.id.replace(/column_/, '');
 	show_column_info(col);
+	\$(document).foundation('equalizer', 'reflow');
 }
 );
 
@@ -255,7 +268,7 @@ JS
 		$initjs .= <<JS
 		if (field == "$tagtype_specific") {
 
-			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px">';
+			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px;margin-bottom:0;height:28px;">';
 
 			\$("#select_field_option_" + col).html(input);
 
@@ -363,12 +376,17 @@ function init_select_field() {
 		var column = columns[col];
 		columns_fields[column]["field"] = \$(this).val();
 		init_select_field_option(col);
+		selected_columns++;
+		\$('.selected_columns').text(selected_columns);
 	}).on("select2:unselect", function(e) {
+		selected_columns--;
+		\$('.selected_columns').text(selected_columns);
 	});
 
 	if (columns_fields[column]["field"]) {
 		\$(this).val(columns_fields[column]["field"]);
 		\$(this).trigger('change');
+		selected_columns++;
 	}
 
 	init_select_field_option(col);
@@ -379,6 +397,7 @@ function init_select_field() {
 
 \$('.select2_field').each(init_select_field);
 
+\$('.selected_columns').text(selected_columns);
 
 JS
 ;

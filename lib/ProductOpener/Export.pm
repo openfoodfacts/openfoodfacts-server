@@ -101,6 +101,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Products qw/:all/;
 
 use Text::CSV;
 
@@ -148,6 +149,15 @@ fields will be exported.
 
 	export_csv({ filehandle=>$fh,
 		fields => [qw(code ingredients_text_en additives_tags)] });
+
+
+=head4 include_images_files - optional - Export local file paths to images
+
+If defined and not null, specifies to export local file paths for selected images
+for front, ingredients and nutrition in all languages.
+
+This option is used in particular for exporting from the producers platform
+and importing to the public database.
 
 =cut
 
@@ -245,6 +255,16 @@ sub export_csv($) {
 						}
 					}
 				}
+				elsif ($group_id eq "images") {
+					if ($args_ref->{include_images_paths}) {
+						if (defined $product_ref->{images}) {
+							foreach my $imageid (keys %{$product_ref->{images}}) {
+								next if $imageid !~ /^(front|ingredients|nutrition|other)_(\w\w)$/;
+								$populated_fields{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
+							}
+						}
+					}
+				}
 				else {
 
 					foreach my $field (@{$group_ref->[1]}) {
@@ -309,6 +329,7 @@ sub export_csv($) {
 		my @values = ();
 
 		my $added_images_urls = 0;
+		my $product_path = product_path($product_ref);
 
 		foreach my $field (@sorted_populated_fields) {
 
@@ -331,12 +352,21 @@ sub export_csv($) {
 
 				# If we export image fields, we first need to generate the paths to images
 
-				if (($field =~ /^image_/) and (not $added_images_urls)) {
+				if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
 					ProductOpener::Display::add_images_urls_to_product($product_ref);
 					$added_images_urls = 1;
 				}
 
-				if ($field =~ /^image_(ingredients|nutrition)_json$/) {
+				if ($field =~ /^image_(.*)_file/) {
+					# File path for the image on the server, used for exporting from producers platform to public database
+
+					my $imagefield = $1;
+
+					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
+						$value = "$www_root/images/products/" . $product_path . "/" . $product_ref->{images}{$imagefield}{imgid} . ".jpg";
+					}
+				}
+				elsif ($field =~ /^image_(ingredients|nutrition)_json$/) {
 					if (defined $product_ref->{"image_$1_url"}) {
 						$value = $product_ref->{"image_$1_url"};
 						$value =~ s/\.(\d+)\.jpg/.json/;

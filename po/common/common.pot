@@ -201,13 +201,11 @@ msgstr ""
 
 msgctxt "bottom_content"
 msgid ""
-"<a href=\"https://www.helloasso.com/associations/open-food-facts/"
-"formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/"
+"<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/"
 "svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></"
 "a><p><<site_name>> is made by a non-profit association, independent from the "
 "industry. It is made for all, by all, and it is funded by all. You can "
-"support our work by <a href=\"https://www.helloasso.com/associations/open-"
-"food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and "
+"support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and "
 "also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-"
 "food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
@@ -440,8 +438,9 @@ msgctxt "donate"
 msgid "Donate to Open Food Facts"
 msgstr ""
 
+#please translate the url without special characters
 msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
 msgstr ""
 
 msgctxt "ecological_data_table"
@@ -578,7 +577,7 @@ msgstr ""
 msgctxt "error_email_already_in_use"
 msgid ""
 "The e-mail address is already used by another user. Maybe you already have "
-"an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</"
+"an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</"
 "a> of your other account."
 msgstr ""
 
@@ -591,7 +590,7 @@ msgid "Invalid e-mail address"
 msgstr ""
 
 msgctxt "error_invalid_password"
-msgid "The password needs to be a least 6 characters long."
+msgid "The password needs to be at least 6 characters long."
 msgstr ""
 
 msgctxt "error_invalid_user"
@@ -711,7 +710,7 @@ msgid "/code-of-conduct"
 msgstr ""
 
 msgctxt "footer_data"
-msgid "Data"
+msgid "Data, API and SDKs"
 msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
@@ -1454,7 +1453,7 @@ msgid "Move the images to another product"
 msgstr ""
 
 msgctxt "n_products"
-msgid "%d products"
+msgid "%s products"
 msgstr ""
 
 msgctxt "name"
@@ -3258,7 +3257,11 @@ msgid "Withdrawal date"
 msgstr ""
 
 msgctxt "obsolete_since_date_note"
-msgid "Format: YYYY or YYYY-MM"
+msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
+msgstr ""
+
+msgctxt "obsolete_since_date_example"
+msgid "2019-09-30 or 2019-09 or 2019"
 msgstr ""
 
 msgctxt "obsolete_warning"
@@ -3346,7 +3349,7 @@ msgid "Help translate the %s to %s"
 msgstr ""
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggest translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
+msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
 msgstr ""
 
 msgctxt "translate_taxonomy_add"
@@ -3429,21 +3432,25 @@ msgctxt "rev_latest"
 msgid "Latest version"
 msgstr "Latest version"
 
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
 msgstr "Import a product data file"
 
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
-msgstr "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with products data."
+msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
+msgstr "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
 
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
 msgstr "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
 
-msgctxt "upload_products_data_file"
-msgid "Upload a file with products data"
-msgstr "Upload a file with products data"
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "upload_product_data_file"
+msgid "Upload a file with product data"
+msgstr "Upload a file with product data"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
@@ -3496,6 +3503,26 @@ msgstr "Optional nutrition facts"
 msgctxt "fields_group_other"
 msgid "Other information"
 msgstr "Other information"
+
+msgctxt "fields_group_images"
+msgid "Product photos"
+msgstr "Product photos"
+
+msgctxt "image_front_url"
+msgid "Link to front product photo"
+msgstr "Link to front product photo"
+
+msgctxt "image_ingredients_url"
+msgid "Link to ingredients list photo"
+msgstr "Link to ingredients list photo"
+
+msgctxt "image_nutrition_url"
+msgid "Link to nutrition facts table photo"
+msgstr "Link to nutrition facts table photo"
+
+msgctxt "image_other_url"
+msgid "Link to other product photo"
+msgstr "Link to other product photo"
 
 msgctxt "labels_specific"
 msgid "Specific label"
@@ -3607,7 +3634,7 @@ msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
 msgstr "Please log-in to use this feature."
 
-msgctxt "org"
+msgctxt "organization"
 msgid "Organization"
 msgstr "Organization"
 
@@ -3616,24 +3643,46 @@ msgid "Column in file"
 msgstr "Column in file"
 
 msgctxt "field_on_site"
-msgid "Field on %"
-msgstr "Field on %"
+msgid "Field on %s"
+msgstr "Field on %s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
 msgstr "Platform for producers"
 
+# "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
-msgid "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
-msgstr "The producers platform allows manufacturers to easily manage their products photos and data on Open Food Facts."
+msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
+msgstr "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
 
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_private_database"
+msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
+msgstr "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_licence"
+msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
+msgstr "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
+
+# "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
 msgstr "Import product data"
 
+# "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
 msgid "Import product photos"
 msgstr "Import product photos"
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "export_product_data_photos"
+msgid "Export product data and photos to the public database"
+msgstr "Export product data and photos to the public database"
+
+msgctxt "export_product_data_photos_please_check"
+msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
+msgstr "Please check that the data on the platform for producers is correct before exporting it to the public database."
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -3642,3 +3691,223 @@ msgstr "Cancel"
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
 msgstr "Collapsed changes"
+
+msgctxt "data_quality_p"
+msgid "data quality"
+msgstr "data quality"
+
+msgctxt "data_quality_s"
+msgid "data quality"
+msgstr "data quality"
+
+msgctxt "data_quality"
+msgid "data quality"
+msgstr "data quality"
+
+msgctxt "data_quality_bugs_p"
+msgid "data quality bugs"
+msgstr "data quality bugs"
+
+msgctxt "data_quality_bugs_s"
+msgid "data quality bug"
+msgstr "data quality bug"
+
+msgctxt "data_quality_bugs"
+msgid "data quality bugs"
+msgstr "data quality bugs"
+
+msgctxt "data_quality_info_p"
+msgid "data quality info"
+msgstr "data quality info"
+
+msgctxt "data_quality_info_s"
+msgid "data quality info"
+msgstr "data quality info"
+
+msgctxt "data_quality_info"
+msgid "data quality info"
+msgstr "data quality info"
+
+msgctxt "data_quality_warnings_p"
+msgid "data quality warnings"
+msgstr "data quality warnings"
+
+msgctxt "data_quality_warnings_s"
+msgid "data quality warning"
+msgstr "data quality warning"
+
+msgctxt "data_quality_warnings"
+msgid "data quality warnings"
+msgstr "data quality warnings"
+
+msgctxt "data_quality_errors_p"
+msgid "data quality errors"
+msgstr "data quality errors"
+
+msgctxt "data_quality_errors_s"
+msgid "data quality error"
+msgstr "data quality error"
+
+msgctxt "data_quality_errors"
+msgid "data quality errors"
+msgstr "data quality errors"
+
+msgctxt "data_quality_warnings_producers_p"
+msgid "data quality warnings"
+msgstr "data quality warnings"
+
+msgctxt "data_quality_warnings_producers_s"
+msgid "data quality warning"
+msgstr "data quality warning"
+
+msgctxt "data_quality_warnings_producers"
+msgid "data quality warnings"
+msgstr "data quality warnings"
+
+msgctxt "data_quality_errors_producers_p"
+msgid "data quality errors"
+msgstr "data quality errors"
+
+msgctxt "data_quality_errors_producers_s"
+msgid "data quality error"
+msgstr "data quality error"
+
+msgctxt "data_quality_errors_producers"
+msgid "data quality errors"
+msgstr "data quality errors"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "Min"
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "Max"
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "possible improvements"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "possible improvement"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "possible improvements"
+
+# Do not translate
+msgctxt "import_products_link"
+msgid "/import-products"
+msgstr "/import-products"
+
+msgctxt "add_or_update_products"
+msgid "Add or update products"
+msgstr "Add or update products"
+
+# Formal you
+msgctxt "your_products"
+msgid "Your products"
+msgstr "Your products"
+
+# Do not translate the e-mail address
+msgctxt "account_without_org"
+msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+msgstr "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+
+msgctxt "import_products"
+msgid "Import products"
+msgstr "Import products"
+
+msgctxt "empty_column"
+msgid "Empty column"
+msgstr "Empty column"
+
+msgctxt "empty_column_description"
+msgid "The file does not contain any value in this column."
+msgstr "The file does not contain any value in this column."
+
+msgctxt "import_file_status_title"
+msgid "Data import in progress"
+msgstr "Data import in progress"
+
+# "product data" means data for many products
+msgctxt "import_file_status_description"
+msgid "The product data has been received and is going to be imported on the platform for producers."
+msgstr "The product data has been received and is going to be imported on the platform for producers."
+
+msgctxt "import_file_status"
+msgid "Status"
+msgstr "Status"
+
+msgctxt "job_status_inactive"
+msgid "Scheduled"
+msgstr "Scheduled"
+
+msgctxt "job_status_active"
+msgid "In progress"
+msgstr "In progress"
+
+msgctxt "job_status_finished"
+msgid "Finished"
+msgstr "Finished"
+
+msgctxt "job_status_failed"
+msgid "Failed"
+msgstr "Failed"
+
+msgctxt "import_file_result"
+msgid "Import result"
+msgstr "Import result"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Products added"
+
+msgctxt "products_modified"
+msgid "Products modified"
+msgstr "Products modified"
+
+msgctxt "import_file_result_no_change"
+msgid "There were no product added or modified. The data has probably been already imported previously."
+msgstr "There were no product added or modified. The data has probably been already imported previously."
+
+msgctxt "import_file_result_products"
+msgid "List of products added or modified"
+msgstr "List of products added or modified"
+
+msgctxt "imports_p"
+msgid "imports"
+msgstr "imports"
+
+msgctxt "imports_s"
+msgid "import"
+msgstr "import"
+
+msgctxt "imports"
+msgid "imports"
+msgstr "imports"
+
+msgctxt "number_of_products_with_data_quality_errors_producers"
+msgid "Number of products with data quality errors"
+msgstr "Number of products with data quality errors"
+
+msgctxt "number_of_products_with_data_quality_warnings_producers"
+msgid "Number of products with data quality warnings"
+msgstr "Number of products with data quality warnings"
+
+msgctxt "number_of_products_with_improvements"
+msgid "Number of products with improvement opportunities"
+msgstr "Number of products with improvement opportunities"
+
+msgctxt "improvements_facet_description_1"
+msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+msgstr "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+
+msgctxt "improvements_facet_description_2"
+msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+msgstr "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+
+
