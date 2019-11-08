@@ -6518,7 +6518,11 @@ HTML
 
 	$html = start_multipart_form(-action=>"/cgi/product.pl") ;
 
-	$html .= display_search_image_form("block_side");
+	if (not $server_options{producers_platform}) {
+		# Do not display image upload button on producers platform
+		# causes issues with the import_photos_upload.pl
+		$html .= display_search_image_form("block_side");
+	}
 
 	$html .= <<HTML
 

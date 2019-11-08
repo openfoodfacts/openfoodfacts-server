@@ -332,6 +332,11 @@ en => {
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 },
 
+es => {
+	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
+	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
+},
+
 fr => {
 
 	product_name_fr => ["nom", "nom produit", "nom du produit", "dénomination", "dénomination commerciale"],
