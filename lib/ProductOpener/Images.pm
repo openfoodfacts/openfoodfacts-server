@@ -35,6 +35,7 @@ BEGIN
 					&display_search_image_form
 					&process_search_image_form
 
+					&get_code_and_imagefield_from_file_name
 					&process_image_upload
 					&process_image_move
 
@@ -409,6 +410,38 @@ sub dims {
 }
 
 
+sub get_code_and_imagefield_from_file_name($$) {
+
+	my $l = shift;
+	my $filename = shift;
+
+	my $code;
+	my $imagefield;
+
+	# Look for the barcode
+	if ($filename =~ /(\d{8}\d*)/) {
+		$code = $1;
+	}
+
+	# Check for a specified imagefield
+	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
+		$imagefield = $1;
+		$imagefield =~ s/-/_/;
+	}
+	# If the photo file name is just the barcode + some stopwords, assume it is the front image
+	elsif ($filename =~ /^\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.(png|jpg|jpeg|gif)$/i) {
+		$imagefield = "front";
+	}
+	else {
+		$imagefield = "other";
+	}
+
+	$log->debug("get_code_and_imagefield_from_file_name", { l => $l, filename => $filename, code => $code, imagefield => $imagefield }) if $log->is_debug();
+
+	return ($code, $imagefield);
+}
+
+
 sub process_image_upload($$$$$$) {
 
 	my $product_id = shift;
@@ -448,6 +481,11 @@ sub process_image_upload($$$$$$) {
 			my $old_imagefield = $imagefield;
 			$old_imagefield =~ s/_\w\w$//;
 			$file = param('imgupload_' . $old_imagefield);
+
+			if (! $file) {
+				# producers platform: name="files[]"
+				$file = param("files[]");
+			}
 		}
 	}
 
