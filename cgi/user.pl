@@ -140,8 +140,12 @@ elsif ($action eq 'process') {
 	$html .= lang($type . $dialog);
 
 	if (($type eq 'add') or ($type eq 'edit')) {
-		$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
-		$html .= "<p>" . lang("bottom_content") . "</p>\n";
+
+		# Do not display donate link on producers platform
+		if (not $server_options{producers_platform}) {
+			$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
+			$html .= "<p>" . lang("bottom_content") . "</p>\n";
+		}
 	}
 }
 

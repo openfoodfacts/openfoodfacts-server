@@ -208,7 +208,6 @@ my @baby_food_brands = qw(
 	Gudang-Garam
 	HB
 	Hits-Mild
-	Hollywood
 	Hongtashan
 	Hope
 	India-Kings 
@@ -808,9 +807,9 @@ sub check_ingredients($) {
 
 				# Dutch and other languages can have 4 consecutive consonants
 				if ($display_lc !~ /de|nl/) {
-					if ($product_ref->{$ingredients_text_lc} =~ /[bcdfghjklmnpqrstvwxz]{4}/is) {
+					if ($product_ref->{$ingredients_text_lc} =~ /[bcdfghjklmnpqrstvwxz]{5}/is) {
 
-						push @{$product_ref->{data_quality_warnings_tags}}, "en:ingredients-" . $display_lc . "-4-consonants";
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:ingredients-" . $display_lc . "-5-consonants";
 					}
 				}
 

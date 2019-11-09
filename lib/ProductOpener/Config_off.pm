@@ -549,7 +549,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 @taxonomy_fields = qw(states countries languages labels categories additives additives_classes
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
-data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors
+data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 improvements
 );
 
@@ -845,17 +845,15 @@ $options{nova_groups_tags} = {
 	"categories/en:sugars" => 2,
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
-	"categories/en:spices" => 2,
 
 	# group 3 tags will not be applied to food identified as group 2
 
 	# group 3 ingredients from nova paper
 
 	"ingredients/en:preservative" => 3,
+	"ingredients/en:anti-caking-agent" => 3,
 
 	"ingredients/en:salt" => 3,
-	"ingredients/en:spice" => 3,
-	"ingredients/en:pepper" => 3,
 	"ingredients/en:sugar" => 3,
 	"ingredients/en:vegetable-oil" => 3,
 	"ingredients/en:vegetal-oil" => 3,
@@ -868,9 +866,6 @@ $options{nova_groups_tags} = {
 
 	"ingredients/en:starch" => 3,
 	"ingredients/en:whey" => 4,
-	"ingredients/en:milk-powder" => 4,
-
-
 
 	# group 3 categories from nova paper
 
@@ -903,7 +898,6 @@ $options{nova_groups_tags} = {
 	# tags only found in group 4
 
 	"ingredients/en:anti-foaming-agent" => 4,
-	"ingredients/en:anti-caking-agent" => 4,
 	"ingredients/en:bulking-agent" => 4,
 	"ingredients/en:carbonating-agent" => 4,
 	"ingredients/en:colour" => 4,
@@ -924,6 +918,7 @@ $options{nova_groups_tags} = {
 	# is a synonym of en:flavour in the taxo aleene@2018-10-09
 	"ingredients/en:flavouring" => 4,
 	"ingredients/en:casein" => 4,
+	"ingredients/en:gluten" => 4,
 	# this is a milk protein, so covered by the taxo aleene@2018-10-09
 	"ingredients/en:lactose" => 4,
 	"ingredients/en:whey" => 4,
@@ -942,8 +937,6 @@ $options{nova_groups_tags} = {
 
 	"ingredients/en:dextrose" => 4,
 	# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09
-	"ingredients/en:milk-powder" => 4,
-	# This can be deleted, was already entered above aleene@2018-10-09
 	"ingredients/en:milk-proteins" => 4,
 	# could be changed to singular aleene@2018-10-09
 	"ingredients/en:whey-proteins" => 4,

@@ -187,11 +187,11 @@ HTML
 	},
 	fail : function (e, data) {
 		\$("#file_input_error_$id").show();
+		\$("#file_input_button_$id").show();
+		\$("#file_input_msg_$id").hide();
 	},
 	always : function (e, data) {
 		\$("#progressbar_$id").hide();
-		\$("#file_input_button_$id").show();
-		\$("#file_input_msg_$id").hide();
 	},
 	start: function (e, data) {
 		\$("#file_input_button_$id").hide();

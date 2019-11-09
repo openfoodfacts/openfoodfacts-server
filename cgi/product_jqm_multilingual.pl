@@ -59,10 +59,20 @@ my $interface_version = '20150316.jqm2';
 
 my %response = ();
 
-my $code = normalize_code(param('code'));
+my $code = param('code');
 my $product_id;
 
 $log->debug("start", { code => $code, lc => $lc }) if $log->is_debug();
+
+# Allow apps to create products without barcodes
+# Assign a code and return it in the response.
+if ($code eq "new") {
+
+	($code, $product_id) = assign_new_code();
+	$response{code} = $code . "";	# Make sure the code is returned as a string
+}
+
+$code = normalize_code($code);
 
 if ($code !~ /^\d+$/) {
 
