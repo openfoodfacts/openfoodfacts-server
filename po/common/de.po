@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-07 12:55\n"
+"PO-Revision-Date: 2019-11-09 08:34\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3666,16 +3666,16 @@ msgstr "Verbesserungsmöglichkeiten"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/importierte-produkte"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "Produkte aktualisieren oder hinzufügen"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "Ihre Produkte"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
@@ -3684,92 +3684,92 @@ msgstr ""
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "Importiere Produkte"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "Leere Spalte"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "Die Datei enthält in dieser Spalte keine Werte."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "Datenimport wird ausgeführt"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "Die Produktdaten wurden empfangen und werden in die Plattform für Produzenten importiert."
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Geplant"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "Wird ausgeführt"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Abgeschlossen"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Fehlgeschlagen"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "Importergebnis"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "Hinzugefügte Produkte"
 
 msgctxt "products_modified"
 msgid "Products modified"
-msgstr ""
+msgstr "Bearbeitete Produkte"
 
 msgctxt "import_file_result_no_change"
 msgid "There were no product added or modified. The data has probably been already imported previously."
-msgstr ""
+msgstr "Es wurden keine Produkte hinzugefügt oder geändert. Die Daten wurden möglicherweise bereits importiert."
 
 msgctxt "import_file_result_products"
 msgid "List of products added or modified"
-msgstr ""
+msgstr "Liste der hinzugefügten oder geänderten Produkte"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "Importe"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "Import"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "Importe"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
-msgstr ""
+msgstr "Anzahl der Produkte mit Datenqualitätsfehlern"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
-msgstr ""
+msgstr "Anzahl der Produkte mit Warnungen zur Datenqualität"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
-msgstr ""
+msgstr "Anzahl der zu verbessernden Produkte"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "Diese Tabelle listet mögliche Ansätze zur Verbesserung der Nährstoffqualität, des Nutri-Scores und der Zusammensetzung von Lebensmitteln auf."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
