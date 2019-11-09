@@ -74,6 +74,7 @@
         display: none;
       }
     </style>
+    <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(["_setAccount", "UA-31851927-1"]);
@@ -91,6 +92,15 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(ga, s);
       })();
+
+$(function() {
+
+$('iframe').load(function(){
+      $(".loading").remove();
+}).show();
+
+});
+
     </script>
   </head>
   <body>
@@ -130,48 +140,42 @@
         />
 
         <p>
-          Open Food Facts is the "Wikipedia of food", the largest free and open
-          database of food products in the world.
+          Open Food Facts est le "Wikipedia de l’alimentation", la plus grande base de données libre et ouverte de produits alimentaires du monde entier.
         </p>
         <p>
-          We started Open Food Facts because we believe information about what
-          we eat is information of public interest. And as a result, it has to
-          be public, free and open.
+          Nous avons fondé Open Food Facts car nous croyons qu'informer les gens sur le contenu de leur nourriture relève de l'intérêt public. En conséquence, ce projet doit être libre, public et ouvert à tous.
         </p>
         <p>
-          Our data is used by citizens to make healthier food choices thanks to
-          our mobile app, by public health researchers to study the impact of
-          food on our health, by journalists for their reporting, and even by
-          the food industry to improve their products. That's the power of food
-          transparency: it benefits everyone!
+          Nos données sont utilisées par les citoyens pour faire des choix alimentaires plus sains grâce à notre application mobile, par les chercheurs en santé publique pour étudier l'impact des aliments sur notre santé, par les journalistes pour leurs reportages, et même par l'industrie pour améliorer leurs produits. Voilà la puissance de la transparence alimentaire : tout le monde y trouve son compte !
         </p>
         <p>
-          When we founded Open Food Facts, we made the clear choice to be
-          totally non-profit to maximize our impact by giving away all our work.
-          We also made the clear choice that we would be totally independent
-          from the industry, and thus to never accept any funding that could put
-          our mission at risk.
+          Lorsque nous avons fondé Open Food Facts, nous avons ouvertement choisi d'en faire une
+          association à but non-lucratif pour maximiser notre impact, grâce à la gratuité de nos travaux.
+          Nous avons aussi pris la décision sans appel d'être totalement indépendants
+          de l'industrie agro-alimentaire, et de refuser tout financement qui pourrait nous biaiser et
+          corrompre notre mission.
         </p>
         <p>
-          As a result, we started the project on a shoestring, and we still keep
-          our budget tight. From 2012 to 2017 we were all volunteers and our
-          annual budget was less than 1000 euros! The project has grown a lot
-          however, and we now need a bit more to continue our mission.
+          En conséquence, nous avons démarré le projet avec un tout petit budget et nous nous efforçons de rester
+          agiles et efficaces. De 2012 à 2017, l'équipe n'était composée que de volontaires, et notre
+          budget annuel ne dépassait pas les 1000 euros ! Toutefois, le projet à beaucoup
+          grandi, et nous avons maintenant besoin de plus de ressources pour continuer notre mission.
         </p>
         <p>
-          We need your help to continue to operate and grow Open Food
-          Facts.Please consider making a donation to protect and sustain Open
-          Food Facts.
+          Nous avons besoin de votre aide pour continuer à gérer et faire grandir Open Food Facts. Envisagez de faire un don pour protéger et soutenir Open Food Facts.
         </p>
         <p>Merci,</p>
         <p style="font-weight: bold;">
-          Anca, Florence, Léonore, Sylvia, Charles, Christian, Ludovic, Pierre,
-          Sébastien, Stéphane, Vincent and the whole Open Food Facts team
+          Anca, Florence, Léonore, Sylvia, Charles, Christian, Ludovic, Pierre, Sébastien, Stéphane, Vincent et toute l'équipe Open Food Facts
         </p>
       </div>
 
       <div class="columns large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
+          <div class="loading">
+            <p>The donation form is being loaded.<br>You can also access it by <a href=" https://donorbox.org/your-donation-to-open-food-facts">clicking here</a>.</p>
+          </div>
+
           <script
             src="https://donorbox.org/widget.js"
             paypalExpress="true"
