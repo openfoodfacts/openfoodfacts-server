@@ -74,6 +74,7 @@
         display: none;
       }
     </style>
+    <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(["_setAccount", "UA-31851927-1"]);
@@ -91,6 +92,15 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(ga, s);
       })();
+
+$(function() {
+
+$('iframe').load(function(){
+      $(".loading").remove();
+}).show();
+
+});
+
     </script>
   </head>
   <body>
@@ -172,6 +182,10 @@
 
       <div class="columns large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
+          <div class="loading">
+            <p>The donation form is being loaded.<br>You can also access it by <a href=" https://donorbox.org/your-donation-to-open-food-facts">clicking here</a>.</p>
+          </div>
+
           <script
             src="https://donorbox.org/widget.js"
             paypalExpress="true"
@@ -189,18 +203,19 @@
           ></iframe>
 
           <div class="text-left">
-            <h3>Bağışınız nereye gidiyor</h3>
+            <h3>Where your donation goes</h3>
 
             <p>
-              <b>Teknoloji:</b> Yazılım geliştirme, bakım, veritabanını büyütmeye devam etmek
-              için sunucular ve Open Food Facts mobil uygulamasına ve web sitesine harika
-              yeni özellikler eklemek.
+              <b>Technology:</b> Development, maintenance, servers to keep the
+              database growing and to add cool new features to the Open Food
+              Facts mobile app and web site.
             </p>
 
             <p>
-              <b>İnsanlar ve projeler:</b> Open Food Facts topluluğuna en iyi desteği
-              vermek, araştırmacılarla çalışmak ve gıda ürünleri verilerimizi sağlığımız,
-              gezegenimiz ve toplumumuz üzerinde en büyük etkiye sahip yapmak.
+              <b>People and projects:</b> To give our best support to the Open
+              Food Facts community, to work with researchers, and to make our
+              food products data have the biggest impact on our health, our
+              planet, and society.
             </p>
           </div>
         </div>
