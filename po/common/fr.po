@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-09 09:43\n"
+"PO-Revision-Date: 2019-11-09 10:11\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3787,47 +3787,47 @@ msgstr "Importer des photos de produits"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Vous pouvez utiliser le formulaire ci-dessous pour facilement télécharger des photos (Produit de face, listes des ingrédients et le tableau de valeur nutritionnelle ) de nombreux produits."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Chaque nom de fichier doit contenir le code-barres du produit."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "Vous pouvez aussi spécifiez le type de la photo dans le nom du fichier :"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg : devant du produit dans la langue actuelle."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg : devant du produit en néerlandais."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: Liste d'ingrédients en Français."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg : Tableau nutritionnel en Espagnol."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Ajouter des photos..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Commencer le téléversement"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Commencer"
 
 msgctxt "close"
 msgid "Close"
@@ -3835,13 +3835,13 @@ msgstr "Fermer"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Téléversement annulé"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Informations"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "Fichier reçu"
 
