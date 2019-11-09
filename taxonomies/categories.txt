@@ -18229,7 +18229,7 @@ pnns_group_2:en:Dairy desserts
 en:Jelly desserts, jellies dessert, gelatin desserts
 de:Götterspeisen, götterspeise
 es:Gelatinas, postres gelificados
-fr:Desserts gélifiées
+fr:Desserts gélifiés
 it:Gelatina dolce
 wikidata:en:Q4545971
 
@@ -18513,6 +18513,10 @@ hu:Csokoládé válogatás
 it:Assortimento di cioccolati
 nl:Chocolade-assortimenenten
 zh:什锦巧克力
+
+<en:Chocolates
+en:Plant milk chocolates
+fr:Chocolats au lait végétal
 
 <en:Chocolates
 en:Milk chocolates, milk chocolate
@@ -19052,7 +19056,7 @@ fr:Cerises enrobées au chocolat
 nl:Kersen met een chocolaag
 wikidata:en:Q16242001
 
-<en:Chocolate covered cherries
+<en:Bonbons
 en:Liquor filled chocolate covered cherries
 de:Likörkirschen mit Schokoladenüberzug
 es:Bombones de chocolate rellenos de cereza y licor, Cerezas al licor recubiertas de chocolate
@@ -19715,22 +19719,22 @@ nl:Turrón
 wikidata:en:Q159304
 
 <en:Turrón
-en:Black chocolate turrón filled with fruit praline
-de:Schwarzer Schokoturrón, gefüllt mit Fruchtpraliné
-es:Turrones de chocolate negro rellenos de sirope de frutas, Turrones de chocolate rellenos
-fr:Turrón au chocolat noir garni de praliné aux fruits
+en:Chocolate turrón
+de:Schokoturrón
+es:Turrones de chocolate
+fr:Turrón de chocolat
 
-<en:Turrón
-en:Black chocolate turrón with almonds
-de:Schwarzer Schokoturrón mit Mandeln
-es:Turrones de chocolate negro con almendras
-fr:Turrón au chocolat noir aux amandes
+<en:Chocolate turrón
+en:Chocolate turrón with almonds, Black chocolate turrón with almonds
+de:Schokoturrón mit Mandeln, Schwarzer Schokoturrón mit Mandeln
+es:Turrones de chocolate con almendras, Turrones de chocolate negro con almendras
+fr:Turrón de chocolat aux amandes, Turrón au chocolat noir aux amandes
 
-<en:Turrón
-en:Black chocolate turrón with puffed rice
-de:Schwarzer Schokoturrón mit Puffreis
-es:Turrones de chocolate negro con arroz inflado, Turrones de chocolate negro
-fr:Turrón au chocolat noir avec riz soufflé
+<en:Chocolate turrón
+en:Chocolate turrón with puffed rice, black chocolate turrón with puffed rice
+de:Schokoturrón mit Puffreis, Schwarzer Schokoturrón mit Puffreis
+es:Turrones de chocolate con arroz inflado, Turrones de chocolate negro con arroz inflado
+fr:Turrón au chocolat avec riz soufflé, turrón au chocolat noir avec riz soufflé
 
 <en:Turrón
 en:Coconut turrón
@@ -19775,7 +19779,7 @@ nl:Pindanturrón
 <en:Turrón
 en:Toasted egg yolk turrón
 es:Turrones de yema tostada
-fr:Nougat aux jaunes d’œufs
+fr:Tourons au jaune d'œuf grillé
 
 <en:Turrón
 es:Turrones a la piedra
@@ -30570,6 +30574,18 @@ fr:Dattes entières
 nl:Dadels met pit
 ru:Финики с косточкой
 
+<en:Dates
+fr:Dattes Deglet Nour
+wikidate:en:Q1182886
+
+<en:Dates
+fr:Dates Medjool
+wikidate:en:Q16774413
+
+<en:Dates
+fr:Dattes Mazafati
+wikidate:en:Q25047430
+
 <en:Dried fruits
 en:Dried apples
 de:getrocknete Apfel, gedörrte Apfel
@@ -33262,13 +33278,6 @@ fr:Substituts de repas
 nl:Maaltijdvervangers
 
 <en:Meals
-en:Prepared dishes with scallops
-es:Platos preparados con vieiras
-fi:kampasimpukkaruokalajit
-fr:Plats préparés aux noix de Saint-Jacques
-nl:Bereide gerechten met scallops
-
-<en:Meals
 en:Sushis and makis, Sushi and Maki
 fr:Sushis et makis
 nl:Sushi en maki
@@ -33455,6 +33464,10 @@ fr:Plats à base de quinoa
 nl:Quinoaschotels
 
 <en:Meals
+en:Lentil dishes
+fr:Plats à base de lentilles
+
+<en:Meals
 en:Savory semolina dishes
 fr:Plats à base de semoule
 nl:Hartige griesmeelschotels, Hartige griesmeelschotel
@@ -33465,6 +33478,21 @@ fi:kypsennetty couscous
 fr:Couscous préparés, couscous préparé
 nl:Kant-en-klaar couscous
 #wikidata:en:
+
+<en:Meals
+en:Meals with shellfish
+fr:Plats aux fruits de mer
+
+<en:Meals with shellfish
+en:Dishes with scallops, prepared dishes with scallops
+es:Platos preparados con vieiras
+fi:kampasimpukkaruokalajit
+fr:Plats aux noix de Saint-Jacques, plats préparés aux noix de Saint-Jacques
+nl:Bereide gerechten met scallops
+
+<en:Meals with shellfish
+en:Meals with shrimps
+fr:Plats aux crevettes
 
 <en:Meals
 en:Meals with fish, fish dishes
@@ -33490,11 +33518,12 @@ fr:Plats au saumon
 it:Pasti con salmone
 nl:Zalmmaaltijden
 
+<en:Meals with salmon
+fr:Parmentiers de saumon
+
 <en:Meals with fish
-en:Preparations made from crabs
-es:Preparado hechos de cangrejos
-fr:Préparations à base de crabes
-nl:Krab-producten
+en:Meals with tuna
+fr:Plats au thon
 
 <en:Meals with fish
 en:Cod brandade
@@ -33619,7 +33648,7 @@ wikidata:en:Q1191278
 
 <en:Beef dishes
 en:Shepherd's pie
-fr:Hachis parmentier
+fr:Hachis parmentier, parmentiers de bœuf
 nl:Shepherd's pie
 
 <en:Beef dishes
@@ -33799,6 +33828,9 @@ fr:Plats au poulet, plats à base de poulet, Plats à base de poulets, plats pr�
 it:Pasti con pollo
 nl:Kippevleesmaaltijden
 pt:Refeições com frango
+
+<en:Meals with chicken
+fr:Parmentiers de poulet
 
 <en:Meals with chicken
 en:Chicken tajine
@@ -37369,9 +37401,9 @@ nl:Paddestoel- en afgeleide producten
 pnns_group_2:en:vegetables
 
 <en:Mushrooms and their products
-en:Mushrooms, Fungi, Fresh mushrooms, Fresh fungi
+en:Mushrooms, Fungi
 de:Pilze
-es:Setas, Hongos, Setas frescas, Hongos frescos
+es:Setas, Hongos
 fi:sienet
 fr:Champignons
 it:Funghi
@@ -37380,7 +37412,8 @@ nl:Paddestoelen
 
 <en:Mushrooms
 <en:Fresh vegetables
-en:Fresh mushrooms
+en:Fresh mushrooms, Fresh fungi
+es:Setas frescas, Hongos frescos
 fr:Champignons frais
 
 <en:Mushrooms
@@ -39285,6 +39318,12 @@ fi:rapu
 fr:Crabes
 it:Granchi
 nl:Krab
+
+<en:Crab
+en:Preparations made from crabs
+es:Preparado hechos de cangrejos
+fr:Préparations à base de crabes
+nl:Krab-producten
 
 <en:Crustaceans
 en:Shrimps
@@ -42064,9 +42103,9 @@ fr:Artichauts frais
 <en:Vegetable rods
 en:Asparagus
 de:Spargel
-es:Espárragos, Espárragos frescos
+es:Espárragos
 fi:parsa
-fr:Asperges, asperge, Asperges fraîches
+fr:Asperges, asperge
 la:Asparagus officinalis
 nl:Asperges
 
@@ -42112,6 +42151,7 @@ nl:Wilde asperges
 <en:Asparagus
 <en:Fresh vegetables
 en:Fresh Asparagus
+es:Espárragos frescos
 fr:Asperges fraîches
 
 <en:Vegetables
@@ -46660,22 +46700,30 @@ nl:Vleesvervangers
 wikidata:en:Q1343997
 
 <en:Meat analogues
-en:Veggie burger patties
+en:Vegetarian nuggets
+fr:Nuggets végétaux
+
+<en:Meat analogues
+en:Veggie grounds
+fr:Hachés végétaux
+
+<en:Meat analogues
+en:Veggie patties, veggie burger patties
 de:Gemüsebratling, Vegetarische Burger
 es:Filetes vegetales para hamburguesas
 fi:kasvishampurilaispihvit
 fr:Steaks végétaux, steaks végétaux pour hamburgers
 nl:Plantaardige steaks voor hamburgers
 
-<en:Veggie burger patties 
+<en:Veggie patties 
 en:Soy steak
 fr:Galettes de soja, steaks de soja
 nl:Sojasteaks
 
-<en:Veggie burger patties
+<en:Veggie patties
 fr:Galettes de tofu, steaks de tofu
 
-<en:Veggie burger patties
+<en:Veggie patties
 fr:Galettes de céréales aux légumes
 
 <en:Meat analogues
