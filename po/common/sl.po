@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-09 09:58\n"
+"PO-Revision-Date: 2019-11-10 15:06\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -682,7 +682,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Podatki, API in SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -3091,19 +3091,19 @@ msgstr "Neurejeni izdelki od %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "Izdelki dopolnjeni od %s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "Izdelki niso dopolnjeni od %s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "Izdelki fotografirani od %s"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "Izdelki, ki niso fotografirani od %s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
@@ -3497,7 +3497,7 @@ msgstr "Za uporabo te funkcije se prijavite."
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "Organizacija"
 
 msgctxt "column_in_file"
 msgid "Column in file"
@@ -3666,12 +3666,12 @@ msgstr ""
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "Dodajte ali posodobite izdelke"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "Vaši izdelki"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
@@ -3680,19 +3680,19 @@ msgstr ""
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "Uvoz izdelkov"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "Prazen stolpec"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "Datoteka v tem stolpcu ne vsebuje nobene vrednosti."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "Uvoz podatkov je v teku"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
@@ -3701,31 +3701,31 @@ msgstr ""
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Stanje"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Načrtovano"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "V teku"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Končano"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Spodletelo"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "Uvozi rezultat"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "Dodani izdelki"
 
 msgctxt "products_modified"
 msgid "Products modified"
@@ -3741,31 +3741,31 @@ msgstr ""
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "uvozi"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "uvoz"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "uvozi"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
-msgstr ""
+msgstr "Število izdelkov z napakami v kakovosti podatkov"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
-msgstr ""
+msgstr "Število izdelkov z opozorili o kakovosti podatkov"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
-msgstr ""
+msgstr "Število izdelkov z možnostmi za izboljšanje"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "Ta preglednica navaja možne priložnosti za izboljšanje prehranske kakovosti, Nutri-Score in sestave prehranskih izdelkov."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
@@ -3778,47 +3778,47 @@ msgstr "Uvoz fotografij izdelkov"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Uporabite spodnji obrazec za enostavno nalaganje fotografij (sprednji del izdelka, seznam sestavin in tabela s podatki o hranilni vrednosti) za številne izdelke."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Vsako ime datoteke mora vsebovati črtno kodo izdelka."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "V imenu datoteke lahko določite tudi vrsto fotografije:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: sprednja stran izdelka v trenutnem jeziku."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: prednja stran izdelka v nizozemščini."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: seznam sestavin v francoščini."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: prehranska tabela v španščini."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Dodaj fotografije ..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Začni prenos"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Začni"
 
 msgctxt "close"
 msgid "Close"
@@ -3826,13 +3826,13 @@ msgstr "Zapri"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Prekliči prenos"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "Datoteka je prejeta"
 
