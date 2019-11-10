@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-02 16:23\n"
+"PO-Revision-Date: 2019-11-09 09:45\n"
 "Language-Team: Italian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -493,15 +493,15 @@ msgstr "codici EMB"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr "Prodotti confezionati dalla società con codice emb %s"
+msgstr "Prodotti confezionati dalla società con codice EMB %s"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr "codice EMB"
+msgstr "Codice EMB"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr "codice EMB"
+msgstr "Codice EMB"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -3619,6 +3619,30 @@ msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "errori sulla qualità dei dati"
 
+msgctxt "data_quality_warnings_producers_p"
+msgid "data quality warnings"
+msgstr "avvisi sulla qualità dei dati"
+
+msgctxt "data_quality_warnings_producers_s"
+msgid "data quality warning"
+msgstr "avviso sulla qualità dei dati"
+
+msgctxt "data_quality_warnings_producers"
+msgid "data quality warnings"
+msgstr "avvisi sulla qualità dei dati"
+
+msgctxt "data_quality_errors_producers_p"
+msgid "data quality errors"
+msgstr "errori sulla qualità dei dati"
+
+msgctxt "data_quality_errors_producers_s"
+msgid "data quality error"
+msgstr "errore sulla qualità dei dati"
+
+msgctxt "data_quality_errors_producers"
+msgid "data quality errors"
+msgstr "errori sulla qualità dei dati"
+
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
@@ -3640,4 +3664,181 @@ msgstr "possibile miglioramento"
 msgctxt "improvements"
 msgid "possible improvements"
 msgstr "possibili miglioramenti"
+
+# Do not translate
+msgctxt "import_products_link"
+msgid "/import-products"
+msgstr "/import-products"
+
+msgctxt "add_or_update_products"
+msgid "Add or update products"
+msgstr "Aggiungi o aggiorna i prodotti"
+
+# Formal you
+msgctxt "your_products"
+msgid "Your products"
+msgstr "I tuoi prodotti"
+
+# Do not translate the e-mail address
+msgctxt "account_without_org"
+msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+msgstr "Il tuo account non è ancora associato a un'azienda. Invia un'email a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> per attivare l'accesso gratuito alla piattaforma per i produttori."
+
+msgctxt "import_products"
+msgid "Import products"
+msgstr "Importa prodotti"
+
+msgctxt "empty_column"
+msgid "Empty column"
+msgstr "Colonna vuota"
+
+msgctxt "empty_column_description"
+msgid "The file does not contain any value in this column."
+msgstr "Il file non contiene alcun valore in questa colonna."
+
+msgctxt "import_file_status_title"
+msgid "Data import in progress"
+msgstr "Importazione dati in corso"
+
+# "product data" means data for many products
+msgctxt "import_file_status_description"
+msgid "The product data has been received and is going to be imported on the platform for producers."
+msgstr "I dati dei prodotti sono stati ricevuti e saranno importati sulla piattaforma per i produttori."
+
+msgctxt "import_file_status"
+msgid "Status"
+msgstr "Stato"
+
+msgctxt "job_status_inactive"
+msgid "Scheduled"
+msgstr "Pianificato"
+
+msgctxt "job_status_active"
+msgid "In progress"
+msgstr "In corso"
+
+msgctxt "job_status_finished"
+msgid "Finished"
+msgstr "Finito"
+
+msgctxt "job_status_failed"
+msgid "Failed"
+msgstr "Fallito"
+
+msgctxt "import_file_result"
+msgid "Import result"
+msgstr "Risultato dell'importazione"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Prodotti aggiunti"
+
+msgctxt "products_modified"
+msgid "Products modified"
+msgstr "Prodotti modificati"
+
+msgctxt "import_file_result_no_change"
+msgid "There were no product added or modified. The data has probably been already imported previously."
+msgstr "Non sono stati aggiunti o modificati prodotti. I dati probabilmente sono già stati importati in precedenza."
+
+msgctxt "import_file_result_products"
+msgid "List of products added or modified"
+msgstr "Elenco dei prodotti aggiunti o modificati"
+
+msgctxt "imports_p"
+msgid "imports"
+msgstr "importazioni"
+
+msgctxt "imports_s"
+msgid "import"
+msgstr "importazione"
+
+msgctxt "imports"
+msgid "imports"
+msgstr "importazioni"
+
+msgctxt "number_of_products_with_data_quality_errors_producers"
+msgid "Number of products with data quality errors"
+msgstr "Numero di prodotti con errori di qualità dei dati"
+
+msgctxt "number_of_products_with_data_quality_warnings_producers"
+msgid "Number of products with data quality warnings"
+msgstr "Numero di prodotti con avvisi sulla qualità dei dati"
+
+msgctxt "number_of_products_with_improvements"
+msgid "Number of products with improvement opportunities"
+msgstr "Numero di prodotti con possibilità di miglioramento"
+
+msgctxt "improvements_facet_description_1"
+msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+msgstr "Questa tabella elenca le possibilità di migliorare la qualità nutrizionale, il Nutri-Score e la composizione dei prodotti alimentari."
+
+msgctxt "improvements_facet_description_2"
+msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+msgstr "Al fine di ottenere risultati rilevanti. per favore assicurati che i dati del prodotto siano completi (dati nutrizionali con valori per fibre e frutta e verdura per calcolare il Punteggio Nutri-Score, e una categoria precisa per confrontare ogni prodotto con prodotti simili)."
+
+# "product photos" in this sentence means photos for many products, not just one product
+msgctxt "import_photos_title"
+msgid "Import product photos"
+msgstr "Importa le foto dei prodotti"
+
+msgctxt "import_photos_description"
+msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgstr ""
+
+msgctxt "import_photos_format_1"
+msgid "Each filename needs to contains the barcode of the product."
+msgstr ""
+
+msgctxt "import_photos_format_2"
+msgid "And you can also specify the type of the photo in the filename:"
+msgstr ""
+
+# Do not translate the file name
+msgctxt "import_photos_format_barcode"
+msgid "3001234567890.jpg: front of the product in the current language."
+msgstr ""
+
+# Do not translate the file name
+msgctxt "import_photos_format_front"
+msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
+msgstr ""
+
+# Do not translate the file name
+msgctxt "import_photos_format_ingredients"
+msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
+msgstr ""
+
+# Do not translate the file name
+msgctxt "import_photos_format_nutrition"
+msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+msgstr ""
+
+msgctxt "add_photos"
+msgid "Add photos..."
+msgstr ""
+
+msgctxt "start_upload"
+msgid "Start upload"
+msgstr ""
+
+msgctxt "start"
+msgid "Start"
+msgstr ""
+
+msgctxt "close"
+msgid "Close"
+msgstr "Chiudi "
+
+msgctxt "cancel_upload"
+msgid "Cancel upload"
+msgstr ""
+
+msgctxt "info"
+msgid "Info"
+msgstr ""
+
+msgctxt "file_received"
+msgid "File received"
+msgstr ""
 
