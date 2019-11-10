@@ -60,11 +60,40 @@ ProductOpener::Display::init();
 
 $log->debug("parsing code", { subdomain => $subdomain, original_subdomain => $original_subdomain, user => $User_id, code => $code, cc => $cc, lc => $lc, imagefield => $imagefield, ip => remote_addr() }) if $log->is_debug();
 
+# By default, don't select images uploaded (e.g. through the product edit form)
+
+my $select_image = 0;
+
+# Producers platform: the input file name is files[]
+# If no code and imagefield is passed, try to guess it from the filename
+
+my $code_specified = 1;
+my $filename;
+
+if (not defined $code) {
+
+	$code_specified = 0;
+
+	$filename = param("files[]");
+
+	($code, $imagefield) = get_code_and_imagefield_from_file_name($lc, $filename);
+
+	if ($code) {
+		if ((defined $imagefield) and ($imagefield !~ /^other/)) {
+			$select_image = 1;
+		}
+	}
+}
+
 if ((not defined $code) or ($code eq '')) {
 
 	$log->warn("no code");
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - missing product code";
+	if (not $code_specified) {
+		# for jquery.fileupload-ui.js
+		$response{files} = [ { error => $response{error} } ]
+	}
 	my $data =  encode_json(\%response);
 	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
@@ -140,6 +169,16 @@ if ($imagefield) {
 			($imgid_returncode == -4) and $response{error} = lang("image_upload_error_image_too_small");
 			($imgid_returncode == -5) and $response{error} = "could not read image";
 
+			if (not $code_specified) {
+				# for jquery.fileupload-ui.js
+				if ($imgid_returncode == -3) {
+					$response{files} = [ { info => $response{error} } ]
+				}
+				else {
+					$response{files} = [ { error => $response{error} } ]
+				}
+			}
+
 			$data =  encode_json(\%response);
 		}
 		else {
@@ -150,21 +189,36 @@ if ($imagefield) {
 				crop_url=>"$imgid.${crop_size}.jpg",
 			};
 
-
 			if ($admin) {
 				$product_ref = retrieve_product($product_id);
 				$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
 				$image_data_ref->{uploaded} = $product_ref->{images}{$imgid}{uploaded_t};
 			}
 
-			$data =  encode_json({ status => 'status ok',
-					image => $image_data_ref,
-					imagefield => $imagefield,
-			});
+			my $product_name =  remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			if ((not defined $product_name) or ($product_name eq "")) {
+				$product_name = $code;
+			}
+
+			my $product_url = product_url($product_ref);
+
+			my $response_ref = { status => 'status ok',
+				image => $image_data_ref,
+				imagefield => $imagefield,
+				files => [{
+					url => $product_url,
+					thumbnailUrl => "/images/products/$path/$imgid.$thumb_size.jpg",
+					name => $product_name,
+					filename => $filename . "",	# Make filename a scalar
+				}],
+			};
+
+			$data = encode_json($response_ref);
 
 			# If we don't have a picture for the imagefield yet, assign it
 			# (can be changed by the user later if necessary)
-			if ((($imagefield =~ /^front/) or ($imagefield =~ /^ingredients/) or ($imagefield =~ /^nutrition/)) and not defined $product_ref->{images}{$imagefield}) {
+			if ((($imagefield =~ /^front/) or ($imagefield =~ /^ingredients/) or ($imagefield =~ /^nutrition/)) and
+				((not defined $product_ref->{images}{$imagefield}) or ($select_image))) {
 				process_image_crop($product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
 			}
 		}
@@ -181,7 +235,6 @@ if ($imagefield) {
 			$response{error} = "error - imagefield not defined";
 			my $data =  encode_json(\%response);
 			print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
-
 	}
 
 }
