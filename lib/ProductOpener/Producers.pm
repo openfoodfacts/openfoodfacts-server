@@ -113,9 +113,9 @@ sub load_csv_or_excel_file($) {
 	$extension =~ s/^(.*)\.//;
 	$extension = lc($extension);
 
-	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
+	my $encoding = "UTF-8";
 
-		my $encoding = "UTF-8";
+	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
 
 		$log->debug("opening CSV file", { file => $file, extension => $extension }) if $log->is_debug();
 
@@ -139,28 +139,31 @@ sub load_csv_or_excel_file($) {
 	else {
 		$log->debug("opening Excel file", { file => $file, extension => $extension }) if $log->is_debug();
 
-		if (open (my $io, "<", $file)) {
+		# my $csv = Spreadsheet::CSV->new();
+		# Spreadsheet::CSV does not handle well some Excel files (some cells are missing)
+		# use gnumeric's ssconvert to first convert to CSV format
 
-			my $csv = Spreadsheet::CSV->new();
+		$log->debug("converting Excel file with gnumeric's ssconvert", { file => $file, extension => $extension }) if $log->is_debug();
 
-			# Assume first line is headers line
-			$headers_ref = $csv->getline ($io);
+		system("ssconvert", $file, $file . ".csv");
 
-			# In fact, there may be empty lines,
-			while ((not defined $headers_ref) and ($headers_ref = $csv->getline ($io))) {
-			}
+		my $csv_options_ref = { binary => 1 , sep_char => "," };	# should set binary attribute.
 
-			if (not defined $headers_ref) {
-				$results_ref->{error} = "Unsupported file format (extension: $extension).";
-			}
-			else {
-				while (my $row = $csv->getline ($io)) {
-					push @$rows_ref, $row;
-				}
+		my $csv = Text::CSV->new ( $csv_options_ref )
+		or die("Cannot use CSV: " . Text::CSV->error_diag ());
+
+		if (open (my $io, "<:encoding($encoding)", $file . ".csv")) {
+
+			@$headers_ref = $csv->header ($io, { detect_bom => 1 });
+
+			# May need to deal with possible empty lines before header
+
+			while (my $row = $csv->getline ($io)) {
+				push @$rows_ref, $row;
 			}
 		}
 		else {
-			$results_ref->{error} = "Could not open Excel $file: $!";
+			$results_ref->{error} = "Could not open CSV $file.csv: $!";
 		}
 	}
 
@@ -258,6 +261,9 @@ sub convert_file($$$$) {
 	$csv_out->print ($out, [@default_headers, @headers]);
 	print $out "\n";
 
+	# Fields for clean_fields()
+	@fields = @headers;
+
 	# Output CSV product data
 
 	foreach my $row_ref (@$rows_ref) {
@@ -276,7 +282,9 @@ sub convert_file($$$$) {
 			}
 		}
 
+		$log->debug("convert_file - before clean_fields ", { }) if $log->is_debug();
 		clean_fields($product_ref);
+		$log->debug("convert_file - after clean_fields ", { }) if $log->is_debug();
 
 		my @values = ();
 		foreach my $field (@headers) {
@@ -324,12 +332,19 @@ en => {
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 },
 
+es => {
+	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
+	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
+},
+
 fr => {
 
-	product_name_fr => ["nom", "nom produit", "nom du produit", "dénomination"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "dénomination", "dénomination commerciale"],
+	generic_name_fr => ["dénomination légale"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
 	labels => ["signes qualité", "signe qualité"],
+	volume_value_unit => ["volume net"],
 },
 
 );
@@ -436,16 +451,26 @@ sub init_other_fields_columns_names_for_lang($) {
 				elsif ($field =~ /_value_unit$/) {
 					# Column can contain value + unit, value, or unit for a specific field
 					my $field_name = $`;
-					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field_name}{$l})} = {field => $field};
 
-					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field_name}{$l} . " " . $Lang{unit}{$l})} = {
-						field => $field,
-						value_unit => "unit",
-					};
-					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{unit}{$l} . " " . $Lang{$field_name}{$l})} = {
-						field => $field,
-						value_unit => "unit",
-					};
+					my @synonyms = ($Lang{$field_name}{$l});
+					if ((defined $fields_synonyms{$l}) and (defined $fields_synonyms{$l}{$field})) {
+						foreach my $synonym (@{$fields_synonyms{$l}{$field}}) {
+							push @synonyms, $synonym;
+						}
+					}
+
+					foreach my $synonym (@synonyms) {
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = {field => $field};
+
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $Lang{unit}{$l})} = {
+							field => $field,
+							value_unit => "unit",
+						};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{unit}{$l} . " " . $synonym)} = {
+							field => $field,
+							value_unit => "unit",
+						};
+					}
 				}
 				elsif (defined $tags_fields{$field}) {
 					my $tagtype = $field;

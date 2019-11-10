@@ -2156,7 +2156,7 @@ sub mmoll_to_unit {
 		et => "Kiudained",
 		fi => "Ravintokuitu",
 		fr => "Fibres alimentaires",
-		fr_synonyms => ["fibres", "fibre", "fibre alimentaire"],
+		fr_synonyms => ["fibres", "fibre", "fibre alimentaire", "fibres alimentaires totales"],
 		ga => "Snáithín",
 		he => "סיבים תזונתיים",
 		hu => "Rost",

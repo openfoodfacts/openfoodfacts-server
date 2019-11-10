@@ -74,6 +74,7 @@
         display: none;
       }
     </style>
+    <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(["_setAccount", "UA-31851927-1"]);
@@ -91,6 +92,15 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(ga, s);
       })();
+
+$(function() {
+
+$('iframe').load(function(){
+      $(".loading").remove();
+}).show();
+
+});
+
     </script>
   </head>
   <body>
@@ -172,6 +182,10 @@
 
       <div class="columns large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
+          <div class="loading">
+            <p>The donation form is being loaded.<br>You can also access it by <a href=" https://donorbox.org/your-donation-to-open-food-facts">clicking here</a>.</p>
+          </div>
+
           <script
             src="https://donorbox.org/widget.js"
             paypalExpress="true"
