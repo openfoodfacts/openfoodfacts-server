@@ -63,19 +63,21 @@ med Open Food Facts-fællesskabet.</p>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/da.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>Eksperimentel JSON-API</h2>
+<h2>Live JSON API</h2>
 
 <p>En JSON-API er også tilgængelig til læsning af produktdataene. Denne API benyttes især i Open Food Facts-app'en til Android og iPhone.</p>
 
-<p>Denne API er eksperimentel og kan ændre sig. Oplys os om du benytter den, så vi kan informere dig om evt. ændringer.</p>
+<p>We change the API over-time but we are careful to keep backwards compatibility. Oplys os om du benytter den, så vi kan informere dig om evt. ændringer.</p>
 
 <p>URL til læsning af data for givent produkt: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
 <p>Eksempel: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Yderligere dokumentation er <a href="https://en.wiki.openfoodfacts.org/API">tilgængelig i Wiki'en</a>. 
+Further documentation is <a href="https://en.wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE). 
+A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">You can access it here</a>.
 <p>Du er meget velkommen til at benytte API'en til produktionssager, så længe 1 API-kald = 1 reel skanning af en bruger.
-Ethvert forsøg på at skrabe databasen på den måde vil meget sandsynligt blive blokeret, da fulde daglige eksporter er tilgængelig fra netop denne side.</p>
+Any attempt to scrape the database using the API will very likely be blocked, as full daily exports are available on this very page.</p>
 <p>At sende en HTTP-header med dit API-kald er også en god måde, hvorpå vi kan komme i kontakt, hvis der skulle opstå problemer.</p>
 <p>Hvis du er usikker på noget eller har spørgsmål (der findes ingen fjollede spørgsmål), er du velkommen til at stille dem på Slack :-)</p>
 
