@@ -88,7 +88,7 @@ if ($type eq 'search_or_add') {
 	my $r = Apache2::RequestUtil->request();
 	my $method = $r->method();
 	if ((not defined $code) and ((not defined param("imgupload_search")) or ( param("imgupload_search") eq '')) and ($method eq 'POST')) {
-		
+
 		($code, $product_id) = assign_new_code();
 	}
 
@@ -467,8 +467,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		my $modifier = undef;
 		my $modifierp = undef;
 
-		normalize_nutriment_value_and_modifier(\$value, \$modifier);
-		normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
+		(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
+		(defined $valuep) and normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 
 		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep }) if $log->is_debug();
 
