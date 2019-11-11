@@ -22,7 +22,7 @@ package ProductOpener::Display;
 
 use utf8;
 use Modern::Perl '2017';
-use Exporter    qw< import >;
+use Exporter qw(import);
 
 BEGIN
 {
@@ -97,28 +97,28 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Cache qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Missions qw/:all/;
-use ProductOpener::MissionsConfig qw/:all/;
-use ProductOpener::URL qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Store qw(:all);
+use ProductOpener::Config qw(:all);
+use ProductOpener::Tags qw(:all);
+use ProductOpener::TagsEntries qw(:all);
+use ProductOpener::Users qw(:all);
+use ProductOpener::Index qw(:all);
+use ProductOpener::Cache qw(:all);
+use ProductOpener::Lang qw(:all);
+use ProductOpener::Images qw(:all);
+use ProductOpener::Food qw(:all);
+use ProductOpener::Ingredients qw(:all);
+use ProductOpener::Products qw(:all);
+use ProductOpener::Missions qw(:all);
+use ProductOpener::MissionsConfig qw(:all);
+use ProductOpener::URL qw(:all);
+use ProductOpener::Data qw(:all);
 
 use Cache::Memcached::Fast;
 use Text::Unaccent;
 use Encode;
 use URI::Escape::XS;
-use CGI qw/:cgi :form escapeHTML/;
+use CGI qw(:cgi :form escapeHTML);
 use HTML::Entities;
 use DateTime;
 use DateTime::Locale;
@@ -139,6 +139,18 @@ use Log::Any '$log', default_adapter => 'Stderr';
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
+
+use URI::Find;
+
+my $uri_finder = URI::Find->new(sub {
+      my($uri, $orig_uri) = @_;
+	  if ($uri =~ /\http/) {
+		return qq|<a href="$uri">$orig_uri</a>|;
+	  }
+	  else {
+		return $orig_uri;
+	  }
+});
 
 # Record the modification date of files like CSS files so that Display.pm can add ?v=[modification date]
 # to the request in order to make sure the browser will not served an old cached version
@@ -163,7 +175,6 @@ foreach my $file (sort keys %file_timestamps) {
 
 
 # Initialize exported variables
-
 $memd = new Cache::Memcached::Fast {
 	'servers' => $memd_servers,
 	'utf8' => 1,
@@ -373,13 +384,13 @@ sub init()
 
 	if (defined $User_id) {
 		$styles .= <<CSS
-.hide-when-logged-in { display:none}
+.hide-when-logged-in {display:none}
 CSS
 ;
 	}
 	else {
 		$styles .= <<CSS
-.show-when-logged-in { display:none}
+.show-when-logged-in {display:none}
 CSS
 ;
 	}
@@ -453,6 +464,7 @@ sub analyze_request($)
 
 	$log->debug("analyzing query_string, step 0 - unmodified", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 
+	# Examples:
 	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 	# https://world.openfoodfacts.org/?ref=producthunt
 
@@ -473,16 +485,23 @@ sub analyze_request($)
 	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
 	# (or ?json=1 if it's the first parameter)
 
-	# first check parameters in the query string
+	# first check and set parameters in the query string
 
 	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
-			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
+
+			# Remove them from string
+			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//; 
+
+			# Set the value in the request ref, ex: \?json=value
 			$request_ref->{$parameter} = $2;
+
+			# If the parameter is field decode "%2C" to ","
 			if ($parameter eq "fields") {
 				$request_ref->{$parameter} =~ s/\%2C/,/g;
 			}
+
 			$log->debug("parameter $parameter was set from query string: " . $request_ref->{$parameter}, { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}
@@ -492,14 +511,19 @@ sub analyze_request($)
 	foreach my $parameter ('json', 'jsonp', 'jqm','xml') {
 
 		if ($request_ref->{query_string} =~ /\.$parameter$/) {
+
+			# Remove from query string
 			$request_ref->{query_string} =~ s/\.$parameter$//;
+
 			$request_ref->{$parameter} = 1;
+
 			$log->debug("parameter was set from extension in URL path", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}
 
 	$log->debug("analyzing query_string, step 2 - fields, rev, json, jsonp, jqm, and xml removed", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 
+	# Remove initial slash (if present) and decode
 	$request_ref->{query_string} =~ s/^\///;
 	$request_ref->{query_string} = decode("utf8",URI::Escape::XS::decodeURIComponent($request_ref->{query_string}));
 
@@ -512,17 +536,17 @@ sub analyze_request($)
 
 	$request_ref->{query_string} =~ s/(\&|\?).*//;
 
-	$log->debug("analyzing query_string, step 3 - components UTF8 decoded", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
+	$log->debug("analyzing query_string, step 4 - removed all query parameters", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 
-
+	# Split query string by "/" to know where it points
 	my @components = split(/\//, $request_ref->{query_string});
 
-	# Root
+	# Root, ex: https://world.openfoodfacts.org/
 	if ($#components < 0) {
 		$request_ref->{text} = 'index';
 		$request_ref->{current_link} = '';
 	}
-	# Root + page number
+	# Root + page number, ex: https://world.openfoodfacts.org/2
 	elsif (($#components == 0) and ($components[$#components] =~ /^\d+$/)) {
 		$request_ref->{page} = pop @components;
 		$request_ref->{current_link} = '';
@@ -535,22 +559,24 @@ sub analyze_request($)
 		$request_ref->{text} = 'index-pro';
 	}
 
-	# api
+	# Api access
 	elsif ($components[0] eq 'api') {
 
-		$request_ref->{api} = $components[1]; # version
+		
+		# Set version, method and code
+		$request_ref->{api} = $components[1];
 		if ($request_ref->{api} =~ /v(.*)/) {
 			$request_ref->{api_version} = $1;
 		}
 		$request_ref->{api_method} = $components[2];
 		$request_ref->{code} = $components[3];
 
-		 # if return format is not xml or jqm or jsonp, default to json
-		 if ((not exists $request_ref->{xml}) and (not exists $request_ref->{jqm}) and (not exists $request_ref->{jsonp})) {
+		# If return format is not xml or jqm or jsonp, default to json
+		if ((not exists $request_ref->{xml}) and (not exists $request_ref->{jqm}) and (not exists $request_ref->{jsonp})) {
 			$request_ref->{json} = 1;
-		 }
+		}
 
-		$log->debug("request looks like an API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
+		$log->debug("got API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
 	}
 
 	# or a list
@@ -559,17 +585,20 @@ sub analyze_request($)
 		$request_ref->{list} = $components[0];
 		$request_ref->{canon_rel_url} = "/" . $components[0];
 	}
+
 	# Renamed text?
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
 		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
 		$log->info("renamed text, redirecting", { textid => $components[0], redirect => $request_ref->{redirect} }) if $log->is_info();
 		return 301;
 	}
+
 	# First check if the request is for a text
 	elsif ((defined $texts{$components[0]}) and ((defined $texts{$components[0]}{$lang}) or (defined $texts{$components[0]}{en}))and (not defined $components[1]))  {
 		$request_ref->{text} = $components[0];
 		$request_ref->{canon_rel_url} = "/" . $components[0];
 	}
+
 	# Product specified as en:product?
 	elsif (_component_is_singular_tag_in_specific_lc($components[0], 'products')) {
 		# check the product code looks like a number
@@ -580,10 +609,12 @@ sub analyze_request($)
 			display_error(lang("error_invalid_address"), 404);
 		}
 	}
+
 	# Product?
 	# try language from $lc, and English, so that /product/ always work
 	elsif (($components[0] eq $tag_type_singular{products}{$lc}) or ($components[0] eq $tag_type_singular{products}{en})) {
-		# check the product code looks like a number
+
+		# Check if the product code is a number, else show 404
 		if ($components[1] =~ /^\d/) {
 			$request_ref->{product} = 1;
 			$request_ref->{code} = $components[1];
@@ -765,7 +796,6 @@ sub analyze_request($)
 }
 
 
-
 sub remove_tags_and_quote($) {
 
 	my $s = shift;
@@ -832,19 +862,6 @@ sub remove_tags_except_links($) {
 }
 
 
-use URI::Find;
-
-my $uri_finder = URI::Find->new(sub {
-      my($uri, $orig_uri) = @_;
-	  if ($uri =~ /\http/) {
-		return qq|<a href="$uri">$orig_uri</a>|;
-	  }
-	  else {
-		return $orig_uri;
-	  }
-});
-
-
 sub display_form($) {
 
 	my $s = shift;
@@ -864,6 +881,7 @@ sub display_form($) {
 
 	return "<p>$s</p>";
 }
+
 
 sub _get_date($) {
 
@@ -890,7 +908,6 @@ sub _get_date($) {
 	}
 
 }
-
 
 sub display_date($) {
 
@@ -949,7 +966,6 @@ sub display_error($$)
 }
 
 # Specific index for producer on the platform for producers
-
 sub display_index_for_producer($) {
 
 	my $request_ref = shift;
@@ -1202,7 +1218,6 @@ sub display_text($)
 	display_new($request_ref);
 	exit();
 }
-
 
 
 sub display_mission($)
@@ -1466,11 +1481,6 @@ sub display_list_of_tags($$) {
 
 		$html .= "<div style=\"max-width:600px;\"><table id=\"tagstable\">\n<thead><tr><th>" . ucfirst($Lang{$tagtype . "_s"}{$lang}) . "</th><th>" . ucfirst($Lang{"products"}{$lang}) . "</th>" . $th_nutriments . "</tr></thead>\n<tbody>\n";
 
-#var availableTags = [
-#      "ActionScript",
-#      "Scala",
-#      "Scheme"
-#    ];
 
 		my $main_link = '';
 		my $nofollow = '';
@@ -1767,8 +1777,8 @@ sub display_list_of_tags($$) {
 		$html .= "</tbody></table></div>";
 
 		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
-
-			$html =~ s/<table(.*)<\/table>//is;
+			#TODO: HERE WE ARE DOING A LOT OF EXTRA WORK BY FIRST CREATING THE TABLE AND THEN DESTROYING IT
+			$html =~ s/<table(.*)<\/table>//is; 
 
 			if ($stats{all_tags} > 0) {
 
