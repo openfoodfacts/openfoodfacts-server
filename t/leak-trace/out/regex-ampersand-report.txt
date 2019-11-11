@@ -1,0 +1,123 @@
+pwd:/Users/nico/projects/openfoodfacts-server/lib/ProductOpener
+
+grep '$&' *
+Display.pm:			my $match = $&;
+
+grep '$`' *
+Display.pm:		$request_ref->{query_string} = $`;
+Display.pm:		$html = $` . $';
+Display.pm:		$html = $` . $';
+Display.pm:			$new_text .= $`;
+Display.pm:		$html = $` . $';
+Display.pm:		$html = $` . $';
+Display.pm:		$nid = $`;
+Export.pm:							$field = $`;
+Export.pm:					my $nid = $`;
+Food.pm:			$nutriment = $`;
+Food.pm:				$short_l = $`,  # pt_pt
+Food.pm:				my $tagtype = $`;
+Images.pm:			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
+Images.pm:			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
+ImportConvert.pm:			$product_ref->{$field} = $`;
+Ingredients.pm:			$before = $`;
+Ingredients.pm:						and (exists_taxonomy_tag("countries", canonicalize_taxonomy_tag($product_lc, "countries", $`)))) {
+Ingredients.pm:					if (($between =~ $separators) and ($` !~ /\s*(origin|origine)\s*/i)) {
+Ingredients.pm:			my $ingredient1 = $`;
+Ingredients.pm:				# print STDERR "percent found: $before = $` + $1\%\n";
+Ingredients.pm:				$ingredient = $`;
+Ingredients.pm:				$ingredient = $`;
+Ingredients.pm:						$ingredient = $` . ' ' . $';
+Ingredients.pm:							$new_ingredient = $` . $';
+Ingredients.pm:		$after2 = $`;
+Ingredients.pm:				my $ingredientid1 = $`;
+Ingredients.pm:							$ingredient_id_copy = $`;
+Ingredients.pm:		$allergen = $`;
+Ingredients.pm:			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
+Ingredients.pm:				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß' ]+))\b/replace_allergen_in_caps($language,$product_ref,$1,$`)/esg;
+Ingredients.pm:				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß'\- ]+))\b/replace_allergen_in_caps($language,$product_ref,$1,$`)/esg;
+Ingredients.pm:			$text =~ s/(^| - |_|\(|\[|\)|\]|,|$the|$and|$of|;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,|$and|;|\.|\b($traces_regexp)\b|$))/replace_allergen_between_separators($language,$product_ref,$1, $2, "",$`)/iesg;
+Lang.pm:		$short_l = $`,  # pt_pt
+Lang.pm:			$short_l = $`;  # pt_pt
+Lang.pm:					$short_l = $`,  # pt_pt
+Producers.pm:				$field = $`;
+Producers.pm:					my $field_name = $`;
+Producers.pm:					my $field_name = $`;
+Products.pm:		return $` . "/" . split_code($');
+Products.pm:				my $app = $`;
+Products.pm:		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
+Products.pm:								$default_field = $`;
+Tags.pm:					push @other_forms, "$`$1-$'", "$`-$'", "$`$1-a-la-$'", "$`-a-la-$'", "$`$1-au-$'", "$`-au-$'", "$`$1-aux-$'", "$`-aux-$'";
+Tags.pm:					push @all_other_forms, $`;
+Tags.pm:			$tag_lc = $`;
+
+grep "$'" *
+Display.pm:		$component = $';
+Display.pm:					$request_ref->{tag} = $';
+Display.pm:						$request_ref->{tag2} = $';
+Display.pm:		$html = $` . $';
+Display.pm:		$html = $` . $';
+Display.pm:			$text = $';
+Display.pm:		$html = $` . $';
+Display.pm:		$html = $` . $';
+Display.pm:				$field = $';
+Display.pm:				$field = $';
+Display.pm:		$textid = $';
+Display.pm:				$html_upc .= " " . $' . " (UPC / UPC-A)";
+Food.pm:				$sublabel = $';
+Food.pm:				my $tagid = $';
+Import.pm:						my $tag_name = $';
+Import.pm:						$product_ref->{$field} = $';
+Import.pm:			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
+Import.pm:					$product_ref->{$field} = $';
+ImportConvert.pm:		$field = $';
+ImportConvert.pm:						my $after = $';
+ImportConvert.pm:						my $dir = $';
+Ingredients.pm:			$after = $';
+Ingredients.pm:				$ending .= '|$';
+Ingredients.pm:					$after = $';
+Ingredients.pm:				# print STDERR "percent found: $after = $1 + $'\%\n";
+Ingredients.pm:				$after = $';
+Ingredients.pm:			my $ingredient2 = $';
+Ingredients.pm:				# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
+Ingredients.pm:				$ingredient = $';
+Ingredients.pm:				my $origin_string = $';
+Ingredients.pm:						$ingredient = $` . ' ' . $';
+Ingredients.pm:							$new_ingredient = $` . $';
+Ingredients.pm:				my $from_what = $';
+Ingredients.pm:		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
+Ingredients.pm:				my $after = $';
+Ingredients.pm:				my $ingredientid2 = $';
+Ingredients.pm:							$ingredient_id_copy = $';
+Ingredients.pm:		$end_separator = $1 . $' . $end_separator;
+Products.pm:			$code = $';
+Products.pm:			$code = $';
+Products.pm:			$code = $';
+Products.pm:		return $` . "/" . split_code($');
+Products.pm:		$uuid = $';
+Products.pm:				$current_product_ref->{$field} = $';
+Products.pm:									my $channel = $';
+Tags.pm:				$line = $';
+Tags.pm:				$line = $';
+Tags.pm:					push @other_forms, "$`$1-$'", "$`-$'", "$`$1-a-la-$'", "$`-a-la-$'", "$`$1-au-$'", "$`-au-$'", "$`$1-aux-$'", "$`-aux-$'";
+Tags.pm:				$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$'\n";
+Tags.pm:				$line = $';
+Tags.pm:				$line = $';
+Tags.pm:				my $parent = $';
+Tags.pm:				$line = $';
+Tags.pm:				$line = $';
+Tags.pm:				$line = $';
+Tags.pm:				$line = $';
+Tags.pm:				$line = $';
+Tags.pm:			$tag = $';
+Tags.pm:			$tag = $';
+Tags.pm:		$tag = $';
+Tags.pm:		$tag = $';
+Tags.pm:		$display_tag = $';
+Tags.pm:				$en_imgid = $';
+Tags.pm:		return lc($1) . ':' . get_string_id_for_lang(lc($1), $');
+Tags.pm:		return lc($1) . ':' . get_url_id_for_lang(lc($1),$');
+Tags.pm:		$tag = $';
+Tags.pm:		$tag = $';
+Tags.pm:		$tag = $';
+Tags.pm:			$tagid = $';
+Tags.pm:		$product_ref->{$field} = $';
