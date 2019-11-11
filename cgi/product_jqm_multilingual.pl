@@ -373,7 +373,7 @@ else {
 
 			my $modifier = undef;
 
-			normalize_nutriment_value_and_modifier(\$value, \$modifier);
+			(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
 
 			# New label?
 			my $new_nid = undef;

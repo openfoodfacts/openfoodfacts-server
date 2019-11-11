@@ -121,6 +121,8 @@ sub normalize_nutriment_value_and_modifier($$) {
 	my $value_ref = shift;
 	my $modifier_ref = shift;
 
+	return if not defined $$value_ref;
+
 	if ($$value_ref =~ /nan/i) {
 		$$value_ref = '';
 	}
@@ -1177,6 +1179,7 @@ sub mmoll_to_unit {
 		el => "Υδατάνθρακες",
 		en => "Carbohydrate",
 		es => "Hidratos de carbono",
+		es_synonyms => ["Glúcidos"],
 		et => "Süsivesikud",
 		fa => "کربوهیدرات ها",
 		fi => "Hiilihydraatti",
@@ -1452,6 +1455,7 @@ sub mmoll_to_unit {
 		en => "Fat",
 		en_synonyms => ["Total fat", "Lipids"],
 		es => "Grasas",
+		es_synonyms => ["Materias grasas"],
 		et => "Rasvad",
 		fi => "Rasva",
 		fr => "Matières grasses / Lipides",
