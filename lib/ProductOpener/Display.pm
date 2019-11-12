@@ -113,6 +113,7 @@ use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
+use ProductOpener::Text qw(:all);
 
 use Cache::Memcached::Fast;
 use Text::Unaccent;
@@ -3824,8 +3825,7 @@ sub search_and_display_products($$$$$) {
 	my $html = '';
 	my $html_count = '';
 
-	my $cldr = CLDR::Number->new(locale => $lc);
-	my $decf = $cldr->decimal_formatter;
+	my $decf = get_decimal_formatter($lc);
 
 	if (not defined $request_ref->{jqm_loadmore}) {
 		if ($count < 0) {
@@ -8816,9 +8816,8 @@ HTML
 
 		my $values2 = '';
 
-		my $cldr = CLDR::Number->new(locale => $lc);
-		my $decf = $cldr->decimal_formatter;
-		my $perf = $cldr->percent_formatter( maximum_fraction_digits => 0 );
+		my $decf = get_decimal_formatter($lc);
+		my $perf = get_percent_formatter($lc, 0);
 		foreach my $col (@cols) {
 
 			my $col_class = '';
