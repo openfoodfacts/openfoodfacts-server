@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-09 09:42\n"
+"PO-Revision-Date: 2019-11-12 16:29\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -196,7 +196,7 @@ msgstr "Je kan ook helpen met het financieren van het Open Food Facts project"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Doneer aan Open Food Facts\" /></a><p><<site_name>> wordt gemaakt door een non-profit associatie, onafhankelijk van de industrie. Het is gemaakt voor iedereen, en wordt gefinancierd door iedereen. Je kan ons werk ondersteunen door <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"> te doneren aan Open Food Facts</a> en ook door <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">de Lilo zoekmachine te gebruiken</a>.<br/><b>Bedankt!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -424,7 +424,7 @@ msgstr "Doneer aan Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -683,7 +683,7 @@ msgstr "/gedragscode"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Gegevens, API en SDK's"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -1400,7 +1400,7 @@ msgstr "Verplaats de foto's naar een ander product"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s producten"
 
 msgctxt "name"
 msgid "Name"
@@ -3569,15 +3569,15 @@ msgstr "kwaliteit van de gegevens"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "gegevenskwaliteitsfouten"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "gegevenskwaliteitsfout"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "gegevenskwaliteitsfouten"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -3597,7 +3597,7 @@ msgstr "waarschuwingen voor gegevenskwaliteit"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "gegevenskwaliteitswaarschuwing"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
@@ -3609,7 +3609,7 @@ msgstr "fouten in gegevenskwaliteit"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "gegevenskwaliteitsfout"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
@@ -3621,7 +3621,7 @@ msgstr "waarschuwingen voor gegevenskwaliteit"
 
 msgctxt "data_quality_warnings_producers_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "gegevenskwaliteitswaarschuwing"
 
 msgctxt "data_quality_warnings_producers"
 msgid "data quality warnings"
@@ -3633,7 +3633,7 @@ msgstr "fouten in gegevenskwaliteit"
 
 msgctxt "data_quality_errors_producers_s"
 msgid "data quality error"
-msgstr ""
+msgstr "gegevenskwaliteitsfout"
 
 msgctxt "data_quality_errors_producers"
 msgid "data quality errors"
@@ -3642,136 +3642,136 @@ msgstr "fouten in gegevenskwaliteit"
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
-msgstr ""
+msgstr "mogelijke verbeteringen"
 
 msgctxt "improvements_s"
 msgid "possible improvement"
-msgstr ""
+msgstr "mogelijke verbetering"
 
 msgctxt "improvements"
 msgid "possible improvements"
-msgstr ""
+msgstr "mogelijke verbeteringen"
 
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/importeer-producten"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "Producten toevoegen of bewerken"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "Jouw producten"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "Je account is nog niet aan een bedrijf gekoppeld. Stuur een e-mail naar <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> om de gratis toegang tot het producentenplatform te activeren."
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "Importeer producten"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "Lege kolom"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "Het bestand bevat geen waarde in deze kolom."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "Bezig met importeren"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "De productgegevens zijn ontvangen en zullen worden geïmporteerd op het producentenplatform."
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Gepland"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "Bezig..."
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Voltooid"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Mislukt"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "Importeer resultaat"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "Producten toegevoegd"
 
 msgctxt "products_modified"
 msgid "Products modified"
-msgstr ""
+msgstr "Producten aangepast"
 
 msgctxt "import_file_result_no_change"
 msgid "There were no product added or modified. The data has probably been already imported previously."
-msgstr ""
+msgstr "Er zijn geen producten toegevoegd of gewijzigd. De gegevens zijn waarschijnlijk al eerder geïmporteerd."
 
 msgctxt "import_file_result_products"
 msgid "List of products added or modified"
-msgstr ""
+msgstr "Lijst met toegevoegde of gewijzigde producten"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "importeren"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "importeer"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "importeren"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
-msgstr ""
+msgstr "Aantal producten met data kwaliteit waarschuwingen"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
-msgstr ""
+msgstr "Aantal producten met data kwaliteit waarschuwingen"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
-msgstr ""
+msgstr "Aantal producten met verbetermogelijkheden"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "Deze tabel geeft een overzicht van de mogelijkheden om de voedingskwaliteit, de Nutri-Score en de samenstelling van voedingsproducten te verbeteren."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "Om relevante resultaten te krijgen, moet je ervoor zorgen dat de productgegevens volledig zijn (voedingswaarden voor vezels en fruit/groenten om de Nutri-Score te berekenen, en een precieze categorie om elk product met vergelijkbare producten te vergelijken)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3780,47 +3780,47 @@ msgstr "Productfoto's importeren"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Je kan het onderstaande formulier gebruiken om makkelijk foto's te uploaden (productvoorkant, ingrediëntenlijst en voedingswaardentabel) voor veel producten."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Elke bestandsnaam moet de barcode van het product bevatten."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "En je kan ook het fototype in de bestandsnaam invullen:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: voorkant van het product in de huidige taal."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: voorkant van het product in het Nederlands."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: ingrediëntenlijst in het Frans."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: voedingstabel in het Spaans."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Foto's toevoegen..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Start Upload"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Begin"
 
 msgctxt "close"
 msgid "Close"
@@ -3828,13 +3828,27 @@ msgstr "Close"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Uploaden afbreken"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgctxt "file_received"
 msgid "File received"
+msgstr "Bestand ontvangen"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
 msgstr ""
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr ""
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "Hartelijk dank!"
 
