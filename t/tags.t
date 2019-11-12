@@ -411,4 +411,15 @@ is_deeply($product_ref->{stores_tags}, ["intermarche"]);
 compute_field_tags($product_ref, "de", "stores");
 is_deeply($product_ref->{stores_tags}, ["intermarche"]);
 
+is(canonicalize_taxonomy_tag("en", "test", "kefir 2.5%"), "en:kefir-2-5");
+is(canonicalize_taxonomy_tag("en", "test", "kefir 2,5%"), "en:kefir-2-5");
+is(canonicalize_taxonomy_tag("fr", "test", "kefir 2,5%"), "en:kefir-2-5");
+is(canonicalize_taxonomy_tag("fr", "test", "kéfir 2.5%"), "en:kefir-2-5");
+
+# Following should be 2.5% instead of 2.5 % for English
+is(display_taxonomy_tag("en", "test", "en:kefir-2-5"), "Kefir 2.5 %");
+is(display_taxonomy_tag("de", "test", "en:kefir-2-5"), "Kefir 2.5 %");
+# Following string has a lower comma ‚ instead of a normal comma
+is(display_taxonomy_tag("fr", "test", "en:kefir-2-5"), "Kéfir 2‚5 %");
+
 done_testing();
