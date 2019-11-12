@@ -208,7 +208,6 @@ my @baby_food_brands = qw(
 	Gudang-Garam
 	HB
 	Hits-Mild
-	Hollywood
 	Hongtashan
 	Hope
 	India-Kings 

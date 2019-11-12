@@ -133,6 +133,7 @@ use CLDR::Number::Format::Decimal;
 use CLDR::Number::Format::Percent;
 use Storable qw(freeze);
 use Digest::MD5 qw(md5_hex);
+use boolean;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -403,6 +404,24 @@ CSS
 		$owner = undef;
 	}
 
+	# Change the color of the top nav bar for the platform for producers
+	if ($server_options{producers_platform}) {
+		$styles .= <<CSS
+.top-bar {
+    background: #a9e7ff;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+    background: #a9e7ff;
+}
+
+.top-bar-section .has-form {
+    background: #a9e7ff;
+}
+CSS
+;
+	}
+
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner => $owner, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
 }
 
@@ -508,6 +527,12 @@ sub analyze_request($)
 		$request_ref->{page} = pop @components;
 		$request_ref->{current_link} = '';
 		$request_ref->{text} = 'index';
+	}
+
+	# Index page on producers platform
+	if ((defined $request_ref->{text}) and ($request_ref->{text} eq "index")
+		and (defined $server_options{private_products}) and ($server_options{private_products})) {
+		$request_ref->{text} = 'index-pro';
 	}
 
 	# api
@@ -923,6 +948,32 @@ sub display_error($$)
 	exit();
 }
 
+# Specific index for producer on the platform for producers
+
+sub display_index_for_producer($) {
+
+	my $request_ref = shift;
+
+	my $html = "";
+
+	# Check if there are data quality issues or improvement opportunities
+
+	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
+
+		my $count = count_products($request_ref, { $tagtype . "_tags" => { '$exists' => true, '$ne' => [] }});
+
+		if ($count > 0) {
+			$html .= "<p>&rarr; <a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">"
+			. lang("number_of_products_with_" . $tagtype) . lang("sep") . ": " . $count . "</a></p>";
+		}
+	}
+
+	$html .= "<h2>" . lang("your_products") . lang("sep") . ":" . "</h2>";
+	$html .= '<p>&rarr; <a href="' . lang("import_products_link") . '">' . lang("add_or_update_products") . '</a></p>';
+
+	return $html;
+}
+
 
 sub display_text($)
 {
@@ -961,6 +1012,12 @@ sub display_text($)
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
+	# Add org name to index title on producers platform
+
+	if (($textid eq 'index-pro') and (defined $Org_id)) {
+		$html =~ s/<\/h1>/ - $Org{org}<\/h1>/;
+	}
+
 	$log->info("displaying text from file", { cc => $cc, lc => $lc, lang => $lang, textid => $textid, textlang => $text_lang, file => $file }) if $log->is_info();
 
 	# if page number is higher than 1, then keep only the h1 header
@@ -996,13 +1053,16 @@ sub display_text($)
 
 	};
 
-
-	if ($file !~ /index.foundation/) {
-		$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
-	}
-	else {
+	if ($file =~ /\/index.foundation/) {
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
+	elsif (($file =~ /\/index-pro/) and (defined $Org_id)) {
+
+		$html .= display_index_for_producer($request_ref);
+		$html .= search_and_display_products( $request_ref, {}, "last_modified_t", undef, undef);
+	}
+
+	$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 
 	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
 
@@ -1174,10 +1234,7 @@ sub query_list_of_tags($$) {
 	my $request_ref = shift;
 	my $query_ref = shift;
 
-	# Restrict the products to the owner on databases with private products
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		$query_ref->{owners_tags} = $owner;
-	}
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 
@@ -1185,14 +1242,6 @@ sub query_list_of_tags($$) {
 	if ((defined $groupby_tagtype) and ($groupby_tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/)) {
 
 		$header .= '<meta name="robots" content="noindex">' . "\n";
-
-	}
-
-	if (defined $country) {
-		if ($country ne 'en:world') {
-			$query_ref->{countries_tags} = $country;
-		}
-		delete $query_ref->{lc};
 	}
 
 	# support for returning json / xml results
@@ -1201,41 +1250,12 @@ sub query_list_of_tags($$) {
 		tags => [],
 	};
 
-
 	#if ($admin)
 	{
 		$log->debug("MongoDB query built", { query => $query_ref }) if $log->is_debug();
 	}
 
 	my $staticdom = format_subdomain('static');
-
-
-#  db.products.aggregate( {$match : {"categories_tags" : "en:fruit-yogurts"}},
-#		{ $unwind : "$countries_tags"}, { $group : { _id : "$countries_tags", "total" : {"$sum" : 1}}}, {$sort : { total : -1 }} );
-# {
-#  "result" : [
-#   {
-#    "_id" : "en:france",
-#    "total" : 39
-#   },
-#   {
-#    "_id" : "en:switzerland",
-#    "total" : 2
-#   },
-#   {
-#    "_id" : "en:reunion",
-#    "total" : 1
-#   },
-#   {
-#    "_id" : "fr:europe",
-#    "total" : 1
-#   }
-#  ],
-#  "ok" : 1
-# }
-
-#     my $result = $collection->aggregate([{"\$match" => {"b" => {"\$gte" => $number, "\$lt" => $number+1000}}}, {"\$group" => {"_id" => 0, "average" => {"\$avg" => "\$b"}, "count" => {"\$sum" => 1}}}]);
-
 
 	# groupby_tagtype
 
@@ -1305,7 +1325,6 @@ sub query_list_of_tags($$) {
 					return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
 				});
 			};
-
 		}
 		else {
 
@@ -1341,7 +1360,6 @@ sub query_list_of_tags($$) {
 
 				$memd->set($key, $results, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
 			}
-
 		}
 		else {
 			$log->debug("No results for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
@@ -1354,7 +1372,6 @@ sub query_list_of_tags($$) {
 
 	return $results;
 }
-
 
 
 sub display_list_of_tags($$) {
@@ -1393,8 +1410,6 @@ sub display_list_of_tags($$) {
 			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 
-
-
 			if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
 				$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
 				$request_ref->{current_link_query_download} .= "&download=on";
@@ -1415,7 +1430,11 @@ sub display_list_of_tags($$) {
 			close $IN;
 		}
 
-		$html .= "<p>" . "<nb_tags>" . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
+		foreach (my $line = 1; (defined $Lang{$tagtype . "_facet_description_" . $line}) ; $line++) {
+			$html .= "<p>" . $Lang{$tagtype . "_facet_description_" . $line}{$lc} . "</p>";
+		}
+
+		$html .= "<p>" . "<nb_tags>" . " ". $Lang{$tagtype . "_p"}{$lang} . lang("sep") . ":</p>";
 
 		my $th_nutriments = '';
 
@@ -1596,8 +1615,6 @@ sub display_list_of_tags($$) {
 			# do not compute the tag display if we just need stats
 			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
 
-
-
 			my $info = '';
 			my $css_class = '';
 
@@ -1749,7 +1766,6 @@ sub display_list_of_tags($$) {
 
 		$html .= "</tbody></table></div>";
 
-
 		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
 
 			$html =~ s/<table(.*)<\/table>//is;
@@ -1781,7 +1797,6 @@ HTML
 		}
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
-
 
 		# nutrition grades colors histogram
 
@@ -1879,7 +1894,6 @@ HTML
 
 		}
 
-
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
 			$initjs .= 'var countries_map_data=' . encode_json($countries_map_data) . ';'
@@ -1930,7 +1944,6 @@ HTML
 			$html = $map_html . $html;
 
 		}
-
 
 		#if ($tagtype eq 'categories') {
 		#	$html .= "<p>La colonne * indique que la catégorie ne fait pas partie de la hiérarchie de la catégorie. S'il y a une *, la catégorie n'est pas dans la hiérarchie.</p>";
@@ -1983,10 +1996,6 @@ HEADER
 }
 
 
-
-
-
-
 sub display_list_of_tags_translate($$) {
 
 
@@ -2018,8 +2027,6 @@ sub display_list_of_tags_translate($$) {
 			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
 			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
-
-
 
 			if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
 				$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
@@ -2109,7 +2116,6 @@ sub display_list_of_tags_translate($$) {
 			if ($products == 0) {
 				$products = "";
 			}
-
 
 			my $info = '';
 			my $css_class = '';
@@ -2203,8 +2209,6 @@ HTML
 
 		$html =~ s/<COUNTS>/$counts/;
 
-
-
 		$html .= <<HTML
 <input type="hidden" id="tagtype" name="tagtype" value="$tagtype" />
 HTML
@@ -2280,7 +2284,6 @@ SCRIPTS
 HEADER
 ;
 
-
 	}
 
 	# datatables clears both
@@ -2288,14 +2291,8 @@ HEADER
 
 	$log->debug("end", {}) if $log->is_debug();
 
-
 	return $html;
 }
-
-
-
-
-
 
 
 sub display_points_ranking($$) {
@@ -2898,15 +2895,12 @@ HTML
 				next;
 			}
 
-
 			my $fieldid = get_string_id_for_lang($lc,$field);
 			$fieldid =~ s/-/_/g;
 
 			my %propertyid = ();
 
-
 			# Check if we have properties in the interface language, otherwise use English
-
 
 			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}) ) {
 
@@ -3344,8 +3338,6 @@ HTML
 		$initjs .= $js;
 	}
 
-
-
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
 
 		my $user_ref = retrieve("$data_root/users/$tagid.sto");
@@ -3467,8 +3459,6 @@ HTML
 			$html .= $weblinks_html . display_parents_and_children($lc, $tagtype, $canon_tagid) . $description;
 		}
 
-
-
 		$html .= "<h2>" . $products_title . "</h2>\n";
 	}
 
@@ -3563,8 +3553,6 @@ HTML
 
 	}
 
-
-
 	if (defined $request_ref->{groupby_tagtype}) {
 		if (defined $request_ref->{translate}) {
 			${$request_ref->{content_ref}} .= $html . display_list_of_tags_translate($request_ref, $query_ref);
@@ -3596,17 +3584,14 @@ HTML
 }
 
 
-
-
-sub search_and_display_products($$$$$) {
+sub add_country_and_owner_filters_to_query($$) {
 
 	my $request_ref = shift;
 	my $query_ref = shift;
-	my $sort_by = shift;
-	my $limit = shift;
-	my $page = shift;
 
-	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
+	delete $query_ref->{lc};
+
+	# Country filter
 
 	if (defined $country) {
 		if ($country ne 'en:world') {
@@ -3633,9 +3618,49 @@ sub search_and_display_products($$$$$) {
 		}
 
 	}
+
+	# Owner filter
+
+	# Restrict the products to the owner on databases with private products
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		$query_ref->{owners_tags} = $owner;
+	}
+
+	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
+}
+
+
+sub count_products($$) {
+
+	my $request_ref = shift;
+	my $query_ref = shift;
+
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+
+	my $count;
+
+	eval {
+	$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
+		$count = execute_query(sub {
+			return get_products_collection()->count_documents($query_ref);
+		});
+	};
+
+	return $count;
+}
+
+
+sub search_and_display_products($$$$$) {
+
+	my $request_ref = shift;
+	my $query_ref = shift;
+	my $sort_by = shift;
+	my $limit = shift;
+	my $page = shift;
+
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
-	delete $query_ref->{lc};
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
 	}
@@ -3658,11 +3683,6 @@ sub search_and_display_products($$$$$) {
 		$page = 1;
 	}
 
-	# Restrict the products to the owner on databases with private products
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		$query_ref->{owners_tags} = $owner;
-	}
-
 	# support for returning structured results in json / xml etc.
 
 	my $sort_ref = Tie::IxHash->new();
@@ -3672,7 +3692,6 @@ sub search_and_display_products($$$$$) {
 	elsif (defined $request_ref->{sort_by}) {
 		$sort_by = $request_ref->{sort_by};
 	}
-
 
 	if (defined $sort_by) {
 		my $order = 1;
@@ -3694,7 +3713,6 @@ sub search_and_display_products($$$$$) {
 			$sort_ref->Push($sort_by => $order);
 		}
 	}
-
 
 	my $count;
 
@@ -4125,18 +4143,7 @@ sub search_and_export_products($$$$$) {
 	my $flatten = shift;
 	my $flatten_ref = shift;
 
-	if (defined $country) {
-		if ($country ne 'en:world') {
-			$query_ref->{countries_tags} = $country;
-		}
-	}
-
-	delete $query_ref->{lc};
-
-	# Restrict the products to the owner on databases with private products
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		$query_ref->{owners_tags} = $owner;
-	}
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	my $sort_ref = Tie::IxHash->new();
 
@@ -5205,18 +5212,7 @@ sub search_and_graph_products($$$) {
 	my $query_ref = shift;
 	my $graph_ref = shift;
 
-	if (defined $country) {
-		if ($country ne 'en:world') {
-			$query_ref->{countries_tags} = $country;
-		}
-	}
-
-	delete $query_ref->{lc};
-
-	# Restrict the products to the owner on databases with private products
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		$query_ref->{owners_tags} = $owner;
-	}
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	my $cursor;
 
@@ -5352,19 +5348,7 @@ sub search_and_map_products($$$) {
 	my $query_ref = shift;
 	my $graph_ref = shift;
 
-	if (defined $country) {
-		if ($country ne 'en:world') {
-			$query_ref->{countries_tags} = $country;
-		}
-
-	}
-
-	delete $query_ref->{lc};
-
-	# Restrict the products to the owner on databases with private products
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		$query_ref->{owners_tags} = $owner;
-	}
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	my $cursor;
 
@@ -5653,24 +5637,31 @@ sub display_my_block($)
 
 	if (defined $User_id) {
 
-		my $links = '<ul class="side-nav" style="padding-top:0">';
-		$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
-		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
-		$links .= "</ul>";
+		my $links = "";
 
 		my $content = '';
 
 
-		if (defined $Facebook_id) {
-			$content = lang("connected_with_facebook") . <<HTML
-<fb:login-button autologoutlink="true" perms="email"></fb:login-button>
-$links
-HTML
-;
+		my $signout = lang("signout");
+		$content = sprintf(lang("you_are_connected_as_x"), $User_id);
+
+		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+
+			if (defined $Org_id) {
+				$content .= "<br>" . lang("organization") . lang("sep") . ": " . $Org{org};
+			}
+			else {
+				$content .= "<p>" . lang("account_without_org") . "</p>";
+			}
 		}
 		else {
-			my $signout = lang("signout");
-			$content = sprintf(lang("you_are_connected_as_x"), $User_id) . <<HTML
+			$links = '<ul class="side-nav" style="padding-top:0">';
+			$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
+			$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
+			$links .= "</ul>";
+		}
+
+		$content .= <<HTML
 <ul class="button-group">
 <li>
 	<form method="post" action="/cgi/session.pl">
@@ -5685,7 +5676,6 @@ HTML
 $links
 HTML
 ;
-		}
 
 		push @$blocks_ref, {
 			'title'=> lang("hello") . ' ' . $User{name},
@@ -5823,7 +5813,11 @@ sub display_new($) {
 	display_on_the_blog($blocks_ref);
 
 	#display_top_block($blocks_ref);
-	display_bottom_block($blocks_ref);
+
+	# Bottom block is used for donations, do not display it on the producers platform
+	if (not $server_options{producers_platform}) {
+		display_bottom_block($blocks_ref);
+	}
 
 	my $site = "<a href=\"/\">" . lang("site_name") . "</a>";
 
@@ -5947,6 +5941,11 @@ HTML
 
 	$html .= lang("css");
 
+	my $site_name = $Lang{site_name}{$lang};
+	if ($server_options{producers_platform}) {
+		$site_name = $Lang{producers_platform}{$lc};
+	}
+
 	$html .= <<HTML
 $styles
 </style>
@@ -5956,7 +5955,7 @@ $google_analytics
 <nav class="top-bar" data-topbar id="top-bar">
 	<ul class="title-area">
 		<li class="name">
-			<h2><a href="/" style="font-size:1rem;">$Lang{site_name}{$lang}</a></h2>
+			<h2><a href="/" style="font-size:1rem;">$site_name</a></h2>
 		</li>
 		<li class="toggle-topbar menu-icon">
 			<a href="#"><span>Menu</span></a>
@@ -6140,20 +6139,10 @@ HTML
 
 	if ($server_options{producers_platform}) {
 
-		$tagline = <<HTML
-<h2>$Lang{producers_platform}{$lc}</h2>
-<p>$Lang{producers_platform_description}{$lc}</p>
-<p>
-&rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
-&rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
-&rarr; <a href="/cgi/export_products.pl">$Lang{export_product_data_photos}{$lc}</a><br>
-</p>
-HTML
-;
+		$tagline = "";
+	}
 
-		}
-
-	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"})) {
+	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"}) and (not $server_options{producers_platform})) {
 
 		my $link = lang($system . "_app_link");
 		my $link_text = lang("get_the_app_$mobile");
@@ -6173,6 +6162,19 @@ HTML
 
 HTML
 ;
+	}
+
+	my $public_site_menu_options = <<HTML
+			<li class="show-for-large-up divider"></li>
+			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
+			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-phone_android"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-phone_android"></i> $Lang{get_the_app}{$lc}</a></li>
+HTML
+;
+
+	if ($server_options{producers_platform}) {
+		$public_site_menu_options = "";
 	}
 
 	$html .= <<HTML
@@ -6195,11 +6197,7 @@ HTML
 			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="icon-add"></i> $Lang{advanced_search}{$lang}</span></a></li>
 			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="icon-bar_chart"></i></a></li>
 			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="icon-bar_chart"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
-			<li class="show-for-large-up divider"></li>
-			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
-			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-phone_android"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-phone_android"></i> $Lang{get_the_app}{$lc}</a></li>
+			$public_site_menu_options
 		</ul>
 	</section>
 </nav>
@@ -6500,9 +6498,31 @@ sub display_product_search_or_add($)
 
 	my $html = '';
 
-	$html .= start_multipart_form(-action=>"/cgi/product.pl") ;
+	# Producers platform: display an addition import products block
 
-	$html .= display_search_image_form("block_side");
+	if ($server_options{producers_platform}) {
+
+		$html = <<HTML
+&rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
+&rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
+&rarr; <a href="/cgi/export_products.pl">$Lang{export_product_data_photos}{$lc}</a><br>
+</p>
+HTML
+;
+		push @$blocks_ref, {
+			'title'=>lang("import_products"),
+			'content'=>$html,
+		};
+
+	}
+
+	$html = start_multipart_form(-action=>"/cgi/product.pl") ;
+
+	if (not $server_options{producers_platform}) {
+		# Do not display image upload button on producers platform
+		# causes issues with the import_photos_upload.pl
+		$html .= display_search_image_form("block_side");
+	}
 
 	$html .= <<HTML
 
@@ -6520,16 +6540,11 @@ sub display_product_search_or_add($)
 HTML
 ;
 
-
-
-
-	unshift @$blocks_ref, {
+	push @$blocks_ref, {
 			'title'=>$title,
 			'content'=>$html,
 	};
-
 }
-
 
 
 sub display_image_box($$$) {
@@ -9581,16 +9596,7 @@ sub display_recent_changes {
 
 	my ($request_ref, $query_ref, $limit, $page) = @_;
 
-	if ((defined $country) and ($country ne 'en:world')) {
-		$query_ref->{countries_tags} = $country;
-	}
-
-	delete $query_ref->{lc};
-
-	# Restrict the products to the owner on databases with private products
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		$query_ref->{owners_tags} = $owner;
-	}
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
 	}

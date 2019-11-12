@@ -55,6 +55,8 @@ BEGIN
 		&print_stats
 
 		&match_taxonomy_tags
+		&match_specific_taxonomy_tags
+		&match_labels_in_product_name
 		&assign_countries_for_product
 		&assign_main_language_of_product
 
@@ -262,6 +264,7 @@ sub assign_countries_for_product($$$) {
 }
 
 
+# Match all tags that exist in a taxonomy. Needs the input field to be split, so there must be separators.
 
 sub match_taxonomy_tags($$$$) {
 
@@ -320,6 +323,80 @@ sub match_taxonomy_tags($$$$) {
 			}
 		}
 	}
+}
+
+
+# Match only specific tags (e.g. "organic" + "label rouge" in product name)
+
+sub match_specific_taxonomy_tags($$$$) {
+
+	my $product_ref = shift;
+	my $source = shift;
+	my $target = shift;
+	my $tags_ref = shift;
+
+	my $tag_lc = $product_ref->{lc};
+
+	$log->trace("match_specific_taxonomy_tags - start", { source => $source, target => $target, tag_lc => $tag_lc, tags_ref => $tags_ref}) if $log->is_trace();
+
+	if ((defined $product_ref->{$source}) and ($product_ref->{$source} ne "")) {
+
+		foreach my $tagid (@$tags_ref) {
+
+			$log->trace("match_specific_taxonomy_tags - looping through tags", { tagid => $tagid}) if $log->is_trace();
+
+			if (defined $translations_to{$target}{$tagid}{$tag_lc}) {
+
+				# the synonyms below also contain the main translation as the first entry
+
+				my $tag_lc_tagid = get_string_id_for_lang($tag_lc, $translations_to{$target}{$tagid}{$tag_lc});
+
+				my @synonyms = ();
+
+				foreach my $synonym (@{$synonyms_for{$target}{$tag_lc}{$tag_lc_tagid}}) {
+					push @synonyms, $synonym;
+				}
+
+				my $tag_regexp = "";
+				foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
+					# simple singulars and plurals
+					my $singular = $synonym;
+					$synonym =~ s/s$//;
+					$tag_regexp .= '|' . $synonym . '|' . $synonym . 's'  ;
+
+					my $unaccented_synonym = unac_string_perl($synonym);
+					if ($unaccented_synonym ne $synonym) {
+						$tag_regexp .= '|' . $unaccented_synonym . '|' . $unaccented_synonym . 's';
+					}
+
+				}
+				$tag_regexp =~ s/^\|//;
+
+				$log->trace("match_specific_taxonomy_tags - regexp", { tag_regexp => $tag_regexp}) if $log->is_trace();
+				$log->trace("match_specific_taxonomy_tags - source value", { source_value => $product_ref->{$source}}) if $log->is_trace();
+
+				if ($product_ref->{$source} =~ /\b${tag_regexp}\b/i) {
+					assign_value($product_ref, $target, $tagid);
+					$log->info("match_specific_taxonomy_tags: assigning value", { source => $source, value => $tagid, target => $target}) if $log->is_info();
+				}
+			}
+		}
+	}
+}
+
+sub match_labels_in_product_name($) {
+
+	my $product_ref = shift;
+	my $tag_lc = $product_ref->{lc};
+
+	my @tags = qw(en:organic en:fair-trade);
+
+	if ($tag_lc eq "fr") {
+		# current canonical name for Label Rouge is en:label-rouge which is weird and may change
+		push @tags, qw(en:label-rouge fr:label-rouge fr:bleu-blanc-coeur);
+	}
+
+	match_specific_taxonomy_tags($product_ref, "product_name_" . $tag_lc, "labels", \@tags);
 }
 
 
@@ -522,9 +599,13 @@ sub clean_fields($) {
 
 	my $product_ref = shift;
 
+	$log->debug("clean_fields - start", {  }) if $log->is_debug();
+
 	foreach my $field (@fields) {
 
 		if (defined $product_ref->{$field}) {
+
+			$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 			$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
 			$product_ref->{$field} =~ s/’/'/g;
@@ -556,11 +637,12 @@ sub clean_fields($) {
 
 
 			# Lowercase fields in ALL CAPS
-			if ($field =~ /^(ingredients_text|product_name|generic_name)/) {
+			if ($field =~ /^(ingredients_text|product_name|generic_name|brands)/) {
 				if (($product_ref->{$field} =~ /[A-Z]{4}/)
 					# and ($product_ref->{$field} !~ /[a-z]/)
 					) {
 					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
+					$log->debug("clean_fields - after lowercase", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 				}
 			}
 
@@ -647,7 +729,7 @@ sub clean_fields($) {
 			}
 
 			# remove N/A, NA etc.
-			$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|non)\s*(,|$)//ig;
+			$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|non|non renseigné|nr|n\/r|no)\s*(,|$)//ig;
 
 			if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
 				$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//ig;
@@ -656,18 +738,20 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/,(\s*),/,/g;
 			$product_ref->{$field} =~ s/\.(\.+)$/\./;
 			$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
-			$product_ref->{$field} =~ s/^(\s|-|;|,)+//;
+			$product_ref->{$field} =~ s/^(\s|-|;|,|\.|_)+//;
 			$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
 
 			# remove empty values for tag fields
 			if (exists $tags_fields{$field}) {
-				$product_ref->{$field} =~ s/^(,|;|-|_|\/|\\|#|:|\s)+$//;
+				$product_ref->{$field} =~ s/^(,|;|-|_|\/|\\|#|:|\.|\s)+$//;
 			}
 
 		}
 	}
 
 	clean_weights($product_ref);
+
+	match_labels_in_product_name($product_ref);
 }
 
 

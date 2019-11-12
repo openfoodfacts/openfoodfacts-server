@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-02 16:11\n"
+"PO-Revision-Date: 2019-11-11 00:00\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -196,7 +196,7 @@ msgstr "Sie können außerdem helfen, das Projekt Open Food Facts mitzufinanzier
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Für Open Food Facts spenden\" /></a><p><<site_name>> wird von einem gemeinnützigen, branchenunabhängigen Verband hergestellt. Sie ist für alle, von allen gemacht, und sie wird von allen finanziert. Sie können unsere Arbeit unterstützen, indem Sie <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">für Open Food Facts spenden</a> und auch dadurch das Sie die <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Suchmaschine „Lilo” nutzen</a>.<br/><b>Vielen Dank!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -424,7 +424,7 @@ msgstr "An Open Food Facts spenden"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://de.openfoodfacts.org/spenden"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -3509,7 +3509,7 @@ msgstr "Spalte in Datei"
 
 msgctxt "field_on_site"
 msgid "Field on %s"
-msgstr ""
+msgstr "Feld in %s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
@@ -3555,7 +3555,7 @@ msgstr "Abbrechen"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "Eingeklappte Änderungen"
 
 msgctxt "data_quality_p"
 msgid "data quality"
@@ -3617,6 +3617,30 @@ msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "Datenqualitätsfehler"
 
+msgctxt "data_quality_warnings_producers_p"
+msgid "data quality warnings"
+msgstr "Datenqualitätswarnungen"
+
+msgctxt "data_quality_warnings_producers_s"
+msgid "data quality warning"
+msgstr "Datenqualitätswarnung"
+
+msgctxt "data_quality_warnings_producers"
+msgid "data quality warnings"
+msgstr "Datenqualitätswarnungen"
+
+msgctxt "data_quality_errors_producers_p"
+msgid "data quality errors"
+msgstr "Datenqualitätsfehler"
+
+msgctxt "data_quality_errors_producers_s"
+msgid "data quality error"
+msgstr "Datenqualitätsfehler"
+
+msgctxt "data_quality_errors_producers"
+msgid "data quality errors"
+msgstr "Datenqualitätsfehler"
+
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
@@ -3638,4 +3662,181 @@ msgstr "Verbesserungsmöglichkeit"
 msgctxt "improvements"
 msgid "possible improvements"
 msgstr "Verbesserungsmöglichkeiten"
+
+# Do not translate
+msgctxt "import_products_link"
+msgid "/import-products"
+msgstr "/importierte-produkte"
+
+msgctxt "add_or_update_products"
+msgid "Add or update products"
+msgstr "Produkte aktualisieren oder hinzufügen"
+
+# Formal you
+msgctxt "your_products"
+msgid "Your products"
+msgstr "Ihre Produkte"
+
+# Do not translate the e-mail address
+msgctxt "account_without_org"
+msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+msgstr "Ihr Konto ist noch keinem Unternehmen zugeordnet. Bitte senden Sie eine E-Mail an <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>, um den freien Zugang zur Plattform für Produzenten zu aktivieren."
+
+msgctxt "import_products"
+msgid "Import products"
+msgstr "Importiere Produkte"
+
+msgctxt "empty_column"
+msgid "Empty column"
+msgstr "Leere Spalte"
+
+msgctxt "empty_column_description"
+msgid "The file does not contain any value in this column."
+msgstr "Die Datei enthält in dieser Spalte keine Werte."
+
+msgctxt "import_file_status_title"
+msgid "Data import in progress"
+msgstr "Datenimport wird ausgeführt"
+
+# "product data" means data for many products
+msgctxt "import_file_status_description"
+msgid "The product data has been received and is going to be imported on the platform for producers."
+msgstr "Die Produktdaten wurden empfangen und werden in die Plattform für Produzenten importiert."
+
+msgctxt "import_file_status"
+msgid "Status"
+msgstr "Status"
+
+msgctxt "job_status_inactive"
+msgid "Scheduled"
+msgstr "Geplant"
+
+msgctxt "job_status_active"
+msgid "In progress"
+msgstr "Wird ausgeführt"
+
+msgctxt "job_status_finished"
+msgid "Finished"
+msgstr "Abgeschlossen"
+
+msgctxt "job_status_failed"
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+msgctxt "import_file_result"
+msgid "Import result"
+msgstr "Importergebnis"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Hinzugefügte Produkte"
+
+msgctxt "products_modified"
+msgid "Products modified"
+msgstr "Bearbeitete Produkte"
+
+msgctxt "import_file_result_no_change"
+msgid "There were no product added or modified. The data has probably been already imported previously."
+msgstr "Es wurden keine Produkte hinzugefügt oder geändert. Die Daten wurden möglicherweise bereits importiert."
+
+msgctxt "import_file_result_products"
+msgid "List of products added or modified"
+msgstr "Liste der hinzugefügten oder geänderten Produkte"
+
+msgctxt "imports_p"
+msgid "imports"
+msgstr "Importe"
+
+msgctxt "imports_s"
+msgid "import"
+msgstr "Import"
+
+msgctxt "imports"
+msgid "imports"
+msgstr "Importe"
+
+msgctxt "number_of_products_with_data_quality_errors_producers"
+msgid "Number of products with data quality errors"
+msgstr "Anzahl der Produkte mit Datenqualitätsfehlern"
+
+msgctxt "number_of_products_with_data_quality_warnings_producers"
+msgid "Number of products with data quality warnings"
+msgstr "Anzahl der Produkte mit Warnungen zur Datenqualität"
+
+msgctxt "number_of_products_with_improvements"
+msgid "Number of products with improvement opportunities"
+msgstr "Anzahl der zu verbessernden Produkte"
+
+msgctxt "improvements_facet_description_1"
+msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+msgstr "Diese Tabelle listet mögliche Ansätze zur Verbesserung der Nährstoffqualität, des Nutri-Scores und der Zusammensetzung von Lebensmitteln auf."
+
+msgctxt "improvements_facet_description_2"
+msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+msgstr "Um relevante Ergebnisse zu erhalten, stellen Sie bitte sicher, dass die Produktdaten vollständig sind (Nährwertangaben mit Werten für Ballaststoffe und Obst und Gemüse zur Berechnung des Nutri-Score und eine genaue Kategorie zum Vergleich jedes Produkts mit ähnlichen Produkten)."
+
+# "product photos" in this sentence means photos for many products, not just one product
+msgctxt "import_photos_title"
+msgid "Import product photos"
+msgstr "Produktfotos importieren"
+
+msgctxt "import_photos_description"
+msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgstr "Sie können das untenstehende Formular verwenden, um Fotos (Vorderseite des Produkts, Zutatenliste und Nährwerttabelle) für viele Produkte hochzuladen."
+
+msgctxt "import_photos_format_1"
+msgid "Each filename needs to contains the barcode of the product."
+msgstr "Jeder Dateiname muss den Strichcode des Produkts enthalten."
+
+msgctxt "import_photos_format_2"
+msgid "And you can also specify the type of the photo in the filename:"
+msgstr "Außerdem können Sie den Typ des Fotos im Dateinamen angeben:"
+
+# Do not translate the file name
+msgctxt "import_photos_format_barcode"
+msgid "3001234567890.jpg: front of the product in the current language."
+msgstr "3001234567890.jpg: Vorderseite des Produkts in der aktuellen Sprache."
+
+# Do not translate the file name
+msgctxt "import_photos_format_front"
+msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
+msgstr "3001234567890.front_nl.jpg: Vorderseite des Produkts auf Niederländisch."
+
+# Do not translate the file name
+msgctxt "import_photos_format_ingredients"
+msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
+msgstr "3001234567890.ingredients_fr.jpg: Zutatenliste auf Französisch."
+
+# Do not translate the file name
+msgctxt "import_photos_format_nutrition"
+msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+msgstr "3001234567890.nutrition_es.jpg: Nährwerttabelle auf Spanisch."
+
+msgctxt "add_photos"
+msgid "Add photos..."
+msgstr "Fotos hinzufügen …"
+
+msgctxt "start_upload"
+msgid "Start upload"
+msgstr "Hochladen beginnen"
+
+msgctxt "start"
+msgid "Start"
+msgstr "Start"
+
+msgctxt "close"
+msgid "Close"
+msgstr "Schließen"
+
+msgctxt "cancel_upload"
+msgid "Cancel upload"
+msgstr "Hochladen abbrechen"
+
+msgctxt "info"
+msgid "Info"
+msgstr "Info"
+
+msgctxt "file_received"
+msgid "File received"
+msgstr "Datei empfangen"
 
