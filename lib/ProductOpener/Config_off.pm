@@ -575,7 +575,8 @@ improvements
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	nutrition_grade_fr_producer
-	recipe_idea origin
+	recipe_idea
+	origin
 	customer_service
 	producer
 	preparation
