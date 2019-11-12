@@ -389,6 +389,17 @@ sub import_csv_file($) {
 
 	while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
+		# Sanitize the input data
+		foreach my $key (%$imported_product_ref) {
+			if (defined $imported_product_ref->{$key}) {
+				# Remove tags
+				$imported_product_ref->{$key} =~ s/<(([^>]|\n)*)>//g;
+
+				# Remove whitespace
+				$imported_product_ref->{$key} =~ s/^\s+|\s+$//g;
+			}
+		}
+
 		$i++;
 
 		my $modified = 0;
@@ -398,7 +409,7 @@ sub import_csv_file($) {
 
 		my @images_ids;
 
-		my $code = remove_tags_and_quote($imported_product_ref->{code});
+		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
 		my $product_id = product_id_for_user($User_id, $Org_id, $code);
 
@@ -640,7 +651,7 @@ sub import_csv_file($) {
 						}
 					}
 
-					foreach my $tag (split(/,/, remove_tags_and_quote($imported_product_ref->{$field}))) {
+					foreach my $tag (split(/,/, $imported_product_ref->{$field})) {
 
 						my $tagid;
 
@@ -713,7 +724,7 @@ sub import_csv_file($) {
 				}
 				else {
 					# non-tag field
-					my $new_field_value = remove_tags_and_quote($imported_product_ref->{$field});
+					my $new_field_value = $imported_product_ref->{$field};
 
 					$new_field_value =~ s/\s+$//;
 					$new_field_value =~ s/^\s+//;
@@ -827,15 +838,15 @@ sub import_csv_file($) {
 				$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
 			);
 
-			my $value = remove_tags_and_quote($imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"});
-			my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"});
-			my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"});
+			my $value = $imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"};
+			my $valuep = $imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"};
+			my $unit = $imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"};
 
 			# calcium_100g_value_in_mcg
 
 			foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml') {
-				my $value_in_u = remove_tags_and_quote($imported_product_ref->{$nid . "_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_value" . "_in_" . $u});
-				my $valuep_in_u = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_prepared_value" . "_in_" . $u});
+				my $value_in_u = $imported_product_ref->{$nid . "_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_value" . "_in_" . $u};
+				my $valuep_in_u = $imported_product_ref->{$nid . "_prepared_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_prepared_value" . "_in_" . $u};
 				if ((defined $value_in_u) and ($value_in_u ne "")) {
 					$value = $value_in_u;
 					$unit = $u;
@@ -853,8 +864,8 @@ sub import_csv_file($) {
 			my $modifier = undef;
 			my $modifierp = undef;
 
-			normalize_nutriment_value_and_modifier(\$value, \$modifier);
-			normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
+			(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
+			(defined $valuep) and normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 
 			if ((defined $value) and ($value ne '')) {
 
@@ -1399,7 +1410,7 @@ sub import_products_categories_from_public_database($) {
 					}
 				}
 
-				foreach my $tag (split(/,/, remove_tags_and_quote($imported_product_ref->{$field}))) {
+				foreach my $tag (split(/,/, $imported_product_ref->{$field})) {
 
 					my $tagid;
 

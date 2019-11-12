@@ -58,19 +58,21 @@ Certaines données peuvent contenir des éléments graphiques soumis à copyrigh
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>API JSON (Bêta)</h2>
+<h2>API JSON Live</h2>
 
 <p>Une API JSON est également disponible pour accéder aux données d'un produit. Cette API est notamment utilisée au sein des applications Open Food Facts Android et iPhone.</p>
 
-<p>Cette API est en bêta et peut subir plusieurs modifications ou changements. N'hésitez pas à nous contacter si vous souhaitez certaines améliorations pour faciliter vos usages.</p>
+<p>Nous améliorons les API avec le temps, mais nous veillons à préserver la compatibilité avec les versions antérieures. N'hésitez pas à nous contacter si vous souhaitez certaines améliorations pour faciliter vos usages.</p>
 
 <p>URL à utiliser pour accéder aux données d'un produit : https://world.openfoodfacts.org/api/v0/product/<i>[code-barre]</i>.json</p>
 
 <p>Exemple : <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Une documentation plus compète est <a href="https://en.wiki.openfoodfacts.org/API">disponible sur le Wiki</a>. 
+Une documentation plus compète est <a href="https://en.wiki.openfoodfacts.org/API">disponible sur le Wiki</a>. (IMPORTANT : la page est divisée en sous-pages pour READ et WRITE). 
+Nous sommes en train de développer une meilleure documentation, comprenant les "uses cases" pour afficher un produit, et permettant à vos utilisateurs d'ajouter les données nécessaires pour produire le Nutri-Score, les groupes NOVA et les additifs.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Vous pouvez y accéder ici</a>.
 <p>Vous avez parfaitement le droit d'utiliser l'API pour des programmes en production, tant qu'1 appel API = 1 scan par un utilisateur réel.
-Toute tentative de "scraper" la base de données de cette façon sera très probablement bloquée, car des exports journaliers complets sont disponibles sur cette page.</p>
+Toute tentative de "scraper" la base de données en utilisant l'API sera très probablement bloquée, car des exports journaliers complets sont disponibles sur cette page.</p>
 <p>En outre, l'envoi d'un en-tête HTTP avec votre appel d'API est un moyen efficace pour que l'on puisse vous contacter, en cas de problème.</p>
 <p>Si vous avez un quelconque doute, ou avez une question (il n'y a pas de question bête !), sentez-vous libre de nous demander sur Slack :-)</p>
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-02 22:51\n"
+"PO-Revision-Date: 2019-11-11 15:01\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -423,7 +423,7 @@ msgstr "Doner til Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://dk.openfoodfacts.org/doner-til-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -3616,6 +3616,30 @@ msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "datakvalitetsfejl"
 
+msgctxt "data_quality_warnings_producers_p"
+msgid "data quality warnings"
+msgstr "datakvalitetsadvarsler"
+
+msgctxt "data_quality_warnings_producers_s"
+msgid "data quality warning"
+msgstr "datakvalitetsadvarsel"
+
+msgctxt "data_quality_warnings_producers"
+msgid "data quality warnings"
+msgstr "datakvalitetsadvarsler"
+
+msgctxt "data_quality_errors_producers_p"
+msgid "data quality errors"
+msgstr "datakvalitetsfejl"
+
+msgctxt "data_quality_errors_producers_s"
+msgid "data quality error"
+msgstr "datakvalitetsinfo"
+
+msgctxt "data_quality_errors_producers"
+msgid "data quality errors"
+msgstr "datakvalitetsfejl"
+
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
@@ -3637,4 +3661,181 @@ msgstr "mulig forbedring"
 msgctxt "improvements"
 msgid "possible improvements"
 msgstr "mulige forbedringer"
+
+# Do not translate
+msgctxt "import_products_link"
+msgid "/import-products"
+msgstr "/produktimport"
+
+msgctxt "add_or_update_products"
+msgid "Add or update products"
+msgstr "Tilføj eller opdatér produkter"
+
+# Formal you
+msgctxt "your_products"
+msgid "Your products"
+msgstr "Dine produkter"
+
+# Do not translate the e-mail address
+msgctxt "account_without_org"
+msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+msgstr "Din konto er endnu ikke tilknyttet en virksomhed. E-mail venligst <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> for at aktivere den gratis adgang til platformen for producenter."
+
+msgctxt "import_products"
+msgid "Import products"
+msgstr "Importér produkter"
+
+msgctxt "empty_column"
+msgid "Empty column"
+msgstr "Tom kolonne"
+
+msgctxt "empty_column_description"
+msgid "The file does not contain any value in this column."
+msgstr "Filen indeholder ingen værdi i denne kolonne."
+
+msgctxt "import_file_status_title"
+msgid "Data import in progress"
+msgstr "Dataimport i gang"
+
+# "product data" means data for many products
+msgctxt "import_file_status_description"
+msgid "The product data has been received and is going to be imported on the platform for producers."
+msgstr "Produktdataene er modtaget og vil blive importeret på platformen til producenter."
+
+msgctxt "import_file_status"
+msgid "Status"
+msgstr "Status"
+
+msgctxt "job_status_inactive"
+msgid "Scheduled"
+msgstr "Planlagt"
+
+msgctxt "job_status_active"
+msgid "In progress"
+msgstr "I gang"
+
+msgctxt "job_status_finished"
+msgid "Finished"
+msgstr "Afsluttet"
+
+msgctxt "job_status_failed"
+msgid "Failed"
+msgstr "Mislykket"
+
+msgctxt "import_file_result"
+msgid "Import result"
+msgstr "Importer resultat"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Produkter tilføjet"
+
+msgctxt "products_modified"
+msgid "Products modified"
+msgstr "Ændrede produkter"
+
+msgctxt "import_file_result_no_change"
+msgid "There were no product added or modified. The data has probably been already imported previously."
+msgstr "Intet produkt blev tilføjet eller ændret. Dataene er sandsynligvis allerede importeret tidligere."
+
+msgctxt "import_file_result_products"
+msgid "List of products added or modified"
+msgstr "Liste over tilføjede eller ændrede produkter"
+
+msgctxt "imports_p"
+msgid "imports"
+msgstr "importer"
+
+msgctxt "imports_s"
+msgid "import"
+msgstr "import"
+
+msgctxt "imports"
+msgid "imports"
+msgstr "importer"
+
+msgctxt "number_of_products_with_data_quality_errors_producers"
+msgid "Number of products with data quality errors"
+msgstr "Antal produkter med datakvalitetsfejl"
+
+msgctxt "number_of_products_with_data_quality_warnings_producers"
+msgid "Number of products with data quality warnings"
+msgstr "Antal produkter med datakvalitetsadvarsler"
+
+msgctxt "number_of_products_with_improvements"
+msgid "Number of products with improvement opportunities"
+msgstr "Antal produkter med forbedringsmuligheder"
+
+msgctxt "improvements_facet_description_1"
+msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+msgstr "Denne tabel viser muligheder for forbedring af ernæringskvaliteten, Nutri-Score samt fødevaresammensætninger."
+
+msgctxt "improvements_facet_description_2"
+msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+msgstr "For at opnå relevante resultater, så sørg for, at produktdataene er komplette (ernæringsfakta med værdier for fiber, frugt og grøntsager til beregning af Nutri-score, og en præcis kategori til sammenligning af hvert produkt med lignende produkter)."
+
+# "product photos" in this sentence means photos for many products, not just one product
+msgctxt "import_photos_title"
+msgid "Import product photos"
+msgstr "Importér produktfotos"
+
+msgctxt "import_photos_description"
+msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgstr "Du kan benytte formularen nedenfor til nemt at uploade fotos (produktforside, ingrediensliste og ernæringsfaktatabel) til mange produkter."
+
+msgctxt "import_photos_format_1"
+msgid "Each filename needs to contains the barcode of the product."
+msgstr "Hvert filnavn skal indeholde produktstregkoden."
+
+msgctxt "import_photos_format_2"
+msgid "And you can also specify the type of the photo in the filename:"
+msgstr "Og du kan også angíve fototypen i filnavnet:"
+
+# Do not translate the file name
+msgctxt "import_photos_format_barcode"
+msgid "3001234567890.jpg: front of the product in the current language."
+msgstr "3001234567890.jpg: produktforside på det aktuelle sprog."
+
+# Do not translate the file name
+msgctxt "import_photos_format_front"
+msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
+msgstr "3001234567890.front_da.jpg: Produktforside på dansk."
+
+# Do not translate the file name
+msgctxt "import_photos_format_ingredients"
+msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
+msgstr "3001234567890.ingredients_da.jpg: Ingrediensliste på dansk."
+
+# Do not translate the file name
+msgctxt "import_photos_format_nutrition"
+msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+msgstr "3001234567890.nutrition_da.jpg: Ernæringstabel på dansk."
+
+msgctxt "add_photos"
+msgid "Add photos..."
+msgstr "Tilføj fotos..."
+
+msgctxt "start_upload"
+msgid "Start upload"
+msgstr "Start upload"
+
+msgctxt "start"
+msgid "Start"
+msgstr "Start"
+
+msgctxt "close"
+msgid "Close"
+msgstr "Luk"
+
+msgctxt "cancel_upload"
+msgid "Cancel upload"
+msgstr "Annullér upload"
+
+msgctxt "info"
+msgid "Info"
+msgstr "Info"
+
+msgctxt "file_received"
+msgid "File received"
+msgstr "Fil modtaget"
 
