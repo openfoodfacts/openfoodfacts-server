@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-11 15:01\n"
+"PO-Revision-Date: 2019-11-12 16:29\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3665,7 +3665,7 @@ msgstr "mulige forbedringer"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr "/produktimport"
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -3838,4 +3838,18 @@ msgstr "Info"
 msgctxt "file_received"
 msgid "File received"
 msgstr "Fil modtaget"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr ""
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr ""
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "Tak!"
 
