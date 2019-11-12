@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-11 18:52\n"
+"PO-Revision-Date: 2019-11-12 16:30\n"
 "Language-Team: Dutch\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3664,7 +3664,7 @@ msgstr "mogelijke verbeteringen"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr "/import-products"
+msgstr "/importeer-producten"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -3837,4 +3837,18 @@ msgstr "Info"
 msgctxt "file_received"
 msgid "File received"
 msgstr "Bestand ontvangen"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr ""
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr ""
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "Bedankt!"
 
