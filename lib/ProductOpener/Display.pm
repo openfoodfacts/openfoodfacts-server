@@ -114,6 +114,7 @@ use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
+use ProductOpener::Nutriscore qw(:all);
 
 use Cache::Memcached::Fast;
 use Text::Unaccent;
@@ -493,7 +494,7 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
 			# Remove them from string
-			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//; 
+			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 
 			# Set the value in the request ref, ex: \?json=value
 			$request_ref->{$parameter} = $2;
@@ -563,7 +564,7 @@ sub analyze_request($)
 	# Api access
 	elsif ($components[0] eq 'api') {
 
-		
+
 		# Set version, method and code
 		$request_ref->{api} = $components[1];
 		if ($request_ref->{api} =~ /v(.*)/) {
@@ -1779,7 +1780,7 @@ sub display_list_of_tags($$) {
 
 		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
 			#TODO: HERE WE ARE DOING A LOT OF EXTRA WORK BY FIRST CREATING THE TABLE AND THEN DESTROYING IT
-			$html =~ s/<table(.*)<\/table>//is; 
+			$html =~ s/<table(.*)<\/table>//is;
 
 			if ($stats{all_tags} > 0) {
 
