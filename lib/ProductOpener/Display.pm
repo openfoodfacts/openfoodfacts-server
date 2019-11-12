@@ -6076,21 +6076,21 @@ HTML
 
 	my $top_banner = "";
 
-	if ($lc eq 'fr-deactivated') {
+	if ($lc eq 'fr') {
 
 
 		$top_banner = <<HTML
 <div class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
-Pour améliorer l'alimentation de tous, c'est le moment de <a href="https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous">soutenir notre action en faisant un don</a> à l'association Open Food Facts !
+Open Food Facts est 100% gratuit et indépendant. <a href="https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Nous avons besoin de votre aide et de vos dons</a> pour continuer et développer le projet. Merci !
 <span style="color:red">❤</span>
 </div>
 </div>
 HTML
 ;
 
-		$top_banner = <<HTML
+		my $top_banner_deactivated = <<HTML
 <div class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
@@ -6103,13 +6103,13 @@ HTML
 
 
 	}
-	if ($lc eq 'en-deactivated') {
+	if ($lc eq 'en') {
 
 		$top_banner = <<HTML
 <div class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
-To improve food for everyone, it's time to <a href="https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en">support our work by making a donation</a> to the Open Food Facts non-profit association !
+Open Food Facts is 100% free and independent. <a href="https://world.openfoodfacts.org/donate-to-open-food-facts">We need your help and donations</a> to continue and to grow the project. Thank you!
 <span style="color:red">❤</span>
 </div>
 </div>
