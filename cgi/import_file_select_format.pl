@@ -65,7 +65,8 @@ if (not defined $import_files_ref) {
 	$import_files_ref = {};
 }
 
-my $file_id = get_string_id_for_lang("no_language", param('file_id'));
+my $param_file_id = param('file_id');
+my $file_id = get_string_id_for_lang("no_language", $param_file_id);
 
 local $log->context->{file_id} = $file_id;
 

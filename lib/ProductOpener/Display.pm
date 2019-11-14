@@ -114,6 +114,7 @@ use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
+use ProductOpener::Nutriscore qw(:all);
 
 use Cache::Memcached::Fast;
 use Text::Unaccent;
@@ -493,7 +494,7 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
 			# Remove them from string
-			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//; 
+			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 
 			# Set the value in the request ref, ex: \?json=value
 			$request_ref->{$parameter} = $2;
@@ -563,7 +564,7 @@ sub analyze_request($)
 	# Api access
 	elsif ($components[0] eq 'api') {
 
-		
+
 		# Set version, method and code
 		$request_ref->{api} = $components[1];
 		if ($request_ref->{api} =~ /v(.*)/) {
@@ -1779,7 +1780,7 @@ sub display_list_of_tags($$) {
 
 		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
 			#TODO: HERE WE ARE DOING A LOT OF EXTRA WORK BY FIRST CREATING THE TABLE AND THEN DESTROYING IT
-			$html =~ s/<table(.*)<\/table>//is; 
+			$html =~ s/<table(.*)<\/table>//is;
 
 			if ($stats{all_tags} > 0) {
 
@@ -1964,7 +1965,7 @@ HTML
 
 		my $extra_column_searchable = "";
 		if (defined $taxonomy_fields{$tagtype}) {
-			$extra_column_searchable .= ', { "searchable": false }';
+			$extra_column_searchable .= ', {"searchable": false}';
 		}
 
 		$initjs .= <<JS
@@ -1978,7 +1979,7 @@ oTable = \$('#tagstable').DataTable({
 	order: [[ 1, "desc" ]],
 	columns: [
 		null,
-		{ "searchable": false } $extra_column_searchable
+		{"searchable": false} $extra_column_searchable
 	]
 });
 JS
@@ -6039,20 +6040,12 @@ HTML
 
 	my $blocks = display_blocks($request_ref);
 	my $aside_blocks = $blocks;
-	my $aside_initjs = $initjs;
 
 	# keep only the login block for off canvas
 	$aside_blocks =~ s/<!-- end off canvas blocks for small screens -->(.*)//s;
 
-	$aside_initjs =~ s/(.*)\/\/ start off canvas blocks for small screens//s;
-	$aside_initjs =~ s/\/\/ end off canvas blocks for small screens(.*)//s;
-
 	# change ids of the add product image upload form
 	$aside_blocks =~ s/block_side/block_aside/g;
-
-	$aside_initjs =~ s/block_side/block_aside/g;
-
-	$initjs .= $aside_initjs;
 
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
 	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
@@ -8198,6 +8191,83 @@ HTML
 }
 
 
+sub display_nutriscore_calculation_detail($) {
+
+	my $nutriscore_data_ref = shift;
+
+	my $html = '<p><a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">' . lang("nutriscore_calculation_detail") . " &raquo;</a><p>"
+	. '<div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
+
+	if ($nutriscore_data_ref->{is_beverage}) {
+		$html .= "<p>" . lang("nutriscore_is_beverage") . "</p>";
+	}
+	else {
+		$html .= "<p>" . lang("nutriscore_is_not_beverage") . "</p>";
+	}
+
+	if ($nutriscore_data_ref->{is_fat}) {
+		$html .= "<p>" . lang("nutriscore_proteins_is_added_fat") . "</p>";
+	}
+
+	my @points = (
+		["positive", ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]],
+		["negative", ["energy", "sugars", "saturated_fat", "sodium"]],
+	);
+
+	foreach my $points_ref (@points) {
+
+		$html .= "<p><strong>" . lang("nutriscore_" . $points_ref->[0] . "_points") . lang("sep") . ": "
+		. $nutriscore_data_ref->{$points_ref->[0] . "_points"} . "</strong></p><ul>";
+
+		foreach my $nutrient (@{$points_ref->[1]}) {
+
+			my $nutrient_threshold_id = $nutrient;
+
+			if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
+				and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
+				$nutrient_threshold_id .= "_beverages";
+			}
+			if (($nutriscore_data_ref->{is_fat}) and ($nutrient eq "saturated_fat")) {
+				$nutrient = "saturated_fat_ratio";
+				$nutrient_threshold_id = "saturated_fat_ratio";
+			}
+
+			$html .= "<li><strong>" . lang("nutriscore_points_for_" . $nutrient) . lang("sep") . ": "
+			. $nutriscore_data_ref->{$nutrient . "_points"} . "&nbsp;</strong>/&nbsp;" . scalar(@{$points_thresholds{$nutrient_threshold_id}}) . lang("points")
+			. " (" . lang("nutriscore_source_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient} . ", "
+			. lang("nutriscore_rounded_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient . "_value"} . ")" . "</li>";
+		}
+
+		$html .= "</ul>";
+	}
+
+	if ($nutriscore_data_ref->{negative_points} < 11) {
+		$html .= "<p>" . lang("nutriscore_proteins_negative_points_less_than_11") . "</p>";
+	}
+	elsif ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese})) {
+		$html .= "<p>" . lang("nutriscore_proteins_is_cheese") . "</p>";
+	}
+	elsif ((((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
+			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
+		or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
+			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
+		$html .= "<p>" . lang("nutriscore_proteins_maximum_fruits_points") . "</p>";
+	}
+	else {
+		$html .= "<p>" . lang("nutriscore_proteins_negative_points_greater_or_equal_to_11") . "</p>";
+	}
+
+	$html .= "<p><strong>" . lang("nutriscore_score") . lang("sep"). ": " . ($nutriscore_data_ref->{score})
+	. "</strong> (" . $nutriscore_data_ref->{negative_points} . " - " . $nutriscore_data_ref->{positive_points} . ")<p>";
+
+	$html .= "<p><strong>" . lang("nutriscore_grade") . lang("sep"). ": " . uc($nutriscore_data_ref->{grade}) . "</strong></p>";
+
+	$html .= "</div>";
+
+	return $html;
+}
+
+
 sub display_nutrient_levels($) {
 
 	my $product_ref = shift;
@@ -8286,6 +8356,9 @@ sub display_nutrient_levels($) {
 $warning
 HTML
 ;
+		if (defined $product_ref->{nutriscore_data}) {
+			$html_nutrition_grade .= display_nutriscore_calculation_detail($product_ref->{nutriscore_data});
+		}
 	}
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {

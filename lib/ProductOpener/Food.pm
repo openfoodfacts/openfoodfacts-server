@@ -949,6 +949,7 @@ sub mmoll_to_unit {
 		fa => "الکل",
 		fi => "Alkoholi",
 		fr => "Alcool",
+		fr_synonyms => ["Titre volumique", "Titre vol."],
 		ga => "Alcól",
 		he => "אלכוהול",
 		hu => "Alkohol",
@@ -4026,6 +4027,8 @@ sub compute_nutrition_score($) {
 
 	my $product_ref = shift;
 
+	compute_nutriscore($product_ref);
+
 	delete $product_ref->{nutrition_score_debug};
 	delete $product_ref->{nutriments}{"nutrition-score"};
 	delete $product_ref->{nutriments}{"nutrition-score_100g"};
@@ -4705,7 +4708,7 @@ sub compute_nutriscore($) {
 		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
 	};
 
-	my ($nutriscore_score, $nutriscore_grade) = ProductOpener::Food::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
+	my ($nutriscore_score, $nutriscore_grade) = ProductOpener::Nutriscore::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
 
 	$product_ref->{nutriscore_score} = $nutriscore_score;
 	$product_ref->{nutriscore_grade} = $nutriscore_grade;

@@ -74,7 +74,6 @@ use Encode;
 use JSON::PP;
 use Time::Local;
 use Data::Dumper;
-use Spreadsheet::CSV();
 use Text::CSV();
 use Minion;
 
@@ -102,7 +101,6 @@ sub load_csv_or_excel_file($) {
 
 	# Spreadsheet::CSV does not like CSV files with a BOM:
 	# Wide character in print at /usr/local/share/perl/5.24.1/Spreadsheet/CSV.pm line 87.
-	#
 
 	# There are many issues with Spreadsheet::CSV handling of CSV files
 	# (depending on whether there is a BOM, encoding, line endings etc.
@@ -126,7 +124,9 @@ sub load_csv_or_excel_file($) {
 
 		if (open (my $io, "<:encoding($encoding)", $file)) {
 
-			@$headers_ref = $csv->header ($io, { detect_bom => 1 });
+			# @$headers_ref = $csv->header ($io, { detect_bom => 1 });
+			# the header function crashes with some csv files... use getline instead
+			@$headers_ref = @$csv->getline ($io);
 
 			while (my $row = $csv->getline ($io)) {
 				push @$rows_ref, $row;
@@ -149,17 +149,31 @@ sub load_csv_or_excel_file($) {
 
 		my $csv_options_ref = { binary => 1 , sep_char => "," };	# should set binary attribute.
 
+		$log->debug("opening CSV file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
+
 		my $csv = Text::CSV->new ( $csv_options_ref )
 		or die("Cannot use CSV: " . Text::CSV->error_diag ());
 
 		if (open (my $io, "<:encoding($encoding)", $file . ".csv")) {
 
-			@$headers_ref = $csv->header ($io, { detect_bom => 1 });
+			$log->debug("opened file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
 
-			# May need to deal with possible empty lines before header
+			# @$headers_ref = $csv->header ($io, { detect_bom => 1 });
+			# the header function crashes with some csv files... use getline instead
+			my $line_ref = $csv->getline ($io);
 
-			while (my $row = $csv->getline ($io)) {
-				push @$rows_ref, $row;
+			if (not defined $line_ref) {
+				$log->debug("could not read headers row", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
+				$results_ref->{error} = "Could not read headers row $file.csv: $!";
+			}
+			else {
+				@$headers_ref = @$line_ref;
+
+				# May need to deal with possible empty lines before header
+
+				while (my $row = $csv->getline ($io)) {
+					push @$rows_ref, $row;
+				}
 			}
 		}
 		else {
@@ -339,12 +353,16 @@ es => {
 
 fr => {
 
-	product_name_fr => ["nom", "nom produit", "nom du produit", "dénomination", "dénomination commerciale"],
-	generic_name_fr => ["dénomination légale"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale"],
+	generic_name_fr => ["dénomination légale", "déno légale"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
 	labels => ["signes qualité", "signe qualité"],
 	volume_value_unit => ["volume net"],
+	drained_weight_value_unit => ["poids net égoutté"],
+	recycling_instructions_to_recycle_fr => ["à recycler", "consigne à recycler"],
+	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
+	preparation_fr => ["conseils de préparation", "instructions de préparation"],
 },
 
 );
