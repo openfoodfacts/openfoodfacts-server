@@ -8918,7 +8918,7 @@ HTML
 				if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
 					$value_unit = '?';
 				}
-				elsif ($nid =~ /^energy/) {
+				elsif (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 					$value_unit .= "<br>(" . sprintf("%d", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal')) . ' kcal)';
 				}
 
@@ -9013,7 +9013,7 @@ HTML
 						$value_unit = $product_ref->{nutriments}{$nid . "_modifier"} . " " . $value_unit;
 					}
 
-					if ($nid =~ /^energy/) {
+					if (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 						$value_unit .= "<br>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
 					}
 				}

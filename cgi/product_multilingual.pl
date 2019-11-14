@@ -460,6 +460,28 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
 		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
 
+		# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
+		# 1. if energy-kcal or energy-kj is set, delete existing energy data
+		if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
+			delete $product_ref->{nutriments}{"energy"};
+			delete $product_ref->{nutriments}{"energy_unit"};
+			delete $product_ref->{nutriments}{"energy_label"};
+			delete $product_ref->{nutriments}{"energy_value"};
+			delete $product_ref->{nutriments}{"energy_modifier"};
+			delete $product_ref->{nutriments}{"energy_100g"};
+			delete $product_ref->{nutriments}{"energy_serving"};
+			delete $product_ref->{nutriments}{"energy_prepared_value"};
+			delete $product_ref->{nutriments}{"energy_prepared_modifier"};
+			delete $product_ref->{nutriments}{"energy_prepared_100g"};
+			delete $product_ref->{nutriments}{"energy_prepared_serving"};
+		}
+		# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
+		elsif (($nid eq "energy") and (($unit eq "kJ") or ($unit eq "kcal"))) {
+			$nid = $nid . "-" . lc($unit);
+			$nidp = $nid . "_prepared";
+			$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
+		}
+
 		if ($nid eq 'alcohol') {
 			$unit = '% vol';
 		}
@@ -1852,7 +1874,13 @@ HTML
 
 
 		my @units = ('g','mg','µg');
-		if ($nid =~ /^energy/) {
+		if ($nid eq "energy-kj") {
+			@units = ('kJ');
+		}
+		elsif ($nid eq "energy-kcal") {
+			@units = ('kcal');
+		}
+		elsif ($nid =~ /^energy/) {
 			@units = ('kJ','kcal');
 		}
 		elsif ($nid eq 'alcohol') {
