@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-12 18:16\n"
+"PO-Revision-Date: 2019-11-14 14:41\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3791,6 +3791,94 @@ msgstr "crwdns124012:0crwdne124012:0"
 msgctxt "file_received"
 msgid "File received"
 msgstr "crwdns124014:0crwdne124014:0"
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr "crwdns124110:0crwdne124110:0"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
+msgstr "crwdns124112:0crwdne124112:0"
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
+msgstr "crwdns124114:0crwdne124114:0"
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "crwdns124116:0crwdne124116:0"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "crwdns124118:0crwdne124118:0"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "crwdns124120:0crwdne124120:0"
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "crwdns124122:0crwdne124122:0"
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "crwdns124124:0crwdne124124:0"
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "crwdns124126:0crwdne124126:0"
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "crwdns124128:0crwdne124128:0"
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "crwdns124130:0crwdne124130:0"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "crwdns124132:0crwdne124132:0"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "crwdns124134:0crwdne124134:0"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "crwdns124136:0crwdne124136:0"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "crwdns124138:0crwdne124138:0"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "crwdns124140:0crwdne124140:0"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "crwdns124142:0crwdne124142:0"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "crwdns124144:0crwdne124144:0"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "crwdns124146:0crwdne124146:0"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "crwdns124148:0crwdne124148:0"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "crwdns124150:0crwdne124150:0"
+
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "crwdns124152:0crwdne124152:0"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
