@@ -33,7 +33,7 @@ BEGIN
 
 					&get_decimal_formatter
 					&get_percent_formatter
-					
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -46,6 +46,18 @@ BEGIN
 sub normalize_percentages($$) {
 
 	my ($text, $locale) = @_;
+
+	# Bail out of this function if no known percent sign is found.
+	# This is purely for performance reasons: CLDR functions are
+	# comparatively expensive to run.
+	if ((not (defined $text))
+		or (not ((index($text, "\N{U+0025}") > -1)
+		or (index($text, "\N{U+066A}") > -1)
+		or (index($text, "\N{U+FE6A}") > -1)
+		or (index($text, "\N{U+FF05}") > -1)
+		or (index($text, "\N{U+E0025}") > -1)))) {
+			return $text;
+	}
 
 	my $cldr = _get_cldr($locale);
 	my $perf = get_percent_formatter($locale, 2);
