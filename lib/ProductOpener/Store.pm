@@ -100,30 +100,6 @@ sub get_string_id_for_lang {
 		}
 	}
 
-	return _sanitize_string($string, $lowercase, $unaccent);
-
-}
-
-sub get_fileid {
-
-	my ($file, $unaccent, $lc) = @_;
-
-	if (not defined $file) {
-		return "";
-	}
-
-	if ((defined $lc) and ($lc eq 'fr')) {
-		$unaccent = 1;
-	}
-
-	return _sanitize_string($file, 1, $unaccent);
-
-}
-
-sub _sanitize_string {
-
-	my ($string, $lowercase, $unaccent) = @_;
-
 	if ($lowercase) {
 		# do not lowercase UUIDs
 		# e.g.
@@ -162,6 +138,57 @@ sub _sanitize_string {
 	}
 
 	return $string;
+
+}
+
+sub get_fileid {
+
+	my ($file, $unaccent, $lc) = @_;
+
+	if (not defined $file) {
+		return "";
+	}
+
+	if ((defined $lc) and ($lc eq 'fr')) {
+		$unaccent = 1;
+	}
+
+	# do not lowercase UUIDs
+	# e.g.
+	# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
+	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
+	if ($file !~ /^[a-z\-]+\.[a-zA-Z0-9-_]{8}[a-zA-Z0-9-_]+$/) {
+		$file =~ tr/\N{U+1E9E}/\N{U+00DF}/; # Actual lower-case for capital ß
+		$file = lc($file);
+		$file =~ tr/./-/;
+	}
+
+	if ($unaccent) {
+		$file =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
+		$file =~ s/œ|Œ/oe/g;
+		$file =~ s/æ|Æ/ae/g;
+		$file =~ s/ß|\N{U+1E9E}/ss/g;
+	}
+
+	# turn special chars and zero width space to -
+	$file =~ tr/\000-\037\x{200B}/-/;
+
+	# avoid turning &quot; in -quot-
+	$file =~ s/\&(quot|lt|gt);/-/g;
+
+	$file =~ s/[\s!"#\$%&'()*+,\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
+	$file =~ tr/-/-/s;
+
+	if (index($file, '-') == 0) {
+		$file = substr $file, 1;
+	}
+
+	my $l = length($file);
+	if (rindex($file, '-') == $l - 1) {
+		$file = substr $file, 0, $l - 1;
+	}
+
+	return $file;
 
 }
 
