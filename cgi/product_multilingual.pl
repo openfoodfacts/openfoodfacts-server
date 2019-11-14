@@ -770,6 +770,9 @@ HTML
 
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
+	# Populate the energy-kcal or energy-kj field from the energy field if it exists
+	compute_serving_size_data($product_ref);
+
 	$log->debug("displaying product", { code => $code }) if $log->is_debug();
 
 	# Lang strings for product.js
