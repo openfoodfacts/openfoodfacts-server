@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-14 14:08\n"
+"PO-Revision-Date: 2019-11-14 22:11\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -148,7 +148,7 @@ msgstr "https://world-hu.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/hu_get.svg\" alt=\"Elérhető a Google Playen\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -371,11 +371,11 @@ msgstr "Adatforrás"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "adatforrások"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "adatforrás"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -676,7 +676,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Adatok, API és SDK-k"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -709,7 +709,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Kövessen minket <a href=\"https://twitter.com/openfoodfacts\">Twitteren</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebookon</a> és\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagramon</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -868,7 +870,7 @@ msgstr "Ezt a fájlt a(z) %s termékre töltötték fel, és az %s licenccel."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Megnevezés: Fotózta %s, %s által"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
