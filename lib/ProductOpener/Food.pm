@@ -4607,6 +4607,8 @@ sub compute_nutriscore($) {
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 	delete $product_ref->{nutriscore_score};
 	delete $product_ref->{nutriscore_grade};
+	delete $product_ref->{nutriscore_data};
+	delete $product_ref->{nutriscore_points};
 
 	defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 
