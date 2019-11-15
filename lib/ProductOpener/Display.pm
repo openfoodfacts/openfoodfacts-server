@@ -6760,7 +6760,7 @@ sub display_possible_improvement_description($$) {
 
 		if ($tagid =~ /^en:nutrition-(very-)?high/) {
 			$html .= "<p>" . lang("value_for_the_product") . lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
-			. "<br>" . sprintf(lang("value_for_the_category") . display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
+			. "<br>" . sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
 			. lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
 			. "</p>\n";
 		}
@@ -8996,9 +8996,12 @@ HTML
 				}
 				elsif (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 					# Use the actual value in kcal if we have it
-					my $value_in_kcal = g_to_unit($comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}, 'kcal');
+					my $value_in_kcal;
+					if (defined $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}) {
+						$value_in_kcal = g_to_unit($comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}, 'kcal');
+					}
 					# Otherwise convert the value in kj
-					if (not defined $value_in_kcal) {
+					else {
 						$value_in_kcal =  g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal');
 					}
 					$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
@@ -9097,9 +9100,12 @@ HTML
 
 					if (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 						# Use the actual value in kcal if we have it
-						my $value_in_kcal = g_to_unit($product_ref->{nutriments}{$nid . "-kcal" . "_$col"}, 'kcal');
+						my $value_in_kcal;
+						if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_$col"}) {
+							$value_in_kcal = g_to_unit($product_ref->{nutriments}{$nid . "-kcal" . "_$col"}, 'kcal');
+						}
 						# Otherwise convert the value in kj
-						if (not defined $value_in_kcal) {
+						else {
 							$value_in_kcal =  g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal');
 						}
 						$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
