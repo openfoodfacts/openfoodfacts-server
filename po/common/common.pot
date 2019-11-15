@@ -3980,12 +3980,12 @@ msgid "Detail of the calculation of the Nutri-Score"
 msgstr "Detail of the calculation of the Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
-msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
-msgstr "This product is considered as a beverage for the calculation of the Nutri-Score."
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "This product is considered a beverage for the calculation of the Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
-msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
-msgstr "This product is not considered as a beverage for the calculation of the Nutri-Score."
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr "This product is not considered a beverage for the calculation of the Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -4059,7 +4059,18 @@ msgctxt "nutriscore_score"
 msgid "Nutritional score"
 msgstr "Nutritional score"
 
+# Do not translate
 msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "Nutri-Score score"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
@@ -4077,4 +4088,12 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr ""
 
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "Value for the product"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "Mean value for the %s category"
 
