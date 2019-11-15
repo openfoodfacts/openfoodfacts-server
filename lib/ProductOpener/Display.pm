@@ -9741,7 +9741,8 @@ sub display_recent_changes {
 			diffs => $change_ref->{diffs}
 		};
 
-		delete $change_hash->{ip} unless $admin; # security: Do not expose IP addresses to non-admin or anonymous users.
+		# security: Do not expose IP addresses to non-admin or anonymous users.
+		delete $change_hash->{ip} unless $admin; 
 
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
 		my $diffs = compute_changes_diff_text($change_ref);
@@ -9782,8 +9783,8 @@ sub display_recent_changes {
 }
 
 sub display_change($$) {
-	my $change_ref = shift;
-	my $diffs = shift;
+
+	my ($change_ref, $diffs) = @_;
 
 	my $date = display_date_tag($change_ref->{t});
 	my $user = "";
@@ -9809,9 +9810,9 @@ sub display_change($$) {
 	# Display diffs
 	# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
 
-
 	my $product_url = product_url($change_ref->{code});
-	return "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+
+	return "<a href=\"$product_url\">" . $change_ref->{code} . "</a>; $date - $user ($comment) [$diffs] - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 }
 
 1;
