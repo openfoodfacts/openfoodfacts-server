@@ -6110,6 +6110,10 @@ HTML
 ;
 	}
 
+	if ($server_options{producers_platform}) {
+		$top_banner = "";
+	}
+
 	# Display a banner from users on Android or iOS
 
 	my $user_agent = $ENV{HTTP_USER_AGENT};
@@ -6734,6 +6738,71 @@ sub display_field($$) {
 			$product_ref->{category} = $category;
 		}
 	}
+	return $html;
+}
+
+
+=head2 display_possible_improvement_description( PRODUCT_REF, TAGID )
+
+Display an explanation of the possible improvement, using the improvement
+data stored in $product_ref->{improvements_data}
+
+=cut
+
+sub display_possible_improvement_description($$) {
+
+	my $product_ref = shift;
+	my $tagid = shift;
+
+	my $html = "";
+
+	if ((defined $product_ref->{improvements_data}) and (defined $product_ref->{improvements_data}{$tagid})) {
+
+		if ($tagid =~ /^en:nutrition-(very-)?high/) {
+			$html .= "<p>" . lang("value_for_the_product") . lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
+			. "<br>" . sprintf(lang("value_for_the_category") . display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
+			. lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
+			. "</p>\n";
+		}
+	}
+
+	return $html;
+}
+
+
+=head2 display_data_quality_issues_and_improvement_opportunities( PRODUCT_REF )
+
+Display on the product page a list of data quality issues, and of improvement opportunities.
+
+This is for the platform for producers.
+
+=cut
+
+sub display_data_quality_issues_and_improvement_opportunities($) {
+
+	my $product_ref = shift;
+
+	my $html = "";
+
+	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
+		if ((defined $product_ref->{$tagtype . "_tags"}) and (scalar @{$product_ref->{$tagtype . "_tags"}} > 0)) {
+
+			$html .= "<h2>" . ucfirst(lang($tagtype . "_p")) . "</h2>";
+
+			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+				$html .= "<b>" . display_taxonomy_tag($lc, $tagtype, $tagid) . "</b><br>";
+
+				if (defined $properties{$tagtype}{$tagid}{"description:$lc"})  {
+					$html .= "<p>" . $properties{$tagtype}{$tagid}{"description:$lc"} . "</p>";
+				}
+
+				if ($tagtype eq "improvements") {
+					$html .= display_possible_improvement_description($product_ref, $tagid);
+				}
+			}
+		}
+	}
+
 	return $html;
 }
 
@@ -7647,6 +7716,13 @@ HTML
 		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
 			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
 		}
+	}
+
+	# Platform for producers: data quality issues and improvements opportunities
+
+	if ($server_options{producers_platform}) {
+
+		$html .= display_data_quality_issues_and_improvement_opportunities($product_ref);
 	}
 
 	# photos and data sources
@@ -8919,7 +8995,13 @@ HTML
 					$value_unit = '?';
 				}
 				elsif (($nid eq "energy") or ($nid eq "energy-from-fat")) {
-					$value_unit .= "<br>(" . sprintf("%d", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal')) . ' kcal)';
+					# Use the actual value in kcal if we have it
+					my $value_in_kcal = g_to_unit($comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}, 'kcal');
+					# Otherwise convert the value in kj
+					if (not defined $value_in_kcal) {
+						$value_in_kcal =  g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal');
+					}
+					$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 				}
 
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
@@ -9014,7 +9096,13 @@ HTML
 					}
 
 					if (($nid eq "energy") or ($nid eq "energy-from-fat")) {
-						$value_unit .= "<br>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
+						# Use the actual value in kcal if we have it
+						my $value_in_kcal = g_to_unit($product_ref->{nutriments}{$nid . "-kcal" . "_$col"}, 'kcal');
+						# Otherwise convert the value in kj
+						if (not defined $value_in_kcal) {
+							$value_in_kcal =  g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal');
+						}
+						$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 					}
 				}
 
