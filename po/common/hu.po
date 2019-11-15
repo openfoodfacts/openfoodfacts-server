@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-15 17:12\n"
+"PO-Revision-Date: 2019-11-15 20:51\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2976,11 +2976,11 @@ msgstr "Képek és adatok ellenőrzve"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "Ellenőriztem a képeket és az adatokat."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "Újra ellenőriztem a képeket és az adatokat."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
@@ -2992,7 +2992,7 @@ msgstr "Utolsó ellenőrzés dátuma"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
-msgstr ""
+msgstr "Termékoldal legutóbb ellenőrizve"
 
 msgctxt "product_other_information"
 msgid "Other information"
@@ -3000,7 +3000,7 @@ msgstr "Egyéb információk"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
-msgstr ""
+msgstr "Termelő verzió azonosítója"
 
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
@@ -3012,7 +3012,7 @@ msgstr "Nettó tömeg"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "Nettó (leeresztet) súly"
 
 msgctxt "volume"
 msgid "Volume"
@@ -3072,7 +3072,7 @@ msgstr "A termékeket korrigálta: %s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "A termékeket nem korrigálta: %s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
@@ -3200,7 +3200,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Segítsen %s lefordításában %s nyelvre"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
@@ -3236,7 +3236,7 @@ msgstr "Nem"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Kihagyás"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3244,15 +3244,15 @@ msgstr ""
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "népszerűség"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "összetevők elemzése"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "összetevők elemzése"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -3264,37 +3264,37 @@ msgstr "Az elemzés kizárólag a felsorolt összetevőkre épül, de nem veszi 
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "Ön most a termékoldal egy régi változatát nézi!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "Verziószám: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "Szerkesztette: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "Előző verzió"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "Következő verzió"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "Legújabb verzió"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "Termékadat fájl importálása"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Töltse fel a termékadatokat tartalmazó táblázat fájlt (Excel, vagy tabulátor elválasztású UTF-8 kódolt CSV fájl)."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
