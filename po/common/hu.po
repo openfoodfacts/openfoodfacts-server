@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-12 16:35\n"
+"PO-Revision-Date: 2019-11-15 17:12\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -148,12 +148,12 @@ msgstr "https://world-hu.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/hu_get.svg\" alt=\"Elérhető a Google Playen\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=hu"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -195,11 +195,11 @@ msgstr "Ön is segíthet az Open Food Facts program finanszírozásában"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p>Az <<site_name>> nonprofit egyesület által készült, független az ipartól. Mindenkinek készült, sokak által, a közösség támogatásával. Ön is támogathatja a munkánkat <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">az Open Food Facts-nek szánt adománnyal</a> továbbá a <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo keresőmotor használatával</a>.<br/><b>Köszönjük!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "Támogasson minket adománnyal"
 
 msgctxt "brands"
 msgid "Brands"
@@ -371,11 +371,11 @@ msgstr "Adatforrás"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "adatforrások"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "adatforrás"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -552,7 +552,7 @@ msgstr "A jelszó és a megerősítő jelszó nem egyeznek!"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Az email címet már használja egy másik felhasználó. Vagy van már fiókja? <a href=\"/cgi/reset_password.pl\">Visszaállíthatja a másik fiók jelszavát</a>."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -676,7 +676,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Adatok, API és SDK-k"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -709,7 +709,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Kövessen minket <a href=\"https://twitter.com/openfoodfacts\">Twitteren</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebookon</a> és\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagramon</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -868,11 +870,11 @@ msgstr "Ezt a fájlt a(z) %s termékre töltötték fel, és az %s licenccel."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Megnevezés: Fotózta %s, %s által"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Megnevezés: Fotózta %s, módosításokat végzett rajta %s, %s által"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
@@ -880,7 +882,7 @@ msgstr "(Eredeti kép)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Fotó részletek és szerzői jogi információk"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -972,11 +974,11 @@ msgstr "Termékek, amelyek nem tartalmaznak %s összetevőt"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/appstore/black/appstore_HU.svg\" alt=\"Letölthető az App Store-ból\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/hu/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1390,7 +1392,7 @@ msgstr "A képek áthelyezése egy másik termékhez"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s termék"
 
 msgctxt "name"
 msgid "Name"
@@ -2373,7 +2375,7 @@ msgstr "Rendezés"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "Teljesség"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2570,7 +2572,8 @@ msgstr "A világ minden tájáról származó eredmények megtekintése"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "Az információk és adatok a termék csomagolásáról és címkéjéről kell származzanak (és nem a gyártó weboldaláról), és a termékfotót önnek kell készítenie.<br/>\n"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Miért fontos ez?</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2579,12 +2582,12 @@ msgstr "Webhely vagy blog címe"
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/microsoft/Hungarian.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2680,7 +2683,7 @@ msgstr "Néhány adatot ehhez a termékhez közvetlenül a gyártó, a(z) %s biz
 
 msgctxt "sources_collaboration"
 msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr ""
+msgstr "A termék egyes adatainak összegyűjtése %s közreműködésével készült"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2688,7 +2691,7 @@ msgstr "Ez a termékoldal nem teljes. A szerkesztésével és további adatok ho
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2885,15 +2888,15 @@ msgstr "Kitettség veszély"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "Az Európai Élelmiszerbiztonsági Hatóság (EFSA) megállapította, hogy egyes népességcsoportokat nagyon veszélyezteti a túl sok <tag> fogyasztása."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr ""
+msgstr "Az Európai Élelmiszerbiztonsági Hatóság (EFSA) megállapította, hogy egyes népességcsoportokat mérsékelten veszélyezteti a túl sok <tag> fogyasztása."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr ""
+msgstr "Az on <tag> élelmiszer-adalékanyag kockázatának megbecsüléséhez megtekintheti az ezt tartalmazó termékekről készült a listánkat. <tag> tartalmú <nb_products> termékek listája alább látható."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
@@ -2901,7 +2904,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
-msgstr ""
+msgstr "Az Európai Élelmiszerbiztonsági Hatóság (EFSA) megállapította, hogy egyik népcsoporton belül sincs 5% fölött a kockázata az elfogadhatónál több <tag> napi bevitelének."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
@@ -3109,15 +3112,15 @@ msgstr "Visszavonás dátuma"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "Formátum: ÉÉÉÉ-HH-NN vagy ÉÉÉÉ-HH vagy ÉÉÉÉ"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 vagy 2019-09 vagy 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "Fontos megjegyzés: ezt a terméket már nem árusítják. Az adatokat csak referenciaként őriztük meg. Ez a termék nem jelenik meg a szokásos keresésekben és a statisztikák számításánál sincs figyelembe véve."
 
 msgctxt "get_the_app"
 msgid "Get the app"
@@ -3137,7 +3140,7 @@ msgstr "Szerezd meg az iPad alkalmazást"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr ""
+msgstr "<em>Nem egyértelmű vonalkód</em>: Ennek a terméknek RCN (korlátozott cirkulációs szám) vonalkódja van, ami cégen belüli termékeknél használatos. Ez azt jelenti, hogy különböző gyártók és boltok ugyanazt a vonalkódot használják különböző termékeken."
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3824,6 +3827,94 @@ msgstr ""
 
 msgctxt "file_received"
 msgid "File received"
+msgstr ""
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr ""
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr ""
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr ""
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr ""
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr ""
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr ""
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr ""
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr ""
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "Energia"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "Cukrok"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "Telített zsír"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr ""
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "Nátrium"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr ""
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "Élelmi rost"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "Fehérje"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "érték"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr ""
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr ""
+
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
 msgstr ""
 
 # free as in not costing something
