@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-15 00:51\n"
+"PO-Revision-Date: 2019-11-15 01:01\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3865,19 +3865,19 @@ msgstr "Point for proteiner medregnes, da de negative point er færre end 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "Point for proteiner medregnes ikke, da de negative point er højere end 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Point for proteiner medregnes, da pointene for frugter, grøntsager, nødder og raps/valnød/olivenolier er maksimale."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Point for proteiner medregnes, da produktet er i ostekategorien."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "Produktet er i kategorien fedttype. Point for mættet fedt erstattes med point for mættet fedt/fedtforhold."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3893,7 +3893,7 @@ msgstr "Mættet fedt"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Mættet fedt/fedtforhold"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3901,7 +3901,7 @@ msgstr "Natrium"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Frugt, grøntsager, nødder og raps/valnød/olivenolier"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3917,15 +3917,15 @@ msgstr "værdi"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "afrundet værdi"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Ernæringsscore"
 
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
