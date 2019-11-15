@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-15 11:22\n"
+"PO-Revision-Date: 2019-11-15 11:32\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1392,7 +1392,7 @@ msgstr "A képek áthelyezése egy másik termékhez"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s termék"
 
 msgctxt "name"
 msgid "Name"
@@ -2572,7 +2572,7 @@ msgstr "A világ minden tájáról származó eredmények megtekintése"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr "Az információk és adatok a termék csomagolásáról és címkéjéről kell származzanak (és nem a gyártó weboldaláról), és a termékfotót magad kell készítsd.<br/>\n"
+msgstr "Az információk és adatok a termék csomagolásáról és címkéjéről kell származzanak (és nem a gyártó weboldaláról), és a termékfotót önnek kell készítenie.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Miért fontos ez?</a>"
 
 msgctxt "website"
@@ -2582,12 +2582,12 @@ msgstr "Webhely vagy blog címe"
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/microsoft/Hungarian.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2683,7 +2683,7 @@ msgstr "Néhány adatot ehhez a termékhez közvetlenül a gyártó, a(z) %s biz
 
 msgctxt "sources_collaboration"
 msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr ""
+msgstr "A termék egyes adatainak összegyűjtése %s közreműködésével készült"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2888,15 +2888,15 @@ msgstr "Kitettség veszély"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "Az Európai Élelmiszerbiztonsági Hatóság (EFSA) megállapította, hogy egyes népességcsoportokat nagyon veszélyezteti a túl sok <tag> fogyasztása."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr ""
+msgstr "Az Európai Élelmiszerbiztonsági Hatóság (EFSA) megállapította, hogy egyes népességcsoportokat mérsékelten veszélyezteti a túl sok <tag> fogyasztása."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr ""
+msgstr "Az on <tag> élelmiszer-adalékanyag kockázatának megbecsüléséhez megtekintheti az ezt tartalmazó termékekről készült a listánkat. <tag> tartalmú <nb_products> termékek listája alább látható."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
