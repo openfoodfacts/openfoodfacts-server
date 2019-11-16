@@ -6758,11 +6758,26 @@ sub display_possible_improvement_description($$) {
 
 	if ((defined $product_ref->{improvements_data}) and (defined $product_ref->{improvements_data}{$tagid})) {
 
+		# Comparison of product nutrition facts to other products of the same category
+
 		if ($tagid =~ /^en:nutrition-(very-)?high/) {
 			$html .= "<p>" . lang("value_for_the_product") . lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
 			. "<br>" . sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
 			. lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
 			. "</p>\n";
+		}
+
+		# Opportunities to improve the Nutri-Score by slightly changing the nutrients
+
+		if ($tagid =~ /^en:better-nutri-score/) {
+			# msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+			$html .= "<p>" . sprintf(lang("better_nutriscore"),
+				uc($product_ref->{improvements_data}{$tagid}{current_nutriscore_grade}),
+				uc($product_ref->{improvements_data}{$tagid}{new_nutriscore_grade}),
+				lc(lang("nutriscore_points_for_" . $product_ref->{improvements_data}{$tagid}{nutrient})),
+				$product_ref->{improvements_data}{$tagid}{current_value},
+				$product_ref->{improvements_data}{$tagid}{new_value},
+				sprintf("%d", $product_ref->{improvements_data}{$tagid}{difference_percent})) . "</p>";
 		}
 	}
 
