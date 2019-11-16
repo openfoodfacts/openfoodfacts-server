@@ -4086,7 +4086,7 @@ es:Cafés
 fi:kahvit
 fr:Cafés, Café
 hu:Kávék
-it:Caffè, Caffe
+it:Caffè, caffe
 nl:Koffies, Koffie
 pt:Cafés
 ru:Кофе
@@ -16983,7 +16983,7 @@ es:galleta
 eu:Gaileta
 fa:بیسکویت
 fi:keksit
-fr:biscuits, biscuit, biscuits sucrés, biscuit sucré
+fr:Biscuits, biscuit, biscuits sucrés, biscuit sucré
 ga:Briosca
 gd:Briosgaid
 gl:Galleta
@@ -21170,6 +21170,7 @@ fi:meijerituotteet
 fr:Produits laitiers, produit laitier, laitage, laitages, crèmerie, crèmeries
 hu:Tejtermékek, Tejtermék
 it:Latticini, pro
+it:Latticini
 nl:Zuivelproducten, Melkproducten, Zuivelproduct
 nl_be:Zuivelproducten
 pl:Nabiał, Produkty mleczne
@@ -21243,7 +21244,7 @@ ru:Кефир 3.2 %, Кефир 3.2%, Кефир с массовой долей 
 
 <en:Baby foods
 <en:Kefir
-en:Kefir for children, Kefir for babies
+en:Kefir for babies, Kefir for children
 de:Kefir für Babies
 fr:Kéfir pour bébés, Kéfir pour la nourriture pour bébés
 ro:Kefir pentru bebeluși
@@ -21945,6 +21946,18 @@ nl:Halloumi
 sv:Halloumi
 wikidata:en:Q549793
 country:en:Cyprus
+
+<en:Cow cheeses
+en:Havarti
+da:Havarti
+de:Havarti
+es:Queso havarti
+fi:Havarti
+fr:Havarti
+pl:Havarti
+ro:Havarti
+wikidata:en:Q1591487
+country:en:Denmark
 
 <en:Cheeses
 en:French cheeses, cheeses from France
@@ -23282,6 +23295,15 @@ nl:Manchego
 pt:Manchego, queijo manchego
 country:en:Spain
 wikidata:en:Q72305
+
+<en:Spanish cheeses
+<en:Cow cheeses
+en:Tetilla cheese
+de:Queso Tetilla
+es:Queso de tetilla
+fr:Queso Tetilla
+gl:Queixo de Tetilla
+wikidata:Q1244334
 
 <en:Spanish cheeses
 es:Afuega'l Pitu
@@ -33575,10 +33597,11 @@ fr:Brochettes, brochette
 nl:Spiesjes
 
 <en:Meals with meat
+<en:Lentil dishes
 en: Sausages with lentils, Sausage with lentils 
 de:Würstchen mit Linsen
 fi:linssimakkarat
-fr: Saucisses aux lentilles, saucisse aux lentilles, saucisses avec lentilles, saucisse avec lentilles, saucisses lentilles, saucisse lentilles
+fr:Saucisses aux lentilles, saucisse aux lentilles, saucisses avec lentilles, saucisse avec lentilles, saucisses lentilles, saucisse lentilles
 nl:Worst met linzen
 
 <en:Meals with meat
@@ -34722,6 +34745,7 @@ nl:Kant-en-klaar linzen
 #wikidata:en:
 
 <en:Meals with meat
+<en:Lentil dishes
 fr:Petits salés aux lentilles, petit salé aux lentilles
 
 <en:Meals
@@ -36613,7 +36637,7 @@ fr:Rillettes de la Sarthe
 <en:Prepared meats
 en:Sausages
 ca:Embotits
-de:Würste, wurst
+de:Würste, Wurst
 es:Salchichas
 fi:makkarat
 fr:Saucisses, saucisse
@@ -41872,6 +41896,7 @@ fr:Choux-fleurs en conserve
 nl:Bloemkool in blik
 
 <en:Canned vegetables
+<en:Celery
 en:Canned celery
 es:Apio en conserva
 fr:Céleri en conserve
@@ -42166,7 +42191,7 @@ nl:Wilde asperges
 
 <en:Asparagus
 <en:Fresh vegetables
-en:Fresh Asparagus
+en:Fresh asparagus
 es:Espárragos frescos
 fr:Asperges fraîches
 
@@ -42368,6 +42393,7 @@ la:Brassica oleracea var. botrytis
 nl:Bloemkolen
 
 <en:Cauliflowers
+<en:Fresh vegetables
 en:Fresh cauliflowers
 fr:Choux-fleurs frais
 
@@ -42380,6 +42406,11 @@ fr:Céleri, Céleris
 la:Apium graveolens
 nl:Selderij
 nl_be:Selderij
+
+<en:Celery
+<en:Fresh vegetables
+en:Fresh celery
+fr:Céleri frais
 
 
 # description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
