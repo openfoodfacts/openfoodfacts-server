@@ -80,8 +80,8 @@ jobs:
         sed -i -e 's|\/home\/off|'$BUILD_DIR'|g' $BUILD_DIR/lib/ProductOpener/Config2.pm
         # Ensure everything compiles
         perl -c -CS -Ilib lib/startup_apache2.pl
-        node compile_cgi.js cgi/*.pl
-        node compile_cgi.js scripts/*.pl
+        node check_perl.js cgi/*.pl
+        node check_perl.js scripts/*.pl
         # Rebuild taxonomies
         perl -CS -I$BUILD_DIR/lib $BUILD_DIR/scripts/build_lang.pl
         node refresh_taxonomies.js

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-09 10:01\n"
+"PO-Revision-Date: 2019-11-14 14:53\n"
 "Language-Team: Turkish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3777,47 +3777,47 @@ msgstr "Ürün fotoğraflarını içe aktar"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Birçok ürüne kolayca fotoğraf (ürün ön tarafı, içindekiler listesi ve besin değerleri tablosu) yüklemek için aşağıdaki formu kullanabilirsiniz."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Her dosya adının, ürünün barkodunu içermesi gerekmektedir."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "Ayrıca dosya adında fotoğrafın türünü de belirtebilirsiniz:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: geçerli dilde ürünün ön tarafı."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: Flemenkçe ürünün ön tarafı."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: Fransızca içindekiler listesi."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: İspanyolca besin değerleri tablosu."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Fotoğraf ekle..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Yüklemeye başla"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Başla"
 
 msgctxt "close"
 msgid "Close"
@@ -3825,13 +3825,115 @@ msgstr "Kapat"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Yüklemeyi iptal et"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Bilgi"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "Dosya alındı"
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr "Nutri-Score hesaplamasının detayı"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
+msgstr "Bu ürün, Nutri-Score hesaplaması için bir içecek olarak kabul edilmektedir."
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
+msgstr "Bu ürün, Nutri-Score hesaplaması için bir içecek olarak kabul edilmemektedir."
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "Pozitif puanlar"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "Negatif puanlar"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "Negatif puanlar 11'den az olduğu için proteinler için olan puanlar dahil edildi."
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "Negatif puanlar 11'e eşit veya fazla olduğu için proteinler için olan puanlar dahil edilmedi."
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "Meyve, sebze, kuruyemiş ve kolza/ceviz/zeytin yağı puanları maksimumda olduğu için proteinler için olan puanlar dahil edildi."
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "Ürün peynir kategorisinde olduğu için proteinler için olan puanlar dahil edildi."
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "Ürün yağ kategorisindedir, doymuş yağ puanları, doymuş yağ/yağ oranı puanları ile değiştirildi."
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "Enerji"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "Şeker"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "Doymuş yağ"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "Doymuş yağ / yağ oranı"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "Sodyum"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "Meyve, sebze, kuruyemiş ve kolza/ceviz/ zeytin yağı"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "Diyet lifi"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "Proteinler"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "değer"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "yuvarlanmış değer"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "Beslenme puanı"
+
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr "Open Food Facts %100 özgür ve bağımsızdır."
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr "Projeyi devam ettirmek ve büyütmek için <a href=\"\">yardımlarınıza ve bağışlarınıza ihtiyacımız var</a>."
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "Teşekkürler!"
 

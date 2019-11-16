@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: et\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-09 09:41\n"
+"PO-Revision-Date: 2019-11-14 14:04\n"
 "Language-Team: Estonian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3790,5 +3790,107 @@ msgstr ""
 
 msgctxt "file_received"
 msgid "File received"
+msgstr ""
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr ""
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr ""
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr ""
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr ""
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr ""
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr ""
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr ""
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr ""
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr ""
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr ""
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr ""
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr ""
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr ""
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr ""
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "Dietary fiber"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr ""
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr ""
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr ""
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr ""
+
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr ""
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr ""
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr ""
+
+msgctxt "thank_you"
+msgid "Thank you!"
 msgstr ""
 

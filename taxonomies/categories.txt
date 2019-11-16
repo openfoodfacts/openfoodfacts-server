@@ -4086,7 +4086,7 @@ es:Cafés
 fi:kahvit
 fr:Cafés, Café
 hu:Kávék
-it:Caffè
+it:Caffè, Caffe
 nl:Koffies, Koffie
 pt:Cafés
 ru:Кофе
@@ -16967,7 +16967,7 @@ pnns_group_2:en:Biscuits and cakes
 # <en:compound
 <en:Sugary snacks
 <en:Biscuits and cakes
-en:biscuits, biscuit
+en:Biscuits, biscuit
 ar:بسكويت
 az:Biskvit
 bg:Бисквита
@@ -16994,7 +16994,7 @@ hy:բիսկվիտ
 id:Biskuit
 io:Bisquito
 is:Kex
-it:biscotti, Biscotto
+it:Biscotti, biscotto
 ja:ビスケット
 ko:비스킷
 ku:Hindok
@@ -17552,11 +17552,18 @@ nl:Platte broden, Flat breads
 wikidata:en:Q666242
 
 <en:Breads
+en:Rusk, rusks
+it:Fette biscottate
+fr:Biscotte
+wikidata:en:Q5477096
+
+<en:Breads
 en:Rye breads
 de:Roggenbrote
 es:Panes de centeno, Pan de centeno
 fi:ruisleivät
 fr:Pains de seigle, Pains au seigle, Pain au seigle
+it:Pane di segale, pane nero
 nl:Roggebroden, Roggebrood
 ro:Pâine de secară, Pâine cu faină de secară
 ru:Ржаной хлеб, хлеб ржаной, чёрный хлеб
@@ -20092,7 +20099,7 @@ es:Cereales y derivados, Cereales y sus productos, Cereales
 fi:Viljat ja viljatuotteet
 fr:Céréales et dérivés, Céréales
 hu:Gabonafélék és azok termékei
-it:Cereali e i loro prodotti
+it:Cereali e i loro prodotti, Cereali
 nl:Granen en graanproducten
 pl:Zboża i produkty zbożowe, zboża
 pt:Cereais e seus produtos
@@ -20878,7 +20885,7 @@ es:Patatas fritas
 fi:sipsit ja ranskalaiset perunat
 fr:Chips et frites
 hu:Chips és krumpli
-it:Patatine
+it:Patatine e fritti
 nl:Chips en patat
 pl:Chipsy i frytki
 pt:Batatas fritas
@@ -20894,6 +20901,7 @@ es:Chips fritos, papas fritas
 fi:sipsit
 fr:Chips, Chips de légumes
 hu:Csipszek
+it:Patatine sottili, Patatine imbustate, Patatine croccanti
 nl:Chips
 pl:Chips, Crisps
 pt:Batatas fritas
@@ -20907,8 +20915,9 @@ fr:Cake aux legumes
 <en:Salty snacks
 en:Tapas
 de:Tapas
-fi:tapas
+fi:Tapas
 fr:Tapas
+it:Tapas
 nl:Tapas
 pnns_group_2:en:Appetizers
 
@@ -21138,7 +21147,7 @@ en:Fries
 de:Pommes Frites
 fi:ranskalaiset
 fr:Frites
-it:Patatine fritte
+it:Patatine fritte, Patatine a bastoncino
 nl:Friet
 zh:薯条
 
@@ -21160,7 +21169,7 @@ es:Lácteos, Productos lácteos
 fi:meijerituotteet
 fr:Produits laitiers, produit laitier, laitage, laitages, crèmerie, crèmeries
 hu:Tejtermékek, Tejtermék
-it:Latticini
+it:Latticini, pro
 nl:Zuivelproducten, Melkproducten, Zuivelproduct
 nl_be:Zuivelproducten
 pl:Nabiał, Produkty mleczne
@@ -21234,6 +21243,7 @@ ru:Кефир 3.2 %, Кефир 3.2%, Кефир с массовой долей 
 
 <en:Baby foods
 <en:Kefir
+en:Kefir for children, Kefir for babies
 de:Kefir für Babies
 fr:Kéfir pour bébés, Kéfir pour la nourriture pour bébés
 ro:Kefir pentru bebeluși
@@ -22241,10 +22251,16 @@ oqali_family:en: fr:Fromages - Cancoillotte
 en:Cream cheeses
 ca:Formatges cremosos
 de:Frischkäse
-es:Queso fresco
 fi:kermajuustot
-fr:Fromages à pâte fraîche, Fromage frais
+it:Formaggi spalmabili, Formaggio spalmabile
 nl:Verse kazen
+wikidata:en:Q426337
+
+<en:Cheeses
+en:Fresh cheeses
+es:Queso fresco
+fr:Fromages à pâte fraîche, Fromage frais
+it:Formaggi freschi
 wikidata:en:Q3323634
 
 <en:Cream cheeses
@@ -28906,7 +28922,7 @@ es:Congelados, Productos congelados
 fi:pakasteet
 fr:Surgelés, surgelées
 hu:Fagyasztott élelmiszer, Mirelit árú
-it:Cibi congelati
+it:Alimenti surgelati, cibi congelati, surgelati
 nl:Diepvries, Diepvriesproducten
 pl:Produkty mrożone, Mrożonki
 pt:Alimentos Congelados, Congelados
@@ -36597,12 +36613,12 @@ fr:Rillettes de la Sarthe
 <en:Prepared meats
 en:Sausages
 ca:Embotits
-de:Würste, Wurst
+de:Würste, wurst
 es:Salchichas
 fi:makkarat
-fr:Saucisses, Saucisse
+fr:Saucisses, saucisse
 hu:Kolbász
-it:Salsicce
+it:Salsicce, wurstel
 nl:Worsten
 pl:Parówki, kiełbaski
 pt:Salsichas
