@@ -8004,15 +8004,6 @@ HTML
 				if ($ingredients_classes{$class}{$tagid}{level} > 0) {
 					$info = ' class="additives_' . $ingredients_classes{$class}{$tagid}{level} . '" title="' . $ingredients_classes{$class}{$tagid}{warning} . '" ';
 				}
-
-				my $tagtype = $class;
-				if ((defined $tags_levels{$lc}{$tagtype}) and (defined $tags_levels{$lc}{$tagtype}{$tagid})) {
-					$info = ' class="level_' . $tags_levels{$lc}{$tagtype}{$tagid} . '" ';
-					my %colors = ( 3 => 'red', 2 => 'darkorange', 1 => 'green' );
-					if ($tags_levels{$lc}{$tagtype}{$tagid} > 0) {
-						$info .= ' style="color:' . $colors{$tags_levels{$lc}{$tagtype}{$tagid} + 0} . '" ';
-					}
-				}
 			}
 
 			$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
