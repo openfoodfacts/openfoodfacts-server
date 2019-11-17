@@ -476,7 +476,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			delete $product_ref->{nutriments}{"energy_prepared_serving"};
 		}
 		# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
-		elsif (($nid eq "energy") and (($unit eq "kJ") or ($unit eq "kcal"))) {
+		elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
 			$nid = $nid . "-" . lc($unit);
 			$nidp = $nid . "_prepared";
 			$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
@@ -1747,6 +1747,9 @@ HTML
 		$nid =~ s/-$//g;
 
 		next if $nid =~ /^nutrition-score/;
+
+		# Do not display the energy field without a unit, display energy-kcal or energy-kj instead
+		next if $nid eq "energy";
 
 		my $class = 'main';
 		my $prefix = '';
