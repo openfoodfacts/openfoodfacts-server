@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-15 17:12\n"
+"PO-Revision-Date: 2019-11-17 12:05\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3845,12 +3845,12 @@ msgid "Detail of the calculation of the Nutri-Score"
 msgstr "Detail zur Berechnung des Nutri-Scores"
 
 msgctxt "nutriscore_is_beverage"
-msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
-msgstr "Dieses Produkt gilt als Getränk zur Berechnung des Nutri-Score."
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr ""
 
 msgctxt "nutriscore_is_not_beverage"
-msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
-msgstr "Dieses Produkt gilt nicht als Getränk für die Berechnung des Nutri-Scores."
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr ""
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -3924,7 +3924,18 @@ msgctxt "nutriscore_score"
 msgid "Nutritional score"
 msgstr "Nährstofftabelle"
 
+# Do not translate
 msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr ""
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
@@ -3941,4 +3952,18 @@ msgstr "<a href=\"\">Wir benötigen Ihre Hilfe und Spenden</a>, um das Projekt f
 msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Vielen Dank!"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr ""
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr ""
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr ""
 
