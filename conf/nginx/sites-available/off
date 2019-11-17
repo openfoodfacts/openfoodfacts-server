@@ -258,6 +258,9 @@ server {
         location = /dar-a-open-food-facts {
                 try_files /donate/es.html =404;
         }
+        location = /haz-su-donacion-a-open-food-facts {
+                try_files /donate/es.html =404;
+        }
         
 
 
