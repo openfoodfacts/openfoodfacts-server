@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-15 08:02\n"
+"PO-Revision-Date: 2019-11-17 12:04\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3823,7 +3823,7 @@ msgstr "Ajouter des photos..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr "Commencer le téléversement"
+msgstr "Commencer l'envoi"
 
 msgctxt "start"
 msgid "Start"
@@ -3835,7 +3835,7 @@ msgstr "Fermer"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr "Téléversement annulé"
+msgstr "Annuler l'envoi"
 
 msgctxt "info"
 msgid "Info"
@@ -3850,11 +3850,11 @@ msgid "Detail of the calculation of the Nutri-Score"
 msgstr "Détail du calcul du Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
-msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
-msgstr "Ce product est considéré comme une boisson pour le calcul du Nutri-Score."
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "Ce produit est considéré comme une boisson pour le calcul du Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
-msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
 msgstr "Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
@@ -3929,7 +3929,18 @@ msgctxt "nutriscore_score"
 msgid "Nutritional score"
 msgstr "Score nutritionnel"
 
+# Do not translate
 msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "Score Nutri-Score"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
@@ -3946,4 +3957,18 @@ msgstr "<a href=\"\">Nous avons besoin de votre aide et de vos dons</a> pour con
 msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Merci !"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "Valeur pour le produit"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "Valeur moyenne pour la catégorie %s"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "Le Nutri-Score peut passer de %s à %s en changeant la valeur %s de %s à %s (différence de %s pour cent)."
 
