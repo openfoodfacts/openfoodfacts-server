@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 22:01\n"
+"PO-Revision-Date: 2019-11-17 22:11\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1456,7 +1456,7 @@ msgstr "Termékek száma"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr "%s %s"
+msgstr "%s / %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -3758,11 +3758,11 @@ msgstr ""
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "Ez a táblázat felsorolja a táplálékminőség, a Nutri-Score és az élelmiszer összetétel javításának lehetőségeit."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "A releváns eredmények elérése érdekében kérjük, győződjön meg arról, hogy a termékadatok teljesek (a tápérték táblázat rost értékkel, és gyümölcsök, zöldségek a Nutri-Score számításhoz, valamint pontos kategorizálás a hasonló termékekkel való összehasonlításhoz)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3771,7 +3771,7 @@ msgstr ""
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Az alábbi űrlapot használhatja fényképek (termékfotó, összetevők listája, tápérték táblázat) egyszerű feltöltésére több termékről."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
