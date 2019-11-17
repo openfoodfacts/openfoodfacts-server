@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 22:11\n"
+"PO-Revision-Date: 2019-11-17 22:21\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1505,7 +1505,7 @@ msgstr "%s kategória %d termékének átlagos tápértékadatai, ahol a tápér
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "% különbség"
+msgstr "% eltérés"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -3843,31 +3843,31 @@ msgstr "A Nutri-Score számításnál a terméket nem tekintettük italnak."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Pozitív pontok"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Negatív pontok"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "A fehérjékre vonatkozó pontok beleszámítanak, mert a negatív pontok 11-nél kevesebbek."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "A fehérjékre vonatkozó pontok nem számítanak bele, mert a negatív pontok száma legalább 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "A fehérjékre vonatkozó pontok beleszámítanak, mert a gyümölcsök, zöldségek, csonthéjasok és repce/dió/olívaolaj pontszáma maximális."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "A fehérjékre vonatkozó pontok beleszámítanak, mert a termék szerepel a sajtok kategóriában."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "A termék a zsírok kategóriába tartozik, ezért a telített zsírok pontjai helyett a telített zsír - zsír aránnyal számolunk."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3883,7 +3883,7 @@ msgstr "Telített zsír"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Telített zsír - zsír arány"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3891,7 +3891,7 @@ msgstr "Nátrium"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Gyümölcsök, zöldségek, csonthéjasok és repce/dió/olívaolaj"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3899,7 +3899,7 @@ msgstr "Élelmi rost"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
-msgstr "Fehérje"
+msgstr "Fehérjék"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
@@ -3907,7 +3907,7 @@ msgstr "érték"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "kerekített érték"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
