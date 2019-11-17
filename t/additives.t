@@ -1238,10 +1238,10 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
-          'en:e322',
+          'en:e322i',
           'en:e422',
           'en:e330',
-          'en:e440',
+          'en:e440i',
           'en:e331',
           'en:e500',
           'en:e503',
