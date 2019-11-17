@@ -26,11 +26,20 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Producers qw/:all/;
 
+use Log::Any qw($log);
+use Log::Log4perl;
+Log::Log4perl->init("$data_root/minion_log.conf"); # Init log4perl from a config file.
+use Log::Any::Adapter;
+Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
+
 use Mojolicious::Lite;
 
 use Minion;
 
 # Minion backend
+
+$log->info("starting minion producers workers", { minion_backend => $server_options{minion_backend} }) if $log->is_info();
+
 
 if (not defined $server_options{minion_backend}) {
 
@@ -53,3 +62,5 @@ app->config(
 );
 
 app->start;
+
+$log->info("minion producers workers stopped", { minion_backend => $server_options{minion_backend} }) if $log->is_info();
