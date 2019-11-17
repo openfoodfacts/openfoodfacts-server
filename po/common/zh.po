@@ -68,7 +68,7 @@ msgstr "你好 <NAME>，\n"
 "这是你的用户名：\n\n"
 "用户名：<USERID>\n\n"
 "您现在可以登陆至网站添加和编辑产品。\n\n"
-"<site_name> 是一个合作项目，你可以带来更多的新产品：你的精力，热情和想法！\n"
+"<<site_name>>是一个合作项目，你可以带来更多的新产品：你的精力，热情和想法！\n"
 "为了在贡献者之间进行讨论并使项目继续下去，我们使用一个非常方便的消息系统叫做 Slack：https://slack.openfoodfacts.org\n\n"
 "您也可以加入 Facebook 贡献者小组：\n"
 "https://www.facebook.com/groups/OpenFoodFacts/\n\n"
@@ -159,7 +159,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>本产品尚未在<site_name>数据库中。 你可以把产品，条形码，成分列表和营养成分的照片添加到<a href=\"https://world.openfoodfacts.org\" target=\"_blank\">\n"
+msgstr "<p>本产品尚未在<<site_name>>数据库中。 你可以把产品，条形码，成分列表和营养成分的照片添加到<a href=\"https://world.openfoodfacts.org\" target=\"_blank\">\n"
 "<p>预先感谢！</p>\n"
 " \n"
 
@@ -2367,7 +2367,7 @@ msgstr "是一个免费开放的合作数据库，包含世界各地食品的营
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "查找食品"
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
