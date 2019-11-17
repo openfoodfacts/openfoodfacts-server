@@ -784,10 +784,13 @@ sub import_csv_file($) {
 							$differing_fields{$field}++;
 
 							$product_ref->{$field} = $new_field_value;
-							push @modified_fields, $field;
-							$modified++;
 
-							$stats{products_info_changed}{$code} = 1;
+							# do not count the import id as a change
+							if ($field ne "imports") {
+								push @modified_fields, $field;
+								$modified++;
+								$stats{products_info_changed}{$code} = 1;
+							}
 						}
 						elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
 							# normalize quantity
@@ -802,9 +805,13 @@ sub import_csv_file($) {
 					else {
 						$log->debug("setting previously unexisting value for field", { field => $field, new_value => $new_field_value }) if $log->is_debug();
 						$product_ref->{$field} = $new_field_value;
-						push @modified_fields, $field;
-						$modified++;
-						$stats{products_info_added}{$code} = 1;
+
+						# do not count the import id as a change
+						if ($field ne "imports") {
+							push @modified_fields, $field;
+							$modified++;
+							$stats{products_info_added}{$code} = 1;
+						}
 					}
 				}
 			}
