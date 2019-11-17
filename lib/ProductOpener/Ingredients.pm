@@ -591,11 +591,8 @@ sub extract_ingredients_from_text($) {
 	}
 
 	my $analyze_ingredients = sub($$$$$) {
-		my $analyze_ingredients_self = shift;
-		my $ranked_ingredients_ref = shift;
-		my $unranked_ingredients_ref = shift;
-		my $level = shift;
-		my $s = shift;
+
+		my ($analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref, $level, $s) = @_;
 
 		# print STDERR "analyze_ingredients level $level: $s\n";
 
@@ -2860,7 +2857,8 @@ sub extract_ingredients_classes_from_text($) {
 
 					# spellcheck
 					my $spellcheck = 0;
-					if ((not $match) and ($tagtype eq 'additives')
+					# 2019/11/10 - disable spellcheck of additives, as it is much too slow and make way too many calls to functions
+					if (0 and (not $match) and ($tagtype eq 'additives')
 						and not $match_without_mandatory_class
 						# do not correct words that are existing ingredients in the taxonomy
 						and (not exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient_id_copy) ) ) ) {
