@@ -656,6 +656,7 @@ sub import_csv_file($) {
 						my $tagid;
 
 						next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
+						next if $tag =~ /^\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no)\s*$/i;
 
 						$tag =~ s/^\s+//;
 						$tag =~ s/\s+$//;

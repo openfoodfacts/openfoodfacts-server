@@ -551,6 +551,10 @@ sub check_nutrition_data($) {
 
 		my $total = 0;
 
+		if ((defined $product_ref->{nutriments}{"energy-kcal_value"}) and (defined $product_ref->{nutriments}{"energy-kj_value"})
+			and ($product_ref->{nutriments}{"energy-kcal_value"} > $product_ref->{nutriments}{"energy-kj_value"})) {
+			push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
+		}
 
 		foreach my $nid (keys %{$product_ref->{nutriments}}) {
 			$log->debug("nid: " . $nid . ": " . $product_ref->{nutriments}{$nid} ) if $log->is_debug();
@@ -994,6 +998,32 @@ sub compare_nutriscore_computations($) {
 }
 
 
+sub compare_nutriscore_with_value_from_producer($) {
+
+	my $product_ref = shift;
+
+	if ((defined $product_ref->{nutriscore_score}) and (defined $product_ref->{nutriscore_score_producer}
+		and ($product_ref->{nutriscore_score} ne lc($product_ref->{nutriscore_score_producer})))) {
+		push @{$product_ref->{data_quality_warnings_tags}}, "en:nutri-score-score-from-producer-does-not-match-calculated-score";
+	}
+
+	if ((defined $product_ref->{nutriscore_grade}) and (defined $product_ref->{nutriscore_grade_producer}
+		and ($product_ref->{nutriscore_grade} ne lc($product_ref->{nutriscore_grade_producer})))) {
+		push @{$product_ref->{data_quality_warnings_tags}}, "en:nutri-score-grade-from-producer-does-not-match-calculated-grade";
+	}
+
+	if (defined $product_ref->{nutriscore_grade}) {
+
+		foreach my $grade ("a", "b", "c", "d", "e") {
+
+			if (has_tag($product_ref, "labels", "en:nutriscore-grade-$grade") and (lc($product_ref->{nutriscore_grade}) ne $grade)) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutri-score-grade-from-label-does-not-match-calculated-grade";
+			}
+		}
+	}
+}
+
+
 =head2 check_quality_food( PRODUCT_REF )
 
 Run all quality checks defined in the module.
@@ -1013,6 +1043,7 @@ sub check_quality_food($) {
 	detect_categories($product_ref);
 	check_categories($product_ref);
 	compare_nutriscore_computations($product_ref);
+	compare_nutriscore_with_value_from_producer($product_ref);
 }
 
 1;

@@ -162,7 +162,13 @@ sub default_unit_for_nid($) {
 
 	my $nid = shift;
 
-	if ($nid eq "energy") {
+	if ($nid eq "energy-kj") {
+		return "kJ";
+	}
+	elsif ($nid eq "energy-kcal") {
+		return "kcal";
+	}
+	elsif ($nid eq "energy") {
 		return "kJ";
 	}
 	elsif ($nid eq "alcohol") {
@@ -375,7 +381,9 @@ sub mmoll_to_unit {
 
 %nutriments_tables = (
 	europe => [(
-		'!energy',
+		'!energy-kj',
+		'!energy-kcal',
+		'energy-',
 		'-energy-from-fat-',
 		'!fat',
 		'-saturated-fat',
@@ -486,7 +494,8 @@ sub mmoll_to_unit {
 		'carnitine-',
 	)],
 	ca => [(
-		'!energy',
+		'!energy-kcal',
+		'energy-',
 		'!fat',
 		'-saturated-fat',
 		'--butyric-acid-',
@@ -709,7 +718,8 @@ sub mmoll_to_unit {
 		'carnitine-',
 	)],
 	us => [(
-		'!energy',
+		'!energy-kcal',
+		'energy-',
 		'-energy-from-fat-',
 		'!fat',
 		'-saturated-fat',
@@ -1019,6 +1029,88 @@ sub mmoll_to_unit {
 		unit_us => "kcal",
 		unit_ca => "kcal",
 	},
+	"energy-kj"	=> {
+		ar => "الطاقه (kJ)",
+		bg => "Енергийна стойност (kJ)",
+		cs => "Energetická hodnota (kJ)",
+		da => "Energi (kJ)",
+		de => "Energie (kJ)",
+		el => "Ενέργεια (kJ)",
+		en => "Energy (kJ)",
+		es => "Energía (kJ)",
+		et => "Energia (kJ)",
+		fa => "انرژی (kJ)",
+		fi => "Energiav (kJ)",
+		fr => "Énergie (kJ)",
+		fr_synonyms => ["valeurs énergétique (kJ)", "valeur énergétique (kJ)"],
+		ga => "Fuinneamh (kJ)",
+		he => "אנרגיה - קלוריות (kJ)",
+		hu => "Energia (kJ)",
+		it => "Energia (kJ)",
+		lt => "Energinė vertė (kJ)",
+		ja => "エネルギー (kJ)",
+		lv => "Enerģētiskā vērtība (kJ)",
+		mt => "Enerġija (kJ)",
+		nb => "Energi (kJ)",
+		nl => "Energie (kJ)",
+		nl_be => "Energie (kJ)",
+		pt => "Energia (kJ)",
+		pl => "Wartość energetyczna (kJ)",
+		ro => "Valoarea energetică (kJ)",
+		rs => "Energetska vrednost (kJ)",
+		ru => "Энергетическая ценность (kJ)",
+		sl => "Energijska vrednost (kJ)",
+		sk => "Energetická hodnota (kJ)",
+		sv => "Energi (kJ)",
+		tr => "Enerji (kJ)",
+		zh => "能量 (kJ)",
+		zh_CN => "能量 (kJ)",
+		zh_HK => "能量 (kJ)",
+		zh_TW => "能量 (kJ)",
+
+		unit => "kj",
+	},
+	"energy-kcal"	=> {
+		ar => "الطاقه (kcal)",
+		bg => "Енергийна стойност (kcal)",
+		cs => "Energetická hodnota (kcal)",
+		da => "Energi (kcal)",
+		de => "Energie (kcal)",
+		el => "Ενέργεια (kcal)",
+		en => "Energy (kcal)",
+		es => "Energía (kcal)",
+		et => "Energia (kcal)",
+		fa => "انرژی (kcal)",
+		fi => "Energiav (kcal)",
+		fr => "Énergie (kcal)",
+		fr_synonyms => ["valeurs énergétique (kcal)", "valeur énergétique (kcal)"],
+		ga => "Fuinneamh (kcal)",
+		he => "אנרגיה - קלוריות (kcal)",
+		hu => "Energia (kcal)",
+		it => "Energia (kcal)",
+		lt => "Energinė vertė (kcal)",
+		ja => "エネルギー (kcal)",
+		lv => "Enerģētiskā vērtība (kcal)",
+		mt => "Enerġija (kcal)",
+		nb => "Energi (kcal)",
+		nl => "Energie (kcal)",
+		nl_be => "Energie (kcal)",
+		pt => "Energia (kcal)",
+		pl => "Wartość energetyczna (kcal)",
+		ro => "Valoarea energetică (kcal)",
+		rs => "Energetska vrednost (kcal)",
+		ru => "Энергетическая ценность (kcal)",
+		sl => "Energijska vrednost (kcal)",
+		sk => "Energetická hodnota (kcal)",
+		sv => "Energi (kcal)",
+		tr => "Enerji (kcal)",
+		zh => "能量 (kcal)",
+		zh_CN => "能量 (kcal)",
+		zh_HK => "能量 (kcal)",
+		zh_TW => "能量 (kcal)",
+
+		unit => "kcal",
+	},
 	"energy-from-fat" => {
 		cs => "Energie z tuku",
 		de => "Brennwert aus Fetten",
@@ -1051,7 +1143,7 @@ sub mmoll_to_unit {
 		fa => "ﭘﺮﻭﺗﺌ‍ین",
 		fi => "Proteiini",
 		fr => "Protéines",
-		fr_synonyms => ["Protéine brute"],
+		fr_synonyms => ["Protéine", "Protéine brute"],
 		ga => "Próitéin",
 		he => "חלבונים",
 		hu => "Fehérje",
@@ -1178,7 +1270,8 @@ sub mmoll_to_unit {
 		da => "Kulhydrat",
 		de => "Kohlenhydrate",
 		el => "Υδατάνθρακες",
-		en => "Carbohydrate",
+		en => "Carbohydrates",
+		en_synonyms => ["carbohydrate"],
 		es => "Hidratos de carbono",
 		es_synonyms => ["Glúcidos"],
 		et => "Süsivesikud",
@@ -2150,8 +2243,8 @@ sub mmoll_to_unit {
 		unit => "mg",
 	},
 	fiber => {
-		en => "Dietary fiber",
-		en_synonyms => ["Fiber"],
+		en => "Fibers",
+		en_synonyms => ["Dietary fiber", "Fiber", "fibers", "dietary fibers"],
 		bg => "Влакнини",
 		cs => "Vláknina",
 		da => "Kostfibre",
@@ -3297,9 +3390,9 @@ sub mmoll_to_unit {
 	},
 	"fruits-vegetables-nuts" => {
 		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils",
-		en_synonyms => ["Fruits, vegetables and nuts", "Fruits, vegetables, nuts"],
+		en_synonyms => ["Fruits and vegetables", "Fruits, vegetables and nuts", "Fruits, vegetables, nuts"],
 		fr => "Fruits, légumes, noix et huiles de colza, noix et olive",
-		fr_synonyms => ["Fruits, légumes et noix", "Fruits, légumes, noix"],
+		fr_synonyms => ["Fruits et légumes", "Fruits / légumes", "F&L", "Fruits, légumes et noix", "Fruits, légumes, noix"],
 		es => "Frutas, verduras y nueces",
 		el => "Φρούτα, λαχανικά, καρποί",
 		nl => "Fruit, groenten en noten",
@@ -4518,6 +4611,8 @@ sub compute_nutriscore($) {
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 	delete $product_ref->{nutriscore_score};
 	delete $product_ref->{nutriscore_grade};
+	delete $product_ref->{nutriscore_data};
+	delete $product_ref->{nutriscore_points};
 
 	defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 
@@ -4820,7 +4915,38 @@ sub compute_serving_size_data($) {
 	#	$product_ref->{nutriments}{'energy.unit'} = 'kj';
 	#}
 
+
 	foreach my $product_type ("", "_prepared") {
+
+		# Energy
+		# Before November 2019, we only had one energy field with an input value in kJ or in kcal, and internally it was converted to kJ
+		# In Europe, the energy is indicated in both kJ and kcal, but there isn't a straightforward conversion between the 2: the energy is computed
+		# by summing some nutrients multiplied by an energy factor. That means we need to store both the kJ and kcal values.
+		# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
+
+		# If we have a value for energy-kj, use it for energy
+		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type}) {
+			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"});
+		}
+		# Otherwise use the energy-kcal value for energy
+		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type }) {
+			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});		}
+		# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
+		elsif ((defined $product_ref->{nutriments}{"energy" . $product_type . "_value"}) and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"})) {
+
+			my $unit = lc($product_ref->{nutriments}{"energy" . $product_type . "_unit"});
+
+			assign_nid_modifier_value_and_unit($product_ref, "energy-$unit" . $product_type,
+				$product_ref->{nutriments}{"energy" . $product_type . "_modifier"},
+				$product_ref->{nutriments}{"energy" . $product_type . "_value"},
+				$product_ref->{nutriments}{"energy" . $product_type . "_unit"});
+		}
 
 		if (not defined $product_ref->{"nutrition_data" . $product_type . "_per"}) {
 			$product_ref->{"nutrition_data" . $product_type . "_per"} = '100g';
@@ -4908,9 +5034,7 @@ sub compute_serving_size_data($) {
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
 		}
-
 	}
-
 }
 
 
