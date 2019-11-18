@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:06\n"
+"PO-Revision-Date: 2019-11-17 22:51\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -158,7 +158,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Ez a termék jelenleg nem szerepel a(z) <<site_name>> adatbázisában. Tudna készíteni néhány képet a termékről, a termék vonalkódjáról, az összetevők listájáról és a tápértékadatokról, hogy azok elérhetőek legyenek a(z) <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>-on?</p>\n"
+msgstr "<p>Ez a termék jelenleg nem szerepel az <<site_name>> adatbázisában. Tudna készíteni néhány képet a termékről, a termék vonalkódjáról, az összetevők listájáról és a tápértékadatokról, hogy azok elérhetőek legyenek az <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>-on?</p>\n"
 "<p>Előre is köszönjük!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -243,7 +243,7 @@ msgstr "Szardínia olívaolajban, Narancslé sűrítményből, Sajtkrém, Gyüm�
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "Csak a legpontosabb alkategóriát add meg. A szülőkategóriák automatikusan hozzá lesznek adva."
+msgstr "Csak a legpontosabb alkategóriát adja meg. A szülőkategóriák automatikusan hozzá lesznek adva."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -1456,7 +1456,7 @@ msgstr "Termékek száma"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr "%s %s"
+msgstr "%s / %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -1465,7 +1465,7 @@ msgstr "Átlagos tápérték 100 g termékben"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/nutrient-levels"
+msgstr "/tápanyag-szintek"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1505,7 +1505,7 @@ msgstr "%s kategória %d termékének átlagos tápértékadatai, ahol a tápér
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "% különbség"
+msgstr "% eltérés"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -2335,7 +2335,7 @@ msgstr "60 g, 12 uncia, 20 cl, 2 uncia (folyadék)"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "Ha a tápérték táblázat tartalmaz értékeket a feldolgozott termékről, tüntesse fel a feldolgozott termék tálalási adag méretét (beleértve a hozzáadott vizet és tejet)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -3208,11 +3208,11 @@ msgstr ""
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "Csak a nem függő fordítások megjelenítése."
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "Ön, vagy más felhasználók függőben lévő fordításait tartalmazó bejezések megjelenítése."
 
 msgctxt "translated"
 msgid "translated"
@@ -3240,7 +3240,7 @@ msgstr "Kihagyás"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "népszerűség"
 
 msgctxt "popularity_p"
 msgid "popularity"
@@ -3304,19 +3304,19 @@ msgstr ""
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
 msgid "Upload a file with product data"
-msgstr ""
+msgstr "Termékadatokat tartalmazó fájl feltöltése"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "Fájl feltöltve."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "A fájlt nem sikerült feltölteni."
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "Adatok kiválasztása és importálása"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
@@ -3336,11 +3336,11 @@ msgstr ""
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Termék azonosítása"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Eredet"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3352,7 +3352,7 @@ msgstr "Tápértékadatok"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Opcionális tápérték táblázat"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3360,23 +3360,23 @@ msgstr "Egyéb információk"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "Termékfotók"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
-msgstr ""
+msgstr "Link az első oldali termékfotóhoz"
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
-msgstr ""
+msgstr "Link az összetevő lista fotóhoz"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "Hivatkozás a tápérték táblázat fotóra"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
-msgstr ""
+msgstr "Link további termékfotóhoz"
 
 msgctxt "labels_specific"
 msgid "Specific label"
@@ -3388,7 +3388,7 @@ msgstr ""
 
 msgctxt "select_a_field"
 msgid "Select a field"
-msgstr ""
+msgstr "Válasszon egy mezőt"
 
 msgctxt "specify"
 msgid "Specify"
@@ -3758,11 +3758,11 @@ msgstr ""
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "Ez a táblázat felsorolja a táplálékminőség, a Nutri-Score és az élelmiszer összetétel javításának lehetőségeit."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "A releváns eredmények elérése érdekében kérjük, győződjön meg arról, hogy a termékadatok teljesek (a tápérték táblázat rost értékkel, és gyümölcsök, zöldségek a Nutri-Score számításhoz, valamint pontos kategorizálás a hasonló termékekkel való összehasonlításhoz)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3771,7 +3771,7 @@ msgstr ""
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Az alábbi űrlapot használhatja fényképek (termékfotó, összetevők listája, tápérték táblázat) egyszerű feltöltésére több termékről."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
@@ -3799,7 +3799,7 @@ msgstr ""
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: tápérték táblázat spanyolul."
 
 msgctxt "add_photos"
 msgid "Add photos..."
@@ -3831,43 +3831,43 @@ msgstr ""
 
 msgctxt "nutriscore_calculation_detail"
 msgid "Detail of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "A Nutri-Score kiszámításának részletei"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "A Nutri-Score számításnál a terméket italnak tekintettük."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "A Nutri-Score számításnál a terméket nem tekintettük italnak."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Pozitív pontok"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Negatív pontok"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "A fehérjékre vonatkozó pontok beleszámítanak, mert a negatív pontok 11-nél kevesebbek."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "A fehérjékre vonatkozó pontok nem számítanak bele, mert a negatív pontok száma legalább 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "A fehérjékre vonatkozó pontok beleszámítanak, mert a gyümölcsök, zöldségek, csonthéjasok és repce/dió/olívaolaj pontszáma maximális."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "A fehérjékre vonatkozó pontok beleszámítanak, mert a termék szerepel a sajtok kategóriában."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "A termék a zsírok kategóriába tartozik, ezért a telített zsírok pontjai helyett a telített zsír - zsír aránnyal számolunk."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3883,7 +3883,7 @@ msgstr "Telített zsír"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Telített zsír - zsír arány"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3891,7 +3891,7 @@ msgstr "Nátrium"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Gyümölcsök, zöldségek, csonthéjasok és repce/dió/olívaolaj"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3899,7 +3899,7 @@ msgstr "Élelmi rost"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
-msgstr "Fehérje"
+msgstr "Fehérjék"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
@@ -3907,26 +3907,26 @@ msgstr "érték"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "kerekített érték"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Tápanyag pontszám"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Nutri-Score pontszám"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
