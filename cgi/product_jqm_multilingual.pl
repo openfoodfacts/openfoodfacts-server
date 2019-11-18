@@ -384,7 +384,7 @@ else {
 				delete $product_ref->{nutriments}{"energy_100g"};
 			}
 			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
-			elsif (($nid eq "energy") and (($unit eq "kJ") or ($unit eq "kcal"))) {
+			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
 				$nid = $nid . "-" . lc($unit);
 				$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
 			}
