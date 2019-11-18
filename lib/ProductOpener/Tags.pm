@@ -2142,7 +2142,7 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 		$display_tag = $';
 	}
 
-	my $tagurlid = get_string_id_for_lang($display_lc_prefix, $display_tag);
+	my $tagurlid = get_string_id_for_lang($display_lc, $display_tag);
 	if ($tagurlid =~ /[^a-zA-Z0-9-]/) {
 		$tagurlid = URI::Escape::XS::encodeURIComponent($display_tag);
 	}
