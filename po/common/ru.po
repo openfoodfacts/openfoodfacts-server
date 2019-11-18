@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-14 14:20\n"
+"PO-Revision-Date: 2019-11-17 16:32\n"
 "Language-Team: Russian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -195,7 +195,7 @@ msgstr "Вы также можете помочь финансировать п�
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> создан некоммерческой ассоциацией, независимой от отрасли. Это сделано для всех, всеми, и это финансируется всеми. Вы можете поддержать нашу работу, сделав <a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\">пожертвований на Open Food Facts</a> а также <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">используя поисковую систему Lilo</a>.<br/><b>Спасибо!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -423,7 +423,7 @@ msgstr "Пожертвовать Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -682,7 +682,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Данные, API и SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -1399,7 +1399,7 @@ msgstr "Переместить изображения в другой проду
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s продуктов"
 
 msgctxt "name"
 msgid "Name"
@@ -3390,11 +3390,11 @@ msgstr "Ссылка на другие фото продукта"
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "Конкретная этикетка"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "Конкретная категория"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3402,7 +3402,7 @@ msgstr "Выберите поле"
 
 msgctxt "specify"
 msgid "Specify"
-msgstr ""
+msgstr "Указать"
 
 msgctxt "value_unit_dropdown"
 msgid "In the dropdown menu on the right, specify if the column contains:"
@@ -3558,15 +3558,15 @@ msgstr ""
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "качество данных"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "качество данных"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "качество данных"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
@@ -3582,63 +3582,63 @@ msgstr ""
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "информация о качестве данных"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "информация о качестве данных"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "информация о качестве данных"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "предупреждения о качестве данных"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "предупреждение о качестве данных"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "предупреждения о качестве данных"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "ошибки качества данных"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "ошибка качества данных"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "ошибки качества данных"
 
 msgctxt "data_quality_warnings_producers_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "предупреждения о качестве данных"
 
 msgctxt "data_quality_warnings_producers_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "предупреждение о качестве данных"
 
 msgctxt "data_quality_warnings_producers"
 msgid "data quality warnings"
-msgstr ""
+msgstr "предупреждения о качестве данных"
 
 msgctxt "data_quality_errors_producers_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "ошибки качества данных"
 
 msgctxt "data_quality_errors_producers_s"
 msgid "data quality error"
-msgstr ""
+msgstr "ошибка качества данных"
 
 msgctxt "data_quality_errors_producers"
 msgid "data quality errors"
-msgstr ""
+msgstr "ошибки качества данных"
 
 # abbreviation for Minimum
 msgctxt "min"
@@ -3669,12 +3669,12 @@ msgstr ""
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "Добавить или обновить товары"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "Ваши продукты"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
@@ -3704,7 +3704,7 @@ msgstr ""
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
@@ -3712,15 +3712,15 @@ msgstr ""
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "Выполняется"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Завершено"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Неудачно"
 
 msgctxt "import_file_result"
 msgid "Import result"
@@ -3844,11 +3844,11 @@ msgid "Detail of the calculation of the Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_is_beverage"
-msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
 msgstr ""
 
 msgctxt "nutriscore_is_not_beverage"
-msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
 msgstr ""
 
 msgctxt "nutriscore_positive_points"
@@ -3923,21 +3923,46 @@ msgctxt "nutriscore_score"
 msgid "Nutritional score"
 msgstr ""
 
+# Do not translate
 msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr ""
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr ""
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
 msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts на 100% бесплатна и независима."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">Нам нужна твоя помощь и пожертвования</a> чтобы продолжить и развивать проект."
 
 msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Спасибо!"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr ""
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr ""
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr ""
 

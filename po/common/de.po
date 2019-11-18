@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-15 17:12\n"
+"PO-Revision-Date: 2019-11-17 16:32\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -196,7 +196,7 @@ msgstr "Sie können außerdem helfen, das Projekt Open Food Facts mitzufinanzier
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Für Open Food Facts spenden\" /></a><p><<site_name>> wird von einem gemeinnützigen, branchenunabhängigen Verband hergestellt. Sie ist für alle, von allen gemacht, und sie wird von allen finanziert. Sie können unsere Arbeit unterstützen, indem Sie <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">für Open Food Facts spenden</a> und auch dadurch das Sie die <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Suchmaschine „Lilo” nutzen</a>.<br/><b>Vielen Dank!</b></p>"
+msgstr "<a href=\"https://world-de.openfoodfacts.org/spenden\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Für Open Food Facts spenden\" /></a><p><<site_name>> wird von einem gemeinnützigen, branchenunabhängigen Verband hergestellt. Sie ist für alle, von allen gemacht, und sie wird von allen finanziert. Sie können unsere Arbeit unterstützen, indem Sie <a href=\"https://world-de.openfoodfacts.org/spenden\">für Open Food Facts spenden</a> und auch dadurch das Sie die <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Suchmaschine „Lilo” nutzen</a>.<br/><b>Vielen Dank!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -3845,11 +3845,11 @@ msgid "Detail of the calculation of the Nutri-Score"
 msgstr "Detail zur Berechnung des Nutri-Scores"
 
 msgctxt "nutriscore_is_beverage"
-msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
-msgstr "Dieses Produkt gilt als Getränk zur Berechnung des Nutri-Score."
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "Dieses Produkt gilt als Getränk für die Berechnung des Nutri-Scores."
 
 msgctxt "nutriscore_is_not_beverage"
-msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
 msgstr "Dieses Produkt gilt nicht als Getränk für die Berechnung des Nutri-Scores."
 
 msgctxt "nutriscore_positive_points"
@@ -3924,7 +3924,18 @@ msgctxt "nutriscore_score"
 msgid "Nutritional score"
 msgstr "Nährstofftabelle"
 
+# Do not translate
 msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "Nutri-Score Wertung"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
@@ -3941,4 +3952,18 @@ msgstr "<a href=\"\">Wir benötigen Ihre Hilfe und Spenden</a>, um das Projekt f
 msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Vielen Dank!"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "Wert für das Produkt"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "Mittelwert für die Kategorie %s"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "Der Nutri-Score kann von %s auf %s geändert werden, indem der %s-Wert von %s auf %s geändert wird (%s prozentuale Differenz)."
 

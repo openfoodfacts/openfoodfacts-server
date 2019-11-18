@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-14 14:53\n"
+"PO-Revision-Date: 2019-11-17 12:18\n"
 "Language-Team: Turkish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3840,12 +3840,12 @@ msgid "Detail of the calculation of the Nutri-Score"
 msgstr "Nutri-Score hesaplamasının detayı"
 
 msgctxt "nutriscore_is_beverage"
-msgid "This product is considered as a beverage for the calculation of the Nutri-Score."
-msgstr "Bu ürün, Nutri-Score hesaplaması için bir içecek olarak kabul edilmektedir."
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "Bu ürün, Nutri-Score hesaplaması için bir içecek kabul edilmektedir."
 
 msgctxt "nutriscore_is_not_beverage"
-msgid "This product is not considered as a beverage for the calculation of the Nutri-Score."
-msgstr "Bu ürün, Nutri-Score hesaplaması için bir içecek olarak kabul edilmemektedir."
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr "Bu ürün, Nutri-Score hesaplaması için bir içecek kabul edilmemektedir."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -3919,7 +3919,18 @@ msgctxt "nutriscore_score"
 msgid "Nutritional score"
 msgstr "Beslenme puanı"
 
+# Do not translate
 msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "Nutri-Score puanı"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
@@ -3936,4 +3947,18 @@ msgstr "Projeyi devam ettirmek ve büyütmek için <a href=\"\">yardımlarınız
 msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Teşekkürler!"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "Ürün için değer"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "%s kategorisi için ortalama değer"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "Nutri-Score %s'den %s'e, %s değerini %s'den %s'e değiştirerek (yüzde %s fark) değiştirilebilir."
 
