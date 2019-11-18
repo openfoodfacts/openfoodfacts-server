@@ -2087,7 +2087,7 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	}
 
 	my $display = '';
-	my $display_lc;
+	my $display_lc = "en";	# Default to English
 	my $exists_in_taxonomy = 0;
 
 	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
@@ -2116,7 +2116,9 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 		}
 		else {
 			$display = $tagid;
-			$display_lc = $tag_lc;
+			if (defined $tag_lc) {
+				$display_lc = $tag_lc;
+			}
 
 			if ($target_lc eq $tag_lc) {
 				$display =~ s/^(\w\w)://;
@@ -2139,6 +2141,7 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 
 	if ($display =~ /^(\w\w:)/) {
 		$display_lc_prefix = $1;
+		$display_lc = $1;
 		$display_tag = $';
 	}
 
