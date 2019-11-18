@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 16:42\n"
+"PO-Revision-Date: 2019-11-18 09:23\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3123,11 +3123,11 @@ msgstr "מועד ההורדה מהמדפים"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "תבנית: YYYY-MM-DD או YYYY-MM או YYYY"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 או 2019-09 או 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3846,11 +3846,11 @@ msgstr "פירוט החישוב של Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "מוצר זה נחשב למשקה לטובת החישוב של ה־‏Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "מוצר זה אינו נחשב למשקה לטובת החישוב של ה־‏Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -3932,7 +3932,7 @@ msgstr "Nutri-Score"
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "ציון Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
@@ -3955,15 +3955,15 @@ msgstr "תודה רבה לך!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "ערך עבור המוצר"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "ערך ממוצע לקטגוריה %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "ניתן לשנות את ערך ה־Nutri-Score מהערך %s לערך %s על ידי שינוי הערך של %s מכדי %s לכדי %s (הפרש של %s אחוזים)."
 
