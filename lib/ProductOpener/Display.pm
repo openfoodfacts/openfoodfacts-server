@@ -9812,7 +9812,7 @@ sub display_change($$) {
 
 	my $product_url = product_url($change_ref->{code});
 
-	return "<a href=\"$product_url\">" . $change_ref->{code} . "</a>; $date - $user ($comment) [$diffs] - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+	return "<li><a href=\"$product_url\">" . $change_ref->{code} . "</a>; $date - $user ($comment) [$diffs] - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 }
 
 1;
