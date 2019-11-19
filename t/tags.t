@@ -411,4 +411,10 @@ is_deeply($product_ref->{stores_tags}, ["intermarche"]);
 compute_field_tags($product_ref, "de", "stores");
 is_deeply($product_ref->{stores_tags}, ["intermarche"]);
 
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "correcteurs-d-acidite"), "correcteurs-acidite");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "yaourt-a-la-fraise"), "yaourt-fraise");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "du-miel"), "miel");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "fruits-en-proportion-variable"), "fruits");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "des-de-tomate"), "des-de-tomate");
+
 done_testing();

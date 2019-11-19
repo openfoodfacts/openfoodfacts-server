@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-02 22:51\n"
+"PO-Revision-Date: 2019-11-18 01:51\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -149,7 +149,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Tilgængelig i Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/da_get.svg\" alt=\"Tilgængelig i Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -195,7 +195,7 @@ msgstr "Du kan også hjælpe med at finansiere projektet Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> er oprettet af en non-profit forening, uafhængig af branchen. Den er lavet til alle, af alle, og den finansieres af alle. Du kan støtte vores arbejde ved at <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donere til Open Food Facts</a> og også ved at <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">benytte Lilo-søgemaskinen</a>.<br/><b>Tak!</b></p>"
+msgstr "<a href=\"https://dk.openfoodfacts.org/doner-til-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> er oprettet af en non-profit forening, uafhængig af branchen. Den er lavet til alle, af alle, og den finansieres af alle. Du kan støtte vores arbejde ved at <a href=\"https://dk.openfoodfacts.org/doner-til-open-food-facts\">donere til Open Food Facts</a> og også ved at <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">benytte Lilo-søgemaskinen</a>.<br/><b>Tak!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -423,7 +423,7 @@ msgstr "Doner til Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://dk.openfoodfacts.org/doner-til-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -980,7 +980,7 @@ msgstr "Produkter som ikke indeholder ingrediensen %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Tilgængelig i App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_DK.svg\" alt=\"Tilgængelig i App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2592,7 +2592,7 @@ msgstr "URL eller blog-adresse"
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/Danish.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -3616,6 +3616,30 @@ msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "datakvalitetsfejl"
 
+msgctxt "data_quality_warnings_producers_p"
+msgid "data quality warnings"
+msgstr "datakvalitetsadvarsler"
+
+msgctxt "data_quality_warnings_producers_s"
+msgid "data quality warning"
+msgstr "datakvalitetsadvarsel"
+
+msgctxt "data_quality_warnings_producers"
+msgid "data quality warnings"
+msgstr "datakvalitetsadvarsler"
+
+msgctxt "data_quality_errors_producers_p"
+msgid "data quality errors"
+msgstr "datakvalitetsfejl"
+
+msgctxt "data_quality_errors_producers_s"
+msgid "data quality error"
+msgstr "datakvalitetsinfo"
+
+msgctxt "data_quality_errors_producers"
+msgid "data quality errors"
+msgstr "datakvalitetsfejl"
+
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
@@ -3637,4 +3661,308 @@ msgstr "mulig forbedring"
 msgctxt "improvements"
 msgid "possible improvements"
 msgstr "mulige forbedringer"
+
+# Do not translate
+msgctxt "import_products_link"
+msgid "/import-products"
+msgstr "/import-products"
+
+msgctxt "add_or_update_products"
+msgid "Add or update products"
+msgstr "Tilføj eller opdatér produkter"
+
+# Formal you
+msgctxt "your_products"
+msgid "Your products"
+msgstr "Dine produkter"
+
+# Do not translate the e-mail address
+msgctxt "account_without_org"
+msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+msgstr "Din konto er endnu ikke tilknyttet en virksomhed. E-mail venligst <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> for at aktivere den gratis adgang til platformen for producenter."
+
+msgctxt "import_products"
+msgid "Import products"
+msgstr "Importér produkter"
+
+msgctxt "empty_column"
+msgid "Empty column"
+msgstr "Tom kolonne"
+
+msgctxt "empty_column_description"
+msgid "The file does not contain any value in this column."
+msgstr "Filen indeholder ingen værdi i denne kolonne."
+
+msgctxt "import_file_status_title"
+msgid "Data import in progress"
+msgstr "Dataimport i gang"
+
+# "product data" means data for many products
+msgctxt "import_file_status_description"
+msgid "The product data has been received and is going to be imported on the platform for producers."
+msgstr "Produktdataene er modtaget og vil blive importeret på platformen til producenter."
+
+msgctxt "import_file_status"
+msgid "Status"
+msgstr "Status"
+
+msgctxt "job_status_inactive"
+msgid "Scheduled"
+msgstr "Planlagt"
+
+msgctxt "job_status_active"
+msgid "In progress"
+msgstr "I gang"
+
+msgctxt "job_status_finished"
+msgid "Finished"
+msgstr "Afsluttet"
+
+msgctxt "job_status_failed"
+msgid "Failed"
+msgstr "Mislykket"
+
+msgctxt "import_file_result"
+msgid "Import result"
+msgstr "Importer resultat"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Produkter tilføjet"
+
+msgctxt "products_modified"
+msgid "Products modified"
+msgstr "Ændrede produkter"
+
+msgctxt "import_file_result_no_change"
+msgid "There were no product added or modified. The data has probably been already imported previously."
+msgstr "Intet produkt blev tilføjet eller ændret. Dataene er sandsynligvis allerede importeret tidligere."
+
+msgctxt "import_file_result_products"
+msgid "List of products added or modified"
+msgstr "Liste over tilføjede eller ændrede produkter"
+
+msgctxt "imports_p"
+msgid "imports"
+msgstr "importer"
+
+msgctxt "imports_s"
+msgid "import"
+msgstr "import"
+
+msgctxt "imports"
+msgid "imports"
+msgstr "importer"
+
+msgctxt "number_of_products_with_data_quality_errors_producers"
+msgid "Number of products with data quality errors"
+msgstr "Antal produkter med datakvalitetsfejl"
+
+msgctxt "number_of_products_with_data_quality_warnings_producers"
+msgid "Number of products with data quality warnings"
+msgstr "Antal produkter med datakvalitetsadvarsler"
+
+msgctxt "number_of_products_with_improvements"
+msgid "Number of products with improvement opportunities"
+msgstr "Antal produkter med forbedringsmuligheder"
+
+msgctxt "improvements_facet_description_1"
+msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+msgstr "Denne tabel viser muligheder for forbedring af ernæringskvaliteten, Nutri-Score samt fødevaresammensætninger."
+
+msgctxt "improvements_facet_description_2"
+msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+msgstr "For at opnå relevante resultater, så sørg for, at produktdataene er komplette (ernæringsfakta med værdier for fiber, frugt og grøntsager til beregning af Nutri-score, og en præcis kategori til sammenligning af hvert produkt med lignende produkter)."
+
+# "product photos" in this sentence means photos for many products, not just one product
+msgctxt "import_photos_title"
+msgid "Import product photos"
+msgstr "Importér produktfotos"
+
+msgctxt "import_photos_description"
+msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgstr "Du kan benytte formularen nedenfor til nemt at uploade fotos (produktforside, ingrediensliste og ernæringsfaktatabel) til mange produkter."
+
+msgctxt "import_photos_format_1"
+msgid "Each filename needs to contains the barcode of the product."
+msgstr "Hvert filnavn skal indeholde produktstregkoden."
+
+msgctxt "import_photos_format_2"
+msgid "And you can also specify the type of the photo in the filename:"
+msgstr "Og du kan også angíve fototypen i filnavnet:"
+
+# Do not translate the file name
+msgctxt "import_photos_format_barcode"
+msgid "3001234567890.jpg: front of the product in the current language."
+msgstr "3001234567890.jpg: produktforside på det aktuelle sprog."
+
+# Do not translate the file name
+msgctxt "import_photos_format_front"
+msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
+msgstr "3001234567890.front_da.jpg: Produktforside på dansk."
+
+# Do not translate the file name
+msgctxt "import_photos_format_ingredients"
+msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
+msgstr "3001234567890.ingredients_da.jpg: Ingrediensliste på dansk."
+
+# Do not translate the file name
+msgctxt "import_photos_format_nutrition"
+msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+msgstr "3001234567890.nutrition_da.jpg: Ernæringstabel på dansk."
+
+msgctxt "add_photos"
+msgid "Add photos..."
+msgstr "Tilføj fotos..."
+
+msgctxt "start_upload"
+msgid "Start upload"
+msgstr "Start upload"
+
+msgctxt "start"
+msgid "Start"
+msgstr "Start"
+
+msgctxt "close"
+msgid "Close"
+msgstr "Luk"
+
+msgctxt "cancel_upload"
+msgid "Cancel upload"
+msgstr "Annullér upload"
+
+msgctxt "info"
+msgid "Info"
+msgstr "Info"
+
+msgctxt "file_received"
+msgid "File received"
+msgstr "Fil modtaget"
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr "Oplysning om beregningen af Nutri-Score"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "Dette produkt betragtes som en drik ved beregning af Nutri-Score."
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr "Dette produkt betragtes ikke som en drik ved beregning af Nutri-Score."
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "Positive point"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "Negative point"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "Point for proteiner medregnes, da de negative point er færre end 11."
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "Point for proteiner medregnes ikke, da de negative point er højere end 11."
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "Point for proteiner medregnes, da pointene for frugter, grøntsager, nødder og raps/valnød/olivenolier er maksimale."
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "Point for proteiner medregnes, da produktet er i ostekategorien."
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "Produktet er i kategorien fedttype. Point for mættet fedt erstattes med point for mættet fedt/fedtforhold."
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "Energi"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "Sukkerarter"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "Mættet fedt"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "Mættet fedt/fedtforhold"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "Natrium"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "Frugt, grøntsager, nødder og raps/valnød/olivenolier"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "Kostfibre"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "Proteiner"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "værdi"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "afrundet værdi"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "Ernæringsscore"
+
+# Do not translate
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "Nutri-Score værdi"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr "Open Food Facts er 100% gratis og uafhængigt."
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr "<a href=\"\">Vi behøver din hjælp og donationer</a> for at fortsætte samt ekspandere projektet."
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "Tak!"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "Værdi for produktet"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "Middelværdi for %s-kategorien"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "Nutri-Score kan ændres fra %s til %s ved at ændre %s-værdien fra %s til %s (%s procent forskel)."
 

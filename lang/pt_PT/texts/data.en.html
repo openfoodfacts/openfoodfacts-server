@@ -59,19 +59,21 @@ com a comunidade do Open Food Facts.</p>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>API JSON experimental</h2>
+<h2>API JSON ao vivo</h2>
 
 <p>Uma API JSON também está disponível para ler os dados de um produto. Essa API é usada em particular no aplicativo móvel Open Food Facts para iPhone e Android.</p>
 
-<p>Esta API é experimental e pode ser alterada. Por favor, diga-nos se você usá-lo, para que possamos informá-lo sobre possíveis mudanças.</p>
+<p>Alteramos a API ao longo do tempo, mas temos o cuidado de manter a compatibilidade com versões anteriores. Por favor, diga-nos se você usá-lo, para que possamos informá-lo sobre possíveis mudanças.</p>
 
 <p>URL para ler dados de um produto: https://world.openfoodfacts.org/api/v0/product/ <i>[barcode]</i>.json</p>
 
 <p>Exemplo: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json"> https://world.openfoodfacts.org/api/v0/product/737628064502.json </a></p>
 
-Further documentation is <a href="https://en.wiki.openfoodfacts.org/API">available on the Wiki</a>. 
+Está mais documentação <a href="https://en.wiki.openfoodfacts.org/API">disponível no Wiki</a>. (Nota importante: a página está dividida em subpáginas para READ e WRITE). 
+Uma documentação melhor está a ser desenvolvida, com casos de uso para a exibição de um produto e permitindo que os seus utilizadores adicionem os dados necessários para obter os grupos Nutri-Score, NOVA e aditivos.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro"> Pode acessá-lo aqui </a>.
 <p>Pode usar a API para casos de produção, desde que 1 chamada de API = 1 varredura real de um utilizador.
-Qualquer tentativa de raspar o banco de dados dessa maneira provavelmente será bloqueada, pois as exportações completas diárias estão disponíveis nesta página.</p>
+Qualquer tentativa de raspar o banco de dados pela API provavelmente será bloqueada, pois as exportações completas diárias estão disponíveis nesta página.</p>
 <p>Além disso, o envio de um cabeçalho HTTP com sua chamada à API é uma boa maneira de entrar em contacto, caso ocorra algum problema.</p>
 <p>Se não tiver certeza de nada ou tiver alguma dúvida (perguntas bobas não existem), fique à vontade perguntando no Slack :-)</p>
 

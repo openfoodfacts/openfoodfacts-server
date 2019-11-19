@@ -63,19 +63,21 @@ med Open Food Facts-fællesskabet.</p>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/da.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>Eksperimentel JSON-API</h2>
+<h2>Live JSON API</h2>
 
 <p>En JSON-API er også tilgængelig til læsning af produktdataene. Denne API benyttes især i Open Food Facts-app'en til Android og iPhone.</p>
 
-<p>Denne API er eksperimentel og kan ændre sig. Oplys os om du benytter den, så vi kan informere dig om evt. ændringer.</p>
+<p>Vi ændrer API over tid, men vi er omhyggelige med at holde det bagudkompatibelt. Oplys os om du benytter den, så vi kan informere dig om evt. ændringer.</p>
 
 <p>URL til læsning af data for givent produkt: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
 <p>Eksempel: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Yderligere dokumentation er <a href="https://en.wiki.openfoodfacts.org/API">tilgængelig i Wiki'en</a>. 
+Yderligere dokumentation er <a href="https://en.wiki.openfoodfacts.org/API">tilgængelig i Wiki'en</a>. (Vigtigt notat: Siden er opdelt i undersider til LÆSNING og SKRIVNING). 
+Der udvikles en bedre dokumentation med brug af eksempler til visning af et produkt og lade dine brugere tilføje de krævede data for at få Nutri-Score, NOVA-grupper og additiver.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Du kan få adgang til det her</a>.
 <p>Du er meget velkommen til at benytte API'en til produktionssager, så længe 1 API-kald = 1 reel skanning af en bruger.
-Ethvert forsøg på at skrabe databasen på den måde vil meget sandsynligt blive blokeret, da fulde daglige eksporter er tilgængelig fra netop denne side.</p>
+Forsøg på at scrape databasen gennem API'et vil sandsynligvis blive blokeret, da fulde daglige eksportfiler er tilgængelige fra denne side.</p>
 <p>At sende en HTTP-header med dit API-kald er også en god måde, hvorpå vi kan komme i kontakt, hvis der skulle opstå problemer.</p>
 <p>Hvis du er usikker på noget eller har spørgsmål (der findes ingen fjollede spørgsmål), er du velkommen til at stille dem på Slack :-)</p>
 

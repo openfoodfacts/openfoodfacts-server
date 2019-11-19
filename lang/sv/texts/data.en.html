@@ -65,19 +65,21 @@ with the Open Food Facts community.</p>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>Experimentellt JSON API</h2>
+<h2>Live JSON API</h2>
 
 <p>A JSON API is also available to read the data for a product. This API is in particular used in the Open Food Facts mobile app for iPhone and Android.</p>
 
-<p>This API is experimental and can change. Please tell us if you use it, so that we can tell you about potential changes.</p>
+<p>We change the API over-time but we are careful to keep backwards compatibility. Please tell us if you use it, so that we can tell you about potential changes.</p>
 
 <p>URL to read data for a product: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
 <p>Example: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Further documentation is <a href="https://en.wiki.openfoodfacts.org/API">available on the Wiki</a>. 
+Further documentation is <a href="https://en.wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE). 
+A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Du kan komma åt det här</a>.
 <p>You are very welcome to use the API for production cases, as long as 1 API call = 1 real scan by a user.
-Any attempt to scrape the database that way will very likely be blocked, as full daily exports are available on this very page.</p>
+Any attempt to scrape the database using the API will very likely be blocked, as full daily exports are available on this very page.</p>
 <p>Also, sending an HTTP header with your API call is a good way we can get in touch, should any issue arise.</p>
 <p>If you are unsure about anything, or have any question (there is no silly question), feel free to ask it on Slack :-)</p>
 

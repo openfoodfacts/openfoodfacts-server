@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-02 15:31\n"
+"PO-Revision-Date: 2019-11-17 12:18\n"
 "Language-Team: Turkish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3612,6 +3612,30 @@ msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "veri kalitesi sorunları"
 
+msgctxt "data_quality_warnings_producers_p"
+msgid "data quality warnings"
+msgstr "veri kalitesi uyarıları"
+
+msgctxt "data_quality_warnings_producers_s"
+msgid "data quality warning"
+msgstr "veri kalitesi uyarısı"
+
+msgctxt "data_quality_warnings_producers"
+msgid "data quality warnings"
+msgstr "veri kalitesi uyarıları"
+
+msgctxt "data_quality_errors_producers_p"
+msgid "data quality errors"
+msgstr "veri kalitesi sorunları"
+
+msgctxt "data_quality_errors_producers_s"
+msgid "data quality error"
+msgstr "veri kalitesi sorunu"
+
+msgctxt "data_quality_errors_producers"
+msgid "data quality errors"
+msgstr "veri kalitesi sorunları"
+
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
@@ -3633,4 +3657,308 @@ msgstr "olası iyileştirme"
 msgctxt "improvements"
 msgid "possible improvements"
 msgstr "olası iyileştirmeler"
+
+# Do not translate
+msgctxt "import_products_link"
+msgid "/import-products"
+msgstr "/import-products"
+
+msgctxt "add_or_update_products"
+msgid "Add or update products"
+msgstr "Ürün ekle ya da güncelle"
+
+# Formal you
+msgctxt "your_products"
+msgid "Your products"
+msgstr "Ürünleriniz"
+
+# Do not translate the e-mail address
+msgctxt "account_without_org"
+msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+msgstr "Hesabınız henüz bir şirketle ilişkili değil. Üreticiler platformuna ücretsiz erişimi etkinleştirmek için lütfen <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> adresine e-posta gönderin."
+
+msgctxt "import_products"
+msgid "Import products"
+msgstr "Ürünleri içeri aktar"
+
+msgctxt "empty_column"
+msgid "Empty column"
+msgstr "Boş sütun"
+
+msgctxt "empty_column_description"
+msgid "The file does not contain any value in this column."
+msgstr "Dosya bu sütunda herhangi bir değer içermiyor."
+
+msgctxt "import_file_status_title"
+msgid "Data import in progress"
+msgstr "Veri içe aktarma işlemi devam ediyor"
+
+# "product data" means data for many products
+msgctxt "import_file_status_description"
+msgid "The product data has been received and is going to be imported on the platform for producers."
+msgstr "Ürün verileri alındı ve üreticiler platformuna aktarılacak."
+
+msgctxt "import_file_status"
+msgid "Status"
+msgstr "Durum"
+
+msgctxt "job_status_inactive"
+msgid "Scheduled"
+msgstr "Zamanlandı"
+
+msgctxt "job_status_active"
+msgid "In progress"
+msgstr "Devam ediyor"
+
+msgctxt "job_status_finished"
+msgid "Finished"
+msgstr "Tamamlandı"
+
+msgctxt "job_status_failed"
+msgid "Failed"
+msgstr "Başarısız oldu"
+
+msgctxt "import_file_result"
+msgid "Import result"
+msgstr "İçe aktarma sonucu"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Ürünler eklendi"
+
+msgctxt "products_modified"
+msgid "Products modified"
+msgstr "Ürünler değiştirildi"
+
+msgctxt "import_file_result_no_change"
+msgid "There were no product added or modified. The data has probably been already imported previously."
+msgstr "Eklenen veya değiştirilen ürün bulunamadı. Veriler muhtemelen daha önce içe aktarıldı."
+
+msgctxt "import_file_result_products"
+msgid "List of products added or modified"
+msgstr "Eklenen veya değiştirilen ürünlerin listesi"
+
+msgctxt "imports_p"
+msgid "imports"
+msgstr "içe aktarmalar"
+
+msgctxt "imports_s"
+msgid "import"
+msgstr "içe aktarma"
+
+msgctxt "imports"
+msgid "imports"
+msgstr "içe aktarmalar"
+
+msgctxt "number_of_products_with_data_quality_errors_producers"
+msgid "Number of products with data quality errors"
+msgstr "Veri kalitesi hatası olan ürün sayısı"
+
+msgctxt "number_of_products_with_data_quality_warnings_producers"
+msgid "Number of products with data quality warnings"
+msgstr "Veri kalitesi uyarısı olan ürün sayısı"
+
+msgctxt "number_of_products_with_improvements"
+msgid "Number of products with improvement opportunities"
+msgstr "İyileştirme fırsatları olan ürün sayısı"
+
+msgctxt "improvements_facet_description_1"
+msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+msgstr "Bu tablo, beslenme kalitesini, Nutri-Score'u ve gıda ürünlerinin bileşimini iyileştirmek için olası fırsatları listeler."
+
+msgctxt "improvements_facet_description_2"
+msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+msgstr "İlgili sonuçları almak için lütfen ürün verilerinin eksiksiz olduğundan emin olun (Nutri-Score'u hesaplamak için lif ve meyve ve sebzelerin değerlerini içeren besin değerleri ve her bir ürünü benzer ürünlerle karşılaştırmak için kesin bir kategori)."
+
+# "product photos" in this sentence means photos for many products, not just one product
+msgctxt "import_photos_title"
+msgid "Import product photos"
+msgstr "Ürün fotoğraflarını içe aktar"
+
+msgctxt "import_photos_description"
+msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgstr "Birçok ürüne kolayca fotoğraf (ürün ön tarafı, içindekiler listesi ve besin değerleri tablosu) yüklemek için aşağıdaki formu kullanabilirsiniz."
+
+msgctxt "import_photos_format_1"
+msgid "Each filename needs to contains the barcode of the product."
+msgstr "Her dosya adının, ürünün barkodunu içermesi gerekmektedir."
+
+msgctxt "import_photos_format_2"
+msgid "And you can also specify the type of the photo in the filename:"
+msgstr "Ayrıca dosya adında fotoğrafın türünü de belirtebilirsiniz:"
+
+# Do not translate the file name
+msgctxt "import_photos_format_barcode"
+msgid "3001234567890.jpg: front of the product in the current language."
+msgstr "3001234567890.jpg: geçerli dilde ürünün ön tarafı."
+
+# Do not translate the file name
+msgctxt "import_photos_format_front"
+msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
+msgstr "3001234567890.front_nl.jpg: Flemenkçe ürünün ön tarafı."
+
+# Do not translate the file name
+msgctxt "import_photos_format_ingredients"
+msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
+msgstr "3001234567890.ingredients_fr.jpg: Fransızca içindekiler listesi."
+
+# Do not translate the file name
+msgctxt "import_photos_format_nutrition"
+msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+msgstr "3001234567890.nutrition_es.jpg: İspanyolca besin değerleri tablosu."
+
+msgctxt "add_photos"
+msgid "Add photos..."
+msgstr "Fotoğraf ekle..."
+
+msgctxt "start_upload"
+msgid "Start upload"
+msgstr "Yüklemeye başla"
+
+msgctxt "start"
+msgid "Start"
+msgstr "Başla"
+
+msgctxt "close"
+msgid "Close"
+msgstr "Kapat"
+
+msgctxt "cancel_upload"
+msgid "Cancel upload"
+msgstr "Yüklemeyi iptal et"
+
+msgctxt "info"
+msgid "Info"
+msgstr "Bilgi"
+
+msgctxt "file_received"
+msgid "File received"
+msgstr "Dosya alındı"
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr "Nutri-Score hesaplamasının detayı"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "Bu ürün, Nutri-Score hesaplaması için bir içecek kabul edilmektedir."
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr "Bu ürün, Nutri-Score hesaplaması için bir içecek kabul edilmemektedir."
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "Pozitif puanlar"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "Negatif puanlar"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "Negatif puanlar 11'den az olduğu için proteinler için olan puanlar dahil edildi."
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "Negatif puanlar 11'e eşit veya fazla olduğu için proteinler için olan puanlar dahil edilmedi."
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "Meyve, sebze, kuruyemiş ve kolza/ceviz/zeytin yağı puanları maksimumda olduğu için proteinler için olan puanlar dahil edildi."
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "Ürün peynir kategorisinde olduğu için proteinler için olan puanlar dahil edildi."
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "Ürün yağ kategorisindedir, doymuş yağ puanları, doymuş yağ/yağ oranı puanları ile değiştirildi."
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "Enerji"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "Şeker"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "Doymuş yağ"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "Doymuş yağ / yağ oranı"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "Sodyum"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "Meyve, sebze, kuruyemiş ve kolza/ceviz/ zeytin yağı"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "Diyet lifi"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "Proteinler"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "değer"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "yuvarlanmış değer"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "Beslenme puanı"
+
+# Do not translate
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "Nutri-Score puanı"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr "Open Food Facts %100 özgür ve bağımsızdır."
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr "Projeyi devam ettirmek ve büyütmek için <a href=\"\">yardımlarınıza ve bağışlarınıza ihtiyacımız var</a>."
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "Teşekkürler!"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "Ürün için değer"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "%s kategorisi için ortalama değer"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "Nutri-Score %s'den %s'e, %s değerini %s'den %s'e değiştirerek (yüzde %s fark) değiştirilebilir."
 

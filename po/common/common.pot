@@ -3910,4 +3910,194 @@ msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
 msgstr "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
 
+# "product photos" in this sentence means photos for many products, not just one product
+msgctxt "import_photos_title"
+msgid "Import product photos"
+msgstr "Import product photos"
 
+msgctxt "import_photos_description"
+msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgstr "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+
+msgctxt "import_photos_format_1"
+msgid "Each filename needs to contains the barcode of the product."
+msgstr "Each filename needs to contains the barcode of the product."
+
+msgctxt "import_photos_format_2"
+msgid "And you can also specify the type of the photo in the filename:"
+msgstr "And you can also specify the type of the photo in the filename:"
+
+# Do not translate the file name
+msgctxt "import_photos_format_barcode"
+msgid "3001234567890.jpg: front of the product in the current language."
+msgstr "3001234567890.jpg: front of the product in the current language."
+
+# Do not translate the file name
+msgctxt "import_photos_format_front"
+msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
+msgstr "3001234567890.front_nl.jpg: front of the product in Dutch."
+
+# Do not translate the file name
+msgctxt "import_photos_format_ingredients"
+msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
+msgstr "3001234567890.ingredients_fr.jpg: ingredients list in French."
+
+# Do not translate the file name
+msgctxt "import_photos_format_nutrition"
+msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+msgstr "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+
+msgctxt "add_photos"
+msgid "Add photos..."
+msgstr "Add photos..."
+
+msgctxt "start_upload"
+msgid "Start upload"
+msgstr "Start upload"
+
+msgctxt "start"
+msgid "Start"
+msgstr "Start"
+
+msgctxt "close"
+msgid "Close"
+msgstr "Close"
+
+msgctxt "cancel_upload"
+msgid "Cancel upload"
+msgstr "Cancel upload"
+
+msgctxt "info"
+msgid "Info"
+msgstr "Info"
+
+msgctxt "file_received"
+msgid "File received"
+msgstr "File received"
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr "Detail of the calculation of the Nutri-Score"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "This product is considered a beverage for the calculation of the Nutri-Score."
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr "This product is not considered a beverage for the calculation of the Nutri-Score."
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "Positive points"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "Negative points"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "The points for proteins are counted because the negative points are less than 11."
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "The points for proteins are not counted because the negative points are greater or equal to 11."
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "The points for proteins are counted because the product is in the cheeses category."
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "Energy"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "Sugars"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "Saturated fat"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "Saturated fat / fat ratio"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "Sodium"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "Fiber"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "Proteins"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "value"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "rounded value"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "Nutritional score"
+
+# Do not translate
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "Nutri-Score score"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr ""
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr ""
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr ""
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "Value for the product"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "Mean value for the %s category"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
