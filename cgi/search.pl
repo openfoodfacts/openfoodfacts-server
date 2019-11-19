@@ -781,7 +781,7 @@ elsif ($action eq 'process') {
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="icon-share"></i>
+	@{[ display_icon('share') ]}]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -814,7 +814,7 @@ HTML
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="icon-share"></i>
+	@{[ display_icon('share') ]}]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -845,7 +845,7 @@ HTML
 			${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="icon-share"></i>
+	@{[ display_icon('share') ]}]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML

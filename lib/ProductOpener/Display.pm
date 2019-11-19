@@ -42,6 +42,7 @@ BEGIN
 					&display_date_tag
 					&display_pagination
 					&get_packager_code_coordinates
+					&display_icon
 
 					&display_structured_response
 					&display_new
@@ -3462,7 +3463,7 @@ HTML
 			$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small icon" title="$title">
-	<i class="icon-share"></i>
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -5681,7 +5682,7 @@ sub display_my_block($)
 	</form>
 </li>
 <li>
-	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="icon-settings"></i></a>
+	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem">@{[ display_icon('settings') ]}</a>
 </li>
 </ul>
 $links
@@ -6156,11 +6157,11 @@ HTML
 
 		if ($system eq 'android') {
 
-			$link_text = '<i class="icon-brand-android-robot"></i> ' . $link_text;
+			$link_text = display_icon('brand-android-robot') . $link_text;
 		}
 		elsif ($system eq 'ios') {
 
-			$link_text = '<i class="icon-brand-apple"></i> ' . $link_text;
+			$link_text = display_icon('brand-brand-apple')  . $link_text;
 		}
 
 		$top_banner = <<HTML
@@ -6175,8 +6176,8 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="icon-phone_android"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="icon-phone_android"></i> $Lang{get_the_app}{$lc}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
+			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
 HTML
 ;
 
@@ -6195,15 +6196,15 @@ HTML
 							<input name="action" value="process" type="hidden">
 						</div>
 						<div class="small-4 columns">
-							<button type="submit" title="$Lang{search}{$lang}"><i class="icon-search"></i></button>
+							<button type="submit" title="$Lang{search}{$lang}">@{[ display_icon('search') ]}</button>
 						</div>
 					</div>
 				</form>
 			</li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-add"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="icon-add"></i> $Lang{advanced_search}{$lang}</span></a></li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="icon-bar_chart"></i></a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="icon-bar_chart"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl">@{[ display_icon('add') ]} $Lang{advanced_search}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}">@{[ display_icon('bar_chart') ]}</a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">@{[ display_icon('bar_chart') ]} $Lang{graphs_and_maps}{$lang}</span></a></li>
 			$public_site_menu_options
 		</ul>
 	</section>
@@ -6212,7 +6213,7 @@ HTML
 <nav class="tab-bar show-for-small-only">
 	<div class="left-small" style="padding-top:4px;">
 		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
-		<i class="icon-account_box" style="color:$torso_color;font-size:1.8rem"></i></a>
+		<span style="color:$torso_color;font-size:1.8rem">@{[ display_icon('account_box') ]}</span>
 	</div>
 	<div class="middle tab-bar-section" style="padding-top:4px;">
 		<form action="/cgi/search.pl">
@@ -6223,10 +6224,10 @@ HTML
 					<input name="action" value="process" type="hidden">
 				</div>
 				<div class="small-2 columns">
-					<button type="submit" class="button postfix"><i class="icon-search"></i></button>
+					<button type="submit" class="button postfix">@{[ display_icon('search') ]}</button>
 				</div>
 				<div class="small-2 columns">
-					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-search"></i> <i class="icon-add"></i></a>
+					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('search') ]} @{[ display_icon('add') ]}</a>
 				</div>
 			</div>
 		</form>
@@ -6258,11 +6259,11 @@ HTML
 								<input name="action" value="process" type="hidden">
 							</div>
 							<div class="small-2 columns">
-								<button type="submit" class="button postfix"><i class="icon-search"></i></button>
+								<button type="submit" class="button postfix">@{[ display_icon('search') ]}</button>
 							</div>
 							<div class="small-1 columns">
 								<label class="right inline">
-									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="icon-add"></i></a>
+									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a>
 								</label>
 							</div>
 						</div>
@@ -6580,7 +6581,7 @@ sub display_image_box($$$) {
 		$img = <<"HTML"
 <figure id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 $img
-<figcaption><a href="/cgi/product_image.pl?code=$code&amp;id=$linkid" title="$alt"><i class="icon-cc"></i></a></figcaption>
+<figcaption><a href="/cgi/product_image.pl?code=$code&amp;id=$linkid" title="$alt">@{[ display_icon('cc') ]}</a></figcaption>
 </figure>
 HTML
 ;
@@ -6971,12 +6972,12 @@ HTML
 	$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small icon" title="$title">
-	<i class="icon-share"></i>
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
-	<i class="icon-edit"></i>
+	@{[ display_icon('edit') ]}
 	<span class="show-for-large-up"> $Lang{edit_product_page}{$lc}</span>
 </a></div>
 HTML
@@ -6986,7 +6987,7 @@ HTML
 		$html .= <<HTML
 <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
 <a href="/cgi/product.pl?type=delete&code=$code" class="button small icon">
-	<i class="icon-delete"></i>
+	@{[ display_icon('delete') ]}
 	<span class="show-for-large-up"> $Lang{delete_product_page}{$lc}</span>
 </a></div>
 HTML
@@ -7368,22 +7369,22 @@ JS
 					or ($ingredients_analysis_tag =~ /-free$/)) {
 					$ingredients_analysis_tag = "en:palm-oil-free";
 					$color = "#00aa00"; # green
-					$icon = "icon-monkey_happy";
+					$icon = "monkey_happy";
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
 					$color = "#ff6600"; # orange
-					$icon = "icon-monkey_uncertain";
+					$icon = "monkey_uncertain";
 				}
 				else {
 					$color = "#ff0000"; # red
-					$icon = "icon-monkey_unhappy";
+					$icon = "monkey_unhappy";
 				}
 
 			}
 			else {
 
 				if ($ingredients_analysis_tag =~ /vegan/) {
-					$icon = "icon-leaf";
+					$icon = "leaf";
 					if (has_tag($product_ref, "labels", "en:vegan")) {
 						$ingredients_analysis_tag = "en:vegan";
 					}
@@ -7393,7 +7394,7 @@ JS
 					}
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
-					$icon = "icon-egg";
+					$icon = "egg";
 					if (has_tag($product_ref, "labels", "en:vegetarian")
 						or has_tag($product_ref, "labels", "en:vegan")) {
 						$ingredients_analysis_tag = "en:vegetarian";
@@ -7418,7 +7419,7 @@ JS
 			next if $ingredients_analysis_tag =~ /unknown/;
 
 			if ($icon ne "") {
-				$icon = "<i style=\"font-size:32px;margin-right:0.2em;vertical-align:middle;line-height:24px;\" class=\"$icon\"></i>";
+				$icon = "<span style=\"font-size:32px;margin-right:0.2em;vertical-align:middle;line-height:24px;\">". display_icon($icon) ."</span>";
 			}
 
 			$html_analysis .= "<span class=\"alert round label\" style=\"background-color:$color;color:white;font-size:1rem;padding-right:1em;\">"
@@ -7615,7 +7616,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="/nova">
-<i class="icon-info"></i></a>
+@{[ display_icon('info') ]}</a>
 </h4>
 
 
@@ -7804,7 +7805,7 @@ HTML
 	$html .= <<HTML
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small">
-	<i class="icon-edit"></i>
+	@{[ display_icon('edit') ]}
 	$Lang{edit_product_page}{$lc}
 </a></div>
 HTML
@@ -7995,7 +7996,7 @@ HTML
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
 <a href="https://world.openfoodfacts.org/nova" title="NOVA groups for food processing">
-<i class="icon-info"></i></a>
+@{[ display_icon('info') ]}</a>
 </h4>
 
 
@@ -8432,7 +8433,7 @@ sub display_nutrient_levels($) {
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}">
-<i class="icon-info"></i></a>
+@{[ display_icon('info') ]}</a>
 </h4>
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%"></a><br>
 $warning
@@ -8457,7 +8458,7 @@ HTML
 	if ($html_nutrient_levels ne '') {
 		$html_nutrient_levels = <<HTML
 <h4>$Lang{nutrient_levels_info}{$lc}
-<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="icon-info"></i></a>
+<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}">@{[ display_icon('info') ]}</a>
 </h4>
 $html_nutrient_levels
 HTML
@@ -9842,7 +9843,7 @@ sub display_recent_changes {
 		};
 
 		# security: Do not expose IP addresses to non-admin or anonymous users.
-		delete $change_hash->{ip} unless $admin; 
+		delete $change_hash->{ip} unless $admin;
 
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
 		my $diffs = compute_changes_diff_text($change_ref);
@@ -9913,6 +9914,22 @@ sub display_change($$) {
 	my $product_url = product_url($change_ref->{code});
 
 	return "<li><a href=\"$product_url\">" . $change_ref->{code} . "</a>; $date - $user ($comment) [$diffs] - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+}
+
+sub display_icon {
+
+	my ($icon) = @_;
+
+	my $file = "$www_root/images/icons/dist/$icon.svg";
+	my $svg = do {
+		local $/ = undef;
+		open my $fh, "<", $file
+			or die "could not open $file: $!";
+		<$fh>;
+	};
+
+	return $svg;
+
 }
 
 1;

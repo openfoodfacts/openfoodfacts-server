@@ -332,3 +332,13 @@ details.recent {
   margin-left: 1.5em;
   cursor: pointer;
 }
+
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  overflow: hidden;
+}
