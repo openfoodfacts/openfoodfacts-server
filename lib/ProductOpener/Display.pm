@@ -6214,6 +6214,7 @@ HTML
 	<div class="left-small" style="padding-top:4px;">
 		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
 		<span style="color:$torso_color;font-size:1.8rem">@{[ display_icon('account_box') ]}</span>
+		</a>
 	</div>
 	<div class="middle tab-bar-section" style="padding-top:4px;">
 		<form action="/cgi/search.pl">
