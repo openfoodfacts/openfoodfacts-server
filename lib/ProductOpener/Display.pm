@@ -9916,17 +9916,24 @@ sub display_change($$) {
 	return "<li><a href=\"$product_url\">" . $change_ref->{code} . "</a>; $date - $user ($comment) [$diffs] - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 }
 
+our %icons_cache = ();
 sub display_icon {
 
 	my ($icon) = @_;
 
-	my $file = "$www_root/images/icons/dist/$icon.svg";
-	my $svg = do {
-		local $/ = undef;
-		open my $fh, "<", $file
-			or die "could not open $file: $!";
-		<$fh>;
-	};
+	my $svg = $icons_cache{$icon};
+
+	if (not (defined $svg)) {
+		my $file = "$www_root/images/icons/dist/$icon.svg";
+		$svg = do {
+			local $/ = undef;
+			open my $fh, "<", $file
+				or die "could not open $file: $!";
+			<$fh>;
+		};
+
+		$icons_cache{$icon} = $svg;
+	}
 
 	return $svg;
 
