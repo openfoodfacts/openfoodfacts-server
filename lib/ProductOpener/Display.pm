@@ -3462,7 +3462,7 @@ HTML
 			my $share = lang('share');
 			$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
-<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+<a href="$request_ref->{canon_url}" class="button small" title="$title">
 	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
@@ -6971,12 +6971,12 @@ HTML
 	my $share = lang('share');
 	$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+<a href="$request_ref->{canon_url}" class="button small" title="$title">
 	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
-<a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
+<a href="/cgi/product.pl?type=edit&code=$code" class="button small">
 	@{[ display_icon('edit') ]}
 	<span class="show-for-large-up"> $Lang{edit_product_page}{$lc}</span>
 </a></div>
@@ -6986,7 +6986,7 @@ HTML
 	if ($admin) {
 		$html .= <<HTML
 <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
-<a href="/cgi/product.pl?type=delete&code=$code" class="button small icon">
+<a href="/cgi/product.pl?type=delete&code=$code" class="button small">
 	@{[ display_icon('delete') ]}
 	<span class="show-for-large-up"> $Lang{delete_product_page}{$lc}</span>
 </a></div>
