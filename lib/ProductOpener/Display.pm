@@ -114,6 +114,7 @@ use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
+use ProductOpener::Nutriscore qw(:all);
 
 use Cache::Memcached::Fast;
 use Text::Unaccent;
@@ -493,7 +494,7 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
 			# Remove them from string
-			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//; 
+			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 
 			# Set the value in the request ref, ex: \?json=value
 			$request_ref->{$parameter} = $2;
@@ -563,7 +564,7 @@ sub analyze_request($)
 	# Api access
 	elsif ($components[0] eq 'api') {
 
-		
+
 		# Set version, method and code
 		$request_ref->{api} = $components[1];
 		if ($request_ref->{api} =~ /v(.*)/) {
@@ -1779,7 +1780,7 @@ sub display_list_of_tags($$) {
 
 		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
 			#TODO: HERE WE ARE DOING A LOT OF EXTRA WORK BY FIRST CREATING THE TABLE AND THEN DESTROYING IT
-			$html =~ s/<table(.*)<\/table>//is; 
+			$html =~ s/<table(.*)<\/table>//is;
 
 			if ($stats{all_tags} > 0) {
 
@@ -1964,7 +1965,7 @@ HTML
 
 		my $extra_column_searchable = "";
 		if (defined $taxonomy_fields{$tagtype}) {
-			$extra_column_searchable .= ', { "searchable": false }';
+			$extra_column_searchable .= ', {"searchable": false}';
 		}
 
 		$initjs .= <<JS
@@ -1978,7 +1979,7 @@ oTable = \$('#tagstable').DataTable({
 	order: [[ 1, "desc" ]],
 	columns: [
 		null,
-		{ "searchable": false } $extra_column_searchable
+		{"searchable": false} $extra_column_searchable
 	]
 });
 JS
@@ -6039,20 +6040,12 @@ HTML
 
 	my $blocks = display_blocks($request_ref);
 	my $aside_blocks = $blocks;
-	my $aside_initjs = $initjs;
 
 	# keep only the login block for off canvas
 	$aside_blocks =~ s/<!-- end off canvas blocks for small screens -->(.*)//s;
 
-	$aside_initjs =~ s/(.*)\/\/ start off canvas blocks for small screens//s;
-	$aside_initjs =~ s/\/\/ end off canvas blocks for small screens(.*)//s;
-
 	# change ids of the add product image upload form
 	$aside_blocks =~ s/block_side/block_aside/g;
-
-	$aside_initjs =~ s/block_side/block_aside/g;
-
-	$initjs .= $aside_initjs;
 
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
 	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
@@ -6115,6 +6108,10 @@ Open Food Facts is 100% free and independent. <a href="https://world.openfoodfac
 </div>
 HTML
 ;
+	}
+
+	if ($server_options{producers_platform}) {
+		$top_banner = "";
 	}
 
 	# Display a banner from users on Android or iOS
@@ -6741,6 +6738,86 @@ sub display_field($$) {
 			$product_ref->{category} = $category;
 		}
 	}
+	return $html;
+}
+
+
+=head2 display_possible_improvement_description( PRODUCT_REF, TAGID )
+
+Display an explanation of the possible improvement, using the improvement
+data stored in $product_ref->{improvements_data}
+
+=cut
+
+sub display_possible_improvement_description($$) {
+
+	my $product_ref = shift;
+	my $tagid = shift;
+
+	my $html = "";
+
+	if ((defined $product_ref->{improvements_data}) and (defined $product_ref->{improvements_data}{$tagid})) {
+
+		# Comparison of product nutrition facts to other products of the same category
+
+		if ($tagid =~ /^en:nutrition-(very-)?high/) {
+			$html .= "<p>" . lang("value_for_the_product") . lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
+			. "<br>" . sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
+			. lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
+			. "</p>\n";
+		}
+
+		# Opportunities to improve the Nutri-Score by slightly changing the nutrients
+
+		if ($tagid =~ /^en:better-nutri-score/) {
+			# msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+			$html .= "<p>" . sprintf(lang("better_nutriscore"),
+				uc($product_ref->{improvements_data}{$tagid}{current_nutriscore_grade}),
+				uc($product_ref->{improvements_data}{$tagid}{new_nutriscore_grade}),
+				lc(lang("nutriscore_points_for_" . $product_ref->{improvements_data}{$tagid}{nutrient})),
+				$product_ref->{improvements_data}{$tagid}{current_value},
+				$product_ref->{improvements_data}{$tagid}{new_value},
+				sprintf("%d", $product_ref->{improvements_data}{$tagid}{difference_percent})) . "</p>";
+		}
+	}
+
+	return $html;
+}
+
+
+=head2 display_data_quality_issues_and_improvement_opportunities( PRODUCT_REF )
+
+Display on the product page a list of data quality issues, and of improvement opportunities.
+
+This is for the platform for producers.
+
+=cut
+
+sub display_data_quality_issues_and_improvement_opportunities($) {
+
+	my $product_ref = shift;
+
+	my $html = "";
+
+	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
+		if ((defined $product_ref->{$tagtype . "_tags"}) and (scalar @{$product_ref->{$tagtype . "_tags"}} > 0)) {
+
+			$html .= "<h2>" . ucfirst(lang($tagtype . "_p")) . "</h2>";
+
+			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+				$html .= "<b>" . display_taxonomy_tag($lc, $tagtype, $tagid) . "</b><br>";
+
+				if (defined $properties{$tagtype}{$tagid}{"description:$lc"})  {
+					$html .= "<p>" . $properties{$tagtype}{$tagid}{"description:$lc"} . "</p>";
+				}
+
+				if ($tagtype eq "improvements") {
+					$html .= display_possible_improvement_description($product_ref, $tagid);
+				}
+			}
+		}
+	}
+
 	return $html;
 }
 
@@ -7656,6 +7733,13 @@ HTML
 		}
 	}
 
+	# Platform for producers: data quality issues and improvements opportunities
+
+	if ($server_options{producers_platform}) {
+
+		$html .= display_data_quality_issues_and_improvement_opportunities($product_ref);
+	}
+
 	# photos and data sources
 
 
@@ -8011,15 +8095,6 @@ HTML
 				if ($ingredients_classes{$class}{$tagid}{level} > 0) {
 					$info = ' class="additives_' . $ingredients_classes{$class}{$tagid}{level} . '" title="' . $ingredients_classes{$class}{$tagid}{warning} . '" ';
 				}
-
-				my $tagtype = $class;
-				if ((defined $tags_levels{$lc}{$tagtype}) and (defined $tags_levels{$lc}{$tagtype}{$tagid})) {
-					$info = ' class="level_' . $tags_levels{$lc}{$tagtype}{$tagid} . '" ';
-					my %colors = ( 3 => 'red', 2 => 'darkorange', 1 => 'green' );
-					if ($tags_levels{$lc}{$tagtype}{$tagid} > 0) {
-						$info .= ' style="color:' . $colors{$tags_levels{$lc}{$tagtype}{$tagid} + 0} . '" ';
-					}
-				}
 			}
 
 			$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
@@ -8198,6 +8273,83 @@ HTML
 }
 
 
+sub display_nutriscore_calculation_detail($) {
+
+	my $nutriscore_data_ref = shift;
+
+	my $html = '<p><a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">' . lang("nutriscore_calculation_detail") . " &raquo;</a><p>"
+	. '<div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
+
+	if ($nutriscore_data_ref->{is_beverage}) {
+		$html .= "<p>" . lang("nutriscore_is_beverage") . "</p>";
+	}
+	else {
+		$html .= "<p>" . lang("nutriscore_is_not_beverage") . "</p>";
+	}
+
+	if ($nutriscore_data_ref->{is_fat}) {
+		$html .= "<p>" . lang("nutriscore_proteins_is_added_fat") . "</p>";
+	}
+
+	my @points = (
+		["positive", ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]],
+		["negative", ["energy", "sugars", "saturated_fat", "sodium"]],
+	);
+
+	foreach my $points_ref (@points) {
+
+		$html .= "<p><strong>" . lang("nutriscore_" . $points_ref->[0] . "_points") . lang("sep") . ": "
+		. $nutriscore_data_ref->{$points_ref->[0] . "_points"} . "</strong></p><ul>";
+
+		foreach my $nutrient (@{$points_ref->[1]}) {
+
+			my $nutrient_threshold_id = $nutrient;
+
+			if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
+				and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
+				$nutrient_threshold_id .= "_beverages";
+			}
+			if (($nutriscore_data_ref->{is_fat}) and ($nutrient eq "saturated_fat")) {
+				$nutrient = "saturated_fat_ratio";
+				$nutrient_threshold_id = "saturated_fat_ratio";
+			}
+
+			$html .= "<li><strong>" . lang("nutriscore_points_for_" . $nutrient) . lang("sep") . ": "
+			. $nutriscore_data_ref->{$nutrient . "_points"} . "&nbsp;</strong>/&nbsp;" . scalar(@{$points_thresholds{$nutrient_threshold_id}}) . lang("points")
+			. " (" . lang("nutriscore_source_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient} . ", "
+			. lang("nutriscore_rounded_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient . "_value"} . ")" . "</li>";
+		}
+
+		$html .= "</ul>";
+	}
+
+	if ($nutriscore_data_ref->{negative_points} < 11) {
+		$html .= "<p>" . lang("nutriscore_proteins_negative_points_less_than_11") . "</p>";
+	}
+	elsif ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese})) {
+		$html .= "<p>" . lang("nutriscore_proteins_is_cheese") . "</p>";
+	}
+	elsif ((((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
+			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
+		or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
+			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
+		$html .= "<p>" . lang("nutriscore_proteins_maximum_fruits_points") . "</p>";
+	}
+	else {
+		$html .= "<p>" . lang("nutriscore_proteins_negative_points_greater_or_equal_to_11") . "</p>";
+	}
+
+	$html .= "<p><strong>" . lang("nutriscore_score") . lang("sep"). ": " . ($nutriscore_data_ref->{score})
+	. "</strong> (" . $nutriscore_data_ref->{negative_points} . " - " . $nutriscore_data_ref->{positive_points} . ")<p>";
+
+	$html .= "<p><strong>" . lang("nutriscore_grade") . lang("sep"). ": " . uc($nutriscore_data_ref->{grade}) . "</strong></p>";
+
+	$html .= "</div>";
+
+	return $html;
+}
+
+
 sub display_nutrient_levels($) {
 
 	my $product_ref = shift;
@@ -8286,6 +8438,9 @@ sub display_nutrient_levels($) {
 $warning
 HTML
 ;
+		if (defined $product_ref->{nutriscore_data}) {
+			$html_nutrition_grade .= display_nutriscore_calculation_detail($product_ref->{nutriscore_data});
+		}
 	}
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
@@ -8845,8 +9000,17 @@ HTML
 				if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
 					$value_unit = '?';
 				}
-				elsif ($nid =~ /^energy/) {
-					$value_unit .= "<br>(" . sprintf("%d", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal')) . ' kcal)';
+				elsif (($nid eq "energy") or ($nid eq "energy-from-fat")) {
+					# Use the actual value in kcal if we have it
+					my $value_in_kcal;
+					if (defined $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}) {
+						$value_in_kcal = g_to_unit($comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}, 'kcal');
+					}
+					# Otherwise convert the value in kj
+					else {
+						$value_in_kcal =  g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal');
+					}
+					$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 				}
 
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
@@ -8940,8 +9104,17 @@ HTML
 						$value_unit = $product_ref->{nutriments}{$nid . "_modifier"} . " " . $value_unit;
 					}
 
-					if ($nid =~ /^energy/) {
-						$value_unit .= "<br>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
+					if (($nid eq "energy") or ($nid eq "energy-from-fat")) {
+						# Use the actual value in kcal if we have it
+						my $value_in_kcal;
+						if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_$col"}) {
+							$value_in_kcal = g_to_unit($product_ref->{nutriments}{$nid . "-kcal" . "_$col"}, 'kcal');
+						}
+						# Otherwise convert the value in kj
+						else {
+							$value_in_kcal =  g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal');
+						}
+						$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 					}
 				}
 
@@ -9668,7 +9841,8 @@ sub display_recent_changes {
 			diffs => $change_ref->{diffs}
 		};
 
-		delete $change_hash->{ip} unless $admin; # security: Do not expose IP addresses to non-admin or anonymous users.
+		# security: Do not expose IP addresses to non-admin or anonymous users.
+		delete $change_hash->{ip} unless $admin; 
 
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
 		my $diffs = compute_changes_diff_text($change_ref);
@@ -9709,8 +9883,8 @@ sub display_recent_changes {
 }
 
 sub display_change($$) {
-	my $change_ref = shift;
-	my $diffs = shift;
+
+	my ($change_ref, $diffs) = @_;
 
 	my $date = display_date_tag($change_ref->{t});
 	my $user = "";
@@ -9736,9 +9910,9 @@ sub display_change($$) {
 	# Display diffs
 	# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
 
-
 	my $product_url = product_url($change_ref->{code});
-	return "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+
+	return "<li><a href=\"$product_url\">" . $change_ref->{code} . "</a>; $date - $user ($comment) [$diffs] - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 }
 
 1;

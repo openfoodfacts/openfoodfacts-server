@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-10 14:59\n"
+"PO-Revision-Date: 2019-11-18 09:33\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -196,7 +196,7 @@ msgstr "ניתן גם לסייע במימון המיזם Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"תרומה ל־Open Food Facts\" /></a><p><<site_name>> נוסד על ידי ארגון ללא מטרות רווח, ללא תלות בתעשייה. הוא נוצר לטובת כולם, על ידי כולם ובמימון כולם. ניתן לתמוך בעבודה שלנו על ידי <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">תרומה ל־Open Food Facts</a> וגם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">שימוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
+msgstr "<a href=\"http://il.openfoodfacts.org/donate-to-open-food-facts-he\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"תרומה ל־Open Food Facts\" /></a><p><<site_name>> נוסד על ידי ארגון ללא מטרות רווח, ללא תלות בתעשייה. הוא נוצר לטובת כולם, על ידי כולם ובמימון כולם. ניתן לתמוך בעבודה שלנו על ידי <a href=\"http://il.openfoodfacts.org/donate-to-open-food-facts-he\">תרומה ל־Open Food Facts</a> וגם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">שימוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -424,7 +424,7 @@ msgstr "תרומה ל־Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "http://il.openfoodfacts.org/donate-to-open-food-facts-he"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -2943,11 +2943,11 @@ msgstr "קבוצות בהן למעלה מ־5% מהחברים חורגים מהצ
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־50% מהחברים חורגים מהמינון המקסימלי ללא השפעה שלילית (אין רמת השפעה שלילית ניכרת - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־5% מהחברים חורגים מהמינון המקסימלי ללא השפעה שלילית (אין רמת השפעה שלילית ניכרת - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
@@ -3123,11 +3123,11 @@ msgstr "מועד ההורדה מהמדפים"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "תבנית: YYYY-MM-DD או YYYY-MM או YYYY"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 או 2019-09 או 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3839,4 +3839,131 @@ msgstr "מידע"
 msgctxt "file_received"
 msgid "File received"
 msgstr "התקבל קובץ"
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr "פירוט החישוב של Nutri-Score"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "מוצר זה נחשב למשקה לטובת החישוב של ה־‏Nutri-Score."
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr "מוצר זה אינו נחשב למשקה לטובת החישוב של ה־‏Nutri-Score."
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "נקודות חיוביות"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "נקודות שליליות"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "הנקודות לחלבונים מחושבות כיוון שהנקודות השליליות קטנות מ־11."
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "הנקודות לחלבונים אינן מחושבות כיוון שהנקודות השליליות גדולות או שוות ל־11."
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "הנקודות לחלבונים מחושבות כיוון שהנקודות לפירות, ירקות אגוזים ושמני קנולה/אגוזי מלך/זית הגיעו לכמות המרבית."
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "הנקודות לחלבונים מחושבות כיוון שהמוצר הוא בקטגוריית הגבינות."
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "המוצר נמצא בקטגוריית השמנים, הנקודות לשומן רווי מוחלפות בנקודות היחס של שומן רווי / שומן."
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "אנרגיה"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "סוכרים"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "שומן רווי"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "יחס שומן רווי / שומן"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "נתרן"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "פירות, ירקות, אגוזים ושמני קנולה/אגוזי מלך/זית"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "סיבים תזונתיים"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "חלבון"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "ערך"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "ערך מעוגל"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "ציון תזונתי"
+
+# Do not translate
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "ציון Nutri-Score"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr "Open Food Facts הוא מיזם חופשי ובלתי תלוי ב־100%."
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr "<a href=\"\">אנו זקוקים לעזרתכם ולתרומותיכם</a> כדי להמשיך ולפתח את המיזם."
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "תודה רבה לך!"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "ערך עבור המוצר"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "ערך ממוצע לקטגוריה %s"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "ניתן לשנות את ערך ה־Nutri-Score מהערך %s לערך %s על ידי שינוי הערך של %s מכדי %s לכדי %s (הפרש של %s אחוזים)."
 

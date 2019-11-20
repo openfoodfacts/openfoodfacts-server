@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-09 10:11\n"
+"PO-Revision-Date: 2019-11-17 12:04\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3823,7 +3823,7 @@ msgstr "Ajouter des photos..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr "Commencer le téléversement"
+msgstr "Commencer l'envoi"
 
 msgctxt "start"
 msgid "Start"
@@ -3835,7 +3835,7 @@ msgstr "Fermer"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr "Téléversement annulé"
+msgstr "Annuler l'envoi"
 
 msgctxt "info"
 msgid "Info"
@@ -3844,4 +3844,131 @@ msgstr "Informations"
 msgctxt "file_received"
 msgid "File received"
 msgstr "Fichier reçu"
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr "Détail du calcul du Nutri-Score"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "Ce produit est considéré comme une boisson pour le calcul du Nutri-Score."
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr "Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score."
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "Points positifs"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "Points négatifs"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11."
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "Les points pour les protéines ne sont pas comptés car les points négatifs sont supérieurs ou égaux à 11."
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "Les points pour les protéines sont comptés car les points pour les fruits, les légumes, les noix et les huiles de colza, de noix et d'olive sont au maximum."
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "Les points pour les protéines sont comptés car le produit appartient à la catégorie des fromages."
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "Le produit est dans la catégorie des matières grasses, les points pour les matières grasses saturées sont remplacés par les points pour le rapport entre les matières grasses saturées et les matières grasses."
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "Énergie"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "Sucres"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "Graisses saturées"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "Ratio matières grasses saturées / matières grasses"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "Sodium"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "Fruits, légumes, noix et huiles de colza / noix / olive"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "Fibres alimentaires"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "Protéines"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "valeur"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "valeur arrondie"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "Score nutritionnel"
+
+# Do not translate
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "Score Nutri-Score"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr "Open Food Facts est 100% gratuit et indépendant."
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr "<a href=\"\">Nous avons besoin de votre aide et de vos dons</a> pour continuer et développer le projet."
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "Merci !"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "Valeur pour le produit"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "Valeur moyenne pour la catégorie %s"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "Le Nutri-Score peut passer de %s à %s en changeant la valeur %s de %s à %s (différence de %s pour cent)."
 

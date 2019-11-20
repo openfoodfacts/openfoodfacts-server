@@ -93,6 +93,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::ImportConvert qw/clean_weights/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -400,6 +401,11 @@ sub import_csv_file($) {
 			}
 		}
 
+		# Clean the input data
+		# It is necessary to do it at this step (before the import) so that we can populate
+		# the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
+		clean_weights($imported_product_ref);
+
 		$i++;
 
 		my $modified = 0;
@@ -644,6 +650,12 @@ sub import_csv_file($) {
 					#	delete $product_ref->{$field . "_tags"};
 					#}
 
+					# If we are on the producers platform, remove existing values for brands
+					if (($server_options{producers_platform}) and ($field eq "brands")) {
+						$product_ref->{$field} = "";
+						delete $product_ref->{$field . "_tags"};
+					}
+
 					my %existing = ();
 						if (defined $product_ref->{$field . "_tags"}) {
 						foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
@@ -656,6 +668,7 @@ sub import_csv_file($) {
 						my $tagid;
 
 						next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
+						next if $tag =~ /^\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no)\s*$/i;
 
 						$tag =~ s/^\s+//;
 						$tag =~ s/\s+$//;
@@ -668,7 +681,7 @@ sub import_csv_file($) {
 							$tagid = get_taxonomyid($imported_product_ref->{lc}, canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
 						}
 						else {
-							$tagid = get_fileid($tag);
+							$tagid = get_string_id_for_lang("no_language", $tag);
 						}
 
 						if (not exists $existing{$tagid}) {
@@ -725,6 +738,8 @@ sub import_csv_file($) {
 				else {
 					# non-tag field
 					my $new_field_value = $imported_product_ref->{$field};
+
+					next if not defined $new_field_value;
 
 					$new_field_value =~ s/\s+$//;
 					$new_field_value =~ s/^\s+//;
@@ -783,10 +798,13 @@ sub import_csv_file($) {
 							$differing_fields{$field}++;
 
 							$product_ref->{$field} = $new_field_value;
-							push @modified_fields, $field;
-							$modified++;
 
-							$stats{products_info_changed}{$code} = 1;
+							# do not count the import id as a change
+							if ($field ne "imports") {
+								push @modified_fields, $field;
+								$modified++;
+								$stats{products_info_changed}{$code} = 1;
+							}
 						}
 						elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
 							# normalize quantity
@@ -801,9 +819,13 @@ sub import_csv_file($) {
 					else {
 						$log->debug("setting previously unexisting value for field", { field => $field, new_value => $new_field_value }) if $log->is_debug();
 						$product_ref->{$field} = $new_field_value;
-						push @modified_fields, $field;
-						$modified++;
-						$stats{products_info_added}{$code} = 1;
+
+						# do not count the import id as a change
+						if ($field ne "imports") {
+							push @modified_fields, $field;
+							$modified++;
+							$stats{products_info_added}{$code} = 1;
+						}
 					}
 				}
 			}
@@ -841,6 +863,22 @@ sub import_csv_file($) {
 			my $value = $imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"};
 			my $valuep = $imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"};
 			my $unit = $imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"};
+
+			# calcium_100g_value_unit = 50 mg
+			if (not defined $value) {
+				$value = $imported_product_ref->{$nid . "_value_unit"} || $imported_product_ref->{$nid . "_100g_value_unit"};
+				if ((defined $value) and ($value =~ /^(.*) ([a-z]+)$/)) {
+					$value = $1;
+					$unit = $2;
+				}
+			}
+			if (not defined $valuep) {
+				$valuep = $imported_product_ref->{$nid . "_prepared_value_unit"} || $imported_product_ref->{$nid . "_100g_prepared_value_unit"};
+				if ((defined $valuep) and ($valuep =~ /^(.*) ([a-z]+)$/)) {
+					$valuep = $1;
+					$unit = $2;
+				}
+			}
 
 			# calcium_100g_value_in_mcg
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-10 15:06\n"
+"PO-Revision-Date: 2019-11-17 16:51\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -195,7 +195,7 @@ msgstr "Prav tako lahko pomagate pri financiranju projekta Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://sl.openfoodfacts.org/doniraj-k-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> tvori neprofitno združenje, neodvisno od panoge. Narejena je za vse, po vseh, financirajo pa jo vsi. Naše delo lahko podprete s <a href=\"https://sl.openfoodfacts.org/doniraj-k-open-food-facts\">donacijami za Open Food Facts</a> in <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">s pomočjo iskalnika Lilo</a>.<br/><b>Hvala!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -3835,4 +3835,131 @@ msgstr "Info"
 msgctxt "file_received"
 msgid "File received"
 msgstr "Datoteka je prejeta"
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr "Podrobnosti o izračunu Nutri-Score"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "Pozitivne točke"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "Negativne točke"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "Točke za beljakovine se štejejo, ker so negativne točke manjše od 11."
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "Točke za beljakovine se ne štejejo, ker so negativne točke večje ali enake 11."
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "Točke za beljakovine se štejejo, ker so točke za sadje, zelenjavo, oreške in repično/orehovo/oljčno olje na maximumu."
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "Točke za beljakovine se štejejo, ker je izdelek v kategoriji sirov."
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "Izdelek je v kategoriji maščobe, točke za nasičene maščobe se nadomestijo s točkami za razmerje nasičene maščobe/maščobe."
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "Energija"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "Sladkorji"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "Nasičena maščoba"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "Razmerje nasičenih maščob in maščob"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "Natrij"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "Sadje, zelenjava, oreški in repična/orehova/olivna olja"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "Prehranske vlaknine"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "Beljakovine"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "vrednost"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "zaokrožena vrednost"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "Prehranska ocena"
+
+# Do not translate
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr ""
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr ""
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score"
+msgstr ""
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr ""
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr ""
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr ""
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr ""
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr ""
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr ""
 

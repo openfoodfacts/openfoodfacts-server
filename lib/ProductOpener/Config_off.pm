@@ -564,6 +564,10 @@ improvements
 @product_other_fields = qw(
 	producer_product_id
 	producer_version_id
+	quantity_value
+	quantity_unit
+	serving_size_value
+	serving_size_unit
 	net_weight_value
 	net_weight_unit
 	drained_weight_value
@@ -575,7 +579,10 @@ improvements
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	nutrition_grade_fr_producer
-	recipe_idea origin
+	nutriscore_score_producer
+	nutriscore_grade_producer
+	recipe_idea
+	origin
 	customer_service
 	producer
 	preparation
@@ -699,7 +706,7 @@ $options{import_export_fields_groups} = [
 	],
 	["nutrition"],
 	["nutrition_other"],
-	["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+	["other", [	"nutriscore_score_producer", "nutriscore_grade_producer", "conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
 	],
 	["images", ["image_front_url", "image_ingredients_url", "image_nutrition_url", "image_other_url"]],
 ];

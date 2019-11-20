@@ -591,11 +591,8 @@ sub extract_ingredients_from_text($) {
 	}
 
 	my $analyze_ingredients = sub($$$$$) {
-		my $analyze_ingredients_self = shift;
-		my $ranked_ingredients_ref = shift;
-		my $unranked_ingredients_ref = shift;
-		my $level = shift;
-		my $s = shift;
+
+		my ($analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref, $level, $s) = @_;
 
 		# print STDERR "analyze_ingredients level $level: $s\n";
 
@@ -2860,7 +2857,8 @@ sub extract_ingredients_classes_from_text($) {
 
 					# spellcheck
 					my $spellcheck = 0;
-					if ((not $match) and ($tagtype eq 'additives')
+					# 2019/11/10 - disable spellcheck of additives, as it is much too slow and make way too many calls to functions
+					if (0 and (not $match) and ($tagtype eq 'additives')
 						and not $match_without_mandatory_class
 						# do not correct words that are existing ingredients in the taxonomy
 						and (not exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient_id_copy) ) ) ) {
@@ -3214,7 +3212,7 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	if (($before . $before_allergen) =~ /\b($traces_regexp)\b/i) {
 		$field = "traces";
-		print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+		# print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}
 
 	# Farine de blé 97%
@@ -3223,11 +3221,11 @@ sub replace_allergen_between_separators($$$$$$) {
 		$end_separator = $1 . $' . $end_separator;
 	}
 
-	print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
+	#print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
 
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
 
-	print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
+	#print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
 
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);

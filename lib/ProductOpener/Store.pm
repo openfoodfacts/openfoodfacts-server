@@ -80,10 +80,13 @@ sub unac_string_perl($) {
 
 sub get_string_id_for_lang {
 
-	my $lc = shift;
-	my $string = shift;
+	my ($lc, $string) = @_;
 
 	defined $lc or die("Undef \$lc in call to get_string_id_for_lang (string: $string)\n");
+
+	if (not defined $string) {
+		return "";
+	}
 
 	my $unaccent = $string_normalization_for_lang{default}{unaccent};
 	my $lowercase = $string_normalization_for_lang{default}{lowercase};
@@ -97,17 +100,13 @@ sub get_string_id_for_lang {
 		}
 	}
 
-	if (not defined $string) {
-		return "";
-	}
-
 	if ($lowercase) {
 		# do not lowercase UUIDs
 		# e.g.
 		# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
 		# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
-		if ($string !~ /^([a-z\-]+)\.([a-zA-Z0-9-_]{8})([a-zA-Z0-9-_]*)$/) {
-			$string =~ s/\N{U+1E9E}/\N{U+00DF}/g; # Actual lower-case for capital ß
+		if ($string !~ /^[a-z\-]+\.[a-zA-Z0-9-_]{8}[a-zA-Z0-9-_]+$/) {
+			$string =~ tr/\N{U+1E9E}/\N{U+00DF}/; # Actual lower-case for capital ß
 			$string = lc($string);
 			$string =~ tr/./-/;
 		}
@@ -117,33 +116,34 @@ sub get_string_id_for_lang {
 		$string =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
 		$string =~ s/œ|Œ/oe/g;
 		$string =~ s/æ|Æ/ae/g;
-		$string =~ s/ß/ss/g;
-		$string =~ s/\N{U+1E9E}/ss/g;
+		$string =~ s/ß|\N{U+1E9E}/ss/g;
 	}
 
-	# turn special chars to -
-	$string =~ s/[\000-\037]/-/g;
-
-	# zero width space
-	$string =~ s/\x{200B}/-/g;
+	# turn special chars and zero width space to -
+	$string =~ tr/\000-\037\x{200B}/-/;
 
 	# avoid turning &quot; in -quot-
 	$string =~ s/\&(quot|lt|gt);/-/g;
 
 	$string =~ s/[\s!"#\$%&'()*+,\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
-	$string =~ s/-+/-/g;
-	$string =~ s/^-//;
-	$string =~ s/-$//;
+	$string =~ tr/-/-/s;
+
+	if (index($string, '-') == 0) {
+		$string = substr $string, 1;
+	}
+
+	my $l = length($string);
+	if (rindex($string, '-') == $l - 1) {
+		$string = substr $string, 0, $l - 1;
+	}
 
 	return $string;
-}
 
+}
 
 sub get_fileid {
 
-	my $file = shift;
-	my $unaccent = shift;
-	my $lc = shift;
+	my ($file, $unaccent, $lc) = @_;
 
 	if (not defined $file) {
 		return "";
@@ -157,38 +157,40 @@ sub get_fileid {
 	# e.g.
 	# yuka.VFpGWk5hQVQrOEVUcWRvMzVETGU0czVQbTZhd2JIcU1OTXdCSWc9PQ
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
-	if ($file !~ /^([a-z\-]+)\.([a-zA-Z0-9-_]{8})([a-zA-Z0-9-_]*)$/) {
-		$file =~ s/\N{U+1E9E}/\N{U+00DF}/g; # Actual lower-case for capital ß
+	if ($file !~ /^[a-z\-]+\.[a-zA-Z0-9-_]{8}[a-zA-Z0-9-_]+$/) {
+		$file =~ tr/\N{U+1E9E}/\N{U+00DF}/; # Actual lower-case for capital ß
 		$file = lc($file);
 		$file =~ tr/./-/;
 	}
 
-	if ((defined $unaccent) and ($unaccent eq 1)) {
+	if ($unaccent) {
 		$file =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
-
 		$file =~ s/œ|Œ/oe/g;
 		$file =~ s/æ|Æ/ae/g;
-		$file =~ s/ß/ss/g;
-		$file =~ s/\N{U+1E9E}/ss/g;
+		$file =~ s/ß|\N{U+1E9E}/ss/g;
 	}
 
-	# turn special chars to -
-	$file =~ s/[\000-\037]/-/g;
-
-	# zero width space
-	$file =~ s/\x{200B}/-/g;
+	# turn special chars and zero width space to -
+	$file =~ tr/\000-\037\x{200B}/-/;
 
 	# avoid turning &quot; in -quot-
 	$file =~ s/\&(quot|lt|gt);/-/g;
 
 	$file =~ s/[\s!"#\$%&'()*+,\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
-	$file =~ s/-+/-/g;
-	$file =~ s/^-//;
-	$file =~ s/-$//;
+	$file =~ tr/-/-/s;
+
+	if (index($file, '-') == 0) {
+		$file = substr $file, 1;
+	}
+
+	my $l = length($file);
+	if (rindex($file, '-') == $l - 1) {
+		$file = substr $file, 0, $l - 1;
+	}
 
 	return $file;
-}
 
+}
 
 sub get_url_id_for_lang {
 
