@@ -564,6 +564,10 @@ improvements
 @product_other_fields = qw(
 	producer_product_id
 	producer_version_id
+	quantity_value
+	quantity_unit
+	serving_size_value
+	serving_size_unit
 	net_weight_value
 	net_weight_unit
 	drained_weight_value
