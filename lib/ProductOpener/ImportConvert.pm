@@ -466,6 +466,18 @@ sub clean_weights($) {
 			}
 		}
 
+		# we can be passed values in a specific unit (e.g. quantity_in_mg)
+		if (not defined $product_ref->{$field}) {
+			foreach my $u ('kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml') {
+				if ((defined $product_ref->{$field . "_value_in_" . $u})
+					and ($product_ref->{$field . "_value_in_" . $u} ne "")) {
+					assign_value($product_ref, $field . "_value", $product_ref->{$field . "_value_in_" . $u});
+					assign_value($product_ref, $field . "_unit", $u);
+					last;
+				}
+			}
+		}
+
 		# combine value and unit
 		if ((not defined $product_ref->{$field})
 			and (defined $product_ref->{$field . "_value"})
@@ -473,6 +485,14 @@ sub clean_weights($) {
 			and (defined $product_ref->{$field . "_unit"}) ) {
 
 			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
+		}
+
+		# We may be passed quantity_value_unit, in that case assign it to quantity
+		if ((not defined $product_ref->{$field})
+			and (defined $product_ref->{$field . "_value_unit"})
+			and ($product_ref->{$field . "_value_unit"} ne "")) {
+
+			assign_value($product_ref, $field, $product_ref->{$field . "_value_unit"});
 		}
 
 		if (defined $product_ref->{$field}) {

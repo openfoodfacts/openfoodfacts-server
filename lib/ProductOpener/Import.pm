@@ -93,6 +93,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::ImportConvert qw/clean_weights/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -399,6 +400,11 @@ sub import_csv_file($) {
 				$imported_product_ref->{$key} =~ s/^\s+|\s+$//g;
 			}
 		}
+
+		# Clean the input data
+		# It is necessary to do it at this step (before the import) so that we can populate
+		# the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
+		clean_weights($imported_product_ref);
 
 		$i++;
 
@@ -727,6 +733,8 @@ sub import_csv_file($) {
 					# non-tag field
 					my $new_field_value = $imported_product_ref->{$field};
 
+					next if not defined $new_field_value;
+
 					$new_field_value =~ s/\s+$//;
 					$new_field_value =~ s/^\s+//;
 
@@ -849,6 +857,22 @@ sub import_csv_file($) {
 			my $value = $imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"};
 			my $valuep = $imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"};
 			my $unit = $imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"};
+
+			# calcium_100g_value_unit = 50 mg
+			if (not defined $value) {
+				$value = $imported_product_ref->{$nid . "_value_unit"} || $imported_product_ref->{$nid . "_100g_value_unit"};
+				if ((defined $value) and ($value =~ /^(.*) ([a-z]+)$/)) {
+					$value = $1;
+					$unit = $2;
+				}
+			}
+			if (not defined $valuep) {
+				$valuep = $imported_product_ref->{$nid . "_prepared_value_unit"} || $imported_product_ref->{$nid . "_100g_prepared_value_unit"};
+				if ((defined $valuep) and ($valuep =~ /^(.*) ([a-z]+)$/)) {
+					$valuep = $1;
+					$unit = $2;
+				}
+			}
 
 			# calcium_100g_value_in_mcg
 
