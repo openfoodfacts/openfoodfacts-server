@@ -650,6 +650,12 @@ sub import_csv_file($) {
 					#	delete $product_ref->{$field . "_tags"};
 					#}
 
+					# If we are on the producers platform, remove existing values for brands
+					if (($server_options{producers_platform}) and ($field eq "brands")) {
+						$product_ref->{$field} = "";
+						delete $product_ref->{$field . "_tags"};
+					}
+
 					my %existing = ();
 						if (defined $product_ref->{$field . "_tags"}) {
 						foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
@@ -675,7 +681,7 @@ sub import_csv_file($) {
 							$tagid = get_taxonomyid($imported_product_ref->{lc}, canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
 						}
 						else {
-							$tagid = get_fileid($tag);
+							$tagid = get_string_id_for_lang("no_language", $tag);
 						}
 
 						if (not exists $existing{$tagid}) {
