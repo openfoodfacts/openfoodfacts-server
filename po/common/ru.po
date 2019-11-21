@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 16:32\n"
+"PO-Revision-Date: 2019-11-21 07:42\n"
 "Language-Team: Russian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -552,7 +552,7 @@ msgstr "Пароль и его подтверждение не совпадаю�
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Этот адрес уже указан другим пользователем. Возможно, у вас уже есть учётная запись? Вы можете <a href=\"/cgi/reset_password.pl\">сбросить пароль</a> вашей другой учётной записи."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -876,7 +876,7 @@ msgstr "Этот файл был загружен в продукт %s и лиц
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Фотография от %s из %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
@@ -2144,7 +2144,7 @@ msgstr "Точечная диаграмма"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ узнайте больше о графиках <<site_name>>: <a href=\"/graphs-in-3-clicks\">Графики в 3 клика</a> (блог).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2583,7 +2583,8 @@ msgstr "Посмотреть результаты со всего мира"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "Информация и данные должны поступать с упаковки товара и этикеток (а не с других сайтов или сайта производителя), а фотографии должны быть сняты вами.<br/>\n"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Почему это важно</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3122,11 +3123,11 @@ msgstr "Дата вывода"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "Формат: ГГГГ-ММ-ДД или ГГГГ-ММ или ГГГГ"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 или 2019-09 или 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
