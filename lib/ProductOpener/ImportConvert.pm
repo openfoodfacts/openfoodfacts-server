@@ -405,7 +405,7 @@ sub split_allergens($) {
 
 	# simple allergen (not an enumeration) -> return _$allergens_
 	if (($allergens !~ /,/)
-		and (not ($allergens =~ / et /i))) {
+		and (not ($allergens =~ / (et|and) /i))) {
 		return "_" . $allergens . "_";
 	}
 	else {
@@ -673,43 +673,36 @@ sub clean_fields($) {
 
 				# Traces de<b> fruits à coque </b>
 
-				$product_ref->{$field} =~ s/<strong>/<b>/g;
-				$product_ref->{$field} =~ s/<\/strong>/<\/b>/g;
+				$product_ref->{$field} =~ s/(<(b|u|i|em|strong)>)+/<b>/ig;
+				$product_ref->{$field} =~ s/(<\/(b|u|i|em|strong)>)+/<\/b>/ig;
 
-				$product_ref->{$field} =~ s/(<b><u>|<u><b>)/<b>/g;
-				$product_ref->{$field} =~ s/(<\b><\u>|<\u><\b>)/<\b>/g;
-				$product_ref->{$field} =~ s/<u>/<b>/g;
-				$product_ref->{$field} =~ s/<\/u>/<\/b>/g;
-				$product_ref->{$field} =~ s/<em>/<b>/g;
-				$product_ref->{$field} =~ s/<\/em>/<\/b>/g;
-				$product_ref->{$field} =~ s/<b>\s+/ <b>/g;
-				$product_ref->{$field} =~ s/\s+<\/b>/<\/b> /g;
+				$product_ref->{$field} =~ s/<b>\s+/ <b>/ig;
+				$product_ref->{$field} =~ s/\s+<\/b>/<\/b> /ig;
 
 				# empty tags
-				$product_ref->{$field} =~ s/<b>\s+<\/b>/ /g;
-				$product_ref->{$field} =~ s/<b><\/b>//g;
+				$product_ref->{$field} =~ s/<b>\s+<\/b>/ /ig;
+				$product_ref->{$field} =~ s/<b><\/b>//ig;
 				# _fromage_ _de chèvre_
-				$product_ref->{$field} =~ s/<\/b>(| )<b>/$1/g;
+				$product_ref->{$field} =~ s/<\/b>(| )<b>/$1/ig;
 
 				# d_'œufs_
 				# _lait)_
-				$product_ref->{$field} =~ s/<b>'(\w)/$1'<b>/g;
-				$product_ref->{$field} =~ s/(\w)<\/b>/<b>$1/g;
-
-
-				# $log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-
+				$product_ref->{$field} =~ s/<b>'(\w)/$1'<b>/ig;
+				$product_ref->{$field} =~ s/(\W)<\/b>/<\/b>$1/ig;
 
 				# extrait de malt d'<b>orge - </b>sel
-				$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/g;
+				$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/ig;
+
+				$log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
 
 				$product_ref->{$field} =~ s/<b>(.*?)<\/b>/split_allergens($1)/iesg;
-				$product_ref->{$field} =~ s/<b>|<\/b>//g;
+				$product_ref->{$field} =~ s/<b>|<\/b>//ig;
+
+				$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 
 				if ($field eq "ingredients_text_fr") {
-
-					# $log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 					# remove single sentence that say allergens are in bold (in Casino data)
 					$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques)?))(\.)?//i;
@@ -741,7 +734,10 @@ sub clean_fields($) {
 
 			if ($field =~ /^ingredients_text_(\w\w)/) {
 				my $ingredients_lc = $1;
+				$log->debug("clean_fields - before clean_ingredients_text_for_lang ", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 				$product_ref->{$field} = clean_ingredients_text_for_lang($product_ref->{$field}, $ingredients_lc);
+				$log->debug("clean_fields - after clean_ingredients_text_for_lang ", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
 			}
 
 			if ($field =~ /^nutrition_grade_/) {
@@ -758,7 +754,7 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/,(\s*),/,/g;
 			$product_ref->{$field} =~ s/\.(\.+)$/\./;
 			$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
-			$product_ref->{$field} =~ s/^(\s|-|;|,|\.|_)+//;
+			$product_ref->{$field} =~ s/^(\s|-|;|,|\.)+//;
 			$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
 
 			# remove empty values for tag fields
