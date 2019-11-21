@@ -590,6 +590,8 @@ sub import_csv_file($) {
 		# Record fields that are set by the owner
 		if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
+			$product_ref->{owner} = $args_ref->{owner};
+			$product_ref->{owners_tags} = $product_ref->{owner};
 		}
 
 		foreach my $field (@param_fields) {
