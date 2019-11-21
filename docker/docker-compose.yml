@@ -53,7 +53,7 @@ services:
     networks:
       - webnet
   frontend:
-    image: docker.pkg.github.com/openfoodfacts/openfoodfacts-server/backend:latest
+    image: docker.pkg.github.com/openfoodfacts/openfoodfacts-server/frontend:latest
     depends_on:
       - backend
     volumes:
