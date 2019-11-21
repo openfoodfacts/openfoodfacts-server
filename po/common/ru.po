@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-21 07:42\n"
+"PO-Revision-Date: 2019-11-21 07:52\n"
 "Language-Team: Russian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3351,7 +3351,7 @@ msgstr "Идентификация продукта"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Происхождение"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3363,7 +3363,7 @@ msgstr "Пищевая и энергетическая ценность"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Дополнительная пищевая ценность"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3415,7 +3415,7 @@ msgstr "значение и единица"
 
 msgctxt "value_unit_dropdown_value_specific_unit"
 msgid "the value in a specific unit"
-msgstr ""
+msgstr "значение в определенной единице"
 
 msgctxt "value_unit_dropdown_value"
 msgid "only the value, with the unit in another column"
@@ -3432,7 +3432,7 @@ msgstr ""
 
 msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Введите название этикетки в текстовое поле справа."
 
 # Please do not translate Y, Yes and 1
 msgctxt "specific_tag_category"
@@ -3441,7 +3441,7 @@ msgstr ""
 
 msgctxt "specific_tag_category_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Введите название категории в текстовое поле справа."
 
 msgctxt "value"
 msgid "Value"
@@ -3547,7 +3547,7 @@ msgstr "Экспорт данных о продукте и фотографий 
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Пожалуйста, убедитесь, что данные на платформе для производителей верны, прежде чем экспортировать их в открытую базу данных."
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -3555,7 +3555,7 @@ msgstr "Отмена"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "Свернутые изменения"
 
 msgctxt "data_quality_p"
 msgid "data quality"
@@ -3666,7 +3666,7 @@ msgstr "возможные улучшения"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -3680,7 +3680,7 @@ msgstr "Ваши продукты"
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "Ваша учетная запись еще не связана с компанией. Пожалуйста, отправьте письмо на <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> для активации свободного доступа к платформе для производителей."
 
 msgctxt "import_products"
 msgid "Import products"
@@ -3688,15 +3688,15 @@ msgstr ""
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "Пустой столбец"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "Файл не содержит никаких значений в этом столбце."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "Выполняется импорт данных"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
