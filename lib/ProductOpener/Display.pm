@@ -987,7 +987,7 @@ sub display_index_for_producer($) {
 	}
 
 	$html .= "<h2>" . lang("your_products") . lang("sep") . ":" . "</h2>";
-	$html .= '<p>&rarr; <a href="' . lang("import_products_link") . '">' . lang("add_or_update_products") . '</a></p>';
+	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
 
 	return $html;
 }
@@ -3155,8 +3155,14 @@ HTML
 
 		$description =~ s/<h3>([^<]+)<\/h3>\s*(<h3>)/<h3>/isg;
 		$description =~ s/<h3>([^<]+)<\/h3>\s*$//isg;
+	}
+	else {
+		# Do we have a description for the tag in the taxonomy?
+		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
+			and (defined $properties{$tagtype}{$canon_tagid}{"description:$lc"})) {
 
-
+				$description .= "<p>" . $properties{$tagtype}{$canon_tagid}{"description:$lc"} . "</p>";
+			}
 	}
 
 	$description =~ s/<tag>/$title/g;
@@ -9842,7 +9848,7 @@ sub display_recent_changes {
 		};
 
 		# security: Do not expose IP addresses to non-admin or anonymous users.
-		delete $change_hash->{ip} unless $admin; 
+		delete $change_hash->{ip} unless $admin;
 
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
 		my $diffs = compute_changes_diff_text($change_ref);
