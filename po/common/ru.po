@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-21 08:02\n"
+"PO-Revision-Date: 2019-11-21 08:12\n"
 "Language-Team: Russian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3782,30 +3782,30 @@ msgstr "Импорт фото продукта"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Вы можете использовать форму ниже, чтобы легко загрузить фотографии (внешнего вида продукта, списка ингредиентов и таблицы пищевой ценности) для многих продуктов."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Каждое имя файла должно содержать штрих-код продукта."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "Также вы можете указать тип фотографии в имени файла:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: внешний вид продукта на текущем языке."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: внешний вид продукта на голландском языке."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: список ингредиентов на французском языке."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
