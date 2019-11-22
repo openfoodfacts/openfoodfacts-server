@@ -93,7 +93,7 @@ my $product_ref = {
 
 special_process_product($product_ref);
 
-#ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages' ) || diag explain $product_ref;
+ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages' ) || diag explain $product_ref;
 
 is( $product_ref->{pnns_groups_2}, "unknown") || diag explain $product_ref;
 
@@ -198,8 +198,8 @@ $product_ref = {
 special_process_product($product_ref);
 
 
-#ok( has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'), 'should add en:artificially-sweetened-beverages' ) || diag explain $product_ref;
-#ok( has_tag($product_ref, 'categories', 'en:sweetened-beverages'), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
+ok( not (has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')), 'should add en:artificially-sweetened-beverages' ) || diag explain $product_ref;
+ok( not (has_tag($product_ref, 'categories', 'en:sweetened-beverages')), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
 
 is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
 
@@ -217,8 +217,8 @@ $product_ref = {
 
 special_process_product($product_ref);
 
-#ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages' ) || diag explain $product_ref;
-#ok( (has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')), 'should add en:unsweetened-beverages' ) || diag explain $product_ref;
+ok( (not (has_tag($product_ref, 'categories', 'en:unsweetened-beverages'))), 'should not add en:unsweetened-beverages' ) || diag explain $product_ref;
+ok( not (has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')), 'should add en:unsweetened-beverages' ) || diag explain $product_ref;
 
 
 is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
@@ -235,8 +235,8 @@ $product_ref = {
 
 special_process_product($product_ref);
 
-#ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should remove en:unsweetened-beverages' ) || diag explain $product_ref;
-#ok( (has_tag($product_ref, 'categories', 'en:sweetened-beverages')), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
+ok( not (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should remove en:unsweetened-beverages' ) || diag explain $product_ref;
+ok( not (has_tag($product_ref, 'categories', 'en:sweetened-beverages')), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
 
 is( $product_ref->{pnns_groups_2}, "Sweetened beverages") || diag explain $product_ref;
 

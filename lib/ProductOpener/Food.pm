@@ -4064,8 +4064,8 @@ sub special_process_product($) {
 
 	# Put back the original categories_tags so that they match what is in the taxonomy field
 	# if there is a mistmatch it can cause tags to be added multiple times (e.g. with imports)
-	if (defined $product_ref->{categories_tags}) {
-		@{$product_ref->{categories_tags}} = @original_categories_tags;
+	if (scalar @original_categories_tags) {
+		$product_ref->{categories_tags} = \@original_categories_tags;
 	}
 }
 
