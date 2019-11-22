@@ -81,6 +81,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Food qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -578,9 +579,29 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 		}
 	}
 
+	# Casino : the format field assigned to quantity contains sometimes dates or other entries
+	# Remove the quantity if it does not look like a valid quantity
+
+	if (defined $product_ref->{quantity}) {
+		# Dates
+		if ($product_ref->{quantity} =~ /^'?\d\d\.\d\d\.\d\d\d\d$/) {
+			delete $product_ref->{quantity};
+		}
+
+		# 1/2 , 3/4
+		if ($product_ref->{quantity} =~ /^\d+((\/)\d+)$/i) {
+			delete $product_ref->{quantity};
+		}
+	}
+
+
+	my $normalized_quantity;
+	if (defined $product_ref->{quantity}) {
+		$normalized_quantity = normalize_quantity($product_ref->{quantity});
+	}
 
 	# empty or incomplete quantity, but net_weight etc. present
-	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "")
+	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "") or (not defined $normalized_quantity)
 		or (($product_ref->{lc} eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
 		or ($product_ref->{quantity} =~ /^\(.+\)$/)	#  (4 x 125 g)
 		) {
@@ -671,6 +692,8 @@ sub clean_fields($) {
 
 			if ($field =~ /^ingredients_text/) {
 
+				# Farine de<STRONG> <i>blé</i> </STRONG> - sucre
+
 				# Traces de<b> fruits à coque </b>
 
 				$product_ref->{$field} =~ s/(<(b|u|i|em|strong)>)+/<b>/ig;
@@ -688,7 +711,7 @@ sub clean_fields($) {
 				# d_'œufs_
 				# _lait)_
 				$product_ref->{$field} =~ s/<b>'(\w)/$1'<b>/ig;
-				$product_ref->{$field} =~ s/(\W)<\/b>/<\/b>$1/ig;
+				$product_ref->{$field} =~ s/(\)|\]|\*)<\/b>/<\/b>$1/ig;
 
 				# extrait de malt d'<b>orge - </b>sel
 				$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/ig;
@@ -751,6 +774,7 @@ sub clean_fields($) {
 				$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//ig;
 			}
 
+			$product_ref->{$field} =~ s/ +/ /g;
 			$product_ref->{$field} =~ s/,(\s*),/,/g;
 			$product_ref->{$field} =~ s/\.(\.+)$/\./;
 			$product_ref->{$field} =~ s/(\s|-|;|,)*$//;

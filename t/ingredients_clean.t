@@ -126,6 +126,10 @@ $product_ref = { lc => "fr", ingredients_text_fr => "<b>blé</b>, <i>froment</i>
 is($product_ref->{ingredients_text_fr}, "_blé_, _froment_, _soja_, test") or diag explain $product_ref;
 
 $product_ref = { lc => "fr", ingredients_text_fr => "Traces de <b> fruits à coque </b>, <b></b><b>lait)</b> - extrait de malt d'<u>orge - </u>sel, persil- poivre blanc -ail" }; clean_fields($product_ref);
-is($product_ref->{ingredients_text_fr}, "Traces de  _fruits \x{e0} coque_ , _lait_) - extrait de malt d'_orge _ - sel, persil - poivre blanc - ail") or diag explain $product_ref;
+is($product_ref->{ingredients_text_fr}, "Traces de _fruits \x{e0} coque_ , _lait_) - extrait de malt d'_orge _ - sel, persil - poivre blanc - ail") or diag explain $product_ref;
+
+$product_ref = { lc => "fr", ingredients_text_fr => "Farine de<STRONG> <i>blé</i> </STRONG> - sucre" }; clean_fields($product_ref);
+is($product_ref->{ingredients_text_fr}, "Farine de _blé_ - sucre") or diag explain $product_ref;
+
 
 done_testing();
