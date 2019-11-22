@@ -479,6 +479,17 @@ sub clean_weights($) {
 			}
 		}
 
+		# if we have a value but no unit, assume the unit is grams for weights, if the value is greater than 20 and less than 5000
+		if ((defined $product_ref->{$field . "_value"})
+			and ($product_ref->{$field . "_value"} ne "")
+			and ((not defined $product_ref->{$field . "_unit"})
+				or ($product_ref->{$field . "_unit"} eq ""))
+			and ($product_ref->{$field . "_value"} > 20)
+			and ($product_ref->{$field . "_value"} < 2000)
+			and ($field =~ /weight/)) {
+			assign_value($product_ref, $field . "_unit", "g");
+		}
+
 		# combine value and unit
 		if ((not defined $product_ref->{$field})
 			and (defined $product_ref->{$field . "_value"})
@@ -584,12 +595,12 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 
 	if (defined $product_ref->{quantity}) {
 		# Dates
-		if ($product_ref->{quantity} =~ /^'?\d\d\.\d\d\.\d\d\d\d$/) {
+		if ($product_ref->{quantity} =~ /^'?\s*\d\d\.\d\d\.\d\d\d\d\s*$/) {
 			delete $product_ref->{quantity};
 		}
 
 		# 1/2 , 3/4
-		if ($product_ref->{quantity} =~ /^\d+((\/)\d+)$/i) {
+		if ($product_ref->{quantity} =~ /^'?\s*\d+((\/)\d+)\s*$/i) {
 			delete $product_ref->{quantity};
 		}
 	}
