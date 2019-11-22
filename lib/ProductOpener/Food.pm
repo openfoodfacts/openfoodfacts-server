@@ -3975,9 +3975,7 @@ sub special_process_product($) {
 					and ((defined $product_ref->{ingredients_text}) and (length($product_ref->{ingredients_text}) > 3))) {
 
 					if (not has_tag($product_ref,"categories","en:unsweetened-beverages")) {
-						# 2019/11/21 - commenting out, as the detection is not 100% reliable
-						# and it is causing issues with the tag added to products that have it already
-						#add_tag($product_ref, "categories", "en:unsweetened-beverages");
+						add_tag($product_ref, "categories", "en:unsweetened-beverages");
 					}
 				}
 				else {
