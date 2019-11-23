@@ -6058,9 +6058,9 @@ HTML
 
 	my $facebook_page = lang("facebook_page");
 
-	my $torso_color = "white";
+	my $torso_class = "anonymous";
 	if (defined $User_id) {
-		$torso_color = "#ffe681";
+		$torso_class = "loggedin";
 	}
 
 	my $search_terms = '';
@@ -6212,8 +6212,8 @@ HTML
 
 <nav class="tab-bar show-for-small-only">
 	<div class="left-small" style="padding-top:4px;">
-		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
-		<span style="color:$torso_color;font-size:1.8rem">@{[ display_icon('account_box') ]}</span>
+		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix $torso_class">
+		@{[ display_icon('account_box') ]}
 		</a>
 	</div>
 	<div class="middle tab-bar-section" style="padding-top:4px;">
