@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:05\n"
+"PO-Revision-Date: 2019-11-21 22:23\n"
 "Language-Team: Italian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -197,7 +197,7 @@ msgstr "Puoi anche contribuire a finanziare il progetto Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world-it.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Dona a Open Food Facts\" /></a><p><<site_name>> è fatto da un associazione senza scopo di lucro, indipendente dal settore. È creato da tutti, per tutti e fondato da tutti. Puoi supportare il nostro lavoro <a href=\"https://world-it.openfoodfacts.org/donate-to-open-food-facts\">donando a Open Food Facts</a> ed <a href=\"https://www.lilo.org/it/open-food-facts/?utm_source=open-food-facts\">usando il motore di ricerca Lilo</a>.<br/><b>Grazie!</b></p>"
+msgstr "<a href=\"https://world-it.openfoodfacts.org/dona-a-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Dona a Open Food Facts\" /></a><p><<site_name>> è fatto da un associazione senza scopo di lucro, indipendente dal settore. È creato da tutti, per tutti e fondato da tutti. Puoi supportare il nostro lavoro <a href=\"https://world-it.openfoodfacts.org/dona-a-open-food-facts\">donando a Open Food Facts</a> ed <a href=\"https://www.lilo.org/it/open-food-facts/?utm_source=open-food-facts\">usando il motore di ricerca Lilo</a>.<br/><b>Grazie!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -425,7 +425,7 @@ msgstr "Dona a Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-it.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-it.openfoodfacts.org/dona-a-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -3848,11 +3848,11 @@ msgstr "Dettaglio del calcolo del Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Questo prodotto è considerato una bevanda per il calcolo del Il Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Questo prodotto non è considerato una bevanda per il calcolo del Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -3934,7 +3934,7 @@ msgstr "Nutri-Score"
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Punteggio Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
@@ -3957,15 +3957,15 @@ msgstr "Grazie!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "Valore per il prodotto"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Valore medio per la categoria %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "Il Nutri-Score Nutri può essere modificato da %s a %s modificando il valore %s da %s a %s (differenza di %s percento)."
 
