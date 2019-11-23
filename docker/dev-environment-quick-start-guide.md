@@ -7,7 +7,7 @@ Product Opener is a big app that require many languages and dependencies. The bu
 ## 1. Prerequisites
 Docker is the easiest way to install the Open Food Facts server, play with it, and even modify the code.
 
-Docker provide an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is **no need to install** Perl, Perl modules, Nginx, nor Apache separately.
+Docker provides an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is **no need to install** Perl, Perl modules, Nginx, nor Apache separately.
 
 Install docker:
 - [Docker CE](https://docs.docker.com/install/#supported-platforms)
