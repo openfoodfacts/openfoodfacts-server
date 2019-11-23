@@ -7423,7 +7423,7 @@ JS
 				$icon = "<span style=\"font-size:32px;margin-right:0.2em;vertical-align:middle;line-height:24px;\">". display_icon($icon) ."</span>";
 			}
 
-			$html_analysis .= "<span class=\"alert round label\" style=\"background-color:$color;color:white;font-size:1rem;padding-right:1em;\">"
+			$html_analysis .= "<span class=\"alert round label ingredients_analysis\" style=\"background-color:$color;color:white;font-size:1rem;padding-left:0.2rem;padding-right:1rem;\">"
 			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
 			. "</span> ";
 		}
