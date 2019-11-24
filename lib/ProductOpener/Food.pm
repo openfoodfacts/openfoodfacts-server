@@ -3934,6 +3934,14 @@ sub special_process_product($) {
 		return;
 	}
 
+	# Only add or remove categories tags temporarily for determining the PNNS groups
+	# save the original value
+
+	my @original_categories_tags = ();
+	if (defined $product_ref->{categories_tags}) {
+		@original_categories_tags = @{$product_ref->{categories_tags}};
+	}
+
 	# For Open Food Facts, add special categories for beverages that are computed from
 	# nutrition facts (alcoholic or not) or the ingredients (sweetened, artificially sweetened or unsweetened)
 	# those tags are only added to categories_tags (searchable in Mongo)
@@ -4000,7 +4008,7 @@ sub special_process_product($) {
 			}
 		}
 
-		if (not (has_tag($product_ref,"categories","en:alcoholic-beverages")
+		if ((not (has_tag($product_ref,"categories","en:alcoholic-beverages"))
 			or has_tag($product_ref,"categories","en:fruit-juices")
 			or has_tag($product_ref,"categories","en:fruit-nectars") ) ) {
 
@@ -4155,6 +4163,12 @@ sub special_process_product($) {
 		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-association"];
 		$product_ref->{pnns_groups_1} = "unknown";
 		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
+	}
+
+	# Put back the original categories_tags so that they match what is in the taxonomy field
+	# if there is a mistmatch it can cause tags to be added multiple times (e.g. with imports)
+	if (scalar @original_categories_tags) {
+		$product_ref->{categories_tags} = \@original_categories_tags;
 	}
 }
 
