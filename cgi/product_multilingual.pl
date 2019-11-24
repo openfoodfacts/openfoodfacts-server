@@ -1879,9 +1879,9 @@ HTML
 		if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
 			my $unit = '';
 			
-			if (($nid eq 'alcohol')) { $unit = '% vol / °' } # alcohol in % vol / °
-			elsif (($nid eq 'energy-kj')) { $unit = 'kJ' }
-			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'}
+			if (($nid eq 'alcohol')) { $unit = '% vol / °'; } # alcohol in % vol / °
+			elsif (($nid eq 'energy-kj')) { $unit = 'kJ'; }
+			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'; }
 			
 			$input .= <<"HTML"
 <td>
