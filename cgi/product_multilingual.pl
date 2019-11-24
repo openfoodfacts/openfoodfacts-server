@@ -1882,7 +1882,6 @@ HTML
 			if (($nid eq 'alcohol')) { $unit = '% vol / °' } # alcohol in % vol / °
 			elsif (($nid eq 'energy-kj')) { $unit = 'kJ' }
 			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'}
-
 			
 			$input .= <<"HTML"
 <td>
@@ -2335,4 +2334,3 @@ display_new( {
 
 
 exit(0);
-
