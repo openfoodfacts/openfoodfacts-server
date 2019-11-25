@@ -1876,82 +1876,78 @@ HTML
 HTML
 ;
 
-		if ($nid ne 'alcohol') {
-
-
-		my @units = ('g','mg','µg');
-		if ($nid eq "energy-kj") {
-			@units = ('kJ');
-		}
-		elsif ($nid eq "energy-kcal") {
-			@units = ('kcal');
-		}
-		elsif ($nid =~ /^energy/) {
-			@units = ('kJ','kcal');
-		}
-		elsif ($nid eq 'alcohol') {
-			@units = ('% vol');
-		}
-		elsif ($nid eq 'water-hardness') {
-			@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
-		}
-
-		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
-			or ($nid =~ /^new_/)
-			or ($unit eq '% DV')) {
-			push @units, '% DV';
-		}
-		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
-			or ($nid =~ /^new_/)
-			or ($unit eq 'IU')
-			or ($unit eq 'UI')) {
-			push @units, 'IU';
-		}
-
-		my $hide_percent = '';
-		my $hide_select = '';
-
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
-			$hide_percent = ' style="display:none"';
-			$hide_select = ' style="display:none"';
-
-		}
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
-			$hide_select = ' style="display:none"';
+		if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
+			my $unit = '';
+			
+			if (($nid eq 'alcohol')) { $unit = '% vol / °'; } # alcohol in % vol / °
+			elsif (($nid eq 'energy-kj')) { $unit = 'kJ'; }
+			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'; }
+			
+			$input .= <<"HTML"
+<td>
+<span class="nutriment_unit">$unit</span>
+HTML
+;
 		}
 		else {
-			$hide_percent = ' style="display:none"';
-		}
 
-		$input .= <<HTML
+			my @units = ('g','mg','µg');
+
+			if ($nid =~ /^energy/) {
+				@units = ('kJ','kcal');
+			}
+			elsif ($nid eq 'water-hardness') {
+				@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
+			}
+
+			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
+				or ($nid =~ /^new_/)
+				or ($unit eq '% DV')) {
+				push @units, '% DV';
+			}
+			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
+				or ($nid =~ /^new_/)
+				or ($unit eq 'IU')
+				or ($unit eq 'UI')) {
+				push @units, 'IU';
+			}
+
+			my $hide_percent = '';
+			my $hide_select = '';
+
+			if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
+				$hide_percent = ' style="display:none"';
+				$hide_select = ' style="display:none"';
+
+			}
+			elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
+				$hide_select = ' style="display:none"';
+			}
+			else {
+				$hide_percent = ' style="display:none"';
+			}
+
+			$input .= <<HTML
 <td>
 <span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
 <select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select $disabled>
 HTML
 ;
-		$disabled = $disabled_backup;
+			$disabled = $disabled_backup;
 
-		foreach my $u (@units) {
-			my $selected = '';
-			if ($unit eq $u) {
-				$selected = 'selected="selected" ';
-			}
-			$input .= <<HTML
+			foreach my $u (@units) {
+				my $selected = '';
+				if ($unit eq $u) {
+					$selected = 'selected="selected" ';
+				}
+				$input .= <<HTML
 <option value="$u" $selected>$u</option>
 HTML
 ;
-		}
+			}
 
-		$input .= <<HTML
-</select>
-HTML
-;
-		}
-		else {
-			# alcohol in % vol / °
 			$input .= <<HTML
-<td>
-<span class="nutriment_unit" >% vol / °</span>
+</select>
 HTML
 ;
 		}
@@ -2338,4 +2334,3 @@ display_new( {
 
 
 exit(0);
-
