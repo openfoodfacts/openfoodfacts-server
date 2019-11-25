@@ -70,6 +70,10 @@ if ($action eq "display") {
 	$html .= "<p>" . lang("producers_platform_licence") . "</p>";
 	$html .= "<p>" . lang("export_product_data_photos_please_check") . "</p>";
 
+	# Display button for admins only
+
+	if ($User_id =~ /-off$/) {
+
 	$html .= start_multipart_form(-id=>"export_products_form") ;
 
 	$html .= <<HTML
@@ -78,6 +82,12 @@ if ($action eq "display") {
 HTML
 ;
 	$html .= end_form();
+
+	}
+	else {
+		$html .= "<p>" . lang("export_products_to_public_database_email") . "</p>";
+	}
+
 }
 
 elsif ($action eq "process") {
