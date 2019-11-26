@@ -1257,8 +1257,8 @@ HTML
 	if ($html eq '') {
 
 		$html = <<HTML
-<div style="background-color:#eeeeee" style="width:$thumb_size;height:$thumb_size">
-</div>
+<img src="/images/svg/no-pictures.svg" style="background-color:#eeeeee" style="width:$thumb_size;height:$thumb_size">
+</img>
 HTML
 ;
 	}
