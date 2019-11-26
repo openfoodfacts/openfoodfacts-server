@@ -999,7 +999,7 @@ JS
 		$html .= <<HTML
 <ul id="manage_images_accordion" class="accordion" data-accordion>
   <li class="accordion-navigation">
-<a href="#manage_images_drop"><i class="icon-collections"></i> $Lang{manage_images}{$lc}</a>
+<a href="#manage_images_drop">@{[ display_icon('collections') ]} $Lang{manage_images}{$lc}</a>
 
 
 <div id="manage_images_drop" class="content" style="background:#eeeeee">
@@ -1009,10 +1009,10 @@ HTML
 <<HTML
 
 	<p>$Lang{manage_images_info}{$lc}</p>
-	<a id="delete_images" class="button small disabled"><i class="icon-delete"></i> $Lang{delete_the_images}{$lc}</a><br/>
+	<a id="delete_images" class="button small disabled">@{[ display_icon('delete') ]} $Lang{delete_the_images}{$lc}</a><br/>
 	<div class="row">
 		<div class="small-12 medium-5 columns">
-			<button id="move_images" class="button small disabled"><i class="icon-arrow_right_alt"></i> $Lang{move_images_to_another_product}{$lc}</a>
+			<button id="move_images" class="button small disabled">@{[ display_icon('arrow_right_alt') ]} $Lang{move_images_to_another_product}{$lc}</a>
 		</div>
 		<div class="small-4 medium-2 columns">
 			<label for="move_to" class="right inline">$Lang{barcode}{$lc}</label>
@@ -2194,12 +2194,12 @@ JS
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
 		<button type="submit" name=".submit" class="button postfix small">
-			<i class="icon-check"></i> $Lang{save}{$lc}
+			@{[ display_icon('check') ]} $Lang{save}{$lc}
 		</button>
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
 		<button type="button" id="back-btn" class="button postfix small secondary">
-			<i class="icon-cancel"></i> $Lang{cancel}{$lc}
+			@{[ display_icon('cancel') ]} $Lang{cancel}{$lc}
 		</button>
 	</div>
 </div>
