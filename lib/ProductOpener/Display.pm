@@ -70,7 +70,6 @@ BEGIN
 					@search_series
 
 					$admin
-					$moderator
 					$memd
 					$default_request_ref
 					$owner
@@ -207,7 +206,6 @@ sub init()
 	$header = '';
 	$bodyabout = '';
 	$admin = 0;
-	$moderator = 0;
 
 	my $r = shift;
 
@@ -377,13 +375,11 @@ sub init()
 		}
 	}
 
+	# %admin is defined in Config.pm
+	# admins can change permissions for all users
 	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
 		$admin = 1;
 	}
-	if ((%moderators) and (defined $User_id) and (exists $moderators{$User_id})) {
-		$moderator = 1;
-	}
-
 
 	if (defined $User_id) {
 		$styles .= <<CSS
@@ -6597,8 +6593,8 @@ HTML
 			$$minheight_ref = $1 + 22;
 		}
 
-		# Unselect button for admins
-		if ($admin) {
+		# Unselect button for moderators
+		if ($User{moderator}) {
 
 			my $idlc = $id;
 
@@ -6990,7 +6986,7 @@ HTML
 HTML
 ;
 
-	if ($admin) {
+	if ($User{moderator}) {
 		$html .= <<HTML
 <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
 <a href="/cgi/product.pl?type=delete&code=$code" class="button small">
@@ -7263,7 +7259,7 @@ HTML
 	}
 	$html .= "</div>";
 
-	if ($admin and ($ingredients_text !~ /^\s*$/)) {
+	if ($User{moderator} and ($ingredients_text !~ /^\s*$/)) {
 
 			my $ilc = $ingredients_text_lang;
 
@@ -7807,7 +7803,7 @@ HTML
 		$html .= display_field($product_ref, 'states');
 	}
 
-	$html .= display_product_history($code, $product_ref) if $admin;
+	$html .= display_product_history($code, $product_ref) if $User{moderator};
 
 	$html .= <<HTML
 <div class="edit_button right" style="float:right;margin-top:-10px;">
