@@ -30,7 +30,10 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&normalize_percentages
-					
+
+					&get_decimal_formatter
+					&get_percent_formatter
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -44,21 +47,92 @@ sub normalize_percentages($$) {
 
 	my ($text, $locale) = @_;
 
-	my $cldr = CLDR::Number->new(locale => $locale);
-	my $perf = $cldr->percent_formatter( maximum_fraction_digits => 2 );
-	my $regex = _get_locale_percent_regex($cldr, $perf);
+	# Bail out of this function if no known percent sign is found.
+	# This is purely for performance reasons: CLDR functions are
+	# comparatively expensive to run.
+	if ((not (defined $text))
+		or (not ((index($text, "\N{U+0025}") > -1)
+		or (index($text, "\N{U+066A}") > -1)
+		or (index($text, "\N{U+FE6A}") > -1)
+		or (index($text, "\N{U+FF05}") > -1)
+		or (index($text, "\N{U+E0025}") > -1)))) {
+			return $text;
+	}
+
+	my $cldr = _get_cldr($locale);
+	my $perf = get_percent_formatter($locale, 2);
+	my $regex = _get_locale_percent_regex($cldr, $perf, $locale);
 
 	$text =~ s/$regex/''._format_percentage($1, $cldr, $perf).''/eg;
 	return $text;
 
 }
 
+%ProductOpener::Text::cldrs = ();
+sub _get_cldr {
+
+	my ($locale) = @_;
+
+	if (defined $ProductOpener::Text::cldrs{$locale}) {
+		return $ProductOpener::Text::cldrs{$locale};
+	}
+
+	my $cldr = CLDR::Number->new(locale => $locale);
+	$ProductOpener::Text::cldrs{$locale} = $cldr;
+	return $cldr;
+
+}
+
+%ProductOpener::Text::decimal_formatters = ();
+sub get_decimal_formatter {
+
+	my ($locale) = @_;
+
+	my $decf = $ProductOpener::Text::decimal_formatters{$locale};
+	if (defined $decf) {
+		return $decf;
+	}
+
+	my $cldr = _get_cldr($locale);
+	$decf = $cldr->decimal_formatter;
+	$ProductOpener::Text::decimal_formatters{$locale} = $decf;
+	return $decf;
+
+}
+
+%ProductOpener::Text::percent_formatters = ();
+sub get_percent_formatter {
+
+	my ($locale, $maximum_fraction_digits) = @_;
+
+	my $formatters_ref = $ProductOpener::Text::percent_formatters{$locale};
+	my %formatters;
+	if (not (defined $formatters_ref)) {
+		%formatters = ();
+		$formatters_ref = \%formatters;
+		$ProductOpener::Text::percent_formatters{$locale} = $formatters_ref;
+	}
+	else {
+		%formatters = %$formatters_ref;
+	}
+
+	my $perf = $formatters{$maximum_fraction_digits};
+	if (defined $perf) {
+		return $perf;
+	}
+
+	my $cldr = _get_cldr($locale);
+	$perf = $cldr->percent_formatter( maximum_fraction_digits => $maximum_fraction_digits );
+	$formatters{$maximum_fraction_digits} = $perf;
+	return $perf;
+
+}
+
 %ProductOpener::Text::regexes = ();
-sub _get_locale_percent_regex($$) {
+sub _get_locale_percent_regex {
 
-	my ($cldr, $perf) = @_;
+	my ($cldr, $perf, $locale) = @_;
 
-	my $locale = $cldr->locale;
 	if (defined $ProductOpener::Text::regexes{$locale}) {
 		return $ProductOpener::Text::regexes{$locale};
 	}

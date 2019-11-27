@@ -6,12 +6,13 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP';
+use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 # dummy product for testing
 
@@ -116,5 +117,19 @@ crème fraîche
 5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde.");
 
 is(clean_ingredients_text_for_lang("Lait demi - écrémé, fromage Saint - Moret 3% - pommes - bananes", "fr"), "Lait demi-écrémé, fromage Saint-Moret 3% - pommes - bananes");
+
+@fields = ("ingredients_text_fr");
+$product_ref = { lc => "fr", ingredients_text_fr => "<STRONG><i>thon</i></STRONG>, eau, sel" }; clean_fields($product_ref);
+is($product_ref->{ingredients_text_fr}, "_thon_, eau, sel") or diag explain $product_ref;
+
+$product_ref = { lc => "fr", ingredients_text_fr => "<b>blé</b>, <i>froment</i>, <strong><u>soja</u></strong>, test" }; clean_fields($product_ref);
+is($product_ref->{ingredients_text_fr}, "_blé_, _froment_, _soja_, test") or diag explain $product_ref;
+
+$product_ref = { lc => "fr", ingredients_text_fr => "Traces de <b> fruits à coque </b>, <b></b><b>lait)</b> - extrait de malt d'<u>orge - </u>sel, persil- poivre blanc -ail" }; clean_fields($product_ref);
+is($product_ref->{ingredients_text_fr}, "Traces de _fruits \x{e0} coque_ , _lait_) - extrait de malt d'_orge_ - sel, persil - poivre blanc - ail") or diag explain $product_ref;
+
+$product_ref = { lc => "fr", ingredients_text_fr => "Farine de<STRONG> <i>blé</i> </STRONG> - sucre" }; clean_fields($product_ref);
+is($product_ref->{ingredients_text_fr}, "Farine de _blé_ - sucre") or diag explain $product_ref;
+
 
 done_testing();

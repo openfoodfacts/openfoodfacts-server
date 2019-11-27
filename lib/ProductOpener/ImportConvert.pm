@@ -55,6 +55,8 @@ BEGIN
 		&print_stats
 
 		&match_taxonomy_tags
+		&match_specific_taxonomy_tags
+		&match_labels_in_product_name
 		&assign_countries_for_product
 		&assign_main_language_of_product
 
@@ -79,6 +81,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Food qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -262,6 +265,7 @@ sub assign_countries_for_product($$$) {
 }
 
 
+# Match all tags that exist in a taxonomy. Needs the input field to be split, so there must be separators.
 
 sub match_taxonomy_tags($$$$) {
 
@@ -323,12 +327,86 @@ sub match_taxonomy_tags($$$$) {
 }
 
 
+# Match only specific tags (e.g. "organic" + "label rouge" in product name)
+
+sub match_specific_taxonomy_tags($$$$) {
+
+	my $product_ref = shift;
+	my $source = shift;
+	my $target = shift;
+	my $tags_ref = shift;
+
+	my $tag_lc = $product_ref->{lc};
+
+	$log->trace("match_specific_taxonomy_tags - start", { source => $source, target => $target, tag_lc => $tag_lc, tags_ref => $tags_ref}) if $log->is_trace();
+
+	if ((defined $product_ref->{$source}) and ($product_ref->{$source} ne "")) {
+
+		foreach my $tagid (@$tags_ref) {
+
+			$log->trace("match_specific_taxonomy_tags - looping through tags", { tagid => $tagid}) if $log->is_trace();
+
+			if (defined $translations_to{$target}{$tagid}{$tag_lc}) {
+
+				# the synonyms below also contain the main translation as the first entry
+
+				my $tag_lc_tagid = get_string_id_for_lang($tag_lc, $translations_to{$target}{$tagid}{$tag_lc});
+
+				my @synonyms = ();
+
+				foreach my $synonym (@{$synonyms_for{$target}{$tag_lc}{$tag_lc_tagid}}) {
+					push @synonyms, $synonym;
+				}
+
+				my $tag_regexp = "";
+				foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
+					# simple singulars and plurals
+					my $singular = $synonym;
+					$synonym =~ s/s$//;
+					$tag_regexp .= '|' . $synonym . '|' . $synonym . 's'  ;
+
+					my $unaccented_synonym = unac_string_perl($synonym);
+					if ($unaccented_synonym ne $synonym) {
+						$tag_regexp .= '|' . $unaccented_synonym . '|' . $unaccented_synonym . 's';
+					}
+
+				}
+				$tag_regexp =~ s/^\|//;
+
+				$log->trace("match_specific_taxonomy_tags - regexp", { tag_regexp => $tag_regexp}) if $log->is_trace();
+				$log->trace("match_specific_taxonomy_tags - source value", { source_value => $product_ref->{$source}}) if $log->is_trace();
+
+				if ($product_ref->{$source} =~ /\b${tag_regexp}\b/i) {
+					assign_value($product_ref, $target, $tagid);
+					$log->info("match_specific_taxonomy_tags: assigning value", { source => $source, value => $tagid, target => $target}) if $log->is_info();
+				}
+			}
+		}
+	}
+}
+
+sub match_labels_in_product_name($) {
+
+	my $product_ref = shift;
+	my $tag_lc = $product_ref->{lc};
+
+	my @tags = qw(en:organic en:fair-trade);
+
+	if ($tag_lc eq "fr") {
+		# current canonical name for Label Rouge is en:label-rouge which is weird and may change
+		push @tags, qw(en:label-rouge fr:label-rouge fr:bleu-blanc-coeur);
+	}
+
+	match_specific_taxonomy_tags($product_ref, "product_name_" . $tag_lc, "labels", \@tags);
+}
+
+
 sub split_allergens($) {
 	my $allergens = shift;
 
 	# simple allergen (not an enumeration) -> return _$allergens_
 	if (($allergens !~ /,/)
-		and (not ($allergens =~ / et /i))) {
+		and (not ($allergens =~ / (et|and) /i))) {
 		return "_" . $allergens . "_";
 	}
 	else {
@@ -389,6 +467,29 @@ sub clean_weights($) {
 			}
 		}
 
+		# we can be passed values in a specific unit (e.g. quantity_in_mg)
+		if (not defined $product_ref->{$field}) {
+			foreach my $u ('kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml') {
+				if ((defined $product_ref->{$field . "_value_in_" . $u})
+					and ($product_ref->{$field . "_value_in_" . $u} ne "")) {
+					assign_value($product_ref, $field . "_value", $product_ref->{$field . "_value_in_" . $u});
+					assign_value($product_ref, $field . "_unit", $u);
+					last;
+				}
+			}
+		}
+
+		# if we have a value but no unit, assume the unit is grams for weights, if the value is greater than 20 and less than 5000
+		if ((defined $product_ref->{$field . "_value"})
+			and ($product_ref->{$field . "_value"} ne "")
+			and ((not defined $product_ref->{$field . "_unit"})
+				or ($product_ref->{$field . "_unit"} eq ""))
+			and ($product_ref->{$field . "_value"} > 20)
+			and ($product_ref->{$field . "_value"} < 2000)
+			and ($field =~ /weight/)) {
+			assign_value($product_ref, $field . "_unit", "g");
+		}
+
 		# combine value and unit
 		if ((not defined $product_ref->{$field})
 			and (defined $product_ref->{$field . "_value"})
@@ -396,6 +497,14 @@ sub clean_weights($) {
 			and (defined $product_ref->{$field . "_unit"}) ) {
 
 			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
+		}
+
+		# We may be passed quantity_value_unit, in that case assign it to quantity
+		if ((not defined $product_ref->{$field})
+			and (defined $product_ref->{$field . "_value_unit"})
+			and ($product_ref->{$field . "_value_unit"} ne "")) {
+
+			assign_value($product_ref, $field, $product_ref->{$field . "_value_unit"});
 		}
 
 		if (defined $product_ref->{$field}) {
@@ -481,9 +590,34 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 		}
 	}
 
+	# Casino : the format field assigned to quantity contains sometimes dates or other entries
+	# Remove the quantity if it does not look like a valid quantity
+
+	if (defined $product_ref->{quantity}) {
+		# Dates
+		if ($product_ref->{quantity} =~ /^'?\s*\d\d\.\d\d\.\d\d\d\d\s*$/) {
+			delete $product_ref->{quantity};
+		}
+
+		# 1/2 , 3/4
+		if ($product_ref->{quantity} =~ /^'?\s*\d+((\/)\d+)\s*$/i) {
+			delete $product_ref->{quantity};
+		}
+
+		# No numbers (e.g. "sachet", "bouteille")
+		if ($product_ref->{quantity} !~ /[1-9]/) {
+			delete $product_ref->{quantity};
+		}
+	}
+
+
+	my $normalized_quantity;
+	if (defined $product_ref->{quantity}) {
+		$normalized_quantity = normalize_quantity($product_ref->{quantity});
+	}
 
 	# empty or incomplete quantity, but net_weight etc. present
-	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "")
+	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "") or (not defined $normalized_quantity)
 		or (($product_ref->{lc} eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
 		or ($product_ref->{quantity} =~ /^\(.+\)$/)	#  (4 x 125 g)
 		) {
@@ -522,9 +656,13 @@ sub clean_fields($) {
 
 	my $product_ref = shift;
 
+	$log->debug("clean_fields - start", {  }) if $log->is_debug();
+
 	foreach my $field (@fields) {
 
 		if (defined $product_ref->{$field}) {
+
+			$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 			$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
 			$product_ref->{$field} =~ s/’/'/g;
@@ -556,11 +694,12 @@ sub clean_fields($) {
 
 
 			# Lowercase fields in ALL CAPS
-			if ($field =~ /^(ingredients_text|product_name|generic_name)/) {
+			if ($field =~ /^(ingredients_text|product_name|generic_name|brands)/) {
 				if (($product_ref->{$field} =~ /[A-Z]{4}/)
 					# and ($product_ref->{$field} !~ /[a-z]/)
 					) {
 					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
+					$log->debug("clean_fields - after lowercase", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 				}
 			}
 
@@ -569,45 +708,40 @@ sub clean_fields($) {
 
 			if ($field =~ /^ingredients_text/) {
 
+				# Farine de<STRONG> <i>blé</i> </STRONG> - sucre
+
 				# Traces de<b> fruits à coque </b>
 
-				$product_ref->{$field} =~ s/<strong>/<b>/g;
-				$product_ref->{$field} =~ s/<\/strong>/<\/b>/g;
+				$product_ref->{$field} =~ s/(<(b|u|i|em|strong)>)+/<b>/ig;
+				$product_ref->{$field} =~ s/(<\/(b|u|i|em|strong)>)+/<\/b>/ig;
 
-				$product_ref->{$field} =~ s/(<b><u>|<u><b>)/<b>/g;
-				$product_ref->{$field} =~ s/(<\b><\u>|<\u><\b>)/<\b>/g;
-				$product_ref->{$field} =~ s/<u>/<b>/g;
-				$product_ref->{$field} =~ s/<\/u>/<\/b>/g;
-				$product_ref->{$field} =~ s/<em>/<b>/g;
-				$product_ref->{$field} =~ s/<\/em>/<\/b>/g;
-				$product_ref->{$field} =~ s/<b>\s+/ <b>/g;
-				$product_ref->{$field} =~ s/\s+<\/b>/<\/b> /g;
+				$product_ref->{$field} =~ s/<b>\s+/ <b>/ig;
+				$product_ref->{$field} =~ s/\s+<\/b>/<\/b> /ig;
 
 				# empty tags
-				$product_ref->{$field} =~ s/<b>\s+<\/b>/ /g;
-				$product_ref->{$field} =~ s/<b><\/b>//g;
+				$product_ref->{$field} =~ s/<b>\s+<\/b>/ /ig;
+				$product_ref->{$field} =~ s/<b><\/b>//ig;
 				# _fromage_ _de chèvre_
-				$product_ref->{$field} =~ s/<\/b>(| )<b>/$1/g;
+				$product_ref->{$field} =~ s/<\/b>(| )<b>/$1/ig;
 
 				# d_'œufs_
 				# _lait)_
-				$product_ref->{$field} =~ s/<b>'(\w)/$1'<b>/g;
-				$product_ref->{$field} =~ s/(\w)<\/b>/<b>$1/g;
-
-
-				# $log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-
+				$product_ref->{$field} =~ s/<b>'(\w)/$1'<b>/ig;
+				$product_ref->{$field} =~ s/(\)|\]|\*)<\/b>/<\/b>$1/ig;
 
 				# extrait de malt d'<b>orge - </b>sel
-				$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/g;
+				$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/ig;
+
+				$log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
 
 				$product_ref->{$field} =~ s/<b>(.*?)<\/b>/split_allergens($1)/iesg;
-				$product_ref->{$field} =~ s/<b>|<\/b>//g;
+				$product_ref->{$field} =~ s/<b>|<\/b>//ig;
+
+				$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 
 				if ($field eq "ingredients_text_fr") {
-
-					# $log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 					# remove single sentence that say allergens are in bold (in Casino data)
 					$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques)?))(\.)?//i;
@@ -639,7 +773,10 @@ sub clean_fields($) {
 
 			if ($field =~ /^ingredients_text_(\w\w)/) {
 				my $ingredients_lc = $1;
+				$log->debug("clean_fields - before clean_ingredients_text_for_lang ", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 				$product_ref->{$field} = clean_ingredients_text_for_lang($product_ref->{$field}, $ingredients_lc);
+				$log->debug("clean_fields - after clean_ingredients_text_for_lang ", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
 			}
 
 			if ($field =~ /^nutrition_grade_/) {
@@ -647,27 +784,30 @@ sub clean_fields($) {
 			}
 
 			# remove N/A, NA etc.
-			$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|non)\s*(,|$)//ig;
+			$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no)\s*(,|$)//ig;
 
 			if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
 				$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//ig;
 			}
 
+			$product_ref->{$field} =~ s/ +/ /g;
 			$product_ref->{$field} =~ s/,(\s*),/,/g;
 			$product_ref->{$field} =~ s/\.(\.+)$/\./;
 			$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
-			$product_ref->{$field} =~ s/^(\s|-|;|,)+//;
+			$product_ref->{$field} =~ s/^(\s|-|;|,|\.)+//;
 			$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
 
 			# remove empty values for tag fields
 			if (exists $tags_fields{$field}) {
-				$product_ref->{$field} =~ s/^(,|;|-|_|\/|\\|#|:|\s)+$//;
+				$product_ref->{$field} =~ s/^(,|;|-|_|\/|\\|#|:|\.|\s)+$//;
 			}
 
 		}
 	}
 
 	clean_weights($product_ref);
+
+	match_labels_in_product_name($product_ref);
 }
 
 

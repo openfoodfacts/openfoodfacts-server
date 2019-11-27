@@ -129,6 +129,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Text qw/:all/;
 use Clone qw(clone);
+use List::MoreUtils qw(uniq);
 
 use URI::Escape::XS;
 use Log::Any qw($log);
@@ -588,7 +589,8 @@ sub load_tags_hierarchy($$) {
 	}
 }
 
-
+# Cache the stopwords regexp
+my %stopwords_regexps = ();
 
 sub remove_stopwords($$$) {
 
@@ -598,33 +600,32 @@ sub remove_stopwords($$$) {
 
 	if (defined $stopwords{$tagtype}{$lc}) {
 
+		my $uppercased_stopwords_overrides = 0;
+
 		if ($lc eq 'fr') {
 			# "Dés de tomates" -> "des-de-tomates" --> "dés" should not be a stopword
 			$tagid =~ s/\bdes-de\b/DES-DE/g;
 			$tagid =~ s/\ben-des\b/EN-DES/g;
+			$uppercased_stopwords_overrides = 1;
 		}
 
-		foreach my $stopword (@{$stopwords{$tagtype}{$lc}}) {
-			$tagid =~ s/-${stopword}-/-/g;
-
-			# some stopwords should not be removed at the start or end
-			# this can cause issues with spellchecking tags like ingredients
-			# e.g. purée d'abricot -> puree d' -> urée
-			# ingredients: stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
-
-			$tagid =~ s/^${stopword}-//g;
-
-			if (not
-				(($lc eq 'fr') and (($tagtype eq "ingredients") or ($tagtype eq "additives")) and not ($stopword =~ /^(en|proportion|proportions|variable|variables|et-derives)$/))	# don't remove French stopwords at the end
-				) {
-				$tagid =~ s/-${stopword}$//g;
-			}
+		if (not defined $stopwords_regexps{$tagtype . '.' . $lc}) {
+			$stopwords_regexps{$tagtype . '.' . $lc} = join('|', uniq(@{$stopwords{$tagtype}{$lc}}));
 		}
 
-		$tagid = lc($tagid);
+		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc};
+
+		$tagid =~ s/(^|-)($regexp)(-($regexp))*(-|$)/-/g;
+
+		$tagid =~ tr/-/-/s;
+		$tagid =~ s/^-//;
+		$tagid =~ s/-$//;
+
+		if ($uppercased_stopwords_overrides) {
+			$tagid = lc($tagid);
+		}
 	}
 	return $tagid;
-
 }
 
 
@@ -2086,7 +2087,7 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	}
 
 	my $display = '';
-	my $display_lc;
+	my $display_lc = "en";	# Default to English
 	my $exists_in_taxonomy = 0;
 
 	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
@@ -2115,7 +2116,9 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 		}
 		else {
 			$display = $tagid;
-			$display_lc = $tag_lc;
+			if (defined $tag_lc) {
+				$display_lc = $tag_lc;
+			}
 
 			if ($target_lc eq $tag_lc) {
 				$display =~ s/^(\w\w)://;
@@ -2138,10 +2141,11 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 
 	if ($display =~ /^(\w\w:)/) {
 		$display_lc_prefix = $1;
+		$display_lc = $1;
 		$display_tag = $';
 	}
 
-	my $tagurlid = get_string_id_for_lang($display_lc_prefix, $display_tag);
+	my $tagurlid = get_string_id_for_lang($display_lc, $display_tag);
 	if ($tagurlid =~ /[^a-zA-Z0-9-]/) {
 		$tagurlid = URI::Escape::XS::encodeURIComponent($display_tag);
 	}

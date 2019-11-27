@@ -136,18 +136,19 @@ else {
 	my $id = "data";
 
 	$html .= <<HTML
+<a href="#" class="button small expand" id="file_input_button_$id">
 <div id="file_input_div_$id">
-
-<a href="#" class="button small expand" id="file_input_button_$id"><i class="icon-arrow_upward"></i> $Lang{upload_product_data_file}{$lc}
-<input type="file" accept=".csv,.tsv,.xlsx" class="file_input" name="file_input_$id" id="file_input_$id" style="position: absolute;
+@{[ display_icon('arrow_upward') ]} $Lang{upload_product_data_file}{$lc}
+<input type="file" accept=".csv,.tsv,.xlsx,.xls,.ods" class="file_input" name="file_input_$id" id="file_input_$id" style="position: absolute;
 	right:0;
 	bottom:0;
 	top:0;
 	cursor:pointer;
 	opacity:0;
-	font-size:40px;"/>
-</a>
+	font-size:60px;"/>
+
 </div>
+</a>
 
 <div id="progressbar_$id" class="progress" style="display:none">
   <span id="progressmeter_$id" class="meter" style="width:0%"></span>
@@ -168,6 +169,12 @@ HTML
 
 	$html .= end_form();
 
+
+	$scripts .= <<HTML
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+HTML
+;
 
 	$initjs .= <<JS
 

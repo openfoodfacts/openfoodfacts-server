@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-02 14:56\n"
+"PO-Revision-Date: 2019-11-17 12:22\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3569,6 +3569,30 @@ msgctxt "data_quality_errors"
 msgid "data quality errors"
 msgstr "crwdns122938:0crwdne122938:0"
 
+msgctxt "data_quality_warnings_producers_p"
+msgid "data quality warnings"
+msgstr "crwdns123788:0crwdne123788:0"
+
+msgctxt "data_quality_warnings_producers_s"
+msgid "data quality warning"
+msgstr "crwdns123790:0crwdne123790:0"
+
+msgctxt "data_quality_warnings_producers"
+msgid "data quality warnings"
+msgstr "crwdns123792:0crwdne123792:0"
+
+msgctxt "data_quality_errors_producers_p"
+msgid "data quality errors"
+msgstr "crwdns123794:0crwdne123794:0"
+
+msgctxt "data_quality_errors_producers_s"
+msgid "data quality error"
+msgstr "crwdns123796:0crwdne123796:0"
+
+msgctxt "data_quality_errors_producers"
+msgid "data quality errors"
+msgstr "crwdns123798:0crwdne123798:0"
+
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
@@ -3590,4 +3614,308 @@ msgstr "crwdns123554:0crwdne123554:0"
 msgctxt "improvements"
 msgid "possible improvements"
 msgstr "crwdns123556:0crwdne123556:0"
+
+# Do not translate
+msgctxt "import_products_link"
+msgid "/import-products"
+msgstr "crwdns123800:0crwdne123800:0"
+
+msgctxt "add_or_update_products"
+msgid "Add or update products"
+msgstr "crwdns123802:0crwdne123802:0"
+
+# Formal you
+msgctxt "your_products"
+msgid "Your products"
+msgstr "crwdns123804:0crwdne123804:0"
+
+# Do not translate the e-mail address
+msgctxt "account_without_org"
+msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+msgstr "crwdns123806:0crwdne123806:0"
+
+msgctxt "import_products"
+msgid "Import products"
+msgstr "crwdns123808:0crwdne123808:0"
+
+msgctxt "empty_column"
+msgid "Empty column"
+msgstr "crwdns123810:0crwdne123810:0"
+
+msgctxt "empty_column_description"
+msgid "The file does not contain any value in this column."
+msgstr "crwdns123812:0crwdne123812:0"
+
+msgctxt "import_file_status_title"
+msgid "Data import in progress"
+msgstr "crwdns123814:0crwdne123814:0"
+
+# "product data" means data for many products
+msgctxt "import_file_status_description"
+msgid "The product data has been received and is going to be imported on the platform for producers."
+msgstr "crwdns123816:0crwdne123816:0"
+
+msgctxt "import_file_status"
+msgid "Status"
+msgstr "crwdns123818:0crwdne123818:0"
+
+msgctxt "job_status_inactive"
+msgid "Scheduled"
+msgstr "crwdns123820:0crwdne123820:0"
+
+msgctxt "job_status_active"
+msgid "In progress"
+msgstr "crwdns123822:0crwdne123822:0"
+
+msgctxt "job_status_finished"
+msgid "Finished"
+msgstr "crwdns123824:0crwdne123824:0"
+
+msgctxt "job_status_failed"
+msgid "Failed"
+msgstr "crwdns123826:0crwdne123826:0"
+
+msgctxt "import_file_result"
+msgid "Import result"
+msgstr "crwdns123828:0crwdne123828:0"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "crwdns123830:0crwdne123830:0"
+
+msgctxt "products_modified"
+msgid "Products modified"
+msgstr "crwdns123832:0crwdne123832:0"
+
+msgctxt "import_file_result_no_change"
+msgid "There were no product added or modified. The data has probably been already imported previously."
+msgstr "crwdns123834:0crwdne123834:0"
+
+msgctxt "import_file_result_products"
+msgid "List of products added or modified"
+msgstr "crwdns123836:0crwdne123836:0"
+
+msgctxt "imports_p"
+msgid "imports"
+msgstr "crwdns123838:0crwdne123838:0"
+
+msgctxt "imports_s"
+msgid "import"
+msgstr "crwdns123840:0crwdne123840:0"
+
+msgctxt "imports"
+msgid "imports"
+msgstr "crwdns123842:0crwdne123842:0"
+
+msgctxt "number_of_products_with_data_quality_errors_producers"
+msgid "Number of products with data quality errors"
+msgstr "crwdns123844:0crwdne123844:0"
+
+msgctxt "number_of_products_with_data_quality_warnings_producers"
+msgid "Number of products with data quality warnings"
+msgstr "crwdns123846:0crwdne123846:0"
+
+msgctxt "number_of_products_with_improvements"
+msgid "Number of products with improvement opportunities"
+msgstr "crwdns123848:0crwdne123848:0"
+
+msgctxt "improvements_facet_description_1"
+msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+msgstr "crwdns123850:0crwdne123850:0"
+
+msgctxt "improvements_facet_description_2"
+msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+msgstr "crwdns123852:0crwdne123852:0"
+
+# "product photos" in this sentence means photos for many products, not just one product
+msgctxt "import_photos_title"
+msgid "Import product photos"
+msgstr "crwdns123986:0crwdne123986:0"
+
+msgctxt "import_photos_description"
+msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgstr "crwdns123988:0crwdne123988:0"
+
+msgctxt "import_photos_format_1"
+msgid "Each filename needs to contains the barcode of the product."
+msgstr "crwdns123990:0crwdne123990:0"
+
+msgctxt "import_photos_format_2"
+msgid "And you can also specify the type of the photo in the filename:"
+msgstr "crwdns123992:0crwdne123992:0"
+
+# Do not translate the file name
+msgctxt "import_photos_format_barcode"
+msgid "3001234567890.jpg: front of the product in the current language."
+msgstr "crwdns123994:0crwdne123994:0"
+
+# Do not translate the file name
+msgctxt "import_photos_format_front"
+msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
+msgstr "crwdns123996:0crwdne123996:0"
+
+# Do not translate the file name
+msgctxt "import_photos_format_ingredients"
+msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
+msgstr "crwdns123998:0crwdne123998:0"
+
+# Do not translate the file name
+msgctxt "import_photos_format_nutrition"
+msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+msgstr "crwdns124000:0crwdne124000:0"
+
+msgctxt "add_photos"
+msgid "Add photos..."
+msgstr "crwdns124002:0crwdne124002:0"
+
+msgctxt "start_upload"
+msgid "Start upload"
+msgstr "crwdns124004:0crwdne124004:0"
+
+msgctxt "start"
+msgid "Start"
+msgstr "crwdns124006:0crwdne124006:0"
+
+msgctxt "close"
+msgid "Close"
+msgstr "crwdns124008:0crwdne124008:0"
+
+msgctxt "cancel_upload"
+msgid "Cancel upload"
+msgstr "crwdns124010:0crwdne124010:0"
+
+msgctxt "info"
+msgid "Info"
+msgstr "crwdns124012:0crwdne124012:0"
+
+msgctxt "file_received"
+msgid "File received"
+msgstr "crwdns124014:0crwdne124014:0"
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr "crwdns124110:0crwdne124110:0"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "crwdns124162:0crwdne124162:0"
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr "crwdns124164:0crwdne124164:0"
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "crwdns124116:0crwdne124116:0"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "crwdns124118:0crwdne124118:0"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "crwdns124120:0crwdne124120:0"
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "crwdns124122:0crwdne124122:0"
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "crwdns124124:0crwdne124124:0"
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "crwdns124126:0crwdne124126:0"
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "crwdns124128:0crwdne124128:0"
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "crwdns124130:0crwdne124130:0"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "crwdns124132:0crwdne124132:0"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "crwdns124134:0crwdne124134:0"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "crwdns124136:0crwdne124136:0"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "crwdns124138:0crwdne124138:0"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "crwdns124140:0crwdne124140:0"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "crwdns124142:0crwdne124142:0"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "crwdns124144:0crwdne124144:0"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "crwdns124146:0crwdne124146:0"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "crwdns124148:0crwdne124148:0"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "crwdns124150:0crwdne124150:0"
+
+# Do not translate
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "crwdns124152:0crwdne124152:0"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "crwdns124166:0crwdne124166:0"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score"
+msgstr "crwdns124168:0crwdne124168:0"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr "crwdns124104:0crwdne124104:0"
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr "crwdns124106:0crwdne124106:0"
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "crwdns124108:0crwdne124108:0"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "crwdns124170:0crwdne124170:0"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "crwdns124172:0%scrwdne124172:0"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "crwdns124174:0%scrwdnd124174:0%scrwdnd124174:0%scrwdnd124174:0%scrwdnd124174:0%scrwdnd124174:0%scrwdne124174:0"
 

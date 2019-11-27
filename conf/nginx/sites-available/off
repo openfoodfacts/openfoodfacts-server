@@ -49,14 +49,23 @@ server {
 	# as they would not be resent with their body.
 	server_name disabled-openfoodfacts.org *.disabled-openfoodfacts.org;
 	# Redirect all HTTP links to the matching HTTPS page
+
 	return 301 https://$host$request_uri;
 }
 
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
-	server_name default.openfoodfacts.org;
-	return 301 https://world.openfoodfacts.org;
+	server_name _;
+
+        # nginx_status configuration, need for Munin
+        location /nginx_status {
+                stub_status on;
+                access_log   off;
+                allow all;
+        }
+
+#	return 301 https://world.openfoodfacts.org;
 }
 
 
@@ -99,8 +108,11 @@ server {
         if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
         if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
         if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
-        if ($host = donner.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/collectes/une-meilleure-alimentation-pour-une-meilleure-sante-on-se-mobilise ; }
-        if ($host = donate.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en ; }
+        if ($host = donnez.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = don.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = dons.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
 
 	# Redirect GET requests to https. POST requests will be transformed
 	# to GET by most browsers when redirected, and it breaks apps that
@@ -195,6 +207,62 @@ server {
 	location = /robots.txt {
 		try_files $uri $uri/ =404;
 	}
+
+	location = /donate-to-open-food-facts {
+                try_files /donate/en.html =404;
+        }
+
+	location = /faire-un-don-a-open-food-facts {
+                try_files /donate/fr.helloasso.html =404;
+        }
+
+        location = /dona-a-open-food-facts {
+                try_files /donate/it.html =404;
+        }
+
+        location = /spenden {
+                try_files /donate/de.html =404;
+        }
+
+        location = /doner-til-open-food-facts {
+                try_files /donate/da.html =404;
+        }
+
+        location = /doniraj-k-open-food-facts {
+                try_files /donate/sl.html =404;
+        }
+        
+        location = /open-food-factse-bagista-bulununs {
+                try_files /donate/tr.html =404;
+        }
+        
+        location = /pozhertvovat-open-food-facts {
+                try_files /donate/ru.html =404;
+        }
+        
+        location = /donate-to-open-food-facts-ru {
+                try_files /donate/ru.html =404;
+        }
+        
+        location = /donate-to-open-food-facts-he {
+                try_files /donate/he.html =404;
+        }
+        
+        location = /fazer-um-donativo-ao-open-food-facts {
+                try_files /donate/pt.html =404;
+        }
+        
+        location = /lahjoita-open-food-factsille {
+                try_files /donate/fi.html =404;
+        }
+        location = /dar-a-open-food-facts {
+                try_files /donate/es.html =404;
+        }
+        location = /haz-su-donacion-a-open-food-facts {
+                try_files /donate/es.html =404;
+        }
+        
+
 
 	# Dynamically generated files and CGI scripts are passed
 	# to the Apache + mod_perl server running on a different
@@ -591,10 +659,3 @@ server {
 	#}
 
 }
-
-
-
-
-
-
-

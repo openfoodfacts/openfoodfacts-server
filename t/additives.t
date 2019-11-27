@@ -1154,7 +1154,8 @@ diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e500',
-          'en:e503',
+#          'en:e503',
+          'en:e502',
           'en:e450',
  #         'en:e336',
           'en:e336ii',
@@ -1167,7 +1168,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e385',
           'en:e541',
 	  'en:e450i',
-	  'en:e451',
+#	  'en:e451',
 	  'en:e340',
           'en:e470a',
           'en:e471',
@@ -1225,7 +1226,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 	"en:e450i",
 	"en:e500",
 	"en:e471",
-	"en:e415",
+#	"en:e415",
                               ],
 );
 
@@ -1243,12 +1244,10 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
-#          'en:e322',
-#          'en:e322i',
-          'en:sunflower-lecithin',
+          'en:e322i',
           'en:e422',
           'en:e330',
-          'en:fruit-pectin',
+          'en:e440i',
           'en:e331',
           'en:soya-lecithin',
           'en:e500',
@@ -1273,7 +1272,8 @@ extract_ingredients_classes_from_text($product_ref);
 
 diag explain $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [
+# spellchecking of additives is now disabled, commenting the test
+0 and is_deeply($product_ref->{additives_original_tags}, [
           'en:e330',
           'en:e175',
           'en:e14xx',

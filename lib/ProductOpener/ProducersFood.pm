@@ -69,6 +69,7 @@ sub detect_possible_improvements($) {
 	my $product_ref = shift;
 
 	$product_ref->{improvements_tags} = [];
+	$product_ref->{improvements_data} = {};
 
 	detect_possible_improvements_compare_nutrition_facts($product_ref);
 	detect_possible_improvements_nutriscore($product_ref);
@@ -111,11 +112,26 @@ sub detect_possible_improvements_nutriscore($) {
 			if ($new_nutriscore_grade lt $product_ref->{nutriscore_grade}) {
 				my $difference = $product_ref->{nutriscore_data}{$nutrient} - $lower_value;
 				my $difference_percent = $difference / $product_ref->{nutriscore_data}{$nutrient} * 100;
+
+				my $improvements_tag;
+
 				if ($difference_percent <= 5) {
-					push @{$product_ref->{improvements_tags}}, "en:better-nutri-score-with-slightly-less-" . $nutrient_short;
+					$improvements_tag = "en:better-nutri-score-with-slightly-less-" . $nutrient_short;
 				}
-				if ($difference_percent <= 10) {
-					push @{$product_ref->{improvements_tags}}, "en:better-nutri-score-with-less-" . $nutrient_short;
+				elsif ($difference_percent <= 10) {
+					$improvements_tag = "en:better-nutri-score-with-less-" . $nutrient_short;
+				}
+
+				if ($improvements_tag) {
+					push @{$product_ref->{improvements_tags}}, $improvements_tag;
+					$product_ref->{improvements_data}{$improvements_tag} = {
+						current_nutriscore_grade => $product_ref->{nutriscore_grade},
+						new_nutriscore_grade => $new_nutriscore_grade,
+						nutrient => $nutrient,
+						current_value => $product_ref->{nutriscore_data}{$nutrient},
+						new_value => $lower_value,
+						difference_percent => $difference_percent,
+					};
 				}
 			}
 		}
@@ -146,11 +162,27 @@ sub detect_possible_improvements_nutriscore($) {
 			if ($new_nutriscore_grade lt $product_ref->{nutriscore_grade}) {
 				my $difference = $higher_value - $product_ref->{nutriscore_data}{$nutrient};
 				my $difference_percent = $difference / $product_ref->{nutriscore_data}{$nutrient} * 100;
+
+				my $improvements_tag;
+
 				if ($difference_percent <= 5) {
-					push @{$product_ref->{improvements_tags}}, "en:better-nutri-score-with-slightly-more-" . $nutrient_short;
+					$improvements_tag = "en:better-nutri-score-with-slightly-more-" . $nutrient_short;
+
 				}
-				if ($difference_percent <= 10) {
-					push @{$product_ref->{improvements_tags}}, "en:better-nutri-score-with-more-" . $nutrient_short;
+				elsif ($difference_percent <= 10) {
+					$improvements_tag = "en:better-nutri-score-with-more-" . $nutrient_short;
+				}
+
+				if ($improvements_tag) {
+					push @{$product_ref->{improvements_tags}}, $improvements_tag;
+					$product_ref->{improvements_data}{$improvements_tag} = {
+						current_nutriscore_grade => $product_ref->{nutriscore_grade},
+						new_nutriscore_grade => $new_nutriscore_grade,
+						nutrient => $nutrient,
+						current_value => $product_ref->{nutriscore_data}{$nutrient},
+						new_value => $higher_value,
+						difference_percent => $difference_percent,
+					};
 				}
 			}
 		}
@@ -194,6 +226,14 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 		# check major nutrients
 		my @nutrients = qw(fat saturated-fat sugars salt);
 
+		# Minimum thresholds set at the upper end of the low values for the FSA traffic lights
+		my %minimum_thresholds = (
+			"fat" => 3,
+			"saturated-fat" => 1.5,
+			"sugars" => 5,
+			"salt" => 0.3,
+		);
+
 		foreach my $nid (@nutrients) {
 
 			if ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne "")
@@ -205,15 +245,30 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 					category_std => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
 					} ) if $log->is_debug();
 
-				if ($product_ref->{nutriments}{$nid . "_100g"}
-					> ($categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"} + 1 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}) ) {
+				next if ($product_ref->{nutriments}{$nid . "_100g"} < $minimum_thresholds{$nid});
 
-					push @{$product_ref->{improvements_tags}}, "en:nutrition-high-$nid-value-for-category";
-				}
+				my $improvements_tag;
+
 				if ($product_ref->{nutriments}{$nid . "_100g"}
 					> ($categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"} + 2 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}) ) {
 
 					push @{$product_ref->{improvements_tags}}, "en:nutrition-very-high-$nid-value-for-category";
+					$improvements_tag = "en:nutrition-very-high-$nid-value-for-category";
+				}
+				elsif ($product_ref->{nutriments}{$nid . "_100g"}
+					> ($categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"} + 1 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}) ) {
+
+					push @{$product_ref->{improvements_tags}}, "en:nutrition-high-$nid-value-for-category";
+					$improvements_tag = "en:nutrition-high-$nid-value-for-category";
+				}
+
+				if ($improvements_tag) {
+					$product_ref->{improvements_data}{$improvements_tag} = {
+						nid => $nid,
+						category => $specific_category,
+						product_100g => $product_ref->{nutriments}{$nid . "_100g"},
+						category_100g => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"},
+					};
 				}
 			}
 		}
