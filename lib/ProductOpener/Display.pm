@@ -1068,13 +1068,12 @@ sub display_text($)
 
 	};
 
-	if ($file =~ /\/index.foundation/) {
-		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
-	}
-	elsif (($file =~ /\/index-pro/) and (defined $Org_id)) {
-
+	if (($file =~ /\/index-pro/) and (defined $Org_id)) {
 		$html .= display_index_for_producer($request_ref);
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t", undef, undef);
+	}
+	elsif ($file =~ /\/index/) {
+		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
 
 	$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
