@@ -31,7 +31,6 @@ BEGIN
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
-		%moderators
 
 		$server_domain
 		@ssl_subdomains
@@ -146,34 +145,12 @@ use ProductOpener::Config2;
 );
 
 %admins = map { $_ => 1 } qw(
-	agamitsudo
-	aleene
-	bcatelin
-	bojackhorseman
 	charlesnepote
 	hangy
-	javichu
-	kyzh
-	lafel
-	lucaa
-	mbe
-	moon-rabbit
-	raphael0202
-	sebleouf
-	segundo
 	stephane
 	tacinte
-	tacite
 	teolemon
-	twoflower
-
-	jniderkorn
-	desan
-	cedagaesse
-	m-etchebarne
 );
-
-%moderators = map { $_ => 1 } qw();
 
 $options{export_limit} = 10000;
 

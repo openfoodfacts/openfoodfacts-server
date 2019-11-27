@@ -188,7 +188,7 @@ if ($imagefield) {
 				crop_url=>"$imgid.${crop_size}.jpg",
 			};
 
-			if ($admin) {
+			if ($User{moderator}) {
 				$product_ref = retrieve_product($product_id);
 				$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
 				$image_data_ref->{uploaded} = $product_ref->{images}{$imgid}{uploaded_t};
