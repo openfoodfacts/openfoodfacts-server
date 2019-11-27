@@ -777,9 +777,14 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Lang strings for product.js
 
+	my $moderator = 0;
+	if ($User{moderator}) {
+		$moderator = 1;
+	}
+
 	$scripts .=<<JS
 <script type="text/javascript">
-var admin = $User{moderator};
+var admin = $moderator;
 var Lang = {
 JS
 ;
