@@ -10,6 +10,9 @@ services:
       - type: bind
         source: ./backend-dev/scripts/
         target: /opt/scripts/
+      - type: bind
+        source: ../
+        target: /opt/product-opener/
   frontend:
     image: nginx:1.17.5-alpine
     volumes:
