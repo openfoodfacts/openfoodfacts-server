@@ -415,6 +415,11 @@ sub init_fields_columns_names_for_lang($) {
 }
 
 
+# Note: This is not a conversion table, it is a list of synonyms used by producers when they transmit us data.
+# In practice, no producer uses cal (as in 1/1000 of kcal) as a unit for energy.
+# When they have "cal" or "calories" in the header of a column, they always mean kcal.
+# The units in this table are lowercased, so "cal" is for the "big Calories". 1 Cal = 1 kcal.
+
 my %units_synonyms = (
 	"g" => "g",
 	"gr" => "g",
