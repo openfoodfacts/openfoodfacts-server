@@ -12,17 +12,6 @@ jobs:
     - uses: actions/checkout@v1
       with:
         fetch-depth: 1
-    - name: Build the frontend image
-      run: |
-        docker build -t foo . --file docker/frontend/Dockerfile
-        # Copy gulp output to the host, so it can be used in the backend container
-        CONTAINER=$(docker create foo)
-        docker cp $CONTAINER:/opt/product-opener/html/images/icons/dist - > icons.tar
-        tar -xf icons.tar -C ./html/images/icons/
-        rm icons.tar
-        docker rm -v $CONTAINER
-    - name: Build the backend image
-      run: docker build . --file docker/backend/Dockerfile
     - name: Publish frontend image to Registry
       uses: elgohr/Publish-Docker-Github-Action@2.8
       with:
@@ -32,6 +21,18 @@ jobs:
         registry: docker.pkg.github.com
         dockerfile: docker/frontend/Dockerfile
         snapshot: true
+      id: publish_frontend
+    - name: Copy frontend output for backend container
+      run: |
+        CONTAINER=$(docker create docker.pkg.github.com/${{ github.repository }}/frontend:${{ steps.publish_frontend.outputs.snapshot-tag }})
+        docker cp $CONTAINER:/opt/product-opener/html/images/icons/dist - > icons.tar
+        docker cp $CONTAINER:/opt/product-opener/html/js/dist - > js.tar
+        docker cp $CONTAINER:/opt/product-opener/html/css/dist - > css.tar
+        tar -xf icons.tar -C ./html/images/icons/
+        tar -xf js.tar -C ./html/js/
+        tar -xf css.tar -C ./html/css/
+        rm icons.tar js.tar css.tar
+        docker rm -v $CONTAINER
     - name: Publish backend image to Registry
       uses: elgohr/Publish-Docker-Github-Action@2.8
       with:
