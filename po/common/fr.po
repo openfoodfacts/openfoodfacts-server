@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-28 11:14\n"
+"PO-Revision-Date: 2019-11-28 15:01\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3974,7 +3974,7 @@ msgstr "Le Nutri-Score peut passer de %s à %s en changeant la valeur %s de %s �
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "Groupes"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -3982,37 +3982,37 @@ msgstr "Producteur"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "Ne doit être coché que les comptes des producteurs ajoutant leurs propres produits. La propriété des produits sera attribuée aux producteurs lorsqu'ils ajouteront ou modifieront un produit."
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "Base de données"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "Pour les sources de données externes. Les produits importés ne changeront pas de propriétaire."
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "Appli"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "Pour les applications."
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "Robot"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
-msgstr ""
+msgstr "Pour les robots, scripts, etc."
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "Modérateur"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "Les modérateurs ont accès à des fonctionnalités spéciales permettant de modifier et vérifier les produits."
 
