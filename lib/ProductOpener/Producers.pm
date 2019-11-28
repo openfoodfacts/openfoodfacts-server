@@ -366,6 +366,8 @@ en => {
 es => {
 	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
 	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
+	net_weight_value_unit => ["peso unitrario", "peso unitario"],	# Yuka
+	"energy-kcal_100g_value_unit" => ["calorias"],
 },
 
 fr => {
@@ -413,6 +415,22 @@ sub init_fields_columns_names_for_lang($) {
 }
 
 
+my %units_synonyms = (
+	"g" => "g",
+	"gr" => "g",
+	"grams" => "g",
+	"grammes" => "g",
+	"mg" => "mg",
+	"mcg" => "mcg",
+	"percent" => "percent",
+	"kj" => "kj",
+	"kcal" => "kcal",
+	"cal" => "kcal",
+	"calories" => "kcal",
+	"calorie" => "kcal",
+);
+
+
 sub init_nutrients_columns_names_for_lang($) {
 
 	my $l = shift;
@@ -453,21 +471,6 @@ sub init_nutrients_columns_names_for_lang($) {
 
 			# Energy kcal, carbohydrates g, calcium mg
 
-			my %units = (
-				"g" => "g",
-				"gr" => "g",
-				"grams" => "g",
-				"grammes" => "g",
-				"mg" => "mg",
-				"mcg" => "mcg",
-				"percent" => "percent",
-				"kj" => "kj",
-				"kcal" => "kcal",
-				"cal" => "kcal",
-				"calories" => "kcal",
-				"calorie" => "kcal",
-			);
-
 			my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
 
 			if ($nid eq "energy-kcal") {
@@ -486,7 +489,7 @@ sub init_nutrients_columns_names_for_lang($) {
 			foreach my $unit (@units) {
 				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
 					field => $nid . "_100g_value_unit",
-					value_unit => "value_in_" . $units{$unit},
+					value_unit => "value_in_" . $units_synonyms{$unit},
 				};
 			}
 
@@ -545,6 +548,15 @@ sub init_other_fields_columns_names_for_lang($) {
 							field => $field,
 							value_unit => "unit",
 						};
+
+						my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+
+						foreach my $unit (@units) {
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
+								field => $field,
+								value_unit => "value_in_" . $units_synonyms{$unit},
+							};
+						}
 					}
 				}
 				elsif (defined $tags_fields{$field}) {

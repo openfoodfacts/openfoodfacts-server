@@ -5960,6 +5960,13 @@ HTML
 		$site_name = $Lang{producers_platform}{$lc};
 	}
 
+	# Override Google Analytics from Config.pm with server_options
+	# defined in Config2.pm if it exists
+
+	if (exists $server_options{google_analytics}) {
+		$google_analytics = $server_options{google_analytics};
+	}
+
 	$html .= <<HTML
 $styles
 </style>
