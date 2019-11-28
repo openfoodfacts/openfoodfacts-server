@@ -30,9 +30,6 @@ services:
       - podata:/mnt/podata
       - type: tmpfs
         target: /mnt/podata/mnt
-      - type: bind
-        source: ../
-        target: /opt/product-opener/
       - product_images:/opt/product-opener/html/images/products
       - type: bind
         source: ./backend-dev/conf/Config.pm
