@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -57,15 +57,16 @@ else {
 	$short_name .= " " . uc($cc) . "/" . uc($lc);
 }
 
-my %manifest;
-$manifest{lang} = $lc;
-$manifest{name} = $long_name;
-$manifest{short_name} = $short_name;
-$manifest{description} = lang('site_description');
-$manifest{start_url} = format_subdomain($subdomain);
-$manifest{scope} = '/';
-$manifest{display} = 'standalone';
-$manifest{prefer_related_applications} = $JSON::PP::true;
+my %manifest = (
+	lang => $lc,
+	name => $long_name,
+	short_name => $short_name,
+	description => lang('site_description'),
+	start_url => format_subdomain($subdomain),
+	scope => '/',
+	display => 'standalone',
+	prefer_related_applications => $JSON::PP::true,
+);
 
 my @keys = qw(theme_color icons related_applications background_color);
 foreach my $key (@keys) {

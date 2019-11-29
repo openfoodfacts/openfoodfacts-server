@@ -9,7 +9,7 @@ De kan indeholde grafiske elementer underlagt ophavsret eller andre rettigheder,
 <p>Læs venligst <a href="https://world.openfoodfacts.org/terms-of-use">Vilkår og betingelser for brug og genbrug</a> før genbrug af ​​dataene.</p> 
 
 
-<p>Vi er meget interesserede i at erfare, hvad Open Food Facts-dataene anvendes til. Det er ikke obligatorisk, men vi vil sætte stor pris på, at du oplyser os om dine genanvendelser, så vi kan dele dem
+<p>Vi er meget interesserede i at erfare, hvad Open Food Facts-dataene anvendes til. Det er ikke obligatorisk, men vi vil sætte stor pris på, at du <a href="mailto:contact@openfoodfacts.org">fortæller os om dine genanvendelser</a>, så vi kan dele dem
 med Open Food Facts-fællesskabet.</p>
 
 <h2>Open Food Facts-dataekport</h2>
@@ -63,34 +63,53 @@ med Open Food Facts-fællesskabet.</p>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/da.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>Eksperimentel JSON-API</h2>
+<h2>Live JSON API</h2>
 
 <p>En JSON-API er også tilgængelig til læsning af produktdataene. Denne API benyttes især i Open Food Facts-app'en til Android og iPhone.</p>
 
-<p>Denne API er eksperimentel og kan ændre sig. Oplys os om du benytter den, så vi kan informere dig om evt. ændringer.</p>
+<p>Vi ændrer API over tid, men vi er omhyggelige med at holde det bagudkompatibelt. Oplys os om du benytter den, så vi kan informere dig om evt. ændringer.</p>
 
 <p>URL til læsning af data for givent produkt: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
 <p>Eksempel: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
+Yderligere dokumentation er <a href="https://en.wiki.openfoodfacts.org/API">tilgængelig i Wiki'en</a>. (Vigtigt notat: Siden er opdelt i undersider til LÆSNING og SKRIVNING). 
+Der udvikles en bedre dokumentation med brug af eksempler til visning af et produkt og lade dine brugere tilføje de krævede data for at få Nutri-Score, NOVA-grupper og additiver.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Du kan få adgang til det her</a>.
+<p>Du er meget velkommen til at benytte API'en til produktionssager, så længe 1 API-kald = 1 reel skanning af en bruger.
+Forsøg på at scrape databasen gennem API'et vil sandsynligvis blive blokeret, da fulde daglige eksportfiler er tilgængelige fra denne side.</p>
+<p>At sende en HTTP-header med dit API-kald er også en god måde, hvorpå vi kan komme i kontakt, hvis der skulle opstå problemer.</p>
+<p>Hvis du er usikker på noget eller har spørgsmål (der findes ingen fjollede spørgsmål), er du velkommen til at stille dem på Slack :-)</p>
+
 <h2>Android- og iPhone-app</h2>
 
-<p>Koden til Open Food Facts mobil-app'en er tilgængelig fra <a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">GitHub</a>.
-App'en tillader brugerne at skanne produktstregkoder for at se produktinformationener samt for at tage og indsende fotos og data til manglende produkter.</p>
+<p>Koden til Open Food Facts mobil-appen er tilgængelig via GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> og <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
+Appen giver brugerne mulighed for at skanne en produktstregkode for at se produktinformationen samt for at tage og sende fotos og data til manglende produkter.</p>
 
-<p>App'en til iOS er udviklet i HTML og Javascript af Phonegap (Cordova). Vi har også en Swift-version, der arbejdes på</p>
-<p>App'een til Android er udviklet i Java.</p>
-<p>Du er velkommen til at genbruge koden (den er open source) og hjælpe os med at forbedre den, for alle globalt.
+<p>iOS-appen er udviklet i Swift.</p>
+<p>Android-appen er udviklet i Java.</p>
+<p>Du er velkommen til at genbruge koden (der er open source) og hjælpe os med at forbedre den for alle brugere.
 
 <h2>Wrappers og SDK'er</h2>
-<p>Der er sikkert en wrapper til dit yndlingsprogrammeringssprog. Gør der det, kan du benytte den og forbedre den. Gør der ikke, kan du hjælpe med at lave den.</p>
+<p>Der er sikkert en wrapper til dit yndlingsprogrammeringssprog. Gør vi det, kan du benytte den og forbedre den. Gør vi det ikke, kan du hjælpe med at lave den.</p>
+<p>They will let you consume data, as well as let your users contribute new data</p>
+<ul>
+<li>React Native: <a href="https://github.com/openfoodfacts/openfoodfacts-react-native">GitHub</a></li>
+<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a></li>
+<li>Ruby: <a href="https://github.com/openfoodfacts/openfoodfacts-ruby">GitHub</a></li>
+<li>PHP: <a href="https://github.com/openfoodfacts/openfoodfacts-php">GitHub</a></li>
+<li>Python: <a href="https://github.com/openfoodfacts/openfoodfacts-python">GitHub</a></li>
+<li>Go: <a href="https://github.com/openfoodfacts/openfoodfacts-go">GitHub</a></li>
+<li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (old Open Food Facts officielle app)</a></li>
+<li>Elixir: <a href="https://github.com/openfoodfacts/openfoodfacts-elixir">GitHub</a></li>
+</ul>
 
-<h2>Mailliste til data, API og eksport</h2>
+<h2>Debattere data, API og eksport</h2>
+<p>Du kan også <a href="https://slack.openfoodfacts.org">deltage i Open Food Facts Slack-chatroom, som er den foretrukne måde at stille spørgsmål på og debattere API'en</a>.</p>
 
 <p>Du kan også tilmelde dig mailinglisten for at drøfte API'en og eksport, fortælle os om dine genanvendelser og blive underrettet, når der foretages forbedringer eller ændringer af API'en. Send en tom e-mail til
 <a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> for ar abonnere.</p>
 
-<p>Du kan også <a href="https://slack.openfoodfacts.org"> deltage i Open Food Facts Slack, som er den foretrukne måde at stille spørgsmål på og diskutere API'et</a>.</p>
 
 <h2>Kontakt</h2>
 

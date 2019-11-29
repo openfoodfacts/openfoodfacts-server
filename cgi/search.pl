@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -111,7 +111,9 @@ if ((not defined param('json')) and (not defined param('jsonp')) and
 
 		my $code = $search_terms;
 
-		my $product_ref = product_exists($code); # returns 0 if not
+		my $product_id = product_id_for_user($User_id, $Org_id, $code);
+
+		my $product_ref = product_exists($product_id); # returns 0 if not
 
 		if ($product_ref) {
 			$log->info("product code exists, redirecting to product page", { code => $code });
@@ -129,8 +131,8 @@ if ((not defined param('json')) and (not defined param('jsonp')) and
 
 my @search_tags = ();
 my @search_nutriments = ();
-my %search_ingredient_classes = {};
-my %search_ingredient_classes_checked = {};
+my %search_ingredient_classes = ();
+my %search_ingredient_classes_checked = ();
 
 for (my $i = 0; defined param("tagtype_$i") ; $i++) {
 
@@ -568,15 +570,15 @@ elsif ($action eq 'process') {
 		if (($search_terms !~/,/) and
 			(($search_terms =~ /^(\w\w)(\s|-|\.)?(\d(\s|-|\.)?){5}(\s|-|\.|\d)*C(\s|-|\.)?E/i)
 			or ($search_terms =~ /^(emb|e)(\s|-|\.)?(\d(\s|-|\.)?){5}/i))) {
-				$query_ref->{"emb_codes_tags"} = get_fileid(normalize_packager_codes($search_terms));
+				$query_ref->{"emb_codes_tags"} = get_string_id_for_lang("no_language", normalize_packager_codes($search_terms));
 		}
 		else {
 
 			my %terms = ();
 
 			foreach my $term (split(/,|'|\s/, $search_terms)) {
-				if (length(get_fileid($term)) >= 2) {
-					$terms{normalize_search_terms(get_fileid($term))} = 1;
+				if (length(get_string_id_for_lang($lc, $term)) >= 2) {
+					$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 				}
 			}
 			if (scalar keys %terms > 0) {
@@ -598,11 +600,11 @@ elsif ($action eq 'process') {
 
 			my $tagid;
 			if (defined $taxonomy_fields{$tagtype}) {
-				$tagid = get_taxonomyid(canonicalize_taxonomy_tag($lc,$tagtype, $tag));
+				$tagid = get_taxonomyid($lc, canonicalize_taxonomy_tag($lc,$tagtype, $tag));
 				$log->debug("taxonomy", { tag => $tag, tagid => $tagid }) if $log->is_debug();
 			}
 			else {
-				$tagid = get_fileid(canonicalize_tag2($tagtype, $tag));
+				$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
 			}
 
 			if ($tagtype eq 'additives') {
@@ -719,16 +721,16 @@ elsif ($action eq 'process') {
 	# Graphs
 
 	foreach my $axis ('x','y') {
-		if (param("axis_$axis") ne '') {
+		if ((defined param("axis_$axis")) and (param("axis_$axis") ne '')) {
 			$current_link .= "\&axis_$axis=" .  URI::Escape::XS::encodeURIComponent(decode utf8=>param("axis_$axis"));
 		}
 	}
 
-	if (param('graph_title') ne '') {
+	if ((defined param('graph_title')) and (param('graph_title') ne '')) {
 		$current_link .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("graph_title"));
 	}
 
-	if (param('map_title') ne '') {
+	if ((defined param('map_title')) and (param('map_title') ne '')) {
 		$current_link .= "\&map_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("map_title"));
 	}
 
@@ -778,8 +780,8 @@ elsif ($action eq 'process') {
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="fi-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -811,8 +813,8 @@ HTML
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="fi-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -842,8 +844,8 @@ HTML
 		if (not defined $request_ref->{jqm}) {
 			${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="fi-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML

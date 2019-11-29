@@ -21,7 +21,7 @@
 package ProductOpener::Config;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -29,6 +29,7 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
+		%string_normalization_for_lang
 		%admins
 		%moderators
 
@@ -67,6 +68,7 @@ BEGIN
 		$page_size
 
 		%options
+		%server_options
 
 		%wiki_texts
 
@@ -90,25 +92,84 @@ use vars @EXPORT_OK ; # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
-%admins = map { $_ => 1 } qw(
-agamitsudo
-aleene
-bcatelin
-bojackhorseman
-hangy
-javichu
-kyzh
-lafel
-lucaa
-moon-rabbit
-sebleouf
-segundo
-stephane
-tacinte
-tacite
-teolemon
-twoflower
+# define the normalization applied to change a string to a tag id (in particular for taxonomies)
+# tag ids are also used in URLs.
 
+# unaccent:
+# - useful when accents are sometimes ommited (e.g. in French accents are often not present on capital letters),
+# either in print, or when typed by users.
+# - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
+# lowercase:
+# - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+%string_normalization_for_lang = (
+	# no_language is used for strings that are not in a specific language (e.g. user names)
+	no_language => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# default is used for languages that do not have specified values
+	default => {
+		unaccent => 0,
+		lowercase => 1,
+	},
+	# German umlauts should not be converted (e.g. ä -> ae) as there are many conflicts
+	de => {
+		unaccent => 0,
+		lowercase => 1,
+	},
+	# French has very few actual conflicts caused by unaccenting (one counter example is "pâtes" and "pâtés")
+	# Accents or often not present in capital letters (beginning of word, or in all caps text).
+	fr => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# Same for Spanish, Italian and Portuguese
+	es => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	it => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	pt => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
+	en => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+);
+
+%admins = map { $_ => 1 } qw(
+	agamitsudo
+	aleene
+	bcatelin
+	bojackhorseman
+	charlesnepote
+	hangy
+	javichu
+	kyzh
+	lafel
+	lucaa
+	mbe
+	moon-rabbit
+	raphael0202
+	sebleouf
+	segundo
+	stephane
+	tacinte
+	tacite
+	teolemon
+	twoflower
+
+	jniderkorn
+	desan
+	cedagaesse
+	m-etchebarne
 );
 
 %moderators = map { $_ => 1 } qw(
@@ -139,6 +200,10 @@ $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifie
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+
+# server options
+
+%server_options = %ProductOpener::Config2::server_options;
 
 $reference_timezone = 'Europe/Paris';
 
