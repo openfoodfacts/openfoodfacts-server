@@ -552,12 +552,6 @@ sub analyze_request($)
 		$request_ref->{text} = 'index';
 	}
 
-	# Index page on producers platform
-	if ((defined $request_ref->{text}) and ($request_ref->{text} eq "index")
-		and (defined $server_options{private_products}) and ($server_options{private_products})) {
-		$request_ref->{text} = 'index-pro';
-	}
-
 	# Api access
 	elsif ($components[0] eq 'api') {
 
@@ -786,6 +780,12 @@ sub analyze_request($)
 		}
 
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
+	}
+
+	# Index page on producers platform
+	if ((defined $request_ref->{text}) and ($request_ref->{text} eq "index")
+		and (defined $server_options{private_products}) and ($server_options{private_products})) {
+		$request_ref->{text} = 'index-pro';
 	}
 
 	$log->debug("request analyzed", { lc => $lc, lang => $lang, request_ref => Dumper($request_ref)}) if $log->is_debug();
