@@ -6170,7 +6170,7 @@ HTML
 		}
 		elsif ($system eq 'ios') {
 
-			$link_text = display_icon('brand-brand-apple')  . $link_text;
+			$link_text = display_icon('brand-apple')  . $link_text;
 		}
 
 		$top_banner = <<HTML
