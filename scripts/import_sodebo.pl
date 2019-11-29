@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -40,7 +40,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -228,7 +228,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				if (1 and (not $product_ref)) {
 					print "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
-					$product_ref = init_product($code);
+					$product_ref = init_product($User_id, undef, $code);
 					$product_ref->{interface_version_created} = "import_sodebo.pl - version 2018/06/14";
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
@@ -485,7 +485,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							$tag =~ s/\s+$//;
 
 							if (defined $taxonomy_fields{$field}) {
-								$tagid = get_taxonomyid(canonicalize_taxonomy_tag($params{lc}, $field, $tag));
+								$tagid = get_taxonomyid($params{lc}, canonicalize_taxonomy_tag($params{lc}, $field, $tag));
 							}
 							else {
 								$tagid = get_fileid($tag);
@@ -791,7 +791,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				
 				compute_unknown_nutrients($product_ref);
 				
-				ProductOpener::SiteQuality::check_quality($product_ref);
+				ProductOpener::DataQuality::check_quality($product_ref);
 			
 			
 				#print STDERR "Storing product code $code\n";

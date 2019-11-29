@@ -1,22 +1,22 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -27,7 +27,7 @@ use utf8;
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-use ProductOpener::Import qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -58,26 +58,25 @@ $lc = "fr";
 
 
 my @csv_fields_mapping = (
-		
-["EAN", "code"],
-["product_name", "product_name_fr"],
-["brand", "brands"],
-["quantity", "quantity"],
-["category","categories"],
-["ingredient_list", "ingredients_text_fr"],
-["allergens_list", "allergens"],
-["traces_list", "traces"],
-["organic", "labels_y_en:organic"],	# Y or N
-["calories", "nutriments.energy_kcal"],
-["total_fat", "nutriments.fat_g"],
-["saturated_fat", "nutriments.saturated-fat_g"],
-["carbohydronate", "nutriments.carbohydrates_g"],
-["sugar", "nutriments.sugars_g"],
-["fiber", "nutriments.fiber_g"],
-["protein", "nutriments.proteins_g"],
-["salt", "nutriments.salt_g"],
-["Visuel", "download_to:/srv/off/imports/barilla/images/"],
 
+["ean", "code"],
+["nom_produit", "product_name_fr"],
+["quantite","quantity"],
+["marque", "brands"],
+["categorie", "categories"],
+["liste_ingredients", "ingredients_text_fr"],
+["allergenes", "allergens"],
+["bio","labels_y_en:organic"],
+["calories", "nutriments.energy_kcal"],
+["matieres_grasses", "nutriments.fat_g"],
+["acides_gras_satures", "nutriments.saturated-fat_g"],
+["glucides", "nutriments.carbohydrates_g"],
+["sucres", "nutriments.sugars_g"],
+["proteines", "nutriments.proteins_g"],
+["fibres", "nutriments.fiber_g"],
+["sel", "nutriments.salt_g"],
+["fruits_legumes_noix", "nutriments.fruits-vegetables-nuts_g"],
+["visuel", "download_to:/srv/off/imports/barilla/images/"],
 
 );
 
@@ -98,10 +97,10 @@ foreach my $file (@files) {
 # -> otherwise fix them in Import::clean_fields_for_all_products
 
 foreach my $code (sort keys %products) {
-	
+
 	my $product_ref = $products{$code};
-	
-	
+
+
 }
 
 # Clean / normalize fields

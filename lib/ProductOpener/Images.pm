@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -21,7 +21,7 @@
 package ProductOpener::Images;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -29,14 +29,13 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-					&generate_banner
-					&generate_mosaic_background
 					&display_image_form
 					&process_image_form
 
 					&display_search_image_form
 					&process_search_image_form
 
+					&get_code_and_imagefield_from_file_name
 					&process_image_upload
 					&process_image_move
 
@@ -51,6 +50,8 @@ BEGIN
 
 					&display_image
 					&display_image_thumb
+
+					&extract_text_from_image
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -68,6 +69,8 @@ use Image::Magick;
 use Graphics::Color::RGB;
 use Graphics::Color::HSL;
 use Barcode::ZBar;
+use Image::OCR::Tesseract 'get_ocr';
+
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -76,6 +79,8 @@ use ProductOpener::URL qw/:all/;
 use Log::Any qw($log);
 use Encode;
 use JSON::PP;
+use MIME::Base64;
+use LWP::UserAgent;
 
 sub display_select_manage($) {
 
@@ -146,7 +151,10 @@ HTML
 sub display_select_crop_init($) {
 
 	my $object_ref = shift;
-	my $path = product_path($object_ref->{code});
+
+	$log->debug("display_select_crop_init", { object_ref => $object_ref }) if $log->is_debug();
+
+	my $path = product_path($object_ref);
 
 	my $images = '';
 
@@ -260,7 +268,7 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="fi-camera"></i> $product_image_with_barcode
+<a href="#" class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
 <input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
     right:0;
     bottom:0;
@@ -290,11 +298,10 @@ HTML
 
 
 	$scripts .= <<JS
-<script src="/js/jquery.iframe-transport.min.js"></script>
-<script src="/js/jquery.fileupload.min.js"></script>
-<script src="/js/load-image.min.js"></script>
-<script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.min.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
 JS
 ;
 
@@ -303,6 +310,7 @@ JS
 \/\/ start off canvas blocks for small screens
 
     \$('#imgupload_search_$id').fileupload({
+		sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product.pl',
 		formData : [{name: 'jqueryfileupload', value: 1}],
@@ -377,7 +385,7 @@ sub process_search_image_form($) {
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
 
 			my $extension = lc($1) ;
-			my $filename = get_fileid(remote_addr(). '_' . $`);
+			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
 			open (my $out, ">", "$data_root/tmp/$filename.$extension") ;
 			while (my $chunk = <$file>) {
@@ -402,19 +410,53 @@ sub dims {
 }
 
 
+sub get_code_and_imagefield_from_file_name($$) {
+
+	my $l = shift;
+	my $filename = shift;
+
+	my $code;
+	my $imagefield;
+
+	# Look for the barcode
+	if ($filename =~ /(\d{8}\d*)/) {
+		$code = $1;
+	}
+
+	# Check for a specified imagefield
+	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
+		$imagefield = $1;
+		$imagefield =~ s/-/_/;
+	}
+	# If the photo file name is just the barcode + some stopwords, assume it is the front image
+	elsif ($filename =~ /^\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.(png|jpg|jpeg|gif)$/i) {
+		$imagefield = "front";
+	}
+	else {
+		$imagefield = "other";
+	}
+
+	$log->debug("get_code_and_imagefield_from_file_name", { l => $l, filename => $filename, code => $code, imagefield => $imagefield }) if $log->is_debug();
+
+	return ($code, $imagefield);
+}
+
+
 sub process_image_upload($$$$$$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $imagefield = shift;
 	my $userid = shift;
 	my $time = shift; # usually current time (images just uploaded), except for images moved from another product
 	my $comment = shift;
 	my $imgid_ref = shift; # to return the imgid (new image or existing image)
 
+	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
+
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($product_id);
 	my $imgid = -1;
 
 	my $new_product_ref = {};
@@ -439,6 +481,11 @@ sub process_image_upload($$$$$$) {
 			my $old_imagefield = $imagefield;
 			$old_imagefield =~ s/_\w\w$//;
 			$file = param('imgupload_' . $old_imagefield);
+
+			if (! $file) {
+				# producers platform: name="files[]"
+				$file = param("files[]");
+			}
 		}
 	}
 
@@ -464,9 +511,9 @@ sub process_image_upload($$$$$$) {
 				$extension = lc($1) ;
 			}
 			$extension eq 'jpeg' and $extension = 'jpg';
-			my $filename = get_fileid(remote_addr(). '_' . $`);
+			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
-			my $current_product_ref = retrieve_product($code);
+			my $current_product_ref = retrieve_product($product_id);
 			$imgid = $current_product_ref->{max_imgid} + 1;
 
 			# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
@@ -558,7 +605,7 @@ sub process_image_upload($$$$$$) {
 					# check the image was stored inside the
 					# product, it is sometimes missing
 					# (e.g. during crashes)
-					my $product_ref = retrieve_product($code);
+					my $product_ref = retrieve_product($product_id);
 					if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
 						$log->debug("unlinking image", { imgid => $imgid, file => "$www_root/images/products/$path/$imgid.$extension" }) if $log->is_debug();
 						unlink "$www_root/images/products/$path/$imgid.$extension";
@@ -625,7 +672,7 @@ sub process_image_upload($$$$$$) {
 			if (not "$x") {
 
 				# Update the product image data
-				my $product_ref = retrieve_product($code);
+				my $product_ref = retrieve_product($product_id);
 				defined $product_ref->{images} or $product_ref->{images} = {};
 				$product_ref->{images}{$imgid} = {
 					uploader => $userid,
@@ -654,6 +701,8 @@ sub process_image_upload($$$$$$) {
 				# and computer vision algorithms
 
 				(-e "$data_root/new_images") or mkdir("$data_root/new_images", 0755);
+				my $code = $product_id;
+				$code =~ s/.*\///;
 				symlink("$www_root/images/products/$path/$imgid.jpg", "$data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
 
 			}
@@ -687,22 +736,28 @@ sub process_image_upload($$$$$$) {
 
 
 
-sub process_image_move($$$$) {
+sub process_image_move($$$$$) {
 
 	my $code = shift;
 	my $imgids = shift;
 	my $move_to = shift;
 	my $userid = shift;
-
-	my $path = product_path($code);
-
-	my $product_ref = retrieve_product($code);
-	defined $product_ref->{images} or $product_ref->{images} = {};
+	my $orgid = shift;
 
 	# move images only to trash or another valid barcode (number)
 	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
 		return "invalid barcode number: $move_to";
 	}
+
+	my $product_id = product_id_for_user($userid, $orgid, $code);
+	my $move_to_id = product_id_for_user($userid, $orgid, $move_to);
+
+	$log->debug("process_image_move", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
+
+	my $path = product_path_from_id($product_id);
+
+	my $product_ref = retrieve_product($product_id);
+	defined $product_ref->{images} or $product_ref->{images} = {};
 
 	# iterate on each images
 
@@ -717,12 +772,12 @@ sub process_image_move($$$$) {
 			my $ok = 1;
 
 			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
 				if ($ok < 0) {
-					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", new_code => $code, user_id => $userid, result => $ok });
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, user_id => $userid, result => $ok });
 				}
 				else {
-					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", new_code => $code, user_id => $userid, result => $ok });
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, user_id => $userid, result => $ok });
 				}
 			}
 
@@ -756,7 +811,7 @@ sub process_image_move($$$$) {
 
 sub process_image_crop($$$$$$$$$$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $id = shift;
 	my $imgid = shift;
 	my $angle = shift;
@@ -767,14 +822,18 @@ sub process_image_crop($$$$$$$$$$) {
 	my $x2 = shift;
 	my $y2 = shift;
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($product_id);
 
-	my $new_product_ref = retrieve_product($code);
+	my $code = $product_id;
+	$code =~ s/.*\///;
+
+	my $new_product_ref = retrieve_product($product_id);
 	my $rev = $new_product_ref->{rev} + 1;	# For naming images
 
 	my $source_path = "$www_root/images/products/$path/$imgid.jpg";
 
 	local $log->context->{code} = $code;
+	local $log->context->{product_id} = $product_id;
 	local $log->context->{id} = $id;
 	local $log->context->{imgid} = $imgid;
 	local $log->context->{source_path} = $source_path;
@@ -1047,7 +1106,7 @@ sub process_image_crop($$$$$$$$$$) {
 	}
 
 	# Update the product image data
-	my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 	$product_ref->{images}{$id} = {
 		imgid => $imgid,
@@ -1078,17 +1137,18 @@ sub process_image_crop($$$$$$$$$$) {
 
 sub process_image_unselect($$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $id = shift;
 
-	my $path = product_path($code);
-	local $log->context->{code} = $code;
+	my $path = product_path_from_id($product_id);
+
+	local $log->context->{product_id} = $product_id;
 	local $log->context->{id} = $id;
 
 	$log->info("unselecting image") if $log->is_info();
 
 	# Update the product image data
-	my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 	if (defined $product_ref->{images}{$id}) {
 		delete $product_ref->{images}{$id};
@@ -1141,11 +1201,10 @@ sub _set_magickal_options($$) {
 
 }
 
-sub display_image_thumb($$$) {
+sub display_image_thumb($$) {
 
 	my $product_ref = shift;
 	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc]
-	my $lazyload = shift;
 
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -1156,6 +1215,13 @@ sub display_image_thumb($$$) {
 	}
 
 	my $html = '';
+
+	my $css = "";
+
+	# Gray out images of obsolete products
+	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
+		$css = 'style="filter: grayscale(100%)"';
+	}
 
 	# first try the requested language
 	my @display_ids = ($imagetype . "_" . $display_lc);
@@ -1174,50 +1240,25 @@ sub display_image_thumb($$$) {
 		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$thumb_size})) {
 
-			my $path = product_path($product_ref->{code});
+			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
-
-			if ($lazyload) {
 				$html .= <<HTML
-<img src="$static/images/misc/pacman.svg" data-src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" data-srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" class="lazyload" />
-<noscript>
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
-</noscript>
+<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
 HTML
 ;
-			}
-			else {
-				$html .= <<HTML
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
-HTML
-;
-			}
 
 			last;
 		}
 	}
 
-	# If we don't have an image, display Pacman
+	# No image
 	if ($html eq '') {
 
-		my @colors = qw(
-ff6600
-ffcc00
-55d400
-00ccff
-0066ff
-ff00cc
-cc00ff
-);
-		my $color_id = $product_ref->{code} % (scalar @colors);
-		my $color = $colors[$color_id];
-
 		$html = <<HTML
-<div style="background-color:#$color">
-<img src="$static/images/misc/pacman.svg" width="$thumb_size" height="$thumb_size" alt="Please add pictures of the product if you have it!" />
-</div>
+<img src="$static/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
+</img>
 HTML
 ;
 	}
@@ -1259,7 +1300,7 @@ sub display_image($$$) {
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 
-		my $path = product_path($product_ref->{code});
+		my $path = product_path($product_ref);
 		my $rev = $product_ref->{images}{$id}{rev};
 		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
@@ -1268,34 +1309,22 @@ sub display_image($$$) {
 
 			# add srcset with 2x image only if the 2x image exists
 			my $srcset = '';
-			my $srcsetns = '';
 			if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
-				$srcsetns = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
-				$srcset = "data-" . $srcsetns;
+				$srcset = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
 			}
 
 			$html .= <<HTML
-<img class="hide-for-xlarge-up lazyload" src="/images/misc/pacman.svg" data-src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" />
-HTML
-;
-			$noscript .= <<HTML
-<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcsetns width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" />
+<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 ;
 
 			$srcset = '';
-			$srcsetns = '';
 			if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
-				$srcsetns = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
-				$srcset = "data-" . $srcsetns;
+				$srcset = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
 			}
 
 			$html .= <<HTML
-<img class="show-for-xlarge-up lazyload" src="/images/misc/pacman.svg" data-src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" />
-HTML
-;
-			$noscript .= <<HTML
-<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcsetns width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" />
+<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 ;
 
@@ -1314,18 +1343,19 @@ HTML
 
 				$noscript .= "</noscript>";
 				$html = $html . $noscript;
-				$html = <<HTML
+				$html = <<"HTML"
 <a data-reveal-id="drop_$id" class="th">
 $html
 </a>
 <div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle_$id" aria-hidden="true" role="dialog" about="$full_image_url" >
 <h2 id="modalTitle_$id">$title</h2>
-<img src="/images/misc/pacman.svg" data-src="$full_image_url" alt="$alt" itemprop="contentUrl" class="lazyload" />
+<img src="$full_image_url" alt="$alt" itemprop="contentUrl" loading="lazy" />
 <a class="close-reveal-modal" aria-label="Close" href="#">&#215;</a>
 <meta itemprop="representativeOfPage" content="$representative_of_page"/>
 <meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/3.0/"/>
 <meta itemprop="caption" content="$alt"/>
 </div>
+<meta itemprop="imgid" content="$id"/>
 HTML
 ;
 
@@ -1347,6 +1377,218 @@ HTML
 	}
 
 	return $html;
+}
+
+# Use google cloud vision output to determine of the image should be rotated
+
+sub compute_orientation_from_cloud_vision_annotations($) {
+
+	my $annotations_ref = shift;
+
+	if ((defined $annotations_ref) and (defined $annotations_ref->{responses})
+		and (defined $annotations_ref->{responses}[0])
+		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation})
+		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation}{pages})
+		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation}{pages}[0])
+		and (defined $annotations_ref->{responses}[0]{fullTextAnnotation}{pages}[0]{blocks})) {
+
+		my $blocks_ref = $annotations_ref->{responses}[0]{fullTextAnnotation}{pages}[0]{blocks};
+
+		# compute the number of blocks in each orientation
+		my %orientations = (0 => 0, 90 => 0, 180 => 0, 270 => 0);
+		my $total = 0;
+
+		foreach my $block_ref (@{$blocks_ref}) {
+			next if $block_ref->{blockType} ne "TEXT";
+
+			my $x_center = ($block_ref->{boundingBox}{vertices}[0]{x} + $block_ref->{boundingBox}{vertices}[1]{x}
+				+ $block_ref->{boundingBox}{vertices}[2]{x} + $block_ref->{boundingBox}{vertices}[3]{x}) / 4;
+
+			my $y_center = ($block_ref->{boundingBox}{vertices}[0]{y} + $block_ref->{boundingBox}{vertices}[1]{y}
+				+ $block_ref->{boundingBox}{vertices}[2]{y} + $block_ref->{boundingBox}{vertices}[3]{y}) / 4;
+
+			# Check where the first corner is compared to the center.
+			# If the image is correctly oriented, the first corner is at the top left
+
+			if ($block_ref->{boundingBox}{vertices}[0]{x} < $x_center) {
+				if ($block_ref->{boundingBox}{vertices}[0]{y} < $y_center) {
+					$orientations{0}++;
+				}
+				else {
+					$orientations{270}++;
+				}
+			}
+			else {
+				if ($block_ref->{boundingBox}{vertices}[0]{y} < $y_center) {
+					$orientations{90}++;
+				}
+				else {
+					$orientations{180}++;
+				}
+			}
+			$total++;
+		}
+
+		foreach my $orientation (keys %orientations) {
+			if ($orientations{$orientation} > ($total * 0.90)) {
+				return $orientation;
+			}
+		}
+	}
+
+	return;
+}
+
+
+sub extract_text_from_image($$$$$) {
+
+	my $product_ref = shift;
+	my $id = shift;
+	my $field = shift;
+	my $ocr_engine = shift;
+	my $results_ref = shift;
+
+	delete $product_ref->{$field};
+
+	my $path = product_path($product_ref);
+	$results_ref->{status} = 1;	# 1 = nok, 0 = ok
+
+	my $filename = '';
+
+	my $lc = $product_ref->{lc};
+
+	if ($id =~ /_(\w\w)$/) {
+		$lc = $1;
+	}
+
+	my $size = 'full';
+	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+		$filename = $id . '.' . $product_ref->{images}{$id}{rev} ;
+	}
+	else {
+		return;
+	}
+
+	my $image = "$www_root/images/products/$path/$filename.full.jpg";
+	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
+
+	my $text;
+
+	$log->debug("extracting text from image", { id => $id, ocr_engine => $ocr_engine }) if $log->is_debug();
+
+	if ($ocr_engine eq 'tesseract') {
+
+		my $lan;
+
+		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
+		}
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
+		}
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
+		}
+
+		$log->debug("extracting text with tesseract", { lc => $lc, lan => $lan, id => $id, image => $image }) if $log->is_debug();
+
+		if (defined $lan) {
+			$text =  decode utf8=>get_ocr($image,undef,$lan);
+
+			if ((defined $text) and ($text ne '')) {
+				$results_ref->{$field} = $text;
+				$results_ref->{status} = 0;
+			}
+		}
+		else {
+			$log->warn("no available tesseract dictionary", { lc => $lc, lan => $lan, id => $id }) if $log->is_warn();
+		}
+
+	}
+	elsif ($ocr_engine eq 'google_cloud_vision') {
+
+		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
+		# alpha-vision.googleapis.com/
+
+		my $ua = LWP::UserAgent->new();
+
+		open (my $IMAGE, "<", $image) || die "Could not read $image: $!\n";
+		binmode($IMAGE);
+		local $/;
+		my $image_data = do { local $/; <$IMAGE> };	# https://www.perlmonks.org/?node_id=287647
+		close $IMAGE;
+
+		my $api_request_ref =
+			{
+				requests =>
+					[
+						{
+							features => [{ type => 'TEXT_DETECTION'}],
+							# image => { source => { imageUri => $image_url}}
+							image => { content => encode_base64($image_data)}
+						}
+					]
+			}
+		;
+		my $json = encode_json($api_request_ref);
+
+		my $request = HTTP::Request->new(POST => $url);
+		$request->header( 'Content-Type' => 'application/json' );
+		$request->content( $json );
+
+		my $res = $ua->request($request);
+
+		if ($res->is_success) {
+
+			$log->info("request to google cloud vision was successful") if $log->is_info();
+
+			open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+			print $OUT "success\t" . $image_url . "\t" . $res->code . "\n";
+			close $OUT;
+
+			my $json_response = $res->decoded_content;
+
+			my $cloudvision_ref = decode_json($json_response);
+
+			my $json_file = "$www_root/images/products/$path/$filename.json";
+
+			$log->info("saving google cloud vision json response to file", { path => $json_file }) if $log->is_info();
+
+			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
+			$json_response = decode("utf8", $json_response);
+
+			open ($OUT, ">:encoding(UTF-8)", $json_file);
+			print $OUT $json_response;
+			close $OUT;
+
+			if ((defined $cloudvision_ref->{responses}) and (defined $cloudvision_ref->{responses}[0])
+				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
+				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text})) {
+
+				$log->debug("text found in google cloud vision response") if $log->is_debug();
+
+
+				$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
+				$results_ref->{$field . "_annotations"} = $cloudvision_ref;
+				$results_ref->{status} = 0;
+				$product_ref->{images}{$id}{ocr} = 1;
+				$product_ref->{images}{$id}{orientation} = compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
+			}
+			else {
+				$product_ref->{images}{$id}{ocr} = 0;
+			}
+
+		}
+		else {
+			$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
+
+			open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+			print $OUT "error\t" . $image_url . "\t" . $res->code . "\t" . $res->message . "\n";
+			close $OUT;
+		}
+	}
+
 }
 
 1;

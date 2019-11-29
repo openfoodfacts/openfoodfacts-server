@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
