@@ -3588,7 +3588,7 @@ HTML
 			$request_ref->{title} = $title;
 		}
 
-		$itemtype = "https://schema.org/Thing";
+		my $itemtype = "https://schema.org/Thing";
 		if ($tagtype eq "brands") {
 			$itemtype = "https://schema.org/Brand";
 		}
