@@ -24,11 +24,11 @@ body,html {
 	margin-right: 2em;
 }
 
-.sharebutton { 
+.sharebutton {
   float:left;
   padding-right: 10px;
   padding-bottom: 5px;
-}	
+}
 
 a, a:visited {
 	color:blue;
@@ -36,11 +36,6 @@ a, a:visited {
 
 a, a:hover {
 	text-decoration:none;
-}
-
-h1 {
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 48px;
 }
 
 #header {
