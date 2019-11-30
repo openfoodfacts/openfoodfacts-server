@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:04\n"
+"PO-Revision-Date: 2019-11-30 17:01\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -485,7 +485,7 @@ msgstr "éditeur"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "Adresse e-mail"
+msgstr "adresse courriel"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -768,7 +768,7 @@ msgstr "/conditions-d-utilisation"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr "Qui sommes nous ?"
+msgstr "Qui nous sommes"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
@@ -3972,6 +3972,47 @@ msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "Le Nutri-Score peut passer de %s à %s en changeant la valeur %s de %s à %s (différence de %s pour cent)."
 
-msgctxt "export_products_to_public_database_email"
-msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\"">producers@openfoodfacts.org</a> to update the public database."
-msgstr "La platforme pour les producteurs est encore en cours de développement et nous faisons des vérifications manuelles avant d'importer les produits dans la base de données publique. Merci de nous envoyer un e-mail à <a href=\"mailto:producteurs@openfoodfacts.org\"">producteurs@openfoodfacts.org</a> pour mettre à jour la base de données publique."
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Groupes"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Producteur"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "Ne doit être coché que les comptes des producteurs ajoutant leurs propres produits. La propriété des produits sera attribuée aux producteurs lorsqu'ils ajouteront ou modifieront un produit."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Base de données"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "Pour les sources de données externes. Les produits importés ne changeront pas de propriétaire."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "Appli"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "Pour les applications."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Robot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "Pour les robots, scripts, etc."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Modérateur"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "Les modérateurs ont accès à des fonctionnalités spéciales permettant de modifier et vérifier les produits."
+
