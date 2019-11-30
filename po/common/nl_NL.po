@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-30 17:03\n"
+"PO-Revision-Date: 2019-11-30 23:04\n"
 "Language-Team: Dutch\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3844,39 +3844,39 @@ msgstr "Detail van de berekening van de Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dit product wordt beschouwd als een drank voor de berekening van de Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dit product wordt niet beschouwd als een drank voor de berekening van de Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Positieve punten"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Negatieve punten"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "De punten voor eiwitten worden meegeteld omdat de negatieve punten minder zijn dan 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "De punten voor eiwitten worden niet meegeteld omdat de negatieve punten groter zijn dan of gelijk zijn aan 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "De punten voor de eiwitten worden meegeteld omdat de punten voor fruit, groenten, noten en koolzaad/walnoten/olijfolie maximaal zijn."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "De punten voor eiwitten worden meegeteld omdat het product tot de kaascategorie behoort."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "Omdat het product valt in de categorie vetten, worden de punten voor verzadigd vet vervangen door de punten voor de verzadigd vet / totaal vet verhouding."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3892,7 +3892,7 @@ msgstr "Verzadigd vet"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Verzadigd vet / totaal vetverhouding"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3900,7 +3900,7 @@ msgstr "Natrium"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Fruit, groenten, noten en koolzaad / walnoot / olijfolie"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3916,36 +3916,36 @@ msgstr "waarde"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "afgeronde waarde"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Nutritionele score"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Nutri-Score score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts is 100% gratis en onafhankelijk."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">We hebben je hulp en donaties nodig</a> om door te gaan en het project verder te laten groeien."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3953,21 +3953,21 @@ msgstr "Bedankt!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "Waarde voor het product"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Gemiddelde waarde voor de categorie %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "De Nutri-Score kan worden veranderd van %s naar %s door de %s waarde te veranderen van %s naar %s (%s procent verschil)."
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "Groepen"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -3975,37 +3975,37 @@ msgstr "Producent"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "Moet alleen worden gecontroleerd voor accounts van producenten die hun eigen producten bewerken. Producteigendom wordt toegeschreven aan producenten wanneer zij een product toevoegen of bewerken."
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "Database"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "Voor externe bronnen van gegevens. Producteigendom van geïmporteerde producten zal niet veranderen."
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "App"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "Voor toepassingen."
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "Bot"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
-msgstr ""
+msgstr "Voor robots, scripts etc."
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "Moderator"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "Moderators hebben toegang tot speciale functies om producten te bewerken en te beoordelen."
 
