@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-18 01:51\n"
+"PO-Revision-Date: 2019-11-28 21:01\n"
 "Language-Team: Danish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3965,4 +3965,48 @@ msgstr "Middelværdi for %s-kategorien"
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "Nutri-Score kan ændres fra %s til %s ved at ændre %s-værdien fra %s til %s (%s procent forskel)."
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Grupper"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Fabrikant"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "Skal kun afkrydses på konti for producenter, som redigerer egne produkter. Produktejerskab tilskrives producenterne, når de tilføjer eller redigerer et produkt."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Database"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "Til eksterne datakilder. Produktejerskab af importerede produkter ændres ikke."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "App"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr ""
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Bot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "Til robotter, scripts mv."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Moderator"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "Moderatorer har adgang til specialfunktioner til produktredigeringer og -gennemgange."
 
