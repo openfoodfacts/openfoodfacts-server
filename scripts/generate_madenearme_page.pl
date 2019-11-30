@@ -50,6 +50,8 @@ $cc = $ARGV[0];
 $lc = $ARGV[1];
 $subdomain = $cc;
 $formatted_subdomain = format_subdomain($subdomain);
+$header = "";
+$initjs = "";
 
 $lang = $lc;
 
