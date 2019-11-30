@@ -79,6 +79,8 @@ use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
 
+my @user_groups = qw(producer database app bot moderator);
+
 sub generate_token {
 	my $name_length = shift;
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
@@ -247,6 +249,16 @@ sub display_user_form_admin_only($) {
 
 		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
 		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
+
+		$html .= "\n<tr><td colspan=\"2\">" . lang("user_groups") . lang("sep") . ":<ul>";
+
+		foreach my $group (@user_groups) {
+			$html .= "<li>"
+			. checkbox(-name=>"user_group_$group", -label=>lang("user_group_$group") . lang("sep") . ": " . lang("user_group_${group}_description")
+				, -checked=>$user_ref->{$group}, -override=>1)  . "</li>";
+		}
+
+		$html .= "</td></tr>";
 	}
 
 	return $html;
@@ -300,6 +312,10 @@ sub check_user_form($$) {
 		else {
 			delete $user_ref->{org};
 			delete $user_ref->{org_id};
+		}
+
+		foreach my $group (@user_groups) {
+			$user_ref->{$group} = remove_tags_and_quote(param("user_group_$group"));
 		}
 	}
 

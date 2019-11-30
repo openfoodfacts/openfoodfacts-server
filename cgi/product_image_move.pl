@@ -217,7 +217,7 @@ if ($error) {
 				display_url => "$imgid.$display_size.jpg",
 			};
 
-			if ($admin) {
+			if ($User{moderator}) {
 				$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
 				$image_data_ref->{uploaded} = display_date($product_ref->{images}{$imgid}{uploaded_t}) . ""; # trying to convert the object to a scalar
 			}
