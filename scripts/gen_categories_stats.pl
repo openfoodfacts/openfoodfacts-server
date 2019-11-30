@@ -1,8 +1,28 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2019 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -18,13 +38,13 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 my $min_products = 10;
 
@@ -52,8 +72,7 @@ foreach my $l (values %lang_lc) {
 		
 		# Get all products
 		
-		my $cursor = $products_collection->query({lc=>$lc, categories_tags => $tagid})->fields({nutriments=>1});
-		my $count = $cursor->count();
+		my $cursor = get_products_collection()->query({lc=>$lc, categories_tags => $tagid})->fields({nutriments=>1});
 		
 		# Compute mean, standard deviation etc.
 		
@@ -96,7 +115,7 @@ foreach my $l (values %lang_lc) {
 		
 		if ($n > $min_products) {
 		
-		$categories{$tagid} = {stats => 1, nutriments => {}, count => $count, n => $n, id=> $tagid};
+		$categories{$tagid} = {stats => 1, nutriments => {}, count => $n, n => $n, id=> $tagid};
 
 		
 		foreach my $nid (keys %nutriments) {
@@ -136,7 +155,7 @@ foreach my $l (values %lang_lc) {
 			$categories{$tagid}{nutriments}{"${nid}_90"} = $values[int ( ($nutriments{"${nid}_n"}) * 0.90) ];
 			$categories{$tagid}{nutriments}{"${nid}_50"} = $values[int ( ($nutriments{"${nid}_n"}) * 0.50) ];
 			
-			print STDERR "-> lc: lc -category $tagid - count: $count - n: nutriments: " . $nn . "$n \n";
+			print STDERR "-> lc: lc -category $tagid - n: nutriments: " . $nn . "$n \n";
 			print STDERR "values for category $tagid: " . join(", ", @values) . "\n";
 			print "tagid: $tagid - nid: $nid - 100g: " .  $categories{$tagid}{nutriments}{"${nid}_100g"}  . " min: " . $categories{$tagid}{nutriments}{"${nid}_min"} . " - max: " . $categories{$tagid}{nutriments}{"${nid}_max"} . 
 				"mean: " . $categories{$tagid}{nutriments}{"${nid}_mean"} . " - median: " . $categories{$tagid}{nutriments}{"${nid}_50"} . "\n";

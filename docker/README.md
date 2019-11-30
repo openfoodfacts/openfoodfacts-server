@@ -1,77 +1,31 @@
-# Product Opener on Docker #
+# Product Opener on Docker
 
 This directory contains some experimental files for running Product Opener on [Docker](https://docker.com).
 
-## Building the Images ##
+## Docker Compose
 
-Product Opener has not been published to Docker Hub, because I assume that there would be very little advantage in that. However, the Dockerfiles in this directory can be used to build your own Docker images from source.
+### Image from Docker Hub
 
-### All in One Container ###
+Just run `docker-compose up` in this directory to run a pre-built image and start the process. This spins up an application container for the backend, an nginx container that acts as a reverse proxy for static files, and a MongoDB container for storage. You can also deploy OFF to Docker Swarm with `docker stack deploy -c docker-compose.yml`.
 
-Uses one container to host Apache and nginx, much like described in the [Wiki](https://en.wiki.openfoodfacts.org/Infrastructure).
+### Local development
 
-#### Building the Container ####
+Alternatively, run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` for local development. This will build a new backend image from your local source files. Note that this binds the docker container to your local develpoment directory, so be sure to build JavaScript etc. by running `npm install && npm run build`, or you will experience missing assets.
 
-```
-docker-compose -f docker-compose-aio.yml build
-```
+Note: You can also build the frontend assets inside docker. See `build_npm.bat` or `build_npm.sh` for more information about this.
 
-#### Deploy ####
+### Accessing Product Opener
 
-```
-docker-compose -f docker-compose-aio.yml up
-```
+In this Docker image, Product Opener is configured to run on [localhost](http://world.productopener.localhost/). You may need to add this and other subdomains to your `hosts` file (see your operating system's documentation) to access it.
 
-### Split Containers ###
+### Connect to MongoDB
 
-Uses different base images that don't need to be rebuilt often, and separate containers for application layer (Apache) and the reverse proxy (nginx).
+If you want to have a look at the running MongoDB database, run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec mongodb mongo`.
 
-#### Base image ####
+### Import sample dataset
 
-In order to reducing the amout of time and work needed to rebuild the program image, we have two base images that the actual images are built on. Build them using
+By default, the container comes without a dataset, because it is intended to be used to run any Product Opener instance in a production cluster. If you require sample data for local development, you can import an extract from [OpenFoodFacts](https://world.openfoodfacts.org) with `docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend /opt/scripts/import_sample_data.sh`.
 
-```
-docker build -t productopener/backend-base backend-base
-docker build -t productopener/backend-base-cpan backend-base-cpan
-```
+## Kubernetes
 
-#### Source from Git ####
-
-Use this if you want to run Product Opener with the source code from Git.
-
-```
-docker build -t productopener/backend-git backend-git
-docker build -t productopener/frontend-git frontend-git
-```
-
-#### Source from local directory ####
-
-Use this for local development.
-
-```
-docker build -t productopener/backend-dev -f backend-dev/Dockerfile ..
-```
-
-### Deploy ###
-
-In this repository, the service dependencies are expressed in [compose](https://docs.docker.com/compose/compose-file/) files.
-
-#### Source from Git ####
-
-If you built `productopener/backend-git` and `productopener/frontend-git` above, run
-
-```
-docker stack deploy --compose-file=docker-compose-git.yml po
-```
-
-#### Source from local directory ####
-
-If you built `productopener/backend-dev`, run
-
-```
-docker stack deploy --compose-file=docker-compose-dev.yml po
-```
-
-### Accessing Product Opener ###
-
-In this Docker image, Product Opener is configured to run on [localhost](http://world.productopener.localhost/). You may need to add this domain/subdomain to your `hosts` file (see your operating system's documentation) to access it.
+The `productopener` directory contains a <a href="https://helm.sh">Helm</a> template, so that you can set up a new ProductOpener instance on <a href="https://kubernetes.io">Kubernetes</a>. Note that the deployments will create a `PersistentVolumeClaim` (PVC) with `ReadWriteMany` access mode, because the nginx container(s) and Apache container(s) will need to access the volume at the same time. This mode is not supported by every storage plugin. See [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) for more information.

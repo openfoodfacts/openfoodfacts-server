@@ -1,16 +1,27 @@
+# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2019 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 package ProductOpener::MissionsConfig;
 
-######################################################################
-#
-#	Package	Missions
-#
-#	Author:	Stephane Gigandet
-#	Date:	05/04/12
-#
-######################################################################
-
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -38,6 +49,45 @@ en => [
 
 {name=>'First contribution', goal=>'Add one product', thanks=>'Thanks for contributing to Open Food Facts!',
 conditions=>[[1,{}]]},
+
+{name=>'10 products', goal=>'Add 10 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[10,{}]]},
+
+{name=>'25 products', goal=>'Add 25 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[25,{}]]},
+
+{name=>'50 products', goal=>'Add 50 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[50,{}]]},
+
+{name=>'100 products', goal=>'Add 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[100,{}]]},
+
+{name=>'250 products', goal=>'Add 250 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[250,{}]]},
+
+{name=>'500 products', goal=>'Add 500 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[500,{}]]},
+
+{name=>'Informer - 100 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 100 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[100,{informers_tags=>'<userid>'}]]},
+
+{name=>'Informer - 250 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 250 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[250,{informers_tags=>'<userid>'}]]},
+
+{name=>'Informer - 500 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 500 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[500,{informers_tags=>'<userid>'}]]},
+
+{name=>'Informer - 1000 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 1000 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[1000,{informers_tags=>'<userid>'}]]},
+
+{name=>'Informer - 2500 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 2500 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[2500,{informers_tags=>'<userid>'}]]},
+
 
 ],
 
@@ -122,7 +172,7 @@ description=>"Les additifs peuvent être indiqué par leur nom, leur nom chimiqu
 conditions=>[[5,{additives_n=>{ '$gte' => 6 }}]]},
 
 {name=>'Releveur d\'empreintes', goal=>'Ajouter 3 produits avec mention de l\'empreinte carbone', thanks=>'Merci pour les empreintes !',
-description=>"Le suspect a les doigts près de charbon, à vous de mener l'enquête et de relever ses empreintes ! Des informateurs l\'auraient aperçus dernièrement dans des magasins bio et dans le rayon commerce équitable des grandes surfaces.",
+description=>"Le suspect a les doigts près de charbon, à vous de mener l'enquête et de relever ses empreintes ! Des informateurs l\'auraient aperçu dernièrement dans des magasins bio et dans le rayon commerce équitable des grandes surfaces.",
 image=>"mission-releveur-d-empreintes.png",
 conditions=>[[3,{"nutriments.carbon-footprint"=>{ '$gt' => 0 }}]]},
 
@@ -182,7 +232,7 @@ foreach my $l (keys %Missions_by_lang) {
 
 	foreach my $mission_ref (@{$Missions_by_lang{$l}}) {
 
-		$mission_ref->{id} = $l . "." . get_fileid($mission_ref->{name});
+		$mission_ref->{id} = $l . "." . get_string_id_for_lang("no_language",$mission_ref->{name}, 1);
 		$Missions{$mission_ref->{id}} = $mission_ref;
 	}
 }

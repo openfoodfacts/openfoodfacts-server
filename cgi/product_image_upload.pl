@@ -1,6 +1,26 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
-use Modern::Perl '2012';
+# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2019 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -20,6 +40,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -27,32 +48,58 @@ my $code = normalize_code(param('code'));
 my $imagefield = param('imagefield');
 my $delete = param('delete');
 
-my $upload_session = int(rand(100000000));
+local $log->context->{upload_session} = int(rand(100000000));
 
-print STDERR "product_image_upload.pl - upload_session: $upload_session - ip: " . remote_addr() . " - type: $type - action: $action - code: $code\n";
+$log->debug("start", { ip => remote_addr(), type => $type, action => $action, code => $code }) if $log->is_debug();
 
 my $env = $ENV{QUERY_STRING};
 
-print STDERR "product_image_upload.pl - upload_session: $upload_session - query string : $env - calling init()\n";
-
+$log->debug("calling init()", { query_string => $env });
 
 ProductOpener::Display::init();
 
-$debug = 1;
+$log->debug("parsing code", { subdomain => $subdomain, original_subdomain => $original_subdomain, user => $User_id, code => $code, cc => $cc, lc => $lc, imagefield => $imagefield, ip => remote_addr() }) if $log->is_debug();
 
+# By default, don't select images uploaded (e.g. through the product edit form)
 
+my $select_image = 0;
 
-print STDERR "product_image_upload.pl - subdomain: $subdomain - original_subdomain: $original_subdomain - upload_session: $upload_session - user: $User_id - code: $code - cc: $cc - lc: $lc - imagefield: $imagefield - ip: " . remote_addr() . "\n";
+# Producers platform: the input file name is files[]
+# If no code and imagefield is passed, try to guess it from the filename
+
+my $code_specified = 1;
+my $filename;
+
+if (not defined $code) {
+
+	$code_specified = 0;
+
+	$filename = param("files[]");
+
+	($code, $imagefield) = get_code_and_imagefield_from_file_name($lc, $filename);
+
+	if ($code) {
+		if ((defined $imagefield) and ($imagefield !~ /^other/)) {
+			$select_image = 1;
+		}
+	}
+}
 
 if ((not defined $code) or ($code eq '')) {
-	
-	print STDERR "product_image_upload.pl - no code\n";
+
+	$log->warn("no code");
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - missing product code";
-	my $data =  encode_json(\%response);		
-	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;	
+	if (not $code_specified) {
+		# for jquery.fileupload-ui.js
+		$response{files} = [ { error => $response{error} } ]
+	}
+	my $data =  encode_json(\%response);
+	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
 }
+
+my $product_id = product_id_for_user($User_id, $Org_id, $code);
 
 my $interface_version = '20120622';
 
@@ -66,49 +113,51 @@ if (! -e "$www_root/images/products") {
 
 if ($imagefield) {
 
-	my $path = product_path($code);
-	
-	print STDERR "product_image_upload - upload_session: $upload_session- imagefield: $imagefield - delete: $delete\n";
-	
+	my $path = product_path_from_id($product_id);
+
+	$log->debug("path determined", { imagefield => $imagefield, path => $path, delete => $delete });
+
 	if ($path eq 'invalid') {
 		# non numeric code was given
-		print STDERR "product_image_upload.pl - invalid code\n";
+		$log->warn("no code", { code => $code });
 		my %response = ( status => 'status not ok');
 		$response{error} = "error - invalid product code: $code";
-		my $data =  encode_json(\%response);		
+		my $data =  encode_json(\%response);
 		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
-		exit(0);		
+		exit(0);
 	}
-	
-	if ($delete ne 'on') {
-	
-		my $product_ref = product_exists($code); # returns 0 if not
-		
+
+	if ((not defined $delete) or ($delete ne 'on')) {
+
+		my $product_ref = product_exists($product_id); # returns 0 if not
+
 		if (not $product_ref) {
-			print STDERR "product_image_upload.pl - upload_session: $upload_session - product code $code does not exist yet, creating product\n";
-			$product_ref = init_product($code);
+			$log->info("product code does not exist yet, creating product", { code => $code });
+			$product_ref = init_product($User_id, $Org_id, $code);
 			$product_ref->{interface_version_created} = $interface_version;
 			$product_ref->{lc} = $lc;
 			store_product($product_ref, "Creating product (image upload)");
 		}
 		else {
-			print STDERR "product_image_upload.pl - upload_session: $upload_session - product code $code already exists\n";
+			$log->info("product code already exists", { code => $code });
 		}
-		
+
+		# Some apps may be passing a full locale like imagefield=front_pt-BR
+		$imagefield =~ s/^(front|ingredients|nutrition|other)_(\w\w)-.*/$1_$2/;
+
 		# For apps that do not specify the language associated with the image, try to assign one
-		if ($imagefield =~ /^(front|ingredients|nutrition)$/) {
+		if ($imagefield =~ /^(front|ingredients|nutrition|other)$/) {
 			# If the product exists, use the main language of the product
 			# otherwise if the product was just created above, we will get the current $lc
 			$imagefield .= "_" . $product_ref->{lc};
-		}		
-		
+		}
+
 		my $imgid;
-	
-		my $imgid_returncode = process_image_upload($code, $imagefield, $User_id, time(), "image upload", \$imgid);
-		
-			print STDERR "product_image_upload.pl - upload_session: $upload_session - imgid from process_image_upload: $imgid\n";
-		
-		
+
+		my $imgid_returncode = process_image_upload($product_id, $imagefield, $User_id, time(), "image upload", \$imgid);
+
+		$log->debug("after process_image_upload", { imgid => $imgid, imagefield => $imagefield, $imgid_returncode => $imgid_returncode }) if $log->is_debug();
+
 		my $data;
 
 		if ($imgid_returncode < 0) {
@@ -118,54 +167,85 @@ if ($imagefield) {
 			($imgid_returncode == -3) and $response{error} = lang("image_upload_error_image_already_exists");
 			($imgid_returncode == -4) and $response{error} = lang("image_upload_error_image_too_small");
 			($imgid_returncode == -5) and $response{error} = "could not read image";
-			
-			$data =  encode_json(\%response);	
+
+			if (not $code_specified) {
+				# for jquery.fileupload-ui.js
+				if ($imgid_returncode == -3) {
+					$response{files} = [ { info => $response{error} } ]
+				}
+				else {
+					$response{files} = [ { error => $response{error} } ]
+				}
+			}
+
+			$data =  encode_json(\%response);
 		}
 		else {
-		
+
 			my $image_data_ref = {
 				imgid=>$imgid,
 				thumb_url=>"$imgid.${thumb_size}.jpg",
 				crop_url=>"$imgid.${crop_size}.jpg",
 			};
-			
-			
-			if ($admin) {
-				$product_ref = retrieve_product($code);
+
+			if ($User{moderator}) {
+				$product_ref = retrieve_product($product_id);
 				$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
 				$image_data_ref->{uploaded} = $product_ref->{images}{$imgid}{uploaded_t};
 			}
-		
-			$data =  encode_json({ status => 'status ok',
-					image => $image_data_ref,
-					imagefield => $imagefield,
-			});
-			
+
+			my $product_name =  remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			if ((not defined $product_name) or ($product_name eq "")) {
+				$product_name = $code;
+			}
+
+			my $product_url = product_url($product_ref);
+
+			my $response_ref = { status => 'status ok',
+				image => $image_data_ref,
+				imagefield => $imagefield,
+				files => [{
+					url => $product_url,
+					thumbnailUrl => "/images/products/$path/$imgid.$thumb_size.jpg",
+					name => $product_name,
+					filename => $filename . "",	# Make filename a scalar
+				}],
+			};
+
+			$data = encode_json($response_ref);
+
 			# If we don't have a picture for the imagefield yet, assign it
 			# (can be changed by the user later if necessary)
-			if ((($imagefield =~ /^front/) or ($imagefield =~ /^ingredients/) or ($imagefield =~ /^nutrition/)) and not defined $product_ref->{images}{$imagefield}) {
-				process_image_crop($code, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
+			if ((($imagefield =~ /^front/) or ($imagefield =~ /^ingredients/) or ($imagefield =~ /^nutrition/)) and
+				((not defined $product_ref->{images}{$imagefield}) or ($select_image))) {
+				$log->debug("selecting image", { imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
+				process_image_crop($product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
+			}
+			# If the image type is "other" and we don't have a front image, assign it
+			# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
+			elsif (($imagefield =~ /^other/) and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}})) {
+				$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
+				process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1);
 			}
 		}
-		
-		print STDERR "product_image_upload - upload_session: $upload_session - JSON data output: $data\n";
+
+		$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
 		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 
 	}
 	else {
 
-			print STDERR "product_image_upload - upload_session: $upload_session - no imagefield\n";
+			$log->warn("no image field defined");
 			my %response = ( status => 'status not ok');
 			$response{error} = "error - imagefield not defined";
-			my $data =  encode_json(\%response);		
-			print header( -type => 'application/json', -charset => 'utf-8' ) . $data;	
-
+			my $data =  encode_json(\%response);
+			print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	}
 
 }
 else {
-	print STDERR "product_image - upload_session: $upload_session - no imgid defined\n";
+	$log->warn("no image field defined");
 }
 
 

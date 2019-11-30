@@ -1,8 +1,28 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2019 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -19,26 +39,27 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Data qw/:all/;
+
 use URI::Escape::XS qw/uri_escape uri_unescape/;
-  
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 # Generate a list of the top brands, categories, users, additives etc.
 
 my @fields = qw (
-brands 
+brands
 categories
-packaging 
-origins 
-ingredients 
-labels 
-nutriments 
-traces 
+packaging
+origins
+ingredients
+labels
+nutriments
+traces
 users
 photographers
 informers
@@ -57,87 +78,64 @@ states
 
 
 
-my %langs = ();
-my $total = 0;
-
 # foreach my $l (values %lang_lc) {
 
 foreach my $l ('fr') {
 
 	$lc = $l;
 	$lang = $l;
-	
+
 	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutriments => 1};
 	my %tags = ();
 
-	
 
-	my $query_ref = {lc=>$lc, states_tags=>'complet'};
+
+	my $query_ref = {lc=>$lc, states_tags=>'en:complete'};
 	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
 	# -> does not seem to work for sugars, maybe some string values?!
-		
-	my $cursor = $products_collection->query($query_ref);
-	my $count = $cursor->count();
-	
-	$langs{$l} = $count;
-	$total += $count;
-		
-	print STDERR "lc: $lc - $count products\n";
 
+	my $cursor = get_products_collection()->query($query_ref);
 
 	my %codes = ();
 	my $html = '';
 
 			$html .= <<HTML
-<initjs>
-    oTable = \$('#tagstable').DataTable({
-	language: {
-		search: "$Lang{tagstable_search}{$lang}",
-		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
-	},
-	paging: false
-    });
-</initjs>
-<scripts>
-<script src="/js/datatables.min.js"></script>
-</scripts>
-<header>
-<link rel="stylesheet" href="/js/datatables.min.css" />
-</header>
 HTML
 ;
 
 	$html .= '<table id="tagstable"><thead><tr><th>code</th><th>name</th><th>complete name</th><th>brands</th><th>quantity</th><th>g / cl</th><th>sucre g</th><th>cubes</th><th>sucres/100g|cl</th></tr></thead><tbody>';
-		
-		
 
 
-		
+
+
+
 	my @ids = ();
 
 	my $k = 0;
 	my $kk = 0;
-		
+
 	while (my $product_ref = $cursor->next) {
 
 		$k++;
 
+		(not defined $product_ref->{"nutriments"}{"sugars_100g"}) and next;
 		($product_ref->{"nutriments"}{"sugars_100g"}) < 0.01 and next;
 
 		$kk++;
-		
+
+		($kk % 1000 == 0) and print STDERR "$kk products kept - $k total\n";
+
 		my $code = $product_ref->{code};
-		
+
 		my $q = $product_ref->{quantity};
 		$q =~ s/.*=//;
 		$q = lc($q);
-		
+
 		my $x = 1;
 		if ($q =~ /(mg)$/) {
 			$q  = $`;
 			$x = 0.1;
-		}	
+		}
 		if ($q =~ /(kg)$/) {
 			$q  = $`;
 			$x = 1000;
@@ -145,7 +143,7 @@ HTML
 		if ($q =~ /(g)$/) {
 			$q  = $`;
 			$x = 1;
-		}			
+		}
 		if ($q =~ /(ml)$/) {
 			$q  = $`;
 			$x = 1
@@ -157,14 +155,23 @@ HTML
 		if ($q =~ /(dl)$/) {
 			$q  = $`;
 			$x = 100;
-		}			
+		}
 		if ($q =~ /(l)$/) {
 			$q  = $`;
 			$x = 1000;
-		}			
-		
-		my $qx = $q * $x;
-	
+		}
+
+		if (exists $product_ref->{product_quantity}) {
+			$q = $product_ref->{product_quantity};
+		}
+		else {
+			next;
+		}
+
+		#my $qx = $q * $x;
+
+		my $qx = $q;
+
 		my $s = $qx * $product_ref->{"nutriments"}{"sugars_100g"} / 100;
 		my $sucres_g = int($s + 0.4999);
 		my $sc = $s / 4;
@@ -174,22 +181,22 @@ HTML
 		my $cubes_small = sprintf("%.1f", $sc);
 		my $cubes_big = sprintf("%.1f", $big);
 		my $producturl = product_url($product_ref);
-		$producturl =~ s/^\//http:\/\/fr.openfoodfacts.org\//;
-		
-		my $code = $product_ref->{"code"};
-		
+		$producturl =~ s/^\//https:\/\/fr.openfoodfacts.org\//;
 
-		
+		my $code = $product_ref->{"code"};
+
+
+
 		if (($product_ref->{quantity} =~ /^\d+\s?(mg|g|kg|ml|dl|cl|l)\s*$/i) and ($qx <= 2000) and ($sc <= 75) and ($sc > 1)) {
-		
+
 		my $firstbrand = $product_ref->{brands};
 		$firstbrand =~ s/,.*//;
-		
+
 		my $generic = '';
 		if ($product_ref->{generic_name} =~ /\w/) {
 			$generic = $product_ref->{generic_name} . "<br/>";
 		}
-		
+
 		my $marques;
 		my $brands = $product_ref->{brands};
 		if ($brands =~ /,/) {
@@ -199,35 +206,35 @@ HTML
 		else {
 			$marques = "Marque: <b>$brands</b>";
 		}
-		
+
 		my $quantity = lc($product_ref->{quantity});
 		$quantity =~ s/(\d)([a-z])/$1 $2/i;
 		$quantity =~ s/l/L/;
-		
+
 		my $name = $product_ref->{product_name};
 		$name =~ s/$firstbrand$//e;
 		$name =~ s/(\s|-|\/)+$//;
 		if ($name !~ /$firstbrand/) {
 			$name .= " " . $firstbrand;
 		}
-		
+
 		my $escapedname = uri_escape($name);
-		
+
 		$name =~ s/"//g;
-		
-		my $id = get_fileid($name);		
-		
-		$html .= "<tr><td>" . $product_ref->{code} . "</td><td><a href=\"http://combiendesucres.fr/$id\">" . $product_ref->{product_name} . "</a></td><td>" . $name . "</td><td>" . $product_ref->{brands} . "</td><td>" . $product_ref->{quantity} 
+
+		my $id = get_string_id_for_lang("no_language", $name);
+
+		$html .= "<tr><td>" . $product_ref->{code} . "</td><td><a href=\"https://combiendesucres.fr/$id\">" . $product_ref->{product_name} . "</a></td><td>" . $name . "</td><td>" . $product_ref->{brands} . "</td><td>" . $product_ref->{quantity}
 			. "</td><td>$q x $x = $qx</td><td>$s</td><td>$sc</td><td>" . $product_ref->{"nutriments"}{"sugars_100g"} . "</td></tr>\n";
-			
 
 
-		
+
+
 		my $description = "Combien de sucre y a-t-il dans $name ? Devinez quel est l'équivalent en morceaux de sucres avec notre jeu instructif, simple et rapide.";
-		
+
 		$product_ref->{jqm} = 1;
 		my $img = display_image($product_ref, 'front', 200);
-		$img =~ s/src="\//src="http:\/\/fr.openfoodfacts.org\//;
+		$img =~ s/src="\//src="https:\/\/fr.openfoodfacts.org\//;
 		my $img_url = '';
 		my $zoom = '';
 		if ($img =~ /src="(.*?)"/) {
@@ -238,7 +245,7 @@ HTML
 		else {
 			next;
 		}
-			
+
 		my $page = <<HTML
 <!DOCTYPE html>
 <html>
@@ -253,9 +260,9 @@ HTML
 <meta property="fb:app_id" content="472618429477645" />
 <meta property="og:type" content="food"/>
 <meta property="og:title" content="Combien de sucres ?"/>
-<meta property="og:url" content="http://combiendesucres.fr/$id"/>
+<meta property="og:url" content="https://combiendesucres.fr/$id"/>
 
-<meta property="og:image" content="http://combiendesucres.fr/combien_de_sucres.png"/>
+<meta property="og:image" content="https://combiendesucres.fr/combien_de_sucres.png"/>
 <meta property="og:image" content="$img_url"/>
 <meta property="og:description" content="$description"/>
 <meta name="description" content="$description" />
@@ -264,14 +271,14 @@ HTML
 <script type="text/javascript" src="Box2dWeb-2.1.a.3.min.js"></script>
 
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/start/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.2/themes/start/jquery-ui.css" />
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 <script src="jquery.html5storage.min.js"></script>
 <script type="text/javascript" src="sucres.js"></script>
 
 <link rel="stylesheet" href="nivo-zoom-off.css" type="text/css" media="screen" />
-<script src="jquery.nivo.zoom.pack.js" type="text/javascript"></script>	
+<script src="jquery.nivo.zoom.pack.js" type="text/javascript"></script>
 
 <style type="text/css" media="all">
 
@@ -309,7 +316,7 @@ padding-left:20px;
 padding-right:20px;
 float:left;
 margin-right:30px;
-background: white url("sucres_bgl.png") no-repeat top; 
+background: white url("sucres_bgl.png") no-repeat top;
 position: relative;
 }
 
@@ -336,7 +343,7 @@ position:relative;
 margin-bottom:5px;
 }
 
-#sugar_cubes:active { 
+#sugar_cubes:active {
 cursor: hand; cursor: pointer; cursor: move;
 }
 
@@ -353,7 +360,7 @@ font-size:0.8em;
 	clear:both;
 }
 
-.sharebutton { float:left; padding-right:10px;padding-bottom:5px;}	
+.sharebutton { float:left; padding-right:10px;padding-bottom:5px;}
 
 a, a:visited {
 	color:yellow;
@@ -418,7 +425,7 @@ h1 {
 	height:311px;
 	bottom:120px;
 	left:54px;
-	background: transparent url("score_bg.png") no-repeat top; 
+	background: transparent url("score_bg.png") no-repeat top;
 	color:black;
 	display:none;
 	padding:20px;
@@ -466,12 +473,12 @@ var big = $cubes_big;
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
 </script>
-	
+
 </head>
 <body>
 
@@ -500,10 +507,10 @@ $zoom
 
 <div id="sharebuttons">
 <div style="float:left;margin-right:15px;width:150px;color:darkblue;background:white;padding:10px;">Posez la question à vos amis !</div>
-<div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" 
-src="http://platform.twitter.com/widgets/tweet_button.html?via=CombienDeSucres&amp;count=vertical&amp;lang=fr&amp;text=Combien%20de%20sucres%20dans%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
-<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="http://combiendesucres.fr/$id" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="http://combiendesucres.fr/$id"></g:plusone></div>
+<div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation"
+src="https://platform.twitter.com/widgets/tweet_button.html?via=CombienDeSucres&amp;count=vertical&amp;lang=fr&amp;text=Combien%20de%20sucres%20dans%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
+<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://combiendesucres.fr/$id" layout="box_count"></fb:like></div>
+<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://combiendesucres.fr/$id"></g:plusone></div>
 </div>
 
 
@@ -545,9 +552,9 @@ Appuyez ensuite sur le bouton <b>✓</b> pour valider et vérifier votre répons
 
 <h2>Source des données</h2>
 
-<div style="float:right;margin-left:20px;margin-bottom:20px;"><a href="http://fr.openfoodfacts.org"><img src="openfoodfacts-logo-fr.png" alt="Open Food Facts" style="background-color:white;padding:5px;display:block"/></a></div>
+<div style="float:right;margin-left:20px;margin-bottom:20px;"><a href="https://fr.openfoodfacts.org"><img src="openfoodfacts-logo-fr.png" alt="Open Food Facts" style="background-color:white;padding:5px;display:block"/></a></div>
 
-<p>Les données sur les produits et les photos proviennent de la base collaborative <a href="http://fr.openfoodfacts.org">Open Food Facts</a>.
+<p>Les données sur les produits et les photos proviennent de la base collaborative <a href="https://fr.openfoodfacts.org">Open Food Facts</a>.
 Les données sont disponibles sous la licence ouverte <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> et les photos sous la licence
 <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr">Creative Commons Attribution Partage à l'identique</a>. Les marques citées sont la propriété de leurs propriétaires respectifs.</p>
 <p>La base de données est constituée de manière collaborative, il n'est pas possible de garantir qu'elle soit exempte d'erreurs. La composition des produits peut également avoir changé.
@@ -569,7 +576,7 @@ Si vous constatez une erreur, <a href="mailto:stephane\@combiendesucres.fr">merc
         FB.init({appId: '472618429477645', status: true, cookie: true,
                  xfbml: true});
      };
-	 
+
       (function() {
         var e = document.createElement('script');
         e.type = 'text/javascript';
@@ -578,46 +585,40 @@ Si vous constatez une erreur, <a href="mailto:stephane\@combiendesucres.fr">merc
         e.async = true;
         document.getElementById('fb-root').appendChild(e);
       }());
-	  
 
-    </script>	
+
+    </script>
 
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
   {lang: 'fr'}
 </script>
 
 </body>
-</html>		
+</html>
 HTML
 ;
 
-		open (my $OUT, ">:encoding(UTF-8)", "/home/sucres/html/$id.html");
+		open (my $OUT, ">:encoding(UTF-8)", "/srv/sucres/html/$id.html");
 		print $OUT $page;
 		close $OUT;
-			
+
 		push @ids, $id;
-			
+
 		}
 
 	}
 
 
 	$html .= "</tbody></table>";
-		
+
 	open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/sugar.html");
 	print $OUT $html;
 	close $OUT;
-	
-	store("/home/sucres/data/products_ids.sto", \@ids);
-	
+
+	store("/srv/sucres/data/products_ids.sto", \@ids);
+
 	print "$k products, $kk products kept\n";
 }
-
-
-
-#open (OUT, ">:encoding(UTF-8)", "$www_root/langs.html");
-#print OUT $html;
-#close OUT;
 
 exit(0);
 
