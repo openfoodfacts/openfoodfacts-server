@@ -145,31 +145,13 @@ Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http
 
 <div id="sharebuttons">
   <div style="float:left;padding-right:15px;" class="sharebutton"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="OpenFoodFactsFr" data-hashtags="OpenFoodFacts" data-lang="fr" data-show-count="false">Tweet</a></div>
-<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
+  <div style="float:left;padding-right:15px;" class="sharebutton"><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></div>
 </div>
 
 </div>
 
-<div id="fb-root"></div>
-
-    <script type="text/javascript">
-      window.fbAsyncInit = function() {
-        FB.init({appId: '156259644527005', status: true, cookie: true,
-                 xfbml: true});
-     };
-
-      (function() {
-        var e = document.createElement('script');
-        e.type = 'text/javascript';
-        e.src = document.location.protocol +
-          '//connect.facebook.net/fr_FR/all.js';
-        e.async = true;
-        document.getElementById('fb-root').appendChild(e);
-      }());
-
-
-    </script>
-
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&amp;autoLogAppEvents=1&amp;version=v5.0&amp;appId=156259644527005"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </body>
