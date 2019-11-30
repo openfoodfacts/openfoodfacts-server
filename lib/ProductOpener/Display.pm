@@ -3592,7 +3592,7 @@ HTML
 		if ($tagtype eq "brands") {
 			$itemtype = "https://schema.org/Brand";
 		}
-		# TODO: Dietary supplements (https://github.com/openfoodfacts/openfoodfacts-server/issues/15)
+
 		# TODO: Producer
 
 		$html = "<div itemscope itemtype=\"" . $itemtype . "\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
@@ -7017,20 +7017,16 @@ HTML
 
 	$bodyabout = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 
-#<div itemscope itemtype="http://schema.org/Product">
-#  <span itemprop="name">Kenmore White 17" Microwave</span>
-#  <img src="kenmore-microwave-17in.jpg" alt='Kenmore 17" Microwave'>
-#  <div itemprop="aggregateRating"
-#    itemscope itemtype="http://schema.org/AggregateRating">
-#   Rated <span itemprop="ratingValue">3.5</span>/5
-#   based on <span itemprop="reviewCount">11</span> customer reviews
-#  </div>
-
 	if ((defined $User_id) and (defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		$html .= "<robotoff-asker url='$robotoff_url' code='$code' lang='$lc' style='display: none;' caption-yes='" . lang("button_caption_yes") . "' caption-no='" . lang("button_caption_no") . "' caption-skip='" . lang("button_caption_skip") . "'></robotoff-asker>\n";
 	}
 
-	$html .= '<div itemscope itemtype="https://schema.org/Product">' . "\n";
+	my $itemtype = 'https://schema.org/Product';
+	if (has_tag($product_ref, 'categories', 'en:dietary-supplements')) {
+		$itemtype = 'https://schema.org/DietarySupplement';
+	}
+
+	$html .= '<div itemscope itemtype="' .  $itemtype . '">' . "\n";
 
 	$html .= "<h1 property=\"food:name\" itemprop=\"name\">$title</h1>";
 
