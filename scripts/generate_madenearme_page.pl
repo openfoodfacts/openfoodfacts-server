@@ -34,6 +34,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::URL qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -47,6 +48,8 @@ use ProductOpener::Lang qw/:all/;
 
 $cc = $ARGV[0];
 $lc = $ARGV[1];
+$subdomain = $cc;
+$formatted_subdomain = format_subdomain($subdomain);
 
 $lang = $lc;
 
