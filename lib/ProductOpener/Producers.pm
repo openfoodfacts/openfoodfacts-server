@@ -173,6 +173,11 @@ sub load_csv_or_excel_file($) {
 			# the header function crashes with some csv files... use getline instead
 			my $row_ref = $csv->getline ($io);
 
+			# empty line or only title in first column?
+			while (((not defined $row_ref) or (not defined $row_ref->[0]) or ($row_ref->[0] eq "") or (not defined $row_ref->[1]) or ($row_ref->[1] eq ""))
+				and ($row_ref = $csv->getline ($io))) {
+			}
+
 			if (not defined $row_ref) {
 				$log->debug("could not read headers row", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
 				$results_ref->{error} = "Could not read headers row $file.csv: $!";
