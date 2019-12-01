@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:22\n"
+"PO-Revision-Date: 2019-11-30 17:21\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3918,4 +3918,48 @@ msgstr "crwdns124172:0%scrwdne124172:0"
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "crwdns124174:0%scrwdnd124174:0%scrwdnd124174:0%scrwdnd124174:0%scrwdnd124174:0%scrwdnd124174:0%scrwdne124174:0"
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "crwdns124205:0crwdne124205:0"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "crwdns124207:0crwdne124207:0"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "crwdns124209:0crwdne124209:0"
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "crwdns124211:0crwdne124211:0"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "crwdns124213:0crwdne124213:0"
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "crwdns124215:0crwdne124215:0"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "crwdns124217:0crwdne124217:0"
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "crwdns124219:0crwdne124219:0"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "crwdns124221:0crwdne124221:0"
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "crwdns124223:0crwdne124223:0"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "crwdns124225:0crwdne124225:0"
 

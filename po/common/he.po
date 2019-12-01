@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-18 09:33\n"
+"PO-Revision-Date: 2019-11-30 17:04\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -139,7 +139,7 @@ msgstr "עמוד המוצר נערך גם על ידי"
 # Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -980,7 +980,7 @@ msgstr "מוצרים שאינם מכילים את הרכיב %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"זמין ב־App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_HB.svg\" alt=\"זמין ב־App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2593,7 +2593,7 @@ msgstr "כתובת אתר או בלוג"
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"החנות של Windows Phone\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/Hebrew.svg\" alt=\"החנות של Windows Phone\" width=\"109\" height=\"40\" />"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -3059,7 +3059,7 @@ msgstr "שירות לקוחות"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr "מפיק"
+msgstr ""
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
@@ -3966,4 +3966,48 @@ msgstr "ערך ממוצע לקטגוריה %s"
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "ניתן לשנות את ערך ה־Nutri-Score מהערך %s לערך %s על ידי שינוי הערך של %s מכדי %s לכדי %s (הפרש של %s אחוזים)."
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "קבוצות"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "יצרן"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "יש לסמן רק עבור חשבונות של יצרנים שעורכים את המוצרים של עצמם. הבעלות על המוצר תשויך ליצרנים עקב הוספה או עריכה של מוצר על ידם."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "מסד נתונים"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "למקורות נתונים חיצוניים. הבעלות על המוצרים המייובאים לא ישתנו."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "יישומון"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "ליישומונים."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "רובוט"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "לרובוטים, סקריפטים וכו׳."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "פיקוח"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "למפקחים יש גישה לתכונות מיוחדות כדי לערוך ולסקור מוצרים."
 

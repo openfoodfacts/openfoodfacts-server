@@ -624,8 +624,7 @@ sub init_user()
 			if ((not defined $user_ref->{'user_sessions'})
 				or (not defined $user_session)
 				or (not defined $user_ref->{'user_sessions'}{$user_session})
-				or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-				or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr()))) ))
+				or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 		    {
 				$log->debug("no matching session for user") if $log->is_debug();
 				$user_id = undef;
@@ -692,6 +691,26 @@ sub init_user()
 	return 0;
 }
 
+sub is_ip_known_or_whitelisted {
+	my ($user_ref, $user_session, $ip, $shorten_ip) = @_;
+
+	my $short_ip = $shorten_ip->($ip);
+
+	if ((defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
+	    and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip)) {
+			return 1;
+	}
+
+	if (defined $server_options{ip_whitelist_session_cookie}) {
+		foreach (@{$server_options{ip_whitelist_session_cookie}}) {
+			if ($_ eq $ip) {
+				return 1;
+			}
+		}
+	}
+
+	return 0;
+}
 
 sub check_session($$) {
 

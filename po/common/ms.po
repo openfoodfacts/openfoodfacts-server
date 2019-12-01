@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ms\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:07\n"
+"PO-Revision-Date: 2019-11-30 17:10\n"
 "Language-Team: Malay\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -17,35 +17,35 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 produk"
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " dan "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Tentang saya"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Tambah bahasa"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Tambah satu bahasa"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Daftar"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Terima kasih kerana menyertai. Anda kini boleh daftar masuk di tapak untuk tambah dan edit produk.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -63,84 +63,98 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Hello <NAME>,\n\n"
+"Terima kasih kerana menyertai https://openfoodfacts.org\n"
+"Berikut adalah nama pengguna anda:\n\n"
+"Nama pengguna: <USERID>\n\n"
+"Anda kini boleh daftar masuk di tapak untuk tambah dan edit produk.\n\n"
+"<<site_name>> adalah projek kerjasama di mana anda boleh bawa lebih daripada produk baharu: tenaga, semangat dan idea anda! \n"
+"Untuk berbincang antara penyumbang dan membuat projek terus maju, kami gunakan sistem pesanan yang sangat mudah dipanggil Slack: https://slack.openfoodfacts.org\n\n"
+"Anda juga boleh menyertai kumpulan Facebook untuk penyumbang: \n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"Baharu: Kami juga memulakan Fakta Kecantikan Terbuka untuk membentuk pangkalan data bagi kosmetik: sabun, ubat gigi, alat solek dll.\n"
+"https://openbeautyfacts.org\n\n"
+"Terima kasih banyak-banyak!\n\n"
+"Stéphane dan pasukkan Fakta Makanan Terbuka\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Terima kasih kerana menyertai <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Aditif makanan yang berpotensi berbahaya. Hadkan penggunaan."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Aditif makanan berbahaya. Elakkan."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Aditif makanan yang diharamkan di Eropah. Elakkan dengan apa cara sekalipun."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "aditif"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "aditif"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Carian lanjutan"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Carian lanjutan dan graf"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Minum berlebihan adalah berbahaya untuk kesihatan."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Semua misi"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Bahan-bahan atau produk yang menyebabkan alahan atau tiada toleransi"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "alergen"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "alergen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Halaman produk juga diedit oleh"
 
 # Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -792,7 +806,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Helo"
 
 msgctxt "high"
 msgid "high"
@@ -1301,7 +1315,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Tambah satu bahasa"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -3917,5 +3931,49 @@ msgstr ""
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Kumpulan"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Penerbit"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr ""
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr ""
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr ""
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr ""
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr ""
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr ""
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr ""
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr ""
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 

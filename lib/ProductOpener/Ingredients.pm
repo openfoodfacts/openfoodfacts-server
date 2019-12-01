@@ -112,7 +112,7 @@ my %allergens_stopwords = (
 	en => "and|of|this|product|other|made|manufactured|in|a|factory|which|also|uses",
 	de => "enthalten|von|und",
 	es => "y|de|que|contiene|contienen|otros",
-	fi => "ja|muita|muuta|tehtaassa|valmistettu",
+	fi => "ja|muita|muuta|tehtaassa|valmistettu|saattaa|sisältää|pieniä|pienehköjä|määriä",
 	fr => "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et",
 
 );
