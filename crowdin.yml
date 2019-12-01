@@ -104,7 +104,7 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/contact.en.html
+  - source: /lang/en/texts/contact.html
     translation: /lang/%two_letters_code%/texts/contact.html
     languages_mapping:
       two_letters_code:
@@ -136,7 +136,7 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/data.en.html
+  - source: /lang/en/texts/data.html
     translation: /lang/%two_letters_code%/texts/data.html
     languages_mapping:
       two_letters_code:
