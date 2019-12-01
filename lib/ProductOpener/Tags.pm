@@ -2593,7 +2593,7 @@ sub canonicalize_taxonomy_tag_linkeddata {
 		or (not defined $tag)
 		or (not ($tag =~ /^(\w+:\w\w):(.+)/))
 		or (not defined $properties{$tagtype})) {
-			return undef;
+			return;
 	}
 
 	# Test for linked data, ie. wikidata:en:Q1234
@@ -2621,7 +2621,7 @@ sub canonicalize_taxonomy_tag_weblink {
 	if ((not defined $tagtype)
 		or (not defined $tag)
 		or (not ($tag =~ /^https?:\/\/.+/))) {
-			return undef;
+			return;
 	}
 
 	# Test for linked data URLs, ie. https://www.wikidata.org/wiki/Q1234
