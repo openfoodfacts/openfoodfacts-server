@@ -173,6 +173,11 @@ sub load_csv_or_excel_file($) {
 			# the header function crashes with some csv files... use getline instead
 			my $row_ref = $csv->getline ($io);
 
+			# empty line or only title in first column?
+			while (((not defined $row_ref) or (not defined $row_ref->[0]) or ($row_ref->[0] eq "") or (not defined $row_ref->[1]) or ($row_ref->[1] eq ""))
+				and ($row_ref = $csv->getline ($io))) {
+			}
+
 			if (not defined $row_ref) {
 				$log->debug("could not read headers row", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
 				$results_ref->{error} = "Could not read headers row $file.csv: $!";
@@ -414,6 +419,11 @@ sub init_fields_columns_names_for_lang($) {
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 }
 
+
+# Note: This is not a conversion table, it is a list of synonyms used by producers when they transmit us data.
+# In practice, no producer uses cal (as in 1/1000 of kcal) as a unit for energy.
+# When they have "cal" or "calories" in the header of a column, they always mean kcal.
+# The units in this table are lowercased, so "cal" is for the "big Calories". 1 Cal = 1 kcal.
 
 my %units_synonyms = (
 	"g" => "g",

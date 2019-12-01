@@ -809,17 +809,10 @@ JS
 HTML
 ;
 
-
-#<!-- Autocomplete -->
-#<script type='text/javascript' src='https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
-#<link rel="stylesheet" type="text/css" href="https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
-
 	$scripts .= <<HTML
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
-<script type="text/javascript" src="/js/jquery.autoresize.js"></script>
-<script type="text/javascript" src="/js/jquery.rotate.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
@@ -1527,11 +1520,6 @@ HTML
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 
 	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
-
-
-	# $initjs .= "\$('textarea#ingredients_text').autoResize();";
-	# ! with autoResize, extracting ingredients from image need to update the value of the real textarea
-	# maybe calling $('textarea.growfield').data('AutoResizer').check();
 
 	$html .= display_field($product_ref, "allergens");
 
