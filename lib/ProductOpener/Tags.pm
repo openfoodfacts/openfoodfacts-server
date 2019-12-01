@@ -2548,7 +2548,7 @@ sub canonicalize_taxonomy_tag($$$)
 		return $linked_data_tag;
 	}
 
-	my $weblink_tag = ProductOpener::Tags::canonicalize_taxonomy_tag_weblink($tagtype, $tag);
+	my $weblink_tag = canonicalize_taxonomy_tag_weblink($tagtype, $tag);
 	if ($weblink_tag) {
 		return $weblink_tag;
 	}

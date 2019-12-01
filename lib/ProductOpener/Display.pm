@@ -707,10 +707,21 @@ sub analyze_request($)
 				}
 
 				if (defined $taxonomy_fields{$tagtype}) {
-					if ($request_ref->{tag} !~ /^(\w\w):/) {
-						$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
+					my $parsed_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag});
+					if (not $parsed_tag) {
+						$parsed_tag = canonicalize_taxonomy_tag_weblink($tagtype, $request_ref->{tag});
 					}
-					$request_ref->{tagid} = get_taxonomyid($lc,$request_ref->{tag});
+
+					if ($parsed_tag) {
+						$request_ref->{tagid} = $parsed_tag;
+					}
+					else {
+						if ($request_ref->{tag} !~ /^(\w\w):/) {
+							$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
+						}
+
+						$request_ref->{tagid} = get_taxonomyid($lc,$request_ref->{tag});
+					}
 				}
 				else {
 					# Use "no_language" normalization
@@ -746,10 +757,21 @@ sub analyze_request($)
 					}
 
 					if (defined $taxonomy_fields{$tagtype}) {
-						if ($request_ref->{tag2} !~ /^(\w\w):/) {
-							$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
+						my $parsed_tag2 = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag2});
+						if (not $parsed_tag2) {
+							$parsed_tag2 = canonicalize_taxonomy_tag_weblink($tagtype, $request_ref->{tag2});
 						}
-						$request_ref->{tagid2} = get_taxonomyid($lc,$request_ref->{tag2});
+
+						if ($parsed_tag2) {
+							$request_ref->{tagid2} = $parsed_tag2;
+						}
+						else {
+							if ($request_ref->{tag2} !~ /^(\w\w):/) {
+								$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
+							}
+
+							$request_ref->{tagid2} = get_taxonomyid($lc, $request_ref->{tag2});
+						}
 					}
 					else {
 						# Use "no_language" normalization
@@ -5952,6 +5974,7 @@ $og_images
 $og_images2
 <meta property="og:description" content="$canon_description">
 $options{favicons}
+<link rel="canonical" href="$canon_url">
 <link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
 <link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
