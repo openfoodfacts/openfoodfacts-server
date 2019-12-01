@@ -84,6 +84,7 @@ BEGIN
 					$subdomain
 					$formatted_subdomain
 					$static_subdomain
+					$world_subdomain
 					$test
 					@lcs
 					$cc
@@ -196,6 +197,9 @@ $default_request_ref = {
 
 use vars qw();
 
+$static_subdomain = format_subdomain('static');
+$world_subdomain = format_subdomain('world');
+
 sub init()
 {
 	$log->context->{request} = generate_token(16);
@@ -295,8 +299,7 @@ sub init()
 	}
 	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
-		my $worlddom = format_subdomain('world');
-		my $redirect = "$worlddom/" . $ENV{QUERY_STRING};
+		my $redirect = "$world_subdomain/" . $ENV{QUERY_STRING};
 		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
 		$r->headers_out->set(Location => $redirect);
 		$r->status(301);
@@ -396,7 +399,6 @@ CSS
 
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
-	$static_subdomain = format_subdomain('static');
 
 	# if products are private, select the owner used to restrict the product set with the owners_tags field
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
@@ -1269,8 +1271,6 @@ sub query_list_of_tags($$) {
 		$log->debug("MongoDB query built", { query => $query_ref }) if $log->is_debug();
 	}
 
-	my $staticdom = format_subdomain('static');
-
 	# groupby_tagtype
 
 	my $results;
@@ -1415,8 +1415,7 @@ sub display_list_of_tags($$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 
 			if ($country ne 'en:world') {
-				my $worlddom = format_subdomain('world');
-				$html .= "<p>&rarr; <a href=\"${worlddom}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+				$html .= "<p>&rarr; <a href=\"${world_subdomain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 			}
 
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -1727,7 +1726,7 @@ sub display_list_of_tags($$) {
 
 			if (defined $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$icid)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$icid)};
-				$tagentry->{image} = format_subdomain('static') . "/images/lang/$lc/$tagtype/$img";
+				$tagentry->{image} = $static_subdomain . "/images/lang/$lc/$tagtype/$img";
 			}
 
 			push @{$request_ref->{structured_response}{tags}}, $tagentry;
@@ -2028,8 +2027,7 @@ sub display_list_of_tags_translate($$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 
 			if ($country ne 'en:world') {
-				my $worlddom = format_subdomain('world');
-				$html .= "<p>&rarr; <a href=\"${worlddom}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+				$html .= "<p>&rarr; <a href=\"${world_subdomain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 			}
 
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -3481,7 +3479,6 @@ HTML
 
 	if ($country ne 'en:world') {
 
-		my $worlddom = format_subdomain('world');
 		my $word_link = "";
 		if (defined $request_ref->{groupby_tagtype}) {
 			$word_link = lang('view_list_for_products_from_the_entire_world');
@@ -3490,7 +3487,7 @@ HTML
 			$word_link = lang('view_products_from_the_entire_world');
 		}
 		$html .= "<p>" . ucfirst(lang('countries_s')) . separator_before_colon($lc). ": " . display_taxonomy_tag($lc,"countries",$country) . " - "
-		. "<a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . $word_link . "</a></p>";
+		. "<a href=\"" . $world_subdomain . $request_ref->{world_current_link} . "\">" . $word_link . "</a></p>";
 	}
 
 	my $query_ref = {};
@@ -3856,7 +3853,7 @@ sub search_and_display_products($$$$$) {
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 
 		if ($country ne 'en:world') {
-			$html .= "<p>&rarr; <a href=\"" . format_subdomain('world') . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+			$html .= "<p>&rarr; <a href=\"" . $world_subdomain . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 		}
 
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -4499,10 +4496,10 @@ sub search_and_export_products($$$$$) {
 
 
 sub escape_single_quote($) {
-	my $s = shift;
+	my $s = $_[0];
 	# some app escape single quotes already, so we have \' already
 	if (not defined $s) {
-		$s = '';
+		return '';
 	}
 	$s =~ s/\\'/'/g;
 	$s =~ s/'/\\'/g;
@@ -5377,7 +5374,10 @@ sub search_and_map_products($$$) {
 
 	eval {
 		$cursor = execute_query(sub {
-			return get_products_collection()->query($query_ref);
+			return get_products_collection()->query($query_ref)
+			->fields( { code => 1, lc => 1, product_name => 1, "product_name_$lc" => 1, brands => 1, images => 1,
+				manufacturing_places => 1, origins => 1, emb_codes_tags => 1,
+			});
 		});
 	};
 	if ($@) {
@@ -5438,8 +5438,6 @@ JS
 
 		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
-
-
 		my $matching_products = 0;
 		my $places = 0;
 		my $emb_codes = 0;
@@ -5450,22 +5448,17 @@ JS
 
 		foreach my $product_ref (@products) {
 
-			# Keep only products that have known values for both x and y
-
 			if (1) {
 
-				my $url = format_subdomain($cc) . product_url($product_ref->{code});
-
+				my $url = $formatted_subdomain . product_url($product_ref->{code});
 
 				my $data_start = '{';
 
-
-				my $manufacturing_places =  escape_single_quote($product_ref->{"manufacturing_places"});
+				my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
 				$manufacturing_places =~ s/,( )?/, /g;
 				if ($manufacturing_places ne '') {
 					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br>";
 				}
-
 
 				my $origins =  escape_single_quote($product_ref->{origins});
 				$origins =~ s/,( )?/, /g;
@@ -5477,9 +5470,6 @@ JS
 
 				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
 					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";
-
-
-
 
 				# Loop on cities: multiple emb codes can be on one product
 
@@ -5505,7 +5495,6 @@ JS
 								}
 							}
 						}
-
 					}
 					if (scalar keys %current_seen > 0) {
 						$seen_products++;
@@ -5538,8 +5527,6 @@ HTML
 #	subdomains: '1234',
 #    maxZoom: 18
 #}).addTo(map);
-
-
 
 			my $js = <<JS
 var pointers = [
@@ -5914,7 +5901,7 @@ sub display_new($) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
 		if ($img_url !~ /^http:/) {
-			$img_url = format_subdomain($lc) . $img_url;
+			$img_url = $static_subdomain . $img_url;
 		}
 		$og_images .= '<meta property="og:image" content="' . $img_url . '">' . "\n";
 		if ($img_url !~ /misc/) {
@@ -6471,10 +6458,7 @@ HTML
 	# Twitter account
 	$html =~ s/<twitter_account>/$twitter_account/g;
 
-
-	# Use static subdomain for images, js etc.
-	my $static = format_subdomain('static');
-	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|css)\//$static\/$1\//g;
+	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|css)\//$static_subdomain\/$1\//g;
 	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
 	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
@@ -9581,7 +9565,6 @@ sub add_images_urls_to_product($) {
 
 	my $product_ref = shift;
 
-	my $staticdom = format_subdomain('static');
 	my $path = product_path($product_ref);
 
 	foreach my $imagetype ('front','ingredients','nutrition') {
@@ -9606,9 +9589,9 @@ sub add_images_urls_to_product($) {
 			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 
-				$product_ref->{"image_" . $imagetype . "_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_small_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_url"} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_small_url"} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
 
 				if ($imagetype eq 'front') {
 					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
@@ -9626,9 +9609,9 @@ sub add_images_urls_to_product($) {
 				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 
-					$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{display}{$key} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{small}{$key} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
 				}
 			}
 		}
