@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-30 23:04\n"
+"PO-Revision-Date: 2019-12-01 14:12\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -485,7 +485,7 @@ msgstr "éditeur"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "adresse courriel"
+msgstr "Adresse e-mail"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -768,7 +768,7 @@ msgstr "/conditions-d-utilisation"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr "Qui nous sommes"
+msgstr "Qui sommes nous ?"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
@@ -1262,7 +1262,7 @@ msgstr "<p>Connectez-vous pour ajouter des produits ou modifier leurs fiches.</p
 "<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Se souvenir de moi</label><br />\n"
 "<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Se connecter\" class=\"button small\" />\n"
 "</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
+"<p>Pas encore inscrit? <a href=\"/cgi/user.pl\">Créez votre compte</a>.</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
