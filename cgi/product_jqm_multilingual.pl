@@ -108,7 +108,7 @@ else {
 
 		my $data =  encode_json(\%response);
 
-		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+		print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 		exit(0);
 
@@ -485,7 +485,7 @@ else {
 
 my $data =  encode_json(\%response);
 
-print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 
 exit(0);

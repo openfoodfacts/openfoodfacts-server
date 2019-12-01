@@ -5637,11 +5637,20 @@ sub compute_nova_group($) {
 
 	$product_ref->{nova_group_debug} = "";
 
-	# do not compute a score when we don't have ingredients
+	# If we don't have ingredients, only compute score for water
 	if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq '')) {
+
+		# Exclude flavored waters
+		if (has_tag($product_ref, 'categories', 'en:waters')
+		    and (not has_tag($product_ref, 'categories', 'en:flavored-waters'))) {
+			$product_ref->{nova_group} = 1;
+			return;
+
+		} else {
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
 			return;
+		}
 	}
 
 	# do not compute a score when it is not food
