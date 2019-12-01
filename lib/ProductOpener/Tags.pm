@@ -1512,18 +1512,24 @@ sub build_tags_taxonomy($$$) {
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 
 		{
-		binmode STDOUT, ":encoding(UTF-8)";
-		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
-		print $OUT_JSON encode_json(\%taxonomy_json);
-		close ($OUT_JSON);
+			binmode STDOUT, ":encoding(UTF-8)";
+			if (open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json")) {
+				print $OUT_JSON encode_json(\%taxonomy_json);
+				close ($OUT_JSON);
+			} else {
+				print "Cannot open $www_root/data/taxonomies/$tagtype.json, skipping writing taxonomy to file.\n";
+			}
 
-		open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json");
-		print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
-		close ($OUT_JSON_FULL);
-		# to serve pre-compressed files from Apache
-		# nginx : needs nginx_static module
-		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
-		# system("gzip $www_root/data/taxonomies/$tagtype.json");
+			if(open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json")) {
+				print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
+				close ($OUT_JSON_FULL);
+			} else {
+				print "Cannot open $www_root/data/taxonomies/$tagtype.full.json, skipping writing taxonomy to file.\n";
+			}
+			# to serve pre-compressed files from Apache
+			# nginx : needs nginx_static module
+			# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
+			# system("gzip $www_root/data/taxonomies/$tagtype.json");
 		}
 
 		$log->error("taxonomy errors", { errors => $errors }) if $log->is_error();
