@@ -101,6 +101,7 @@ my %traces_regexps = (
 	en => "traces|may contain",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
+	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
 	fr => "peut contenir|qui utilise aussi|traces|traces possibles|traces éventuelles|trace|trace possible|trace éventuelle",
 	it => "può contenere|puo contenere|che utilizza anche|tracce|possibili tracce|eventuali tracce|traccia|possibile traccia|eventuale traccia",
 
@@ -111,6 +112,7 @@ my %allergens_stopwords = (
 	en => "and|of|this|product|other|made|manufactured|in|a|factory|which|also|uses",
 	de => "enthalten|von|und",
 	es => "y|de|que|contiene|contienen|otros",
+	fi => "ja|muita|muuta|tehtaassa|valmistettu",
 	fr => "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et",
 
 );
@@ -145,6 +147,7 @@ my %and_or = (
 	en => " and | or | and/or | and / or ",
 	de => " und | oder | und/oder | und / oder ",
 	es => " y | o | y/o | y / o ",
+	fi => " ja | tai | ja/tai | ja / tai ",
 	fr => " et | ou | et/ou | et / ou ",
 	it => " e | o | e/o | e / o",
 );
@@ -657,7 +660,7 @@ sub extract_ingredients_from_text($) {
 					# print STDERR "between: $between\n";
 
 					# : is in $separators but we want to keep "origine : France"
-					if (($between =~ $separators) and ($` !~ /\s*(origin|origine)\s*/i)) {
+					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i)) {
 						$between_level = $level + 1;
 					}
 					else {
@@ -672,7 +675,7 @@ sub extract_ingredients_from_text($) {
 							# origin? (origine : France)
 
 							# try to remove the origin and store it as property
-							if ($between =~ /\s*(de origine|d'origine|origine|origin)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(de origine|d'origine|origine|origin|alkuperä)\s?:?\s?\b(.*)$/i) {
 								$between = '';
 								my $origin_string = $2;
 								# d'origine végétale -> not a geographic origin, add en:vegan
@@ -810,7 +813,7 @@ sub extract_ingredients_from_text($) {
 			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
 			# try to remove the origin and store it as property
-			if ($ingredient =~ /\b(de origine|d'origine|origine|origin)\s?:?\s?\b/i) {
+			if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä)\s?:?\s?\b/i) {
 				$ingredient = $`;
 				my $origin_string = $';
 				# d'origine végétale -> not a geographic origin, add en:vegan
@@ -917,6 +920,17 @@ sub extract_ingredients_from_text($) {
 							'^il est possible', # il est possible qu'il contienne...
 							'^(facultatif|facultative)', # sometime indicated by producers when listing ingredients is not mandatory
 						],
+
+						'fi' => [
+							'^Kollageeni\/liha-proteiinisuhde alle',
+							'^(?:Jauhelihapihvin )?(?:Suola|Liha|Rasva)pitoisuus',
+							'^Lihaa ja lihaan verrattavia valmistusaineita',
+							'^(?:Maito)?rasvaa',
+							'^Täysmehu(?:osuus|pitoisuus)',
+							'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
+							'^Kuiva-aineiden täysjyväpitoisuus',
+						],
+
 					);
 					if (defined $ignore_regexps{$product_lc}) {
 						foreach my $regexp (@{$ignore_regexps{$product_lc}}) {
@@ -1287,6 +1301,7 @@ sub normalize_vitamin($$) {
 	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
 		($lc eq 'es') and return "vitamina $a";
 		($lc eq 'fr') and return "vitamine $a";
+		($lc eq 'fi') and return "vitamiini $a";
 		return "vitamin $a";
 	}
 	else {
@@ -1310,6 +1325,7 @@ sub normalize_vitamins_enumeration($$) {
 
 	if ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
+	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
 	else { $split_vitamins_list = "vitamine" }
 
 	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);
@@ -1433,7 +1449,8 @@ de => [
 ],
 
 fi => [
-'ainesosat(\s*)(\s|-|:|\r|\n)+',
+'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?(\s|-|:|\r|\n)+',
+'valmistusaineet(\s|-|:|\r|\n)+'
 ],
 
 sv => [
@@ -1513,7 +1530,8 @@ de => [
 ],
 
 fi => [
-'AINESOTAT(\s*)(\s|-|:|\r|\n)+',
+'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?(\s|-|:|\r|\n)+',
+'VALMISTUSAINEET(\s|-|:|\r|\n)+'
 ],
 
 si => [
@@ -1652,6 +1670,22 @@ de => [
 'Durchschnittlich enthalten 100 (ml|g)',
 'davon ges(â|a|ä)tigte Fettsäuren',
 'davon Zuckerarten',
+],
+
+fi => [
+'100 g:aan tuotetta käytetään',
+'Kypsennys',
+'Liiallisella käytöllä',
+'Makeisten sekoitussuhde voi vaihdella',
+'Pakattu suojakaasuun',
+'Parasta ennen',
+'Viimeinen käyttöpäivä',
+'(?:Keskimääräinen )?Ravinto(?:arvo|sisältö)',
+'Sisältää aluspaperin',
+'Suositellaan säilytettäväksi',
+'Säily(?:y|tys|tetään)',
+'Tämä tuote on tehty ihmisille',
+'Valmist(?:aja:|us)',
 ],
 
 nl => [

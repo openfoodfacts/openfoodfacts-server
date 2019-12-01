@@ -108,7 +108,7 @@ else {
 
 		my $data =  encode_json(\%response);
 
-		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+		print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 		exit(0);
 
@@ -119,7 +119,7 @@ else {
 	my @errors = ();
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($admin and (defined param('new_code'))) {
+	if ($User{moderator} and (defined param('new_code'))) {
 
 		change_product_server_or_code($product_ref, param('new_code'), \@errors);
 		$code = $product_ref->{code};
@@ -485,7 +485,7 @@ else {
 
 my $data =  encode_json(\%response);
 
-print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 
 exit(0);

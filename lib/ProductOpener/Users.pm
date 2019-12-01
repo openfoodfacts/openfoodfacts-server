@@ -79,6 +79,8 @@ use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
 
+my @user_groups = qw(producer database app bot moderator);
+
 sub generate_token {
 	my $name_length = shift;
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
@@ -247,6 +249,16 @@ sub display_user_form_admin_only($) {
 
 		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
 		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
+
+		$html .= "\n<tr><td colspan=\"2\">" . lang("user_groups") . lang("sep") . ":<ul>";
+
+		foreach my $group (@user_groups) {
+			$html .= "<li>"
+			. checkbox(-name=>"user_group_$group", -label=>lang("user_group_$group") . lang("sep") . ": " . lang("user_group_${group}_description")
+				, -checked=>$user_ref->{$group}, -override=>1)  . "</li>";
+		}
+
+		$html .= "</td></tr>";
 	}
 
 	return $html;
@@ -300,6 +312,10 @@ sub check_user_form($$) {
 		else {
 			delete $user_ref->{org};
 			delete $user_ref->{org_id};
+		}
+
+		foreach my $group (@user_groups) {
+			$user_ref->{$group} = remove_tags_and_quote(param("user_group_$group"));
 		}
 	}
 
@@ -608,8 +624,7 @@ sub init_user()
 			if ((not defined $user_ref->{'user_sessions'})
 				or (not defined $user_session)
 				or (not defined $user_ref->{'user_sessions'}{$user_session})
-				or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-				or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr()))) ))
+				or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 		    {
 				$log->debug("no matching session for user") if $log->is_debug();
 				$user_id = undef;
@@ -676,6 +691,26 @@ sub init_user()
 	return 0;
 }
 
+sub is_ip_known_or_whitelisted {
+	my ($user_ref, $user_session, $ip, $shorten_ip) = @_;
+
+	my $short_ip = $shorten_ip->($ip);
+
+	if ((defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
+	    and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip)) {
+			return 1;
+	}
+
+	if (defined $server_options{ip_whitelist_session_cookie}) {
+		foreach (@{$server_options{ip_whitelist_session_cookie}}) {
+			if ($_ eq $ip) {
+				return 1;
+			}
+		}
+	}
+
+	return 0;
+}
 
 sub check_session($$) {
 

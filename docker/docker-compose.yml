@@ -1,7 +1,7 @@
 ﻿version: "3.7"
 services:
   mongodb:
-    image: mongo:4.0.12
+    image: mongo:4.2.1
     volumes:
       - dbdata:/var/lib/mongodb
     networks:
@@ -11,7 +11,7 @@ services:
     networks:
       - webnet
   postgres:
-    image: postgres:11.5-alpine
+    image: postgres:12.1-alpine
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -30,9 +30,6 @@ services:
       - podata:/mnt/podata
       - type: tmpfs
         target: /mnt/podata/mnt
-      - type: bind
-        source: ../
-        target: /opt/product-opener/
       - product_images:/opt/product-opener/html/images/products
       - type: bind
         source: ./backend-dev/conf/Config.pm
