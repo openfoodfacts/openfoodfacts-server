@@ -552,12 +552,6 @@ sub analyze_request($)
 		$request_ref->{text} = 'index';
 	}
 
-	# Index page on producers platform
-	if ((defined $request_ref->{text}) and ($request_ref->{text} eq "index")
-		and (defined $server_options{private_products}) and ($server_options{private_products})) {
-		$request_ref->{text} = 'index-pro';
-	}
-
 	# Api access
 	elsif ($components[0] eq 'api') {
 
@@ -786,6 +780,12 @@ sub analyze_request($)
 		}
 
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
+	}
+
+	# Index page on producers platform
+	if ((defined $request_ref->{text}) and ($request_ref->{text} eq "index")
+		and (defined $server_options{private_products}) and ($server_options{private_products})) {
+		$request_ref->{text} = 'index-pro';
 	}
 
 	$log->debug("request analyzed", { lc => $lc, lang => $lang, request_ref => Dumper($request_ref)}) if $log->is_debug();
@@ -3588,7 +3588,14 @@ HTML
 			$request_ref->{title} = $title;
 		}
 
-		$html = "<div itemscope itemtype=\"https://schema.org/Thing\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
+		my $itemtype = "https://schema.org/Thing";
+		if ($tagtype eq "brands") {
+			$itemtype = "https://schema.org/Brand";
+		}
+
+		# TODO: Producer
+
+		$html = "<div itemscope itemtype=\"" . $itemtype . "\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
@@ -5960,6 +5967,13 @@ HTML
 		$site_name = $Lang{producers_platform}{$lc};
 	}
 
+	# Override Google Analytics from Config.pm with server_options
+	# defined in Config2.pm if it exists
+
+	if (exists $server_options{google_analytics}) {
+		$google_analytics = $server_options{google_analytics};
+	}
+
 	$html .= <<HTML
 $styles
 </style>
@@ -6163,7 +6177,7 @@ HTML
 		}
 		elsif ($system eq 'ios') {
 
-			$link_text = display_icon('brand-brand-apple')  . $link_text;
+			$link_text = display_icon('brand-apple')  . $link_text;
 		}
 
 		$top_banner = <<HTML
@@ -6311,6 +6325,7 @@ HTML
 			<li><a href="$Lang{footer_wiki_link}{$lc}">$Lang{footer_wiki}{$lc}</a></li>
 			<li><a href="$Lang{footer_translators_link}{$lc}">$Lang{footer_translators}{$lc}</a></li>
 			<li><a href="$Lang{footer_partners_link}{$lc}">$Lang{footer_partners}{$lc}</a></li>
+			<li><a href="$Lang{footer_obf_link}{$lc}">$Lang{footer_obf}{$lc}</a></li>
 		</ul>
 	</div>
 	<div class="small-12 medium-6 large-3 columns community">
@@ -7003,20 +7018,16 @@ HTML
 
 	$bodyabout = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 
-#<div itemscope itemtype="http://schema.org/Product">
-#  <span itemprop="name">Kenmore White 17" Microwave</span>
-#  <img src="kenmore-microwave-17in.jpg" alt='Kenmore 17" Microwave'>
-#  <div itemprop="aggregateRating"
-#    itemscope itemtype="http://schema.org/AggregateRating">
-#   Rated <span itemprop="ratingValue">3.5</span>/5
-#   based on <span itemprop="reviewCount">11</span> customer reviews
-#  </div>
-
 	if ((defined $User_id) and (defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		$html .= "<robotoff-asker url='$robotoff_url' code='$code' lang='$lc' style='display: none;' caption-yes='" . lang("button_caption_yes") . "' caption-no='" . lang("button_caption_no") . "' caption-skip='" . lang("button_caption_skip") . "'></robotoff-asker>\n";
 	}
 
-	$html .= '<div itemscope itemtype="https://schema.org/Product">' . "\n";
+	my $itemtype = 'https://schema.org/Product';
+	if (has_tag($product_ref, 'categories', 'en:dietary-supplements')) {
+		$itemtype = 'https://schema.org/DietarySupplement';
+	}
+
+	$html .= '<div itemscope itemtype="' .  $itemtype . '">' . "\n";
 
 	$html .= "<h1 property=\"food:name\" itemprop=\"name\">$title</h1>";
 

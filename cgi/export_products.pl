@@ -70,6 +70,10 @@ if ($action eq "display") {
 	$html .= "<p>" . lang("producers_platform_licence") . "</p>";
 	$html .= "<p>" . lang("export_product_data_photos_please_check") . "</p>";
 
+	# Display button for moderators only
+
+	if ($User{moderator}) {
+
 	$html .= start_multipart_form(-id=>"export_products_form") ;
 
 	$html .= <<HTML
@@ -78,9 +82,15 @@ if ($action eq "display") {
 HTML
 ;
 	$html .= end_form();
+
+	}
+	else {
+		$html .= "<p>" . lang("export_products_to_public_database_email") . "</p>";
+	}
+
 }
 
-elsif ($action eq "process") {
+elsif (($action eq "process") and ($User{moderator})) {
 
 	my $started_t = time();
 	my $export_id = $started_t;

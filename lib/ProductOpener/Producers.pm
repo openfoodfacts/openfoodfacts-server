@@ -173,6 +173,11 @@ sub load_csv_or_excel_file($) {
 			# the header function crashes with some csv files... use getline instead
 			my $row_ref = $csv->getline ($io);
 
+			# empty line or only title in first column?
+			while (((not defined $row_ref) or (not defined $row_ref->[0]) or ($row_ref->[0] eq "") or (not defined $row_ref->[1]) or ($row_ref->[1] eq ""))
+				and ($row_ref = $csv->getline ($io))) {
+			}
+
 			if (not defined $row_ref) {
 				$log->debug("could not read headers row", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
 				$results_ref->{error} = "Could not read headers row $file.csv: $!";
@@ -366,6 +371,8 @@ en => {
 es => {
 	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
 	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
+	net_weight_value_unit => ["peso unitrario", "peso unitario"],	# Yuka
+	"energy-kcal_100g_value_unit" => ["calorias"],
 },
 
 fr => {
@@ -413,6 +420,27 @@ sub init_fields_columns_names_for_lang($) {
 }
 
 
+# Note: This is not a conversion table, it is a list of synonyms used by producers when they transmit us data.
+# In practice, no producer uses cal (as in 1/1000 of kcal) as a unit for energy.
+# When they have "cal" or "calories" in the header of a column, they always mean kcal.
+# The units in this table are lowercased, so "cal" is for the "big Calories". 1 Cal = 1 kcal.
+
+my %units_synonyms = (
+	"g" => "g",
+	"gr" => "g",
+	"grams" => "g",
+	"grammes" => "g",
+	"mg" => "mg",
+	"mcg" => "mcg",
+	"percent" => "percent",
+	"kj" => "kj",
+	"kcal" => "kcal",
+	"cal" => "kcal",
+	"calories" => "kcal",
+	"calorie" => "kcal",
+);
+
+
 sub init_nutrients_columns_names_for_lang($) {
 
 	my $l = shift;
@@ -453,21 +481,6 @@ sub init_nutrients_columns_names_for_lang($) {
 
 			# Energy kcal, carbohydrates g, calcium mg
 
-			my %units = (
-				"g" => "g",
-				"gr" => "g",
-				"grams" => "g",
-				"grammes" => "g",
-				"mg" => "mg",
-				"mcg" => "mcg",
-				"percent" => "percent",
-				"kj" => "kj",
-				"kcal" => "kcal",
-				"cal" => "kcal",
-				"calories" => "kcal",
-				"calorie" => "kcal",
-			);
-
 			my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
 
 			if ($nid eq "energy-kcal") {
@@ -486,7 +499,7 @@ sub init_nutrients_columns_names_for_lang($) {
 			foreach my $unit (@units) {
 				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
 					field => $nid . "_100g_value_unit",
-					value_unit => "value_in_" . $units{$unit},
+					value_unit => "value_in_" . $units_synonyms{$unit},
 				};
 			}
 
@@ -545,6 +558,15 @@ sub init_other_fields_columns_names_for_lang($) {
 							field => $field,
 							value_unit => "unit",
 						};
+
+						my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+
+						foreach my $unit (@units) {
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
+								field => $field,
+								value_unit => "value_in_" . $units_synonyms{$unit},
+							};
+						}
 					}
 				}
 				elsif (defined $tags_fields{$field}) {
