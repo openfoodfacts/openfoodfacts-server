@@ -635,10 +635,8 @@ sub display_field($$) {
 		$display_lc = $2;
 	}
 
-	my $tagsinput = '';
 	if (defined $tags_fields{$fieldtype}) {
-		$tagsinput = ' tagsinput';
-
+		
 		my $autocomplete = "";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			my $world = format_subdomain('world');
@@ -652,63 +650,29 @@ sub display_field($$) {
 
 		my $arrayLenght = 3;
 
-		# For the field autocomplete_url it has to have a value
-		# otherwise tagsInput will not load the autocomplete plugin
-		# (see line https://github.com/xoxco/jQuery-Tags-Input/blob/ae31b175fbfd0a0476822182ef52e76c2629e9c3/src/jquery.tagsinput.js#L264)
 		$initjs .= <<"JAVASCRIPT"
-\$('#$field').tagsInput({
-	height: '3rem',
-	width: '100%',
-	interactive: true,
-	minInputWidth: 130,
-	delimiter: [','],
-	defaultText: "$default_text",
-	autocomplete_url: "I love OpenFoodFacts",
-	autocomplete: {
-		source: function(request, response) {
-			if (request.term === "") {
-				let obj = window.localStorage.getItem("po_last_tags");
-				obj = JSON.parse(obj) || {};
-				obj = obj['${field}'] || [];
+var $field = new Tagify(document.getElementById('$field'), {
+	autocomplete: true,
+}), ${field}Contr;
+${field}.on('input', function(e) {
+	var value = e.detail.value;
+	${field}.settings.whitelist.length = 0; // reset the whitelist
 
-				response(obj.filter( function(el) {
-  					return !\$('#$field').tagExist(el);
-				}));
-			} else {
-				const url = "${autocomplete}";
-				if (url == "") return;
-				\$.ajax({
-					type: "GET",
-					url: "${autocomplete}",
-					data: "term="+ request.term,
-  					dataType: "json",
-					success: function(data) {
-						response(data)
-					}
-				});
-			}
-		},
-		minLength: 0
-	},
-	onAddTag: function(tag) {
-		let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+	// https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
+	${field}Contr && ${field}Contr.abort();
+	${field}Contr = new AbortController();
 
-		if (obj == null) {
-			obj = {"${field}": [tag]}
-		} else if (obj["${field}"] == null) {
-			obj["${field}"] = [tag];
-		} else {
-			if (obj["${field}"].indexOf(tag) != -1) return;
-			if (obj["${field}"].length >= $arrayLenght) obj["${field}"].pop();
-			obj["${field}"].unshift(tag);
-		}
-		window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-		\$('#${field}_tag').autocomplete("search", "");
-	}
+	fetch('${autocomplete}term=' + value, {signal: ${field}Contr.signal})
+		.then(RES => RES.json())
+		.then(function(whitelist){
+		${field}.settings.whitelist = whitelist;
+		${field}.dropdown.show.call(${field}, value); // render the suggestions dropdown
+	})
 });
-\$("#${field}_tag").focus(function() {
-    \$(this).autocomplete("search", "");
+document.getElementById('product_form').addEventListener('submit', function(e) {
+	document.getElementById('${field}').value = ${field}.value.map(obj => obj.value).join(',');
 });
+
 JAVASCRIPT
 ;
 	}
@@ -737,7 +701,7 @@ HTML
 	}
 	else {
 		$html .= <<HTML
-<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" lang="${display_lc}" />
+<input type="text" name="$field" id="$field" class="text" value="$value" lang="${display_lc}" />
 HTML
 ;
 	}
@@ -803,7 +767,7 @@ JS
 
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css" />
-<link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
 <link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
 
 HTML
@@ -813,6 +777,7 @@ HTML
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
+<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
