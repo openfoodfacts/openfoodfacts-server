@@ -5216,13 +5216,6 @@ HTML
 }
 
 
-
-
-
-
-
-
-
 sub search_and_graph_products($$$) {
 
 	my $request_ref = shift;
@@ -5280,7 +5273,6 @@ sub search_and_graph_products($$$) {
 
 	if ($count > 0) {
 
-
 		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
 		# 1 axis: histogram / bar chart
@@ -5293,8 +5285,6 @@ sub search_and_graph_products($$$) {
 			$html .= display_scatter_plot($graph_ref, \@products);
 		}
 
-
-
 		if (defined $request_ref->{current_link_query}) {
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
@@ -5305,7 +5295,6 @@ sub search_and_graph_products($$$) {
 
 		$html .= lang("search_graph_blog");
 	}
-
 
 	return $html;
 }
@@ -6072,10 +6061,71 @@ HTML
 
 	my $top_banner = "";
 
+	my $image_banner = "";
+
+	if ($lc eq 'fr') {
+
+		my $link = lang("donate_link");
+		my $image;
+		my $utm;
+		my @banners = qw(independent personal research);
+		my $banner = $banners[time() % @banners];
+		$image = "/images/banners/donate/donate-banner.$banner.fr.800x150.svg";
+		$image_banner = <<HTML
+<div class="row">
+<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
+<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
+<span id="hide_image_banner_hide" style="display:none;">J'ai déjà donné ou je ne suis pas intéressé. Ne plus afficher la bannière.</span>
+<span id="hide_image_banner_show" style="display:none;">Tiens, une boîte à décocher ?!</span>
+</label></div>
+</div>
+</div>
+HTML
+;
+
+		$initjs .= <<JS
+
+if (\$.cookie('hide_image_banner') == '1') {
+	\$('#hide_image_banner').prop('checked',true);
+	\$("#image_banner").hide();
+	\$("#hide_image_banner_hide").hide();
+	\$("#hide_image_banner_show").show();
+}
+else {
+	\$('#hide_image_banner').prop('checked',false);
+	\$("#image_banner").show();
+	\$("#hide_image_banner_hide").show();
+	\$("#hide_image_banner_show").hide();
+}
+
+\$("#hide_image_banner").change(function () {
+	if (\$('#hide_image_banner').prop('checked')) {
+		\$.cookie('hide_image_banner', '1', { expires: 180, path: '/' });
+		\$("#image_banner").hide();
+		\$("#hide_image_banner_hide").hide();
+		\$("#hide_image_banner_show").show();
+	}
+	else {
+		\$.cookie('hide_image_banner', null, { path: '/'});
+
+		\$("#image_banner").show();
+		\$("#hide_image_banner_hide").show();
+		\$("#hide_image_banner_show").hide();
+	}
+}
+);
+
+JS
+;
+
+
+	}
+
 	if ($lc eq 'fr') {
 
 
-		$top_banner = <<HTML
+		my $top_banner_deactivated2 = <<HTML
 <div class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
@@ -6101,7 +6151,7 @@ HTML
 	}
 	if ($lc eq 'en') {
 
-		$top_banner = <<HTML
+		my $top_banner_deactivated2 = <<HTML
 <div class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
@@ -6276,6 +6326,7 @@ HTML
 			</div>
 			<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
 			<!-- main column content - comment used to remove left column and center content on some pages -->
+				$image_banner
 				$h1_title
 				$$content_ref
 			</div>
