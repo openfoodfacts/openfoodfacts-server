@@ -5216,13 +5216,6 @@ HTML
 }
 
 
-
-
-
-
-
-
-
 sub search_and_graph_products($$$) {
 
 	my $request_ref = shift;
@@ -5239,9 +5232,33 @@ sub search_and_graph_products($$$) {
 		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 	}
 
+	# Limit the fields we retrieve from MongoDB
+	my $fields_ref;
+
+	if ($graph_ref->{axis_y} ne 'products_n') {
+
+		$fields_ref	= {
+			product_name => 1,
+			"product_name_$lc" => 1,
+			labels_tags => 1,
+			images => 1,
+		};
+	}
+
+	foreach my $axis ('x','y') {
+		if ($graph_ref->{"axis_$axis"} ne "products_n") {
+			if ($graph_ref->{"axis_$axis"} !~ /_n$/) {
+				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = 1;
+			}
+			else {
+				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"}} = 1;
+			}
+		}
+	}
+
 	eval {
 		$cursor = execute_query(sub {
-			return get_products_collection()->query($query_ref);
+			return get_products_collection()->query($query_ref)->fields($fields_ref);
 		});
 	};
 	if ($@) {
@@ -5280,7 +5297,6 @@ sub search_and_graph_products($$$) {
 
 	if ($count > 0) {
 
-
 		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
 		# 1 axis: histogram / bar chart
@@ -5293,8 +5309,6 @@ sub search_and_graph_products($$$) {
 			$html .= display_scatter_plot($graph_ref, \@products);
 		}
 
-
-
 		if (defined $request_ref->{current_link_query}) {
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
@@ -5305,7 +5319,6 @@ sub search_and_graph_products($$$) {
 
 		$html .= lang("search_graph_blog");
 	}
-
 
 	return $html;
 }
