@@ -494,6 +494,11 @@ function update_display(imagefield, first_display) {
 	$(document).foundation('equalizer', 'reflow');
 }
 
+function get_recents(tagfield) {
+	let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+	return obj[tagfield] != null ? obj[tagfield] : [];
+}
+
 (function( $ ){
 
 	var settings = {

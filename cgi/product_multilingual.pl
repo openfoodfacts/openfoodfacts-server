@@ -636,7 +636,7 @@ sub display_field($$) {
 	}
 
 	if (defined $tags_fields{$fieldtype}) {
-		
+
 		my $autocomplete = "";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			my $world = format_subdomain('world');
@@ -648,15 +648,14 @@ sub display_field($$) {
 			$default_text = $Lang{$field . "_tagsinput"}{$lang};
 		}
 
-		my $arrayLenght = 3;
-
 		$initjs .= <<"JAVASCRIPT"
 var $field = new Tagify(document.getElementById('$field'), {
 	autocomplete: true,
+	whitelist: get_recents("${field}"),
 }), ${field}Contr;
 ${field}.on('input', function(e) {
 	var value = e.detail.value;
-	${field}.settings.whitelist.length = 0; // reset the whitelist
+	${field}.settings.whitelist = []; // reset the whitelist
 
 	// https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
 	${field}Contr && ${field}Contr.abort();
@@ -668,6 +667,20 @@ ${field}.on('input', function(e) {
 		${field}.settings.whitelist = whitelist;
 		${field}.dropdown.show.call(${field}, value); // render the suggestions dropdown
 	})
+});
+${field}.on('add', function(tag) {
+	let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+
+	if (obj == null) {
+		obj = {"${field}": [tag]}
+	} else if (obj["${field}"] == null) {
+		obj["${field}"] = [tag];
+	} else {
+		if (obj["${field}"].indexOf(tag) != -1) return;
+		if (obj["${field}"].length >= $arrayLenght) obj["${field}"].pop();
+		obj["${field}"].unshift(tag);
+	}
+	window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
 });
 document.getElementById('product_form').addEventListener('submit', function(e) {
 	document.getElementById('${field}').value = ${field}.value.map(obj => obj.value).join(',');
