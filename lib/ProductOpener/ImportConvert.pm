@@ -685,6 +685,14 @@ sub clean_fields($) {
 				$product_ref->{$field} = "";
 			}
 
+			# bad EMB codes
+			#
+			if ($field eq "emb_codes") {
+				# Remove anything that starts with 4 letters
+				# EMB 60282A - Gouvieux (Oise, France)
+				$product_ref->{$field} =~ s/\s*(\s-|,)\s+([[:alpha:]]{4}).*//;
+			}
+
 			# tag fields: turn separators to commas
 			# Sans conservateur / Sans huile de palme
 			# ! packaging codes can have / :  ES 12.06648/C CE
