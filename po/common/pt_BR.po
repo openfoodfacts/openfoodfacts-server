@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:14\n"
+"PO-Revision-Date: 2019-11-30 17:13\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3841,43 +3841,43 @@ msgstr "Ficheiro recebido"
 
 msgctxt "nutriscore_calculation_detail"
 msgid "Detail of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Detalhe do cálculo do Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este produto é considerado uma bebida para o cálculo do Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este produto não é considerado uma bebida para o cálculo do Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Pontos positivos"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Pontos negativos"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Os pontos para proteínas são contados porque os pontos negativos são menores que 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "Os pontos para proteínas não são contados porque os pontos negativos são maiores ou iguais a 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Os pontos para proteínas são contados porque os pontos para frutas, legumes, nozes e colza / azeite estão no máximo."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Os pontos para proteínas são contados porque o produto está na categoria de queijos."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "O produto está na categoria de gorduras, os pontos para gordura saturada são substituídos pelos pontos para a proporção de gordura saturada / gordura."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3893,7 +3893,7 @@ msgstr "Gordura saturada"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Proporção de gordura saturada / gordura"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3901,7 +3901,7 @@ msgstr "Sódio"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Frutas, legumes, nozes e colza /azeites"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3917,36 +3917,36 @@ msgstr "valor"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "valor arredondado"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Valor nutricional"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Pontuação Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts é 100% gratuito e independente."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">Precisamos da sua ajuda e doações</a> para continuar e desenvolver o projeto."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3954,15 +3954,59 @@ msgstr "Obrigado!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "Valor para o produto"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Valor médio para a categoria %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "O Nutri-Score pode ser alterado de %s para %s alterando o %s valor de %s para %s (diferença de %s por cento)."
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr ""
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Produtor"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr ""
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr ""
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr ""
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr ""
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr ""
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr ""
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr ""
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr ""
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 16:32\n"
+"PO-Revision-Date: 2019-11-30 17:01\n"
 "Language-Team: German\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -192,7 +192,7 @@ msgstr "Strichcode-Nummer:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "Sie können außerdem helfen, das Projekt Open Food Facts mitzufinanzieren."
+msgstr "Sie können außerdem helfen, das Projekt Open Food Facts mitzufinanzieren"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -569,7 +569,7 @@ msgstr "Das Passwort muss mindestens 6 Zeichen lang sein."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "Ungültiger Benutzer"
+msgstr "Ungültiger Benutzer."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -605,7 +605,7 @@ msgstr "Mit dieser E-Mail-Adresse ist kein Benutzerkonto vorhanden"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "Dieser Benutzername ist nicht gültig"
+msgstr "Dieser Benutzername ist nicht gültig."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
@@ -1173,7 +1173,7 @@ msgstr "Weitere Sprache"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr "Sprache, die auf dem Produkt am präsentesten und am stärksten hervorgehoben ist."
+msgstr "Sprache, die auf dem Produkt am präsentesten und am stärksten hervorgehoben ist"
 
 msgctxt "language"
 msgid "en-US"
@@ -2602,7 +2602,7 @@ msgstr "https://www.microsoft.com/de-de/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr "Sie sind verbunden als %s"
+msgstr "Sie sind verbunden als %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
@@ -2610,11 +2610,11 @@ msgstr "Foto abwählen"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr "Foto wurde abgewählt"
+msgstr "Foto wurde abgewählt."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr "Abgewähltes Foto"
+msgstr "Abgewähltes Foto."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
@@ -3966,4 +3966,48 @@ msgstr "Mittelwert für die Kategorie %s"
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "Der Nutri-Score kann von %s auf %s geändert werden, indem der %s-Wert von %s auf %s geändert wird (%s prozentuale Differenz)."
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Gruppen"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Hersteller"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "Darf nur für Konten von Produzenten überprüft werden, welche ihre eigenen Produkte bearbeiten. Das Produktbesitzrecht wird den Produzenten zugeschrieben, wenn sie ein Produkt hinzufügen oder bearbeiten."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Datenbank"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "Für externe Datenquellen. Das Eigentumsrecht an importierten Produkten ändert sich dadurch nicht."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "App"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "Für Anwendungen"
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Bot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "Für Roboter, Skripte usw."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Moderator"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "Moderatoren haben Zugriff auf spezielle Funktionen zur Bearbeitung und Überprüfung von Produkten."
 
