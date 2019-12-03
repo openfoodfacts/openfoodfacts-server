@@ -47,7 +47,7 @@ of a food product.
 		is_fat => 0,
 	}
 
-	my ($nutriscore_score, $nutriscore_grade) ) compute_nutriscore_score_and_grade(
+	my ($nutriscore_score, $nutriscore_grade) = compute_nutriscore_score_and_grade(
 		$nutriscore_data_ref
 	);
 
@@ -76,6 +76,8 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
+
+		%points_thresholds
 
 		&compute_nutriscore_score_and_grade
 		&get_value_with_one_less_negative_point
@@ -127,6 +129,8 @@ Returned values:
 - [nutrient]_points -> points for each nutrient
 - negative_points -> sum of unfavorable nutrients points
 - positive_points -> sum of favorable nutrients points
+- score -> nutrition score
+- grade -> Nutri-Score grade (A ti E
 
 The nutrients that are counted for the negative and positive points depend on the product type
 (if it is a beverage, cheese or fat) and on the values for some of the nutrients.
@@ -160,8 +164,7 @@ sub compute_nutriscore_score_and_grade($) {
 	return ($nutrition_score, $nutrition_grade);
 }
 
-
-my %points_thresholds = (
+%points_thresholds = (
 
 	# negative points
 
@@ -361,9 +364,9 @@ sub compute_nutriscore_score($) {
 		$nutriscore_data_ref->{positive_points} += $nutriscore_data_ref->{$nutrient . "_points"};
 	}
 
-	my $nutrition_score = $nutriscore_data_ref->{negative_points} - $nutriscore_data_ref->{positive_points};
+	my $score = $nutriscore_data_ref->{negative_points} - $nutriscore_data_ref->{positive_points};
 
-	return $nutrition_score;
+	return $score;
 }
 
 

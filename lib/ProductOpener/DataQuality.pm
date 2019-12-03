@@ -137,8 +137,11 @@ sub check_quality($) {
 			$product_ref->{"data_quality_" . $level . "_producers_tags"} = [];
 
 			foreach my $value (@{$product_ref->{"data_quality_" . $level . "_tags"}}) {
-				if ((exists_taxonomy_tag("data_quality", $value)) and ()) {
-					push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
+				if (exists_taxonomy_tag("data_quality", $value)) {
+					my $show_on_producers_platform = get_property("data_quality", $value, "show_on_producers_platform:en");
+					if ((defined $show_on_producers_platform) and ($show_on_producers_platform eq "yes")) {
+						push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
+					}
 				}
 			}
 		}

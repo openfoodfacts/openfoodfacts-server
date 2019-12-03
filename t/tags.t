@@ -411,4 +411,24 @@ is_deeply($product_ref->{stores_tags}, ["intermarche"]);
 compute_field_tags($product_ref, "de", "stores");
 is_deeply($product_ref->{stores_tags}, ["intermarche"]);
 
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "correcteurs-d-acidite"), "correcteurs-acidite");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "yaourt-a-la-fraise"), "yaourt-fraise");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "du-miel"), "miel");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "fruits-en-proportion-variable"), "fruits");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "des-de-tomate"), "des-de-tomate");
+
+my $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "categories", "en:strawberry-yogurts");
+is_deeply($tag_ref,  {
+'css_class' => 'tag known ',
+'display' => "Yaourts \x{e0} la fraise",
+'display_lc' => 'fr',
+'html_lang' => ' lang="fr"',
+'known' => 1,
+'tagid' => 'en:strawberry-yogurts',
+'tagurl' => 'yaourts-a-la-fraise'
+}
+   ) or diag explain $tag_ref;
+
+is(get_string_id_for_lang("fr", "Yaourts à la fraise"), "yaourts-a-la-fraise");
+
 done_testing();

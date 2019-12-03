@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-02 14:46\n"
+"PO-Revision-Date: 2019-11-30 17:13\n"
 "Language-Team: Russian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -195,7 +195,7 @@ msgstr "Вы также можете помочь финансировать п�
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> создан некоммерческой ассоциацией, независимой от отрасли. Это сделано для всех, всеми, и это финансируется всеми. Вы можете поддержать нашу работу, сделав <a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\">пожертвований на Open Food Facts</a> а также <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">используя поисковую систему Lilo</a>.<br/><b>Спасибо!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -423,7 +423,7 @@ msgstr "Пожертвовать Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -552,7 +552,7 @@ msgstr "Пароль и его подтверждение не совпадаю�
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Этот адрес уже указан другим пользователем. Возможно, у вас уже есть учётная запись? Вы можете <a href=\"/cgi/reset_password.pl\">сбросить пароль</a> вашей другой учётной записи."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -682,7 +682,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Данные, API и SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -876,7 +876,7 @@ msgstr "Этот файл был загружен в продукт %s и лиц
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Фотография от %s из %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
@@ -1399,7 +1399,7 @@ msgstr "Переместить изображения в другой проду
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s продуктов"
 
 msgctxt "name"
 msgid "Name"
@@ -2144,7 +2144,7 @@ msgstr "Точечная диаграмма"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ узнайте больше о графиках <<site_name>>: <a href=\"/graphs-in-3-clicks\">Графики в 3 клика</a> (блог).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2583,7 +2583,8 @@ msgstr "Посмотреть результаты со всего мира"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "Информация и данные должны поступать с упаковки товара и этикеток (а не с других сайтов или сайта производителя), а фотографии должны быть сняты вами.<br/>\n"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Почему это важно</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3122,11 +3123,11 @@ msgstr "Дата вывода"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "Формат: ГГГГ-ММ-ДД или ГГГГ-ММ или ГГГГ"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 или 2019-09 или 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3350,7 +3351,7 @@ msgstr "Идентификация продукта"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Происхождение"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3362,7 +3363,7 @@ msgstr "Пищевая и энергетическая ценность"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Дополнительная пищевая ценность"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3390,11 +3391,11 @@ msgstr "Ссылка на другие фото продукта"
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "Конкретная этикетка"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "Конкретная категория"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3402,7 +3403,7 @@ msgstr "Выберите поле"
 
 msgctxt "specify"
 msgid "Specify"
-msgstr ""
+msgstr "Указать"
 
 msgctxt "value_unit_dropdown"
 msgid "In the dropdown menu on the right, specify if the column contains:"
@@ -3414,7 +3415,7 @@ msgstr "значение и единица"
 
 msgctxt "value_unit_dropdown_value_specific_unit"
 msgid "the value in a specific unit"
-msgstr ""
+msgstr "значение в определенной единице"
 
 msgctxt "value_unit_dropdown_value"
 msgid "only the value, with the unit in another column"
@@ -3431,7 +3432,7 @@ msgstr ""
 
 msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Введите название этикетки в текстовое поле справа."
 
 # Please do not translate Y, Yes and 1
 msgctxt "specific_tag_category"
@@ -3440,7 +3441,7 @@ msgstr ""
 
 msgctxt "specific_tag_category_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Введите название категории в текстовое поле справа."
 
 msgctxt "value"
 msgid "Value"
@@ -3546,7 +3547,7 @@ msgstr "Экспорт данных о продукте и фотографий 
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Пожалуйста, убедитесь, что данные на платформе для производителей верны, прежде чем экспортировать их в открытую базу данных."
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -3554,19 +3555,19 @@ msgstr "Отмена"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "Свернутые изменения"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "качество данных"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "качество данных"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "качество данных"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
@@ -3582,59 +3583,431 @@ msgstr ""
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "информация о качестве данных"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "информация о качестве данных"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "информация о качестве данных"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "предупреждения о качестве данных"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "предупреждение о качестве данных"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "предупреждения о качестве данных"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "ошибки качества данных"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "ошибка качества данных"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "ошибки качества данных"
+
+msgctxt "data_quality_warnings_producers_p"
+msgid "data quality warnings"
+msgstr "предупреждения о качестве данных"
+
+msgctxt "data_quality_warnings_producers_s"
+msgid "data quality warning"
+msgstr "предупреждение о качестве данных"
+
+msgctxt "data_quality_warnings_producers"
+msgid "data quality warnings"
+msgstr "предупреждения о качестве данных"
+
+msgctxt "data_quality_errors_producers_p"
+msgid "data quality errors"
+msgstr "ошибки качества данных"
+
+msgctxt "data_quality_errors_producers_s"
+msgid "data quality error"
+msgstr "ошибка качества данных"
+
+msgctxt "data_quality_errors_producers"
+msgid "data quality errors"
+msgstr "ошибки качества данных"
 
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "Мин"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "Макс"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
-msgstr ""
+msgstr "возможные улучшения"
 
 msgctxt "improvements_s"
 msgid "possible improvement"
-msgstr ""
+msgstr "возможное улучшение"
 
 msgctxt "improvements"
 msgid "possible improvements"
+msgstr "возможные улучшения"
+
+# Do not translate
+msgctxt "import_products_link"
+msgid "/import-products"
+msgstr "/import-products"
+
+msgctxt "add_or_update_products"
+msgid "Add or update products"
+msgstr "Добавить или обновить товары"
+
+# Formal you
+msgctxt "your_products"
+msgid "Your products"
+msgstr "Ваши продукты"
+
+# Do not translate the e-mail address
+msgctxt "account_without_org"
+msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+msgstr "Ваша учетная запись еще не связана с компанией. Пожалуйста, отправьте письмо на <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> для активации свободного доступа к платформе для производителей."
+
+msgctxt "import_products"
+msgid "Import products"
+msgstr ""
+
+msgctxt "empty_column"
+msgid "Empty column"
+msgstr "Пустой столбец"
+
+msgctxt "empty_column_description"
+msgid "The file does not contain any value in this column."
+msgstr "Файл не содержит никаких значений в этом столбце."
+
+msgctxt "import_file_status_title"
+msgid "Data import in progress"
+msgstr "Выполняется импорт данных"
+
+# "product data" means data for many products
+msgctxt "import_file_status_description"
+msgid "The product data has been received and is going to be imported on the platform for producers."
+msgstr "Данные о продукте получены и будут импортированы на платформу для производителей."
+
+msgctxt "import_file_status"
+msgid "Status"
+msgstr "Статус"
+
+msgctxt "job_status_inactive"
+msgid "Scheduled"
+msgstr "Запланировано"
+
+msgctxt "job_status_active"
+msgid "In progress"
+msgstr "Выполняется"
+
+msgctxt "job_status_finished"
+msgid "Finished"
+msgstr "Завершено"
+
+msgctxt "job_status_failed"
+msgid "Failed"
+msgstr "Неудачно"
+
+msgctxt "import_file_result"
+msgid "Import result"
+msgstr "Результат импорта"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "Добавленные продукты"
+
+msgctxt "products_modified"
+msgid "Products modified"
+msgstr "Изменённые продукты"
+
+msgctxt "import_file_result_no_change"
+msgid "There were no product added or modified. The data has probably been already imported previously."
+msgstr "Нет добавленных или измененных продуктов. Возможно, данные уже были импортированы ранее."
+
+msgctxt "import_file_result_products"
+msgid "List of products added or modified"
+msgstr "Список добавленных или измененных продуктов"
+
+msgctxt "imports_p"
+msgid "imports"
+msgstr ""
+
+msgctxt "imports_s"
+msgid "import"
+msgstr ""
+
+msgctxt "imports"
+msgid "imports"
+msgstr ""
+
+msgctxt "number_of_products_with_data_quality_errors_producers"
+msgid "Number of products with data quality errors"
+msgstr "Количество продуктов с ошибками качества данных"
+
+msgctxt "number_of_products_with_data_quality_warnings_producers"
+msgid "Number of products with data quality warnings"
+msgstr "Количество продуктов с предупреждениями о качестве данных"
+
+msgctxt "number_of_products_with_improvements"
+msgid "Number of products with improvement opportunities"
+msgstr "Количество продуктов с возможностью улучшения"
+
+msgctxt "improvements_facet_description_1"
+msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+msgstr "В таблице перечислены возможные способы улучшения пищевой ценности, Nutri-Score и состава продуктов питания."
+
+msgctxt "improvements_facet_description_2"
+msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+msgstr ""
+
+# "product photos" in this sentence means photos for many products, not just one product
+msgctxt "import_photos_title"
+msgid "Import product photos"
+msgstr "Импорт фото продукта"
+
+msgctxt "import_photos_description"
+msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgstr "Вы можете использовать форму ниже, чтобы легко загрузить фотографии (внешнего вида продукта, списка ингредиентов и таблицы пищевой ценности) для многих продуктов."
+
+msgctxt "import_photos_format_1"
+msgid "Each filename needs to contains the barcode of the product."
+msgstr "Каждое имя файла должно содержать штрих-код продукта."
+
+msgctxt "import_photos_format_2"
+msgid "And you can also specify the type of the photo in the filename:"
+msgstr "Также вы можете указать тип фотографии в имени файла:"
+
+# Do not translate the file name
+msgctxt "import_photos_format_barcode"
+msgid "3001234567890.jpg: front of the product in the current language."
+msgstr "3001234567890.jpg: внешний вид продукта на текущем языке."
+
+# Do not translate the file name
+msgctxt "import_photos_format_front"
+msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
+msgstr "3001234567890.front_nl.jpg: внешний вид продукта на голландском языке."
+
+# Do not translate the file name
+msgctxt "import_photos_format_ingredients"
+msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
+msgstr "3001234567890.ingredients_fr.jpg: список ингредиентов на французском языке."
+
+# Do not translate the file name
+msgctxt "import_photos_format_nutrition"
+msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+msgstr ""
+
+msgctxt "add_photos"
+msgid "Add photos..."
+msgstr ""
+
+msgctxt "start_upload"
+msgid "Start upload"
+msgstr ""
+
+msgctxt "start"
+msgid "Start"
+msgstr ""
+
+msgctxt "close"
+msgid "Close"
+msgstr "Закрыть"
+
+msgctxt "cancel_upload"
+msgid "Cancel upload"
+msgstr ""
+
+msgctxt "info"
+msgid "Info"
+msgstr ""
+
+msgctxt "file_received"
+msgid "File received"
+msgstr ""
+
+msgctxt "nutriscore_calculation_detail"
+msgid "Detail of the calculation of the Nutri-Score"
+msgstr ""
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr ""
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr ""
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr ""
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr ""
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr ""
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr ""
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr ""
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "Энергетическая ценность"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "Сахара"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "Насыщенные жиры"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr ""
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "Натрий"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr ""
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "Пищевые волокна"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "Белки"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "значение"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr ""
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr ""
+
+# Do not translate
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr ""
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr ""
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score"
+msgstr ""
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr "Open Food Facts на 100% бесплатна и независима."
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr "<a href=\"\">Нам нужна твоя помощь и пожертвования</a> чтобы продолжить и развивать проект."
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "Спасибо!"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr ""
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr ""
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr ""
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Изготовитель"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr ""
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr ""
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr ""
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr ""
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr ""
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr ""
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr ""
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr ""
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 

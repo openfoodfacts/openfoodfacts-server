@@ -108,7 +108,7 @@ else {
 
 		my $data =  encode_json(\%response);
 
-		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+		print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 		exit(0);
 
@@ -119,7 +119,7 @@ else {
 	my @errors = ();
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($admin and (defined param('new_code'))) {
+	if ($User{moderator} and (defined param('new_code'))) {
 
 		change_product_server_or_code($product_ref, param('new_code'), \@errors);
 		$code = $product_ref->{code};
@@ -373,7 +373,23 @@ else {
 
 			my $modifier = undef;
 
-			normalize_nutriment_value_and_modifier(\$value, \$modifier);
+			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
+			# 1. if energy-kcal or energy-kj is set, delete existing energy data
+			if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
+				delete $product_ref->{nutriments}{"energy"};
+				delete $product_ref->{nutriments}{"energy_unit"};
+				delete $product_ref->{nutriments}{"energy_label"};
+				delete $product_ref->{nutriments}{"energy_value"};
+				delete $product_ref->{nutriments}{"energy_modifier"};
+				delete $product_ref->{nutriments}{"energy_100g"};
+			}
+			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
+			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+				$nid = $nid . "-" . lc($unit);
+				$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
+			}
+
+			(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
 
 			# New label?
 			my $new_nid = undef;
@@ -469,7 +485,7 @@ else {
 
 my $data =  encode_json(\%response);
 
-print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 
 exit(0);

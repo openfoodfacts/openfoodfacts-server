@@ -4,11 +4,8 @@ const { src, dest, series, parallel } = require('gulp')
 const sass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const minifyCSS = require('gulp-csso')
-const iconfont = require('gulp-iconfont')
-const iconfontCss = require('gulp-iconfont-css')
-const runTimestamp = Math.round(Date.now()/1000)
+const svgmin = require('gulp-svgmin')
 
-const fontName = 'Icons';
 const sassOptions = {
   errLogToConsole: true,
   outputStyle: 'expanded',
@@ -16,21 +13,17 @@ const sassOptions = {
 }
 
 function icons() {
-  return src('*.svg', { cwd: './icons'  })
-  .pipe(iconfontCss({
-    fontName: fontName,
-    path: './scss/templates/_icons.scss',
-    targetPath: '_icons.scss',
-    fontPath: '/fonts/icons/'
-  }))
-  .pipe(iconfont({
-    prependUnicode: false,
-    fontName: fontName,
-    formats: ['ttf', 'eot', 'woff', 'woff2'],
-    normalize: true,
-    timestamp: runTimestamp
-  }))
-  .pipe(dest('./html/fonts/icons'))
+  return src('*.svg', { cwd: './icons' })
+    .pipe(svgmin({
+      plugins: [
+        { removeMetadata: false },
+        { removeTitle: false },
+        { removeDimensions: true },
+        { addClassesToSVGElement: { className: 'icon' } },
+        { addAttributesToSVGElement: { attributes: [{ 'aria-hidden': 'true', 'focusable': 'false' }] } }
+      ]
+    }))
+    .pipe(dest('./html/images/icons/dist'))
 }
 
 function css() {

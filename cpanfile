@@ -50,6 +50,7 @@ requires 'Text::CSV', '>= 1.99, < 2.0';
 requires 'Text::Fuzzy';
 requires 'File::Copy::Recursive';
 requires 'Spreadsheet::CSV';
+requires 'List::MoreUtils';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';

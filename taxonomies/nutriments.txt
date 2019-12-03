@@ -181,7 +181,7 @@ et:Energia, Kalorsus
 eu:energia
 # ext:nirgía
 fa:انرژی
-fi:Energiav, energiaravintoaine
+fi:Energia
 fr:Énergie, valeurs énergétique, valeur énergétique
 # frr:energii
 # fy:enerzjy
@@ -304,6 +304,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Food_energy
 en:Energy from fat
 cs:Energie z tuku
 de:Brennwert aus Fetten
+fi:Energia rasvasta
 fr:Énergie provenant des graisses
 hu:Energia zsírból
 ja:脂質からのエネルギー
@@ -356,7 +357,7 @@ es:Proteínas, proteína
 et:Valgud
 eu:proteina
 fa:ﭘﺮﻭﺗﺌ‍ین
-fi:Proteiini
+fi:Proteiinit, proteiini
 fo:Protein
 fr:Protéines, Protéine brute, protéine
 # frr:Protein
@@ -544,6 +545,7 @@ en:Nucleotides
 de:Nukleotide
 el:Νουκλεοτίδια
 fa:نوکلئوتید
+fi:Nukleotidit
 fr:Nucléotides
 hu:Nukleotidok
 it:Nucleotidi
@@ -558,12 +560,13 @@ zh:核苷酸
 wikidata:en:Q56058005
 wikipedia:en:https://en.wikipedia.org/wiki/Nucleotide
 
-# description:en:In blood, the serum is the component that is neither a blood cell, nor a clotting factor; it is the blood plasma not including the fibrinogens. Protein in the serum is made up of albumin and globulin. 
+# description:en:In blood, the serum is the component that is neither a blood cell, nor a clotting factor; it is the blood plasma not including the fibrinogens. Protein in the serum is made up of albumin and globulin.
 # comment:en:No wikidata nor wikipedia entry.
 
 en:Serum proteins
 de:Serumprotein
 el:Πρωτεΐνες ορού
+fi:Plasmaproteiinit
 fr:Protéines sériques
 it:Sieroproteine
 ja:血清たんぱく質
@@ -608,7 +611,7 @@ et:Süsivesikud, Sahhariidid
 eu:karbono hidrato
 # ext:Glúcidu
 fa:کربوهیدرات ها
-fi:Hiilihydraatti
+fi:Hiilihydraatit, hiilihydraatti
 fr:Glucides
 # frr:Köölhüdraaten
 fy:Koalhydraat
@@ -739,7 +742,7 @@ es:Azúcares, azúcar
 et:Suhkrud
 eu:Azukre
 fa:شکر
-fi:Sokerit
+fi:Sokerit, sokeri
 fr:Sucres, sucre
 fy:sûker
 ga:Siúcraí, Siúcra
@@ -1041,7 +1044,7 @@ zh:葡萄糖
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose
 wikidata:en:Q37525
 
-# description:en:FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose. It is one of the three dietary monosaccharides, along with glucose and galactose, that are absorbed directly into blood during digestion. Commercially, fructose is derived from sugar cane, sugar beets, and maize. 
+# description:en:FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose. It is one of the three dietary monosaccharides, along with glucose and galactose, that are absorbed directly into blood during digestion. Commercially, fructose is derived from sugar cane, sugar beets, and maize.
 
 en:fructose
 af:Fruktose
@@ -1273,6 +1276,7 @@ en:Maltodextrins, maltodextrin
 de:Maltodextrine
 el:Μαλτοδεξτρίνες, μαλτοδεξτρίνη
 es:Maltodextrinas, maltodextrina
+fi:Maltodekstriinit, maltodekstriini
 fr:Maltodextrines, maltodextrine, malto-dextrine
 he:מלטודקסטרינים
 hu:Maltodextrin
@@ -1368,7 +1372,7 @@ yi:קראכמל
 zh:淀粉
 # yue:澱粉
 wikidata:en:Q41534
-wikipedia:en:https://en.wikipedia.org/wiki/Starch 
+wikipedia:en:https://en.wikipedia.org/wiki/Starch
 
 # description:en:SUGAR ALCOHOLS are organic compounds, typically derived from sugars, that comprise a class of polyols. They can occur naturally or be produced industrially from sugars. They are used widely in the food industry as thickeners and sweeteners. Consumption of sugar alcohols affects blood sugar levels, although much less than does sucrose comparing by glycemic index. Sugar alcohols may also cause bloating and diarrhea when consumed in excessive amounts.
 
@@ -1415,7 +1419,7 @@ ar:دهن
 ay:Lik'i
 bg:Мазнина, мазнини
 bn:স্নেহ পদার্থ
-br:Druzoni 
+br:Druzoni
 ca:greix
 cs:tuky, tuk
 cy:Braster
@@ -1427,7 +1431,7 @@ es:gordo, grasa
 et:Rasvad
 eu:koipe
 fa:چربی
-fi:Rasva
+fi:Rasva, rasvat
 fr:Graisse
 ga:Saill
 gl:greix
@@ -1585,7 +1589,7 @@ eo:buterata acido
 es:Ácido butírico
 eu:Azido butiriko
 fa:بوتریک اسید
-fi:Voihappo
+fi:Voihappo, butaanihappo
 fr:Acide butyrique, acide butanoïque
 he:חומצה בוטירית
 hu:Vajsav
@@ -1650,7 +1654,7 @@ az:Kapron turşusu
 # azb:هقزانوئیک اسید
 ca:Àcid caproic, àcid hexanoic
 cs:Kyselina kapronová
-de:Capronsäure 
+de:Capronsäure
 el:καπροϊκό οξύ
 # en-ca:Hexanoic acid
 # en-gb:Hexanoic acid
@@ -1660,10 +1664,10 @@ fa:هگزانوئیک اسید
 fi:Kapronihappo
 fr:Acide caproïque, Acide hexanoïque
 gl:Ácido hexanoico
-he:חומצה קפרואית 
+he:חומצה קפרואית
 hi:हेक्सानिक अम्ल
 it:Acido capronico, acido esanoico
-ja:カプロン酸 
+ja:カプロン酸
 kn:ಕಾಪ್ರೋಯಿಕ್ ಆಮ್ಲ
 ko:카프로산
 lv:kapronskābe, Heksānskābe
@@ -1682,7 +1686,7 @@ sv:Kapronsyra
 te:కాప్రోయిక్ ఆమ్లం
 uk:капронова кислота
 vi:Axít caproic
-zh:己酸 
+zh:己酸
 # zh-cn:己酸
 # zh-hans:己酸
 # zh-hant:己酸
@@ -1690,9 +1694,9 @@ zh:己酸
 # zh-mo:己酸
 # zh-sg:己酸
 # zh-tw:己酸
-# zh_CN:己酸 
-# zh_HK:己酸 
-# zh_TW:己酸 
+# zh_CN:己酸
+# zh_HK:己酸
+# zh_TW:己酸
 wikidata:en:Q422597
 wikipedia:en:https://en.wikipedia.org/wiki/Hexanoic_acid
 
@@ -1705,7 +1709,7 @@ ar:حمض الأوكتانويك
 # azb:کاپریلیک اسید
 ca:àcid caprílic
 cs:Kyselina kaprylová
-de:Caprylsäure 
+de:Caprylsäure
 el:Καπρυλικό οξύ
 eo:Oktanoata acido
 es:Ácido caprílico
@@ -1739,8 +1743,8 @@ zh:辛酸
 # zh-mo:辛酸
 # zh-sg:辛酸
 # zh-tw:辛酸
-# zh_CN:辛酸 
-# zh_HK:辛酸 
+# zh_CN:辛酸
+# zh_HK:辛酸
 # zh_TW:辛酸
 wikidata:en:Q409564
 wikipedia:en:https://en.wikipedia.org/wiki/Caprylic_acid
@@ -2058,7 +2062,7 @@ el:Αραχιδικό οξύ
 es:Ácido araquídico
 eu:Azido arakidiko
 fa:آراکیدیک اسید
-fi:Arakidihappo
+fi:Arakidihappo, eikosaanihappo, ikosaanihappo
 fr:Acide arachidique, acide eicosanoïque
 ga:aigéad araicise
 gl:Ácido araquídico
@@ -2253,6 +2257,7 @@ de:Melissinsäure
 el:Μελισσικό οξύ
 es:Ácido melísico
 fa:ملیسیک اسید
+fi:Triakontaanihappo
 fr:Acide mélissique
 gl:Ácido melísico
 it:acido melissico
@@ -2293,7 +2298,7 @@ es:Grasas monoinsaturadas
 et:Monoküllastumata rasvhapped
 eu:gantz-azido monoasegabe
 fa:چربی تک‌سیرنشده
-fi:Kertatyydyttymättömät rasvat, Kertatyydyttymätön rasvahappo
+fi:Kertatyydyttymättömät rasvat, Kertatyydyttymättömät rasvahapot
 fr:Acides gras monoinsaturés, Acides gras mono-insaturés
 ga:Monai-neamhsháitheáin saill
 he:שומן חד בלתי רווי
@@ -2412,7 +2417,7 @@ es:Ácido oleico
 et:Oleiinhape
 eu:Azido oleiko
 fa:ان-نیتروزو-ان-متیل‌اوره
-fi:öljyhappo
+fi:Oleiinihappo, öljyhappo
 fr:Acide oléique
 ga:aigéad oiléach
 gl:Ácido oleico
@@ -2636,7 +2641,7 @@ zh:神经酸
 # zh_TW:二十四碳烯酸
 wikipedia:en:https://en.wikipedia.org/wiki/Nervonic_acid
 
-# description:en:POLYUNSATURATED FATS are fats in which the constituent hydrocarbon chain possesses two or more carbon–carbon double bonds. Polyunsaturated fat can be found mostly in nuts, seeds, fish, seed oils, and oysters. Because of their effects in the diet, unsaturated fats (monounsaturated and polyunsaturated) are often referred to as good fats; while saturated fats are sometimes referred to as bad fats. 
+# description:en:POLYUNSATURATED FATS are fats in which the constituent hydrocarbon chain possesses two or more carbon–carbon double bonds. Polyunsaturated fat can be found mostly in nuts, seeds, fish, seed oils, and oysters. Because of their effects in the diet, unsaturated fats (monounsaturated and polyunsaturated) are often referred to as good fats; while saturated fats are sometimes referred to as bad fats.
 
 # <en:fat
 en:Polyunsaturated fat
@@ -2650,7 +2655,7 @@ dv:ޕޮލީއަންސެޗުރޭޓެޑް ފެޓް
 el:Πολυακόρεστα λιπαρά
 es:Grasas poliinsaturadas
 et:Polüküllastumata rasvhapped
-fi:Monityydyttymättömät rasvat
+fi:Monityydyttymättömät rasvat, monityydyttymättömät rasvahapot
 fr:Acides gras polyinsaturés, Acides gras poly-insaturés
 ga:Pola-neamhsháitheáin saill
 he:שומן רב בלתי רווי
@@ -2774,7 +2779,7 @@ nb:alfalinolensyre
 nl:Alfa-linolzuur
 nn:alfalinolensyre
 pl:kwas α-linolenowy
-pt:Ácido alfa-linolênico 
+pt:Ácido alfa-linolênico
 # pt_pt:Ácido alfa-linolénico
 ro:acid alfa-linolenic
 ru:Альфа-линоленовая кислота
@@ -2791,9 +2796,9 @@ th:กรดลิโนเลนิกอัลฟา
 tr:Alfa-linolenik asit
 uz:alfa-linolen kislota
 vi:Axit α-linolenic
-zh:α-亚麻酸 
-# zh_CN:α-亚麻酸 
-# zh_HK:α-亞麻酸 
+zh:α-亚麻酸
+# zh_CN:α-亚麻酸
+# zh_HK:α-亞麻酸
 # zh_TW:α-亞麻酸
 wikidata:en:Q256502
 wikipedia:en:https://en.wikipedia.org/wiki/Alpha-Linolenic_acid
@@ -3139,7 +3144,7 @@ zh:二高-γ-亚麻酸
 # zh_TW:二高-γ-亞麻酸
 wikidata:en:Q415398
 wikipedia:en:https://en.wikipedia.org/wiki/Dihomo-γ-linolenic_acid
- 
+
 # description:en:Trans fat is a type of unsaturated fat that occurs in small amounts in meat and milk fat. It became widely produced industrially from vegetable and fish oils in the early 20th century for use in margarine and later also in snack food, packaged baked goods, and for frying fast food.
 
 en:Trans fat, trans fatty acid
@@ -3153,7 +3158,7 @@ el:Τρανς λιπαρά, trans-λιπαρό οξύ
 es:Grasas trans, Ácido graso trans
 et:Transrasv, transrasvhape
 fa:چربی ترانس
-fi:Transrasva
+fi:Transrasva, transrasvahappo
 fr:Acides gras trans
 ga:aigéad tras-sailleach
 he:שומן טראנס - שומן בלתי רווי
@@ -3209,7 +3214,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trans_fat
 en:Cholesterol
 af:Cholesterol
 am:ኮሌስትሮል
-ar:الكوليسترول 
+ar:الكوليسترول
 as:কলেষ্টেৰল
 # ast:Colesterol
 az:Xolesterin
@@ -3386,6 +3391,7 @@ ca:fibra soluble
 cs:Rozpustná vláknina
 de:lösliche Ballaststoffe
 es:fibra soluble
+fi:Liukeneva kuitu
 fr:Fibres solubles
 fy:Fermintearbere fiedingsfezels
 gl:Fibra alimentaria solúbel
@@ -3408,6 +3414,7 @@ ca:fibra insoluble
 cs:nerozpustné vlákniny
 de:unlösliche Ballaststoffe
 es:fibra insoluble
+fi:Liukenematon kuitu
 fr:Fibres insolubles
 fy:Net-fermintearbere fiedingsfezels
 gl:Fibra alimentaria solúbel
@@ -3629,7 +3636,7 @@ es:Sal, sal común, sal de mesa
 et:Söögisool, keedusool
 eu:Gatz arrunt, mahaiko gatza
 fa:نمک
-fi:Ruokasuola
+fi:Suola, Ruokasuola
 fr:Sel, Sel alimentaire, sel de table, sel de cuisine, sel sec, sel comestible
 ga:Salann
 gd:Salann
@@ -3723,12 +3730,13 @@ ar:مكافئ الملح
 fr:Equivalent en sel
 es:Equivalente en sal
 el:Ισοδύναμο σε αλάτι
+fi:Suolaekvivalentti
 he:תחליפי מלח
 nl:Equivalent in zout
 pt:Equivalente em sal
 wikidata:en:Q7405977
 wikipedia:en:https://en.wikipedia.org/wiki/Salt_equivalent
- 
+
 # description:en: A VITAMIN is an organic molecule (or related set of molecules) which is an essential micronutrient that an organism needs in small quantities for the proper functioning of its metabolism. This ingredient is written in plural
 # comment:en:vitamins is also part of ingredients.txt
 
@@ -4432,7 +4440,7 @@ es:riboflavina, vitamina b2
 et:Riboflaviin, Vitamiin B2
 eu:B2 bitamina
 fa:ویتامین ب۲
-fi:Riboflaviini
+fi:Riboflaviini, B2-vitamiini
 fo:Riboflavin, Vitamin B2
 fr:riboflavine, vitamine b2
 ga:Ribeaflaivin
@@ -4565,7 +4573,7 @@ es:vitamina b6, piridoxina
 et:Vitamiin B6
 eu:B6 bitamina
 fa:ویتامین ب۶
-fi:B6-vitamiini
+fi:B6-vitamiini, pyridoksiini
 fr:vitamine b6
 fy:Fitamine B6
 gl:Vitamina B6
@@ -4629,6 +4637,7 @@ daily_value_2016:en:1.7,
 en:Folates (total folates)
 cs:folát
 el:Φολασίνη
+fi:Folaatit
 fr:Folates (folates totaux)
 ms:Folat
 nn:folat
@@ -4662,7 +4671,7 @@ es:Ácido fólico
 et:Foolhape
 eu:Azido foliko
 fa:اسید فولیک
-fi:foolihappo
+fi:foolihappo, B9-vitamiini
 fr:acide folique, folacine
 # frr:Folsüren
 ga:Aigéad fólach
@@ -4720,7 +4729,7 @@ wikidata:en:Q127060
 unit:en:µg
 daily_value:en:400,
 daily_value_2016:en:400,
- 
+
 
 # description:en:VITAMIN B12 is a water-soluble vitamin that is involved in the metabolism of every cell of the human body. Because there are no common vegetable sources of the vitamin, vegans must use a supplement or fortified foods for B12 intake or risk serious health consequences. Otherwise, most omnivorous people in developed countries obtain enough vitamin B12 from consuming animal products including meat, milk, eggs, and fish.
 # comment:en:cobalamin is also in ingredients.txt
@@ -4982,7 +4991,7 @@ et:Mineraal, Mineraalained
 eu:Mineral
 # ext:Mineral
 fa:کانی
-fi:Mineraali, Kivennäiset
+fi:Kivennäisaineet, kivennäisaine, kivennäiset, kivennäinen
 # fiu-vro:Mineraal
 fr:Minéral, Minéraux, Substances d'apport minéral, Apport minéral, mineraux, Sels minéraux
 # frr:Mineraal
@@ -5248,12 +5257,12 @@ unit:en:mg
 en:Bicarbonate
 bg:бикарбонат
 cs:bikarbonát
-da:bicarbonat 
+da:bicarbonat
 de:Bikarbonat
 el:Διττανθρακικό
 es:Bicarbonato
 et:nikkarbonaat
-fi:bikarbonaatti
+fi:Vetykarbonaatti, bikarbonaatti
 fr:Bicarbonate, hydrogénocarbonates
 ga:décharbónáit
 he:ביקרבונט (מימן פחמתי)
@@ -5508,7 +5517,7 @@ zh:氯化物
 # zh-tw:氯化物
 wikidata:en:Q108200
 
-# description:en:Silicon dioxide, also known as silica, is an oxide of silicon with the chemical formula SiO2, most commonly found in nature as quartz and in various living organisms. Silica is a common additive in food production, where it is used primarily as a flow agent in powdered foods, or to adsorb water in hygroscopic applications. It is used as an anti-caking agent in powdered foods such as spices and non-dairy coffee creamer. 
+# description:en:Silicon dioxide, also known as silica, is an oxide of silicon with the chemical formula SiO2, most commonly found in nature as quartz and in various living organisms. Silica is a common additive in food production, where it is used primarily as a flow agent in powdered foods, or to adsorb water in hygroscopic applications. It is used as an anti-caking agent in powdered foods such as spices and non-dairy coffee creamer.
 
 # <en:Mineral
 en:Silica, Silicon dioxide
@@ -5532,7 +5541,7 @@ es:Sílice, óxido de silicio
 et:Ränidioksiid
 eu:Silizio dioxido
 fa:سیلیسیم دی‌اکسید
-fi:Piidioksidi
+fi:Piidioksidi, silika
 fr:Silice, dioxyde de silicium
 ga:Silice
 he:צורן דו־חמצני
@@ -5919,7 +5928,7 @@ daily_value:en:1000,
 daily_value_2016:en:1250
 wikidata:en:Q674
 wikipedia:en:https://en.wikipedia.org/wiki/Phosphorus
- 
+
 # description:en: IRON is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. Iron is pervasive, but particularly rich sources of dietary iron include red meat, oysters, lentils, beans, poultry, fish, leaf vegetables, watercress, tofu, chickpeas, black-eyed peas, and blackstrap molasses. Iron provided by dietary supplements is often found as iron(II) fumarate, although iron(II) sulfate is cheaper and is absorbed equally well.
 # comment:en:Iron is also in ingredients.txt
 
@@ -6163,6 +6172,7 @@ es:Magnesio
 et:Magneesium
 eu:magnesio
 fa:منیزیم
+fi:Magnesium
 fo:Magnesium
 fr:Magnésium
 fy:Magnesium
@@ -6540,7 +6550,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Zinc
 unit:en:mg
 daily_value:en:15,
 daily_value_2016:en:11,
- 
+
 # description:en:COPPER is a chemical element with symbol Cu (from Latin:cuprum) and atomic number 29. Copper is essential to all living organisms as a trace dietary mineral because it is a key constituent of the respiratory enzyme complex cytochrome c oxidase. Rich sources of copper include oysters, beef and lamb liver, Brazil nuts, blackstrap molasses, cocoa, and black pepper. Good sources include lobster, nuts and sunflower seeds, green olives, avocados, and wheat bran.
 # comment:en:Copper is also in ingredients.txt
 
@@ -6744,7 +6754,7 @@ unit:en:mg
 daily_value:en:2,
 daily_value_2016:en:0.9,
 
-# description:en:MANGANESE is a chemical element with the symbol Mn and atomic number 25. Manganese is an essential human dietary element. It is present as a coenzyme in several biological processes, which include macronutrient metabolism, bone formation, free radical defense systems. 
+# description:en:MANGANESE is a chemical element with the symbol Mn and atomic number 25. Manganese is an essential human dietary element. It is present as a coenzyme in several biological processes, which include macronutrient metabolism, bone formation, free radical defense systems.
 # comment:en:Manganese is also in ingredients.txt
 
 # <en:Mineral
@@ -7089,7 +7099,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Selenium
 unit:en:µg
 daily_value:en:70,
 daily_value_2016:en:55,
- 
+
 # description:en:CHROMIUM is a chemical element with symbol Cr and atomic number 24. The biologically beneficial effects of Chromium(III) continue to be debated. A wide variety of animal-sourced and vegetable-sourced foods contain chromium.
 # comment:en:chromium is also in ingredients.txt
 
@@ -7488,7 +7498,7 @@ ms:Iodin
 mt:Jodju
 my:အိုင်အိုဒင်း
 # myv:Иод
-# nan:Ak-sò͘ 
+# nan:Ak-sò͘
 nb:jod
 # nds:Jod
 ne:आयोडिन
@@ -7551,7 +7561,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iodine
 unit:en:µg
 daily_value:en:150,
 dv_2016:en:150,
- 
+
 # description:en:CAFFEINE is a bitter, white crystalline purine, a methylxanthine alkaloid. The most well-known source of caffeine is the coffee bean, a misnomer for the seed of Coffea plants. Beverages containing caffeine are ingested to relieve or prevent drowsiness and to improve performance.
 
 en:caffeine
@@ -7722,7 +7732,7 @@ es:pH
 et:PH, Vesinikeksponent
 eu:pH
 fa:پی‌اچ
-fi:PH, Happamuus
+fi:pH, Happamuus
 fr:pH
 # frr:PH-wäärs
 ga:PH
@@ -7853,6 +7863,7 @@ wikidata:en:Q310667
 wikipedia:en:https://en.wikipedia.org/wiki/Carbon_footprint
 
 en:Carbon footprint from meat or fish
+fi:Hiilijalanjälki lihasta tai kalasta
 fr:Empreinte carbone de la viande ou du poisson
 nl:koolstofvoetafdruk voor vlees of vis
 unit:en:g
@@ -7911,7 +7922,7 @@ unit:en:
 wikidata:en:Q273924
 wikipedia:en:https://en.wikipedia.org/wiki/Glycemic_index
 
-# description:en:Hard water is water that has high mineral content. The total WATER HARDNESS is the sum of the molar concentrations of Ca2+ and Mg2+, in mol/L or mmol/L units. 
+# description:en:Hard water is water that has high mineral content. The total WATER HARDNESS is the sum of the molar concentrations of Ca2+ and Mg2+, in mol/L or mmol/L units.
 
 en:Water hardness
 ar:عسر الماء
@@ -7971,56 +7982,64 @@ zh:水質硬度
 # zh-tw:水質硬度
 unit:en:mmol/l
 wikidata:en:Q192905
- 
+
 en:Fruits - vegetables and nuts
 de:Obst - Gemüse und Nüsse
 fr:Fruits - légumes et noix
 es:Frutas - verduras y nueces
 el:Φρούτα - λαχανικά, καρποί
+fi:Hedelmät - kasvikset ja pähkinät
 nl:Fruit - groenten en noten
 unit:en:%
 
 en:Fruits - vegetables and nuts - dried
 de:Obst - Gemüse und Nüsse - getrocknet
+fi:Hedelmät - kasvikset ja pähkinät - kuivattu
 fr:Fruits - légumes et noix - séchés
 nl:Fruit - groenten en noten - gedroogd
 unit:en:%
 
 en:Fruits - vegetables and nuts (estimate from ingredients list)
 de:Obst - Gemüse und Nüsse (Schätzung aus Zutatenliste)
+fi:Hedelmät - kasvikset ja pähkinät (arvio ainesosaluettelosta)
 fr:Fruits - légumes et noix (estimation avec la liste des ingrédients)
 es:Frutas - verduras y nueces (estimación de la lista de ingredientes)
 nl:Fruit - groenten en noten (Geschat uit ingrediëntenlijst)
 unit:en:%
- 
+
 en:Collagen/Meat protein ratio (maximum)
 fr:Rapport collagène sur protéines de viande (maximum)
 el:Αναλογία κολλαγόνου/πρωτεΐνης κρέατος (μέγιστο)
 es:Relación tejido conjuntivo/proteínas de carne (máximo)
 de:Verhältnis Kollagen/Eiweiß
+fi:Kollageeni/liha-proteiinisuhde (maksimi)
 nl:Verhouding collageen/eiwitten uit vlees (maximum)
 unit:en:%
- 
+
 en:Cocoa (minimum)
 de:Kakao (Minimum)
 es:Cacao (mínimo)
+fi:Kaakao (minimi)
 fr:Cacao (minimum)
 nl:Cacao (minimum)
 pt:Cacau (minimum)
 unit:en:%
- 
+
 en:Nutrition score - UK
+fi:Ravintopisteet - UK
 nl:Voedingsscore - UK
 el:Bαθμολογία θρεπτικής αξίας-UK
 unit:en:
- 
+
 en:Nutrition score - France
+fi:Ravintopisteet - Ranska
 fr:Score nutritionnel - France
 nl:Voedingsscore - FR
 el:Βαθμολογία θρεπτικής αξίας-FR
 unit:en:
 
 en:Nutrition grade
+fi:Ravintoarvosana
 fr:Note nutritionnelle
 unit:en:
 
@@ -8103,7 +8122,7 @@ es:Clorofilas
 et:Klorofüllid
 eu:Klorofila
 fa:سبزینه
-fi:Klorofyllit
+fi:Lehtivihreä, Klorofylli
 fr:chlorophylles
 ga:Clóraifill
 gl:Clorofila
@@ -8171,7 +8190,7 @@ zh:叶绿素
 # xmf:ქლოროფილი
 # yue:葉綠素
 wikipedia:en:https://en.wikipedia.org/wiki/Chlorophyll
- 
+
 # description:en:CHOLINE is a water-soluble vitamin-like essential nutrient. Cruciferous vegetables, such as Brussels sprouts and broccoli, are good sources of choline.
 
 en:Choline
@@ -8211,7 +8230,7 @@ tr:Kolin
 uk:Холін
 zh:胆碱
 # zh_CN:胆碱
- 
+
 # description:en:PHYLLOQUINONE is a vitamin found in food and used as a dietary supplement. As a supplement it is used to treat certain bleeding disorders. Vitamin K is required for bone protein formation.
 3 comment:en:Phylloquinone is also in ingredients.txt
 
@@ -8226,7 +8245,7 @@ el:φυλλοκινόνη, φυτομεναδιόνη
 es:filoquinona, fitomenadiona
 et:füllokinoon, fütomenadioon
 fa:فیلوکینون
-fi:fyllokinoni, fytomenadioni
+fi:fyllokinoni, fytomenadioni, K1-vitamiini
 fr:phylloquinone, phytoménadione, phytonadione,  vitamine K1
 hu:fillokinon, fitomenadion
 it:fillochinone, vitamina K1
@@ -8263,7 +8282,7 @@ da:beta-glucan
 de:Beta-Glucan
 el:β-γλυκάνη
 es:beta-glucano
-fi:betaglukaani
+fi:beetaglukaani
 fr:Bêta-glucane
 hu:béta-glükán
 id:beta glucan
@@ -8285,7 +8304,7 @@ vi:Beta-glucan
 zh:Β-葡聚醣
 wikidata:en:Q2076617
 wikipedia:en:https://en.wikipedia.org/wiki/Beta-glucan
- 
+
 # description:en:INOSITOL is a carbocyclic sugar that is abundant in brain and other mammalian tissues, mediates cell signal transduction and participates in osmoregulation. It is a sugar alcohol with half the sweetness of table sugar. It is made naturally in humans from glucose. A human kidney will produce around two grams each day. Foods containing the highest concentrations of inositol include fruits, beans, grains, and nuts.
 
 en:inositol
@@ -8338,7 +8357,7 @@ zh:肌醇
 # zh-sg:肌醇
 # zh-tw:肌醇
 wikipedia:en:https://en.wikipedia.org/wiki/Inositol
- 
+
 # description:en:CARNITINE is a quaternary ammonium compound involved in metabolism in most mammals, plants and some bacteria. The body synthesizes enough carnitine from lysine side chains to keep up with the needs of energy production in the body as carnitine acts as a transporter of long-chain fatty acids into the mitochondria to be oxidized and produce energy. Food sources rich in L-carnitine are animal products such as meat, poultry, fish, and milk. Redder meats tend to have higher levels of L-carnitine. Some individuals with genetic or medical disorders (like preterm infants) cannot make enough, so this makes carnitine a conditionally essential nutrient for them.
 
 en:Carnitine
@@ -8403,7 +8422,7 @@ de:Trockenrückstand
 el:ξηρό υπόλειμμα
 es:residuo seco
 et:kuivjääk
-fi:kuiva jäännös
+fi:kuiva-ainepitoisuus lämpötilassa 180 °C
 fr:residu sec à 180°C
 ga:iarmhar tirim
 hu:iarmhar tirim
@@ -8420,6 +8439,7 @@ unit:en:mg
 # description:en:The European Bitterness Units scale, often abbreviated as EBU, is a bitterness scale[21] in which lower values are generally "less bitter" and higher values "more bitter". The scale and method are defined by the European Brewery Convention, and the numerical value should be the same as of the International Bittering Units scale (IBU). However, the exact process of determining EBU and IBU values differs slightly, which may in theory result with slightly smaller values for EBU than IBU.
 
 de:EBU, European Bitterness Unit
+fi:EBU, European Bitterness Unit
 nl:EBU, European Bitterness Unit
 unit:en:
 wikidata:en:Q21694667
@@ -8433,6 +8453,7 @@ ar:IBU, وحدات قياس المرارة الدولية
 da:IBU, International Bitterness Unit
 de:IBU, International Bitterness Unit
 es:IBU, Unidad Internacional de Amargor
+fi:IBU, International Bitterness Unit
 fr:IBU, International Bittering Unit
 it:IBU, International Bitterness Unit
 ja:IBU, 国際苦味単位

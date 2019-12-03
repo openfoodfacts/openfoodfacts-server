@@ -6,12 +6,13 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP';
+use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 # dummy product for testing
 
@@ -116,5 +117,100 @@ crème fraîche
 5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde.");
 
 is(clean_ingredients_text_for_lang("Lait demi - écrémé, fromage Saint - Moret 3% - pommes - bananes", "fr"), "Lait demi-écrémé, fromage Saint-Moret 3% - pommes - bananes");
+
+@fields = ("ingredients_text_fr");
+$product_ref = { lc => "fr", ingredients_text_fr => "<STRONG><i>thon</i></STRONG>, eau, sel" }; clean_fields($product_ref);
+is($product_ref->{ingredients_text_fr}, "_thon_, eau, sel") or diag explain $product_ref;
+
+$product_ref = { lc => "fr", ingredients_text_fr => "<b>blé</b>, <i>froment</i>, <strong><u>soja</u></strong>, test" }; clean_fields($product_ref);
+is($product_ref->{ingredients_text_fr}, "_blé_, _froment_, _soja_, test") or diag explain $product_ref;
+
+$product_ref = { lc => "fr", ingredients_text_fr => "Traces de <b> fruits à coque </b>, <b></b><b>lait)</b> - extrait de malt d'<u>orge - </u>sel, persil- poivre blanc -ail" }; clean_fields($product_ref);
+is($product_ref->{ingredients_text_fr}, "Traces de _fruits \x{e0} coque_ , _lait_) - extrait de malt d'_orge_ - sel, persil - poivre blanc - ail") or diag explain $product_ref;
+
+$product_ref = { lc => "fr", ingredients_text_fr => "Farine de<STRONG> <i>blé</i> </STRONG> - sucre" }; clean_fields($product_ref);
+is($product_ref->{ingredients_text_fr}, "Farine de _blé_ - sucre") or diag explain $product_ref;
+
+# Finnish
+
+$product_ref = {
+	lc => "fi",
+	ingredients_text_fi => "vesi, kaura 10%, jodioitu suola Ravintoarvo per 100 ml: Energi/Energia 245 kJ/59 kcal Fett/Fedt/Rasva 3,0g varav/hvorav/heraf/josta mättat fett/mettede fettsyrer tyydyttynyttä 0,3g Kolhydrat / Karbohydrat Kulhydrat/Hiilihydraatti 6,6g varav/hvorav/heraf/josta sockerarter/sukkerarter sokereita 4,0g Fiber/Kostfiber Ravintokuitu 0,8g Protein/Proteiini 1,0g Salt/Suola 0,10g Vitamin D/D-vitamiini 1,5 ug (30%**) Riboflavin/Riboflaviini 0,21 mg (15%**) Kalcium/Kalsium 120mg (15%*)
+"
+};
+
+compute_languages($product_ref);
+clean_ingredients_text($product_ref);
+
+diag explain $product_ref;
+
+is($product_ref->{ingredients_text_fi}, "vesi, kaura 10%, jodioitu suola");
+
+
+$product_ref = {
+        lc => "fi",
+        ingredients_text_fi => "Vesi, manteli 2%, kivennäisaine (kalsiumkarbonaatti), suola, emulgointiaine (E 322) SÄILYTYS: Huoneenlämmössä. Avattuna: 4 päivää jääkaapissa."
+};
+
+compute_languages($product_ref);
+clean_ingredients_text($product_ref);
+
+diag explain $product_ref;
+
+is($product_ref->{ingredients_text_fi}, "Vesi, manteli 2%, kivennäisaine (kalsiumkarbonaatti), suola, emulgointiaine (E 322)");
+
+
+$product_ref = {
+        lc => "fi",
+        ingredients_text_fi => "Pastöroitu maito, maitoproteiini, suola, paakkuuntumisenestoaine (E460), hapate. Pakattu suojakaasuun. SÄILÖNTÄAINEETON. LAKTOOSITON. Juusto sisältää runsaasti kalsiumia ja proteiinja"
+};
+
+compute_languages($product_ref);
+clean_ingredients_text($product_ref);
+
+diag explain $product_ref;
+
+is($product_ref->{ingredients_text_fi}, "Pastöroitu maito, maitoproteiini, suola, paakkuuntumisenestoaine (E460), hapate.");
+
+
+$product_ref = {
+	lc => "fi",
+	ingredients_text_fi => "Ainesosat: sitruunajauhe, maustamisvalmiste (vesi, suola, glukoosisiirappi, valkopippuri), rapsiöljy. Valmistus pannulla: Paista jäisiä leikkeitä kuumalla pannulla runsaassa öljyssä kummaltakin puolelta n. 3 minuuttia. Sulanutta tuotetta ei saa jäädyttää uudelleen. Kuumennettava läpikotaisin ennen tarjoilua.",
+};
+
+compute_languages($product_ref);
+clean_ingredients_text($product_ref);
+
+diag explain $product_ref;
+
+is($product_ref->{ingredients_text_fi}, "sitruunajauhe, maustamisvalmiste (vesi, suola, glukoosisiirappi, valkopippuri), rapsiöljy.");
+
+
+$ingredients = "Cornflakes - Maissihiutaleet INGREDIENSER: Majs 92% (EU), socker, kornmaltextrakt, salt. Kan innehälla spär av vete, räg, havre, mjölk och soja. FÖRVARING: Torrt och inte för varmt. AINESOSAT: Maissi 92% (EU), sokeri, ohramallasuute, suola. PARASTA ENNEN: Katso pakkauksen yläosa.";
+
+$ingredients = clean_ingredients_text_for_lang($ingredients, 'fi');
+
+is($ingredients, "Maissi 92% (EU), sokeri, ohramallasuute, suola.");
+
+
+$ingredients = "VALMISTUSAINEET Vesi, riisi 11%, auringonkukkaöljy, kivennäinen (kalsiumkarbonaatti), merisuola, vitamiinit (riboflaviini, D-vitamiini)";
+
+$ingredients = clean_ingredients_text_for_lang($ingredients, 'fi');
+
+is($ingredients, "Vesi, riisi 11%, auringonkukkaöljy, kivennäinen (kalsiumkarbonaatti), merisuola, vitamiinit (riboflaviini, D-vitamiini)");
+
+
+$ingredients = "AINEKSET / INGREDIENSER :
+Naudanliha (75 %), vesi, mausteet (mm.sipuli),
+vehnäjauho
+5%, suola, perunakuitu.
+Saattaa sisältää pieniä määrlä soijaa ja seesaminslemeniä";
+
+$ingredients = clean_ingredients_text_for_lang($ingredients, 'fi');
+
+is($ingredients, "Naudanliha (75 %), vesi, mausteet (mm.sipuli),
+vehnäjauho
+5%, suola, perunakuitu.
+Saattaa sisältää pieniä määrlä soijaa ja seesaminslemeniä");
 
 done_testing();
