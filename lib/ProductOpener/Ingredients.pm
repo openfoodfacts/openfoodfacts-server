@@ -135,6 +135,15 @@ my %of = (
 	it => " di | d'",
 );
 
+my %and = (
+	en => " and ",
+	de => " und ",
+	es => " y ",
+	fi => " ja ",
+	fr => " et ",
+	it => " e ",
+);
+
 my %and_of = (
 	en => " and of ",
 	de => " und von ",
@@ -586,7 +595,7 @@ sub extract_ingredients_from_text($) {
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
 
-	my $and = $Lang{_and_}{$product_lc};
+	my $and = $and{$product_lc} || " and ";
 
 	my $ignore_strings_after_percent = "";
 	if (defined $ignore_strings_after_percent{$product_lc}) {
@@ -1926,7 +1935,7 @@ sub separate_additive_class($$$$$) {
 	my $colon = shift;
 	my $after = shift;
 
-	my $and = $Lang{_and_}{$product_lc};
+	my $and = $and{$product_lc} || " and ";
 
 	# check that we have an additive after the additive class
 	# keep only what is before the first separator
@@ -1965,7 +1974,7 @@ sub preparse_ingredients_text($$) {
 		init_additives_classes_regexps();
 	}
 
-	my $and = $Lang{_and_}{$product_lc};
+	my $and = $and{$product_lc} || " and ";
 	my $of = ' - ';
 	if (defined $of{$product_lc}) {
 		$of = $of{$product_lc};
@@ -3224,7 +3233,7 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	my $field = "allergens";
 
-	print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
+	# print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = $allergens_stopwords{$language};
 
@@ -3246,7 +3255,7 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	if (($before . $before_allergen) =~ /\b($traces_regexp)\b/i) {
 		$field = "traces";
-		print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+		# print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}
 
 	# Farine de blé 97%
@@ -3255,11 +3264,11 @@ sub replace_allergen_between_separators($$$$$$) {
 		$end_separator = $1 . $' . $end_separator;
 	}
 
-	print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
+	#print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
 
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
 
-	print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
+	#print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
 
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
