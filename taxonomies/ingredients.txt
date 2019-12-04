@@ -1499,7 +1499,7 @@ ms:Lesitin
 nl:Lecithine
 pl:Lecytyny
 pt:lecitina
-ro:Lecitină
+ro:Lecitină, lecitina
 ru:Лецитины
 sh:Lecitin
 sl:Lecitin
@@ -1532,7 +1532,7 @@ nl:sojalecithine
 nn:sojalecitin
 pl:lecytyna sojowa
 pt:lecitina de soja
-ro:lecitinã din soia
+ro:lecitină din soia, lecitina din soia, lecitină de soia, lecitina de soia
 ru:соевый лецитин
 sk:sójový lecitin
 sl:sojin lecitin
@@ -1595,6 +1595,7 @@ es:Lecitina de colza
 fi:rapsilesitiini
 fr:lécithine de colza, lécithines de colza
 nl:raapzaadlecithine
+ro:lecitină din rapiță, lecitina din rapita
 sr:lecitin uljane repice
 # fr:lécithines-de-colza has 609 products in 6 languages @2018-11-10
 vegan:en:yes
@@ -6193,7 +6194,8 @@ it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fer
 nl:melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel
 pl:żywe kultury bakterii jogurtowych
 pt:fermentos lácteos, culturas lácteas, leveduras lacteas, fermentos láticos, fermentos lácticos
-ru:Молочные ферменты, пробиотические микроорганизмы
+ro:culturi lactice, culturi lactice selecționate, culturi lactice selectionate
+ru:Молочные ферменты, пробиотические микроорганизм
 # fr:ferments-lactique has 10437 products in 23 languages @2019-07-09
 vegan:en:yes
 vegetarian:en:yes
@@ -7653,6 +7655,7 @@ fr:lait pasteurisé
 it:latte pastorizzato
 nl:gepasteuriseerde melk
 pt:leite pasteurizado
+ro:lapte pasteurizat
 sv:pastöriserad mjölk
 
 <en:pasteurised milk
@@ -7987,6 +7990,7 @@ fr:lait de vache
 it:latte di mucca
 ja:牛乳
 nl:koemelk
+ro:lapte de vacă, lapte de vaca
 ru:коровье молоко
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
 
@@ -8015,6 +8019,7 @@ de:Kuhvollmilch
 es:Leche entera de vaca
 fi:lehmän täysmaito
 fr:Lait de vache entier, lait entier de vache
+ro:lapte de vacă integral, lapte de vaca integral
 
 <en:whole cow's milk
 en:raw whole cow's milk
@@ -8024,7 +8029,9 @@ fr:lait de vache entier cru
 <en:whole cow's milk
 en:pasteurised whole cow's milk
 de:pasteurisierte Kuhvollmilch
-fr:lait de vache entier pasteurisé, lait pasteurisé de vache entier, lait entier de vache pasteurisé
+es:Leche entera pasteurizada de vaca
+fr:lait de vache entier pasteurisé, lait pasteurisé de vache entier, lait entier de vache pasteurisé, lait entier pasteurisé de vache
+ro:lapte de vacă integral pasteurizat, lapte de vaca integral pasteurizat
 
 <en:cow's milk
 en:semi-skimmed cow's milk
@@ -8046,10 +8053,6 @@ fr:lait de vache pasteurisé, lait pasteurisé de vache
 it:latte di mucca pastorizzato
 nl:gepasteuriseerde koemelk
 sv:pastöriserad komjölk
-
-<en:whole cow's milk
-fr:lait entier pasteurisé de vache
-es:Leche entera pasteurizada de vaca
 
 <en:Cow's milk
 fr:lait de vache thermisé
@@ -8076,6 +8079,7 @@ fi:vuohenmaito
 fr:lait de chèvre
 it:latte di capra
 nl:geitenmelk
+ro:lapte de capră, lapte de capra
 wikidata:en:Q1418287
 
 <en:goat's milk
@@ -8102,6 +8106,7 @@ es:leche de cabra pasteurizada
 fi:pastöroitu vuohenmaito
 fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
 it:latte di capra pastorizzato
+ro:lapte de capră pasteurizat, lapte de capra pasteurizat
 
 <en:pasteurised goat milk
 en:organic pasteurised goat milk
@@ -8119,6 +8124,7 @@ fi:lampaanmaito
 fr:lait de brebis
 it:latte di pecora
 nl:schapenmelk
+ro:lapte de oaie
 wikidata:en:Q2736146
 
 # description:en:RAW SHEEPS MILK - milk produced by female sheep before any treatment
@@ -8139,6 +8145,7 @@ de:pasteurisierte Schafsmilch, pasteurisierter Schafsmilch
 fi:pastöroitu lampaanmaito
 fr:lait de brebis pasteurisé, lait pasteurisé de brebis
 nl:gepasteuriseerde schapenmelk
+ro:lapte de oaie pasteurizat
 
 <en:sheeps milk
 fr:lait de brebis thermisé
@@ -8570,7 +8577,7 @@ nn:Laktose, mjølkesukker
 oc:Lactòsa
 pl:Laktoza, laktozą
 pt:Lactose, lactéos
-ro:Lactoză
+ro:Lactoză, lactoza
 ru:Лактоза
 sh:Laktoza
 sk:Laktóza, laktózy
@@ -8610,6 +8617,7 @@ fi:maidon kivennäisaine, maidon kivennäisaineet
 fr:minéraux du lait
 it:minerali del latte
 nl:melkmineralen
+ro:minerale din lapte
 wikipedia:en:https://en.wikipedia.org/wiki/Milk#Salts,_minerals,_and_vitamins
 vegan:en:no
 vegetarian:en:yes
@@ -13283,6 +13291,7 @@ it:Sale iodato
 nl:gejodeerd zout
 pl:Jodowanie soli
 pt:Sal iodado
+ro:sare iodată, sare iodata
 ru:Йодированная поваренная соль
 th:เกลือเสริมไอโอดีน
 uk:Йодована сіль
@@ -13336,6 +13345,7 @@ fr:bœuf, boeuf, Boeufs
 it:manzo
 nl:rund
 sv:nötkött
+ro:vită
 vegan:en:no
 vegetarian:en:no
 # ingredient/fr:bœuf has 257 products in 7 languages @2019-04-19
@@ -13986,6 +13996,7 @@ fi:sika
 fr:porc
 it:suino
 nl:varken
+ro:porc
 sv:gris
 vegan:en:no
 vegetarian:en:no
@@ -14001,6 +14012,7 @@ fr:viande de porc
 it:carne di suino
 nl:Varkensvlees
 sv:griskött
+ro:carne de porc, carne porc
 carbon_footprint_fr_foodges_ingredient:fr:Viande de porc
 carbon_footprint_fr_foodges_value:fr:7.4
 # Facteur GES kg CO2 eq / kg d'ingrédient en sortie de magasin (poids net)
@@ -14363,6 +14375,7 @@ vegetarian:en:no
 <en:pork by-product
 fr:graisse de porc
 pt:gordura de suíno
+ro:grăsime de porc, grasime de porc
 
 <en:pork by-product
 fr:sang frais de porc
@@ -14417,6 +14430,7 @@ fr:couenne de porc
 
 <en:pork
 fr:foie de porc
+ro:ficat de porc, ficat porc
 
 <en:pork meat
 en:pork liver
@@ -14424,6 +14438,7 @@ de:Schweineleber
 fi:sianmaksa
 fr:poitrine de porc
 nl:varkenslever
+ro:piept de porc, piet porc
 
 <en:pork meat
 fr:viande et gras de porc
@@ -14747,7 +14762,7 @@ es:almidón de maíz, Maicena
 eu:Maizena
 fa:نشاسته ذرت
 fi:Maissitärkkelys
-fr:amidon de mais, amidon de maïs, fécule de mais, amidon natif de maïs
+fr:amidon de maïs, amidon de mais, fécule de mais, amidon natif de maïs
 he:עמילן תירס
 id:Tepung jagung
 it:Amido di mais
@@ -14757,6 +14772,7 @@ ms:Tepung jagung
 nb:maisstivelse, Maisenna
 nl:maïszetmeel
 pt:amido de milho
+ro:amidon de porumb
 sv:stärkelse av majs, Majsstärkelse
 th:แป้งข้าวโพด
 tr:Mısır nişastası
@@ -15395,7 +15411,7 @@ fi:maitorasva
 fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
 nb:melkefett
 nl:melkvet
-ro:grasimi din lapte
+ro:grăsime din lapte, grăsimi din lapte, grasime din lapte, grasimi din lapte
 vegan:en:no
 vegetarian:en:yes
 
@@ -15573,7 +15589,7 @@ nl:plantaardige olie, Spijsolie
 nn:vegetabilisk olie
 pl:Oleje roślinne
 pt:Óleo vegetal
-ro:Ulei vegetal
+ro:Ulei vegetal, uleiuri vegetale
 ru:растительные масла, Растительное масло
 sh:Biljno ulje
 sr:Биљно уље
@@ -15605,6 +15621,7 @@ it:grassi vegetali
 nl:plantaardige vetten
 nn:vegetabilisk fett
 pt:gorduras vegetais, matérias gordas vegetais
+ro:grăsime vegetală
 ru:растительные жиры
 sv:vegetabiliska fetter
 
@@ -15716,7 +15733,7 @@ nn:Palmeolje
 oc:Òli de palma
 pl:Olej palmowy
 pt:óleo de palma, óleo de palmeira, óleo vegetal de palma
-ro:Ulei de palmier
+ro:Ulei de palmier, ulei vegetal de palmier
 ru:Пальмовое масло
 sk:Palmový olej
 sr:Палмино уље
@@ -16174,7 +16191,7 @@ lv:rapsų aliejus
 nl:koolzaadolie, plantaardige koolzaadolie, raapolie, raapzaad, raap
 pl:olej rzepakowy, olej roślinny rzepakowy
 pt:óleo de colza
-ro:ulei de rapiță
+ro:ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru:рапсове масло
 sk:repkový olej
 sv:rapsolja
@@ -18934,6 +18951,7 @@ fi:aromi, aromit
 fr:arôme, arômes
 it:aroma, aromi
 nl:aroma, aroma's
+ro:aromă, aroma, arome
 sv:arom, aromer
 vegan:en:maybe
 vegetarian:en:maybe
@@ -19248,6 +19266,7 @@ fr:arôme naturel de poulet, arôme naturel de poule
 en:chicken flavouring
 fi:kana-aromi
 fr:arôme de poulet, arôme de poule
+ro:aromă de pui, aroma de pui
 
 <en:natural flavouring
 en:natural cinammon flavouring
@@ -22128,7 +22147,7 @@ nl:tarwemeel, tarwebloem
 nn:hvetemel
 pl:mąka pszenna
 pt:farinha de trigo
-ro:făină de grâu
+ro:făină de grâu, faina de grau, făină din grâu, faina din grau
 ru:Пшеничная мука, манная крупа
 sa:गोधूमपिष्टम्
 sk:pšeničná múka
@@ -22193,6 +22212,17 @@ it:farina di grano duro
 nl:durum tarwemeel
 sv:durumvetemjöl
 
+<en:cereal flour
+en:wholemeal flour
+de:Vollkornmehl
+es:harina integral
+fi:täysjyväjauho
+fr:farine complète
+it:farina integrale
+nl:volkorenmeel
+sv:fullkornsmjöl
+ro:făină integrală
+
 # Question
 
 <en:wheat flour
@@ -22204,6 +22234,8 @@ fi:täysjyvävehnäjauho
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
 it:farina integrale di frumento, farina di frumento integrale
 pt:farinha de trigo integral, farinha integral de trigo
+nl:volkorentarwemeel
+sv:fullkornsvetemjöl
 
 <en:wheat flour
 en:dextrinated wheat flour
@@ -22241,16 +22273,7 @@ de:Weissmehl
 fi:valkoinen vehnäjauho
 fr:farine blanche
 it:farina bianca
-
-<en:cereal flour
-en:wholemeal flour
-de:Vollkornmehl
-es:harina integral
-fi:täysjyväjauho
-fr:farine complète
-it:farina integrale
-nl:volkorentarwemeel, volkorenmeel
-sv:fullkornsvetemjöl
+ro:făină albă
 
 <en:cereal flour
 <en:barley
@@ -22262,6 +22285,7 @@ fr:farine d'orge
 it:farina d'orzo
 nl:gerstemeel
 pt:farinha de cevada
+ro:făină de orz
 
 # Question
 
@@ -22377,6 +22401,7 @@ it:farina di segala
 nl:roggebloem
 pl:mąka żytnia
 pt:farinha de centeio
+ro:făină de secară, faina de secara
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/rye-flour
 # 1039 products in 11 languages @2018-09-22
 
@@ -22457,6 +22482,7 @@ fr:farine de soja
 it:farina di soia
 nl:sojabloem, sojameel
 pt:farinha de soja
+ro:făină de soia, faina de soia
 sr:sojino brašno
 
 <en:flour
@@ -22467,12 +22493,13 @@ de:Maismehl
 el:αλεύρι καλαμποκιού
 es:harina de maíz
 fi:maissijauho, maissijauhoa
-fr:farine de mais
+fr:farine de maïs, farine de mais
 hu:kukoricaliszt
 it:farina di mais
 nl:maïsmeel
 pl:mąka kukurydziana
 pt:farinha de milho
+ro:făină de porumb, faina de porumb
 sk:kukuričná múka
 sl:koruzna moka
 sv:majsmjöl
@@ -22521,6 +22548,7 @@ fr:Farine de riz
 it:farina di riso
 nl:rijstebloem, rijstbloem
 pt:farinha de arroz
+ro:făină de orez
 sv:rismjöl
 
 <en:rice flour
@@ -23917,7 +23945,7 @@ pl:Cukier spożywczy
 ps:بوره
 pt:Açúcar
 qu:Asukar
-ro:Zahăr
+ro:Zahăr, zahar
 ru:Сахар
 rw:Isukari
 sa:शर्करा
@@ -24042,6 +24070,7 @@ fi:inverttisokeri
 fr:sucre inverti
 it:zucchero invertito
 nl:Invertsuiker
+ro:zahăr invertit, zahar invertit
 wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
 <en:invert sugar
@@ -24056,6 +24085,7 @@ fr:sucre brun, sucre caramel, sucre caramélisé
 it:zucchero caramellato
 nl:gekarameliseerde suiker
 sv:karamelliserat socker
+ro:zahăr caramelizat
 
 <en:sugar
 en:white sugar
@@ -24745,7 +24775,7 @@ om:Giluukoosii
 pa:ਗੁਲੂਕੋਸ
 pt:Glicose, glucose
 qu:Uwas misk'i
-ro:Glucoză
+ro:glucoză, glucosa
 ru:Глюкоза
 sh:Glukoza
 si:ග්ලූකෝස්
@@ -24813,7 +24843,7 @@ nl:glucosestroop
 nn:glukosesirup
 pl:syrop glukozowy
 pt:xarope de glicose
-ro:sirop de glucoză
+ro:sirop de glucoză, sirop de glucoza
 sk:glukózový sirup
 sr:glukozni sirup
 sv:Glukossirap
@@ -25085,6 +25115,7 @@ fi:inverttisokerisiirappi
 fr:sirop de sucre inverti, sucre liquide inverti
 it:sciroppo di zucchero invertito
 nl:Invertsuikerstroop
+ro:sirop de zahăr invertit, sirop de zahar invertit
 
 en:invert sugar syrup
 es:Jarabe de azúcar invertido
@@ -25171,6 +25202,7 @@ fi:sokerisiirappi
 fr:sirop de sucre
 it:sciroppo di zucchero
 nl:Suikerstroop
+ro:sirop de zahăr, sirop de zahar
 vegan:en:yes
 vegetarian:en:yes
 
@@ -25258,7 +25290,7 @@ it:destrosio
 nl:dextrose
 nn:dekstrose
 pl:dekstroza
-ro:dextroza
+ro:dextroză, dextroza
 sk:dextróza
 sl:dekstroza
 sv:druvsocker, dextros
@@ -25709,6 +25741,7 @@ vegetarian:en:no
 <en:animal protein
 en:pork protein
 fi:sianlihaproteiini
+ro:proteină de porc, proteina de porc
 vegetarian:en:no
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sianlihaproteiini
 # 1 entry @ 2019-10-31
@@ -25747,6 +25780,7 @@ hu:tejfehérje
 it:proteine del latte
 nl:melkeiwit, melkeiwitten
 pt:proteína do leite, proteínas lácteas
+ro:proteine din lapte
 ru:молочный белок, молочные белки
 sv:mjölkprotein
 nova:en:4
@@ -26024,6 +26058,7 @@ ms:Mentega koko
 nl:cacaoboter
 pl:masło kakaowe
 pt:manteiga de cacau
+ro:unt de cacao, unt cacao
 ru:масло какао
 sk:kakaové maslo
 sl:Kakavovo maslo
@@ -26080,7 +26115,7 @@ lv:kakavos masė
 nl:cacaomassa
 pl:miazga kakaowa
 pt:pasta de cacau
-ro:masa de cacao
+ro:masă de cacao, masa de cacao, masă cacao, masa cacao, pastă de cacao, pasta de cacao
 ru:какао тертое
 sv:kakaomassa
 tg:какаои судашуда
@@ -26119,6 +26154,7 @@ ms:Pepejal koko
 nl:cacaopoeder
 pl:kakao w proszku, Proszek kakaowy
 pt:cacau em pó
+ro:pudră de cacao, pudra de cacao, cacao pudră, cacao pudra
 ru:какао-порошок
 sv:kakaopulver
 uk:Какао-порошок
@@ -28065,7 +28101,7 @@ fr:phosphates, phosphate
 # ingredient/fr:phosphates has 57 products @2019-02-22
 # usage:fr:Séquestrant : phosphate
 # usage:fr:stabilisants : phosphates
-# sodium (mono, hexameta, and/or tripoly) phosphate
+# sodium (mono, hexameta, and/or tripoly) phosphat
 
 # description:en:SODIUM PHOSPHATES is a generic term for a variety of salts of sodium (Na+) and phosphate (PO43−).
 # Note that the names here must be plural. The singlars are found under E339iii
@@ -38245,7 +38281,7 @@ pl:marchew uprawna
 pt:cenoura
 qu:Sanurya
 rn:Ikaroti
-ro:morcov
+ro:morcov, morcovi
 ru:морковь
 rw:Ikaroti
 sa:गृञ्जनकम्
@@ -38378,6 +38414,7 @@ fr:concentré de carotte, concentré de carottes
 de:Karottenkonzentrat
 fi:porkkanatiiviste
 it:concentrato di carota
+ro:concentrat de morcov
 # fr:concentré-de-carotte has 221 products in 4 languages @2018-10-10
 
 <en:carrot
@@ -39119,6 +39156,7 @@ nl:ui, uien
 nv:tłʼohchin
 pl:cebula
 pt:cebola
+ro:ceapă, ceapa
 ru:лук
 sv:lök
 tr:soğan
@@ -51109,6 +51147,7 @@ de:Spirulina-konzentrat, Spirulinakonzentrat
 fi:spirulinatiiviste, spirulinauute
 fr:concentré de spiruline
 it:concentrato di spirulina
+ro:concentrat de spirulină, concentrat de spirulina
 # ingredient/fr:concentré-de-spiruline has 138 products in 4 languages @2019-04-23
 
 # description:en:SEAWEED or macroalgae refers to several species of macroscopic, multicellular, marine algae.
@@ -60403,7 +60442,7 @@ pa:ਕੁੱਕੜ
 pl:Kurczaki, kurczak, kura
 pt:galinha
 qu:Wallpa
-ro:Găină
+ro:pui, găină
 ru:курица
 rw:Inkoko
 sc:Pudda
@@ -60544,6 +60583,7 @@ fi:kananmaksa
 fr:foie de poulet
 it:fegato di pollo
 nl:kippenlever
+ro:ficat de pui
 # ingredient/fr:foie-de-poulet has 237 products in 4 languages @2019-05-11
 
 <en:poultry skin
@@ -60677,6 +60717,7 @@ fr:produit à base de viande de poulet
 
 <en:chicken meat
 fr:poitrine de poulet
+ro:piept de pui
 
 <en:chicken meat
 fr:cuisse de poulet
