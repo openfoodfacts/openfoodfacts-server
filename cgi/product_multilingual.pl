@@ -648,7 +648,7 @@ sub display_field($$) {
 			$default_text = $Lang{$field . "_tagsinput"}{$lang};
 		}
 
-		my $arrayLenght = 3;
+		my $arrayLength = 3;
 
 		$initjs .= <<"JAVASCRIPT"
 var $field = new Tagify(document.getElementById('$field'), {
@@ -656,7 +656,7 @@ var $field = new Tagify(document.getElementById('$field'), {
 	whitelist: get_recents("${field}"),
 }), ${field}Contr;
 ${field}.on('input', function(e) {
-	var value = e.detail.value;
+	const value = e.detail.value;
 	${field}.settings.whitelist = []; // reset the whitelist
 
 	// https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
@@ -670,16 +670,17 @@ ${field}.on('input', function(e) {
 		${field}.dropdown.show.call(${field}, value); // render the suggestions dropdown
 	})
 });
-${field}.on('add', function(tag) {
-	let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+${field}.on('add', function(e) {
+	const obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
 
-	if (obj == null) {
+	const tag = e.detail.data.value;
+	if (obj === null) {
 		obj = {"${field}": [tag]}
-	} else if (obj["${field}"] == null) {
+	} else if (obj["${field}"] === null) {
 		obj["${field}"] = [tag];
 	} else {
 		if (obj["${field}"].indexOf(tag) != -1) return;
-		if (obj["${field}"].length >= $arrayLenght) obj["${field}"].pop();
+		if (obj["${field}"].length >= $arrayLength) obj["${field}"].pop();
 		obj["${field}"].unshift(tag);
 	}
 	window.localStorage.setItem("po_last_tags", JSON.stringify(obj));

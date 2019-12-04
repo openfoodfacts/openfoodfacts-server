@@ -496,6 +496,9 @@ function update_display(imagefield, first_display) {
 
 function get_recents(tagfield) {
   const obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+  if (obj === null) {
+    return [];
+  }
 
   return obj[tagfield] === null ? [] : obj[tagfield];
 }
