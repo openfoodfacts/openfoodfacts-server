@@ -648,6 +648,8 @@ sub display_field($$) {
 			$default_text = $Lang{$field . "_tagsinput"}{$lang};
 		}
 
+		my $arrayLenght = 3;
+
 		$initjs .= <<"JAVASCRIPT"
 var $field = new Tagify(document.getElementById('$field'), {
 	autocomplete: true,
