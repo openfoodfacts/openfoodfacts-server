@@ -21,7 +21,7 @@
 /*eslint no-console: "off"*/
 /*global Lang admin otherNutriments*/
 /*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
-/*exported add_language_tab add_line upload_image update_image update_nutrition_image_copy*/
+/*exported add_language_tab add_line upload_image update_image update_nutrition_image_copy get_recents*/
 
 var code;
 var current_cropbox;
@@ -495,8 +495,9 @@ function update_display(imagefield, first_display) {
 }
 
 function get_recents(tagfield) {
-	let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-	return obj[tagfield] != null ? obj[tagfield] : [];
+  const obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+
+  return obj[tagfield] === null ? [] : obj[tagfield];
 }
 
 (function( $ ){
@@ -578,7 +579,7 @@ function get_recents(tagfield) {
 			if (! stringStartsWith(id, 'manage')) {
 
       html += '<div style="clear:both" class="command upload_image_div">';
-			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"> ' 
+			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"> '
 + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon"><circle cx="12" cy="12" r="3.2"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'
 + Lang.upload_image
 + '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
