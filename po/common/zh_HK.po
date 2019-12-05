@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 17:12\n"
+"PO-Revision-Date: 2019-12-05 17:22\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1240,11 +1240,11 @@ msgstr "登入來編輯產品"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr "建立您的帳戶"
+msgstr "建立帳號"
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr "還沒註冊帳號嗎?"
+msgstr "還沒註冊帳號？"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1257,7 +1257,14 @@ msgid "<p>Sign-in to add or edit products.</p>\n\n"
 "<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
 "</form>\n"
 "<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr "<p> 登錄可以添加或編輯產品. </p> <form method=\"post\" action=\"/cgi/session.pl\"> 用戶名或電子郵件地址: <br/> <input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\"/> <br/> 密碼 <br/> 輸入類型 = \"密碼\" 名稱 = \"密碼\"tabindex = \"2\" 樣式 = \"width:220px\"; \"自動完成\" = \"當前-密碼\"/> <br/> <input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\"/> <label> 記住我 </label> <br/><input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\"/> </form> <p> 尚未註冊？<a href=\"/cgi/user.pl\"> 創建您的帳戶 </a>. </p>\n"
+msgstr "<p>登入後才可新增或編輯產品。</p>\n\n"
+"<form method=\"post\" action=\"/cgi/session.pl\">\n"
+"使用者名稱或電郵地址：<br/>\n"
+"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\"/><br/>\n"
+"密碼<br/><input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
+"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>記住我 </label><br/>\n"
+"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"登入\" class=\"button small\"/> </form>\n"
+"<p>還未註冊？<a href=\"/cgi/user.pl\">建立帳號</a>。</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1265,7 +1272,7 @@ msgstr "登入"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr "登入來新增或編輯產品。"
+msgstr "登入後才能加入與編輯產品。"
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
@@ -1274,7 +1281,7 @@ msgstr "請登入來新增或編輯產品。\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "使用者名稱或電子郵件地址:"
+msgstr "使用者名稱或電郵地址："
 
 msgctxt "low"
 msgid "low"
@@ -1282,7 +1289,7 @@ msgstr "低"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr "低量"
+msgstr "少量"
 
 msgctxt "manage_images"
 msgid "Manage images"
@@ -1298,19 +1305,19 @@ msgstr "制造或者加工场所"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr "蒙大拿, 美國"
+msgstr "美國蒙大拿州"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr "生產地點"
+msgstr "出產或加工地"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr "產品生產地點為 %s"
+msgstr "出產或加工地為%s"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr "生產地點"
+msgstr "出產或加工地"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
@@ -1318,7 +1325,7 @@ msgstr "新增地點"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr "產品生產地點非為 %s"
+msgstr "不在%s出產或加工的產品"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
@@ -1326,7 +1333,7 @@ msgstr "%d 產品符合搜尋標準，其中 %i 產品有已知的生產地點�
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr "地圖搜尋"
+msgstr "地圖標題"
 
 msgctxt "menu"
 msgid "Menu"
@@ -1369,15 +1376,15 @@ msgstr "此任務已完成:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr "完成率 %s"
+msgstr "%s人已完成。"
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr "當第一位完成此任務的人!"
+msgstr "您能成為首位完成此任務的人嗎？"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr "目標:"
+msgstr "目標："
 
 msgctxt "missions"
 msgid "Missions"
@@ -1393,7 +1400,7 @@ msgstr "中等量"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr "移動圖片到其它產品"
+msgstr "移動圖片到其他產品"
 
 msgctxt "n_products"
 msgid "%s products"
@@ -1409,15 +1416,15 @@ msgstr "名稱"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr "若條碼不正確，請修在此修正它:"
+msgstr "若條碼錯誤，請在此修正："
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr "若產品沒有條碼，則會自動幫它產生一個內部碼。"
+msgstr "如產品沒有條碼，則會自動幫它產生一個內部碼。"
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "訂閱新聞 (一個月最多2封信)"
+msgstr "訂閱新聞（一個月最多兩封電郵）"
 
 msgctxt "next"
 msgid "Next"
@@ -2836,11 +2843,11 @@ msgstr ""
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "青少年"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "十至十七歲"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
@@ -2848,11 +2855,11 @@ msgstr ""
 
 msgctxt "children"
 msgid "Children"
-msgstr ""
+msgstr "兒童"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "三至九歲"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
@@ -2860,11 +2867,11 @@ msgstr ""
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "幼童"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "一至兩歲"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
@@ -2872,11 +2879,11 @@ msgstr ""
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "嬰兒"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "不足一歲"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -2884,7 +2891,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "歐洲食安局評估"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
