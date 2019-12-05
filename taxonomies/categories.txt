@@ -1964,44 +1964,44 @@ ru:Тоник
 zh:通宁水
 wikidata:en:Q237315
 
-<en:Diet beverages
+<en:Artificially sweetened beverages
 <en:Sodas
-en:Diet sodas, diet soft drinks
-de:Kalorienarme Erfrischungsgetränke, Kalorienreduzierte Erfrischungsgetränke, Diät-Erfrischungsgetränke
-es:Sodas light
+en:Artificially sweetened sodas, diet sodas, diet soft drinks
+de:Erfrischungsgetränke mit Süssungsmitteln, Kalorienarme Erfrischungsgetränke, Kalorienreduzierte Erfrischungsgetränke, Diät-Erfrischungsgetränke
+es:Sodas con edulcorantes, sodas light
 fi:dieetti-virvoitusjuomat
-fr:Sodas light, soda light, sodas édulcorés, sodas avec édulcorants, sodas sans sucres, soda sans sucre, soda allégé en sucre, sodas allégés en sucre
+fr:Sodas édulcorés, Sodas light, soda light, sodas avec édulcorants, sodas sans sucres, soda sans sucre, soda allégé en sucre, sodas allégés en sucre
 nl:Light frisdranken
 wikidata:en:Q3246353
 
 <en:Orange soft drinks
-<fr:Sodas aux fruits light
-en:Light orange soft drinks
+<en:Artificially sweetened fruit sodas
+en:Artificially sweetened orange sodas, light orange soft drinks
 de:Kalorienarme Orangenlimonaden, Kalorienreduzierte Orangenlimonaden
-fr:Sodas à l'orange light, soda à l'orange light, soda à la pulpe d'orange light, sodas à la pulpe d'orange light
+fr:Sodas à l'orange édulcorés, sodas à l'orange light, soda à l'orange light, soda à la pulpe d'orange light, sodas à la pulpe d'orange light
 nl:Light sinaasappelfrisdranken
 
 <en:Lemon soft drinks
-<fr:Sodas aux fruits light
-en:Light lemon soft drinks
+<en:Artificially sweetened fruit sodas
+en:Artificially sweetened lemon sodas, Light lemon soft drinks
 de:Kalorienarme Zitronenlimonaden, Kalorienreduzierte Zitronenlimonaden
-fr:Sodas au citron light, soda au citron light
+fr:Sodas au citron édulcorés, sodas au citron light, soda au citron light
 nl:Light citroenfrisdanken
 
-<en:Diet sodas
+<en:Artificially sweetened sodas
 <en:Fruit sodas
-en:Light fruit sodas
+en:Artificially sweetened fruit sodas, Light fruit sodas
 de:Kalorienarme Fruchtlimonaden, Kalorienreduzierte Fruchtlimonaden
 fi:Kevyet hedelmävirvoitusjuomat
-fr:Sodas aux fruits light, soda aux fruits light
+fr:Sodas aux fruits édulcorés, sodas aux fruits light, soda aux fruits light
 nl:Light vruchtenfrisdranken
 
-<en:Diet sodas
+<en:Artificially sweetened sodas
 <en:Colas
-en:Diet cola soft drink
+en:Artificially sweetened colas, Diet cola soft drink
 de:Kalorienarme Colas, Kalorienreduzierte Colas, Light Colas
 fi:Dieettikola
-fr:Sodas au cola light, colas light, cola light
+fr:Sodas au cola édulcorés, sodas au cola light, colas light, cola light
 nl:Light cola's
 ro:Cola light
 
@@ -19074,6 +19074,7 @@ fr:Bonbons de chocolat fourrés cerise et liqueur
 nl:Kersen met een chocolaag en gevuld met likeur
 
 <en:Bonbons
+<en:Nuts and their products
 en:Chocolate covered nuts
 fi:suklaa-päällysteiset pähkinät
 fr:Fruits à coque au chocolat
@@ -21525,6 +21526,26 @@ th:ชีสจากนมวัว
 wikidata:en:Q3088299
 
 <en:Cow cheeses
+en:Provolone
+de:Provolone
+es:Provolone
+fr:Provolone
+nl:Provolone
+pt:Provolone
+sv:Provolone
+
+<en:Cow cheeses
+en:Havarti
+da:Havarti
+de:Havarti
+es:Havarti
+fr:Havarti
+it:Havarti
+nl:Havarti
+ro:Havarti
+wikidata:en:Q1591487
+
+<en:Cow cheeses
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
 fr:Coulommiers
@@ -23029,11 +23050,13 @@ country:en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
+<en:Provolone
 it:Provolone del Monaco
 country:en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
+<en:Provolone
 it:Provolone Valpadana
 country:en:Italy
 #wikidata:en:
@@ -25599,11 +25622,28 @@ pnns_group_2:en:Dairy desserts
 <en:Dairy desserts
 fr:Crèmes brûlées
 
+#really similar to crème brûlé but made with milk instead of cream
+<en:Dairy desserts
+en:Crema catalana
+de:Crema catalana
+es:Crema catalana
+fr:Crèmes catalanes
+nl:Crema catalana
+wikidata:en:Q842566
+
 <en:Dairy desserts
 en:Panna cottas, panacotta, pannacota, panacota
 fi:pannacotta
 fr:Panna cottas, pannacottas, Panna cotta, pannacotta, panacotta
 nl:Panna cottas
+
+#Curd milk eated like a yogurt (but non fermented)
+<en:Dairy dessert
+en:Cuajada
+ca:Quallada
+es:Cuajada
+#fr:Caillé
+wikidata:en:Q1142807
 
 <en:Dairy desserts
 <en:Chocolate desserts
@@ -25833,12 +25873,6 @@ de:Sojajoghurt mit tropischen Früchten
 es:Yogures de soja con frutas tropicales, Yogures de soja con frutas amarillas
 fr:Yaourts soja aux fruits tropicaux
 nl:Tropische vruchtensojayoghurts
-
-<en:Artificially sweetened beverages
-en:Diet beverages, Diet drinks
-de:Kalorienarme Getränke, Kalorienreduzierte Getränke, Diät Getränke
-fr:Boissons light
-nl:Light dranken
 
 <en:Snacks
 en:Salty snacks
@@ -40382,13 +40416,6 @@ es:Mermeladas y confituras ligeras, Mermeladas y confituras light
 fi:kevythillot
 fr:Confitures allégées
 nl:Suikervrije jams
-
-<en:Jams
-en:Dietary jams
-es:Mermeladas y confituras dietéticas
-fr:Confitures diététiques
-hu:Diétás lekvárok
-nl:Dieetjams
 
 <en:Fruits based foods
 <en:Jams
