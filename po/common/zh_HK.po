@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 17:22\n"
+"PO-Revision-Date: 2019-12-05 17:32\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2738,7 +2738,7 @@ msgstr ""
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
+msgstr "投票數"
 
 msgctxt "minerals_p"
 msgid "added minerals"
@@ -2802,28 +2802,28 @@ msgstr ""
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA分類"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
+msgstr "NOVA分類"
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "夥伴"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
-msgstr ""
+msgstr "成人"
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "18至64歲"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
@@ -2831,11 +2831,11 @@ msgstr ""
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "老年人"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65歲或以上"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -3047,7 +3047,7 @@ msgstr ""
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
-msgstr ""
+msgstr "食譜概念"
 
 msgctxt "origin"
 msgid "Origin"
@@ -3055,19 +3055,19 @@ msgstr ""
 
 msgctxt "customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "客户服務"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr ""
+msgstr "產生者"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
-msgstr ""
+msgstr "回收說明-回收"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
-msgstr ""
+msgstr "回收說明-廢置"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
@@ -3111,11 +3111,11 @@ msgstr ""
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "%s的頁面"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "產品不再出售。"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
@@ -3123,15 +3123,15 @@ msgstr ""
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "格式：YYYY-MM-DD、YYYY-MM或YYYY"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30、2019-09或2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "注意：此產品不再出售，數據僅供參考。產品不會在常規搜尋中出現，也不會被統計。"
 
 msgctxt "get_the_app"
 msgid "Get the app"
@@ -3167,11 +3167,11 @@ msgstr ""
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
-msgstr ""
+msgstr "en:low, en:medium or en:high"
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr ""
+msgstr "肉類或魚類的碳足跡"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
@@ -3211,7 +3211,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "幫助將「%s」翻譯為%s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
@@ -3493,7 +3493,7 @@ msgstr ""
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "百分比值"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
@@ -3666,16 +3666,16 @@ msgstr ""
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "新增或更新產品"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "您的產品"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
@@ -3705,7 +3705,7 @@ msgstr ""
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "狀態"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
@@ -4037,9 +4037,9 @@ msgstr ""
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "我們需要您的支持！"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "請捐款"
 
