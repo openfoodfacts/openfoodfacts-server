@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 17:02\n"
+"PO-Revision-Date: 2019-12-05 17:12\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -800,15 +800,15 @@ msgstr "產品"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "一般名稱"
+msgstr "通用名稱"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr "榛果牛奶巧克力"
+msgstr "榛果牛奶朱古力"
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr "再見!"
+msgstr "再見！"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
@@ -836,15 +836,15 @@ msgstr "大量"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr "修改歷史"
+msgstr "修改紀錄"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr "前端照片"
+msgstr "封面圖片"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "配料照片"
+msgstr "成分照片"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
@@ -852,25 +852,25 @@ msgstr "若照片夠整齊，則配件資訊可額外被自動擷取。"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr "營養成分照片"
+msgstr "營養標籤照片"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr "這張照片已被送出。"
+msgstr "這張照片已送出。"
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr "照片太小了。請勿上傳網路上找的照片，上傳您自己拍的。"
+msgstr "照片太小了。請勿上傳網上得到的照片，上傳您自己拍的。"
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
 msgstr "無法讀取圖片中的條碼，或者圖片中沒有條碼。\n"
-"您可以試試其它圖片或重新輸入條碼。"
+"您可以試試其他圖片或重新輸入條碼。"
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr "照片上找不到條碼。"
+msgstr "照片中找不到條碼。"
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -894,7 +894,7 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr "(原始圖片)"
+msgstr "（原圖）"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
@@ -942,11 +942,11 @@ msgstr "成分為棕櫚油"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr "成分的數量"
+msgstr "成分數目"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr "成分的數量"
+msgstr "成分數目"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -954,7 +954,7 @@ msgstr "成分"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr "產品包含了成分 %s"
+msgstr "含有%s的產品"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -962,15 +962,15 @@ msgstr "成分"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr "成分清單"
+msgstr "成分列表"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "成分按重要程度(分量)列舉"
+msgstr "成分按重要程度（分量）列舉"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr "穀物 85.5% (_小麥_麵粉, 整體-_小麥_麵粉 11%)，麥精，可可 4，8%，抗壞血酸"
+msgstr "穀物 85.5%（_小麥_麵粉, 整體-_小麥_麵粉 11%）、麥精、可可 4.8%、抗壞血酸"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -986,7 +986,7 @@ msgstr "也許有棕櫚油成分"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "產品不含 %s 成分"
+msgstr "不含%s的產品"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
@@ -998,15 +998,15 @@ msgstr "https://apps.apple.com/hk/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr "已知營養成分"
+msgstr "已知營養"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr "已知營養成分"
+msgstr "已知營養"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "标签，认证，奖励"
+msgstr "標籤、認證、獲獎"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1022,7 +1022,7 @@ msgstr "標籤"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr "產品的標籤 %s"
+msgstr "有%s標籤的產品"
 
 msgctxt "labels_s"
 msgid "label"
@@ -1030,11 +1030,11 @@ msgstr "標籤"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr "新增標籤"
+msgstr "加入標籤"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr "產品無標籤 %s"
+msgstr "無%s標籤的產品"
 
 msgctxt "lang"
 msgid "Main language"
@@ -1042,147 +1042,147 @@ msgstr "主要語言"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr "阿拉伯語"
+msgstr "阿拉伯文"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr "保加利亞語"
+msgstr "保加利亞文"
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr "捷克語"
+msgstr "捷克文"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr "丹麥語"
+msgstr "丹麥文"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr "德語"
+msgstr "德文"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr "希臘語"
+msgstr "希臘文"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr "英語"
+msgstr "英文"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr "西班牙語"
+msgstr "西班牙文"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr "愛沙尼亞語"
+msgstr "愛沙尼亞文"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr "芬蘭語"
+msgstr "芬蘭文"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr "法語"
+msgstr "法文"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr "愛爾蘭語"
+msgstr "愛爾蘭文"
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr "希伯來語"
+msgstr "希伯來文"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr "匈牙利語"
+msgstr "匈牙利文"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr "印尼語"
+msgstr "印尼文"
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr "義大利語"
+msgstr "意大利文"
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr "日語"
+msgstr "日文"
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr "韓語"
+msgstr "韓文"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr "立陶宛語"
+msgstr "立陶宛文"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr "拉脫維亞語"
+msgstr "拉脫維亞文"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr "馬爾他語"
+msgstr "馬爾他文"
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr "荷蘭語"
+msgstr "荷蘭文"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr "荷蘭語"
+msgstr "荷蘭文"
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr "波蘭語"
+msgstr "波蘭文"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr "葡萄牙語"
+msgstr "葡文"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr "葡萄牙葡萄牙文"
+msgstr "葡萄牙葡文"
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr "羅馬尼亞語"
+msgstr "羅馬尼亞文"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr "俄語"
+msgstr "俄文"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr "斯洛伐克語"
+msgstr "斯洛伐克文"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr "斯洛文尼亞語"
+msgstr "斯洛維尼亞文"
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr "瑞典語"
+msgstr "瑞典文"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr "泰語"
+msgstr "泰文"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr "越南語"
+msgstr "越南文"
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr "漢語"
+msgstr "中文"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr "其它語言"
+msgstr "其他語言"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr "產品上的語言要清楚呈現"
+msgstr "產品上的主要語言"
 
 msgctxt "language"
 msgid "en-US"
@@ -1224,7 +1224,7 @@ msgstr "連結至產品的官方網頁"
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr "%s 列表"
+msgstr "%s的列表"
 
 msgctxt "loadmore"
 msgid "Load more results"
