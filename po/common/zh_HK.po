@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 17:32\n"
+"PO-Revision-Date: 2019-12-05 18:12\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1460,7 +1460,7 @@ msgstr "儲存發生錯誤，請再試一次。"
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr "添加劑編號"
+msgstr "添加劑數目"
 
 msgctxt "number_of_products"
 msgid "Number of products"
@@ -3051,7 +3051,7 @@ msgstr "食譜概念"
 
 msgctxt "origin"
 msgid "Origin"
-msgstr ""
+msgstr "原產地"
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -3351,7 +3351,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "原產地"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3371,7 +3371,7 @@ msgstr "其他資料"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "產品圖片"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -3445,11 +3445,11 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "數值"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr ""
+msgstr "數值+單位"
 
 msgctxt "value_in_l"
 msgid "Value in L"
@@ -3684,11 +3684,11 @@ msgstr ""
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "匯入產品"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "空欄"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
@@ -3696,7 +3696,7 @@ msgstr ""
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "匯入中……"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
@@ -3709,23 +3709,23 @@ msgstr "狀態"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "預定"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "進行中"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "完成"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "失敗"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "匯入結果"
 
 msgctxt "products_added"
 msgid "Products added"
