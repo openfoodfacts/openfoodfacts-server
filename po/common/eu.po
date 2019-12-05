@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-01 14:12\n"
+"PO-Revision-Date: 2019-12-03 10:12\n"
 "Language-Team: Basque\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -392,19 +392,19 @@ msgstr "Kentzeko arrazoia"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Ezabatu produktu bat"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Ezabatu orria"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Ezabatu irudiak"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Ezabatu erabiltzaile bat"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -424,7 +424,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -444,15 +444,15 @@ msgstr "Aldaketen laburpena"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Editatu produktu bat"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Editatu orria"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Editatu zure profil publikoa"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
@@ -472,7 +472,7 @@ msgstr "Kontuaren parametroak"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Zure kontu parametroak aldatu dira.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -633,11 +633,11 @@ msgstr ""
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "eu_ES"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -651,11 +651,17 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Erabilera baldintzak</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">Nortzuk gara</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">Maiz Egiten diren Galderak</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Ideien Foroa</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Bloga</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Prentsa eta Blogak</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "eta <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook kolaboratzaileentzako taldea</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -673,7 +679,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -682,7 +688,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -695,7 +701,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -704,7 +710,7 @@ msgstr ""
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -1168,7 +1174,7 @@ msgstr ""
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "eu-ES"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1403,7 +1409,7 @@ msgstr ""
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Hurrengoa"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
@@ -1565,7 +1571,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1597,7 +1603,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "edo:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1665,7 +1671,7 @@ msgstr ""
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "%d orria"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
@@ -2158,7 +2164,7 @@ msgstr ""
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2186,7 +2192,7 @@ msgstr "Nutrienteak"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "edo"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2669,7 +2675,7 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2782,7 +2788,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -2802,7 +2808,7 @@ msgstr ""
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2838,7 +2844,7 @@ msgstr ""
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "1etik 2ra"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
@@ -2850,7 +2856,7 @@ msgstr ""
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -2934,7 +2940,7 @@ msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 msgctxt "additives_classes"
 msgid "Functions"
