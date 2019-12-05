@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-30 23:04\n"
+"PO-Revision-Date: 2019-12-05 15:27\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 product"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " en "
@@ -780,6 +781,16 @@ msgstr "<<site_name>> wiki (nl)"
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
+
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -3927,7 +3938,7 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
 msgstr "Nutri-Score score"
@@ -3964,6 +3975,10 @@ msgstr "Gemiddelde waarde voor de categorie %s"
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "De Nutri-Score kan worden veranderd van %s naar %s door de %s waarde te veranderen van %s naar %s (%s procent verschil)."
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr ""
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4008,4 +4023,32 @@ msgstr "Moderator"
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr "Moderators hebben toegang tot speciale functies om producten te bewerken en te beoordelen."
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr ""
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr ""
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr ""
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr ""
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr ""
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr ""
 
