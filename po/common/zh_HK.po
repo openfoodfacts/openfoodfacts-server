@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 16:42\n"
+"PO-Revision-Date: 2019-12-05 16:51\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -277,19 +277,19 @@ msgstr "營養"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr "選擇圖片"
+msgstr "選擇了圖片"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr "上傳圖片"
+msgstr "上載圖片"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "檢查"
+msgstr "覆核員"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "檢查"
+msgstr "覆核員"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -297,7 +297,7 @@ msgstr "包裝城市"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "產品包裝於 %s"
+msgstr "產品包裝於%s"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -305,7 +305,7 @@ msgstr "包裝城市"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr "產品非包裝於 %s"
+msgstr "不於%s包裝的產品"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -317,11 +317,11 @@ msgstr "代碼"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "完成 %d 任務"
+msgstr "已完成%d項任務："
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "已與你的Facebook帳號連結"
+msgstr "已連結您的Facebook帳號。"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -337,19 +337,19 @@ msgstr "請更正以下錯誤:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "校正者"
+msgstr "校正員"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "校正者"
+msgstr "校正員"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "可出售的国家"
+msgstr "出售國家"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr "主要販售國家 (不包含賣場的外國貨品)"
+msgstr "主要售賣國家（不含專門售賣外國貨品的商店）"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -357,7 +357,7 @@ msgstr "國家"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr "產品售於 %s"
+msgstr "售於%s的產品"
 
 msgctxt "countries_s"
 msgid "country"
@@ -365,7 +365,7 @@ msgstr "國家"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "產品未販售於 %s"
+msgstr "不售於%s的產品"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -409,19 +409,19 @@ msgstr "刪除使用者"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr "新增"
+msgstr "新增："
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr "修改"
+msgstr "修改："
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr "刪除"
+msgstr "刪除："
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "捐贈到 Open Food Facts"
+msgstr "捐助Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -433,7 +433,7 @@ msgstr "生態足跡"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr "若碳足跡有標明於標籤上 (目前不多)，請按營養組成表明相同的數量。"
+msgstr "如包裝標明碳足跡（目前較罕有），請按營養標籤輸入相同的數量。"
 
 msgctxt "edit"
 msgid "edit"
@@ -441,7 +441,7 @@ msgstr "編輯"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr "修改概要"
+msgstr "修改摘要"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -453,15 +453,15 @@ msgstr "編輯頁面"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr "編輯你的公開簡介"
+msgstr "編輯您的公開簡介"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr "您修改的公開簡介已被儲存"
+msgstr "已儲存您對公開簡介的修改"
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr "以下資訊可在你的公開簡介中看到"
+msgstr "以下資訊可在您的簡介公開"
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
@@ -477,36 +477,36 @@ msgstr "<p>您的帳戶參數已修改。</p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr "編輯"
+msgstr "編輯者"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr "編輯"
+msgstr "編輯者"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "電子郵件地址"
+msgstr "電郵地址"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr "EMB 編碼"
+msgstr "EMB碼"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr "產品由公司 emb 碼為 %s 包裝"
+msgstr "產品由EMB碼為%s的公司包裝"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr "EMB 碼"
+msgstr "EMB碼"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr "EMB 碼"
+msgstr "EMB碼"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr "EMB 53062，FR 62.448.034 CE，84 R 20,33 RECOLANT 522"
+msgstr "EMB 53062、FR 62.448.034 CE、84 R 20、33 RECOLANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
