@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 16:22\n"
+"PO-Revision-Date: 2019-12-05 16:32\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -3298,7 +3298,7 @@ msgstr "匯入產品數據檔案"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "上載含產品數據的電子表格文件（Excel文件或製表符分隔、UTF-8編碼的CSV文件）。"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3312,15 +3312,15 @@ msgstr ""
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "正在上載檔案。"
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "無法上載檔案。"
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "篩選和匯入數據"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
@@ -3328,11 +3328,11 @@ msgstr ""
 
 msgctxt "import_data"
 msgid "Import data"
-msgstr ""
+msgstr "匯入數據"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
-msgstr ""
+msgstr "上載的檔案有%s行和%s列。"
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
@@ -3490,11 +3490,11 @@ msgstr ""
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
-msgstr ""
+msgstr "登入後才能使用此功能。"
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "組織"
 
 msgctxt "column_in_file"
 msgid "Column in file"
@@ -3526,12 +3526,12 @@ msgstr ""
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
-msgstr ""
+msgstr "匯入產品數據"
 
 # "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
 msgid "Import product photos"
-msgstr ""
+msgstr "匯入產品圖片"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
@@ -3544,7 +3544,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3552,97 +3552,97 @@ msgstr ""
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "數據品質"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "數據品質"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "數據品質"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "數據品質錯誤"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "數據品質錯誤"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "數據品質錯誤"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "數據品質資料"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "數據品質資料"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "數據品質資料"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_warnings_producers_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_warnings_producers_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_warnings_producers"
 msgid "data quality warnings"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_errors_producers_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_errors_producers_s"
 msgid "data quality error"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_errors_producers"
 msgid "data quality errors"
-msgstr ""
+msgstr "數據品質問題"
 
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "最少"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "最多"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -3771,7 +3771,7 @@ msgstr ""
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
 msgid "Import product photos"
-msgstr ""
+msgstr "匯入產品圖片"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
@@ -3807,15 +3807,15 @@ msgstr ""
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "加入圖片…"
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "開始上載"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "開始"
 
 msgctxt "close"
 msgid "Close"
@@ -3823,15 +3823,15 @@ msgstr "關閉"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "取消上載"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "資訊"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "已收到檔案"
 
 msgctxt "nutriscore_calculation_detail"
 msgid "Detail of the calculation of the Nutri-Score"
@@ -3887,7 +3887,7 @@ msgstr "飽和脂肪"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "飽和脂肪/脂肪比率"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3915,36 +3915,36 @@ msgstr ""
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "營養分數"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Nutri-Score分數"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts是完全免費和獨立的。"
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">我們需要您的幫助和捐款</a>繼續發展此項目。"
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "謝謝！"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -3970,7 +3970,7 @@ msgstr ""
 
 msgctxt "user_group_producer"
 msgid "Producer"
-msgstr ""
+msgstr "產生者"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
@@ -3978,7 +3978,7 @@ msgstr ""
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "資料庫"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
@@ -3986,7 +3986,7 @@ msgstr ""
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "應用程式"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -3994,7 +3994,7 @@ msgstr ""
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "機械人"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
@@ -4002,7 +4002,7 @@ msgstr ""
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "管理員"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
