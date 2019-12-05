@@ -6129,6 +6129,10 @@ HTML
 ;
 	}
 
+	if ($server_options{producers_platform}) {
+		$image_banner = "";
+	}
+
 	if ($image_banner ne "") {
 
 		$initjs .= <<JS
