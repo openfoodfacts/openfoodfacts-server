@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 16:32\n"
+"PO-Revision-Date: 2019-12-05 16:42\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -115,15 +115,15 @@ msgstr "進階搜尋及圖表"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "飲酒過量有害健康"
+msgstr "過量飲酒有害健康。"
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr "所有的任務"
+msgstr "所有任務"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "成分或产品可能导致过敏或不耐受"
+msgstr "可致敏感或不適的成分或產品"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -135,7 +135,7 @@ msgstr "過敏原"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "產品頁編輯由"
+msgstr "產品頁的編輯者有"
 
 # Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
@@ -150,7 +150,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/zh-hk_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/zh-hk_get.svg\" alt=\"Google Play立即下載\" width=\"102\" height=\"40\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -160,12 +160,12 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>此產品尚未收錄到 <<site_name>> 資料庫中。您可以提供此產品的照片、條碼、原料及營養成份到 <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
-"<p>非常感謝!</p>\n"
+msgstr "<p>此產品尚未收錄於<<site_name>>資料庫。您可以在<a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>上載此產品的照片、條碼、成分及營養標籤。</p>\n"
+"<p>萬分感謝！</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "選一張圖"
+msgstr "選一張圖片"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
@@ -173,7 +173,7 @@ msgstr "注意:  您送出的圖片為創用CC授權。"
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "您可新增圖片"
+msgstr "您可以加入圖片："
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -185,15 +185,15 @@ msgstr "縱軸"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "条形码"
+msgstr "條碼"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "條碼"
+msgstr "條碼號："
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "您亦可以資助Open Food Facts"
+msgstr "您亦可以捐助Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -209,7 +209,7 @@ msgstr "品牌"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "健達繽紛樂白巧克力"
+msgstr "健達繽紛樂白朱古力"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -217,7 +217,7 @@ msgstr "品牌"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "%s 品牌的產品"
+msgstr "%s的產品"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -229,7 +229,7 @@ msgstr "新增品牌"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "非 %s 品牌的產品"
+msgstr "非%s的產品"
 
 msgctxt "by"
 msgid "by"
@@ -237,39 +237,39 @@ msgstr "由"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "类别"
+msgstr "分類"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "橄欖油沙丁魚, 濃縮橙汁"
+msgstr "橄欖油沙甸魚、濃縮橙汁"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "指明具體類別，其上層類別會自動新增。"
+msgstr "請指明具體分類，上層分類會自動加入。"
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "類別"
+msgstr "分類"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "%s 類別的產品"
+msgstr "分類為%s的產品"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "類別"
+msgstr "分類"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr "新增類別"
+msgstr "新增分類"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "非 %s 類別的產品"
+msgstr "非%s分類的產品"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr "資料"
+msgstr "數據"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
