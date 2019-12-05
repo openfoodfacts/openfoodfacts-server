@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 22:51\n"
+"PO-Revision-Date: 2019-12-01 23:21\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -68,10 +68,10 @@ msgstr "Kedves <NAME>!\n\n"
 "A következő a felhasználói neve:\n\n"
 "Felhasználói név: <USERID>\n\n"
 "Most már be tud jelentkezni a weboldalon, hogy hozzáadhasson és szerkeszthessen termékeket.\n\n"
-"A(z) <<site_name>> egy együttműködésen alapuló program, amihez többet adhat, mint új termékeket: az energiáját, lelkesedését és az ötleteit! A hozzájárulók közötti megbeszéléshez és a program fejlődésének elősegítéséhez egy nagyon kényelmes üzenetküldő rendszert használunk, aminek a neve Slack: https://slack.openfoodfacts.org\n\n"
+"A(z) <<site_name>> egy együttműködésen alapuló program, amihez többet is adhat, mint pusztán új termékeket: az energiáját, lelkesedését és az ötleteit! A hozzájárulók közötti megbeszéléshez és a program fejlődésének elősegítéséhez egy nagyon kényelmes üzenetküldő rendszert használunk, aminek a neve Slack: https://slack.openfoodfacts.org\n\n"
 "Továbbá csatlakozhat a hozzájárulók számára létrehozott Facebook csoportunkhoz:\n"
 "https://www.facebook.com/groups/OpenFoodFacts/\n\n"
-"Újdonság: elindítottuk az Open Beauty Facts-ot, hogy létrehozzuk a kozmetikai termékek adatbázisát: szappan, fogkrém, smink stb.\n"
+"Újdonság: elindítottuk az Open Beauty Facts-ot, hogy létrehozzuk a kozmetikai termékek adatbázisát: szappan, fogkrém, smink, stb.\n"
 "https://openbeautyfacts.org\n\n"
 "Nagyon szépen köszönjük!\n\n"
 "Stéphane és az Open Food Facts csapata\n"
@@ -632,7 +632,7 @@ msgstr "Termékek felfedezése az alábbi szerint..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr "en_US"
+msgstr "hu_HU"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -654,7 +654,7 @@ msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Jogi nyilatkozat</a> -
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr "és a <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook csoport a támogatóknak</a>"
+msgstr "és a <a href=\"https://www.facebook.com/groups/openfoodfacts/\">közreműködők Facebook csoportján</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -723,7 +723,7 @@ msgstr "Csatlakozzon a közösséghez"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr "Csatlakozzon hozzánk a %s-en:"
+msgstr "Csatlakozzon hozzánk %s-en:"
 
 msgctxt "footer_legal"
 msgid "Legal"
@@ -2884,7 +2884,7 @@ msgstr "EFSA értékelése"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
-msgstr "Kitettség veszély"
+msgstr "Túlfogyasztási kockázat"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
@@ -2908,11 +2908,11 @@ msgstr "Az Európai Élelmiszerbiztonsági Hatóság (EFSA) megállapította, ho
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr "Magas a kitettség veszélye"
+msgstr "Magas a túlfogyasztás kockázata"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr "Közepes a kitettség veszélye"
+msgstr "Közepes a túlfogyasztás kockázata"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
@@ -3940,7 +3940,7 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "Köszönjük!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -3954,5 +3954,49 @@ msgstr ""
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Csoportok"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Gyártó"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr ""
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr ""
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr ""
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr ""
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr ""
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr ""
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr ""
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr ""
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 

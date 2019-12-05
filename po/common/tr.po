@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:18\n"
+"PO-Revision-Date: 2019-12-01 19:22\n"
 "Language-Team: Turkish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -195,7 +195,7 @@ msgstr "Ayrıca Open Food Facts projesinin finanse edilmesine yardım edebilirsi
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://tr.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Open Food Facts'e Bağışta Bulunun\" /></a><p><<site_name>>, kar amacı gütmeyen bir kuruluş tarafından sektörden bağımsız olarak yapılmıştır. Herkes tarafından, herkes için yapılmış ve herkes tarafından finanse edilmiştir. Çalışmalarımızı <a href=\"https://tr.openfoodfacts.org/donate-to-open-food-facts\">Open Food Facts'e bağışta bulunarak</a> ve ayrıca <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo arama motorunu kullanarak</a> destekleyebilirsin.<br/><b>Teşekkürler!</b></p>"
+msgstr "<a href=\"https://tr.openfoodfacts.org/open-food-factse-bagista-bulununs\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Open Food Facts'e Bağışta Bulunun\" /></a><p><<site_name>>, kar amacı gütmeyen bir kuruluş tarafından sektörden bağımsız olarak yapılmıştır. Herkes tarafından, herkes için yapılmış ve herkes tarafından finanse edilmiştir. Çalışmalarımızı <a href=\"https://tr.openfoodfacts.org/open-food-factse-bagista-bulununs\">Open Food Facts'e bağışta bulunarak</a> ve ayrıca <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo arama motorunu kullanarak</a> destekleyebilirsin.<br/><b>Teşekkürler!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -423,7 +423,7 @@ msgstr "Open Food Facts'e Bağışta Bulunun"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://tr.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://tr.openfoodfacts.org/open-food-factse-bagista-bulununs"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -3961,4 +3961,48 @@ msgstr "%s kategorisi için ortalama değer"
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "Nutri-Score %s'den %s'e, %s değerini %s'den %s'e değiştirerek (yüzde %s fark) değiştirilebilir."
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Gruplar"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Üretici"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "Sadece kendi ürünlerini düzenleyen üreticilerin hesapları için işaretlenmelidir. Ürün sahipliği, bir ürünü eklediğinde veya düzenlediğinde üreticilere atfedilecektir."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Veri tabanı"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "Harici veri kaynakları için. İçe aktarılan ürünlerin ürün sahipliği değişmeyecektir."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "Uygulama"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "Uygulamalar için."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Bot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "Robotlar, scriptler vs. için."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Moderatör"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "Moderatörler, ürünleri düzenlemek ve incelemek için özel özelliklere erişebilir."
 

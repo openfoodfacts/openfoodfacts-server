@@ -112,7 +112,7 @@ my %allergens_stopwords = (
 	en => "and|of|this|product|other|made|manufactured|in|a|factory|which|also|uses",
 	de => "enthalten|von|und",
 	es => "y|de|que|contiene|contienen|otros",
-	fi => "ja|muita|muuta|tehtaassa|valmistettu",
+	fi => "ja|muita|muuta|tehtaassa|valmistettu|saattaa|sisältää|pieniä|pienehköjä|määriä",
 	fr => "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et",
 
 );
@@ -133,6 +133,15 @@ my %of = (
 	es => " de ",
 	fr => " de | du | des | d'",
 	it => " di | d'",
+);
+
+my %and = (
+	en => " and ",
+	de => " und ",
+	es => " y ",
+	fi => " ja ",
+	fr => " et ",
+	it => " e ",
 );
 
 my %and_of = (
@@ -586,7 +595,7 @@ sub extract_ingredients_from_text($) {
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
 
-	my $and = $Lang{_and_}{$product_lc};
+	my $and = $and{$product_lc} || " and ";
 
 	my $ignore_strings_after_percent = "";
 	if (defined $ignore_strings_after_percent{$product_lc}) {
@@ -1926,7 +1935,7 @@ sub separate_additive_class($$$$$) {
 	my $colon = shift;
 	my $after = shift;
 
-	my $and = $Lang{_and_}{$product_lc};
+	my $and = $and{$product_lc} || " and ";
 
 	# check that we have an additive after the additive class
 	# keep only what is before the first separator
@@ -1965,7 +1974,7 @@ sub preparse_ingredients_text($$) {
 		init_additives_classes_regexps();
 	}
 
-	my $and = $Lang{_and_}{$product_lc};
+	my $and = $and{$product_lc} || " and ";
 	my $of = ' - ';
 	if (defined $of{$product_lc}) {
 		$of = $of{$product_lc};

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-21 22:44\n"
+"PO-Revision-Date: 2019-12-03 08:39\n"
 "Language-Team: Swedish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -1587,7 +1587,7 @@ msgstr ""
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgstr "https://world.openfoodfacts.org/images/svg/openfoodfacts-logo-sv.svg"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -3535,7 +3535,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Annulera"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3950,4 +3950,48 @@ msgstr ""
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Grupper"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Producent"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr ""
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Databas"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "För externa datakällor. Produktägande av importerade produkter kommer inte att ändras."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "App"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr ""
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Bot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "För robotar, skript etc."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Moderator"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "Moderatorer har tillgång till specialfunktioner för att redigera och granska produkter."
 

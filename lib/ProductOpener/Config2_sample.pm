@@ -83,6 +83,7 @@ $robotoff_url = '';
         cookie_domain => "openfoodfacts.dev",   # if not set, default to $server _domain
         private_products => 1,  # Make products visible only to the owner
         export_servers => { public => "off", experiment => "off-exp" },
+		ip_whitelist_session_cookie => [ "172.19.0.1" ],
 );
 
 

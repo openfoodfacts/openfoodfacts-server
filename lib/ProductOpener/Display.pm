@@ -84,6 +84,7 @@ BEGIN
 					$subdomain
 					$formatted_subdomain
 					$static_subdomain
+					$world_subdomain
 					$test
 					@lcs
 					$cc
@@ -196,6 +197,9 @@ $default_request_ref = {
 
 use vars qw();
 
+$static_subdomain = format_subdomain('static');
+$world_subdomain = format_subdomain('world');
+
 sub init()
 {
 	$log->context->{request} = generate_token(16);
@@ -295,8 +299,7 @@ sub init()
 	}
 	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
-		my $worlddom = format_subdomain('world');
-		my $redirect = "$worlddom/" . $ENV{QUERY_STRING};
+		my $redirect = "$world_subdomain/" . $ENV{QUERY_STRING};
 		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
 		$r->headers_out->set(Location => $redirect);
 		$r->status(301);
@@ -396,7 +399,6 @@ CSS
 
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
-	$static_subdomain = format_subdomain('static');
 
 	# if products are private, select the owner used to restrict the product set with the owners_tags field
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
@@ -1068,13 +1070,12 @@ sub display_text($)
 
 	};
 
-	if ($file =~ /\/index.foundation/) {
-		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
-	}
-	elsif (($file =~ /\/index-pro/) and (defined $Org_id)) {
-
+	if (($file =~ /\/index-pro/) and (defined $Org_id)) {
 		$html .= display_index_for_producer($request_ref);
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t", undef, undef);
+	}
+	elsif ($file =~ /\/index/) {
+		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
 
 	$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
@@ -1269,8 +1270,6 @@ sub query_list_of_tags($$) {
 		$log->debug("MongoDB query built", { query => $query_ref }) if $log->is_debug();
 	}
 
-	my $staticdom = format_subdomain('static');
-
 	# groupby_tagtype
 
 	my $results;
@@ -1415,8 +1414,7 @@ sub display_list_of_tags($$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 
 			if ($country ne 'en:world') {
-				my $worlddom = format_subdomain('world');
-				$html .= "<p>&rarr; <a href=\"${worlddom}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+				$html .= "<p>&rarr; <a href=\"${world_subdomain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 			}
 
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -1727,7 +1725,7 @@ sub display_list_of_tags($$) {
 
 			if (defined $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$icid)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language",$icid)};
-				$tagentry->{image} = format_subdomain('static') . "/images/lang/$lc/$tagtype/$img";
+				$tagentry->{image} = $static_subdomain . "/images/lang/$lc/$tagtype/$img";
 			}
 
 			push @{$request_ref->{structured_response}{tags}}, $tagentry;
@@ -2028,8 +2026,7 @@ sub display_list_of_tags_translate($$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 
 			if ($country ne 'en:world') {
-				my $worlddom = format_subdomain('world');
-				$html .= "<p>&rarr; <a href=\"${worlddom}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+				$html .= "<p>&rarr; <a href=\"${world_subdomain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 			}
 
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -3481,7 +3478,6 @@ HTML
 
 	if ($country ne 'en:world') {
 
-		my $worlddom = format_subdomain('world');
 		my $word_link = "";
 		if (defined $request_ref->{groupby_tagtype}) {
 			$word_link = lang('view_list_for_products_from_the_entire_world');
@@ -3490,7 +3486,7 @@ HTML
 			$word_link = lang('view_products_from_the_entire_world');
 		}
 		$html .= "<p>" . ucfirst(lang('countries_s')) . separator_before_colon($lc). ": " . display_taxonomy_tag($lc,"countries",$country) . " - "
-		. "<a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . $word_link . "</a></p>";
+		. "<a href=\"" . $world_subdomain . $request_ref->{world_current_link} . "\">" . $word_link . "</a></p>";
 	}
 
 	my $query_ref = {};
@@ -3588,7 +3584,14 @@ HTML
 			$request_ref->{title} = $title;
 		}
 
-		$html = "<div itemscope itemtype=\"https://schema.org/Thing\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
+		my $itemtype = "https://schema.org/Thing";
+		if ($tagtype eq "brands") {
+			$itemtype = "https://schema.org/Brand";
+		}
+
+		# TODO: Producer
+
+		$html = "<div itemscope itemtype=\"" . $itemtype . "\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
@@ -3849,7 +3852,7 @@ sub search_and_display_products($$$$$) {
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 
 		if ($country ne 'en:world') {
-			$html .= "<p>&rarr; <a href=\"" . format_subdomain('world') . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+			$html .= "<p>&rarr; <a href=\"" . $world_subdomain . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 		}
 
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -4492,10 +4495,10 @@ sub search_and_export_products($$$$$) {
 
 
 sub escape_single_quote($) {
-	my $s = shift;
+	my $s = $_[0];
 	# some app escape single quotes already, so we have \' already
 	if (not defined $s) {
-		$s = '';
+		return '';
 	}
 	$s =~ s/\\'/'/g;
 	$s =~ s/'/\\'/g;
@@ -5213,13 +5216,6 @@ HTML
 }
 
 
-
-
-
-
-
-
-
 sub search_and_graph_products($$$) {
 
 	my $request_ref = shift;
@@ -5277,7 +5273,6 @@ sub search_and_graph_products($$$) {
 
 	if ($count > 0) {
 
-
 		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
 		# 1 axis: histogram / bar chart
@@ -5290,8 +5285,6 @@ sub search_and_graph_products($$$) {
 			$html .= display_scatter_plot($graph_ref, \@products);
 		}
 
-
-
 		if (defined $request_ref->{current_link_query}) {
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
@@ -5302,7 +5295,6 @@ sub search_and_graph_products($$$) {
 
 		$html .= lang("search_graph_blog");
 	}
-
 
 	return $html;
 }
@@ -5370,7 +5362,10 @@ sub search_and_map_products($$$) {
 
 	eval {
 		$cursor = execute_query(sub {
-			return get_products_collection()->query($query_ref);
+			return get_products_collection()->query($query_ref)
+			->fields( { code => 1, lc => 1, product_name => 1, "product_name_$lc" => 1, brands => 1, images => 1,
+				manufacturing_places => 1, origins => 1, emb_codes_tags => 1,
+			});
 		});
 	};
 	if ($@) {
@@ -5431,8 +5426,6 @@ JS
 
 		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
-
-
 		my $matching_products = 0;
 		my $places = 0;
 		my $emb_codes = 0;
@@ -5443,22 +5436,17 @@ JS
 
 		foreach my $product_ref (@products) {
 
-			# Keep only products that have known values for both x and y
-
 			if (1) {
 
-				my $url = format_subdomain($cc) . product_url($product_ref->{code});
-
+				my $url = $formatted_subdomain . product_url($product_ref->{code});
 
 				my $data_start = '{';
 
-
-				my $manufacturing_places =  escape_single_quote($product_ref->{"manufacturing_places"});
+				my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
 				$manufacturing_places =~ s/,( )?/, /g;
 				if ($manufacturing_places ne '') {
 					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br>";
 				}
-
 
 				my $origins =  escape_single_quote($product_ref->{origins});
 				$origins =~ s/,( )?/, /g;
@@ -5470,9 +5458,6 @@ JS
 
 				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
 					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";
-
-
-
 
 				# Loop on cities: multiple emb codes can be on one product
 
@@ -5498,7 +5483,6 @@ JS
 								}
 							}
 						}
-
 					}
 					if (scalar keys %current_seen > 0) {
 						$seen_products++;
@@ -5531,8 +5515,6 @@ HTML
 #	subdomains: '1234',
 #    maxZoom: 18
 #}).addTo(map);
-
-
 
 			my $js = <<JS
 var pointers = [
@@ -5907,7 +5889,7 @@ sub display_new($) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
 		if ($img_url !~ /^http:/) {
-			$img_url = format_subdomain($lc) . $img_url;
+			$img_url = $static_subdomain . $img_url;
 		}
 		$og_images .= '<meta property="og:image" content="' . $img_url . '">' . "\n";
 		if ($img_url !~ /misc/) {
@@ -6079,10 +6061,117 @@ HTML
 
 	my $top_banner = "";
 
+	my $image_banner = "";
+
+	if ($lc eq 'fr') {
+
+		my $link = lang("donate_link");
+		my $image;
+		my $utm;
+		my @banners = qw(independent personal research);
+		my $banner = $banners[time() % @banners];
+		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+		$image_banner = <<HTML
+<div class="row">
+<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
+<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
+<span id="hide_image_banner_hide" style="display:none;">J'ai déjà donné ou je ne suis pas intéressé. Ne plus afficher la bannière.</span>
+<span id="hide_image_banner_show" style="display:none;">Tiens, une boîte à décocher ?!</span>
+</label></div>
+</div>
+</div>
+HTML
+;
+	}
+
+	elsif ($lc eq 'fi') {
+
+		my $link = lang("donate_link");
+		my $image;
+		my $utm;
+		my @banners = qw(independent personal research);
+		my $banner = $banners[time() % @banners];
+		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+		$image_banner = <<HTML
+<div class="row">
+<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
+<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
+<span id="hide_image_banner_hide" style="display:none;">I have already donated or I'm not interested. Hide the banner.</span>
+<span id="hide_image_banner_show" style="display:none;">Hey, a box to uncheck?!</span>
+</label></div>
+</div>
+</div>
+HTML
+;
+	}
+
+	elsif ($lc eq 'en') {
+
+		my $link = lang("donate_link");
+		my $image;
+		my $utm;
+		my @banners = qw(independent personal research);
+		my $banner = $banners[time() % @banners];
+		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+		$image_banner = <<HTML
+<div class="row">
+<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
+<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
+<span id="hide_image_banner_hide" style="display:none;">I have already donated or I'm not interested. Hide the banner.</span>
+<span id="hide_image_banner_show" style="display:none;">Hey, a box to uncheck?!</span>
+</label></div>
+</div>
+</div>
+HTML
+;
+	}
+
+	if ($image_banner ne "") {
+
+		$initjs .= <<JS
+
+if (\$.cookie('hide_image_banner') == '1') {
+	\$('#hide_image_banner').prop('checked',true);
+	\$("#image_banner").hide();
+	\$("#hide_image_banner_hide").hide();
+	\$("#hide_image_banner_show").show();
+}
+else {
+	\$('#hide_image_banner').prop('checked',false);
+	\$("#image_banner").show();
+	\$("#hide_image_banner_hide").show();
+	\$("#hide_image_banner_show").hide();
+}
+
+\$("#hide_image_banner").change(function () {
+	if (\$('#hide_image_banner').prop('checked')) {
+		\$.cookie('hide_image_banner', '1', { expires: 180, path: '/' });
+		\$("#image_banner").hide();
+		\$("#hide_image_banner_hide").hide();
+		\$("#hide_image_banner_show").show();
+	}
+	else {
+		\$.cookie('hide_image_banner', null, { path: '/'});
+
+		\$("#image_banner").show();
+		\$("#hide_image_banner_hide").show();
+		\$("#hide_image_banner_show").hide();
+	}
+}
+);
+
+JS
+;
+
+	}
+
 	if ($lc eq 'fr') {
 
 
-		$top_banner = <<HTML
+		my $top_banner_deactivated2 = <<HTML
 <div class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
@@ -6108,7 +6197,7 @@ HTML
 	}
 	if ($lc eq 'en') {
 
-		$top_banner = <<HTML
+		my $top_banner_deactivated2 = <<HTML
 <div class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
@@ -6170,7 +6259,7 @@ HTML
 		}
 		elsif ($system eq 'ios') {
 
-			$link_text = display_icon('brand-brand-apple')  . $link_text;
+			$link_text = display_icon('brand-apple')  . $link_text;
 		}
 
 		$top_banner = <<HTML
@@ -6283,6 +6372,7 @@ HTML
 			</div>
 			<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
 			<!-- main column content - comment used to remove left column and center content on some pages -->
+				$image_banner
 				$h1_title
 				$$content_ref
 			</div>
@@ -6318,6 +6408,7 @@ HTML
 			<li><a href="$Lang{footer_wiki_link}{$lc}">$Lang{footer_wiki}{$lc}</a></li>
 			<li><a href="$Lang{footer_translators_link}{$lc}">$Lang{footer_translators}{$lc}</a></li>
 			<li><a href="$Lang{footer_partners_link}{$lc}">$Lang{footer_partners}{$lc}</a></li>
+			<li><a href="$Lang{footer_obf_link}{$lc}">$Lang{footer_obf}{$lc}</a></li>
 		</ul>
 	</div>
 	<div class="small-12 medium-6 large-3 columns community">
@@ -6463,10 +6554,7 @@ HTML
 	# Twitter account
 	$html =~ s/<twitter_account>/$twitter_account/g;
 
-
-	# Use static subdomain for images, js etc.
-	my $static = format_subdomain('static');
-	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|css)\//$static\/$1\//g;
+	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|css)\//$static_subdomain\/$1\//g;
 	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
 	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
@@ -7010,20 +7098,16 @@ HTML
 
 	$bodyabout = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 
-#<div itemscope itemtype="http://schema.org/Product">
-#  <span itemprop="name">Kenmore White 17" Microwave</span>
-#  <img src="kenmore-microwave-17in.jpg" alt='Kenmore 17" Microwave'>
-#  <div itemprop="aggregateRating"
-#    itemscope itemtype="http://schema.org/AggregateRating">
-#   Rated <span itemprop="ratingValue">3.5</span>/5
-#   based on <span itemprop="reviewCount">11</span> customer reviews
-#  </div>
-
 	if ((defined $User_id) and (defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		$html .= "<robotoff-asker url='$robotoff_url' code='$code' lang='$lc' style='display: none;' caption-yes='" . lang("button_caption_yes") . "' caption-no='" . lang("button_caption_no") . "' caption-skip='" . lang("button_caption_skip") . "'></robotoff-asker>\n";
 	}
 
-	$html .= '<div itemscope itemtype="https://schema.org/Product">' . "\n";
+	my $itemtype = 'https://schema.org/Product';
+	if (has_tag($product_ref, 'categories', 'en:dietary-supplements')) {
+		$itemtype = 'https://schema.org/DietarySupplement';
+	}
+
+	$html .= '<div itemscope itemtype="' .  $itemtype . '">' . "\n";
 
 	$html .= "<h1 property=\"food:name\" itemprop=\"name\">$title</h1>";
 
@@ -9577,7 +9661,6 @@ sub add_images_urls_to_product($) {
 
 	my $product_ref = shift;
 
-	my $staticdom = format_subdomain('static');
 	my $path = product_path($product_ref);
 
 	foreach my $imagetype ('front','ingredients','nutrition') {
@@ -9602,9 +9685,9 @@ sub add_images_urls_to_product($) {
 			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 
-				$product_ref->{"image_" . $imagetype . "_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_small_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_url"} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_small_url"} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
 
 				if ($imagetype eq 'front') {
 					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
@@ -9622,9 +9705,9 @@ sub add_images_urls_to_product($) {
 				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 
-					$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{display}{$key} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{small}{$key} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
 				}
 			}
 		}
