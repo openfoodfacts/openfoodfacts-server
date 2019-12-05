@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 16:51\n"
+"PO-Revision-Date: 2019-12-05 17:02\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -518,7 +518,7 @@ msgstr "包裝機碼"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr "產品 EMB 碼 %s"
+msgstr "EMB碼為%s的產品"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
@@ -542,11 +542,11 @@ msgstr "錯誤"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "不正確的使用者名稱或密碼。 <a href=\"/cgi/reset_password.pl\">忘記密碼了嗎?</a>"
+msgstr "使用者名稱或密碼錯誤。<a href=\"/cgi/reset_password.pl\">忘記密碼了嗎？</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr "讀取資料時發生錯誤，請重新更新網頁再試一次。"
+msgstr "讀取資料時出錯，請刷新網頁。"
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
@@ -558,23 +558,23 @@ msgstr "另一位使用者已經使用此電郵地址。您是否已經建立了
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr "無效的地址。"
+msgstr "地址無效。"
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "無效的電子郵件地址。"
+msgstr "電郵地址無效。"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr "密碼至少要有6個字元。"
+msgstr "密碼至少要有六個字元。"
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "無效的使用者"
+msgstr "使用者無效。"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr "使用者帳號只能包含字母、數字及破折號。"
+msgstr "使用者名稱只能有字母、數字及破折號。"
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -586,11 +586,11 @@ msgstr "您必須輸入名字或暱稱。"
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr "權限被拒絕。"
+msgstr "權限被拒。"
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr "您必須輸入名字"
+msgstr "請輸入使用者名稱"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
@@ -614,19 +614,19 @@ msgstr "這個使用者名稱已存在，請選用其它的名稱。"
 
 msgctxt "example"
 msgid "Example:"
-msgstr "範例："
+msgstr "例子："
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr "範例："
+msgstr "例子："
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr "有效期限"
+msgstr "最佳食用日期"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr "有效期限作為追蹤產品是否過期與辨認是否為新品。"
+msgstr "有效期限有助紀錄產品的變化和掌握產品的最新資訊。"
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -634,7 +634,7 @@ msgstr "追溯產品藉由..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr "zh_TW"
+msgstr "zh_HK"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -642,7 +642,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "若日期有誤或不正確，您可以藉由編輯此頁來修正它。"
+msgstr "若數據有誤或不全面，您可以編輯此頁修正。"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -657,8 +657,8 @@ msgstr "<a href=\"https://world.openfoodfacts.org/legal\">法律</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/who-we-are\">我們是誰</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/faq\">常見問題</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">意見論壇</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">部落格</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">新聞及部落格</a>\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">網誌</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">傳媒及網誌</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
@@ -666,7 +666,7 @@ msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<<site_name>> 部落格"
+msgstr "<<site_name>>網誌"
 
 # Do not translate
 msgctxt "footer_blog_link"
@@ -675,7 +675,7 @@ msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr "行為準則"
+msgstr "操守準則"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
@@ -693,11 +693,11 @@ msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "探索專案"
+msgstr "探索項目"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr "常見問答集"
+msgstr "常見問題"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
@@ -721,7 +721,7 @@ msgstr "在<a href=\"https://twitter.com/openfoodfacts\">Twitter</a>、<a href=\
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr "安裝 App"
+msgstr "安裝應用程式"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
@@ -729,7 +729,7 @@ msgstr "加入社群"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr "加入我們 %s"
+msgstr "加入我們的%s"
 
 msgctxt "footer_legal"
 msgid "Legal"
@@ -742,7 +742,7 @@ msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "投稿"
+msgstr "傳媒"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
