@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 16:11\n"
+"PO-Revision-Date: 2019-12-05 16:22\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -2767,11 +2767,11 @@ msgstr "添加核苷酸"
 
 msgctxt "other_nutritional_substances_p"
 msgid "other nutritional substances added"
-msgstr ""
+msgstr "添加的其他營養"
 
 msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
-msgstr ""
+msgstr "添加的其他營養"
 
 msgctxt "product_as_sold"
 msgid "As sold"
@@ -2888,7 +2888,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
-msgstr ""
+msgstr "容易過量攝取"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
@@ -2948,7 +2948,7 @@ msgstr ""
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "超過百分之五"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
@@ -2960,7 +2960,7 @@ msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "維基百科"
 
 msgctxt "additives_classes"
 msgid "Functions"
@@ -3000,7 +3000,7 @@ msgstr ""
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "其他資料"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
@@ -3012,7 +3012,7 @@ msgstr ""
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "淨重"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
@@ -3020,11 +3020,11 @@ msgstr ""
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "體積"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr ""
+msgstr "其他資料"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
@@ -3128,19 +3128,19 @@ msgstr ""
 
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "下載應用程式"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "下載Android應用程式"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "下載iPhone應用程式"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "下載iPad應用程式"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3184,7 +3184,7 @@ msgstr ""
 
 msgctxt "methodology"
 msgid "Methodology"
-msgstr ""
+msgstr "方法"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
@@ -3224,11 +3224,11 @@ msgstr ""
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "須翻譯"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "目前的翻譯"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3240,7 +3240,7 @@ msgstr "否"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "跳過"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3252,11 +3252,11 @@ msgstr ""
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "成分分析"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "成分分析"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -3264,36 +3264,36 @@ msgstr "成分分析"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "分析僅考慮所列的成分，不考慮食品加工方法。"
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "您正在瀏覽此產品的舊頁面！"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "修訂編號："
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "編輯者："
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "先前版本"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "下一個版本"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "最新版本"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "匯入產品數據檔案"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
@@ -3360,7 +3360,7 @@ msgstr ""
 
 msgctxt "fields_group_other"
 msgid "Other information"
-msgstr ""
+msgstr "其他資料"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
