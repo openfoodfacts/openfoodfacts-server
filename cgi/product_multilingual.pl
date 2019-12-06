@@ -640,7 +640,7 @@ sub display_field($$) {
 	if (defined $tags_fields{$fieldtype}) {
 		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
-			$autocomplete = "$world_subdomain/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&";
+			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
 		}
 	}
 
