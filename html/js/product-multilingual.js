@@ -538,7 +538,7 @@ function initializeTagifyInput(el) {
 
     try {
       obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-    } catch(e) {
+    } catch(err) {
       if(err.name == "NS_ERROR_FILE_CORRUPTED") {
           obj = null;
       }
