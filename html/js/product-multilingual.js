@@ -539,7 +539,7 @@ function initializeTagifyInput(el) {
     try {
       obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
     } catch(e) {
-      if(e.name == "NS_ERROR_FILE_CORRUPTED") {
+      if(err.name == "NS_ERROR_FILE_CORRUPTED") {
           obj = null;
       }
     }
@@ -565,8 +565,9 @@ function initializeTagifyInput(el) {
 
     try {
       window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-    } catch(e) {
-      if(e.name == "NS_ERROR_FILE_CORRUPTED") {
+    } catch(err) {
+      if(err.name == "NS_ERROR_FILE_CORRUPTED") {
+        // TODO: Tell the user
       }
     }
 
@@ -579,7 +580,7 @@ function initializeTagifyInput(el) {
 }
 
 function get_recents(tagfield) {
-  let obj
+  let obj;
     try {
       obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
     } catch(e) {
