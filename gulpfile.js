@@ -66,4 +66,7 @@ function jQueryUiThemes() {
     .pipe(dest('./html/css/dist/jqueryui/themes/base', { sourcemaps: true }))
 }
 
-exports.default = parallel(copyJs, buildJs, jQueryUiThemes, series(icons, css))
+exports.js = parallel(copyJs, buildJs);
+exports.css = css;
+exports.icons = icons;
+exports.default = parallel(copyJs, buildJs, jQueryUiThemes, series(icons, css));
