@@ -361,7 +361,7 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "barcode", "ean", "ean-13", "ean13", "gtin"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
@@ -377,17 +377,20 @@ es => {
 
 fr => {
 
+	code => ["codes barres"],
 	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale"],
 	generic_name_fr => ["dénomination légale", "déno légale"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
 	labels => ["signes qualité", "signe qualité"],
+	countries => ["pays de vente"],
 	volume_value_unit => ["volume net"],
 	drained_weight_value_unit => ["poids net égoutté"],
 	recycling_instructions_to_recycle_fr => ["à recycler", "consigne à recycler"],
 	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
 	preparation_fr => ["conseils de préparation", "instructions de préparation"],
 	link => ["lien"],
+	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement"],
 },
 
 );
