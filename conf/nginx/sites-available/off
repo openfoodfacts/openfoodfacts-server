@@ -105,9 +105,9 @@ server {
 	if ($host = translations.openfoodfacts.org) { return 302 https://translate.openfoodfacts.org/ ; }
 	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
         if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
+        if ($host = ios.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = iostest.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = slack.openfoodfacts.org) { return 302 https://slack.openfoodfacts.org ; }
         if ($host = donnez.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
         if ($host = don.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
         if ($host = dons.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
@@ -356,11 +356,11 @@ server {
 
 	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
         if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
-        if ($host = donner.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous ; }
-        if ($host = donate.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en ; }
+        if ($host = ios.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = iostest.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = slack.openfoodfacts.org) { return 302 https://slack.openfoodfacts.org ; }
+        if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
 
 	# Redirect GET requests to https. POST requests will be transformed
 	# to GET by most browsers when redirected, and it breaks apps that
@@ -536,11 +536,11 @@ server {
 
 	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
         if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
-        if ($host = donner.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous ; }
-        if ($host = donate.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en ; }
+        if ($host = ios.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = iostest.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = slack.openfoodfacts.org) { return 302 https://slack.openfoodfacts.org ; }
+        if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
 
 	# Redirect GET requests to https. POST requests will be transformed
 	# to GET by most browsers when redirected, and it breaks apps that
