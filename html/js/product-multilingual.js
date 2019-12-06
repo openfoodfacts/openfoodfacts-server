@@ -730,10 +730,22 @@ function initLanguageAdding() {
   const placeholder = Lang.add_language;
   const languages = convertTranslationsToLanguageList(Lang);
 
+  const existingLanguages = [];
+  const tabs = document.querySelectorAll('li.tabs:not([data-language="new_lc"]):not(.tabs_new)');
+  // eslint-disable-next-line guard-for-in
+  for (let i = 0; i < tabs.length; ++i) {
+    existingLanguages.push(tabs[i].dataset.language);
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  const unusedLanguages = languages.filter(function(value) {
+    return !existingLanguages.includes(value.id);
+  });
+
   $(".select_add_language").select2({
     placeholder: placeholder,
     allowClear: true,
-    data: languages
+    data: unusedLanguages
   }).on("select2:select", function (e) {
     var lc = e.params.data.id;
     var language = e.params.data.text;

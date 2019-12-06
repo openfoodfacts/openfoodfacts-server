@@ -1360,7 +1360,7 @@ HTML
 			}
 
 			$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
+	<li class="tabs tab-title$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}_tab" data-language="$tabid"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
 HTML
 ;
 
