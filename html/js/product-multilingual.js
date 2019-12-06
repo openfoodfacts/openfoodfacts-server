@@ -534,7 +534,15 @@ function initializeTagifyInput(el) {
   });
 
   input.on('add', function(e) {
-    let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+    let obj;
+
+    try {
+      obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+    } catch(e) {
+      if(e.name == "NS_ERROR_FILE_CORRUPTED") {
+          obj = null;
+      }
+    }
 
     const tag = e.detail.data.value;
     if (obj === null) {
@@ -554,7 +562,13 @@ function initializeTagifyInput(el) {
       obj[el.id].unshift(tag);
     }
 
-    window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
+
+    try {
+      window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
+    } catch(e) {
+      if(e.name == "NS_ERROR_FILE_CORRUPTED") {
+      }
+    }
 
     input.settings.whitelist = obj[el.id]; // reset the whitelist
   });
@@ -565,7 +579,15 @@ function initializeTagifyInput(el) {
 }
 
 function get_recents(tagfield) {
-  const obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+  let obj
+    try {
+      obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+    } catch(e) {
+      if(e.name == "NS_ERROR_FILE_CORRUPTED") {
+        obj = null;
+      }
+    }
+
   if (obj === null) {
     return [];
   }
