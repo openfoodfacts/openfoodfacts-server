@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:05\n"
+"PO-Revision-Date: 2019-12-05 15:30\n"
 "Language-Team: Italian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 prodotto"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " e "
@@ -197,7 +198,7 @@ msgstr "Puoi anche contribuire a finanziare il progetto Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world-it.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Dona a Open Food Facts\" /></a><p><<site_name>> è fatto da un associazione senza scopo di lucro, indipendente dal settore. È creato da tutti, per tutti e fondato da tutti. Puoi supportare il nostro lavoro <a href=\"https://world-it.openfoodfacts.org/donate-to-open-food-facts\">donando a Open Food Facts</a> ed <a href=\"https://www.lilo.org/it/open-food-facts/?utm_source=open-food-facts\">usando il motore di ricerca Lilo</a>.<br/><b>Grazie!</b></p>"
+msgstr "<a href=\"https://world-it.openfoodfacts.org/dona-a-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Dona a Open Food Facts\" /></a><p><<site_name>> è fatto da un associazione senza scopo di lucro, indipendente dal settore. È creato da tutti, per tutti e fondato da tutti. Puoi supportare il nostro lavoro <a href=\"https://world-it.openfoodfacts.org/dona-a-open-food-facts\">donando a Open Food Facts</a> ed <a href=\"https://www.lilo.org/it/open-food-facts/?utm_source=open-food-facts\">usando il motore di ricerca Lilo</a>.<br/><b>Grazie!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -425,7 +426,7 @@ msgstr "Dona a Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-it.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-it.openfoodfacts.org/dona-a-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -781,6 +782,16 @@ msgstr "<<site_name>> wiki (en)"
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
+
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -3848,11 +3859,11 @@ msgstr "Dettaglio del calcolo del Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Questo prodotto è considerato una bevanda per il calcolo del Il Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Questo prodotto non è considerato una bevanda per il calcolo del Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -3931,10 +3942,10 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Punteggio Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
@@ -3957,15 +3968,91 @@ msgstr "Grazie!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "Valore per il prodotto"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Valore medio per la categoria %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "Il Nutri-Score Nutri può essere modificato da %s a %s modificando il valore %s da %s a %s (differenza di %s percento)."
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Gruppi"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Produttore"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "Deve essere spuntato solo per gli account dei produttori che modificano i propri prodotti. La proprietà del prodotto verrà attribuita ai produttori quando aggiungono o modificano un prodotto."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Database"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "Per fonti esterne di dati. La proprietà del prodotto importato non cambierà."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "App"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "Per applicazioni."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Bot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "Per robot, script ecc."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Moderatore"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "I moderatori hanno accesso a funzioni speciali per modificare e rivedere i prodotti."
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr ""
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr ""
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr ""
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr ""
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr ""
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
 msgstr ""
 

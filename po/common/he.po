@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 16:42\n"
+"PO-Revision-Date: 2019-12-05 15:31\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "מוצר אחד"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " וגם "
@@ -139,7 +140,7 @@ msgstr "עמוד המוצר נערך גם על ידי"
 # Please check that the HTML tag stayed intact
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -780,6 +781,16 @@ msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
 
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr ""
+
 msgctxt "for"
 msgid "for"
 msgstr "עבור"
@@ -980,7 +991,7 @@ msgstr "מוצרים שאינם מכילים את הרכיב %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"זמין ב־App Store\" width=\"120\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/appstore/black/appstore_HB.svg\" alt=\"זמין ב־App Store\" width=\"120\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2593,7 +2604,7 @@ msgstr "כתובת אתר או בלוג"
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/English.svg\" alt=\"החנות של Windows Phone\" width=\"109\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/microsoft/Hebrew.svg\" alt=\"החנות של Windows Phone\" width=\"109\" height=\"40\" />"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2943,11 +2954,11 @@ msgstr "קבוצות בהן למעלה מ־5% מהחברים חורגים מהצ
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־50% מהחברים חורגים מהמינון המקסימלי ללא השפעה שלילית (אין רמת השפעה שלילית ניכרת - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־5% מהחברים חורגים מהמינון המקסימלי ללא השפעה שלילית (אין רמת השפעה שלילית ניכרת - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
@@ -3059,7 +3070,7 @@ msgstr "שירות לקוחות"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr "מפיק"
+msgstr "יצרן"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
@@ -3123,11 +3134,11 @@ msgstr "מועד ההורדה מהמדפים"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "תבנית: YYYY-MM-DD או YYYY-MM או YYYY"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 או 2019-09 או 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3151,7 +3162,7 @@ msgstr "הורדת היישומון ל־iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr ""
+msgstr "<em>ברקוד בלתי חד־משמעי</em>: למוצר זה יש מספר מחזור מוגבל (Restricted Circulation Number) למוצרים בתוך חברה מסוימת. משמעות הדבר היא שיצרנים וחנויות שונים יכולים להשתמש באותו הברקוד למוצרים שונים."
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3644,12 +3655,12 @@ msgstr "שגיאות איכות הנתונים"
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "מזערי"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "מרבי"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -3846,11 +3857,11 @@ msgstr "פירוט החישוב של Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "מוצר זה נחשב למשקה לטובת החישוב של ה־‏Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "מוצר זה אינו נחשב למשקה לטובת החישוב של ה־‏Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -3929,10 +3940,10 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "ציון Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
@@ -3955,15 +3966,91 @@ msgstr "תודה רבה לך!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "ערך עבור המוצר"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "ערך ממוצע לקטגוריה %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "ניתן לשנות את ערך ה־Nutri-Score מהערך %s לערך %s על ידי שינוי הערך של %s מכדי %s לכדי %s (הפרש של %s אחוזים)."
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "קבוצות"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "יצרן"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "יש לסמן רק עבור חשבונות של יצרנים שעורכים את המוצרים של עצמם. הבעלות על המוצר תשויך ליצרנים עקב הוספה או עריכה של מוצר על ידם."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "מסד נתונים"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "למקורות נתונים חיצוניים. הבעלות על המוצרים המייובאים לא ישתנו."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "יישומון"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "ליישומונים."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "רובוט"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "לרובוטים, סקריפטים וכו׳."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "פיקוח"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "למפקחים יש גישה לתכונות מיוחדות כדי לערוך ולסקור מוצרים."
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr ""
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr ""
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr ""
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr ""
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr ""
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
 msgstr ""
 

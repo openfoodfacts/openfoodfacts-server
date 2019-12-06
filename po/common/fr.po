@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:04\n"
+"PO-Revision-Date: 2019-12-05 15:52\n"
 "Language-Team: French\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 produit"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " et "
@@ -784,6 +785,16 @@ msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://fr.wiki.openfoodfacts.org"
 
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr "Open Beauty Facts - Cosmétiques"
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr "https://world-fr.openbeautyfacts.org"
+
 msgctxt "for"
 msgid "for"
 msgstr "pour"
@@ -1262,7 +1273,7 @@ msgstr "<p>Connectez-vous pour ajouter des produits ou modifier leurs fiches.</p
 "<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Se souvenir de moi</label><br />\n"
 "<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Se connecter\" class=\"button small\" />\n"
 "</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
+"<p>Pas encore inscrit? <a href=\"/cgi/user.pl\">Créez votre compte</a>.</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -3934,7 +3945,7 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
 msgstr "Score Nutri-Score"
@@ -3972,3 +3983,78 @@ msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "Le Nutri-Score peut passer de %s à %s en changeant la valeur %s de %s à %s (différence de %s pour cent)."
 
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr "La plateforme dédiée aux producteurs est toujours en développement. Nous effectuons des vérifications manuelles avant d'importer les produits dans la base de données publique. Veuillez nous contacter à <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> pour mettre à jour la base de données publique."
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Groupes"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Producteur"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "Ne doit être coché que les comptes des producteurs ajoutant leurs propres produits. La propriété des produits sera attribuée aux producteurs lorsqu'ils ajouteront ou modifieront un produit."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Base de données"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "Pour les sources de données externes. Les produits importés ne changeront pas de propriétaire."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "Appli"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "Pour les applications."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Robot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "Pour les robots, scripts, etc."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Modérateur"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "Les modérateurs ont accès à des fonctionnalités spéciales permettant de modifier et vérifier les produits."
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr "J'ai déjà fait un don ou je ne suis pas intéressé. Cacher la bannière."
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr "Hé, une case à décocher ?!"
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr "Un projet citoyen indépendant pour la transparence alimentaire ?"
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr "Des données sur les produits alimentaires pour améliorer la santé publique ?"
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr "Des choix alimentaires plus simples, selon vos propres critères ?"
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr "Nous avons besoin de votre soutien !"
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr "Faites un Don"

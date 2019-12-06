@@ -98,7 +98,7 @@ class RobotoffAsker extends HTMLElement {
   async nextQuestion() {
     this.question = this.questions ? this.questions.pop() : null;
     if (!this.question) {
-      const response = await fetch(`${this.url}/api/v1/questions/${this.code}?lang=${this.lang}`);
+      const response = await fetch(`${this.url}/api/v1/questions/${this.code}?lang=${this.lang}`, { credentials: 'include' });
       const json = await response.json();
       if (!json || json.status !== 'found') {
         this.style.display = 'none';
@@ -147,7 +147,8 @@ class RobotoffAsker extends HTMLElement {
       data.append('annotation', annotation);
       await fetch(`${this.url}/api/v1/insights/annotate/`, {
         method: 'POST',
-        body: data
+        body: data,
+        credentials: 'include'
       });
     }
 

@@ -170,14 +170,14 @@ else {
 	}
 	else {
 		$product_id = product_id_for_user($User_id, $Org_id, $code);
-		$product_ref = retrieve_product_or_deleted_product($product_id, $admin);
+		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
 		if (not defined $product_ref) {
 			display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
 	}
 }
 
-if (($type eq 'delete') and (not $admin)) {
+if (($type eq 'delete') and (not $User{moderator})) {
 	display_error($Lang{error_no_permission}{$lang}, 403);
 }
 
@@ -256,7 +256,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($admin and (defined param('new_code'))) {
+	if ($User{moderator} and (defined param('new_code'))) {
 
 		change_product_server_or_code($product_ref, param('new_code'), \@errors);
 		$code = $product_ref->{code};
@@ -384,7 +384,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
 
-	if (($admin or $owner) and (defined param('obsolete_since_date'))) {
+	if (($User{moderator} or $owner) and (defined param('obsolete_since_date'))) {
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>param("obsolete_since_date"));
 	}
@@ -563,7 +563,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# product check
 
-	if ($admin or $moderator) {
+	if ($User{moderator}) {
 
 		my $checked = remove_tags_and_quote(decode utf8=>param("photos_and_data_checked"));
 		if ((defined $checked) and ($checked eq 'on')) {
@@ -777,9 +777,14 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Lang strings for product.js
 
+	my $moderator = 0;
+	if ($User{moderator}) {
+		$moderator = 1;
+	}
+
 	$scripts .=<<JS
 <script type="text/javascript">
-var admin = $admin;
+var admin = $moderator;
 var Lang = {
 JS
 ;
@@ -804,17 +809,10 @@ JS
 HTML
 ;
 
-
-#<!-- Autocomplete -->
-#<script type='text/javascript' src='https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
-#<link rel="stylesheet" type="text/css" href="https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
-
 	$scripts .= <<HTML
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
-<script type="text/javascript" src="/js/jquery.autoresize.js"></script>
-<script type="text/javascript" src="/js/jquery.rotate.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
@@ -889,7 +887,7 @@ CSS
 	my $label_new_code = $Lang{new_code}{$lang};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($admin) {
+	if ($User{moderator}) {
 		$html .= <<HTML
 <label for="new_code" id="label_new_code">${label_new_code}</label>
 <input type="text" name="new_code" id="new_code" class="text" value="" /><br />
@@ -899,7 +897,7 @@ HTML
 
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform
-	if ($admin or $owner) {
+	if ($User{moderator} or $owner) {
 
 		my $checked = '';
 		if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete} eq 'on')) {
@@ -995,11 +993,11 @@ function toggle_manage_images_buttons() {
 JS
 ;
 
-	if ($admin) {
+	if ($User{moderator}) {
 		$html .= <<HTML
 <ul id="manage_images_accordion" class="accordion" data-accordion>
   <li class="accordion-navigation">
-<a href="#manage_images_drop"><i class="icon-collections"></i> $Lang{manage_images}{$lc}</a>
+<a href="#manage_images_drop">@{[ display_icon('collections') ]} $Lang{manage_images}{$lc}</a>
 
 
 <div id="manage_images_drop" class="content" style="background:#eeeeee">
@@ -1009,10 +1007,10 @@ HTML
 <<HTML
 
 	<p>$Lang{manage_images_info}{$lc}</p>
-	<a id="delete_images" class="button small disabled"><i class="icon-delete"></i> $Lang{delete_the_images}{$lc}</a><br/>
+	<a id="delete_images" class="button small disabled">@{[ display_icon('delete') ]} $Lang{delete_the_images}{$lc}</a><br/>
 	<div class="row">
 		<div class="small-12 medium-5 columns">
-			<button id="move_images" class="button small disabled"><i class="icon-arrow_right_alt"></i> $Lang{move_images_to_another_product}{$lc}</a>
+			<button id="move_images" class="button small disabled">@{[ display_icon('arrow_right_alt') ]} $Lang{move_images_to_another_product}{$lc}</a>
 		</div>
 		<div class="small-4 medium-2 columns">
 			<label for="move_to" class="right inline">$Lang{barcode}{$lc}</label>
@@ -1523,11 +1521,6 @@ HTML
 
 	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 
-
-	# $initjs .= "\$('textarea#ingredients_text').autoResize();";
-	# ! with autoResize, extracting ingredients from image need to update the value of the real textarea
-	# maybe calling $('textarea.growfield').data('AutoResizer').check();
-
 	$html .= display_field($product_ref, "allergens");
 
 	$html .= display_field($product_ref, "traces");
@@ -1876,82 +1869,78 @@ HTML
 HTML
 ;
 
-		if ($nid ne 'alcohol') {
+		if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
+			my $unit = '';
 
+			if (($nid eq 'alcohol')) { $unit = '% vol / °'; } # alcohol in % vol / °
+			elsif (($nid eq 'energy-kj')) { $unit = 'kJ'; }
+			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'; }
 
-		my @units = ('g','mg','µg');
-		if ($nid eq "energy-kj") {
-			@units = ('kJ');
-		}
-		elsif ($nid eq "energy-kcal") {
-			@units = ('kcal');
-		}
-		elsif ($nid =~ /^energy/) {
-			@units = ('kJ','kcal');
-		}
-		elsif ($nid eq 'alcohol') {
-			@units = ('% vol');
-		}
-		elsif ($nid eq 'water-hardness') {
-			@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
-		}
-
-		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
-			or ($nid =~ /^new_/)
-			or ($unit eq '% DV')) {
-			push @units, '% DV';
-		}
-		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
-			or ($nid =~ /^new_/)
-			or ($unit eq 'IU')
-			or ($unit eq 'UI')) {
-			push @units, 'IU';
-		}
-
-		my $hide_percent = '';
-		my $hide_select = '';
-
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
-			$hide_percent = ' style="display:none"';
-			$hide_select = ' style="display:none"';
-
-		}
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
-			$hide_select = ' style="display:none"';
+			$input .= <<"HTML"
+<td>
+<span class="nutriment_unit">$unit</span>
+HTML
+;
 		}
 		else {
-			$hide_percent = ' style="display:none"';
-		}
 
-		$input .= <<HTML
+			my @units = ('g','mg','µg');
+
+			if ($nid =~ /^energy/) {
+				@units = ('kJ','kcal');
+			}
+			elsif ($nid eq 'water-hardness') {
+				@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
+			}
+
+			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
+				or ($nid =~ /^new_/)
+				or ($unit eq '% DV')) {
+				push @units, '% DV';
+			}
+			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
+				or ($nid =~ /^new_/)
+				or ($unit eq 'IU')
+				or ($unit eq 'UI')) {
+				push @units, 'IU';
+			}
+
+			my $hide_percent = '';
+			my $hide_select = '';
+
+			if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
+				$hide_percent = ' style="display:none"';
+				$hide_select = ' style="display:none"';
+
+			}
+			elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
+				$hide_select = ' style="display:none"';
+			}
+			else {
+				$hide_percent = ' style="display:none"';
+			}
+
+			$input .= <<HTML
 <td>
 <span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
 <select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select $disabled>
 HTML
 ;
-		$disabled = $disabled_backup;
+			$disabled = $disabled_backup;
 
-		foreach my $u (@units) {
-			my $selected = '';
-			if ($unit eq $u) {
-				$selected = 'selected="selected" ';
-			}
-			$input .= <<HTML
+			foreach my $u (@units) {
+				my $selected = '';
+				if ($unit eq $u) {
+					$selected = 'selected="selected" ';
+				}
+				$input .= <<HTML
 <option value="$u" $selected>$u</option>
 HTML
 ;
-		}
+			}
 
-		$input .= <<HTML
-</select>
-HTML
-;
-		}
-		else {
-			# alcohol in % vol / °
 			$input .= <<HTML
-<td>
-<span class="nutriment_unit" >% vol / °</span>
+</select>
 HTML
 ;
 		}
@@ -2121,7 +2110,7 @@ HTML
 
 	# Product check
 
-	if ($admin or $moderator) {
+	if ($User{moderator}) {
 
 		$html .= <<HTML
 <div class=\"fieldset\" id=\"check\"><legend>$Lang{photos_and_data_check}{$lang}</legend>
@@ -2198,12 +2187,12 @@ JS
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
 		<button type="submit" name=".submit" class="button postfix small">
-			<i class="icon-check"></i> $Lang{save}{$lc}
+			@{[ display_icon('check') ]} $Lang{save}{$lc}
 		</button>
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
 		<button type="button" id="back-btn" class="button postfix small secondary">
-			<i class="icon-cancel"></i> $Lang{cancel}{$lc}
+			@{[ display_icon('cancel') ]} $Lang{cancel}{$lc}
 		</button>
 	</div>
 </div>
@@ -2231,7 +2220,7 @@ HTML
 
 	$html .= display_product_history($code, $product_ref);
 }
-elsif (($action eq 'display') and ($type eq 'delete') and ($admin)) {
+elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 	$log->debug("display product", { code => $code }) if $log->is_debug();
 
@@ -2261,11 +2250,11 @@ elsif ($action eq 'process') {
 
 	$product_ref->{interface_version_modified} = $interface_version;
 
-	if (($admin) and ($type eq 'delete')) {
+	if (($User{moderator}) and ($type eq 'delete')) {
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}
-	elsif (($admin) and (exists $product_ref->{deleted})) {
+	elsif (($User{moderator}) and (exists $product_ref->{deleted})) {
 		delete $product_ref->{deleted};
 	}
 
@@ -2338,4 +2327,3 @@ display_new( {
 
 
 exit(0);
-

@@ -31,7 +31,6 @@ BEGIN
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
-		%moderators
 
 		$server_domain
 		@ssl_subdomains
@@ -146,34 +145,12 @@ use ProductOpener::Config2;
 );
 
 %admins = map { $_ => 1 } qw(
-	agamitsudo
-	aleene
-	bcatelin
-	bojackhorseman
 	charlesnepote
 	hangy
-	javichu
-	kyzh
-	lafel
-	lucaa
-	mbe
-	moon-rabbit
-	raphael0202
-	sebleouf
-	segundo
 	stephane
 	tacinte
-	tacite
 	teolemon
-	twoflower
-
-	jniderkorn
-	desan
-	cedagaesse
-	m-etchebarne
 );
-
-%moderators = map { $_ => 1 } qw();
 
 $options{export_limit} = 10000;
 
@@ -412,7 +389,7 @@ my @icons = (
 
 my @related_applications = (
 	{ 'platform' => 'play', 'id' => 'org.openfoodfacts.scanner', 'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner' },
-	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://itunes.apple.com/app/id588797948' },
+	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948' },
 	{ 'platform' => 'windows', 'id' => '9nblggh0dkqr', 'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr' },
 );
 
@@ -564,6 +541,10 @@ improvements
 @product_other_fields = qw(
 	producer_product_id
 	producer_version_id
+	quantity_value
+	quantity_unit
+	serving_size_value
+	serving_size_unit
 	net_weight_value
 	net_weight_unit
 	drained_weight_value

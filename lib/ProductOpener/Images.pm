@@ -268,7 +268,7 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="icon-photo_camera"></i> $product_image_with_barcode
+<a href="#" class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
 <input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
     right:0;
     bottom:0;
@@ -1253,25 +1253,12 @@ HTML
 		}
 	}
 
-	# If we don't have an image, display Pacman
+	# No image
 	if ($html eq '') {
 
-		my @colors = qw(
-ff6600
-ffcc00
-55d400
-00ccff
-0066ff
-ff00cc
-cc00ff
-);
-		my $color_id = $product_ref->{code} % (scalar @colors);
-		my $color = $colors[$color_id];
-
 		$html = <<HTML
-<div style="background-color:#$color">
-<img src="$static/images/misc/pacman.svg" width="$thumb_size" height="$thumb_size" alt="Please add pictures of the product if you have it!" $css/>
-</div>
+<img src="$static/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
+</img>
 HTML
 ;
 	}

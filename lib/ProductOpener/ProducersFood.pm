@@ -226,6 +226,14 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 		# check major nutrients
 		my @nutrients = qw(fat saturated-fat sugars salt);
 
+		# Minimum thresholds set at the upper end of the low values for the FSA traffic lights
+		my %minimum_thresholds = (
+			"fat" => 3,
+			"saturated-fat" => 1.5,
+			"sugars" => 5,
+			"salt" => 0.3,
+		);
+
 		foreach my $nid (@nutrients) {
 
 			if ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne "")
@@ -236,6 +244,8 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 					category_100g => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"},
 					category_std => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
 					} ) if $log->is_debug();
+
+				next if ($product_ref->{nutriments}{$nid . "_100g"} < $minimum_thresholds{$nid});
 
 				my $improvements_tag;
 

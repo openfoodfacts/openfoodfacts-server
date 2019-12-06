@@ -192,6 +192,11 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					$code =~ s/^CE //;
 					$code = normalize_packager_codes("$code EC");
 				}
+				elsif ($country eq 'fi') {
+					$code = $fields[$headers{numero}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("FI $code EC");
+				}
 
 				$code = get_string_id_for_lang("no_language", $code);
 				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;

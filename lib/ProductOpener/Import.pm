@@ -93,6 +93,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::ImportConvert qw/clean_weights/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -400,6 +401,11 @@ sub import_csv_file($) {
 			}
 		}
 
+		# Clean the input data
+		# It is necessary to do it at this step (before the import) so that we can populate
+		# the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
+		clean_weights($imported_product_ref);
+
 		$i++;
 
 		my $modified = 0;
@@ -584,6 +590,8 @@ sub import_csv_file($) {
 		# Record fields that are set by the owner
 		if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
+			$product_ref->{owner} = $args_ref->{owner};
+			$product_ref->{owners_tags} = $product_ref->{owner};
 		}
 
 		foreach my $field (@param_fields) {
@@ -644,6 +652,12 @@ sub import_csv_file($) {
 					#	delete $product_ref->{$field . "_tags"};
 					#}
 
+					# If we are on the producers platform, remove existing values for brands
+					if (($server_options{producers_platform}) and ($field eq "brands")) {
+						$product_ref->{$field} = "";
+						delete $product_ref->{$field . "_tags"};
+					}
+
 					my %existing = ();
 						if (defined $product_ref->{$field . "_tags"}) {
 						foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
@@ -669,7 +683,7 @@ sub import_csv_file($) {
 							$tagid = get_taxonomyid($imported_product_ref->{lc}, canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
 						}
 						else {
-							$tagid = get_fileid($tag);
+							$tagid = get_string_id_for_lang("no_language", $tag);
 						}
 
 						if (not exists $existing{$tagid}) {
@@ -726,6 +740,8 @@ sub import_csv_file($) {
 				else {
 					# non-tag field
 					my $new_field_value = $imported_product_ref->{$field};
+
+					next if not defined $new_field_value;
 
 					$new_field_value =~ s/\s+$//;
 					$new_field_value =~ s/^\s+//;
@@ -849,6 +865,22 @@ sub import_csv_file($) {
 			my $value = $imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"};
 			my $valuep = $imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"};
 			my $unit = $imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"};
+
+			# calcium_100g_value_unit = 50 mg
+			if (not defined $value) {
+				$value = $imported_product_ref->{$nid . "_value_unit"} || $imported_product_ref->{$nid . "_100g_value_unit"};
+				if ((defined $value) and ($value =~ /^(.*) ([a-z]+)$/)) {
+					$value = $1;
+					$unit = $2;
+				}
+			}
+			if (not defined $valuep) {
+				$valuep = $imported_product_ref->{$nid . "_prepared_value_unit"} || $imported_product_ref->{$nid . "_100g_prepared_value_unit"};
+				if ((defined $valuep) and ($valuep =~ /^(.*) ([a-z]+)$/)) {
+					$valuep = $1;
+					$unit = $2;
+				}
+			}
 
 			# calcium_100g_value_in_mcg
 

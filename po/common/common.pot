@@ -16,6 +16,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr ""
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr ""
@@ -808,6 +809,16 @@ msgstr ""
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
+msgstr ""
+
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
 msgstr ""
 
 msgctxt "for"
@@ -4064,7 +4075,7 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
 msgstr "Nutri-Score score"
@@ -4101,3 +4112,84 @@ msgstr "Mean value for the %s category"
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Groups"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Producer"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Database"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "For external sources of data. Product ownership of imported products will not change."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "App"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "For applications."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Bot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "For robots, scripts etc."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Moderator"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "Moderators have access to special features to edit and review products."
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr "I have already donated or I'm not interested. Hide the banner."
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr "Hey, a box to uncheck?!"
+
+#Please keep it short
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr "An independant and citizen-led project for food transparency ?"
+
+#Please keep it short
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr "Food product data for research that improves public health ?"
+
+#Please keep it short
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr "Easier and better food choices according to your own criteria?"
+
+#Please keep it short
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr "We need your support!"
+
+#Please keep it short
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr "Please Donate"

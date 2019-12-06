@@ -1512,18 +1512,24 @@ sub build_tags_taxonomy($$$) {
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 
 		{
-		binmode STDOUT, ":encoding(UTF-8)";
-		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
-		print $OUT_JSON encode_json(\%taxonomy_json);
-		close ($OUT_JSON);
+			binmode STDOUT, ":encoding(UTF-8)";
+			if (open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json")) {
+				print $OUT_JSON encode_json(\%taxonomy_json);
+				close ($OUT_JSON);
+			} else {
+				print "Cannot open $www_root/data/taxonomies/$tagtype.json, skipping writing taxonomy to file.\n";
+			}
 
-		open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json");
-		print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
-		close ($OUT_JSON_FULL);
-		# to serve pre-compressed files from Apache
-		# nginx : needs nginx_static module
-		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
-		# system("gzip $www_root/data/taxonomies/$tagtype.json");
+			if(open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json")) {
+				print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
+				close ($OUT_JSON_FULL);
+			} else {
+				print "Cannot open $www_root/data/taxonomies/$tagtype.full.json, skipping writing taxonomy to file.\n";
+			}
+			# to serve pre-compressed files from Apache
+			# nginx : needs nginx_static module
+			# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
+			# system("gzip $www_root/data/taxonomies/$tagtype.json");
 		}
 
 		$log->error("taxonomy errors", { errors => $errors }) if $log->is_error();
@@ -2087,7 +2093,7 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	}
 
 	my $display = '';
-	my $display_lc;
+	my $display_lc = "en";	# Default to English
 	my $exists_in_taxonomy = 0;
 
 	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
@@ -2116,7 +2122,9 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 		}
 		else {
 			$display = $tagid;
-			$display_lc = $tag_lc;
+			if (defined $tag_lc) {
+				$display_lc = $tag_lc;
+			}
 
 			if ($target_lc eq $tag_lc) {
 				$display =~ s/^(\w\w)://;
@@ -2139,10 +2147,11 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 
 	if ($display =~ /^(\w\w:)/) {
 		$display_lc_prefix = $1;
+		$display_lc = $1;
 		$display_tag = $';
 	}
 
-	my $tagurlid = get_string_id_for_lang($display_lc_prefix, $display_tag);
+	my $tagurlid = get_string_id_for_lang($display_lc, $display_tag);
 	if ($tagurlid =~ /[^a-zA-Z0-9-]/) {
 		$tagurlid = URI::Escape::XS::encodeURIComponent($display_tag);
 	}

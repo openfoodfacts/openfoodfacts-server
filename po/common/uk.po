@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:18\n"
+"PO-Revision-Date: 2019-12-05 15:42\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "Товар"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr "і"
@@ -90,7 +91,7 @@ msgstr "Потенційно небезпечна харчова добавка.
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Небезпечний харчовий додаток. Уникати."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
@@ -98,7 +99,7 @@ msgstr "Харчова добавка заборонена в Європі. Ун
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "Додавання, додатки, добавки"
 
 msgctxt "additives_s"
 msgid "additive"
@@ -106,7 +107,8 @@ msgstr "Додавання"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "1. Пошук за додатковими параметрами.\n"
+"2. Розширений пошук"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
@@ -122,7 +124,7 @@ msgstr "Всі місії"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Речовини або продукти, які викликають (спричиняють, призводять до...) аллергічні реакціі або ідіосинкразію (непереносимість)"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -771,6 +773,16 @@ msgstr ""
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
+msgstr ""
+
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
 msgstr ""
 
 msgctxt "for"
@@ -3896,7 +3908,7 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr ""
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
 msgstr ""
@@ -3932,5 +3944,81 @@ msgstr ""
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr ""
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr ""
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr ""
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr ""
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr ""
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr ""
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr ""
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr ""
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr ""
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr ""
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr ""
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr ""
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr ""
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr ""
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr ""
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr ""
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr ""
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
 msgstr ""
 

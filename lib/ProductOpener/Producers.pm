@@ -173,6 +173,11 @@ sub load_csv_or_excel_file($) {
 			# the header function crashes with some csv files... use getline instead
 			my $row_ref = $csv->getline ($io);
 
+			# empty line or only title in first column?
+			while (((not defined $row_ref) or (not defined $row_ref->[0]) or ($row_ref->[0] eq "") or (not defined $row_ref->[1]) or ($row_ref->[1] eq ""))
+				and ($row_ref = $csv->getline ($io))) {
+			}
+
 			if (not defined $row_ref) {
 				$log->debug("could not read headers row", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
 				$results_ref->{error} = "Could not read headers row $file.csv: $!";
@@ -356,7 +361,7 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "barcode", "ean", "ean-13", "ean13", "gtin"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
@@ -366,21 +371,26 @@ en => {
 es => {
 	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
 	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
+	net_weight_value_unit => ["peso unitrario", "peso unitario"],	# Yuka
+	"energy-kcal_100g_value_unit" => ["calorias"],
 },
 
 fr => {
 
+	code => ["codes barres"],
 	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale"],
 	generic_name_fr => ["dénomination légale", "déno légale"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
 	labels => ["signes qualité", "signe qualité"],
+	countries => ["pays de vente"],
 	volume_value_unit => ["volume net"],
 	drained_weight_value_unit => ["poids net égoutté"],
 	recycling_instructions_to_recycle_fr => ["à recycler", "consigne à recycler"],
 	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
 	preparation_fr => ["conseils de préparation", "instructions de préparation"],
 	link => ["lien"],
+	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement"],
 },
 
 );
@@ -411,6 +421,27 @@ sub init_fields_columns_names_for_lang($) {
 
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 }
+
+
+# Note: This is not a conversion table, it is a list of synonyms used by producers when they transmit us data.
+# In practice, no producer uses cal (as in 1/1000 of kcal) as a unit for energy.
+# When they have "cal" or "calories" in the header of a column, they always mean kcal.
+# The units in this table are lowercased, so "cal" is for the "big Calories". 1 Cal = 1 kcal.
+
+my %units_synonyms = (
+	"g" => "g",
+	"gr" => "g",
+	"grams" => "g",
+	"grammes" => "g",
+	"mg" => "mg",
+	"mcg" => "mcg",
+	"percent" => "percent",
+	"kj" => "kj",
+	"kcal" => "kcal",
+	"cal" => "kcal",
+	"calories" => "kcal",
+	"calorie" => "kcal",
+);
 
 
 sub init_nutrients_columns_names_for_lang($) {
@@ -453,21 +484,6 @@ sub init_nutrients_columns_names_for_lang($) {
 
 			# Energy kcal, carbohydrates g, calcium mg
 
-			my %units = (
-				"g" => "g",
-				"gr" => "g",
-				"grams" => "g",
-				"grammes" => "g",
-				"mg" => "mg",
-				"mcg" => "mcg",
-				"percent" => "percent",
-				"kj" => "kj",
-				"kcal" => "kcal",
-				"cal" => "kcal",
-				"calories" => "kcal",
-				"calorie" => "kcal",
-			);
-
 			my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
 
 			if ($nid eq "energy-kcal") {
@@ -486,7 +502,7 @@ sub init_nutrients_columns_names_for_lang($) {
 			foreach my $unit (@units) {
 				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
 					field => $nid . "_100g_value_unit",
-					value_unit => "value_in_" . $units{$unit},
+					value_unit => "value_in_" . $units_synonyms{$unit},
 				};
 			}
 
@@ -545,6 +561,15 @@ sub init_other_fields_columns_names_for_lang($) {
 							field => $field,
 							value_unit => "unit",
 						};
+
+						my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+
+						foreach my $unit (@units) {
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
+								field => $field,
+								value_unit => "value_in_" . $units_synonyms{$unit},
+							};
+						}
 					}
 				}
 				elsif (defined $tags_fields{$field}) {

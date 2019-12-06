@@ -366,7 +366,7 @@ wikidata_category:en:Q7189914
 # description:en:ROYAL JELLY is a honey bee secretion that is used in the nutrition of larvae, as well as adult queens. Royal jelly is collected and sold as a dietary supplement for humans, but the European Food Safety Authority has concluded that the current evidence does not support the claim that consuming royal jelly will give health benefits in humans.
 
 <en:Bee products
-en:royal jelly
+en:Royal jelly
 ar:هلام ملكي
 az:Arı südü
 ba:Инә ҡорт һөтө
@@ -1793,7 +1793,8 @@ fr:Vodkas tchèques
 nl:Tsjechische wodkas
 
 <en:Hard liquors
-fr:Gins
+en:Gins, Gin
+fr:Gins, Gin
 de:Gins
 es:Ginebras
 nl:Gins
@@ -2942,21 +2943,22 @@ it:Nettare di ciliegia
 <en:Fruit nectars
 en:Pineapple nectars
 de:Annanasnektare
-es:Néctares de piña
+es:Néctares de piña, néctar de piña
 fr:Nectars d'ananas
-it:Nettare di ananas
+it:Nettari di ananas, nettare di ananas
 nl:Ananasnectars, Ananasnectar
 
 <en:Fruit nectars
 en:Kiwi nectars
 fr:Nectars de kiwi
+it:Nettari di kiwi, nettare di kiwi
 
 <en:Fruit nectars
 en:Pomegranate nectars
 de:Granatapfelnektare
 es:Néctares de granada
 fr:Nectars de grenade
-it:Nettare di melagrana
+it:Nettari di melograno, nettare di melograno, nettari di melagrana, nettare di melagrana
 nl:Granaatappelnectars, Granaatappelnectar
 
 <en:Fruit nectars
@@ -2964,6 +2966,7 @@ en:Tangerine nectars
 de:Mandarinennektare
 es:Néctares de mandarina, Néctares de clementina
 fr:Nectars de mandarine, nectars de clémentine
+it:Nettari di mandarino, nettare di mandarino
 nl:Mandarijnennectars, Mandarijnennectar
 
 <en:Vegetable-based foods and beverages
@@ -2982,7 +2985,7 @@ de:Gemüsesäfte
 es:Zumos de verduras y hortalizas
 fi:kasvismehut
 fr:Jus de légumes
-it:Succo di verdura
+it:Succhi di verdura, succo di verdura
 nl:Groentesappen, Groentesap, Groentensap
 zh:蔬菜汁
 wikidata:en:Q1501257
@@ -17714,7 +17717,8 @@ ru:Хлеб белый из пшеничной муки высшего сорт�
 
 # <en:compound
 # mainIngredient:en:wheat
-en:Breads
+<en:Breads
+en:Croutons
 af:Crouton
 be:грэнкі
 bg:крутон
@@ -19444,6 +19448,13 @@ wikidata:en:Q1163138
 <en:Candied fruit
 fr:Citron confit
 de:Kandierte Zitrone
+
+<en:Confectioneries
+en:lokums, lokum, turkish delight, loukoumi, lokum
+fr:Loukoums, Loukoum, rahat loukoum
+de:Lokum, Turkish Delight
+es:Rahat lokum, delicia turca
+wikidata:en:Q182339
 
 en:Easter food, Easter chocolates
 de:Osterschokoladen
@@ -22146,6 +22157,7 @@ oqali_family:en: fr:Fromages - Crottin de chevre
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
+en:Rocamadour
 fr:Rocamadour
 country:en:France
 wikidata:en:Q768189
@@ -25395,6 +25407,7 @@ it:Composte di mango
 nl:Mangocompotes
 
 <en:Compotes
+en:Pear compotes, Pear compote
 fr:Compotes de poire, Compotes de poires
 de:Birnenkompott
 it:Composte di pera
@@ -26480,26 +26493,28 @@ fr:Miels d’acacia du Jura
 nl:Acaciahoningen uit de Jura
 
 <en:Honeys from France
+en:Honeys from Alsace
 fr:Miels d’Alsace
 nl:Honinge nuit de de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de châtaignier d'Alsace
 nl:Kastanjehoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
+<en:Flower honeys
 fr:Miels de fleurs d'Alsace
 nl:Bloemenhoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de forêt d'Alsace
 nl:Boshoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de sapin d'Alsace
 nl:Sparrenhoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de tilleul d'Alsace
 nl:Lindebloesemhoningen uit de Alsace
 
@@ -26573,7 +26588,7 @@ fr:Miels d’acacia des rives du Danube de Roumanie
 nl:Acaciahoningen van de roemeense Donau-oevers
 
 <en:Mountain products
-<fr:Miels de fleurs
+<en:Flower honeys
 en:Honeys from the mountains
 de:Berghonige
 fi:hunajaa vuorilta
@@ -26697,11 +26712,12 @@ fr:Miels de pin
 nl:Pijnboomhoningen
 
 <en:Honeys
+en:Flower honeys, Flower honey
 es:Mieles de flores
 fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
 nl:Bloemenhoningen
 
-<fr:Miels de fleurs
+<en:Flower honeys
 fr:Miels de garrigue
 nl:Garriguehoningen
 
@@ -26822,8 +26838,9 @@ nl:Vloeibare honingen
 pt:Méis líquidos
 
 <fr:Miels
+en:Rosemary honeys, Rosemary honey
 es:Mieles de romero
-fr:Miels de romarin
+fr:Miels de romarin, Miel de romarin
 it:Miele di rosmarino
 nl:Rozemarijnhoningen
 
@@ -32318,8 +32335,10 @@ fr:Capsicum frutescens
 fr:Piment oiseau, pequin, piment zozio, piment martin
 
 <fr:Capsicum frutescens
+en:Cayenne peppers, Cayenne pepper
 fr:Piments de Cayenne, Piment de Cayenne, Capsicum baccatum, aji, piment enragé, poivre de Cayenne
 es:Cayena
+wikidata:en:Q6598
 
 <fr:Capsicum frutescens
 <fr:Piments rouges
@@ -33807,11 +33826,13 @@ fr:Tournedos de magret de canard
 fr:Cuisses de canard confites
 
 <en:Duck dishes
+<en:Cassoulets
 en:Cassoulets with duck confit
 fr:Cassoulets au confit de canard
 nl:Cassoulet met geconfijte eend
 
 <en:Duck dishes
+<en:Sausages
 en:Duck sausages
 fr:Saucisses de canard
 nl:Eendenworst
@@ -33885,7 +33906,7 @@ wikidata:en:Q863794
 <en:Fresh pasta
 <en:Fresh meals
 <en:Ravioli
-fr:Ravioli frais, raviolis frai
+fr:Ravioli frais
 de:Frische Ravioli
 nl:Verse raviolis
 
@@ -35654,7 +35675,7 @@ es:Carne de cerdo
 fi:possu
 fr:Porc, Viande de porc, Viandes de porc
 hu:Disznóhús
-it:Maiale, Carne di maiale
+it:Carne di maiale, Maiale
 nl:Varken, Varkensvlezen
 pt:Carne de porco
 ru:Свинина
@@ -36641,6 +36662,11 @@ en:Sausages from Spain, Spanish sausages
 fr:Saucisses espagnoles, Saucisses d'Espagne
 hu:Spanyol kolbász
 nl:Spaanse worsten
+
+<en:Sausages
+<en:Veal meat
+en:Veal Sausages, Veal Sausage
+fr:Saucisses de veau, Saucisse de veau
 
 <en:Poultry sausages
 <en:Chickens
@@ -40673,6 +40699,10 @@ fr:Confitures de coings
 hu:Birs lekvár
 
 <en:Fruit jams
+en:Kiwi jams, kiwi jam
+fr:Confitures de kiwi, confiture de kiwi
+
+<en:Fruit jams
 en:Plum jams
 de:Pflaumenmarmeladen
 es:Mermeladas y confituras de ciruela, Mermeladas de ciruela, Confituras de ciruela
@@ -42652,6 +42682,12 @@ en:Fresh garlic
 fr:Ail frais
 
 <en:Garlic
+en:Allium neapolitanum
+fr:Ail Blanc
+de:Neapolitanischer Lauch
+wikidata:en:Q1817792
+
+<en:Allium neapolitanum
 fr:Ail blanc de Lomagne
 country:en:France
 
@@ -42805,7 +42841,7 @@ hy:հազար, հազար
 id:Selada
 io:Latugo
 is:Salat
-it:Lattuga
+it:Lattuga, lattughe
 ja:アキノノゲシ属, レタス
 ka:ღორისქადა, სალათა
 kk:Ассүттіген, Салат
@@ -42918,6 +42954,25 @@ wikipedia:en:https://en.wikipedia.org/wiki/Onion
 # ingredient/onion has 12754 products in 18 languages @2018-12-06
 # category/onions has 233 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr:Oignons
+
+<en:onions
+en:Yellow Onions, yellow onion
+fr:Oignons jaunes, oignon jaune
+de:gelbe Zwiebel
+wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
+wikidata:en:Q8051898
+
+<en:onions
+en:White Onions, white onion
+fr:Oignons blancs, oignon blanc
+wikipedia:en:https://en.wikipedia.org/wiki/White_onion
+wikidata:en:Q7995660
+
+<en:onions
+en:Red Onions, red onion, purple onions, Bombay onions
+fr:Oignons rouges, oignon rouge
+wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
+wikidata:en:Q622350
 
 <en:Onions
 <en:Fresh vegetables
@@ -44620,6 +44675,11 @@ fi:siiderietikat
 fr:Vinaigres de cidre, vinaigre de cidre
 hu:Almaecet
 nl:Ciderazijnen
+wikidata:en:Q618322
+
+<en:Cider vinegars
+en:Apple cider vinegars, Apple cider vinegar
+fr:Vinaigres de cidre de pomme, Vinaigre de cidre de pomme, Vinaigres de pomme, Vinaigre de pomme
 wikidata:en:Q618322
 
 <en:Vinegars

@@ -91,16 +91,16 @@ else {
           <div class="large-7 columns">
             <!-- The fileinput-button span is used to style the file input field as button -->
             <span class="button small btn-success fileinput-button">
-              <i class="icon-add"></i>
+              @{[ display_icon('add') ]}
               <span>$Lang{add_photos}{$lang}</span>
               <input type="file" name="files[]" multiple accept="image/*" data-url="/cgi/product_image_import.pl" />
             </span>
             <button type="submit" class="button small btn-primary start">
-              <i class="icon-arrow_upward"></i>
+              @{[ display_icon('arrow_upward') ]}
               <span>$Lang{start_upload}{$lang}</span>
             </button>
             <button type="reset" class="button small btn-warning cancel alert">
-              <i class="icon-cancel"></i>
+              @{[ display_icon('cancel') ]}
               <span>$Lang{cancel_upload}{$lang}</span>
             </button>
             <!-- The global file processing state -->
@@ -156,13 +156,13 @@ HTML
               <td>
                   {\% if (!i && !o.options.autoUpload) { \%}
                       <button class="button tiny btn-primary start" disabled>
-                          <i class="icon-arrow_upward"></i>
+                          @{[ display_icon('arrow_upward') ]}
                           <span>$Lang{start}{$lang}</span>
                       </button>
                   {\% } \%}
                   {\% if (!i) { \%}
                       <button class="button tiny btn-warning cancel alert">
-                          <i class="icon-cancel"></i>
+                          @{[ display_icon('cancel') ]}
                           <span>$Lang{cancel}{$lang}</span>
                       </button>
                   {\% } \%}
@@ -207,7 +207,7 @@ HTML
                   {\% if (file.deleteUrl) { \%}
                   {\% } else { \%}
                       <button class="button tiny btn-warning cancel">
-                          <i class="icon-cancel"></i>
+                          @{[ display_icon('cancel') ]}
                           <span>$Lang{close}{$lang}</span>
                       </button>
                   {\% } \%}

@@ -70,7 +70,7 @@ $facebook_app_secret = "";
 $robotoff_url = '';
 
 %server_options = (
-        private_products => 1,  # Make products visible only to the owner
+        private_products => 0,  # 1 to make products visible only to the owner (producer platform)
         export_servers => { public => "off", experiment => "off-exp" },
 		minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
 );
