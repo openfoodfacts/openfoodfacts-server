@@ -635,67 +635,13 @@ sub display_field($$) {
 		$display_lc = $2;
 	}
 
+	my $autocomplete = "";
+	my $class = "";
 	if (defined $tags_fields{$fieldtype}) {
-
-		my $autocomplete = "";
+		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
-			my $world = format_subdomain('world');
-			$autocomplete = "$world/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&";
+			$autocomplete = "$world_subdomain/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&";
 		}
-
-		my $default_text = "";
-		if (defined $Lang{$field . "_tagsinput"}) {
-			$default_text = $Lang{$field . "_tagsinput"}{$lang};
-		}
-
-		my $arrayLength = 3;
-
-		$initjs .= <<"JAVASCRIPT"
-var $field = new Tagify(document.getElementById('$field'), {
-	autocomplete: true,
-	whitelist: get_recents("${field}") || [],
-	dropdown: {
-		enabled: 0
-	},
-}), ${field}Contr;
-${field}.on('input', function(e) {
-	const value = e.detail.value;
-	${field}.settings.whitelist = []; // reset the whitelist
-
-	// https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
-	${field}Contr && ${field}Contr.abort();
-	${field}Contr = new AbortController();
-
-	fetch('${autocomplete}term=' + value, {signal: ${field}Contr.signal})
-		.then(RES => RES.json())
-		.then(function(whitelist){
-		${field}.settings.whitelist = whitelist;
-		${field}.dropdown.show.call(${field}, value); // render the suggestions dropdown
-	})
-});
-${field}.on('add', function(e) {
-	const obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-
-	const tag = e.detail.data.value;
-	if (obj === null) {
-		obj = {"${field}": [tag]}
-	} else if (obj["${field}"] === null) {
-		obj["${field}"] = [tag];
-	} else {
-		if (obj["${field}"].indexOf(tag) != -1) return;
-		if (obj["${field}"].length >= $arrayLength) obj["${field}"].pop();
-		obj["${field}"].unshift(tag);
-	}
-	window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-
-	${field}.settings.whitelist = obj["${field}"]; // reset the whitelist
-});
-document.getElementById('product_form').addEventListener('submit', function(e) {
-	document.getElementById('${field}').value = ${field}.value.map(obj => obj.value).join(',');
-});
-
-JAVASCRIPT
-;
 	}
 
 	my $value = $product_ref->{$field};
@@ -722,7 +668,7 @@ HTML
 	}
 	else {
 		$html .= <<HTML
-<input type="text" name="$field" id="$field" class="text" value="$value" lang="${display_lc}" />
+<input type="text" name="$field" id="$field" class="text $class" value="$value" lang="${display_lc}" data-autocomplete="${autocomplete}" />
 HTML
 ;
 	}

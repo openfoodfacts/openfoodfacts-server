@@ -19,9 +19,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /*eslint no-console: "off"*/
-/*global Lang admin otherNutriments*/
+/*global Lang admin otherNutriments Tagify*/
 /*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
-/*exported add_language_tab add_line upload_image update_image update_nutrition_image_copy get_recents*/
+/*exported add_language_tab add_line upload_image update_image update_nutrition_image_copy */
 
 var code;
 var current_cropbox;
@@ -494,6 +494,76 @@ function update_display(imagefield, first_display) {
 	$(document).foundation('equalizer', 'reflow');
 }
 
+function initializeTagifyInputs() {
+  const inputs = document.querySelectorAll('input.tagify-me');
+  for (let i = 0; i < inputs.length; ++i) {
+    initializeTagifyInput(inputs[i]);
+  }
+}
+
+const maximumRecentEntriesPerTag = 3;
+function initializeTagifyInput(el) {
+  const input = new Tagify(el, {
+    autocomplete: true,
+    whitelist: get_recents(el.id) || [],
+    dropdown: {
+      enabled: 0
+    },
+  });
+
+  let abortController;
+  input.on('input', function(e) {
+    const value = e.detail.value;
+    input.settings.whitelist = []; // reset the whitelist
+
+    if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
+      // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
+      if (abortController) {
+        abortController.abort();
+      }
+
+      abortController = new AbortController();
+
+      fetch(el.dataset.autocomplete + 'term=' + value, {signal: abortController.signal}).
+        then((RES) => RES.json()).
+        then(function(whitelist) {
+          input.settings.whitelist = whitelist;
+          input.dropdown.show.call(input, value); // render the suggestions dropdown
+      });
+    }
+  });
+
+  input.on('add', function(e) {
+    let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+
+    const tag = e.detail.data.value;
+    if (obj === null) {
+      obj = {};
+      obj[el.id] = [tag];
+    } else if (obj[el.id] === null) {
+      obj[el.id] = [tag];
+    } else {
+      if (obj[el.id].indexOf(tag) != -1) {
+        return;
+      }
+
+      if (obj[el.id].length >= maximumRecentEntriesPerTag) {
+        obj[el.id].pop();
+      }
+
+      obj[el.id].unshift(tag);
+    }
+
+    window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
+
+    input.settings.whitelist = obj[el.id]; // reset the whitelist
+  });
+
+  document.getElementById('product_form').addEventListener('submit', function() {
+    el.value = input.value.map((obj) => obj.value).join(',');
+  });
+}
+
 function get_recents(tagfield) {
   const obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
   if (obj === null) {
@@ -504,6 +574,8 @@ function get_recents(tagfield) {
 }
 
 (function( $ ){
+
+  initializeTagifyInputs();
 
 	var settings = {
 		'thumb_width' : 100,
