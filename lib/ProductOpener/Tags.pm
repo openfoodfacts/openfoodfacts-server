@@ -110,6 +110,7 @@ BEGIN
 					%Languages
 
 					&init_select_country_options
+					&country_to_cc
 
 					&add_user_translation
 					&load_users_translations
