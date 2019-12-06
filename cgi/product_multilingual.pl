@@ -1254,21 +1254,6 @@ CSS
 ;
 
 	$initjs .= <<JAVASCRIPT
-\$(".select_add_language").select2({
-	placeholder: "$Lang{add_language}{$lang}",
-    allowClear: true
-	}
-	).on("select2:select", function(e) {
-	var lc =  e.params.data.id;
-	var language = e.params.data.text;
-	add_language_tab (lc, language);
-	\$(".select_add_language_" + lc).remove();
-	\$(this).val("").trigger("change");
-	var new_sorted_langs = \$("#sorted_langs").val() + "," + lc;
-	\$("#sorted_langs").val(new_sorted_langs);
-})
-;
-
 \$(document).foundation({
     tab: {
       callback : function (tab) {
@@ -1313,23 +1298,8 @@ JAVASCRIPT
 	$html .= "\n<input type=\"hidden\" id=\"sorted_langs\" name=\"sorted_langs\" value=\"" . join(',', @{$product_ref->{sorted_langs}}) . "\" />\n";
 
 	my $select_add_language = <<HTML
-
 <select class="select_add_language" style="width:100%">
 <option></option>
-HTML
-;
-
-	foreach my $olc (sort keys %Langs) {
-		if (($olc ne $product_ref->{lc}) and (not defined $product_ref->{languages}{$olc})) {
-			my $olanguage = display_taxonomy_tag($lc,'languages',$language_codes{$olc}); # $Langs{$olc}
-			$select_add_language .=<<HTML
- <option value="$olc" class="select_add_language_$olc">$olanguage</option>
-HTML
-;
-		}
-	}
-
-	$select_add_language .= <<HTML
 </select>
 		</li>
 

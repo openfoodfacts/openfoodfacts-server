@@ -6489,6 +6489,7 @@ HTML
 <script src="$static_subdomain/js/dist/modernizr.js"></script>
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
+<script src="$static_subdomain/js/dist/display.js"></script>
 
 <script>
 \$(function() {
@@ -6500,7 +6501,6 @@ HTML
 <script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
 $scripts
-<script src="$static_subdomain/js/dist/display.js"></script>
 <script>
 \$(document).foundation({
 	equalizer : {

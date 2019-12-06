@@ -21,7 +21,7 @@
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments*/
 /*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
-/*exported add_language_tab add_line upload_image update_image update_nutrition_image_copy*/
+/*exported add_line upload_image update_image update_nutrition_image_copy*/
 
 var code;
 var current_cropbox;
@@ -44,74 +44,72 @@ function stringStartsWith (string, prefix) {
 
 function add_language_tab (lc, language) {
 
-$('.tabs').each(function() {
-	$(this).removeClass('active');
-});
+  $('.tabs').each(function() {
+    $(this).removeClass('active');
+  });
 
-$('.new_lc').each(function() {
+  $('.new_lc').each(function() {
 
-	var $clone = $(this).clone();
+    var $clone = $(this).clone();
 
-	var $th = $clone;
-	var newID = $th.attr('id').replace(/new_lc/, lc);
-	$th.attr('id', newID);
+    var $th = $clone;
+    var newID = $th.attr('id').replace(/new_lc/, lc);
+    $th.attr('id', newID);
 
-	$clone.addClass('tabs_' + lc).removeClass('tabs_new_lc');
+    $clone.addClass('tabs_' + lc).removeClass('tabs_new_lc');
 
-	$clone.find('[id]').each(function() {
+    $clone.find('[id]').each(function() {
 
-		var $th = $(this);
-		var newID = $th.attr('id').replace(/new_lc/, lc);
-		$th.attr('id', newID);
+      var $th = $(this);
+      var newID = $th.attr('id').replace(/new_lc/, lc);
+      $th.attr('id', newID);
 
-	});
+    });
 
-	$clone.find('[for]').each(function() {
+    $clone.find('[for]').each(function() {
 
-		var $th = $(this);
-		var newID = $th.attr('for').replace(/new_lc/, lc);
-		$th.attr('for', newID);
+      var $th = $(this);
+      var newID = $th.attr('for').replace(/new_lc/, lc);
+      $th.attr('for', newID);
 
-	});
+    });
 
-	$clone.find('[name]').each(function() {
+    $clone.find('[name]').each(function() {
 
-		var $th = $(this);
-		var newID = $th.attr('name').replace(/new_lc/, lc);
-		$th.attr('name', newID);
-	});
+      var $th = $(this);
+      var newID = $th.attr('name').replace(/new_lc/, lc);
+      $th.attr('name', newID);
+    });
 
-	$clone.find('[href]').each(function() {
+    $clone.find('[href]').each(function() {
 
-		var $th = $(this);
-		var newID = $th.attr('href').replace(/new_lc/, lc);
-		$th.attr('href', newID);
-	});
+      var $th = $(this);
+      var newID = $th.attr('href').replace(/new_lc/, lc);
+      $th.attr('href', newID);
+    });
 
-	$clone.find('[lang]').each(function() {
+    $clone.find('[lang]').each(function() {
 
-		var $th = $(this);
-		var newID = $th.attr('lang').replace(/new_lc/, lc);
-		$th.attr('lang', newID);
-	});
+      var $th = $(this);
+      var newID = $th.attr('lang').replace(/new_lc/, lc);
+      $th.attr('lang', newID);
+    });
 
-	$clone.find('.tab_language').each(function() {
+    $clone.find('.tab_language').each(function() {
 
-		$(this).html(language);
-	});
+      $(this).html(language);
+    });
 
-	$clone.insertBefore($(this));
+    $clone.insertBefore($(this));
 
-	$clone.addClass('active').removeClass('new_lc').removeClass('hide');
+    $clone.addClass('active').removeClass('new_lc').removeClass('hide');
 
-	$(".select_crop").filter(":visible").selectcrop('init');
-	$(".select_crop").filter(":visible").selectcrop('show');
+    $(".select_crop").filter(":visible").selectcrop('init');
+    $(".select_crop").filter(":visible").selectcrop('show');
 
-});
+  });
 
-
-
-$(document).foundation('tab', 'reflow');
+  $(document).foundation('tab', 'reflow');
 }
 
 function select_nutriment(event,ui) {
@@ -723,4 +721,53 @@ function update_display(imagefield, first_display) {
 	window.location.href = window.location.origin + '/product/' + window.code;
   });
 
+  initLanguageAdding();
+
 })( jQuery );
+
+function initLanguageAdding() {
+  const Lang = lang();
+  const placeholder = Lang.add_language;
+  const languages = convertTranslationsToLanguageList(Lang);
+
+  $(".select_add_language").select2({
+    placeholder: placeholder,
+    allowClear: true,
+    data: languages
+  }).on("select2:select", function (e) {
+    var lc = e.params.data.id;
+    var language = e.params.data.text;
+    add_language_tab(lc, language);
+    $('.select_add_language option[value=' + lc + ']').remove();
+    $(this).val("").trigger("change");
+    var new_sorted_langs = $("#sorted_langs").val() + "," + lc;
+    $("#sorted_langs").val(new_sorted_langs);
+  });
+}
+
+function convertTranslationsToLanguageList(Lang) {
+  const results = [];
+
+  // eslint-disable-next-line guard-for-in
+  for (var k in Lang) {
+    if (k.startsWith('language_')) {
+      const language = convertTranslationToLanguage(Lang, k);
+      if (language) {
+        results.push(language);
+      }
+    }
+  }
+
+  const locale = document.querySelector('html').lang;
+
+  return results.sort(function (a, b) {
+    return a.text.localeCompare(b.text, locale);
+  });
+}
+
+function convertTranslationToLanguage(Lang, translation) {
+  const match = translation.match(/^language_([a-z]{2,})$/);
+  if (match) {
+    return { id: match[1], text: Lang[translation] };
+  }
+}
