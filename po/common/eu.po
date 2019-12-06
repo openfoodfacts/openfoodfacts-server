@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-01 14:12\n"
+"PO-Revision-Date: 2019-12-05 21:22\n"
 "Language-Team: Basque\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 produktu"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " eta "
@@ -392,19 +393,19 @@ msgstr "Kentzeko arrazoia"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Ezabatu produktu bat"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Ezabatu orria"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Ezabatu irudiak"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Ezabatu erabiltzaile bat"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -424,7 +425,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -444,15 +445,15 @@ msgstr "Aldaketen laburpena"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Editatu produktu bat"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Editatu orria"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Editatu zure profil publikoa"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
@@ -472,7 +473,7 @@ msgstr "Kontuaren parametroak"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Zure kontu parametroak aldatu dira.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -633,11 +634,11 @@ msgstr ""
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "eu_ES"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -651,11 +652,17 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Erabilera baldintzak</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">Nortzuk gara</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">Maiz Egiten diren Galderak</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Ideien Foroa</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Bloga</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Prentsa eta Blogak</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "eta <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook kolaboratzaileentzako taldea</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -673,7 +680,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -682,7 +689,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -695,7 +702,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -704,7 +711,7 @@ msgstr ""
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -773,6 +780,16 @@ msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr ""
 
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr "https://world.openbeautyfacts.org"
+
 msgctxt "for"
 msgid "for"
 msgstr ""
@@ -811,7 +828,7 @@ msgstr "Kaixo"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "altua"
 
 msgctxt "high_quantity"
 msgid "high quantity"
@@ -1008,7 +1025,7 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "etiketa"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1032,7 +1049,7 @@ msgstr ""
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "Txekiera"
 
 msgctxt "lang_da"
 msgid "Danish"
@@ -1044,7 +1061,7 @@ msgstr ""
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr ""
+msgstr "Greziera"
 
 msgctxt "lang_en"
 msgid "English"
@@ -1068,7 +1085,7 @@ msgstr ""
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "Gaelera"
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1108,11 +1125,11 @@ msgstr ""
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "Nederlandera"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "Nederlandera"
 
 msgctxt "lang_pl"
 msgid "Polish"
@@ -1148,7 +1165,7 @@ msgstr ""
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "Thailandiera"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
@@ -1168,7 +1185,7 @@ msgstr ""
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "eu-ES"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1260,7 +1277,7 @@ msgstr ""
 
 msgctxt "low"
 msgid "low"
-msgstr ""
+msgstr "baxua"
 
 msgctxt "low_quantity"
 msgid "low quantity"
@@ -1312,7 +1329,7 @@ msgstr ""
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Menua"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1387,7 +1404,7 @@ msgstr "Izena"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "Izenak"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
@@ -1403,7 +1420,7 @@ msgstr ""
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Hurrengoa"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
@@ -1565,7 +1582,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1588,7 +1605,7 @@ msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Berriak"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1597,7 +1614,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "edo:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1665,7 +1682,7 @@ msgstr ""
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "%d orria"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
@@ -2158,7 +2175,7 @@ msgstr ""
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2186,7 +2203,7 @@ msgstr "Nutrienteak"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "edo"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2266,7 +2283,7 @@ msgstr ""
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "balioa"
 
 msgctxt "search_with"
 msgid "With"
@@ -2374,7 +2391,7 @@ msgstr ""
 
 msgctxt "state"
 msgid "State"
-msgstr ""
+msgstr "Herrialdea"
 
 msgctxt "states_p"
 msgid "states"
@@ -2382,7 +2399,7 @@ msgstr ""
 
 msgctxt "states_s"
 msgid "state"
-msgstr ""
+msgstr "herrialdea"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2402,7 +2419,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "denda"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2454,7 +2471,7 @@ msgstr ""
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr ""
+msgstr "aztarna"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2669,7 +2686,7 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2782,7 +2799,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -2802,7 +2819,7 @@ msgstr ""
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2838,7 +2855,7 @@ msgstr ""
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "1etik 2ra"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
@@ -2850,7 +2867,7 @@ msgstr ""
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -2934,7 +2951,7 @@ msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 msgctxt "additives_classes"
 msgid "Functions"
@@ -3214,7 +3231,7 @@ msgstr "Ez"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Saltatu"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3611,12 +3628,12 @@ msgstr ""
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -3801,7 +3818,7 @@ msgstr ""
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Informazioa"
 
 msgctxt "file_received"
 msgid "File received"
@@ -3881,7 +3898,7 @@ msgstr "Proteinak"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr ""
+msgstr "balioa"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
@@ -3896,7 +3913,7 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr ""
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
 msgstr ""
@@ -3934,6 +3951,10 @@ msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr ""
 
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr ""
+
 msgctxt "user_groups"
 msgid "Groups"
 msgstr ""
@@ -3964,7 +3985,7 @@ msgstr "Aplikazioetarako."
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "Bot-a"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
@@ -3976,5 +3997,33 @@ msgstr "Moderatzaile"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
+msgstr ""
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr ""
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr ""
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr ""
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr ""
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr "Zure laguntza behar dugu!"
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
 msgstr ""
 
