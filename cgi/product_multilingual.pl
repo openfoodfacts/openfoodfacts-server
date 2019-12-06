@@ -653,7 +653,10 @@ sub display_field($$) {
 		$initjs .= <<"JAVASCRIPT"
 var $field = new Tagify(document.getElementById('$field'), {
 	autocomplete: true,
-	whitelist: get_recents("${field}"),
+	whitelist: get_recents("${field}") || [],
+	dropdown: {
+		enabled: 0
+	},
 }), ${field}Contr;
 ${field}.on('input', function(e) {
 	const value = e.detail.value;
@@ -684,6 +687,8 @@ ${field}.on('add', function(e) {
 		obj["${field}"].unshift(tag);
 	}
 	window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
+
+	${field}.settings.whitelist = obj["${field}"]; // reset the whitelist
 });
 document.getElementById('product_form').addEventListener('submit', function(e) {
 	document.getElementById('${field}').value = ${field}.value.map(obj => obj.value).join(',');
