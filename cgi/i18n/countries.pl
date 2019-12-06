@@ -43,6 +43,8 @@ use JSON::PP;
 
 ProductOpener::Display::init();
 
+my $term = decode utf8=>param('term');
+
 my %result = ();
 foreach my $country (sort {(get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$lang})
 	|| get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}) )
@@ -56,7 +58,12 @@ foreach my $country (sort {(get_string_id_for_lang("no_language", $translations_
 		next;
 	}
 
-	$result{$cc} = display_taxonomy_tag($lang, 'countries', $country);
+	my $tag = display_taxonomy_tag($lang, 'countries', $country);;
+	if ((not defined $term)
+		or ($term eq '')
+		or ($tag =~ /$term/i)) {
+		$result{$cc} = $tag;
+	}
 }
 
 my $data = encode_json(\%result);
