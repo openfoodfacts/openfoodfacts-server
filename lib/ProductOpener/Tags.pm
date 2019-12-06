@@ -109,7 +109,6 @@ BEGIN
 
 					%Languages
 
-					&init_select_country_options
 					&country_to_cc
 
 					&add_user_translation
@@ -1732,59 +1731,6 @@ foreach my $country (keys %{$properties{countries}}) {
 		}
 	}
 }
-
-
-
-
-
-sub init_select_country_options($) {
-
-	# takes one minute to load
-
-	my $Lang_ref = shift;
-
-	# Build lists of countries and generate select button
-	# <select data-placeholder="Choose a Country..." style="width:350px;" tabindex="1">
-	#            <option value=""></option>
-	#            <option value="United States">United States</option>
-	#            <option value="United Kingdom">United Kingdom</option>
-
-	$log->info("Buildin lists of countries and generate select button") if $log->is_info();
-
-	foreach my $language (keys %Langs) {
-
-		my $country_options = '';
-		my $first_option = '';
-
-		foreach my $country (sort {(get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$language})
-			|| get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}) )
-			cmp (get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$language})
-				|| get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))}
-				keys %{$properties{countries}}
-			) {
-
-			my $cc = country_to_cc($country);
-			if (not (defined $cc)) {
-				next;
-			}
-
-			my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
-
-			if ($country ne 'en:world') {
-				$country_options .= $option;
-			}
-			else {
-				$first_option = $option;
-			}
-		}
-
-		$Lang_ref->{select_country_options}{$language} = $first_option . $country_options;
-
-	}
-}
-
-
-
 
 $log->info("Tags.pm - 1") if $log->is_info();
 

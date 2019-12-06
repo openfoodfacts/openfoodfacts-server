@@ -60,8 +60,8 @@ function lang() {
       url: '/cgi/i18n/lang.pl',
       dataType: 'json',
       async: false,
-      success: function(json) {
-          langData = json;
+      success: function (json) {
+        langData = json;
       }
     });
   }
@@ -76,7 +76,7 @@ function countries() {
       url: '/cgi/i18n/countries.pl',
       dataType: 'json',
       async: false,
-      success: function(json) {
+      success: function (json) {
         countriesData = json;
       }
     });
@@ -86,3 +86,38 @@ function countries() {
 }
 
 window.addEventListener('load', onLoad);
+
+$(function () {
+  $("#select_country").select2({
+    placeholder: lang().select_country,
+    allowClear: true,
+    ajax: {
+      url: '/cgi/i18n/countries.pl',
+      dataType: 'json',
+      processResults: function (data) {
+        const results = [];
+        // eslint-disable-next-line guard-for-in
+        for (var k in data) {
+          results.push({ id: k, text: data[k] });
+        }
+
+        const locale = document.querySelector('html').lang;
+
+        return {
+          results: results.sort(function (a, b) {
+            return a.text.localeCompare(b.text, locale);
+          })
+        };
+      }
+    }
+  }).on("select2:select", function (e) {
+    var subdomain = e.params.data.id;
+    if (!subdomain) {
+      subdomain = 'world';
+    }
+
+    window.location.href = document.location.protocol + '//' + subdomain + '.' + document.querySelector('html').dataset.serverdomain;
+  }).on("select2:unselect", function () {
+    window.location.href = document.location.protocol + '//world.' + document.querySelector('html').dataset.serverdomain;
+  });
+});

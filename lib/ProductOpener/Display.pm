@@ -5911,7 +5911,7 @@ sub display_new($) {
 
 	my $html = <<HTML
 <!doctype html>
-<html class="no-js" lang="$lang">
+<html class="no-js" lang="$lang" data-serverdomain="$server_domain">
 <head>
 <meta charset="utf-8">
 
@@ -5927,9 +5927,10 @@ $og_images
 $og_images2
 <meta property="og:description" content="$canon_description">
 $options{favicons}
+<link rel="canonical" href="$canon_url">
 <link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
 <link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 <style media="all">
 HTML
@@ -5966,21 +5967,10 @@ $google_analytics
 	</ul>
 	<section class="top-bar-section">
 		<label for="select_country" style="display:none">$Lang{select_country}{$lang}</label>
-HTML
-;
-
-	my $select_country_options = lang("select_country_options");
-	$select_country_options =~ s/value="$cc"/value="$cc" selected/;
-	if ($cc eq 'world') {
-		$select_country_options =~ s/<option value="world"(.*?)<\/option>//;
-	}
-
-	$html .= <<HTML
 		<ul class="left">
 			<li class="has-form has-dropdown" id="select_country_li">
 				<select id="select_country" style="width:100%">
 					<option></option>
-					$select_country_options
 				</select>
 			</li>
 HTML
@@ -6502,25 +6492,13 @@ HTML
 
 <script>
 \$(function() {
-\$("#select_country").select2({
-	placeholder: "$Lang{select_country}{$lang}",
-	allowClear: true
-}).on("select2:select", function(e) {
-	var subdomain =  e.params.data.id;
-	if (! subdomain) {
-		subdomain = 'world';
-	}
-	window.location.href = document.location.protocol + '//' + subdomain + ".${server_domain}";
-}).on("select2:unselect", function(e) {
-	window.location.href = document.location.protocol + "//world.${server_domain}";
-});
 <initjs>
 });
 </script>
 
 <script src="$static_subdomain/js/dist/foundation.min.js"></script>
 <script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
 $scripts
 <script src="$static_subdomain/js/dist/display.js"></script>
 <script>
