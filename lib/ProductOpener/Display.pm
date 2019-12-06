@@ -6106,7 +6106,7 @@ HTML
 HTML
 ;
 	}
-	
+
 	elsif ($lc eq 'es') {
 
 		my $link = lang("donate_link");
@@ -6128,7 +6128,7 @@ HTML
 HTML
 ;
 	}
-	
+
 	elsif ($lc eq 'it') {
 
 		my $link = lang("donate_link");
@@ -6150,7 +6150,7 @@ HTML
 HTML
 ;
 	}
-	
+
 	elsif ($lc eq 'de') {
 
 		my $link = lang("donate_link");
@@ -6522,6 +6522,7 @@ HTML
 <script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 $scripts
+<script src="$static_subdomain/js/display.js" async defer></script>
 <script>
 \$(document).foundation({
 	equalizer : {
@@ -6533,44 +6534,6 @@ $scripts
 		}
 	}
 });
-</script>
-<script>
-
-'use strict';
-
-function doWebShare(e) {
-	e.preventDefault();
-
-	if (!window.isSecureContext || navigator.share === undefined) {
-		console.error('Error: Unsupported feature: navigator.share');
-		return;
-	}
-
-	var title = this.title;
-	var url = this.href;
-	navigator.share({title: title, url: url})
-		.then(() => console.info('Successfully sent share'), error => console.error('Error sharing: ' + error));
-}
-
-function onLoad() {
-	var buttons = document.getElementsByClassName('share_button');
-	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
-
-	[].forEach.call(buttons, function(button) {
-		if (shareAvailable) {
-			button.style.display = 'block';
-
-			[].forEach.call(button.getElementsByTagName('a'), function(a) {
-				a.addEventListener('click', doWebShare);
-			});
-		}
-		else {
-			button.style.display = 'none';
-		}
-	});
-}
-
-window.addEventListener('load', onLoad);
 </script>
 <script type="application/ld+json">
 {
