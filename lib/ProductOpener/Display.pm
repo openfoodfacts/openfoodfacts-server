@@ -3336,7 +3336,7 @@ JS
 	<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
 	<script src="$static_subdomain/js/dist/leaflet.js"></script>
 	<script src="$static_subdomain/js/dist/osmtogeojson.js"></script>
-	<script src="$static_subdomain/js/display-tag.js"></script>
+	<script src="$static_subdomain/js/dist/display-tag.js"></script>
 HTML
 ;
 
@@ -6522,7 +6522,7 @@ HTML
 <script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 $scripts
-<script src="$static_subdomain/js/display.js" async defer></script>
+<script src="$static_subdomain/js/dist/display.js"></script>
 <script>
 \$(document).foundation({
 	equalizer : {
@@ -6970,7 +6970,7 @@ sub display_product($)
 	my $description = "";
 
 		$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/display-product.js"></script>
+<script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 ;
 	$initjs .= <<JS

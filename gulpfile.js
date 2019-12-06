@@ -35,7 +35,7 @@ function css() {
     .pipe(dest('./html/css/dist'))
 }
 
-function js() {
+function copyJs() {
   return src([
       './node_modules/foundation-sites/js/vendor/*.js',
       './node_modules/foundation-sites/js/foundation.min.js',
@@ -52,12 +52,18 @@ function js() {
     .pipe(dest('./html/js/dist', { sourcemaps: true }))
 }
 
+function buildJs() {
+  return src([
+    './html/js/display*.js',
+    './html/js/product-multilingual.js',
+    './html/js/search.js'
+  ], { sourcemaps: true })
+  .pipe(dest('./html/js/dist', { sourcemaps: true }))
+}
+
 function jQueryUiThemes() {
   return src('./node_modules/jquery-ui-dist/**/*.css', { sourcemaps: true })
     .pipe(dest('./html/css/dist/jqueryui/themes/base', { sourcemaps: true }))
 }
 
-exports.js = js
-exports.css = css
-exports.icons = icons
-exports.default = parallel(js, jQueryUiThemes, series(icons, css))
+exports.default = parallel(copyJs, buildJs, jQueryUiThemes, series(icons, css))

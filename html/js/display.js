@@ -19,6 +19,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /* eslint-disable no-undefined */
+/*exported lang countries*/
 
 function doWebShare(e) {
   e.preventDefault();
@@ -50,6 +51,38 @@ function onLoad() {
       button.style.display = 'none';
     }
   });
+}
+
+let langData;
+function lang() {
+  if (!langData) {
+    $.ajax({
+      url: '/cgi/i18n/lang.pl',
+      dataType: 'json',
+      async: false,
+      success: function(json) {
+          langData = json;
+      }
+    });
+  }
+
+  return langData;
+}
+
+let countriesData;
+function countries() {
+  if (!countriesData) {
+    $.ajax({
+      url: '/cgi/i18n/countries.pl',
+      dataType: 'json',
+      async: false,
+      success: function(json) {
+        countriesData = json;
+      }
+    });
+  }
+
+  return countriesData;
 }
 
 window.addEventListener('load', onLoad);

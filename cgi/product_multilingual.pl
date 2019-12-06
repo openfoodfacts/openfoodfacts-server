@@ -782,25 +782,6 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$scripts .=<<JS
-<script type="text/javascript">
-var admin = $moderator;
-var Lang = {
-JS
-;
-
-	foreach my $key (sort keys %Lang) {
-		next if $key !~ /^product_js_/;
-		$scripts .= '"' . $' . '" : "' . lang($key) . '",' . "\n";
-	}
-
-	$scripts =~ s/,\n$//s;
-	$scripts .=<<JS
-};
-</script>
-JS
-;
-
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
@@ -818,7 +799,7 @@ HTML
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
 <script type="text/javascript" src="/foundation/js/foundation/foundation.tab.js"></script>
-<script type="text/javascript" src="/js/product-multilingual.js"></script>
+<script type="text/javascript" src="/js/dist/product-multilingual.js"></script>
 HTML
 ;
 
@@ -1061,7 +1042,7 @@ if (! \$("#delete_images").hasClass("disabled")) {
 	\$("#delete_images").addClass("disabled");
 	\$("#move_images").addClass("disabled");
 
- \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.deleting_images);
+ \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
  \$('div[id="moveimagesmsg"]').show();
 
 	var imgids = '';
@@ -1087,17 +1068,17 @@ if (! \$("#delete_images").hasClass("disabled")) {
   success: function(data) {
 
 	if (data.error) {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_delete_error + ' - ' + data.error);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
 	}
 	else {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_deleted);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
 	}
 	\$([]).selectcrop('init_images',data.images);
 	\$(".select_crop").selectcrop('show');
 
   },
   error : function(jqXHR, textStatus, errorThrown) {
-	\$('div[id="moveimagesmsg"]').html(Lang.images_delete_error + ' - ' + textStatus);
+	\$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
   },
   complete: function(XMLHttpRequest, textStatus) {
 
@@ -1121,7 +1102,7 @@ if (! \$("#move_images").hasClass("disabled")) {
 	\$("#delete_images").addClass("disabled");
 	\$("#move_images").addClass("disabled");
 
- \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.moving_images);
+ \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
  \$('div[id="moveimagesmsg"]').show();
 
 	var imgids = '';
@@ -1147,17 +1128,17 @@ if (! \$("#move_images").hasClass("disabled")) {
   success: function(data) {
 
 	if (data.error) {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_move_error + ' - ' + data.error);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
 	}
 	else {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_moved + ' &rarr; ' + data.link);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
 	}
 	\$([]).selectcrop('init_images',data.images);
 	\$(".select_crop").selectcrop('show');
 
   },
   error : function(jqXHR, textStatus, errorThrown) {
-	\$('div[id="moveimagesmsg"]').html(Lang.images_move_error + ' - ' + textStatus);
+	\$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
   },
   complete: function(XMLHttpRequest, textStatus) {
 		\$("#move_images").addClass("disabled");

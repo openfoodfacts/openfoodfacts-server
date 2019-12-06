@@ -19,7 +19,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /*eslint no-console: "off"*/
-/*global Lang admin otherNutriments*/
+/*global lang admin otherNutriments*/
 /*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
 /*exported add_language_tab add_line upload_image update_image update_nutrition_image_copy*/
 
@@ -197,7 +197,7 @@ function upload_image (imagefield) {
 
  $('.img_input[name!="imgupload_' + imagefield + '"]').prop("disabled", true);
  $('.img_input[name="imgupload_' + imagefield + '"]').hide();
- $('div[id="uploadimagemsg_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.uploading_image);
+ $('div[id="uploadimagemsg_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_uploading_image);
  $('div[id="uploadimagemsg_' + imagefield +'"]').show();
 
  $("#product_form").ajaxSubmit({
@@ -211,7 +211,7 @@ function upload_image (imagefield) {
   success: function(data) {
 	//alert(data.status);
 	//alert("input:hidden[name=\"" + data.imagefield + ".imgid\"]");
-	$('div[id="uploadimagemsg_' + imagefield +'"]').html(Lang.image_received);
+	$('div[id="uploadimagemsg_' + imagefield +'"]').html(lang().product_js_image_received);
 	$("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.image.imgid);
 	$([]).selectcrop('add_image',data.image);
 	$(".select_crop").selectcrop('show');
@@ -221,7 +221,7 @@ function upload_image (imagefield) {
 
   },
   error : function() {
-	$('div[id="uploadimagemsg_' + imagefield +'"]').html(Lang.image_upload_error);
+	$('div[id="uploadimagemsg_' + imagefield +'"]').html(lang().product_js_image_upload_error);
   },
   complete: function() {
 	$('.img_input').prop("disabled", false).show();
@@ -309,15 +309,15 @@ function change_image(imagefield, imgid) {
 	angles[imagefield] = 0;
 	imagefield_imgid[imagefield] = imgid;
 
-	var html = '<div class="command">' + Lang.image_rotate_and_crop + '</div>';
-	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + Lang.image_rotate_left + '</a> &nbsp;';
-	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + Lang.image_rotate_right + '</a>';
+	var html = '<div class="command">' + lang().product_js_image_rotate_and_crop + '</div>';
+	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_left + '</a> &nbsp;';
+	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_right + '</a>';
 	html += '</div>';
 	html += '<div id="cropimgdiv_' + imagefield + '" style="width:100%;height:400px"><img src="' + img_path + image.crop_url +'" id="' + 'crop_' + imagefield + '"/></div>';
-	html += '<a href="' + img_path + image.imgid + '.jpg" target="_blank">' + Lang.image_open_full_size_image + '</a><br/>';
-	html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + Lang.image_normalize + '</label></div><br/>';
+	html += '<a href="' + img_path + image.imgid + '.jpg" target="_blank">' + lang().product_js_image_open_full_size_image + '</a><br/>';
+	html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + lang().product_js_image_normalize + '</label></div><br/>';
 	html +=	'<input type="checkbox" id="white_magic_' + imagefield + '" style="display:inline" /><label for="white_magic_' + imagefield
-		+ '" style="display:inline">' + Lang.image_white_magic + '</label>';
+		+ '" style="display:inline">' + lang().product_js_image_white_magic + '</label>';
 	html += '<div id="cropbutton_' + imagefield + '"></div>';
 	html += '<div id="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
 
@@ -334,7 +334,7 @@ function change_image(imagefield, imgid) {
 	} );
 
 			var id = 'crop_' + imagefield + '_button';
-			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button" type="button">' + Lang.image_save + '</button>');
+			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button" type="button">' + lang().product_js_image_save + '</button>');
 			$("#" + id).click({imagefield:imagefield},function(event) {
 				event.stopPropagation();
 				event.preventDefault();
@@ -348,7 +348,7 @@ function change_image(imagefield, imgid) {
 				// alert(event.data.imagefield);
 				$("#" + id).blur();
 				$('div[id="cropbutton_' + imagefield +'"]').hide();
-				$('div[id="cropbuttonmsg_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.image_saving);
+				$('div[id="cropbuttonmsg_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_image_saving);
 				$('div[id="cropbuttonmsg_' + imagefield +'"]').show();
 				$.post('/cgi/product_image_crop.pl',
 						{code: code, id: imagefield , imgid: imgid,
@@ -359,7 +359,7 @@ function change_image(imagefield, imgid) {
 					imagefield_url[imagefield] = data.image.display_url;
 					update_display(imagefield, false);
 					$('div[id="cropbutton_' + imagefield +'"]').show();
-					$('div[id="cropbuttonmsg_' + imagefield +'"]').html(Lang.image_saved);
+					$('div[id="cropbuttonmsg_' + imagefield +'"]').html(lang().product_js_image_saved);
 					$(document).foundation('equalizer', 'reflow');
 				}, 'json');
 			});
@@ -394,11 +394,11 @@ function update_display(imagefield, first_display) {
 
 	if (display_url) {
 
-	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
-	html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + Lang.unselect_image + '</button></div>';
+	var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
+	html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
 	if (stringStartsWith(imagefield, 'ingredients')) {
-		html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '"><!--<button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>-->'
-		+ ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button></div>';
+		html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '"><!--<button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_extract_ingredients + '</button>-->'
+		+ ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + lang().product_js_extract_ingredients + '</button></div>';
 	}
 
 	if (stringStartsWith(imagefield, 'nutrition')) {
@@ -418,20 +418,20 @@ function update_display(imagefield, first_display) {
 		event.preventDefault();
 		// alert(event.data.imagefield);
 
-		$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.extracting_ingredients).show();
+		$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_extracting_ingredients).show();
 		$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
 		$.post('/cgi/ingredients.pl',
 				{code: code, id: imagefield, process_image:1, ocr_engine:"tesseract" }, function(data) {
 
 			$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
 			if (data.status === 0) {
-				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(Lang.extracted_ingredients_ok);
+				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang().product_js_extracted_ingredients_ok);
 
 				var ingredients_text_id = imagefield.replace("ingredients","ingredients_text");
 				$("#" + ingredients_text_id).val(data.ingredients_text_from_image);
 			}
 			else {
-				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(ocr_button_div_original_html + Lang.extracted_ingredients_nok);
+				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(ocr_button_div_original_html + lang().product_js_extracted_ingredients_nok);
 			}
 			$(document).foundation('equalizer', 'reflow');
 		}, 'json');
@@ -443,19 +443,19 @@ function update_display(imagefield, first_display) {
 		event.stopPropagation();
 		event.preventDefault();
 		// alert(event.data.imagefield);
-		$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.extracting_ingredients).show();
+		$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_extracting_ingredients).show();
 		$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
 		$.post('/cgi/ingredients.pl',
 				{code: code, id: imagefield, process_image:1, ocr_engine:"google_cloud_vision" }, function(data) {
 
 			$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
 			if (data.status === 0) {
-				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(Lang.extracted_ingredients_ok);
+				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang().product_js_extracted_ingredients_ok);
 				var ingredients_text_id = imagefield.replace("ingredients","ingredients_text");
 				$("#" + ingredients_text_id).val(data.ingredients_text_from_image);
 			}
 			else {
-				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(Lang.extracted_ingredients_nok);
+				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang().product_js_extracted_ingredients_nok);
 			}
 			$(document).foundation('equalizer', 'reflow');
 		}, 'json');
@@ -469,16 +469,16 @@ function update_display(imagefield, first_display) {
 		event.stopPropagation();
 		event.preventDefault();
 		// alert(event.data.imagefield);
-		$('div[id="unselectbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.unselecting_image);
+		$('div[id="unselectbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
 		$.post('/cgi/product_image_unselect.pl',
 				{code: code, id: imagefield }, function(data) {
 
 			if (data.status_code === 0) {
-				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(Lang.unselected_image_ok);
+				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_ok);
 				delete imagefield_url[imagefield];
 			}
 			else {
-				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(Lang.unselected_image_nok);
+				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_nok);
 			}
 			update_display(imagefield, false);
 			$('div[id="display_' + imagefield +'"]').html('');
@@ -573,22 +573,22 @@ function update_display(imagefield, first_display) {
 			if (! stringStartsWith(id, 'manage')) {
 
       html += '<div style="clear:both" class="command upload_image_div">';
-			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"> ' 
+			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"> '
 + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon"><circle cx="12" cy="12" r="3.2"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'
-+ Lang.upload_image
++ lang().product_js_upload_image
 + '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
 + '" data-url="/cgi/product_image_upload.pl" multiple '
 + 'style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;font-size:40px;"/>'
 + '</a>'
 + '</div>'
-+ '<p class="note">' + Lang.upload_image_note + '</p>'
++ '<p class="note">' + lang().product_js_upload_image_note + '</p>'
 + '<div id="progressbar_' + id + '" class="progress" style="display:none">'
 +  '<span id="progressmeter_' + id + '" class="meter" style="width:0%"></span>'
 + '</div>'
-+ '<div id="imgsearchmsg_' + id + '" data-alert class="alert-box info" style="display:none">' + Lang.uploading_image
++ '<div id="imgsearchmsg_' + id + '" data-alert class="alert-box info" style="display:none">' + lang().product_js_uploading_image
 + '<a href="#" class="close">&times;</a>'
 + '</div>'
-+ '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + Lang.image_upload_error
++ '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error
 + '<a href="#" class="close">&times;</a>'
 + '</div>';
 
@@ -622,7 +622,7 @@ function update_display(imagefield, first_display) {
 
 			if (data.result) {
 			if (data.result.image) {
-	$("#imgsearchmsg_" + imagefield).html(Lang.image_received);
+	$("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
 	$("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.result.image.imgid);
 	$([]).selectcrop('add_image',data.result.image);
 	$(".select_crop").selectcrop('show');
@@ -649,7 +649,7 @@ function update_display(imagefield, first_display) {
 		start: function () {
 			$("#imgsearchbutton_" + imagefield).hide();
 			$("#imgsearcherror_" + imagefield).hide();
-			$("#imgsearchmsg_" + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + Lang.uploading_image).show();
+			$("#imgsearchmsg_" + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_uploading_image).show();
 			$("#progressbar_" + imagefield).show();
 			$("#progressmeter_" + imagefield).css('width', "0%");
 
