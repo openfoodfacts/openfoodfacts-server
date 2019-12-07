@@ -6106,7 +6106,7 @@ HTML
 HTML
 ;
 	}
-	
+
 	elsif ($lc eq 'es') {
 
 		my $link = lang("donate_link");
@@ -6128,7 +6128,7 @@ HTML
 HTML
 ;
 	}
-	
+
 	elsif ($lc eq 'it') {
 
 		my $link = lang("donate_link");
@@ -6150,7 +6150,7 @@ HTML
 HTML
 ;
 	}
-	
+
 	elsif ($lc eq 'de') {
 
 		my $link = lang("donate_link");
@@ -6463,10 +6463,10 @@ HTML
 	</div>
 	<div class="small-12 medium-6 large-3 columns app">
 		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
-		<a href="$Lang{ios_app_link}{$lc}">$Lang{ios_app_badge}{$lc}</a>
-		<a href="$Lang{android_app_link}{$lc}">$Lang{android_app_badge}{$lc}</a>
-		<a href="$Lang{windows_phone_app_link}{$lc}">$Lang{windows_phone_app_badge}{$lc}</a>
-		<a href="$Lang{android_apk_app_link}{$lc}">$Lang{android_apk_app_badge}{$lc}</a>
+		<a href="$Lang{ios_app_link}{$lc}"><img src="$Lang{ios_app_icon_url}{$lc}" alt="$Lang{ios_app_icon_alt_text}{$lc}" width="120" height="40" loading="lazy"></a>
+		<a href="$Lang{android_app_link}{$lc}"><img src="$Lang{android_app_icon_url}{$lc}" alt="$Lang{android_app_icon_alt_text}{$lc}" width="102" height="40" loading="lazy"></a>
+		<a href="$Lang{windows_phone_app_link}{$lc}"><img src="$Lang{windows_phone_app_icon_url}{$lc}" alt="$Lang{windows_phone_app_icon_alt_text}{$lc}" width="109" height="40" loading="lazy"></a>
+		<a href="$Lang{android_apk_app_link}{$lc}"><img src="$Lang{android_apk_app_icon_url}{$lc}" alt="$Lang{android_apk_app_icon_alt_text}{$lc}" loading="lazy"></a>
 	</div>
 	<div class="small-12 medium-6 large-3 columns project">
 		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
