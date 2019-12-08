@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 15:43\n"
+"PO-Revision-Date: 2019-12-08 00:08\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -123,10 +123,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "crwdns102148:0crwdne102148:0"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "crwdns121192:0crwdne121192:0"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "crwdns124863:0crwdne124863:0"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "crwdns124865:0crwdne124865:0"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -134,9 +137,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "crwdns102152:0crwdne102152:0"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "crwdns121208:0crwdne121208:0"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "crwdns124867:0crwdne124867:0"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "crwdns124869:0crwdne124869:0"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -966,9 +973,14 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "crwdns102542:0%scrwdne102542:0"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "crwdns121210:0crwdne121210:0"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "crwdns124871:0crwdne124871:0"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr "crwdns124873:0crwdne124873:0"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2554,9 +2566,13 @@ msgid "Site or blog address"
 msgstr "crwdns103314:0crwdne103314:0"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "crwdns121212:0crwdne121212:0"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "crwdns124875:0crwdne124875:0"
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr "crwdns124877:0crwdne124877:0"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
