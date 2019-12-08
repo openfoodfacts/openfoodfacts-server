@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-01 21:44\n"
+"PO-Revision-Date: 2019-12-05 16:22\n"
 "Language-Team: Finnish\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 tuote"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " ja "
@@ -63,7 +64,7 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr "Hei <NAME>, Kiitos paljon liittymisestäsi https://openfoodfacts.org hankkeeseen. Tässä on käyttäjätunnuksesi: Käyttäjätunnus: <USERID> Voit nyt kirjautua sivustolle lisätäksesi ja muokataksesi tuotteita. <<site_name>> on yhteistyöhanke, johon voit tuoda paljon enemmän kuin uusia tuotteita: energiaa, innostusta ja ideoita! Voit keskustella osallistujien kesken ja viedä projektia eteenpäin kätevällä viestintäjärjestelmällä Slack: https://slack.openfoodfacts.org Voit myös liittyä osallistujien Facebook-ryhmään: https://www.facebook.com/groups/OpenFoodFacts/ Uutta: käynnistämme myös Open Beauty Facts -kosmetiikkatietokannan: saippuat, hammastahnat, meikit jne. https://openbeautyfacts.org Kiitos paljon! Stéphane ja Open Food Facts -tiimi https://openfoodfacts.org https://twitter.com/OpenFoodFacts"
+msgstr "Hei <NAME>, Kiitos paljon liittymisestäsi https://openfoodfacts.org hankkeeseen. Tässä on käyttäjätunnuksesi: Käyttäjätunnus: <USERID> Voit nyt kirjautua sivustolle lisätäksesi ja muokataksesi tuotteita. <<site_name>> on yhteistyöhanke, johon voit tuoda paljon enemmän kuin uusia tuotteita: energiaa, innostusta ja ideoita! Voit keskustella osallistujien kesken ja viedä projektia eteenpäin kätevällä viestintäjärjestelmällä Slack: https://slack.openfoodfacts.org Voit myös liittyä osallistujien Facebook-ryhmään: https://www.facebook.com/groups/OpenFoodFacts/ Uutta: käynnistämme myös Open Beauty Facts -kosmetiikkatietokannan: saippuat, hammastahnat, meikit jne. https://openbeautyfacts.org Kiitos paljon! Stéphane ja Open Food Facts -tiimi https://openfoodfacts.org https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -133,9 +134,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/fi_get.svg\" alt=\"Saatavilla Google Playsta\" width=\"102\" height=\"40\" />"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "/images/misc/google-play-badge-svg-master/img/fi_get.svg"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "Saatavilla Google Playsta"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -145,7 +150,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Tämä tuote ei ole vielä <<site_name>> -tietokannassa. Voisitko ottaa kuvia tuotteesta, viivakoodista, ainesosaluettelosta ja ravintosisällöstä lisätäksesi sen <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>>iin</a>?</p> <p>Kiitos jo etukäteen!</p>"
+msgstr "<p>Tämä tuote ei ole vielä <<site_name>> -tietokannassa. Voisitko ottaa kuvia tuotteesta, viivakoodista, ainesosaluettelosta ja ravintosisällöstä lisätäksesi sen <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>>iin</a>?</p> <p>Kiitos jo etukäteen!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -636,7 +641,7 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Lakiasiat</a> - <a href=\"https://world.openfoodfacts.org/terms-of-use\">Käyttöehdot</a> - <a href=\"https://world.openfoodfacts.org/who-we-are\">Keitä olemme</a> - <a href=\"https://world.openfoodfacts.org/faq\">Usein kysytyt kysymykset</a> - <a href=\"https://openfoodfacts.uservoice.com/\">Ideafoorumi</a> - <a href=\"https://en.blog.openfoodfacts.org\">Blogi</a> - <a href=\"https://world.openfoodfacts.org/press-and-blogs\">Lehdistö ja blogit</a>"
+msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Lakiasiat</a> - <a href=\"https://world.openfoodfacts.org/terms-of-use\">Käyttöehdot</a> - <a href=\"https://world.openfoodfacts.org/who-we-are\">Keitä olemme</a> - <a href=\"https://world.openfoodfacts.org/faq\">Usein kysytyt kysymykset</a> - <a href=\"https://openfoodfacts.uservoice.com/\">Ideafoorumi</a> - <a href=\"https://en.blog.openfoodfacts.org\">Blogi</a> - <a href=\"https://world.openfoodfacts.org/press-and-blogs\">Lehdistö ja blogit</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
@@ -695,7 +700,7 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr "Seuraa meitä <a href=\"https://twitter.com/openfoodfacts\">Twitterissä</a>, <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebookissa</a> ja <a href=\"https://www.instagram.com/open.food.facts/\">Instagramissa</a>"
+msgstr "Seuraa meitä <a href=\"https://twitter.com/openfoodfacts\">Twitterissä</a>, <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebookissa</a> ja <a href=\"https://www.instagram.com/open.food.facts/\">Instagramissa</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -757,6 +762,16 @@ msgstr "<<site_name>> wiki (en)"
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
+
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -955,9 +970,14 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "Tuotteet, jotka eivät sisällä ainesosaa %s"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_FI.svg\" alt=\"Saatavilla App Storesta\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_FI.svg"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr "Saatavilla App Storesta"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1237,7 +1257,7 @@ msgstr "Kirjaudu lisätäksesi tai muokataksesi tuotteita."
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "<p>Kirjaudu sisään lisätäksesi tai muokataksesi tuotteita.</p> <p>Jos sinulla ei ole vielä tiliä <<site_name>>issä, voit <a href=\"/cgi/user.pl\">rekisteröityä 30 sekunnissa</a>.</p>"
+msgstr "<p>Kirjaudu sisään lisätäksesi tai muokataksesi tuotteita.</p> <p>Jos sinulla ei ole vielä tiliä <<site_name>>issä, voit <a href=\"/cgi/user.pl\">rekisteröityä 30 sekunnissa</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1569,7 +1589,7 @@ msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.pn
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Oppiaksesi lisää <<site_name>>sta, käy <a href=\"https://en.blog.openfoodfacts.org\">blogissamme</a>!</p> <p>Viimeaikaisia uutisia:</p>"
+msgstr "<p>Oppiaksesi lisää <<site_name>>sta, käy <a href=\"https://en.blog.openfoodfacts.org\">blogissamme</a>!</p> <p>Viimeaikaisia uutisia:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1970,7 +1990,7 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr "Hei <NAME>, Pyysit salasanan palautusta sivustolla https://openfoodfacts.org käyttäjänimelle: <USERID> Jatkaaksesi salasanan palautusta, napsauta alla olevaa linkkiä. Jos et pyytänyt salasanan palautusta, voit jättää tämän viestin huomiotta. <RESET_URL> Nähdään pian, terveisin, Stephane https://openfoodfacts.org"
+msgstr "Hei <NAME>, Pyysit salasanan palautusta sivustolla https://openfoodfacts.org käyttäjänimelle: <USERID> Jatkaaksesi salasanan palautusta, napsauta alla olevaa linkkiä. Jos et pyytänyt salasanan palautusta, voit jättää tämän viestin huomiotta. <RESET_URL> Nähdään pian, terveisin, Stephane https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
@@ -2543,9 +2563,13 @@ msgid "Site or blog address"
 msgstr "Sivuston tai blogin osoite"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/Finnish.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "/images/misc/microsoft/Finnish.svg"
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2654,7 +2678,7 @@ msgstr "Tämä tuotesivu ei ole valmis. Voit auttaa sen täydentämisessä muokk
 
 msgctxt "title_separator"
 msgid " - "
-msgstr "-"
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -3271,7 +3295,7 @@ msgstr "Lähetä tiedosto, jossa on tuotteiden tiedot"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr "Tiedostoa lähetetään"
+msgstr "Tiedostoa lähetetään."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
@@ -3881,7 +3905,7 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr ""
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
 msgstr "Nutri-Score-pisteet"
@@ -3918,6 +3942,10 @@ msgstr "Tuoteluokan %s keskiarvo"
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "Nutri-Score voi muuttua arvosanasta %s arvosanaan %s muuttamalla arvoa %s arvosta %s arvoon %s (%s prosentin ero)."
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr ""
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -3962,4 +3990,32 @@ msgstr "Moderaattori"
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr "Moderaattoreilla on erityispääsy ominaisuuksiin tuotteiden muokkaamiseen ja tarkistukseen."
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr "Olen jo lahjoittanut, tai en ole kiinnostunut. Piilota banneri."
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr "Hei, ruutu, josta poistaa valinta?!"
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr ""
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr ""
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr ""
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr ""
 

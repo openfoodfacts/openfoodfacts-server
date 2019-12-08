@@ -62,5 +62,9 @@ is($product_ref->{quantity}, "250 g") or diag explain $product_ref;
 $product_ref = { "lc" => "fr", net_weight_value_unit => "250 gr", quantity => "2 tranches" }; clean_weights($product_ref);
 is($product_ref->{quantity}, "2 tranches (250 g)") or diag explain $product_ref;
 
+$product_ref = { "lc" => "fr", emb_codes => "EMB 60282A - Gouvieux (Oise, France)" }; 
+@fields = ("emb_codes");
+clean_fields($product_ref);
+is($product_ref->{emb_codes}, "EMB 60282A") or diag explain $product_ref;
 
 done_testing();
