@@ -57,7 +57,7 @@ let langData;
 function lang() {
   if (!langData) {
     $.ajax({
-      url: '/cgi/i18n/lang.pl',
+      url: document.location.protocol + '//static.' + document.querySelector('html').dataset.serverdomain + '/data/i18n/' + document.querySelector('html').lang + '/lang.json',
       dataType: 'json',
       async: false,
       success: function (json) {

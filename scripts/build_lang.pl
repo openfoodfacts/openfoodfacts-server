@@ -46,5 +46,8 @@ ProductOpener::Lang::build_lang(\%Languages);
 # as is the case with world.openfoodfacts.org and world.preprod.openfoodfacts.org
 store("$data_root/Lang.${server_domain}.sto",\%Lang);
 
+# Generate JSON files for JavaScript I18N
+ProductOpener::Lang::build_json();
+
 exit(0);
 
