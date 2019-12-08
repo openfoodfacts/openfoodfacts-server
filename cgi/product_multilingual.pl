@@ -756,13 +756,13 @@ HTML
 
 
 	if ($#errors >= 0) {
-		$html .= "<p>Merci de corriger les erreurs suivantes :</p>";
+		$html .= "<p>Merci de corriger les erreurs suivantes :</p>"; # TODO: Make this translatable
 		foreach my $error (@errors) {
 			$html .= "<p class=\"error\">$error</p>\n";
 		}
 	}
 
-	$html .= start_multipart_form(-id=>"product_form") ;
+	$html .= start_multipart_form(-id => "product_form") ;
 
 	my $thumb_selectable_size = $thumb_size + 20;
 

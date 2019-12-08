@@ -495,10 +495,9 @@ function update_display(imagefield, first_display) {
 }
 
 function initializeTagifyInputs() {
-  const inputs = document.querySelectorAll('input.tagify-me');
-  for (let i = 0; i < inputs.length; ++i) {
-    initializeTagifyInput(inputs[i]);
-  }
+  document
+    .querySelectorAll("input.tagify-me")
+    .forEach(input => initializeTagifyInput(input));
 }
 
 const maximumRecentEntriesPerTag = 3;
@@ -508,12 +507,12 @@ function initializeTagifyInput(el) {
     whitelist: get_recents(el.id) || [],
     dropdown: {
       enabled: 0
-    },
+    }
   });
 
   let abortController;
-  input.on('input', function(e) {
-    const value = e.detail.value;
+  input.on("input", function(event) {
+    const value = event.detail.value;
     input.settings.whitelist = []; // reset the whitelist
 
     if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
@@ -524,27 +523,29 @@ function initializeTagifyInput(el) {
 
       abortController = new AbortController();
 
-      fetch(el.dataset.autocomplete + 'term=' + value, {signal: abortController.signal}).
-        then((RES) => RES.json()).
-        then(function(whitelist) {
+      fetch(el.dataset.autocomplete + "term=" + value, {
+        signal: abortController.signal
+      })
+        .then(RES => RES.json())
+        .then(function(whitelist) {
           input.settings.whitelist = whitelist;
           input.dropdown.show.call(input, value); // render the suggestions dropdown
-      });
+        });
     }
   });
 
-  input.on('add', function(e) {
+  input.on("add", function(event) {
     let obj;
 
     try {
       obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-    } catch(err) {
-      if(err.name == "NS_ERROR_FILE_CORRUPTED") {
-          obj = null;
+    } catch (err) {
+      if (err.name == "NS_ERROR_FILE_CORRUPTED") {
+        obj = null;
       }
     }
 
-    const tag = e.detail.data.value;
+    const tag = event.detail.data.value;
     if (obj === null) {
       obj = {};
       obj[el.id] = [tag];
@@ -562,11 +563,10 @@ function initializeTagifyInput(el) {
       obj[el.id].unshift(tag);
     }
 
-
     try {
       window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-    } catch(err) {
-      if(err.name == "NS_ERROR_FILE_CORRUPTED") {
+    } catch (err) {
+      if (err.name == "NS_ERROR_FILE_CORRUPTED") {
         // TODO: Tell the user
       }
     }
@@ -574,26 +574,32 @@ function initializeTagifyInput(el) {
     input.settings.whitelist = obj[el.id]; // reset the whitelist
   });
 
-  document.getElementById('product_form').addEventListener('submit', function() {
-    el.value = input.value.map((obj) => obj.value).join(',');
-  });
+  document
+    .getElementById("product_form")
+    .addEventListener("submit", function() {
+      el.value = input.value.map(obj => obj.value).join(",");
+    });
 }
 
 function get_recents(tagfield) {
   let obj;
-    try {
-      obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-    } catch(e) {
-      if(e.name == "NS_ERROR_FILE_CORRUPTED") {
-        obj = null;
-      }
+  try {
+    obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+  } catch (e) {
+    if (e.name == "NS_ERROR_FILE_CORRUPTED") {
+      obj = null;
     }
-
-  if (obj === null) {
-    return [];
   }
 
-  return obj[tagfield] === null ? [] : obj[tagfield];
+  if (
+    obj !== null &&
+    obj[tagfield] !== undefined &&
+    obj[tagfield] !== null
+  ) {
+    return obj[tagfield];
+  }
+
+  return [];
 }
 
 (function( $ ){
