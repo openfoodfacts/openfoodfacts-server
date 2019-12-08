@@ -57,8 +57,8 @@ function buildJs() {
     './html/js/display*.js',
     './html/js/product-multilingual.js',
     './html/js/search.js'
-  ], { sourcemaps: true })
-  .pipe(dest('./html/js/dist', { sourcemaps: true }))
+  ], { sourcemaps: false })
+  .pipe(dest('./html/js/dist', { sourcemaps: false }))
 }
 
 function jQueryUiThemes() {
