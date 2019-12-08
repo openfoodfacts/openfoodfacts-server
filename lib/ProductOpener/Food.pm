@@ -5873,15 +5873,19 @@ sub compute_nova_group($) {
 		}
 	}
 
+	# Make sure that nova_group is stored as a number
+
+	$product_ref->{nova_group} += 0;
 
 	$product_ref->{nutriments}{"nova-group"} = $product_ref->{nova_group};
 	$product_ref->{nutriments}{"nova-group_100g"} = $product_ref->{nova_group};
 	$product_ref->{nutriments}{"nova-group_serving"} = $product_ref->{nova_group};
 
+	# Store nova_groups as a string
+
 	$product_ref->{nova_groups} = $product_ref->{nova_group};
-	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_group}) ];
-
-
+	$product_ref->{nova_groups} .= "";
+	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_groups}) ];
 }
 
 
