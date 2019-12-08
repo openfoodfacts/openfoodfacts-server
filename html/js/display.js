@@ -89,7 +89,6 @@ window.addEventListener('load', onLoad);
 
 $(function () {
   $("#select_country").select2({
-    placeholder: lang().select_country,
     allowClear: true,
     ajax: {
       url: '/cgi/i18n/countries.pl',

@@ -5969,7 +5969,7 @@ $google_analytics
 		<label for="select_country" style="display:none">$Lang{select_country}{$lang}</label>
 		<ul class="left">
 			<li class="has-form has-dropdown" id="select_country_li">
-				<select id="select_country" style="width:100%">
+				<select id="select_country" style="width:100%" data-placeholder="@{[ lang('select_country') ]}">
 					<option></option>
 				</select>
 			</li>
