@@ -1793,7 +1793,8 @@ fr:Vodkas tchèques
 nl:Tsjechische wodkas
 
 <en:Hard liquors
-fr:Gins
+en:Gins, Gin
+fr:Gins, Gin
 de:Gins
 es:Ginebras
 nl:Gins
@@ -19448,6 +19449,13 @@ wikidata:en:Q1163138
 fr:Citron confit
 de:Kandierte Zitrone
 
+<en:Confectioneries
+en:lokums, lokum, turkish delight, loukoumi, lokum
+fr:Loukoums, Loukoum, rahat loukoum
+de:Lokum, Turkish Delight
+es:Rahat lokum, delicia turca
+wikidata:en:Q182339
+
 en:Easter food, Easter chocolates
 de:Osterschokoladen
 fi:pääsiäisruuat
@@ -22149,6 +22157,7 @@ oqali_family:en: fr:Fromages - Crottin de chevre
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
+en:Rocamadour
 fr:Rocamadour
 country:en:France
 wikidata:en:Q768189
@@ -25398,6 +25407,7 @@ it:Composte di mango
 nl:Mangocompotes
 
 <en:Compotes
+en:Pear compotes, Pear compote
 fr:Compotes de poire, Compotes de poires
 de:Birnenkompott
 it:Composte di pera
@@ -26483,26 +26493,28 @@ fr:Miels d’acacia du Jura
 nl:Acaciahoningen uit de Jura
 
 <en:Honeys from France
+en:Honeys from Alsace
 fr:Miels d’Alsace
 nl:Honinge nuit de de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de châtaignier d'Alsace
 nl:Kastanjehoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
+<en:Flower honeys
 fr:Miels de fleurs d'Alsace
 nl:Bloemenhoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de forêt d'Alsace
 nl:Boshoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de sapin d'Alsace
 nl:Sparrenhoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de tilleul d'Alsace
 nl:Lindebloesemhoningen uit de Alsace
 
@@ -26576,7 +26588,7 @@ fr:Miels d’acacia des rives du Danube de Roumanie
 nl:Acaciahoningen van de roemeense Donau-oevers
 
 <en:Mountain products
-<fr:Miels de fleurs
+<en:Flower honeys
 en:Honeys from the mountains
 de:Berghonige
 fi:hunajaa vuorilta
@@ -26700,11 +26712,12 @@ fr:Miels de pin
 nl:Pijnboomhoningen
 
 <en:Honeys
+en:Flower honeys, Flower honey
 es:Mieles de flores
 fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
 nl:Bloemenhoningen
 
-<fr:Miels de fleurs
+<en:Flower honeys
 fr:Miels de garrigue
 nl:Garriguehoningen
 
@@ -26825,8 +26838,9 @@ nl:Vloeibare honingen
 pt:Méis líquidos
 
 <fr:Miels
+en:Rosemary honeys, Rosemary honey
 es:Mieles de romero
-fr:Miels de romarin
+fr:Miels de romarin, Miel de romarin
 it:Miele di rosmarino
 nl:Rozemarijnhoningen
 
@@ -31695,6 +31709,7 @@ de:Salze, Salz
 es:Sales, Sal
 fi:suoloja
 fr:Sels
+it:Sale
 hu:Só, Sók
 nl:Zouten
 nl_be:Zouten
@@ -31702,11 +31717,13 @@ zh:盐类
 
 <en:Salts
 fr:Gros sels, gros sel
+it:Sale grosso
 de:Grobe Salze, Grobes Salz
 nl:Grove zouten
 
 <en:Salts
 fr:Sels fins, sel fin
+it:Sale fino
 de:Feine Salze, Feines Salz
 nl:Fijne zouten
 
@@ -31717,11 +31734,13 @@ nl:Vloeibare zouten
 
 <en:Salts
 fr:Sels des mines de sel
+it:Salgemma, sale dalle miniere 
 de:Steinsalze, Steinsalz
 nl:Steenzouten
 
 <en:Salts
 en:Himalaya salts
+it:Sale dell'Himalaya
 es:Sal del himalaya
 fr:Sels de l'Himalaya
 
@@ -31730,31 +31749,37 @@ en:Sea salts, Bay salts, Solar salt
 de:Meersalze, Meersalz
 fi:merisuolat
 fr:Sels marins, sels de mer, sel de mer
+it:Sale marino
 nl:Zeezouten
+
+<en:Salts
+en:Iodised salts, iodised salt
+it:Sale iodato
 
 <en:Salts
 en:Unrefined salts
 de:Unraffinierte Salze, Naturbelassene Salze, Unraffiniertes Salz, Naturbelassenes Salz
 fi:jalostamattomat suolot
 fr:Sels non raffinés, sels naturels
+it:Sale non raffinato, sale naturale
 hu:Tengeri sók
 nl:Ongeraffineerde zouten
 
-<fr:Sels naturels
+<en:Unrefined salts
 <en:Sea salts
 en:Fleurs de sel
 de:Salzblume, Fleurs de sel
 fr:Fleurs de sel
 nl:Fleurs de sel, Bloem van het zout
 
-<fr:Sels naturels
+<en:Unrefined salts
 en:Unrefined rock salt
 fr:Sel gemme non raffiné
 hu:Finomítatlan kősó
 nl:Ongeraffineerde steenzouten
 
 <en:Sea salts
-<fr:Sels naturels
+<en:Unrefined salts
 fr:Sels des marais salants, sels marins gris, sels marins gris de table, sels marins gris de cuisine
 nl:Grijze steenzouten
 
@@ -31781,6 +31806,7 @@ de:Speisesalze, Tafelsalze
 es:Sales de mesa
 fi:pöytäsuolat
 fr:Sels de table
+it:Sale da tavola
 nl:Keukenzouten
 
 <en:Condiments
@@ -32321,8 +32347,10 @@ fr:Capsicum frutescens
 fr:Piment oiseau, pequin, piment zozio, piment martin
 
 <fr:Capsicum frutescens
+en:Cayenne peppers, Cayenne pepper
 fr:Piments de Cayenne, Piment de Cayenne, Capsicum baccatum, aji, piment enragé, poivre de Cayenne
 es:Cayena
+wikidata:en:Q6598
 
 <fr:Capsicum frutescens
 <fr:Piments rouges
@@ -33816,6 +33844,7 @@ fr:Cassoulets au confit de canard
 nl:Cassoulet met geconfijte eend
 
 <en:Duck dishes
+<en:Sausages
 en:Duck sausages
 fr:Saucisses de canard
 nl:Eendenworst
@@ -33889,7 +33918,7 @@ wikidata:en:Q863794
 <en:Fresh pasta
 <en:Fresh meals
 <en:Ravioli
-fr:Ravioli frais, raviolis frai
+fr:Ravioli frais
 de:Frische Ravioli
 nl:Verse raviolis
 
@@ -36645,6 +36674,11 @@ en:Sausages from Spain, Spanish sausages
 fr:Saucisses espagnoles, Saucisses d'Espagne
 hu:Spanyol kolbász
 nl:Spaanse worsten
+
+<en:Sausages
+<en:Veal meat
+en:Veal Sausages, Veal Sausage
+fr:Saucisses de veau, Saucisse de veau
 
 <en:Poultry sausages
 <en:Chickens
@@ -40677,6 +40711,10 @@ fr:Confitures de coings
 hu:Birs lekvár
 
 <en:Fruit jams
+en:Kiwi jams, kiwi jam
+fr:Confitures de kiwi, confiture de kiwi
+
+<en:Fruit jams
 en:Plum jams
 de:Pflaumenmarmeladen
 es:Mermeladas y confituras de ciruela, Mermeladas de ciruela, Confituras de ciruela
@@ -42656,6 +42694,12 @@ en:Fresh garlic
 fr:Ail frais
 
 <en:Garlic
+en:Allium neapolitanum
+fr:Ail Blanc
+de:Neapolitanischer Lauch
+wikidata:en:Q1817792
+
+<en:Allium neapolitanum
 fr:Ail blanc de Lomagne
 country:en:France
 
@@ -42922,6 +42966,25 @@ wikipedia:en:https://en.wikipedia.org/wiki/Onion
 # ingredient/onion has 12754 products in 18 languages @2018-12-06
 # category/onions has 233 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr:Oignons
+
+<en:onions
+en:Yellow Onions, yellow onion
+fr:Oignons jaunes, oignon jaune
+de:gelbe Zwiebel
+wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
+wikidata:en:Q8051898
+
+<en:onions
+en:White Onions, white onion
+fr:Oignons blancs, oignon blanc
+wikipedia:en:https://en.wikipedia.org/wiki/White_onion
+wikidata:en:Q7995660
+
+<en:onions
+en:Red Onions, red onion, purple onions, Bombay onions
+fr:Oignons rouges, oignon rouge
+wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
+wikidata:en:Q622350
 
 <en:Onions
 <en:Fresh vegetables
@@ -44624,6 +44687,11 @@ fi:siiderietikat
 fr:Vinaigres de cidre, vinaigre de cidre
 hu:Almaecet
 nl:Ciderazijnen
+wikidata:en:Q618322
+
+<en:Cider vinegars
+en:Apple cider vinegars, Apple cider vinegar
+fr:Vinaigres de cidre de pomme, Vinaigre de cidre de pomme, Vinaigres de pomme, Vinaigre de pomme
 wikidata:en:Q618322
 
 <en:Vinegars

@@ -635,82 +635,13 @@ sub display_field($$) {
 		$display_lc = $2;
 	}
 
-	my $tagsinput = '';
-	if (defined $tags_fields{$fieldtype}) {
-		$tagsinput = ' tagsinput';
-
 		my $autocomplete = "";
+	my $class = "";
+	if (defined $tags_fields{$fieldtype}) {
+		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
-			my $world = format_subdomain('world');
-			$autocomplete = "$world/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&";
-		}
-
-		my $default_text = "";
-		if (defined $Lang{$field . "_tagsinput"}) {
-			$default_text = $Lang{$field . "_tagsinput"}{$lang};
-		}
-
-		my $arrayLenght = 3;
-
-		# For the field autocomplete_url it has to have a value
-		# otherwise tagsInput will not load the autocomplete plugin
-		# (see line https://github.com/xoxco/jQuery-Tags-Input/blob/ae31b175fbfd0a0476822182ef52e76c2629e9c3/src/jquery.tagsinput.js#L264)
-		$initjs .= <<"JAVASCRIPT"
-\$('#$field').tagsInput({
-	height: '3rem',
-	width: '100%',
-	interactive: true,
-	minInputWidth: 130,
-	delimiter: [','],
-	defaultText: "$default_text",
-	autocomplete_url: "I love OpenFoodFacts",
-	autocomplete: {
-		source: function(request, response) {
-			if (request.term === "") {
-				let obj = window.localStorage.getItem("po_last_tags");
-				obj = JSON.parse(obj) || {};
-				obj = obj['${field}'] || [];
-
-				response(obj.filter( function(el) {
-  					return !\$('#$field').tagExist(el);
-				}));
-			} else {
-				const url = "${autocomplete}";
-				if (url == "") return;
-				\$.ajax({
-					type: "GET",
-					url: "${autocomplete}",
-					data: "term="+ request.term,
-  					dataType: "json",
-					success: function(data) {
-						response(data)
+			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
 					}
-				});
-			}
-		},
-		minLength: 0
-	},
-	onAddTag: function(tag) {
-		let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-
-		if (obj == null) {
-			obj = {"${field}": [tag]}
-		} else if (obj["${field}"] == null) {
-			obj["${field}"] = [tag];
-		} else {
-			if (obj["${field}"].indexOf(tag) != -1) return;
-			if (obj["${field}"].length >= $arrayLenght) obj["${field}"].pop();
-			obj["${field}"].unshift(tag);
-		}
-		window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-		\$('#${field}_tag').autocomplete("search", "");
-	}
-});
-\$("#${field}_tag").focus(function() {
-    \$(this).autocomplete("search", "");
-});
-JAVASCRIPT
-;
 	}
 
 	my $value = $product_ref->{$field};
@@ -737,7 +668,7 @@ HTML
 	}
 	else {
 		$html .= <<HTML
-<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" lang="${display_lc}" />
+<input type="text" name="$field" id="$field" class="text $class" value="$value" lang="${display_lc}" data-autocomplete="${autocomplete}" />
 HTML
 ;
 	}
@@ -784,7 +715,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css" />
-<link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
 <link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
 
 HTML
@@ -794,6 +725,7 @@ HTML
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
+<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
@@ -805,7 +737,7 @@ HTML
 
 
 	if ($#errors >= 0) {
-		$html .= "<p>Merci de corriger les erreurs suivantes :</p>";
+		$html .= "<p>Merci de corriger les erreurs suivantes :</p>"; # TODO: Make this translatable
 		foreach my $error (@errors) {
 			$html .= "<p class=\"error\">$error</p>\n";
 		}

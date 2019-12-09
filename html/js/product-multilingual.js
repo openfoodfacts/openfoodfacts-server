@@ -19,7 +19,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /*eslint no-console: "off"*/
-/*global lang admin otherNutriments*/
+/*global lang admin otherNutriments Tagify*/
 /*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
@@ -230,9 +230,11 @@ function upload_image (imagefield) {
 
 function init_image_area_select(imagefield) {
 
-	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false, "zoomable" : false, "mouseWheelZoom" : false, "touchDragZoom" : false, "toggleDragModeOnDblclick" : false, built: function () {
+	$('img#crop_' + imagefield).cropper({
+		"strict": false, "guides": false, "autoCrop": false, "zoomable": false, "mouseWheelZoom": false, "touchDragZoom": false, "toggleDragModeOnDblclick": false, built: function () {
 		$('img#crop_' + imagefield ).cropper('setDragMode', "crop");
-	}});
+		}
+	});
 
 }
 
@@ -349,10 +351,12 @@ function change_image(imagefield, imgid) {
 				$('div[id="cropbuttonmsg_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_image_saving);
 				$('div[id="cropbuttonmsg_' + imagefield +'"]').show();
 				$.post('/cgi/product_image_crop.pl',
-						{code: code, id: imagefield , imgid: imgid,
+			{
+				code: code, id: imagefield, imgid: imgid,
 						x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
 						angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'),
-						white_magic:$("#white_magic_" + imagefield).prop('checked') }, function(data) {
+				white_magic: $("#white_magic_" + imagefield).prop('checked')
+			}, function (data) {
 
 					imagefield_url[imagefield] = data.image.display_url;
 					update_display(imagefield, false);
@@ -492,7 +496,117 @@ function update_display(imagefield, first_display) {
 	$(document).foundation('equalizer', 'reflow');
 }
 
+function initializeTagifyInputs() {
+	document.
+		querySelectorAll("input.tagify-me").
+		forEach((input) => initializeTagifyInput(input));
+}
+
+const maximumRecentEntriesPerTag = 3;
+function initializeTagifyInput(el) {
+	const input = new Tagify(el, {
+		autocomplete: true,
+		whitelist: get_recents(el.id) || [],
+		dropdown: {
+			enabled: 0
+		}
+	});
+
+	let abortController;
+	input.on("input", function (event) {
+		const value = event.detail.value;
+		input.settings.whitelist = []; // reset the whitelist
+
+		if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
+			// https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
+			if (abortController) {
+				abortController.abort();
+			}
+
+			abortController = new AbortController();
+
+			fetch(el.dataset.autocomplete + "term=" + value, {
+				signal: abortController.signal
+			}).
+				then((RES) => RES.json()).
+				then(function (whitelist) {
+					input.settings.whitelist = whitelist;
+					input.dropdown.show.call(input, value); // render the suggestions dropdown
+				});
+		}
+	});
+
+	input.on("add", function (event) {
+		let obj;
+
+		try {
+			obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+		} catch (err) {
+			if (err.name == "NS_ERROR_FILE_CORRUPTED") {
+				obj = null;
+			}
+		}
+
+		const tag = event.detail.data.value;
+		if (obj === null) {
+			obj = {};
+			obj[el.id] = [tag];
+		} else if (obj[el.id] === null) {
+			obj[el.id] = [tag];
+		} else {
+			if (obj[el.id].indexOf(tag) != -1) {
+				return;
+			}
+
+			if (obj[el.id].length >= maximumRecentEntriesPerTag) {
+				obj[el.id].pop();
+			}
+
+			obj[el.id].unshift(tag);
+		}
+
+		try {
+			window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
+		} catch (err) {
+			if (err.name == "NS_ERROR_FILE_CORRUPTED") {
+				// Don't to anything
+			}
+		}
+
+		input.settings.whitelist = obj[el.id]; // reset the whitelist
+	});
+
+	document.
+		getElementById("product_form").
+		addEventListener("submit", function () {
+			el.value = input.value.map((obj) => obj.value).join(",");
+		});
+}
+
+function get_recents(tagfield) {
+	let obj;
+	try {
+		obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+	} catch (e) {
+		if (e.name == "NS_ERROR_FILE_CORRUPTED") {
+			obj = null;
+		}
+	}
+
+	if (
+		obj !== null &&
+		obj[tagfield] !== undefined &&
+		obj[tagfield] !== null
+	) {
+		return obj[tagfield];
+	}
+
+	return [];
+}
+
 (function( $ ){
+
+	initializeTagifyInputs();
 
 	var settings = {
 		'thumb_width' : 100,
