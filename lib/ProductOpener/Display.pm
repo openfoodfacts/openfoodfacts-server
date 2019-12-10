@@ -6106,7 +6106,7 @@ HTML
 HTML
 ;
 	}
-	
+
 	elsif ($lc eq 'es') {
 
 		my $link = lang("donate_link");
@@ -6120,15 +6120,15 @@ HTML
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">I have already donated or I'm not interested. Hide the banner.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, a box to uncheck?!</span>
+<span id="hide_image_banner_hide" style="display:none;">Ya he donado o no estoy interesado. Ocultar aviso.</span>
+<span id="hide_image_banner_show" style="display:none;">Hey, ¿un cuadro para desmarcar?</span>
 </label></div>
 </div>
 </div>
 HTML
 ;
 	}
-	
+
 	elsif ($lc eq 'it') {
 
 		my $link = lang("donate_link");
@@ -6142,15 +6142,15 @@ HTML
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">I have already donated or I'm not interested. Hide the banner.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, a box to uncheck?!</span>
+<span id="hide_image_banner_hide" style="display:none;">Ho già donato o non sono interessato. Nascondi il banner.</span>
+<span id="hide_image_banner_show" style="display:none;">Ehi, una casella da deselezionare?</span>
 </label></div>
 </div>
 </div>
 HTML
 ;
 	}
-	
+
 	elsif ($lc eq 'de') {
 
 		my $link = lang("donate_link");
@@ -6164,8 +6164,8 @@ HTML
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">I have already donated or I'm not interested. Hide the banner.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, a box to uncheck?!</span>
+<span id="hide_image_banner_hide" style="display:none;">Ich habe bereits gespendet oder ich bin nicht interessiert. Banner ausblenden.</span>
+<span id="hide_image_banner_show" style="display:none;">Hey, eine Box zum abwählen?!</span>
 </label></div>
 </div>
 </div>
@@ -6173,21 +6173,22 @@ HTML
 ;
 	}
 
-	elsif ($lc eq 'en') {
+	# Display the English banner if we don't have another one.
+	elsif (1 or ($lc eq 'en')) {
 
 		my $link = lang("donate_link");
 		my $image;
 		my $utm;
 		my @banners = qw(independent personal research);
 		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+		$image = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
 		$image_banner = <<HTML
 <div class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">I have already donated or I'm not interested. Hide the banner.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, a box to uncheck?!</span>
+<span id="hide_image_banner_hide" style="display:none;">$Lang{donation_banner_hide}{$lc}</span>
+<span id="hide_image_banner_show" style="display:none;">$Lang{donation_banner_show}{$lc}</span>
 </label></div>
 </div>
 </div>
@@ -6463,10 +6464,10 @@ HTML
 	</div>
 	<div class="small-12 medium-6 large-3 columns app">
 		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
-		<a href="$Lang{ios_app_link}{$lc}">$Lang{ios_app_badge}{$lc}</a>
-		<a href="$Lang{android_app_link}{$lc}">$Lang{android_app_badge}{$lc}</a>
-		<a href="$Lang{windows_phone_app_link}{$lc}">$Lang{windows_phone_app_badge}{$lc}</a>
-		<a href="$Lang{android_apk_app_link}{$lc}">$Lang{android_apk_app_badge}{$lc}</a>
+		<a href="$Lang{ios_app_link}{$lc}"><img src="$Lang{ios_app_icon_url}{$lc}" alt="$Lang{ios_app_icon_alt_text}{$lc}" width="120" height="40" loading="lazy"></a>
+		<a href="$Lang{android_app_link}{$lc}"><img src="$Lang{android_app_icon_url}{$lc}" alt="$Lang{android_app_icon_alt_text}{$lc}" width="102" height="40" loading="lazy"></a>
+		<a href="$Lang{windows_phone_app_link}{$lc}"><img src="$Lang{windows_phone_app_icon_url}{$lc}" alt="$Lang{windows_phone_app_icon_alt_text}{$lc}" width="109" height="40" loading="lazy"></a>
+		<a href="$Lang{android_apk_app_link}{$lc}"><img src="$Lang{android_apk_app_icon_url}{$lc}" alt="$Lang{android_apk_app_icon_alt_text}{$lc}" loading="lazy"></a>
 	</div>
 	<div class="small-12 medium-6 large-3 columns project">
 		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
@@ -7776,15 +7777,16 @@ HTML
 		my $group = $product_ref->{nova_group};
 
 		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
+		my $a_title = lang('nova_groups_info');
 
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
-<a href="/nova">
+<a href="/nova" title="${a_title}">
 @{[ display_icon('info') ]}</a>
 </h4>
 
 
-<a href="/nova"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
+<a href="/nova" title="${a_title}"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
 $display
 HTML
 ;
@@ -8156,15 +8158,16 @@ HTML
 		my $group = $product_ref->{nova_group};
 
 		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
+		my $a_title = lang('nova_groups_info');
 
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
-<a href="https://world.openfoodfacts.org/nova" title="NOVA groups for food processing">
+<a href="https://world.openfoodfacts.org/nova" title="${$a_title}">
 @{[ display_icon('info') ]}</a>
 </h4>
 
 
-<a href="https://world.openfoodfacts.org/nova" title="NOVA groups for food processing"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
+<a href="https://world.openfoodfacts.org/nova" title="${$a_title}"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
 $display
 HTML
 ;
