@@ -47,18 +47,19 @@ function copyJs() {
   return src(
     [
       "./node_modules/foundation-sites/js/vendor/*.js",
-      "./node_modules/foundation-sites/js/foundation.min.js",
-      "./node_modules/papaparse/papaparse.min.js",
+      "./node_modules/foundation-sites/js/foundation.js",
+      "./node_modules/papaparse/papaparse.js",
       "./node_modules/osmtogeojson/osmtogeojson.js",
-      "./node_modules/leaflet/dist/**/*.*",
-      "./node_modules/leaflet.markercluster/dist/**/*.*",
+      "./node_modules/leaflet/dist/leaflet.js",
+      "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
       "./node_modules/blueimp-tmpl/js/*.js",
       "./node_modules/blueimp-load-image/js/load-image.all.min.js",
-      "./node_modules/blueimp-canvas-to-blob/js/*.js",
+      "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
       "./node_modules/blueimp-file-upload/js/*.js",
-      "./node_modules/@yaireo/tagify/dist/tagify.min.js"
+      "./node_modules/@yaireo/tagify/dist/tagify.js"
     ])
     .pipe(sourcemaps.init())
+    .pipe(uglify())
     .pipe(sourcemaps.write("."))
     .pipe(dest("./html/js/dist"));
 }
@@ -76,6 +77,7 @@ function buildJs() {
 
 function buildjQueryUi() {
   return src([
+    './node_modules/jquery-ui/ui/version.js',
     './node_modules/jquery-ui/ui/widget.js',
     './node_modules/jquery-ui/ui/position.js',
     './node_modules/jquery-ui/ui/keycode.js',
@@ -85,7 +87,7 @@ function buildjQueryUi() {
   ])
   .pipe(sourcemaps.init())
   .pipe(uglify())
-  .pipe(concat('jquery-ui.min.js'))
+  .pipe(concat('jquery-ui.js'))
   .pipe(sourcemaps.write("."))
   .pipe(dest('./html/js/dist'))
 }
@@ -99,20 +101,33 @@ function jQueryUiThemes() {
     ])
     .pipe(sourcemaps.init())
     .pipe(minifyCSS())
-    .pipe(concat('jquery-ui.min.css'))
+    .pipe(concat('jquery-ui.css'))
     .pipe(sourcemaps.write("."))
     .pipe(dest('./html/css/dist/jqueryui/themes/base'));
 }
 
 function copyCss() {
-  return src(["./node_modules/@yaireo/tagify/dist/tagify.css"]).pipe(
-    dest("./html/css/dist")
-  );
+  return src([
+      "./node_modules/leaflet/dist/leaflet.css",
+      "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
+      "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
+      "./node_modules/@yaireo/tagify/dist/tagify.css"
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(minifyCSS())
+    .pipe(sourcemaps.write("."))
+    .pipe(dest("./html/css/dist"));
+}
 
+function copyImages() {
+  return src([
+      "./node_modules/leaflet/dist/**/*.png"
+    ])
+    .pipe(dest("./html/css/dist"));
 }
 
 exports.copyJs = copyJs;
 exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
-exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, jQueryUiThemes, series(icons, css));
+exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, css));
