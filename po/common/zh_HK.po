@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-08 12:10\n"
+"PO-Revision-Date: 2019-12-10 11:52\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
@@ -153,11 +153,11 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/zh-hk_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr "Google Play立即下載"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -2848,7 +2848,7 @@ msgstr "18至64歲"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr ""
+msgstr "18歲至64歲"
 
 msgctxt "elderly"
 msgid "Elderly"
@@ -2860,7 +2860,7 @@ msgstr "65歲或以上"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr ""
+msgstr "65歲或以上"
 
 msgctxt "adolescents"
 msgid "Adolescents"
@@ -2872,7 +2872,7 @@ msgstr "十至十七歲"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "10歲至17歲"
 
 msgctxt "children"
 msgid "Children"
@@ -2884,7 +2884,7 @@ msgstr "三至九歲"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "36個月至9歲"
 
 msgctxt "toddlers"
 msgid "Toddlers"
@@ -2896,7 +2896,7 @@ msgstr "一至兩歲"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
-msgstr ""
+msgstr "12至35個月"
 
 msgctxt "infants"
 msgid "Infants"
@@ -2908,7 +2908,7 @@ msgstr "不足一歲"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "多於12週至11個月"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
@@ -3004,23 +3004,23 @@ msgstr ""
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "已檢查相片和數據"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "我已檢查相片和數據。"
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "我已複檢相片和數據。"
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "最後檢查日期"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "最後檢查日期"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
@@ -4063,3 +4063,4 @@ msgstr "我們需要您的支持！"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "請捐款"
+
