@@ -635,13 +635,13 @@ sub display_field($$) {
 		$display_lc = $2;
 	}
 
-	my $autocomplete = "";
+		my $autocomplete = "";
 	my $class = "";
 	if (defined $tags_fields{$fieldtype}) {
 		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
-		}
+					}
 	}
 
 	my $value = $product_ref->{$field};
@@ -713,25 +713,6 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$scripts .=<<JS
-<script type="text/javascript">
-var admin = $moderator;
-var Lang = {
-JS
-;
-
-	foreach my $key (sort keys %Lang) {
-		next if $key !~ /^product_js_/;
-		$scripts .= '"' . $' . '" : "' . lang($key) . '",' . "\n";
-	}
-
-	$scripts =~ s/,\n$//s;
-	$scripts .=<<JS
-};
-</script>
-JS
-;
-
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
@@ -750,7 +731,7 @@ HTML
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
 <script type="text/javascript" src="/foundation/js/foundation/foundation.tab.js"></script>
-<script type="text/javascript" src="/js/product-multilingual.js"></script>
+<script type="text/javascript" src="/js/dist/product-multilingual.js"></script>
 HTML
 ;
 
@@ -762,7 +743,7 @@ HTML
 		}
 	}
 
-	$html .= start_multipart_form(-id => "product_form") ;
+	$html .= start_multipart_form(-id=>"product_form") ;
 
 	my $thumb_selectable_size = $thumb_size + 20;
 
@@ -993,7 +974,7 @@ if (! \$("#delete_images").hasClass("disabled")) {
 	\$("#delete_images").addClass("disabled");
 	\$("#move_images").addClass("disabled");
 
- \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.deleting_images);
+ \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
  \$('div[id="moveimagesmsg"]').show();
 
 	var imgids = '';
@@ -1019,17 +1000,17 @@ if (! \$("#delete_images").hasClass("disabled")) {
   success: function(data) {
 
 	if (data.error) {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_delete_error + ' - ' + data.error);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
 	}
 	else {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_deleted);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
 	}
 	\$([]).selectcrop('init_images',data.images);
 	\$(".select_crop").selectcrop('show');
 
   },
   error : function(jqXHR, textStatus, errorThrown) {
-	\$('div[id="moveimagesmsg"]').html(Lang.images_delete_error + ' - ' + textStatus);
+	\$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
   },
   complete: function(XMLHttpRequest, textStatus) {
 
@@ -1053,7 +1034,7 @@ if (! \$("#move_images").hasClass("disabled")) {
 	\$("#delete_images").addClass("disabled");
 	\$("#move_images").addClass("disabled");
 
- \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.moving_images);
+ \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
  \$('div[id="moveimagesmsg"]').show();
 
 	var imgids = '';
@@ -1079,17 +1060,17 @@ if (! \$("#move_images").hasClass("disabled")) {
   success: function(data) {
 
 	if (data.error) {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_move_error + ' - ' + data.error);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
 	}
 	else {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_moved + ' &rarr; ' + data.link);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
 	}
 	\$([]).selectcrop('init_images',data.images);
 	\$(".select_crop").selectcrop('show');
 
   },
   error : function(jqXHR, textStatus, errorThrown) {
-	\$('div[id="moveimagesmsg"]').html(Lang.images_move_error + ' - ' + textStatus);
+	\$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
   },
   complete: function(XMLHttpRequest, textStatus) {
 		\$("#move_images").addClass("disabled");
@@ -1171,33 +1152,33 @@ padding:0.5rem 1rem;
 }
 
 
-.select2-container--default .select2-selection--single {
+ul.tabs .select2-container--default .select2-selection--single {
 	height:2.5rem;
 	top:0;
 	border:0;
-  background-color: #0099ff;
-  color: #FFFFFF;
-  transition: background-color 300ms ease-out;
+	background-color: #0099ff;
+	color: #FFFFFF;
+	transition: background-color 300ms ease-out;
 }
 
-.select2-container--default .select2-selection--single:hover, .select2-container--default .select2-selection--single:focus {
-background-color: #007acc;
-color:#FFFFFF;
+ul.tabs .select2-container--default .select2-selection--single:hover, .select2-container--default .select2-selection--single:focus {
+	background-color: #007acc;
+	color:#FFFFFF;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__arrow b {
+ul.tabs .select2-container--default .select2-selection--single .select2-selection__arrow b {
     border-color: #fff transparent transparent transparent;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__placeholder {
+ul.tabs .select2-container--default .select2-selection--single .select2-selection__placeholder {
 	color:white;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__rendered {
+ul.tabs .select2-container--default .select2-selection--single .select2-selection__rendered {
 	line-height:2.5rem;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__arrow b {
+ul.tabs .select2-container--default .select2-selection--single .select2-selection__arrow b {
 	margin-top:4px;
 }
 
@@ -1205,21 +1186,6 @@ CSS
 ;
 
 	$initjs .= <<JAVASCRIPT
-\$(".select_add_language").select2({
-	placeholder: "$Lang{add_language}{$lang}",
-    allowClear: true
-	}
-	).on("select2:select", function(e) {
-	var lc =  e.params.data.id;
-	var language = e.params.data.text;
-	add_language_tab (lc, language);
-	\$(".select_add_language_" + lc).remove();
-	\$(this).val("").trigger("change");
-	var new_sorted_langs = \$("#sorted_langs").val() + "," + lc;
-	\$("#sorted_langs").val(new_sorted_langs);
-})
-;
-
 \$(document).foundation({
     tab: {
       callback : function (tab) {
@@ -1264,23 +1230,8 @@ JAVASCRIPT
 	$html .= "\n<input type=\"hidden\" id=\"sorted_langs\" name=\"sorted_langs\" value=\"" . join(',', @{$product_ref->{sorted_langs}}) . "\" />\n";
 
 	my $select_add_language = <<HTML
-
 <select class="select_add_language" style="width:100%">
 <option></option>
-HTML
-;
-
-	foreach my $olc (sort keys %Langs) {
-		if (($olc ne $product_ref->{lc}) and (not defined $product_ref->{languages}{$olc})) {
-			my $olanguage = display_taxonomy_tag($lc,'languages',$language_codes{$olc}); # $Langs{$olc}
-			$select_add_language .=<<HTML
- <option value="$olc" class="select_add_language_$olc">$olanguage</option>
-HTML
-;
-		}
-	}
-
-	$select_add_language .= <<HTML
 </select>
 		</li>
 
@@ -1341,7 +1292,7 @@ HTML
 			}
 
 			$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
+	<li class="tabs tab-title$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}_tab" data-language="$tabid"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
 HTML
 ;
 

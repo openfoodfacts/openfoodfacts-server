@@ -59,6 +59,7 @@ use ProductOpener::Config qw/:all/;
 
 use DateTime;
 use DateTime::Locale;
+use Encode;
 use JSON::PP;
 
 use Log::Any qw($log);
@@ -477,5 +478,52 @@ sub build_lang($) {
 	}
 } # build_lang
 
+sub build_json {
+	$log->info("Building I18N JSON") if $log->is_info();
+
+	my $i18n_root = "$www_root/data/i18n";
+	if (! -e $i18n_root) {
+		mkdir($i18n_root, 0755) or die("Could not create target directory $i18n_root : $!\n");
+	}
+
+	foreach my $l (@Langs) {
+		my $target_dir = "$i18n_root/$l";
+		if (! -e $target_dir) {
+			mkdir($target_dir, 0755) or die("Could not create target directory $target_dir : $!\n");
+		}
+
+		my $short_l = undef;
+		if ($l =~ /_/) {
+			$short_l = $`,  # pt_pt
+		}
+
+		my %result = ();
+		foreach my $s (keys %Lang) {
+			my $value;
+
+			if (defined $Lang{$s}{$l}) {
+				$value = $Lang{$s}{$l};
+			}
+			elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
+				$value = $Lang{$s}{$short_l};
+			}
+			elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
+				$value = $Lang{$s}{en};
+			}
+			elsif (defined $Lang{$s}{fr}) {
+				$value = $Lang{$s}{fr};
+			}
+
+			$result{$s} = $value if $value;
+		}
+
+		my $target_file = "$target_dir/lang.json";
+		open(my $out, ">:encoding(UTF-8)", $target_file) or die "cannot open $target_file";
+		print $out decode("utf8", encode_json(\%result));
+		close($out);
+	}
+
+	$log->info("I18N JSON completed") if $log->is_info();
+}
 
 1;
