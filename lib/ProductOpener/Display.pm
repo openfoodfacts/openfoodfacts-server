@@ -3539,12 +3539,20 @@ HTML
 			$value = $canon_tagid2;
 		}
 
+		my $tag2_is_negative = (defined $request_ref->{tag2_prefix} and $request_ref->{tag2_prefix} eq '-') ? 1 : 0;
+
+		$log->debug("tag2_is_negative " . $tag2_is_negative) if $log->is_debug();
 		# 2 criteria on the same field?
 		# we need to use the $and MongoDB syntax
 
 		if (defined $query_ref->{$field}) {
 			my $and = [{ $field => $query_ref->{$field} }];
-			push @$and, { $field => $value };
+			# fix for issue #2657: negative query on tag2 was not being honored if both tag types are the same
+			if ( $tag2_is_negative ) {
+				push @$and, { $field =>  { "\$ne" => $value}  };
+			} else {
+				push @$and, { $field =>  $value };
+			}
 			delete $query_ref->{$field};
 			$query_ref->{"\$and"} = $and;
 		}
@@ -3555,11 +3563,7 @@ HTML
 		}
 		else {
 			# issue 2285: second tag was not supporting the 'minus' query
-			if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} eq '-')) {
-				$query_ref->{$field} = { "\$ne" => $value};
-			} else {
-				$query_ref->{$field} = $value;
-			}
+			$query_ref->{$field} = $tag2_is_negative ? { "\$ne" => $value} : $value;
 		}
 
 	}
