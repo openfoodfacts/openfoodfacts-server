@@ -1,9 +1,11 @@
 "use strict";
 
 const { src, dest, series, parallel } = require("gulp");
+const concat = require("gulp-concat");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
+const uglify = require("gulp-uglify");
 const svgmin = require("gulp-svgmin");
 
 const sassOptions = {
@@ -46,7 +48,6 @@ function copyJs() {
     [
       "./node_modules/foundation-sites/js/vendor/*.js",
       "./node_modules/foundation-sites/js/foundation.min.js",
-      "./node_modules/jquery-ui-dist/jquery-ui.min.js",
       "./node_modules/papaparse/papaparse.min.js",
       "./node_modules/osmtogeojson/osmtogeojson.js",
       "./node_modules/leaflet/dist/**/*.*",
@@ -56,9 +57,10 @@ function copyJs() {
       "./node_modules/blueimp-canvas-to-blob/js/*.js",
       "./node_modules/blueimp-file-upload/js/*.js",
       "./node_modules/@yaireo/tagify/dist/tagify.min.js"
-    ],
-    { sourcemaps: true }
-  ).pipe(dest("./html/js/dist", { sourcemaps: true }));
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.write("."))
+    .pipe(dest("./html/js/dist"));
 }
 
 function buildJs() {
@@ -66,14 +68,40 @@ function buildJs() {
     './html/js/display*.js',
     './html/js/product-multilingual.js',
     './html/js/search.js'
-  ], { sourcemaps: false })
-  .pipe(dest('./html/js/dist', { sourcemaps: false }))
+  ])
+  .pipe(sourcemaps.init())
+  .pipe(sourcemaps.write("."))
+  .pipe(dest("./html/js/dist"));
+}
+
+function buildjQueryUi() {
+  return src([
+    './node_modules/jquery-ui/ui/widget.js',
+    './node_modules/jquery-ui/ui/position.js',
+    './node_modules/jquery-ui/ui/keycode.js',
+    './node_modules/jquery-ui/ui/unique-id.js',
+    './node_modules/jquery-ui/ui/widgets/autocomplete.js',
+    './node_modules/jquery-ui/ui/widgets/menu.js'
+  ])
+  .pipe(sourcemaps.init())
+  .pipe(uglify())
+  .pipe(concat('jquery-ui.min.js'))
+  .pipe(sourcemaps.write("."))
+  .pipe(dest('./html/js/dist'))
 }
 
 function jQueryUiThemes() {
-  return src("./node_modules/jquery-ui-dist/**/*.css", {
-    sourcemaps: true
-  }).pipe(dest("./html/css/dist/jqueryui/themes/base", { sourcemaps: true }));
+  return src([
+      './node_modules/jquery-ui/themes/base/core.css',
+      './node_modules/jquery-ui/themes/base/autocomplete.css',
+      './node_modules/jquery-ui/themes/base/menu.css',
+      './node_modules/jquery-ui/themes/base/theme.css',
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(minifyCSS())
+    .pipe(concat('jquery-ui.min.css'))
+    .pipe(sourcemaps.write("."))
+    .pipe(dest('./html/css/dist/jqueryui/themes/base'));
 }
 
 function copyCss() {
@@ -87,4 +115,4 @@ exports.copyJs = copyJs;
 exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
-exports.default = parallel(copyJs, buildJs, copyCss, jQueryUiThemes, series(icons, css));
+exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, jQueryUiThemes, series(icons, css));
