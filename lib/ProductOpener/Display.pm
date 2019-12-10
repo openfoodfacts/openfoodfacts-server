@@ -5606,7 +5606,7 @@ sub display_login_register($)
 		</div>
 		<div class="small-12 columns">
 			<label>
-				<input type="checkbox" name="remember_me" value="on">
+				<input type="checkbox" name="remember_me" checked>
 				$Lang{remember_me}{$lc}
 			</label>
 		</div>
