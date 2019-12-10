@@ -3333,7 +3333,7 @@ JS
 
 	if ((scalar @map_layers) > 0) {
 		$header .= <<HTML
-	<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
+	<link rel="stylesheet" href="$static_subdomain/css/dist/leaflet.css">
 	<script src="$static_subdomain/js/dist/leaflet.js"></script>
 	<script src="$static_subdomain/js/dist/osmtogeojson.js"></script>
 	<script src="$static_subdomain/js/dist/display-tag.js"></script>
@@ -5504,10 +5504,10 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML
-<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/leaflet.css">
 <script src="$static_subdomain/js/dist/leaflet.js"></script>
-<link rel="stylesheet" href="$static_subdomain/js/dist/MarkerCluster.css">
-<link rel="stylesheet" href="$static_subdomain/js/dist/MarkerCluster.Default.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/MarkerCluster.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/MarkerCluster.Default.css">
 <script src="$static_subdomain/js/dist/leaflet.markercluster.js"></script>
 HTML
 ;

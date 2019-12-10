@@ -5,7 +5,7 @@ const concat = require("gulp-concat");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
-const uglify = require("gulp-uglify");
+const terser = require("gulp-terser-js");
 const svgmin = require("gulp-svgmin");
 
 const sassOptions = {
@@ -59,7 +59,7 @@ function copyJs() {
       "./node_modules/@yaireo/tagify/dist/tagify.js"
     ])
     .pipe(sourcemaps.init())
-    .pipe(uglify())
+    .pipe(terser())
     .pipe(sourcemaps.write("."))
     .pipe(dest("./html/js/dist"));
 }
@@ -71,6 +71,7 @@ function buildJs() {
     './html/js/search.js'
   ])
   .pipe(sourcemaps.init())
+  .pipe(terser())
   .pipe(sourcemaps.write("."))
   .pipe(dest("./html/js/dist"));
 }
@@ -82,11 +83,12 @@ function buildjQueryUi() {
     './node_modules/jquery-ui/ui/position.js',
     './node_modules/jquery-ui/ui/keycode.js',
     './node_modules/jquery-ui/ui/unique-id.js',
+    './node_modules/jquery-ui/ui/safe-active-element.js',
     './node_modules/jquery-ui/ui/widgets/autocomplete.js',
     './node_modules/jquery-ui/ui/widgets/menu.js'
   ])
   .pipe(sourcemaps.init())
-  .pipe(uglify())
+  .pipe(terser())
   .pipe(concat('jquery-ui.js'))
   .pipe(sourcemaps.write("."))
   .pipe(dest('./html/js/dist'))
