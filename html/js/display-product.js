@@ -173,7 +173,7 @@ class RobotoffAsker extends HTMLElement {
       content.appendChild(script.cloneNode(true));
     }
 
-    content.querySelector('#thumbnail').addEventListener('click', e => {
+    content.querySelector('#thumbnail').addEventListener('click', (e) => {
       const zoomRow = this.shadowRoot.querySelector('#zoomrow');
       if (zoomRow.classList.toggle('hidden')) {
         e.currentTarget.style.cursor = 'zoom-in';
@@ -183,20 +183,20 @@ class RobotoffAsker extends HTMLElement {
       }
     });
 
-    content.querySelector('#zoom').addEventListener('click', e => {
+    content.querySelector('#zoom').addEventListener('click', (e) => {
       const small = e.currentTarget.getAttribute('data-small-src');
       const large = e.currentTarget.getAttribute('data-large-src');
       const zoomIn = e.currentTarget.getAttribute('data-zoom-in-src');
       const zoomOut = e.currentTarget.getAttribute('data-zoom-out-src');
-      if (zoomOut !== '') {
-        e.currentTarget.setAttribute('src', zoomOut);
-        e.currentTarget.setAttribute('data-zoom-in-src', large);
-        e.currentTarget.setAttribute('data-zoom-out-src', '');
-      }
-      else {
+      if (zoomOut === '') {
         e.currentTarget.setAttribute('src', zoomIn);
         e.currentTarget.setAttribute('data-zoom-in-src', '');
         e.currentTarget.setAttribute('data-zoom-out-src', small);
+      }
+      else {
+        e.currentTarget.setAttribute('src', zoomOut);
+        e.currentTarget.setAttribute('data-zoom-in-src', large);
+        e.currentTarget.setAttribute('data-zoom-out-src', '');
       }
     });
 
