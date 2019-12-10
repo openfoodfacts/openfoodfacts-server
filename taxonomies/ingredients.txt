@@ -1569,20 +1569,26 @@ nl:GMO-vrije sojalecithine
 
 <en:lecithin
 en:sunflower lecithin
+bg:слънчогледов леситин
 cs:Slunečnicový lecitin
 da:solsikkelecithin
 de:Sonnenblumenlecithine, Sonnenblumenlecithin
 el:λεκιθίνες ηλιστροπιου
 es:lecitina de girasol
+et:päevalilleletsitiin
 fi:auringonkukkalesitiini
 fr:lécithine de tournesol
+hr:suncokretov lecitin
 hu:napraforgó lecitin
 it:lecitina girasole, lecitina di girasole
-lv:lecitinai iš saulègrąžų
+lt:saulėgrąžu lecitinas
+lv:lecitinai iš saulègrąžų, saulespuku lecitīns
 nl:zonnebloemlecithine, zonnebloem-lecithine
 nn:solsikkelecithin
-pl:lecytyny ze slonecznika
+pl:lecytyny ze slonecznika, lecytyna słonecznika
 pt:lecitina de girassol
+ro:lecitina de florarea-soarelui
+ru:лецитин подсолнечный
 sv:solroslecitin
 wikidata:en:Q57271747
 # fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
@@ -8481,18 +8487,12 @@ fr:lait en poudre, poudre de lait
 hu:tejpor
 it:latte in polvere
 nl:melkpoeder
+pl:mleko w proszku
 ru:сухое молоко
 sv:mjölkpulver
 vegan:en:no
 vegetarian:en:yes
 nova:en:3
-
-<en:milk powder
-en:whole milk powder
-fi:täysmaitojauhe
-fr:poudre de lait écrémé
-hu:teljes tejpor
-sv:skummjölkspulver
 
 <en:whole milk powder
 <en:milk from France
@@ -8522,14 +8522,25 @@ fr:poudre de lait réhydratée
 
 <en:milk powder
 en:skimmed milk powder
+bg:обезмаслено сухо мляко
 cs:Sušené odstředěné mléko
+da:skummetmælkspulver
 de:Magermilchpulver
 es:leche desnatada en polvo
+et:lössipulber
 fi:rasvaton maitojauhe
-fr:lait en poudre écrémé, lait écrémé en poudre
+fr:lait en poudre écrémé, lait écrémé en poudre, poudre de lait écrémé
+hr:obrano mlijeko u orahu
 hu:sovány tejpor
 it:latte scremato in polvere
+lt:nugriebto pieno milteliai
+lv:sausais vajpiena pulveris
 nl:magere melkpoeder
+pl:chude mleko w proszku
+pt:leite magro em pó
+ro:lapte praf degresat
+ru:обезжиренный молоко-порошок
+sv:skummjölkspulver
 
 <en:skimmed milk powder
 en:caramelised skimmed milk powder
@@ -8537,18 +8548,25 @@ fi:karamellisoitu rasvaton maitojauhe
 
 <en:milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
+bg:пълномаслено мляко на прах
 cs:sušené plnotučné mléko
 da:sødmælkspulver
-de:vollmilchpulver
+de:Vollmilchpulver
 el:γάλα σε σκόνη
 es:leche entera en polvo
+et:täispiimapulber
 fi:täysmaitojauhe, kuivattu täysmaito
 fr:lait entier en poudre, poudre de lait entier, lait en poudre entier
-hu:teljes tejpor, zsíros tejpor
+hr:punomasno mlijeko u prahu
+hu:zsiros tejpor, teljes tejpor
 it:latte intero in polvere
+lt:nenugriebto pieno milteliai
+lv:pilnpiena pulveris
 nl:volle melkpoeder
 pl:pelne mleko w proszku
 pt:leite entero em pó, leite em pó gordo
+ro:lapte praf integral
+ru:цельное сухое молоко
 sk:sušené plnotučné mlieko
 sv:helmjölkspulver
 
@@ -15641,20 +15659,33 @@ nl:rundvet
 
 ########################################## milk fat ################################
 
-# comment:en:milkfat shoild formally a child of en:animal fat. However on products we never see this happen.
+# comment:en:milkfat should formally a child of en:animal fat. However on products we never see this happen.
 
-# comment:en:MILKFAT might be a synonym for butter
+# comment:en:MILKFAT might be a synonym for butter or butter fat
 
 <en:fat
 <en:dairy
 en:milkfat, milk fat
+bg:млечна мазнина
+cs:mléčný tuk
+da:mælkefedt
 de:Milchfett
+es:materia grasa láctea
+et:piimarasv
 fi:maitorasva
 fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
+hr:mlijecnu mast
 hu:tejzsír
+it:grasso del latte
+lt:pieno riebalai
+lv:piena tauki
 nb:melkefett
 nl:melkvet
-ro:grăsime din lapte, grăsimi din lapte, grasime din lapte, grasimi din lapte
+pl:tłuszcz mlecny
+pt:gorda do leite
+ro:grasimi din lapte, grăsimi din lapte, grasime din lapte, grasimi din lapte
+ru:молочный жнр
+sv:mjölkfett
 vegan:en:no
 vegetarian:en:yes
 
@@ -19217,14 +19248,24 @@ wikipedia:en:https://en.wikipedia.org/wiki/Absinthe
 
 # nova:en:flavouring
 en:flavouring, flavour, flavor, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
+bg:аромат
 cs:Aroma
+da:smagsstof
 de:Aroma, Aromen
 es:aroma, aromas
+et:lōhna- ja maitseaine
 fi:aromi, aromit
 fr:arôme, arômes
+hr:aroma
+hu:aroma
 it:aroma, aromi
+lt:kvapioji medžiaga
+lv:aromatizētājs
 nl:aroma, aroma's
+pl:aromat
+pt:aromatizante
 ro:aromă, aroma, arome
+ru:ароматизатор
 sv:arom, aromer
 vegan:en:maybe
 vegetarian:en:maybe
@@ -26314,7 +26355,7 @@ de:Kakaobutter
 el:βούτυρο κακάου
 eo:kakaa butero
 es:manteca de cacao
-et:Kakaoõli
+et:kakaovōi, Kakaoõli
 eu:Kakao-gurin
 fa:کره کاکائو
 fi:kaakaovoi
@@ -26338,7 +26379,7 @@ nl:cacaoboter
 pl:masło kakaowe
 pt:manteiga de cacau
 ro:unt de cacao, unt cacao
-ru:масло какао
+ru:масло какао, какао-масло
 sk:kakaové maslo
 sl:Kakavovo maslo
 sq:Gjalpa e kakaos
@@ -26378,24 +26419,28 @@ fr:beurre de cacao émulsifiant
 # ingredient/fr:beurre-de-cacao-émulsifiant has 35 products in french @2019-05-25
 
 <en:cocoa
-en:cocoa paste
+en:cocoa paste, cocoa mass
 bg:какаова маса
 cs:kakaová hmota
 da:kakaomasse
 de:Kakaomasse
 el:κακαόμαζα
 es:Pasta de cacao
+et:kakaomass
 fi:kaakaomassa
 fr:pâte de cacao, cacao en pâte, masse de cacao
+hr:kakaova masa
+hu:kakaómassza
 it:pasta di cacao, massa di cacao
 kk:үгілген какао
 ky:майдаланган какао
+lt:kakavos masė
 lv:kakavos masė
 nl:cacaomassa
-pl:miazga kakaowa
+pl:miazga kakaowa, masa kakaowa
 pt:pasta de cacau
 ro:masă de cacao, masa de cacao, masă cacao, masa cacao, pastă de cacao, pasta de cacao
-ru:какао тертое
+ru:какао тертое, какао-масса
 sv:kakaomassa
 tg:какаои судашуда
 uz:qirilgan kakao
@@ -26446,16 +26491,26 @@ wikidata:en:Q1062396
 fr:poudre de cacao cru
 
 <en:cocoa powder
-en:fat reduced cocoa powder, low-fat cocoa powder
+en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder
+bg:обеэмаслено какао на прах
 cs:Kakaový prášek se sníženým obsahem tuku
+da:skummet kakaopulver
 de:fettarmes Kakaopulver, Kakaopulver stark entölt
 es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado
+et:lahja kakaopulber
 fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé
-it:cacao magro in polvere
+hr:kakao u prahu smanjene masnoce
+hu:zsírszegény kakaópor
+it:cacao magro in polvere, cacao scremato in polvere
+lt:liesi kakavos milteliai
+lv:kakao pulveris ar zemu tauku saturu
 nl:magere cacaopoeder
+pl:niskotłuszczowe kakao w proszku
 pt:cacau magro em pó
-sv:fettreducerat kakaopulver
+ro:cacao pudra degresata
+ru:обезжиренный какаопорошок
+sv:fettreducerat kakaopulver, skummet kakaopulver
 # ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
 
 <en:fat reduced cocoa powder
@@ -44114,7 +44169,7 @@ wikidata:en:Q28788216
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
 
-# The hazelnut is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
+# description:en: The HAZELNUT is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
 
 <en:nut
 en:hazelnut, hazelnuts
@@ -44125,7 +44180,7 @@ be:лясны арэх
 bg:лешници
 bn:হ্যাজেল বাদাম
 ca:avellana
-cs:lískový ořech, lískové ořechy
+cs:lískový ořech, lískové ořechy, lískové oříšky
 da:Hasselnød, hasselnødder
 de:Haselnuss, Haselnüsse, Haselnusse, Haselnusskerne
 el:φουντούκια
@@ -44139,6 +44194,7 @@ fr:noisette, noisettes
 ga:cnónna coill
 gl:Abelá
 he:אגוז לוז
+hr:lješnjaci
 ht:Nwazèt
 hu:mogyoró
 id:Kacang hazel
@@ -44146,7 +44202,7 @@ it:nocciola, nocciole
 ja:ヘーゼルナッツ
 ko:헤이즐넛
 lb:Hieselnoss
-lt:lazdyno riešutai
+lt:lazdynų riešutai
 lv:lazdu rieksti
 ms:Kacang hazel
 mt:ġellewż
@@ -44155,11 +44211,11 @@ nl:hazelnoot, hazelnoten
 nv:Neeshchʼíínímazí
 pl:orzechy laskowe, Leszczyna pospolita
 pt:avelãs
-ro:alune de pădure
-ru:лесной орех
+ro:alune de pădure, alune
+ru:лесной орех, лесньым орехом
 sk:lieskové oriešky
 sl:lešniki
-sv:hasselnöt
+sv:hasselnöt, hasselnötter
 th:เฮเซลนัต
 tr:fındık
 uk:ліщинні горіхи
@@ -50910,6 +50966,7 @@ en:vanilla
 af:Vanielje
 ar:فانيليا
 az:Vanil
+bg:ванилия
 bo:དྲི་ཞིམ་ལྡན་པའི་རྩྭ།
 ca:vainilla
 cs:vanilka
@@ -50918,6 +50975,7 @@ de:Vanille
 el:Βανίλια
 eo:vanilo
 es:vainilla
+et:vanill
 eu:Banilla
 fa:وانیل
 fi:Vanilja
@@ -50927,8 +50985,9 @@ gl:vainilla
 gn:Tyru'i
 he:וניל
 hi:वैनिला
-hr:Vanilija
+hr:Vanilija, vanilije
 ht:Vaniy
+hu:vanília
 id:Vanili
 io:Vanilo
 it:vaniglia
@@ -50938,6 +50997,7 @@ kn:ವನಿಲಾ
 ko:바닐라
 la:Vanilla
 lt:Vanilė
+lv:vanilas
 mg:Vanila
 mk:Ванила
 ms:Vanila
@@ -50945,7 +51005,9 @@ my:ဗနီလာပင်
 nb:vanilje
 nl:vanille
 nn:vanilje
+pl:wanilia
 pt:baunilha
+ro:vanilie
 ru:Ваниль
 sh:Vanilija
 sk:Vanilka pravá
