@@ -59,7 +59,6 @@ BEGIN
 
 					&canonicalize_taxonomy_tag
 					&canonicalize_taxonomy_tag_link
-					&canonicalize_taxonomy_2tag_link
 					&exists_taxonomy_tag
 					&display_taxonomy_tag
 					&display_taxonomy_tag_link
@@ -130,6 +129,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Text qw/:all/;
 use Clone qw(clone);
+use List::MoreUtils qw(uniq);
 
 use URI::Escape::XS;
 use Log::Any qw($log);
@@ -589,7 +589,8 @@ sub load_tags_hierarchy($$) {
 	}
 }
 
-
+# Cache the stopwords regexp
+my %stopwords_regexps = ();
 
 sub remove_stopwords($$$) {
 
@@ -599,33 +600,32 @@ sub remove_stopwords($$$) {
 
 	if (defined $stopwords{$tagtype}{$lc}) {
 
+		my $uppercased_stopwords_overrides = 0;
+
 		if ($lc eq 'fr') {
 			# "Dés de tomates" -> "des-de-tomates" --> "dés" should not be a stopword
 			$tagid =~ s/\bdes-de\b/DES-DE/g;
 			$tagid =~ s/\ben-des\b/EN-DES/g;
+			$uppercased_stopwords_overrides = 1;
 		}
 
-		foreach my $stopword (@{$stopwords{$tagtype}{$lc}}) {
-			$tagid =~ s/-${stopword}-/-/g;
-
-			# some stopwords should not be removed at the start or end
-			# this can cause issues with spellchecking tags like ingredients
-			# e.g. purée d'abricot -> puree d' -> urée
-			# ingredients: stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
-
-			$tagid =~ s/^${stopword}-//g;
-
-			if (not
-				(($lc eq 'fr') and (($tagtype eq "ingredients") or ($tagtype eq "additives")) and not ($stopword =~ /^(en|proportion|proportions|variable|variables|et-derives)$/))	# don't remove French stopwords at the end
-				) {
-				$tagid =~ s/-${stopword}$//g;
-			}
+		if (not defined $stopwords_regexps{$tagtype . '.' . $lc}) {
+			$stopwords_regexps{$tagtype . '.' . $lc} = join('|', uniq(@{$stopwords{$tagtype}{$lc}}));
 		}
 
-		$tagid = lc($tagid);
+		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc};
+
+		$tagid =~ s/(^|-)($regexp)(-($regexp))*(-|$)/-/g;
+
+		$tagid =~ tr/-/-/s;
+		$tagid =~ s/^-//;
+		$tagid =~ s/-$//;
+
+		if ($uppercased_stopwords_overrides) {
+			$tagid = lc($tagid);
+		}
 	}
 	return $tagid;
-
 }
 
 
@@ -1512,18 +1512,24 @@ sub build_tags_taxonomy($$$) {
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 
 		{
-		binmode STDOUT, ":encoding(UTF-8)";
-		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
-		print $OUT_JSON encode_json(\%taxonomy_json);
-		close ($OUT_JSON);
+			binmode STDOUT, ":encoding(UTF-8)";
+			if (open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json")) {
+				print $OUT_JSON encode_json(\%taxonomy_json);
+				close ($OUT_JSON);
+			} else {
+				print "Cannot open $www_root/data/taxonomies/$tagtype.json, skipping writing taxonomy to file.\n";
+			}
 
-		open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json");
-		print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
-		close ($OUT_JSON_FULL);
-		# to serve pre-compressed files from Apache
-		# nginx : needs nginx_static module
-		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
-		# system("gzip $www_root/data/taxonomies/$tagtype.json");
+			if(open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json")) {
+				print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
+				close ($OUT_JSON_FULL);
+			} else {
+				print "Cannot open $www_root/data/taxonomies/$tagtype.full.json, skipping writing taxonomy to file.\n";
+			}
+			# to serve pre-compressed files from Apache
+			# nginx : needs nginx_static module
+			# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
+			# system("gzip $www_root/data/taxonomies/$tagtype.json");
 		}
 
 		$log->error("taxonomy errors", { errors => $errors }) if $log->is_error();
@@ -1816,6 +1822,10 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	my $tagtype = shift;
 	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
 
+	if ((not defined $tags_list) or ($tags_list =~ /^\s*$/)) {
+		return ();
+	}
+
 	if (not defined $all_parents{$tagtype}) {
 		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
 		return (split(/(\s*),(\s*)/, $tags_list));
@@ -2014,30 +2024,9 @@ sub canonicalize_taxonomy_tag_link($$$) {
 	my $tagurl = get_taxonomyurl($target_lc, $tag);
 
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
-
+	$log->info("tax tag 1 /$path/$tagurl") if $log->is_info();
 	return "/$path/$tagurl";
 }
-
-
-
-sub canonicalize_taxonomy_2tag_link($$$$$) {
-	my $target_lc = shift; $target_lc =~ s/_.*//;
-	my $tagtype = shift;
-	my $tag = shift;
-	my $tagtype2 = shift;
-	my $tag2 = shift;
-
-	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
-	my $tagurl = get_taxonomyurl($target_lc,$tag);
-	my $path = $tag_type_singular{$tagtype}{$target_lc};
-
-	$tag2 = display_taxonomy_tag($target_lc,$tagtype2, $tag2);
-	my $tagurl2 = get_taxonomyurl($target_lc,$tag2);
-	my $path2 = $tag_type_singular{$tagtype2}{$target_lc};
-
-	return "/$path/$tagurl/$path2/$tagurl2";
-}
-
 
 # The display_taxonomy_tag_link function makes many calls to other functions, in particular it calls twice display_taxonomy_tag_link
 # Will be replaced by display_taxonomy_tag_link_new function
@@ -2104,7 +2093,7 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	}
 
 	my $display = '';
-	my $display_lc;
+	my $display_lc = "en";	# Default to English
 	my $exists_in_taxonomy = 0;
 
 	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
@@ -2133,7 +2122,9 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 		}
 		else {
 			$display = $tagid;
-			$display_lc = $tag_lc;
+			if (defined $tag_lc) {
+				$display_lc = $tag_lc;
+			}
 
 			if ($target_lc eq $tag_lc) {
 				$display =~ s/^(\w\w)://;
@@ -2156,10 +2147,11 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 
 	if ($display =~ /^(\w\w:)/) {
 		$display_lc_prefix = $1;
+		$display_lc = $1;
 		$display_tag = $';
 	}
 
-	my $tagurlid = get_string_id_for_lang($display_lc_prefix, $display_tag);
+	my $tagurlid = get_string_id_for_lang($display_lc, $display_tag);
 	if ($tagurlid =~ /[^a-zA-Z0-9-]/) {
 		$tagurlid = URI::Escape::XS::encodeURIComponent($display_tag);
 	}
@@ -2216,6 +2208,9 @@ sub display_tags_list($$) {
 	my $tags_list = shift;
 	my $html = '';
 	my $images = '';
+	if (not defined $tags_list) {
+		return '';
+	}
 	foreach my $tag (split(/,/, $tags_list)) {
 		$html .= display_tag_link($tagtype, $tag) . ", ";
 
@@ -2500,12 +2495,7 @@ sub canonicalize_tag2($$)
 		$tag = uc($tag);
 
 		$tag = normalize_packager_codes($tag);
-		if ($lc =~ /fr|es|it|pt/) {
-			$tag =~ s/EC$/CE/;
-		}
-		elsif ($lc =~ /de|nl/) {
-			$tag =~ s/EC$/EG/;
-		}
+		$tag = localize_packager_code($tag);
 	}
 
 	elsif ($tagtype eq 'cities') {
@@ -2947,6 +2937,7 @@ sub canonicalize_tag_link($$)
 	#}
 
 	#print STDERR "tagtype: $tagtype - $lc: $lc - lang: $lang - link: $link\n";
+	$log->info("canonicalize_tag_link $tagtype $tagid $path $link" ) if $log->is_info();
 
 	return $link;
 
@@ -3564,7 +3555,15 @@ sub add_users_translations_to_taxonomy($) {
 
 				foreach my $l (keys %{$users_translations_ref}) {
 					if (defined $users_translations_ref->{$l}{$tagid}) {
-						$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
+
+						if (not defined $translations{$l}) {
+							$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
+						}
+						elsif (defined $users_translations_ref->{$l}{$tagid}) {
+							print STDERR "ignoring translation for already existing translation:\n";
+							print STDERR "existing: " . $translations{$l} . "\n";
+							print STDERR "new: " . $users_translations_ref->{$l}{$tagid}{to} . "\n";
+						}
 					}
 				}
 
@@ -3591,7 +3590,14 @@ sub add_users_translations_to_taxonomy($) {
 
 				foreach my $l (keys %{$users_translations_ref}) {
 					if (defined $users_translations_ref->{$l}{$tagid}) {
-						$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
+						if (not defined $translations{$l}) {
+							$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
+						}
+						else {
+							print STDERR "ignoring translation for already existing translation:\n";
+							print STDERR "existing: " . $translations{$l} . "\n";
+							print STDERR "new: " . $users_translations_ref->{$l}{$tagid}{to} . "\n";
+						}
 					}
 				}
 

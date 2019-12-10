@@ -54,12 +54,9 @@ my $class = 'additives';
 open (my $OUT, q{>}, "$www_root/images/$class.html");
 
 my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({code =>1});
-my $count = $cursor->count();
 
 		my %plus = ();
 		my %minus = ();
-	
-	print STDERR "$count products to update\n";
 	
 	while (my $product_ref = $cursor->next) {
         

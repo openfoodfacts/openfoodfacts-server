@@ -127,11 +127,8 @@ else {
 print "Update key: $key\n\n";
 
 my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });;
-my $count = $cursor->count();
 
 my $n = 0;
-	
-print STDERR "$count products to update\n";
 	
 while (my $product_ref = $cursor->next) {
 	

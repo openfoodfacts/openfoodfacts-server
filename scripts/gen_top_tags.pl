@@ -115,13 +115,6 @@ foreach my $l (values %lang_lc) {
 	$fields_ref->{completed_t} = 1;
 
 	my $cursor = get_products_collection()->query({lc=>$lc})->fields($fields_ref);
-	my $count = $cursor->count();
-
-	$langs{$l} = $count;
-	$total += $count;
-
-	print STDERR "lc: $lc - $count products\n";
-
 
 	my %codes = ();
 	my $true_end = 0;
@@ -186,6 +179,9 @@ foreach my $l (values %lang_lc) {
 		$products{$lc}++;
 
 	}
+
+	$langs{$l} = $products{$lc};
+	$total += $products{$lc};
 
 	foreach my $date (@dates) {
 		my @sorted_dates = sort ( {$dates{$date}{$a} <=> $dates{$date}{$b}} keys %{$dates{$date}});

@@ -78,9 +78,6 @@ states
 
 
 
-my %langs = ();
-my $total = 0;
-
 # foreach my $l (values %lang_lc) {
 
 foreach my $l ('fr') {
@@ -98,13 +95,6 @@ foreach my $l ('fr') {
 	# -> does not seem to work for sugars, maybe some string values?!
 
 	my $cursor = get_products_collection()->query($query_ref);
-	my $count = $cursor->count();
-
-	$langs{$l} = $count;
-	$total += $count;
-
-	print STDERR "lc: $lc - $count products\n";
-
 
 	my %codes = ();
 	my $html = '';
@@ -629,12 +619,6 @@ HTML
 
 	print "$k products, $kk products kept\n";
 }
-
-
-
-#open (OUT, ">:encoding(UTF-8)", "$www_root/langs.html");
-#print OUT $html;
-#close OUT;
 
 exit(0);
 

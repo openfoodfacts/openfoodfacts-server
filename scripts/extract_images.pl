@@ -49,7 +49,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -76,14 +76,11 @@ if (! -e $target_dir) {
 
 my $query_ref = {entry_dates_tags => "2018-03-02"};
 
-my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });;
+my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });
 $cursor->immortal(1);
-my $count = $cursor->count();
 
 my $i = 0;
 my $images_copied = 0;
-	
-print STDERR "$count products to update\n";
 	
 while (my $product_ref = $cursor->next) {
 	

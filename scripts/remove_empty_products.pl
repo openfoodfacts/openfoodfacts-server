@@ -59,16 +59,12 @@ my $l = 'en';
 
 my $cursor = get_products_collection()->query({empty => 1})->fields({ code => 1, empty => 1 });;
 $cursor->immortal(1);
-my $count = $cursor->count();
 my $removed = 0;
-
-	print STDERR "$count products to check\n";
 
 	while (my $product_ref = $cursor->next) {
 
 
 		my $code = $product_ref->{code};
-		my $path = product_path($code);
 
 		#print STDERR "updating product $code\n";
 

@@ -92,13 +92,8 @@ foreach my $l (values %lang_lc) {
 	$lang = $l;
 	
 	my $cursor = get_products_collection()->query({lc=>$lc})->fields($fields_ref)->sort({code=>1});
-	my $count = $cursor->count();
-	
-	$langs{$l} = $count;
-	$total += $count;
-		
-	print STDERR "lc: $lc - $count products\n";
 
+	$langs{$l} = 0;
 
 	my @products = ();
 	
@@ -111,7 +106,7 @@ foreach my $l (values %lang_lc) {
 		
 	while (my $product_ref = $cursor->next) {
 		
-		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+		if ((n <= 10) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 		
 			my $path = product_path($product_ref->{code});
@@ -124,8 +119,8 @@ foreach my $l (values %lang_lc) {
 		}		
 		
 		$n++;
-		$n >= 10 and last;
-
+		$langs{$l}++;
+		$total++;
 	}
 
 

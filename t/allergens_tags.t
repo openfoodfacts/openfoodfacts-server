@@ -27,8 +27,21 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "Harina de trigo 59%, margarina [grasa de palma, agua, aceite de colza, sal, emulgente: monoglicéridos y diglicéridos de ácidos grasos, corrector de acidez: ácido cítrico, colorante: carotenos], azúcar 17,8%, dextrosa, sal, gasificantes: carbonatos de sodio, aroma. Puede contener trazas de leche." }, [ "en:gluten", ], ["en:milk"] ],
 	[ { lc => "es", ingredients_text => "Chocolate 48% [azúcar, pasta de cacao, manteca de cacao, lactosa, materia grasa láctea anhidra, leche desnatada en polvo, emulgente: lecitinas (girasol), aroma], harina de trigo, azúcar, mantequilla concentrada 6,5%, jarabe de glucosa y fructosa, sal, gasificantes: carbonatos de amonio - carbonatos de sodio - difosfatos, acidulante: ácido cítrico. Puede contener trazas de huevo y frutos de cáscara." }, [ "en:gluten", "en:milk"], ["en:eggs", "en:nuts"] ],
 
+	[ { lc => "fi", ingredients_text => "kevytmaito 67%" }, [ "en:milk", ] ],
+	[ { lc => "fi", ingredients_text => "Vesi, gluteeni ja sen johdannaiset" }, [ "en:gluten", ] ],
+	[ { lc => "fi", ingredients_text => "MARINOITUJA SIMPUKOITA: blabla, älä poimi tuotteen nimeä" }, [ ] ],
+	[ { lc => "fi", ingredients_text => "KAMPASIMPUKOITA ilman mätiä (8.6 %), ainesosat myös pienellä, poimi ainesosa" }, [ "en:molluscs", ] ],
+	[ { lc => "fi", ingredients_text => "Marinoituja kampasimpukoita (8.6 %), ainesosat myös pienellä, ei poimintaa" }, [ ] ],
+	[ { lc => "fi", ingredients_text => "grillattuja SEESAMINSIEMENIÄ, aineosia myös pienellä" }, [ "en:sesame-seeds", ] ],
+	[ { lc => "fi", ingredients_text => "PÄHKINÖITÄ 10%, aineosia myös pienellä" }, [ "en:nuts", ] ],
+	[ { lc => "fi", ingredients_text => "PÄHKINÄT - Jotain muuta, aineosia myös pienellä" }, [ "en:nuts", ] ],
+
 	[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsâure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ ], [ "en:celery", "en:mustard"] ],
 	[ { lc => "it", ingredients_text => "Puo contenere tracce di frutta a guscio, sesamo, soia e uova"}, [ ], [ "en:eggs", "en:nuts", "en:sesame-seeds", "en:soybeans"] ],
+
+	# for languages when we don't have a translation for "and" in Ingredients.pm
+	# use " and "
+	[ { lc => "xx", ingredients_text => "NUTS AND SOMETHING" }, [ "en:nuts", ] ],
 );
 
 foreach my $test_ref (@tests) {

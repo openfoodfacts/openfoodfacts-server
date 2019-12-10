@@ -9,6 +9,7 @@ requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'Text::Unaccent'; # libtext-unaccent-perl
 requires 'MIME::Lite'; # libmime-lite-perl
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
+requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
@@ -25,7 +26,7 @@ requires 'Digest::MD5'; # libdigest-md5-perl
 requires 'Time::Local'; # libtime-local-perl
 
 # Probably not available as Debian packages
-requires 'MongoDB', '>= 1.8.1, < 2.0'; # libmongodb-perl has an older version
+requires 'MongoDB', '>= 2.2.0, < 2.3'; # libmongodb-perl has an older version
 requires 'URI::Escape::XS';
 requires 'Encode::Punycode';
 requires 'GraphViz2';
@@ -48,6 +49,13 @@ requires 'Email::Stuffer';
 requires 'Text::CSV', '>= 1.99, < 2.0';
 requires 'Text::Fuzzy';
 requires 'File::Copy::Recursive';
+requires 'Spreadsheet::CSV';
+requires 'List::MoreUtils';
+
+# Mojolicious/Minion
+requires 'Mojolicious::Lite';
+requires 'Minion';
+requires 'Mojo::Pg';
 
 # Logging
 requires 'Log::Any', '>= 1.705';

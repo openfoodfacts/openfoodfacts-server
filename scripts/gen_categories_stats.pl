@@ -73,7 +73,6 @@ foreach my $l (values %lang_lc) {
 		# Get all products
 		
 		my $cursor = get_products_collection()->query({lc=>$lc, categories_tags => $tagid})->fields({nutriments=>1});
-		my $count = $cursor->count();
 		
 		# Compute mean, standard deviation etc.
 		
@@ -116,7 +115,7 @@ foreach my $l (values %lang_lc) {
 		
 		if ($n > $min_products) {
 		
-		$categories{$tagid} = {stats => 1, nutriments => {}, count => $count, n => $n, id=> $tagid};
+		$categories{$tagid} = {stats => 1, nutriments => {}, count => $n, n => $n, id=> $tagid};
 
 		
 		foreach my $nid (keys %nutriments) {
@@ -156,7 +155,7 @@ foreach my $l (values %lang_lc) {
 			$categories{$tagid}{nutriments}{"${nid}_90"} = $values[int ( ($nutriments{"${nid}_n"}) * 0.90) ];
 			$categories{$tagid}{nutriments}{"${nid}_50"} = $values[int ( ($nutriments{"${nid}_n"}) * 0.50) ];
 			
-			print STDERR "-> lc: lc -category $tagid - count: $count - n: nutriments: " . $nn . "$n \n";
+			print STDERR "-> lc: lc -category $tagid - n: nutriments: " . $nn . "$n \n";
 			print STDERR "values for category $tagid: " . join(", ", @values) . "\n";
 			print "tagid: $tagid - nid: $nid - 100g: " .  $categories{$tagid}{nutriments}{"${nid}_100g"}  . " min: " . $categories{$tagid}{nutriments}{"${nid}_min"} . " - max: " . $categories{$tagid}{nutriments}{"${nid}_max"} . 
 				"mean: " . $categories{$tagid}{nutriments}{"${nid}_mean"} . " - median: " . $categories{$tagid}{nutriments}{"${nid}_50"} . "\n";

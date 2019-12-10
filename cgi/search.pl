@@ -111,7 +111,9 @@ if ((not defined param('json')) and (not defined param('jsonp')) and
 
 		my $code = $search_terms;
 
-		my $product_ref = product_exists($code); # returns 0 if not
+		my $product_id = product_id_for_user($User_id, $Org_id, $code);
+
+		my $product_ref = product_exists($product_id); # returns 0 if not
 
 		if ($product_ref) {
 			$log->info("product code exists, redirecting to product page", { code => $code });
@@ -129,8 +131,8 @@ if ((not defined param('json')) and (not defined param('jsonp')) and
 
 my @search_tags = ();
 my @search_nutriments = ();
-my %search_ingredient_classes = {};
-my %search_ingredient_classes_checked = {};
+my %search_ingredient_classes = ();
+my %search_ingredient_classes_checked = ();
 
 for (my $i = 0; defined param("tagtype_$i") ; $i++) {
 
@@ -719,16 +721,16 @@ elsif ($action eq 'process') {
 	# Graphs
 
 	foreach my $axis ('x','y') {
-		if (param("axis_$axis") ne '') {
+		if ((defined param("axis_$axis")) and (param("axis_$axis") ne '')) {
 			$current_link .= "\&axis_$axis=" .  URI::Escape::XS::encodeURIComponent(decode utf8=>param("axis_$axis"));
 		}
 	}
 
-	if (param('graph_title') ne '') {
+	if ((defined param('graph_title')) and (param('graph_title') ne '')) {
 		$current_link .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("graph_title"));
 	}
 
-	if (param('map_title') ne '') {
+	if ((defined param('map_title')) and (param('map_title') ne '')) {
 		$current_link .= "\&map_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("map_title"));
 	}
 
@@ -778,8 +780,8 @@ elsif ($action eq 'process') {
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="icon-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -811,8 +813,8 @@ HTML
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="icon-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -842,8 +844,8 @@ HTML
 		if (not defined $request_ref->{jqm}) {
 			${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="icon-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML

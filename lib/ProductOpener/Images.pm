@@ -35,6 +35,7 @@ BEGIN
 					&display_search_image_form
 					&process_search_image_form
 
+					&get_code_and_imagefield_from_file_name
 					&process_image_upload
 					&process_image_move
 
@@ -78,6 +79,8 @@ use ProductOpener::URL qw/:all/;
 use Log::Any qw($log);
 use Encode;
 use JSON::PP;
+use MIME::Base64;
+use LWP::UserAgent;
 
 sub display_select_manage($) {
 
@@ -148,7 +151,10 @@ HTML
 sub display_select_crop_init($) {
 
 	my $object_ref = shift;
-	my $path = product_path($object_ref->{code});
+
+	$log->debug("display_select_crop_init", { object_ref => $object_ref }) if $log->is_debug();
+
+	my $path = product_path($object_ref);
 
 	my $images = '';
 
@@ -262,7 +268,7 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="icon-photo_camera"></i> $product_image_with_barcode
+<a href="#" class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
 <input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
     right:0;
     bottom:0;
@@ -292,11 +298,10 @@ HTML
 
 
 	$scripts .= <<JS
-<script src="/js/jquery.iframe-transport.min.js"></script>
-<script src="/js/jquery.fileupload.min.js"></script>
-<script src="/js/load-image.min.js"></script>
-<script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.min.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
 JS
 ;
 
@@ -305,6 +310,7 @@ JS
 \/\/ start off canvas blocks for small screens
 
     \$('#imgupload_search_$id').fileupload({
+		sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product.pl',
 		formData : [{name: 'jqueryfileupload', value: 1}],
@@ -404,19 +410,53 @@ sub dims {
 }
 
 
+sub get_code_and_imagefield_from_file_name($$) {
+
+	my $l = shift;
+	my $filename = shift;
+
+	my $code;
+	my $imagefield;
+
+	# Look for the barcode
+	if ($filename =~ /(\d{8}\d*)/) {
+		$code = $1;
+	}
+
+	# Check for a specified imagefield
+	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
+		$imagefield = $1;
+		$imagefield =~ s/-/_/;
+	}
+	# If the photo file name is just the barcode + some stopwords, assume it is the front image
+	elsif ($filename =~ /^\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.(png|jpg|jpeg|gif)$/i) {
+		$imagefield = "front";
+	}
+	else {
+		$imagefield = "other";
+	}
+
+	$log->debug("get_code_and_imagefield_from_file_name", { l => $l, filename => $filename, code => $code, imagefield => $imagefield }) if $log->is_debug();
+
+	return ($code, $imagefield);
+}
+
+
 sub process_image_upload($$$$$$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $imagefield = shift;
 	my $userid = shift;
 	my $time = shift; # usually current time (images just uploaded), except for images moved from another product
 	my $comment = shift;
 	my $imgid_ref = shift; # to return the imgid (new image or existing image)
 
+	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
+
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($product_id);
 	my $imgid = -1;
 
 	my $new_product_ref = {};
@@ -441,6 +481,11 @@ sub process_image_upload($$$$$$) {
 			my $old_imagefield = $imagefield;
 			$old_imagefield =~ s/_\w\w$//;
 			$file = param('imgupload_' . $old_imagefield);
+
+			if (! $file) {
+				# producers platform: name="files[]"
+				$file = param("files[]");
+			}
 		}
 	}
 
@@ -468,7 +513,7 @@ sub process_image_upload($$$$$$) {
 			$extension eq 'jpeg' and $extension = 'jpg';
 			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
-			my $current_product_ref = retrieve_product($code);
+			my $current_product_ref = retrieve_product($product_id);
 			$imgid = $current_product_ref->{max_imgid} + 1;
 
 			# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
@@ -560,7 +605,7 @@ sub process_image_upload($$$$$$) {
 					# check the image was stored inside the
 					# product, it is sometimes missing
 					# (e.g. during crashes)
-					my $product_ref = retrieve_product($code);
+					my $product_ref = retrieve_product($product_id);
 					if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
 						$log->debug("unlinking image", { imgid => $imgid, file => "$www_root/images/products/$path/$imgid.$extension" }) if $log->is_debug();
 						unlink "$www_root/images/products/$path/$imgid.$extension";
@@ -627,7 +672,7 @@ sub process_image_upload($$$$$$) {
 			if (not "$x") {
 
 				# Update the product image data
-				my $product_ref = retrieve_product($code);
+				my $product_ref = retrieve_product($product_id);
 				defined $product_ref->{images} or $product_ref->{images} = {};
 				$product_ref->{images}{$imgid} = {
 					uploader => $userid,
@@ -656,6 +701,8 @@ sub process_image_upload($$$$$$) {
 				# and computer vision algorithms
 
 				(-e "$data_root/new_images") or mkdir("$data_root/new_images", 0755);
+				my $code = $product_id;
+				$code =~ s/.*\///;
 				symlink("$www_root/images/products/$path/$imgid.jpg", "$data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
 
 			}
@@ -689,22 +736,28 @@ sub process_image_upload($$$$$$) {
 
 
 
-sub process_image_move($$$$) {
+sub process_image_move($$$$$) {
 
 	my $code = shift;
 	my $imgids = shift;
 	my $move_to = shift;
 	my $userid = shift;
-
-	my $path = product_path($code);
-
-	my $product_ref = retrieve_product($code);
-	defined $product_ref->{images} or $product_ref->{images} = {};
+	my $orgid = shift;
 
 	# move images only to trash or another valid barcode (number)
 	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
 		return "invalid barcode number: $move_to";
 	}
+
+	my $product_id = product_id_for_user($userid, $orgid, $code);
+	my $move_to_id = product_id_for_user($userid, $orgid, $move_to);
+
+	$log->debug("process_image_move", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
+
+	my $path = product_path_from_id($product_id);
+
+	my $product_ref = retrieve_product($product_id);
+	defined $product_ref->{images} or $product_ref->{images} = {};
 
 	# iterate on each images
 
@@ -719,12 +772,12 @@ sub process_image_move($$$$) {
 			my $ok = 1;
 
 			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
 				if ($ok < 0) {
-					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", new_code => $code, user_id => $userid, result => $ok });
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, user_id => $userid, result => $ok });
 				}
 				else {
-					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", new_code => $code, user_id => $userid, result => $ok });
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, user_id => $userid, result => $ok });
 				}
 			}
 
@@ -758,7 +811,7 @@ sub process_image_move($$$$) {
 
 sub process_image_crop($$$$$$$$$$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $id = shift;
 	my $imgid = shift;
 	my $angle = shift;
@@ -769,14 +822,18 @@ sub process_image_crop($$$$$$$$$$) {
 	my $x2 = shift;
 	my $y2 = shift;
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($product_id);
 
-	my $new_product_ref = retrieve_product($code);
+	my $code = $product_id;
+	$code =~ s/.*\///;
+
+	my $new_product_ref = retrieve_product($product_id);
 	my $rev = $new_product_ref->{rev} + 1;	# For naming images
 
 	my $source_path = "$www_root/images/products/$path/$imgid.jpg";
 
 	local $log->context->{code} = $code;
+	local $log->context->{product_id} = $product_id;
 	local $log->context->{id} = $id;
 	local $log->context->{imgid} = $imgid;
 	local $log->context->{source_path} = $source_path;
@@ -1049,7 +1106,7 @@ sub process_image_crop($$$$$$$$$$) {
 	}
 
 	# Update the product image data
-	my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 	$product_ref->{images}{$id} = {
 		imgid => $imgid,
@@ -1080,17 +1137,18 @@ sub process_image_crop($$$$$$$$$$) {
 
 sub process_image_unselect($$) {
 
-	my $code = shift;
+	my $product_id = shift;
 	my $id = shift;
 
-	my $path = product_path($code);
-	local $log->context->{code} = $code;
+	my $path = product_path_from_id($product_id);
+
+	local $log->context->{product_id} = $product_id;
 	local $log->context->{id} = $id;
 
 	$log->info("unselecting image") if $log->is_info();
 
 	# Update the product image data
-	my $product_ref = retrieve_product($code);
+	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 	if (defined $product_ref->{images}{$id}) {
 		delete $product_ref->{images}{$id};
@@ -1158,6 +1216,13 @@ sub display_image_thumb($$) {
 
 	my $html = '';
 
+	my $css = "";
+
+	# Gray out images of obsolete products
+	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
+		$css = 'style="filter: grayscale(100%)"';
+	}
+
 	# first try the requested language
 	my @display_ids = ($imagetype . "_" . $display_lc);
 
@@ -1175,12 +1240,12 @@ sub display_image_thumb($$) {
 		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$thumb_size})) {
 
-			my $path = product_path($product_ref->{code});
+			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
 				$html .= <<HTML
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" />
+<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
 HTML
 ;
 
@@ -1188,25 +1253,12 @@ HTML
 		}
 	}
 
-	# If we don't have an image, display Pacman
+	# No image
 	if ($html eq '') {
 
-		my @colors = qw(
-ff6600
-ffcc00
-55d400
-00ccff
-0066ff
-ff00cc
-cc00ff
-);
-		my $color_id = $product_ref->{code} % (scalar @colors);
-		my $color = $colors[$color_id];
-
 		$html = <<HTML
-<div style="background-color:#$color">
-<img src="$static/images/misc/pacman.svg" width="$thumb_size" height="$thumb_size" alt="Please add pictures of the product if you have it!" />
-</div>
+<img src="$static/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
+</img>
 HTML
 ;
 	}
@@ -1248,7 +1300,7 @@ sub display_image($$$) {
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 
-		my $path = product_path($product_ref->{code});
+		my $path = product_path($product_ref);
 		my $rev = $product_ref->{images}{$id}{rev};
 		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
@@ -1398,7 +1450,7 @@ sub extract_text_from_image($$$$$) {
 
 	delete $product_ref->{$field};
 
-	my $path = product_path($product_ref->{code});
+	my $path = product_path($product_ref);
 	$results_ref->{status} = 1;	# 1 = nok, 0 = ok
 
 	my $filename = '';
@@ -1461,12 +1513,20 @@ sub extract_text_from_image($$$$$) {
 
 		my $ua = LWP::UserAgent->new();
 
+		open (my $IMAGE, "<", $image) || die "Could not read $image: $!\n";
+		binmode($IMAGE);
+		local $/;
+		my $image_data = do { local $/; <$IMAGE> };	# https://www.perlmonks.org/?node_id=287647
+		close $IMAGE;
+
 		my $api_request_ref =
 			{
 				requests =>
 					[
 						{
-							features => [{ type => 'TEXT_DETECTION'}], image => { source => { imageUri => $image_url}}
+							features => [{ type => 'TEXT_DETECTION'}],
+							# image => { source => { imageUri => $image_url}}
+							image => { content => encode_base64($image_data)}
 						}
 					]
 			}
@@ -1483,6 +1543,10 @@ sub extract_text_from_image($$$$$) {
 
 			$log->info("request to google cloud vision was successful") if $log->is_info();
 
+			open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+			print $OUT "success\t" . $image_url . "\t" . $res->code . "\n";
+			close $OUT;
+
 			my $json_response = $res->decoded_content;
 
 			my $cloudvision_ref = decode_json($json_response);
@@ -1494,7 +1558,7 @@ sub extract_text_from_image($$$$$) {
 			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
 			$json_response = decode("utf8", $json_response);
 
-			open (my $OUT, ">:encoding(UTF-8)", $json_file);
+			open ($OUT, ">:encoding(UTF-8)", $json_file);
 			print $OUT $json_response;
 			close $OUT;
 
@@ -1518,6 +1582,10 @@ sub extract_text_from_image($$$$$) {
 		}
 		else {
 			$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
+
+			open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+			print $OUT "error\t" . $image_url . "\t" . $res->code . "\t" . $res->message . "\n";
+			close $OUT;
 		}
 	}
 
