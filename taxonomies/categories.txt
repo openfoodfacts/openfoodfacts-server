@@ -366,7 +366,7 @@ wikidata_category:en:Q7189914
 # description:en:ROYAL JELLY is a honey bee secretion that is used in the nutrition of larvae, as well as adult queens. Royal jelly is collected and sold as a dietary supplement for humans, but the European Food Safety Authority has concluded that the current evidence does not support the claim that consuming royal jelly will give health benefits in humans.
 
 <en:Bee products
-en:royal jelly
+en:Royal jelly
 ar:هلام ملكي
 az:Arı südü
 ba:Инә ҡорт һөтө
@@ -1793,7 +1793,8 @@ fr:Vodkas tchèques
 nl:Tsjechische wodkas
 
 <en:Hard liquors
-fr:Gins
+en:Gins, Gin
+fr:Gins, Gin
 de:Gins
 es:Ginebras
 nl:Gins
@@ -2942,21 +2943,22 @@ it:Nettare di ciliegia
 <en:Fruit nectars
 en:Pineapple nectars
 de:Annanasnektare
-es:Néctares de piña
+es:Néctares de piña, néctar de piña
 fr:Nectars d'ananas
-it:Nettare di ananas
+it:Nettari di ananas, nettare di ananas
 nl:Ananasnectars, Ananasnectar
 
 <en:Fruit nectars
 en:Kiwi nectars
 fr:Nectars de kiwi
+it:Nettari di kiwi, nettare di kiwi
 
 <en:Fruit nectars
 en:Pomegranate nectars
 de:Granatapfelnektare
 es:Néctares de granada
 fr:Nectars de grenade
-it:Nettare di melagrana
+it:Nettari di melograno, nettare di melograno, nettari di melagrana, nettare di melagrana
 nl:Granaatappelnectars, Granaatappelnectar
 
 <en:Fruit nectars
@@ -2964,6 +2966,7 @@ en:Tangerine nectars
 de:Mandarinennektare
 es:Néctares de mandarina, Néctares de clementina
 fr:Nectars de mandarine, nectars de clémentine
+it:Nettari di mandarino, nettare di mandarino
 nl:Mandarijnennectars, Mandarijnennectar
 
 <en:Vegetable-based foods and beverages
@@ -2982,7 +2985,7 @@ de:Gemüsesäfte
 es:Zumos de verduras y hortalizas
 fi:kasvismehut
 fr:Jus de légumes
-it:Succo di verdura
+it:Succhi di verdura, succo di verdura
 nl:Groentesappen, Groentesap, Groentensap
 zh:蔬菜汁
 wikidata:en:Q1501257
@@ -3012,7 +3015,7 @@ it:Succo di barbabietola
 nl:Rode bietensappen, Rode bietensap
 
 <en:Vegetable juices
-<en:Tomatoes and tomato products
+<en:Tomatoes and their products
 en:Tomato juices
 de:Tomatensaft, Tomatensäfte
 es:Zumos de tomate
@@ -3031,7 +3034,7 @@ es:Zumos de tomate procedente de concentrado
 fr:Jus de tomates à base de concentré, jus de tomate à base de concentré
 nl:Tomatensappen uit concentraat, Tomatensap uit concentraat
 
-<en:Tomatoes and tomato products
+<en:Tomatoes and their products
 en:Strained tomatoes, Passata
 de:Passierte Tomaten
 fr:Coulis de tomates, coulis de tomate
@@ -4086,7 +4089,7 @@ es:Cafés
 fi:kahvit
 fr:Cafés, Café
 hu:Kávék
-it:Caffè
+it:Caffè, Caffe
 nl:Koffies, Koffie
 pt:Cafés
 ru:Кофе
@@ -16967,7 +16970,7 @@ pnns_group_2:en:Biscuits and cakes
 # <en:compound
 <en:Sugary snacks
 <en:Biscuits and cakes
-en:biscuits, biscuit
+en:Biscuits, biscuit
 ar:بسكويت
 az:Biskvit
 bg:Бисквита
@@ -16994,7 +16997,7 @@ hy:բիսկվիտ
 id:Biskuit
 io:Bisquito
 is:Kex
-it:biscotti, Biscotto
+it:Biscotti, biscotto
 ja:ビスケット
 ko:비스킷
 ku:Hindok
@@ -17552,11 +17555,18 @@ nl:Platte broden, Flat breads
 wikidata:en:Q666242
 
 <en:Breads
+en:Rusk, rusks
+it:Fette biscottate
+fr:Biscotte
+wikidata:en:Q5477096
+
+<en:Breads
 en:Rye breads
 de:Roggenbrote
 es:Panes de centeno, Pan de centeno
 fi:ruisleivät
 fr:Pains de seigle, Pains au seigle, Pain au seigle
+it:Pane di segale, pane nero
 nl:Roggebroden, Roggebrood
 ro:Pâine de secară, Pâine cu faină de secară
 ru:Ржаной хлеб, хлеб ржаной, чёрный хлеб
@@ -17707,7 +17717,8 @@ ru:Хлеб белый из пшеничной муки высшего сорт�
 
 # <en:compound
 # mainIngredient:en:wheat
-en:Breads
+<en:Breads
+en:Croutons
 af:Crouton
 be:грэнкі
 bg:крутон
@@ -18229,7 +18240,7 @@ pnns_group_2:en:Dairy desserts
 en:Jelly desserts, jellies dessert, gelatin desserts
 de:Götterspeisen, götterspeise
 es:Gelatinas, postres gelificados
-fr:Desserts gélifiées
+fr:Desserts gélifiés
 it:Gelatina dolce
 wikidata:en:Q4545971
 
@@ -18513,6 +18524,10 @@ hu:Csokoládé válogatás
 it:Assortimento di cioccolati
 nl:Chocolade-assortimenenten
 zh:什锦巧克力
+
+<en:Chocolates
+en:Plant milk chocolates
+fr:Chocolats au lait végétal
 
 <en:Chocolates
 en:Milk chocolates, milk chocolate
@@ -19052,7 +19067,7 @@ fr:Cerises enrobées au chocolat
 nl:Kersen met een chocolaag
 wikidata:en:Q16242001
 
-<en:Chocolate covered cherries
+<en:Bonbons
 en:Liquor filled chocolate covered cherries
 de:Likörkirschen mit Schokoladenüberzug
 es:Bombones de chocolate rellenos de cereza y licor, Cerezas al licor recubiertas de chocolate
@@ -19434,6 +19449,13 @@ wikidata:en:Q1163138
 fr:Citron confit
 de:Kandierte Zitrone
 
+<en:Confectioneries
+en:lokums, lokum, turkish delight, loukoumi, lokum
+fr:Loukoums, Loukoum, rahat loukoum
+de:Lokum, Turkish Delight
+es:Rahat lokum, delicia turca
+wikidata:en:Q182339
+
 en:Easter food, Easter chocolates
 de:Osterschokoladen
 fi:pääsiäisruuat
@@ -19715,22 +19737,22 @@ nl:Turrón
 wikidata:en:Q159304
 
 <en:Turrón
-en:Black chocolate turrón filled with fruit praline
-de:Schwarzer Schokoturrón, gefüllt mit Fruchtpraliné
-es:Turrones de chocolate negro rellenos de sirope de frutas, Turrones de chocolate rellenos
-fr:Turrón au chocolat noir garni de praliné aux fruits
+en:Chocolate turrón
+de:Schokoturrón
+es:Turrones de chocolate
+fr:Turrón de chocolat
 
-<en:Turrón
-en:Black chocolate turrón with almonds
-de:Schwarzer Schokoturrón mit Mandeln
-es:Turrones de chocolate negro con almendras
-fr:Turrón au chocolat noir aux amandes
+<en:Chocolate turrón
+en:Chocolate turrón with almonds, Black chocolate turrón with almonds
+de:Schokoturrón mit Mandeln, Schwarzer Schokoturrón mit Mandeln
+es:Turrones de chocolate con almendras, Turrones de chocolate negro con almendras
+fr:Turrón de chocolat aux amandes, Turrón au chocolat noir aux amandes
 
-<en:Turrón
-en:Black chocolate turrón with puffed rice
-de:Schwarzer Schokoturrón mit Puffreis
-es:Turrones de chocolate negro con arroz inflado, Turrones de chocolate negro
-fr:Turrón au chocolat noir avec riz soufflé
+<en:Chocolate turrón
+en:Chocolate turrón with puffed rice, black chocolate turrón with puffed rice
+de:Schokoturrón mit Puffreis, Schwarzer Schokoturrón mit Puffreis
+es:Turrones de chocolate con arroz inflado, Turrones de chocolate negro con arroz inflado
+fr:Turrón au chocolat avec riz soufflé, turrón au chocolat noir avec riz soufflé
 
 <en:Turrón
 en:Coconut turrón
@@ -19775,7 +19797,7 @@ nl:Pindanturrón
 <en:Turrón
 en:Toasted egg yolk turrón
 es:Turrones de yema tostada
-fr:Nougat aux jaunes d’œufs
+fr:Tourons au jaune d'œuf grillé
 
 <en:Turrón
 es:Turrones a la piedra
@@ -20088,7 +20110,7 @@ es:Cereales y derivados, Cereales y sus productos, Cereales
 fi:Viljat ja viljatuotteet
 fr:Céréales et dérivés, Céréales
 hu:Gabonafélék és azok termékei
-it:Cereali e i loro prodotti
+it:Cereali e i loro prodotti, Cereali
 nl:Granen en graanproducten
 pl:Zboża i produkty zbożowe, zboża
 pt:Cereais e seus produtos
@@ -20874,7 +20896,7 @@ es:Patatas fritas
 fi:sipsit ja ranskalaiset perunat
 fr:Chips et frites
 hu:Chips és krumpli
-it:Patatine
+it:Patatine e fritti
 nl:Chips en patat
 pl:Chipsy i frytki
 pt:Batatas fritas
@@ -20890,6 +20912,7 @@ es:Chips fritos, papas fritas
 fi:sipsit
 fr:Chips, Chips de légumes
 hu:Csipszek
+it:Patatine sottili, Patatine imbustate, Patatine croccanti
 nl:Chips
 pl:Chips, Crisps
 pt:Batatas fritas
@@ -20903,8 +20926,9 @@ fr:Cake aux legumes
 <en:Salty snacks
 en:Tapas
 de:Tapas
-fi:tapas
+fi:Tapas
 fr:Tapas
+it:Tapas
 nl:Tapas
 pnns_group_2:en:Appetizers
 
@@ -21134,7 +21158,7 @@ en:Fries
 de:Pommes Frites
 fi:ranskalaiset
 fr:Frites
-it:Patatine fritte
+it:Patatine fritte, Patatine a bastoncino
 nl:Friet
 zh:薯条
 
@@ -21156,7 +21180,7 @@ es:Lácteos, Productos lácteos
 fi:meijerituotteet
 fr:Produits laitiers, produit laitier, laitage, laitages, crèmerie, crèmeries
 hu:Tejtermékek, Tejtermék
-it:Latticini
+it:Latticini, pro
 nl:Zuivelproducten, Melkproducten, Zuivelproduct
 nl_be:Zuivelproducten
 pl:Nabiał, Produkty mleczne
@@ -21230,6 +21254,7 @@ ru:Кефир 3.2 %, Кефир 3.2%, Кефир с массовой долей 
 
 <en:Baby foods
 <en:Kefir
+en:Kefir for children, Kefir for babies
 de:Kefir für Babies
 fr:Kéfir pour bébés, Kéfir pour la nourriture pour bébés
 ro:Kefir pentru bebeluși
@@ -22132,6 +22157,7 @@ oqali_family:en: fr:Fromages - Crottin de chevre
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
+en:Rocamadour
 fr:Rocamadour
 country:en:France
 wikidata:en:Q768189
@@ -22237,10 +22263,16 @@ oqali_family:en: fr:Fromages - Cancoillotte
 en:Cream cheeses
 ca:Formatges cremosos
 de:Frischkäse
-es:Queso fresco
 fi:kermajuustot
-fr:Fromages à pâte fraîche, Fromage frais
+it:Formaggi spalmabili, Formaggio spalmabile
 nl:Verse kazen
+wikidata:en:Q426337
+
+<en:Cheeses
+en:Fresh cheeses
+es:Queso fresco
+fr:Fromages à pâte fraîche, Fromage frais
+it:Formaggi freschi
 wikidata:en:Q3323634
 
 <en:Cream cheeses
@@ -23375,7 +23407,7 @@ wikidata:en:Q585246
 <en:Dairies
 en:Creams
 ca:Cremes
-cs:Smetany
+cs:Smetany, smetana
 de:Rahm, Sahne
 es:Nata, crema de leche
 fi:kermatuotteet
@@ -23383,7 +23415,9 @@ fr:Crèmes, Crème
 it:Panne, panna
 hu:Krémek
 nl:Romen
+pl:Śmietanki
 se:Grädde
+sl:Smetana
 pnns_group_2:en:Milk and yogurt
 wikidata:en:Q13228
 
@@ -23452,11 +23486,13 @@ fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse
 
 <en:Fermented creams
 en:Sour creams, Crèmes fraîches
+cs:Zakysaná smetana
 de:Sauerrahm
 fi:hapankermat
 fr:Crèmes aigres
-hu:Tejföl
+hu:Tejföl, tejfel
 nl:Zure romen
+sl:Kisla smetana
 pnns_group_2:en:Milk and yogurt
 
 <en:Sour creams
@@ -23464,10 +23500,10 @@ de:Saure Sahne
 
 <en:Sour creams
 en:Smetana
-cs:Smetana
 de:Schmand
 fr:Smetana
 nl:Smetana
+pl:Śmietana
 ru:Сметана
 wikidata:ru:Q326061
 
@@ -24505,7 +24541,7 @@ en:Frozen horchatas de chufa
 es:Horchatas de chufa congeladas
 fr:Horchatas de chufa surgelés
 
-<en:Frozen plant-based foods
+<en:Frozen vegetables
 en:Frozen peas and carrots 
 fr:Petits pois et carottes surgelés 
 nl:Diepries doperwten en worteltjes
@@ -25371,6 +25407,7 @@ it:Composte di mango
 nl:Mangocompotes
 
 <en:Compotes
+en:Pear compotes, Pear compote
 fr:Compotes de poire, Compotes de poires
 de:Birnenkompott
 it:Composte di pera
@@ -26456,26 +26493,28 @@ fr:Miels d’acacia du Jura
 nl:Acaciahoningen uit de Jura
 
 <en:Honeys from France
+en:Honeys from Alsace
 fr:Miels d’Alsace
 nl:Honinge nuit de de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de châtaignier d'Alsace
 nl:Kastanjehoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
+<en:Flower honeys
 fr:Miels de fleurs d'Alsace
 nl:Bloemenhoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de forêt d'Alsace
 nl:Boshoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de sapin d'Alsace
 nl:Sparrenhoningen uit de Alsace
 
-<fr:Miels d’Alsace
+<en:Honeys from Alsace
 fr:Miels de tilleul d'Alsace
 nl:Lindebloesemhoningen uit de Alsace
 
@@ -26549,7 +26588,7 @@ fr:Miels d’acacia des rives du Danube de Roumanie
 nl:Acaciahoningen van de roemeense Donau-oevers
 
 <en:Mountain products
-<fr:Miels de fleurs
+<en:Flower honeys
 en:Honeys from the mountains
 de:Berghonige
 fi:hunajaa vuorilta
@@ -26673,11 +26712,12 @@ fr:Miels de pin
 nl:Pijnboomhoningen
 
 <en:Honeys
+en:Flower honeys, Flower honey
 es:Mieles de flores
 fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
 nl:Bloemenhoningen
 
-<fr:Miels de fleurs
+<en:Flower honeys
 fr:Miels de garrigue
 nl:Garriguehoningen
 
@@ -26798,8 +26838,9 @@ nl:Vloeibare honingen
 pt:Méis líquidos
 
 <fr:Miels
+en:Rosemary honeys, Rosemary honey
 es:Mieles de romero
-fr:Miels de romarin
+fr:Miels de romarin, Miel de romarin
 it:Miele di rosmarino
 nl:Rozemarijnhoningen
 
@@ -28898,7 +28939,7 @@ es:Congelados, Productos congelados
 fi:pakasteet
 fr:Surgelés, surgelées
 hu:Fagyasztott élelmiszer, Mirelit árú
-it:Cibi congelati
+it:Alimenti surgelati, cibi congelati, surgelati
 nl:Diepvries, Diepvriesproducten
 pl:Produkty mrożone, Mrożonki
 pt:Alimentos Congelados, Congelados
@@ -30566,6 +30607,18 @@ fr:Dattes entières
 nl:Dadels met pit
 ru:Финики с косточкой
 
+<en:Dates
+fr:Dattes Deglet Nour
+wikidate:en:Q1182886
+
+<en:Dates
+fr:Dates Medjool
+wikidate:en:Q16774413
+
+<en:Dates
+fr:Dattes Mazafati
+wikidate:en:Q25047430
+
 <en:Dried fruits
 en:Dried apples
 de:getrocknete Apfel, gedörrte Apfel
@@ -31656,6 +31709,7 @@ de:Salze, Salz
 es:Sales, Sal
 fi:suoloja
 fr:Sels
+it:Sale
 hu:Só, Sók
 nl:Zouten
 nl_be:Zouten
@@ -31663,11 +31717,13 @@ zh:盐类
 
 <en:Salts
 fr:Gros sels, gros sel
+it:Sale grosso
 de:Grobe Salze, Grobes Salz
 nl:Grove zouten
 
 <en:Salts
 fr:Sels fins, sel fin
+it:Sale fino
 de:Feine Salze, Feines Salz
 nl:Fijne zouten
 
@@ -31678,11 +31734,13 @@ nl:Vloeibare zouten
 
 <en:Salts
 fr:Sels des mines de sel
+it:Salgemma, sale dalle miniere 
 de:Steinsalze, Steinsalz
 nl:Steenzouten
 
 <en:Salts
 en:Himalaya salts
+it:Sale dell'Himalaya
 es:Sal del himalaya
 fr:Sels de l'Himalaya
 
@@ -31691,31 +31749,37 @@ en:Sea salts, Bay salts, Solar salt
 de:Meersalze, Meersalz
 fi:merisuolat
 fr:Sels marins, sels de mer, sel de mer
+it:Sale marino
 nl:Zeezouten
+
+<en:Salts
+en:Iodised salts, iodised salt
+it:Sale iodato
 
 <en:Salts
 en:Unrefined salts
 de:Unraffinierte Salze, Naturbelassene Salze, Unraffiniertes Salz, Naturbelassenes Salz
 fi:jalostamattomat suolot
 fr:Sels non raffinés, sels naturels
+it:Sale non raffinato, sale naturale
 hu:Tengeri sók
 nl:Ongeraffineerde zouten
 
-<fr:Sels naturels
+<en:Unrefined salts
 <en:Sea salts
 en:Fleurs de sel
 de:Salzblume, Fleurs de sel
 fr:Fleurs de sel
 nl:Fleurs de sel, Bloem van het zout
 
-<fr:Sels naturels
+<en:Unrefined salts
 en:Unrefined rock salt
 fr:Sel gemme non raffiné
 hu:Finomítatlan kősó
 nl:Ongeraffineerde steenzouten
 
 <en:Sea salts
-<fr:Sels naturels
+<en:Unrefined salts
 fr:Sels des marais salants, sels marins gris, sels marins gris de table, sels marins gris de cuisine
 nl:Grijze steenzouten
 
@@ -31742,6 +31806,7 @@ de:Speisesalze, Tafelsalze
 es:Sales de mesa
 fi:pöytäsuolat
 fr:Sels de table
+it:Sale da tavola
 nl:Keukenzouten
 
 <en:Condiments
@@ -32282,8 +32347,10 @@ fr:Capsicum frutescens
 fr:Piment oiseau, pequin, piment zozio, piment martin
 
 <fr:Capsicum frutescens
+en:Cayenne peppers, Cayenne pepper
 fr:Piments de Cayenne, Piment de Cayenne, Capsicum baccatum, aji, piment enragé, poivre de Cayenne
 es:Cayena
+wikidata:en:Q6598
 
 <fr:Capsicum frutescens
 <fr:Piments rouges
@@ -33081,11 +33148,11 @@ fr:Sauces tomates au basilic
 fr:Sauces tomates aux champignons
 
 <en:Tomato sauces
-fr:Sauces tomates pimentees
+fr:Sauces tomates pimentées
 
 <en:Tomato sauces
 <en:Vegetable sauces
-fr:Sauces tomates aux legumes
+fr:Sauces tomates aux légumes
 
 <en:Tomato sauces
 fr:Sauces tomates aux olives
@@ -33139,12 +33206,12 @@ en:Tumacas
 es:Tumacas
 
 <en:Tomato sauces
-<en:Tomatoes and tomato products
+<en:Tomatoes and their products
 en:Natural grated tomato
 es:Tomate natural rallado
 
 <en:Tomato sauces
-<en:Tomatoes and tomato products
+<en:Tomatoes and their products
 en:Tomato purées, Tomato purees, Pureed tomato
 de:Tomatenpüree, pürierte Tomaten
 es:Tomate natural triturado
@@ -33152,7 +33219,7 @@ fi:tomaattipureet
 fr:Purées de tomates, purées de tomate, purée de tomates, purée de tomate
 nl:Tomatenpuree
 
-<en:Tomatoes and tomato products
+<en:Tomatoes and their products
 en:Tomato pastes
 de:Tomatenmark
 es:Pastas de tomate
@@ -33161,7 +33228,7 @@ fr:Concentrés de tomates, concentrés de tomate, concentré de tomates, concent
 nl:Tomatenpastas
 wikidata:en:Q1499073
 
-<en:Tomatoes and tomato products
+<en:Tomatoes and their products
 fr:Pulpes de tomates, pulpes de tomate, pulpe de tomates, pulpe de tomate
 
 <en:Sauces
@@ -33256,13 +33323,6 @@ en:Meal replacements, meal substitutes
 fi:aterian korvikkeet
 fr:Substituts de repas
 nl:Maaltijdvervangers
-
-<en:Meals
-en:Prepared dishes with scallops
-es:Platos preparados con vieiras
-fi:kampasimpukkaruokalajit
-fr:Plats préparés aux noix de Saint-Jacques
-nl:Bereide gerechten met scallops
 
 <en:Meals
 en:Sushis and makis, Sushi and Maki
@@ -33451,6 +33511,10 @@ fr:Plats à base de quinoa
 nl:Quinoaschotels
 
 <en:Meals
+en:Lentil dishes
+fr:Plats à base de lentilles
+
+<en:Meals
 en:Savory semolina dishes
 fr:Plats à base de semoule
 nl:Hartige griesmeelschotels, Hartige griesmeelschotel
@@ -33461,6 +33525,21 @@ fi:kypsennetty couscous
 fr:Couscous préparés, couscous préparé
 nl:Kant-en-klaar couscous
 #wikidata:en:
+
+<en:Meals
+en:Meals with shellfish
+fr:Plats aux fruits de mer
+
+<en:Meals with shellfish
+en:Dishes with scallops, prepared dishes with scallops
+es:Platos preparados con vieiras
+fi:kampasimpukkaruokalajit
+fr:Plats aux noix de Saint-Jacques, plats préparés aux noix de Saint-Jacques
+nl:Bereide gerechten met scallops
+
+<en:Meals with shellfish
+en:Meals with shrimps
+fr:Plats aux crevettes
 
 <en:Meals
 en:Meals with fish, fish dishes
@@ -33486,11 +33565,12 @@ fr:Plats au saumon
 it:Pasti con salmone
 nl:Zalmmaaltijden
 
+<en:Meals with salmon
+fr:Parmentiers de saumon
+
 <en:Meals with fish
-en:Preparations made from crabs
-es:Preparado hechos de cangrejos
-fr:Préparations à base de crabes
-nl:Krab-producten
+en:Meals with tuna
+fr:Plats au thon
 
 <en:Meals with fish
 en:Cod brandade
@@ -33615,7 +33695,7 @@ wikidata:en:Q1191278
 
 <en:Beef dishes
 en:Shepherd's pie
-fr:Hachis parmentier
+fr:Hachis parmentier, parmentiers de bœuf
 nl:Shepherd's pie
 
 <en:Beef dishes
@@ -33758,11 +33838,13 @@ fr:Tournedos de magret de canard
 fr:Cuisses de canard confites
 
 <en:Duck dishes
+<en:Cassoulets
 en:Cassoulets with duck confit
 fr:Cassoulets au confit de canard
 nl:Cassoulet met geconfijte eend
 
 <en:Duck dishes
+<en:Sausages
 en:Duck sausages
 fr:Saucisses de canard
 nl:Eendenworst
@@ -33795,6 +33877,9 @@ fr:Plats au poulet, plats à base de poulet, Plats à base de poulets, plats pr�
 it:Pasti con pollo
 nl:Kippevleesmaaltijden
 pt:Refeições com frango
+
+<en:Meals with chicken
+fr:Parmentiers de poulet
 
 <en:Meals with chicken
 en:Chicken tajine
@@ -33833,7 +33918,7 @@ wikidata:en:Q863794
 <en:Fresh pasta
 <en:Fresh meals
 <en:Ravioli
-fr:Ravioli frais, raviolis frai
+fr:Ravioli frais
 de:Frische Ravioli
 nl:Verse raviolis
 
@@ -34124,6 +34209,7 @@ fi:kurpitsakermakeitot
 fr:Veloutés de potiron
 nl:Pompoencrèmesoepen
 
+<en:Tomatoes and their products
 <en:Cream of vegetable soups
 en:Cream of tomato soups
 es:Cremas de tomate
@@ -34604,6 +34690,7 @@ pt:Legumes preparados
 #wikidata:en:
 
 <en:Prepared vegetables
+<en:Tomatoes and their products
 en:Stuffed tomatoes
 fr:tomates farcies
 nl:Gevulde tomaat
@@ -35600,7 +35687,7 @@ es:Carne de cerdo
 fi:possu
 fr:Porc, Viande de porc, Viandes de porc
 hu:Disznóhús
-it:Maiale, Carne di maiale
+it:Carne di maiale, Maiale
 nl:Varken, Varkensvlezen
 pt:Carne de porco
 ru:Свинина
@@ -36559,12 +36646,12 @@ fr:Rillettes de la Sarthe
 <en:Prepared meats
 en:Sausages
 ca:Embotits
-de:Würste, Wurst
+de:Würste, wurst
 es:Salchichas
 fi:makkarat
-fr:Saucisses, Saucisse
+fr:Saucisses, saucisse
 hu:Kolbász
-it:Salsicce
+it:Salsicce, wurstel
 nl:Worsten
 pl:Parówki, kiełbaski
 pt:Salsichas
@@ -36587,6 +36674,11 @@ en:Sausages from Spain, Spanish sausages
 fr:Saucisses espagnoles, Saucisses d'Espagne
 hu:Spanyol kolbász
 nl:Spaanse worsten
+
+<en:Sausages
+<en:Veal meat
+en:Veal Sausages, Veal Sausage
+fr:Saucisses de veau, Saucisse de veau
 
 <en:Poultry sausages
 <en:Chickens
@@ -37352,7 +37444,7 @@ fr:Tomme du Massif central, Tommes du Massif central
 fr:Tomme des Pyrénées, Tommes des Pyrénées
 country:en:France
 
-<en:Plant-based foods
+<en:Vegetables based foods
 en:Mushrooms and their products, Fungi and their products
 ca:Bolets i productes derivats
 de:Pilze und Pilzprodukte
@@ -37363,15 +37455,20 @@ nl:Paddestoel- en afgeleide producten
 pnns_group_2:en:vegetables
 
 <en:Mushrooms and their products
-<en:Fresh plant-based foods
-en:Mushrooms, Fungi, Fresh mushrooms, Fresh fungi
+en:Mushrooms, Fungi
 de:Pilze
-es:Setas, Hongos, Setas frescas, Hongos frescos
+es:Setas, Hongos
 fi:sienet
 fr:Champignons
 it:Funghi
 la:Fungi
 nl:Paddestoelen
+
+<en:Mushrooms
+<en:Fresh vegetables
+en:Fresh mushrooms, Fresh fungi
+es:Setas frescas, Hongos frescos
+fr:Champignons frais
 
 <en:Mushrooms
 en:Bloody milk caps, Lactarius sanguifluus
@@ -37581,7 +37678,7 @@ fr:Tuber brumale, truffe musquée, ivernenco, pudendo, rougeotte
 la:Tuber brumale
 nl:Wintertruffels
 
-<en:Mushrooms and their products
+<en:Mushrooms
 <en:Canned plant-based foods
 en:Canned mushrooms
 de:Dosenpilze, Pilze in Dosen
@@ -37688,7 +37785,7 @@ es:Trufas en conserva
 fr:Truffes en conserve
 nl:Truffels in blik
 
-<en:Mushrooms and their products
+<en:Mushrooms
 <en:Frozen plant-based foods
 en:Frozen mushrooms
 es:Setas congeladas, Hongos congelados
@@ -39276,6 +39373,12 @@ fr:Crabes
 it:Granchi
 nl:Krab
 
+<en:Crab
+en:Preparations made from crabs
+es:Preparado hechos de cangrejos
+fr:Préparations à base de crabes
+nl:Krab-producten
+
 <en:Crustaceans
 en:Shrimps
 de:Garnele
@@ -40608,6 +40711,10 @@ fr:Confitures de coings
 hu:Birs lekvár
 
 <en:Fruit jams
+en:Kiwi jams, kiwi jam
+fr:Confitures de kiwi, confiture de kiwi
+
+<en:Fruit jams
 en:Plum jams
 de:Pflaumenmarmeladen
 es:Mermeladas y confituras de ciruela, Mermeladas de ciruela, Confituras de ciruela
@@ -40718,6 +40825,7 @@ hu:Rebarbara lekvár
 nl:Rabarberjams
 
 <en:Vegetable jams
+<en:Tomatoes and their products
 en:Tomate jams
 es:Mermeladas y confituras de tomate, Mermeladas de tomate, Confituras de tomate
 fr:Confitures de tomates
@@ -41693,8 +41801,6 @@ la:Allium cepa
 nl:Ui en afgeleide producten
 wikidata:en:Q23485
 
-
-
 <en:Onions and their products
 en:Fried onions
 es:Cebollas fritas
@@ -41713,7 +41819,7 @@ hu:Sütőtök és sütőtök alapú termékei
 nl:Pompoen en afgeleide producten
 
 <en:Vegetables based foods
-en:Tomatoes and tomato products, Tomatoes and their products
+en:Tomatoes and their products, Tomatoes and tomato products
 ca:Tomàquets i productes de tomàquet, Tomàquets i productes derivats
 de:Tomaten und Tomatenprodukte
 es:Tomates y sus productos, Tomates y derivados
@@ -41742,9 +41848,12 @@ ru:Консервированные овощи, Овощи консервиро�
 th:ผักกระป๋อง
 
 <en:Canned vegetables
+<en:Belgian endives
+en:Canned Belgian endives
 fr:Endives en conserve
 
 <en:Canned vegetables
+<en:Artichokes
 en:Canned artichokes
 es:Alcachofas en conserva
 fi:purkitetut artisokat
@@ -41752,6 +41861,7 @@ fr:Artichauts en conserve
 nl:Artisjokken en blik
 
 <en:Canned vegetables
+<en:Asparagus
 en:Canned asparagus
 de:Spargel in Dosen
 es:Espárragos en conserva
@@ -41773,6 +41883,7 @@ fr:Asperges blanches en conserve
 nl:Witte asperges in blik
 
 <en:Canned vegetables
+<en:Beet
 en:Canned beet, Canned beetroots
 es:Remolacha en conserva
 fi:purkitetut punajuuret
@@ -41780,12 +41891,14 @@ fr:Betteraves en conserve
 nl:Rode bieten in blik
 
 <en:Canned vegetables
+<en:Brussels sprouts
 en:Canned Brussels sprouts
 es:Coles de Bruselas en conserva
 fr:Choux de Bruxelles en conserve
 nl:Spruiten in blik
 
 <en:Canned vegetables
+<en:Carrots
 en:Canned carrots
 de:Karotten in Dosen, Dosenkarotten
 es:Zanahorias en conserva
@@ -41795,7 +41908,7 @@ nl:Wortels in blik
 
 <en:Canned vegetables
 <en:Cauliflowers
-en:Canned cauliflower
+en:Canned cauliflowers, canned cauliflower
 es:Coliflor en conserva
 fr:Choux-fleurs en conserve
 nl:Bloemkool in blik
@@ -41813,6 +41926,7 @@ fr:Choux en conserve
 nl:Kool in blik
 
 <en:Canned vegetables
+<en:Chards
 en:Canned chards
 es:Acelgas en conserva
 fr:Bettes en conserve, Blettes en conserve
@@ -41822,12 +41936,19 @@ nl:Snijbiet in blik
 fr:Macédoines de légumes en conserve, macédoines de légume en conserve, macédoine de légumes en conserve, macédoine de légume en conserve
 
 <en:Canned vegetables
+<en:Leeks
 en:Canned leeks
 es:Puerros en conserva
 fr:Poireaux en conserve
 nl:Prei in blik
 
 <en:Canned vegetables
+<en:Turnip
+en:Canned turnips
+fr:Navets en conserve
+
+<en:Canned vegetables
+<en:Sweet peppers
 en:Canned peppers
 es:Pimientos en conserva
 fi:purkitetut chilipaprikat
@@ -41840,7 +41961,7 @@ es:Pimientos rojos en conserva
 fr:Poivrons rouges en conserve
 nl:Rode pepers in blik
 
-<en:Canned vegetables
+<en:Canned plant-based foods
 <en:Cereals and potatoes
 en:Canned potatoes
 es:Patatas en conserva
@@ -41854,6 +41975,7 @@ fr:Salsifis en conserve
 nl:Schorseneer in blik
 
 <en:Canned vegetables
+<en:Spinachs
 en:Canned spinachs
 de:Spinat in Dosen, Dosenspinat
 es:Espinacas en conserva
@@ -41862,7 +41984,7 @@ fr:Épinards en conserve
 nl:Spinazie in blik
 
 <en:Canned vegetables
-<en:Tomatoes and tomato products
+<en:Tomatoes
 en:Canned tomatoes
 de:Dosentomaten, Tomaten in Dosen
 es:Tomates en conserva
@@ -42009,6 +42131,11 @@ nl:Bladgroenten
 nl_be:Bladgewas
 wikidata_category:en:Q7469413
 
+<en:Vegetables
+en:Salsifis
+fr:Salsifis
+wikidata:en:Q941639
+
 <en:Vegetable rods
 en:Artichokes
 de:Artischocken
@@ -42026,12 +42153,17 @@ fi:artisokan sydämet
 fr:Coeurs d'artichauts, Fonds d'artichauts
 nl:Artisjokharten
 
+<en:Artichokes
+<en:Fresh vegetables
+en:Fresh artichokes
+fr:Artichauts frais
+
 <en:Vegetable rods
 en:Asparagus
 de:Spargel
-es:Espárragos, Espárragos frescos
+es:Espárragos
 fi:parsa
-fr:Asperges, asperge, Asperges fraîches
+fr:Asperges, asperge
 la:Asparagus officinalis
 nl:Asperges
 
@@ -42074,6 +42206,12 @@ en:Wild asparagus
 fr:Asperges sauvages
 nl:Wilde asperges
 
+<en:Asparagus
+<en:Fresh vegetables
+en:Fresh Asparagus
+es:Espárragos frescos
+fr:Asperges fraîches
+
 <en:Vegetables
 en:Aubergines
 de:Auberginen
@@ -42081,6 +42219,11 @@ es:Berenjenas
 fr:Aubergines
 la:Solanum melongena
 nl:Aubergines
+
+<en:Aubergines
+<en:Fresh vegetables
+en:Fresh aubergines
+fr:Aubergines fraîches
 
 fr:Ristes d’aubergines
 wikidata:en:Q53560342
@@ -42094,12 +42237,25 @@ fr:Betteraves
 la:Beta vulgaris
 nl:Rode bieten
 
+<en:Beet
+<en:Fresh vegetables
+en:Fresh beet
+fr:Betteraves fraîches
+
+<en:Beet
+fr:Betteraves sous vide
+
 <en:Leaf vegetables
 en:Belgian endives, Witloof
 es:Endibias, Endivias
 fr:Endives, Chicon
 la:Cichorium intybus var. foliosum
 nl:Witlof
+
+<en:Belgian endives
+<en:Fresh vegetables
+en:Fresh belgian endives
+fr:Endives fraîches
 
 # description:en:BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable
 
@@ -42193,6 +42349,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
 # ingredient/broccoli has 1167 products in 10 languages @2018-10-16
 # category/broccoli has 150 products @2019-05-24
 
+<en:Broccoli
+<en:Fresh vegetables
+en:Fresh broccoli
+fr:Brocolis frais
+
 <en:Vegetables
 en:Brussels sprouts
 de:Rosenkohl
@@ -42201,6 +42362,11 @@ fi:brysselinkaalit
 fr:Choux de Bruxelles
 la:Brassica oleracea var. gemmifera
 nl:Spruiten
+
+<en:Brussels sprouts
+<en:Fresh vegetables
+en:Fresh Brussels sprouts
+fr:Choux de Bruxelles frais
 
 <en:Leaf vegetables
 en:Cabbages
@@ -42229,6 +42395,11 @@ nl:Wortels
 pl:Marchew
 ru:Морковь
 
+<en:Carrots
+<en:Fresh vegetables
+en:Fresh carrots
+fr:Carottes fraîches
+
 <en:Leaf vegetables
 en:Cauliflowers
 de:Blumenkohl
@@ -42237,6 +42408,10 @@ fi:kukkakaalit
 fr:Choux-fleurs
 la:Brassica oleracea var. botrytis
 nl:Bloemkolen
+
+<en:Cauliflowers
+en:Fresh cauliflowers
+fr:Choux-fleurs frais
 
 <en:Vegetable rods
 <en:Culinary plants
@@ -42317,9 +42492,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chard
 # ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
 # category/chards has 16 products @2019-05-22
 
-
 <en:Chards
-fr:Poirées
+<en:Fresh vegetables
+en:Fresh chards
+fr:Blettes fraîches
 
 <en:Vegetables
 en:Cucumbers
@@ -42503,7 +42679,6 @@ es:Semillas de hinojo
 fr:Graines de fenouil
 nl:Venkelzaden
 
-<en:Vegetables
 <en:Garlic and their products
 en:Garlic
 de:Knoblauch
@@ -42514,6 +42689,17 @@ hu:Fokhagyma
 nl:Knoflook
 
 <en:Garlic
+<en:Fresh vegetables
+en:Fresh garlic
+fr:Ail frais
+
+<en:Garlic
+en:Allium neapolitanum
+fr:Ail Blanc
+de:Neapolitanischer Lauch
+wikidata:en:Q1817792
+
+<en:Allium neapolitanum
 fr:Ail blanc de Lomagne
 country:en:France
 
@@ -42623,6 +42809,11 @@ carbon_footprint_fr_foodges_ingredient:fr:Poireau
 # ingredient/leek has 3620 products in 19 languages @2019-05-22
 # category/leeks has 34 products @2019-05-22
 
+<en:Leeks
+<en:Fresh vegetables
+en:Fresh leeks
+fr:Poireaux frais
+
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
@@ -42662,7 +42853,7 @@ hy:հազար, հազար
 id:Selada
 io:Latugo
 is:Salat
-it:Lattuga
+it:Lattuga, lattughe
 ja:アキノノゲシ属, レタス
 ka:ღორისქადა, სალათა
 kk:Ассүттіген, Салат
@@ -42737,10 +42928,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
-<en:Vegetables
 <en:Onions and their products
 #<en:ingredient:en:vegetable
-en:onion, onions
+en:onions, onion
 bn:পিঁয়াজ
 ca:ceba
 cs:cibule
@@ -42777,6 +42967,30 @@ wikipedia:en:https://en.wikipedia.org/wiki/Onion
 # category/onions has 233 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr:Oignons
 
+<en:onions
+en:Yellow Onions, yellow onion
+fr:Oignons jaunes, oignon jaune
+de:gelbe Zwiebel
+wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
+wikidata:en:Q8051898
+
+<en:onions
+en:White Onions, white onion
+fr:Oignons blancs, oignon blanc
+wikipedia:en:https://en.wikipedia.org/wiki/White_onion
+wikidata:en:Q7995660
+
+<en:onions
+en:Red Onions, red onion, purple onions, Bombay onions
+fr:Oignons rouges, oignon rouge
+wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
+wikidata:en:Q622350
+
+<en:Onions
+<en:Fresh vegetables
+en:Fresh onions
+fr:Oignons frais
+
 <en:Onions
 en:Shallots
 de:Schalotten
@@ -42788,13 +43002,18 @@ nl:Sjalotjes
 wikidata:en:Q193498
 
 <en:Vegetables
-en:Sweet Peppers
+en:Sweet peppers
 de:Süße Pfeffer
 es:Pimientos
 fi:paprikat
 fr:Poivrons, Poivron, Capsicum annuum, piment doux, Piment Poivron
 la:Capsicum annuum
 nl:Pepers en paprikas
+
+<en:Sweet peppers
+<en:Fresh vegetables
+en:Fresh sweet peppers
+fr:Poivrons frais
 
 <en:Sweet Peppers
 en:Green bell peppers
@@ -42866,7 +43085,6 @@ fr:Poivrons grillés
 nl:Geroosterde paprikas
 wikidata:en:Q28843386
 
-<en:Vegetables
 <en:Cereals and potatoes
 en:Potatoes
 de:Kartoffeln
@@ -42909,13 +43127,17 @@ wikidata:en:Q3395977
 <fr:Pommes de terre de l'île de Ré
 fr:Pommes de terre primeurs, Pommes de terre de primeur
 
-<en:Vegetables
 <en:Pumpkins and their products
 en:Pumpkins, Squashes
 es:Calabazas
 fi:kurpitsat
 fr:Courges, Potirons, Citrouilles
 nl:Pompoenen
+
+<en:Pumpkins
+<en:Fresh vegetables
+en:Fresh pumpkins
+en:Courges fraîches
 
 <en:Pumpkins
 en:Butternut squashes, Butternut squash, Butternut pumpkins
@@ -43086,6 +43308,11 @@ fi:punakaali
 fr:Choux rouges
 nl:Rode kolen
 
+<en:Red cabbage
+<en:Fresh vegetables
+en:Fresh red cabbage
+fr:Choux rouges frais
+
 # description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 
 # <en:vegetable
@@ -43177,7 +43404,12 @@ la:Spinacia oleracea
 nl:Spinazie
 wikidata:en:Q81464
 
-<en:Vegetables
+<en:Spinachs
+<en:Fresh vegetables
+en:Fresh spinachs
+fr:Épinards frais
+
+<en:Cereals and potatoes
 en:Sweet potatoes
 es:Batatas, Boniatos
 fr:Patates douces
@@ -43276,8 +43508,12 @@ zh:芜菁
 wikidata:en:Q3916957
 wikipedia:en:https://en.wikipedia.org/wiki/Turnip
 
+<en:Turnip
+en:Fresh turnips
+fr:Navets frais
+
 <en:Vegetables
-<en:Tomatoes and tomato products
+<en:Tomatoes and their products
 en:Tomatoes
 de:Tomaten, Tomate
 es:Tomates
@@ -43286,6 +43522,11 @@ fr:Tomates
 it:Pomodori
 ja:トマト
 nl:Tomaten
+
+<en:Tomatoes
+<en:Fresh vegetables
+en:Fresh tomatoes
+fr:Tomates fraîches
 
 <en:Tomatoes
 fr:Tomate olivette, Tomates olivettes
@@ -43322,6 +43563,11 @@ fr:Courgettes
 ja:ズッキーニ
 la:Cucurbita pepo var. Zucchini
 nl:Courgettes
+
+<en:Zucchini
+<en:Fresh vegetables
+en:Fresh zucchini
+fr:Courgettes fraîches
 
 <en:Fresh vegetables
 en:Fresh vegetable mixes
@@ -43455,7 +43701,7 @@ fr:Légumes séchés
 nl:Gedroogde groenten
 
 <en:Dried vegetables
-<en:Tomatoes and tomato products
+<en:Tomatoes and their products
 en:Dried tomatoes
 de:Getrocknete Tomaten
 es:Tomates secos, Tomates deshidratados, Tomates desecados
@@ -43486,7 +43732,7 @@ nl:Gemalen gedroogde groenten
 
 <en:Ground dried vegetables
 <en:Condiments
-<en:Tomatoes and tomato products
+<en:Tomatoes and their products
 en:Dried tomato powder, Tomato powder, Ground dried tomato
 es:Tomate seco molido, Tomates en polvo
 fr:Poudre de tomate séchée
@@ -43579,15 +43825,21 @@ fr:Fèves frais, Féverolles frais
 la:Vicia faba
 nl:Tuinbonen
 
-<en:Fresh legumes
-<en:Fresh vegetables
-en:Fresh green beans
+<en:Legumes
+<en:Vegetables
+en:Green beans
 es:Judías verdes
 fi:tuoreet vihreät pavut
 fr:Haricots verts
 ja:サヤインゲン
 nl:Groene bonen
 wikidata:en:Q2987371
+
+<en:Fresh legumes
+<en:Fresh vegetables
+<en:Green beans
+en:Fresh green beans
+fr:Haricots verts frais
 
 <en:Fresh green beans
 en:Fresh broad green beans
@@ -43611,8 +43863,12 @@ nl:Duiferwten
 en:Green peas
 es:Guisantes verdes
 fi:herneet
-fr:Petits pois frais
+fr:Petits pois
 nl:Verse doperwten
+
+<en:Green peas
+en:Fresh green peas
+fr:Petits pois frais
 
 <en:Legumes
 <en:Seeds
@@ -44054,6 +44310,7 @@ nl:Tuinbonen in blik
 
 <en:Canned legumes
 <en:Canned vegetables
+<en:Green beans
 en:Canned green beans
 es:Judías verdes en conserva
 fi:purkitettuja vihreitä papuja
@@ -44073,6 +44330,7 @@ nl:Duivenbonen in blik
 
 <en:Canned legumes
 <en:Canned vegetables
+<en:Green peas
 en:Canned peas
 es:Guisantes en conserva
 fi:purkitetut herneet
@@ -44429,6 +44687,11 @@ fi:siiderietikat
 fr:Vinaigres de cidre, vinaigre de cidre
 hu:Almaecet
 nl:Ciderazijnen
+wikidata:en:Q618322
+
+<en:Cider vinegars
+en:Apple cider vinegars, Apple cider vinegar
+fr:Vinaigres de cidre de pomme, Vinaigre de cidre de pomme, Vinaigres de pomme, Vinaigre de pomme
 wikidata:en:Q618322
 
 <en:Vinegars
@@ -45402,6 +45665,7 @@ pt:Legumes congelados
 pnns_group_2:en:vegetables
 
 <en:Frozen vegetables
+<en:Leeks
 en:Frozen leeks
 de:Tiefkühl-Lauch, Gefrohrene Lauche
 fr:Poireaux surgelés
@@ -45438,6 +45702,7 @@ fr:Artichauts hachés surgelés
 nl:Diepvries gehakte artisjokken
 
 <en:Frozen vegetables
+<en:Asparagus
 en:Frozen asparagus
 de:Tiefkühl-Spargel
 es:Espárragos congelados
@@ -45461,7 +45726,7 @@ nl:Gehakte groene diepvries asperges
 en:Frozen whole green asparagus
 de:Tiefgekühlter ganzer grüner Spargel, Gefrohrene ganze grüne Spargel
 es:Espárragos verdes enteros congelados
-fr:Asperges vertes entières congelées
+fr:Asperges vertes entières surgelées, asperges vertes entières congelées
 nl:Hele groene diepvriesasperges
 
 <en:Frozen asparagus
@@ -45472,8 +45737,9 @@ fr:Asperges blanches surgelés
 nl:Witte diepvriesasperges
 
 <en:Frozen vegetables
+<en:Aubergines
 en:Frozen aubergines
-de:Tiefkühl-Auberginen,Gefrohrene Aubergines
+de:Tiefkühl-Auberginen, Gefrohrene Aubergines
 es:Berenjenas congeladas
 fr:Aubergines surgelées
 nl:Diepvries aubergines
@@ -45489,6 +45755,7 @@ nl:Diepvries broccoli
 pl:Brokuł (różyczki) głęboko mrożony
 
 <en:Frozen vegetables
+<en:Brussels sprouts
 en:Frozen Brussels sprouts
 de:Tiefkühl-Rosenkohl
 es:Coles de Bruselas congeladas
@@ -45496,6 +45763,7 @@ fr:Choux de Bruxelles surgelés
 nl:Diepvriesspruitjes
 
 <en:Frozen vegetables
+<en:Carrots
 en:Frozen carrots
 de:Tiefkühl-Karotten
 es:Zanahorias congeladas
@@ -45528,6 +45796,7 @@ fr:Choux-fleurs en fleurettes surgelés
 nl:Diepvries bloemkool
 
 <en:Frozen vegetables
+<en:Chards
 en:Frozen chards
 de:Tiefkühl-Mangold
 es:Acelgas congeladas
@@ -45559,13 +45828,14 @@ fr:Cardes hachés surgelés, Cardons hachés surgelés
 nl:Gehakte diepvrieskardoen
 
 <en:Frozen vegetables
+<en:Turnip
 en:Frozen turnips, Frozen turnip
 de:Tiefkühl-Rüben
 fr:Navets surgelés, navet surgelé
 nl:Diepvries knolrapen
 
 <en:Frozen vegetables
-<en:Garlic and their products
+<en:Garlic
 en:Frozen chopped garlic
 de:Tiefgefrorener gehackter Knoblauch
 es:Ajos troceados congelados, Ajos congelados troceados
@@ -45573,7 +45843,7 @@ fr:Ail haché surgelé
 nl:Diepvries gehakte knoflook
 
 <en:Frozen vegetables
-<en:Onions and their products
+<en:Onions
 en:Frozen chopped onions
 de:Tiefgefrorene gehackte Zwiebeln
 es:Cebollas troceadas congeladas, Cebollas congeladas troceadas
@@ -45589,12 +45859,16 @@ nl:Diepvries tuinbonen
 
 <en:Frozen vegetables
 <en:Frozen legumes
+<en:Green beans
 en:Frozen green beans, Frozen string beans
 de:Gefrorene grüne Bohnen
 es:Judías verdes congeladas
 fi:pakastetut vihreät pavut
 fr:Haricots verts surgelés
 nl:Diepvries sperziebonen
+
+<en:Frozen green beans
+fr:Haricots verts surgelés précuits
 
 <en:Frozen green beans
 en:Frozen broad green beans
@@ -45641,13 +45915,18 @@ nl:Diepvries groene knoflook
 
 <en:Frozen vegetables
 <en:Frozen legumes
+<en:Green peas
 en:Frozen green peas, Frozen fresh peas, Frozen immature peas
 de:Gefrorene grüne Bohnen
 es:Guisantes verdes congelados, Guisantes congelados
 fr:Petits pois surgelés, Pois frais surgelés
 nl:Diepvries doperwten
 
+<en:Frozen green peas
+fr:Petits pois surgelés précuits
+
 <en:Frozen vegetables
+<en:Sweet peppers
 en:Frozen peppers
 de:Gefrorener Pfeffer
 es:Pimientos congelados
@@ -45682,7 +45961,7 @@ es:Mezclas de pimientos multicolores congelados
 fr:Mélanges de poivrons multicolores surgelés
 nl:Diepvries paprikamengsels
 
-<en:Frozen vegetables
+<en:Frozen plant-based foods
 <en:Cereals and potatoes
 en:Frozen potatoes
 de:Gefrohrene Kartoffeln
@@ -45691,7 +45970,7 @@ fr:Pommes de terre surgelés
 nl:Diepvriesaardappelen
 
 <en:Frozen vegetables
-<en:Pumpkins and their products
+<en:Pumpkins
 en:Frozen pumpkins
 de:Gefrohrene Kürbisse
 es:Calabazas congeladas
@@ -45699,6 +45978,7 @@ fr:Citrouilles surgelées
 nl:Diepvriespompoenen
 
 <en:Frozen vegetables
+<en:Red cabbage
 en:Frozen red cabbage
 de:Gefrorene Rotkohle, Gefrorener Rotkohl
 es:Lombardas congeladas, Lombarda congelada, Col lombarda congelada
@@ -45737,6 +46017,7 @@ fr:Feuilles d'épinard congelées
 nl:Diepvries bladspinazies
 
 <en:Frozen vegetables
+<en:Zucchini
 en:Frozen zucchini, Frozen courgettes
 de:Gefrorene Zucchini
 es:Calabacines congelados
@@ -46507,22 +46788,30 @@ nl:Vleesvervangers
 wikidata:en:Q1343997
 
 <en:Meat analogues
-en:Veggie burger patties
+en:Vegetarian nuggets
+fr:Nuggets végétaux
+
+<en:Meat analogues
+en:Veggie grounds
+fr:Hachés végétaux
+
+<en:Meat analogues
+en:Veggie patties, veggie burger patties
 de:Gemüsebratling, Vegetarische Burger
 es:Filetes vegetales para hamburguesas
 fi:kasvishampurilaispihvit
 fr:Steaks végétaux, steaks végétaux pour hamburgers
 nl:Plantaardige steaks voor hamburgers
 
-<en:Veggie burger patties 
+<en:Veggie patties 
 en:Soy steak
 fr:Galettes de soja, steaks de soja
 nl:Sojasteaks
 
-<en:Veggie burger patties
+<en:Veggie patties
 fr:Galettes de tofu, steaks de tofu
 
-<en:Veggie burger patties
+<en:Veggie patties
 fr:Galettes de céréales aux légumes
 
 <en:Meat analogues
@@ -46990,7 +47279,7 @@ nl:Courgettepureeën
 
 <en:Mashed vegetables
 en:Mashed broccoli
-de:Brokkolibreie,Broccolibreie
+de:Brokkolibreie, Broccolibreie
 fr:Purées de brocolis
 nl:Brocollipureeën
 
@@ -47000,9 +47289,8 @@ de:Spinatbreie
 fr:Purées d'épinards
 nl:Spinaziepureeën
 
-<en:Cauliflowers
 <en:Mashed vegetables
-en:Mashed Cauliflower
+en:Mashed cauliflower
 de:Blumenkohlbreie
 fr:Purées de choux-fleurs
 nl:Bloemkoolpureeën
@@ -47013,6 +47301,7 @@ de:Selleriebreie
 fr:Purées de céleri-rave
 nl:Koolraappureeën
 
+<en:Pumpkins and their products
 <en:Mashed vegetables
 en:Mashed pumpkins
 de:Kürbisbreie
@@ -47473,6 +47762,7 @@ fr:Compotes de prunes
 nl:Pruimencompote
 
 <en:Frozen vegetables
+<en:Salsifis
 en:Frozen salsify
 fr:Salsifis surgelés
 nl:Diepvriesschorseneren

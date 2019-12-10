@@ -439,7 +439,7 @@ $.fn.ajaxSubmit = function(options) {
              * carry the protocol property in ie8, when running under ssl
              * frame.document is the only valid response document, since
              * the protocol is know but not on the other two objects. strange?
-             * "Same origin policy" http://en.wikipedia.org/wiki/Same_origin_policy
+             * "Same origin policy" https://en.wikipedia.org/wiki/Same_origin_policy
              */
             
             var doc = null;

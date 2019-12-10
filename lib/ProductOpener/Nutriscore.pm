@@ -24,51 +24,42 @@ ProductOpener::Nutriscore - compute the Nutriscore grade of a food product
 
 =head1 SYNOPSIS
 
-C<ProductOpener::Export> is used to export the data of all populated fields
-of products matching a given MongoDB search query in Open Food Facts CSV format
-(UTF-8 encoding, tab separated).
+C<ProductOpener::Nutriscore> is used to compute the Nutriscore score and grade
+of a food product.
 
-    use ProductOpener::Export qw/:all/;
-	export_csv( { filehandle=>*STDOUT,
-		query=>{ countries_tags=>"en:france", labels_tags=>"en:organic" } });
+    use ProductOpener::Nutriscore qw/:all/;
 
-Only columns that are not completely empty will be included in the resulting CSV file.
-This is to avoid generating CSV files with thousands of empty columns (e.g. all possible
-nutrients and all the language specific fields like ingredients_text_[language code] for
-all the hundreds of possible languages.
+	my $nutriscore_data_ref = {
+		# Nutrients
+		energy =>  518,	# in kJ
+		sugars => 3,
+		saturated_fat => 0.7,
+		saturated_fat_ratio => 0.7 / 3 * 100,
+		sodium => 0.61 / 2.5 * 1000,	# in mg, sodium = salt divided by 2.5
+		fruits_vegetables_nuts_colza_walnut_olive_oils => 20,	# in %
+		fiber => 2.2,
+		proteins => 6.7,
 
-Fields that are computed from other fields are not directly provided by users or producers
-are not exported by default. They can be exported by passing a list of extra fields:
+		# The Nutri-Score computation is different for beverages, waters, cheeses and fats
+		is_beverage => 1,
+		is_water => 0,
+		is_cheese => 0,
+		is_fat => 0,
+	}
 
-	export_csv( { filehandle=>$fh,
-		extra_fields=>[qw(nova_group nutrition_grade_fr)] });
+	my ($nutriscore_score, $nutriscore_grade) = compute_nutriscore_score_and_grade(
+		$nutriscore_data_ref
+	);
 
-It is also possible to restrict the set of fields to be exported:
-
-	export_csv( { filehandle=>$fh,
-		fields=>[qw(code ingredients_text_en additives_tags)] });
-
-This module is used in particular to export product data provided by manufacturers on
-the producers platform so that it can then be imported in the public database.
-
-In the producers platform, the C<export_csv> function is executed through a Minion worker.
-
-It is also used in the C<scripts/export_csv_file.pl> script.
-
+	print "Rounded value for sugars: " . $nutriscore_data_ref->{sugars_value} . "\n";
+	print "Points for sugars: " . $nutriscore_data_ref->{sugars_points}. "\n";
 
 =head1 DESCRIPTION
 
-Use the list of fields from C<Product::Opener::Config::options{import_export_fields_groups}>
-and the list of nutrients from C<Product::Opener::ProductOpener::nutriments_tables> to list fields
-that need to be exported.
+The modules implements the Nutri-Score computation as defined by Santé publique France.
 
-The results of the query are scanned a first time to compute the list of non-empty columns.
-
-The results of the query are scanned a second time to output the CSV file.
-
-This 2 phases approach is done to avoid having to store all the products data in memory.
-
-If the fields to exports are specified with the C<fields> parameter, the first phase is skipped.
+Input values for nutrients are rounded according to the Nutri-Score definition and added
+to the hash passed in parameter with the corresponding amount of positive or negative points.
 
 =cut
 
@@ -86,7 +77,11 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 
+		%points_thresholds
+
 		&compute_nutriscore_score_and_grade
+		&get_value_with_one_less_negative_point
+		&get_value_with_one_more_positive_point
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -96,16 +91,16 @@ use vars @EXPORT_OK ;
 
 =head1 FUNCTIONS
 
-=head2 compute_nutriscore_score_and_grade( PRODUCT_DATA_REF, POINTS_REF )
+=head2 compute_nutriscore_score_and_grade( NUTRISCORE_DATA_REF )
 
 C<compute_nutriscore_score_and_grade()> computes the Nutri-Score score and grade
 of a food product, and also returns the details of the points for each nutrient.
 
 =head3 Arguments
 
-2 hash references need to be passed as arguments:
+1 hash references need to be passed as arguments. It is used for both input and output:
 
-=head4 PRODUCT_DATA_REF - hash reference to the input product data
+=head4 Input keys: data to compute Nutri-Score
 
 The hash must contain values for the following keys:
 
@@ -121,20 +116,21 @@ The hash must contain values for the following keys:
 The values will be rounded according to the Nutri-Score rules, they do not need to be rounded before being passed as arguments.
 
 If the product is a beverage, water, cheese, or fat, it must contain a positive value for the corresponding keys:
-- beverage
-- water
-- cheese
-- fat
+- is_beverage
+- is_water
+- is_cheese
+- is_fat
 
-=head4 POINTS_REF - reference to an empty hash that will be populated with the
-details of the points for each nutrient.
+=head4 Output keys: details of the Nutri-Score computation
 
 Returned values:
 
 - [nutrient]_value -> rounded values for each nutrient according to the Nutri-Score rules
-- [nutrient] -> points for each nutrient
+- [nutrient]_points -> points for each nutrient
 - negative_points -> sum of unfavorable nutrients points
 - positive_points -> sum of favorable nutrients points
+- score -> nutrition score
+- grade -> Nutri-Score grade (A ti E
 
 The nutrients that are counted for the negative and positive points depend on the product type
 (if it is a beverage, cheese or fat) and on the values for some of the nutrients.
@@ -150,24 +146,25 @@ The letter grade depends on the score and on whether the product is a beverage, 
 
 =cut
 
-sub compute_nutriscore_score_and_grade($$) {
+sub compute_nutriscore_score_and_grade($) {
 
-	my $product_data_ref = shift;
-	my $points_ref = shift;
+	my $nutriscore_data_ref = shift;
 
 	# We will pass a %point structure to get the details of the computation
 	# so that it can be returned
 	my %points = ();
 
-	my $nutrition_score = compute_nutriscore_score($product_data_ref, $points_ref);
+	my $nutrition_score = compute_nutriscore_score($nutriscore_data_ref);
 
-	my $nutrition_grade = compute_nutriscore_grade($nutrition_score, $product_data_ref->{is_beverage}, $product_data_ref->{is_water});
+	my $nutrition_grade = compute_nutriscore_grade($nutrition_score, $nutriscore_data_ref->{is_beverage}, $nutriscore_data_ref->{is_water});
+
+	$nutriscore_data_ref->{score} = $nutrition_score;
+	$nutriscore_data_ref->{grade} = $nutrition_grade;
 
 	return ($nutrition_score, $nutrition_grade);
 }
 
-
-my %points_thresholds = (
+%points_thresholds = (
 
 	# negative points
 
@@ -187,44 +184,125 @@ my %points_thresholds = (
 	proteins => [1.6, 3.2, 4.8, 6.4, 8.0]	# g / 100g
 );
 
+=head2 get_value_with_one_less_negative_point( NUTRISCORE_DATA_REF, NUTRIENT )
 
-sub compute_nutriscore_score($$) {
+For a given Nutri-Score nutrient value, return the highest smaller value that would result in less negative points.
+e.g. for a sugars value of 15 (which gives 3 points), return 13.5 (which gives 2 points).
 
-	my $product_data_ref = shift;
-	my $points_ref = shift;
+The value corresponds to the highest smaller threshold.
+
+Return undef is the input nutrient value already gives the minimum amount of points (0).
+
+=cut
+
+sub get_value_with_one_less_negative_point($$) {
+
+	my $nutriscore_data_ref = shift;
+	my $nutrient = shift;
+
+	my $nutrient_threshold_id = $nutrient;
+	if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
+		and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
+		$nutrient_threshold_id .= "_beverages";
+	}
+
+	my $lower_threshold;
+
+	foreach my $threshold (@{$points_thresholds{$nutrient_threshold_id}}) {
+		# The saturated fat ratio table uses the greater or equal sign instead of greater
+		if ((($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold))
+			or (($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))) {
+			$lower_threshold = $threshold;
+		}
+	}
+
+	return $lower_threshold;
+}
+
+
+=head2 get_value_with_one_more_positive_point( NUTRISCORE_DATA_REF, NUTRIENT )
+
+For a given Nutri-Score nutrient value, return the smallest higher value that would result in more positive points.
+e.g. for a proteins value of 2.0 (which gives 1 point), return 3.3 (which gives 2 points)
+
+The value correspond to the smallest higher threshold + 1 increment so that it strictly greater than the threshold.
+
+Return undef is the input nutrient value already gives the maximum amount of points.
+
+=cut
+
+
+sub get_value_with_one_more_positive_point($$) {
+
+	my $nutriscore_data_ref = shift;
+	my $nutrient = shift;
+
+	my $nutrient_threshold_id = $nutrient;
+	if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
+		and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
+		$nutrient_threshold_id .= "_beverages";
+	}
+
+	my $higher_threshold;
+
+	foreach my $threshold (@{$points_thresholds{$nutrient_threshold_id}}) {
+		if ($nutriscore_data_ref->{$nutrient . "_value"} < $threshold) {
+			$higher_threshold = $threshold;
+			last;
+		}
+	}
+
+	# The return value needs to be stricly greater than the threshold
+
+	my $return_value = $higher_threshold;
+
+	if ($return_value) {
+		if ($nutrient eq "fruits_vegetables_nuts_colza_walnut_olive_oils") {
+			$return_value += 1;
+		}
+		else {
+			$return_value += 0.1;
+		}
+	}
+
+	return $return_value;
+}
+
+
+sub compute_nutriscore_score($) {
+
+	my $nutriscore_data_ref = shift;
 
 	# The values must be rounded with one more digit than the thresolds.
 	# Undefined values are counted as 0 (it can be the case in particular for waters that have different nutrients listed)
 
-	my $averages_ref = {};
-
 	# Round with 1 digit after the comma for energy, saturated fat, saturated fat ratio, sodium and fruits
 
 	foreach my $nutrient (qw(energy saturated_fat saturated_fat_ratio sodium fruits_vegetables_nuts_colza_walnut_olive_oils)) {
-		if (defined $product_data_ref->{$nutrient}) {
-			$averages_ref->{$nutrient} = int($product_data_ref->{$nutrient} * 10 + 0.5) / 10;
+		if (defined $nutriscore_data_ref->{$nutrient}) {
+			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 10 + 0.5) / 10;
 		}
 		else {
-			$averages_ref->{$nutrient} = 0;
+			$nutriscore_data_ref->{$nutrient . "_value"} = 0;
 		}
 	}
 
 	# Round with 2 digits for sugars, fiber and proteins
 
 	foreach my $nutrient (qw(sugars fiber proteins)) {
-		if (defined $product_data_ref->{$nutrient}) {
-			$averages_ref->{$nutrient} = int($product_data_ref->{$nutrient} * 100 + 0.5) / 100;
+		if (defined $nutriscore_data_ref->{$nutrient}) {
+			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 100 + 0.5) / 100;
 		}
 		else {
-			$averages_ref->{$nutrient} = 0;
+			$nutriscore_data_ref->{$nutrient . "_value"} = 0;
 		}
 	}
 
 	# Special case for sugar: we need to round to 2 digits if we are closed to a threshold defined with 1 digit (e.g. 4.5)
 	# but if the threshold is defined with 0 digit (e.g. 9) we need to round with 1 digit.
-	if ((($averages_ref->{"sugars"} - int($averages_ref->{"sugars"})) > 0.9)
-		or (($averages_ref->{"sugars"} - int($averages_ref->{"sugars"})) < 0.1)) {
-		$averages_ref->{"sugars"} = int($product_data_ref->{"sugars"} * 10 + 0.5) / 10;
+	if ((($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) > 0.9)
+		or (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) < 0.1)) {
+		$nutriscore_data_ref->{"sugars_value"} = int($nutriscore_data_ref->{"sugars"} * 10 + 0.5) / 10;
 	}
 
 	# Compute the negative and positive points
@@ -232,19 +310,18 @@ sub compute_nutriscore_score($$) {
 	foreach my $nutrient (qw(energy sugars saturated_fat saturated_fat_ratio sodium fruits_vegetables_nuts_colza_walnut_olive_oils fiber proteins)) {
 
 		my $nutrient_threshold_id = $nutrient;
-		if ((defined $product_data_ref->{is_beverage}) and ($product_data_ref->{is_beverage})
+		if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
 			and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
 			$nutrient_threshold_id .= "_beverages";
 		}
 
-		$points_ref->{$nutrient} = 0;
-		$points_ref->{$nutrient . "_value"} = $averages_ref->{$nutrient};
+		$nutriscore_data_ref->{$nutrient . "_points"} = 0;
 
 		foreach my $threshold (@{$points_thresholds{$nutrient_threshold_id}}) {
 			# The saturated fat ratio table uses the greater or equal sign instead of greater
-			if ((($nutrient eq "saturated_fat_ratio") and ($averages_ref->{$nutrient} >= $threshold))
-				or (($nutrient ne "saturated_fat_ratio") and ($averages_ref->{$nutrient} > $threshold))){
-				$points_ref->{$nutrient}++;
+			if ((($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold))
+				or (($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))){
+				$nutriscore_data_ref->{$nutrient . "_points"}++;
 			}
 		}
 	}
@@ -255,13 +332,13 @@ sub compute_nutriscore_score($$) {
 	# by the saturated fat / fat ratio points
 
 	my $fat = "saturated_fat";
-	if ((defined $product_data_ref->{is_fat}) and ($product_data_ref->{is_fat})) {
+	if ((defined $nutriscore_data_ref->{is_fat}) and ($nutriscore_data_ref->{is_fat})) {
 		$fat = "saturated_fat_ratio";
 	}
 
-	$points_ref->{negative_points} = 0;
+	$nutriscore_data_ref->{negative_points} = 0;
 	foreach my $nutrient ("energy", "sugars", $fat, "sodium") {
-		$points_ref->{negative_points} += $points_ref->{$nutrient};
+		$nutriscore_data_ref->{negative_points} += $nutriscore_data_ref->{$nutrient . "_points"};
 	}
 
 	# If the sum of negative points is greater or equal to 11
@@ -270,26 +347,26 @@ sub compute_nutriscore_score($$) {
 
 	# If the product is a cheese, always count the proteins points
 
-	$points_ref->{positive_points} = 0;
+	$nutriscore_data_ref->{positive_points} = 0;
 
 	my @positive_nutrients = qw(fruits_vegetables_nuts_colza_walnut_olive_oils fiber);
 
-	if (($points_ref->{negative_points} < 11)
-		or ((defined $product_data_ref->{is_cheese}) and ($product_data_ref->{is_cheese}))
-		or (((defined $product_data_ref->{is_beverage}) and ($product_data_ref->{is_beverage}))
-			and ($points_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils} == 10))
-		or (((not defined $product_data_ref->{is_beverage}) or (not $product_data_ref->{is_beverage}))
-			and ($points_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils} == 5)) ) {
+	if (($nutriscore_data_ref->{negative_points} < 11)
+		or ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese}))
+		or (((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
+			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
+		or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
+			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
 		push @positive_nutrients, "proteins";
 	}
 
 	foreach my $nutrient (@positive_nutrients) {
-		$points_ref->{positive_points} += $points_ref->{$nutrient};
+		$nutriscore_data_ref->{positive_points} += $nutriscore_data_ref->{$nutrient . "_points"};
 	}
 
-	my $nutrition_score = $points_ref->{negative_points} - $points_ref->{positive_points};
+	my $score = $nutriscore_data_ref->{negative_points} - $nutriscore_data_ref->{positive_points};
 
-	return $nutrition_score;
+	return $score;
 }
 
 

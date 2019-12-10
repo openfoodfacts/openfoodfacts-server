@@ -65,8 +65,35 @@ sub check_bugs($) {
 
 	my $product_ref = shift;
 
+	check_bug_missing_or_unknown_main_language($product_ref);
+
 	check_bug_code_missing($product_ref);
 	check_bug_created_t_missing($product_ref);
+}
+
+=head2 check_bug_missing_or_unknown_main_language( PRODUCT_REF )
+
+Products that do not have the lc or lang field set, or a lang field set to "xx" (unknown)
+
+lc and lang fields should always be set, but there has been some bugs in the past
+that caused them not to be set in certain conditions.
+
+=cut
+
+sub check_bug_missing_or_unknown_main_language($) {
+
+	my $product_ref = shift;
+
+	if ((not (defined $product_ref->{lc}))) {
+		push @{$product_ref->{data_quality_bugs_tags}}, "en:main-language-code-missing";
+	}
+
+	if ((not (defined $product_ref->{lang}))) {
+		push @{$product_ref->{data_quality_bugs_tags}}, "en:main-language-missing";
+	}
+	elsif ($product_ref->{lang} eq 'xx') {
+		push @{$product_ref->{data_quality_warnings_tags}}, "en:main-language-unknown";
+	}
 }
 
 sub check_bug_code_missing($) {

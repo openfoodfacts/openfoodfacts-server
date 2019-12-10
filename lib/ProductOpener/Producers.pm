@@ -46,6 +46,8 @@ BEGIN
 		&convert_file
 
 		&import_csv_file_task
+		&export_csv_file_task
+		&import_products_categories_from_public_database_task
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -72,7 +74,6 @@ use Encode;
 use JSON::PP;
 use Time::Local;
 use Data::Dumper;
-use Spreadsheet::CSV();
 use Text::CSV();
 use Minion;
 
@@ -100,7 +101,6 @@ sub load_csv_or_excel_file($) {
 
 	# Spreadsheet::CSV does not like CSV files with a BOM:
 	# Wide character in print at /usr/local/share/perl/5.24.1/Spreadsheet/CSV.pm line 87.
-	#
 
 	# There are many issues with Spreadsheet::CSV handling of CSV files
 	# (depending on whether there is a BOM, encoding, line endings etc.
@@ -111,9 +111,9 @@ sub load_csv_or_excel_file($) {
 	$extension =~ s/^(.*)\.//;
 	$extension = lc($extension);
 
-	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
+	my $encoding = "UTF-8";
 
-		my $encoding = "UTF-8";
+	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
 
 		$log->debug("opening CSV file", { file => $file, extension => $extension }) if $log->is_debug();
 
@@ -124,10 +124,23 @@ sub load_csv_or_excel_file($) {
 
 		if (open (my $io, "<:encoding($encoding)", $file)) {
 
-			@$headers_ref = $csv->header ($io, { detect_bom => 1 });
+			# @$headers_ref = $csv->header ($io, { detect_bom => 1 });
+			# the header function crashes with some csv files... use getline instead
+			my $row_ref;
 
-			while (my $row = $csv->getline ($io)) {
-				push @$rows_ref, $row;
+			while ((not defined $row_ref) and ($row_ref = $csv->getline ($io))) {
+			}
+
+			if (defined $row_ref) {
+
+				@$headers_ref = @$row_ref;
+
+				while ($row_ref = $csv->getline ($io)) {
+					push @$rows_ref, $row_ref;
+				}
+			}
+			else {
+				$results_ref->{error} = "Could not read hader line in CSV $file: $!";
 			}
 		}
 		else {
@@ -137,26 +150,50 @@ sub load_csv_or_excel_file($) {
 	else {
 		$log->debug("opening Excel file", { file => $file, extension => $extension }) if $log->is_debug();
 
-		if (open (my $io, "<", $file)) {
+		# my $csv = Spreadsheet::CSV->new();
+		# Spreadsheet::CSV does not handle well some Excel files (some cells are missing)
+		# use gnumeric's ssconvert to first convert to CSV format
 
-		my $csv_options_ref = { binary => 1 , sep_char => "\t" };
+		$log->debug("converting Excel file with gnumeric's ssconvert", { file => $file, extension => $extension }) if $log->is_debug();
 
-			my $csv = Spreadsheet::CSV->new();
+		system("ssconvert", $file, $file . ".csv");
 
-			# Assume first line is headers line
-			$headers_ref = $csv->getline ($io);
+		my $csv_options_ref = { binary => 1 , sep_char => "," };	# should set binary attribute.
 
-			if (not defined $headers_ref) {
-				$results_ref->{error} = "Unsupported file format (extension: $extension).";
+		$log->debug("opening CSV file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
+
+		my $csv = Text::CSV->new ( $csv_options_ref )
+		or die("Cannot use CSV: " . Text::CSV->error_diag ());
+
+		if (open (my $io, "<:encoding($encoding)", $file . ".csv")) {
+
+			$log->debug("opened file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
+
+			# @$headers_ref = $csv->header ($io, { detect_bom => 1 });
+			# the header function crashes with some csv files... use getline instead
+			my $row_ref = $csv->getline ($io);
+
+			# empty line or only title in first column?
+			while (((not defined $row_ref) or (not defined $row_ref->[0]) or ($row_ref->[0] eq "") or (not defined $row_ref->[1]) or ($row_ref->[1] eq ""))
+				and ($row_ref = $csv->getline ($io))) {
+			}
+
+			if (not defined $row_ref) {
+				$log->debug("could not read headers row", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
+				$results_ref->{error} = "Could not read headers row $file.csv: $!";
 			}
 			else {
-				while (my $row = $csv->getline ($io)) {
-					push @$rows_ref, $row;
+				@$headers_ref = @$row_ref;
+
+				# May need to deal with possible empty lines before header
+
+				while ($row_ref = $csv->getline ($io)) {
+					push @$rows_ref, $row_ref;
 				}
 			}
 		}
 		else {
-			$results_ref->{error} = "Could not open Excel $file: $!";
+			$results_ref->{error} = "Could not open CSV $file.csv: $!";
 		}
 	}
 
@@ -206,7 +243,18 @@ sub convert_file($$$$) {
 
 		if ((defined $columns_fields_ref->{$column}) and (defined $columns_fields_ref->{$column}{field})) {
 			my $field = $columns_fields_ref->{$column}{field};
-			if ($field =~ /_value_unit/) {
+
+			# For columns mapped to a specific label, output labels:Label name as the column name
+			if ($field =~ /^(labels|categories)_specific$/) {
+				$field = $1;
+				if (defined $columns_fields_ref->{$column}{tag}) {
+					$field .= ":" . $columns_fields_ref->{$column}{tag};
+				}
+				else {
+					$field = undef;
+				}
+			}
+			elsif ($field =~ /_value_unit/) {
 				$field = $`;
 				if (defined $columns_fields_ref->{$column}{value_unit}) {
 					$field .= "_" . $columns_fields_ref->{$column}{value_unit};
@@ -215,6 +263,8 @@ sub convert_file($$$$) {
 					$field = undef;
 				}
 			}
+
+			$log->debug("convert_file", { column => $column, field => $field, col => $col }) if $log->is_debug();
 
 			if (defined $field) {
 				push @headers, $field;
@@ -241,6 +291,9 @@ sub convert_file($$$$) {
 	$csv_out->print ($out, [@default_headers, @headers]);
 	print $out "\n";
 
+	# Fields for clean_fields()
+	@fields = @headers;
+
 	# Output CSV product data
 
 	foreach my $row_ref (@$rows_ref) {
@@ -259,7 +312,9 @@ sub convert_file($$$$) {
 			}
 		}
 
+		$log->debug("convert_file - before clean_fields ", { }) if $log->is_debug();
 		clean_fields($product_ref);
+		$log->debug("convert_file - after clean_fields ", { }) if $log->is_debug();
 
 		my @values = ();
 		foreach my $field (@headers) {
@@ -275,6 +330,26 @@ sub convert_file($$$$) {
 	return $results_ref;
 }
 
+# Normalize column names
+
+sub normalize_column_name($) {
+
+	my $name = shift;
+
+	$name =~ s/%/percent/g;
+
+	# remove stopwords
+
+	# fr
+	$name =~ s/^(teneur|taux) (en |de |d')?//i;
+	$name =~ s/^dont //i;
+	$name =~ s/ en / /i;
+
+	$name =~ s/pourcentage (en |de |d')?/percent /;
+	$name =~ s/pourcentage/percent/;
+
+	return $name;
+}
 
 # Initialize the list of synonyms of fields and nutrients in the different languages only once
 
@@ -285,18 +360,37 @@ my %fields_columns_names_for_lang = ();
 my %fields_synonyms = (
 
 en => {
-	code => ["code", "barcode", "ean", "ean-13", "ean13", "gtin"],
+	lc => ["lang"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 },
 
+es => {
+	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
+	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
+	net_weight_value_unit => ["peso unitrario", "peso unitario"],	# Yuka
+	"energy-kcal_100g_value_unit" => ["calorias"],
+},
+
 fr => {
 
-	product_name_fr => ["nom", "nom produit", "nom du produit"],
+	code => ["codes barres"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale"],
+	generic_name_fr => ["dénomination légale", "déno légale"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
+	labels => ["signes qualité", "signe qualité"],
+	countries => ["pays de vente"],
+	volume_value_unit => ["volume net"],
+	drained_weight_value_unit => ["poids net égoutté"],
+	recycling_instructions_to_recycle_fr => ["à recycler", "consigne à recycler"],
+	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
+	preparation_fr => ["conseils de préparation", "instructions de préparation"],
+	link => ["lien"],
+	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement"],
 },
 
 );
@@ -317,11 +411,37 @@ sub init_fields_columns_names_for_lang($) {
 	# Other known fields
 
 	foreach my $column_id (qw(calories kcal)) {
-		$fields_columns_names_for_lang{$l}{$column_id} = { field=>"energy_100g_value_unit", value_unit=>"value_in_kcal" };
+		$fields_columns_names_for_lang{$l}{$column_id} = { field=>"energy-kcal_100g_value_unit", value_unit=>"value_in_kcal" };
 	}
+	$fields_columns_names_for_lang{$l}{"kj"} = { field=>"energy-kj_100g_value_unit", value_unit=>"value_in_kj" };
 
 	$log->debug("fields_columns_names_for_lang", { l=>$l, fields_columns_names_for_lang=>$fields_columns_names_for_lang{$l} }) if $log->is_debug();
+
+	(! -e "$data_root/debug") and mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
+
+	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 }
+
+
+# Note: This is not a conversion table, it is a list of synonyms used by producers when they transmit us data.
+# In practice, no producer uses cal (as in 1/1000 of kcal) as a unit for energy.
+# When they have "cal" or "calories" in the header of a column, they always mean kcal.
+# The units in this table are lowercased, so "cal" is for the "big Calories". 1 Cal = 1 kcal.
+
+my %units_synonyms = (
+	"g" => "g",
+	"gr" => "g",
+	"grams" => "g",
+	"grammes" => "g",
+	"mg" => "mg",
+	"mcg" => "mcg",
+	"percent" => "percent",
+	"kj" => "kj",
+	"kcal" => "kcal",
+	"cal" => "kcal",
+	"calories" => "kcal",
+	"calorie" => "kcal",
+);
 
 
 sub init_nutrients_columns_names_for_lang($) {
@@ -338,14 +458,55 @@ sub init_nutrients_columns_names_for_lang($) {
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;
 
-		if (exists $Nutriments{$nid}{$l}) {
-			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Nutriments{$nid}{$l})} = { field => $nid . "_100g_value_unit"};
-			$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
-		}
+		my @synonyms = ();
 		if (exists $Nutriments{$nid}{$l . "_synonyms"}) {
-			foreach my $synonym (@{$Nutriments{$nid}{$l . "_synonyms"}}) {
-				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = { field => $nid . "_100g_value_unit"};
+			@synonyms = @{$Nutriments{$nid}{$l . "_synonyms"}};
+		}
+		if (exists $Nutriments{$nid}{$l}) {
+			unshift @synonyms, $Nutriments{$nid}{$l};
+		}
+
+		foreach my $synonym (@synonyms) {
+
+			$synonym = normalize_column_name($synonym);
+
+			my $match_ref = { field => $nid . "_100g_value_unit"};
+
+			if ($nid eq "energy-kcal") {
+				$match_ref->{value_unit} = "value_in_kcal";
 			}
+			elsif ($nid eq "energy-kj") {
+				$match_ref->{value_unit} = "value_in_kj";
+			}
+
+			# Energy, saturated fat
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = $match_ref;
+
+			# Energy kcal, carbohydrates g, calcium mg
+
+			my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+
+			if ($nid eq "energy-kcal") {
+				@units = qw(kcal cal calories);
+				$synonym =~ s/kcal//;
+			}
+			elsif ($nid eq "energy-kj") {
+				@units = qw(kj);
+				$synonym =~ s/kj//;
+			}
+			elsif ($nid =~ /^energy/) {
+				# Give priority to energy-kj and energy-kcal
+				@units = ();
+			}
+
+			foreach my $unit (@units) {
+				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
+					field => $nid . "_100g_value_unit",
+					value_unit => "value_in_" . $units_synonyms{$unit},
+				};
+			}
+
+			$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 		}
 	}
 }
@@ -381,7 +542,35 @@ sub init_other_fields_columns_names_for_lang($) {
 				elsif ($field =~ /_value_unit$/) {
 					# Column can contain value + unit, value, or unit for a specific field
 					my $field_name = $`;
-					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field_name}{$l})} = {field => $field};
+
+					my @synonyms = ($field_name, $Lang{$field_name}{$l});
+					if ((defined $fields_synonyms{$l}) and (defined $fields_synonyms{$l}{$field})) {
+						foreach my $synonym (@{$fields_synonyms{$l}{$field}}) {
+							push @synonyms, $synonym;
+						}
+					}
+
+					foreach my $synonym (@synonyms) {
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = {field => $field};
+
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $Lang{unit}{$l})} = {
+							field => $field,
+							value_unit => "unit",
+						};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{unit}{$l} . " " . $synonym)} = {
+							field => $field,
+							value_unit => "unit",
+						};
+
+						my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+
+						foreach my $unit (@units) {
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
+								field => $field,
+								value_unit => "value_in_" . $units_synonyms{$unit},
+							};
+						}
+					}
 				}
 				elsif (defined $tags_fields{$field}) {
 					my $tagtype = $field;
@@ -397,7 +586,7 @@ sub init_other_fields_columns_names_for_lang($) {
 
 					foreach my $field_l ($l, "en") {
 
-						my @synonyms = ($Lang{$field}{$field_l});
+						my @synonyms = ($field, $Lang{$field}{$field_l});
 						if ((defined $fields_synonyms{$field_l}) and (defined $fields_synonyms{$field_l}{$field . "_" . $field_l})) {
 							foreach my $synonym (@{$fields_synonyms{$field_l}{$field . "_" . $field_l}}) {
 								push @synonyms, $synonym;
@@ -413,6 +602,7 @@ sub init_other_fields_columns_names_for_lang($) {
 					}
 				}
 				else {
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field };
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
 				}
 			}
@@ -474,6 +664,21 @@ sub compute_statistics_and_examples($$$) {
 	my $rows_ref = shift;
 	my $columns_fields_ref = shift;
 
+	foreach my $column (@$headers_ref) {
+		if (not defined $columns_fields_ref->{$column}) {
+			$columns_fields_ref->{$column} = {
+				examples => [],
+				existing_examples => {},
+				n => 0,
+				numbers => 0,
+				letters => 0,
+				both => 0,
+				min => undef,
+				max => undef
+			};
+		}
+	}
+
 	my $row = 0;
 
 	foreach my $row_ref (@$rows_ref) {
@@ -483,8 +688,6 @@ sub compute_statistics_and_examples($$$) {
 		foreach my $value (@$row_ref) {
 
 			my $column = $headers_ref->[$col];
-
-			defined $columns_fields_ref->{$column} or $columns_fields_ref->{$column} = { examples => [], existing_examples => {}, n => 0, numbers => 0, letters => 0, both => 0, min => undef, max => undef };
 
 			# empty value?
 
@@ -571,7 +774,7 @@ sub init_columns_fields_match($$) {
 
 	foreach my $column (@$headers_ref) {
 
-		my $column_id = get_string_id_for_lang("no_language", $column);
+		my $column_id = get_string_id_for_lang("no_language", normalize_column_name($column));
 
 		if ((defined $all_columns_fields_ref->{$column_id}) and (defined $all_columns_fields_ref->{$column_id}{field})) {
 
@@ -581,7 +784,10 @@ sub init_columns_fields_match($$) {
 
 			# Name of a field in the current language or in English?
 
+			$log->debug("before match_column_name_to_field", { lc=>$lc, column=>$column, column_id=>$column_id, column_field=>$columns_fields_ref->{$column} }) if $log->is_debug();
+
 			$columns_fields_ref->{$column} = { %{$columns_fields_ref->{$column}}, %{match_column_name_to_field($lc, $column_id)} };
+			$columns_fields_ref->{$column}{column_id} = $column_id;
 
 			$log->debug("after match_column_name_to_field", { lc=>$lc, column=>$column, column_id=>$column_id, column_field=>$columns_fields_ref->{$column} }) if $log->is_debug();
 
@@ -597,7 +803,7 @@ sub init_columns_fields_match($$) {
 					# Try to guess the unit
 
 					# Common nutrients usually in grams, max value <= 100
-					if (($columns_fields_ref->{$column}{field} =~ /^(energy|fat|saturated-fat|carbohydrates|sugars|proteins|salt|fiber|fruits-vegetables-nuts)_100g_value_unit$/)
+					if (($columns_fields_ref->{$column}{field} =~ /^(fat|saturated-fat|carbohydrates|sugars|proteins|salt|fiber|fruits-vegetables-nuts)_100g_value_unit$/)
 						and ($columns_fields_ref->{$column}{max} <= 100)) {
 						$columns_fields_ref->{$column}{value_unit} = "value_in_g";
 					}
@@ -825,6 +1031,33 @@ sub export_csv_file_task() {
 
 	open(my $log, ">>", "$data_root/logs/minion.log");
 	print $log "export_csv_file_task - job: $job_id done\n";
+	close($log);
+
+	$job->finish("done");
+}
+
+
+sub import_products_categories_from_public_database_task() {
+
+	my $job = shift;
+	my $args_ref = shift;
+
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	print $minion_log "import_products_categories_from_public_database_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	close($minion_log);
+
+	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+
+	ProductOpener::Import::import_products_categories_from_public_database($args_ref);
+
+	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id - done\n";
+
+	open(my $log, ">>", "$data_root/logs/minion.log");
+	print $log "import_products_categories_from_public_database_file_task - job: $job_id done\n";
 	close($log);
 
 	$job->finish("done");

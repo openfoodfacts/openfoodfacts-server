@@ -214,7 +214,7 @@ print STDERR "$count documents to update.\n";
 sleep(2);
 
 
-my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });
+my $cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
 $cursor->immortal(1);
 
 my $n = 0;	# number of products updated
@@ -224,21 +224,27 @@ my $fix_rev_not_incremented_fixed = 0;
 
 while (my $product_ref = $cursor->next) {
 
+	my $productid = $product_ref->{_id};
 	my $code = $product_ref->{code};
 	my $path = product_path($product_ref);
+
+	my $owner_info = "";
+	if (defined $product_ref->{owner}) {
+		$owner_info = "- owner: " . $product_ref->{owner} . " ";
+	}
 
 	if (not defined $code) {
 		print STDERR "code field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id} . "\n";
 	}
 	else {
-		print STDERR "updating product $code ($n)\n";
+		print STDERR "updating product code: $code $owner_info ($n)\n";
 	}
 
 	next if $just_print_codes;
 
-	$product_ref = retrieve_product($code);
+	$product_ref = retrieve_product($productid);
 
-	if ((defined $product_ref) and ($code ne '')) {
+	if ((defined $product_ref) and ($productid ne '')) {
 
 		$lc = $product_ref->{lc};
 
@@ -421,6 +427,15 @@ while (my $product_ref = $cursor->next) {
 				print STDERR "fixing missing lc, lang also missing, assigning en";
 				$product_ref->{lc} = "en";
 				$product_ref->{lang} = "en";
+				$product_values_changed = 1;
+			}
+		}
+
+		if (($fix_missing_lc) and (not defined $product_ref->{lang})) {
+			print STDERR "lc: " . $product_ref->{lc} . "\n";
+			if ((defined $product_ref->{lc}) and ($product_ref->{lc} =~ /^[a-z][a-z]$/)) {
+				print STDERR "fixing missing lang, using lc: " . $product_ref->{lc} . "\n";
+				$product_ref->{lang} = $product_ref->{lc};
 				$product_values_changed = 1;
 			}
 		}
@@ -628,6 +643,9 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		$n++;
+	}
+	else {
+		print STDERR "Unable to load product file for product code $code\n";
 	}
 
 }

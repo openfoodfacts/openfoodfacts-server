@@ -88,6 +88,7 @@ use ProductOpener::Tags qw(:all);
 
 use ProductOpener::DataQualityCommon qw(:all);
 use ProductOpener::DataQualityFood qw(:all);
+use ProductOpener::ProducersFood qw(:all);
 
 
 =head1 FUNCTIONS
@@ -136,10 +137,18 @@ sub check_quality($) {
 			$product_ref->{"data_quality_" . $level . "_producers_tags"} = [];
 
 			foreach my $value (@{$product_ref->{"data_quality_" . $level . "_tags"}}) {
-				if ((exists_taxonomy_tag("data_quality", $value)) and ()) {
-					push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
+				if (exists_taxonomy_tag("data_quality", $value)) {
+					my $show_on_producers_platform = get_property("data_quality", $value, "show_on_producers_platform:en");
+					if ((defined $show_on_producers_platform) and ($show_on_producers_platform eq "yes")) {
+						push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
+					}
 				}
 			}
+		}
+
+		# Detect possible improvements opportunities for food products
+		if ($options{product_type} eq "food") {
+			detect_possible_improvements($product_ref);
 		}
 	}
 

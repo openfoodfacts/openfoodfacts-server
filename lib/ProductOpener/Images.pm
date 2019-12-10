@@ -35,6 +35,7 @@ BEGIN
 					&display_search_image_form
 					&process_search_image_form
 
+					&get_code_and_imagefield_from_file_name
 					&process_image_upload
 					&process_image_move
 
@@ -267,7 +268,7 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="icon-photo_camera"></i> $product_image_with_barcode
+<a href="#" class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
 <input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
     right:0;
     bottom:0;
@@ -409,6 +410,38 @@ sub dims {
 }
 
 
+sub get_code_and_imagefield_from_file_name($$) {
+
+	my $l = shift;
+	my $filename = shift;
+
+	my $code;
+	my $imagefield;
+
+	# Look for the barcode
+	if ($filename =~ /(\d{8}\d*)/) {
+		$code = $1;
+	}
+
+	# Check for a specified imagefield
+	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
+		$imagefield = $1;
+		$imagefield =~ s/-/_/;
+	}
+	# If the photo file name is just the barcode + some stopwords, assume it is the front image
+	elsif ($filename =~ /^\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.(png|jpg|jpeg|gif)$/i) {
+		$imagefield = "front";
+	}
+	else {
+		$imagefield = "other";
+	}
+
+	$log->debug("get_code_and_imagefield_from_file_name", { l => $l, filename => $filename, code => $code, imagefield => $imagefield }) if $log->is_debug();
+
+	return ($code, $imagefield);
+}
+
+
 sub process_image_upload($$$$$$) {
 
 	my $product_id = shift;
@@ -448,6 +481,11 @@ sub process_image_upload($$$$$$) {
 			my $old_imagefield = $imagefield;
 			$old_imagefield =~ s/_\w\w$//;
 			$file = param('imgupload_' . $old_imagefield);
+
+			if (! $file) {
+				# producers platform: name="files[]"
+				$file = param("files[]");
+			}
 		}
 	}
 
@@ -1178,6 +1216,13 @@ sub display_image_thumb($$) {
 
 	my $html = '';
 
+	my $css = "";
+
+	# Gray out images of obsolete products
+	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
+		$css = 'style="filter: grayscale(100%)"';
+	}
+
 	# first try the requested language
 	my @display_ids = ($imagetype . "_" . $display_lc);
 
@@ -1200,7 +1245,7 @@ sub display_image_thumb($$) {
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
 				$html .= <<HTML
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" />
+<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
 HTML
 ;
 
@@ -1208,25 +1253,12 @@ HTML
 		}
 	}
 
-	# If we don't have an image, display Pacman
+	# No image
 	if ($html eq '') {
 
-		my @colors = qw(
-ff6600
-ffcc00
-55d400
-00ccff
-0066ff
-ff00cc
-cc00ff
-);
-		my $color_id = $product_ref->{code} % (scalar @colors);
-		my $color = $colors[$color_id];
-
 		$html = <<HTML
-<div style="background-color:#$color">
-<img src="$static/images/misc/pacman.svg" width="$thumb_size" height="$thumb_size" alt="Please add pictures of the product if you have it!" />
-</div>
+<img src="$static/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
+</img>
 HTML
 ;
 	}
