@@ -42,6 +42,7 @@ binmode STDOUT, ":encoding(UTF-8)";
 
 
 my $file = $tagtype . ".txt";
+my $site = "";#TODO
 
 # For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
 

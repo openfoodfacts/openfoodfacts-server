@@ -655,8 +655,9 @@ sub remove_plurals($$) {
 
 
 
-sub build_tags_taxonomy($$$) {
+sub build_tags_taxonomy {
 
+	my $site = shift;
 	my $tagtype = shift;
 	my $file = shift;
 	my $publish = shift;
@@ -683,7 +684,7 @@ sub build_tags_taxonomy($$$) {
 
 	my $errors = '';
 
-	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file")) {
+	if (open (my $IN, '<:encoding(UTF-8)', "$data_root/taxonomies/$site/$file")) {
 
 		my $current_tagid;
 		my $current_tag;
@@ -774,7 +775,7 @@ sub build_tags_taxonomy($$$) {
 
 				# Make sure we don't have empty entries
 				if ($line eq "") {
-					die ("Empty entry at line $line_number in $data_root/taxonomies/$file\n");
+					die ("Empty entry at line $line_number in $data_root/taxonomies/$site/$file\n");
 				}
 
 				my @tags = split(/\s*,\s*/, $line);
@@ -882,11 +883,11 @@ sub build_tags_taxonomy($$$) {
 
 		if ($errors ne "") {
 
-			print STDERR "Errors in the $tagtype taxonomy definition:\n";
+			print STDERR "Errors in the $tagtype taxonomy definition for site $site:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			unless ($tagtype eq "ingredients") {
-				die("Errors in the $tagtype taxonomy definition");
+				die("Errors in the $tagtype taxonomy definition for site $site");
 			}
 		}
 
@@ -926,115 +927,115 @@ sub build_tags_taxonomy($$$) {
 
 		for (my $pass = 1; $pass <= $max_pass; $pass++) {
 
-		print STDERR "computing synonyms - $tagtype - pass $pass\n";
+			print STDERR "computing synonyms - $site - $tagtype - pass $pass\n";
 
-		foreach my $lc ( sort keys %{$synonyms{$tagtype}}) {
+			foreach my $lc ( sort keys %{$synonyms{$tagtype}}) {
 
-			my @smaller_synonyms = ();
+				my @smaller_synonyms = ();
 
-			# synonyms don't support non roman languages at this point
-			next if ($lc eq 'ar');
-			next if ($lc eq 'he');
+				# synonyms don't support non roman languages at this point
+				next if ($lc eq 'ar');
+				next if ($lc eq 'he');
 
-			foreach my $tagid (sort { length($a) <=> length($b) || ($a cmp $b) } keys %{$synonyms{$tagtype}{$lc}}) {
+				foreach my $tagid (sort { length($a) <=> length($b) || ($a cmp $b) } keys %{$synonyms{$tagtype}{$lc}}) {
 
-				my $max_length = length($tagid) - 3;
-				$max_length > 30 and next; # don't lengthen already long synonyms
+					my $max_length = length($tagid) - 3;
+					$max_length > 30 and next; # don't lengthen already long synonyms
 
-				# check if the synonym contains another small synonym
+					# check if the synonym contains another small synonym
 
-				my $tagid_c = $synonyms{$tagtype}{$lc}{$tagid};
+					my $tagid_c = $synonyms{$tagtype}{$lc}{$tagid};
 
-				#print "computing synonyms for $tagid (canon: $tagid_c)\n";
+					#print "computing synonyms for $tagid (canon: $tagid_c)\n";
 
-				# Does $tagid have other synonyms?
-				if (scalar @{$synonyms_for{$tagtype}{$lc}{$tagid_c}} > 1) {
-					if (length($tagid) < 15) {
-						# limit length of synonyms for performance
-						push @smaller_synonyms, $tagid;
-						#print "$tagid (canon: $tagid_c) has other synonyms\n";
-					}
-				}
-
-				foreach my $tagid2 (@smaller_synonyms) {
-
-					last if length($tagid2) >  $max_length;
-
-					# try to avoid looping:
-					# e.g. bio, agriculture biologique, biologique -> agriculture bio -> agriculture agriculture biologique etc.
-
-					my $tagid2_c = $synonyms{$tagtype}{$lc}{$tagid2};
-
-					next if $tagid2_c eq $tagid_c;
-					# do not apply same synonym twice
-
-					next if ((defined $synonym_contains_synonyms{$lc}{$tagid})
-						and (defined $synonym_contains_synonyms{$lc}{$tagid}{$tagid2_c}));
-
-					my $replace;
-					my $before = '';
-					my $after = '';
-
-					# replace whole words/phrases only
-
-					if ($tagid =~ /-${tagid2}-/) {
-						$replace = "-${tagid2}-";
-						$before = '-';
-						$after = '-';
-					}
-					elsif ($tagid =~ /-${tagid2}$/) {
-						$replace = "-${tagid2}\$";
-						$before = '-';
-					}
-					elsif ($tagid =~ /^${tagid2}-/) {
-						$replace = "^${tagid2}-";
-						$after = '-';
+					# Does $tagid have other synonyms?
+					if (scalar @{$synonyms_for{$tagtype}{$lc}{$tagid_c}} > 1) {
+						if (length($tagid) < 15) {
+							# limit length of synonyms for performance
+							push @smaller_synonyms, $tagid;
+							#print "$tagid (canon: $tagid_c) has other synonyms\n";
+						}
 					}
 
+					foreach my $tagid2 (@smaller_synonyms) {
 
-					if (defined $replace) {
+						last if length($tagid2) >  $max_length;
 
-						#print "computing synonyms for $tagid ($tagid_c): replace: $replace \n";
+						# try to avoid looping:
+						# e.g. bio, agriculture biologique, biologique -> agriculture bio -> agriculture agriculture biologique etc.
 
-						foreach my $tagid2_s (sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$tagid2_c}}) {
+						my $tagid2_c = $synonyms{$tagtype}{$lc}{$tagid2};
 
-							# don't replace a synonym by itself
-							next if $tagid2_s eq $tagid2;
+						next if $tagid2_c eq $tagid_c;
+						# do not apply same synonym twice
 
-							# oeufs, oeufs frais -> oeufs frais frais -> oeufs frais frais frais
-							# synonym already contained? skip if we are not shortening
-							next if (($tagid =~ /${tagid2_s}/) and (length($tagid2_s) > length($tagid2)));
-							next if ($tagid2_s =~ /$tagid/);
+						next if ((defined $synonym_contains_synonyms{$lc}{$tagid})
+							and (defined $synonym_contains_synonyms{$lc}{$tagid}{$tagid2_c}));
+
+						my $replace;
+						my $before = '';
+						my $after = '';
+
+						# replace whole words/phrases only
+
+						if ($tagid =~ /-${tagid2}-/) {
+							$replace = "-${tagid2}-";
+							$before = '-';
+							$after = '-';
+						}
+						elsif ($tagid =~ /-${tagid2}$/) {
+							$replace = "-${tagid2}\$";
+							$before = '-';
+						}
+						elsif ($tagid =~ /^${tagid2}-/) {
+							$replace = "^${tagid2}-";
+							$after = '-';
+						}
 
 
-							my $tagid_new = $tagid;
-							my $replaceby = "${before}${tagid2_s}${after}";
-							$tagid_new =~ s/$replace/$replaceby/e;
+						if (defined $replace) {
+
+							#print "computing synonyms for $tagid ($tagid_c): replace: $replace \n";
+
+							foreach my $tagid2_s (sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$tagid2_c}}) {
+
+								# don't replace a synonym by itself
+								next if $tagid2_s eq $tagid2;
+
+								# oeufs, oeufs frais -> oeufs frais frais -> oeufs frais frais frais
+								# synonym already contained? skip if we are not shortening
+								next if (($tagid =~ /${tagid2_s}/) and (length($tagid2_s) > length($tagid2)));
+								next if ($tagid2_s =~ /$tagid/);
+
+
+								my $tagid_new = $tagid;
+								my $replaceby = "${before}${tagid2_s}${after}";
+								$tagid_new =~ s/$replace/$replaceby/e;
 
 
 
-							#print "computing synonyms for $tagid ($tagid0): replaceby: $replaceby - tagid4: $tagid4\n";
+								#print "computing synonyms for $tagid ($tagid0): replaceby: $replaceby - tagid4: $tagid4\n";
 
-							if (not defined $synonyms_for_extended{$tagtype}{$lc}{$tagid_c}{$tagid_new}) {
-								$synonyms_for_extended{$tagtype}{$lc}{$tagid_c}{$tagid_new} = 1;
-								$synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c;
-								if (defined $synonym_contains_synonyms{$lc}{$tagid_new}) {
-									$synonym_contains_synonyms{$lc}{$tagid_new} = clone($synonym_contains_synonyms{$lc}{$tagid});
+								if (not defined $synonyms_for_extended{$tagtype}{$lc}{$tagid_c}{$tagid_new}) {
+									$synonyms_for_extended{$tagtype}{$lc}{$tagid_c}{$tagid_new} = 1;
+									$synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c;
+									if (defined $synonym_contains_synonyms{$lc}{$tagid_new}) {
+										$synonym_contains_synonyms{$lc}{$tagid_new} = clone($synonym_contains_synonyms{$lc}{$tagid});
+									}
+									else {
+										$synonym_contains_synonyms{$lc}{$tagid_new} = {};
+									}
+									$synonym_contains_synonyms{$lc}{$tagid_new}{$tagid2_c} = 1;
+									print STDERR "synonyms_extended : synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c (tagid: $tagid - tagid2: $tagid2 - tagid2_c: $tagid2_c - tagid2_s: $tagid2_s - replace: $replace - replaceby: $replaceby)\n";
 								}
-								else {
-									$synonym_contains_synonyms{$lc}{$tagid_new} = {};
-								}
-								$synonym_contains_synonyms{$lc}{$tagid_new}{$tagid2_c} = 1;
-								print STDERR "synonyms_extended : synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c (tagid: $tagid - tagid2: $tagid2 - tagid2_c: $tagid2_c - tagid2_s: $tagid2_s - replace: $replace - replaceby: $replaceby)\n";
 							}
 						}
+
 					}
 
 				}
 
 			}
-
-		}
 
 		}
 
@@ -1063,13 +1064,13 @@ sub build_tags_taxonomy($$$) {
 		# 3rd phase: compute the hierarchy
 
 
-# Nectars de fruits, nectar de fruits, nectars, nectar
-# < Jus et nectars de fruits, jus et nectar de fruits
-# > Nectars de goyave, nectar de goyave, nectar goyave
-# > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar
+		# Nectars de fruits, nectar de fruits, nectars, nectar
+		# < Jus et nectars de fruits, jus et nectar de fruits
+		# > Nectars de goyave, nectar de goyave, nectar goyave
+		# > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar
 
 
-		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file") or die ;
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$site/$file") or die;
 
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 
@@ -1218,10 +1219,10 @@ sub build_tags_taxonomy($$$) {
 		# allow a second file for wikipedia abstracts -> too big, so don't include it in the main file
 		# only process properties
 
-		if (-e "$data_root/taxonomies/${tagtype}.properties.txt") {
+		if (-e "$data_root/taxonomies/$site/${tagtype}.properties.txt") {
 
 
-		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/${tagtype}.properties.txt");
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$site/${tagtype}.properties.txt");
 
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 
@@ -1374,7 +1375,7 @@ sub build_tags_taxonomy($$$) {
 		}
 
 
-		open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.result.txt");
+		open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$site/dist/$tagtype.result.txt");
 
 
 		# data structure to export the taxonomy to json format
@@ -1550,7 +1551,7 @@ sub build_tags_taxonomy($$$) {
 		};
 
 		if ($publish) {
-			store("$data_root/taxonomies/$tagtype.result.sto", $taxonomy_ref);
+			store("$data_root/taxonomies/$site/dist/$tagtype.result.sto", $taxonomy_ref);
 		}
 
 	}
@@ -1559,6 +1560,7 @@ sub build_tags_taxonomy($$$) {
 
 sub retrieve_tags_taxonomy {
 
+	my $site = shift;
 	my $tagtype = shift;
 
 	$taxonomy_fields{$tagtype} = 1;
@@ -1574,7 +1576,7 @@ sub retrieve_tags_taxonomy {
 		}
 	}
 
-	my $taxonomy_ref = retrieve("$data_root/taxonomies/$tagtype.result.sto") or die("Could not load taxonomy: $data_root/taxonomies/$tagtype.result.sto");
+	my $taxonomy_ref = retrieve("$data_root/taxonomies/$site/$tagtype.result.sto") or die("Could not load taxonomy: $data_root/taxonomies/$tagtype.result.sto");
 	if (defined $taxonomy_ref) {
 
 		$loaded_taxonomies{$tagtype} = 1;
@@ -1597,7 +1599,7 @@ sub retrieve_tags_taxonomy {
 	}
 
 	$special_tags{$tagtype} = [];
-	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$site/special_$tagtype.txt")) {
 
 		while (<$IN>) {
 
