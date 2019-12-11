@@ -174,10 +174,8 @@ server {
 
 	include /etc/nginx/expires-no-json-xml.conf; # 2018-06-18 Moved to the end because of CORS issue with top_translators.csv
 
-	location ~ \.(eot|ttf|woff|woff2)$ {
+	location ~* \.(json|csv)$ {
 		add_header Access-Control-Allow-Origin *;
-		expires 1d;
-		access_log off;
 	}
 
 	location ~ ^/images/products/ {
@@ -606,9 +604,9 @@ server {
 
 	include /etc/nginx/expires-no-json-xml.conf; # 2018-06-18 Moved to the end because of CORS issue with top_translators.csv
 
-	location ~* \.(eot|ttf|woff|woff2)$ {
-		add_header Access-Control-Allow-Origin *;
-	}
+	location ~* \.(json|csv)$ {
+                add_header Access-Control-Allow-Origin *;
+        }
 
 	location ~ ^/images/products/ {
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";

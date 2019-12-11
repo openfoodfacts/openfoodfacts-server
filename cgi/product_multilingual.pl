@@ -731,6 +731,9 @@ HTML
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
 <script type="text/javascript" src="/foundation/js/foundation/foundation.tab.js"></script>
+<script type="text/javascript">	
+var admin = $moderator;
+</script>
 <script type="text/javascript" src="/js/dist/product-multilingual.js"></script>
 HTML
 ;
