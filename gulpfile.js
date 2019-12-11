@@ -84,6 +84,7 @@ function copyCss() {
 }
 
 exports.copyJs = copyJs;
+exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
-exports.default = parallel(copyJs, copyCss, jQueryUiThemes, series(icons, css));
+exports.default = parallel(copyJs, buildJs, copyCss, jQueryUiThemes, series(icons, css));
