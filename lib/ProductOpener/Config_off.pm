@@ -674,7 +674,7 @@ improvements
 
 $options{import_export_fields_groups} = [
 	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
-		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "packaging",
+		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "serving_size_value_unit", "packaging",
 		"brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores", "obsolete", "obsolete_since_date"]
 	],
 	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
