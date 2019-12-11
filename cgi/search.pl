@@ -533,7 +533,7 @@ HTML
 ;
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/dist/search.js"></script>
 HTML
 ;
 

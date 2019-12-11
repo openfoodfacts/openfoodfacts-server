@@ -16,17 +16,17 @@ function icons() {
   return src("*.svg", { cwd: "./icons" })
     .pipe(
       svgmin({
-        plugins: [
-          { removeMetadata: false },
-          { removeTitle: false },
-          { removeDimensions: true },
+      plugins: [
+        { removeMetadata: false },
+        { removeTitle: false },
+        { removeDimensions: true },
           { addClassesToSVGElement: { className: "icon" } },
           {
             addAttributesToSVGElement: {
               attributes: [{ "aria-hidden": "true", focusable: "false" }]
             }
           }
-        ]
+      ]
       })
     )
     .pipe(dest("./html/images/icons/dist"));
@@ -61,6 +61,15 @@ function copyJs() {
   ).pipe(dest("./html/js/dist", { sourcemaps: true }));
 }
 
+function buildJs() {
+  return src([
+    './html/js/display*.js',
+    './html/js/product-multilingual.js',
+    './html/js/search.js'
+  ], { sourcemaps: false })
+  .pipe(dest('./html/js/dist', { sourcemaps: false }))
+}
+
 function jQueryUiThemes() {
   return src("./node_modules/jquery-ui-dist/**/*.css", {
     sourcemaps: true
@@ -75,6 +84,7 @@ function copyCss() {
 }
 
 exports.copyJs = copyJs;
+exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
-exports.default = parallel(copyJs, copyCss, jQueryUiThemes, series(icons, css));
+exports.default = parallel(copyJs, buildJs, copyCss, jQueryUiThemes, series(icons, css));

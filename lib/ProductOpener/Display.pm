@@ -3336,7 +3336,7 @@ JS
 	<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
 	<script src="$static_subdomain/js/dist/leaflet.js"></script>
 	<script src="$static_subdomain/js/dist/osmtogeojson.js"></script>
-	<script src="$static_subdomain/js/display-tag.js"></script>
+	<script src="$static_subdomain/js/dist/display-tag.js"></script>
 HTML
 ;
 
@@ -3539,12 +3539,20 @@ HTML
 			$value = $canon_tagid2;
 		}
 
+		my $tag2_is_negative = (defined $request_ref->{tag2_prefix} and $request_ref->{tag2_prefix} eq '-') ? 1 : 0;
+
+		$log->debug("tag2_is_negative " . $tag2_is_negative) if $log->is_debug();
 		# 2 criteria on the same field?
 		# we need to use the $and MongoDB syntax
 
 		if (defined $query_ref->{$field}) {
 			my $and = [{ $field => $query_ref->{$field} }];
-			push @$and, { $field => $value };
+			# fix for issue #2657: negative query on tag2 was not being honored if both tag types are the same
+			if ( $tag2_is_negative ) {
+				push @$and, { $field =>  { "\$ne" => $value}  };
+			} else {
+				push @$and, { $field =>  $value };
+			}
 			delete $query_ref->{$field};
 			$query_ref->{"\$and"} = $and;
 		}
@@ -3555,11 +3563,7 @@ HTML
 		}
 		else {
 			# issue 2285: second tag was not supporting the 'minus' query
-			if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} eq '-')) {
-				$query_ref->{$field} = { "\$ne" => $value};
-			} else {
-				$query_ref->{$field} = $value;
-			}
+			$query_ref->{$field} = $tag2_is_negative ? { "\$ne" => $value} : $value;
 		}
 
 	}
@@ -5606,7 +5610,7 @@ sub display_login_register($)
 		</div>
 		<div class="small-12 columns">
 			<label>
-				<input type="checkbox" name="remember_me" value="on">
+				<input type="checkbox" name="remember_me" checked>
 				$Lang{remember_me}{$lc}
 			</label>
 		</div>
@@ -5911,7 +5915,7 @@ sub display_new($) {
 
 	my $html = <<HTML
 <!doctype html>
-<html class="no-js" lang="$lang">
+<html class="no-js" lang="$lang" data-serverdomain="$server_domain">
 <head>
 <meta charset="utf-8">
 
@@ -5927,9 +5931,10 @@ $og_images
 $og_images2
 <meta property="og:description" content="$canon_description">
 $options{favicons}
+<link rel="canonical" href="$canon_url">
 <link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
 <link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 <style media="all">
 HTML
@@ -5966,21 +5971,10 @@ $google_analytics
 	</ul>
 	<section class="top-bar-section">
 		<label for="select_country" style="display:none">$Lang{select_country}{$lang}</label>
-HTML
-;
-
-	my $select_country_options = lang("select_country_options");
-	$select_country_options =~ s/value="$cc"/value="$cc" selected/;
-	if ($cc eq 'world') {
-		$select_country_options =~ s/<option value="world"(.*?)<\/option>//;
-	}
-
-	$html .= <<HTML
 		<ul class="left">
 			<li class="has-form has-dropdown" id="select_country_li">
-				<select id="select_country" style="width:100%">
+				<select id="select_country" style="width:100%" data-placeholder="@{[ lang('select_country') ]}">
 					<option></option>
-					$select_country_options
 				</select>
 			</li>
 HTML
@@ -6500,28 +6494,17 @@ HTML
 <script src="$static_subdomain/js/dist/modernizr.js"></script>
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
+<script src="$static_subdomain/js/dist/display.js"></script>
 
 <script>
 \$(function() {
-\$("#select_country").select2({
-	placeholder: "$Lang{select_country}{$lang}",
-	allowClear: true
-}).on("select2:select", function(e) {
-	var subdomain =  e.params.data.id;
-	if (! subdomain) {
-		subdomain = 'world';
-	}
-	window.location.href = document.location.protocol + '//' + subdomain + ".${server_domain}";
-}).on("select2:unselect", function(e) {
-	window.location.href = document.location.protocol + "//world.${server_domain}";
-});
 <initjs>
 });
 </script>
 
 <script src="$static_subdomain/js/dist/foundation.min.js"></script>
 <script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
 $scripts
 <script>
 \$(document).foundation({
@@ -6534,44 +6517,6 @@ $scripts
 		}
 	}
 });
-</script>
-<script>
-
-'use strict';
-
-function doWebShare(e) {
-	e.preventDefault();
-
-	if (!window.isSecureContext || navigator.share === undefined) {
-		console.error('Error: Unsupported feature: navigator.share');
-		return;
-	}
-
-	var title = this.title;
-	var url = this.href;
-	navigator.share({title: title, url: url})
-		.then(() => console.info('Successfully sent share'), error => console.error('Error sharing: ' + error));
-}
-
-function onLoad() {
-	var buttons = document.getElementsByClassName('share_button');
-	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
-
-	[].forEach.call(buttons, function(button) {
-		if (shareAvailable) {
-			button.style.display = 'block';
-
-			[].forEach.call(button.getElementsByTagName('a'), function(a) {
-				a.addEventListener('click', doWebShare);
-			});
-		}
-		else {
-			button.style.display = 'none';
-		}
-	});
-}
-
-window.addEventListener('load', onLoad);
 </script>
 <script type="application/ld+json">
 {
@@ -7008,7 +6953,7 @@ sub display_product($)
 	my $description = "";
 
 		$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/display-product.js"></script>
+<script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 ;
 	$initjs .= <<JS

@@ -4228,6 +4228,19 @@ my %fruits_vegetables_nuts_by_category = (
 	"en:colza-oils" => 100,
 	"en:rapeseed-oils" => 100,
 	"en:rapeseeds-oils" => 100,
+	# nuts,
+	# "Les fruits à coque comprennent :
+	# Noix, noisettes, pistaches, noix de cajou, noix de pécan, noix de coco (cf. précisions ci-dessus),
+	# arachides, amandes, châtaigne
+	"en:walnuts" => 100,
+	"en:hazelnuts" => 100,
+	"en:pistachios" => 100,
+	"en:cashew-nuts" => 100,
+	"en:pecan-nuts" => 100,
+	"en:peanuts" => 100,
+	"en:almonds" => 100,
+	"en:chestnuts" => 100,
+	"en:coconuts" => 100,
 );
 
 my @fruits_vegetables_nuts_by_category_sorted = sort { $fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a} } keys %fruits_vegetables_nuts_by_category;
