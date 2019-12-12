@@ -909,7 +909,8 @@ sub import_csv_file($) {
 					}
 
 					if ((defined $values{$type}) and ($per ne "")) {
-						$nutrition_data_per = $per;
+						$imported_product_ref->{"nutrition_data" . $type . "_per"} = $per;
+						$imported_product_ref->{"nutrition_data" . $type . "_per"} =~ s/^_//;
 					}
 				}
 

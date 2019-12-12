@@ -40,6 +40,7 @@ BEGIN
 		&init_fields_columns_names_for_lang
 		&match_column_name_to_field
 		&init_columns_fields_match
+		&normalize_column_name
 
 		&generate_import_export_columns_groups_for_select2
 
@@ -326,7 +327,12 @@ sub convert_file($$$$) {
 			}
 		}
 
-		$log->debug("convert_file - before clean_fields ", { }) if $log->is_debug();
+		# Make sure we have a value for lc, as it is needed for clean_fields()
+		if ((not defined $product_ref->{lc}) or ($product_ref->{lc} eq "")) {
+			$product_ref->{lc} = $default_values_ref->{lc};
+		}
+
+		$log->debug("convert_file - before clean_fields ", { lc => $product_ref->{lc}}) if $log->is_debug();
 		clean_fields($product_ref);
 		$log->debug("convert_file - after clean_fields ", { }) if $log->is_debug();
 
@@ -572,6 +578,15 @@ sub init_other_fields_columns_names_for_lang($) {
 
 					foreach my $synonym (@synonyms) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = {field => $field};
+
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $Lang{value}{$l})} = {
+							field => $field,
+							value_unit => "value",
+						};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{value}{$l} . " " . $synonym)} = {
+							field => $field,
+							value_unit => "value",
+						};
 
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $Lang{unit}{$l})} = {
 							field => $field,

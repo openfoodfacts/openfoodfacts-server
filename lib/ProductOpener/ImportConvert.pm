@@ -685,12 +685,23 @@ sub clean_fields($) {
 				$product_ref->{$field} = "";
 			}
 
-			# bad EMB codes
+			# bad EMB codes (followed by a city) (e.g. Sainte-Lucie)
 			#
 			if ($field eq "emb_codes") {
 				# Remove anything that starts with 4 letters
 				# EMB 60282A - Gouvieux (Oise, France)
 				$product_ref->{$field} =~ s/\s*(\s-|,)\s+([[:alpha:]]{4}).*//;
+			}
+
+			# Origin of ingredients that contains other things than tags (e.g. Leroux)
+			# FRANCE, La chicorée LEROUX est semée, cultivée et produite en France
+
+			if ($field eq "origins") {
+				my $canon_tagid = canonicalize_taxonomy_tag($product_ref->{lc}, $field, $product_ref->{$field});
+				if (not exists_taxonomy_tag($field, $canon_tagid)) {
+					assign_value($product_ref, "origin_" . $product_ref->{lc}, $product_ref->{$field});
+					delete $product_ref->{$field};
+				}
 			}
 
 			# tag fields: turn separators to commas
