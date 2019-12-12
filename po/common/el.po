@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-12 21:05\n"
+"PO-Revision-Date: 2019-12-12 22:01\n"
 "Language-Team: Greek\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -125,7 +125,7 @@ msgstr ""
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -139,7 +139,7 @@ msgstr ""
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/el_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -148,7 +148,7 @@ msgstr ""
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=el"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -698,7 +698,7 @@ msgstr ""
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -765,7 +765,7 @@ msgstr ""
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -4032,3 +4032,4 @@ msgstr ""
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr ""
+
