@@ -202,6 +202,9 @@ $world_subdomain = format_subdomain('world');
 
 sub init()
 {
+	# Clear the context
+	delete $log->context->{user_id};
+	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
 	$styles = '';
