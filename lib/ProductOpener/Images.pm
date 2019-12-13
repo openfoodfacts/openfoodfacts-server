@@ -463,6 +463,7 @@ sub process_image_upload($$$$$$) {
 
 
 	my $file = undef;
+	my $extension = 'jpg';
 
 	# Image that was already read by barcode scanner: can't read it again
 	my $tmp_filename;
@@ -470,9 +471,13 @@ sub process_image_upload($$$$$$) {
 		$tmp_filename = $imagefield;
 		$imagefield = 'search';
 
-			if ($tmp_filename) {
-				open ($file, q{<}, "$tmp_filename") or $log->error("Could not read file", { path => $tmp_filename, error => $! });
+		if ($tmp_filename) {
+			open ($file, q{<}, "$tmp_filename") or $log->error("Could not read file", { path => $tmp_filename, error => $! });
+			if ($tmp_filename =~ /\.(gif|jpeg|jpg|png)$/i) {
+				$extension = lc($1);
 			}
+		}
+
 	}
 	else {
 		$file = param('imgupload_' . $imagefield);
@@ -506,7 +511,6 @@ sub process_image_upload($$$$$$) {
 		if (1 or ($file =~ /\.(gif|jpeg|jpg|png)$/i)) {
 			$log->debug("file type validated") if $log->is_debug();
 
-			my $extension = 'jpg';
 			if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
 				$extension = lc($1) ;
 			}
@@ -535,7 +539,7 @@ sub process_image_upload($$$$$$) {
 			}
 
 			local $log->context->{imgid} = $imgid;
-			$log->debug("new imgid determined") if $log->is_debug();
+			$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
 
 			mkdir ($lock_path, 0755) or $log->warn("could not create lock file for the image", { path => $lock_path, error => $! });
 
@@ -546,52 +550,27 @@ sub process_image_upload($$$$$$) {
 			}
 			close ($out);
 
-
-
-
-			# Keep original in case we need it later
-
-
 			# Generate resized versions
 
 			my $source = Image::Magick->new;
 			my $x = $source->Read($img_path);
+
 			$source->AutoOrient();
 			$source->Strip(); #remove orientation data and all other metadata (EXIF)
 
-			# Save a .jpg if we were sent something else (always re-save as the image can be rotated)
-			#if ($extension ne 'jpg') {
-			# make sure we don't have an alpha channel if we were given a transparent PNG
-			$source->Set(background => 'white');
-			$source->Set(alpha => 'Off');
-			$source->Flatten();
-
-			# above does not work on the production server, it creates colored vertical and horizontal lines
-
 			if ($extension eq "png") {
-
-				print STDERR "png file, trying to remove the alpha background\n";
-
-				# Then, create a white image with the same size.
-				my $bg = Image::Magick->new(size => dims($source));
-				$bg->Read('xc:#ffffff');
-
-				# And overlay the original on top of it to fill the transparent pixels
-				# with white.
+				$log->debug("png file, trying to remove the alpha background") if $log->is_debug();
+				my $bg = Image::Magick->new;
+				$bg->Set(size=>$source->Get('width') . "x" . $source->Get('height'));
+				$bg->ReadImage('canvas:white');
 				$bg->Composite(compose => 'Over', image => $source);
-
-
-				#}
-
 				$source = $bg;
-
 			}
 
 			$source->Set('quality',95);
 			$x = $source->Write("jpeg:$www_root/images/products/$path/$imgid.jpg");
 
 			# Check that we don't already have the image
-
 			my $size = -s $img_path;
 			local $log->context->{img_size} = $size;
 

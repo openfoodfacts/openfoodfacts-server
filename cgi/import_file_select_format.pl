@@ -375,11 +375,14 @@ function init_select_field() {
 		var id = e.params.data.id;
 		var col = this.id.replace(/select_field_/, '');
 		var column = columns[col];
+		if (! columns_fields[column]["field"]) {
+			selected_columns++;
+		}
 		columns_fields[column]["field"] = \$(this).val();
 		init_select_field_option(col);
-		selected_columns++;
 		\$('.selected_columns').text(selected_columns);
 	}).on("select2:unselect", function(e) {
+		delete columns_fields[column]["field"];
 		selected_columns--;
 		\$('.selected_columns').text(selected_columns);
 	});
