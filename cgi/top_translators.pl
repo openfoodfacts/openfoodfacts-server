@@ -60,9 +60,9 @@ my $js = <<JS
 			skipEmptyLines: true,
 			withCredentials: false,
 			step: function(results, parser) {
-				dataSource = dataSource.concat(results.data);
-				console.log("Row data:", results.data);
-				console.log("Row errors:", results.errors);
+				if (results.errors.length === 0) {
+					dataSource = dataSource.concat(results.data);
+				}
 			},
 			complete: function () {
 				\$('#top_translators').DataTable({
