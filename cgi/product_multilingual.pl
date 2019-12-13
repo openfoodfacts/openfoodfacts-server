@@ -730,6 +730,9 @@ HTML
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
+<script type="text/javascript">	
+var admin = $moderator;
+</script>
 <script type="text/javascript" src="/js/dist/product-multilingual.js"></script>
 HTML
 ;
