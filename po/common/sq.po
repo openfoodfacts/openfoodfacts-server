@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sq\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-12 21:01\n"
+"PO-Revision-Date: 2019-12-14 23:21\n"
 "Language-Team: Albanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -17,36 +17,36 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 produkt"
 
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " dhe "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Rreth meje"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Shto"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Shtoni gjuhen"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Shtoni një produkt"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Rregjistrohuni"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "Faleminderit që u bashkuat. Tani mund te identifikoheni ne faqe per te shtuar dhe modifikuar produkte"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -64,7 +64,9 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Përshëndetje <NAME>,\n\n"
+"Faleminderit që ju bashkuat https://openfoodfacts.org\n"
+"Këtu mund të gjeni emrin tuaj të përdoruesit\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -1324,7 +1326,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Shtoni një produkt"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
