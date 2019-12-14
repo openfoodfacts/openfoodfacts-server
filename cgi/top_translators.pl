@@ -63,6 +63,12 @@ my $js = <<JS
 				if (results.errors.length === 0) {
 					dataSource = dataSource.concat(results.data);
 				}
+				else {
+					for (var i = 0; i < results.errors.length; ++i) {
+						var error = results.errors[0];
+						console.warn('%s error %s while parsing CSV row %d: %s', error.type, error.code, error.row, error.message);
+					}
+				}
 			},
 			complete: function () {
 				\$('#top_translators').DataTable({
