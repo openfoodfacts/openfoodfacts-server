@@ -75,6 +75,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Users qw/:all/;
 
 use Log::Any qw($log);
 use Encode;
@@ -163,7 +164,7 @@ sub display_select_crop_init($) {
 	for (my $imgid = 1; $imgid <= ($object_ref->{max_imgid} + 5); $imgid++) {
 		if (defined $object_ref->{images}{$imgid}) {
 			my $admin_fields = '';
-			if ($admin) {
+			if ($User{moderator}) {
 				$admin_fields = ", uploader: '" . $object_ref->{images}{$imgid}{uploader} . "', uploaded: '" . display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
 			}
 			$images .= <<JS
