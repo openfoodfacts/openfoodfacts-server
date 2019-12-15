@@ -301,7 +301,7 @@ HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
 JS
 ;
 
