@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-15 04:51\n"
+"PO-Revision-Date: 2019-12-15 05:01\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -439,15 +439,15 @@ msgstr "환경성적표지"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "(지금은 거의 없지만) 만약에 탄소 발자국이 라벨에 표시되어 있는 경우, 영양 성분을 입력할 때처럼 라벨에 적힌 값을 그대로 입력하세요."
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "편집"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "변경 내용 요약"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -459,11 +459,11 @@ msgstr "페이지를 편집"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "공개 프로필 수정"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "공개 프로필의 수정 내역이 저장되었습니다."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
@@ -491,11 +491,11 @@ msgstr ""
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "이메일 주소"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "EMB 코드"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -503,11 +503,11 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB 코드"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB 코드"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
