@@ -505,7 +505,11 @@ HTML
 		<div id="results_download" class="content">
 
 			<p>$Lang{search_download_results}{$lc}</p>
-			<p>$Lang{search_download_results_description}{$lc}</p>
+
+			<input type="radio" name="format" value="xlsx" id="format_xlsx" checked/>
+				<label for="format_xlsx">$Lang{search_download_xlsx}{$lc} - $Lang{search_download_xlsx_description}{$lc}</label><br>
+			<input type="radio" name="format" value="csv" id="format_csv" />
+				<label for="format_csv">$Lang{search_download_csv}{$lc} - $Lang{search_download_csv_description}{$lc}</label><br>
 
 			<input type="submit" name="download" value="$Lang{search_download_button}{$lc}" class="button" />
 

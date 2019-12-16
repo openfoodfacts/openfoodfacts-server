@@ -3841,8 +3841,10 @@ sub search_and_display_products($$$$$) {
 			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_download} .= "&download=on";
 			$html .= "&rarr; " . lang("search_download_results") . "</a><br>"
-				. "<ul><li><a href=\"$request_ref->{current_link_query_download}&format=csv\">" . lang("search_download_csv") . "</a> - " . lang("search_download_csv_description") . "</li>"
-				. "<li><a href=\"$request_ref->{current_link_query_download}&format=xlsx\">" . lang("search_download_xlsx") . "</a> - " . lang("search_download_xlsx_description") . "</li></ul>"
+				. "<ul>"
+				. "<li><a href=\"$request_ref->{current_link_query_download}&format=xlsx\">" . lang("search_download_xlsx") . "</a> - " . lang("search_download_xlsx_description") . "</li>"
+				. "<li><a href=\"$request_ref->{current_link_query_download}&format=csv\">" . lang("search_download_csv") . "</a> - " . lang("search_download_csv_description") . "</li>"
+				. "</ul>"
 		}
 
 		if ($log->is_debug()) {
