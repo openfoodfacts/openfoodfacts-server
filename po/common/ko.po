@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-15 10:22\n"
+"PO-Revision-Date: 2019-12-16 06:01\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -796,7 +796,7 @@ msgstr ""
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -1051,23 +1051,23 @@ msgstr ""
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "주 언어"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "아랍어"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "불가리아어"
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "체코어"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "덴마크어"
 
 msgctxt "lang_de"
 msgid "German"
@@ -1087,11 +1087,11 @@ msgstr "스페인어"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "에스토니아어"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "핀란드어"
 
 msgctxt "lang_fr"
 msgid "French"
@@ -1099,7 +1099,7 @@ msgstr "프랑스어"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "아일랜드어"
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1107,11 +1107,11 @@ msgstr "히브리어"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "헝가리어"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "인도네시아어"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1127,27 +1127,27 @@ msgstr "한국어"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "리투아니아어"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "라트비아어"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "몰타어"
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "네덜란드어"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "네덜란드어"
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr ""
+msgstr "폴란드어"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
@@ -1155,11 +1155,11 @@ msgstr "포르투갈어"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "포르투갈어 (Portuguese)"
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "루마니아어"
 
 msgctxt "lang_ru"
 msgid "Russian"
@@ -1167,11 +1167,11 @@ msgstr "러시아어"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "슬로바키아어"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "슬로베니아어"
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1179,27 +1179,27 @@ msgstr "스웨덴어"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "태국어"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr ""
+msgstr "베트남어"
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "중국어"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr ""
+msgstr "기타 언어"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "이 제품에서 가장 많이 사용되거나 강조하는 언어"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "영어"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1421,7 +1421,7 @@ msgstr "다른 제품으로 사진 이동하기"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s 의 제품"
 
 msgctxt "name"
 msgid "Name"
@@ -1542,7 +1542,7 @@ msgstr ""
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "같은 카테고리에 있는 제품들의 평균 값과 비교한 결과"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
