@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-16 06:01\n"
+"PO-Revision-Date: 2019-12-16 06:13\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -994,7 +994,7 @@ msgstr ""
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "%s 성분이 포함되지 않은 제품들"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1003,7 +1003,7 @@ msgstr "/images/misc/appstore/black/appstore_KR.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "앱 스토어에서 다운로드 받을 수 있습니다"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2208,7 +2208,7 @@ msgstr "제품 목록으로 결과보기"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "지도"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -3670,12 +3670,12 @@ msgstr ""
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "최소"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "최대"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -4019,7 +4019,7 @@ msgstr ""
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "앱"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
