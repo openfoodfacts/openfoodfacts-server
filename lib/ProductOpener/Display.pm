@@ -7816,6 +7816,15 @@ HTML
 HTML
 ;
 
+	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+		$html .= <<HTML
+<p class="panel callout">
+$Lang{alcohol_warning}{$lc}
+</p>
+HTML
+;
+	}
+
 	}
 
 
