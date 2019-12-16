@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-16 18:11\n"
+"PO-Revision-Date: 2019-12-16 18:23\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -139,11 +139,11 @@ msgstr "產品頁的編輯者有"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -153,11 +153,11 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/zh-hk_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "Google Play立即下載"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -3820,17 +3820,17 @@ msgstr ""
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg：荷蘭文產品正面。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg：法文的成分表。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg：西班牙文的營養標籤。"
 
 msgctxt "add_photos"
 msgid "Add photos..."
@@ -3862,7 +3862,7 @@ msgstr "已收到檔案"
 
 msgctxt "nutriscore_calculation_detail"
 msgid "Detail of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score的計算方式"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
@@ -3874,11 +3874,11 @@ msgstr ""
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "正分"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "負分"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
@@ -3922,7 +3922,7 @@ msgstr "鈉"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "水果、蔬菜、堅果和菜子、核桃及橄欖油"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -4037,11 +4037,11 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "我已經捐款或我不感興趣捐助，請隱藏橫額。"
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
-msgstr ""
+msgstr "喂，要取消選取方框嗎？"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency ?"
