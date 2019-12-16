@@ -185,21 +185,6 @@ foreach my $axis ('x','y') {
 	$graph_ref->{"axis_$axis"} = remove_tags_and_quote(decode utf8=>param("axis_$axis"));
 }
 
-my %flatten = ();
-my $flatten = 0;
-
-foreach my $field (@search_fields) {
-	if (defined $search_tags_fields{$field}) {
-		$flatten{$field} = remove_tags_and_quote(decode utf8=>param("flatten_$field"));
-		if ($flatten{$field} eq 'on') {
-			$flatten = 1;
-		}
-		else {
-			delete $flatten{$field};
-		}
-	}
-}
-
 foreach my $series (@search_series, "nutrition_grades") {
 
 	$graph_ref->{"series_$series"} = remove_tags_and_quote(decode utf8=>param("series_$series"));
@@ -825,7 +810,8 @@ HTML
 	elsif (param("download")) {
 		# CSV export
 
-		search_and_export_products($request_ref, $query_ref, $sort_by, $flatten, \%flatten);
+		$request_ref->{format} = param('format');
+		search_and_export_products($request_ref, $query_ref, $sort_by);
 
 
 	}
