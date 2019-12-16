@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-13 12:25\n"
+"PO-Revision-Date: 2019-12-16 18:11\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -127,11 +127,11 @@ msgstr "可致敏或不適的成分或產品"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr "致敏原"
+msgstr "過敏原"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr "致敏原"
+msgstr "過敏原"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -2919,7 +2919,7 @@ msgstr "容易過量攝取"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "歐洲食物安全局認為某些群體較大機會過量攝取<tag>。"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
@@ -2931,7 +2931,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
-msgstr ""
+msgstr "%d種產品含有%s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
@@ -2947,7 +2947,7 @@ msgstr "較容易過量攝取"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "有超過每日可容忍攝入量的風險"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
@@ -3003,15 +3003,15 @@ msgstr ""
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr "已檢查相片和數據"
+msgstr "已檢查照片和數據"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr "我已檢查相片和數據。"
+msgstr "我已檢查照片和數據。"
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr "我已複檢相片和數據。"
+msgstr "我已複檢照片和數據。"
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
