@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-17 10:48\n"
+"PO-Revision-Date: 2019-12-17 15:53\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3744,35 +3744,35 @@ msgstr ""
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Programado"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "En curso"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Terminado"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Error"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "Importar resultado"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "Productos añadidos"
 
 msgctxt "products_modified"
 msgid "Products modified"
-msgstr ""
+msgstr "Productos modificados"
 
 msgctxt "import_file_result_no_change"
 msgid "There were no product added or modified. The data has probably been already imported previously."
@@ -3808,7 +3808,7 @@ msgstr ""
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "Esta tabla enumera las posibles oportunidades para mejorar la calidad nutricional, Nutri-Score y la composición de los productos alimenticios."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
@@ -3853,11 +3853,11 @@ msgstr ""
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Añadir fotos..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Comenzar subida"
 
 msgctxt "start"
 msgid "Start"
@@ -3869,15 +3869,15 @@ msgstr "Cerrar"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Cancelar carga"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Información"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "Archivo recibido"
 
 msgctxt "nutriscore_calculation_detail"
 msgid "Detail of the calculation of the Nutri-Score"
@@ -3957,7 +3957,7 @@ msgstr "valor"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "valor redondeado"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
