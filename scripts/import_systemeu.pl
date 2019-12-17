@@ -431,7 +431,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				next;
 			}
 
-			 next if ($code ne "2865510000005");
+			#next if ($code ne "2865599000002");
 
 			# next if ($i < 2665);
 
@@ -806,7 +806,7 @@ ble => "bouteille",
 				# 2x80g soit 160g
 
 
-				if (($quantity !~ /piece|pièce|soit|à/i) and ($quantity =~ /(\D+) /)) {
+				if (($quantity !~ /unité|unite|piece|pièce|soit|à/i) and ($quantity =~ /^(\D+) /)) {
 					my $packaging = $1;
 					$quantity = $';
 					# 100g -> 100 g
