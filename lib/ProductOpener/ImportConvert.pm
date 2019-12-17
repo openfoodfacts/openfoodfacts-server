@@ -528,8 +528,9 @@ sub clean_weights($) {
 			# 6x90g
 			$product_ref->{$field} =~ s/(\d)(\s*)x(\s*)(\d)/$1 x $4/i;
 
-			# kge
-			$product_ref->{$field} =~ s/(\d\s(\w+))e$/$1 e/;
+			# kge -> kg e
+			# but 1 pièce
+			$product_ref->{$field} =~ s/(\d\s(\w?\w?\w?))e$/$1 e/;
 
 			# remove the e
 			$product_ref->{$field} =~ s/ e\b//g;
