@@ -2136,12 +2136,24 @@ msgid "Download results"
 msgstr "Télécharger les résultats"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "Télécharger les résultats au format CSV (Excel, OpenOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "Télécharger les résultats au format XLSX ou CSV. Pour des raisons de performance, vous pouvez télécharger jusqu'à 10 000 résultats seulement."
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "Jeu de caractère : Unicode (UTF-8). Séparateur : tabulation (tab)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "Format XLSX"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "Excel ou LibreOffice"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "Format CSV"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr "Encodage des caractères : Unicode (UTF-8) - Séparateur : tabulation (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"

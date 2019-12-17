@@ -664,7 +664,8 @@ improvements
 	ingredients_from_palm_oil
 	ingredients_that_may_be_from_palm_oil_n
 	ingredients_that_may_be_from_palm_oil
-	nutrition_grade_fr
+	nutriscore_score
+	nutriscore_grade
 	nova_group
 	pnns_groups_1
 	pnns_groups_2
