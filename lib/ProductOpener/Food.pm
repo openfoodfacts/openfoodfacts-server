@@ -3822,10 +3822,15 @@ sub normalize_quantity($) {
 	my $q = undef;
 	my $u = undef;
 
-	if ($quantity =~ /(\d+)(\s)?(x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
+	# 12 pots x125 g
+	# 6 bouteilles de 33 cl
+	# 6 bricks de 1 l
+	# 10 unités, 170 g
+	# 4 bouteilles en verre de 20cl
+	if ($quantity =~ /(\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
 		my $m = $1;
-		$q = lc($5);
-		$u = $10;
+		$q = lc($7);
+		$u = $12;
 		$q =~ s/,/\./;
 		$q = unit_to_g($q * $m, $u);
 	}
