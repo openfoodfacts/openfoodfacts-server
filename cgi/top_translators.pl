@@ -38,7 +38,7 @@ ProductOpener::Display::init();
 
 $scripts .= <<SCRIPTS
 <script src="/js/datatables.min.js"></script>
-<script src="/js/dist/papaparse.min.js"></script>
+<script src="/js/dist/papaparse.js"></script>
 SCRIPTS
 ;
 

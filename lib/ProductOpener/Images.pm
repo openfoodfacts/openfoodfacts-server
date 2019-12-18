@@ -75,6 +75,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Users qw/:all/;
 
 use Log::Any qw($log);
 use Encode;
@@ -160,17 +161,27 @@ sub display_select_crop_init($) {
 
 	defined $object_ref->{images} or $object_ref->{images} = {};
 
+	# Construct an array of images that we can sort by upload time
+	# The imgid number is incremented by 1 for each new image, but when we move images
+	# from one product to another, they might not be sorted by upload time.
+
+	my @images = ();
+
 	for (my $imgid = 1; $imgid <= ($object_ref->{max_imgid} + 5); $imgid++) {
 		if (defined $object_ref->{images}{$imgid}) {
-			my $admin_fields = '';
-			if ($admin) {
-				$admin_fields = ", uploader: '" . $object_ref->{images}{$imgid}{uploader} . "', uploaded: '" . display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
-			}
-			$images .= <<JS
+			push @images, $imgid;
+		}
+	}
+
+	foreach my $imgid (sort { $object_ref->{images}{$a}{uploaded_t} <=> $object_ref->{images}{$b}{uploaded_t} } @images) {
+		my $admin_fields = '';
+		if ($User{moderator}) {
+			$admin_fields = ", uploader: '" . $object_ref->{images}{$imgid}{uploader} . "', uploaded: '" . display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
+		}
+		$images .= <<JS
 {imgid: "$imgid", thumb_url: "$imgid.$thumb_size.jpg", crop_url: "$imgid.$crop_size.jpg", display_url: "$imgid.$display_size.jpg" $admin_fields},
 JS
 ;
-		}
 	}
 
 	$images =~ s/,\n?$//;
@@ -301,7 +312,7 @@ HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
 JS
 ;
 

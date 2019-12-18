@@ -725,12 +725,11 @@ HTML
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
-<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
+<script type="text/javascript" src="/js/dist/tagify.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
-<script type="text/javascript" src="/foundation/js/foundation/foundation.tab.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
 <script type="text/javascript">	
 var admin = $moderator;
 </script>
