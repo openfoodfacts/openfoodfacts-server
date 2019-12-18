@@ -93,6 +93,17 @@ my @tests = (
 		Fibres alimentaires (g) : 
 		Protéines (g) : 
 		Sel (g) :", {}],
+	["fr", "pour 100g :
+		Energie (kJ) : 2989
+		Energie (kcal) : 727
+		Graisses (g) : 80
+		dont acides gras saturés (g) : 52
+		Glucides (g) : 1
+		dont sucres (g) : 0
+		Fibres alimentaires (g) : Traces
+		Protéines (g) : 0.7
+		Sodium (g) : 0,79
+		Sel (g) : 2", { 'carbohydrates'=>['1','g',''], 'energy-kcal'=>['727','kcal',''], 'energy-kj'=>['2989','kJ',''], 'fat'=>['80','g',''], 'fiber'=>['0','g','~'], 'proteins'=>['0.7','g',''], 'salt'=>['2','g',''], 'saturated-fat'=>['52','g',''], 'sodium'=>['0,79','g',''], 'sugars'=>['0','g',''] }],
 );
 
 foreach my $test_ref (@tests) {

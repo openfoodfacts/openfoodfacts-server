@@ -1599,7 +1599,7 @@ sub extract_nutrition_facts_from_text($$$) {
 
 				# Vitamine D µg  0.4 soit 8  % des AQR*
 
-				if ($text =~ /\b$synonym\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?(\s|:)*(<|~)?(\s)*(\d+((\.|\,)\d+))/i) {
+				if ($text =~ /\b$synonym\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?(\s|:)*(<|~)?(\s)*(\d+((\.|\,)\d+)?)/i) {
 					$unit = $1;
 					$value = $5;
 					if ((defined $3) and ($3 ne "")) {

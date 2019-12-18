@@ -74,8 +74,8 @@ my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_10_19_ok.csv";
 my $categories_csv_file = "/srv2/off/imports/systemeu/systeme-u-rubriques.csv";
 my $imagedir;
 #$imagedir = "/srv2/off/imports/systemeu/images";
-$imagedir = "/srv2/off/imports/systemeu/images1/images";
-#$imagedir = "/srv2/off/imports/systemeu/images2";
+#$imagedir = "/srv2/off/imports/systemeu/images1/images";
+$imagedir = "/srv2/off/imports/systemeu/images2";
 my $products_without_ingredients_lists = "/srv2/off/imports/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
 #my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
@@ -431,7 +431,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				next;
 			}
 
-			#next if ($code ne "3256225736355");
+			#next if ($code ne "3368953003644");
 
 			# next if ($i < 2665);
 

@@ -5047,12 +5047,6 @@ sub compute_serving_size_data($) {
 		(defined $product_ref->{serving_size}) and ($product_ref->{serving_size} eq "") and delete $product_ref->{serving_size};
 	}
 
-	#if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{'energy.unit'}) and ($product_ref->{nutriments}{'energy.unit'} eq 'kcal')) {
-	#	$product_ref->{nutriments}{energy} = sprintf("%.0f", $product_ref->{nutriments}{energy} * 4.18);
-	#	$product_ref->{nutriments}{'energy.unit'} = 'kj';
-	#}
-
-
 	foreach my $product_type ("", "_prepared") {
 
 		# Energy
