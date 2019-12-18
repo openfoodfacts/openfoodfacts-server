@@ -73,8 +73,8 @@ not defined $photo_user_id and die;
 my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_10_19_ok.csv";
 my $categories_csv_file = "/srv2/off/imports/systemeu/systeme-u-rubriques.csv";
 my $imagedir;
-$imagedir = "/srv2/off/imports/systemeu/images";
-#$imagedir = "/srv2/off/imports/systemeu/images1/images";
+#$imagedir = "/srv2/off/imports/systemeu/images";
+$imagedir = "/srv2/off/imports/systemeu/images1/images";
 #$imagedir = "/srv2/off/imports/systemeu/images2";
 my $products_without_ingredients_lists = "/srv2/off/imports/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
@@ -431,7 +431,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				next;
 			}
 
-			#next if ($code ne "2865599000002");
+			#next if ($code ne "3256225736355");
 
 			# next if ($i < 2665);
 
@@ -679,6 +679,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			$ugc_libecommerce =~ s/\ben(verre|plastique)/en $1/ig;
 			$ugc_libecommerce =~ s/(\d)fruit/$1 fruit/i;
 
+			# Bleu à pâte persillée au lait de vache pasteurisé U BIO? 27% de MG? 220g
+			# remove ?
+			$ugc_libecommerce =~ s/\?//g;
+
 			# 3256225519576
 			$ugc_libecommerce =~ s/ RAPAZ,/RAPAZ, U,/;
 
@@ -798,13 +802,19 @@ ble => "bouteille",
 
 				# Pomme ariane, U BIO, calibre 136/165, catégorie 2, France, barquette 4fruits
 
+				$quantity =~ s/categories/catégories/ig;
+				$quantity =~ s/unites/unités/ig;
+				$quantity =~ s/pieces/pièces/ig;
+				$quantity =~ s/categorie/catégorie/ig;
+				$quantity =~ s/unite/unité/ig;
+				$quantity =~ s/piece/pièce/ig;
+
 				while ($quantity =~ /\b(calibre|cal\.|catégorie|cat\.)([^,]+),\s?/i) {
 					$name .= " " . $1 . $2;
 					$quantity =~ s/\b(calibre|cal\.|catégorie|cat\.)([^,]+),\s?//i
 				}
 
 				# 2x80g soit 160g
-
 
 				if (($quantity !~ /unité|unite|piece|pièce|soit|à/i) and ($quantity =~ /^(\D+) /)) {
 					my $packaging = $1;
@@ -999,17 +1009,13 @@ ble => "bouteille",
 
 			# Clean the fields to be imported
 
-			print STDERR "origins 1 - defined value for field origins : " . $params{origins} . "\n";
-
 			$params{lc} = "fr";
 			@fields = @param_fields;
 			clean_fields(\%params);
 
-			print STDERR "origins 2 - defined value for field origins : " . $params{origins} . "\n";
-
 			foreach my $field (@param_fields) {
 
-				if (defined $params{$field}) {
+				if ((defined $params{$field}) and ($params{$field} ne "")) {
 
 					print STDERR "defined value for field $field : " . $params{$field} . "\n";
 					$imported_product_ref->{$field} = $params{$field};
@@ -1145,8 +1151,9 @@ ble => "bouteille",
 						$new_field_value =~ s/\s+$//g;
 						$new_field_value =~ s/^\s+//g;
 
-						my $normalized_new_field_value = $new_field_value;
+						next if $new_field_value eq "";
 
+						my $normalized_new_field_value = $new_field_value;
 
 						# existing value?
 						if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
@@ -1192,6 +1199,7 @@ ble => "bouteille",
 							}
 							elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
 								# normalize quantity
+								$log->debug("normalizing quantity", { field => $field, existing_value => $product_ref->{$field}, new_value => $new_field_value }) if $log->is_debug();
 								$product_ref->{$field} = $new_field_value;
 								push @modified_fields, $field;
 								$modified++;
@@ -1371,117 +1379,18 @@ TXT
 
 			my %found_nids = ();
 
-			foreach my $nid (sort keys %Nutriments) {
+			my %nutrients = ();
+
+			extract_nutrition_facts_from_text($product_ref->{lc}, $nutrients, \%nutrients);
+
+			foreach my $nid (sort keys %nutrients) {
 
 				next if $nid =~ /^#/;
 
 				# don't set sodium if we have salt
 				next if (($nid eq 'sodium') and ($seen_salt));
-				# in fact just skip sodium and assume we will get salt
-				next if (($nid eq 'sodium'));
-				next if not defined $Nutriments{$nid}{fr};
 
-				my $nid_fr = lc($Nutriments{$nid}{fr});
-				my $nid_fr_unaccented = unac_string_perl($nid_fr);
-				my @synonyms = ($nid_fr);
-				if ($nid_fr ne $nid_fr_unaccented) {
-					push @synonyms, $nid_fr_unaccented;
-				}
-				if (defined $Nutriments{$nid}{fr_synonyms}) {
-					foreach my $synonym (@{$Nutriments{$nid}{fr_synonyms}}) {
-						push @synonyms, $synonym;
-						my $synonym_unaccented = unac_string_perl($synonym);
-						if ($synonym_unaccented ne $synonym) {
-							push @synonyms, $synonym_unaccented;
-						}
-					}
-				}
-
-				my $value;
-				my $unit;
-				my $modifier = "";
-
-				foreach my $synonym (@synonyms) {
-
-					# Energy (kJ) -> escape parenthesis
-					$synonym =~ s/\(/\\\(/;
-					$synonym =~ s/\)/\\\)/;
-
-					# Vitamine D µg  0.4 soit 8  % des AQR*
-
-					if ($nutrients =~ /\b$synonym\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?(\s|:)*(<|~)?(\s)*(\d+((\.|\,)\d+)?)/i) {
-						$unit = $1;
-						$value = $5;
-						if ((defined $3) and ($3 ne "")) {
-							$modifier = $3;
-						}
-						last;
-					}
-					# .36
-					if ($nutrients =~ /\b$synonym\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?(\s|:)*(<|~)?(\s)*(((\.|\,)\d+)?)/i) {
-						$unit = $1;
-						$value = "0" . $5;
-						if ((defined $3) and ($3 ne "")) {
-							$modifier = $3;
-						}
-						last;
-					}
-					elsif ($nutrients =~ /\b$synonym \(?(g|kg|mg|µg|l|dl|cl|ml|kj)\b\)?(\s|:)*(<|~)?(\s)*(traces)/i) {
-						$unit = $1;
-						$value = 0;
-						$modifier = "~";
-						last;
-					}
-					elsif ($nutrients =~ /\b$synonym \(?(g|kg|mg|µg|l|dl|cl|ml|kj)\b\)?(\s|:)*(<|~)?(\s)*(exempt)/i) {
-						$unit = $1;
-						$value = 0;
-						last;
-					}
-					elsif ($nutrients =~ /\b$synonym(\s|:)*(<|~)?(\s)*(\d+((\.|\,)\d+)?)\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?/i) {
-						$value = $4;
-						$unit = $7;
-						if ((defined $2) and ($2 ne "")) {
-							$modifier = $2;
-						}
-						last;
-					}
-					elsif ($nutrients =~ /\b$synonym(\s|:)+(<|~)?(\s)*(traces)/i) {
-						$value = 0;
-						$unit = "g";
-						$modifier = "~";
-						last;
-					}
-					# missing unit... assume g ?
-					elsif ($nutrients =~ /\b$synonym(\s|:)+(<|~)?(\s)*(\d+((\.|\,)\d+)?)\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)?\)?\b/i) {
-						$value = $4;
-						$unit = "g";
-						if ((defined $2) and ($2 ne "")) {
-							$modifier = $2;
-						}
-						if ($nid eq "energy-kj") {
-							$unit = "kJ";
-						}
-						elsif ($nid eq "energy-kcal") {
-							$unit = "kcal";
-						}
-						last;
-					}
-
-				}
-
-				if (($nid eq 'energy-kj') and (not defined $value)) {
-					if ($nutrients =~ /\b(\d+)(\s?)kJ/i) {
-						$value = $1;
-						$unit = "kJ";
-					}
-				}
-
-				if (($nid eq 'energy-kcal') and (not defined $value)) {
-					if ($nutrients =~ /\b(\d+)(\s?)kcal/i) {
-						$value = $1;
-						$unit = "kcal";
-					}
-				}
+				my ($value, $unit, $modifier) = @{$nutrients{$nid}};
 
 				if (($nid eq 'alcohol') and (defined $alcohol)) {
 					$value = $alcohol;
