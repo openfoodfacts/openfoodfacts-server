@@ -431,7 +431,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				next;
 			}
 
-			#next if ($code ne "3368953003644");
+			#next if ($code ne "3256220126410");
 
 			# next if ($i < 2665);
 
@@ -1403,6 +1403,13 @@ TXT
 					# we will skip sodium if we have a value for salt
 					if ($nid eq 'salt') {
 						$seen_salt = 1;
+					}
+
+					# if we have sodium and not salt, delete existing salt value
+					if ($nid eq 'sodium') {
+						delete $product_ref->{nutriments}{"salt_value"};
+						delete $product_ref->{nutriments}{"salt_unit"};
+						delete $product_ref->{nutriments}{"salt_modifier"};
 					}
 
 					my $enid = encodeURIComponent($nid);
