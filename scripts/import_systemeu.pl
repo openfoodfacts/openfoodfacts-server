@@ -75,7 +75,7 @@ my $categories_csv_file = "/srv2/off/imports/systemeu/systeme-u-rubriques.csv";
 my $imagedir;
 #$imagedir = "/srv2/off/imports/systemeu/images";
 #$imagedir = "/srv2/off/imports/systemeu/images1/images";
-$imagedir = "/srv2/off/imports/systemeu/images2";
+#$imagedir = "/srv2/off/imports/systemeu/images2";
 my $products_without_ingredients_lists = "/srv2/off/imports/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
 #my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
@@ -811,7 +811,12 @@ ble => "bouteille",
 
 				while ($quantity =~ /\b(calibre|cal\.|catégorie|cat\.)([^,]+),\s?/i) {
 					$name .= " " . $1 . $2;
-					$quantity =~ s/\b(calibre|cal\.|catégorie|cat\.)([^,]+),\s?//i
+					$quantity =~ s/\b(calibre|cal\.|catégorie|cat\.)([^,]+),\s?//i;
+				}
+
+				if ($quantity =~ /\b(nouvelle agriculture)/i) {
+					$name .= " " . $1;
+					$quantity =~ s/\b(nouvelle agriculture)//i;
 				}
 
 				# 2x80g soit 160g
@@ -909,7 +914,8 @@ ble => "bouteille",
 			# if no quantity was found in the libelle, use the mesure fields
 			# UGC_MesureNette	UGC_uniteMesureNette
 
-			if ((not defined $params{quantity}) or ($params{quantity} eq "")) {
+			if ((not defined $params{quantity}) or ($params{quantity} eq "")
+				or ($params{quantity} !~ /( |\d)(\s)?(mg|g|kg|l|litre|litres|dl|cl|ml)\b/i)) {
 				if ((defined $imported_product_ref->{UGC_MesureNette}) and ($imported_product_ref->{UGC_MesureNette} ne "")) {
 					my $quantity = $imported_product_ref->{UGC_MesureNette} . " " . $imported_product_ref->{UGC_uniteMesureNette};
 					$quantity =~ s/_net//ig;
@@ -920,7 +926,15 @@ ble => "bouteille",
 					# Quantité : 12.0000 UNITE_DE_CONSOMMATION
 					$quantity =~ s/\.(0)+ UNITE_DE_CONSOMMATION/ unités/ig;
 					$quantity =~ s/UNITE_DE_CONSOMMATION/unités/ig;
-					$params{quantity} = $quantity;
+					if ($quantity =~ /^0.(\d+) kg$/i) {
+						$quantity = (("0." . $1) * 1000) . " g";
+					}
+					if ((defined $params{quantity}) and ($params{quantity} ne "")) {
+						$params{quantity} .= ", " . $quantity;
+					}
+					else {
+						$params{quantity} = $quantity;
+					}
 					print STDERR "setting quantity from UGC_MesureNette: $quantity\n";
 				}
 			}
