@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-19 12:27\n"
+"PO-Revision-Date: 2019-12-19 13:02\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -336,7 +336,7 @@ msgstr "自貢獻者"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "從目前產品複制資料到新產品"
+msgstr "從目前產品複制資料至新產品"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -1546,7 +1546,7 @@ msgstr "請注意: 針對每一種營養，是以產品已知的的營養量來�
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "若照片十分地清楚完整，其營養成分會從照片中被自動擷取出來。"
+msgstr "如照片足夠清晰，營養成分可以自動摘出。"
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -2653,11 +2653,11 @@ msgstr "警告: 水果，蔬菜和果仁的數量沒有被指定, 他們可能�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "警告: 水果、蔬菜和堅果的數量沒有在標籤上注明, 它是從配料清單上估計的: %d%"
+msgstr "警告：包裝沒有註明水果、蔬菜和堅果的數量，顯示的數量從成分估計：%d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "警告: 水果, 蔬菜和堅果的數量沒有在標籤上注明, 它是從產品類別 (%s) 估計: %d%"
+msgstr "警告：包裝沒有註明水果、蔬菜和堅果的數量，顯示的數量從分類%s估算：%d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
