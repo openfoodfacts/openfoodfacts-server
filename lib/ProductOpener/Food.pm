@@ -3822,10 +3822,15 @@ sub normalize_quantity($) {
 	my $q = undef;
 	my $u = undef;
 
-	if ($quantity =~ /(\d+)(\s)?(x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
+	# 12 pots x125 g
+	# 6 bouteilles de 33 cl
+	# 6 bricks de 1 l
+	# 10 unités, 170 g
+	# 4 bouteilles en verre de 20cl
+	if ($quantity =~ /(\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
 		my $m = $1;
-		$q = lc($5);
-		$u = $10;
+		$q = lc($7);
+		$u = $12;
 		$q =~ s/,/\./;
 		$q = unit_to_g($q * $m, $u);
 	}
@@ -5041,12 +5046,6 @@ sub compute_serving_size_data($) {
 		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
 		(defined $product_ref->{serving_size}) and ($product_ref->{serving_size} eq "") and delete $product_ref->{serving_size};
 	}
-
-	#if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{'energy.unit'}) and ($product_ref->{nutriments}{'energy.unit'} eq 'kcal')) {
-	#	$product_ref->{nutriments}{energy} = sprintf("%.0f", $product_ref->{nutriments}{energy} * 4.18);
-	#	$product_ref->{nutriments}{'energy.unit'} = 'kj';
-	#}
-
 
 	foreach my $product_type ("", "_prepared") {
 
