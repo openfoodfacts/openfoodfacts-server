@@ -1965,44 +1965,44 @@ ru:Тоник
 zh:通宁水
 wikidata:en:Q237315
 
-<en:Diet beverages
+<en:Artificially sweetened beverages
 <en:Sodas
-en:Diet sodas, diet soft drinks
-de:Kalorienarme Erfrischungsgetränke, Kalorienreduzierte Erfrischungsgetränke, Diät-Erfrischungsgetränke
-es:Sodas light
+en:Artificially sweetened sodas, diet sodas, diet soft drinks
+de:Erfrischungsgetränke mit Süssungsmitteln, Kalorienarme Erfrischungsgetränke, Kalorienreduzierte Erfrischungsgetränke, Diät-Erfrischungsgetränke
+es:Sodas con edulcorantes, sodas light
 fi:dieetti-virvoitusjuomat
-fr:Sodas light, soda light, sodas édulcorés, sodas avec édulcorants, sodas sans sucres, soda sans sucre, soda allégé en sucre, sodas allégés en sucre
+fr:Sodas édulcorés, Sodas light, soda light, sodas avec édulcorants, sodas sans sucres, soda sans sucre, soda allégé en sucre, sodas allégés en sucre
 nl:Light frisdranken
 wikidata:en:Q3246353
 
 <en:Orange soft drinks
-<fr:Sodas aux fruits light
-en:Light orange soft drinks
+<en:Artificially sweetened fruit sodas
+en:Artificially sweetened orange sodas, light orange soft drinks
 de:Kalorienarme Orangenlimonaden, Kalorienreduzierte Orangenlimonaden
-fr:Sodas à l'orange light, soda à l'orange light, soda à la pulpe d'orange light, sodas à la pulpe d'orange light
+fr:Sodas à l'orange édulcorés, sodas à l'orange light, soda à l'orange light, soda à la pulpe d'orange light, sodas à la pulpe d'orange light
 nl:Light sinaasappelfrisdranken
 
 <en:Lemon soft drinks
-<fr:Sodas aux fruits light
-en:Light lemon soft drinks
+<en:Artificially sweetened fruit sodas
+en:Artificially sweetened lemon sodas, Light lemon soft drinks
 de:Kalorienarme Zitronenlimonaden, Kalorienreduzierte Zitronenlimonaden
-fr:Sodas au citron light, soda au citron light
+fr:Sodas au citron édulcorés, sodas au citron light, soda au citron light
 nl:Light citroenfrisdanken
 
-<en:Diet sodas
+<en:Artificially sweetened sodas
 <en:Fruit sodas
-en:Light fruit sodas
+en:Artificially sweetened fruit sodas, Light fruit sodas
 de:Kalorienarme Fruchtlimonaden, Kalorienreduzierte Fruchtlimonaden
 fi:Kevyet hedelmävirvoitusjuomat
-fr:Sodas aux fruits light, soda aux fruits light
+fr:Sodas aux fruits édulcorés, sodas aux fruits light, soda aux fruits light
 nl:Light vruchtenfrisdranken
 
-<en:Diet sodas
+<en:Artificially sweetened sodas
 <en:Colas
-en:Diet cola soft drink
+en:Artificially sweetened colas, Diet cola soft drink
 de:Kalorienarme Colas, Kalorienreduzierte Colas, Light Colas
 fi:Dieettikola
-fr:Sodas au cola light, colas light, cola light
+fr:Sodas au cola édulcorés, sodas au cola light, colas light, cola light
 nl:Light cola's
 ro:Cola light
 
@@ -18409,12 +18409,16 @@ nl:Chocolade madeleines
 oqali_family:en: fr:Biscuits et gateaux industriels - Madeleines au chocolat
 
 <en:Cakes
-en:Pound Cake
+en:Pound cakes, Pound Cake
 de:Rührkuchen
 es:Bizcocho
 fr:Quatre-quarts, quatre-quart
 nl:Pondscake
 wikidata:en:Q29443
+
+<en:Pound cakes
+en:Plain pound cakes
+fr:Quatre-quarts natures
 
 <en:Cakes
 en:Dorayaki
@@ -19075,6 +19079,7 @@ fr:Bonbons de chocolat fourrés cerise et liqueur
 nl:Kersen met een chocolaag en gevuld met likeur
 
 <en:Bonbons
+<en:Nuts and their products
 en:Chocolate covered nuts
 fi:suklaa-päällysteiset pähkinät
 fr:Fruits à coque au chocolat
@@ -21533,6 +21538,26 @@ th:ชีสจากนมวัว
 wikidata:en:Q3088299
 
 <en:Cow cheeses
+en:Provolone
+de:Provolone
+es:Provolone
+fr:Provolone
+nl:Provolone
+pt:Provolone
+sv:Provolone
+
+<en:Cow cheeses
+en:Havarti
+da:Havarti
+de:Havarti
+es:Havarti
+fr:Havarti
+it:Havarti
+nl:Havarti
+ro:Havarti
+wikidata:en:Q1591487
+
+<en:Cow cheeses
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
 fr:Coulommiers
@@ -22274,6 +22299,12 @@ es:Queso fresco
 fr:Fromages à pâte fraîche, Fromage frais
 it:Formaggi freschi
 wikidata:en:Q3323634
+
+<en:Fresh cheeses
+en:Brousse
+es:Brousse
+fr:Brousses
+wikidata:en:Q2926318
 
 <en:Cream cheeses
 fr:Faisselles
@@ -23038,11 +23069,13 @@ country:en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
+<en:Provolone
 it:Provolone del Monaco
 country:en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
+<en:Provolone
 it:Provolone Valpadana
 country:en:Italy
 #wikidata:en:
@@ -23294,6 +23327,16 @@ nl:Manchego
 pt:Manchego, queijo manchego
 country:en:Spain
 wikidata:en:Q72305
+
+<en:Spanish cheeses
+<en:Cow cheeses
+en:Tetilla cheese
+de:Queso Tetilla
+es:Queso Tetilla
+fr:Queso Tetilla
+gl:Queixo de Tetilla
+country:en:Spain
+wikidata:en:Q1244334
 
 <en:Spanish cheeses
 es:Afuega'l Pitu
@@ -24433,14 +24476,14 @@ ca:Beguda de soja sense edulcorar
 de:Ungesüßte natürliche Sojamilch, Ungesüßte natürliche Sojagetränke
 es:Bebidas de soja natural sin azúcar, Leches de soja natural sin azúcar
 fi:makeuttamattomat soijajuomat
-fr:Boissons végétales de soja nature, Laits de soja nature sans sucre
+fr:Boissons de soja natures, boissons végétales de soja nature, Laits de soja nature sans sucre
 nl:Ongezoete sojadranken
 
 <en:Soy milks
 en:Sweetened natural soy milks, Sweetened natural soy drinks
 de:Gesüßte natürliche Sojamilch, gesüßte natürliche Sojagetränke
 es:Bebidas de soja natural endulzadas, Leches de soja natural endulzadas
-fr:Laits de soja naturel avec du sucre
+fr:Boissons de soja natures sucrées, Laits de soja naturel avec du sucre
 nl:Gezoete sojadranken
 
 <en:Soy milks
@@ -24448,7 +24491,7 @@ en:Vanilla soy milks, Vanilla soy drinks
 de:Vanille-Soja-Milch, Vanille-Soja-Getränke
 es:Bebidas de soja con vainilla, Leches de soja con vainilla
 fi:Vaniljan makuiset soijajuomat
-fr:Boissons végétales de soja à la vanille, Laits de soja à la vanille
+fr:Boissons de soja à la vanille, boissons végétales de soja à la vanille, Laits de soja à la vanille
 nl:Vanillesojadranken
 
 <en:Soy milks
@@ -24456,13 +24499,13 @@ en:Chocolate soy milks, Cocoa soy milks, Cocoa soy drinks, Chocolate soy drinks
 de:Schokoladensojamilch
 es:Bebidas de soja con cacao, Bebidas de soja con chocolate, Leches de soja con cacao, Leches de soja con chocolate
 fi:Soijakaakaot
-fr:Boissons végétales de soja au chocolat, Boissons végétales de soja au cacao, Laits de soja au cacao, Laits de soja au chocolat
+fr:Boissons de soja au chocolat, boissons végétales de soja au chocolat, Boissons végétales de soja au cacao, Laits de soja au cacao, Laits de soja au chocolat
 nl:Chocosojadranken
 
 <en:Soy milks
 en:Coffee soy milks, Coffee soy drinks
 es:Bebidas de soja con café, Leches de soja con café
-fr:Boissons végétales de soja avec du café, Laits de soja avec du café
+fr:Boissons de soja au café, Boissons végétales de soja avec du café, Laits de soja avec du café
 nl:Koffiesojadranken
 
 <en:Plant milks
@@ -24491,6 +24534,22 @@ fr:Laits d'amande, lait d’amande, Boissons végétales d'amande
 it:Latte di mandorla
 nl:Amandeldranken
 wikidata:en:Q975953
+
+<en:Almond milks
+en:Unsweetened natural almond milks
+fr:Laits d'amande natures non sucrés
+
+<en:Almond milks
+en:Sweetened natural almond milks
+fr:Laits d'amande natures sucrés
+
+<en:Almond milks
+en:Chocolate almond milks
+fr:Laits d'amande au chocolat
+
+<en:Almond milks
+en:Vanilla almond milks
+fr:Laits d'amande vanille
 
 <en:Nut milks
 en:Chestnut milks, Chestnut drinks
@@ -25609,11 +25668,38 @@ pnns_group_2:en:Dairy desserts
 <en:Dairy desserts
 fr:Crèmes brûlées
 
+#really similar to crème brûlé but made with milk instead of cream
+<en:Dairy desserts
+en:Crema catalana
+de:Crema catalana
+es:Crema catalana
+fr:Crèmes catalanes
+nl:Crema catalana
+wikidata:en:Q842566
+
 <en:Dairy desserts
 en:Panna cottas, panacotta, pannacota, panacota
-fi:pannacotta
+fi:Pannacotta
 fr:Panna cottas, pannacottas, Panna cotta, pannacotta, panacotta
+it:Panna cotta
 nl:Panna cottas
+
+<en:Panna cottas
+en:Plain panna cottas
+fr:Panna cottas natures
+
+<en:Panna cottas
+en:Panna cottas with fruit coulis
+fr:Panna cottas au coulis de fruits
+it:Panna cotta con coulis di fruttes
+
+#Curd milk eated like a yogurt (but non fermented)
+<en:Dairy dessert
+en:Cuajada
+ca:Quallada
+es:Cuajada
+#fr:Caillé
+wikidata:en:Q1142807
 
 <en:Dairy desserts
 <en:Chocolate desserts
@@ -25843,12 +25929,6 @@ de:Sojajoghurt mit tropischen Früchten
 es:Yogures de soja con frutas tropicales, Yogures de soja con frutas amarillas
 fr:Yaourts soja aux fruits tropicaux
 nl:Tropische vruchtensojayoghurts
-
-<en:Artificially sweetened beverages
-en:Diet beverages, Diet drinks
-de:Kalorienarme Getränke, Kalorienreduzierte Getränke, Diät Getränke
-fr:Boissons light
-nl:Light dranken
 
 <en:Snacks
 en:Salty snacks
@@ -26502,7 +26582,6 @@ fr:Miels de châtaignier d'Alsace
 nl:Kastanjehoningen uit de Alsace
 
 <en:Honeys from Alsace
-<en:Flower honeys
 fr:Miels de fleurs d'Alsace
 nl:Bloemenhoningen uit de Alsace
 
@@ -26712,7 +26791,7 @@ fr:Miels de pin
 nl:Pijnboomhoningen
 
 <en:Honeys
-en:Flower honeys, Flower honey
+en:Flower honeys, en:Flower honey
 es:Mieles de flores
 fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
 nl:Bloemenhoningen
@@ -29675,7 +29754,7 @@ pt:Pizzas congeladas
 en:Frozen pies
 es:Tartas saladas congeladas, tartas congeladas
 fi:pakastetut piiraat
-fr:Tartes surgelées (salées), Tartes surgelées, tarte surgelée
+fr:Tartes salées surgelées, Tartes surgelées, tarte surgelée
 nl:Diepvries hartige taarten
 
 <en:Frozen foods
@@ -31740,9 +31819,9 @@ nl:Steenzouten
 
 <en:Salts
 en:Himalaya salts
-it:Sale dell'Himalaya
 es:Sal del himalaya
 fr:Sels de l'Himalaya
+it:Sale dell'Himalaya
 
 <en:Salts
 en:Sea salts, Bay salts, Solar salt
@@ -31754,6 +31833,7 @@ nl:Zeezouten
 
 <en:Salts
 en:Iodised salts, iodised salt
+fr:Sels iodés
 it:Sale iodato
 
 <en:Salts
@@ -33844,12 +33924,6 @@ fr:Cassoulets au confit de canard
 nl:Cassoulet met geconfijte eend
 
 <en:Duck dishes
-<en:Sausages
-en:Duck sausages
-fr:Saucisses de canard
-nl:Eendenworst
-
-<en:Duck dishes
 en:Blanquettes of duck, Blanquette of duck
 fr:Blanquettes de canard, Blanquette de canard
 nl:Blanquette van eend
@@ -33918,7 +33992,7 @@ wikidata:en:Q863794
 <en:Fresh pasta
 <en:Fresh meals
 <en:Ravioli
-fr:Ravioli frais
+fr:Ravioli frais, raviolis frai
 de:Frische Ravioli
 nl:Verse raviolis
 
@@ -34780,6 +34854,10 @@ pt:Pizzas
 ru:Пицца
 zh:比萨
 wikidata:en:Q177
+
+<en:Pizzas
+en:Refrigerated pizzas
+fr:Pizzas réfrigérées
 
 <en:Pizzas
 en:Regina pizza
@@ -36482,7 +36560,7 @@ fr:Charcuteries à teneur réduite en sel
 hu:Feldolgozott hús kevés sóval
 nl:Vleeswaren met minder zout
 
-<en:Prepared meats
+#do not put it in meat, there are fish rillettes and we separate meat and fish 
 <en:Salted spreads
 en:Rillettes
 ca:Rostes
@@ -36495,6 +36573,7 @@ wikidata:en:Q1933110
 <en:Rillettes
 fr:Rillettes artisanales
 
+<en:Prepared meats
 <en:Rillettes
 en:Potted meats, Meat rillettes
 fr:Rillettes de viande
@@ -36675,11 +36754,6 @@ fr:Saucisses espagnoles, Saucisses d'Espagne
 hu:Spanyol kolbász
 nl:Spaanse worsten
 
-<en:Sausages
-<en:Veal meat
-en:Veal Sausages, Veal Sausage
-fr:Saucisses de veau, Saucisse de veau
-
 <en:Poultry sausages
 <en:Chickens
 en:Chicken sausages
@@ -36698,6 +36772,15 @@ fi:kalkkunamakkarat
 fr:Saucisses de dinde
 hu:Pulyka kolbász
 nl:Kalkoenworst
+
+<en:Poultry sausages
+en:Duck sausages
+fr:Saucisses de canard
+nl:Eendenworst
+
+<en:Sausages
+en:Veal Sausages, Veal Sausage
+fr:Saucisses de veau, Saucisse de veau
 
 <en:Sausages
 fr:Merguez
@@ -37128,9 +37211,15 @@ hu:Szalámi
 nl:Salamis
 
 <en:Salami
+en:Pork salami
+fr:Salami de porc
+
+<en:Salami
+en:Beef salami
 fr:Salami de bœuf, Salamis de bœuf
 
 <en:Salami
+en:Turkey salami
 fr:Salami de dinde, Salamis de dinde
 nl:Kalkoensalamis
 
@@ -37201,7 +37290,7 @@ fr:Saucissons secs cacher
 <en:Tunas
 <en:Fish rillettes
 en:Tuna rillettes
-es:Rillettes De Atún
+es:Rillettes de atún
 fr:Rillettes de thon
 nl:Tonijnrillettes, tonijnrillette
 
@@ -40418,13 +40507,6 @@ fi:kevythillot
 fr:Confitures allégées
 nl:Suikervrije jams
 
-<en:Jams
-en:Dietary jams
-es:Mermeladas y confituras dietéticas
-fr:Confitures diététiques
-hu:Diétás lekvárok
-nl:Dieetjams
-
 <en:Fruits based foods
 <en:Jams
 en:Fruit jams
@@ -40712,7 +40794,7 @@ hu:Birs lekvár
 
 <en:Fruit jams
 en:Kiwi jams, kiwi jam
-fr:Confitures de kiwi, confiture de kiwi
+fr:Confitures de kiwi, confiture de kiwi, confitures de kiwis
 
 <en:Fruit jams
 en:Plum jams
@@ -44681,17 +44763,12 @@ country:en:Italy
 wikidata:en:Q37483505
 
 <en:Vinegars
-en:Cider vinegars
+en:Cider vinegars, Apple cider vinegars, Apple cider vinegar
 es:Vinagres de sidra y manzana, Vinagres de manzana, Vinagres de sidra
 fi:siiderietikat
-fr:Vinaigres de cidre, vinaigre de cidre
+fr:Vinaigres de cidre, vinaigre de cidre, Vinaigres de cidre de pomme, Vinaigre de cidre de pomme, Vinaigres de pomme, Vinaigre de pomme
 hu:Almaecet
 nl:Ciderazijnen
-wikidata:en:Q618322
-
-<en:Cider vinegars
-en:Apple cider vinegars, Apple cider vinegar
-fr:Vinaigres de cidre de pomme, Vinaigre de cidre de pomme, Vinaigres de pomme, Vinaigre de pomme
 wikidata:en:Q618322
 
 <en:Vinegars
@@ -46353,22 +46430,30 @@ fi:voicroissantit
 fr:Croissants au beurre
 nl:Roombotercroissants
 
-<en:Croissants
+<en:Viennoiseries
+en:Filled croissants
+fr:Croissants fourrés
+it:Cornetti farciti
+
+<en:Filled croissants
 en:Croissant filled with chocolate
 de:Mit Schokolade gefüllte Croissants
 fr:Croissants fourrés au chocolat, Croissant fourré au chocolat
+it:Cornetti farciti con cioccolato
 nl:Chocoladecroissants
 
-<en:Croissants
+<en:Filled croissants
 en:Croissant filled with cream
 de:Mit Sahne gefüllte Croissants
 fr:Croissants fourrés à la crème, Croissant fourré à la crème
+it:Cornetti farciti con crema
 nl:Croissant gevuld met room
 
-<en:Croissants
+<en:Filled croissants
 en:Croissant filled with jam
 de:Mit Konfitüre gefüllte Croissants
 fr:Croissants fourrés à la confiture, Croissant fourré à la confiture
+it:Cornetti farciti con confettura
 nl:Croissants met jam
 
 <en:Viennoiseries
@@ -46408,6 +46493,10 @@ fr:Pains au lait, pain au lait
 nl:Melkbroodjes
 pt:Pães de leite
 wikidata:en:Q3360557
+
+<en:Milk bread rolls
+en:Plain milk bread rolls
+fr:Pains au lait natures
 
 <en:Milk bread rolls
 en:Milk bread rolls with chocolate
@@ -46983,6 +47072,12 @@ nl:Zoutjes
 <en:Crackers
 en:Salty palmiers
 fr:Palmiers salés
+
+<en:Crackers
+fr:Crêpes dentelles salées
+
+<en:Crackers
+fr:Flûtes et torsades apéritifs
 
 <en:Crackers
 en:Pretzel
