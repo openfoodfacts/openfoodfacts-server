@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-21 21:12\n"
+"PO-Revision-Date: 2019-12-21 23:22\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3562,12 +3562,12 @@ msgstr "La plataforma para productores permite a los productores administrar fá
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Los datos y las fotos de los productos que envíes a la plataforma para productores son almacenados en una base de datos privada. Podrás revisar que toda la información sea correcta antes de dejarla disponible en la base de datos pública Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Los datos y las fotos del producto se volverán disponibles públicamente en la base de datos Open Food Facts bajo la <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Licencia de Base de Datos Abierta</a>. Los contenidos individuales de la base de datos están disponibles bajo la <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Licencia de Contenido de la Base de Datos</a> y las imágenes de productos están disponibles bajo la <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Licencia de Atribución de Bienes Creativos ShareAlike</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3582,11 +3582,11 @@ msgstr "Importar fotos del producto"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
 msgid "Export product data and photos to the public database"
-msgstr ""
+msgstr "Exportar los datos y fotos del producto a la base de datos pública"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Por favor, revise que los datos en la plataforma del productor sean correctos antes de exportarlos a la base de datos pública."
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -3719,7 +3719,7 @@ msgstr ""
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "Tu cuenta todavía no está asociada a una compañía. Por favor, envía un correo electrónico a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> para activar el acceso gratuito a la plataforma de productores."
 
 msgctxt "import_products"
 msgid "Import products"
@@ -3731,16 +3731,16 @@ msgstr "Columna vacía"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "El archivo no contiene ningún valor en esta columna."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "Importando los datos"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "Los datos del producto han sido recibidos y serán importados a la plataforma para productores."
 
 msgctxt "import_file_status"
 msgid "Status"
