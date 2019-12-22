@@ -948,7 +948,7 @@ sub check_categories($) {
 	my $product_ref = shift;
 
 	# Check alcohol content
-	if (has_tag($product_ref, "categories", "en:alcoholic-beverages") {
+	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
 		if (!(defined $product_ref->{alcohol_value}) or $product_ref->{alcohol_value} == 0) {
 			push @{$product_ref->{data_quality_warnings_tags}}, 'en:alcoholic-beverages-category-without-alcohol-value';
 		}
