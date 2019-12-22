@@ -82,6 +82,18 @@ is ( normalize_quantity("1 дл"), 100);
 is ( normalize_quantity("1 кл"), 10);
 is ( normalize_quantity("1 мл"), 1);
 
+is ( normalize_quantity("4 x 25g"), 100);
+is ( normalize_quantity("4 x25g"), 100);
+is ( normalize_quantity("4 * 25g"), 100);
+is ( normalize_quantity("4X2,5L"), 10000);
+is ( normalize_quantity("1 barquette de 40g"), 40);
+is ( normalize_quantity("2 barquettes de 40g"), 80);
+is ( normalize_quantity("6 bouteilles de 33cl"), 6 * 33 * 10);
+is ( normalize_quantity("10 unités de 170g"), 1700);
+is ( normalize_quantity("10 unites, 170g"), 170);
+is ( normalize_quantity("4 bouteilles en verre de 20cl"), 800);
+is ( normalize_quantity("5 bottles of 20cl"), 100 * 10);
+
 my $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],

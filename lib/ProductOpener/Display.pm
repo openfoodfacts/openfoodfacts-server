@@ -137,6 +137,7 @@ use CLDR::Number::Format::Percent;
 use Storable qw(freeze);
 use Digest::MD5 qw(md5_hex);
 use boolean;
+use Excel::Writer::XLSX;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -202,6 +203,9 @@ $world_subdomain = format_subdomain('world');
 
 sub init()
 {
+	# Clear the context
+	delete $log->context->{user_id};
+	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
 	$styles = '';
@@ -1411,24 +1415,6 @@ sub display_list_of_tags($$) {
 	}
 	else {
 
-		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
-
-			if ($country ne 'en:world') {
-				$html .= "<p>&rarr; <a href=\"${world_subdomain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
-			}
-
-			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
-			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
-
-			if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
-				$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
-				$request_ref->{current_link_query_download} .= "&download=on";
-				$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br>";
-			}
-		}
-
 		my @tags = @{$results};
 		my $tagtype = $request_ref->{groupby_tagtype};
 
@@ -2022,24 +2008,6 @@ sub display_list_of_tags_translate($$) {
 
 	}
 	else {
-
-		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
-
-			if ($country ne 'en:world') {
-				$html .= "<p>&rarr; <a href=\"${world_subdomain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
-			}
-
-			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
-			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
-
-			if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
-				$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
-				$request_ref->{current_link_query_download} .= "&download=on";
-				$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br>";
-			}
-		}
 
 		my @tags = @{$results};
 		my $tagtype = $request_ref->{groupby_tagtype};
@@ -3333,7 +3301,7 @@ JS
 
 	if ((scalar @map_layers) > 0) {
 		$header .= <<HTML
-	<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
+	<link rel="stylesheet" href="$static_subdomain/css/dist/leaflet.css">
 	<script src="$static_subdomain/js/dist/leaflet.js"></script>
 	<script src="$static_subdomain/js/dist/osmtogeojson.js"></script>
 	<script src="$static_subdomain/js/dist/display-tag.js"></script>
@@ -3872,7 +3840,11 @@ sub search_and_display_products($$$$$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
 			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_download} .= "&download=on";
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br>";
+			$html .= "&rarr; " . lang("search_download_results") . "</a><br>"
+				. "<ul>"
+				. "<li><a href=\"$request_ref->{current_link_query_download}&format=xlsx\">" . lang("search_download_xlsx") . "</a> - " . lang("search_download_xlsx_description") . "</li>"
+				. "<li><a href=\"$request_ref->{current_link_query_download}&format=csv\">" . lang("search_download_csv") . "</a> - " . lang("search_download_csv_description") . "</li>"
+				. "</ul>"
 		}
 
 		if ($log->is_debug()) {
@@ -4154,51 +4126,20 @@ HTML
 
 
 
-
-
-sub search_and_export_products($$$$$) {
+sub search_and_export_products($$$) {
 
 	my $request_ref = shift;
 	my $query_ref = shift;
 	my $sort_by = shift;
-	my $flatten = shift;
-	my $flatten_ref = shift;
+
+	my $format = "csv";
+	if (defined $request_ref->{format}) {
+		$format = $request_ref->{format};
+	}
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
-	my $sort_ref = Tie::IxHash->new();
-
-	if (defined $sort_by) {
-	}
-	elsif (defined $request_ref->{sort_by}) {
-		$sort_by = $request_ref->{sort_by};
-	}
-
-	if (defined $sort_by) {
-		my $order = 1;
-		if ($sort_by =~ /^((.*)_t)_complete_first/) {
-			#$sort_by = $1;
-			#$sort_ref->Push(complete => -1);
-			$sort_ref->Push(sortkey => -1);
-			$order = -1;
-		}
-		elsif ($sort_by =~ /_t/) {
-			$order = -1;
-			$sort_ref->Push($sort_by => $order);
-		}
-		elsif ($sort_by =~ /scans_n/) {
-			$order = -1;
-			$sort_ref->Push($sort_by => $order);
-		}
-		else {
-			$sort_ref->Push($sort_by => $order);
-		}
-	}
-
-	$sort_ref->Push(product_name => 1);
-	$sort_ref->Push(generic_name => 1);
-
-	$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref }) if $log->is_debug();
+	$log->debug("search_and_export_products - MongoDB query", { format => $format, query => $query_ref }) if $log->is_debug();
 
 	my $cursor;
 
@@ -4255,54 +4196,19 @@ sub search_and_export_products($$$$$) {
 		return;
 	}
 
-
-
-
 	if ($count > 0) {
 
 		# Send the CSV file line by line
 
 		use Apache2::RequestRec ();
 		my $r = Apache2::RequestUtil->request();
-		$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
-		$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
-		binmode(STDOUT, ":encoding(UTF-8)");
-		print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
 
-		my $csv = Text::CSV->new ({
-			eol => "\n",
-			sep => "\t",
-			quote_space => 0,
-			binary => 1
-		});
+		my $workbook;
+		my $worksheet;
+
+		my $csv;
 
 		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
-
-		# First pass needed if we flatten results
-		my %flattened_tags = ();
-		my %flattened_tags_sorted = ();
-		foreach my $field (%$flatten_ref) {
-			$flattened_tags{$field} = {};
-		}
-
-		if ($flatten) {
-
-			foreach my $product_ref (@products) {
-
-				foreach my $field (%$flatten_ref) {
-					if (defined $product_ref->{$field . '_tags'}) {
-						foreach my $tag (@{$product_ref->{$field . '_tags'}}) {
-							$flattened_tags{$field}{$tag} = 1;
-						}
-					}
-				}
-			}
-
-			foreach my $field (%$flatten_ref) {
-				$flattened_tags_sorted{$field} = [ sort keys %{$flattened_tags{$field}}];
-			}
-		}
-
 
 		# Output header
 
@@ -4350,16 +4256,48 @@ sub search_and_export_products($$$$$) {
 			push @row, "${nid}_100g";
 		}
 
-		foreach my $field (%$flatten_ref) {
-			foreach my $tagid (@{$flattened_tags_sorted{$field}}) {
-				push @row, "$field:$tagid";
+		if ($format eq "xlsx") {
+			$r->headers_out->set("Content-type" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+			$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.xlsx");
+			binmode( STDOUT );
+			print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
+
+			$workbook = Excel::Writer::XLSX->new( \*STDOUT );
+			$worksheet = $workbook->add_worksheet();
+			my $format = $workbook->add_format();
+			$format->set_bold();
+			$worksheet->write_row( 0, 0, \@row, $format);
+
+			# Set the width of the columns
+			for (my $i = 0; $i <= $#row; $i++) {
+				my $width = length($row[$i]);
+				($width < 20) and $width = 20;
+				$worksheet->set_column( $i , $i, $width );
 			}
 		}
+		else {
+			$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
+			$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
+			binmode(STDOUT, ":encoding(UTF-8)");
+			print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
 
-		$csv->print (*STDOUT, \@row);
+			$csv = Text::CSV->new ({
+				eol => "\n",
+				sep => "\t",
+				quote_space => 0,
+				binary => 1
+			});
+
+			$csv->print (*STDOUT, \@row);
+		}
 
 		my $uri = format_subdomain($subdomain);
+
+		my $j = 0;	# Row number
+
 		foreach my $product_ref (@products) {
+
+			$j++;
 
 			@row = ();
 
@@ -4466,31 +4404,24 @@ sub search_and_export_products($$$$$) {
 				$nid =~ s/^-//g;
 				$nid =~ s/-$//g;
 				if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
-					push @row, $product_ref->{nutriments}{"${nid}_100g"};
+					my $value = $product_ref->{nutriments}{"${nid}_100g"};
+					# for energy-kcal, we need the value in kcal (the energy-kcal_100g is in kJ)
+					if ($nid eq "energy-kcal") {
+						$value = $product_ref->{nutriments}{"${nid}_value"};
+					}
+					push @row, $value;
 				}
 				else {
 					push @row, '';
 				}
 			}
 
-			# Flattened tags
-
-			foreach my $field (%$flatten_ref) {
-				my %product_tags = ();
-				foreach my $tagid (@{$product_ref->{$field . '_tags'}}) {
-					$product_tags{$tagid} = 1;
-				}
-				foreach my $tagid (@{$flattened_tags_sorted{$field}}) {
-					if (defined $product_tags{$tagid}) {
-						push @row, '1';
-					}
-					else {
-						push @row, '';
-					}
-				}
+			if ($format eq "xlsx") {
+				$worksheet->write_row( $j, 0, \@row);
 			}
-
-			$csv->print (*STDOUT, \@row);
+			else {
+				$csv->print (*STDOUT, \@row);
+			}
 		}
 	}
 
@@ -5504,10 +5435,10 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML
-<link rel="stylesheet" href="$static_subdomain/js/dist/leaflet.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/leaflet.css">
 <script src="$static_subdomain/js/dist/leaflet.js"></script>
-<link rel="stylesheet" href="$static_subdomain/js/dist/MarkerCluster.css">
-<link rel="stylesheet" href="$static_subdomain/js/dist/MarkerCluster.Default.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/MarkerCluster.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/MarkerCluster.Default.css">
 <script src="$static_subdomain/js/dist/leaflet.markercluster.js"></script>
 HTML
 ;
@@ -5933,7 +5864,7 @@ $og_images2
 $options{favicons}
 <link rel="canonical" href="$canon_url">
 <link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
-<link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.min.css">
+<link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 <style media="all">
@@ -6493,7 +6424,7 @@ HTML
 
 <script src="$static_subdomain/js/dist/modernizr.js"></script>
 <script src="$static_subdomain/js/dist/jquery.js"></script>
-<script src="$static_subdomain/js/dist/jquery-ui.min.js"></script>
+<script src="$static_subdomain/js/dist/jquery-ui.js"></script>
 <script src="$static_subdomain/js/dist/display.js"></script>
 
 <script>
@@ -6502,7 +6433,7 @@ HTML
 });
 </script>
 
-<script src="$static_subdomain/js/dist/foundation.min.js"></script>
+<script src="$static_subdomain/js/dist/foundation.js"></script>
 <script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
 $scripts
@@ -7195,7 +7126,7 @@ HTML
 <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
 Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
 <br><br>
-&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+&rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="https://www.lactalis.fr/information-consommateur/">Lactalis</a>.
 <a href="#" class="close">&times;</a>
 </span></div>
 HTML
@@ -7239,7 +7170,7 @@ HTML
 <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;">
 Certains produits de cette marque font partie d'une liste de produits retirés du marché.
 <br><br>
-&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+&rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
 <a href="#" class="close">&times;</a>
 </span></div>
 HTML
@@ -7812,6 +7743,15 @@ HTML
 </div>
 HTML
 ;
+
+	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+		$html .= <<HTML
+<p class="panel callout">
+$Lang{alcohol_warning}{$lc}
+</p>
+HTML
+;
+	}
 
 	}
 
