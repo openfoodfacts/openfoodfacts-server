@@ -2261,7 +2261,7 @@ sub mmoll_to_unit {
 		fi_synonyms => ["transrasvahappo"],
 		fr => "Acides gras trans",
 		he => "שומן טראנס - שומן בלתי רווי",
-		en => "Transz-zsírsav",
+		hu => "Transz-zsírsav",
 		it => "Acidi grassi trans",
 		nl => "Transvetten",
 		nl_be => "Transvetten",
