@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-20 13:02\n"
+"PO-Revision-Date: 2019-12-22 08:12\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -17,12 +17,12 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr "1 个产品"
+msgstr "一个产品"
 
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr " 和 "
+msgstr "和"
 
 msgctxt "about"
 msgid "About me"
@@ -83,7 +83,7 @@ msgstr "你好 <NAME>，\n"
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "感谢您加入 <<site_name>>"
+msgstr "感谢加入<<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
