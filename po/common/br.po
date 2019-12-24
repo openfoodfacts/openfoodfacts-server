@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: br\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-17 10:22\n"
+"PO-Revision-Date: 2019-12-24 13:53\n"
 "Language-Team: Breton\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -179,7 +179,7 @@ msgstr ""
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Gallout a rit ouzhpennañ skeudennoù:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -560,7 +560,7 @@ msgstr ""
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Implijet e vez ar chomlec'h postel-mañ gant unan bennak all. Ur gont ho peus dija marteze? Gallout a rit <a href=\"/cgi/reset_password.pl\"> adderaouekaat ger-tremen</a> ho kont all."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -588,7 +588,7 @@ msgstr ""
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Ret eo deoc'h bizskrivañ un anv pe ul lesanv."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
@@ -612,11 +612,11 @@ msgstr ""
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "N'eus ket deus an anv-implijer-mañ."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Un anv-implijer-mañ zo bet choazet dija, dibabit unan all mar plij ganeoc'h."
 
 msgctxt "example"
 msgid "Example:"
@@ -644,7 +644,7 @@ msgstr "br_FR"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -689,7 +689,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -800,7 +800,7 @@ msgstr "Produ"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "Anv ordin"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -856,11 +856,11 @@ msgstr ""
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr ""
+msgstr "Kaset eo bet ar foto-mañ dija."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "Re vihan eo ar foto-mañ. Na gasit ket fotoioù kavet war Internet mar plij, grit gant fotoioù tennet ganeoc'h hepken."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
