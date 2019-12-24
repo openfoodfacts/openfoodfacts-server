@@ -51,6 +51,7 @@ requires 'Text::Fuzzy';
 requires 'File::Copy::Recursive';
 requires 'Spreadsheet::CSV';
 requires 'List::MoreUtils';
+requires 'Excel::Writer::XLSX';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';

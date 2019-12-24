@@ -75,6 +75,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Users qw/:all/;
 
 use Log::Any qw($log);
 use Encode;
@@ -160,17 +161,27 @@ sub display_select_crop_init($) {
 
 	defined $object_ref->{images} or $object_ref->{images} = {};
 
+	# Construct an array of images that we can sort by upload time
+	# The imgid number is incremented by 1 for each new image, but when we move images
+	# from one product to another, they might not be sorted by upload time.
+
+	my @images = ();
+
 	for (my $imgid = 1; $imgid <= ($object_ref->{max_imgid} + 5); $imgid++) {
 		if (defined $object_ref->{images}{$imgid}) {
-			my $admin_fields = '';
-			if ($admin) {
-				$admin_fields = ", uploader: '" . $object_ref->{images}{$imgid}{uploader} . "', uploaded: '" . display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
-			}
-			$images .= <<JS
+			push @images, $imgid;
+		}
+	}
+
+	foreach my $imgid (sort { $object_ref->{images}{$a}{uploaded_t} <=> $object_ref->{images}{$b}{uploaded_t} } @images) {
+		my $admin_fields = '';
+		if ($User{moderator}) {
+			$admin_fields = ", uploader: '" . $object_ref->{images}{$imgid}{uploader} . "', uploaded: '" . display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
+		}
+		$images .= <<JS
 {imgid: "$imgid", thumb_url: "$imgid.$thumb_size.jpg", crop_url: "$imgid.$crop_size.jpg", display_url: "$imgid.$display_size.jpg" $admin_fields},
 JS
 ;
-		}
 	}
 
 	$images =~ s/,\n?$//;
@@ -301,7 +312,7 @@ HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
 JS
 ;
 
@@ -463,6 +474,7 @@ sub process_image_upload($$$$$$) {
 
 
 	my $file = undef;
+	my $extension = 'jpg';
 
 	# Image that was already read by barcode scanner: can't read it again
 	my $tmp_filename;
@@ -470,9 +482,13 @@ sub process_image_upload($$$$$$) {
 		$tmp_filename = $imagefield;
 		$imagefield = 'search';
 
-			if ($tmp_filename) {
-				open ($file, q{<}, "$tmp_filename") or $log->error("Could not read file", { path => $tmp_filename, error => $! });
+		if ($tmp_filename) {
+			open ($file, q{<}, "$tmp_filename") or $log->error("Could not read file", { path => $tmp_filename, error => $! });
+			if ($tmp_filename =~ /\.(gif|jpeg|jpg|png)$/i) {
+				$extension = lc($1);
 			}
+		}
+
 	}
 	else {
 		$file = param('imgupload_' . $imagefield);
@@ -506,7 +522,6 @@ sub process_image_upload($$$$$$) {
 		if (1 or ($file =~ /\.(gif|jpeg|jpg|png)$/i)) {
 			$log->debug("file type validated") if $log->is_debug();
 
-			my $extension = 'jpg';
 			if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
 				$extension = lc($1) ;
 			}
@@ -535,7 +550,7 @@ sub process_image_upload($$$$$$) {
 			}
 
 			local $log->context->{imgid} = $imgid;
-			$log->debug("new imgid determined") if $log->is_debug();
+			$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
 
 			mkdir ($lock_path, 0755) or $log->warn("could not create lock file for the image", { path => $lock_path, error => $! });
 
@@ -546,52 +561,27 @@ sub process_image_upload($$$$$$) {
 			}
 			close ($out);
 
-
-
-
-			# Keep original in case we need it later
-
-
 			# Generate resized versions
 
 			my $source = Image::Magick->new;
 			my $x = $source->Read($img_path);
+
 			$source->AutoOrient();
 			$source->Strip(); #remove orientation data and all other metadata (EXIF)
 
-			# Save a .jpg if we were sent something else (always re-save as the image can be rotated)
-			#if ($extension ne 'jpg') {
-			# make sure we don't have an alpha channel if we were given a transparent PNG
-			$source->Set(background => 'white');
-			$source->Set(alpha => 'Off');
-			$source->Flatten();
-
-			# above does not work on the production server, it creates colored vertical and horizontal lines
-
 			if ($extension eq "png") {
-
-				print STDERR "png file, trying to remove the alpha background\n";
-
-				# Then, create a white image with the same size.
-				my $bg = Image::Magick->new(size => dims($source));
-				$bg->Read('xc:#ffffff');
-
-				# And overlay the original on top of it to fill the transparent pixels
-				# with white.
+				$log->debug("png file, trying to remove the alpha background") if $log->is_debug();
+				my $bg = Image::Magick->new;
+				$bg->Set(size=>$source->Get('width') . "x" . $source->Get('height'));
+				$bg->ReadImage('canvas:white');
 				$bg->Composite(compose => 'Over', image => $source);
-
-
-				#}
-
 				$source = $bg;
-
 			}
 
 			$source->Set('quality',95);
 			$x = $source->Write("jpeg:$www_root/images/products/$path/$imgid.jpg");
 
 			# Check that we don't already have the image
-
 			my $size = -s $img_path;
 			local $log->context->{img_size} = $size;
 
