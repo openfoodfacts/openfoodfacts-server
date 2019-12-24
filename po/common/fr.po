@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-19 20:42\n"
+"PO-Revision-Date: 2019-12-24 13:59\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1003,11 +1003,11 @@ msgstr "Les produits qui ne contiennent pas l'ingrédient %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr "/images/misc/appstore/black/appstore_EU.svg"
+msgstr "/images/misc/appstore/black/appstore_FR.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr "Télécharger sur l'App Store"
+msgstr "Disponible sur App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2140,7 +2140,7 @@ msgstr "Télécharger les résultats"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr "Téléchargez les résultats sous format XLSX ou CSV. Veuillez noter que vous ne pouvez télécharger que 10 000 résultats à la fois pour des raisons de performances."
+msgstr "Télécharger les résultats au format XLSX ou CSV. Pour des raisons de performance, vous pouvez télécharger jusqu'à 10 000 résultats seulement."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
@@ -2156,7 +2156,7 @@ msgstr "Format CSV"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr "Jeu de caractère : Unicode (UTF-8) - Séparateur : tabulation (tab)"
+msgstr "Encodage des caractères : Unicode (UTF-8) - Séparateur : tabulation (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -4090,5 +4090,5 @@ msgstr "Faites un Don"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "La consommation excessive d'alcool est nocive pour la santé. À consommer avec modération."
+msgstr "L'abus d’alcool est dangereux pour la santé, à consommer avec modération."
 
