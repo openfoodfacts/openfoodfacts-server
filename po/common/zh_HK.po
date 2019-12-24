@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-19 13:11\n"
+"PO-Revision-Date: 2019-12-24 13:56\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -115,7 +115,7 @@ msgstr "進階搜尋及圖表"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "過量飲酒危害健康。"
+msgstr "過量飲酒有害健康。"
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -123,7 +123,7 @@ msgstr "所有任務"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "可致敏或不適的成分或產品"
+msgstr "可致敏感或不適的成分或產品"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -328,7 +328,7 @@ msgstr "已完成%d項任務："
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "已連結您的Facebook賬號。"
+msgstr "已連結您的Facebook帳號。"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -549,7 +549,7 @@ msgstr "錯誤"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "用戶名或密碼錯誤。<a href=\"/cgi/reset_password.pl\">忘記密碼了嗎？</a>"
+msgstr "使用者名稱或密碼錯誤。<a href=\"/cgi/reset_password.pl\">忘記密碼了嗎？</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
@@ -561,7 +561,7 @@ msgstr "密碼與確認密碼不符"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "另一位用戶已經使用此電郵地址。您是否已經建立賬號？您可以<a href=\"/cgi/reset_password.pl\">按此重設密碼</a> 。"
+msgstr "另一位使用者已經使用此電郵地址。您是否已經建立了帳號？您可以<a href=\"/cgi/reset_password.pl\">按此重設密碼</a> 。"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -577,11 +577,11 @@ msgstr "密碼至少要有六個字元。"
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "用戶無效。"
+msgstr "使用者無效。"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr "用戶名只能有字母、數字及破折號。"
+msgstr "使用者名稱只能有字母、數字及破折號。"
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -597,7 +597,7 @@ msgstr "權限被拒。"
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr "請輸入用戶名"
+msgstr "請輸入使用者名稱"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
@@ -682,7 +682,7 @@ msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr "行為準則"
+msgstr "操守準則"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
@@ -1252,11 +1252,11 @@ msgstr "登入來編輯產品"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr "建立賬號"
+msgstr "建立帳號"
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr "還沒註冊賬號？"
+msgstr "還沒註冊帳號？"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1271,12 +1271,12 @@ msgid "<p>Sign-in to add or edit products.</p>\n\n"
 "<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
 msgstr "<p>登入後才可新增或編輯產品。</p>\n\n"
 "<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"用戶名或電郵地址：<br/>\n"
+"使用者名稱或電郵地址：<br/>\n"
 "<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\"/><br/>\n"
 "密碼<br/><input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
 "<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>記住我 </label><br/>\n"
 "<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"登入\" class=\"button small\"/> </form>\n"
-"<p>還未註冊？<a href=\"/cgi/user.pl\">建立賬號</a>。</p>\n"
+"<p>還未註冊？<a href=\"/cgi/user.pl\">建立帳號</a>。</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1294,7 +1294,7 @@ msgstr "<p>登入後才能新增和編輯產品。</p>\n\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "用戶名或電郵地址："
+msgstr "使用者名稱或電郵地址："
 
 msgctxt "low"
 msgid "low"
@@ -3411,7 +3411,7 @@ msgstr ""
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "營養素表照片的連結"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
@@ -3838,7 +3838,7 @@ msgstr "3001234567890.ingredients_fr.jpg：法文的成分表。"
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr "3001234567890.nutrition_es.jpg：西班牙文的營養標籤。"
+msgstr "3001234567890.nutrition_es.jpg：西班牙文的營養素表。"
 
 msgctxt "add_photos"
 msgid "Add photos..."
