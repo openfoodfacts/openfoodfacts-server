@@ -713,10 +713,21 @@ sub analyze_request($)
 				}
 
 				if (defined $taxonomy_fields{$tagtype}) {
-					if ($request_ref->{tag} !~ /^(\w\w):/) {
-						$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
+					my $parsed_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag});
+					if (not $parsed_tag) {
+						$parsed_tag = canonicalize_taxonomy_tag_weblink($tagtype, $request_ref->{tag});
 					}
-					$request_ref->{tagid} = get_taxonomyid($lc,$request_ref->{tag});
+
+					if ($parsed_tag) {
+						$request_ref->{tagid} = $parsed_tag;
+					}
+					else {
+						if ($request_ref->{tag} !~ /^(\w\w):/) {
+							$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
+						}
+
+						$request_ref->{tagid} = get_taxonomyid($lc,$request_ref->{tag});
+					}
 				}
 				else {
 					# Use "no_language" normalization
@@ -752,10 +763,21 @@ sub analyze_request($)
 					}
 
 					if (defined $taxonomy_fields{$tagtype}) {
-						if ($request_ref->{tag2} !~ /^(\w\w):/) {
-							$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
+						my $parsed_tag2 = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag2});
+						if (not $parsed_tag2) {
+							$parsed_tag2 = canonicalize_taxonomy_tag_weblink($tagtype, $request_ref->{tag2});
 						}
-						$request_ref->{tagid2} = get_taxonomyid($lc,$request_ref->{tag2});
+
+						if ($parsed_tag2) {
+							$request_ref->{tagid2} = $parsed_tag2;
+						}
+						else {
+							if ($request_ref->{tag2} !~ /^(\w\w):/) {
+								$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
+							}
+
+							$request_ref->{tagid2} = get_taxonomyid($lc, $request_ref->{tag2});
+						}
 					}
 					else {
 						# Use "no_language" normalization
