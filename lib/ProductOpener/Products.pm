@@ -720,11 +720,11 @@ sub store_product($$) {
 	}
 
 	push @$changes_ref, {
-		userid=>$User_id,
-		ip=>remote_addr(),
-		t=>$product_ref->{last_modified_t},
-		comment=>$comment,
-		rev=>$rev,
+		userid => $User_id,
+		ip => remote_addr(),
+		t => $product_ref->{last_modified_t},
+		comment => $comment,
+		rev => $rev,
 	};
 
 	compute_codes($product_ref);
@@ -752,6 +752,7 @@ sub store_product($$) {
 	$product_ref->{created_t} += 0;
 	$product_ref->{complete} += 0;
 	$product_ref->{sortkey} += 0;
+	$product_ref->{rev} +=0;
 
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
