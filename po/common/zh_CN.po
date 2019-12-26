@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-26 14:01\n"
+"PO-Revision-Date: 2019-12-26 14:11\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -224,7 +224,7 @@ msgstr "品牌"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "来自 %s 品牌的商品"
+msgstr "%s的产品"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -232,11 +232,11 @@ msgstr "品牌"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr "添加一个品牌"
+msgstr "添加品牌"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "并非来自 %s 品牌的商品"
+msgstr "非%s的产品"
 
 msgctxt "by"
 msgid "by"
@@ -244,7 +244,7 @@ msgstr "由"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "类别"
+msgstr "分类"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -252,7 +252,7 @@ msgstr "橄榄油沙丁鱼、浓缩橙汁"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "仅指出最具体的分类，父分类将自动添加。"
+msgstr "请输入具体分类，上层分类会自动加入。"
 
 msgctxt "categories_p"
 msgid "categories"
@@ -260,7 +260,7 @@ msgstr "分类"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "来自 %s 分类的产品"
+msgstr "分类为%s的产品"
 
 msgctxt "categories_s"
 msgid "category"
@@ -272,7 +272,7 @@ msgstr "添加分类"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "并非来自 %s 分类的产品"
+msgstr "非%s分类的产品"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -292,11 +292,11 @@ msgstr "上传的图片"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "跳棋"
+msgstr "覆核员"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "跳棋"
+msgstr "覆核员"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -304,7 +304,7 @@ msgstr "包装城市"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "产品在 %s 城市包装"
+msgstr "在%s包装的产品"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -312,7 +312,7 @@ msgstr "包装城市"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr "产品未在 %s 城市包装"
+msgstr "不于%s包装的产品"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -324,11 +324,11 @@ msgstr "代码"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "完成了 %d 个任务："
+msgstr "已完成%d项任务："
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "您已连接到您的 Facebook 帐户。"
+msgstr "已绑定您的Facebook帐户。"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -336,27 +336,27 @@ msgstr "开始贡献自"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "将当前产品的数据复制到新的产品"
+msgstr "复制当前产品的数据至新产品"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr "请更正下面的错误："
+msgstr "请更正下面错误："
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "校正者"
+msgstr "校正员"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "校正者"
+msgstr "校正员"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "可出售的国家"
+msgstr "出售国"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr "产品广泛使用的国家（不包括专门从事外国产品的商店）"
+msgstr "主要售卖国（不含专门售卖外国货品的商店）"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -372,7 +372,7 @@ msgstr "国家"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "产品未在 %s 出售"
+msgstr "不售于%s的产品"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -388,11 +388,11 @@ msgstr "数据来源"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr "调试"
+msgstr "除错"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr "调试"
+msgstr "除错"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
