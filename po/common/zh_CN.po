@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-26 13:51\n"
+"PO-Revision-Date: 2019-12-26 14:01\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -115,7 +115,7 @@ msgstr "高级搜索和图表"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "过度饮酒，有害健康。"
+msgstr "过量饮酒有害健康。"
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -123,7 +123,7 @@ msgstr "所有任务"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "成分或产品可能导致过敏或不耐受"
+msgstr "可致过敏或不适的成分或产品"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -139,11 +139,11 @@ msgstr "产品页面已被修改"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "安卓APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -157,19 +157,18 @@ msgstr "/images/misc/google-play-badge-svg-master/img/zh-cn_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "下载应用，请到Google Play"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=zh"
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=zh-cn"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>本产品尚未在<site_name>数据库中。 你可以把产品，条形码，成分列表和营养成分的照片添加到<a href=\"https://world.openfoodfacts.org\" target=\"_blank\">\n"
-"<p>预先感谢！</p>\n"
-" \n"
+msgstr "<p>此产品尚未收录于<<site_name>>数据库。您可以在<a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>上传此产品的照片、条形码、成分及营养成分。</p>\n"
+"<p>万分感谢！</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -177,11 +176,11 @@ msgstr "请拍照"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "注意：仅发送的图片是经过Creative Commons Attribution and ShareAlike. 许可的"
+msgstr "注意：您发送的图片将以知识共享署名、相同方式共享许可协议发表。"
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "你可以添加图片："
+msgstr "您可以添加图片："
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -197,11 +196,11 @@ msgstr "条形码"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "条形码"
+msgstr "条形码号："
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "您还可以帮助资助Open Food Facts项目"
+msgstr "您也可以捐助Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -209,7 +208,7 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "捐款支持我们的工作"
 
 msgctxt "brands"
 msgid "Brands"
