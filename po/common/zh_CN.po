@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-26 14:21\n"
+"PO-Revision-Date: 2019-12-26 15:21\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -496,7 +496,7 @@ msgstr "电子邮箱地址"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr "EMB代码"
+msgstr "EMB码"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -504,16 +504,16 @@ msgstr "公司的产品包装和EMB代码%s"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr "EMB代码"
+msgstr "EMB码"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr "EMB代码"
+msgstr "EMB码"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr "EMB 53062、FR 62.448.034 CE、84 R 20、33 RECOLANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -525,7 +525,7 @@ msgstr "打包代码"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr "Emb代码为%s的产品"
+msgstr "EMB码为%s的产品"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
@@ -533,7 +533,7 @@ msgstr "包装代码"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr "不含Emb代码%s的产品"
+msgstr "无EMB码%s的产品"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
