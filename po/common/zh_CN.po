@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-26 14:11\n"
+"PO-Revision-Date: 2019-12-26 14:21\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -400,7 +400,7 @@ msgstr "移除原因"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr "删除商品"
+msgstr "删除产品"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
@@ -420,7 +420,7 @@ msgstr "已添加："
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr "已更改："
+msgstr "已修改："
 
 msgctxt "diff_delete"
 msgid "Deleted:"
@@ -428,7 +428,7 @@ msgstr "删除："
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "捐助给 Open Food Facts"
+msgstr "捐助Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -440,7 +440,7 @@ msgstr "生态足迹"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr "如果“碳足迹”被指定在标签上（这种情况很少），表明它显示内容与营养组合物相同。"
+msgstr "如包装标明碳足迹（当前较罕有），请按营养表输入相同的数量。"
 
 msgctxt "edit"
 msgid "edit"
@@ -448,7 +448,7 @@ msgstr "编辑"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr "变更摘要"
+msgstr "修改摘要"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -460,7 +460,7 @@ msgstr "编辑页面"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr "编辑个人资料"
+msgstr "编辑个人信息"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
@@ -476,11 +476,11 @@ msgstr "更改您的账户信息"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr "错误的参数"
+msgstr "帐户参数"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>您的账户数据已更改</p>"
+msgstr "<p>您的账户数据已修改。</p>"
 
 msgctxt "editors_p"
 msgid "editors"
