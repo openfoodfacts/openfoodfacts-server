@@ -615,6 +615,7 @@ de:Craft Biere
 fi:Artesaani-oluet
 fr:Bières artisanales
 hu:Kraft sörök
+it:Birre artigianali
 ja:クラフトビール
 nl:Ambachtelijke bieren
 ro:Beri artizanale, Bere artizanală
@@ -626,6 +627,7 @@ de:Aromatisierte Biere
 fi:maustetu oluet
 fr:Bières aromatisées
 hu:Ízesített sörök
+it:Birre aromatizzate, birre con aroma
 nl:Gearomatiseerde bieren
 ro:Beri aromatizate, Beri aromate, Bere aromatizata, Bere aromata, Bere aromată, Bere aromatizată
 en-GB:Flavoured beers, flavoured beer
@@ -741,6 +743,7 @@ nl:Abdijbieren
 <en:Beers
 en:American beers, Beers from the USA
 fr:Bières américaines, Bières des Etats-Unis, Bières des USA
+it:Birre americane, Birre dagli USA, Birre dagli Stati Uniti d'America
 nl:Bier uit de Verenigde Staten van Amerika, Amerikaanse bieren
 
 <en:Beers
@@ -750,6 +753,7 @@ es:Cervezas francesas, Cervezas de Francia
 fi:ranskalaiset oluet
 fr:Bières françaises, Bières de France
 hu:Francia sörök
+it:Birre francesi, birre dalla Francia
 nl:Franse bieren, Bieren uit Frankrijk
 ro:Beri franțuzești, Beri frantuzesti, Bere franțuzească, Bere frantuzeasca, Bere franta, Bere franța
 
@@ -767,6 +771,7 @@ es:Cervezas organicas
 fi:luomuoluet
 fr:Bières bio
 hu:Bio sörök
+it:Birre biologiche, birre bio
 nl:Biologische bieren
 ro:Beri bio, Bere bio
 
@@ -789,6 +794,7 @@ en:Italian beers, Beers from Italy
 de:Italienische Biere
 fr:Bières italiennes
 hu:Olasz sörök, Olaszországi sörök
+it:Birre italiane, birre dall'italia
 nl:Italiaanse bieren
 ro:Beri italiene, Beri italia, Bere italia, Bere italiana, Bere italiană
 
@@ -796,6 +802,7 @@ ro:Beri italiene, Beri italia, Bere italia, Bere italiana, Bere italiană
 en:Double beer
 de:Doppelte Biere
 fr:Bière double
+it:Birra doppia, doppia birra
 hu:Dubbel sör
 nl:Dubbelgegist bier
 
@@ -804,6 +811,7 @@ en:Triple beer
 de:Dreifache Biere
 fi:Triple-olut
 fr:Bière triple
+it:Birra tripla, tripla birra
 hu:Tripel sör
 nl:Tripel bieren
 
@@ -1046,13 +1054,16 @@ en:Red beers
 de:Rotbier
 fr:Bières rousses, bière rousse
 hu:Vörös sörök
+it:Birre rosse
 zh:红啤酒, 红啤
 wikidata:en:Q2905058
 
 <en:Beers
+en:Beers without gluten, gluten free beers
 fr:Bières sans gluten
 de:Glutenfreies Bier
 hu:Gluténmentes sör
+it:Birre senza glutine
 
 <en:Non-Alcoholic beverages
 en:Non-alcoholic beers, non-alcoholic beer, Alcohol-free beer
@@ -1061,6 +1072,7 @@ es:Cervezas sin alcohol
 fi:alkoholittomat oluet
 fr:Bières sans alcool, bière sans alcool
 hu:Alkoholmentes sörök
+it:Birre analcoliche, birre senza alcol
 nl:Alcoholvrije bieren Alcoholvrij bier
 pl:Piwo bezalkoholowe
 ro:Beri fără alcool, Bere fără alcool, Bere nealcoolizată, Bere nealcoolizata
@@ -1072,12 +1084,13 @@ en:Ginger beer
 de:Ingwerbier
 fr:Bière de gingembre, ginger beer
 hu:Ginger beer
+it:Birre ginger
 nl:Gemberbieren, Gemberbier
 ro:Bere de ghimbir
 zh:姜啤
 wikidata:en:Q1448819
 
-<en:Non-Alcoholic beverages
+<en:Non-alcoholic beers
 en:Non-Alcoholic wheat beers, Non-Alcoholic wheat beer
 de:Alkoholfreie Weizenbiere, Alkoholfreies Weizenbier, Alkoholfreie Weißbiere, Alkoholfreies Weißbier
 fr:Bières de blé sans alcool
@@ -1110,6 +1123,7 @@ de:Tequilas
 es:Tequilas
 fr:Tequilas
 hu:Tekilák
+it:Tequila
 nl:Tequilas, Tequila
 nl_be:Tequilas
 ro:Tequilla
@@ -1181,6 +1195,7 @@ es:Whiskies, Whiskys, Whisky, Whiskey, Whiskeys, Güisquis, wiski
 fi:viski
 fr:Whiskys, whiskies, whiskey, whiskeys
 hu:Whisky, Viszki
+it:Whisky, whiskey
 nl:Whiskey, Whisky
 ro:Whisky, whiskey
 wikidata:en:Q281
@@ -1741,11 +1756,16 @@ de:Wodkas, Wodka
 es:Vodkas, Vodka
 fi:votka
 fr:Vodkas, Vodka
+it:Vodka
 nl:Wodkas, Wodka
 ro:Vodcă, Vodka
 ru:Водка
 zh:伏特加
 wikidata:en:Q374
+
+<en:Vodka
+en:Flavored vodka, flavoured vodka
+it:Vodka aromatizzato, Vodka con aroma
 
 <en:Vodka
 en:Polish vodkas
@@ -1931,6 +1951,7 @@ es:Bebidas carbonatadas
 fi:hiilihapotetut juomat
 fr:Boissons gazeuses, boissons à bulles, boissons effervescentes, boissons pétillantes, boisson gazeuse, boisson à bulles, boisson effervescente, boisson pétillante
 hu:Szénsavas italok
+it:Bevande effervescente, bevande gassate, bevande frizzanti
 nl:Koolzuurhoudende dranken
 pl:Napoje gazowane
 pt:Bebidas carbonatadas
@@ -1945,7 +1966,7 @@ es:Sodas, Gaseosas
 fi:virvoitusjuomat
 fr:Sodas, soda, boissons sucrées gazeuses, boissons gazeuses sucrées
 hu:Szódák, Szódavízek, Szíkvízek
-it:Bibite gassate
+it:Bibite gassate, soft drink
 nl:Frisdranken
 pl:Napoje gazowane
 ro:Băuturi carbogazoase, Bauturi carbogazoase
@@ -16861,6 +16882,7 @@ de:Eistees
 es:Tés helados, Tés fríos
 fi:jääteet
 fr:Thés glacés, Ice-tea, thé glacé
+it:Thè freddi
 nl:Ice teas, Ice tea, Icetea
 wikidata:en:Q348958
 pnns_group_2:en:Teas and herbal teas and coffees
@@ -18218,6 +18240,10 @@ pt:Panettone
 wikidata:en:Q854342
 
 <en:Brioches
+en:Pandoro
+it:Pandoro
+
+<en:Brioches
 en:Small brioches
 fi:pienet briossit
 fr:Briochettes
@@ -19159,6 +19185,7 @@ en:Gummy bears
 de:Gummibärchen, Gummibären
 fi:nallekarkit
 fr:ours gélifiés
+it:Orsetti gommosi
 nl:Gummi-beertjes
 
 <en:Gelified candies
@@ -21180,7 +21207,7 @@ es:Lácteos, Productos lácteos
 fi:meijerituotteet
 fr:Produits laitiers, produit laitier, laitage, laitages, crèmerie, crèmeries
 hu:Tejtermékek, Tejtermék
-it:Latticini, pro
+it:Latticini, prodotti caseari
 nl:Zuivelproducten, Melkproducten, Zuivelproduct
 nl_be:Zuivelproducten
 pl:Nabiał, Produkty mleczne
@@ -21740,6 +21767,7 @@ de:Emmentaler
 es:Emmental
 fi:Emmental
 fr:Emmentals, emmenthal, emmentaler
+it:Emmental, emmenthal, emmentaler
 nl:Emmentalers
 wikidata:en:Q932214
 oqali_family:en: fr:Fromages - Emmental
@@ -23989,6 +24017,7 @@ ca:Llet orgànica semidesnatada
 de:Bio-Magermilch
 fi:Luomu kevytmaidot
 fr:Laits demi-écrémés biologiques
+it:Latte biologico parzialmente scremato
 nl:Biologische halfvolle melken
 
 <en:Milks
@@ -24042,12 +24071,13 @@ de:Milchpulver, Trockenmilchpulver
 es:Leche en polvo
 fi:maitojauheet
 fr:Laits en poudre, farines de lait, laits déshydratés
+it:Latte in polvere
 nl:Melkpoeders
 se:Mjölkpulver
 wikidata:en:Q496696
 
 <en:Milks
-en:whole milks, whole milk
+en:Whole milks, whole milk
 ca:Llet sencera
 de:Vollmilch, Vollmilche, Vollmilchen
 es:Leche entera
@@ -24058,12 +24088,12 @@ nl:Volle melken
 se:Standardmjölk
 wikidata:en:Q3374445
 
-<en:whole milks
+<en:Whole milks
 es:Leche entera esterilizada
 fr:Laits entiers stérilisés
 
 <en:Milks
-en:homogenized milks, homogenized milk
+en:Homogenized milks, homogenized milk
 ca:Llet homogeneïtzada
 de:homogenisierte Milch, homogenisierte Milche, homogenisierte Milchen
 es:Leches homogeneizadas
@@ -24233,6 +24263,10 @@ pl:mleko bez laktozy
 ru:молоко безлактозное, безлактозное молоко
 se:Laktosfri mjölk
 wikidata:en:Q18404541
+
+<en:Milks
+en:High digestible milk
+it:Latte ad alta digeribilità
 
 <en:Plant-based beverages
 <en:Milk substitute
@@ -25051,6 +25085,7 @@ es:Yogures estilo griego, Yogurt al estilo griego, Yogures al estilo griego
 fi:kreikkalaiset jugurtit
 fr:Yaourts à la grecque
 hu:Görög joghurtok
+it:Yogurt greco
 nl:Griekse yoghurts
 pt:Iogurtes gregos
 ru:Греческий йогурт
@@ -30913,6 +30948,7 @@ es:Condimentos
 fi:mausteet
 fr:Condiments
 hu:Fűszerek
+it:Condimenti
 nl:Smaakmakers
 pl:Przyprawy
 pt:Condimentos
@@ -31822,6 +31858,7 @@ es:Especias
 fi:mausteet
 fr:Epices
 hu:Fűszerek
+it:Spezie
 nl:Specerijen
 nl_be:Specerijen
 wikidata:en:Q42527
@@ -32335,6 +32372,7 @@ es:Chiles
 fi:chilit
 fr:Piments, Piment
 hu:Chili paprika
+it:Peperoncini, peperoncino
 nl:Chili pepers
 
 <en:Chili peppers
@@ -33229,7 +33267,9 @@ nl:Tomatenpastas
 wikidata:en:Q1499073
 
 <en:Tomatoes and their products
+en:Tomato pulps
 fr:Pulpes de tomates, pulpes de tomate, pulpe de tomates, pulpe de tomate
+it:Polpe di pomodoro, polpa di pomodoro, polpe di pomodori, polpa di pomodori
 
 <en:Sauces
 en:Tzatzikis
@@ -38122,6 +38162,7 @@ de:Gefüllte Nudeln
 es:Pastas rellenas
 fi:täytetyt pastat
 fr:Pâtes farcies
+it:Pasta farcita, pasta ripiena
 nl:Gevulde pastas
 
 <en:Pastas
@@ -39870,7 +39911,7 @@ de:Thunfische, Thunfisch
 es:Atunes, atun
 fi:tonnikalat
 fr:Thons
-it:Tonni, tonno
+it:Tonno, tonni
 la:Thunnus
 nl:Tonijn
 pt:Atum
@@ -39882,6 +39923,7 @@ wikidata:en:Q2346039
 en:Whole tunas
 fi:kokonaiset tonnikalat
 fr:Thons entiers
+it:Tonno intero
 nl:Hele tonijn
 
 <en:Tunas
@@ -39891,10 +39933,11 @@ de:Thunfischkonserve
 es:Atun en conserva
 fi:purkitetut tonnikalat
 fr:Thons en conserve, Conserve de thons
-it:Tonni in scatola
+it:Tonno in scatola, tonni in scatola
 nl:Tonijn in blik
 ro:Conserve de ton
 ru:Консервы из тунца, Консервы тунцовые
+wikidata:en:Q5711293
 
 <en:Canned tunas
 en:Tuna chunks
@@ -39915,6 +39958,7 @@ wikidata:en:Q214415
 <en:Tunas
 en:Smoked tunas
 fr:Thons fumés, thon fumé
+it:Tonno affumicato
 nl:Gerookte tonijn
 ru:Тунец копчёный, Копчёный тунец
 
@@ -39931,6 +39975,7 @@ en:Tunas in oil
 de:Thunfische in Öl
 es:Atún en aceite
 fr:Thons à l’huile
+it:Tonno sott'olio, tonni sott'olio
 nl:Tonijn op olie
 
 <en:Tunas
@@ -39940,13 +39985,14 @@ fr:Thons à la Catalane
 fr:Thons à la tomate
 
 <en:Tunas in oil
-en:tuna in olive oil
+en:Tuna in olive oil
 de:Thunfische in Olivenöl, Thunfisch in Olivenöl
 es:Atún en aceite de oliva
 fr:Thons à l’huile d’olive
+it:Tonno sott'olio di oliva
 nl:Tonijn op olijfolie
 
-<en:tuna in olive oil
+<en:Tuna in olive oil
 es:atún claro en aceite de oliva
 fr:thons pales à l'huile d'olive
 
@@ -39962,11 +40008,13 @@ de:Thunfische im eigenen Saft
 es:Atún al natural
 fi:tonnikalaa vedessä
 fr:Thons au naturel
+it:Tonno al naturale
 nl:Tonijn natuur
 
 <en:Tuna in brine
 <en:Albacore
 fr:Thons blancs au naturel
+it:Tonno bianco al naturale
 nl:Witte tonijn natuur
 
 <en:Tunas
@@ -42390,6 +42438,7 @@ de:Karotten, Möhren
 es:Zanahorias
 fi:porkkanat
 fr:Carottes
+it:Carote
 la:Daucus carota subsp. sativus
 nl:Wortels
 pl:Marchew
@@ -42399,6 +42448,7 @@ ru:Морковь
 <en:Fresh vegetables
 en:Fresh carrots
 fr:Carottes fraîches
+it:Carote fresche
 
 <en:Leaf vegetables
 en:Cauliflowers
@@ -44752,6 +44802,7 @@ es:Vinagres de vino
 fi:viinietikat
 fr:Vinaigres de vin, vinaigre de vin
 hu:Borecetek
+it:Aceti di vino, aceto di vino
 nl:Wijnazijnen
 pl:Octy winne
 pt:Vinagres de vinho
@@ -44763,6 +44814,7 @@ es:Vinagres de vino rojo
 fi:punaviinietikat
 fr:Vinaigres de vins rouges
 hu:Vörös borecet
+it:Aceti di vino rosso
 nl:Rode wijnazijnen
 
 <en:Wine vinegars
@@ -46342,6 +46394,7 @@ de:Croissants
 es:Croissants
 fi:croissantit
 fr:Croissants
+it:Croissants
 nl:Croissants
 wikidata:en:Q207832
 
