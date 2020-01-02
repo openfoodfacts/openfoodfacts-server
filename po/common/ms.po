@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ms\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-01-02 10:34\n"
+"PO-Revision-Date: 2019-12-05 15:34\n"
 "Language-Team: Malay\n"
-"Last-Translator: \n"
+"Last-Translator: Pierre Slamich (pierreslamich)\n"
 "POT-Creation-Date: \n"
-"X-Generator: Poedit 2.1\n"
+"X-Generator: crowdin.com\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: ms\n"
@@ -137,13 +137,10 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Halaman produk juga diedit oleh"
 
-msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
-
-msgctxt "android_apk_app_icon_alt_text"
-msgid "Android APK"
-msgstr "APK Android"
+# Please check that the HTML tag stayed intact
+msgctxt "android_apk_app_badge"
+msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -157,7 +154,7 @@ msgstr "/images/misc/google-play-badge-svg-master/img/ms_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr "Dapatkan Ia Di Google Play"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -167,28 +164,27 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Produk ini belum ada di pangkalan data <<site_name>>. Sila ambil beberapa gambar produk, kod bar, senarai ramuan dan fakta pemakanan untuk ditambah pada <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
-"<p>Didahului dengan ucapan terima kasih!</p>\n"
+msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "Ambil gambar"
+msgstr ""
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Nota: gambar yang anda hantar diterbitkan di bawah lesen bebas Atribusi Bersama Kreatif dan ShareAlike."
+msgstr ""
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "Anda boleh tambah gambar:"
+msgstr ""
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr "Paksi mendatar"
+msgstr ""
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr "Paksi menegak"
+msgstr ""
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -196,83 +192,83 @@ msgstr "Barkod"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "Nombor kod bar:"
+msgstr ""
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "Anda juga boleh bantu biayai projek Open Food Facts"
+msgstr ""
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> dibuat oleh persatuan bukan bukan berasaskan keuntungan, bebas daripada industri. Ia dibuat untuk semua, oleh semua, dan dibiayai oleh semua. Anda boleh menyokong kerja kami dengan <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">menderma ke Open Food Facts</a> dan juga dengan <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">menggunakan enjin carian Lilo</a>.<br/><b>Terima kasih!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr "Dermalah untuk sokong kerja kita"
+msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "Jenama"
+msgstr ""
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
+msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr "jenama"
+msgstr ""
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "Produk dari jenama %s"
+msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "jenama"
+msgstr ""
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr "tambah jenama"
+msgstr ""
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "Produk bukan dari jenama %s"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr "oleh"
+msgstr ""
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "Kategori-kategori"
+msgstr ""
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "Sardin dalam minyak zaitun, Jus oren dari perahan pati"
+msgstr ""
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "Nyatakan hanya kategori yang paling spesifik. Kategori \"Induk\" akan ditambahkan secara automatik."
+msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "kategori-kategori"
+msgstr ""
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "Produk dari jenama %s"
+msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "kategori"
+msgstr ""
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr "tambah kategori"
+msgstr ""
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "Produk bukan dari jenama %s"
+msgstr ""
 
 msgctxt "change_fields"
 msgid "Data"
@@ -280,75 +276,75 @@ msgstr "Data"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr "Nutriments"
+msgstr ""
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr "Imej terpilih"
+msgstr ""
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr "Imej termuat naik"
+msgstr ""
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "pemeriksa"
+msgstr ""
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "pemeriksa"
+msgstr ""
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr "bandar pembungkusan"
+msgstr ""
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "Produk yang dibungkus di bandar %s"
+msgstr ""
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr "bandar pembungkusan"
+msgstr ""
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr "Produk yang tidak dibungkus di bandar %s"
+msgstr ""
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr "Kod-kod"
+msgstr ""
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr "Kod"
+msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "selesai %d misi:"
+msgstr ""
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "Anda dihubungkan dengan akaun Facebook anda."
+msgstr ""
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr "Penyumbang sejak"
+msgstr ""
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "Salin data dari produk semasa ke produk baru"
+msgstr ""
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr "Sila betulkan ralat berikut:"
+msgstr ""
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "pembetul-pembetul"
+msgstr ""
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "pembetul"
+msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -356,11 +352,11 @@ msgstr "Country"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr "Negara-negara di mana produk tersebut boleh didapati secara meluas (tidak termasuk kedai-kedai yang mengkhusus dalam produk asing)"
+msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr "negara-negara"
+msgstr ""
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -565,91 +561,91 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr "Alamat tidak sah."
+msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "Alamat e-mel tidak sah"
+msgstr ""
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr "Kata laluan perlu ada sekurang-kurangnya sepanjang 6 aksara."
+msgstr ""
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "Pengguna tidak sah."
+msgstr ""
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr "Nama pengguna mesti mengandungi hanya huruf, angka dan sengkang tanpa tanda aksen."
+msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr "Produk yang sudah wujud dengan kod baru"
+msgstr ""
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr "Anda perlu masukkan nama atau nama samaran."
+msgstr ""
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr "Kebenaran ditolak."
+msgstr ""
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr "Anda perlu masukkan nama pengguna"
+msgstr ""
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr "Anda sudah pun log masuk."
+msgstr ""
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr "Pautan kata laluan tetapan semula tidak sah atau telah tamat tempoh."
+msgstr ""
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "Tiada terdapat akaun dengan e-mel ini"
+msgstr ""
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "Nama pengguna ini tidak ujud."
+msgstr ""
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr "Nama pengguna ini telah ujud, sila pilih yang lain."
+msgstr ""
 
 msgctxt "example"
 msgid "Example:"
-msgstr "Contoh:"
+msgstr ""
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr "Contoh-contoh:"
+msgstr ""
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr "Baik sebelum tarikh"
+msgstr ""
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr "Tarikh tamat tempoh adalah satu cara untuk menjejak perubahan produk dari masa ke masa dan untuk mengenal pasti versi paling terkini."
+msgstr ""
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr "Mengesan ke dalam produk oleh..."
+msgstr ""
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr "en_US"
+msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
+msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Sekiranya data tidak lengkap atau tidak betul, anda boleh melengkapkan atau membetulkannya dengan mengedit halaman ini."
+msgstr ""
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -659,26 +655,20 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Undang-undang</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terma Penggunaan</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Siapa kami</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Soalan-soalan Lazim</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Forum Idea</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Akhbar dan Blog</a>\n"
+msgstr ""
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr "dan kumpulan Facebook <a href=\"https://www.facebook.com/groups/openfoodfacts/\">untuk penyumbang</a>"
+msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<<site_name>> blog"
+msgstr ""
 
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -687,112 +677,110 @@ msgstr "Kod Amalan"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr "/code-of-conduct"
+msgstr ""
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr "Data, API dan SDK"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr "/data"
+msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "Temuilah projek"
+msgstr ""
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr "Soalan-soalan lazim"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr "Penterjemah-penterjemah"
+msgstr ""
 
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr "/cgi/top_translators.pl"
+msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr "Ikuti kami di <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
-"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> dan\n"
-"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
+msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr "Pasang aplikasi"
+msgstr ""
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr "Sertai komuniti"
+msgstr ""
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr "Sertai kami di %s:"
+msgstr ""
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr "Undang-Undang"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "Akhbar"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/press"
+msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Pangkalan data usahasama, percuma dan terbuka untuk produk makanan daripada seluruh dunia."
+msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr "Syarat-syarat penggunaan"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/terms-of-use"
+msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr "Siapa kami"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/who-we-are"
+msgstr ""
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr "<<site_name>> wiki (en)"
+msgstr ""
 
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Beauty Facts - Kosmetik"
+msgstr ""
 
 # Do not translate
 msgctxt "footer_obf_link"
@@ -996,13 +984,8 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr ""
 
-# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
-msgctxt "ios_app_icon_url"
-msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
-
-msgctxt "ios_app_icon_alt_text"
-msgid "Download on the App Store"
+msgctxt "ios_app_badge"
+msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
 msgstr ""
 
 msgctxt "ios_app_link"
@@ -1019,203 +1002,203 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "Label, pensijilan, anugerah"
+msgstr ""
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr "Organik"
+msgstr ""
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr "Nyatakan hanya lael yang paling spesifik. Label\"Induk\" akan ditambahkan secara automatik."
+msgstr ""
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr "label-label"
+msgstr ""
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr "Produk yang mempunyai label %s"
+msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "label"
+msgstr ""
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr "tambah label"
+msgstr ""
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr "Produk yang tidak mempunyai label %s"
+msgstr ""
 
 msgctxt "lang"
 msgid "Main language"
-msgstr "Bahasa utama"
+msgstr ""
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr "Bahasa Arab"
+msgstr ""
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr "Bahasa Bulgaria"
+msgstr ""
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr "Bahasa Czech"
+msgstr ""
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr "Bahasa Denmark"
+msgstr ""
 
 msgctxt "lang_de"
 msgid "German"
-msgstr "Bahasa Jerman"
+msgstr ""
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr "Bahasa Greek"
+msgstr ""
 
 msgctxt "lang_en"
 msgid "English"
-msgstr "Bahasa Inggeris"
+msgstr ""
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr "Bahasa Sepanyol"
+msgstr ""
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr "Bahasa Estonia"
+msgstr ""
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr "Bahasa Finland"
+msgstr ""
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr "Bahasa Perancis"
+msgstr ""
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr "Bahasa Ireland"
+msgstr ""
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr "Bahasa Ibrani"
+msgstr ""
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr "Bahasa Hungary"
+msgstr ""
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr "Bahasa Indonesia"
+msgstr ""
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr "Bahasa Itali"
+msgstr ""
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr "Bahasa Jepun"
+msgstr ""
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr "Bahasa Korea"
+msgstr ""
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr "Bahasa Lithuania"
+msgstr ""
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr "Bahasa Latvia"
+msgstr ""
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr "Bahasa Malta"
+msgstr ""
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr "Bahasa Belanda"
+msgstr ""
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr "Bahasa Belanda"
+msgstr ""
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr "Bahasa Poland"
+msgstr ""
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr "Bahasa Portugis"
+msgstr ""
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr "Bahasa Portugis Portugal"
+msgstr ""
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr "Bahasa Romania"
+msgstr ""
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr "Bahasa Rusia"
+msgstr ""
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr "Bahasa Slovakia"
+msgstr ""
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr "Bahasa Slovenia"
+msgstr ""
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr "Bahasa Sweden"
+msgstr ""
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr "Bahasa Thai/Siam"
+msgstr ""
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr "Bahasa Vietnam"
+msgstr ""
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr "Bahasa Cina"
+msgstr ""
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr "lain-lain bahasa"
+msgstr ""
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr "Bahasa yang paling terdapat dan paling ditonjolkan pada produk"
+msgstr ""
 
 msgctxt "language"
 msgid "en-US"
-msgstr "bahasa Inggeris - Amerika Syarikat"
+msgstr ""
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr "bahasa-bahasa"
+msgstr ""
 
 msgctxt "languages_s"
 msgid "language"
-msgstr "bahasa"
+msgstr ""
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr "Tarikh suntingan terakhir"
+msgstr ""
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr "Tarikh suntingan terakhir"
+msgstr ""
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
@@ -1454,88 +1437,88 @@ msgstr ""
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr "Tiada produk yang disenaraikan untuk kod bar %s."
+msgstr ""
 
 msgctxt "no_products"
 msgid "No products."
-msgstr "Tiada produk."
+msgstr ""
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr "Ralat semasa menyimpan, sila cuba lagi."
+msgstr ""
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr "Bilangan aditif"
+msgstr ""
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr "Bilangan produk"
+msgstr ""
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr "%s dalam %s"
+msgstr ""
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr "Paras nutrien untuk 100 g"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/nutrient-levels"
+msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr "paras nutrien"
+msgstr ""
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr "paras nutrien"
+msgstr ""
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr "nutriments"
+msgstr ""
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr "Produk yang mengandungi nutriment %s"
+msgstr ""
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr "nutriment"
+msgstr ""
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr "Produk yang tidak mengandungi nutriment %s"
+msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Fakta pemakanan"
+msgstr ""
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Fakta pemakanan"
+msgstr ""
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Fakta pemakanan purata untuk %d produk %s kategori yang mana fakta pemakanan diketahui (daripada %d produk)."
+msgstr ""
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "% perbezaan"
+msgstr ""
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr "nilai untuk 100 g / 100 ml"
+msgstr ""
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr "Perbandingan terhadap nilai purata produk dalam kategori yang sama:"
+msgstr ""
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr "Sila ambil perhatian: untuk setiap nutriment, purata dikira untuk produk yang mana kuantiti nutriment diketahui, bukan pada semua produk dari kategori itu."
+msgstr ""
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
@@ -2111,27 +2094,19 @@ msgid "Download results"
 msgstr ""
 
 msgctxt "search_download_results"
-msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgid "Download results in CSV format (Excel, OpenOffice)"
 msgstr ""
 
-msgctxt "search_download_xlsx"
-msgid "XLSX format"
-msgstr ""
-
-msgctxt "search_download_xlsx_description"
-msgid "Excel or LibreOffice"
-msgstr ""
-
-msgctxt "search_download_csv"
-msgid "CSV format"
-msgstr ""
-
-msgctxt "search_download_csv_description"
-msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgctxt "search_download_results_description"
+msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
 msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
+msgstr ""
+
+msgctxt "search_flatten_tags"
+msgid "(Optional) - Create a column for every:"
 msgstr ""
 
 msgctxt "search_generate_graph"
@@ -2221,7 +2196,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr "Nutriments"
+msgstr ""
 
 msgctxt "search_or"
 msgid "or"
@@ -2261,7 +2236,7 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr "Organik"
+msgstr ""
 
 msgctxt "search_series_organic_label"
 msgid "organic"
@@ -2597,12 +2572,8 @@ msgid "Site or blog address"
 msgstr ""
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr ""
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
+msgctxt "windows_phone_app_badge"
+msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
 msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
@@ -2816,11 +2787,6 @@ msgstr ""
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
-
-# Title for the link to the explanation of what a NOVA Group is
-msgctxt "nova_groups_info"
-msgid "NOVA groups for food processing"
 msgstr ""
 
 msgctxt "footer_partners"
@@ -4058,6 +4024,3 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr ""
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
