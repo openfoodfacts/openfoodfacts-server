@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 22:52\n"
+"PO-Revision-Date: 2020-01-02 10:30\n"
 "Language-Team: Danish\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: da\n"
@@ -137,10 +137,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Produktside også redigeret af"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -154,7 +157,7 @@ msgstr "/images/misc/google-play-badge-svg-master/img/da_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "Hent den på Google Play"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -1004,7 +1007,7 @@ msgstr "Tilgængelig i App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr "https://apps.apple.com/dk/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2130,20 +2133,28 @@ msgid "Download results"
 msgstr "Download resultater"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "Download resultater i CSV-format (Excel, OpenOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "Download resultater i XLSX- eller CSV-format. Bemærk, at der grundet ydeevnehensyn kun kan downloades maks. 10.000 resultater pr. session."
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "Tegnsæt: Unicode (UTF-8). Adskiller: Tabulering (faneblad)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "XLSX-format"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "Excel eller LibreOffice"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "CSV-format"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr "Tegnsæt: Unicode (UTF-8). Separator: Tabulering (fane)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "Skift søgekriterier"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "(Valgfrit) - Opret en kolonne for hver:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2616,7 +2627,7 @@ msgstr "/images/misc/microsoft/Danish.svg"
 
 msgctxt "windows_phone_app_icon_alt_text"
 msgid "Get it from Microsoft"
-msgstr ""
+msgstr "Hent den fra Microsoft"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2830,6 +2841,11 @@ msgstr "Nova-gruppe"
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "Nova-grupper"
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr "NOVA-grupper til fødevareforarbejdning"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -4020,7 +4036,7 @@ msgstr "App"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "Til applikationer."
 
 msgctxt "user_group_bot"
 msgid "Bot"
@@ -4065,4 +4081,8 @@ msgstr "Vi behøver din støtte!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Donér venligst"
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Overdrevent indtag af alkohol er sundhedsskadeligt, bør indtages med moderation."
 

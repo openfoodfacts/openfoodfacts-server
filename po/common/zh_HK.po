@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 18:12\n"
+"PO-Revision-Date: 2020-01-02 10:27\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: zh-HK\n"
@@ -22,15 +22,15 @@ msgstr "一個產品"
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr " 和 "
+msgstr "和"
 
 msgctxt "about"
 msgid "About me"
-msgstr "關於我"
+msgstr "個人資料"
 
 msgctxt "add"
 msgid "Add"
-msgstr "新增"
+msgstr "加入產品"
 
 msgctxt "add_language"
 msgid "Add language"
@@ -46,7 +46,7 @@ msgstr "註冊"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>感謝您的加入。您現在可以登入進行新增或編輯產品。</p>"
+msgstr "<p>感謝您加入。您現在可以登入新增和編輯產品。</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -64,38 +64,38 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr "您好<NAME>\n\n"
-"感謝您加入 https://openfoodfacts.org\n"
-"這裡是你的用戶名字:\n\n"
-"用戶名字: <USERID>\n\n"
-"您可以登入網站進行新增或編輯產品\n\n"
-"<<site_name>> 是一個合作項目讓你可以為這裡帶來更多的新產品、你的你得能量、熱情及意見!\n"
-"和大家一起討論讓這個專案更棒；我們使用一個非常方便的訊息系統，稱為 Slack: https://slack.openfoodfacts.org\n\n"
-"你也可以加入我們的臉書 (Facebook) 群組:\n"
+msgstr "您好<NAME>：\n\n"
+"感謝您加入https://openfoodfacts.org\n"
+"這是您的用戶名：\n\n"
+"用戶名：<USERID>\n\n"
+"您現在可以登入網站新增和編輯產品。\n\n"
+"<<site_name>>是一個合作項目，除了新產品，您可以為這裏帶來你的衝勁、熱情和想法！\n"
+"如果您想推動項目發展，您可以透過Slack與其他編輯者討論項目林林總總的事。Slack是個非常方便的通訊軟件：https://slack.openfoodfacts.org\n\n"
+"您也可以加入我們的Facebook群組：\n"
 "https://www.facebook.com/groups/374350705955208/\n\n"
-"新訊息: 我們也發起了 Open Beauty Facts 來建立有關化妝品的資料庫，例如關於: 肥皂、牙膏或化妝品...等等。\n"
+"宣布：我們也開始開發Open Beauty Facts資料庫，儲存如肥皂、牙膏和化妝品等個人護理品的資料。\n"
 "https://openbeautyfacts.org\n\n"
-"非常感謝您\n\n"
-"Stéphane 和 the Open Food Facts 團隊\n"
+"非常感謝您！\n\n"
+"Stéphane和Open Food Facts團隊\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "感謝您的加入 <<site_name>>"
+msgstr "感謝您加入<<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "有潛在危害的食品添加劑。限制使用。"
+msgstr "有潛在危險的食品添加劑，應減少食用。"
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "危險的食物添加劑。避免。"
+msgstr "有害添加劑，應避免。"
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "歐洲禁止食物添加劑。一定要避免。"
+msgstr "歐洲禁用的添加劑，不可食用。"
 
 msgctxt "additives_p"
 msgid "additives"
@@ -123,7 +123,7 @@ msgstr "所有任務"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "可致敏感或不適的成分或產品"
+msgstr "可致敏或不適的成分或產品"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -137,10 +137,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "產品頁的編輯者有"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -333,7 +336,7 @@ msgstr "自貢獻者"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "從目前產品複制資料到新產品"
+msgstr "從目前產品複制資料至新產品"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -409,7 +412,7 @@ msgstr "刪除圖片"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr "刪除使用者"
+msgstr "刪除用戶"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -473,11 +476,11 @@ msgstr "修改您的帳戶參數"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr "帳戶參數"
+msgstr "賬號參數"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>您的帳戶參數已修改。</p>"
+msgstr "<p>您的賬號參數已修改。</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -530,7 +533,7 @@ msgstr "包裝機碼"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr "產品無 emb 碼 %s"
+msgstr "無EMB碼%s的產品"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -546,7 +549,7 @@ msgstr "錯誤"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "使用者名稱或密碼錯誤。<a href=\"/cgi/reset_password.pl\">忘記密碼了嗎？</a>"
+msgstr "用戶名或密碼錯誤。<a href=\"/cgi/reset_password.pl\">忘記密碼了嗎？</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
@@ -606,15 +609,15 @@ msgstr "重設密碼的連結無效或已過期。"
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "這個電子郵地址未使用過"
+msgstr "這電郵地址未使用過"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "此使用者名稱不存在。"
+msgstr "此用戶名不存在。"
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr "這個使用者名稱已存在，請選用其它的名稱。"
+msgstr "此用戶名已存在，請選用其他名稱。"
 
 msgctxt "example"
 msgid "Example:"
@@ -992,9 +995,14 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "不含%s的產品"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr ""
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1281,7 +1289,8 @@ msgstr "登入後才能加入與編輯產品。"
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "請登入來新增或編輯產品。\n"
+msgstr "<p>登入後才能新增和編輯產品。</p>\n\n"
+"<p>如果您尚未建立<<site_name>>賬號，您可以<a href=\"/cgi/user.pl\">迅速註冊</a>。</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1537,7 +1546,7 @@ msgstr "請注意: 針對每一種營養，是以產品已知的的營養量來�
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "若照片十分地清楚完整，其營養成分會從照片中被自動擷取出來。"
+msgstr "如照片足夠清晰，營養成分可以自動摘出。"
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1830,7 +1839,7 @@ msgstr "刪除圖片中"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "從圖片中摘錄配料"
+msgstr "摘錄圖片中的成分"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -1994,7 +2003,7 @@ msgstr "2公升、250公克、1公斤、25 cl、 6 fl oz、 1 磅"
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr "記住我的登錄資料"
+msgstr "記住我"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
@@ -2014,13 +2023,11 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr "你好 <NAME>,\n\n"
-"您要重設 https://openfoodfacts.org 上的密碼\n\n"
-"使用者名稱: <USERID>\n\n"
-"接著重設密碼, 點擊以下連結。.\n"
-"如果你沒有求密碼重設， 你可以不理這則訊息。\n\n"
+msgstr "你好<NAME>：\n\n"
+"您要求重設用戶<USERID>在https://openfoodfacts.org上的密碼。\n\n"
+"如要重設密碼，請點擊以下連結。\n"
+"如果您沒有要求重設密碼，請不要理會此電郵。\n\n"
 "<RESET_URL>\n\n"
-"再見,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
 
@@ -2042,7 +2049,7 @@ msgstr "電子郵件裡有一個連結用來重設您的密嗎，該信已寄給
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr "如果您忘了密碼，請填入您的帳戶名稱或電子郵件地址，您將會收到重設密碼的說明。"
+msgstr "如果您忘了密碼，請填入您的用戶名或電郵地址，您將會收到重設密碼的說明。"
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2117,20 +2124,28 @@ msgid "Download results"
 msgstr "下載結果"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "下載 CSV 格式 (Excel, OpenOffice) 結果"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "以XLSX或CSV格式下載結果。請注意，考慮到性能問題，您最多只能下載一萬個結果。"
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "字元組: Unicode (UTF-8)). 資料分隔符號: tabulation (tab)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "XLSX格式"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "Excel或LibreOffice"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "CSV格式"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr "字元集：Unicode（UTF-8） - 資料分隔符號：製表鍵分隔"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "變更搜尋條件"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "(可選的) - 建立一個欄位供每個:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2175,7 +2190,7 @@ msgstr "顯示圖表結果"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr "注意:  這是使用者產生的圖表。 其標題，產品的呈現及其樣式已由圖表作者決定。"
+msgstr "注意:  這是用戶產生的圖表，圖表標題、產品的呈現及其樣式已由圖表作者決定。"
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2495,7 +2510,7 @@ msgstr "追蹤"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr "Twitter 使用者名稱"
+msgstr "Twitter用戶名（選填）"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
@@ -2519,15 +2534,15 @@ msgstr "取消訂閱"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr "您可以在任何時候從此清單取消訂閱。"
+msgstr "您可以在隨時取消訂閱清單。"
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr "使用者名稱或電子郵件地址: "
+msgstr "用戶名或電郵地址："
 
 msgctxt "username"
 msgid "User name"
-msgstr "使用者名稱"
+msgstr "用戶名"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
@@ -2535,23 +2550,23 @@ msgstr "(非重音字母，數字 及/或 破折號)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr "使用者名稱或電子郵件地址:"
+msgstr "用戶名或電郵地址"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr "產品已由使用者 %s 所新增"
+msgstr "由用戶%s新增的產品"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr "產品未由使用者 %s 所新增"
+msgstr "不是由用戶%s新增的產品"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr "產品已由使用者 %s 所編輯"
+msgstr "經用戶%s編輯的產品"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr "產品非由使用者 %s 所編輯"
+msgstr "未經用戶%s編輯的產品"
 
 msgctxt "users_p"
 msgid "contributors"
@@ -2595,8 +2610,12 @@ msgid "Site or blog address"
 msgstr "網站或部落格地址"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr ""
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
 msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
@@ -2634,11 +2653,11 @@ msgstr "警告: 水果，蔬菜和果仁的數量沒有被指定, 他們可能�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "警告: 水果、蔬菜和堅果的數量沒有在標籤上注明, 它是從配料清單上估計的: %d%"
+msgstr "警告：包裝沒有註明水果、蔬菜和堅果的數量，顯示的數量基於成分估算：%d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "警告: 水果, 蔬菜和堅果的數量沒有在標籤上注明, 它是從產品類別 (%s) 估計: %d%"
+msgstr "警告：包裝沒有註明水果、蔬菜和堅果的數量，顯示的數量基於分類%s估算：%d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2670,7 +2689,7 @@ msgstr "您確定要刪除該產品的頁面嗎？"
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr "刪除使用者"
+msgstr "刪除用戶"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
@@ -2812,6 +2831,11 @@ msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "NOVA分類"
 
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr ""
+
 msgctxt "footer_partners"
 msgid "Partners"
 msgstr "夥伴"
@@ -2831,7 +2855,7 @@ msgstr "18至64歲"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr ""
+msgstr "18歲至64歲"
 
 msgctxt "elderly"
 msgid "Elderly"
@@ -2843,7 +2867,7 @@ msgstr "65歲或以上"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr ""
+msgstr "65歲或以上"
 
 msgctxt "adolescents"
 msgid "Adolescents"
@@ -2855,7 +2879,7 @@ msgstr "十至十七歲"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "10歲至17歲"
 
 msgctxt "children"
 msgid "Children"
@@ -2867,7 +2891,7 @@ msgstr "三至九歲"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "36個月至9歲"
 
 msgctxt "toddlers"
 msgid "Toddlers"
@@ -2879,7 +2903,7 @@ msgstr "一至兩歲"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
-msgstr ""
+msgstr "12至35個月"
 
 msgctxt "infants"
 msgid "Infants"
@@ -2891,7 +2915,7 @@ msgstr "不足一歲"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "多於12週至11個月"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
@@ -2903,7 +2927,7 @@ msgstr "容易過量攝取"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "歐洲食物安全局認為某些群體較大機會過量攝取<tag>。"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
@@ -2915,7 +2939,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
-msgstr ""
+msgstr "%d種產品含有%s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
@@ -2923,15 +2947,15 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "極容易過量攝取"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "較容易過量攝取"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "有超過每日可容忍攝入量的風險"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
@@ -2955,7 +2979,7 @@ msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "部分人"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
@@ -2963,11 +2987,11 @@ msgstr "超過百分之五"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "多數人"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
-msgstr ""
+msgstr "過半"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -2975,7 +2999,7 @@ msgstr "維基百科"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "功能"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
@@ -2987,23 +3011,23 @@ msgstr ""
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "已檢查照片和數據"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "我已檢查照片和數據。"
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "我已複檢照片和數據。"
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "最後檢查日期"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "最後檢查日期"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
@@ -3075,43 +3099,43 @@ msgstr "回收說明-廢置"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "由%s檢查的產品"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "不由%s檢查的產品"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "由%s校正的產品"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "不由%s校正的產品"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "經%s編輯的產品"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "未經%s編輯的產品"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "由%s完成的產品"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "不是由%s完成的產品"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "由%s拍攝的產品"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "不由%s拍攝的產品"
 
 msgctxt "user_s_page"
 msgid "%s's page"
@@ -3159,15 +3183,15 @@ msgstr ""
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
-msgstr ""
+msgstr "環保資訊卡"
 
 msgctxt "environment_infocard_note"
 msgid "HTML code for the environment infocard in the mobile application"
-msgstr ""
+msgstr "流動應用程式環保資訊卡的HTML代碼"
 
 msgctxt "environment_impact_level"
 msgid "Environment impact level"
-msgstr ""
+msgstr "環境影響等級"
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
@@ -3203,7 +3227,7 @@ msgstr ""
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
-msgstr ""
+msgstr "每年可持續的碳排放量：COP21訂立的目標是每人二氧化碳排放不能超過2噸。"
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
@@ -3231,7 +3255,7 @@ msgstr ""
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "已翻譯"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
@@ -3351,7 +3375,7 @@ msgstr ""
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "產品識別"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
@@ -3387,7 +3411,7 @@ msgstr ""
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "營養素表照片的連結"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
@@ -3395,11 +3419,11 @@ msgstr ""
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "具體標籤"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "具體分類"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3804,17 +3828,17 @@ msgstr ""
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg：荷蘭文產品正面。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg：法文的成分表。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg：西班牙文的營養素表。"
 
 msgctxt "add_photos"
 msgid "Add photos..."
@@ -3846,7 +3870,7 @@ msgstr "已收到檔案"
 
 msgctxt "nutriscore_calculation_detail"
 msgid "Detail of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score的計算方式"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
@@ -3858,11 +3882,11 @@ msgstr ""
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "正分"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "負分"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
@@ -3906,7 +3930,7 @@ msgstr "鈉"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "水果、蔬菜、堅果和菜子、核桃及橄欖油"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -4021,11 +4045,11 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "我已經捐款或我不感興趣捐助，請隱藏橫額。"
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
-msgstr ""
+msgstr "喂，要取消選取方框嗎？"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency ?"
@@ -4046,4 +4070,8 @@ msgstr "我們需要您的支持！"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "請捐款"
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "飲酒過量危害健康，請適量飲酒。"
 
