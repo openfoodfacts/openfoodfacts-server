@@ -394,7 +394,6 @@ my @related_applications = (
 );
 
 my @localized_stores_icons = (
-	{ 'platform' => 'windows', 'pt-br', 'image_name' => 'Portuguese-Brazilian.svg' },
 	{ 'platform' => 'windows', 'ar', 'image_name' => 'Arabic.svg' },
 	{ 'platform' => 'windows', '', 'image_name' => 'Belarusian.svg' },
 	{ 'platform' => 'windows', '', 'image_name' => 'Bengali.svg' },
@@ -416,6 +415,9 @@ my @localized_stores_icons = (
 	{ 'platform' => 'windows', 'lt', 'image_name' => 'Lithuanian.svg' },
 	{ 'platform' => 'windows', '', 'image_name' => 'Malay.svg' },
 	{ 'platform' => 'windows', 'no', 'image_name' => 'Norwegian.svg' },
+	# br.openfoodfacts.org (Brazilian portuguese, not supported yet)
+	# no vanilla portuguese seems available
+	{ 'platform' => 'windows', 'pt-br', 'image_name' => 'Portuguese-Brazilian.svg' },
 	{ 'platform' => 'windows', 'pl', 'image_name' => 'Polish.svg' },
 	{ 'platform' => 'windows', 'ro', 'image_name' => 'Romanian.svg' },
 	{ 'platform' => 'windows', 'rs', 'image_name' => 'Serbian.svg' },
@@ -441,6 +443,7 @@ my @localized_stores_icons = (
 	{ 'platform' => 'android_google', 'el', 'image_name' => 'el_get.svg' },
 	{ 'platform' => 'android_google', 'en', 'image_name' => 'en_get.svg' },
 	{ 'platform' => 'android_google', 'es', 'image_name' => 'es_get.svg' },
+	# mx.openfoodfacts.org (Mexican Spanish or Spanish US)
 	{ 'platform' => 'android_google', 'es-419', 'image_name' => 'es-419_get.svg' },
 	{ 'platform' => 'android_google', 'et', 'image_name' => 'et_get.svg' },
 	{ 'platform' => 'android_google', 'eu', 'image_name' => 'eu_get.svg' },
@@ -448,6 +451,7 @@ my @localized_stores_icons = (
 	{ 'platform' => 'android_google', 'fi', 'image_name' => 'fi_get.svg' },
 	{ 'platform' => 'android_google', 'fil', 'image_name' => 'fil_get.svg' },
 	{ 'platform' => 'android_google', 'fr', 'image_name' => 'fr_get.svg' },
+	# ca-fr.openfoodfacts.org (French canadian)
 	{ 'platform' => 'android_google', 'fr-ca', 'image_name' => 'fr-ca_get.svg' },
 	{ 'platform' => 'android_google', 'gl', 'image_name' => 'gl_get.svg' },
 	{ 'platform' => 'android_google', 'gu', 'image_name' => 'gu_get.svg' },
@@ -458,6 +462,7 @@ my @localized_stores_icons = (
 	{ 'platform' => 'android_google', 'id', 'image_name' => 'id_get.svg' },
 	{ 'platform' => 'android_google', 'is', 'image_name' => 'is_get.svg' },
 	{ 'platform' => 'android_google', 'it', 'image_name' => 'it_get.svg' },
+	# Hebrew (Israel)
 	{ 'platform' => 'android_google', 'iw', 'image_name' => 'iw_get.svg' },
 	{ 'platform' => 'android_google', 'ja', 'image_name' => 'ja_get.svg' },
 	{ 'platform' => 'android_google', 'ka', 'image_name' => 'ka_get.svg' },
@@ -481,6 +486,7 @@ my @localized_stores_icons = (
 	{ 'platform' => 'android_google', 'pa', 'image_name' => 'pa_get.svg' },
 	{ 'platform' => 'android_google', 'pl', 'image_name' => 'pl_get.svg' },
 	{ 'platform' => 'android_google', 'pt', 'image_name' => 'pt_get.svg' },
+	# br.openfoodfacts.org (Brazilian portuguese, not supported yet)
 	{ 'platform' => 'android_google', 'pt-br', 'image_name' => 'pt-br_get.svg' },
 	{ 'platform' => 'android_google', 'ro', 'image_name' => 'ro_get.svg' },
 	{ 'platform' => 'android_google', 'ru', 'image_name' => 'ru_get.svg' },
@@ -498,6 +504,7 @@ my @localized_stores_icons = (
 	{ 'platform' => 'android_google', 'ur', 'image_name' => 'ur_get.svg' },
 	{ 'platform' => 'android_google', 'uz', 'image_name' => 'uz_get.svg' },
 	{ 'platform' => 'android_google', 'vi', 'image_name' => 'vi_get.svg' },
+	# We're only able to support zh-cn right now
 	{ 'platform' => 'android_google', 'zh-cn', 'image_name' => 'zh-cn_get.svg' },
 	{ 'platform' => 'android_google', 'zh-hk', 'image_name' => 'zh-hk_get.svg' },
 	{ 'platform' => 'android_google', 'zh-tw', 'image_name' => 'zh-tw_get.svg' },
@@ -506,15 +513,18 @@ my @localized_stores_icons = (
 	{ 'platform' => ‘apple’, 'AR', 'image_name' => 'appstore_AR.svg' },
 	{ 'platform' => ‘apple’, 'AZ', 'image_name' => 'appstore_AZ.svg' },
 	{ 'platform' => ‘apple’, 'BG', 'image_name' => 'appstore_BG.svg' },
+	# We're only able to support zh-cn right now
 	{ 'platform' => ‘apple’, 'CN_SC', 'image_name' => 'appstore_CN_SC.svg' },
 	{ 'platform' => ‘apple’, 'CN_TC', 'image_name' => 'appstore_CN_TC.svg' },
 	{ 'platform' => ‘apple’, 'CZ', 'image_name' => 'appstore_CZ.svg' },
 	{ 'platform' => ‘apple’, 'DE', 'image_name' => 'appstore_DE.svg' },
 	{ 'platform' => ‘apple’, 'DK', 'image_name' => 'appstore_DK.svg' },
 	{ 'platform' => ‘apple’, 'EE', 'image_name' => 'appstore_EE.svg' },
+	# mx.openfoodfacts.org (Mexican Spanish or Spanish US)
 	{ 'platform' => ‘apple’, 'ES_MX', 'image_name' => 'appstore_ES_MX.svg' },
 	{ 'platform' => ‘apple’, 'ES', 'image_name' => 'appstore_ES.svg' },
 	{ 'platform' => ‘apple’, 'FI', 'image_name' => 'appstore_FI.svg' },
+	# ca-fr.openfoodfacts.org (French canadian)
 	{ 'platform' => ‘apple’, 'FR_CA', 'image_name' => 'appstore_FR_CA.svg' },
 	{ 'platform' => ‘apple’, 'FR', 'image_name' => 'appstore_FR.svg' },
 	{ 'platform' => ‘apple’, 'GR', 'image_name' => 'appstore_GR.svg' },
@@ -532,6 +542,7 @@ my @localized_stores_icons = (
 	{ 'platform' => ‘apple’, 'NO', 'image_name' => 'appstore_NO.svg' },
 	{ 'platform' => ‘apple’, 'PH', 'image_name' => 'appstore_PH.svg' },
 	{ 'platform' => ‘apple’, 'PL', 'image_name' => 'appstore_PL.svg' },
+	# Portuguese variants
 	{ 'platform' => ‘apple’, 'PT_BR', 'image_name' => 'appstore_PT_BR.svg' },
 	{ 'platform' => ‘apple’, 'PT_PT', 'image_name' => 'appstore_PT_PT.svg' },
 	{ 'platform' => ‘apple’, 'RO', 'image_name' => 'appstore_RO.svg' },
