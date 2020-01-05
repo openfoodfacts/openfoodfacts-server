@@ -393,6 +393,43 @@ my @related_applications = (
 	{ 'platform' => 'windows', 'id' => '9nblggh0dkqr', 'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr' },
 );
 
+my @localized_stores_icons = (
+	{ 'platform' => 'windows', 'pt-br', 'image_name' => 'Portuguese-Brazilian.svg' },
+	{ 'platform' => 'windows', 'ar', 'image_name' => 'Arabic.svg' },
+	{ 'platform' => 'windows', '', 'image_name' => 'Belarusian.svg' },
+	{ 'platform' => 'windows', '', 'image_name' => 'Bengali.svg' },
+	{ 'platform' => 'windows', '', 'image_name' => 'Bosnian.svg' },
+	{ 'platform' => 'windows', 'bg', 'image_name' => 'Bulgarian.svg' },
+	{ 'platform' => 'windows', 'zh', 'image_name' => 'Chinese_Simplified.svg' },
+	{ 'platform' => 'windows', '', 'image_name' => 'Croatian.svg' },
+	{ 'platform' => 'windows', '', 'image_name' => 'Danish.svg' },
+	{ 'platform' => 'windows', 'en', 'image_name' => 'English.svg' },
+	{ 'platform' => 'windows', '', 'image_name' => 'Estonian.svg' },
+	{ 'platform' => 'windows', '', 'image_name' => 'Filipino.svg' },
+	{ 'platform' => 'windows', 'fr', 'image_name' => 'French.svg' },
+	{ 'platform' => 'windows', 'el', 'image_name' => 'Greek.svg' },
+	{ 'platform' => 'windows', 'hi', 'image_name' => 'Hindi.svg' },
+	{ 'platform' => 'windows', '', 'image_name' => 'Indonesian.svg' },
+	{ 'platform' => 'windows', 'it', 'image_name' => 'Italian.svg' },
+	{ 'platform' => 'windows', 'ja', 'image_name' => 'Japanese.svg' },
+	{ 'platform' => 'windows', 'lv', 'image_name' => 'Latvian.svg' },
+	{ 'platform' => 'windows', 'lt', 'image_name' => 'Lithuanian.svg' },
+	{ 'platform' => 'windows', '', 'image_name' => 'Malay.svg' },
+	{ 'platform' => 'windows', 'no', 'image_name' => 'Norwegian.svg' },
+	{ 'platform' => 'windows', 'pl', 'image_name' => 'Polish.svg' },
+	{ 'platform' => 'windows', 'ro', 'image_name' => 'Romanian.svg' },
+	{ 'platform' => 'windows', 'rs', 'image_name' => 'Serbian.svg' },
+	{ 'platform' => 'windows', 'es', 'image_name' => 'Spanish.svg' },
+	{ 'platform' => 'windows', 'sw', 'image_name' => 'Swahili.svg' },
+	{ 'platform' => 'windows', 'sv', 'image_name' => 'Swedish.svg' },
+	{ 'platform' => 'windows', 'th', 'image_name' => 'Thai.svg' },
+	{ 'platform' => 'windows', 'uk', 'image_name' => 'Ukranian.svg' },
+);
+
+$current_number_of_products = 1000000
+$current_number_of_contributors = 20000
+$current_number_of_countries = 130
+
 my $manifest = {
 	icons => \@icons,
 	related_applications => \@related_applications,
