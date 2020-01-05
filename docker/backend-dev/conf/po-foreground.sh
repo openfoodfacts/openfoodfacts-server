@@ -36,6 +36,11 @@ then
   ln -sf /opt/product-opener/emb_codes /mnt/podata/emb_codes
 fi
 
+if [ ! -e /mnt/podata/packager-codes ]
+then
+  ln -sf /opt/product-opener/packager-codes /mnt/podata/packager-codes
+fi
+
 perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 chown -R www-data:www-data /mnt/podata
 chown -R www-data:www-data /opt/product-opener/html/images/products
