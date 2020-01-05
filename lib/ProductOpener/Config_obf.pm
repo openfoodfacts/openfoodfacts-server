@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -69,8 +69,6 @@ BEGIN
 
 		%options
 		%server_options
-
-		%wiki_texts
 
 		@product_fields
 		@product_other_fields
@@ -235,32 +233,6 @@ $google_analytics = <<HTML
 </script>
 HTML
 ;
-
-
-
-%wiki_texts = (
-
-"en/whatsinmyshampoo" => "http://en.wiki.openbeautyfacts.org/Translations/whatsinmyshampoo.com/English?action=raw",
-
-"en/index.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Index_page/English?action=raw",
-"fr/index.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Index_page/French?action=raw",
-
-"en/contribute.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Contribute_page/English?action=raw",
-"fr/contribute.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Contribute_page/French?action=raw",
-
-"en/discover.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Discover_page/English?action=raw",
-"fr/discover.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Discover_page/French?action=raw",
-
-"en/press" => "http://en.wiki.openbeautyfacts.org/Translations_-_Press_-_English?action=raw",
-"fr/presse" => "http://en.wiki.openbeautyfacts.org/Translations_-_Press_-_French?action=raw",
-
-"en/code-of-conduct" => "http://en.wiki.openbeautyfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-"fr/code-de-conduite" => "http://en.wiki.openbeautyfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
-
-"en/data" => "http://en.wiki.openbeautyfacts.org/Translations/Data/English?action=raw",
-"fr/data" => "http://en.wiki.openbeautyfacts.org/Translations/Data/French?action=raw",
-
-);
 
 #@product_image_fields = qw(front ingredients);
 
