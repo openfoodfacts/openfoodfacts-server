@@ -2371,7 +2371,7 @@ sub mmoll_to_unit {
 		fi => "Natrium",
 		fr => "Sodium",
 		he => "נתרן",
-		de => "Nátrium",
+		hu => "Nátrium",
 		it => "Sodio",
 		ja => "ナトリウム",
 		nl => "Natrium",
