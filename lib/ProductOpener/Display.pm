@@ -6492,6 +6492,10 @@ $scripts
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
 }
 </script>
+<!--TODO add condition based on user rights IF -->
+<script type="text/javascript" src="power.user.js"></script>
+<!--TODO add ENDIF condition based on user rights -->
+
 </body>
 </html>
 HTML
