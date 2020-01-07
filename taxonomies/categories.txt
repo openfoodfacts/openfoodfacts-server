@@ -21560,6 +21560,26 @@ th:ชีสจากนมวัว
 wikidata:en:Q3088299
 
 <en:Cow cheeses
+en:Provolone
+de:Provolone
+es:Provolone
+fr:Provolone
+nl:Provolone
+pt:Provolone
+sv:Provolone
+
+<en:Cow cheeses
+en:Havarti
+da:Havarti
+de:Havarti
+es:Havarti
+fr:Havarti
+it:Havarti
+nl:Havarti
+ro:Havarti
+wikidata:en:Q1591487
+
+<en:Cow cheeses
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
 fr:Coulommiers
@@ -22302,6 +22322,12 @@ es:Queso fresco
 fr:Fromages à pâte fraîche, Fromage frais
 it:Formaggi freschi
 wikidata:en:Q3323634
+
+<en:Fresh cheeses
+en:Brousse
+es:Brousse
+fr:Brousses
+wikidata:en:Q2926318
 
 <en:Cream cheeses
 fr:Faisselles
@@ -23066,6 +23092,7 @@ country:en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
+<en:Provolone
 it:Provolone del Monaco
 country:en:Italy
 #wikidata:en:
@@ -23322,6 +23349,16 @@ nl:Manchego
 pt:Manchego, queijo manchego
 country:en:Spain
 wikidata:en:Q72305
+
+<en:Spanish cheeses
+<en:Cow cheeses
+en:Tetilla cheese
+de:Queso Tetilla
+es:Queso Tetilla
+fr:Queso Tetilla
+gl:Queixo de Tetilla
+country:en:Spain
+wikidata:en:Q1244334
 
 <en:Spanish cheeses
 es:Afuega'l Pitu
@@ -23615,6 +23652,12 @@ nl:Plantaardige speltromen
 
 <en:Animal fats
 <en:Milkfat
+en:Dairy spread
+de:Milchstreichfett
+fr:Produits laitiers à tartiner
+nl:Zuivelsmeersels
+
+<en:Dairy spread
 en:Butters
 ca:Mantegues
 cs:Máslo
@@ -23696,12 +23739,6 @@ nl:Gezouten roomboters
 <en:Butters
 en:Three-quarter-fat butter
 de:Dreiviertelfettbutter
-
-<en:Butters
-en:Dairy spread
-de:Milchstreichfett
-fr:Produit laitier à tartiner
-nl:Zuivelsmeersels
 
 <en:French cheeses
 <en:Cooked pressed cheeses
@@ -24525,6 +24562,22 @@ fr:Laits d'amande, lait d’amande, Boissons végétales d'amande
 it:Latte di mandorla
 nl:Amandeldranken
 wikidata:en:Q975953
+
+<en:Almond milks
+en:Unsweetened natural almond milks
+fr:Laits d'amande natures non sucrés
+
+<en:Almond milks
+en:Sweetened natural almond milks
+fr:Laits d'amande natures sucrés
+
+<en:Almond milks
+en:Chocolate almond milks
+fr:Laits d'amande au chocolat
+
+<en:Almond milks
+en:Vanilla almond milks
+fr:Laits d'amande vanille
 
 <en:Nut milks
 en:Chestnut milks, Chestnut drinks
@@ -25644,11 +25697,38 @@ pnns_group_2:en:Dairy desserts
 <en:Dairy desserts
 fr:Crèmes brûlées
 
+#really similar to crème brûlé but made with milk instead of cream
+<en:Dairy desserts
+en:Crema catalana
+de:Crema catalana
+es:Crema catalana
+fr:Crèmes catalanes
+nl:Crema catalana
+wikidata:en:Q842566
+
 <en:Dairy desserts
 en:Panna cottas, panacotta, pannacota, panacota
-fi:pannacotta
+fi:Pannacotta
 fr:Panna cottas, pannacottas, Panna cotta, pannacotta, panacotta
+it:Panna cotta
 nl:Panna cottas
+
+<en:Panna cottas
+en:Plain panna cottas
+fr:Panna cottas natures
+
+<en:Panna cottas
+en:Panna cottas with fruit coulis
+fr:Panna cottas au coulis de fruits
+it:Panna cotta con coulis di fruttes
+
+#Curd milk eated like a yogurt (but non fermented)
+<en:Dairy dessert
+en:Cuajada
+ca:Quallada
+es:Cuajada
+#fr:Caillé
+wikidata:en:Q1142807
 
 <en:Dairy desserts
 <en:Chocolate desserts
@@ -29710,7 +29790,7 @@ pt:Pizzas congeladas
 en:Frozen pies
 es:Tartas saladas congeladas, tartas congeladas
 fi:pakastetut piiraat
-fr:Tartes surgelées (salées), Tartes surgelées, tarte surgelée
+fr:Tartes salées surgelées, Tartes surgelées, tarte surgelée
 nl:Diepvries hartige taarten
 
 <en:Frozen foods
@@ -36522,7 +36602,7 @@ fr:Charcuteries à teneur réduite en sel
 hu:Feldolgozott hús kevés sóval
 nl:Vleeswaren met minder zout
 
-<en:Prepared meats
+#do not put it in meat, there are fish rillettes and we separate meat and fish
 <en:Salted spreads
 en:Rillettes
 ca:Rostes
@@ -36536,6 +36616,7 @@ wikidata:en:Q1933110
 fr:Rillettes artisanales
 
 <en:Rillettes
+<en:Prepared meats
 en:Potted meats, Meat rillettes
 fr:Rillettes de viande
 nl:Potjesvlezen, Potjesvlees
@@ -36738,6 +36819,15 @@ fi:kalkkunamakkarat
 fr:Saucisses de dinde
 hu:Pulyka kolbász
 nl:Kalkoenworst
+
+<en:Poultry sausages
+en:Duck sausages
+fr:Saucisses de canard
+nl:Eendenworst
+
+<en:Sausages
+en:Veal Sausages, Veal Sausage
+fr:Saucisses de veau, Saucisse de veau
 
 <en:Sausages
 fr:Merguez
@@ -37168,9 +37258,15 @@ hu:Szalámi
 nl:Salamis
 
 <en:Salami
+en:Pork salami
+fr:Salami de porc
+
+<en:Salami
+en:Beef salami
 fr:Salami de bœuf, Salamis de bœuf
 
 <en:Salami
+en:Turkey salami
 fr:Salami de dinde, Salamis de dinde
 nl:Kalkoensalamis
 
@@ -37241,7 +37337,7 @@ fr:Saucissons secs cacher
 <en:Tunas
 <en:Fish rillettes
 en:Tuna rillettes
-es:Rillettes De Atún
+es:Rillettes De atún
 fr:Rillettes de thon
 nl:Tonijnrillettes, tonijnrillette
 
@@ -40760,7 +40856,7 @@ hu:Birs lekvár
 
 <en:Fruit jams
 en:Kiwi jams, kiwi jam
-fr:Confitures de kiwi, confiture de kiwi
+fr:Confitures de kiwi, confiture de kiwi, confitures de kiwis
 
 <en:Fruit jams
 en:Plum jams
@@ -44731,17 +44827,12 @@ country:en:Italy
 wikidata:en:Q37483505
 
 <en:Vinegars
-en:Cider vinegars
+en:Cider vinegars, apple cider vinegars, Apple cider vinegar
 es:Vinagres de sidra y manzana, Vinagres de manzana, Vinagres de sidra
 fi:siiderietikat
-fr:Vinaigres de cidre, vinaigre de cidre
+fr:Vinaigres de cidre, vinaigre de cidre, vinaigres de cidre de pomme, Vinaigre de cidre de pomme, Vinaigres de pomme, Vinaigre de pomme
 hu:Almaecet
 nl:Ciderazijnen
-wikidata:en:Q618322
-
-<en:Cider vinegars
-en:Apple cider vinegars, Apple cider vinegar
-fr:Vinaigres de cidre de pomme, Vinaigre de cidre de pomme, Vinaigres de pomme, Vinaigre de pomme
 wikidata:en:Q618322
 
 <en:Vinegars
@@ -46406,22 +46497,30 @@ fi:voicroissantit
 fr:Croissants au beurre
 nl:Roombotercroissants
 
-<en:Croissants
+<en:Viennoiseries
+en:Filled croissants
+fr:Croissants fourrés
+it:Cornetti farciti
+
+<en:Filled croissants
 en:Croissant filled with chocolate
 de:Mit Schokolade gefüllte Croissants
 fr:Croissants fourrés au chocolat, Croissant fourré au chocolat
+it:Cornetti farciti con cioccolato
 nl:Chocoladecroissants
 
-<en:Croissants
+<en:Filled croissants
 en:Croissant filled with cream
 de:Mit Sahne gefüllte Croissants
 fr:Croissants fourrés à la crème, Croissant fourré à la crème
+it:Cornetti farciti con crema
 nl:Croissant gevuld met room
 
-<en:Croissants
+<en:Filled croissants
 en:Croissant filled with jam
 de:Mit Konfitüre gefüllte Croissants
 fr:Croissants fourrés à la confiture, Croissant fourré à la confiture
+it:Cornetti farciti con confettura
 nl:Croissants met jam
 
 <en:Viennoiseries
@@ -46461,6 +46560,10 @@ fr:Pains au lait, pain au lait
 nl:Melkbroodjes
 pt:Pães de leite
 wikidata:en:Q3360557
+
+<en:Milk bread rolls
+en:Plain milk bread rolls
+fr:Pains au lait natures
 
 <en:Milk bread rolls
 en:Milk bread rolls with chocolate
@@ -47036,6 +47139,12 @@ nl:Zoutjes
 <en:Crackers
 en:Salty palmiers
 fr:Palmiers salés
+
+<en:Crackers
+fr:Crêpes dentelles salées
+
+<en:Crackers
+fr:Flûtes et torsades apéritifs
 
 <en:Crackers
 en:Pretzel
