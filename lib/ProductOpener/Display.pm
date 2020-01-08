@@ -438,6 +438,14 @@ CSS
 ;
 	}
 
+	if ($admin) {
+		$scripts .= <<HTML
+<script type="text/javascript" src="/js/power.user.js"></script>
+HTML
+;
+	}
+	
+
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner => $owner, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
 }
 
@@ -6492,9 +6500,6 @@ $scripts
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
 }
 </script>
-<!--TODO add condition based on user rights IF -->
-<script type="text/javascript" src="power.user.js"></script>
-<!--TODO add ENDIF condition based on user rights -->
 
 </body>
 </html>
