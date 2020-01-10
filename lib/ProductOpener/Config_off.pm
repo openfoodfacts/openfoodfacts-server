@@ -403,7 +403,7 @@ my @localized_stores_icons = (
       { 'platform' => 'windows', 'hr', 'image_name' => 'Croatian.svg' },
       { 'platform' => 'windows', '', 'image_name' => 'Danish.svg' },
       { 'platform' => 'windows', 'en', 'image_name' => 'English.svg' },
-      { 'platform' => 'windows', '', 'image_name' => 'Estonian.svg' },
+      { 'platform' => 'windows', 'ee', 'image_name' => 'Estonian.svg' },
       { 'platform' => 'windows', '', 'image_name' => 'Filipino.svg' },
       { 'platform' => 'windows', 'fr', 'image_name' => 'French.svg' },
       { 'platform' => 'windows', 'el', 'image_name' => 'Greek.svg' },
