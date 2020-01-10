@@ -449,6 +449,7 @@ sub send_notification_for_product_change($$) {
 
 	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		my $ua = LWP::UserAgent->new();
+		$ua->timeout(2);
 
 		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
 			'barcode' => $product_ref->{code},
