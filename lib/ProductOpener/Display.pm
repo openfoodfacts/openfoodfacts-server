@@ -5208,9 +5208,16 @@ sub search_and_graph_products($$$) {
 				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = 1;
 			}
 			else {
-				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"}} = 1;
+				$fields_ref->{$graph_ref->{"axis_$axis"}} = 1;
 			}
 		}
+	}
+
+	if ($graph_ref->{"series_nutrition_grades"}) {
+		$fields_ref->{"nutrition_grade_fr"} = 1;
+	}
+	elsif ((scalar keys %$graph_ref) > 0) {
+		$fields_ref->{"labels_tags"} = 1;
 	}
 
 	eval {
