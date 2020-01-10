@@ -395,12 +395,12 @@ my @related_applications = (
 
 my @localized_stores_icons = (
 	{ 'platform' => 'windows', 'ar', 'image_name' => 'Arabic.svg' },
-	{ 'platform' => 'windows', '', 'image_name' => 'Belarusian.svg' },
+	{ 'platform' => 'windows', 'be', 'image_name' => 'Belarusian.svg' },
 	{ 'platform' => 'windows', '', 'image_name' => 'Bengali.svg' },
 	{ 'platform' => 'windows', '', 'image_name' => 'Bosnian.svg' },
 	{ 'platform' => 'windows', 'bg', 'image_name' => 'Bulgarian.svg' },
 	{ 'platform' => 'windows', 'zh', 'image_name' => 'Chinese_Simplified.svg' },
-	{ 'platform' => 'windows', '', 'image_name' => 'Croatian.svg' },
+	{ 'platform' => 'windows', 'hr', 'image_name' => 'Croatian.svg' },
 	{ 'platform' => 'windows', '', 'image_name' => 'Danish.svg' },
 	{ 'platform' => 'windows', 'en', 'image_name' => 'English.svg' },
 	{ 'platform' => 'windows', '', 'image_name' => 'Estonian.svg' },
@@ -408,7 +408,7 @@ my @localized_stores_icons = (
 	{ 'platform' => 'windows', 'fr', 'image_name' => 'French.svg' },
 	{ 'platform' => 'windows', 'el', 'image_name' => 'Greek.svg' },
 	{ 'platform' => 'windows', 'hi', 'image_name' => 'Hindi.svg' },
-	{ 'platform' => 'windows', '', 'image_name' => 'Indonesian.svg' },
+	{ 'platform' => 'windows', 'id', 'image_name' => 'Indonesian.svg' },
 	{ 'platform' => 'windows', 'it', 'image_name' => 'Italian.svg' },
 	{ 'platform' => 'windows', 'ja', 'image_name' => 'Japanese.svg' },
 	{ 'platform' => 'windows', 'lv', 'image_name' => 'Latvian.svg' },
