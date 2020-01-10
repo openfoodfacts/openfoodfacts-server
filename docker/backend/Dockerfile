@@ -49,19 +49,10 @@ COPY ./cpanfile /tmp/cpanfile
 # Add ProductOpener runtime dependencies from cpan
 RUN cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
 
-# Helper stage, so that we don't try to install GeoIP upon every rebuild of the source
-FROM modperl AS modperlgeoip
+FROM modperl AS runnable
 
-ADD https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz /tmp/GeoLite2-Country.tar.gz
-RUN set -x \
-  # Install GeoIP files locally
-  && tar xfz /tmp/GeoLite2-Country.tar.gz -C /usr/local/share \
-  && rm /tmp/GeoLite2-Country.tar.gz \
-  && mv /usr/local/share/GeoLite2-Country_* /usr/local/share/GeoLite2-Country \
-  # Prepare Apache to include our custom config
-  && rm /etc/apache2/sites-enabled/000-default.conf
-
-FROM modperlgeoip AS runnable
+# Prepare Apache to include our custom config
+RUN rm /etc/apache2/sites-enabled/000-default.conf
 
 # Copy Perl libraries from the builder image
 COPY --from=builder /tmp/local/ /opt/perl/local/

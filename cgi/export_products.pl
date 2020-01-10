@@ -60,7 +60,7 @@ if (not defined $owner) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
-my $exports_ref = retrieve("$data_root/export_files//$owner/exports.sto");
+my $exports_ref = retrieve("$data_root/export_files/$owner/exports.sto");
 if (not defined $exports_ref) {
 	$exports_ref = {};
 }
@@ -110,7 +110,7 @@ elsif (($action eq "process") and ($User{moderator})) {
 		owner => $owner,
 		csv_file => $exported_file,
 		export_id => $export_id,
-		query => { owner => $owner},
+		query => { owner => $owner, data_quality_errors_producers_tags => { '$size' => 0 }},
 		comment => "Import from producers platform",
 		include_images_paths => 1,	# Export file paths to images
 	};

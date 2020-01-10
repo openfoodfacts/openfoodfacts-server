@@ -720,11 +720,11 @@ sub store_product($$) {
 	}
 
 	push @$changes_ref, {
-		userid=>$User_id,
-		ip=>remote_addr(),
-		t=>$product_ref->{last_modified_t},
-		comment=>$comment,
-		rev=>$rev,
+		userid => $User_id,
+		ip => remote_addr(),
+		t => $product_ref->{last_modified_t},
+		comment => $comment,
+		rev => $rev,
 	};
 
 	compute_codes($product_ref);
@@ -752,6 +752,7 @@ sub store_product($$) {
 	$product_ref->{created_t} += 0;
 	$product_ref->{complete} += 0;
 	$product_ref->{sortkey} += 0;
+	$product_ref->{rev} +=0;
 
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
@@ -1076,11 +1077,12 @@ sub get_change_userid_or_uuid($) {
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
-	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
+	#
+	# but not:
+	# (app)Updated via Power User Script
+	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid})
+		and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
-	}
-	elsif ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
-		$uuid = $7;
 	}
 
 	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {

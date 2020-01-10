@@ -38,7 +38,7 @@ ProductOpener::Display::init();
 
 $scripts .= <<SCRIPTS
 <script src="/js/datatables.min.js"></script>
-<script src="/js/dist/papaparse.min.js"></script>
+<script src="/js/dist/papaparse.js"></script>
 SCRIPTS
 ;
 
@@ -60,9 +60,15 @@ my $js = <<JS
 			skipEmptyLines: true,
 			withCredentials: false,
 			step: function(results, parser) {
-				dataSource = dataSource.concat(results.data);
-				console.log("Row data:", results.data);
-				console.log("Row errors:", results.errors);
+				if (results.errors.length === 0) {
+					dataSource = dataSource.concat(results.data);
+				}
+				else {
+					for (var i = 0; i < results.errors.length; ++i) {
+						var error = results.errors[0];
+						console.warn('%s error %s while parsing CSV row %d: %s', error.type, error.code, error.row, error.message);
+					}
+				}
 			},
 			complete: function () {
 				\$('#top_translators').DataTable({

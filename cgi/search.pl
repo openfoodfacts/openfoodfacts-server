@@ -185,21 +185,6 @@ foreach my $axis ('x','y') {
 	$graph_ref->{"axis_$axis"} = remove_tags_and_quote(decode utf8=>param("axis_$axis"));
 }
 
-my %flatten = ();
-my $flatten = 0;
-
-foreach my $field (@search_fields) {
-	if (defined $search_tags_fields{$field}) {
-		$flatten{$field} = remove_tags_and_quote(decode utf8=>param("flatten_$field"));
-		if ($flatten{$field} eq 'on') {
-			$flatten = 1;
-		}
-		else {
-			delete $flatten{$field};
-		}
-	}
-}
-
 foreach my $series (@search_series, "nutrition_grades") {
 
 	$graph_ref->{"series_$series"} = remove_tags_and_quote(decode utf8=>param("series_$series"));
@@ -520,7 +505,11 @@ HTML
 		<div id="results_download" class="content">
 
 			<p>$Lang{search_download_results}{$lc}</p>
-			<p>$Lang{search_download_results_description}{$lc}</p>
+
+			<input type="radio" name="format" value="xlsx" id="format_xlsx" checked/>
+				<label for="format_xlsx">$Lang{search_download_xlsx}{$lc} - $Lang{search_download_xlsx_description}{$lc}</label><br>
+			<input type="radio" name="format" value="csv" id="format_csv" />
+				<label for="format_csv">$Lang{search_download_csv}{$lc} - $Lang{search_download_csv_description}{$lc}</label><br>
 
 			<input type="submit" name="download" value="$Lang{search_download_button}{$lc}" class="button" />
 
@@ -533,7 +522,7 @@ HTML
 ;
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/dist/search.js"></script>
 HTML
 ;
 
@@ -825,7 +814,8 @@ HTML
 	elsif (param("download")) {
 		# CSV export
 
-		search_and_export_products($request_ref, $query_ref, $sort_by, $flatten, \%flatten);
+		$request_ref->{format} = param('format');
+		search_and_export_products($request_ref, $query_ref, $sort_by);
 
 
 	}

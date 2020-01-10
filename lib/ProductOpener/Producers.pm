@@ -40,6 +40,7 @@ BEGIN
 		&init_fields_columns_names_for_lang
 		&match_column_name_to_field
 		&init_columns_fields_match
+		&normalize_column_name
 
 		&generate_import_export_columns_groups_for_select2
 
@@ -198,6 +199,20 @@ sub load_csv_or_excel_file($) {
 	}
 
 	if (not $results_ref->{error}) {
+
+		# If some columns have the same name, add a suffix
+		my %headers = ();
+		my $i = 0;
+		foreach my $header (@$headers_ref) {
+			if (defined $headers{$header}) {
+				$headers{$header}++;
+				$headers_ref->[$i] = $header . " - " . $headers{$header};
+			}
+			else {
+				$headers{$header} = 1;
+			}
+			$i++;
+		}
 		$results_ref = { headers=>$headers_ref, rows=>$rows_ref };
 	}
 
@@ -312,7 +327,12 @@ sub convert_file($$$$) {
 			}
 		}
 
-		$log->debug("convert_file - before clean_fields ", { }) if $log->is_debug();
+		# Make sure we have a value for lc, as it is needed for clean_fields()
+		if ((not defined $product_ref->{lc}) or ($product_ref->{lc} eq "")) {
+			$product_ref->{lc} = $default_values_ref->{lc};
+		}
+
+		$log->debug("convert_file - before clean_fields ", { lc => $product_ref->{lc}}) if $log->is_debug();
 		clean_fields($product_ref);
 		$log->debug("convert_file - after clean_fields ", { }) if $log->is_debug();
 
@@ -361,11 +381,12 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "barcode", "ean", "ean-13", "ean13", "gtin"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
 	traces => ["traces", "traces list", "trace list", "list of traces"],
+	nutriscore_grade_producer => ["nutri-score", "nutriscore"],
 },
 
 es => {
@@ -377,17 +398,25 @@ es => {
 
 fr => {
 
-	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale"],
+	code => ["codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
+	categories => ["Catégorie(s)"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
 	generic_name_fr => ["dénomination légale", "déno légale"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
+	allergens => ["Substances ou produits provoquant des allergies ou intolérances"],
+	traces => ["Traces éventuelles"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
-	labels => ["signes qualité", "signe qualité"],
+	labels => ["signes qualité", "signe qualité", "Allégations santé", "Labels, certifications, récompenses"],
+	countries => ["pays de vente"],
+	serving_size_value_unit => ["Taille d'une portion"],
 	volume_value_unit => ["volume net"],
 	drained_weight_value_unit => ["poids net égoutté"],
 	recycling_instructions_to_recycle_fr => ["à recycler", "consigne à recycler"],
 	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
-	preparation_fr => ["conseils de préparation", "instructions de préparation"],
+	conservation_conditions_fr => ["Conditions de conservation et d'utilisation"],
+	preparation_fr => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
 	link => ["lien"],
+	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement"],
 },
 
 );
@@ -549,6 +578,15 @@ sub init_other_fields_columns_names_for_lang($) {
 
 					foreach my $synonym (@synonyms) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = {field => $field};
+
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $Lang{value}{$l})} = {
+							field => $field,
+							value_unit => "value",
+						};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{value}{$l} . " " . $synonym)} = {
+							field => $field,
+							value_unit => "value",
+						};
 
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $Lang{unit}{$l})} = {
 							field => $field,
@@ -921,7 +959,10 @@ JSON
 					$name = $Nutriments{$nid}{en};
 				}
 
-				push @{$select2_group_ref->{children}}, { id => $nid . "_100g_value_unit", text => ucfirst($name) };
+				push @{$select2_group_ref->{children}}, { id => $nid . "_100g_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_100g")};
+				push @{$select2_group_ref->{children}}, { id => $nid . "_serving_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_serving") };
+				push @{$select2_group_ref->{children}}, { id => $nid . "_prepared_100g_value_unit", text => ucfirst($name) . " - " . lang("prepared_product") . " " . lang("nutrition_data_per_100g")};
+				push @{$select2_group_ref->{children}}, { id => $nid . "_prepared_serving_value_unit", text => ucfirst($name) . " - " . lang("prepared_product") . " " . lang("nutrition_data_per_serving") };
 			}
 		}
 		else {

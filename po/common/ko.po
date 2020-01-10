@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-30 17:04\n"
+"PO-Revision-Date: 2019-12-24 14:01\n"
 "Language-Team: Korean\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: ko\n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1개의 제품"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " 그리고 "
@@ -136,10 +137,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "상품 페이지는 다음 사람들에 의해 수정되었습니다."
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "안드로이드 APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -147,9 +151,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world-ko.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/ko_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "/images/misc/google-play-badge-svg-master/img/ko_get.svg"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "구글 플레이 스토어에서 다운 받을 수 있습니다"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -199,7 +207,7 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "저희가 하는 일을 돕고 싶다면 기부해주세요"
 
 msgctxt "brands"
 msgid "Brands"
@@ -355,7 +363,7 @@ msgstr "국가"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "%s에서 판매되는 제품"
 
 msgctxt "countries_s"
 msgid "country"
@@ -363,7 +371,7 @@ msgstr "국가"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "%s에서 판매 되지 않는 제품"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -387,11 +395,11 @@ msgstr "오류 수정"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "삭제하려는 이유"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "상품을 삭제하기"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
@@ -399,23 +407,23 @@ msgstr "페이지 삭제"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "이미지를 삭제하기"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "사용자 삭제"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "추가됨:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "변경 사항:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "삭제됨:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -423,23 +431,23 @@ msgstr "Open Beauty Facts에게 기부하기"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "환경성적표지"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "(지금은 거의 없지만) 만약에 탄소 발자국이 라벨에 표시되어 있는 경우, 영양 성분을 입력할 때처럼 라벨에 적힌 값을 그대로 입력하세요."
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "편집"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "변경 내용 요약"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -451,11 +459,11 @@ msgstr "페이지를 편집"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "공개 프로필 수정"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "공개 프로필의 수정 내역이 저장되었습니다."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
@@ -483,11 +491,11 @@ msgstr ""
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "이메일 주소"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "EMB 코드"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -495,16 +503,16 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB 코드"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB 코드"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -536,23 +544,23 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "오류"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "잘못된 사용자 이름 또는 비밀번호를 입력하셨습니다. <a href=\"/cgi/reset_password.pl\">비밀번호를 잊어버리셨나요?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr ""
+msgstr "데이터를 읽는 중에 오류가 발생했습니다, 페이지를 새로고침 하시기 바랍니다."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "비밀번호와 비밀번호 확인 창에 입력한 값이 일치하지 않습니다."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "그 이메일 주소는 다른 사용자가 사용하는 주소입니다. 혹시 계정을 가지고 계신가요? 당신이 가진 다른 계정의 <a href=\"/cgi/reset_password.pl\">비밀번호를 초기화</a> 할 수 있습니다."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -780,6 +788,16 @@ msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
 
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr "https://world.openbeautyfacts.org"
+
 msgctxt "for"
 msgid "for"
 msgstr "위해"
@@ -948,7 +966,7 @@ msgstr ""
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "성분"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -976,15 +994,20 @@ msgstr ""
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "%s 성분이 포함되지 않은 제품들"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_KR.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_KR.svg"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr "앱 스토어에서 다운로드 받을 수 있습니다"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/kr/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1028,23 +1051,23 @@ msgstr ""
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "주 언어"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "아랍어"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "불가리아어"
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "체코어"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "덴마크어"
 
 msgctxt "lang_de"
 msgid "German"
@@ -1064,11 +1087,11 @@ msgstr "스페인어"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "에스토니아어"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "핀란드어"
 
 msgctxt "lang_fr"
 msgid "French"
@@ -1076,7 +1099,7 @@ msgstr "프랑스어"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "아일랜드어"
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1084,11 +1107,11 @@ msgstr "히브리어"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "헝가리어"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "인도네시아어"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1104,27 +1127,27 @@ msgstr "한국어"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "리투아니아어"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "라트비아어"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "몰타어"
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "네덜란드어"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "네덜란드어"
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr ""
+msgstr "폴란드어"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
@@ -1132,11 +1155,11 @@ msgstr "포르투갈어"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "포르투갈어 (Portuguese)"
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "루마니아어"
 
 msgctxt "lang_ru"
 msgid "Russian"
@@ -1144,11 +1167,11 @@ msgstr "러시아어"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "슬로바키아어"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "슬로베니아어"
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1156,27 +1179,27 @@ msgstr "스웨덴어"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "태국어"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr ""
+msgstr "베트남어"
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "중국어"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr ""
+msgstr "기타 언어"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "이 제품에서 가장 많이 사용되거나 강조하는 언어"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "영어"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1398,7 +1421,7 @@ msgstr "다른 제품으로 사진 이동하기"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s 의 제품"
 
 msgctxt "name"
 msgid "Name"
@@ -1519,7 +1542,7 @@ msgstr ""
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "같은 카테고리에 있는 제품들의 평균 값과 비교한 결과"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
@@ -1555,7 +1578,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "최대로"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
@@ -1563,7 +1586,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "최소로"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1584,7 +1607,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -2064,11 +2087,11 @@ msgstr "저장하기"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "저장됨."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "저장 중."
 
 msgctxt "search"
 msgid "Search"
@@ -2107,19 +2130,27 @@ msgid "Download results"
 msgstr "다운로드 결과"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
 msgstr ""
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr ""
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr ""
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr ""
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
 msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
 msgstr ""
 
 msgctxt "search_generate_graph"
@@ -2132,7 +2163,7 @@ msgstr ""
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "그래프"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
@@ -2185,7 +2216,7 @@ msgstr "제품 목록으로 결과보기"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "지도"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2241,7 +2272,7 @@ msgstr "공정 거래"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "공정-무역"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2578,16 +2609,21 @@ msgstr "전 세계의 모든 제품보기"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "제품의 정보 및 데이터는 제품 포장지나 라벨에 적혀있는 정보만 입력해야 하며 (다른 사이트나 제작자의 사이트에서 가져온 정보는 입력해서는 안됩니다), 반드시 본인이 직접 사진을 찍어서 올려야 합니다.<br/>\n"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">그래야 하는 이유</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
 msgstr ""
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/Korean.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "/images/misc/microsoft/Korean.svg"
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2700,7 +2736,7 @@ msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "최근 변경"
 
 msgctxt "translators_title"
 msgid "Our Translators"
@@ -2801,6 +2837,11 @@ msgstr "노바 그룹"
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "노바 그룹"
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -2965,7 +3006,7 @@ msgstr "위키피디아"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "기능"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
@@ -3021,7 +3062,7 @@ msgstr ""
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "용량"
 
 msgctxt "other_information"
 msgid "Other information"
@@ -3125,7 +3166,7 @@ msgstr ""
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "주의: 이 제품은 더 이상 판매되지 않습니다. 이 데이터는 참고용으로만 보관중입니다. 이 제품은 일반 검색으로는 찾을 수 없으며 통계를 낼때도 해당 제품을 제외하고 계산합니다."
 
 msgctxt "get_the_app"
 msgid "Get the app"
@@ -3209,7 +3250,7 @@ msgstr "%s를 %s로 번역하는 데에 도움을 주세요."
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr ""
+msgstr "아직 귀하의 언어로 번역되지 않은 아래 항목에 대한 번역을 제안 할 수 있습니다. (영어로 된) 파란색 링크와 검은색 텍스트는 각각 아직 번역되지 않은 제품과 선택가능한 동의어를 포함한 원래 항목을 표시합니다. 텍스트 상자에 선택가능한 동의어를 포함해 번역을 입력한 다음 저장 버튼을 클릭해주세요. 고맙습니다!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3329,7 +3370,7 @@ msgstr ""
 
 msgctxt "import_data"
 msgid "Import data"
-msgstr ""
+msgstr "데이터 불러오기"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
@@ -3522,7 +3563,7 @@ msgstr ""
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "<a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a> 에 따라 제품 사진과 정보는 Open Food Facts 데이터베이스에 공개됩니다. 데이터베이스에 있는 각 제품의 정보들은 <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> 를 지킨다면 사용가능하며 제품의 사진은 <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a> 를 지키는 경우에만 사용가능합니다."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3638,12 +3679,12 @@ msgstr ""
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "최소"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "최대"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -3699,7 +3740,7 @@ msgstr ""
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "상태"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
@@ -3707,15 +3748,15 @@ msgstr ""
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "진행 중"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "완료됨"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "실패함"
 
 msgctxt "import_file_result"
 msgid "Import result"
@@ -3816,7 +3857,7 @@ msgstr ""
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "시작하기"
 
 msgctxt "close"
 msgid "Close"
@@ -3921,9 +3962,9 @@ msgstr ""
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
 msgstr ""
@@ -3931,7 +3972,7 @@ msgstr ""
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -3945,7 +3986,7 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "감사합니다!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -3960,6 +4001,10 @@ msgstr ""
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr ""
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr "생산업체들을 위한 플랫폼은 아직 개발 중이며 올리기 전에 미리 확인한 후에 공개 데이터베이스에 제품을 올리고 있습니다. 공개 데이터베이스에 제품을 올리고 싶다면 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> 로 메일을 보내주시기 바랍니다."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -3983,7 +4028,7 @@ msgstr ""
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "앱"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -4003,5 +4048,37 @@ msgstr ""
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
+msgstr ""
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr ""
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr ""
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr ""
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr ""
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr ""
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr ""
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr ""
 

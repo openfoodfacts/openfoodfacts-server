@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -68,8 +68,6 @@ BEGIN
 
 		%options
 		%server_options
-
-		%wiki_texts
 
 		@product_fields
 		@product_other_fields
@@ -354,20 +352,16 @@ $page_size = 20;
 
 
 $google_analytics = <<HTML
-<script type="text/javascript">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-31851927-1']);
-  _gaq.push(['_setDomainName', 'openfoodfacts.org']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
+  gtag('config', 'UA-31851927-1');
 </script>
+
 HTML
 ;
 
@@ -389,7 +383,7 @@ my @icons = (
 
 my @related_applications = (
 	{ 'platform' => 'play', 'id' => 'org.openfoodfacts.scanner', 'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner' },
-	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://itunes.apple.com/app/id588797948' },
+	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948' },
 	{ 'platform' => 'windows', 'id' => '9nblggh0dkqr', 'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr' },
 );
 
@@ -486,40 +480,6 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	fr:levure
 	fr:levures
 )];
-
-
-
-
-%wiki_texts = (
-
-	"en/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
-	"es/descubrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-	"fr/decouvrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_French?action=raw",
-	"he/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Hebrew?action=raw",
-	"ar/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Arabic?action=raw",
-	"pt/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Portuguese?action=raw",
-	"jp/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Japanese?action=raw",
-
-	"de/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_German?action=raw",
-	"en/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_English?action=raw",
-	"es/contribuir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-	"fr/contribuer" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_French?action=raw",
-	"nl/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_Dutch?action=raw",
-
-	"en/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_English?action=raw",
-	"fr/presse" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_French?action=raw",
-	"el/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_Greek?action=raw",
-
-	"en/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-	"fr/code-de-conduite" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
-	"ja/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_Japanese?action=raw",
-	"de/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_German?action=raw",
-
-	"fr/notetondistrib" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
-	"en/rateyourvendingmachine" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_English?action=raw",
-
-);
-
 
 # fields for which we will load taxonomies
 
@@ -664,7 +624,8 @@ improvements
 	ingredients_from_palm_oil
 	ingredients_that_may_be_from_palm_oil_n
 	ingredients_that_may_be_from_palm_oil
-	nutrition_grade_fr
+	nutriscore_score
+	nutriscore_grade
 	nova_group
 	pnns_groups_1
 	pnns_groups_2
@@ -674,7 +635,7 @@ improvements
 
 $options{import_export_fields_groups} = [
 	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
-		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "packaging",
+		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "serving_size_value_unit", "packaging",
 		"brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores", "obsolete", "obsolete_since_date"]
 	],
 	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
@@ -795,6 +756,7 @@ $options{apps_userids} = {
 	"kiliweb" => "yuka",
 	"labeleat" => "labeleat",
 	"waistline-app" => "waistline",
+	"inf" => "infood",
 };
 
 # (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )

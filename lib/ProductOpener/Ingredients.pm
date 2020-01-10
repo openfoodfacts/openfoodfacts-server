@@ -135,6 +135,15 @@ my %of = (
 	it => " di | d'",
 );
 
+my %and = (
+	en => " and ",
+	de => " und ",
+	es => " y ",
+	fi => " ja ",
+	fr => " et ",
+	it => " e ",
+);
+
 my %and_of = (
 	en => " and of ",
 	de => " und von ",
@@ -586,7 +595,7 @@ sub extract_ingredients_from_text($) {
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
 
-	my $and = $Lang{_and_}{$product_lc};
+	my $and = $and{$product_lc} || " and ";
 
 	my $ignore_strings_after_percent = "";
 	if (defined $ignore_strings_after_percent{$product_lc}) {
@@ -1926,7 +1935,7 @@ sub separate_additive_class($$$$$) {
 	my $colon = shift;
 	my $after = shift;
 
-	my $and = $Lang{_and_}{$product_lc};
+	my $and = $and{$product_lc} || " and ";
 
 	# check that we have an additive after the additive class
 	# keep only what is before the first separator
@@ -1965,7 +1974,7 @@ sub preparse_ingredients_text($$) {
 		init_additives_classes_regexps();
 	}
 
-	my $and = $Lang{_and_}{$product_lc};
+	my $and = $and{$product_lc} || " and ";
 	my $of = ' - ';
 	if (defined $of{$product_lc}) {
 		$of = $of{$product_lc};
@@ -3318,6 +3327,10 @@ sub detect_allergens_from_text($) {
 
 			# print STDERR "current text 1: $text\n";
 
+			# _allergen_ + __allergen__ + ___allergen___
+
+			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
+			$text =~ s/\b__([^,;_\(\)\[\]]+?)__\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 
 			# allergens in all caps, with other ingredients not in all caps
@@ -3338,6 +3351,11 @@ sub detect_allergens_from_text($) {
 			# match at least 3 characters so that we don't match the separator
 			# Farine de blé 97% -> make numbers be separators
 			$text =~ s/(^| - |_|\(|\[|\)|\]|,|$the|$and|$of|;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,|$and|;|\.|\b($traces_regexp)\b|$))/replace_allergen_between_separators($language,$product_ref,$1, $2, "",$`)/iesg;
+
+			# some allergens can be recognized in multiple ways.
+			# e.g. _CELERY_ -> <span class="allergen"><span class="allergen"><span class="allergen">CELERI</span></span></span>
+			$text =~ s/(<span class="allergen">)+/<span class="allergen">/g;
+			$text =~ s/(<\/span>)+/<\/span>/g;
 
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 
