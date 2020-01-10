@@ -760,6 +760,7 @@ $options{apps_userids} = {
 	"kiliweb" => "yuka",
 	"labeleat" => "labeleat",
 	"waistline-app" => "waistline",
+	"inf" => "infood",
 };
 
 # (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
