@@ -3327,6 +3327,10 @@ sub detect_allergens_from_text($) {
 
 			# print STDERR "current text 1: $text\n";
 
+			# _allergen_ + __allergen__ + ___allergen___
+
+			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
+			$text =~ s/\b__([^,;_\(\)\[\]]+?)__\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 
 			# allergens in all caps, with other ingredients not in all caps
@@ -3347,6 +3351,11 @@ sub detect_allergens_from_text($) {
 			# match at least 3 characters so that we don't match the separator
 			# Farine de blé 97% -> make numbers be separators
 			$text =~ s/(^| - |_|\(|\[|\)|\]|,|$the|$and|$of|;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,|$and|;|\.|\b($traces_regexp)\b|$))/replace_allergen_between_separators($language,$product_ref,$1, $2, "",$`)/iesg;
+
+			# some allergens can be recognized in multiple ways.
+			# e.g. _CELERY_ -> <span class="allergen"><span class="allergen"><span class="allergen">CELERI</span></span></span>
+			$text =~ s/(<span class="allergen">)+/<span class="allergen">/g;
+			$text =~ s/(<\/span>)+/<\/span>/g;
 
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 

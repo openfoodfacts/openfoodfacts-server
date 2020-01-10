@@ -500,4 +500,12 @@ is_deeply($product_ref->{allergens_tags}, [
 ]
 );
 
+$product_ref = {
+lc => "fr", ingredients_text_fr => "Eau, BLE, _CELERI_, __GLUTEN__, _poisson_, FRAISE, _banane_, lupin, _mollusque_"
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+is($product_ref->{ingredients_text_with_allergens_fr}, 'Eau, <span class="allergen">BLE</span>, <span class="allergen">CELERI</span>, <span class="allergen">GLUTEN</span>, <span class="allergen">poisson</span>, FRAISE, <span class="allergen">banane</span>, <span class="allergen">lupin</span>, <span class="allergen">mollusque</span>');
+
 done_testing();
