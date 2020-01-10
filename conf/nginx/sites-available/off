@@ -52,7 +52,7 @@ server {
 	listen [::]:80;
 
 	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name openfoodfacts.org *.openfoodfacts.org openfoodfacts.eu *.openfoodfacts.eu;
+	server_name openfoodfacts.org *.openfoodfacts.org;
 
 	# SSL configuration
 	#
