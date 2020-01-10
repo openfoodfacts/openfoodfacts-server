@@ -104,6 +104,12 @@ server {
 	gzip on;
 	gzip_min_length 1000;
 
+	# Warning: headers added by add_header are override by
+	# other add_header directives at the same level.
+        #location ~* \.(json|csv)$ {
+        #        add_header Access-Control-Allow-Origin *;
+        #}
+
 	location /data/ {
      if ($request_method = 'OPTIONS') {
         add_header Access-Control-Allow-Origin *;
@@ -147,10 +153,14 @@ server {
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
 	}
 
-        location ~ ^/1.json$ {
-                root /srv/off/html/static;
-                try_files /1.json = 404;
-        }
+	# the app requests /1.json to get the product count...
+	# the commented code below is to serve a static copy 
+	# if there is a spike of installs
+        #location ~ ^/1.json$ {
+        #        root /srv/off/html/static;
+        #        try_files /1.json = 404;
+        #}
+
 
 	location ~ ^/(favicon.ico) {
 		# First attempt to serve request as file, then
