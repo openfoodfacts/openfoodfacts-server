@@ -1077,11 +1077,12 @@ sub get_change_userid_or_uuid($) {
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
-	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
+	#
+	# but not:
+	# (app)Updated via Power User Script
+	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid})
+		and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
-	}
-	elsif ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
-		$uuid = $7;
 	}
 
 	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
