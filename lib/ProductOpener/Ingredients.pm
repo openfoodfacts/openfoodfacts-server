@@ -577,8 +577,6 @@ sub extract_ingredients_from_text($) {
 
 	# farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel : 1% ...
 
-	my @ranked_ingredients = ();
-	my @unranked_ingredients = ();
 	my $level = 0;
 
 	# Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g
@@ -602,9 +600,9 @@ sub extract_ingredients_from_text($) {
 		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc}
 	}
 
-	my $analyze_ingredients = sub($$$$$) {
+	my $analyze_ingredients = sub($$$$) {
 
-		my ($analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref, $level, $s) = @_;
+		my ($analyze_ingredients_self, $ingredients_ref, $level, $s) = @_;
 
 		# print STDERR "analyze_ingredients level $level: $s\n";
 
@@ -634,12 +632,19 @@ sub extract_ingredients_from_text($) {
 
 			if ($sep =~ /(:|\[|\{|\()/i) {
 
+				# Single separators like commas and dashes
+				my $match = '.*?';	# non greedy match
 				my $ending = $last_separator;
 				if (not defined $ending) {
 					$ending = ",|;|( $dashes )";
 				}
+				$ending .= '|$';
+
+				# For parenthesis etc. we will try to find the corresponding ending parenthesis
 				if ($sep eq '(') {
 					$ending = '\)';
+					# Match can include groups with embedded parenthesis
+					$match = '([^\(\)]|(\([^\(\)]+\)))*';
 				}
 				elsif ($sep eq '[') {
 					$ending = '\]';
@@ -647,17 +652,17 @@ sub extract_ingredients_from_text($) {
 				elsif ($sep eq '{') {
 					$ending = '\}';
 				}
-				$ending .= '|$';
+
 				$ending = '(' . $ending . ')';
 
-				# print STDERR "special separator: $sep - ending: $ending - after: $after\n";
+				print STDERR "special separator: $sep - ending: $ending - after: $after\n";
 
 				# another separator before the ending separator ? we probably have several sub-ingredients
-				if ($after =~ /^(.*?)$ending/i) {
+				if ($after =~ /^($match)$ending/i) {
 					$between = $1;
 					$after = $';
 
-					# print STDERR "sub-ingredients - between: $between - after: $after\n";
+					print STDERR "sub-ingredients - between: $between - after: $after\n";
 
 					# sel marin (France, Italie)
 					# -> if we have countries, put "origin:" before
@@ -722,8 +727,9 @@ sub extract_ingredients_from_text($) {
 								}
 							}
 
-							# single ingredient, stay at same level
-							# print STDERR "single ingredient, stay at same level\n";
+							# for a single ingredient, we used to stay at same level
+							# now consider that it is a sub-ingredient anyway:
+							$between_level = $level + 1;
 						}
 					}
 				}
@@ -961,14 +967,6 @@ sub extract_ingredients_from_text($) {
 					text => $ingredient
 				);
 
-				# Record if the ingredient has sub-ingredients
-				# useful for ingredients that are specified
-				# like "vegetable oils (sunflower oil, palm oil)
-
-				if ($between ne '') {
-					$ingredient{has_sub_ingredients} = "yes";
-				}
-
 				if (defined $percent) {
 					$ingredient{percent} = $percent;
 				}
@@ -995,37 +993,49 @@ sub extract_ingredients_from_text($) {
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 
 					if (length($ingredient{id}) < 500) {
-						if ($level == 0) {
-							push @$ranked_ingredients_ref, \%ingredient;
-						}
-						else {
-							push @$unranked_ingredients_ref, \%ingredient;
+						push @$ingredients_ref, \%ingredient;
+
+						if ($between ne '') {
+							# Ingredient has sub-ingredients
+							$ingredient{ingredients} = [];
+							$analyze_ingredients_self->($analyze_ingredients_self, $ingredient{ingredients}, $between_level, $between);
 						}
 					}
 				}
 			}
-
-		}
-
-		if ($between ne '') {
-			$analyze_ingredients_self->($analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $between_level, $between);
 		}
 
 		if ($after ne '') {
-			$analyze_ingredients_self->($analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $level, $after);
+			$analyze_ingredients_self->($analyze_ingredients_self, $ingredients_ref , $level, $after);
 		}
 
 	};
 
-	$analyze_ingredients->($analyze_ingredients, \@ranked_ingredients, \@unranked_ingredients , 0, $text);
+	$analyze_ingredients->($analyze_ingredients, $product_ref->{ingredients} , 0, $text);
 
-	for (my $i = 0; $i <= $#ranked_ingredients; $i++) {
-		$ranked_ingredients[$i]{rank} = $i + 1;
-	}
+	# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
-	foreach my $ingredient (@ranked_ingredients, @unranked_ingredients) {
-		push @{$product_ref->{ingredients}}, $ingredient;
-		push @{$product_ref->{ingredients_tags}}, $ingredient->{id};
+	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
+	# that expect a flat list of ingredients
+
+	my $rank = 1;
+
+	# The existing first level ingredients will be ranked
+	my $first_level_ingredients_n = scalar @{$product_ref->{ingredients}};
+
+	for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
+
+		# We will copy the sub-ingredients of an ingredient at the end of the ingredients array
+		# and if they contain sub-ingredients themselves, they will be also processed with
+		# this for loop.
+
+		if (defined $product_ref->{ingredients}[$i]{ingredients}) {
+			push @{$product_ref->{ingredients}}, @{ clone $product_ref->{ingredients}[$i]{ingredients} };
+		}
+		if ($i < $first_level_ingredients_n) {
+			$product_ref->{ingredients}[$i]{rank} = $rank++;
+		}
+		push @{$product_ref->{ingredients_tags}}, $product_ref->{ingredients}[$i]{id};
 	}
 
 	my $field = "ingredients";
@@ -1119,7 +1129,7 @@ sub analyze_ingredients($) {
 
 				# Vegetable oil (rapeseed oil, ...) : ignore "from_palm_oil:en:maybe" if the ingredient has sub-ingredients
 				if (($property eq "from_palm_oil") and (defined $value) and ($value eq "maybe")
-					and (defined $ingredient_ref->{has_sub_ingredients}) and ($ingredient_ref->{has_sub_ingredients} eq "yes")) {
+					and (defined $ingredient_ref->{ingredients})) {
 					$value = "ignore";
 				}
 
@@ -3233,11 +3243,12 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	my $field = "allergens";
 
-	# print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
+	#print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = $allergens_stopwords{$language};
 
 	my $before_allergen = "";
+	my $after_allergen = "";
 
 	# Remove stopwords at the beginning or end
 	if (defined $stopwords) {
@@ -3246,7 +3257,7 @@ sub replace_allergen_between_separators($$$$$$) {
 			$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
 		}
 		if ($allergen =~ /((\s|\b($stopwords)\b)+)$/i) {
-			$before_allergen = $1;
+			$after_allergen = $1;
 			$allergen =~ s/(\s|\b($stopwords)\b)+$//i;
 		}
 	}
@@ -3255,7 +3266,7 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	if (($before . $before_allergen) =~ /\b($traces_regexp)\b/i) {
 		$field = "traces";
-		# print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+		#print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}
 
 	# Farine de blé 97%
@@ -3276,10 +3287,10 @@ sub replace_allergen_between_separators($$$$$$) {
 		if ($language eq $product_ref->{lc}) {
 			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
 		}
-		return $start_separator . $before_allergen . '<span class="allergen">' . $allergen . '</span>' . $end_separator;
+		return $start_separator . $before_allergen . '<span class="allergen">' . $allergen . '</span>' . $after_allergen . $end_separator;
 	}
 	else {
-		return $start_separator . $before_allergen . $allergen . $end_separator;
+		return $start_separator . $before_allergen . $allergen . $after_allergen . $end_separator;
 	}
 }
 
@@ -3325,7 +3336,7 @@ sub detect_allergens_from_text($) {
 
 			# allergens between underscores
 
-			# print STDERR "current text 1: $text\n";
+			print STDERR "current text 1: $text\n";
 
 			# _allergen_ + __allergen__ + ___allergen___
 
@@ -3344,7 +3355,7 @@ sub detect_allergens_from_text($) {
 
 			# allergens between separators
 
-			#print STDERR "current text 2: $text\n";
+			print STDERR "current text 2: $text\n";
 			# print STDERR "separators\n";
 
 			# positive look ahead for the separators so that we can properly match the next word
