@@ -3326,7 +3326,7 @@ sub detect_allergens_from_text($) {
 
 			# allergens between underscores
 
-			print STDERR "current text 1: $text\n";
+			# print STDERR "current text 1: $text\n";
 
 			# _allergen_ + __allergen__ + ___allergen___
 
@@ -3345,7 +3345,7 @@ sub detect_allergens_from_text($) {
 
 			# allergens between separators
 
-			print STDERR "current text 2: $text\n";
+			# print STDERR "current text 2: $text\n";
 			# print STDERR "separators\n";
 
 			# positive look ahead for the separators so that we can properly match the next word
