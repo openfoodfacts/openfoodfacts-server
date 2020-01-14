@@ -1030,10 +1030,16 @@ sub extract_ingredients_from_text($) {
 		# this for loop.
 
 		if (defined $product_ref->{ingredients}[$i]{ingredients}) {
+			$product_ref->{ingredients}[$i]{has_sub_ingredients} = "yes";
 			push @{$product_ref->{ingredients}}, @{ clone $product_ref->{ingredients}[$i]{ingredients} };
 		}
 		if ($i < $first_level_ingredients_n) {
+			# Add a rank for all first level ingredients
 			$product_ref->{ingredients}[$i]{rank} = $rank++;
+		}
+		else {
+			# For sub-ingredients, do not list again the sub-ingredients
+			delete $product_ref->{ingredients}[$i]{ingredients};
 		}
 		push @{$product_ref->{ingredients_tags}}, $product_ref->{ingredients}[$i]{id};
 	}
@@ -1129,7 +1135,7 @@ sub analyze_ingredients($) {
 
 				# Vegetable oil (rapeseed oil, ...) : ignore "from_palm_oil:en:maybe" if the ingredient has sub-ingredients
 				if (($property eq "from_palm_oil") and (defined $value) and ($value eq "maybe")
-					and (defined $ingredient_ref->{ingredients})) {
+					and (defined $ingredient_ref->{has_sub_ingredients}) and ($ingredient_ref->{has_sub_ingredients} eq "yes")) {
 					$value = "ignore";
 				}
 
