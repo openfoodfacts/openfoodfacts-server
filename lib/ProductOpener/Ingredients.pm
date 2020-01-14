@@ -1222,13 +1222,47 @@ sub set_percent_max_values($$$) {
 	my $changed = 0;
 
 	my $current_max = $total_max;
+	my $sum_of_mins_before = 0;
+	my $sum_of_maxs_before = 0;
+
+	my $i = 0;
+	my $n = scalar @$ingredients_ref;
 
 	foreach my $ingredient_ref (@$ingredients_ref) {
+
+		$i++;
+
+		# The max of an ingredient must be lower or equal to
+		# the max of the ingredient that appear before.
 		if ($ingredient_ref->{percent_max} > $current_max) {
 			$ingredient_ref->{percent_max} = $current_max;
 			$changed++;
 		}
-		$current_max -= $ingredient_ref->{percent_min};
+		else {
+			$current_max = $ingredient_ref->{percent_max};
+		}
+
+		# The max of an ingredient must be lower or equal to
+		# the total max minus the sum of the minimums of all
+		# ingredients that appear before.
+
+		if ($ingredient_ref->{percent_max} > $total_max - $sum_of_mins_before) {
+			$ingredient_ref->{percent_max} = $total_max - $sum_of_mins_before;
+			$changed++;
+		}
+
+		# The min of an ingredient must be greater or equal to
+		# the total min minus the sum of the maximums of all
+		# ingredients that appear before, divided by the number of
+		# ingredients that appear after + the current ingredient
+
+		if ($ingredient_ref->{percent_min} < ($total_min - $sum_of_maxs_before) / (1 + $n - $i) ) {
+			$ingredient_ref->{percent_min} = ($total_min - $sum_of_maxs_before) / (1 + $n - $i);
+			$changed++;
+		}
+
+		$sum_of_mins_before += $ingredient_ref->{percent_min};
+		$sum_of_maxs_before += $ingredient_ref->{percent_max};
 	}
 
 	return $changed;
@@ -1243,8 +1277,18 @@ sub set_percent_min_values($$$) {
 	my $changed = 0;
 
 	my $current_min = 0;
+	my $sum_of_mins_after = 0;
+	my $sum_of_maxs_after = 0;
+
+	my $i = 0;
+	my $n = scalar @$ingredients_ref;
 
 	foreach my $ingredient_ref (reverse @$ingredients_ref) {
+
+		$i++;
+
+		# The min of an ingredient must be greater or equal to the mean of the
+		# ingredient that appears after.
 		if ($ingredient_ref->{percent_min} < $current_min) {
 			$ingredient_ref->{percent_min} = $current_min;
 			$changed++;
@@ -1252,6 +1296,25 @@ sub set_percent_min_values($$$) {
 		else {
 			$current_min = $ingredient_ref->{percent_min};
 		}
+
+		# The max of an ingredient must be lower or equal to
+		# the total max minus the sum of the minimums of all
+		# the ingredients after, divided by the number of
+		# ingredients that appear before + the current ingredient
+
+		if ($ingredient_ref->{percent_max} > ($total_max - $sum_of_mins_after) / (1 + $n - $i) ) {
+			$ingredient_ref->{percent_max} = ($total_max - $sum_of_mins_after) / (1 + $n - $i);
+			$changed++;
+		}
+
+		# The min of the first ingredient in the list must be greater or equal
+		# to the total min minus sum of of the maximums of all the ingredients after.
+		if (($i == $n) and ($ingredient_ref->{percent_min} < $total_min - $sum_of_maxs_after)) {
+			$ingredient_ref->{percent_min} = $total_min - $sum_of_maxs_after;
+		}
+
+		$sum_of_mins_after += $ingredient_ref->{percent_min};
+		$sum_of_maxs_after += $ingredient_ref->{percent_max};
 	}
 
 	return $changed;

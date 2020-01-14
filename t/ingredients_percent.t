@@ -1,0 +1,177 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+
+use utf8;
+
+use Test::More;
+use Log::Any::Adapter 'TAP';
+
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::TagsEntries qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
+
+# dummy product for testing
+
+my @tests = (
+	[ { lc => "en", ingredients_text => "sugar"}, 
+[
+  {
+    'id' => 'en:sugar',
+    'percent_max' => 100,
+    'percent_min' => 100,
+    'text' => 'sugar'
+  }
+]
+	],
+
+        [ { lc => "en", ingredients_text => "sugar, milk"},
+[
+  {
+    'id' => 'en:sugar',
+    'percent_max' => 100,
+    'percent_min' => 50,
+    'text' => 'sugar'
+  },
+  {
+    'id' => 'en:milk',
+    'percent_max' => 50,
+    'percent_min' => 0,
+    'text' => 'milk'
+  }
+]
+        ],
+
+	[ { lc => "en", ingredients_text => "sugar, milk, water"},
+[
+  {
+    'id' => 'en:sugar',
+    'percent_max' => 100,
+    'percent_min' => '33.3333333333333',
+    'text' => 'sugar'
+  },
+  {
+    'id' => 'en:milk',
+    'percent_max' => 50,
+    'percent_min' => 0,
+    'text' => 'milk'
+  },
+  {
+    'id' => 'en:water',
+    'percent_max' => '33.3333333333333',
+    'percent_min' => 0,
+    'text' => 'water'
+  }
+
+]
+	],
+
+        [ { lc => "en", ingredients_text => "sugar 90%, milk"},
+[
+  {
+    'id' => 'en:sugar',
+    'percent' => '90',
+    'percent_max' => 90,
+    'percent_min' => 90,
+    'text' => 'sugar'
+  },
+  {
+    'id' => 'en:milk',
+    'percent_max' => 10,
+    'percent_min' => 10,
+    'text' => 'milk'
+  }
+]
+	],
+
+        [ { lc => "en", ingredients_text => "sugar, milk 10%"},
+[
+  {
+    'id' => 'en:sugar',
+    'percent_max' => 90,
+    'percent_min' => 90,
+    'text' => 'sugar'
+  },
+  {
+    'id' => 'en:milk',
+    'percent' => '10',
+    'percent_max' => 10,
+    'percent_min' => 10,
+    'text' => 'milk'
+  }
+]
+        ],
+
+        [ { lc => "en", ingredients_text => "sugar, milk 10%, water"},
+[
+  {
+    'id' => 'en:sugar',
+    'percent_max' => 90,
+    'percent_min' => 80,
+    'text' => 'sugar'
+  },
+  {
+    'id' => 'en:milk',
+    'percent' => '10',
+    'percent_max' => 10,
+    'percent_min' => 10,
+    'text' => 'milk'
+  },
+  {
+    'id' => 'en:water',
+    'percent_max' => 10,
+    'percent_min' => 0,
+    'text' => 'water'
+  }
+]
+        ],
+
+        [ { lc => "en", ingredients_text => "sugar, water, milk 10%"},
+[
+  {
+    'id' => 'en:sugar',
+    'percent_max' => 80,
+    'percent_min' => 45,
+    'text' => 'sugar'
+  },
+  {
+    'id' => 'en:water',
+    'percent_max' => 45,
+    'percent_min' => 10,
+    'text' => 'water'
+  },
+  {
+    'id' => 'en:milk',
+    'percent' => '10',
+    'percent_max' => 10,
+    'percent_min' => 10,
+    'text' => 'milk'
+  }
+]
+        ],
+
+
+);
+
+foreach my $test_ref (@tests) {
+
+	my $product_ref = $test_ref->[0];
+	my $expected_ingredients_ref = $test_ref->[1];
+
+	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
+
+	parse_ingredients_text($product_ref);
+	compute_possible_minimum_and_maximum_percent_ranges_for_ingredients(
+		100, 100, $product_ref->{ingredients});
+
+	is_deeply ($product_ref->{ingredients}, $expected_ingredients_ref)
+		# using print + join instead of diag so that we don't have
+		# hashtags. It makes copy/pasting the resulting structure
+		# inside the test file much easier when tests results need
+		# to be updated. Caveat is that it might interfere with
+		# test output.
+		or print STDERR join("\n", explain $product_ref->{ingredients});
+}
+
+done_testing();
