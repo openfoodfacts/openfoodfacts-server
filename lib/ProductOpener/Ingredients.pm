@@ -18,6 +18,38 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Ingredients - process and analyze ingredients lists
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Ingredients> processes, normalize, parses and analyze
+ingredients lists to extract and recognize individual ingredients,
+additives and allernes, and to compute product properties related to
+ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
+
+    use ProductOpener::Ingredients qw/:all/;
+
+	[..]
+
+	clean_ingredients_text($product_ref);
+
+	extract_ingredients_from_text($product_ref);
+
+	extract_ingredients_classes_from_text($product_ref);
+
+	detect_allergens_from_text($product_ref);
+
+	compute_carbon_footprint_from_ingredients($product_ref);
+
+
+=head1 DESCRIPTION
+
+[..]
+
+=cut
+
 package ProductOpener::Ingredients;
 
 use utf8;
@@ -31,9 +63,6 @@ BEGIN
 	@EXPORT_OK = qw(
 		&extract_ingredients_from_image
 
-		&preparse_ingredients_text
-		&extract_ingredients_from_text
-		&analyze_ingredients
 		&separate_additive_class
 
 		&compute_carbon_footprint_from_ingredients
@@ -42,12 +71,24 @@ BEGIN
 		&clean_ingredients_text_for_lang
 		&clean_ingredients_text
 
-		&extract_ingredients_classes_from_text
-
 		&detect_allergens_from_text
 
 		&normalize_a_of_b
 		&normalize_enumeration
+
+		&extract_ingredients_classes_from_text
+
+		&extract_ingredients_from_text
+		&preparse_ingredients_text
+		&parse_ingredients_text
+		&analyze_ingredients
+		&flatten_sub_ingredients_and_compute_ingredients_tags
+
+		&compute_possible_minimum_and_maximum_percent_ranges_for_ingredients
+		&init_percent_values
+		&set_percent_min_values
+		&set_percent_max_values
+
 	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -180,6 +221,15 @@ my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
+
+=head1 FUNCTIONS
+
+=head2 init_labels_regexps () - initialize regular expressions needed for ingredients parsing
+
+This function creates regular expressions that match all variations of labels
+that we want to recognize in ingredients lists, such as organic and fair trade.
+
+=cut
 
 sub init_labels_regexps() {
 
@@ -538,7 +588,7 @@ my %ignore_strings_after_percent = (
 
 
 
-sub extract_ingredients_from_text($) {
+sub parse_ingredients_text($) {
 
 	my $product_ref = shift;
 
@@ -600,7 +650,7 @@ sub extract_ingredients_from_text($) {
 		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc}
 	}
 
-	my $analyze_ingredients = sub($$$$) {
+	my $analyze_ingredients_function = sub($$$$) {
 
 		my ($analyze_ingredients_self, $ingredients_ref, $level, $s) = @_;
 
@@ -1011,12 +1061,17 @@ sub extract_ingredients_from_text($) {
 
 	};
 
-	$analyze_ingredients->($analyze_ingredients, $product_ref->{ingredients} , 0, $text);
+	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients} , 0, $text);
 
-	# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
+}
+
 
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
+
+sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
+
+	my $product_ref = shift;
 
 	my $rank = 1;
 
@@ -1049,11 +1104,11 @@ sub extract_ingredients_from_text($) {
 	$product_ref->{ingredients_original_tags} = $product_ref->{ingredients_tags};
 
 	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_lc, join(", ", @{$product_ref->{ingredients_original_tags}} )) ];
+		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_original_tags}} )) ];
 		$product_ref->{$field . "_tags" } = [];
 		my $unknown = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			my $tagid = get_taxonomyid($product_lc, $tag);
+			my $tagid = get_taxonomyid($product_ref->{lc}, $tag);
 			push @{$product_ref->{$field . "_tags" }}, $tagid;
 			if (not exists_taxonomy_tag("ingredients", $tagid)) {
 				$unknown++;
@@ -1080,8 +1135,128 @@ sub extract_ingredients_from_text($) {
 		delete $product_ref->{ingredients_n_tags};
 	}
 
+}
+
+
+
+sub extract_ingredients_from_text($) {
+
+	my $product_ref = shift;
+
+	return if not defined $product_ref->{ingredients_text};
+
+	# Parse the ingredients list to extract individual ingredients and sub-ingredients
+	# to create the ingredients array with nested sub-ingredients arrays
+
+	parse_ingredients_text($product_ref);
+
+	# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
+
+	compute_possible_minimum_and_maximum_percent_ranges_for_ingredients(100, 100, $product_ref->{ingredients});
+
+	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
+	# that expect a flat list of ingredients
+
+	flatten_sub_ingredients_and_compute_ingredients_tags($product_ref);
+
+	# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+	# and compute the resulting value for the complete product
+
 	analyze_ingredients($product_ref);
 }
+
+
+=head2 compute_possible_minimum_and_maximum_percent_ranges_for_ingredients ( ingredients_ref )
+
+This function computes the possible minimum and maximum ranges for the percent
+values of each ingredient and sub-ingredients.
+
+Ingredients lists sometimes specify the percent value for some ingredients,
+but usually not all. This functions computes minimum and maximum percent
+values for all other ingredients.
+
+Ingredients list are ordered by descending order of quantity.
+
+=cut
+
+sub compute_possible_minimum_and_maximum_percent_ranges_for_ingredients($$$) {
+
+	my $total_min = shift;
+	my $total_max = shift;
+	my $ingredients_ref = shift;
+
+	init_percent_values($total_min, $total_max, $ingredients_ref);
+
+	my $changed = 1;
+
+	while ($changed) {
+		$changed = set_percent_max_values($total_min, $total_max, $ingredients_ref)
+			+ set_percent_min_values($total_min, $total_max, $ingredients_ref);
+	}
+}
+
+sub init_percent_values($$$) {
+
+	my $total_min = shift;
+	my $total_max = shift;
+	my $ingredients_ref = shift;
+
+	foreach my $ingredient_ref (@$ingredients_ref) {
+		if (defined $ingredient_ref->{percent}) {
+			$ingredient_ref->{percent_min} = $ingredient_ref->{percent};
+			$ingredient_ref->{percent_max} = $ingredient_ref->{percent};
+		}
+		else {
+			$ingredient_ref->{percent_min} = 0;
+			$ingredient_ref->{percent_max} = $total_max;
+		}
+	}
+}
+
+sub set_percent_max_values($$$) {
+
+	my $total_min = shift;
+	my $total_max = shift;
+	my $ingredients_ref = shift;
+
+	my $changed = 0;
+
+	my $current_max = $total_max;
+
+	foreach my $ingredient_ref (@$ingredients_ref) {
+		if ($ingredient_ref->{percent_max} > $current_max) {
+			$ingredient_ref->{percent_max} = $current_max;
+			$changed++;
+		}
+		$current_max -= $ingredient_ref->{percent_min};
+	}
+
+	return $changed;
+}
+
+sub set_percent_min_values($$$) {
+
+	my $total_min = shift;
+	my $total_max = shift;
+	my $ingredients_ref = shift;
+
+	my $changed = 0;
+
+	my $current_min = 0;
+
+	foreach my $ingredient_ref (reverse @$ingredients_ref) {
+		if ($ingredient_ref->{percent_min} < $current_min) {
+			$ingredient_ref->{percent_min} = $current_min;
+			$changed++;
+		}
+		else {
+			$current_min = $ingredient_ref->{percent_min};
+		}
+	}
+
+	return $changed;
+}
+
 
 
 # Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.

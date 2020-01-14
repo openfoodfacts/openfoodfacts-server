@@ -19,17 +19,11 @@ my @tests = (
 [
   {
     'id' => 'en:sugar',
-    'rank' => 1,
-    'text' => 'sugar',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
+    'text' => 'sugar'
   },
   {
     'id' => 'en:water',
-    'rank' => 2,
-    'text' => 'water',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
+    'text' => 'water'
   }
 ]
 	],
@@ -37,7 +31,6 @@ my @tests = (
 	[ { lc => "en", ingredients_text => "chocolate (cocoa, sugar), milk"}, 
 [
   {
-    'has_sub_ingredients' => 'yes',
     'id' => 'en:chocolate',
     'ingredients' => [
       {
@@ -49,29 +42,11 @@ my @tests = (
         'text' => 'sugar'
       }
     ],
-    'rank' => 1,
-    'text' => 'chocolate',
-    'vegan' => 'maybe',
-    'vegetarian' => 'yes'
+    'text' => 'chocolate'
   },
   {
     'id' => 'en:milk',
-    'rank' => 2,
-    'text' => 'milk',
-    'vegan' => 'no',
-    'vegetarian' => 'yes'
-  },
-  {
-    'id' => 'en:cocoa',
-    'text' => 'cocoa',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
-  },
-  {
-    'id' => 'en:sugar',
-    'text' => 'sugar',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
+    'text' => 'milk'
   }
 ]
 
@@ -80,7 +55,6 @@ my @tests = (
 
 [
   {
-    'has_sub_ingredients' => 'yes',
     'id' => 'en:dough',
     'ingredients' => [
       {
@@ -106,11 +80,9 @@ my @tests = (
         'text' => 'salt'
       }
     ],
-    'rank' => 1,
     'text' => 'dough'
   },
   {
-    'has_sub_ingredients' => 'yes',
     'id' => 'en:chocolate',
     'ingredients' => [
       {
@@ -132,73 +104,14 @@ my @tests = (
         'text' => 'sugar'
       }
     ],
-    'rank' => 2,
-    'text' => 'chocolate',
-    'vegan' => 'maybe',
-    'vegetarian' => 'yes'
+    'text' => 'chocolate'
   },
   {
     'id' => 'en:milk',
-    'rank' => 3,
-    'text' => 'milk',
-    'vegan' => 'no',
-    'vegetarian' => 'yes'
-  },
-  {
-    'id' => 'en:wheat',
-    'text' => 'wheat',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
-  },
-  {
-    'id' => 'en:water',
-    'text' => 'water',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
-  },
-  {
-    'has_sub_ingredients' => 'yes',
-    'id' => 'en:raising-agent',
-    'text' => 'raising agents'
-  },
-  {
-    'id' => 'en:salt',
-    'text' => 'salt',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
-  },
-  {
-    'has_sub_ingredients' => 'yes',
-    'id' => 'en:cocoa',
-    'text' => 'cocoa',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
-  },
-  {
-    'id' => 'en:sugar',
-    'text' => 'sugar',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
-  },
-  {
-    'id' => 'en:e501',
-    'text' => 'e501',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
-  },
-  {
-    'id' => 'en:cocoa-butter',
-    'text' => 'cocoa butter',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
-  },
-  {
-    'id' => 'en:cocoa-paste',
-    'text' => 'cocoa paste',
-    'vegan' => 'yes',
-    'vegetarian' => 'yes'
+    'text' => 'milk'
   }
 ]
+
 
 	],
 
@@ -211,7 +124,7 @@ foreach my $test_ref (@tests) {
 
 	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
-	extract_ingredients_from_text($product_ref);
+	parse_ingredients_text($product_ref);
 
 	is_deeply ($product_ref->{ingredients}, $expected_ingredients_ref)
 		# using print + join instead of diag so that we don't have
