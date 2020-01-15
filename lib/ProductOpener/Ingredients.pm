@@ -84,7 +84,7 @@ BEGIN
 		&analyze_ingredients
 		&flatten_sub_ingredients_and_compute_ingredients_tags
 
-		&compute_possible_minimum_and_maximum_percent_ranges_for_ingredients
+		&compute_ingredients_percent_values
 		&init_percent_values
 		&set_percent_min_values
 		&set_percent_max_values
@@ -1152,7 +1152,7 @@ sub extract_ingredients_from_text($) {
 
 	# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
-	compute_possible_minimum_and_maximum_percent_ranges_for_ingredients(100, 100, $product_ref->{ingredients});
+	compute_ingredients_percent_values(100, 100, $product_ref->{ingredients});
 
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
@@ -1166,7 +1166,7 @@ sub extract_ingredients_from_text($) {
 }
 
 
-=head2 compute_possible_minimum_and_maximum_percent_ranges_for_ingredients ( ingredients_ref )
+=head2 compute_ingredients_percent_values ( ingredients_ref )
 
 This function computes the possible minimum and maximum ranges for the percent
 values of each ingredient and sub-ingredients.
@@ -1179,7 +1179,7 @@ Ingredients list are ordered by descending order of quantity.
 
 =cut
 
-sub compute_possible_minimum_and_maximum_percent_ranges_for_ingredients($$$) {
+sub compute_ingredients_percent_values($$$) {
 
 	my $total_min = shift;
 	my $total_max = shift;
@@ -1188,11 +1188,20 @@ sub compute_possible_minimum_and_maximum_percent_ranges_for_ingredients($$$) {
 	init_percent_values($total_min, $total_max, $ingredients_ref);
 
 	my $changed = 1;
+	my $changed_total = 0;
 
 	while ($changed) {
 		$changed = set_percent_max_values($total_min, $total_max, $ingredients_ref)
-			+ set_percent_min_values($total_min, $total_max, $ingredients_ref);
+			+ set_percent_min_values($total_min, $total_max, $ingredients_ref)
+			+ set_percent_sub_ingredients($ingredients_ref);
+
+		$changed_total += $changed;
 	}
+
+	$log->debug("compute_ingredients_percent_values", { ingredients_ref => $ingredients_ref,
+		total_min => $total_min, total_max => $total_max, changed_total => $changed_total }) if $log->is_debug();
+
+	return $changed_total;
 }
 
 sub init_percent_values($$$) {
@@ -1207,8 +1216,12 @@ sub init_percent_values($$$) {
 			$ingredient_ref->{percent_max} = $ingredient_ref->{percent};
 		}
 		else {
-			$ingredient_ref->{percent_min} = 0;
-			$ingredient_ref->{percent_max} = $total_max;
+			if (not defined $ingredient_ref->{percent_min}) {
+				$ingredient_ref->{percent_min} = 0;
+			}
+			if ((not defined $ingredient_ref->{percent_max}) or ($ingredient_ref->{percent_max} > $total_max)) {
+				$ingredient_ref->{percent_max} = $total_max;
+			}
 		}
 	}
 }
@@ -1320,6 +1333,54 @@ sub set_percent_min_values($$$) {
 	return $changed;
 }
 
+
+sub set_percent_sub_ingredients($) {
+
+	my $ingredients_ref = shift;
+
+	my $changed = 0;
+
+	my $i = 0;
+	my $n = scalar @$ingredients_ref;
+
+	foreach my $ingredient_ref (@$ingredients_ref) {
+
+		$i++;
+
+		if (defined $ingredient_ref->{ingredients}) {
+
+			# Set values for sub-ingredients from ingredient values
+
+			$changed += compute_ingredients_percent_values(
+				$ingredient_ref->{percent_min}, $ingredient_ref->{percent_max}, $ingredient_ref->{ingredients});
+
+			# Set values for ingredient from sub-ingredients values
+
+			my $total_min = 0;
+			my $total_max = 0;
+
+			foreach my $sub_ingredient_ref (@{$ingredient_ref->{ingredients}}) {
+
+				$total_min += $sub_ingredient_ref->{percent_min};
+				$total_max += $sub_ingredient_ref->{percent_max};
+			}
+
+			if ($ingredient_ref->{percent_min} < $total_min) {
+				$ingredient_ref->{percent_min} = $total_min;
+				$changed++;
+			}
+			if ($ingredient_ref->{percent_max} > $total_max) {
+				$ingredient_ref->{percent_max} = $total_max;
+				$changed++;
+			}
+
+			$log->debug("set_percent_sub_ingredients", { ingredient_ref => $ingredient_ref, changed => $changed }) if $log->is_debug();
+
+		}
+	}
+
+	return $changed;
+}
 
 
 # Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
