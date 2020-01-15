@@ -43,7 +43,6 @@ ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
 
 	compute_carbon_footprint_from_ingredients($product_ref);
 
-
 =head1 DESCRIPTION
 
 [..]
@@ -705,14 +704,14 @@ sub parse_ingredients_text($) {
 
 				$ending = '(' . $ending . ')';
 
-				print STDERR "special separator: $sep - ending: $ending - after: $after\n";
+				# print STDERR "special separator: $sep - ending: $ending - after: $after\n";
 
 				# another separator before the ending separator ? we probably have several sub-ingredients
 				if ($after =~ /^($match)$ending/i) {
 					$between = $1;
 					$after = $';
 
-					print STDERR "sub-ingredients - between: $between - after: $after\n";
+					# print STDERR "sub-ingredients - between: $between - after: $after\n";
 
 					# sel marin (France, Italie)
 					# -> if we have countries, put "origin:" before
@@ -1066,8 +1065,12 @@ sub parse_ingredients_text($) {
 }
 
 
-	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
-	# that expect a flat list of ingredients
+=head2 flatten_sub_ingredients_and_compute_ingredients_tags ( product_ref )
+
+Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
+that expect a flat list of ingredients.
+
+=cut
 
 sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 
@@ -1117,7 +1120,6 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 		$product_ref->{"unknown_ingredients_n" } = $unknown;
 	}
 
-
 	if ($product_ref->{ingredients_text} ne "") {
 
 		$product_ref->{ingredients_n} = scalar @{$product_ref->{ingredients_original_tags}};
@@ -1137,7 +1139,22 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 
 }
 
+=head2 extract_ingredients_from_text ( product_ref )
 
+This function calls:
+
+- parse_ingredients_text() to parse the ingredients text in the main language of the product
+to extract individual ingredients and sub-ingredients
+
+- compute_ingredients_percent_values() to create the ingredients array with nested sub-ingredients arrays
+
+- flatten_sub_ingredients_and_compute_ingredients_tags() to keep the nested list of sub-ingredients,
+but also copy the sub-ingredients at the end for apps that expect a flat list of ingredients
+
+- analyze_ingredients() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+and to compute the resulting value for the complete product
+
+=cut
 
 sub extract_ingredients_from_text($) {
 
@@ -1152,7 +1169,11 @@ sub extract_ingredients_from_text($) {
 
 	# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
-	compute_ingredients_percent_values(100, 100, $product_ref->{ingredients});
+	if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
+
+		# The computation yielded seemingly impossible values, delete the values
+		delete_ingredients_percent_values($product_ref->{ingredients});
+	}
 
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
@@ -1163,6 +1184,34 @@ sub extract_ingredients_from_text($) {
 	# and compute the resulting value for the complete product
 
 	analyze_ingredients($product_ref);
+}
+
+
+=head2 delete_ingredients_percent_values ( ingredients_ref )
+
+This function deletes the percent_min and percent_max values of all ingredients.
+
+It is called if the compute_ingredients_percent_values() encountered impossible
+values (e.g. "Water, Sugar 80%" -> Water % should be greater than 80%, but the
+total would be more than 100%)
+
+The function is recursive to also delete values for sub-ingredients.
+
+=cut
+
+sub delete_ingredients_percent_values($) {
+
+	my $ingredients_ref = shift;
+
+	foreach my $ingredient_ref (@$ingredients_ref) {
+
+		delete $ingredient_ref->{percent_min};
+		delete $ingredient_ref->{percent_max};
+
+		if (defined $ingredient_ref->{ingredients}) {
+			delete_ingredients_percent_values($ingredient_ref->{ingredients});
+		}
+	}
 }
 
 
@@ -1190,15 +1239,35 @@ sub compute_ingredients_percent_values($$$) {
 	my $changed = 1;
 	my $changed_total = 0;
 
+	my $i = 0;
+
 	while ($changed) {
-		$changed = set_percent_max_values($total_min, $total_max, $ingredients_ref)
-			+ set_percent_min_values($total_min, $total_max, $ingredients_ref)
-			+ set_percent_sub_ingredients($ingredients_ref);
+		my $changed_max = set_percent_max_values($total_min, $total_max, $ingredients_ref);
+		# bail out if there was an error / impossible values
+		($changed_max < 0) and return -1;
+
+		my $changed_min = set_percent_min_values($total_min, $total_max, $ingredients_ref);
+		($changed_min) < 0 and return -1;
+
+		my $changed_sub_ingredients = set_percent_sub_ingredients($ingredients_ref);
+		($changed_sub_ingredients) < 0 and return -1;
+
+		$changed += $changed_min + $changed_max + $changed_sub_ingredients;
 
 		$changed_total += $changed;
+
+		$i++;
+
+		# bail out if we loop too much
+		if ($i > 3) {
+
+			$log->debug("compute_ingredients_percent_values - too many loops, bail out", { ingredients_ref => $ingredients_ref,
+		total_min => $total_min, total_max => $total_max, changed_total => $changed_total }) if $log->is_debug();
+			return -1;
+		}
 	}
 
-	$log->debug("compute_ingredients_percent_values", { ingredients_ref => $ingredients_ref,
+	$log->debug("compute_ingredients_percent_values - done", { ingredients_ref => $ingredients_ref,
 		total_min => $total_min, total_max => $total_max, changed_total => $changed_total }) if $log->is_debug();
 
 	return $changed_total;
@@ -1269,8 +1338,18 @@ sub set_percent_max_values($$$) {
 		# ingredients that appear before, divided by the number of
 		# ingredients that appear after + the current ingredient
 
-		if ($ingredient_ref->{percent_min} < ($total_min - $sum_of_maxs_before) / (1 + $n - $i) ) {
-			$ingredient_ref->{percent_min} = ($total_min - $sum_of_maxs_before) / (1 + $n - $i);
+		my $min_percent_min = ($total_min - $sum_of_maxs_before) / (1 + $n - $i);
+
+		if ($ingredient_ref->{percent_min} < $min_percent_min) {
+
+			# Bail out if the values are not possible
+			if (($min_percent_min > $total_min) or ($min_percent_min > $ingredient_ref->{percent_max})) {
+				$log->debug("set_percent_max_values - impossible value, bail out", { ingredients_ref => $ingredients_ref,
+		total_min => $total_min, min_percent_min => $min_percent_min }) if $log->is_debug();
+				return -1;
+			}
+
+			$ingredient_ref->{percent_min} = $min_percent_min;
 			$changed++;
 		}
 
@@ -1315,15 +1394,37 @@ sub set_percent_min_values($$$) {
 		# the ingredients after, divided by the number of
 		# ingredients that appear before + the current ingredient
 
-		if ($ingredient_ref->{percent_max} > ($total_max - $sum_of_mins_after) / (1 + $n - $i) ) {
-			$ingredient_ref->{percent_max} = ($total_max - $sum_of_mins_after) / (1 + $n - $i);
+		my $max_percent_max = ($total_max - $sum_of_mins_after) / (1 + $n - $i);
+
+		if ($ingredient_ref->{percent_max} > $max_percent_max) {
+
+			# Bail out if the values are not possible
+			if (($max_percent_max > $total_max) or ($max_percent_max < $ingredient_ref->{percent_min})) {
+				$log->debug("set_percent_max_values - impossible value, bail out", { ingredients_ref => $ingredients_ref,
+					total_min => $total_min, max_percent_max => $max_percent_max }) if $log->is_debug();
+				return -1;
+			}
+
+			$ingredient_ref->{percent_max} = $max_percent_max;
 			$changed++;
 		}
 
 		# The min of the first ingredient in the list must be greater or equal
 		# to the total min minus sum of of the maximums of all the ingredients after.
-		if (($i == $n) and ($ingredient_ref->{percent_min} < $total_min - $sum_of_maxs_after)) {
-			$ingredient_ref->{percent_min} = $total_min - $sum_of_maxs_after;
+
+		my $min_percent_min = $total_min - $sum_of_maxs_after;
+
+		if (($i == $n) and ($ingredient_ref->{percent_min} < $min_percent_min)) {
+
+			# Bail out if the values are not possible
+			if (($min_percent_min > $total_min) or ($min_percent_min > $ingredient_ref->{percent_max})) {
+				$log->debug("set_percent_max_values - impossible value, bail out", { ingredients_ref => $ingredients_ref,
+					total_min => $total_min, min_percent_min => $min_percent_min }) if $log->is_debug();
+				return -1;
+			}
+
+			$ingredient_ref->{percent_min} = $min_percent_min;
+			$changed++;
 		}
 
 		$sum_of_mins_after += $ingredient_ref->{percent_min};
