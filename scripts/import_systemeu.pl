@@ -431,7 +431,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				next;
 			}
 
-			#next if ($code ne "3256220126410");
+			#next if ($code ne "3256220067515");
 
 			# next if ($i < 2665);
 
@@ -1347,6 +1347,10 @@ Minéraux  0 , Minéraux Calcium (mg) 4.1 , Minéraux Magnésium (mg) 1.7, Miné
 Energie (kJ)  591 , Energie (kcal)  142 , Protéines (g)  12.5 , Glucides (g)  .7 , Glucides (g) Sucres (g) .7 , Graisses (g)  10 , Graisses (g) Acides gras saturés (g) 2.6 , Graisses (g) Acides gras polyinsaturés (g) 1.9 , Graisses (g) Oméga 3 (g) 485 , Graisses (g) Oméga 3 DHA (g) 132 , Fibres alimentaires (g)  0 , Sel (g)  .3
 
 Energie : 2180 kJ / 5226 kcal Matières grasses : 44 g dont acides gras saturés : 15 g Glucides : 2.4 g dont sucres : 2.3 g Fibres alimentaires : <0.5 g Protéines : 30 g Sel : 4.8 g
+
+
+pour 100g :  Energie (kJ) : Chocolat : 513 /Vanille : 455 Energie (kcal) : Chocolat : 122 / Vanille : 108 Graisses (g) : Chocolat : 3.4/ vanille : 3.7 dont acides gras saturés (g) : Chocolat : 2.2/ Vanille : 2.4 Glucides (g) : Chocolat : 19.5/Vanille : 16.2 dont sucres (g) : Chocolat : 17.1/Vanille : 13.7 Fibres alimentaires (g) : Chocolat : 0.8/Vanille : 0 Protéines (g) : Chocolat : 2.9/ Vanille : 2.5 Sel (g) : Chocolat : 0.13/Vanille : 0.1
+
 TXT
 ;
 
@@ -1394,8 +1398,26 @@ TXT
 			my %found_nids = ();
 
 			my %nutrients = ();
+			my $nutrition_data_per;
+			my $serving_size;
 
-			extract_nutrition_facts_from_text($product_ref->{lc}, $nutrients, \%nutrients);
+			# un verre de 20 mL
+			$nutrients =~ s/verre de 20 mL/verre de 200 mL/gi;
+			extract_nutrition_facts_from_text($product_ref->{lc}, $nutrients, \%nutrients, \$nutrition_data_per, \$serving_size);
+
+			print STDERR "extract_nutrition_facts_from_text - nutrition_data_per : $nutrition_data_per - serving_size : $serving_size\n";
+
+			if ((defined $nutrition_data_per) and ($nutrition_data_per eq "serving")) {
+
+				if ((defined $serving_size) and ($serving_size ne "") and ($product_ref->{serving_size} ne $serving_size)) {
+					$product_ref->{serving_size} = $serving_size;
+					$modified++;
+				}
+				if ((not defined $product_ref->{nutrition_data_per}) or ($product_ref->{nutrition_data_per} ne $nutrition_data_per)) {
+					$product_ref->{nutrition_data_per} = $nutrition_data_per;
+					$modified++;
+				}
+			}
 
 			foreach my $nid (sort keys %nutrients) {
 
@@ -1458,7 +1480,9 @@ TXT
 
 						$product_ref->{nutriments}{$nid} = $new_value;
 
-						$product_ref->{nutrition_data_per} = "100g";
+						if (not defined $nutrition_data_per) {
+							$product_ref->{nutrition_data_per} = "100g";
+						}
 
 						print STDERR "Setting $nid to $value $unit\n";
 
