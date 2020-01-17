@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:18\n"
+"PO-Revision-Date: 2019-12-24 14:13\n"
 "Language-Team: Turkish\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: tr\n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 ürün"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " ve "
@@ -135,10 +136,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Ürün sayfasını da düzenleyen"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -146,9 +150,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/tr_get.svg\" alt=\"Google Play'de Mevcut\" width=\"102\" height=\"40\" />"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "/images/misc/google-play-badge-svg-master/img/tr_get.svg"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "Google Play'de Mevcut"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -195,7 +203,7 @@ msgstr "Ayrıca Open Food Facts projesinin finanse edilmesine yardım edebilirsi
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://tr.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Open Food Facts'e Bağışta Bulunun\" /></a><p><<site_name>>, kar amacı gütmeyen bir kuruluş tarafından sektörden bağımsız olarak yapılmıştır. Herkes tarafından, herkes için yapılmış ve herkes tarafından finanse edilmiştir. Çalışmalarımızı <a href=\"https://tr.openfoodfacts.org/donate-to-open-food-facts\">Open Food Facts'e bağışta bulunarak</a> ve ayrıca <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo arama motorunu kullanarak</a> destekleyebilirsin.<br/><b>Teşekkürler!</b></p>"
+msgstr "<a href=\"https://tr.openfoodfacts.org/open-food-factse-bagista-bulununs\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Open Food Facts'e Bağışta Bulunun\" /></a><p><<site_name>>, kar amacı gütmeyen bir kuruluş tarafından sektörden bağımsız olarak yapılmıştır. Herkes tarafından, herkes için yapılmış ve herkes tarafından finanse edilmiştir. Çalışmalarımızı <a href=\"https://tr.openfoodfacts.org/open-food-factse-bagista-bulununs\">Open Food Facts'e bağışta bulunarak</a> ve ayrıca <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo arama motorunu kullanarak</a> destekleyebilirsin.<br/><b>Teşekkürler!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -423,7 +431,7 @@ msgstr "Open Food Facts'e Bağışta Bulunun"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://tr.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://tr.openfoodfacts.org/open-food-factse-bagista-bulununs"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -778,6 +786,16 @@ msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
 
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr "Open Beauty Facts - Kozmetik ürünleri"
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr "https://world.openbeautyfacts.org"
+
 msgctxt "for"
 msgid "for"
 msgstr "için"
@@ -976,9 +994,14 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "% S bileşenini içermeyen ürünler"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_TR.svg\" alt=\"App Store'da Mevcut\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_TR.svg"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr "App Store'da Mevcut"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1468,7 +1491,7 @@ msgstr "Besin değeri 100 g için"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/nutrient-levels"
+msgstr "/besin-seviyeleri"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2106,20 +2129,28 @@ msgid "Download results"
 msgstr "Sonuçları indir"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "Sonuçları CSV formatında indirin (Excel, OpenOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "Sonuçları XLSX veya CSV formatında indirin. Performans nedeniyle, sadece 10.000 sonuca kadar indirebileceğinizi lütfen unutmayın."
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "Karakter kümesi: Unicode (UTF-8). Ayırıcı: tablo (sekme)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "XLSX formatı"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "Excel veya LibreOffice"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "CSV formatı"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr "Karakter kümesi: Unicode (UTF-8) - Ayırıcı: tablolama (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "Arama ölçütlerini değiştir"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "(İsteğe Bağlı) - Her biri için bir sütun oluşturun:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2586,9 +2617,13 @@ msgid "Site or blog address"
 msgstr "Site veya blog adresi"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/Turkish.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "/images/misc/microsoft/Turkish.svg"
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr "Microsoft'tan alın"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2802,6 +2837,11 @@ msgstr "NOVA grubu"
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "NOVA grupları"
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr "Gıda işlenmişliği için NOVA grupları"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3924,7 +3964,7 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
 msgstr "Nutri-Score puanı"
@@ -3961,4 +4001,84 @@ msgstr "%s kategorisi için ortalama değer"
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr "Nutri-Score %s'den %s'e, %s değerini %s'den %s'e değiştirerek (yüzde %s fark) değiştirilebilir."
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr "Üreticiler platformu hala geliştirilme aşamasındadır ve ürünleri herkese açık veritabanına aktarmadan önce manuel kontroller yapıyoruz. Lütfen herkese açık veritabanını güncellemek için bize <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> adresinden e-posta gönderin."
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Gruplar"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Üretici"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "Sadece kendi ürünlerini düzenleyen üreticilerin hesapları için işaretlenmelidir. Ürün sahipliği, bir ürünü eklediğinde veya düzenlediğinde üreticilere atfedilecektir."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Veri tabanı"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "Harici veri kaynakları için. İçe aktarılan ürünlerin ürün sahipliği değişmeyecektir."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "Uygulama"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "Uygulamalar için."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Bot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "Robotlar, scriptler vs. için."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Moderatör"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "Moderatörler, ürünleri düzenlemek ve incelemek için özel özelliklere erişebilir."
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr "Ben zaten bağış yaptım ya da ilgilenmiyorum. Afişi gizle."
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr "Hey, işareti kaldırılacak bir kutu?!"
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr "Gıda şeffaflığı için bağımsız ve vatandaşların önderliğinde bir proje?"
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr "Halk sağlığını iyileştiren araştırmalar için gıda ürünleri verileri?"
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr "Kendi kriterlerinize göre daha kolay ve daha iyi gıda tercihleri?"
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr "Desteğinize ihtiyacımız var!"
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr "Lütfen Bağış Yapın"
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Aşırı miktarda alkol tüketimi sağlığa zararlıdır, ölçülü olarak tüketilmelidir."
 

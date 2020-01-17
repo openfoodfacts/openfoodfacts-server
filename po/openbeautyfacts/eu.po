@@ -5,11 +5,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-01 10:26\n"
+"PO-Revision-Date: 2019-12-13 12:23\n"
 "Language-Team: Basque\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: eu\n"
 "X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
@@ -17,26 +16,26 @@ msgstr ""
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=eu"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 #. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "openbeautyfacts-logo-en-178x150.png"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "openbeautyfacts-logo-en-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Beauty Facts"
@@ -44,7 +43,7 @@ msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
@@ -53,7 +52,7 @@ msgstr ""
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenBeautyFacts"
-msgstr ""
+msgstr "OpenBeautyFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
@@ -142,5 +141,15 @@ msgstr ""
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "open-beauty-facts-mobile-app"
+msgstr "open-beauty-facts-mobile-app"
+
+# Do not translate
+msgctxt "footer_obf"
+msgid "Open Food Facts"
+msgstr "Open Food Facts"
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openfooodfacts.org"
 msgstr ""
 

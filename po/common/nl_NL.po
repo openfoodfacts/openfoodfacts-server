@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-21 20:52\n"
+"PO-Revision-Date: 2019-12-27 16:41\n"
 "Language-Team: Dutch\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: nl\n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 product"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " en "
@@ -136,10 +137,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Productpagina ook bewerkt door"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -147,9 +151,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/nl_get.svg\" alt=\"Beschikbaar in Google Play\" width=\"102\" height=\"40\" />"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "/images/misc/google-play-badge-svg-master/img/nl_get.svg"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "Beschikbaar in Google Play"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -781,6 +789,16 @@ msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
 
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr "Open Beauty Facts - Cosmetica"
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr ""
+
 msgctxt "for"
 msgid "for"
 msgstr "voor"
@@ -979,9 +997,14 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "Producten die ingrediënt %en niet bevatten"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_NL.svg\" alt=\"Beschikbaar in de App Store\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_NL.svg"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr "Beschikbaar in de App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1599,7 +1622,7 @@ msgstr "Voedingsgraad"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-nl.svg"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2110,20 +2133,28 @@ msgid "Download results"
 msgstr "Download de resultaten"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "Download de resultaten in CSV-formaat (Excel, OpenOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "Download de resultaten in XLSX of CSV-formaat. Houd er rekening mee dat u voor uw prestaties maximaal 10.000 resultaten kunt downloaden."
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "Tekenset: Unicode (UTF-8). Separator: tab (tab)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "XLSX-formaat"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "Excel of LibreOffice"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "CSV-formaat"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "Wijzig de zoekcriteria"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "(Optioneel) - Een kolom creëren voor elke:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2589,9 +2620,13 @@ msgid "Site or blog address"
 msgstr "Adres van website of blog"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/Dutch.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "/images/misc/microsoft/Dutch.svg"
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2805,6 +2840,11 @@ msgstr "NOVA-groep"
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "NOVA-groepen"
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3844,39 +3884,39 @@ msgstr "Detail van de berekening van de Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dit product wordt beschouwd als een drank voor de berekening van de Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dit product wordt niet beschouwd als een drank voor de berekening van de Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Positieve punten"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Negatieve punten"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "De punten voor eiwitten worden meegeteld omdat de negatieve punten minder zijn dan 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "De punten voor eiwitten worden niet meegeteld omdat de negatieve punten groter zijn dan of gelijk zijn aan 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "De punten voor de eiwitten worden meegeteld omdat de punten voor fruit, groenten, noten en koolzaad/walnoten/olijfolie maximaal zijn."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "De punten voor eiwitten worden meegeteld omdat het product tot de kaascategorie behoort."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "Omdat het product valt in de categorie vetten, worden de punten voor verzadigd vet vervangen door de punten voor de verzadigd vet / totaal vet verhouding."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3892,7 +3932,7 @@ msgstr "Verzadigd vet"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Verzadigd vet / totaal vetverhouding"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3900,7 +3940,7 @@ msgstr "Natrium"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Fruit, groenten, noten en koolzaad / walnoot / olijfolie"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3916,36 +3956,36 @@ msgstr "waarde"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "afgeronde waarde"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Nutritionele score"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Nutri-Score score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts is 100% gratis en onafhankelijk."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">We hebben je hulp en donaties nodig</a> om door te gaan en het project verder te laten groeien."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3953,15 +3993,95 @@ msgstr "Bedankt!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "Waarde voor het product"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Gemiddelde waarde voor de categorie %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "De Nutri-Score kan worden veranderd van %s naar %s door de %s waarde te veranderen van %s naar %s (%s procent verschil)."
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "Groepen"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "Producent"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "Moet alleen worden gecontroleerd voor accounts van producenten die hun eigen producten bewerken. Producteigendom wordt toegeschreven aan producenten wanneer zij een product toevoegen of bewerken."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "Database"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "Voor externe bronnen van gegevens. Producteigendom van geïmporteerde producten zal niet veranderen."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "App"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "Voor toepassingen."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "Bot"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "Voor robots, scripts etc."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "Moderator"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "Moderators hebben toegang tot speciale functies om producten te bewerken en te beoordelen."
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr "Ik heb al gedoneerd of ben niet geïnteresseerd. Verberg de banner."
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr "Hé, een vakje om uit te vinken?!"
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr "Een onafhankelijk en door de burger geleid project voor voedseltransparantie?"
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr "Eenvoudiger en betere voedselkeuzes volgens uw eigen criteria?"
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr "Wij hebben jouw steun nodig!"
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr "Doneer Alstublieft"
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Overmatig alcoholgebruik is schadelijk voor de gezondheid en moet met mate worden geconsumeerd."
 

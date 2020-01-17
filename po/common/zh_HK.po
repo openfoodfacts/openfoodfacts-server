@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:01\n"
+"PO-Revision-Date: 2020-01-02 10:27\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: zh-HK\n"
@@ -19,17 +19,18 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "一個產品"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr " 和 "
+msgstr "和"
 
 msgctxt "about"
 msgid "About me"
-msgstr "關於我"
+msgstr "個人資料"
 
 msgctxt "add"
 msgid "Add"
-msgstr "新增"
+msgstr "加入產品"
 
 msgctxt "add_language"
 msgid "Add language"
@@ -45,7 +46,7 @@ msgstr "註冊"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>感謝您的加入。您現在可以登入進行新增或編輯產品。</p>"
+msgstr "<p>感謝您加入。您現在可以登入新增和編輯產品。</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -63,38 +64,38 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr "您好<NAME>\n\n"
-"感謝您加入 https://openfoodfacts.org\n"
-"這裡是你的用戶名字:\n\n"
-"用戶名字: <USERID>\n\n"
-"您可以登入網站進行新增或編輯產品\n\n"
-"<<site_name>> 是一個合作項目讓你可以為這裡帶來更多的新產品、你的你得能量、熱情及意見!\n"
-"和大家一起討論讓這個專案更棒；我們使用一個非常方便的訊息系統，稱為 Slack: https://slack.openfoodfacts.org\n\n"
-"你也可以加入我們的臉書 (Facebook) 群組:\n"
+msgstr "您好<NAME>：\n\n"
+"感謝您加入https://openfoodfacts.org\n"
+"這是您的用戶名：\n\n"
+"用戶名：<USERID>\n\n"
+"您現在可以登入網站新增和編輯產品。\n\n"
+"<<site_name>>是一個合作項目，除了新產品，您可以為這裏帶來你的衝勁、熱情和想法！\n"
+"如果您想推動項目發展，您可以透過Slack與其他編輯者討論項目林林總總的事。Slack是個非常方便的通訊軟件：https://slack.openfoodfacts.org\n\n"
+"您也可以加入我們的Facebook群組：\n"
 "https://www.facebook.com/groups/374350705955208/\n\n"
-"新訊息: 我們也發起了 Open Beauty Facts 來建立有關化妝品的資料庫，例如關於: 肥皂、牙膏或化妝品...等等。\n"
+"宣布：我們也開始開發Open Beauty Facts資料庫，儲存如肥皂、牙膏和化妝品等個人護理品的資料。\n"
 "https://openbeautyfacts.org\n\n"
-"非常感謝您\n\n"
-"Stéphane 和 the Open Food Facts 團隊\n"
+"非常感謝您！\n\n"
+"Stéphane和Open Food Facts團隊\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "感謝您的加入 <<site_name>>"
+msgstr "感謝您加入<<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "有潛在危害的食品添加劑。限制使用。"
+msgstr "有潛在危險的食品添加劑，應減少食用。"
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "危險的食物添加劑。避免。"
+msgstr "有害添加劑，應避免。"
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "歐洲禁止食物添加劑。一定要避免。"
+msgstr "歐洲禁用的添加劑，不可食用。"
 
 msgctxt "additives_p"
 msgid "additives"
@@ -114,15 +115,15 @@ msgstr "進階搜尋及圖表"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "飲酒過量有害健康"
+msgstr "過量飲酒有害健康。"
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr "所有的任務"
+msgstr "所有任務"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "成分或产品可能导致过敏或不耐受"
+msgstr "可致敏或不適的成分或產品"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -134,12 +135,15 @@ msgstr "過敏原"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "產品頁編輯由"
+msgstr "產品頁的編輯者有"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr ""
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -147,24 +151,28 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/zh-hk_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "/images/misc/google-play-badge-svg-master/img/zh-hk_get.svg"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "Google Play立即下載"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=zh-hk"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>此產品尚未收錄到 <<site_name>> 資料庫中。您可以提供此產品的照片、條碼、原料及營養成份到 <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
-"<p>非常感謝!</p>\n"
+msgstr "<p>此產品尚未收錄於<<site_name>>資料庫。您可以在<a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>上載此產品的照片、條碼、成分及營養標籤。</p>\n"
+"<p>萬分感謝！</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "選一張圖"
+msgstr "選一張圖片"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
@@ -172,7 +180,7 @@ msgstr "注意:  您送出的圖片為創用CC授權。"
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "您可新增圖片"
+msgstr "您可以加入圖片："
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -184,15 +192,15 @@ msgstr "縱軸"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "条形码"
+msgstr "條碼"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "條碼"
+msgstr "條碼號："
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "您亦可以捐助Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -200,7 +208,7 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "捐款支持我們的工作"
 
 msgctxt "brands"
 msgid "Brands"
@@ -208,7 +216,7 @@ msgstr "品牌"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "健達繽紛樂白巧克力"
+msgstr "健達繽紛樂白朱古力"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -216,7 +224,7 @@ msgstr "品牌"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "%s 品牌的產品"
+msgstr "%s的產品"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -228,7 +236,7 @@ msgstr "新增品牌"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "非 %s 品牌的產品"
+msgstr "非%s的產品"
 
 msgctxt "by"
 msgid "by"
@@ -236,39 +244,39 @@ msgstr "由"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "类别"
+msgstr "分類"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "橄欖油沙丁魚, 濃縮橙汁"
+msgstr "橄欖油沙甸魚、濃縮橙汁"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "指明具體類別，其上層類別會自動新增。"
+msgstr "請指明具體分類，上層分類會自動加入。"
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "類別"
+msgstr "分類"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "%s 類別的產品"
+msgstr "分類為%s的產品"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "類別"
+msgstr "分類"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr "新增類別"
+msgstr "新增分類"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "非 %s 類別的產品"
+msgstr "非%s分類的產品"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr "資料"
+msgstr "數據"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
@@ -276,19 +284,19 @@ msgstr "營養"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr "選擇圖片"
+msgstr "選擇了圖片"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr "上傳圖片"
+msgstr "上載圖片"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "檢查"
+msgstr "覆核員"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "檢查"
+msgstr "覆核員"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -296,7 +304,7 @@ msgstr "包裝城市"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "產品包裝於 %s"
+msgstr "產品包裝於%s"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -304,7 +312,7 @@ msgstr "包裝城市"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr "產品非包裝於 %s"
+msgstr "不於%s包裝的產品"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -316,11 +324,11 @@ msgstr "代碼"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "完成 %d 任務"
+msgstr "已完成%d項任務："
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "已與你的Facebook帳號連結"
+msgstr "已連結您的Facebook帳號。"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -328,7 +336,7 @@ msgstr "自貢獻者"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "從目前產品複制資料到新產品"
+msgstr "從目前產品複制資料至新產品"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -336,19 +344,19 @@ msgstr "請更正以下錯誤:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "校正者"
+msgstr "校正員"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "校正者"
+msgstr "校正員"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "可出售的国家"
+msgstr "出售國家"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr "主要販售國家 (不包含賣場的外國貨品)"
+msgstr "主要售賣國家（不含專門售賣外國貨品的商店）"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -356,7 +364,7 @@ msgstr "國家"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr "產品售於 %s"
+msgstr "售於%s的產品"
 
 msgctxt "countries_s"
 msgid "country"
@@ -364,7 +372,7 @@ msgstr "國家"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "產品未販售於 %s"
+msgstr "不售於%s的產品"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -372,11 +380,11 @@ msgstr "資料來源"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "資料來源"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "資料來源"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -404,23 +412,23 @@ msgstr "刪除圖片"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr "刪除使用者"
+msgstr "刪除用戶"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr "新增"
+msgstr "新增："
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr "修改"
+msgstr "修改："
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr "刪除"
+msgstr "刪除："
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "捐贈到 Open Food Facts"
+msgstr "捐助Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -432,7 +440,7 @@ msgstr "生態足跡"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr "若碳足跡有標明於標籤上 (目前不多)，請按營養組成表明相同的數量。"
+msgstr "如包裝標明碳足跡（目前較罕有），請按營養標籤輸入相同的數量。"
 
 msgctxt "edit"
 msgid "edit"
@@ -440,7 +448,7 @@ msgstr "編輯"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr "修改概要"
+msgstr "修改摘要"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -452,15 +460,15 @@ msgstr "編輯頁面"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr "編輯你的公開簡介"
+msgstr "編輯您的公開簡介"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr "您修改的公開簡介已被儲存"
+msgstr "已儲存您對公開簡介的修改"
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr "以下資訊可在你的公開簡介中看到"
+msgstr "以下資訊可在您的簡介公開"
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
@@ -468,44 +476,44 @@ msgstr "修改您的帳戶參數"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr "帳戶參數"
+msgstr "賬號參數"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>您的帳戶參數已修改。</p>"
+msgstr "<p>您的賬號參數已修改。</p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr "編輯"
+msgstr "編輯者"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr "編輯"
+msgstr "編輯者"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "電子郵件地址"
+msgstr "電郵地址"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr "EMB 編碼"
+msgstr "EMB碼"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr "產品由公司 emb 碼為 %s 包裝"
+msgstr "產品由EMB碼為%s的公司包裝"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr "EMB 碼"
+msgstr "EMB碼"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr "EMB 碼"
+msgstr "EMB碼"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr "EMB 53062，FR 62.448.034 CE，84 R 20,33 RECOLANT 522"
+msgstr "EMB 53062、FR 62.448.034 CE、84 R 20、33 RECOLANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -517,7 +525,7 @@ msgstr "包裝機碼"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr "產品 EMB 碼 %s"
+msgstr "EMB碼為%s的產品"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
@@ -525,7 +533,7 @@ msgstr "包裝機碼"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr "產品無 emb 碼 %s"
+msgstr "無EMB碼%s的產品"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -541,11 +549,11 @@ msgstr "錯誤"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "不正確的使用者名稱或密碼。 <a href=\"/cgi/reset_password.pl\">忘記密碼了嗎?</a>"
+msgstr "用戶名或密碼錯誤。<a href=\"/cgi/reset_password.pl\">忘記密碼了嗎？</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr "讀取資料時發生錯誤，請重新更新網頁再試一次。"
+msgstr "讀取資料時出錯，請刷新網頁。"
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
@@ -553,27 +561,27 @@ msgstr "密碼與確認密碼不符"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "另一位使用者已經使用此電郵地址。您是否已經建立了帳號？您可以<a href=\"/cgi/reset_password.pl\">按此重設密碼</a> 。"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr "無效的地址。"
+msgstr "地址無效。"
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "無效的電子郵件地址。"
+msgstr "電郵地址無效。"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr "密碼至少要有6個字元。"
+msgstr "密碼至少要有六個字元。"
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "無效的使用者"
+msgstr "使用者無效。"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr "使用者帳號只能包含字母、數字及破折號。"
+msgstr "使用者名稱只能有字母、數字及破折號。"
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -585,11 +593,11 @@ msgstr "您必須輸入名字或暱稱。"
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr "權限被拒絕。"
+msgstr "權限被拒。"
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr "您必須輸入名字"
+msgstr "請輸入使用者名稱"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
@@ -601,31 +609,31 @@ msgstr "重設密碼的連結無效或已過期。"
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "這個電子郵地址未使用過"
+msgstr "這電郵地址未使用過"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "此使用者名稱不存在。"
+msgstr "此用戶名不存在。"
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr "這個使用者名稱已存在，請選用其它的名稱。"
+msgstr "此用戶名已存在，請選用其他名稱。"
 
 msgctxt "example"
 msgid "Example:"
-msgstr "範例："
+msgstr "例子："
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr "範例："
+msgstr "例子："
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr "有效期限"
+msgstr "最佳食用日期"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr "有效期限作為追蹤產品是否過期與辨認是否為新品。"
+msgstr "有效期限有助紀錄產品的變化和掌握產品的最新資訊。"
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -633,7 +641,7 @@ msgstr "追溯產品藉由..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr "zh_TW"
+msgstr "zh_HK"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -641,7 +649,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "若日期有誤或不正確，您可以藉由編輯此頁來修正它。"
+msgstr "若數據有誤或不全面，您可以編輯此頁修正。"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -656,8 +664,8 @@ msgstr "<a href=\"https://world.openfoodfacts.org/legal\">法律</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/who-we-are\">我們是誰</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/faq\">常見問題</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">意見論壇</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">部落格</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">新聞及部落格</a>\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">網誌</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">傳媒及網誌</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
@@ -665,7 +673,7 @@ msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<<site_name>> 部落格"
+msgstr "<<site_name>>網誌"
 
 # Do not translate
 msgctxt "footer_blog_link"
@@ -674,7 +682,7 @@ msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr "行為準則"
+msgstr "操守準則"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
@@ -683,7 +691,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "數據、API和SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -692,11 +700,11 @@ msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "探索專案"
+msgstr "探索項目"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr "常見問答集"
+msgstr "常見問題"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
@@ -716,11 +724,11 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "在<a href=\"https://twitter.com/openfoodfacts\">Twitter</a>、<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a>及<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>上關注我們\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr "安裝 App"
+msgstr "安裝應用程式"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
@@ -728,7 +736,7 @@ msgstr "加入社群"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr "加入我們 %s"
+msgstr "加入我們的%s"
 
 msgctxt "footer_legal"
 msgid "Legal"
@@ -741,7 +749,7 @@ msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "投稿"
+msgstr "傳媒"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
@@ -779,6 +787,16 @@ msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "http://en.wiki.openfoodfacts.org"
 
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr "Open Beauty Facts - 化妝品"
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr "https://world.openbeautyfacts.org"
+
 msgctxt "for"
 msgid "for"
 msgstr "為"
@@ -789,15 +807,15 @@ msgstr "產品"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "一般名稱"
+msgstr "通用名稱"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr "榛果牛奶巧克力"
+msgstr "榛果牛奶朱古力"
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr "再見!"
+msgstr "再見！"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
@@ -825,15 +843,15 @@ msgstr "大量"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr "修改歷史"
+msgstr "修改紀錄"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr "前端照片"
+msgstr "封面圖片"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "配料照片"
+msgstr "成分照片"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
@@ -841,25 +859,25 @@ msgstr "若照片夠整齊，則配件資訊可額外被自動擷取。"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr "營養成分照片"
+msgstr "營養標籤照片"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr "這張照片已被送出。"
+msgstr "這張照片已送出。"
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr "照片太小了。請勿上傳網路上找的照片，上傳您自己拍的。"
+msgstr "照片太小了。請勿上傳網上得到的照片，上傳您自己拍的。"
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
 msgstr "無法讀取圖片中的條碼，或者圖片中沒有條碼。\n"
-"您可以試試其它圖片或重新輸入條碼。"
+"您可以試試其他圖片或重新輸入條碼。"
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr "照片上找不到條碼。"
+msgstr "照片中找不到條碼。"
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -883,11 +901,11 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr "(原始圖片)"
+msgstr "（原圖）"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "照片及作者資訊"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -931,11 +949,11 @@ msgstr "成分為棕櫚油"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr "成分的數量"
+msgstr "成分數目"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr "成分的數量"
+msgstr "成分數目"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -943,7 +961,7 @@ msgstr "成分"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr "產品包含了成分 %s"
+msgstr "含有%s的產品"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -951,15 +969,15 @@ msgstr "成分"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr "成分清單"
+msgstr "成分列表"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "成分按重要程度(分量)列舉"
+msgstr "成分按重要程度（分量）列舉"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr "穀物 85.5% (_小麥_麵粉, 整體-_小麥_麵粉 11%)，麥精，可可 4，8%，抗壞血酸"
+msgstr "穀物 85.5%（_小麥_麵粉, 整體-_小麥_麵粉 11%）、麥精、可可 4.8%、抗壞血酸"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -975,27 +993,32 @@ msgstr "也許有棕櫚油成分"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "產品不含 %s 成分"
+msgstr "不含%s的產品"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr ""
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
 msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/hk/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr "已知營養成分"
+msgstr "已知營養"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr "已知營養成分"
+msgstr "已知營養"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "标签，认证，奖励"
+msgstr "標籤、認證、獲獎"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1011,7 +1034,7 @@ msgstr "標籤"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr "產品的標籤 %s"
+msgstr "有%s標籤的產品"
 
 msgctxt "labels_s"
 msgid "label"
@@ -1019,11 +1042,11 @@ msgstr "標籤"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr "新增標籤"
+msgstr "加入標籤"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr "產品無標籤 %s"
+msgstr "無%s標籤的產品"
 
 msgctxt "lang"
 msgid "Main language"
@@ -1031,147 +1054,147 @@ msgstr "主要語言"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr "阿拉伯語"
+msgstr "阿拉伯文"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr "保加利亞語"
+msgstr "保加利亞文"
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr "捷克語"
+msgstr "捷克文"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr "丹麥語"
+msgstr "丹麥文"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr "德語"
+msgstr "德文"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr "希臘語"
+msgstr "希臘文"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr "英語"
+msgstr "英文"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr "西班牙語"
+msgstr "西班牙文"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr "愛沙尼亞語"
+msgstr "愛沙尼亞文"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr "芬蘭語"
+msgstr "芬蘭文"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr "法語"
+msgstr "法文"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr "愛爾蘭語"
+msgstr "愛爾蘭文"
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr "希伯來語"
+msgstr "希伯來文"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr "匈牙利語"
+msgstr "匈牙利文"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr "印尼語"
+msgstr "印尼文"
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr "義大利語"
+msgstr "意大利文"
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr "日語"
+msgstr "日文"
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr "韓語"
+msgstr "韓文"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr "立陶宛語"
+msgstr "立陶宛文"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr "拉脫維亞語"
+msgstr "拉脫維亞文"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr "馬爾他語"
+msgstr "馬爾他文"
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr "荷蘭語"
+msgstr "荷蘭文"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr "荷蘭語"
+msgstr "荷蘭文"
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr "波蘭語"
+msgstr "波蘭文"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr "葡萄牙語"
+msgstr "葡文"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr "葡萄牙葡萄牙文"
+msgstr "葡萄牙葡文"
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr "羅馬尼亞語"
+msgstr "羅馬尼亞文"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr "俄語"
+msgstr "俄文"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr "斯洛伐克語"
+msgstr "斯洛伐克文"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr "斯洛文尼亞語"
+msgstr "斯洛維尼亞文"
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr "瑞典語"
+msgstr "瑞典文"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr "泰語"
+msgstr "泰文"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr "越南語"
+msgstr "越南文"
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr "漢語"
+msgstr "中文"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr "其它語言"
+msgstr "其他語言"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr "產品上的語言要清楚呈現"
+msgstr "產品上的主要語言"
 
 msgctxt "language"
 msgid "en-US"
@@ -1213,7 +1236,7 @@ msgstr "連結至產品的官方網頁"
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr "%s 列表"
+msgstr "%s的列表"
 
 msgctxt "loadmore"
 msgid "Load more results"
@@ -1229,11 +1252,11 @@ msgstr "登入來編輯產品"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr "建立您的帳戶"
+msgstr "建立帳號"
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr "還沒註冊帳號嗎?"
+msgstr "還沒註冊帳號？"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1246,7 +1269,14 @@ msgid "<p>Sign-in to add or edit products.</p>\n\n"
 "<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
 "</form>\n"
 "<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr "<p> 登錄可以添加或編輯產品. </p> <form method=\"post\" action=\"/cgi/session.pl\"> 用戶名或電子郵件地址: <br/> <input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\"/> <br/> 密碼 <br/> 輸入類型 = \"密碼\" 名稱 = \"密碼\"tabindex = \"2\" 樣式 = \"width:220px\"; \"自動完成\" = \"當前-密碼\"/> <br/> <input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\"/> <label> 記住我 </label> <br/><input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\"/> </form> <p> 尚未註冊？<a href=\"/cgi/user.pl\"> 創建您的帳戶 </a>. </p>\n"
+msgstr "<p>登入後才可新增或編輯產品。</p>\n\n"
+"<form method=\"post\" action=\"/cgi/session.pl\">\n"
+"使用者名稱或電郵地址：<br/>\n"
+"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\"/><br/>\n"
+"密碼<br/><input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
+"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>記住我 </label><br/>\n"
+"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"登入\" class=\"button small\"/> </form>\n"
+"<p>還未註冊？<a href=\"/cgi/user.pl\">建立帳號</a>。</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1254,16 +1284,17 @@ msgstr "登入"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr "登入來新增或編輯產品。"
+msgstr "登入後才能加入與編輯產品。"
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "請登入來新增或編輯產品。\n"
+msgstr "<p>登入後才能新增和編輯產品。</p>\n\n"
+"<p>如果您尚未建立<<site_name>>賬號，您可以<a href=\"/cgi/user.pl\">迅速註冊</a>。</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "使用者名稱或電子郵件地址:"
+msgstr "使用者名稱或電郵地址："
 
 msgctxt "low"
 msgid "low"
@@ -1271,7 +1302,7 @@ msgstr "低"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr "低量"
+msgstr "少量"
 
 msgctxt "manage_images"
 msgid "Manage images"
@@ -1287,19 +1318,19 @@ msgstr "制造或者加工场所"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr "蒙大拿, 美國"
+msgstr "美國蒙大拿州"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr "生產地點"
+msgstr "出產或加工地"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr "產品生產地點為 %s"
+msgstr "出產或加工地為%s"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr "生產地點"
+msgstr "出產或加工地"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
@@ -1307,7 +1338,7 @@ msgstr "新增地點"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr "產品生產地點非為 %s"
+msgstr "不在%s出產或加工的產品"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
@@ -1315,7 +1346,7 @@ msgstr "%d 產品符合搜尋標準，其中 %i 產品有已知的生產地點�
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr "地圖搜尋"
+msgstr "地圖標題"
 
 msgctxt "menu"
 msgid "Menu"
@@ -1358,15 +1389,15 @@ msgstr "此任務已完成:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr "完成率 %s"
+msgstr "%s人已完成。"
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr "當第一位完成此任務的人!"
+msgstr "您能成為首位完成此任務的人嗎？"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr "目標:"
+msgstr "目標："
 
 msgctxt "missions"
 msgid "Missions"
@@ -1382,11 +1413,11 @@ msgstr "中等量"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr "移動圖片到其它產品"
+msgstr "移動圖片到其他產品"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s個產品"
 
 msgctxt "name"
 msgid "Name"
@@ -1398,15 +1429,15 @@ msgstr "名稱"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr "若條碼不正確，請修在此修正它:"
+msgstr "若條碼錯誤，請在此修正："
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr "若產品沒有條碼，則會自動幫它產生一個內部碼。"
+msgstr "如產品沒有條碼，則會自動幫它產生一個內部碼。"
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "訂閱新聞 (一個月最多2封信)"
+msgstr "訂閱新聞（一個月最多兩封電郵）"
 
 msgctxt "next"
 msgid "Next"
@@ -1442,7 +1473,7 @@ msgstr "儲存發生錯誤，請再試一次。"
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr "添加劑編號"
+msgstr "添加劑數目"
 
 msgctxt "number_of_products"
 msgid "Number of products"
@@ -1515,7 +1546,7 @@ msgstr "請注意: 針對每一種營養，是以產品已知的的營養量來�
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "若照片十分地清楚完整，其營養成分會從照片中被自動擷取出來。"
+msgstr "如照片足夠清晰，營養成分可以自動摘出。"
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1808,7 +1839,7 @@ msgstr "刪除圖片中"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "從圖片中摘錄配料"
+msgstr "摘錄圖片中的成分"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -1972,7 +2003,7 @@ msgstr "2公升、250公克、1公斤、25 cl、 6 fl oz、 1 磅"
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr "記住我的登錄資料"
+msgstr "記住我"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
@@ -1992,13 +2023,11 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr "你好 <NAME>,\n\n"
-"您要重設 https://openfoodfacts.org 上的密碼\n\n"
-"使用者名稱: <USERID>\n\n"
-"接著重設密碼, 點擊以下連結。.\n"
-"如果你沒有求密碼重設， 你可以不理這則訊息。\n\n"
+msgstr "你好<NAME>：\n\n"
+"您要求重設用戶<USERID>在https://openfoodfacts.org上的密碼。\n\n"
+"如要重設密碼，請點擊以下連結。\n"
+"如果您沒有要求重設密碼，請不要理會此電郵。\n\n"
 "<RESET_URL>\n\n"
-"再見,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
 
@@ -2020,7 +2049,7 @@ msgstr "電子郵件裡有一個連結用來重設您的密嗎，該信已寄給
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr "如果您忘了密碼，請填入您的帳戶名稱或電子郵件地址，您將會收到重設密碼的說明。"
+msgstr "如果您忘了密碼，請填入您的用戶名或電郵地址，您將會收到重設密碼的說明。"
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2095,20 +2124,28 @@ msgid "Download results"
 msgstr "下載結果"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "下載 CSV 格式 (Excel, OpenOffice) 結果"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "以XLSX或CSV格式下載結果。請注意，考慮到性能問題，您最多只能下載一萬個結果。"
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "字元組: Unicode (UTF-8)). 資料分隔符號: tabulation (tab)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "XLSX格式"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "Excel或LibreOffice"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "CSV格式"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr "字元集：Unicode（UTF-8） - 資料分隔符號：製表鍵分隔"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "變更搜尋條件"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "(可選的) - 建立一個欄位供每個:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2153,7 +2190,7 @@ msgstr "顯示圖表結果"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr "注意:  這是使用者產生的圖表。 其標題，產品的呈現及其樣式已由圖表作者決定。"
+msgstr "注意:  這是用戶產生的圖表，圖表標題、產品的呈現及其樣式已由圖表作者決定。"
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2473,7 +2510,7 @@ msgstr "追蹤"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr "Twitter 使用者名稱"
+msgstr "Twitter用戶名（選填）"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
@@ -2497,15 +2534,15 @@ msgstr "取消訂閱"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr "您可以在任何時候從此清單取消訂閱。"
+msgstr "您可以在隨時取消訂閱清單。"
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr "使用者名稱或電子郵件地址: "
+msgstr "用戶名或電郵地址："
 
 msgctxt "username"
 msgid "User name"
-msgstr "使用者名稱"
+msgstr "用戶名"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
@@ -2513,23 +2550,23 @@ msgstr "(非重音字母，數字 及/或 破折號)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr "使用者名稱或電子郵件地址:"
+msgstr "用戶名或電郵地址"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr "產品已由使用者 %s 所新增"
+msgstr "由用戶%s新增的產品"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr "產品未由使用者 %s 所新增"
+msgstr "不是由用戶%s新增的產品"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr "產品已由使用者 %s 所編輯"
+msgstr "經用戶%s編輯的產品"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr "產品非由使用者 %s 所編輯"
+msgstr "未經用戶%s編輯的產品"
 
 msgctxt "users_p"
 msgid "contributors"
@@ -2573,8 +2610,12 @@ msgid "Site or blog address"
 msgstr "網站或部落格地址"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr ""
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
 msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
@@ -2612,11 +2653,11 @@ msgstr "警告: 水果，蔬菜和果仁的數量沒有被指定, 他們可能�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "警告: 水果、蔬菜和堅果的數量沒有在標籤上注明, 它是從配料清單上估計的: %d%"
+msgstr "警告：包裝沒有註明水果、蔬菜和堅果的數量，顯示的數量基於成分估算：%d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "警告: 水果, 蔬菜和堅果的數量沒有在標籤上注明, 它是從產品類別 (%s) 估計: %d%"
+msgstr "警告：包裝沒有註明水果、蔬菜和堅果的數量，顯示的數量基於分類%s估算：%d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2648,7 +2689,7 @@ msgstr "您確定要刪除該產品的頁面嗎？"
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr "刪除使用者"
+msgstr "刪除用戶"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
@@ -2720,47 +2761,47 @@ msgstr ""
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
+msgstr "投票數"
 
 msgctxt "minerals_p"
 msgid "added minerals"
-msgstr ""
+msgstr "添加礦物質"
 
 msgctxt "minerals_s"
 msgid "added mineral"
-msgstr ""
+msgstr "添加礦物質"
 
 msgctxt "vitamins_p"
 msgid "added vitamins"
-msgstr ""
+msgstr "添加維他命"
 
 msgctxt "vitamins_s"
 msgid "added vitamin"
-msgstr ""
+msgstr "添加維他命"
 
 msgctxt "amino_acids_p"
 msgid "added amino acids"
-msgstr ""
+msgstr "添加氨基酸"
 
 msgctxt "amino_acids_s"
 msgid "added amino acid"
-msgstr ""
+msgstr "添加氨基酸"
 
 msgctxt "nucleotides_p"
 msgid "added nucleotides"
-msgstr ""
+msgstr "添加核苷酸"
 
 msgctxt "nucleotides_s"
 msgid "added nucleotide"
-msgstr ""
+msgstr "添加核苷酸"
 
 msgctxt "other_nutritional_substances_p"
 msgid "other nutritional substances added"
-msgstr ""
+msgstr "添加的其他營養"
 
 msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
-msgstr ""
+msgstr "添加的其他營養"
 
 msgctxt "product_as_sold"
 msgid "As sold"
@@ -2784,104 +2825,109 @@ msgstr ""
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA分類"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
+msgstr "NOVA分類"
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
 msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "夥伴"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
-msgstr ""
+msgstr "成人"
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "18至64歲"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr ""
+msgstr "18歲至64歲"
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "老年人"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65歲或以上"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr ""
+msgstr "65歲或以上"
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "青少年"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "十至十七歲"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "10歲至17歲"
 
 msgctxt "children"
 msgid "Children"
-msgstr ""
+msgstr "兒童"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "三至九歲"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "36個月至9歲"
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "幼童"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "一至兩歲"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
-msgstr ""
+msgstr "12至35個月"
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "嬰兒"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "不足一歲"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "多於12週至11個月"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "歐洲食安局評估"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
-msgstr ""
+msgstr "容易過量攝取"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "歐洲食物安全局認為某些群體較大機會過量攝取<tag>。"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
@@ -2893,7 +2939,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
-msgstr ""
+msgstr "%d種產品含有%s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
@@ -2901,15 +2947,15 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "極容易過量攝取"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "較容易過量攝取"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "有超過每日可容忍攝入量的風險"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
@@ -2933,27 +2979,27 @@ msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "部分人"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "超過百分之五"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "多數人"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
-msgstr ""
+msgstr "過半"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "維基百科"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "功能"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
@@ -2965,23 +3011,23 @@ msgstr ""
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "已檢查照片和數據"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "我已檢查照片和數據。"
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "我已複檢照片和數據。"
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "最後檢查日期"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "最後檢查日期"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
@@ -2989,7 +3035,7 @@ msgstr ""
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "其他資料"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
@@ -3001,7 +3047,7 @@ msgstr ""
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "淨重"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
@@ -3009,11 +3055,11 @@ msgstr ""
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "體積"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr ""
+msgstr "其他資料"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
@@ -3029,75 +3075,75 @@ msgstr ""
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
-msgstr ""
+msgstr "食譜概念"
 
 msgctxt "origin"
 msgid "Origin"
-msgstr ""
+msgstr "原產地"
 
 msgctxt "customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "客户服務"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr ""
+msgstr "產生者"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
-msgstr ""
+msgstr "回收說明-回收"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
-msgstr ""
+msgstr "回收說明-廢置"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "由%s檢查的產品"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "不由%s檢查的產品"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "由%s校正的產品"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "不由%s校正的產品"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "經%s編輯的產品"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "未經%s編輯的產品"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "由%s完成的產品"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "不是由%s完成的產品"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "由%s拍攝的產品"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "不由%s拍攝的產品"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "%s的頁面"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "產品不再出售。"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
@@ -3105,31 +3151,31 @@ msgstr ""
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "格式：YYYY-MM-DD、YYYY-MM或YYYY"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30、2019-09或2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "注意：此產品不再出售，數據僅供參考。產品不會在常規搜尋中出現，也不會被統計。"
 
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "下載應用程式"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "下載Android應用程式"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "下載iPhone應用程式"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "下載iPad應用程式"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3137,23 +3183,23 @@ msgstr ""
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
-msgstr ""
+msgstr "環保資訊卡"
 
 msgctxt "environment_infocard_note"
 msgid "HTML code for the environment infocard in the mobile application"
-msgstr ""
+msgstr "流動應用程式環保資訊卡的HTML代碼"
 
 msgctxt "environment_impact_level"
 msgid "Environment impact level"
-msgstr ""
+msgstr "環境影響等級"
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
-msgstr ""
+msgstr "en:low, en:medium or en:high"
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr ""
+msgstr "肉類或魚類的碳足跡"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
@@ -3173,7 +3219,7 @@ msgstr ""
 
 msgctxt "methodology"
 msgid "Methodology"
-msgstr ""
+msgstr "方法"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
@@ -3181,7 +3227,7 @@ msgstr ""
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
-msgstr ""
+msgstr "每年可持續的碳排放量：COP21訂立的目標是每人二氧化碳排放不能超過2噸。"
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
@@ -3193,7 +3239,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "幫助將「%s」翻譯為%s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
@@ -3209,15 +3255,15 @@ msgstr ""
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "已翻譯"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "須翻譯"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "目前的翻譯"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3229,7 +3275,7 @@ msgstr "否"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "跳過"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3241,11 +3287,11 @@ msgstr ""
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "成分分析"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "成分分析"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -3253,41 +3299,41 @@ msgstr "成分分析"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "分析僅考慮所列的成分，不考慮食品加工方法。"
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "您正在瀏覽此產品的舊頁面！"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "修訂編號："
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "編輯者："
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "先前版本"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "下一個版本"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "最新版本"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "匯入產品數據檔案"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "上載含產品數據的電子表格文件（Excel文件或製表符分隔、UTF-8編碼的CSV文件）。"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3301,15 +3347,15 @@ msgstr ""
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "正在上載檔案。"
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "無法上載檔案。"
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "篩選和匯入數據"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
@@ -3317,11 +3363,11 @@ msgstr ""
 
 msgctxt "import_data"
 msgid "Import data"
-msgstr ""
+msgstr "匯入數據"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
-msgstr ""
+msgstr "上載的檔案有%s行和%s列。"
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
@@ -3329,11 +3375,11 @@ msgstr ""
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "產品識別"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "原產地"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3349,11 +3395,11 @@ msgstr ""
 
 msgctxt "fields_group_other"
 msgid "Other information"
-msgstr ""
+msgstr "其他資料"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "產品圖片"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -3365,7 +3411,7 @@ msgstr ""
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "營養素表照片的連結"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
@@ -3373,11 +3419,11 @@ msgstr ""
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "具體標籤"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "具體分類"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3427,11 +3473,11 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "數值"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr ""
+msgstr "數值+單位"
 
 msgctxt "value_in_l"
 msgid "Value in L"
@@ -3475,15 +3521,15 @@ msgstr ""
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "百分比值"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
-msgstr ""
+msgstr "登入後才能使用此功能。"
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "組織"
 
 msgctxt "column_in_file"
 msgid "Column in file"
@@ -3515,12 +3561,12 @@ msgstr ""
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
-msgstr ""
+msgstr "匯入產品數據"
 
 # "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
 msgid "Import product photos"
-msgstr ""
+msgstr "匯入產品圖片"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
@@ -3533,7 +3579,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3541,97 +3587,97 @@ msgstr ""
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "數據品質"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "數據品質"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "數據品質"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "數據品質錯誤"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "數據品質錯誤"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "數據品質錯誤"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "數據品質資料"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "數據品質資料"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "數據品質資料"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_warnings_producers_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_warnings_producers_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_warnings_producers"
 msgid "data quality warnings"
-msgstr ""
+msgstr "數據品質警告"
 
 msgctxt "data_quality_errors_producers_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_errors_producers_s"
 msgid "data quality error"
-msgstr ""
+msgstr "數據品質問題"
 
 msgctxt "data_quality_errors_producers"
 msgid "data quality errors"
-msgstr ""
+msgstr "數據品質問題"
 
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "最少"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "最多"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -3648,16 +3694,16 @@ msgstr ""
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "新增或更新產品"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "您的產品"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
@@ -3666,11 +3712,11 @@ msgstr ""
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "匯入產品"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "空欄"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
@@ -3678,7 +3724,7 @@ msgstr ""
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "匯入中……"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
@@ -3687,27 +3733,27 @@ msgstr ""
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "狀態"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "預定"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "進行中"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "完成"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "失敗"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "匯入結果"
 
 msgctxt "products_added"
 msgid "Products added"
@@ -3760,7 +3806,7 @@ msgstr ""
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
 msgid "Import product photos"
-msgstr ""
+msgstr "匯入產品圖片"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
@@ -3782,29 +3828,29 @@ msgstr ""
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg：荷蘭文產品正面。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg：法文的成分表。"
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg：西班牙文的營養素表。"
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "加入圖片…"
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "開始上載"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "開始"
 
 msgctxt "close"
 msgid "Close"
@@ -3812,19 +3858,19 @@ msgstr "關閉"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "取消上載"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "資訊"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "已收到檔案"
 
 msgctxt "nutriscore_calculation_detail"
 msgid "Detail of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score的計算方式"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
@@ -3836,11 +3882,11 @@ msgstr ""
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "正分"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "負分"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
@@ -3876,7 +3922,7 @@ msgstr "飽和脂肪"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "飽和脂肪/脂肪比率"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3884,7 +3930,7 @@ msgstr "鈉"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "水果、蔬菜、堅果和菜子、核桃及橄欖油"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3904,36 +3950,36 @@ msgstr ""
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "營養分數"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Nutri-Score分數"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts是完全免費和獨立的。"
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">我們需要您的幫助和捐款</a>繼續發展此項目。"
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "謝謝！"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -3948,4 +3994,84 @@ msgstr ""
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 msgstr ""
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr ""
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "產生者"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr ""
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "資料庫"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr ""
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "應用程式"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr ""
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "機械人"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr ""
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "管理員"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr ""
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr "我已經捐款或我不感興趣捐助，請隱藏橫額。"
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr "喂，要取消選取方框嗎？"
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr ""
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr ""
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr "我們需要您的支持！"
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr "請捐款"
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "飲酒過量危害健康，請適量飲酒。"
 

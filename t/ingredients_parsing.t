@@ -104,11 +104,9 @@ my @lists =(
 	["fi","E103 JA E140", "E103, E140"],
 	["fi","kurkumiini ja E140", "kurkumiini, E140"],
 	["fi","E140 ja karoteeni", "E140, karoteeni"],
-	# Note: these are grammatically incorrect on purpose.
-	# As of 2019-11-27 the allergens taxonomy doesn't contain the proper inflected synonyms
-	["fi","omenamehu, vesi, sokeri. Saattaa sisältää maito.","omenamehu, vesi, sokeri. jäämät : maito."],
-	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pieniä määriä selleri, sinappi ja vehnä.","omenamehu, vesi, sokeri. jäämät : selleri, jäämät : sinappi, jäämät : vehnä."],
-	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pienehköjä määriä selleri, sinappi ja vehnä.","omenamehu, vesi, sokeri. jäämät : selleri, jäämät : sinappi, jäämät : vehnä."],
+	["fi","omenamehu, vesi, sokeri. Saattaa sisältää maitoa.","omenamehu, vesi, sokeri. jäämät : maitoa."],
+	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pieniä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
+	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pienehköjä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
 
 
 	["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"],

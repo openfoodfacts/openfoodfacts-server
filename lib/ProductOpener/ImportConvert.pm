@@ -21,6 +21,26 @@
 # This package is used to convert CSV or XML file sent by producers to
 # an Open Food Facts CSV file that can be loaded with import_csv_file.pl / Import.pm
 
+=head1 NAME
+
+ProductOpener::ImportConvert - help to convert product data files from producers to the Open Food Facts format.
+
+=head1 SYNOPSIS
+
+C<ProductOpener::ImportConvert> provides functions to load and process CSV and XML files to
+convert the product data they contain to a format that can be imported on Open Food Facts.
+
+    use ProductOpener::ImportConvert qw/:all/;
+
+..
+
+
+=head1 DESCRIPTION
+
+..
+
+=cut
+
 package ProductOpener::ImportConvert;
 
 use utf8;
@@ -66,6 +86,8 @@ BEGIN
 		&clean_weights
 		&clean_fields_for_all_products
 
+		&extract_nutrition_facts_from_text
+
 		%global_params
 
 		@xml_errors
@@ -99,6 +121,9 @@ use Text::CSV;
 
 my $mode = "append";
 
+=head1 FUNCTIONS
+
+=cut
 
 sub get_or_create_product_for_code($) {
 
@@ -528,8 +553,9 @@ sub clean_weights($) {
 			# 6x90g
 			$product_ref->{$field} =~ s/(\d)(\s*)x(\s*)(\d)/$1 x $4/i;
 
-			# kge
-			$product_ref->{$field} =~ s/(\d\s(\w+))e$/$1 e/;
+			# kge -> kg e
+			# but 1 pièce
+			$product_ref->{$field} =~ s/(\d\s(\w?\w?\w?))e$/$1 e/;
 
 			# remove the e
 			$product_ref->{$field} =~ s/ e\b//g;
@@ -683,6 +709,25 @@ sub clean_fields($) {
 
 			if ($product_ref->{$field} =~ /^(\s|-|\.|_)$/) {
 				$product_ref->{$field} = "";
+			}
+
+			# bad EMB codes (followed by a city) (e.g. Sainte-Lucie)
+			#
+			if ($field eq "emb_codes") {
+				# Remove anything that starts with 4 letters
+				# EMB 60282A - Gouvieux (Oise, France)
+				$product_ref->{$field} =~ s/\s*(\s-|,)\s+([[:alpha:]]{4}).*//;
+			}
+
+			# Origin of ingredients that contains other things than tags (e.g. Leroux)
+			# FRANCE, La chicorée LEROUX est semée, cultivée et produite en France
+
+			if ($field eq "origins") {
+				my $canon_tagid = canonicalize_taxonomy_tag($product_ref->{lc}, "countries", $product_ref->{$field});
+				if (not exists_taxonomy_tag("countries", $canon_tagid)) {
+					assign_value($product_ref, "origin_" . $product_ref->{lc}, $product_ref->{$field});
+					delete $product_ref->{$field};
+				}
 			}
 
 			# tag fields: turn separators to commas
@@ -1384,9 +1429,6 @@ sub load_csv_file($) {
 }
 
 
-
-
-
 sub recursive_list($$) {
 
 	my $list_ref = shift;
@@ -1490,6 +1532,162 @@ sub print_stats() {
 }
 
 
+=head2 extract_nutrition_facts_from_text ( LC, TEXT, NUTRIENTS_REF )
+
+C<extract_nutrition_facts_from_text()> extract nutrition facts from a text
+blob and return a hash structure that maps Open Food Facts nutrient ids
+to the value, unit and modifier.
+
+=head3 Arguments
+
+=head4 LC - Language code
+
+The language the text is in.
+
+=head4 TEXT - Language code
+
+The text that contains the nutrition facts.
+
+=head4 NUTRIENTS_REF
+
+A hash that will be used to return structured data for the nutrition facts
+found in the text.
+
+=cut
+
+sub extract_nutrition_facts_from_text($$$) {
+
+	my $text_lc = shift;
+	my $text = shift;
+	my $nutrients_ref = shift;
+
+	if ((defined $text) and ($text ne "")) {
+
+		foreach my $nid (sort keys %Nutriments) {
+
+			next if $nid =~ /^#/;
+
+			next if not defined $Nutriments{$nid}{$text_lc};
+
+			# Create a list of synonyms of the nutrient name in the text language
+
+			my $nid_lc = lc($Nutriments{$nid}{$text_lc});
+			my $nid_lc_unaccented = unac_string_perl($nid_lc);
+			my @synonyms = ($nid_lc);
+			if ($nid_lc ne $nid_lc_unaccented) {
+				push @synonyms, $nid_lc_unaccented;
+			}
+			if (defined $Nutriments{$nid}{$text_lc  . "_synonyms"}) {
+				foreach my $synonym (@{$Nutriments{$nid}{$text_lc . "_synonyms"}}) {
+					push @synonyms, $synonym;
+					my $synonym_unaccented = unac_string_perl($synonym);
+					if ($synonym_unaccented ne $synonym) {
+						push @synonyms, $synonym_unaccented;
+					}
+				}
+			}
+
+			my $value;
+			my $unit;
+			my $modifier = "";
+
+			foreach my $synonym (@synonyms) {
+
+				# Energy (kJ) -> escape parenthesis
+				$synonym =~ s/\(/\\\(/;
+				$synonym =~ s/\)/\\\)/;
+
+				# Vitamine D µg  0.4 soit 8  % des AQR*
+
+				if ($text =~ /\b$synonym\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?(\s|:)*(<|~)?(\s)*(\d+((\.|\,)\d+)?)/i) {
+					$unit = $1;
+					$value = $5;
+					if ((defined $3) and ($3 ne "")) {
+						$modifier = $3;
+					}
+					last;
+				}
+				# .36
+				if ($text =~ /\b$synonym\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?(\s|:)*(<|~)?(\s)*(((\.|\,)\d+))/i) {
+					$unit = $1;
+					$value = "0" . $5;
+					if ((defined $3) and ($3 ne "")) {
+						$modifier = $3;
+					}
+					last;
+				}
+				elsif ($text =~ /\b$synonym \(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?(\s|:)*(<|~)?(\s)*(traces)/i) {
+					$unit = $1;
+					$value = 0;
+					$modifier = "~";
+					last;
+				}
+				elsif ($text =~ /\b$synonym \(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?(\s|:)*(<|~)?(\s)*(exempt)/i) {
+					$unit = $1;
+					$value = 0;
+					last;
+				}
+				elsif ($text =~ /\b$synonym(\s|:)*(<|~)?(\s)*(\d+((\.|\,)\d+)?)\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)\b\)?/i) {
+					$value = $4;
+					$unit = $7;
+					if ((defined $2) and ($2 ne "")) {
+						$modifier = $2;
+					}
+					last;
+				}
+				elsif ($text =~ /\b$synonym(\s|:)+(<|~)?(\s)*(traces)/i) {
+					$value = 0;
+					$unit = "g";
+					$modifier = "~";
+					last;
+				}
+				# missing unit... assume g ?
+				elsif ($text =~ /\b$synonym(\s|:)+(<|~)?(\s)*(\d+((\.|\,)\d+)?)\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj|kcal)?\)?\b/i) {
+					$value = $4;
+					$unit = "g";
+					if ((defined $2) and ($2 ne "")) {
+						$modifier = $2;
+					}
+					if (($nid eq "energy-kj") or ($nid eq "energy")) {
+						$unit = "kJ";
+					}
+					elsif ($nid eq "energy-kcal") {
+						$unit = "kcal";
+					}
+					last;
+				}
+
+			}
+
+			if (($nid eq 'energy') and (defined $value) and (defined $unit)) {
+				if (lc($unit) eq "kj") {
+					$nid = "energy-kj";
+				}
+				elsif (lc($unit) eq "kcal") {
+					$nid = "energy-kcal";
+				}
+			}
+
+			if (($nid eq 'energy-kj') and (not defined $value)) {
+				if ($text =~ /\b(\d+)(\s?)kJ/i) {
+					$value = $1;
+					$unit = "kJ";
+				}
+			}
+
+			if (($nid eq 'energy-kcal') and (not defined $value)) {
+				if ($text =~ /\b(\d+)(\s?)kcal/i) {
+					$value = $1;
+					$unit = "kcal";
+				}
+			}
+
+			if (defined $value) {
+				$nutrients_ref->{$nid} = [$value, $unit, $modifier];
+			}
+		}
+	}
+}
 
 
 

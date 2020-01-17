@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-17 12:23\n"
+"PO-Revision-Date: 2019-12-20 13:02\n"
 "Language-Team: Vietnamese\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: vi\n"
@@ -19,6 +19,7 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 sản phẩm"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " và "
@@ -136,9 +137,12 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Trang sản phẩm cũng được chỉnh sửa bởi"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
 msgstr ""
 
 # DO NOT TRANSLATE
@@ -147,8 +151,12 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "/images/misc/google-play-badge-svg-master/img/vi_get.svg"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
 msgstr ""
 
 # Change hl=en to your language, and make sure the url works
@@ -196,11 +204,11 @@ msgstr "Bạn cũng có thể giúp tài trợ cho dự án Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> được thực hiện bởi một hiệp hội phi lợi nhuận, độc lập với ngành. Nó được tạo ra cho tất cả, bởi tất cả, và nó được tài trợ bởi tất cả. Bạn có thể hỗ trợ công việc của chúng tôi bằng cách quyên góp <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">cho Thực phẩm mở</a> và <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">bằng cách sử dụng công cụ tìm kiếm Lilo</a>.<br/><b>Cảm ơn bạn!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "Đóng góp để hỗ trợ công việc của chúng tôi"
 
 msgctxt "brands"
 msgid "Brands"
@@ -424,7 +432,7 @@ msgstr "Đóng góp cho Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -553,7 +561,7 @@ msgstr "Mật khẩu và mật khẩu xác nhận khác nhau."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Địa chỉ email đã được sử dụng bởi người dùng khác. Có lẽ bạn đã có một tài khoản? Bạn có thể <a href=\"/cgi/reset_password.pl\">đặt lại mật khẩu</a> của tài khoản khác của bạn."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -683,7 +691,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Dữ liệu, API và SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -781,6 +789,16 @@ msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
 
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr ""
+
 msgctxt "for"
 msgid "for"
 msgstr "dành cho"
@@ -869,27 +887,27 @@ msgstr "Bạn phải nhập các ký tự của mã vạch hoặc gửi hình �
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Kích thước đầy đủ"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "Tập tin này đã được tải lên sản phẩm %s và được cấp phép theo giấy phép %s."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Ghi công: Ảnh bằng %s trên %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Ghi công: Ảnh bằng %s với sửa đổi bổ sung %s trên %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Ảnh gốc)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Chi tiết hình ảnh và thông tin ghi công"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -979,8 +997,13 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "Các sản phẩm không chứa thành phần %s"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_VN.svg"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
 msgstr ""
 
 msgctxt "ios_app_link"
@@ -1400,7 +1423,7 @@ msgstr "Di chuyển hình ảnh sang sản phẩm khác"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s sản phẩm"
 
 msgctxt "name"
 msgid "Name"
@@ -1680,11 +1703,11 @@ msgstr "bao bì"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "thêm một loại, hình dạng hoặc vật liệu"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "Sản phẩm không có bao bì %s"
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -1724,35 +1747,35 @@ msgstr "Khoảng thời gian sau khi mở"
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "thợ chụp hình"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "thợ chụp hình"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Nhóm PNNS 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Nhóm PNNS 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "Nhóm PNNS 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Nhóm PNNS 2"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Nhóm PNNS 2"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr ""
+msgstr "Nhóm PNNS 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
@@ -1760,7 +1783,7 @@ msgstr "Có %d Explorers và %d Ambassadors."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "Có Explorers cho %d quốc gia và Đại sứ cho %d quốc gia."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
@@ -1776,11 +1799,11 @@ msgstr "Xếp hạng các đóng góp và các nước"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s là Nhà thám hiểm cho %d quốc gia và Đại sứ cho %d quốc gia."
 
 msgctxt "previous"
 msgid "Previous"
-msgstr ""
+msgstr "Quay lại"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
@@ -1792,7 +1815,7 @@ msgstr "Sản phẩm thêm vào"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr ""
+msgstr "Đã lưu thay đổi."
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -1808,7 +1831,7 @@ msgstr "Thành phần, chất gây dị ứng, phụ gia, thành phần dinh dư
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "Hình ảnh sản phẩm"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
@@ -1816,11 +1839,11 @@ msgstr "Ảnh với mã vạch:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "Hình ảnh hiện tại:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "Xóa hình ảnh"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -1868,11 +1891,11 @@ msgstr "Xác nhận và / hoặc thay đổi kích thước hình ảnh"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr ""
+msgstr "Đã lưu ảnh"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "Đang lưu ảnh"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
@@ -1888,19 +1911,19 @@ msgstr "Lỗi khi xóa hình ảnh"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Hình ảnh bị xóa"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "Lỗi khi di chuyển hình ảnh"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Hình ảnh được di chuyển"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Di chuyển hình ảnh"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
@@ -1924,7 +1947,7 @@ msgstr "Tên sản phẩm"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "Kinder Bueno trắng"
 
 msgctxt "products"
 msgid "products"
@@ -1948,7 +1971,7 @@ msgstr "với sự kiện dinh dưỡng"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr ""
+msgstr "Các sản phẩm bạn đã thêm hoặc chỉnh sửa"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
@@ -1960,7 +1983,7 @@ msgstr "Cho biết nơi bạn đã mua hoặc thấy sản phẩm (ít nhất l�
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr ""
+msgstr "nơi mua hàng"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
@@ -1968,7 +1991,7 @@ msgstr "Sản phẩm được bán tại %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "nơi mua hàng"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
@@ -1992,7 +2015,7 @@ msgstr "Ghi nhớ tôi"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "Ghi nhớ nơi mua và lưu trữ cho các sản phẩm tiếp theo thêm"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -2040,11 +2063,11 @@ msgstr "Nếu bạn quên mật khẩu, hãy điền tên người dùng hoặc 
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "Nguy hiểm"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "Sẽ hoàn thành"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2060,7 +2083,7 @@ msgstr "Rủi ro cao"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "muối tương đương"
 
 msgctxt "save"
 msgid "Save"
@@ -2068,11 +2091,11 @@ msgstr "Lưu"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Đã lưu."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Đang lưu."
 
 msgctxt "search"
 msgid "Search"
@@ -2088,7 +2111,7 @@ msgstr "Tìm kiếm"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "chứa đựng"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2111,20 +2134,28 @@ msgid "Download results"
 msgstr "Tải xuống kết quả"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "Tải xuống kết quả ở định dạng CSV (Excel, OpenOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr ""
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "Bộ ký tự: Unicode (UTF-8). Dấu phân cách: tabulation (tab)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr ""
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr ""
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr ""
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "Thay đổi tiêu chí tìm kiếm"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "(Tùy chọn) - Tạo cột cho mọi:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2144,7 +2175,7 @@ msgstr "Âm mưu phân tán"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ tìm hiểu thêm về <<site_name>> biểu đồ: <a href=\"/graphs-in-3-clicks\">Đồ thị trong 3 lần nhấp</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2158,11 +2189,11 @@ msgstr "Chọn những gì bạn muốn vẽ đồ thị trên trục ngang đ�
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Liên kết vĩnh viễn đến biểu đồ này, có thể chia sẻ bằng e-mail và trên các mạng xã hội"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "Biểu đồ sẽ chỉ hiển thị các sản phẩm đã biết giá trị hiển thị."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
@@ -2174,7 +2205,7 @@ msgstr "Lưu ý: đây là biểu đồ do người dùng tạo. Tiêu đề, c�
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Vô tư"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2190,7 +2221,7 @@ msgstr "Kết quả trong một danh mục sản phẩm"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Bản đồ"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2210,7 +2241,7 @@ msgstr "Hiển thị kết quả trên bản đồ"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr ""
+msgstr "chọn một chất dinh dưỡng..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
@@ -2218,7 +2249,7 @@ msgstr "Nguồn Thực Phẩm"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "hoặc là"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2230,7 +2261,7 @@ msgstr "Tìm kiếm sản phẩm"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Kết quả tìm kiếm"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
@@ -2246,11 +2277,11 @@ msgstr "Trao Đổi Công Bằng"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "trao đổi công bằng"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr ""
+msgstr "Sử dụng màu dinh dưỡng"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2258,19 +2289,19 @@ msgstr "Hữu cơ"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "hữu cơ"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr ""
+msgstr "Với chất làm ngọt"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "chọn một tiêu chí..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Tiêu chuẩn"
 
 msgctxt "search_terms"
 msgid "Search terms"
@@ -2278,7 +2309,7 @@ msgstr "Cụm từ tìm kiếm"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Tìm kiếm các từ có trong tên sản phẩm, tên chung, nhãn hiệu, danh mục, nguồn gốc và nhãn"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
@@ -2298,15 +2329,15 @@ msgstr "Công cụ tìm kiếm"
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "giá trị"
 
 msgctxt "search_with"
 msgid "With"
-msgstr ""
+msgstr "Với"
 
 msgctxt "search_without"
 msgid "Without"
-msgstr ""
+msgstr "Ngoại trừ"
 
 msgctxt "see_product_page"
 msgid "See the product page"
@@ -2326,11 +2357,11 @@ msgstr "Gửi một bức ảnh..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr ""
+msgstr "Lỗi tải lên"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr ""
+msgstr "Gửi hình ảnh"
 
 msgctxt "serving_size"
 msgid "Serving size"
@@ -2338,7 +2369,7 @@ msgstr "Kích thước phục vụ"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Chuẩn bị kích thước phục vụ"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2346,7 +2377,7 @@ msgstr "60 g, 12 oz, 20cl, 2 fl oz"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "Nếu bảng thành phần dinh dưỡng chứa các giá trị cho sản phẩm đã chuẩn bị, hãy cho biết tổng kích thước phục vụ của sản phẩm đã chuẩn bị (bao gồm cả nước hoặc sữa)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2358,11 +2389,11 @@ msgstr "Chia sẻ"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr ""
+msgstr "Hiển thị số liệu thống kê chi tiết"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "độ lệch chuẩn, tối thiểu, tối đa, phần trăm thứ 10 và 90"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
@@ -2382,23 +2413,23 @@ msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Xếp theo"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "Hoàn thành"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr ""
+msgstr "Thêm ngày"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr ""
+msgstr "Sửa ngày"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr ""
+msgstr "Mức phổ biến"
 
 msgctxt "sort_product_name"
 msgid "Product name"
@@ -2406,15 +2437,15 @@ msgstr "Tên sản phẩm"
 
 msgctxt "state"
 msgid "State"
-msgstr ""
+msgstr "Trạng thái"
 
 msgctxt "states_p"
 msgid "states"
-msgstr ""
+msgstr "tiểu bang"
 
 msgctxt "states_s"
 msgid "state"
-msgstr ""
+msgstr "tiểu bang"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2426,7 +2457,7 @@ msgstr "Tên cửa hàng hoặc chuỗi siêu thị"
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "cửa hàng"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2434,35 +2465,35 @@ msgstr "Sản phẩm được bán tại %s"
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "cửa hàng"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr ""
+msgstr "thêm một cửa hàng"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
-msgstr ""
+msgstr "Sản phẩm không được mua ở %s"
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr ""
+msgstr "Theo dõi"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
-msgstr ""
+msgstr "Thuộc về:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Chứa đựng:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
-msgstr ""
+msgstr "Liên kết web"
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
-msgstr ""
+msgstr "ra khỏi _MAX_"
 
 msgctxt "tagstable_search"
 msgid "Search:"
@@ -2474,19 +2505,19 @@ msgstr "Trace"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr ""
+msgstr "Sữa, Gluten, các loại hạt"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr ""
+msgstr "Cho biết các thành phần từ đề cập như \"Có thể chứa dấu vết của\", \"Sản xuất tại nhà máy cũng sử dụng\", v. v."
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "dấu vết"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr ""
+msgstr "dấu vết"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2502,11 +2533,11 @@ msgstr "Không biết"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
-msgstr ""
+msgstr "chất dinh dưỡng chưa biết"
 
 msgctxt "unknown_nutrients_s"
 msgid "unknown nutrient"
-msgstr ""
+msgstr "chất dinh dưỡng chưa biết"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
@@ -2522,7 +2553,7 @@ msgstr "Tên đăng nhập hoặc địa chỉ email: "
 
 msgctxt "username"
 msgid "User name"
-msgstr ""
+msgstr "Tên người dùng"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
@@ -2538,35 +2569,35 @@ msgstr "Các sản phẩm đã được thêm bởi người dùng %s"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr ""
+msgstr "Sản phẩm không được thêm bởi người dùng %s"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr ""
+msgstr "Sản phẩm đã được chỉnh sửa bởi người dùng %s"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr ""
+msgstr "Sản phẩm không được chỉnh sửa bởi người dùng %s"
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "cộng tác viên"
 
 msgctxt "users_products"
 msgid "Products added by %s"
-msgstr ""
+msgstr "Sản phẩm được thêm bởi %s"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "người đóng góp"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "Sản phẩm không được thêm bởi %s"
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "lượt xem"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2583,16 +2614,21 @@ msgstr "Xem kết quả từ toàn thế giới"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "Thông tin và dữ liệu phải đến từ gói sản phẩm và nhãn (và không phải từ các trang web khác hoặc trang web của nhà sản xuất) và bạn phải tự chụp ảnh.<br/>\n"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Tại sao lại quan trọng</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Địa chỉ trang web hoặc blog"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/Vietnamese.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "/images/misc/microsoft/Vietnamese.svg"
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2605,19 +2641,19 @@ msgstr "Bạn được kết nối là %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "Bỏ chọn hình ảnh"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "Bỏ chọn hình ảnh."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "Hình ảnh không được chọn."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "Lỗi trong khi bỏ chọn hình ảnh."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2637,11 +2673,11 @@ msgstr "Cảnh báo: số lượng trái cây, rau và quả hạch không đư�
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr ""
+msgstr "Lớp dinh dưỡng màu NutriScore"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr ""
+msgstr "Cách tính màu dinh dưỡng"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
@@ -2653,7 +2689,7 @@ msgstr "Xóa trang sản phẩm"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Xóa sản phẩm"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
@@ -2806,6 +2842,11 @@ msgstr "Nhóm NOVA"
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "Nhóm NOVA"
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3913,7 +3954,7 @@ msgstr "Chất đạm"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr ""
+msgstr "giá trị"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
@@ -3928,7 +3969,7 @@ msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
 msgstr ""
 
-# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not "Nutri-Score".
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
 msgstr ""
@@ -3964,5 +4005,85 @@ msgstr ""
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr ""
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr ""
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr ""
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr ""
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr ""
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr ""
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr ""
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr ""
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr ""
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr ""
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr ""
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr ""
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr ""
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr ""
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr ""
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr ""
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr ""
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr ""
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr ""
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr ""
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr ""
 

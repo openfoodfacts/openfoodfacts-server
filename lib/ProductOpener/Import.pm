@@ -837,6 +837,9 @@ sub import_csv_file($) {
 
 		my $seen_salt = 0;
 
+		my $nutrition_data_per = $imported_product_ref->{nutrition_data_per};
+		my $nutrition_data_prepared_per = $imported_product_ref->{nutrition_data_prepared_per};
+
 		foreach my $nutriment (@{$nutriments_tables{europe}}, "nutrition-score-fr-producer") {
 
 			next if $nutriment =~ /^\#/;
@@ -856,82 +859,83 @@ sub import_csv_file($) {
 			# Save current values so that we can see if they have changed
 			my %original_values = (
 				$nid . "_modifier" => $product_ref->{nutriments}{$nid . "_modifier"},
-				$nid . "_modifierp" => $product_ref->{nutriments}{$nid . "_modifierp"},
+				$nidp . "_modifier" => $product_ref->{nutriments}{$nidp . "_modifier"},
 				$nid . "_value" => $product_ref->{nutriments}{$nid . "_value"},
-				$nid . "_valuep" => $product_ref->{nutriments}{$nid . "_valuep"},
+				$nidp . "_value" => $product_ref->{nutriments}{$nidp . "_value"},
 				$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
 			);
 
-			my $value = $imported_product_ref->{$nid . "_value"} || $imported_product_ref->{$nid . "_100g_value"};
-			my $valuep = $imported_product_ref->{$nid . "_prepared_value"} || $imported_product_ref->{$nid . "_100g_prepared_value"};
-			my $unit = $imported_product_ref->{$nid . "_unit"} || $imported_product_ref->{$nid . "_100g_unit"};
+			# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
+			# we need to set $nutrition_data_per to 100g or serving
+			my %values = ();
 
-			# calcium_100g_value_unit = 50 mg
-			if (not defined $value) {
-				$value = $imported_product_ref->{$nid . "_value_unit"} || $imported_product_ref->{$nid . "_100g_value_unit"};
-				if ((defined $value) and ($value =~ /^(.*) ([a-z]+)$/)) {
-					$value = $1;
-					$unit = $2;
-				}
-			}
-			if (not defined $valuep) {
-				$valuep = $imported_product_ref->{$nid . "_prepared_value_unit"} || $imported_product_ref->{$nid . "_100g_prepared_value_unit"};
-				if ((defined $valuep) and ($valuep =~ /^(.*) ([a-z]+)$/)) {
-					$valuep = $1;
-					$unit = $2;
-				}
-			}
+			my $unit;
 
-			# calcium_100g_value_in_mcg
+			foreach my $type ("", "_prepared") {
 
-			foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml') {
-				my $value_in_u = $imported_product_ref->{$nid . "_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_value" . "_in_" . $u};
-				my $valuep_in_u = $imported_product_ref->{$nid . "_prepared_value" . "_in_" . $u} || $imported_product_ref->{$nid . "_100g_prepared_value" . "_in_" . $u};
-				if ((defined $value_in_u) and ($value_in_u ne "")) {
-					$value = $value_in_u;
-					$unit = $u;
-				}
-				if ((defined $valuep_in_u) and ($valuep_in_u ne "")) {
-					$valuep = $valuep_in_u;
-					$unit = $u;
-				}
-			}
+				foreach my $per ("", "_100g", "_serving") {
 
-			if ($nid eq 'alcohol') {
-				$unit = '% vol';
-			}
+					next if (defined $values{$type});
 
-			my $modifier = undef;
-			my $modifierp = undef;
+					if ((defined $imported_product_ref->{$nid . $type . $per . "_value"})
+						and ($imported_product_ref->{$nid . $type . $per . "_value"} ne "")) {
+						$values{$type} = $imported_product_ref->{$nid . $type . $per . "_value"};
+					}
 
-			(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
-			(defined $valuep) and normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
+					if ((defined $imported_product_ref->{$nid . $type . $per . "_unit"})
+						and ($imported_product_ref->{$nid . $type . $per . "_unit"} ne "")) {
+						$unit = $imported_product_ref->{$nid . $type . $per . "_unit"};
+					}
 
-			if ((defined $value) and ($value ne '')) {
+					# calcium_100g_value_unit = 50 mg
+					if (not defined $values{$type}) {
+						if ((defined $imported_product_ref->{$nid . $type . $per . "_value_unit"})
+							and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /^(.*) ([a-z]+)$/)) {
+							$values{$type} = $1;
+							$unit = $2;
+						}
+					}
 
-				if ($nid eq 'salt') {
-					$seen_salt = 1;
+					# calcium_100g_value_in_mcg
+
+					if (not defined $values{$type}) {
+						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml') {
+							my $value_in_u = $imported_product_ref->{$nid . $type . $per . "_value" . "_in_" . $u};
+							if ((defined $value_in_u) and ($value_in_u ne "")) {
+								$values{$type} = $value_in_u;
+								$unit = $u;
+							}
+						}
+					}
+
+					if ((defined $values{$type}) and ($per ne "")) {
+						$imported_product_ref->{"nutrition_data" . $type . "_per"} = $per;
+						$imported_product_ref->{"nutrition_data" . $type . "_per"} =~ s/^_//;
+					}
 				}
 
-				$log->debug("nutrient with defined and non empty value", { nid => $nid, value => $value, unit => $unit }) if $log->is_debug();
-				$stats{products_with_nutrition}{$code} = 1;
-
-				assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
-
-				if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
-					$product_ref->{owner_fields}{$nid} = $time;
+				if ($nid eq 'alcohol') {
+					$unit = '% vol';
 				}
-			}
 
-			if ((defined $valuep) and ($valuep ne '')) {
+				my $modifier = undef;
 
-				$log->debug("nutrient with defined and non empty prepared value", { nidp => $nidp, valuep => $valuep, unit => $unit }) if $log->is_debug();
-				$stats{products_with_nutrition}{$code} = 1;
+				(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
 
-				assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
+				if ((defined $values{$type}) and ($values{$type} ne '')) {
 
-				if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
-					$product_ref->{owner_fields}{$nidp} = $time;
+					if ($nid eq 'salt') {
+						$seen_salt = 1;
+					}
+
+					$log->debug("nutrient with defined and non empty value", { nid => $nid, type => $type, value => $values{$type}, unit => $unit }) if $log->is_debug();
+					$stats{products_with_nutrition}{$code} = 1;
+
+					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
+
+					if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
+						$product_ref->{owner_fields}{$nid} = $time;
+					}
 				}
 			}
 
@@ -967,11 +971,33 @@ sub import_csv_file($) {
 		# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
 		if (defined $stats{products_with_nutrition}{$code}) {
 			if (not defined $imported_product_ref->{nutrition_data_per}) {
-				if ((not defined $product_ref->{nutrition_data_per}) or ($product_ref->{nutrition_data_per} ne "100g")) {
-					$product_ref->{nutrition_data_per} = "100g";
-					$stats{products_nutrition_data_per_updated}{$code} = 1;
-					$modified++;
+				if (defined $nutrition_data_per) {
+					$imported_product_ref->{nutrition_data_per} = $nutrition_data_per;
 				}
+				else {
+					$imported_product_ref->{nutrition_data_per} = "100g";
+				}
+			}
+
+			if ((not defined $product_ref->{nutrition_data_per}) or ($product_ref->{nutrition_data_per} ne $imported_product_ref->{nutrition_data_per})) {
+				$product_ref->{nutrition_data_per} = $imported_product_ref->{nutrition_data_per};
+				$stats{products_nutrition_data_per_updated}{$code} = 1;
+				$modified++;
+			}
+
+			if (not defined $imported_product_ref->{nutrition_data_prepared_per}) {
+				if (defined $nutrition_data_prepared_per) {
+					$imported_product_ref->{nutrition_data_prepared_per} = $nutrition_data_prepared_per;
+				}
+				else {
+					$imported_product_ref->{nutrition_data_prepared_per} = "100g";
+				}
+			}
+
+			if ((not defined $product_ref->{nutrition_data_prepared_per}) or ($product_ref->{nutrition_data_prepared_per} ne $imported_product_ref->{nutrition_data_prepared_per})) {
+				$product_ref->{nutrition_data_prepared_per} = $imported_product_ref->{nutrition_data_prepared_per};
+				$stats{products_nutrition_data_per_updated}{$code} = 1;
+				$modified++;
 			}
 		}
 
