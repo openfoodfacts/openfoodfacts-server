@@ -2261,6 +2261,7 @@ sub mmoll_to_unit {
 		fi_synonyms => ["transrasvahappo"],
 		fr => "Acides gras trans",
 		he => "שומן טראנס - שומן בלתי רווי",
+		hu => "Transz-zsírsav",
 		it => "Acidi grassi trans",
 		nl => "Transvetten",
 		nl_be => "Transvetten",
@@ -2370,6 +2371,7 @@ sub mmoll_to_unit {
 		fi => "Natrium",
 		fr => "Sodium",
 		he => "נתרן",
+		hu => "Nátrium",
 		it => "Sodio",
 		ja => "ナトリウム",
 		nl => "Natrium",
@@ -2396,6 +2398,7 @@ sub mmoll_to_unit {
 		el => "Αλάτι",
 		fi => "Suola",
 		fi_synonyms => ["Ruokasuola"],
+		hu => "Só",
 		it => "Sale",
 		nl => "Zout",
 		nl_be => "Zout",
@@ -3822,10 +3825,15 @@ sub normalize_quantity($) {
 	my $q = undef;
 	my $u = undef;
 
-	if ($quantity =~ /(\d+)(\s)?(x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
+	# 12 pots x125 g
+	# 6 bouteilles de 33 cl
+	# 6 bricks de 1 l
+	# 10 unités, 170 g
+	# 4 bouteilles en verre de 20cl
+	if ($quantity =~ /(\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
 		my $m = $1;
-		$q = lc($5);
-		$u = $10;
+		$q = lc($7);
+		$u = $12;
 		$q =~ s/,/\./;
 		$q = unit_to_g($q * $m, $u);
 	}
@@ -4228,6 +4236,19 @@ my %fruits_vegetables_nuts_by_category = (
 	"en:colza-oils" => 100,
 	"en:rapeseed-oils" => 100,
 	"en:rapeseeds-oils" => 100,
+	# nuts,
+	# "Les fruits à coque comprennent :
+	# Noix, noisettes, pistaches, noix de cajou, noix de pécan, noix de coco (cf. précisions ci-dessus),
+	# arachides, amandes, châtaigne
+	"en:walnuts" => 100,
+	"en:hazelnuts" => 100,
+	"en:pistachios" => 100,
+	"en:cashew-nuts" => 100,
+	"en:pecan-nuts" => 100,
+	"en:peanuts" => 100,
+	"en:almonds" => 100,
+	"en:chestnuts" => 100,
+	"en:coconuts" => 100,
 );
 
 my @fruits_vegetables_nuts_by_category_sorted = sort { $fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a} } keys %fruits_vegetables_nuts_by_category;
@@ -5028,12 +5049,6 @@ sub compute_serving_size_data($) {
 		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
 		(defined $product_ref->{serving_size}) and ($product_ref->{serving_size} eq "") and delete $product_ref->{serving_size};
 	}
-
-	#if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{'energy.unit'}) and ($product_ref->{nutriments}{'energy.unit'} eq 'kcal')) {
-	#	$product_ref->{nutriments}{energy} = sprintf("%.0f", $product_ref->{nutriments}{energy} * 4.18);
-	#	$product_ref->{nutriments}{'energy.unit'} = 'kj';
-	#}
-
 
 	foreach my $product_type ("", "_prepared") {
 
@@ -5873,15 +5888,19 @@ sub compute_nova_group($) {
 		}
 	}
 
+	# Make sure that nova_group is stored as a number
+
+	$product_ref->{nova_group} += 0;
 
 	$product_ref->{nutriments}{"nova-group"} = $product_ref->{nova_group};
 	$product_ref->{nutriments}{"nova-group_100g"} = $product_ref->{nova_group};
 	$product_ref->{nutriments}{"nova-group_serving"} = $product_ref->{nova_group};
 
+	# Store nova_groups as a string
+
 	$product_ref->{nova_groups} = $product_ref->{nova_group};
-	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_group}) ];
-
-
+	$product_ref->{nova_groups} .= "";
+	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_groups}) ];
 }
 
 

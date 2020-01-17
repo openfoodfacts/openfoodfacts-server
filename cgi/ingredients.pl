@@ -79,7 +79,7 @@ my $data =  encode_json($results_ref);
 
 $log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
-print header ( -charset=>'UTF-8') . $data;
+print header ( -charset=>'UTF-8', -access_control_allow_origin => '*' ) . $data;
 
 
 exit(0);

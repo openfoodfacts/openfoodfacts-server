@@ -1748,7 +1748,7 @@ is_deeply ($product_ref->{ingredients},
 
 $product_ref = {
         lc => "fi",
-        ingredients_text => "appelsiinimehu (ei säilöntäaineita), lohi (msc-sertifoitu), gluteeniton",
+        ingredients_text => "appelsiinimehu (säilöntäaineeton), lohi (msc), gluteeniton",
 };
 
 extract_ingredients_from_text($product_ref);

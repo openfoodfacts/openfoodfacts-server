@@ -305,7 +305,7 @@ sub check_user_form($$) {
 	}
 
 	if ($admin) {
-		$user_ref->{org} = remove_tags_and_quote(param('organization'));
+		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('organization'));
 		if ($user_ref->{org} ne "") {
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 		}

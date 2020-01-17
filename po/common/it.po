@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 15:30\n"
+"PO-Revision-Date: 2020-01-15 19:12\n"
 "Language-Team: Italian\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: it\n"
@@ -138,10 +138,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Pagina del prodotto modificata anche da"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"APK per android\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "APK Android"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -149,9 +152,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/it_get.svg\" alt=\"Disponibile su Google Play\" width=\"102\" height=\"40\" />"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "/images/misc/google-play-badge-svg-master/img/it_get.svg"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "Disponibile su Google Play"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -786,12 +793,12 @@ msgstr "https://en.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - Cosmetici"
 
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -977,7 +984,7 @@ msgstr "Cereali 85,5% (farina di _grano_ , farina di _grano_ integrale 11%), est
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr "Mantenere l'ordine, indicare la % quando specificata, separare con una virgola oppure -, utilizzare () per indicare gli ingredienti di un ingrediente, segnalare gli allergeni con _ a esempio _milk_"
+msgstr "Mantieni l'ordine degli ingredienti, indica la % quando specificata, separa con una virgola oppure -, utilizza () per indicare i componenti di un ingrediente, segnala gli allergeni con _ , esempio: _latte_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
@@ -991,9 +998,14 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "Prodotti che non contengono l'ingrediente %s"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_IT.svg\" alt=\"Disponibile su App Store\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_IT.svg"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr "Disponibile su App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1424,7 +1436,7 @@ msgstr "Nomi"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr "Se il codice a barre non è corretto, si prega di correggerlo qui:"
+msgstr "Se il codice a barre non è corretto, correggilo qui:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
@@ -1594,8 +1606,8 @@ msgstr "Informazioni nutrizionali"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "La tabella elenca i nutrimenti di default che vengono spesso specificati. Lascia il campo vuoto se non è sull'etichetta.<br/>È possibile aggiungere altri nutrienti (vitamine, minerali, colesterolo, ecc.)\n"
-"digitando le prime lettere del loro nome nell'ultima riga del tavolo."
+msgstr "La tabella elenca i nutrienti che vengono specificati nella maggior parte dei prodotti. Lascia il campo vuoto se non è sull'etichetta.<br/>È possibile aggiungere altri nutrienti (vitamine, minerali, colesterolo, ecc.)\n"
+"digitando le prime lettere del loro nome nell'ultima riga della tabella."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1829,7 +1841,7 @@ msgstr "Foto con codice a barre:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr "Immagini attuale:"
+msgstr "Immagine attuale:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
@@ -2124,20 +2136,28 @@ msgid "Download results"
 msgstr "Scarica i risultati"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "Scarica i risultati in formato CSV (Excel, OpenOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "Scarica i risultati in formato XLSX o CSV. Nota che per motivi di prestazioni, è possibile scaricare fino a max. 10.000 risultati."
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "Set di caratteri: Unicode (UTF-8). Separatore: tabulazione (tab)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "Formato XLSX"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "Excel o LibreOffice"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "Formato CSV"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr "Set di caratteri: Unicode (UTF-8) - Separatore: tabulazione (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "Cambia i criteri di ricerca"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "(Opzionale) - Crea una colonna per ogni:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2604,9 +2624,13 @@ msgid "Site or blog address"
 msgstr "Indirizzo del blog o del sito web"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/Italian.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "/images/misc/microsoft/Italian.svg"
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr "Ottienila da Microsoft"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2820,6 +2844,11 @@ msgstr "Gruppo Nova"
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "Gruppi NOVA"
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr "Gruppi NOVA per la trasformazione alimentare"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3982,7 +4011,7 @@ msgstr "Il Nutri-Score Nutri può essere modificato da %s a %s modificando il va
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "La piattaforma per i produttori è ancora sotto sviluppo ed effettuiamo controlli manuali prima di importare i prodotti al database pubblico. Sei pregato di inviarci una email a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> per aggiornare il database pubblico."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4030,29 +4059,33 @@ msgstr "I moderatori hanno accesso a funzioni speciali per modificare e rivedere
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Ho già donato o non sono interessato. Nascondi il banner."
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
-msgstr ""
+msgstr "Ehi, una casella da deselezionare?!"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency ?"
-msgstr ""
+msgstr "Un progetto indipendente e guidato dai cittadini per la trasparenza alimentare ?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health ?"
-msgstr ""
+msgstr "Dati sui prodotti alimentari per la ricerca volta a migliorare la salute pubblica ?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Scelte alimentari migliori e più semplici in base ai tuoi criteri?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "Abbiamo bisogno del tuo supporto!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Sei pregato di Donare"
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Un consumo eccessivo di alcol è dannoso per la salute, da consumarsi con moderazione."
 

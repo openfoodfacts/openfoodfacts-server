@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 16:32\n"
+"PO-Revision-Date: 2019-12-24 14:13\n"
 "Language-Team: Turkish\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: tr\n"
@@ -136,10 +136,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Ürün sayfasını da düzenleyen"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -147,9 +150,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/tr_get.svg\" alt=\"Google Play'de Mevcut\" width=\"102\" height=\"40\" />"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "/images/misc/google-play-badge-svg-master/img/tr_get.svg"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "Google Play'de Mevcut"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -987,9 +994,14 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "% S bileşenini içermeyen ürünler"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/appstore/black/appstore_TR.svg\" alt=\"App Store'da Mevcut\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_TR.svg"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr "App Store'da Mevcut"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1479,7 +1491,7 @@ msgstr "Besin değeri 100 g için"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/nutrient-levels"
+msgstr "/besin-seviyeleri"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2117,20 +2129,28 @@ msgid "Download results"
 msgstr "Sonuçları indir"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "Sonuçları CSV formatında indirin (Excel, OpenOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "Sonuçları XLSX veya CSV formatında indirin. Performans nedeniyle, sadece 10.000 sonuca kadar indirebileceğinizi lütfen unutmayın."
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "Karakter kümesi: Unicode (UTF-8). Ayırıcı: tablo (sekme)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "XLSX formatı"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "Excel veya LibreOffice"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "CSV formatı"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr "Karakter kümesi: Unicode (UTF-8) - Ayırıcı: tablolama (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "Arama ölçütlerini değiştir"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "(İsteğe Bağlı) - Her biri için bir sütun oluşturun:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2597,9 +2617,13 @@ msgid "Site or blog address"
 msgstr "Site veya blog adresi"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/microsoft/Turkish.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "/images/misc/microsoft/Turkish.svg"
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr "Microsoft'tan alın"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2813,6 +2837,11 @@ msgstr "NOVA grubu"
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "NOVA grupları"
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr "Gıda işlenmişliği için NOVA grupları"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -4048,4 +4077,8 @@ msgstr "Desteğinize ihtiyacımız var!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Lütfen Bağış Yapın"
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Aşırı miktarda alkol tüketimi sağlığa zararlıdır, ölçülü olarak tüketilmelidir."
 

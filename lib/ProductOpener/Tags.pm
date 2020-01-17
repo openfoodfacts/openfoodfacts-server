@@ -58,6 +58,8 @@ BEGIN
 					&build_tags_taxonomy
 
 					&canonicalize_taxonomy_tag
+					&canonicalize_taxonomy_tag_linkeddata
+					&canonicalize_taxonomy_tag_weblink
 					&canonicalize_taxonomy_tag_link
 					&exists_taxonomy_tag
 					&display_taxonomy_tag
@@ -109,7 +111,7 @@ BEGIN
 
 					%Languages
 
-					&init_select_country_options
+					&country_to_cc
 
 					&add_user_translation
 					&load_users_translations
@@ -1732,59 +1734,6 @@ foreach my $country (keys %{$properties{countries}}) {
 	}
 }
 
-
-
-
-
-sub init_select_country_options($) {
-
-	# takes one minute to load
-
-	my $Lang_ref = shift;
-
-	# Build lists of countries and generate select button
-	# <select data-placeholder="Choose a Country..." style="width:350px;" tabindex="1">
-	#            <option value=""></option>
-	#            <option value="United States">United States</option>
-	#            <option value="United Kingdom">United Kingdom</option>
-
-	$log->info("Buildin lists of countries and generate select button") if $log->is_info();
-
-	foreach my $language (keys %Langs) {
-
-		my $country_options = '';
-		my $first_option = '';
-
-		foreach my $country (sort {(get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$language})
-			|| get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}) )
-			cmp (get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$language})
-				|| get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))}
-				keys %{$properties{countries}}
-			) {
-
-			my $cc = country_to_cc($country);
-			if (not (defined $cc)) {
-				next;
-			}
-
-			my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
-
-			if ($country ne 'en:world') {
-				$country_options .= $option;
-			}
-			else {
-				$first_option = $option;
-			}
-		}
-
-		$Lang_ref->{select_country_options}{$language} = $first_option . $country_options;
-
-	}
-}
-
-
-
-
 $log->info("Tags.pm - 1") if $log->is_info();
 
 sub gen_tags_hierarchy($$) {
@@ -2547,52 +2496,14 @@ sub canonicalize_taxonomy_tag($$$)
 	$tag =~ s/^ //g;
 	$tag =~ s/ $//g;
 
-	if (($tag =~ /^(\w+:\w\w):(.+)/) and (defined $properties{$tagtype})) {
-		# Test for linked data, ie. wikidata:en:Q1234
-		my $property_key = $1;
-		my $property_value = $2;
-		my $matched_tagid;
-		foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
-			if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
-				if (defined $matched_tagid) {
-					# Bail out on multiple matches for a single tag.
-					undef $matched_tagid;
-					last;
-				}
-
-				$matched_tagid = $canon_tagid;
-			}
-		}
-
-		if (defined $matched_tagid) {
-			return $matched_tagid;
-		}
+	my $linked_data_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $tag);
+	if ($linked_data_tag) {
+		return $linked_data_tag;
 	}
 
-	if ($tag =~ /^https?:\/\/.+/) {
-		# Test for linked data URLs, ie. https://www.wikidata.org/wiki/Q1234
-		my $matched_tagid;
-		foreach my $property_key (keys %weblink_templates) {
-			next if not defined $weblink_templates{$property_key}{parse};
-			my $property_value = $weblink_templates{$property_key}{parse}->($tag);
-			if (defined $property_value) {
-				foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
-					if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
-						if (defined $matched_tagid) {
-							# Bail out on multiple matches for a single tag.
-							undef $matched_tagid;
-							last;
-						}
-
-						$matched_tagid = $canon_tagid;
-					}
-				}
-			}
-		}
-
-		if (defined $matched_tagid) {
-			return $matched_tagid;
-		}
+	my $weblink_tag = canonicalize_taxonomy_tag_weblink($tagtype, $tag);
+	if ($weblink_tag) {
+		return $weblink_tag;
 	}
 
 	if ($tag =~ /^(\w\w):/) {
@@ -2675,6 +2586,66 @@ sub canonicalize_taxonomy_tag($$$)
 
 }
 
+sub canonicalize_taxonomy_tag_linkeddata {
+	my ($tagtype, $tag) = @_;
+
+	if ((not defined $tagtype)
+		or (not defined $tag)
+		or (not ($tag =~ /^(\w+:\w\w):(.+)/))
+		or (not defined $properties{$tagtype})) {
+			return;
+	}
+
+	# Test for linked data, ie. wikidata:en:Q1234
+	my $property_key = $1;
+	my $property_value = $2;
+	my $matched_tagid;
+	foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
+		if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
+			if (defined $matched_tagid) {
+				# Bail out on multiple matches for a single tag.
+				undef $matched_tagid;
+				last;
+			}
+
+			$matched_tagid = $canon_tagid;
+		}
+	}
+
+	return $matched_tagid;
+}
+
+sub canonicalize_taxonomy_tag_weblink {
+	my ($tagtype, $tag) = @_;
+
+	if ((not defined $tagtype)
+		or (not defined $tag)
+		or (not ($tag =~ /^https?:\/\/.+/))) {
+			return;
+	}
+
+	# Test for linked data URLs, ie. https://www.wikidata.org/wiki/Q1234
+	my $matched_tagid;
+	foreach my $property_key (keys %weblink_templates) {
+		next if not defined $weblink_templates{$property_key}{parse};
+		my $property_value = $weblink_templates{$property_key}{parse}->($tag);
+		if (defined $property_value) {
+			foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
+				if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
+					if (defined $matched_tagid) {
+						# Bail out on multiple matches for a single tag.
+						undef $matched_tagid;
+						last;
+					}
+
+					$matched_tagid = $canon_tagid;
+				}
+			}
+		}
+	}
+
+	return $matched_tagid;
+}
 
 sub generate_spellcheck_candidates($$) {
 

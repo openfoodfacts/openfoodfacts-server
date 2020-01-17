@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: br\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 15:22\n"
+"PO-Revision-Date: 2019-12-24 13:53\n"
 "Language-Team: Breton\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=5; plural=(n%10==1 && (n%100!=11 || n%100!=71 || n%100!=91) ? 0 : n%10==2 && (n%100!=12 || n%100!=72 || n%100!=92) ? 1 : ((n%10>=3 && n%10<=4) || n%10==9) && ((n%100 < 10 || n%100 > 19) || (n%100 < 70 || n%100 > 79) || (n%100 < 90 || n%100 > 99)) ? 2 : (n!=0 && n%1;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: br-FR\n"
@@ -137,10 +137,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr ""
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr ""
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -148,9 +151,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Hegerz war Google Play\" width=\"102\" height=\"40\" />"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr ""
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -172,7 +179,7 @@ msgstr ""
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Gallout a rit ouzhpennañ skeudennoù:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -553,7 +560,7 @@ msgstr ""
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Implijet e vez ar chomlec'h postel-mañ gant unan bennak all. Ur gont ho peus dija marteze? Gallout a rit <a href=\"/cgi/reset_password.pl\"> adderaouekaat ger-tremen</a> ho kont all."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -581,7 +588,7 @@ msgstr ""
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Ret eo deoc'h bizskrivañ un anv pe ul lesanv."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
@@ -605,11 +612,11 @@ msgstr ""
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "N'eus ket deus an anv-implijer-mañ."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Un anv-implijer-mañ zo bet choazet dija, dibabit unan all mar plij ganeoc'h."
 
 msgctxt "example"
 msgid "Example:"
@@ -637,7 +644,7 @@ msgstr "br_FR"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -682,7 +689,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -793,7 +800,7 @@ msgstr "Produ"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "Anv ordin"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -849,11 +856,11 @@ msgstr ""
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr ""
+msgstr "Kaset eo bet ar foto-mañ dija."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "Re vihan eo ar foto-mañ. Na gasit ket fotoioù kavet war Internet mar plij, grit gant fotoioù tennet ganeoc'h hepken."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
@@ -980,8 +987,13 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr ""
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr ""
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
 msgstr ""
 
 msgctxt "ios_app_link"
@@ -2007,7 +2019,7 @@ msgstr ""
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr "Biskrivit ur ger-tremen nevez."
+msgstr "Bizskrivit ur ger-tremen nevez."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
@@ -2090,19 +2102,27 @@ msgid "Download results"
 msgstr ""
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
 msgstr ""
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr ""
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr ""
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr ""
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
 msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
 msgstr ""
 
 msgctxt "search_generate_graph"
@@ -2568,8 +2588,12 @@ msgid "Site or blog address"
 msgstr ""
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr ""
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
 msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
@@ -2783,6 +2807,11 @@ msgstr ""
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
+msgstr ""
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
 msgstr ""
 
 msgctxt "footer_partners"
@@ -4018,5 +4047,9 @@ msgstr ""
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
+msgstr ""
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr ""
 
