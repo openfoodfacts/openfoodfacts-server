@@ -10,7 +10,7 @@
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/openfoodfacts/localized.svg)](https://translate.openfoodfacts.org/)
 [![Open Source Helpers](https://www.codetriage.com/openfoodfacts/openfoodfacts-server/badges/users.svg)](https://www.codetriage.com/openfoodfacts/openfoodfacts-server)
 [![Backers on Open Collective](https://opencollective.com/openfoodfacts-server/backers/badge.svg)](#backers)
- [![Sponsors on Open Collective](https://opencollective.com/openfoodfacts-server/sponsors/badge.svg)](#sponsors) 
+ [![Sponsors on Open Collective](https://opencollective.com/openfoodfacts-server/sponsors/badge.svg)](#sponsors)
 
 ## What is Product Opener?
 
@@ -25,7 +25,7 @@ Open Food Facts is a database of food products with ingredients, allergens, nutr
 ### Made by everyone
 
 Open Food Facts is a non-profit association of volunteers.
-20.000+ contributors like you have added 700.000+ products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
+25.000+ contributors like you have added 868.000+ products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
 
 ### For everyone
 
@@ -64,11 +64,6 @@ Have a bug or a feature request? Please search for existing and closed issues. I
 You can help translate Open Food Facts and the app at (no technical knowledge required, takes a minute to signup):
 <https://translate.openfoodfacts.org/>
 
-#### Updating translations for static content
-
-A number of the translations are maintained externally, see `scripts/update_texts_from_wiki.pl` to sync translation data.
-Specific pages are defined in the relevant `Config.pm` `wiki_texts` variables.
-
 ### Who do I talk to?
 
 * Repo owner or admin
@@ -77,7 +72,7 @@ Specific pages are defined in the relevant `Config.pm` `wiki_texts` variables.
 
 ## Contributors
 
-This project exists thanks to all the people who contribute. 
+This project exists thanks to all the people who contribute.
 <a href="https://github.com/openfoodfacts/openfoodfacts-server/graphs/contributors"><img src="https://opencollective.com/openfoodfacts-server/contributors.svg?width=890&button=false" /></a>
 
 

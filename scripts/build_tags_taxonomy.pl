@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -22,7 +22,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -30,6 +30,9 @@ use ProductOpener::Tags qw/:all/;
 
 my $tagtype = $ARGV[0];
 my $publish = $ARGV[1];
+
+(defined $tagtype) or die '$tagtype not defined, exited';
+(defined $publish) or die '$publish not defined, exited';
 
 print "building taxonomy for $tagtype - publish: $publish\n";
 
@@ -42,30 +45,32 @@ my $file = $tagtype . ".txt";
 
 # For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
 
-if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts/)) {
+# For automated tests, the domain is off.travis-ci.org
+
+if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts|off.travis/)) {
 
 	$file = "ingredients.all.txt";
-		
+
 	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file") or die("Cannot write $data_root/taxonomies/$file : $!\n");
-	
-	foreach my $taxonomy ("ingredients", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances") {
-	
+
+	foreach my $taxonomy ("additives_classes", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances", "ingredients") {
+
 		if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")) {
-		
+
 			print $OUT "# $taxonomy.txt\n\n";
-			
+
 			while (<$IN>) {
 				print $OUT $_;
 			}
-			
-			print OUT "\n\n";
+
+			print $OUT "\n\n";
 			close($IN);
 		}
 		else {
 			print STDERR "Missing $data_root/taxonomies/$tagtype.txt\n";
 		}
 	}
-	
+
 	close ($OUT);
 }
 

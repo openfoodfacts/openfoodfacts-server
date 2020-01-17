@@ -21,7 +21,7 @@
 package ProductOpener::Config2;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -40,7 +40,7 @@ BEGIN
 		$facebook_app_id
 	    $facebook_app_secret
 		$robotoff_url
-
+		%server_options
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -69,4 +69,9 @@ $facebook_app_secret = "";
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = '';
 
+%server_options = (
+        private_products => 0,  # 1 to make products visible only to the owner (producer platform)
+        export_servers => { public => "off", experiment => "off-exp" },
+		minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
+);
 1;

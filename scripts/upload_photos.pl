@@ -27,6 +27,10 @@ use Encode;
 use JSON::PP;
 use Time::Local;
 
+use Encode::Locale qw/decode_argv/;
+
+decode_argv(Encode::FB_CROAK);
+
 use Getopt::Long;
 
 
@@ -54,7 +58,7 @@ my $source_name;
 my $source_url;
 my $source_licence;
 my $source_licence_url;
-
+my $select_front_image = 0;
 
 GetOptions (
 	"images_dir=s" => \$images_dir,
@@ -66,14 +70,17 @@ GetOptions (
 	"source_url=s" => \$source_url,
 	"source_licence=s" => \$source_licence,
 	"source_licence_url=s" => \$source_licence_url,
+	"select_front_image" => \$select_front_image,
 		)
   or die("Error in command line arguments:\n$\nusage");
 
 print STDERR "import.pl
-- images_dir: $images_dir
-- user_id: $User_id
-- comment: $comment
-- global fields values:
+--images_dir: $images_dir
+--user_id: $User_id
+--comment: $comment
+--select_front_image: $select_front_image
+
+global fields values:
 ";
 
 foreach my $field (sort keys %global_values) {
@@ -127,7 +134,7 @@ if (opendir (DH, "$images_dir")) {
 		#next if $file gt "2013-07-13 11.02.07";
 		#next if $file le "DSC_1783.JPG";
 	
-		if ($file =~ /jpg/i) {
+		if ($file =~ /\.jpg|jpeg$/i) {
 		
 			my $code;
 			
@@ -155,7 +162,12 @@ if (opendir (DH, "$images_dir")) {
 					$j++;
 				
 					if ((defined $last_imgid) and (defined $current_product_ref)) {
-						if ((not defined $current_product_ref->{images}) or (not defined $current_product_ref->{images}{'front'})) {
+						
+						# Select the image only if we don't have a selected image for the front in the target language
+					
+						if (($select_front_image) or (
+								(not defined $current_product_ref->{images}) or 
+								(not defined $current_product_ref->{images}{"front_$lc"}) ) ) {
 							print STDERR "cropping for code $current_code - front_$lc - , last_imgid: $last_imgid\n";
 							process_image_crop($current_code, "front_$lc", $last_imgid, 0, undef, undef, -1, -1, -1, -1);
 						}
@@ -179,7 +191,7 @@ if (opendir (DH, "$images_dir")) {
 		
 				if (1 and (not $product_ref)) {
 					print STDERR "product code $code does not exist yet, creating product\n";
-					$product_ref = init_product($code);
+					$product_ref = init_product($User_id, undef, $code);
 					$product_ref->{interface_version_created} = "upload_photos.pl - version 2019/04/22";
 					$product_ref->{lc} = $global_values{lc};
 					#store_product($product_ref, "Creating product (upload_photos.pl bulk upload) - " . $comment );
@@ -214,7 +226,7 @@ if (opendir (DH, "$images_dir")) {
 						id => $source_id,
 						name => $source_name,
 						url => $product_source_url,
-						collaboration => 1,
+						# collaboration => 1,
 						import_t => time(),
 					};
 
@@ -233,23 +245,31 @@ if (opendir (DH, "$images_dir")) {
 			
 				my $filetime = $time;
 				
-				# 2013-07-13 11.02.07
-				if ($file =~ /(20\d\d).(\d\d).(\d\d).(\d\d).(\d\d).(\d\d)/) {
-					$filetime = timelocal( $6, $5, $4, $3, $2 - 1, $1 );
-				}				
-				# 20150712_173454.jpg
-				elsif ($file =~ /(20\d\d)(\d\d)(\d\d)(-|_|\.)/) {
-					$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
-				}					
-				elsif ($file =~ /(20\d\d).(\d\d).(\d\d)./) {
-					$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
-				}				
+				# skip 0012000031878
+				# skip 2000000023922
+				if (($file !~ /\d(20\d\d)(\d\d)(\d\d)/) and ($file !~ /(20\d\d)(\d\d)(\d\d)\d/)) {
+					# 2013-07-13 11.02.07
+					if (($file =~ /(20\d\d).(\d\d).(\d\d).(\d\d).(\d\d).(\d\d)/) and ($2 <= 12) and ($3 <= 31)) {
+						$filetime = timelocal( $6, $5, $4, $3, $2 - 1, $1 );
+					}				
+					# 20150712_173454.jpg
+					elsif (($file =~ /(20\d\d)(\d\d)(\d\d)(-|_|\.)/) and ($2 <= 12) and ($3 <= 31)) {
+						$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
+					}					
+					elsif (($file =~ /(20\d\d).(\d\d).(\d\d)./) and ($2 <= 12) and ($3 <= 31)) {
+						$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
+					}				
+				}
 			
 				my $imgid;
 				my $return_code = process_image_upload($current_code, "$images_dir/$file", $User_id, $filetime, $comment, \$imgid);
 				
 				print "process_image_upload - file: $file - filetime: $filetime - result: $imgid\n";
 				if (($imgid > 0) and ($imgid <= 2)) { # assume the 1st image is the barcode, and 2nd the product front (or 1st if there's only one image)
+					$last_imgid = $imgid;
+				}
+				# forced selection through --select_front_image parameter
+				if ($select_front_image) {
 					$last_imgid = $imgid;
 				}
 			}				

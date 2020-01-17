@@ -17,8 +17,8 @@
 server {
 	listen 80;
 	listen [::]:80;
-	server_name madenearme.com www.madenearme.com madenearme.org www.madenear.org madenear.com www.madenear.com;
-	return 301 madenear.me$request_uri;
+	server_name madenearme.com www.madenearme.com madenearme.org www.madenear.org madenear.com www.madenear.com www.madenear.me;
+	return 301 http://madenear.me$request_uri;
 }
 
 
@@ -40,18 +40,15 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
-	# 13/09/2016: got error "nginx: [emerg] invalid parameter "http2" "
-	#listen 443 ssl http2 default_server;
-	listen 443 http2 ssl;
-	#listen [::]:443 ssl http2 default_server;
-	listen [::]:443 http2 ssl;
-	#include snippets/ssl-ssl-api-test.openfoodfacts.org;
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	include snippets/ssl.madenear.me;
 	include snippets/ssl-params.conf;
 
-	root /home/off/html;
+	root /srv/off/html;
 
-	access_log /home/off/logs/nginx.madenearme.access.log;
-	error_log /home/off/logs/nginx.madenearme.error.log;
+	access_log /srv/off/logs/nginx.madenearme.access.log;
+	error_log /srv/off/logs/nginx.madenearme.error.log;
 
 	gzip on;
 	gzip_min_length 1000;

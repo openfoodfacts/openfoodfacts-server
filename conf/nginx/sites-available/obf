@@ -39,10 +39,10 @@ server {
 	include snippets/ssl.openbeautyfacts.org;
         include snippets/ssl-params.conf;
 
-	root /home/obf/html;
+	root /srv/obf/html;
 
-	access_log /home/obf/logs/nginx.access2.log;
-	error_log /home/obf/logs/nginx.error2.log;
+	access_log /srv/obf/logs/nginx.access2.log;
+	error_log /srv/obf/logs/nginx.error2.log;
 
         # Redirect GET requests to https. POST requests will be transformed
         # to GET by most browsers when redirected, and it breaks apps that
@@ -101,8 +101,8 @@ server {
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
 
-	location ~* \.(eot|ttf|woff|woff2)$ {
-    		add_header Access-Control-Allow-Origin *;
+	location ~* \.(json|csv)$ {
+		add_header Access-Control-Allow-Origin *;
 	}
 
 	location ~ ^/images/products/ {

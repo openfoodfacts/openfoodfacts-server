@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -40,7 +40,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -206,7 +206,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							$tag =~ s/\s+$//;
 
 							if (defined $taxonomy_fields{$field}) {
-								$tagid = get_taxonomyid(canonicalize_taxonomy_tag($params{lc}, $field, $tag));
+								$tagid = get_taxonomyid($params{lc}, canonicalize_taxonomy_tag($params{lc}, $field, $tag));
 							}
 							else {
 								$tagid = get_fileid($tag);
