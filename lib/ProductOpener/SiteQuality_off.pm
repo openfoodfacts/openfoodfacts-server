@@ -827,7 +827,7 @@ sub check_code_gs1_prefixes($) {
 	elsif ($code =~ /^977[0-9]{9,10}$/) {
 		push @{$product_ref->{quality_tags}}, 'gs1-issn-prefix';
 	}
-	elsif ($code =~ /^3600550xxxxxx[0-9]{9,10}$/) {
+	elsif ($code =~ /^3600550[0-9]{6}$/) {
 		push @{$product_ref->{quality_tags}}, 'cosmetic-product';
 	}
 }
