@@ -881,14 +881,15 @@ sub check_ingredients($) {
 Checks related to the quantity and serving quantity.
 
 =cut
-
+# Check quantity values. See https://en.wiki.openfoodfacts.org/Products_quantities
 sub check_quantity($) {
 
 	my $product_ref = shift;
 
 	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
+	# example: 650 g e
 	if ((defined $product_ref->{quantity})
-		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
+		and ($product_ref->{quantity} =~ /(?:^e\s)|(?:\se[^a-z])|(?:\se$)/i)
 		and (not ($product_ref->{quantity} =~ /\N{U+212E}/i))) {
 		push @{$product_ref->{data_quality_info_tags}}, "en:quantity-contains-e";
 	}
