@@ -168,7 +168,7 @@ sub check_code_gs1_prefixes($) {
 		push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-issn-prefix';
 	}
 	elsif ($code =~ /^3600550[0-9]{6}$/) {
-		push @{$product_ref->{quality_tags}}, 'cosmetic-product';
+		push @{$product_ref->{data_quality_warnings_tags}}, 'cosmetic-product';
 	}
 }
 
