@@ -211,7 +211,7 @@ a:hover.level_1 {
   color: green;
 }
 
-.select2-container--default .select2-selection--single {
+#select_country_li .select2-container--default .select2-selection--single {
   border-radius: 0;
   font-size: 0.875rem;
   height: 1.75rem;
@@ -331,4 +331,43 @@ p.details {
 details.recent {
   margin-left: 1.5em;
   cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  overflow: hidden;
+}
+
+.ingredients_analysis {
+  color: white;
+  font-size: 1rem;
+  padding-left: 0.2rem;
+  padding-right: 1rem;
+
+  .icon {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+  }
+}
+
+a[aria-controls="idOfLeftMenu"] {
+
+  &.anonymous {
+    color: white;
+  }
+
+  &.loggedin {
+    color: #ffe681;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+  }
+
 }

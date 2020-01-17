@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -41,7 +41,7 @@ ProductOpener::Display::init();
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
 
-my $userid = get_fileid(param('userid'));
+my $userid = get_fileid(param('userid'), 1);
 
 my $html = '';
 
@@ -110,6 +110,7 @@ SCRIPT
 
 	$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
 	$html .= ProductOpener::Users::display_user_form_optional($user_ref);
+	$html .= ProductOpener::Users::display_user_form_admin_only($user_ref);
 
 	if ($admin) {
 		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>lang("delete_user")) . "</td></tr>";
@@ -139,8 +140,12 @@ elsif ($action eq 'process') {
 	$html .= lang($type . $dialog);
 
 	if (($type eq 'add') or ($type eq 'edit')) {
-		$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
-		$html .= "<p>" . lang("bottom_content") . "</p>\n";
+
+		# Do not display donate link on producers platform
+		if (not $server_options{producers_platform}) {
+			$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
+			$html .= "<p>" . lang("bottom_content") . "</p>\n";
+		}
 	}
 }
 

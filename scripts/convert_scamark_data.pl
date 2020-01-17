@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -28,7 +28,7 @@ use utf8;
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-use ProductOpener::Import qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -481,9 +481,7 @@ foreach my $code (sort keys %products) {
 	
 	my $product_ref = $products{$code};
 	
-	if (defined $brands{$product_ref->{brands}}) {
-		$product_ref->{brands} = $brands{$product_ref->{brands}};
-	}	
+
 	
 	assign_quantity_from_field($product_ref, "product_name_fr");
 	
@@ -504,6 +502,14 @@ foreach my $code (sort keys %products) {
 	if ((defined $product_ref->{brands}) and (defined $non_food_brands{$product_ref->{brands}})) {
 		delete $products{$code};
 	}
+	elsif (defined $brands{$product_ref->{brands}}) {
+		$product_ref->{brands} = "Marque Repère, " . $brands{$product_ref->{brands}};
+	}
+	
+	$product_ref->{allergens} =~ s/COQUE/FRUITS A COQUE/i;
+	
+	$product_ref->{traces} =~ s/COQUE/FRUITS A COQUE/i;
+	
 }
 
 

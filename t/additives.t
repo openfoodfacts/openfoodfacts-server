@@ -501,7 +501,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 is_deeply($product_ref->{minerals_tags}, [
 	"en:ferrous-sulfate",
 	"en:zinc-sulfate",
-	"en:cupric-sulfate",
+	"en:copper-sulfate",
                               ],
 );
 
@@ -524,6 +524,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium-carbonate",
                               ],
 );
@@ -567,6 +568,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium-carbonate",
 	"en:calcium-chloride",
 	"en:potassium-chloride",
@@ -576,7 +578,7 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-phosphate",
 	"en:ferrous-sulfate",
 	"en:zinc-sulfate",
-	"en:cupric-sulfate",
+	"en:copper-sulfate",
 	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
@@ -611,7 +613,7 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-phosphate",
 	"en:ferrous-sulfate",
 	"en:zinc-sulfate",
-	"en:cupric-sulfate",
+	"en:copper-sulfate",
 	"en:manganese-sulfate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
@@ -678,6 +680,7 @@ is_deeply($product_ref->{vitamins_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+          'en:mineral',
           'en:potassium',
           'en:calcium',
           'en:magnesium',
@@ -743,18 +746,19 @@ diag explain $product_ref->{additives};
 is_deeply($product_ref->{additives_original_tags}, [
         "en:e1400",
                               ],
-);
+) or diag explain($product_ref->{mineral_tags});
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium-phosphate",
 	"en:magnesium-oxide",
 	"en:ferric-diphosphate",
 	"en:zinc-gluconate",
-	"en:cupric-gluconate",
+	"en:copper-gluconate",
 	"en:potassium-iodate",
 	"en:sodium-selenite",
                              ],
-);
+) or diag explain($product_ref->{minerals_tags});
 
 is_deeply($product_ref->{vitamins_tags}, [
 	"en:sodium-l-ascorbate",
@@ -819,6 +823,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium",
 	"en:iron",
 	"en:magnesium",
@@ -942,11 +947,12 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+        "en:mineral",
         "en:calcium-citrate",
         "en:ferrous-sulfate",
         "en:magnesium-sulfate",
         "en:zinc-sulfate",
-        "en:cupric-sulfate",
+        "en:copper-sulfate",
         "en:manganese-sulfate",
         "en:sodium-citrate",
         "en:potassium-iodide",
@@ -999,6 +1005,7 @@ is_deeply($product_ref->{other_nutritional_substances_tags}, [
 
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:mineral",
 	"en:calcium-phosphate",
 	"en:potassium-chloride",
 	"en:sodium-citrate",
@@ -1009,7 +1016,7 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:potassium-hydroxide",
 	"en:sodium-selenite",
 	"en:potassium-iodide",
-        "en:cupric-sulfate",
+        "en:copper-sulfate",
         "en:manganese-sulfate",
                               ],
 );
@@ -1143,7 +1150,8 @@ diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e500',
-          'en:e503',
+#          'en:e503',
+          'en:e502',
           'en:e450',
           'en:e336',
           'en:e150a',
@@ -1155,7 +1163,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e385',
           'en:e541',
 	  'en:e450i',
-	  'en:e451',
+#	  'en:e451',
 	  'en:e340',
           'en:e470a',
           'en:e471',
@@ -1213,7 +1221,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 	"en:e450i",
 	"en:e500",
 	"en:e471",
-	"en:e415",
+#	"en:e415",
                               ],
 );
 
@@ -1231,10 +1239,10 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
-          'en:e322',
+          'en:e322i',
           'en:e422',
           'en:e330',
-          'en:e440',
+          'en:e440i',
           'en:e331',
           'en:e500',
           'en:e503',
@@ -1258,7 +1266,8 @@ extract_ingredients_classes_from_text($product_ref);
 
 diag explain $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [
+# spellchecking of additives is now disabled, commenting the test
+0 and is_deeply($product_ref->{additives_original_tags}, [
           'en:e330',
           'en:e175',
           'en:e14xx',

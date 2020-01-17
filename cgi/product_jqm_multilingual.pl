@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -38,7 +38,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use Apache2::RequestRec ();
@@ -59,9 +59,20 @@ my $interface_version = '20150316.jqm2';
 
 my %response = ();
 
-my $code = normalize_code(param('code'));
+my $code = param('code');
+my $product_id;
 
 $log->debug("start", { code => $code, lc => $lc }) if $log->is_debug();
+
+# Allow apps to create products without barcodes
+# Assign a code and return it in the response.
+if ($code eq "new") {
+
+	($code, $product_id) = assign_new_code();
+	$response{code} = $code . "";	# Make sure the code is returned as a string
+}
+
+$code = normalize_code($code);
 
 if ($code !~ /^\d+$/) {
 
@@ -72,9 +83,11 @@ if ($code !~ /^\d+$/) {
 }
 else {
 
-	my $product_ref = retrieve_product($code);
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_ref = retrieve_product($product_id);
+
 	if (not defined $product_ref) {
-		$product_ref = init_product($code);
+		$product_ref = init_product($User_id, $Org_id, $code);
 		$product_ref->{interface_version_created} = $interface_version;
 	}
 
@@ -95,7 +108,7 @@ else {
 
 		my $data =  encode_json(\%response);
 
-		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+		print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 		exit(0);
 
@@ -106,7 +119,7 @@ else {
 	my @errors = ();
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($admin and (defined param('new_code'))) {
+	if ($User{moderator} and (defined param('new_code'))) {
 
 		change_product_server_or_code($product_ref, param('new_code'), \@errors);
 		$code = $product_ref->{code};
@@ -148,6 +161,8 @@ else {
 
 		my %lc_overrides = (
 				au => "en",
+				br => "pt",
+				co => "es",
 				es => "es",
 				it => "it",
 				de => "de",
@@ -155,6 +170,7 @@ else {
 				gb => "en",
 				pt => "pt",
 				nl => "nl",
+				no => "no",
 				us => "en",
 				ie => "en",
 				nz => "en",
@@ -278,7 +294,7 @@ else {
 	detect_allergens_from_text($product_ref);
 	compute_carbon_footprint_from_ingredients($product_ref);
 	compute_carbon_footprint_from_meat_or_fish($product_ref);
-	
+
 	# Nutrition data
 
 	# Do not allow nutrition edits through API for data provided by producers
@@ -357,7 +373,23 @@ else {
 
 			my $modifier = undef;
 
-			normalize_nutriment_value_and_modifier(\$value, \$modifier);
+			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
+			# 1. if energy-kcal or energy-kj is set, delete existing energy data
+			if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
+				delete $product_ref->{nutriments}{"energy"};
+				delete $product_ref->{nutriments}{"energy_unit"};
+				delete $product_ref->{nutriments}{"energy_label"};
+				delete $product_ref->{nutriments}{"energy_value"};
+				delete $product_ref->{nutriments}{"energy_modifier"};
+				delete $product_ref->{nutriments}{"energy_100g"};
+			}
+			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
+			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+				$nid = $nid . "-" . lc($unit);
+				$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
+			}
+
+			(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
 
 			# New label?
 			my $new_nid = undef;
@@ -427,7 +459,7 @@ else {
 
 	compute_unknown_nutrients($product_ref);
 
-	ProductOpener::SiteQuality::check_quality($product_ref);
+	ProductOpener::DataQuality::check_quality($product_ref);
 
 
 	$log->info("saving product", { code => $code }) if ($log->is_info() and not $log->is_debug());
@@ -438,18 +470,22 @@ else {
 
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
-	store_product($product_ref, $comment);
+	if (store_product($product_ref, $comment)) {
+		# Notify robotoff
+		send_notification_for_product_change($product_ref, "updated");
 
-	# Notify robotoff
-	send_notification_for_product_change($product_ref, "updated");
-
-	$response{status} = 1;
-	$response{status_verbose} = 'fields saved';
+		$response{status} = 1;
+		$response{status_verbose} = 'fields saved';
+	}
+	else {
+		$response{status} = 0;
+		$response{status_verbose} = 'not modified';
+	}
 }
 
 my $data =  encode_json(\%response);
 
-print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 
 exit(0);

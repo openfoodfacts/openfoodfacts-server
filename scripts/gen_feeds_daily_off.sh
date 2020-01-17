@@ -1,6 +1,11 @@
 #!/bin/sh
 
 cd /srv/off/scripts
+
+./generate_madenearme_page.pl uk en > /srv/off/html/madenearme-uk.html
+./generate_madenearme_page.pl world en > /srv/off/html/madenearme.html
+./generate_madenearme_page.pl fr fr > /srv/off/html/cestemballepresdechezvous.html
+
 ./remove_empty_products.pl
 #./compute_missions.pl
 ./export_database.pl

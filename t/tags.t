@@ -1,11 +1,11 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP', filter => "none";;
+#use Log::Any::Adapter 'TAP', filter => "none";;
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -121,7 +121,7 @@ is($product_ref->{categories}, "Aliments et boissons à base de végétaux, Alim
 
 add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
 
-compute_field_tags($product_ref, "en", "categories");
+compute_field_tags($product_ref, "fr", "categories");
 
 is_deeply($product_ref->{categories_tags},
  [
@@ -354,5 +354,92 @@ is($newtagid, $yuka_uuid);
 is(exists_taxonomy_tag("additives", "en:n"), '');
 is(exists_taxonomy_tag("additives", "en:no"), '');
 is(exists_taxonomy_tag("additives", "en:e330"), 1);
+
+is(get_inherited_property("ingredients","en:milk","vegetarian:en"), "yes");
+is(get_property("ingredients","en:milk","vegan:en"), "no");
+is(get_inherited_property("ingredients","en:milk","vegan:en"), "no");
+is(get_inherited_property("ingredients","en:semi-skimmed-milk","vegetarian:en"), "yes");
+is(get_inherited_property("ingredients","en:semi-skimmed-milk","vegan:en"), "no");
+
+is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
+
+is(canonicalize_taxonomy_tag("de","test","Grünkohl"), "en:kale");
+is(display_taxonomy_tag("de","test","en:kale"), "Grünkohl");
+is(display_taxonomy_tag_link("de","test","en:kale"), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
+is(display_tags_hierarchy_taxonomy("de","test",["en:kale"]), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
+is(canonicalize_taxonomy_tag("fr","test","Pâte de cacao"), "fr:Pâte de cacao");
+is(display_taxonomy_tag("fr","test","fr:Pâte de cacao"), "Pâte de cacao");
+is(get_taxonomyid("en","pâte de cacao"), "pate-de-cacao");
+is(get_taxonomyid("de","pâte de cacao"), "pâte-de-cacao");
+is(get_taxonomyid("fr","fr:pâte de cacao"), "fr:pate-de-cacao");
+is(get_taxonomyid("fr","de:pâte"), "de:pâte");
+is(get_taxonomyid("de","de:pâte"), "de:pâte");
+
+$product_ref = {
+	lc => "de",
+	test => "Grünkohl, Äpfel, café, test",
+};
+
+compute_field_tags($product_ref, "de", "test");
+
+is_deeply($product_ref,
+	 {
+	    'lc' => 'de',
+	    'test' => "Gr\x{fc}nkohl, \x{c4}pfel, caf\x{e9}, test",
+	    'test_hierarchy' => [
+	      'en:kale',
+	      "de:caf\x{e9}",
+	      'de:test',
+	      "de:\x{c4}pfel"
+	    ],
+	    'test_lc' => 'de',
+	    'test_tags' => [
+	      'en:kale',
+	      "de:caf\x{e9}",
+	      'de:test',
+	      "de:\x{e4}pfel"
+	    ]
+	  }
+	
+)
+	or diag explain $product_ref;
+
+
+$product_ref = { "stores" => "Intermarché" };
+compute_field_tags($product_ref, "fr", "stores");
+is_deeply($product_ref->{stores_tags}, ["intermarche"]);
+compute_field_tags($product_ref, "de", "stores");
+is_deeply($product_ref->{stores_tags}, ["intermarche"]);
+
+is(canonicalize_taxonomy_tag("en", "test", "kefir 2.5%"), "en:kefir-2-5");
+is(canonicalize_taxonomy_tag("en", "test", "kefir 2,5%"), "en:kefir-2-5");
+is(canonicalize_taxonomy_tag("fr", "test", "kefir 2,5%"), "en:kefir-2-5");
+is(canonicalize_taxonomy_tag("fr", "test", "kéfir 2.5%"), "en:kefir-2-5");
+
+# Following should be 2.5% instead of 2.5 % for English
+is(display_taxonomy_tag("en", "test", "en:kefir-2-5"), "Kefir 2.5 %");
+is(display_taxonomy_tag("de", "test", "en:kefir-2-5"), "Kefir 2.5 %");
+# Following string has a lower comma ‚ instead of a normal comma
+is(display_taxonomy_tag("fr", "test", "en:kefir-2-5"), "Kéfir 2‚5 %");
+
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "correcteurs-d-acidite"), "correcteurs-acidite");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "yaourt-a-la-fraise"), "yaourt-fraise");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "du-miel"), "miel");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "fruits-en-proportion-variable"), "fruits");
+is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "des-de-tomate"), "des-de-tomate");
+
+my $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "categories", "en:strawberry-yogurts");
+is_deeply($tag_ref,  {
+'css_class' => 'tag known ',
+'display' => "Yaourts \x{e0} la fraise",
+'display_lc' => 'fr',
+'html_lang' => ' lang="fr"',
+'known' => 1,
+'tagid' => 'en:strawberry-yogurts',
+'tagurl' => 'yaourts-a-la-fraise'
+}
+   ) or diag explain $tag_ref;
+
+is(get_string_id_for_lang("fr", "Yaourts à la fraise"), "yaourts-a-la-fraise");
 
 done_testing();
