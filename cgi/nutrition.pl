@@ -1,26 +1,26 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -58,10 +58,12 @@ if (not defined $ocr_engine) {
 $log->debug("start", { code => $code, id => $id }) if $log->is_debug();
 
 if (not defined $code) {
-	
+
 	exit(0);
 }
-my $product_ref = retrieve_product($code);
+
+my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_ref = retrieve_product($product_id);
 
 my $results_ref = {};
 
@@ -76,7 +78,7 @@ if (($id =~ /^nutrition/) and (param('process_image'))) {
 my $data =  encode_json($results_ref);
 
 $log->debug("JSON data output", { data => $data }) if $log->is_debug();
-	
+
 print header ( -charset=>'UTF-8') . $data;
 
 

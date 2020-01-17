@@ -23,6 +23,14 @@ is (normalize_enumeration("en", "phosphates", "calcium and sodium"), "calcium ph
 is (normalize_enumeration("en", "vegetal oil", "sunflower, palm"), "sunflower vegetal oil, palm vegetal oil");
 is (normalize_enumeration("fr", "huile", "colza, tournesol et olive"), "huile de colza, huile de tournesol, huile d'olive");
 
+is (separate_additive_class("fr", "colorant", " ", "", "naturel"), "colorant ");
+is (separate_additive_class("fr", "colorant", " ", "", "carmins"), "colorant : ");
+is (separate_additive_class("fr", "colorant", " ", "", "E120, sel"), "colorant : ");
+is (separate_additive_class("fr", "colorant", " ", "", "E120 et E150b"), "colorant : ");
+is (separate_additive_class("fr", "colorant", " ", "", "caramel au sulfite d'ammonium"), "colorant : ");
+is (separate_additive_class("fr", "colorant", " ", "", "caramel au sulfite d'ammonium et rocou"), "colorant : ");
+
+
 my @lists =(
 
 	["fr","Sel marin, blé, lécithine de soja", "Sel marin, blé, lécithine de soja"],
@@ -82,6 +90,25 @@ my @lists =(
 	["es","Trazas de cacahuete, huevo y frutos de cáscara.","Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 	["es","sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara.","sal y acidulante (ácido cítrico). Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 
+	["fi","Vitamiinit A, B ja C", "Vitamiinit, Vitamiini A, Vitamiini B, Vitamiini C"],
+	["fi","Vitamiinit (B1, B2, B6)", "Vitamiinit, Vitamiini B1, Vitamiini B2, Vitamiini B6"],
+	["fi","mansikat 30%", "mansikat 30%"],
+	["fi","sakeuttamisaine pektiini", "sakeuttamisaine : pektiini"],
+	["fi","sakeuttamisaine (pektiini)", "sakeuttamisaine (pektiini)"],
+	["fi","jauhonparanne (askorbiinihappo)", "jauhonparanne (askorbiinihappo)"],
+	["fi","E250-E251", "E250 - E251"],
+	["fi","E250-E251-E260", "E250 - E251 - E260"],
+	["fi","E 250b-E251-e.260(ii)", "E250b - E251 - E260(ii)"],
+	["fi","E100 E122", "E100, E122"],
+	["fi","E103 ja E140", "E103, E140"],
+	["fi","E103 JA E140", "E103, E140"],
+	["fi","kurkumiini ja E140", "kurkumiini, E140"],
+	["fi","E140 ja karoteeni", "E140, karoteeni"],
+	["fi","omenamehu, vesi, sokeri. Saattaa sisältää maitoa.","omenamehu, vesi, sokeri. jäämät : maitoa."],
+	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pieniä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
+	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pienehköjä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
+
+
 	["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"],
 	["fr","arômes naturels de citron et de limette","arômes naturels de citron, arômes naturels de limette"],
 	["fr","arôme naturel de pomme avec d'autres arômes naturels","arôme naturel de pomme, arômes naturels"],
@@ -98,6 +125,27 @@ my @lists =(
 
 	["it","Puo contenere tracce di frutta a guscio, sesamo, soia e uova","tracce : frutta a guscio, tracce : sesamo, tracce : soia, tracce : uova."],
 	["it","Il prodotto può contenere tracce di GRANO, LATTE, UOVA, FRUTTA A GUSCIO e SOIA.","tracce : grano, tracce : latte, tracce : uova, tracce : frutta a guscio, tracce : soia."],
+
+	["fr","Jus de pomme*** 68%, jus de poire***32% *** Ingrédients issus de l'agriculture biologique","jus de pomme bio 68%, jus de poire bio 32%"],
+	["fr","Pâte de cacao°* du Pérou 65 %, sucre de canne°*, beurre de cacao°*, sel *, lait °. °Issus de l'agriculture biologique (100 %). *Issus du commerce équitable (100 % du poids total avec 93 % SPP).","Pâte de cacao Bio Commerce équitable du Pérou 65 %, sucre de canne Bio Commerce équitable, beurre de cacao Bio Commerce équitable, sel Commerce équitable, lait Bio."],
+
+	["fr","p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).","pâte de cacao Commerce équitable Bio de Madagascar 75%, sucre de canne Commerce équitable Bio, beurre de cacao Commerce équitable Bio."],
+
+	["fr","Céleri - rave 21% - Eau, légumes 33,6% (carottes, céleri - rave, poivrons rouges 5,8% - haricots - petits pois bio - haricots verts - courge - radis, pommes de terre - patates - fenouil - cerfeuil tubéreux - persil plat)","Céleri-rave 21% - Eau, légumes 33,6% (carottes, céleri-rave, poivrons rouges 5,8% - haricots - petits pois bio - haricots verts - courge - radis, pommes de terre - patates - fenouil - cerfeuil tubéreux - persil plat)"],
+	["fr","poudres à lever : carbonates d'ammonium - carbonates de sodium - phosphates de calcium, farine, sel","poudres à lever : carbonates d'ammonium - carbonates de sodium - phosphates de calcium, farine, sel"],
+	["en","FD&C Red #40 Lake and silicon dioxide","FD&C Red #40 Lake and silicon dioxide"],
+	["fr","Lait pasteurisé à 1,1% de Mat. Gr.","Lait pasteurisé à 1,1% de Matières Grasses"],
+	["fr","matière grasse végétale (palme) raffinée","matière grasse végétale de palme raffinée"],
+	["fr","huile d'olive vierge, origan", "huile d'olive vierge, origan"],
+	["fr","huile de tournesol, cacao maigre en poudre 5.2%", "huile de tournesol, cacao maigre en poudre 5.2%"],
+
+	["pl","regulatory kwasowości: kwas cytrynowy i cytryniany sodu.","regulatory kwasowości: kwas cytrynowy i cytryniany sodu."],
+
+	["de","Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle", "Wasser, Kohlensäure, Farbstoff : Zuckerkulör e150d, Süßungsmittel : Aspartam* und Acesulfam-K, Säuerungsmittel : Phosphorsäure und Citronensäure, Säureregulator : Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"],
+	["de","Farbstoffe Betenrot, Paprikaextrakt, Kurkumin","farbstoffe : betenrot, paprikaextrakt, kurkumin"],
+
+	["fr","graisse végétale bio (colza)","graisse végétale bio de colza"],
+	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
 
 );
 

@@ -22,7 +22,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -30,6 +30,9 @@ use ProductOpener::Tags qw/:all/;
 
 my $tagtype = $ARGV[0];
 my $publish = $ARGV[1];
+
+(defined $tagtype) or die '$tagtype not defined, exited';
+(defined $publish) or die '$publish not defined, exited';
 
 print "building taxonomy for $tagtype - publish: $publish\n";
 
