@@ -20,6 +20,16 @@
 
 /* eslint-disable max-classes-per-file */
 
+
+function getServerDomain() {
+  const hostname = window.location.href.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i)[1];
+  const splittedHostname = hostname.split('.');
+  // shift the first subdomain ('world', 'fr', 'uk',...)
+  splittedHostname.shift();
+
+  return `api.${splittedHostname.join('.')}`;
+}
+
 class RobotoffAsker extends HTMLElement {
 
   static get template() {
@@ -98,7 +108,8 @@ class RobotoffAsker extends HTMLElement {
   async nextQuestion() {
     this.question = this.questions ? this.questions.pop() : null;
     if (!this.question) {
-      const response = await fetch(`${this.url}/api/v1/questions/${this.code}?lang=${this.lang}`, { credentials: 'include' });
+      const serverDomain = getServerDomain();
+      const response = await fetch(`${this.url}/api/v1/questions/${this.code}?lang=${this.lang}&server_domain=${serverDomain}`, { credentials: 'include' });
       const json = await response.json();
       if (!json || json.status !== 'found') {
         this.style.display = 'none';

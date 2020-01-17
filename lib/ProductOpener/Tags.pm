@@ -58,6 +58,8 @@ BEGIN
 					&build_tags_taxonomy
 
 					&canonicalize_taxonomy_tag
+					&canonicalize_taxonomy_tag_linkeddata
+					&canonicalize_taxonomy_tag_weblink
 					&canonicalize_taxonomy_tag_link
 					&exists_taxonomy_tag
 					&display_taxonomy_tag
@@ -2494,52 +2496,14 @@ sub canonicalize_taxonomy_tag($$$)
 	$tag =~ s/^ //g;
 	$tag =~ s/ $//g;
 
-	if (($tag =~ /^(\w+:\w\w):(.+)/) and (defined $properties{$tagtype})) {
-		# Test for linked data, ie. wikidata:en:Q1234
-		my $property_key = $1;
-		my $property_value = $2;
-		my $matched_tagid;
-		foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
-			if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
-				if (defined $matched_tagid) {
-					# Bail out on multiple matches for a single tag.
-					undef $matched_tagid;
-					last;
-				}
-
-				$matched_tagid = $canon_tagid;
-			}
-		}
-
-		if (defined $matched_tagid) {
-			return $matched_tagid;
-		}
+	my $linked_data_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $tag);
+	if ($linked_data_tag) {
+		return $linked_data_tag;
 	}
 
-	if ($tag =~ /^https?:\/\/.+/) {
-		# Test for linked data URLs, ie. https://www.wikidata.org/wiki/Q1234
-		my $matched_tagid;
-		foreach my $property_key (keys %weblink_templates) {
-			next if not defined $weblink_templates{$property_key}{parse};
-			my $property_value = $weblink_templates{$property_key}{parse}->($tag);
-			if (defined $property_value) {
-				foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
-					if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
-						if (defined $matched_tagid) {
-							# Bail out on multiple matches for a single tag.
-							undef $matched_tagid;
-							last;
-						}
-
-						$matched_tagid = $canon_tagid;
-					}
-				}
-			}
-		}
-
-		if (defined $matched_tagid) {
-			return $matched_tagid;
-		}
+	my $weblink_tag = canonicalize_taxonomy_tag_weblink($tagtype, $tag);
+	if ($weblink_tag) {
+		return $weblink_tag;
 	}
 
 	if ($tag =~ /^(\w\w):/) {
@@ -2622,6 +2586,66 @@ sub canonicalize_taxonomy_tag($$$)
 
 }
 
+sub canonicalize_taxonomy_tag_linkeddata {
+	my ($tagtype, $tag) = @_;
+
+	if ((not defined $tagtype)
+		or (not defined $tag)
+		or (not ($tag =~ /^(\w+:\w\w):(.+)/))
+		or (not defined $properties{$tagtype})) {
+			return;
+	}
+
+	# Test for linked data, ie. wikidata:en:Q1234
+	my $property_key = $1;
+	my $property_value = $2;
+	my $matched_tagid;
+	foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
+		if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
+			if (defined $matched_tagid) {
+				# Bail out on multiple matches for a single tag.
+				undef $matched_tagid;
+				last;
+			}
+
+			$matched_tagid = $canon_tagid;
+		}
+	}
+
+	return $matched_tagid;
+}
+
+sub canonicalize_taxonomy_tag_weblink {
+	my ($tagtype, $tag) = @_;
+
+	if ((not defined $tagtype)
+		or (not defined $tag)
+		or (not ($tag =~ /^https?:\/\/.+/))) {
+			return;
+	}
+
+	# Test for linked data URLs, ie. https://www.wikidata.org/wiki/Q1234
+	my $matched_tagid;
+	foreach my $property_key (keys %weblink_templates) {
+		next if not defined $weblink_templates{$property_key}{parse};
+		my $property_value = $weblink_templates{$property_key}{parse}->($tag);
+		if (defined $property_value) {
+			foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
+				if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
+					if (defined $matched_tagid) {
+						# Bail out on multiple matches for a single tag.
+						undef $matched_tagid;
+						last;
+					}
+
+					$matched_tagid = $canon_tagid;
+				}
+			}
+		}
+	}
+
+	return $matched_tagid;
+}
 
 sub generate_spellcheck_candidates($$) {
 

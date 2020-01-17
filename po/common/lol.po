@@ -5,11 +5,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-05 15:43\n"
+"PO-Revision-Date: 2019-12-17 10:53\n"
 "Language-Team: LOLCAT\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: lol\n"
@@ -123,10 +123,13 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "crwdns102148:0crwdne102148:0"
 
-# Please check that the HTML tag stayed intact
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.svg\" loading=\"lazy\" alt=\"Android APK\" />"
-msgstr "crwdns121192:0crwdne121192:0"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "crwdns124863:0crwdne124863:0"
+
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "crwdns124865:0crwdne124865:0"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -134,9 +137,13 @@ msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "crwdns102152:0crwdne102152:0"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/google-play-badge-svg-master/img/en_get.svg\" alt=\"Available on Google Play\" width=\"102\" height=\"40\" />"
-msgstr "crwdns121208:0crwdne121208:0"
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "crwdns124867:0crwdne124867:0"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "crwdns124869:0crwdne124869:0"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -966,9 +973,14 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "crwdns102542:0%scrwdne102542:0"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/appstore/black/appstore_US.svg\" alt=\"Available on the App Store\" width=\"120\" height=\"40\" />"
-msgstr "crwdns121210:0crwdne121210:0"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "crwdns124871:0crwdne124871:0"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr "crwdns124873:0crwdne124873:0"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2076,20 +2088,28 @@ msgid "Download results"
 msgstr "crwdns103082:0crwdne103082:0"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "crwdns103084:0crwdne103084:0"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "crwdns124935:0crwdne124935:0"
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "crwdns103086:0crwdne103086:0"
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "crwdns124937:0crwdne124937:0"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "crwdns124939:0crwdne124939:0"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "crwdns124941:0crwdne124941:0"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr "crwdns124943:0crwdne124943:0"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "crwdns103088:0crwdne103088:0"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "crwdns103090:0crwdne103090:0"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2554,9 +2574,13 @@ msgid "Site or blog address"
 msgstr "crwdns103314:0crwdne103314:0"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/microsoft/English.svg\" alt=\"Windows Phone Store\" width=\"109\" height=\"40\" />"
-msgstr "crwdns121212:0crwdne121212:0"
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "crwdns124875:0crwdne124875:0"
+
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr "crwdns124877:0crwdne124877:0"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2770,6 +2794,11 @@ msgstr "crwdns103418:0crwdne103418:0"
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "crwdns103420:0crwdne103420:0"
+
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr "crwdns124931:0crwdne124931:0"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -4005,4 +4034,8 @@ msgstr "crwdns124513:0crwdne124513:0"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "crwdns124515:0crwdne124515:0"
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "crwdns124945:0crwdne124945:0"
 

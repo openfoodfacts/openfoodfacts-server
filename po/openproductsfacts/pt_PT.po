@@ -5,11 +5,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-04 18:33\n"
+"PO-Revision-Date: 2019-12-24 14:08\n"
 "Language-Team: Portuguese\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: pt-PT\n"
 "X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
@@ -22,12 +21,12 @@ msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=pt"
 
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
+msgstr "https://apps.apple.com/pt/app/open-beauty-facts/id1122926380"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
