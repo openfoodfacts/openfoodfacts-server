@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -38,7 +38,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 
 
 use Apache2::RequestRec ();
@@ -59,9 +59,20 @@ my $interface_version = '20150316.jqm2';
 
 my %response = ();
 
-my $code = normalize_code(param('code'));
+my $code = param('code');
+my $product_id;
 
 $log->debug("start", { code => $code, lc => $lc }) if $log->is_debug();
+
+# Allow apps to create products without barcodes
+# Assign a code and return it in the response.
+if ($code eq "new") {
+
+	($code, $product_id) = assign_new_code();
+	$response{code} = $code . "";	# Make sure the code is returned as a string
+}
+
+$code = normalize_code($code);
 
 if ($code !~ /^\d+$/) {
 
@@ -72,9 +83,11 @@ if ($code !~ /^\d+$/) {
 }
 else {
 
-	my $product_ref = retrieve_product($code);
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_ref = retrieve_product($product_id);
+
 	if (not defined $product_ref) {
-		$product_ref = init_product($code);
+		$product_ref = init_product($User_id, $Org_id, $code);
 		$product_ref->{interface_version_created} = $interface_version;
 	}
 
@@ -95,22 +108,22 @@ else {
 
 		my $data =  encode_json(\%response);
 
-		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+		print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 		exit(0);
 
 	}
-	
+
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
-	
+
 	my @errors = ();
-	
+
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($admin and (defined param('new_code'))) {
-	
+	if ($User{moderator} and (defined param('new_code'))) {
+
 		change_product_server_or_code($product_ref, param('new_code'), \@errors);
 		$code = $product_ref->{code};
-	}	
+	}
 
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
@@ -139,7 +152,39 @@ else {
 	}
 	my @param_langs = keys %param_langs;
 
+	# 01/06/2019 --> Yuka always sends fr fields even for Spanish products, try to correct it
+
+	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined param('cc'))) {
+
+		my $param_cc = lc(param('cc'));
+		$param_cc =~ s/^en://;
+
+		my %lc_overrides = (
+				au => "en",
+				br => "pt",
+				co => "es",
+				es => "es",
+				it => "it",
+				de => "de",
+				uk => "en",
+				gb => "en",
+				pt => "pt",
+				nl => "nl",
+				no => "no",
+				us => "en",
+				ie => "en",
+				nz => "en",
+		);
+
+		if (defined $lc_overrides{$param_cc}) {
+			$lc = $lc_overrides{$param_cc};
+		}
+	}
+
 	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+
+
+
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
 		if ((defined $User_id) and ($User_id eq 'kiliweb')
@@ -158,12 +203,6 @@ else {
 
 			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
 
-			if ($field eq 'emb_codes') {
-				# French emb codes
-				$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
-			}
-
 			print STDERR "product_jqm_multilingual.pl - lc: $lc - adding value to field $field - additional: $additional_fields - existing: $product_ref->{$field}\n";
 
 			compute_field_tags($product_ref, $lc, $field);
@@ -171,7 +210,7 @@ else {
 		}
 
 		elsif (defined param($field)) {
-		
+
 			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 			if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
 				print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field\n";
@@ -189,17 +228,17 @@ else {
 		}
 
 		if (defined $language_fields{$field}) {
-		
+
 			foreach my $param_lang (@param_langs) {
 				my $field_lc = $field . '_' . $param_lang;
 				if (defined param($field_lc)) {
-				
+
 					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 					if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
 						print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field_lc\n";
 					}
 					else {
-				
+
 						$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8=>param($field_lc));
 						compute_field_tags($product_ref, $lc, $field_lc);
 					}
@@ -253,15 +292,17 @@ else {
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
+	compute_carbon_footprint_from_ingredients($product_ref);
+	compute_carbon_footprint_from_meat_or_fish($product_ref);
 
 	# Nutrition data
-	
-	# Do not allow nutrition edits through API for data provided by producers 
+
+	# Do not allow nutrition edits through API for data provided by producers
 	if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{"nutriments"})) {
 		print STDERR "product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
 	}
 	else {
-	
+
 		if (defined param("no_nutrition_data")) {
 			$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
 		}
@@ -288,6 +329,30 @@ else {
 			push @new_nutriments, "new_$i";
 		}
 
+		# fix_salt_equivalent always prefers the 'salt' value of the product by default
+		# the 'sodium' value should be preferred, though, if the 'salt' parameter is not
+		# present. Therefore, delete the 'salt' value and let it be fixed by
+		# fix_salt_equivalent afterwards.
+		foreach my $product_type ("", "_prepared") {
+			my $saltnid = "salt${product_type}";
+			my $sodiumnid = "sodium${product_type}";
+
+			my $salt = param("nutriment_${saltnid}");
+			my $sodium = param("nutriment_${sodiumnid}");
+
+			if (((not defined $salt) or ($salt eq ''))
+				and (defined $sodium) and ($sodium ne ''))
+			{
+				delete $product_ref->{nutriments}{$saltnid};
+				delete $product_ref->{nutriments}{$saltnid . "_unit"};
+				delete $product_ref->{nutriments}{$saltnid . "_value"};
+				delete $product_ref->{nutriments}{$saltnid . "_modifier"};
+				delete $product_ref->{nutriments}{$saltnid . "_label"};
+				delete $product_ref->{nutriments}{$saltnid . "_100g"};
+				delete $product_ref->{nutriments}{$saltnid . "_serving"};
+			}
+		}
+
 		foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
 			next if $nutriment =~ /^\#/;
 
@@ -308,7 +373,23 @@ else {
 
 			my $modifier = undef;
 
-			normalize_nutriment_value_and_modifier(\$value, \$modifier);
+			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
+			# 1. if energy-kcal or energy-kj is set, delete existing energy data
+			if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
+				delete $product_ref->{nutriments}{"energy"};
+				delete $product_ref->{nutriments}{"energy_unit"};
+				delete $product_ref->{nutriments}{"energy_label"};
+				delete $product_ref->{nutriments}{"energy_value"};
+				delete $product_ref->{nutriments}{"energy_modifier"};
+				delete $product_ref->{nutriments}{"energy_100g"};
+			}
+			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
+			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+				$nid = $nid . "-" . lc($unit);
+				$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
+			}
+
+			(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
 
 			# New label?
 			my $new_nid = undef;
@@ -360,8 +441,8 @@ else {
 			}
 		}
 	}
-	
-	
+
+
 	# Compute nutrition data per 100g and per serving
 
 	$log->trace("compute_serving_size_date") if ($admin and $log->is_trace());
@@ -378,7 +459,7 @@ else {
 
 	compute_unknown_nutrients($product_ref);
 
-	ProductOpener::SiteQuality::check_quality($product_ref);
+	ProductOpener::DataQuality::check_quality($product_ref);
 
 
 	$log->info("saving product", { code => $code }) if ($log->is_info() and not $log->is_debug());
@@ -389,18 +470,22 @@ else {
 
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
-	store_product($product_ref, $comment);
-	
-	# Notify robotoff
-	send_notification_for_product_change($product_ref, "updated");
+	if (store_product($product_ref, $comment)) {
+		# Notify robotoff
+		send_notification_for_product_change($product_ref, "updated");
 
-	$response{status} = 1;
-	$response{status_verbose} = 'fields saved';
+		$response{status} = 1;
+		$response{status_verbose} = 'fields saved';
+	}
+	else {
+		$response{status} = 0;
+		$response{status_verbose} = 'not modified';
+	}
 }
 
 my $data =  encode_json(\%response);
 
-print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 
 exit(0);

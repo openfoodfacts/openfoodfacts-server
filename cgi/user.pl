@@ -1,26 +1,26 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -41,7 +41,7 @@ ProductOpener::Display::init();
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
 
-my $userid = get_fileid(param('userid'));
+my $userid = get_fileid(param('userid'), 1);
 
 my $html = '';
 
@@ -77,43 +77,50 @@ if ($action eq 'process') {
 			}
 		}
 	}
-	
+
 	ProductOpener::Users::check_user_form($user_ref, \@errors);
-	
+
 	if ($#errors >= 0) {
 		$action = 'display';
-	}	
+	}
 }
 
 
 if ($action eq 'display') {
-	
+
 	$scripts .= <<SCRIPT
 SCRIPT
 ;
 
 	if ($#errors >= 0) {
-		$html .= "<p><b>$Lang{correct_the_following_errors}{$lang}</b></p>";
+		$html .= "
+		<div class='alert-box alert'>
+			<p>
+				<b>$Lang{correct_the_following_errors}{$lang}</b>
+			</p>
+		";
 		foreach my $error (@errors) {
-			$html .= "<p class=\"error\">$error</p>\n";
+			$html .= "$error<br />";
 		}
+		$html .= '</div>';
 	}
-	
+
 	$html .= start_form()
 	. "<table>";
-	
+
 	$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
 	$html .= ProductOpener::Users::display_user_form_optional($user_ref);
-	
+	$html .= ProductOpener::Users::display_user_form_admin_only($user_ref);
+
 	if ($admin) {
 		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>lang("delete_user")) . "</td></tr>";
-	}	
-	
+	}
+
 	$html .= "\n<tr><td>"
 	. hidden(-name=>'action', -value=>'process', -override=>1)
 	. hidden(-name=>'type', -value=>$type, -override=>1)
 	. hidden(-name=>'userid', -value=>$userid, -override=>1)
-	. submit()
+	. submit(-class=>'button')
 	. "</td></tr>\n</table>"
 	. end_form();
 
@@ -127,14 +134,18 @@ elsif ($action eq 'process') {
         }
 	}
 	elsif ($type eq 'delete') {
-		ProductOpener::Users::delete_user($user_ref);		
+		ProductOpener::Users::delete_user($user_ref);
 	}
-	
+
 	$html .= lang($type . $dialog);
-	
+
 	if (($type eq 'add') or ($type eq 'edit')) {
-		$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
-		$html .= "<p>" . lang("bottom_content") . "</p>\n";
+
+		# Do not display donate link on producers platform
+		if (not $server_options{producers_platform}) {
+			$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
+			$html .= "<p>" . lang("bottom_content") . "</p>\n";
+		}
 	}
 }
 

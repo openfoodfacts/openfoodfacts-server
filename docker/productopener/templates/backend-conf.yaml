@@ -45,7 +45,7 @@ data:
     package ProductOpener::Config;
 
     use utf8;
-    use Modern::Perl '2012';
+    use Modern::Perl '2017';
     use Exporter    qw< import >;
 
     BEGIN
@@ -53,7 +53,8 @@ data:
     	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
     	@EXPORT = qw();
     	@EXPORT_OK = qw(
-    		%admins
+    		%string_normalization_for_lang
+        %admins
     		%moderators
 
     		$server_domain
@@ -88,8 +89,7 @@ data:
     		$page_size
 
     		%options
-
-    		%wiki_texts
+        %server_options
 
     		@product_fields
     		@product_other_fields
@@ -111,6 +111,58 @@ data:
     use vars @EXPORT_OK ; # no 'my' keyword for these
 
     use ProductOpener::Config2;
+
+    # define the normalization applied to change a string to a tag id (in particular for taxonomies)
+    # tag ids are also used in URLs.
+
+    # unaccent:
+    # - useful when accents are sometimes ommited (e.g. in French accents are often not present on capital letters),
+    # either in print, or when typed by users.
+    # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
+    # lowercase:
+    # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+    %string_normalization_for_lang = (
+      # no_language is used for strings that are not in a specific language (e.g. user names)
+      no_language => {
+        unaccent => 1,
+        lowercase => 1,
+      },
+      # default is used for languages that do not have specified values
+      default => {
+        unaccent => 0,
+        lowercase => 1,
+      },
+      # German umlauts should not be converted (e.g. ä -> ae) as there are many conflicts
+      de => {
+        unaccent => 0,
+        lowercase => 1,
+      },
+      # French has very few actual conflicts caused by unaccenting (one counter example is "pâtes" and "pâtés")
+      # Accents or often not present in capital letters (beginning of word, or in all caps text).
+      fr => {
+        unaccent => 1,
+        lowercase => 1,
+      },
+      # Same for Spanish, Italian and Portuguese
+      es => {
+        unaccent => 1,
+        lowercase => 1,
+      },
+      it => {
+        unaccent => 1,
+        lowercase => 1,
+      },
+      pt => {
+        unaccent => 1,
+        lowercase => 1,
+      },
+      # English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
+      en => {
+        unaccent => 1,
+        lowercase => 1,
+      },
+    );
 
     %admins = map { $_ => 1 } qw(
     admin
@@ -205,6 +257,7 @@ data:
     $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
     $robotoff_url = $ProductOpener::Config2::robotoff_url;
+    %server_options = %ProductOpener::Config2::server_options;
 
     $csrf_secret = $Blogs::Config2::csrf_secret;
 
@@ -242,7 +295,7 @@ data:
 
     my @related_applications = (
     	{ 'platform' => 'play', 'id' => 'org.openfoodfacts.scanner', 'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner' },
-    	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://itunes.apple.com/app/id588797948' },
+    	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948' },
     );
 
     my $manifest;
@@ -267,125 +320,159 @@ data:
     XML
     ;
 
-    %wiki_texts = (
-
-    "en/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
-    "es/descubrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-    "fr/decouvrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_French?action=raw",
-    "he/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Hebrew?action=raw",
-    "ar/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Arabic?action=raw",
-    "pt/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Portuguese?action=raw",
-    "jp/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Japanese?action=raw",
-
-    "de/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_German?action=raw",
-    "en/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_English?action=raw",
-    "es/contribuir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-    "fr/contribuer" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_French?action=raw",
-    "nl/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_Dutch?action=raw",
-
-    "en/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_English?action=raw",
-    "fr/presse" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_French?action=raw",
-    "el/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_Greek?action=raw",
-
-    "en/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-    "fr/code-de-conduite" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
-    "ja/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_Japanese?action=raw",
-    "de/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_German?action=raw",
-
-    "fr/notetondistrib" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
-    "en/rateyourvendingmachine" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_English?action=raw",
-
-    );
-
-
     # fields for which we will load taxonomies
+    @taxonomy_fields = qw(states countries languages labels categories additives additives_classes
+    vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
+    nutrient_levels misc ingredients ingredients_analysis nova_groups);
 
-    @taxonomy_fields = qw(states countries languages labels categories additives additives_classes allergens traces nutrient_levels misc);
 
+    # fields in product edit form, above ingredients and nutrition facts
 
-    # fields in product edit form
-
-    @product_fields = qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+    @product_fields = qw(quantity packaging brands categories labels origins manufacturing_places
+    emb_codes link expiration_date purchase_places stores countries  );
 
     # fields currently not shown in the default edit form, can be used in imports or advanced edit forms
 
     @product_other_fields = qw(
-    producer_version_id
-    net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume_value volume_unit
-    other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard
-    nutrition_grade_fr_producer
+      producer_product_id
+      producer_version_id
+      net_weight_value
+      net_weight_unit
+      drained_weight_value
+      drained_weight_unit
+      volume_value
+      volume_unit
+      other_information
+      conservation_conditions
+      recycling_instructions_to_recycle
+      recycling_instructions_to_discard
+      nutrition_grade_fr_producer
+      recipe_idea origin
+      customer_service
+      producer
+      preparation
+      warning
+      data_sources
     );
+
 
     # fields shown on product page
     # do not show purchase_places
 
-    @display_fields = qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link stores countries);
+    @display_fields = qw(
+      generic_name
+      quantity
+      packaging
+      brands
+      categories
+      labels
+      origin
+      origins
+      producer
+      manufacturing_places
+      emb_codes
+      link stores
+      countries
+    );
 
     # fields displayed in a new section after the nutrition facts
 
-    @display_other_fields = qw(other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard);
+    @display_other_fields = qw(
+      other_information
+      preparation
+      recipe_idea
+      warning
+      conservation_conditions
+      recycling_instructions_to_recycle
+      recycling_instructions_to_discard
+      customer_service
+    );
+
 
     # fields for drilldown facet navigation
 
     @drilldown_fields = qw(
-    brands
-    categories
-    labels
-    packaging
-    origins
-    manufacturing_places
-    emb_codes
-    ingredients
-    additives
-    allergens
-    traces
-    nutrition_grades
-    misc
-    languages
-    users
-    states
-    entry_dates
-    last_edit_dates
+      brands
+      categories
+      labels
+      packaging
+      origins
+      manufacturing_places
+      emb_codes
+      ingredients
+      additives
+      vitamins
+      minerals
+      amino_acids
+      nucleotides
+      other_nutritional_substances
+      allergens
+      traces
+      nova_groups
+      nutrition_grades
+      misc
+      languages
+      users
+      states
+      data_sources
+      entry_dates
+      last_edit_dates
+      last_check_dates
     );
+
 
     @export_fields = qw(
-    code
-    creator
-    created_t
-    last_modified_t
-    product_name
-    generic_name
-    quantity
-    packaging
-    brands
-    categories
-    origins
-    manufacturing_places
-    labels
-    emb_codes
-    cities
-    purchase_places
-    stores
-    countries
-    ingredients_text
-    allergens
-    traces
-    serving_size
-    serving_quantity
-    no_nutriments
-    additives_n
-    additives
-    ingredients_from_palm_oil_n
-    ingredients_from_palm_oil
-    ingredients_that_may_be_from_palm_oil_n
-    ingredients_that_may_be_from_palm_oil
-    nutrition_grade_fr
-    nova_group
-    pnns_groups_1
-    pnns_groups_2
-    states
+      code
+      creator
+      created_t
+      last_modified_t
+      product_name
+      generic_name
+      quantity
+      packaging
+      brands
+      categories
+      origins
+      manufacturing_places
+      labels
+      emb_codes
+      cities
+      purchase_places
+      stores
+      countries
+      ingredients_text
+      allergens
+      traces
+      serving_size
+      serving_quantity
+      no_nutriments
+      additives_n
+      additives
+      ingredients_from_palm_oil_n
+      ingredients_from_palm_oil
+      ingredients_that_may_be_from_palm_oil_n
+      ingredients_that_may_be_from_palm_oil
+      nutrition_grade_fr
+      nova_group
+      pnns_groups_1
+      pnns_groups_2
+      states
     );
 
+    $options{import_export_fields_groups} = [
+      ["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
+        "quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "packaging",
+        "brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores"]
+      ],
+      ["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+      ],
+      ["ingredients", ["ingredients_text", "allergens", "traces"]
+      ],
+      ["nutrition"],
+      ["nutrition_other"],
+      ["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+      ],
+    ];
 
     # for ingredients OCR, we use tesseract-ocr
     # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
@@ -426,7 +513,7 @@ data:
     package ProductOpener::Config2;
 
     use utf8;
-    use Modern::Perl '2012';
+    use Modern::Perl '2017';
     use Exporter    qw< import >;
 
     BEGIN
@@ -446,7 +533,7 @@ data:
     	  $facebook_app_secret
         $csrf_secret
         $robotoff_url
-
+        %server_options
     	);
     	%EXPORT_TAGS = (all => [@EXPORT_OK]);
     }
@@ -477,6 +564,11 @@ data:
     # enable an in-site robotoff-asker in the product page
     $robotoff_url = '';
 
+    %server_options = (
+        private_products => 1,  # Make products visible only to the owner
+        export_servers => { public => "off", experiment => "off-exp" },
+        minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
+    );
     1;
 
   log.conf: |
