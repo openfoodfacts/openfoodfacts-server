@@ -111,8 +111,28 @@ my @tests = (
     'text' => 'milk'
   }
 ]
+	],
 
 
+	[ { lc => "es", ingredients_text => "sal y acidulante (ácido cítrico)"}, 
+[
+  {
+    'id' => 'en:salt',
+    'text' => 'sal'
+  },
+  {
+    'id' => 'en:acid',
+    'ingredients' => [
+      {
+        'id' => 'en:e330',
+        'text' => "\x{e1}cido c\x{ed}trico"
+      }
+    ],
+    'text' => 'acidulante'
+  }
+
+]
+	
 	],
 
 );

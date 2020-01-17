@@ -852,6 +852,8 @@ sub parse_ingredients_text($) {
 			push @ingredients, $before;
 		}
 
+		my $i = 0;	# Counter for ingredients, used to know if it is the last ingredient
+
 		foreach my $ingredient (@ingredients) {
 
 			chomp($ingredient);
@@ -1046,12 +1048,21 @@ sub parse_ingredients_text($) {
 
 						if ($between ne '') {
 							# Ingredient has sub-ingredients
-							$ingredient{ingredients} = [];
-							$analyze_ingredients_self->($analyze_ingredients_self, $ingredient{ingredients}, $between_level, $between);
+
+							# we may have separated 2 ingredients:
+							# e.g. "salt and acid (acid citric)" -> salt + acid
+							# the sub ingredients only apply to the last ingredient
+
+							if ($i == $#ingredients) {
+								$ingredient{ingredients} = [];
+								$analyze_ingredients_self->($analyze_ingredients_self, $ingredient{ingredients}, $between_level, $between);
+							}
 						}
 					}
 				}
 			}
+
+			$i++;
 		}
 
 		if ($after ne '') {
