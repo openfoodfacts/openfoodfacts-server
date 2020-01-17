@@ -3481,7 +3481,7 @@ sub mmoll_to_unit {
 		fi => "Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt",
 		fi_synonyms => ["Hedelmät ja kasvikset", "Hedelmät, kasvikset ja pähkinät"],
 		fr => "Fruits, légumes, noix et huiles de colza, noix et olive",
-		fr_synonyms => ["Fruits et légumes", "Fruits / légumes", "F&L", "Fruits, légumes et noix", "Fruits, légumes, noix"],
+		fr_synonyms => ["Fruits et légumes", "Fruits / légumes", "F&L", "Fruits, légumes et noix", "Fruits, légumes, noix", "Fruits, légumes, légumineuses, fruits à coques"],
 		es => "Frutas, verduras y nueces",
 		el => "Φρούτα, λαχανικά, καρποί",
 		nl => "Fruit, groenten en noten",
