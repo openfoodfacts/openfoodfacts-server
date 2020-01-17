@@ -104,16 +104,19 @@ my %traces_regexps = (
 	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
 	fr => "peut contenir|qui utilise aussi|traces|traces possibles|traces éventuelles|trace|trace possible|trace éventuelle",
 	it => "può contenere|puo contenere|che utilizza anche|tracce|possibili tracce|eventuali tracce|traccia|possibile traccia|eventuale traccia",
+	nl => "Dit product kan sporen",
 
 );
 
 my %allergens_stopwords = (
 
 	en => "and|of|this|product|other|made|manufactured|in|a|factory|which|also|uses",
-	de => "enthalten|von|und",
+	de => "enthalten|von|und|anderen",
 	es => "y|de|que|contiene|contienen|otros",
 	fi => "ja|muita|muuta|tehtaassa|valmistettu|saattaa|sisältää|pieniä|pienehköjä|määriä",
 	fr => "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et",
+	it => "e",
+	nl => "van",
 
 );
 
@@ -133,6 +136,7 @@ my %of = (
 	es => " de ",
 	fr => " de | du | des | d'",
 	it => " di | d'",
+	nl => " van ",
 );
 
 my %and = (

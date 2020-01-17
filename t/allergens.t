@@ -5,7 +5,7 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP';
+use Log::Any::Adapter 'TAP', filter=>"none";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -199,7 +199,7 @@ is_deeply($product_ref->{traces_tags},  [
 	
 $product_ref = {
 	lc => "de", lang => "de",
-	ingredients_text_de => "aus kontrolliert ökologischem Anbau Kann Spuren von Milch, Erdnüssen, Soja, anderen Schalenfrüchten und Sesamsamen enthalten.",
+	ingredients_text_de => "aus kontrolliert ökologischem Anbau. Kann Spuren von Milch, Erdnüssen, Soja, anderen Schalenfrüchten und Sesamsamen enthalten.",
 };
 
 compute_languages($product_ref);
@@ -213,14 +213,14 @@ is_deeply($product_ref->{traces_tags},  [
 'en:milk',
 'en:nuts',
 'en:peanuts',
+'en:sesame-seeds',
 'en:soybeans',
-'en:sesame',
 ]
-);
+) or diag explain $product_ref;
 
 $product_ref = {
 	lc => "de", lang => "de",
-	ingredients_text_de => "Kann Spuren von Milch,Welzen enthalten",
+	ingredients_text_de => "Kann Spuren von Milch, Weizen enthalten",
 };
 
 compute_languages($product_ref);
@@ -231,10 +231,10 @@ is_deeply($product_ref->{allergens_tags}, [
 );
 
 is_deeply($product_ref->{traces_tags},  [
-'en:milk',
 'en:gluten',
+'en:milk',
 ]
-);
+) or diag explain $product_ref;
 
 $product_ref = {
 	lc => "de", lang => "de",
@@ -250,8 +250,8 @@ is_deeply($product_ref->{allergens_tags}, [
 
 is_deeply($product_ref->{traces_tags},  [
 'en:eggs',
-'en:sesame',
-'en:other nuts',
+'en:sesame-seeds',
+'en:nuts',
 ]
 );
 
