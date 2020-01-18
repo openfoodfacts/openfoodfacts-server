@@ -104,8 +104,8 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/contact.en.html
-    translation: /lang/%two_letters_code%/texts/contact.en.html
+  - source: /lang/en/texts/contact.html
+    translation: /lang/%two_letters_code%/texts/contact.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -136,8 +136,8 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/data.en.html
-    translation: /lang/%two_letters_code%/texts/data.en.html
+  - source: /lang/en/texts/data.html
+    translation: /lang/%two_letters_code%/texts/data.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -200,24 +200,8 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/index.en.html
-    translation: /lang/%two_letters_code%/texts/index.en.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr_RS
-        ku : kmr_TR
-        kmr: kmr
-  - source: /lang/en/texts/index.foundation.en.html
-    translation: /lang/%two_letters_code%/texts/index.foundation.en.html
+  - source: /lang/en/texts/index.html
+    translation: /lang/%two_letters_code%/texts/index.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -264,7 +248,7 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/nutrition-score-uk.html
+  - source: /lang/en/texts/nutrition-traffic-lights.html
     translation: /lang/%two_letters_code%/texts/nutrition-score-uk.html
     languages_mapping:
       two_letters_code:
@@ -536,8 +520,8 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/nova-groups-for-food-processing.html
-    translation: /lang/%two_letters_code%/texts/nova-groups-for-food-processing.html
+  - source: /lang/en/texts/nova.html
+    translation: /lang/%two_letters_code%/texts/nova.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -746,6 +730,246 @@ files:
         kmr: kmr
   - source: /lang/en/texts/science.html
     translation: /lang/%two_letters_code%/texts/science.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/open-food-facts-and-the-nutriscore.html
+    translation: /lang/%two_letters_code%/texts/open-food-facts-and-the-nutriscore.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-android.html
+    translation: /lang/%two_letters_code%/texts/dev-android.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-artificial-intelligence.html
+    translation: /lang/%two_letters_code%/texts/dev-artificial-intelligence.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-general.html
+    translation: /lang/%two_letters_code%/texts/dev-general.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-ios.html
+    translation: /lang/%two_letters_code%/texts/dev-ios.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-server.html
+    translation: /lang/%two_letters_code%/texts/dev-server.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/development.html
+    translation: /lang/%two_letters_code%/texts/development.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/sendinblue.html
+    translation: /lang/%two_letters_code%/texts/sendinblue.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/presskit_other_languages.html
+    translation: /lang/%two_letters_code%/texts/presskit_other_languages.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/press-kit.html
+    translation: /lang/%two_letters_code%/texts/presskit.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/keyfacts.html
+    translation: /lang/%two_letters_code%/texts/keyfacts.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/contacts.html
+    translation: /lang/%two_letters_code%/texts/contacts.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/numbers-selected.html
+    translation: /lang/%two_letters_code%/texts/numbers-selected.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /html/donate/en.html
+    translation: /html/donate/%two_letters_code%.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/index-pro.html
+    translation: /lang/%two_letters_code%/texts/index-pro.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK

@@ -3,6 +3,7 @@
   "dockerComposeFile": [
     "../docker/docker-compose.yml",
     "../docker/docker-compose.dev.yml",
+    "../docker/docker-compose.admin-uis.yml",
     "../docker/docker-compose.vscode.yml"
   ],
   "service": "backend",

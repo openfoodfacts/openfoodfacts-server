@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -31,7 +31,6 @@ BEGIN
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
-		%moderators
 
 		$server_domain
 		@ssl_subdomains
@@ -70,8 +69,7 @@ BEGIN
 		$page_size
 
 		%options
-
-		%wiki_texts
+		%server_options
 
 		@product_fields
 		@product_other_fields
@@ -147,34 +145,12 @@ use ProductOpener::Config2;
 );
 
 %admins = map { $_ => 1 } qw(
-	agamitsudo
-	aleene
-	bcatelin
-	bojackhorseman
 	charlesnepote
 	hangy
-	javichu
-	kyzh
-	lafel
-	lucaa
-	mbe
-	moon-rabbit
-	raphael0202
-	sebleouf
-	segundo
 	stephane
 	tacinte
-	tacite
 	teolemon
-	twoflower
-
-	jniderkorn
-	desan
-	cedagaesse
-	m-etchebarne
 );
-
-%moderators = map { $_ => 1 } qw();
 
 $options{export_limit} = 10000;
 
@@ -185,6 +161,8 @@ $options{users_who_can_upload_small_images} = {
 		teolemon
 	)
 };
+
+$options{product_type} = "food";
 
 @edit_rules = (
 
@@ -358,6 +336,10 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 
+# server options
+
+%server_options = %ProductOpener::Config2::server_options;
+
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
@@ -374,20 +356,16 @@ $page_size = 20;
 
 
 $google_analytics = <<HTML
-<script type="text/javascript">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-31851927-1']);
-  _gaq.push(['_setDomainName', 'openfoodfacts.org']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
+  gtag('config', 'UA-31851927-1');
 </script>
+
 HTML
 ;
 
@@ -409,7 +387,7 @@ my @icons = (
 
 my @related_applications = (
 	{ 'platform' => 'play', 'id' => 'org.openfoodfacts.scanner', 'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner' },
-	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://itunes.apple.com/app/id588797948' },
+	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948' },
 	{ 'platform' => 'windows', 'id' => '9nblggh0dkqr', 'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr' },
 );
 
@@ -507,45 +485,14 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	fr:levures
 )];
 
-
-
-
-%wiki_texts = (
-
-	"en/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
-	"es/descubrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-	"fr/decouvrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_French?action=raw",
-	"he/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Hebrew?action=raw",
-	"ar/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Arabic?action=raw",
-	"pt/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Portuguese?action=raw",
-	"jp/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Japanese?action=raw",
-
-	"de/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_German?action=raw",
-	"en/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_English?action=raw",
-	"es/contribuir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-	"fr/contribuer" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_French?action=raw",
-	"nl/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_Dutch?action=raw",
-
-	"en/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_English?action=raw",
-	"fr/presse" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_French?action=raw",
-	"el/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_Greek?action=raw",
-
-	"en/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-	"fr/code-de-conduite" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
-	"ja/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_Japanese?action=raw",
-	"de/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_German?action=raw",
-
-	"fr/notetondistrib" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
-	"en/rateyourvendingmachine" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_English?action=raw",
-
-);
-
-
 # fields for which we will load taxonomies
 
 @taxonomy_fields = qw(states countries languages labels categories additives additives_classes
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
-nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing);
+nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
+data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
+improvements
+);
 
 
 # fields in product edit form, above ingredients and nutrition facts
@@ -558,6 +505,10 @@ nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_pr
 @product_other_fields = qw(
 	producer_product_id
 	producer_version_id
+	quantity_value
+	quantity_unit
+	serving_size_value
+	serving_size_unit
 	net_weight_value
 	net_weight_unit
 	drained_weight_value
@@ -569,7 +520,10 @@ nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_pr
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	nutrition_grade_fr_producer
-	recipe_idea origin
+	nutriscore_score_producer
+	nutriscore_grade_producer
+	recipe_idea
+	origin
 	customer_service
 	producer
 	preparation
@@ -674,12 +628,30 @@ nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_pr
 	ingredients_from_palm_oil
 	ingredients_that_may_be_from_palm_oil_n
 	ingredients_that_may_be_from_palm_oil
-	nutrition_grade_fr
+	nutriscore_score
+	nutriscore_grade
 	nova_group
 	pnns_groups_1
 	pnns_groups_2
 	states
 );
+
+
+$options{import_export_fields_groups} = [
+	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
+		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "serving_size_value_unit", "packaging",
+		"brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores", "obsolete", "obsolete_since_date"]
+	],
+	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	],
+	["ingredients", ["ingredients_text", "allergens", "traces"]
+	],
+	["nutrition"],
+	["nutrition_other"],
+	["other", [	"nutriscore_score_producer", "nutriscore_grade_producer", "conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+	],
+	["images", ["image_front_url", "image_ingredients_url", "image_nutrition_url", "image_other_url"]],
+];
 
 
 # for ingredients OCR, we use tesseract-ocr
@@ -788,6 +760,7 @@ $options{apps_userids} = {
 	"kiliweb" => "yuka",
 	"labeleat" => "labeleat",
 	"waistline-app" => "waistline",
+	"inf" => "infood",
 };
 
 # (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
@@ -822,17 +795,15 @@ $options{nova_groups_tags} = {
 	"categories/en:sugars" => 2,
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
-	"categories/en:spices" => 2,
 
 	# group 3 tags will not be applied to food identified as group 2
 
 	# group 3 ingredients from nova paper
 
 	"ingredients/en:preservative" => 3,
+	"ingredients/en:anti-caking-agent" => 3,
 
 	"ingredients/en:salt" => 3,
-	"ingredients/en:spice" => 3,
-	"ingredients/en:pepper" => 3,
 	"ingredients/en:sugar" => 3,
 	"ingredients/en:vegetable-oil" => 3,
 	"ingredients/en:vegetal-oil" => 3,
@@ -845,9 +816,6 @@ $options{nova_groups_tags} = {
 
 	"ingredients/en:starch" => 3,
 	"ingredients/en:whey" => 4,
-	"ingredients/en:milk-powder" => 4,
-
-
 
 	# group 3 categories from nova paper
 
@@ -861,7 +829,6 @@ $options{nova_groups_tags} = {
 	"categories/en:prepared-meats" => 3,
 	"categories/en:terrines" => 3,
 	"categories/en:pates" => 3,
-	"categories/en:pastas" => 3,
 	#"categories/en:breakfast-cereals" => 3,
 	"categories/en:tofu" => 3,
 	"categories/en:alcoholic-beverages" => 3,
@@ -881,7 +848,6 @@ $options{nova_groups_tags} = {
 	# tags only found in group 4
 
 	"ingredients/en:anti-foaming-agent" => 4,
-	"ingredients/en:anti-caking-agent" => 4,
 	"ingredients/en:bulking-agent" => 4,
 	"ingredients/en:carbonating-agent" => 4,
 	"ingredients/en:colour" => 4,
@@ -902,6 +868,7 @@ $options{nova_groups_tags} = {
 	# is a synonym of en:flavour in the taxo aleene@2018-10-09
 	"ingredients/en:flavouring" => 4,
 	"ingredients/en:casein" => 4,
+	"ingredients/en:gluten" => 4,
 	# this is a milk protein, so covered by the taxo aleene@2018-10-09
 	"ingredients/en:lactose" => 4,
 	"ingredients/en:whey" => 4,
@@ -920,8 +887,6 @@ $options{nova_groups_tags} = {
 
 	"ingredients/en:dextrose" => 4,
 	# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09
-	"ingredients/en:milk-powder" => 4,
-	# This can be deleted, was already entered above aleene@2018-10-09
 	"ingredients/en:milk-proteins" => 4,
 	# could be changed to singular aleene@2018-10-09
 	"ingredients/en:whey-proteins" => 4,

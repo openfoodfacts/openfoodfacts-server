@@ -110,6 +110,7 @@ SCRIPT
 
 	$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
 	$html .= ProductOpener::Users::display_user_form_optional($user_ref);
+	$html .= ProductOpener::Users::display_user_form_admin_only($user_ref);
 
 	if ($admin) {
 		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>lang("delete_user")) . "</td></tr>";
@@ -139,8 +140,12 @@ elsif ($action eq 'process') {
 	$html .= lang($type . $dialog);
 
 	if (($type eq 'add') or ($type eq 'edit')) {
-		$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
-		$html .= "<p>" . lang("bottom_content") . "</p>\n";
+
+		# Do not display donate link on producers platform
+		if (not $server_options{producers_platform}) {
+			$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
+			$html .= "<p>" . lang("bottom_content") . "</p>\n";
+		}
 	}
 }
 

@@ -166,7 +166,6 @@ while (my $product_ref = $cursor->next) {
 
 
 	my $code = $product_ref->{code};
-	my $path = product_path($code);
 
 	print STDERR "updating product $code\n";
 

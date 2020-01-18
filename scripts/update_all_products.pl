@@ -65,7 +65,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
 
 
@@ -94,6 +94,7 @@ my $check_quality = '';
 my $compute_codes = '';
 my $compute_carbon = '';
 my $compute_history = '';
+my $compute_sort_key = '';
 my $comment = '';
 my $fix_serving_size_mg_to_ml = '';
 my $fix_missing_lc = '';
@@ -120,6 +121,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"compute-codes" => \$compute_codes,
 			"compute-carbon" => \$compute_carbon,
 			"check-quality" => \$check_quality,
+			"compute-sort-key" => \$compute_sort_key,
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
 			"fix-missing-lc" => \$fix_missing_lc,
 			"fix-zulu-lang" => \$fix_zulu_lang,
@@ -165,6 +167,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented)
+	and (not $compute_sort_key)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -211,7 +214,7 @@ print STDERR "$count documents to update.\n";
 sleep(2);
 
 
-my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });
+my $cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
 $cursor->immortal(1);
 
 my $n = 0;	# number of products updated
@@ -221,21 +224,27 @@ my $fix_rev_not_incremented_fixed = 0;
 
 while (my $product_ref = $cursor->next) {
 
+	my $productid = $product_ref->{_id};
 	my $code = $product_ref->{code};
-	my $path = product_path($code);
+	my $path = product_path($product_ref);
+
+	my $owner_info = "";
+	if (defined $product_ref->{owner}) {
+		$owner_info = "- owner: " . $product_ref->{owner} . " ";
+	}
 
 	if (not defined $code) {
 		print STDERR "code field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id} . "\n";
 	}
 	else {
-		print STDERR "updating product $code ($n)\n";
+		print STDERR "updating product code: $code $owner_info ($n)\n";
 	}
 
 	next if $just_print_codes;
 
-	$product_ref = retrieve_product($code);
+	$product_ref = retrieve_product($productid);
 
-	if ((defined $product_ref) and ($code ne '')) {
+	if ((defined $product_ref) and ($productid ne '')) {
 
 		$lc = $product_ref->{lc};
 
@@ -422,6 +431,15 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
+		if (($fix_missing_lc) and (not defined $product_ref->{lang})) {
+			print STDERR "lc: " . $product_ref->{lc} . "\n";
+			if ((defined $product_ref->{lc}) and ($product_ref->{lc} =~ /^[a-z][a-z]$/)) {
+				print STDERR "fixing missing lang, using lc: " . $product_ref->{lc} . "\n";
+				$product_ref->{lang} = $product_ref->{lc};
+				$product_values_changed = 1;
+			}
+		}
+
 		# Fix ingredients_n that was set as string
 		if (defined $product_ref->{ingredients_n}) {
 			$product_ref->{ingredients_n} += 0;
@@ -557,6 +575,7 @@ while (my $product_ref = $cursor->next) {
 
 		if ($compute_nutrition_score) {
 			fix_salt_equivalent($product_ref);
+			compute_nutriscore($product_ref);
 			compute_nutrition_score($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
@@ -579,7 +598,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($check_quality) {
-			ProductOpener::SiteQuality::check_quality($product_ref);
+			ProductOpener::DataQuality::check_quality($product_ref);
 		}
 
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
@@ -591,6 +610,10 @@ while (my $product_ref = $cursor->next) {
 			compute_product_history_and_completeness($product_ref, $changes_ref);
 			compute_data_sources($product_ref);
 			store("$data_root/products/$path/changes.sto", $changes_ref);
+		}
+
+		if ($compute_sort_key) {
+			compute_sort_key($product_ref);
 		}
 
 		if (not $pretend) {
@@ -620,6 +643,9 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		$n++;
+	}
+	else {
+		print STDERR "Unable to load product file for product code $code\n";
 	}
 
 }

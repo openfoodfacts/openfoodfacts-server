@@ -24,20 +24,7 @@ use strict;
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Export qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -55,20 +42,28 @@ binmode(STDERR, ":encoding(UTF-8)");
 my $usage = <<TXT
 export_csv_file.pl expors product data from the database of Product Opener.
 
+If the --fields argument is specified, only the corresponding fields are exported,
+otherwise all populated input fields (provided by users or producers) are exported.
+
+The --extra_fields parameter allows to specify other fields to export (e.g fields
+that are computed from other fields).
+
 Usage:
 
 export_csv_file.pl --query field_name=field_value --query other_field_name=other_field_value
---fields code,ingredients_texts_fr,categories_tags
+[--fields code,ingredients_texts_fr,categories_tags] [--extra_fields nova_group,nutrition_grade_fr]
 TXT
 ;
 
 
 my %query_fields_values = ();
 my $fields;
+my $extra_fields;
 my $separator = "\t";
 
 GetOptions (
 	"fields=s" => \$fields,
+	"extra_fields=s" => \$extra_fields,
 	"query=s%" => \%query_fields_values,
 	"separator=s" => \$separator,
 		)
@@ -76,6 +71,7 @@ GetOptions (
 
 print STDERR "export_csv_file.pl
 - fields: $fields
+- extra_fields: $extra_fields
 - separator: $separator
 - query fields values:
 ";
@@ -86,15 +82,6 @@ foreach my $field (sort keys %query_fields_values) {
 	print STDERR "-- $field: $query_fields_values{$field}\n";
 	$query_ref->{$field} = $query_fields_values{$field};
 }
-
-my $missing_arg = 0;
-if (not defined $fields) {
-	print STDERR "missing --fields parameter\n";
-	$missing_arg++;
-}
-
-
-$missing_arg and exit();
 
 # Construct the MongoDB query
 
@@ -113,72 +100,17 @@ foreach my $field (sort keys %$query_ref) {
 use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
-my $count = get_products_collection()->count_documents($query_ref);
-
-print STDERR "$count documents to export.\n";
-sleep(2);
-
-my $cursor = get_products_collection()->find($query_ref);
-$cursor->immortal(1);
-
-
 # CSV export
 
-my $csv = Text::CSV->new ( { binary => 1 , sep_char => $separator } )  # should set binary attribute.
-                 or die "Cannot use CSV: ".Text::CSV->error_diag ();
+my $args_ref = {filehandle=>*STDOUT, separator=>$separator, query=>$query_ref };
 
-
-my $fh = *STDOUT;
-
-my @fields = split(/,/, $fields);
-
-# Print the header line with fields names
-$csv->print ($fh, \@fields);
-print "\n";
-
-my $i = 0;
-
-while (my $product_ref = $cursor->next) {
-
-	$i++;
-
-	my $added_images_urls = 0;
-
-	my @values = ();
-	foreach my $field (@fields) {
-		my $value;
-
-		if (($field =~ /^image_/) and (not $added_images_urls)) {
-			ProductOpener::Display::add_images_urls_to_product($product_ref);
-			$added_images_urls = 1;
-		}
-
-		if ($field =~ /^image_(ingredients|nutrition)_json$/) {
-			if (defined $product_ref->{"image_$1_url"}) {
-				$value = $product_ref->{"image_$1_url"};
-				$value =~ s/\.(\d+)\.jpg/.json/;
-			}
-		}
-		elsif ($field =~ /^image_(.*)_full_url$/) {
-			if (defined $product_ref->{"image_$1_url"}) {
-				$value = $product_ref->{"image_$1_url"};
-				$value =~ s/\.(\d+)\.jpg/.full.jpg/;
-			}
-		}
-		elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
-			$value = join(",", @{$product_ref->{$field}});
-		}
-		else {
-			$value = $product_ref->{$field};
-		}
-		push @values, $value;
-	}
-
-	$csv->print ($fh, \@values);
-	print "\n";
-
+if ((defined $fields) and ($fields ne "")) {
+	$args_ref->{fields} = [split(/,/, $fields)];
 }
 
+if ((defined $extra_fields) and ($extra_fields ne "")) {
+	$args_ref->{extra_fields} = [split(/,/, $extra_fields)];
+}
 
-print "\n\nexport done, $i products exported\n\n";
+export_csv($args_ref);
 

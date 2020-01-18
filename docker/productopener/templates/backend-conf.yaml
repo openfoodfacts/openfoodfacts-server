@@ -91,8 +91,7 @@ data:
     		$page_size
 
     		%options
-
-    		%wiki_texts
+        %server_options
 
     		@product_fields
     		@product_other_fields
@@ -262,6 +261,7 @@ data:
     $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
     $robotoff_url = $ProductOpener::Config2::robotoff_url;
+    %server_options = %ProductOpener::Config2::server_options;
 
     $csrf_secret = $Blogs::Config2::csrf_secret;
 
@@ -299,7 +299,7 @@ data:
 
     my @related_applications = (
     	{ 'platform' => 'play', 'id' => 'org.openfoodfacts.scanner', 'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner' },
-    	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://itunes.apple.com/app/id588797948' },
+    	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948' },
     );
 
     my $manifest;
@@ -323,37 +323,6 @@ data:
     <Image width="16" height="16" type="image/x-icon">https://static.$server_domain/images/favicon/favicon.ico</Image>
     XML
     ;
-
-    %wiki_texts = (
-
-    "en/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
-    "es/descubrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-    "fr/decouvrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_French?action=raw",
-    "he/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Hebrew?action=raw",
-    "ar/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Arabic?action=raw",
-    "pt/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Portuguese?action=raw",
-    "jp/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Japanese?action=raw",
-
-    "de/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_German?action=raw",
-    "en/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_English?action=raw",
-    "es/contribuir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-    "fr/contribuer" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_French?action=raw",
-    "nl/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_Dutch?action=raw",
-
-    "en/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_English?action=raw",
-    "fr/presse" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_French?action=raw",
-    "el/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_Greek?action=raw",
-
-    "en/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-    "fr/code-de-conduite" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
-    "ja/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_Japanese?action=raw",
-    "de/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_German?action=raw",
-
-    "fr/notetondistrib" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
-    "en/rateyourvendingmachine" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_English?action=raw",
-
-    );
-
 
     # fields for which we will load taxonomies
     @taxonomy_fields = qw(states countries languages labels categories additives additives_classes
@@ -494,6 +463,20 @@ data:
       states
     );
 
+    $options{import_export_fields_groups} = [
+      ["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
+        "quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "packaging",
+        "brands", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores"]
+      ],
+      ["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+      ],
+      ["ingredients", ["ingredients_text", "allergens", "traces"]
+      ],
+      ["nutrition"],
+      ["nutrition_other"],
+      ["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+      ],
+    ];
 
     # for ingredients OCR, we use tesseract-ocr
     # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
@@ -556,7 +539,7 @@ data:
     	  $facebook_app_secret
         $csrf_secret
         $robotoff_url
-
+        %server_options
     	);
     	%EXPORT_TAGS = (all => [@EXPORT_OK]);
     }
@@ -590,6 +573,11 @@ data:
     # enable an in-site robotoff-asker in the product page
     $robotoff_url = '';
 
+    %server_options = (
+        private_products => 1,  # Make products visible only to the owner
+        export_servers => { public => "off", experiment => "off-exp" },
+        minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
+    );
     1;
 
   log.conf: |

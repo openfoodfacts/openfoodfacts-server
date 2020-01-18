@@ -18,6 +18,45 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Products - create and save products
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Products> is used to create products and save them in Product Opener's
+database and file system.
+
+    use ProductOpener::Products qw/:all/;
+
+	my $product_ref = init_product($User_id, $Org_id, $code);
+
+	$product_ref->{product_name_en} = "Chocolate cookies";
+
+	store_product($product_ref, 'helpful comment');
+
+
+=head1 DESCRIPTION
+
+=head2 Revisions
+
+When a product is saved, a new revision of the product is created. All revisions are saved
+in the file system:
+
+products/[barcode path]/1.sto - first revision
+products/[barcode path]/2.sto - 2nd revision
+...
+products/[barcode path]/product.sto - link to latest revision
+
+The latest revision is stored in the products collection of the MongoDB database.
+
+=head2 Completeness, data quality and edit history
+
+Before a product is saved, this module compute the completeness and quality of the data,
+and the edit history.
+
+=cut
+
 package ProductOpener::Products;
 
 use utf8;
@@ -30,7 +69,11 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 		&normalize_code
+		&assign_new_code
+		&split_code
+		&product_id_for_user
 		&product_path
+		&product_path_from_id
 		&product_exists
 		&init_product
 		&retrieve_product
@@ -52,6 +95,7 @@ BEGIN
 		&compute_languages
 		&compute_changes_diff_text
 		&compute_data_sources
+		&compute_sort_key
 
 		&add_back_field_values_removed_by_user
 
@@ -69,7 +113,6 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -89,15 +132,24 @@ my $ean_check = CheckDigits('ean');
 
 use Scalar::Util qw(looks_like_number);
 
+=head1 FUNCTIONS
+
+=head2 make_sure_numbers_are_stored_as_numbers ( PRODUCT_REF )
+
+C<make_sure_numbers_are_stored_as_numbers()> forces numbers contained in the product data to be stored
+as numbers (and not strings) in MongoDB.
+
+Perl scalars are not typed, the internal type depends on the last operator
+used on the variable... e.g. if it is printed with a string concatenation,
+then it's converted to a string.
+
+See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
+
+=cut
+
 sub make_sure_numbers_are_stored_as_numbers($) {
 
 	my $product_ref = shift;
-
-	# Perl scalars are not typed, the internal type depends on the last operator
-	# used on the variable... e.g. if it is printed, then it's converted to a string.
-	# See https://metacpan.org/pod/JSON%3a%3aXS#PERL---JSON
-
-	# Force all numbers to be stored as numbers in .sto files and MongoDB
 
 	if (defined $product_ref->{nutriments}) {
 		foreach my $field (keys %{$product_ref->{nutriments}}) {
@@ -121,6 +173,55 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 	}
 }
 
+=head2 assign_new_code ( )
+
+C<assign_new_code()> assigns a new unused code to store a new product
+that does not have a barcode.
+
+	my ($code, $product_id) = assign_new_code();
+
+=head3 Return values
+
+A list with the new code and the corresponding product_id.
+
+=head3 Caveats
+
+=head4 Invalid codes
+
+This function currently assign new codes in sequence starting from 2000000000001.
+We increment the number by 1 for each product (which means codes are not valid as the
+last digit is supposed to be the check digit), and check if there is already a product for that number.
+
+=head4 Code conflicts
+
+Codes starting with 2 are reserved for internal uses, there may be conflicts as other
+companies can use the same codes.
+
+=cut
+
+sub assign_new_code() {
+
+	my $code = 2000000000001; # Codes beginning with 2 are for internal use
+
+	my $internal_code_ref = retrieve("$data_root/products/internal_code.sto");
+	if ((defined $internal_code_ref) and ($$internal_code_ref > $code)) {
+		$code = $$internal_code_ref;
+	}
+
+	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+
+	while (-e ("$data_root/products/" . product_path_from_id($product_id))) {
+
+		$code++;
+		$product_id = product_id_for_user($User_id, $Org_id, $code);
+	}
+
+	store("$data_root/products/internal_code.sto", \$code);
+
+	$log->debug("assigning a new code", { code => $code, lc => $lc }) if $log->is_debug();
+
+	return ($code, $product_id);
+}
 
 
 sub normalize_code($) {
@@ -151,9 +252,11 @@ sub normalize_code($) {
 	return $code;
 }
 
+# - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
+# - When products are private, the _id is [owner]/[code] (e.g. user-abc/1234567890123 or org-xyz/1234567890123
 
 # FIXME: bug #677
-sub product_path($) {
+sub split_code($) {
 
 	my $code = shift;
 	$code !~ /^\d+$/ and return "invalid";
@@ -170,12 +273,61 @@ sub product_path($) {
 	return $path;
 }
 
+sub product_id_for_user($$$) {
+
+	my $userid = shift;
+	my $orgid = shift;
+	my $code = shift;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if (defined $orgid) {
+			return "org-" . $orgid . "/" . $code;
+		}
+		else {
+			return "user-" . $userid . "/" . $code;
+		}
+	}
+	else {
+		return $code;
+	}
+}
+
+sub product_path_from_id($) {
+
+	my $product_id = shift;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id =~ /\//)) {
+		return $` . "/" . split_code($');
+	}
+	else {
+		return split_code($product_id);
+	}
+
+}
+
+sub product_path($) {
+
+	my $product_ref = shift;
+
+	# Previous version of product_path() was expecting the code instead of a reference to the product object
+	if (ref($product_ref) ne 'HASH') {
+		die("Argument of product_path() must be a reference to the product hash object, not a scalar: $product_ref\n");
+	}
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		return $product_ref->{owner} . "/" . split_code($product_ref->{code});
+	}
+	else {
+		return split_code($product_ref->{code});
+	}
+}
+
 
 sub product_exists($) {
 
-	my $code = shift;
+	my $id = shift;
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($id);
 	if (-e "$data_root/products/$path") {
 
 		my $product_ref = retrieve("$data_root/products/$path/product.sto");
@@ -191,13 +343,17 @@ sub product_exists($) {
 	}
 }
 
-sub init_product($) {
+sub init_product($$$) {
 
+	my $userid = shift;
+	my $orgid = shift;
 	my $code = shift;
 
-	my $creator = $User_id;
+	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code }) if $log->is_debug();
 
-	if ((not defined $User_id) or ($User_id eq '')) {
+	my $creator = $userid;
+
+	if ((not defined $userid) or ($userid eq '')) {
 		$creator = "openfoodfacts-contributors";
 	}
 
@@ -209,6 +365,17 @@ sub init_product($) {
 		creator=>$creator,
 		rev=>0,
 	};
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		my $owner = "user-" . $userid;
+		if (defined $orgid) {
+			$owner = "org-" . $orgid;
+		}
+		$product_ref->{owner} = $owner;
+		$product_ref->{_id} = $owner . "/" . $code;
+
+		$log->debug("init_product - private_products enabled", { userid => $userid, orgid => $orgid, code => $code, owner => $owner, product_id => $product_ref->{_id} }) if $log->is_debug();
+	}
 
 	use ProductOpener::GeoIP;
 	my $country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
@@ -282,6 +449,7 @@ sub send_notification_for_product_change($$) {
 
 	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		my $ua = LWP::UserAgent->new();
+		$ua->timeout(2);
 
 		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
 			'barcode' => $product_ref->{code},
@@ -293,8 +461,11 @@ sub send_notification_for_product_change($$) {
 
 sub retrieve_product($) {
 
-	my $code = shift;
-	my $path = product_path($code);
+	my $product_id = shift;
+	my $path = product_path_from_id($product_id);
+
+	$log->debug("retrieve_product", { product_id => $product_id, path => $path } ) if $log->is_debug();
+
 	my $product_ref = retrieve("$data_root/products/$path/product.sto");
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
@@ -306,30 +477,30 @@ sub retrieve_product($) {
 
 sub retrieve_product_or_deleted_product($$) {
 
-        my $code = shift;
+	my $id = shift;
 	my $deleted_ok = shift;
-        my $path = product_path($code);
-        my $product_ref = retrieve("$data_root/products/$path/product.sto");
+	my $path = product_path_from_id($id);
+	my $product_ref = retrieve("$data_root/products/$path/product.sto");
 
-        if ((defined $product_ref) and ($product_ref->{deleted})
-		and (not $deleted_ok)) {
-                return;
-        }
+	if ((defined $product_ref) and ($product_ref->{deleted})
+	and (not $deleted_ok)) {
+			return;
+	}
 
-        return $product_ref;
+	return $product_ref;
 }
 
 
 sub retrieve_product_rev($$) {
 
-	my $code = shift;
+	my $id = shift;
 	my $rev = shift;
 
 	if ($rev !~ /^\d+$/) {
 		return;
 	}
 
-	my $path = product_path($code);
+	my $path = product_path_from_id($id);
 	my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
@@ -341,6 +512,8 @@ sub retrieve_product_rev($$) {
 
 
 sub change_product_server_or_code($$$) {
+
+	# Currently only called by admins, can cause issues because of bug #677
 
 	my $product_ref = shift;
 	my $new_code = shift;
@@ -362,7 +535,7 @@ sub change_product_server_or_code($$$) {
 	$new_code = normalize_code($new_code);
 	if ($new_code =~ /^\d+$/) {
 	# check that the new code is available
-		if (-e "$new_data_root/products/" . product_path($new_code)) {
+		if (-e "$new_data_root/products/" . product_path_from_id($new_code)) {
 			push @{$errors_ref}, lang("error_new_code_already_exists");
 			$log->warn("cannot change product code, because the new code already exists", { code => $code, new_code => $new_code, new_server => $new_server }) if $log->is_warn();
 		}
@@ -378,6 +551,25 @@ sub change_product_server_or_code($$$) {
 	}
 }
 
+sub compute_sort_key($) {
+
+	my $product_ref = shift;
+
+	# put obsolete products last  		(add 200000000000 when products are not obsolete)
+	# then put complete products first	(add 100000000000 when products are complete)
+	# otherwise sort by last_modified_t (e.g.  1571384133)
+
+	my $sortkey = $product_ref->{last_modified_t};
+
+	if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
+		$sortkey += 200000000000;
+	}
+	if ($product_ref->{complete}) {
+		$sortkey += 100000000000;
+	}
+
+	$product_ref->{sortkey} = $sortkey + 0;
+}
 
 sub store_product($$) {
 
@@ -385,8 +577,11 @@ sub store_product($$) {
 	my $comment = shift;
 
 	my $code = $product_ref->{code};
-	my $path = product_path($code);
+	my $product_id = $product_ref->{_id};
+	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
+
+	$log->debug("store_product - start", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	# In case we need to move a product from OFF to OBF etc.
 	# then we first move the existing files (product and images)
@@ -398,13 +593,10 @@ sub store_product($$) {
 	my $products_collection = get_products_collection();
 	my $new_products_collection = $products_collection;
 
-
-	# Changing the code?
-	# 26/01/2017 - disallow code changes until we fix #677
-	if ($admin and (defined $product_ref->{old_code})) {
+	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
-		my $old_path =  product_path($old_code);
+		my $old_path =  product_path_from_id($old_code);
 
 
 		if (defined $product_ref->{new_server}) {
@@ -521,12 +713,19 @@ sub store_product($$) {
 		$product_ref->{creator} = $creator;
 	}
 
+	if (defined $product_ref->{owner}) {
+		$product_ref->{owners_tags} = $product_ref->{owner};
+	}
+	else {
+		delete $product_ref->{owners_tags};
+	}
+
 	push @$changes_ref, {
-		userid=>$User_id,
-		ip=>remote_addr(),
-		t=>$product_ref->{last_modified_t},
-		comment=>$comment,
-		rev=>$rev,
+		userid => $User_id,
+		ip => remote_addr(),
+		t => $product_ref->{last_modified_t},
+		comment => $comment,
+		rev => $rev,
 	};
 
 	compute_codes($product_ref);
@@ -537,9 +736,7 @@ sub store_product($$) {
 
 	compute_data_sources($product_ref);
 
-	# sort_key
-	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
-	$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
+	compute_sort_key($product_ref);
 
 	if (not defined $product_ref->{_id}) {
 		$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string
@@ -556,6 +753,7 @@ sub store_product($$) {
 	$product_ref->{created_t} += 0;
 	$product_ref->{complete} += 0;
 	$product_ref->{sortkey} += 0;
+	$product_ref->{rev} +=0;
 
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
@@ -571,9 +769,7 @@ sub store_product($$) {
 		#return 0;
 	}
 
-	# 2018-12-26: remove obsolete products from the database
-	# another option could be to keep them and make them searchable only in certain conditions
-	if (($product_ref->{deleted}) or ($product_ref->{obsolete})) {
+	if ($product_ref->{deleted}) {
 		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
 	else {
@@ -592,8 +788,9 @@ sub store_product($$) {
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
 	log_change($product_ref, $change_ref);
 
-	return 1;
+	$log->debug("store_product - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
+	return 1;
 }
 
 # Update the data-sources tag from the sources field
@@ -881,11 +1078,12 @@ sub get_change_userid_or_uuid($) {
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
-	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
+	#
+	# but not:
+	# (app)Updated via Power User Script
+	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid})
+		and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
-	}
-	elsif ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
-		$uuid = $7;
 	}
 
 	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
@@ -908,7 +1106,10 @@ sub compute_product_history_and_completeness($$) {
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
 	my $code = $current_product_ref->{code};
-	my $path = product_path($code);
+	my $product_id = $current_product_ref->{_id};
+	my $path = product_path($current_product_ref);
+
+	$log->debug("compute_product_history_and_completeness", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	return if not defined $changes_ref;
 
@@ -1237,6 +1438,7 @@ sub compute_product_history_and_completeness($$) {
 
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
+	$log->debug("compute_product_history_and_completeness - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
 }
 
 
@@ -1252,7 +1454,7 @@ sub add_back_field_values_removed_by_user($$$$) {
 	my $field = shift;
 	my $userid = shift;
 	my $code = $current_product_ref->{code};
-	my $path = product_path($code);
+	my $path = product_path($current_product_ref);
 
 	return if not defined $changes_ref;
 
@@ -1487,7 +1689,7 @@ sub compute_codes($) {
 		if (product_exists('0' . $code)) {
 			push @codes, "conflict-with-ean-13";
 		}
-		elsif (-e ("$data_root/products/" . product_path("0" . $code)) ) {
+		elsif (-e ("$data_root/products/" . product_path_from_id("0" . $code)) ) {
 			push @codes, "conflict-with-deleted-ean-13";
 		}
 	}
@@ -1795,11 +1997,11 @@ sub process_product_edit_rules($) {
 							}
 							else {
 								$log->debug("condition matches") if $log->is_debug();
-								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
+								$action_log = "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							}
 						}
 						else {
-							$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+							$action_log = "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
 						}
 
 						if ($condition_ok) {

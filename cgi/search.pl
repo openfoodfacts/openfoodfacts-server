@@ -111,7 +111,9 @@ if ((not defined param('json')) and (not defined param('jsonp')) and
 
 		my $code = $search_terms;
 
-		my $product_ref = product_exists($code); # returns 0 if not
+		my $product_id = product_id_for_user($User_id, $Org_id, $code);
+
+		my $product_ref = product_exists($product_id); # returns 0 if not
 
 		if ($product_ref) {
 			$log->info("product code exists, redirecting to product page", { code => $code });
@@ -181,21 +183,6 @@ my $map_title = remove_tags_and_quote(decode utf8=>param("map_title"));
 
 foreach my $axis ('x','y') {
 	$graph_ref->{"axis_$axis"} = remove_tags_and_quote(decode utf8=>param("axis_$axis"));
-}
-
-my %flatten = ();
-my $flatten = 0;
-
-foreach my $field (@search_fields) {
-	if (defined $search_tags_fields{$field}) {
-		$flatten{$field} = remove_tags_and_quote(decode utf8=>param("flatten_$field"));
-		if ($flatten{$field} eq 'on') {
-			$flatten = 1;
-		}
-		else {
-			delete $flatten{$field};
-		}
-	}
 }
 
 foreach my $series (@search_series, "nutrition_grades") {
@@ -518,7 +505,11 @@ HTML
 		<div id="results_download" class="content">
 
 			<p>$Lang{search_download_results}{$lc}</p>
-			<p>$Lang{search_download_results_description}{$lc}</p>
+
+			<input type="radio" name="format" value="xlsx" id="format_xlsx" checked/>
+				<label for="format_xlsx">$Lang{search_download_xlsx}{$lc} - $Lang{search_download_xlsx_description}{$lc}</label><br>
+			<input type="radio" name="format" value="csv" id="format_csv" />
+				<label for="format_csv">$Lang{search_download_csv}{$lc} - $Lang{search_download_csv_description}{$lc}</label><br>
 
 			<input type="submit" name="download" value="$Lang{search_download_button}{$lc}" class="button" />
 
@@ -531,7 +522,7 @@ HTML
 ;
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/dist/search.js"></script>
 HTML
 ;
 
@@ -778,8 +769,8 @@ elsif ($action eq 'process') {
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="icon-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -811,8 +802,8 @@ HTML
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="icon-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -823,7 +814,8 @@ HTML
 	elsif (param("download")) {
 		# CSV export
 
-		search_and_export_products($request_ref, $query_ref, $sort_by, $flatten, \%flatten);
+		$request_ref->{format} = param('format');
+		search_and_export_products($request_ref, $query_ref, $sort_by);
 
 
 	}
@@ -842,8 +834,8 @@ HTML
 		if (not defined $request_ref->{jqm}) {
 			${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="icon-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML

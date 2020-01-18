@@ -40,6 +40,8 @@ BEGIN
 
 					@nutrient_levels
 
+					%categories_nutriments_per_country
+
 					&normalize_nutriment_value_and_modifier
 					&assign_nid_modifier_value_and_unit
 
@@ -57,6 +59,7 @@ BEGIN
 					&canonicalize_nutriment
 
 					&fix_salt_equivalent
+					&compute_nutriscore
 					&compute_nutrition_score
 					&compute_nutrition_grade
 					&compute_nova_group
@@ -90,6 +93,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
 
 use Hash::Util;
 
@@ -97,10 +101,27 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use Log::Any qw($log);
 
+# Load nutrient stats for all categories and countries
+# the stats are displayed on category pages and used in product pages,
+# as well as in data quality checks and improvement opportunity detection
+
+if (opendir (my $dh, "$data_root/index")) {
+	foreach my $file (readdir($dh)) {
+		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
+			my $country_cc = $1;
+			$categories_nutriments_per_country{$country_cc} = retrieve("$data_root/index/categories_nutriments_per_country.$country_cc.sto");
+		}
+	}
+	closedir $dh;
+}
+
+
 sub normalize_nutriment_value_and_modifier($$) {
 
 	my $value_ref = shift;
 	my $modifier_ref = shift;
+
+	return if not defined $$value_ref;
 
 	if ($$value_ref =~ /nan/i) {
 		$$value_ref = '';
@@ -141,7 +162,13 @@ sub default_unit_for_nid($) {
 
 	my $nid = shift;
 
-	if ($nid eq "energy") {
+	if ($nid eq "energy-kj") {
+		return "kJ";
+	}
+	elsif ($nid eq "energy-kcal") {
+		return "kcal";
+	}
+	elsif ($nid eq "energy") {
 		return "kJ";
 	}
 	elsif ($nid eq "alcohol") {
@@ -354,7 +381,9 @@ sub mmoll_to_unit {
 
 %nutriments_tables = (
 	europe => [(
-		'!energy',
+		'!energy-kj',
+		'!energy-kcal',
+		'energy-',
 		'-energy-from-fat-',
 		'!fat',
 		'-saturated-fat',
@@ -465,7 +494,8 @@ sub mmoll_to_unit {
 		'carnitine-',
 	)],
 	ca => [(
-		'!energy',
+		'!energy-kcal',
+		'energy-',
 		'!fat',
 		'-saturated-fat',
 		'--butyric-acid-',
@@ -627,7 +657,9 @@ sub mmoll_to_unit {
 		'--maltodextrins-',
 		'-starch-',
 		'-polyols-',
-		'!energy',
+		'!energy-kj',
+		'!energy-kcal',
+		'energy-',
 		'-energy-from-fat-',
 		'fiber',
 		'salt',
@@ -688,7 +720,8 @@ sub mmoll_to_unit {
 		'carnitine-',
 	)],
 	us => [(
-		'!energy',
+		'!energy-kcal',
+		'energy-',
 		'-energy-from-fat-',
 		'!fat',
 		'-saturated-fat',
@@ -928,6 +961,7 @@ sub mmoll_to_unit {
 		fa => "الکل",
 		fi => "Alkoholi",
 		fr => "Alcool",
+		fr_synonyms => ["Titre volumique", "Titre vol."],
 		ga => "Alcól",
 		he => "אלכוהול",
 		hu => "Alkohol",
@@ -955,48 +989,140 @@ sub mmoll_to_unit {
 		unit => "% vol",
 	},
 	energy	=> {
-		fr => "Énergie",
-		fr_synonyms => ["valeurs énergétique", "valeur énergétique"],
+		ar => "الطاقه",
+		bg => "Енергийна стойност",
+		cs => "Energetická hodnota",
+		da => "Energi",
+		de => "Energie",
+		el => "Ενέργεια",
 		en => "Energy",
 		es => "Energía",
-		ar => "الطاقه",
-		it => "Energia",
-		pt => "Energia",
-		de => "Energie",
-		he => "אנרגיה - קלוריות",
+		et => "Energia",
+		fa => "انرژی",
+		fi => "Energia",
+		fr => "Énergie",
+		fr_synonyms => ["valeurs énergétique", "valeur énergétique"],
 		ga => "Fuinneamh",
-		da => "Energi",
-		el => "Ενέργεια",
-		fi => "Energiav",
+		he => "אנרגיה - קלוריות",
+		hu => "Energia",
+		it => "Energia",
+		lt => "Energinė vertė",
+		ja => "エネルギー",
+		lv => "Enerģētiskā vērtība",
+		mt => "Enerġija",
+		nb => "Energi",
 		nl => "Energie",
 		nl_be => "Energie",
-		sv => "Energi",
-		lv => "Enerģētiskā vērtība",
-		cs => "Energetická hodnota",
-		et => "Energia",
-		hu => "Energia",
+		pt => "Energia",
 		pl => "Wartość energetyczna",
-		sl => "Energijska vrednost",
-		lt => "Energinė vertė",
-		mt => "Enerġija",
-		sk => "Energetická hodnota",
 		ro => "Valoarea energetică",
-		bg => "Енергийна стойност",
+		rs => "Energetska vrednost",
+		ru => "Энергетическая ценность",
+		sl => "Energijska vrednost",
+		sk => "Energetická hodnota",
+		sv => "Energi",
+		tr => "Enerji",
 		zh => "能量",
-		ja => "エネルギー",
+		zh_CN => "能量",
+		zh_HK => "能量",
+		zh_TW => "能量",
 
 		unit => "kj",
 		unit_us => "kcal",
 		unit_ca => "kcal",
 	},
+	"energy-kj"	=> {
+		ar => "الطاقه (kJ)",
+		bg => "Енергийна стойност (kJ)",
+		cs => "Energetická hodnota (kJ)",
+		da => "Energi (kJ)",
+		de => "Energie (kJ)",
+		el => "Ενέργεια (kJ)",
+		en => "Energy (kJ)",
+		es => "Energía (kJ)",
+		et => "Energia (kJ)",
+		fa => "انرژی (kJ)",
+		fi => "Energia (kJ)",
+		fr => "Énergie (kJ)",
+		fr_synonyms => ["valeurs énergétique (kJ)", "valeur énergétique (kJ)"],
+		ga => "Fuinneamh (kJ)",
+		he => "אנרגיה - קלוריות (kJ)",
+		hu => "Energia (kJ)",
+		it => "Energia (kJ)",
+		lt => "Energinė vertė (kJ)",
+		ja => "エネルギー (kJ)",
+		lv => "Enerģētiskā vērtība (kJ)",
+		mt => "Enerġija (kJ)",
+		nb => "Energi (kJ)",
+		nl => "Energie (kJ)",
+		nl_be => "Energie (kJ)",
+		pt => "Energia (kJ)",
+		pl => "Wartość energetyczna (kJ)",
+		ro => "Valoarea energetică (kJ)",
+		rs => "Energetska vrednost (kJ)",
+		ru => "Энергетическая ценность (kJ)",
+		sl => "Energijska vrednost (kJ)",
+		sk => "Energetická hodnota (kJ)",
+		sv => "Energi (kJ)",
+		tr => "Enerji (kJ)",
+		zh => "能量 (kJ)",
+		zh_CN => "能量 (kJ)",
+		zh_HK => "能量 (kJ)",
+		zh_TW => "能量 (kJ)",
+
+		unit => "kj",
+	},
+	"energy-kcal"	=> {
+		ar => "الطاقه (kcal)",
+		bg => "Енергийна стойност (kcal)",
+		cs => "Energetická hodnota (kcal)",
+		da => "Energi (kcal)",
+		de => "Energie (kcal)",
+		el => "Ενέργεια (kcal)",
+		en => "Energy (kcal)",
+		es => "Energía (kcal)",
+		et => "Energia (kcal)",
+		fa => "انرژی (kcal)",
+		fi => "Energia (kcal)",
+		fr => "Énergie (kcal)",
+		fr_synonyms => ["valeurs énergétique (kcal)", "valeur énergétique (kcal)"],
+		ga => "Fuinneamh (kcal)",
+		he => "אנרגיה - קלוריות (kcal)",
+		hu => "Energia (kcal)",
+		it => "Energia (kcal)",
+		lt => "Energinė vertė (kcal)",
+		ja => "エネルギー (kcal)",
+		lv => "Enerģētiskā vērtība (kcal)",
+		mt => "Enerġija (kcal)",
+		nb => "Energi (kcal)",
+		nl => "Energie (kcal)",
+		nl_be => "Energie (kcal)",
+		pt => "Energia (kcal)",
+		pl => "Wartość energetyczna (kcal)",
+		ro => "Valoarea energetică (kcal)",
+		rs => "Energetska vrednost (kcal)",
+		ru => "Энергетическая ценность (kcal)",
+		sl => "Energijska vrednost (kcal)",
+		sk => "Energetická hodnota (kcal)",
+		sv => "Energi (kcal)",
+		tr => "Enerji (kcal)",
+		zh => "能量 (kcal)",
+		zh_CN => "能量 (kcal)",
+		zh_HK => "能量 (kcal)",
+		zh_TW => "能量 (kcal)",
+
+		unit => "kcal",
+	},
 	"energy-from-fat" => {
 		cs => "Energie z tuku",
 		de => "Brennwert aus Fetten",
 		en => "Energy from fat",
+		fi => "Energia rasvasta",
 		fr => "Énergie provenant des graisses",
 		hu => "Energia zsírból",
 		ja => "脂質からのエネルギー",
 		pt => "Energia des gorduras",
+		ro => "Valoarea energetică din grăsimi",
 		ru => "Энергетическая ценность жиров",
 		zh => "来自脂肪的能量",
 		zh_CN => "来自脂肪的能量",
@@ -1014,12 +1140,14 @@ sub mmoll_to_unit {
 		de => "Eiweiß",
 		el => "Πρωτεΐνες",
 		en => "Proteins",
+		en_synonyms => ["Protein"],
 		es => "Proteínas",
 		et => "Valgud",
 		fa => "ﭘﺮﻭﺗﺌ‍ین",
-		fi => "Proteiini",
+		fi => "Proteiinit",
+		fi_synonyms => ["Proteiini"],
 		fr => "Protéines",
-		fr_synonyms => ["Protéine brute"],
+		fr_synonyms => ["Protéine", "Protéine brute"],
 		ga => "Próitéin",
 		he => "חלבונים",
 		hu => "Fehérje",
@@ -1104,8 +1232,9 @@ sub mmoll_to_unit {
 		zh_TW => "酪蛋白",
 	},
 	nucleotides => {
-			de => "Nukleotide",
+		de => "Nukleotide",
 		fa => "نوکلئوتید",
+		fi => "Nukleotidit",
 		fr => "Nucléotides",
 		en => "Nucleotides",
 		hu => "Nukleotidok",
@@ -1116,6 +1245,7 @@ sub mmoll_to_unit {
 		el => "Νουκλεοτίδια",
 		ja => "ヌクレオチド",
 		pt => "nucleotídeos",
+		ro => "Nucleotide",
 		zh => "核苷酸",
 		zh_TW => "核苷酸",
 		zh_HK => "核苷酸",
@@ -1125,6 +1255,7 @@ sub mmoll_to_unit {
 		de => "Serumprotein",
 		el => "Πρωτεΐνες ορού",
 		en => "Serum proteins",
+		fi => "Plasmaproteiinit",
 		ru => "Сывороточные белки",
 		fr => "Protéines sériques",
 		it => "Sieroproteine",
@@ -1132,6 +1263,7 @@ sub mmoll_to_unit {
 		nl => "Plasmaproteïnen",
 		nl_be => "Plasmaproteïnen",
 		pt => "proteína plasmatica",
+		ro => "Proteine ​​serice",
 		zh => "血清蛋白",
 		zh_CN => "血清蛋白",
 		zh_HK => "血清蛋白",
@@ -1144,11 +1276,14 @@ sub mmoll_to_unit {
 		da => "Kulhydrat",
 		de => "Kohlenhydrate",
 		el => "Υδατάνθρακες",
-		en => "Carbohydrate",
+		en => "Carbohydrates",
+		en_synonyms => ["carbohydrate"],
 		es => "Hidratos de carbono",
+		es_synonyms => ["Glúcidos"],
 		et => "Süsivesikud",
 		fa => "کربوهیدرات ها",
-		fi => "Hiilihydraatti",
+		fi => "Hiilihydraatit",
+		fi_synonyms => ["hiilihydraatti"],
 		fr => "Glucides",
 		ga => "Carbaihiodráit",
 		he => "פחמימות",
@@ -1165,7 +1300,7 @@ sub mmoll_to_unit {
 		pt => "Hidratos de carbono",
 		pt_br => "Carboidratos",
 		pt_pt => "Hidratos de carbono",
-		ro => "gGlucide",
+		ro => "Glucide",
 		rs => "Ugljeni hidrati",
 		ru => "Углеводы",
 		sk => "Sacharidy",
@@ -1185,10 +1320,12 @@ sub mmoll_to_unit {
 		de => "Zucker",
 		el => "Σάκχαρα",
 		en => "Sugars",
+		en_synonyms => ["Sugar"],
 		es => "Azúcares",
 		et => "Suhkrud",
 		fa => "شکر",
 		fi => "Sokerit",
+		fi_synonyms => ["sokeri"],
 		fr => "Sucres",
 		fr_synonyms => ["sucre"],
 		ga => "Siúcraí",
@@ -1223,6 +1360,7 @@ sub mmoll_to_unit {
 		en => "Sucrose",
 		es => "Sacarosa",
 		fa => "ساکارز",
+		fi => "Sakkaroosi",
 		fr => "Saccharose",
 		he => "סוכרוז",
 		hu => "Szacharóz",
@@ -1231,6 +1369,7 @@ sub mmoll_to_unit {
 		nl => "Sucrose",
 		nl_be => "Sucrose",
 		pt => "Sacarose",
+		ro => "Zaharoză",
 		rs => "Saharoza",
 		ru => "Сахароза",
 		zh => "蔗糖",
@@ -1244,6 +1383,7 @@ sub mmoll_to_unit {
 		el => "Γλυκόζη",
 		en => "Glucose",
 		es => "Glucosa",
+		fi => "Glukoosi",
 		fr => "Glucose",
 		he => "גלוקוז",
 		hu => "Glükóz",
@@ -1252,6 +1392,7 @@ sub mmoll_to_unit {
 		nl => "Glucose",
 		nl_be => "Glucose",
 		pt => "Glucose",
+		ro => "Glucoză",
 		ru => "Глюкоза (декстроза)",
 		zh => "葡萄糖",
 		zh_CN => "葡萄糖",
@@ -1263,6 +1404,7 @@ sub mmoll_to_unit {
 		el => "Φρουκτόζη",
 		en => "Fructose",
 		es => "Fructosa",
+		fi => "Fruktoosi",
 		fr => "Fructose",
 		he => "פרוקטוז",
 		hu => "Fruktóz",
@@ -1272,6 +1414,7 @@ sub mmoll_to_unit {
 		nl_be => "Fructose",
 		pt => "Frutose",
 		rs => "Fruktoza",
+		ro => "Fructoză",
 		ru => "Фруктоза",
 		zh => "果糖",
 		zh_CN => "果糖",
@@ -1284,6 +1427,8 @@ sub mmoll_to_unit {
 		el => "Λακτόζη",
 		en => "Lactose",
 		es => "Lactosa",
+		fi => "Laktoosi",
+		fi_synonyms => ["Maitosokeri"],
 		fr => "Lactose",
 		he => "לקטוז",
 		hu => "Laktóz",
@@ -1293,6 +1438,7 @@ sub mmoll_to_unit {
 		nl_be => "Lactose",
 		pt => "Lactose",
 		rs => "Laktoza",
+		ro => "Lactoză",
 		ru => "Лактоза",
 		zh => "乳糖",
 		zh_CN => "乳糖",
@@ -1304,6 +1450,7 @@ sub mmoll_to_unit {
 		el => "Μαλτόζη",
 		en => "Maltose",
 		es => "Maltosa",
+		fi => "Maltoosi",
 		fr => "Maltose",
 		he => "מלטוז",
 		hu => "Maltóz",
@@ -1312,6 +1459,7 @@ sub mmoll_to_unit {
 		nl => "Maltose",
 		nl_be => "Maltose",
 		pt => "Maltose",
+		ro => "Maltoză",
 		ru => "Мальтоза",
 		zh => "麦芽糖",
 		zh_CN => "麦芽糖",
@@ -1323,6 +1471,8 @@ sub mmoll_to_unit {
 		el => "Μαλτοδεξτρίνες",
 		en => "Maltodextrins",
 		es => "Maltodextrinas",
+		fi => "Maltodekstriinit",
+		fi_synonyms => ["Maltodekstriini"],
 		fr => "Maltodextrines",
 		he => "מלטודקסטרינים",
 		hu => "Maltodextrin",
@@ -1331,6 +1481,7 @@ sub mmoll_to_unit {
 		nl => "Maltodextrine",
 		nl_be => "Maltodextrine",
 		pt => "Maltodextrinas",
+		ro => "Maltodextrină",
 		ru => "Мальтодекстрин",
 		zh => "麦芽糊精",
 		zh_CN => "麦芽糊精",
@@ -1412,9 +1563,11 @@ sub mmoll_to_unit {
 		de => "Fett",
 		el => "Λιπαρά",
 		en => "Fat",
+		en_synonyms => ["Total fat", "Lipids"],
 		es => "Grasas",
+		es_synonyms => ["Materias grasas"],
 		et => "Rasvad",
-		fi => "Rasva",
+		fi => "Rasvat",
 		fr => "Matières grasses / Lipides",
 		fr_synonyms => ["Matières grasses", "Matière grasse", "Lipides", "Graisses", "Graisse"],
 		ga => "Saill",
@@ -1485,12 +1638,15 @@ sub mmoll_to_unit {
 		de => "Buttersäure (4:0)",
 		el => "Βουτυρικό οξύ (4:0)",
 		es => "Ácido butírico (4:0)",
+		fi => "Voihappo (4:0)",
+		fi_synonyms => ["Butaanihappo (4:0)"],
 		fr => "Acide butyrique (4:0)",
 		he => "חומצה בוטירית (4:0)",
 		ja => "酪酸 (4:0)",
 		nl => "Boterzuur (4:0)",
 		nl_be => "Boterzuur (4:0)",
 		pt => "Ácido butírico (4:0)",
+		ro => "Acid butiric (4:0)",
 		ru => "Масляная кислота (4:0)",
 		zh => "丁酸 (4:0)",
 		zh_CN => "丁酸 (4:0)",
@@ -1502,12 +1658,14 @@ sub mmoll_to_unit {
 		de => "Capronsäure (6:0)",
 		el => "Καπροϊκό οκύ (6:0)",
 		es => "Ácido caproico (6:0)",
+		fi => "Kapronihappo (6:0)",
 		fr => "Acide caproïque (6:0)",
 		he => "חומצה קפרואית (6:0)",
 		ja => "カプロン酸 (6:0)",
 		nl => "Capronzuur (6:0)",
 		nl_be => "Capronzuur (6:0)",
 		pt => "Ácido capróico (6:0)",
+		ro => "Acid caproic (6:0)",
 		ru => "Капроновая кислота (6:0)",
 		zh => "己酸 (6:0)",
 		zh_CN => "己酸 (6:0)",
@@ -1519,12 +1677,14 @@ sub mmoll_to_unit {
 		de => "Caprylsäure (8:0)",
 		el => "Καπρυλικό οξύ (8:0)",
 		es => "Ácido caprílico (8:0)",
+		fi => "Kapryylihappo (8:0)",
 		fr => "Acide caproïque (8:0)",
 		he => "חומצה קפרילית (8:0)",
 		ja => "カプリル酸 (8:0)",
 		nl => "Octaanzuur (8:0)",
 		nl_be => "Octaanzuur (8:0)",
 		pt => "Ácido caprílico (8:0)",
+		ro => "Acid caprilic (8:0)",
 		ru => "Каприловая кислота (8:0)",
 		zh => "辛酸 (8:0)",
 		zh_CN => "辛酸 (8:0)",
@@ -1536,12 +1696,14 @@ sub mmoll_to_unit {
 		de => "Caprinsäure (10:0)",
 		el => "Καπρικό οξύ (10:0)",
 		es => "Ácido cáprico (10:0)",
+		fi => "Kapriinihappo (10:0)",
 		fr => "Acide caprique (10:0)",
 		he => "חומצה קפרית (10:0)",
 		ja => "カプリン酸 (10:0)",
 		nl => "Decaanzuur (10:0)",
 		nl_be => "Decaanzuur (10:0)",
 		pt => "Ácido cáprico (10:0)",
+		ro => "Acid capric (10:0)",
 		ru => "Каприновая кислота (10:0)",
 		zh => "癸酸 (10:0)",
 		zh_CN => "癸酸 (10:0)",
@@ -1553,11 +1715,13 @@ sub mmoll_to_unit {
 		de => "Laurinsäure",
 		el => "Λαυρικό οξύ/n-δωδεκανοϊκό οξύ (12:0)",
 		es => "Ácido láurico (12:0)",
+		fi => "Lauriinihappo (12:0)",
 		fr => "Acide laurique (12:0)",
 		he => "חומצה לאורית (12:0)",
 		nl => "Laurinezuur (12:0)",
 		nl_be => "Laurinezuur (12:0)",
 		pt => "Ácido láurico (12:0)",
+		ro => "Acid lauric (12:0)",
 		ru => "Лауриновая кислота (12:0)",
 		zh => "十二酸 (12:0)",
 		zh_CN => "十二酸 (12:0)",
@@ -1569,10 +1733,12 @@ sub mmoll_to_unit {
 		de => "Myristinsäure (14:0)",
 		el => "Μυριστικό οξύ (14:0)",
 		es => "Ácido mirístico (14:0)",
+		fi => "Myristiinihappo (14:0)",
 		fr => "Acide myristique (14:0)",
 		he => "חומצה מיריסטית (14:0)",
 		nl => "Myristinezuur (14:0)",
 		pt => "Ácido mirístico (14:0)",
+		ro => "Acidul myristic (14:0)",
 		ru => "Миристиновая кислота (14:0)",
 		zh => "十四酸 (14:0)",
 		zh_CN => "十四酸 (14:0)",
@@ -1584,11 +1750,13 @@ sub mmoll_to_unit {
 		de => "Palitinsäure (16:0)",
 		el => "Παλμιτικό οξύ (16:0)",
 		es => "Ácido palmítico (16:0)",
+		fi => "Palmitiinihappo (16:0)",
 		fr => "Acide palmitique (16:0)",
 		he => "חומצה פלמיטית (16:0)",
 		nl => "Palmitinezuur (16:0)",
 		nb => "Palmitinsyre (16:0)",
 		pt => "Ácido palmítico (16:0)",
+		ro => "Acidul palmitic (16:0)",
 		ru => "Пальмитиновая кислота (16:0)",
 		zh => "十六酸 (16:0)",
 		zh_CN => "十六酸 (16:0)",
@@ -1600,11 +1768,13 @@ sub mmoll_to_unit {
 		de => "Stearinsäure (18:0)",
 		el => "Στεατικό/Στεαρικό οξύ (18:0)",
 		es => "Ácido esteárico (18:0)",
+		fi => "Steariinihappo (18:0)",
 		fr => "Acide stéarique (18:0)",
 		he => "חומצה סטארית (18:0)",
 		nl => "Stearinezuur (18:0)",
 		nl_be => "Stearinezuur (18:0)",
 		pt => "Ácido esteárico (18:0)",
+		ro => "Acid stearic (18:0)",
 		ru => "Стеариновая кислота (18:0)",
 		zh => "十八酸 (18:0)",
 		zh_CN => "十八酸 (18:0)",
@@ -1616,10 +1786,13 @@ sub mmoll_to_unit {
 		de => "Arachinsäure (20:0)",
 		el => "Αραχιδικό οξύ (20:0)",
 		es => "Ácido araquídico (20:0)",
+		fi => "Arakidihappo (20:0)",
+		fi_synonyms => ["Eikosaanihappo (20:0)", "Ikosaanihappo (20:0)"],
 		fr => "Acide arachidique / acide eicosanoïque (20:0)",
 		nl => "Arachidinezuur (20:0)",
 		nl_be => "Arachidinezuur (20:0)",
 		pt => "Ácido araquídico (20:0)",
+		ro => "Acid arachidic (20:0)",
 		ru => "Арахиновая кислота (20:0)",
 		zh => "二十酸 (20:0)",
 		zh_CN => "二十酸 (20:0)",
@@ -1631,11 +1804,13 @@ sub mmoll_to_unit {
 		de => "Behensäure (22:0)",
 		el => "Βεχενικό οξύ/εικοσαδυενοϊκό οξύ (22:0)",
 		es => "Ácido behénico (22:0)",
+		fi => "Beheenihappo (22:0)",
 		fr => "Acide béhénique (22:0)",
 		he => "חומצה בהנית (22:0)",
 		nl => "Beheenzuur (22:0)",
 		nl_be => "Beheenzuur (22:0)",
 		pt => "Ácido beénico (22:0)",
+		ro => "Acid behenic (22:0)",
 		ru => "Бегеновая кислота (22:0)",
 		zh => "二十二酸 (22:0)",
 		zh_CN => "二十二酸 (22:0)",
@@ -1647,10 +1822,12 @@ sub mmoll_to_unit {
 		de => "Lignocerinsäure (24:0)",
 		el => "Λιγνοκηρικό οξύ (24:0)",
 		es => "Ácido lignocérico (24:0)",
+		fi => "Lignoseriinihappo (24:0)",
 		fr => "Acide lignocérique (24:0)",
 		nl => "Lignocerinezuur (24:0)",
 		nl_be => "Lignocerinezuur (24:0)",
 		pt => "Ácido lignocérico (24:0)",
+		ro => "Acidul lignoceric (24:0)",
 		ru => "Лигноцериновая кислота (24:0)",
 		zh => "二十四酸 (24:0)",
 		zh_CN => "二十四酸 (24:0)",
@@ -1662,10 +1839,12 @@ sub mmoll_to_unit {
 		de => "Cerotinsäure (26:0)",
 		el => "Κηροτικό οξύ (26:0)",
 		es => "Ácido cerótico (26:0)",
+		fi => "Keroottihappo (26:0)",
 		fr => "Acide cérotique (26:0)",
 		nl => "Cerotinezuur (26:0)",
 		nl_be => "Cerotinezuur (26:0)",
 		pt => "Ácido cerótico (26:0)",
+		ro => "Acidul cerotic (26:0)",
 		ru => "Церотиновая кислота (26:0)",
 		zh => "二十六酸 (26:0)",
 		zh_CN => "二十六酸 (26:0)",
@@ -1677,10 +1856,12 @@ sub mmoll_to_unit {
 		de => "Montansäure (28:0)",
 		el => "Μοντανικό οξύ (28:0)",
 		es => "Ácido montánico (28:0)",
+		fi => "Montaanihappo (28:0)",
 		fr => "Acide montanique (28:0)",
 		nl => "Montaanzuur (28:0)",
 		nl_be => "Montaanzuur (28:0)",
 		pt => "Ácido montânico (28:0)",
+		ro => "Acid montanic (28:0)",
 		ru => "Монтановая кислота (28:0)",
 		zh => "二十八酸 (28:0)",
 		zh_CN => "二十八酸 (28:0)",
@@ -1692,6 +1873,7 @@ sub mmoll_to_unit {
 		de => "Melissinsäure (30:0)",
 		el => "Μελισσικό οξύ (30:0)",
 		es => "Ácido melísico (30:0)",
+		fi => "Triakontaanihappo (30:0)",
 		fr => "Acide mélissique (30:0)",
 		nl => "Melissinezuur (30:0)",
 		nl_be => "Melissinezuur (30:0)",
@@ -1712,6 +1894,7 @@ sub mmoll_to_unit {
 		es => "Grasas monoinsaturadas",
 		et => "Monoküllastumata rasvhapped",
 		fi => "Kertatyydyttymättömät rasvat",
+		fi_synonyms => ["Kertatyydyttymättömät rasvahapot", "Yksittäistyydyttymättömät rasvahapot"],
 		fr => "Acides gras monoinsaturés",
 		fr_synonyms => ["Acides gras mono-insaturés"],
 		ga => "Monai-neamhsháitheáin saill",
@@ -1742,6 +1925,7 @@ sub mmoll_to_unit {
 		el => "Ωμέγα-9 λιπαρά",
 		en => "Omega 9 fatty acids",
 		es => "Ácidos grasos Omega 9",
+		fi => "Omega-9-rasvahapot",
 		fr => "Acides gras Oméga 9",
 		fr_synonyms => ["Oméga 9"],
 		he => "אומגה 9",
@@ -1751,6 +1935,7 @@ sub mmoll_to_unit {
 		nl_be => "Omega 9 vetzuren",
 		pt => "Ácidos Graxos Ômega 9",
 		pt_pt => "Ácidos gordos Ómega 9",
+		ro => "Acizi grași omega-9",
 		ru => "Омега-9 жирные кислоты",
 		zh => "Omega-9 脂肪酸",
 		zh_CN => "Omega-9 脂肪酸",
@@ -1762,11 +1947,14 @@ sub mmoll_to_unit {
 		de => "Ölsäure (18:1 n-9)",
 		el => "Ολεϊκό οξύ (18:1 n-9)",
 		es => "Ácido oleico (18:1 n-9)",
+		fi => "Oleiinihappo (18:1 n-9)",
+		fi_synonyms => ["Öljyhappo (18:1 n-9)"],
 		fr => "Acide oléique (18:1 n-9)",
 		he => "חומצה אולאית",
 		nl => "Oliezuur (18:1 n-9)",
 		nl_be => "Oliezuur (18:1 n-9)",
 		pt => "Ácido oleico (18:1 n-9)",
+		ro => "Acidul oleic (18:1 n-9)",
 		ru => "Олеиновая кислота (18:1 n-9)",
 		zh => "油酸 (18:1 n-9)",
 		zh_CN => "油酸 (18:1 n-9)",
@@ -1778,10 +1966,12 @@ sub mmoll_to_unit {
 		de => "Elaidinsäure (18:1 n-9)",
 		el => "Ελαϊδικό οξύ (18:1 n-9)",
 		es => "Ácido elaídico (18:1 n-9)",
+		fi => "Elaidiinihappo (18:1 n-9)",
 		fr => "Acide élaïdique (18:1 n-9)",
 		nl => "Elaïdinezuur (18:1 n-9)",
 		nl_be => "Elaïdinezuur (18:1 n-9)",
 		pt => "Ácido elaídico (18:1 n-9)",
+		ro => "Acid elaidic (18:1 n-9)",
 		ru => "Элаидиновая кислота (18:1 n-9)",
 		zh => "反油酸 (18:1 n-9)",
 		zh_CN => "反油酸 (18:1 n-9)",
@@ -1793,10 +1983,12 @@ sub mmoll_to_unit {
 		de => "Gondosäure (20:1 n-9)",
 		el => "Γονδοϊκό οξύ (20:1 n-9)",
 		es => "Ácido gondoico (20:1 n-9)",
+		fi => "Eikoseenihappo (20:1 n-9)",
 		fr => "Acide gadoléique (20:1 n-9)",
 		nl => "Eicoseenzuur (20:1 n-9)",
 		nl_be => "Eicoseenzuur (20:1 n-9)",
 		pt => "Ácido gondoico (20:1 n-9)",
+		ro => "Acidul gondoic (20:1 n-9)",
 		ru => "Гондоиновая кислота (20:1 n-9)",
 		zh => "11-二十碳烯酸 (20:1 n-9)",
 		zh_CN => "11-二十碳烯酸 (20:1 n-9)",
@@ -1808,6 +2000,7 @@ sub mmoll_to_unit {
 		de => "Mead'sche Säure (20:3 n-9)",
 		el => "Οξύ Mead (20:3 n-9)",
 		es => "Ácido Mead (20:3 n-9)",
+		fi => "Meadin happo (20:3 n-9)",
 		fr => "Acide de Mead (20:3 n-9)",
 		nl => "Meadzuur (20:3 n-9)",
 		nl_be => "Meadzuur (20:3 n-9)",
@@ -1823,10 +2016,12 @@ sub mmoll_to_unit {
 		de => "Erucasäure (18:1 n-9)",
 		el => "Ερουκικό οξύ (22:1 n-9)",
 		es => "Ácido erúcico (22:1 n-9)",
+		fi => "Erukahappo (22:1 n-9)",
 		fr => "Acide érucique (22:1 n-9)",
 		nl => "Erucazuur (22:1 n-9)",
 		nl_be => "Erucazuur (22:1 n-9)",
 		pt => "Ácido erúcico (22:1 n-9)",
+		ro => "Acid erucic (22:1 n-9)",
 		ru => "Эруковая кислота (22:1 n-9)",
 		zh => "芥酸 (22:1 n-9)",
 		zh_CN => "芥酸 (22:1 n-9)",
@@ -1838,11 +2033,13 @@ sub mmoll_to_unit {
 		de => "Nervonsäure (24:1 n-9)",
 		el => "Νερβονικό (24:1 n-9)",
 		es => "Ácido nervónico (24:1 n-9)",
+		fi => "Nervonihappo (24:1 n-9)",
 		fr => "Acide nervonique (24:1 n-9)",
 		nl => "Nervonzuur (24:1 n-9)",
 		nl_be => "Nervonzuur (24:1 n-9)",
 		pt => "Ácido nervônico (24:1 n-9)",
 		pt_pt => "Ácido nervónico (24:1 n-9)",
+		ro => "Acidul nervonic (24:1 n-9)",
 		ru => "Нервоновая кислота (24:1 n-9)",
 		zh => "二十四碳烯酸 (24:1 n-9)",
 		zh_CN => "二十四碳烯酸 (24:1 n-9)",
@@ -1859,6 +2056,7 @@ sub mmoll_to_unit {
 		es => "Grasas poliinsaturadas",
 		et => "Polüküllastumata rasvhapped",
 		fi => "Monityydyttymättömät rasvat",
+		fi_synonyms => ["Monityydyttymättömät rasvahapot"],
 		fr => "Acides gras polyinsaturés",
 		fr_synonyms => ["Acides gras poly-insaturés"],
 		ga => "Pola-neamhsháitheáin saill",
@@ -1890,6 +2088,7 @@ sub mmoll_to_unit {
 		de => "Omega-3-Fettsäuren",
 		el => "Ωμέγα-3 λιπαρά",
 		es => "Ácidos grasos Omega 3",
+		fi => "Omega-3-rasvahapot",
 		fr => "Acides gras Oméga 3",
 		fr_synonyms => ["Oméga 3"],
 		he => "אומגה 3",
@@ -1899,6 +2098,7 @@ sub mmoll_to_unit {
 		nl_be => "Omega 3-vetzuren",
 		pt => "Ácidos graxos Ômega 3",
 		pt_pt => "Ácidos gordos Ómega 3",
+		ro => "Acizi grași omega-3",
 		ru => "Омега-3 жирные кислоты",
 		zh => "Omega 3 脂肪酸",
 		zh_CN => "Omega 3 脂肪酸",
@@ -1910,11 +2110,13 @@ sub mmoll_to_unit {
 		de => "A-Linolensäure (18:3 n-3)",
 		el => "Α-λινολενικό οξύ/ ALA (18:3 n-3)",
 		es => "Ácido alfa-linolénico / ALA (18:3 n-3)",
+		fi => "Alfalinoleenihappo / ALA (18:3 n-3)",
 		fr => "Acide alpha-linolénique / ALA (18:3 n-3)",
 		nl => "Alfa-linoleenzuur / ALA (18:3 n-3)",
 		nl_be => "Alfa-linoleenzuur / ALA (18:3 n-3)",
 		pt => "Ácido alfa-linolênico / ALA (18:3 n-3)",
 		pt_pt => "Ácido alfa-linolénico / ALA (18:3 n-3)",
+		ro => "Acid alfa-linolenic / ALA (18:3 N-3)",
 		ru => "Альфа-линоленовая кислота / (АЛК) (18:3 n-3)",
 		zh => "α-亚麻酸 / ALA (18:3 n-3)",
 		zh_CN => "α-亚麻酸 / ALA (18:3 n-3)",
@@ -1926,11 +2128,13 @@ sub mmoll_to_unit {
 		de => "Eicosapentaensäure (20:5 n-3)",
 		el => "Εικοσιπεντανοϊκο οξύ / EPA (20:5 n-3)",
 		es => "Ácido eicosapentaenoico / EPA (20:5 n-3)",
+		fi => "Eikosapentaeenihappo / EPA (20:5 n-3)",
 		fr => "Acide eicosapentaénoïque / EPA (20:5 n-3)",
 		fr_synonyms => ["Oméga 3 EPA"],
 		nl => "Eicosapentaeenzuur / EPA (20:5 n-3)",
 		nl_be => "Eicosapentaeenzuur / EPA (20:5 n-3)",
 		pt => "Ácido eicosapentaenóico / EPA (20:5 n-3)",
+		ro => "Acid eicosapentaenoic / EPA (20: 5 n-3)",
 		ru => "Эйкозапентаеновая кислота / (ЭПК) (20:5 n-3)",
 		zh => "二十碳五酸 / EPA (20:5 n-3)",
 		zh_CN => "二十碳五酸 / EPA (20:5 n-3)",
@@ -1942,11 +2146,13 @@ sub mmoll_to_unit {
 		de => "Docosahexaensäure (22:6 n-3)",
 		el => "Δοκοσαεξανοϊκο οξύ / DHA (22:6 n-3)",
 		es => "Ácido docosahexaenoico / DHA (22:6 n-3)",
+		fi => "Dokosaheksaeenihappo / DHA (22:6 n-3)",
 		fr => "Acide docosahexaénoïque / DHA (22:6 n-3)",
 		fr_synonyms => ["Oméga 3 DHA"],
 		nl => "Docosahexaeenzuur / DHA (22:6 n-3)",
 		nl_be => "Docosahexaeenzuur / DHA (22:6 n-3)",
 		pt => "Ácido docosa-hexaenóico / DHA (22:6 n-3)",
+		ro => "Acid docosahexaenoic / DHA (22:6 n-3)",
 		ru => "Докозагексаеновая кислота / (ДГК) (22:6 n-3)",
 		zh => "二十二碳六酸 / DHA (22:6 n-3)",
 		zh_CN => "二十二碳六酸 / DHA (22:6 n-3)",
@@ -1958,6 +2164,7 @@ sub mmoll_to_unit {
 		de => "Omega-6-Fettsäuren",
 		el => "Ωμέγα-6 λιπαρά",
 		es => "Ácidos grasos Omega 6",
+		fi => "Omega-6-rasvahapot",
 		fr => "Acides gras Oméga 6",
 		fr_synonyms => ["Oméga 6"],
 		he => "אומגה 6",
@@ -1967,6 +2174,7 @@ sub mmoll_to_unit {
 		nl_be => "Omega 6-vetzuren",
 		pt => "Ácidos Graxos Ômega 6",
 		pt_pt => "Ácidos gordos Ómega 6",
+		ro => "Acizi grași omega-6",
 		ru => "Омега-6 жирные кислоты",
 		zh => "Omega 6 脂肪酸",
 		zh_CN => "Omega 6 脂肪酸",
@@ -1977,10 +2185,12 @@ sub mmoll_to_unit {
 		en => "Linoleic acid / LA (18:2 n-6)",
 		el => "Λινολεϊκό οξύ / LA (18:2 n-6)",
 		es => "Ácido linoleico / LA (18:2 n-6)",
+		fi => "Linolihappo / LA (18:2 n-6)",
 		fr => "Acide linoléique / LA (18:2 n-6)",
 		nl => "Linolzuur / LA (18:2 n-6)",
 		nl_be => "Linolzuur / LA (18:2 n-6)",
 		pt => "Ácido linoleico / LA (18:2 n-6)",
+		ro => "Acid linoleic / LA (18:2 n-6)",
 		ru => "Линолевая кислота / (ЛК) 18:2 (n−6)",
 		zh => "亚油酸 / LA (18:2 n-6)",
 		zh_CN => "亚油酸 / LA (18:2 n-6)",
@@ -1991,12 +2201,14 @@ sub mmoll_to_unit {
 		en => "Arachidonic acid / AA / ARA (20:4 n-6)",
 		el => "Αραχιδονικό οξύ / AA / ARA (20:4 n-6)",
 		es => "Ácido araquidónico / AA / ARA (20:4 n-6)",
+		fi => "Arakidonihappo / AA / ARA (20:4 n-6)",
 		fr => "Acide arachidonique / AA / ARA (20:4 n-6)",
 		he => "חומצה ארכידונית / AA / ARA (20:4 n-6)",
 		nl => "Arachidonzuur / AA / ARA (20:4 n-6)",
 		nl_be => "Arachidonzuur / AA / ARA (20:4 n-6)",
 		pt => "Ácido araquidônico / AA / ARA (20:4 n-6)",
 		pt_pt => "Ácido araquidónico / AA / ARA (20:4 n-6)",
+		ro => "Acid arachidonic / AA / ARA (20:4 n-6)",
 		ru => "Арахидоновая кислота / (АК) 20:4 (n−6)",
 		zh => "花生四烯酸 / AA / ARA (20:4 n-6)",
 		zh_CN => "花生四烯酸 / AA / ARA (20:4 n-6)",
@@ -2007,11 +2219,14 @@ sub mmoll_to_unit {
 		en => "Gamma-linolenic acid / GLA (18:3 n-6)",
 		el => "Γ-λινολενικό οξύ / GLA (18:3 n-6)",
 		es => "Ácido gamma-linolénico / GLA (18:3 n-6)",
+		fi => "Gammalinoleenihappo / GLA (18:3 n-6)",
+		fi_synonyms => ["Gamoleenihappo"],
 		fr => "Acide gamma-linolénique / GLA (18:3 n-6)",
 		nl => "Gamma-linoleenzuur / GLA (18:3 n-6)",
 		nl_be => "Gamma-linoleenzuur / GLA (18:3 n-6)",
 		pt => "Ácido gama-linolênico / GLA (18:3 n-6)",
 		pt_pt => "Ácido gama-linolénico / GLA (18:3 n-6)",
+		ro => "Acid gama-linolenic / GLA (18:3 n-6)",
 		ru => "γ-линоленовая кислота / (GLA) 18:3 (n−6)",
 		zh => "γ-亚麻酸 / GLA (18:3 n-6)",
 		zh_CN => "γ-亚麻酸 / GLA (18:3 n-6)",
@@ -2022,11 +2237,13 @@ sub mmoll_to_unit {
 		en => "Dihomo-gamma-linolenic acid / DGLA (20:3 n-6)",
 		el => "Διχομο-γ-λινολεϊκό οξύ / DGLA (20:3 n-6)",
 		es => "Ácido dihomo-gamma-linolénico / DGLA (20:3 n-6)",
+		fi => "Dihomo-gammalinoleenihappo / DGLA (20:3 n-6)",
 		fr => "Acide dihomo-gamma-linolénique / DGLA (20:3 n-6)",
 		nl => "Dihomo-gammalinoleenzuur / DGLA (20:3 n-6)",
 		nl_be => "Dihomo-gammalinoleenzuur / DGLA (20:3 n-6)",
 		pt => "Ácido dihomo-gama-linolênico / DGLA (20:3 n-6)",
 		pt_pt => "Ácido dihomo-gama-linolénico / DGLA (20:3 n-6)",
+		ro => "Acid dihomo-gamma-linolenic / DGLA (20:3 n-6)",
 		ru => "Дигомо-γ-линоленовая кислота / (ДГДК) 20:3 (n−6)",
 		zh => "二高-γ-亚麻酸 / DGLA (20:3 n-6)",
 		zh_CN => "二高-γ-亚麻酸 / DGLA (20:3 n-6)",
@@ -2040,13 +2257,17 @@ sub mmoll_to_unit {
 		de => "Trans-Fettsäuren",
 		el => "Τρανς λιπαρά",
 		es => "Grasas trans",
+		fi => "Transrasva",
+		fi_synonyms => ["transrasvahappo"],
 		fr => "Acides gras trans",
 		he => "שומן טראנס - שומן בלתי רווי",
+		hu => "Transz-zsírsav",
 		it => "Acidi grassi trans",
 		nl => "Transvetten",
 		nl_be => "Transvetten",
 		pt => "Gorduras trans",
 		pt_pt => "Ácidos gordos trans",
+		ro => "Acizi grași trans",
 		ru => "Транс-жиры",
 		zh => "反式脂肪",
 		zh_CN => "反式脂肪",
@@ -2060,6 +2281,7 @@ sub mmoll_to_unit {
 		de => "Cholesterin",
 		el => "Χοληστερόλη",
 		es => "Colesterol",
+		fi => "Kolesteroli",
 		fr => "Cholestérol",
 		he => "כולסטרול",
 		it=> "Colesterolo",
@@ -2067,6 +2289,7 @@ sub mmoll_to_unit {
 		nl => "Cholesterol",
 		nl_be => "Cholesterol",
 		pt => "Colesterol",
+		ro => "Colesterol",
 		ru => "Холестерин",
 		tr => "Kolestrol",
 		zh => "胆固醇",
@@ -2076,7 +2299,8 @@ sub mmoll_to_unit {
 		unit => "mg",
 	},
 	fiber => {
-		en => "Dietary fiber",
+		en => "Fibers",
+		en_synonyms => ["Dietary fiber", "Fiber", "fibers", "dietary fibers"],
 		bg => "Влакнини",
 		cs => "Vláknina",
 		da => "Kostfibre",
@@ -2084,9 +2308,10 @@ sub mmoll_to_unit {
 		el => "Εδώδιμες ίνες",
 		es => "Fibra alimentaria",
 		et => "Kiudained",
-		fi => "Ravintokuitu",
+		fi => "Ravintokuidut",
+		fi_synonyms => ["Ravintokuitu", "Kuitu", "Kuidut"],
 		fr => "Fibres alimentaires",
-		fr_synonyms => ["fibres", "fibre", "fibre alimentaire"],
+		fr_synonyms => ["fibres", "fibre", "fibre alimentaire", "fibres alimentaires totales"],
 		ga => "Snáithín",
 		he => "סיבים תזונתיים",
 		hu => "Rost",
@@ -2100,6 +2325,7 @@ sub mmoll_to_unit {
 		nb => "Kostfiber",
 		pl => "Błonnik",
 		pt => "Fibra alimentar",
+		ro => "Fibre",
 		ru => "Пищевые волокна",
 		sk => "Vláknina",
 		sl => "Prehranskih vlaknin",
@@ -2112,8 +2338,10 @@ sub mmoll_to_unit {
 	"soluble-fiber" => {
 		de => "lösliche Ballaststoffe",
 		en => "Soluble fiber",
+		fi => "Liukeneva kuitu",
 		fr => "Fibres solubles",
 		pt => "Fibra alimentar solúvel",
+		ro => "Fibre solubile",
 		ru => "Растворимые волокна",
 		zh => "可溶性纤维",
 		zh_CN => "可溶性纤维",
@@ -2123,8 +2351,10 @@ sub mmoll_to_unit {
 	"insoluble-fiber" => {
 		de => "unlösliche Ballaststoffe",
 		en => "Insoluble fiber",
+		fi => "Liukenematon kuitu",
 		fr => "Fibres insolubles",
 		pt => "Fibra alimentar insolúvel",
+		ro => "Fibre insolubile",
 		ru => "Нерастворимые волокна",
 		zh => "不可溶性纤维",
 		zh_CN => "不可溶性纤维",
@@ -2132,19 +2362,27 @@ sub mmoll_to_unit {
 		zh_TW => "不可溶性纖維",
 	},
 	sodium => {
-		fr => "Sodium",
+		ar => "الصوديوم",
+		cs => "Sodík",
+		de => "Natrium",
 		en => "Sodium",
 		el => "Νάτριο",
 		es => "Sodio",
-		ar => "الصوديوم",
-		it => "Sodio",
-		pt => "Sódio",
-		de => "Natrium",
+		fi => "Natrium",
+		fr => "Sodium",
 		he => "נתרן",
-		zh => "钠",
+		hu => "Nátrium",
+		it => "Sodio",
+		ja => "ナトリウム",
 		nl => "Natrium",
 		nl_be => "Sodium",
-		ja => "ナトリウム",
+		pt => "Sódio",
+		ro => "Sodiu",
+		zh => "钠",
+		zh_CN => "钠",
+		zh_HK => "鈉",
+		zh_TW => "鈉",
+
 		unit_us => "mg",
 	},
 	salt => {
@@ -2159,6 +2397,8 @@ sub mmoll_to_unit {
 		da => "Salt",
 		el => "Αλάτι",
 		fi => "Suola",
+		fi_synonyms => ["Ruokasuola"],
+		hu => "Só",
 		it => "Sale",
 		nl => "Zout",
 		nl_be => "Zout",
@@ -2179,6 +2419,7 @@ sub mmoll_to_unit {
 		en => "Salt equivalent",
 		es => "Equivalente en sal",
 		el => "Ισοδύναμο σε αλάτι",
+		fi => "Suolaekvivalentti",
 		pt => "Equivalente em sal",
 		he => "תחליפי מלח",
 		nl => "Equivalent in zout",
@@ -2195,7 +2436,8 @@ sub mmoll_to_unit {
 		he => "ויטמינים",
 		ga => "Vitimín",
 		el => "Βιταμίνες",
-		fi => "vitamiini",
+		fi => "Vitamiinit",
+		fi_synonyms => ["Vitamiini"],
 		nl => "Vitamines",
 		nl_be => "Vitamines",
 		lv => "vitamīns",
@@ -2205,8 +2447,12 @@ sub mmoll_to_unit {
 		lt => "Vitaminas",
 		mt => "Vitamina",
 		sk => "Vitamín",
-		ro => "Vitamina",
+		ro => "Vitamine",
 		bg => "Витамин",
+		zh => "维生素",
+		zh_CN => "维生素",
+		zh_HK => "維他命",
+		zh_TW => "維生素",
 	},
 	'vitamin-a' => {
 		fr => "Vitamine A (rétinol)",
@@ -2284,7 +2530,8 @@ sub mmoll_to_unit {
 		he => "ויטמין E (אלפא טוקופרול)",
 		ga => "Vitimín E",
 		el => "Βιταμίνη E",
-		fi => "E-vitamiini",
+		fi => "E-vitamiini (Tokoferoli)",
+		fi_synonyms => ["E-vitamiini", "Tokoferoli"],
 		nl => "Vitamine E",
 		nl_be => "Vitamine E",
 		lv => "E vitamīns",
@@ -2314,7 +2561,7 @@ sub mmoll_to_unit {
 		he => "ויטמין K (מנדיון)",
 		ga => "Vitimín K",
 		el => "Βιταμίνη K",
-		fi => "K-vitamiini",
+		fi => "K-vitamiinit",
 		nl => "Vitamine K",
 		nl_be => "Vitamine K",
 		lv => "K vitamīns",
@@ -2344,7 +2591,8 @@ sub mmoll_to_unit {
 		he => "ויטמין C (חומצה אסקורבית)",
 		ga => "Vitimín C",
 		el => "Βιταμίνη C",
-		fi => "C-vitamiini",
+		fi => "C-vitamiini (Askorbiinihappo)",
+		fi_synonyms => ["C-vitamiini", "Askorbiinihappo"],
 		nl => "Vitamine C",
 		nl_be => "Vitamine C",
 		lv => "C vitamīns",
@@ -2378,6 +2626,7 @@ sub mmoll_to_unit {
 		ga => "Vitimín B1 (Tiaimín)",
 		el => "Βιταμίνη B1 (Θειαμίνη)",
 		fi => "B1-vitamiini (Tiamiini)",
+		fi_synonyms => ["B1-vitamiini", "Tiamiini"],
 		nl => "Vitamine B1 (Thiamine)",
 		nl_be => "Vitamine B1 (Thiamine)",
 		lv => "B1 vitamīns (Tiamīns)",
@@ -2408,6 +2657,7 @@ sub mmoll_to_unit {
 		ga => "Vitimín B2 (Ribeaflaivin)",
 		el => "Βιταμίνη B2 (Ριβοφλαβίνη)",
 		fi => "B2-vitamiini (Riboflaviini)",
+		fi_synonyms => ["B2-vitamiini", "Riboflaviini"],
 		nl => "Vitamine B2 (Riboflavine)",
 		nl_be => "Vitamine B2 (Riboflavine)",
 		lv => "B2 vitamīns (Riboflavīns)",
@@ -2437,7 +2687,8 @@ sub mmoll_to_unit {
 		he => "ויטמין B3 /ויטמין PP (ניאצין או חומצה ניקוטינית)",
 		ga => "Niaicin",
 		el => "Νιασίνη",
-		fi => "Niasiini",
+		fi => "B3-vitamiini (Niasiini)",
+		fi_synonyms => ["B3-vitamiini", "Niasiini"],
 		nl => "Niacine",
 		nl_be => "Niacine",
 		lv => "Niacīns",
@@ -2466,7 +2717,8 @@ sub mmoll_to_unit {
 		he => "ויטמין B6 (פירידוקסין)",
 		ga => "Vitimín B6",
 		el => "Βιταμίνη B6",
-		fi => "B6-vitamiini",
+		fi => "B6-vitamiini (Pyridoksiini)",
+		fi_synonyms => ["B6-vitamiini", "Pyridoksiini"],
 		nl => "Vitamine B6",
 		nl_be => "Vitamine B6",
 		lv => "B6 vitamīns",
@@ -2496,6 +2748,7 @@ sub mmoll_to_unit {
 		ga => "Vitimín B9 (Aigéad fólach)",
 		el => "Βιταμίνη B9 (Φολικό οξύ)",
 		fi => "B9-vitamiini (Foolihappo)",
+		fi_synonyms => ["B9-vitamiini", "Foolihappo"],
 		nl => "Vitamine B9 (Foliumzuur)",
 		nl_be => "Vitamine B9 (Foliumzuur)",
 		lv => "B9 vitamīns (Folijskābe)",
@@ -2515,6 +2768,7 @@ sub mmoll_to_unit {
 	# folates = total folates = naturally occuring folates + added folic acid
 	'folates' => {
 		en => "Folates (total folates)",
+		fi => "Folaatit",
 		fr => "Folates (folates totaux)",
 
 		unit => "µg",
@@ -2533,7 +2787,8 @@ sub mmoll_to_unit {
 		he => "ויטמין B12 (ציאנוקובלאמין)",
 		ga => "Vitimín B12",
 		el => "Βιταμίνη B12",
-		fi => "B12-vitamiini",
+		fi => "B12-vitamiini (Kobalamiini)",
+		fi_synonyms => ["B12-vitamiini", "Kobalamiini"],
 		nl => "Vitamine B12",
 		nl_be => "Vitamine B12",
 		lv => "B12 vitamīns",
@@ -2562,7 +2817,8 @@ sub mmoll_to_unit {
 		he => "ביוטין (ויטמין B7)",
 		ga => "Bitin",
 		el => "Βιοτίνη",
-		fi => "Biotiini",
+		fi => "Biotiini (B7-vitamiini)",
+		fi_synonyms => ["Biotiini", "B7-vitamiini"],
 		nl => "Biotine",
 		nl_be => "Biotine",
 		lv => "Biotīns",
@@ -2592,7 +2848,8 @@ sub mmoll_to_unit {
 		ga => "Aigéad pantaitéineach",
 		da => "Pantothensyre",
 		el => "Παντοθενικό οξύ",
-		fi => "Pantoteenihappo",
+		fi => "Pantoteenihappo (B5-vitamiini)",
+		fi_synonyms => ["Pantoteenihappo", "B5-vitamiini"],
 		nl => "Pantotheenzuur",
 		nl_be => "Pantotheenzuur",
 		sv => "Pantotensyra",
@@ -2617,12 +2874,15 @@ sub mmoll_to_unit {
 		en => "Minerals",
 		es => "Sales minerales",
 		el => "Ανόργανα άλατα",
+		fi => "Kivennäisaineet",
+		fi_synonyms =>  ["Kivennäisaine", "Kivennäiset", "Kivennäinen"],
 		it => "Sali minerali",
 		pt => "Sais Minerais",
 		de => "Minerals",
 		he => "מינרלים",
 		nl => "Mineralen",
 		nl_be => "Mineralen",
+		ro => "Minerale",
 	},
 	potassium => {
 		fr => "Potassium",
@@ -2658,6 +2918,8 @@ sub mmoll_to_unit {
 		en => "Bicarbonate",
 		es => "Bicarbonato",
 		el => "Διττανθρακικό",
+		fi => "Vetykarbonaatti",
+		fi_synonyms => ["bikarbonaatti"],
 		unit => "mg",
 		it => "Bicarbonato",
 		pt => "Bicarbonato",
@@ -2665,6 +2927,7 @@ sub mmoll_to_unit {
 		he => "ביקרבונט (מימן פחמתי)",
 		nl => "Bicarbonaat",
 		nl_be => "Bicarbonaat",
+		ro => "Bicarbonat",
 	},
 	chloride => {
 		fr => "Chlorure",
@@ -2702,13 +2965,17 @@ sub mmoll_to_unit {
 		en => "Silica",
 		es => "Sílice",
 		el => "Πυρίτιο",
-		unit => "mg",
+		fi => "Piioksidi",
+		fi_synonyms => ["Silika"],
 		it => "Silicio",
 		pt => "Sílica",
 		de => "Kieselerde",
 		he => "צורן דו־חמצני",
 		nl => "Silicium",
 		nl_be => "Silicium",
+		ro => "Dioxid de siliciu",
+
+		unit => "mg",
 	},
 	calcium => {
 		fr => "Calcium",
@@ -2817,6 +3084,7 @@ sub mmoll_to_unit {
 		fr => "Magnésium",
 		en => "Magnesium",
 		es => "Magnesio",
+		fi => "Magnesium",
 		it => "Magnesio",
 		pt => "Magnésio",
 		de => "Magnesium",
@@ -2857,6 +3125,7 @@ sub mmoll_to_unit {
 		fi => "Sinkki",
 		nl => "Zink",
 		nl_be => "Zink",
+		ro => "Zinc",
 		sv => "Zink",
 		lv => "Cinks",
 		cs => "Zinek",
@@ -3097,9 +3366,11 @@ sub mmoll_to_unit {
 		fr => "Caféine / Théine",
 		en => "Caffeine",
 		el => "Καφεΐνη",
+		fi => "Kofeiini",
 		nl => "Cafeïne",
 		nl_be => "Cafeïne",
 		pt => "Cafeína",
+		ro => "Cafeină",
 
 		unit => "mg",
 	},
@@ -3113,6 +3384,7 @@ sub mmoll_to_unit {
 		pl => "Tauryna",
 		wa => "Torene",
 		ko => "타우린",
+		fi => "Tauriini",
 		fr => "Taurine",
 		he => "טאורין",
 		es => "Taurina",
@@ -3162,6 +3434,7 @@ sub mmoll_to_unit {
 	ph => {
 		en => "pH",
 		el => "pH",
+		fi => "pH",
 		nl => "pH",
 		nl_be => "pH",
 		unit => "",
@@ -3172,8 +3445,10 @@ sub mmoll_to_unit {
 		en => "Carbon footprint / CO2 emissions",
 		es => "Huella de carbono / Emisiones de CO2",
 		el => "Αποτύπωμα άνθρακα/Εκπομπές CO2",
+		fi => "Hiilijalanjälki / CO2-päästöt",
 		it=> "Emissioni di CO2 (impronta climatica)",
 		pt => "Pegada de carbono / Emissões de CO<sub>2</sub>",
+		ro => "Amprentă carbon / Emisii CO2",
 		de => "Carbon Footprint / CO2-Emissionen",
 		he => "טביעת רגל פחמנית / פליטת פחמן דו־חמצני",
 		nl => "Ecologische voetafdruk / CO2-uitstoot",
@@ -3183,6 +3458,7 @@ sub mmoll_to_unit {
 	"carbon-footprint-from-meat-or-fish" => {
 		fr => "Empreinte carbone de la viande ou du poisson",
 		en => "Carbon footprint from meat or fish",
+		fi => "Hiilijalanjälki lihasta tai kalasta",
 		unit => "g",
 	},
 
@@ -3190,33 +3466,44 @@ sub mmoll_to_unit {
 	'glycemic-index' => {
 		en => "Glycemic Index",
 		de => "Glykämischer Index",
+		fi => "Glykeeminen indeksi",
 		unit => "",
 	},
 	"water-hardness" => {
 		en => "Water hardness",
+		fi => "Veden kovuus",
 		fr => "Dureté de l'eau",
+		ro => "Duritatea apei",
 		ru => "Жёсткость воды",
 		de => "Wasserhärte",
 		unit => "mmol/l",
 	},
 	"fruits-vegetables-nuts" => {
 		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils",
+		en_synonyms => ["Fruits and vegetables", "Fruits, vegetables and nuts", "Fruits, vegetables, nuts"],
+		fi => "Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt",
+		fi_synonyms => ["Hedelmät ja kasvikset", "Hedelmät, kasvikset ja pähkinät"],
 		fr => "Fruits, légumes, noix et huiles de colza, noix et olive",
+		fr_synonyms => ["Fruits et légumes", "Fruits / légumes", "F&L", "Fruits, légumes et noix", "Fruits, légumes, noix"],
 		es => "Frutas, verduras y nueces",
 		el => "Φρούτα, λαχανικά, καρποί",
 		nl => "Fruit, groenten en noten",
 		nl_be => "Fruit, groenten en noten",
+		ro => "Fructe, legume, nuci",
 		de => "Obst, Gemüse und Nüsse",
 		unit => "%",
 	},
 	"fruits-vegetables-nuts-dried" => {
 		en => "Fruits, vegetables and nuts - dried",
+		fi => "Kuivatut hedelmät, kasvikset ja pähkinät",
 		fr => "Fruits, légumes et noix - séchés",
+		ro => "Fructe, legume, nuci uscate",
 		unit => "%",
 	},
 
 	"fruits-vegetables-nuts-estimate" => {
 		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)",
+		fi => "Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt (arvio ainesosaluettelosta)",
 		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation avec la liste des ingrédients)",
 		es => "Frutas, verduras y nueces (estimación de la lista de ingredientes)",
 		nl => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
@@ -3230,6 +3517,7 @@ sub mmoll_to_unit {
 		el => "Αναλογία κολλαγόνου/πρωτεΐνης κρέατος (μέγιστο)",
 		es => "Relación tejido conjuntivo/proteínas de carne (máximo)",
 		de => "Verhältnis Kollagen/Eiweiß",
+		fi => "Kollageeni/liha-proteiinisuhde (maksimi)",
 		nl => "Verhouding collageen/eiwitten uit vlees (maximum)",
 		nl_be => "Verhouding collageen/eiwitten uit vlees (maximum)",
 		unit => "%",
@@ -3238,13 +3526,16 @@ sub mmoll_to_unit {
 		en => "Cocoa (minimum)",
 		de => "Kakao (Minimum)",
 		es => "Cacao (mínimo)",
+		fi => "Kaakao (minimi)",
 		fr => "Cacao (minimum)",
 		nl => "Cacao (minimum)",
 		pt => "Cacau (minimum)",
+		ro => "Cacao (minim)",
 		unit => "%",
 	},
 	"nutrition-score-uk" => {
 		en => "Nutrition score - UK",
+		fi => "Ravintopisteet - UK",
 		nl => "Voedingsscore - UK",
 		nl_be => "Voedingsgraad",
 		el => "Bαθμολογία θρεπτικής αξίας-UK",
@@ -3253,12 +3544,14 @@ sub mmoll_to_unit {
 	"nutrition-score-fr" => {
 		fr => "Score nutritionnel - France",
 		en => "Nutrition score - France",
+		fi => "Ravintopisteet - Ranska",
 		nl => "Voedingsscore - FR",
 		el => "Βαθμολογία θρεπτικής αξίας-FR",
 		unit => "",
 	},
 	"nova-group" => {
 		en => "NOVA group",
+		fi => "NOVA-ryhmä",
 		fr => "Groupe NOVA",
 		unit => "",
 	},
@@ -3266,6 +3559,7 @@ sub mmoll_to_unit {
 		de => "Beta-Carotin",
 		en => "Beta carotene",
 		es => "Beta caroteno",
+		fi => "Beetakaroteeni",
 		fr => "Bêta carotène",
 		nl => "Bêta-caroteen",
 		nl_be => "Bêta-caroteen",
@@ -3273,12 +3567,17 @@ sub mmoll_to_unit {
 	"chlorophyl" => {
 		de => "Chlorophyll",
 		en => "Chlorophyl",
+		fi => "Lehtivihreä",
+		fi_synonyms => ["Klorofylli"],
 		nl => "Chlorofyl",
 		nl_be => "Chlorofyl",
+		ro => "Clorofilă",
 	},
 	"nutrition-grade" => {
 		fr => "Note nutritionnelle",
 		en => "Nutrition grade",
+		fi => "Ravintoarvosana",
+		ro => "Notă nutrițională",
 	},
 	"choline" => {
 		ar => "كولين",
@@ -3321,17 +3620,22 @@ sub mmoll_to_unit {
 	},
 	phylloquinone => {
 		en => "Vitamin K1 (Phylloquinone)",
+		fi => "K1-vitamiini (Fyllokinoni)",
+		fi_synonyms => ["K1-vitamiini", "Fyllokinoni"],
 		fr => "Vitamine K1"
 	},
 	"beta-glucan" => {
 		en => "Beta-glucan",
+		fi => "Beetaglukaani",
 		fr => "Bêta-glucanes"
 	},
 	inositol => {
-		en => "Inositol"
+		en => "Inositol",
+		fi => "Inositoli"
 	},
 	carnitine => {
-		en => "Carnitine"
+		en => "Carnitine",
+		fi => "Karnitiini"
 	}
 );
 
@@ -3521,10 +3825,15 @@ sub normalize_quantity($) {
 	my $q = undef;
 	my $u = undef;
 
-	if ($quantity =~ /(\d+)(\s)?(x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
+	# 12 pots x125 g
+	# 6 bouteilles de 33 cl
+	# 6 bricks de 1 l
+	# 10 unités, 170 g
+	# 4 bouteilles en verre de 20cl
+	if ($quantity =~ /(\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
 		my $m = $1;
-		$q = lc($5);
-		$u = $10;
+		$q = lc($7);
+		$u = $12;
 		$q =~ s/,/\./;
 		$q = unit_to_g($q * $m, $u);
 	}
@@ -3633,6 +3942,14 @@ sub special_process_product($) {
 		return;
 	}
 
+	# Only add or remove categories tags temporarily for determining the PNNS groups
+	# save the original value
+
+	my @original_categories_tags = ();
+	if (defined $product_ref->{categories_tags}) {
+		@original_categories_tags = @{$product_ref->{categories_tags}};
+	}
+
 	# For Open Food Facts, add special categories for beverages that are computed from
 	# nutrition facts (alcoholic or not) or the ingredients (sweetened, artificially sweetened or unsweetened)
 	# those tags are only added to categories_tags (searchable in Mongo)
@@ -3699,7 +4016,7 @@ sub special_process_product($) {
 			}
 		}
 
-		if (not (has_tag($product_ref,"categories","en:alcoholic-beverages")
+		if ((not (has_tag($product_ref,"categories","en:alcoholic-beverages"))
 			or has_tag($product_ref,"categories","en:fruit-juices")
 			or has_tag($product_ref,"categories","en:fruit-nectars") ) ) {
 
@@ -3855,6 +4172,12 @@ sub special_process_product($) {
 		$product_ref->{pnns_groups_1} = "unknown";
 		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
 	}
+
+	# Put back the original categories_tags so that they match what is in the taxonomy field
+	# if there is a mistmatch it can cause tags to be added multiple times (e.g. with imports)
+	if (scalar @original_categories_tags) {
+		$product_ref->{categories_tags} = \@original_categories_tags;
+	}
 }
 
 
@@ -3913,6 +4236,19 @@ my %fruits_vegetables_nuts_by_category = (
 	"en:colza-oils" => 100,
 	"en:rapeseed-oils" => 100,
 	"en:rapeseeds-oils" => 100,
+	# nuts,
+	# "Les fruits à coque comprennent :
+	# Noix, noisettes, pistaches, noix de cajou, noix de pécan, noix de coco (cf. précisions ci-dessus),
+	# arachides, amandes, châtaigne
+	"en:walnuts" => 100,
+	"en:hazelnuts" => 100,
+	"en:pistachios" => 100,
+	"en:cashew-nuts" => 100,
+	"en:pecan-nuts" => 100,
+	"en:peanuts" => 100,
+	"en:almonds" => 100,
+	"en:chestnuts" => 100,
+	"en:coconuts" => 100,
 );
 
 my @fruits_vegetables_nuts_by_category_sorted = sort { $fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a} } keys %fruits_vegetables_nuts_by_category;
@@ -3923,6 +4259,8 @@ sub compute_nutrition_score($) {
 	# compute UK FSA score (also in planned use in France)
 
 	my $product_ref = shift;
+
+	compute_nutriscore($product_ref);
 
 	delete $product_ref->{nutrition_score_debug};
 	delete $product_ref->{nutriments}{"nutrition-score"};
@@ -4373,10 +4711,6 @@ COMMENT
 # soient dans une catégorie supérieure à l'eau (qui est classée verte).
 # Nous ne disposons pour l'instant pas d'adaptations plus précises du score.
 
-
-
-
-
 	delete $product_ref->{"nutrition-grade-fr"};
 	delete $product_ref->{"nutrition_grade_fr"};
 
@@ -4388,6 +4722,231 @@ COMMENT
 	$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
 	$product_ref->{"nutrition_grades"} = $product_ref->{"nutrition_grade_fr"};  # needed for the /nutrition-grade/unknown query
 
+}
+
+
+sub compute_nutriscore($) {
+
+	my $product_ref = shift;
+
+	# Initialize values
+
+	delete $product_ref->{nutrition_score_debug};
+	delete $product_ref->{nutriments}{"nutrition-score"};
+	delete $product_ref->{nutriments}{"nutrition-score_100g"};
+	delete $product_ref->{nutriments}{"nutrition-score_serving"};
+	delete $product_ref->{nutriments}{"nutrition-score-fr"};
+	delete $product_ref->{nutriments}{"nutrition-score-fr_100g"};
+	delete $product_ref->{nutriments}{"nutrition-score-fr_serving"};
+	delete $product_ref->{nutriments}{"nutrition-score-uk"};
+	delete $product_ref->{nutriments}{"nutrition-score-uk_100g"};
+	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};
+	delete $product_ref->{"nutrition_grade_fr"};
+	delete $product_ref->{"nutrition_grades"};
+	delete $product_ref->{"nutrition_grades_tags"};
+	delete $product_ref->{nutrition_score_warning_no_fiber};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value};
+	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
+	delete $product_ref->{nutriscore_score};
+	delete $product_ref->{nutriscore_grade};
+	delete $product_ref->{nutriscore_data};
+	delete $product_ref->{nutriscore_points};
+
+	defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
+
+	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
+
+	my $prepared = '';
+
+	# do not compute a score when we don't have a category
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+		return;
+	}
+
+	if (not defined $product_ref->{nutrition_score_beverage}) {
+		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage";
+		return;
+	}
+
+
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
+	# unless we have nutrition data for the prepared product
+	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
+
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups", "en:instant-beverages") {
+
+		if (has_tag($product_ref, "categories", $category_tag)) {
+
+			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+				$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag";
+				$prepared = '_prepared';
+				last;
+			}
+			else {
+				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+				$product_ref->{nutrition_score_debug} = "no score for category $category_tag without data for prepared product";
+				return;
+			}
+		}
+	}
+
+	# do not compute a score for coffee, tea etc. except ice teas etc.
+
+	if (defined $options{categories_exempted_from_nutriscore}) {
+
+		my $not_exempted = 0;
+
+		foreach my $category_id (@{$options{categories_not_exempted_from_nutriscore}}) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$not_exempted = 1;
+				last;
+			}
+		}
+
+		if (not $not_exempted) {
+
+			foreach my $category_id (@{$options{categories_exempted_from_nutriscore}}) {
+
+				if (has_tag($product_ref, "categories", $category_id)) {
+					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
+					return;
+				}
+			}
+		}
+	}
+
+	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
+	# do not display warnings about missing fiber and fruits
+
+	if (not ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
+
+		# compute the score only if all values are known
+		# for fiber, compute score without fiber points if the value is not known
+		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
+
+		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
+			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
+				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
+				push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";
+				if (not defined $product_ref->{nutriments}{"saturated-fat"  . $prepared . "_100g"}) {
+					push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
+				}
+				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
+				return;
+			}
+		}
+
+		# some categories of products do not have fibers > 0.7g (e.g. sodas)
+		# for others, display a warning when the value is missing
+		if ((not defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
+			and not (has_tag($product_ref, "categories", "en:sodas"))) {
+			$product_ref->{nutrition_score_warning_no_fiber} = 1;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
+		}
+	}
+
+	if ($prepared ne '') {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-grade-computed-for-prepared-product";
+	}
+
+	# Compute the fruit % according to the Nutri-Score rules
+
+	my $fruits = undef;
+
+	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
+		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
+
+		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+		}
+
+		$fruits = $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
+	}
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+	}
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"}) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
+	}
+	# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+	else {
+		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted ) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$fruits = $fruits_vegetables_nuts_by_category{$category_id};
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value} = $fruits_vegetables_nuts_by_category{$category_id};
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category";
+				my $category = $category_id;
+				$category =~ s/:/-/;
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
+				last;
+			}
+		}
+
+		if (defined $fruits) {
+			$product_ref->{"fruits-vegetables-nuts_100g_estimate"} = $fruits;
+		}
+		else {
+			$fruits = 0;
+			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
+		}
+
+	}
+
+	if ((defined $product_ref->{nutrition_score_warning_no_fiber}) or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})) {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
+	}
+	else {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";
+	}
+
+	my $saturated_fat = $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"};
+	my $fat = $product_ref->{nutriments}{"fat" . $prepared . "_100g"};
+	my $saturated_fat_ratio = 0;
+	if ((defined $saturated_fat) and ($saturated_fat > 0)) {
+		if ($fat <= 0) {
+			$fat = $saturated_fat;
+		}
+		$saturated_fat_ratio = $saturated_fat / $fat * 100;	# in %
+	}
+
+	# Populate the data structure that will be passed to Food::Nutriscore
+
+	$product_ref->{nutriscore_data} = {
+		is_beverage => $product_ref->{nutrition_score_beverage},
+		is_water => ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters"))),
+		is_cheese => ((has_tag($product_ref, "categories", "en:cheeses")) and not (has_tag($product_ref, "categories", "fr:fromages-blancs"))),
+		is_fat => has_tag($product_ref, "categories", "en:fats"),
+
+		energy => $product_ref->{nutriments}{"energy" . $prepared . "_100g"},
+		sugars => $product_ref->{nutriments}{"sugars" . $prepared . "_100g"},
+		saturated_fat => $product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"},
+		saturated_fat_ratio => $saturated_fat_ratio,
+		sodium => $product_ref->{nutriments}{"sodium" . $prepared . "_100g"} * 1000,	# in mg,
+
+		fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
+		fiber => ((defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}) ? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"} : 0),
+		proteins => $product_ref->{nutriments}{"proteins" . $prepared . "_100g"},
+	};
+
+	my ($nutriscore_score, $nutriscore_grade) = ProductOpener::Nutriscore::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
+
+	$product_ref->{nutriscore_score} = $nutriscore_score;
+	$product_ref->{nutriscore_grade} = $nutriscore_grade;
 }
 
 
@@ -4491,12 +5050,37 @@ sub compute_serving_size_data($) {
 		(defined $product_ref->{serving_size}) and ($product_ref->{serving_size} eq "") and delete $product_ref->{serving_size};
 	}
 
-	#if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{'energy.unit'}) and ($product_ref->{nutriments}{'energy.unit'} eq 'kcal')) {
-	#	$product_ref->{nutriments}{energy} = sprintf("%.0f", $product_ref->{nutriments}{energy} * 4.18);
-	#	$product_ref->{nutriments}{'energy.unit'} = 'kj';
-	#}
-
 	foreach my $product_type ("", "_prepared") {
+
+		# Energy
+		# Before November 2019, we only had one energy field with an input value in kJ or in kcal, and internally it was converted to kJ
+		# In Europe, the energy is indicated in both kJ and kcal, but there isn't a straightforward conversion between the 2: the energy is computed
+		# by summing some nutrients multiplied by an energy factor. That means we need to store both the kJ and kcal values.
+		# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
+
+		# If we have a value for energy-kj, use it for energy
+		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type}) {
+			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"});
+		}
+		# Otherwise use the energy-kcal value for energy
+		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type }) {
+			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});		}
+		# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
+		elsif ((defined $product_ref->{nutriments}{"energy" . $product_type . "_value"}) and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"})) {
+
+			my $unit = lc($product_ref->{nutriments}{"energy" . $product_type . "_unit"});
+
+			assign_nid_modifier_value_and_unit($product_ref, "energy-$unit" . $product_type,
+				$product_ref->{nutriments}{"energy" . $product_type . "_modifier"},
+				$product_ref->{nutriments}{"energy" . $product_type . "_value"},
+				$product_ref->{nutriments}{"energy" . $product_type . "_unit"});
+		}
 
 		if (not defined $product_ref->{"nutrition_data" . $product_type . "_per"}) {
 			$product_ref->{"nutrition_data" . $product_type . "_per"} = '100g';
@@ -4584,9 +5168,7 @@ sub compute_serving_size_data($) {
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
 		}
-
 	}
-
 }
 
 
@@ -4987,6 +5569,7 @@ sub normalize_packager_codes($) {
 my %local_ec = (
 	DE => "EG",
 	ES => "CE",
+	FI => "EY",
 	FR => "CE",
 	IT => "CE",
 	NL => "EG",
@@ -5069,11 +5652,20 @@ sub compute_nova_group($) {
 
 	$product_ref->{nova_group_debug} = "";
 
-	# do not compute a score when we don't have ingredients
+	# If we don't have ingredients, only compute score for water
 	if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq '')) {
+
+		# Exclude flavored waters
+		if (has_tag($product_ref, 'categories', 'en:waters')
+		    and (not has_tag($product_ref, 'categories', 'en:flavored-waters'))) {
+			$product_ref->{nova_group} = 1;
+			return;
+
+		} else {
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
 			return;
+		}
 	}
 
 	# do not compute a score when it is not food
@@ -5296,15 +5888,19 @@ sub compute_nova_group($) {
 		}
 	}
 
+	# Make sure that nova_group is stored as a number
+
+	$product_ref->{nova_group} += 0;
 
 	$product_ref->{nutriments}{"nova-group"} = $product_ref->{nova_group};
 	$product_ref->{nutriments}{"nova-group_100g"} = $product_ref->{nova_group};
 	$product_ref->{nutriments}{"nova-group_serving"} = $product_ref->{nova_group};
 
+	# Store nova_groups as a string
+
 	$product_ref->{nova_groups} = $product_ref->{nova_group};
-	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_group}) ];
-
-
+	$product_ref->{nova_groups} .= "";
+	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_groups}) ];
 }
 
 

@@ -40,10 +40,12 @@ BEGIN
 		$hydra_issuer_url
 		$hydra_admin_url
 		$facebook_app_id
-	    $facebook_app_secret
+		$facebook_app_secret
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$robotoff_url
+
+		%server_options
 
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -80,5 +82,14 @@ $crowdin_project_key = '';
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = '';
+
+%server_options = (
+
+        cookie_domain => "openfoodfacts.dev",   # if not set, default to $server _domain
+        private_products => 1,  # Make products visible only to the owner
+        export_servers => { public => "off", experiment => "off-exp" },
+		ip_whitelist_session_cookie => [ "172.19.0.1" ],
+);
+
 
 1;

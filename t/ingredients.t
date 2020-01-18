@@ -26,7 +26,7 @@ diag explain $product_ref;
 
 is($product_ref->{ingredients_n}, 19);
 
-my $expected_product_ref = 
+my $expected_product_ref =
  {
     'ingredients' => [
       {
@@ -362,7 +362,7 @@ delete $product_ref->{amino_acids_prev_tags};
 delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
-$expected_product_ref = 
+$expected_product_ref =
  {
     'ingredients' => [
       {
@@ -658,8 +658,8 @@ $expected_product_ref =
       'en:lactose',
       'en:wheat-flour',
       'en:cereal',
-      'en:wheat',
       'en:flour',
+      'en:wheat',
       'en:cereal-flour',
       'en:sugar',
       'en:egg',
@@ -769,8 +769,8 @@ $expected_product_ref =
       'en:lactose',
       'en:wheat-flour',
       'en:cereal',
-      'en:wheat',
       'en:flour',
+      'en:wheat',
       'en:cereal-flour',
       'en:sugar',
       'en:egg',
@@ -813,7 +813,7 @@ $expected_product_ref =
     'unknown_ingredients_n' => 4
   };
 
-	
+
 
 is_deeply($product_ref->{ingredients_original_tags}, $expected_product_ref->{ingredients_original_tags}) || diag explain $product_ref->{ingredients_original_tags};
 
@@ -842,7 +842,7 @@ delete $product_ref->{minerals_prev};
 
 # diag explain $product_ref;
 
-$expected_product_ref = 
+$expected_product_ref =
  {
     'ingredients' => [
       {
@@ -1000,7 +1000,7 @@ $product_ref = {
 extract_ingredients_from_text($product_ref);
 
 
-is_deeply ($product_ref->{ingredients}, 
+is_deeply ($product_ref->{ingredients},
 [
 	     {
 	            'id' => 'en:strawberry',
@@ -1039,7 +1039,7 @@ $product_ref = {
 extract_ingredients_from_text($product_ref);
 
 
-is_deeply ($product_ref->{ingredients}, 
+is_deeply ($product_ref->{ingredients},
 	   [
 	        {
 	          'id' => 'en:strawberry',
@@ -1115,7 +1115,7 @@ is_deeply ($product_ref->{ingredients},
           }
 
 	      ],
-	
+
 ) or diag explain $product_ref;
 
 
@@ -1127,7 +1127,7 @@ $product_ref = {
 extract_ingredients_from_text($product_ref);
 
 
-is_deeply ($product_ref->{ingredients}, 
+is_deeply ($product_ref->{ingredients},
 [
 	     {
 	            'id' => 'en:emulsifier',
@@ -1177,7 +1177,7 @@ is_deeply ($product_ref->{ingredients},
 	            'from_palm_oil' => 'no',
 	          }
 	        ],
-	
+
 ) or diag explain $product_ref;
 
 
@@ -1190,7 +1190,7 @@ $product_ref = {
 extract_ingredients_from_text($product_ref);
 
 
-is_deeply ($product_ref->{ingredients}, 
+is_deeply ($product_ref->{ingredients},
 
 [
 	     {
@@ -1226,8 +1226,8 @@ is_deeply ($product_ref->{ingredients},
 	            'text' => 'chlorure de sodium'
 	          }
 	        ],
-	
-	
+
+
 ) or diag explain $product_ref;
 
 
@@ -1239,7 +1239,7 @@ $product_ref = {
 extract_ingredients_from_text($product_ref);
 
 
-is_deeply ($product_ref->{ingredients}, 
+is_deeply ($product_ref->{ingredients},
 
 [
      {
@@ -1265,8 +1265,8 @@ is_deeply ($product_ref->{ingredients},
             'vegan' => 'en:yes',
             'vegetarian' => 'en:yes'
           }
-        ],	
-	
+        ],
+
 ) or diag explain $product_ref;
 
 
@@ -1280,7 +1280,7 @@ extract_ingredients_from_text($product_ref);
 is ($product_ref->{labels}, "en:gluten-free") or diag explain $product_ref;
 is_deeply ($product_ref->{labels_tags}, ["en:gluten-free"]) or diag explain $product_ref;
 
-is_deeply ($product_ref->{ingredients}, 
+is_deeply ($product_ref->{ingredients},
 
 [
 	     {
@@ -1299,9 +1299,9 @@ is_deeply ($product_ref->{ingredients},
 	            'vegan' => 'no',
 	            'vegetarian' => 'no'
 	          }
-	
-        ],	
-	
+
+        ],
+
 ) or diag explain $product_ref;
 
 
@@ -1312,7 +1312,7 @@ $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
-is_deeply ($product_ref->{ingredients}, 
+is_deeply ($product_ref->{ingredients},
 
 [
 	     {
@@ -1339,11 +1339,446 @@ is_deeply ($product_ref->{ingredients},
 	            'vegan' => 'yes',
 	            'vegetarian' => 'yes'
 	          }
-	
-        ],	
-	
+
+        ],
+
 ) or diag explain $product_ref;
 
+# Finnish
+$product_ref = {
+	lc => "fi",
+	ingredients_text => "jauho (12%), suklaa (kaakaovoi (15%), sokeri [10%], maitoproteiini, kananmuna 1%) - emulgointiaineet : E463, E432 ja E472 - happamuudensäätöaineet : E322/E333 E474-E475, happo (sitruunahappo, fosforihappo) - suola"
+};
+
+extract_ingredients_from_text($product_ref);
+
+diag explain $product_ref;
+
+
+is($product_ref->{ingredients_n}, 19);
+
+my $expected_product_ref =
+ {
+    'ingredients' => [
+      {
+        'id' => 'en:flour',
+        'percent' => '12',
+        'rank' => 1,
+        'text' => 'jauho',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+	'has_sub_ingredients' => 'yes',
+        'id' => 'en:chocolate',
+        'rank' => 2,
+        'text' => 'suklaa',
+	'vegan' => 'maybe',
+	'vegetarian' => 'yes',
+      },
+      {
+        'id' => 'en:sugar',
+        'percent' => '10',
+        'rank' => 3,
+        'text' => 'sokeri',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:milk-proteins',
+        'rank' => 4,
+        'text' => "maitoproteiini",
+        'vegan' => 'no',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:chicken-egg',
+	'percent' => 1,
+        'rank' => 5,
+        'text' => 'kananmuna',
+        'vegan' => 'no',
+        'vegetarian' => 'yes'
+      },
+      {
+	'has_sub_ingredients' => 'yes',
+        'id' => 'en:emulsifier',
+        'rank' => 6,
+        'text' => "emulgointiaineet"
+      },
+      {
+        'id' => 'en:e463',
+        'rank' => 7,
+        'text' => 'e463',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:e432',
+        'rank' => 8,
+        'text' => 'e432',
+        'vegan' => 'maybe',
+        'vegetarian' => 'maybe',
+	'from_palm_oil' => 'maybe',
+      },
+      {
+        'id' => 'en:e472',
+        'rank' => 9,
+        'text' => 'e472',
+        'vegan' => 'maybe',
+        'vegetarian' => 'maybe',
+	'from_palm_oil' => 'maybe',
+      },
+      {
+        'id' => 'en:acidity-regulator',
+	'has_sub_ingredients' => 'yes',
+        'rank' => 10,
+        'text' => "happamuudens\x{e4}\x{e4}t\x{f6}aineet"
+      },
+      {
+        'id' => 'en:e474',
+        'rank' => 11,
+        'text' => 'e474',
+        'vegan' => 'maybe',
+        'vegetarian' => 'maybe'
+      },
+      {
+        'id' => 'en:e475',
+        'rank' => 12,
+        'text' => 'e475',
+        'vegan' => 'maybe',
+        'vegetarian' => 'maybe'
+      },
+      {
+        'id' => 'en:acid',
+	'has_sub_ingredients' => 'yes',
+        'rank' => 13,
+        'text' => 'happo'
+      },
+      {
+        'id' => 'en:salt',
+        'rank' => 14,
+        'text' => 'suola',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:cocoa-butter',
+        'percent' => '15',
+        'text' => 'kaakaovoi',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:e322',
+        'text' => 'e322',
+        'vegan' => 'maybe',
+        'vegetarian' => 'maybe'
+      },
+      {
+        'id' => 'en:e333',
+        'text' => 'e333',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:e330',
+        'text' => 'sitruunahappo',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      },
+      {
+        'id' => 'en:e338',
+        'text' => 'fosforihappo',
+        'vegan' => 'yes',
+        'vegetarian' => 'yes'
+      }
+    ],
+    'ingredients_analysis_tags' => [
+      'en:may-contain-palm-oil',
+      'en:non-vegan',
+      'en:maybe-vegetarian'
+    ],
+    'ingredients_hierarchy' => [
+      'en:flour',
+      'en:chocolate',
+      'en:sugar',
+      'en:milk-proteins',
+      'en:protein',
+      'en:animal-protein',
+      'en:chicken-egg',
+      'en:egg',
+      'en:emulsifier',
+      'en:e463',
+      'en:e432',
+      'en:e472',
+      'en:acidity-regulator',
+      'en:e474',
+      'en:e475',
+      'en:acid',
+      'en:salt',
+      'en:cocoa-butter',
+      'en:cocoa',
+      'en:e322',
+      'en:e333',
+      'en:e330',
+      'en:e338'
+    ],
+    'ingredients_n' => 19,
+    'ingredients_n_tags' => [
+      '19',
+      '11-20'
+    ],
+    'ingredients_original_tags' => [
+      'en:flour',
+      'en:chocolate',
+      'en:sugar',
+      'en:milk-proteins',
+      'en:chicken-egg',
+      'en:emulsifier',
+      'en:e463',
+      'en:e432',
+      'en:e472',
+      'en:acidity-regulator',
+      'en:e474',
+      'en:e475',
+      'en:acid',
+      'en:salt',
+      'en:cocoa-butter',
+      'en:e322',
+      'en:e333',
+      'en:e330',
+      'en:e338'
+    ],
+    'ingredients_tags' => [
+      'en:flour',
+      'en:chocolate',
+      'en:sugar',
+      'en:milk-proteins',
+      'en:protein',
+      'en:animal-protein',
+      'en:chicken-egg',
+      'en:egg',
+      'en:emulsifier',
+      'en:e463',
+      'en:e432',
+      'en:e472',
+      'en:acidity-regulator',
+      'en:e474',
+      'en:e475',
+      'en:acid',
+      'en:salt',
+      'en:cocoa-butter',
+      'en:cocoa',
+      'en:e322',
+      'en:e333',
+      'en:e330',
+      'en:e338'
+    ],
+    'ingredients_text' => "jauho (12%), suklaa (kaakaovoi (15%), sokeri [10%], maitoproteiini, kananmuna 1%) - emulgointiaineet : E463, E432 ja E472 - happamuudens\x{e4}\x{e4}t\x{f6}aineet : E322/E333 E474-E475, happo (sitruunahappo, fosforihappo) - suola",
+    'lc' => 'fi',
+    'unknown_ingredients_n' => 0
+  };
+
+
+is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+
+
+$product_ref = {
+        lc => "fi",
+        ingredients_text => "hyytelöimisaine (pektiinit)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+is_deeply ($product_ref->{ingredients_original_tags}, [
+"en:gelling-agent",
+"en:e440a",
+]) or diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "fi",
+        ingredients_text => "Mansikka 12,3% ; Appelsiini 6.5%, Omena (3,5%)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+
+is_deeply ($product_ref->{ingredients},
+[
+	     {
+	            'id' => 'en:strawberry',
+	            'percent' => '12.3',
+	            'rank' => 1,
+	            'text' => 'Mansikka',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes',
+	          },
+	          {
+	            'id' => 'en:orange',
+	            'percent' => '6.5',
+	            'rank' => 2,
+	            'text' => 'Appelsiini',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes',
+	          },
+	          {
+	            'id' => 'en:apple',
+	            'percent' => '3.5',
+	            'rank' => 3,
+	            'text' => 'Omena',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes',
+	          }
+	        ]
+) or diag explain $product_ref;
+
+$product_ref = {
+        lc => "fi",
+        ingredients_text => "Mansikka alkuperä Suomi, Mustaherukka (alkuperä Etelä-Afrikka), Vadelma (alkuperä : Ruotsi), Appelsiini (luomu), kaakao ja kaakaovoi (reilu kauppa)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+
+is_deeply ($product_ref->{ingredients},
+	   [
+	        {
+	          'id' => 'en:strawberry',
+	          'origin' => 'Suomi',
+	          'rank' => 1,
+	          'text' => 'Mansikka',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:blackcurrant',
+	          'origin' => 'Etelä-Afrikka',
+	          'rank' => 2,
+	          'text' => 'Mustaherukka',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:raspberry',
+	          'origin' => 'Ruotsi',
+	          'rank' => 3,
+	          'text' => 'Vadelma',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:orange',
+	          'labels' => 'en:organic',
+	          'rank' => 4,
+	          'text' => 'Appelsiini',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:cocoa',
+	          'labels' => 'en:fair-trade',
+	          'rank' => 5,
+	          'text' => 'kaakao',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	        {
+	          'id' => 'en:cocoa-butter',
+	          'labels' => 'en:fair-trade',
+	          'rank' => 6,
+	          'text' => 'kaakaovoi',
+	          'vegan' => 'yes',
+	          'vegetarian' => 'yes'
+	        },
+	      ],
+
+) or diag explain $product_ref;
+
+$product_ref = {
+        lc => "fi",
+        ingredients_text => "emulgointiaine : auringonkukkalesitiini, aromi)(EU), vehnäjauho 33% (Ranska), sokeri",
+};
+
+extract_ingredients_from_text($product_ref);
+
+
+is_deeply ($product_ref->{ingredients},
+[
+	     {
+	            'id' => 'en:emulsifier',
+	            'rank' => 1,
+		    'has_sub_ingredients' => 'yes',
+	            'text' => "emulgointiaine"
+	          },
+	          {
+	            'id' => 'en:sunflower-lecithin',
+	            'rank' => 2,
+	            'text' => "auringonkukkalesitiini",
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:flavouring',
+	            'origin' => 'en:european-union',
+	            'rank' => 3,
+	            'text' => "aromi",
+	            'vegan' => 'maybe',
+	            'vegetarian' => 'maybe'
+	          },
+	          {
+	            'id' => 'en:wheat-flour',
+	            'origin' => 'en:france',
+	            'percent' => '33',
+	            'rank' => 4,
+	            'text' => "vehn\x{e4}jauho",
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:sugar',
+	            'rank' => 5,
+	            'text' => 'sokeri',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          }
+	        ],
+
+) or diag explain $product_ref;
+
+$product_ref = {
+        lc => "fi",
+        ingredients_text => "appelsiinimehu (säilöntäaineeton), lohi (msc), gluteeniton",
+};
+
+extract_ingredients_from_text($product_ref);
+
+is ($product_ref->{labels}, "en:gluten-free") or diag explain $product_ref;
+is_deeply ($product_ref->{labels_tags}, ["en:gluten-free"]) or diag explain $product_ref;
+
+is_deeply ($product_ref->{ingredients},
+
+[
+	     {
+	            'id' => 'en:orange-juice',
+	            'labels' => 'en:no-preservatives',
+	            'rank' => 1,
+	            'text' => 'appelsiinimehu',
+	            'vegan' => 'yes',
+	            'vegetarian' => 'yes'
+	          },
+	          {
+	            'id' => 'en:salmon',
+	            'labels' => 'en:sustainable-seafood-msc',
+	            'rank' => 2,
+	            'text' => 'lohi',
+	            'vegan' => 'no',
+	            'vegetarian' => 'no'
+	          }
+
+        ],
+
+) or diag explain $product_ref;
 
 
 done_testing();

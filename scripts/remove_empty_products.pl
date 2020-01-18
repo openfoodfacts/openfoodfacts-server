@@ -65,7 +65,6 @@ my $removed = 0;
 
 
 		my $code = $product_ref->{code};
-		my $path = product_path($code);
 
 		#print STDERR "updating product $code\n";
 

@@ -34,6 +34,8 @@ BEGIN
 					%Visitor
 					$Visitor_id
 					$Facebook_id
+					%Org
+					$Org_id
 
 					$cookie
 
@@ -78,6 +80,8 @@ use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
+
+my @user_groups = qw(producer database app bot moderator);
 
 sub generate_token {
 	my $name_length = shift;
@@ -228,6 +232,41 @@ sub display_user_form_optional($) {
 }
 
 
+sub display_user_form_admin_only($) {
+
+	my $user_ref = shift;
+
+	my $type = param('type') || 'add';
+
+	my $html = '';
+
+	if (not $admin) {
+		return '';
+	}
+
+	# $html .= "\n<tr><td>$Lang{twitter}{$lang}</td><td>"
+	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
+
+	if (($type eq 'add') or ($type eq 'edit')) {
+
+		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
+		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
+
+		$html .= "\n<tr><td colspan=\"2\">" . lang("user_groups") . lang("sep") . ":<ul>";
+
+		foreach my $group (@user_groups) {
+			$html .= "<li>"
+			. checkbox(-name=>"user_group_$group", -label=>lang("user_group_$group") . lang("sep") . ": " . lang("user_group_${group}_description")
+				, -checked=>$user_ref->{$group}, -override=>1)  . "</li>";
+		}
+
+		$html .= "</td></tr>";
+	}
+
+	return $html;
+}
+
+
 sub check_user_form($$) {
 
 	my $user_ref = shift;
@@ -265,6 +304,21 @@ sub check_user_form($$) {
 		$user_ref->{initial_cc} = $cc;
 		$user_ref->{initial_user_agent} = user_agent();
 
+	}
+
+	if ($admin) {
+		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('organization'));
+		if ($user_ref->{org} ne "") {
+			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+		}
+		else {
+			delete $user_ref->{org};
+			delete $user_ref->{org_id};
+		}
+
+		foreach my $group (@user_groups) {
+			$user_ref->{$group} = remove_tags_and_quote(param("user_group_$group"));
+		}
 	}
 
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
@@ -369,13 +423,22 @@ sub init_user()
 {
 	my $user_id = undef ;
 	my $user_ref = undef;
+	my $org_ref = undef;
+
 	my $cookie_name = 'session';
+	my $cookie_domain = "." . $server_domain;	# e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+	if (defined $server_options{cookie_domain}) {
+		$cookie_domain = "." . $server_options{cookie_domain};	# e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
+	}
 
 	$cookie = undef;
 
 	$Visitor_id = undef;
 	$Facebook_id = undef;
 	$User_id = undef;
+	$Org_id = undef;
+	%User = ();
+	%Org = ();
 
 	# Try to get user from bearer token
 	my $r = Apache2::RequestUtil->request();
@@ -400,7 +463,7 @@ sub init_user()
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
 		my $session = {} ;
-		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 	}
 
 	# Retrieve user_id and password from form parameters
@@ -434,109 +497,109 @@ sub init_user()
 
 		# If the user exists
 		if (defined $user_id) {
+
            my  $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 
 			if (-e $user_file) {
-			$user_ref = retrieve($user_file) ;
-			$user_id = $user_ref->{'userid'} ;
-			$log->context->{user_id} = $user_id;
+				$user_ref = retrieve($user_file) ;
+				$user_id = $user_ref->{'userid'} ;
+				$log->context->{user_id} = $user_id;
 
-			my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} );
-			# We don't have the right password
-			if (not $hash_is_correct) {
-			    $user_id = undef ;
-				$log->info("bad password - input does not match stored hash", { encrypted_password => $user_ref->{'encrypted_password'} }) if $log->is_info();
-			    # Trigger an error
-			    return ($Lang{error_bad_login_password}{$lang}) ;
-			}
-			# We have the right login/password
-			elsif (not defined param('no_log'))    # no need to store sessions for internal requests
-			{
-				$log->info("correct password for user provided") if $log->is_info();
-
-			    # Maximum of sessions for a given user
-			    my $max_session = 10 ;
-
-			    # Generate a secure session key, store the cookie
-			    my $user_session = generate_token(64);
-				$log->context->{user_session} = $user_session;
-
-			    # Check if we need to delete the oldest session
-			    # delete $user_ref->{'user_session'};
-			    if ((defined ($user_ref->{'user_sessions'})) and
-				((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session)) {
-					my %user_session_stored = %{$user_ref->{'user_sessions'}} ;
-
-					# Find the older session and remove it
-					my @session_by_time = sort { $user_session_stored{$a}{'time'} <=>
-								 $user_session_stored{$b}{'time'} } (keys %user_session_stored);
-
-			        while (($#session_by_time + 1)> $max_session)
-			        {
-						my $oldest_session = shift @session_by_time;
-						delete $user_ref->{'user_sessions'}{$oldest_session};
-			        }
-			    }
-
-				if (not defined $user_ref->{'user_sessions'}) {
-					$user_ref->{'user_sessions'} = {};
+				my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} );
+				# We don't have the right password
+				if (not $hash_is_correct) {
+					$user_id = undef ;
+					$log->info("bad password - input does not match stored hash", { encrypted_password => $user_ref->{'encrypted_password'} }) if $log->is_info();
+					# Trigger an error
+					return ($Lang{error_bad_login_password}{$lang}) ;
 				}
-				$user_ref->{'user_sessions'}{$user_session} = {};
+				# We have the right login/password
+				elsif (not defined param('no_log'))    # no need to store sessions for internal requests
+				{
+					$log->info("correct password for user provided") if $log->is_info();
 
-			    # Store the ip and time corresponding to the given session
-			    $user_ref->{'user_sessions'}{$user_session}{'ip'} = remote_addr();
-			    $user_ref->{'user_sessions'}{$user_session}{'time'} = time();
-			    $session = { 'user_id'=>$user_id, 'user_session'=>$user_session };
+					# Maximum of sessions for a given user
+					my $max_session = 10 ;
 
-			    # Upgrade hashed password to scrypt, if it is still in crypt format
-			    if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
-			    	$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
-					$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
-			    }
+					# Generate a secure session key, store the cookie
+					my $user_session = generate_token(64);
+					$log->context->{user_session} = $user_session;
 
-			    store("$user_file", $user_ref);
+					# Check if we need to delete the oldest session
+					# delete $user_ref->{'user_session'};
+					if ((defined ($user_ref->{'user_sessions'})) and
+					((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session)) {
+						my %user_session_stored = %{$user_ref->{'user_sessions'}} ;
 
+						# Find the older session and remove it
+						my @session_by_time = sort { $user_session_stored{$a}{'time'} <=>
+									 $user_session_stored{$b}{'time'} } (keys %user_session_stored);
 
-				$log->debug("session initialized and user info stored") if $log->is_debug();
-			    # Check if the user is logging in
+						while (($#session_by_time + 1)> $max_session)
+						{
+							my $oldest_session = shift @session_by_time;
+							delete $user_ref->{'user_sessions'}{$oldest_session};
+						}
+					}
 
-			    my $length = 0;
+					if (not defined $user_ref->{'user_sessions'}) {
+						$user_ref->{'user_sessions'} = {};
+					}
+					$user_ref->{'user_sessions'}{$user_session} = {};
 
-			    if ((defined param('length')) and (param('length') > 0))
-			    {
-			    	$length = param('length');
-			    }
-			    elsif ((defined param('remember_me')) and (param('remember_me') eq 'on'))
-			    {
-			    	$length = 31536000 * 10;
-			    }
+					# Store the ip and time corresponding to the given session
+					$user_ref->{'user_sessions'}{$user_session}{'ip'} = remote_addr();
+					$user_ref->{'user_sessions'}{$user_session}{'time'} = time();
+					$session = { 'user_id'=>$user_id, 'user_session'=>$user_session };
 
-			    if ($length > 0)
-			    {
-					# Set a persistent cookie
-					$log->debug("setting persistent cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax',
-							-expires=>'+' . $length . 's');
-			    }
-			    else
-			    {
-				# Set a session cookie
-					$log->debug("setting session cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax');
-			    }
-			}
+					# Upgrade hashed password to scrypt, if it is still in crypt format
+					if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
+						$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
+						$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
+					}
+
+					store("$user_file", $user_ref);
+
+					$log->debug("session initialized and user info stored") if $log->is_debug();
+					# Check if the user is logging in
+
+					my $length = 0;
+
+					if ((defined param('length')) and (param('length') > 0))
+					{
+						$length = param('length');
+					}
+					elsif ((defined param('remember_me')) and (param('remember_me') eq 'on'))
+					{
+						$length = 31536000 * 10;
+					}
+
+					if ($length > 0)
+					{
+						# Set a persistent cookie
+						$log->debug("setting persistent cookie") if $log->is_debug();
+						$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>"$cookie_domain", -samesite=>'Lax',
+								-expires=>'+' . $length . 's');
+					}
+					else
+					{
+					# Set a session cookie
+						$log->debug("setting session cookie") if $log->is_debug();
+						$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>"$cookie_domain", -samesite=>'Lax');
+					}
+				}
 		    }
 		    else
 		    {
-			$user_id = undef ;
-			$log->info("bad user") if $log->is_info();
-			# Trigger an error
-			return ($Lang{error_bad_login_password}{$lang}) ;
+				$user_id = undef ;
+				$log->info("bad user") if $log->is_info();
+				# Trigger an error
+				return ($Lang{error_bad_login_password}{$lang}) ;
 		    }
 		}
-	    }
+	}
 
-	# Retrieve user_id and password from cookie
+	# Retrieve user_id and session from cookie
 	elsif ((defined cookie($cookie_name)) or ((defined param('user_session')) and (defined param('user_id')))) {
 		my $user_session;
 		if (defined param('user_session')) {
@@ -573,54 +636,46 @@ sub init_user()
 			# Try to keep sessions opened for users with dynamic IPs
 			my $short_ip = sub ($)
 			{
-					my $ip = shift;
-					# Remove the last two bytes
-					$ip =~ s/(\.\d+){2}$//;
-					return $ip;
+				my $ip = shift;
+				# Remove the last two bytes
+				$ip =~ s/(\.\d+){2}$//;
+				return $ip;
 			};
 
 			if ((not defined $user_ref->{'user_sessions'})
 				or (not defined $user_session)
 				or (not defined $user_ref->{'user_sessions'}{$user_session})
-				or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-				or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr()))) ))
+				or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 		    {
-			$log->debug("no matching session for user") if $log->is_debug();
-			$user_id = undef;
-			# Remove the cookie
-			my $session = {} ;
-			$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+				$log->debug("no matching session for user") if $log->is_debug();
+				$user_id = undef;
+				$user_ref = undef;
+				# Remove the cookie
+				my $session = {} ;
+				$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 		    }
 		    else
 		    {
-			# Get actual user_id (i.e. BIZ or biz -> Biz)
-			$log->debug("user identified", { user_id => $user_id, stocked_user_id => $user_ref->{'userid'} }) if $log->is_debug();
-			$user_id = $user_ref->{'userid'} ;
-
-			# Facebook session?
-			if (defined $user_ref->{'user_sessions'}{$user_session}{'facebook'}) {
-				$log->info("session opened through Facebook uid", { Facebook_id => $user_ref->{'user_sessions'}{$user_session}{'facebook'} }) if $log->is_info();
-				$Facebook_id = $user_ref->{'user_sessions'}{$user_session}{'facebook'};
-			}
+				$log->debug("user identified", { user_id => $user_id, stocked_user_id => $user_ref->{'userid'} }) if $log->is_debug();
+				$user_id = $user_ref->{'userid'} ;
 		    }
-
 		}
 		else
 		{
 		    # Remove the cookie
 		    my $session = {} ;
-		    $cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+		    $cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
 		    $user_id = undef ;
 		}
 	    }
 	    else
 	    {
-		# Remove the cookie
-		my $session = {} ;
-		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
+			# Remove the cookie
+			my $session = {} ;
+			$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>"$cookie_domain") ;
 
-		$user_id = undef ;
+			$user_id = undef ;
 	    }
 	}
 	else
@@ -629,31 +684,7 @@ sub init_user()
 	}
 	}
 
-	$log->debug("before processing visitor cookie", { user_id => $user_id, cookie => $cookie }) if $log->is_debug();
-
-	if (not defined $user_id)
-	{
-		# If we don't have a user id, check if there is a browser id cookie, or assign one
-
-        if (not ((defined cookie('b')) and (cookie('b') =~ /^(\d+)\.(\d+)\.(\d+)\.(\d+)_(\d+)$/)))
-        {
-			my $b = remote_addr() . '_' . time();
-			# $Visitor_id = $b;  # don't set $Visitor_id unless we get the cookie back
-			# Set a cookie
-			if (not defined $cookie)
-			{
-			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s', -samesite=>'Lax') ;
-			 $log->info("setting b cookie", { bcookie => $cookie }) if $log->is_info();
-			}
-		}
-		else
-		{
-            $Visitor_id = cookie('b');
-			$user_ref = retrieve("$data_root/virtual_users/$Visitor_id.sto");
-			$log->info("got b cookie", { bcookie => $Visitor_id }) if $log->is_info();
-        }
-
-	}
+	$log->debug("cookie", { user_id => $user_id, cookie => $cookie }) if $log->is_debug();
 
 	$User_id = $user_id;
 	if (defined $user_ref) {
@@ -663,9 +694,45 @@ sub init_user()
 		%User = ();
 	}
 
+	# The org and org_id fields are currently properties of the user object (created by administrators through user.pl)
+	# Populate $Org_id and %org_ref from the user profile.
+	# TODO: create org profiles with customer service info etc.
+
+	if (defined $user_ref->{org_id}) {
+		$Org_id = $user_ref->{org_id};
+		$org_ref = { org => $user_ref->{org}, org_id => $user_ref->{org_id} };
+	}
+
+	if (defined $Org_id) {
+		%Org = %$org_ref;
+	}
+	else {
+		%Org = ();
+	}
+
 	return 0;
 }
 
+sub is_ip_known_or_whitelisted {
+	my ($user_ref, $user_session, $ip, $shorten_ip) = @_;
+
+	my $short_ip = $shorten_ip->($ip);
+
+	if ((defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
+	    and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip)) {
+			return 1;
+	}
+
+	if (defined $server_options{ip_whitelist_session_cookie}) {
+		foreach (@{$server_options{ip_whitelist_session_cookie}}) {
+			if ($_ eq $ip) {
+				return 1;
+			}
+		}
+	}
+
+	return 0;
+}
 
 sub check_session($$) {
 
@@ -720,7 +787,6 @@ sub check_session($$) {
 		$log->info("user does not exist", { user_id => $user_id }) if $log->is_info();
 		$user_id = undef ;
 	}
-
 
 	$results_ref->{user_id} = $user_id;
 

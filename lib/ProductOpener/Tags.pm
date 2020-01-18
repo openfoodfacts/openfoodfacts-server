@@ -58,6 +58,8 @@ BEGIN
 					&build_tags_taxonomy
 
 					&canonicalize_taxonomy_tag
+					&canonicalize_taxonomy_tag_linkeddata
+					&canonicalize_taxonomy_tag_weblink
 					&canonicalize_taxonomy_tag_link
 					&exists_taxonomy_tag
 					&display_taxonomy_tag
@@ -109,7 +111,7 @@ BEGIN
 
 					%Languages
 
-					&init_select_country_options
+					&country_to_cc
 
 					&add_user_translation
 					&load_users_translations
@@ -129,6 +131,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Text qw/:all/;
 use Clone qw(clone);
+use List::MoreUtils qw(uniq);
 
 use URI::Escape::XS;
 use Log::Any qw($log);
@@ -588,7 +591,8 @@ sub load_tags_hierarchy($$) {
 	}
 }
 
-
+# Cache the stopwords regexp
+my %stopwords_regexps = ();
 
 sub remove_stopwords($$$) {
 
@@ -598,33 +602,32 @@ sub remove_stopwords($$$) {
 
 	if (defined $stopwords{$tagtype}{$lc}) {
 
+		my $uppercased_stopwords_overrides = 0;
+
 		if ($lc eq 'fr') {
 			# "Dés de tomates" -> "des-de-tomates" --> "dés" should not be a stopword
 			$tagid =~ s/\bdes-de\b/DES-DE/g;
 			$tagid =~ s/\ben-des\b/EN-DES/g;
+			$uppercased_stopwords_overrides = 1;
 		}
 
-		foreach my $stopword (@{$stopwords{$tagtype}{$lc}}) {
-			$tagid =~ s/-${stopword}-/-/g;
-
-			# some stopwords should not be removed at the start or end
-			# this can cause issues with spellchecking tags like ingredients
-			# e.g. purée d'abricot -> puree d' -> urée
-			# ingredients: stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
-
-			$tagid =~ s/^${stopword}-//g;
-
-			if (not
-				(($lc eq 'fr') and (($tagtype eq "ingredients") or ($tagtype eq "additives")) and not ($stopword =~ /^(en|proportion|proportions|variable|variables|et-derives)$/))	# don't remove French stopwords at the end
-				) {
-				$tagid =~ s/-${stopword}$//g;
-			}
+		if (not defined $stopwords_regexps{$tagtype . '.' . $lc}) {
+			$stopwords_regexps{$tagtype . '.' . $lc} = join('|', uniq(@{$stopwords{$tagtype}{$lc}}));
 		}
 
-		$tagid = lc($tagid);
+		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc};
+
+		$tagid =~ s/(^|-)($regexp)(-($regexp))*(-|$)/-/g;
+
+		$tagid =~ tr/-/-/s;
+		$tagid =~ s/^-//;
+		$tagid =~ s/-$//;
+
+		if ($uppercased_stopwords_overrides) {
+			$tagid = lc($tagid);
+		}
 	}
 	return $tagid;
-
 }
 
 
@@ -1511,18 +1514,24 @@ sub build_tags_taxonomy($$$) {
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 
 		{
-		binmode STDOUT, ":encoding(UTF-8)";
-		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
-		print $OUT_JSON encode_json(\%taxonomy_json);
-		close ($OUT_JSON);
+			binmode STDOUT, ":encoding(UTF-8)";
+			if (open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json")) {
+				print $OUT_JSON encode_json(\%taxonomy_json);
+				close ($OUT_JSON);
+			} else {
+				print "Cannot open $www_root/data/taxonomies/$tagtype.json, skipping writing taxonomy to file.\n";
+			}
 
-		open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json");
-		print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
-		close ($OUT_JSON_FULL);
-		# to serve pre-compressed files from Apache
-		# nginx : needs nginx_static module
-		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
-		# system("gzip $www_root/data/taxonomies/$tagtype.json");
+			if(open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json")) {
+				print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
+				close ($OUT_JSON_FULL);
+			} else {
+				print "Cannot open $www_root/data/taxonomies/$tagtype.full.json, skipping writing taxonomy to file.\n";
+			}
+			# to serve pre-compressed files from Apache
+			# nginx : needs nginx_static module
+			# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
+			# system("gzip $www_root/data/taxonomies/$tagtype.json");
 		}
 
 		$log->error("taxonomy errors", { errors => $errors }) if $log->is_error();
@@ -1725,59 +1734,6 @@ foreach my $country (keys %{$properties{countries}}) {
 	}
 }
 
-
-
-
-
-sub init_select_country_options($) {
-
-	# takes one minute to load
-
-	my $Lang_ref = shift;
-
-	# Build lists of countries and generate select button
-	# <select data-placeholder="Choose a Country..." style="width:350px;" tabindex="1">
-	#            <option value=""></option>
-	#            <option value="United States">United States</option>
-	#            <option value="United Kingdom">United Kingdom</option>
-
-	$log->info("Buildin lists of countries and generate select button") if $log->is_info();
-
-	foreach my $language (keys %Langs) {
-
-		my $country_options = '';
-		my $first_option = '';
-
-		foreach my $country (sort {(get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$language})
-			|| get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}) )
-			cmp (get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$language})
-				|| get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))}
-				keys %{$properties{countries}}
-			) {
-
-			my $cc = country_to_cc($country);
-			if (not (defined $cc)) {
-				next;
-			}
-
-			my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
-
-			if ($country ne 'en:world') {
-				$country_options .= $option;
-			}
-			else {
-				$first_option = $option;
-			}
-		}
-
-		$Lang_ref->{select_country_options}{$language} = $first_option . $country_options;
-
-	}
-}
-
-
-
-
 $log->info("Tags.pm - 1") if $log->is_info();
 
 sub gen_tags_hierarchy($$) {
@@ -1814,6 +1770,10 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	my $tag_lc = shift;
 	my $tagtype = shift;
 	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
+
+	if ((not defined $tags_list) or ($tags_list =~ /^\s*$/)) {
+		return ();
+	}
 
 	if (not defined $all_parents{$tagtype}) {
 		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
@@ -2082,7 +2042,7 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	}
 
 	my $display = '';
-	my $display_lc;
+	my $display_lc = "en";	# Default to English
 	my $exists_in_taxonomy = 0;
 
 	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
@@ -2111,7 +2071,9 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 		}
 		else {
 			$display = $tagid;
-			$display_lc = $tag_lc;
+			if (defined $tag_lc) {
+				$display_lc = $tag_lc;
+			}
 
 			if ($target_lc eq $tag_lc) {
 				$display =~ s/^(\w\w)://;
@@ -2134,10 +2096,11 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 
 	if ($display =~ /^(\w\w:)/) {
 		$display_lc_prefix = $1;
+		$display_lc = $1;
 		$display_tag = $';
 	}
 
-	my $tagurlid = get_string_id_for_lang($display_lc_prefix, $display_tag);
+	my $tagurlid = get_string_id_for_lang($display_lc, $display_tag);
 	if ($tagurlid =~ /[^a-zA-Z0-9-]/) {
 		$tagurlid = URI::Escape::XS::encodeURIComponent($display_tag);
 	}
@@ -2533,52 +2496,14 @@ sub canonicalize_taxonomy_tag($$$)
 	$tag =~ s/^ //g;
 	$tag =~ s/ $//g;
 
-	if (($tag =~ /^(\w+:\w\w):(.+)/) and (defined $properties{$tagtype})) {
-		# Test for linked data, ie. wikidata:en:Q1234
-		my $property_key = $1;
-		my $property_value = $2;
-		my $matched_tagid;
-		foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
-			if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
-				if (defined $matched_tagid) {
-					# Bail out on multiple matches for a single tag.
-					undef $matched_tagid;
-					last;
-				}
-
-				$matched_tagid = $canon_tagid;
-			}
-		}
-
-		if (defined $matched_tagid) {
-			return $matched_tagid;
-		}
+	my $linked_data_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $tag);
+	if ($linked_data_tag) {
+		return $linked_data_tag;
 	}
 
-	if ($tag =~ /^https?:\/\/.+/) {
-		# Test for linked data URLs, ie. https://www.wikidata.org/wiki/Q1234
-		my $matched_tagid;
-		foreach my $property_key (keys %weblink_templates) {
-			next if not defined $weblink_templates{$property_key}{parse};
-			my $property_value = $weblink_templates{$property_key}{parse}->($tag);
-			if (defined $property_value) {
-				foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
-					if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
-						if (defined $matched_tagid) {
-							# Bail out on multiple matches for a single tag.
-							undef $matched_tagid;
-							last;
-						}
-
-						$matched_tagid = $canon_tagid;
-					}
-				}
-			}
-		}
-
-		if (defined $matched_tagid) {
-			return $matched_tagid;
-		}
+	my $weblink_tag = canonicalize_taxonomy_tag_weblink($tagtype, $tag);
+	if ($weblink_tag) {
+		return $weblink_tag;
 	}
 
 	if ($tag =~ /^(\w\w):/) {
@@ -2661,6 +2586,66 @@ sub canonicalize_taxonomy_tag($$$)
 
 }
 
+sub canonicalize_taxonomy_tag_linkeddata {
+	my ($tagtype, $tag) = @_;
+
+	if ((not defined $tagtype)
+		or (not defined $tag)
+		or (not ($tag =~ /^(\w+:\w\w):(.+)/))
+		or (not defined $properties{$tagtype})) {
+			return;
+	}
+
+	# Test for linked data, ie. wikidata:en:Q1234
+	my $property_key = $1;
+	my $property_value = $2;
+	my $matched_tagid;
+	foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
+		if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
+			if (defined $matched_tagid) {
+				# Bail out on multiple matches for a single tag.
+				undef $matched_tagid;
+				last;
+			}
+
+			$matched_tagid = $canon_tagid;
+		}
+	}
+
+	return $matched_tagid;
+}
+
+sub canonicalize_taxonomy_tag_weblink {
+	my ($tagtype, $tag) = @_;
+
+	if ((not defined $tagtype)
+		or (not defined $tag)
+		or (not ($tag =~ /^https?:\/\/.+/))) {
+			return;
+	}
+
+	# Test for linked data URLs, ie. https://www.wikidata.org/wiki/Q1234
+	my $matched_tagid;
+	foreach my $property_key (keys %weblink_templates) {
+		next if not defined $weblink_templates{$property_key}{parse};
+		my $property_value = $weblink_templates{$property_key}{parse}->($tag);
+		if (defined $property_value) {
+			foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
+				if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
+					if (defined $matched_tagid) {
+						# Bail out on multiple matches for a single tag.
+						undef $matched_tagid;
+						last;
+					}
+
+					$matched_tagid = $canon_tagid;
+				}
+			}
+		}
+	}
+
+	return $matched_tagid;
+}
 
 sub generate_spellcheck_candidates($$) {
 
