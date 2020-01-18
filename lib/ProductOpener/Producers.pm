@@ -381,7 +381,7 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
@@ -403,7 +403,7 @@ fr => {
 	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
 	generic_name_fr => ["dénomination légale", "déno légale"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
-	allergens => ["Substances ou produits provoquant des allergies ou intolérances"],
+	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
 	traces => ["Traces éventuelles"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
 	labels => ["signes qualité", "signe qualité", "Allégations santé", "Labels, certifications, récompenses"],
@@ -420,6 +420,38 @@ fr => {
 },
 
 );
+
+my %per_synonyms = (
+	"100g" => {
+		en => ["per 100g", "100g", "100gr", "100 gr", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
+		fr => ["pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
+	},
+	"serving" => {
+		en => ["per serving", "serving"],
+		fr => ["par portion", "pour une portion", "portion"],
+	}
+);
+
+# Note: This is not a conversion table, it is a list of synonyms used by producers when they transmit us data.
+# In practice, no producer uses cal (as in 1/1000 of kcal) as a unit for energy.
+# When they have "cal" or "calories" in the header of a column, they always mean kcal.
+# The units in this table are lowercased, so "cal" is for the "big Calories". 1 Cal = 1 kcal.
+
+my %units_synonyms = (
+	"g" => "g",
+	"gr" => "g",
+	"grams" => "g",
+	"grammes" => "g",
+	"mg" => "mg",
+	"mcg" => "mcg",
+	"percent" => "percent",
+	"kj" => "kj",
+	"kcal" => "kcal",
+	"cal" => "kcal",
+	"calories" => "kcal",
+	"calorie" => "kcal",
+);
+
 
 sub init_fields_columns_names_for_lang($) {
 
@@ -447,27 +479,6 @@ sub init_fields_columns_names_for_lang($) {
 
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 }
-
-
-# Note: This is not a conversion table, it is a list of synonyms used by producers when they transmit us data.
-# In practice, no producer uses cal (as in 1/1000 of kcal) as a unit for energy.
-# When they have "cal" or "calories" in the header of a column, they always mean kcal.
-# The units in this table are lowercased, so "cal" is for the "big Calories". 1 Cal = 1 kcal.
-
-my %units_synonyms = (
-	"g" => "g",
-	"gr" => "g",
-	"grams" => "g",
-	"grammes" => "g",
-	"mg" => "mg",
-	"mcg" => "mcg",
-	"percent" => "percent",
-	"kj" => "kj",
-	"kcal" => "kcal",
-	"cal" => "kcal",
-	"calories" => "kcal",
-	"calorie" => "kcal",
-);
 
 
 sub init_nutrients_columns_names_for_lang($) {
@@ -508,6 +519,19 @@ sub init_nutrients_columns_names_for_lang($) {
 			# Energy, saturated fat
 			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = $match_ref;
 
+			foreach my $per ("100g", "serving") {
+				if (defined $per_synonyms{$per}{$l}) {
+					foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $per_synonym)} = {
+							field => $nid . "_" . $per . "_value_unit",
+						};
+						if ($match_ref->{value_unit}) {
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $per_synonym)}{value_unit} = $match_ref->{value_unit};
+						}
+					}
+				}
+			}
+
 			# Energy kcal, carbohydrates g, calcium mg
 
 			my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
@@ -530,6 +554,21 @@ sub init_nutrients_columns_names_for_lang($) {
 					field => $nid . "_100g_value_unit",
 					value_unit => "value_in_" . $units_synonyms{$unit},
 				};
+
+				foreach my $per ("100g", "serving") {
+					if (defined $per_synonyms{$per}{$l}) {
+						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit . " " . $per_synonym)} = {
+								field => $nid . "_" . $per . "_value_unit",
+								value_unit => "value_in_" . $units_synonyms{$unit},
+							};
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $per_synonym . " " . $unit)} = {
+								field => $nid . "_" . $per . "_value_unit",
+								value_unit => "value_in_" . $units_synonyms{$unit},
+							};
+						}
+					}
+				}
 			}
 
 			$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
