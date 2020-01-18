@@ -421,7 +421,7 @@ fr => {
 
 );
 
-my %per_regexps = (
+my %per_synonyms = (
 	"100g" => {
 		en => ["per 100g", "100g", "100gr", "100 gr", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 		fr => ["pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
@@ -520,8 +520,8 @@ sub init_nutrients_columns_names_for_lang($) {
 			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = $match_ref;
 
 			foreach my $per ("100g", "serving") {
-				if (defined $per_regexps{$per}{$l}) {
-					foreach my $per_synonym (@{$per_regexps{$per}{$l}}) {
+				if (defined $per_synonyms{$per}{$l}) {
+					foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $per_synonym)} = {
 							field => $nid . "_" . $per . "_value_unit",
 						};
@@ -556,8 +556,8 @@ sub init_nutrients_columns_names_for_lang($) {
 				};
 
 				foreach my $per ("100g", "serving") {
-					if (defined $per_regexps{$per}{$l}) {
-						foreach my $per_synonym (@{$per_regexps{$per}{$l}}) {
+					if (defined $per_synonyms{$per}{$l}) {
+						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
 							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit . " " . $per_synonym)} = {
 								field => $nid . "_" . $per . "_value_unit",
 								value_unit => "value_in_" . $units_synonyms{$unit},
