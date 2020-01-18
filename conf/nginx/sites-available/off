@@ -81,15 +81,15 @@ server {
 	if ($host = translation.openfoodfacts.org) { return 302 https://translate.openfoodfacts.org/ ; }
 	if ($host = translations.openfoodfacts.org) { return 302 https://translate.openfoodfacts.org/ ; }
 	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = ios.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = iostest.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
-        if ($host = donnez.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = don.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = dons.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
+	if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
+	if ($host = ios.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+	if ($host = iostest.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+	if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
+	if ($host = donnez.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+	if ($host = don.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+	if ($host = dons.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+	if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+	if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
 
 	# Redirect GET requests to https. POST requests will be transformed
 	# to GET by most browsers when redirected, and it breaks apps that
@@ -119,6 +119,7 @@ server {
         #}
 
 	location /data/ {
+
      if ($request_method = 'OPTIONS') {
         add_header Access-Control-Allow-Origin *;
         add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
@@ -147,10 +148,11 @@ server {
         add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
      }
 	include snippets/ssl-headers.conf;
+
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
-}
+	}
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
@@ -160,6 +162,7 @@ server {
 	location ~ ^/images/products/ {
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
 	}
+
 
 	# the app requests /1.json to get the product count...
 	# the commented code below is to serve a static copy 
@@ -193,57 +196,55 @@ server {
         }
 
 	location = /faire-un-don-a-open-food-facts {
-                try_files /donate/fr.helloasso.html =404;
-        }
+		try_files /donate/fr.helloasso.html =404;
+	}
 
-        location = /dona-a-open-food-facts {
-                try_files /donate/it.html =404;
-        }
+	location = /dona-a-open-food-facts {
+		try_files /donate/it.html =404;
+	}
 
-        location = /spenden {
-                try_files /donate/de.html =404;
-        }
+	location = /spenden {
+		try_files /donate/de.html =404;
+	}
 
-        location = /doner-til-open-food-facts {
-                try_files /donate/da.html =404;
-        }
+	location = /doner-til-open-food-facts {
+			try_files /donate/da.html =404;
+	}
 
-        location = /doniraj-k-open-food-facts {
-                try_files /donate/sl.html =404;
-        }
-
-        location = /open-food-factse-bagista-bulununs {
-                try_files /donate/tr.html =404;
-        }
-
-        location = /pozhertvovat-open-food-facts {
-                try_files /donate/ru.html =404;
-        }
-
-        location = /donate-to-open-food-facts-ru {
-                try_files /donate/ru.html =404;
-        }
-
-        location = /donate-to-open-food-facts-he {
-                try_files /donate/he.html =404;
-        }
-
-        location = /fazer-um-donativo-ao-open-food-facts {
-                try_files /donate/pt.html =404;
-        }
-
-        location = /lahjoita-open-food-factsille {
-                try_files /donate/fi.html =404;
-        }
-        location = /dar-a-open-food-facts {
-                try_files /donate/es.html =404;
-        }
-        location = /haz-su-donacion-a-open-food-facts {
-                try_files /donate/es.html =404;
-        }
-
-
-
+	location = /doniraj-k-open-food-facts {
+			try_files /donate/sl.html =404;
+	}
+	
+	location = /open-food-factse-bagista-bulununs {
+			try_files /donate/tr.html =404;
+	}
+	
+	location = /pozhertvovat-open-food-facts {
+			try_files /donate/ru.html =404;
+	}
+	
+	location = /donate-to-open-food-facts-ru {
+			try_files /donate/ru.html =404;
+	}
+	
+	location = /donate-to-open-food-facts-he {
+			try_files /donate/he.html =404;
+	}
+	
+	location = /fazer-um-donativo-ao-open-food-facts {
+			try_files /donate/pt.html =404;
+	}
+	
+	location = /lahjoita-open-food-factsille {
+			try_files /donate/fi.html =404;
+	}
+	location = /dar-a-open-food-facts {
+			try_files /donate/es.html =404;
+	}
+	location = /haz-su-donacion-a-open-food-facts {
+			try_files /donate/es.html =404;
+	}
+  
 	# Dynamically generated files and CGI scripts are passed
 	# to the Apache + mod_perl server running on a different
 	# port than port 80 (e.g. 8001)
@@ -273,4 +274,3 @@ server {
 	#}
 
 }
-
