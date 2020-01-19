@@ -14,7 +14,7 @@ services:
         source: ../
         target: /opt/product-opener/
   frontend:
-    image: nginx:1.17.5-alpine
+    image: nginx:1.17.7-alpine
     volumes:
       - type: bind
         source: ../
