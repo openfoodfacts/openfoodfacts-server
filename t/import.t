@@ -13,6 +13,8 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 
+init_emb_codes();
+
 # dummy product for testing
 
 my $product_ref = {
@@ -62,7 +64,7 @@ is($product_ref->{quantity}, "250 g") or diag explain $product_ref;
 $product_ref = { "lc" => "fr", net_weight_value_unit => "250 gr", quantity => "2 tranches" }; clean_weights($product_ref);
 is($product_ref->{quantity}, "2 tranches (250 g)") or diag explain $product_ref;
 
-$product_ref = { "lc" => "fr", emb_codes => "EMB 60282A - Gouvieux (Oise, France)" }; 
+$product_ref = { "lc" => "fr", emb_codes => "EMB 60282A - Gouvieux (Oise, France)" };
 @fields = ("emb_codes");
 clean_fields($product_ref);
 is($product_ref->{emb_codes}, "EMB 60282A") or diag explain $product_ref;
@@ -84,14 +86,14 @@ my @tests = (
 		Sodium (g) : 0,0048
 		Sel (g) : 0.01", { 'carbohydrates'=>['74.8','g',''], 'energy-kcal'=>['401','kcal',''], 'energy-kj'=>['1694','kJ',''], 'fat'=>['5.1','g',''], 'fiber'=>['3.9','g',''], 'proteins'=>['11.9','g',''], 'salt'=>['0.01','g',''], 'saturated-fat'=>['0.6','g',''], 'sodium'=>['0,0048','g',''], 'sugars'=>['7.3','g',''] }],
 	["fr", "pour 100g :
-		Energie (kJ) : 
-		Energie (kcal) : 
-		Graisses (g) : 
-		dont acides gras saturés (g) : 
-		Glucides (g) : 
-		dont sucres (g) : 
-		Fibres alimentaires (g) : 
-		Protéines (g) : 
+		Energie (kJ) :
+		Energie (kcal) :
+		Graisses (g) :
+		dont acides gras saturés (g) :
+		Glucides (g) :
+		dont sucres (g) :
+		Fibres alimentaires (g) :
+		Protéines (g) :
 		Sel (g) :", {}],
 	["fr", "pour 100g :
 		Energie (kJ) : 2989
@@ -132,13 +134,13 @@ foreach my $test_ref (@tests) {
 	extract_nutrition_facts_from_text($test_ref->[0], $test_ref->[1], $nutrients_ref, \$nutrition_data_per, \$serving_size);
 	is ($nutrition_data_per, $test_ref->[3]);
 	is ($serving_size, $test_ref->[4]);
-	
+
 	if (not is_deeply($nutrients_ref, $test_ref->[2])) {
 		print STDERR "failed nutrients extraction for lc: $test_ref->[0] - text: $test_ref->[1]\n";
 		# display the results in a format we can easily copy to the test
 		my $results = "{";
 		foreach my $nid (sort keys %$nutrients_ref) {
-			$results .= " '" . $nid . "'=>['" 
+			$results .= " '" . $nid . "'=>['"
 			. $nutrients_ref->{$nid}[0] . "','"
 			. $nutrients_ref->{$nid}[1] . "','"
 			. $nutrients_ref->{$nid}[2] . "'],"

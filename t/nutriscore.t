@@ -10,6 +10,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 
+init_emb_codes();
 
 my @tests = (
 

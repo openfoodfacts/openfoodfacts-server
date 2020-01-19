@@ -10,6 +10,7 @@ use Test::More;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 
+init_emb_codes();
 
 ok (is_a( "categories", "en:beers", "en:beverages"), 'en:beers is a child of en:beverages');
 ok (! is_a( "categories", "en:beers", "en:milks"), 'en:beers is not a child of en:milk');
@@ -400,7 +401,7 @@ is_deeply($product_ref,
 	      "de:\x{e4}pfel"
 	    ]
 	  }
-	
+
 )
 	or diag explain $product_ref;
 
