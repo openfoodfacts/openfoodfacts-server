@@ -1956,7 +1956,7 @@ sub display_tag_link($$) {
 	if ($tagtype eq 'emb_codes') {
 		my $city_code = get_city_code($tagid);
 
-		init_emb_codes();
+		die "Initialize EMB codes with ProductOpener::Tags::init_emb_codes()" unless %emb_codes_cities;
 		if (defined $emb_codes_cities{$city_code}) {
 			$html .= " - " . display_tag_link('cities', $emb_codes_cities{$city_code}) ;
 		}
@@ -2011,7 +2011,7 @@ sub display_taxonomy_tag_link($$$) {
 	if ($tagtype eq 'emb_codes') {
 		my $city_code = get_city_code($tagid);
 
-		init_emb_codes();
+		die "Initialize EMB codes with ProductOpener::Tags::init_emb_codes()" unless %emb_codes_cities;
 		if (defined $emb_codes_cities{$city_code}) {
 			$html .= " - " . display_tag_link('cities', $emb_codes_cities{$city_code}) ;
 		}
@@ -3272,7 +3272,7 @@ sub compute_field_tags($$$) {
 	my $tag_lc = shift;
 	my $field = shift;
 
-	init_emb_codes();
+	die "Initialize EMB codes with ProductOpener::Tags::init_emb_codes()" unless %emb_codes_cities;
 	# generate the hierarchy of tags from the field values
 
 	if (defined $taxonomy_fields{$field}) {
