@@ -1550,18 +1550,48 @@ The text that contains the nutrition facts.
 
 =head4 NUTRIENTS_REF
 
-A hash that will be used to return structured data for the nutrition facts
+Reference to a hash that will be used to return structured data for the nutrition facts
 found in the text.
+
+=head4 NUTRITION_DATA_PER_REF - Per 100g or per serving
+
+Reference to a scalar that will be set to the serving size if the nutrition facts are indicated per serving.
+
+=head4 SERVING_SIZE_REF - Serving size
+
+Reference to a scalar that will be set to the serving size if the nutrition facts are indicated per serving.
 
 =cut
 
-sub extract_nutrition_facts_from_text($$$) {
+sub extract_nutrition_facts_from_text($$$$$) {
 
 	my $text_lc = shift;
 	my $text = shift;
 	my $nutrients_ref = shift;
+	my $nutrition_data_per_ref = shift;
+	my $serving_size_ref = shift;
 
 	if ((defined $text) and ($text ne "")) {
+
+		# Match "per serving" at the start of the text
+
+		if ($text_lc eq "en") {
+			if ($text =~ /^\s*(for|per) ((1|a|one) )?serving (of )?\(? ?(\d+((\.|,)\d+)? ?(g|kg|mg|µg|l|dl|cl|ml))/i) {
+				$$nutrition_data_per_ref = "serving";
+				$$serving_size_ref = $5;
+			}
+		}
+		elsif ($text_lc eq "fr") {
+			if ($text =~ /^\s*(à la |a la |pour |par |)(1 |une )?portion (de |d'environ )?\(? ?(\d+((\.|,)\d+)? ?(g|kg|mg|µg|l|dl|cl|ml))/i) {
+				$$nutrition_data_per_ref = "serving";
+				$$serving_size_ref = $4;
+			}
+			# Pour un carré de 10.7g :
+			if ($text =~ /^\s*(pour )(\D+) ?(de |d'environ )?\(? ?(\d+((\.|,)\d+)? ?(g|kg|mg|µg|l|dl|cl|ml))/i) {
+				$$nutrition_data_per_ref = "serving";
+				$$serving_size_ref = $4;
+			}
+		}
 
 		foreach my $nid (sort keys %Nutriments) {
 

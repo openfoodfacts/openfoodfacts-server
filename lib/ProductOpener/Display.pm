@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -5190,9 +5190,40 @@ sub search_and_graph_products($$$) {
 		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 	}
 
+	# Limit the fields we retrieve from MongoDB
+	my $fields_ref;
+
+	if ($graph_ref->{axis_y} ne 'products_n') {
+
+		$fields_ref	= {
+			product_name => 1,
+			"product_name_$lc" => 1,
+			labels_tags => 1,
+			images => 1,
+		};
+	}
+
+	foreach my $axis ('x','y') {
+		if ($graph_ref->{"axis_$axis"} ne "products_n") {
+			if ($graph_ref->{"axis_$axis"} !~ /_n$/) {
+				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = 1;
+			}
+			else {
+				$fields_ref->{$graph_ref->{"axis_$axis"}} = 1;
+			}
+		}
+	}
+
+	if ($graph_ref->{"series_nutrition_grades"}) {
+		$fields_ref->{"nutrition_grade_fr"} = 1;
+	}
+	elsif ((scalar keys %$graph_ref) > 0) {
+		$fields_ref->{"labels_tags"} = 1;
+	}
+
 	eval {
 		$cursor = execute_query(sub {
-			return get_products_collection()->query($query_ref);
+			return get_products_collection()->query($query_ref)->fields($fields_ref);
 		});
 	};
 	if ($@) {
@@ -6402,7 +6433,7 @@ HTML
 
 <footer>
 	<div class="small-12 medium-6 large-3 columns off">
-		<div class="title">Open Food Facts</div>
+		<div class="title">$Lang{site_name}{$lc}</div>
 		<p>$Lang{footer_tagline}{$lc}</p>
 		<ul>
 			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>

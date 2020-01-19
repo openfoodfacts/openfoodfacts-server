@@ -104,12 +104,35 @@ my @tests = (
 		Protéines (g) : 0.7
 		Sodium (g) : 0,79
 		Sel (g) : 2", { 'carbohydrates'=>['1','g',''], 'energy-kcal'=>['727','kcal',''], 'energy-kj'=>['2989','kJ',''], 'fat'=>['80','g',''], 'fiber'=>['0','g','~'], 'proteins'=>['0.7','g',''], 'salt'=>['2','g',''], 'saturated-fat'=>['52','g',''], 'sodium'=>['0,79','g',''], 'sugars'=>['0','g',''] }],
+
+	["en", "per serving (20g) : energy 250 kj", {'energy-kj'=>['250','kJ',''] }, "serving", "20g"],
+	["fr", "à la portion de 40 g: energie 250 kj", {'energy-kj'=>['250','kJ',''] }, "serving", "40 g"],
+	["fr", "Par portion (40 g), energie 250 kj", {'energy-kj'=>['250','kJ',''] }, "serving", "40 g"],
+
+
+	["fr", "A la portion (0.025L) :
+Energie (kJ) : 285
+Energie (kcal) : 67
+Graisses (g) : 0
+dont acides gras saturés (g) : 0
+Glucides (g) : 16.8
+dont sucres (g) : 16.8
+Fibres alimentaires (g) : 0
+Protéines (g) : 0
+Sel (g) : 0
+Cette bouteille contient 20 portions de 25ml pour un verre de 200ml de sirop dilué (1 volume de sirop + 7 volumes d'eau).", { 'carbohydrates'=>['16.8','g',''], 'energy-kcal'=>['67','kcal',''], 'energy-kj'=>['285','kJ',''], 'fat'=>['0','g',''], 'fiber'=>['0','g',''], 'proteins'=>['0','g',''], 'salt'=>['0','g',''], 'saturated-fat'=>['0','g',''], 'sugars'=>['16.8','g',''] }
+ , "serving", "0.025L"],
 );
 
 foreach my $test_ref (@tests) {
 
 	my $nutrients_ref = {};
-	extract_nutrition_facts_from_text($test_ref->[0], $test_ref->[1], $nutrients_ref);
+	my $nutrition_data_per;
+	my $serving_size;
+	extract_nutrition_facts_from_text($test_ref->[0], $test_ref->[1], $nutrients_ref, \$nutrition_data_per, \$serving_size);
+	is ($nutrition_data_per, $test_ref->[3]);
+	is ($serving_size, $test_ref->[4]);
+	
 	if (not is_deeply($nutrients_ref, $test_ref->[2])) {
 		print STDERR "failed nutrients extraction for lc: $test_ref->[0] - text: $test_ref->[1]\n";
 		# display the results in a format we can easily copy to the test

@@ -3233,11 +3233,12 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	my $field = "allergens";
 
-	# print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
+	#print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
 
 	my $stopwords = $allergens_stopwords{$language};
 
 	my $before_allergen = "";
+	my $after_allergen = "";
 
 	# Remove stopwords at the beginning or end
 	if (defined $stopwords) {
@@ -3246,7 +3247,7 @@ sub replace_allergen_between_separators($$$$$$) {
 			$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
 		}
 		if ($allergen =~ /((\s|\b($stopwords)\b)+)$/i) {
-			$before_allergen = $1;
+			$after_allergen = $1;
 			$allergen =~ s/(\s|\b($stopwords)\b)+$//i;
 		}
 	}
@@ -3255,7 +3256,7 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	if (($before . $before_allergen) =~ /\b($traces_regexp)\b/i) {
 		$field = "traces";
-		# print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+		#print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}
 
 	# Farine de blé 97%
@@ -3276,10 +3277,10 @@ sub replace_allergen_between_separators($$$$$$) {
 		if ($language eq $product_ref->{lc}) {
 			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
 		}
-		return $start_separator . $before_allergen . '<span class="allergen">' . $allergen . '</span>' . $end_separator;
+		return $start_separator . $before_allergen . '<span class="allergen">' . $allergen . '</span>' . $after_allergen . $end_separator;
 	}
 	else {
-		return $start_separator . $before_allergen . $allergen . $end_separator;
+		return $start_separator . $before_allergen . $allergen . $after_allergen . $end_separator;
 	}
 }
 
@@ -3327,6 +3328,10 @@ sub detect_allergens_from_text($) {
 
 			# print STDERR "current text 1: $text\n";
 
+			# _allergen_ + __allergen__ + ___allergen___
+
+			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
+			$text =~ s/\b__([^,;_\(\)\[\]]+?)__\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 
 			# allergens in all caps, with other ingredients not in all caps
@@ -3340,13 +3345,18 @@ sub detect_allergens_from_text($) {
 
 			# allergens between separators
 
-			#print STDERR "current text 2: $text\n";
+			# print STDERR "current text 2: $text\n";
 			# print STDERR "separators\n";
 
 			# positive look ahead for the separators so that we can properly match the next word
 			# match at least 3 characters so that we don't match the separator
 			# Farine de blé 97% -> make numbers be separators
 			$text =~ s/(^| - |_|\(|\[|\)|\]|,|$the|$and|$of|;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,|$and|;|\.|\b($traces_regexp)\b|$))/replace_allergen_between_separators($language,$product_ref,$1, $2, "",$`)/iesg;
+
+			# some allergens can be recognized in multiple ways.
+			# e.g. _CELERY_ -> <span class="allergen"><span class="allergen"><span class="allergen">CELERI</span></span></span>
+			$text =~ s/(<span class="allergen">)+/<span class="allergen">/g;
+			$text =~ s/(<\/span>)+/<\/span>/g;
 
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 
