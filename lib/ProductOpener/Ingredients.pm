@@ -685,7 +685,7 @@ sub parse_ingredients_text($) {
 				my $match = '.*?';	# non greedy match
 				my $ending = $last_separator;
 				if (not defined $ending) {
-					$ending = ",|;|( $dashes )";
+					$ending = "$commas|;|( $dashes )";
 				}
 				$ending .= '|$';
 
@@ -3773,7 +3773,6 @@ sub detect_allergens_from_text($) {
 			# allergens between separators
 
 			# print STDERR "current text 2: $text\n";
-			
 			# print STDERR "separators\n";
 
 			# positive look ahead for the separators so that we can properly match the next word
