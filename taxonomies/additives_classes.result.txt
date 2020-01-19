@@ -49,13 +49,13 @@ wikidata:en: Q898753
 
 en:Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent
 bg:Регулатор на киселинност
-ca:Corrector de l'acidesa
+ca:Corrector de l'acidesa, correctors de l'acidesa
 cs:Regulátor kyselosti
 da:Surhedsregulerende middel
 de:Säureregulator, Säureregulatoren
 el:Ρυθμιστής οξύτητας
 es:Corrector de acidez, correctores de acidez, regulador de la acidez, agente de regulación del pH, agente regulador, reguladores de acidez, soluciones reguladoras, álcali, base
-et:Happesuse regulaator
+et:Happesuse regulaator, happesuse regulaatorid
 fi:Happamuudensäätöaine
 fr:Correcteur d'acidité, régulateur de l'acidité, agent tampon, adjusteur du pH, alcali, base, tampon
 ga:Rialtán aigéadachta
@@ -125,7 +125,7 @@ et:Paakumisvastane aine
 fi:Paakkuuntumisenestoaine
 fr:Antiagglomérant, poudre de fleurage, agent antiadhésif, agent de pulvérisation sèche, agent dessicateur, anti-agglomérant
 ga:Oibreán frithstolptha
-hu:Csomósodást és lesülést gátló anyag
+hu:Csomósodást és lesülést gátló anyag, Csomósodást gátló anyag
 it:Agenti antiagglomeranti
 lt:Lipnumą reguliuojanti medžiaga
 lv:Pretsalipes viela
@@ -246,9 +246,11 @@ wikidata:en: Q133948
 en:Bleaching agent
 es:Decolorante, blanqueador, blanqueadores
 fr:Agent de blanchiment
+hu:Fehérítőszer
 description:en: A food additive -non-flour use- used to decolourize food. Bleaching agents do not include pigments.
 description:es: Aditivos alimentarios utilizados -no en las harinas- para decolorar un alimento. Los decolorantes no contienen pigmentos.
 description:fr: Additif alimentaire utilisé pour décolorer des denrées alimentaires -mais pas la farine-. Les pigments ne sont pas des agents de blanchiment.
+description:hu: Élelmiszerek színtelenítésére használt adalékanyag. A fehérítőszer nem tartalmaz pigmenteket.
 
 en:Bulking agent, filler
 bg:Пълнител
@@ -294,6 +296,7 @@ description:sl: Sredstva za povečanje prostornine so snovi, ki povečajo prosto
 description:sv: Fyllnadsmedel: ämnen som ökar ett livsmedels volym utan att väsentligt bidra till dess tillgängliga näringsvärde.
 
 en:Carbonating agent
+ca:Gasificant
 es:Agente gasificante
 fr:Agent de carbonation
 description:en: A food additive used to provide carbonation in a food.
@@ -319,7 +322,7 @@ et:Toiduvärv
 fi:Väri
 fr:Colorant, colorant de surface, pigment décoratif, pigment colorant
 ga:Dath
-hu:Színezék
+hu:Színezék, mesterséges színezék, színezőanyag
 it:Coloranti
 lt:Dažiklis
 lv:Krāsa
@@ -360,7 +363,7 @@ description:fr: Additif alimentaire qui stabilise, retient ou intensifie la coul
 
 en:Emulsifier, clouding agent, crystallization inhibitor, density adjustment agent, dispersing agent, plasticizer, surface active agent, suspension agent
 bg:Емулгатор
-ca:Emulgent
+ca:Emulgent, emulsionant
 cs:Emulgátor
 da:Emulgator
 de:Emulgator, Emulgatoren
@@ -370,7 +373,7 @@ et:Emulgaator
 fi:Emulgointiaine
 fr:Émulsifiant, agent de dispersion, agent de surface, agent de suspension, agent d'ajustement de la densité, inhibiteur de cristalisation, nébulisant, plastifiant
 ga:Eiblitheoir
-hu:Emulgeálószer
+hu:Emulgeálószer, kristályosodásgátló, sűrűségszabályozó szer, diszpergálószer, lágyító, felületaktív anyag, szuszpenziós szer
 it:Emulsionanti
 lt:Emulsiklis
 lv:Emulgators
@@ -504,7 +507,7 @@ et:Lõhna- ja maitsetugevdaja
 fi:Arominvahvenne
 fr:Exhausteur de goût, Exaltateur d'arôme, agent de sapidité, activateur d'arôme, exaltateur de goût, exhausteur d'arôme
 ga:Méadaitheoir blais
-hu:Ízfokozó
+hu:Ízfokozó, Ízfokozók
 it:Esaltatori di sapidità
 lt:Aromato ir skonio stipriklis
 lv:Garšas pastiprinātājs
@@ -548,7 +551,7 @@ et:Jahu parendaja
 fi:Jauhonparanne
 fr:Agent de traitement de la farine, agent de blanchiment de la farine, agent de conditionnement des pâtes, agent de réhaussement des pâtes, améliorant de la farine
 ga:Oibreán plúrchóireála
-hu:Lisztkezelő szer
+hu:Lisztkezelő szer, lisztkezelőszer, lisztjavító szer, lisztjavítószer
 it:Agenti di trattamento della farina
 lt:Miltų apdorojimo medžiaga
 lv:Miltu apstrādes līdzeklis
@@ -637,7 +640,7 @@ et:Želeeriv aine
 fi:Hyytelöimisaine
 fr:Gélifiant, Agent gélifiant
 ga:Oibreán glóthúcháin
-hu:Zselésítőanyag
+hu:Zselésítőanyag, zselésítő
 it:Gelificanti
 lt:Stingdiklis
 lv:Recinātājs
@@ -681,7 +684,7 @@ et:Glaseeraine
 fi:Pintakäsittelyaine
 fr:Agent d'enrobage, agent de conditionnement hermétique, agent de finition superficielle, agent de polissage, filmogène
 ga:Oibreán glónrúcháin
-hu:Fényezőanyag
+hu:Fényezőanyag, bevonószer, bevonó
 it:Agenti di rivestimento
 lt:Glajinė medžiaga
 lv:Glazētājviela
@@ -763,7 +766,7 @@ es:Minerales
 et:Mineraalained
 fi:Kivennäiset
 fr:Minéraux, Substances d'apport minéral, Apport minéral
-hu:Ásványi anyagok
+hu:Ásványi anyagok, ásványok
 it:Minerali
 lt:Mineralinės medžiagos
 lv:Minerālvielas
@@ -827,7 +830,7 @@ en:Other nutritional substances
 de:Andere Nährstoffe
 es:Otras sustancias nutricionales
 fr:Autres substances nutritives
-hu:Egyéb táplálkozási anyagok
+hu:Egyéb táplálkozási anyagok, egyéb tápanyagok
 
 en:Packaging gas
 es:Gas de envasado, Gases de envasado
@@ -932,7 +935,7 @@ da:Drivgas
 de:Treibgas
 el:Διογκωτικό αρτοποιίας
 es:Gasificante, Leudante, Agente leudante
-et:Kergitusaine
+et:Kergitusaine, kergitusained
 fi:Nostatusaine
 fr:Poudre à lever, Agent levant, agent de levuration
 ga:Oibreán éiritheach
@@ -1106,13 +1109,13 @@ wikidata:en: Q626292
 
 en:Thickener, bodying agent, texturizing agent, thickener synergist
 bg:Сгъстител
-ca:Espessidor
+ca:Espessidor, texturitzant
 cs:Zahušťovadlo
 da:Sødestof
 de:Verdickungsmittel
 el:Πυκνωτικό μέσο
 es:Espesante, agente de soporte, agente texturizador, agentes texturizadores, aglutinante, sinergista espesante
-et:Paksendaja
+et:Paksendaja, Paksendajad
 fi:Sakeuttamisaine
 fr:Épaississant, agent de texture, épaississan synergiste, raffermissant
 ga:Tiúsóir
