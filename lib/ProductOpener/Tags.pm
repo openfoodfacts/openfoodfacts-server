@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -85,6 +85,7 @@ BEGIN
 					%emb_codes_cities
 					%emb_codes_geo
 					%cities
+					&init_emb_codes
 
 					%tags_fields
 					%hierarchy_fields
@@ -1953,9 +1954,9 @@ sub display_tag_link($$) {
 	}
 
 	if ($tagtype eq 'emb_codes') {
-
 		my $city_code = get_city_code($tagid);
 
+		die "Initialize EMB codes with ProductOpener::Tags::init_emb_codes()" unless %emb_codes_cities;
 		if (defined $emb_codes_cities{$city_code}) {
 			$html .= " - " . display_tag_link('cities', $emb_codes_cities{$city_code}) ;
 		}
@@ -2008,9 +2009,9 @@ sub display_taxonomy_tag_link($$$) {
 	}
 
 	if ($tagtype eq 'emb_codes') {
-
 		my $city_code = get_city_code($tagid);
 
+		die "Initialize EMB codes with ProductOpener::Tags::init_emb_codes()" unless %emb_codes_cities;
 		if (defined $emb_codes_cities{$city_code}) {
 			$html .= " - " . display_tag_link('cities', $emb_codes_cities{$city_code}) ;
 		}
@@ -3009,30 +3010,23 @@ GEXF
 
 }
 
+sub init_emb_codes {
+	return if ((%emb_codes_geo) and (%emb_codes_cities));
+	# Load cities for emb codes
+	$log->info("Loading cities for packaging codes") if $log->is_info();
 
+	# French departements
+	my %departements = ();
+	open (my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france_departements.txt");
+	while (<$IN>) {
+		chomp();
+		my ($code, $dep) = split(/\t/);
+		$departements{$code} = $dep;
+	}
+	close ($IN);
 
-
-
-# Load cities for emb codes
-
-$log->info("Loading cities for packaging codes") if $log->is_info();
-
-# French departements
-
-my %departements = ();
-
-open (my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france_departements.txt");
-while (<$IN>) {
-	chomp();
-	my ($code, $dep) = split(/\t/);
-	$departements{$code} = $dep;
-}
-close ($IN);
-
-
-# France
-# http://www.insee.fr/fr/methodes/nomenclatures/cog/telechargement/2012/txt/france2012.zip
-
+	# France
+	# http://www.insee.fr/fr/methodes/nomenclatures/cog/telechargement/2012/txt/france2012.zip
 	open ($IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france2012.txt");
 
 	my @th = split(/\t/, <$IN>);
@@ -3085,11 +3079,9 @@ close ($IN);
 	# geo coordinates
 
 	my @geofiles = ("villes-geo-france-galichon-20130208.csv", "villes-geo-france-complement.csv");
-
-
 	foreach my $geofile (@geofiles) {
-
-		print STDERR "Tags.pm - loading geofile $geofile\n";
+		local $log->context->{geofile} = $geofile;
+		$log->info("loading geofile $geofile") if $log->is_info();
 		open (my $IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
 
 		my @th = split(/\t/, <$IN>);
@@ -3120,16 +3112,17 @@ close ($IN);
 
 			$j++;
 			# ($j < 10) and print STDERR "Tags.pm - geo - map - emb_codes_geo: FREMB$insee =  " . $td[$th{"Latitude"}] . " , " . $td[$th{"Longitude"}]. " \n";
-
 		}
+
 		close($IN);
 	}
 
-	# print STDERR "Tags.pm - map - emb_codes_geo total: " . (scalar keys %emb_codes_geo) . "\n";
-
+	$log->debug("Cities for packaging codes loaded") if $log->is_debug();
+}
 
 # nutrient levels
 
+$log->info("Initializing nutrient levels") if $log->is_info();
 foreach my $l (@Langs) {
 
 	$lc = $l;
@@ -3153,6 +3146,8 @@ foreach my $l (@Langs) {
 		}
 	}
 }
+
+$log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
 
@@ -3198,9 +3193,7 @@ foreach my $langid (readdir(DH2)) {
 	}
 }
 closedir(DH2);
-
-
-
+$log->debug("tags texts loaded") if $log->is_debug();
 
 sub add_tags_to_field($$$$) {
 
@@ -3279,6 +3272,7 @@ sub compute_field_tags($$$) {
 	my $tag_lc = shift;
 	my $field = shift;
 
+	die "Initialize EMB codes with ProductOpener::Tags::init_emb_codes()" unless %emb_codes_cities;
 	# generate the hierarchy of tags from the field values
 
 	if (defined $taxonomy_fields{$field}) {

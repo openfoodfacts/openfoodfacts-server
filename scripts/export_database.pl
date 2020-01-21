@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -52,8 +52,6 @@ use ProductOpener::Data qw/:all/;
 use Unicode::Normalize;
 use URI::Escape::XS;
 
-
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -61,6 +59,7 @@ use Encode;
 use JSON::PP;
 use DateTime qw/:all/;
 
+init_emb_codes();
 
 sub xml_escape_NFC($) {
 	my $s = shift;
@@ -261,12 +260,12 @@ XML
 		foreach my $field (@export_fields) {
 
 			my $field_value = ($product_ref->{$field} // "");
-			
+
 			# Language specific field?
 			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {
 				$field_value = $product_ref->{$field . "_" . $l};
 			}
-			
+
 			$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
 
 			# Add field value to CSV file
