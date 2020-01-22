@@ -431,7 +431,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
-		$code = $1;
+		$code = normalize_code($1);
 	}
 
 	# Check for a specified imagefield
