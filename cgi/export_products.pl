@@ -56,7 +56,7 @@ my $action = param('action') || 'display';
 my $title = lang("export_product_data_photos");
 my $html = '';
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
@@ -107,10 +107,10 @@ elsif (($action eq "process") and ($User{moderator})) {
 	my $args_ref = {
 		user_id => $User_id,
 		org_id => $Org_id,
-		owner => $owner,
+		owner => $Owner_id,
 		csv_file => $exported_file,
 		export_id => $export_id,
-		query => { owner => $owner, data_quality_errors_producers_tags => { '$size' => 0 }},
+		query => { owner => $Owner_id, data_quality_errors_producers_tags => { '$size' => 0 }},
 		comment => "Import from producers platform",
 		include_images_paths => 1,	# Export file paths to images
 	};

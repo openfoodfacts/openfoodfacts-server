@@ -56,7 +56,7 @@ ProductOpener::Display::init();
 my $title = '';
 my $html = '';
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 

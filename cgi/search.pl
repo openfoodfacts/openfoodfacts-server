@@ -111,7 +111,7 @@ if ((not defined param('json')) and (not defined param('jsonp')) and
 
 		my $code = $search_terms;
 
-		my $product_id = product_id_for_user($User_id, $Org_id, $code);
+		my $product_id = product_id_for_owner($Owner_id, $code);
 
 		my $product_ref = product_exists($product_id); # returns 0 if not
 

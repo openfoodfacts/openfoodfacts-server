@@ -417,7 +417,7 @@ sub import_csv_file($) {
 
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
-		my $product_id = product_id_for_user($User_id, $Org_id, $code);
+		my $product_id = product_id_for_owner($Owner_id, $code);
 
 		if ((defined $args_ref->{skip_if_not_code}) and ($code ne $args_ref->{skip_if_not_code})) {
 			next;

@@ -99,7 +99,7 @@ if ((not defined $code) or ($code eq '')) {
 	exit(0);
 }
 
-my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $interface_version = '20120622';
 

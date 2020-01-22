@@ -31,17 +31,16 @@ BEGIN
 	@EXPORT_OK = qw(
 					%User
 					$User_id
-					%Visitor
-					$Visitor_id
-					$Facebook_id
 					%Org
 					$Org_id
+					$Owner_id
 
 					$cookie
 
 					&display_user_form
 					&check_user_form
 					&process_user_form
+					&check_edit_owner
 
 					&display_login_form
 
@@ -79,7 +78,7 @@ use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
 
-my @user_groups = qw(producer database app bot moderator);
+my @user_groups = qw(producer database app bot moderator pro_moderator);
 
 sub generate_token {
 	my $name_length = shift;
@@ -413,6 +412,41 @@ EMAIL
     return $error;
 }
 
+
+sub check_edit_owner($$) {
+
+	my $user_ref = shift;
+	my $errors_ref = shift;
+
+	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
+
+	if ((not defined $user_ref->{pro_moderator_owner}) or ($user_ref->{pro_moderator_owner} eq "")) {
+		delete $user_ref->{pro_moderator_owner};
+		# Also edit the current user bbject so that we can display the current status directly on the form result page
+		delete $User{pro_moderator_owner};
+	}
+	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
+		my $orgid = $';
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+	}
+	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
+		my $userid = $';
+		# Add check that organization exists when we add org profiles
+
+		if (! -e "$data_root/users/$userid.sto") {
+			push @$errors_ref, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
+		}
+		else {
+			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		}
+	}
+	else {
+		push @$errors_ref,$Lang{error_malformed_owner}{$lang};
+	}
+}
+
+
+
 sub display_login_form() {
 }
 
@@ -431,8 +465,6 @@ sub init_user()
 
 	$cookie = undef;
 
-	$Visitor_id = undef;
-	$Facebook_id = undef;
 	$User_id = undef;
 	$Org_id = undef;
 	%User = ();
@@ -688,6 +720,38 @@ sub init_user()
 		%Org = ();
 	}
 
+	# if products are private, select the owner used to restrict the product set with the owners_tags field
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+
+		# Producers platform moderators can set the owner to any user or organization
+		if (($User{pro_moderator}) and (defined $User{pro_moderator_owner})) {
+			$Owner_id = $User{pro_moderator_owner};
+			if ($Owner_id =~ /^org-/) {
+				$Org_id = $';
+				%Org = ( org => $Org_id, org_id => $Org_id );
+			}
+			elsif ($Owner_id =~ /^user-/) {
+				$Org_id = undef;
+				%Org = ();
+			}
+			else {
+				$Owner_id = undef;
+			}
+		}
+		elsif (defined $Org_id) {
+			$Owner_id = "org-" . $Org_id;
+		}
+		elsif (defined $User_id) {
+			$Owner_id = "user-" . $User_id;
+		}
+		else {
+			$Owner_id = undef;
+		}
+	}
+	else {
+		$Owner_id = undef;
+	}
+
 	return 0;
 }
 
@@ -774,14 +838,8 @@ sub check_session($$) {
 
 sub save_user() {
 
-	if (defined $Facebook_id) {
-		store("$data_root/facebook_users/" . get_string_id_for_lang("no_language", $Facebook_id) . ".sto", \%User);
-	}
-	elsif (defined $User_id) {
+	if (defined $User_id) {
 		store("$data_root/users/$User_id.sto", \%User);
-	}
-	elsif (defined $Visitor_id) {
-		store("$data_root/virtual_users/$Visitor_id.sto", \%User);
 	}
 }
 

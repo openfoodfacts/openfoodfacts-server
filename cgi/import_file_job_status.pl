@@ -58,14 +58,14 @@ my $import_id = param('import_id');
 my $job_id;
 
 my %data = (
-	owner => $owner,
+	owner => $Owner_id,
 	file_id => $file_id,
 	import_id => $import_id,
 );
 
 $log->debug("import_file_job_status.pl - start", { data => \%data }) if $log->is_debug();
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	$data{error} = "no_owner_defined";
 }
 elsif (not defined param('file_id')) {

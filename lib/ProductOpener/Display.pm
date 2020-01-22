@@ -72,7 +72,6 @@ BEGIN
 					$admin
 					$memd
 					$default_request_ref
-					$owner
 
 					$scripts
 					$initjs
@@ -404,22 +403,6 @@ CSS
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 
-	# if products are private, select the owner used to restrict the product set with the owners_tags field
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		if (defined $Org_id) {
-			$owner = "org-" . $Org_id;
-		}
-		elsif (defined $User_id) {
-			$owner = "user-" . $User_id;
-		}
-		else {
-			$owner = undef;
-		}
-	}
-	else {
-		$owner = undef;
-	}
-
 	# Change the color of the top nav bar for the platform for producers
 	if ($server_options{producers_platform}) {
 		$styles .= <<CSS
@@ -438,7 +421,7 @@ CSS
 ;
 	}
 
-	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner => $owner, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
+	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner_id => $Owner_id, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -1057,8 +1040,12 @@ sub display_text($)
 
 	# Add org name to index title on producers platform
 
-	if (($textid eq 'index-pro') and (defined $Org_id)) {
-		$html =~ s/<\/h1>/ - $Org{org}<\/h1>/;
+	if ($textid eq 'index-pro') {
+		my $owner_user_or_org = $Owner_id;
+		if (defined $Org_id) {
+			$owner_user_or_org = $Org{org};
+		}
+		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 	}
 
 	$log->info("displaying text from file", { cc => $cc, lc => $lc, lang => $lang, textid => $textid, textlang => $text_lang, file => $file }) if $log->is_info();
@@ -3636,7 +3623,7 @@ sub add_country_and_owner_filters_to_query($$) {
 
 	# Restrict the products to the owner on databases with private products
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		$query_ref->{owners_tags} = $owner;
+		$query_ref->{owners_tags} = $Owner_id;
 	}
 
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
@@ -5633,6 +5620,34 @@ sub display_my_block($)
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
+			my $pro_moderator_message;
+
+			if (defined $User{pro_moderator_owner}) {
+				$pro_moderator_message = sprintf(lang("pro_moderator_owner_set"), $User{pro_moderator_owner});
+			}
+			else {
+				$pro_moderator_message = lang("pro_moderator_owner_not_set");
+			}
+
+			if ($User{pro_moderator}) {
+				$content .= <<HTML
+<div class="panel">
+<h4>$Lang{producers_platform_moderation_title}{$lc}</h4>
+<p>$pro_moderator_message</p>
+<p>$Lang{pro_moderator_edit_owner_description}{$lc}</p>
+
+	<form method="post" action="/cgi/user.pl">
+	<input type="hidden" name="type" value="edit_owner">
+	<input type="hidden" name="action" value="process">
+	<input type="hidden" name="userid" value="$User_id">
+	<input type="text" name="pro_moderator_owner" value="" placeholder="$Lang{pro_moderator_edit_owner_placeholder}{$lc}">
+	<input type="submit" name=".submit" value="$Lang{pro_moderator_edit_owner}{$lc}" class="button small">
+	</form>
+</div>
+HTML
+;
+			}
+
 			if (defined $Org_id) {
 				$content .= "<br>" . lang("organization") . lang("sep") . ": " . $Org{org};
 			}
@@ -6931,7 +6946,7 @@ sub display_product($)
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
 
-	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_id = product_id_for_owner($Owner_id, $code);
 
 	my $html = '';
 	my $blocks_ref = [];
@@ -7971,7 +7986,7 @@ sub display_product_jqm ($) # jquerymobile
 	my $request_ref = shift;
 
 	my $code = normalize_code($request_ref->{code});
-	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_id = product_id_for_owner($Owner_id, $code);
 	local $log->context->{code} = $code;
 	local $log->context->{product_id} = $product_id;
 
@@ -9385,7 +9400,7 @@ sub display_product_api($)
 	my $request_ref = shift;
 
 	my $code = normalize_code($request_ref->{code});
-	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_id = product_id_for_owner($Owner_id, $code);
 
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 

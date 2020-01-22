@@ -54,7 +54,7 @@ ProductOpener::Display::init();
 my $title = lang("import_file_status_title");
 my $html = "<p>" . lang("import_file_status_description") . "</p>";
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
@@ -148,7 +148,7 @@ if ($results_ref->{error}) {
 my $args_ref = {
 	user_id => $User_id,
 	org_id => $Org_id,
-	owner => $owner,
+	owner => $Owner_id,
 	csv_file => $converted_file,
 	file_id => $file_id,
 	import_id => $import_id,

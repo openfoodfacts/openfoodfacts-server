@@ -57,7 +57,7 @@ my $html = '';
 local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 

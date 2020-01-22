@@ -106,7 +106,7 @@ if ((not defined $imgids) or ($imgids eq '')) {
 
 my $interface_version = '20150804';
 
-my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $path = product_path_from_id($product_id);
 
@@ -137,7 +137,7 @@ my %response = ('status' => 'ok');
 
 if ($move_to ne 'trash') {
 
-	my $move_to_id = product_id_for_user($User_id, $Org_id, $move_to);
+	my $move_to_id = product_id_for_owner($Owner_id, $move_to);
 	my $new_path = product_path_from_id($move_to_id);
 
 	if ($new_path eq 'invalid') {
@@ -154,7 +154,7 @@ if ($move_to ne 'trash') {
 
 	if (not $new_product_ref) {
 		$log->info("new product code does not exist yet, creating product", { move_to => $move_to, move_to_id => $move_to_id });
-		$new_product_ref = init_product($User_id, $Org_id, $move_to);
+		$new_product_ref = init_product($Owner_id, $move_to);
 		$new_product_ref->{interface_version_created} = $interface_version;
 		$new_product_ref->{lc} = $lc;
 
