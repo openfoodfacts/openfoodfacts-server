@@ -191,7 +191,7 @@ if ($move_to ne 'trash') {
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
 }
 
-my $error = process_image_move($code, $imgids, $move_to, $User_id, $Org_id);
+my $error = process_image_move($code, $imgids, $move_to, $Owner_id);
 
 my $data;
 
