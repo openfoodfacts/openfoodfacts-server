@@ -87,6 +87,7 @@ BEGIN
 		&init_percent_values
 		&set_percent_min_values
 		&set_percent_max_values
+		&delete_ingredients_percent_values
 
 	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);

@@ -830,7 +830,7 @@ sub init_columns_fields_match($$) {
 	my $all_columns_fields_ref = {};
 
 	if (defined $Owner_id) {
-		$all_columns_fields_ref = retrieve("$data_root/import_files/$Owner_id/all_columns_fields.sto");
+		$all_columns_fields_ref = retrieve("$data_root/import_files/${Owner_id}/all_columns_fields.sto");
 	}
 
 	# Match known column names to OFF fields

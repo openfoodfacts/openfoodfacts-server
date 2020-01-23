@@ -58,7 +58,7 @@ if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
-my $import_files_ref = retrieve("$data_root/import_files/$owner/import_files.sto");
+my $import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
 if (not defined $import_files_ref) {
 	$import_files_ref = {};
 }
@@ -72,7 +72,7 @@ my $extension;
 
 if (defined $import_files_ref->{$file_id}) {
 	$extension = $import_files_ref->{$file_id}{extension};
-	$file = "$data_root/import_files/$owner/$file_id.$extension";
+	$file = "$data_root/import_files/${Owner_id}/$file_id.$extension";
 }
 else {
 	$log->debug("File not found in import_files.sto", { file_id => $file_id }) if $log->is_debug();
@@ -83,7 +83,7 @@ $log->debug("File found in import_files.sto", { file_id => $file_id,  file => $f
 
 # Store user columns to OFF fields matches so that they can be reused for the next imports
 
-my $all_columns_fields_ref = retrieve("$data_root/import_files/$owner/all_columns_fields.sto");
+my $all_columns_fields_ref = retrieve("$data_root/import_files/${Owner_id}/all_columns_fields.sto");
 if (not defined $all_columns_fields_ref) {
 	$all_columns_fields_ref = {};
 }
@@ -127,7 +127,7 @@ $import_files_ref->{$file_id}{imports}{$import_id} = {
 
 store($columns_fields_file, $columns_fields_ref);
 
-store("$data_root/import_files/$owner/all_columns_fields.sto", $all_columns_fields_ref);
+store("$data_root/import_files/${Owner_id}/all_columns_fields.sto", $all_columns_fields_ref);
 
 # Default values: use the language and country of the interface
 my $default_values_ref = {
@@ -141,7 +141,7 @@ $import_files_ref->{$file_id}{imports}{$import_id}{converted_t} = time();
 
 if ($results_ref->{error}) {
 	$import_files_ref->{$file_id}{imports}{$import_id}{convert_error} = $results_ref->{error};
-	store("$data_root/import_files/$owner/import_files.sto", $import_files_ref);
+	store("$data_root/import_files/${Owner_id}/import_files.sto", $import_files_ref);
 	display_error($results_ref->{error}, 200);
 }
 
@@ -153,7 +153,7 @@ my $args_ref = {
 	file_id => $file_id,
 	import_id => $import_id,
 	comment => "Import from producers platform",
-	images_download_dir => "$data_root/import_files/$owner/downloaded_images",
+	images_download_dir => "$data_root/import_files/${Owner_id}/downloaded_images",
 };
 
 if (defined $Org_id) {
@@ -169,7 +169,7 @@ my $job_id = $minion->enqueue(import_csv_file => [$args_ref] => { queue => $serv
 
 $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 
-store("$data_root/import_files/$owner/import_files.sto", $import_files_ref);
+store("$data_root/import_files/${Owner_id}/import_files.sto", $import_files_ref);
 
 $html .= "<p>" . lang("import_file_status") . lang("sep"). ': <span id="result">' . lang("job_status_inactive") . '</span>';
 

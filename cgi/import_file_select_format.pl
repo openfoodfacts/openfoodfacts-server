@@ -60,7 +60,7 @@ if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
-my $import_files_ref = retrieve("$data_root/import_files/$owner/import_files.sto");
+my $import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
 if (not defined $import_files_ref) {
 	$import_files_ref = {};
 }
@@ -75,7 +75,7 @@ my $extension;
 
 if (defined $import_files_ref->{$file_id}) {
 	$extension = $import_files_ref->{$file_id}{extension};
-	$file = "$data_root/import_files/$owner/$file_id.$extension";
+	$file = "$data_root/import_files/${Owner_id}/$file_id.$extension";
 }
 else {
 	$log->debug("File not found in import_files.sto", { file_id => $file_id }) if $log->is_debug();
