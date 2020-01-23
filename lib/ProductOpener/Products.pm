@@ -396,9 +396,17 @@ sub init_product($$$) {
 	};
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		my $ownerid = "user-" . $userid;
-		if (defined $orgid) {
-			$ownerid = "org-" . $orgid;
+		my $ownerid;
+		if (defined $Owner_id) {
+			$ownerid = $Owner_id;
+		}
+		else {
+			if (defined $orgid) {
+				$ownerid = "org-" . $orgid;
+			}
+			else {
+				$ownerid = "user-" . $userid;
+			}
 		}
 		$product_ref->{owner} = $ownerid;
 		$product_ref->{_id} = $ownerid . "/" . $code;
