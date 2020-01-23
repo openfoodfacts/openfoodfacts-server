@@ -422,7 +422,7 @@ sub check_edit_owner($$) {
 
 	if ((not defined $user_ref->{pro_moderator_owner}) or ($user_ref->{pro_moderator_owner} eq "")) {
 		delete $user_ref->{pro_moderator_owner};
-		# Also edit the current user bbject so that we can display the current status directly on the form result page
+		# Also edit the current user object so that we can display the current status directly on the form result page
 		delete $User{pro_moderator_owner};
 	}
 	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
