@@ -3200,7 +3200,7 @@ HTML
 		local $log->context->{city_code} = $city_code;
 		$log->debug("city code for tag with emb_code type") if $log->debug();
 
-		die "Initialize EMB codes with ProductOpener::Tags::init_emb_codes()" unless %emb_codes_cities;
+		init_emb_codes() unless %emb_codes_cities;
 		if (defined $emb_codes_cities{$city_code}) {
 			$description .= "<p>" . lang("cities_s") . separator_before_colon($lc) . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 		}
@@ -5319,7 +5319,7 @@ sub get_packager_code_coordinates($) {
 
 	my $city_code = get_city_code($emb_code);
 
-	die "Initialize EMB codes with ProductOpener::Tags::init_emb_codes()" unless %emb_codes_geo;
+	init_emb_codes() unless %emb_codes_geo;
 	if (((not defined $lat) or (not defined $lng)) and (defined $emb_codes_geo{$city_code})) {
 
 		# some lat/lng have , for floating point numbers
