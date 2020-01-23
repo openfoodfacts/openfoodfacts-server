@@ -23,6 +23,8 @@
 use Modern::Perl '2017';
 use utf8;
 
+use strict;
+
 my $usage = <<TXT
 update_all_products.pl is a script that updates the latest version of products in the file system and on MongoDB.
 It is used in particular to re-run tags generation when taxonomies have been updated.
@@ -61,11 +63,11 @@ $products_collection->delete_many({"owner" => $Owner_id});
 use File::Copy::Recursive qw(dirmove);
 
 my $deleted_dir = $data_root . "/deleted_private_products/" . $Owner_id . "." . time();
-(-e $data_root . "/deleted_private_products") or mkdir($data_root . "/deleted_private_products", 0755);
+(-e $data_root . "/deleted_private_products") or mkdir($data_root . "/deleted_private_products", oct(755));
 
 print STDERR "Moving data to $deleted_dir\n";
 
-mkdir($deleted_dir, 0755);
+mkdir($deleted_dir, oct(755));
 
 dirmove("$data_root/import_files/$owner", "$deleted_dir/import_files") or print STDERR "Could not move $data_root/import_files/$owner to $deleted_dir/import_files : $!\n";
 dirmove("$data_root/export_files/$owner", "$deleted_dir/export_files") or print STDERR "Could not move $data_root/export_files/$owner to $deleted_dir/export_files : $!\n";
