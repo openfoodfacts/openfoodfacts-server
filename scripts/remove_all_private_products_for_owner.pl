@@ -23,15 +23,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use strict;
-
 my $usage = <<TXT
 update_all_products.pl is a script that updates the latest version of products in the file system and on MongoDB.
 It is used in particular to re-run tags generation when taxonomies have been updated.
 
 Usage:
 
-update_all_products.pl --owner owner-id
+remove_all_private_products_for_owner.pl --owner owner-id
 
 owner-id is of the form org-orgid or user-userid
 
@@ -45,7 +43,7 @@ use ProductOpener::Data qw/:all/;
 
 use Getopt::Long;
 
-my $Owner_id;
+my $owner;
 
 GetOptions ("owner=s"   => \$owner)
 or die("Error in command line arguments:\n\n$usage");
@@ -54,15 +52,15 @@ if ($owner !~ /^(user|org)-\S+$/) {
 	die("owner must start with user- or org-:\n\n$usage");
 }
 
-print STDERR "Deleting products for owner $Owner_id in database\n";
+print STDERR "Deleting products for owner $owner in database\n";
 
 my $products_collection = get_products_collection();
-$products_collection->delete_many({"owner" => $Owner_id});
+$products_collection->delete_many({"owner" => $owner});
 
 
 use File::Copy::Recursive qw(dirmove);
 
-my $deleted_dir = $data_root . "/deleted_private_products/" . $Owner_id . "." . time();
+my $deleted_dir = $data_root . "/deleted_private_products/" . $owner . "." . time();
 (-e $data_root . "/deleted_private_products") or mkdir($data_root . "/deleted_private_products", oct(755));
 
 print STDERR "Moving data to $deleted_dir\n";
