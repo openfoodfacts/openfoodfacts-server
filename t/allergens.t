@@ -517,5 +517,174 @@ detect_allergens_from_text($product_ref);
 
 is($product_ref->{ingredients_text_with_allergens_fr}, "Filet de saumon sauvage certifié MSC, pêché en Pacifique Nord-est (100%)") or diag explain $product_ref;
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text_fr => "Saumon, oeufs, blé, chocolat",
+	allergens => "Moutarde. Traces éventuelles de lupin"
+};
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+delete($product_ref->{allergens_from_user});
+delete($product_ref->{traces_from_user});
+is_deeply($product_ref,
+ {
+   'allergens' => 'en:mustard',
+   'allergens_from_ingredients' => "Saumon, oeufs, bl\x{e9}",
+   'allergens_hierarchy' => [
+     'en:eggs',
+     'en:fish',
+     'en:gluten',
+     'en:mustard'
+   ],
+   'allergens_tags' => [
+     'en:eggs',
+     'en:fish',
+     'en:gluten',
+     'en:mustard'
+   ],
+   'ingredients_text_fr' => "Saumon, oeufs, bl\x{e9}, chocolat",
+   'ingredients_text_with_allergens' => "<span class=\"allergen\">Saumon</span>, <span class=\"allergen\">oeufs</span>, <span class=\"allergen\">bl\x{e9}</span>, chocolat",
+   'ingredients_text_with_allergens_fr' => "<span class=\"allergen\">Saumon</span>, <span class=\"allergen\">oeufs</span>, <span class=\"allergen\">bl\x{e9}</span>, chocolat",
+   'languages' => {
+     'en:french' => 1
+   },
+   'languages_codes' => {
+     'fr' => 1
+   },
+   'languages_hierarchy' => [
+     'en:french'
+   ],
+   'languages_tags' => [
+     'en:french',
+     'en:1'
+   ],
+   'lc' => 'fr',
+   'traces' => 'en:lupin',
+   'traces_from_ingredients' => '',
+   'traces_hierarchy' => [
+     'en:lupin'
+   ],
+   'traces_tags' => [
+     'en:lupin'
+   ]
+ }
+
+) or diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text_fr => "Filet de saumon sauvage",
+	allergens => "Céleri, crustacés et lupin. Peut contenir du soja, des sulfites et de la moutarde.",
+	traces => "Oeufs"
+};
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+delete($product_ref->{allergens_from_user});
+delete($product_ref->{traces_from_user});
+
+is_deeply($product_ref, 
+ {
+   'allergens' => "en:celery,en:crustaceans,en:lupin",
+   'allergens_from_ingredients' => '',
+   'allergens_hierarchy' => [
+     'en:celery',
+     'en:crustaceans',
+     'en:lupin'
+   ],
+   'allergens_tags' => [
+     'en:celery',
+     'en:crustaceans',
+     'en:lupin'
+   ],
+   'ingredients_text_fr' => 'Filet de saumon sauvage',
+   'ingredients_text_with_allergens' => 'Filet de saumon sauvage',
+   'ingredients_text_with_allergens_fr' => 'Filet de saumon sauvage',
+   'languages' => {
+     'en:french' => 1
+   },
+   'languages_codes' => {
+     'fr' => 1
+   },
+   'languages_hierarchy' => [
+     'en:french'
+   ],
+   'languages_tags' => [
+     'en:french',
+     'en:1'
+   ],
+   'lc' => 'fr',
+   'traces' => 'en:eggs,en:mustard,en:soybeans,en:sulphur-dioxide-and-sulphites',
+   'traces_from_ingredients' => '',
+   'traces_hierarchy' => [
+     'en:eggs',
+     'en:mustard',
+     'en:soybeans',
+     'en:sulphur-dioxide-and-sulphites'
+   ],
+   'traces_tags' => [
+     'en:eggs',
+     'en:mustard',
+     'en:soybeans',
+     'en:sulphur-dioxide-and-sulphites'
+   ]
+ }
+
+ ) or diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "fr",
+	allergens => "GLUTEN. TRACES POTENTIELLES: CRUSTACÉS, ŒUFS, POISSONS, SOJA, LAIT, FRUITS À COQUES, CÉLERI, MOUTARDE ET SULFITES.",
+};
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+delete($product_ref->{ingredients_text_fr});
+delete($product_ref->{allergens_from_user});
+delete($product_ref->{traces_from_user});
+
+is_deeply($product_ref, 
+ {
+   'allergens' => 'en:gluten',
+   'allergens_from_ingredients' => '',
+   'allergens_hierarchy' => [
+     'en:gluten'
+   ],
+   'allergens_tags' => [
+     'en:gluten'
+   ],
+   'languages' => {},
+   'languages_codes' => {},
+   'languages_hierarchy' => [],
+   'languages_tags' => [
+     'en:0'
+   ],
+   'lc' => 'fr',
+   'traces' => "en:celery,en:crustaceans,en:eggs,en:fish,en:milk,en:mustard,en:nuts,en:soybeans,en:sulphur-dioxide-and-sulphites",
+   'traces_from_ingredients' => '',
+   'traces_hierarchy' => [
+     'en:celery',
+     'en:crustaceans',
+     'en:eggs',
+     'en:fish',
+     'en:milk',
+     'en:mustard',
+     'en:nuts',
+     'en:soybeans',
+     'en:sulphur-dioxide-and-sulphites'
+   ],
+   'traces_tags' => [
+     'en:celery',
+     'en:crustaceans',
+     'en:eggs',
+     'en:fish',
+     'en:milk',
+     'en:mustard',
+     'en:nuts',
+     'en:soybeans',
+     'en:sulphur-dioxide-and-sulphites'
+   ]
+ }
+) or diag explain $product_ref;
 
 done_testing();

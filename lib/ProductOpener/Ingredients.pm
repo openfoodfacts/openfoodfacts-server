@@ -137,14 +137,15 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 
 
 # do not add sub ( ) in the regexps below as it would change which parts gets matched in $1, $2 etc. in other regexps that use those regexps
+# put the longest strings first, so that we can match "possible traces" before "traces"
 my %traces_regexps = (
 
-	en => "traces|may contain",
+	en => "possible traces|traces|may contain",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
 	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
-	fr => "peut contenir|qui utilise aussi|traces|traces possibles|traces éventuelles|trace|trace possible|trace éventuelle",
-	it => "può contenere|puo contenere|che utilizza anche|tracce|possibili tracce|eventuali tracce|traccia|possibile traccia|eventuale traccia",
+	fr => "peut contenir|qui utilise aussi|traces possibles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 
 );
 
@@ -1753,7 +1754,7 @@ sub normalize_vitamins_enumeration($$) {
 
 	my $and = $Lang{_and_}{$lc};
 
-	my @vitamins = split(/\(|\)|\/| \/ | - |, |,|$and/, $vitamins_list);
+	my @vitamins = split(/\(|\)|\/| \/ | - |, |,|$and/i, $vitamins_list);
 
 	$log->debug("splitting vitamins", { input => $vitamins_list }) if $log->is_debug();
 
@@ -1814,7 +1815,7 @@ sub normalize_allergens_enumeration($$$) {
 
 	$log->debug("splitting allergens after removing stopwords", { input => $allergens_list }) if $log->is_debug();
 
-	my @allergens = split(/\(|\)|\/| \/ | - |, |,|$and/, $allergens_list);
+	my @allergens = split(/\(|\)|\/| \/ | - |, |,|$and/i, $allergens_list);
 
 	my $split_allergens_list =  " " . join(", ", map { normalize_allergen($type,$lc,$_)} @allergens) . ".";
 	# added ending . to facilite matching and removing when parsing ingredients
@@ -2374,7 +2375,7 @@ sub separate_additive_class($$$$$) {
 
 	# also look if we have additive 1 and additive 2
 	my $after2;
-	if ($after =~ /$and/) {
+	if ($after =~ /$and/i) {
 		$after2 = $`;
 	}
 
@@ -3795,7 +3796,34 @@ sub detect_allergens_from_text($) {
 		}
 	}
 
+	# If traces were entered in the allergens field, split them
+	# Use the language the tag have been entered in
+
+	my $traces_regexp;
+	if (defined $traces_regexps{$product_ref->{traces_lc} | $product_ref->{lc}}) {
+		$traces_regexp = $traces_regexps{$product_ref->{traces_lc} | $product_ref->{lc}};
+	}
+
+	if ((defined $traces_regexp) and (defined $product_ref->{allergens}) and ($product_ref->{allergens} =~ /\b($traces_regexp)\b\s*:?\s*/i)) {
+		if (defined $product_ref->{traces}) {
+			$product_ref->{traces} .= ", " . $';
+		}
+		else {
+			$product_ref->{traces} = $';
+		}
+		$product_ref->{allergens} = $`;
+		$product_ref->{allergens} =~ s/\s+$//;
+	}
+
 	foreach my $field ("allergens", "traces") {
+
+		# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
+		# main language of the product (which may be different than the $tag_lc language of the interface)
+
+		my $tag_lc = $product_ref->{$field . "_lc"} | $product_ref->{lc};
+		$product_ref->{$field . "_from_user"} = "($tag_lc)" . $product_ref->{$field};
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
+		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 
 		# concatenate allergens and traces fields from ingredients and entered by users
 
@@ -3804,6 +3832,7 @@ sub detect_allergens_from_text($) {
 		my $allergens = $product_ref->{$field . "_from_ingredients"};
 
 		if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+
 			$allergens .= ", " . $product_ref->{$field};
 		}
 

@@ -1,5 +1,5 @@
-stopwords:en:and,byproducts,other
-stopwords:fr:et,dérivés,et dérivés,autres, et autres
+stopwords:en:and,byproducts,other,of
+stopwords:fr:et,dérivés,et dérivés,autres,et autres,de,d,des,du,la,l
 
 
 en:celery, celeraic
@@ -233,6 +233,7 @@ nl:weekdieren
 pl:mięczaki
 pt:moluscos
 ro:moluște
+ru:моллюск, моллюски, кальмар, каракатица, устрицы, устрица, ракушки, гребешок, улитка, улитки
 sk:mäkkýše
 sl:mehkužci
 sv:blötdjur

@@ -1765,6 +1765,18 @@ sub gen_tags_hierarchy($$) {
 	return @sorted_list;
 }
 
+my %and = (
+	en => " and ",
+	cs => " a ",
+	da => " og ",
+	de => " und ",
+	es => " y ",
+	fi => " ja ",
+	fr => " et ",
+	it => " e ",
+	nl => " en ",
+	pt => " e ",
+);
 
 sub gen_tags_hierarchy_taxonomy($$$) {
 
@@ -1783,6 +1795,8 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 
 	my %tags = ();
 
+	my $and = $and{$tag_lc} || " and ";
+
 	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
 		my $tag = $tag2;
 		my $l = $tag_lc;
@@ -1791,17 +1805,38 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 			$tag = $';
 		}
 		next if $tag eq '';
-		$tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
-		my $tagid = get_taxonomyid($l,$tag);
-		next if $tagid eq '';
-		if ($tagid =~ /:$/) {
-			#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
-			next;
+		my $canon_tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
+		my @canon_tags = ($canon_tag);
+
+		# Try to split unrecognized tags (e.g. "known tag and other known tag" -> "known tag, other known tag"
+
+		if (($tag =~ /$and/i) and (not exists_taxonomy_tag($tagtype, $canon_tag))) {
+
+			my $tag1 = $`;
+			my $tag2 = $';
+
+			my $canon_tag1 = canonicalize_taxonomy_tag($l, $tagtype, $tag1);
+			my $canon_tag2 = canonicalize_taxonomy_tag($l, $tagtype, $tag2);
+
+			if ( (exists_taxonomy_tag($tagtype, $canon_tag1))
+				and (exists_taxonomy_tag($tagtype, $canon_tag2)) ) {
+				@canon_tags = ($canon_tag1, $canon_tag2);
+			}
 		}
-		$tags{$tag} = 1;
-		if (defined $all_parents{$tagtype}{$tagid}) {
-			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-				$tags{$parentid} = 1;
+
+		foreach my $canon_tag_i (@canon_tags) {
+
+			my $tagid = get_taxonomyid($l,$canon_tag_i);
+			next if $tagid eq '';
+			if ($tagid =~ /:$/) {
+				#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
+				next;
+			}
+			$tags{$canon_tag_i} = 1;
+			if (defined $all_parents{$tagtype}{$tagid}) {
+				foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
+					$tags{$parentid} = 1;
+				}
 			}
 		}
 	}
@@ -3317,16 +3352,6 @@ sub compute_field_tags($$$) {
 				}
 			}
 		}
-	}
-
-	# special handling for allergens and traces:
-	# the allergens_tags and traces_tags fields will be overwritten by Ingredients::detect_allergens_from_text
-	# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
-	# main language of the product (which may be different than the $tag_lc language of the interface)
-
-	if (($field eq 'allergens') or ($field eq 'traces')) {
-		$product_ref->{$field . "_from_user"} = "($tag_lc)" . $product_ref->{$field};
-		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 	}
 
 	# check if we have a previous or a next version and compute differences
