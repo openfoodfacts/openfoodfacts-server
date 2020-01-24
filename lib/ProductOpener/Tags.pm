@@ -3354,16 +3354,6 @@ sub compute_field_tags($$$) {
 		}
 	}
 
-	# special handling for allergens and traces:
-	# the allergens_tags and traces_tags fields will be overwritten by Ingredients::detect_allergens_from_text
-	# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
-	# main language of the product (which may be different than the $tag_lc language of the interface)
-
-	if (($field eq 'allergens') or ($field eq 'traces')) {
-		$product_ref->{$field . "_from_user"} = "($tag_lc)" . $product_ref->{$field};
-		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
-	}
-
 	# check if we have a previous or a next version and compute differences
 
 	$product_ref->{$field . "_debug_tags"} = [];

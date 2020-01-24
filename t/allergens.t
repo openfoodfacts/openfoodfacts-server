@@ -524,9 +524,11 @@ $product_ref = {
 };
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
+delete($product_ref->{allergens_from_user});
+delete($product_ref->{traces_from_user});
 is_deeply($product_ref,
  {
-   'allergens' => 'Moutarde.',
+   'allergens' => 'en:mustard',
    'allergens_from_ingredients' => "Saumon, oeufs, bl\x{e9}",
    'allergens_hierarchy' => [
      'en:eggs',
@@ -557,7 +559,7 @@ is_deeply($product_ref,
      'en:1'
    ],
    'lc' => 'fr',
-   'traces' => 'de lupin',
+   'traces' => 'en:lupin',
    'traces_from_ingredients' => '',
    'traces_hierarchy' => [
      'en:lupin'
@@ -578,10 +580,12 @@ $product_ref = {
 };
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
+delete($product_ref->{allergens_from_user});
+delete($product_ref->{traces_from_user});
 
 is_deeply($product_ref, 
  {
-   'allergens' => "C\x{e9}leri, crustac\x{e9}s et lupin.",
+   'allergens' => "en:celery,en:crustaceans,en:lupin",
    'allergens_from_ingredients' => '',
    'allergens_hierarchy' => [
      'en:celery',
@@ -610,7 +614,7 @@ is_deeply($product_ref,
      'en:1'
    ],
    'lc' => 'fr',
-   'traces' => 'Oeufs, du soja, des sulfites et de la moutarde.',
+   'traces' => 'en:eggs,en:mustard,en:soybeans,en:sulphur-dioxide-and-sulphites',
    'traces_from_ingredients' => '',
    'traces_hierarchy' => [
      'en:eggs',
@@ -631,15 +635,17 @@ is_deeply($product_ref,
 
 $product_ref = {
         lc => "fr",
-        ingredients_text_fr => "",
 	allergens => "GLUTEN. TRACES POTENTIELLES: CRUSTACÉS, ŒUFS, POISSONS, SOJA, LAIT, FRUITS À COQUES, CÉLERI, MOUTARDE ET SULFITES.",
 };
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
+delete($product_ref->{ingredients_text_fr});
+delete($product_ref->{allergens_from_user});
+delete($product_ref->{traces_from_user});
 
 is_deeply($product_ref, 
  {
-   'allergens' => 'GLUTEN.',
+   'allergens' => 'en:gluten',
    'allergens_from_ingredients' => '',
    'allergens_hierarchy' => [
      'en:gluten'
@@ -647,7 +653,6 @@ is_deeply($product_ref,
    'allergens_tags' => [
      'en:gluten'
    ],
-   'ingredients_text_fr' => '',
    'languages' => {},
    'languages_codes' => {},
    'languages_hierarchy' => [],
@@ -655,7 +660,7 @@ is_deeply($product_ref,
      'en:0'
    ],
    'lc' => 'fr',
-   'traces' => "CRUSTAC\x{c9}S, \x{152}UFS, POISSONS, SOJA, LAIT, FRUITS \x{c0} COQUES, C\x{c9}LERI, MOUTARDE ET SULFITES.",
+   'traces' => "en:celery,en:crustaceans,en:eggs,en:fish,en:milk,en:mustard,en:nuts,en:soybeans,en:sulphur-dioxide-and-sulphites",
    'traces_from_ingredients' => '',
    'traces_hierarchy' => [
      'en:celery',

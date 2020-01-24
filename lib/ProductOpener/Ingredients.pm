@@ -3797,13 +3797,12 @@ sub detect_allergens_from_text($) {
 	}
 
 	# If traces were entered in the allergens field, split them
+	# Use the language the tag have been entered in
 
 	my $traces_regexp;
-	if (defined $traces_regexps{$product_ref->{lc}}) {
-		$traces_regexp = $traces_regexps{$product_ref->{lc}};
+	if (defined $traces_regexps{$product_ref->{traces_lc} | $product_ref->{lc}}) {
+		$traces_regexp = $traces_regexps{$product_ref->{traces_lc} | $product_ref->{lc}};
 	}
-
-	print STDERR "traces_regexp: $traces_regexp - lc: " . $product_ref->{lc} . " \n";
 
 	if ((defined $traces_regexp) and (defined $product_ref->{allergens}) and ($product_ref->{allergens} =~ /\b($traces_regexp)\b\s*:?\s*/i)) {
 		if (defined $product_ref->{traces}) {
@@ -3817,6 +3816,14 @@ sub detect_allergens_from_text($) {
 	}
 
 	foreach my $field ("allergens", "traces") {
+
+		# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
+		# main language of the product (which may be different than the $tag_lc language of the interface)
+
+		my $tag_lc = $product_ref->{$field . "_lc"} | $product_ref->{lc};
+		$product_ref->{$field . "_from_user"} = "($tag_lc)" . $product_ref->{$field};
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
+		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 
 		# concatenate allergens and traces fields from ingredients and entered by users
 
