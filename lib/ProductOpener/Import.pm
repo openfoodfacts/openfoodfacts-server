@@ -83,7 +83,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
@@ -93,7 +92,8 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
-use ProductOpener::ImportConvert qw/clean_weights/;
+use ProductOpener::ImportConvert qw/clean_weights assign_quantity_from_field/;
+use ProductOpener::Users qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -124,6 +124,14 @@ will be attributed.
 
 Organisation id to which the changes (new products, added or changed values, new images)
 will be attributed.
+
+=head4 owner_id - optional
+
+For databases with private products, owner (user or org) that the products belong to.
+Values are of the form user-[user id] or org-[organization id].
+
+If not set, for databases with private products, it will be constructed from the user_id
+and org_id parameters.
 
 =head4 csv_file - required
 
@@ -218,6 +226,7 @@ sub import_csv_file($) {
 
 	$User_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
+	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 
 	my %global_values = ();
 	if (defined $args_ref->{global_values}) {
@@ -391,19 +400,25 @@ sub import_csv_file($) {
 	while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 		# Sanitize the input data
-		foreach my $key (%$imported_product_ref) {
-			if (defined $imported_product_ref->{$key}) {
+		foreach my $field (keys %$imported_product_ref) {
+			if (defined $imported_product_ref->{$field}) {
 				# Remove tags
-				$imported_product_ref->{$key} =~ s/<(([^>]|\n)*)>//g;
+				$imported_product_ref->{$field} =~ s/<(([^>]|\n)*)>//g;
 
 				# Remove whitespace
-				$imported_product_ref->{$key} =~ s/^\s+|\s+$//g;
+				$imported_product_ref->{$field} =~ s/^\s+|\s+$//g;
+			}
+
+			# If we have generic_name but not product_name, also assign generic_name to product_name
+			if (($field =~ /^generic_name_(\w\w)$/) and (not defined $imported_product_ref->{"product_name_" . $1})) {
+				$imported_product_ref->{"product_name_" . $1} = $imported_product_ref->{"generic_name_" . $1};
 			}
 		}
 
 		# Clean the input data
 		# It is necessary to do it at this step (before the import) so that we can populate
 		# the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
+
 		clean_weights($imported_product_ref);
 
 		$i++;
@@ -452,6 +467,11 @@ sub import_csv_file($) {
 		if ($imported_product_ref->{lc} !~ /^\w\w$/) {
 			$log->error("Error - lc is not a 2 letter language code", { lc => $lc, i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
 			next;
+		}
+
+		# Quantity in the product name?
+		if (not defined $imported_product_ref->{quantity}) {
+			assign_quantity_from_field($imported_product_ref, "product_name_" . $imported_product_ref->{lc});
 		}
 
 		# image paths can be passed in fields image_front / nutrition / ingredients / other
@@ -1401,7 +1421,7 @@ will be attributed.
 Organisation id to which the changes (new products, added or changed values, new images)
 will be attributed.
 
-=head4 owner - required
+=head4 owner_id - required
 
 Owner of the products on the producers platform.
 
@@ -1413,8 +1433,9 @@ sub import_products_categories_from_public_database($) {
 
 	$User_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
+	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 
-	my $query_ref = { owner => $args_ref->{owner} };
+	my $query_ref = { owner => $Owner_id };
 
 	my $products_collection = get_products_collection();
 

@@ -148,7 +148,7 @@ if ($results_ref->{error}) {
 my $args_ref = {
 	user_id => $User_id,
 	org_id => $Org_id,
-	owner => $Owner_id,
+	owner_id => $Owner_id,
 	csv_file => $converted_file,
 	file_id => $file_id,
 	import_id => $import_id,
@@ -159,6 +159,7 @@ my $args_ref = {
 if (defined $Org_id) {
 	$args_ref->{manufacturer} = 1;
 	$args_ref->{source_id} = $Org_id;
+	$args_ref->{source_name} = $Org_id;
 	$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id, imports => $import_id};
 }
 else {

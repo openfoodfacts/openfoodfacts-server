@@ -75,6 +75,7 @@ BEGIN
 		&product_path
 		&product_path_from_id
 		&product_exists
+		&get_owner_id
 		&init_product
 		&retrieve_product
 		&retrieve_product_or_deleted_product
@@ -372,6 +373,27 @@ sub product_exists($) {
 	}
 }
 
+sub get_owner_id($$$) {
+
+	my $userid = shift;
+	my $orgid = shift;
+	my $ownerid = shift;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+
+		if (not defined $ownerid) {
+			if (defined $orgid) {
+				$ownerid = "org-" . $orgid;
+			}
+			else {
+				$ownerid = "user-" . $userid;
+			}
+		}
+	}
+
+	return $ownerid;
+}
+
 sub init_product($$$) {
 
 	my $userid = shift;
@@ -396,18 +418,8 @@ sub init_product($$$) {
 	};
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		my $ownerid;
-		if (defined $Owner_id) {
-			$ownerid = $Owner_id;
-		}
-		else {
-			if (defined $orgid) {
-				$ownerid = "org-" . $orgid;
-			}
-			else {
-				$ownerid = "user-" . $userid;
-			}
-		}
+		my $ownerid = get_owner_id($userid, $orgid, $Owner_id);
+
 		$product_ref->{owner} = $ownerid;
 		$product_ref->{_id} = $ownerid . "/" . $code;
 
@@ -1149,15 +1161,6 @@ sub compute_product_history_and_completeness($$) {
 	$log->debug("compute_product_history_and_completeness", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	return if not defined $changes_ref;
-
-	#push @$changes_ref, {
-	#	userid=>$User_id,
-	#	ip=>remote_addr(),
-	#	t=>$product_ref->{last_modified_t},
-	#	comment=>$comment,
-	#	rev=>$rev,
-	#};
-
 
 	# Populate the entry_dates_tags field
 
