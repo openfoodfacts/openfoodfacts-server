@@ -5,7 +5,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";;
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -324,7 +324,7 @@ is_deeply (\@tags, [
    'en:sugar',
    'en:salt',
  ]
- ) or diag explain(\@tags);;
+ ) or diag explain(\@tags);
 
 ProductOpener::Tags::retrieve_tags_taxonomy("test");
 
@@ -442,5 +442,35 @@ is_deeply($tag_ref,  {
    ) or diag explain $tag_ref;
 
 is(get_string_id_for_lang("fr", "Yaourts à la fraise"), "yaourts-a-la-fraise");
+
+
+@tags = gen_tags_hierarchy_taxonomy("en", "labels", "gmo free and organic");
+
+is_deeply (\@tags, [
+   'en:organic',
+   'en:no-gmos',
+ ]
+ ) or diag explain(\@tags);
+
+@tags = gen_tags_hierarchy_taxonomy("fr", "labels", "commerce équitable, label rouge et bio");
+
+is_deeply (\@tags, [
+   'en:organic',
+   'en:fair-trade',
+   'en:label-rouge',
+ ]
+ ) or diag explain(\@tags);
+
+@tags = gen_tags_hierarchy_taxonomy("fr", "labels", "Déconseillé aux enfants et aux femmes enceintes");
+
+is_deeply (\@tags, [
+ 'en:not-advised-for-specific-people',
+ 'en:not-advised-for-children-and-pregnant-women'
+ ]
+ ) or diag explain(\@tags);
+
+
+
+
 
 done_testing();

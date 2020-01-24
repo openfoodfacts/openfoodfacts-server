@@ -87,6 +87,7 @@ BEGIN
 		&init_percent_values
 		&set_percent_min_values
 		&set_percent_max_values
+		&delete_ingredients_percent_values
 
 	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -136,14 +137,15 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 
 
 # do not add sub ( ) in the regexps below as it would change which parts gets matched in $1, $2 etc. in other regexps that use those regexps
+# put the longest strings first, so that we can match "possible traces" before "traces"
 my %traces_regexps = (
 
-	en => "traces|may contain",
+	en => "possible traces|traces|may contain",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
 	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
-	fr => "peut contenir|qui utilise aussi|traces|traces possibles|traces éventuelles|trace|trace possible|trace éventuelle",
-	it => "può contenere|puo contenere|che utilizza anche|tracce|possibili tracce|eventuali tracce|traccia|possibile traccia|eventuale traccia",
+	fr => "peut contenir|qui utilise aussi|traces possibles|traces éventuelles|traces eventuelles|trace possible|trace éventuelle|trace eventuelle|traces|trace",
+	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 
 );
 
@@ -3794,6 +3796,26 @@ sub detect_allergens_from_text($) {
 		}
 	}
 
+	# If traces were entered in the allergens field, split them
+
+	my $traces_regexp;
+	if (defined $traces_regexps{$product_ref->{lc}}) {
+		$traces_regexp = $traces_regexps{$product_ref->{lc}};
+	}
+
+	print STDERR "traces_regexp: $traces_regexp - lc: " . $product_ref->{lc} . " \n";
+
+	if ((defined $traces_regexp) and (defined $product_ref->{allergens}) and ($product_ref->{allergens} =~ /\b($traces_regexp)\b\s*:?\s*/i)) {
+		if (defined $product_ref->{traces}) {
+			$product_ref->{traces} .= ", " . $';
+		}
+		else {
+			$product_ref->{traces} = $';
+		}
+		$product_ref->{allergens} = $`;
+		$product_ref->{allergens} =~ s/\s+$//;
+	}
+
 	foreach my $field ("allergens", "traces") {
 
 		# concatenate allergens and traces fields from ingredients and entered by users
@@ -3803,6 +3825,7 @@ sub detect_allergens_from_text($) {
 		my $allergens = $product_ref->{$field . "_from_ingredients"};
 
 		if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+
 			$allergens .= ", " . $product_ref->{$field};
 		}
 
