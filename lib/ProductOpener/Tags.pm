@@ -1810,7 +1810,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 
 		# Try to split unrecognized tags (e.g. "known tag and other known tag" -> "known tag, other known tag"
 
-		if (($tag =~ /$and/) and (not exists_taxonomy_tag($tagtype, $canon_tag))) {
+		if (($tag =~ /$and/i) and (not exists_taxonomy_tag($tagtype, $canon_tag))) {
 
 			my $tag1 = $`;
 			my $tag2 = $';

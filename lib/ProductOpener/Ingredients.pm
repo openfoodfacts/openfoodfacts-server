@@ -1754,7 +1754,7 @@ sub normalize_vitamins_enumeration($$) {
 
 	my $and = $Lang{_and_}{$lc};
 
-	my @vitamins = split(/\(|\)|\/| \/ | - |, |,|$and/, $vitamins_list);
+	my @vitamins = split(/\(|\)|\/| \/ | - |, |,|$and/i, $vitamins_list);
 
 	$log->debug("splitting vitamins", { input => $vitamins_list }) if $log->is_debug();
 
@@ -1815,7 +1815,7 @@ sub normalize_allergens_enumeration($$$) {
 
 	$log->debug("splitting allergens after removing stopwords", { input => $allergens_list }) if $log->is_debug();
 
-	my @allergens = split(/\(|\)|\/| \/ | - |, |,|$and/, $allergens_list);
+	my @allergens = split(/\(|\)|\/| \/ | - |, |,|$and/i, $allergens_list);
 
 	my $split_allergens_list =  " " . join(", ", map { normalize_allergen($type,$lc,$_)} @allergens) . ".";
 	# added ending . to facilite matching and removing when parsing ingredients
@@ -2375,7 +2375,7 @@ sub separate_additive_class($$$$$) {
 
 	# also look if we have additive 1 and additive 2
 	my $after2;
-	if ($after =~ /$and/) {
+	if ($after =~ /$and/i) {
 		$after2 = $`;
 	}
 

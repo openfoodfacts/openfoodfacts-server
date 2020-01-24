@@ -469,6 +469,13 @@ is_deeply (\@tags, [
  ]
  ) or diag explain(\@tags);
 
+@tags = gen_tags_hierarchy_taxonomy("fr", "traces", "MOUTARDE ET SULFITES");
+
+is_deeply (\@tags, [
+   'en:mustard',
+   'en:sulphur-dioxide-and-sulphites'
+ ]
+ ) or diag explain(\@tags);
 
 
 

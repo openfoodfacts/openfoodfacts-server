@@ -629,6 +629,57 @@ is_deeply($product_ref,
  ) or diag explain $product_ref;
 
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text_fr => "",
+	allergens => "GLUTEN. TRACES POTENTIELLES: CRUSTACÉS, ŒUFS, POISSONS, SOJA, LAIT, FRUITS À COQUES, CÉLERI, MOUTARDE ET SULFITES.",
+};
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
 
+is_deeply($product_ref, 
+ {
+   'allergens' => 'GLUTEN.',
+   'allergens_from_ingredients' => '',
+   'allergens_hierarchy' => [
+     'en:gluten'
+   ],
+   'allergens_tags' => [
+     'en:gluten'
+   ],
+   'ingredients_text_fr' => '',
+   'languages' => {},
+   'languages_codes' => {},
+   'languages_hierarchy' => [],
+   'languages_tags' => [
+     'en:0'
+   ],
+   'lc' => 'fr',
+   'traces' => "CRUSTAC\x{c9}S, \x{152}UFS, POISSONS, SOJA, LAIT, FRUITS \x{c0} COQUES, C\x{c9}LERI, MOUTARDE ET SULFITES.",
+   'traces_from_ingredients' => '',
+   'traces_hierarchy' => [
+     'en:celery',
+     'en:crustaceans',
+     'en:eggs',
+     'en:fish',
+     'en:milk',
+     'en:mustard',
+     'en:nuts',
+     'en:soybeans',
+     'en:sulphur-dioxide-and-sulphites'
+   ],
+   'traces_tags' => [
+     'en:celery',
+     'en:crustaceans',
+     'en:eggs',
+     'en:fish',
+     'en:milk',
+     'en:mustard',
+     'en:nuts',
+     'en:soybeans',
+     'en:sulphur-dioxide-and-sulphites'
+   ]
+ }
+) or diag explain $product_ref;
 
 done_testing();
