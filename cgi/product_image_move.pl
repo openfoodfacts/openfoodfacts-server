@@ -106,7 +106,7 @@ if ((not defined $imgids) or ($imgids eq '')) {
 
 my $interface_version = '20150804';
 
-my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $path = product_path_from_id($product_id);
 
@@ -137,7 +137,7 @@ my %response = ('status' => 'ok');
 
 if ($move_to ne 'trash') {
 
-	my $move_to_id = product_id_for_user($User_id, $Org_id, $move_to);
+	my $move_to_id = product_id_for_owner($Owner_id, $move_to);
 	my $new_path = product_path_from_id($move_to_id);
 
 	if ($new_path eq 'invalid') {
@@ -191,7 +191,7 @@ if ($move_to ne 'trash') {
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
 }
 
-my $error = process_image_move($code, $imgids, $move_to, $User_id, $Org_id);
+my $error = process_image_move($code, $imgids, $move_to, $Owner_id);
 
 my $data;
 

@@ -4040,6 +4040,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr "Moderators have access to special features to edit and review products."
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr "Moderator for the producers platform"
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr "I have already donated or I'm not interested. Hide the banner."
@@ -4051,3 +4059,49 @@ msgstr "Hey, a box to uncheck?!"
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr "Producers platform moderation"
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr "You are currently viewing products from %s."
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr "You are currently viewing your own products."
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr "To see products from a specific user or organization, enter its id. Leave field empty to unset."
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr "Change"
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr "user-abc or org-xyz"
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr "User %s does not exist"
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr "The id must be of the form user-abc or org-xyz"
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr "Import product categories from the public database"
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr "Add categories from the public database to the products on the platform for producers."
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr "Import the categories"

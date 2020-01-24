@@ -431,7 +431,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
-		$code = $1;
+		$code = normalize_code($1);
 	}
 
 	# Check for a specified imagefield
@@ -726,21 +726,20 @@ sub process_image_upload($$$$$$) {
 
 
 
-sub process_image_move($$$$$) {
+sub process_image_move($$$$) {
 
 	my $code = shift;
 	my $imgids = shift;
 	my $move_to = shift;
-	my $userid = shift;
-	my $orgid = shift;
+	my $ownerid = shift;
 
 	# move images only to trash or another valid barcode (number)
 	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
 		return "invalid barcode number: $move_to";
 	}
 
-	my $product_id = product_id_for_user($userid, $orgid, $code);
-	my $move_to_id = product_id_for_user($userid, $orgid, $move_to);
+	my $product_id = product_id_for_owner($ownerid, $code);
+	my $move_to_id = product_id_for_owner($ownerid, $move_to);
 
 	$log->debug("process_image_move", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
@@ -762,12 +761,12 @@ sub process_image_move($$$$$) {
 			my $ok = 1;
 
 			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
 				if ($ok < 0) {
-					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, user_id => $userid, result => $ok });
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
 				}
 				else {
-					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, user_id => $userid, result => $ok });
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
 				}
 			}
 

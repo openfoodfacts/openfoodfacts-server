@@ -97,7 +97,7 @@ if ($type eq 'search_or_add') {
 
 	if (defined $code) {
 		$data{code} = $code;
-		$product_id = product_id_for_user($User_id, $Org_id, $code);
+		$product_id = product_id_for_owner($Owner_id, $code);
 		$log->debug("we have a code", { code => $code, product_id => $product_id }) if $log->is_debug();
 
 		$product_ref = product_exists($product_id); # returns 0 if not
@@ -169,7 +169,7 @@ else {
 		display_error($Lang{no_barcode}{$lang}, 403);
 	}
 	else {
-		$product_id = product_id_for_user($User_id, $Org_id, $code);
+		$product_id = product_id_for_owner($Owner_id, $code);
 		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
 		if (not defined $product_ref) {
 			display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
@@ -384,7 +384,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
 
-	if (($User{moderator} or $owner) and (defined param('obsolete_since_date'))) {
+	if (($User{moderator} or $Owner_id) and (defined param('obsolete_since_date'))) {
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>param("obsolete_since_date"));
 	}
@@ -812,7 +812,7 @@ HTML
 
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform
-	if ($User{moderator} or $owner) {
+	if ($User{moderator} or $Owner_id) {
 
 		my $checked = '';
 		if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete} eq 'on')) {

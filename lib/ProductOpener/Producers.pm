@@ -67,6 +67,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Export qw/:all/;
 use ProductOpener::Import qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::Users qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -824,12 +825,12 @@ sub init_columns_fields_match($$) {
 
 	compute_statistics_and_examples($headers_ref, $rows_ref, $columns_fields_ref);
 
-	# Load previously assigned fields by the user_agent
+	# Load previously assigned fields by the owner
 
 	my $all_columns_fields_ref = {};
 
-	if (defined $owner) {
-		$all_columns_fields_ref = retrieve("$data_root/import_files/$owner/all_columns_fields.sto");
+	if (defined $Owner_id) {
+		$all_columns_fields_ref = retrieve("$data_root/import_files/${Owner_id}/all_columns_fields.sto");
 	}
 
 	# Match known column names to OFF fields

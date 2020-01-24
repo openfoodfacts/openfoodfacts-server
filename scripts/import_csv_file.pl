@@ -28,7 +28,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
@@ -74,7 +73,6 @@ TXT
 
 
 my $csv_file;
-# $User_id is a global variable from Display.pm
 my %global_values = ();
 my $skip_products_without_images = 0;
 my $images_dir;
@@ -101,8 +99,9 @@ GetOptions (
 	"import_lc=s" => \$import_lc,
 	"csv_file=s" => \$csv_file,
 	"images_dir=s" => \$images_dir,
-	"user_id=s" => \$User_id,
-	"org_id=s" => \$Org_id,
+	"user_id=s" => \$user_id,
+	"org_id=s" => \$org_id,
+	"owner_id=s" => \$owner_id,
 	"comment=s" => \$comment,
 	"source_id=s" => \$source_id,
 	"source_name=s" => \$source_name,
@@ -122,13 +121,13 @@ GetOptions (
 		)
   or die("Error in command line arguments:\n$\nusage");
 
-print STDERR "import.pl
-- user_id: $User_id
-- org_id: $Org_id
+print STDERR "import_csv_file.pl
+- user_id: $user_id
+- org_id: $org_id
+- owner_id: $owner_id
 - csv_file: $csv_file
 - images_dir: $images_dir
 - skip_products_without_images: $skip_products_without_images
-- user_id: $User_id
 - comment: $comment
 - source_id: $source_id
 - source_name: $source_name
@@ -150,7 +149,7 @@ if (not defined $csv_file) {
 	$missing_arg++;
 }
 
-if (not defined $User_id) {
+if (not defined $user_id) {
 	print STDERR "missing --user_id parameter\n";
 	$missing_arg++;
 }
@@ -176,8 +175,9 @@ if (not $no_source) {
 $missing_arg and exit();
 
 my $stats_ref = import_csv_file( {
-	user_id => $User_id,
-	org_id => $Org_id,
+	user_id => $user_id,
+	org_id => $org_id,
+	owner_id => $owner_id,
 	csv_file => $csv_file,
 	global_values => \%global_values,
 	images_dir => $images_dir,

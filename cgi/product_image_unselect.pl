@@ -49,7 +49,7 @@ my $action = param('action') || 'display';
 my $code = normalize_code(param('code'));
 my $id = param('id');
 
-my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_id = product_id_for_owner($Owner_id, $code);
 
 $log->debug("start", { code => $code, id => $id }) if $log->is_debug();
 

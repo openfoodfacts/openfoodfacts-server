@@ -56,11 +56,11 @@ my $action = param('action') || 'display';
 my $title = lang("export_product_data_photos");
 my $html = '';
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
-my $exports_ref = retrieve("$data_root/export_files/$owner/exports.sto");
+my $exports_ref = retrieve("$data_root/export_files/${Owner_id}/exports.sto");
 if (not defined $exports_ref) {
 	$exports_ref = {};
 }
@@ -95,7 +95,7 @@ elsif (($action eq "process") and ($User{moderator})) {
 	my $started_t = time();
 	my $export_id = $started_t;
 
-	my $exported_file = "$data_root/export_files/$owner/export.$export_id.exported.csv";
+	my $exported_file = "$data_root/export_files/${Owner_id}/export.$export_id.exported.csv";
 
 	$exports_ref->{$export_id} = {
 		started_t => $started_t,
@@ -107,10 +107,10 @@ elsif (($action eq "process") and ($User{moderator})) {
 	my $args_ref = {
 		user_id => $User_id,
 		org_id => $Org_id,
-		owner => $owner,
+		owner => $Owner_id,
 		csv_file => $exported_file,
 		export_id => $export_id,
-		query => { owner => $owner, data_quality_errors_producers_tags => { '$size' => 0 }},
+		query => { owner => $Owner_id, data_quality_errors_producers_tags => { '$size' => 0 }},
 		comment => "Import from producers platform",
 		include_images_paths => 1,	# Export file paths to images
 	};
@@ -135,9 +135,9 @@ elsif (($action eq "process") and ($User{moderator})) {
 	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
 
 	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
-	(-e "$data_root/export_files/$owner") or mkdir("$data_root/export_files/$owner", 0755);
+	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
 
-	store("$data_root/export_files/$owner/exports.sto", $exports_ref);
+	store("$data_root/export_files/${Owner_id}/exports.sto", $exports_ref);
 
 	$html .= "<p>local export job_id: " . $local_export_job_id . "</p>";
 

@@ -71,10 +71,11 @@ BEGIN
 		&normalize_code
 		&assign_new_code
 		&split_code
-		&product_id_for_user
+		&product_id_for_owner
 		&product_path
 		&product_path_from_id
 		&product_exists
+		&get_owner_id
 		&init_product
 		&retrieve_product
 		&retrieve_product_or_deleted_product
@@ -208,12 +209,12 @@ sub assign_new_code() {
 		$code = $$internal_code_ref;
 	}
 
-	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_id = product_id_for_owner($Owner_id, $code);
 
 	while (-e ("$data_root/products/" . product_path_from_id($product_id))) {
 
 		$code++;
-		$product_id = product_id_for_user($User_id, $Org_id, $code);
+		$product_id = product_id_for_owner($Owner_id, $code);
 	}
 
 	store("$data_root/products/internal_code.sto", \$code);
@@ -273,18 +274,47 @@ sub split_code($) {
 	return $path;
 }
 
-sub product_id_for_user($$$) {
 
-	my $userid = shift;
-	my $orgid = shift;
+=head2 product_id_for_owner ( OWNER_ID, CODE )
+
+C<product_id_for_owner()> returns the product id associated with a product barcode.
+
+If the products on the server are public, the product id is equal to the product code.
+
+If the products on the server as private (e.g. on the platform for producers),
+the product_id is of the form user-[user id]/[code] or org-[organization id]/code.
+
+=head3 Parameters
+
+=head4 Owner id
+
+In most cases, pass $Owner_id which is initialized by ProductOpener::Users::init_user()
+
+  undef for public products
+  user-[user id] or org-[organization id] for private products
+
+=head4 Code
+
+Product barcode.
+
+=head3 Return values
+
+The product id.
+
+=cut
+
+sub product_id_for_owner($$) {
+
+	my $ownerid = shift;
 	my $code = shift;
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		if (defined $orgid) {
-			return "org-" . $orgid . "/" . $code;
+		if (defined $ownerid) {
+			return $ownerid . "/" . $code;
 		}
 		else {
-			return "user-" . $userid . "/" . $code;
+			# Should not happen
+			die("Owner not set");
 		}
 	}
 	else {
@@ -343,6 +373,27 @@ sub product_exists($) {
 	}
 }
 
+sub get_owner_id($$$) {
+
+	my $userid = shift;
+	my $orgid = shift;
+	my $ownerid = shift;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+
+		if (not defined $ownerid) {
+			if (defined $orgid) {
+				$ownerid = "org-" . $orgid;
+			}
+			else {
+				$ownerid = "user-" . $userid;
+			}
+		}
+	}
+
+	return $ownerid;
+}
+
 sub init_product($$$) {
 
 	my $userid = shift;
@@ -367,14 +418,12 @@ sub init_product($$$) {
 	};
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		my $owner = "user-" . $userid;
-		if (defined $orgid) {
-			$owner = "org-" . $orgid;
-		}
-		$product_ref->{owner} = $owner;
-		$product_ref->{_id} = $owner . "/" . $code;
+		my $ownerid = get_owner_id($userid, $orgid, $Owner_id);
 
-		$log->debug("init_product - private_products enabled", { userid => $userid, orgid => $orgid, code => $code, owner => $owner, product_id => $product_ref->{_id} }) if $log->is_debug();
+		$product_ref->{owner} = $ownerid;
+		$product_ref->{_id} = $ownerid . "/" . $code;
+
+		$log->debug("init_product - private_products enabled", { userid => $userid, orgid => $orgid, code => $code, ownerid => $ownerid, product_id => $product_ref->{_id} }) if $log->is_debug();
 	}
 
 	use ProductOpener::GeoIP;
@@ -1112,15 +1161,6 @@ sub compute_product_history_and_completeness($$) {
 	$log->debug("compute_product_history_and_completeness", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	return if not defined $changes_ref;
-
-	#push @$changes_ref, {
-	#	userid=>$User_id,
-	#	ip=>remote_addr(),
-	#	t=>$product_ref->{last_modified_t},
-	#	comment=>$comment,
-	#	rev=>$rev,
-	#};
-
 
 	# Populate the entry_dates_tags field
 

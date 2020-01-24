@@ -58,14 +58,14 @@ my $import_id = param('import_id');
 my $job_id;
 
 my %data = (
-	owner => $owner,
+	owner => $Owner_id,
 	file_id => $file_id,
 	import_id => $import_id,
 );
 
 $log->debug("import_file_job_status.pl - start", { data => \%data }) if $log->is_debug();
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	$data{error} = "no_owner_defined";
 }
 elsif (not defined param('file_id')) {
@@ -76,7 +76,7 @@ elsif (not defined param('import_id')) {
 }
 else {
 
-	$import_files_ref = retrieve("$data_root/import_files/$owner/import_files.sto");
+	$import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
 
 	if ((not defined $import_files_ref) or (not defined $import_files_ref->{$file_id})) {
 		$data{error} = "file_id_not_found";
