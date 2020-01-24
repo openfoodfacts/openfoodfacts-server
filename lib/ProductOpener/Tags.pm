@@ -1767,11 +1767,15 @@ sub gen_tags_hierarchy($$) {
 
 my %and = (
 	en => " and ",
+	cs => " a ",
+	da => " og ",
 	de => " und ",
 	es => " y ",
 	fi => " ja ",
 	fr => " et ",
 	it => " e ",
+	nl => " en ",
+	pt => " e ",
 );
 
 sub gen_tags_hierarchy_taxonomy($$$) {
@@ -1820,15 +1824,15 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 			}
 		}
 
-		foreach $canon_tag (@canon_tags) {
+		foreach my $canon_tag_i (@canon_tags) {
 
-			my $tagid = get_taxonomyid($l,$canon_tag);
+			my $tagid = get_taxonomyid($l,$canon_tag_i);
 			next if $tagid eq '';
 			if ($tagid =~ /:$/) {
 				#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
 				next;
 			}
-			$tags{$canon_tag} = 1;
+			$tags{$canon_tag_i} = 1;
 			if (defined $all_parents{$tagtype}{$tagid}) {
 				foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
 					$tags{$parentid} = 1;
