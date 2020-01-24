@@ -7530,7 +7530,7 @@ JS
 			next if $ingredients_analysis_tag =~ /unknown/;
 
 			if ($icon ne "") {
-				$icon = "<span style=\"font-size:32px;margin-right:0.2em;vertical-align:middle;line-height:24px;\">". display_icon($icon) ."</span>";
+				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
 			}
 
 			$html_analysis .= "<span class=\"alert round label ingredients_analysis\" style=\"background-color:$color;\">"
