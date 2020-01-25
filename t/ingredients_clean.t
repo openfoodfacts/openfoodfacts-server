@@ -105,12 +105,12 @@ Saattaa sisältää pieniä määrlä soijaa ja seesaminslemeniä"],
 	["en",
 	"Caories per gram: at 9 Carbekydrate 4 . Protein 4 INGREDIENTS: MECHANICALLY SEPARATED CHIGKEN, PORK, CORN SYRUP, WATER, 2% OR LESS OF: MODIFIED FOOD STARCH NATURAL FLAVORINGS, SALT, POTASSIUM LACTATE, BEEF, SODIUM PHOSPHATES, SODIUM DIACETATE, PAPRIKA, SODIUMERYTHORBATE, SODIUM NITRITE, EXTRACTIVES OF PAPRIKA. DIST& SOLD EXCLUSIVELY BY: ALD ALDI Tuice as Nice GLUTEN FREE BATAVIA, IL 610 GUARANTEE NET WT 48 0Z (3 LB) 1. 0. TRANS FATNG Item eplaced money refunded PLASTIC WRAP
 Edit ingredients (en)",
-	""],
+	"MECHANICALLY SEPARATED CHIGKEN, PORK, CORN SYRUP, WATER, 2% OR LESS OF: MODIFIED FOOD STARCH NATURAL FLAVORINGS, SALT, POTASSIUM LACTATE, BEEF, SODIUM PHOSPHATES, SODIUM DIACETATE, PAPRIKA, SODIUMERYTHORBATE, SODIUM NITRITE, EXTRACTIVES OF PAPRIKA."],
 
 	# Polish
 	["pl",
 	"jogurt*, cukier, owoce 7%, (maliny 2,3%, ananasy 1,8%, sok ananasowy z koncentratu 1,6%, sok malinowy z koncentratu 1,3%), musli 2,5% (otręby pszenne, płatki owsiane, pszenica, siemię lniane, ziarno słonecznika,orzechy laskowe), koncentrat soku z buraków czerwonych - aromat. *zawiera składniki pochodzące z mleka oraz żywe kultury bakterii.",
-	""],
+	"jogurt*, cukier, owoce 7%, (maliny 2,3%, ananasy 1,8%, sok ananasowy z koncentratu 1,6%, sok malinowy z koncentratu 1,3%), musli 2,5% (otręby pszenne, płatki owsiane, pszenica, siemię lniane, ziarno słonecznika,orzechy laskowe), koncentrat soku z buraków czerwonych - aromat. *zawiera składniki pochodzące z mleka oraz żywe kultury bakterii."],
 
 
 );
