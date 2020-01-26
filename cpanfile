@@ -52,6 +52,7 @@ requires 'File::Copy::Recursive';
 requires 'Spreadsheet::CSV';
 requires 'List::MoreUtils';
 requires 'Excel::Writer::XLSX';
+requires 'Web::Sitemap', '>= 0.902, < 1.0';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -59,7 +60,7 @@ requires 'Minion';
 requires 'Mojo::Pg';
 
 # Logging
-requires 'Log::Any', '>= 1.705';
+requires 'Log::Any', '>= 1.708';
 requires 'Log::Log4perl', '>= 1.49';
 requires 'Log::Any::Adapter::Log4perl', '>= 0.09';
 
