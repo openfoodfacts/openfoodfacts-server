@@ -1779,7 +1779,6 @@ sub compute_languages($) {
 
 	foreach my $field (keys %$product_ref) {
 
-
 		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
 			my $language_code = $1;
 			my $language = undef;
@@ -1797,7 +1796,7 @@ sub compute_languages($) {
 	if (defined $product_ref->{images}) {
 		foreach my $id (keys %{ $product_ref->{images}}) {
 
-			if ($id =~ /_([a-z]{2})$/)  {
+			if ($id =~ /^(front|ingredients|nutrition)_([a-z]{2})$/)  {
 				my $language_code = $1;
 				my $language = undef;
 				if (defined $language_codes{$language_code}) {
