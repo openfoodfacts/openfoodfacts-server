@@ -144,7 +144,7 @@ my %traces_regexps = (
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
 	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
-	fr => "peut contenir|qui utilise aussi|traces possibles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	fr => "peut contenir|qui utilise aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 
 );
@@ -1826,166 +1826,150 @@ sub normalize_allergens_enumeration($$$) {
 }
 
 
+# Ingredients: list of ingredients -> phrases followed by a colon, dash, or line feed
+
 my %phrases_before_ingredients_list = (
 
-fr => [
-
-'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
-'Quels Ingr(e|é)dients ?', # In Casino packagings
-'ingr(e|é)dient(\s*)(-|:|\r|\n)+',
-'composition(\s*)(-|:|\r|\n)+',
-#'ingr(e|é)dienits(\s*)(-|:|\r|\n)+',
-#'rédients(\s*)(-|:|\r|\n)+', # in case OCR cuts the word https://world.openfoodfacts.org/product/4024297006305/mayonnaise-demeter-en-tube-naturata
+en => [
+'ingredient(s?)',
 ],
 
+fr => [
+'ingr(e|é)dient(s?)',
+'Quels Ingr(e|é)dients ?', # In Casino packagings
+'composition',
+],
 
 de => [
-
-'zutaten(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
-#@hangy Does that regex handle zutat: ?
+'zutat(en)?',
 ],
 
 es => [
-
-'ingredientes(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
-
+'ingredientes',
 ],
 
 it => [
-
-'ingredienti(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
-
+'ingredienti',
 ],
 
 cs => [
-'složení(\s*)(\s|-|:|\r|\n)+',
-'Složeni(\s*)(\s|-|:|\r|\n)+',
+'složení',
 ],
 
 pt => [
-'ingredientes(\s*)(\s|-|:|\r|\n)+',
+'ingredientes',
 ],
 
 pl => [
-'składniki(\s*)(\s|-|:|\r|\n)+',
+'składniki',
 ],
 
 si => [
-'sestavine(\s*)(\s|-|:|\r|\n)+',
+'sestavine',
 ],
 
 it => [
-'ingredienti(\s*)(\s|-|:|\r|\n)+',
+'ingredienti',
 ],
 
 nl => [
-'ingredi(e|ë)nten(\s*)(\s|-|:|\r|\n)+',
-],
-
-de => [
-'zutaten(\s*)(\s|-|:|\r|\n)+',
+'ingredi(e|ë)nten',
 ],
 
 fi => [
-'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?(\s|-|:|\r|\n)+',
-'valmistusaineet(\s|-|:|\r|\n)+'
+'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
+'valmistusaineet',
 ],
 
 sv => [
-'ingredienser(\s*)(\s|-|:|\r|\n)+',
+'ingredienser',
 ],
 
 dk => [
-'ingredienser(\s*)(\s|-|:|\r|\n)+',
+'ingredienser',
 ],
 
 ru => [
-'Состав(\s*)(\s|-|:|\r|\n)+',
-'Ингредиенты(\s*)(\s|-|:|\r|\n)+',
+'Состав',
+'Ингредиенты(',
 ],
 
 hr => [
-'(ö|ő|o)sszetev(ö|ő|o)k(\s*)(\s|-|:|\r|\n)+',
+'(ö|ő|o)sszetev(ö|ő|o)k',
 ],
 
 el => [
-'Συστατικά(\s|-|:|\r|\n)+',
+'Συστατικά',
 ],
 
 );
 
 
+# INGREDIENTS followed by lowercase list of ingredients
+
 my %phrases_before_ingredients_list_uppercase = (
 
+en => [
+'INGREDIENT(S)?',
+],
+
 fr => [
-
-'INGR(E|É)(D|0|O)IENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
-'INGR(E|É)DIENT(\s*)(-|:|\r|\n)+',
-
+'INGR(E|É)(D|0|O)IENTS',
+'INGR(E|É)DIENT',
 ],
 
 cs => [
-'SLOŽENÍ(\s*)(-|:|\r|\n)+',
+'SLOŽENÍ',
 ],
 
 de => [
-'ZUTAT(EN)(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
-#@hangy Does that regex handle ZUTAT: ?
-#'ZUTAT(\s*)(-|:|\r|\n)+',
+'ZUTAT(EN)?',
 ],
 
 es => [
-'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
+'INGREDIENTES',
 ],
-
 
 hu => [
-'(Ö|O|0)SSZETEVOK(\s*)(\s|-|:|\r|\n)+',
+'(Ö|O|0)SSZETEVOK',
 ],
 
-
 pt => [
-
-'INGREDIENTES(\s*)(\s|-|:|\r|\n)+',
-
+'INGREDIENTES(\s*)',
 ],
 
 pl => [
-'SKŁADNIKI(\s*)(\s|-|:|\r|\n)+',
+'SKŁADNIKI(\s*)',
 ],
 
 it => [
 
-'INGREDIENTI(\s*)(\s|-|:|\r|\n)+',
+'INGREDIENTI(\s*)',
 ],
 
 nl => [
-'INGREDI(E|Ë)NTEN(\s*)(\s|-|:|\r|\n)+',
-],
-
-de => [
-'ZUTATEN(\s*)(\s|-|:|\r|\n)+',
+'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
 fi => [
-'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?(\s|-|:|\r|\n)+',
-'VALMISTUSAINEET(\s|-|:|\r|\n)+'
+'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
+'VALMISTUSAINEET'
 ],
 
 si => [
-'SESTAVINE(\s*)(\s|-|:|\r|\n)+',
+'SESTAVINE',
 ],
 
 sv => [
-'INGREDIENSER(\s*)(\s|-|:|\r|\n)+',
+'INGREDIENSER',
 ],
 
 dk => [
-'INGREDIENSER(\s*)(\s|-|:|\r|\n)+',
+'INGREDIENSER',
 ],
 
 vi => [
-'THANH PHAN(\s*)(\s|-|:|\r|\n)+',
+'THANH PHAN',
 ],
 
 
@@ -2063,6 +2047,7 @@ en => [
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 'once opened keep in the refrigerator',
+'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
 
@@ -2246,7 +2231,7 @@ sub clean_ingredients_text_for_lang($$) {
 	if (defined $phrases_before_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-			$text =~ s/^(.*)$regexp(\s*)//is;
+			$text =~ s/^(.*)\b$regexp(\s*)(-|:|\r|\n)+(\s*)//is;
 		}
 	}
 
@@ -2258,7 +2243,7 @@ sub clean_ingredients_text_for_lang($$) {
 
 		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
 			# INGREDIENTS followed by lowercase
-			$text =~ s/^(.*)$regexp(\s*)(?=(\w?)(\w?)[a-z])//s;
+			$text =~ s/^(.*)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
 		}
 	}
 
@@ -2269,7 +2254,7 @@ sub clean_ingredients_text_for_lang($$) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			$text =~ s/\s*$regexp(.*)$//is;
+			$text =~ s/\s*\b$regexp(.*)$//is;
 		}
 	}
 
