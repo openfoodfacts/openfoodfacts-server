@@ -28,6 +28,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -61,15 +62,15 @@ sub _create_products_sitemap {
 	my %sitemaps = ();
 	my %url_lists = ();
 	foreach my $olc (@{$country_languages{$occ}}) {
-		my $olc_sitemap_dir = "$root/$olc/products";
+		my $olc_sitemap_dir = "$root/$olc";
 		make_path($olc_sitemap_dir, { chmod => 0755 });
 
 		$sitemaps{$olc} = Web::Sitemap->new(
 			output_dir => $olc_sitemap_dir,
 			loc_prefix => format_subdomain("$occ-$olc"),
-			index_name => 'sitemap',
-			default_tag => 'products',
-			file_prefix => 'sitemap.',
+			index_name => 'products',
+			default_tag => 'product',
+			file_prefix => 'products.',
 			mobile => 0,
 			images => 0,
 			charset => 'utf8'
@@ -93,11 +94,56 @@ sub _create_products_sitemap {
 	}
 }
 
+sub _create_taxonomies_sitemap {
+	my ($root, $occ) = @_;
+
+	my %sitemaps = ();
+	my %url_lists = ();
+	foreach my $olc (@{$country_languages{$occ}}) {
+		my $olc_sitemap_dir = "$root/$olc";
+		make_path($olc_sitemap_dir, { chmod => 0755 });
+
+		$sitemaps{$olc} = Web::Sitemap->new(
+			output_dir => $olc_sitemap_dir,
+			loc_prefix => format_subdomain("$occ-$olc"),
+			index_name => 'tags',
+			default_tag => 'tags',
+			file_prefix => "tags.",
+			mobile => 0,
+			images => 0,
+			charset => 'utf8'
+		);
+
+		$url_lists{$olc} = ();
+	}
+
+	foreach my $tagtype (@taxonomy_fields) {
+		foreach my $canon_tagid (keys %{$translations_to{$tagtype}}) {
+			next if defined $just_synonyms{$tagtype}{$canon_tagid};
+			foreach my $olc (keys %sitemaps) {
+				next if not defined $translations_to{$tagtype}{$canon_tagid}{$olc};
+				next if not defined $tag_type_singular{$tagtype}{$olc};
+				my $tag = $translations_to{$tagtype}{$canon_tagid}{$olc};
+				my $tagid = get_string_id_for_lang($olc, $tag);
+				my $tag_url = '/' . $tag_type_singular{$tagtype}{$olc} . '/' . $tagid;
+				push @{$url_lists{$olc}}, { loc => $tag_url };
+			}
+		}
+	}
+
+	foreach my $olc (keys %sitemaps) {
+		my $sm = $sitemaps{$olc};
+		$sm->add(\@{$url_lists{$olc}});
+		$sm->finish;
+	}
+}
+
 sub _create_sitemap_cc {
 	my ($root, $occ) = @_;
 
 	my $sitemap_cc_root = "$root/$occ";
 	_create_products_sitemap($sitemap_cc_root, $occ);
+	_create_taxonomies_sitemap($sitemap_cc_root, $occ);
 }
 
 foreach my $occ (keys %country_codes, 'world') {
