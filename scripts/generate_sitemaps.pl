@@ -50,7 +50,7 @@ use Web::Sitemap;
 
 my $sitemap_root = "$www_root/data/sitemaps";
 remove_tree($sitemap_root);
-make_path($sitemap_root, { chmod => 0755 });
+make_path($sitemap_root, { chmod => 755 });
 
 init_emb_codes();
 
