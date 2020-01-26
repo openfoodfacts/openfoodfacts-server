@@ -49,9 +49,10 @@ use Web::Sitemap;
 
 my $sitemap_root = "$www_root/data/sitemaps";
 remove_tree($sitemap_root);
+make_path($sitemap_root, { chmod => 0755 });
 
 sub _create_products_sitemap {
-	my ($root, $occ) = @_;
+	my ($sitemaps_ref, $occ) = @_;
 
 	my $fields_ref = {};
 	$fields_ref->{code} = 1;
@@ -59,26 +60,11 @@ sub _create_products_sitemap {
 	$country = $country_codes{$occ};
 	$query_ref->{countries_tags} = $country if $country ne 'en:world';
 	my $cursor = get_products_collection()->query($query_ref)->fields($fields_ref);
-	my %sitemaps = ();
+	my %sitemaps = %{$sitemaps_ref};
 	my %url_lists = ();
 	foreach my $olc (@{$country_languages{$occ}}) {
-		my $olc_sitemap_dir = "$root/$olc";
-		make_path($olc_sitemap_dir, { chmod => 0755 });
-
-		$sitemaps{$olc} = Web::Sitemap->new(
-			output_dir => $olc_sitemap_dir,
-			loc_prefix => format_subdomain("$occ-$olc"),
-			index_name => 'products',
-			default_tag => 'product',
-			file_prefix => 'products.',
-			mobile => 0,
-			images => 0,
-			charset => 'utf8'
-		);
-
 		$url_lists{$olc} = ();
 	}
-
 
 	while (my $product_ref = $cursor->next) {
 		my $product_url = product_url($product_ref);
@@ -88,32 +74,16 @@ sub _create_products_sitemap {
 	}
 
 	foreach my $olc (keys %sitemaps) {
-		my $sm = $sitemaps{$olc};
-		$sm->add(\@{$url_lists{$olc}});
-		$sm->finish;
+		$sitemaps{$olc}->add(\@{$url_lists{$olc}});
 	}
 }
 
 sub _create_taxonomies_sitemap {
-	my ($root, $occ) = @_;
+	my ($sitemaps_ref, $occ) = @_;
 
-	my %sitemaps = ();
+	my %sitemaps = %{$sitemaps_ref};
 	my %url_lists = ();
 	foreach my $olc (@{$country_languages{$occ}}) {
-		my $olc_sitemap_dir = "$root/$olc";
-		make_path($olc_sitemap_dir, { chmod => 0755 });
-
-		$sitemaps{$olc} = Web::Sitemap->new(
-			output_dir => $olc_sitemap_dir,
-			loc_prefix => format_subdomain("$occ-$olc"),
-			index_name => 'tags',
-			default_tag => 'tags',
-			file_prefix => "tags.",
-			mobile => 0,
-			images => 0,
-			charset => 'utf8'
-		);
-
 		$url_lists{$olc} = ();
 	}
 
@@ -132,18 +102,37 @@ sub _create_taxonomies_sitemap {
 	}
 
 	foreach my $olc (keys %sitemaps) {
-		my $sm = $sitemaps{$olc};
-		$sm->add(\@{$url_lists{$olc}});
-		$sm->finish;
+		$sitemaps{$olc}->add(\@{$url_lists{$olc}});
 	}
 }
 
 sub _create_sitemap_cc {
 	my ($root, $occ) = @_;
 
-	my $sitemap_cc_root = "$root/$occ";
-	_create_products_sitemap($sitemap_cc_root, $occ);
-	_create_taxonomies_sitemap($sitemap_cc_root, $occ);
+	my %sitemaps = ();
+	foreach my $olc (@{$country_languages{$occ}}) {
+		my $osubdomain = "$occ-$olc";
+		if ($olc eq $country_languages{$occ}[0]) {
+			$osubdomain = $occ;
+		}
+		$sitemaps{$olc} = Web::Sitemap->new(
+			output_dir => $root,
+			loc_prefix => format_subdomain($osubdomain),
+			index_name => $osubdomain,
+			default_tag => '',
+			file_prefix => $osubdomain . '.',
+			mobile => 0,
+			images => 0,
+			charset => 'utf8'
+		);
+	}
+
+	_create_products_sitemap(\%sitemaps, $occ);
+	_create_taxonomies_sitemap(\%sitemaps, $occ);
+
+	foreach my $olc (keys %sitemaps) {
+		$sitemaps{$olc}->finish;
+	}
 }
 
 foreach my $occ (keys %country_codes, 'world') {
