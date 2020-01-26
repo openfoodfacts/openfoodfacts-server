@@ -15,6 +15,7 @@ use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 
+
 my @tests = (
 
 	["fr", "lait 98 % ,sel,ferments lactiques,coagulant Valeurs nutritionnelles Pour 100 g 1225 kj 295 kcal pour 22g 270 kJ 65 kcal Matières grasses dont acides gras saturés pour 100g 23g/ 15,5g pour 22g 5,1g/ 3,4g Glucides dont sucres traces Protéines pour 100g 22 g pour 22g 4,8 g Sel pour 100g 1,8 g pour 22g 0,40g Calcium pour 100g 680 mg(85 % ) pour 22g 150 mg(19 % ) Afin d'éviter les risques d'étouffement pour les enfants de moins de 4 ans, coupez en petites bouchées. AQR: Apports Quotidiens de Référence А conserver au froid après achat.",
@@ -129,6 +130,8 @@ foreach my $test_ref (@tests) {
 
 }
 
+# clean_field() tests
+
 @tests = (
 
 	["fr","<STRONG><i>thon</i></STRONG>, eau, sel",
@@ -143,6 +146,8 @@ foreach my $test_ref (@tests) {
 	["fr", "Farine de<STRONG> <i>blé</i> </STRONG> - sucre",
 	"Farine de _blé_ - sucre"],
 
+	["en", "INGREDIENTS - SALT, SUGAR, SPICES 12%", "Salt, sugar, spices 12%"],
+
 );
 
 foreach my $test_ref (@tests) {
@@ -156,6 +161,37 @@ foreach my $test_ref (@tests) {
 	clean_fields($product_ref);
 
 	is($product_ref->{$ingredients_lc}, $test_ref->[2]);
+
+}
+
+# split_generic_name_from_ingredients() tests
+
+
+@tests = (
+
+	["fr", "test", undef, "Test"],
+
+	["fr","Pâtes de fruits aromatisées à la fraise et à la canneberge, contenant de la maltodextrine et de l'acérola. Source de vitamines B1, B6, B12 et C.  Ingrédients : Pulpe de fruits 50% (poire William 25%, fraise 15%, canneberge 10%), sucre, sirop de glucose de blé, maltodextrine 5%, stabilisant : glycérol, gélifiant : pectine, acidifiant : acide citrique, arôme naturel de fraise, arôme naturel de canneberge, poudre d'acérola (acérola, maltodextrine) 0,4%, vitamines : B1, B6 et B12. Fabriqué dans un atelier utilisant: GLUTEN*, FRUITS A COQUE*. * Allergènes",
+	"Pâtes de fruits aromatisées à la fraise et à la canneberge, contenant de la maltodextrine et de l'acérola. Source de vitamines B1, B6, B12 et C.",
+	"Pulpe de fruits 50% (poire William 25%, fraise 15%, canneberge 10%), sucre, sirop de glucose de blé, maltodextrine 5%, stabilisant : glycérol, gélifiant : pectine, acidifiant : acide citrique, arôme naturel de fraise, arôme naturel de canneberge, poudre d'acérola (acérola, maltodextrine) 0,4%, vitamines : B1, B6 et B12. Fabriqué dans un atelier utilisant: GLUTEN*, FRUITS A COQUE*. * Allergènes"],
+
+
+);
+
+foreach my $test_ref (@tests) {
+
+	my $ingredients_lc = "ingredients_text_" . $test_ref->[0];
+
+	my $product_ref = { lc => $test_ref->[0],
+		$ingredients_lc => $test_ref->[1] };
+
+	@fields = ($ingredients_lc);
+	compute_languages($product_ref);
+	split_generic_name_from_ingredients($product_ref);
+	clean_fields($product_ref);
+
+	is($product_ref->{"generic_name_" . $test_ref->[0]}, $test_ref->[2]);
+	is($product_ref->{$ingredients_lc}, $test_ref->[3]) or diag explain $product_ref;
 
 }
 

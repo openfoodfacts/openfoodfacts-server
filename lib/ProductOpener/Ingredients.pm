@@ -67,6 +67,7 @@ BEGIN
 		&compute_carbon_footprint_from_ingredients
 		&compute_carbon_footprint_from_meat_or_fish
 
+		&split_generic_name_from_ingredients
 		&clean_ingredients_text_for_lang
 		&clean_ingredients_text
 
@@ -2210,6 +2211,49 @@ fr => [
 );
 
 
+
+=head2 split_generic_name_from_ingredients ( product_ref )
+
+Some producers send us an ingredients list that starts with the generic name followed by the actual ingredients list.
+
+e.g. "Pâtes de fruits aromatisées à la fraise et à la canneberge, contenant de la maltodextrine et de l'acérola. Source de vitamines B1, B6, B12 et C.  Ingrédients : Pulpe de fruits 50% (poire William 25%, fraise 15%, canneberge 10%), sucre, sirop de glucose de blé, maltodextrine 5%, stabilisant : glycérol, gélifiant : pectine, acidifiant : acide citrique, arôme naturel de fraise, arôme naturel de canneberge, poudre d'acérola (acérola, maltodextrine) 0,4%, vitamines : B1, B6 et B12. Fabriqué dans un atelier utilisant: GLUTEN*, FRUITS A COQUE*. * Allergènes"
+
+This function splits the list to put the generic name in the generic_name_[lc] field and the ingredients list
+in the ingredients_text_[lc] field.
+
+If there is already a generic name, it is not overridden.
+
+WARNING: This function should be called only during the import of data from producers.
+It should not be called on lists that can be the result of an OCR, as there is no guarantee that the text before the ingredients list is the generic name.
+
+The function needs to be called after compute_languages()
+
+=cut
+
+sub split_generic_name_from_ingredients($) {
+
+	my $product_ref = shift;
+
+	next if not defined $product_ref->{languages_codes};
+
+	foreach my $language (keys %{$product_ref->{languages_codes}}) {
+
+		if ((defined $phrases_before_ingredients_list{$language}) and (defined $product_ref->{"ingredients_text_$language"})) {
+
+			foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
+				if ($product_ref->{"ingredients_text_$language"} =~ /(\s*)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
+					$product_ref->{"ingredients_text_$language"} = ucfirst($');
+					if ((not defined $product_ref->{"generic_name_$language"}) or ($product_ref->{"generic_name_$language"} eq "")) {
+						$product_ref->{"generic_name_$language"} = $`;
+					}
+					last;
+				}
+			}
+		}
+	}
+}
+
+
 sub clean_ingredients_text_for_lang($$) {
 
 	my $text = shift;
@@ -2281,6 +2325,9 @@ sub clean_ingredients_text_for_lang($$) {
 
 	$text =~ s/^\s*(:|-)\s*//;
 	$text =~ s/\s+$//;
+
+	# Uppercase the first letter of the ingredients list.
+	$text = ucfirst($text);
 
 	$log->debug("clean_ingredients_text_for_lang - 5", { language=>$language, text=>$text }) if $log->is_debug();
 
