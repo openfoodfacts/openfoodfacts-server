@@ -26,6 +26,7 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Food qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -50,6 +51,8 @@ use Web::Sitemap;
 my $sitemap_root = "$www_root/data/sitemaps";
 remove_tree($sitemap_root);
 make_path($sitemap_root, { chmod => 0755 });
+
+init_emb_codes();
 
 sub _create_products_sitemap {
 	my ($sitemaps_ref, $occ) = @_;
@@ -106,6 +109,30 @@ sub _create_taxonomies_sitemap {
 	}
 }
 
+sub _create_packager_codes_sitemap {
+	my ($sitemaps_ref, $occ) = @_;
+
+	my %sitemaps = %{$sitemaps_ref};
+	my %url_lists = ();
+	foreach my $olc (@{$country_languages{$occ}}) {
+		$url_lists{$olc} = ();
+	}
+
+	my $tagtype = 'emb_codes';
+	foreach my $canon_tagid (keys %packager_codes) {
+		foreach my $olc (keys %sitemaps) {
+			next if not defined $tag_type_singular{$tagtype}{$olc};
+			my $tagid = get_string_id_for_lang($olc, $canon_tagid);
+			my $tag_url = '/' . $tag_type_singular{$tagtype}{$olc} . '/' . $tagid;
+			push @{$url_lists{$olc}}, { loc => $tag_url };
+		}
+	}
+
+	foreach my $olc (keys %sitemaps) {
+		$sitemaps{$olc}->add(\@{$url_lists{$olc}});
+	}
+}
+
 sub _create_sitemap_cc {
 	my ($root, $occ) = @_;
 
@@ -129,6 +156,7 @@ sub _create_sitemap_cc {
 
 	_create_products_sitemap(\%sitemaps, $occ);
 	_create_taxonomies_sitemap(\%sitemaps, $occ);
+	_create_packager_codes_sitemap(\%sitemaps, $occ);
 
 	foreach my $olc (keys %sitemaps) {
 		$sitemaps{$olc}->finish;
