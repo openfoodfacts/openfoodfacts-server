@@ -1121,6 +1121,7 @@ sub import_csv_file($) {
 			compute_languages($product_ref); # need languages for allergens detection and cleaning ingredients
 
 			# Ingredients classes
+			split_generic_name_from_ingredients($product_ref);
 			clean_ingredients_text($product_ref);
 			extract_ingredients_from_text($product_ref);
 			extract_ingredients_classes_from_text($product_ref);
