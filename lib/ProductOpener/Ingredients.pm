@@ -3829,8 +3829,8 @@ sub detect_allergens_from_text($) {
 	# Use the language the tag have been entered in
 
 	my $traces_regexp;
-	if (defined $traces_regexps{$product_ref->{traces_lc} | $product_ref->{lc}}) {
-		$traces_regexp = $traces_regexps{$product_ref->{traces_lc} | $product_ref->{lc}};
+	if (defined $traces_regexps{$product_ref->{traces_lc} || $product_ref->{lc}}) {
+		$traces_regexp = $traces_regexps{$product_ref->{traces_lc} || $product_ref->{lc}};
 	}
 
 	if ((defined $traces_regexp) and (defined $product_ref->{allergens}) and ($product_ref->{allergens} =~ /\b($traces_regexp)\b\s*:?\s*/i)) {
