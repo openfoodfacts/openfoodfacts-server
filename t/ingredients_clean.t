@@ -146,7 +146,7 @@ foreach my $test_ref (@tests) {
 	["fr", "Farine de<STRONG> <i>blé</i> </STRONG> - sucre",
 	"Farine de _blé_ - sucre"],
 
-	["en", "INGREDIENTS - SALT, SUGAR, SPICES 12%", "Salt, sugar, spices 12%"],
+	["en", "INGREDIENTS - SALT, SUGAR, SPICES 12%", "salt, sugar, spices 12%"],
 
 );
 

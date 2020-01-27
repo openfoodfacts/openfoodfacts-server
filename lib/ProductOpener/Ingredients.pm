@@ -2326,9 +2326,6 @@ sub clean_ingredients_text_for_lang($$) {
 	$text =~ s/^\s*(:|-)\s*//;
 	$text =~ s/\s+$//;
 
-	# Uppercase the first letter of the ingredients list.
-	$text = ucfirst($text);
-
 	$log->debug("clean_ingredients_text_for_lang - 5", { language=>$language, text=>$text }) if $log->is_debug();
 
 	return $text;
