@@ -7516,13 +7516,13 @@ JS
 				}
 
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = "#ff0000"; # red
+					$color = "#ec5656"; # red
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
-					$color = "#ff6600"; # orange
+					$color = "#f9904c"; # orange
 				}
 				else {
-					$color = "#00aa00"; # green
+					$color = "#47a647"; # green
 				}
 			}
 
@@ -7530,7 +7530,7 @@ JS
 			next if $ingredients_analysis_tag =~ /unknown/;
 
 			if ($icon ne "") {
-				$icon = "<span style=\"font-size:32px;margin-right:0.2em;vertical-align:middle;line-height:24px;\">". display_icon($icon) ."</span>";
+				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
 			}
 
 			$html_analysis .= "<span class=\"alert round label ingredients_analysis\" style=\"background-color:$color;\">"
