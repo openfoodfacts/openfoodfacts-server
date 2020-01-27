@@ -1797,7 +1797,7 @@ sub compute_languages($) {
 		foreach my $id (keys %{ $product_ref->{images}}) {
 
 			if ($id =~ /^(front|ingredients|nutrition)_([a-z]{2})$/)  {
-				my $language_code = $1;
+				my $language_code = $2;
 				my $language = undef;
 				if (defined $language_codes{$language_code}) {
 					$language = $language_codes{$language_code};
