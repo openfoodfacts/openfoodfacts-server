@@ -392,7 +392,26 @@ sub import_csv_file($) {
 
 	open (my $io, '<:encoding(UTF-8)', $args_ref->{csv_file}) or die("Could not open " . $args_ref->{csv_file} . ": $!");
 
-	$csv->column_names ($csv->getline ($io));
+	my $columns_ref = $csv->getline ($io);
+
+	# We may have duplicate columns (e.g. image_other_url),
+	# turn them to image_other_url.2 etc.
+
+	my %seen_columns = ();
+	my @column_names = ();
+
+	foreach my $column (@$columns_ref) {
+		if (defined $seen_columns{$column}) {
+			$seen_columns{$column}++;
+			push @column_names, $column . "." . $seen_columns{$column};
+		}
+		else {
+			$seen_columns{$column} = 1;
+			push @column_names, $column;
+		}
+	}
+
+	$csv->column_names (@column_names);
 
 	my $skip_not_existing = 0;
 	my $skip_no_images = 0;
@@ -1202,11 +1221,16 @@ sub import_csv_file($) {
 
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
+			# image field can have forms like:
+			# image_front_url_fr
+			# image_other_url
+			# image_other_url.2	: a second "other" photo
+
 			next if $field !~ /^image_(front|ingredients|nutrition|other)_url/;
 
-			$log->debug("image file", { field => $field, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
-
 			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
+
+			$log->debug("image file", { field => $field, imagefield => $imagefield, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
 
 			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} =~ /^http/)) {
 
@@ -1317,6 +1341,9 @@ sub import_csv_file($) {
 					if ($imagefield !~ /_\w\w/) {
 						$imagefield_with_lc .= "_" . $product_ref->{lc};
 					}
+
+					# image_other_url.2 -> remove the number
+					$imagefield_with_lc =~ s/\.(\d+)$//;
 
 					# upload the image
 					my $file = $images_ref->{$imagefield};

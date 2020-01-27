@@ -1,16 +1,20 @@
 #!/usr/bin/perl -w
 
+use utf8;
+
 use Modern::Perl '2017';
 
 use Test::More;
 use Test::Number::Delta;
-use Log::Any::Adapter 'TAP', filter => "none";
+#use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Store qw/:all/;
 
 init_fields_columns_names_for_lang("en");
 init_fields_columns_names_for_lang("fr");
+init_fields_columns_names_for_lang("es");
 
 my @tests = (
 ["fr", "glucides", { field=>"carbohydrates_100g_value_unit"}],
@@ -20,18 +24,35 @@ my @tests = (
 ["fr", "bio", { field=>"labels_specific", tag=>"Bio"}],
 
 ["fr", "glucides", { field=>"carbohydrates_100g_value_unit"}],
+["fr", "glucides preparé", { field=>"carbohydrates_prepared_100g_value_unit"}],
+["fr", "glucides (valeur)", { field=>"carbohydrates_100g_value_unit", value_unit => "value"}],
+["fr", "glucides - unité", { field=>"carbohydrates_100g_value_unit", value_unit => "unit"}],
 ["fr", "glucides-100g", { field=>"carbohydrates_100g_value_unit" }],
 ["fr", "glucides-100-gr", { field=>"carbohydrates_100g_value_unit" }],
 ["fr", "glucides-par-portion", { field=>"carbohydrates_serving_value_unit"}],
+["fr", "glucides-prepare-par-portion", { field=>"carbohydrates_prepared_serving_value_unit"}],
 ["fr", "fer-mg-par-portion", { field=>"iron_serving_value_unit", value_unit=>'value_in_mg'}],
 ["fr", "Fer (portion) mg", { field=>"iron_serving_value_unit", value_unit=>'value_in_mg'}],
+["en", "energy-kj_prepared", { field=>"energy-kj_prepared_100g_value_unit", value_unit=>'value_in_kj'}],
+["en", "energy-kcal_prepared", { field=>"energy-kcal_prepared_100g_value_unit", value_unit=>'value_in_kcal'}],
+["en", "energy-kcal_prepared_value", { field=>"energy-kcal_prepared_100g_value_unit", value_unit=>'value'}],
+
+["es", "proteinas", { field=>"proteins_100g_value_unit"}],
+["es", "proteinas g", { field=>"proteins_100g_value_unit"}],
+["es", "sal", { field=>"salt_100g_value_unit", value_unit=>"value_in_g"}],
+["es", "sal mg", { field=>"salt_100g_value_unit", value_unit=>"value_in_mg"}],
+
+["en", "image_front_url", { field=>"image_front_url_en"}],
+["fr", "image_front_url", { field=>"image_front_url_fr"}],
+["fr", "image_front_url_fr", { field=>"image_front_url_fr"}],
+["fr", "image_front_fr_url", { field=>"image_front_url_fr"}],
 
 );
 
 foreach my $test_ref (@tests) {
 
 	my $fieldid = get_string_id_for_lang("no_language", $test_ref->[1]);
-	my $result_ref = match_column_name_to_field("fr", $fieldid);	
+	my $result_ref = match_column_name_to_field($test_ref->[0], $fieldid);	
 	is_deeply($result_ref, $test_ref->[2])
 		or diag explain { test => $test_ref, fieldid => $fieldid, result => $result_ref };
 
