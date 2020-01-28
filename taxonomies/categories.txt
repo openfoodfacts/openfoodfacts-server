@@ -1836,6 +1836,11 @@ es:Bebidas a base de vino
 fr:Boissons à base de vin
 nl:Draken op basis van wijn
 
+#do not confuse with the biscuit spritz
+<en:Wine-based drinks
+en:Spritz cocktails
+fr:Cocktails spritz
+
 <en:Alcoholic beverages
 en:Ciders
 de:Apfelweine, Apfelwein, Apfelmoste, Apfelmost, Moste, Most, Cidres
@@ -2636,6 +2641,7 @@ nl:Perensappen uit concentraat, Perensap uit concentraat
 en:Squeezed pear juices, Non-refrigerated squeezed pear juices
 de:Birnendirektsäfte
 es:Zumos de pera exprimidos no refrigerados, Zumos de pera exprimidos, Zumos de pera exprimidos ambiente
+fr:Jus de poire pur jus
 nl:Verse perensappen, Verse perensap
 
 <en:Fruit juices
@@ -2738,6 +2744,7 @@ nl:Granaatappelsappen uit concentraat, Granaatappelsap uit concentraat
 en:Squeezed pomegranate juices, Non-refrigerated squeezed pomegranate juices
 de:Granatapfeldirektsäfte
 es:Zumos de granada exprimidos no refrigerados, Zumos de granada exprimidos, Zumos de granada exprimidos ambiente
+fr:Jus de grenade pur jus
 nl:Verse granaatappelsappen, Verse granaatappelsap
 
 <en:Fruit juices
@@ -17138,6 +17145,11 @@ nl:Glutenvrije koekjes, Koekjes zonder gluten, Glutenvrij koekje
 pl:Ciasteczka bezglutenowe
 ro:Biscuiți fără gluten
 
+#do not confuse with the cocktail spritz
+<en:Biscuits
+en:Sprits, spritz biscuits
+fr:Sprits, biscuits spritz
+
 <en:Biscuits
 en:Cookies
 ca:Galetes
@@ -18864,6 +18876,7 @@ fr:Chocolats noirs fourrés
 nl:Gevulde pure chocola
 
 <en:Filled chocolates
+<en:Milk chocolates
 en:Filled milk chocolates
 de:Gefüllte Milchschokolade, Milchschokolade mit Füllung
 fi:täytetyt maitosuklaat
@@ -27179,6 +27192,7 @@ fr:Miels de garrigue
 nl:Garriguehoningen
 
 <en:Honeys
+en:Forest honeys
 fr:Miels de forêt
 nl:Boshoningen
 
@@ -37303,10 +37317,11 @@ fr:Rillettes de sanglier
 fr:Rillettes de mouton
 
 <fr:Rillettes de viande rouge
+en:Pork rillettes
 fr:Rillettes de porc, Rillettes de cochon
 
 <fr:Rillettes de la Sarthe
-<fr:Rillettes de porc
+<en:Pork rillettes
 fr:Rillettes du Mans
 
 <en:Potted meats
@@ -41258,6 +41273,20 @@ wikidata:en:Q917761
 en:Ginger preserves, ginger jams
 fr:Confitures de gingembre
 
+<en:Sweet spreads
+en:Flower preserves, flower jams
+es:Mermeladas y confituras de flores, Mermeladas de pétalos de flores
+fr:Confits de fleurs, confitures de fleurs
+hu:Virág lekvárok
+nl:Bloemenjams
+
+<en:Flower preserves
+en:Rose petal preserves, rose petal jams, Rose jams
+es:Mermeladas y confituras de pétalos de rosas, Mermeladas y confituras de rosas, Mermeladas de pétalos de rosas, Mermeladas de rosas, Confituras de pétalos de rosas, Confituras de rosas
+fr:Confits de roses, Confiture de roses, Confitures de roses
+hu:Rózsa lekvár
+nl:Rozeblaadjesjams
+
 <en:Plant-based spreads
 <en:Sweet spreads
 en:Fruit preserves
@@ -41744,20 +41773,6 @@ es:Mermeladas y confituras de tomate, Mermeladas de tomate, Confituras de tomate
 fr:Confitures de tomates
 hu:Paradicsom lekvár
 nl:Tomatenjams
-
-<en:Jams
-en:Flower jams
-es:Mermeladas y confituras de flores, Mermeladas de pétalos de flores
-fr:Confitures de fleurs
-hu:Virág lekvárok
-nl:Bloemenjams
-
-<en:Flower jams
-en:Rose petal jams, Rose jams
-es:Mermeladas y confituras de pétalos de rosas, Mermeladas y confituras de rosas, Mermeladas de pétalos de rosas, Mermeladas de rosas, Confituras de pétalos de rosas, Confituras de rosas
-fr:Confiture de roses, Confitures de roses
-hu:Rózsa lekvár
-nl:Rozeblaadjesjams
 
 <en:Jams
 en:Assorted jams
@@ -42738,7 +42753,6 @@ wikidata:en:Q23400
 ga:Ajos aliñados en vinagre
 
 <en:Vegetables based foods
-<en:Culinary plants
 en:Onions and their products
 de:Zwiebelprodukte, Zwiebeln und ihre Produkte
 es:Cebollas y derivados
@@ -43897,6 +43911,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
+<en:Culinary plants
 <en:Onions and their products
 #<en:ingredient:en:vegetable
 en:onions, onion
@@ -44939,6 +44954,10 @@ nl:Kikkererwten
 wikidata:en:Q81375
 
 <en:Chickpeas
+en:Dried chickpeas
+fr:Pois chiches secs
+
+<en:Chickpeas
 en:Desi chickpeas
 es:Garbanzos de tipo Desi
 fr:Pois chiches de type Desi
@@ -45263,6 +45282,7 @@ hu:Hüvelyes konzervek
 nl:Bonen in blik
 
 <en:Canned legumes
+<en:Chickpeas
 en:Canned chickpeas
 de:Kichererbsen in Dosen
 es:Garbanzos cocidos en conserva, Garbanzos en conserva
@@ -47111,6 +47131,7 @@ nl:Diepvrieslimabonen
 #Please don't add Frozen butter beans as synonym of "Frozen lima beans" because this name is also a synonym of yellow "Runner bean"
 
 <en:Frozen legumes
+<en:Chickpeas
 en:Frozen chickpeas, Frozen garbanzo beans
 de:Gefrohrene Kichererbsen
 es:Garbanzos congelados
