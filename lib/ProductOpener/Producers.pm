@@ -437,6 +437,7 @@ fr => {
 my %prepared_synonyms = (
 	# "" is the default unprepared, it needs to have "" as the first synonym
 	"" => {
+	# code with i18n opportunity
 		en => ["", "unprepared"],
 		fr => ["", "non préparé"],
 	},
