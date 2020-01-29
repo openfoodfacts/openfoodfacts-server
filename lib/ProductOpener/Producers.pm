@@ -437,10 +437,12 @@ fr => {
 my %prepared_synonyms = (
 	# "" is the default unprepared, it needs to have "" as the first synonym
 	"" => {
+	# code with i18n opportunity
 		en => ["", "unprepared"],
 		fr => ["", "non préparé"],
 	},
 	"_prepared" => {
+	# code with i18n opportunity
 		en => ["prepared"],
 		fr => ["préparé"],
 	}
@@ -450,6 +452,7 @@ my %per_synonyms = (
 	# per 100g includes an empty "" synonym
 	# may need to be changed for the US, CA etc.
 	"100g" => {
+	# code with i18n opportunity
 		en => ["", "per 100g", "100g", "100gr", "100 gr", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 		fr => ["", "pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 	},
@@ -610,7 +613,9 @@ sub init_nutrients_columns_names_for_lang($) {
 
 					# Field names with actual units. e.g. Energy kcal, carbohydrates g, calcium mg
 
+					# code with i18n opportunity
 					my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+					
 
 					# For energy kj/kcal, remove the unit from the synonym as we will add units to the synonyms
 					my $synonym2 = $synonym;
@@ -1234,4 +1239,3 @@ sub import_products_categories_from_public_database_task() {
 
 
 1;
-
