@@ -450,6 +450,7 @@ my %per_synonyms = (
 	# per 100g includes an empty "" synonym
 	# may need to be changed for the US, CA etc.
 	"100g" => {
+	# code with i18n opportunity
 		en => ["", "per 100g", "100g", "100gr", "100 gr", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 		fr => ["", "pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 	},
