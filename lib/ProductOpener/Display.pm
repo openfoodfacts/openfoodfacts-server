@@ -9544,6 +9544,20 @@ HTML
 			$response{product} = $compact_product_ref;
 		}
 
+		# Disable nested ingredients in ingredients field (bug #2883)
+		if (defined $product_ref->{ingredients}) {
+			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+				if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
+					# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
+					exists $ingredient_ref->{rank} or delete $ingredient_ref->{ingredients};
+				}
+				else {
+					# Delete sub-ingredients, keep only flattened ingredients
+					exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
+				}
+			}
+		}
+
 		if ($request_ref->{jqm}) {
 			# return a jquerymobile page for the product
 
