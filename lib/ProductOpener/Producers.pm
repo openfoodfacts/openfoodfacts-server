@@ -610,7 +610,9 @@ sub init_nutrients_columns_names_for_lang($) {
 
 					# Field names with actual units. e.g. Energy kcal, carbohydrates g, calcium mg
 
+					# code with i18n opportunity
 					my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+					
 
 					# For energy kj/kcal, remove the unit from the synonym as we will add units to the synonyms
 					my $synonym2 = $synonym;
@@ -1234,4 +1236,3 @@ sub import_products_categories_from_public_database_task() {
 
 
 1;
-
