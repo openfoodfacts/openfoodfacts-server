@@ -441,6 +441,7 @@ my %prepared_synonyms = (
 		fr => ["", "non préparé"],
 	},
 	"_prepared" => {
+	# code with i18n opportunity
 		en => ["prepared"],
 		fr => ["préparé"],
 	}
