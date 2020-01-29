@@ -38,8 +38,8 @@ my @tests = (
 ["en", "energy-kcal_prepared_value", { field=>"energy-kcal_prepared_100g_value_unit", value_unit=>'value'}],
 
 ["es", "proteinas", { field=>"proteins_100g_value_unit"}],
-["es", "proteinas g", { field=>"proteins_100g_value_unit"}],
-["es", "sal", { field=>"salt_100g_value_unit", value_unit=>"value_in_g"}],
+["es", "proteinas g", { field=>"proteins_100g_value_unit", value_unit=>"value_in_g"}],
+["es", "sal", { field=>"salt_100g_value_unit" }],
 ["es", "sal mg", { field=>"salt_100g_value_unit", value_unit=>"value_in_mg"}],
 
 ["en", "image_front_url", { field=>"image_front_url_en"}],
