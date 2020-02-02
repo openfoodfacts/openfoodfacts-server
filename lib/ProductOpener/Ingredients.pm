@@ -3849,8 +3849,8 @@ sub detect_allergens_from_text($) {
 		# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
 		# main language of the product (which may be different than the $tag_lc language of the interface)
 
-		my $tag_lc = $product_ref->{$field . "_lc"} | $product_ref->{lc};
-		$product_ref->{$field . "_from_user"} = "($tag_lc)" . $product_ref->{$field};
+		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc};
+		$product_ref->{$field . "_from_user"} = "($tag_lc) " . $product_ref->{$field};
 		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
 		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 
