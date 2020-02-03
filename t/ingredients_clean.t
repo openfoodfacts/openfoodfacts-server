@@ -15,6 +15,7 @@ use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 
+ProductOpener::Ingredients::validate_regular_expressions();
 
 my @tests = (
 
