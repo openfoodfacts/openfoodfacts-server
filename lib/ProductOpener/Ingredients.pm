@@ -114,6 +114,7 @@ use LWP::UserAgent;
 use Encode;
 use JSON::PP;
 use Log::Any qw($log);
+use Test::More;
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
@@ -1892,7 +1893,7 @@ dk => [
 
 ru => [
 'Состав',
-'Ингредиенты(',
+'Ингредиенты',
 ],
 
 hr => [
@@ -2210,6 +2211,39 @@ fr => [
 
 );
 
+
+=head2 validate_regular_expressions ( )
+
+This function is used to check that all regular expressions / parts of
+regular expressions used to parse ingredients are valid, without
+unmatched parenthesis etc.
+
+=cut
+
+sub validate_regular_expressions() {
+
+	my %regexps = (
+		phrases_before_ingredients_list => \%phrases_before_ingredients_list,
+		phrases_before_ingredients_list_uppercase => \%phrases_before_ingredients_list_uppercase,
+		phrases_after_ingredients_list => \%phrases_after_ingredients_list,
+		prefixes_before_dash => \%prefixes_before_dash,
+		ignore_phrases => \%ignore_phrases,
+	);
+
+	foreach my $list (sort keys %regexps) {
+
+		foreach my $language (sort keys %{$regexps{$list}}) {
+
+			foreach my $regexp (@{$regexps{$list}{$language}}) {
+				$log->debug("validate_regular_expressions", { list => $list, l=>$language, regexp=>$regexp }) if $log->is_debug();
+				eval {
+					"test" =~ /$regexp/;
+				};
+				is($@, "");
+			}
+		}
+	}
+}
 
 
 =head2 split_generic_name_from_ingredients ( product_ref )
