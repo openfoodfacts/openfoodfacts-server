@@ -114,6 +114,7 @@ use LWP::UserAgent;
 use Encode;
 use JSON::PP;
 use Log::Any qw($log);
+use List::MoreUtils qw(uniq);
 use Test::More;
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
@@ -151,17 +152,31 @@ my %traces_regexps = (
 
 );
 
-my %allergens_stopwords = (
+my %allergens_stopwords = ();
 
-	en => "and|of|this|product|other|made|manufactured|in|a|factory|which|also|uses",
-	de => "enthalten|von|und",
-	es => "y|de|que|contiene|contienen|otros",
-	fi => "ja|muita|muuta|tehtaassa|valmistettu|saattaa|sisältää|pieniä|pienehköjä|määriä",
-	fr => "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et",
+# Needs to be called after Tags.pm has loaded taxonomies
 
-);
+=head1 FUNCTIONS
 
-# Semoule de blé dur de qualité supérieure, précuite à la vapeur :
+=head2 init_allergens_stopwords_regexps () - initialize regular expressions needed for ingredients parsing
+
+This function creates regular expressions that match all variations of labels
+that we want to recognize in ingredients lists, such as organic and fair trade.
+
+=cut
+
+sub init_allergens_stopwords_regexps() {
+
+	foreach my $key (sort keys %{$stopwords{"allergens"}}) {
+		if ($key =~ /\.strings/) {
+			my $allergens_lc = $`;
+			$allergens_stopwords{$allergens_lc} = join('|', uniq(@{$stopwords{"allergens"}{$key}}));
+			#print STDERR "allergens_regexp - $allergens_lc - " . $allergens_stopwords{$allergens_lc} . "\n";
+		}
+	}
+}
+
+
 
 my %abbreviations = (
 
@@ -2464,6 +2479,7 @@ sub preparse_ingredients_text($$) {
 		init_labels_regexps();
 		init_ingredients_processing_regexps();
 		init_additives_classes_regexps();
+		init_allergens_stopwords_regexps();
 	}
 
 	my $and = $and{$product_lc} || " and ";
@@ -3044,8 +3060,8 @@ INFO
 			$text =~ s/([a-z]) ($ucfirst_traces_regexp)/$1, $2/g;
 		}
 
-		#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
-		#$log->debug("allergens", { lc => $product_lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
+		$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
+		$log->debug("allergens", { lc => $product_lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
 
 		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)*($allergenssuffixregexp))\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$product_lc,$4)/ieg;
 		# we may have added an extra dot in order to make sure we have at least one
@@ -3729,6 +3745,8 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	my $stopwords = $allergens_stopwords{$language};
 
+	#print STDERR "replace_allergen_between_separators - language: $language - allergen: $allergen\nstopwords: $stopwords\n";
+
 	my $before_allergen = "";
 	my $after_allergen = "";
 
@@ -3782,6 +3800,10 @@ sub detect_allergens_from_text($) {
 	my $product_ref = shift;
 
 	$log->debug("detect_allergens_from_text - start", { }) if $log->is_debug();
+
+	if ((scalar keys %allergens_stopwords) == 0) {
+		init_allergens_stopwords_regexps();
+	}
 
 	# Keep allergens entered by users in the allergens and traces field
 

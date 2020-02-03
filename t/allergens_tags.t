@@ -7,6 +7,7 @@ use utf8;
 
 use Test::More;
 use Log::Any::Adapter 'TAP';
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
@@ -42,6 +43,17 @@ my @tests = (
 	# for languages when we don't have a translation for "and" in Ingredients.pm
 	# use " and "
 	[ { lc => "xx", ingredients_text => "NUTS AND SOMETHING" }, [ "en:nuts", ] ],
+
+	[ { lc => "fr", traces => "Traces de lait"}, [], ["en:milk"] ],
+	[ { lc => "fr", traces => "Peut contenir des traces de lait et d'autres fruits à coques"}, [], ["en:milk", "en:nuts"] ],
+	[ { lc => "fr", traces => "Lait, Gluten"}, [], ["en:gluten", "en:milk"] ],
+	[ { lc => "fr", ingredients_text => "Traces possibles : céleri", traces => "Lait, Gluten"}, [], ["en:celery", "en:gluten", "en:milk"] ],
+	[ { lc => "fr", ingredients_text => "Traces éventuelles de moutarde, sésame et céleri", traces => "Lait, Gluten"}, [], ["en:celery", "en:gluten", "en:milk", "en:mustard", "en:sesame-seeds"] ],
+
+	[ { lc => "fr", traces => "noisettes et produits à base de noisettes"}, [], ["en:nuts"]],
+	[ { lc => "es", ingredients_text => "traza de nueces"}, [], ["en:nuts"]],
+	[ { lc => "es", traces => "contiene leche y productos derivados"}, [], ["en:milk"]],
+	[ { lc => "es", traces => "contiene leche y productos derivados incluida lactosa"}, [], ["en:milk"]],
 );
 
 foreach my $test_ref (@tests) {
