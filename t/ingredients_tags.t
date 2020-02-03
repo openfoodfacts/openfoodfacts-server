@@ -7,6 +7,7 @@ use utf8;
 
 use Test::More;
 use Log::Any::Adapter 'TAP';
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;

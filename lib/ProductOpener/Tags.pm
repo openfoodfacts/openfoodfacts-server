@@ -18,6 +18,26 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Tags - multilingual tags taxonomies (hierarchies of tags)
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Tags> provides functions to build multilingual tags taxonomies from source files,
+to use those taxonomies to canonicalize lists of tags, and to display them in different languages.
+
+    use ProductOpener::Tags qw/:all/;
+
+..
+
+
+=head1 DESCRIPTION
+
+..
+
+=cut
+
 package ProductOpener::Tags;
 
 use utf8;
@@ -105,6 +125,7 @@ BEGIN
 
 					%loaded_taxonomies
 
+					%stopwords
 					%synonyms_for
 					%just_synonyms
 					%translations_from
@@ -118,6 +139,8 @@ BEGIN
 					&load_users_translations
 					&load_users_translations_for_lc
 					&add_users_translations_to_taxonomy
+
+					&remove_stopwords_from_start_or_end_of_string
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -186,7 +209,7 @@ my %tags_direct_parents = ();
 my %tags_direct_children = ();
 my %tags_all_parents = ();
 
-my %stopwords = ();
+%stopwords = ();
 %just_synonyms = ();
 my %just_tags = ();	# does not include synonyms that are only synonyms
 my %synonyms = ();
@@ -208,6 +231,10 @@ my %all_parents = ();
 %tags_texts = ();
 
 my $logo_height = 90;
+
+=head1 FUNCTIONS
+
+=cut
 
 sub get_property($$$) {
 
@@ -592,8 +619,69 @@ sub load_tags_hierarchy($$) {
 	}
 }
 
-# Cache the stopwords regexp
+# Cache the stopwords regexps to remove stopwords from strings and tagids
 my %stopwords_regexps = ();
+
+=head2 remove_stopwords_from_start_or_end_of_string ( $tagtype, $lc, $string )
+
+Remove stopwords (that are specific to each category) from the start or end of a string that has not been normalized.
+This function differs from remove_stopwords() that works on normalized tags instead of strings and that also removes stopwords in the middle.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $lc - Language code
+
+The language the string is in.
+
+=head4 $string - string
+
+The string to remove stopwords from.
+
+=cut
+
+sub remove_stopwords_from_start_or_end_of_string($$$) {
+
+	my $tagtype = shift;
+	my $lc = shift;
+	my $string = shift;
+
+	if (defined $stopwords{$tagtype}{$lc . ".strings"}) {
+
+		if (not defined $stopwords_regexps{$tagtype . '.' . $lc . '.strings'}) {
+			$stopwords_regexps{$tagtype . '.' . $lc . '.strings'} = join('|', uniq(@{$stopwords{$tagtype}{$lc . '.strings'}}));
+		}
+
+		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc . '.strings'};
+
+		$string =~ s/^(\b($regexp)\s)+//ig;
+		$string =~ s/(\s($regexp)\b)+$//ig;
+	}
+	return $string;
+}
+
+=head2 remove_stopwords ( $tagtype, $lc, $tagid )
+
+Remove stopwords (that are specific to each category) from a normalized tag.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $lc - Language code
+
+The language the tagid is in.
+
+=head4 $tagid - normalized tag
+
+Lowercased, unaccented depending on language, non-alphanumeric chars turned to dash.
+
+=cut
 
 sub remove_stopwords($$$) {
 
@@ -765,7 +853,9 @@ sub build_tags_taxonomy($$$) {
 					my $tagid = get_string_id_for_lang($lc, $tag);
 					next if $tagid eq '';
 					defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
+					defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
 					push @{$stopwords{$tagtype}{$lc}}, $tagid;
+					push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
 					print "taxonomy - stopwords - tagtype: $tagtype - lc: $lc - tagid: $tagid\n";
 				}
 			}
@@ -1385,6 +1475,7 @@ sub build_tags_taxonomy($$$) {
 		my %taxonomy_full_json = (); # including wikipedia abstracts
 
 		foreach my $lc (sort keys %{$stopwords{$tagtype}}) {
+			next if $lc =~ /\./;	# .orig or .strings
 			print $OUT $stopwords{$tagtype}{$lc . ".orig"};
 		}
 		print $OUT "\n\n";
