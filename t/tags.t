@@ -477,7 +477,10 @@ is_deeply (\@tags, [
  ]
  ) or diag explain(\@tags);
 
-
+is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourts au maracuja"), "");
+is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourt banane"), "en:banana-yogurts");
+is_deeply(canonicalize_taxonomy_tag("fr", "test", "yogourts à la banane"), "en:banana-yogurts");
+is_deeply(canonicalize_taxonomy_tag("fr", "labels", "european v-label vegetarian"), "en:european-vegetarian-union-vegetarian");
 
 
 done_testing();

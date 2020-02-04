@@ -1032,7 +1032,9 @@ sub build_tags_taxonomy($$$) {
 			foreach my $tagid (sort { length($a) <=> length($b) || ($a cmp $b) } keys %{$synonyms{$tagtype}{$lc}}) {
 
 				my $max_length = length($tagid) - 3;
-				$max_length > 30 and next; # don't lengthen already long synonyms
+				# don't lengthen already long synonyms
+				# for the first pass, allow longer synonyms
+				$max_length > (60 / $pass) and next;
 
 				# check if the synonym contains another small synonym
 
@@ -1042,7 +1044,7 @@ sub build_tags_taxonomy($$$) {
 
 				# Does $tagid have other synonyms?
 				if (scalar @{$synonyms_for{$tagtype}{$lc}{$tagid_c}} > 1) {
-					if (length($tagid) < 15) {
+					if (length($tagid) < (30 / $pass)) {
 						# limit length of synonyms for performance
 						push @smaller_synonyms, $tagid;
 						#print "$tagid (canon: $tagid_c) has other synonyms\n";

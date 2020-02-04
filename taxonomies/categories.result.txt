@@ -2604,6 +2604,10 @@ oqali_family:en: fr:Biscuits et gateaux industriels - Speculoos
 wikidata:en: Q6591
 
 < en:Biscuits
+en:Sprits, spritz biscuits
+fr:Sprits, biscuits spritz
+
+< en:Biscuits
 en:Strawberry biscuits, Biscuits with strawberry, Biscuit with strawberry
 de:Erdbeerkekse
 fi:mansikkakeksit
@@ -4640,14 +4644,6 @@ fr:Pousses de haricot mungo en conserve, Pousses de haricot mungo, Pousse de har
 nl:Mungoboonkiemen in blik
 
 < en:Canned legumes
-en:Canned chickpeas
-de:Kichererbsen in Dosen
-es:Garbanzos cocidos en conserva, Garbanzos en conserva
-fi:purkitetut kikherneet
-fr:Pois chiches en conserve
-nl:Kikkererwten in blik
-
-< en:Canned legumes
 en:Canned common beans, Canned string beans, Canned beans
 de:Bohnenkonserven, Dosenbohnen, Bohnen in der Dose, Bohnen aus der Dose
 es:Alubias cocidas en conserva, Alubias en conserva, Judías en conserva
@@ -4695,6 +4691,15 @@ nl:Doperwten met worteltjes in blik
 < en:Canned legumes
 < en:Canned vegetables
 fr:Haricots beurre en conserve
+
+< en:Canned legumes
+< en:Chickpeas
+en:Canned chickpeas
+de:Kichererbsen in Dosen
+es:Garbanzos cocidos en conserva, Garbanzos en conserva
+fi:purkitetut kikherneet
+fr:Pois chiches en conserve
+nl:Kikkererwten in blik
 
 < en:Canned legumes
 < en:Canned vegetables
@@ -7388,6 +7393,10 @@ en:Desi chickpeas
 es:Garbanzos de tipo Desi
 fr:Pois chiches de type Desi
 la:Cicer arietinum var. fuscum, Cicer arietinum var. microcarpum
+
+< en:Chickpeas
+en:Dried chickpeas
+fr:Pois chiches secs
 
 < en:Chickpeas
 en:Kabuli chickpeas, Garbanzo beans, Garbanzo
@@ -11813,13 +11822,6 @@ fi:praliineilla täytetyt suklaat
 fr:Chocolats fourrés au praliné, chocolat fourré au praliné
 nl:Chocolades gevuld met praliné
 
-< en:Filled chocolates
-en:Filled milk chocolates
-de:Gefüllte Milchschokolade, Milchschokolade mit Füllung
-fi:täytetyt maitosuklaat
-fr:Chocolats au lait fourrés
-nl:Gevulde melkchocola
-
 < en:Dark chocolates
 < en:Filled chocolates
 en:Filled dark chocolates
@@ -11827,6 +11829,14 @@ de:Gefüllte dunkle Schokolade, Dunkle Schokolade mit Füllung
 fi:täytetyt tummat suklaat
 fr:Chocolats noirs fourrés
 nl:Gevulde pure chocola
+
+< en:Filled chocolates
+< en:Milk chocolates
+en:Filled milk chocolates
+de:Gefüllte Milchschokolade, Milchschokolade mit Füllung
+fi:täytetyt maitosuklaat
+fr:Chocolats au lait fourrés
+nl:Gevulde melkchocola
 
 < en:Filled crêpes
 en:Filled crêpes with chocolate
@@ -12699,10 +12709,10 @@ fr:miels de montagne
 hu:Hegyi mézek
 nl:Berghoningen
 
-< en:Flower jams
-en:Rose petal jams, Rose jams
+< en:Flower preserves
+en:Rose petal preserves, rose petal jams, Rose jams
 es:Mermeladas y confituras de pétalos de rosas, Mermeladas y confituras de rosas, Mermeladas de pétalos de rosas, Mermeladas de rosas, Confituras de pétalos de rosas, Confituras de rosas
-fr:Confiture de roses, Confitures de roses
+fr:Confits de roses, Confiture de roses, Confitures de roses
 hu:Rózsa lekvár
 nl:Rozeblaadjesjams
 
@@ -14036,6 +14046,7 @@ fr:Haricots verts surgelés précuits
 < en:Frozen green peas
 fr:Petits pois surgelés précuits
 
+< en:Chickpeas
 < en:Frozen legumes
 en:Frozen chickpeas, Frozen garbanzo beans
 de:Gefrohrene Kichererbsen
@@ -17651,6 +17662,11 @@ fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
 nl:Bloemenhoningen
 
 < en:Honeys
+en:Forest honeys
+fr:Miels de forêt
+nl:Boshoningen
+
+< en:Honeys
 en:Honey from coniferous trees
 fr:Miels de conifères
 nl:Conifeerhoningen
@@ -17793,10 +17809,6 @@ nl:Korenbloemenhoningen
 fr:Miels de colza
 it:Miele di colza
 nl:Koolzaadbloesemhoningen
-
-< en:Honeys
-fr:Miels de forêt
-nl:Boshoningen
 
 < en:Honeys
 fr:Miels de jujubier
@@ -18640,13 +18652,6 @@ es:Mermeladas y confituras dietéticas
 fr:Confitures diététiques
 hu:Diétás lekvárok
 nl:Dieetjams
-
-< en:Jams
-en:Flower jams
-es:Mermeladas y confituras de flores, Mermeladas de pétalos de flores
-fr:Confitures de fleurs
-hu:Virág lekvárok
-nl:Bloemenjams
 
 < en:Jams
 en:Light jams
@@ -22830,15 +22835,7 @@ es:Cebollas encurtidas, Cebollitas encurtidas
 fr:Oignons au vinaigre
 nl:Ingemaakte ui
 
-< en:Onions and their products
-en:Fried onions
-de:Röstzwiebeln
-es:Cebollas fritas
-fi:paistetut sipulit
-fr:Oignons frits
-hu:Sült hagyma
-nl:Gebakken ui
-
+< en:Culinary plants
 < en:Onions and their products
 en:onions, onion
 bn:পিঁয়াজ
@@ -22872,6 +22869,15 @@ zh:洋葱
 carbon_footprint_fr_foodges_ingredient:fr: Oignons
 wikidata:en: Q3406628
 wikipedia:en: https://en.wikipedia.org/wiki/Onion
+
+< en:Onions and their products
+en:Fried onions
+de:Röstzwiebeln
+es:Cebollas fritas
+fi:paistetut sipulit
+fr:Oignons frits
+hu:Sült hagyma
+nl:Gebakken ui
 
 < en:Onions and their products
 < en:Salted spreads
@@ -30795,6 +30801,7 @@ nl:Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
 en:Squeezed pear juices, Non-refrigerated squeezed pear juices
 de:Birnendirektsäfte
 es:Zumos de pera exprimidos no refrigerados, Zumos de pera exprimidos, Zumos de pera exprimidos ambiente
+fr:Jus de poire pur jus
 nl:Verse perensappen, Verse perensap
 
 < en:Pineapple juices
@@ -30819,6 +30826,7 @@ nl:Verse pruimensappen, Verse pruimensap
 en:Squeezed pomegranate juices, Non-refrigerated squeezed pomegranate juices
 de:Granatapfeldirektsäfte
 es:Zumos de granada exprimidos no refrigerados, Zumos de granada exprimidos, Zumos de granada exprimidos ambiente
+fr:Jus de grenade pur jus
 nl:Verse granaatappelsappen, Verse granaatappelsap
 
 < en:Cereals and their products
@@ -31650,6 +31658,13 @@ nl:Confituren en marmelades
 pl:Przetwory owocowe
 pt:Conservas de fruta
 th:ผลไม้แปรรูป
+
+< en:Sweet spreads
+en:Flower preserves, flower jams
+es:Mermeladas y confituras de flores, Mermeladas de pétalos de flores
+fr:Confits de fleurs, confitures de fleurs
+hu:Virág lekvárok
+nl:Bloemenjams
 
 < en:Sweet spreads
 en:Ginger preserves, ginger jams
@@ -33741,18 +33756,6 @@ la:Allium sativum
 nl:Knoflook en -afgeleide producten
 wikidata:en: Q23400
 
-< en:Culinary plants
-< en:Vegetables based foods
-en:Onions and their products
-de:Zwiebelprodukte, Zwiebeln und ihre Produkte
-es:Cebollas y derivados
-fi:sipulit ja sipulituotteet
-fr:Oignons et dérivés
-hu:Hagyma és hagyma alaú termékek
-la:Allium cepa
-nl:Ui en afgeleide producten
-wikidata:en: Q23485
-
 < en:Vegetables based foods
 en:Aubergines
 de:Auberginen
@@ -33986,6 +33989,17 @@ fr:Champignons et produits dérivés
 hu:Gombák és belőle készült termékek
 nl:Paddestoel- en afgeleide producten
 pnns_group_2:en: vegetables
+
+< en:Vegetables based foods
+en:Onions and their products
+de:Zwiebelprodukte, Zwiebeln und ihre Produkte
+es:Cebollas y derivados
+fi:sipulit ja sipulituotteet
+fr:Oignons et dérivés
+hu:Hagyma és hagyma alaú termékek
+la:Allium cepa
+nl:Ui en afgeleide producten
+wikidata:en: Q23485
 
 < en:Vegetables based foods
 en:Radishes, radish
@@ -35719,6 +35733,10 @@ fr:Caviar sevruga, Caviar de sevruga, Acipenser stellatus, Caviar d'esturgeon é
 en:Sterlet caviar
 de:Sterlet Kaviar
 fr:Caviar sterlet, Acipenser ruthenus
+
+< en:Wine-based drinks
+en:Spritz cocktails
+fr:Cocktails spritz
 
 < en:Wine vinegars
 en:Red wine vinegars
@@ -46088,8 +46106,8 @@ fr:Rillettes de langoustine
 < fr:Rillettes de gibiers de chasse
 fr:Rillettes de sanglier
 
+< en:Pork rillettes
 < fr:Rillettes de la Sarthe
-< fr:Rillettes de porc
 fr:Rillettes du Mans
 
 < fr:Rillettes de truite
@@ -46105,13 +46123,14 @@ en:Lamb rillettes
 fr:Rillettes d'agneau
 
 < fr:Rillettes de viande rouge
+en:Pork rillettes
+fr:Rillettes de porc, Rillettes de cochon
+
+< fr:Rillettes de viande rouge
 fr:Rillettes de gibiers de chasse
 
 < fr:Rillettes de viande rouge
 fr:Rillettes de mouton
-
-< fr:Rillettes de viande rouge
-fr:Rillettes de porc, Rillettes de cochon
 
 < fr:Rillettes de volaille
 en:chicken rillettes

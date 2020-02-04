@@ -1,9 +1,9 @@
 # Please note: English needs to be first.
 
-stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase
+stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase, label, mark, logo
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi
-stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès
+stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès, label, marque, logo
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 
@@ -503,6 +503,9 @@ fr:Fairtrade International, Fairtrade, FLO international, FLO
 nl:Fairtrade International, Eerlijke handel
 ru:Честная торговля, FLO
 
+<en:Fairtrade
+en:Fairtrade USA
+
 <en:Fair trade
 en:Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
 ca:Max Havelaar, Comerç Just/Max Havelaar
@@ -560,9 +563,10 @@ nl:FSC Mix
 pl:FSC Mix
 
 <en:FSC
-en:FSC Recycling
+en:FSC Recycling, FSC Recycled
 de:FSC Recycling
 fi:FSC-kierrätys
+fr:FSC Recyclé, FSC Recyclage
 
 <en:FSC
 en:FSC-C002324
@@ -798,6 +802,10 @@ nl:FACE
 
 <en:Gluten-free
 fr:Afdiag, Association Française des Intolérants au Gluten
+
+<en:Gluten-free
+en:DZG Gluten free
+de:DZG glutenfrei
 
 en:Contains gluten
 ca:Conté gluten
@@ -2933,7 +2941,7 @@ en:India Organic
 wikidata:en:Q17055995
 
 <en:Organic
-en:EU Organic, European Organic, European leaf, European organic leaf
+en:EU Organic, European Organic, European leaf, European organic leaf, EU organic farming
 ca:Orgànic UE
 cs:EU bio
 de:EU-Öko-Verordnung, Europäische Öko-Verordnung, EU Ökologische
@@ -2947,7 +2955,6 @@ pt:Orgânico EU, Orgânico Europeu, Folha Europeia, Folha Orgânica Europeia
 zh:欧盟有机
 wikidata:en:Q380448
 
-<en:EU Organic
 en:EU/non-EU Agriculture, EU and non EU Agriculture
 ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
 de:EU-/Nicht-EU-Landwirtschaft
@@ -2958,7 +2965,6 @@ it:Agricoltura EU/non-EU
 nl:EU/Non EU landbouw
 ru:EU/не-EU агрокультура
 
-<en:EU Organic
 en:non-EU Agriculture
 ca:Agricultura No-UE
 de:Nicht EU-Landwirtschaft
@@ -2971,7 +2977,6 @@ it:Agricoltura non-UE
 nl:Non EU landbouw
 ru:не-EU агрокультура
 
-<en:EU Organic
 en:EU Agriculture, European Union agriculture
 ca:Agricultura UE
 de:EU-Landwirtschaft
@@ -3021,7 +3026,7 @@ image:en:eg-oko-verordnung.110x90.svg
 
 <en:EU organic
 en:AB Agriculture Biologique
-fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié
+fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié, AB France
 hu:AB Agriculture Biologique
 country:en:France
 wikidata:en:Q396709
@@ -5661,18 +5666,23 @@ he:איגוד הצמחונות
 it:Vegetarian Society
 wikidata:en:Q2154954
 
+# non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
 <en:Vegetarian
-en:European Vegetarian Union
+en:European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
 ca:Unió Vegetariana Europea
 de:Europäische Vegetarier-Union
 eo:Eŭropa vegetarana unuiĝo
 es:Unión Vegetariana Europea
 fi:Euroopan vegetaariliitto
-fr:Union végétarienne européenne
+fr:Union Végétarienne Européenne, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-Label, EU V-Label
 he:איחוד הצמחונות האירופי
 it:Unione Europea Vegetariani
 nl:Europese vegetarische unie
 wikidata:en:Q443112
+
+<en:European Vegetarian Union
+en:European Vegetarian Union - Vegetarian
+fr:Union Végétarienne Européenne - Végétarien
 
 en:Ovo-vegetarian
 ca:Ovovegetarià
@@ -5710,7 +5720,7 @@ ca:Unió Vegana Vegetariana Europea
 de:Europäische Vegetarier-Union Vegan
 es:Unión Vegetariana y vegana Europea
 fi:Euroopan vegetaariliitto vegaaninen, EVU vegaaninen
-fr:Union végétarienne européenne végétalien
+fr:Union Végétarienne Européenne - Végétalien
 nl:Europese Vegetarische Unie Vegan, EVU Vegan
 
 <en:European Vegetarian Union
@@ -7226,3 +7236,4 @@ fi:Cocoa Life
 fr:Cocoa Life
 it:Cocoa Life
 
+en:Ethical Tea Partnership, ETP

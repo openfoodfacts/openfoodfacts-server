@@ -1,8 +1,8 @@
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
-stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase
+stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase, label, mark, logo
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi
-stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès
+stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès, label, marque, logo
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 
 
@@ -714,9 +714,32 @@ hu:Kalciummal dúsított
 it:Arricchito con calcio
 pt:Enriquecido com cálcio
 
+en:Ethical Tea Partnership, ETP
+
+en:EU Agriculture, European Union agriculture
+ca:Agricultura UE
+de:EU-Landwirtschaft
+es:Agricultura UE, Agricultura Unión Europea, Agricultura de la UE
+fi:tuotettu EU:ssa
+fr:Agriculture UE, Agriculture Union Européeenne
+he:חקלאות האיחוד האירופי
+hu:EU mezőgazdaság
+nl:EU landbouw
+ru:EU агрокультура, агрокультура Европейского Союза
+
+en:EU/non-EU Agriculture, EU and non EU Agriculture
+ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
+de:EU-/Nicht-EU-Landwirtschaft
+fi:Tuotettu EU:ssa ja EU:n ulkopuolella
+fr:Agriculture UE/Non UE
+hu:EU/nem-EU mezőgazdaság
+it:Agricoltura EU/non-EU
+nl:EU/Non EU landbouw
+ru:EU/не-EU агрокультура
+
 < en:EU Organic
 en:AB Agriculture Biologique
-fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié
+fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié, AB France
 hu:AB Agriculture Biologique
 country:en: France
 wikidata:en: Q396709
@@ -1501,29 +1524,6 @@ fi:ES-ECO-031-CL
 country:en: Spain
 
 < en:EU Organic
-en:EU Agriculture, European Union agriculture
-ca:Agricultura UE
-de:EU-Landwirtschaft
-es:Agricultura UE, Agricultura Unión Europea, Agricultura de la UE
-fi:tuotettu EU:ssa
-fr:Agriculture UE, Agriculture Union Européeenne
-he:חקלאות האיחוד האירופי
-hu:EU mezőgazdaság
-nl:EU landbouw
-ru:EU агрокультура, агрокультура Европейского Союза
-
-< en:EU Organic
-en:EU/non-EU Agriculture, EU and non EU Agriculture
-ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
-de:EU-/Nicht-EU-Landwirtschaft
-fi:Tuotettu EU:ssa ja EU:n ulkopuolella
-fr:Agriculture UE/Non UE
-hu:EU/nem-EU mezőgazdaság
-it:Agricoltura EU/non-EU
-nl:EU/Non EU landbouw
-ru:EU/не-EU агрокультура
-
-< en:EU Organic
 en:FI-EKO-101
 fi:FI-EKO-101
 country:en: Finland
@@ -2136,19 +2136,6 @@ fi:NO-ØKO-01
 it:NO-ØKO-01
 
 < en:EU Organic
-en:non-EU Agriculture
-ca:Agricultura No-UE
-de:Nicht EU-Landwirtschaft
-es:Agricultura no UE
-fi:tuotettu EU:n ulkopuolella
-fr:Agriculture non UE
-he:חקלאות מחוץ לאיחוד האירופי
-hu:nem-EU mezőgazdaság
-it:Agricoltura non-UE
-nl:Non EU landbouw
-ru:не-EU агрокультура
-
-< en:EU Organic
 en:PL-EKO-01
 fi:PL-EKO-01
 it:PL-EKO-01
@@ -2462,8 +2449,12 @@ ca:Unió Vegana Vegetariana Europea
 de:Europäische Vegetarier-Union Vegan
 es:Unión Vegetariana y vegana Europea
 fi:Euroopan vegetaariliitto vegaaninen, EVU vegaaninen
-fr:Union végétarienne européenne végétalien
+fr:Union Végétarienne Européenne - Végétalien
 nl:Europese Vegetarische Unie Vegan, EVU Vegan
+
+< en:European Vegetarian Union
+en:European Vegetarian Union - Vegetarian
+fr:Union Végétarienne Européenne - Végétarien
 
 < en:European Vegetarian Union
 < en:Lacto-vegetarian
@@ -2533,6 +2524,9 @@ fr:Bio-équitable, bioéquitable
 
 < en:Fair trade
 en:TransFer, TransFer Canada
+
+< en:Fairtrade International
+en:Fairtrade USA
 
 en:Fed without GMOs
 ca:Alimentat sense Organismes Modificats Genèticament
@@ -2912,9 +2906,10 @@ nl:FSC Mix
 pl:FSC Mix
 
 < en:FSC
-en:FSC Recycling
+en:FSC Recycling, FSC Recycled
 de:FSC Recycling
 fi:FSC-kierrätys
+fr:FSC Recyclé, FSC Recyclage
 
 en:German Agricultural Society
 ca:Societat Agrícola Alemanya
@@ -2973,6 +2968,10 @@ th:ไม่มีกลูเตน
 uk:Не містить глютену
 zh:无麸质
 wikidata:en: Q2632776
+
+< en:Gluten-free
+en:DZG Gluten free
+de:DZG glutenfrei
 
 < en:Gluten-free
 en:FACE
@@ -3216,7 +3215,7 @@ ru:Обогащено клетчаткой
 th:ใยอาหารสูง
 
 en:High in calcium
-ca:Ric/a en calci
+ca:Ric en calci
 de:Reich an Kalzium, Kalziumreiche
 es:Alto contenido de calcio, Rico en calcio, Alto en calcio
 fi:runsaasti kalsiumia, paljon kalsiumia
@@ -4220,7 +4219,7 @@ pt:Sem intensificador de sabor
 
 < en:No flavour enhancer
 en:No MSG, MSG free
-ca:Sense Glutamat Monosòdic (GMS), Lliure de GMS
+ca:Sense Glutamat Monosòdic, Sense GMS, Lliure de GMS
 es:Sin glutamato, Sin glutamato monosódico, Sin glutamato de sodio, Sin GMS
 fi:natriumglutamaatiton, ei natriumglutamaattia, ilman natriumglutamaattia, MSG-vapaa
 fr:Sans glutamate, sans GMS
@@ -4384,6 +4383,18 @@ hu:Transzzsírsav mentes, Transzzsírsav nélkül, 0g transzzsírsav
 nl:Geen transvetten
 ru:без трансжиров
 th:ไม่มีไขมันทรานส์
+
+en:non-EU Agriculture
+ca:Agricultura No-UE
+de:Nicht EU-Landwirtschaft
+es:Agricultura no UE
+fi:tuotettu EU:n ulkopuolella
+fr:Agriculture non UE
+he:חקלאות מחוץ לאיחוד האירופי
+hu:nem-EU mezőgazdaság
+it:Agricoltura non-UE
+nl:Non EU landbouw
+ru:не-EU агрокультура
 
 < en:Non-EU Agriculture
 en:BO-BIO-126
@@ -4724,7 +4735,7 @@ country:en: Germany
 image:en: eg-oko-verordnung.110x90.svg
 
 < en:Organic
-en:EU Organic, European Organic, European leaf, European organic leaf
+en:EU Organic, European Organic, European leaf, European organic leaf, EU organic farming
 ca:Orgànic UE
 cs:EU bio
 de:EU-Öko-Verordnung, Europäische Öko-Verordnung, EU Ökologische
@@ -5730,56 +5741,6 @@ en:San Francisco Chronicle Wine Competition
 
 en:San Francisco International Wine Competition
 
-en:Saveurs de l'Année (France)
-ca:Sabors de l'any (França)
-fr:Saveurs de l'Année
-wikidata:en: Q3474529
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2009, Saveur de l'Année 2009
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2010, Saveur de l'Année 2010
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2011, Saveur de l'Année 2011
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2012, Saveur de l'Année 2012
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2013, Saveur de l'Année 2013
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2014, Saveur de l'Année 2014
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2015, Saveur de l'Année 2015
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2016, Saveur de l'Année 2016
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2017, Saveur de l'Année 2017
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2018, Saveur de l'Année 2018
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2019, Saveur de l'Année 2019
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2020, Saveur de l'Année 2020
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2021, Saveur de l'Année 2021
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2022, Saveur de l'Année 2022
-
-< en:Saveurs de l'Année (France)
-fr:Saveurs de l'Année 2023, Saveur de l'Année 2023
-
 en:Seine fishing
 de:Ringwadenfischerei
 fi:nuottakalastettu
@@ -6172,7 +6133,7 @@ ca:Cafè amb certificat UTZ
 de:UTZ Certified Kaffee
 fi:UTZ-sertifioitua kahvia
 fr:Café certifié UTZ
-it:Caffè certificato UTZ; Caffe certificato UTZ
+it:Caffè certificato UTZ
 pl:UTZ Certified Coffee
 
 < en:Vegan
@@ -6212,13 +6173,13 @@ zh:素食
 wikidata:en: Q638022
 
 < en:Vegetarian
-en:European Vegetarian Union
+en:European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
 ca:Unió Vegetariana Europea
 de:Europäische Vegetarier-Union
 eo:Eŭropa vegetarana unuiĝo
 es:Unión Vegetariana Europea
 fi:Euroopan vegetaariliitto
-fr:Union végétarienne européenne
+fr:Union Végétarienne Européenne, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-Label, EU V-Label
 he:איחוד הצמחונות האירופי
 it:Unione Europea Vegetariani
 nl:Europese vegetarische unie
@@ -6627,6 +6588,18 @@ ca:Millors Cerveses del Món 2017
 he:פרסי הבירה העולמיים 2017
 zh:世界啤酒奖 2017
 
+< en:World Beer Awards
+en:World Beer Awards 2018
+ca:Millors Cerveses del Món 2018
+he:פרסי הבירה העולמיים 2018
+zh:世界啤酒奖 2018
+
+< en:World Beer Awards
+en:World Beer Awards 2019
+ca:Millors Cerveses del Món 2019
+he:פרסי הבירה העולמיים 2019
+zh:世界啤酒奖 2019
+
 es:Cata Concurso Nacional de Vinos Jóvenes Cosecha
 
 es:Certificado organico ibd
@@ -6844,6 +6817,18 @@ fr:Médaille d'argent du Concours de Bordeaux 2015, Concours de Bordeaux médail
 < fr:Médaille d'argent du Concours de Bordeaux
 fr:Médaille d'argent du Concours de Bordeaux 2016, Concours de Bordeaux médaille d'argent 2016, Médaille d'Argent Bordeaux 2016 Concours de Bordeaux, Médaille d'Argent Bordeaux 2016
 
+< fr:Médaille d'argent du Concours de Bordeaux
+fr:Médaille d'argent du Concours de Bordeaux 2017, Concours de Bordeaux médaille d'argent 2017, Médaille d'argent Bordeaux 2017 Concours de Bordeaux, Médaille d'argent Bordeaux 2017
+
+< fr:Médaille d'argent du Concours de Bordeaux
+fr:Médaille d'argent du Concours de Bordeaux 2018, Concours de Bordeaux médaille d'argent 2018, Médaille d'argent Bordeaux 2018 Concours de Bordeaux, Médaille d'argent Bordeaux 2018
+
+< fr:Médaille d'argent du Concours de Bordeaux
+fr:Médaille d'argent du Concours de Bordeaux 2019, Concours de Bordeaux médaille d'argent 2019, Médaille d'argent Bordeaux 2019 Concours de Bordeaux, Médaille d'argent Bordeaux 2019
+
+< fr:Médaille d'argent du Concours de Bordeaux
+fr:Médaille d'argent du Concours de Bordeaux 2020, Concours de Bordeaux médaille d'argent 2020, Médaille d'argent Bordeaux 2020 Concours de Bordeaux, Médaille d'argent Bordeaux 2020
+
 < fr:Médaille d'argent du Concours général agricole
 fr:Médaille d'argent du concours général agricole 2011, Concours général agricole médaille d'argent 2011, Médaille d'Argent Paris 2011 Concours Général Agricole, Médaille d'Argent Paris 2011
 
@@ -6868,6 +6853,12 @@ fr:Médaille d'argent du concours général agricole 2017, Concours général ag
 < fr:Médaille d'argent du Concours général agricole
 fr:Médaille d'argent du concours général agricole 2018, Concours général agricole médaille d'argent 2018, Médaille d'Argent Paris 2018 Concours Général Agricole, Médaille d'Argent Paris 2018
 
+< fr:Médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours général agricole 2019, Concours général agricole médaille d'argent 2019, Médaille d'Argent Paris 2019 Concours Général Agricole, Médaille d'Argent Paris 2019
+
+< fr:Médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours général agricole 2020, Concours général agricole médaille d'argent 2020, Médaille d'Argent Paris 2020 Concours Général Agricole, Médaille d'Argent Paris 2020
+
 < fr:Médaille d'or du Concours de Bordeaux
 fr:Médaille d'or du Concours de Bordeaux 2011, Concours de Bordeaux médaille d'or 2011, Médaille d'Or Bordeaux 2011 Concours de Bordeaux, Médaille d'Or Bordeaux 2011
 
@@ -6885,6 +6876,18 @@ fr:Médaille d'or du Concours de Bordeaux 2015, Concours de Bordeaux médaille d
 
 < fr:Médaille d'or du Concours de Bordeaux
 fr:Médaille d'or du Concours de Bordeaux 2016, Concours de Bordeaux médaille d'or 2016, Médaille d'Or Bordeaux 2016 Concours de Bordeaux, Médaille d'Or Bordeaux 2016
+
+< fr:Médaille d'or du Concours de Bordeaux
+fr:Médaille d'or du Concours de Bordeaux 2017, Concours de Bordeaux médaille d'or 2017, Médaille d'or Bordeaux 2017 Concours de Bordeaux, Médaille d'or Bordeaux 2017
+
+< fr:Médaille d'or du Concours de Bordeaux
+fr:Médaille d'or du Concours de Bordeaux 2018, Concours de Bordeaux médaille d'or 2018, Médaille d'or Bordeaux 2018 Concours de Bordeaux, Médaille d'or Bordeaux 2018
+
+< fr:Médaille d'or du Concours de Bordeaux
+fr:Médaille d'or du Concours de Bordeaux 2019, Concours de Bordeaux médaille d'or 2019, Médaille d'or Bordeaux 2019 Concours de Bordeaux, Médaille d'or Bordeaux 2019
+
+< fr:Médaille d'or du Concours de Bordeaux
+fr:Médaille d'or du Concours de Bordeaux 2020, Concours de Bordeaux médaille d'or 2020, Médaille d'or Bordeaux 2020 Concours de Bordeaux, Médaille d'or Bordeaux 2020
 
 < fr:Médaille d'or du Concours général agricole
 fr:Médaille d'or du concours général agricole 2011, Concours général agricole médaille d'or 2011, Médaille d'Or Paris 2011 Concours Général Agricole, Médaille d'or Paris 2011
@@ -6910,6 +6913,12 @@ fr:Médaille d'or du concours général agricole 2017, Concours général agrico
 < fr:Médaille d'or du Concours général agricole
 fr:Médaille d'or du concours général agricole 2018, Concours général agricole médaille d'or 2018, Médaille d'Or Paris 2018 Concours Général Agricole, Médaille d'or Paris 2018
 
+< fr:Médaille d'or du Concours général agricole
+fr:Médaille d'or du concours général agricole 2019, Concours général agricole médaille d'or 2019, Médaille d'Or Paris 2019 Concours Général Agricole, Médaille d'or Paris 2019
+
+< fr:Médaille d'or du Concours général agricole
+fr:Médaille d'or du concours général agricole 2020, Concours général agricole médaille d'or 2020, Médaille d'Or Paris 2020 Concours Général Agricole, Médaille d'or Paris 2020
+
 < fr:Médaille de bronze du Concours de Bordeaux
 fr:Médaille de bronze du Concours de Bordeaux 2011, Concours de Bordeaux médaille de bronze 2011, Médaille de Bronze Bordeaux 2011 Concours de Bordeaux, Médaille de Bronze Bordeaux 2011
 
@@ -6927,6 +6936,18 @@ fr:Médaille de bronze du Concours de Bordeaux 2015, Concours de Bordeaux médai
 
 < fr:Médaille de bronze du Concours de Bordeaux
 fr:Médaille de bronze du Concours de Bordeaux 2016, Concours de Bordeaux médaille de bronze 2016, Médaille de Bronze Bordeaux 2016 Concours de Bordeaux, Médaille de Bronze Bordeaux 2016
+
+< fr:Médaille de bronze du Concours de Bordeaux
+fr:Médaille de bronze du Concours de Bordeaux 2017, Concours de Bordeaux médaille de bronze 2017, Médaille de Bronze Bordeaux 2017 Concours de Bordeaux, Médaille de Bronze Bordeaux 2017
+
+< fr:Médaille de bronze du Concours de Bordeaux
+fr:Médaille de bronze du Concours de Bordeaux 2018, Concours de Bordeaux médaille de bronze 2018, Médaille de Bronze Bordeaux 2018 Concours de Bordeaux, Médaille de Bronze Bordeaux 2018
+
+< fr:Médaille de bronze du Concours de Bordeaux
+fr:Médaille de bronze du Concours de Bordeaux 2019, Concours de Bordeaux médaille de bronze 2019, Médaille de Bronze Bordeaux 2019 Concours de Bordeaux, Médaille de Bronze Bordeaux 2019
+
+< fr:Médaille de bronze du Concours de Bordeaux
+fr:Médaille de bronze du Concours de Bordeaux 2020, Concours de Bordeaux médaille de bronze 2020, Médaille de Bronze Bordeaux 2020 Concours de Bordeaux, Médaille de Bronze Bordeaux 2020
 
 < fr:Médaille de bronze du Concours général agricole
 fr:Médaille de bronze du concours général agricole 2011, Concours général agricole médaille de bronze 2011, Médaille de Bronze Paris 2011 Concours Général Agricole, Médaille de Bronze Paris 2011
@@ -6951,6 +6972,12 @@ fr:Médaille de bronze du concours général agricole 2017, Concours général a
 
 < fr:Médaille de bronze du Concours général agricole
 fr:Médaille de bronze du concours général agricole 2018, Concours général agricole médaille de bronze 2018, Médaille de Bronze Paris 2018 Concours Général Agricole, Médaille de Bronze Paris 2018
+
+< fr:Médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours général agricole 2019, Concours général agricole médaille de bronze 2019, Médaille de Bronze Paris 2019 Concours Général Agricole, Médaille de Bronze Paris 2019
+
+< fr:Médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours général agricole 2020, Concours général agricole médaille de bronze 2020, Médaille de Bronze Paris 2020 Concours Général Agricole, Médaille de Bronze Paris 2020
 
 fr:Mis en bouteille à la propriété
 
@@ -7003,6 +7030,54 @@ fr:prix d'excellence du concours général agricole 2015, Concours général agr
 fr:prix d'excellence du concours général agricole 2016, Concours général agricole prix d'excellence 2016
 
 fr:Salage naturel
+
+fr:Saveurs de l'Année
+wikidata:en: Q3474529
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2009, Saveur de l'Année 2009
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2010, Saveur de l'Année 2010
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2011, Saveur de l'Année 2011
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2012, Saveur de l'Année 2012
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2013, Saveur de l'Année 2013
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2014, Saveur de l'Année 2014
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2015, Saveur de l'Année 2015
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2016, Saveur de l'Année 2016
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2017, Saveur de l'Année 2017
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2018, Saveur de l'Année 2018
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2019, Saveur de l'Année 2019
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2020, Saveur de l'Année 2020
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2021, Saveur de l'Année 2021
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2022, Saveur de l'Année 2022
+
+< fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2023, Saveur de l'Année 2023
 
 fr:Saveurs de Normandie
 country:en: France
