@@ -1320,6 +1320,9 @@ sub import_csv_file($) {
 
 				my $images_ref = $images_ref->{$code};
 
+				# Keep track of the images we select so that we don't select multiple images for the same field
+				my %selected_images = ();
+
 				foreach my $imagefield (sort keys %{$images_ref}) {
 
 					$log->debug("uploading image for product", { imagefield => $imagefield, code => $code }) if $log->is_debug();
@@ -1338,12 +1341,12 @@ sub import_csv_file($) {
 
 					my $imagefield_with_lc = $imagefield;
 
-					if ($imagefield !~ /_\w\w/) {
-						$imagefield_with_lc .= "_" . $product_ref->{lc};
-					}
-
 					# image_other_url.2 -> remove the number
 					$imagefield_with_lc =~ s/\.(\d+)$//;
+
+					if ($imagefield_with_lc !~ /_\w\w/) {
+						$imagefield_with_lc .= "_" . $product_ref->{lc};
+					}
 
 					# upload the image
 					my $file = $images_ref->{$imagefield};
@@ -1368,6 +1371,7 @@ sub import_csv_file($) {
 							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 
 								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
+								$selected_images{$imagefield_with_lc} = 1;
 								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
 								# $modified++;
 
@@ -1381,11 +1385,21 @@ sub import_csv_file($) {
 									and (exists $product_ref->{images}{$imagefield_with_lc})
 									and ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
+									$selected_images{$imagefield_with_lc} = 1;
 									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
 									# $modified++;
 								}
 
 							}
+						}
+						# If the image type is "other" and we don't have a front image, assign it
+						# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
+						elsif (($imgid > 0) and ($imagefield_with_lc =~ /^other/) and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}}) and (not defined $selected_images{"front_" . $product_ref->{lc}})) {
+							$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
+							# Keep track that we have selected an image, so that we don't select another one after,
+							# as we don't reload the product_ref after calling process_image_crop()
+							$selected_images{"front_" . $product_ref->{lc}} = 1;
+							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1); };
 						}
 					}
 					else {

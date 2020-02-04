@@ -69,17 +69,42 @@ my $select_image = 0;
 
 my $code_specified = 1;
 my $filename;
+my $tmp_filename;
 
 if (not defined $code) {
 
 	$code_specified = 0;
 
-	$filename = param("files[]");
+	my $file = param("files[]");
+	$filename = $file . "";
 
 	($code, $imagefield) = get_code_and_imagefield_from_file_name($lc, $filename);
 
+	if (not $code) {
+
+		if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
+
+			$log->debug("scan barcode in image file", { file => $file }) if $log->is_debug();
+
+			my $extension = lc($1) ;
+			$tmp_filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
+
+			open (my $out, ">", "$data_root/tmp/$tmp_filename.$extension") ;
+			while (my $chunk = <$file>) {
+				print $out $chunk;
+			}
+			close ($out);
+
+			$code = scan_code("$data_root/tmp/$tmp_filename.$extension");
+			if (defined $code) {
+				$code = normalize_code($code);
+			}
+			$tmp_filename = "$data_root/tmp/$tmp_filename.$extension";
+		}
+	}
+
 	if ($code) {
-		if ((defined $imagefield) and ($imagefield !~ /^other/)) {
+		if ((defined $imagefield) and ($imagefield !~ /\//) and ($imagefield !~ /^other/)) {
 			$select_image = 1;
 		}
 	}
@@ -154,7 +179,10 @@ if ($imagefield) {
 
 		my $imgid;
 
-		my $imgid_returncode = process_image_upload($product_id, $imagefield, $User_id, time(), "image upload", \$imgid);
+		my $imagefield_or_filename = $imagefield;
+		(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
+
+		my $imgid_returncode = process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid);
 
 		$log->debug("after process_image_upload", { imgid => $imgid, imagefield => $imagefield, $imgid_returncode => $imgid_returncode }) if $log->is_debug();
 

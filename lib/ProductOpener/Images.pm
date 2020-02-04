@@ -432,6 +432,10 @@ sub get_code_and_imagefield_from_file_name($$) {
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
 		$code = normalize_code($1);
+		# Make sure it's not a date like 20200201..
+		if ($code =~ /^20(18|19|(2[0-9]))(0|1)/) {
+			$code = undef;
+		}
 	}
 
 	# Check for a specified imagefield

@@ -615,7 +615,7 @@ sub init_nutrients_columns_names_for_lang($) {
 
 					# code with i18n opportunity
 					my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
-					
+
 
 					# For energy kj/kcal, remove the unit from the synonym as we will add units to the synonyms
 					my $synonym2 = $synonym;
@@ -681,14 +681,17 @@ sub init_other_fields_columns_names_for_lang($) {
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
 					if ($field =~ /image_(front|ingredients|nutrition)/) {
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . $l)} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . $language_codes{$l})} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
 					}
-					else {
+					elsif ($field =~ /image_(other)/) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field};
 					}
 				}
 				elsif ($field =~ /_value_unit$/) {
