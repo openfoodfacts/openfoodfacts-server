@@ -32453,6 +32453,7 @@ it:fiocchi di mela
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
+<fr:moût
 fr:moût de pomme concentré
 
 <en:apple
@@ -36033,21 +36034,19 @@ pt:sumo de uva tinta à base de concentrado
 <en:raspberry juice
 fi:rypäle- ja vadelmatäysmehu tiivisteestä
 
-# Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
 
-<en:grape
-en:must, grape must
+# description:en:Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
+
+en:must
 az:Must
 ca:Most
-cs:Vinný mošt
-de:Most, Traubenmost
+de:Most
 el:Μούστος
 eo:Mosto
 es:Mosto
 eu:Muztio
 fa:پوراب
-fi:puristemehu, rypäleen puristemehu
-fr:moût de raisin
+fr:moût
 gl:Mosto
 hr:Mošt
 hu:must
@@ -36058,17 +36057,14 @@ ko:머스트
 la:Mustum
 mk:шира
 nb:most
-nl:most, druivenmost
+nl:most,
 oc:Most
 pl:Moszcz
 pt:mosto
 ro:Must
-ru:Виноградное сусло
 sk:Mušt
 sl:Mošt
-sq:Mushti i rrushit
 sw:Must
-ta:நொதியேறாப் பழச்சாறு
 uk:Муст
 zh:葡萄漿
 # bar:Mosd
@@ -36079,6 +36075,19 @@ zh:葡萄漿
 # rup:Mustu
 # scn:Mustu
 # zh-tw:水果酒
+
+<en:grape
+<en:must
+en:grape must
+cs:Vinný mošt
+de:Traubenmost
+fi:puristemehu, rypäleen puristemehu
+fr:moût de raisin
+it:mosto d'uva
+nl:druivenmost
+ru:Виноградное сусло
+sq:Mushti i rrushit
+ta:நொதியேறாப் பழச்சாறு
 wikipedia:en:https://en.wikipedia.org/wiki/Must
 wikidata:en:Q278818
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
