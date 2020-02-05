@@ -102,10 +102,17 @@ elsif (($action eq "process") and ($User{moderator})) {
 		exported_file => $exported_file,
 	};
 
+	# Set the user to the owner userid or org
+
+	my $user_id = $User_id;
+	if ($Owner_id =~ /^(org|user)-/) {
+		$user_id = $';
+	}
+
 	# First export the data locally
 
 	my $args_ref = {
-		user_id => $User_id,
+		user_id => $user_id,
 		org_id => $Org_id,
 		owner => $Owner_id,
 		csv_file => $exported_file,
