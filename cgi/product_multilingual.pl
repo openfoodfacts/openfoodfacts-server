@@ -169,6 +169,11 @@ else {
 		display_error($Lang{no_barcode}{$lang}, 403);
 	}
 	else {
+		if ( ((defined $server_options{private_products}) and ($server_options{private_products}))
+			and (not defined $Owner_id)) {
+
+			display_error(lang("no_owner_defined"), 200);
+		}
 		$product_id = product_id_for_owner($Owner_id, $code);
 		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
 		if (not defined $product_ref) {
@@ -294,6 +299,17 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	foreach my $field (@param_fields) {
 
 		if (defined param($field)) {
+
+			# If we are on the public platform, and the field data has been imported from the producer platform
+			# ignore the field changes for non tag fields, unless made by a moderator
+			if (((not defined $server_options{private_products}) or (not $server_options{private_products}))
+				and (defined $product_ref->{owner_fields}) and (defined $product_ref->{owner_fields}{$field})
+				and (not $User{moderator})) {
+				$log->debug("skipping field with a value set by the owner",
+					{ code => $code, field_name => $field, existing_field_value => $product_ref->{$field},
+					new_field_value => remove_tags_and_quote(decode utf8=>param($field))}) if $log->is_debug();
+			}
+
 			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
@@ -730,7 +746,7 @@ HTML
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
-<script type="text/javascript">	
+<script type="text/javascript">
 var admin = $moderator;
 </script>
 <script type="text/javascript" src="/js/dist/product-multilingual.js"></script>
