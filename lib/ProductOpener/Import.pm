@@ -627,9 +627,9 @@ sub import_csv_file($) {
 		}
 
 		# Record fields that are set by the owner
-		if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
+		if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)) {
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
-			$product_ref->{owner} = $args_ref->{owner};
+			$product_ref->{owner} = $args_ref->{owner_id};
 			$product_ref->{owners_tags} = $product_ref->{owner};
 		}
 
@@ -665,16 +665,31 @@ sub import_csv_file($) {
 
 				$log->debug("defined and non empty value for field", { field => $field, value => $imported_product_ref->{$field} }) if $log->is_debug();
 
-				if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
-					$product_ref->{owner_fields}{$field} = $time;
-				}
-
 				if (($field =~ /product_name/) or ($field eq "brands")) {
 					$stats{products_with_info}{$code} = 1;
 				}
 
 				if ($field =~ /^ingredients/) {
 					$stats{products_with_ingredients}{$code} = 1;
+				}
+
+				if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
+					and ($field ne "imports")	# "imports" contains the timestamp of each import
+					) {
+					$product_ref->{owner_fields}{$field} = $time;
+
+					# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
+					if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})) {
+						$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+						$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
+						$modified++;
+					}
+
+					# Skip data that we have already imported before (even if it has been changed)
+					elsif ((defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
+						$log->debug("skipping field that was already imported", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+						next;
+					}
 				}
 
 				# for tag fields, only add entries to it, do not remove other entries
@@ -972,7 +987,7 @@ sub import_csv_file($) {
 
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
-					if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
+					if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)) {
 						$product_ref->{owner_fields}{$nid} = $time;
 					}
 				}
