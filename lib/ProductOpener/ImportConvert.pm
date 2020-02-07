@@ -548,7 +548,8 @@ sub clean_weights($) {
 			# 250 GR -> 250 g
 			$product_ref->{$field} =~ s/(\d) gr\b/$1 g/g;
 
-			$product_ref->{$field} =~ s/\.0 / /;
+			# 2.00 2,0 etc.
+			$product_ref->{$field} =~ s/(\d)(\.|,)(0+)( |$)/$1$4/;
 
 			# 6x90g
 			$product_ref->{$field} =~ s/(\d)(\s*)x(\s*)(\d)/$1 x $4/i;
