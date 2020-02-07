@@ -651,7 +651,7 @@ sub display_field($$) {
 		$display_lc = $2;
 	}
 
-		my $autocomplete = "";
+	my $autocomplete = "";
 	my $class = "";
 	if (defined $tags_fields{$fieldtype}) {
 		$class = "tagify-me";
@@ -683,6 +683,8 @@ HTML
 ;
 	}
 	else {
+		# Line feeds will be removed in text inputs, convert them to spaces
+		$value =~ s/\n/ /g;
 		$html .= <<HTML
 <input type="text" name="$field" id="$field" class="text $class" value="$value" lang="${display_lc}" data-autocomplete="${autocomplete}" />
 HTML

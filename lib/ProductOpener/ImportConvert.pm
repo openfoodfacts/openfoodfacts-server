@@ -700,12 +700,20 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/\r\n/\n/g;
 			$product_ref->{$field} =~ s/\n\./\n/g;
 			$product_ref->{$field} =~ s/\n\n(\n+)/\n\n/g;
+
+			# Turn line feeds to spaces for some fields
+
+			if (($field =~ /product_name/) or ($field =~ /generic_name/)) {
+				$product_ref->{$field} =~ s/\n/ /g;
+			}
+
+			# Remove starting / ending spaces and punctuation
+
 			$product_ref->{$field} =~ s/^\.$//;
 			$product_ref->{$field} =~ s/^(\.|\s)+//;
 			$product_ref->{$field} =~ s/\s*$//;
 			$product_ref->{$field} =~ s/^\s*//;
 			$product_ref->{$field} =~ s/(\s|-|_|;|,)*$//;
-
 
 			if ($product_ref->{$field} =~ /^(\s|-|\.|_)$/) {
 				$product_ref->{$field} = "";
@@ -717,6 +725,9 @@ sub clean_fields($) {
 				# Remove anything that starts with 4 letters
 				# EMB 60282A - Gouvieux (Oise, France)
 				$product_ref->{$field} =~ s/\s*(\s-|,)\s+([[:alpha:]]{4}).*//;
+
+				# FR 62.907.030 EC (DANS UN OVALE)
+				$product_ref->{$field} =~ s/\(?dans un ovale\)?//ig;
 			}
 
 			# Origin of ingredients that contains other things than tags (e.g. Leroux)
