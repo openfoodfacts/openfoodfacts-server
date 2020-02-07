@@ -6858,6 +6858,33 @@ sub display_field($$) {
 }
 
 
+=head2 display_data_quality_description( PRODUCT_REF, TAGID )
+
+Display an explanation of the data quality warning or error,
+using specific product data related to the warning.
+
+=cut
+
+sub display_data_quality_description($$) {
+
+	my $product_ref = shift;
+	my $tagid = shift;
+
+	my $html = "";
+
+	if ($tagid =~ /^en:nutri-score-score/) {
+		$html .= "<p>" . lang("nutri_score_score_from_producer") . lang("sep") . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
+			. lang("nutri_score_score_calculated") . lang("sep") . ": " . $product_ref->{nutriscore_score} . "</p>";
+	}
+	elsif ($tagid =~ /^en:nutri-score-grade/) {
+		$html .= "<p>" . lang("nutri_score_grade_from_producer") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
+			. lang("nutri_score_grade_calculated") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
+	}
+
+	return $html;
+}
+
+
 =head2 display_possible_improvement_description( PRODUCT_REF, TAGID )
 
 Display an explanation of the possible improvement, using the improvement
@@ -6927,7 +6954,10 @@ sub display_data_quality_issues_and_improvement_opportunities($) {
 					$html .= "<p>" . $properties{$tagtype}{$tagid}{"description:$lc"} . "</p>";
 				}
 
-				if ($tagtype eq "improvements") {
+				if ($tagtype =~ /^data_quality/) {
+					$html .= display_data_quality_description($product_ref, $tagid);
+				}
+				elsif ($tagtype eq "improvements") {
 					$html .= display_possible_improvement_description($product_ref, $tagid);
 				}
 			}
