@@ -1588,7 +1588,7 @@ pt:maçãs desidratadas
 en:Golden Delicious apple
 de:Golden Delicious Apfel
 fi:golden delicious -omena
-fr:pomme Golden Delicious, pommes Golden Delicious
+fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
 
 < en:Apple
 en:Organic apple
@@ -1624,9 +1624,6 @@ it:mele in polvere
 
 < en:Apple
 fr:pommes gala
-
-< en:Apple
-fr:pommes golden
 
 < en:Apple
 fr:pulpe de pomme
@@ -1728,6 +1725,9 @@ en:freshly brewed Arabica coffee
 de:frisch gebrühter Arabica-Kaffee
 fr:café arabica fraîchement préparé
 nl:vers gezette Arabica-koffie
+
+< en:Arabica coffee
+fr:café Arabica de Colombie en poudre
 
 < en:Arabica coffee
 fr:cafe arabica du Brésil
@@ -2412,6 +2412,9 @@ nl:gele paprika
 fr:poivre gris
 
 < en:Bell pepper
+fr:poivre rose
+
+< en:Bell pepper
 fr:poivre vert
 de:grüner Pfeffer
 fi:viherpippuri
@@ -2835,7 +2838,7 @@ nl:zwarte thee extract
 en:Ceylon black tea
 de:Ceylon Schwarztee
 fi:ceylonin musta tee
-fr:thé noir Ceylan, Thé noir de Ceylan
+fr:thé noir du Sri Lanka, thé noir Ceylan, Thé noir de Ceylan
 
 < en:Black tea
 fr:infusion de thé noir concentrée
@@ -2850,6 +2853,9 @@ fr:tuber melanosporum, truffe noire du Périgord, truffe du Périgord
 la:tuber melanosporium
 wikidata:en: Q1093314
 wikipedia:en: https://en.wikipedia.org/wiki/Tuber_melanosporum
+
+< en:Blackcurrant
+fr:baies de cassis
 
 < en:Blackcurrant
 < en:Fruit juice
@@ -2976,7 +2982,7 @@ en:blueberry juice from concentrate
 de:Heidelbeersaft aus Heidelbeerkonzentrat, Heidelbeer-Saftkonzentrat
 es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä
-fr:jus de myrtille à base de concentré
+fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
 
 < en:Boiled egg
 fr:quartiers d'œufs durs
@@ -4518,6 +4524,9 @@ nl:gekaramelliseerde suiker, gekarameliseerde suikerstroop
 pl:cukier skarmelizowanny
 sv:karamellisoitu sokeri
 
+< en:Caraway
+fr:graines de carvi
+
 < en:Carbonated natural mineral water
 en:naturally carbonated natural mineral water
 de:natürliches Mineralwasser mit Kohlensäure
@@ -4865,22 +4874,20 @@ nl:cayennepeper gedroogd
 fr:céleri rave râpé
 
 < en:Celeriac
-fr:jus concentré de céleri rave
+fr:jus de céleri-rave concentré, jus concentré de céleri rave
 
 < en:Celery
 de:Selleriesaft
+
+< en:Celery
+en:celery juice
+fr:jus de céleri
 
 < en:Celery
 en:celery puree
 de:Selleriepüree
 fi:selleripyree, sellerisose
 fr:purée de céleri
-
-< en:Celery
-en:concentrated celery juice
-de:Sellerieextrakt
-fi:sellerimehutiiviste
-fr:jus concentré de céleri
 
 < en:Celery
 < en:Herb
@@ -4904,6 +4911,12 @@ fr:garniture de céleri
 < en:Celery
 fr:graines de céleri
 de:Selleriesamen, Selleriesaat
+
+< en:Celery juice
+en:concentrated celery juice
+de:Sellerieextrakt
+fi:sellerimehutiiviste
+fr:jus de céleri concentré, jus concentré de céleri
 
 < en:Celery seed
 < fr:Graines de céleri
@@ -7012,6 +7025,9 @@ de:kandierte Kirschen
 fi:kandeeratut kirsikat
 
 < en:Cherry
+fr:queues de cerise
+
+< en:Cherry
 < en:Purée
 en:cherry purée
 de:Kirschpüree
@@ -8316,6 +8332,9 @@ carbon_footprint_fr_foodges_value:fr: 0.8
 wikidata:en: Q13191
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_-fruit-
 
+< en:Citrus fruit
+fr:écorces d'agrumes
+
 < en:Clam
 en:clam meat
 fi:simpukan liha
@@ -8832,6 +8851,9 @@ fi:kookosraaste
 fr:noix de coco râpée
 it:cocco grattugiato
 nl:Gemalen kokos
+
+< en:Coconut
+fr:pâte de noix de coco
 
 < en:Coconut
 nl:kokosnootwater
@@ -9375,10 +9397,6 @@ fr:monodiglycérides de colza
 de:Mono- und Diglyceride von Raps
 hu:repce mono- és digliceridjei
 
-< en:Colza oil
-< en:Sunflower oil
-fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
-
 < en:Common cuttlefish
 en:Sepia officinalis
 fr:Sepia officinalis
@@ -9436,6 +9454,9 @@ fi:uutetiiviste
 fr:extrait concentré
 it:estratto concentrato
 
+< en:Concentrated grape juice
+fr:jus de raisin concentré rectifié
+
 < en:Concentrated apple juice
 < en:Concentrated grape juice
 < fr:Jus de poire concentré
@@ -9447,6 +9468,9 @@ en:red grape from concentrate
 de:rote Trauben aus Traubenkonzentrat
 fi:punainen rypälemehutiiviste
 pt:sumo de uva tinta à base de concentrado
+
+< en:Concentrated grape must
+fr:moût de raisin concentré rectifié
 
 < en:Concentrated grape must
 < fr:Moût de raisin cuit
@@ -40216,6 +40240,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Glycerol_monostearate
 < en:Goat cheese
 fr:fromage de chèvre au lait pasteurisé, fromage au lait de chèvre pasteurisé
 
+< en:Goat cheese
+fr:fromage de chèvre frais
+
 < en:Goat's milk
 en:pasteurised goat milk, pasteurized goat milk, pasteurised goatmilk
 de:pasteurisierte Ziegenmilch
@@ -40274,45 +40301,6 @@ fi:Grana Padano -juusto
 fr:fromage grana padano aop, fr:grana padano dop, Grana Padano AOP
 it:grana padano dop
 pt:queijo Grana Padano DOP
-
-< en:Grape
-en:must, grape must
-az:Must
-ca:Most
-cs:Vinný mošt
-de:Most, Traubenmost
-el:Μούστος
-eo:Mosto
-es:Mosto
-eu:Muztio
-fa:پوراب
-fi:puristemehu, rypäleen puristemehu
-fr:moût de raisin
-gl:Mosto
-hr:Mošt
-hu:must
-io:Mosto
-it:mosto, mosto d'uva
-ja:ムスト
-ko:머스트
-la:Mustum
-mk:шира
-nb:most
-nl:most, druivenmost
-oc:Most
-pl:Moszcz
-pt:mosto
-ro:Must
-ru:Виноградное сусло
-sk:Mušt
-sl:Mošt
-sq:Mushti i rrushit
-sw:Must
-ta:நொதியேறாப் பழச்சாறு
-uk:Муст
-zh:葡萄漿
-wikidata:en: Q278818
-wikipedia:en: https://en.wikipedia.org/wiki/Must
 
 < en:Grape
 en:raisin, raisins
@@ -40494,6 +40482,9 @@ fi:verigreippi
 fr:pamplemousse rose
 it:pompelmo rosa
 
+< en:Grapefruit
+fr:écorces de pamplemousse
+
 < en:Fruit juice
 < en:Grapefruit
 en:grapefruit juice
@@ -40616,6 +40607,9 @@ fr:thé vert bio
 
 < en:Green tea
 fr:thé vert au jasmin
+
+< en:Green tea
+fr:Thé vert d'Indonésie
 
 < en:Green tea extract
 en:green tea extract powder
@@ -41524,7 +41518,7 @@ dv:ކާސިންޖީ
 es:hierba limón, hierbalimón
 fa:پوتار
 fi:Sitruunaruoho
-fr:citronnelle
+fr:citronnelle, citronelle
 ga:féar líomóideach
 gl:Herba limoeira
 he:עשב לימון
@@ -42573,6 +42567,9 @@ description:sl: Sredstva za ohranjanje vlage so snovi, ki preprečujejo izsušit
 description:sv: Fuktighetsbevarande medel: ämnen som förhindrar uttorkning av livsmedel genom att motverka effekten av luft med låg fuktighet, eller förbättrar upplösningen av pulver i vattenlösningar.
 wikidata:en: Q911854
 
+< en:Hydrogenated colza oil
+fr:huile de colza totalement hydrogénée, huiles végétales de colza totalement hydrogénée
+
 < en:Hydrogenated fat
 en:fully hydrogenated fat
 de:komplett hydriertes Fett
@@ -42600,7 +42597,7 @@ hu:részben hidrogénezett pálmaolaj, részlegesen hidrogénezett pálmaolaj
 en:totally hydrogenated palm oil
 de:vollständig gehärtetes Palmöl
 fi:kokonaan kovetettu palmuöljy, kokonaan hydrogenoitu palmuöljy
-fr:huile de palme totalement hydrogénée
+fr:huile de palme totalement hydrogénée, palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
 
 < en:Hydrogenated vegetable fat
@@ -43315,6 +43312,10 @@ fi:mehu
 fr:jus
 it:succo
 
+< en:Blackberry
+< en:Juice
+fr:jus de mûre à base de jus concentré
+
 < en:Juniper
 en:juniper berry, juniper berries
 af:Jenewerbessie
@@ -43341,6 +43342,9 @@ uk:Ялівець
 zh:杜松子
 wikidata:en: Q3251025
 wikipedia:en: https://en.wikipedia.org/wiki/Juniper_berry
+
+< en:Kaffir lime
+fr:feuilles de combava
 
 en:kaffir lime leaf
 de:Zitronenblatt
@@ -43860,6 +43864,10 @@ nl:lavendelhoning uit de Provence
 
 < en:Lean stern
 de:Magerquarkpulver
+
+< en:Leek
+en:concentrated leek juice
+fr:jus de poireau concentré
 
 en:legume
 af:Peulgewas
@@ -44446,7 +44454,7 @@ cs:Citronová šťáva z koncetrátu
 de:Zitronensaft aus Zitronensaftkonzentrat
 es:zumo de limón a partir de concentrado
 fi:sitruunamehu tiivisteestä, sitruunatäysmehu tiivisteestä, tiivisteestä valmistettu sitruunatäysmehu
-fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré, jus de citron reconstitué à base de concentré
+fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron reconstitué à base de concentré
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé, citromlé (koncentrátumból)
 it:succo di limone da concentrato
 nl:citroensap uit concentraat
@@ -44609,13 +44617,14 @@ fi:sokerisuolattu miedosti savustettu turskan mäti, sokerisuolattu miedosti sav
 
 < en:Lime
 de:Limettenschale
+fr:écorces de citron vert, zeste de citron vert
 it:scorze di lime
 
 < en:Lime juice
 en:reconstituted lime juice
 de:rekonstituierter Limettensaft
 fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
-fr:jus de citron vert à base de concentré
+fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
 nl:limoensap uit concentraat
 
 < en:Lime juice
@@ -44723,7 +44732,7 @@ de:Marsala
 es:Marsala
 fi:marsala, marsala-viini
 fo:Marsalavínfi:Marsala
-fr:vin marsala, vin Marsala AOC
+fr:vin marsala, vin Marsala AOC, marsala
 hr:Marsala
 hu:Marsala
 id:Anggur Marsala
@@ -45404,6 +45413,9 @@ fr:sirop de maltose bio
 hu:bio maltóz szirup
 it:sciroppo di maltosio bio
 nl:biologische maltosestroop
+
+< en:Mandarin
+fr:écorces de mandarine
 
 < en:Fruit juice
 < en:Mandarin
@@ -49161,7 +49173,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Agaricus_bisporus
 en:concentrated mushroom juice
 de:Pilz-Saftkonzentrat
 fi:sienimehutiiviste
-fr:jus concentré de champignon
+fr:jus de champignon concentré, jus concentré de champignon
 
 < en:Mushroom
 en:dark cep
@@ -49667,6 +49679,41 @@ fr:moules cuites
 < en:Mussel
 fr:moules glazurées
 
+en:must
+az:Must
+ca:Most
+de:Most
+el:Μούστος
+eo:Mosto
+es:Mosto
+eu:Muztio
+fa:پوراب
+fr:moût
+gl:Mosto
+hr:Mošt
+hu:must
+io:Mosto
+it:mosto, mosto d'uva
+ja:ムスト
+ko:머스트
+la:Mustum
+mk:шира
+nb:most
+nl:most
+oc:Most
+pl:Moszcz
+pt:mosto
+ro:Must
+sk:Mušt
+sl:Mošt
+sw:Must
+uk:Муст
+zh:葡萄漿
+
+< en:Apple
+< en:Must
+fr:moût de pomme concentré
+
 < en:Must
 en:concentrated grape must
 de:Traubenmostkonzentrat, konzentrierter Traubenmost
@@ -49675,6 +49722,21 @@ fi:rypäleen puristemehuntiiviste
 fr:moût de raisin concentré
 it:mosto d'uva concentrato
 nl:geconcentreerde druivenmost
+
+< en:Grape
+< en:Must
+en:grape must
+cs:Vinný mošt
+de:Traubenmost
+fi:puristemehu, rypäleen puristemehu
+fr:moût de raisin
+it:
+nl:druivenmost
+ru:Виноградное сусло
+sq:Mushti i rrushit
+ta:நொதியேறாப் பழச்சாறு
+wikidata:en: Q278818
+wikipedia:en: https://en.wikipedia.org/wiki/Must
 
 < en:Must
 fr:moût de raisin cuit
@@ -49716,6 +49778,9 @@ nl:mosterd van Dijon
 < en:Mustard
 fr:moutarde forte
 
+< en:Mustard
+fr:sons de moutarde
+
 < en:Mustard seed
 en:brown mustard seed
 de:Braunsenfsaat
@@ -49723,9 +49788,12 @@ fi:ruskea sinapinsiemen
 
 < en:Mustard seed
 en:yellow mustard seed
-de:gelbes Senfkorn, Gelbsenfsaat, Senfsaat gelb
+de:Gelbsenfsaat, Senfsaat gelb, gelbes Senfkorn
 fi:keltainen sinapinsiemen
 fr:graines de moutarde jaunes
+
+< en:Mustard seed
+fr:Graines de moutarde issues de l'agriculture durable
 
 < en:Mustard seed
 fr:graines de moutarde moulues
@@ -50262,11 +50330,17 @@ hu:természetes fekete ribizli aroma
 nl:natuurlijk cassisaroma
 
 < en:Natural flavouring
+fr:arôme naturel de champignon
+
+< en:Natural flavouring
 fr:arôme naturel de gentiane
 fi:luontainen katkeroaromi
 
 < en:Natural flavouring
 fr:arôme naturel de limette
+
+< en:Natural flavouring
+fr:arôme naturel de livèche
 
 < en:Natural flavouring
 fr:arôme naturel de moutarde
@@ -50289,7 +50363,13 @@ fr:arôme naturel de romarin
 fi:luontainen rosmariiniaromi
 
 < en:Natural flavouring
+fr:arôme naturel de sucre roux
+
+< en:Natural flavouring
 fr:arôme naturel de sureau
+
+< en:Natural flavouring
+fr:arôme naturel de vin blanc
 
 < en:Natural flavouring
 fr:arômes naturels de réglisse
@@ -51864,6 +51944,9 @@ hu:Sült hagyma
 nl:gebakken ui, gebakken uien, gefrituurde uien
 
 < en:Onion
+fr:oignon fumé en poudre
+
+< en:Onion
 fr:oignon jaune, oignons jaunes
 fi:keltasipuli
 
@@ -52983,6 +53066,9 @@ de:geschälte Erdnüsse
 fi:kuoreton maapähkinä, kuorettomat maapähkinät
 fr:cacahuètes décortiquées
 nl:Pinda's in de dop
+
+< en:Peanut
+fr:farine d'arachide
 
 < en:Pear
 en:conference pear
@@ -54289,7 +54375,19 @@ zh:山葵
 wikipedia:en: https://en.wikipedia.org/wiki/Wasabi
 
 < en:Plant
+fr:feuilles de frêne
+
+< en:Plant
 fr:feuilles de mûres douces
+
+< en:Plant
+fr:feuilles de mûrier
+
+< en:Plant
+fr:fleur d'oranger
+
+< en:Plant
+fr:pétales de jasmin
 
 < en:Plant
 fr:pin sylvestre
@@ -54432,6 +54530,9 @@ en:Marc de Champagne
 de:Marc de Champagne, Marc de Champagner
 fr:marc de champagne
 it:Marc de Champagne
+
+< en:Pomegranate
+fr:écorces de grenade
 
 < en:Pomegranate
 fr:graines de grenade
@@ -56881,6 +56982,9 @@ fi:luomu rooibos
 fr:rooibos biologique
 nl:biologische rooibos
 
+< en:Rooibos
+fr:Rooibos d'Afrique du Sud
+
 < en:Root vegetable
 en:beetroot, beet
 af:Beet
@@ -57773,6 +57877,10 @@ fr:
 la:Brassica napus
 wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
+
+< en:Root vegetable
+en:rutabaga
+fr:rutabaga
 
 < en:Root vegetable
 en:salsify, black salsify
@@ -59627,7 +59735,7 @@ eo:Vorcestera saŭco
 es:Salsa de Worcestershire
 fa:سس ووسترشر
 fi:Worcesterkastike
-fr:sauce worcestershire
+fr:sauce worcestershire, sauce worchestershire
 he:רוטב ווסטרשייר
 hu:Worcester-szósz
 id:Kecap inggris
@@ -60694,6 +60802,10 @@ fi:luomu seesaminsiemenet
 fr:graines de sesame bio
 it:semi du sesamo bio
 nl:biologisch sesamzaad
+
+< en:Shallot
+en:concentrated shallot juice
+fr:jus d'échalote concentré
 
 < en:Shallot
 fr:échalote déshydratée
@@ -61901,6 +62013,9 @@ es:Aceite de soja hidrogenada
 fi:kovetettu soijaöljy, hydrogenoitu soijaöljy
 fr:huile de soja hydrogénée
 hu:hidrogénezett szójaolaj
+
+< en:Soya oil
+fr:huile de soja entièrement raffinée
 
 < en:Sparkling wine
 fr:vin cremant de Loire aop
@@ -64152,6 +64267,9 @@ en:Tuber aestivum
 de:Sommer-Trüffel (Tuber aestivum)
 la:Tuber aestivum
 
+< en:Sunflower
+fr:pétales de tournesol
+
 < en:Seed
 < en:Sunflower
 en:sunflower seed, sunflower seeds
@@ -64179,6 +64297,10 @@ hu:szója- és napraforgólecitin
 it:lecitina di soia e di girasole
 vegan:en: yes
 vegetarian:en: yes
+
+< en:Colza oil
+< en:Sunflower oil
+fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
 
 < en:Rapeseed oil
 < en:Sunflower oil
@@ -65130,7 +65252,7 @@ nl:gegrilde tomaat
 < en:Tomato
 en:organic tomato
 fi:luomutomaatti, luomu tomaatti
-fr:tomates biologiques
+fr:tomates biologiques, tomates issues de l'agriculture durable
 nl:biologische tomaat, biologische tomaten
 
 < en:Tomato
@@ -65201,6 +65323,9 @@ de:Passierte Tomaten
 it:passata di pomodoro, concentrato di pomodoro
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
 carbon_footprint_fr_foodges_value:fr: 2.9
+
+< en:Tomato
+fr:fibres de tomate, fibre de tomate
 
 < en:Tomato
 fr:tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
@@ -68383,7 +68508,7 @@ es:Aceite de cacahuete, aceite de cacahuate
 eu:Kakahuete olio
 fa:روغن بادام زمینی
 fi:Maapähkinäöljy
-fr:huile d'arachide
+fr:huile d'arachide, huiles végétales d'arachide
 gl:Aceite de cacahuete
 hr:Ulje od kikirikija
 hu:Mogyoróolaj, földimogyoró olaj, földimogyoróolaj
@@ -68529,7 +68654,7 @@ es:aceite de soja
 eu:soja-olio
 fa:روغن سویا
 fi:soijaöljy, soijapapuöljy
-fr:huile de soja
+fr:huile de soja, huiles végétales de soja
 gl:Aceite de soia
 he:שמן סויה
 hu:szójaolaj, szójababolaj
@@ -72438,6 +72563,9 @@ fr:blé dur précuit concassé
 < en:Wheat
 < fr:Blé dur précuit
 fr:Grains de blé dur précuits
+
+< fr:Bleuets
+fr:pétales de bleuet
 
 fr:bonbon au cacao maigre
 
