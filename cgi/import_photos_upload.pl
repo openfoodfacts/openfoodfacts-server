@@ -293,8 +293,9 @@ JS
   }
 
 \$('#fileupload')
-    .bind('fileuploadadd', function (e, data) {
-	\$(document).foundation('equalizer', 'reflow');
+    .bind('fileuploadadd', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
+    .bind('fileuploadstart', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
+	.bind('fileuploadalways', function (e, data) { \$(document).foundation('equalizer', 'reflow');
 });
 
 JS

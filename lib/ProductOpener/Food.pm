@@ -2489,7 +2489,7 @@ sub mmoll_to_unit {
 	},
 	'vitamin-d' => {
 		fr => "Vitamine D / D3 (cholécalciférol)",
-		fr_synonyms => ["Vitamine D", "Vitamine D3", "cholécalciférol"],
+		fr_synonyms => ["Vitamine D", "Vitamine D3", "cholécalciférol", "calciférol", "Vitamine D (Calciférol)"],
 		en => "Vitamin D",
 		es => "Vitamina D",
 		it => "Vitamina D (colecalciferolo)",
@@ -2681,7 +2681,7 @@ sub mmoll_to_unit {
 	},
 	'vitamin-pp' => {
 		fr => "Vitamine B3 / Vitamine PP (Niacine)",
-		fr_synonyms => ["Vitamine B3", "Vitamine PP", "Niacine"],
+		fr_synonyms => ["Vitamine B3", "Vitamine PP", "Niacine", "Vitamine B3 / PP (Niacine)"],
 		en => "Vitamin B3 / Vitamin PP (Niacin)",
 		en_synonyms => ["Vitamin B3", "Vitamin PP", "Niacin"],
 		es => "Vitamina B3 / Vitamina PP (Niacina)",
@@ -2816,7 +2816,7 @@ sub mmoll_to_unit {
 	},
 	'biotin' => {
 		fr => "Biotine (Vitamine B8 / B7 / H)",
-		fr_synonyms => ["Biotine", "Vitamine B8", "Vitamine B7", "Vitamine H"],
+		fr_synonyms => ["Biotine", "Vitamine B8", "Vitamine B7", "Vitamine H", "Vitamine B8 (H) (Biotine)"],
 		en => "Biotin",
 		es => "Vitamina B7 (Biotina)",
 		it => "Vitamina B8/B7/H/I (Biotina)",
@@ -2845,7 +2845,7 @@ sub mmoll_to_unit {
 	},
 	'pantothenic-acid' => {
 		fr => "Acide pantothénique (Vitamine B5)",
-		fr_synonyms => ["Acide pantothénique", "Vitamine B5"],
+		fr_synonyms => ["Acide pantothénique", "Vitamine B5", "Vitamine B5 (Acide pantothénique)"],
 		en => "Pantothenic acid / Pantothenate (Vitamin B5)",
 		en_synonyms => ["Pantothenic acid", "Pantothenate", "Vitamin B5"],
 		ja => "ビタミン B5",
@@ -3494,7 +3494,7 @@ sub mmoll_to_unit {
 		fi => "Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt",
 		fi_synonyms => ["Hedelmät ja kasvikset", "Hedelmät, kasvikset ja pähkinät"],
 		fr => "Fruits, légumes, noix et huiles de colza, noix et olive",
-		fr_synonyms => ["Fruits et légumes", "Fruits / légumes", "F&L", "Fruits, légumes et noix", "Fruits, légumes, noix", "Fruits, légumes, légumineuses, fruits à coques"],
+		fr_synonyms => ["Fruits et légumes", "Fruits / légumes", "F&L", "Fruits, légumes et noix", "Fruits, légumes, noix", "Fruits, légumes, légumineuses, fruits à coques", "Fruits et Légumes, légumineuses et fruits à coque"],
 		es => "Frutas, verduras y nueces",
 		el => "Φρούτα, λαχανικά, καρποί",
 		nl => "Fruit, groenten en noten",
@@ -3632,7 +3632,8 @@ sub mmoll_to_unit {
 		en => "Vitamin K1 (Phylloquinone)",
 		fi => "K1-vitamiini (Fyllokinoni)",
 		fi_synonyms => ["K1-vitamiini", "Fyllokinoni"],
-		fr => "Vitamine K1"
+		fr => "Vitamine K1",
+		fr_synonyms => ["Vitamine K1", "Vitamine K1 (Phylloquinone)", "Vitamine K (Phylloquinone)"],
 	},
 	"beta-glucan" => {
 		en => "Beta-glucan",
