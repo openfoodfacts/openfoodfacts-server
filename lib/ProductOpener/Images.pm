@@ -83,6 +83,9 @@ use JSON::PP;
 use MIME::Base64;
 use LWP::UserAgent;
 
+my $extensions = "gif|jpeg|jpg|png|heic";
+
+
 sub display_select_manage($) {
 
 	my $object_ref = shift;
@@ -391,7 +394,7 @@ sub process_search_image_form($) {
 	my $file = undef;
 	my $code = undef;
 	if ($file = param($imgid)) {
-		if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
+		if ($file =~ /\.($extensions)$/i) {
 
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
 
@@ -444,7 +447,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 		$imagefield =~ s/-/_/;
 	}
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
-	elsif ($filename =~ /^\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.(png|jpg|jpeg|gif)$/i) {
+	elsif ($filename =~ /^\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i) {
 		$imagefield = "front";
 	}
 	else {
@@ -488,7 +491,7 @@ sub process_image_upload($$$$$$) {
 
 		if ($tmp_filename) {
 			open ($file, q{<}, "$tmp_filename") or $log->error("Could not read file", { path => $tmp_filename, error => $! });
-			if ($tmp_filename =~ /\.(gif|jpeg|jpg|png)$/i) {
+			if ($tmp_filename =~ /\.($extensions)$/i) {
 				$extension = lc($1);
 			}
 		}
@@ -517,16 +520,16 @@ sub process_image_upload($$$$$$) {
 	if ($file) {
 		$log->debug("processing uploaded file") if $log->is_debug();
 
-		if ($file !~ /\.(gif|jpeg|jpg|png)$/i) {
+		if ($file !~ /\.($extensions)$/i) {
 			# We have a "blob" without file name and extension?
 			# try to assume it is jpeg (and let ImageMagick read it anyway if it's something else)
 			# $file .= ".jpg";
 		}
 
-		if (1 or ($file =~ /\.(gif|jpeg|jpg|png)$/i)) {
+		if (1 or ($file =~ /\.($extensions)$/i)) {
 			$log->debug("file type validated") if $log->is_debug();
 
-			if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
+			if ($file =~ /\.($extensions)$/i) {
 				$extension = lc($1) ;
 			}
 			$extension eq 'jpeg' and $extension = 'jpg';
@@ -1189,7 +1192,7 @@ sub _set_magickal_options($$) {
 	$magick->Set('png:compression-strategy' => 1);
 	$magick->Set('png:exclude-chunk' => 'all');
 	$magick->Set(interlace => 'none');
-	$magick->Set(colorspace => 'sRGB');
+	# $magick->Set(colorspace => 'sRGB');
 	$magick->Strip();
 
 }
