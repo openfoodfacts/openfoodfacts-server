@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-24 13:59\n"
+"PO-Revision-Date: 2020-02-07 16:46\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -143,7 +143,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "APK ל־Android"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -4055,35 +4055,89 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr "למפקחים יש גישה לתכונות מיוחדות כדי לערוך ולסקור מוצרים."
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr ""
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr ""
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "כבר תרמתי או שאין לי עניין לתרום. נא להסתיר את המודעה."
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
-msgstr ""
+msgstr "היי, יש פה איזו תיבה שמחכה שירד ממנה הסימון?!"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency ?"
-msgstr ""
+msgstr "מיזם עצמאי לשיפור שקיפות המזון בהובלת הקהילה?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health ?"
-msgstr ""
+msgstr "נתוני מוצרי מזון למטרות מחקר שמסייעות בשיפור בריאות הציבור?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "בחירות מזון פשוטות וטובות יותר בתנאים שלך?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "תמיכתך חשובה לנו!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "נא לתרום"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr "צריכה מופרזת של אלכובול מסוכנת לבריאות, יש לצרוך בכמות מתונה."
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr ""
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr ""
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr ""
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr ""
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr ""
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr ""
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr ""
 
