@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-02-07 16:49\n"
+"PO-Revision-Date: 2020-02-07 17:41\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4057,11 +4057,11 @@ msgstr "Moderatoren haben Zugriff auf spezielle Funktionen zur Bearbeitung und �
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "Moderator für die Produzentenplattform"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "Moderatoren der Produzentenplattform können die privaten Produkte aller Nutzer und Organisationen auf der Produzentenplattform einsehen und bearbeiten."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
@@ -4097,37 +4097,37 @@ msgstr "Übermäßiger Alkoholkonsum ist gesundheitsschädlich und sollte nur in
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "Moderation der Produzentenplattform"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "Ihnen werden derzeit Produkte von %s angezeigt."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "Ihnen werden derzeit Ihre eigenen Produkte angezeigt."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "Um Produkte eines bestimmten Benutzers oder einer Organisation anzuzeigen, geben Sie seine ID unten ein. Feld leer lassen, um es nicht festzulegen."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "Ändern"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "nutzer-abc oder org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "Benutzer %s nicht vorhanden"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "Die ID muss die Form nutzer-abc oder org-xyz aufweisen"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
