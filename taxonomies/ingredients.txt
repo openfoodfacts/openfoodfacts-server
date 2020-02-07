@@ -10030,7 +10030,10 @@ carbon_footprint_fr_foodges_ingredient:fr:Fromage frais de chèvre
 carbon_footprint_fr_foodges_value:fr:3.6
 # fr:fromage de chèvre has 391 products in 6 languages @2018-10-27
 
-<fr:fromage de chèvre
+<en:goat cheese
+fr:fromage de chèvre frais
+
+<en:goat cheese
 # <en:pasteurized
 fr:fromage de chèvre au lait pasteurisé, fromage au lait de chèvre pasteurisé
 # fr:fromage-de-chèvre-au-lait-pasteurisé has 44 products in 1 language @2018-10-27
@@ -16293,7 +16296,7 @@ nl:gehydrogeneerde palmolie
 en:totally hydrogenated palm oil
 de:vollständig gehärtetes Palmöl
 fi:kokonaan kovetettu palmuöljy, kokonaan hydrogenoitu palmuöljy
-fr:huile de palme totalement hydrogénée
+fr:huile de palme totalement hydrogénée, palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
 
 <en:hydrogenated palm oil
@@ -16696,6 +16699,9 @@ nl:olie van biologisch koolzaad
 en:hydrogenated colza oil
 fi:kovetettu rapsiöljy
 
+<en:hydrogenated colza oil
+fr:huile de colza totalement hydrogénée, huiles végétales de colza totalement hydrogénée
+
 <en:colza oil
 fr:huile de colza non hydrogénée
 
@@ -16846,7 +16852,7 @@ es:Aceite de cacahuete, aceite de cacahuate
 eu:Kakahuete olio
 fa:روغن بادام زمینی
 fi:Maapähkinäöljy
-fr:huile d'arachide
+fr:huile d'arachide, huiles végétales d'arachide
 gl:Aceite de cacahuete
 hr:Ulje od kikirikija
 hu:Mogyoróolaj, földimogyoró olaj, földimogyoróolaj, földimogyoró-olaj
@@ -16960,7 +16966,7 @@ es:aceite de soja
 eu:soja-olio
 fa:روغن سویا
 fi:soijaöljy, soijapapuöljy
-fr:huile de soja
+fr:huile de soja, huiles végétales de soja
 gl:Aceite de soia
 he:שמן סויה
 hu:szójaolaj, szójababolaj
@@ -16991,6 +16997,9 @@ es:Aceite de soja hidrogenada
 fi:kovetettu soijaöljy, hydrogenoitu soijaöljy
 fr:huile de soja hydrogénée
 hu:hidrogénezett szójaolaj
+
+<en:soy oil
+fr:huile de soja entièrement raffinée
 
 # description:en:CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources.
 
@@ -19236,7 +19245,7 @@ de:Marsala
 es:Marsala
 fi:marsala, marsala-viini
 fo:Marsalavínfi:Marsala
-fr:vin marsala, vin Marsala AOC
+fr:vin marsala, vin Marsala AOC, marsala
 hr:Marsala
 hu:Marsala
 id:Anggur Marsala
@@ -19700,6 +19709,9 @@ hu:természetes rumaroma, természetes rum aroma
 <en:natural flavouring
 fr:arôme naturel de limette
 
+<en:natural flavouring
+fr:arôme naturel de champignon
+
 # Two parents due to and/or ingredient
 
 <en:natural orange flavouring
@@ -19745,6 +19757,9 @@ pt:aroma natural de limão
 ru:натуральный ароматизатор лимон
 vegan:en:yes
 vegetarian:en:yes
+
+<en:natural flavouring
+fr:arôme naturel de livèche
 
 <en:natural flavouring
 fr:arômes naturels de réglisse
@@ -19906,6 +19921,9 @@ hu:természetes tárkony aroma
 
 <en:natural flavouring
 fr:arôme naturel de réglisse
+
+<en:natural flavouring
+fr:arôme naturel de sucre roux
 
 <en:natural flavouring
 en:natural fruits flavouring
@@ -20737,6 +20755,8 @@ fi:luontainen ruusuaromi
 fr:arôme naturel de rose
 hu:természetes rózsa aroma
 
+<en:natural flavouring
+fr:arôme naturel de vin blanc
 
 # description:en:Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
 # comment:en:It is assumed that the translations of smoke are the same as cooking smoke.
@@ -32327,13 +32347,6 @@ nl:biologische appel, Biologische appels
 fr:fruits à cidre de Normandie
 
 <en:apple
-fr:pommes gala
-
-<en:apple
-fr:pommes golden
-# 11@109-06-05
-
-<en:apple
 fr:pommes d'Aquitaine
 # 22@2019-06-09
 
@@ -32451,11 +32464,19 @@ it:fiocchi di mela
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
+<fr:moût
+fr:moût de pomme concentré
+
+<en:apple
 en:Golden Delicious apple
 de:Golden Delicious Apfel
 fi:golden delicious -omena
-fr:pomme Golden Delicious, pommes Golden Delicious
+fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
 # ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
+
+
+<en:apple
+fr:pommes gala
 
 <en:apple
 nl:Royal Gala appel
@@ -32686,6 +32707,9 @@ en:citrus fruit extract
 de:Citrusextrakt
 fi:sitrushedelmäuute
 
+<en:citrus fruit
+fr:écorces d'agrumes
+
 # Citrus hystrix, called the kaffir lime, makrut lime or Mauritius papeda, is a citrus fruit native to tropical Southeast Asia and southern China.
 
 <en:citrus fruit
@@ -32724,6 +32748,8 @@ zh:箭叶橙
 wikipedia:en:https://en.wikipedia.org/wiki/Kaffir_lime
 #  fr:combava has 42 products in 4 languages @2019-02-16
 
+<en:kaffir lime
+fr:feuilles de combava
 
 # A lime is a hybrid citrus fruit
 
@@ -32840,13 +32866,14 @@ fi:limettimehutiiviste, limettitäysmehutiiviste
 en:reconstituted lime juice
 de:rekonstituierter Limettensaft
 fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
-fr:jus de citron vert à base de concentré
+fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
 nl:limoensap uit concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
 # 74 products in 3 languages @2018-10-01
 
 <en:lime
 de:Limettenschale
+fr:écorces de citron vert, zeste de citron vert
 it:scorze di lime
 
 <en:fruit
@@ -33471,7 +33498,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Mandarine
 carbon_footprint_fr_foodges_value:fr:1.3
 # 239 products in 6 languages @2018-10-01
 
-<fr:mandarine
+<en:mandarin
 <en:fruit juice
 fr:jus de mandarine
 de:Mandarinesaft, Mandarinensaft
@@ -33486,6 +33513,9 @@ de:Mandarinensaft aus Konzentrat
 fi:mandariinimehutiiviste, mandariinitäysmehutiiviste
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
 # 1 entry @ 2019-10-31
+
+<en:mandarin
+fr:écorces de mandarine
 
 # A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
 # The wikidata-page mixes the plant and the fruit
@@ -33565,6 +33595,9 @@ wikidata:en:Q146604
 # wikidata refers to the shrub
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blackcurrant
 # 1056 products in 9 languages @2018-10-01
+
+<en:blackcurrant
+fr:baies de cassis
 
 <en:blackcurrant
 <en:fruit juice
@@ -34037,7 +34070,7 @@ en:blueberry juice from concentrate
 de:Heidelbeersaft aus Heidelbeerkonzentrat, Heidelbeer-Saftkonzentrat
 es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä
-fr:jus de myrtille à base de concentré
+fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
 
 # Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit,
 
@@ -34110,6 +34143,10 @@ zh:黑莓
 # yue:黑啤梨
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mûre
 # 404 products in 7 languages @21018-10-01
+
+<en:blackberry
+<en:juice
+fr:jus de mûre à base de jus concentré
 
 # description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 
@@ -34491,6 +34528,9 @@ fr:Purée de cerises
 it:purea di ciliegie
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/en:cherry-purée
 # 35 products @2018-09-29
+
+<en:cherry
+fr:queues de cerise
 
 # PASSION FRUIT is the fruit of a number of plants in the Passiflora family.Edible passion fruits can be divided into three main types:purple ones (fruits of Passiflora edulis Sims), yellow ones (Passiflora edulis f. flavicarpa Deg.), and giant granadilla (Passiflora quadrangularis L.),[4] as well as sweet granadilla (Passiflora ligularis).
 
@@ -35442,6 +35482,9 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-
 # 32 products @2018-09-30
 
 <en:grapefruit
+fr:écorces de pamplemousse
+
+<en:grapefruit
 en:pink grapefruit
 de:Pink grapefruit
 fi:verigreippi
@@ -35970,6 +36013,9 @@ nl:Geconcentreerd grapefruitsap
 # 139 products in 2 languages @2018-10-02
 # ingredient/fr:concentré-de-jus-de-raisin has 26 products in 3 languages @2018-10-02
 
+<en:concentrated grape juice
+fr:jus de raisin concentré rectifié
+
 <en:grape juice
 en:white grape juice
 de:Traubensaft weiss
@@ -36014,21 +36060,19 @@ pt:sumo de uva tinta à base de concentrado
 <en:raspberry juice
 fi:rypäle- ja vadelmatäysmehu tiivisteestä
 
-# Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
 
-<en:grape
-en:must, grape must
+# description:en:Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
+
+en:must
 az:Must
 ca:Most
-cs:Vinný mošt
-de:Most, Traubenmost
+de:Most
 el:Μούστος
 eo:Mosto
 es:Mosto
 eu:Muztio
 fa:پوراب
-fi:puristemehu, rypäleen puristemehu
-fr:moût de raisin
+fr:moût
 gl:Mosto
 hr:Mošt
 hu:must
@@ -36039,17 +36083,14 @@ ko:머스트
 la:Mustum
 mk:шира
 nb:most
-nl:most, druivenmost
+nl:most,
 oc:Most
 pl:Moszcz
 pt:mosto
 ro:Must
-ru:Виноградное сусло
 sk:Mušt
 sl:Mošt
-sq:Mushti i rrushit
 sw:Must
-ta:நொதியேறாப் பழச்சாறு
 uk:Муст
 zh:葡萄漿
 # bar:Mosd
@@ -36060,6 +36101,19 @@ zh:葡萄漿
 # rup:Mustu
 # scn:Mustu
 # zh-tw:水果酒
+
+<en:grape
+<en:must
+en:grape must
+cs:Vinný mošt
+de:Traubenmost
+fi:puristemehu, rypäleen puristemehu
+fr:moût de raisin
+it:mosto d'uva
+nl:druivenmost
+ru:Виноградное сусло
+sq:Mushti i rrushit
+ta:நொதியேறாப் பழச்சாறு
 wikipedia:en:https://en.wikipedia.org/wiki/Must
 wikidata:en:Q278818
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
@@ -36075,6 +36129,9 @@ it:mosto d'uva concentrato
 nl:geconcentreerde druivenmost
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-concentré
 # 183 products in 5 languages @2018-10-02
+
+<en:concentrated grape must
+fr:moût de raisin concentré rectifié
 
 <en:concentrated grape must
 <fr:moût de raisin cuit
@@ -37064,6 +37121,9 @@ en:organic pomegranate juice
 fi:luomugranaattiomenamehu, luomu granaattiomenamehu
 fr:Jus de Grenade issu de l'agriculture biologique
 
+<en:pomegranate
+fr:écorces de grenade
+
 # Aronia is a genus of deciduous shrubs, the chokeberries, in the family Rosaceae native to eastern North America
 
 <en:fruit
@@ -37347,6 +37407,9 @@ de:Kokosnusschips, Kokosnuss-Chips
 fi:kookoslastu, kookoslastut
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kookoslastu
 # 1 entry @ 2019-10-31
+
+<en:coconut
+fr:pâte de noix de coco
 
 <en:fruit
 en:acai berry, açaí berries, acai
@@ -39922,10 +39985,14 @@ fi:selleripyree, sellerisose
 fr:purée de céleri
 
 <en:celery
+en:celery juice
+fr:jus de céleri
+
+<en:celery juice
 en:concentrated celery juice
 de:Sellerieextrakt
 fi:sellerimehutiiviste
-fr:jus concentré de céleri
+fr:jus de céleri concentré, jus concentré de céleri
 # fr:jus-concentré-de-céleri has 64 products in 1 language @2018-10-21
 
 <en:concentrated celery juice
@@ -39991,7 +40058,7 @@ fr:céleri rave râpé
 # fr:céleri-rave-râpé has 17 products in 1 language @2018-10-20
 
 <en:celeriac
-fr:jus concentré de céleri rave
+fr:jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
 
 <en:carrot
 <en:pumpkin
@@ -40390,6 +40457,9 @@ carbon_footprint_fr_foodges_value:fr:0.3
 # ingredient/leek has 3620 products in 19 languages @2019-05-22
 # category/leeks has 34 products @2019-05-22
 
+<en:leek
+en:concentrated leek juice
+fr:jus de poireau concentré
 
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
@@ -40441,6 +40511,9 @@ fr:oignon semoule
 
 <en:onion
 fr:oignons grillés en poudre
+
+<en:onion
+fr:oignon fumé en poudre
 
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
@@ -41478,6 +41551,10 @@ fi:kuivattu salottisipuli
 
 <en:shallot
 fr:pulpe d'échalote
+
+<en:shallot
+en:concentrated shallot juice
+fr:jus d'échalote concentré
 
 # description:en: COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
 
@@ -42731,7 +42808,7 @@ wikidata:en:Q20638126
 <en:tomato
 en:organic tomato
 fi:luomutomaatti, luomu tomaatti
-fr:tomates biologiques
+fr:tomates biologiques, tomates issues de l'agriculture durable
 nl:biologische tomaat, biologische tomaten
 # ingredient/fr:tomates-biologiques has 19 products in french @2019-05-29
 
@@ -43023,6 +43100,9 @@ fr:Purée de tomates vertes
 de:Püree aus grünen Tomaten
 fi:vihreä tomaattipyree
 
+<en:tomato
+fr:fibres de tomate, fibre de tomate
+
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
@@ -43049,7 +43129,7 @@ et:Naeris
 eu:Arbi
 fa:شلغم
 fi:Nauris, peltokaali
-fr:navet, navets
+fr:navet, navets, rutabaga
 ga:Tornapa
 gl:Nabo
 gu:સલગમ
@@ -45120,6 +45200,9 @@ es:cacahuete con cáscara
 fi:kuorellinen maapähkinä
 fr:cacahuète avec coque
 
+<en:peanut
+fr:farine d'arachide
+
 <en:nut
 en:cashew nuts, cashews, cashew
 ar:كاجو
@@ -45151,6 +45234,8 @@ zh:腰果
 wikidata:en:Q28788216
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
+
+
 
 # description:en: The HAZELNUT is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
 
@@ -45752,16 +45837,6 @@ it:anice bio
 nl:biologisch anijszaad, anijs bio
 # ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
 
-
-<en:mustard seed
-en:yellow mustard seed
-de:gelbes Senfkorn
-fi:keltainen sinapinsiemen
-fr:graines de moutarde jaunes
-
-<en:mustard seed
-fr:graines de moutarde moulues
-
 <en:seed
 en:celery seed
 de:Selleriesamen
@@ -46232,6 +46307,9 @@ nl:zwarte peperextract
 <en:green pepper
 en:black and green pepper
 fi:musta- ja viherpippuri
+
+<en:pepper
+fr:poivre rose
 
 <en:seed
 <en:fenugreek
@@ -46750,6 +46828,8 @@ zh:葛縷子
 wikipedia:en:https://en.wikipedia.org/wiki/Caraway
 # ingredient/fr:carvi has 276 products in 7 languages @2019-05-13
 
+<en:caraway
+fr:graines de carvi
 
 # description:en:The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
 
@@ -47855,14 +47935,24 @@ sl:gorčično seme
 sv:senapsfrö
 
 <en:mustard seed
+fr:Graines de moutarde issues de l'agriculture durable
+
+<en:mustard seed
+fr:graines de moutarde moulues
+
+<en:mustard seed
 en:yellow mustard seed
-de:Gelbsenfsaat, Senfsaat gelb
+de:Gelbsenfsaat, Senfsaat gelb, gelbes Senfkorn
 fi:keltainen sinapinsiemen
+fr:graines de moutarde jaunes
 
 <en:mustard seed
 en:brown mustard seed
 de:Braunsenfsaat
 fi:ruskea sinapinsiemen
+
+<en:mustard
+fr:sons de moutarde
 
 # description:en:MUSTARD is a condiment made from the seeds of a mustard plant
 
@@ -48277,7 +48367,7 @@ dv:ކާސިންޖީ
 es:hierba limón, hierbalimón
 fa:پوتار
 fi:Sitruunaruoho
-fr:citronnelle
+fr:citronnelle, citronelle
 ga:féar líomóideach
 gl:Herba limoeira
 he:עשב לימון
@@ -49249,6 +49339,9 @@ fr:livèche séchée
 <en:blueberry
 fr:bleuets
 
+<fr:bleuets
+fr:pétales de bleuet
+
 # Centaurea cyanus, commonly known as CORNFLOWER or bachelor's button,[note 1] is an annual flowering plant in the family Asteraceae, native to Europe.
 
 <en:herb
@@ -49743,6 +49836,8 @@ sl:Kapra
 wikipedia:en:https://en.wikipedia.org/wiki/Caper
 # ingredient/fr:câpre has 494 products in 6 languages @2018-12-4
 
+<en:plant
+fr:feuilles de frêne
 
 # Coriander (Coriandrum sativum), also known as cilantro or Chinese parsley, is an annual herb in the family Apiaceae.
 # coriander is used as an en:herb (leaves) or as an en:seed (en:spice).
@@ -49871,6 +49966,8 @@ fr:arôme de coriandre
 es:aroma de cilantro
 # ingredient/fr:arôme de coriandre has 1 products in 2 languages @2018-12-05
 
+<en:plant
+fr:feuilles de mûrier
 
 <en:plant
 fr:feuilles de mûres douces
@@ -50017,7 +50114,8 @@ it:luppolo biologico, luppolo bio
 nl:biologische hop, bio hop
 sv:organisk humle
 
-
+<en:plant
+fr:pétales de jasmin
 
 # description:en:JUNIPERS are coniferous plants in the genus Juniperus of the cypress family Cupressaceae. Juniper berries are a spice used in a wide variety of culinary dishes and best known for the primary flavoring in gin. Juniper berry sauce is often a popular flavoring choice for quail, pheasant, veal, rabbit, venison and other game dishes.
 # comment:en:Juniper as an ingredient most certainly implies a juniper berry.
@@ -50940,7 +51038,8 @@ fr:feuilles d'oranger
 it:foglie d'arancio
 # ingredient/fr:feuilles-d'oranger has 65 products in 4@2019-04-13
 
-
+<en:plant
+fr:fleur d'oranger
 
 # <en:vegetable fibre
 <en:plant
@@ -51155,6 +51254,9 @@ zh:南非茶
 # sr-el:Roibos
 wikipedia:en:https://en.wikipedia.org/wiki/Rooibos
 # ingredient/fr:rooibos has 119 products in 10 languages @2019-04-23
+
+<en:rooibos
+fr:Rooibos d'Afrique du Sud
 
 <en:rooibos
 en:organic rooibos
@@ -51552,6 +51654,8 @@ wikidata:en:Q26949
 wikipedia:en:https://en.wikipedia.org/wiki/Helianthus
 # en:sunflower has 16610 products @2018-10-15
 
+<en:sunflower
+fr:pétales de tournesol
 
 <en:plant
 en:soapwort
@@ -51853,7 +51957,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Black_tea
 en:Ceylon black tea
 de:Ceylon Schwarztee
 fi:ceylonin musta tee
-fr:thé noir Ceylan, Thé noir de Ceylan
+fr:thé noir du Sri Lanka, thé noir Ceylan, Thé noir de Ceylan
 # ingredient/fr:the-noir-ceylan has 14 products in french @2019-05-25
 
 <en:Ceylon black tea
@@ -51983,6 +52087,9 @@ en:green tea from China
 de:grüner Tee aus China, chinesischer Grüntee
 fr:thé vert de Chine
 # ingredient/fr:the-vert-de-chine 15 products @2019-06-03
+
+<en:green tea
+fr:Thé vert d'Indonésie
 
 <en:green tea
 en:green tea extract
@@ -53126,7 +53233,7 @@ carbon_footprint_fr_foodges_value:fr:1.9
 en:concentrated mushroom juice
 de:Pilz-Saftkonzentrat, Pilz Saftkonzentrat
 fi:sienimehutiiviste
-fr:jus concentré de champignon
+fr:jus de champignon concentré, jus concentré de champignon
 
 <en:mushroom
 en:mushroom extract
@@ -61378,6 +61485,9 @@ it:caffè Arabica
 fr:cafe arabica du Brésil
 
 <en:arabica coffee
+fr:café Arabica de Colombie en poudre 
+
+<en:arabica coffee
 en:freshly brewed Arabica coffee
 de:frisch gebrühter Arabica-Kaffee
 fr:café arabica fraîchement préparé
@@ -67583,7 +67693,7 @@ eo:Vorcestera saŭco
 es:Salsa de Worcestershire
 fa:سس ووسترشر
 fi:Worcesterkastike
-fr:sauce worcestershire
+fr:sauce worcestershire, sauce worchestershire
 he:רוטב ווסטרשייר
 hu:Worcester-szósz
 id:Kecap inggris
