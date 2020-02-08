@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-02-07 21:11\n"
+"PO-Revision-Date: 2020-02-08 12:23\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4057,11 +4057,11 @@ msgstr "למפקחים יש גישה לתכונות מיוחדות כדי לער
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "מפקח לפלטפורמת היצרנים"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "מפקחי פלטפורמת היצרנים יכולים לצפות ולערוך את המוצרים הפרטיים של כל המשתמשים והארגונים בלטפורמת היצרנים."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
@@ -4097,15 +4097,15 @@ msgstr "צריכה מופרזת של אלכובול מסוכנת לבריאות,
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "פיקוח על פלטפורמת היצרנים"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "כרגע מוצגים בפניך מוצרים מאת %s."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "כרגע מוצגים בפניך המוצרים שלך."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
@@ -4114,20 +4114,20 @@ msgstr ""
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "החלפה"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abc או org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "המשתמש %s לא קיים"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "המזהה חייב להיות בתצורת user-abc או org-xyz"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
@@ -4139,7 +4139,7 @@ msgstr ""
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
-msgstr ""
+msgstr "ייבוא הקטגוריות"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
