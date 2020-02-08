@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-02-08 10:22\n"
+"PO-Revision-Date: 2020-02-08 10:31\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4057,7 +4057,7 @@ msgstr "Moderator platforme proizvajalcev"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "Moderatorji platforme proizvajalcev si lahko ogledajo in urejajo zasebne izdelke vseh uporabnikov in organizacij na platformi proizvajalcev."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
@@ -4093,49 +4093,49 @@ msgstr "Prekomerno uživanje alkohola škoduje zdravju, uživajmo ga zmerno."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "Zmernost platforme proizvajalcev"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "Trenutno gledate izdelke od %s."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "Trenutno gledate svoje izdelke."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "Če si želite ogledati izdelke določenega uporabnika ali organizacije, spodaj vnesite Id. Pustite polje prazno, da ni nastavljeno."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "Spremeni"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "uporabnik-abc ali org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "Uporabnik %s ne obstaja"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "Id mora biti v obliki uporabnika-abc ali org-xyz"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "Uvoz kategorij izdelkov iz javne baze podatkov"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr ""
+msgstr "Izdelkom na platformi za proizvajalce dodajte kategorije iz javne baze podatkov."
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
-msgstr ""
+msgstr "Uvoz kategorij"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
