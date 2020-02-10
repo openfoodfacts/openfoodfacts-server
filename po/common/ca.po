@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-02-07 21:08\n"
+"PO-Revision-Date: 2020-02-10 09:01\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4055,11 +4055,11 @@ msgstr ""
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "Moderació per la plataforma de productors"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "Les persones que moderen la plataforma de productors poden visualitzar i editar els productes privats de tots els usuaris i organitzacions a la plataforma de productors."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
@@ -4095,24 +4095,24 @@ msgstr ""
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "Moderació de la plataforma de productors"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "Actualment, esteu veient productes de %s."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "Actualment esteu veient els vostres productes."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "Per veure els productes d'una persona o organització en concret, introduïu el seu identificador a continuació. Deixeu el camp buit per anul·lar l'identificador."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "Canvia"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4121,15 +4121,15 @@ msgstr ""
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "No existeix l'identificador %s"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "El paràmetre id cal que estigui en format user-abc o org-xyz"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "Importa les categories de producte de la base de dades pública"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
