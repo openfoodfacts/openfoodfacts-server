@@ -164,25 +164,26 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 		if (defined $product_ref->{popularity_tags}) {
 			my @popularity_tags = @{$product_ref->{popularity_tags}};
-			$product_ref->{popularity_tags} = ();
+			$product_ref->{popularity_tags} = [];
 			foreach my $tag (@popularity_tags) {
 				if ($tag !~ /-$year/) {
 					push @{$product_ref->{popularity_tags}}, $tag;
 				}
 			}
 		}
+		else {
+			$product_ref->{popularity_tags} = [];
+		}
 
 		foreach my $top (10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000) {
 
 			if ($rank <= $top) {
-				defined $product_ref->{popularity_tags} or $product_ref->{popularity_tags} = [];
 				push @{$product_ref->{popularity_tags}}, "top-" . $top . "-scans-$year";
 			}
 		}
 
 		foreach my $min (5, 10) {
 			if ($unique_scans_n >= $min) {
-				defined $product_ref->{popularity_tags} or $product_ref->{popularity_tags} = [];
 				push @{$product_ref->{popularity_tags}}, "at-least-" . $min . "-scans-$year";
 			}
 		}
@@ -190,9 +191,11 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 		$cumulative_scans += $codes{$code}{u};
 
 		foreach my $percent (90, 95) {
-			if ($cumulative_scans / $total_scans < $percent / 100) {
-				defined $product_ref->{popularity_tags} or $product_ref->{popularity_tags} = [];
+			if ($cumulative_scans / $total_scans <= $percent / 100) {
 				push @{$product_ref->{popularity_tags}}, "top-" . $percent . "-percent-scans-$year";
+			}
+			else {
+				push @{$product_ref->{popularity_tags}}, "bottom-" . (100 - $percent) . "-percent-scans-$year";
 			}
 		}
 
@@ -219,13 +222,11 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 			foreach my $top (10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000) {
 
 				if ($rank_by_country{$cc} <= $top) {
-					defined $product_ref->{popularity_tags} or $product_ref->{popularity_tags} = [];
 					push @{$product_ref->{popularity_tags}}, "top-" . $top . "-$cc-scans-$year";
 				}
 			}
 
 			if (not $top_country) {
-				defined $product_ref->{popularity_tags} or $product_ref->{popularity_tags} = [];
 				push @{$product_ref->{popularity_tags}}, "top-country-" . $cc . "-scans-$year";
 				$top_country = $cc;
 			}
@@ -245,7 +246,6 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 				foreach my $min (5, 10) {
 					if ($countries{$cc} >= $min) {
-						defined $product_ref->{popularity_tags} or $product_ref->{popularity_tags} = [];
 						push @{$product_ref->{popularity_tags}}, "at-least-" . $min . "-" . $cc . "-scans-$year";
 					}
 				}
