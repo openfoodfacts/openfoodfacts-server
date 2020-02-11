@@ -78,9 +78,11 @@ while (<STDIN>)
 		my $code = $1;
 
 		# Skip bogus codes
+		
 		($code eq "1") and next;
+		($code eq "15600703") and next;
 
-		defined $codes{$code} or $codes{$code} = {n => 0, ips => {}};
+		(defined $codes{$code}) or $codes{$code} = {n => 0, ips => {}};
 
 		$codes{$code}{n}++;
 		$codes{$code}{ips}{$ip}++;
@@ -113,6 +115,8 @@ my $i = 0;	# products scanned
 
 foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $codes{$a}{n} } keys %codes) {
 
+	next if $code eq "";
+
 	$i++;
 
 	my $scans_n = $codes{$code}{n};
@@ -144,14 +148,21 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 	print "$i - checking product $code - scans: $scans_n unique_scans: $unique_scans_n \n";
 
 	my $product_ref = retrieve_product($code);
-	my $path = product_path($product_ref);
 
 	my $found = "NOT_FOUND";
+	my $source = "crowdsourcing";
 	my $added_countries_list = "";
 
-	if ((defined $product_ref) and ($code ne '')) {
+	if ((defined $product_ref) and ($code ne '') and (defined $product_ref->{code}) and (defined $product_ref->{lc})) {
+
+		my $path = product_path($product_ref);
 
 		$found = "FOUND";
+
+		if ((defined $product_ref->{data_sources}) 
+			and ($product_ref->{data_sources} =~ /producer/i)) {
+			$source = "producers";
+		}
 
 		$lc = $product_ref->{lc};
 
@@ -329,7 +340,8 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 	$added_countries_list =~ s/,$//;
 
-	print $PRODUCTS $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $added_countries_list . "\n";
+	print $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\n";
+	print $PRODUCTS $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\n";
 
 	print $LOG $bot . "\n";
 
