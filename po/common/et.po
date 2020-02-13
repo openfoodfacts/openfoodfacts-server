@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: et\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-02-13 13:41\n"
+"PO-Revision-Date: 2020-02-13 13:51\n"
 "Language-Team: Estonian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -301,11 +301,11 @@ msgstr ""
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Koodid"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Kood"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -317,7 +317,7 @@ msgstr ""
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Kaasautor alates"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -409,7 +409,7 @@ msgstr ""
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Kustutatud:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -429,7 +429,7 @@ msgstr ""
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "muuda"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
@@ -437,19 +437,19 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Muuda toodet"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Muuda lehte"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Muuda avalikku profiili"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "Avaliku profiili muudatused on salvestatud."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
@@ -477,11 +477,11 @@ msgstr ""
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "meiliaadress"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "EMB koodid"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -489,11 +489,11 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB kood"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB kood"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -506,7 +506,7 @@ msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "pakendaja koodid"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
@@ -514,7 +514,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "pakendaja kood"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
@@ -522,11 +522,11 @@ msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "Sisestuskuupäevad"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Sisestuskuupäev"
 
 msgctxt "error"
 msgid "Error"
@@ -534,7 +534,7 @@ msgstr "Viga"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Vale kasutajanimi või parool. <a href=\"/cgi/reset_password.pl\">Unustasid parooli?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
@@ -542,7 +542,7 @@ msgstr ""
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Parool ja selle kinnitus ei kattu."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
@@ -586,7 +586,7 @@ msgstr ""
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Olete juba sisse logitud."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
