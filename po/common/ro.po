@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-02-14 12:51\n"
+"PO-Revision-Date: 2020-02-15 08:10\n"
 "Language-Team: Romanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -648,22 +648,6 @@ msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Dacă datele sunt incomplete sau incorecte, le puteți completa sau corecta modificând această pagină."
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Aviz juridic</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Condiții de utilizare</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Cine suntem</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Întrebări Frecvente</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Presă și Bloguri</a>\n"
-
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr "și grupul Facebook <a href=\"https://www.facebook.com/groups/openfoodfacts/\"> pentru contributori</a>"
@@ -1048,146 +1032,6 @@ msgctxt "lang"
 msgid "Main language"
 msgstr "Limba principală"
 
-msgctxt "lang_ar"
-msgid "Arabic"
-msgstr "Arabă"
-
-msgctxt "lang_bg"
-msgid "Bulgarian"
-msgstr "Bulgară"
-
-msgctxt "lang_cs"
-msgid "Czech"
-msgstr "Cehă"
-
-msgctxt "lang_da"
-msgid "Danish"
-msgstr "Daneză"
-
-msgctxt "lang_de"
-msgid "German"
-msgstr "Germană"
-
-msgctxt "lang_el"
-msgid "Greek"
-msgstr "Greacă"
-
-msgctxt "lang_en"
-msgid "English"
-msgstr "Engleză"
-
-msgctxt "lang_es"
-msgid "Spanish"
-msgstr "Spaniolă"
-
-msgctxt "lang_et"
-msgid "Estonian"
-msgstr "Estonă"
-
-msgctxt "lang_fi"
-msgid "Finnish"
-msgstr "Finlandeză"
-
-msgctxt "lang_fr"
-msgid "French"
-msgstr "Franceză"
-
-msgctxt "lang_ga"
-msgid "Irish"
-msgstr "Irlandeză"
-
-msgctxt "lang_he"
-msgid "Hebrew"
-msgstr "Ebraică"
-
-msgctxt "lang_hu"
-msgid "Hungarian"
-msgstr "Maghiară"
-
-msgctxt "lang_id"
-msgid "Indonesian"
-msgstr "Indoneziană"
-
-msgctxt "lang_it"
-msgid "Italian"
-msgstr "Italiană"
-
-msgctxt "lang_ja"
-msgid "Japanese"
-msgstr "Japoneză"
-
-msgctxt "lang_ko"
-msgid "Korean"
-msgstr "Coreeană"
-
-msgctxt "lang_lt"
-msgid "Lithuanian"
-msgstr "Lituaniană"
-
-msgctxt "lang_lv"
-msgid "Latvian"
-msgstr "Letonă"
-
-msgctxt "lang_mt"
-msgid "Maltese"
-msgstr "Malteză"
-
-msgctxt "lang_nl"
-msgid "Dutch"
-msgstr "Olandeză"
-
-msgctxt "lang_nl_be"
-msgid "Dutch"
-msgstr "Olandeză"
-
-msgctxt "lang_pl"
-msgid "Polish"
-msgstr "Poloneză"
-
-msgctxt "lang_pt"
-msgid "Portuguese"
-msgstr "Portugheză"
-
-msgctxt "lang_pt_pt"
-msgid "Portugal Portuguese"
-msgstr "Portugheză"
-
-msgctxt "lang_ro"
-msgid "Romanian"
-msgstr "Română"
-
-msgctxt "lang_ru"
-msgid "Russian"
-msgstr "Rusă"
-
-msgctxt "lang_sk"
-msgid "Slovak"
-msgstr "Slovacă"
-
-msgctxt "lang_sl"
-msgid "Slovenian"
-msgstr "Sloven"
-
-msgctxt "lang_sv"
-msgid "Swedish"
-msgstr "Suedeză"
-
-msgctxt "lang_th"
-msgid "Thai"
-msgstr "Tailandeza"
-
-msgctxt "lang_vi"
-msgid "Vietnamese"
-msgstr "Vietnameză"
-
-msgctxt "lang_zh"
-msgid "Chinese"
-msgstr "Chineză"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "altă limbă"
-
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
 msgstr "Limba cea mai prezentă și mai evidentă pe produs"
@@ -1254,19 +1098,6 @@ msgstr "Creați-vă contul."
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
 msgstr "Nu v-ați înregistrat încă?"
-
-msgctxt "login_register_content"
-msgid "<p>Sign-in to add or edit products.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Username or e-mail address:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Password<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
