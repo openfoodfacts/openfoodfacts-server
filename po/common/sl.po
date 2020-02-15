@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-24 14:09\n"
+"PO-Revision-Date: 2020-02-10 12:39\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1732,7 +1732,7 @@ msgstr "Obdobje po odprtju"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Najdeno v logotipu po odprtju uporabno, s številom mesecov: npr. 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
@@ -1796,7 +1796,7 @@ msgstr "Razvrstitev sodelujočih in držav"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s je raziskovalec za države %d in veleposlanik za države %d."
 
 msgctxt "previous"
 msgid "Previous"
@@ -1952,7 +1952,7 @@ msgstr "izdelkov"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr ""
+msgstr "Evolucija števila izdelkov na <<site_name>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
@@ -2012,7 +2012,7 @@ msgstr "Zapomni se me"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "Ne pozabite na kraj nakupa in trgovine, za naslednje dodane izdelke"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -2172,7 +2172,7 @@ msgstr "Graf raztrosa"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ izveste več o <<site_name>> grafih: <a href=\"/graphs-in-3-clicks\">Grafi v 3 klikih</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2181,7 +2181,8 @@ msgstr "Rezultati na grafu"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "Izberite, kaj želite risati na vodoravni osi, da dobite histogram, ali pa izberite dve osi, da\n"
+"dobite oblak izdelkov (raztresena ploskev)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
@@ -2317,7 +2318,7 @@ msgstr "Grafikon rezultatov"
 
 msgctxt "search_title_map"
 msgid "Results map"
-msgstr ""
+msgstr "Zemljevid rezultatov"
 
 msgctxt "search_tools"
 msgid "Search tools"
@@ -2385,7 +2386,7 @@ msgstr "Deli"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr ""
+msgstr "Pokaz podrobne statistike"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
@@ -4051,6 +4052,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr "Moderator platforme proizvajalcev"
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr "Moderatorji platforme proizvajalcev si lahko ogledajo in urejajo zasebne izdelke vseh uporabnikov in organizacij na platformi proizvajalcev."
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr ""
@@ -4082,4 +4091,66 @@ msgstr ""
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr "Prekomerno uživanje alkohola škoduje zdravju, uživajmo ga zmerno."
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr "Zmernost platforme proizvajalcev"
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr "Trenutno gledate izdelke od %s."
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr "Trenutno gledate svoje izdelke."
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr "Če si želite ogledati izdelke določenega uporabnika ali organizacije, spodaj vnesite Id. Pustite polje prazno, da ni nastavljeno."
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr "Spremeni"
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr "uporabnik-abc ali org-xyz"
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr "Uporabnik %s ne obstaja"
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr "Id mora biti v obliki uporabnika-abc ali org-xyz"
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr "Uvoz kategorij izdelkov iz javne baze podatkov"
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr "Izdelkom na platformi za proizvajalce dodajte kategorije iz javne baze podatkov."
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr "Uvoz kategorij"
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr "Ocena Nutri-Score od proizvajalca"
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr "Izračunana ocena Nutri-Score"
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr "Razred Nutri-Score od proizvajalca"
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr "Izračunan razred Nutri-Score"
 

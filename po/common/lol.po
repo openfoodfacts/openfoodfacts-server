@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-17 10:53\n"
+"PO-Revision-Date: 2020-02-07 21:37\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4007,6 +4007,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr "crwdns124225:0crwdne124225:0"
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr "crwdns124991:0crwdne124991:0"
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr "crwdns124993:0crwdne124993:0"
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr "crwdns124503:0crwdne124503:0"
@@ -4038,4 +4046,66 @@ msgstr "crwdns124515:0crwdne124515:0"
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr "crwdns124945:0crwdne124945:0"
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr "crwdns124995:0crwdne124995:0"
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr "crwdns124997:0%scrwdne124997:0"
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr "crwdns124999:0crwdne124999:0"
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr "crwdns125001:0crwdne125001:0"
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr "crwdns125003:0crwdne125003:0"
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr "crwdns125005:0crwdne125005:0"
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr "crwdns125007:0%scrwdne125007:0"
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr "crwdns125009:0crwdne125009:0"
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr "crwdns125011:0crwdne125011:0"
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr "crwdns125013:0crwdne125013:0"
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr "crwdns125015:0crwdne125015:0"
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr "crwdns125017:0crwdne125017:0"
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr "crwdns125019:0crwdne125019:0"
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr "crwdns125021:0crwdne125021:0"
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr "crwdns125023:0crwdne125023:0"
 

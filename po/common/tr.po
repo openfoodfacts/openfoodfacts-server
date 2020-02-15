@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-24 14:13\n"
+"PO-Revision-Date: 2020-02-08 13:21\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4050,6 +4050,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr "Moderatörler, ürünleri düzenlemek ve incelemek için özel özelliklere erişebilir."
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr "Üreticiler platformu için moderatör"
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr "Üreticiler platformunun moderatörleri, üreticiler platformundaki tüm kullanıcıların ve kuruluşların özel ürünlerini görüntüleyebilir ve düzenleyebilir."
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr "Ben zaten bağış yaptım ya da ilgilenmiyorum. Afişi gizle."
@@ -4081,4 +4089,66 @@ msgstr "Lütfen Bağış Yapın"
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr "Aşırı miktarda alkol tüketimi sağlığa zararlıdır, ölçülü olarak tüketilmelidir."
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr "Üreticilerin platform yönetimi"
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr "Şu anda % s ürününü görüntülüyorsunuz."
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr "Şu anda kendi ürünlerinizi görüntülüyorsunuz."
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr "Belirli bir kullanıcı veya kuruluştan ürünleri görmek için kimliğini aşağıya girin. Ayarı kaldırmak için alanı boş bırakın."
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr "Değişiklik"
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr "user-abc veya org-xyz"
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr "Kullanıcı % s mevcut değil"
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr "Kimlik, user-abc veya org-xyz biçiminde olmalıdır"
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr "Genel kategoriden ürün kategorilerini içe aktarma"
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr "Genel veritabanından üreticiler için platformdaki ürünlere kategori ekleyin."
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr "Kategorileri içe aktarın"
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr "Üreticiden Nutri-Skor puanı"
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr "Hesaplanan Nutri-Puan skor"
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr "Üreticiden Nutri-Score derecesi"
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr "Hesaplanan Nutri-Skor derecesi"
 

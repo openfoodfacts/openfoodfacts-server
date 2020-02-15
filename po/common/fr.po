@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-24 13:59\n"
+"PO-Revision-Date: 2020-02-10 12:39\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3542,7 +3542,7 @@ msgstr "Valeur en %"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
-msgstr "Veuillez vous connecter pour utiliser cette fonctionnalité."
+msgstr "Merci de vous connecter pour utiliser cette fonctionnalité."
 
 msgctxt "organization"
 msgid "Organization"
@@ -3568,7 +3568,7 @@ msgstr "La plate-forme pour les producteurs permet aux fabricants de gérer faci
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr "Les données de produit et les photos que vous envoyez sur la plate-forme pour les producteurs sont stockées dans une base de données privée. Vous pourrez vérifier que toutes les données sont correctes avant de les rendre disponibles dans la base de données publique Open Food Facts."
+msgstr "Les données et photos de produits que vous envoyez sur la plate-forme pour les producteurs sont stockées dans une base de données privée. Vous pourrez vérifier que toutes les données sont correctes avant de les rendre disponibles dans la base de données publique Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
@@ -3725,7 +3725,7 @@ msgstr "Vos produits"
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr "Votre compte n'est associé à aucune entreprise. Veuillez envoyer un e-mail à <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> pour activer l'accès gratuit à la plateforme pour les producteurs."
+msgstr "Votre compte n'est associé à aucune entreprise. Vous pouvez envoyer un e-mail à <a href=\"mailto:producteurs@openfoodfacts.org\">producteurs@openfoodfacts.org</a> pour activer l'accès gratuit à la plateforme pour les producteurs."
 
 msgctxt "import_products"
 msgid "Import products"
@@ -3746,7 +3746,7 @@ msgstr "Import des données en cours"
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr "Les données du produit ont été reçues et seront importées sur la plate-forme pour les producteurs."
+msgstr "Les données des produits ont été reçues et seront importées sur la plate-forme pour les producteurs."
 
 msgctxt "import_file_status"
 msgid "Status"
@@ -4014,7 +4014,7 @@ msgstr "Le Nutri-Score peut passer de %s à %s en changeant la valeur %s de %s �
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr "La plateforme dédiée aux producteurs est toujours en développement. Nous effectuons des vérifications manuelles avant d'importer les produits dans la base de données publique. Veuillez nous contacter à <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> pour mettre à jour la base de données publique."
+msgstr "La plateforme dédiée aux producteurs est toujours en développement. Nous effectuons des vérifications manuelles avant d'importer les produits dans la base de données publique. Merci de nous contacter à <a href=\"mailto:producteurs@openfoodfacts.org\">producteurs@openfoodfacts.org</a> pour mettre à jour la base de données publique."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4060,6 +4060,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr "Les modérateurs ont accès à des fonctionnalités spéciales permettant de modifier et vérifier les produits."
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr "Modérateur de la plateforme des producteurs"
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr "Les modérateurs de la plateforme des producteurs peuvent consulter et éditer les produits privés de tous les utilisateurs et organisations de la plateforme des producteurs."
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr "J'ai déjà fait un don ou je ne suis pas intéressé. Cacher la bannière."
@@ -4091,4 +4099,66 @@ msgstr "Faites un Don"
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr "L'abus d’alcool est dangereux pour la santé, à consommer avec modération."
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr "Plateforme de modération des producteurs"
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr "Vous visualisez actuellement les produits de %s."
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr "Vous visualisez actuellement vos propres produits."
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr "Pour voir les produits d'un utilisateur ou d'une organisation spécifique, entrez son identifiant ci-dessous. Laissez le champ vide pour ne pas le définir."
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr "Modifier"
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr "user-abc ou org-xyz"
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr "L'utilisateur %s n'existe pas"
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr "L'id doit être de la forme user-abc ou org-xyz"
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr "Importer des catégories de produits depuis la base de données publique"
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr "Ajouter des catégories à partir de la base de données publique aux produits présents sur la plate-forme pour les producteurs."
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr "Importer des catégories"
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr "Score Nutri-Score du producteur"
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr "Score Nutri-Score calculé"
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr "Note Nutri-Score du producteur"
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr "Note Nutri-Score calculée"
 

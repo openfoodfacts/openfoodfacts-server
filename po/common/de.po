@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-24 13:57\n"
+"PO-Revision-Date: 2020-02-07 21:10\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4055,6 +4055,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr "Moderatoren haben Zugriff auf spezielle Funktionen zur Bearbeitung und Überprüfung von Produkten."
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr "Moderator für die Produzentenplattform"
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr "Moderatoren der Produzentenplattform können die privaten Produkte aller Nutzer und Organisationen auf der Produzentenplattform einsehen und bearbeiten."
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr "Ich habe bereits gespendet oder bin nicht interessiert. Den Banner ausblenden."
@@ -4086,4 +4094,66 @@ msgstr "Bitte spenden Sie"
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr "Übermäßiger Alkoholkonsum ist gesundheitsschädlich und sollte nur in Maßen getrunken werden."
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr "Moderation der Produzentenplattform"
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr "Ihnen werden derzeit Produkte von %s angezeigt."
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr "Ihnen werden derzeit Ihre eigenen Produkte angezeigt."
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr "Um Produkte eines bestimmten Benutzers oder einer Organisation anzuzeigen, geben Sie seine ID unten ein. Feld leer lassen, um es nicht festzulegen."
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr "Ändern"
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr "nutzer-abc oder org-xyz"
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr "Benutzer %s nicht vorhanden"
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr "Die ID muss die Form nutzer-abc oder org-xyz aufweisen"
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr "Importiert Produktkategorien aus der öffentlichen Datenbank"
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr "Fügt den Produkten auf der Plattform für Produzenten Kategorien aus der öffentlichen Datenbank hinzu."
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr "Kategorien importieren"
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr "Nutri-Score-Bewertung des Anbieters"
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr "Berechnete Nutri-Score-Bewertung"
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr "Nutri-Score-Klasse des Anbieters"
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr "Berechnete Nutri-Score-Klasse"
 
