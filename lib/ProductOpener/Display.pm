@@ -475,7 +475,7 @@ sub analyze_request($)
 
 	# first check and set parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'translate', 'stats', 'status', 'missing_property') {
+	foreach my $parameter ('api_version', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
@@ -3998,10 +3998,28 @@ HTML
 						$compact_product_ref->{$field} = $product_ref->{$field};
 					}
 				}
+
 				push @$compact_products, $compact_product_ref;
 			}
 
 			$request_ref->{structured_response}{products} = $compact_products;
+		}
+
+		# Disable nested ingredients in ingredients field (bug #2883)
+
+		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+			if (defined $product_ref->{ingredients}) {
+				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+					if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
+						# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
+						exists $ingredient_ref->{rank} or delete $ingredient_ref->{ingredients};
+					}
+					else {
+						# Delete sub-ingredients, keep only flattened ingredients
+						exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
+					}
+				}
+			}
 		}
 
 
