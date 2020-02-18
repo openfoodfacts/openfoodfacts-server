@@ -105,6 +105,7 @@ BEGIN
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
 
+		&find_and_replace_user_id_in_products
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1147,6 +1148,177 @@ sub get_change_userid_or_uuid($) {
 
 	return $userid;
 }
+
+
+=head2 replace_user_id_in_product ( $product_id, $user_id, $new_user_id )
+
+For a specific product, replace a specific user_id associated with changes (edits, new photos etc.)
+by another user_id.
+
+This can be used when we want to rename a user_id, or when an user asks its data to be deleted:
+we can rename it to a generic user account like openfoodfacts-contributors.
+
+=head3 Parameters
+
+=head4 Product id
+
+=head4 User id
+
+=head3 New user id
+
+=cut
+
+my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags);
+
+sub replace_user_id_in_product($$$) {
+
+	my $product_id = shift;
+	my $user_id = shift;
+	my $new_user_id = shift;
+
+	my $path = product_path_from_id($product_id);
+
+	# List of changes
+
+	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	if (not defined $changes_ref) {
+		$changes_ref = [];
+	}
+
+	my $most_recent_product_ref;
+
+	my $revs = 0;
+
+	foreach my $change_ref (@$changes_ref) {
+
+		if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $user_id)) {
+			$change_ref->{userid} = $new_user_id;
+		}
+
+		# We need to go through all product revisions to rename all instances of the user id
+
+		$revs++;
+		my $rev = $change_ref->{rev};
+		if (not defined $rev) {
+			$rev = $revs;	# was not set before June 2012
+		}
+		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+
+		if (defined $product_ref) {
+
+			my $changes = 0;
+
+			# Product creator etc.
+
+			foreach my $user_field (qw(creator last_modified_by last_editor)) {
+
+				if ((defined $product_ref->{$user_field}) and ($product_ref->{$user_field} eq $user_id)) {
+					$product_ref->{$user_field} = $new_user_id;
+					$changes++;
+				}
+			}
+
+			# Lists of users computed by compute_product_history_and_completeness()
+
+			foreach my $users_field (@users_fields) {
+				if (defined $product_ref->{$users_field}) {
+					for (my $i = 0; $i < scalar @{$product_ref->{$users_field}} ; $i++) {
+						if ($product_ref->{$users_field}[$i] eq $user_id) {
+							$product_ref->{$users_field}[$i] = $new_user_id;
+							$changes++;
+						}
+					}
+				}
+			}
+
+			# Images uploaders
+
+			if (defined $product_ref->{images}) {
+				foreach my $id (sort keys %{$product_ref->{images}}) {
+					if ((defined $product_ref->{images}{$id}{uploader}) and ($product_ref->{images}{$id}{uploader} eq $user_id)) {
+						$product_ref->{images}{$id}{uploader} = $new_user_id;
+						$changes++;
+					}
+				}
+			}
+
+			# Save product
+
+			if ($changes) {
+				store("$data_root/products/$path/$rev.sto", $product_ref);
+			}
+		}
+
+		$most_recent_product_ref = $product_ref;
+	}
+
+	if ((defined $most_recent_product_ref) and (not $most_recent_product_ref->{deleted})) {
+		my $products_collection = get_products_collection();
+		$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}}, $most_recent_product_ref, { upsert => 1 });
+	}
+
+	store("$data_root/products/$path/changes.sto", $changes_ref);
+}
+
+
+=head2 find_and_replace_user_id_in_products ( $user_id, $new_user_id )
+
+Find all products changed by a specific user_id, and replace the user_id associated with changes (edits, new photos etc.)
+by another user_id.
+
+This can be used when we want to rename a user_id, or when an user asks its data to be deleted:
+we can rename it to a generic user account like openfoodfacts-contributors.
+
+=head3 Parameters
+
+=head4 User id
+
+=head3 New user id
+
+=cut
+
+sub find_and_replace_user_id_in_products($$) {
+
+	my $user_id = shift;
+	my $new_user_id = shift;
+
+	$log->debug("find_and_replace_user_id_in_products", { user_id => $user_id, new_user_id => $new_user_id } ) if $log->is_debug();
+
+	my $or = [];
+
+	foreach my $users_field (@users_fields) {
+		push @$or, { $users_field => $user_id };
+	}
+
+	my $query_ref = {'$or' => $or};
+
+	my $products_collection = get_products_collection();
+
+	my $count = $products_collection->count_documents($query_ref);
+
+	$log->info("find_and_replace_user_id_in_products - matching products", { user_id => $user_id, new_user_id => $new_user_id, count => $count } ) if $log->is_info();
+
+	# wait to give time to display the product count
+	sleep(2) if $log->is_debug();
+
+	my $cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
+	$cursor->immortal(1);
+
+	while (my $product_ref = $cursor->next) {
+
+		my $product_id = $product_ref->{_id};
+
+		# Ignore bogus product that might have been saved in the database
+		next if (not defined $product_id) or ($product_id eq "");
+
+		$log->info("find_and_replace_user_id_in_products - product_id", { user_id => $user_id, new_user_id => $product_id, product_id => $product_id } ) if $log->is_info();
+
+		replace_user_id_in_product($product_id, $user_id, $new_user_id);
+	}
+
+	$log->info("find_and_replace_user_id_in_products - done", { user_id => $user_id, new_user_id => $new_user_id, count => $count } ) if $log->is_info();
+}
+
 
 
 sub compute_product_history_and_completeness($$) {
