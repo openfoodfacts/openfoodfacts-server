@@ -78,14 +78,92 @@ else {
 	. "<li>" . lang("import_photos_format_nutrition") . "</li>"
 	. "</ul>";
 
-	$html .=<<HTML
+	$html .= <<HTML
       <form
         id="fileupload"
         action="/cgi/product_image_upload.pl"
         method="POST"
         enctype="multipart/form-data"
       >
+HTML
+;
 
+	# Enable adding field values for photos uploaded
+
+	my @add_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries);
+	my %add_fields_labels = ();
+	foreach my $field (@add_fields) {
+		$add_fields_labels{$field} = ucfirst(lang($field . "_p"));
+	}
+	$add_fields_labels{add_tag} = lang("add_tag_field");
+
+	$html .= <<HTML
+	<p>$Lang{add_field_values}{$lc}</p>
+	<div class="add_field_values_row" style="padding-top:1rem">
+		<div class="row">
+			<div class="small-12 medium-12 large-5 columns">
+HTML
+;
+
+	my $i = 0;
+
+	$html .= popup_menu(-name=>"tagtype_$i", -id=>"tagtype_$i", -value=> "", -values=>['add_tag', @add_fields], -labels=>\%add_fields_labels);
+
+	$html .= <<HTML
+			</div>
+
+			<div class="small-12 medium-12 large-7 columns tag-add-field-value">
+				<input type="text" id="tag_$i" name="tag_$i" value="" placeholder="$Lang{add_value}{$lc}"/>
+			</div>
+		</div>
+	</div>
+HTML
+;
+
+	$scripts .= <<JS
+
+<script>
+function modifyAddFieldValue(element, field_value_number){
+	// Type of field
+	var typeSelect = \$(element).find("#tagtype_0");
+	typeSelect.attr("name", "tagtype_" + field_value_number);
+	typeSelect.attr("id", "tagtype_" + field_value_number);
+	typeSelect.val();
+
+	// Value
+	var tagContent = \$(element).find("#tag_0");
+	tagContent.attr("name", "tag_" + field_value_number);
+	tagContent.attr("id", "tag_" + field_value_number);
+	tagContent.val("");
+
+	return element;
+}
+
+function addAddFieldValue(target, field_values_number) {
+	var addFieldValue1 = modifyAddFieldValue(\$(".add_field_values_row").first().clone(), field_values_number);
+
+	\$(".add_field_values_row").last().after(addFieldValue1);
+}
+</script>
+JS
+;
+
+	$initjs .= <<JS
+
+	//On tag field value change
+	\$(document).on("change", ".tag-add-field-value > input", function(e){
+		var field_value_number = parseInt(e.target.name.substr(e.target.name.length - 1));
+		//If it's the last field value, add one more
+		if(!isNaN(field_value_number) && \$("#tag_" + (field_value_number + 1).toString()).length === 0){
+			addAddFieldValue(e.target, field_value_number + 1);
+		}
+	});
+JS
+;
+
+	# File upload button
+
+	$html .= <<HTML
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="row fileupload-buttonbar">
           <div class="large-7 columns">
@@ -98,10 +176,6 @@ else {
             <button type="submit" class="button small btn-primary start">
               @{[ display_icon('arrow_upward') ]}
               <span>$Lang{start_upload}{$lang}</span>
-            </button>
-            <button type="reset" class="button small btn-warning cancel alert">
-              @{[ display_icon('cancel') ]}
-              <span>$Lang{cancel_upload}{$lang}</span>
             </button>
             <!-- The global file processing state -->
             <span class="fileupload-process"></span>
@@ -128,6 +202,7 @@ else {
         <table role="presentation" class="table table-striped">
           <tbody class="files"></tbody>
         </table>
+		<input name="previous_code" id="previous_code" value="" />
       </form>
 
 	<div id="empty_space_for_equalizer" style="height:200px;width:100px;">&nbsp;</div>
@@ -193,6 +268,15 @@ HTML
                   {\% if (file.info) { \%}
                       <div><span class="label info">$Lang{info}{$lang}</span> {\%=file.info\%}</div>
                   {\% } \%}
+                  {\% if (file.code_from_filename) { \%}
+                      <div>$Lang{code_from_filename}{$lang} :</span> {\%=file.code_from_filename\%}</div>
+                  {\% } \%}
+                  {\% if (file.scanned_code) { \%}
+                      <div>$Lang{scanned_code}{$lang} : {\%=file.scanned_code\%}</div>
+                  {\% } \%}
+                  {\% if (file.using_previous_code) { \%}
+                      <div>$Lang{using_previous_code}{$lang} :</span> {\%=file.using_previous_code\%}</div>
+                  {\% } \%}
                   {\% if (file.error) { \%}
                       <div><span class="label alert">$Lang{error}{$lang}</span> {\%=file.error\%}</div>
                   {\% } \%}
@@ -238,6 +322,14 @@ HTML
 JS
 ;
 
+	$header .= <<HTML
+<script>
+ 	var previous_code = "";
+	var previous_imgid = "";
+</script>
+HTML
+;
+
 	$initjs .= <<JS
 
 /*
@@ -251,51 +343,49 @@ JS
  * https://opensource.org/licenses/MIT
  */
 
-  'use strict';
-
-  // Initialize the jQuery File Upload widget:
-  \$('#fileupload').fileupload({
-    sequentialUploads: true,
-    // Uncomment the following to send cross-domain cookies:
-    xhrFields: {withCredentials: true}
-  });
+  //'use strict';
 
   // Enable iframe cross-domain access via redirect option:
   \$('#fileupload').fileupload(
-    'option',
-    'redirect',
-    window.location.href.replace(/\\/[^/]*\$/, '/cors/result.html?\%s')
+    {
+    sequentialUploads: true,
+    // Uncomment the following to send cross-domain cookies:
+    xhrFields: {withCredentials: true},
+	formData : function () {
+		var previous_code1 = previous_code;
+		return ( [
+					{ name : "random", value : Math.random()},
+					{ name : "previous_code", value : previous_code + "-"},
+					{ name : "previous_code1", value : previous_code1 + "-" + Math.random()},
+					{ name : "previous_code_val", value : \$('#previous_code').val()},
+					{ name : "previous_imgid", value : previous_imgid}
+				]);
+		}
+	}
   );
-
-  if (false) {
-
-  } else {
-    // Load existing files:
-    \$('#fileupload').addClass('fileupload-processing');
-    \$.ajax({
-      // Uncomment the following to send cross-domain cookies:
-      //xhrFields: {withCredentials: true},
-      url: \$('#fileupload').fileupload('option', 'url'),
-      dataType: 'json',
-      maxFileSize: 10000000,
-      acceptFileTypes: /(\.|\\/)(gif|jpe?g|png)\$/i,
-      context: \$('#fileupload')[0]
-    })
-      .always(function() {
-        \$(this).removeClass('fileupload-processing');
-      })
-      .done(function(result) {
-        \$(this)
-          .fileupload('option', 'done')
-          // eslint-disable-next-line new-cap
-          .call(this, \$.Event('done'), { result: result });
-      });
-  }
 
 \$('#fileupload')
     .bind('fileuploadadd', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
     .bind('fileuploadstart', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
 	.bind('fileuploadalways', function (e, data) { \$(document).foundation('equalizer', 'reflow');
+});
+
+\$('#fileupload')
+    .bind('fileuploaddone', function (e, data) {
+	if (data.result && data.result.files && data.result.files[0].scanned_code) {
+		previous_code = data.result.files[0].scanned_code;
+		\$('#previous_code').val(previous_code);
+		// Store the imgid with the scanned barcode, so that if we have another image, we can select it as the front image
+		if (data.result.image) {
+			previous_imgid = data.result.image.imgid;
+		}
+		else {
+			previous_imgid = "";
+		}
+	}
+	else {
+		previous_imgid = "";
+	}
 });
 
 JS
