@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-02-15 08:17\n"
+"PO-Revision-Date: 2020-02-18 10:56\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3536,7 +3536,7 @@ msgstr "Agregar o actualizar productos"
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "Sus productos"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
@@ -3545,7 +3545,7 @@ msgstr "Tu cuenta todavía no está asociada a una compañía. Por favor, envía
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "Importar productos"
 
 msgctxt "empty_column"
 msgid "Empty column"
@@ -3626,7 +3626,7 @@ msgstr "Hay algunos productos con advertencias en la calidad de los datos"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
-msgstr ""
+msgstr "Número de productos con oportunidades de mejorar"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
@@ -3634,7 +3634,7 @@ msgstr "Esta tabla enumera las posibles oportunidades para mejorar la calidad nu
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "Para obtener resultados relevantes, asegúrese de que los datos del producto estén completos (información nutricional con valores de fibra y frutas y verduras para calcular el puntaje Nutri-Score, y una categoría precisa para comparar cada producto con productos similares)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3643,35 +3643,35 @@ msgstr "Importar fotos del producto"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Puede usar el siguiente formulario para cargar fácilmente fotos (frente del producto, lista de ingredientes y tabla de información nutricional) para muchos productos."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Cada nombre de archivo debe contener el código de barras del producto."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "Y también puede especificar el tipo de la foto en el nombre del archivo:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: frente del producto en el idioma actual."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: frente del producto en Holandés."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: lista de ingredientes en Francés."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: tabla de nutrición en Español."
 
 msgctxt "add_photos"
 msgid "Add photos..."
@@ -3683,7 +3683,7 @@ msgstr "Comenzar subida"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Empezar"
 
 msgctxt "close"
 msgid "Close"
@@ -3703,11 +3703,11 @@ msgstr "Archivo recibido"
 
 msgctxt "nutriscore_calculation_detail"
 msgid "Detail of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Detalle del cálculo del Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este producto se considera una bebida para el cálculo de la Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
@@ -3731,15 +3731,15 @@ msgstr "Los puntos para las proteínas no se cuentan porque los puntos negativos
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Los puntos para las proteínas se cuentan porque los puntos para las frutas, verduras, nueces y colza / nuez / aceites de oliva son los máximos."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Los puntos para las proteínas se cuentan porque el producto está en la categoría de quesos."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "El producto se encuentra en la categoría de grasas, los puntos de grasa saturada se reemplazan por los puntos de la relación grasa / grasa saturada."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3755,7 +3755,7 @@ msgstr "Grasa saturada"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Relación grasa / grasa saturada"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3763,7 +3763,7 @@ msgstr "Sodio"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Frutas, verduras, nueces y aceites de colza / nuez / oliva"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3821,7 +3821,7 @@ msgstr "Valor para el producto"
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Valor medio para la categoría %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
