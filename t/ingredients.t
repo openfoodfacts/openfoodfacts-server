@@ -2017,4 +2017,58 @@ is_deeply ($product_ref->{ingredients},
 
 ) or diag explain $product_ref;
 
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "oeufs (d'élevage au sol, Suisse, France)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+is ($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
+is_deeply ($product_ref->{labels_tags}, undef) or diag explain $product_ref->{labels_tags};
+
+is_deeply ($product_ref->{ingredients},
+
+[
+     {
+       'has_sub_ingredients' => 'yes',
+       'id' => 'en:egg',
+       'ingredients' => [
+         {
+           'id' => "fr:d'\x{e9}levage au sol",
+           'text' => "d'\x{e9}levage au sol"
+         },
+         {
+           'id' => 'fr:Suisse',
+           'text' => 'Suisse'
+         },
+         {
+           'id' => 'fr:France',
+           'text' => 'France'
+         }
+       ],
+       'rank' => 1,
+       'text' => 'oeufs',
+       'vegan' => 'no',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => "fr:d'\x{e9}levage au sol",
+       'text' => "d'\x{e9}levage au sol"
+     },
+     {
+       'id' => 'fr:Suisse',
+       'text' => 'Suisse'
+     },
+     {
+       'id' => 'fr:France',
+       'text' => 'France'
+     }
+   ],
+
+
+) or diag explain $product_ref;
+
+
 done_testing();
