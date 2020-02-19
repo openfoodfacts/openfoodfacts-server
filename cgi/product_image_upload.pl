@@ -47,6 +47,7 @@ my $action = param('action') || 'display';
 my $code = normalize_code(param('code'));
 # For scan parties, we may get photos in sequence, with the barcode only in the first photo
 my $previous_code = normalize_code(param('previous_code'));
+my $previous_imgid = param('previous_imgid');
 my $imagefield = param('imagefield');
 my $delete = param('delete');
 
@@ -60,7 +61,7 @@ $log->debug("calling init()", { query_string => $env });
 
 ProductOpener::Display::init();
 
-$log->debug("parsing code", { subdomain => $subdomain, original_subdomain => $original_subdomain, user => $User_id, code => $code, previous_code => $previous_code, cc => $cc, lc => $lc, imagefield => $imagefield, ip => remote_addr() }) if $log->is_debug();
+$log->debug("parsing code", { subdomain => $subdomain, original_subdomain => $original_subdomain, user => $User_id, code => $code, previous_code => $previous_code, previous_imgid => $previous_imgid, cc => $cc, lc => $lc, imagefield => $imagefield, ip => remote_addr() }) if $log->is_debug();
 
 # By default, don't select images uploaded (e.g. through the product edit form)
 
@@ -251,7 +252,6 @@ if ($imagefield) {
 				imagefield => $imagefield,
 				code => $code,
 				files => [{
-					code => $code,
 					url => $product_url,
 					thumbnailUrl => "/images/products/$path/$imgid.$thumb_size.jpg",
 					name => $product_name,
@@ -269,13 +269,18 @@ if ($imagefield) {
 			# If the image type is "other" and we don't have a front image, assign it
 			# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
 			elsif (($imagefield =~ /^other/) and ((not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
-				or ((defined param("previous_imgid")) and (param("previous_imgid") eq $product_ref->{images}{"front_" . $product_ref->{lc}})))
+				or ((defined $previous_imgid) and ($previous_imgid eq $product_ref->{images}{"front_" . $product_ref->{lc}}{imgid})))
 				) {
-				$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
+				$log->debug("selecting front image as we don't have one", { imgid => $imgid, previous_imgid => $previous_imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
 				process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1);
+			}
+			else {
+				$log->debug("not selecting as front image", { imgid => $imgid, previous_imgid => $previous_imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc},
+					front_image => $product_ref->{images}{"front_" . $product_ref->{lc}} }) if $log->is_debug();
 			}
 		}
 
+		(defined $code) and $response_ref->{files}[0]{code} = $code;
 		(defined $code_from_file_name) and $response_ref->{files}[0]{code_from_file_name} = $code_from_file_name;
 		(defined $scanned_code) and $response_ref->{files}[0]{scanned_code} = $scanned_code;
 		(defined $using_previous_code) and $response_ref->{files}[0]{using_previous_code} = $using_previous_code;

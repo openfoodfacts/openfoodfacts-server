@@ -99,7 +99,7 @@ HTML
 
 	$html .= <<HTML
 	<p>$Lang{add_field_values}{$lc}</p>
-	<div class="add_field_values_row" style="padding-top:1rem">
+	<div class="add_field_values_row">
 		<div class="row">
 			<div class="small-12 medium-12 large-5 columns">
 HTML
@@ -107,7 +107,7 @@ HTML
 
 	my $i = 0;
 
-	$html .= popup_menu(-name=>"tagtype_$i", -id=>"tagtype_$i", -value=> "", -values=>['add_tag', @add_fields], -labels=>\%add_fields_labels);
+	$html .= popup_menu(-class=>"tag-add-field", -name=>"tagtype_$i", -id=>"tagtype_$i", -value=> "", -values=>['add_tag', @add_fields], -labels=>\%add_fields_labels);
 
 	$html .= <<HTML
 			</div>
@@ -152,6 +152,13 @@ JS
 
 	//On tag field value change
 	\$(document).on("change", ".tag-add-field-value > input", function(e){
+		var field_value_number = parseInt(e.target.name.substr(e.target.name.length - 1));
+		//If it's the last field value, add one more
+		if(!isNaN(field_value_number) && \$("#tag_" + (field_value_number + 1).toString()).length === 0){
+			addAddFieldValue(e.target, field_value_number + 1);
+		}
+	});
+	\$(document).on("change", ".tag-add-field > select", function(e){
 		var field_value_number = parseInt(e.target.name.substr(e.target.name.length - 1));
 		//If it's the last field value, add one more
 		if(!isNaN(field_value_number) && \$("#tag_" + (field_value_number + 1).toString()).length === 0){
@@ -323,10 +330,15 @@ JS
 
 	$header .= <<HTML
 <script>
+// Keep track of codes that we have seen so that we can submit field values only once
+var codes = {};
 
+// We keep the last code recognized in an image to assign it to the next images
 var previous_code = "";
 var previous_imgid = "";
 
+// We need to wait for one upload to be complete before submitting the next one
+// so that we can pass the correct previous_code in the next request
 var submitCount = 0;
 var shouldStartIndex = 0;
 var lastFileUploaded = -1;
@@ -399,6 +411,8 @@ HTML
 		\$(document).foundation('equalizer', 'reflow');
 });
 
+\$('#tag_0').val("");
+\$('#tagtype_0').val("");
 
 \$('#fileupload')
     .bind('fileuploaddone', function (e, data) {
@@ -417,6 +431,43 @@ HTML
 	}
 
 	console.log("fileuploaddone - previous_code: " + previous_code);
+
+	if (data.result && data.result.files && data.result.files[0].code) {
+		var code = data.result.files[0].code;
+		console.log("code: " + code);
+		if(typeof codes[code] === 'undefined') {
+			codes[code] = true;
+
+			var data = [
+				{name : "code", value : code},
+				{name : "comment", value : "fields added through photos upload on producer platform"}
+			];
+
+			var i = 0;
+			while (\$('#tag_' + i).length > 0) {
+				if (\$('#tag_' + i).val() != '') {
+					data.push({
+						name : "add_" + \$('#tagtype_' + i).val(),
+						value: \$('#tag_' + i).val()
+					});
+				}
+				i++;
+			}
+
+			console.log(data);
+
+			\$.ajax({
+				type: "GET",
+				contentType: "application/json; charset=utf-8",
+				url: "/cgi/product_jqm_multilingual.pl",
+				data: data,
+				success: function (result) {
+					console.log("data sent");
+				}
+			});
+		}
+	}
+
 });
 
 JS
