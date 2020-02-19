@@ -202,7 +202,6 @@ JS
         <table role="presentation" class="table table-striped">
           <tbody class="files"></tbody>
         </table>
-		<input name="previous_code" id="previous_code" value="" />
       </form>
 
 	<div id="empty_space_for_equalizer" style="height:200px;width:100px;">&nbsp;</div>
@@ -324,8 +323,24 @@ JS
 
 	$header .= <<HTML
 <script>
- 	var previous_code = "";
-	var previous_imgid = "";
+
+var previous_code = "";
+var previous_imgid = "";
+
+var submitCount = 0;
+var shouldStartIndex = 0;
+var lastFileUploaded = -1;
+
+function waitForPreviousUpload(submitIndex, callback) {
+  if(shouldStartIndex === submitIndex && lastFileUploaded === shouldStartIndex-1) {
+    callback()
+    return;
+  }
+  setTimeout(function(){
+    waitForPreviousUpload(submitIndex, callback)
+  }, 500)
+}
+
 </script>
 HTML
 ;
@@ -343,38 +358,52 @@ HTML
  * https://opensource.org/licenses/MIT
  */
 
-  //'use strict';
+'use strict';
 
-  // Enable iframe cross-domain access via redirect option:
-  \$('#fileupload').fileupload(
-    {
-    sequentialUploads: true,
-    // Uncomment the following to send cross-domain cookies:
-    xhrFields: {withCredentials: true},
-	formData : function () {
-		var previous_code1 = previous_code;
-		return ( [
-					{ name : "random", value : Math.random()},
-					{ name : "previous_code", value : previous_code + "-"},
-					{ name : "previous_code1", value : previous_code1 + "-" + Math.random()},
-					{ name : "previous_code_val", value : \$('#previous_code').val()},
-					{ name : "previous_imgid", value : previous_imgid}
-				]);
-		}
-	}
-  );
+// Enable iframe cross-domain access via redirect option:
+\$('#fileupload').fileupload({
+	sequentialUploads: true,
+	replaceFileInput : false,
+	// Uncomment the following to send cross-domain cookies:
+	xhrFields: {withCredentials: true}
+});
+
+
+\$('#fileupload').bind('fileuploadsubmit', function (e, data) {
+
+	var myIndex = submitCount++;
+	var \$this = \$(this);
+
+	console.log("submit - myIndex: " + myIndex + " - previous_code: " + previous_code);
+
+	waitForPreviousUpload(myIndex, function() {
+		shouldStartIndex++;
+		console.log('starting upload #' + myIndex + " - previous_code: " + previous_code);
+		// start upload
+
+		data.formData = [
+				{ name : "previous_code", value : previous_code},
+				{ name : "previous_imgid", value : previous_imgid}
+			];
+		data.jqXHR = \$this.fileupload('send', data);
+	})
+	return false;
+});
 
 \$('#fileupload')
     .bind('fileuploadadd', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
     .bind('fileuploadstart', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
-	.bind('fileuploadalways', function (e, data) { \$(document).foundation('equalizer', 'reflow');
+	.bind('fileuploadalways', function (e, data) {
+		lastFileUploaded++;
+		console.log("always - lastFileUploaded: " + lastFileUploaded);
+		\$(document).foundation('equalizer', 'reflow');
 });
+
 
 \$('#fileupload')
     .bind('fileuploaddone', function (e, data) {
 	if (data.result && data.result.files && data.result.files[0].scanned_code) {
 		previous_code = data.result.files[0].scanned_code;
-		\$('#previous_code').val(previous_code);
 		// Store the imgid with the scanned barcode, so that if we have another image, we can select it as the front image
 		if (data.result.image) {
 			previous_imgid = data.result.image.imgid;
@@ -386,6 +415,8 @@ HTML
 	else {
 		previous_imgid = "";
 	}
+
+	console.log("fileuploaddone - previous_code: " + previous_code);
 });
 
 JS
