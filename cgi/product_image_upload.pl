@@ -158,7 +158,7 @@ if ($imagefield) {
 
 		if (not $product_ref) {
 			$log->info("product code does not exist yet, creating product", { code => $code });
-			$product_ref = init_product($User_id, $Org_id, $code);
+			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = $interface_version;
 			$product_ref->{lc} = $lc;
 			store_product($product_ref, "Creating product (image upload)");

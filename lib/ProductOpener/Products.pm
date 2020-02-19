@@ -29,7 +29,7 @@ database and file system.
 
     use ProductOpener::Products qw/:all/;
 
-	my $product_ref = init_product($User_id, $Org_id, $code);
+	my $product_ref = init_product($User_id, $Org_id, $code, $countryid);
 
 	$product_ref->{product_name_en} = "Chocolate cookies";
 
@@ -395,13 +395,24 @@ sub get_owner_id($$$) {
 	return $ownerid;
 }
 
-sub init_product($$$) {
+
+=head2 init_product ( $userid, $orgid, $code, $countryid )
+
+Initialize and return a $product_ref structure for a new product.
+
+If $countryid is defined and is not "en:world", then assign this country for the countries field.
+Otherwise, use the country associated with the ip address of the user.
+
+=cut
+
+sub init_product($$$$) {
 
 	my $userid = shift;
 	my $orgid = shift;
 	my $code = shift;
+	my $countryid = shift;
 
-	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code }) if $log->is_debug();
+	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code, countryid => $countryid }) if $log->is_debug();
 
 	my $creator = $userid;
 
@@ -427,8 +438,17 @@ sub init_product($$$) {
 		$log->debug("init_product - private_products enabled", { userid => $userid, orgid => $orgid, code => $code, ownerid => $ownerid, product_id => $product_ref->{_id} }) if $log->is_debug();
 	}
 
-	use ProductOpener::GeoIP;
-	my $country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
+	my $country;
+
+	if ((not defined $countryid) or ($countryid eq "en:world")) {
+
+		use ProductOpener::GeoIP;
+		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
+	}
+	else {
+		$country = $countryid;
+		$country =~ s/^en://;
+	}
 
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
