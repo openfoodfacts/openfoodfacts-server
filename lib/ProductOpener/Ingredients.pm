@@ -979,6 +979,8 @@ sub parse_ingredients_text($) {
 
 				if (not $ingredient_recognized) {
 					# Unknown ingredient, check if it is a label
+					# We need to be careful with stopwords, "produit" was a stopword,
+					# and "France" matched "produit de France" / made in France (bug #2927)
 					my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
 					if (exists_taxonomy_tag("labels", $label_id)) {
 						# Add the label to the product
