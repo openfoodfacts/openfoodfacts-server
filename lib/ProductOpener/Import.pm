@@ -574,7 +574,7 @@ sub import_csv_file($) {
 
 				$stats{products_created}{$code} = 1;
 
-				$product_ref = init_product($args_ref->{user_id}, $args_ref->{org_id}, $code);
+				$product_ref = init_product($args_ref->{user_id}, $args_ref->{org_id}, $code, undef);
 				$product_ref->{interface_version_created} = "import_csv_file - version 2019/09/17";
 
 				$product_ref->{lc} = $imported_product_ref->{lc};
