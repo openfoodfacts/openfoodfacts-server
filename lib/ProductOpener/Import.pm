@@ -1224,7 +1224,7 @@ sub import_csv_file($) {
 
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
-			next if $field !~ /^image_((front|ingredients|nutrition|other)(_\w\w)?)_file/;
+			next if $field !~ /^image_((front|ingredients|nutrition|other)(_\w\w)?(_\d+)?)_file/;
 
 			my $imagefield = $1;
 
@@ -1357,7 +1357,7 @@ sub import_csv_file($) {
 					my $imagefield_with_lc = $imagefield;
 
 					# image_other_url.2 -> remove the number
-					$imagefield_with_lc =~ s/\.(\d+)$//;
+					$imagefield_with_lc =~ s/(\.|_)(\d+)$//;
 
 					if ($imagefield_with_lc !~ /_\w\w/) {
 						$imagefield_with_lc .= "_" . $product_ref->{lc};
@@ -1378,6 +1378,11 @@ sub import_csv_file($) {
 							$stats{products_images_added}{$code} = 1;
 						}
 
+						my $x1 = $imported_product_ref->{"image_" . $imagefield . "_x1"} || -1;
+						my $y1 = $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1;
+						my $x2 = $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1;
+						my $y2 = $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1;
+
 						# select the photo
 						if (($imagefield_with_lc =~ /front|ingredients|nutrition/) and
 							((not $args_ref->{only_select_not_existing_images})
@@ -1387,7 +1392,7 @@ sub import_csv_file($) {
 
 								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
 								$selected_images{$imagefield_with_lc} = 1;
-								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, $x1, $y1, $x2, $y2); };
 								# $modified++;
 
 							}
@@ -1398,10 +1403,15 @@ sub import_csv_file($) {
 								if (($imgid > 0)
 									and (exists $product_ref->{images})
 									and (exists $product_ref->{images}{$imagefield_with_lc})
-									and ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)) {
+									and (($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
+										or ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1)
+										or ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2)
+										or ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1)
+										or ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
+									) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
-									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, $x1, $y1, $x2, $y2); };
 									# $modified++;
 								}
 
@@ -1414,7 +1424,7 @@ sub import_csv_file($) {
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;
-							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, $x1, $y1, $x2, $y2); };
 						}
 					}
 					else {
