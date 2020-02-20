@@ -412,7 +412,7 @@ HTML
 });
 
 \$('#tag_0').val("");
-\$('#tagtype_0').val("");
+\$('#tagtype_0').val("add_tag");
 
 \$('#fileupload')
     .bind('fileuploaddone', function (e, data) {
@@ -444,27 +444,31 @@ HTML
 			];
 
 			var i = 0;
+			var n = 0;
 			while (\$('#tag_' + i).length > 0) {
-				if (\$('#tag_' + i).val() != '') {
+				if ((\$('#tag_' + i).val() != '') && ((\$('#tagtype_' + i).val() != 'add_tag'))) {
 					data.push({
 						name : "add_" + \$('#tagtype_' + i).val(),
 						value: \$('#tag_' + i).val()
 					});
+					n++;
 				}
 				i++;
 			}
 
 			console.log(data);
 
-			\$.ajax({
-				type: "GET",
-				contentType: "application/json; charset=utf-8",
-				url: "/cgi/product_jqm_multilingual.pl",
-				data: data,
-				success: function (result) {
-					console.log("data sent");
-				}
-			});
+			if (n > 0) {
+				\$.ajax({
+					type: "GET",
+					contentType: "application/json; charset=utf-8",
+					url: "/cgi/product_jqm_multilingual.pl",
+					data: data,
+					success: function (result) {
+						console.log("data sent");
+					}
+				});
+			}
 		}
 	}
 
