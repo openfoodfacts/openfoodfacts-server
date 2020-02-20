@@ -120,7 +120,7 @@ if ($type eq 'search_or_add') {
 		}
 		else {
 			$log->info("product does not exist, creating product", { code => $code, product_id => $product_id }) if $log->is_info();
-			$product_ref = init_product($User_id, $Org_id, $code);
+			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = $interface_version;
 			store_product($product_ref, 'product_created');
 
