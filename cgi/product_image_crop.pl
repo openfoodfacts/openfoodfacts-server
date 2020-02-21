@@ -70,7 +70,7 @@ my $product_ref = retrieve_product($product_id);
 
 if ((defined $product_ref) and (has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 	and (referer() !~ /\/cgi\/product.pl/)) {
-	print STDERR "product_image_crop.pl - skip image id $id for product code $code (data from producer) - referer: " . referer() . "\n";
+	$log->debug("do not select image: data_sources contains producers and referer is not the web product edit form", { code => $code, id => $id, referer => referer() }) if $log->is_debug();;
 }
 elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "207.154.237.7")) {
 	# Skip images selected by Yuka -> they have already been selected through the upload if they were the first

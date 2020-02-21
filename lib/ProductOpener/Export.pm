@@ -185,6 +185,8 @@ sub export_csv($) {
 
 	my @sorted_populated_fields;
 
+	my %other_images = ();
+
 	if (not defined $fields_ref) {
 
 		# %populated_fields will contain the field name as the key,
@@ -258,9 +260,36 @@ sub export_csv($) {
 				elsif ($group_id eq "images") {
 					if ($args_ref->{include_images_paths}) {
 						if (defined $product_ref->{images}) {
-							foreach my $imageid (keys %{$product_ref->{images}}) {
-								next if $imageid !~ /^(front|ingredients|nutrition|other)_(\w\w)$/;
-								$populated_fields{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
+
+							# First list the selected images
+							my %selected_images = ();
+							foreach my $imageid (sort keys %{$product_ref->{images}}) {
+
+								if ($imageid =~ /^(front|ingredients|nutrition|other)_(\w\w)$/) {
+
+									$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
+									$populated_fields{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
+									# Also export the crop coordinates
+									foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic)) {
+										if ((defined $product_ref->{images}{$imageid}{$coord})
+											and ($product_ref->{images}{$imageid}{$coord} != -1)	# -1 is passed when the image is not cropped
+											) {
+												$populated_fields{"image_" . $imageid . "_" . $coord} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid . "_" . $coord;
+										}
+									}
+								}
+							}
+
+							# Then list unselected images as other
+							my $other = 0;
+							foreach my $imageid (sort keys %{$product_ref->{images}}) {
+
+								if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
+									$other++;
+									$populated_fields{"image_" . "other_" . $other . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . "other_" . $other;
+									# Keep the imgid for second loop on products
+									$other_images{$product_ref->{code} . "." . "other_" . $other} = { imgid => $imageid};
+								}
 							}
 						}
 					}
@@ -277,7 +306,7 @@ sub export_csv($) {
 						}
 
 						if (defined $tags_fields{$field}) {
-							if ((defined $product_ref->{$field . "_hierarchy"}) and (scalar @{$product_ref->{$field . "_hierarchy"}} > 0)) {
+							if ((defined $product_ref->{$field . "_tags"}) and (scalar @{$product_ref->{$field . "_tags"}} > 0)) {
 								$populated_fields{$field} = sprintf("%08d", $group_number * 1000 + $item_number);
 							}
 						}
@@ -364,6 +393,18 @@ sub export_csv($) {
 
 					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
 						$value = "$www_root/images/products/" . $product_path . "/" . $product_ref->{images}{$imagefield}{imgid} . ".jpg";
+					}
+					elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
+						$value = "$www_root/images/products/" . $product_path . "/" . $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
+					}
+				}
+				elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic)/) {
+					# Coordinates for image cropping
+					my $imagefield = $1;
+					my $coord = $2;
+
+					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
+						$value = $product_ref->{images}{$imagefield}{$coord};
 					}
 				}
 				elsif ($field =~ /^image_(ingredients|nutrition)_json$/) {

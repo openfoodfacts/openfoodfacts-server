@@ -192,7 +192,7 @@ else {
 			and (($field eq 'brands') or ($field eq 'countries'))) {
 
 			param(-name => "add_" . $field, -value => param($field));
-			print STDERR "product_jqm_multilingual.pm - yuka / kiliweb - force $field -> add_$field - code: $code\n";
+			$log->debug("yuka - kiliweb : force add_field", { field => $field, code => $code }) if $log->is_debug();
 
 		}
 
@@ -203,17 +203,17 @@ else {
 
 			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
 
-			print STDERR "product_jqm_multilingual.pl - lc: $lc - adding value to field $field - additional: $additional_fields - existing: $product_ref->{$field}\n";
+			$log->debug("add_field", { field => $field, code => $code, additional_fields => $additional_fields, existing_value => $product_ref->{$field} }) if $log->is_debug();
 
 			compute_field_tags($product_ref, $lc, $field);
-
 		}
 
 		elsif (defined param($field)) {
 
 			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 			if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
-				print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field\n";
+				$log->debug("producer data already exists for field, skip empty value", { field => $field, code => $code, existing_value => $product_ref->{$field} }) if $log->is_debug();
+
 			}
 			else {
 				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
@@ -235,7 +235,7 @@ else {
 
 					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 					if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
-						print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field_lc\n";
+						$log->debug("producer data already exists for field, skip empty value", { field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc} }) if $log->is_debug();
 					}
 					else {
 
