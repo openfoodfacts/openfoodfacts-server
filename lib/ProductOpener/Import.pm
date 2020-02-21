@@ -1379,9 +1379,14 @@ sub import_csv_file($) {
 						}
 
 						my $x1 = $imported_product_ref->{"image_" . $imagefield . "_x1"} || -1;
-						my $y1 = $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1;
-						my $x2 = $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1;
+						my $y1 = $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1;
+						my $x2 = $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1;
 						my $y2 = $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1;
+						my $angle = $imported_product_ref->{"image_" . $imagefield . "_angle"} || 0;
+						my $normalize = $imported_product_ref->{"image_" . $imagefield . "_normalize"} || "false";
+						my $white_magic = $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || "false";
+
+						$log->debug("select and crop image?", { code => $code, imgid => $imgid, current_max_imgid => $current_max_imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 
 						# select the photo
 						if (($imagefield_with_lc =~ /front|ingredients|nutrition/) and
@@ -1390,14 +1395,14 @@ sub import_csv_file($) {
 
 							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 
-								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
+								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, current_max_imgid => $current_max_imgid, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 								$selected_images{$imagefield_with_lc} = 1;
-								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, $x1, $y1, $x2, $y2); };
+								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2); };
 								# $modified++;
 
 							}
 							else {
-								print "returned imgid $imgid not greater than the previous max imgid: $current_max_imgid\n";
+								$log->debug("returned imgid $imgid not greater than the previous max imgid: $current_max_imgid", { imgid => $imgid, current_max_imgid => $current_max_imgid }) if $log->is_debug();
 
 								# overwrite already selected images
 								if (($imgid > 0)
@@ -1407,11 +1412,15 @@ sub import_csv_file($) {
 										or ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1)
 										or ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2)
 										or ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1)
-										or ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
+										or ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2)
+										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
+										or ($product_ref->{images}{$imagefield_with_lc}{normalize} ne $normalize)
+										or ($product_ref->{images}{$imagefield_with_lc}{white_magic} ne $white_magic)
+										)
 									) {
-									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
+									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
-									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, $x1, $y1, $x2, $y2); };
+									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2); };
 									# $modified++;
 								}
 
@@ -1420,11 +1429,11 @@ sub import_csv_file($) {
 						# If the image type is "other" and we don't have a front image, assign it
 						# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
 						elsif (($imgid > 0) and ($imagefield_with_lc =~ /^other/) and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}}) and (not defined $selected_images{"front_" . $product_ref->{lc}})) {
-							$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
+							$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic}) if $log->is_debug();
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;
-							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, $x1, $y1, $x2, $y2); };
+							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2); };
 						}
 					}
 					else {
