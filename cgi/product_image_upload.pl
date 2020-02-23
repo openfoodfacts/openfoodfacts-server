@@ -99,6 +99,7 @@ if (not defined $code) {
 			my $extension = lc($1) ;
 			$tmp_filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
+			(-e "$data_root/tmp") or mkdir("$data_root/tmp", 0755);
 			open (my $out, ">", "$data_root/tmp/$tmp_filename.$extension") ;
 			while (my $chunk = <$file>) {
 				print $out $chunk;
