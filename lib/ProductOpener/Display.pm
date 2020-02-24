@@ -3623,7 +3623,9 @@ sub add_country_and_owner_filters_to_query($$) {
 
 	# Restrict the products to the owner on databases with private products
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		$query_ref->{owners_tags} = $Owner_id;
+		if ($Owner_id ne 'all') {	# Administrator mode to see all products
+			$query_ref->{owners_tags} = $Owner_id;
+		}
 	}
 
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
