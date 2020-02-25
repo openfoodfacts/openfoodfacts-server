@@ -44,7 +44,7 @@ use ProductOpener::DataQuality qw/:all/;
 use Apache2::RequestRec ();
 use Apache2::Const ();
 
-use CGI qw/:cgi :form escapeHTML/;
+use CGI qw/:cgi :form :cgi-lib escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
@@ -117,6 +117,77 @@ else {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	my @errors = ();
+
+	# Store parameters for debug purposes
+	(-e "$data_root/debug") or mkdir("$data_root/debug", 0755);
+	open (my $out, ">", "$data_root/debug/product_jqm_multilingual." . time() . "." . $code);
+	print $out encode_json( Vars() );
+	close $out;
+
+	# Fix too low salt values
+	# 2020/02/25 - https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
+	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined param("nutriment_salt"))) {
+
+		my $salt = param("nutriment_salt");
+
+		if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{salt_100g})) {
+
+			my $existing_salt = $product_ref->{nutriments}{salt_100g};
+
+			$log->debug("yuka - kiliweb : changing salt value of existing product", { salt => $salt, existing_salt => $existing_salt }) if $log->is_debug();
+
+			# Salt value may have been divided by 1000 by the calling app
+			if ($salt < $existing_salt / 100) {
+				# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
+				$salt = $salt . '';
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$salt = $salt * 1000;
+				# The divided by 1000 value may have been of the form 9.99999925e-06: try again
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$log->debug("yuka - kiliweb : changing salt value - multiplying too low salt value by 1000", { salt => $salt, existing_salt => $existing_salt }) if $log->is_debug();
+				param(-name => "nutriment_salt", -value => $salt);
+			}
+		}
+		else {
+			$log->debug("yuka - kiliweb : adding salt value", { salt => $salt }) if $log->is_debug();
+
+			# Salt value may have been divided by 1000 by the calling app
+			if ($salt < 0.001) {
+				# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
+				$salt = $salt . '';
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$salt = $salt * 1000;
+				# The divided by 1000 value may have been of the form 9.99999925e-06: try again
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$log->debug("yuka - kiliweb : adding salt value - multiplying too low salt value by 1000", { salt => $salt }) if $log->is_debug();
+				param(-name => "nutriment_salt", -value => $salt);
+			}
+			elsif ($salt < 0.1) {
+				$log->debug("yuka - kiliweb : adding salt value - removing potentially too low salt value", { salt => $salt }) if $log->is_debug();
+				param(-name => "nutriment_salt", -value => undef);
+			}
+		}
+	}
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
 	if ($User{moderator} and (defined param('new_code'))) {

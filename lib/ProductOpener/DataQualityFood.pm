@@ -616,6 +616,20 @@ sub check_nutrition_data($) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-saturated-fat-greater-than-fat";
 
 		}
+
+		# Too small salt value? (e.g. g entered in mg)
+		if ((defined $product_ref->{nutriments}{"salt_100g"}) and ($product_ref->{nutriments}{"salt_100g"} > 0)) {
+
+			if ($product_ref->{nutriments}{"salt_100g"} < 0.001) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-001-g-salt";
+			}
+			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.01) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-01-g-salt";
+			}
+			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.1) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-1-g-salt";
+			}
+		}
 	}
 	$log->debug("has_prepared_data: " . $has_prepared_data) if $log->debug();
 

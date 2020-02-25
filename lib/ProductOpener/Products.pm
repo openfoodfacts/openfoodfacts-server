@@ -802,7 +802,9 @@ sub store_product($$) {
 
 	compute_languages($product_ref);
 
-	compute_product_history_and_completeness($product_ref, $changes_ref);
+	my $blame_ref = {};
+
+	compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref);
 
@@ -1341,16 +1343,20 @@ sub find_and_replace_user_id_in_products($$) {
 
 
 
-sub compute_product_history_and_completeness($$) {
+sub compute_product_history_and_completeness($$$) {
 
 
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
+	my $blame_ref = shift;
 	my $code = $current_product_ref->{code};
 	my $product_id = $current_product_ref->{_id};
 	my $path = product_path($current_product_ref);
 
 	$log->debug("compute_product_history_and_completeness", { code => $code, product_id => $product_id } ) if $log->is_debug();
+
+	# Keep track of the last user who modified each field
+	%$blame_ref = ();
 
 	return if not defined $changes_ref;
 
@@ -1514,6 +1520,8 @@ sub compute_product_history_and_completeness($$) {
 
 		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
 
+			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
+
 			my @ids;
 
 			if ($group eq 'fields') {
@@ -1567,18 +1575,34 @@ sub compute_product_history_and_completeness($$) {
 				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
 					$log->info("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_info();
 					$diff = 'change';
-
-					# identify products where Yuka removed existing countries to put only France
 				}
 
 				if (defined $diff) {
+
+					# Assign blame
+
+					if (defined $blame_ref->{$group}{$id}) {
+						$blame_ref->{$group}{$id} = {
+							previous_userid => $blame_ref->{$group}{$id}{userid},
+							previous_t => $blame_ref->{$group}{$id}{t},
+							previous_rev => $blame_ref->{$group}{$id}{rev},
+							previous_value => $blame_ref->{$group}{$id}{value},
+						};
+					}
+					else {
+						$blame_ref->{$group}{$id} = {};
+					}
+
+					$blame_ref->{$group}{$id}{userid} = $change_ref->{userid};
+					$blame_ref->{$group}{$id}{t} = $change_ref->{t};
+					$blame_ref->{$group}{$id}{rev} = $change_ref->{rev};
+					$blame_ref->{$group}{$id}{value} = $current{$group}{$id};
+
 					defined $diffs{$group} or $diffs{$group} = {};
 					defined $diffs{$group}{$diff} or $diffs{$group}{$diff} = [];
 					push @{$diffs{$group}{$diff}}, $id;
 
-
 					# Attribution and last_image_t
-
 
 					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
 						# images uploader and uploaded_t where not set before 2015/08/04, set them using the change history

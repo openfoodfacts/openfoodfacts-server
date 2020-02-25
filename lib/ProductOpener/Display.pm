@@ -475,7 +475,7 @@ sub analyze_request($)
 
 	# first check and set parameters in the query string
 
-	foreach my $parameter ('api_version', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'translate', 'stats', 'status', 'missing_property') {
+	foreach my $parameter ('api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
@@ -3623,7 +3623,9 @@ sub add_country_and_owner_filters_to_query($$) {
 
 	# Restrict the products to the owner on databases with private products
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		$query_ref->{owners_tags} = $Owner_id;
+		if ($Owner_id ne 'all') {	# Administrator mode to see all products
+			$query_ref->{owners_tags} = $Owner_id;
+		}
 	}
 
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
@@ -9604,6 +9606,17 @@ HTML
 					exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
 				}
 			}
+		}
+
+		# Return blame information
+		if (defined $request_ref->{blame}) {
+			my $path = product_path_from_id($product_id);
+			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			if (not defined $changes_ref) {
+				$changes_ref = [];
+			}
+			$response{blame} = {};
+			compute_product_history_and_completeness($product_ref, $changes_ref, $response{blame});
 		}
 
 		if ($request_ref->{jqm}) {
