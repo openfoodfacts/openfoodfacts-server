@@ -138,7 +138,22 @@ else {
 
 			# Salt value may have been divided by 1000 by the calling app
 			if ($salt < $existing_salt / 100) {
+				# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
+				$salt = $salt . '';
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
 				$salt = $salt * 1000;
+				# The divided by 1000 value may have been of the form 9.99999925e-06: try again
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
 				$log->debug("yuka - kiliweb : changing salt value - multiplying too low salt value by 1000", { salt => $salt, existing_salt => $existing_salt }) if $log->is_debug();
 				param(-name => "nutriment_salt", -value => $salt);
 			}
@@ -148,7 +163,22 @@ else {
 
 			# Salt value may have been divided by 1000 by the calling app
 			if ($salt < 0.001) {
+				# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
+				$salt = $salt . '';
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
 				$salt = $salt * 1000;
+				# The divided by 1000 value may have been of the form 9.99999925e-06: try again
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
 				$log->debug("yuka - kiliweb : adding salt value - multiplying too low salt value by 1000", { salt => $salt }) if $log->is_debug();
 				param(-name => "nutriment_salt", -value => $salt);
 			}
