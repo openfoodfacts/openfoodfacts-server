@@ -2360,7 +2360,7 @@ sub clean_ingredients_text_for_lang($$) {
 	if (defined $ignore_phrases{$language}) {
 
 		foreach my $regexp (@{$ignore_phrases{$language}}) {
-			$text =~ s/^\s*$regexp(\.)?\s*$//is;
+			$text =~ s/^\s*($regexp)(\.)?\s*$//is;
 		}
 	}
 
