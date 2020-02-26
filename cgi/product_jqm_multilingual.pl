@@ -184,7 +184,7 @@ else {
 			}
 			elsif ($salt < 0.1) {
 				$log->debug("yuka - kiliweb : adding salt value - removing potentially too low salt value", { salt => $salt }) if $log->is_debug();
-				param(-name => "nutriment_salt", -value => undef);
+				param(-name => "nutriment_salt", -value => "");
 			}
 		}
 	}
