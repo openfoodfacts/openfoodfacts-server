@@ -556,9 +556,9 @@ my @localized_stores_icons = (
       { 'platform' => 'apple', 'VN', 'image_name' => 'appstore_VN.svg' },
 );
 
-$current_number_of_products = 1000000
-$current_number_of_contributors = 20000
-$current_number_of_countries = 130
+my $current_number_of_products = 1000000
+my $current_number_of_contributors = 20000
+my $current_number_of_countries = 130
 
 my $manifest = {
 	icons => \@icons,
