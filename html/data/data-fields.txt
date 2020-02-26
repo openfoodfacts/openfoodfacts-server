@@ -177,12 +177,12 @@ carbon-footprint_100g : carbon footprint (as indicated on the packaging of some 
 nutrition-score-fr_100g : Nutri-Score - Nutrition score derived from the UK FSA score and adapted for the French market (formula defined by the team of Professor Hercberg)
 nutrition-score-uk_100g : nutrition score defined by the UK Food Standards Administration (FSA)
 
-producer_product_id
-producer_version_id
+producer_product_id : product id of a product provided by the manufacturer
+producer_version_id : revision id of a product provided by the manufacturer
 net_weight_value
 net_weight_unit
-drained_weight_value
-drained_weight_unit
+drained_weight_value : drained weight value for products like tuna in brine
+drained_weight_unit : drained weight unit for products like tuna in brine
 volume_value
 volume_unit
 other_information
@@ -190,7 +190,8 @@ conservation_conditions
 recycling_instructions_to_recycle
 recycling_instructions_to_discard
 nutrition_grade_fr_producer
-recipe_idea origin
+recipe_idea 
+origin
 customer_service
 producer
 preparation
