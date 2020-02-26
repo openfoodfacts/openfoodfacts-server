@@ -148,6 +148,8 @@ foreach my $test_ref (@tests) {
 	"Farine de _blé_ - sucre"],
 
 	["en", "INGREDIENTS - SALT, SUGAR, SPICES 12%", "salt, sugar, spices 12%"],
+	["en", "Natural pasteurized cow milk - Natural milk fat", "Natural pasteurized cow milk - Natural milk fat"],
+	["en", "NA.", ""],
 
 );
 
