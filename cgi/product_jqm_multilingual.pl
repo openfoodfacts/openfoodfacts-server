@@ -245,6 +245,17 @@ else {
 				us => "en",
 				ie => "en",
 				nz => "en",
+				il => "he",
+				mx => "es",
+				tr => "tr",
+				ru => "ru",
+				th => "th",
+				dk => "da",
+				at => "de",
+				se => "sv",
+				bg => "bg",
+				pl => "pl",
+			
 		);
 
 		if (defined $lc_overrides{$param_cc}) {
