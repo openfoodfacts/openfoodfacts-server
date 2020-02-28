@@ -1030,6 +1030,8 @@ sub check_ingredients_percent_analysis($) {
 		elsif ($product_ref->{ingredients_percent_analysis} > 0) {
 			push @{$product_ref->{data_quality_info_tags}}, 'en:ingredients-percent-analysis-ok';
 		}
+
+		delete $product_ref->{ingredients_percent_analysis};
 	}
 }
 
