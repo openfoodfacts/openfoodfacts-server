@@ -22,7 +22,7 @@ my @tests = (
 [{ lc=>"en", categories=>"sunflower oils", nutriments=>{energy_100g=>3378, fat_100g=>100, "saturated-fat_100g"=>10, sugars_100g=>0, sodium_100g=>0, fiber_100g=>0, proteins_100g=>0}}, 11, "d"],
 
 # saturated fat 1.03 should be rounded to 1.0 which is not strictly greater than 1.0
-[{ lc=>"en", categories=>"breakfast cereals", nutriments=>{energy_100g=>2450, fat_100g=>100, "saturated-fat_100g"=>1.03, sugars_100g=>31, sodium_100g=>0.221, fiber_100g=>6.9, proteins_100g=>10.3}}, 11, "c"],
+[{ lc=>"en", categories=>"breakfast cereals", nutriments=>{energy_100g=>2450, fat_100g=>100, "saturated-fat_100g"=>1.03, sugars_100g=>31, sodium_100g=>0.221, fiber_100g=>6.9, proteins_100g=>10.3}}, 10, "c"],
 
 );
 
