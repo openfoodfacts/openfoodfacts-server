@@ -8582,13 +8582,20 @@ sub display_nutrient_levels($) {
 		# Do not display a warning for water
 		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
 
-			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
+			# Combined message when we miss both fruits and fiber
+			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
+				and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning") . "</p>";
+			}
+			elsif ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
 				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
 			}
-			if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+			elsif ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
 					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
 				$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
 			}
+
 			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
 					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
 				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
@@ -9239,9 +9246,11 @@ HTML
 
 					if (defined $product_ref->{categories_tags}) {
 
+						my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_100g"},
+							is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-							. uc (compute_nutrition_grade($product_ref, $comparison_ref->{nutriments}{$nid . "_100g"}))
-							. "</td>";
+						. uc ($nutriscore_grade)
+						. "</td>";
 					}
 				}
 
@@ -9337,8 +9346,10 @@ HTML
 							$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
 						}
 						else {
+							my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_$col"},
+								is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 							$values2 .= "<td class=\"nutriment_value${col_class}\">"
-							. uc (compute_nutrition_grade($product_ref, $product_ref->{nutriments}{$nid . "_$col"})) # ! prepared
+							. uc ($nutriscore_grade) # ! prepared
 							. "</td>";
 						}
 					}
