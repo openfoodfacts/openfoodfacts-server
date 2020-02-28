@@ -324,6 +324,50 @@ my @tests = (
 ]
         ],
 
+        [ { lc => "en", ingredients_text => "Flour, chocolate (cocoa, sugar, soy lecithin), egg"},
+[
+  {
+    'id' => 'en:flour',
+    'percent_max' => 100,
+    'percent_min' => '33.3333333333333',
+    'text' => 'Flour'
+  },
+  {
+    'id' => 'en:chocolate',
+    'ingredients' => [
+      {
+        'id' => 'en:cocoa',
+        'percent_max' => 50,
+        'percent_min' => 0,
+        'text' => 'cocoa'
+      },
+      {
+        'id' => 'en:sugar',
+        'percent_max' => 25,
+        'percent_min' => 0,
+        'text' => 'sugar'
+      },
+      {
+        'id' => 'en:soya-lecithin',
+        'percent_max' => '16.6666666666667',
+        'percent_min' => 0,
+        'text' => 'soy lecithin'
+      }
+    ],
+    'percent_max' => 50,
+    'percent_min' => 0,
+    'text' => 'chocolate'
+  },
+  {
+    'id' => 'en:egg',
+    'percent_max' => '33.3333333333333',
+    'percent_min' => 0,
+    'text' => 'egg'
+  }
+]
+
+],
+
 );
 
 foreach my $test_ref (@tests) {

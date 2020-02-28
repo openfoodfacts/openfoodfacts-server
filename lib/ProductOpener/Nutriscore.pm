@@ -80,6 +80,8 @@ BEGIN
 		%points_thresholds
 
 		&compute_nutriscore_score_and_grade
+		&compute_nutriscore_grade
+
 		&get_value_with_one_less_negative_point
 		&get_value_with_one_more_positive_point
 

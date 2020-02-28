@@ -1192,6 +1192,8 @@ sub extract_ingredients_from_text($) {
 
 	my $product_ref = shift;
 
+	delete $product_ref->{ingredients_percent_analysis};
+
 	return if not defined $product_ref->{ingredients_text};
 
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
@@ -1205,6 +1207,10 @@ sub extract_ingredients_from_text($) {
 
 		# The computation yielded seemingly impossible values, delete the values
 		delete_ingredients_percent_values($product_ref->{ingredients});
+		$product_ref->{ingredients_percent_analysis} = -1;
+	}
+	else {
+		$product_ref->{ingredients_percent_analysis} = 1;
 	}
 
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
@@ -1247,7 +1253,7 @@ sub delete_ingredients_percent_values($) {
 }
 
 
-=head2 compute_ingredients_percent_values ( ingredients_ref )
+=head2 compute_ingredients_percent_values ( total_min, total_max, ingredients_ref )
 
 This function computes the possible minimum and maximum ranges for the percent
 values of each ingredient and sub-ingredients.
@@ -1257,6 +1263,33 @@ but usually not all. This functions computes minimum and maximum percent
 values for all other ingredients.
 
 Ingredients list are ordered by descending order of quantity.
+
+This function is recursive and it calls itself for each ingredients with sub-ingredients.
+
+=head3 Arguments
+
+=head4 total_min - the minimum percent value of the total of all the ingredients in ingredients_ref
+
+0 when the function is called on all ingredients of a product, but can be different than 0 if called on sub-ingredients of an ingredient that has a minimum value set.
+
+=head4 total_max - the maximum percent value of all ingredients passed in ingredients_ref
+
+100 when the function is called on all ingredients of a product, but can be different than 0 if called on sub-ingredients of an ingredient that has a maximum value set.
+
+=head4 ingredient_ref : nested array of ingredients and sub-ingredients
+
+=head3 Return values
+
+=head4 Negative value - analysis error
+
+The analysis encountered an impossible value.
+e.g. "Flour, Sugar 80%": The % of Flour must be greated to the % of Sugar, but the sum would then be above 100%.
+
+Or there were too many loops to analyze the values.
+
+=head4 0 or positive value - analysis ok
+
+The return value is the number of times we adjusted min and max values for ingredients and sub ingredients.
 
 =cut
 

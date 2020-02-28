@@ -578,7 +578,6 @@ while (my $product_ref = $cursor->next) {
 
 		if ($compute_nutrition_score) {
 			fix_salt_equivalent($product_ref);
-			compute_nutriscore($product_ref);
 			compute_nutrition_score($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
@@ -673,7 +672,6 @@ while (my $product_ref = $cursor->next) {
 
 					fix_salt_equivalent($product_ref);
 					compute_serving_size_data($product_ref);
-					compute_nutriscore($product_ref);
 					compute_nutrition_score($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
@@ -701,7 +699,6 @@ while (my $product_ref = $cursor->next) {
 
 				fix_salt_equivalent($product_ref);
 				compute_serving_size_data($product_ref);
-				compute_nutriscore($product_ref);
 				compute_nutrition_score($product_ref);
 				compute_nutrient_levels($product_ref);
 			}
