@@ -440,6 +440,14 @@ sub split_allergens($) {
 }
 
 
+
+=head2 assign_quantity_from_field ( $product_ref, $field )
+
+Look for a quantity in a field like a product name.
+Assign it to the quantity and remove it from the field.
+
+=cut
+
 sub assign_quantity_from_field($$) {
 
 	my $product_ref = shift;

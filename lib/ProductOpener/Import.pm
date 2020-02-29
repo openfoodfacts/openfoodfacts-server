@@ -92,7 +92,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
-use ProductOpener::ImportConvert qw/clean_weights assign_quantity_from_field/;
+use ProductOpener::ImportConvert qw/clean_fields clean_weights assign_quantity_from_field/;
 use ProductOpener::Users qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -434,12 +434,6 @@ sub import_csv_file($) {
 			}
 		}
 
-		# Clean the input data
-		# It is necessary to do it at this step (before the import) so that we can populate
-		# the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
-
-		clean_weights($imported_product_ref);
-
 		$i++;
 
 		my $modified = 0;
@@ -489,9 +483,25 @@ sub import_csv_file($) {
 		}
 
 		# Quantity in the product name?
-		if (not defined $imported_product_ref->{quantity}) {
-			assign_quantity_from_field($imported_product_ref, "product_name_" . $imported_product_ref->{lc});
+		assign_quantity_from_field($imported_product_ref, "product_name_" . $imported_product_ref->{lc});
+
+		# Clean the input data
+		# It is necessary to do it at this step (before the import) so that we can populate
+		# the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
+
+		clean_weights($imported_product_ref);
+
+		# Process ingredient to split the generic name and clean the list
+
+		foreach my $field (keys %$imported_product_ref) {
+
+			if ($field =~ /^ingredients_text_(\w\w)/) {
+				my $ingredients_lc = $1;
+				split_generic_name_from_ingredients($imported_product_ref, $ingredients_lc);
+			}
 		}
+
+		clean_fields($imported_product_ref);
 
 		# image paths can be passed in fields image_front / nutrition / ingredients / other
 		# several values can be passed in others
@@ -818,11 +828,6 @@ sub import_csv_file($) {
 
 					$new_field_value =~ s/\s+$//g;
 					$new_field_value =~ s/^\s+//g;
-
-					if ($field =~ /^ingredients_text_(\w\w)/) {
-						my $ingredients_lc = $1;
-						$new_field_value = clean_ingredients_text_for_lang($new_field_value, $ingredients_lc);
-					}
 
 					next if $new_field_value eq "";
 
@@ -1155,8 +1160,6 @@ sub import_csv_file($) {
 			compute_languages($product_ref); # need languages for allergens detection and cleaning ingredients
 
 			# Ingredients classes
-			split_generic_name_from_ingredients($product_ref);
-			clean_ingredients_text($product_ref);
 			extract_ingredients_from_text($product_ref);
 			extract_ingredients_classes_from_text($product_ref);
 			detect_allergens_from_text($product_ref);
