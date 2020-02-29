@@ -345,10 +345,6 @@ sub convert_file($$$$) {
 			$product_ref->{lc} = $default_values_ref->{lc};
 		}
 
-		$log->debug("convert_file - before clean_fields ", { lc => $product_ref->{lc}}) if $log->is_debug();
-		clean_fields($product_ref);
-		$log->debug("convert_file - after clean_fields ", { }) if $log->is_debug();
-
 		my @values = ();
 		foreach my $field (@headers) {
 			push @values, $product_ref->{$field};

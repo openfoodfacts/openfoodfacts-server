@@ -47,10 +47,21 @@ match_taxonomy_tags($product_ref, "some_field", "emb_codes",
 
 is($product_ref->{emb_codes}, "EMB59481");
 
-$product_ref = { "product_name" => "Champagne brut 35,5 CL" };
-assign_quantity_from_field($product_ref, "product_name");
-is($product_ref->{product_name}, "Champagne brut");
-is($product_ref->{quantity}, "35,5 CL");
+
+my @assign_quantity_tests = (
+
+	["Champagne brut 35,5 CL", "Champagne brut", "35,5 CL"],
+	["NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO 2X125G", "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", "2 X 125 G"],
+);
+
+foreach my $test_ref (@assign_quantity_tests) {
+
+	$product_ref = { "product_name" => $test_ref->[0] };
+	assign_quantity_from_field($product_ref, "product_name");
+	is($product_ref->{product_name}, $test_ref->[1]);
+	is($product_ref->{quantity}, $test_ref->[2]);
+
+}
 
 $product_ref = { "lc" => "fr", "product_name_fr" => "Soupe bio" };
 @fields = qw(product_name_fr);

@@ -190,7 +190,7 @@ foreach my $test_ref (@tests) {
 
 	@fields = ($ingredients_lc);
 	compute_languages($product_ref);
-	split_generic_name_from_ingredients($product_ref);
+	split_generic_name_from_ingredients($product_ref, $test_ref->[0]);
 	clean_fields($product_ref);
 
 	is($product_ref->{"generic_name_" . $test_ref->[0]}, $test_ref->[2]);

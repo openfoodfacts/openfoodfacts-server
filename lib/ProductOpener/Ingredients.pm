@@ -2296,7 +2296,7 @@ sub validate_regular_expressions() {
 }
 
 
-=head2 split_generic_name_from_ingredients ( product_ref )
+=head2 split_generic_name_from_ingredients ( product_ref language_code )
 
 Some producers send us an ingredients list that starts with the generic name followed by the actual ingredients list.
 
@@ -2310,28 +2310,29 @@ If there is already a generic name, it is not overridden.
 WARNING: This function should be called only during the import of data from producers.
 It should not be called on lists that can be the result of an OCR, as there is no guarantee that the text before the ingredients list is the generic name.
 
-The function needs to be called after compute_languages()
-
 =cut
 
-sub split_generic_name_from_ingredients($) {
+sub split_generic_name_from_ingredients($$) {
 
 	my $product_ref = shift;
+	my $language = shift;
 
-	next if not defined $product_ref->{languages_codes};
+	if ((defined $phrases_before_ingredients_list{$language}) and (defined $product_ref->{"ingredients_text_$language"})) {
 
-	foreach my $language (keys %{$product_ref->{languages_codes}}) {
+		$log->debug("split_generic_name_from_ingredients", { language => $language, "ingredients_text_$language" => $product_ref->{"ingredients_text_$language"} }) if $log->is_debug();
 
-		if ((defined $phrases_before_ingredients_list{$language}) and (defined $product_ref->{"ingredients_text_$language"})) {
+		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
+			if ($product_ref->{"ingredients_text_$language"} =~ /(\s*)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
 
-			foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-				if ($product_ref->{"ingredients_text_$language"} =~ /(\s*)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
-					$product_ref->{"ingredients_text_$language"} = ucfirst($');
-					if ((not defined $product_ref->{"generic_name_$language"}) or ($product_ref->{"generic_name_$language"} eq "")) {
-						$product_ref->{"generic_name_$language"} = $`;
-					}
-					last;
+				my $generic_name = $`;
+				$product_ref->{"ingredients_text_$language"} = ucfirst($');
+
+				if (($generic_name ne '')
+					and ((not defined $product_ref->{"generic_name_$language"}) or ($product_ref->{"generic_name_$language"} eq ""))) {
+					$product_ref->{"generic_name_$language"} = $generic_name;
+					$log->debug("split_generic_name_from_ingredients", { language => $language, generic_name => $generic_name }) if $log->is_debug();
 				}
+				last;
 			}
 		}
 	}
