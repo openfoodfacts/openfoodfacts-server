@@ -5203,6 +5203,7 @@ sub search_and_graph_products($$$) {
 	if ($graph_ref->{axis_y} ne 'products_n') {
 
 		$fields_ref	= {
+			code => 1,
 			product_name => 1,
 			"product_name_$lc" => 1,
 			labels_tags => 1,
