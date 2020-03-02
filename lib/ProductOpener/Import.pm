@@ -69,6 +69,7 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 
+		&clean_and_improve_imported_data
 		&import_csv_file
 		&import_products_categories_from_public_database
 
@@ -418,22 +419,6 @@ sub import_csv_file($) {
 
 	while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
-		# Sanitize the input data
-		foreach my $field (keys %$imported_product_ref) {
-			if (defined $imported_product_ref->{$field}) {
-				# Remove tags
-				$imported_product_ref->{$field} =~ s/<(([^>]|\n)*)>//g;
-
-				# Remove whitespace
-				$imported_product_ref->{$field} =~ s/^\s+|\s+$//g;
-			}
-
-			# If we have generic_name but not product_name, also assign generic_name to product_name
-			if (($field =~ /^generic_name_(\w\w)$/) and (not defined $imported_product_ref->{"product_name_" . $1})) {
-				$imported_product_ref->{"product_name_" . $1} = $imported_product_ref->{"generic_name_" . $1};
-			}
-		}
-
 		$i++;
 
 		my $modified = 0;
@@ -482,24 +467,7 @@ sub import_csv_file($) {
 			next;
 		}
 
-		# Quantity in the product name?
-		assign_quantity_from_field($imported_product_ref, "product_name_" . $imported_product_ref->{lc});
-
-		# Clean the input data
-		# It is necessary to do it at this step (before the import) so that we can populate
-		# the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
-
-		clean_weights($imported_product_ref);
-
-		# Process ingredient to split the generic name and clean the list
-
-		foreach my $field (keys %$imported_product_ref) {
-
-			if ($field =~ /^ingredients_text_(\w\w)/) {
-				my $ingredients_lc = $1;
-				split_generic_name_from_ingredients($imported_product_ref, $ingredients_lc);
-			}
-		}
+		# Clean the input data, populate some fields from other fields (e.g. split quantity found in product name)
 
 		clean_fields($imported_product_ref);
 

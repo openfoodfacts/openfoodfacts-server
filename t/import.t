@@ -162,4 +162,37 @@ foreach my $test_ref (@tests) {
 	}
 }
 
+
+# clean_fields tests
+
+@tests = (
+
+# Lowercase ALL CAPS fields
+[
+	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla"},
+],
+
+# Remove brand at end of product name
+[
+        {lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR", brands => "CARREFOUR"},
+        {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour"},
+],
+
+[
+        {lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", brands => "CARREFOUR, CARREFOUR BIO"},
+        {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, carrefour bio"},
+],
+
+
+);
+
+foreach my $test_ref (@tests) {
+
+	clean_fields($test_ref->[0]);	
+	is_deeply($test_ref->[0], $test_ref->[1]) or diag explain $test_ref->[0];
+
+}
+
+
 done_testing();

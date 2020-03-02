@@ -466,6 +466,7 @@ my %per_synonyms = (
 	},
 	"serving" => {
 		en => ["per serving", "serving"],
+		es => ["por porción", "porción"],
 		fr => ["par portion", "pour une portion", "portion"],
 	}
 );
@@ -573,13 +574,8 @@ sub init_nutrients_columns_names_for_lang($) {
 						# Synonyms of per 100g and per serving
 
 						if (not defined $per_synonyms{$per}{$l}) {
-							# We need at least an empty entry for 100g ""
-							if ($per eq "100g") {
-								$per_synonyms{$per}{$l} = [""];
-							}
-							else {
-								$per_synonyms{$per}{$l} = [];
-							}
+							# Use the English synonyms if we don't have language specific strings
+							$per_synonyms{$per}{$l} = $per_synonyms{$per}{"en"};
 						}
 
 						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
