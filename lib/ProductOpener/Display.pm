@@ -6650,6 +6650,7 @@ sub display_product_search_or_add($)
 &rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
 &rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
 &rarr; <a href="/cgi/export_products.pl">$Lang{export_product_data_photos}{$lc}</a><br>
+&rarr; <a href="/cgi/remove_products.pl">$Lang{remove_products_from_producers_platform}{$lc}</a><br>
 </p>
 HTML
 ;
