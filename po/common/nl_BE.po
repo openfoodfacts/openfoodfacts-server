@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-02 08:56\n"
+"PO-Revision-Date: 2020-03-02 16:19\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2481,7 +2481,7 @@ msgstr "Waarschuwing: de hoeveelheid vezels is niet gespecificeerd, hun mogelijk
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Waarschuwing: de hoeveelheid vezels, fruit, groenten en noten is niet gespecificeerd, hun mogelijke positieve bijdrage aan de beoordeling kon niet worden meegenomen."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3833,7 +3833,7 @@ msgstr "De Nutri-Score kan worden veranderd van %s naar %s door de %s waarde te 
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "Het producentenplatform is nog in ontwikkeling en we voeren handmatige controles uit voordat we producten importeren in de openbare database. Stuur een e-mail naar <a href=\"mailto:producers@openfoodfacts.org\">Producers@openfoodfacts.org</a> om de publieke database bij te werken."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -3885,7 +3885,7 @@ msgstr "Moderator voor het producentenplatform"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "Moderators van het producentenplatform kunnen de privéproducten van alle gebruikers en organisaties op het producentenplatform bekijken en bewerken."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
@@ -3901,7 +3901,7 @@ msgstr "Een onafhankelijk en door de burger geleid project voor voedseltranspara
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health ?"
-msgstr ""
+msgstr "Levensmiddelendata voor onderzoek naar verbetering van de volksgezondheid?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -3921,19 +3921,19 @@ msgstr "Overmatig alcoholgebruik is schadelijk voor de gezondheid en moet met ma
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "Producentenplatform moderatie"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "Je bekijkt momenteel producten van %s."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "Je bekijkt momenteel je eigen producten."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "Om producten te zien van een specifieke gebruiker of organisatie, vul diens ID hieronder in. Laat het veld leeg om uit te schakelen."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
@@ -3942,82 +3942,110 @@ msgstr "Veranderen"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abc en org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "Gebruiker %s bestaat niet"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "De id moet de vorm user-abc of org-xyz hebben"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "Productcategorieën importeren uit de openbare database"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr ""
+msgstr "Voeg categorieën uit de openbare database toe aan de producten op het producentenplatform."
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
-msgstr ""
+msgstr "Importeer categorieën"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr ""
+msgstr "Nutri-Score van producent"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr ""
+msgstr "Berekende Nutri-Score"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "Nutri-Score van producent"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "Berekende Nutri-Score beoordeling"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "Gescande code"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "Code van bestandsnaam"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "Gebruik vorige code"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Je kan veldwaarden opgeven die worden toegevoegd aan alle producten waarvoor je afbeeldingen zal verzenden."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Veld toevoegen"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "Gescande code"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "Code van bestandsnaam"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "Gebruik vorige code"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Je kan veldwaarden opgeven die worden toegevoegd aan alle producten waarvoor je afbeeldingen zal verzenden."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Veld toevoegen"
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr "Verwijder alle producten"
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr "Verwijder al je producten van het producentenplatform"
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr "Je kan al jouw producten van het producentenplatform verwijderen, bijvoorbeeld om te beginnen met een schone lei als er problemen waren met een import. Dit heeft geen invloed op jouw producten in de openbare database."
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr "Houd er rekening mee dat deze actie niet ongedaan kan worden gemaakt."
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr "Waarschuwing: deze actie kan niet ongedaan worden gemaakt. Weet je zeker dat u al jouw producten van het producentenplatform wilt verwijderen?"
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr "Deze functie is niet beschikbaar."
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr "Je producten zijn van het producentenplatform verwijderd."
 

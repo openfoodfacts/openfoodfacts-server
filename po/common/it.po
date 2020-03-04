@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-02 09:07\n"
+"PO-Revision-Date: 2020-03-03 12:17\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2485,7 +2485,7 @@ msgstr "Attenzione: la quantità di fibre non è specificata, il loro possibile 
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Attenzione: la quantità di fibre e di frutta, verdura e noci non sono specificate Non è stato possibile prendere in considerazione il loro possibile contributo positivo al punteggio."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -4024,4 +4024,32 @@ msgstr "Puoi specificare i valori dei campi che saranno aggiunti a tutti i prodo
 msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "Aggiungi un campo"
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr "Rimuovi tutti i prodotti"
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr "Rimuovi tutti i tuoi prodotti dalla piattaforma per i produttori"
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr "Puoi rimuovere tutti i tuoi prodotti dalla piattaforma per i produttori, per esempio per iniziare con una collezione pulita se ci sono stati dei problemi con l'importazione. Questo non influenzerà i tuoi prodotti nel database pubblico."
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr "Questa azione non può essere annullata."
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr "Attenzione: questa azione non può essere annullata. Sei sicuro di voler rimuovere tutti i tuoi prodotti dalla piattaforma per i produttori?"
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr "Questa funzione non è disponibile."
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr "I tuoi prodotti sono stati rimossi dalla piattaforma per i produttori."
 

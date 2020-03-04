@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-02 09:17\n"
+"PO-Revision-Date: 2020-03-03 14:45\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4019,4 +4019,32 @@ msgstr "Lahko določite vrednosti polja, ki bodo dodane vsem izdelkom, za katere
 msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "Dodaj polje"
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr "Odstrani vse izdelke"
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr "Odstrani vse svoje izdelke s platforme za proizvajalce"
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr ""
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr "Upoštevajte, da tega dejanja ni mogoče razveljaviti."
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr "Opozorilo: tega dejanja ni mogoče razveljaviti. Ali ste prepričani, da želite vse izdelke odstraniti s platforme za proizvajalce?"
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr "Ta funkcija ni na voljo."
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr "Vaši izdelki so odstranjeni s platforme za proizvajalce."
 

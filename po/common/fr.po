@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-02 11:27\n"
+"PO-Revision-Date: 2020-03-03 13:46\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4027,4 +4027,32 @@ msgstr "Vous pouvez définir des valeurs qui seront ajoutées à tous les produi
 msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "Ajouter un champ"
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr "Supprimer l'intégralité des produits"
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr "Retirez tous vos produits de la plateforme pour les producteurs"
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr "Vous pouvez supprimer tous vos produits de la plateforme pour les producteurs, par exemple pour commencer par une ardoise propre s'il y a eu des problèmes avec une importation. Cela n'affectera pas vos produits dans la base de données publique."
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr "Veuillez noter que cette action ne peut pas être annulée."
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr "Attention: cette action ne peut pas être annulée. Êtes-vous sûr de vouloir supprimer tous vos produits de la plateforme pour les producteurs?"
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr "Cette action n'est pas disponible."
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr "Vos produits ont été supprimés de la plateforme pour les producteurs."
 
