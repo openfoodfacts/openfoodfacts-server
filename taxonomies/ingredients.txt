@@ -40476,6 +40476,9 @@ carbon_footprint_fr_foodges_value:fr:0.3
 # ingredient/leek has 3620 products in 19 languages @2019-05-22
 # category/leeks has 34 products @2019-05-22
 
+<en:leek
+en:concentrated leek juice
+fr:jus de poireau concentré
 
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
@@ -40527,6 +40530,9 @@ fr:oignon semoule
 
 <en:onion
 fr:oignons grillés en poudre
+
+<en:onion
+fr:oignon fumé en poudre
 
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
@@ -41566,6 +41572,10 @@ fi:kuivattu salottisipuli
 
 <en:shallot
 fr:pulpe d'échalote
+
+<en:shallot
+en:concentrated shallot juice
+fr:jus d'échalote concentré
 
 # description:en: COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
 
@@ -42825,7 +42835,7 @@ wikidata:en:Q20638126
 <en:tomato
 en:organic tomato
 fi:luomutomaatti, luomu tomaatti
-fr:tomates biologiques
+fr:tomates biologiques, tomates issues de l'agriculture durable
 nl:biologische tomaat, biologische tomaten
 # ingredient/fr:tomates-biologiques has 19 products in french @2019-05-29
 
@@ -43117,8 +43127,15 @@ fr:Purée de tomates vertes
 de:Püree aus grünen Tomaten
 fi:vihreä tomaattipyree
 
+<en:tomato
+fr:fibres de tomate, fibre de tomate
+
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
+
+<en:root vegetable
+en:rutabaga
+fr:rutabaga
 
 <en:root vegetable
 en:turnip, turnips
