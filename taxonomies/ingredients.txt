@@ -7840,7 +7840,7 @@ wikidata:en:Q1616491
 # LOW-FAT MILK is a 1% fat milk, sold in the United States
 
 <en:milk
-en:low-fat milk, 1% fat milk
+en:low-fat milk, 1% fat milk, lowfat milk
 de:fettarme Milch
 es:Leche baja en grasa
 fi:Vähärasvainen maito
@@ -13667,6 +13667,10 @@ vegetarian:en:no
 # usage:fr:gélatine (bœuf)
 
 <en:beef
+en:grass-fed beef
+fr:bœuf nourri à l'herbe
+
+<en:beef
 fr:pur boeuf
 
 <en:beef
@@ -16454,6 +16458,7 @@ nl:Biologische kokosolie
 # ingredient/nl:biologische-kokosolie has 1 product @2019-05-24
 
 <en:coconut oil
+en:virgin coconut oil
 fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
 # ingredient/fr:huile-de-coco-vierge has 10 products @2019-06-02
 
@@ -17747,6 +17752,9 @@ vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
 carbon_footprint_fr_foodges_value:fr:4.2
+
+<en:vinegar
+en:white distilled vinegar
 
 <en:vinegar
 en:wine vinegar
@@ -22552,6 +22560,9 @@ pt:flocos de aveia integral
 sv:fullkornshavregryn
 
 <en:oat
+en:whole grain oats
+
+<en:oat
 en:oat bran
 de:Haferkleie
 es:Salvado de avena
@@ -24098,6 +24109,9 @@ nl:Volkorenrijst
 # ingredient/fr:riz-brun has 39 products @2019-05-30
 
 <en:brown rice
+whole grain brown rice
+
+<en:brown rice
 <en:organic rice
 en:organic brown rice, organic full grain rice
 fi:luomu tumma riisi, luomu täysjyväriisi
@@ -24196,13 +24210,15 @@ fr:riz long semi complet
 fr:riz long semi complet issu de l'agriculture-biologique:
 
 <en:long grain rice
-en:brown long grain rice
+<en:brown rice
+en:brown long grain rice, long grain brown rice
 de:brauner Langkornreis
 fi:pitkäjyväinen tumma riisi, pitkäjyväinen täysjyväriisi
 fr:riz long complet, riz complet long grain
 hu:hosszú szemű barnarizs
 nl:langkorrelige zilvervliesrijst
 # ingredient/fr:riz-long-complet has 13 products @2019-05-29
+
 
 <en:brown long grain rice
 <en:parboiled rice
@@ -25193,6 +25209,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sucrose#Cane
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de canne
 carbon_footprint_fr_foodges_value:fr:1.3
 # ingredient/cane-sugar has 17093 products in 23 languages @2019-05-31
+
+en:evaporated cane juice
+fr:jus de canne évaporé
 
 <en:cane sugar
 en:cane sugar cubes
@@ -27166,6 +27185,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cocoa_butter
 # ingredient/cocoa-butter has 26027 products in 39 languages @2019-05-25
 
 <en:cocoa butter
+en:raw cacao butter
+
+<en:cocoa butter
 en:pure cocoa butter
 de:reine Kakaobutter
 fi:puhdas kaakaovoi
@@ -28320,7 +28342,7 @@ fr:Eau minérale naturelle renforcée au gaz de la source
 <en:water
 en:filtered water, purified water
 de:gefiltertes Wasser, gereinigtes Wasser
-es:agua filtrada
+es:agua filtrada, agua purificada
 fi:suodatettu vesi, puhdistettu vesi
 fr:eau filtrée, eau purifiée
 hu:szűrt víz, tisztított víz
@@ -31718,7 +31740,7 @@ it:polpa di mango
 # The wikipedia entry mixes the name of the tree and the name of the fruit
 
 <en:fruit
-en:peach
+en:peach, peaches
 an:presiquera
 ar:دراق
 be:Персік
@@ -33273,6 +33295,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Orange_juice
 wikidata:en:Q219059
 # orange-juice 1401 products in 9 languages @2018-09-28
 
+en:pasteurized orange juice
+fr:jus d'orange pasteurisé
+
 <en:orange juice
 en:Organic orange juice
 fi:luomu appelsiinimehu
@@ -33619,7 +33644,7 @@ nl:Zwarte bessenpuree
 <en:fruit
 <fr:fruit rouge
 <fr:fruits des bois
-en:raspberry
+en:raspberry, raspberries
 af:Framboos
 an:Chordón
 ar:عليق
@@ -33683,6 +33708,9 @@ zh:樹莓
 # yue:勒士啤梨
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry
 # 2014 in 12 languages @2018-09-27
+
+<en:raspberry
+en:red raspberries
 
 <en:raspberry
 fr:variété willamette
@@ -34170,6 +34198,7 @@ fr:dattes deglet nour
 # ingredient/fr:dattes-deglet-nour has 16 products in french @2019-05-23
 
 <en:date
+en:medjool dates
 fr:dattes Medjool
 de:Medjool Datteln
 it:Datteri Medjool
@@ -35368,6 +35397,9 @@ zh:梅乾
 wikidata:en:Q6766526
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:prune
 # 35 products in 1 language @2018-09-30
+
+<en:prune
+en:prune juice
 
 # Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
 
@@ -37259,6 +37291,12 @@ zh:椰子奶
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
 # 87 products @2018-10-03
 
+<en:coconut
+en:coconut water
+
+<en:coconut water
+en:natural coconut water
+
 <fr:lait de noix de coco
 fr:lait de noix de coco en poudre, lait de coco en poudre
 de:Kokosnussmilchpulver, Kokosmilchpulver
@@ -39022,6 +39060,7 @@ carbon_footprint_fr_foodges_value:fr:0.4
 # category/broccoli has 150 products @2019-05-24
 
 <en:vegetable
+en:Broccoli floret
 fr:Brocolis en fleurettes
 nl:broccoliroosjes
 # ingredient/fr:brocolis-en-fleurettes has 17 products in 3 languages @2019-05-24
@@ -39325,6 +39364,9 @@ zh:抱子甘藍
 # zh-tw:抱子甘藍
 wikidata:en:Q150463
 # fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
+
+<en:kale
+en:baby kale
 
 # Savoy cabbage (Brassica oleracea var. sabauda L. or Brassica oleracea Savoy Cabbage Group) is a variety of the plant species Brassica oleracea.
 # be careful with the translation found on packages.
@@ -41265,6 +41307,8 @@ wikidata:en:Q156884
 wikipedia:en:https://en.wikipedia.org/wiki/Eruca_sativa
 # ingredient/fr:roquette has 252 products in 5 languages @2019-05-10
 
+<en:rocket
+en:baby arugula
 
 # description:en:COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
 
@@ -41667,6 +41711,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Spinach
 carbon_footprint_fr_foodges_ingredient:fr:Epinard
 carbon_footprint_fr_foodges_value:fr:0.5
 # fr:épinard 1204 in 9 languages products @2018-10-14
+
+<en:spinach
+en:baby spinach
 
 <en:spinach
 en:spinach powder
@@ -43512,8 +43559,6 @@ wikidata:en:Q3337246
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-en:pinto beans
-es:frijol pinto
 
 
 # description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
@@ -43708,8 +43753,36 @@ carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassou
 carbon_footprint_fr_foodges_value:fr:2
 
 <en:beans
+en:lima beans
+
+<en:lima beans
+en:large lima beans
+
+<en:beans
+en:pinto beans
+es:frijol pinto
+
+<en:beans
+en:navy beans
+
+<en:beans
+en:great northern beans
+
+en:Snap pea, sugar snap peas
+vegan:en:yes
+vegetarian:en:yes
+
+<en:beans
+en:green beans
+
+<en:green beans
 en:flat green beans
 fr:haricots plats coupés
+
+en:green peas
+vegan:en:yes
+vegetarian:en:yes
+
 
 <en:beans
 en:white beans
@@ -43747,6 +43820,9 @@ en:red beans
 de:Rote Bohnen
 es:Alubias rojas
 fr:haricot rouge, haricots rouges
+
+<en:red beans
+en:small red beans
 
 <en:red beans
 fr:haricots rouges secs trempés
@@ -43794,7 +43870,7 @@ fr:haricots verts extra-fins
 # description:en:The BLACK-EYED PEA is a subspecies of the cowpea, grown around the world for its medium-sized, edible bean.
 
 <en:legume
-en:black-eyed pea, black eye beans
+en:black-eyed pea, black eye beans, blackeye peas
 bg:Папуда
 de:Augenbohnen
 dv:ލޫބިޔާ
@@ -44207,7 +44283,7 @@ da:kikærter
 de:Kichererbse, Kichererbsen
 dv:ސަނާ މުގު
 el:ρεβίθι, Ρεβιθιά
-es:garbanzo, garbanzos
+es:garbanzo, garbanzos, garbanzo beans
 et:Harilik kikerhernes
 eu:Txitxirio
 fa:نخود
@@ -45501,6 +45577,7 @@ it:mandorle spezzate
 # ingredient/fr:éclats-d'amandes has 73 products in 4 languages @2018-10-06
 
 <en:almond
+en:dry roasted almonds
 fr:amandes grillées
 de:geröstete Mandeln, Mandeln geröstet
 it:mandorle tostate
@@ -45986,7 +46063,7 @@ wikidata:en:Q2007388
 
 <en:sunflower
 <en:seed
-en:sunflower seed, sunflower seeds
+en:sunflower seed, sunflower seeds, sunflower kernels
 de:Sonnenblumenkerne
 es:semillas de girasol, pipas de girasol
 fi:auringonkukansiemen, auringonkukansiemenet
@@ -50422,6 +50499,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 # category/lettuces has 84 products @2019-5-22
 
 <en:lettuce
+en:romaine lettuce
+
+<en:lettuce
 fr:jeunes pousses de laitue verte
 9@2019-06-06
 
@@ -52010,6 +52090,13 @@ pt:extrato de ché verde em po
 <en:green tea
 fr:thé vert au jasmin
 
+<en:green tea
+en:decaffeinated green tea
+fr:thé vert décafeiné
+
+<en:black tea
+en:decaffeinated black tea
+fr:thé noir décafeiné
 
 # en:tree sorrel
 # de:Gurkenbaumfrucht
@@ -60226,6 +60313,9 @@ vegetarian:en:yes
 
 <en:honey
 en:raw honey
+
+<en:honey
+en:pure honey
 
 <en:honey
 en:organic honey
