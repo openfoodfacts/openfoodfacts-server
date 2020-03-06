@@ -1312,19 +1312,19 @@ sub compute_ingredients_percent_values($$$) {
 		($changed_max < 0) and return -1;
 
 		my $changed_min = set_percent_min_values($total_min, $total_max, $ingredients_ref);
-		($changed_min) < 0 and return -1;
+		($changed_min < 0) and return -1;
 
 		my $changed_sub_ingredients = set_percent_sub_ingredients($ingredients_ref);
-		($changed_sub_ingredients) < 0 and return -1;
+		($changed_sub_ingredients < 0) and return -1;
 
-		$changed += $changed_min + $changed_max + $changed_sub_ingredients;
+		$changed = $changed_min + $changed_max + $changed_sub_ingredients;
 
 		$changed_total += $changed;
 
 		$i++;
 
 		# bail out if we loop too much
-		if ($i > 3) {
+		if ($i > 5) {
 
 			$log->debug("compute_ingredients_percent_values - too many loops, bail out", { ingredients_ref => $ingredients_ref,
 		total_min => $total_min, total_max => $total_max, changed_total => $changed_total }) if $log->is_debug();
@@ -1396,6 +1396,23 @@ sub set_percent_max_values($$$) {
 		if ($ingredient_ref->{percent_max} > $total_max - $sum_of_mins_before) {
 			$ingredient_ref->{percent_max} = $total_max - $sum_of_mins_before;
 			$changed++;
+		}
+
+		# For lists like  "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"
+		# we can set a maximum on Sugar, Cornflour etc. that take into account that Water would be
+		# above that maximum
+		if ($i > 2) {
+			for (my $j = 2; $j + 1 < $i; $j++) {
+				my $max = $total_max - $sum_of_mins_before;
+				for (my $k = $j; $k + 1 < $i; $k++) {
+					$max += $ingredients_ref->[$i - $k]{percent_min};
+				}
+				$max = $max / $j;
+				if ($ingredient_ref->{percent_max} > $max) {
+					$ingredient_ref->{percent_max} = $max;
+					$changed++;
+				}
+			}
 		}
 
 		# The min of an ingredient must be greater or equal to
@@ -3096,8 +3113,8 @@ INFO
 			$text =~ s/([a-z]) ($ucfirst_traces_regexp)/$1, $2/g;
 		}
 
-		$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
-		$log->debug("allergens", { lc => $product_lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
+		#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
+		#$log->debug("allergens", { lc => $product_lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
 
 		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)*($allergenssuffixregexp))\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$product_lc,$4)/ieg;
 		# we may have added an extra dot in order to make sure we have at least one
