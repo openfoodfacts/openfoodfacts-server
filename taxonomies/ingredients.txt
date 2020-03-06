@@ -24109,7 +24109,7 @@ nl:Volkorenrijst
 # ingredient/fr:riz-brun has 39 products @2019-05-30
 
 <en:brown rice
-whole grain brown rice
+en:whole grain brown rice
 
 <en:brown rice
 <en:organic rice
@@ -24123,6 +24123,10 @@ nl:biozilvervliesrijst
 <en:parboiled rice
 fr:riz complet étuvé, riz complet précuit
 # ingredient/fr:riz-complet-précuit has 26 products in french @2018-12-19
+
+<en:whole grain brown rice
+<en:parboiled rice
+en:precooked parboiled whole grain brown rice
 
 <en:rice
 en:white rice
@@ -25310,7 +25314,7 @@ carbon_footprint_fr_foodges_value:fr:0.7
 # description:en:COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm.It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
 
 <en:sugar
-en:coconut sugar
+en:coconut sugar, coconut palm sugar
 ca:Sucre de coco
 de:Kokosnusszucker
 es:Azucar de coco
@@ -26437,7 +26441,7 @@ nl:tapiocadextrose
 
 # description:en:Agave nectar (more accurately, agave syrup) is a sweetener commercially produced from several species of agave, including Agave tequilana (blue agave) and Agave salmiana.
 
-en:agave syrup
+en:agave syrup, agave nectar
 ar:شراب أغاف
 cs:agávovy sirup
 da:agavesirup
@@ -27281,6 +27285,9 @@ wikidata:en:Q1062396
 
 <en:cocoa powder
 fr:poudre de cacao cru
+
+<en:cocoa powder
+en:raw cacao powder
 
 <en:cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder
@@ -34027,6 +34034,9 @@ wikidata:en:Q5812410
 # 943 producten in 13 languages @2018-10-01
 
 <en:blueberry
+en:wild blueberries
+
+<en:blueberry
 en:organic blueberry
 de:Bio-Heidelbeeren, Bio-Blaubeeren
 fi:luomumustikka, luomu mustikka
@@ -35923,6 +35933,9 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultani
 # Zante currants, Corinth raisins, or Corinthian raisins, also called simply currants, are dried berries of the small, sweet, seedless grape cultivar 'Black Corinth' (Vitis vinifera).
 
 <en:grape
+en:California seedless raisins
+
+<en:grape
 en:Zante currant
 da:Korend
 de:korinthische Rosinen, Korinthiaki
@@ -37406,7 +37419,7 @@ nl:acaisap
 # description:en:GOJI is the fruit of either Lycium barbarum or Lycium chinense, two closely related species of boxthorn in the nightshade family, Solanaceae. Since the early 21st century, the dried fruit has been marketed in the Western world as a health food, with unsupported health claims about its benefits
 
 <en:fruit
-en:goji
+en:goji, goji berries
 ca:goji
 cs:godži
 de:Gemeiner Bocksdorn
@@ -42001,6 +42014,9 @@ fr:Pommes de terre biologiques origine France
 fr:pommes de terre précuites
 
 <en:potato
+en:russet potatoes
+
+<en:potato
 en:potato powder
 da:kartoffelpulver
 de:Kartoffelpulver
@@ -43758,6 +43774,9 @@ en:lima beans
 <en:lima beans
 en:large lima beans
 
+<en:lima beans
+en:baby lima beans
+
 <en:beans
 en:pinto beans
 es:frijol pinto
@@ -45230,6 +45249,9 @@ zh:腰果
 wikidata:en:Q28788216
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
+
+<en:cashew nuts
+en:raw cashews
 
 # description:en: The HAZELNUT is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
 
