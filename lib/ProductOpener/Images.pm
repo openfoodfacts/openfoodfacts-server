@@ -435,10 +435,13 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
-		$code = normalize_code($1);
+		$code = $1;
 		# Make sure it's not a date like 20200201..
-		if ($code =~ /^20(18|19|(2[0-9]))(0|1)/) {
+		if ($filename =~ /^20(18|19|(2[0-9]))(0|1)/) {
 			$code = undef;
+		}
+		else {
+			$code = normalize_code($code);
 		}
 	}
 
@@ -448,7 +451,9 @@ sub get_code_and_imagefield_from_file_name($$) {
 		$imagefield =~ s/-/_/;
 	}
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
-	elsif ($filename =~ /^\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i) {
+	# but [code]_2.jpg etc. should not be considered the front image
+	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i)
+		and not ($filename =~ /^\d{8}\d*(-|_|\.| )*\d{1,2}\.($extensions)$/i)) {	# [code] + number between 0 and 99
 		$imagefield = "front";
 	}
 	else {

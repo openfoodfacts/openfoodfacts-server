@@ -47,6 +47,13 @@ my @tests = (
 ["fr", "image_front_url_fr", { field=>"image_front_url_fr"}],
 ["fr", "image_front_fr_url", { field=>"image_front_url_fr"}],
 
+["es", "Valor Energético", { field=>"energy_100g_value_unit"}],
+["es", "Valor Energético KJ", { field=>"energy-kj_100g_value_unit", value_unit=>'value_in_kj'}],
+["es", "Valor Energético 100 gr", { field=>"energy_100g_value_unit"}],
+["es", "Valor Energético 100gr", { field=>"energy_100g_value_unit"}],
+["es", "Valor Energético KJ / 100 gr", { field=>"energy-kj_100g_value_unit", value_unit=>'value_in_kj'}],
+["es", "Valor Energético KJ / 100gr", { field=>"energy-kj_100g_value_unit", value_unit=>'value_in_kj'}],
+["es", "Valor Energético KJ por porción", { field=>"energy-kj_serving_value_unit", value_unit=>'value_in_kj'}],
 );
 
 foreach my $test_ref (@tests) {

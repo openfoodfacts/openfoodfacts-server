@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-02-22 02:01\n"
+"PO-Revision-Date: 2020-03-03 02:23\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2480,6 +2480,10 @@ msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Advarsel: Mængden af ​​fiber er ikke specificeret, deres mulige positive bidrag til kvaliteten kunne ikke tages i betragtning."
 
+msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
+msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr "Advarsel: Mængden af fibre, ​​frugt, grønsager og nødder er ikke specificeret. Deres mulige positive bidrag til kvaliteten kunne ikke tages i betragtning."
+
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Advarsel: Mængden af ​​frugt, grønsager og nødder er ikke specificeret, deres mulige positive bidrag til kvaliteten kunne ikke tages i betragtning."
@@ -3939,7 +3943,7 @@ msgstr "Ændr"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "bruger-abc eller org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
@@ -4017,4 +4021,32 @@ msgstr "Du kan angive feltværdier, som føjes til alle de produkter, for hvilke
 msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "Tilføj et felt"
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr "Fjern alle produkter"
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr "Fjern alle dine produkter fra producentplatformen"
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr "Du kan fjerne alle dine produkter fra producentplatformen for f.eks. at starte på en frisk, hvis der opstod problemer med en import. Dette påvirker ikke dine produkter i den offentlige database."
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr "Bemærk, at denne handling er irreversibel."
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr "Advarsel: Denne handling er irreversibel! Sikker på, at du vil fjerne alle dine produkter fra producentplatformen?"
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr "Denne funktion er ikke tilgængelig."
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr "Dine produkter er fjernet fra producentplatformen."
 
