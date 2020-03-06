@@ -356,6 +356,13 @@ my @tests = (
 
 ],
 
+		# For lists like  "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"
+		# we can set a maximum on Sugar, Cornflour etc. that takes into account that all ingredients
+		# that appear before will have an higher quantity.
+		# e.g. the percent max of Water to be set to 100 - 52 -33 = 15%
+		# the max of sugar to be set to 15 / 2 = 7.5 %
+		# the max of cornflour to be set to 15 / 3 etc.
+
         [ { lc => "en", ingredients_text => "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"},
 [
   {

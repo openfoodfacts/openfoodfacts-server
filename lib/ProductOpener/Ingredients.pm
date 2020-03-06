@@ -1399,9 +1399,16 @@ sub set_percent_max_values($$$) {
 		}
 
 		# For lists like  "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"
-		# we can set a maximum on Sugar, Cornflour etc. that take into account that Water would be
-		# above that maximum
-		if ($i > 2) {
+		# we can set a maximum on Sugar, Cornflour etc. that takes into account that all ingredients
+		# that appear before will have an higher quantity.
+		# e.g. the percent max of Water to be set to 100 - 52 -33 = 15%
+		# the max of sugar to be set to 15 / 2 = 7.5 %
+		# the max of cornflour to be set to 15 / 3 etc.
+
+		if ($i > 2) {	# This rule applies to the third ingredient and ingredients after
+			# We check that the current ingredient + the ingredient before it have a max
+			# inferior to the ingredients before, divided by 2.
+			# Then we do the same with 3 ingredients instead of 2, then 4 etc.
 			for (my $j = 2; $j + 1 < $i; $j++) {
 				my $max = $total_max - $sum_of_mins_before;
 				for (my $k = $j; $k + 1 < $i; $k++) {
