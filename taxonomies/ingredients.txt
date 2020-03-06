@@ -16297,7 +16297,7 @@ nl:gehydrogeneerde palmolie
 en:totally hydrogenated palm oil
 de:vollständig gehärtetes Palmöl
 fi:kokonaan kovetettu palmuöljy, kokonaan hydrogenoitu palmuöljy
-fr:huile de palme totalement hydrogénée
+fr:huile de palme totalement hydrogénée, palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
 
 <en:hydrogenated palm oil
@@ -16701,6 +16701,9 @@ nl:olie van biologisch koolzaad
 en:hydrogenated colza oil
 fi:kovetettu rapsiöljy
 
+<en:hydrogenated colza oil
+fr:huile de colza totalement hydrogénée, huiles végétales de colza totalement hydrogénée
+
 <en:colza oil
 fr:huile de colza non hydrogénée
 
@@ -16851,7 +16854,7 @@ es:Aceite de cacahuete, aceite de cacahuate
 eu:Kakahuete olio
 fa:روغن بادام زمینی
 fi:Maapähkinäöljy
-fr:huile d'arachide
+fr:huile d'arachide, huiles végétales d'arachide
 gl:Aceite de cacahuete
 hr:Ulje od kikirikija
 hu:Mogyoróolaj, földimogyoró olaj, földimogyoróolaj, földimogyoró-olaj
@@ -19763,6 +19766,12 @@ vegetarian:en:yes
 <en:natural flavouring
 fr:arômes naturels de réglisse
 
+<en:natural flavouring
+fr:arôme naturel de réglisse
+
+<en:natural flavouring
+fr:arôme naturel de livèche
+
 # Two parents due to and/or ingredient
 
 <en:natural flavouring
@@ -19917,12 +19926,6 @@ de:natürliches Estragonaroma, natürliches Estragon-Aroma
 fi:luontainen rakuuna-aromi
 fr:arôme naturel d'estragon
 hu:természetes tárkony aroma
-
-<en:natural flavouring
-fr:arôme naturel de livèche
-
-<en:natural flavouring
-fr:arôme naturel de réglisse
 
 <en:natural flavouring
 fr:arôme naturel de sucre roux
@@ -32495,14 +32498,22 @@ it:fiocchi di mela
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
+<fr:moût
+fr:moût de pomme concentré
+
+<en:apple
 en:Golden Delicious apple
 de:Golden Delicious Apfel
 fi:golden delicious -omena
-fr:pomme Golden Delicious, pommes Golden Delicious
+fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
 # ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
 
 <en:apple
+fr:pommes gala
+
+<en:apple
 nl:Royal Gala appel
+fr:pommes Royal Gala
 
 <nl:Royal Gala appel
 nl:Tenroy
@@ -32730,6 +32741,9 @@ en:citrus fruit extract
 de:Citrusextrakt
 fi:sitrushedelmäuute
 
+<en:citrus fruit
+fr:écorces d'agrumes
+
 # Citrus hystrix, called the kaffir lime, makrut lime or Mauritius papeda, is a citrus fruit native to tropical Southeast Asia and southern China.
 
 <en:citrus fruit
@@ -32768,6 +32782,8 @@ zh:箭叶橙
 wikipedia:en:https://en.wikipedia.org/wiki/Kaffir_lime
 #  fr:combava has 42 products in 4 languages @2019-02-16
 
+<en:kaffir lime
+fr:feuilles de combava
 
 # A lime is a hybrid citrus fruit
 
@@ -32884,7 +32900,7 @@ fi:limettimehutiiviste, limettitäysmehutiiviste
 en:reconstituted lime juice
 de:rekonstituierter Limettensaft
 fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
-fr:jus de citron vert à base de concentré
+fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
 nl:limoensap uit concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
 # 74 products in 3 languages @2018-10-01
@@ -33519,7 +33535,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Mandarine
 carbon_footprint_fr_foodges_value:fr:1.3
 # 239 products in 6 languages @2018-10-01
 
-<fr:mandarine
+<en:mandarin
 <en:fruit juice
 fr:jus de mandarine
 de:Mandarinesaft, Mandarinensaft
@@ -34170,6 +34186,10 @@ zh:黑莓
 # yue:黑啤梨
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mûre
 # 404 products in 7 languages @21018-10-01
+
+<en:blackberry
+<en:juice
+fr:jus de mûre à base de jus concentré
 
 # description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 
@@ -37140,6 +37160,9 @@ en:organic pomegranate juice
 fi:luomugranaattiomenamehu, luomu granaattiomenamehu
 fr:Jus de Grenade issu de l'agriculture biologique
 
+<en:pomegranate
+fr:écorces de grenade
+
 # Aronia is a genus of deciduous shrubs, the chokeberries, in the family Rosaceae native to eastern North America
 
 <en:fruit
@@ -37429,6 +37452,9 @@ de:Kokosnusschips, Kokosnuss-Chips
 fi:kookoslastu, kookoslastut
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kookoslastu
 # 1 entry @ 2019-10-31
+
+<en:coconut
+fr:pâte de noix de coco
 
 <en:fruit
 en:acai berry, açaí berries, acai
@@ -40008,10 +40034,14 @@ fi:selleripyree, sellerisose
 fr:purée de céleri
 
 <en:celery
+en:celery juice
+fr:jus de céleri
+
+<en:celery juice
 en:concentrated celery juice
 de:Sellerieextrakt
 fi:sellerimehutiiviste
-fr:jus concentré de céleri
+fr:jus de céleri concentré, jus concentré de céleri
 # fr:jus-concentré-de-céleri has 64 products in 1 language @2018-10-21
 
 <en:concentrated celery juice
@@ -40077,7 +40107,7 @@ fr:céleri rave râpé
 # fr:céleri-rave-râpé has 17 products in 1 language @2018-10-20
 
 <en:celeriac
-fr:jus concentré de céleri rave
+fr:jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
 
 <en:carrot
 <en:pumpkin
@@ -45266,6 +45296,9 @@ es:cacahuete con cáscara
 fi:kuorellinen maapähkinä
 fr:cacahuète avec coque
 
+<en:peanut
+fr:farine d'arachide
+
 <en:nut
 en:cashew nuts, cashews, cashew
 ar:كاجو
@@ -46386,6 +46419,9 @@ nl:zwarte peperextract
 en:black and green pepper
 fi:musta- ja viherpippuri
 
+<en:pepper
+fr:poivre rose
+
 <en:seed
 <en:fenugreek
 en:fenugreek seed, fenugreek seeds
@@ -46903,6 +46939,8 @@ zh:葛縷子
 wikipedia:en:https://en.wikipedia.org/wiki/Caraway
 # ingredient/fr:carvi has 276 products in 7 languages @2019-05-13
 
+<en:caraway
+fr:graines de carvi
 
 # description:en:The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
 
@@ -48008,14 +48046,24 @@ sl:gorčično seme
 sv:senapsfrö
 
 <en:mustard seed
+fr:Graines de moutarde issues de l'agriculture durable
+
+<en:mustard seed
+fr:graines de moutarde moulues
+
+<en:mustard seed
 en:yellow mustard seed
-de:Gelbsenfsaat, Senfsaat gelb
+de:Gelbsenfsaat, Senfsaat gelb, gelbes Senfkorn
 fi:keltainen sinapinsiemen
+fr:graines de moutarde jaunes
 
 <en:mustard seed
 en:brown mustard seed
 de:Braunsenfsaat
 fi:ruskea sinapinsiemen
+
+<en:mustard
+fr:sons de moutarde
 
 # description:en:MUSTARD is a condiment made from the seeds of a mustard plant
 
@@ -48430,7 +48478,7 @@ dv:ކާސިންޖީ
 es:hierba limón, hierbalimón
 fa:پوتار
 fi:Sitruunaruoho
-fr:citronnelle
+fr:citronnelle, citronelle
 ga:féar líomóideach
 gl:Herba limoeira
 he:עשב לימון
@@ -49402,6 +49450,9 @@ fr:livèche séchée
 <en:blueberry
 fr:bleuets
 
+<fr:bleuets
+fr:pétales de bleuet
+
 # Centaurea cyanus, commonly known as CORNFLOWER or bachelor's button,[note 1] is an annual flowering plant in the family Asteraceae, native to Europe.
 
 <en:herb
@@ -49896,6 +49947,8 @@ sl:Kapra
 wikipedia:en:https://en.wikipedia.org/wiki/Caper
 # ingredient/fr:câpre has 494 products in 6 languages @2018-12-4
 
+<en:plant
+fr:feuilles de frêne
 
 # Coriander (Coriandrum sativum), also known as cilantro or Chinese parsley, is an annual herb in the family Apiaceae.
 # coriander is used as an en:herb (leaves) or as an en:seed (en:spice).
@@ -50024,6 +50077,8 @@ fr:arôme de coriandre
 es:aroma de cilantro
 # ingredient/fr:arôme de coriandre has 1 products in 2 languages @2018-12-05
 
+<en:plant
+fr:feuilles de mûrier
 
 <en:plant
 fr:feuilles de mûres douces
@@ -50170,7 +50225,8 @@ it:luppolo biologico, luppolo bio
 nl:biologische hop, bio hop
 sv:organisk humle
 
-
+<en:plant
+fr:pétales de jasmin
 
 # description:en:JUNIPERS are coniferous plants in the genus Juniperus of the cypress family Cupressaceae. Juniper berries are a spice used in a wide variety of culinary dishes and best known for the primary flavoring in gin. Juniper berry sauce is often a popular flavoring choice for quail, pheasant, veal, rabbit, venison and other game dishes.
 # comment:en:Juniper as an ingredient most certainly implies a juniper berry.
@@ -51096,7 +51152,8 @@ fr:feuilles d'oranger
 it:foglie d'arancio
 # ingredient/fr:feuilles-d'oranger has 65 products in 4@2019-04-13
 
-
+<en:plant
+fr:fleur d'oranger
 
 # <en:vegetable fibre
 <en:plant
@@ -51311,6 +51368,9 @@ zh:南非茶
 # sr-el:Roibos
 wikipedia:en:https://en.wikipedia.org/wiki/Rooibos
 # ingredient/fr:rooibos has 119 products in 10 languages @2019-04-23
+
+<en:rooibos
+fr:Rooibos d'Afrique du Sud
 
 <en:rooibos
 en:organic rooibos
@@ -51708,6 +51768,8 @@ wikidata:en:Q26949
 wikipedia:en:https://en.wikipedia.org/wiki/Helianthus
 # en:sunflower has 16610 products @2018-10-15
 
+<en:sunflower
+fr:pétales de tournesol
 
 <en:plant
 en:soapwort
