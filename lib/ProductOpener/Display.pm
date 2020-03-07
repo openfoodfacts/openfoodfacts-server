@@ -5982,23 +5982,22 @@ $styles
 $google_analytics
 </head>
 <body$bodyabout>
-<nav class="top-bar" data-topbar id="top-bar">
-	<ul class="title-area">
-		<li class="name">
-			<h2><a href="/" style="font-size:1rem;">$site_name</a></h2>
-		</li>
-		<li class="toggle-topbar menu-icon">
-			<a href="#"><span>Menu</span></a>
-		</li>
-	</ul>
-	<section class="top-bar-section">
-		<label for="select_country" style="display:none">$Lang{select_country}{$lang}</label>
-		<ul class="left">
-			<li class="has-form has-dropdown" id="select_country_li">
-				<select id="select_country" style="width:100%" data-placeholder="@{[ lang('select_country') ]}">
-					<option></option>
-				</select>
-			</li>
+
+<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+  <div class="title-bar-title">Menu</div>
+</div>
+
+<nav class="top-bar" id="responsive-menu">
+  <section class="top-bar-left">
+	<ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">$site_name</li>
+      <li class="has-form has-dropdown" id="select_country_li">
+        <label for="select_country" style="display:none">$Lang{select_country}{$lang}</label>
+        <select id="select_country" style="width:100%" data-placeholder="@{[ lang('select_country') ]}">
+          <option></option>
+        </select>
+      </li>
 HTML
 ;
 
@@ -6361,8 +6360,8 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
-			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
+			<li class="show-for-large-only"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
+			<li class="show-for-xlarge"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
 HTML
 ;
 
@@ -6371,7 +6370,9 @@ HTML
 	}
 
 	$html .= <<HTML
-		<ul class="right">
+	</section>
+	<section class="top-bar-right">
+		<ul class="dropdown menu" data-dropdown-menu>
 			<li class="show-for-large-up">
 				<form action="/cgi/search.pl">
 					<div class="grid-x collapse">
