@@ -1939,9 +1939,10 @@ HTML
 
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
-			$initjs .= 'var countries_map_data=' . encode_json($countries_map_data) . ';'
-				    .= 'var countries_map_links=' . encode_json($countries_map_links) . ';'
-					.= 'var countries_map_names=' . encode_json($countries_map_names) . ';'
+			my $json = JSON::PP->new->utf8(0);
+			$initjs .= "var countries_map_data=JSON.parse('" . $json->encode($countries_map_data) . "');"
+					.= "var countries_map_links=JSON.parse('" . $json->encode($countries_map_links) . "');"
+					.= "var countries_map_names=JSON.parse('" . $json->encode($countries_map_names) . "');"
 					.= <<JS
 \$('#world-map').vectorMap({
   map: 'world_mill_en',
@@ -7572,15 +7573,15 @@ JS
 				if (has_tag($product_ref, "labels", "en:palm-oil-free")
 					or ($ingredients_analysis_tag =~ /-free$/)) {
 					$ingredients_analysis_tag = "en:palm-oil-free";
-					$color = "#47a647"; # green
+					$color = 'green';
 					$icon = "monkey_happy";
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
-					$color = "#f9904c"; # orange
+					$color = 'orange';
 					$icon = "monkey_uncertain";
 				}
 				else {
-					$color = "#ec5656"; # red
+					$color = 'red';
 					$icon = "monkey_unhappy";
 				}
 
@@ -7609,13 +7610,13 @@ JS
 				}
 
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = "#ec5656"; # red
+					$color = 'red';
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
-					$color = "#f9904c"; # orange
+					$color = 'orange';
 				}
 				else {
-					$color = "#47a647"; # green
+					$color = 'green';
 				}
 			}
 
@@ -7626,7 +7627,7 @@ JS
 				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
 			}
 
-			$html_analysis .= "<span class=\"alert round label ingredients_analysis\" style=\"background-color:$color;\">"
+			$html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
 			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
 			. "</span> ";
 		}
