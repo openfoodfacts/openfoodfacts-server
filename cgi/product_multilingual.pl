@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -849,14 +849,18 @@ HTML
 
 
 	$html .= <<HTML
-<div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
+<div class="callout secondary store-state" id="warning_3rd_party_content" style="display:none;" data-closable>
 	<span>$Lang{warning_3rd_party_content}{$lang}</span>
- 	<a href="#" class="close">&times;</a>
+	<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    	<span aria-hidden="true">&times;</span>
+  	</button>
 </div>
 
-<div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
+<div class="callout secondary secondary store-state" id="licence_accept" style="display:none;" data-closable>
 	<span>$Lang{licence_accept}{$lang}</span>
- 	<a href="#" class="close">&times;</a>
+ 	<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    	<span aria-hidden="true">&times;</span>
+  	</button>
 </div>
 HTML
 ;
@@ -865,7 +869,7 @@ HTML
 <script type="text/javascript">
 'use strict';
 \$(function() {
-  var alerts = \$('.alert-box.store-state');
+  var alerts = \$('.callout.store-state');
   \$.each(alerts, function( index, value ) {
     var display = \$.cookie('state_' + value.id);
     if (display !== undefined) {
@@ -874,8 +878,8 @@ HTML
       value.style.display = 'block';
     }
   });
-  alerts.on('close.fndtn.alert', function(event) {
-    \$.cookie('state_' + \$(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
+  \$('.callout.store-state .close-button').on('click', function(event) {
+    \$.cookie('state_' + \$(this).closest('.callout.store-state')[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
   });
 });
 </script>
@@ -1274,15 +1278,14 @@ sub display_tabs($$$$$$) {
 	my $html_content = "";
 
 	$html_header .= <<HTML
-<ul id="tabs_$tabsid" class="tabs" data-tab>
+<ul id="tabs_$tabsid" class="tabs" data-tabs>
 HTML
 ;
 
 	$html_content .= <<HTML
-<div id="tabs_content_$tabsid" class="tabs-content">
+<div id="tabs_content_$tabsid" class="tabs-content" data-tabs-content="tabs_$tabsid">
 HTML
 ;
-
 
 	my $active = " active";
 	foreach my $tabid (@$tabsids_array_ref, 'new_lc','new') {
@@ -1295,15 +1298,13 @@ HTML
 			$new_lc = ' new';
 		}
 
-		my $language = "";
-
+		my $language = '';
 		if ($tabid eq 'new') {
 
-		$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_new">$select_add_language</li>
+			$html_header .= <<HTML
+	<li class="tabs-title$active$new_lc tabs_new">$select_add_language</li>
 HTML
 ;
-
 		}
 		else {
 
@@ -1312,14 +1313,14 @@ HTML
 			}
 
 			$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}_tab" data-language="$tabid"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
+	<li class="tabs-title$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}_tab" data-language="$tabid"><a data-tabs-target="tabs_${tabsid}_${tabid}" href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
 HTML
 ;
 
 		}
 
 		my $html_content_tab = <<HTML
-<div class="tabs content$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}">
+<div class="tabs-pane $active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}">
 HTML
 ;
 
@@ -1375,7 +1376,7 @@ HTML
 
 		$html_content .= $html_content_tab;
 
-		$active = "";
+		$active = '';
 
 	}
 
@@ -2084,16 +2085,16 @@ JS
 
 	if ($type eq 'edit') {
 		$html .= <<"HTML"
-<div class="row">
-	<div class="small-12 medium-12 large-8 xlarge-8 columns">
+<div class="grid-x">
+	<div class="cell small-12 medium-12 large-8 xlarge-8">
 		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
 	</div>
-	<div class="small-6 medium-6 large-2 xlarge-2 columns">
+	<div class="cell small-6 medium-6 large-2 xlarge-2">
 		<button type="submit" name=".submit" class="button postfix small">
 			@{[ display_icon('check') ]} $Lang{save}{$lc}
 		</button>
 	</div>
-	<div class="small-6 medium-6 large-2 xlarge-2 columns">
+	<div class="cell small-6 medium-6 large-2 xlarge-2">
 		<button type="button" id="back-btn" class="button postfix small secondary">
 			@{[ display_icon('cancel') ]} $Lang{cancel}{$lc}
 		</button>

@@ -3041,11 +3041,11 @@ HTML
 							my $iconid = $tagtype_field . "_icon_" . $valueid;
 							$iconid =~ s/_/-/g;
 							$display = <<HTML
-<div class="row">
-<div class="small-2 large-1 columns">
+<div class="grid-x">
+<div class="cell small-2 large-1">
 <img src="/images/misc/$iconid.svg" alt="$alt">
 </div>
-<div class="small-10 large-11 columns">
+<div class="cell small-10 large-11">
 $display
 </div>
 </div>
@@ -3279,12 +3279,11 @@ HTML
 	}
 
 	$description = <<HTML
-<div class="row">
-
-	<div id="tag_description" class="large-12 columns">
+<div class="grid-x">
+	<div id="tag_description" class="cell large-12">
 		$description
 	</div>
-	<div id="tag_map" class="large-9 columns" style="display: none;">
+	<div id="tag_map" class="cell large-9" style="display: none;">
 		<div id="container" style="height: 300px"></div>
 	</div>
 
@@ -5592,18 +5591,18 @@ sub display_login_register($)
 <p>$Lang{login_to_add_and_edit_products}{$lc}</p>
 
 <form method="post" action="/cgi/session.pl">
-	<div class="row">
-		<div class="small-12 columns">
+	<div class="grid-x">
+		<div class="cell small-12">
 			<label>$Lang{login_username_email}{$lc}
 				<input type="text" name="user_id" autocomplete="username" required>
 			</label>
 		</div>
-		<div class="small-12 columns">
+		<div class="cell small-12">
 			<label>$Lang{password}{$lc}
 				<input type="password" name="password" autocomplete="current-password" required>
 			</label>
 		</div>
-		<div class="small-12 columns">
+		<div class="cell small-12">
 			<label>
 				<input type="checkbox" name="remember_me" checked>
 				$Lang{remember_me}{$lc}
@@ -6089,8 +6088,8 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div class="grid-x">
+<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
 <span id="hide_image_banner_hide" style="display:none;">J'ai déjà donné ou je ne suis pas intéressé. Ne plus afficher la bannière.</span>
@@ -6111,8 +6110,8 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div class="grid-x">
+<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
 <span id="hide_image_banner_hide" style="display:none;">I have already donated or I'm not interested. Hide the banner.</span>
@@ -6133,8 +6132,8 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div class="grid-x">
+<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
 <span id="hide_image_banner_hide" style="display:none;">Ya he donado o no estoy interesado. Ocultar aviso.</span>
@@ -6155,8 +6154,8 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div class="grid-x">
+<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
 <span id="hide_image_banner_hide" style="display:none;">Ho già donato o non sono interessato. Nascondi il banner.</span>
@@ -6177,8 +6176,8 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div class="grid-x">
+<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
 <span id="hide_image_banner_hide" style="display:none;">Ich habe bereits gespendet oder ich bin nicht interessiert. Banner ausblenden.</span>
@@ -6200,8 +6199,8 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+<div class="grid-x">
+<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
 <span id="hide_image_banner_hide" style="display:none;">$Lang{donation_banner_hide}{$lc}</span>
@@ -6260,9 +6259,9 @@ JS
 
 
 		my $top_banner_deactivated2 = <<HTML
-<div class="row full-width" style="max-width: 100% !important;" >
+<div class="grid-x full-width" style="max-width: 100% !important;" >
 
-<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
+<div class="cell small-12" style="background-color:#effbff; text-align:center;padding:1em;">
 Open Food Facts est 100% gratuit et indépendant. <a href="https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Nous avons besoin de votre aide et de vos dons</a> pour continuer et développer le projet. Merci !
 <span style="color:red">❤</span>
 </div>
@@ -6271,9 +6270,9 @@ HTML
 ;
 
 		my $top_banner_deactivated = <<HTML
-<div class="row full-width" style="max-width: 100% !important;" >
+<div class="grid-x full-width" style="max-width: 100% !important;" >
 
-<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
+<div class="cell small-12" style="background-color:#effbff; text-align:center;padding:1em;">
 Une bonne résolution pour 2019 : <a href="https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts">adoptez le moteur de recherche Lilo</a> pour soutenir Open Food Facts lors de chacune de vos recherches. Merci !
 <span style="color:red">❤</span>
 </div>
@@ -6286,9 +6285,9 @@ HTML
 	if ($lc eq 'en') {
 
 		my $top_banner_deactivated2 = <<HTML
-<div class="row full-width" style="max-width: 100% !important;" >
+<div class="grid-x full-width" style="max-width: 100% !important;" >
 
-<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
+<div class="cell small-12" style="background-color:#effbff; text-align:center;padding:1em;">
 Open Food Facts is 100% free and independent. <a href="https://world.openfoodfacts.org/donate-to-open-food-facts">We need your help and donations</a> to continue and to grow the project. Thank you!
 <span style="color:red">❤</span>
 </div>
@@ -6375,13 +6374,13 @@ HTML
 		<ul class="right">
 			<li class="show-for-large-up">
 				<form action="/cgi/search.pl">
-					<div class="row collapse">
-						<div class="small-8 columns">
+					<div class="grid-x collapse">
+						<div class="cell small-8">
 							<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}">
 							<input name="search_simple" value="1" type="hidden">
 							<input name="action" value="process" type="hidden">
 						</div>
-						<div class="small-4 columns">
+						<div class="cell small-4">
 							<button type="submit" title="$Lang{search}{$lang}">@{[ display_icon('search') ]}</button>
 						</div>
 					</div>
@@ -6404,16 +6403,16 @@ HTML
 	</div>
 	<div class="middle tab-bar-section" style="padding-top:4px;">
 		<form action="/cgi/search.pl">
-			<div class="row collapse">
-				<div class="small-8 columns">
+			<div class="grid-x collapse">
+				<div class="cell small-8">
 					<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
 					<input name="search_simple" value="1" type="hidden">
 					<input name="action" value="process" type="hidden">
 				</div>
-				<div class="small-2 columns">
+				<div class="cell small-2">
 					<button type="submit" class="button postfix">@{[ display_icon('search') ]}</button>
 				</div>
-				<div class="small-2 columns">
+				<div class="cell small-2">
 					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('search') ]} @{[ display_icon('add') ]}</a>
 				</div>
 			</div>
@@ -6421,34 +6420,33 @@ HTML
 	</div>
 </nav>
 
-<div class="off-canvas-wrap" data-offcanvas>
-	<div class="inner-wrap">
-		<aside class="left-off-canvas-menu">
-			<div id="aside_column">
-				$aside_blocks
-			</div>
-		</aside>
-		<a class="exit-off-canvas"></a>
-		$top_banner
-		<!-- main row - comment used to remove left column and center content on some pages -->
-		<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
-			<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
+ <div class="off-canvas-wrapper">
+	<aside class="off-canvas position-left" id="offCanvas" data-off-canvas>
+		<div id="aside_column">
+			$aside_blocks
+		</div>
+	</aside>
+	$top_banner
+	<!-- main row - comment used to remove left column and center content on some pages -->
+	<div class="off-canvas-content">
+		<div class="grid-x full-width" style="max-width: 100% !important;" data-equalizer data-off-canvas-content>
+			<div class="cell xxlarge-1 xlarge-2 large-3 medium-4 hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 				<div class="sidebar">
 					<div style="text-align:center">
 						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
 					</div>
 					$tagline
 					<form action="/cgi/search.pl" class="hide-for-large-up">
-						<div class="row collapse">
-							<div class="small-9 columns">
+						<div class="grid-x collapse">
+							<div class="cell small-9">
 								<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
 								<input name="search_simple" value="1" type="hidden">
 								<input name="action" value="process" type="hidden">
 							</div>
-							<div class="small-2 columns">
+							<div class="cell small-2">
 								<button type="submit" class="button postfix">@{[ display_icon('search') ]}</button>
 							</div>
-							<div class="small-1 columns">
+							<div class="cell small-1">
 								<label class="right inline">
 									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a>
 								</label>
@@ -6458,7 +6456,7 @@ HTML
 					$blocks
 				</div>
 			</div>
-			<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
+			<div id="main_column" class="cell xxlarge-11 xlarge-10 large-9 medium-8" style="padding-top:1rem" data-equalizer-watch>
 			<!-- main column content - comment used to remove left column and center content on some pages -->
 				$image_banner
 				$h1_title
@@ -6468,8 +6466,8 @@ HTML
 	</div>
 </div>
 
-<footer>
-	<div class="small-12 medium-6 large-3 columns off">
+<footer class="grid-x">
+	<div class="cell small-12 medium-6 large-3 off">
 		<div class="title">$Lang{site_name}{$lc}</div>
 		<p>$Lang{footer_tagline}{$lc}</p>
 		<ul>
@@ -6479,14 +6477,14 @@ HTML
 			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
 		</ul>
 	</div>
-	<div class="small-12 medium-6 large-3 columns app">
+	<div class="cell small-12 medium-6 large-3 app">
 		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
 		<a href="$Lang{ios_app_link}{$lc}"><img src="$Lang{ios_app_icon_url}{$lc}" alt="$Lang{ios_app_icon_alt_text}{$lc}" width="120" height="40" loading="lazy"></a>
 		<a href="$Lang{android_app_link}{$lc}"><img src="$Lang{android_app_icon_url}{$lc}" alt="$Lang{android_app_icon_alt_text}{$lc}" width="102" height="40" loading="lazy"></a>
 		<a href="$Lang{windows_phone_app_link}{$lc}"><img src="$Lang{windows_phone_app_icon_url}{$lc}" alt="$Lang{windows_phone_app_icon_alt_text}{$lc}" width="109" height="40" loading="lazy"></a>
 		<a href="$Lang{android_apk_app_link}{$lc}"><img src="$Lang{android_apk_app_icon_url}{$lc}" alt="$Lang{android_apk_app_icon_alt_text}{$lc}" loading="lazy"></a>
 	</div>
-	<div class="small-12 medium-6 large-3 columns project">
+	<div class="cell small-12 medium-6 large-3 project">
 		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
 		<ul>
 			<li><a href="$Lang{footer_who_we_are_link}{$lc}">$Lang{footer_who_we_are}{$lc}</a></li>
@@ -6499,7 +6497,7 @@ HTML
 			<li><a href="$Lang{footer_obf_link}{$lc}">$Lang{footer_obf}{$lc}</a></li>
 		</ul>
 	</div>
-	<div class="small-12 medium-6 large-3 columns community">
+	<div class="cell small-12 medium-6 large-3 community">
 		<div class="title">$Lang{footer_join_the_community}{$lc}</div>
 		<p>
 			<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a>
@@ -6530,16 +6528,7 @@ HTML
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
 $scripts
 <script>
-\$(document).foundation({
-	equalizer : {
-		equalize_on_stack: true
-	},
-	accordion: {
-		callback : function (accordion) {
-			\$(document).foundation('equalizer', 'reflow');
-		}
-	}
-});
+\$(document).foundation();
 </script>
 <script type="application/ld+json">
 {
@@ -6581,8 +6570,8 @@ HTML
 	if ($html =~ /<!-- no side column -->/) {
 
 		my $new_main_row_column = <<HTML
-<div class="row">
-	<div class="large-12 columns" style="padding-top:1rem">
+<div class="grid-x">
+	<div class="cell large-12" style="padding-top:1rem">
 HTML
 ;
 
@@ -6672,11 +6661,11 @@ HTML
 
 	$html .= <<HTML
 
-      <div class="row collapse">
-        <div class="small-9 columns">
+      <div class="grid-x collapse">
+        <div class="cell small-9">
           <input type="text" name="code" placeholder="$or $Lang{barcode}{$lc}">
         </div>
-        <div class="small-3 columns">
+        <div class="cell small-3">
            <input type="submit" value="$Lang{add}{$lc}" class="button postfix">
         </div>
       </div>
@@ -7363,12 +7352,12 @@ HTML
 
 	$html .= <<HTML
 <h2>$Lang{product_characteristics}{$lc}</h2>
-<div class="row">
-<div class="hide-for-large-up medium-12 columns">$html_image</div>
-<div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+<div class="grid-x">
+<div class="cell hide-for-large-up medium-12">$html_image</div>
+<div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
 $html_fields
 </div>
-<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+<div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
 </div>
 HTML
 ;
@@ -7403,9 +7392,9 @@ HTML
 
 		$html .= <<HTML
 <h2>$Lang{ingredients}{$lc}</h2>
-<div class="row">
-<div class="hide-for-large-up medium-12 columns">$html_image</div>
-<div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+<div class="grid-x">
+<div class="cell hide-for-large-up medium-12">$html_image</div>
+<div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
 HTML
 ;
 
@@ -7711,26 +7700,26 @@ HTML
 
 	if ($html_ingredients_classes_n > 0) {
 
-		my $column_class = "small-12 columns";
+		my $column_class = "cell small-12";
 
 		if ($html_ingredients_classes_n == 2) {
-			$column_class = "medium-6 columns";
+			$column_class = "cell medium-6";
 		}
 		elsif ($html_ingredients_classes_n == 3) {
-			$column_class = "medium-6 large-4 columns";
+			$column_class = "cell medium-6 large-4";
 		}
 		elsif ($html_ingredients_classes_n == 4) {
-			$column_class = "medium-6 large-3 columns";
+			$column_class = "cell medium-6 large-3";
 		}
 		elsif ($html_ingredients_classes_n >= 5) {
-			$column_class = "medium-6 large-3 xlarge-2 columns";
+			$column_class = "cell medium-6 large-3 xlarge-2";
 		}
 
 		$html_ingredients_classes =~ s/column_class/$column_class/g;
 
 		$html .= <<HTML
 
-<div class="row">
+<div class="grid-x">
 
 $html_ingredients_classes
 
@@ -7794,7 +7783,7 @@ HTML
 
 	$html .= <<HTML
 </div>
-<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+<div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
 </div>
 HTML
 ;
@@ -7809,9 +7798,9 @@ HTML
 
 	$html .= <<HTML
 <h2>$Lang{nutrition_data}{$lc}</h2>
-<div class="row">
-<div class="hide-for-large-up medium-12 columns">$html_image</div>
-<div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+<div class="grid-x">
+<div class="cell hide-for-large-up medium-12">$html_image</div>
+<div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
 HTML
 ;
 
@@ -7862,7 +7851,7 @@ HTML
 
 	$html .= <<HTML
 </div>
-<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+<div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
 </div>
 HTML
 ;
@@ -7891,8 +7880,8 @@ HTML
 
 		$html .= <<HTML
 <h2>$Lang{product_other_information}{$lc}</h2>
-<div class="row">
-<div class="small-12 columns">
+<div class="grid-x">
+<div class="cell small-12">
 $html_fields
 </div>
 </div>
@@ -8650,11 +8639,11 @@ HTML
 	# 2 columns?
 	if (($html_nutrition_grade ne '') and ($html_nutrient_levels ne '')) {
 		$html = <<HTML
-<div class="row">
-	<div class="small-12 xlarge-6 columns">
+<div class="grid-x">
+	<div class="cell small-12 xlarge-6">
 		$html_nutrition_grade
 	</div>
-	<div class="small-12 xlarge-6 columns">
+	<div class="cell small-12 xlarge-6">
 		$html_nutrient_levels
 	</div>
 </div>

@@ -39,20 +39,25 @@
   "dependencies": {
     "@yaireo/tagify": "^3.6.2",
     "blueimp-file-upload": "^10.8.0",
-    "foundation-sites": "5.5.3",
+    "foundation-sites": "^6.6.1",
+    "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
+    "jquery.cookie": "^1.4.1",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "1.4.1",
+    "modernizr": "^3.9.1",
     "opencollective": "^1.0.3",
     "opencollective-postinstall": "^2.0.1",
     "osmtogeojson": "^3.0.0-beta.4",
-    "papaparse": "^5.1.1"
+    "papaparse": "^5.1.1",
+    "what-input": "^5.2.7"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
+    "gulp-modernizr": "^3.4.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svgmin": "^2.2.0",

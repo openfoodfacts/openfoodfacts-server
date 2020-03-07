@@ -690,7 +690,7 @@ function get_recents(tagfield) {
 + lang().product_js_upload_image
 + '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
 + '" data-url="/cgi/product_image_upload.pl" multiple '
-+ 'style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;font-size:40px;"/>'
++ 'styleNOT="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;font-size:40px;"/>'
 + '</a>'
 + '</div>'
 + '<p class="note">' + lang().product_js_upload_image_note + '</p>'
