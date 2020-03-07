@@ -7575,7 +7575,7 @@ JS
 				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
 			}
 
-			$html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
+			$html_analysis .= "<span class=\"label ingredients_analysis $color\">"
 			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
 			. "</span> ";
 		}
