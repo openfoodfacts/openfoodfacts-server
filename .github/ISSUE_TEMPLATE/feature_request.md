@@ -22,5 +22,5 @@ Add any other context or screenshots about the feature request here.
 **Number of products impacted**
 If relevant, number (or estimate) of products impacted by the feature at the time of creation of the issue
 
-**Timeloss per product**
+**Time per product**
 Estimate of timeloss provoked or saved by the issue, per product
