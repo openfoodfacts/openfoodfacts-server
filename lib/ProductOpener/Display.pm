@@ -1898,9 +1898,10 @@ HTML
 
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
-			$initjs .= 'var countries_map_data=' . encode_json($countries_map_data) . ';'
-				    .= 'var countries_map_links=' . encode_json($countries_map_links) . ';'
-					.= 'var countries_map_names=' . encode_json($countries_map_names) . ';'
+			my $json = JSON::PP->new->utf8(0);
+			$initjs .= "var countries_map_data=JSON.parse('" . $json->encode($countries_map_data) . "');"
+					.= "var countries_map_links=JSON.parse('" . $json->encode($countries_map_links) . "');"
+					.= "var countries_map_names=JSON.parse('" . $json->encode($countries_map_names) . "');"
 					.= <<JS
 \$('#world-map').vectorMap({
   map: 'world_mill_en',
