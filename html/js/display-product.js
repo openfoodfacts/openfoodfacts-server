@@ -44,20 +44,20 @@ class RobotoffAsker extends HTMLElement {
         .zoomrow { display: block; }
         .hidden { display: none; }
       </style>
-      <div class="row hidden zoomrow" id="zoomrow">
-        <div class="small-12 columns">
+      <div class="grid-x hidden zoomrow" id="zoomrow">
+        <div class="cell small-12">
           <img src="" id="zoom" data-zoom-in-src="" data-zoom-out-src="">
         </div>
       </div>
-      <div class="row">
-        <div class="small-2 columns">
+      <div class="grid-x">
+        <div class="cell small-2">
           <img src="" id="thumbnail">
         </div>
-        <div class="small-10 columns">
+        <div class="cell small-10">
           <span id="question">Question</span>
           <span id="value">Value</span>
         </div>
-        <div class="small-10 columns button-group" style="margin-top:0.5rem;">
+        <div class="cell small-10 button-group" style="margin-top:0.5rem;">
           <a href="#" id="no" class="small button alert annotate" data-annotation="0">No</a>
           <li><a href="#" id="skip" class="small button secondary annotate" data-annotation="-1">Not sure</a>
           <li><a href="#" id="yes" class="small button success annotate" data-annotation="1">Yes</a>
