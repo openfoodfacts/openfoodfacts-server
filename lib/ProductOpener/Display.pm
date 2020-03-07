@@ -5684,17 +5684,13 @@ HTML
 		}
 
 		$content .= <<HTML
-<ul class="button-group">
-<li>
-	<form method="post" action="/cgi/session.pl">
-	<input type="hidden" name="length" value="logout">
-	<input type="submit" name=".submit" value="$signout" class="button small">
-	</form>
-</li>
-<li>
-	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem">@{[ display_icon('settings') ]}</a>
-</li>
-</ul>
+<form method="post" action="/cgi/session.pl">
+  <div class="button-group">
+    <input type="hidden" name="length" value="logout">
+    <input type="submit" name=".submit" value="$signout" class="button small">
+    <a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}">@{[ display_icon('settings') ]}</a>
+  </div>
+</form>
 $links
 HTML
 ;
