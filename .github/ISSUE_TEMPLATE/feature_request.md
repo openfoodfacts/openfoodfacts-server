@@ -18,3 +18,9 @@ A clear and concise description of any alternative solutions or features you've 
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
+
+**Number of products impacted**
+If relevant, number (or estimate) of products impacted by the feature at the time of creation of the issue
+
+**Time per product**
+Estimate of timeloss provoked or saved by the issue, per product
