@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 14:53\n"
+"PO-Revision-Date: 2020-03-07 17:57\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -560,7 +560,7 @@ msgstr "كلمة المرور وتأكيد كلمة المرور مختلفتا�
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "عنوان البريد اﻹلكتروني مستخدم بالفعل من قبل مستخدم آخر. هل لديك حسابًا آخر؟ يمكنك <a href=\"/cgi/reset_password.pl\">إعادة تعيين كلمة مرور</a> حسابك الآخر."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -707,7 +707,7 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "تابعنا على<a href=\"https://twitter.com/openfoodfacts\">Twiter</a> و<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> و<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -773,12 +773,12 @@ msgstr "https://en.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - مستحضرات التجميل"
 
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -867,15 +867,15 @@ msgstr "يجب إدخال الأحرف من الباركود أو إرسال ص�
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "الحجم الكامل"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "تم رفع هذا الملف للمنتج %s وترخيصه بموجب رخصة %s."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "الإسناد: الصورة بنسبة %s لكل %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
