@@ -7532,15 +7532,15 @@ JS
 				if (has_tag($product_ref, "labels", "en:palm-oil-free")
 					or ($ingredients_analysis_tag =~ /-free$/)) {
 					$ingredients_analysis_tag = "en:palm-oil-free";
-					$color = "#00aa00"; # green
+					$color = 'green';
 					$icon = "monkey_happy";
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
-					$color = "#ff6600"; # orange
+					$color = 'orange';
 					$icon = "monkey_uncertain";
 				}
 				else {
-					$color = "#ff0000"; # red
+					$color = 'red';
 					$icon = "monkey_unhappy";
 				}
 
@@ -7569,13 +7569,13 @@ JS
 				}
 
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = "#ec5656"; # red
+					$color = 'red';
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
-					$color = "#f9904c"; # orange
+					$color = 'orange';
 				}
 				else {
-					$color = "#47a647"; # green
+					$color = 'green';
 				}
 			}
 
@@ -7586,7 +7586,7 @@ JS
 				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
 			}
 
-			$html_analysis .= "<span class=\"alert round label ingredients_analysis\" style=\"background-color:$color;\">"
+			$html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
 			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
 			. "</span> ";
 		}

@@ -355,6 +355,18 @@ details.recent {
     height: 32px;
     vertical-align: middle;
   }
+
+  &.red {
+    background-color: #ec5656;
+  }
+
+  &.orange {
+    background-color: #f9904c;
+  }
+
+  &.green {
+    background-color: #47a647;
+  }
 }
 
 a[aria-controls="idOfLeftMenu"] {
