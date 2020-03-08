@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-03 02:23\n"
+"PO-Revision-Date: 2020-03-07 15:58\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3705,9 +3705,9 @@ msgctxt "file_received"
 msgid "File received"
 msgstr "Fil modtaget"
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
-msgstr "Oplysning om beregningen af Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
+msgstr "Oplysninger om Nutri-Score-beregningen"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
@@ -3934,7 +3934,7 @@ msgstr "Du ser i øjeblikket egne produkter."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "For at se produkter fra én bestemt bruger/organisation, så angiv det relevante ID nedenfor. Lad feltet stå tomt for at se alle."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
@@ -4049,4 +4049,12 @@ msgstr "Denne funktion er ikke tilgængelig."
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
 msgstr "Dine produkter er fjernet fra producentplatformen."
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr "Oplysninger ingrediensanalysen"
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
+msgstr "Ikke alle ingredienser kunne genkendes."
 

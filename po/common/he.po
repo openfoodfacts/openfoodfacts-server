@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-03 15:15\n"
+"PO-Revision-Date: 2020-03-07 17:08\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3706,8 +3706,8 @@ msgctxt "file_received"
 msgid "File received"
 msgstr "התקבל קובץ"
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
 msgstr "פירוט החישוב של Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
@@ -4033,7 +4033,7 @@ msgstr "להסיר את כל המוצרים שלך מהפלטפורמה ליצר
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "יש לך אפשרות להסיר את כל המוצרים שלך מהפלטפורמה ליצרנים, למשל כדי להתחיל מחדש אם התגלו תקלות בנתונים שייבאת. פעולה זו לא תשפיע על המוצרים שלך שבמסד הנתונים הציבורי."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
@@ -4041,7 +4041,7 @@ msgstr "פעולה זו אינה הפיכה."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "אזהרה: זו פעולה בלתי הפיכה. להסיר את כל המוצרים שלך מהפלטפורמה ליצרנים?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
@@ -4050,4 +4050,12 @@ msgstr "תכונה זו אינה זמינה."
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
 msgstr "המוצרים שלך הוסרו מהפלטפורמה ליצרנים."
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr "פירוט ניתוח הרכיבים"
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
+msgstr "הזיהוי של כמה מהרכיבים לא הצליח."
 
