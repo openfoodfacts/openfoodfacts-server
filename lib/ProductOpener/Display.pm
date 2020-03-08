@@ -82,6 +82,7 @@ BEGIN
 					&display_recent_changes
 					&add_tag_prefix_to_link
 
+					&display_ingredient_analysis
 					&display_ingredients_analysis_details
 
 					@search_series
@@ -4053,10 +4054,18 @@ HTML
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			if (defined $product_ref->{ingredients}) {
+				my $i = 0;
 				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+					$i++;
 					if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
 						# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-						exists $ingredient_ref->{rank} or delete $ingredient_ref->{ingredients};
+						if (not exists $ingredient_ref->{rank})	{
+							# delete this ingredient and ingredients after
+							while (scalar @{$product_ref->{ingredients}} >= $i) {
+								pop @{$product_ref->{ingredients}};
+							}
+							last;
+						}
 					}
 					else {
 						# Delete sub-ingredients, keep only flattened ingredients
@@ -9662,10 +9671,18 @@ HTML
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 		if (defined $product_ref->{ingredients}) {
+			my $i = 0;
 			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+				$i++;
 				if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
 					# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-					exists $ingredient_ref->{rank} or delete $ingredient_ref->{ingredients};
+					if (not exists $ingredient_ref->{rank})	{
+						# delete this ingredient and ingredients after
+						while (scalar @{$product_ref->{ingredients}} >= $i) {
+							pop @{$product_ref->{ingredients}};
+						}
+						last;
+					}
 				}
 				else {
 					# Delete sub-ingredients, keep only flattened ingredients
@@ -10284,6 +10301,19 @@ sub display_ingredients_analysis_details($) {
 	my $product_ref = shift;
 
 	(not defined $product_ref->{ingredients}) and return "";
+
+	my $i = 0;
+	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+		$i++;
+		# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
+		if (not exists $ingredient_ref->{rank})	{
+			# delete this ingredient and ingredients after
+			while (scalar @{$product_ref->{ingredients}} >= $i) {
+				pop @{$product_ref->{ingredients}};
+			}
+			last;
+		}
+	}
 
 	my $ingredients_text = "";
 	my $ingredients_list = "";
