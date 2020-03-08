@@ -3881,11 +3881,10 @@ sub search_and_display_products($$$$$) {
 				unshift (@current_drilldown_fields, "countries");
 			}
 			$html .= <<HTML
-<ul class="button-group">
+<ul class="dropdown menu" data-dropdown-menu>
 <li><div style="font-size:1.2rem;background-color:#eeeeee;padding:0.3rem 1rem;height:2.75rem;margin:0">$html_count</div></li>
-<li>
-<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">$Lang{explore_products_by}{$lc}</button>
-<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+<li><a href="#">$Lang{explore_products_by}{$lc}</a>
+<ul class="menu">
 HTML
 ;
 			foreach my $newtagtype (@current_drilldown_fields) {
