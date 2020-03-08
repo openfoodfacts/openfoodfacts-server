@@ -1979,7 +1979,7 @@ is_deeply ($product_ref->{ingredients},
        'id' => 'en:emulsifier',
        'ingredients' => [
          {
-           'id' => 'en:sunflower-lecithin',
+           'id' => 'en:e322',
            'text' => 'auringonkukkalesitiini'
          }
        ],
@@ -2011,10 +2011,10 @@ is_deeply ($product_ref->{ingredients},
        'vegetarian' => 'yes'
      },
      {
-       'id' => 'en:sunflower-lecithin',
+       'id' => 'en:e322',
        'text' => 'auringonkukkalesitiini',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
+       'vegan' => 'maybe',
+       'vegetarian' => 'maybe'
      }
 
 	        ],
