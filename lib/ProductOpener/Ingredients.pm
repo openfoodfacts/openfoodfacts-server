@@ -235,7 +235,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
-my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade");
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
@@ -267,10 +267,14 @@ sub init_labels_regexps() {
 
 			my $label_regexp = "";
 			foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
+
+				# IGP - Indication Géographique Protégée -> IGP: Indication Géographique Protégée
+				$synonym =~ s/ - /\( - |: | : \)/g;
+
 				# simple singulars and plurals
 				my $singular = $synonym;
 				$synonym =~ s/s$//;
-				$label_regexp .= '|' . $synonym . '|' . $synonym . 's'  ;
+				$label_regexp .= '|' . $synonym . '|' . $synonym . 's';
 
 				my $unaccented_synonym = unac_string_perl($synonym);
 				if ($unaccented_synonym ne $synonym) {
@@ -281,7 +285,7 @@ sub init_labels_regexps() {
 			$label_regexp =~ s/^\|//;
 			defined $labels_regexps{$label_lc} or $labels_regexps{$label_lc} = {};
 			$labels_regexps{$label_lc}{$labelid} = $label_regexp;
-			# print STDERR "labels_regexps - label_lc: $label_lc - labelid: $labelid - regexp: $label_regexp\n";
+			#print STDERR "labels_regexps - label_lc: $label_lc - labelid: $labelid - regexp: $label_regexp\n";
 		}
 	}
 }
@@ -2535,6 +2539,10 @@ sub preparse_ingredients_text($$) {
 	my $product_lc = shift;
 	my $text = shift;
 
+	# Symbols to indicate labels like organic, fairtrade etc.
+	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
+	my $symbols_regexp = join('|', @symbols);
+
 	if ((scalar keys %labels_regexps) == 0) {
 		init_labels_regexps();
 		init_ingredients_processing_regexps();
@@ -2729,8 +2737,10 @@ sub preparse_ingredients_text($$) {
 "noisette",
 "noix",
 "olive",
+"olive extra",
 "olive vierge",
 "olive extra vierge",
+"olive vierge extra",
 "palme",
 "palmiste",
 "pépins de raisin",
@@ -2906,7 +2916,7 @@ sub preparse_ingredients_text($$) {
 			}
 			$prefixregexp =~ s/^\|//;
 
-			$prefixregexp = "(" . $prefixregexp . ")( bio| biologique| équitable)?";
+			$prefixregexp = "(" . $prefixregexp . ")( bio| biologique| équitable|s|\s|$symbols_regexp)*";
 
 			my $suffixregexp = "";
 			foreach my $suffix (@{$prefixes_suffixes_ref->[1]}) {
@@ -2935,10 +2945,10 @@ sub preparse_ingredients_text($$) {
 			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
 			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
 
-			$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
+			$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$5)/ieg;
 
 			# Huiles végétales de palme, de colza et de tournesol
-			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp))\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
+			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
 		}
 
 		# Caramel ordinaire et curcumine
@@ -3133,9 +3143,9 @@ INFO
 	# Try to find the signification of symbols like *
 	# Jus de pomme*** 68%, jus de poire***32% *** Ingrédients issus de l'agriculture biologique
 	# Pâte de cacao°* du Pérou 65 %, sucre de canne°*, beurre de cacao°*. °Issus de l'agriculture biologique (100 %). *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
+	#  riz* de Camargue IGP(1) (16,5%) (riz complet*, riz rouge complet*, huiles* (tournesol*, olive* vierge extra), sel marin. *issus de l'agriculture biologique. (1) IGP : Indication Géographique Protégée.
 
 	if (defined $labels_regexps{$product_lc}) {
-		my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°');
 
 		foreach my $symbol (@symbols) {
 			# Find the last occurence of the symbol
