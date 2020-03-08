@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -282,14 +282,13 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
-<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" styleNOT="position: absolute;
-    right:0;
-    bottom:0;
-    top:0;
-    cursor:pointer;
-    opacity:0;
-    font-size:40px;"/>
+<a href="#" class="button small expanded" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
+<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;"/>
 </a>
 </div>
 

@@ -5980,8 +5980,11 @@ $google_analytics
 <body$bodyabout>
 
 <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-  <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
-  <div class="title-bar-title">Menu</div>
+  <div class="title-bar-left">$site_name</div>
+  <div class="title-bar-right">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
 </div>
 
 <nav class="top-bar" id="responsive-menu">
@@ -6346,7 +6349,7 @@ HTML
 
 		$top_banner = <<HTML
 
-<a href="$link" class="button expand">$link_text</a>
+<a href="$link" class="button expanded">$link_text</a>
 
 HTML
 ;
