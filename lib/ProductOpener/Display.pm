@@ -3441,7 +3441,7 @@ HTML
 <div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small" title="$title">
 	@{[ display_icon('share') ]}
-	<span class="show-for-large-up"> $share</span>
+	<span class="show-for-large"> $share</span>
 </a></div>
 HTML
 ;
@@ -5685,10 +5685,10 @@ HTML
 
 		$content .= <<HTML
 <form method="post" action="/cgi/session.pl">
-  <div class="button-group">
+  <div class="small button-group">
     <input type="hidden" name="length" value="logout">
-    <input type="submit" name=".submit" value="$signout" class="button small">
-    <a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}">@{[ display_icon('settings') ]}</a>
+    <input type="submit" name=".submit" value="$signout" class="button">
+    <a href="/cgi/user.pl?userid=$User_id&type=edit" class="button" title="$Lang{edit_settings}{$lc}">@{[ display_icon('settings') ]}</a>
   </div>
 </form>
 $links
@@ -5987,7 +5987,7 @@ $google_analytics
 <nav class="top-bar" id="responsive-menu">
   <section class="top-bar-left">
 	<ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">$site_name</li>
+      <li class="menu-text name"><h2><a href="/" style="font-size:1rem;">$site_name</a></h2></li>
       <li class="has-form has-dropdown" id="select_country_li">
         <label for="select_country" style="display:none">$Lang{select_country}{$lang}</label>
         <select id="select_country" style="width:100%" data-placeholder="@{[ lang('select_country') ]}">
@@ -6353,7 +6353,7 @@ HTML
 	}
 
 	my $public_site_menu_options = <<HTML
-			<li class="show-for-large-up divider"></li>
+			<li class="show-for-large divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
 			<li class="show-for-large-only"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
@@ -6369,7 +6369,7 @@ HTML
 	</section>
 	<section class="top-bar-right">
 		<ul class="dropdown menu" data-dropdown-menu>
-			<li class="show-for-large-up">
+			<li class="show-for-large">
 				<form action="/cgi/search.pl">
 					<div class="grid-x collapse">
 						<div class="cell small-8">
@@ -6384,9 +6384,9 @@ HTML
 				</form>
 			</li>
 			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl">@{[ display_icon('add') ]} $Lang{advanced_search}{$lang}</span></a></li>
+			<li class="show-for-xlarge"><a href="/cgi/search.pl">@{[ display_icon('add') ]} $Lang{advanced_search}{$lang}</span></a></li>
 			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}">@{[ display_icon('bar_chart') ]}</a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">@{[ display_icon('bar_chart') ]} $Lang{graphs_and_maps}{$lang}</span></a></li>
+			<li class="show-for-xlarge"><a href="/cgi/search.pl?graph=1">@{[ display_icon('bar_chart') ]} $Lang{graphs_and_maps}{$lang}</span></a></li>
 			$public_site_menu_options
 		</ul>
 	</section>
@@ -7127,12 +7127,12 @@ HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small" title="$title">
 	@{[ display_icon('share') ]}
-	<span class="show-for-large-up"> $share</span>
+	<span class="show-for-large"> $share</span>
 </a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small">
 	@{[ display_icon('edit') ]}
-	<span class="show-for-large-up"> $Lang{edit_product_page}{$lc}</span>
+	<span class="show-for-large"> $Lang{edit_product_page}{$lc}</span>
 </a></div>
 HTML
 ;
@@ -7142,7 +7142,7 @@ HTML
 <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
 <a href="/cgi/product.pl?type=delete&code=$code" class="button small">
 	@{[ display_icon('delete') ]}
-	<span class="show-for-large-up"> $Lang{delete_product_page}{$lc}</span>
+	<span class="show-for-large"> $Lang{delete_product_page}{$lc}</span>
 </a></div>
 HTML
 ;
@@ -7354,7 +7354,7 @@ HTML
 <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
 $html_fields
 </div>
-<div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
+<div class="cell show-for-large large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
 </div>
 HTML
 ;
@@ -7780,7 +7780,7 @@ HTML
 
 	$html .= <<HTML
 </div>
-<div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
+<div class="cell show-for-large large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
 </div>
 HTML
 ;
@@ -7848,7 +7848,7 @@ HTML
 
 	$html .= <<HTML
 </div>
-<div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
+<div class="cell show-for-large large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
 </div>
 HTML
 ;
@@ -8966,7 +8966,7 @@ JS
 
 			$html .= "<div><input id=\"show_stats\" type=\"checkbox\"><label for=\"show_stats\">"
 			. lang("show_category_stats")
-			. '<span class="show-for-xlarge-up">'
+			. '<span class="show-for-xlarge">'
 			. separator_before_colon($lc) . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
 
 			$initjs .= <<JS

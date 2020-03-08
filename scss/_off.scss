@@ -1,56 +1,63 @@
-hr.floatclear {
-  background: none;
-  border: 0;
-  clear: both;
-  display: block;
-  float: none;
-  font-size: 0;
-  height: 0;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  visibility: hidden;
-  width: 0;
+hr {
+  &.floatclear {
+    background: none;
+    border: 0;
+    clear: both;
+    display: block;
+    float: none;
+    font-size: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    visibility: hidden;
+    width: 0;
+  }
+
+  &.floatleft {
+    background: none;
+    border: 0;
+    clear: left;
+    display: block;
+    float: none;
+    font-size: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    visibility: hidden;
+    width: 0;
+  }
+
+  &.floatright {
+    background: none;
+    border: 0;
+    clear: right;
+    display: block;
+    float: none;
+    font-size: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+  }
 }
 
-hr.floatleft {
-  background: none;
-  border: 0;
-  clear: left;
-  display: block;
-  float: none;
-  font-size: 0;
-  height: 0;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  visibility: hidden;
-  width: 0;
-}
+.data_table {
+  label {
+    display: inline;
+  }
 
-hr.floatright {
-  background: none;
-  border: 0;
-  clear: right;
-  display: block;
-  float: none;
-  font-size: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
-}
+  input {
+    display: inline;
+    font-size: 1em;
+  }
 
-.data_table label,
-.data_table input {
-  display: inline;
-}
-
-.data_table input,
-.data_table select {
-  font-size: 1em;
+  select {
+    font-size: 1em;
+  }
 }
 
 .nutriment_label {
@@ -80,8 +87,7 @@ select.nutriment_unit {
   width: 4rem;
 }
 
-thead,
-tbody {
+thead, tbody {
   margin: 0;
   padding: 0;
 }
@@ -91,29 +97,32 @@ tbody {
   margin-top: 20px;
   padding: 0;
   vertical-align: middle;
-}
 
-.data_table td,
-.data_table th {
-  margin: 0;
-  padding: 0.2rem;
-  padding-left: 0.5rem;
-}
+  td, th {
+    margin: 0;
+    padding: 0.2rem;
+    padding-left: 0.5rem;
+  }
 
-.data_table .nutriment_head {
-  background-color: #88f;
-  color: #fff;
-}
+  .nutriment_head {
+    background-color: #88f;
+    color: #fff;
+  }
 
-.data_table .nutriment_main {
-  background-color: #ddf;
-  border-top: 3px solid #fff;
-}
+  .nutriment_main {
+    background-color: #ddf;
+    border-top: 3px solid #fff;
+  }
 
-.data_table .nutriment_sub,
-.data_table .nutriment_sub td {
-  background-color: #eef;
-  border-top: 1px solid #ddf;
+  .nutriment_sub {
+    background-color: #eef;
+    border-top: 1px solid #ddf;
+
+    td {
+      background-color: #eef;
+      border-top: 1px solid #ddf;
+    }
+  }
 }
 
 .ui-autocomplete li {
@@ -130,39 +139,41 @@ ul.products {
   padding: 0;
 }
 
-.products li {
-  display: block;
-  float: left;
-  text-align: center;
-}
+.products {
+  li {
+    display: block;
+    float: left;
+    text-align: center;
+  }
 
-.products a {
-  display: block;
-  height: 167px;
-  margin: 10px;
-  overflow: hidden;
-  padding: 10px;
-  width: 120px;
-  word-wrap: break-word;
-}
+  a {
+    display: block;
+    height: 167px;
+    margin: 10px;
+    overflow: hidden;
+    padding: 10px;
+    width: 120px;
+    word-wrap: break-word;
+  }
 
-.products div {
-  display: table-cell;
-  height: 100px;
-  line-height: 100px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  vertical-align: middle;
-  width: 120px;
-}
+  div {
+    display: table-cell;
+    height: 100px;
+    line-height: 100px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px;
+  }
 
-.products a:hover {
-  background: #f4f4f4;
-}
+  a:hover {
+    background: #f4f4f4;
+  }
 
-.products img {
-  vertical-align: middle;
+  img {
+    vertical-align: middle;
+  }
 }
 
 #pages {
@@ -171,45 +182,54 @@ ul.products {
 
 a {
   text-decoration: none;
-}
-
-a,
-a:visited,
-a:hover {
   color: blue;
+
+  &:visited {
+    color: blue;
+  }
+
+  &:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  &.button {
+    color: #fff;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-a.button {
-  color: #fff;
-}
-
-a.button:hover {
-  text-decoration: none;
-}
-
-.level_3,
-a.level_3,
-a:visited.level_3,
-a:hover.level_3 {
+.level_3 {
   color: red;
 }
 
-.level_2,
-a.level_2,
-a:visited.level_2,
-a:hover.level_2 {
+a {
+  &.level_3, &:visited.level_3, &:hover.level_3 {
+    color: red;
+  }
+}
+
+.level_2 {
   color: #ff8c00;
 }
 
-.level_1,
-a.level_1,
-a:visited.level_1,
-a:hover.level_1 {
+a {
+  &.level_2, &:visited.level_2, &:hover.level_2 {
+    color: #ff8c00;
+  }
+}
+
+.level_1 {
   color: green;
+}
+
+a {
+  &.level_1, &:visited.level_1, &:hover.level_1 {
+    color: green;
+  }
 }
 
 #select_country_li .select2-container--default .select2-selection--single {
@@ -237,11 +257,10 @@ a:hover.level_1 {
   color: blue;
   margin: 0 -1rem;
   padding: 0.4375rem 1rem;
-}
 
-.side-nav li a:not(.button):hover,
-.side-nav li a:not(.button):focus {
-  color: blue;
+  &:hover, &:focus {
+    color: blue;
+  }
 }
 
 @media only screen and (max-width: 64em) {
@@ -259,32 +278,43 @@ a:hover.level_1 {
 
 .dark {
   color: #f0f0f0;
+
+  h4 {
+    color: #fff;
+  }
+
+  a {
+    color: #fff;
+
+    &:hover, &:visited {
+      color: #fff;
+    }
+  }
 }
 
-.dark h4 {
-  color: #fff;
-}
+.top-bar {
+  font-size: 0.8125rem;
 
-.dark a,
-.dark a:hover,
-.dark a:visited {
-  color: #fff;
-}
+  section {
+    .has-dropdown > a:after {
+      border-color: transparent transparent transparent rgba(0, 0, 0, 0.4);
+    }
 
-.top-bar-section .has-dropdown > a:after {
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.4);
-}
-.top-bar-section ul li > a:hover {
-  text-decoration: none;
+    ul li > a:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 @media only screen and (min-width: 40.063em) {
-  .top-bar-section .has-dropdown > a:after {
-    border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
-  }
+  .top-bar section {
+    .has-dropdown > a:after {
+      border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
+    }
 
-  .top-bar-section ul li {
-    background: inherit;
+    ul li {
+      background: inherit;
+    }
   }
 
   #select_country_li {
@@ -305,8 +335,7 @@ a:hover.level_1 {
   font-size: 0.8em;
 }
 
-.example,
-.note {
+.example, .note {
   margin: 4px 0 0 4px;
 }
 
@@ -318,7 +347,8 @@ a:hover.level_1 {
   height: 400px;
   overflow: auto;
 }
-.top-bar-section ul li > a {
+
+.top-bar section ul li > a {
   text-decoration: none;
 }
 
@@ -327,7 +357,12 @@ p.details {
   font-size: 0.8em;
 }
 
-@media only screen and (max-width: 40em) { h2 { font-weight:bold; font-size:1.2em;} }
+@media only screen and (max-width: 40em) {
+  h2 {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
 
 details.recent {
   margin-left: 1.5em;
