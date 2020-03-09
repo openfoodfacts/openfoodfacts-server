@@ -90,6 +90,8 @@ BEGIN
 		&set_percent_max_values
 		&delete_ingredients_percent_values
 
+		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
+
 	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1217,6 +1219,8 @@ sub extract_ingredients_from_text($) {
 		$product_ref->{ingredients_percent_analysis} = 1;
 	}
 
+	estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
+
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
 
@@ -1577,8 +1581,14 @@ sub set_percent_sub_ingredients($) {
 }
 
 
-# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
-# and compute the resulting value for the complete product
+=head2 analyze_ingredients ( product_ref )
+
+This function analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+and computes the resulting value for the complete product.
+
+Results are stored in the ingredients_analysis_tags array.
+
+=cut
 
 sub analyze_ingredients($) {
 
@@ -2916,7 +2926,7 @@ sub preparse_ingredients_text($$) {
 			}
 			$prefixregexp =~ s/^\|//;
 
-			$prefixregexp = "(" . $prefixregexp . ")( bio| biologique| équitable|s|\s|$symbols_regexp)*";
+			$prefixregexp = "(" . $prefixregexp . ")( bio| biologique| équitable|s|\\s|$symbols_regexp)*";
 
 			my $suffixregexp = "";
 			foreach my $suffix (@{$prefixes_suffixes_ref->[1]}) {
@@ -4002,6 +4012,77 @@ sub detect_allergens_from_text($) {
 	}
 
 	$log->debug("detect_allergens_from_text - done", { }) if $log->is_debug();
+}
+
+
+=head2 add_fruits ( $ingredients_ref )
+
+Recursive function to compute the % of fruits, vegetables, nuts and olive/walnut/rapeseed oil
+for Nutri-Score computation.
+
+=cut
+
+sub add_fruits($) {
+
+	my $ingredients_ref = shift;
+
+	my $fruits = 0;
+
+	foreach my $ingredient_ref (@$ingredients_ref) {
+
+		my $nutriscore_fruits_vegetables_nuts = get_inherited_property("ingredients", $ingredient_ref->{id}, "nutriscore_fruits_vegetables_nuts:en");
+
+		if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
+
+			if (defined $ingredient_ref->{percent}) {
+				$fruits += $ingredient_ref->{percent};
+			}
+			elsif (defined $ingredient_ref->{percent_min}) {
+				$fruits += $ingredient_ref->{percent_min};
+			}
+			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
+			# in that case, try to get the possible percent values in nested sub ingredients
+			elsif (defined $ingredient_ref->{ingredients}) {
+				$fruits += add_fruits($ingredient_ref->{ingredients});
+			}
+		}
+		elsif (defined $ingredient_ref->{ingredients}) {
+			$fruits += add_fruits($ingredient_ref->{ingredients});
+		}
+			$log->debug("add_fruits ingredient, current total", { ingredient_id => $ingredient_ref->{id}, current_fruits => $fruits }) if $log->is_debug();
+	}
+
+	$log->debug("add_fruits result", { fruits => $fruits }) if $log->is_debug();
+
+	return $fruits;
+}
+
+
+=head2 estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ( product_ref )
+
+This function analyzes the ingredients to estimate the minimum percentage of
+fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
+the Nutri-Score fruit points if we don't have a value given by the manufacturer
+or estimated by users.
+
+Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+
+=cut
+
+sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
+
+	my $product_ref = shift;
+
+	if (defined $product_ref->{nutriments}) {
+		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+	}
+
+	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
+
+		(defined $product_ref->{nutriments}) or $product_ref->{nutriments} = {};
+
+		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = add_fruits($product_ref->{ingredients});
+	}
 }
 
 1;
