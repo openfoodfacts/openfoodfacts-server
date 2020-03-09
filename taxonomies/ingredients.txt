@@ -15221,9 +15221,6 @@ wikidata:en:Q715160
 
 # en:modified potato starch is listed under en:thickener
 
-<en:modified starch
-fr:amidon transformé de manioc
-
 <en:starch
 fr:amidon de pois
 de:Erbsenstärke
@@ -15232,13 +15229,13 @@ nl:erwtenzetmeel
 # description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 
 <en:starch
-en:tapioca starch, tapioca
+en:tapioca starch, tapioca, manioc starch
 da:tapiokastivelse
 de:Tapiocastärke, Tapiokastärke
 el:άμυλο ταπιόκαζ, Ταπιόκα
 es:almidón de tapioca
 fi:tapiokatärkkelys
-fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc, manioc
+fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc
 hu:tápiókakeményítő
 it:amido di tapioca
 nl:tapioca zetmeel
@@ -15247,7 +15244,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tapioca
 
 <en:modified starch
 <en:tapioca starch
-en:modified tapioca starch
+en:modified tapioca starch, modified manioc starch
 de:modifizierte Tapiokastärke
 es:almidón modificado de tapioca
 fi:muunnettu tapiokatärkkelys
@@ -16577,6 +16574,7 @@ wikidata:en:Q93165
 carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
 carbon_footprint_fr_foodges_value:fr:2.6
 from_palm_oil:en:no
+nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:olive oil
 en:virgin olive oil
@@ -16660,6 +16658,7 @@ it:Olio di canola
 nl:raapolie, canola olie, raapzaadolie
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
 from_palm_oil:en:no
+nutriscore_fruits_vegetables_nuts:en:yes
 
 # Colza oil or colza is a non-drying oil obtained from the seeds of rapeseed (Brassica napus subsp. napus). Note that this a single rapeseed variety
 
@@ -16690,6 +16689,7 @@ wikidata:en:Q697248
 carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
 carbon_footprint_fr_foodges_value:fr:2.2
 from_palm_oil:en:no
+nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:colza oil
 en:organic colza oil
@@ -16764,6 +16764,7 @@ zh:核桃油
 wikipedia:en:https://en.wikipedia.org/wiki/Walnut_oil
 wikidata:en:Q1434098
 from_palm_oil:en:no
+nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:walnut oil
 fr:huile vierge de noix
@@ -22701,6 +22702,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quinoa
 wikidata:en:Q139925
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
 # 425 products in 6 languages @2018-09-22
+nutriscore_fruits_vegetables_nuts:en:no
 
 <en:quinoa
 de:Quinoa gepufft
@@ -23385,6 +23387,7 @@ es:Harina de tapioca
 fi:tapiokajauho
 fr:farine de tapioca, farine de manioc
 hu:tápiókaliszt, maniókaliszt
+nutriscore_fruits_vegetables_nuts:en:no
 
 <en:flour
 <en:lupin
@@ -23440,6 +23443,7 @@ sv:majsmjöl
 zh:玉米淀粉
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-mais
 # 1291 products in 19 languages @2018-09-23
+nutriscore_fruits_vegetables_nuts:en:no
 
 <en:corn flour
 en:organic corn flour
@@ -30926,6 +30930,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fruit
 wikidata:en:Q1364
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
 # 963 products in 9 languages @2018-09-26
+nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:fruit
 fr:fruits des bois
@@ -37361,6 +37366,7 @@ fr:crème de noix de coco, crème de coco
 it:Crema di noce di cocco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
 # 33 products @2018-10-03
+nutriscore_fruits_vegetables_nuts:en:no
 
 # Is this a compound product? coconut cream + water?
 
@@ -37555,6 +37561,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par 
 carbon_footprint_fr_foodges_value:fr:27.4
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
 carbon_footprint_fr_foodges_value:fr:0.3
+nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:vegetable
 fr:légumes en proportions variables, légumes en proportion variable
@@ -41976,7 +41983,17 @@ zh:番薯
 wikidata:en:Q37937
 wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
 # ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
+nutriscore_fruits_vegetables_nuts:en:no
 
+<en:root vegetable
+en:manioc
+fr:manioc
+nutriscore_fruits_vegetables_nuts:en:no
+
+<en:root vegetable
+en:yam
+fr:igname
+nutriscore_fruits_vegetables_nuts:en:no
 
 # The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
 
@@ -42082,6 +42099,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potato
 carbon_footprint_fr_foodges_ingredient:fr:Pomme de terre
 carbon_footprint_fr_foodges_value:fr:0.6
 # en:potato has 2269 products in 23 languages @2018-10-15
+nutriscore_fruits_vegetables_nuts:en:no
 
 <en:potato
 fr:Pommes de terre de consommation à chair ferme
@@ -44953,6 +44971,7 @@ vegetarian:en:yes
 # 438 products in 4 languages @2010-10-08
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-à-coque
 # 2099 products in 5 languages @2018-10-07
+nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:nut
 en:chestnut, chestnuts
@@ -46045,6 +46064,7 @@ nb:Chiafrø
 nl:chiazaad
 pt:sementes de chia
 # ingredient/chia-seed has 611 products in 6 languages @2018-10-07
+nutriscore_fruits_vegetables_nuts:en:no
 
 # Cumin is a flowering plant in the family Apiaceae, native to a territory including Middle East and stretching east to India.[2] Its seeds – each one contained within a fruit, which is dried – are used in the cuisines of many cultures in both whole and ground form.
 # The plant is only used for the seeds, so cumin implies cumin seeds
@@ -46127,6 +46147,7 @@ zh:松子
 # zh-tw:松子
 wikipedia:en:https://en.wikipedia.org/wiki/Pine_nut
 # ingredient/fr:pignons has 98 products in 4 languages @2018-12-05
+nutriscore_fruits_vegetables_nuts:en:no
 
 <en:pine nuts
 la:Pinus sibirica
@@ -46181,6 +46202,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Poppy_seed
 wikidata:en:Q2007388
 # 123 products in 6 languages @2018-10-08
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pavot
+nutriscore_fruits_vegetables_nuts:en:no
 
 
 <en:sunflower
@@ -46197,6 +46219,7 @@ nn:solsikkefrø
 sv:solrosfrön
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/sunflower-seeds
 # 1881 products in 11 languages @2018-10-07
+nutriscore_fruits_vegetables_nuts:en:no
 
 <en:sunflower seed
 en:shelled sunflower seeds
@@ -46239,6 +46262,7 @@ tr:keten
 # nah:Lino xināchtli
 wikidata:en:Q911332
 # ingredient/fr:graine-de-lin has 449 in 7 languages products @2018-10-08
+nutriscore_fruits_vegetables_nuts:en:no
 
 <en:flax seed
 de:Leinsaat geschrotet
@@ -46771,6 +46795,7 @@ vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Épices
 carbon_footprint_fr_foodges_value:fr:2.2
 # 903 products in 4 languages @2018-10-08
+nutriscore_fruits_vegetables_nuts:en:no
 
 en:herb
 ca:Herbes, herbes aromàtiques
@@ -49965,6 +49990,7 @@ sl:Kapra
 # scn:Chiàppara
 wikipedia:en:https://en.wikipedia.org/wiki/Caper
 # ingredient/fr:câpre has 494 products in 6 languages @2018-12-4
+nutriscore_fruits_vegetables_nuts:en:no
 
 <en:plant
 fr:feuilles de frêne
@@ -61861,6 +61887,7 @@ nl:augurken, augurk
 wikidata:en:Q23425
 wikidata:en:Q1365891
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
+nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:gherkin
 en:vinegar gherkin
