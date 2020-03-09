@@ -6380,7 +6380,7 @@ HTML
 							<input name="action" value="process" type="hidden">
 						</div>
 						<div class="cell small-4">
-							<button type="submit" title="$Lang{search}{$lang}">@{[ display_icon('search') ]}</button>
+							<button type="submit" title="$Lang{search}{$lang}" class="button expanded">@{[ display_icon('search') ]}</button>
 						</div>
 					</div>
 				</form>
