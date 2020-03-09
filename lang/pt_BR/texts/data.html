@@ -34,10 +34,13 @@ com a comunidade Open Food Facts.</p>
 
 <h4>Exportação Delta</h4>
 
-<p>As exportações diárias de delta são fornecidas dos últimos 14 dias. A lista de ficheiros delta atualmente disponíveis pode ser encontrada em <a href="https://static.openfoodfacts.org/data/delta/index.txt"> https://static.openfoodfacts.org/data/delta/index.txt </a>.
- Cada linha representa um ficheiro que está disponível em <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
- O nome do ficheiro contém o timestamp do UNIX da primeira e última alteração contida no ficheiro JSON, para que os ficheiros delta possam ser importados (após a extração) com <code>mongoimport</code> em ordem alfabética.</p>
-<p>Por favor, note que, devido à natureza do <code> mongoexport </code>, os ficheiros delta não podem informá-lo sobre produtos excluídos. Para remover produtos deletados do seu banco de dados, você precisará importar o dump completo do MongoDB.</p>
+<p>Exportações de delta diárias são fornecidas para os 14 dias anteriores. A lista de arquivos delta atualmente disponíveis pode ser encontrada em
+ <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
+ Cada linha representa um arquivo que está disponível em <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
+ O nome do arquivo contém o carimbo de tempo UNIX da primeira e da última alteração contida no arquivo JSON, para que os arquivos delta possam
+ ser importados (após extração) com <code>mongoimport</code> em ordem alfabética.</p>
+<p>Observe que, devido à natureza de <code>mongoexport</code>, os arquivos delta não podem informa-lo sobre produtos excluídos. Para remover
+ produtos excluídos de seu banco de dados, você precisará importar o dump completo do MongoDB.</p>
  
 <h3>Exportação de dados CSV</h3>
 
@@ -63,21 +66,21 @@ com a comunidade Open Food Facts.</p>
 
 <h2>API JSON ao vivo</h2>
 
-<p>Uma API JSON também está disponível para ler os dados de um produto. Essa API é usada em particular no aplicativo móvel Open Food Facts para iPhone e Android.</p>
+<p>Uma API de JSON também está disponível para ler os dados de um produto. Esta API é em particular usada no aplicativo móvel Open Food Facts para iPhone e Android.</p>
 
 <p>Alteramos a API ao longo do tempo, mas temos o cuidado de manter a compatibilidade com versões anteriores. Por favor, diga-nos se você usá-lo, para que possamos informá-lo sobre possíveis mudanças.</p>
 
-<p>URL para ler dados de um produto: https://world.openfoodfacts.org/api/v0/product/ <i>[barcode]</i>.json</p>
+<p>URL para ler os dados de um produto: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
-<p>Exemplo: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json"> https://world.openfoodfacts.org/api/v0/product/737628064502.json </a></p>
+<p>Exemplo: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Está mais documentação <a href="https://en.wiki.openfoodfacts.org/API">disponível no Wiki</a>. (Nota importante: a página está dividida em subpáginas para READ e WRITE). 
-Uma documentação melhor está a ser desenvolvida, com casos de uso para a exibição de um produto e permitindo que os seus utilizadores adicionem os dados necessários para obter os grupos Nutri-Score, NOVA e aditivos.
-<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro"> Pode acessá-lo aqui </a>.
-<p>Pode usar a API para casos de produção, desde que 1 chamada de API = 1 varredura real de um utilizador.
-Qualquer tentativa de raspar o banco de dados pela API provavelmente será bloqueada, pois as exportações completas diárias estão disponíveis nesta página.</p>
-<p>Além disso, o envio de um cabeçalho HTTP com sua chamada à API é uma boa maneira de entrar em contacto, caso ocorra algum problema.</p>
-<p>Se não tiver certeza de nada ou tiver alguma dúvida (perguntas bobas não existem), fique à vontade perguntando no Slack :-)</p>
+Mais documentação está <a href="https://en.wiki.openfoodfacts.org/API">disponível na Wiki</a>. (Nota importante: a página está dividida em subpáginas para READ e WRITE). 
+Uma documentação melhor está sendo desenvolvida, com casos de uso para a exibição de um produto e permitindo que os seus utilizadores adicionem os dados necessários para obter os Nutri-Score, grupos NOVA e aditivos.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Você pode acessá-lo aqui</a>.
+<p>Fique à vontade para usar a API para casos de produção, desde que 1 chamada de API = 1 scan real por um usuário.
+Qualquer tentativa de remover o banco de dados usando a API provavelmente será bloqueada, já que todas as exportações diárias estão disponíveis nesta mesma página.</p>
+<p>Além disso, o envio de um cabeçalho HTTP com sua chamada à API é uma boa maneira de entrar em contato, caso surja algum problema.</p>
+<p>Se você não tem certeza de alguma coisa ou tiver qualquer dúvida(não há nenhuma pergunta boba), sinta-se à vontade para perguntar no Slack :-)</p>
 
 <h2>Aplicativo para dispositivos móveis Android e iPhone</h2>
 
@@ -108,6 +111,6 @@ O aplicativo permite que os utilizadores digitalizem o código de barras dos pro
 <p>Você também pode participar na lista de discussão para discutir a API e as exportações, informar sobre suas reutilizações e ser notificado quando melhorias ou alterações forem feitas na API. Envie um e-mail vazio <a href="mailto:api-subscribe@openfoodfacts.org"> api-subscribe@openfoodfacts.org </a> para subscrever.</p>
 
 
-<h2>Contacto</h2>
+<h2>Contato</h2>
 
 <p>Para qualquer pergunta sobre os dados, entre em contacto connosco pelo e-mail <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>
