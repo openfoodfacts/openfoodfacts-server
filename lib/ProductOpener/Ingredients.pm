@@ -90,6 +90,7 @@ BEGIN
 		&set_percent_max_values
 		&delete_ingredients_percent_values
 
+		&add_fruits
 		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
 
 	);	# symbols to export on request
