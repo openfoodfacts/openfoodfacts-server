@@ -91,14 +91,10 @@ More documentation: https://github.com/openfoodfacts/openfoodfacts-server/tree/m
 ### 6. Appendix
 #### Changing ports
 
-By default, the containers run using port 80. If you need to change this to ie. 8080, update the port in `/docker/frontend-git/conf/nginx.conf`:
+By default, the containers run using port 80. If you need to change this to ie. 8080, update the port of the `frontend` service in `docker/docker-compose.yml`:
 ```
-server {
-	listen 8080;
-	listen [::]:8080;
-
-	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name productopener.localhost *.productopener.localhost;
+    ports:
+      - 8080:80
 ```
 
 and `/docker/backend-dev/conf/Config2.pm`:
