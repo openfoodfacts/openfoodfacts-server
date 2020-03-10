@@ -6895,7 +6895,7 @@ he:אנזים הגבנה
 hr:Sirište
 hu:Oltóenzim, oltóanyag
 id:Rennet
-it:gaglio, caglio
+it:caglio
 ja:レンネット
 ko:레닛
 la:Coagulum
@@ -6939,6 +6939,7 @@ es:cuajo animal
 fi:eläinperäinen juoksute
 fr:présure animale
 hu:állati eredetű oltóenzim
+it:caglio animale
 nb:animalsk løpe
 nl:dierlijk stremsel
 nn:animalsk løpe
@@ -19432,6 +19433,7 @@ hu:Campari
 nl:Campari
 
 <en:alcohol
+en:cider
 fr:cidre
 
 <en:alcohol
@@ -23427,7 +23429,7 @@ sr:sojino brašno
 
 <en:flour
 <en:corn
-en:corn flour, maize flour
+en:corn flour, maize flour, cornflour
 da:majsmel
 de:Maismehl
 el:αλεύρι καλαμποκιού
@@ -25108,7 +25110,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
 <en:sugar
 en:caramelised sugar
-de:Karamellzucker
+de:Karamellzucker, karamellisierter Zucker
 es:azúcar caramelizado
 fi:karamellisokeri
 fr:sucre brun, sucre caramel, sucre caramélisé
@@ -39331,6 +39333,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bok_choy
 # Brassica oleracea var. sabellica
 # be careful with the translation found on packages.
 
+# RAPINI or BROCCOLI RABE (Brassica rapa subspecies rapa) is a green cruciferous vegetable, with the leaves, buds, and stems all being edible; the buds somewhat resemble broccoli, but do not form a large head.
+
+<en:cabbage
+en:rapini, broccoli rabe
+es:grelos, rapini
+fr:rapini, brocoli-rave
+it:friarielli, broccoletti, broccoli di rapa, cime di rapa, rapini, pulezze
+
 <en:cabbage
 en:kale
 af:Boerkool
@@ -43944,7 +43954,7 @@ fi:mustapapu, mustapavut
 fr:haricots noirs
 
 <en:beans
-en:red beans
+en:red beans, red kidney beans
 de:Rote Bohnen
 es:Alubias rojas
 fr:haricot rouge, haricots rouges
@@ -46008,6 +46018,7 @@ nl:korianderzaad
 # ingredient/fr:graine-de-coriandre has 188 products in 3 languages @2018-10-07
 
 <en:coriander seeds
+en:coriander powder
 fr:coriandre en poudre, coriandre moulue
 fi:korianterijauhe
 nl:korianderpoeder
@@ -46625,7 +46636,7 @@ fr:sésame complet
 # 35 products in 4 languages @2018-10-05
 
 <en:sesame
-en:sesame paste
+en:sesame paste, sesame seed paste
 de:Sesampaste
 es:pasta de sésamo
 fi:seesamitahna
