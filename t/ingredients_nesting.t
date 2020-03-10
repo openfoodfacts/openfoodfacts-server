@@ -132,7 +132,54 @@ my @tests = (
   }
 
 ]
-	
+	],
+
+	[ { lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate ( Espagne) eau"},
+[
+  {
+    'id' => "fr:Teneur en l\x{e9}gumes",
+    'percent' => '74',
+    'text' => "Teneur en l\x{e9}gumes"
+  },
+  {
+    'id' => 'en:tomato',
+    'origin' => 'en:spain',
+    'text' => 'tomate'
+  },
+  {
+    'id' => 'en:water',
+    'text' => 'eau'
+  }
+]
+
+	],
+
+	[ { lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"},
+
+
+[
+  {
+    'id' => "fr:Teneur en l\x{e9}gumes",
+    'percent' => '74',
+    'text' => "Teneur en l\x{e9}gumes"
+  },
+  {
+    'id' => 'en:tomato',
+    'origin' => 'en:spain',
+    'percent' => '60',
+    'text' => 'tomate'
+  },
+  {
+    'id' => 'en:water',
+    'text' => 'eau'
+  },
+  {
+    'id' => 'en:salt',
+    'origin' => 'en:france,en:italy',
+    'text' => 'Sel'
+  }
+]
+
 	],
 
 );
