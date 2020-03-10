@@ -31,30 +31,33 @@ De foto's kunnen grafische elementen bevatten die onderhevig zijn aan auteursrec
  <dd><a href="https://static.openfoodfacts.org/data/md5sum">https://static.openfoodfacts.org/data/md5sum</a></dd>
 </dl>
 
-<h4>Delta Export</h4>
+<h4>Delta export</h4>
 
-<p>Dagelijkse delta-exporten zijn beschikbaar voor de afgelopen 14 dagen. De lijst met beschikbare delta-bestanden is te vinden op
- <a href="https://static.openfoodfacts.org/data/delta/index.txt"> https://static.openfoodfacts.org/data/delta/index.txt </a>.
- Elke regel is een bestand dat beschikbaar is op <code> https://static.openfoodfacts.org/data/delta/{filename}</code>.
- De bestandsnaam bevat de UNIX-tijdstempel van de eerste en de laatste wijziging in het JSON-bestand, zodat de delta-bestanden worden geïmporteerd (na extractie) met <code> mongoimport </code> in alfabetische volgorde.</p>
-<p>Let op: vanwege de aard van <code> mongoexport </code>, bevatten de deltabestanden geen informatie over verwijderde producten. Om verwijderde producten uit uw database te verwijderen, moet u de volledige MongoDB-dump importeren.</p>
+<p>De dagelijkse delta-export wordt voor de afgelopen 14 dagen geleverd. De lijst van momenteel beschikbare delta bestanden kan worden gevonden op
+ <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
+ Elke regel vertegenwoordigt een bestand dat beschikbaar is op <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
+ De bestandsnaam bevat UNIX-tijdstempel van de eerste en de laatste wijziging in het JSON-bestand, zodat de delta-bestanden
+ worden geïmporteerd (na extractie) met <code> mongoimport </code> In alfabetische volgorde.</p>
+<p>Let op dat de delta bestanden u niet kunnen vertellen over verwijderde producten vanwege de aard van <code>mongoexport</code>. Om
+ verwijderde producten uit uw database te verwijderen, moet u de volledige MongoDB dump importeren.</p>
  
-<h3>CSV-formaat export</h3>
+<h3>CSV-gegevens exporteren</h3>
 
-<p>Gegevens voor alle producten of een aantal producten kunnen worden gedownload in CSV-indeling (leesbaar met OpenOffice, Excel en vele andere software) via het <a href="https://world.openfoodfacts.org/cgi/search.pl"> geavanceerde zoekformulier </a>.</p>
+<p>Gegevens voor alle producten, of sommige van de producten, kunnen worden gedownload in CSV-formaat (leesbaar met OpenOffice, Excel en vele andere software)
+ via het <a href="https://world.openfoodfacts.org/cgi/search.pl">geavanceerde zoekformulier</a>.</p>
  
 <dl>
  <dt>Link</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
-<p>De bestandscodering is Unicode UTF-8. Het teken dat velden scheidt is een &lt;tab&gt; (tabulatie).</p>
+<p>De bestandscodering is Unicode UTF-8. Het teken dat velden scheidt is &lt;tab&gt; (tabulatie).</p>
 
 
 
-<h3>RDF Data Export</h3>
+<h3>RDF Data exporteren</h3>
 
-<p>De database is ook beschikbaar in RDF-formaat. (<a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">aankondiging in het Frans</a>).</p>
+<p>De database is ook beschikbaar in het RDF formaat. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">aankondiging in het Frans</a>.</p>
 
 <dl>
  <dt>Link</dt>
@@ -63,13 +66,13 @@ De foto's kunnen grafische elementen bevatten die onderhevig zijn aan auteursrec
 
 <h2>Live JSON API</h2>
 
-<p>Er is ook een JSON-API beschikbaar om de productgegevens te lezen. Deze API wordt met name gebruikt in de mobiele app Open Food Facts voor iPhone en Android.</p>
+<p>Een JSON API is ook beschikbaar om de gegevens voor een product te lezen. Deze API wordt met name gebruikt in de Open Food Facts mobiele app voor iPhone en Android.</p>
 
-<p>We change the API over-time but we are careful to keep backwards compatibility. Vertel ons alstublieft of je deze API gebruikt, zodat we je kunnen informeren over mogelijke wijzigingen.</p>
+<p>We change the API over-time but we are careful to keep backwards compatibility. Vertel ons alstublieft of u het gebruikt, zodat we u kunnen vertellen over mogelijke veranderingen.</p>
 
-<p>URL om gegevens voor een product te lezen: https://world.openfoodfacts.org/api/v0/product/ <i>[barcode]</i>.json</p>
+<p>URL om gegevens te lezen voor een product: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
-<p>Bijvoorbeeld: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json"> https://world.openfoodfacts.org/api/v0/product/737628064502.json </a></p>
+<p>Voorbeeld: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
 Further documentation is <a href="https://en.wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE). 
 A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
@@ -79,7 +82,7 @@ Any attempt to scrape the database using the API will very likely be blocked, as
 <p>Het verzenden van een HTTP-header met uw API-call is ook een goede manier om contact op te nemen als er een probleem optreedt.</p>
 <p>Als je ergens niet zeker over bent, of als je een vraag hebt (er is geen domme vraag), stel ze gerust op Slack: -)</p>
 
-<h2>Android- en iPhone mobiele app</h2>
+<h2>Android en iPhone mobiele app</h2>
 
 <p>The code for the Open Food Facts mobile app is available on GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> and <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
 De app staat gebruikers toe om de barcode van producten te scannen, om de productinformatie te bekijken en om foto's en gegevens te nemen en te verzenden voor ontbrekende producten.</p>
@@ -108,6 +111,6 @@ De app staat gebruikers toe om de barcode van producten te scannen, om de produc
 <p>U kunt ook lid worden van de mailinglijst om de API en de export te bespreken, ons over uw hergebruik te vertellen en een melding te ontvangen wanneer verbeteringen of wijzigingen in de API worden aangebracht. Stuur een lege e-mail naar <a href="mailto:api-subscribe@openfoodfacts.org"> api-subscribe@openfoodfacts.org </a> om je te abonneren.</p>
 
 
-<h2>Contact</h2>
+<h2>Contactpersoon</h2>
 
 <p>Voor elke vraag over de gegevens kunt u contact met ons opnemen op <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>
