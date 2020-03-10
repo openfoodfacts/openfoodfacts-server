@@ -189,8 +189,11 @@ foreach my $field (sort keys %$query_ref) {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
 	}
-	if ($query_ref->{$field} eq 'exists') {
+	elsif ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
+	}
+	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
+		$query_ref->{$field} += 0;
 	}
 }
 

@@ -1438,6 +1438,12 @@ sub compute_product_history_and_completeness($$$) {
 				$current_product_ref->{last_modified_t} = $change_ref->{t};
 			}
 
+			# some very early products added in 2012 did not have created_t
+
+			if ((not defined $current_product_ref->{created_t}) or ($current_product_ref->{created_t} == 0)) {
+				$current_product_ref->{created_t} = $change_ref->{t};
+			}
+
 			%current = (rev => $rev, lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 
 			# Uploaded images
