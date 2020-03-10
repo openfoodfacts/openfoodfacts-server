@@ -8671,6 +8671,11 @@ sub display_nutrient_levels($) {
 									display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
 									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
 			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne '')) {
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value}) . "</p>";
+			}
 		}
 
 		$html_nutrition_grade .= <<HTML
@@ -9126,7 +9131,16 @@ HTML
 		}
 	}
 
+	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
+	my @nutriments = ();
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments) {
+		push @nutriments, $nutriment;
+		if (($nutriment eq "fruits-vegetables-nuts-estimate-") and ($User{moderator})) {
+			push @nutriments, "fruits-vegetables-nuts-estimate-from-ingredients-";
+		}
+	}
+
+	foreach my $nutriment (@nutriments) {
 
 		next if $nutriment =~ /^\#/;
 		my $nid = $nutriment;
@@ -9152,6 +9166,7 @@ HTML
 		# Only show known values for search graph results
 		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search'))
 			and not (((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+					or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 					or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne '')))) {
 			$shown = 0;
 		}
@@ -9488,10 +9503,8 @@ HTML
 ;
 		}
 
-
-		#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
-
 		if (not $shown) {
+			#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
 		}
 		elsif (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')) {
 
