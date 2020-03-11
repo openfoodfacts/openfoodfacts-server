@@ -90,6 +90,9 @@ BEGIN
 		&set_percent_max_values
 		&delete_ingredients_percent_values
 
+		&add_fruits
+		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
+
 	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -700,7 +703,7 @@ sub parse_ingredients_text($) {
 			my $sep = $1;
 			$after = $';
 
-			# print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
+			#print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
 
 			if ($sep =~ /(:|\[|\{|\()/i) {
 
@@ -708,7 +711,7 @@ sub parse_ingredients_text($) {
 				my $match = '.*?';	# non greedy match
 				my $ending = $last_separator;
 				if (not defined $ending) {
-					$ending = "$commas|;|( $dashes )";
+					$ending = "$commas|;|:|( $dashes )";
 				}
 				$ending .= '|$';
 
@@ -727,14 +730,24 @@ sub parse_ingredients_text($) {
 
 				$ending = '(' . $ending . ')';
 
-				# print STDERR "special separator: $sep - ending: $ending - after: $after\n";
+				#print STDERR "special separator: $sep - ending: $ending - after: $after\n";
 
 				# another separator before the ending separator ? we probably have several sub-ingredients
 				if ($after =~ /^($match)$ending/i) {
 					$between = $1;
 					$after = $';
 
-					# print STDERR "sub-ingredients - between: $between - after: $after\n";
+					#print STDERR "sub-ingredients - between: $between - after: $after\n";
+
+					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
+					# tomatoes (64%, origin: Spain)
+
+					if (($between =~ $separators) and ($` =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i)) {
+						#print STDERR "separator found after percent: $1\%\n";
+						$percent = $1;
+						# remove what is before the first separator
+						$between =~ s/(.*?)$separators//;
+					}
 
 					# sel marin (France, Italie)
 					# -> if we have countries, put "origin:" before
@@ -743,16 +756,18 @@ sub parse_ingredients_text($) {
 						$between =~ s/^(.*?$separators)/origin:$1/;
 					}
 
-					# print STDERR "between: $between\n";
+					#print STDERR "between: $between\n";
 
 					# : is in $separators but we want to keep "origine : France"
 					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i)) {
 						$between_level = $level + 1;
+						#print STDERR "found a separator\n";
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
+						print STDERR "no separator found\n";
 						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i) {
-							# print STDERR "percent found:  $1\%\n";
+							#print STDERR "no separator found - percent found:  $1\%\n";
 							$percent = $1;
 							$between = '';
 						}
@@ -770,9 +785,7 @@ sub parse_ingredients_text($) {
 									$vegetarian = "en:yes";
 								}
 								else {
-									$origin = $origin_string;
-									$origin =~ s/^\s+//;
-									$origin =~ s/\s+$//;
+									$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "countries", $_)} split(/,/, $origin_string ));
 								}
 							}
 							else {
@@ -782,6 +795,7 @@ sub parse_ingredients_text($) {
 								if (exists_taxonomy_tag("countries", $countryid)) {
 									$origin = $countryid;
 									$between = '';
+									#print STDERR "origin found: $origin\n";
 								}
 								# put origin first because the country can be associated with the label "Made in ..."
 								else {
@@ -806,7 +820,7 @@ sub parse_ingredients_text($) {
 					}
 				}
 				else {
-					# print STDERR "could not find ending separator: $ending - after: $after\n"
+					#print STDERR "could not find ending separator: $ending - after: $after\n"
 					# ! could not find the ending separator
 				}
 
@@ -817,14 +831,14 @@ sub parse_ingredients_text($) {
 			}
 
 			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*($separators|$)/i) {
-				# print STDERR "percent found: $after = $1 + $'\%\n";
+				#print STDERR "percent found - after: $after - percent: $percent - ignore: $4 - ' : $'\n";
 				$percent = $1;
 				$after = $';
 			}
 		}
 		else {
 			# no separator found: only one ingredient
-			# print STDERR "no separator found: $s\n";
+			#print STDERR "no separator found: $s\n";
 			$before = $s;
 		}
 
@@ -881,9 +895,11 @@ sub parse_ingredients_text($) {
 
 			chomp($ingredient);
 
+			#print STDERR "ingredient: $ingredient\n";
+
 			# Strawberry 10.3%
 			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$/i) {
-				# print STDERR "percent found: $before = $` + $1\%\n";
+				#print STDERR "percent found: $before = $` + $1\%\n";
 				$percent = $1;
 				$ingredient = $`;
 			}
@@ -911,9 +927,7 @@ sub parse_ingredients_text($) {
 					$vegetarian = "en:yes";
 				}
 				else {
-					$origin = $origin_string;
-					$origin =~ s/^\s+//;
-					$origin =~ s/\s+$//;
+					$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "countries", $_)} split(/,/, $origin_string ));
 				}
 			}
 
@@ -956,8 +970,8 @@ sub parse_ingredients_text($) {
 						my $regexp = $ingredient_processing_regexp_ref->[1];
 						if ($new_ingredient =~ /\b($regexp)\b/i) {
 							$new_ingredient = $` . $';
-							print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
-							print STDERR "new ingredient: $new_ingredient\n";
+							#print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
+							#print STDERR "new ingredient: $new_ingredient\n";
 							$matches++;
 							$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
 						}
@@ -969,14 +983,14 @@ sub parse_ingredients_text($) {
 						$new_ingredient =~ s/^($and)+//i;
 						my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
 						if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-							print STDERR "new_ingredient_id $new_ingredient_id exists\n";
+							#print STDERR "new_ingredient_id $new_ingredient_id exists\n";
 							$ingredient = $new_ingredient;
 							$ingredient_id = $new_ingredient_id;
 							$ingredient_recognized = 1;
 							$processing .= $new_processing;
 						}
 						else {
-							print STDERR "new_ingredient_id $new_ingredient_id does not exist\n";
+							#print STDERR "new_ingredient_id $new_ingredient_id does not exist\n";
 						}
 					}
 				}
@@ -1026,7 +1040,7 @@ sub parse_ingredients_text($) {
 					if (defined $ignore_regexps{$product_lc}) {
 						foreach my $regexp (@{$ignore_regexps{$product_lc}}) {
 							if ($ingredient =~ /$regexp/i) {
-								print STDERR "ignoring ingredient $ingredient - regexp $regexp\n";
+								#print STDERR "ignoring ingredient $ingredient - regexp $regexp\n";
 								$skip_ingredient = 1;
 								$ingredient_recognized = 1;
 								last;
@@ -1216,6 +1230,8 @@ sub extract_ingredients_from_text($) {
 	else {
 		$product_ref->{ingredients_percent_analysis} = 1;
 	}
+
+	estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
 
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
@@ -1577,8 +1593,14 @@ sub set_percent_sub_ingredients($) {
 }
 
 
-# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
-# and compute the resulting value for the complete product
+=head2 analyze_ingredients ( product_ref )
+
+This function analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+and computes the resulting value for the complete product.
+
+Results are stored in the ingredients_analysis_tags array.
+
+=cut
 
 sub analyze_ingredients($) {
 
@@ -2916,7 +2938,7 @@ sub preparse_ingredients_text($$) {
 			}
 			$prefixregexp =~ s/^\|//;
 
-			$prefixregexp = "(" . $prefixregexp . ")( bio| biologique| équitable|s|\s|$symbols_regexp)*";
+			$prefixregexp = "(" . $prefixregexp . ")( bio| biologique| équitable|s|\\s|$symbols_regexp)*";
 
 			my $suffixregexp = "";
 			foreach my $suffix (@{$prefixes_suffixes_ref->[1]}) {
@@ -3910,7 +3932,7 @@ sub detect_allergens_from_text($) {
 
 			# allergens between underscores
 
-			print STDERR "current text 1: $text\n";
+			#print STDERR "current text 1: $text\n";
 
 			# _allergen_ + __allergen__ + ___allergen___
 
@@ -4002,6 +4024,77 @@ sub detect_allergens_from_text($) {
 	}
 
 	$log->debug("detect_allergens_from_text - done", { }) if $log->is_debug();
+}
+
+
+=head2 add_fruits ( $ingredients_ref )
+
+Recursive function to compute the % of fruits, vegetables, nuts and olive/walnut/rapeseed oil
+for Nutri-Score computation.
+
+=cut
+
+sub add_fruits($) {
+
+	my $ingredients_ref = shift;
+
+	my $fruits = 0;
+
+	foreach my $ingredient_ref (@$ingredients_ref) {
+
+		my $nutriscore_fruits_vegetables_nuts = get_inherited_property("ingredients", $ingredient_ref->{id}, "nutriscore_fruits_vegetables_nuts:en");
+
+		if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
+
+			if (defined $ingredient_ref->{percent}) {
+				$fruits += $ingredient_ref->{percent};
+			}
+			elsif (defined $ingredient_ref->{percent_min}) {
+				$fruits += $ingredient_ref->{percent_min};
+			}
+			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
+			# in that case, try to get the possible percent values in nested sub ingredients
+			elsif (defined $ingredient_ref->{ingredients}) {
+				$fruits += add_fruits($ingredient_ref->{ingredients});
+			}
+		}
+		elsif (defined $ingredient_ref->{ingredients}) {
+			$fruits += add_fruits($ingredient_ref->{ingredients});
+		}
+			$log->debug("add_fruits ingredient, current total", { ingredient_id => $ingredient_ref->{id}, current_fruits => $fruits }) if $log->is_debug();
+	}
+
+	$log->debug("add_fruits result", { fruits => $fruits }) if $log->is_debug();
+
+	return $fruits;
+}
+
+
+=head2 estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ( product_ref )
+
+This function analyzes the ingredients to estimate the minimum percentage of
+fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
+the Nutri-Score fruit points if we don't have a value given by the manufacturer
+or estimated by users.
+
+Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+
+=cut
+
+sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
+
+	my $product_ref = shift;
+
+	if (defined $product_ref->{nutriments}) {
+		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+	}
+
+	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
+
+		(defined $product_ref->{nutriments}) or $product_ref->{nutriments} = {};
+
+		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = add_fruits($product_ref->{ingredients});
+	}
 }
 
 1;

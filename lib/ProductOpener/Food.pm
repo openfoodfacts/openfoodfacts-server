@@ -3520,15 +3520,19 @@ sub mmoll_to_unit {
 		ro => "Fructe, legume, nuci uscate",
 		unit => "%",
 	},
-
 	"fruits-vegetables-nuts-estimate" => {
-		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)",
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (manual estimate from ingredients list)",
 		fi => "Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt (arvio ainesosaluettelosta)",
-		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation avec la liste des ingrédients)",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation manuelle avec la liste des ingrédients)",
 		es => "Frutas, verduras y nueces (estimación de la lista de ingredientes)",
 		nl => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		nl_be => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		de => "Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)",
+		unit => "%",
+	},
+	"fruits-vegetables-nuts-estimate-from-ingredients" => {
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list analysis)",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation par analyse de la liste des ingrédients)",
 		unit => "%",
 	},
 	"collagen-meat-protein-ratio" => {
@@ -4358,6 +4362,8 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate};
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category};
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value};
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 	delete $product_ref->{nutriscore_score};
 	delete $product_ref->{nutriscore_grade};
@@ -4506,10 +4512,16 @@ sub compute_nutrition_score($) {
 			}
 		}
 
-		if (defined $fruits) {
-			$product_ref->{"fruits-vegetables-nuts_100g_estimate"} = $fruits;
+		# Use the estimate from the ingredients list if we have one
+		if ((not defined $fruits)
+			and (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})) {
+			$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
 		}
-		else {
+
+		if (not defined $fruits) {
 			$fruits = 0;
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
 			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
