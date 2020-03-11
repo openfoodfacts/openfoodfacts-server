@@ -82,6 +82,7 @@ BEGIN
 					&display_recent_changes
 					&add_tag_prefix_to_link
 
+					&display_ingredient_analysis
 					&display_ingredients_analysis_details
 
 					@search_series
@@ -4053,10 +4054,18 @@ HTML
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			if (defined $product_ref->{ingredients}) {
+				my $i = 0;
 				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+					$i++;
 					if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
 						# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-						exists $ingredient_ref->{rank} or delete $ingredient_ref->{ingredients};
+						if (not exists $ingredient_ref->{rank})	{
+							# delete this ingredient and ingredients after
+							while (scalar @{$product_ref->{ingredients}} >= $i) {
+								pop @{$product_ref->{ingredients}};
+							}
+							last;
+						}
 					}
 					else {
 						# Delete sub-ingredients, keep only flattened ingredients
@@ -8662,6 +8671,11 @@ sub display_nutrient_levels($) {
 									display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
 									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
 			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne '')) {
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value}) . "</p>";
+			}
 		}
 
 		$html_nutrition_grade .= <<HTML
@@ -9117,7 +9131,16 @@ HTML
 		}
 	}
 
+	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
+	my @nutriments = ();
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments) {
+		push @nutriments, $nutriment;
+		if (($nutriment eq "fruits-vegetables-nuts-estimate-") and ($User{moderator})) {
+			push @nutriments, "fruits-vegetables-nuts-estimate-from-ingredients-";
+		}
+	}
+
+	foreach my $nutriment (@nutriments) {
 
 		next if $nutriment =~ /^\#/;
 		my $nid = $nutriment;
@@ -9143,6 +9166,7 @@ HTML
 		# Only show known values for search graph results
 		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search'))
 			and not (((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+					or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 					or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne '')))) {
 			$shown = 0;
 		}
@@ -9479,10 +9503,8 @@ HTML
 ;
 		}
 
-
-		#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
-
 		if (not $shown) {
+			#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
 		}
 		elsif (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')) {
 
@@ -9662,10 +9684,18 @@ HTML
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 		if (defined $product_ref->{ingredients}) {
+			my $i = 0;
 			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+				$i++;
 				if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
 					# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-					exists $ingredient_ref->{rank} or delete $ingredient_ref->{ingredients};
+					if (not exists $ingredient_ref->{rank})	{
+						# delete this ingredient and ingredients after
+						while (scalar @{$product_ref->{ingredients}} >= $i) {
+							pop @{$product_ref->{ingredients}};
+						}
+						last;
+					}
 				}
 				else {
 					# Delete sub-ingredients, keep only flattened ingredients
@@ -10284,6 +10314,19 @@ sub display_ingredients_analysis_details($) {
 	my $product_ref = shift;
 
 	(not defined $product_ref->{ingredients}) and return "";
+
+	my $i = 0;
+	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+		$i++;
+		# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
+		if (not exists $ingredient_ref->{rank})	{
+			# delete this ingredient and ingredients after
+			while (scalar @{$product_ref->{ingredients}} >= $i) {
+				pop @{$product_ref->{ingredients}};
+			}
+			last;
+		}
+	}
 
 	my $ingredients_text = "";
 	my $ingredients_list = "";

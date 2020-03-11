@@ -293,7 +293,7 @@ my $expected_product_ref =
    'unknown_ingredients_n' => 0
  };
 
-
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 
@@ -389,6 +389,7 @@ delete $product_ref->{amino_acids_prev_tags};
 delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 
@@ -1006,6 +1007,7 @@ $expected_product_ref =
 
 is_deeply($product_ref->{ingredients_original_tags}, $expected_product_ref->{ingredients_original_tags}) || diag explain $product_ref->{ingredients_original_tags};
 
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 
@@ -1083,7 +1085,7 @@ $expected_product_ref =
   };
 
 
-
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
 
 
@@ -1168,8 +1170,8 @@ $expected_product_ref = {
 	    'unknown_ingredients_n' => 1
 };
 
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
-
 
 $product_ref = {
         lc => "fr",
@@ -1244,7 +1246,7 @@ is_deeply ($product_ref->{ingredients},
 	   [
 	        {
 	          'id' => 'en:strawberry',
-	          'origin' => 'France',
+	          'origin' => 'en:france',
 	          'rank' => 1,
 	          'text' => 'Fraise',
 	          'vegan' => 'yes',
@@ -1252,7 +1254,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:blackcurrant',
-	          'origin' => 'Afrique du Sud',
+	          'origin' => 'en:south-africa',
 	          'rank' => 2,
 	          'text' => 'Cassis',
 	          'vegan' => 'yes',
@@ -1260,7 +1262,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:raspberry',
-	          'origin' => 'Belgique',
+	          'origin' => 'en:belgium',
 	          'rank' => 3,
 	          'text' => 'Framboise',
 	          'vegan' => 'yes',
@@ -1431,7 +1433,7 @@ is_deeply ($product_ref->{ingredients},
 	          },
 	          {
 	            'id' => 'en:sodium-chloride',
-	            'origin' => 'France, Italie',
+	            'origin' => 'en:france,en:italy',
 	            'percent' => '98',
 	            'rank' => 4,
 	            'text' => 'chlorure de sodium'
@@ -1845,6 +1847,7 @@ my $expected_product_ref =
   };
 
 
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 
@@ -1912,7 +1915,7 @@ is_deeply ($product_ref->{ingredients},
 	   [
 	        {
 	          'id' => 'en:strawberry',
-	          'origin' => 'Suomi',
+	          'origin' => 'en:finland',
 	          'rank' => 1,
 	          'text' => 'Mansikka',
 	          'vegan' => 'yes',
@@ -1920,7 +1923,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:blackcurrant',
-	          'origin' => 'Etelä-Afrikka',
+	          'origin' => 'en:south-africa',
 	          'rank' => 2,
 	          'text' => 'Mustaherukka',
 	          'vegan' => 'yes',
@@ -1928,7 +1931,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:raspberry',
-	          'origin' => 'Ruotsi',
+	          'origin' => 'en:sweden',
 	          'rank' => 3,
 	          'text' => 'Vadelma',
 	          'vegan' => 'yes',

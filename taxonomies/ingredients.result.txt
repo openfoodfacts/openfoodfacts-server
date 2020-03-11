@@ -7109,6 +7109,7 @@ it:semi di chia
 nb:Chiafrø
 nl:chiazaad
 pt:sementes de chia
+nutriscore_fruits_vegetables_nuts:en: no
 
 < en:Chicken
 en:chicken liver
@@ -8833,6 +8834,7 @@ es:Crema de coco
 fi:kookoskerma
 fr:crème de noix de coco, crème de coco
 it:Crema di noce di cocco
+nutriscore_fruits_vegetables_nuts:en: no
 
 < en:Coconut
 en:coconut extract
@@ -9895,6 +9897,7 @@ sk:kukuričná múka
 sl:koruzna moka
 sv:majsmjöl
 zh:玉米淀粉
+nutriscore_fruits_vegetables_nuts:en: no
 
 < en:Corn flour
 en:organic corn flour
@@ -10658,6 +10661,7 @@ fi:pikkukurkku
 fr:cornichon, cornichons
 it:cetriolini
 nl:augurken, augurk
+nutriscore_fruits_vegetables_nuts:en: yes
 wikidata:en: Q1365891
 
 < en:Cucumber
@@ -37219,6 +37223,7 @@ es:Harina de tapioca
 fi:tapiokajauho
 fr:farine de tapioca, farine de manioc
 hu:tápiókaliszt, maniókaliszt
+nutriscore_fruits_vegetables_nuts:en: no
 
 < en:Flour
 fr:farine de châtaigne
@@ -37809,6 +37814,7 @@ za:mak
 zh:水果
 carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen de saison, produit localement
 carbon_footprint_fr_foodges_value:fr: 0.3
+nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1364
@@ -48443,9 +48449,6 @@ pt:amido de milho modificado, amido modificado de milho
 ro:amidon modificat din porumb, amidon modificat de porumb
 sv:modifierad majsstärkelse
 
-< en:Modified starch
-fr:amidon transformé de manioc
-
 < en:Modified corn starch
 < en:Modified tapioca starch
 fi:muunnettu maissi- ja tapiokatärkkelys
@@ -50910,6 +50913,7 @@ uz:Yongʻoq
 vi:Hạch
 yi:נוס
 zh:坚果
+nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q11009
@@ -53443,6 +53447,7 @@ nl:kappertjes
 pl:kapary
 pt:alcaparras
 sl:Kapra
+nutriscore_fruits_vegetables_nuts:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Caper
 
 < en:Plant
@@ -56035,6 +56040,7 @@ tl:Quinoa
 tr:Kinoa
 uk:Кіноа
 vi:Diêm mạch
+nutriscore_fruits_vegetables_nuts:en: no
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q139925
@@ -56192,6 +56198,7 @@ hu:kanolaolaj, canolaolaj, canola olaj, kanola olaj
 it:Olio di canola
 nl:raapolie, canola olie, raapzaadolie
 from_palm_oil:en: no
+nutriscore_fruits_vegetables_nuts:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
 
 < en:Rapeseed oil
@@ -56219,6 +56226,7 @@ sv:Rapsolja, Rapsfett
 carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
 carbon_footprint_fr_foodges_value:fr: 2.2
 from_palm_oil:en: no
+nutriscore_fruits_vegetables_nuts:en: yes
 wikidata:en: Q697248
 wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
 
@@ -57716,6 +57724,11 @@ wikidata:en: Q1807269
 wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
 < en:Root vegetable
+en:manioc
+fr:manioc
+nutriscore_fruits_vegetables_nuts:en: no
+
+< en:Root vegetable
 en:onion, onions
 bn:পিঁয়াজ
 ca:ceba
@@ -57884,6 +57897,7 @@ zh:馬鈴薯
 zu:Izambane
 carbon_footprint_fr_foodges_ingredient:fr: Pomme de terre
 carbon_footprint_fr_foodges_value:fr: 0.6
+nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q16587531
 wikipedia:en: https://en.wikipedia.org/wiki/Potato
 
@@ -58177,6 +58191,7 @@ wo:pataas
 yi:זיס־קארטאפל
 za:Maenz
 zh:番薯
+nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q37937
 wikipedia:en: https://en.wikipedia.org/wiki/Sweet_potato
 
@@ -58294,6 +58309,11 @@ to:Kuta
 vi:Năn ngọt
 zh:荸荠
 wikidata:en: Q932664
+
+< en:Root vegetable
+en:yam
+fr:igname
+nutriscore_fruits_vegetables_nuts:en: no
 
 < en:Roscoff onions
 en:Roscoff onion powder
@@ -60416,6 +60436,7 @@ pl:Siemię lniane
 pt:linhaça
 sv:linfrön
 tr:keten
+nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q911332
 
 < en:Seed
@@ -60463,6 +60484,7 @@ tl:Pinyon
 tr:Çam fıstığı
 uk:кедрові горішки
 zh:松子
+nutriscore_fruits_vegetables_nuts:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Pine_nut
 
 < en:Seed
@@ -60476,6 +60498,7 @@ nb:valmuefrø
 nl:maanzaad
 pl:nasiona lnu
 sv:vallmofrön
+nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q2007388
 wikipedia:en: https://en.wikipedia.org/wiki/Poppy_seed
 
@@ -62263,6 +62286,7 @@ sv:kryddor
 zh:香料
 carbon_footprint_fr_foodges_ingredient:fr: Épices
 carbon_footprint_fr_foodges_value:fr: 2.2
+nutriscore_fruits_vegetables_nuts:en: no
 vegan:en: yes
 vegetarian:en: yes
 
@@ -63628,13 +63652,13 @@ pt:amido de arroz
 sv:risstärkelse
 
 < en:Starch
-en:tapioca starch, tapioca
+en:tapioca starch, tapioca, manioc starch
 da:tapiokastivelse
 de:Tapiocastärke, Tapiokastärke
 el:άμυλο ταπιόκαζ, Ταπιόκα
 es:almidón de tapioca
 fi:tapiokatärkkelys
-fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc, manioc
+fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc
 hu:tápiókakeményítő
 it:amido di tapioca
 nl:tapioca zetmeel
@@ -64402,6 +64426,7 @@ it:semi di girasole
 nl:zonnebloempitten
 nn:solsikkefrø
 sv:solrosfrön
+nutriscore_fruits_vegetables_nuts:en: no
 
 < en:Sunflower lecithin
 fr:émulsifiant lécithine de tournesol
@@ -64793,7 +64818,7 @@ nl:tamarinde-extract
 
 < en:Modified starch
 < en:Tapioca starch
-en:modified tapioca starch
+en:modified tapioca starch, modified manioc starch
 de:modifizierte Tapiokastärke
 es:almidón modificado de tapioca
 fi:muunnettu tapiokatärkkelys
@@ -66630,6 +66655,7 @@ sv:grönsak, grönsaker
 zh:蔬菜
 carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen de saison, produit localement
 carbon_footprint_fr_foodges_value:fr: 0.3
+nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
 
@@ -68621,6 +68647,7 @@ zh:橄欖油
 carbon_footprint_fr_foodges_ingredient:fr: Huile d'olive
 carbon_footprint_fr_foodges_value:fr: 2.6
 from_palm_oil:en: no
+nutriscore_fruits_vegetables_nuts:en: yes
 wikidata:en: Q93165
 wikipedia:en: https://en.wikipedia.org/wiki/Olive_oil
 
@@ -68881,6 +68908,7 @@ sv:Valnötsolja, Bomullsfröolja
 th:น้ำมันวอลนัต
 zh:核桃油
 from_palm_oil:en: no
+nutriscore_fruits_vegetables_nuts:en: yes
 wikidata:en: Q1434098
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut_oil
 
