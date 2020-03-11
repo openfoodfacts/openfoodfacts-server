@@ -1764,6 +1764,8 @@ sub analyze_ingredients($) {
 				push @{$product_ref->{ingredients_analysis_tags}}, $product_ref->{ingredients_analysis}{$property};
 			}
 		}
+
+		delete $product_ref->{ingredients_analysis};
 	}
 }
 
