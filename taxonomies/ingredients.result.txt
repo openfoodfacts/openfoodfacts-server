@@ -790,6 +790,7 @@ fr:amandes blanchies
 
 < en:Almond
 en:dry roasted almonds
+ca:ametlles torrades
 de:geröstete Mandeln, Mandeln geröstet
 fr:amandes grillées
 it:mandorle tostate
@@ -1589,6 +1590,11 @@ pl:liofilizowane jabłka
 pt:maçãs desidratadas
 
 < en:Apple
+en:Gala apple, Gala apples
+fr:pomme Gala
+nl:Gala appel
+
+< en:Apple
 en:Golden Delicious apple
 de:Golden Delicious Apfel
 fi:golden delicious -omena
@@ -1601,6 +1607,11 @@ fi:luomuomena, luomu omena
 fr:pomme bio, Pommes bio
 it:mele bio
 nl:biologische appel, Biologische appels
+
+< en:Apple
+en:Royal Gala apple
+fr:pomme Royal Gala, pommes Royal Gala
+nl:Royal Gala appel, Tenroy, Tenroy appel
 
 < en:Apple
 fr:compote de pommes
@@ -1640,10 +1651,6 @@ nl:appelmoes
 
 < en:Apple
 nl:appels van biologisch-dynamische teelt
-
-< en:Apple
-nl:Royal Gala appel
-fr:pommes Royal Gala
 
 < en:Apple juice
 en:cidre apple juice
@@ -4486,20 +4493,6 @@ fr:sucre de canne bio, sucre de canne biologique, cannes à sucre biologiques
 hu:bio nádcuor
 it:zucchero di cana bio
 nl:biologische rietsuiker, biologisch rietsuiker
-
-< en:Cane sugar
-en:unrefined cane sugar, raw cane sugar
-cs:nerafinovaný třtinový cukr
-da:rå rørsukker
-de:Rohrohrzucker, roher Rohrzucker
-el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
-es:Azucar de caña sin refinar
-fi:raakaruokosokeri
-fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre de canne complet, suc de canne intégral, sucre brut de canne, sucre complet de canne
-hu:finomítatlan nádcukor
-it:zucchero di canna grezzo
-nl:Ongeraffineerde rietsuiker, ruwe rietsuiker
-sv:rårörsocker
 
 < en:Cane sugar
 en:white cane sugar, blonde cane sugar
@@ -8669,7 +8662,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cocoa_butter
 < en:Cocoa
 en:cocoa paste, cocoa mass
 bg:какаова маса
-ca:acidificant
+ca:pasta de cacau
 cs:kakaová hmota
 da:kakaomasse
 de:Kakaomasse
@@ -8929,7 +8922,7 @@ hu:bio kókuszolaj
 nl:Biologische kokosolie
 
 < en:Coconut oil
-en:virgin coconut oil
+en:virgin coconut oil, raw coconut oil
 fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
 
 < en:Coconut oil
@@ -9825,6 +9818,7 @@ it:maïs ceroso
 
 < en:Corn
 en:corn flakes, cornflakes
+ca:blat de moro
 de:Maisflakes, Cornflakes
 es:copos de maíz, corn flakes
 fi:maissihiutale
@@ -10026,16 +10020,6 @@ nl:gepasteuriseerde koemelk
 sv:pastöriserad komjölk
 
 < en:Cow's milk
-en:raw cow's milk
-de:Kuhrohmilch
-es:leche cruda de vaca
-fi:lehmän raakamaito, raaka lehmänmaito
-fr:lait cru de vache, lait de vache cru
-hu:nyers tehéntej
-nl:rauwe koemelk
-ru:коровье молоко
-
-< en:Cow's milk
 en:semi-skimmed cow's milk
 de:teilentrahmte Kuhmilch, fettarme Kuhmilch
 es:leche semidesnatada de vaca, leche de vaca semidesnatada
@@ -10183,6 +10167,10 @@ hu:pasztőrözött tej és tejszín
 it:latte e panna pastorizzati
 nl:Gepasteuriseerde melk en room
 pt:Leite e natas pateurizados
+
+< en:Cream
+en:raw cream
+fr:crème crue, crème de lait cru
 
 < en:Cream
 en:single cream
@@ -10641,6 +10629,11 @@ za:Gungq
 zh:虾
 wikidata:en: Q1517781
 wikipedia:en: https://en.wikipedia.org/wiki/Shrimp
+
+< en:Crustaceans flavouring
+< en:Natural flavouring
+en:natural crustaceans flavouring
+fr:arôme naturel de crustacés
 
 < en:Cucumber
 en:cucumber juice
@@ -11604,6 +11597,10 @@ nl:biologische pure chocola
 fr:chocolat noir à 70 de cacao
 
 < en:Date
+en:deglet nour dates
+fr:dattes deglet nour
+
+< en:Date
 en:medjool dates
 de:Medjool Datteln
 fr:dattes Medjool
@@ -11614,9 +11611,6 @@ fr:dattes bio
 de:Bio Datteln
 fi:luomutaateli, luomu taateli
 it:datteri bio
-
-< en:Date
-fr:dattes deglet nour
 
 < en:Date
 fr:jus de dattes concentré
@@ -20475,7 +20469,7 @@ vegetarian:en: yes
 
 < en:E322
 en:soya lecithin, soy lecithin, sin 322
-ca:Lecitina de soja, E-322
+ca:Lecitina de soja, lecitines de soja, E-322
 cs:sójový lecitin
 da:sojalecitin
 de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
@@ -20502,6 +20496,7 @@ vegetarian:en: yes
 < en:E322
 en:sunflower lecithin
 bg:слънчогледов леситин
+ca:lecitina de gira-sol, lecitines de gira-sol
 cs:Slunečnicový lecitin
 da:solsikkelecithin
 de:Sonnenblumenlecithine, Sonnenblumenlecithin
@@ -23462,7 +23457,7 @@ vegetarian:en: yes
 
 en:E412, Guar gum, Gum cyamopsis
 bg:E412, Гума гуар, Гума циамопсис, Гуарова гума
-ca:E412, Goma de guar
+ca:E412, Goma de guar, goma guar
 cs:E412, Guma guar, Guma cyamopsis, Guarová guma, E 412, Guaranová guma
 da:E412, Guargummi
 de:E412, Guarkernmehl, Cyamopsis-Gummi, Guaran, Guakernmehl, E 412
@@ -26000,7 +25995,7 @@ vegetarian:en: maybe
 en:E471, Mono- and diglycerides of fatty acids, Glyceryl monostearate, Glyceryl monopalmitate, Glyceryl monooleate, Monostearin, Monopalmitin, Monoolein, Mono and diglycerides, E 471, INS 471, INS471
 ar:أحادي وثنائي الجليسريدات للأحماض الدهنية
 bg:E471, Моно- и диглицериди на мастни киселини, Глицерил моностеарат, глицерил монопалмитат, глицерил моноолеат, и т.н., моностеарин, монопалмитин, моноолеин
-ca:E471, Monoglicèrid o diglicèrid d'àcids grassos
+ca:E471, Monoglicèrid o diglicèrid d'àcids grassos, monoglicèrids i diglicèrids d'àcids grassos
 cs:E471, Mono- a diglyceridy mastných kyselin, Glycerylmonostearát, glycerylmonopalmitát, glycerylmonooleát, monostearin, monopalmitin, monoolein
 da:E471, Mono- og diglycerider af fedtsyrer, Glycerylmonostearat, glycerylmonopalmitat
 de:E471, Mono- und Diglyceride von Speisefettsäuren, Glycerylmonostearat, Glycerylmonopalmitat, Glycerylmonooleat, Monostearin, Monopalmitin, Monoolein, E 471
@@ -26151,6 +26146,7 @@ vegetarian:en: maybe
 en:E472c, Citric acid esters of mono- and diglycerides of fatty acids, E 472c
 bg:E472c, Естери на лимонената киселина с моно- и диглицериди на мастни киселини
 bs:citratni esteri mono- i diglicerida masnih kiselina
+ca:èsters cítrics dels monoglicèrids i diglicèrids dels àcids grassos
 cs:E472c, Estery mono- a diglyceridů mastných kyselin s kyselinou citronovou
 da:E472c, Citronsyreestere af mono- og diglycerider af fedtsyrer
 de:E472c, Citronensäureester von Mono- und Diglyceriden von Speisefettsäuren
@@ -27268,18 +27264,9 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 organic_eu:en: authorized
 wikidata:en: Q190227
 
-< en:E500
-< en:E503
-en:ammonium and sodium carbonates
-da:ammonium - og natriumcarbonat
-de:Ammonium und Natriumcarbonat
-fi:ammonium- ja natriumkarbonaatit
-fr:carbonates d'ammonium et de sodium
-it:carbonati di amonio e di sodio
-nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
-
 < en:E450i
 < en:E500ii
+ca:carbonat àcid de sodi i difosfat de disodi
 fr:diphosphate disodique et carbonate acide de sodium
 
 en:E501, Potassium carbonates, potassium carbonate, E501i, E-501, E-501i, E501 i
@@ -27453,11 +27440,21 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q204873
 
+< en:E500
+< en:E503
+en:ammonium and sodium carbonates
+da:ammonium - og natriumcarbonat
+de:Ammonium und Natriumcarbonat
+fi:ammonium- ja natriumkarbonaatit
+fr:carbonates d'ammonium et de sodium
+it:carbonati di amonio e di sodio
+nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
+
 < en:E503
 en:E503ii, Ammonium hydrogen carbonate, Ammonium bicarbonate, ammonium acid carbonate, E-503ii
 ar:بيكربونات الأمونيوم
 bg:E503ii, Амониев хидроген карбонат
-ca:bicarbonato amonico
+ca:carbonat àcid d'amoni, bicarbonato amonico
 cs:E503ii, Hydrogenuhličitan amonný
 da:E503ii, Ammoniumhydrogencarbonat, ammoniumväte-hydrogenkarbonat, ammoniumvätekarbonat, Hjortetakssalt
 de:E503ii, Ammoniumhydrogencarbonat, Ammonium-hydrogencarbonat, Ammoniumbicarbonat
@@ -33837,7 +33834,7 @@ be:Жаўток
 bg:жълтък
 bn:কুসুম
 bs:Žumance
-ca:rovell d'ou
+ca:rovell d'ou, gema d'ou
 cs:žloutek
 cy:melynwy
 da:æggeblomme
@@ -33982,6 +33979,7 @@ it:Albume d'uovo liquido
 
 < en:Egg white
 en:powdered egg white, dehydrated egg white
+ca:clara d'ou en pols
 de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
 el:ασπράδι αυγού σε σκόν
 es:clara de huevo en polvo, clara de huevos en polvo
@@ -34009,6 +34007,7 @@ fr:jaune d'œuf de poules
 
 < en:Egg yolk
 en:egg yolk powder, eggs yolk powder, powdered egg yolk
+ca:gema d'ou en pols
 de:Eigelbpulver
 es:yema de huevo en polvo
 fi:munankeltuaisjauhe
@@ -36945,6 +36944,7 @@ fr:arôme de fruits de mer
 
 < en:Flavouring
 en:smoke flavouring, smoke flavour, aroma of smoke
+ca:aroma de fum
 da:røgaroma
 de:Raucharoma
 es:aroma de humo
@@ -40125,7 +40125,7 @@ sv:druvsocker, dextros
 < en:Glucose
 en:glucose syrup
 bg:глюкозе сироп
-ca:Almívar
+ca:xarop de glucosa
 cs:glukózový sirup
 da:glukosesirup
 de:Glukosesirup, Glucosesirup
@@ -40266,7 +40266,7 @@ vegetarian:en: yes
 
 < en:Gluten
 en:wheat gluten
-ca:Gluten de blat
+ca:gluten de blat
 de:Weizengluten, Weizenkleber
 es:gluten de trigo
 et:nisugluteen
@@ -40315,13 +40315,6 @@ fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
 hu:pasztőrözött kecsketej
 it:latte di capra pastorizzato
 ro:lapte de capră pasteurizat, lapte de capra pasteurizat
-
-< en:Goat's milk
-en:raw goat's milk
-de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
-fi:vuohen raakamaito, raaka vuohenmaito
-fr:lait cru de chèvre
-hu:nyers kecsketej
 
 < en:Goat's milk
 en:semi-skimmed goat's milk
@@ -40964,6 +40957,7 @@ nl:hazelnootpraliné
 
 < en:Hazelnut
 en:toasted hazelnut
+ca:avellanes torrades
 de:geröstete Haselnüsse, Haselnüsse geröstet
 es:avellanas tostadas
 fi:paahdettu hasselpähkinä
@@ -42496,6 +42490,7 @@ en:pure honey
 
 < en:Honey
 en:raw honey
+fr:miel non raffiné, miel brut
 
 < en:Honey
 en:spring honey
@@ -42757,6 +42752,7 @@ nl:gehydroliseerd maïseiwit
 
 < en:Hydrolysed vegetable protein
 en:soy protein
+ca:proteïna de soja
 de:Sojaprotein, Sojaproteine, Sojaeiweiß
 es:Proteina de soya, proteina de soja
 fi:soijaproteiini
@@ -43517,6 +43513,12 @@ en:Saccharina japonica
 de:Japanischer Blatttang (Saccharina japonica)
 la:Saccharina japonica, Laminaria Japonica
 wikipedia:en: https://en.wikipedia.org/wiki/Saccharina_japonica
+
+en:kombucha
+fr:kombucha
+
+< en:Kombucha
+en:raw kombucha
 
 < en:Lactase
 en:beta-galactosidase
@@ -45450,6 +45452,7 @@ fr:vinaigre de malt d'orge
 
 < en:Malted barley
 en:barley malt extract
+ca:extracte de malta d'ordi
 de:Gerstenmalzextrakt
 es:extracto de malta de cebada
 et:odralinnaseekstrakt
@@ -45884,7 +45887,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Marzipan
 fr:mayonnaise allégée en matière grasse, mayonnaise allégée en matières grasses
 
 en:meat
-ca:Lecitina de soja, E-322
+ca:Lecitina de soja, lecitines de soja, E-322
 cs:Maso
 de:Fleisch
 es:carne
@@ -46602,7 +46605,7 @@ nl:melkmineralenconcentraat
 < en:Milk powder
 en:skimmed milk powder
 bg:обезмаслено сухо мляко
-ca:Suc de fruita
+ca:llet desnatada en pols
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
 de:Magermilchpulver
@@ -50924,7 +50927,7 @@ en:almond, almonds
 am:አልመንድ
 ar:لوز
 bg:бадеми
-ca:ametlla
+ca:ametlla, ametlles
 cs:mandle
 da:mandel, mandler
 de:Mandel, Mandeln, Mandelkerne
@@ -51058,7 +51061,7 @@ ar:بندق
 be:лясны арэх
 bg:лешници
 bn:হ্যাজেল বাদাম
-ca:avellana
+ca:avellana, avellanes
 cs:lískový ořech, lískové ořechy, lískové oříšky
 da:Hasselnød, hasselnødder
 de:Haselnuss, Haselnüsse, Haselnusse, Haselnusskerne
@@ -52558,11 +52561,12 @@ hu:pálma- és repcemag
 
 < en:Palm oil and fat
 en:palm fat
+ca:greix de palma, greix vegetal de palma
 da:palmfedtstof
 de:Palmfett
 es:grasa vegetal de palma
 fi:palmurasva
-fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
+fr:graisse de palme, graisse végétale de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
 hu:pálmazsír
 it:grasso di palma, grasso vegetale di palma
 nl:palmvet
@@ -52625,6 +52629,28 @@ vi:Dầu cọ
 zh:棕榈油
 wikidata:en: Q231458
 wikipedia:en: https://en.wikipedia.org/wiki/Palm_oil
+
+< en:Palm sugar
+en:coconut sugar, coconut palm sugar
+ca:Sucre de coco
+de:Kokosnusszucker
+es:Azucar de coco
+fi:kookossokeri
+fr:sucre de fleur de cocotier, sucre de fleur de Coco, sucre de coco
+hu:kókuszcukor
+id:Gula kelapa
+it:zucchero di fiori di cocco, zucchero di cocco
+nn:kokosnøttsukker
+pt:jagra
+su:Gula kalapa
+ta:தென்னை சர்க்கரை
+wikidata:en: Q5139861
+wikipedia:en: https://en.wikipedia.org/wiki/Coconut_sugar
+
+< en:Palm sugar
+< en:Unrefined sugar
+en:unrefined palm sugar
+fr:sucre non raffiné de palme, sucre de palme non raffiné, sucre de palme brut, sucre brut de palme
 
 < en:Pantothenic Acid
 en:calcium pantothenate
@@ -55564,7 +55590,7 @@ fr:thon précuit haché
 
 en:Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent
 bg:Консервант
-ca:Conservant, conservador
+ca:Conservant, conservador, conservadors
 cs:Konzervant
 da:Modificeret stivelse
 de:Konservierungsstoff, Konservierungsstoffe
@@ -56345,7 +56371,34 @@ wikidata:en: Q20053
 wikipedia:en: https://en.wikipedia.org/wiki/Ravioli
 
 < en:Raw ham
+en:Italian raw ham
+fr:jambon cru italien
+
+< en:Raw ham
+en:Serrano raw ham
+fr:jambon cru de Serrano
+
+< en:Raw ham
 fr:jambon cru fumé
+
+< en:Cow's milk
+< en:Raw milk
+en:raw cow's milk
+de:Kuhrohmilch
+es:leche cruda de vaca
+fi:lehmän raakamaito, raaka lehmänmaito
+fr:lait de vache cru, lait cru de vache
+hu:nyers tehéntej
+nl:rauwe koemelk
+ru:коровье молоко
+
+< en:Goat's milk
+< en:Raw milk
+en:raw goat's milk
+de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
+fi:vuohen raakamaito, raaka vuohenmaito
+fr:lait cru de chèvre, lait de chèvre cru
+hu:nyers kecsketej
 
 < en:Raw milk
 < en:Whole milk
@@ -58876,6 +58929,10 @@ wikidata:en: Q673380
 wikipedia:en: https://en.wikipedia.org/wiki/Pink_salmon
 
 < en:Salmon
+en:raw salmon
+fr:saumon cru
+
+< en:Salmon
 en:smoked salmon
 de:Räucherlachs
 es:Salmón ahumado
@@ -59905,13 +59962,8 @@ fr:sauce aux fruits rouges
 fr:sauce hamburger
 
 < en:Sauerkraut
-< en:Vegetable juice
-en:sauerkraut juice
-de:Sauerkrautsaft
-es:zumo de choucroute
-fi:hapankaalimehu
-fr:jus de choucroute
-nl:zuurkoolsap
+en:raw sauerkraut
+fr:choucroute crue
 
 < en:Scallop
 en:Atlantic bay scallop, bay scallop
@@ -63977,23 +64029,6 @@ ro:zahăr caramelizat
 sv:karamelliserat socker
 
 < en:Sugar
-en:coconut sugar, coconut palm sugar
-ca:Sucre de coco
-de:Kokosnusszucker
-es:Azucar de coco
-fi:kookossokeri
-fr:sucre de fleur de cocotier, sucre de fleur de Coco, sucre de coco
-hu:kókuszcukor
-id:Gula kelapa
-it:zucchero di fiori di cocco, zucchero di cocco
-nn:kokosnøttsukker
-pt:jagra
-su:Gula kalapa
-ta:தென்னை சர்க்கரை
-wikidata:en: Q5139861
-wikipedia:en: https://en.wikipedia.org/wiki/Coconut_sugar
-
-< en:Sugar
 en:granulated sugar
 de:Zucker mittelgross
 es:Azúcar cristalizado
@@ -64168,6 +64203,10 @@ fr:sucre bio, sucre issu de l'agriculture biologique
 hu:bio cukor
 
 < en:Sugar
+en:palm sugar
+fr:sucre de palme
+
+< en:Sugar
 en:sucrose
 ar:سكروز
 be:Цукроза
@@ -64276,6 +64315,10 @@ vi:Trehalose
 zh:海藻糖
 wikidata:en: Q421773
 wikipedia:en: https://en.wikipedia.org/wiki/Trehalose
+
+< en:Sugar
+en:unrefined sugar, raw sugar
+fr:sucre non raffiné, sucre brut, sucre complet
 
 < en:Sugar
 en:white sugar
@@ -65830,6 +65873,21 @@ de:unraffiniertes Atlantiksalz
 fi:atlantin raffinoimaton merisuola, atlantin puhdistamaton merisuola
 fr:Sel marin non raffiné de l'atlantique
 nl:Ongeraffineerd zeezout uit de Atlantische Oceaan
+
+< en:Cane sugar
+< en:Unrefined sugar
+en:unrefined cane sugar, raw cane sugar
+cs:nerafinovaný třtinový cukr
+da:rå rørsukker
+de:Rohrohrzucker, roher Rohrzucker
+el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
+es:Azucar de caña sin refinar
+fi:raakaruokosokeri
+fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre de canne complet, suc de canne intégral, sucre brut de canne, sucre complet de canne
+hu:finomítatlan nádcukor
+it:zucchero di canna grezzo
+nl:Ongeraffineerde rietsuiker, ruwe rietsuiker
+sv:rårörsocker
 
 < en:Uridine monophosphate
 en:disodium uridine-monophosphate, disodium uridine-5'-monophosphate, sodium salts of UMP
@@ -68342,6 +68400,15 @@ zh:胡萝卜汁
 wikidata:en: Q1190074
 wikipedia:en: https://en.wikipedia.org/wiki/Carrot_juice
 
+< en:Sauerkraut
+< en:Vegetable juice
+en:sauerkraut juice
+de:Sauerkrautsaft
+es:zumo de choucroute
+fi:hapankaalimehu
+fr:jus de choucroute
+nl:zuurkoolsap
+
 < en:Vegetable oil
 en:avocado oil
 de:Avocadoöl
@@ -68838,7 +68905,7 @@ ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
 bg:Слънчогледово олио
-ca:oli de gira-sol
+ca:oli de gira-sol, oli vegetal de gira-sol
 cs:Slunečnicový olej
 da:solsikkeolie
 de:Sonnenblumenöl
@@ -70000,7 +70067,7 @@ be:Вітаміны, Вітамін
 bg:Витамини, Витамин
 bn:ভিটামিন
 bs:Vitamini, Vitamin
-ca:vitamina
+ca:vitamina, vitamines
 cs:Vitaminy, vitamín
 cv:Витамин
 cy:Fitaminau, Fitamin
@@ -73301,9 +73368,6 @@ fr:viande de poulet traitée en salaison et précuite
 
 < fr:Viande hachée de bœuf
 fr:préparation viande hachée de boeuf
-
-< nl:Royal Gala appel
-nl:Tenroy
 
 < zh:砂蛸
 en:Octopus Aegina

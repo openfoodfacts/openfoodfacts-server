@@ -8134,6 +8134,11 @@ ru:коровье молоко
 zh:牛奶
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
 
+<en:raw milk
+<en:cow's milk
+en:raw cow's milk
+fr:lait de vache cru
+
 # description:en:RAW COW MILK - milk produced by female cows before any treatment
 
 <en:cow's milk
@@ -8230,6 +8235,11 @@ it:latte di capra
 nl:geitenmelk
 ro:lapte de capră, lapte de capra
 wikidata:en:Q1418287
+
+<en:goat's milk
+<en:raw milk
+en:raw goat's milk
+fr:lait de chèvre cru
 
 <en:goat's milk
 en:whole goat's milk
@@ -9331,6 +9341,10 @@ fr:crème fraîche de Normandie
 ja:ノルマンディー産生クリーム
 nl:room uit Normandië
 # ingredient/Cream-from-Normandy has 50 products in 5 languages @2019-07-12
+
+<en:cream
+en:raw cream
+fr:crème crue, crème de lait cru
 
 <en:cream
 en:sterilized cream
@@ -14702,6 +14716,14 @@ fi:raakakinkku
 fr:jambon cru
 
 <en:raw ham
+en:Serrano raw ham
+fr:jambon cru de Serrano
+
+<en:raw ham
+en:Italian raw ham
+fr:jambon cru italien
+
+<en:raw ham
 fr:jambon cru fumé
 
 <en:ham
@@ -16462,7 +16484,7 @@ nl:Biologische kokosolie
 # ingredient/nl:biologische-kokosolie has 1 product @2019-05-24
 
 <en:coconut oil
-en:virgin coconut oil
+en:virgin coconut oil, raw coconut oil
 fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
 # ingredient/fr:huile-de-coco-vierge has 10 products @2019-06-02
 
@@ -20576,6 +20598,11 @@ en:crustaceans flavouring
 de:Krustentieraroma, Schalentieraroma
 fi:äyriäisaromi
 fr:arôme de crustacés
+
+<en:natural flavouring
+<en:crustaceans flavouring
+en:natural crustaceans flavouring
+fr:arôme naturel de crustacés
 
 <en:flavouring
 fr:arôme de gentiane
@@ -39613,6 +39640,10 @@ zh:德国酸菜
 wikidata:en:Q154166
 # en:sauerkraut has 166 products in 3 languages @2018-10-19
 
+<en:sauerkraut
+en:raw sauerkraut
+fr:choucroute crue
+
 <en:vegetable juice
 <en:sauerkraut
 en:sauerkraut juice
@@ -56362,6 +56393,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Salmon_as_food
 carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
 carbon_footprint_fr_foodges_value:fr:6.6
 
+# "raw salmon" is often used for sushis
+# it could be useful to keep a "raw salmon" entry to find products
+# where salmon is raw (and not intended to be cooked)
+<en:salmon
+en:raw salmon
+fr:saumon cru
+
 <en:salmon
 fr:saumon cuit
 de:Lachs gekocht
@@ -68192,3 +68230,4 @@ fr:kombucha
 
 <en:kombucha
 en:raw kombucha
+
