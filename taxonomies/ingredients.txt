@@ -1076,7 +1076,7 @@ wikidata:en:Q911854
 # nova
 en:preservative
 bg:Консервант
-ca:Conservant, conservador
+ca:Conservant, conservador, conservadors
 cs:Konzervant
 da:Konserveringsmiddel
 de:Konservierungsstoff
@@ -1549,7 +1549,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
 # nova:en:lecithin
 <en:lecithin
 en:soya lecithin, soy lecithin, sin 322
-ca:Lecitina de soja, E-322
+ca:Lecitina de soja, lecitines de soja, E-322
 cs:sójový lecitin
 da:sojalecitin
 de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
@@ -1586,6 +1586,7 @@ nl:GMO-vrije sojalecithine
 <en:lecithin
 en:sunflower lecithin
 bg:слънчогледов леситин
+ca:lecitina de gira-sol, lecitines de gira-sol
 cs:Slunečnicový lecitin
 da:solsikkelecithin
 de:Sonnenblumenlecithine, Sonnenblumenlecithin
@@ -2801,6 +2802,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_stearate
 en:mono- and diglycerides of fatty acids, E471, E 471, E-471, INS 471, INS471
 ar:أحادي وثنائي الجليسريدات للأحماض الدهنية
 bg:Моно- и диглицериди на мастни киселини
+ca:monoglicèrids i diglicèrids d'àcids grassos
 cs:Mono- a diglyceridy mastných kyselin
 da:mono- og diglycerider af fedtsyrer
 de:Mono- und Diglyceride von Speisefettsäuren
@@ -2977,6 +2979,7 @@ wikidata:en:Q18967238
 en:Citric acid esters of mono- and diglycerides of fatty acids, E472c, E 472c, E-472c
 bg:Естери на лимонената киселина с моно- и диглицериди на мастни киселини
 bs:citratni esteri mono- i diglicerida masnih kiselina
+ca:èsters cítrics dels monoglicèrids i diglicèrids dels àcids grassos
 cs:Estery mono- a diglyceridů mastných kyselin s kyselinou citronovou
 da:Citronsyreestere af mono- og diglycerider af fedtsyrer
 de:Citronensäureester von mono- und diglyceriden von speisefettsäuren
@@ -8581,7 +8584,7 @@ fr:poudre de lait réhydratée
 <en:milk powder
 en:skimmed milk powder
 bg:обезмаслено сухо мляко
-ca:Suc de fruita
+ca:llet desnatada en pols
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
 de:Magermilchpulver
@@ -11668,7 +11671,7 @@ be:Вітаміны, Вітамін
 bg:Витамини, Витамин
 bn:ভিটামিন
 bs:Vitamini, Vitamin
-ca:vitamina
+ca:vitamina, vitamines
 cs:Vitaminy, vitamín
 cv:Витамин
 cy:Fitaminau, Fitamin
@@ -16244,11 +16247,12 @@ wikidata:en:Q7128109
 
 <en:palm oil and fat
 en:palm fat
+ca:greix de palma, greix vegetal de palma
 da:palmfedtstof
 de:Palmfett
 es:grasa de palma, grasa vegetal de palma
 fi:palmurasva
-fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
+fr:graisse de palme, graisse végétale de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
 hu:pálmazsír
 it:grasso di palma, grasso vegetale di palma
 nl:palmvet
@@ -17278,7 +17282,7 @@ ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
 bg:Слънчогледово олио
-ca:oli de gira-sol
+ca:oli de gira-sol, oli vegetal de gira-sol
 cs:Slunečnicový olej
 da:solsikkeolie
 de:Sonnenblumenöl
@@ -20385,6 +20389,7 @@ nl:natuurlijk muntaroma
 
 <en:flavouring
 en:smoke flavouring, smoke flavour, aroma of smoke
+ca:aroma de fum
 da:røgaroma
 de:Raucharoma
 es:aroma de humo
@@ -22239,6 +22244,7 @@ fr:blé malté concassé
 
 <en:malted barley
 en:barley malt extract
+ca:extracte de malta d'ordi
 de:Gerstenmalzextrakt
 es:extracto de malta de cebada
 et:odralinnaseekstrakt
@@ -23798,6 +23804,7 @@ nl:gedextrineerd maïsmeel
 
 <en:corn
 en:corn flakes, cornflakes
+ca:blat de moro
 de:Maisflakes, Cornflakes
 es:copos de maíz, corn flakes
 fi:maissihiutale
@@ -24248,7 +24255,6 @@ fr:riz long complet, riz complet long grain
 hu:hosszú szemű barnarizs
 nl:langkorrelige zilvervliesrijst
 # ingredient/fr:riz-long-complet has 13 products @2019-05-29
-
 
 <en:brown long grain rice
 <en:parboiled rice
@@ -24849,6 +24855,7 @@ sv:guarkärnmjöl
 # This identical the the flour variant
 
 en:guar gum
+ca:goma guar
 de:Guarkernmehl
 el:κομμι χαρουτιων
 es:goma guar
@@ -25879,7 +25886,7 @@ vegetarian:en:yes
 <en:glucose
 en:glucose syrup
 bg:глюкозе сироп
-ca:Almívar
+ca:xarop de glucosa
 cs:glukózový sirup
 da:glukosesirup
 de:Glukosesirup, Glucosesirup
@@ -26753,6 +26760,7 @@ fi:herneproteiinihydrosylaatti
 
 <en:hydrolysed vegetable protein
 en:soy protein
+ca:proteïna de soja
 de:Sojaprotein, Sojaproteine, Sojaeiweiß
 es:Proteina de soya, proteina de soja
 fi:soijaproteiini
@@ -27242,7 +27250,7 @@ fr:beurre de cacao émulsifiant
 <en:cocoa
 en:cocoa paste, cocoa mass
 bg:какаова маса
-ca:Àcid, acidificant
+ca:pasta de cacau
 cs:kakaová hmota
 da:kakaomasse
 de:Kakaomasse
@@ -28770,7 +28778,7 @@ vegetarian:en:yes
 
 <en:gluten
 en:wheat gluten
-ca:Gluten de blat
+ca:gluten de blat
 de:Weizengluten, Weizenkleber
 es:gluten de trigo
 et:nisugluteen
@@ -30240,6 +30248,7 @@ sv:Kalciumdivätedifosfat, Kalciumpyrofosfatsyra, e450vii
 
 <en:disodium diphosphate
 <en:sodium hydrogen carbonate
+ca:carbonat àcid de sodi i difosfat de disodi
 fr:diphosphate disodique et carbonate acide de sodium
 # fr:diphosphate-disodique-et-carbonate-acide-de-sodium has 72 products in 2 languages @2018-11-04
 
@@ -30735,7 +30744,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_carbonate
 en:ammonium hydrogen carbonate, Ammonium bicarbonate, ammonium acid carbonate, E503ii, E-503ii, E 503ii
 ar:بيكربونات الأمونيوم
 bg:Амониев хидроген карбонат
-ca:bicarbonato amonico
+ca:carbonat àcid d'amoni, bicarbonato amonico
 cs:hydrogenuhličitan amonný
 da:ammoniumväte-hydrogenkarbonat, ammoniumvätekarbonat, Hjortetakssalt
 de:Ammoniumhydrogencarbonat, Ammonium-hydrogencarbonat, Ammoniumbicarbonat
@@ -32517,15 +32526,17 @@ fi:golden delicious -omena
 fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
 # ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
 
+#US plant patent 3637, McKenzie, Oct 15 1974
 <en:apple
-fr:pommes gala
+en:Gala apple, Gala apples
+fr:pomme Gala, pommes Gala
+nl:Gala appel
 
+#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
 <en:apple
-nl:Royal Gala appel
-fr:pommes Royal Gala
-
-<nl:Royal Gala appel
-nl:Tenroy
+en:Royal Gala apple
+fr:pomme Royal Gala, pommes Royal Gala
+nl:Royal Gala appel, Tenroy, Tenroy appel
 
 <en:apple
 <en:vegetable fiber
@@ -34255,6 +34266,7 @@ it:datteri bio
 # 7in3@2019-06-04
 
 <en:date
+en:deglet nour dates
 fr:dattes deglet nour
 # ingredient/fr:dattes-deglet-nour has 16 products in french @2019-05-23
 
@@ -36119,6 +36131,7 @@ pt:sumo de uva tinta à base de concentrado
 <en:raspberry juice
 fi:rypäle- ja vadelmatäysmehu tiivisteestä
 
+
 # description:en:Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
 
 <en:grape
@@ -36181,6 +36194,7 @@ ta:நொதியேறாப் பழச்சாறு
 wikipedia:en:https://en.wikipedia.org/wiki/Must
 wikidata:en:Q278818
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
+# 273 products in 4 languages @2018-10-02
 
 <en:must
 en:concentrated grape must
@@ -43691,7 +43705,6 @@ wikidata:en:Q3337246
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-
 # description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
 
 en:legume
@@ -43916,7 +43929,6 @@ fr:haricots plats coupés
 en:green peas
 vegan:en:yes
 vegetarian:en:yes
-
 
 <en:beans
 en:white beans
@@ -45382,7 +45394,7 @@ ar:بندق
 be:лясны арэх
 bg:лешници
 bn:হ্যাজেল বাদাম
-ca:avellana
+ca:avellana, avellanes
 cs:lískový ořech, lískové ořechy, lískové oříšky
 da:Hasselnød, hasselnødder
 de:Haselnuss, Haselnüsse, Haselnusse, Haselnusskerne
@@ -45443,6 +45455,7 @@ fr:noisettes avec peau
 
 <en:hazelnut
 en:toasted hazelnut
+ca:avellanes torrades
 de:geröstete Haselnüsse, Haselnüsse geröstet
 es:avellanas tostadas
 fi:paahdettu hasselpähkinä
@@ -45569,7 +45582,7 @@ en:almond, almonds
 am:አልመንድ
 ar:لوز
 bg:бадеми
-ca:ametlla
+ca:ametlla, ametlles
 cs:mandle
 da:mandel, mandler
 de:Mandel, Mandeln, Mandelkerne
@@ -45720,6 +45733,7 @@ it:mandorle spezzate
 <en:almond
 en:dry roasted almonds
 fr:amandes grillées
+ca:ametlles torrades
 de:geröstete Mandeln, Mandeln geröstet
 it:mandorle tostate
 nl:geroosterde amandelen
@@ -45975,7 +45989,6 @@ fr:anis bio
 it:anice bio
 nl:biologisch anijszaad, anijs bio
 # ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
-
 
 <en:mustard seed
 en:yellow mustard seed
@@ -63377,6 +63390,7 @@ fr:Blanc d’œuf de poules
 
 <en:egg white
 en:powdered egg white, dehydrated egg white
+ca:clara d'ou en pols
 de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
 el:ασπράδι αυγού σε σκόν
 es:clara de huevo en polvo, clara de huevos en polvo
@@ -63462,7 +63476,7 @@ be:Жаўток
 bg:жълтък
 bn:কুসুম
 bs:Žumance
-ca:rovell d'ou
+ca:rovell d'ou, gema d'ou
 cs:žloutek
 cy:melynwy
 da:æggeblomme
@@ -63568,6 +63582,7 @@ it:turolo d'uova fresche
 
 <en:egg yolk
 en:egg yolk powder, eggs yolk powder, powdered egg yolk
+ca:gema d'ou en pols
 de:Eigelbpulver
 es:yema de huevo en polvo
 fi:munankeltuaisjauhe
