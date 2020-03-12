@@ -2752,7 +2752,7 @@ sub mmoll_to_unit {
 	},
 	'vitamin-b9' => {
 		fr => "Vitamine B9 (Acide folique)",
-		fr_synonyms => ["Vitamine B9", "Acide folique"],
+		fr_synonyms => ["Vitamine B9", "Acide folique", "Acide folique, équivalents alimentaires d'acide folique"],
 		en => "Vitamin B9 (Folic acid)",
 		en_synonyms => ["Vitamin B9", "Folic acid"],
 		es => "Vitamina B9 (Ácido fólico)",
