@@ -4665,9 +4665,6 @@ sub compute_serving_size_data($) {
 				}
 				$nid =~ s/_prepared$//;
 
-				# Record that we have a nutrient value for this product type
-				$nutrition_data{$product_type} = 1;
-
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
@@ -4680,6 +4677,9 @@ sub compute_serving_size_data($) {
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} * 100.0 / $product_ref->{serving_quantity}) + 0.0;
+
+					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+					$nutrition_data{$product_type} = 1;
 				}
 
 			}
@@ -4694,9 +4694,6 @@ sub compute_serving_size_data($) {
 				}
 				$nid =~ s/_prepared$//;
 
-				# Record that we have a nutrient value for this product type
-				$nutrition_data{$product_type} = 1;
-
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
@@ -4709,6 +4706,9 @@ sub compute_serving_size_data($) {
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity}) + 0.0;
+
+					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+					$nutrition_data{$product_type} = 1;
 				}
 
 			}
