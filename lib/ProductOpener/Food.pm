@@ -87,6 +87,8 @@ BEGIN
 
 					&extract_nutrition_from_image
 
+					&default_unit_for_nid
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -167,6 +169,8 @@ sub default_unit_for_nid($) {
 
 	my $nid = shift;
 
+	$nid =~ s/_prepared//;
+
 	if ($nid eq "energy-kj") {
 		return "kJ";
 	}
@@ -200,9 +204,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 
 	# empty unit?
 	if ((not defined $unit) or ($unit eq "")) {
-		my $nid_without_prepared = $nid;
-		$nid_without_prepared =~ s/_prepared//;
-		$unit = default_unit_for_nid($nid_without_prepared);
+		$unit = default_unit_for_nid($nid);
 	}
 
 	$value =~ s/(\d) (\d)/$1$2/g;
@@ -4630,7 +4632,10 @@ sub compute_serving_size_data($) {
 		# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
 
 		# If we have a value for energy-kj, use it for energy
-		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type}) {
+		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_value"}) {
+			if (not defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}) {
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"} = "kJ";
+			}
 			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
 				$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
 				$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
@@ -4638,6 +4643,9 @@ sub compute_serving_size_data($) {
 		}
 		# Otherwise use the energy-kcal value for energy
 		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type }) {
+			if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
+			}
 			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
