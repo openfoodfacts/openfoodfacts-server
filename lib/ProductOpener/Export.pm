@@ -245,15 +245,15 @@ sub export_csv($) {
 						$nid =~ s/^(-|!)+//g;
 						$nid =~ s/-$//g;
 
-						# Order of the fields: sugars_value, sugars_prepared_value, sugars_unit
+						# Order of the fields: sugars_value, sugars_unit, sugars_prepared_value, sugars_prepared_unit
 
 						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and ($product_ref->{nutriments}{$nid . "_value"} ne "")) {
 							$populated_fields{$nid . "_value"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_1";
-							$populated_fields{$nid . "_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_3";
+							$populated_fields{$nid . "_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_2";
 						}
 						if ((defined $product_ref->{nutriments}{$nid . "_prepared_value"}) and ($product_ref->{nutriments}{$nid . "_prepared_value"} ne "")) {
-							$populated_fields{$nid . "_prepared_value"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_2";
-							$populated_fields{$nid . "_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_3";
+							$populated_fields{$nid . "_prepared_value"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_3";
+							$populated_fields{$nid . "_prepared_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_4";
 						}
 					}
 				}
@@ -366,7 +366,7 @@ sub export_csv($) {
 
 			my $value;
 
-			foreach my $suffix ("_prepared_value", "_value", "_unit") {
+			foreach my $suffix ("_value", "_unit", "_prepared_value", "_prepared_unit") {
 				if ($field =~ /$suffix$/) {
 					my $nid = $`;
 					if (defined $product_ref->{nutriments}) {
