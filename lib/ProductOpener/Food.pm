@@ -4615,6 +4615,10 @@ sub compute_serving_size_data($) {
 		(defined $product_ref->{serving_size}) and ($product_ref->{serving_size} eq "") and delete $product_ref->{serving_size};
 	}
 
+	# Record if we have nutrient values for as sold or prepared types,
+	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data
+	my %nutrition_data = ();
+
 	foreach my $product_type ("", "_prepared") {
 
 		# Energy
@@ -4661,6 +4665,8 @@ sub compute_serving_size_data($) {
 				}
 				$nid =~ s/_prepared$//;
 
+				# Record that we have a nutrient value for this product type
+				$nutrition_data{$product_type} = 1;
 
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
@@ -4687,6 +4693,9 @@ sub compute_serving_size_data($) {
 					next;
 				}
 				$nid =~ s/_prepared$//;
+
+				# Record that we have a nutrient value for this product type
+				$nutrition_data{$product_type} = 1;
 
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
@@ -4732,6 +4741,13 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_product"}
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
+		}
+	}
+
+	# If we have nutrient data for as sold or prepared, make sure the checkbox are ticked
+	foreach my $product_type (sort keys %nutrition_data) {
+		if ((not defined $product_ref->{"nutrition_data" . $product_type}) or ($product_ref->{"nutrition_data" . $product_type} ne "on")) {
+			$product_ref->{"nutrition_data" . $product_type} = 'on';
 		}
 	}
 }
