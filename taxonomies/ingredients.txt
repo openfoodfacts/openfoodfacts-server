@@ -25309,7 +25309,12 @@ fr:sucre blond de canne biologique
 <en:white cane sugar
 fr:sucre-de-canne-blond-equitable
 
+<en:sugar
+en:unrefined sugar, raw sugar
+fr:sucre non raffiné, sucre brut, sucre complet
+
 <en:cane sugar
+<en:unrefined sugar
 en:unrefined cane sugar, raw cane sugar
 cs:nerafinovaný třtinový cukr
 da:rå rørsukker
@@ -25344,9 +25349,18 @@ hu:répacukor
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de betterave
 carbon_footprint_fr_foodges_value:fr:0.7
 
+<en:sugar
+en:palm sugar
+fr:sucre de palme
+
+<en:unrefined sugar
+<en:palm sugar
+en:unrefined palm sugar
+fr:sucre non raffiné de palme, sucre de palme non raffiné, sucre de palme brut, sucre brut de palme
+
 # description:en:COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm.It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
 
-<en:sugar
+<en:palm sugar
 en:coconut sugar, coconut palm sugar
 ca:Sucre de coco
 de:Kokosnusszucker
@@ -60506,6 +60520,7 @@ vegetarian:en:yes
 
 <en:honey
 en:raw honey
+fr:miel non raffiné, miel brut
 
 <en:honey
 en:pure honey
@@ -68172,4 +68187,8 @@ fr:sirop de pêche
 vegan:en:yes
 vegetarian:en:yes
 
+en:kombucha
+fr:kombucha
 
+<en:kombucha
+en:raw kombucha
