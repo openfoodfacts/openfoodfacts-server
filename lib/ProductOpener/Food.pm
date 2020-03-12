@@ -200,7 +200,9 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 
 	# empty unit?
 	if ((not defined $unit) or ($unit eq "")) {
-		$unit = default_unit_for_nid($nid);
+		my $nid_without_prepared = $nid;
+		$nid_without_prepared =~ s/_prepared//;
+		$unit = default_unit_for_nid($nid_without_prepared);
 	}
 
 	$value =~ s/(\d) (\d)/$1$2/g;
