@@ -890,6 +890,7 @@ sub import_csv_file($) {
 				$nid . "_value" => $product_ref->{nutriments}{$nid . "_value"},
 				$nidp . "_value" => $product_ref->{nutriments}{$nidp . "_value"},
 				$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
+				$nidp . "_unit" => $product_ref->{nutriments}{$nidp . "_unit"},
 			);
 
 			# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
@@ -903,6 +904,13 @@ sub import_csv_file($) {
 				foreach my $per ("", "_100g", "_serving") {
 
 					next if (defined $values{$type});
+
+					# Skip serving values if we have 100g values
+					if ((defined $imported_product_ref->{"nutrition_data" . $type . "_per"})
+						and ($imported_product_ref->{"nutrition_data" . $type . "_per"} eq "100g")
+						and ($per eq "_serving")) {
+						next;
+					}
 
 					if ((defined $imported_product_ref->{$nid . $type . $per . "_value"})
 						and ($imported_product_ref->{$nid . $type . $per . "_value"} ne "")) {
