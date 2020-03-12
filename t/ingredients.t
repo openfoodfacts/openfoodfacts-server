@@ -23,8 +23,6 @@ my $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
-diag explain $product_ref;
-
 delete_ingredients_percent_values($product_ref->{ingredients});
 delete $product_ref->{ingredients_percent_analysis};
 
@@ -446,7 +444,7 @@ $expected_product_ref =
            'ingredients' => [],
            'percent' => '0.6',
            'processing' => 'en:concentrated',
-           'text' => 'pulpe d\'orange '
+           'text' => 'pulpe d\'orange'
          },
          {
            'id' => 'en:gelling-agent',
@@ -669,7 +667,7 @@ $expected_product_ref =
        'id' => 'en:orange-pulp',
        'percent' => '0.6',
        'processing' => 'en:concentrated',
-       'text' => 'pulpe d\'orange ',
+       'text' => 'pulpe d\'orange',
        'vegan' => 'yes',
        'vegetarian' => 'yes'
      },
@@ -1525,7 +1523,7 @@ is_deeply ($product_ref->{ingredients},
 
 $product_ref = {
         lc => "fr",
-        ingredients_text => "tomates pelées cuites, rondelle de citron, dés de courgette",
+        ingredients_text => "tomates pelées cuites, rondelle de citron, dés de courgette, lait cru, aubergines crues, jambon cru en tranches",
 };
 
 extract_ingredients_from_text($product_ref);
@@ -1536,32 +1534,55 @@ delete $product_ref->{ingredients_percent_analysis};
 is_deeply ($product_ref->{ingredients},
 
 [
-	     {
-	            'id' => 'en:tomato',
-	            'processing' => 'en:cooked, en:peeled',
-	            'rank' => 1,
-	            'text' => 'tomates  ',
-	            'vegan' => 'yes',
-	            'vegetarian' => 'yes'
-	          },
-	          {
-	            'id' => 'en:lemon',
-	            'processing' => 'en:sliced',
-	            'rank' => 2,
-	            'text' => ' citron',
-	            'vegan' => 'yes',
-	            'vegetarian' => 'yes'
-	          },
-	          {
-	            'id' => 'en:courgette',
-	            'processing' => 'en:diced',
-	            'rank' => 3,
-	            'text' => ' courgette',
-	            'vegan' => 'yes',
-	            'vegetarian' => 'yes'
-	          }
+     {
+       'id' => 'en:peeled-tomatoes',
+       'processing' => 'en:cooked',
+       'rank' => 1,
+       'text' => "tomates pel\x{e9}es",
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:lemon',
+       'processing' => 'en:sliced',
+       'rank' => 2,
+       'text' => 'citron',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:courgette',
+       'processing' => 'en:diced',
+       'rank' => 3,
+       'text' => 'courgette',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:raw-milk',
+       'rank' => 4,
+       'text' => 'lait cru',
+       'vegan' => 'no',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:aubergine',
+       'processing' => 'en:raw',
+       'rank' => 5,
+       'text' => 'aubergines',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:raw-ham',
+       'processing' => 'en:sliced',
+       'rank' => 6,
+       'text' => 'jambon cru',
+       'vegan' => 'no',
+       'vegetarian' => 'no'
+     }
+   ],
 
-        ],
 
 ) or diag explain $product_ref;
 
@@ -1575,9 +1596,6 @@ extract_ingredients_from_text($product_ref);
 
 delete_ingredients_percent_values($product_ref->{ingredients});
 delete $product_ref->{ingredients_percent_analysis};
-
-diag explain $product_ref;
-
 
 is($product_ref->{ingredients_n}, 19);
 
