@@ -3837,7 +3837,14 @@ foreach my $nid (keys %Nutriments) {
 }
 
 my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
-my $chinese_units = qr/(?:\N{U+6BEB}?\N{U+514B})|(?:\N{U+516C}?\N{U+65A4})|(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|\N{U+5428}/i;
+# Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
+my $chinese_units = qr/
+	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram) 
+	                                        #                      (公克 gōngkè is for "metric gram")
+	(?:\N{U+516C}?\N{U+65A4})|              # 公斤 or 斤 or         (公斤 gōngjīn is a "metric kg")
+	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|  # 毫升 or 公升 or 升     (升 is liter)
+	\N{U+5428}                              # 吨                    (ton?)
+	/ix;
 my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
 my $units = qr/$international_units|$chinese_units|$russian_units/i;
 
