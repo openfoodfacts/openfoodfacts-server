@@ -617,7 +617,7 @@ sub parse_ingredients_text($) {
 
 	my $product_ref = shift;
 
-	my $debug_ingredients = 1;
+	my $debug_ingredients = 0;
 
 	return if not defined $product_ref->{ingredients_text};
 
