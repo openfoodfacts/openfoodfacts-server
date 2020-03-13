@@ -966,21 +966,41 @@ sub parse_ingredients_text($) {
 					my $matches = 0;
 					my $new_ingredient = $ingredient;
 					my $new_processing = '';
-					foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
-						my $regexp = $ingredient_processing_regexp_ref->[1];
-						if ($new_ingredient =~ /\b($regexp)\b/i) {
-							$new_ingredient = $` . $';
-							#print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
-							#print STDERR "new ingredient: $new_ingredient\n";
-							$matches++;
-							$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
+					my $matching = 1;	# remove prefixes / suffixes one by one
+					while ($matching) {
+						$matching = 0;
+						foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
+							my $regexp = $ingredient_processing_regexp_ref->[1];
+							if ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i) {
+								$new_ingredient = $` . $';
+								#print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
+								#print STDERR "new ingredient: $new_ingredient\n";
+								$matching = 1;
+								$matches++;
+								$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
+
+								# remove starting or ending " and "
+								# viande traitée en salaison et cuite -> viande et
+								$new_ingredient =~ s/($and)+$//i;
+								$new_ingredient =~ s/^($and)+//i;
+								$new_ingredient =~ s/\s+$//;
+								$new_ingredient =~ s/^\s+//;
+
+								# Stop if we now have a known ingredient.
+								# e.g. "jambon cru en tranches" -> keep "jambon cru".
+								my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
+								#print STDERR "new_ingredient_id: $new_ingredient_id\n";
+								if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+									#print STDERR "$new_ingredient_id exists, stop matching\n";
+									$matching = 0;
+								}
+
+								last;
+							}
 						}
 					}
 					if ($matches) {
-						# remove starting or ending " and "
-						# viande traitée en salaison et cuite -> viande et
-						$new_ingredient =~ s/($and)+$//i;
-						$new_ingredient =~ s/^($and)+//i;
+
 						my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
 						if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
 							#print STDERR "new_ingredient_id $new_ingredient_id exists\n";

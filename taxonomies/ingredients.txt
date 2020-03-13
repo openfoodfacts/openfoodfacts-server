@@ -8134,6 +8134,11 @@ ru:коровье молоко
 zh:牛奶
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
 
+<en:raw milk
+<en:cow's milk
+en:raw cow's milk
+fr:lait de vache cru
+
 # description:en:RAW COW MILK - milk produced by female cows before any treatment
 
 <en:cow's milk
@@ -8230,6 +8235,11 @@ it:latte di capra
 nl:geitenmelk
 ro:lapte de capră, lapte de capra
 wikidata:en:Q1418287
+
+<en:goat's milk
+<en:raw milk
+en:raw goat's milk
+fr:lait de chèvre cru
 
 <en:goat's milk
 en:whole goat's milk
@@ -9331,6 +9341,10 @@ fr:crème fraîche de Normandie
 ja:ノルマンディー産生クリーム
 nl:room uit Normandië
 # ingredient/Cream-from-Normandy has 50 products in 5 languages @2019-07-12
+
+<en:cream
+en:raw cream
+fr:crème crue, crème de lait cru
 
 <en:cream
 en:sterilized cream
@@ -14702,6 +14716,14 @@ fi:raakakinkku
 fr:jambon cru
 
 <en:raw ham
+en:Serrano raw ham
+fr:jambon cru de Serrano
+
+<en:raw ham
+en:Italian raw ham
+fr:jambon cru italien
+
+<en:raw ham
 fr:jambon cru fumé
 
 <en:ham
@@ -16462,7 +16484,7 @@ nl:Biologische kokosolie
 # ingredient/nl:biologische-kokosolie has 1 product @2019-05-24
 
 <en:coconut oil
-en:virgin coconut oil
+en:virgin coconut oil, raw coconut oil
 fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
 # ingredient/fr:huile-de-coco-vierge has 10 products @2019-06-02
 
@@ -20576,6 +20598,11 @@ en:crustaceans flavouring
 de:Krustentieraroma, Schalentieraroma
 fi:äyriäisaromi
 fr:arôme de crustacés
+
+<en:natural flavouring
+<en:crustaceans flavouring
+en:natural crustaceans flavouring
+fr:arôme naturel de crustacés
 
 <en:flavouring
 fr:arôme de gentiane
@@ -25309,7 +25336,12 @@ fr:sucre blond de canne biologique
 <en:white cane sugar
 fr:sucre-de-canne-blond-equitable
 
+<en:sugar
+en:unrefined sugar, raw sugar
+fr:sucre non raffiné, sucre brut, sucre complet
+
 <en:cane sugar
+<en:unrefined sugar
 en:unrefined cane sugar, raw cane sugar
 cs:nerafinovaný třtinový cukr
 da:rå rørsukker
@@ -25344,9 +25376,18 @@ hu:répacukor
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de betterave
 carbon_footprint_fr_foodges_value:fr:0.7
 
+<en:sugar
+en:palm sugar
+fr:sucre de palme
+
+<en:unrefined sugar
+<en:palm sugar
+en:unrefined palm sugar
+fr:sucre non raffiné de palme, sucre de palme non raffiné, sucre de palme brut, sucre brut de palme
+
 # description:en:COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm.It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
 
-<en:sugar
+<en:palm sugar
 en:coconut sugar, coconut palm sugar
 ca:Sucre de coco
 de:Kokosnusszucker
@@ -39598,6 +39639,10 @@ zh:德国酸菜
 # zh-tw:德國酸菜
 wikidata:en:Q154166
 # en:sauerkraut has 166 products in 3 languages @2018-10-19
+
+<en:sauerkraut
+en:raw sauerkraut
+fr:choucroute crue
 
 <en:vegetable juice
 <en:sauerkraut
@@ -56348,6 +56393,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Salmon_as_food
 carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
 carbon_footprint_fr_foodges_value:fr:6.6
 
+# "raw salmon" is often used for sushis
+# it could be useful to keep a "raw salmon" entry to find products
+# where salmon is raw (and not intended to be cooked)
+<en:salmon
+en:raw salmon
+fr:saumon cru
+
 <en:salmon
 fr:saumon cuit
 de:Lachs gekocht
@@ -60506,6 +60558,7 @@ vegetarian:en:yes
 
 <en:honey
 en:raw honey
+fr:miel non raffiné, miel brut
 
 <en:honey
 en:pure honey
@@ -68172,4 +68225,9 @@ fr:sirop de pêche
 vegan:en:yes
 vegetarian:en:yes
 
+en:kombucha
+fr:kombucha
+
+<en:kombucha
+en:raw kombucha
 
