@@ -617,6 +617,8 @@ sub parse_ingredients_text($) {
 
 	my $product_ref = shift;
 
+	my $debug_ingredients = 1;
+
 	return if not defined $product_ref->{ingredients_text};
 
 	my $text = $product_ref->{ingredients_text};
@@ -694,7 +696,7 @@ sub parse_ingredients_text($) {
 		my $vegetarian = undef;
 		my $processing = '';
 
-		#print STDERR "s: $s\n";
+		$debug_ingredients and print STDERR "s: $s\n";
 
 		# find the first separator or ( or [ or :
 		if ($s =~ $separators) {
@@ -703,7 +705,7 @@ sub parse_ingredients_text($) {
 			my $sep = $1;
 			$after = $';
 
-			#print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
+			$debug_ingredients and print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
 
 			if ($sep =~ /(:|\[|\{|\()/i) {
 
@@ -730,20 +732,20 @@ sub parse_ingredients_text($) {
 
 				$ending = '(' . $ending . ')';
 
-				#print STDERR "special separator: $sep - ending: $ending - after: $after\n";
+				$debug_ingredients and print STDERR "special separator: $sep - ending: $ending - after: $after\n";
 
 				# another separator before the ending separator ? we probably have several sub-ingredients
 				if ($after =~ /^($match)$ending/i) {
 					$between = $1;
 					$after = $';
 
-					#print STDERR "sub-ingredients - between: $between - after: $after\n";
+					$debug_ingredients and print STDERR "sub-ingredients - between: $between - after: $after\n";
 
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 
 					if (($between =~ $separators) and ($` =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i)) {
-						#print STDERR "separator found after percent: $1\%\n";
+						$debug_ingredients and print STDERR "separator found after percent: $1\%\n";
 						$percent = $1;
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
@@ -756,16 +758,16 @@ sub parse_ingredients_text($) {
 						$between =~ s/^(.*?$separators)/origin:$1/;
 					}
 
-					#print STDERR "between: $between\n";
+					$debug_ingredients and print STDERR "between: $between\n";
 
 					# : is in $separators but we want to keep "origine : France"
 					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i)) {
 						$between_level = $level + 1;
-						#print STDERR "found a separator\n";
+						print STDERR "found a separator - between_level: $between_level\n";
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
-						print STDERR "no separator found\n";
+						$debug_ingredients and print STDERR "no separator found\n";
 						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i) {
 							#print STDERR "no separator found - percent found:  $1\%\n";
 							$percent = $1;
@@ -838,12 +840,15 @@ sub parse_ingredients_text($) {
 		}
 		else {
 			# no separator found: only one ingredient
-			#print STDERR "no separator found: $s\n";
+			$debug_ingredients and print STDERR "no separator found, only one ingredient: $s\n";
 			$before = $s;
 		}
 
 		# remove ending parenthesis
 		$before =~ s/(\),\],\])*//;
+
+		$debug_ingredients and print STDERR "before: $before\n";
+		$debug_ingredients and print STDERR "between: $between\n";
 
 		my @ingredients = ();
 
@@ -866,7 +871,7 @@ sub parse_ingredients_text($) {
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
 
-			# print STDERR "before: $before - canon_ingredient: $canon_ingredient\n";
+			$debug_ingredients and print STDERR "before: $before - canon_ingredient: $canon_ingredient\n";
 
 			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
@@ -886,7 +891,20 @@ sub parse_ingredients_text($) {
 		}
 
 		if (scalar @ingredients == 0) {
-			push @ingredients, $before;
+
+			# if we have nothing before, then we can be in the case where between applies to the last ingredient
+			# e.g. if we have "Vegetables (97%) (Potatoes, Tomatoes)"
+			if (($before =~ /^\s*$/) and ($between !~ /^\s*$/) and ((scalar @$ingredients_ref) > 0)) {
+				my $last_ingredient = (scalar @$ingredients_ref) - 1;
+				$debug_ingredients and print STDERR "between: $between applies to last ingredient: " . $ingredients_ref->[$last_ingredient]{text} . " \n";
+				(defined $ingredients_ref->[$last_ingredient]{ingredients}) or $ingredients_ref->[$last_ingredient]{ingredients} = [];
+				$analyze_ingredients_self->($analyze_ingredients_self, $ingredients_ref->[$last_ingredient]{ingredients}, $between_level, $between);
+			}
+
+			if ($before !~ /^\s*$/) {
+
+				push @ingredients, $before;
+			}
 		}
 
 		my $i = 0;	# Counter for ingredients, used to know if it is the last ingredient
@@ -895,18 +913,18 @@ sub parse_ingredients_text($) {
 
 			chomp($ingredient);
 
-			#print STDERR "ingredient: $ingredient\n";
+			$debug_ingredients and print STDERR "ingredient: $ingredient\n";
 
 			# Strawberry 10.3%
 			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$/i) {
-				#print STDERR "percent found: $before = $` + $1\%\n";
+				$debug_ingredients and print STDERR "percent found: $before = $` + $1\%\n";
 				$percent = $1;
 				$ingredient = $`;
 			}
 
 			# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
 			if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
-				# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
+				$debug_ingredients and  print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
 				$percent = $1;
 				$ingredient = $';
 			}
@@ -935,7 +953,7 @@ sub parse_ingredients_text($) {
 				# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 				foreach my $labelid (reverse @labels) {
 					my $regexp = $labels_regexps{$product_lc}{$labelid};
-					#print STDERR "labelid: $labelid - regexp: $regexp - ingredient: $ingredient\n";
+					$debug_ingredients and print STDERR "labelid: $labelid - regexp: $regexp - ingredient: $ingredient\n";
 					if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
 						if (defined $labels) {
 							$labels .= ", " . $labelid;
