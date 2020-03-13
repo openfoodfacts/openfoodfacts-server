@@ -391,11 +391,12 @@ my $expected_product_ref =
      'energy-kcal_prepared' => 58,
      'energy-kcal_prepared_100g' => 232,
      'energy-kcal_prepared_serving' => 58,
+     'energy-kcal_prepared_unit' => 'kcal',
      'energy-kcal_prepared_value' => 58,
-     'energy_prepared' => 58,
-     'energy_prepared_100g' => 232,
-     'energy_prepared_serving' => 58,
-     'energy_prepared_unit' => 'g',
+     'energy_prepared' => 243,
+     'energy_prepared_100g' => 972,
+     'energy_prepared_serving' => 243,
+     'energy_prepared_unit' => 'kcal',
      'energy_prepared_value' => 58,
      'salt_prepared' => 10,
      'salt_prepared_100g' => 40,
@@ -410,7 +411,12 @@ my $expected_product_ref =
    'serving_quantity' => 25,
    'serving_size' => '25 g'
  }
+
 ;
+
+is(default_unit_for_nid("sugars"), "g");
+is(default_unit_for_nid("energy-kj"), "kJ");
+is(default_unit_for_nid("energy-kcal_prepared"), "kcal");
 
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
