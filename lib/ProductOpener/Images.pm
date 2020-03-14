@@ -811,7 +811,7 @@ sub process_image_move($$$$) {
 }
 
 
-sub process_image_crop($$$$$$$$$$) {
+sub process_image_crop($$$$$$$$$$$) {
 
 	my $product_id = shift;
 	my $id = shift;
@@ -823,6 +823,16 @@ sub process_image_crop($$$$$$$$$$) {
 	my $y1 = shift;
 	my $x2 = shift;
 	my $y2 = shift;
+	my $coordinates_image_size = shift;
+
+	# The crop coordinates used to be in reference to a smaller image (400x400)
+	# -> $coordinates_image_size = $crop_size
+	# they are now in reference to the full image
+	# -> $coordinates_image_size = "full"
+
+	if (not defined $coordinates_image_size) {
+		$coordinates_image_size = $crop_size;
+	}
 
 	my $path = product_path_from_id($product_id);
 
@@ -870,8 +880,8 @@ sub process_image_crop($$$$$$$$$$) {
 	# Crop the image
 	my $ow = $source->Get('width');
 	my $oh = $source->Get('height');
-	my $w = $new_product_ref->{images}{$imgid}{sizes}{$crop_size}{w};
-	my $h = $new_product_ref->{images}{$imgid}{sizes}{$crop_size}{h};
+	my $w = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{w};
+	my $h = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{h};
 
 	if (($angle % 180) == 90) {
 		my $z = $w;
