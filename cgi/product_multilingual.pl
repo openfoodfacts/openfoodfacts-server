@@ -1341,9 +1341,10 @@ HTML
 					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
 					not defined $value and $value = "";
 					my $id = "ingredients_text_" . ${display_lc};
+					my $ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
 
 					$html_content_tab .= <<HTML
-<div id="ingredients_image_full"></div>
+<div id="$ingredients_image_full_id"></div>
 <label for="$id">$Lang{ingredients_text}{$lang}</label>
 <textarea id="$id" name="$id" lang="${display_lc}">$value</textarea>
 <p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>

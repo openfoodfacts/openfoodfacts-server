@@ -427,7 +427,7 @@ function update_display(imagefield, first_display) {
 	if (stringStartsWith(imagefield, 'ingredients')) {
 
     var full_url = display_url.replace(/\.400\./, ".full.");
-    $('#ingredients_image_full').html('<img src="' + img_path + full_url + '" />');
+    $('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" />');
 	}
 
 	$('div[id="display_' + imagefield +'"]').html(html);
