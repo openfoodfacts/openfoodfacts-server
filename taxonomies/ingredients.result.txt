@@ -2163,7 +2163,7 @@ en:pinto beans
 es:frijol pinto
 
 < en:Beans
-en:red beans
+en:red beans, red kidney beans
 de:Rote Bohnen
 es:Alubias rojas
 fr:haricot rouge, haricots rouges
@@ -2343,7 +2343,7 @@ it:pepe nero
 lt:juodieji piperai
 nl:zwarte peper
 nn:svart pepper
-pl:czamy pieprz
+pl:czamy pieprz, pieprz czarny
 pt:pimenta preta
 ro:piper negru
 sl:cmi poper
@@ -3008,20 +3008,15 @@ fr:myrtilles sauvages
 de:Wilde Heidelbeeren
 fi:villimustikka
 
-< en:Blueberry
-< en:Purée
-en:blueberry puree, blueberries puree
-de:Blaubeerenpuree
-fi:mustikkapyree
-fr:purée de myrtilles
-nl:bosbessenpuree, bosbessenmoes
-
 < en:Blueberry juice
 en:blueberry juice from concentrate
 de:Heidelbeersaft aus Heidelbeerkonzentrat, Heidelbeer-Saftkonzentrat
 es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä
 fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
+
+< en:Blueberry puree
+de:Heidelbeerpüree aus Konzentrat
 
 < en:Boiled egg
 fr:quartiers d'œufs durs
@@ -4069,6 +4064,12 @@ nl:Paksoi
 ru:бок-чой
 uk:Бок-чой
 wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
+
+< en:Cabbage
+en:rapini, broccoli rabe
+es:grelos, rapini
+fr:rapini, brocoli-rave
+it:friarielli, broccoletti, broccoli di rapa, cime di rapa, rapini, pulezze
 
 < en:Cabbage
 en:red cabbage
@@ -8430,7 +8431,7 @@ he:אנזים הגבנה
 hr:Sirište
 hu:Oltóenzim, oltóanyag
 id:Rennet
-it:gaglio, caglio
+it:caglio
 ja:レンネット
 ko:레닛
 la:Coagulum
@@ -9801,8 +9802,9 @@ fr:graine de coriandre, graines de coriandre
 nl:korianderzaad
 
 < en:Coriander seeds
-fr:coriandre en poudre, coriandre moulue
+en:coriander powder
 fi:korianterijauhe
+fr:coriandre en poudre, coriandre moulue
 nl:korianderpoeder
 sv:korianderpulver
 
@@ -9874,7 +9876,7 @@ fr:maïs torréfié concassé
 
 < en:Corn
 < en:Flour
-en:corn flour, maize flour
+en:corn flour, maize flour, cornflour
 da:majsmel
 de:Maismehl
 el:αλεύρι καλαμποκιού
@@ -10011,7 +10013,7 @@ fr:courgettes en rondelles
 < en:Cow's milk
 en:pasteurised cow's milk
 de:pasteurisierte Kuhmilch
-es:Leche de vaca pasteurizada
+es:leche de vaca pasteurizada, leche pasteurizada de vaca
 fi:pastöroitu lehmänmaito
 fr:lait de vache pasteurisé, lait pasteurisé de vache
 hu:pasztőrözött tehéntej
@@ -15069,6 +15071,10 @@ wikidata:en: Q134862
 wikipedia:en: https://en.wikipedia.org/wiki/Champagne
 
 < en:E1510
+en:cider
+fr:cidre
+
+< en:E1510
 en:cognac
 de:Cognac
 es:coñac
@@ -15464,9 +15470,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wine
 
 < en:E1510
 fr:brandy
-
-< en:E1510
-fr:cidre
 
 en:E1517, Glyceryl diacetate
 bg:E1517, Глицерил диацетат
@@ -36694,7 +36697,7 @@ it:aroma, aromi
 lt:kvapioji medžiaga
 lv:aromatizētājs
 nl:aroma, aroma's
-pl:aromat
+pl:aromat, aromaty
 pt:aromatizante
 ro:aromă, aroma, arome
 ru:ароматизатор
@@ -38699,6 +38702,17 @@ te:గోజీ
 vi:Củ khởi
 wikidata:en: Q2617260
 wikipedia:en: https://en.wikipedia.org/wiki/Goji
+
+< en:Fruit
+en:gooseberry, gooseberries
+da:Stikkelsbær
+de:Stachelbeere, Stachelbeeren
+ee:karusmari
+fi:karviainen
+fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
+nl:kruisbes
+no:stikkelsbær
+sv:Krusbär
 
 < en:Fruit
 en:grape
@@ -41155,7 +41169,7 @@ be:Лаўровы ліст
 bg:Дафинов лист
 ca:Llorer
 cs:Bobkový list
-de:Lorbeerblatt
+de:Lorbeer, Lorbeerblatt
 es:Hoja de laurel
 fi:Laakerinlehti
 fr:laurier, feuilles de laurier
@@ -41308,7 +41322,7 @@ oc:Coriandre
 or:ଧଣିଆ
 os:Чиндзи
 pa:ਧਨੀਆ
-pl:Kolender
+pl:kolender, kolendra
 pt:Coentro
 qu:Kulantru
 ro:Coriandru
@@ -42030,7 +42044,7 @@ nb:Tesalvie
 nl:salie
 nn:tesalvie
 os:Мыдгæрдæг
-pl:Szałwia lekarska
+pl:szałwia, szałwia lekarska
 ps:مريم گلي
 qu:Q'uwa
 ro:Salvie
@@ -42139,6 +42153,7 @@ nl:thijm
 nn:timian
 or:ଦଅଣା
 pa:ਅਜਵਾਇਣ
+pl:tymianek
 pt:tomilho
 ru:Тимьян
 sv:timjan
@@ -42196,6 +42211,7 @@ fr:sariette, sarriette
 de:Bohnenkraut
 it:santoreggia
 nl:bonenkruid
+pl:cząber
 
 < en:Herbs and spices
 fr:plantes aromatiques et épices dont herbes aromatiques
@@ -52570,6 +52586,7 @@ fr:graisse de palme, graisse végétale de palme, matière grasse de palme, mati
 hu:pálmazsír
 it:grasso di palma, grasso vegetale di palma
 nl:palmvet
+pl:tłuszcz palmowy
 pt:gordura de palma, gordura vegetal de palma
 se:palmina mast
 sv:
@@ -55970,6 +55987,14 @@ hu:almapüré
 it:purea di mele
 nl:appelmoes
 
+< en:Blueberry
+< en:Purée
+en:blueberry puree, blueberries puree
+de:Blaubeerenpuree
+fi:mustikkapyree
+fr:purée de myrtilles
+nl:bosbessenpuree, bosbessenmoes
+
 < en:Purée
 en:concentrated purée
 de:Püreekonzentrat
@@ -56533,6 +56558,7 @@ es:cuajo animal
 fi:eläinperäinen juoksute
 fr:présure animale
 hu:állati eredetű oltóenzim
+it:caglio animale
 nb:animalsk løpe
 nl:dierlijk stremsel
 nn:animalsk løpe
@@ -59038,7 +59064,7 @@ nv:Áshįįh
 oc:Sal alimentària
 or:ଲୁଣ
 pa:ਲੂਣ
-pl:Sól kuchenna
+pl:sól, sól kuchenna
 ps:مالگه
 pt:Sal de cozinha, sal de cosina, sal de taula
 ro:sare, Sare de bucătărie
@@ -60890,7 +60916,7 @@ description:sv: Komplexbildare: ämnen som bildar kemiska komplex med metalljone
 wikidata:en: Q905648
 
 < en:Sesame
-en:sesame paste
+en:sesame paste, sesame seed paste
 de:Sesampaste
 es:pasta de sésamo
 fi:seesamitahna
@@ -63896,7 +63922,7 @@ nv:Áshįįh łikan
 oc:Sucre
 or:ଚିନି
 pa:ਸ਼ੱਕਰ
-pl:Cukier spożywczy
+pl:cukier, cukier spożywczy
 ps:بوره
 pt:Açúcar
 qu:Asukar
@@ -64018,7 +64044,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sucrose#Cane
 
 < en:Sugar
 en:caramelised sugar
-de:Karamellzucker
+de:Karamellzucker, karamellisierter Zucker
 es:azúcar caramelizado
 fi:karamellisokeri
 fr:sucre brun, sucre caramel, sucre caramélisé
@@ -64567,6 +64593,7 @@ nl:zonnebloemolie gedeeltelijk gehard
 < en:Sunflower oil
 en:refined sunflower oil
 de:Raffiniertes Sonnenblumenöl
+es:aceite refinado de girasol
 fi:raffinoitu auringonkukkaöljy
 fr:huile de tournesol raffinée
 hu:finomított napraforgóolaj
@@ -65509,6 +65536,7 @@ fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomat
 hu:paradicsompüré, paradicsomszósz
 it:passata di pomodoro, concentrato di pomodoro
 nl:tomatenpurée, tomatenconcentraat
+pl:koncentrat pomidorowy
 sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
 carbon_footprint_fr_foodges_value:fr: 2.9
@@ -67479,7 +67507,7 @@ bs:Čili
 ca:bitxo
 cs:chilli paprička
 da:Chili
-de:Peperoni, chilischoten, Pfefferoni, Chili
+de:Peperoni, chilischoten, Pfefferoni, Chili, Piment
 el:Τσίλι
 eo:Kapsiketo
 es:guindilla, ají, chile
@@ -69243,6 +69271,7 @@ fi:väkiviinaetikka
 fr:vinaigre d'alcool
 hu:alkoholecet
 nl:alcoholazijn
+pl:ocet spirytusowy
 pt:vinagre de álcool
 sv:ättiksprit
 
