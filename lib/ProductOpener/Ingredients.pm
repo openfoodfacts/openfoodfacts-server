@@ -617,6 +617,8 @@ sub parse_ingredients_text($) {
 
 	my $product_ref = shift;
 
+	my $debug_ingredients = 0;
+
 	return if not defined $product_ref->{ingredients_text};
 
 	my $text = $product_ref->{ingredients_text};
@@ -694,7 +696,7 @@ sub parse_ingredients_text($) {
 		my $vegetarian = undef;
 		my $processing = '';
 
-		#print STDERR "s: $s\n";
+		$debug_ingredients and $log->debug("analyze_ingredients_function", { string => $s }) if $log->is_debug();
 
 		# find the first separator or ( or [ or :
 		if ($s =~ $separators) {
@@ -703,7 +705,9 @@ sub parse_ingredients_text($) {
 			my $sep = $1;
 			$after = $';
 
-			#print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
+			$debug_ingredients and $log->debug("found the first separator", { string => $s, before => $before, sep => $sep, after => $after }) if $log->is_debug();
+
+			# If the first separator is a column : or a start of parenthesis etc. we may have sub ingredients
 
 			if ($sep =~ /(:|\[|\{|\()/i) {
 
@@ -730,23 +734,25 @@ sub parse_ingredients_text($) {
 
 				$ending = '(' . $ending . ')';
 
-				#print STDERR "special separator: $sep - ending: $ending - after: $after\n";
+				$debug_ingredients and $log->debug("try to match until the ending separator", { sep => $sep, ending => $ending, after => $after }) if $log->is_debug();
 
-				# another separator before the ending separator ? we probably have several sub-ingredients
+				# try to match until the ending separator
 				if ($after =~ /^($match)$ending/i) {
+
+					# We have found sub-ingredients
 					$between = $1;
 					$after = $';
 
-					#print STDERR "sub-ingredients - between: $between - after: $after\n";
+					$debug_ingredients and $log->debug("found sub-ingredients", { between => $between, after => $after }) if $log->is_debug();
 
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 
 					if (($between =~ $separators) and ($` =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i)) {
-						#print STDERR "separator found after percent: $1\%\n";
 						$percent = $1;
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
+						$debug_ingredients and $log->debug("separator found after percent", { between => $between, percent => $percent }) if $log->is_debug();
 					}
 
 					# sel marin (France, Italie)
@@ -756,19 +762,21 @@ sub parse_ingredients_text($) {
 						$between =~ s/^(.*?$separators)/origin:$1/;
 					}
 
-					#print STDERR "between: $between\n";
+					$debug_ingredients and $log->debug("initial processing of percent and origins", { between => $between, after => $after, percent => $percent }) if $log->is_debug();
 
 					# : is in $separators but we want to keep "origine : France"
 					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i)) {
 						$between_level = $level + 1;
-						#print STDERR "found a separator\n";
+						$debug_ingredients and $log->debug("between contains a separator", { between => $between }) if $log->is_debug();
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
-						print STDERR "no separator found\n";
+						$debug_ingredients and $log->debug("between does not contain a separator", { between => $between }) if $log->is_debug();
+
 						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i) {
-							#print STDERR "no separator found - percent found:  $1\%\n";
+
 							$percent = $1;
+							$debug_ingredients and $log->debug("between is a percent", { between => $between, percent => $percent }) if $log->is_debug();
 							$between = '';
 						}
 						else {
@@ -794,8 +802,8 @@ sub parse_ingredients_text($) {
 								my $countryid = canonicalize_taxonomy_tag($product_lc, "countries", $between);
 								if (exists_taxonomy_tag("countries", $countryid)) {
 									$origin = $countryid;
+									$debug_ingredients and $log->debug("between is an origin", { between => $between, origin => $origin }) if $log->is_debug();
 									$between = '';
-									#print STDERR "origin found: $origin\n";
 								}
 								# put origin first because the country can be associated with the label "Made in ..."
 								else {
@@ -808,6 +816,7 @@ sub parse_ingredients_text($) {
 										else {
 											$labels = $labelid;
 										}
+										$debug_ingredients and $log->debug("between is a label", { between => $between, label => $labelid }) if $log->is_debug();
 										$between = '';
 									}
 								}
@@ -820,8 +829,8 @@ sub parse_ingredients_text($) {
 					}
 				}
 				else {
-					#print STDERR "could not find ending separator: $ending - after: $after\n"
 					# ! could not find the ending separator
+					$debug_ingredients and $log->debug("could not find an ending separator") if $log->is_debug();
 				}
 
 			}
@@ -831,19 +840,21 @@ sub parse_ingredients_text($) {
 			}
 
 			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*($separators|$)/i) {
-				#print STDERR "percent found - after: $after - percent: $percent - ignore: $4 - ' : $'\n";
 				$percent = $1;
 				$after = $';
+				$debug_ingredients and $log->debug("after started with a percent", { after => $after, percent => $percent }) if $log->is_debug();
 			}
 		}
 		else {
 			# no separator found: only one ingredient
-			#print STDERR "no separator found: $s\n";
+			$debug_ingredients and $log->debug("no separator found, only one ingredient", { string => $s }) if $log->is_debug();
 			$before = $s;
 		}
 
 		# remove ending parenthesis
 		$before =~ s/(\),\],\])*//;
+
+		$debug_ingredients and $log->debug("processed first separator", { string => $s, before => $before, between => $between, after => $after}) if $log->is_debug();
 
 		my @ingredients = ();
 
@@ -866,7 +877,7 @@ sub parse_ingredients_text($) {
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
 
-			# print STDERR "before: $before - canon_ingredient: $canon_ingredient\n";
+			$debug_ingredients and $log->debug("ingredient contains 'and', checking if it exists", { before => $before, canon_ingredient => $canon_ingredient }) if $log->is_debug();
 
 			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
@@ -874,8 +885,9 @@ sub parse_ingredients_text($) {
 				my $canon_ingredient1 = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient1);
 				my $canon_ingredient2 = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient2);
 
-				# print STDERR "canon_ingredient1 - $canon_ingredient1\n";
-				# print STDERR "canon_ingredient2 - $canon_ingredient2\n";
+				$debug_ingredients and $log->debug("ingredient containing 'and' did not exist. 2 known ingredients?",
+					{ before => $before, canon_ingredient => $canon_ingredient, canon_ingredient1 => $canon_ingredient1, canon_ingredient2 => $canon_ingredient2 }) if $log->is_debug();
+
 
 				if ( (exists_taxonomy_tag("ingredients", $canon_ingredient1))
 					and (exists_taxonomy_tag("ingredients", $canon_ingredient2)) ) {
@@ -886,7 +898,21 @@ sub parse_ingredients_text($) {
 		}
 
 		if (scalar @ingredients == 0) {
-			push @ingredients, $before;
+
+			# if we have nothing before, then we can be in the case where between applies to the last ingredient
+			# e.g. if we have "Vegetables (97%) (Potatoes, Tomatoes)"
+			if (($before =~ /^\s*$/) and ($between !~ /^\s*$/) and ((scalar @$ingredients_ref) > 0)) {
+				my $last_ingredient = (scalar @$ingredients_ref) - 1;
+				$debug_ingredients and $log->debug("between applies to last ingredient", { between => $between, last_ingredient => $ingredients_ref->[$last_ingredient]{text }}) if $log->is_debug();
+
+				(defined $ingredients_ref->[$last_ingredient]{ingredients}) or $ingredients_ref->[$last_ingredient]{ingredients} = [];
+				$analyze_ingredients_self->($analyze_ingredients_self, $ingredients_ref->[$last_ingredient]{ingredients}, $between_level, $between);
+			}
+
+			if ($before !~ /^\s*$/) {
+
+				push @ingredients, $before;
+			}
 		}
 
 		my $i = 0;	# Counter for ingredients, used to know if it is the last ingredient
@@ -895,175 +921,187 @@ sub parse_ingredients_text($) {
 
 			chomp($ingredient);
 
-			#print STDERR "ingredient: $ingredient\n";
+			$debug_ingredients and $log->debug("analyzing ingredient", { ingredient => $ingredient }) if $log->is_debug();
 
-			# Strawberry 10.3%
-			if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$/i) {
-				#print STDERR "percent found: $before = $` + $1\%\n";
-				$percent = $1;
-				$ingredient = $`;
-			}
+			# Repeat the removal of parts of the ingredient (that corresponds to labels, origins, processing, % etc.)
+			# as long as we have removed something and that we haven't recognized the ingredient
 
-			# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-			if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
-				# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
-				$percent = $1;
-				$ingredient = $';
-			}
-
-			# remove * and other chars before and after the name of ingredients
-			$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
-			$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
-
-			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
-
-			# try to remove the origin and store it as property
-			if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä)\s?:?\s?\b/i) {
-				$ingredient = $`;
-				my $origin_string = $';
-				# d'origine végétale -> not a geographic origin, add en:vegan
-				if ($origin_string =~ /vegetal|végétal/i) {
-					$vegan = "en:yes";
-					$vegetarian = "en:yes";
-				}
-				else {
-					$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "countries", $_)} split(/,/, $origin_string ));
-				}
-			}
-
-			if (defined $labels_regexps{$product_lc}) {
-				# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
-				foreach my $labelid (reverse @labels) {
-					my $regexp = $labels_regexps{$product_lc}{$labelid};
-					#print STDERR "labelid: $labelid - regexp: $regexp - ingredient: $ingredient\n";
-					if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
-						if (defined $labels) {
-							$labels .= ", " . $labelid;
-						}
-						else {
-							$labels = $labelid;
-						}
-						$ingredient = $` . ' ' . $';
-						$ingredient =~ s/\s+/ /g;
-					}
-				}
-			}
-
-			$ingredient =~ s/^\s+//;
-			$ingredient =~ s/\s+$//;
-
-			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+			my $current_ingredient = '';
 			my $skip_ingredient = 0;
 			my $ingredient_recognized = 0;
+			my $ingredient_id;
 
-			if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
-				$ingredient_recognized = 1;
-			}
-			else {
+			while (($ingredient ne $current_ingredient) and (not $ingredient_recognized) and (not $skip_ingredient)) {
 
-				# Try to remove ingredients processing "cooked rice" -> "rice"
-				if (defined $ingredients_processing_regexps{$product_lc}) {
-					my $matches = 0;
-					my $new_ingredient = $ingredient;
-					my $new_processing = '';
-					my $matching = 1;	# remove prefixes / suffixes one by one
-					while ($matching) {
-						$matching = 0;
-						foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
-							my $regexp = $ingredient_processing_regexp_ref->[1];
-							if ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i) {
-								$new_ingredient = $` . $';
-								#print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
-								#print STDERR "new ingredient: $new_ingredient\n";
-								$matching = 1;
-								$matches++;
-								$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
+				$current_ingredient = $ingredient;
 
-								# remove starting or ending " and "
-								# viande traitée en salaison et cuite -> viande et
-								$new_ingredient =~ s/($and)+$//i;
-								$new_ingredient =~ s/^($and)+//i;
-								$new_ingredient =~ s/\s+$//;
-								$new_ingredient =~ s/^\s+//;
+				# Strawberry 10.3%
+				if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$/i) {
+					$percent = $1;
+					$debug_ingredients and $log->debug("percent found after", { ingredient => $ingredient, percent => $percent, new_ingredient => $`}) if $log->is_debug();
+					$ingredient = $`;
+				}
 
-								# Stop if we now have a known ingredient.
-								# e.g. "jambon cru en tranches" -> keep "jambon cru".
-								my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
-								#print STDERR "new_ingredient_id: $new_ingredient_id\n";
-								if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-									#print STDERR "$new_ingredient_id exists, stop matching\n";
-									$matching = 0;
+				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
+				if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
+					$percent = $1;
+					$debug_ingredients and $log->debug("percent found before", { ingredient => $ingredient, percent => $percent, new_ingredient => $'}) if $log->is_debug();
+					$ingredient = $';
+				}
+
+				# remove * and other chars before and after the name of ingredients
+				$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
+				$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
+
+				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
+
+				# try to remove the origin and store it as property
+				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä)\s?:?\s?\b/i) {
+					$ingredient = $`;
+					my $origin_string = $';
+					# d'origine végétale -> not a geographic origin, add en:vegan
+					if ($origin_string =~ /vegetal|végétal/i) {
+						$vegan = "en:yes";
+						$vegetarian = "en:yes";
+					}
+					else {
+						$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "countries", $_)} split(/,/, $origin_string ));
+					}
+				}
+
+				if (defined $labels_regexps{$product_lc}) {
+					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
+					foreach my $labelid (reverse @labels) {
+						my $regexp = $labels_regexps{$product_lc}{$labelid};
+						$debug_ingredients and $log->trace("checking labels regexps", { ingredient => $ingredient, labelid => $labelid, regexp => $regexp }) if $log->is_trace();
+						if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
+							if (defined $labels) {
+								$labels .= ", " . $labelid;
+							}
+							else {
+								$labels = $labelid;
+							}
+							$ingredient = $` . ' ' . $';
+							$ingredient =~ s/\s+/ /g;
+							$debug_ingredients and $log->debug("found label", { ingredient => $ingredient, labelid => $labelid }) if $log->is_debug();
+						}
+					}
+				}
+
+				$ingredient =~ s/^\s+//;
+				$ingredient =~ s/\s+$//;
+
+				$ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+
+				if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
+					$ingredient_recognized = 1;
+				}
+				else {
+
+					# Try to remove ingredients processing "cooked rice" -> "rice"
+					if (defined $ingredients_processing_regexps{$product_lc}) {
+						my $matches = 0;
+						my $new_ingredient = $ingredient;
+						my $new_processing = '';
+						my $matching = 1;	# remove prefixes / suffixes one by one
+						while ($matching) {
+							$matching = 0;
+							foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
+								my $regexp = $ingredient_processing_regexp_ref->[1];
+								if ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i) {
+									$new_ingredient = $` . $';
+									#print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
+									#print STDERR "new ingredient: $new_ingredient\n";
+									$matching = 1;
+									$matches++;
+									$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
+
+									# remove starting or ending " and "
+									# viande traitée en salaison et cuite -> viande et
+									$new_ingredient =~ s/($and)+$//i;
+									$new_ingredient =~ s/^($and)+//i;
+									$new_ingredient =~ s/\s+$//;
+									$new_ingredient =~ s/^\s+//;
+
+									# Stop if we now have a known ingredient.
+									# e.g. "jambon cru en tranches" -> keep "jambon cru".
+									my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
+									#print STDERR "new_ingredient_id: $new_ingredient_id\n";
+									if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+										#print STDERR "$new_ingredient_id exists, stop matching\n";
+										$matching = 0;
+									}
+
+									last;
 								}
+							}
+						}
+						if ($matches) {
 
-								last;
+							my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
+							if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+								#print STDERR "new_ingredient_id $new_ingredient_id exists\n";
+								$ingredient = $new_ingredient;
+								$ingredient_id = $new_ingredient_id;
+								$ingredient_recognized = 1;
+								$processing .= $new_processing;
+							}
+							else {
+								#print STDERR "new_ingredient_id $new_ingredient_id does not exist\n";
 							}
 						}
 					}
-					if ($matches) {
 
-						my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
-						if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-							#print STDERR "new_ingredient_id $new_ingredient_id exists\n";
-							$ingredient = $new_ingredient;
-							$ingredient_id = $new_ingredient_id;
+					if (not $ingredient_recognized) {
+						# Unknown ingredient, check if it is a label
+						# We need to be careful with stopwords, "produit" was a stopword,
+						# and "France" matched "produit de France" / made in France (bug #2927)
+						my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
+						if (exists_taxonomy_tag("labels", $label_id)) {
+							# Add the label to the product
+							add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
+							compute_field_tags($product_ref, $product_lc, "labels");
+							$skip_ingredient = 1;
 							$ingredient_recognized = 1;
-							$processing .= $new_processing;
-						}
-						else {
-							#print STDERR "new_ingredient_id $new_ingredient_id does not exist\n";
 						}
 					}
-				}
 
-				if (not $ingredient_recognized) {
-					# Unknown ingredient, check if it is a label
-					# We need to be careful with stopwords, "produit" was a stopword,
-					# and "France" matched "produit de France" / made in France (bug #2927)
-					my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
-					if (exists_taxonomy_tag("labels", $label_id)) {
-						# Add the label to the product
-						add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
-						compute_field_tags($product_ref, $product_lc, "labels");
-						$skip_ingredient = 1;
-						$ingredient_recognized = 1;
-					}
-				}
+					if (not $ingredient_recognized) {
+						# Check if it is a phrase we want to ignore
 
-				if (not $ingredient_recognized) {
-					# Check if it is a phrase we want to ignore
+						# Remove some sentences
+						my %ignore_regexps = (
+							'fr' => [
+								'(\%|pourcentage|pourcentages) (.*)(exprim)',
+								'(sur|de) produit fini',	# préparé avec 50g de fruits pour 100g de produit fini
+								'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
+								'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
+								'^soit ',	# soit 20g de beurre reconstitué
+								'^équivalent ', # équivalent à 20% de fruits rouges
+								'^malgré ', # malgré les soins apportés...
+								'^il est possible', # il est possible qu'il contienne...
+								'^(facultatif|facultative)', # sometime indicated by producers when listing ingredients is not mandatory
+							],
 
-					# Remove some sentences
-					my %ignore_regexps = (
-						'fr' => [
-							'(\%|pourcentage|pourcentages) (.*)(exprim)',
-							'(sur|de) produit fini',	# préparé avec 50g de fruits pour 100g de produit fini
-							'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
-							'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
-							'^soit ',	# soit 20g de beurre reconstitué
-							'^équivalent ', # équivalent à 20% de fruits rouges
-							'^malgré ', # malgré les soins apportés...
-							'^il est possible', # il est possible qu'il contienne...
-							'^(facultatif|facultative)', # sometime indicated by producers when listing ingredients is not mandatory
-						],
+							'fi' => [
+								'^Kollageeni\/liha-proteiinisuhde alle',
+								'^(?:Jauhelihapihvin )?(?:Suola|Liha|Rasva)pitoisuus',
+								'^Lihaa ja lihaan verrattavia valmistusaineita',
+								'^(?:Maito)?rasvaa',
+								'^Täysmehu(?:osuus|pitoisuus)',
+								'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
+								'^Kuiva-aineiden täysjyväpitoisuus',
+							],
 
-						'fi' => [
-							'^Kollageeni\/liha-proteiinisuhde alle',
-							'^(?:Jauhelihapihvin )?(?:Suola|Liha|Rasva)pitoisuus',
-							'^Lihaa ja lihaan verrattavia valmistusaineita',
-							'^(?:Maito)?rasvaa',
-							'^Täysmehu(?:osuus|pitoisuus)',
-							'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
-							'^Kuiva-aineiden täysjyväpitoisuus',
-						],
-
-					);
-					if (defined $ignore_regexps{$product_lc}) {
-						foreach my $regexp (@{$ignore_regexps{$product_lc}}) {
-							if ($ingredient =~ /$regexp/i) {
-								#print STDERR "ignoring ingredient $ingredient - regexp $regexp\n";
-								$skip_ingredient = 1;
-								$ingredient_recognized = 1;
-								last;
+						);
+						if (defined $ignore_regexps{$product_lc}) {
+							foreach my $regexp (@{$ignore_regexps{$product_lc}}) {
+								if ($ingredient =~ /$regexp/i) {
+									#print STDERR "ignoring ingredient $ingredient - regexp $regexp\n";
+									$skip_ingredient = 1;
+									$ingredient_recognized = 1;
+									last;
+								}
 							}
 						}
 					}
@@ -2573,8 +2611,6 @@ sub is_compound_word_with_dash($$) {
 
 	my $word_lc = shift;
 	my $compound_word = shift;
-
-	print STDERR "compound_word: $compound_word\n";
 
 	if (exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($word_lc, "ingredients", $compound_word))) {
 		$compound_word =~ s/ - /-/;

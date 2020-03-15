@@ -6,7 +6,8 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP';
+#use Log::Any::Adapter 'TAP';
+use Log::Any::Adapter 'TAP', filter => 'trace';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
@@ -181,6 +182,115 @@ my @tests = (
 ]
 
 	],
+
+	[ { lc => "fr", ingredients_text => "Céréales 63,7% (BLE complet 50,5%*, semoule de maïs*), sucre*, sirop de BLE*, cacao maigre en poudre 3,9%*, cacao en poudre 1,7%*, sel, arôme naturel. *Ingrédients issus de l'agriculture biologique."},
+[
+  {
+    'id' => 'en:cereal',
+    'ingredients' => [
+      {
+        'id' => 'en:whole-wheat',
+        'labels' => 'en:organic',
+        'percent' => '50.5',
+        'text' => 'BLE complet'
+      },
+      {
+        'id' => 'en:cornmeal',
+        'labels' => 'en:organic',
+        'text' => "semoule de ma\x{ef}s"
+      }
+    ],
+    'percent' => '63.7',
+    'text' => "C\x{e9}r\x{e9}ales"
+  },
+  {
+    'id' => 'en:sugar',
+    'labels' => 'en:organic',
+    'text' => 'sucre'
+  },
+  {
+    'id' => 'fr:sirop-de-ble',
+    'labels' => 'en:organic',
+    'text' => 'sirop de BLE'
+  },
+  {
+    'id' => 'en:fat-reduced-cocoa-powder',
+    'labels' => 'en:organic',
+    'percent' => '3.9',
+    'text' => 'cacao maigre en poudre'
+  },
+  {
+    'id' => 'en:cocoa-powder',
+    'labels' => 'en:organic',
+    'percent' => '1.7',
+    'text' => 'cacao en poudre'
+  },
+  {
+    'id' => 'en:salt',
+    'text' => 'sel'
+  },
+  {
+    'id' => 'en:natural-flavouring',
+    'text' => "ar\x{f4}me naturel"
+  }
+]
+
+],
+
+	[ { lc => "es", ingredients_text => "Hortalizas frescas (91 %) (tomate, pimiento. pepino y ajo), aceite de oliva virgen extra (3 %), vinagre de vino y sal."},
+
+[
+  {
+    'id' => 'es:Hortalizas frescas',
+    'ingredients' => [
+      {
+        'id' => 'en:tomato',
+        'text' => 'tomate'
+      },
+      {
+        'id' => 'en:bell-pepper',
+        'text' => 'pimiento'
+      },
+      {
+        'id' => 'en:cucumber',
+        'text' => 'pepino'
+      },
+      {
+        'id' => 'en:garlic',
+        'text' => 'ajo'
+      }
+    ],
+    'percent' => '91',
+    'text' => 'Hortalizas frescas'
+  },
+  {
+    'id' => 'en:extra-virgin-olive-oil',
+    'percent' => '3',
+    'text' => 'aceite de oliva virgen extra'
+  },
+  {
+    'id' => 'en:wine-vinegar',
+    'text' => 'vinagre de vino'
+  },
+  {
+    'id' => 'en:salt',
+    'text' => 'sal'
+  }
+]
+
+
+],
+
+	[ { lc => "fr", ingredients_text => "Tomates bio coupées en tranches cuites"},
+[
+  {
+    'id' => 'en:tomato',
+    'labels' => 'en:organic',
+    'processing' => 'en:cooked, en:sliced, en:cut',
+    'text' => 'Tomates'
+  }
+]
+],
 
 );
 
