@@ -392,7 +392,7 @@ my @tests = (
     'text' => 'Sugar'
   },
   {
-    'id' => 'en:Cornflour',
+    'id' => 'en:corn-flour',
     'percent_max' => 5,
     'percent_min' => 0,
     'text' => 'Cornflour'
