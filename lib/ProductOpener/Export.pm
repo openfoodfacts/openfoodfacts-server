@@ -270,7 +270,7 @@ sub export_csv($) {
 									$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
 									$populated_fields{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
 									# Also export the crop coordinates
-									foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic)) {
+									foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
 										if ((defined $product_ref->{images}{$imageid}{$coord})
 											and ($product_ref->{images}{$imageid}{$coord} != -1)	# -1 is passed when the image is not cropped
 											) {
@@ -398,7 +398,7 @@ sub export_csv($) {
 						$value = "$www_root/images/products/" . $product_path . "/" . $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
 					}
 				}
-				elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic)/) {
+				elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/) {
 					# Coordinates for image cropping
 					my $imagefield = $1;
 					my $coord = $2;
