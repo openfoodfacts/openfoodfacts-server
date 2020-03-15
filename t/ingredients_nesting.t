@@ -6,7 +6,8 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP';
+#use Log::Any::Adapter 'TAP';
+use Log::Any::Adapter 'TAP', filter => 'trace';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
@@ -278,6 +279,17 @@ my @tests = (
 ]
 
 
+],
+
+	[ { lc => "fr", ingredients_text => "Tomates bio coupées en tranches cuites"},
+[
+  {
+    'id' => 'en:tomato',
+    'labels' => 'en:organic',
+    'processing' => 'en:cooked, en:sliced, en:cut',
+    'text' => 'Tomates'
+  }
+]
 ],
 
 );
