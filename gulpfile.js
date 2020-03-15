@@ -56,7 +56,7 @@ function copyJs() {
       "./node_modules/blueimp-load-image/js/load-image.all.min.js",
       "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
       "./node_modules/blueimp-file-upload/js/*.js",
-      "./node_modules/@yaireo/tagify/dist/tagify.js",
+      "./node_modules/@yaireo/tagify/dist/tagify.min.js",
       "./node_modules/cropper/dist/*.js"
     ])
     .pipe(sourcemaps.init())
