@@ -266,7 +266,7 @@ if ($imagefield) {
 				# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
 				) {
 				$log->debug("selecting image", { imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
-				process_image_crop($product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
+				process_image_crop($product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 			}
 			# If the image type is "other" and we don't have a front image, assign it
 			# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
@@ -274,7 +274,7 @@ if ($imagefield) {
 				or ((defined $previous_imgid) and ($previous_imgid eq $product_ref->{images}{"front_" . $product_ref->{lc}}{imgid})))
 				) {
 				$log->debug("selecting front image as we don't have one", { imgid => $imgid, previous_imgid => $previous_imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
-				process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1);
+				process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 			}
 			else {
 				$log->debug("not selecting as front image", { imgid => $imgid, previous_imgid => $previous_imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc},
