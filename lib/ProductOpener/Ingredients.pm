@@ -2665,7 +2665,7 @@ sub preparse_ingredients_text($$) {
 	my $product_lc = shift;
 	my $text = shift;
 
-	not defined $text and return undef;
+	not defined $text and return;
 
 	# Symbols to indicate labels like organic, fairtrade etc.
 	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
