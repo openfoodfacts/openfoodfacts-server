@@ -5995,7 +5995,6 @@ sub display_new($) {
 <title>$title</title>
 $meta_description
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-$header
 <meta property="fb:app_id" content="219331381518041">
 <meta property="og:type" content="$og_type">
 <meta property="og:title" content="$canon_title">
@@ -6009,6 +6008,7 @@ $options{favicons}
 <link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
+$header
 <style media="all">
 HTML
 ;
