@@ -111,6 +111,8 @@ A scalar variable needs to be passed as an argument.
 
 The function returns true after evaluating the true value for the regular expression using grep or subdomain, ssl_subdomains
 
+=cut
+
 sub subdomain_supports_https {
 
 	my ($sd) = @_;
