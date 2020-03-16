@@ -74,7 +74,7 @@ C<format_subdomain()> returns URL on the basis of subdomain and scheme (http/htt
 
 =head3 Arguments
 
-A scalar variable needs to be passed as an argument. 
+A scalar variable to indicate the subdomain (e.g. "us" or "static") needs to be passed as an argument. 
 
 =head3 Return Values
 
@@ -105,7 +105,7 @@ C<subdomain_supports_https()> determines if the subdomain supports https.
 
 =head3 Arguments
 
-A scalar variable needs to be passed as an argument. 
+A scalar variable to indicate the subdomain (e.g. "us" or "static") needs to be passed as an argument. 
 
 =head3 Return Values
 
