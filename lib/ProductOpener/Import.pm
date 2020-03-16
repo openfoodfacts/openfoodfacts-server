@@ -890,6 +890,7 @@ sub import_csv_file($) {
 				$nid . "_value" => $product_ref->{nutriments}{$nid . "_value"},
 				$nidp . "_value" => $product_ref->{nutriments}{$nidp . "_value"},
 				$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
+				$nidp . "_unit" => $product_ref->{nutriments}{$nidp . "_unit"},
 			);
 
 			# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
@@ -903,6 +904,13 @@ sub import_csv_file($) {
 				foreach my $per ("", "_100g", "_serving") {
 
 					next if (defined $values{$type});
+
+					# Skip serving values if we have 100g values
+					if ((defined $imported_product_ref->{"nutrition_data" . $type . "_per"})
+						and ($imported_product_ref->{"nutrition_data" . $type . "_per"} eq "100g")
+						and ($per eq "_serving")) {
+						next;
+					}
 
 					if ((defined $imported_product_ref->{$nid . $type . $per . "_value"})
 						and ($imported_product_ref->{$nid . $type . $per . "_value"} ne "")) {
@@ -1353,6 +1361,7 @@ sub import_csv_file($) {
 						my $y1 = $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1;
 						my $x2 = $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1;
 						my $y2 = $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1;
+						my $coordinates_image_size = $imported_product_ref->{"image_" . $imagefield . "_coordinates_image_size"} || $crop_size;
 						my $angle = $imported_product_ref->{"image_" . $imagefield . "_angle"} || 0;
 						my $normalize = $imported_product_ref->{"image_" . $imagefield . "_normalize"} || "false";
 						my $white_magic = $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || "false";
@@ -1368,7 +1377,7 @@ sub import_csv_file($) {
 
 								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, current_max_imgid => $current_max_imgid, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 								$selected_images{$imagefield_with_lc} = 1;
-								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2); };
+								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 								# $modified++;
 
 							}
@@ -1391,7 +1400,7 @@ sub import_csv_file($) {
 									) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
-									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2); };
+									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 									# $modified++;
 								}
 
@@ -1404,7 +1413,7 @@ sub import_csv_file($) {
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;
-							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2); };
+							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 						}
 					}
 					else {

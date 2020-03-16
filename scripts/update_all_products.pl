@@ -189,8 +189,11 @@ foreach my $field (sort keys %$query_ref) {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
 	}
-	if ($query_ref->{$field} eq 'exists') {
+	elsif ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
+	}
+	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
+		$query_ref->{$field} += 0;
 	}
 }
 
@@ -508,7 +511,7 @@ while (my $product_ref = $cursor->next) {
 						eval {
 
 							# process_image_crops saves a new version of the product
-							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1);
+							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1, "full");
 						};
 						$User_id = $User_id_copy;
 					}

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-02 14:56\n"
+"PO-Revision-Date: 2020-03-07 15:10\n"
 "Language-Team: Japanese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -144,7 +144,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -205,7 +205,7 @@ msgstr "Open Food Facts プロジェクトへの資金援助もできます"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Open Food Facts に寄付\" /></a><p><<site_name>> は、業界から独立した非営利団体によって行われています。すべての人によって、すべての人のために行われ、すべての人によって資金援助されます。あなたは <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">Open Food Facts に寄付</a> または <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">リロ検索エンジンを使用</a> して私たちの活動をサポートすることができます。<br/><b>宜しくお願いします!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -433,7 +433,7 @@ msgstr "Open Food Facts に寄付する"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -562,7 +562,7 @@ msgstr "パスワードと確認パスワードが異なります。"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "メールアドレスは、すでに別のユーザによって使用されています。あなたはすでにアカウントをお持ちではありませんか？パスワードを忘れた場合、<a href=\"/cgi/reset_password.pl\">こちら</a> から再設定できます。"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -676,7 +676,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "データ、API、SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -777,12 +777,12 @@ msgstr "https://en.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - 化粧品"
 
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -1245,7 +1245,7 @@ msgstr "別の製品に画像を移動します"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s 製品"
 
 msgctxt "name"
 msgid "Name"
@@ -1958,23 +1958,23 @@ msgstr "ダウンロード結果"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "結果をXLSXまたはCSV形式でダウンロードします。処理の都合上、ダウンロードできる結果は最大10,000までとなります。"
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "XLSXフォーマット"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "ExcelまたはLibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "CSVフォーマット"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "文字コード: Unicode (UTF-8)、区切り文字: タブ (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2436,7 +2436,8 @@ msgstr "全世界からの結果を表示"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "必ず情報は(他のサイトや製造者のサイトからは取得せず) 製品の包装やラベルから取得し、写真も自分で撮影したものを使用してください。<br/>\n"
+"→ 理由は<a href=\"/faq#pictures_and_data_from_other_sites\">こちら</a>をご覧ください。"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2988,11 +2989,11 @@ msgstr "販売終了日"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "フォーマット：YYYY-MM-DD、YYYY-MM、YYYYのいずれか"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30、2019-09、2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3165,7 +3166,7 @@ msgstr "最新バージョン"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "製品データファイルをインポートする"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
@@ -3705,8 +3706,8 @@ msgctxt "file_received"
 msgid "File received"
 msgstr ""
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_is_beverage"
@@ -4036,17 +4037,25 @@ msgstr ""
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
-msgstr ""
+msgstr "ご注意ください。この操作は元に戻せません。"
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "警告：の操作は元に戻せません。生産者向けプラットフォームからすべての製品を削除してもよろしいですか？こ"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
-msgstr ""
+msgstr "この機能は利用できません。"
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
+msgstr "あなたの製品は生産者向けプラットフォームから削除されました。"
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr ""
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
 msgstr ""
 

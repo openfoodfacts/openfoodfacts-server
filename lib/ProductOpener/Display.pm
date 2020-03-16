@@ -18,6 +18,21 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Display - create and save products
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Display> generates the HTML code for the web site
+and the JSON responses for the API.
+
+=head1 DESCRIPTION
+
+=head2 Revisions
+
+=cut
+
 package ProductOpener::Display;
 
 use utf8;
@@ -66,6 +81,10 @@ BEGIN
 					&search_and_map_products
 					&display_recent_changes
 					&add_tag_prefix_to_link
+
+					&display_ingredient_analysis
+					&display_ingredients_analysis_details
+					&display_ingredients_analysis
 
 					@search_series
 
@@ -199,6 +218,19 @@ use vars qw();
 
 $static_subdomain = format_subdomain('static');
 $world_subdomain = format_subdomain('world');
+
+
+=head1 FUNCTIONS
+
+=head2 init ()
+
+C<init()> is called at the start of each new request (web page or API).
+It initializes a number of variables, in particular:
+
+$cc : country code
+$lc : language code
+
+=cut
 
 sub init()
 {
@@ -1795,6 +1827,17 @@ HTML
 </table>
 HTML
 ;
+			}
+
+			foreach my $tagid (sort keys %stats) {
+				my $tagentry = {
+					id => $tagid,
+					name => $tagid,
+					url => "",
+					products => $stats{$tagid} + 0, # + 0 to make the value numeric
+				};
+
+				push @{$request_ref->{structured_response}{tags}}, $tagentry;
 			}
 		}
 
@@ -4010,10 +4053,18 @@ HTML
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			if (defined $product_ref->{ingredients}) {
+				my $i = 0;
 				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+					$i++;
 					if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
 						# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-						exists $ingredient_ref->{rank} or delete $ingredient_ref->{ingredients};
+						if (not exists $ingredient_ref->{rank})	{
+							# delete this ingredient and ingredients after
+							while (scalar @{$product_ref->{ingredients}} >= $i) {
+								pop @{$product_ref->{ingredients}};
+							}
+							last;
+						}
 					}
 					else {
 						# Delete sub-ingredients, keep only flattened ingredients
@@ -7502,91 +7553,11 @@ JS
 
 	$html .= display_field($product_ref, 'traces');
 
-	# Ingredient analysis
+	$html .= display_ingredients_analysis($product_ref);
 
-	if (defined $product_ref->{ingredients_analysis_tags}) {
-
-		my $html_analysis = "";
-
-		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
-
-			my $color;
-			my $icon = "";
-
-			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
-
-			if ($ingredients_analysis_tag =~ /palm/) {
-
-				if (has_tag($product_ref, "labels", "en:palm-oil-free")
-					or ($ingredients_analysis_tag =~ /-free$/)) {
-					$ingredients_analysis_tag = "en:palm-oil-free";
-					$color = 'green';
-					$icon = "monkey_happy";
-				}
-				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
-					$color = 'orange';
-					$icon = "monkey_uncertain";
-				}
-				else {
-					$color = 'red';
-					$icon = "monkey_unhappy";
-				}
-
-			}
-			else {
-
-				if ($ingredients_analysis_tag =~ /vegan/) {
-					$icon = "leaf";
-					if (has_tag($product_ref, "labels", "en:vegan")) {
-						$ingredients_analysis_tag = "en:vegan";
-					}
-					elsif (has_tag($product_ref, "labels", "en:non-vegan")
-						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
-						$ingredients_analysis_tag = "en:non-vegan";
-					}
-				}
-				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
-					$icon = "egg";
-					if (has_tag($product_ref, "labels", "en:vegetarian")
-						or has_tag($product_ref, "labels", "en:vegan")) {
-						$ingredients_analysis_tag = "en:vegetarian";
-					}
-					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
-						$ingredients_analysis_tag = "en:non-vegetarian";
-					}
-				}
-
-				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = 'red';
-				}
-				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
-					$color = 'orange';
-				}
-				else {
-					$color = 'green';
-				}
-			}
-
-			# Skip unknown
-			next if $ingredients_analysis_tag =~ /unknown/;
-
-			if ($icon ne "") {
-				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
-			}
-
-			$html_analysis .= "<span class=\"label ingredients_analysis $color\">"
-			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
-			. "</span> ";
-		}
-
-		if ($html_analysis ne "") {
-
-			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
-			. $html_analysis
-			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
-		}
+	if (defined $User_id) {
+		$html .= display_ingredients_analysis_details($product_ref);
 	}
-
 
 	my $html_ingredients_classes = "";
 
@@ -8426,8 +8397,6 @@ $image_warning
 HTML
 ;
 
-
-
 	$request_ref->{jqm_content} = $html;
 	$request_ref->{title} = $title;
 	$request_ref->{description} = $description;
@@ -8437,11 +8406,21 @@ HTML
 }
 
 
-sub display_nutriscore_calculation_detail($) {
+
+=head2 display_nutriscore_calculation_details( $nutriscore_data_ref )
+
+Generates HTML code with information on how the Nutri-Score was computed for a particular product.
+
+For each component of the Nutri-Score (energy, sugars etc.) it shows the input value,
+the rounded value according to the Nutri-Score rules, and the corresponding points.
+
+=cut
+
+sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
 
-	my $html = '<p><a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">' . lang("nutriscore_calculation_detail") . " &raquo;</a><p>"
+	my $html = '<p><a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">' . lang("nutriscore_calculation_details") . " &raquo;</a><p>"
 	. '<div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
 
 	if ($nutriscore_data_ref->{is_beverage}) {
@@ -8598,6 +8577,11 @@ sub display_nutrient_levels($) {
 									display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
 									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
 			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne '')) {
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value}) . "</p>";
+			}
 		}
 
 		$html_nutrition_grade .= <<HTML
@@ -8610,7 +8594,7 @@ $warning
 HTML
 ;
 		if (defined $product_ref->{nutriscore_data}) {
-			$html_nutrition_grade .= display_nutriscore_calculation_detail($product_ref->{nutriscore_data});
+			$html_nutrition_grade .= display_nutriscore_calculation_details($product_ref->{nutriscore_data});
 		}
 	}
 
@@ -9053,7 +9037,16 @@ HTML
 		}
 	}
 
+	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
+	my @nutriments = ();
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments) {
+		push @nutriments, $nutriment;
+		if (($nutriment eq "fruits-vegetables-nuts-estimate-") and ($User{moderator})) {
+			push @nutriments, "fruits-vegetables-nuts-estimate-from-ingredients-";
+		}
+	}
+
+	foreach my $nutriment (@nutriments) {
 
 		next if $nutriment =~ /^\#/;
 		my $nid = $nutriment;
@@ -9079,6 +9072,7 @@ HTML
 		# Only show known values for search graph results
 		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search'))
 			and not (((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+					or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 					or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne '')))) {
 			$shown = 0;
 		}
@@ -9208,7 +9202,7 @@ HTML
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
 						. '<span class="compare_percent">' . $percent . '</span>'
-						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.54, $unit))) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.5, $unit))) . " " . $unit . '</span>' . "</td>";
 					}
 				}
 				if ($nid eq 'salt') {
@@ -9218,7 +9212,7 @@ HTML
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
 						. '<span class="compare_percent">' . $percent . '</span>'
-						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit))) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.5, $unit))) . " " . $unit . '</span>' . "</td>";
 					}
 				}
 
@@ -9292,31 +9286,46 @@ HTML
 				}
 
 				if ($nid eq 'sodium') {
-					my $salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.54;
+					my $salt;
+					if (defined $product_ref->{nutriments}{$nid . "_$col"}) {
+						$salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.5;
+					}
 					if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
 						$salt = $product_ref->{nutriments}{"salt" . "_$col"};
 					}
-					$salt = $decf->format(g_to_unit($salt, $unit));
 					my $property = '';
-					if ($col eq '100g') {
-						$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
+					if (defined $salt) {
+						$salt = $decf->format(g_to_unit($salt, $unit));
+						if ($col eq '100g') {
+							$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
+						}
+						$salt .= " " . $unit;
 					}
-					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
+					else {
+						$salt = "?";
+					}
+					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . "</td>";
 				}
 				elsif ($nid eq 'salt') {
-					my $sodium = "";
+					my $sodium;
 					if (defined $product_ref->{nutriments}{$nid . "_$col"}) {
-						$sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
+						$sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.5;
 					}
 					if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
 						$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
 					}
-					$sodium = $decf->format(g_to_unit($sodium, $unit));
 					my $property = '';
-					if ($col eq '100g') {
-						$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
+					if (defined $sodium) {
+						$sodium = $decf->format(g_to_unit($sodium, $unit));
+						if ($col eq '100g') {
+							$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
+						}
+						$sodium .= " " . $unit;
 					}
-					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
+					else {
+						$sodium = "?";
+					}
+					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . "</td>";
 				}
 				elsif ($nid eq 'nutrition-score-fr') {
 					# We need to know the category in order to select the right thresholds for the nutrition grades
@@ -9415,10 +9424,8 @@ HTML
 ;
 		}
 
-
-		#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
-
 		if (not $shown) {
+			#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
 		}
 		elsif (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')) {
 
@@ -9598,10 +9605,18 @@ HTML
 
 		# Disable nested ingredients in ingredients field (bug #2883)
 		if (defined $product_ref->{ingredients}) {
+			my $i = 0;
 			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+				$i++;
 				if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
 					# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-					exists $ingredient_ref->{rank} or delete $ingredient_ref->{ingredients};
+					if (not exists $ingredient_ref->{rank})	{
+						# delete this ingredient and ingredients after
+						while (scalar @{$product_ref->{ingredients}} >= $i) {
+							pop @{$product_ref->{ingredients}};
+						}
+						last;
+					}
 				}
 				else {
 					# Delete sub-ingredients, keep only flattened ingredients
@@ -10135,6 +10150,232 @@ sub display_icon {
 
 	return $svg;
 
+}
+
+
+=head2 display_ingredient_analysis ( $ingredients_ref, $ingredients_text_ref, $ingredients_list_ref )
+
+Recursive function to display how the ingredients were analyzed.
+This function calls itself to display sub-ingredients of ingredients.
+
+=head3 Parameters
+
+=head4 $ingredients_ref (input)
+
+Reference to the product's ingredients array or the ingredients array of an ingredient.
+
+$head4 $ingredients_text_ref (output)
+
+Reference to a list of ingredients in text format that we will reconstruct from the ingredients array.
+
+$head4 $ingredients_list_ref (output)
+
+Reference to a list of ingredients in ordered nested list format that corresponds to the ingredients array.
+
+=cut
+
+sub display_ingredient_analysis($$$) {
+
+	my $ingredients_ref = shift;
+	my $ingredients_text_ref = shift;
+	my $ingredients_list_ref = shift;
+
+	$$ingredients_list_ref .= "<ol>\n";
+
+	my $i = 0;
+
+	foreach my $ingredient_ref (@$ingredients_ref) {
+
+		$i++;
+
+		($i > 1) and $$ingredients_text_ref .= ", ";
+
+		my $ingredients_exists = exists_taxonomy_tag("ingredients", $ingredient_ref->{id});
+		my $class = '';
+		if (not $ingredients_exists) {
+			$class = ' class="unknown_ingredient"';
+		}
+
+		$$ingredients_text_ref .= "<span$class>" . $ingredient_ref->{text} . "</span>";
+
+		if (defined $ingredient_ref->{percent}) {
+			$$ingredients_text_ref .= " " . $ingredient_ref->{percent} . "%";
+		}
+
+		$$ingredients_list_ref .= "<li>" . "<span$class>" . $ingredient_ref->{text} . "</span>" . " -> " . $ingredient_ref->{id};
+
+		foreach my $property (qw(origin labels vegan vegetarian from_palm_oil percent_min percent percent_max)) {
+			if (defined $ingredient_ref->{$property}) {
+				$$ingredients_list_ref .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
+			}
+		}
+
+		if (defined $ingredient_ref->{ingredients}) {
+			$$ingredients_text_ref .= " (";
+			display_ingredient_analysis($ingredient_ref->{ingredients}, $ingredients_text_ref, $ingredients_list_ref);
+			$$ingredients_text_ref .= ")";
+		}
+
+		$$ingredients_list_ref .= "</li>\n";
+	}
+
+	$$ingredients_list_ref .= "</ol>\n";
+}
+
+
+
+=head2 display_ingredients_analysis_details ( $product_ref )
+
+Generates HTML code with information on how the ingredient list was parsed and mapped to the ingredients taxonomy.
+
+=cut
+
+sub display_ingredients_analysis_details($) {
+
+	my $product_ref = shift;
+
+	(not defined $product_ref->{ingredients}) and return "";
+
+	my $i = 0;
+	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+		$i++;
+		# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
+		if (not exists $ingredient_ref->{rank})	{
+			# delete this ingredient and ingredients after
+			while (scalar @{$product_ref->{ingredients}} >= $i) {
+				pop @{$product_ref->{ingredients}};
+			}
+			last;
+		}
+	}
+
+	my $ingredients_text = "";
+	my $ingredients_list = "";
+
+	display_ingredient_analysis($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
+
+	my $html = '<p><a data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a><p>"
+	. '<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
+
+	if ($ingredients_text =~ /unknown_ingredient/) {
+
+		$styles .= <<CSS
+.unknown_ingredient {
+	background-color:cyan;
+}
+CSS
+;
+		$html .= '<p class="unknown_ingredient">' . lang("some_unknown_ingredients") . '</p>';
+	}
+
+	$html .= "<p>" . $ingredients_text . "</p>";
+
+	$html .= $ingredients_list;
+
+	$html .= "</div>";
+
+	return $html;
+}
+
+
+=head2 display_ingredients_analysis ( $product_ref )
+
+Generates HTML code with icons that show if the product is vegetarian, vegan and without palm oil.
+
+=cut
+
+sub display_ingredients_analysis($) {
+
+	my $product_ref = shift;
+
+	# Ingredient analysis
+
+	my $html = "";
+
+	if (defined $product_ref->{ingredients_analysis_tags}) {
+
+		my $html_analysis = "";
+
+		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
+
+			my $color;
+			my $icon = "";
+
+			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
+
+			if ($ingredients_analysis_tag =~ /palm/) {
+
+				if (has_tag($product_ref, "labels", "en:palm-oil-free")
+					or ($ingredients_analysis_tag =~ /-free$/)) {
+					$ingredients_analysis_tag = "en:palm-oil-free";
+					$color = 'green';
+					$icon = "monkey_happy";
+				}
+				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
+					$color = 'orange';
+					$icon = "monkey_uncertain";
+				}
+				else {
+					$color = 'red';
+					$icon = "monkey_unhappy";
+				}
+
+			}
+			else {
+
+				if ($ingredients_analysis_tag =~ /vegan/) {
+					$icon = "leaf";
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegan";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegan")
+						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegan";
+					}
+				}
+				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
+					$icon = "egg";
+					if (has_tag($product_ref, "labels", "en:vegetarian")
+						or has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegetarian";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegetarian";
+					}
+				}
+
+				if ($ingredients_analysis_tag =~ /^en:non-/) {
+					$color = 'red';
+				}
+				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
+					$color = 'orange';
+				}
+				else {
+					$color = 'green';
+				}
+			}
+
+			# Skip unknown
+			next if $ingredients_analysis_tag =~ /unknown/;
+
+			if ($icon ne "") {
+				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
+			}
+
+			$html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
+			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
+			. "</span> ";
+		}
+
+		if ($html_analysis ne "") {
+
+			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
+			. $html_analysis
+			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
+		}
+	}
+
+	return $html;
 }
 
 1;

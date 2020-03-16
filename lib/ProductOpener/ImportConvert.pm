@@ -456,19 +456,31 @@ sub assign_quantity_from_field($$) {
 	if ((defined $product_ref->{$field}) and ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq ""))) {
 
 		if ($product_ref->{$field} =~ /\b\(?((\d+)\s?x\s?)?(\d+\.?\,?\d*)\s?(g|gr|kg|kgr|l|cl|ml|dl)\s?(x\s?(\d+))?\)?\s*$/i) {
-			$product_ref->{$field} = $`;
 
-			if (defined $2) {
-				assign_value($product_ref, "quantity", $2 . " X " . $3 . " " . $4);
-			}
-			elsif (defined $6) {
-				assign_value($product_ref, "quantity", $6 . " X " . $3 . " " . $4);
-			}
-			else {
-				assign_value($product_ref, "quantity", $3 . " " . $4);
-			}
+			my $before = $`;
 
-			$product_ref->{$field} =~ s/\s+$//;
+			# If we have something too complex, don't do anything
+			# e.g. Barres de Céréales (8+4) x 25g
+
+			# if we have a single x or a * before, skip
+			if (not (
+				($before =~ /(\sx|\*)\s*$/i)
+					)) {
+
+				$product_ref->{$field} = $before;
+
+				if (defined $2) {
+					assign_value($product_ref, "quantity", $2 . " X " . $3 . " " . $4);
+				}
+				elsif (defined $6) {
+					assign_value($product_ref, "quantity", $6 . " X " . $3 . " " . $4);
+				}
+				else {
+					assign_value($product_ref, "quantity", $3 . " " . $4);
+				}
+
+				$product_ref->{$field} =~ s/\s+$//;
+			}
 		}
 
 	}

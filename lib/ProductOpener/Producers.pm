@@ -452,7 +452,7 @@ my %prepared_synonyms = (
 	"_prepared" => {
 	# code with i18n opportunity
 		en => ["prepared"],
-		fr => ["préparé"],
+		fr => ["préparé", "préparation"],
 	}
 );
 

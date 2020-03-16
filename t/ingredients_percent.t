@@ -256,28 +256,20 @@ my @tests = (
   {
     'id' => 'en:cocoa-butter',
     'percent' => '15',
-    'percent_max' => 15,
-    'percent_min' => 15,
     'text' => 'beurre de cacao'
   },
   {
     'id' => 'en:sugar',
     'percent' => '10',
-    'percent_max' => '10',
-    'percent_min' => '10',
     'text' => 'sucre'
   },
   {
     'id' => 'en:milk-proteins',
-    'percent_max' => 100,
-    'percent_min' => 0,
     'text' => "prot\x{e9}ines de lait"
   },
   {
     'id' => 'en:egg',
     'percent' => '1',
-    'percent_max' => '1',
-    'percent_min' => '1',
     'text' => 'oeuf'
   }
 
@@ -289,8 +281,6 @@ my @tests = (
   {
     'id' => 'en:flour',
     'percent' => '12',
-    'percent_max' => 12,
-    'percent_min' => 12,
     'text' => 'farine'
   },
   {
@@ -316,8 +306,6 @@ my @tests = (
         'text' => 'oeuf'
       }
     ],
-    'percent_max' => 100,
-    'percent_min' => 0,
     'text' => 'chocolat'
   }
 
@@ -368,6 +356,64 @@ my @tests = (
 
 ],
 
+		# For lists like  "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"
+		# we can set a maximum on Sugar, Cornflour etc. that takes into account that all ingredients
+		# that appear before will have an higher quantity.
+		# e.g. the percent max of Water to be set to 100 - 52 -33 = 15%
+		# the max of sugar to be set to 15 / 2 = 7.5 %
+		# the max of cornflour to be set to 15 / 3 etc.
+
+        [ { lc => "en", ingredients_text => "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"},
+[
+  {
+    'id' => 'en:beans',
+    'percent' => '52',
+    'percent_max' => 52,
+    'percent_min' => 52,
+    'text' => 'Beans'
+  },
+  {
+    'id' => 'en:tomato',
+    'percent' => '33',
+    'percent_max' => 33,
+    'percent_min' => 33,
+    'text' => 'Tomatoes'
+  },
+  {
+    'id' => 'en:water',
+    'percent_max' => 15,
+    'percent_min' => 3,
+    'text' => 'Water'
+  },
+  {
+    'id' => 'en:sugar',
+    'percent_max' => '7.5',
+    'percent_min' => 0,
+    'text' => 'Sugar'
+  },
+  {
+    'id' => 'en:corn-flour',
+    'percent_max' => 5,
+    'percent_min' => 0,
+    'text' => 'Cornflour'
+  },
+  {
+    'id' => 'en:salt',
+    'percent_max' => '3.75',
+    'percent_min' => 0,
+    'text' => 'Salt'
+  },
+  {
+    'id' => 'en:spirit-vinegar',
+    'percent_max' => 3,
+    'percent_min' => 0,
+    'text' => 'Spirit Vinegar'
+  }
+]
+
+]
+
+
 );
 
 foreach my $test_ref (@tests) {
@@ -378,8 +424,11 @@ foreach my $test_ref (@tests) {
 	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
 	parse_ingredients_text($product_ref);
-	compute_ingredients_percent_values(
-		100, 100, $product_ref->{ingredients});
+	if (compute_ingredients_percent_values(
+		100, 100, $product_ref->{ingredients}) < 0) {
+		print STDERR "compute_ingredients_percent_values < 0, delete ingredients percent values\n";
+		delete_ingredients_percent_values($product_ref->{ingredients});
+	}
 
 	is_deeply ($product_ref->{ingredients}, $expected_ingredients_ref)
 		# using print + join instead of diag so that we don't have

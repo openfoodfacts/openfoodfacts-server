@@ -87,6 +87,8 @@ BEGIN
 
 					&extract_nutrition_from_image
 
+					&default_unit_for_nid
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -166,6 +168,8 @@ sub normalize_nutriment_value_and_modifier($$) {
 sub default_unit_for_nid($) {
 
 	my $nid = shift;
+
+	$nid =~ s/_prepared//;
 
 	if ($nid eq "energy-kj") {
 		return "kJ";
@@ -2752,7 +2756,7 @@ sub mmoll_to_unit {
 	},
 	'vitamin-b9' => {
 		fr => "Vitamine B9 (Acide folique)",
-		fr_synonyms => ["Vitamine B9", "Acide folique"],
+		fr_synonyms => ["Vitamine B9", "Acide folique", "Acide folique, équivalents alimentaires d'acide folique"],
 		en => "Vitamin B9 (Folic acid)",
 		en_synonyms => ["Vitamin B9", "Folic acid"],
 		es => "Vitamina B9 (Ácido fólico)",
@@ -3520,15 +3524,19 @@ sub mmoll_to_unit {
 		ro => "Fructe, legume, nuci uscate",
 		unit => "%",
 	},
-
 	"fruits-vegetables-nuts-estimate" => {
-		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)",
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (manual estimate from ingredients list)",
 		fi => "Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt (arvio ainesosaluettelosta)",
-		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation avec la liste des ingrédients)",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation manuelle avec la liste des ingrédients)",
 		es => "Frutas, verduras y nueces (estimación de la lista de ingredientes)",
 		nl => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		nl_be => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		de => "Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)",
+		unit => "%",
+	},
+	"fruits-vegetables-nuts-estimate-from-ingredients" => {
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list analysis)",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation par analyse de la liste des ingrédients)",
 		unit => "%",
 	},
 	"collagen-meat-protein-ratio" => {
@@ -4358,6 +4366,8 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate};
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category};
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value};
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 	delete $product_ref->{nutriscore_score};
 	delete $product_ref->{nutriscore_grade};
@@ -4506,10 +4516,16 @@ sub compute_nutrition_score($) {
 			}
 		}
 
-		if (defined $fruits) {
-			$product_ref->{"fruits-vegetables-nuts_100g_estimate"} = $fruits;
+		# Use the estimate from the ingredients list if we have one
+		if ((not defined $fruits)
+			and (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})) {
+			$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
 		}
-		else {
+
+		if (not defined $fruits) {
 			$fruits = 0;
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
 			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
@@ -4603,6 +4619,10 @@ sub compute_serving_size_data($) {
 		(defined $product_ref->{serving_size}) and ($product_ref->{serving_size} eq "") and delete $product_ref->{serving_size};
 	}
 
+	# Record if we have nutrient values for as sold or prepared types,
+	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data
+	my %nutrition_data = ();
+
 	foreach my $product_type ("", "_prepared") {
 
 		# Energy
@@ -4612,7 +4632,10 @@ sub compute_serving_size_data($) {
 		# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
 
 		# If we have a value for energy-kj, use it for energy
-		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type}) {
+		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_value"}) {
+			if (not defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}) {
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"} = "kJ";
+			}
 			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
 				$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
 				$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
@@ -4620,6 +4643,9 @@ sub compute_serving_size_data($) {
 		}
 		# Otherwise use the energy-kcal value for energy
 		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type }) {
+			if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
+			}
 			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
@@ -4649,7 +4675,6 @@ sub compute_serving_size_data($) {
 				}
 				$nid =~ s/_prepared$//;
 
-
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
@@ -4662,6 +4687,9 @@ sub compute_serving_size_data($) {
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} * 100.0 / $product_ref->{serving_quantity}) + 0.0;
+
+					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+					$nutrition_data{$product_type} = 1;
 				}
 
 			}
@@ -4688,6 +4716,9 @@ sub compute_serving_size_data($) {
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity}) + 0.0;
+
+					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+					$nutrition_data{$product_type} = 1;
 				}
 
 			}
@@ -4720,6 +4751,13 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_product"}
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
+		}
+	}
+
+	# If we have nutrient data for as sold or prepared, make sure the checkbox are ticked
+	foreach my $product_type (sort keys %nutrition_data) {
+		if ((not defined $product_ref->{"nutrition_data" . $product_type}) or ($product_ref->{"nutrition_data" . $product_type} ne "on")) {
+			$product_ref->{"nutrition_data" . $product_type} = 'on';
 		}
 	}
 }

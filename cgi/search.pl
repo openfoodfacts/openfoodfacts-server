@@ -321,8 +321,9 @@ HTML
 ;
 
 	my %nutriments_labels = ();
-	foreach my $nid (@{$nutriments_lists{$nutriment_table}}) {
+	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
 		$nutriments_labels{$nid} = $Nutriments{$nid}{$lang};
+		$nutriments_labels{$nid} =~ s/'/\&apos;/g;
 		$log->debug("nutriments", { nid => $nid, value => $nutriments_labels{$nid} }) if $log->is_debug();
 	}
 	$nutriments_labels{search_nutriment} = lang("search_nutriment");
@@ -336,7 +337,7 @@ HTML
 HTML
 ;
 
-		$html .= popup_menu(-name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>['search_nutriment', @{$nutriments_lists{$nutriment_table}}], -labels=>\%nutriments_labels);
+		$html .= popup_menu(-name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>['search_nutriment', @{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients"], -labels=>\%nutriments_labels);
 
 
 		$html .= <<HTML
@@ -417,6 +418,7 @@ HTML
 	my @axis_values = @{$nutriments_lists{$nutriment_table}};
 	my %axis_labels = %nutriments_labels;
 	push @axis_values, "additives_n", "ingredients_n";
+	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
 	$axis_labels{additives_n} = lang("number_of_additives");
 	$axis_labels{ingredients_n} = lang("ingredients_n_s");
 	$axis_labels{products_n} = lang("number_of_products");

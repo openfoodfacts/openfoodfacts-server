@@ -23,8 +23,8 @@ my $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
-diag explain $product_ref;
-
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 is($product_ref->{ingredients_n}, 19);
 
@@ -288,11 +288,10 @@ my $expected_product_ref =
    ],
    'ingredients_text' => "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], prot\x{e9}ines de lait, oeuf 1%) - \x{e9}mulsifiants : E463, E432 et E472 - correcteurs d'acidit\x{e9} : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel",
    'lc' => 'fr',
-   'ingredients_percent_analysis' => -1,
    'unknown_ingredients_n' => 0
  };
 
-
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 
@@ -306,6 +305,8 @@ $product_ref = {
 extract_ingredients_from_text($product_ref);
 extract_ingredients_classes_from_text($product_ref);
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 #ingredients_from_palm_oil_tags: [
 #"huile-de-palme"
@@ -370,7 +371,6 @@ $expected_product_ref =
     'nucleotides_tags' => [],
     'other_nutritional_substances_tags' => [],
     'unknown_ingredients_n' => 0,
-    'ingredients_percent_analysis' => -1,
     'vitamins_tags' => []
   };
 
@@ -387,6 +387,7 @@ delete $product_ref->{amino_acids_prev_tags};
 delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 
@@ -408,6 +409,9 @@ delete $product_ref->{nucleotides_prev_tags};
 delete $product_ref->{amino_acids_prev_tags};
 delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 $expected_product_ref =
  {
@@ -440,7 +444,7 @@ $expected_product_ref =
            'ingredients' => [],
            'percent' => '0.6',
            'processing' => 'en:concentrated',
-           'text' => 'pulpe d\'orange '
+           'text' => 'pulpe d\'orange'
          },
          {
            'id' => 'en:gelling-agent',
@@ -663,7 +667,7 @@ $expected_product_ref =
        'id' => 'en:orange-pulp',
        'percent' => '0.6',
        'processing' => 'en:concentrated',
-       'text' => 'pulpe d\'orange ',
+       'text' => 'pulpe d\'orange',
        'vegan' => 'yes',
        'vegetarian' => 'yes'
      },
@@ -994,7 +998,6 @@ $expected_product_ref =
    ],
    'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
    'lc' => 'fr',
-   'ingredients_percent_analysis' => -1,
    'unknown_ingredients_n' => 4
  };
 
@@ -1002,6 +1005,7 @@ $expected_product_ref =
 
 is_deeply($product_ref->{ingredients_original_tags}, $expected_product_ref->{ingredients_original_tags}) || diag explain $product_ref->{ingredients_original_tags};
 
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 
@@ -1024,6 +1028,8 @@ delete $product_ref->{amino_acids_prev_tags};
 delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 # diag explain $product_ref;
 
@@ -1073,12 +1079,11 @@ $expected_product_ref =
     ],
     'ingredients_text' => 'Natural orange flavor, Lemon flavouring',
     'lc' => 'en',
-    'ingredients_percent_analysis' => -1,
     'unknown_ingredients_n' => 0
   };
 
 
-
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
 
 
@@ -1100,7 +1105,8 @@ delete $product_ref->{amino_acids_prev_tags};
 delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
-
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 $expected_product_ref = {
 	    'ingredients' => [
@@ -1159,12 +1165,11 @@ $expected_product_ref = {
 	    ],
 	    'ingredients_text' => "p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).",
 	    'lc' => 'fr',
-            'ingredients_percent_analysis' => -1,
 	    'unknown_ingredients_n' => 1
 };
 
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
-
 
 $product_ref = {
         lc => "fr",
@@ -1172,6 +1177,10 @@ $product_ref = {
 };
 
 extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
 
 is_deeply ($product_ref->{ingredients_original_tags}, [
 "en:gelling-agent",
@@ -1185,6 +1194,9 @@ $product_ref = {
 };
 
 extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 
 is_deeply ($product_ref->{ingredients},
@@ -1225,12 +1237,14 @@ $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 is_deeply ($product_ref->{ingredients},
 	   [
 	        {
 	          'id' => 'en:strawberry',
-	          'origin' => 'France',
+	          'origin' => 'en:france',
 	          'rank' => 1,
 	          'text' => 'Fraise',
 	          'vegan' => 'yes',
@@ -1238,7 +1252,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:blackcurrant',
-	          'origin' => 'Afrique du Sud',
+	          'origin' => 'en:south-africa',
 	          'rank' => 2,
 	          'text' => 'Cassis',
 	          'vegan' => 'yes',
@@ -1246,7 +1260,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:raspberry',
-	          'origin' => 'Belgique',
+	          'origin' => 'en:belgium',
 	          'rank' => 3,
 	          'text' => 'Framboise',
 	          'vegan' => 'yes',
@@ -1313,6 +1327,8 @@ $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 is_deeply ($product_ref->{ingredients},
 [
@@ -1382,6 +1398,8 @@ $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 is_deeply ($product_ref->{ingredients},
 
@@ -1413,7 +1431,7 @@ is_deeply ($product_ref->{ingredients},
 	          },
 	          {
 	            'id' => 'en:sodium-chloride',
-	            'origin' => 'France, Italie',
+	            'origin' => 'en:france,en:italy',
 	            'percent' => '98',
 	            'rank' => 4,
 	            'text' => 'chlorure de sodium'
@@ -1431,6 +1449,8 @@ $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 is_deeply ($product_ref->{ingredients},
 
@@ -1470,6 +1490,9 @@ $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
 is ($product_ref->{labels}, "en:gluten-free") or diag explain $product_ref;
 is_deeply ($product_ref->{labels_tags}, ["en:gluten-free"]) or diag explain $product_ref;
 
@@ -1500,40 +1523,66 @@ is_deeply ($product_ref->{ingredients},
 
 $product_ref = {
         lc => "fr",
-        ingredients_text => "tomates pelées cuites, rondelle de citron, dés de courgette",
+        ingredients_text => "tomates pelées cuites, rondelle de citron, dés de courgette, lait cru, aubergines crues, jambon cru en tranches",
 };
 
 extract_ingredients_from_text($product_ref);
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
 is_deeply ($product_ref->{ingredients},
 
 [
-	     {
-	            'id' => 'en:tomato',
-	            'processing' => 'en:cooked, en:peeled',
-	            'rank' => 1,
-	            'text' => 'tomates  ',
-	            'vegan' => 'yes',
-	            'vegetarian' => 'yes'
-	          },
-	          {
-	            'id' => 'en:lemon',
-	            'processing' => 'en:sliced',
-	            'rank' => 2,
-	            'text' => ' citron',
-	            'vegan' => 'yes',
-	            'vegetarian' => 'yes'
-	          },
-	          {
-	            'id' => 'en:courgette',
-	            'processing' => 'en:diced',
-	            'rank' => 3,
-	            'text' => ' courgette',
-	            'vegan' => 'yes',
-	            'vegetarian' => 'yes'
-	          }
+     {
+       'id' => 'en:peeled-tomatoes',
+       'processing' => 'en:cooked',
+       'rank' => 1,
+       'text' => "tomates pel\x{e9}es",
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:lemon',
+       'processing' => 'en:sliced',
+       'rank' => 2,
+       'text' => 'citron',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:courgette',
+       'processing' => 'en:diced',
+       'rank' => 3,
+       'text' => 'courgette',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:raw-milk',
+       'rank' => 4,
+       'text' => 'lait cru',
+       'vegan' => 'no',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:aubergine',
+       'processing' => 'en:raw',
+       'rank' => 5,
+       'text' => 'aubergines',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:raw-ham',
+       'processing' => 'en:sliced',
+       'rank' => 6,
+       'text' => 'jambon cru',
+       'vegan' => 'no',
+       'vegetarian' => 'no'
+     }
+   ],
 
-        ],
 
 ) or diag explain $product_ref;
 
@@ -1545,8 +1594,8 @@ $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
-diag explain $product_ref;
-
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 is($product_ref->{ingredients_n}, 19);
 
@@ -1812,11 +1861,11 @@ my $expected_product_ref =
    ],
    'ingredients_text' => "jauho (12%), suklaa (kaakaovoi (15%), sokeri [10%], maitoproteiini, kananmuna 1%) - emulgointiaineet : E463, E432 ja E472 - happamuudens\x{e4}\x{e4}t\x{f6}aineet : E322/E333 E474-E475, happo (sitruunahappo, fosforihappo) - suola",
    'lc' => 'fi',
-   'ingredients_percent_analysis' => -1,
    'unknown_ingredients_n' => 0
   };
 
 
+delete $product_ref->{nutriments};
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 
@@ -1877,12 +1926,14 @@ $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 is_deeply ($product_ref->{ingredients},
 	   [
 	        {
 	          'id' => 'en:strawberry',
-	          'origin' => 'Suomi',
+	          'origin' => 'en:finland',
 	          'rank' => 1,
 	          'text' => 'Mansikka',
 	          'vegan' => 'yes',
@@ -1890,7 +1941,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:blackcurrant',
-	          'origin' => 'Etelä-Afrikka',
+	          'origin' => 'en:south-africa',
 	          'rank' => 2,
 	          'text' => 'Mustaherukka',
 	          'vegan' => 'yes',
@@ -1898,7 +1949,7 @@ is_deeply ($product_ref->{ingredients},
 	        },
 	        {
 	          'id' => 'en:raspberry',
-	          'origin' => 'Ruotsi',
+	          'origin' => 'en:sweden',
 	          'rank' => 3,
 	          'text' => 'Vadelma',
 	          'vegan' => 'yes',
@@ -1939,6 +1990,8 @@ $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
 
 is_deeply ($product_ref->{ingredients},
 [
@@ -1947,7 +2000,7 @@ is_deeply ($product_ref->{ingredients},
        'id' => 'en:emulsifier',
        'ingredients' => [
          {
-           'id' => 'en:sunflower-lecithin',
+           'id' => 'en:e322',
            'text' => 'auringonkukkalesitiini'
          }
        ],
@@ -1979,10 +2032,10 @@ is_deeply ($product_ref->{ingredients},
        'vegetarian' => 'yes'
      },
      {
-       'id' => 'en:sunflower-lecithin',
+       'id' => 'en:e322',
        'text' => 'auringonkukkalesitiini',
-       'vegan' => 'yes',
-       'vegetarian' => 'yes'
+       'vegan' => 'maybe',
+       'vegetarian' => 'maybe'
      }
 
 	        ],
@@ -1995,6 +2048,10 @@ $product_ref = {
 };
 
 extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
 
 is ($product_ref->{labels}, "en:gluten-free") or diag explain $product_ref;
 is_deeply ($product_ref->{labels_tags}, ["en:gluten-free"]) or diag explain $product_ref;
@@ -2030,6 +2087,10 @@ $product_ref = {
 };
 
 extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
 
 is ($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
 is_deeply ($product_ref->{labels_tags}, undef) or diag explain $product_ref->{labels_tags};

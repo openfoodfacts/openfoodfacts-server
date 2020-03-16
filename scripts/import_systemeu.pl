@@ -533,7 +533,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							if (($imgid > 0) and ($imgid > $current_max_imgid) and ($imagefield ne 'other')) {
 
 								print STDERR "assigning image $imgid to ${imagefield}_fr\n";
-								eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+								eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 								# $modified++;
 
 							}
@@ -546,7 +546,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 									and (exists $product_ref->{images}{$imagefield . "_fr"})
 									and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid)) {
 									print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
-									eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+									eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 									# $modified++;
 								}
 

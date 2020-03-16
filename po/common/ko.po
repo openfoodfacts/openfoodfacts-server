@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-02 15:03\n"
+"PO-Revision-Date: 2020-03-08 08:41\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -467,19 +467,19 @@ msgstr "공개 프로필의 수정 내역이 저장되었습니다."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "아래의 정보가 공개 프로필에 표시됩니다."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "계정 매개 변수 변경하기"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "계정 매개 변수"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>귀하의 계정 매개 변수가 변경되었습니다.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -520,7 +520,7 @@ msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "포장 코드"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
@@ -528,7 +528,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "포장 코드"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
@@ -564,11 +564,11 @@ msgstr "그 이메일 주소는 다른 사용자가 사용하는 주소입니다
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "잘못된 주소입니다."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "이메일 주소 오류"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
@@ -670,7 +670,7 @@ msgstr "운영 규정"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -886,7 +886,7 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(원본 이미지)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
@@ -1573,15 +1573,15 @@ msgstr ""
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "PNNS 그룹 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "PNNS 그룹 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "PNNS 그룹 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
@@ -1953,11 +1953,11 @@ msgstr "다운로드 결과"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "결과값을 XLSX 또는 CSV 형식으로 다운로드합니다. 성능상의 이유로 최대 10,000개의 결과값만 다운로드 할 수 있습니다."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "XLSX 형식"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
@@ -1965,7 +1965,7 @@ msgstr ""
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "CSV 형식"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
@@ -1977,11 +1977,11 @@ msgstr ""
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr ""
+msgstr "그래프 생성하기"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "지도 생성하기"
 
 msgctxt "search_graph"
 msgid "Graph"
@@ -3701,8 +3701,8 @@ msgctxt "file_received"
 msgid "File received"
 msgstr ""
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_is_beverage"
@@ -4044,5 +4044,13 @@ msgstr ""
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
+msgstr ""
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr ""
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
 msgstr ""
 

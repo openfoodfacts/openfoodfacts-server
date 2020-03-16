@@ -344,4 +344,80 @@ my $expected_product_ref =
 
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
+
+$product_ref = {
+	nutriments => { "sugars" => 4},
+	nutrition_data_per => "serving",
+	quantity => "100 g",
+	serving_size => "25 g",
+};
+
+compute_serving_size_data($product_ref);
+
+my $expected_product_ref =
+
+ {
+   'nutriments' => {
+     'sugars' => 4,
+     'sugars_100g' => 16,
+     'sugars_serving' => 4
+   },
+   'nutrition_data' => 'on',
+   'nutrition_data_per' => 'serving',
+   'nutrition_data_prepared_per' => '100g',
+   'product_quantity' => 100,
+   'quantity' => '100 g',
+   'serving_quantity' => 25,
+   'serving_size' => '25 g'
+  }
+
+ ;
+
+is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+
+
+$product_ref = {
+	nutriments => { "energy-kcal_prepared" => 58, "energy-kcal_prepared_value" => 58, "salt_prepared" => 10, "salt_prepared_value" => 10 },
+	nutrition_data_prepared_per => "serving",
+	quantity => "100 g",
+	serving_size => "25 g",
+};
+
+compute_serving_size_data($product_ref);
+
+my $expected_product_ref =
+ {
+   'nutriments' => {
+     'energy-kcal_prepared' => 58,
+     'energy-kcal_prepared_100g' => 232,
+     'energy-kcal_prepared_serving' => 58,
+     'energy-kcal_prepared_unit' => 'kcal',
+     'energy-kcal_prepared_value' => 58,
+     'energy_prepared' => 243,
+     'energy_prepared_100g' => 972,
+     'energy_prepared_serving' => 243,
+     'energy_prepared_unit' => 'kcal',
+     'energy_prepared_value' => 58,
+     'salt_prepared' => 10,
+     'salt_prepared_100g' => 40,
+     'salt_prepared_serving' => 10,
+     'salt_prepared_value' => 10
+   },
+   'nutrition_data_per' => '100g',
+   'nutrition_data_prepared' => 'on',
+   'nutrition_data_prepared_per' => 'serving',
+   'product_quantity' => 100,
+   'quantity' => '100 g',
+   'serving_quantity' => 25,
+   'serving_size' => '25 g'
+ }
+
+;
+
+is(default_unit_for_nid("sugars"), "g");
+is(default_unit_for_nid("energy-kj"), "kJ");
+is(default_unit_for_nid("energy-kcal_prepared"), "kcal");
+
+is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+
 done_testing();

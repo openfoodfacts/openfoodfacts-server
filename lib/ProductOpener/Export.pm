@@ -245,15 +245,15 @@ sub export_csv($) {
 						$nid =~ s/^(-|!)+//g;
 						$nid =~ s/-$//g;
 
-						# Order of the fields: sugars_value, sugars_prepared_value, sugars_unit
+						# Order of the fields: sugars_value, sugars_unit, sugars_prepared_value, sugars_prepared_unit
 
 						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and ($product_ref->{nutriments}{$nid . "_value"} ne "")) {
 							$populated_fields{$nid . "_value"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_1";
-							$populated_fields{$nid . "_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_3";
+							$populated_fields{$nid . "_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_2";
 						}
 						if ((defined $product_ref->{nutriments}{$nid . "_prepared_value"}) and ($product_ref->{nutriments}{$nid . "_prepared_value"} ne "")) {
-							$populated_fields{$nid . "_prepared_value"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_2";
-							$populated_fields{$nid . "_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_3";
+							$populated_fields{$nid . "_prepared_value"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_3";
+							$populated_fields{$nid . "_prepared_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_4";
 						}
 					}
 				}
@@ -270,7 +270,7 @@ sub export_csv($) {
 									$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
 									$populated_fields{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
 									# Also export the crop coordinates
-									foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic)) {
+									foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
 										if ((defined $product_ref->{images}{$imageid}{$coord})
 											and ($product_ref->{images}{$imageid}{$coord} != -1)	# -1 is passed when the image is not cropped
 											) {
@@ -366,7 +366,7 @@ sub export_csv($) {
 
 			my $value;
 
-			foreach my $suffix ("_prepared_value", "_value", "_unit") {
+			foreach my $suffix ("_value", "_unit", "_prepared_value", "_prepared_unit") {
 				if ($field =~ /$suffix$/) {
 					my $nid = $`;
 					if (defined $product_ref->{nutriments}) {
@@ -398,7 +398,7 @@ sub export_csv($) {
 						$value = "$www_root/images/products/" . $product_path . "/" . $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
 					}
 				}
-				elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic)/) {
+				elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/) {
 					# Coordinates for image cropping
 					my $imagefield = $1;
 					my $coord = $2;

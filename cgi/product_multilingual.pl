@@ -508,7 +508,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
 		(defined $valuep) and normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 
-		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep }) if $log->is_debug();
+		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep, unit => $unit }) if $log->is_debug();
 
 		# New label?
 		my $new_nid = undef;
@@ -732,7 +732,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 
 	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
 <link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
 
@@ -740,7 +740,7 @@ HTML
 ;
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
+<script type="text/javascript" src="/js/dist/cropper.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/dist/tagify.js"></script>
@@ -798,8 +798,9 @@ legend { font-size: 1.375em; margin-top:2rem; }
 
 textarea {  height:8rem; }
 
-.cropbox, .display { float:left; margin-top:10px;margin-bottom:10px; max-width:400px; }
-.cropbox { margin-right: 20px; }
+
+.display { float:right; margin-top:10px;margin-bottom:10px; max-width:400px; }
+.cropbox { max-width:100%; }
 
 .upload_image_div {
 	padding-top:0.5rem;
@@ -1341,8 +1342,10 @@ HTML
 					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
 					not defined $value and $value = "";
 					my $id = "ingredients_text_" . ${display_lc};
+					my $ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
 
 					$html_content_tab .= <<HTML
+<div id="$ingredients_image_full_id"></div>
 <label for="$id">$Lang{ingredients_text}{$lang}</label>
 <textarea id="$id" name="$id" lang="${display_lc}">$value</textarea>
 <p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>

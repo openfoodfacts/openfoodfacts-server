@@ -52,6 +52,7 @@ my @assign_quantity_tests = (
 
 	["Champagne brut 35,5 CL", "Champagne brut", "35,5 CL"],
 	["NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO 2X125G", "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", "2 X 125 G"],
+	["Barres de Céréales (8+4) x 25g", "Barres de Céréales (8+4) x 25g", undef],
 );
 
 foreach my $test_ref (@assign_quantity_tests) {
