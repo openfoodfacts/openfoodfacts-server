@@ -538,7 +538,7 @@ sub analyze_request($)
 
 	# first check and set parameters in the query string
 
-	foreach my $parameter ('api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'translate', 'stats', 'status', 'missing_property') {
+	foreach my $parameter ('api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
@@ -1567,6 +1567,7 @@ sub display_list_of_tags($$) {
 		$log->debug("going through all tags", {}) if $log->is_debug();
 
 		my $i = 0;
+		my $j = 0;
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
 
@@ -1675,6 +1676,13 @@ sub display_list_of_tags($$) {
 						next;
 					}
 				}
+			}
+
+			$j++;
+
+			# allow limiting the number of results returned
+			if ((defined $request_ref->{limit}) and ($j >= $request_ref->{limit})) {
+				last;
 			}
 
 			# do not compute the tag display if we just need stats
