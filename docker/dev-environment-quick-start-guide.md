@@ -112,3 +112,4 @@ Also, you need to add a `cookie_domain` to the `%server_options` the same file, 
         cookie_domain => 'productopener.localhost'
 );
 ```
+Once you are done building your environment, go to http://localhost:8080/

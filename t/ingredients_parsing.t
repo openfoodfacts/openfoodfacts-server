@@ -159,6 +159,7 @@ my @lists =(
 
 	["fr","Céréales 63,7% (BLE complet 50,5%*, semoule de maïs*), sucre*, sirop de BLE*, cacao maigre en poudre 3,9%*, cacao en poudre 1,7%*, sel, arôme naturel. *Ingrédients issus de l'agriculture biologique.","Céréales 63,7% (BLE complet 50,5% Bio, semoule de maïs Bio ), sucre Bio, sirop de BLE Bio, cacao maigre en poudre 3,9% Bio, cacao en poudre 1,7% Bio, sel, arôme naturel."],
 
+	["fr","émulsifiant : mono - et diglycérides d'acides gras.","émulsifiant : mono- et diglycérides d'acides gras."],
 );
 
 foreach my $test_ref (@lists) {
