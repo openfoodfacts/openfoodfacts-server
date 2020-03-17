@@ -84,6 +84,7 @@ BEGIN
 
 					&display_ingredient_analysis
 					&display_ingredients_analysis_details
+					&display_ingredients_analysis
 
 					@search_series
 
@@ -7564,90 +7565,7 @@ JS
 
 	$html .= display_field($product_ref, 'traces');
 
-	# Ingredient analysis
-
-	if (defined $product_ref->{ingredients_analysis_tags}) {
-
-		my $html_analysis = "";
-
-		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
-
-			my $color;
-			my $icon = "";
-
-			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
-
-			if ($ingredients_analysis_tag =~ /palm/) {
-
-				if (has_tag($product_ref, "labels", "en:palm-oil-free")
-					or ($ingredients_analysis_tag =~ /-free$/)) {
-					$ingredients_analysis_tag = "en:palm-oil-free";
-					$color = 'green';
-					$icon = "monkey_happy";
-				}
-				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
-					$color = 'orange';
-					$icon = "monkey_uncertain";
-				}
-				else {
-					$color = 'red';
-					$icon = "monkey_unhappy";
-				}
-
-			}
-			else {
-
-				if ($ingredients_analysis_tag =~ /vegan/) {
-					$icon = "leaf";
-					if (has_tag($product_ref, "labels", "en:vegan")) {
-						$ingredients_analysis_tag = "en:vegan";
-					}
-					elsif (has_tag($product_ref, "labels", "en:non-vegan")
-						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
-						$ingredients_analysis_tag = "en:non-vegan";
-					}
-				}
-				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
-					$icon = "egg";
-					if (has_tag($product_ref, "labels", "en:vegetarian")
-						or has_tag($product_ref, "labels", "en:vegan")) {
-						$ingredients_analysis_tag = "en:vegetarian";
-					}
-					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
-						$ingredients_analysis_tag = "en:non-vegetarian";
-					}
-				}
-
-				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = 'red';
-				}
-				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
-					$color = 'orange';
-				}
-				else {
-					$color = 'green';
-				}
-			}
-
-			# Skip unknown
-			next if $ingredients_analysis_tag =~ /unknown/;
-
-			if ($icon ne "") {
-				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
-			}
-
-			$html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
-			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
-			. "</span> ";
-		}
-
-		if ($html_analysis ne "") {
-
-			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
-			. $html_analysis
-			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
-		}
-	}
+	$html .= display_ingredients_analysis($product_ref);
 
 	if (defined $User_id) {
 		$html .= display_ingredients_analysis_details($product_ref);
@@ -10348,8 +10266,8 @@ sub display_ingredients_analysis_details($) {
 
 	display_ingredient_analysis($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
 
-	my $html = '<p><a data-dropdown="ngredient_analysis_drop" aria-controls="ngredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a><p>"
-	. '<div id="ngredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
+	my $html = '<p><a data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a><p>"
+	. '<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
 
 	if ($ingredients_text =~ /unknown_ingredient/) {
 
@@ -10367,6 +10285,107 @@ CSS
 	$html .= $ingredients_list;
 
 	$html .= "</div>";
+
+	return $html;
+}
+
+
+=head2 display_ingredients_analysis ( $product_ref )
+
+Generates HTML code with icons that show if the product is vegetarian, vegan and without palm oil.
+
+=cut
+
+sub display_ingredients_analysis($) {
+
+	my $product_ref = shift;
+
+	# Ingredient analysis
+
+	my $html = "";
+
+	if (defined $product_ref->{ingredients_analysis_tags}) {
+
+		my $html_analysis = "";
+
+		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
+
+			my $color;
+			my $icon = "";
+
+			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
+
+			if ($ingredients_analysis_tag =~ /palm/) {
+
+				if (has_tag($product_ref, "labels", "en:palm-oil-free")
+					or ($ingredients_analysis_tag =~ /-free$/)) {
+					$ingredients_analysis_tag = "en:palm-oil-free";
+					$color = 'green';
+					$icon = "monkey_happy";
+				}
+				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
+					$color = 'orange';
+					$icon = "monkey_uncertain";
+				}
+				else {
+					$color = 'red';
+					$icon = "monkey_unhappy";
+				}
+
+			}
+			else {
+
+				if ($ingredients_analysis_tag =~ /vegan/) {
+					$icon = "leaf";
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegan";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegan")
+						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegan";
+					}
+				}
+				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
+					$icon = "egg";
+					if (has_tag($product_ref, "labels", "en:vegetarian")
+						or has_tag($product_ref, "labels", "en:vegan")) {
+						$ingredients_analysis_tag = "en:vegetarian";
+					}
+					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
+						$ingredients_analysis_tag = "en:non-vegetarian";
+					}
+				}
+
+				if ($ingredients_analysis_tag =~ /^en:non-/) {
+					$color = 'red';
+				}
+				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
+					$color = 'orange';
+				}
+				else {
+					$color = 'green';
+				}
+			}
+
+			# Skip unknown
+			next if $ingredients_analysis_tag =~ /unknown/;
+
+			if ($icon ne "") {
+				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
+			}
+
+			$html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
+			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
+			. "</span> ";
+		}
+
+		if ($html_analysis ne "") {
+
+			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
+			. $html_analysis
+			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
+		}
+	}
 
 	return $html;
 }
