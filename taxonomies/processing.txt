@@ -1,0 +1,342 @@
+# This taxonomy lists prefixes and suffixes that:
+# 1. are often found in ingredients lists before or after an ingredient
+# 2. indicate some kind of processing done to the ingredient (like "cut", "dried" etc.)
+# 3. are not labels that specify the quality of the ingredient ("organic", "origin Italy", "superior quality")
+#
+# The taxonomy is used for ingredient analysis:
+# The ingredient "cooked pork" will be recognized as "pork" with the processing "en:cooked".
+# This works only if "cooked pork" is not a known ingredient in the ingredients taxonomy,
+# and if "pork" is a known ingredient.
+
+# be careful: raw in English can mean "unrefined" as in "raw cane sugar"
+# or uncooked "raw fish"
+# unrefined ingredients like "raw sugar", "raw milk", "raw honey" etc.
+# need to be kept in the taxonomy.
+# Same for things like "jambon cru", "lait cru" in French.
+
+
+# en:description:Raw foodism, also known as rawism or following a raw food diet, is the dietary practice of eating only or mostly food that is uncooked and unprocessed. 
+
+en:raw
+fr:cru,crue,crus,crues
+nl:rauw
+wikipedia:en:https://en.wikipedia.org/wiki/Raw_foodism
+
+en:cooked
+fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
+it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
+
+en:pre-cooked
+fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
+it:precotto, precotta, precotti, precotte
+
+en:fried
+fr:frit, frite, frits, frites
+it:fritto, fritta, fritti, fritte
+
+en:pre-fried
+fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
+
+en:roasted
+fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
+
+en:toasted
+fr:toasté, toastée, toastés, toastées
+
+en:grilled
+fr:grillé, grillée, grillés, grillées
+it:grigliato, grigliata, grigliati, grigliate
+
+en:cured
+fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
+
+en:whole
+fr:entier, entière, entiers, entières
+it:intero, intera, interi, intere
+
+en:cut
+fr:coupé, coupée, coupés, coupées, émincé, émincée, émincés, émincées, émincé de, en morceaux, morceaux de, morceaux d', en éclats, éclats de, éclats d', en copeaux, copeaux de, copeaux d'
+it:tagliato, tagliata, tagliati, tagliate
+
+en:peeled
+fr:pelé, pelée, pelés, pelées
+
+
+
+en:chopped
+fr:hâché, hâchée, hâchés, hâchées
+
+en:sliced
+fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
+
+en:diced
+fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
+
+en:pureed
+fr:en purée, purée de, purée d'
+
+en:grated
+fr:râpé, râpée, râpés, râpées
+
+
+en:shelled
+fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
+
+en:pitted
+fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
+
+en:dried
+fr:séché, séchée, séchés, séchées
+it:secco, secca, secchi, secche
+
+en:dehydrated
+fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
+it:disidratato, disidratata, disidratati, disidratate
+
+en:rehydrated
+fr:réhydraté, réhydratée, réhydratés, réhydratées
+
+en:reconstituted
+fr:reconstitué, reconstituée, reconstitués, reconstituées
+
+en:frozen
+fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
+
+en:unfrozen
+fr:décongelé, décongelée, décongelés, décongelées
+
+en:pasteurised
+fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
+
+en:granulated
+fr:en granules, granules de, granules d'
+
+en:concentrated
+fr:concentré, concentrée, concentrés, concentrées, concentré de
+
+en:from-concentrate
+fr:à base de concentré, à partir de concentré
+
+en:marinated
+fr:mariné, marinée, marinés, marinées# Processing taxonomy
+# This taxonomy lists the possible processing of ingredients that can be found on ingredient lists.
+#
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                      S I Z I N G     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# The size section contains all processes where the size of the product is changed
+
+en:description:FLOUR is a powder made by grinding raw grains or roots and used to make many different foods.
+en:comment:This is the result of processing and is thus used as a noun, i.e. en:corn flower, fr:farine de blé, nl:tarwemeel.
+
+en:flour
+af:meel
+ak:Esam
+ar:طحين
+ay:Aku
+az:un
+ba:он
+be:мука
+bg:брашно
+bm:farinimugu
+bn:আটা
+br:bleud
+ca:farina
+co:farina
+cs:mouka
+cv:çăнăх
+cy:blawd
+da:mel
+de:Mehl
+el:αλεύρι
+eo:faruno
+es:harina
+et:jahu
+eu:irin
+fa:آرد
+fi:jauho
+fo:mjøl
+fr:farine, farines
+fy:moal
+ga:plúr
+gl:fariña
+gu:આટો
+he:קמח
+hi:आटा
+hr:brašno
+ht:farin
+hu:liszt
+hy:ալյուր
+id:tepung
+ik:Palauvak
+io:farino
+is:mjöl
+it:farina
+iu:ᐸᓚᐅᒑᖅ
+ja:穀粉
+jv:glepung
+ka:ფქვილი
+kk:ұн
+km:ម្សៅ
+kn:ಹಿಟ್ಟು
+ko:밀가루
+ku:ar
+ky:ун
+la:Farina
+lb:Miel
+li:mael
+ln:falíni
+lo:ແປ້ງ
+lt:miltai
+lv:milti
+mg:koba
+mk:брашно
+ml:മാവു
+mn:гурил
+mr:पीठ
+ms:tepung
+mt:dqiq
+my:မှုန့်
+nb:mel
+ne:पिठो
+nl:meel
+nn:mjøl
+nv:Akʼáán
+oc:farina
+or:ଅଟା
+os:Ссад
+pa:ਆਟਾ
+pl:mąka
+pt:farinha
+qu:Hak'u
+rm:farina
+ro:făină
+ru:мука
+rw:fu
+si:පිටි
+sk:múka
+sl:moka
+so:Bur
+sq:mielli
+sr:брашно
+sv:mjöl
+sw:unga
+ta:மாவு
+te:పిండి
+tg:орд
+th:แป้งประกอบอาหาร
+tk:un
+tl:arina
+tr:un
+tt:он
+ug:ئۇن
+uk:борошно
+ur:آٹا
+uz:Un
+vi:bột
+wa:farene
+wo:sunguf
+yi:מעל
+zh:麵粉
+# arc:ܩܡܚܐ
+# ast:fariña
+# azb:اون
+# bar:Mej
+# bho:आटा
+# bjn:Galapung
+# chr:ᎤᏣᎴᏍᏓ
+# dsb:muka
+# fur:farine
+# gla:flùr
+# gsw:Mehl
+# hsb:muka
+# inh:Хьоар
+# kab:An
+# lez:Гъуьр
+# Lombard:farina
+# mdf:Почф
+# nah:Yōltextli
+# nds:mael
+# pap:ariña
+# lah:آٹا
+# rup:Fârinâ
+# sah:Бурдук
+# scn:farina
+# sco:floor
+# sgs:Miltā
+# srn:bron
+# vec:farina
+# vep:Jauh
+# war:harina
+wikidata:en:Q36465
+wikipedia:en:https://en.wikipedia.org/wiki/Flour
+
+en:definition:Grind - to reduce to smaller pieces by crushing with lateral motion.
+en:comment:the size is unspecified.
+
+en:ground
+de:gemahlen, gemahlener, gemahlene
+es:molida, molido
+fr:moulu, moulue, moulus, moulues
+it:macinato, macinate
+nl:gemalen
+
+en:crushed
+fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
+
+en:definition:A powder is a dry, bulk solid composed of many very fine particles that may flow freely when shaken or tilted. 
+
+en:powdered, powder
+ar:مسحوق
+be:парашок
+bg:на прах
+bn:গুড়া
+bs:u prahu
+ca:en pols
+cs:sušená, sušené, sušený, prášek
+cy:powdwr
+da:pulver
+de:pulver
+el:σε σκόνη, σκόνη
+eo:pulvorigita, pulvoro
+es:en polvo, polvo de
+et:pulber
+fa:پودر
+fr:en poudre, poudre de, poudre d'
+he:אבקה
+hi:चूर्ण
+hr:u prahu
+hu:por, porított
+id:padat, Bubuk
+io:Polvo
+is:Duft
+it:in polvere, polvere di, polvere d'
+fi:jauhe, -jauhe, jauhetut, jauhettu
+ja:粉
+ko:가루
+lt:milteliai
+lv:pulveris
+mk:прав
+ms:bawang, Pepejal
+nb:pulver
+nl:poeder, poeders, in poedervorm
+nn:pulverisert, pulver
+pl:w proszku, Proszek
+pt:em pó, pó de
+ro:praf, praf de, pudră, pudra, pudră de
+ru:сухое, порошок
+sk:sušená, sušené
+sl:v prahu
+sr:прах
+sv:pulver
+tr:tozu, Pudra
+uk:порошок
+zh:粉末
+# wuu:粉
+# nds-nl:pouder
+wikidata:en:Q2908004
+wikipedia:en:https://en.wikipedia.org/wiki/Powder
