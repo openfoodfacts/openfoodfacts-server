@@ -734,7 +734,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
 
 HTML
 ;
@@ -751,7 +751,7 @@ HTML
 <script type="text/javascript">
 var admin = $moderator;
 </script>
-<script type="text/javascript" src="/js/dist/product-multilingual.js"></script>
+<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
 

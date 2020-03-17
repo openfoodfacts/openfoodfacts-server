@@ -60,7 +60,9 @@ textarea {  height:8rem; }
 
 .display { float:right; margin-top:10px;margin-bottom:10px; max-width:400px; }
 .cropbox { max-width:100%; }
+.cropimgdiv { width:100%; max-height:800px;}
 .ingredients_image_full { max-height:400px }
+
 
 .upload_image_div {
 	padding-top:0.5rem;
@@ -76,8 +78,8 @@ th {
 	font-weight:bold;
 }
 
-// add borders to Foundation 5 tabs
-// \@media only screen and (min-width: 40.063em) {  /* min-width 641px, medium screens */
+/* add borders to Foundation 5 tabs */
+/* \@media only screen and (min-width: 40.063em) {  /* min-width 641px, medium screens */
   ul.tabs {
      > li > a {
        border-width: 1px;
@@ -97,9 +99,9 @@ th {
     }
     margin: -1px 0 .9375rem 0;
   }
-//}
+/* //}
 
-// if tabs container has a background color
+/* if tabs container has a background color */
 .tabs-content { background-color: #fff; }
 
 .contained {
