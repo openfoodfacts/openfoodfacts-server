@@ -78,32 +78,6 @@ th {
 	font-weight:bold;
 }
 
-/* add borders to Foundation 5 tabs */
-/* \@media only screen and (min-width: 40.063em) {  /* min-width 641px, medium screens */
-  ul.tabs {
-     > li > a {
-       border-width: 1px;
-       border-style: solid;
-       border-color: #ccc #ccc #fff;
-       margin-right: -1px;
-     }
-     > li:not(.active) > a {
-       border-bottom: solid 1px #ccc;
-     }
-   }
-  .tabs-content {
-    border: 1px solid #ccc;
-    .content {
-      padding: .9375rem;
-      margin-top: 0;
-    }
-    margin: -1px 0 .9375rem 0;
-  }
-/* //}
-
-/* if tabs container has a background color */
-.tabs-content { background-color: #fff; }
-
 .contained {
 	border:1px solid #ccc;
 	padding:1rem;
