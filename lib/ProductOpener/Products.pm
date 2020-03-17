@@ -961,7 +961,14 @@ sub compute_completeness_and_missing_tags($$$) {
 	my $lc = $product_ref->{lc};
 	if (not defined $lc) {
 		# Try lang field
-		$lc = $product_ref->{lang};
+		if (defined $product_ref->{lang}) {
+			$lc = $product_ref->{lang};
+		}
+		else {
+			$lc = "en";
+			$product_ref->{lang} = "en";
+		}
+		$product_ref->{lc} = $lc;
 	}
 
 	# Compute completeness and missing tags

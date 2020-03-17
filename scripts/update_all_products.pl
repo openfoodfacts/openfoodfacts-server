@@ -511,7 +511,7 @@ while (my $product_ref = $cursor->next) {
 						eval {
 
 							# process_image_crops saves a new version of the product
-							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1);
+							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1, "full");
 						};
 						$User_id = $User_id_copy;
 					}

@@ -2818,7 +2818,7 @@ lv:Taukskābju mono- un diglicerīdi
 mt:Mono- u digliċeridi tal-aċidi grassi
 nl:mono- en diglyceriden van vetzuren
 nn:mono- och diglycerider av fettsyror
-pl:mono i diglicerydy kwasów tłuszczowych
+pl:mono- i diglicerydy kwasów tłuszczowych, mono i diglicerydy kwasów tłuszczowych
 pt:mono e diglicéridos de ácidos gordos
 ro:mono sindigliceride ale acizilor grași
 ru:Моно- и диглицериды жирных кислот
@@ -6895,7 +6895,7 @@ he:אנזים הגבנה
 hr:Sirište
 hu:Oltóenzim, oltóanyag
 id:Rennet
-it:gaglio, caglio
+it:caglio
 ja:レンネット
 ko:레닛
 la:Coagulum
@@ -6939,6 +6939,7 @@ es:cuajo animal
 fi:eläinperäinen juoksute
 fr:présure animale
 hu:állati eredetű oltóenzim
+it:caglio animale
 nb:animalsk løpe
 nl:dierlijk stremsel
 nn:animalsk løpe
@@ -13331,7 +13332,7 @@ nv:Áshįįh
 oc:Sal alimentària
 or:ଲୁଣ
 pa:ਲੂਣ
-pl:Sól kuchenna
+pl:sól, sól kuchenna
 ps:مالگه
 pt:Sal de cozinha, sal de cosina, sal de taula
 ro:sare, Sare de bucătărie
@@ -15142,7 +15143,7 @@ lv:Modificēta ciete
 mt:Lamtu mmodifikat
 nb:modifisert stivelse
 nl:gemodificeerd zetmeel, Gemodificeerde zetmelen
-pl:modyfikowana skrobia, Skrobia modyfikowana
+pl:modyfikowana skrobia, skrobia modyfikowana
 pt:amido modificado
 ro:amidon modificat
 sk:Modifikovaný škrob
@@ -16278,6 +16279,7 @@ fr:graisse de palme, graisse végétale de palme, matière grasse de palme, mati
 hu:pálmazsír
 it:grasso di palma, grasso vegetale di palma
 nl:palmvet
+pl:tłuszcz palmowy
 pt:gordura de palma, gordura vegetal de palma
 se:palmina mast
 sv:palmfett
@@ -17826,6 +17828,7 @@ fi:väkiviinaetikka
 fr:vinaigre d’alcool
 hu:alkoholecet
 nl:alcoholazijn
+pl:ocet spirytusowy
 pt:vinagre de álcool
 sv:ättiksprit
 
@@ -19456,6 +19459,7 @@ hu:Campari
 nl:Campari
 
 <en:alcohol
+en:cider
 fr:cidre
 
 <en:alcohol
@@ -19589,7 +19593,7 @@ it:aroma, aromi
 lt:kvapioji medžiaga
 lv:aromatizētājs
 nl:aroma, aroma's
-pl:aromat
+pl:aromat, aromaty
 pt:aromatizante
 ro:aromă, aroma, arome
 ru:ароматизатор
@@ -23458,7 +23462,7 @@ sr:sojino brašno
 
 <en:flour
 <en:corn
-en:corn flour, maize flour
+en:corn flour, maize flour, cornflour
 da:majsmel
 de:Maismehl
 el:αλεύρι καλαμποκιού
@@ -25000,7 +25004,7 @@ nv:Áshįįh łikan
 oc:Sucre
 or:ଚିନି
 pa:ਸ਼ੱਕਰ
-pl:Cukier spożywczy
+pl:cukier, cukier spożywczy
 ps:بوره
 pt:Açúcar
 qu:Asukar
@@ -25140,7 +25144,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
 <en:sugar
 en:caramelised sugar
-de:Karamellzucker
+de:Karamellzucker, karamellisierter Zucker
 es:azúcar caramelizado
 fi:karamellisokeri
 fr:sucre brun, sucre caramel, sucre caramélisé
@@ -34159,6 +34163,8 @@ nl:bosbessenpuree, bosbessenmoes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-myrtilles
 # 105 products @2018-10-01
 
+<en:blueberry puree
+de:Heidelbeerpüree aus Konzentrat
 
 <en:blueberry
 en:blueberry juice
@@ -34252,6 +34258,19 @@ zh:黑莓
 <en:blackberry
 <en:juice
 fr:jus de mûre à base de jus concentré
+
+# The gooseberry (Ribes uva-crispa) is a fruit of Ribes (which also includes the currants). It is native to Europe, the Caucasus and northern Africa.
+
+<en:fruit
+en:gooseberry, gooseberries
+ee:karusmari
+da:Stikkelsbær
+de:Stachelbeere, Stachelbeeren
+fi:karviainen
+fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
+nl:kruisbes
+no:stikkelsbær
+sv:Krusbär
 
 # description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 
@@ -39380,6 +39399,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bok_choy
 # Brassica oleracea var. sabellica
 # be careful with the translation found on packages.
 
+# RAPINI or BROCCOLI RABE (Brassica rapa subspecies rapa) is a green cruciferous vegetable, with the leaves, buds, and stems all being edible; the buds somewhat resemble broccoli, but do not form a large head.
+
+<en:cabbage
+en:rapini, broccoli rabe
+es:grelos, rapini
+fr:rapini, brocoli-rave
+it:friarielli, broccoletti, broccoli di rapa, cime di rapa, rapini, pulezze
+
 <en:cabbage
 en:kale
 af:Boerkool
@@ -42455,7 +42482,7 @@ bs:Čili
 ca:bitxo
 cs:chilli paprička
 da:Chili
-de:Peperoni, chilischoten, Pfefferoni, Chili
+de:Peperoni, chilischoten, Pfefferoni, Chili, Piment
 el:Τσίλι
 eo:Kapsiketo
 es:guindilla, ají, chile
@@ -43141,6 +43168,7 @@ fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomat
 hu:paradicsompüré, paradicsomszósz
 it:passata di pomodoro, concentrato di pomodoro
 nl:tomatenpurée, tomatenconcentraat
+pl:koncentrat pomidorowy
 sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
@@ -44008,7 +44036,7 @@ fi:mustapapu, mustapavut
 fr:haricots noirs
 
 <en:beans
-en:red beans
+en:red beans, red kidney beans
 de:Rote Bohnen
 es:Alubias rojas
 fr:haricot rouge, haricots rouges
@@ -46073,6 +46101,7 @@ nl:korianderzaad
 # ingredient/fr:graine-de-coriandre has 188 products in 3 languages @2018-10-07
 
 <en:coriander seeds
+en:coriander powder
 fr:coriandre en poudre, coriandre moulue
 fi:korianterijauhe
 nl:korianderpoeder
@@ -46467,7 +46496,7 @@ it:pepe nero
 lt:juodieji piperai
 nl:zwarte peper
 nn:svart pepper
-pl:czamy pieprz
+pl:czamy pieprz, pieprz czarny
 pt:pimenta preta
 ro:piper negru
 sl:cmi poper
@@ -46695,7 +46724,7 @@ fr:sésame complet
 # 35 products in 4 languages @2018-10-05
 
 <en:sesame
-en:sesame paste
+en:sesame paste, sesame seed paste
 de:Sesampaste
 es:pasta de sésamo
 fi:seesamitahna
@@ -48314,6 +48343,7 @@ fr:sariette, sarriette
 de:Bohnenkraut
 it:santoreggia
 nl:bonenkruid
+pl:cząber
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sarriette
 # 258 products in 5 languages @2018-10-10
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sariette
@@ -49041,6 +49071,7 @@ nl:thijm
 nn:timian
 or:ଦଅଣା
 pa:ਅਜਵਾਇਣ
+pl:tymianek
 pt:tomilho
 ru:Тимьян
 sv:timjan
@@ -49448,7 +49479,7 @@ nb:Tesalvie
 nl:salie
 nn:tesalvie
 os:Мыдгæрдæг
-pl:Szałwia lekarska
+pl:szałwia, szałwia lekarska
 ps:مريم گلي
 qu:Q'uwa
 ro:Salvie
@@ -49825,7 +49856,7 @@ be:Лаўровы ліст
 bg:Дафинов лист
 ca:Llorer
 cs:Bobkový list
-de:Lorbeerblatt
+de:Lorbeer, Lorbeerblatt
 es:Hoja de laurel
 fi:Laakerinlehti
 fr:laurier, feuilles de laurier
@@ -50122,7 +50153,7 @@ oc:Coriandre
 or:ଧଣିଆ
 os:Чиндзи
 pa:ਧਨੀਆ
-pl:Kolender
+pl:kolender, kolendra
 pt:Coentro
 qu:Kulantru
 ro:Coriandru
