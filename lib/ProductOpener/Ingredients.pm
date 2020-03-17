@@ -2665,6 +2665,8 @@ sub preparse_ingredients_text($$) {
 	my $product_lc = shift;
 	my $text = shift;
 
+	not defined $text and return;
+
 	# Symbols to indicate labels like organic, fairtrade etc.
 	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
 	my $symbols_regexp = join('|', @symbols);
@@ -3311,6 +3313,9 @@ INFO
 sub extract_ingredients_classes_from_text($) {
 
 	my $product_ref = shift;
+
+	not defined $product_ref->{ingredients_text} and return;
+
 	my $text = preparse_ingredients_text($product_ref->{lc}, $product_ref->{ingredients_text});
 	my $and = $Lang{_and_}{$product_ref->{lc}};
 	$and =~ s/ /-/g;
@@ -3758,7 +3763,7 @@ sub extract_ingredients_classes_from_text($) {
 		}
 
 		# No ingredients?
-		if ($product_ref->{ingredients_text} eq '') {
+		if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} eq '')) {
 			delete $product_ref->{$tagtype . '_n'};
 		}
 		else {
