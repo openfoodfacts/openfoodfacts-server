@@ -2667,6 +2667,8 @@ sub preparse_ingredients_text($$) {
 
 	not defined $text and return;
 
+	$log->debug("preparse_ingredients_text", { text => $text }) if $log->is_debug();
+
 	# Symbols to indicate labels like organic, fairtrade etc.
 	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
 	my $symbols_regexp = join('|', @symbols);
@@ -2773,8 +2775,6 @@ sub preparse_ingredients_text($$) {
 
 	# ! caramel E150d -> caramel - E150d -> e150a - e150d ...
 	$text =~ s/(caramel|caramels)(\W*)e150/e150/ig;
-	# e432 et lécithines -> e432 - et lécithines
-	$text =~ s/ - et / - /ig;
 
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
@@ -2800,9 +2800,9 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/ -(\w)/ - $1/ig;
 
 	# mono-glycéride -> monoglycérides
-	$text =~ s/(mono|di)-([a-z])/$1$2/ig;
-	$text =~ s/\bmono - /mono- /ig;
-	$text =~ s/\bmono /mono- /ig;
+	$text =~ s/\b(mono|di)\s?-\s?([a-z])/$1$2/ig;
+	$text =~ s/\bmono\s-\s/mono- /ig;
+	$text =~ s/\bmono\s/mono- /ig;
 	#  émulsifiant mono-et diglycérides d'acides gras
 	$text =~ s/(monoet )/mono- et /ig;
 
@@ -2813,6 +2813,9 @@ sub preparse_ingredients_text($$) {
 	# !! mono et diglycérides ne doit pas donner mono + diglycérides : keep the whole version too.
 	# $text =~ s/(,|;|:|\)|\(|( - ))(.+?)( et )(.+?)(,|;|:|\)|\(|( - ))/$1$3_et_$5$6 , $1$3 et $5$6/ig;
 
+	# e432 et lécithines -> e432 - et lécithines
+	$text =~ s/ - et / - /ig;
+
 	# print STDERR "additives: $text\n\n";
 
 	#$product_ref->{ingredients_text_debug} = $text;
@@ -2821,6 +2824,7 @@ sub preparse_ingredients_text($$) {
 	# aceite de girasol (70%) y aceite de oliva virgen (30%)
 	$text =~ s/($cbrackets)$and/$1, /ig;
 
+	$log->debug("preparse_ingredients_text - before language specific preparsing", { text => $text }) if $log->is_debug();
 
 	if ($product_lc eq 'fr') {
 
@@ -3304,6 +3308,8 @@ INFO
 	$text =~ s/ (\.|,)( |$)/$1$2/g;
 	$text =~ s/^\s+//;
 	$text =~ s/\s+$//;
+
+	$log->debug("preparse_ingredients_text result", { text => $text }) if $log->is_debug();
 
 	return $text;
 }
