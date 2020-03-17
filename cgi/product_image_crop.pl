@@ -57,6 +57,11 @@ my ($x1,$y1,$x2,$y2) = (param('x1'),param('y1'),param('x2'),param('y2'));
 my $normalize = param('normalize');
 my $white_magic = param('white_magic');
 
+# The new product_multilingual.pl form will set $coordinates_image_size to "full"
+# the current Android app will not send it, and it will send coordinates related to the ".400" image
+# that has a max width and height of 400 pixels
+my $coordinates_image_size = param('coordinates_image_size') || $crop_size;
+
 $log->debug("start", { code => $code, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2 }) if $log->is_debug();
 
 if (not defined $code) {
@@ -79,11 +84,11 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 
 	# 2019/08/28: accept images if there is already an image selected for the language
 	if ((defined $product_ref) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$imgid})) {
-		$product_ref = process_image_crop($product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, 'full');
+		$product_ref = process_image_crop($product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 	}
 }
 else {
-	$product_ref = process_image_crop($product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, 'full');
+	$product_ref = process_image_crop($product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 }
 
 my $data =  encode_json({ status => 'status ok',
