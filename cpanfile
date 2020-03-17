@@ -52,6 +52,7 @@ requires 'File::Copy::Recursive';
 requires 'Spreadsheet::CSV';
 requires 'List::MoreUtils';
 requires 'Excel::Writer::XLSX';
+requires 'Pod::Simple::HTMLBatch';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
