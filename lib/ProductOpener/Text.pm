@@ -146,11 +146,11 @@ sub _get_locale_percent_regex {
 	# [+-]?(?:\d{3}\.)*\d+(?:,\d+)*\h*% where . is the group sign from the locale, and , is the decimal point - or other way around for tr etc.
 	my $regex;
 	if (index($perf->pattern, $perf->percent_sign) == 0) {
-		$regex = qr/(%\h*[$p$m]?(?:\d{3}$g)*\d+(?:$d\d+)*)/;
-	}
-	else {
-		$regex = qr/([$p$m]?(?:\d{3}$g)*\d+(?:$d\d+)*\h*%)/;
-	}
+		$regex = qr/(%\h*[$p$m]?(?:\d{1,3}$g)*\d+(?:($d|\.)\d+)*)/;
+    }
+    else {
+        $regex = qr/([$p$m]?(?:\d{1,3}$g)*\d+(?:($d|\.)\d+)*\h*%)/;
+    }
 
 	$ProductOpener::Text::regexes{$locale} = $regex;
 	return $regex;
@@ -168,9 +168,19 @@ sub _format_percentage($$$) {
 	# 1 make the string float parseable by Perl
 	# 1.1 remove % and group sign
 	$value =~ tr/%//d;
-	$value =~ s/$g//g;
-	# 1.2 replace decimal sign with a decimal dot
-	$value =~ s/$d/\./g;
+	# if the last group sign is not followed by 3 digits,
+    # assume it is in fact a decimal sign.
+    # e.g. in French 2,50 is the right form, but 2.50 is very common.
+    if ($value !~ /$g(\d{1,2}|\d{4,10})$/) {
+        $value =~ s/$g//g;
+    }
+    else {
+        $value =~ s/$g/\./;
+    }
+	# 1.2 remove nbsp
+	$value =~ tr/[\x{a0}]//d;
+	# 1.3 replace decimal sign with a decimal dot
+	$value =~ s/($d|,)/\./g;
 	# 2 make percent
 	$value = $value / 100.0;
 	# 3 format with given locale and return
