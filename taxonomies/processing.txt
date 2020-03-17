@@ -63,8 +63,6 @@ fr:pelé, pelée, pelés, pelées
 
 
 
-en:chopped
-fr:hâché, hâchée, hâchés, hâchées
 
 en:sliced
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
@@ -276,17 +274,45 @@ wikidata:en:Q36465
 wikipedia:en:https://en.wikipedia.org/wiki/Flour
 
 en:definition:Grind - to reduce to smaller pieces by crushing with lateral motion.
-en:comment:the size is unspecified.
+en:comment:this definition is the process not the result. The result can be en:powder. For dry ingredients.
 
-en:ground
+en:ground, milled
 de:gemahlen, gemahlener, gemahlene
-es:molida, molido
+es:molida, molido, molidos, molidas
+fi:jauhetut, jauhettu
 fr:moulu, moulue, moulus, moulues
+hu:őrölt
 it:macinato, macinate
 nl:gemalen
+pt:moídos, moído
+
+en:comment:how is fr:broyé, different from fr:moulu. There are no clear translations.
+
+fr:broyé, broyée, broyés, broyées
+
+en:description:To cut into pieces with short, vigorous cutting motions.
+en:comment:is valid for dry and wet ingredients. Is a process.
+
+en:chopped
+de:gehackte, zerkleinerte, hack
+el:ψιλοκαμμένη
+es:en trozos
+fi:pilkottu, pilkotut
+fr:hâché, hâchée, hâchés, hâchées
+hu:szeletelt
+it:tritate
+nl:gehakte
+pl:krojane
+sk:krájané
+en:usage:it:nocciole tritate
+en:wiktionary:chop
+
+en:description:To press between two hard objects; to squeeze so as to alter the natural shape or integrity of it, or to force together into a mass.
+en:comment:Is crushed smaller than chopped?
 
 en:crushed
-fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
+fr:concassé, concassée, concassés, concassées
+# en:usage:en:crushed tomato
 
 en:definition:A powder is a dry, bulk solid composed of many very fine particles that may flow freely when shaken or tilted. 
 
@@ -306,6 +332,7 @@ eo:pulvorigita, pulvoro
 es:en polvo, polvo de
 et:pulber
 fa:پودر
+fi:jauhe
 fr:en poudre, poudre de, poudre d'
 he:אבקה
 hi:चूर्ण

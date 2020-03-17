@@ -35960,7 +35960,7 @@ wikidata:en:Q1382423
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-de-corinthe
 # 57 products in 3 languages @2018-10-02
 
-# Grape juice is obtained from crushing and blending grapes into a liquid.
+en:description:Grape juice is obtained from crushing and blending grapes into a liquid.
 
 <en:grape
 <en:fruit juice
@@ -36060,8 +36060,7 @@ pt:sumo de uva tinta à base de concentrado
 <en:raspberry juice
 fi:rypäle- ja vadelmatäysmehu tiivisteestä
 
-
-# description:en:Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
+en:description:Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
 
 en:must
 az:Must
@@ -42936,7 +42935,6 @@ nl:tomatenblokjes in tomatensap van biologische oorsprong
 <en:chopped tomatoes
 en:crushed tomato
 de:stückige Tomaten, Tomaten stückig
-es:Puré de tomate
 fi:tomaattimurska
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:tomaattimurska
 # 1 entry @ 2019-10-31
@@ -42972,6 +42970,7 @@ carbon_footprint_fr_foodges_value:fr:1.4
 <en:tomato
 fr:coulis de tomates, coulis de tomate
 de:Passierte Tomaten
+es:Puré de tomate
 it:passata di pomodoro
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
@@ -42981,7 +42980,7 @@ carbon_footprint_fr_foodges_value:fr:2.9
 en:tomato purée, tomato paste, tomato concentrate
 ca:Llet en pols
 de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat, Tomatenpüree
-es:concentrado de tomate
+es:concentrado de tomate,
 fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 hu:paradicsompüré, paradicsomszósz
@@ -52221,7 +52220,6 @@ fi:vaniljajauhe
 fr:vanille en poudre, poudre de vanille, vanille moulue
 it:vaniglia in polvere
 nl:vanille em pó
-ro:vanilie
 sv:vaniljpulver
 # ingredient/fr:vanille-en-poudre has 110 products in 10 languages @2019-02-24
 
@@ -59805,6 +59803,9 @@ fr:pâte de crevettes
 nn:rekepasta
 sv:räkpasta
 # pâte de crevettes (crevettes, sel)
+
+<en:shrimp
+nl:garnalenpoeder
 
 <en:shrimp
 fr:crevettes décortiquées, crevette décortiquée
