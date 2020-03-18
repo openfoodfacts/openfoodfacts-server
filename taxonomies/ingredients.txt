@@ -7976,8 +7976,6 @@ fr:lait demi-écrémé issu de l'agriculture biologique stérilisé u h t
 en:organic pasteurized skimmed milk
 de:pasteurisierte entrahmte Bio-Milch
 fr:lait biologique écrémé et pasteurisé
-nl:magere melkpoeder van biologische oorsprong
-# ingredient/nl:magere-melkpoeder-van-biologische-oorsprong has 1 product @2019-05-24
 
 <en:semi-skimmed milk
 <en:sterilised milk
@@ -8581,7 +8579,7 @@ fr:lait en poudre enrichi en matière grasse
 
 <en:milk powder
 fr:lait maigre en poudre, lait en poudre maigre
-pt:leite em pó magro, leite magro em pó
+
 
 <en:milk powder
 fr:lait écrémé à base de poudre de lait
@@ -8608,12 +8606,16 @@ hu:sovány tejpor
 it:latte scremato in polvere
 lt:nugriebto pieno milteliai
 lv:sausais vajpiena pulveris
-nl:magere melkpoeder
+nl:magere melkpoeder, mageremelkpoeder, mager melkpoeder
 pl:chude mleko w proszku
-pt:leite magro em pó
+pt:leite magro em pó, leite em pó magro
 ro:lapte praf degresat
 ru:обезжиренный молоко-порошок
 sv:skummjölkspulver
+
+<en:skimmed milk powder
+nl:magere melkpoeder van biologische oorsprong, bio magere melkpoeder
+# ingredient/nl:magere-melkpoeder-van-biologische-oorsprong has 1 product @2019-05-24
 
 <en:skimmed milk powder
 en:caramelised skimmed milk powder
@@ -8636,7 +8638,7 @@ hu:zsiros tejpor, teljes tejpor
 it:latte intero in polvere
 lt:nenugriebto pieno milteliai
 lv:pilnpiena pulveris
-nl:volle melkpoeder
+nl:volle melkpoeder, vollemelkpoeder
 pl:pelne mleko w proszku
 pt:leite entero em pó, leite em pó gordo
 ro:lapte praf integral
@@ -9133,9 +9135,21 @@ fi:herajauhe
 fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre de lactosérum
 hu:tejsavópor, savópor, étkezési savópor
 it:siero di latte in polvere
-nl:weipoeder
+nl:weipoeder, wei poeder
 pt:soro de leite em pó
 sv:vasslepulver
+vegan:en:no
+vegetarian:en:maybe
+
+<en:whey powder
+nl:vegetarisch weipoeder
+vegan:en:no
+vegetarian:en:yes
+
+<nl:vegetarisch weipoeder
+nl:gezoet vegetarisch weipoeder
+vegan:en:no
+vegetarian:en:yes
 
 <en:whey powder
 en:partially demineralized powdered whey
@@ -9217,6 +9231,7 @@ en:whey permeate powder
 de:Molkepermeat Pulver
 fi:herapermeaattijauhe
 fr:perméat de petit lait en poudre
+nl:weipermeaat poeder
 
 ################################## CREAM related stuff #########################
 
@@ -9327,7 +9342,7 @@ fi:kermajauhe
 fr:crème en poudre, crème en poudre, poudre de crème
 hu:tejszínpor
 it:panna in polvere
-nl:Poederroom, poederroom
+nl:roompoeder, poederroom
 # ingredient/cream-powder has 910 products in 6 languages @2019-07-12
 
 <en:cream powder
@@ -17796,6 +17811,9 @@ carbon_footprint_fr_foodges_value:fr:4.2
 en:white distilled vinegar
 
 <en:vinegar
+nl:gebufferde azijnpoeder
+
+<en:vinegar
 en:wine vinegar
 de:Weinessig
 es:vinagre de vino
@@ -23455,7 +23473,7 @@ fi:soijajauho
 fr:farine de soja
 hu:szójaiszt
 it:farina di soia
-nl:sojabloem, sojameel
+nl:sojabloem, sojameel, sojapoeder
 pt:farinha de soja
 ro:făină de soia, faina de soia
 sr:sojino brašno
@@ -23793,6 +23811,9 @@ nl:biologische mais
 
 <en:corn
 fr:maïs torréfié concassé
+
+<en:corn
+nl:maïspoeder
 
 # CORN MEAL is a meal (coarse flour) ground from dried maize (corn).
 # Is wongly translated in wikipedia as a flour
@@ -24866,7 +24887,7 @@ fi:johanneksenleipäpuujauhe
 fr:farine de graines de caroube, farine de caroube, farine de graine de caroube, farine de graines de caroubes
 hu:szentjánoskenyér-liszt, szentjánoskenyér liszt, karob liszt
 it:farina di semi di carrube
-nl:johannesbroodpitmeel
+nl:johannesbroodpitmeel, carobpoeder
 pt:farinha de semente de alfarroba
 sv:fruktkärnmjöl
 
@@ -25196,6 +25217,7 @@ fi:tomusokeri
 fr:sucre glace
 hu:porcukor
 it:zucchero a velo
+nl:poedersuiker
 
 <en:sugar
 fr:sucre caramélisé en poudre
@@ -27384,7 +27406,7 @@ hu:zsírszegény kakaópor
 it:cacao magro in polvere, cacao scremato in polvere
 lt:liesi kakavos milteliai
 lv:kakao pulveris ar zemu tauku saturu
-nl:magere cacaopoeder
+nl:magere cacaopoeder, magere cacao poeder, cacaopoeder met verminderd vetgehalte
 pl:niskotłuszczowe kakao w proszku
 pt:cacau magro em pó
 ro:cacao pudra degresata
@@ -29065,6 +29087,9 @@ ro:praf de copt
 vegan:en:yes
 vegetarian:en:yes
 
+<en:baking powder
+nl:biologisch wijnsteenbakpoeder
+
 <en:yeast
 en:natural yeast
 de:natürliche Hefe
@@ -29183,6 +29208,9 @@ fi:Hiivauutejauhe
 fr:extrait de levure en poudre
 it:estratto di lievito in polvere
 
+
+
+
 # Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
 
 en:sourdough
@@ -29226,6 +29254,10 @@ de:Natursauerteig
 de:Sauerteig getrocknet
 fr:levain sec, levain déshydraté
 it:lievito naturale secco
+nl:zuurdesempoeder
+
+<de:Sauerteig getrocknet
+fr:levain déshydraté et dévitalisé
 
 <en:sourdough
 fr:levain de blé
@@ -29241,8 +29273,6 @@ fi:kuivattu vehnätaikinanjuuri
 <fr:levain de blé
 fr:levain de blé dévitalisé
 
-<de:Sauerteig getrocknet
-fr:levain déshydraté et dévitalisé
 
 <en:sourdough
 de:Roggensauerteig
@@ -29250,12 +29280,17 @@ fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
 nl:roggezuurdesem
 
-<en:sourdough
+<de:Roggensauerteig
 fr:levain de seigle dévitalisé
 
-<en:sourdough
+<de:Roggensauerteig
 fr:levain de seigle déshydraté et dévitalisé
 
+<de:Roggensauerteig
+nl:rogge zuurdesempoeder
+
+<en:sourdough
+nl:speltzuurdesempoeder
 
 # Phosphoric acid (also known as orthophosphoric acid or phosphoric(V) acid) is a weak acid with the chemical formula H3PO4.
 
@@ -33118,7 +33153,7 @@ es:zumo de limón seco
 fi:sitruunamehujauhe, kuivattu sitruunamehu
 fr:jus de citron en poudre, citron en poudre, poudre de citron, jus de citron déshydraté
 it:limone in polvere
-nl:gedroogd citroensap
+nl:gedroogd citroensap, citroensappoeder
 nn:tørket sitronsaft
 pt:sumo de limão desidratado
 sv:torkad citronjuice
@@ -37361,7 +37396,8 @@ fr:jus d’acérola
 it:succo di acerola
 nl:acerolasap
 # ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
-
+# en:process:en:powdered
+ƒ
 <en:acerola juice
 fr:extrait d'acérola, jus concentré d'acérola, extrait sec d'acérola
 de:Acerolaextrakt
@@ -37378,6 +37414,7 @@ de:Acerolapulver
 fi:akerola-jauhe, acerola-jauhe
 fr:poudre d'acérola
 it:acerola in polvere
+nl:acerolapoeder
 # ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
 
 <fr:poudre d'acérola
@@ -42792,7 +42829,7 @@ es:pimentón en polvo
 fi:paprikajauhe
 fr:paprika en poudre, poudre de paprika
 it:paprica en polvere
-nl:paprikapoeder
+nl:paprikapoeder, paprika poeder
 pl:papryka w proszku
 pt:pimentão doce em pó
 sk:paprika v prahu
@@ -50898,7 +50935,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Liquorice
 # ingredient/fr:réglisse has 237 products in 6 languages @2018-12-28
 
 <en:liquorice
-en:organic en:liquorice
+en:organic liquorice
 de:Bio-Lakritz
 es:regaliz orgánico
 fi:luomulakritsi, luomu lakritsi
@@ -50940,6 +50977,9 @@ fi:lakritsijuuriuute
 fr:Extrait de réglisse
 it:estratto di radice di liquirizia
 nl:zoethoutwortelextract
+
+<en:liquorice
+nl:zoethoutpoeder
 
 # description:en:Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
 
@@ -52453,6 +52493,7 @@ zh:香草
 wikidata:en:Q13241
 wikipedia:en:https://en.wikipedia.org/wiki/Vanilla
 # ingredient/vanilla has 4542 products in 14 languages @2019-02-24
+# en:process:en:powdered
 
 <en:vanilla
 fr:vanille naturelle
@@ -52476,7 +52517,8 @@ es:vainilla en polvo
 fi:vaniljajauhe
 fr:vanille en poudre, poudre de vanille, vanille moulue
 it:vaniglia in polvere
-nl:vanille em pó
+nl:vanillepoeder
+pt:vanille em pó
 ro:vanilie
 sv:vaniljpulver
 # ingredient/fr:vanille-en-poudre has 110 products in 10 languages @2019-02-24
@@ -53506,6 +53548,7 @@ en:mushroom powder
 de:Champignonpulver
 fi:sienijauhe
 fr:poudre de champignon
+nl:champignonpoeder
 
 # CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus.
 
@@ -60073,12 +60116,10 @@ sv:räkpasta
 fr:crevettes décortiquées, crevette décortiquée
 # ingredient/fr:crevettes-décortiquées has 46 products in french @2019-01-06
 
-<en:shrimp
-fr:crevettes roses
-# ingredient/fr:crevettes-roses has 13 products @2019-01-06
 
 <en:shrimp
 fr:poudre de crevette
+nl:garnalenpoeder
 # ingredient/fr:poudre-de-crevette has 40 products in french @2019-01-06
 
 <en:shrimp
@@ -60096,7 +60137,10 @@ fr:Crevettes entières crues
 # Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns.
 
 <en:shrimp
-<fr:crevettes roses
+fr:crevettes roses
+# ingredient/fr:crevettes-roses has 13 products @2019-01-06
+
+<en:shrimp
 en:penaeid shrimp
 ar:بنيدات
 bg:Бели скариди
@@ -63279,6 +63323,9 @@ nl:scharreleieren
 # ingredient/fr:œufs-d’élevage-au-sol has 168 products in 4 languages @2018-12-18
 # ingredient/fr:œufs-de-poules-élevées-au-sol has 111 products in 4 languages @2018-12-18
 
+<en:barn eggs
+nl:scharrel ei poeder
+
 <en:egg
 fr:œuf liquide pasteurisé, oeuf liquide pasteurisé
 nl:gepasteuriseerd vloeibaar ei
@@ -63294,7 +63341,7 @@ fi:munajauhe, kananmunajauhe
 fr:œuf en poudre, œuf en poudre, œufs en poudre, poudre d'œuf, poudre d'œuf, oeuf en poudre, oeuf en poudre, oeufs en poudre, poudre d'oeuf, poudre d'oeuf
 it:uova in polvere
 lv:kiausšinių milteliai
-nl:eipoeder
+nl:eipoeder, ei-poeder
 pt:ovo em pó
 sv:äggpulve
 # ingredient/powdered-egg has 623 products in 12 languages @2018-12-18
@@ -63330,6 +63377,7 @@ nl:heeleipoeder
 en:whole powdered chicken egg
 de:Hühnervolleipulver
 fr:poudre d’œuf de poules
+nl:kipheeleipoeder
 
 <en:whole egg
 en:liquid whole egg
@@ -63490,6 +63538,8 @@ sv:äggvita i pulver
 <en:chicken egg white
 nl:scharrelkipeiwit
 
+nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
+
 <en:powdered egg white
 de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühnereiweißpulver, Hühnereiweisspulver, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnerei-Eiweisspulver, Hühnerei-Eiweißpulver, Hühnertrockeneiweiß, Hühnertrockeneiweiss
 nl:kippenei-eiwitpoeder
@@ -63512,6 +63562,12 @@ en:pasteurised powdered egg white
 de:pasteurisiertes Eiweißpulver
 fi:pastöroitu munanvalkuaisjauhe
 fr:blanc d'oeuf en poudre pasteurisé
+
+<en:powdered egg white
+nl:scharrelei-eiwitpoeder
+
+<en:powdered egg white
+nl:vrije uitloopeiwitpoeder
 
 <en:egg white
 fr:blancs d'œufs pasteurisés, blancs d'oeufs pasteurisés
@@ -63649,7 +63705,7 @@ de:Hühnereigelb aus Freilandhaltung
 es:yema de huevo de gallinas camperas
 fi:vapaan kanan munankeltuainen
 fr:jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air, jaune d'oeuf issu d'oeufs de poules elevees en plein air
-nl:Eigeel van vrije uitloop eieren
+nl:Eigeel van vrije uitloop eieren, scharreleigeelpoeder
 pt:gema de ovo de galinhas criadas ao ar livre
 # ingredient/fr:jaune-d’oeuf-de-poules-élevées-en-plein-air has 61 products in 2 languages @2018-12-18
 
@@ -67789,6 +67845,7 @@ zh:酱油
 # zh-hans:酱油
 # zh-hant:醬油
 # zh-tw:醬油
+# en:process:en:powder
 wikidata:en:Q229385
 wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-au-soja
@@ -67805,7 +67862,7 @@ de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver
 es:Salsa de soya en polvo
 fi:soijakastikejauhe
 fr:sauce soja en poudre, sauce de soja en poudre
-nl:soja saus poeder
+nl:sojasauspoeder, soja saus poeder
 sv:sojasåspulver
 
 
