@@ -72,22 +72,20 @@ my @tests = (
 ]
 	],
 
-	[ { lc => "nl", ingredients_text => "sojasauspoeder, wei-poeder, vanillepoeder, "}, 
+	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, "}, 
 [
   {
-    'id' => 'en:soy-sauce',
-    'processing' => 'en:powdered',
-    'text' => 'sojasaus'
+    'id' => 'en:shallot',
+    'text' => 'sjalot',
+    'processing' => 'en:powdered'
   },
   {
-    'id' => 'en:whey',
-    'processing' => 'en:powdered',
-    'text' => 'wei'
+    'id' => 'en:whey-powder',
+    'text' => 'wei-poeder'
   },
   {
-    'id' => 'en:vanilla',
-    'processing' => 'en:powdered',
-    'text' => 'vanille'
+    'id' => 'en:vanilla-powder',
+    'text' => 'vanillepoeder'
   }
 ]
 
@@ -107,9 +105,8 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver"}, 
 [
   {
-    'id' => 'en:bourbon-vanilla',
-    'processing' => 'en:powdered',
-    'text' => 'bourbon-vanille'
+    'id' => 'en:bourbon-vanilla-powder',
+    'text' => 'bourbon-vanillepulver'
   },
   {
     'id' => 'en:acerola',
