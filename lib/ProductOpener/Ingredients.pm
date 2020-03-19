@@ -1008,10 +1008,18 @@ sub parse_ingredients_text($) {
 							$matching = 0;
 							foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
 								my $regexp = $ingredient_processing_regexp_ref->[1];
-								if ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i) {
+								if (
+									# English, French etc. match before or after the ingredient, require a space
+									(($product_lc =~ /^(en|es|it|fr)$/) and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i))
+									#  German: match after, do not require a space
+									or	(($product_lc =~ /^(de)$/) and ($new_ingredient =~ /($regexp)$/i))
+									#  Dutch: match before or after, do not require a space
+									or	(($product_lc =~ /^(nl)$/) and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
+										) {
 									$new_ingredient = $` . $';
-									#print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
-									#print STDERR "new ingredient: $new_ingredient\n";
+
+									$debug_ingredients and $log->debug("found processing", { ingredient => $ingredient, new_ingredient => $new_ingredient, processing => $ingredient_processing_regexp_ref->[0] }) if $log->is_debug();
+
 									$matching = 1;
 									$matches++;
 									$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
@@ -1020,15 +1028,16 @@ sub parse_ingredients_text($) {
 									# viande traitée en salaison et cuite -> viande et
 									$new_ingredient =~ s/($and)+$//i;
 									$new_ingredient =~ s/^($and)+//i;
-									$new_ingredient =~ s/\s+$//;
-									$new_ingredient =~ s/^\s+//;
+									$new_ingredient =~ s/(\s|-)+$//;
+									$new_ingredient =~ s/^(\s|-)+//;
 
 									# Stop if we now have a known ingredient.
 									# e.g. "jambon cru en tranches" -> keep "jambon cru".
 									my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
-									#print STDERR "new_ingredient_id: $new_ingredient_id\n";
+
 									if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-										#print STDERR "$new_ingredient_id exists, stop matching\n";
+										$debug_ingredients and $log->debug("found existing ingredient, stop matching", { ingredient => $ingredient, new_ingredient => $new_ingredient, new_ingredient_id => $new_ingredient_id }) if $log->is_debug();
+
 										$matching = 0;
 									}
 
@@ -1040,14 +1049,14 @@ sub parse_ingredients_text($) {
 
 							my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
 							if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-								#print STDERR "new_ingredient_id $new_ingredient_id exists\n";
+								$debug_ingredients and $log->debug("found existing ingredient after removing processing", { ingredient => $ingredient, new_ingredient => $new_ingredient, new_ingredient_id => $new_ingredient_id }) if $log->is_debug();
 								$ingredient = $new_ingredient;
 								$ingredient_id = $new_ingredient_id;
 								$ingredient_recognized = 1;
 								$processing .= $new_processing;
 							}
 							else {
-								#print STDERR "new_ingredient_id $new_ingredient_id does not exist\n";
+								$debug_ingredients and $log->debug("did not find existing ingredient after removing processing", { ingredient => $ingredient, new_ingredient => $new_ingredient, new_ingredient_id => $new_ingredient_id }) if $log->is_debug();
 							}
 						}
 					}

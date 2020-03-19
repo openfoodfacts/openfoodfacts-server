@@ -734,7 +734,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
 
 HTML
 ;
@@ -751,7 +751,7 @@ HTML
 <script type="text/javascript">
 var admin = $moderator;
 </script>
-<script type="text/javascript" src="/js/dist/product-multilingual.js"></script>
+<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
 
@@ -779,42 +779,9 @@ CSS
 
 	$styles .= <<CSS
 
-.ui-selectable { list-style-type: none; margin: 0; padding: 0; }
 .ui-selectable li { margin: 3px; padding: 0px; float: left; width: ${thumb_selectable_size}px; height: ${thumb_selectable_size}px;
 line-height: ${thumb_selectable_size}px; text-align: center; }
-.ui-selectable img {
-  vertical-align:middle;
-}
-.ui-selectee:hover { background: #FECA40; }
-.ui-selected { background: #F39814; color: white; }
 
-.command { margin-bottom:5px; }
-
-label { margin-top: 20px; }
-
-fieldset { margin-top: 15px; margin-bottom:15px;}
-
-legend { font-size: 1.375em; margin-top:2rem; }
-
-textarea {  height:8rem; }
-
-
-.display { float:right; margin-top:10px;margin-bottom:10px; max-width:400px; }
-.cropbox { max-width:100%; }
-
-.upload_image_div {
-	padding-top:0.5rem;
-}
-
-.button_div {
-	margin-top:0.5rem;
-}
-
-#label_new_code, #new_code { display: inline; margin-top: 0px; width:200px; }
-
-th {
-	font-weight:bold;
-}
 CSS
 ;
 
@@ -1114,97 +1081,6 @@ JS
 			}
 
 
-
-
-$styles .= <<CSS
-
-// add borders to Foundation 5 tabs
-// \@media only screen and (min-width: 40.063em) {  /* min-width 641px, medium screens */
-  ul.tabs {
-     > li > a {
-       border-width: 1px;
-       border-style: solid;
-       border-color: #ccc #ccc #fff;
-       margin-right: -1px;
-     }
-     > li:not(.active) > a {
-       border-bottom: solid 1px #ccc;
-     }
-   }
-  .tabs-content {
-    border: 1px solid #ccc;
-    .content {
-      padding: .9375rem;
-      margin-top: 0;
-    }
-    margin: -1px 0 .9375rem 0;
-  }
-//}
-
-// if tabs container has a background color
-.tabs-content { background-color: #fff; }
-
-.contained {
-	border:1px solid #ccc;
-	padding:1rem;
-}
-
-ul.tabs {
-	border-top:1px solid #ccc;
-	border-left:1px solid #ccc;
-	border-right:1px solid #ccc;
-	background-color:#EFEFEF;
-}
-
-.tabs dd>a, .tabs .tab-title>a {
-padding:0.5rem 1rem;
-}
-
-.tabs-content {
-	background-color:white;
-	padding:1rem;
-	border-bottom:1px solid #ccc;
-	border-left:1px solid #ccc;
-	border-right:1px solid #ccc;
-}
-
-.select_add_language {
-	border:0;
-}
-
-
-ul.tabs .select2-container--default .select2-selection--single {
-	height:2.5rem;
-	top:0;
-	border:0;
-	background-color: #0099ff;
-	color: #FFFFFF;
-	transition: background-color 300ms ease-out;
-}
-
-ul.tabs .select2-container--default .select2-selection--single:hover, .select2-container--default .select2-selection--single:focus {
-	background-color: #007acc;
-	color:#FFFFFF;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__arrow b {
-    border-color: #fff transparent transparent transparent;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__placeholder {
-	color:white;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__rendered {
-	line-height:2.5rem;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__arrow b {
-	margin-top:4px;
-}
-
-CSS
-;
 
 	$initjs .= <<JAVASCRIPT
 \$(document).foundation({
