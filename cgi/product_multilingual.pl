@@ -120,7 +120,7 @@ if ($type eq 'search_or_add') {
 		}
 		else {
 			$log->info("product does not exist, creating product", { code => $code, product_id => $product_id }) if $log->is_info();
-			$product_ref = init_product($User_id, $Org_id, $code);
+			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = $interface_version;
 			store_product($product_ref, 'product_created');
 
@@ -169,6 +169,11 @@ else {
 		display_error($Lang{no_barcode}{$lang}, 403);
 	}
 	else {
+		if ( ((defined $server_options{private_products}) and ($server_options{private_products}))
+			and (not defined $Owner_id)) {
+
+			display_error(lang("no_owner_defined"), 200);
+		}
 		$product_id = product_id_for_owner($Owner_id, $code);
 		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
 		if (not defined $product_ref) {
@@ -294,6 +299,17 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	foreach my $field (@param_fields) {
 
 		if (defined param($field)) {
+
+			# If we are on the public platform, and the field data has been imported from the producer platform
+			# ignore the field changes for non tag fields, unless made by a moderator
+			if (((not defined $server_options{private_products}) or (not $server_options{private_products}))
+				and (defined $product_ref->{owner_fields}) and (defined $product_ref->{owner_fields}{$field})
+				and (not $User{moderator})) {
+				$log->debug("skipping field with a value set by the owner",
+					{ code => $code, field_name => $field, existing_field_value => $product_ref->{$field},
+					new_field_value => remove_tags_and_quote(decode utf8=>param($field))}) if $log->is_debug();
+			}
+
 			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
@@ -492,7 +508,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
 		(defined $valuep) and normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 
-		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep }) if $log->is_debug();
+		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep, unit => $unit }) if $log->is_debug();
 
 		# New label?
 		my $new_nid = undef;
@@ -635,7 +651,7 @@ sub display_field($$) {
 		$display_lc = $2;
 	}
 
-		my $autocomplete = "";
+	my $autocomplete = "";
 	my $class = "";
 	if (defined $tags_fields{$fieldtype}) {
 		$class = "tagify-me";
@@ -667,6 +683,8 @@ HTML
 ;
 	}
 	else {
+		# Line feeds will be removed in text inputs, convert them to spaces
+		$value =~ s/\n/ /g;
 		$html .= <<HTML
 <input type="text" name="$field" id="$field" class="text $class" value="$value" lang="${display_lc}" data-autocomplete="${autocomplete}" />
 HTML
@@ -714,15 +732,15 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 
 	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
 
 HTML
 ;
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
+<script type="text/javascript" src="/js/dist/cropper.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/dist/tagify.js"></script>
@@ -730,10 +748,10 @@ HTML
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
-<script type="text/javascript">	
+<script type="text/javascript">
 var admin = $moderator;
 </script>
-<script type="text/javascript" src="/js/dist/product-multilingual.js"></script>
+<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
 
@@ -761,41 +779,9 @@ CSS
 
 	$styles .= <<CSS
 
-.ui-selectable { list-style-type: none; margin: 0; padding: 0; }
 .ui-selectable li { margin: 3px; padding: 0px; float: left; width: ${thumb_selectable_size}px; height: ${thumb_selectable_size}px;
 line-height: ${thumb_selectable_size}px; text-align: center; }
-.ui-selectable img {
-  vertical-align:middle;
-}
-.ui-selectee:hover { background: #FECA40; }
-.ui-selected { background: #F39814; color: white; }
 
-.command { margin-bottom:5px; }
-
-label { margin-top: 20px; }
-
-fieldset { margin-top: 15px; margin-bottom:15px;}
-
-legend { font-size: 1.375em; margin-top:2rem; }
-
-textarea {  height:8rem; }
-
-.cropbox, .display { float:left; margin-top:10px;margin-bottom:10px; max-width:400px; }
-.cropbox { margin-right: 20px; }
-
-.upload_image_div {
-	padding-top:0.5rem;
-}
-
-.button_div {
-	margin-top:0.5rem;
-}
-
-#label_new_code, #new_code { display: inline; margin-top: 0px; width:200px; }
-
-th {
-	font-weight:bold;
-}
 CSS
 ;
 
@@ -1096,97 +1082,6 @@ JS
 
 
 
-
-$styles .= <<CSS
-
-// add borders to Foundation 5 tabs
-// \@media only screen and (min-width: 40.063em) {  /* min-width 641px, medium screens */
-  ul.tabs {
-     > li > a {
-       border-width: 1px;
-       border-style: solid;
-       border-color: #ccc #ccc #fff;
-       margin-right: -1px;
-     }
-     > li:not(.active) > a {
-       border-bottom: solid 1px #ccc;
-     }
-   }
-  .tabs-content {
-    border: 1px solid #ccc;
-    .content {
-      padding: .9375rem;
-      margin-top: 0;
-    }
-    margin: -1px 0 .9375rem 0;
-  }
-//}
-
-// if tabs container has a background color
-.tabs-content { background-color: #fff; }
-
-.contained {
-	border:1px solid #ccc;
-	padding:1rem;
-}
-
-ul.tabs {
-	border-top:1px solid #ccc;
-	border-left:1px solid #ccc;
-	border-right:1px solid #ccc;
-	background-color:#EFEFEF;
-}
-
-.tabs dd>a, .tabs .tab-title>a {
-padding:0.5rem 1rem;
-}
-
-.tabs-content {
-	background-color:white;
-	padding:1rem;
-	border-bottom:1px solid #ccc;
-	border-left:1px solid #ccc;
-	border-right:1px solid #ccc;
-}
-
-.select_add_language {
-	border:0;
-}
-
-
-ul.tabs .select2-container--default .select2-selection--single {
-	height:2.5rem;
-	top:0;
-	border:0;
-	background-color: #0099ff;
-	color: #FFFFFF;
-	transition: background-color 300ms ease-out;
-}
-
-ul.tabs .select2-container--default .select2-selection--single:hover, .select2-container--default .select2-selection--single:focus {
-	background-color: #007acc;
-	color:#FFFFFF;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__arrow b {
-    border-color: #fff transparent transparent transparent;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__placeholder {
-	color:white;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__rendered {
-	line-height:2.5rem;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__arrow b {
-	margin-top:4px;
-}
-
-CSS
-;
-
 	$initjs .= <<JAVASCRIPT
 \$(document).foundation({
     tab: {
@@ -1322,8 +1217,10 @@ HTML
 					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
 					not defined $value and $value = "";
 					my $id = "ingredients_text_" . ${display_lc};
+					my $ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
 
 					$html_content_tab .= <<HTML
+<div id="$ingredients_image_full_id"></div>
 <label for="$id">$Lang{ingredients_text}{$lang}</label>
 <textarea id="$id" name="$id" lang="${display_lc}">$value</textarea>
 <p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>

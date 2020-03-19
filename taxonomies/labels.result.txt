@@ -1,8 +1,8 @@
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
-stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard, during, period, phase, label, mark, logo
+stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi
-stopwords:fr:ingrédients, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas, en, durant, pendant, phase, période, dès, label, marque, logo
+stopwords:fr:ingrédients, agricoles, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 
 
@@ -146,16 +146,6 @@ nl:100% natuurlijk
 pt:100% natural
 ru:100% натуральное, 100% натуральный, 100% натуральная, 100% натуральные, 100% натуральный продукт, натуральный продукт
 th:ธรรมชาติ 100%
-
-< en:100% natural
-< en:Without vegetable oils
-en:Natural product without vegetable oils, Natural product without vegetable fats
-es:Producto natural sin aceites vegetales, Producto natural sin grasas vegetales
-fi:kasviöljytön luontaistuote, luontaistuote ilman kasviöljyjä, luonnontuote ilman kasviöljyjä
-fr:Produit naturel sans huiles végétales, Produit naturel sans matières grasses végétales
-hu:Természetes termék növényi olajok nélkül, Természetes termék növényi zsírok nélkül
-nl:Zonder plantaardige vetten
-ru:натуральный продукт без растительных жиров
 
 en:100% vegetable
 ca:100% vegetal
@@ -3933,6 +3923,20 @@ pl:aromat naturalny
 pt:Sabores naturais
 th:ใช้สีธรรมชาติ
 
+en:Natural product
+es:Producto natural
+fr:Produit naturel
+
+< en:Natural product
+< en:Without vegetable oils
+en:Natural product without vegetable oils, Natural product without vegetable fats
+es:Producto natural sin aceites vegetales, Producto natural sin grasas vegetales
+fi:kasviöljytön luontaistuote, luontaistuote ilman kasviöljyjä, luonnontuote ilman kasviöljyjä
+fr:Produit naturel sans huiles végétales, Produit naturel sans matières grasses végétales
+hu:Természetes termék növényi olajok nélkül, Természetes termék növényi zsírok nélkül
+nl:Zonder plantaardige vetten
+ru:натуральный продукт без растительных жиров
+
 en:Natural source of calcium, Natural calcium source
 de:Natürliche Kalziumquelle
 es:Fuente de calcio natural
@@ -4650,7 +4654,7 @@ cs:Bio
 de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
 es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio
 fi:Luomu
-fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
+fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique
 he:אורגני
 hu:Bio, Öko, Organikus
 it:Biologico
@@ -4975,12 +4979,12 @@ de:Pelagische Netzfischerei
 fi:pelaginen verkkokalastettu
 fr:Pêché au filet pélagique, Pêchés au filet pélagique, Pêché aux filets pélagiques, Pêchés aux filets pélagiques, Pêchée au filet pélagique, Pêchées au filet pélagique
 
-en:PGI, P.G.I., Protected Geographical Indication
+en:PGI, P.G.I., Protected Geographical Indication, PGI - Protected Geographical Indication
 ca:IGP, Indicació Geogràfica Protegida
 de:ggA, g.g.A., Geschützte geografische Angabe, Geschützte geographische Angabe
 es:IGP, I.G.P., Indicación Geográfica Protegida
 fi:SMM, S.M.M., Suojattu maantieteellinen merkintä
-fr:IGP, I.G.P, Indication Géographique Protégée
+fr:IGP, I.G.P, Indication Géographique Protégée, IGP - Indication Géographique Protégée
 hu:Oltalom alatt álló földrajzi jelzés
 it:IGP, I.G.P., Indicazione geografica protetta
 nl:BGA, B.G.A., Beschermde geografische aanduiding
@@ -6338,6 +6342,8 @@ hu:E-vitaminforrás
 nl:Bron van Vitamine E
 pt:Fonte de vitamina
 ru:Источник витамина E
+
+en:Wheat-free
 
 en:Wine Masters Challenge
 pt:Concurso Mundial de Vinhos

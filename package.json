@@ -37,29 +37,31 @@
     "win32"
   ],
   "dependencies": {
-    "@yaireo/tagify": "^2.31.6",
-    "blueimp-file-upload": "^10.4.0",
+    "@yaireo/tagify": "^3.6.2",
+    "blueimp-file-upload": "^10.8.0",
     "foundation-sites": "5.5.3",
     "jquery-ui": "^1.12.1",
-    "leaflet": "1.5.1",
+    "leaflet": "^1.6.0",
     "leaflet.markercluster": "1.4.1",
     "opencollective": "^1.0.3",
     "opencollective-postinstall": "^2.0.1",
-    "osmtogeojson": "2.2.12",
-    "papaparse": "5.1.0"
+    "osmtogeojson": "^3.0.0-beta.4",
+    "papaparse": "^5.1.1",
+    "cropper": "4.1.0"
   },
   "devDependencies": {
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-csso": "^3.0.1",
+    "gulp-csso": "^4.0.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svgmin": "^2.2.0",
-    "gulp-terser-js": "^5.0.1",
-    "stylelint": "^11.1.1",
-    "stylelint-config-recommended-scss": "4.0.0",
-    "stylelint-scss": "^3.13.0"
+    "gulp-terser-js": "^5.1.2",
+    "stylelint": "^13.2.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.14.2"
   },
   "collective": {
     "type": "opencollective",

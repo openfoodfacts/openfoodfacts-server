@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-24 14:09\n"
+"PO-Revision-Date: 2020-03-07 16:28\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -650,22 +650,6 @@ msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Če so podatki nepopolni ali napačni, jih lahko dokončate ali popravite z urejanjem te strani."
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Pravno</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Pogoji uporabe</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Kdo smo</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Pogosto zastavljena vprašanja</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Forum za ideje</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Tisk in blogi</a>\n"
-
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr "in <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook skupina za sodelavce</a>"
@@ -1053,146 +1037,6 @@ msgctxt "lang"
 msgid "Main language"
 msgstr "Glavni jezik"
 
-msgctxt "lang_ar"
-msgid "Arabic"
-msgstr "Arabščina"
-
-msgctxt "lang_bg"
-msgid "Bulgarian"
-msgstr "Bolgarščina"
-
-msgctxt "lang_cs"
-msgid "Czech"
-msgstr "Češčina"
-
-msgctxt "lang_da"
-msgid "Danish"
-msgstr "Danščina"
-
-msgctxt "lang_de"
-msgid "German"
-msgstr "Nemščina"
-
-msgctxt "lang_el"
-msgid "Greek"
-msgstr "Grščina"
-
-msgctxt "lang_en"
-msgid "English"
-msgstr "Angleščina"
-
-msgctxt "lang_es"
-msgid "Spanish"
-msgstr "Špansko"
-
-msgctxt "lang_et"
-msgid "Estonian"
-msgstr "Estonščina"
-
-msgctxt "lang_fi"
-msgid "Finnish"
-msgstr "Finščina"
-
-msgctxt "lang_fr"
-msgid "French"
-msgstr "Francoščina"
-
-msgctxt "lang_ga"
-msgid "Irish"
-msgstr "Irščina"
-
-msgctxt "lang_he"
-msgid "Hebrew"
-msgstr "Hebrejščina"
-
-msgctxt "lang_hu"
-msgid "Hungarian"
-msgstr "Madžarščina"
-
-msgctxt "lang_id"
-msgid "Indonesian"
-msgstr "Indonezijščina"
-
-msgctxt "lang_it"
-msgid "Italian"
-msgstr "Italijanščina"
-
-msgctxt "lang_ja"
-msgid "Japanese"
-msgstr "Japnonščina"
-
-msgctxt "lang_ko"
-msgid "Korean"
-msgstr "Korejščina"
-
-msgctxt "lang_lt"
-msgid "Lithuanian"
-msgstr "Litvanščina"
-
-msgctxt "lang_lv"
-msgid "Latvian"
-msgstr "Latvijščina"
-
-msgctxt "lang_mt"
-msgid "Maltese"
-msgstr "Malteščina"
-
-msgctxt "lang_nl"
-msgid "Dutch"
-msgstr "Nizozemščina"
-
-msgctxt "lang_nl_be"
-msgid "Dutch"
-msgstr "Nizozemščina"
-
-msgctxt "lang_pl"
-msgid "Polish"
-msgstr "Poljščina"
-
-msgctxt "lang_pt"
-msgid "Portuguese"
-msgstr "Portugalščina"
-
-msgctxt "lang_pt_pt"
-msgid "Portugal Portuguese"
-msgstr "Portugalska Portugalščina"
-
-msgctxt "lang_ro"
-msgid "Romanian"
-msgstr "Romunščina"
-
-msgctxt "lang_ru"
-msgid "Russian"
-msgstr "Ruščina"
-
-msgctxt "lang_sk"
-msgid "Slovak"
-msgstr "Slovaščina"
-
-msgctxt "lang_sl"
-msgid "Slovenian"
-msgstr "Slovenščina"
-
-msgctxt "lang_sv"
-msgid "Swedish"
-msgstr "Švedščina"
-
-msgctxt "lang_th"
-msgid "Thai"
-msgstr "Tajščina"
-
-msgctxt "lang_vi"
-msgid "Vietnamese"
-msgstr "Vietnamščina"
-
-msgctxt "lang_zh"
-msgid "Chinese"
-msgstr "Kitajščina"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "drugi jezik"
-
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
 msgstr "Jezik, ki je najbolj prisoten in najbolj poudarjen na izdelku"
@@ -1258,28 +1102,6 @@ msgstr "Ustvarite svoj račun."
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
 msgstr "Še niste registrirani?"
-
-msgctxt "login_register_content"
-msgid "<p>Sign-in to add or edit products.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Username or e-mail address:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Password<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr "<p>Prijavite se, če želite dodati ali urediti izdelke.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Uporabniško ime ali e-poštni naslov:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Geslo<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Zapomni si me</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Še niste registrirani? <a href=\"/cgi/user.pl\">Ustvarite račun</a>.</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1732,7 +1554,7 @@ msgstr "Obdobje po odprtju"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Najdeno v logotipu po odprtju uporabno, s številom mesecov: npr. 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
@@ -1796,7 +1618,7 @@ msgstr "Razvrstitev sodelujočih in držav"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s je raziskovalec za države %d in veleposlanik za države %d."
 
 msgctxt "previous"
 msgid "Previous"
@@ -1952,7 +1774,7 @@ msgstr "izdelkov"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr ""
+msgstr "Evolucija števila izdelkov na <<site_name>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
@@ -2012,7 +1834,7 @@ msgstr "Zapomni se me"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "Ne pozabite na kraj nakupa in trgovine, za naslednje dodane izdelke"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -2172,7 +1994,7 @@ msgstr "Graf raztrosa"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ izveste več o <<site_name>> grafih: <a href=\"/graphs-in-3-clicks\">Grafi v 3 klikih</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2181,7 +2003,8 @@ msgstr "Rezultati na grafu"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "Izberite, kaj želite risati na vodoravni osi, da dobite histogram, ali pa izberite dve osi, da\n"
+"dobite oblak izdelkov (raztresena ploskev)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
@@ -2317,7 +2140,7 @@ msgstr "Grafikon rezultatov"
 
 msgctxt "search_title_map"
 msgid "Results map"
-msgstr ""
+msgstr "Zemljevid rezultatov"
 
 msgctxt "search_tools"
 msgid "Search tools"
@@ -2385,7 +2208,7 @@ msgstr "Deli"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr ""
+msgstr "Pokaz podrobne statistike"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
@@ -2654,6 +2477,10 @@ msgstr "Napaka pri odstranjevanju slike."
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Opozorilo: količina vlaknin ni določena, njenega možnega pozitivnega učinka k razredu ni mogoče upoštevati."
+
+msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
+msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3071,7 +2898,7 @@ msgstr "Ostale informacije"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
-msgstr ""
+msgstr "Pogoji ohranjanja"
 
 msgctxt "warning"
 msgid "Warning"
@@ -3541,11 +3368,11 @@ msgstr "Organizacija"
 
 msgctxt "column_in_file"
 msgid "Column in file"
-msgstr ""
+msgstr "Stolpec v spisu"
 
 msgctxt "field_on_site"
 msgid "Field on %s"
-msgstr ""
+msgstr "Polje: %s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
@@ -3554,7 +3381,7 @@ msgstr "Platforma za proizvajalce"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "Platforma za proizvajalce, proizvajalcem omogoča enostavno upravljanje s fotografijami in podatki o izdelkih v Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
@@ -3876,8 +3703,8 @@ msgctxt "file_received"
 msgid "File received"
 msgstr "Datoteka je prejeta"
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
 msgstr "Podrobnosti o izračunu Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
@@ -4051,6 +3878,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr "Moderator platforme proizvajalcev"
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr "Moderatorji platforme proizvajalcev si lahko ogledajo in urejajo zasebne izdelke vseh uporabnikov in organizacij na platformi proizvajalcev."
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr ""
@@ -4082,4 +3917,142 @@ msgstr ""
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr "Prekomerno uživanje alkohola škoduje zdravju, uživajmo ga zmerno."
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr "Zmernost platforme proizvajalcev"
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr "Trenutno gledate izdelke od %s."
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr "Trenutno gledate svoje izdelke."
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr "Če si želite ogledati izdelke določenega uporabnika ali organizacije, spodaj vnesite Id. Pustite polje prazno, da ni nastavljeno."
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr "Spremeni"
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr "uporabnik-abc ali org-xyz"
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr "Uporabnik %s ne obstaja"
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr "Id mora biti v obliki uporabnika-abc ali org-xyz"
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr "Uvoz kategorij izdelkov iz javne baze podatkov"
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr "Izdelkom na platformi za proizvajalce dodajte kategorije iz javne baze podatkov."
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr "Uvoz kategorij"
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr "Ocena Nutri-Score od proizvajalca"
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr "Izračunana ocena Nutri-Score"
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr "Razred Nutri-Score od proizvajalca"
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr "Izračunan razred Nutri-Score"
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr "Skenirana koda"
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr "Koda iz imena datoteke"
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr "Uporaba prejšnje kode"
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr "Lahko določite vrednosti polja, ki bodo dodane vsem izdelkom, za katere boste poslali slike."
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr "Dodaj polje"
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr "Skenirana koda"
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr "Koda iz imena datoteke"
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr "Uporaba prejšnje kode"
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr "Lahko določite vrednosti polja, ki bodo dodane vsem izdelkom, za katere boste poslali slike."
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr "Dodaj polje"
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr "Odstrani vse izdelke"
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr "Odstrani vse svoje izdelke s platforme za proizvajalce"
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr ""
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr "Upoštevajte, da tega dejanja ni mogoče razveljaviti."
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr "Opozorilo: tega dejanja ni mogoče razveljaviti. Ali ste prepričani, da želite vse izdelke odstraniti s platforme za proizvajalce?"
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr "Ta funkcija ni na voljo."
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr "Vaši izdelki so odstranjeni s platforme za proizvajalce."
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr "Podrobnosti o analizi sestavin"
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
+msgstr "Nekaterih sestavin ni bilo mogoče prepoznati."
 

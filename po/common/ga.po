@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ga\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-17 10:34\n"
+"PO-Revision-Date: 2020-03-07 15:03\n"
 "Language-Team: Irish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -636,16 +636,6 @@ msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr ""
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
-
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr ""
@@ -1030,146 +1020,6 @@ msgctxt "lang"
 msgid "Main language"
 msgstr "Príomhtheanga"
 
-msgctxt "lang_ar"
-msgid "Arabic"
-msgstr "Araibis"
-
-msgctxt "lang_bg"
-msgid "Bulgarian"
-msgstr "Bulgáiris"
-
-msgctxt "lang_cs"
-msgid "Czech"
-msgstr "Seicis"
-
-msgctxt "lang_da"
-msgid "Danish"
-msgstr "Danmhairgis"
-
-msgctxt "lang_de"
-msgid "German"
-msgstr "Gearmáinis"
-
-msgctxt "lang_el"
-msgid "Greek"
-msgstr "Gréigis"
-
-msgctxt "lang_en"
-msgid "English"
-msgstr "Béarla"
-
-msgctxt "lang_es"
-msgid "Spanish"
-msgstr "Spáinnis"
-
-msgctxt "lang_et"
-msgid "Estonian"
-msgstr "Eastóinis"
-
-msgctxt "lang_fi"
-msgid "Finnish"
-msgstr "Fionlainnis"
-
-msgctxt "lang_fr"
-msgid "French"
-msgstr "Fraincis"
-
-msgctxt "lang_ga"
-msgid "Irish"
-msgstr "Gaeilge"
-
-msgctxt "lang_he"
-msgid "Hebrew"
-msgstr "Eabhrais"
-
-msgctxt "lang_hu"
-msgid "Hungarian"
-msgstr "Ungáiris"
-
-msgctxt "lang_id"
-msgid "Indonesian"
-msgstr "Indinéisis"
-
-msgctxt "lang_it"
-msgid "Italian"
-msgstr "Iodáilis"
-
-msgctxt "lang_ja"
-msgid "Japanese"
-msgstr "Seapánach"
-
-msgctxt "lang_ko"
-msgid "Korean"
-msgstr "Cóiré"
-
-msgctxt "lang_lt"
-msgid "Lithuanian"
-msgstr "Liotuáinis"
-
-msgctxt "lang_lv"
-msgid "Latvian"
-msgstr "Laitvis"
-
-msgctxt "lang_mt"
-msgid "Maltese"
-msgstr "Máltais"
-
-msgctxt "lang_nl"
-msgid "Dutch"
-msgstr "Ollainnis"
-
-msgctxt "lang_nl_be"
-msgid "Dutch"
-msgstr "Ollainnis"
-
-msgctxt "lang_pl"
-msgid "Polish"
-msgstr "Polainnis"
-
-msgctxt "lang_pt"
-msgid "Portuguese"
-msgstr "Portaingéilis"
-
-msgctxt "lang_pt_pt"
-msgid "Portugal Portuguese"
-msgstr "Portaingéilis na Portaingéile"
-
-msgctxt "lang_ro"
-msgid "Romanian"
-msgstr "Rómáinis"
-
-msgctxt "lang_ru"
-msgid "Russian"
-msgstr "Rúisis"
-
-msgctxt "lang_sk"
-msgid "Slovak"
-msgstr "Slóvaice"
-
-msgctxt "lang_sl"
-msgid "Slovenian"
-msgstr "Slóivéinis"
-
-msgctxt "lang_sv"
-msgid "Swedish"
-msgstr "Sualainnis"
-
-msgctxt "lang_th"
-msgid "Thai"
-msgstr "Téalainnis"
-
-msgctxt "lang_vi"
-msgid "Vietnamese"
-msgstr "Vítneaimis"
-
-msgctxt "lang_zh"
-msgid "Chinese"
-msgstr "Sínis"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "teanga eile"
-
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
 msgstr ""
@@ -1234,19 +1084,6 @@ msgstr ""
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr ""
-
-msgctxt "login_register_content"
-msgid "<p>Sign-in to add or edit products.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Username or e-mail address:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Password<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
 msgstr ""
 
 msgctxt "login_register_title"
@@ -2611,6 +2448,10 @@ msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr ""
 
+msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
+msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr ""
@@ -3832,8 +3673,8 @@ msgctxt "file_received"
 msgid "File received"
 msgstr ""
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_is_beverage"
@@ -4007,6 +3848,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr ""
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr ""
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr ""
@@ -4037,5 +3886,143 @@ msgstr ""
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr ""
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr ""
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr ""
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr ""
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr ""
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr ""
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr ""
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr ""
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr ""
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr ""
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr ""
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr ""
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr ""
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr ""
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr ""
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr ""
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr ""
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
 msgstr ""
 

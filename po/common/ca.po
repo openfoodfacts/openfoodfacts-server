@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-24 13:51\n"
+"PO-Revision-Date: 2020-03-07 14:51\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -651,22 +651,6 @@ msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Si les dades són incorrectes o incompletes, pot completar o corregir editant aquesta pàgina."
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world-ca.openfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world-ca.openfoodfacts.org/terms-of-use\">Condicions d'ús</a> -\n"
-"<a href=\"https://world-ca.openfoodfacts.org/who-we-are\">Qui som</a> -\n"
-"<a href=\"https://world-ca.openfoodfacts.org/faq\">Preguntes més freqüents</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Fòrums d'idees</a> -\n"
-"<a href=\"https://ca.blog.openfoodfacts.org\">Bloc</a> -\n"
-"<a href=\"https://world-ca.openfoodfacts.org/press-and-blogs\">Premsa i blocs</a>\n"
-
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr "i el grup de <a href=\"https://www.facebook.com/groups/openfoodfacts/\"> \n"
@@ -1053,146 +1037,6 @@ msgctxt "lang"
 msgid "Main language"
 msgstr "Idioma principal"
 
-msgctxt "lang_ar"
-msgid "Arabic"
-msgstr "Àrab"
-
-msgctxt "lang_bg"
-msgid "Bulgarian"
-msgstr "Búlgar"
-
-msgctxt "lang_cs"
-msgid "Czech"
-msgstr "Txec"
-
-msgctxt "lang_da"
-msgid "Danish"
-msgstr "Danès"
-
-msgctxt "lang_de"
-msgid "German"
-msgstr "Alemany"
-
-msgctxt "lang_el"
-msgid "Greek"
-msgstr "Grec"
-
-msgctxt "lang_en"
-msgid "English"
-msgstr "Anglès"
-
-msgctxt "lang_es"
-msgid "Spanish"
-msgstr "Espanyol"
-
-msgctxt "lang_et"
-msgid "Estonian"
-msgstr "Estonià"
-
-msgctxt "lang_fi"
-msgid "Finnish"
-msgstr "Finès"
-
-msgctxt "lang_fr"
-msgid "French"
-msgstr "Francès"
-
-msgctxt "lang_ga"
-msgid "Irish"
-msgstr "Irlandès"
-
-msgctxt "lang_he"
-msgid "Hebrew"
-msgstr "Hebreu"
-
-msgctxt "lang_hu"
-msgid "Hungarian"
-msgstr "Hongarès"
-
-msgctxt "lang_id"
-msgid "Indonesian"
-msgstr "Indonesi"
-
-msgctxt "lang_it"
-msgid "Italian"
-msgstr "Italià"
-
-msgctxt "lang_ja"
-msgid "Japanese"
-msgstr "Japonès"
-
-msgctxt "lang_ko"
-msgid "Korean"
-msgstr "Coreà"
-
-msgctxt "lang_lt"
-msgid "Lithuanian"
-msgstr "Lituà"
-
-msgctxt "lang_lv"
-msgid "Latvian"
-msgstr "Letó"
-
-msgctxt "lang_mt"
-msgid "Maltese"
-msgstr "Maltès"
-
-msgctxt "lang_nl"
-msgid "Dutch"
-msgstr "Holandès"
-
-msgctxt "lang_nl_be"
-msgid "Dutch"
-msgstr "Holandès"
-
-msgctxt "lang_pl"
-msgid "Polish"
-msgstr "Polonès"
-
-msgctxt "lang_pt"
-msgid "Portuguese"
-msgstr "Portuguès"
-
-msgctxt "lang_pt_pt"
-msgid "Portugal Portuguese"
-msgstr "Portuguès de Portugal"
-
-msgctxt "lang_ro"
-msgid "Romanian"
-msgstr "Romanès"
-
-msgctxt "lang_ru"
-msgid "Russian"
-msgstr "Rus"
-
-msgctxt "lang_sk"
-msgid "Slovak"
-msgstr "Eslovac"
-
-msgctxt "lang_sl"
-msgid "Slovenian"
-msgstr "Eslovè"
-
-msgctxt "lang_sv"
-msgid "Swedish"
-msgstr "Suec"
-
-msgctxt "lang_th"
-msgid "Thai"
-msgstr "Tailandès"
-
-msgctxt "lang_vi"
-msgid "Vietnamese"
-msgstr "Vietnamita"
-
-msgctxt "lang_zh"
-msgid "Chinese"
-msgstr "Xinès"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "un altre idioma"
-
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
 msgstr "Idioma més present i més destacat en el producte"
@@ -1260,28 +1104,6 @@ msgstr "Cree el seu compte."
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
 msgstr "No s'ha registrat?"
-
-msgctxt "login_register_content"
-msgid "<p>Sign-in to add or edit products.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Username or e-mail address:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Password<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr "<p>Entra per afegir o editar productes.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Usuari o correu electrònic:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Contrasenya<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"contrasenya-actual\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Recorda'm</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Entra\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Encara no registrat? <a href=\"/cgi/user.pl\">Cree el seu compte</a>.</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -2657,6 +2479,10 @@ msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Atenció: la quantitat de fibra no s'especifica, no es tindrà en compte la seva possible contribució positiva en la qualificació."
 
+msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
+msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Atenció: no s'ha especificat la quantitat de fruites, verdures i fruits secs, no es té en compte la seva possible contribució positiva en la qualificació."
@@ -3878,8 +3704,8 @@ msgctxt "file_received"
 msgid "File received"
 msgstr ""
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_is_beverage"
@@ -4053,6 +3879,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr "Moderació per la plataforma de productors"
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr "Les persones que moderen la plataforma de productors poden visualitzar i editar els productes privats de tots els usuaris i organitzacions a la plataforma de productors."
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr ""
@@ -4083,5 +3917,143 @@ msgstr ""
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr ""
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr "Moderació de la plataforma de productors"
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr "Actualment, esteu veient productes de %s."
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr "Actualment esteu veient els vostres productes."
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr "Per veure els productes d'una persona o organització en concret, introduïu el seu identificador a continuació. Deixeu el camp buit per anul·lar l'identificador."
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr "Canvia"
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr ""
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr "No existeix l'identificador %s"
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr "El paràmetre id cal que estigui en format user-abc o org-xyz"
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr "Importa les categories de producte de la base de dades pública"
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr "Afegeix categories des de la base de dades pública als productes a la plataforma per productors."
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr "Importa les categories"
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr ""
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr ""
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr ""
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr ""
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr ""
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr ""
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr ""
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr ""
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr ""
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
 msgstr ""
 

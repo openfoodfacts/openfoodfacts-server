@@ -87,3 +87,29 @@ $ docker volume prune
 $ docker rmi $(docker images -q)
 ```
 More documentation: https://github.com/openfoodfacts/openfoodfacts-server/tree/master/docker
+
+### 6. Appendix
+#### Changing ports
+
+By default, the containers run using port 80. If you need to change this to ie. 8080, update the port of the `frontend` service in `docker/docker-compose.yml`:
+```
+    ports:
+      - 8080:80
+```
+
+and `/docker/backend-dev/conf/Config2.pm`:
+```perl
+# server constants
+$server_domain = "productopener.localhost:8080";
+```
+
+Also, you need to add a `cookie_domain` to the `%server_options` the same file, so that the software does not try to use the port for the cookie host.
+```perl
+%server_options = (
+        private_products => 0,  # 1 to make products visible only to the owner (producer platform)
+        export_servers => { public => "off", experiment => "off-exp" },
+        minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
+        cookie_domain => 'productopener.localhost'
+);
+```
+Once you are done building your environment, go to http://localhost:8080/

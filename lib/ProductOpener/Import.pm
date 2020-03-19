@@ -69,6 +69,7 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 
+		&clean_and_improve_imported_data
 		&import_csv_file
 		&import_products_categories_from_public_database
 
@@ -92,7 +93,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
-use ProductOpener::ImportConvert qw/clean_weights assign_quantity_from_field/;
+use ProductOpener::ImportConvert qw/clean_fields clean_weights assign_quantity_from_field/;
 use ProductOpener::Users qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -418,28 +419,6 @@ sub import_csv_file($) {
 
 	while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
-		# Sanitize the input data
-		foreach my $field (keys %$imported_product_ref) {
-			if (defined $imported_product_ref->{$field}) {
-				# Remove tags
-				$imported_product_ref->{$field} =~ s/<(([^>]|\n)*)>//g;
-
-				# Remove whitespace
-				$imported_product_ref->{$field} =~ s/^\s+|\s+$//g;
-			}
-
-			# If we have generic_name but not product_name, also assign generic_name to product_name
-			if (($field =~ /^generic_name_(\w\w)$/) and (not defined $imported_product_ref->{"product_name_" . $1})) {
-				$imported_product_ref->{"product_name_" . $1} = $imported_product_ref->{"generic_name_" . $1};
-			}
-		}
-
-		# Clean the input data
-		# It is necessary to do it at this step (before the import) so that we can populate
-		# the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
-
-		clean_weights($imported_product_ref);
-
 		$i++;
 
 		my $modified = 0;
@@ -488,10 +467,9 @@ sub import_csv_file($) {
 			next;
 		}
 
-		# Quantity in the product name?
-		if (not defined $imported_product_ref->{quantity}) {
-			assign_quantity_from_field($imported_product_ref, "product_name_" . $imported_product_ref->{lc});
-		}
+		# Clean the input data, populate some fields from other fields (e.g. split quantity found in product name)
+
+		clean_fields($imported_product_ref);
 
 		# image paths can be passed in fields image_front / nutrition / ingredients / other
 		# several values can be passed in others
@@ -574,7 +552,7 @@ sub import_csv_file($) {
 
 				$stats{products_created}{$code} = 1;
 
-				$product_ref = init_product($args_ref->{user_id}, $args_ref->{org_id}, $code);
+				$product_ref = init_product($args_ref->{user_id}, $args_ref->{org_id}, $code, undef);
 				$product_ref->{interface_version_created} = "import_csv_file - version 2019/09/17";
 
 				$product_ref->{lc} = $imported_product_ref->{lc};
@@ -627,9 +605,9 @@ sub import_csv_file($) {
 		}
 
 		# Record fields that are set by the owner
-		if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
+		if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)) {
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
-			$product_ref->{owner} = $args_ref->{owner};
+			$product_ref->{owner} = $args_ref->{owner_id};
 			$product_ref->{owners_tags} = $product_ref->{owner};
 		}
 
@@ -665,16 +643,31 @@ sub import_csv_file($) {
 
 				$log->debug("defined and non empty value for field", { field => $field, value => $imported_product_ref->{$field} }) if $log->is_debug();
 
-				if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
-					$product_ref->{owner_fields}{$field} = $time;
-				}
-
 				if (($field =~ /product_name/) or ($field eq "brands")) {
 					$stats{products_with_info}{$code} = 1;
 				}
 
 				if ($field =~ /^ingredients/) {
 					$stats{products_with_ingredients}{$code} = 1;
+				}
+
+				if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
+					and ($field ne "imports")	# "imports" contains the timestamp of each import
+					) {
+					$product_ref->{owner_fields}{$field} = $time;
+
+					# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
+					if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})) {
+						$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+						$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
+						$modified++;
+					}
+
+					# Skip data that we have already imported before (even if it has been changed)
+					elsif ((defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
+						$log->debug("skipping field that was already imported", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+						next;
+					}
 				}
 
 				# for tag fields, only add entries to it, do not remove other entries
@@ -804,11 +797,6 @@ sub import_csv_file($) {
 					$new_field_value =~ s/\s+$//g;
 					$new_field_value =~ s/^\s+//g;
 
-					if ($field =~ /^ingredients_text_(\w\w)/) {
-						my $ingredients_lc = $1;
-						$new_field_value = clean_ingredients_text_for_lang($new_field_value, $ingredients_lc);
-					}
-
 					next if $new_field_value eq "";
 
 					# existing value?
@@ -902,6 +890,7 @@ sub import_csv_file($) {
 				$nid . "_value" => $product_ref->{nutriments}{$nid . "_value"},
 				$nidp . "_value" => $product_ref->{nutriments}{$nidp . "_value"},
 				$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
+				$nidp . "_unit" => $product_ref->{nutriments}{$nidp . "_unit"},
 			);
 
 			# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
@@ -915,6 +904,13 @@ sub import_csv_file($) {
 				foreach my $per ("", "_100g", "_serving") {
 
 					next if (defined $values{$type});
+
+					# Skip serving values if we have 100g values
+					if ((defined $imported_product_ref->{"nutrition_data" . $type . "_per"})
+						and ($imported_product_ref->{"nutrition_data" . $type . "_per"} eq "100g")
+						and ($per eq "_serving")) {
+						next;
+					}
 
 					if ((defined $imported_product_ref->{$nid . $type . $per . "_value"})
 						and ($imported_product_ref->{$nid . $type . $per . "_value"} ne "")) {
@@ -972,7 +968,7 @@ sub import_csv_file($) {
 
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
-					if ((defined $args_ref->{owner}) and ($args_ref->{owner} =~ /^org-/)) {
+					if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)) {
 						$product_ref->{owner_fields}{$nid} = $time;
 					}
 				}
@@ -1140,8 +1136,6 @@ sub import_csv_file($) {
 			compute_languages($product_ref); # need languages for allergens detection and cleaning ingredients
 
 			# Ingredients classes
-			split_generic_name_from_ingredients($product_ref);
-			clean_ingredients_text($product_ref);
 			extract_ingredients_from_text($product_ref);
 			extract_ingredients_classes_from_text($product_ref);
 			detect_allergens_from_text($product_ref);
@@ -1209,7 +1203,7 @@ sub import_csv_file($) {
 
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
-			next if $field !~ /^image_((front|ingredients|nutrition|other)(_\w\w)?)_file/;
+			next if $field !~ /^image_((front|ingredients|nutrition|other)(_\w\w)?(_\d+)?)_file/;
 
 			my $imagefield = $1;
 
@@ -1342,7 +1336,7 @@ sub import_csv_file($) {
 					my $imagefield_with_lc = $imagefield;
 
 					# image_other_url.2 -> remove the number
-					$imagefield_with_lc =~ s/\.(\d+)$//;
+					$imagefield_with_lc =~ s/(\.|_)(\d+)$//;
 
 					if ($imagefield_with_lc !~ /_\w\w/) {
 						$imagefield_with_lc .= "_" . $product_ref->{lc};
@@ -1363,6 +1357,17 @@ sub import_csv_file($) {
 							$stats{products_images_added}{$code} = 1;
 						}
 
+						my $x1 = $imported_product_ref->{"image_" . $imagefield . "_x1"} || -1;
+						my $y1 = $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1;
+						my $x2 = $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1;
+						my $y2 = $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1;
+						my $coordinates_image_size = $imported_product_ref->{"image_" . $imagefield . "_coordinates_image_size"} || $crop_size;
+						my $angle = $imported_product_ref->{"image_" . $imagefield . "_angle"} || 0;
+						my $normalize = $imported_product_ref->{"image_" . $imagefield . "_normalize"} || "false";
+						my $white_magic = $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || "false";
+
+						$log->debug("select and crop image?", { code => $code, imgid => $imgid, current_max_imgid => $current_max_imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
+
 						# select the photo
 						if (($imagefield_with_lc =~ /front|ingredients|nutrition/) and
 							((not $args_ref->{only_select_not_existing_images})
@@ -1370,23 +1375,32 @@ sub import_csv_file($) {
 
 							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 
-								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
+								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, current_max_imgid => $current_max_imgid, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 								$selected_images{$imagefield_with_lc} = 1;
-								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 								# $modified++;
 
 							}
 							else {
-								print "returned imgid $imgid not greater than the previous max imgid: $current_max_imgid\n";
+								$log->debug("returned imgid $imgid not greater than the previous max imgid: $current_max_imgid", { imgid => $imgid, current_max_imgid => $current_max_imgid }) if $log->is_debug();
 
 								# overwrite already selected images
 								if (($imgid > 0)
 									and (exists $product_ref->{images})
 									and (exists $product_ref->{images}{$imagefield_with_lc})
-									and ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)) {
-									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
+									and (($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
+										or ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1)
+										or ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2)
+										or ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1)
+										or ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2)
+										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
+										or ($product_ref->{images}{$imagefield_with_lc}{normalize} ne $normalize)
+										or ($product_ref->{images}{$imagefield_with_lc}{white_magic} ne $white_magic)
+										)
+									) {
+									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
-									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 									# $modified++;
 								}
 
@@ -1395,11 +1409,11 @@ sub import_csv_file($) {
 						# If the image type is "other" and we don't have a front image, assign it
 						# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
 						elsif (($imgid > 0) and ($imagefield_with_lc =~ /^other/) and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}}) and (not defined $selected_images{"front_" . $product_ref->{lc}})) {
-							$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
+							$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic}) if $log->is_debug();
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;
-							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 						}
 					}
 					else {

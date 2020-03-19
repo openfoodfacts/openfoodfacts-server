@@ -440,6 +440,14 @@ sub split_allergens($) {
 }
 
 
+
+=head2 assign_quantity_from_field ( $product_ref, $field )
+
+Look for a quantity in a field like a product name.
+Assign it to the quantity and remove it from the field.
+
+=cut
+
 sub assign_quantity_from_field($$) {
 
 	my $product_ref = shift;
@@ -448,19 +456,31 @@ sub assign_quantity_from_field($$) {
 	if ((defined $product_ref->{$field}) and ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq ""))) {
 
 		if ($product_ref->{$field} =~ /\b\(?((\d+)\s?x\s?)?(\d+\.?\,?\d*)\s?(g|gr|kg|kgr|l|cl|ml|dl)\s?(x\s?(\d+))?\)?\s*$/i) {
-			$product_ref->{$field} = $`;
 
-			if (defined $2) {
-				assign_value($product_ref, "quantity", $2 . " X " . $3 . " " . $4);
-			}
-			elsif (defined $6) {
-				assign_value($product_ref, "quantity", $6 . " X " . $3 . " " . $4);
-			}
-			else {
-				assign_value($product_ref, "quantity", $3 . " " . $4);
-			}
+			my $before = $`;
 
-			$product_ref->{$field} =~ s/\s+$//;
+			# If we have something too complex, don't do anything
+			# e.g. Barres de Céréales (8+4) x 25g
+
+			# if we have a single x or a * before, skip
+			if (not (
+				($before =~ /(\sx|\*)\s*$/i)
+					)) {
+
+				$product_ref->{$field} = $before;
+
+				if (defined $2) {
+					assign_value($product_ref, "quantity", $2 . " X " . $3 . " " . $4);
+				}
+				elsif (defined $6) {
+					assign_value($product_ref, "quantity", $6 . " X " . $3 . " " . $4);
+				}
+				else {
+					assign_value($product_ref, "quantity", $3 . " " . $4);
+				}
+
+				$product_ref->{$field} =~ s/\s+$//;
+			}
 		}
 
 	}
@@ -548,7 +568,8 @@ sub clean_weights($) {
 			# 250 GR -> 250 g
 			$product_ref->{$field} =~ s/(\d) gr\b/$1 g/g;
 
-			$product_ref->{$field} =~ s/\.0 / /;
+			# 2.00 2,0 etc.
+			$product_ref->{$field} =~ s/(\d)(\.|,)(0+)( |$)/$1$4/;
 
 			# 6x90g
 			$product_ref->{$field} =~ s/(\d)(\s*)x(\s*)(\d)/$1 x $4/i;
@@ -677,6 +698,20 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 }
 
 
+=head2 clean_fields ( $imported_product_ref )
+
+This function:
+- extracts values from some fields to populate other fields
+(e.g. the quantity can be passed in the product name)
+- split some field values (e.g. remove the brand from the product name)
+- cleans the fields
+
+Warning: this function is intended to be applied only to imported product data.
+It should not be used on general products, as some of the cleaning may be too aggressive in the general case.
+e.g. if the ingredients field is of the form "something Ingredients: list of ingredients", then
+"something" is assigned to the generic name of the product.
+
+=cut
 
 sub clean_fields($) {
 
@@ -684,173 +719,218 @@ sub clean_fields($) {
 
 	$log->debug("clean_fields - start", {  }) if $log->is_debug();
 
-	foreach my $field (@fields) {
+	foreach my $field (keys %$product_ref) {
 
-		if (defined $product_ref->{$field}) {
-
-			$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-
-			$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
-			$product_ref->{$field} =~ s/’/'/g;
-
-			$product_ref->{$field} =~ s/<p>|<\/p>/\n/ig;
-
-			# Remove extra line feeds
-			$product_ref->{$field} =~ s/<br( )?(\/)?>/\n/ig;
-			$product_ref->{$field} =~ s/\r\n/\n/g;
-			$product_ref->{$field} =~ s/\n\./\n/g;
-			$product_ref->{$field} =~ s/\n\n(\n+)/\n\n/g;
-			$product_ref->{$field} =~ s/^\.$//;
-			$product_ref->{$field} =~ s/^(\.|\s)+//;
-			$product_ref->{$field} =~ s/\s*$//;
-			$product_ref->{$field} =~ s/^\s*//;
-			$product_ref->{$field} =~ s/(\s|-|_|;|,)*$//;
-
-
-			if ($product_ref->{$field} =~ /^(\s|-|\.|_)$/) {
-				$product_ref->{$field} = "";
-			}
-
-			# bad EMB codes (followed by a city) (e.g. Sainte-Lucie)
-			#
-			if ($field eq "emb_codes") {
-				# Remove anything that starts with 4 letters
-				# EMB 60282A - Gouvieux (Oise, France)
-				$product_ref->{$field} =~ s/\s*(\s-|,)\s+([[:alpha:]]{4}).*//;
-			}
-
-			# Origin of ingredients that contains other things than tags (e.g. Leroux)
-			# FRANCE, La chicorée LEROUX est semée, cultivée et produite en France
-
-			if ($field eq "origins") {
-				my $canon_tagid = canonicalize_taxonomy_tag($product_ref->{lc}, "countries", $product_ref->{$field});
-				if (not exists_taxonomy_tag("countries", $canon_tagid)) {
-					assign_value($product_ref, "origin_" . $product_ref->{lc}, $product_ref->{$field});
-					delete $product_ref->{$field};
-				}
-			}
-
-			# tag fields: turn separators to commas
-			# Sans conservateur / Sans huile de palme
-			# ! packaging codes can have / :  ES 12.06648/C CE
-			if (exists $tags_fields{$field}) {
-				$product_ref->{$field} =~ s/\s?(;|( \/ )|\n)+\s?/, /g;
-			}
-
-
-			# Lowercase fields in ALL CAPS
-			if ($field =~ /^(ingredients_text|product_name|generic_name|brands)/) {
-				if (($product_ref->{$field} =~ /[A-Z]{4}/)
-					and ($product_ref->{$field} !~ /[a-z]/)
-					) {
-					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
-					$log->debug("clean_fields - after lowercase", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-				}
-			}
-
-
-			# Ingredients
-
-			if ($field =~ /^ingredients_text/) {
-
-				# Farine de<STRONG> <i>blé</i> </STRONG> - sucre
-
-				# Traces de<b> fruits à coque </b>
-
-				$product_ref->{$field} =~ s/(<(b|u|i|em|strong)>)+/<b>/ig;
-				$product_ref->{$field} =~ s/(<\/(b|u|i|em|strong)>)+/<\/b>/ig;
-
-				$product_ref->{$field} =~ s/<b>\s+/ <b>/ig;
-				$product_ref->{$field} =~ s/\s+<\/b>/<\/b> /ig;
-
-				# empty tags
-				$product_ref->{$field} =~ s/<b>\s+<\/b>/ /ig;
-				$product_ref->{$field} =~ s/<b><\/b>//ig;
-				# _fromage_ _de chèvre_
-				$product_ref->{$field} =~ s/<\/b>(| )<b>/$1/ig;
-
-				# d_'œufs_
-				# _lait)_
-				$product_ref->{$field} =~ s/<b>'(\w)/$1'<b>/ig;
-				$product_ref->{$field} =~ s/(\)|\]|\*)<\/b>/<\/b>$1/ig;
-
-				# extrait de malt d'<b>orge - </b>sel
-				$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/ig;
-
-				$log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-
-
-				$product_ref->{$field} =~ s/<b>(.*?)<\/b>/split_allergens($1)/iesg;
-				$product_ref->{$field} =~ s/<b>|<\/b>//ig;
-
-				$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-
-
-				if ($field eq "ingredients_text_fr") {
-
-					# remove single sentence that say allergens are in bold (in Casino data)
-					$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques)?))(\.)?//i;
-					$product_ref->{$field} = ucfirst($product_ref->{$field});
-
-					# $log->debug("clean_fields - ingredients_text - 3", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-
-					# Missing spaces
-					# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
-					$product_ref->{$field} =~ s/\.([A-Z][a-z])/\. $1/g;
-
-					# $log->debug("clean_fields - ingredients_text - 4", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-
-				}
-
-				# persil- poivre blanc -ail
-				$product_ref->{$field} =~ s/(\w|\*)- /$1 - /g;
-				$product_ref->{$field} =~ s/ -(\w)/ - $1/g;
-
-				#_oeuf 8_%
-				$product_ref->{$field} =~ s/_([^_,-;]+) (\d*\.?\d+\s?\%?)_/_$1_ $2/g;
-
-				# _d'arachide_
-				# morceaux _d’amandes_ grillées
-				if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
-					$product_ref->{$field} =~ s/_(d|l)('|’)([^_,-;]+)_/$1'_$2_/ig;
-				}
-			}
-
-			if ($field =~ /^ingredients_text_(\w\w)/) {
-				my $ingredients_lc = $1;
-				$log->debug("clean_fields - before clean_ingredients_text_for_lang ", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-				$product_ref->{$field} = clean_ingredients_text_for_lang($product_ref->{$field}, $ingredients_lc);
-				$log->debug("clean_fields - after clean_ingredients_text_for_lang ", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
-
-			}
-
-			if ($field =~ /^nutrition_grade_/) {
-				$product_ref->{$field} = lc($product_ref->{$field});
-			}
-
-			# remove N/A, NA etc.
-			$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no)\s*(,|$)//ig;
-
-			if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
-				$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//ig;
-			}
-
-			$product_ref->{$field} =~ s/ +/ /g;
-			$product_ref->{$field} =~ s/,(\s*),/,/g;
-			$product_ref->{$field} =~ s/\.(\.+)$/\./;
-			$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
-			$product_ref->{$field} =~ s/^(\s|-|;|,|\.)+//;
-			$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
-
-			# remove empty values for tag fields
-			if (exists $tags_fields{$field}) {
-				$product_ref->{$field} =~ s/^(,|;|-|_|\/|\\|#|:|\.|\s)+$//;
-			}
-
+		# If we have generic_name but not product_name, also assign generic_name to product_name
+		if (($field =~ /^generic_name_(\w\w)$/) and (not defined $product_ref->{"product_name_" . $1})) {
+			$product_ref->{"product_name_" . $1} = $product_ref->{"generic_name_" . $1};
 		}
 	}
 
+	# Quantity in the product name?
+	assign_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
+
+	# Populate the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
 	clean_weights($product_ref);
+
+	foreach my $field (keys %$product_ref) {
+
+		# Split the generic name from the ingredient list
+		if ($field =~ /^ingredients_text_(\w\w)/) {
+			my $ingredients_lc = $1;
+			split_generic_name_from_ingredients($product_ref, $ingredients_lc);
+		}
+
+		if ($field =~ /^product_name_(\w\w)/) {
+			# Remove brand from product name
+			if (defined $product_ref->{brands}) {
+				foreach my $brand (split(/,/, $product_ref->{brands})) {
+					$brand =~ s/^\s+//;
+					$brand =~ s/\s+$//;
+					$product_ref->{$field} =~ s/\s+$brand$//i;
+				}
+			}
+		}
+	}
+
+	foreach my $field (keys %$product_ref) {
+
+		$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+		$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
+		$product_ref->{$field} =~ s/’/'/g;
+
+		$product_ref->{$field} =~ s/<p>|<\/p>/\n/ig;
+
+		# Remove extra line feeds
+		$product_ref->{$field} =~ s/<br( )?(\/)?>/\n/ig;
+		$product_ref->{$field} =~ s/\r\n/\n/g;
+		$product_ref->{$field} =~ s/\n\./\n/g;
+		$product_ref->{$field} =~ s/\n\n(\n+)/\n\n/g;
+
+		# Turn line feeds to spaces for some fields
+
+		if (($field =~ /product_name/) or ($field =~ /generic_name/)) {
+			$product_ref->{$field} =~ s/\n/ /g;
+		}
+
+		# Remove starting / ending spaces and punctuation
+
+		$product_ref->{$field} =~ s/^\.$//;
+		$product_ref->{$field} =~ s/^(\.|\s)+//;
+		$product_ref->{$field} =~ s/\s*$//;
+		$product_ref->{$field} =~ s/^\s*//;
+		$product_ref->{$field} =~ s/(\s|-|_|;|,)*$//;
+
+		if ($product_ref->{$field} =~ /^(\s|-|\.|_)$/) {
+			$product_ref->{$field} = "";
+		}
+
+		# bad EMB codes (followed by a city) (e.g. Sainte-Lucie)
+		#
+		if ($field eq "emb_codes") {
+			# Remove anything that starts with 4 letters
+			# EMB 60282A - Gouvieux (Oise, France)
+			$product_ref->{$field} =~ s/\s*(\s-|,)\s+([[:alpha:]]{4}).*//;
+
+			# FR 62.907.030 EC (DANS UN OVALE)
+			$product_ref->{$field} =~ s/\(?dans un ovale\)?//ig;
+		}
+
+		# Origin of ingredients that contains other things than tags (e.g. Leroux)
+		# FRANCE, La chicorée LEROUX est semée, cultivée et produite en France
+
+		if ($field eq "origins") {
+			my $canon_tagid = canonicalize_taxonomy_tag($product_ref->{lc}, "countries", $product_ref->{$field});
+			if (not exists_taxonomy_tag("countries", $canon_tagid)) {
+				assign_value($product_ref, "origin_" . $product_ref->{lc}, $product_ref->{$field});
+				delete $product_ref->{$field};
+			}
+		}
+
+		# tag fields: turn separators to commas
+		# Sans conservateur / Sans huile de palme
+		# ! packaging codes can have / :  ES 12.06648/C CE
+		if (exists $tags_fields{$field}) {
+			$product_ref->{$field} =~ s/\s?(;|( \/ )|\n)+\s?/, /g;
+		}
+
+
+		# Lowercase fields in ALL CAPS
+		if ($field =~ /^(ingredients_text|product_name|generic_name|brands)/) {
+			if (($product_ref->{$field} =~ /[A-Z]{4}/)
+				and ($product_ref->{$field} !~ /[a-z]/)
+				) {
+				$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
+				$log->debug("clean_fields - after lowercase", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+			}
+		}
+
+
+		# Ingredients
+
+		if ($field =~ /^ingredients_text/) {
+
+			# Farine de<STRONG> <i>blé</i> </STRONG> - sucre
+
+			# Traces de<b> fruits à coque </b>
+
+			$product_ref->{$field} =~ s/(<(b|u|i|em|strong)>)+/<b>/ig;
+			$product_ref->{$field} =~ s/(<\/(b|u|i|em|strong)>)+/<\/b>/ig;
+
+			$product_ref->{$field} =~ s/<b>\s+/ <b>/ig;
+			$product_ref->{$field} =~ s/\s+<\/b>/<\/b> /ig;
+
+			# empty tags
+			$product_ref->{$field} =~ s/<b>\s+<\/b>/ /ig;
+			$product_ref->{$field} =~ s/<b><\/b>//ig;
+			# _fromage_ _de chèvre_
+			$product_ref->{$field} =~ s/<\/b>(| )<b>/$1/ig;
+
+			# d_'œufs_
+			# _lait)_
+			$product_ref->{$field} =~ s/<b>'(\w)/$1'<b>/ig;
+			$product_ref->{$field} =~ s/(\)|\]|\*)<\/b>/<\/b>$1/ig;
+
+			# extrait de malt d'<b>orge - </b>sel
+			$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/ig;
+
+			$log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+
+			$product_ref->{$field} =~ s/<b>(.*?)<\/b>/split_allergens($1)/iesg;
+			$product_ref->{$field} =~ s/<b>|<\/b>//ig;
+
+			$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+
+			if ($field eq "ingredients_text_fr") {
+
+				# remove single sentence that say allergens are in bold (in Casino data)
+				$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques)?))(\.)?//i;
+				$product_ref->{$field} = ucfirst($product_ref->{$field});
+
+				# $log->debug("clean_fields - ingredients_text - 3", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+				# Missing spaces
+				# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
+				$product_ref->{$field} =~ s/\.([A-Z][a-z])/\. $1/g;
+
+				# $log->debug("clean_fields - ingredients_text - 4", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+			}
+
+			# persil- poivre blanc -ail
+			$product_ref->{$field} =~ s/(\w|\*)- /$1 - /g;
+			$product_ref->{$field} =~ s/ -(\w)/ - $1/g;
+
+			#_oeuf 8_%
+			$product_ref->{$field} =~ s/_([^_,-;]+) (\d*\.?\d+\s?\%?)_/_$1_ $2/g;
+
+			# _d'arachide_
+			# morceaux _d’amandes_ grillées
+			if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
+				$product_ref->{$field} =~ s/_(d|l)('|’)([^_,-;]+)_/$1'_$2_/ig;
+			}
+		}
+
+		if ($field =~ /^ingredients_text_(\w\w)/) {
+			my $ingredients_lc = $1;
+			$log->debug("clean_fields - before clean_ingredients_text_for_lang ", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+			$product_ref->{$field} = clean_ingredients_text_for_lang($product_ref->{$field}, $ingredients_lc);
+			$log->debug("clean_fields - after clean_ingredients_text_for_lang ", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+		}
+
+		if ($field =~ /^nutrition_grade_/) {
+			$product_ref->{$field} = lc($product_ref->{$field});
+		}
+
+		# remove N, N/A, NA etc.
+		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no|n)\s*(,|$)//ig;
+
+		if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
+			$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//ig;
+		}
+
+		$product_ref->{$field} =~ s/ +/ /g;
+		$product_ref->{$field} =~ s/,(\s*),/,/g;
+		$product_ref->{$field} =~ s/\.(\.+)$/\./;
+		$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
+		$product_ref->{$field} =~ s/^(\s|-|;|,|\.)+//;
+		$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
+
+		# remove empty values for tag fields
+		if (exists $tags_fields{$field}) {
+			$product_ref->{$field} =~ s/^(,|;|-|_|\/|\\|#|:|\.|\s)+$//;
+		}
+
+		# Remove tags
+		$product_ref->{$field} =~ s/<(([^>]|\n)*)>//g;
+
+		# Remove whitespace
+		$product_ref->{$field} =~ s/^\s+|\s+$//g;
+	}
 
 	match_labels_in_product_name($product_ref);
 }

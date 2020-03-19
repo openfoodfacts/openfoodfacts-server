@@ -616,6 +616,20 @@ sub check_nutrition_data($) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-saturated-fat-greater-than-fat";
 
 		}
+
+		# Too small salt value? (e.g. g entered in mg)
+		if ((defined $product_ref->{nutriments}{"salt_100g"}) and ($product_ref->{nutriments}{"salt_100g"} > 0)) {
+
+			if ($product_ref->{nutriments}{"salt_100g"} < 0.001) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-001-g-salt";
+			}
+			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.01) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-01-g-salt";
+			}
+			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.1) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-1-g-salt";
+			}
+		}
 	}
 	$log->debug("has_prepared_data: " . $has_prepared_data) if $log->debug();
 
@@ -973,35 +987,6 @@ sub check_categories($) {
 }
 
 
-sub compare_nutriscore_computations($) {
-
-	my $product_ref = shift;
-
-	if ((defined $product_ref->{nutriments})
-		and (defined $product_ref->{nutriments}{"nutrition-score-fr"})
-		and (defined $product_ref->{nutriscore_score})) {
-
-		if ($product_ref->{nutriscore_score} != $product_ref->{nutriments}{"nutrition-score-fr"}) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutriscore-computations-different-score";
-		}
-		else {
-			push @{$product_ref->{data_quality_info_tags}}, "en:nutriscore-computations-same-score";
-		}
-	}
-
-	if ((defined $product_ref->{nutrition_grade_fr})
-		and (defined $product_ref->{nutriscore_grade})) {
-
-		if ($product_ref->{nutriscore_grade} ne $product_ref->{nutrition_grade_fr}) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutriscore-computations-different-grade";
-		}
-		else {
-			push @{$product_ref->{data_quality_info_tags}}, "en:nutriscore-computations-same-grade";
-		}
-	}
-}
-
-
 sub compare_nutriscore_with_value_from_producer($) {
 
 	my $product_ref = shift;
@@ -1028,6 +1013,28 @@ sub compare_nutriscore_with_value_from_producer($) {
 }
 
 
+=head2 check_ingredients_percent_analysis( PRODUCT_REF )
+
+Checks if we were able to analyse the minimum and maximum percent values for ingredients and sub-ingredients.
+
+=cut
+
+sub check_ingredients_percent_analysis($) {
+	my $product_ref = shift;
+
+	if (defined $product_ref->{ingredients_percent_analysis}) {
+
+		if ($product_ref->{ingredients_percent_analysis} < 0) {
+			push @{$product_ref->{data_quality_warnings_tags}}, 'en:ingredients-percent-analysis-not-ok';
+		}
+		elsif ($product_ref->{ingredients_percent_analysis} > 0) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:ingredients-percent-analysis-ok';
+		}
+
+		delete $product_ref->{ingredients_percent_analysis};
+	}
+}
+
 =head2 check_quality_food( PRODUCT_REF )
 
 Run all quality checks defined in the module.
@@ -1039,6 +1046,7 @@ sub check_quality_food($) {
 	my $product_ref = shift;
 
 	check_ingredients($product_ref);
+	check_ingredients_percent_analysis($product_ref);
 	check_nutrition_data($product_ref);
 	compare_nutrition_facts_with_products_from_same_category($product_ref);
 	check_nutrition_grades($product_ref);
@@ -1046,7 +1054,6 @@ sub check_quality_food($) {
 	check_quantity($product_ref);
 	detect_categories($product_ref);
 	check_categories($product_ref);
-	compare_nutriscore_computations($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
 }
 

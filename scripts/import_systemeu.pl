@@ -59,6 +59,7 @@ my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set bi
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
 $lc = "fr";
+$country = "en:france";
 
 $User_id = 'systeme-u';
 
@@ -470,7 +471,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				if (1 and (not $product_ref)) {
 					print "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
-					$product_ref = init_product($User_id, "systeme-u", $code);
+					$product_ref = init_product($User_id, "systeme-u", $code, $country);
 					$product_ref->{interface_version_created} = "import_systemeu.pl - version 2019/12/13";
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
@@ -532,7 +533,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							if (($imgid > 0) and ($imgid > $current_max_imgid) and ($imagefield ne 'other')) {
 
 								print STDERR "assigning image $imgid to ${imagefield}_fr\n";
-								eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+								eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 								# $modified++;
 
 							}
@@ -545,7 +546,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 									and (exists $product_ref->{images}{$imagefield . "_fr"})
 									and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid)) {
 									print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
-									eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+									eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 									# $modified++;
 								}
 

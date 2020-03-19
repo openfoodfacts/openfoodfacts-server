@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-24 14:00\n"
+"PO-Revision-Date: 2020-03-07 15:10\n"
 "Language-Team: Japanese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -144,7 +144,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -205,7 +205,7 @@ msgstr "Open Food Facts プロジェクトへの資金援助もできます"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Open Food Facts に寄付\" /></a><p><<site_name>> は、業界から独立した非営利団体によって行われています。すべての人によって、すべての人のために行われ、すべての人によって資金援助されます。あなたは <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">Open Food Facts に寄付</a> または <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">リロ検索エンジンを使用</a> して私たちの活動をサポートすることができます。<br/><b>宜しくお願いします!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -433,7 +433,7 @@ msgstr "Open Food Facts に寄付する"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -562,7 +562,7 @@ msgstr "パスワードと確認パスワードが異なります。"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "メールアドレスは、すでに別のユーザによって使用されています。あなたはすでにアカウントをお持ちではありませんか？パスワードを忘れた場合、<a href=\"/cgi/reset_password.pl\">こちら</a> から再設定できます。"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -652,22 +652,6 @@ msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "データが不完全または間違っている場合は、完了するか、このページを編集して、それを修正することができます。"
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openfoodfacts.org/legal\">免責事項</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">利用規約</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">私たちについて</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">よくある質問と答え(FAQ)</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">アイデアフォーラム</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">ブログ</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">プレスとブログ</a>\n"
-
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr "および <a href=\"https://www.facebook.com/groups/openfoodfacts/\">貢献者向けの Facebook グループ</a>"
@@ -692,7 +676,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "データ、API、SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -793,12 +777,12 @@ msgstr "https://en.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - 化粧品"
 
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -1055,146 +1039,6 @@ msgctxt "lang"
 msgid "Main language"
 msgstr "主な言語"
 
-msgctxt "lang_ar"
-msgid "Arabic"
-msgstr "アラビア語"
-
-msgctxt "lang_bg"
-msgid "Bulgarian"
-msgstr "ブルガリア語"
-
-msgctxt "lang_cs"
-msgid "Czech"
-msgstr "チェコ語"
-
-msgctxt "lang_da"
-msgid "Danish"
-msgstr "デンマーク語"
-
-msgctxt "lang_de"
-msgid "German"
-msgstr "ドイツ語"
-
-msgctxt "lang_el"
-msgid "Greek"
-msgstr "ギリシャ語"
-
-msgctxt "lang_en"
-msgid "English"
-msgstr "英語"
-
-msgctxt "lang_es"
-msgid "Spanish"
-msgstr "スペイン語"
-
-msgctxt "lang_et"
-msgid "Estonian"
-msgstr "エストニア語"
-
-msgctxt "lang_fi"
-msgid "Finnish"
-msgstr "フィンランド語"
-
-msgctxt "lang_fr"
-msgid "French"
-msgstr "フランス語"
-
-msgctxt "lang_ga"
-msgid "Irish"
-msgstr "アイルランド語"
-
-msgctxt "lang_he"
-msgid "Hebrew"
-msgstr "ヘブライ語"
-
-msgctxt "lang_hu"
-msgid "Hungarian"
-msgstr "ハンガリー語"
-
-msgctxt "lang_id"
-msgid "Indonesian"
-msgstr "インドネシア語"
-
-msgctxt "lang_it"
-msgid "Italian"
-msgstr "イタリア語"
-
-msgctxt "lang_ja"
-msgid "Japanese"
-msgstr "日本語"
-
-msgctxt "lang_ko"
-msgid "Korean"
-msgstr "朝鮮語"
-
-msgctxt "lang_lt"
-msgid "Lithuanian"
-msgstr "リトアニア語"
-
-msgctxt "lang_lv"
-msgid "Latvian"
-msgstr "ラトビア語"
-
-msgctxt "lang_mt"
-msgid "Maltese"
-msgstr "マルタ語"
-
-msgctxt "lang_nl"
-msgid "Dutch"
-msgstr "オランダ語"
-
-msgctxt "lang_nl_be"
-msgid "Dutch"
-msgstr "オランダ語"
-
-msgctxt "lang_pl"
-msgid "Polish"
-msgstr "ポーランド語"
-
-msgctxt "lang_pt"
-msgid "Portuguese"
-msgstr "ポルトガル語"
-
-msgctxt "lang_pt_pt"
-msgid "Portugal Portuguese"
-msgstr "ポルトガル ポルトガル語"
-
-msgctxt "lang_ro"
-msgid "Romanian"
-msgstr "ルーマニア語"
-
-msgctxt "lang_ru"
-msgid "Russian"
-msgstr "ロシア語"
-
-msgctxt "lang_sk"
-msgid "Slovak"
-msgstr "スロバキア語"
-
-msgctxt "lang_sl"
-msgid "Slovenian"
-msgstr "スロベニア語"
-
-msgctxt "lang_sv"
-msgid "Swedish"
-msgstr "スウェーデン語"
-
-msgctxt "lang_th"
-msgid "Thai"
-msgstr "タイ語"
-
-msgctxt "lang_vi"
-msgid "Vietnamese"
-msgstr "ベトナム語"
-
-msgctxt "lang_zh"
-msgid "Chinese"
-msgstr "中国語"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "その他の言語"
-
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
 msgstr "製品の大部分を占め、最も強調表示された言語"
@@ -1261,28 +1105,6 @@ msgstr "あなたのアカウントを作成します。"
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
 msgstr "まだ登録されていませんか？"
-
-msgctxt "login_register_content"
-msgid "<p>Sign-in to add or edit products.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Username or e-mail address:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Password<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr "<p>サインインして製品を追加または編集してください。</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"ユーザー名またはメールアドレス:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"パスワード<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>記憶する</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"サインイン\" class=\"button small\" />\n"
-"</form>\n"
-"<p>まだ登録していませんか? <a href=\"/cgi/user.pl\">アカウントを作成</a>.</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1423,7 +1245,7 @@ msgstr "別の製品に画像を移動します"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s 製品"
 
 msgctxt "name"
 msgid "Name"
@@ -2136,23 +1958,23 @@ msgstr "ダウンロード結果"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "結果をXLSXまたはCSV形式でダウンロードします。処理の都合上、ダウンロードできる結果は最大10,000までとなります。"
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "XLSXフォーマット"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "ExcelまたはLibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "CSVフォーマット"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "文字コード: Unicode (UTF-8)、区切り文字: タブ (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2614,7 +2436,8 @@ msgstr "全世界からの結果を表示"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
-msgstr ""
+msgstr "必ず情報は(他のサイトや製造者のサイトからは取得せず) 製品の包装やラベルから取得し、写真も自分で撮影したものを使用してください。<br/>\n"
+"→ 理由は<a href=\"/faq#pictures_and_data_from_other_sites\">こちら</a>をご覧ください。"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2657,6 +2480,10 @@ msgstr "画像の選択を解除する際にエラーが発生しました。"
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "警告: 食物繊維の量が指定されていません。グレードへの肯定的な貢献の可能性は考慮されませんでした。"
+
+msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
+msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3162,11 +2989,11 @@ msgstr "販売終了日"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "フォーマット：YYYY-MM-DD、YYYY-MM、YYYYのいずれか"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30、2019-09、2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3339,7 +3166,7 @@ msgstr "最新バージョン"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "製品データファイルをインポートする"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
@@ -3879,8 +3706,8 @@ msgctxt "file_received"
 msgid "File received"
 msgstr ""
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_is_beverage"
@@ -4054,6 +3881,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr ""
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr ""
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr ""
@@ -4084,5 +3919,143 @@ msgstr ""
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr ""
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr ""
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr ""
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr ""
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr ""
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr ""
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr ""
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr ""
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr ""
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr ""
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr ""
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr ""
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr "ご注意ください。この操作は元に戻せません。"
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr "警告：の操作は元に戻せません。生産者向けプラットフォームからすべての製品を削除してもよろしいですか？こ"
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr "この機能は利用できません。"
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr "あなたの製品は生産者向けプラットフォームから削除されました。"
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr ""
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
 msgstr ""
 

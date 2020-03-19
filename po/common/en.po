@@ -2653,6 +2653,10 @@ msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
 
+msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
+msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
 msgstr "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
@@ -3869,9 +3873,9 @@ msgctxt "file_received"
 msgid "File received"
 msgstr "File received"
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
-msgstr "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
+msgstr "Details of the calculation of the Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
@@ -4105,3 +4109,76 @@ msgstr "Add categories from the public database to the products on the platform 
 msgctxt "import_products_categories"
 msgid "Import the categories"
 msgstr "Import the categories"
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr "Nutri-Score score from producer"
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr "Calculated Nutri-Score score"
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr "Nutri-Score grade from producer"
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr "Calculated Nutri-Score grade"
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr "Scanned code"
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr "Code from file name"
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr "Using previous code"
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr "You can specify field values that will be added to all products for which you will send images."
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr "Add a field"
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr "Remove all the products"
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr "Remove all your products from the platform for producers"
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr "Please note that this action cannot be undone."
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr "This function is not available."
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr "Your products have been removed from the platform for producers."
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr "Details of the analysis of the ingredients"
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
+msgstr "Some ingredients could not be recognized."
+

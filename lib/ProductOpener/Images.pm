@@ -83,6 +83,9 @@ use JSON::PP;
 use MIME::Base64;
 use LWP::UserAgent;
 
+my $extensions = "gif|jpeg|jpg|png|heic";
+
+
 sub display_select_manage($) {
 
 	my $object_ref = shift;
@@ -391,13 +394,14 @@ sub process_search_image_form($) {
 	my $file = undef;
 	my $code = undef;
 	if ($file = param($imgid)) {
-		if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
+		if ($file =~ /\.($extensions)$/i) {
 
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
 
 			my $extension = lc($1) ;
 			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
+			(-e "$data_root/tmp") or mkdir("$data_root/tmp", 0755);
 			open (my $out, ">", "$data_root/tmp/$filename.$extension") ;
 			while (my $chunk = <$file>) {
 				print $out $chunk;
@@ -431,10 +435,13 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
-		$code = normalize_code($1);
+		$code = $1;
 		# Make sure it's not a date like 20200201..
-		if ($code =~ /^20(18|19|(2[0-9]))(0|1)/) {
+		if ($filename =~ /^20(18|19|(2[0-9]))(0|1)/) {
 			$code = undef;
+		}
+		else {
+			$code = normalize_code($code);
 		}
 	}
 
@@ -444,7 +451,9 @@ sub get_code_and_imagefield_from_file_name($$) {
 		$imagefield =~ s/-/_/;
 	}
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
-	elsif ($filename =~ /^\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.(png|jpg|jpeg|gif)$/i) {
+	# but [code]_2.jpg etc. should not be considered the front image
+	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i)
+		and not ($filename =~ /^\d{8}\d*(-|_|\.| )*\d{1,2}\.($extensions)$/i)) {	# [code] + number between 0 and 99
 		$imagefield = "front";
 	}
 	else {
@@ -488,7 +497,7 @@ sub process_image_upload($$$$$$) {
 
 		if ($tmp_filename) {
 			open ($file, q{<}, "$tmp_filename") or $log->error("Could not read file", { path => $tmp_filename, error => $! });
-			if ($tmp_filename =~ /\.(gif|jpeg|jpg|png)$/i) {
+			if ($tmp_filename =~ /\.($extensions)$/i) {
 				$extension = lc($1);
 			}
 		}
@@ -517,16 +526,16 @@ sub process_image_upload($$$$$$) {
 	if ($file) {
 		$log->debug("processing uploaded file") if $log->is_debug();
 
-		if ($file !~ /\.(gif|jpeg|jpg|png)$/i) {
+		if ($file !~ /\.($extensions)$/i) {
 			# We have a "blob" without file name and extension?
 			# try to assume it is jpeg (and let ImageMagick read it anyway if it's something else)
 			# $file .= ".jpg";
 		}
 
-		if (1 or ($file =~ /\.(gif|jpeg|jpg|png)$/i)) {
+		if (1 or ($file =~ /\.($extensions)$/i)) {
 			$log->debug("file type validated") if $log->is_debug();
 
-			if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
+			if ($file =~ /\.($extensions)$/i) {
 				$extension = lc($1) ;
 			}
 			$extension eq 'jpeg' and $extension = 'jpg';
@@ -802,7 +811,7 @@ sub process_image_move($$$$) {
 }
 
 
-sub process_image_crop($$$$$$$$$$) {
+sub process_image_crop($$$$$$$$$$$) {
 
 	my $product_id = shift;
 	my $id = shift;
@@ -814,6 +823,16 @@ sub process_image_crop($$$$$$$$$$) {
 	my $y1 = shift;
 	my $x2 = shift;
 	my $y2 = shift;
+	my $coordinates_image_size = shift;
+
+	# The crop coordinates used to be in reference to a smaller image (400x400)
+	# -> $coordinates_image_size = $crop_size
+	# they are now in reference to the full image
+	# -> $coordinates_image_size = "full"
+
+	if (not defined $coordinates_image_size) {
+		$coordinates_image_size = $crop_size;
+	}
 
 	my $path = product_path_from_id($product_id);
 
@@ -861,8 +880,8 @@ sub process_image_crop($$$$$$$$$$) {
 	# Crop the image
 	my $ow = $source->Get('width');
 	my $oh = $source->Get('height');
-	my $w = $new_product_ref->{images}{$imgid}{sizes}{$crop_size}{w};
-	my $h = $new_product_ref->{images}{$imgid}{sizes}{$crop_size}{h};
+	my $w = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{w};
+	my $h = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{h};
 
 	if (($angle % 180) == 90) {
 		my $z = $w;
@@ -1189,7 +1208,7 @@ sub _set_magickal_options($$) {
 	$magick->Set('png:compression-strategy' => 1);
 	$magick->Set('png:exclude-chunk' => 'all');
 	$magick->Set(interlace => 'none');
-	$magick->Set(colorspace => 'sRGB');
+	# $magick->Set(colorspace => 'sRGB');
 	$magick->Strip();
 
 }

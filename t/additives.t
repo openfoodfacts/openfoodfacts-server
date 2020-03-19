@@ -1424,5 +1424,58 @@ is_deeply($product_ref->{vitamins_tags}, [
 ) or diag explain $product_ref->{vitamins_tags};
 
 
+# Finnish
+
+$product_ref = {
+	lc => "fi",
+	ingredients_text => "Sitruunahappo, väri (e120), C-vitamiini, E-500",
+	categories_tags => ["en:debug"],
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+is( $product_ref->{additives},
+	' [ sitruunahappo -> en:e330  -> exists  -- ok  ]  [ väri -> fi:väri  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ c-vitamiini -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
+);
+
+is_deeply(
+	$product_ref->{additives_original_tags},
+	[ 'en:e330', 'en:e120', 'en:e500', ],
+);
+
+$product_ref = {
+	lc => "fi",
+	ingredients_text =>
+		"Sian rinta, suola, säilöntäaineet (kaliumlaktaatti), natriumnitriitti, luontainen aromi, glukoosisiirapppi, hapettumisenestoaine (natriumerytorbaatti)"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+is_deeply(
+	$product_ref->{additives_original_tags},
+	[ 'en:e326', 'en:e250', 'en:e316', ],
+);
+
+is(canonicalize_taxonomy_tag("fi", "additives", "natriumerytorbaatti"), "en:e316");
+is(canonicalize_taxonomy_tag("fi", "additives", "sitruunahappo"), "en:e330");
+
+$product_ref = {
+	lc => "fi",
+	ingredients_text =>
+		"sakeuttamisaine arabikumi, makeutusaineet (sorbitoli, maltitolisiirappi, asesulfaami K), happamuudensäätöaine sitruunahappo, väriaine kurkuma, pintakäsittelyaine mehiläisvaha"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+is_deeply($product_ref->{additives_original_tags}, [
+			  'en:e414',
+			  'en:e420i',
+			  'en:e965ii',
+			  'en:e950',
+			  'en:e330',
+			  'en:e100',
+			  'en:e901',
+		  ],
+	);
 
 done_testing();

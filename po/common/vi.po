@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-20 13:02\n"
+"PO-Revision-Date: 2020-03-07 15:31\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -157,7 +157,7 @@ msgstr "/images/misc/google-play-badge-svg-master/img/vi_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "Lấy nó từ Google Play"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -651,22 +651,6 @@ msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Nếu dữ liệu không đầy đủ hoặc không chính xác, bạn có thể hoàn thành hoặc sửa nó bằng cách chỉnh sửa trang này."
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world-vi.openfoodfacts.org/legal\">Pháp lý</a> -\n"
-"<a href=\"https://world-vi.openfoodfacts.org/terms-of-use\">Điều khoản sử dụng</a> -\n"
-"<a href=\"https://world-vi.openfoodfacts.org/who-we-are\">Chúng tôi là ai</a> -\n"
-"<a href=\"https://world-vi.openfoodfacts.org/faq\">Câu hỏi thường gặp</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ý tưởng diễn đàn</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world-vi.openfoodfacts.org/press-and-blogs\">Báo chí và Blog</a>\n"
-
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr "và nhóm Facebook<a href=\"https://www.facebook.com/groups/openfoodfacts/\"> cho các cộng tác viên</a>"
@@ -1004,7 +988,7 @@ msgstr "/images/misc/appstore/black/appstore_VN.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "Tải về trên App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1053,146 +1037,6 @@ msgstr "Các sản phẩm không có nhãn %s"
 msgctxt "lang"
 msgid "Main language"
 msgstr "Ngôn ngữ chính"
-
-msgctxt "lang_ar"
-msgid "Arabic"
-msgstr "Tiếng Ả rập"
-
-msgctxt "lang_bg"
-msgid "Bulgarian"
-msgstr "Tiếng Bungari"
-
-msgctxt "lang_cs"
-msgid "Czech"
-msgstr "Tiếng Séc"
-
-msgctxt "lang_da"
-msgid "Danish"
-msgstr "Tiếng Đan Mạch"
-
-msgctxt "lang_de"
-msgid "German"
-msgstr "Tiếng Đức"
-
-msgctxt "lang_el"
-msgid "Greek"
-msgstr "Tiếng Hy Lạp"
-
-msgctxt "lang_en"
-msgid "English"
-msgstr "Tiếng Anh"
-
-msgctxt "lang_es"
-msgid "Spanish"
-msgstr "Người Tây Ban Nha"
-
-msgctxt "lang_et"
-msgid "Estonian"
-msgstr "Tiếng Estonia"
-
-msgctxt "lang_fi"
-msgid "Finnish"
-msgstr "Tiếng Phần Lan"
-
-msgctxt "lang_fr"
-msgid "French"
-msgstr "Người Pháp"
-
-msgctxt "lang_ga"
-msgid "Irish"
-msgstr "Tiếng Ireland"
-
-msgctxt "lang_he"
-msgid "Hebrew"
-msgstr "Tiếng Do Thái"
-
-msgctxt "lang_hu"
-msgid "Hungarian"
-msgstr "Tiếng Hungari"
-
-msgctxt "lang_id"
-msgid "Indonesian"
-msgstr "Tiếng In-đô-nê-xia"
-
-msgctxt "lang_it"
-msgid "Italian"
-msgstr "Tiếng Ý"
-
-msgctxt "lang_ja"
-msgid "Japanese"
-msgstr "Tiếng Nhật"
-
-msgctxt "lang_ko"
-msgid "Korean"
-msgstr "Tiếng Hàn Quốc"
-
-msgctxt "lang_lt"
-msgid "Lithuanian"
-msgstr "Tiếng Lithuania"
-
-msgctxt "lang_lv"
-msgid "Latvian"
-msgstr "Tiếng Latvia"
-
-msgctxt "lang_mt"
-msgid "Maltese"
-msgstr "Tiếng Malta"
-
-msgctxt "lang_nl"
-msgid "Dutch"
-msgstr "Tiếng Hà Lan"
-
-msgctxt "lang_nl_be"
-msgid "Dutch"
-msgstr "Tiếng Hà Lan"
-
-msgctxt "lang_pl"
-msgid "Polish"
-msgstr "Tiếng Ba Lan"
-
-msgctxt "lang_pt"
-msgid "Portuguese"
-msgstr "Tiếng Bồ Đào Nha"
-
-msgctxt "lang_pt_pt"
-msgid "Portugal Portuguese"
-msgstr "Portuguese (Tiếng Bồ Đào Nha)"
-
-msgctxt "lang_ro"
-msgid "Romanian"
-msgstr "Tiếng Romania"
-
-msgctxt "lang_ru"
-msgid "Russian"
-msgstr "Tiếng Nga"
-
-msgctxt "lang_sk"
-msgid "Slovak"
-msgstr "Tiếng Slovakia"
-
-msgctxt "lang_sl"
-msgid "Slovenian"
-msgstr "Tiếng Slovenia"
-
-msgctxt "lang_sv"
-msgid "Swedish"
-msgstr "Tiếng Thụy Điển"
-
-msgctxt "lang_th"
-msgid "Thai"
-msgstr "Tiếng Thái"
-
-msgctxt "lang_vi"
-msgid "Vietnamese"
-msgstr "Tiếng Việt"
-
-msgctxt "lang_zh"
-msgid "Chinese"
-msgstr "Tiếng Trung Quốc"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "ngôn ngữ khác"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
@@ -1261,28 +1105,6 @@ msgstr "Tạo tài khoản của bạn."
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
 msgstr "Không đăng ký chưa?"
-
-msgctxt "login_register_content"
-msgid "<p>Sign-in to add or edit products.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Username or e-mail address:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Password<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr "<p>Đăng nhập để thêm hoặc chỉnh sửa sản phẩm.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Tên đăng nhập hoặc địa chỉ e-mail:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Mật khẩu<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Ghi nhớ tôi</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Chưa đăng ký? <a href=\"/cgi/user.pl\">Tạo tài khoản của bạn</a>.</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -2135,7 +1957,7 @@ msgstr "Tải xuống kết quả"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "Tải xuống kết quả ở định dạng XLSX hoặc CSV. Xin lưu ý rằng vì lý do hiệu suất, bạn chỉ có thể tải xuống tối đa 10.000 kết quả."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
@@ -2628,7 +2450,7 @@ msgstr "/images/misc/microsoft/Vietnamese.svg"
 
 msgctxt "windows_phone_app_icon_alt_text"
 msgid "Get it from Microsoft"
-msgstr ""
+msgstr "Lấy nó từ Microsoft"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2658,6 +2480,10 @@ msgstr "Lỗi trong khi bỏ chọn hình ảnh."
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Cảnh báo: lượng chất xơ không được chỉ định, có thể không tính đến sự đóng góp tích cực của chúng đối với cấp."
+
+msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
+msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2693,7 +2519,7 @@ msgstr "Xóa sản phẩm"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "đã xóa sản phẩm"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
@@ -2729,7 +2555,7 @@ msgstr "Một số dữ liệu cho sản phẩm này đã được nhà sản xu
 
 msgctxt "sources_collaboration"
 msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr ""
+msgstr "Một số dữ liệu cho sản phẩm này đã được thu thập phối hợp với %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2741,7 +2567,7 @@ msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "Những Thay Đổi Gần Đây"
 
 msgctxt "translators_title"
 msgid "Our Translators"
@@ -2749,7 +2575,7 @@ msgstr "Người dịch của chúng tôi"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr ""
+msgstr "Chúng tôi muốn nói CẢM ƠN BẠN với các dịch giả tuyệt vời để đã hiện thực hoá sự ra mắt của Open Food Facts, Open Beauty Facts, và Open Pet Food Facts đến với bạn bằng tất cả các ngôn ngữ khác nhau này! <a href=\"https://translate.openfoodfacts.org/\">Bạn có thể tham gia với chúng tôi trong nỗ lực toàn cầu: nó không yêu cầu bất kỳ kiến thức kỹ thuật nào.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -3880,8 +3706,8 @@ msgctxt "file_received"
 msgid "File received"
 msgstr ""
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_is_beverage"
@@ -4055,6 +3881,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr ""
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr ""
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr ""
@@ -4085,5 +3919,143 @@ msgstr ""
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr ""
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr ""
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr ""
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr ""
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr ""
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr ""
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr ""
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr ""
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr ""
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr ""
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr ""
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr ""
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr ""
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr ""
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr ""
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr ""
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr ""
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
 msgstr ""
 

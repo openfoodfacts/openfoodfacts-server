@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-24 14:06\n"
+"PO-Revision-Date: 2020-03-07 15:14\n"
 "Language-Team: Romanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -140,7 +140,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -201,7 +201,7 @@ msgstr "Poți, de asemenea, să ne ajuți la finanțarea proiectului Open Food F
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> este făcuta de o asociație non-profitabilă, independentă în industrie. Este facut pentru toată lumea. Pentru a ne susține lucrul<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donează lui Open Food Facts</a> și <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> pentru folosirea motorului de cautare Lilo</a>.<br/><b>Vă mulțumim</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -381,7 +381,7 @@ msgstr "surse de date"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "sursa de date"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -429,7 +429,7 @@ msgstr "Donați pentru Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -534,11 +534,11 @@ msgstr "Produse fără codul emb %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "Date de intrare"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Dată de intrare"
 
 msgctxt "error"
 msgid "Error"
@@ -558,7 +558,7 @@ msgstr "Parola și parola de confirmare sunt diferite."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Adresa de email este deja folosită de către un alt utilizator. Poate că deja aveți un cont? Puteți <a href=\"/cgi/reset_password.pl\">reseta parola</a> celuilalt cont."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -648,19 +648,9 @@ msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Dacă datele sunt incomplete sau incorecte, le puteți completa sau corecta modificând această pagină."
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
-
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "și grupul Facebook <a href=\"https://www.facebook.com/groups/openfoodfacts/\"> pentru contributori</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -678,16 +668,16 @@ msgstr "Cod de conduită"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Date, API și SDK-uri"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -700,7 +690,7 @@ msgstr "Întrebări frecvente"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -709,13 +699,15 @@ msgstr "Traducători"
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Urmăriți-ne pe <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> și\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -745,7 +737,7 @@ msgstr "Presa"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -758,7 +750,7 @@ msgstr "Condiții de utilizare"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -767,11 +759,11 @@ msgstr "Cine suntem noi"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/who-we-are"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr ""
+msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
@@ -781,12 +773,12 @@ msgstr "https://en.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - Cosmetice"
 
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://ro.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -879,23 +871,23 @@ msgstr "Dimensiune completă"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "Acest fișier a fost încărcat pentru produsul %s și se află sub licența %s ."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Atribuire: Fotografie cu %s la %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Atribuire: Fotografie cu %s cu modificări suplimentare cu %s la %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Imagine Originală)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Detalii fotografie și atribuirea informațiilor"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -919,7 +911,7 @@ msgstr "Ingrediente"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "Notă: ingredientele pot fi listate sub multe denumiri diferite, vă rugăm să ne anunțați dacă considerați că analiza de mai sus este greșită."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
@@ -967,7 +959,7 @@ msgstr "Ingredientele sunt listate în ordinea importanței (cantitate)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "Cereale 85.5% (_grâu_ făină, făină_integrală_de grâu 11%), extract de malț, cacao 4,8%, acid ascorbic"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -983,7 +975,7 @@ msgstr "ingredient care ar putea proveni din ulei de palmier"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "Produse care nu conțin ingredientul %s"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -992,7 +984,7 @@ msgstr "/images/misc/appstore/black/appstore_RO.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "Descărcați în App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1042,146 +1034,6 @@ msgctxt "lang"
 msgid "Main language"
 msgstr "Limba principală"
 
-msgctxt "lang_ar"
-msgid "Arabic"
-msgstr "Arabă"
-
-msgctxt "lang_bg"
-msgid "Bulgarian"
-msgstr "Bulgară"
-
-msgctxt "lang_cs"
-msgid "Czech"
-msgstr "Cehă"
-
-msgctxt "lang_da"
-msgid "Danish"
-msgstr "Daneză"
-
-msgctxt "lang_de"
-msgid "German"
-msgstr "Germană"
-
-msgctxt "lang_el"
-msgid "Greek"
-msgstr "Greacă"
-
-msgctxt "lang_en"
-msgid "English"
-msgstr "Engleză"
-
-msgctxt "lang_es"
-msgid "Spanish"
-msgstr "Spaniolă"
-
-msgctxt "lang_et"
-msgid "Estonian"
-msgstr "Estonă"
-
-msgctxt "lang_fi"
-msgid "Finnish"
-msgstr "Finlandeză"
-
-msgctxt "lang_fr"
-msgid "French"
-msgstr "Franceză"
-
-msgctxt "lang_ga"
-msgid "Irish"
-msgstr "Irlandeză"
-
-msgctxt "lang_he"
-msgid "Hebrew"
-msgstr "Ebraică"
-
-msgctxt "lang_hu"
-msgid "Hungarian"
-msgstr "Maghiară"
-
-msgctxt "lang_id"
-msgid "Indonesian"
-msgstr "Indoneziană"
-
-msgctxt "lang_it"
-msgid "Italian"
-msgstr "Italiană"
-
-msgctxt "lang_ja"
-msgid "Japanese"
-msgstr "Japoneză"
-
-msgctxt "lang_ko"
-msgid "Korean"
-msgstr "Coreeană"
-
-msgctxt "lang_lt"
-msgid "Lithuanian"
-msgstr "Lituaniană"
-
-msgctxt "lang_lv"
-msgid "Latvian"
-msgstr "Letonă"
-
-msgctxt "lang_mt"
-msgid "Maltese"
-msgstr "Malteză"
-
-msgctxt "lang_nl"
-msgid "Dutch"
-msgstr "Olandeză"
-
-msgctxt "lang_nl_be"
-msgid "Dutch"
-msgstr "Olandeză"
-
-msgctxt "lang_pl"
-msgid "Polish"
-msgstr "Poloneză"
-
-msgctxt "lang_pt"
-msgid "Portuguese"
-msgstr "Portugheză"
-
-msgctxt "lang_pt_pt"
-msgid "Portugal Portuguese"
-msgstr "Portugheză"
-
-msgctxt "lang_ro"
-msgid "Romanian"
-msgstr "Română"
-
-msgctxt "lang_ru"
-msgid "Russian"
-msgstr "Rusă"
-
-msgctxt "lang_sk"
-msgid "Slovak"
-msgstr "Slovacă"
-
-msgctxt "lang_sl"
-msgid "Slovenian"
-msgstr "Sloven"
-
-msgctxt "lang_sv"
-msgid "Swedish"
-msgstr "Suedeză"
-
-msgctxt "lang_th"
-msgid "Thai"
-msgstr "Tailandeza"
-
-msgctxt "lang_vi"
-msgid "Vietnamese"
-msgstr "Vietnameză"
-
-msgctxt "lang_zh"
-msgid "Chinese"
-msgstr "Chineză"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "altă limbă"
-
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
 msgstr "Limba cea mai prezentă și mai evidentă pe produs"
@@ -1200,19 +1052,19 @@ msgstr "limbă"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "Datele ultimei editări"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "Data ultimei editări"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Datele ultimei fotografii"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Data ultimei fotografii"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
@@ -1231,7 +1083,7 @@ msgstr "Listă de %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "Încărcați mai multe rezultate"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
@@ -1249,19 +1101,6 @@ msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
 msgstr "Nu v-ați înregistrat încă?"
 
-msgctxt "login_register_content"
-msgid "<p>Sign-in to add or edit products.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Username or e-mail address:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Password<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr ""
-
 msgctxt "login_register_title"
 msgid "Sign-in"
 msgstr "Conectare"
@@ -1273,7 +1112,8 @@ msgstr "Autentificați-vă pentru a adăuga sau modifica produse."
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr ""
+msgstr "<p>Vă rugăm să vă conectați pentru a adăuga sau edita un produs.</p>\n\n"
+"<p>Dacă nu aveți încă un cont pe <<site_name>>, vă puteți <a href=\"/cgi/user.pl\">înregistra în 30 secunde</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1289,7 +1129,7 @@ msgstr "cantitate mică"
 
 msgctxt "manage_images"
 msgid "Manage images"
-msgstr ""
+msgstr "Gestionați imaginile"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
@@ -2625,6 +2465,10 @@ msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr ""
 
+msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
+msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr ""
@@ -3846,8 +3690,8 @@ msgctxt "file_received"
 msgid "File received"
 msgstr ""
 
-msgctxt "nutriscore_calculation_detail"
-msgid "Detail of the calculation of the Nutri-Score"
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_is_beverage"
@@ -4021,6 +3865,14 @@ msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
 msgstr ""
 
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr ""
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr ""
+
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr ""
@@ -4051,5 +3903,143 @@ msgstr ""
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr ""
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr ""
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr ""
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr ""
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr ""
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr ""
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr ""
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr ""
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr ""
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr ""
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr ""
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr ""
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr ""
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr ""
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr ""
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr ""
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr ""
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr ""
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr ""
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr ""
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr ""
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr ""
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr ""
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr ""
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr ""
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
 msgstr ""
 

@@ -147,7 +147,9 @@ foreach my $test_ref (@tests) {
 	["fr", "Farine de<STRONG> <i>blé</i> </STRONG> - sucre",
 	"Farine de _blé_ - sucre"],
 
-	["en", "INGREDIENTS - SALT, SUGAR, SPICES 12%", "salt, sugar, spices 12%"],
+	["en", "INGREDIENTS - SALT, SUGAR, SPICES 12%", "Salt, sugar, spices 12%"],
+	["en", "Natural pasteurized cow milk - Natural milk fat", "Natural pasteurized cow milk - Natural milk fat"],
+	["en", "NA.", ""],
 
 );
 
@@ -158,7 +160,6 @@ foreach my $test_ref (@tests) {
 	my $product_ref = { lc => $test_ref->[0],
 		$ingredients_lc => $test_ref->[1] };
 
-	@fields = ($ingredients_lc);
 	clean_fields($product_ref);
 
 	is($product_ref->{$ingredients_lc}, $test_ref->[2]);
@@ -186,9 +187,6 @@ foreach my $test_ref (@tests) {
 	my $product_ref = { lc => $test_ref->[0],
 		$ingredients_lc => $test_ref->[1] };
 
-	@fields = ($ingredients_lc);
-	compute_languages($product_ref);
-	split_generic_name_from_ingredients($product_ref);
 	clean_fields($product_ref);
 
 	is($product_ref->{"generic_name_" . $test_ref->[0]}, $test_ref->[2]);
