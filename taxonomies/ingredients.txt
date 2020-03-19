@@ -7239,6 +7239,9 @@ vegan:en:no
 vegetarian:en:maybe
 
 <en:dairy
+es:derivado lacteo en polvo
+
+<en:dairy
 en:fermented milk products, cultured dairy foods, cultured dairy products, cultured milk products
 be:Кісламалочныя прадукты
 ca:Llet fermentada
@@ -8597,7 +8600,7 @@ ca:llet desnatada en pols
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
 de:Magermilchpulver
-es:leche desnatada en polvo
+es:leche desnatada en polvo, leche en polvo desnatada
 et:lössipulber
 fi:rasvaton maitojauhe
 fr:lait en poudre écrémé, lait écrémé en poudre, poudre de lait écrémé
@@ -8654,7 +8657,7 @@ fr:poudres de lait écrémé et entier
 fr:lait écrémé reconstitué
 nl:gereconstitueerde melk
 
-<en:milk
+<en:skimmed milk
 en:reconstituted skimmed milk
 de:rekonstituierte Magermilch
 es:leche desnatada reconstituida
@@ -8662,6 +8665,9 @@ fr:lait écrémé réhydraté
 hu:visszaállított sovány tej, feloldott sovány tej
 it:latte scremato reidratato
 nl:gerehydrateerde magere melk
+
+<en:skimmed milk powder
+es:leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
 
 fr:matière grasse de lait anhydre
 
@@ -9997,6 +10003,9 @@ fr:fromage à pâte molle au lait pasteurisé
 hu:pasztőrözött tejből készült lágysajt
 it:Formaggio a pasta molle di latte pastorizzato
 # 6@2019-06-08
+
+<en:cheese
+es:queso fundido en polvo
 
 <en:cheese
 de:Bergkäse
@@ -17817,6 +17826,10 @@ en:white distilled vinegar
 nl:gebufferde azijnpoeder
 
 <en:vinegar
+en:vinegar powder
+es:vinagre en polvo
+
+<en:vinegar
 en:wine vinegar
 de:Weinessig
 es:vinagre de vino
@@ -25177,6 +25190,9 @@ it:zucchero caramellato
 nl:gekarameliseerde suiker
 ro:zahăr caramelizat
 sv:karamelliserat socker
+
+<en:caramelised sugar
+es:azucar caramelizado en polvo
 
 <en:sugar
 en:white sugar
@@ -37513,6 +37529,9 @@ zh:椰子奶
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
 # 87 products @2018-10-03
 
+<en:coconut milk
+es:leche de coco en polvo
+
 <en:coconut
 en:coconut water
 
@@ -48105,7 +48124,7 @@ fr:gingembre bio
 <en:ginger
 en:ginger powder, ground ginger
 de:gemahlener Ingwer, Ingwerpulver
-es:Gengibre en polvo, polvo de gengibre
+es:Gengibre en polvo, polvo de gengibre, jengibre en polvo
 fi:inkiväärijauhe, jauhettu inkivääri
 fr:gingembre moulu
 it:zenzero macinato
@@ -67909,7 +67928,7 @@ fr:sauce au soja et au sésame, sauce au sésame et au soja
 <en:soy sauce
 en:soy sauce powder
 de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver, Sojasaucenpulver
-es:Salsa de soya en polvo
+es:Salsa de soya en polvo, salsa de soja en polvo
 fi:soijakastikejauhe
 fr:sauce soja en poudre, sauce de soja en poudre
 nl:sojasauspoeder, soja saus poeder
