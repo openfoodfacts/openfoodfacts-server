@@ -25949,12 +25949,26 @@ nl:Mousses op basis van melk
 
 <en:Chocolate desserts
 <en:Dessert creams
+en:Refrigerated chocolate custard dessert
 fr:Crèmes dessert chocolat, Crème dessert chocolat, Crèmes dessert au chocolat, Crème dessert au chocolat
 nl:Chocolade vla's
+ciqual_food_code:en:39200
+ciqual_food_name:en:Custard dessert, chocolate, refrigerated
+ciqual_food_name:fr:Crème dessert au chocolat, rayon frais
+
+<en:Chocolate desserts
+<en:Dessert creams
+en:Canned chocolate custard dessert
+fr:Crème dessert au chocolat appertisée
+ciqual_food_code:en:39506
+ciqual_food_name:en:Custard dessert, chocolate, canned
+ciqual_food_name:fr:Crème dessert au chocolat, appertisée
+
 
 <fr:Crèmes dessert chocolat
 fr:Crèmes dessert chocolat noir, Crème dessert chocolat noir, Crèmes dessert au chocolat noir, Crème dessert au chocolat noir
 nl:Chocolade puur vla's
+
 
 <en:Dessert creams
 fr:Crèmes dessert vanille, Crème dessert vanille, Crèmes dessert à la vanille, Crème dessert à la vanille
@@ -27424,19 +27438,25 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quail_eggs
 
 <en:Bird eggs
 en:Duck eggs
-fr:Oeufs de canards
+fr:Oeufs de canards, Oeufs de cane
 it:Uova d'anatra
 nl:Eende-ei
 ru:Яйца уток, яйца утиные, утиные яйца
 zh:鸭蛋
 wikidata:en:Q20651335
+ciqual_food_code:en:22060
+ciqual_food_name:en:Duck egg, raw
+ciqual_food_name:fr:Oeuf de cane, cru
 
 <en:Bird eggs
 en:Goose eggs
-fr:Œufs d'oies
+fr:Œufs d'oies, Oeuf d'oie
 it:Uova d'oca
 ru:Яйца гусей, яйца гусиные, гусиные яйца
 zh:鹅蛋
+ciqual_food_code:en:22070
+ciqual_food_name:en:Goose egg, raw
+ciqual_food_name:fr:Oeuf d'oie, cru
 
 <en:Bird eggs
 en:Chicken eggs, Hens' eggs
@@ -27470,11 +27490,24 @@ en:Pheasant eggs
 fr:Œufs de faisan
 it:Uova di fagiano
 
-
 <en:Bird eggs
 en:Emu eggs
 fr:Œufs d'émeu
 wikidata:en:Q35855322
+
+<en:Bird eggs
+en:Hard-boiled egg
+fr:Oeuf dur
+ciqual_food_code:en:22010
+ciqual_food_name:en:Egg, hard-boiled
+ciqual_food_name:fr:Oeuf, dur
+
+<en:Bird eggs
+en:Raw egg
+fr:Oeuf cru
+ciqual_food_code:en:22000
+ciqual_food_name:en:Egg, raw
+ciqual_food_name:fr:Oeuf, cru
 
 
 en:Fats
@@ -27675,6 +27708,14 @@ fr:Huiles de graines de bourrache
 it:Olio di semi di borragine
 nl:Bernagie-oliën, Borage-oliën
 wikidata:en:Q4944279
+
+<en:Vegetable oils
+en:Frying oil
+fr:Huile pour friture
+ciqual_food_code:en:16128
+ciqual_food_name:en:Frying oil
+ciqual_food_name:fr:Huile pour friture, sans précision
+
 
 <en:Cereals and their products
 <en:Vegetable oils
@@ -28295,6 +28336,64 @@ fi:Suklaa-aamiaismurot
 fr:Céréales au chocolat
 nl:Chocolade ontbijtgranen
 
+<en:Chocolate cereals
+en:Breakfast chocolate cereals with wheat grain flakes (not fortified with vitamins and chemical elements)
+fr:Pétales de blé chocolatés (non enrichis en vitamines et minéraux)
+ciqual_food_code:en:32011
+ciqual_food_name:en:Breakfast cereals, chocolate wheat grain flakes (not fortified with vitamins and chemical elements)
+ciqual_food_name:fr:Pétales de blé chocolatés (non enrichis en vitamines et minéraux)
+
+<en:Chocolate cereals
+en:Breakfast chocolate cereals (not filled, not fortified with vitamins and chemical elements)
+fr:Céréales chocolatées pour petit-déjeuner (non fourrées, non enrichies en vitamines et minéraux=
+ciqual_food_code:en:32013
+ciqual_food_name:en:Breakfast cereals, with chocolate, not filled (not fortified with vitamins and chemical elements)
+ciqual_food_name:fr:Céréales chocolatées pour petit déjeuner, non fourrées, (non enrichies en vitamines et minéraux)
+
+<en:Chocolate cereals
+en:Diet chocolate breakfast cereals (fortified with vitamins and chemical elements)
+fr:Céréales au chocolat pour petit-déjeuner équilibré (enrichies en vitamines et minéraux)
+ciqual_food_code:en:32022
+ciqual_food_name:en:Breakfast cereals, diet, with chocolate, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Céréales pour petit déjeuner ""équilibre"" au chocolat, enrichies en vitamines et minéraux
+
+<en:Chocolate cereals
+en:Diet chocolate breakfast cereals (not fortified)
+fr:Céréales au chocolat pour petit-déjeuner équilibré (non enrichies en vitamines et minéraux)
+ciqual_food_code:en:32028
+ciqual_food_name:en:Breakfast cereals, diet, with chocolate, not fortified
+ciqual_food_name:fr:Céréales pour petit déjeuner ""équilibre"" au chocolat (non enrichies en vitamines et minéraux)
+
+<en:Chocolate cereals
+en:Chocolate breakfast cereals with puffed/popped wheat grains (fortified with vitamins and chemical elements)
+fr:Grains de blé soufflés chocolatés (enrichis en vitamines et minéraux)
+ciqual_food_code:en:32115
+ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped wheat grain, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Grains de blé soufflés chocolatés, enrichis en vitamines et minéraux
+
+<en:Chocolate cereals
+en:Breakfast chocolate cereals with wheat grain flakes (fortified with vitamins and chemical elements)
+fr:Pétales de blé chocolatés enrichis en vitamines et minéraux
+ciqual_food_code:en:32009
+ciqual_food_name:en:Breakfast cereals, chocolate wheat grain flakes, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Pétales de blé chocolatés, enrichis en vitamines et minéraux
+
+<en:Chocolate cereals
+en:Breakfast chocolate high-fiber cereals (fortified with vitamins and chemical elements)
+fr:Céréales au chocolat riches en fibres pour petit déjeuner (enrichies en vitamines et minéraux)
+ciqual_food_code:en:32008
+ciqual_food_name:en:Breakfast cereals, rich in fibre, with chocolate, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Céréales pour petit déjeuner riches en fibres, au chocolat, enrichies en vitamines et minéraux
+
+<en:Chocolate cereals
+en:Breakfast chocolate cereals (not filled, fortified with vitamins and chemical elements)
+fr:Céréales chocolatées pour petit déjeuner (non fourrées, enrichies en vitamines et minéraux)
+ciqual_food_code:en:32001
+ciqual_food_name:en:Breakfast cereals, with chocolate, not filled, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Céréales pour petit déjeuner chocolatées, non fourrées, enrichies en vitamines et minéraux
+
+
+
 <en:Breakfast cereals
 en:Cereals with caramel
 fi:aamiaismurot kinuskilla
@@ -28313,6 +28412,27 @@ en:Filled cereals
 fi:täytetyt aamiaismurot
 fr:Céréales fourrées
 nl:Gevulde ontbijtgranen
+
+<en:Filled cereals
+en:Breakfast cereals filled with chocolate or chocolate-hazelnuts (fortified with vitamins and chemical elements)
+fr:Céréales pour petit déjeuner fourrées au chocolat ou chocolat-noisettes (enrichies en vitamines et minéraux)
+ciqual_food_code:en:32016
+ciqual_food_name:en:Breakfast cereals, filled with chocolate or chocolate-hazelnuts, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Céréales pour petit déjeuner fourrées au chocolat ou chocolat-noisettes, enrichies en vitamines et minéraux
+
+<en:Filled cereals
+en:Breakfast cereals filled with chocolate or chocolate-hazelnuts
+fr:Céréales pour petit déjeuner fourrées au chocolat ou chocolat-noisettes
+ciqual_food_code:en:32017
+ciqual_food_name:en:Breakfast cereals, filled with chocolate or chocolate-hazelnuts
+ciqual_food_name:fr:Céréales pour petit déjeuner fourrées au chocolat ou chocolat-noisettes
+
+<en:Filled cereals
+en:Breakfast cereals filled with something other than chocolate (fortified with vitamins and chemical elements)
+fr:Céréales pour petit déjeuner fourrées fourrage autre que chocolat (enrichies en vitamines et minéraux)
+ciqual_food_code:en:32018
+ciqual_food_name:en:Breakfast cereals, filled with a filling other than chocolate, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Céréales pour petit déjeuner fourrées avec autre chose que du chocolat (enrichies en vitamines et minéraux)
 
 # description:en:MUESLI is a breakfast dish based on raw rolled oats and other ingredients like grains, fresh or dried fruits, seeds and nuts, that may be mixed with milk, soy milk, almond milk, other plant milks, yogurt, or fruit juice.
 
@@ -30256,6 +30376,13 @@ fr:Poissons surgelés
 it:Pesci surgelati
 nl:Diepvriesvis
 pl:Ryby mrożone
+
+<en:Frozen fishes
+en:Frozen raw saithe
+fr:Lieu noir cru surgelé
+ciqual_food_code:en:26047
+ciqual_food_name:en:Saithe, frozen, raw
+ciqual_food_name:fr:Lieu noir, surgelé, cru
 
 <en:Frozen foods
 <en:Meats
@@ -34733,6 +34860,23 @@ nl:Groentesoepen
 zh:蔬菜汤
 pnns_group_2:en:Soups
 
+<en:Soups
+<en:Fruits and vegetables based foods
+en:Prepacked reheatable chicken and vegetables soup
+fr:Soupe à la volaille et aux légumes préemballée à réchauffer
+ciqual_food_code:en:25901
+ciqual_food_name:en:Soup, chicken and vegetables, prepacked, to be reheated
+ciqual_food_name:fr:Soupe à la volaille et aux légumes, préemballée à réchauffer
+
+<en:Soups
+<en:Dried products to be rehydrated
+en:Dehydrated and reconstituted soup with chicken and vegetables
+fr:Soupe à la volaille et aux légumes déshydratée et reconstituée
+ciqual_food_code:en:25928
+ciqual_food_name:en:Soup, chicken and vegetables, dehydrated and reconstituted
+ciqual_food_name:fr:Soupe à la volaille et aux légumes, déshydratée reconstituée
+
+
 <en:Vegetable soups
 en:Tomato soups
 de:Tomatensuppen
@@ -35079,6 +35223,32 @@ en:Vegetable bouillon pots, Vegetable stock pots
 es:Caldos de verduras en cacitos, Cacitos de caldo de verduras, Cacitos de caldo vegetal
 fr:Marmites de bouillon de légumes
 nl:Groentebouillons in pot
+
+<en:Bouillon pots
+<en:Dried products to be rehydrated
+en:Dehydrated and reconstituted broth with meat and vegetables,Dehydrated and reconstituted stock with meat and vegetables, Dehydrated and reconstituted bouillon with meat and vegetables
+fr:Bouillon de viande et légumes type pot-au-feu prêt à consommer
+ciqual_food_code:en:25909
+ciqual_food_name:en:Broth, stock or bouillon, meat and vegetables, dehydrated and reconstituted
+ciqual_food_name:fr:Bouillon de viande et légumes type pot-au-feu, prêt à consommer
+
+<en:Bouillon pots
+<en:Dried products to be rehydrated
+en:Dehydrated and reconstituted broth stock, Dehydrated and reconstituted bouillon beef
+fr:Bouillon de boeuf déshydraté reconstitué
+ciqual_food_code:en:25930
+ciqual_food_name:en:Broth, stock or bouillon, beef, dehydrated and reconstituted
+ciqual_food_name:fr:Bouillon de boeuf, déshydraté reconstitué
+
+<en:Bouillon pots
+<en:Dried products to be rehydrated
+en:Dehydrated and reconstituted broth stock with poultry, Dehydrated and reconstituted bouillon with poultry
+fr:Bouillon de volaille déshydraté reconstitué
+ciqual_food_code:en:25947
+ciqual_food_name:en:Broth, stock or bouillon, poultry, dehydrated and reconstituted
+ciqual_food_name:fr:Bouillon de volaille, déshydraté reconstitué
+
+
 
 <en:Broths
 en:Poultry broth
@@ -35584,6 +35754,9 @@ es:Pizza de cuatro quesos
 fi:Neljän juuston pizza
 fr:Pizzas aux quatre fromages, pizzas 4 fromages, Pizza aux quatre fromages, pizza 4 fromages
 nl:Vierkazenpizzas
+ciqual_food_code:en:25478
+ciqual_food_name:en:Pizza, four cheeses
+ciqual_food_name:fr:Pizza 4 fromages
 
 <en:Cheese pizzas
 en:Five Cheese Pizza
@@ -36313,6 +36486,13 @@ nl:Gehakt vleesproducten
 <en:Beef preparations
 en:Roast veal, Roasted veal
 fr:Rôtis de veau, Rôti de veau
+
+<en:Beef preparations
+en:Prepacked veal stock
+fr:Fond de veau préemballé
+ciqual_food_code:en:11304
+ciqual_food_name:en:Veal stock, prepacked
+ciqual_food_name:fr:Fond de veau, préemballé
 
 <en:Frozen meats
 en:Frozen steaks
@@ -39605,6 +39785,35 @@ fr:Pâtisseries, pâtisserie
 nl:Gebak
 pt:Produtos agrícolas
 
+<en:Biscuits and cakes
+en:Diet crispy biscuit without chocolate
+fr:Biscuit sec croquant sans chocolat allégé en matière grasse
+ciqual_food_code:en:24031
+ciqual_food_name:en:Crispy biscuit (cookie), without chocolate, reduced fat
+ciqual_food_name:fr:Biscuit sec croquant (ex : tuile) sans chocolat, allégé en matière grasse
+
+<en:Biscuits and cakes
+en:Biscuit with nuts (no chocolate or lightly chocolate-flavoured)
+fr:Biscuit sec fourré aux noix (non ou légèrement chocolaté)
+ciqual_food_code:en:24055
+ciqual_food_name:en:Biscuit (cookie) with nuts (no chocolate or lightly chocolate-flavoured)
+ciqual_food_name:fr:Biscuit sec fourré fruits à coque (non ou légèrement chocolaté)
+
+<en:Biscuits and cakes
+en:Prepacked wafer biscuit filled with nuts (hazelnut, almond, praline, etc.)
+fr:Gaufrette fourrée (noisette, amande, praline etc.) et préemballée
+ciqual_food_code:en:24312
+ciqual_food_name:en:Wafer biscuit, filled with nuts (hazelnut, almond, praline, etc.), with chocolate or not, prepacked
+ciqual_food_name:fr:Gaufrette fourrée fruits à coque (noisette, amande, praline, etc.), chocolatée ou non, préemballée
+
+<en:Biscuits and cakes
+en:Thin biscuit with almonds
+fr:Biscuit sec ou tuile aux amandes
+ciqual_food_code:en:24615
+ciqual_food_name:en:Biscuit (cookie), thin, w almonds
+ciqual_food_name:fr:Biscuit sec ou tuile, aux amandes
+
+
 <en:Pastries
 es:Torta sevillana, Torta de aceite, Torta de anís
 
@@ -39646,12 +39855,23 @@ wikidata:en:Q265457
 oqali_family:en: fr:Biscuits et gateaux industriels - Babas au rhum
 
 <en:Pastries
-en:King cakes, King cake
+en:King cakes, King cake, Twelfth Night cake
 de:Dreikönigskuchen
 es:Roscón de Reyes
-fr:Galettes des rois, Galette des rois, Gâteaux des rois
+fr:Galettes des rois, Galette des rois, Gâteaux des rois, Galette des rois feuilletée, Galettes à la frangipane, Galette à la frangipane, Galettes des rois à la frangipane
 nl:Koningentaarten, Koningentaart
 wikidata:en:Q177166
+ciqual_food_code:en:23680
+ciqual_food_name:en:Twelfth Night cake
+ciqual_food_name:fr:Galette des rois feuilletée
+
+<en:Pastries
+en:Twelfth Night cake (puff pastry filled with almond paste)
+fr:Galette des rois feuilletée fourrée à la frangipane, Pithiviers
+ciqual_food_code:en:23684
+ciqual_food_name:en:Twelfth Night cake (puff pastry filled with almond paste)
+ciqual_food_name:fr:Galette des rois feuilletée, fourrée frangipane, et Pithiviers
+
 
 <en:Pastries
 <en:Cakes
@@ -39722,8 +39942,17 @@ wikidata:en: Q55152
 fr:Roses des sables
 wikidata:en:Q3442427
 
-<en:King cakes
-fr:Galettes à la frangipane, Galette à la frangipane, Galettes des rois à la frangipane
+<en:Pastries
+<en:Desserts
+en:Baklava (oriental pastry with almonds and syrup)
+fr:Baklava ou Baklawa (pâtisserie orientale aux amandes et sirop)
+ciqual_food_code:en:23300
+ciqual_food_name:en:Baklava (oriental pastry with almonds and syrup)
+ciqual_food_name:fr:Baklava ou Baklawa (pâtisserie orientale aux amandes et sirop)
+
+
+
+
 
 en:Pickles
 ca:Conserves
@@ -40633,6 +40862,56 @@ en:Raw fishes
 de:Roher Fisch, Rohe Fische
 fr:Poissons crus
 nl:Rauwe vis
+
+<en:Raw fishes
+en:Raw Atlantic halibut
+fr:Flétan de l'Atlantique cru, flétan blanc cru
+ciqual_food_code:en:26009
+ciqual_food_name:en:Atlantic halibut, raw
+ciqual_food_name:fr:Flétan de l'Atlantique ou flétan blanc, cru
+
+<en:Raw fishes
+en:Raw Atlantic bluefin tuna
+fr:Thon rouge cru
+ciqual_food_code:en:26069
+ciqual_food_name:en:Atlantic bluefin tuna, raw
+ciqual_food_name:fr:Thon rouge, cru
+
+<en:Raw fishes
+en:Raw swordfish
+fr:Espadon cru
+ciqual_food_code:en:26082
+ciqual_food_name:en:Swordfish, raw
+ciqual_food_name:fr:Espadon, cru
+
+<en:Raw fishes
+en:Raw brown meagre
+fr:Corb cru
+ciqual_food_code:en:26107
+ciqual_food_name:en:Brown meagre, raw
+ciqual_food_name:fr:Corb, cru
+
+<en:Raw fishes
+en:Raw snapper
+fr:Vivaneau cru
+ciqual_food_code:en:26146
+ciqual_food_name:en:Snapper, raw
+ciqual_food_name:fr:Vivaneau, cru
+
+<en:Raw fishes
+en:Raw crevalle jack
+fr:Carangue cru
+ciqual_food_code:en:26157
+ciqual_food_name:en:Crevalle jack, raw
+ciqual_food_name:fr:Carangue, cru
+
+<en:Raw fishes
+en:Raw grouper
+fr:Mérou cru
+ciqual_food_code:en:26178
+ciqual_food_name:en:Grouper, raw
+ciqual_food_name:fr:Mérou, cru
+
 
 <en:Fishes
 en:Salmons
@@ -43192,6 +43471,14 @@ nl:Artisjokharten
 <en:Fresh vegetables
 en:Fresh artichokes
 fr:Artichauts frais
+
+<en:Artichokes
+<en:Frozen foods
+en:Frozen row artichoke bottom
+fr:Fond d'artichaut cru surgelé
+ciqual_food_code:en:20232
+ciqual_food_name:en:Artichoke base, frozen, raw
+ciqual_food_name:fr:Artichaut, fond, surgelé, cru
 
 <en:Vegetable rods
 en:Asparagus
@@ -47410,6 +47697,14 @@ it:Barrette di cereali con mandorle
 <en:Nuts cereal bars
 fr:Barres de céréales aux noisettes, Barre de céréales aux noisettes
 it:Barrette di cereali con nocciole
+
+<en:Nuts cereal bars
+en:Cereal bar with almonds or hazelnuts
+fr:Barre céréalière aux amandes ou aux noisettes
+ciqual_food_code:en:31114
+ciqual_food_name:en:Cereal bar with almonds or hazelnuts
+ciqual_food_name:fr:Barre céréalière aux amandes ou noisettes
+
 
 <en:Fruits cereal bars
 <en:Chocolate cereal bars
