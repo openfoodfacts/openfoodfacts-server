@@ -308,6 +308,8 @@ function change_image(imagefield, imgid) {
   html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
 	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_left + '</a> &nbsp;';
 	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_right + '</a>';
+  html += '<br/><input type="checkbox" id="zoom_on_wheel_' + imagefield +'" name="zoom_on_wheel_' + imagefield +'" value="">';
+  html += '<label for="zoom_on_wheel_' + imagefield +'" style="margin-top:0px;">' + lang().product_js_zoom_on_wheel + '</label>';
 	html += '</div>';
   html += '</div><div class="small-6 medium-5 large-4 columns" style="float:right">';
 
@@ -378,10 +380,14 @@ function change_image(imagefield, imgid) {
   });
 
 	$('img#crop_' + imagefield).cropper({
-		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": true, "zoomOnTouch": true, "toggleDragModeOnDblclick": false, built: function () {
-		$('img#crop_' + imagefield ).cropper('setDragMode', "crop");
-		}
+		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": false, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
 	});
+
+	$("#zoom_on_wheel_" + imagefield).change(function() {
+    var zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
+    $('img#crop_' + imagefield).cropper('destroy').cropper({
+      "viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": zoomOnWheel, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
+	});	} );
 
 	$(document).foundation('equalizer', 'reflow');
 }
