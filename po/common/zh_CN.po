@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-20 02:25\n"
+"PO-Revision-Date: 2020-03-20 03:43\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -675,7 +675,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "数据，API和SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -708,7 +708,8 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "关注我们请点击 <a href=\"https://twitter.com/openfoodfacts\">推特请点击</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">,脸书</a> 和<a href=\"https://www.instagram.com/open.food.facts/\">instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -729,7 +730,7 @@ msgstr "相关法律"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "法律"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -751,7 +752,7 @@ msgstr "使用条款"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "使用条款"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -760,7 +761,7 @@ msgstr "我们是谁"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "我们是谁"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -774,12 +775,12 @@ msgstr "https://en.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "公开美丽真相-化妆品"
 
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -803,7 +804,7 @@ msgstr "一回见！"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "%d的产品符合搜索条件，%i的产品已经定义了图形轴的值。"
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -868,11 +869,11 @@ msgstr "当条形码可见时，您必须输入条形码的字符或者发送产
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "完整大小"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "此文件已上载到产品 %s ，并获得 %s 许可证的许可。"
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
@@ -884,11 +885,11 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(原始形象)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "照片详情和属性信息"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -985,11 +986,11 @@ msgstr "/images/misc/appstore/black/appstore_CN_SC.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "在app商店下载"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1009,7 +1010,7 @@ msgstr "有机产品"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "只显示最具体的标签。“父”标签会自动添加进去"
 
 msgctxt "labels_p"
 msgid "labels"
@@ -1071,7 +1072,9 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "通过添加信息，数据和/或图像，您同意将您的贡献不可撤销地置于 <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License 1.0</a> 许可\n"
+"用于信息和数据，以及 <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution-ShareAlike 3.0</a> 图像许可。\n"
+"您接受链接到您正在贡献的产品的链接，以得到重新使用者的信任。"
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1191,7 +1194,7 @@ msgstr "贡献"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/贡献"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1200,7 +1203,7 @@ msgstr "发现"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/发现"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1240,7 +1243,7 @@ msgstr "将图片移动到另外一个产品上"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s的产品"
 
 msgctxt "name"
 msgid "Name"
@@ -1313,7 +1316,7 @@ msgstr "每一百克含有的营养成分"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/营养水平"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
