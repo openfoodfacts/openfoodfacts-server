@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 15:09\n"
+"PO-Revision-Date: 2020-03-20 13:05\n"
 "Language-Team: Latvian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -144,7 +144,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -158,7 +158,7 @@ msgstr "/images/misc/google-play-badge-svg-master/img/lv_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "Iegūstiet to pakalpojumā Google Play"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -201,15 +201,15 @@ msgstr "Svītru koda numurs:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Jūs varat arī palīdzēt finansēt projektu Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> veido bezpeļņas asociācija, kas ir neatkarīga no nozares. To veido visi, visi, un to finansē visi. Jūs varat atbalstīt mūsu darbu, ziedojot <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">Open Food Facts</a> un arī <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">izmantojot meklētājprogrammu Lilo</a>.<br/><b>paldies!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "Ziedo mūsu darba atbalstam"
 
 msgctxt "brands"
 msgid "Brands"
@@ -381,11 +381,11 @@ msgstr "Datu avots"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "datu avoti"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "datu avots"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -433,11 +433,11 @@ msgstr "Ziedot Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "Ekoloģiskā pēda"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
@@ -562,7 +562,7 @@ msgstr "Parole un apstiprinājuma parole atšķiras."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "E-pasta adresi jau izmanto cits lietotājs. Varbūt jums jau ir konts? Jūs varat <a href=\"/cgi/reset_password.pl\">atiestatīt sava otrā konta</a> paroli."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -654,7 +654,7 @@ msgstr "Ja dati ir nepilnīgi vai nepareizi, varat to aizpildīt vai labot, redi
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "un <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook grupa ieguldītājiem</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -676,7 +676,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Dati, API un SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -709,7 +709,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Sekojiet mums <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> un\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -775,16 +777,16 @@ msgstr "https://en.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Atklāti skaistumkopšanas fakti - kosmētika"
 
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "priekš"
 
 msgctxt "front_alt"
 msgid "Product"
@@ -792,19 +794,19 @@ msgstr "Produkts"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "Parastais nosaukums"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "Šokolādes tāfelīte ar pienu un lazdu riekstiem"
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr ""
+msgstr "Uz drīzu redzēšanos!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "%d produkti atbilst meklēšanas kritērijiem, no kuriem %i produktiem ir noteiktas vērtības diagrammas asij."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -2461,6 +2463,10 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "Kļūda, izvēloties attēlu."
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Brīdinājums: šķiedru daudzums nav norādīts, to iespējamo pozitīvo ietekmi uz kategoriju nevarēja ņemt vērā."
@@ -3801,7 +3807,7 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "Paldies!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
