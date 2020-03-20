@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-20 03:43\n"
+"PO-Revision-Date: 2020-03-20 07:32\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1618,7 +1618,7 @@ msgstr "贡献者和国家排名"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s是%d国家的探险者以及%d国家的大使"
 
 msgctxt "previous"
 msgid "Previous"
@@ -1950,23 +1950,23 @@ msgstr "下载结果"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "以XLSX或CSV格式下载结果。请注意，出于性能原因，您最多只能下载10.000个结果。"
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "XLSX格式"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel或LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "CSV格式"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "字符集：Unicode(UTF-8)-分隔符：制表(tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -1990,7 +1990,7 @@ msgstr "散点"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→要了解更多信息 <<site_name>> 请访问<a href=\"/graphs-in-3-clicks\">点击</a>(博客)</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2183,7 +2183,7 @@ msgstr "分量"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "准备的份量"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2808,7 +2808,7 @@ msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "一些人"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
@@ -2852,47 +2852,47 @@ msgstr ""
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "最后检查日期"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "最后检查日期"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
-msgstr ""
+msgstr "最近一次修改产品页面在..."
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "其他信息"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
-msgstr ""
+msgstr "生产者版本标识符"
 
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
-msgstr ""
+msgstr "生产者版本标识符"
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "净重:"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "沥干物重"
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "容量"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr ""
+msgstr "其他信息"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
-msgstr ""
+msgstr "保存条件"
 
 msgctxt "warning"
 msgid "Warning"
@@ -2900,91 +2900,91 @@ msgstr "警告"
 
 msgctxt "preparation"
 msgid "Preparation"
-msgstr ""
+msgstr "准备"
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
-msgstr ""
+msgstr "配方想法"
 
 msgctxt "origin"
 msgid "Origin"
-msgstr ""
+msgstr "起源"
 
 msgctxt "customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "客户服务"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr ""
+msgstr "制造商"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
-msgstr ""
+msgstr "回收说明-回收"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
-msgstr ""
+msgstr "回收指导-想要丢弃"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "检查的产品达到%s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "未检查的产品达到%s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "纠正过的产品达到%s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "未纠正过的产品达到%s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "产品编辑达到%s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "产品未编辑到达%s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "纠正过的产品达到%s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "未完成的产品达到%s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "拍照过的产品达到%s"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "未拍照过的产品达到%s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "%s页"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "产品不再发售了"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
-msgstr ""
+msgstr "提款日期"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "格式：YYYY-MM-DD或YYYY-MM或YYYY"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30或2019-09或2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3224,7 +3224,7 @@ msgstr ""
 
 msgctxt "fields_group_other"
 msgid "Other information"
-msgstr ""
+msgstr "其他信息"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
@@ -3834,7 +3834,7 @@ msgstr ""
 
 msgctxt "user_group_producer"
 msgid "Producer"
-msgstr ""
+msgstr "制造商"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
