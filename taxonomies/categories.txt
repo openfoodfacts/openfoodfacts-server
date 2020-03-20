@@ -20436,6 +20436,10 @@ zh:玉米
 wikidata:en:Q11575
 
 <en:Corn
+fr:Maïs frais
+season_in_country_fr:en: 7,8,9
+
+<en:Corn
 en:Sweet corn
 de:Zuckermais, süße Maise
 es:Maíz dulce
@@ -26434,6 +26438,10 @@ zh:栗子
 wikidata:en:Q129324
 
 <en:Chestnuts
+fr:Châtaignes fraîches
+season_in_country_fr:en: 10,11
+
+<en:Chestnuts
 <en:Shelled nuts
 en:Shelled chestnuts
 de:Maronen mit Schale, Ungeschälte Maronen
@@ -26683,6 +26691,10 @@ nl:Walnoten
 se:Valnötter, valnöt
 zh:核桃, 胡桃
 wikidata:en:Q208021
+
+<en:Walnuts
+fr:Noix fraîches
+season_in_country_fr:en: 9,10
 
 <en:Walnuts
 en:Walnut kernels
@@ -30318,6 +30330,10 @@ zh:水果
 wikidata:en:Q1364
 
 <en:Fruits
+fr:Cassis frais
+season_in_country_fr:en: 6,7,8
+
+<en:Fruits
 en:Apples
 de:Äpfel, Apfel
 es:Manzanas
@@ -30604,6 +30620,10 @@ la:Citrus x limon
 nl:Citroenen
 ro:Lămâi
 ru:Лимоны
+
+<en:Lemons
+fr:Citrons frais
+season_in_country_fr:en: 1,2,11,12
 
 <en:Citrus
 en:Limes
@@ -43245,6 +43265,14 @@ nl:Verse groenten
 ru:Свежие овощи
 zh:新鲜蔬菜
 
+<en:Fresh vegetables
+fr:Topinambour frais
+season_in_country_fr:en: 1,2,11,12
+
+<en:Fresh vegetables
+fr:Panais frais
+season_in_country_fr:en: 1,2,3,10,11,12
+
 <en:Vegetables
 en:Vegetable rods
 ca:Verdures allargades
@@ -43268,6 +43296,10 @@ wikidata_category:en:Q7469413
 en:Salsifis
 fr:Salsifis
 wikidata:en:Q941639
+
+<en:Salsifis
+fr:Salsifis frais
+season_in_country_fr:en: 1,2,11,12
 
 <en:Vegetable rods
 en:Artichokes
@@ -43517,6 +43549,10 @@ fr:Choux cabus
 la:Brassica oleracea var. capitata
 nl:Kolen
 
+<en:Leaf vegetables
+fr:Chou frais
+season_in_country_fr:en: 1,2,3,10,11,12
+
 <en:Vegetable rods
 en:Cardoons, Artichoke thistles
 de:Kardone
@@ -43551,13 +43587,14 @@ en:Cauliflowers
 de:Blumenkohl
 es:Coliflores, Coliflor
 fi:kukkakaalit
-fr:Choux-fleurs
+fr:Choux-fleurs, Chou-fleur
 la:Brassica oleracea var. botrytis
 nl:Bloemkolen
 
 <en:Cauliflowers
 en:Fresh cauliflowers
-fr:Choux-fleurs frais
+fr:Choux-fleurs frais, Chou-fleur frais
+season_in_country_fr:en: 1,2,3,9,10,11,12
 
 <en:Vegetable rods
 <en:Culinary plants
@@ -43659,6 +43696,10 @@ la:Cucumis sativus
 nl:Komkommers
 ru:Огурцы, Огурец
 wikidata:en:Q23425
+
+<en:Cucumbers
+fr:Concombre frais
+season_in_country_fr:en: 5,6,7,8,9,10
 
 # description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 
@@ -43803,6 +43844,10 @@ zh:小茴香
 wikipedia:en:https://en.wikipedia.org/wiki/Fennel
 wikidata:en:https://www.wikidata.org/wiki/Q43511
 # fr:fenouil has 634 products in 6 languages @2018-10-21
+
+<en:fennel
+fr:Fenouil frais
+season_in_country_fr:en: 4,6,7,8,9,10,11
 
 <en:Fennel
 <en:Vegetable rods
@@ -43965,6 +44010,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Poireau
 <en:Fresh vegetables
 en:Fresh leeks
 fr:Poireaux frais
+season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
@@ -44078,6 +44124,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 # ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
 # category/lettuces has 84 products @2019-5-22
 
+<en:Lettuces
+fr:Laitue fraîche
+season_in_country_fr:en: 5,6,7,8,9
+
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
 <en:Culinary plants
@@ -44143,6 +44193,7 @@ wikidata:en:Q622350
 <en:Fresh vegetables
 en:Fresh onions
 fr:Oignons frais
+season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 <en:Onions
 en:Shallots
@@ -44171,6 +44222,7 @@ nl:Pepers en paprikas
 <en:Fresh vegetables
 en:Fresh sweet peppers
 fr:Poivrons frais
+season_in_country_fr:en: 6,7,8,9
 
 <en:Sweet Peppers
 en:Green bell peppers
@@ -44296,6 +44348,9 @@ es:Calabazas
 fi:kurpitsat
 fr:Courges, Potirons, Citrouilles
 nl:Pompoenen
+
+fr:Potiron frais
+season_in_country_fr:en: 1,9,10,11,12
 
 <en:Pumpkins
 <en:Fresh vegetables
@@ -44446,6 +44501,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Radish
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
 
 <en:Radishes
+fr:Radis frais
+season_in_country_fr:en: 3,4,5,6
+
+<en:Radishes
 en:Red radishes
 es:Rábanos rojos, Rábanos picantes
 fr:Radis rouges, radis rouge
@@ -44574,6 +44633,7 @@ wikidata:en:Q81464
 en:Fresh spinachs
 de:Frischer Spinat
 fr:Épinards frais
+season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 <en:Cereals and potatoes
 en:Sweet potatoes
@@ -44678,6 +44738,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turnip
 <en:Turnip
 en:Fresh turnips
 fr:Navets frais
+season_in_country_fr:en: 1,2,3,4,5,10,11,12
 
 <en:Vegetables
 <en:Tomatoes and their products
@@ -44696,6 +44757,7 @@ en:Fresh tomatoes
 de:Frische Tomaten
 fr:Tomates fraîches
 nl:Verse tomaten, Verse tomaat
+season_in_country_fr:en: 6,7,8,9
 
 <en:Tomatoes
 fr:Tomate olivette, Tomates olivettes
@@ -44826,6 +44888,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
 # ingredient/fr:mâche has 133 products in french @2019-05-08
 # category/corn-salad has 73 products @2019-05-22
 
+<en:corn salad
+fr:Mâche fraîche
+season_in_country_fr:en: 1,2,10,11,12
+
 <en:Leaf vegetables
 en:Salad rocket, rucola, rucoli, rugula, colewort, roquette, arugula
 de:Garten-Senfrauke
@@ -44853,6 +44919,10 @@ fr:Cresson, Cresson de fontaine, Cresson d’eau
 la:Nasturtium officinale
 nl:Witte waterkers
 wikidata:en:Q150452
+
+<en:Watercress
+fr:Cresson frais
+season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 <en:Vegetables based foods
 <en:Fresh sprouts
@@ -45055,6 +45125,7 @@ nl:Verse doperwten
 <en:Green peas
 en:Fresh green peas
 fr:Petits pois frais
+season_in_country_fr:en: 5,6,7
 
 <en:Legumes
 <en:Seeds
