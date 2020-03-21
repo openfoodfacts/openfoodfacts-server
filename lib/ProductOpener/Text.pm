@@ -18,6 +18,29 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Text - formats decimal numbers and percentages according to locale.
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Text> is used to format decimal numbers and percentages according to locale. 
+	
+	use ProductOpener::Text qw/:all/;
+	
+	my $decf = get_decimal_formatter($lc);
+	my $perf = get_percent_formatter($lc, 0);
+	$salt = $decf->format(g_to_unit($salt, $unit));
+	$percent = $perf->format($percent / 100.0);
+
+=head1 DESCRIPTION
+
+The module implements decimal formatting, percent formatting and normalization of percentages on the basis of locale.
+Different languages can have different representation for decimal sign and can have different positions for the placement of percent in a value.
+The decimal sign could be a '.' (most languages), or it could be a ',' (de - DECIMAL POINT IS COMMA ;-)
+
+=cut
+
 package ProductOpener::Text;
 
 use utf8;
@@ -42,6 +65,23 @@ BEGIN
 
  use CLDR::Number;
  use CLDR::Number::Format::Percent;
+
+=head1 FUNCTIONS
+
+=head2 normalize_percentages( TEXT, LOCALE )
+
+C<normalize_percentages()> returns formatted percentage value on the basis of locale since every language has different standards for writing percentage and decimal values.
+
+=head3 Arguments
+
+Two scalar variables text and locale are passed as arguments. Locale is two letter language code (ur for Urdu, de for German, en for English, etc)
+
+=head3 Return values
+
+The function returns a scalar variable that is the result of concatenation of regex, percentage formatting on locale basis. 
+If text (scalar variable passed as argument) is not defined or percent sign is not found, the function simply returns the scalar variable text(passed as argument) for performance reasons.
+
+=cut
 
 sub normalize_percentages($$) {
 
@@ -83,6 +123,23 @@ sub _get_cldr {
 
 }
 
+=head2 get_decimal_formatter( LOCALE )
+
+C<get_decimal_formatter()> formats decimal numbers. It can parse and format decimal numbers in any locale. The formatting is locale sensitive.
+This function allows to control the display of leading and trailing zeros, grouping separators, and the decimal separator.
+Different languages can have different representation for decimal sign.
+The decimal sign could be a '.' (most languages), or it could be a ',' (de - DECIMAL POINT IS COMMA ;-)
+
+=head3 Arguments
+
+A scalar variable locale is passed as argument. Locale is two letter language code (ur for Urdu, de for German, en for English, etc)
+
+=head3 Return values
+
+The function returns a scalar variable that is formatted on the basis of locale.
+
+=cut
+
 %ProductOpener::Text::decimal_formatters = ();
 sub get_decimal_formatter {
 
@@ -99,6 +156,21 @@ sub get_decimal_formatter {
 	return $decf;
 
 }
+
+=head2 get_percent_formatter( LOCALE, MAXIMUM_FRACTION_DIGITS )
+
+C<get_percent_formatter()> formats percentages according to locale. The formatting is locale sensitive.
+
+=head3 Arguments
+
+A scalar variable locale and maximum_fraction_digits are passed as argument. Locale is two letter language code (ur for Urdu, de for German, en for English, etc)
+maximum_fraction_digits sets the maximum number of digits allowed in the fraction portion of a number.
+
+=head3 Return values
+
+The function returns a scalar variable of percentage value that is formatted by a locale-specific formatter.
+
+=cut
 
 %ProductOpener::Text::percent_formatters = ();
 sub get_percent_formatter {
