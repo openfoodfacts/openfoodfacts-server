@@ -1883,6 +1883,12 @@ de:Tschechische Wodkas
 fr:Vodkas tchèques
 nl:Tsjechische wodkas
 
+<en:Vodka
+sv:Svensk Vodka, Swedish Vodka
+protected_name_file_number_en: PGI-SE-01926
+protected_name_type:en: gi
+origins:en: en:Sweden
+
 <en:Hard liquors
 en:Gins, Gin
 de:Gins
@@ -7047,8 +7053,10 @@ instanceof:fr:IGP
 <en:Wines from France
 fr:Comtés Rhodaniens
 wikidata:en:Q18745121
-country:en:France
-instanceof:fr:IGP
+protected_name_file_number_en: PGI-FR-A1230-AM02
+protected_name_type:en: pgi
+origins:en: en:France
+
 
 <en:Wines from France
 fr:Condrieu
@@ -7291,6 +7299,9 @@ wikidata:en:Q1136603
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Pic-Saint-Loup, Pic-Saint-Loup
 country:en:France
+protected_name_file_number_en: PDO-FR-02354
+protected_name_type:en: pdo
+origins:en: en:France
 
 <fr:Coteaux du Languedoc Pic-Saint-Loup
 fr:Pic Saint-Loup rouge
@@ -9470,6 +9481,12 @@ fr:Mont-Caume
 wikidata:en:Q17635304
 country:en:France
 instanceof:fr:IGP
+
+<en:Wines from France
+fr:Terrasses du Larzac
+protected_name_file_number_en: PDO-FR-02084
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Burgundy wines
 <en:Red wines
@@ -11960,6 +11977,111 @@ protected_name_type:en: pdo
 origins:en: en:United States
 
 <en:Wines
+en:Slovenian wines
+
+<en:Slovenian wines
+sl:Štajerska Slovenija
+protected_name_file_number_en: PDO-SI-A0639
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Metliška črnina
+protected_name_file_number_en: PDO-SI-A1579
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Slovenska Istra
+protected_name_file_number_en: PDO-SI-A0609
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Bizeljčan
+protected_name_file_number_en: PDO-SI-A1520
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Prekmurje
+protected_name_file_number_en: PDO-SI-A0769
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Bizeljsko Sremič
+protected_name_file_number_en: PDO-SI-A0772
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Vipavska dolina
+protected_name_file_number_en: PDO-SI-A0448
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Kras
+protected_name_file_number_en: PDO-SI-A0616
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Bela krajina
+protected_name_file_number_en: PDO-SI-A0878
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Belokranjec
+protected_name_file_number_en: PDO-SI-A1576
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Dolenjska
+protected_name_file_number_en: PDO-SI-A0871
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Goriška Brda
+protected_name_file_number_en: PDO-SI-A0270
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Cviček
+protected_name_file_number_en: PDO-SI-A1561
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Teran
+protected_name_file_number_en: PDO-SI-A1581
+protected_name_type:en: pdo
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Posavje
+protected_name_file_number_en: PGI-SI-A1061
+protected_name_type:en: pgi
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Primorska
+protected_name_file_number_en: PGI-SI-A1094
+protected_name_type:en: pgi
+origins:en: en:Slovenia
+
+<en:Slovenian wines
+sl:Podravje
+protected_name_file_number_en: PGI-SI-A0995
+protected_name_type:en: pgi
+origins:en: en:Slovenia
+
+<en:Wines
 en:Wines from Australia, Australian Wines
 de:Weine aus Australien
 fr:Vins d'Australie
@@ -11973,6 +12095,15 @@ wikidata:en:Q7566214
 <en:Wines from Australia
 en:West Australian wine, Wines from West Australia
 wikidata:en:Q7984365
+
+<en:Wines
+en:Swiss wines
+
+<en:Swiss wines
+fr:Commune de Champagne
+protected_name_file_number_en: PGI-CH-02089
+protected_name_type:en: pgi
+origins:en: en:Switzerland
 
 <en:Wines
 en:Wines from Austria, Austrian Wines
@@ -14136,8 +14267,10 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Benaco bresciano
-country:en:Italy
+it:Benaco Bresciano
+protected_name_file_number_en: PGI-IT-A1205
+protected_name_type:en: pgi
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -14553,8 +14686,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Colli Aprutini
-country:en:Italy
-#wikidata:en:
+protected_name_file_number_en: PGI-IT-A0884
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Asolani - Prosecco, Asolo - Prosecco
@@ -14880,7 +15014,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Collina del Milanese
-country:en:Italy
+protected_name_file_number_en: PGI-IT-A1053
+protected_name_type:en: pgi
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -15594,7 +15730,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Montenetto di Brescia
-country:en:Italy
+protected_name_file_number_en: PGI-IT-A1256
+protected_name_type:en: pgi
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -15960,7 +16098,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Ronchi di Brescia
-country:en:Italy
+protected_name_file_number_en: PGI-IT-A1265
+protected_name_type:en: pgi
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -16140,7 +16280,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Sebino
-country:en:Italy
+protected_name_file_number_en: PGI-IT-A1041
+protected_name_type:en: pgi
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -25684,8 +25826,28 @@ de:Schwedischer Käse
 fr:Fromages suédois, Fromages de Suède
 
 <en:Swedish cheeses
+sv:Vrigstad Hemost
+protected_name_file_number_en: PGI-SE-02488
+protected_name_type:en: pgi
+origins:en: en:Sweden
+
+<en:Swedish cheeses
+sv:Wrångebäcksost
+protected_name_file_number_en: PDO-SE-02413
+protected_name_type:en: pdo
+origins:en: en:Sweden
+
+<en:Swedish cheeses
+sv:Hushållsost
+protected_name_file_number_en: TSG-SE-0022
+protected_name_type:en: tsg
+origins:en: en:Sweden
+
+<en:Swedish cheeses
 sv:Svecia
-country:en:Sweden
+protected_name_file_number_en: PGI-SE-1561
+protected_name_type:en: pgi
+origins:en: en:Sweden
 
 <en:Cheeses of the Netherlands
 nl:Boeren-Leidse kazen
@@ -50703,6 +50865,27 @@ pt:Vinagres
 zh:醋
 pnns_group_2:en:Dressings and sauces
 wikidata:en:Q41354
+
+<en:Vinegars
+en:Spanish vinegars
+
+<en:Spanish vinegars
+es:Vinagre de Montilla-Moriles
+protected_name_file_number_en: PDO-ES-0726
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Spanish vinegars
+es:Vinagre del Condado de Huelva
+protected_name_file_number_en: PDO-ES-0724
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Spanish vinegars
+es:Vinagre de Jerez
+protected_name_file_number_en: PDO-ES-0723
+protected_name_type:en: pdo
+origins:en: en:Spain
 
 <en:Vinegars
 en:Balsamic vinegars
