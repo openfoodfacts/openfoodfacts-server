@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: me\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-20 13:14\n"
+"PO-Revision-Date: 2020-03-21 09:34\n"
 "Language-Team: Montenegrin (Latin)\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4028,5 +4028,18 @@ msgstr ""
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
+msgstr ""
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr ""
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr ""
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
 msgstr ""
 
