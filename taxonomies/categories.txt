@@ -905,31 +905,31 @@ ro:Beri belgiene, Beri Belgia, Bere Belgiană, Bere Belgia, Bere Belgiana
 
 <en:Belgian beers
 fr:Lambic, Gueuze-Lambic, Gueuze, Lambiek, Geuze-Lambiek, Geuze
-protected_name_file_number_en: TSG-BE-0005
+protected_name_file_number:en: TSG-BE-0005
 protected_name_type:en: tsg
 origins:en: en:Belgium
 
 <en:Belgian beers
 nl:Kriek, Kriek-Lambic, Framboise-Lambic, Fruit-Lambic, Kriek, Kriekenlambiek, Frambozenlambiek, Vruchtenlambiek
-protected_name_file_number_en: TSG-BE-0008
+protected_name_file_number:en: TSG-BE-0008
 protected_name_type:en: tsg
 origins:en: en:Belgium
 
 <en:Belgian beers
 fr:Faro
-protected_name_file_number_en: TSG-BE-0006
+protected_name_file_number:en: TSG-BE-0006
 protected_name_type:en: tsg
 origins:en: en:Belgium
 
 <en:Belgian beers
 fr:Vieille Gueuze, Vieille Gueuze-Lambic, Vieux Lambic, Oude Geuze, Oude Geuze-Lambiek, Oude Lambiek
-protected_name_file_number_en: TSG-BE-0007
+protected_name_file_number:en: TSG-BE-0007
 protected_name_type:en: tsg
 origins:en: en:Belgium
 
 <en:Belgian beers
 fr:Vieille Kriek, Vieille Kriek-Lambic, Vieille Framboise-Lambic, Vieux fruit-Lambic, Oude Kriek, Oude Kriekenlambiek, Oude Frambozenlambiek, Oude Fruit-lambiek
-protected_name_file_number_en: TSG-BE-0009
+protected_name_file_number:en: TSG-BE-0009
 protected_name_type:en: tsg
 origins:en: en:Belgium
 
@@ -938,7 +938,7 @@ en:Bulgarian beers
 
 <en:Bulgarian beers
 bg:Българско розово масло, Bulgarsko rozovo maslo
-protected_name_file_number_en: PGI-BG-1050
+protected_name_file_number:en: PGI-BG-1050
 protected_name_type:en: pgi
 origins:en: en:Bulgaria
 
@@ -1227,25 +1227,25 @@ en:Spanish spirit drinks
 
 <en:Spanish spirit drinks
 es:Ronmiel de Canarias
-protected_name_file_number_en: PGI-ES-01943
+protected_name_file_number:en: PGI-ES-01943
 protected_name_type:en: gi
 origins:en: en:Spain
 
 <en:Spanish spirit drinks
 es:Aguardiente de hierbas de Galicia
-protected_name_file_number_en: PGI-ES-01913
+protected_name_file_number:en: PGI-ES-01913
 protected_name_type:en: gi
 origins:en: en:Spain
 
 <en:Spanish spirit drinks
 es:Herbero de la Sierra de Mariola
-protected_name_file_number_en: PGI-ES-01894
+protected_name_file_number:en: PGI-ES-01894
 protected_name_type:en: gi
 origins:en: en:Spain
 
 <en:Spanish spirit drinks
 es:Aperitivo Café de Alcoy
-protected_name_file_number_en: PGI-ES-01891
+protected_name_file_number:en: PGI-ES-01891
 protected_name_type:en: gi
 origins:en: en:Spain
 
@@ -1954,7 +1954,7 @@ nl:Tsjechische wodkas
 
 <en:Vodka
 sv:Svensk Vodka, Swedish Vodka
-protected_name_file_number_en: PGI-SE-01926
+protected_name_file_number:en: PGI-SE-01926
 protected_name_type:en: gi
 origins:en: en:Sweden
 
@@ -2075,6 +2075,21 @@ nl:Kruidenlikeur
 wikidata:en:Q1883967
 
 <en:Liqueurs
+en:French liqueur
+
+<en:French liqueur
+fr:Ratafia de Champagne
+protected_name_file_number_en: PGI-FR-02062-AM01
+protected_name_type:en: gi
+origins:en: en:France
+
+#<en:French liqueur
+#fr:Ratafia de Champagne
+#protected_name_file_number_en: PGI-FR-02062
+#protected_name_type:en: gi
+#origins:en: en:France
+
+<en:Liqueurs
 fr:Crèmes de cassis
 en:Blackcurrant liqueur
 wikidata:en:Q968019
@@ -2124,25 +2139,25 @@ en:Austrian liqueur
 
 <en:Austrian liqueur
 de:Jägertee, Jagertee, Jagatee
-protected_name_file_number_en: PGI-AT-01917
+protected_name_file_number:en: PGI-AT-01917
 protected_name_type:en: gi
 origins:en: en:Austria
 
 <en:Austrian liqueur
 de:Wachauer Marillenlikör
-protected_name_file_number_en: PGI-AT-02037
+protected_name_file_number:en: PGI-AT-02037
 protected_name_type:en: gi
 origins:en: en:Austria
 
 <en:Austrian liqueur
 de:Steinfelder Magenbitter
-protected_name_file_number_en: PGI-AT-01916
+protected_name_file_number:en: PGI-AT-01916
 protected_name_type:en: gi
 origins:en: en:Austria
 
 <en:Austrian liqueur
 de:Mariazeller Magenlikör
-protected_name_file_number_en: PGI-AT-01920
+protected_name_file_number:en: PGI-AT-01920
 protected_name_type:en: gi
 origins:en: en:Austria
 
@@ -4353,6 +4368,15 @@ zh:咖啡
 wikidata:en:Q8486
 
 <en:Coffees
+en:Colombian coffees
+
+<en:Colombian coffees
+es:Café de Colombia
+protected_name_file_number:en: PGI-CO-0467
+protected_name_type:en: pgi
+origins:en: en:Colombia
+
+<en:Coffees
 <en:Hot beverages
 en:Coffee capsules, Coffee pads
 ca:Càpsules de cafè
@@ -4680,6 +4704,77 @@ en:Mountain waters, Mountain water
 de:Bergwasser, Bergwässer
 fr:Eaux de montagne, eau de montagne
 nl:Bergwaters, Bergwater
+
+fr:marc
+
+<fr:marc
+en:French grape marc spirit or grape marc
+
+<en:French grape marc spirit or grape marc
+fr:Marc de Champagne, Eau-de-vie de marc de Champagne
+protected_name_file_number_en: PGI-FR-02063-AM01
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc du Jura
+protected_name_file_number_en: PGI-FR-02027
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc d'Alsace Gewurztraminer
+protected_name_file_number_en: PGI-FR-01836
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc d'Auvergne
+protected_name_file_number_en: PGI-FR-01989
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc des Côtes-du-Rhône, Eau-de-vie de marc des Côtes du Rhône
+protected_name_file_number_en: PGI-FR-01979
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc de Provence
+protected_name_file_number_en: PGI-FR-02069
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc de Champagne, Eau-de-vie de marc de Champagne
+protected_name_file_number_en: PGI-FR-02063
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc du Languedoc
+protected_name_file_number_en: PGI-FR-02074
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc du Bugey
+protected_name_file_number_en: PGI-FR-02025
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc de Savoie
+protected_name_file_number_en: PGI-FR-02026
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French grape marc spirit or grape marc
+fr:Marc de Bourgogne, Eau-de-vie de marc de Bourgogne
+protected_name_file_number_en: PGI-FR-01835
+protected_name_type:en: gi
+origins:en: en:France
 
 <en:Alcoholic beverages
 en:Wines
@@ -7122,7 +7217,7 @@ instanceof:fr:IGP
 <en:Wines from France
 fr:Comtés Rhodaniens
 wikidata:en:Q18745121
-protected_name_file_number_en: PGI-FR-A1230-AM02
+protected_name_file_number:en: PGI-FR-A1230-AM02
 protected_name_type:en: pgi
 origins:en: en:France
 
@@ -7368,7 +7463,7 @@ wikidata:en:Q1136603
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Pic-Saint-Loup, Pic-Saint-Loup
 country:en:France
-protected_name_file_number_en: PDO-FR-02354
+protected_name_file_number:en: PDO-FR-02354
 protected_name_type:en: pdo
 origins:en: en:France
 
@@ -9553,7 +9648,7 @@ instanceof:fr:IGP
 
 <en:Wines from France
 fr:Terrasses du Larzac
-protected_name_file_number_en: PDO-FR-02084
+protected_name_file_number:en: PDO-FR-02084
 protected_name_type:en: pdo
 origins:en: en:France
 
@@ -12035,13 +12130,13 @@ wikidata:en:Q1134713
 
 <en:Wines from America
 en:Willamette Valley
-protected_name_file_number_en: PGI-US-02439
+protected_name_file_number:en: PGI-US-02439
 protected_name_type:en: pgi
 origins:en: en:United States
 
 <en:Wines from America
 en:Napa Valley
-protected_name_file_number_en: PDO-US-17738
+protected_name_file_number:en: PDO-US-17738
 protected_name_type:en: pdo
 origins:en: en:United States
 
@@ -12050,103 +12145,103 @@ en:Slovenian wines
 
 <en:Slovenian wines
 sl:Štajerska Slovenija
-protected_name_file_number_en: PDO-SI-A0639
+protected_name_file_number:en: PDO-SI-A0639
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Metliška črnina
-protected_name_file_number_en: PDO-SI-A1579
+protected_name_file_number:en: PDO-SI-A1579
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Slovenska Istra
-protected_name_file_number_en: PDO-SI-A0609
+protected_name_file_number:en: PDO-SI-A0609
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Bizeljčan
-protected_name_file_number_en: PDO-SI-A1520
+protected_name_file_number:en: PDO-SI-A1520
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Prekmurje
-protected_name_file_number_en: PDO-SI-A0769
+protected_name_file_number:en: PDO-SI-A0769
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Bizeljsko Sremič
-protected_name_file_number_en: PDO-SI-A0772
+protected_name_file_number:en: PDO-SI-A0772
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Vipavska dolina
-protected_name_file_number_en: PDO-SI-A0448
+protected_name_file_number:en: PDO-SI-A0448
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Kras
-protected_name_file_number_en: PDO-SI-A0616
+protected_name_file_number:en: PDO-SI-A0616
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Bela krajina
-protected_name_file_number_en: PDO-SI-A0878
+protected_name_file_number:en: PDO-SI-A0878
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Belokranjec
-protected_name_file_number_en: PDO-SI-A1576
+protected_name_file_number:en: PDO-SI-A1576
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Dolenjska
-protected_name_file_number_en: PDO-SI-A0871
+protected_name_file_number:en: PDO-SI-A0871
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Goriška Brda
-protected_name_file_number_en: PDO-SI-A0270
+protected_name_file_number:en: PDO-SI-A0270
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Cviček
-protected_name_file_number_en: PDO-SI-A1561
+protected_name_file_number:en: PDO-SI-A1561
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Teran
-protected_name_file_number_en: PDO-SI-A1581
+protected_name_file_number:en: PDO-SI-A1581
 protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Posavje
-protected_name_file_number_en: PGI-SI-A1061
+protected_name_file_number:en: PGI-SI-A1061
 protected_name_type:en: pgi
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Primorska
-protected_name_file_number_en: PGI-SI-A1094
+protected_name_file_number:en: PGI-SI-A1094
 protected_name_type:en: pgi
 origins:en: en:Slovenia
 
 <en:Slovenian wines
 sl:Podravje
-protected_name_file_number_en: PGI-SI-A0995
+protected_name_file_number:en: PGI-SI-A0995
 protected_name_type:en: pgi
 origins:en: en:Slovenia
 
@@ -12170,37 +12265,37 @@ en:British wines
 
 <en:British wines
 en:Sussex
-protected_name_file_number_en: PDO-GB-02365
+protected_name_file_number:en: PDO-GB-02365
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 
 <en:British wines
 en:Darnibole
-protected_name_file_number_en: PDO-GB-N1636
+protected_name_file_number:en: PDO-GB-N1636
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 
 <en:British wines
 en:English
-protected_name_file_number_en: PDO-GB-A1585
+protected_name_file_number:en: PDO-GB-A1585
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 
 <en:British wines
 en:Welsh
-protected_name_file_number_en: PDO-GB-A1587
+protected_name_file_number:en: PDO-GB-A1587
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 
 <en:British wines
 en:English Regional
-protected_name_file_number_en: PGI-GB-A1589
+protected_name_file_number:en: PGI-GB-A1589
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
 <en:British wines
 en:Welsh Regional
-protected_name_file_number_en: PGI-GB-A1590
+protected_name_file_number:en: PGI-GB-A1590
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
@@ -12209,7 +12304,7 @@ en:Swiss wines
 
 <en:Swiss wines
 fr:Commune de Champagne
-protected_name_file_number_en: PGI-CH-02089
+protected_name_file_number:en: PGI-CH-02089
 protected_name_type:en: pgi
 origins:en: en:Switzerland
 
@@ -12222,229 +12317,229 @@ wikidata:en:Q23237
 
 <en:Austrian wines
 de:Carnuntum
-protected_name_file_number_en: PDO-AT-A0217-AM01
+protected_name_file_number:en: PDO-AT-A0217-AM01
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Neusiedlersee
-protected_name_file_number_en: PDO-AT-A0219-AM01
+protected_name_file_number:en: PDO-AT-A0219-AM01
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Weststeiermark
-protected_name_file_number_en: PDO-AT-A0234-AM01
+protected_name_file_number:en: PDO-AT-A0234-AM01
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Südsteiermark
-protected_name_file_number_en: PDO-AT-A0228-AM01
+protected_name_file_number:en: PDO-AT-A0228-AM01
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Süd-Oststeiermark
-protected_name_file_number_en: PDO-AT-A0226-AM01
+protected_name_file_number:en: PDO-AT-A0226-AM01
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Rosalia
-protected_name_file_number_en: PDO-AT-02594
+protected_name_file_number:en: PDO-AT-02594
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Wiener Gemischter Satz
-protected_name_file_number_en: PDO-AT-02593
+protected_name_file_number:en: PDO-AT-02593
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Südburgenland
-protected_name_file_number_en: PDO-AT-A0227-CANCEL
+protected_name_file_number:en: PDO-AT-A0227-CANCEL
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Neusiedlersee-Hügelland
-protected_name_file_number_en: PDO-AT-A0220-CANCEL
+protected_name_file_number:en: PDO-AT-A0220-CANCEL
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Eisenberg
-protected_name_file_number_en: PDO-AT-A0215
+protected_name_file_number:en: PDO-AT-A0215
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Leithaberg
-protected_name_file_number_en: PDO-AT-A0216
+protected_name_file_number:en: PDO-AT-A0216
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Wagram
-protected_name_file_number_en: PDO-AT-A0233
+protected_name_file_number:en: PDO-AT-A0233
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Steirerland
-protected_name_file_number_en: PGI-AT-A0213
+protected_name_file_number:en: PGI-AT-A0213
 protected_name_type:en: pgi
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Bergland
-protected_name_file_number_en: PGI-AT-A0211
+protected_name_file_number:en: PGI-AT-A0211
 protected_name_type:en: pgi
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Weinland
-protected_name_file_number_en: PGI-AT-A0212
+protected_name_file_number:en: PGI-AT-A0212
 protected_name_type:en: pgi
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Salzburg
-protected_name_file_number_en: PDO-AT-A0224
+protected_name_file_number:en: PDO-AT-A0224
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Kärnten
-protected_name_file_number_en: PDO-AT-A0218
+protected_name_file_number:en: PDO-AT-A0218
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Oberösterreich
-protected_name_file_number_en: PDO-AT-A0223
+protected_name_file_number:en: PDO-AT-A0223
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Burgenland
-protected_name_file_number_en: PDO-AT-A0207
+protected_name_file_number:en: PDO-AT-A0207
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Niederösterreich
-protected_name_file_number_en: PDO-AT-A0221
+protected_name_file_number:en: PDO-AT-A0221
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Steiermark
-protected_name_file_number_en: PDO-AT-A0225
+protected_name_file_number:en: PDO-AT-A0225
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Tirol
-protected_name_file_number_en: PDO-AT-A0230
+protected_name_file_number:en: PDO-AT-A0230
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Vorarlberg
-protected_name_file_number_en: PDO-AT-A0231
+protected_name_file_number:en: PDO-AT-A0231
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Wachau
-protected_name_file_number_en: PDO-AT-A0205
+protected_name_file_number:en: PDO-AT-A0205
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Weinviertel
-protected_name_file_number_en: PDO-AT-A0206
+protected_name_file_number:en: PDO-AT-A0206
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Kremstal
-protected_name_file_number_en: PDO-AT-A0208
+protected_name_file_number:en: PDO-AT-A0208
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Kamptal
-protected_name_file_number_en: PDO-AT-A0209
+protected_name_file_number:en: PDO-AT-A0209
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Traisental
-protected_name_file_number_en: PDO-AT-A0210
+protected_name_file_number:en: PDO-AT-A0210
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Mittelburgenland
-protected_name_file_number_en: PDO-AT-A0214
+protected_name_file_number:en: PDO-AT-A0214
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Carnuntum
-protected_name_file_number_en: PDO-AT-A0217
+protected_name_file_number:en: PDO-AT-A0217
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Neusiedlersee
-protected_name_file_number_en: PDO-AT-A0219
+protected_name_file_number:en: PDO-AT-A0219
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Neusiedlersee-Hügelland
-protected_name_file_number_en: PDO-AT-A0220
+protected_name_file_number:en: PDO-AT-A0220
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Süd-Oststeiermark
-protected_name_file_number_en: PDO-AT-A0226
+protected_name_file_number:en: PDO-AT-A0226
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Südburgenland
-protected_name_file_number_en: PDO-AT-A0227
+protected_name_file_number:en: PDO-AT-A0227
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Südsteiermark
-protected_name_file_number_en: PDO-AT-A0228
+protected_name_file_number:en: PDO-AT-A0228
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Weststeiermark
-protected_name_file_number_en: PDO-AT-A0234
+protected_name_file_number:en: PDO-AT-A0234
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Wien
-protected_name_file_number_en: PDO-AT-A0235
+protected_name_file_number:en: PDO-AT-A0235
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian wines
 de:Thermenregion
-protected_name_file_number_en: PDO-AT-A0229
+protected_name_file_number:en: PDO-AT-A0229
 protected_name_type:en: pdo
 origins:en: en:Austria
 
@@ -12457,7 +12552,7 @@ wikidata:en:Q2038437
 
 <en:Wines from Brazil
 pt:Vale dos Vinhedos
-protected_name_file_number_en: PDO-BR-18033
+protected_name_file_number:en: PDO-BR-18033
 protected_name_type:en: pdo
 origins:en: en:Brazil
 
@@ -12468,57 +12563,57 @@ wikidata:en:Q1738893
 
 <en:Wines from Belgium
 nl:Vlaamse mousserende kwaliteitswijn, Vlaamse mousserende kwaliteitswijnen
-protected_name_file_number_en: PDO-BE-A1430
+protected_name_file_number:en: PDO-BE-A1430
 protected_name_type:en: pdo
 origins:en: en:Belgium
 
 <en:Wines from Belgium
 fr:Vin mousseux de qualité de Wallonie
-protected_name_file_number_en: PDO-BE-A0011
+protected_name_file_number:en: PDO-BE-A0011
 protected_name_type:en: pdo
 origins:en: en:Belgium
 
 <en:Wines from Belgium
 fr:Crémant de Wallonie
-protected_name_file_number_en: PDO-BE-A0012
+protected_name_file_number:en: PDO-BE-A0012
 protected_name_type:en: pdo
 origins:en: en:Belgium
 wikidata:en:Q16545101
 
 <en:Wines from Belgium
 nl:Vlaamse landwijn, Vlaamse landwijnen
-protected_name_file_number_en: PGI-BE-A1429
+protected_name_file_number:en: PGI-BE-A1429
 protected_name_type:en: pgi
 origins:en: en:Belgium
 
 <en:Wines from Belgium
 fr:Côtes de Sambre et Meuse
-protected_name_file_number_en: PDO-BE-A0009
+protected_name_file_number:en: PDO-BE-A0009
 protected_name_type:en: pdo
 origins:en: en:Belgium
 wikidata:en:Q16545630
 
 <en:Wines from Belgium
 fr:Vin de pays des jardins de Wallonie
-protected_name_file_number_en: PGI-BE-A0010
+protected_name_file_number:en: PGI-BE-A0010
 protected_name_type:en: pgi
 origins:en: en:Belgium
 
 <en:Wines from Belgium
 nl:Haspengouwse wijn, Haspengouwse Wijnen
-protected_name_file_number_en: PDO-BE-A1492
+protected_name_file_number:en: PDO-BE-A1492
 protected_name_type:en: pdo
 origins:en: en:Belgium
 
 <en:Wines from Belgium
 nl:Hagelandse wijn, Hagelandse wijnen
-protected_name_file_number_en: PDO-BE-A1499
+protected_name_file_number:en: PDO-BE-A1499
 protected_name_type:en: pdo
 origins:en: en:Belgium
 
 <en:Wines from Belgium
 nl:Heuvellandse wijn
-protected_name_file_number_en: PDO-BE-A1426
+protected_name_file_number:en: PDO-BE-A1426
 protected_name_type:en: pdo
 origins:en: en:Belgium
 
@@ -12529,326 +12624,326 @@ wikidata:en:Q1806971
 
 <en:Wines from Bulgaria
 bg:Болярово
-protected_name_file_number_en: PDO-BG-A0985
+protected_name_file_number:en: PDO-BG-A0985
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Лозица
-protected_name_file_number_en: PDO-BG-A0360
+protected_name_file_number:en: PDO-BG-A0360
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Върбица
-protected_name_file_number_en: PDO-BG-A0370
+protected_name_file_number:en: PDO-BG-A0370
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Ново село
-protected_name_file_number_en: PDO-BG-A0382
+protected_name_file_number:en: PDO-BG-A0382
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Павликени
-protected_name_file_number_en: PDO-BG-A0420
+protected_name_file_number:en: PDO-BG-A0420
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Поморие
-protected_name_file_number_en: PDO-BG-A0430
+protected_name_file_number:en: PDO-BG-A0430
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Брестник
-protected_name_file_number_en: PDO-BG-A0944
+protected_name_file_number:en: PDO-BG-A0944
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Евксиноград
-protected_name_file_number_en: PDO-BG-A0881
+protected_name_file_number:en: PDO-BG-A0881
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Варна
-protected_name_file_number_en: PDO-BG-A1032
+protected_name_file_number:en: PDO-BG-A1032
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Видин
-protected_name_file_number_en: PDO-BG-A1346
+protected_name_file_number:en: PDO-BG-A1346
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Враца
-protected_name_file_number_en: PDO-BG-A0955
+protected_name_file_number:en: PDO-BG-A0955
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Долината на Струма
-protected_name_file_number_en: PDO-BG-A1473
+protected_name_file_number:en: PDO-BG-A1473
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Ивайловград
-protected_name_file_number_en: PDO-BG-A1047
+protected_name_file_number:en: PDO-BG-A1047
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Карлово
-protected_name_file_number_en: PDO-BG-A1044
+protected_name_file_number:en: PDO-BG-A1044
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Ловеч
-protected_name_file_number_en: PDO-BG-A0956
+protected_name_file_number:en: PDO-BG-A0956
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Лом
-protected_name_file_number_en: PDO-BG-A1441
+protected_name_file_number:en: PDO-BG-A1441
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Любимец
-protected_name_file_number_en: PDO-BG-A1177
+protected_name_file_number:en: PDO-BG-A1177
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Лясковец
-protected_name_file_number_en: PDO-BG-A0951
+protected_name_file_number:en: PDO-BG-A0951
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Мелник
-protected_name_file_number_en: PDO-BG-A1472
+protected_name_file_number:en: PDO-BG-A1472
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Монтана
-protected_name_file_number_en: PDO-BG-A1314
+protected_name_file_number:en: PDO-BG-A1314
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Нова Загора
-protected_name_file_number_en: PDO-BG-A1494
+protected_name_file_number:en: PDO-BG-A1494
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Оряховица
-protected_name_file_number_en: PDO-BG-A1344
+protected_name_file_number:en: PDO-BG-A1344
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Пазарджик
-protected_name_file_number_en: PDO-BG-A1182
+protected_name_file_number:en: PDO-BG-A1182
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Перущица
-protected_name_file_number_en: PDO-BG-A1474
+protected_name_file_number:en: PDO-BG-A1474
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Плевен
-protected_name_file_number_en: PDO-BG-A1477
+protected_name_file_number:en: PDO-BG-A1477
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Пловдив
-protected_name_file_number_en: PDO-BG-A1297
+protected_name_file_number:en: PDO-BG-A1297
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Русе
-protected_name_file_number_en: PDO-BG-A1425
+protected_name_file_number:en: PDO-BG-A1425
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Свищов
-protected_name_file_number_en: PDO-BG-A0957
+protected_name_file_number:en: PDO-BG-A0957
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Септември
-protected_name_file_number_en: PDO-BG-A1185
+protected_name_file_number:en: PDO-BG-A1185
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Славянци
-protected_name_file_number_en: PDO-BG-A1008
+protected_name_file_number:en: PDO-BG-A1008
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Сливен
-protected_name_file_number_en: PDO-BG-A1190
+protected_name_file_number:en: PDO-BG-A1190
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Стамболово
-protected_name_file_number_en: PDO-BG-A1487
+protected_name_file_number:en: PDO-BG-A1487
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Стара Загора
-protected_name_file_number_en: PDO-BG-A1394
+protected_name_file_number:en: PDO-BG-A1394
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Сунгурларе
-protected_name_file_number_en: PDO-BG-A1489
+protected_name_file_number:en: PDO-BG-A1489
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Сухиндол
-protected_name_file_number_en: PDO-BG-A1018
+protected_name_file_number:en: PDO-BG-A1018
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Търговище
-protected_name_file_number_en: PDO-BG-A1439
+protected_name_file_number:en: PDO-BG-A1439
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Хан Крум
-protected_name_file_number_en: PDO-BG-A1030
+protected_name_file_number:en: PDO-BG-A1030
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Хасково
-protected_name_file_number_en: PDO-BG-A1043
+protected_name_file_number:en: PDO-BG-A1043
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Хисаря
-protected_name_file_number_en: PDO-BG-A1393
+protected_name_file_number:en: PDO-BG-A1393
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Хърсово
-protected_name_file_number_en: PDO-BG-A0946
+protected_name_file_number:en: PDO-BG-A0946
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Черноморски район
-protected_name_file_number_en: PDO-BG-A1392
+protected_name_file_number:en: PDO-BG-A1392
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Шумен
-protected_name_file_number_en: PDO-BG-A0997
+protected_name_file_number:en: PDO-BG-A0997
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Южно Черноморие
-protected_name_file_number_en: PDO-BG-A1347
+protected_name_file_number:en: PDO-BG-A1347
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Ямбол
-protected_name_file_number_en: PDO-BG-A1179
+protected_name_file_number:en: PDO-BG-A1179
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Cakap
-protected_name_file_number_en: PDO-BG-A0013
+protected_name_file_number:en: PDO-BG-A0013
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Асеновград
 en:Asenovgrad
-protected_name_file_number_en: PDO-BG-A0877
+protected_name_file_number:en: PDO-BG-A0877
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Велики Преслав
-protected_name_file_number_en: PDO-BG-A0885
+protected_name_file_number:en: PDO-BG-A0885
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Карнобат
-protected_name_file_number_en: PDO-BG-A1175
+protected_name_file_number:en: PDO-BG-A1175
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Сандански
-protected_name_file_number_en: PDO-BG-A1006
+protected_name_file_number:en: PDO-BG-A1006
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Шивачево
-protected_name_file_number_en: PDO-BG-A1391
+protected_name_file_number:en: PDO-BG-A1391
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Драгоево
-protected_name_file_number_en: PDO-BG-A0952
+protected_name_file_number:en: PDO-BG-A0952
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Нови Пазар
-protected_name_file_number_en: PDO-BG-A1031
+protected_name_file_number:en: PDO-BG-A1031
 protected_name_type:en: pdo
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Дунавска равнина
-protected_name_file_number_en: PGI-BG-A1538
+protected_name_file_number:en: PGI-BG-A1538
 protected_name_type:en: pgi
 origins:en: en:Bulgaria
 
 <en:Wines from Bulgaria
 bg:Тракийска низина
-protected_name_file_number_en: PGI-BG-A1552
+protected_name_file_number:en: PGI-BG-A1552
 protected_name_type:en: pgi
 origins:en: en:Bulgaria
 
@@ -13105,68 +13200,112 @@ en:Wines from Croatia, Croatian Wines
 nl:Kroatische wijnen, Kroatische wijn, Wijn uit Kroatië
 
 <en:Wines from Croatia
-hr:Dalmatinska zagora
-country:en:Croatia
+hr:Muškat momjanski, Moscato di Momiano
+protected_name_file_number:en: PDO-HR-02109
+protected_name_type:en: pdo
+origins:en: en:Croatia
+
+<en:Wines from Croatia
+hr:Ponikve
+protected_name_file_number:en: PDO-HR-02087
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Dingač
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1649
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
-hr:Hrvatska Istra
-country:en:Croatia
+hr:Dalmatinska zagora
+protected_name_file_number:en: PDO-HR-A1648
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Hrvatsko Podunavlje
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1655
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Hrvatsko primorje
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1650
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Istočna kontinentalna Hrvatska
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1651
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Moslavina
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1653
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Plešivica
-country:en:Croatia
-
-<en:Wines from Croatia
-hr:Pokuplje
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1654
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Prigorje-Bilogora
-country:en:Croatia
-
-<en:Wines from Croatia
-hr:Primorska Hrvatska
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1657
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Sjeverna Dalmacija
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1659
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Slavonija
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1660
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Srednja i Južna Dalmacija
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1661
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Zagorje – Međimurje
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1662
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines from Croatia
 hr:Zapadna kontinentalna Hrvatska
-country:en:Croatia
+protected_name_file_number:en: PDO-HR-A1663
+protected_name_type:en: pdo
+origins:en: en:Croatia
+
+<en:Wines from Croatia
+hr:Pokuplje
+protected_name_file_number:en: PDO-HR-A1656
+protected_name_type:en: pdo
+origins:en: en:Croatia
+
+<en:Wines from Croatia
+hr:Hrvatska Istra
+protected_name_file_number:en: PDO-HR-A1652
+protected_name_type:en: pdo
+origins:en: en:Croatia
+
+<en:Wines from Croatia
+hr:Primorska Hrvatska
+protected_name_file_number:en: PDO-HR-A1658
+protected_name_type:en: pdo
+origins:en: en:Croatia
 
 <en:Wines
 en:Wines from Cyprus
@@ -14026,144 +14165,316 @@ nl:Hongaarse wijnen, Hongaarse wijn, Wijn uit Hongarije
 country:en:Hungary
 
 <en:Wines from Hungary
-hu:Badacsony
-country:en:Hungary
+hu:Csopak, Csopaki
+protected_name_file_number_en: PDO-HU-02378
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Balaton
-country:en:Hungary
+hu:Eger, Egri
+protected_name_file_number_en: PDO-HU-A1328-AM05
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Balatonboglár
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Balaton-felvidék
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Balatonfüred-Csopak
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Balatonmelléki
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Bükk
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Csongrád
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Debrői Hárslevelű
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Duna
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Dunántúli
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Duna-Tisza-közi
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Eger
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Etyek-Buda
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Felső-magyarországi
-country:en:Hungary
+hu:Mór, Móri
+protected_name_file_number_en: PDO-HU-A1333-AM03
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
 hu:Hajós-Baja
-country:en:Hungary
+protected_name_file_number_en: PDO-HU-A1388-AM03
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Izsáki Arany Sárfehér
-country:en:Hungary
+hu:Mátra, Mátrai
+protected_name_file_number_en: PDO-HU-A1368-AM03
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Káli
-country:en:Hungary
+hu:Kunság, Kunsági
+protected_name_file_number_en: PDO-HU-A1332-AM03
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Kunság
-country:en:Hungary
+hu:Tokaj, Tokaji
+protected_name_file_number_en: PDO-HU-A1254-AM02
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Mátra
-country:en:Hungary
+hu:Monor, Monori
+protected_name_file_number_en: PDO-HU-N1638
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Mór
-country:en:Hungary
+hu:Szekszárd, Szekszárdi
+protected_name_file_number_en: PDO-HU-A1349-AM02
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Nagy-Somló
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Neszmély
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Pannon
-country:en:Hungary
-
-<en:Wines from Hungary
-hu:Pannonhalma
-country:en:Hungary
+hu:Villány, Villányi
+protected_name_file_number_en: PDO-HU-A1381-AM03
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
 hu:Pécs
-country:en:Hungary
+protected_name_file_number_en: PDO-HU-A1385-AM02
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Somlói
-country:en:Hungary
+hu:Tolna, Tolnai
+protected_name_file_number_en: PDO-HU-A1353-AM01
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Sopron
-country:en:Hungary
+hu:Pannon
+protected_name_file_number_en: PDO-HU-A1380-AM03
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Szekszárd
-country:en:Hungary
+hu:Balaton, Balatoni
+protected_name_file_number_en: PGI-HU-A1507-AM04
+protected_name_type:en: pgi
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Tihany
-country:en:Hungary
+hu:Balaton-felvidék, Balaton-felvidéki
+protected_name_file_number_en: PDO-HU-A1509-AM02
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Tokaj
-country:en:Hungary
+hu:Felső-Magyarország, Felső-Magyarországi
+protected_name_file_number_en: PGI-HU-A1329-AM02
+protected_name_type:en: pgi
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Tolna
-country:en:Hungary
+hu:Soltvadkerti
+protected_name_file_number_en: PDO-HU-02171
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Villány
-country:en:Hungary
+hu:Duna, Dunai
+protected_name_file_number_en: PDO-HU-A1345
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Zala
-country:en:Hungary
+hu:Káli
+protected_name_file_number_en: PDO-HU-A1505
+protected_name_type:en: pdo
+origins:en: en:Hungary
 
 <en:Wines from Hungary
-hu:Zempléni
-country:en:Hungary
+hu:Tihany, Tihanyi
+protected_name_file_number_en: PDO-HU-A1503
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Pannon
+protected_name_file_number_en: PDO-HU-A1380
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Bükk, Bükki
+protected_name_file_number_en: PDO-HU-A1500
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Debrői Hárslevelű
+protected_name_file_number_en: PDO-HU-A1373
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Nagy-Somló, Nagy-Somlói
+protected_name_file_number_en: PDO-HU-A1501
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Zala, Zalai
+protected_name_file_number_en: PDO-HU-A1502
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Izsáki Arany Sárfehér
+protected_name_file_number_en: PDO-HU-A1341
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Balatonmelléki
+protected_name_file_number_en: PGI-HU-A1508
+protected_name_type:en: pgi
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Dunántúli, Dunántúl
+protected_name_file_number_en: PGI-HU-A1351
+protected_name_type:en: pgi
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Eger, Egri
+protected_name_file_number_en: PDO-HU-A1328
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Mátra, Mátrai
+protected_name_file_number_en: PDO-HU-A1368
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Badacsony, Badacsonyi
+protected_name_file_number_en: PDO-HU-A1506
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Balaton, Balatoni
+protected_name_file_number_en: PDO-HU-A1507
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Balatonboglár, Balatonboglári
+protected_name_file_number_en: PDO-HU-A1378
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Balaton-felvidék, Balaton-felvidéki
+protected_name_file_number_en: PDO-HU-A1509
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Balatonfüred-Csopak, Balatonfüred-Csopaki
+protected_name_file_number_en: PDO-HU-A1516
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Somlói, Somló
+protected_name_file_number_en: PDO-HU-A1376
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Mór, Móri
+protected_name_file_number_en: PDO-HU-A1333
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Neszmély, Neszmélyi
+protected_name_file_number_en: PDO-HU-A1335
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Pannonhalma, Pannonhalmi
+protected_name_file_number_en: PDO-HU-A1338
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Kunság, Kunsági
+protected_name_file_number_en: PDO-HU-A1332
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Szekszárd, Szekszárdi
+protected_name_file_number_en: PDO-HU-A1349
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Etyek-Buda, Etyek-Budai
+protected_name_file_number_en: PDO-HU-A1350
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Tolna, Tolnai
+protected_name_file_number_en: PDO-HU-A1353
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Villány, Villányi
+protected_name_file_number_en: PDO-HU-A1381
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Csongrád, Csongrádi
+protected_name_file_number_en: PDO-HU-A1383
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Pécs
+protected_name_file_number_en: PDO-HU-A1385
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Hajós-Baja
+protected_name_file_number_en: PDO-HU-A1388
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Sopron, Soproni
+protected_name_file_number_en: PDO-HU-A1504
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Tokaj, Tokaji
+protected_name_file_number_en: PDO-HU-A1254
+protected_name_type:en: pdo
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Felső-Magyarország, Felső-Magyarországi
+protected_name_file_number_en: PGI-HU-A1329
+protected_name_type:en: pgi
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Zemplén, Zempléni
+protected_name_file_number_en: PGI-HU-A1375
+protected_name_type:en: pgi
+origins:en: en:Hungary
+
+<en:Wines from Hungary
+hu:Duna-Tisza-közi
+protected_name_file_number_en: PGI-HU-A1342
+protected_name_type:en: pgi
+origins:en: en:Hungary
 
 <en:Wines
 en:Wines from Italy, Italian wines
@@ -14396,7 +14707,7 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Benaco Bresciano
-protected_name_file_number_en: PGI-IT-A1205
+protected_name_file_number:en: PGI-IT-A1205
 protected_name_type:en: pgi
 origins:en: en:Italy
 #wikidata:en:
@@ -14814,7 +15125,7 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Colli Aprutini
-protected_name_file_number_en: PGI-IT-A0884
+protected_name_file_number:en: PGI-IT-A0884
 protected_name_type:en: pgi
 origins:en: en:Italy
 
@@ -15142,7 +15453,7 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Collina del Milanese
-protected_name_file_number_en: PGI-IT-A1053
+protected_name_file_number:en: PGI-IT-A1053
 protected_name_type:en: pgi
 origins:en: en:Italy
 #wikidata:en:
@@ -15858,7 +16169,7 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Montenetto di Brescia
-protected_name_file_number_en: PGI-IT-A1256
+protected_name_file_number:en: PGI-IT-A1256
 protected_name_type:en: pgi
 origins:en: en:Italy
 #wikidata:en:
@@ -16226,7 +16537,7 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Ronchi di Brescia
-protected_name_file_number_en: PGI-IT-A1265
+protected_name_file_number:en: PGI-IT-A1265
 protected_name_type:en: pgi
 origins:en: en:Italy
 #wikidata:en:
@@ -16408,7 +16719,7 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Sebino
-protected_name_file_number_en: PGI-IT-A1041
+protected_name_file_number:en: PGI-IT-A1041
 protected_name_type:en: pgi
 origins:en: en:Italy
 #wikidata:en:
@@ -17305,913 +17616,913 @@ wikidata:en:Q1432594
 
 <en:Wines from Spain
 es:Chozas Carrascal
-protected_name_file_number_en: PDO-ES-N1637
+protected_name_file_number:en: PDO-ES-N1637
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Dehesa Peñalba
-protected_name_file_number_en: PDO-ES-02592
+protected_name_file_number:en: PDO-ES-02592
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Vera de Estenas
-protected_name_file_number_en: PDO-ES-N1665
+protected_name_file_number:en: PDO-ES-N1665
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Jerez-Xérès-Sherry, Jerez, Xérès, Sherry
-protected_name_file_number_en: PDO-ES-A1483-AM03
+protected_name_file_number:en: PDO-ES-A1483-AM03
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Manzanilla-Sanlúcar de Barrameda, Manzanilla
-protected_name_file_number_en: PDO-ES-A1482-AM03
+protected_name_file_number:en: PDO-ES-A1482-AM03
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Urbezo
-protected_name_file_number_en: PDO-ES-02585
+protected_name_file_number:en: PDO-ES-02585
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:El Vicario
-protected_name_file_number_en: PDO-ES-N1634
+protected_name_file_number:en: PDO-ES-N1634
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Los Cerrillos
-protected_name_file_number_en: PDO-ES-02228
+protected_name_file_number:en: PDO-ES-02228
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Vallegarcía
-protected_name_file_number_en: PDO-ES-02085
+protected_name_file_number:en: PDO-ES-02085
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:La Jaraba
-protected_name_file_number_en: PDO-ES-01895
+protected_name_file_number:en: PDO-ES-01895
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Cebreros
-protected_name_file_number_en: PDO-ES-02348
+protected_name_file_number:en: PDO-ES-02348
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Urueña
-protected_name_file_number_en: PDO-ES-02485
+protected_name_file_number:en: PDO-ES-02485
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Rioja
-protected_name_file_number_en: PDO-ES-A0117-AM06
+protected_name_file_number:en: PDO-ES-A0117-AM06
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Abadía Retuerta
-protected_name_file_number_en: PDO-ES-02481
+protected_name_file_number:en: PDO-ES-02481
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribeiras do Morrazo
-protected_name_file_number_en: PGI-ES-02238
+protected_name_file_number:en: PGI-ES-02238
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribeiro
-protected_name_file_number_en: PDO-ES-A1123-AM03
+protected_name_file_number:en: PDO-ES-A1123-AM03
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Tarragona
-protected_name_file_number_en: PDO-ES-A1555-AM03
+protected_name_file_number:en: PDO-ES-A1555-AM03
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Extremadura
-protected_name_file_number_en: PGI-ES-A1300-AM02
+protected_name_file_number:en: PGI-ES-A1300-AM02
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Tharsys
-protected_name_file_number_en: PDO-ES-02086
+protected_name_file_number:en: PDO-ES-02086
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Bolandin
-protected_name_file_number_en: PDO-ES-N1876
+protected_name_file_number:en: PDO-ES-N1876
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Larrainzar
-protected_name_file_number_en: PDO-ES-N1875
+protected_name_file_number:en: PDO-ES-N1875
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Islas Canarias
-protected_name_file_number_en: PDO-ES-A1511
+protected_name_file_number:en: PDO-ES-A1511
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Aylés
-protected_name_file_number_en: PDO-ES-A1522
+protected_name_file_number:en: PDO-ES-A1522
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Los Balagueses
-protected_name_file_number_en: PDO-ES-A0941
+protected_name_file_number:en: PDO-ES-A0941
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Sierra de Salamanca
-protected_name_file_number_en: PDO-ES-A0631
+protected_name_file_number:en: PDO-ES-A0631
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Calzadilla
-protected_name_file_number_en: PDO-ES-A0056
+protected_name_file_number:en: PDO-ES-A0056
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Casa del Blanco
-protected_name_file_number_en: PDO-ES-A0060
+protected_name_file_number:en: PDO-ES-A0060
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Pago de Arínzano
-protected_name_file_number_en: PDO-ES-A0183
+protected_name_file_number:en: PDO-ES-A0183
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Villaviciosa de Córdoba
-protected_name_file_number_en: PGI-ES-A1419
+protected_name_file_number:en: PGI-ES-A1419
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Finca Élez
-protected_name_file_number_en: PDO-ES-A0053
+protected_name_file_number:en: PDO-ES-A0053
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Dehesa del Carrizal
-protected_name_file_number_en: PDO-ES-A0054
+protected_name_file_number:en: PDO-ES-A0054
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Torreperogil
-protected_name_file_number_en: PGI-ES-A1418
+protected_name_file_number:en: PGI-ES-A1418
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Norte de Almería
-protected_name_file_number_en: PGI-ES-A1412
+protected_name_file_number:en: PGI-ES-A1412
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:3 Riberas
-protected_name_file_number_en: PGI-ES-A0128
+protected_name_file_number:en: PGI-ES-A0128
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Prado de Irache
-protected_name_file_number_en: PDO-ES-A0182
+protected_name_file_number:en: PDO-ES-A0182
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Pago de Otazu
-protected_name_file_number_en: PDO-ES-A0184
+protected_name_file_number:en: PDO-ES-A0184
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valtiendas
-protected_name_file_number_en: PDO-ES-A0747
+protected_name_file_number:en: PDO-ES-A0747
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Altiplano de Sierra Nevada
-protected_name_file_number_en: PGI-ES-A1402
+protected_name_file_number:en: PGI-ES-A1402
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Murcia
-protected_name_file_number_en: PGI-ES-A0608
+protected_name_file_number:en: PGI-ES-A0608
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Cumbres del Guadalfeo
-protected_name_file_number_en: PGI-ES-A1407
+protected_name_file_number:en: PGI-ES-A1407
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Sierras de Las Estancias y Los Filabres
-protected_name_file_number_en: PGI-ES-A1417
+protected_name_file_number:en: PGI-ES-A1417
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Lebrija
-protected_name_file_number_en: PDO-ES-A1478
+protected_name_file_number:en: PDO-ES-A1478
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Granada
-protected_name_file_number_en: PDO-ES-A1475
+protected_name_file_number:en: PDO-ES-A1475
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Empordà
-protected_name_file_number_en: PDO-ES-A1548
+protected_name_file_number:en: PDO-ES-A1548
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Campo de La Guardia
-protected_name_file_number_en: PDO-ES-A0055
+protected_name_file_number:en: PDO-ES-A0055
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Pago Florentino
-protected_name_file_number_en: PDO-ES-A0057
+protected_name_file_number:en: PDO-ES-A0057
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Laderas del Genil
-protected_name_file_number_en: PGI-ES-A1409
+protected_name_file_number:en: PGI-ES-A1409
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Barbanza e Iria
-protected_name_file_number_en: PGI-ES-A1255
+protected_name_file_number:en: PGI-ES-A1255
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Uclés
-protected_name_file_number_en: PDO-ES-A0050
+protected_name_file_number:en: PDO-ES-A0050
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Guijoso
-protected_name_file_number_en: PDO-ES-A0058
+protected_name_file_number:en: PDO-ES-A0058
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Arlanza
-protected_name_file_number_en: PDO-ES-A0613
+protected_name_file_number:en: PDO-ES-A0613
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Manchuela
-protected_name_file_number_en: PDO-ES-A0046
+protected_name_file_number:en: PDO-ES-A0046
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Costa de Cantabria
-protected_name_file_number_en: PGI-ES-A0129
+protected_name_file_number:en: PGI-ES-A0129
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Liébana
-protected_name_file_number_en: PGI-ES-A0130
+protected_name_file_number:en: PGI-ES-A0130
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Formentera
-protected_name_file_number_en: PGI-ES-A0875
+protected_name_file_number:en: PGI-ES-A0875
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Sierra Norte de Sevilla
-protected_name_file_number_en: PGI-ES-A1415
+protected_name_file_number:en: PGI-ES-A1415
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Córdoba
-protected_name_file_number_en: PGI-ES-A1406
+protected_name_file_number:en: PGI-ES-A1406
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribera del Jiloca
-protected_name_file_number_en: PGI-ES-A0244
+protected_name_file_number:en: PGI-ES-A0244
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ibiza, Eivissa
-protected_name_file_number_en: PGI-ES-A0110
+protected_name_file_number:en: PGI-ES-A0110
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valles de Sadacia
-protected_name_file_number_en: PGI-ES-A0511
+protected_name_file_number:en: PGI-ES-A0511
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Isla de Menorca, Illa de Menorca
-protected_name_file_number_en: PGI-ES-A0870
+protected_name_file_number:en: PGI-ES-A0870
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Illes Balears
-protected_name_file_number_en: PGI-ES-A0947
+protected_name_file_number:en: PGI-ES-A0947
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Los Palacios
-protected_name_file_number_en: PGI-ES-A1411
+protected_name_file_number:en: PGI-ES-A1411
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribera del Andarax
-protected_name_file_number_en: PGI-ES-A1414
+protected_name_file_number:en: PGI-ES-A1414
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribera del Queiles
-protected_name_file_number_en: PGI-ES-A0083
+protected_name_file_number:en: PGI-ES-A0083
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Serra de Tramuntana-Costa Nord
-protected_name_file_number_en: PGI-ES-A0103
+protected_name_file_number:en: PGI-ES-A0103
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Cangas
-protected_name_file_number_en: PDO-ES-A0119
+protected_name_file_number:en: PDO-ES-A0119
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valle del Cinca
-protected_name_file_number_en: PGI-ES-A0181
+protected_name_file_number:en: PGI-ES-A0181
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribera del Gállego - Cinco Villas
-protected_name_file_number_en: PGI-ES-A0245
+protected_name_file_number:en: PGI-ES-A0245
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Arribes
-protected_name_file_number_en: PDO-ES-A0614
+protected_name_file_number:en: PDO-ES-A0614
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:León
-protected_name_file_number_en: PDO-ES-A0882
+protected_name_file_number:en: PDO-ES-A0882
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valles de Benavente
-protected_name_file_number_en: PDO-ES-A0646
+protected_name_file_number:en: PDO-ES-A0646
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Bailén
-protected_name_file_number_en: PGI-ES-A1404
+protected_name_file_number:en: PGI-ES-A1404
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Extremadura
-protected_name_file_number_en: PGI-ES-A1300
+protected_name_file_number:en: PGI-ES-A1300
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:El Terrerazo
-protected_name_file_number_en: PDO-ES-A0940
+protected_name_file_number:en: PDO-ES-A0940
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Castelló
-protected_name_file_number_en: PGI-ES-A1173
+protected_name_file_number:en: PGI-ES-A1173
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Castilla y León
-protected_name_file_number_en: PGI-ES-A0948
+protected_name_file_number:en: PGI-ES-A0948
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Desierto de Almería
-protected_name_file_number_en: PGI-ES-A1408
+protected_name_file_number:en: PGI-ES-A1408
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Laujar-Alpujarra
-protected_name_file_number_en: PGI-ES-A1410
+protected_name_file_number:en: PGI-ES-A1410
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Betanzos
-protected_name_file_number_en: PGI-ES-A1257
+protected_name_file_number:en: PGI-ES-A1257
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Sierra Sur de Jaén
-protected_name_file_number_en: PGI-ES-A1416
+protected_name_file_number:en: PGI-ES-A1416
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Castilla
-protected_name_file_number_en: PGI-ES-A0059
+protected_name_file_number:en: PGI-ES-A0059
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribera del Guadiana
-protected_name_file_number_en: PDO-ES-A1295
+protected_name_file_number:en: PDO-ES-A1295
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Arabako Txakolina, Txakolí de Álava, Chacolí de Álava
-protected_name_file_number_en: PDO-ES-A0732
+protected_name_file_number:en: PDO-ES-A0732
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribeira Sacra
-protected_name_file_number_en: PDO-ES-A1128
+protected_name_file_number:en: PDO-ES-A1128
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Cataluña, Catalunya
-protected_name_file_number_en: PDO-ES-A1549
+protected_name_file_number:en: PDO-ES-A1549
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Sierras de Málaga
-protected_name_file_number_en: PDO-ES-A1480
+protected_name_file_number:en: PDO-ES-A1480
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Montsant
-protected_name_file_number_en: PDO-ES-A1550
+protected_name_file_number:en: PDO-ES-A1550
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Mondéjar
-protected_name_file_number_en: PDO-ES-A0048
+protected_name_file_number:en: PDO-ES-A0048
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribera del Júcar
-protected_name_file_number_en: PDO-ES-A0049
+protected_name_file_number:en: PDO-ES-A0049
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Dominio de Valdepusa
-protected_name_file_number_en: PDO-ES-A0052
+protected_name_file_number:en: PDO-ES-A0052
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Pla de Bages
-protected_name_file_number_en: PDO-ES-A1557
+protected_name_file_number:en: PDO-ES-A1557
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Campo de Cartagena
-protected_name_file_number_en: PGI-ES-A0607
+protected_name_file_number:en: PGI-ES-A0607
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Getariako Txakolina, Chacolí de Getaria, Txakolí de Getaria
-protected_name_file_number_en: PDO-ES-A0741
+protected_name_file_number:en: PDO-ES-A0741
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Bizkaiko Txakolina, Chacolí de Bizkaia, Txakolí de Bizkaia
-protected_name_file_number_en: PDO-ES-A0746
+protected_name_file_number:en: PDO-ES-A0746
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Cádiz
-protected_name_file_number_en: PGI-ES-A1405
+protected_name_file_number:en: PGI-ES-A1405
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Mallorca
-protected_name_file_number_en: PGI-ES-A0960
+protected_name_file_number:en: PGI-ES-A0960
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valle de Güímar
-protected_name_file_number_en: PDO-ES-A0980
+protected_name_file_number:en: PDO-ES-A0980
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valle del Miño-Ourense, Val do Miño-Ourense
-protected_name_file_number_en: PGI-ES-A1259
+protected_name_file_number:en: PGI-ES-A1259
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Bajo Aragón
-protected_name_file_number_en: PGI-ES-A1362
+protected_name_file_number:en: PGI-ES-A1362
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valdejalón
-protected_name_file_number_en: PGI-ES-A0246
+protected_name_file_number:en: PGI-ES-A0246
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Gran Canaria
-protected_name_file_number_en: PDO-ES-A0112
+protected_name_file_number:en: PDO-ES-A0112
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:La Gomera
-protected_name_file_number_en: PDO-ES-A0111
+protected_name_file_number:en: PDO-ES-A0111
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Lanzarote
-protected_name_file_number_en: PDO-ES-A0113
+protected_name_file_number:en: PDO-ES-A0113
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ycoden-Daute-Isora
-protected_name_file_number_en: PDO-ES-A0114
+protected_name_file_number:en: PDO-ES-A0114
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:La Palma
-protected_name_file_number_en: PDO-ES-A0510
+protected_name_file_number:en: PDO-ES-A0510
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Tierra del Vino de Zamora
-protected_name_file_number_en: PDO-ES-A0634
+protected_name_file_number:en: PDO-ES-A0634
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Monterrei
-protected_name_file_number_en: PDO-ES-A1114
+protected_name_file_number:en: PDO-ES-A1114
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Abona
-protected_name_file_number_en: PDO-ES-A0975
+protected_name_file_number:en: PDO-ES-A0975
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:El Hierro
-protected_name_file_number_en: PDO-ES-A1250
+protected_name_file_number:en: PDO-ES-A1250
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valle de la Orotava
-protected_name_file_number_en: PDO-ES-A1040
+protected_name_file_number:en: PDO-ES-A1040
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Pla i Llevant
-protected_name_file_number_en: PDO-ES-A1038
+protected_name_file_number:en: PDO-ES-A1038
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Vinos de Madrid
-protected_name_file_number_en: PDO-ES-A1525
+protected_name_file_number:en: PDO-ES-A1525
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Tacoronte-Acentejo
-protected_name_file_number_en: PDO-ES-A0115
+protected_name_file_number:en: PDO-ES-A0115
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Calatayud
-protected_name_file_number_en: PDO-ES-A0247
+protected_name_file_number:en: PDO-ES-A0247
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Bierzo
-protected_name_file_number_en: PDO-ES-A0615
+protected_name_file_number:en: PDO-ES-A0615
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Cigales
-protected_name_file_number_en: PDO-ES-A0622
+protected_name_file_number:en: PDO-ES-A0622
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Bullas
-protected_name_file_number_en: PDO-ES-A0536
+protected_name_file_number:en: PDO-ES-A0536
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Binissalem
-protected_name_file_number_en: PDO-ES-A1056
+protected_name_file_number:en: PDO-ES-A1056
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Conca de Barberà
-protected_name_file_number_en: PDO-ES-A1422
+protected_name_file_number:en: PDO-ES-A1422
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Toro
-protected_name_file_number_en: PDO-ES-A0886
+protected_name_file_number:en: PDO-ES-A0886
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Rías Baixas
-protected_name_file_number_en: PDO-ES-A1119
+protected_name_file_number:en: PDO-ES-A1119
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Costers del Segre
-protected_name_file_number_en: PDO-ES-A1523
+protected_name_file_number:en: PDO-ES-A1523
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Cariñena
-protected_name_file_number_en: PDO-ES-A0043
+protected_name_file_number:en: PDO-ES-A0043
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Jumilla
-protected_name_file_number_en: PDO-ES-A0109
+protected_name_file_number:en: PDO-ES-A0109
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Rioja
-protected_name_file_number_en: PDO-ES-A0117
+protected_name_file_number:en: PDO-ES-A0117
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Navarra
-protected_name_file_number_en: PDO-ES-A0127
+protected_name_file_number:en: PDO-ES-A0127
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Campo de Borja
-protected_name_file_number_en: PDO-ES-A0180
+protected_name_file_number:en: PDO-ES-A0180
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Somontano
-protected_name_file_number_en: PDO-ES-A0534
+protected_name_file_number:en: PDO-ES-A0534
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribera del Duero
-protected_name_file_number_en: PDO-ES-A0626
+protected_name_file_number:en: PDO-ES-A0626
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Yecla
-protected_name_file_number_en: PDO-ES-A0606
+protected_name_file_number:en: PDO-ES-A0606
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Rueda
-protected_name_file_number_en: PDO-ES-A0889
+protected_name_file_number:en: PDO-ES-A0889
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Utiel-Requena
-protected_name_file_number_en: PDO-ES-A0874
+protected_name_file_number:en: PDO-ES-A0874
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Alicante
-protected_name_file_number_en: PDO-ES-A1526
+protected_name_file_number:en: PDO-ES-A1526
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Ribeiro
-protected_name_file_number_en: PDO-ES-A1123
+protected_name_file_number:en: PDO-ES-A1123
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valdeorras
-protected_name_file_number_en: PDO-ES-A1132
+protected_name_file_number:en: PDO-ES-A1132
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Condado de Huelva
-protected_name_file_number_en: PDO-ES-A1485
+protected_name_file_number:en: PDO-ES-A1485
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Jerez-Xérès-Sherry, Jerez, Xérès, Sherry
-protected_name_file_number_en: PDO-ES-A1483
+protected_name_file_number:en: PDO-ES-A1483
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Alella
-protected_name_file_number_en: PDO-ES-A1423
+protected_name_file_number:en: PDO-ES-A1423
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Manzanilla-Sanlúcar de Barrameda, Manzanilla
-protected_name_file_number_en: PDO-ES-A1482
+protected_name_file_number:en: PDO-ES-A1482
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Penedès
-protected_name_file_number_en: PDO-ES-A1551
+protected_name_file_number:en: PDO-ES-A1551
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Málaga
-protected_name_file_number_en: PDO-ES-A1481
+protected_name_file_number:en: PDO-ES-A1481
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Montilla-Moriles
-protected_name_file_number_en: PDO-ES-A1479
+protected_name_file_number:en: PDO-ES-A1479
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Tarragona
-protected_name_file_number_en: PDO-ES-A1555
+protected_name_file_number:en: PDO-ES-A1555
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Terra Alta
-protected_name_file_number_en: PDO-ES-A1556
+protected_name_file_number:en: PDO-ES-A1556
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Almansa
-protected_name_file_number_en: PDO-ES-A0044
+protected_name_file_number:en: PDO-ES-A0044
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:La Mancha
-protected_name_file_number_en: PDO-ES-A0045
+protected_name_file_number:en: PDO-ES-A0045
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Méntrida
-protected_name_file_number_en: PDO-ES-A0047
+protected_name_file_number:en: PDO-ES-A0047
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valdepeñas
-protected_name_file_number_en: PDO-ES-A0051
+protected_name_file_number:en: PDO-ES-A0051
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Priorat, Priorato
-protected_name_file_number_en: PDO-ES-A1560
+protected_name_file_number:en: PDO-ES-A1560
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Valencia
-protected_name_file_number_en: PDO-ES-A0872
+protected_name_file_number:en: PDO-ES-A0872
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Wines from Spain
 es:Cava
-protected_name_file_number_en: PDO-ES-A0735
+protected_name_file_number:en: PDO-ES-A0735
 protected_name_type:en: pdo
 origins:en: en:Spain
 
@@ -22989,6 +23300,9 @@ de:Camargue Reis
 es:Arroces de Camarga
 fr:Riz de Camargue
 nl:Camarguerijsten, Camargue rijst, Camarguerijst
+protected_name_file_number_en: PGI-FR-0073
+protected_name_type:en: pgi
+origins:en: en:France, fr:Camargue
 wikidata:en:Q18745430
 
 <en:Medium grain rices
@@ -24431,43 +24745,43 @@ en:Austrian cheeses
 
 <en:Austrian cheeses
 de:Ennstaler Steirerkas
-protected_name_file_number_en: PDO-AT-02588
+protected_name_file_number:en: PDO-AT-02588
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian cheeses
 de:Tiroler Almkäse, Tiroler Alpkäse
-protected_name_file_number_en: PDO-AT-1436
+protected_name_file_number:en: PDO-AT-1436
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian cheeses
 de:Vorarlberger Alpkäse
-protected_name_file_number_en: PDO-AT-1413
+protected_name_file_number:en: PDO-AT-1413
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian cheeses
 de:Tiroler Bergkäse
-protected_name_file_number_en: PDO-AT-1416
+protected_name_file_number:en: PDO-AT-1416
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian cheeses
 de:Vorarlberger Bergkäse
-protected_name_file_number_en: PDO-AT-1419
+protected_name_file_number:en: PDO-AT-1419
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian cheeses
 de:Gailtaler Almkäse
-protected_name_file_number_en: PDO-AT-1425
+protected_name_file_number:en: PDO-AT-1425
 protected_name_type:en: pdo
 origins:en: en:Austria
 
 <en:Austrian cheeses
 de:Tiroler Graukäse
-protected_name_file_number_en: PDO-AT-1435
+protected_name_file_number:en: PDO-AT-1435
 protected_name_type:en: pdo
 origins:en: en:Austria
 
@@ -24476,13 +24790,13 @@ en:Belgian cheeses
 
 <en:Belgian cheeses
 fr:Bètchéye, Boulette de Huy, Boulette de Namur, Boulette de Nivelles, Boulette de Romedenne, Boulette de Surice, Cassette de Beaumont, Crau Stofé
-protected_name_file_number_en: PGI-BE-02362
+protected_name_file_number:en: PGI-BE-02362
 protected_name_type:en: pgi
 origins:en: en:Belgium
 
 <en:Belgian cheeses
 fr:Fromage de Herve
-protected_name_file_number_en: PDO-BE-0312
+protected_name_file_number:en: PDO-BE-0312
 protected_name_type:en: pdo
 origins:en: en:Belgium
 
@@ -25132,7 +25446,7 @@ wikidata:en:Q16846615
 
 <en:Cheeses from England
 en:Buxton Blue
-protected_name_file_number_en: PDO-GB-0287
+protected_name_file_number:en: PDO-GB-0287
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 
@@ -25176,7 +25490,7 @@ wikidata:en:Q5298849
 
 <en:Cheeses from England
 en:Dovedale cheese
-protected_name_file_number_en: PDO-GB-0300
+protected_name_file_number:en: PDO-GB-0300
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 wikidata:en:Q3038270
@@ -25271,7 +25585,7 @@ wikidata:en:Q3505742
 
 <en:Cheeses from England
 en:Swaledale cheese, Swaledale ewes cheese
-protected_name_file_number_en: PDO-GB-0283
+protected_name_file_number:en: PDO-GB-0283
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 wikidata:en:Q94011
@@ -25296,7 +25610,7 @@ nl:Schotse kazen
 
 <en:Cheeses from Scotland
 en:Bonchester, Bonchester cheese
-protected_name_file_number_en: PDO-GB-0284
+protected_name_file_number:en: PDO-GB-0284
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 wikidata:en:Q135178
@@ -25970,25 +26284,25 @@ fr:Fromages suédois, Fromages de Suède
 
 <en:Swedish cheeses
 sv:Vrigstad Hemost
-protected_name_file_number_en: PGI-SE-02488
+protected_name_file_number:en: PGI-SE-02488
 protected_name_type:en: pgi
 origins:en: en:Sweden
 
 <en:Swedish cheeses
 sv:Wrångebäcksost
-protected_name_file_number_en: PDO-SE-02413
+protected_name_file_number:en: PDO-SE-02413
 protected_name_type:en: pdo
 origins:en: en:Sweden
 
 <en:Swedish cheeses
 sv:Hushållsost
-protected_name_file_number_en: TSG-SE-0022
+protected_name_file_number:en: TSG-SE-0022
 protected_name_type:en: tsg
 origins:en: en:Sweden
 
 <en:Swedish cheeses
 sv:Svecia
-protected_name_file_number_en: PGI-SE-1561
+protected_name_file_number:en: PGI-SE-1561
 protected_name_type:en: pgi
 origins:en: en:Sweden
 
@@ -26419,9 +26733,18 @@ en:Belgian butters
 
 <en:Belgian butters
 fr:Beurre d'Ardenne
-protected_name_file_number_en: PDO-BE-0311
+protected_name_file_number:en: PDO-BE-0311
 protected_name_type:en: pdo
 origins:en: en:Belgium
+
+<en:Butters
+en:French butters
+
+<en:French butters
+fr:Beurre de Bresse
+protected_name_file_number_en: PDO-FR-1045
+protected_name_type:en: pdo
+origins:en: en:France, fr:Bresse
 
 <en:French cheeses
 <en:Cooked pressed cheeses
@@ -29140,6 +29463,12 @@ fr:Châtaignes fraîches
 season_in_country_fr:en: 10,11
 
 <en:Chestnuts
+fr:Châtaigne d'Ardèche
+protected_name_file_number:en: PDO-FR-0874
+protected_name_type:en: pdo
+origins:en: en:France, fr:Ardèche
+
+<en:Chestnuts
 <en:Shelled nuts
 en:Shelled chestnuts
 de:Maronen mit Schale, Ungeschälte Maronen
@@ -29439,6 +29768,22 @@ se:Valnötter, valnöt
 zh:核桃, 胡桃
 wikidata:en:Q208021
 
+en:French nuts
+
+<en:French nuts
+<en:Walnuts
+fr:Noix du Périgord
+protected_name_file_number_en: PDO-FR-0248
+protected_name_type:en: pdo
+origins:en: en:France, fr:Périgord
+
+<en:French nuts
+<en:Walnuts
+fr:Noix de Grenoble
+protected_name_file_number_en: PDO-FR-0143
+protected_name_type:en: pdo
+origins:en: en:France
+
 <en:Walnuts
 fr:Noix fraîches
 season_in_country_fr:en: 9,10
@@ -29500,6 +29845,13 @@ en:Chestnut flours
 es:Harinas de castañas
 fr:Farines de châtaignes, Farines de châtaigne
 nl:Gemalen kastanjes
+
+#<en:French flours
+<en:Chestnut flours
+fr:Farine de châtaigne corse, Farina castagnina corsa
+protected_name_file_number_en: PDO-FR-0581
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Chestnut flours
 en:Chestnut flours T110
@@ -29755,7 +30107,7 @@ fr:Miels belges, Miels de Belgique
 
 <en:Honeys from Belgium
 fr:Miel wallon
-protected_name_file_number_en: PGI-BE-02409
+protected_name_file_number:en: PGI-BE-02409
 protected_name_type:en: pgi
 origins:en: en:Belgium
 
@@ -30970,6 +31322,15 @@ nl:Walnootoliën
 zh:核桃油
 wikidata:en:Q1434098
 
+#en:French oils
+
+<en:Walnut oils
+#<en:French oils
+fr:Huile de noix du Périgord
+protected_name_file_number_en: PDO-FR-02445
+protected_name_type:en: pdo
+origins:en: en:France
+
 <en:Vegetable oils
 <en:Olive tree products
 en:Olive oils
@@ -31055,7 +31416,9 @@ country:en:France
 en:Olive oil from Haute-Provence
 fr:Huile d'olive de Haute-Provence
 nl:Olijfoliën uit de Haute-Provence
-country:en:France
+protected_name_file_number_en: PDO-FR-0110
+protected_name_type:en: pdo
+origins:en: en:France, fr:Haute-Provence
 
 <en:Olive oils from France
 en:Olive oil from Vallée des Baux-de-Provence
@@ -31067,13 +31430,18 @@ country:en:France
 en:Olive oil from Nice
 fr:Huile d'olive de Nice
 nl:Olijfoliën uit Nice
-country:en:France
+protected_name_file_number_en: PDO-FR-0322
+protected_name_type:en: pdo
+origins:en: en:France, fr:Nice
 
 <en:Olive oils from France
 en:Olive oil from Nîmes
 fr:Huile d'olive de Nîmes
 nl:Olijfoliën uit Nîmes
-country:en:France
+protected_name_file_number_en: PDO-FR-0441
+protected_name_type:en: pdo
+origins:en: en:France, fr:Nîmes
+
 
 <en:Olive oils from France
 en:Olive oil from Nyons
@@ -31083,7 +31451,9 @@ country:en:France
 
 <en:Olive oils from France
 fr:Huile d'olive de Provence
-country:en:France
+protected_name_file_number_en: PDO-FR-02421
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Olive oils
 en:Olive oils from Italy
@@ -33647,6 +34017,14 @@ wikidata:en:Q1364
 fr:Cassis frais
 season_in_country_fr:en: 6,7,8
 
+en:British fruit
+
+<en:British fruit
+en:Armagh Bramley Apples
+protected_name_file_number:en: PGI-GB-0792
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
 <en:Fruits
 en:Apples
 de:Äpfel, Apfel
@@ -33908,6 +34286,20 @@ fr:Fraises de jardin
 la:Fragaria x ananassa
 nl:aardbeien
 
+<en:Strawberries
+<en:French fruit
+fr:Fraises de Nîmes
+protected_name_file_number_en: PGI-FR-0809
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Strawberries
+<en:French fruit
+fr:Fraise du Périgord
+protected_name_file_number_en: PGI-FR-0133
+protected_name_type:en: pgi
+origins:en: en:France, fr:Périgord
+
 <en:Fruits
 en:Cherries
 de:Kirschen
@@ -33994,6 +34386,13 @@ nl:Clementines
 fr:Clémentines fraîches
 season_in_country_fr:en: 1,2,11,12
 
+<en:French fruit
+<en:Clementines
+fr:Clémentine de Corse
+protected_name_file_number_en: PGI-FR-0300
+protected_name_type:en: pgi
+origins:en: en:France, en:Corsica
+
 <en:Mandarin oranges
 en:Tangerines
 de:Tangerinen
@@ -34040,6 +34439,12 @@ nl:Vijgen
 fr:Figues fraîches
 season_in_country_fr:en: 7,8,9,10
 
+<en:Figs
+<en:French fruit
+fr:Figue de Solliès
+protected_name_file_number_en: PDO-FR-0544
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Fruits
 en:Grapes
@@ -34109,9 +34514,17 @@ fi:kiivihedelmät
 fr:Kiwis
 nl:Kiwis
 
+
 <en:Kiwifruits
 fr:Kiwis frais
 season_in_country_fr:en: 1,2,3,11,12
+
+<en:French fruit
+<en:Kiwifruits
+fr:Kiwi de l'Adour
+protected_name_file_number_en: PGI-FR-0538
+protected_name_type:en: pgi
+origins:en: en:France, fr:Gascogne
 
 <en:Fruits
 en:Peaches, peach
@@ -34184,6 +34597,20 @@ wikidata:en:Q81602
 <en:Muskmelons
 fr:Melons frais
 season_in_country_fr:en: 6,7,8,9
+
+<en:Muskmelons
+<en:French fruit
+fr:Melon du Quercy
+protected_name_file_number_en: PGI-FR-0086
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Muskmelons
+<en:French fruit
+fr:Melon de Guadeloupe
+protected_name_file_number_en: PGI-FR-0844
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Muskmelons
 en:Branco melons, White melons
@@ -34288,6 +34715,12 @@ season_in_country_fr:en: 9
 <en:Plums
 fr:Quetsches fraîches
 season_in_country_fr:en: 8,9,10
+
+<en:Plums
+fr:Mirabelles de Lorraine
+protected_name_file_number_en: PGI-FR-0194
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Fruits
 en:Pomegranates
@@ -34823,7 +35256,11 @@ nl:Gedroogde pruimen
 ru:Чернослив сушёный, сушёный чернослив, чернослив, сливы сушёные
 
 <en:Dried prunes
-fr:Pruneaux d’Agen
+<en:French fruit
+fr:Pruneaux d'Agen
+protected_name_file_number_en: PGI-FR-0149
+protected_name_type:en: pgi
+origins:en: en:France, fr:Agen
 
 <en:Dried fruits
 en:Raisins, Dried grapes
@@ -37298,6 +37735,51 @@ pt:Produtos à base de carne
 zh:肉制品
 
 <en:Meat-based products
+en:Bulgarian meat products
+
+<en:Bulgarian meat products
+bg:ЛуканкаПанагюрска, Lukanka Panagyurska
+protected_name_file_number:en: TSG-BG-1099-AM01
+protected_name_type:en: tsg
+origins:en: en:Bulgaria
+
+<en:Bulgarian meat products
+bg:Пастърма говежда, Pastarma Govezhda
+protected_name_file_number:en: TSG-BG-1255
+protected_name_type:en: tsg
+origins:en: en:Bulgaria
+
+<en:Bulgarian meat products
+bg:Кайсерован врат Тракия, Kayserovan vrat Trakiya
+protected_name_file_number:en: TSG-BG-1018
+protected_name_type:en: tsg
+origins:en: en:Bulgaria
+
+<en:Bulgarian meat products
+bg:Роле Трапезица, Role Trapezitsa
+protected_name_file_number:en: TSG-BG-1020
+protected_name_type:en: tsg
+origins:en: en:Bulgaria
+
+<en:Bulgarian meat products
+bg:Филе Елена, File Elena
+protected_name_file_number:en: TSG-BG-1017
+protected_name_type:en: tsg
+origins:en: en:Bulgaria
+
+<en:Bulgarian meat products
+bg:ЛуканкаПанагюрска, Lukanka Panagyurska
+protected_name_file_number:en: TSG-BG-1099
+protected_name_type:en: tsg
+origins:en: en:Bulgaria
+
+<en:Bulgarian meat products
+bg:Горнооряховски суджук, Gornooryahovski sudzhuk
+protected_name_file_number:en: PGI-BG-0732
+protected_name_type:en: pgi
+origins:en: en:Bulgaria
+
+<en:Meat-based products
 <en:Prepared salads
 de:Fleischsalat, Fleischsalate
 wikidata:en:Q185457
@@ -37634,7 +38116,11 @@ fr:farines biscuitières, Farines pour biscuits
 fr:Farines pâtissières, Farines pour pâtisseries
 
 <en:Asparagus
-fr:Asperges des sables des Landes
+<en:French vegetables
+fr:Asperge des sables des Landes
+protected_name_file_number_en: PGI-FR-0272
+protected_name_type:en: pgi
+origins:en: en:France, fr:Landes
 
 <en:Asparagus
 en:Boiled asparagus, Asparagus cooked in water
@@ -41517,6 +42003,9 @@ it:Prosciutti cotti
 nl:Gekookte ham
 wikidata:en:Q3820622
 
+<en:Hams
+en:French hams
+
 es:Jamón Curado
 
 <en:Hams
@@ -41548,7 +42037,52 @@ en:Bayonne ham
 es:Jamón de Bayona
 fr:Jambons de Bayonne, jambon de bayonne
 nl:Ham uit Bayonne
+protected_name_file_number_en: PGI-FR-0031-AM01
+protected_name_type:en: pgi
+origins:en: en:France
 wikidata:en:Q1230067
+
+#<en:French meat products
+#fr:Jambon de Bayonne
+#protected_name_file_number_en: PGI-FR-0031
+#protected_name_type:en: pgi
+#origins:en: en:France
+
+<en:French hams
+fr:Jambon d'Auvergne
+protected_name_file_number_en: PGI-FR-01348
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:French hams
+fr:Jambon de Lacaune
+protected_name_file_number_en: PGI-FR-1208
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:French hams
+fr:Jambon de Vendée
+protected_name_file_number_en: PGI-FR-1135
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:French meat products
+fr:Jambon de l'Ardèche
+protected_name_file_number_en: PGI-FR-0595
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:French hams
+fr:Jambon du Kintoa
+protected_name_file_number_en: PDO-FR-02166
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:French hams
+fr:Jambon sec de l'Ile de Beauté
+protected_name_file_number_en: PGI-FR-02426
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Dried hams
 fr:Jambons de Mayence, jambon de Mayence
@@ -45110,43 +45644,43 @@ en:Spanish sea products
 
 <en:Spanish sea products
 es:Mojama de Barbate
-protected_name_file_number_en: PGI-ES-01210-AM01
+protected_name_file_number:en: PGI-ES-01210-AM01
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish sea products
 es:Mojama de Isla Cristina
-protected_name_file_number_en: PGI-ES-01211-AM01
+protected_name_file_number:en: PGI-ES-01211-AM01
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish sea products
 es:Mojama de Isla Cristina
-protected_name_file_number_en: PGI-ES-01211
+protected_name_file_number:en: PGI-ES-01211
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish sea products
 es:Mojama de Barbate
-protected_name_file_number_en: PGI-ES-01210
+protected_name_file_number:en: PGI-ES-01210
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish sea products
 es:Caballa de Andalucia
-protected_name_file_number_en: PGI-ES-0281
+protected_name_file_number:en: PGI-ES-0281
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish sea products
 es:Melva de Andalucia
-protected_name_file_number_en: PGI-ES-0280
+protected_name_file_number:en: PGI-ES-0280
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish sea products
 es:Mejillón de Galicia, Mexillón de Galicia
-protected_name_file_number_en: PDO-ES-0165
+protected_name_file_number:en: PDO-ES-0165
 protected_name_type:en: pdo
 origins:en: en:Spain
 
@@ -47982,6 +48516,9 @@ pnns_group_2:en:Vegetables
 wikidata:en:Q11004
 
 <en:Vegetables based foods
+en:British vegetables
+
+<en:Vegetables based foods
 <en:Culinary plants
 en:Garlic and their products
 de:Knoblauch und Knoblauchprodukte
@@ -48022,6 +48559,23 @@ fr:Oignons séchés
 ciqual_food_code:en:20180
 ciqual_food_name:en:Onion, dried
 ciqual_food_name:fr:Oignon, séché
+
+<en:Vegetables
+en:French vegetables
+
+<en:French vegetables
+<en:Onions and their products
+fr:Oignon de Roscoff
+protected_name_file_number:en: PDO-FR-0812
+protected_name_type:en: pdo
+origins:en: en:France, fr:Roscoff
+
+<en:French vegetables
+<en:Onions and their products
+fr:Oignon doux des Cévennes
+protected_name_file_number_en: PDO-FR-0314
+protected_name_type:en: pdo
+origins:en: en:France, fr:Cévennes
 
 <en:Vegetables based foods
 <en:Pumpkin plant products
@@ -48722,6 +49276,12 @@ nl_be:Selderij
 fr:Céleri frais
 season_in_country_fr:en: 1,2,3,10,11,12
 
+<en:Celery
+<en:British vegetables
+en:Fenland Celery
+protected_name_file_number:en: PGI-GB-0887
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
 
 # description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
 
@@ -49010,15 +49570,30 @@ wikidata:en:Q1817792
 
 <en:Allium neapolitanum
 fr:Ail blanc de Lomagne
-country:en:France
+protected_name_file_number_en: PGI-FR-0470
+protected_name_type:en: pgi
+origins:en: en:France, fr:Lomagne
 
 <en:Garlic
+<en:French vegetables
+fr:Ail rose de Lautrec
+protected_name_file_number_en: PGI-FR-0193
+protected_name_type:en: pgi
+origins:en: en:France, fr:Lautrec
+
+<en:Garlic
+<en:French vegetables
 fr:Ail de la Drôme
-country:en:France
+protected_name_file_number_en: PGI-FR-0537
+protected_name_type:en: pgi
+origins:en: en:France, fr:Drôme
 
 <en:Garlic
-fr:Ail fumé d’Arleux
-country:en:France
+<en:French vegetables
+fr:Ail fumé d'Arleux
+protected_name_file_number_en: PGI-FR-0820
+protected_name_type:en: pgi
+origins:en: en:France, fr:Arleux
 
 <en:Vegetables
 en:Green garlic
@@ -49441,7 +50016,11 @@ fr:Pommes de terre Béa
 wikidata:en:Q2929373
 
 <fr:Pommes de terre Béa
+<en:French vegetables
 fr:Béa du Roussillon, pomme de terre primeur du Roussillon
+protected_name_file_number_en: PDO-FR-0548
+protected_name_type:en: pdo
+origins:en: en:France
 wikidata:en:Q2929377
 
 <en:Potatoes
@@ -49454,7 +50033,11 @@ nl:Charlotte aardappel
 wikidata:en:Q1067085
 
 <en:Potatoes
+<en:French vegetables
 fr:Pommes de terre de l'île de Ré, Pomme de terre de l'île de Ré
+protected_name_file_number_en: PDO-FR-0065
+protected_name_type:en: pdo
+origins:en: en:France, fr:île de Ré
 wikidata:en:Q3395977
 
 <fr:Pommes de terre de l'île de Ré
@@ -50443,10 +51026,16 @@ fr:Haricots blancs
 nl:Witte bonen
 
 <en:White beans
-fr:Mogette de Vendée
 en:White kidney beans
 es:Alubias blancas de riñón, Judías blancas de riñón
 nl:Witte nierbonen
+
+<en:French vegetables
+<en:White kidney beans
+fr:Mogette de Vendée
+protected_name_file_number_en: PGI-FR-0541
+protected_name_type:en: pgi
+origins:en: en:France, fr:Vendée
 
 <en:White beans
 en:Coco white beans
@@ -51078,19 +51667,19 @@ en:Spanish vinegars
 
 <en:Spanish vinegars
 es:Vinagre de Montilla-Moriles
-protected_name_file_number_en: PDO-ES-0726
+protected_name_file_number:en: PDO-ES-0726
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish vinegars
 es:Vinagre del Condado de Huelva
-protected_name_file_number_en: PDO-ES-0724
+protected_name_file_number:en: PDO-ES-0724
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish vinegars
 es:Vinagre de Jerez
-protected_name_file_number_en: PDO-ES-0723
+protected_name_file_number:en: PDO-ES-0723
 protected_name_type:en: pdo
 origins:en: en:Spain
 
@@ -51478,6 +52067,12 @@ se:Oliver, oliv
 wikidata:en:Q1621080
 pnns_group_2:en:Salty and fatty products
 
+<en:French vegetables
+<en:Olives
+fr:Olive de Nîmes
+protected_name_file_number_en: PDO-FR-0568
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Olives
 en:Black olives
@@ -51489,6 +52084,13 @@ it:Olive nere
 nl:Zwarte olijven
 ro:Măsline negre
 ru:Маслины чёрные, Чёрные маслины, Оливки чёрные, Чёрные оливки
+
+<en:French vegetables
+<en:Black olives
+fr:Olives noires de Nyons
+protected_name_file_number_en: PDO-FR-0374
+protected_name_type:en: pdo
+origins:en: en:France, fr:Nyons
 
 <en:Black olives
 <en:Chopped olives
