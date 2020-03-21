@@ -1,6 +1,7 @@
 files:
   - source: /po/common/common.pot
     translation: /po/common/%two_letters_code%.po
+    ignore: /po/common/nl.po
     languages_mapping:
       two_letters_code:
         pt-BR: pt_BR
@@ -19,6 +20,7 @@ files:
         kmr: kmr
   - source: /po/openbeautyfacts/openbeautyfacts.pot
     translation: /po/openbeautyfacts/%two_letters_code%.po
+    ignore: /po/openbeautyfacts/nl.po
     languages_mapping:
       two_letters_code:
         en-GB: en_GB
@@ -37,6 +39,7 @@ files:
         kmr: kmr
   - source: /po/openfoodfacts/openfoodfacts.pot
     translation: /po/openfoodfacts/%two_letters_code%.po
+    ignore: /po/openfoodfacts/nl.po
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -55,6 +58,7 @@ files:
         kmr: kmr
   - source: /po/openproductsfacts/openproductsfacts.pot
     translation: /po/openproductsfacts/%two_letters_code%.po
+    ignore: /po/openproductsfacts/nl.po
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -73,6 +77,7 @@ files:
         kmr: kmr
   - source: /po/openpetfoodfacts/openpetfoodfacts.pot
     translation: /po/openpetfoodfacts/%two_letters_code%.po
+    ignore: /po/openpetfoodfacts/nl.po
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -82,6 +87,7 @@ files:
         en-US: en_US
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -98,6 +104,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -114,6 +121,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -130,6 +138,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -146,6 +155,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -162,6 +172,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -178,6 +189,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -194,6 +206,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -210,6 +223,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -226,6 +240,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -242,6 +257,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -258,6 +274,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -274,6 +291,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -290,6 +308,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -306,6 +325,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -322,6 +342,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -338,6 +359,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -354,6 +376,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -370,6 +393,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -386,6 +410,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -402,6 +427,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -418,6 +444,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -434,6 +461,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -450,6 +478,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -466,6 +495,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -482,6 +512,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -498,6 +529,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -514,6 +546,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -530,6 +563,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -546,6 +580,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -562,6 +597,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -578,6 +614,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -594,6 +631,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -610,6 +648,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -626,6 +665,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -642,6 +682,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -658,6 +699,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -674,6 +716,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -690,6 +733,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -706,6 +750,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -722,6 +767,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -738,6 +784,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -754,6 +801,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -770,6 +818,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -786,6 +835,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -802,6 +852,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -818,6 +869,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -834,6 +886,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -850,6 +903,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -866,6 +920,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -882,6 +937,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -898,6 +954,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -914,6 +971,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -930,6 +988,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -946,6 +1005,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -962,6 +1022,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -978,6 +1039,7 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS

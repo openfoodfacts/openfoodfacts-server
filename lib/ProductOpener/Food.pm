@@ -255,6 +255,14 @@ sub get_nutrient_label {
 	}
 }
 
+=head2 unit_to_g($$)
+
+Converts <xx><unit> into <xx>grams. Eg.:
+unit_to_g(2,kg) => returns 2000
+unit_to_g(520,mg) => returns 0.52
+
+=cut
+
 sub unit_to_g($$) {
 	my $value = shift;
 	my $unit = shift;
@@ -272,20 +280,34 @@ sub unit_to_g($$) {
 	$value eq '' and return $value;
 
 	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);
+	# kg = 公斤 - gōngjīn = кг
 	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value * 1000;
+	# 斤 - jīn = 500 Grams
 	$unit eq "\N{U+65A4}" and return $value * 500;
+	# mg = 毫克 - háokè = мг
 	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value / 1000;
 	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value / 1000000;
 	$unit eq 'oz' and return $value * 28.349523125;
 
+	# l = 公升 - gōngshēng = л = liter
 	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value * 1000;
 	(($unit eq 'dl') or ($unit eq 'дл')) and return $value * 100;
 	(($unit eq 'cl') or ($unit eq 'кл')) and return $value * 10;
 	$unit eq 'fl oz' and return $value * 30;
+
+	# return value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
 	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 }
 
+
+=head2 g_to_unit($$)
+
+Converts <xx>grams into <xx><unit>. Eg.:
+g_to_unit(2000,kg) => returns 2
+g_to_unit(0.52,mg) => returns 520
+
+=cut
 
 sub g_to_unit($$) {
 	my $value = shift;
@@ -305,16 +327,22 @@ sub g_to_unit($$) {
 	$value eq '' and return $value;
 
 	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
+	# kg = 公斤 - gōngjīn = кг
 	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value / 1000;
+	# 斤 - jīn = 500 Grams
 	$unit eq "\N{U+65A4}" and return $value / 500;
+	# mg = 毫克 - háokè = мг
 	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value * 1000;
 	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value * 1000000;
 	$unit eq 'oz' and return $value / 28.349523125;
 
+	# l = 公升 - gōngshēng = л = liter
 	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value / 1000;
 	(($unit eq 'dl') or ($unit eq 'дл')) and return $value / 100;
 	(($unit eq 'cl') or ($unit eq 'кл')) and return $value / 10;
 	$unit eq 'fl oz' and return $value / 30;
+
+	# return value without modification if unit is already grams or 克 (kè) or 公克 (gōngkè) or г
 	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 }
@@ -3872,17 +3900,29 @@ foreach my $nid (keys %Nutriments) {
 }
 
 my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
-my $chinese_units = qr/(?:\N{U+6BEB}?\N{U+514B})|(?:\N{U+516C}?\N{U+65A4})|(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|\N{U+5428}/i;
+# Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
+my $chinese_units = qr/
+	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram) 
+	                                        #                      (公克 gōngkè is for "metric gram")
+	(?:\N{U+516C}?\N{U+65A4})|              # 公斤 or 斤 or         (公斤 gōngjīn is a "metric kg")
+	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|  # 毫升 or 公升 or 升     (升 is liter)
+	\N{U+5428}                              # 吨                    (ton?)
+	/ix;
 my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
 my $units = qr/$international_units|$chinese_units|$russian_units/i;
 
+
+=head2 normalize_quantity($)
+
+Return the size in g or ml for the whole product. Eg.:
+normalize_quantity(1 barquette de 40g) returns 40
+normalize_quantity(20 tranches 500g)   returns 500
+normalize_quantity(6x90g)              returns 540
+normalize_quantity(2kg)                returns 2000
+
+=cut
+
 sub normalize_quantity($) {
-
-	# return the size in g or ml for the whole product
-
-	# 1 barquette de 40g
-	# 20 tranches 500g
-	# 6x90g --> return 540
 
 	my $quantity = shift;
 
@@ -3911,6 +3951,14 @@ sub normalize_quantity($) {
 	return $q;
 }
 
+
+=head2 normalize_serving_size($)
+
+Returns the size in g or ml for the serving. Eg.:
+normalize_serving_size(1 barquette de 40g) returns 40
+normalize_serving_size(2.5kg)              returns 2500
+
+=cut
 
 sub normalize_serving_size($) {
 
