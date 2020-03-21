@@ -975,15 +975,21 @@ nl:Tsjechische bieren
 
 <en:Beers from Czech republic
 cz:Březnický ležák
-country:en:Czech republic
+protected_name_file_number_en: PGI-CZ-0398
+protected_name_type:en: pgi
+origins:en: en:Czechia
 
 <en:Beers from Czech republic
-cz:Brněnské pivo/Starobrněnské pivo
-country:en:Czech Republic
+cs:Brněnské pivo, Starobrněnské pivo
+protected_name_file_number_en: PGI-CZ-0373
+protected_name_type:en: pgi
+origins:en: en:Czechia
 
 <en:Beers from Czech republic
-cz:Budějovické pivo
-country:en:Czech Republic
+cs:Budějovické pivo
+protected_name_file_number_en: PGI-CZ-0444
+protected_name_type:en: pgi
+origins:en: en:Czechia
 
 <en:Beers from Czech republic
 cz:Budějovický měsťanský var
@@ -991,19 +997,39 @@ country:en:Czech Republic
 
 <en:Beers from Czech republic
 cz:České pivo
-country:en:Czech Republic
+protected_name_file_number_en: PGI-CZ-0375
+protected_name_type:en: pgi
+origins:en: en:Czechia
 
-<en:Beers from Czech republic
-cz:Českobudějovické pivo
-country:en:Czech Republic
+<en:Czech beers
+cs:Budějovický měšťanský var
+protected_name_file_number_en: PGI-CZ-0445
+protected_name_type:en: pgi
+origins:en: en:Czechia
+
+<en:Czech beers
+cs:Českobudějovické pivo
+protected_name_file_number_en: PGI-CZ-0446
+protected_name_type:en: pgi
+origins:en: en:Czechia
 
 <en:Beers from Czech republic
 cz:Černá Hora
-country:en:Czech Republic
+protected_name_file_number_en: PGI-CZ-0409
+protected_name_type:en: pgi
+origins:en: en:Czechia
 
 <en:Beers from Czech republic
-cz:Znojemské pivo
-country:en:Czech Republic
+cs:Znojemské pivo
+protected_name_file_number_en: PGI-CZ-0376
+protected_name_type:en: pgi
+origins:en: en:Czechia
+
+<en:Beers from Czech republic
+cs:Chodské pivo
+protected_name_file_number_en: PGI-CZ-0363
+protected_name_type:en: pgi
+origins:en: en:Czechia
 
 <en:Beers
 en:Beers from Germany
@@ -1284,6 +1310,16 @@ fr:boissons spiritueuses
 hu:Égetett szesz
 nl:Gedestilleerde dranken
 wikidata:en:Q56139
+
+<en:Distilled beverages
+en:distilled anis
+
+#<en:Cypriot distilled anis
+#<en:Greek distilled anis
+el, el:Ouzo, Oύζο
+protected_name_file_number_en: PGI-CY+GR-01828
+protected_name_type:en: gi
+origins:en: en:Cyprus, Greece
 
 <en:Hard liquors
 en:Tequilas
@@ -2101,6 +2137,15 @@ de:Kräuterschnäppse, Kräuterliköre, Kräuterschnaps, Kräuterlikör
 fr:Liqueur herbale
 nl:Kruidenlikeur
 wikidata:en:Q1883967
+
+<en:Liqueurs
+en:Croatian liqueur
+
+<en:Croatian liqueur
+hr:Hrvatski pelinkovac
+protected_name_file_number_en: PGI-HR-01959
+protected_name_type:en: gi
+origins:en: en:Croatia
 
 <en:Liqueurs
 en:French liqueur
@@ -13405,8 +13450,11 @@ en:Wines from Cyprus
 nl:Cypriotische wijnen
 
 <en:Wines from Cyprus
-cy:Commandaria, Κουμανδαρία
-country:en:Cyprus
+en:Commandaria
+el:Κουμανδαρία
+protected_name_file_number_en: PDO-CY-A1622
+protected_name_type:en: pdo
+origins:en: en:Cyprus
 
 <en:Wines from Cyprus
 cy:Krasohoria Lemesou, Krasohoria Lemesou Afames, Κρασοχώρια Λεμεσού, Κρασοχώρια Λεμεσού Αφάμης
@@ -24898,6 +24946,54 @@ fr:Fromage de Herve
 protected_name_file_number:en: PDO-BE-0312
 protected_name_type:en: pdo
 origins:en: en:Belgium
+
+<en:Cheeses
+en:Czech cheeses
+
+<en:Czech cheeses
+cs:Olomoucké tvarůžky
+protected_name_file_number_en: PGI-CZ-0399
+protected_name_type:en: pgi
+origins:en: en:Czechia
+
+<en:Czech cheeses
+cs:Jihočeská Zlatá Niva
+protected_name_file_number_en: PGI-CZ-0406
+protected_name_type:en: pgi
+origins:en: en:Czechia
+
+<en:Czech cheeses
+cs:Jihočeská Niva
+protected_name_file_number_en: PGI-CZ-0405
+protected_name_type:en: pgi
+origins:en: en:Czechia
+
+<en:Cheeses
+en:Danish cheeses
+
+<en:Danish cheeses
+da:Havarti
+protected_name_file_number_en: PGI-DK-00831
+protected_name_type:en: pgi
+origins:en: en:Denmark
+
+<en:Danish cheeses
+da:Danbo
+protected_name_file_number_en: PGI-DK-00830
+protected_name_type:en: pgi
+origins:en: en:Denmark
+
+<en:Danish cheeses
+da:Danablu
+protected_name_file_number_en: PGI-DK-0328
+protected_name_type:en: pgi
+origins:en: en:Denmark
+
+<en:Danish cheeses
+da:Esrom
+protected_name_file_number_en: PGI-DK-0329
+protected_name_type:en: pgi
+origins:en: en:Denmark
 
 <en:Cheeses
 en:French cheeses, cheeses from France
@@ -37982,6 +38078,72 @@ nl:Vleesproducten
 pl:Produkty na bazie mięsa
 pt:Produtos à base de carne
 zh:肉制品
+
+<en:Meat-based products
+en:Czech meat products
+
+<en:Czech meat products
+cs:Pražská šunka
+protected_name_file_number_en: TSG-CZ-836
+protected_name_type:en: tsg
+origins:en: en:Czechia
+
+<en:Meat-based products
+en:Croatian meat products
+
+<en:Croatian meat products
+hr:Dalmatinska pečenica
+protected_name_file_number_en: PGI-HR-02456
+protected_name_type:en: pgi
+origins:en: en:Croatia
+
+<en:Croatian meat products
+hr:Dalmatinska panceta
+protected_name_file_number_en: PGI-HR-02455
+protected_name_type:en: pgi
+origins:en: en:Croatia
+
+<en:Croatian meat products
+hr:Slavonska kobasica
+protected_name_file_number_en: PGI-HR-02441
+protected_name_type:en: pgi
+origins:en: en:Croatia
+
+<en:Croatian meat products
+hr:Međimursko meso 'z tiblice
+protected_name_file_number_en: PGI-HR-02180
+protected_name_type:en: pgi
+origins:en: en:Croatia
+
+<en:Croatian meat products
+hr:Slavonski kulen, Slavonski kulin
+protected_name_file_number_en: PGI-HR-01216
+protected_name_type:en: pgi
+origins:en: en:Croatia
+
+<en:Croatian meat products
+hr:Dalmatinski pršut
+protected_name_file_number_en: PGI-HR-01205
+protected_name_type:en: pgi
+origins:en: en:Croatia
+
+<en:Croatian meat products
+hr:Drniški pršut
+protected_name_file_number_en: PGI-HR-01212
+protected_name_type:en: pgi
+origins:en: en:Croatia
+
+<en:Croatian meat products
+hr:Baranjski kulen
+protected_name_file_number_en: PGI-HR-1207
+protected_name_type:en: pgi
+origins:en: en:Croatia
+
+<en:Croatian meat products
+hr:Krčki pršut
+protected_name_file_number_en: PGI-HR-1204
+protected_name_type:en: pgi
+origins:en: en:Croatia
 
 <en:Meat-based products
 en:Bulgarian meat products
