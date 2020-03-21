@@ -109,6 +109,8 @@ function add_language_tab (lc, language) {
 
   });
 
+  update_move_data_and_images_to_main_language_message();
+
   $(document).foundation('tab', 'reflow');
 }
 
@@ -863,7 +865,52 @@ function get_recents(tagfield) {
 
   initLanguageAdding();
 
+  update_move_data_and_images_to_main_language_message();
+
+  $("#lang").change(update_move_data_and_images_to_main_language_message);
+
 })( jQuery );
+
+function update_move_data_and_images_to_main_language_message () {
+
+  var main_language_id = $("#lang").val();
+  var main_language_text = $("#lang option:selected").text();
+  $('.main_language').text(main_language_text);
+  $('.move_data_and_images_to_main_language').each(function() {
+    var divid = $(this).attr('id');
+    if (divid === "move_" + main_language_id + "_data_and_images_to_main_language_div") {
+      $(this).hide();
+    }
+    else {
+      $(this).show();
+    }
+  });
+
+  $('.move_data_and_images_to_main_language_checkbox').each(function() {
+
+    var divradioid = $(this).attr('id') + "_radio";
+
+    var $th = $(this);
+    if ( $(this).is(':checked')) {
+        $("#" + divradioid).show();
+    }
+    else {
+       $("#" + divradioid).hide();
+    }
+
+    $th.change(function() {
+      var divradioid = $(this).attr('id') + "_radio";
+      if ( $(this).is(':checked')) {
+          $("#" + divradioid).show();
+      }
+      else {
+         $("#" + divradioid).hide();
+      }
+    }
+    );
+
+  });
+}
 
 function initLanguageAdding() {
   const Lang = lang();
