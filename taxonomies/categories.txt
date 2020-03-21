@@ -2090,6 +2090,39 @@ origins:en: en:France
 #origins:en: en:France
 
 <en:Liqueurs
+en:Spanish liqueur
+
+<en:Spanish liqueur
+es:Cantueso Alicantino
+protected_name_file_number_en: PGI-ES-01892
+protected_name_type:en: gi
+origins:en: en:Spain
+
+<en:Spanish liqueur
+es:Licor café de Galicia
+protected_name_file_number_en: PGI-ES-01911
+protected_name_type:en: gi
+origins:en: en:Spain
+
+<en:Spanish liqueur
+es:Licor de hierbas de Galicia
+protected_name_file_number_en: PGI-ES-01912
+protected_name_type:en: gi
+origins:en: en:Spain
+
+<en:Spanish liqueur
+es:Palo de Mallorca
+protected_name_file_number_en: PGI-ES-01868
+protected_name_type:en: gi
+origins:en: en:Spain
+
+<en:Spanish liqueur
+es:Ratafia catalana
+protected_name_file_number_en: PGI-ES-01945
+protected_name_type:en: gi
+origins:en: en:Spain
+
+<en:Liqueurs
 fr:Crèmes de cassis
 en:Blackcurrant liqueur
 wikidata:en:Q968019
@@ -25729,7 +25762,9 @@ oqali_family:en: fr:Fromages - Mascarpone
 
 <en:Italian cheeses
 it:Asiago
-country:en:Italy
+protected_name_file_number_en: PDO-IT-0001-AM02
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
@@ -25759,13 +25794,23 @@ country:en:Italy
 
 <en:Italian cheeses
 it:Casatella Trevigiana
-country:en:Italy
+protected_name_file_number_en: PDO-IT-0348-AM02
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
 it:Casciotta d'Urbino
-country:en:Italy
+protected_name_file_number_en: PDO-IT-0005-AM01
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
+
+#<en:Italian cheeses
+#it:Casciotta d'Urbino
+#protected_name_file_number_en: PDO-IT-0005
+#protected_name_type:en: pdo
+#origins:en: en:Italy
 
 <en:Italian cheeses
 it:Castelmagno
@@ -25840,6 +25885,12 @@ it:Mozzarella di Bufala Campana
 country:en:Italy
 wikidata:en:Q941068
 
+<en:Mozzarella
+it:Mozzarella di Gioia del Colle
+protected_name_file_number_en: PDO-IT-02384
+protected_name_type:en: pdo
+origins:en: en:Italy
+
 <en:Italian cheeses
 <en:Stretched-curd cheeses
 fr:Burrata
@@ -25847,6 +25898,12 @@ de:Burrata
 it:Burrata
 wikidata:en:Q543512
 oqali_family:en: fr:Fromages - Mozzarella
+
+<fr:Burrata
+it:Burrata di Andria
+protected_name_file_number_en: PGI-IT-01393
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Murazzano
@@ -25885,12 +25942,16 @@ oqali_family:en: fr:Fromages - Parmesan et assimiles
 
 <en:Pecorino
 it:Pecorino Crotonese
-country:en:Italy
+protected_name_file_number_en: PDO-IT-1111
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Pecorino
 it:Pecorino delle Balze Volterrane
-country:en:Italy
+protected_name_file_number_en: PDO-IT-1166
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Pecorino
@@ -25928,6 +25989,12 @@ it:Pecorino Toscano
 country:en:Italy
 wikidata:en:Q980288
 
+<en:Pecorino
+it:Pecorino del Monte Poro
+protected_name_file_number_en: PDO-IT-02420
+protected_name_type:en: pdo
+origins:en: en:Italy
+
 <en:Italian cheeses
 it:Piacentinu Ennese
 country:en:Italy
@@ -25939,7 +26006,9 @@ fi:Piave
 fr:Piave
 it:Piave
 nl:Piave
-country:en:Italy
+protected_name_file_number_en: PDO-IT-0686-AM02
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q2277500
 
 <en:Italian cheeses
@@ -25949,8 +26018,16 @@ country:en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
+it:Provola dei Nebrodi
+protected_name_file_number_en: PDO-IT-02394
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian cheeses
 it:Provolone Valpadana
-country:en:Italy
+protected_name_file_number_en: PDO-IT-0021
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
@@ -25960,7 +26037,9 @@ country:en:Italy
 
 <en:Italian cheeses
 it:Quartirolo Lombardo
-country:en:Italy
+protected_name_file_number_en: PDO-IT-0022
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
@@ -26040,8 +26119,12 @@ country:en:Italy
 
 <en:Italian cheeses
 it:Valle d'Aosta Fromadzo
-country:en:Italy
+protected_name_file_number_en: PDO-IT-1504
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
+
+
 
 <en:Italian cheeses
 it:Valtellina Casera
@@ -30110,6 +30193,51 @@ fr:Miel wallon
 protected_name_file_number:en: PGI-BE-02409
 protected_name_type:en: pgi
 origins:en: en:Belgium
+
+<en:Honeys
+en:Spanish honeys
+
+<en:Spanish honeys
+es:Miel Villuercas-Ibores
+protected_name_file_number_en: PDO-ES-01268
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Spanish honeys
+es:Miel de Liébana
+protected_name_file_number_en: PDO-ES-01196
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Spanish honeys
+es:Miel de Campoo- los Valles
+protected_name_file_number_en: PDO-ES-1258
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Spanish honeys
+es:Miel de Tenerife
+protected_name_file_number_en: PDO-ES-0943
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Spanish honeys
+es:Miel de Galicia, Mel de Galicia
+protected_name_file_number_en: PGI-ES-0278
+protected_name_type:en: pgi
+origins:en: en:Spain
+
+<en:Spanish honeys
+es:Miel de Granada
+protected_name_file_number_en: PDO-ES-0243
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Spanish honeys
+es:Miel de La Alcarria
+protected_name_file_number_en: PDO-ES-0079
+protected_name_type:en: pdo
+origins:en: en:Spain
 
 <en:Honeys
 en:Honeys from France, French honeys
@@ -40907,6 +41035,45 @@ fr:Cuisses de Grenouilles
 nl:Kikkerbillen
 zh:青蛙腿, 蛙腿
 
+<en:meats
+en:Italian fresh meat and offal
+
+<en:Italian fresh meat and offal
+it:Vitelloni Piemontesi della Coscia
+protected_name_file_number_en: PGI-IT-01198
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian fresh meat and offal
+it:Agnello del Centro Italia
+protected_name_file_number_en: PGI-IT-0808
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian fresh meat and offal
+it:Cinta Senese
+protected_name_file_number_en: PDO-IT-0491
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian fresh meat and offal
+it:Abbacchio Romano
+protected_name_file_number_en: PGI-IT-0293
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian fresh meat and offal
+it:Agnello di Sardegna
+protected_name_file_number_en: PGI-IT-0097
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian fresh meat and offal
+it:Vitellone Bianco dell'Appennino Centrale
+protected_name_file_number_en: PGI-IT-1552
+protected_name_type:en: pgi
+origins:en: en:Italy
+
 <en:Meats
 en:Beef, Beef meat
 ca:Bou, carn de bou
@@ -50042,6 +50209,12 @@ wikidata:en:Q3395977
 
 <fr:Pommes de terre de l'île de Ré
 fr:Pommes de terre primeurs, Pommes de terre de primeur
+
+#<en:Potatoes
+it:Patata dell'Alto Viterbese
+protected_name_file_number_en: PGI-IT-1038
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Pumpkins and their products
 en:Pumpkins, Squashes
