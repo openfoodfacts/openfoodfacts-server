@@ -105,14 +105,8 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver"}, 
 [
   {
-<<<<<<< HEAD
-    'id' => 'en:bourbon-vanilla',
-    'processing' => 'en:powdered',
-    'text' => 'bourbon-vanille'
-=======
     'id' => 'en:bourbon-vanilla-powder',
     'text' => 'bourbon-vanillepulver'
->>>>>>> master
   },
   {
     'id' => 'en:acerola',
