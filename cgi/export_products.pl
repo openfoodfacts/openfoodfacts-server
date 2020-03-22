@@ -48,6 +48,7 @@ use JSON;
 use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
+use boolean;
 
 ProductOpener::Display::init();
 
@@ -114,10 +115,10 @@ elsif (($action eq "process") and ($User{moderator})) {
 	my $args_ref = {
 		user_id => $user_id,
 		org_id => $Org_id,
-		owner => $Owner_id,
+		owner_id => $Owner_id,
 		csv_file => $exported_file,
 		export_id => $export_id,
-		query => { owner => $Owner_id, data_quality_errors_producers_tags => { '$size' => 0 }},
+		query => { owner => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
 		comment => "Import from producers platform",
 		include_images_paths => 1,	# Export file paths to images
 	};

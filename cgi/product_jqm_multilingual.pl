@@ -44,7 +44,7 @@ use ProductOpener::DataQuality qw/:all/;
 use Apache2::RequestRec ();
 use Apache2::Const ();
 
-use CGI qw/:cgi :form escapeHTML/;
+use CGI qw/:cgi :form :cgi-lib escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
@@ -87,7 +87,7 @@ else {
 	my $product_ref = retrieve_product($product_id);
 
 	if (not defined $product_ref) {
-		$product_ref = init_product($User_id, $Org_id, $code);
+		$product_ref = init_product($User_id, $Org_id, $code, $country);
 		$product_ref->{interface_version_created} = $interface_version;
 	}
 
@@ -117,6 +117,77 @@ else {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	my @errors = ();
+
+	# Store parameters for debug purposes
+	(-e "$data_root/debug") or mkdir("$data_root/debug", 0755);
+	open (my $out, ">", "$data_root/debug/product_jqm_multilingual." . time() . "." . $code);
+	print $out encode_json( Vars() );
+	close $out;
+
+	# Fix too low salt values
+	# 2020/02/25 - https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
+	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined param("nutriment_salt"))) {
+
+		my $salt = param("nutriment_salt");
+
+		if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{salt_100g})) {
+
+			my $existing_salt = $product_ref->{nutriments}{salt_100g};
+
+			$log->debug("yuka - kiliweb : changing salt value of existing product", { salt => $salt, existing_salt => $existing_salt }) if $log->is_debug();
+
+			# Salt value may have been divided by 1000 by the calling app
+			if ($salt < $existing_salt / 100) {
+				# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
+				$salt = $salt . '';
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$salt = $salt * 1000;
+				# The divided by 1000 value may have been of the form 9.99999925e-06: try again
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$log->debug("yuka - kiliweb : changing salt value - multiplying too low salt value by 1000", { salt => $salt, existing_salt => $existing_salt }) if $log->is_debug();
+				param(-name => "nutriment_salt", -value => $salt);
+			}
+		}
+		else {
+			$log->debug("yuka - kiliweb : adding salt value", { salt => $salt }) if $log->is_debug();
+
+			# Salt value may have been divided by 1000 by the calling app
+			if ($salt < 0.001) {
+				# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
+				$salt = $salt . '';
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$salt = $salt * 1000;
+				# The divided by 1000 value may have been of the form 9.99999925e-06: try again
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$log->debug("yuka - kiliweb : adding salt value - multiplying too low salt value by 1000", { salt => $salt }) if $log->is_debug();
+				param(-name => "nutriment_salt", -value => $salt);
+			}
+			elsif ($salt < 0.1) {
+				$log->debug("yuka - kiliweb : adding salt value - removing potentially too low salt value", { salt => $salt }) if $log->is_debug();
+				param(-name => "nutriment_salt", -value => "");
+			}
+		}
+	}
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
 	if ($User{moderator} and (defined param('new_code'))) {
@@ -174,6 +245,17 @@ else {
 				us => "en",
 				ie => "en",
 				nz => "en",
+				il => "he",
+				mx => "es",
+				tr => "tr",
+				ru => "ru",
+				th => "th",
+				dk => "da",
+				at => "de",
+				se => "sv",
+				bg => "bg",
+				pl => "pl",
+			
 		);
 
 		if (defined $lc_overrides{$param_cc}) {
@@ -192,7 +274,7 @@ else {
 			and (($field eq 'brands') or ($field eq 'countries'))) {
 
 			param(-name => "add_" . $field, -value => param($field));
-			print STDERR "product_jqm_multilingual.pm - yuka / kiliweb - force $field -> add_$field - code: $code\n";
+			$log->debug("yuka - kiliweb : force add_field", { field => $field, code => $code }) if $log->is_debug();
 
 		}
 
@@ -203,17 +285,17 @@ else {
 
 			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
 
-			print STDERR "product_jqm_multilingual.pl - lc: $lc - adding value to field $field - additional: $additional_fields - existing: $product_ref->{$field}\n";
+			$log->debug("add_field", { field => $field, code => $code, additional_fields => $additional_fields, existing_value => $product_ref->{$field} }) if $log->is_debug();
 
 			compute_field_tags($product_ref, $lc, $field);
-
 		}
 
 		elsif (defined param($field)) {
 
 			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 			if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
-				print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field\n";
+				$log->debug("producer data already exists for field, skip empty value", { field => $field, code => $code, existing_value => $product_ref->{$field} }) if $log->is_debug();
+
 			}
 			else {
 				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
@@ -235,7 +317,7 @@ else {
 
 					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 					if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
-						print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field_lc\n";
+						$log->debug("producer data already exists for field, skip empty value", { field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc} }) if $log->is_debug();
 					}
 					else {
 

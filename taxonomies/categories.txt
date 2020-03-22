@@ -26666,6 +26666,11 @@ es:Piñones pelados, Piñones mondados, Piñones sin cáscara
 fr:Pignons de pin décortiqués
 nl:Gepelde pijnboompitten
 
+<:Nuts
+en:Cedar nuts
+de:Zedernkerne
+fr:Pignons de cèdre
+
 <en:Nuts
 en:Walnuts
 de:Walnüsse
@@ -29379,7 +29384,7 @@ wikidata:en:Q179731
 
 <en:Food additives
 en:Flavors, flavours, flavouring, flavoring
-de:Gewürze
+de:Aromen, Aroma
 es:Aromas, Aromatizantes
 fi:maut
 fr:Arômes, Arôme, Arômes alimentaires, Arôme alimentaire
@@ -32289,7 +32294,7 @@ wikidata:en:Q913548
 
 <en:Condiments
 en:Seasonings
-de:Gewürze
+de:Würzen, Würze
 fi:mausteet
 fr:Assaisonnements, assaisonnement
 nl:Kruiderijen
@@ -36127,6 +36132,11 @@ nl:Verse paardevlezen
 zh:鲜马肉
 
 <en:Fresh meats
+fr:Chevreau cuit
+ciqual:fr:Chevreau, cuit
+ciqual:en:Young goat, cooked
+
+<en:Fresh meats
 en:Rabbit fresh meat
 fr:Viandes fraîches de lapin
 nl:Verse konijnenvlezen
@@ -38007,6 +38017,32 @@ fi:lampaan liha
 fr:Viandes d’agneau, agneau, agneaux
 nl:Schapevlezen
 zh:羊肉, 羊, 羊羔, 羊羔肉
+
+<en:Lamb meat
+fr:Ris d'agneau
+
+<fr:Ris d'agneau
+fr:Ris d'agneau cuit
+
+<en:Lamb meat
+fr:côte de filet d'agneau grillée, côte de filet d'agneau poêlée
+ciqual:fr:Agneau, côte filet, grillée/poêlée
+ciqual:en:Lamb, chop fillet, grilled/pan-fried
+
+<en:Lamb meat
+fr:côte première d'agneau grillée, côte première d'agneau poêlée
+ciqual:fr:Agneau, côte première, grillée/poêlée
+ciqual:en:Lamb, rib chop, grilled/pan-fried
+
+<en:Lamb meat
+fr:gigot d'agneau grillé, gigot d'agneau poêlé
+ciqual:fr:Agneau, gigot, grillé/poêlé
+ciqual:en:Lamb, leg, grilled/pan-fried
+
+<en:Lamb meat
+fr:gigot d'agneau braisé
+ciqual:fr:Agneau, gigot, braisé
+ciqual:en:Lamb, leg, braised
 
 <en:Lamb meat
 fr:Agneau de lait des Pyrénées
@@ -41368,10 +41404,16 @@ th:แยมผลไม้
 zh:果酱
 
 <en:Fruit jams
-en:Rosehip jam
+en:Rosehip jams, rosehip jam
 fr:Confitures d'églantines, Confiture d'églantines, confitures de gratte-cul, confitures de cynorhodons
 hu:Csipkebogyó lekvár
 nl:Rozenbotteljam
+
+<en:Fruit jams
+en:Sea-buckthorn jams
+de:Sanddorn Konfitüren
+es:Mermeladas y confituras d'espino amarillo
+fr:Confitures d'argousiers
 
 <en:Fruit jams
 en:Berry jams
@@ -41388,7 +41430,7 @@ zh:莓类果酱
 
 <en:Berry jams
 en:Bilberries jams
-de:Heidelbeermarmeladen
+de:Heidelbeer-Konfitüren, Heidelbeermarmeladen
 es:Mermeladas y confituras de arándanos, Mermeladas de arándanos, Mermeladas de arándano, Confituras de arándanos
 fi:mustikkahillot
 fr:Confitures de myrtilles
@@ -41398,6 +41440,7 @@ nl:Bosbessenjams
 
 <en:Berry jams
 en:Lingonberries jams
+de:Preiselbeeren Konfitüren
 fr:Confitures d'airelles rouges
 se:Lingonsylter, lingonsylt
 
@@ -41418,7 +41461,7 @@ nl:Cassisjams
 
 <en:Berry jams
 en:Blackberry jams
-es:Mermeladas de mora
+es:Mermeladas y confituras de mora, mermeladas de mora
 fi:karhunvatukkahillot
 fr:Confitures de mûres, Confitures de mûre, Confiture de mûres, Confiture de mûre
 hu:Földi szeder lekvár, Szeder lekvár
@@ -41444,8 +41487,13 @@ it:Confetture di ribes
 nl:Aalbessenjams
 
 <en:Berry jams
+en:Gooseberries jams, gooseberry jams
+de:Stachelbeere Konfitüren
+fr:Confitures de groseilles à maquereaux
+
+<en:Berry jams
 en:Raspberry jams
-de:Himbeermarmeladen
+de:Himbeere Konfitüren, Himbeermarmeladen
 es:Mermeladas y confituras de frambuesas, Mermeladas de frambuesas, Confituras de frambuesa
 fi:vadelmahillot
 fr:Confitures de framboises
@@ -41457,7 +41505,7 @@ se:Hallonsylter, hallonsylt
 <en:Berry jams
 en:Strawberry jams
 ca:Melmelades de maduixa
-de:Erdbeermarmeladen
+de:Erdbeere Konfitüren, Erdbeermarmeladen
 es:Mermeladas y confituras de fresa, Mermeladas de fresa, Confituras de fresa
 fi:mansikkahillot
 fr:Confitures de fraises
@@ -41522,6 +41570,7 @@ nl:Jams van tropische vruchten
 
 <en:Tropical fruit jams
 en:Banana jams
+de:Banana Konfitüren
 es:Mermeladas y confituras de plátano, Mermeladas de plátano, Confituras de plátano, Mermeladas y confituras de banana, Mermeladas de banana, Confituras de banana
 fr:Confitures de bananes
 hu:Banán lekvár
@@ -41552,7 +41601,7 @@ nl:Papayajams
 
 <en:Tropical fruit jams
 en:Pineapple jams
-de:Ananas Marmelade
+de:Ananas Konfitüren, Ananas Marmelade
 es:Mermeladas y confituras de piña, Mermeladas de piña, Confituras de piña
 fi:ananashillot
 fr:Confitures d'ananas
@@ -41580,8 +41629,8 @@ nl:Appeljams
 
 <en:Fruit jams
 en:Apricot jams
-de:Aprokosenmarmeladen
-es:Mermeladas y confituras de albaricoque, Mermeladas de albaricoque, Confituras de albaricoque
+de:Aprikosen Konfitüren, Aprikosenkonfitüren
+es:Confituras de albaricoque
 fi:aprikoosihillot
 fr:Confitures d’abricot, confitures aux abricots, confitures à l'abricot
 hu:Sárgabarack
@@ -41590,7 +41639,7 @@ nl:Abrikozenjams
 
 <en:Fruit jams
 en:Cherry jams
-de:Kirschmarmeladen
+de:Kirsche Konfitüren, Kirschmarmeladen
 es:Mermeladas y confituras de cereza, Mermeladas de cereza, Confituras de cereza
 fi:kirsikkahillot
 fr:Confitures de cerises
@@ -41645,11 +41694,14 @@ it:Confitture di pera
 nl:Perenjams
 
 <en:Fruit jams
+en:Quince jams
+de:Quitte Konfitüren
 fr:Confitures de coings
 hu:Birs lekvár
 
 <en:Fruit jams
 en:Kiwi jams, kiwi jam
+de:Kiwi Konfitüren
 fr:Confitures de kiwi, confiture de kiwi, confitures de kiwis
 
 <en:Fruit jams
@@ -41679,7 +41731,7 @@ nl:Mirabellenjams
 
 <en:Fruit jams
 en:Mixed fruit jams
-de:Fruchtmischsäfte
+de:Multifrucht Konfitüren
 es:Mermeladas y confituras multifruta, Mermeladas multifruta, Confituras multifruta
 fi:sekoitetut hedelmähillot
 fr:Confitures multifruits
@@ -41697,7 +41749,8 @@ wikidata:en:Q5834964
 
 <en:Marmalades
 en:Apricot Marmalades
-de:Aprikosenmarmelade, Aprikosenkonfitüren, Aprikosen-Konfitüren
+de:Aprikosenmarmelade
+es:Mermeladas de albaricoque
 fr:Marmelades d’abricots
 hu:Sárgabarack marmelád
 nl:Abrikozenmarmelades
@@ -41844,6 +41897,10 @@ sv:Svartvinbärsgeléer, Svartvinbärsgelé
 <en:Fruit jellies
 en:Apples jellies
 fr:Gelées de pommes
+
+<en:Fruits jellies
+en:Sea-buckthorn jellies
+fr:Gelées d'argousiers
 
 <en:Plant-based spreads
 <en:Salted spreads

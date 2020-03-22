@@ -147,6 +147,19 @@ my @lists =(
 	["fr","graisse végétale bio (colza)","graisse végétale bio de colza"],
 	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
 
+	["fr","huile biologique (tournesol, olive)","huile biologique de tournesol, huile biologique d'olive"],
+	
+	# xyz: test an unrecognized oil -> do not change
+	["fr","huile biologique (tournesol, xyz)","huile biologique (tournesol, xyz)"],
+	["fr","huiles biologiques (tournesol, olive)","huiles biologiques de tournesol, huiles biologiques d'olive"],
+	["fr","huiles (tournesol*, olive). * : bio","huiles de tournesol bio, huiles d'olive."],
+	["fr","huiles* (tournesol*, olive vierge extra), sel marin. *issus de l'agriculture biologique.","huiles Bio de tournesol Bio, huiles Bio d'olive vierge extra), sel marin."],
+	["fr","riz de Camargue (1), sel. (1): IGP : Indication Géographique Protégée.", "riz de Camargue IGP, sel."],
+	["fr","cacao (1), sucre (2), beurre de cacao (1). (1) : Commerce équitable. (2) Issue de l'agriculture biologique.", "cacao Commerce équitable, sucre Bio, beurre de cacao Commerce équitable."],
+
+	["fr","Céréales 63,7% (BLE complet 50,5%*, semoule de maïs*), sucre*, sirop de BLE*, cacao maigre en poudre 3,9%*, cacao en poudre 1,7%*, sel, arôme naturel. *Ingrédients issus de l'agriculture biologique.","Céréales 63,7% (BLE complet 50,5% Bio, semoule de maïs Bio ), sucre Bio, sirop de BLE Bio, cacao maigre en poudre 3,9% Bio, cacao en poudre 1,7% Bio, sel, arôme naturel."],
+
+	["fr","émulsifiant : mono - et diglycérides d'acides gras.","émulsifiant : mono- et diglycérides d'acides gras."],
 );
 
 foreach my $test_ref (@lists) {

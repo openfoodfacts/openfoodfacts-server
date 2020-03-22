@@ -8,6 +8,38 @@
 # This works only if "cooked pork" is not a known ingredient in the ingredients taxonomy,
 # and if "pork" is a known ingredient.
 
+# be careful: raw in English can mean "unrefined" as in "raw cane sugar"
+# or uncooked "raw fish"
+# unrefined ingredients like "raw sugar", "raw milk", "raw honey" etc.
+# need to be kept in the taxonomy.
+# Same for things like "jambon cru", "lait cru" in French.
+en:raw
+fr:cru,crue,crus,crues
+
+en:cooked
+fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
+it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
+
+en:pre-cooked
+fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
+it:precotto, precotta, precotti, precotte
+
+en:fried
+fr:frit, frite, frits, frites
+it:fritto, fritta, fritti, fritte
+
+en:pre-fried
+fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
+
+en:roasted
+fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
+
+en:toasted
+fr:toasté, toastée, toastés, toastées
+
+en:grilled
+fr:grillé, grillée, grillés, grillées
+it:grigliato, grigliata, grigliati, grigliate
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -64,44 +96,10 @@ nl:geraspte
 en:definition:A powder is a dry, bulk solid composed of many very fine particles that may flow freely when shaken or tilted. 
 
 en:powdered, powder
-#be:парашок
-#bg:на прах
-#bs:u prahu
-#ca:en pols
-#cs:sušená, sušené, sušený, prášek
-#cy:powdwr
-#da:pulver
-#de:pulver
-#el:σε σκόνη, σκόνη
-#eo:pulvorigita, pulvoro
-#es:en polvo, polvo de
-#et:pulber
+de:pulver
+es:en polvo, polvo de
 fr:en poudre, poudre de, poudre d'
-#hr:u prahu
-#hu:por, porított
-#io:Polvo
-#is:Duft
-it:in polvere, polvere di, polvere d'
-#fi:jauhe, -jauhe, jauhetut, jauhettu
-#lt:milteliai
-#lv:pulveris
-#mk:прав
-#nb:pulver
 nl:poeder, poeders, in poedervorm
-#nn:pulverisert, pulver
-#pl:w proszku, Proszek
-#pt:em pó, pó de
-#ro:praf, praf de, pudră, pudra, pudră de
-#ru:сухое, порошок
-#sk:sušená, sušené
-#sl:v prahu
-#sr:прах
-#sv:pulver
-#tr:tozu, Pudra
-#uk:порошок
-# nds-nl:pouder
-wikidata:en:Q2908004
-wikipedia:en:https://en.wikipedia.org/wiki/Powder
 
 en:granulated
 fr:en granules, granules de, granules d'

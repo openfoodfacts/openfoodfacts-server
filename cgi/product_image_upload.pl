@@ -45,6 +45,9 @@ use Log::Any qw($log);
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
 my $code = normalize_code(param('code'));
+# For scan parties, we may get photos in sequence, with the barcode only in the first photo
+my $previous_code = normalize_code(param('previous_code'));
+my $previous_imgid = param('previous_imgid');
 my $imagefield = param('imagefield');
 my $delete = param('delete');
 
@@ -58,7 +61,7 @@ $log->debug("calling init()", { query_string => $env });
 
 ProductOpener::Display::init();
 
-$log->debug("parsing code", { subdomain => $subdomain, original_subdomain => $original_subdomain, user => $User_id, code => $code, cc => $cc, lc => $lc, imagefield => $imagefield, ip => remote_addr() }) if $log->is_debug();
+$log->debug("parsing code", { subdomain => $subdomain, original_subdomain => $original_subdomain, user => $User_id, code => $code, previous_code => $previous_code, previous_imgid => $previous_imgid, cc => $cc, lc => $lc, imagefield => $imagefield, ip => remote_addr() }) if $log->is_debug();
 
 # By default, don't select images uploaded (e.g. through the product edit form)
 
@@ -71,6 +74,10 @@ my $code_specified = 1;
 my $filename;
 my $tmp_filename;
 
+my $using_previous_code;
+my $scanned_code;
+my $code_from_file_name;
+
 if (not defined $code) {
 
 	$code_specified = 0;
@@ -80,15 +87,19 @@ if (not defined $code) {
 
 	($code, $imagefield) = get_code_and_imagefield_from_file_name($lc, $filename);
 
-	if (not $code) {
+	if ($code) {
+		$code_from_file_name = $code;
+	}
+	else {
 
-		if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
+		if ($file =~ /\.(gif|jpeg|jpg|png|heic)$/i) {
 
 			$log->debug("scan barcode in image file", { file => $file }) if $log->is_debug();
 
 			my $extension = lc($1) ;
 			$tmp_filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
+			(-e "$data_root/tmp") or mkdir("$data_root/tmp", 0755);
 			open (my $out, ">", "$data_root/tmp/$tmp_filename.$extension") ;
 			while (my $chunk = <$file>) {
 				print $out $chunk;
@@ -98,8 +109,16 @@ if (not defined $code) {
 			$code = scan_code("$data_root/tmp/$tmp_filename.$extension");
 			if (defined $code) {
 				$code = normalize_code($code);
+				$scanned_code = $code;
 			}
 			$tmp_filename = "$data_root/tmp/$tmp_filename.$extension";
+		}
+
+		# If we have a previous code, use it
+		if ((not $code) and (defined $previous_code)) {
+			$log->debug("no barcode found in image file, using previous code", { previous_code => $previous_code }) if $log->is_debug();
+			$code = $previous_code;
+			$using_previous_code = $previous_code;
 		}
 	}
 
@@ -158,7 +177,7 @@ if ($imagefield) {
 
 		if (not $product_ref) {
 			$log->info("product code does not exist yet, creating product", { code => $code });
-			$product_ref = init_product($User_id, $Org_id, $code);
+			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = $interface_version;
 			$product_ref->{lc} = $lc;
 			store_product($product_ref, "Creating product (image upload)");
@@ -187,26 +206,26 @@ if ($imagefield) {
 		$log->debug("after process_image_upload", { imgid => $imgid, imagefield => $imagefield, $imgid_returncode => $imgid_returncode }) if $log->is_debug();
 
 		my $data;
+		my $response_ref;
 
 		if ($imgid_returncode < 0) {
-			my %response = ( status => 'status not ok', imgid => $imgid_returncode);
-			$response{error} = "error";
-			($imgid_returncode == -2) and $response{error} = "field imgupload_$imagefield not set";
-			($imgid_returncode == -3) and $response{error} = lang("image_upload_error_image_already_exists");
-			($imgid_returncode == -4) and $response{error} = lang("image_upload_error_image_too_small");
-			($imgid_returncode == -5) and $response{error} = "could not read image";
+			$response_ref = { status => 'status not ok', imgid => $imgid_returncode };
+			$response_ref->{error} = "error";
+			($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
+			($imgid_returncode == -3) and $response_ref->{error} = lang("image_upload_error_image_already_exists");
+			($imgid_returncode == -4) and $response_ref->{error} = lang("image_upload_error_image_too_small");
+			($imgid_returncode == -5) and $response_ref->{error} = "could not read image";
 
 			if (not $code_specified) {
 				# for jquery.fileupload-ui.js
 				if ($imgid_returncode == -3) {
-					$response{files} = [ { info => $response{error} } ]
+					$response_ref->{files} = [ { info => $response_ref->{error} } ]
 				}
 				else {
-					$response{files} = [ { error => $response{error} } ]
+					$response_ref->{files} = [ { error => $response_ref->{error} } ]
 				}
 			}
 
-			$data =  encode_json(\%response);
 		}
 		else {
 
@@ -229,9 +248,10 @@ if ($imagefield) {
 
 			my $product_url = product_url($product_ref);
 
-			my $response_ref = { status => 'status ok',
+			$response_ref = { status => 'status ok',
 				image => $image_data_ref,
 				imagefield => $imagefield,
+				code => $code,
 				files => [{
 					url => $product_url,
 					thumbnailUrl => "/images/products/$path/$imgid.$thumb_size.jpg",
@@ -240,22 +260,34 @@ if ($imagefield) {
 				}],
 			};
 
-			$data = encode_json($response_ref);
-
-			# If we don't have a picture for the imagefield yet, assign it
-			# (can be changed by the user later if necessary)
-			if ((($imagefield =~ /^front/) or ($imagefield =~ /^ingredients/) or ($imagefield =~ /^nutrition/)) and
-				((not defined $product_ref->{images}{$imagefield}) or ($select_image))) {
+			# Select the image
+			if ((($imagefield =~ /^front_/) or ($imagefield =~ /^ingredients_/) or ($imagefield =~ /^nutrition_/))
+				# Changed 2020-03-05: overwrite already selected images
+				# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
+				) {
 				$log->debug("selecting image", { imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
-				process_image_crop($product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
+				process_image_crop($product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 			}
 			# If the image type is "other" and we don't have a front image, assign it
 			# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
-			elsif (($imagefield =~ /^other/) and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}})) {
-				$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
-				process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1);
+			elsif (($imagefield =~ /^other/) and ((not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
+				or ((defined $previous_imgid) and ($previous_imgid eq $product_ref->{images}{"front_" . $product_ref->{lc}}{imgid})))
+				) {
+				$log->debug("selecting front image as we don't have one", { imgid => $imgid, previous_imgid => $previous_imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
+				process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
+			}
+			else {
+				$log->debug("not selecting as front image", { imgid => $imgid, previous_imgid => $previous_imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc},
+					front_image => $product_ref->{images}{"front_" . $product_ref->{lc}} }) if $log->is_debug();
 			}
 		}
+
+		(defined $code) and $response_ref->{files}[0]{code} = $code;
+		(defined $code_from_file_name) and $response_ref->{files}[0]{code_from_file_name} = $code_from_file_name;
+		(defined $scanned_code) and $response_ref->{files}[0]{scanned_code} = $scanned_code;
+		(defined $using_previous_code) and $response_ref->{files}[0]{using_previous_code} = $using_previous_code;
+
+		$data =  encode_json($response_ref);
 
 		$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 

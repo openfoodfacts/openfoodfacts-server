@@ -345,10 +345,6 @@ sub convert_file($$$$) {
 			$product_ref->{lc} = $default_values_ref->{lc};
 		}
 
-		$log->debug("convert_file - before clean_fields ", { lc => $product_ref->{lc}}) if $log->is_debug();
-		clean_fields($product_ref);
-		$log->debug("convert_file - after clean_fields ", { }) if $log->is_debug();
-
 		my @values = ();
 		foreach my $field (@headers) {
 			push @values, $product_ref->{$field};
@@ -369,17 +365,27 @@ sub normalize_column_name($) {
 
 	my $name = shift;
 
+	# non-alpha chars will be turned to -, change the ones we want to keep
+
 	$name =~ s/%/percent/g;
+	$name =~ s/µg/mcg/ig;
+
+	# estampille(s) sanitaire(s)
+
+	$name =~ s/\(s\)\b/s/ig;
 
 	# remove stopwords
+
+	$name =~ s/\b(vitamina|vitamine|vit(\.)?) /vitamin /ig;
+	$name =~ s/\b(b|k)(-| )(\d+)\b/$1$3/ig;
 
 	# fr
 	$name =~ s/^(teneur|taux) (en |de |d')?//i;
 	$name =~ s/^dont //i;
 	$name =~ s/ en / /i;
 
-	$name =~ s/pourcentage (en |de |d')?/percent /;
-	$name =~ s/pourcentage/percent/;
+	$name =~ s/pourcentage (en |de |d')?/percent /i;
+	$name =~ s/pourcentage/percent/i;
 
 	return $name;
 }
@@ -430,6 +436,8 @@ fr => {
 	preparation_fr => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
 	link => ["lien"],
 	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement"],
+	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
+	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 },
 
 );
@@ -444,7 +452,7 @@ my %prepared_synonyms = (
 	"_prepared" => {
 	# code with i18n opportunity
 		en => ["prepared"],
-		fr => ["préparé"],
+		fr => ["préparé", "préparation"],
 	}
 );
 
@@ -458,6 +466,7 @@ my %per_synonyms = (
 	},
 	"serving" => {
 		en => ["per serving", "serving"],
+		es => ["por porción", "porción"],
 		fr => ["par portion", "pour une portion", "portion"],
 	}
 );
@@ -565,13 +574,8 @@ sub init_nutrients_columns_names_for_lang($) {
 						# Synonyms of per 100g and per serving
 
 						if (not defined $per_synonyms{$per}{$l}) {
-							# We need at least an empty entry for 100g ""
-							if ($per eq "100g") {
-								$per_synonyms{$per}{$l} = [""];
-							}
-							else {
-								$per_synonyms{$per}{$l} = [];
-							}
+							# Use the English synonyms if we don't have language specific strings
+							$per_synonyms{$per}{$l} = $per_synonyms{$per}{"en"};
 						}
 
 						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
@@ -986,6 +990,16 @@ sub init_columns_fields_match($$) {
 				elsif ($columns_fields_ref->{$column}{letters}) {
 					$columns_fields_ref->{$column}{value_unit} = "unit";
 				}
+			}
+
+			# "Nutri-Score" columns sometime contains the nutriscore score (number) or grade (letter)
+			if (($columns_fields_ref->{$column}{field} eq "nutriscore_score_producer")
+				and ($columns_fields_ref->{$column}{letters}) and (not $columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{both})) {
+				$columns_fields_ref->{$column}{field} = "nutriscore_grade_producer";
+			}
+			if (($columns_fields_ref->{$column}{field} eq "nutriscore_grade_producer")
+				and ($columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{letters}) and (not $columns_fields_ref->{$column}{both})) {
+				$columns_fields_ref->{$column}{field} = "nutriscore_score_producer";
 			}
 		}
 

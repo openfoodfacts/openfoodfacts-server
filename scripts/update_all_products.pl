@@ -100,6 +100,7 @@ my $fix_serving_size_mg_to_ml = '';
 my $fix_missing_lc = '';
 my $fix_zulu_lang = '';
 my $fix_rev_not_incremented = '';
+my $fix_yuka_salt = '';
 my $run_ocr = '';
 my $autorotate = '';
 my $query_ref = {};	# filters for mongodb query
@@ -130,6 +131,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"comment=s" => \$comment,
 			"run-ocr" => \$run_ocr,
 			"autorotate" => \$autorotate,
+			"fix-yuka-salt" => \$fix_yuka_salt,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -166,7 +168,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $compute_serving_size)
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
-	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented)
+	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
 	and (not $compute_sort_key)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
@@ -187,8 +189,11 @@ foreach my $field (sort keys %$query_ref) {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
 	}
-	if ($query_ref->{$field} eq 'exists') {
+	elsif ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
+	}
+	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
+		$query_ref->{$field} += 0;
 	}
 }
 
@@ -208,9 +213,9 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $products_collection = get_products_collection();
 
-my $count = $products_collection->count_documents($query_ref);
+my $products_count = $products_collection->count_documents($query_ref);
 
-print STDERR "$count documents to update.\n";
+print STDERR "$products_count documents to update.\n";
 sleep(2);
 
 
@@ -262,7 +267,8 @@ while (my $product_ref = $cursor->next) {
 					print STDERR "-> setting rev to $last_rev\n";
 					$fix_rev_not_incremented_fixed++;
 					$product_ref->{rev} = $last_rev;
-					compute_product_history_and_completeness($product_ref, $changes_ref);
+					my $blame_ref = {};
+					compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 					compute_data_sources($product_ref);
 					store("$data_root/products/$path/changes.sto", $changes_ref);
 				}
@@ -505,7 +511,7 @@ while (my $product_ref = $cursor->next) {
 						eval {
 
 							# process_image_crops saves a new version of the product
-							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1);
+							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1, "full");
 						};
 						$User_id = $User_id_copy;
 					}
@@ -575,7 +581,6 @@ while (my $product_ref = $cursor->next) {
 
 		if ($compute_nutrition_score) {
 			fix_salt_equivalent($product_ref);
-			compute_nutriscore($product_ref);
 			compute_nutrition_score($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
@@ -601,13 +606,114 @@ while (my $product_ref = $cursor->next) {
 			ProductOpener::DataQuality::check_quality($product_ref);
 		}
 
+		if ($fix_yuka_salt) { # https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
+			my $blame_ref = {};
+
+			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+
+			if ((defined $blame_ref->{nutriments}) and (defined $blame_ref->{nutriments}{salt})
+				and ($blame_ref->{nutriments}{salt}{userid} eq 'kiliweb')
+				and ($blame_ref->{nutriments}{salt}{value} < 0.1)
+				and ($blame_ref->{nutriments}{salt}{t} > 1579478400)	# Jan 20th 2020
+				) {
+
+				$User_id = "fix-salt-bot";
+
+				print STDERR "salt : " . $blame_ref->{nutriments}{salt}{value} . "\n";
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:yuka-salt-bug-last-salt-edit-by-yuka";
+
+				my $salt_value_changed = 0;
+
+				if ((defined $blame_ref->{nutriments}{salt}{previous_value})
+					and ($blame_ref->{nutriments}{salt}{value} < $blame_ref->{nutriments}{salt}{previous_value} / 100)) {
+
+					push @{$product_ref->{data_quality_tags}}, "en:yuka-salt-bug-salt-value-divided-by-more-than-100";
+					$salt_value_changed = 1;
+				}
+				else {
+
+					if ($blame_ref->{nutriments}{salt}{value} < 0.001) {
+						push @{$product_ref->{data_quality_tags}}, "en:yuka-salt-bug-new-salt-value-less-than-0-001-g";
+						$salt_value_changed = 1;
+					}
+					elsif ($blame_ref->{nutriments}{salt}{value} < 0.01) {
+						push @{$product_ref->{data_quality_tags}}, "en:yuka-salt-bug-new-salt-value-less-than-0-01-g";
+						$salt_value_changed = 1;
+					}
+					elsif ($blame_ref->{nutriments}{salt}{value} < 0.1) {
+						push @{$product_ref->{data_quality_tags}}, "en:yuka-salt-bug-new-salt-value-less-than-0-1-g";
+					}
+				}
+
+				if ($salt_value_changed) {
+					# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
+					# also 0.00999999925 or 0.00089999995
+					my $salt = $product_ref->{nutriments}{salt_value};
+					if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+						$salt = $`. '.' . $1;
+					}
+					if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+						$salt = $`. '.' . $1 . ($2 + 1);
+					}
+					$salt = $salt * 1000;
+					# The divided by 1000 value may have been of the form 9.99999925e-06: try again
+					if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+						$salt = $`. '.' . $1;
+					}
+					if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+						$salt = $`. '.' . $1 . ($2 + 1);
+					}
+					$comment = "changing salt value from " . $product_ref->{nutriments}{salt_value} . " to " . $salt;
+
+					assign_nid_modifier_value_and_unit(
+						$product_ref,
+						'salt',
+						$product_ref->{nutriments}{'salt_modifier'},
+						$salt,
+						$product_ref->{nutriments}{'salt_unit'} );
+
+					fix_salt_equivalent($product_ref);
+					compute_serving_size_data($product_ref);
+					compute_nutrition_score($product_ref);
+					compute_nutrient_levels($product_ref);
+					$product_values_changed = 1;
+				}
+			}
+		}
+
+		if (0) { # fix float numbers for salt
+			if ((defined $product_ref->{nutriments}) and ($product_ref->{nutriments}{salt_value})) {
+
+				my $salt = $product_ref->{nutriments}{salt_value};
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+
+				assign_nid_modifier_value_and_unit(
+					$product_ref,
+					'salt',
+					$product_ref->{nutriments}{'salt_modifier'},
+					$salt,
+					$product_ref->{nutriments}{'salt_unit'} );
+
+				fix_salt_equivalent($product_ref);
+				compute_serving_size_data($product_ref);
+				compute_nutrition_score($product_ref);
+				compute_nutrient_levels($product_ref);
+			}
+		}
+
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
-
-			compute_product_history_and_completeness($product_ref, $changes_ref);
+			my $blame_ref =  {};
+			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 			compute_data_sources($product_ref);
 			store("$data_root/products/$path/changes.sto", $changes_ref);
 		}

@@ -18,6 +18,28 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Users - manage user profiles and sessions
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Users> contains functions to create and edit user profiles
+and to manage user sessions.
+
+    use ProductOpener::Users qw/:all/;
+
+	[..]
+
+	init_user();
+
+
+=head1 DESCRIPTION
+
+[..]
+
+=cut
+
 package ProductOpener::Users;
 
 use utf8;
@@ -273,7 +295,6 @@ sub check_user_form($$) {
 
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
-#	$user_ref->{sex} = param('sex');
 
 	if ($user_ref->{email} ne decode utf8=>param('email')) {
 
@@ -420,6 +441,8 @@ sub check_edit_owner($$) {
 
 	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
 
+	$log->debug("check_edit_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+
 	if ((not defined $user_ref->{pro_moderator_owner}) or ($user_ref->{pro_moderator_owner} eq "")) {
 		delete $user_ref->{pro_moderator_owner};
 		# Also edit the current user object so that we can display the current status directly on the form result page
@@ -428,6 +451,7 @@ sub check_edit_owner($$) {
 	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
 		my $orgid = $';
 		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
 		my $userid = $';
@@ -438,10 +462,17 @@ sub check_edit_owner($$) {
 		}
 		else {
 			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+			$log->debug("set pro_moderator_owner (user)", { userid => $userid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 		}
+	}
+	elsif ($user_ref->{pro_moderator_owner} eq 'all') {
+		# Admin mode to see all products from all owners
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 	else {
 		push @$errors_ref,$Lang{error_malformed_owner}{$lang};
+		$log->debug("error - malformed pro_moderator_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 }
 
@@ -731,6 +762,10 @@ sub init_user()
 				%Org = ( org => $Org_id, org_id => $Org_id );
 			}
 			elsif ($Owner_id =~ /^user-/) {
+				$Org_id = undef;
+				%Org = ();
+			}
+			elsif ($Owner_id eq 'all') {
 				$Org_id = undef;
 				%Org = ();
 			}
