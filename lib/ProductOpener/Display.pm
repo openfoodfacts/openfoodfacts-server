@@ -6069,10 +6069,10 @@ $google_analytics
 <body$bodyabout>
 
 <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-  <div class="title-bar-left">$site_name</div>
+  <div class="title-bar-left"><a href="/">$site_name</a></div>
   <div class="title-bar-right">
-    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
     <div class="title-bar-title">Menu</div>
+	<button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
   </div>
 </div>
 
@@ -6518,8 +6518,8 @@ HTML
 	$top_banner
 	<!-- main row - comment used to remove left column and center content on some pages -->
 	<div class="off-canvas-content">
-		<div class="grid-x full-width" style="max-width: 100% !important;" data-equalizer data-off-canvas-content>
-			<div class="cell xxlarge-1 xlarge-2 large-3 medium-4 hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
+		<div class="grid-x grid-padding-x full-width" data-equalizer data-off-canvas-content>
+			<div class="cell xxlarge-1 xlarge-2 large-3 medium-4 hide-for-small-only" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 				<div class="sidebar">
 					<div style="text-align:center">
 						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
