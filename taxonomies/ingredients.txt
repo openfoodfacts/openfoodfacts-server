@@ -7239,6 +7239,9 @@ vegan:en:no
 vegetarian:en:maybe
 
 <en:dairy
+es:derivado lacteo en polvo
+
+<en:dairy
 en:fermented milk products, cultured dairy foods, cultured dairy products, cultured milk products
 be:Кісламалочныя прадукты
 ca:Llet fermentada
@@ -8597,7 +8600,7 @@ ca:llet desnatada en pols
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
 de:Magermilchpulver
-es:leche desnatada en polvo
+es:leche desnatada en polvo, leche en polvo desnatada
 et:lössipulber
 fi:rasvaton maitojauhe
 fr:lait en poudre écrémé, lait écrémé en poudre, poudre de lait écrémé
@@ -8654,7 +8657,7 @@ fr:poudres de lait écrémé et entier
 fr:lait écrémé reconstitué
 nl:gereconstitueerde melk
 
-<en:milk
+<en:skimmed milk
 en:reconstituted skimmed milk
 de:rekonstituierte Magermilch
 es:leche desnatada reconstituida
@@ -8662,6 +8665,9 @@ fr:lait écrémé réhydraté
 hu:visszaállított sovány tej, feloldott sovány tej
 it:latte scremato reidratato
 nl:gerehydrateerde magere melk
+
+<en:skimmed milk powder
+es:leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
 
 fr:matière grasse de lait anhydre
 
@@ -9997,6 +10003,9 @@ fr:fromage à pâte molle au lait pasteurisé
 hu:pasztőrözött tejből készült lágysajt
 it:Formaggio a pasta molle di latte pastorizzato
 # 6@2019-06-08
+
+<en:cheese
+es:queso fundido en polvo
 
 <en:cheese
 de:Bergkäse
@@ -17817,6 +17826,10 @@ en:white distilled vinegar
 nl:gebufferde azijnpoeder
 
 <en:vinegar
+en:vinegar powder
+es:vinagre en polvo
+
+<en:vinegar
 en:wine vinegar
 de:Weinessig
 es:vinagre de vino
@@ -20209,6 +20222,17 @@ hu:természetes kakaó aroma
 it:aroma naturale di cacao
 nl:natuurlijk cacao-aroma
 
+
+<en:flavouring
+en:cocoa flavouring, cocoa flavour
+de:Kakaoaroma
+es:aroma de cacao
+fi:kaakaoaromi
+fr:arôme de cacao
+hu:kakaó aroma
+it:aroma di cacao
+nl:cacao-aroma
+
 <en:natural flavouring
 fr:arôme naturel de moutarde
 fi:luontainen sinappiaromi
@@ -20580,12 +20604,6 @@ de:natürliches Citrusaroma, natürliches Zitrusaroma
 fi:luontainen sitrusaromi
 fr:arôme naturel d'agrumes
 hu:természetes citrus aroma
-
-<en:natural flavouring
-en:natural cocoa flavouring
-fi:luontainen kaakaoaromi
-fr:arôme naturel de cacao
-hu:természetes kakó aroma
 
 <en:flavouring
 en:seafood flavouring
@@ -25178,6 +25196,9 @@ nl:gekarameliseerde suiker
 ro:zahăr caramelizat
 sv:karamelliserat socker
 
+<en:caramelised sugar
+es:azucar caramelizado en polvo
+
 <en:sugar
 en:white sugar
 de:weißer Zucker, Zucker
@@ -27234,6 +27255,13 @@ fr:cacao cru
 # 20@2019-06-09
 
 <en:cocoa
+en:cocoa processed with alkali, alkalized cocoa
+
+<en:cocoa-powder
+en:cocoa powder processed with alkali, alkalized cocoa powder
+
+<en:cocoa
+en:fat reduced cocoa, reduced fat cocoa
 da:fedtfattig kakao
 de:fettarmer Kakao
 es:cacao magro, cacao desgrasado
@@ -27243,6 +27271,9 @@ it:cacao magro
 nb:fedtfattig kakao
 sv:fettreducerad kakao
 
+<en:fat reduced cocoa
+en:highly fat reduced cocoa, highly reduced fat cocoa
+fr:cacao fortement dégraissé
 
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
@@ -27325,14 +27356,14 @@ fr:beurre de cacao émulsifiant
 # ingredient/fr:beurre-de-cacao-émulsifiant has 35 products in french @2019-05-25
 
 <en:cocoa
-en:cocoa paste, cocoa mass
+en:cocoa paste, cocoa mass, chocolate liquor
 bg:какаова маса
 ca:pasta de cacau
 cs:kakaová hmota
 da:kakaomasse
 de:Kakaomasse
 el:κακαόμαζα
-es:Pasta de cacao
+es:Pasta de cacao, masa del cacao, masa de cacao
 et:kakaomass
 fi:kaakaomassa
 fr:pâte de cacao, cacao en pâte, masse de cacao
@@ -27354,7 +27385,7 @@ uz:qirilgan kakao
 # ingredient/cocoa-paste has 14530 products in 32 languages @2019-05-25
 
 <en:cocoa paste
-fr:pâte de cacao Tanzanie
+en:cocoa paste processed with alkali, alkalized cocoa paste
 
 <en:cocoa paste
 en:organic cocoa paste
@@ -27461,7 +27492,7 @@ de:Kakaobohne
 es:Cacao en grano
 et:Kakaopuu seemned
 fi:kaakaopapu, kaakaopavut
-fr:fèves de cacao
+fr:fèves de cacao, grains de cacao, cacao en grains
 hu:kakaóbab
 id:Biji kakao
 it:fave di cacao, semi di cacao, granelli di cacao
@@ -32548,7 +32579,7 @@ fr:compote de pommes allégée en sucres
 fr:pulpe de pomme
 de:Apfelmark
 it:polpa di mele
-nl:appelmoes
+nl:appelmoes, appelpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-pomme
 # 46 products @2018-10-04
 
@@ -34391,6 +34422,8 @@ de:Medjool Datteln
 it:Datteri Medjool
 # 9in3@2019-06-04
 
+<en:date
+nl:dadelpuree
 <en:date
 fr:jus de dattes concentré
 
@@ -36428,6 +36461,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tamarind
 # ingredient/fr:tamarin has 107 products in 5 languages @2019-02-07
 
 <en:tamarind
+nl:tamarindepuree
+<en:tamarind
 fr:extrait de tamarin
 de:Tamarindenextrakt
 es:Extracto de tamarinado
@@ -37512,6 +37547,9 @@ sv:kokosmjòlk
 zh:椰子奶
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
 # 87 products @2018-10-03
+
+<en:coconut milk
+es:leche de coco en polvo
 
 <en:coconut
 en:coconut water
@@ -43234,7 +43272,7 @@ fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 hu:paradicsompüré, paradicsomszósz
 it:passata di pomodoro, concentrato di pomodoro
-nl:tomatenpurée, tomatenconcentraat
+nl:tomatenpurée, tomatenconcentraat, tomatenpuree
 pl:koncentrat pomidorowy
 sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
@@ -48105,7 +48143,7 @@ fr:gingembre bio
 <en:ginger
 en:ginger powder, ground ginger
 de:gemahlener Ingwer, Ingwerpulver
-es:Gengibre en polvo, polvo de gengibre
+es:Gengibre en polvo, polvo de gengibre, jengibre en polvo
 fi:inkiväärijauhe, jauhettu inkivääri
 fr:gingembre moulu
 it:zenzero macinato
@@ -67910,7 +67948,7 @@ fr:sauce au soja et au sésame, sauce au sésame et au soja
 <en:soy sauce
 en:soy sauce powder
 de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver, Sojasaucenpulver
-es:Salsa de soya en polvo
+es:Salsa de soya en polvo, salsa de soja en polvo
 fi:soijakastikejauhe
 fr:sauce soja en poudre, sauce de soja en poudre
 nl:sojasauspoeder, soja saus poeder

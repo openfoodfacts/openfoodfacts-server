@@ -4186,3 +4186,15 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Some ingredients could not be recognized."
 
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "Move all data and selected photos in %s to the main language of the product: %s"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "Replace existing values and selected photos"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "Keep existing values and selected photos"

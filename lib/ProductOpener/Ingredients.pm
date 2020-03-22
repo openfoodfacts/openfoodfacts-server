@@ -1090,6 +1090,8 @@ sub parse_ingredients_text($) {
 								'^malgré ', # malgré les soins apportés...
 								'^il est possible', # il est possible qu'il contienne...
 								'^(facultatif|facultative)', # sometime indicated by producers when listing ingredients is not mandatory
+								'^(éventuellement|eventuellement)$', # jus de citrons concentrés et, éventuellement, gélifiant : pectine de fruits.
+								'^(les )?informations ((en (gras|majuscule|italique))|soulign)', # Informations en gras destinées aux personnes allergiques.
 							],
 
 							'fi' => [

@@ -8594,16 +8594,6 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en:Cocoa
-da:fedtfattig kakao
-de:fettarmer Kakao
-es:cacao magro, cacao desgrasado
-fi:vähärasvainen kaakao
-fr:cacao maigre, cacao dégraissé
-it:cacao magro
-nb:fedtfattig kakao
-sv:fettreducerad kakao
-
-< en:Cocoa
 de:Kakao-Extrakt
 fi:kaakaouute
 fr:extrait de cacao
@@ -8619,7 +8609,7 @@ de:Kakaobohne
 es:Cacao en grano
 et:Kakaopuu seemned
 fi:kaakaopapu, kaakaopavut
-fr:fèves de cacao
+fr:fèves de cacao, grains de cacao, cacao en grains
 hu:kakaóbab
 id:Biji kakao
 it:fave di cacao, semi di cacao, granelli di cacao
@@ -8681,14 +8671,14 @@ wikidata:en: Q251106
 wikipedia:en: https://en.wikipedia.org/wiki/Cocoa_butter
 
 < en:Cocoa
-en:cocoa paste, cocoa mass
+en:cocoa paste, cocoa mass, chocolate liquor
 bg:какаова маса
 ca:pasta de cacau
 cs:kakaová hmota
 da:kakaomasse
 de:Kakaomasse
 el:κακαόμαζα
-es:Pasta de cacao
+es:Pasta de cacao, masa del cacao, masa de cacao
 et:kakaomass
 fi:kaakaomassa
 fr:pâte de cacao, cacao en pâte, masse de cacao
@@ -8735,6 +8725,20 @@ ru:какао-порошок
 sv:kakaopulver
 uk:Какао-порошок
 wikidata:en: Q1062396
+
+< en:Cocoa
+en:cocoa processed with alkali, alkalized cocoa
+
+< en:Cocoa
+en:fat reduced cocoa, reduced fat cocoa
+da:fedtfattig kakao
+de:fettarmer Kakao
+es:cacao magro, cacao desgrasado
+fi:vähärasvainen kaakao
+fr:cacao maigre, cacao dégraissé
+it:cacao magro
+nb:fedtfattig kakao
+sv:fettreducerad kakao
 
 < en:Cocoa
 fr:cacao cru
@@ -8793,13 +8797,13 @@ fi:luomu kaakaomassa ja -voi
 fr:pâte de cacao issus de l‘agriculture biologique et beurre de cacao issus de l‘agriculture biologique
 
 < en:Cocoa paste
+en:cocoa paste processed with alkali, alkalized cocoa paste
+
+< en:Cocoa paste
 en:organic cocoa paste
 de:Bio-Kakaomasse
 fi:luomu kaakaomassa
 fr:pâte de cacao bio
-
-< en:Cocoa paste
-fr:pâte de cacao Tanzanie
 
 < en:Cocoa butter
 < en:Cocoa paste
@@ -8807,6 +8811,9 @@ en:cocoa mass and cocoa butter
 de:Kakaomasse und Kakaobutter
 fi:kaakaomassa ja -voi
 fr:pâte et beurre de cacao, pâte de cacao et beurre de cacao
+
+< en:Cocoa powder
+en:cocoa powder processed with alkali, alkalized cocoa powder
 
 < en:Cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder
@@ -34826,6 +34833,10 @@ hu:baromfizsír
 vegan:en: no
 vegetarian:en: no
 
+< en:Fat reduced cocoa
+en:highly fat reduced cocoa, highly reduced fat cocoa
+fr:cacao fortement dégraissé
+
 < en:Fat reduced cocoa powder
 fr:cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
 de:stark entöltes Kakaopulver
@@ -36816,6 +36827,16 @@ de:Zitrusfruchtaroma, Zitrusfrucht-Aroma
 fi:sitrusaromi
 fr:arôme d'agrume
 hu:citrus aroma
+
+< en:Flavouring
+en:cocoa flavouring, cocoa flavour
+de:Kakaoaroma
+es:aroma de cacao
+fi:kaakaoaromi
+fr:arôme de cacao
+hu:kakaó aroma
+it:aroma di cacao
+nl:cacao-aroma
 
 < en:Flavouring
 en:coconut flavouring
@@ -50112,7 +50133,7 @@ el:φυσικό άρωμα κακάο
 es:aroma natural de cacao
 fi:luontainen kaakaoaromi
 fr:arôme naturel de cacao
-hu:természetes kakaó aroma, természetes kakó aroma
+hu:természetes kakaó aroma
 it:aroma naturale di cacao
 nl:natuurlijk cacao-aroma
 
