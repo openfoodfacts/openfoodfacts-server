@@ -91,7 +91,7 @@ my @tests = (
   {
     'id' => 'fr:soja-depellicule',
     'processing' => 'en:peeled',
-    'text' => 'sojabonen'
+    'text' => 'gepelde sojabonen'
   }
 ]
 
