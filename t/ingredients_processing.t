@@ -72,7 +72,7 @@ my @tests = (
 ]
 	],
 
-	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, "}, 
+	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen kokos"}, 
 [
   {
     'id' => 'en:shallot',
@@ -86,6 +86,11 @@ my @tests = (
   {
     'id' => 'en:vanilla-powder',
     'text' => 'vanillepoeder'
+  }
+  {
+    'id' => 'en:coconut',
+	'processing' => 'en:ground'
+    'text' => 'kokos'
   }
 ]
 
