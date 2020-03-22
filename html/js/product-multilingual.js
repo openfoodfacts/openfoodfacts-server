@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2019 Association Open Food Facts
+// Copyright (C) 2011-2020 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -620,8 +620,9 @@ function get_recents(tagfield) {
 	}
 
 	if (
-		obj !== null &&
-		obj[tagfield] !== undefined &&
+	obj !== null &&
+	// eslint-disable-next-line no-undefined
+	obj[tagfield] !== undefined &&
 		obj[tagfield] !== null
 	) {
 		return obj[tagfield];
