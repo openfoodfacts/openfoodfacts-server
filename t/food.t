@@ -38,32 +38,37 @@ delta_ok( unit_to_mmoll(1, 'gpg'), 0.171 );
 is( mmoll_to_unit(unit_to_mmoll(1, 'ppm'), "\N{U+00B0}dH"), 0.056 );
 
 # Chinese Measurements Source: http://www.new-chinese.org/lernwortschatz-chinesisch-masseinheiten.html
-# kè - gram
+# kè - gram - 克
 is( normalize_quantity("42\N{U+514B}"), 42 );
 is( normalize_serving_size("42\N{U+514B}"), 42 );
 is( unit_to_g(42, "\N{U+514B}"), 42 );
 is( g_to_unit(42, "\N{U+514B}"), 42 );
-# héokè - milligram
+# gōngkè - gram - 公克 (in use at least in Taïwan)
+is( normalize_quantity("42\N{U+516C}\N{U+514B}"), 42 );
+is( normalize_serving_size("42\N{U+516C}\N{U+514B}"), 42 );
+is( unit_to_g(42, "\N{U+516C}\N{U+514B}"), 42 );
+is( g_to_unit(42, "\N{U+516C}\N{U+514B}"), 42 );
+# héokè - milligram - 毫克
 is( normalize_quantity("42000\N{U+6BEB}\N{U+514B}"), 42 );
 is( normalize_serving_size("42000\N{U+6BEB}\N{U+514B}"), 42 );
 is( unit_to_g(42000, "\N{U+6BEB}\N{U+514B}"), 42 );
 is( g_to_unit(42, "\N{U+6BEB}\N{U+514B}"), 42000 );
-# jīn - pound 500 g
+# jīn - pound 500 g - 斤
 is( normalize_quantity("84\N{U+65A4}"), 42000 );
 is( normalize_serving_size("84\N{U+65A4}"), 42000 );
 is( unit_to_g(84, "\N{U+65A4}"), 42000 );
 is( g_to_unit(42000, "\N{U+65A4}"), 84 );
-# gōngjīn - kg
+# gōngjīn - kg - 公斤
 is( normalize_quantity("42\N{U+516C}\N{U+65A4}"), 42000 );
 is( normalize_serving_size("42\N{U+516C}\N{U+65A4}"), 42000 );
 is( unit_to_g(42, "\N{U+516C}\N{U+65A4}"), 42000 );
 is( g_to_unit(42000, "\N{U+516C}\N{U+65A4}"), 42 );
-# háoshēng - milliliter
+# háoshēng - milliliter - 毫升
 is( normalize_quantity("42\N{U+6BEB}\N{U+5347}"), 42 );
 is( normalize_serving_size("42\N{U+6BEB}\N{U+5347}"), 42 );
 is( unit_to_g(42, "\N{U+6BEB}\N{U+5347}"), 42 );
 is( g_to_unit(42, "\N{U+6BEB}\N{U+5347}"), 42 );
-# gōngshēng - liter
+# gōngshēng - liter - 公升
 is( normalize_quantity("42\N{U+516C}\N{U+5347}"), 42000 );
 is( normalize_serving_size("42\N{U+516C}\N{U+5347}"), 42000 );
 is( unit_to_g(42, "\N{U+516C}\N{U+5347}"), 42000 );

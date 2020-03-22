@@ -50,6 +50,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 use Log::Any qw($log);
+use File::Copy qw(move);
 
 ProductOpener::Display::init();
 
@@ -270,15 +271,23 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	my @param_fields = ();
 
 	my @param_sorted_langs = ();
+	my %param_sorted_langs = ();
 	if (defined param("sorted_langs")) {
 		foreach my $display_lc (split(/,/, param("sorted_langs"))) {
 			if ($display_lc =~ /^\w\w$/) {
 				push @param_sorted_langs, $display_lc;
+				$param_sorted_langs{$display_lc} = 1;
 			}
 		}
 	}
 	else {
 		push @param_sorted_langs, $product_ref->{lc};
+	}
+
+	# Make sure we have the main language of the product (which could be new)
+	# needed if we are moving data from one language to the main language
+	if ((defined param("lang")) and (param("lang") =~ /^\w\w$/) and (not defined $param_sorted_langs{param("lang")} )) {
+		push @param_sorted_langs, param("lang");
 	}
 
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
@@ -292,6 +301,92 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 		else {
 			push @param_fields, $field;
+		}
+	}
+
+	# Move all data and photos from one language to another?
+	if ($User{moderator}) {
+
+		my $product_lc = param("lang");
+
+		foreach my $from_lc (@param_sorted_langs) {
+
+			my $moveid = "move_" . $from_lc . "_data_and_images_to_main_language";
+
+			if (($from_lc ne $product_lc) and (defined param($moveid)) and (param($moveid) eq "on")) {
+
+				my $mode = param($moveid . "_mode") || "replace";
+
+				$log->debug("moving all data and photos from one language to another",
+					{ from_lc => $from_lc, product_lc => $product_lc, mode => $mode }) if $log->is_debug();
+
+				# Text fields
+
+				foreach my $field (sort keys %language_fields) {
+
+					my $from_field = $field . "_" . $from_lc;
+					my $to_field = $field . "_" . $product_lc;
+
+					my $from_value = param($from_field);
+
+					$log->debug("moving field value?",
+							{ from_field => $from_field, from_value => $from_value, to_field => $to_field }) if $log->is_debug();
+
+					if ((defined $from_value) and ($from_value ne "")) {
+
+						my $to_value = param($to_field);
+
+						$log->debug("moving field value",
+							{ from_field => $from_field, from_value => $from_value, to_field => $to_field, to_value => $to_value, mode => $mode }) if $log->is_debug();
+
+						if (($mode eq "replace") or ((not defined $to_value) or ($to_value eq ""))) {
+
+							$log->debug("replacing to field value",
+								{ from_field => $from_field, from_value => $from_value, to_field => $to_field, to_value => $to_value, mode => $mode }) if $log->is_debug();
+
+							param($to_field, $from_value);
+						}
+
+						$log->debug("deleting from field value",
+							{ from_field => $from_field, from_value => $from_value, to_field => $to_field, to_value => $to_value, mode => $mode }) if $log->is_debug();
+
+						param($from_field, "");
+					}
+				}
+
+				# Selected photos
+
+				foreach my $imageid ("front", "ingredients", "nutrition") {
+
+					my $from_imageid = $imageid . "_" . $from_lc;
+					my $to_imageid = $imageid . "_" . $product_lc;
+
+					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$from_imageid})) {
+
+						$log->debug("moving selected image",
+							{ from_imageid => $from_imageid, to_imageid => $to_imageid }) if $log->is_debug();
+
+
+						if (($mode eq "replace") or (not defined $product_ref->{images}{$to_imageid})) {
+
+							$product_ref->{images}{$to_imageid} = $product_ref->{images}{$from_imageid};
+							my $rev = $product_ref->{images}{$from_imageid}{rev};
+
+							# Rename the images
+
+							my $path = product_path($product_ref);
+
+							foreach my $max ($thumb_size, $small_size, $display_size, "full") {
+								my $from_file = "$www_root/images/products/$path/" . $from_imageid . "." . $rev . "." . $max . ".jpg";
+								my $to_file = "$www_root/images/products/$path/" . $to_imageid . "." . $rev . "." . $max . ".jpg";
+								File::Copy::move($from_file, $to_file);
+							}
+						}
+
+						delete $product_ref->{images}{$from_imageid};
+					}
+				}
+			}
 		}
 	}
 
@@ -734,7 +829,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
 
 HTML
 ;
@@ -751,7 +846,7 @@ HTML
 <script type="text/javascript">
 var admin = $moderator;
 </script>
-<script type="text/javascript" src="/js/dist/product-multilingual.js"></script>
+<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
 
@@ -779,42 +874,9 @@ CSS
 
 	$styles .= <<CSS
 
-.ui-selectable { list-style-type: none; margin: 0; padding: 0; }
 .ui-selectable li { margin: 3px; padding: 0px; float: left; width: ${thumb_selectable_size}px; height: ${thumb_selectable_size}px;
 line-height: ${thumb_selectable_size}px; text-align: center; }
-.ui-selectable img {
-  vertical-align:middle;
-}
-.ui-selectee:hover { background: #FECA40; }
-.ui-selected { background: #F39814; color: white; }
 
-.command { margin-bottom:5px; }
-
-label { margin-top: 20px; }
-
-fieldset { margin-top: 15px; margin-bottom:15px;}
-
-legend { font-size: 1.375em; margin-top:2rem; }
-
-textarea {  height:8rem; }
-
-
-.display { float:right; margin-top:10px;margin-bottom:10px; max-width:400px; }
-.cropbox { max-width:100%; }
-
-.upload_image_div {
-	padding-top:0.5rem;
-}
-
-.button_div {
-	margin-top:0.5rem;
-}
-
-#label_new_code, #new_code { display: inline; margin-top: 0px; width:200px; }
-
-th {
-	font-weight:bold;
-}
 CSS
 ;
 
@@ -891,27 +953,19 @@ HTML
 
 	$html .= "<label for=\"lang\">" . $Lang{lang}{$lang} . "</label>";
 
-	my @lang_values = @Langs;
-	push @lang_values, "other";
+	my @lang_values = sort { display_taxonomy_tag($lc,'languages',$language_codes{$a}) cmp display_taxonomy_tag($lc,'languages',$language_codes{$b})} @Langs;
+
 	my %lang_labels = ();
 	foreach my $l (@lang_values) {
 		next if (length($l) > 2);
-		$lang_labels{$l} = lang("lang_$l");
-		if ($lang_labels{$l} eq '') {
-			if (defined $Langs{$l}) {
-				$lang_labels{$l} = $Langs{$l};
-			}
-			else {
-				$lang_labels{$l} = $l;
-			}
-		}
+		$lang_labels{$l} = display_taxonomy_tag($lc,'languages',$language_codes{$l});
 	}
 	my $lang_value = $lang;
 	if (defined $product_ref->{lc}) {
 		$lang_value = $product_ref->{lc};
 	}
 
-	$html .= popup_menu(-name=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
+	$html .= popup_menu(-name=>'lang', -id=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
 
 
 
@@ -1119,97 +1173,6 @@ JS
 
 
 
-
-$styles .= <<CSS
-
-// add borders to Foundation 5 tabs
-// \@media only screen and (min-width: 40.063em) {  /* min-width 641px, medium screens */
-  ul.tabs {
-     > li > a {
-       border-width: 1px;
-       border-style: solid;
-       border-color: #ccc #ccc #fff;
-       margin-right: -1px;
-     }
-     > li:not(.active) > a {
-       border-bottom: solid 1px #ccc;
-     }
-   }
-  .tabs-content {
-    border: 1px solid #ccc;
-    .content {
-      padding: .9375rem;
-      margin-top: 0;
-    }
-    margin: -1px 0 .9375rem 0;
-  }
-//}
-
-// if tabs container has a background color
-.tabs-content { background-color: #fff; }
-
-.contained {
-	border:1px solid #ccc;
-	padding:1rem;
-}
-
-ul.tabs {
-	border-top:1px solid #ccc;
-	border-left:1px solid #ccc;
-	border-right:1px solid #ccc;
-	background-color:#EFEFEF;
-}
-
-.tabs dd>a, .tabs .tab-title>a {
-padding:0.5rem 1rem;
-}
-
-.tabs-content {
-	background-color:white;
-	padding:1rem;
-	border-bottom:1px solid #ccc;
-	border-left:1px solid #ccc;
-	border-right:1px solid #ccc;
-}
-
-.select_add_language {
-	border:0;
-}
-
-
-ul.tabs .select2-container--default .select2-selection--single {
-	height:2.5rem;
-	top:0;
-	border:0;
-	background-color: #0099ff;
-	color: #FFFFFF;
-	transition: background-color 300ms ease-out;
-}
-
-ul.tabs .select2-container--default .select2-selection--single:hover, .select2-container--default .select2-selection--single:focus {
-	background-color: #007acc;
-	color:#FFFFFF;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__arrow b {
-    border-color: #fff transparent transparent transparent;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__placeholder {
-	color:white;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__rendered {
-	line-height:2.5rem;
-}
-
-ul.tabs .select2-container--default .select2-selection--single .select2-selection__arrow b {
-	margin-top:4px;
-}
-
-CSS
-;
-
 	$initjs .= <<JAVASCRIPT
 \$(document).foundation({
     tab: {
@@ -1320,10 +1283,7 @@ HTML
 
 		}
 
-		my $html_content_tab = <<HTML
-<div class="tabs-pane $active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}">
-HTML
-;
+		my $html_content_tab = "";
 
 		if ($tabid ne 'new') {
 
@@ -1372,12 +1332,40 @@ HTML
 
 		}
 
-		$html_content_tab .= <<HTML
+		# For moderators, add a checkbox to move all data and photos to the main language
+		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
+		if (($User{moderator}) and ($tabsid eq "front_image")) {
+
+			my $msg = sprintf(lang("move_data_and_photos_to_main_language"),
+				'<span class="tab_language">' . $language . '</span>',
+				'<span class="main_language">' . lang("lang_" . $product_ref->{lc}) . '</span>');
+
+			my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
+
+			$html_content_tab = <<HTML
+<div class="move_data_and_images_to_main_language" id="${moveid}_div" style="display:hidden">
+<input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="$moveid" name="$moveid" />
+<label for="$moveid" class="checkbox_label">$msg</label><br/>
+<div id="${moveid}_radio" style="display:hidden">
+<input type="radio" id="${moveid}_replace" value="replace" name="${moveid}_mode" checked class="move_and_replace" style="margin-left:1rem;"/>
+<label for="${moveid}_replace" style="margin-top:0">$Lang{move_data_and_photos_to_main_language_replace}{$lc}</label>
+<input type="radio" id="${moveid}_ignore" value="ignore" name="${moveid}_mode" />
+<label for="${moveid}_ignore" style="margin-top:0">$Lang{move_data_and_photos_to_main_language_ignore}{$lc}</label><br/>
+</div>
+</div>
+HTML
+. $html_content_tab;
+
+		}
+
+		$html_content .= <<HTML
+<div class="tabs content$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}">
+HTML
+. $html_content_tab
+. <<HTML
 </div>
 HTML
 ;
-
-		$html_content .= $html_content_tab;
 
 		$active = '';
 

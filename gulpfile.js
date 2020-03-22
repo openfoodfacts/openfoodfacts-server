@@ -127,6 +127,7 @@ function copyCss() {
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
       "./node_modules/@yaireo/tagify/dist/tagify.css",
+      "./html/css/product-multilingual.css",
       "./node_modules/cropper/dist/cropper.css"
     ])
     .pipe(sourcemaps.init())

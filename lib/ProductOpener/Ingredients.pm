@@ -1008,10 +1008,18 @@ sub parse_ingredients_text($) {
 							$matching = 0;
 							foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
 								my $regexp = $ingredient_processing_regexp_ref->[1];
-								if ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i) {
+								if (
+									# English, French etc. match before or after the ingredient, require a space
+									(($product_lc =~ /^(en|es|it|fr)$/) and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i))
+									#  German: match after, do not require a space
+									or	(($product_lc =~ /^(de)$/) and ($new_ingredient =~ /($regexp)$/i))
+									#  Dutch: match before or after, do not require a space
+									or	(($product_lc =~ /^(nl)$/) and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
+										) {
 									$new_ingredient = $` . $';
-									#print STDERR "ingredient $ingredient matches regexp for processing $processing : $regexp\n";
-									#print STDERR "new ingredient: $new_ingredient\n";
+
+									$debug_ingredients and $log->debug("found processing", { ingredient => $ingredient, new_ingredient => $new_ingredient, processing => $ingredient_processing_regexp_ref->[0] }) if $log->is_debug();
+
 									$matching = 1;
 									$matches++;
 									$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
@@ -1020,15 +1028,16 @@ sub parse_ingredients_text($) {
 									# viande traitée en salaison et cuite -> viande et
 									$new_ingredient =~ s/($and)+$//i;
 									$new_ingredient =~ s/^($and)+//i;
-									$new_ingredient =~ s/\s+$//;
-									$new_ingredient =~ s/^\s+//;
+									$new_ingredient =~ s/(\s|-)+$//;
+									$new_ingredient =~ s/^(\s|-)+//;
 
 									# Stop if we now have a known ingredient.
 									# e.g. "jambon cru en tranches" -> keep "jambon cru".
 									my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
-									#print STDERR "new_ingredient_id: $new_ingredient_id\n";
+
 									if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-										#print STDERR "$new_ingredient_id exists, stop matching\n";
+										$debug_ingredients and $log->debug("found existing ingredient, stop matching", { ingredient => $ingredient, new_ingredient => $new_ingredient, new_ingredient_id => $new_ingredient_id }) if $log->is_debug();
+
 										$matching = 0;
 									}
 
@@ -1040,14 +1049,14 @@ sub parse_ingredients_text($) {
 
 							my $new_ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $new_ingredient);
 							if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-								#print STDERR "new_ingredient_id $new_ingredient_id exists\n";
+								$debug_ingredients and $log->debug("found existing ingredient after removing processing", { ingredient => $ingredient, new_ingredient => $new_ingredient, new_ingredient_id => $new_ingredient_id }) if $log->is_debug();
 								$ingredient = $new_ingredient;
 								$ingredient_id = $new_ingredient_id;
 								$ingredient_recognized = 1;
 								$processing .= $new_processing;
 							}
 							else {
-								#print STDERR "new_ingredient_id $new_ingredient_id does not exist\n";
+								$debug_ingredients and $log->debug("did not find existing ingredient after removing processing", { ingredient => $ingredient, new_ingredient => $new_ingredient, new_ingredient_id => $new_ingredient_id }) if $log->is_debug();
 							}
 						}
 					}
@@ -2665,6 +2674,10 @@ sub preparse_ingredients_text($$) {
 	my $product_lc = shift;
 	my $text = shift;
 
+	not defined $text and return;
+
+	$log->debug("preparse_ingredients_text", { text => $text }) if $log->is_debug();
+
 	# Symbols to indicate labels like organic, fairtrade etc.
 	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
 	my $symbols_regexp = join('|', @symbols);
@@ -2771,8 +2784,6 @@ sub preparse_ingredients_text($$) {
 
 	# ! caramel E150d -> caramel - E150d -> e150a - e150d ...
 	$text =~ s/(caramel|caramels)(\W*)e150/e150/ig;
-	# e432 et lécithines -> e432 - et lécithines
-	$text =~ s/ - et / - /ig;
 
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
@@ -2798,9 +2809,9 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/ -(\w)/ - $1/ig;
 
 	# mono-glycéride -> monoglycérides
-	$text =~ s/(mono|di)-([a-z])/$1$2/ig;
-	$text =~ s/\bmono - /mono- /ig;
-	$text =~ s/\bmono /mono- /ig;
+	$text =~ s/\b(mono|di)\s?-\s?([a-z])/$1$2/ig;
+	$text =~ s/\bmono\s-\s/mono- /ig;
+	$text =~ s/\bmono\s/mono- /ig;
 	#  émulsifiant mono-et diglycérides d'acides gras
 	$text =~ s/(monoet )/mono- et /ig;
 
@@ -2811,6 +2822,9 @@ sub preparse_ingredients_text($$) {
 	# !! mono et diglycérides ne doit pas donner mono + diglycérides : keep the whole version too.
 	# $text =~ s/(,|;|:|\)|\(|( - ))(.+?)( et )(.+?)(,|;|:|\)|\(|( - ))/$1$3_et_$5$6 , $1$3 et $5$6/ig;
 
+	# e432 et lécithines -> e432 - et lécithines
+	$text =~ s/ - et / - /ig;
+
 	# print STDERR "additives: $text\n\n";
 
 	#$product_ref->{ingredients_text_debug} = $text;
@@ -2819,6 +2833,7 @@ sub preparse_ingredients_text($$) {
 	# aceite de girasol (70%) y aceite de oliva virgen (30%)
 	$text =~ s/($cbrackets)$and/$1, /ig;
 
+	$log->debug("preparse_ingredients_text - before language specific preparsing", { text => $text }) if $log->is_debug();
 
 	if ($product_lc eq 'fr') {
 
@@ -3303,6 +3318,8 @@ INFO
 	$text =~ s/^\s+//;
 	$text =~ s/\s+$//;
 
+	$log->debug("preparse_ingredients_text result", { text => $text }) if $log->is_debug();
+
 	return $text;
 }
 
@@ -3311,6 +3328,9 @@ INFO
 sub extract_ingredients_classes_from_text($) {
 
 	my $product_ref = shift;
+
+	not defined $product_ref->{ingredients_text} and return;
+
 	my $text = preparse_ingredients_text($product_ref->{lc}, $product_ref->{ingredients_text});
 	my $and = $Lang{_and_}{$product_ref->{lc}};
 	$and =~ s/ /-/g;
@@ -3758,7 +3778,7 @@ sub extract_ingredients_classes_from_text($) {
 		}
 
 		# No ingredients?
-		if ($product_ref->{ingredients_text} eq '') {
+		if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} eq '')) {
 			delete $product_ref->{$tagtype . '_n'};
 		}
 		else {

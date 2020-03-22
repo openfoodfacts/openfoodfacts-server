@@ -109,6 +109,8 @@ function add_language_tab (lc, language) {
 
   });
 
+  update_move_data_and_images_to_main_language_message();
+
   $(document).foundation('tab', 'reflow');
 }
 
@@ -308,13 +310,15 @@ function change_image(imagefield, imgid) {
   html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
 	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_left + '</a> &nbsp;';
 	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_right + '</a>';
+  html += '<br/><input type="checkbox" id="zoom_on_wheel_' + imagefield +'" name="zoom_on_wheel_' + imagefield +'" value="">';
+  html += '<label for="zoom_on_wheel_' + imagefield +'" style="margin-top:0px;">' + lang().product_js_zoom_on_wheel + '</label>';
 	html += '</div>';
   html += '</div><div class="small-6 medium-5 large-4 columns" style="float:right">';
 
 	html += '<div class="cropbutton_' + imagefield + '"></div>';
 	html += '<div class="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
   html += '</div></div>';
-	html += '<div id="cropimgdiv_' + imagefield + '" style="width:100%;height:800px"><img src="' + img_path + image.imgid +'.jpg" id="' + 'crop_' + imagefield + '"/></div>';
+	html += '<div id="cropimgdiv_' + imagefield + '" class="cropimgdiv"><img src="' + img_path + image.imgid +'.jpg" id="' + 'crop_' + imagefield + '"/></div>';
 
   html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
 	html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + lang().product_js_image_normalize + '</label><br/>';
@@ -357,6 +361,7 @@ function change_image(imagefield, imgid) {
   {
     code: code, id: imagefield, imgid: imgid,
         x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
+        coordinates_image_size : "full",
         angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'),
     white_magic: $("#white_magic_" + imagefield).prop('checked')
   }, function (data) {
@@ -377,10 +382,14 @@ function change_image(imagefield, imgid) {
   });
 
 	$('img#crop_' + imagefield).cropper({
-		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": true, "zoomOnTouch": true, "toggleDragModeOnDblclick": false, built: function () {
-		$('img#crop_' + imagefield ).cropper('setDragMode', "crop");
-		}
+		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": false, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
 	});
+
+	$("#zoom_on_wheel_" + imagefield).change(function() {
+    var zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
+    $('img#crop_' + imagefield).cropper('destroy').cropper({
+      "viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": zoomOnWheel, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
+	});	} );
 
 	$(document).foundation('equalizer', 'reflow');
 }
@@ -427,7 +436,7 @@ function update_display(imagefield, first_display) {
 	if (stringStartsWith(imagefield, 'ingredients')) {
 
     var full_url = display_url.replace(/\.400\./, ".full.");
-    $('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" />');
+    $('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="ingredients_image_full"/>');
 	}
 
 	$('div[id="display_' + imagefield +'"]').html(html);
@@ -611,8 +620,9 @@ function get_recents(tagfield) {
 	}
 
 	if (
-		obj !== null &&
-		obj[tagfield] !== undefined &&
+	obj !== null &&
+	// eslint-disable-next-line no-undefined
+	obj[tagfield] !== undefined &&
 		obj[tagfield] !== null
 	) {
 		return obj[tagfield];
@@ -856,7 +866,52 @@ function get_recents(tagfield) {
 
   initLanguageAdding();
 
+  update_move_data_and_images_to_main_language_message();
+
+  $("#lang").change(update_move_data_and_images_to_main_language_message);
+
 })( jQuery );
+
+function update_move_data_and_images_to_main_language_message () {
+
+  var main_language_id = $("#lang").val();
+  var main_language_text = $("#lang option:selected").text();
+  $('.main_language').text(main_language_text);
+  $('.move_data_and_images_to_main_language').each(function() {
+    var divid = $(this).attr('id');
+    if (divid === "move_" + main_language_id + "_data_and_images_to_main_language_div") {
+      $(this).hide();
+    }
+    else {
+      $(this).show();
+    }
+  });
+
+  $('.move_data_and_images_to_main_language_checkbox').each(function() {
+
+    var divradioid = $(this).attr('id') + "_radio";
+
+    var $th = $(this);
+    if ( $(this).is(':checked')) {
+        $("#" + divradioid).show();
+    }
+    else {
+       $("#" + divradioid).hide();
+    }
+
+    $th.change(function() {
+      var divradioid = $(this).attr('id') + "_radio";
+      if ( $(this).is(':checked')) {
+          $("#" + divradioid).show();
+      }
+      else {
+         $("#" + divradioid).hide();
+      }
+    }
+    );
+
+  });
+}
 
 function initLanguageAdding() {
   const Lang = lang();
