@@ -89,7 +89,7 @@ my @tests = (
     'text' => 'vanillepoeder'
   },
   {
-    'id' => 'fr:soja dépelliculé',
+    'id' => 'en:soya bean',
     'processing' => 'en:peeled',
     'text' => 'sojabonen'
   }
