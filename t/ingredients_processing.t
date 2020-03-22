@@ -16,7 +16,7 @@ use ProductOpener::Ingredients qw/:all/;
 # dummy product for testing
 
 my @tests = (
-	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, courgette powder, gepelde sojabonen"}, 
+	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, courgette powder"}, 
 [
   {
     'id' => 'en:raw-milk',
@@ -41,11 +41,7 @@ my @tests = (
     'processing' => 'en:powdered',
     'text' => 'courgette'
   }
-  {
-    'id' => 'en:soya',
-    'processing' => 'en:peeled',
-    'text' => 'sojabonen'
-  }
+
 ]
 
 	],
@@ -77,7 +73,7 @@ my @tests = (
 ]
 	],
 
-	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, "}, 
+	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gepelde sojabonen"}, 
 [
   {
     'id' => 'en:shallot',
@@ -91,6 +87,11 @@ my @tests = (
   {
     'id' => 'en:vanilla-powder',
     'text' => 'vanillepoeder'
+  }
+  {
+    'id' => 'en:soya',
+    'processing' => 'en:peeled',
+    'text' => 'sojabonen'
   }
 ]
 
