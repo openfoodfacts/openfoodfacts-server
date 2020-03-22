@@ -20209,6 +20209,17 @@ hu:természetes kakaó aroma
 it:aroma naturale di cacao
 nl:natuurlijk cacao-aroma
 
+
+<en:flavouring
+en:cocoa flavouring, cocoa flavour
+de:Kakaoaroma
+es:aroma de cacao
+fi:kaakaoaromi
+fr:arôme de cacao
+hu:kakaó aroma
+it:aroma di cacao
+nl:cacao-aroma
+
 <en:natural flavouring
 fr:arôme naturel de moutarde
 fi:luontainen sinappiaromi
@@ -20580,12 +20591,6 @@ de:natürliches Citrusaroma, natürliches Zitrusaroma
 fi:luontainen sitrusaromi
 fr:arôme naturel d'agrumes
 hu:természetes citrus aroma
-
-<en:natural flavouring
-en:natural cocoa flavouring
-fi:luontainen kaakaoaromi
-fr:arôme naturel de cacao
-hu:természetes kakó aroma
 
 <en:flavouring
 en:seafood flavouring
@@ -27234,6 +27239,13 @@ fr:cacao cru
 # 20@2019-06-09
 
 <en:cocoa
+en:cocoa processed with alkali, alkalized cocoa
+
+<en:cocoa-powder
+en:cocoa powder processed with alkali, alkalized cocoa powder
+
+<en:cocoa
+en:fat reduced cocoa, reduced fat cocoa
 da:fedtfattig kakao
 de:fettarmer Kakao
 es:cacao magro, cacao desgrasado
@@ -27243,6 +27255,9 @@ it:cacao magro
 nb:fedtfattig kakao
 sv:fettreducerad kakao
 
+<en:fat reduced cocoa
+en:highly fat reduced cocoa, highly reduced fat cocoa
+fr:cacao fortement dégraissé
 
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
@@ -27325,14 +27340,14 @@ fr:beurre de cacao émulsifiant
 # ingredient/fr:beurre-de-cacao-émulsifiant has 35 products in french @2019-05-25
 
 <en:cocoa
-en:cocoa paste, cocoa mass
+en:cocoa paste, cocoa mass, chocolate liquor
 bg:какаова маса
 ca:pasta de cacau
 cs:kakaová hmota
 da:kakaomasse
 de:Kakaomasse
 el:κακαόμαζα
-es:Pasta de cacao
+es:Pasta de cacao, masa del cacao, masa de cacao
 et:kakaomass
 fi:kaakaomassa
 fr:pâte de cacao, cacao en pâte, masse de cacao
@@ -27354,7 +27369,7 @@ uz:qirilgan kakao
 # ingredient/cocoa-paste has 14530 products in 32 languages @2019-05-25
 
 <en:cocoa paste
-fr:pâte de cacao Tanzanie
+en:cocoa paste processed with alkali, alkalized cocoa paste
 
 <en:cocoa paste
 en:organic cocoa paste
@@ -27461,7 +27476,7 @@ de:Kakaobohne
 es:Cacao en grano
 et:Kakaopuu seemned
 fi:kaakaopapu, kaakaopavut
-fr:fèves de cacao
+fr:fèves de cacao, grains de cacao, cacao en grains
 hu:kakaóbab
 id:Biji kakao
 it:fave di cacao, semi di cacao, granelli di cacao
