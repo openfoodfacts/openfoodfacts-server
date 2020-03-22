@@ -61,8 +61,12 @@ fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, bro
 en:ground
 fr:moulu, moulue, moulus, moulues
 
+en:description:Cut or diced into small pieces
 en:chopped
 fr:hâché, hâchée, hâchés, hâchées
+nl:gehakt
+# nl:parse:gehakte_$
+en:wiktionary:chopped
 
 en:sliced
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
@@ -72,16 +76,10 @@ fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 
 en:pureed
 fr:en purée, purée de, purée d'
-nl:puree
-# nl:parse:$puree
-
-en:description:Produced by grating
 
 en:grated
 fr:râpé, râpée, râpés, râpées
 nl:geraspte
-#nl:parsed:geraspte_$
-en:wiktionary:grating
 
 en:powdered, powder
 de:pulver
