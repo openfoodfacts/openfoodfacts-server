@@ -17390,7 +17390,7 @@ ciqual_food_name:en:Biscuit ( puff pastry), palmier, from bakery
 ciqual_food_name:fr:Palmier, artisanal
 
 <en:Biscuits
-en:Dry biscuits, Biscuit, Cookie
+en:Dry biscuits
 de:Geflügelfleischaufstriche, Geflügel-Rilletten, Geflügel-Pottsusen
 es:Galletas secas
 fi:kuivat keksit
@@ -17515,6 +17515,13 @@ wikidata:en:Q2915670
 ciqual_food_code:en:24071
 ciqual_food_name:en:Shortbread pastry biscuit
 ciqual_food_name:fr:Sablé pâtissier
+
+<en:Biscuits
+en:Shortbread cookie with coconut
+fr:Sablé à la noix de coco
+ciqual_food_code:en:24070
+ciqual_food_name:en:Shortbread cookie w coconut
+ciqual_food_name:fr:Sablé à la noix de coco
 
 <en:Biscuits and cakes
 en:Gingerbreads, gingerbread
@@ -18629,9 +18636,19 @@ wikidata:en:Q588378
 oqali_family:en: fr:Biscuits et gateaux industriels - Financiers
 
 <en:Biscuits
-en:Cat tongue, Cat's tongue cookie, Cat's tongue biscuit, Cigarette Russes, Russian cigarettes
+en:Cat tongue, Cat's tongue cookie, Cat's tongue biscuit
 de:Katzenzungen
-fr:Langues de chat, Langue de chat, Cigarette russe, Cigarettes russes
+fr:Langues de chat, Langue de chat
+nl:Kattetongen
+wikidata:en:Q960635
+ciqual_food_code:en:24441
+ciqual_food_name:en:Biscuit (cookie), cat tongue type
+ciqual_food_name:fr:Biscuit sec type langue de chat ou cigarette russe
+
+<en:Biscuits
+en:Cigarette Russes, Russian cigarettes
+de:Katzenzungen
+fr:Cigarette russe, Cigarettes russes
 nl:Kattetongen
 wikidata:en:Q960635
 ciqual_food_code:en:24441
@@ -19499,11 +19516,25 @@ ciqual_food_name:en:Jelly candy
 ciqual_food_name:fr:Bonbon gélifié
 
 <en:Candies
-en:Lollipops, Hard candy, Lollipop
+en:Lollipops, Lollipop
 de:Dauerlutscher
 es:Piruletas
 fi:tikkarit
-fr:Sucettes, Bonbon dur, Sucette
+fr:Sucettes, Sucette
+nl:Lollies
+ru:Леденец
+zh:棒棒糖
+wikidata:en:Q217446
+ciqual_food_code:en:31059
+ciqual_food_name:en:Hard candy and lollipop
+ciqual_food_name:fr:Bonbon dur et sucette
+
+<en:Candies
+en:Hard candies, Hard candy
+de:Dauerlutscher
+es:Piruletas
+fi:tikkarit
+fr:Bonbons durs, Bonbon dur
 nl:Lollies
 ru:Леденец
 zh:棒棒糖
@@ -22939,6 +22970,27 @@ wikidata:en:Q15080546
 fr:Fromages blancs natures
 
 <fr:Fromages blancs
+en:Fat free plain fresh cream cheese
+fr:Fromage blanc nature à 0% de matières grasses
+ciqual_food_code:en:19644
+ciqual_food_name:en:Fresh cream cheese, plain, fat free
+ciqual_food_name:fr:Fromage blanc nature, 0% MG
+
+<fr:Fromages blancs
+en:Plain fresh cream cheese around 3% fat
+fr:Fromage blanc nature à 3% de matières grasses environ
+ciqual_food_code:en:19646
+ciqual_food_name:en:Fresh cream cheese, plain, around 3% fat
+ciqual_food_name:fr:Fromage blanc nature, 3% MG environ
+
+<fr:Fromages blancs
+en: Plain creamy fresh cream cheese around 8% fat
+fr:Fromage blanc nature gourmand à 8% de matières grasses environ
+ciqual_food_code:en:19649
+ciqual_food_name:en:Fresh cream cheese, plain, creamy, around 8% fat
+ciqual_food_name:fr:Fromage blanc nature, gourmand, 8% MG environ
+
+<fr:Fromages blancs
 fr:Fromages blancs aux fruits
 
 <fr:Fromages blancs
@@ -23923,6 +23975,47 @@ fr:Petits suisses
 nl:Petits suisses
 wikidata:en:Q585246
 
+<en:Petits suisses
+en:2-3% fat Petit-Suisse with fruits, 2-3% fat fresh cream cheese with fruits
+fr:Petit suisse aux fruits à 2-3% de matières grasses, Fromage frais aux fruits à 2-3% de matières grasses
+ciqual_food_code:en:19661
+ciqual_food_name:en:Petit-Suisse, fresh cream cheese type, with fruits, 2-3% fat
+ciqual_food_name:fr:Fromage frais type petit suisse, aux fruits, 2-3% MG
+
+<en:Petits suisses
+en:2-3% fat Petit-Suisse with fruits fortified with calcium and vitamin D, 2-3% fat fresh cream cheese with fruits fortified with calcium and vitamin D
+fr:Fromage frais aux fruits à 2-3% de matières grasses enrichi en calcium et vitamine D, Petit suisse aux fruits à 2-3% de matières grasses enrichi en calcium et vitamine D
+ciqual_food_code:en:19662
+ciqual_food_name:en:Petit-Suisse, fresh cream cheese type, with fruits, 2-3% fat, fortified with calcium and vitamin D
+ciqual_food_name:fr:Fromage frais type petit suisse, aux fruits, 2-3% MG, enrichi en calcium et vitamine D
+
+<en:Petits suisses
+en:2-3% fat Petit-Suisse fruits flavoured fortified with calcium and vitamin D, 2-3% fat fresh cream cheese fruits flavoured fortified with calcium and vitamin D
+fr:Fromage frais aromatisé aux fruits à 2-3% de matières grasses enrichi en calcium et vitamine D, Petit suisse aromatisé aux fruits à 2-3% de matières grasses enrichi en calcium et vitamine D
+ciqual_food_code:en:19667
+ciqual_food_name:en:Petit-Suisse, fresh cream cheese type, fruits flavoured, 2-3% fat, fortified with calcium and vitamin D
+ciqual_food_name:fr:Fromage frais type petit suisse, aromatisé aux fruits, 2-3% MG, enrichi en calcium et vitamine D
+
+<en:Petits suisses
+en:Fat free plain Petit-Suisse, Fat free plain fresh cream cheese
+fr:Fromage frais nature à 0% de matières grasses, Petit suisse nature à 0% de matières grasses
+ciqual_food_code:en:19663
+ciqual_food_name:en:Petit-Suisse, fresh cream cheese type, plain, fat free
+ciqual_food_name:fr:Fromage frais type petit suisse, nature, 0% MG
+
+<en:Petits suisses
+en:Plain Petit-Suisse around 4% fat, Plain fresh cream cheese around 4% fat
+fr:Fromage frais nature à 4% de matières grasses environ, Petit suisse nature à 4% de matières grasses environ
+ciqual_food_code:en:19664
+ciqual_food_name:en:Petit-Suisse, fresh cream cheese type, plain, around 4% fat
+ciqual_food_name:fr:Fromage frais type petit suisse, nature, 4% MG environ
+
+<en:Petits suisses
+en:Plain Petit-Suisse around 9% fat, Plain fresh cream cheese around 9% fat
+fr:Fromage frais nature à 10% de matières grasses environ, Petit suisse nature à 10% de matières grasses environ
+ciqual_food_code:en:19666
+ciqual_food_name:en:Petit-Suisse like fresh cream cheese, plain, around 9% fat
+ciqual_food_name:fr:Fromage frais type petit suisse, nature, 10% MG environ
 
 <en:Dairies
 en:Creams
@@ -24018,6 +24111,41 @@ en:Fermented creams
 de:Fermentierter Rahm, Gesäuerter Rahm
 fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse
 hu:Erjesztett krémek
+
+<en:Creams
+en:Refrigerated 30% fat thick cream
+fr:Crème de lait épaisse à 30% de matières grasses rayon frais
+ciqual_food_code:en:19410
+ciqual_food_name:en:Thick cream 30% fat, refrigerated
+ciqual_food_name:fr:Crème de lait, 30% MG, épaisse, rayon frais
+
+<en:UHT Creams
+en:Liquid 30% fat UHT cream
+fr:Crème de lait semi-épaisse à 30% de matières grasses UHT
+ciqual_food_code:en:19415
+ciqual_food_name:en:Liquid cream 30% fat, UHT
+ciqual_food_name:fr:Crème de lait, 30% MG, semi-épaisse, UHT
+
+<en:UHT Creams
+en:Liquid 15-20% fat light cream UHT
+fr:Crème de lait légère semi-épaisse avec 15 à 20% de matières grasses UHT
+ciqual_food_code:en:19430
+ciqual_food_name:en:Liquid cream, light, 15-20% fat, UHT
+ciqual_food_name:fr:Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
+
+<en:Creams
+en:Refrigerated 15-20% fat light thick cream
+fr:Crème de lait légère épaisse avec 15 à 20% de matières grasses rayon frais
+ciqual_food_code:en:19431
+ciqual_food_name:en:Thick cream, light, 15-20% fat, refrigerated
+ciqual_food_name:fr:Crème de lait, 15 à 20% MG, légère, épaisse, rayon frais
+
+<en:Creams
+en:Liquid light cream with 4 to 8% fat, Thick light cream with 4 to 8% fat
+fr:Spécialité à base de crème légère fluide à 8% de matières grasses, Spécialité à base de crème légère épaisse à 8% de matières grasses
+ciqual_food_code:en:19433
+ciqual_food_name:en:cream, light, 4 to 8% fat, liquid or thick
+ciqual_food_name:fr:Spécialité à base de crème légère 8% MG, fluide ou épaisse
 
 <en:Fermented creams
 en:Sour creams, Crèmes fraîches
@@ -25371,19 +25499,47 @@ fr:Yaourts sans lactose
 it:Yogurt senza lattosio
 nl:Lactose-vrije yoghurt, Lactose-vrije yoghurts, Yoghurt zonder lactose, Yoghurts zonder lactose
 
-<en:Yogurts
+<en:Flavoured yogurts
 en:Yogurt type fermented flavoured milk with sugar with bifidus, Yogurt type flavoured dairy specialty with sugar with bifidus
 fr:Lait fermenté de type yaourt aromatisé sucré au bifidus, spécialité laitière de type yaourt aromatisé sucré au bifidus
 ciqual_food_code:en:19539
 ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, flavoured, with sugar, with bifidus
 ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
 
-<en:Yogurts
+<en:Fruit yogurts
 en:Yogurt type fermented milk with fruits with sugar with bifidus, Yogurt type dairy specialty with fruits with sugar with bifidus
 fr:Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
 ciqual_food_code:en:19542
 ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, with fruits, with sugar, with bifidus
 ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aux fruits, sucré, au bifidus
+
+<en:Fruit yogurts
+en:Fat free fermented milk yogurt with fruits and sweetener, Fat free dairy specialty with fruits and sweetener
+fr:Yaourt au lait fermenté aux fruits avec édulcorants à 0% de matières grasses, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses
+ciqual_food_code:en:19581
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sweetener, fat free
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, avec édulcorants, 0% MG
+
+<en:Fruit yogurts
+en:Fat free fermented milk yogurt with fruits and sweetener fortified with vitamin D, Fat free dairy specialty with fruits and sweetener fortified with vitamin D
+fr:Yaourt au lait fermenté aux fruits avec édulcorants à 0% de matières grasses enrichi en vitamine D, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses enrichie en vitamine D
+ciqual_food_code:en:19582
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sweetener, fat free, fortified with vitamin D
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, avec édulcorants, 0% MG, enrichi en vitamine D
+
+<en:Fruit yogurts
+en:Fermented milk yogurt with fruits and sugar and cream, Dairy specialty with fruits and sugar and cream
+fr:Yaourt sucré au lait fermenté aux fruits et à la crème, Spécialité laitière sucrée aux fruits et à la crème
+ciqual_food_code:en:19589
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar, with cream
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, à la crème
+
+<en:Fruit yogurts
+en:Fermented milk yogurt fortified with vitamin D with fruits and sugar, Dairy specialty fortified with vitamin D with fruits and sugar
+fr:Yaourt sucré au lait fermenté aux fruits enrichi en vitamine D, Spécialité laitière sucrée aux fruits enrichie en vitamine D
+ciqual_food_code:en:19592
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
 
 <en:Yogurts
 en:Yogurt type plain fermented milk with sugar with bifidus, Yogurt type plain dairy specialty with sugar with bifidus
@@ -25391,6 +25547,27 @@ fr:Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitièr
 ciqual_food_code:en:19546
 ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, plain, with bifidus
 ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
+
+<en:Yogurts
+en:Fat free plain fermented milk yogurt, Fat free plain dairy specialty
+fr:Yaourt nature au lait fermenté à 0% de matières grasses, Spécialité laitière à 0% de matières grasses
+ciqual_food_code:en:19594
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, fat free
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, 0% MG
+
+<en:Flavoured yogurts
+en:Fat free flavoured fermented milk yogurt with sweetener, Fat free flavoured dairy specialty with sweetener
+fr:Yaourt au lait fermenté avec édulcorants à 0% de matières grasses, Spécialité laitière aromatisée avec édulcorants à 0% de matières grasses
+ciqual_food_code:en:19559
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with sweetener, fat free
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, avec édulcorants, 0% MG
+
+<en:Flavoured yogurts
+en:Fermented milk yogurt with chocolate shavings and cream and sugar, Dairy specialty with chocolate shavings and cream and sugar
+fr:Yaourt sucré au lait fermenté aux copeaux de chocolat et à la crème, Spécialité laitière aux copeaux de chocolat et à la crème
+ciqual_food_code:en:19580
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with chocolate shavings, with cream, with sugar
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux copeaux de chocolat, à la crème, sucré
 
 <en:Yogurts
 <en:Fermented milk drinks
@@ -25696,18 +25873,21 @@ nl:Honingyoghurts
 ro:Iaurturi cu miere
 
 <en:Yogurts
-en:Greek yogurts
+en:Greek yogurts, Greek yogurt, Plain Greek-style Yogurt
 ca:Iogurt grec
 de:Griechische Joghurt, Griechische Jogurt, Griechische Joghurts, Griechische Jogurts, Griechischer Joghurt
 es:Yogures estilo griego, Yogurt al estilo griego, Yogures al estilo griego
 fi:kreikkalaiset jugurtit
-fr:Yaourts à la grecque
+fr:Yaourts à la grecque, Yaourt à la grecque, Yaourt à la grecque nature
 hu:Görög joghurtok
 it:Yogurt greco
 nl:Griekse yoghurts
 pt:Iogurtes gregos
 ru:Греческий йогурт
 zh:希腊酸奶
+ciqual_food_code:en:19860
+ciqual_food_name:en:Yogurt, Greek-style, plain
+ciqual_food_name:fr:Yaourt à la grecque, nature
 
 <en:Yogurts
 en:Greek-style yogurt on a bed of fruits, Greek yogurt on a bed of fruits
@@ -26928,7 +27108,7 @@ fr:Noix de Cajou grillées
 nl:Geroosterde cashewnoten
 
 <en:Nuts
-en:Pecan nuts, en:Pecan nut
+en:Pecan nuts, Pecan nut
 de:Pekannüsse
 es:Nueces pecanas
 fr:Noix de pécan
@@ -28136,7 +28316,7 @@ ciqual_food_name:fr:Matière grasse végétale (type margarine) à 70% MG, doux
 <en:Unsalted margarines
 <en:Light margarines
 en:50-63% unsalted vegetable fat (margarine type) high in omega 3
-fr:Matière grasse végétale allégée à 50-63% (type margarine doux) riche en oméga 3
+fr:Matière grasse végétale allégée à 50-63% de matières grasses riche en oméga 3, margarine douce
 ciqual_food_code:en:16737
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
@@ -28634,7 +28814,7 @@ it:Oli d'oliva dall'Italia
 nl:Olijfolie uit Italië
 country:en:Italy
 
-<en:Olive oils
+<en:Vegetable oils
 en:Combined oil, Mix of olive oil and seeds oil
 fr:Huile combinée, Mélange d'huile d'olive et de graines
 ciqual_food_code:en:17701
@@ -33920,6 +34100,13 @@ ciqual_food_name:en:Carbonara sauce (cream sauce with lardoons), prepacked
 ciqual_food_name:fr:Sauce carbonara, préemballée
 
 <en:Sauces
+en:Prepacked cream sauce with shallots
+fr:Sauce à l'échalote à la crème préemballée
+ciqual_food_code:en:11122
+ciqual_food_name:en:Cream sauce with shallots, prepacked
+ciqual_food_name:fr:Sauce à l'échalote à la crème, préemballée
+
+<en:Sauces
 en:Cream sauce
 fr:Sauce à la crème
 ciqual_food_code:en:11159
@@ -33980,6 +34167,13 @@ fr:Sauce vinaigrette (50 à 75% d'huile) préemballée
 ciqual_food_code:en:11110
 ciqual_food_name:en:Salad dressing, (50-75% of oil), prepacked
 ciqual_food_name:fr:Sauce vinaigrette (50 à 75% d'huile), préemballée
+
+<en:Sauces
+en:Prepacked mustard sauce
+fr:Sauce moutarde préemballée
+ciqual_food_code:en:11157
+ciqual_food_name:en:Mustard sauce prepacked
+ciqual_food_name:fr:Sauce moutarde, préemballée
 
 <en:Sauces
 en:Barbecue sauces, BBQ sauces
@@ -34813,6 +35007,34 @@ fi:aterian korvikkeet
 fr:Substituts de repas
 nl:Maaltijdvervangers
 
+<en:Meal replacements
+en:Low calorie custard cream meal replacement
+fr:Substitut de repas hypocalorique crème dessert
+ciqual_food_code:en:42000
+ciqual_food_name:en:Meal replacement low calorie, Custard cream dessert-type
+ciqual_food_name:fr:Substitut de repas hypocalorique, crème dessert
+
+<en:Meal replacements
+en:Low calorie ready-to-drink meal replacement
+fr:Substitut de repas hypocalorique prêt à boire
+ciqual_food_code:en:42003
+ciqual_food_name:en:Meal replacement low calorie, ready-to-drink
+ciqual_food_name:fr:Substitut de repas hypocalorique, prêt à boire
+
+<en:Meal replacements
+en:Low calorie meal replacement in powder reconstituted with skimmed milk
+fr:Substitut de repas hypocalorique en poudre reconstituée avec lait écrémé
+ciqual_food_code:en:42004
+ciqual_food_name:en:Meal replacement low calorie, in powder, reconstituted with skimmed milk
+ciqual_food_name:fr:Substitut de repas hypocalorique, poudre reconstituée avec lait écrémé
+
+<en:Meal replacements
+en:Low calorie milkshake meal replacement in powder reconstituted with skimmed milk
+fr:Substitut de repas hypocalorique milk-shake en poudre reconstitué avec lait écrémé
+ciqual_food_code:en:42005
+ciqual_food_name:en:Meal replacement low calorie, in powder, reconstituted with skimmed milk, milkshake type
+ciqual_food_name:fr:Substitut de repas hypocalorique, poudre reconstituée avec lait écrémé, type milk-shake
+
 <en:Meals
 en:Sushis and makis, Sushi and Maki
 fr:Sushis et makis
@@ -35347,6 +35569,13 @@ en:Caramel pork
 fr:Porc au caramel
 nl:Varkensvlees met caramel
 
+<en:Pork meals
+en:Salt-cured pork trotters
+fr:Pied de porc demi-sel
+ciqual_food_code:en:28540
+ciqual_food_name:en:Pork trotters salt-cured
+ciqual_food_name:fr:Pied de porc demi-sel
+
 <en:Meals with meat
 en:Poultry meals
 ca:Aus de corral
@@ -35452,6 +35681,20 @@ fr:Cuisses de canard confites
 en:Cassoulets with duck confit
 fr:Cassoulets au confit de canard
 nl:Cassoulet met geconfijte eend
+
+<en:Cassoulets
+en:Canned white bean stew with pork
+fr:Cassoulet au porc appertisé, Cassoulet au porc en conserve
+ciqual_food_code:en:25098
+ciqual_food_name:en:White bean stew, with pork, canned
+ciqual_food_name:fr:Cassoulet au porc, appertisé
+
+<en:Cassoulets
+en:Canned white bean stew with duck, Canned white bean stew with goose
+fr:Cassoulet au canard appertisé, Cassoulet au canard en conserve, Cassoulet à l'oie appertisé, Cassoulet à l'oie en conserve
+ciqual_food_code:en:25099
+ciqual_food_name:en:White bean stew, with duck or goose, canned
+ciqual_food_name:fr:Cassoulet au canard ou oie, appertisé
 
 <en:Duck dishes
 <en:Sausages
@@ -36289,10 +36532,6 @@ nl:Groentencakes
 <en:Prepared vegetables
 en:Stuffed vegetables
 fr:Légumes farcis
-
-<en:Stuffed vegetables
-en:Stuffed vegetables (excluding tomatoes)
-fr:Légumes farcis (sauf tomates)
 ciqual_food_code:en:25511
 ciqual_food_name:en:Stuffed vegetables (excluding tomato)
 ciqual_food_name:fr:Légumes farcis (sauf tomate)
@@ -36855,6 +37094,13 @@ nl:Kipquenelle
 en:Plain quenelles
 fr:Quenelles nature
 nl:Natuurquenelles
+
+<fr:Quenelles
+en:Raw plain quenelle
+fr:Quenelle nature crue
+ciqual_food_code:en:8937
+ciqual_food_name:en:Quenelle, plain, raw
+ciqual_food_name:fr:Quenelle nature, crue
 
 <en:Pizzas pies and quiches
 en:Quiches
@@ -40557,7 +40803,7 @@ fr:Ravioles du Dauphiné
 wikidata:en:Q3420363
 
 <fr:Ravioles
-en:Cooked fresh pasta stuffed with cheese, Cookes raviolis
+en:Cooked fresh pasta stuffed with cheese, Cooked raviolis
 fr:Pâtes fraîches au fromage farcies et cuites, Raviolis du Dauphiné cuits, Ravioles du Dauphiné cuites
 ciqual_food_code:en:25149
 ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), cooked
@@ -40934,6 +41180,14 @@ pt:Pastéis de nata, Pastel de nata
 
 <en:Pastries
 <en:Desserts
+en:Refrigerated caramelized custard cream, Refrigerated crème brûlée
+fr:Crème brûlée rayon frais
+ciqual_food_code:en:39213
+ciqual_food_name:en:Caramelized custard cream (crème brûlée), refrigerated
+ciqual_food_name:fr:Crème brûlée, rayon frais
+
+<en:Pastries
+<en:Desserts
 en:Mochi
 de:Mochi
 es:Mochi
@@ -40994,13 +41248,24 @@ nl:Canelé
 wikidata:en:Q2746070
 
 <en:Pastries
-en:Cream puff
+en:Cream puff, Pastry cream puff
 de:Windbeutel, Profiterole, Profiteroles
 es:Bocadito de nata, Profiterol, Profiteroles
 fr:Profiteroles, Profiterole, Profiterolles, Choux à la crème pâtissière, Chou à la crème pâtissière, Choux à la crème, Chou à la crème
 it:Profiterole, Profiteroles
 nl:Soesje, Profiterole
 wikidata:en:Q2513811
+ciqual_food_code:en:23455
+ciqual_food_name:en:Pastry cream puff
+ciqual_food_name:fr:Chou à la crème (chantilly ou pâtissière)
+
+<en:Cream puff
+en:Chou pastry filled with whipped cream
+fr:Choux à la crème chantilly, Chou à la crème chantilly
+ciqual_food_code:en:23456
+ciqual_food_name:en:Chou pastry filled with whipped cream
+ciqual_food_name:fr:Chou à la crème chantilly
+
 
 <en:Pastries
 en:Coconut Macaroons, Coconut macaroon
@@ -41435,6 +41700,20 @@ ciqual_food_name:en:Sandwich made with French bread, camembert cheese and butter
 ciqual_food_name:fr:Sandwich baguette, camembert, beurre
 
 <en:Sandwiches
+en:Sandwich made with French bread and hard-boiled egg and raw vegetables and butter
+fr:Sandwich baguette jambon oeuf dur crudités (tomate salade) beurre
+ciqual_food_code:en:25475
+ciqual_food_name:en:Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
+ciqual_food_name:fr:Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
+
+<en:Sandwiches filled with cold cuts
+en:Sandwich made with French bread pork and raw vegetables and mayonnaise
+fr:Sandwich baguette porc crudités mayonnaise
+ciqual_food_code:en:25533
+ciqual_food_name:en:Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
+ciqual_food_name:fr:Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
+
+<en:Sandwiches
 en:Poultry sandwiches
 fi:siipikarjavoileivät
 fr:Sandwichs à la volaille
@@ -41518,6 +41797,20 @@ fr:Sandwich pain de mie complet poulet crudités mayonnaise
 ciqual_food_code:en:25577
 ciqual_food_name:en:Sandwich made with wholemeal loaf bread, chicken, raw vegetables and mayonnaise
 ciqual_food_name:fr:Sandwich pain de mie complet, poulet, crudités, mayonnaise
+
+<en:Sandwiches filled with cold cuts
+en:Sandwich made with loaf bread and various fillings
+fr:Sandwich pain de mie avec garnitures diverses
+ciqual_food_code:en:25544
+ciqual_food_name:en:Sandwich made with loaf bread, various filling
+ciqual_food_name:fr:Sandwich pain de mie, garnitures diverses
+
+<en:Sandwiches filled with cold cuts
+en:Sandwich made with wholemeal loaf bread and ham and raw vegetables and cheese
+fr:Sandwich pain de mie complet jambon crudités fromage
+ciqual_food_code:en:25574
+ciqual_food_name:en:Sandwich made with wholemeal loaf bread, ham, raw vegetables, cheese (optional)
+ciqual_food_name:fr:Sandwich pain de mie complet, jambon, crudités, fromage optionnel
 
 <en:Ham sandwiches
 <fr:Sandwichs à la dinde
@@ -43694,7 +43987,7 @@ wikidata:en:Q171497
 
 <en:Sunflower seeds and their products
 <en:Seeds
-en:Sunflower seeds
+en:Sunflower seeds, Sunflower seed
 ca:Pipes de gira-sol, Llavors de gira-sol
 de:Sonnenblumenkerne
 es:Semillas de girasol, Pipas de girasol
@@ -43704,6 +43997,9 @@ hu:Naprafogómagok
 nl:Zonnebloempitten
 ru:Семена подсолнечника, Подсолнечные семечки, Семечки подсолнечника
 wikidata:en:Q1076906
+ciqual_food_code:en:15011
+ciqual_food_name:en:Sunflower seed
+ciqual_food_name:fr:Tournesol, graine
 
 <en:Sunflower seeds
 en:Raw sunflower seeds
@@ -43766,6 +44062,13 @@ de:Ungeschälte geröstete Sonnenblumenkerne
 es:Semillas de girasol sin cáscara tostadas, Pipas de girasol sin cáscara tostadas
 fr:Graines de tournesol décortiquées grillées
 nl:Geroosterde gepelde zonnebloempitten
+
+<en:Roasted sunflower seeds
+en:Sunflower seed grilled and salted
+fr:Graines de tournesol grillées et salées
+ciqual_food_code:en:15045
+ciqual_food_name:en:Sunflower seed, grilled, salted
+ciqual_food_name:fr:Tournesol, graine, grillé, salé
 
 <en:Seeds
 en:Papaver seeds, Papaver
@@ -45399,6 +45702,13 @@ fr:Poireaux frais
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
+<en:Leeks
+en:Leeks fondue, Slow-simmered leeks
+fr:Fondue de poireau
+ciqual_food_code:en:20135
+ciqual_food_name:en:Leeks fondue or slow-simmered leeks
+ciqual_food_name:fr:Fondue de poireau
+
 # <en:Leaf vegetables
 en:Lettuces, lettuce
 af:Blaarslaai
@@ -46302,7 +46612,7 @@ nl:Gedroogde groenten
 
 <en:Dried vegetables
 <en:Tomatoes and their products
-en:Dried tomato, Dried tomatoes, Sun-Dried tomato, Sun-Dried tomatoes
+en:Dried tomatoes, Sun-Dried tomatoes, Dried tomato, Sun-Dried tomato
 de:Getrocknete Tomaten
 es:Tomates secos, Tomates deshidratados, Tomates desecados
 fi:kuivatut tomaatit
@@ -47496,9 +47806,20 @@ nl:Wavels
 ro:Vafe, Gaufre, Gofre
 
 <en:Waffles
-fr:Gaufres liégeoises, gaufres liegeoises, gaufres de Liège, gaufre liégeoise, gaufres liégeoises, gaufre de Liège
+fr:Gaufres liégeoises, gaufres liegeoises, gaufres de Liège, gaufre liégeoise, gaufres liégeoises, gaufre de Liège, Gaufre moelleuse nature liégeoise préemballée, Gaufre moelleuse sucrée liégeoise préemballée
 nl:Luikse wavels
 ro:Vafe din Liège
+en:Prepacked plain Brussels-style soft waffle, Prepacked Brussels-style soft waffle with sugar
+ciqual_food_code:en:23851
+ciqual_food_name:en:Soft waffle (Brussels-style), plain or with sugar, prepacked
+ciqual_food_name:fr:Gaufre moelleuse (type bruxelloise ou liégeoise), nature ou sucrée, préemballée
+
+<en:Waffles
+en:Prepacked plain Brussels-style soft waffle, Prepacked Brussels-style soft waffle with sugar
+fr:Gaufre moelleuse nature bruxelloise préemballée, Gaufre moelleuse sucrée bruxelloise préemballée
+ciqual_food_code:en:23851
+ciqual_food_name:en:Soft waffle (Brussels-style), plain or with sugar, prepacked
+ciqual_food_name:fr:Gaufre moelleuse (type bruxelloise ou liégeoise), nature ou sucrée, préemballée
 
 <en:Waffles
 en:Chocolate coated waffles, Chocolate waffles, Prepacked thin crunchy wafer biscuit with chocolate, Prepacked dry crunchy wafer biscuit with chocolate
@@ -50223,6 +50544,34 @@ nl:Tabouleh
 nl_be:Tabouleh
 wikidata:en:Q607690
 
+<en:Meals
+en:Filled fritter (garnish : shrimps vegetables poultry meat etc.), Filo pastry (garnish : shrimps vegetables poultry meat etc.)
+fr:Brick garni (garniture : crevettes légumes volaille viande poisson etc.)
+ciqual_food_code:en:25438
+ciqual_food_name:en:Fritter, filled (filo pastry) (garnish : shrimps, vegetables, poultry, meat, etc.)
+ciqual_food_name:fr:Brick garni (garniture : crevettes, légumes, volaille, viande, poisson, etc.)
+
+<en:Meals
+en:Fritter filled with eggs, Filo pastry filled with eggs
+fr:Brick à l'oeuf
+ciqual_food_code:en:25557
+ciqual_food_name:en:Fritter, filled with eggs (filo pastry)
+ciqual_food_name:fr:Brick à l'oeuf
+
+<en:Meals
+en:Fritter filled with beef, Filo pastry filled with beef
+fr:Brick au boeuf
+ciqual_food_code:en:25558
+ciqual_food_name:en:Fritter, filled with beef (filo pastry)
+ciqual_food_name:fr:Brick au boeuf
+
+<en:Meals
+en:Fritter filled with potatoes, Filo pastry filled with potatoes
+fr:Brick à la pomme de terre
+ciqual_food_code:en:25559
+ciqual_food_name:en:Fritter, filled with potatoes (filo pastry)
+ciqual_food_name:fr:Brick à la pomme de terre
+
 <en:Tabbouleh
 en:Tabbouleh with Olive oil
 de:Tabboulehs mit Olivenöl
@@ -50893,6 +51242,13 @@ fr:Yaourt au lait fermenté aux céréales à 0% de matières grasses, Spéciali
 ciqual_food_code:en:19558
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with cereals, fat free
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céréales, 0% MG
+
+<en:Yogurts with cereals
+en:Fermented milk yogurt with cereals, Dairy specialty with cereals
+fr:Yaourt au lait fermenté aux céréales, Spécialité laitière aux céréales
+ciqual_food_code:en:19579
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w cereals
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céréales
 
 <en:Muffins
 en:Fruit Muffins
