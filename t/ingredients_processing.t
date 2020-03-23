@@ -41,6 +41,7 @@ my @tests = (
     'processing' => 'en:powdered',
     'text' => 'courgette'
   }
+
 ]
 
 	],
@@ -72,7 +73,7 @@ my @tests = (
 ]
 	],
 
-	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, "}, 
+	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gepelde sjalot"}, 
 [
   {
     'id' => 'en:shallot',
@@ -86,6 +87,11 @@ my @tests = (
   {
     'id' => 'en:vanilla-powder',
     'text' => 'vanillepoeder'
+  },
+  {
+    'id' => 'en:shallot',
+    'processing' => 'en:peeled',
+    'text' => 'sjalot'
   }
 ]
 
