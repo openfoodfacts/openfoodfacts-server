@@ -89,7 +89,7 @@ my @tests = (
   },
   {
     'id' => 'en:coconut',
-	'processing' => 'en:ground'
+	'processing' => 'en:ground',
     'text' => 'kokos'
   }
 ]
