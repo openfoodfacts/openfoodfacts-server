@@ -54,6 +54,8 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "traza de nueces"}, [], ["en:nuts"]],
 	[ { lc => "es", traces => "contiene leche y productos derivados"}, [], ["en:milk"]],
 	[ { lc => "es", traces => "contiene leche y productos derivados incluida lactosa"}, [], ["en:milk"]],
+
+	[ { lc => "fr", ingredients_text => "Sucre. Fabriqué dans un atelier qui manipule du lait, de la moutarde et du céleri." }, [], ["en:celery", "en:milk", "en:mustard"] ],
 );
 
 foreach my $test_ref (@tests) {

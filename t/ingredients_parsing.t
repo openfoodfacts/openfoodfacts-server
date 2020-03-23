@@ -160,6 +160,11 @@ my @lists =(
 	["fr","Céréales 63,7% (BLE complet 50,5%*, semoule de maïs*), sucre*, sirop de BLE*, cacao maigre en poudre 3,9%*, cacao en poudre 1,7%*, sel, arôme naturel. *Ingrédients issus de l'agriculture biologique.","Céréales 63,7% (BLE complet 50,5% Bio, semoule de maïs Bio ), sucre Bio, sirop de BLE Bio, cacao maigre en poudre 3,9% Bio, cacao en poudre 1,7% Bio, sel, arôme naturel."],
 
 	["fr","émulsifiant : mono - et diglycérides d'acides gras.","émulsifiant : mono- et diglycérides d'acides gras."],
+
+	["fr","Sucre. Fabriqué dans un atelier qui utilise des fruits à coques.", "Sucre. Traces éventuelles : fruits à coques."],
+	["fr","Sucre. Fabriqué dans un atelier utilisant des fruits à coques et du sésame.", "Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."],
+	["fr","Sucre. Fabriqué dans un atelier qui manipule du lait, de la moutarde et du céleri.", "Sucre. Traces éventuelles : lait, Traces éventuelles : moutarde, Traces éventuelles : céleri."],
+	["fr","Sucre. Peut contenir des fruits à coques et du sésame.", "Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."],
 );
 
 foreach my $test_ref (@lists) {

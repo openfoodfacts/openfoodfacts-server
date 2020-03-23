@@ -150,7 +150,7 @@ my %traces_regexps = (
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
 	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
-	fr => "peut contenir|qui utilise aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 
 );
@@ -193,7 +193,7 @@ my %of = (
 	en => " of ",
 	de => " von ",
 	es => " de ",
-	fr => " de | du | des | d'",
+	fr => " de la | de | du | des | d'",
 	it => " di | d'",
 );
 
@@ -210,7 +210,7 @@ my %and_of = (
 	en => " and of ",
 	de => " und von ",
 	es => " y de ",
-	fr => " et de | et du | et des | et d'",
+	fr => " et de la | et de l'| et du | et des | et d'| et de ",
 	it => " e di | e d'",
 );
 
@@ -2005,10 +2005,16 @@ sub normalize_allergen($$$) {
 	if (defined $of{$lc}) {
 		$of = $of{$lc};
 	}
+	my $and_of = ' - ';
+	if (defined $and_of{$lc}) {
+		$and_of = $and_of{$lc};
+	}
 
 	# "de moutarde" -> moutarde
+	# "et de la moutarde" -> moutarde
+
 	$a = " " . $a;
-	$a =~ s/^$of\b//;
+	$a =~ s/^($and_of|$of)\b//;
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
 
