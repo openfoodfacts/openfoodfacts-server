@@ -621,7 +621,7 @@ function get_recents(tagfield) {
 
 	if (
 		obj !== null &&
-		obj[tagfield] !== undefined &&
+		typeof obj[tagfield] !== "undefined" &&
 		obj[tagfield] !== null
 	) {
 		return obj[tagfield];
