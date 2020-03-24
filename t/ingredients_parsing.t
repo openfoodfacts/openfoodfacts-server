@@ -165,6 +165,8 @@ my @lists =(
 	["fr","Sucre. Fabriqué dans un atelier utilisant des fruits à coques et du sésame.", "Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."],
 	["fr","Sucre. Fabriqué dans un atelier qui manipule du lait, de la moutarde et du céleri.", "Sucre. Traces éventuelles : lait, Traces éventuelles : moutarde, Traces éventuelles : céleri."],
 	["fr","Sucre. Peut contenir des fruits à coques et du sésame.", "Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."],
+
+	["en", "vegetable oil (coconut & rapeseed)", "vegetable oil (coconut and rapeseed)"],
 );
 
 foreach my $test_ref (@lists) {
