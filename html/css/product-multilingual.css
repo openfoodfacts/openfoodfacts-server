@@ -26,20 +26,6 @@
  https://github.com/xoxco/jQuery-Tags-Input
  */
 
-div.tagsinput {
-    line-height: 1.2;
-    resize: vertical; /* Make the box manually resizable, vertically (CSS3) */
-}
-
-div.tagsinput input {
-    box-shadow: none;
-}
-
-div.tagsinput input:focus {
-    background: none;
-    border: none;
-}
-
 .ui-selectable { list-style-type: none; margin: 0; padding: 0; }
 
 .ui-selectable img {

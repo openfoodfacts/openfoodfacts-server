@@ -11,7 +11,8 @@ const svgmin = require("gulp-svgmin");
 const sassOptions = {
   errLogToConsole: true,
   outputStyle: "expanded",
-  includePaths: ["./node_modules/foundation-sites/scss"]
+  includePaths: ["./node_modules/foundation-sites/scss",
+	"./node_modules/@yaireo/tagify/src"]
 };
 
 function icons() {

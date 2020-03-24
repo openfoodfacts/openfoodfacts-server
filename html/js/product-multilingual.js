@@ -563,7 +563,7 @@ function initializeTagifyInput(el) {
 	});
 
 	input.on("add", function (event) {
-		let obj;
+		let obj = null;
 
 		try {
 			obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
@@ -574,7 +574,7 @@ function initializeTagifyInput(el) {
 		}
 
 		const tag = event.detail.data.value;
-		if (obj === null) {
+		if (!Array.isArray(obj)) {
 			obj = {};
 			obj[el.id] = [tag];
 		} else if (obj[el.id] === null) {
@@ -610,7 +610,7 @@ function initializeTagifyInput(el) {
 }
 
 function get_recents(tagfield) {
-	let obj;
+	let obj = null;
 	try {
 		obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
 	} catch (e) {
@@ -621,7 +621,8 @@ function get_recents(tagfield) {
 
 	if (
 		obj !== null &&
-		obj[tagfield] !== undefined &&
+    Array.isArray(obj) &&
+		typeof obj[tagfield] !== "undefined" &&
 		obj[tagfield] !== null
 	) {
 		return obj[tagfield];
