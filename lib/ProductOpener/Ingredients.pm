@@ -2724,6 +2724,10 @@ sub preparse_ingredients_text($$) {
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
 
+	# vegetable oil (coconut & rapeseed)
+	# turn & to and
+	$text =~ s/ \& /$and/g;
+
 	# abbreviations
 	if (defined $abbreviations{$product_lc}) {
 		foreach my $abbreviation_ref (@{$abbreviations{$product_lc}}) {
