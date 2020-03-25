@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-09 23:19\n"
+"PO-Revision-Date: 2020-03-21 11:02\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2479,6 +2479,10 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "Errore durante la deselezione dell'immagine."
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "Abilita lo zoom con la rotellina del mouse."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Attenzione: la quantità di fibre non è specificata, il loro possibile contributo positivo al grado non può essere preso in considerazione."
@@ -4060,4 +4064,17 @@ msgstr "Dettagli dell'analisi degli ingredienti"
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Alcuni ingredienti potrebbero non essere riconosciuti."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "Sposta tutti i dati e le foto selezionate in %s nella lingua principale del prodotto: %s"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "Sostituisci i valori esistenti e le foto selezionate"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "Mantieni i valori esistenti e le foto selezionate"
 
