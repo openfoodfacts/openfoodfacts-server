@@ -95,8 +95,8 @@ my @tests = (
   },
   {
     'id' => 'en:shallot',
-    'text' => 'sjalot',
     'processing' => 'en:grated'
+    'text' => 'sjalot',
   },
   {
     'id' => 'en:marigold',
