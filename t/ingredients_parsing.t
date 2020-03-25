@@ -167,6 +167,8 @@ my @lists =(
 	["fr","Sucre. Peut contenir des fruits à coques et du sésame.", "Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."],
 
 	["en", "vegetable oil (coconut & rapeseed)", "vegetable oil (coconut and rapeseed)"],
+
+	["fr", "Masse de cacao°, Quinoa° (1,8%). °Produits issus de l'agriculture biologique.", "Masse de cacao Bio, Quinoa Bio (1,8%)."],
 );
 
 foreach my $test_ref (@lists) {
