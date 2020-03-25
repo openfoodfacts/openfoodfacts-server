@@ -23,6 +23,13 @@
 /*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
+//Polyfill, just in case
+if (!Array.isArray) {
+  Array.isArray = function (arg) {
+    return Object.prototype.toString.call(arg) === '[object Array]';
+  };
+}
+
 var code;
 var current_cropbox;
 var images = [];
@@ -577,7 +584,7 @@ function initializeTagifyInput(el) {
 		if (obj === null) {
 			obj = {};
 			obj[el.id] = [tag];
-		} else if (obj[el.id] === null) {
+		} else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
 			obj[el.id] = [tag];
 		} else {
 			if (obj[el.id].indexOf(tag) != -1) {
