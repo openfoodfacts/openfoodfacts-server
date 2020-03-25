@@ -1622,6 +1622,9 @@ sub display_list_of_tags($$) {
 			#}
 
 			# known tag?
+
+			my $known = 0;
+
 			if ($tagtype eq 'categories') {
 
 				if (defined $request_ref->{stats_nid}) {
@@ -1641,6 +1644,7 @@ sub display_list_of_tags($$) {
 						$td_nutriments .= "<td></td>";
 						$stats{known_tags}++;
 						$stats{known_tags_products} += $count;
+						$known = 1;
 					}
 					else {
 						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
@@ -1655,6 +1659,7 @@ sub display_list_of_tags($$) {
 					$td_nutriments .= "<td></td>";
 					$stats{known_tags}++;
 					$stats{known_tags_products} += $count;
+					$known = 1;
 					# ?missing_property=vegan
 					# keep only known tags without a defined value for the property
 					if ($missing_property) {
@@ -1783,6 +1788,7 @@ sub display_list_of_tags($$) {
 				name => $display,
 				url => $formatted_subdomain . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
+				known => $known,	# 1 if the ingredient exists in the taxonomy, 0 if not
 			};
 
 			if (($#sameAs >= 0)) {
@@ -1875,6 +1881,13 @@ HTML
 					url => "",
 					products => $stats{$tagid} + 0, # + 0 to make the value numeric
 				};
+
+				if ($tagid =~ /_tags_products$/) {
+					$tagentry->{percent} = $stats{$tagid} / $stats{"all_tags_products"} * 100;
+				}
+				else {
+					$tagentry->{percent} = $stats{$tagid} / $stats{"all_tags"} * 100;
+				}
 
 				push @{$request_ref->{structured_response}{tags}}, $tagentry;
 			}
