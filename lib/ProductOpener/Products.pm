@@ -1841,6 +1841,13 @@ sub product_name_brand($) {
 
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
+		my @brand_all = split(',', $brand);
+		foreach my $i (@brand_all)
+		{
+			if (index($full_name,$i) != -1){
+				$full_name =~ s/\Q$i//ig;
+			}
+		}
 		$brand =~ s/,.*//;	# take the first brand
 		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
 		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
