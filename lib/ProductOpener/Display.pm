@@ -138,7 +138,6 @@ use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
 
 use Cache::Memcached::Fast;
-use Text::Unaccent;
 use Encode;
 use URI::Escape::XS;
 use CGI qw(:cgi :form escapeHTML);
