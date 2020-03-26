@@ -121,28 +121,18 @@ my @tests = (
 	  		}
 		]
 	],
-	
-	#  },
-	#  {
-		# Sauerkrautpuder, PuderKnollensellerie
-	 #  'id' => 'en:sauerkraut',
-	 #  'processing' => 'en:powdered',
-	 #  'text' => 'Sauerkraut'
-	#  },
-	 # {
-	 #  'id' => 'en:celeriac',
-	 #  'processing' => 'en:powdered',
-	 #  'text' => 'Knollensellerie'
-	 # },
-	 # {
-		# , gehacktes Buttermilch, 
-	#   'id' => 'en:buttermilk',
-	 #  'processing' => 'en:chopped',
-	 #  'text' => 'Buttermilch'
-	#  },
 
+	[ { lc => "de", ingredients_text => "gehacktes Buttermilch"}, 
+	[
+		{
+	   'id' => 'en:buttermilk',
+	   'processing' => 'en:chopped',
+	   'text' => 'Buttermilch'
+	  },
+	],
+	],
 	
-	[ { lc => "de", ingredients_text => "Sauerkrautpuder" }, 
+	[ { lc => "de", ingredients_text => "Sauerkrautpulver" }, 
 		[
   			{
     			'id' => 'en:sauerkraut',
@@ -152,15 +142,15 @@ my @tests = (
 		]
 	],
 	
-#	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" }, 
-#		[
-#			{
-#    			'id' => 'en:passion fruit',
-#    			'processing' => 'en:grated',
-#    			'text' => 'passionsfrucht'
-#  			}
-#		]
-#	],
+	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" }, 
+		[
+			{
+    			'id' => 'en:passion-fruit',
+    			'processing' => 'en:sliced',
+    			'text' => 'passionsfrucht'
+  			}
+		]
+	],
 	
 	[ { lc => "de", ingredients_text => "acerola-pulver" }, 
 		[
@@ -172,15 +162,46 @@ my @tests = (
 		]
 	],
 	
-#		[ { lc => "de", ingredients_text => "fein gehackter Dickmilch" }, 
-#	[
-#	  {
-#	    'id' => 'en:soured-milk',
-#	    'processing' => 'en:finely-chopped',
-#	    'text' => 'Dickmilch'
-#	  }
-#	]
-#		],
+		[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
+	[
+	  {
+	    'id' => 'en:soured-milk',
+	    'processing' => 'en:chopped',
+	    'text' => 'Dickmilch'
+	  }
+	]
+		],
+
+	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+[
+  {
+    'id' => "de:hartk\x{e4}se",
+    'processing' => 'en:sliced',
+    'text' => "hartk\x{e4}se"
+  },
+  {
+    'id' => 'en:hazelnut',
+    'processing' => 'en:chopped',
+    'text' => "haseln\x{fc}sse"
+  },
+  {
+    'id' => 'en:hazelnut',
+    'processing' => 'en:roasted, en:chopped',
+    'text' => "haseln\x{fc}sse"
+  },
+  {
+    'id' => 'en:toasted-hazelnut',
+    'processing' => 'en:chopped',
+    'text' => "ger\x{f6}stete haselnusskerne"
+  },
+  {
+    'id' => 'en:ground-almonds',
+    'processing' => 'en:sliced',
+    'text' => 'gehackte mandeln'
+  }
+
+]
+	],
 );
 
 foreach my $test_ref (@tests) {
