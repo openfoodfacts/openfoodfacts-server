@@ -1050,6 +1050,9 @@ hu:Bajor sörök
 nl:Beierse bieren, Bieren uit Beieren
 ro:Beri bavareze, Bere bavareză, Bere bavareza
 country:en:Germany
+protected_name_file_number:en: PGI-DE-0518
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Beers from Germany
 en:Beers from Bremen
@@ -1068,12 +1071,18 @@ country:en:Germany
 <en:Beers from Germany
 de:Hofer Biere, Hofer Bier
 country:en:Germany
+protected_name_file_number:en: PGI-DE-0472
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Beers from Germany
 en:Kölsch
 de:Kölsch
 nl:Keulse bieren
 country:en:Germany
+protected_name_file_number:en: PGI-DE-0655
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Beers from Germany
 de:Kulmbacher Biere, Kulmbacher Bier
@@ -1082,6 +1091,9 @@ country:en:Germany
 <en:Beers from Germany
 de:Mainfranken Biere, Mainfranken Bier
 country:en:Germany
+protected_name_file_number:en: PGI-DE-1102
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Beers from Germany
 de:Münchener Biere, Münchener Bier
@@ -1094,6 +1106,9 @@ country:en:Germany
 <en:Beers from Germany
 de:Reuther Biere, Reuther Bier
 country:en:Germany
+protected_name_file_number:en: PGI-DE-1324
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Beers from Germany
 de:Wernesgrüner Biere, Wernesgrüner Bier
@@ -1903,6 +1918,48 @@ de:Französische Rums
 fr:Rhums français, Rhum français
 nl:Franse rums, Franse rum
 
+<en:French rum
+fr:Rhum de sucrerie de la Baie du Galion
+protected_name_file_number:en: PGI-FR-02065
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French rum
+fr:Rhum des Antilles françaises
+protected_name_file_number:en: PGI-FR-01990
+protected_name_type:en: gi
+origins:en: en:France, fr:Antilles françaises
+
+<en:French rum
+fr:Rhum des départements français d'outre-mer
+protected_name_file_number:en: PGI-FR-02072
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French rum
+fr:Rhum de la Martinique
+protected_name_file_number:en: PGI-FR-02064
+protected_name_type:en: gi
+origins:en: en:France, fr:Martinique
+
+<en:French rum
+fr:Rhum de la Réunion
+protected_name_file_number:en: PGI-FR-02073
+protected_name_type:en: gi
+origins:en: en:France, fr:Réunion
+
+<en:French rum
+fr:Rhum de la Guadeloupe
+protected_name_file_number:en: PGI-FR-02071
+protected_name_type:en: gi
+origins:en: en:France, fr:Guadeloupe
+
+<en:French rum
+fr:Rhum de la Guyane
+protected_name_file_number:en: PGI-FR-02066
+protected_name_type:en: gi
+origins:en: en:France, en:French Guyana
+
 <en:Rums
 en:Haitian rums, Rums from Haiti
 de:Haitianische Rums
@@ -2101,6 +2158,18 @@ en:Traditional ciders
 de:Traditioneller Cidre
 fr:Cidres traditionnels
 nl:Traditionele ciders, Appelwijnen
+
+<en:Ciders
+fr:Cidre de Bretagne, Cidre Breton
+protected_name_file_number:en: PGI-FR-0088
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Ciders
+fr:Cidre de Normandie, Cidre Normand
+protected_name_file_number:en: PGI-FR-0089
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Alcoholic beverages
 en:Schnapps
@@ -5206,6 +5275,7 @@ instanceof:fr:IGP
 <en:Wines from France
 fr:Alsace Grand Cru
 wikidata:en:Q1596430
+origins:en: en:France, fr:Alsace
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Altenberg de Bergbieten, Altenberg de Bergbieten
@@ -5288,9 +5358,16 @@ country:en:France
 wikidata:en:Q3130280
 
 <fr:Alsace Grand Cru
+fr:Alsace grand cru Kaefferkopf
+protected_name_file_number:en: PDO-FR-A0914
+protected_name_type:en: pdo
+origins:en: en:France, fr:Alsace
+
+<fr:Alsace Grand Cru
 fr:Alsace Grand Cru Kanzlerberg, Kanzlerberg
 country:en:France
 wikidata:en:Q1571533
+
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Kastelberg, Kastelberg
@@ -12251,6 +12328,7 @@ de:amerikanische Weine
 fr:Vins américains
 nl:Amerikaanse wijnen
 wikidata:en:Q1968496
+origins:en: en:United States
 
 <en:Wines from America
 en:Wines from California, Californian Wines, California Wines
@@ -12382,6 +12460,7 @@ de:Weine aus Australien
 fr:Vins d'Australie
 nl:Australische wijnen
 wikidata:en:Q2129654
+origins:en: en:Australia
 
 <en:Wines from Australia
 en:South Australian wine, Wines from South Australia
@@ -12432,6 +12511,7 @@ origins:en: en:United Kingdom
 
 <en:Wines
 en:Swiss wines
+origins:en: en:Switzerland
 
 <en:Swiss wines
 fr:Commune de Champagne
@@ -12445,6 +12525,7 @@ de:Weine aus Österreich,österreichische Weine
 fr:Vins d'Autriche
 nl:Oostenrijkse wijnen
 wikidata:en:Q23237
+origins:en: en:Austria
 
 <en:Austrian wines
 de:Carnuntum
@@ -12680,6 +12761,7 @@ de:Weine aus Brasilien
 fr:Vins du Brésil, vins brésiliens
 nl:Braziliaanse wijnen, Braziliaanse wijn, Wijn uit Brazilië
 wikidata:en:Q2038437
+origins:en: en:Brazil
 
 <en:Wines from Brazil
 pt:Vale dos Vinhedos
@@ -12689,6 +12771,7 @@ origins:en: en:Brazil
 
 <en:Wines
 en:Danish wines
+origins:en: en:Denmark
 
 <en:Danish wines
 da:Dons
@@ -12722,6 +12805,7 @@ origins:en: en:Denmark
 
 <en:Wines
 en:Dutch wines
+origins:en: en:Netherlands
 
 <en:Dutch wines
 nl:Ambt Delden
@@ -20724,9 +20808,11 @@ fr:Préparations pour entremets
 fr:Préparations pour flans, Préparations pour flans pâtissiers
 
 <en:Dessert mixes
+en:Mixes for dessert creams
 fr:Préparations pour crèmes dessert
 
 <en:Dessert mixes
+en:Mixes for panna cotta
 fr:Préparations pour panna cotta
 
 <en:Dessert mixes
@@ -26954,7 +27040,16 @@ fr:Crèmes fraîches
 #AOP French cream, it contains no additives and have at least 35% fat.
 <fr:Crèmes épaisses
 <fr:Crèmes entières
-fr:Crème Fraîche d'Isigny
+fr:Crème Fraîche d'Isigny, Crème d'Isigny
+protected_name_file_number:en: PDO-FR-0139
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Creams
+fr:Crème fraîche fluide d'Alsace
+protected_name_file_number:en: PGI-FR-9178
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Creams
 <en:Fermented milk products
@@ -27212,6 +27307,18 @@ fr:Beurre de Bresse
 protected_name_file_number:en: PDO-FR-1045
 protected_name_type:en: pdo
 origins:en: en:France, fr:Bresse
+
+<en:French butters
+fr:Beurre d'Isigny
+protected_name_file_number:en: PDO-FR-0138
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:French butters
+fr:Beurre Charentes-Poitou, Beurre des Charentes, Beurre des Deux-Sèvres
+protected_name_file_number:en: PDO-FR-0137
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:French cheeses
 <en:Cooked pressed cheeses
@@ -30631,22 +30738,31 @@ fr:Miels français, Miels de France
 hu:Francia mézek, Mézek Franciaországból
 nl:Franse honingen
 
+<en:Honeys from France
+en:Honeys from Alsace
+fr:Miels d’Alsace
+nl:Honinge nuit de de Alsace
+protected_name_file_number:en: PGI-FR-0150
+protected_name_type:en: pgi
+origins:en: en:France
+
 <fr:Miels d’acacia
 <fr:Miels d’Alsace
 en:Acacia honeys from Alsace
 fr:Miels d'acacia d'Alsace
 nl:Acaciahoningen ui tde Alsace
 
+<en:Honeys from France
+fr:Miel de Cévennes
+protected_name_file_number:en: PGI-FR-1148
+protected_name_type:en: pgi
+origins:en: en:France
+
 <fr:Miels d’acacia
 <fr:Miels du Jura
 en:Acacia honeys from Jura
 fr:Miels d’acacia du Jura
 nl:Acaciahoningen uit de Jura
-
-<en:Honeys from France
-en:Honeys from Alsace
-fr:Miels d’Alsace
-nl:Honinge nuit de de Alsace
 
 <en:Honeys from Alsace
 fr:Miels de châtaignier d'Alsace
@@ -30684,8 +30800,11 @@ nl:Dennenhoningen uit de Middellandse Zee
 
 <en:Honeys from France
 en:Honey of Corsica
-fr:Miels de Corse
+fr:Miels de Corse, Mele di Corsica
 nl:Corsicaanse honingen
+protected_name_file_number:en: PDO-FR-0066
+protected_name_type:en: pdo
+origins:en: en:France, en:Corsica
 
 <en:Honeys from France
 en:Honey of Biscay
@@ -30705,10 +30824,16 @@ nl:Honingen uit de Poitou-Charantes
 <en:Honeys from France
 fr:Miels de Provence
 nl:Honingen uit de Provence
+protected_name_file_number:en: PGI-FR-9181
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Honeys from France
 fr:Miels de sapin des Vosges
 nl:Sparrenhoningen uit de Vogezen
+protected_name_file_number:en: PDO-FR-0204
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Honeys from France
 fr:Miels des Pays de Loire
@@ -34545,6 +34670,7 @@ wikidata:en:Q1364
 fr:Cassis frais
 season_in_country_fr:en: 6,7,8
 
+<en:Fruits
 en:British fruit
 
 <en:British fruit
@@ -35041,7 +35167,6 @@ es:kiwis
 fi:kiivihedelmät
 fr:Kiwis
 nl:Kiwis
-
 
 <en:Kiwifruits
 fr:Kiwis frais
@@ -36654,6 +36779,12 @@ es:Tomillo seco molido
 fr:Thym sec moulu, thym séché moulu, thym séché moulue
 nl:Gemalen gedroogde verse thijm
 
+<en:Thyme
+fr:Thym de Provence
+protected_name_file_number:en: PGI-FR-01364
+protected_name_type:en: pgi
+origins:en: en:France
+
 <en:Herbal teas
 en:Thyme tea bags
 de:Thymian Teebeutel
@@ -36841,14 +36972,41 @@ en:Guerande salts
 de:Sels de Guérande
 fr:Sels de Guérande
 nl:Zout uit de Guérande
+protected_name_file_number:en: PGI-FR-0861
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Salts
+en:French salts
 
 <en:Guerande salts
 <en:Fleurs de sel
 fr:Fleurs de sel de Guérande
+protected_name_file_number:en: PGI-FR-0861
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Guerande salts
 <fr:Gros sels
 fr:Gros sel de Guérande
+
+<en:French salts
+fr:Sel de Camargue
+protected_name_file_number:en: PGI-FR-02443
+protected_name_type:en: pgi
+origins:en: en:France
+
+<fr:Sel de Camargue
+fr:Fleur de sel de Camargue
+protected_name_file_number:en: PGI-FR-02443
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:French salts
+fr:Sel de Salies-de-Béarn
+protected_name_file_number:en: PGI-FR-01311
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Salts
 fr:Sels du Québéc
@@ -38136,6 +38294,12 @@ nl:Dijonmosterds
 pl:Musztarda Dijon
 se:Dijonsenap
 wikidata:en:Q204226
+
+<en:Mustards
+fr:Moutarde de Bourgogne
+protected_name_file_number:en: PGI-FR-0503
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Mustards
 en:Fine mustards
@@ -42612,6 +42776,18 @@ en:Capicola, coppa
 fr:Coppa
 nl:Capocollo
 
+<en:Capicola
+fr:Coppa de l'Ile de Beauté
+protected_name_file_number:en: PGI-FR-02430
+protected_name_type:en: pgi
+origins:en: en:France, fr:Corse
+
+<en:Capicola
+fr:Coppa de Corse, Coppa de Corse - Coppa di Corsica
+protected_name_file_number:en: PDO-FR-0992
+protected_name_type:en: pdo
+origins:en: en:France, fr:Corse
+
 <en:Prepared meats
 en:Hams
 ca:Pernil
@@ -42759,6 +42935,12 @@ origins:en: en:France
 fr:Jambon sec de l'Ile de Beauté
 protected_name_file_number:en: PGI-FR-02426
 protected_name_type:en: pgi
+origins:en: en:France
+
+<en:French hams
+fr:Jambon noir de Bigorre
+protected_name_file_number:en: PDO-FR-02105
+protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Dried hams
@@ -42915,6 +43097,9 @@ fr:Rillettes du Mans
 <en:Potted meats
 <fr:Rillettes françaises
 fr:Rillettes de Tours
+protected_name_file_number:en: PGI-FR-0845
+protected_name_type:en: pgi
+origins:en: en:France, fr:Tours
 
 <en:Seafood
 <en:Rillettes
@@ -43221,6 +43406,12 @@ fr:Saucisses de foie ariégeoise
 fr:Figatellus
 wikidata:en:Q1411847
 
+<fr:Figatellus
+fr:Figatelli de l'Ile de Beauté, Figatellu de l'Ile de Beauté
+protected_name_file_number:en: PGI-FR-02432
+protected_name_type:en: pgi
+origins:en: en:France
+
 <en:French sausages
 en:Lyon sausage, Lyon sausages
 fr:Saucisses de Lyon, Saucisse de Lyon
@@ -43234,11 +43425,17 @@ fr:Saucisses de Molène
 en:Montbéliard sausages
 fr:Saucisses de Montbéliard
 nl:Worst uit Montbéliard
+protected_name_file_number:en: PGI-FR-0869
+protected_name_type:en: pgi
+origins:en: en:France, fr:Montbéliard
 
 <en:French sausages
 en:Morteau sausages
-fr:Saucisses de Morteau
+fr:Saucisses de Morteau, Saucisse de Morteau, Jésus de Morteau
 nl:Worst uit Morteau, Worsten uit Morteau
+protected_name_file_number:en: PGI-FR-0556
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:French sausages
 en:Strasbourg sausages
@@ -43284,6 +43481,12 @@ wikidata:en:Q2751264
 
 <fr:Boudins blancs
 fr:Boudins blanc à l'ancienne
+
+<fr:Boudins blancs
+fr:Boudin blanc de Rethel
+protected_name_file_number:en: PGI-FR-0100
+protected_name_type:en: pgi
+origins:en: en:France
 
 <fr:Boudins
 <en:Tripe dishes
@@ -43570,6 +43773,18 @@ fr:Salami de dinde, Salamis de dinde
 nl:Kalkoensalamis
 
 <fr:Saucissons
+fr:Saucisson de Lacaune, Saucisse de Lacaune
+protected_name_file_number:en: PGI-FR-01201
+protected_name_type:en: pgi
+origins:en: en:France
+
+<fr:Saucissons
+fr:Saucisson de l'Ardèche
+protected_name_file_number:en: PGI-FR-0596
+protected_name_type:en: pgi
+origins:en: en:France, fr:Ardèche
+
+<fr:Saucissons
 fr:Saucisses sèches, Saucisse sèche
 nl:Gedroogde worsten
 
@@ -43588,6 +43803,18 @@ nl:Droge worstjes
 <fr:Saucissons secs
 fr:Saucissons secs pur porc, saucisson sec pur porc
 nl:Droge varkensworstjes
+
+<fr:Saucissons secs
+fr:Saucisson sec d'Auvergne, Saucisse sèche d'Auvergne
+protected_name_file_number:en: PGI-FR-02094
+protected_name_type:en: pgi
+origins:en: en:France, fr:Auvergne
+
+<fr:Saucissons secs
+fr:Saucisson sec de l'Ile de Beauté, Salciccia de l'Ile de Beauté 
+protected_name_file_number:en: PGI-FR-02431
+protected_name_type:en: pgi
+origins:en: en:France, fr:Corse
 
 <fr:Saucissons secs
 fr:Saucissons secs aux noisettes
@@ -44927,9 +45154,9 @@ nl:Verse pastas
 <en:Pastas
 fr:Pâtes d'Alsace
 nl:Pastas uit de Alsace
-dossier_number:FR/PGI/0005/0324
-status:Registered
-type:PGI
+protected_name_file_number:en: PGI-FR-0324
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Pastas
 en:Dry pasta
@@ -45002,6 +45229,9 @@ fr:Ravioles
 <fr:Ravioles
 fr:Ravioles du Dauphiné
 wikidata:en:Q3420363
+protected_name_file_number:en: PGI-FR-0583
+protected_name_type:en: pgi
+origins:en: en:France
 
 <fr:Ravioles
 en:Cooked fresh pasta stuffed with cheese, Cooked raviolis
@@ -50811,6 +51041,7 @@ fi:kurpitsat
 fr:Courges, Potirons, Citrouilles
 nl:Pompoenen
 
+<en:Pumpkins
 fr:Potiron frais
 season_in_country_fr:en: 1,9,10,11,12
 
