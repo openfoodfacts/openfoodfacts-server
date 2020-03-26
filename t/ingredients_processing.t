@@ -113,7 +113,7 @@ my @tests = (
 
 	],
 
-	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver, Sauerkrautpuder, PuderKnollensellerie, gehacktes Buttermilch" }, 
+	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver, Sauerkrautpuder, PuderKnollensellerie, gehacktes Buttermilch, fein gehackter Dickmilch" }, 
 [
   {
     'id' => 'en:bourbon-vanilla-powder',
@@ -138,6 +138,11 @@ my @tests = (
    'id' => 'en:buttermilk',
    'processing' => 'en:chopped',
    'text' => 'Buttermilch'
+  }	,
+  {
+   'id' => 'en:soured milk',
+   'processing' => 'en:finely chopped',
+   'text' => 'Dickmilch'
   }
 ]
 
