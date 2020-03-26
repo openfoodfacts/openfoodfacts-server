@@ -167,7 +167,17 @@ my @tests = (
 
 
 	],
+		[ { lc => "de", ingredients_text => "fein gehackter Dickmilch" }, 
+	[
+	  {
+	    'id' => 'en:soured-milk',
+	    'processing' => 'en:finely-chopped',
+	    'text' => 'Dickmilch'
+	  }
+	]
 
+
+		],
 );
 
 foreach my $test_ref (@tests) {
