@@ -3300,7 +3300,7 @@ INFO
 		#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
 		#$log->debug("allergens", { lc => $product_lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
 
-		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)*($allergenssuffixregexp))\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$product_lc,$4)/ieg;
+		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((_?($allergenssuffixregexp)_?( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergenssuffixregexp)_?)\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$product_lc,$4)/ieg;
 		# we may have added an extra dot in order to make sure we have at least one
 		$text =~ s/\.\./\./g;
 
