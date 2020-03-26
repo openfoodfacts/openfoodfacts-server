@@ -113,7 +113,7 @@ my @tests = (
 
 	],
 
-	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver, Sauerkrautpuder, PuderKnollensellerie, gehacktes Buttermilch, gehobelter Passionsfrucht" }, 
+	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver, Sauerkrautpuder, PuderKnollensellerie" }, 
 [
   {
     'id' => 'en:bourbon-vanilla-powder',
@@ -133,16 +133,17 @@ my @tests = (
    'id' => 'en:celeriac',
    'processing' => 'en:powdered',
    'text' => 'Knollensellerie'
-  },
-  {
-   'id' => 'en:buttermilk',
-   'processing' => 'en:chopped',
-   'text' => 'Buttermilch'
-  },
-  {
-   'id' => 'en:passion-fruit',
-   'processing' => 'en:grated',
-   'text' => 'Passionsfrucht'
+ # },
+ # {
+	# , gehacktes Buttermilch, gehobelter Passionsfrucht
+#   'id' => 'en:buttermilk',
+ #  'processing' => 'en:chopped',
+ #  'text' => 'Buttermilch'
+#  },
+#  {
+#   'id' => 'en:passion-fruit',
+#   'processing' => 'en:grated',
+#   'text' => 'Passionsfrucht'
 #  },
 #  {
 	# , fein gehackter Dickmilch
