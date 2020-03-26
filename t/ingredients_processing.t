@@ -152,7 +152,7 @@ my @tests = (
 
 	],
 	
-	[ { lc => "de", ingredients_text => "gehobelter Passionsfrucht" }, 
+	[ { lc => "de", ingredients_text => "gehobelt Passionsfrucht" }, 
 		[
   			{
     			'id' => 'en:passion fruit',
