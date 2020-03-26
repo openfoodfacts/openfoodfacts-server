@@ -136,7 +136,7 @@ my @tests = (
 	 #  'text' => 'Knollensellerie'
 	 # },
 	 # {
-		# , gehacktes Buttermilch, gehobelter Passionsfrucht
+		# , gehacktes Buttermilch, 
 	#   'id' => 'en:buttermilk',
 	 #  'processing' => 'en:chopped',
 	 #  'text' => 'Buttermilch'
@@ -146,38 +146,41 @@ my @tests = (
 	#   'processing' => 'en:grated',
 	#   'text' => 'Passionsfrucht'
 	#  },
-	#  {
-		# , fein gehackter Dickmilch
-	 #  'id' => 'en:soured-milk',
-	 #  'processing' => 'en:finely-chopped',
-	#   'text' => 'Dickmilch'
 	  }
 	]
-
-
-		],
-	[ { lc => "de", ingredients_text => "acerola-pulver" }, 
-[
-  {
-    'id' => 'en:acerola',
-    'processing' => 'en:powdered',
-    'text' => 'acerola'
-  }
-]
 
 
 	],
-		[ { lc => "de", ingredients_text => "fein gehackter Dickmilch" }, 
-	[
-	  {
-	    'id' => 'en:soured-milk',
-	    'processing' => 'en:finely-chopped',
-	    'text' => 'Dickmilch'
-	  }
-	]
-
-
-		],
+	
+	[ { lc => "de", ingredients_text => "gehobelter Passionsfrucht" }, 
+		[
+  			{
+    			'id' => 'en:passion-fruit',
+    			'processing' => 'en:grated',
+    			'text' => 'Passionsfrucht'
+  			}
+		]
+	],
+	
+	[ { lc => "de", ingredients_text => "acerola-pulver" }, 
+		[
+  			{
+    			'id' => 'en:acerola',
+    			'processing' => 'en:powdered',
+    			'text' => 'acerola'
+  			}
+		]
+	],
+	
+#		[ { lc => "de", ingredients_text => "fein gehackter Dickmilch" }, 
+#	[
+#	  {
+#	    'id' => 'en:soured-milk',
+#	    'processing' => 'en:finely-chopped',
+#	    'text' => 'Dickmilch'
+#	  }
+#	]
+#		],
 );
 
 foreach my $test_ref (@tests) {
