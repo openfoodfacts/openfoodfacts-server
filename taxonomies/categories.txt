@@ -351,6 +351,38 @@ de:Babysuppen
 fr:Potages pour bébé
 nl:Babysoepen, Babysoep
 
+<en:Main meals for babies
+<en:From 6 months
+en:Vegetable dish for baby with starch and meat or fish
+fr:Plat avec légumes et féculents et viande ou poisson
+ciqual_food_code:en:42603
+ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 6-8 months
+ciqual_food_name:fr:Plat légumes, avec féculent et viande/poisson, dès 6-8 mois
+
+<en:Main meals for babies
+<en:From 8 months
+en:Vegetable dish for baby with starch and meat or fish
+fr:Plat avec légumes et féculents et viande ou poisson
+ciqual_food_code:en:42604
+ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 8-12 months
+ciqual_food_name:fr:Plat légumes, avec féculent et viande/poisson, dès 8-12 mois
+
+<en:Main meals for babies
+<en:From 12 months old
+en:Vegetable dish for baby with starch and meat or fish
+fr:Plat avec légumes et féculents et viande ou poisson
+ciqual_food_code:en:42605
+ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 12 months
+ciqual_food_name:fr:Plat légumes, avec féculent et viande/poisson, dès 12 mois
+
+<en:Main meals for babies
+<en:From 18 months
+en:Vegetable dish for baby with starch and meat or fish
+fr:Plat avec légumes et féculents et viande ou poisson
+ciqual_food_code:en:42606
+ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 18 months
+ciqual_food_name:fr:Plat légumes, avec féculent et viande/poisson, dès 18 mois
+
 en:Bee products, products from bees, Products of the hive, Hive products
 ca:Productes apícoles
 de:Bienenprodukte, Imkereiprodukte
@@ -1948,7 +1980,11 @@ wikidata:en:Q1883967
 
 <en:Liqueurs
 fr:Crèmes de cassis
+en:Blackcurrant liqueur
 wikidata:en:Q968019
+ciqual_food_code:en:1021
+ciqual_food_name:en:Blackcurrant liqueur
+ciqual_food_name:fr:Crème de cassis
 
 <en:Liqueurs
 en:Curaçao
@@ -16588,6 +16624,13 @@ fr:vins perlant, vin perlant, perlé
 <en:Sparkling wines
 fr:vins pétillant, vin pétillant, pétillant
 
+<en:Sparkling wines
+en:Sparkling fruit wine
+fr:Pétillant de fruits
+ciqual_food_code:en:5100
+ciqual_food_name:en:Sparkling fruit wine
+ciqual_food_name:fr:Pétillant de fruits
+
 <en:Wines
 en:Fortified wines
 de:Likörweine
@@ -17908,7 +17951,7 @@ nl:Platte graanbroden, Platte graanbrood
 sv:Halvtjockkakor, Hällakaka
 wikidata:en:Q10516678
 
-<en:Wheat breads
+<en:Meals
 en:Fajitas
 fr:Fajitas
 ciqual_food_code:en:25460
@@ -18432,7 +18475,7 @@ wikidata:en:Q3665589
 en:Black Forest gâteau, Black Forest cake, Chocolate sponge cake with cherry, Chocolate sponge cake without cherry
 de:Schwarzwälder Kirschtorte, Schwarzwälderkirschtorte, Schwarzwäldertorte
 es:Pastel de la Selva Negra, Torta Selva Negra, Tarta Selva Negra
-fr:Forêt-noires, Forêts noires, Gâteau au chocolat type forêt noire (génoise au chocolat et crème multi-couches avec cerises), Gâteau au chocolat type forêt noire (génoise au chocolat et crème multi-couches sans cerises)
+fr:Forêt-noires, Forêts noires, Gâteau au chocolat type forêt noire, Génoise au chocolat et crème multi-couches avec cerises, Génoise au chocolat et crème multi-couches sans cerises
 it:Torta della Foresta Nera
 nl: Schwarzwälder Kirschtaarten
 wikidata:en:Q19028
@@ -18447,6 +18490,14 @@ fr:Gâteau moelleux nature, Génoise
 ciqual_food_code:en:23594
 ciqual_food_name:en:Soft cake, plain, sponge cake type
 ciqual_food_name:fr:Gâteau moelleux nature type génoise
+
+<en:Cakes
+<en:Desserts
+en:Dried sponge cake filled with fruits and covered with chocolate
+fr:Génoise sèche fourrée aux fruits et nappée de chocolat
+ciqual_food_code:en:24686
+ciqual_food_name:en:Dried sponge cake filled with fruits and covered with chocolate
+ciqual_food_name:fr:Génoise sèche fourrée aux fruits et nappée de chocolat
 
 <en:Cakes
 <en:Desserts
@@ -18601,10 +18652,10 @@ wikidata:en:Q4545971
 
 #Tartufo is an italian dessert made of ice cream with chocolate in the center. Tartufo di Pizzo is a PGI.
 <en:Desserts
-en:Tartufo (dessert)
-fr:Tartufo (dessert)
-it:Tartufo (dolce)
-nl:Tartufo (roomijs)
+en:Tartufo
+fr:Tartufo
+it:Tartufo
+nl:Tartufo
 wikidata:en:Q1432826
 
 <en:Cakes
@@ -18724,6 +18775,13 @@ oqali_family:en: fr:Biscuits et gateaux industriels - Cakes aux fruits confits
 ciqual_food_code:en:23909
 ciqual_food_name:en:Fruit cake
 ciqual_food_name:fr:Cake aux fruits
+
+<en:Cakes
+"en:Soft fruit cakes
+fr:Gâteaux moelleux aux fruits
+ciqual_food_code:en:23937
+ciqual_food_name:en:Fruit soft cake
+ciqual_food_name:fr:Gâteau moelleux aux fruits
 
 
 <en:Cakes
@@ -19621,7 +19679,7 @@ en:Lollipops, Lollipop
 de:Dauerlutscher
 es:Piruletas
 fi:tikkarit
-fr:Sucettes, Sucette
+fr:Sucettes
 nl:Lollies
 ru:Леденец
 zh:棒棒糖
@@ -20450,13 +20508,16 @@ ro:Conserve carne, Conserve de carne
 zh:罐装肉, 肉罐头
 
 <en:Meals
-en:Spanish omelettes
+en:Spanish omelettes, Spanish-style tortilla with onions, Omelette with potatoes and onions
 de:Kartoffel Tortillas
 es:Tortillas de patata
 fi:espanjalaiset tortillat
-fr:Omelettes de pommes de terre, Omelettes espagnoles
+fr:Omelettes de pommes de terre, Omelettes espagnoles, Tortilla espagnole aux oignons, Omelette aux pommes de terre et oignons
 nl:Spaanse tortillas
 wikidata:en:Q281751
+ciqual_food_code:en:22510
+ciqual_food_name:en:Spanish-style tortilla with onions (omelette with potatoes and onions)
+ciqual_food_name:fr:Tortilla espagnole aux oignons (omelette aux pommes de terre et oignons)
 
 <en:Spanish omelettes
 en:Egg-free spanish omelettes
@@ -22611,7 +22672,7 @@ wikidata:en:Q2223649
 <en:French cheeses
 <en:Goat cheeses
 en:Valençay cheese
-fr:Valençay (fromage)
+fr:Valençay
 nl:Velençay kaas
 wikidata:en:Q659277
 
@@ -26243,7 +26304,11 @@ th:ขนมหวาน
 zh:甜品, 甜点
 
 <en:Desserts
-fr:Bavarois aux fruits
+fr:Bavarois aux fruits, Gâteau à la mousse de fruits sur génoise, Miroir aux fruits,
+en:Sponge cake with fruit mousse
+ciqual_food_code:en:23007
+ciqual_food_name:en:Sponge cake w fruit mousse
+ciqual_food_name:fr:Gâteau mousse de fruits sur génoise, type miroir, bavarois
 
 <en:Desserts
 en:Liégeois
@@ -28234,7 +28299,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quail_eggs
 
 <en:Bird eggs
 en:Duck eggs
-fr:Oeufs de canards, Oeufs de cane
+fr:Oeufs de cane
 it:Uova d'anatra
 nl:Eende-ei
 ru:Яйца уток, яйца утиные, утиные яйца
@@ -28485,92 +28550,92 @@ nl:Gezouten margarine
 
 <en:Unsalted margarines
 <en:Light margarines
-en:60% unsalted vegetable fat (margarine type) with sunflowerseed
-fr:Matière grasse végétale allégée à 60% (type margarine doux) au tournesol
+en:60% unsalted vegetable fat margarine type with sunflowerseed
+fr:Matière grasse végétale allégée à 60% type margarine doux au tournesol
 ciqual_food_code:en:16654
 ciqual_food_name:en:Vegetable fat (margarine type), 60% fat, unsalted, sunflowerseed
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 60% de MG, allégée, au tournesol, doux
 
 <en:Unsalted margarines
 <en:Light margarines
-en:30-40% unsalted vegetable fat (margarine type)
-fr:Matière grasse végétale légère à 30-40% (type margarine doux)
+en:30-40% unsalted vegetable fat margarine type
+fr:Matière grasse végétale légère à 30-40% type margarine doux
 ciqual_food_code:en:16733
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, doux
 
 <en:Unsalted margarines
 <en:Light margarines
-en:30-40% unsalted vegetable fat (margarine type) with plant sterols esters
-fr:Matière grasse végétale légère à 30-40% (type margarine doux) aux esters de stérol végétal
+en:30-40% unsalted vegetable fat margarine type with plant sterols esters
+fr:Matière grasse végétale légère à 30-40% type margarine doux aux esters de stérol végétal
 ciqual_food_code:en:16735
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, doux, aux esters de stérol végétal
 
 <en:Unsalted margarines
 <en:Light margarines
-en:30-40% unsalted vegetable fat (margarine type) high in omega 3
-fr:Matière grasse végétale légère à 30-40% (type margarine doux) riche en oméga 3
+en:30-40% unsalted vegetable fat margarine type high in omega 3
+fr:Matière grasse végétale légère à 30-40% type margarine doux riche en oméga 3
 ciqual_food_code:en:16736
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted, rich in omega 3
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, doux, riche en oméga 3
 
 <en:Salted margarines
 <en:Light margarines
-en:30-40% lightly salted vegetable fat (margarine type)
-fr:Matière grasse végétale légère à 30-40% (type margarine doux) demi-sel
+en:30-40% lightly salted vegetable fat margarine type
+fr:Matière grasse végétale légère à 30-40% type margarine doux demi-sel
 ciqual_food_code:en:16734
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, lightly salted
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, demi-sel
 
 <en:Salted margarines
 <en:Light margarines
-en:50-63% lightly salted vegetable fat (margarine type)
-fr:Matière grasse végétale allégée à 50-63% (type margarine) demi-sel
+en:50-63% lightly salted vegetable fat margarine type
+fr:Matière grasse végétale allégée à 50-63% type margarine demi-sel
 ciqual_food_code:en:16738
 ciqual_food_name:en:Vegetable fat (margarine type), 50-63% fat, light, lightly salted
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, demi-sel
 
 <en:Salted margarines
 <en:Light margarines
-en:50-63% lightly salted vegetable fat (margarine type) high in omega 3
-fr:Matière grasse végétale allégée à 50-63% (type margarine) demi-sel riche en oméga 3
+en:50-63% lightly salted vegetable fat margarine type high in omega 3
+fr:Matière grasse végétale allégée à 50-63% type margarine demi-sel riche en oméga 3
 ciqual_food_code:en:16740
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, lightly salted, rich in omega 3
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, demi-sel, riche en oméga 3
 
 <en:Salted margarines
 <en:Light margarines
-en:30-40% lightly salted vegetable fat (margarine type) with plant sterols esters
-fr:Matière grasse végétale légère à 30-40% (type margarine) demi-sel aux esters de stérol végétal
+en:30-40% lightly salted vegetable fat margarine type with plant sterols esters
+fr:Matière grasse végétale légère à 30-40% type margarine demi-sel aux esters de stérol végétal
 ciqual_food_code:en:16742
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, lightly salted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 30-40% MG, légère, demi-sel, aux esters de stérol végétal
 
 <en:Salted margarines
-en:80% salted vegetable fat (margarine type)
-fr:Matière grasse végétale salée à 80% (type margarine)
+en:80% salted vegetable fat margarine type
+fr:Matière grasse végétale salée à 80% type margarine
 ciqual_food_code:en:16614
 ciqual_food_name:en:Vegetable fat (like margarine), 80% fat, salted
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 80% MG, salé
 
 <en:Unsalted margarines
-en:80% unsalted vegetable fat (margarine type)
-fr:Matière grasse végétale à 80% (type margarine doux)
+en:80% unsalted vegetable fat margarine type
+fr:Matière grasse végétale à 80% type margarine doux
 ciqual_food_code:en:16615
 ciqual_food_name:en:Vegetable fat (margarine type), 80% fat, unsalted
 ciqual_food_name:fr:Matière grasse végétale ou margarine, 80% MG, doux
 
 <en:Unsalted margarines
-en:70% unsalted vegetable fat (margarine type)
-fr:Matière grasse végétale à 70% (type margarine doux)
+en:70% unsalted vegetable fat margarine type
+fr:Matière grasse végétale à 70% type margarine doux
 ciqual_food_code:en:16616
 ciqual_food_name:en:Vegetable fat (margarine type), 70% fat, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 70% MG, doux
 
 <en:Unsalted margarines
 <en:Light margarines
-en:50-63% unsalted vegetable fat (margarine type) high in omega 3
+en:50-63% unsalted vegetable fat margarine type high in omega 3
 fr:Matière grasse végétale allégée à 50-63% de matières grasses riche en oméga 3, margarine douce
 ciqual_food_code:en:16737
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
@@ -28578,23 +28643,23 @@ ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, al
 
 <en:Unsalted margarines
 <en:Light margarines
-en:50-63% unsalted vegetable fat (margarine type) with plant sterols esters
-fr:Matière grasse végétale allégée à 50-63% (type margarine doux) aux esters de stérol végétal
+en:50-63% unsalted vegetable fat margarine type with plant sterols esters
+fr:Matière grasse végétale allégée à 50-63% type margarine doux aux esters de stérol végétal
 ciqual_food_code:en:16739
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, aux esters de stérol végétal
 
 <en:Unsalted margarines
 <en:Light margarines
-en:50-63% unsalted vegetable fat (margarine type)
-fr:Matière grasse végétale allégée à 50-63% (type margarine doux)
+en:50-63% unsalted vegetable fat margarine type
+fr:Matière grasse végétale allégée à 50-63% type margarine doux
 ciqual_food_code:en:16741
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux
 
 <en:Margarines
-en:Solid vegetable fat (margarine type) for frying
-fr:Matière grasse ou graisse végétale solide (type margarine) pour friture
+en:Solid vegetable fat margarine type for frying
+fr:Matière grasse ou graisse végétale solide type margarine pour friture
 ciqual_food_code:en:16080
 ciqual_food_name:en:Solid vegetable fat (margarine type), for frying
 ciqual_food_name:fr:Matière grasse ou graisse végétale solide (type margarine) pour friture
@@ -29318,57 +29383,57 @@ fr:Céréales au chocolat
 nl:Chocolade ontbijtgranen
 
 <en:Chocolate cereals
-en:Breakfast chocolate cereals with wheat grain flakes (not fortified with vitamins and chemical elements)
-fr:Pétales de blé chocolatés (non enrichis en vitamines et minéraux)
+en:Breakfast chocolate cereals with wheat grain flakes not fortified with vitamins and chemical elements
+fr:Pétales de blé chocolatés non enrichis en vitamines et minéraux
 ciqual_food_code:en:32011
 ciqual_food_name:en:Breakfast cereals, chocolate wheat grain flakes (not fortified with vitamins and chemical elements)
 ciqual_food_name:fr:Pétales de blé chocolatés (non enrichis en vitamines et minéraux)
 
 <en:Chocolate cereals
-en:Breakfast chocolate cereals (not filled, not fortified with vitamins and chemical elements)
-fr:Céréales chocolatées pour petit-déjeuner (non fourrées, non enrichies en vitamines et minéraux)
+en:Breakfast chocolate cereals not filled, not fortified with vitamins and chemical elements
+fr:Céréales chocolatées pour petit-déjeuner non fourrées, non enrichies en vitamines et minéraux
 ciqual_food_code:en:32013
 ciqual_food_name:en:Breakfast cereals, with chocolate, not filled (not fortified with vitamins and chemical elements)
 ciqual_food_name:fr:Céréales chocolatées pour petit déjeuner, non fourrées, (non enrichies en vitamines et minéraux)
 
 <en:Chocolate cereals
-en:Diet chocolate breakfast cereals (fortified with vitamins and chemical elements)
-fr:Céréales au chocolat pour petit-déjeuner équilibré (enrichies en vitamines et minéraux)
+en:Diet chocolate breakfast cereals fortified with vitamins and chemical elements
+fr:Céréales au chocolat pour petit-déjeuner équilibré enrichies en vitamines et minéraux
 ciqual_food_code:en:32022
 ciqual_food_name:en:Breakfast cereals, diet, with chocolate, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner ""équilibre"" au chocolat, enrichies en vitamines et minéraux
 
 <en:Chocolate cereals
-en:Diet chocolate breakfast cereals (not fortified)
-fr:Céréales au chocolat pour petit-déjeuner équilibré (non enrichies en vitamines et minéraux)
+en:Diet chocolate breakfast cereals not fortified
+fr:Céréales au chocolat pour petit-déjeuner équilibré non enrichies en vitamines et minéraux
 ciqual_food_code:en:32028
 ciqual_food_name:en:Breakfast cereals, diet, with chocolate, not fortified
 ciqual_food_name:fr:Céréales pour petit déjeuner ""équilibre"" au chocolat (non enrichies en vitamines et minéraux)
 
 <en:Chocolate cereals
-en:Chocolate breakfast cereals with puffed/popped wheat grains (fortified with vitamins and chemical elements)
-fr:Grains de blé soufflés chocolatés (enrichis en vitamines et minéraux)
+en:Chocolate breakfast cereals with puffed/popped wheat grains fortified with vitamins and chemical elements
+fr:Grains de blé soufflés chocolatés enrichis en vitamines et minéraux
 ciqual_food_code:en:32115
 ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped wheat grain, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Grains de blé soufflés chocolatés, enrichis en vitamines et minéraux
 
 <en:Chocolate cereals
-en:Breakfast chocolate cereals with wheat grain flakes (fortified with vitamins and chemical elements)
+en:Breakfast chocolate cereals with wheat grain flakes fortified with vitamins and chemical elements
 fr:Pétales de blé chocolatés enrichis en vitamines et minéraux
 ciqual_food_code:en:32009
 ciqual_food_name:en:Breakfast cereals, chocolate wheat grain flakes, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Pétales de blé chocolatés, enrichis en vitamines et minéraux
 
 <en:Chocolate cereals
-en:Breakfast chocolate high-fiber cereals (fortified with vitamins and chemical elements)
-fr:Céréales au chocolat riches en fibres pour petit déjeuner (enrichies en vitamines et minéraux)
+en:Breakfast chocolate high-fiber cereals fortified with vitamins and chemical elements
+fr:Céréales au chocolat riches en fibres pour petit déjeuner enrichies en vitamines et minéraux
 ciqual_food_code:en:32008
 ciqual_food_name:en:Breakfast cereals, rich in fibre, with chocolate, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner riches en fibres, au chocolat, enrichies en vitamines et minéraux
 
 <en:Chocolate cereals
-en:Breakfast chocolate cereals (not filled, fortified with vitamins and chemical elements)
-fr:Céréales chocolatées pour petit déjeuner (non fourrées, enrichies en vitamines et minéraux)
+en:Breakfast chocolate cereals not filled, fortified with vitamins and chemical elements
+fr:Céréales chocolatées pour petit déjeuner non fourrées, enrichies en vitamines et minéraux
 ciqual_food_code:en:32001
 ciqual_food_name:en:Breakfast cereals, with chocolate, not filled, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner chocolatées, non fourrées, enrichies en vitamines et minéraux
@@ -29395,8 +29460,8 @@ fr:Céréales fourrées
 nl:Gevulde ontbijtgranen
 
 <en:Filled cereals
-en:Breakfast cereals filled with chocolate or chocolate-hazelnuts (fortified with vitamins and chemical elements)
-fr:Céréales pour petit déjeuner fourrées au chocolat ou chocolat-noisettes (enrichies en vitamines et minéraux)
+en:Breakfast cereals filled with chocolate or chocolate-hazelnuts fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner fourrées au chocolat ou chocolat-noisettes enrichies en vitamines et minéraux
 ciqual_food_code:en:32016
 ciqual_food_name:en:Breakfast cereals, filled with chocolate or chocolate-hazelnuts, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner fourrées au chocolat ou chocolat-noisettes, enrichies en vitamines et minéraux
@@ -29409,8 +29474,8 @@ ciqual_food_name:en:Breakfast cereals, filled with chocolate or chocolate-hazeln
 ciqual_food_name:fr:Céréales pour petit déjeuner fourrées au chocolat ou chocolat-noisettes
 
 <en:Filled cereals
-en:Breakfast cereals filled with something other than chocolate (fortified with vitamins and chemical elements)
-fr:Céréales pour petit déjeuner fourrées fourrage autre que chocolat (enrichies en vitamines et minéraux)
+en:Breakfast cereals filled with something other than chocolate fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner fourrées fourrage autre que chocolat enrichies en vitamines et minéraux
 ciqual_food_code:en:32018
 ciqual_food_name:en:Breakfast cereals, filled with a filling other than chocolate, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner fourrées avec autre chose que du chocolat (enrichies en vitamines et minéraux)
@@ -31714,6 +31779,13 @@ fr:Abricots
 nl:Abrikozen
 wikidata:en:Q3733836
 
+<en:Apricots
+en:Raw pitted apricot
+fr:Abricot dénoyauté
+ciqual_food_code:en:13000
+ciqual_food_name:en:Apricot, pitted, raw
+ciqual_food_name:fr:Abricot, dénoyauté, cru
+
 <en:Fruits
 en:Berries
 de:Beeren
@@ -31765,6 +31837,13 @@ la:Vaccinium, Cyanococcus
 nl:Bosbessen familie
 ro:Afine
 
+<en:Blueberries
+en:Frozen raw Blueberry
+fr:Myrtille surgelée crue
+ciqual_food_code:en:13132
+ciqual_food_name:en:Blueberry, frozen, raw
+ciqual_food_name:fr:Myrtille, surgelée, crue
+
 <en:Berries
 <en:Elderberry products
 en:Elderberries, Black elders, European elders, European elderberries, European black elderberries
@@ -31806,12 +31885,22 @@ ro:Zmeură
 wikidata:en:Q13179
 
 <en:Berries
-en:Redcurrants
+en:Redcurrants, Raw red currants
 es:Grosellas
-fr:Groseilles
+fr:Groseilles, Groseilles crues
 la:Ribes rubrum
 nl:Aalbessen
 ro:Coacaze roșii
+ciqual_food_code:en:13019
+ciqual_food_name:en:Red currant, raw
+ciqual_food_name:fr:Groseille, crue
+
+<en:Berries
+en:Raw black currant
+fr:Cassis cru
+ciqual_food_code:en:13007
+ciqual_food_name:en:Black currant, raw
+ciqual_food_name:fr:Cassis, cru
 
 <en:Berries
 en:Strawberries
@@ -34461,10 +34550,10 @@ fr:Sauces pour poissons, Sauces pour poisson
 nl:Sauzen voor visgerechten
 
 <en:Sauces
-fr:Sauces à base d'extrait de levure, Sauces à base d'extrait de levure (type Marmite, Cenovis)
+fr:Sauces à base d'extrait de levure, Sauces à base d'extrait de levure type Marmite ou Cenovis
 
 <en:Sauces
-fr:Sauces à base d'extrait de viande, Sauces à base d'extrait de viande (type Viandox)
+fr:Sauces à base d'extrait de viande, Sauces à base d'extrait de viande type Viandox
 
 <en:Sauces
 fr:Sauces à l'oseille, Sauce à l'oseille
@@ -34650,8 +34739,8 @@ ciqual_food_name:en:Salad dressing, reduced fat, prepacked
 ciqual_food_name:fr:Sauce crudités ou Sauce salade, allégée en matière grasse, préemballée
 
 <en:Sauces
-en:Prepacked salad dressing (50-75% of oil), Prepackaged salad dressing (50-75% of oil)
-fr:Sauce vinaigrette (50 à 75% d'huile) préemballée
+en:Prepacked salad dressing with 50-75% of oil, Prepackaged salad dressing with 50-75% of oil
+fr:Sauce vinaigrette préemballée avec 50 à 75% d'huile
 ciqual_food_code:en:11110
 ciqual_food_name:en:Salad dressing, (50-75% of oil), prepacked
 ciqual_food_name:fr:Sauce vinaigrette (50 à 75% d'huile), préemballée
@@ -34813,13 +34902,23 @@ ciqual_food_name:en:Aioli sauce (garlic and olive oil mayonnaise), prepacked
 ciqual_food_name:fr:Sauce aïoli, préemballée
 
 <en:Sauces
-en:Béchamel sauces
+en:Béchamel sauces, Prepacked bechamel sauce, Prepackaged bechamel sauce
 de:Béchamel Saucen, Bechamel Saucen
 es:Salsas bechamel, bechameles
-fr:Sauces béchamel, sauce béchamel
+fr:Sauces béchamel, sauce béchamel, Sauce béchamel préemballée
 hu:Béchamel mártások
 nl:Bechamelsauzen
 wikidata:en:Q209974
+ciqual_food_code:en:11101
+ciqual_food_name:en:Bechamel sauce, prepacked
+ciqual_food_name:fr:Sauce béchamel, préemballée
+
+<en:Béchamel sauces
+en:Home-made Bechamel sauce
+fr:Sauce béchamel maison
+ciqual_food_code:en:11143
+ciqual_food_name:en:Bechamel sauce, home-made
+ciqual_food_name:fr:Sauce béchamel, maison
 
 <en:Sauces
 en:Cheese sauces
@@ -35662,6 +35761,9 @@ en:Spring rolls
 de:Frühlingsrollen
 fr:Rouleaux de printemps
 nl:Verse loempias, springrolls
+ciqual_food_code:en:25419
+ciqual_food_name:en:Spring roll
+ciqual_food_name:fr:Rouleau de printemps
 
 <en:Meals
 en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes
@@ -35970,6 +36072,13 @@ en:Rabbit dishes
 fr:Plats au lapin, plats à base de lapin, Plats à base de viande de lapin, plats préparés à base de lapin
 nl:Konijnmaaltijden
 
+<en:Meals with rabbit or hare
+en:Raw rabbit liver
+fr:Foie de lapin cru
+ciqual_food_code:en:40110
+ciqual_food_name:en:Liver, rabbit, raw
+ciqual_food_name:fr:Foie, lapin, cru
+
 <fr:Civets
 <en:Rabbit dishes
 fr:Civets de lapin, Civet de lapin
@@ -36145,6 +36254,13 @@ ciqual_food_name:en:Heart, chicken, cooked
 ciqual_food_name:fr:Coeur, poulet, cuit
 
 <en:Poultry meals
+en:Raw chicken heart
+fr:Coeur de poulet cru
+ciqual_food_code:en:40054
+ciqual_food_name:en:Heart, chicken, raw
+ciqual_food_name:fr:Coeur, poulet, cru
+
+<en:Poultry meals
 en:Cooked chicken liver
 fr:Foie de poulet cuit
 ciqual_food_code:en:40116
@@ -36152,11 +36268,25 @@ ciqual_food_name:en:Liver, chicken, cooked
 ciqual_food_name:fr:Foie, poulet, cuit
 
 <en:Poultry meals
+en:Raw chicken liver
+fr:Foie de poulet cru
+ciqual_food_code:en:40111
+ciqual_food_name:en:Liver, chicken, raw
+ciqual_food_name:fr:Foie, poulet, cru
+
+<en:Poultry meals
 en:Preserved poultry liver
 fr:Confit de foie de volaille
 ciqual_food_code:en:8125
 ciqual_food_name:en:Preserved poultry liver
 ciqual_food_name:fr:Confit de foie de volaille
+
+<en:Poultry meals
+en:Raw liver poultry
+fr:Foie de volaille cru
+ciqual_food_code:en:40108
+ciqual_food_name:en:Liver, poultry, raw
+ciqual_food_name:fr:Foie, volaille, cru
 
 <en:poultry skewers
 en:chicken skewers
@@ -36188,6 +36318,13 @@ nl:Ganzevleesmaaltijden
 en:Goose confits
 fr:Confits d’oie, Confit d’oie
 
+<fr:Plats à base d’oies
+en:Raw goose liver
+fr:Foie d'oie cru
+ciqual_food_code:en:40120
+ciqual_food_name:en:Liver, goose, raw
+ciqual_food_name:fr:Foie, oie, cru
+
 <en:Poultry meals
 en:Duck dishes
 de:Entengerichte
@@ -36196,6 +36333,13 @@ fi:Ankka-ateriat
 fr:Plats au canard, plats à base de canard, plats à base de canards, plats préparés à base de canard
 nl:Eendevleesmaaltijden
 zh:鸭子菜
+
+<en:Duck dishes
+en:Raw duck liver
+fr:Foie de canard cru
+ciqual_food_code:en:40121
+ciqual_food_name:en:Liver, duck, raw
+ciqual_food_name:fr:Foie, canard, cru
 
 <en:Duck dishes
 en:Peking duck
@@ -36276,11 +36420,25 @@ ciqual_food_name:en:Heart, turkey, cooked
 ciqual_food_name:fr:Coeur, dinde, cuit
 
 <en:Turkey dishes
+en:Raw turkey heart
+fr:Coeur de dinde cru
+ciqual_food_code:en:40055
+ciqual_food_name:en:Heart, turkey, raw
+ciqual_food_name:fr:Coeur, dinde, cru
+
+<en:Turkey dishes
 en:Cooked turkey liver
 fr:Foie de dinde cuit
 ciqual_food_code:en:40118
 ciqual_food_name:en:Liver, turkey, cooked
 ciqual_food_name:fr:Foie, dinde, cuit
+
+<en:Turkey dishes
+en:Raw liver turkey
+fr:Foie de dinde cru
+ciqual_food_code:en:40115
+ciqual_food_name:en:Liver, turkey, raw
+ciqual_food_name:fr:Foie, dinde, cru
 
 <en:Poultry meals
 fr:Poule au pot
@@ -36350,6 +36508,13 @@ fi:suolaiset piiraat
 fr:Tartes salées
 nl:Hartige taarten
 pnns_group_2:en:Pizza pies and quiches
+
+<en:Salted pies
+en:Pizza with onion and anchovy and black olives
+fr:Pissaladière
+ciqual_food_code:en:25528
+ciqual_food_name:en:Pizza, onion anchovy and black olives
+ciqual_food_name:fr:Pissaladière
 
 <en:Salted pies
 fr:Flamiches
@@ -36599,6 +36764,14 @@ nl:Aspergesoep
 ciqual_food_code:en:25968
 ciqual_food_name:en:Soup, asparagus, prepacked, to be reheated
 ciqual_food_name:fr:Soupe aux asperges, préemballée à réchauffer
+
+<en:Vegetable soups
+<en:Dehydrated soups
+en:Dehydrated and reconstituted asparagus soup
+fr:Soupes aux asperges déshydratées et reconstituées
+ciqual_food_code:en:25932
+ciqual_food_name:en:Soup, asparagus, dehydrated and reconstituted
+ciqual_food_name:fr:Soupe aux asperges, déshydratée reconstituée
 
 <en:Onions and their products
 <en:Vegetable soups
@@ -37187,10 +37360,13 @@ fr:Gratins dauphinois, Gratin dauphinois, Pommes de terre au gratin
 wikidata:en:Q1647122
 
 <en:Potato gratin
-en:Tartiflettes
-fr:Tartiflettes
+en:Tartiflettes, Tartiflette, Cheese fondue
+fr:Tartiflettes, Tartiflette
 nl:Tartiflette
 wikidata:en:Q1759775
+ciqual_food_code:en:25137
+ciqual_food_name:en:Tartiflette (cheese fondue)
+ciqual_food_name:fr:Tartiflette
 
 <en:Tartiflettes
 <en:Canned meals
@@ -37369,11 +37545,15 @@ es:Frijoles refritos
 fr:Haricots refrits
 
 <en:Prepared vegetables
-fr:Ratatouilles, ratatouille
+fr:Ratatouilles, ratatouille, Ratatouille cuisinée
+en:Cooked ratatouille
 ja:ラタトゥイユ
 nl:Ratatouilles
 ru:Рататуй
 wikidata:en:Q183095
+ciqual_food_code:en:25018
+ciqual_food_name:en:Ratatouille cooked
+ciqual_food_name:fr:Ratatouille cuisinée
 
 <en:Meals
 <en:Lentils
@@ -37710,7 +37890,7 @@ ciqual_food_name:en:Grilled vegetables pan-fried, Mediterranean-style, frozen, r
 ciqual_food_name:fr:Poêlée de légumes assaisonnés grillée, méridionale ou méditerranéenne, surgelée, crue
 
 <fr:Poêlées
-en:Frozen pan-fried vegetables  with mushrooms (country-style)
+en:Frozen pan-fried vegetables  with mushrooms country-style
 fr:Poêlée de légumes assaisonnés aux champignons surgelée, Poêlée de légumes champêtre surgelée
 ciqual_food_code:en:20498
 ciqual_food_name:en:Vegetables pan-fried with mushrooms (country-style), frozen
@@ -40897,8 +41077,11 @@ nl:Gedroogde weidekringzwammen
 en:Dried shiitake mushrooms, Dried shiitake, Dried Lentinula edodes
 de:Getrocknete Shiitake Pilze
 es:Setas shiitake deshidratadas, Shiitake deshidratadas, Shiitakes deshidratadas, Setas shitake deshidratadas, Lentinula edodes deshidratadas
-fr:Champignons shiitake séchés, Shiitake séchés, Shiitakes séchés, Lentins du chêne séchés, Lentinula edodes séchés
+fr:Champignons shiitake séchés, Shiitake séchés, Shiitakes séchés, Lentins du chêne séchés, Lentinula edodes séchés, Lentins comestibles séchés
 nl:Gedroogde shiitakes
+ciqual_food_code:en:20211
+ciqual_food_name:en:Shiitake mushroom, dried
+ciqual_food_name:fr:Champignon, lentin comestible ou shiitaké, séché
 
 <en:Mushrooms and their products
 <en:Flours
@@ -41727,6 +41910,13 @@ nl:Rijstvermicellis
 wikidata:en:Q716004
 
 <en:Noodles
+en:Sautéed noodles with shrimps, Pan-fried noodles with shrimps
+fr:Nouilles sautées aux crevettes, Nouilles poêlées aux crevettes
+ciqual_food_code:en:25183
+ciqual_food_name:en:Noodles with shrimps sautéed/pan-fried
+ciqual_food_name:fr:Nouilles sautées/poêlées aux crevettes
+
+<en:Noodles
 en:Chinese noodles
 de:Chinesische Nudeln
 es:Fideos chinos, Noodles chinos
@@ -41826,15 +42016,15 @@ ciqual_food_name:en:Crispy biscuit (cookie), without chocolate, reduced fat
 ciqual_food_name:fr:Biscuit sec croquant (ex : tuile) sans chocolat, allégé en matière grasse
 
 <en:Biscuits and cakes
-en:Biscuit with nuts (no chocolate or lightly chocolate-flavoured)
-fr:Biscuit sec fourré aux noix (non ou légèrement chocolaté)
+en:Biscuit with nuts, Lightly chocolate-flavoured biscuit with nuts
+fr:Biscuit sec fourré aux noix, Biscuit sec légèrement chocolaté fourré aux noix
 ciqual_food_code:en:24055
 ciqual_food_name:en:Biscuit (cookie) with nuts (no chocolate or lightly chocolate-flavoured)
 ciqual_food_name:fr:Biscuit sec fourré fruits à coque (non ou légèrement chocolaté)
 
 <en:Biscuits and cakes
-en:Prepacked wafer biscuit filled with nuts (hazelnut, almond, praline, etc.)
-fr:Gaufrette fourrée (noisette, amande, praline etc.) et préemballée
+en:Prepacked wafer biscuit filled with nuts
+fr:Gaufrette fourrée et préemballée
 ciqual_food_code:en:24312
 ciqual_food_name:en:Wafer biscuit, filled with nuts (hazelnut, almond, praline, etc.), with chocolate or not, prepacked
 ciqual_food_name:fr:Gaufrette fourrée fruits à coque (noisette, amande, praline, etc.), chocolatée ou non, préemballée
@@ -41938,6 +42128,14 @@ pt:Pastéis de nata, Pastel de nata
 
 <en:Pastries
 <en:Desserts
+en:French toast
+fr:Pain perdu
+ciqual_food_code:en:39236
+ciqual_food_name:en:French toast
+ciqual_food_name:fr:Pain perdu
+
+<en:Pastries
+<en:Desserts
 en:Refrigerated floating island, Refrigerated meringue poached in milk and served in a light custard cream
 fr:Ile flottante rayon frais
 ciqual_food_code:en:39215
@@ -41951,6 +42149,14 @@ fr:Crème brûlée rayon frais
 ciqual_food_code:en:39213
 ciqual_food_name:en:Caramelized custard cream (crème brûlée), refrigerated
 ciqual_food_name:fr:Crème brûlée, rayon frais
+
+<en:Pastries
+<en:Desserts
+en:Refrigerated custard cream with caramel sauce
+fr:Crème caramel rayon frais
+ciqual_food_code:en:39209
+ciqual_food_name:en:Custard cream with caramel sauce, refrigerated
+ciqual_food_name:fr:Crème caramel, rayon frais
 
 <en:Pastries
 <en:Desserts
@@ -42024,10 +42230,13 @@ ciqual_food_name:fr:Gâteau basque, cerises
 
 <en:Pastries
 <en:Cakes
-en:Canelés, cannelés
+en:Canelés, cannelés, Canelé cake
 fr:Canelés, cannelés, canelés de Bordeaux, cannelés de Bordeaux, Canelé, cannelé
 nl:Canelé
 wikidata:en:Q2746070
+ciqual_food_code:en:23022
+ciqual_food_name:en:Canelé cake
+ciqual_food_name:fr:Canelé
 
 <en:Pastries
 en:Cream puff, Pastry cream puff
@@ -42048,13 +42257,23 @@ ciqual_food_code:en:23456
 ciqual_food_name:en:Chou pastry filled with whipped cream
 ciqual_food_name:fr:Chou à la crème chantilly
 
+<en:Cream puff
+en:Chou pastry filled with custard
+fr:Chou à la crème pâtissière
+ciqual_food_code:en:23457
+ciqual_food_name:en:Chou pastry filled with custard
+ciqual_food_name:fr:Chou à la crème pâtissière
 
 <en:Pastries
-en:Coconut Macaroons, Coconut macaroon
+en:Coconut Macaroons, Coconut macaroon, Rock-shaped coconut cak
 fi:Kookosmacaron
-fr:Rochers à la noix de coco, Congolais, Rochers coco, rocher à la noix de coco, rocher coco,
+fr:Rochers à la noix de coco, Congolais, Rochers coco, rocher à la noix de coco, rocher coco, Petit gâteau à la noix de coco
 nl:Kokosmacaron
 wikidata:en:Q2993000
+ciqual_food_code:en:23033
+ciqual_food_name:en:Rock-shaped coconut cake
+ciqual_food_name:fr:Rocher coco, Congolais, Petit gâteau à la noix de coco
+
 
 <en:Pastries
 fr:Paris-Brest
@@ -42125,7 +42344,7 @@ wikidata:en:Q3442427
 <en:Pastries
 <en:Desserts
 en:Baklava, oriental pastry with almonds and syrup
-fr:Baklava ou Baklawa (pâtisserie orientale aux amandes et sirop)
+fr:Baklava, Baklawa, Pâtisserie orientale aux amandes et sirop
 ciqual_food_code:en:23300
 ciqual_food_name:en:Baklava (oriental pastry with almonds and syrup)
 ciqual_food_name:fr:Baklava, Baklawa, pâtisserie orientale aux amandes et sirop
@@ -42339,7 +42558,7 @@ ciqual_food_name:fr:Tarte aux poires amandine
 <en:Sweet pies
 en:Pies from Normandy, Apple pie with custard and flour and eggs and cream and sugar and apple and alcohol
 fi:normandialaisia piiraita
-fr:Tartes normandes, Tarte normande, Tarte normande aux pommes (garniture farine œufs crème sucre calvados)
+fr:Tartes normandes, Tarte normande, Tarte normande aux pommes avec garniture farine œufs crème sucre calvados
 nl:Normandische taarten
 ciqual_food_code:en:23481
 ciqual_food_name:en:Apple pie with custard (flour, eggs, cream, sugar, apple alcohol)
@@ -42481,6 +42700,13 @@ ru:Чизбургер
 wikidata:en:Q667478
 
 <en:Sandwiches
+en:Large round sandwich with lettuce tuna anchovy and black olives
+fr:Pan bagnat
+ciqual_food_code:en:25513
+ciqual_food_name:en:Large round sandwich with lettuce, tuna, anchovy and black olives
+ciqual_food_name:fr:Pan bagnat
+
+<en:Sandwiches
 fr:Croque-madame, croquemadame
 wikidata:en:Q746
 
@@ -42538,7 +42764,7 @@ ciqual_food_name:fr:Sandwich baguette, camembert, beurre
 
 <en:Sandwiches
 en:Sandwich made with French bread and hard-boiled egg and raw vegetables and butter
-fr:Sandwich baguette jambon oeuf dur crudités (tomate salade) beurre
+fr:Sandwich baguette jambon oeuf dur crudités beurre
 ciqual_food_code:en:25475
 ciqual_food_name:en:Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
 ciqual_food_name:fr:Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
@@ -42657,8 +42883,8 @@ fr:Sandwichs au jambon
 nl:Hamsandwiches
 
 <en:Sandwiches filled with cold cuts
-en:Sandwich made with French bread and chicken and raw vegetables (lettuce & tomato) and mayonnaise
-fr:Sandwich baguette poulet crudités (tomate salade) mayonnaise
+en:Sandwich made with French bread and chicken and raw vegetables and mayonnaise
+fr:Sandwich baguette poulet crudités mayonnaise
 ciqual_food_code:en:25476
 ciqual_food_name:en:Sandwich made with French bread, chicken, raw vegetables (lettuce & tomato) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, poulet, crudités (tomate, salade), mayonnaise
@@ -43309,6 +43535,27 @@ fi:anjovis
 fr:Anchois
 nl:Ansjovis
 
+<en:Anchovy
+en:Raw common anchovy
+fr:Anchois commun cru
+ciqual_food_code:en:26079
+ciqual_food_name:en:Common anchovy, raw
+ciqual_food_name:fr:Anchois commun, cru
+
+<en:Anchovy
+en:Semi-preserved anchovy in salt
+fr:Anchois au sel, Anchoité semi-conserve
+ciqual_food_code:en:26177
+ciqual_food_name:en:Anchovy, in salt (semi-preserved)
+ciqual_food_name:fr:Anchois au sel (anchoité, semi-conserve)
+
+<en:Anchovy
+en:Marinated common anchovy
+fr:Anchois commun mariné
+ciqual_food_code:en:26187
+ciqual_food_name:en:Common anchovy, marinated
+ciqual_food_name:fr:Anchois commun, mariné
+
 <en:Fishes
 en:Sardines
 ca:Sardines
@@ -43412,6 +43659,9 @@ en:Smoked mackerels
 de:geräucherte Makrelen
 fr:Maquereaux fumés
 nl:Gerookte makreel
+ciqual_food_code:en:26087
+ciqual_food_name:en:Mackerel, smoked
+ciqual_food_name:fr:Maquereau, fumé
 
 <en:Smoked fishes
 fr:Marlins fumés, marlin fumé
@@ -43925,10 +44175,13 @@ ru:Кальмар, Кальмары
 wikidata:en:Q550774
 
 <en:Seafood
-en:Taramasalata
-fr:Taramas, tarama
+en:Taramasalata, Prepacked taramasalata, Prepackaged taramasalata
+fr:Taramas, tarama, Tarama préemballé
 nl:Taramasalata
 wikidata:en:Q1246721
+ciqual_food_code:en:8293
+ciqual_food_name:en:Taramasalata, prepacked
+ciqual_food_name:fr:Tarama, préemballé
 
 <en:Taramasalata
 fr:Taramas au cabillaud, taramas de cabillaud, taramas aux cabillauds, tarama de cabillauds
@@ -44058,6 +44311,9 @@ fr:Confitures de lait, Confiture de lait
 nl:Dulce de leche
 ru:варёная сгущёнка
 wikidata:en:Q917761
+ciqual_food_code:en:31040
+ciqual_food_name:en:Dulce de leche or confiture de lait
+ciqual_food_name:fr:Confiture de lait
 
 <en:Sweet spreads
 en:Ginger preserves, ginger jams
@@ -44754,7 +45010,7 @@ en:Artichoke spreads
 fr:Crèmes d'artichaut
 
 <en:Salted spreads
-en:Tapenades, tapenade
+en:Tapenades, tapenade, Puree of capers pitted black olives anchovy and herbs with olive oil and lemon juice
 ca:Tapenada
 de:Tapenade
 eo:Tapenado
@@ -44773,6 +45029,9 @@ ru:Тапенада
 sv:Tapenade
 pms:Tapenades, tapenade
 wikidata:en:Q129031
+ciqual_food_code:en:11043
+ciqual_food_name:en:Tapenade (a puree of capers, pitted black olives, anchovy and herbs, with olive oil and lemon juice
+ciqual_food_name:fr:Tapenade
 
 <en:Tapenade
 fr:Tapenades noires, Tapenade noire, Tapenade aux olives noires
@@ -45567,8 +45826,8 @@ nl:Donkere esdoornstropen
 
 <en:Simple syrups
 en:Molasses, Cane molasses
-es:Melazas de caña, Melazas, Melaza, Miel de caña, Melaza de caña, Mélasse de canne
-fr:Mélasses
+es:Melazas de caña, Melazas, Melaza, Miel de caña, Melaza de caña
+fr:Mélasses, Mélasse de canne
 nl:Melasses
 nl_be:Melasses
 wikidata:en:Q154389
@@ -45628,6 +45887,13 @@ fi:paistetut sipulit
 fr:Oignons frits
 hu:Sült hagyma
 nl:Gebakken ui
+
+<en:Onions and their products
+en:Dried onions
+fr:Oignons séchés
+ciqual_food_code:en:20180
+ciqual_food_name:en:Onion, dried
+ciqual_food_name:fr:Oignon, séché
 
 <en:Vegetables based foods
 <en:Pumpkin plant products
@@ -46090,8 +46356,14 @@ nl:Aubergines
 en:Fresh aubergines
 fr:Aubergines fraîches
 
+<en:Aubergines
 fr:Ristes d’aubergines
+en:Riste with eggplant and tomatoes and onions
+fr:Riste d'aubergines avec aubergines et tomates et oignons
 wikidata:en:Q53560342
+ciqual_food_code:en:25196
+ciqual_food_name:en:Riste (Eggplant, tomatoes, onions)
+ciqual_food_name:fr:Riste d'aubergines (aubergines, tomates, oignons)
 
 <en:Vegetables
 en:Beet, Beetroots
@@ -46240,6 +46512,27 @@ es:Repollos, Col repollo
 fr:Choux cabus
 la:Brassica oleracea var. capitata
 nl:Kolen
+
+<en:Cabbages
+en:Cooked Chinese cabbage, Cooked nappa cabbage, Bok choy
+fr:Chou chinois (pak-choi ou pé-tsai) cuit
+ciqual_food_code:en:20221
+ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), cooked
+ciqual_food_name:fr:Chou chinois cuit, Pak-choi, Pé-tsai
+
+<en:Cabbages
+en:Boiled green cabbage boiled, Green cabbage cooked in water
+fr:Chou vert boulli, Chou vert cuit à l'eau
+ciqual_food_code:en:20015
+ciqual_food_name:en:Green cabbage, boiled/cooked in water
+ciqual_food_name:fr:Chou vert, cuit
+
+<en:Cabbages
+en:Boiled red cabbage, Red cabbage cooked in water
+fr:Chou rouge boulli, Chou rouge cuit à l'eau
+ciqual_food_code:en:20095
+ciqual_food_name:en:Red cabbage, boiled/cooked in water
+ciqual_food_name:fr:Chou rouge, bouilli/cuit à l'eau
 
 <en:Vegetable rods
 en:Cardoons, Artichoke thistles
@@ -50832,9 +51125,12 @@ fr:Gésiers de canard
 nl:Eendenspiermaag
 
 <en:Gizzards
-en:Chicken gizzards
-fr:Gésiers de poulet
+en:Chicken gizzards, Raw chicken gizzards
+fr:Gésiers de poulet, Gésiers de poulet crus
 nl:Kippenspiermaag
+ciqual_food_code:en:40700
+ciqual_food_name:en:Gizzard, chicken, raw
+ciqual_food_name:fr:Gésier, poulet, cru
 
 <en:Offals
 en:Tripe dishes
@@ -51567,8 +51863,8 @@ nl_be:Tabouleh
 wikidata:en:Q607690
 
 <en:Meals
-en:Filled fritter (garnish : shrimps vegetables poultry meat etc.), Filo pastry (garnish : shrimps vegetables poultry meat etc.)
-fr:Brick garni (garniture : crevettes légumes volaille viande poisson etc.)
+en:Filled fritter garnished with shrimps and vegetables and poultry and meat, Filo pastry garnished with shrimps and vegetables and poultry and meat
+fr:Brick garni aux crevettes et légumes et volaille et viande et poisson
 ciqual_food_code:en:25438
 ciqual_food_name:en:Fritter, filled (filo pastry) (garnish : shrimps, vegetables, poultry, meat, etc.)
 ciqual_food_name:fr:Brick garni (garniture : crevettes, légumes, volaille, viande, poisson, etc.)
@@ -52325,6 +52621,13 @@ fr:Gâteau moelleux aux fruits à coque
 ciqual_food_code:en:23938
 ciqual_food_name:en:Soft cake with nuts
 ciqual_food_name:fr:Gâteau moelleux aux fruits à coque
+
+<en:Cakes
+en:Soft cake filled with fruits, Mini sponge roll filled with fruits
+fr:Gâteau moelleux fourré aux fruits, Mini-roulé fourré aux fruits, Mini-cake fourré aux fruits
+ciqual_food_code:en:23941
+ciqual_food_name:en:Soft cake filled with fruits, mini sponge roll type
+ciqual_food_name:fr:Gâteau moelleux fourré aux fruits type mini-roulé ou mini-cake fourré
 
 <en:Sweet mousses
 en:Fruit mousses, Refrigerated fruit mousse
