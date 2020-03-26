@@ -113,43 +113,55 @@ my @tests = (
 
 	],
 
-	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver, Sauerkrautpuder, PuderKnollensellerie" }, 
+		[ { lc => "de", ingredients_text => "bourbon-vanillepulver" }, 
+	[
+	  {
+	    'id' => 'en:bourbon-vanilla-powder',
+	    'text' => 'bourbon-vanillepulver'
+	#  },
+	#  {
+		# , acerola-pulver, Sauerkrautpuder, PuderKnollensellerie
+	#    'id' => 'en:acerola',
+	  #  'processing' => 'en:powdered',
+	#    'text' => 'acerola'
+	#  },
+	#  {
+	 #  'id' => 'en:sauerkraut',
+	 #  'processing' => 'en:powdered',
+	 #  'text' => 'Sauerkraut'
+	#  },
+	 # {
+	 #  'id' => 'en:celeriac',
+	 #  'processing' => 'en:powdered',
+	 #  'text' => 'Knollensellerie'
+	 # },
+	 # {
+		# , gehacktes Buttermilch, gehobelter Passionsfrucht
+	#   'id' => 'en:buttermilk',
+	 #  'processing' => 'en:chopped',
+	 #  'text' => 'Buttermilch'
+	#  },
+	#  {
+	#   'id' => 'en:passion-fruit',
+	#   'processing' => 'en:grated',
+	#   'text' => 'Passionsfrucht'
+	#  },
+	#  {
+		# , fein gehackter Dickmilch
+	 #  'id' => 'en:soured-milk',
+	 #  'processing' => 'en:finely-chopped',
+	#   'text' => 'Dickmilch'
+	  }
+	]
+
+
+		],
+	[ { lc => "de", ingredients_text => "acerola-pulver" }, 
 [
-  {
-    'id' => 'en:bourbon-vanilla-powder',
-    'text' => 'bourbon-vanillepulver'
-  },
   {
     'id' => 'en:acerola',
     'processing' => 'en:powdered',
     'text' => 'acerola'
-  },
-  {
-   'id' => 'en:sauerkraut',
-   'processing' => 'en:powdered',
-   'text' => 'Sauerkraut'
-  },
-  {
-   'id' => 'en:celeriac',
-   'processing' => 'en:powdered',
-   'text' => 'Knollensellerie'
- # },
- # {
-	# , gehacktes Buttermilch, gehobelter Passionsfrucht
-#   'id' => 'en:buttermilk',
- #  'processing' => 'en:chopped',
- #  'text' => 'Buttermilch'
-#  },
-#  {
-#   'id' => 'en:passion-fruit',
-#   'processing' => 'en:grated',
-#   'text' => 'Passionsfrucht'
-#  },
-#  {
-	# , fein gehackter Dickmilch
- #  'id' => 'en:soured-milk',
- #  'processing' => 'en:finely-chopped',
-#   'text' => 'Dickmilch'
   }
 ]
 
