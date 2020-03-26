@@ -1304,7 +1304,7 @@ sub display_image($$$) {
 
 		my $path = product_path($product_ref);
 		my $rev = $product_ref->{images}{$id}{rev};
-		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang} . ' - ' . $display_lc;
 
 		if (not defined $product_ref->{jqm}) {
 			my $noscript = "<noscript>";
