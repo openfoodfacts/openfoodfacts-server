@@ -84,6 +84,8 @@ my @tests = (
 
 	[ { lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)" }, ["en:vegetable-oil", "en:coconut", "en:rapeseed"]],
 
+	[ { lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_."}, ["en:wheat-starch"]],
+
 );
 
 foreach my $test_ref (@tests) {
