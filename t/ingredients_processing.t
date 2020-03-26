@@ -120,7 +120,7 @@ my @tests = (
 	    'text' => 'bourbon-vanillepulver'
 	#  },
 	#  {
-		# , acerola-pulver, Sauerkrautpuder, PuderKnollensellerie
+		# Sauerkrautpuder, PuderKnollensellerie
 	#    'id' => 'en:acerola',
 	  #  'processing' => 'en:powdered',
 	#    'text' => 'acerola'
@@ -141,26 +141,32 @@ my @tests = (
 	 #  'processing' => 'en:chopped',
 	 #  'text' => 'Buttermilch'
 	#  },
-	#  {
-	#   'id' => 'en:passion-fruit',
-	#   'processing' => 'en:grated',
-	#   'text' => 'Passionsfrucht'
-	#  },
 	  }
 	]
 
 
 	],
+
 	
-	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" }, 
+	[ { lc => "de", ingredients_text => "Sauerkrautpuder" }, 
 		[
   			{
-    			'id' => 'en:passion fruit',
-    			'processing' => 'en:grated',
-    			'text' => 'passionsfrucht'
+    			'id' => 'en:sauerkraut',
+    			'processing' => 'en:powdered',
+    			'text' => 'Sauerkraut'
   			}
 		]
 	],
+	
+#	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" }, 
+#		[
+#			{
+#    			'id' => 'en:passion fruit',
+#    			'processing' => 'en:grated',
+#    			'text' => 'passionsfrucht'
+#  			}
+#		]
+#	],
 	
 	[ { lc => "de", ingredients_text => "acerola-pulver" }, 
 		[
