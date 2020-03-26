@@ -113,19 +113,18 @@ my @tests = (
 
 	],
 
-		[ { lc => "de", ingredients_text => "bourbon-vanillepulver" }, 
-	[
-	  {
-	    'id' => 'en:bourbon-vanilla-powder',
-	    'text' => 'bourbon-vanillepulver'
+	[ { lc => "de", ingredients_text => "bourbon-vanillepulver" }, 
+		[
+	  		{
+	    		'id' => 'en:bourbon-vanilla-powder',
+	    		'text' => 'bourbon-vanillepulver'
+	  		}
+		]
+	],
+	
 	#  },
 	#  {
 		# Sauerkrautpuder, PuderKnollensellerie
-	#    'id' => 'en:acerola',
-	  #  'processing' => 'en:powdered',
-	#    'text' => 'acerola'
-	#  },
-	#  {
 	 #  'id' => 'en:sauerkraut',
 	 #  'processing' => 'en:powdered',
 	 #  'text' => 'Sauerkraut'
@@ -141,11 +140,6 @@ my @tests = (
 	 #  'processing' => 'en:chopped',
 	 #  'text' => 'Buttermilch'
 	#  },
-	  }
-	]
-
-
-	],
 
 	
 	[ { lc => "de", ingredients_text => "Sauerkrautpuder" }, 
