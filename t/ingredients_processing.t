@@ -113,7 +113,7 @@ my @tests = (
 
 	],
 
-	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver, Sauerkrautpuder", "PuderKnollensellerie" }, 
+	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver, Sauerkrautpuder, PuderKnollensellerie" }, 
 [
   {
     'id' => 'en:bourbon-vanilla-powder',
