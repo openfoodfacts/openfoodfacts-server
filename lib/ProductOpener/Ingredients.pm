@@ -1012,7 +1012,7 @@ sub parse_ingredients_text($) {
 									# English, French etc. match before or after the ingredient, require a space
 									(($product_lc =~ /^(en|es|it|fr)$/) and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i))
 									#  German: match after, do not require a space
-									or	(($product_lc =~ /^(de)$/) and ($new_ingredient =~ /($regexp)$/i))
+									or	(($product_lc =~ /^(de)$/) and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
 									#  Dutch: match before or after, do not require a space
 									or	(($product_lc =~ /^(nl)$/) and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
 										) {
