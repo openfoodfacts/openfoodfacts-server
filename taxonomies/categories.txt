@@ -1498,7 +1498,11 @@ es:Whiskies escoceses
 fi:skottilainen viski
 fr:Whisky écossais
 nl:Schotse whiskies, Schotse whisky
-wikipediacategory:en:Q8718387
+wikidata:en:Q8718387
+protected_name_file_number_en: PGI-GB-01854-AM01
+#protected_name_file_number_en: PGI-GB-01854
+protected_name_type:en: gi
+origins:en: en:United Kingdom
 
 <fr:Blended whisky
 <en:Scotch whisky
@@ -2084,6 +2088,12 @@ sv:Svensk Vodka, Swedish Vodka
 protected_name_file_number:en: PGI-SE-01926
 protected_name_type:en: gi
 origins:en: en:Sweden
+
+<en:Vodka
+fi:Suomalainen Vodka, Finsk Vodka, Vodka of Finland
+protected_name_file_number_en: PGI-FI-02040
+protected_name_type:en: gi
+origins:en: en:Finland
 
 <en:Hard liquors
 en:Gins, Gin
@@ -25177,6 +25187,21 @@ protected_name_type:en: pdo
 origins:en: en:Belgium
 
 <en:Cheeses
+en:Croatian cheeses, Cheeses from Croatia
+
+<en:Croatian cheeses
+hr:Bjelovarski kvargl
+protected_name_file_number_en: PGI-HR-02382
+protected_name_type:en: pgi
+origins:en: en:Croatia
+
+<en:Croatian cheeses
+hr:Paški sir
+protected_name_file_number_en: PDO-HR-02397
+protected_name_type:en: pdo
+origins:en: en:Croatia
+
+<en:Cheeses
 en:Czech cheeses
 
 <en:Czech cheeses
@@ -25969,6 +25994,12 @@ en:Gloucester cheese
 wikidata:en:Q174539
 
 <en:Cheeses from England
+en:Single Gloucester
+protected_name_file_number_en: PDO-GB-0281
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:Cheeses from England
 en:Harbourne Blue
 wikidata:en:Q5654906
 
@@ -26043,6 +26074,7 @@ wikidata:en:Q3505742
 <en:Cheeses from England
 en:Swaledale cheese, Swaledale ewes cheese
 protected_name_file_number:en: PDO-GB-0283
+#protected_name_file_number_en: PDO-GB-0282
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 wikidata:en:Q94011
@@ -37009,6 +37041,15 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Salts
+en:Croatian salts
+
+<en:Croatian salts
+hr:Paška sol
+protected_name_file_number_en: PDO-HR-02178
+protected_name_type:en: pdo
+origins:en: en:Croatia
+
+<en:Salts
 en:French salts
 
 <en:Guerande salts
@@ -38459,6 +38500,30 @@ pt:Produtos à base de carne
 zh:肉制品
 
 <en:Meat-based products
+en:Andorran meat products
+
+<en:Andorran meat products
+ca:Carn d'Andorra
+protected_name_file_number_en: PGI-AD-0875
+protected_name_type:en: pgi
+origins:en: en:Andorra
+
+<en:Meat-based products
+en:Belgian meat products
+
+<en:Belgian meat products
+nl:Potjesvlees uit de Westhoek
+protected_name_file_number_en: PGI-BE-1130
+protected_name_type:en: pgi
+origins:en: en:Belgium
+
+<en:Belgian meat products
+fr:Jambon d'Ardenne
+protected_name_file_number_en: PGI-BE-0310
+protected_name_type:en: pgi
+origins:en: en:Belgium
+
+<en:Meat-based products
 en:Czech meat products
 
 <en:Czech meat products
@@ -38568,6 +38633,27 @@ bg:Горнооряховски суджук, Gornooryahovski sudzhuk
 protected_name_file_number:en: PGI-BG-0732
 protected_name_type:en: pgi
 origins:en: en:Bulgaria
+
+<en:Meat-based products
+en:Finnish meat products
+
+<en:Finnish meat products
+fi:Aito saunapalvikinkku, Äkta basturökt skinka
+protected_name_file_number_en: PGI-FI-02462
+protected_name_type:en: pgi
+origins:en: en:Finland
+
+<en:Finnish meat products
+fi:Lapin Poron kylmäsavuliha
+protected_name_file_number_en: PDO-FI-0383
+protected_name_type:en: pdo
+origins:en: en:Finland
+
+<en:Finnish meat products
+fi:Lapin Poron kuivaliha
+protected_name_file_number_en: PDO-FI-0384
+protected_name_type:en: pdo
+origins:en: en:Finland
 
 <en:Meat-based products
 <en:Prepared salads
@@ -42192,6 +42278,42 @@ ru:Свинина
 zh:猪肉
 
 <en:Pork
+fr:Porc de la Sarthe
+protected_name_file_number_en: PGI-FR-0184
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Pork
+fr:Porc du Limousin
+protected_name_file_number_en: PGI-FR-0188
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Pork
+fr:Porc de Vendée
+protected_name_file_number_en: PGI-FR-0191
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Pork
+fr:Porc de Normandie
+protected_name_file_number_en: PGI-FR-0192
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Pork
+en:Traditionally Reared Pedigree Welsh Pork
+protected_name_file_number_en: TSG-GB-1396
+protected_name_type:en: tsg
+origins:en: en:United Kingdom
+
+<en:Pork
+en:Traditionally Farmed Gloucestershire Old Spots Pork
+protected_name_file_number_en: TSG-GB-0024
+protected_name_type:en: tsg
+origins:en: en:United Kingdom
+
+<en:Pork
 fr:Filets mignons de porc
 
 <en:Pork
@@ -42263,10 +42385,17 @@ zh:家禽
 en:Poultries from Ancenis
 fr:Volaille d'Ancenis
 country:en:France
+protected_name_file_number_en: PGI-FR-0167
+#protected_name_file_number_en: PGI-FR-0167-AM02
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 en:Poultries from Bresse
-fr:Volaille de Bresse
+fr:Volaille de Bresse, Poulet de Bresse, Poularde de Bresse, Chapon de Bresse
+protected_name_file_number_en: PDO-FR-0145-AM01
+protected_name_type:en: pdo
+origins:en: en:France
 country:en:France
 
 <en:Poultries
@@ -42306,7 +42435,9 @@ country:en:France
 
 <en:Poultries
 fr:Volailles d'Alsace
-country:en:France
+protected_name_file_number_en: PGI-FR-0158
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles d'Auvergne
@@ -42314,7 +42445,9 @@ country:en:France
 
 <en:Poultries
 fr:Volailles de Bourgogne
-country:en:France
+protected_name_file_number_en: PGI-FR-0151
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles de Bretagne
@@ -42329,8 +42462,10 @@ fr:Volailles de Cholet
 country:en:France
 
 <en:Poultries
-fr:Volailles de l’Orléanais
-country:en:France
+fr:Volailles de l'Orléanais
+protected_name_file_number_en: PGI-FR-9150
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles de la Drôme
@@ -42339,6 +42474,9 @@ country:en:France
 <en:Poultries
 fr:Volailles de l'Ain
 country:en:France
+protected_name_file_number_en: PGI-FR-0146
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles de Licques
@@ -42370,15 +42508,22 @@ country:en:France
 
 <en:Poultries
 fr:Volailles du Forez
-country:en:France
+protected_name_file_number_en: PGI-FR-0159
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles du Gers
 country:en:France
+protected_name_file_number_en: PGI-FR-0147
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles du Maine
-country:en:France
+protected_name_file_number_en: PGI-FR-0148
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles du plateau de Langres
@@ -42465,6 +42610,12 @@ nl_be:Kapoen
 pl:Kapłon
 zh:阉鸡
 wikidata:en:Q594676
+
+<en:Capon
+fr:Chapon du Périgord
+protected_name_file_number_en: PGI-FR-01377
+protected_name_type:en: pgi
+origins:en: en:France, fr:Périgord
 
 <en:Poultries
 en:Geese, Goose
@@ -44037,6 +44188,24 @@ protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
 <en:Lamb meat
+en:Isle of Man Manx Loaghtan Lamb
+protected_name_file_number_en: PDO-GB-0340
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+en:Welsh lamb
+protected_name_file_number_en: PGI-GB-0081
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+sv:Hånnlamb
+protected_name_file_number_en: PDO-SE-01327
+protected_name_type:en: pdo
+origins:en: en:Sweden
+
+<en:Lamb meat
 fr:Ris d'agneau
 
 <fr:Ris d'agneau
@@ -45494,6 +45663,15 @@ hu:Sonkás ravioli, Ravioli sonkával
 nl:Ravioli met ham
 
 <en:Pastas
+en:Chinese pasta
+
+<en:Chinese pasta
+zh:龙口粉丝, Longkou Fen Si
+protected_name_file_number_en: PGI-CN-0623
+protected_name_type:en: pgi
+origins:en: en:China
+
+<en:Pastas
 en:Bucatini
 de:Bucatini
 es:Bucatini
@@ -46768,6 +46946,105 @@ en:SEVAN TROUT
 protected_name_file_number:en: PDO-AM-2164
 protected_name_type:en: pdo
 origins:en: en:Armenia
+
+<en:Seafood
+en:Belgian sea products
+
+<en:Belgian sea products
+fr:Escavèche de Chimay
+protected_name_file_number_en: PGI-BE-02359
+protected_name_type:en: pgi
+origins:en: en:Belgium
+
+<en:Seafood
+en:Brazilian sea products
+
+<en:Brazilian sea products
+pt:Camarão da Costa Negra
+protected_name_file_number_en: PDO-BR-991
+protected_name_type:en: pdo
+origins:en: en:Brazil
+
+<en:Seafood
+en:British sea products
+
+<en:British sea products
+en:Lough Neagh Pollan
+protected_name_file_number_en: PDO-GB-02159
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:British sea products
+en:West Wales Coracle Caught Sewin
+protected_name_file_number_en: PGI-GB-01180
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:British sea products
+en:West Wales Coracle Caught Salmon
+protected_name_file_number_en: PGI-GB-01179
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:British sea products
+en:Fal Oyster
+protected_name_file_number_en: PDO-GB-0885
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:British sea products
+en:Isle of Man Queenies
+protected_name_file_number_en: PDO-GB-0856
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:British sea products
+en:Lough Neagh Eel
+protected_name_file_number_en: PGI-GB-0796
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:British sea products
+en:Cornish Sardines
+protected_name_file_number_en: PGI-GB-0589
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:British sea products
+en:Traditional Grimsby Smoked Fish
+protected_name_file_number_en: PGI-GB-0132
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:British sea products
+en:Arbroath Smokies
+protected_name_file_number_en: PGI-GB-0227
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Seafood
+en:Chinese sea products
+
+<en:Chinese sea products
+zh:盐城龙虾, Yancheng Long Xia
+protected_name_file_number_en: PGI-CN-0625
+protected_name_type:en: pgi
+origins:en: en:China
+
+<en:Seafood
+en:Finnish sea products
+
+<en:Finnish sea products
+fi:Puruveden muikku
+protected_name_file_number_en: PGI-FI-0989
+protected_name_type:en: pgi
+origins:en: en:Finland
+
+<en:Finnish sea products
+fi:Kitkan viisas
+protected_name_file_number_en: PDO-FI-0872
+protected_name_type:en: pdo
+origins:en: en:Finland
 
 <en:Seafood
 en:Spanish sea products
