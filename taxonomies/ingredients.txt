@@ -14855,11 +14855,27 @@ en:pork liver
 de:Schweineleber
 es:Higado de cerdo
 fi:sianmaksa
-fr:poitrine de porc
+fr:foie de porc
 hu:sertésmáj
 nl:varkenslever
 ro:piept de porc, piet porc
 zh:猪肝
+
+<en:pork meat
+en:pork belly, pork bellies
+fr:ventre de porc
+
+en:breast
+fr:poitrine
+
+<en:breast
+en:smoked breast
+fr:poitrine fumée
+
+<en:breast
+<en:pork meat
+en:pork breast
+fr:poitrine de porc
 
 <en:pork meat
 fr:viande et gras de porc
@@ -15850,7 +15866,7 @@ nl:kalfsvet
 en:beef fat
 de:Rinderfett
 fi:naudanrasva
-fr:gras de bœuf, graisse de bœuf
+fr:gras de bœuf, graisse de bœuf, gras de bovin, bovin
 hu:marhazsír
 it:grasso di manzo
 nl:rundvet
@@ -16243,6 +16259,10 @@ wikidata:en:Q231458
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_oil
 
 <en:palm oil
+en:refined palm oil
+fr:huile de palme raffinée
+
+<en:palm oil
 en:modified palm oil
 de:Modifiziertes Palmöl
 es:Aceite de palma modificada
@@ -16632,6 +16652,10 @@ from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:olive oil
+en:black olives oil, black olive oil
+fr:huile d'olivs noires
+
+<en:olive oil
 en:virgin olive oil
 ca:Oli d'oliva verge
 da:jomfruolivenolie
@@ -16653,7 +16677,7 @@ da:ekstra jomfruolivenolie
 de:natives Olivenöl Extra, Olivenöl nativ extra
 es:aceite de oliva virgen extra
 fi:ekstra-neitsytoliiviöljy
-fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
+fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
 hu:extra szűz olívaolaj, extraszűz olívaolaj
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing
@@ -17147,7 +17171,7 @@ el:λίπος shea
 eo:karitea butero
 es:manteca de karité
 fi:karitevoi, sheavoi, shea
-fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité
+fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
 hr:shea maslac
 hu:sheavaj
@@ -17467,7 +17491,7 @@ hu:bio napraforgóolaj
 nl:biozonnebloemolie, bio zonnebloemolie
 
 <en:sunflower oil
-fr:huile de tournesol vierge
+fr:huile de tournesol vierge, huile de tournesol vierge première pression à froid
 
 # high oleic fraction
 
@@ -26867,6 +26891,10 @@ hu:szójafehérje
 it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
 ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina vegetala din soia
+
+<en:fibers
+en:soy fiber
+fr:protéines de soja
 
 <en:soy protein
 de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat
@@ -53141,6 +53169,15 @@ fr:algues de Bretagne nord
 fr:paillettes d'algues
 # ingredient/fr:paillettes-d'algues has 1 product @2019-02-22
 
+<en:algae
+en:algae extract
+fr:extrait d'algues
+
+<en:seaweed
+<en:algae extract
+en:seaweed extract
+fr:extrait d'algues marines
+
 
 <en:algae
 en:Lithotamnium calcareum
@@ -53607,6 +53644,10 @@ vegetarian:en:yes
 # en:mushroom has 1817 products in 16 languages @2018-11-02
 carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
 carbon_footprint_fr_foodges_value:fr:1.9
+
+<en:mushroom
+en:forest mushroom
+fr:champignon forestier, champignons forestiers, champignon des bois, champignopns des bois
 
 <en:mushroom
 en:concentrated mushroom juice
@@ -68413,3 +68454,9 @@ fr:kombucha
 <en:kombucha
 en:raw kombucha
 
+
+en:proteins mix
+fr:mélange de protéines
+
+en:pizza dough
+fr:pâte à pizza
