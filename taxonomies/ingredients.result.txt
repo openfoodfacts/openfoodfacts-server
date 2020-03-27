@@ -825,7 +825,6 @@ pt:amêndoas laminadas
 
 < en:Almond
 en:ground almonds
-de:gemahlene Mandeln, gehackte Mandeln, mandeln gemahlen
 es:almendras molidas
 fi:Jauhettua mantelia, jauhettuja manteleita
 fr:amandes hachées, amandes moulues
@@ -2249,6 +2248,9 @@ nl:Rundvlees
 zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr: 35.8
+
+< en:Beef meat
+de:rindergehacktes
 
 < en:Beef meat
 en:beef heart
@@ -10159,9 +10161,6 @@ th:กุ้งแดง
 zh:克氏原螯虾
 wikidata:en: Q1133124
 wikipedia:en: https://en.wikipedia.org/wiki/Procambarus_clarkii
-
-< en:Cream
-de:Schlagsahne
 
 < en:Cream
 en:cream from Normandy
@@ -41027,7 +41026,6 @@ fr:jambon de porc issu d'animaux nourris sans ogm
 
 < en:Hazelnut
 en:chopped hazelnuts
-de:gehackte Haselnüsse
 fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
 fr:noisettes hachées
 it:nocciole tritate
@@ -64222,13 +64220,14 @@ ro:zahăr caramelizat
 sv:karamelliserat socker
 
 < en:Sugar
-en:granulated sugar
-de:Zucker mittelgross
-es:Azúcar cristalizado
-fi:kidesokeri
-fr:Sucre cristal
-hu:kristálycukor
-nl:Kristalsuiker
+en:granulated sugar, powdered sugar
+de:Puderzucker, Zucker mittelgross
+es:Azucar en polvo, Azúcar cristalizado
+fi:jauhettu sokeri, kidesokeri
+fr:sucre en poudre, sucre en grains, Sucre cristal
+hu:porcukor, kristálycukor
+it:zucchero semolato
+nl:poedersuiker, Kristalsuiker
 
 < en:Sugar
 en:grape sugar, raisin sugar
@@ -64240,13 +64239,10 @@ it:zucchero d'uva
 
 < en:Sugar
 en:icing sugar
-de:Puderzucker
-es:Azucar en polvo
 fi:tomusokeri
 fr:sucre glace
-hu:porcukor
 it:zucchero a velo
-nl:poedersuiker
+nl:glazuursuiker
 
 < en:Sugar
 en:invert sugar, inverted sugar
@@ -64553,9 +64549,6 @@ fr:sucre du lait
 
 < en:Sugar
 fr:Sucre en morceaux
-
-< en:Sugar
-fr:sucre en poudre
 
 < en:Sugar
 fr:sucre perlé
