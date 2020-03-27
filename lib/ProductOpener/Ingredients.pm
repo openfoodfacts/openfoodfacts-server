@@ -2214,7 +2214,7 @@ my %phrases_after_ingredients_list = (
 
 fr => [
 
-'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
+'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)(s|le|les)?',
 'caractéristiques nu(t|f)ritionnelles',
 'valeurs mo(y|v)ennes',
 'valeurs nutritionelles moyennes',
@@ -2523,6 +2523,8 @@ sub clean_ingredients_text_for_lang($$) {
 	my $text = shift;
 	my $language = shift;
 
+	$log->debug("clean_ingredients_text_for_lang - start", { language=>$language, text=>$text }) if $log->is_debug();
+
 	# turn demi - écrémé to demi-écrémé
 
 	if (defined $prefixes_before_dash{$language}) {
@@ -2536,10 +2538,19 @@ sub clean_ingredients_text_for_lang($$) {
 
 	$log->debug("clean_ingredients_text_for_lang - 1", { language=>$language, text=>$text }) if $log->is_debug();
 
+	my $cut = 0;
+
 	if (defined $phrases_before_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-			$text =~ s/^(.*)\b$regexp(\s*)(-|:|\r|\n)+(\s*)//is;
+			# The match before the regexp must be not greedy so that we don't cut too much
+			# if we have multiple times "Ingredients:" (e.g. for products with 2 sub-products)
+			if ($text =~ /^(.*?)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
+				$text = $';
+				$log->debug("removed phrases_before_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
+				$cut = 1;
+				last;
+			}
 		}
 	}
 
@@ -2547,11 +2558,11 @@ sub clean_ingredients_text_for_lang($$) {
 
 	$log->debug("clean_ingredients_text_for_lang - 2", { language=>$language, text=>$text }) if $log->is_debug();
 
-	if (defined $phrases_before_ingredients_list_uppercase{$language}) {
+	if ((not $cut) and (defined $phrases_before_ingredients_list_uppercase{$language})) {
 
 		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
 			# INGREDIENTS followed by lowercase
-			$text =~ s/^(.*)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
+			$text =~ s/^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
 		}
 	}
 
@@ -2562,7 +2573,10 @@ sub clean_ingredients_text_for_lang($$) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			$text =~ s/\s*\b$regexp(.*)$//is;
+			if ($text =~ /\s*\b$regexp\b(.*)$/is) {
+				$text = $`;
+				$log->debug("removed phrases_after_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
+			}
 		}
 	}
 
@@ -3292,7 +3306,7 @@ INFO
 		#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
 		#$log->debug("allergens", { lc => $product_lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
 
-		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)*($allergenssuffixregexp))\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$product_lc,$4)/ieg;
+		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((_?($allergenssuffixregexp)_?( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergenssuffixregexp)_?)\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$product_lc,$4)/ieg;
 		# we may have added an extra dot in order to make sure we have at least one
 		$text =~ s/\.\./\./g;
 
