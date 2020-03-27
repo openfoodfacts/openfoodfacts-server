@@ -23,6 +23,13 @@
 /*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
+//Polyfill, just in case
+if (!Array.isArray) {
+  Array.isArray = function (arg) {
+    return Object.prototype.toString.call(arg) === '[object Array]';
+  };
+}
+
 var code;
 var current_cropbox;
 var images = [];
@@ -108,6 +115,8 @@ function add_language_tab (lc, language) {
     $(".select_crop").filter(":visible").selectcrop('show');
 
   });
+
+  update_move_data_and_images_to_main_language_message();
 
   $(document).foundation('tab', 'reflow');
 }
@@ -308,6 +317,8 @@ function change_image(imagefield, imgid) {
   html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
 	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_left + '</a> &nbsp;';
 	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_right + '</a>';
+  html += '<br/><input type="checkbox" id="zoom_on_wheel_' + imagefield +'" name="zoom_on_wheel_' + imagefield +'" value="">';
+  html += '<label for="zoom_on_wheel_' + imagefield +'" style="margin-top:0px;">' + lang().product_js_zoom_on_wheel + '</label>';
 	html += '</div>';
   html += '</div><div class="small-6 medium-5 large-4 columns" style="float:right">';
 
@@ -378,10 +389,14 @@ function change_image(imagefield, imgid) {
   });
 
 	$('img#crop_' + imagefield).cropper({
-		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": true, "zoomOnTouch": true, "toggleDragModeOnDblclick": false, built: function () {
-		$('img#crop_' + imagefield ).cropper('setDragMode', "crop");
-		}
+		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": false, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
 	});
+
+	$("#zoom_on_wheel_" + imagefield).change(function() {
+    var zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
+    $('img#crop_' + imagefield).cropper('destroy').cropper({
+      "viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": zoomOnWheel, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
+	});	} );
 
 	$(document).foundation('equalizer', 'reflow');
 }
@@ -569,7 +584,7 @@ function initializeTagifyInput(el) {
 		if (obj === null) {
 			obj = {};
 			obj[el.id] = [tag];
-		} else if (obj[el.id] === null) {
+		} else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
 			obj[el.id] = [tag];
 		} else {
 			if (obj[el.id].indexOf(tag) != -1) {
@@ -613,7 +628,7 @@ function get_recents(tagfield) {
 
 	if (
 		obj !== null &&
-		obj[tagfield] !== undefined &&
+		typeof obj[tagfield] !== "undefined" &&
 		obj[tagfield] !== null
 	) {
 		return obj[tagfield];
@@ -857,7 +872,52 @@ function get_recents(tagfield) {
 
   initLanguageAdding();
 
+  update_move_data_and_images_to_main_language_message();
+
+  $("#lang").change(update_move_data_and_images_to_main_language_message);
+
 })( jQuery );
+
+function update_move_data_and_images_to_main_language_message () {
+
+  var main_language_id = $("#lang").val();
+  var main_language_text = $("#lang option:selected").text();
+  $('.main_language').text(main_language_text);
+  $('.move_data_and_images_to_main_language').each(function() {
+    var divid = $(this).attr('id');
+    if (divid === "move_" + main_language_id + "_data_and_images_to_main_language_div") {
+      $(this).hide();
+    }
+    else {
+      $(this).show();
+    }
+  });
+
+  $('.move_data_and_images_to_main_language_checkbox').each(function() {
+
+    var divradioid = $(this).attr('id') + "_radio";
+
+    var $th = $(this);
+    if ( $(this).is(':checked')) {
+        $("#" + divradioid).show();
+    }
+    else {
+       $("#" + divradioid).hide();
+    }
+
+    $th.change(function() {
+      var divradioid = $(this).attr('id') + "_radio";
+      if ( $(this).is(':checked')) {
+          $("#" + divradioid).show();
+      }
+      else {
+         $("#" + divradioid).hide();
+      }
+    }
+    );
+
+  });
+}
 
 function initLanguageAdding() {
   const Lang = lang();

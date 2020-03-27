@@ -18271,9 +18271,14 @@ ru:Пита
 wikidata:en:Q211340
 
 <en:Special breads
-fr:Pains Kebab, pain kebab, pains kebabs, pains pour kebab, pain pour kebabs
+en:Kebab breads
+fr:Pains kebab, pain kebab, pains kebabs, pains pour kebab, pain pour kebabs
 de:Kebab-Brot
 nl:Kebab-broden, Kebab-brood
+
+<en:Special breads
+en:Panini breads
+fr:Pains panini
 
 <en:Special breads
 en:Bagel breads
@@ -18481,6 +18486,12 @@ fr:Préparations pour panna cotta
 
 <en:Dessert mixes
 fr:Préparations pour desserts lactés
+
+<en:Dessert mixes
+en:Mixes for jelly desserts
+de:Götterspeisen Zubereitungen
+es:Preparados para gelatina
+fr:Préparations pour desserts gélifiés
 
 <en:Dessert mixes
 en:Pancake mixes, pancake mix
@@ -19208,16 +19219,19 @@ nl:Gearomatiseerde chocola
 
 <en:Dark chocolates
 <en:Flavoured chocolates
+en:Flavoured dark chocolates
 fr:Chocolats noirs aromatisés
 de:Aromatisierte dunkle Schokolade
 
 <en:Milk chocolates
 <en:Flavoured chocolates
+en:Flavoured milk chocolates
 fr:Chocolats au lait aromatisés
 de:Aromatisierte Milchschokolade
 
 <en:White chocolates
 <en:Flavoured chocolates
+en:Flavoured white chocolates
 fr:Chocolats blancs aromatisés
 de:Aromatisierte weiße Schokolade
 
@@ -20920,6 +20934,10 @@ la:Zea mays subsp. mays
 nl:Mais, Maïs
 zh:玉米
 wikidata:en:Q11575
+
+<en:Corn
+fr:Maïs frais
+season_in_country_fr:en: 7,8,9
 
 <en:Corn
 en:Sweet corn
@@ -27350,6 +27368,10 @@ zh:栗子
 wikidata:en:Q129324
 
 <en:Chestnuts
+fr:Châtaignes fraîches
+season_in_country_fr:en: 10,11
+
+<en:Chestnuts
 <en:Shelled nuts
 en:Shelled chestnuts
 de:Maronen mit Schale, Ungeschälte Maronen
@@ -27389,6 +27411,7 @@ la:Corylus avellana
 nl:Hazelnoten
 se:Hasselnötter, hasselnöt
 wikidata:en:Q578307
+season_in_country_fr:en: 9,10,11
 
 <en:Hazelnuts
 fr:Noisettes en poudre
@@ -27647,6 +27670,10 @@ nl:Walnoten
 se:Valnötter, valnöt
 zh:核桃, 胡桃
 wikidata:en:Q208021
+
+<en:Walnuts
+fr:Noix fraîches
+season_in_country_fr:en: 9,10
 
 <en:Walnuts
 en:Walnut kernels
@@ -31842,6 +31869,10 @@ zh:水果
 wikidata:en:Q1364
 
 <en:Fruits
+fr:Cassis frais
+season_in_country_fr:en: 6,7,8
+
+<en:Fruits
 en:Apples
 de:Äpfel, Apfel
 es:Manzanas
@@ -31853,6 +31884,10 @@ nl:Appels
 ro:Mere
 ru:Яблоки
 wikidata:en:Q89
+
+<en:Apples
+fr:Pommes fraîches
+season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
 
 <en:Apples
 en:Sweet apples
@@ -31942,11 +31977,8 @@ nl:Abrikozen
 wikidata:en:Q3733836
 
 <en:Apricots
-en:Raw pitted apricot
-fr:Abricot dénoyauté
-ciqual_food_code:en:13000
-ciqual_food_name:en:Apricot, pitted, raw
-ciqual_food_name:fr:Abricot, dénoyauté, cru
+fr:Abricots frais
+season_in_country_fr:en: 6,7,8
 
 <en:Fruits
 en:Berries
@@ -31982,6 +32014,10 @@ fr:Mûres
 nl:Bramen
 ro:Mure
 
+<en:Blackberries
+fr:Mûres fraîches
+season_in_country_fr:en: 8,9
+
 <en:Berries
 en:Blackthorns
 es:Endrinas
@@ -32000,11 +32036,8 @@ nl:Bosbessen familie
 ro:Afine
 
 <en:Blueberries
-en:Frozen raw Blueberry
-fr:Myrtille surgelée crue
-ciqual_food_code:en:13132
-ciqual_food_name:en:Blueberry, frozen, raw
-ciqual_food_name:fr:Myrtille, surgelée, crue
+fr:Myrtilles fraîches
+season_in_country_fr:en: 7,8,9
 
 <en:Berries
 <en:Elderberry products
@@ -32046,6 +32079,10 @@ nl:Frambozen
 ro:Zmeură
 wikidata:en:Q13179
 
+<en:Raspberries
+fr:Framboises fraîches
+season_in_country_fr:en: 6,7,8
+
 <en:Berries
 en:Redcurrants, Raw red currants
 es:Grosellas
@@ -32064,6 +32101,16 @@ ciqual_food_code:en:13007
 ciqual_food_name:en:Black currant, raw
 ciqual_food_name:fr:Cassis, cru
 
+<en:Redcurrants
+fr:Groseilles fraîches
+season_in_country_fr:en: 6,7,8
+
+<en:Berries
+en:Gooseberries
+de:Stachelbeeren
+fr:Groseilles à maquereaux
+la:Ribes uva-crispa
+
 <en:Berries
 en:Strawberries
 de:Erdbeeren
@@ -32073,6 +32120,10 @@ fr:Fraises
 la:Fragaria
 nl:Aardbeienfamile
 ro:Căpșune
+
+<en:Strawberries
+fr:Fraises fraîches
+season_in_country_fr:en: 5,6,7
 
 <en:Strawberries
 en:Garden strawberries
@@ -32090,6 +32141,10 @@ fi:kirsikat
 fr:Cerises
 nl:Kersen
 ro:Cireșe
+
+<en:Cherries
+fr:Cerises fraîches
+season_in_country_fr:en: 6,7
 
 <en:Fruits
 en:Citrus
@@ -32121,6 +32176,10 @@ nl:Citroenen
 ro:Lămâi
 ru:Лимоны
 
+<en:Lemons
+fr:Citrons frais
+season_in_country_fr:en: 1,2,11,12
+
 <en:Citrus
 en:Limes
 de:Limetten
@@ -32144,6 +32203,10 @@ ro:Mandarine
 ru:Мандарины
 
 <en:Mandarin oranges
+fr:Mandarines fraîches
+season_in_country_fr:en: 1,2,11,12
+
+<en:Mandarin oranges
 en:Clementines
 de:Clementinen
 es:Clementinas
@@ -32151,6 +32214,10 @@ fi:klementiinit
 fr:Clémentines
 la:Citrus x clementina
 nl:Clementines
+
+<en:Clementines
+fr:Clémentines fraîches
+season_in_country_fr:en: 1,2,11,12
 
 <en:Mandarin oranges
 en:Tangerines
@@ -32170,6 +32237,10 @@ hu:Narancsok
 nl:Sinaasappels
 ru:Апельсины
 
+<en:Oranges
+fr:Oranges fraîches
+season_in_country_fr:en: 1,2,3,12
+
 <en:Citrus
 en:Pomelos
 de:Pampelmusen
@@ -32177,6 +32248,10 @@ es:Pomelos chinos, Pampelmusas
 fr:Pamplemousses
 la:Citrus maxima
 nl:Grapefruits
+
+<en:Pomelos
+fr:Pamplemousses frais
+season_in_country_fr:en: 2,3,4,5,6
 
 <en:Fruits
 en:Figs
@@ -32187,11 +32262,9 @@ la:Ficus carica
 nl:Vijgen
 
 <en:Figs
-en:Dried figs
-fr:Figues sèches
-ciqual_food_code:en:13013
-ciqual_food_name:en:Fig, dried
-ciqual_food_name:fr:Figue, sèche
+fr:Figues fraîches
+season_in_country_fr:en: 7,8,9,10
+
 
 <en:Fruits
 en:Grapes
@@ -32201,6 +32274,7 @@ fi:viinirypäleet
 fr:Raisins
 nl:Druiven
 ru:Виноград
+season_in_country_fr:en: 9,10
 
 <en:Grapes
 en:Green grapes, White grapes
@@ -32260,6 +32334,10 @@ fi:kiivihedelmät
 fr:Kiwis
 nl:Kiwis
 
+<en:Kiwifruits
+fr:Kiwis frais
+season_in_country_fr:en: 1,2,3,11,12
+
 <en:Fruits
 en:Peaches, peach
 de:Pfirsiche
@@ -32267,6 +32345,10 @@ es:Melocotones
 fi:persikat
 fr:Pêches
 nl:Perzikken
+
+<en:Peaches
+fr:Pêches fraîches
+season_in_country_fr:en: 6,7,8,9
 
 <en:Peaches
 en:Platerines
@@ -32282,6 +32364,10 @@ es:Nectarinas
 fr:Nectarines
 la:Prunus persica var. nucipersica, Prunus persica var. nectarina
 nl:Nectarines
+
+<en:Nectarines
+fr:Nectarines fraîches
+season_in_country_fr:en: 7,8
 
 <en:Fruits
 en:Pitayas, Pitaya, Dragon Fruits, Dragon Fruit
@@ -32319,6 +32405,10 @@ fr:Melons
 la:Cucumis melo
 nl:Suikermeloenen
 wikidata:en:Q81602
+
+<en:Muskmelons
+fr:Melons frais
+season_in_country_fr:en: 6,7,8,9
 
 <en:Muskmelons
 en:Branco melons, White melons
@@ -32396,6 +32486,10 @@ nl:Peren
 ru:Груши
 wikidata:en:Q13099586
 
+<en:Pears
+fr:Poires fraîches
+season_in_country_fr:en: 1,2,3,8,9,10,11,12
+
 <en:Fruits
 en:Plums
 de:Pflaumen
@@ -32403,6 +32497,22 @@ es:Ciruelas
 fr:Prunes
 nl:Pruimen
 ru:Сливы
+
+<en:Plums
+fr:Mirabelles fraîches
+season_in_country_fr:en: 8,9
+
+<en:Plums
+fr:Prunes fraîches
+season_in_country_fr:en: 7,8,9
+
+<en:Plums
+fr:Reine-Claudes fraîches
+season_in_country_fr:en: 9
+
+<en:Plums
+fr:Quetsches fraîches
+season_in_country_fr:en: 8,9,10
 
 <en:Fruits
 en:Pomegranates
@@ -32417,6 +32527,10 @@ fr:Coings
 la:Cydonia oblonga
 nl:Kweeperen
 wikidata:en:Q43300
+
+<en:Quinces
+fr:Coings frais
+season_in_country_fr:en: 10
 
 <en:Fruits
 en:Tropical fruits, exotic fruits
@@ -40843,6 +40957,10 @@ nl:Champignons
 wikidata:en:Q227690
 
 <en:Champignon mushrooms
+fr:Champignon de Paris frais
+season_in_country_fr:en: 1,2,3,4,5,6,7,8,9,10,11,12
+
+<en:Champignon mushrooms
 en:Quartered champignon mushrooms, Quartered common mushrooms, Quartered white mushrooms, Quartered white button mushrooms, Quartered button mushrooms
 de:Geviertelte Champignons
 es:Champiñones en cuartos, Champiñones cuarteados, Champiñones de París en cuartos, Champiñones de París cuarteados
@@ -44376,8 +44494,9 @@ ru:Кальмар, Кальмары
 wikidata:en:Q550774
 
 <en:Seafood
-en:Taramasalata, Prepacked taramasalata, Prepackaged taramasalata
-fr:Taramas, tarama, Tarama préemballé
+<en:Salted spreads
+en:Taramasalata
+fr:Taramas, tarama
 nl:Taramasalata
 wikidata:en:Q1246721
 ciqual_food_code:en:8293
@@ -45291,6 +45410,11 @@ fi:hummus
 fr:Houmous, hommos, hoummous, houmos, oumos, humus, hummus
 nl:Hoemoes, Houmous, Hummus
 wikidata:en:Q241987
+
+<en:Salted spreads
+en:Ktipiti, tirokafteri
+fr:Ktipiti
+wikidata:en:Q7809258
 
 <en:Plant-based spreads
 en:Plant-based pâtés, Vegetarian pâtés
@@ -46431,6 +46555,14 @@ nl:Verse groenten
 ru:Свежие овощи
 zh:新鲜蔬菜
 
+<en:Fresh vegetables
+fr:Topinambour frais
+season_in_country_fr:en: 1,2,11,12
+
+<en:Fresh vegetables
+fr:Panais frais
+season_in_country_fr:en: 1,2,3,10,11,12
+
 <en:Vegetables
 en:Vegetable rods
 ca:Verdures allargades
@@ -46454,6 +46586,10 @@ wikidata_category:en:Q7469413
 en:Salsifis
 fr:Salsifis
 wikidata:en:Q941639
+
+<en:Salsifis
+fr:Salsifis frais
+season_in_country_fr:en: 1,2,11,12
 
 <en:Vegetable rods
 en:Artichokes
@@ -46483,6 +46619,7 @@ ciqual_food_name:fr:Artichaut, cuit
 <en:Fresh vegetables
 en:Fresh artichokes
 fr:Artichauts frais
+season_in_country_fr:en: 5,6,7,8,9
 
 <en:Artichokes
 <en:Frozen foods
@@ -46546,6 +46683,7 @@ nl:Wilde asperges
 en:Fresh Asparagus
 es:Espárragos frescos
 fr:Asperges fraîches
+season_in_country_fr:en: 4,5,6
 
 <en:Vegetables
 en:Aubergines
@@ -46559,6 +46697,7 @@ nl:Aubergines
 <en:Fresh vegetables
 en:Fresh aubergines
 fr:Aubergines fraîches
+season_in_country_fr:en: 6,7,8,9
 
 <en:Aubergines
 fr:Ristes d’aubergines
@@ -46582,6 +46721,7 @@ nl:Rode bieten
 <en:Fresh vegetables
 en:Fresh beet
 fr:Betteraves fraîches
+season_in_country_fr:en: 1,2,3,10,11,12
 
 <en:Beet
 fr:Betteraves sous vide
@@ -46597,6 +46737,7 @@ nl:Witlof
 <en:Fresh vegetables
 en:Fresh belgian endives
 fr:Endives fraîches
+season_in_country_fr:en: 1,2,3,4,10
 
 # description:en:BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable
 
@@ -46694,6 +46835,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
 <en:Fresh vegetables
 en:Fresh broccoli
 fr:Brocolis frais
+season_in_country_fr:en: 9,10,11
 
 <en:Vegetables
 en:Brussels sprouts
@@ -46708,6 +46850,7 @@ nl:Spruiten
 <en:Fresh vegetables
 en:Fresh Brussels sprouts
 fr:Choux de Bruxelles frais
+season_in_country_fr:en: 1,2,3,10,11,12
 
 <en:Leaf vegetables
 en:Cabbages
@@ -46717,26 +46860,9 @@ fr:Choux cabus
 la:Brassica oleracea var. capitata
 nl:Kolen
 
-<en:Cabbages
-en:Cooked Chinese cabbage, Cooked nappa cabbage, Bok choy
-fr:Chou chinois (pak-choi ou pé-tsai) cuit
-ciqual_food_code:en:20221
-ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), cooked
-ciqual_food_name:fr:Chou chinois cuit, Pak-choi, Pé-tsai
-
-<en:Cabbages
-en:Boiled green cabbage boiled, Green cabbage cooked in water
-fr:Chou vert boulli, Chou vert cuit à l'eau
-ciqual_food_code:en:20015
-ciqual_food_name:en:Green cabbage, boiled/cooked in water
-ciqual_food_name:fr:Chou vert, cuit
-
-<en:Cabbages
-en:Boiled red cabbage, Red cabbage cooked in water
-fr:Chou rouge boulli, Chou rouge cuit à l'eau
-ciqual_food_code:en:20095
-ciqual_food_name:en:Red cabbage, boiled/cooked in water
-ciqual_food_name:fr:Chou rouge, bouilli/cuit à l'eau
+<en:Leaf vegetables
+fr:Chou frais
+season_in_country_fr:en: 1,2,3,10,11,12
 
 <en:Vegetable rods
 en:Cardoons, Artichoke thistles
@@ -46765,19 +46891,21 @@ en:Fresh carrots
 de:Frische Karotten
 fr:Carottes fraîches
 it:Carote fresche
+season_in_country_fr:en: 1,2,3,9,10,11,12
 
 <en:Leaf vegetables
 en:Cauliflowers
 de:Blumenkohl
 es:Coliflores, Coliflor
 fi:kukkakaalit
-fr:Choux-fleurs
+fr:Choux-fleurs, Chou-fleur
 la:Brassica oleracea var. botrytis
 nl:Bloemkolen
 
 <en:Cauliflowers
 en:Fresh cauliflowers
-fr:Choux-fleurs frais
+fr:Choux-fleurs frais, Chou-fleur frais
+season_in_country_fr:en: 1,2,3,9,10,11,12
 
 <en:Vegetable rods
 <en:Culinary plants
@@ -46788,6 +46916,10 @@ fr:Céleri, Céleris
 la:Apium graveolens
 nl:Selderij
 nl_be:Selderij
+
+<en:Celery
+fr:Céleri frais
+season_in_country_fr:en: 1,2,3,10,11,12
 
 
 # description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
@@ -46862,6 +46994,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chard
 <en:Fresh vegetables
 en:Fresh chards
 fr:Blettes fraîches
+season_in_country_fr:en: 6,7,8,9,10,11
 
 <en:Vegetables
 en:Cucumbers
@@ -46874,6 +47007,10 @@ la:Cucumis sativus
 nl:Komkommers
 ru:Огурцы, Огурец
 wikidata:en:Q23425
+
+<en:Cucumbers
+fr:Concombre frais
+season_in_country_fr:en: 5,6,7,8,9,10
 
 # description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 
@@ -47019,6 +47156,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fennel
 wikidata:en:https://www.wikidata.org/wiki/Q43511
 # fr:fenouil has 634 products in 6 languages @2018-10-21
 
+<en:fennel
+fr:Fenouil frais
+season_in_country_fr:en: 4,6,7,8,9,10,11
+
 <en:Fennel
 <en:Vegetable rods
 en:Fennel bulbs
@@ -47058,6 +47199,7 @@ nl:Knoflook
 <en:Fresh vegetables
 en:Fresh garlic
 fr:Ail frais
+season_in_country_fr:en: 7,8,9,10,11,12
 
 <en:Garlic
 en:Allium neapolitanum
@@ -47179,6 +47321,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Poireau
 <en:Fresh vegetables
 en:Fresh leeks
 fr:Poireaux frais
+season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
@@ -47299,6 +47442,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 # ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
 # category/lettuces has 84 products @2019-5-22
 
+<en:Lettuces
+fr:Laitue fraîche
+season_in_country_fr:en: 5,6,7,8,9
+
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
 <en:Culinary plants
@@ -47364,6 +47511,7 @@ wikidata:en:Q622350
 <en:Fresh vegetables
 en:Fresh onions
 fr:Oignons frais
+season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 <en:Onions
 en:Shallots
@@ -47374,6 +47522,10 @@ fr:Échalotes, Echalotes
 la:Allium cepa var. aggregatum, Allium ascalonicum
 nl:Sjalotjes
 wikidata:en:Q193498
+
+<en:Shallots
+fr:Échalotes fraîches
+season_in_country_fr:en: 10,11,12
 
 <en:Vegetables
 en:Sweet peppers
@@ -47388,6 +47540,7 @@ nl:Pepers en paprikas
 <en:Fresh vegetables
 en:Fresh sweet peppers
 fr:Poivrons frais
+season_in_country_fr:en: 6,7,8,9
 
 <en:Sweet Peppers
 en:Green bell peppers
@@ -47514,10 +47667,14 @@ fi:kurpitsat
 fr:Courges, Potirons, Citrouilles
 nl:Pompoenen
 
+fr:Potiron frais
+season_in_country_fr:en: 1,9,10,11,12
+
 <en:Pumpkins
 <en:Fresh vegetables
 en:Fresh pumpkins
 en:Courges fraîches
+season_in_country_fr:en: 1,9,10,11,12
 
 <en:Pumpkins
 en:Butternut squashes, Butternut squash, Butternut pumpkins
@@ -47662,6 +47819,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Radish
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
 
 <en:Radishes
+fr:Radis frais
+season_in_country_fr:en: 3,4,5,6
+
+<en:Radishes
 en:Red radishes
 es:Rábanos rojos, Rábanos picantes
 fr:Radis rouges, radis rouge
@@ -47724,6 +47885,7 @@ wikidata:en:Q20767168
 wikipedia:en:https://en.wikipedia.org/wiki/Rhubarb
 # ingredient/fr:rhubarbe has 191 products in 4  languages @2019-05-08
 # category/rhubarbs has 4 products 22019-05-22
+season_in_country_fr:en: 4,5,6
 
 
 <en:Leaf vegetables
@@ -47796,6 +47958,7 @@ ciqual_food_name:fr:Épinards à la crème
 en:Fresh spinachs
 de:Frischer Spinat
 fr:Épinards frais
+season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 <en:Cereals and potatoes
 en:Sweet potatoes
@@ -47900,6 +48063,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turnip
 <en:Turnip
 en:Fresh turnips
 fr:Navets frais
+season_in_country_fr:en: 1,2,3,4,5,10,11,12
 
 <en:Vegetables
 <en:Tomatoes and their products
@@ -47918,6 +48082,7 @@ en:Fresh tomatoes
 de:Frische Tomaten
 fr:Tomates fraîches
 nl:Verse tomaten, Verse tomaat
+season_in_country_fr:en: 6,7,8,9
 
 <en:Tomatoes
 fr:Tomate olivette, Tomates olivettes
@@ -47962,6 +48127,7 @@ nl:Courgettes
 en:Fresh zucchini
 de:Frische Zucchini
 fr:Courgettes fraîches
+season_in_country_fr:en: 5,6,7,8,9,10
 
 <en:Fresh vegetables
 en:Fresh vegetable mixes
@@ -48047,6 +48213,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
 # ingredient/fr:mâche has 133 products in french @2019-05-08
 # category/corn-salad has 73 products @2019-05-22
 
+<en:corn salad
+fr:Mâche fraîche
+season_in_country_fr:en: 1,2,10,11,12
+
 <en:Leaf vegetables
 en:Salad rocket, rucola, rucoli, rugula, colewort, roquette, arugula
 de:Garten-Senfrauke
@@ -48074,6 +48244,10 @@ fr:Cresson, Cresson de fontaine, Cresson d’eau
 la:Nasturtium officinale
 nl:Witte waterkers
 wikidata:en:Q150452
+
+<en:Watercress
+fr:Cresson frais
+season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 <en:Vegetables based foods
 <en:Fresh sprouts
@@ -48252,6 +48426,7 @@ wikidata:en:Q2987371
 en:Fresh green beans
 de:Frische grüne Bohnen
 fr:Haricots verts frais
+season_in_country_fr:en: 6,7,8,9,10
 
 <en:Fresh green beans
 en:Fresh broad green beans
@@ -48282,6 +48457,7 @@ nl:Verse doperwten
 <en:Green peas
 en:Fresh green peas
 fr:Petits pois frais
+season_in_country_fr:en: 5,6,7
 
 <en:Legumes
 <en:Seeds

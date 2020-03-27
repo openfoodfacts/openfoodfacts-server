@@ -2,7 +2,7 @@ stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi
-stopwords:fr:ingrédients, agricoles, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo
+stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 
 
@@ -2476,7 +2476,7 @@ ca:Comerç Just
 de:Fairer Handel
 es:Comercio justo, Fairtrade-Comercio Justo
 fi:Reilu kauppa
-fr:Commerce équitable, équitable, issu du commerce équitable, issus du commerce équitable, issue du commerce équitable, issues du commerce équitable
+fr:Commerce équitable, équitable, issu du commerce équitable, issus du commerce équitable, issue du commerce équitable, issues du commerce équitable, ingrédients issus du commerce équitable, produits issus du commerce équitable
 he:סחר הוגן
 hu:Fair trade
 it:Commercio equo
@@ -3756,7 +3756,7 @@ ca:Fet a França
 de:Hergestellt in Frankreich
 es:Hecho en Francia
 fi:Valmistettu Ranskassa
-fr:Fabriqué en France, production française, produit de France, fabrication française
+fr:Fabriqué en France, production française, produit de France, fabrication française, élaboré en France, élaboration française
 he:נוצר בצרפת
 hu:Franciaországban készült
 it:Prodotto in Francia, fatto in Francia
@@ -4390,6 +4390,7 @@ th:ไม่มีไขมันทรานส์
 
 en:non-EU Agriculture
 ca:Agricultura No-UE
+da:ikke-EU jordbruk
 de:Nicht EU-Landwirtschaft
 es:Agricultura no UE
 fi:tuotettu EU:n ulkopuolella
@@ -4397,8 +4398,9 @@ fr:Agriculture non UE
 he:חקלאות מחוץ לאיחוד האירופי
 hu:nem-EU mezőgazdaság
 it:Agricoltura non-UE
-nl:Non EU landbouw
+nl:Non EU landbouw, niet-EU landbouw
 ru:не-EU агрокультура
+sv:icke EU-jordbruk
 
 < en:Non-EU Agriculture
 en:BO-BIO-126
@@ -4648,13 +4650,13 @@ fr:Cent meilleurs produits de Russie 2015
 nl:Honderd beste Russische producten 2015
 ru:Сто лучших товаров России 2015
 
-en:Organic, organically grown, organically produced
+en:Organic, organically grown, organically produced, ingredient produced organically
 ca:Orgànic
 cs:Bio
 de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
 es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio
 fi:Luomu
-fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique
+fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique
 he:אורגני
 hu:Bio, Öko, Organikus
 it:Biologico
@@ -4845,6 +4847,9 @@ pt:Sem óleo de palma
 ru:Без пальмового масла
 th:ไม่ใช้น้ำมันปาล์ม
 zh:不含棕榈油
+
+en:pasteurized product
+fr:produit pasteurisé
 
 en:PDO, P.D.O., Protected Designation of Origin
 ca:DOP, Denominació d'Orígen Protegida
