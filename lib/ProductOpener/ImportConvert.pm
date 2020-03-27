@@ -1508,7 +1508,7 @@ sub load_csv_file($) {
 	}
 }
 
-
+sub recursive_list($$);
 sub recursive_list($$) {
 
 	my $list_ref = shift;
