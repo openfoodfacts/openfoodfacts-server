@@ -6,8 +6,8 @@ use warnings;
 use utf8;
 
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";
-use Log::Any::Adapter 'TAP';
+use Log::Any::Adapter 'TAP', filter => "none";
+#use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -151,18 +151,29 @@ foreach my $test_ref (@tests) {
 	["en", "Natural pasteurized cow milk - Natural milk fat", "Natural pasteurized cow milk - Natural milk fat"],
 	["en", "NA.", ""],
 
+	# 4 arguments: call clean_ingredients_text_for_field instead of clean_fields
+	# e.g. for OCR, we all clean_ingredients_text_for_field insted of clean_fields
+	["de", "ZUTATEN: 67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen.", "", "67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen."],
+
 );
 
 foreach my $test_ref (@tests) {
 
 	my $ingredients_lc = "ingredients_text_" . $test_ref->[0];
 
-	my $product_ref = { lc => $test_ref->[0],
-		$ingredients_lc => $test_ref->[1] };
+	my $product_ref = { 
+		lc => $test_ref->[0],
+		$ingredients_lc => $test_ref->[1],
+	};
 
-	clean_fields($product_ref);
-
-	is($product_ref->{$ingredients_lc}, $test_ref->[2]);
+	if (not defined $test_ref->[3]) {
+		clean_fields($product_ref);
+		is($product_ref->{$ingredients_lc}, $test_ref->[2]);
+	}
+	else {
+		$product_ref->{$ingredients_lc} = clean_ingredients_text_for_lang($product_ref->{$ingredients_lc}, $test_ref->[0]);
+		is($product_ref->{$ingredients_lc}, $test_ref->[3]);
+	}
 
 }
 

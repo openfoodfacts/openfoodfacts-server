@@ -41,6 +41,7 @@ my @tests = (
     'processing' => 'en:powdered',
     'text' => 'courgette'
   }
+
 ]
 
 	],
@@ -72,22 +73,30 @@ my @tests = (
 ]
 	],
 
-	[ { lc => "nl", ingredients_text => "sojasauspoeder, wei-poeder, vanillepoeder, "}, 
+	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder,  geraspte sjalot, gepelde goudsbloem"}, 
 [
   {
-    'id' => 'en:soy-sauce',
-    'processing' => 'en:powdered',
-    'text' => 'sojasaus'
+    'id' => 'en:shallot',
+    'text' => 'sjalot',
+    'processing' => 'en:powdered'
   },
   {
-    'id' => 'en:whey',
-    'processing' => 'en:powdered',
-    'text' => 'wei'
+    'id' => 'en:whey-powder',
+    'text' => 'wei-poeder'
   },
   {
-    'id' => 'en:vanilla',
-    'processing' => 'en:powdered',
-    'text' => 'vanille'
+    'id' => 'en:vanilla-powder',
+    'text' => 'vanillepoeder'
+  },
+  {
+    'id' => 'en:shallot',
+    'text' => 'sjalot',
+    'processing' => 'en:grated'
+  },
+  {
+    'id' => 'en:marigold',
+    'processing' => 'en:peeled',
+    'text' => 'goudsbloem' 
   }
 ]
 
@@ -107,9 +116,8 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver"}, 
 [
   {
-    'id' => 'en:bourbon-vanilla',
-    'processing' => 'en:powdered',
-    'text' => 'bourbon-vanille'
+    'id' => 'en:bourbon-vanilla-powder',
+    'text' => 'bourbon-vanillepulver'
   },
   {
     'id' => 'en:acerola',
