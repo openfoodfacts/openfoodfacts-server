@@ -9468,9 +9468,6 @@ nl:verse room
 # comment:en:In dutch zure room is sometimes wrongly translated to creme fraiche
 
 <en:Cream
-de:Schlagsahne
-
-<en:Cream
 en:sour cream, soured cream, grade a cultured cream
 ar:كريمة حامضة
 ca:Crema agra, crema àcida
@@ -13765,6 +13762,9 @@ de:Kalbszunge, Kalbzunge
 fi:naudan kieli, härän kieli
 fr:langue de bœuf, langue de boeuf
 hu:marhanyelv
+
+<en:beef meat
+de:rindergehacktes
 
 <en:beef meat
 en:beef heart
@@ -25259,19 +25259,23 @@ hu:folyékony cukor
 
 <en:sugar
 en:icing sugar
-de:Puderzucker
-es:Azucar en polvo
 fi:tomusokeri
 fr:sucre glace
-hu:porcukor
 it:zucchero a velo
-nl:poedersuiker
+nl:glazuursuiker
 
 <en:sugar
 fr:sucre caramélisé en poudre
 
 <en:sugar
-fr:sucre en poudre
+en:granulated sugar, powdered sugar
+de:Puderzucker
+es:Azucar en polvo
+fi:jauhettu sokeri
+fr:sucre en poudre, sucre en grains
+hu:porcukor
+it:zucchero semolato
+nl:poedersuiker
 
 <en:sugar
 fr:sucre candi
@@ -45694,7 +45698,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-entières-
 
 <en:hazelnut
 en:chopped hazelnuts
-de:gehackte Haselnüsse
+#in processing de:gehackte Haselnüsse
 fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
 fr:noisettes hachées
 it:nocciole tritate
@@ -45913,7 +45917,7 @@ sv:ekologiskt mandelmjöl
 
 <en:almond
 en:ground almonds
-de:gemahlene Mandeln, gehackte Mandeln, mandeln gemahlen,
+# in processing de:gemahlene Mandeln, gehackte Mandeln, mandeln gemahlen,
 es:almendras molidas
 fi:Jauhettua mantelia, jauhettuja manteleita
 fr:amandes hachées, amandes moulues

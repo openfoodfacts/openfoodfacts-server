@@ -118,22 +118,95 @@ my @tests = (
 
 	],
 
-	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver"}, 
-[
-  {
-    'id' => 'en:bourbon-vanilla-powder',
-    'text' => 'bourbon-vanillepulver'
-  },
-  {
-    'id' => 'en:acerola',
-    'processing' => 'en:powdered',
-    'text' => 'acerola'
-  }
-]
-
-
+	[ { lc => "de", ingredients_text => "bourbon-vanillepulver" }, 
+		[
+	  		{
+	    		'id' => 'en:bourbon-vanilla-powder',
+	    		'text' => 'bourbon-vanillepulver'
+	  		}
+		]
 	],
 
+	[ { lc => "de", ingredients_text => "gehacktes Buttermilch"}, 
+	[
+		{
+	   'id' => 'en:buttermilk',
+	   'processing' => 'en:chopped',
+	   'text' => 'Buttermilch'
+	  },
+	],
+	],
+	
+	[ { lc => "de", ingredients_text => "Sauerkrautpulver" }, 
+		[
+  			{
+    			'id' => 'en:sauerkraut',
+    			'processing' => 'en:powdered',
+    			'text' => 'Sauerkraut'
+  			}
+		]
+	],
+	
+	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" }, 
+		[
+			{
+    			'id' => 'en:passion-fruit',
+    			'processing' => 'en:sliced',
+    			'text' => 'passionsfrucht'
+  			}
+		]
+	],
+	
+	[ { lc => "de", ingredients_text => "acerola-pulver" }, 
+		[
+  			{
+    			'id' => 'en:acerola',
+    			'processing' => 'en:powdered',
+    			'text' => 'acerola'
+  			}
+		]
+	],
+	
+		[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
+	[
+	  {
+	    'id' => 'en:soured-milk',
+	    'processing' => 'en:chopped',
+	    'text' => 'Dickmilch'
+	  }
+	]
+		],
+
+	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+[
+  {
+    'id' => "de:hartk\x{e4}se",
+    'processing' => 'en:sliced',
+    'text' => "hartk\x{e4}se"
+  },
+  {
+    'id' => 'en:hazelnut',
+    'processing' => 'en:chopped',
+    'text' => "haseln\x{fc}sse"
+  },
+  {
+    'id' => 'en:hazelnut',
+    'processing' => 'en:roasted, en:chopped',
+    'text' => "haseln\x{fc}sse"
+  },
+  {
+    'id' => 'en:toasted-hazelnut',
+    'processing' => 'en:chopped',
+    'text' => "ger\x{f6}stete haselnusskerne"
+  },
+  {
+    'id' => 'en:almond',
+    'processing' => 'en:sliced, en:chopped',
+    'text' => 'mandeln'
+  }
+
+]
+	],
 );
 
 foreach my $test_ref (@tests) {

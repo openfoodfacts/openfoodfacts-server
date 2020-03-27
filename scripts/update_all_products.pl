@@ -216,8 +216,6 @@ my $products_collection = get_products_collection();
 my $products_count = $products_collection->count_documents($query_ref);
 
 print STDERR "$products_count documents to update.\n";
-sleep(2);
-
 
 my $cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
 $cursor->immortal(1);
@@ -242,7 +240,7 @@ while (my $product_ref = $cursor->next) {
 		print STDERR "code field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id} . "\n";
 	}
 	else {
-		print STDERR "updating product code: $code $owner_info ($n)\n";
+		print STDERR "updating product code: $code $owner_info ($n / $products_count)\n";
 	}
 
 	next if $just_print_codes;
