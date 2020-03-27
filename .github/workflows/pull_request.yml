@@ -87,7 +87,6 @@ jobs:
         node refresh_taxonomies.js
         # Run unit tests
         prove -l
-    - name: The job has failed
       if: failure()
         - cat $HOME/.cpanm/build.log
 
