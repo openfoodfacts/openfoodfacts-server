@@ -162,14 +162,35 @@ my @tests = (
 		]
 	],
 	
-		[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
-	[
-	  {
-	    'id' => 'en:soured-milk',
-	    'processing' => 'en:chopped',
-	    'text' => 'Dickmilch'
-	  }
-	]
+	[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
+		[
+	  		{
+	    		'id' => 'en:soured-milk',
+	    		'processing' => 'en:chopped',
+	    		'text' => 'Dickmilch'
+	  		}
+		]
+	],
+
+# Test for de:püree without space
+	[ { lc => "de", ingredients_text => "Schalottepüree" }, 
+		[
+	  		{
+	    		'id' => 'en:shallot',
+	    		'processing' => 'en:puree',
+	    		'text' => 'Schalotte'
+	  		}
+		]
+	],
+# Test for de:püree with space
+	[ { lc => "de", ingredients_text => "Schalotte püree" }, 
+		[
+		  	{
+				'id' => 'en:shallot',
+				'processing' => 'en:puree',
+				'text' => 'Schalotte'
+				}
+			]
 		],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
