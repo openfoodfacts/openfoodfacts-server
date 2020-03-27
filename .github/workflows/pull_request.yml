@@ -88,5 +88,5 @@ jobs:
         # Run unit tests
         prove -l
       if: failure()
-        - cat $HOME/.cpanm/build.log
+        cat $HOME/.cpanm/build.log
 
