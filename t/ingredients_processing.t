@@ -41,6 +41,7 @@ my @tests = (
     'processing' => 'en:powdered',
     'text' => 'courgette'
   }
+
 ]
 
 	],
@@ -72,7 +73,7 @@ my @tests = (
 ]
 	],
 
-	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen kokos"}, 
+	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen kokos, geraspte sjalot, gepelde goudsbloem"}, 
 [
   {
     'id' => 'en:shallot',
@@ -91,6 +92,16 @@ my @tests = (
     'id' => 'en:coconut',
 	'processing' => 'en:ground',
     'text' => 'kokos'
+  },
+  {
+    'id' => 'en:shallot',
+    'text' => 'sjalot',
+    'processing' => 'en:grated'
+  },
+  {
+    'id' => 'en:marigold',
+    'processing' => 'en:peeled',
+    'text' => 'goudsbloem' 
   }
 ]
 

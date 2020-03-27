@@ -150,7 +150,7 @@ my %traces_regexps = (
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
 	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
-	fr => "peut contenir|qui utilise aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 
 );
@@ -193,7 +193,7 @@ my %of = (
 	en => " of ",
 	de => " von ",
 	es => " de ",
-	fr => " de | du | des | d'",
+	fr => " de la | de | du | des | d'",
 	it => " di | d'",
 );
 
@@ -210,7 +210,7 @@ my %and_of = (
 	en => " and of ",
 	de => " und von ",
 	es => " y de ",
-	fr => " et de | et du | et des | et d'",
+	fr => " et de la | et de l'| et du | et des | et d'| et de ",
 	it => " e di | e d'",
 );
 
@@ -2005,10 +2005,16 @@ sub normalize_allergen($$$) {
 	if (defined $of{$lc}) {
 		$of = $of{$lc};
 	}
+	my $and_of = ' - ';
+	if (defined $and_of{$lc}) {
+		$and_of = $and_of{$lc};
+	}
 
 	# "de moutarde" -> moutarde
+	# "et de la moutarde" -> moutarde
+
 	$a = " " . $a;
-	$a =~ s/^$of\b//;
+	$a =~ s/^($and_of|$of)\b//;
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
 
@@ -2202,7 +2208,7 @@ my %phrases_after_ingredients_list = (
 
 fr => [
 
-'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
+'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)(s|le|les)?',
 'caractéristiques nu(t|f)ritionnelles',
 'valeurs mo(y|v)ennes',
 'valeurs nutritionelles moyennes',
@@ -2511,6 +2517,8 @@ sub clean_ingredients_text_for_lang($$) {
 	my $text = shift;
 	my $language = shift;
 
+	$log->debug("clean_ingredients_text_for_lang - start", { language=>$language, text=>$text }) if $log->is_debug();
+
 	# turn demi - écrémé to demi-écrémé
 
 	if (defined $prefixes_before_dash{$language}) {
@@ -2524,10 +2532,19 @@ sub clean_ingredients_text_for_lang($$) {
 
 	$log->debug("clean_ingredients_text_for_lang - 1", { language=>$language, text=>$text }) if $log->is_debug();
 
+	my $cut = 0;
+
 	if (defined $phrases_before_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-			$text =~ s/^(.*)\b$regexp(\s*)(-|:|\r|\n)+(\s*)//is;
+			# The match before the regexp must be not greedy so that we don't cut too much
+			# if we have multiple times "Ingredients:" (e.g. for products with 2 sub-products)
+			if ($text =~ /^(.*?)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
+				$text = $';
+				$log->debug("removed phrases_before_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
+				$cut = 1;
+				last;
+			}
 		}
 	}
 
@@ -2535,11 +2552,11 @@ sub clean_ingredients_text_for_lang($$) {
 
 	$log->debug("clean_ingredients_text_for_lang - 2", { language=>$language, text=>$text }) if $log->is_debug();
 
-	if (defined $phrases_before_ingredients_list_uppercase{$language}) {
+	if ((not $cut) and (defined $phrases_before_ingredients_list_uppercase{$language})) {
 
 		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
 			# INGREDIENTS followed by lowercase
-			$text =~ s/^(.*)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
+			$text =~ s/^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
 		}
 	}
 
@@ -2550,7 +2567,10 @@ sub clean_ingredients_text_for_lang($$) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			$text =~ s/\s*\b$regexp(.*)$//is;
+			if ($text =~ /\s*\b$regexp\b(.*)$/is) {
+				$text = $`;
+				$log->debug("removed phrases_after_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
+			}
 		}
 	}
 
@@ -2717,6 +2737,10 @@ sub preparse_ingredients_text($$) {
 
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
+
+	# vegetable oil (coconut & rapeseed)
+	# turn & to and
+	$text =~ s/ \& /$and/g;
 
 	# abbreviations
 	if (defined $abbreviations{$product_lc}) {
@@ -3276,7 +3300,7 @@ INFO
 		#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
 		#$log->debug("allergens", { lc => $product_lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
 
-		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)*($allergenssuffixregexp))\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$product_lc,$4)/ieg;
+		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((_?($allergenssuffixregexp)_?( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergenssuffixregexp)_?)\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$product_lc,$4)/ieg;
 		# we may have added an extra dot in order to make sure we have at least one
 		$text =~ s/\.\./\./g;
 

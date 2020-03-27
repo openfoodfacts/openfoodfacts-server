@@ -7239,6 +7239,9 @@ vegan:en:no
 vegetarian:en:maybe
 
 <en:dairy
+es:derivado lacteo en polvo
+
+<en:dairy
 en:fermented milk products, cultured dairy foods, cultured dairy products, cultured milk products
 be:Кісламалочныя прадукты
 ca:Llet fermentada
@@ -8597,7 +8600,7 @@ ca:llet desnatada en pols
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
 de:Magermilchpulver
-es:leche desnatada en polvo
+es:leche desnatada en polvo, leche en polvo desnatada
 et:lössipulber
 fi:rasvaton maitojauhe
 fr:lait en poudre écrémé, lait écrémé en poudre, poudre de lait écrémé
@@ -8654,7 +8657,7 @@ fr:poudres de lait écrémé et entier
 fr:lait écrémé reconstitué
 nl:gereconstitueerde melk
 
-<en:milk
+<en:skimmed milk
 en:reconstituted skimmed milk
 de:rekonstituierte Magermilch
 es:leche desnatada reconstituida
@@ -8662,6 +8665,9 @@ fr:lait écrémé réhydraté
 hu:visszaállított sovány tej, feloldott sovány tej
 it:latte scremato reidratato
 nl:gerehydrateerde magere melk
+
+<en:skimmed milk powder
+es:leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
 
 fr:matière grasse de lait anhydre
 
@@ -9997,6 +10003,9 @@ fr:fromage à pâte molle au lait pasteurisé
 hu:pasztőrözött tejből készült lágysajt
 it:Formaggio a pasta molle di latte pastorizzato
 # 6@2019-06-08
+
+<en:cheese
+es:queso fundido en polvo
 
 <en:cheese
 de:Bergkäse
@@ -14846,11 +14855,27 @@ en:pork liver
 de:Schweineleber
 es:Higado de cerdo
 fi:sianmaksa
-fr:poitrine de porc
+fr:foie de porc
 hu:sertésmáj
 nl:varkenslever
 ro:piept de porc, piet porc
 zh:猪肝
+
+<en:pork meat
+en:pork belly, pork bellies
+fr:ventre de porc
+
+en:breast
+fr:poitrine
+
+<en:breast
+en:smoked breast
+fr:poitrine fumée
+
+<en:breast
+<en:pork meat
+en:pork breast
+fr:poitrine de porc
 
 <en:pork meat
 fr:viande et gras de porc
@@ -15841,7 +15866,7 @@ nl:kalfsvet
 en:beef fat
 de:Rinderfett
 fi:naudanrasva
-fr:gras de bœuf, graisse de bœuf
+fr:gras de bœuf, graisse de bœuf, gras de bovin, bovin
 hu:marhazsír
 it:grasso di manzo
 nl:rundvet
@@ -16234,6 +16259,10 @@ wikidata:en:Q231458
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_oil
 
 <en:palm oil
+en:refined palm oil
+fr:huile de palme raffinée
+
+<en:palm oil
 en:modified palm oil
 de:Modifiziertes Palmöl
 es:Aceite de palma modificada
@@ -16623,6 +16652,10 @@ from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:olive oil
+en:black olives oil, black olive oil
+fr:huile d'olivs noires
+
+<en:olive oil
 en:virgin olive oil
 ca:Oli d'oliva verge
 da:jomfruolivenolie
@@ -16644,7 +16677,7 @@ da:ekstra jomfruolivenolie
 de:natives Olivenöl Extra, Olivenöl nativ extra
 es:aceite de oliva virgen extra
 fi:ekstra-neitsytoliiviöljy
-fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
+fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
 hu:extra szűz olívaolaj, extraszűz olívaolaj
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing
@@ -17138,7 +17171,7 @@ el:λίπος shea
 eo:karitea butero
 es:manteca de karité
 fi:karitevoi, sheavoi, shea
-fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité
+fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
 hr:shea maslac
 hu:sheavaj
@@ -17458,7 +17491,7 @@ hu:bio napraforgóolaj
 nl:biozonnebloemolie, bio zonnebloemolie
 
 <en:sunflower oil
-fr:huile de tournesol vierge
+fr:huile de tournesol vierge, huile de tournesol vierge première pression à froid
 
 # high oleic fraction
 
@@ -17815,6 +17848,10 @@ en:white distilled vinegar
 
 <en:vinegar
 nl:gebufferde azijnpoeder
+
+<en:vinegar
+en:vinegar powder
+es:vinagre en polvo
 
 <en:vinegar
 en:wine vinegar
@@ -25183,6 +25220,9 @@ nl:gekarameliseerde suiker
 ro:zahăr caramelizat
 sv:karamelliserat socker
 
+<en:caramelised sugar
+es:azucar caramelizado en polvo
+
 <en:sugar
 en:white sugar
 de:weißer Zucker, Zucker
@@ -26851,6 +26891,10 @@ hu:szójafehérje
 it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
 ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina vegetala din soia
+
+<en:fibers
+en:soy fiber
+fr:protéines de soja
 
 <en:soy protein
 de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat
@@ -28786,6 +28830,7 @@ fr:soja dépelliculé, graines de soja dépelliculées, fèves de soja décortiq
 de:geschälte Sojabohnen
 es:habas de soja descascarilladas
 it:semi di soia decorticati
+nl:gepelde sojabonen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soja-dépelliculé
 # 95 products in 4 languages @2018-09-25
 
@@ -32563,7 +32608,7 @@ fr:compote de pommes allégée en sucres
 fr:pulpe de pomme
 de:Apfelmark
 it:polpa di mele
-nl:appelmoes
+nl:appelmoes, appelpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-pomme
 # 46 products @2018-10-04
 
@@ -34406,6 +34451,8 @@ de:Medjool Datteln
 it:Datteri Medjool
 # 9in3@2019-06-04
 
+<en:date
+nl:dadelpuree
 <en:date
 fr:jus de dattes concentré
 
@@ -36443,6 +36490,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tamarind
 # ingredient/fr:tamarin has 107 products in 5 languages @2019-02-07
 
 <en:tamarind
+nl:tamarindepuree
+<en:tamarind
 fr:extrait de tamarin
 de:Tamarindenextrakt
 es:Extracto de tamarinado
@@ -37527,6 +37576,9 @@ sv:kokosmjòlk
 zh:椰子奶
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
 # 87 products @2018-10-03
+
+<en:coconut milk
+es:leche de coco en polvo
 
 <en:coconut
 en:coconut water
@@ -43249,7 +43301,7 @@ fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 hu:paradicsompüré, paradicsomszósz
 it:passata di pomodoro, concentrato di pomodoro
-nl:tomatenpurée, tomatenconcentraat
+nl:tomatenpurée, tomatenconcentraat, tomatenpuree
 pl:koncentrat pomidorowy
 sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
@@ -47976,6 +48028,9 @@ wikidata:en:Q734727
 wikipedia:en:https://en.wikipedia.org/wiki/Galangal
 # fr:galanga has 122 products in 6 languages @2018-10-25
 
+<en:galangal
+nl:gemalen galangawortel, laos
+
 # description:en:GINGER (Zingiber officinale) is a flowering plant whose rhizome, ginger root or simply ginger, is widely used as a spice or a folk medicine
 
 # <en:root vegetable
@@ -48120,7 +48175,7 @@ fr:gingembre bio
 <en:ginger
 en:ginger powder, ground ginger
 de:gemahlener Ingwer, Ingwerpulver
-es:Gengibre en polvo, polvo de gengibre
+es:Gengibre en polvo, polvo de gengibre, jengibre en polvo
 fi:inkiväärijauhe, jauhettu inkivääri
 fr:gingembre moulu
 it:zenzero macinato
@@ -53114,6 +53169,15 @@ fr:algues de Bretagne nord
 fr:paillettes d'algues
 # ingredient/fr:paillettes-d'algues has 1 product @2019-02-22
 
+<en:algae
+en:algae extract
+fr:extrait d'algues
+
+<en:seaweed
+<en:algae extract
+en:seaweed extract
+fr:extrait d'algues marines
+
 
 <en:algae
 en:Lithotamnium calcareum
@@ -53580,6 +53644,10 @@ vegetarian:en:yes
 # en:mushroom has 1817 products in 16 languages @2018-11-02
 carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
 carbon_footprint_fr_foodges_value:fr:1.9
+
+<en:mushroom
+en:forest mushroom
+fr:champignon forestier, champignons forestiers, champignon des bois, champignopns des bois
 
 <en:mushroom
 en:concentrated mushroom juice
@@ -67925,7 +67993,7 @@ fr:sauce au soja et au sésame, sauce au sésame et au soja
 <en:soy sauce
 en:soy sauce powder
 de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver, Sojasaucenpulver
-es:Salsa de soya en polvo
+es:Salsa de soya en polvo, salsa de soja en polvo
 fi:soijakastikejauhe
 fr:sauce soja en poudre, sauce de soja en poudre
 nl:sojasauspoeder, soja saus poeder
@@ -68386,3 +68454,9 @@ fr:kombucha
 <en:kombucha
 en:raw kombucha
 
+
+en:proteins mix
+fr:mélange de protéines
+
+en:pizza dough
+fr:pâte à pizza
