@@ -187,9 +187,9 @@ sub display_user_form($$) {
 		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this.value)", -autocomplete=>'username')
 			. "<br /><span id=\"useridok\" style=\"font-size:10px;\">&nbsp;</span>")) . "</td></tr>"
 	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
-	. password_field(-name=>'password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
+	. password_field(-name=>'password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
-	. password_field(-name=>'confirm_password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
+	. password_field(-name=>'confirm_password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 
 
 	;

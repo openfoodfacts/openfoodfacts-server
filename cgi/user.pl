@@ -37,6 +37,13 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Log::Any qw($log);
 
+my $is_pass = param('prdct_mult');
+my $pass;
+if(defined($is_pass)){
+	$pass= param('password');
+	param("password", "");
+}
+
 ProductOpener::Display::init();
 
 my $type = param('type') || 'add';
@@ -118,6 +125,19 @@ if ($action eq 'display') {
 SCRIPT
 ;
 
+	my $user_info = remove_tags_and_quote(param('user_id'));
+	$user_info =~ /^(.+?)@/;
+	if ( defined ($1) ){
+		$user_ref->{email} = $user_info;
+		$user_ref->{userid} = $1;
+		$user_ref->{name} = $1;
+		$user_ref->{password} =$pass;
+	}
+	else{
+		$user_ref->{userid} = $user_info;
+		$user_ref->{name} = $user_info;
+		$user_ref->{password} =$pass;
+	}
 	$html .= start_form()
 	. "<table>";
 

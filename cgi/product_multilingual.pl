@@ -202,6 +202,7 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 		$html = <<HTML
 <p>$Lang{login_to_add_products}{$lang}</p>
 
+<div style="display: inline;">
 <form method="post" action="/cgi/session.pl">
 <div class="row">
 <div class="small-12 columns">
@@ -224,7 +225,10 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 <input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small" />
 <input type="hidden" name="code" value="$code" />
 <input type="hidden" name="next_action" value="product_$type" />
+<button type="submit" formaction="/cgi/user.pl" method ="get" class="button small">$Lang{login_create_your_account}{$lc}</button>
+<input type="hidden" name="prdct_mult" value="True" />
 </form>
+</div>
 
 HTML
 ;
