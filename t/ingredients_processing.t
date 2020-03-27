@@ -195,9 +195,9 @@ my @tests = (
     'text' => "ger\x{f6}stete haselnusskerne"
   },
   {
-    'id' => 'en:ground-almonds',
-    'processing' => 'en:sliced',
-    'text' => 'gehackte mandeln'
+    'id' => 'en:almond',
+    'processing' => 'en:sliced, en:chopped',
+    'text' => 'mandeln'
   }
 
 ]
