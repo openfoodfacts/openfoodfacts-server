@@ -18872,7 +18872,7 @@ ciqual_food_name:en:Biscuit (cookie), cat tongue type
 ciqual_food_name:fr:Biscuit sec type langue de chat ou cigarette russe
 
 <en:Cakes
-en:Madeleines
+en:Madeleines, Madeleines cakes
 ca:Magdalenes
 de:Madeleine
 es:Magdalenas
@@ -18887,7 +18887,8 @@ ciqual_food_code:en:24632
 ciqual_food_name:en:Madeleine biscuit (cookie)
 ciqual_food_name:fr:Madeleine ordinaire, préemballée
 
-<en:Madeleines, Madeleine cake with pure butter
+<en:Madeleines
+en:Plain madeleines, Plain madeleines cakes
 fr:Madeleines natures, Madeleine traditionnelle pur beurre
 oqali_family:en: fr:Biscuits et gateaux industriels - Madeleines nature
 ciqual_food_code:en:24630
@@ -18901,6 +18902,7 @@ fr:Madeleines aux raisins, Madeleines au raisin, Madeleine aux raisins, Madelein
 nl:Madeleines met rozijnen
 
 <en:Madeleines
+en:Long madeleines
 fr:Madeleines longues
 de:Lange Madeleines
 
@@ -21003,20 +21005,28 @@ it:Lino
 la:Linum usitatissimum
 nl:Lijnzaad, Zaad van vlas
 wikidata:en:Q45108
+ciqual_food_code:en:15034
+ciqual_food_name:en:Flaxseed
+ciqual_food_name:fr:Lin, graine
+
 
 <en:Flax seeds
 en:Gold flax seeds, Gold flax, Gold linseeds
 de:Goldleinsamen
 es:Lino dorado, Linaza dorada, Semillas de lino dorado
-fr:Graines de lin dorées
+fr:Graine de lin doré, Graines de lin dorées
 nl:Geel lijnzaad
 
 <en:Flax seeds
 en:Brown flax seeds, Brown flax, Brown linseeds
 de:braune Leinsamen, braune Leinsaaten, braune Leinsaat
 es:Lino marrón, Linaza marrón, Semillas de lino marrón
-fr:Graines de lin brunes
+fr:Graines de lin brun, Graines de lin brunes
 nl:Bruin lijnzaad
+ciqual_food_code:en:15052
+ciqual_food_name:en:Flaxseed, brown
+ciqual_food_name:fr:Lin, brun, graine
+
 
 <en:Flax seeds
 en:Ground flax seeds
@@ -24308,8 +24318,8 @@ ciqual_food_name:en:Petit-Suisse, fresh cream cheese type, fruits flavoured, 2-3
 ciqual_food_name:fr:Fromage frais type petit suisse, aromatisé aux fruits, 2-3% MG, enrichi en calcium et vitamine D
 
 <en:Petits suisses
-en:Fat free plain Petit-Suisse, Fat free plain fresh cream cheese
-fr:Fromage frais nature à 0% de matières grasses, Petit suisse nature à 0% de matières grasses
+en:Fat free plain Petit-Suisse
+fr:Petit suisse nature à 0% de matières grasses
 ciqual_food_code:en:19663
 ciqual_food_name:en:Petit-Suisse, fresh cream cheese type, plain, fat free
 ciqual_food_name:fr:Fromage frais type petit suisse, nature, 0% MG
@@ -31408,9 +31418,6 @@ fr:Glaces au caramel
 de:Eiskrem Karamell, Speiseeis mit Karamell, Karamelleiskrem
 
 <en:Ice cream tubs
-fr:Glaces au yaourt
-
-<en:Ice cream tubs
 fr:Glaces aux noisettes
 
 <en:Ice cream tubs
@@ -34944,7 +34951,6 @@ fr:Sauces bordelaises
 <en:Sauces
 fr:Sauces bourguignonnes, Sauce bourguignonne préemballée
 en:Prepacked Burgundy-style sauce, Prepackaged Burgundy-style sauce
-fr:
 ciqual_food_code:en:11120
 ciqual_food_name:en:Burgundy-style sauce, prepacked
 ciqual_food_name:fr:Sauce bourguignonne, préemballée
@@ -36292,13 +36298,6 @@ nl:Zalmmaaltijden
 <en:Meals with salmon
 fr:Parmentiers de saumon
 
-<en:Meals with salmon
-en:Salmon tart
-fr:Tarte au saumon
-ciqual_food_code:en:25555
-ciqual_food_name:en:Salmon tart
-ciqual_food_name:fr:Tarte au saumon
-
 <en:Meals with fish
 en:Meals with tuna
 fr:Plats au thon
@@ -36342,6 +36341,9 @@ de:Würstchen mit Linsen
 fi:linssimakkarat
 fr: Saucisses aux lentilles, saucisse aux lentilles, saucisses avec lentilles, saucisse avec lentilles, saucisses lentilles, saucisse lentilles
 nl:Worst met linzen
+ciqual_food_code:en:25010
+ciqual_food_name:en:Salt-cured pork belly with lentils
+ciqual_food_name:fr:Petit salé ou saucisse aux lentilles
 
 <en:Meals with meat
 en:Meals with horse meat
@@ -37863,7 +37865,7 @@ nl:Kant-en-klaar linzen
 #wikidata:en:
 
 <en:Meals with meat
-fr:Petits salés aux lentilles, petit salé aux lentilles, Saucisse aux lentilles
+fr:Petits salés aux lentilles, petit salé aux lentilles
 en:Salt-cured pork belly with lentils
 ciqual_food_code:en:25010
 ciqual_food_name:en:Salt-cured pork belly with lentils
@@ -38271,9 +38273,16 @@ nl:Groentequiches
 
 <en:Quiches
 <en:Meals with fish
-en:Quiches with fish
-fr:Quiches au saumon, tartes au saumon, Quiche au saumon, tarte au saumon
+en:Quiches with fish, Fish quiches
+fr:Quiches au poisson, tartes au poisson
 nl:Quiche met vis
+
+<en:Quiches with fish
+en:Salmon quiches, Quiches with salmon, Salmon pies, Salmon tarts
+fr:Quiches au saumon, tartes au saumon, Quiche au saumon, tarte au saumon
+ciqual_food_code:en:25555
+ciqual_food_name:en:Salmon tart
+ciqual_food_name:fr:Tarte au saumon
 
 <en:Quiches
 en:Leek quiche, Leek tart, Leek pie
@@ -40335,9 +40344,6 @@ fr:Andouillettes provençales, Andouillettes de Provence
 <en:Prepared meats
 fr:Charcuteries diverses
 
-<fr:Charcuteries diverses
-fr:Fromage de tête
-wikidata:en:Q4675762
 
 <fr:Charcuteries diverses
 fr:Graisserons
@@ -42509,7 +42515,7 @@ ciqual_food_name:en:Twelfth Night cake
 ciqual_food_name:fr:Galette des rois feuilletée
 
 <en:Pastries
-en:Twelfth Night cake, puff pastry filled with almond paste
+en:Twelfth Night cake with almond paste, Twelfth Night cake puff pastry filled with almond paste
 fr:Galette des rois feuilletée fourrée à la frangipane, Pithiviers
 ciqual_food_code:en:23684
 ciqual_food_name:en:Twelfth Night cake (puff pastry filled with almond paste)
@@ -42543,7 +42549,7 @@ ciqual_food_name:fr:Canelé
 en:Cream puff, Pastry cream puff
 de:Windbeutel, Profiterole, Profiteroles
 es:Bocadito de nata, Profiterol, Profiteroles
-fr:Profiteroles, Profiterole, Profiterolles, Choux à la crème pâtissière, Chou à la crème pâtissière, Choux à la crème, Chou à la crème
+fr:Profiteroles, Profiterole, Profiterolles, Choux à la crème, Chou à la crème
 it:Profiterole, Profiteroles
 nl:Soesje, Profiterole
 wikidata:en:Q2513811
@@ -42644,16 +42650,16 @@ wikidata:en:Q3442427
 
 <en:Pastries
 <en:Desserts
-en:Baklava, oriental pastry with almonds and syrup
-fr:Baklava, Baklawa, Pâtisserie orientale aux amandes et sirop
+en:Baklava
+fr:Baklava
 ciqual_food_code:en:23300
 ciqual_food_name:en:Baklava (oriental pastry with almonds and syrup)
 ciqual_food_name:fr:Baklava, Baklawa, pâtisserie orientale aux amandes et sirop
 
 <en:Pastries
 <en:Desserts
-en:Gazelle horn, Oriental pastry with almonds and syrup
-fr:Corne de gazelle, Pâtisserie orientale aux amandes et sirop
+en:Gazelle horn
+fr:Corne de gazelle
 ciqual_food_code:en:23301
 ciqual_food_name:en:Gazelle horn (oriental pastry with almonds and syrup)
 ciqual_food_name:fr:Corne de gazelle (pâtisserie orientale aux amandes et sirop)
@@ -44213,6 +44219,9 @@ fi:suolasilli
 fr:Harengs marinés, hareng mariné, Hareng Bismarck, Harengs Bismarck
 nl:Zure haring
 wikidata:en:Q695101
+ciqual_food_code:en:26010
+ciqual_food_name:en:Atlantic herring, marinated, or rollmops
+ciqual_food_name:fr:Hareng mariné ou rollmops
 
 <en:Pickled herring
 en:Rollmops, Rollmop
@@ -44220,6 +44229,9 @@ de:Rollmops, Rollmöpse
 fr:Rollmops, Rollmop
 nl:Rolmops
 wikidata:en:Q1424531
+ciqual_food_code:en:26010
+ciqual_food_name:en:Atlantic herring, marinated, or rollmops
+ciqual_food_name:fr:Hareng mariné ou rollmops
 
 <en:Herring
 en:Pacific herring
@@ -44239,13 +44251,6 @@ fr:Hareng grillé, Hareng poêlé
 ciqual_food_code:en:26014
 ciqual_food_name:en:Atlantic herring, grilled/pan-fried
 ciqual_food_name:fr:Hareng, grillé/poêlé
-
-<en:Herring
-en:Marinated Atlantic herring
-fr:Hareng mariné
-ciqual_food_code:en:26010
-ciqual_food_name:en:Atlantic herring, marinated, or rollmops
-ciqual_food_name:fr:Hareng mariné ou rollmops
 
 <en:Herring
 en:Raw Atlantic herring
@@ -45520,20 +45525,6 @@ en:Roasted shelled pumpkin seeds
 es:Semillas de calabaza sin cáscara tostadas, Pipas de calabaza sin cáscara tostadas
 fr:Graines de courge décortiquées grillées
 nl:Geroosterde gepelde pompoenpitten
-
-<en:Seeds
-en:Flaxseed
-fr:Graines de lin
-ciqual_food_code:en:15034
-ciqual_food_name:en:Flaxseed
-ciqual_food_name:fr:Lin, graine
-
-<en:Seeds
-en:Brown flaxseed
-fr:Graines de lin brun
-ciqual_food_code:en:15052
-ciqual_food_name:en:Flaxseed, brown
-ciqual_food_name:fr:Lin, brun, graine
 
 <en:Seeds
 en:Cucurbitacea seeds
@@ -46861,6 +46852,7 @@ la:Brassica oleracea var. capitata
 nl:Kolen
 
 <en:Leaf vegetables
+en:Fresh cabbages
 fr:Chou frais
 season_in_country_fr:en: 1,2,3,10,11,12
 
@@ -50971,14 +50963,6 @@ nl:Graanrepen met noten
 ro:Batoane de cereale cu nuci
 
 <en:Nuts cereal bars
-fr:Barres de céréales aux amandes, Barre de céréales aux amandes
-it:Barrette di cereali con mandorle
-
-<en:Nuts cereal bars
-fr:Barres de céréales aux noisettes, Barre de céréales aux noisettes
-it:Barrette di cereali con nocciole
-
-<en:Nuts cereal bars
 en:Cereal bar with almonds or hazelnuts
 fr:Barre céréalière aux amandes ou aux noisettes
 ciqual_food_code:en:31114
@@ -50988,11 +50972,12 @@ ciqual_food_name:fr:Barre céréalière aux amandes ou noisettes
 <en:Cereal bar with almonds or hazelnuts
 en:Cereal bar with almonds
 fr:Barre céréalière aux amandes, Barre de céréales aux amandes
+it:Barrette di cereali con mandorle
 
 <en:Cereal bar with almonds or hazelnuts
 en:Cereal bar with hazelnuts
 fr:Barre céréalière aux noisettes, Barre de céréales aux noisettes
-
+it:Barrette di cereali con nocciole
 
 <en:Fruits cereal bars
 <en:Chocolate cereal bars
