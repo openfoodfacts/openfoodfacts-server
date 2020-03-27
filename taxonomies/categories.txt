@@ -217,6 +217,27 @@ hu:Baba gyümölcs desszertek
 nl:Babymelktoetjes, Babymelktoetje
 ro:Deserturi cu lactate pentru bebeluși, Deserturi cu lactate bebeluși
 
+<en:Snacks and desserts for babies
+en:Dairy dessert for baby with custard
+fr:Dessert lacté pour bébé, Crème dessert pour bébé
+ciqual_food_code:en:13164
+ciqual_food_name:en:Dairy dessert for baby, custard type
+ciqual_food_name:fr:Dessert lacté infantile type crème dessert
+
+<en:Snacks and desserts for babies
+en:Dairy dessert for baby with rice, Dairy dessert for baby with semolina
+fr:Dessert lacté pour bébé au riz, Dessert lacté pour bébé à la semoule
+ciqual_food_code:en:13165
+ciqual_food_name:en:Dairy dessert for baby, with rice or semolina
+ciqual_food_name:fr:Dessert lacté infantile au riz ou à la semoule
+
+<en:Snacks and desserts for babies
+en:Plain dairy dessert for baby with sugar, Dairy dessert for baby with sugar and fruits
+fr:Dessert lacté pour bébé nature sucré, Dessert lacté pour bébé sucré aux fruits
+ciqual_food_code:en:13166
+ciqual_food_name:en:Dairy dessert for baby, plain with sugar or with fruits
+ciqual_food_name:fr:Dessert lacté infantile nature sucré ou aux fruits
+
 <en:Baby foods
 en:Baby milks
 ca:Llets infantils
@@ -18194,32 +18215,41 @@ nl:Pretzels, Pretzel
 wikidata:en:Q160525
 
 <en:Special breads
-en:English muffins
+en:English muffins, Prepackaged English muffin, Prepacked English muffin
 de:Englische Muffins
 es:Muffins ingleses, Muffin inglés
 fi:englantilaiset muffinit
-fr:Pains Muffins, pain Muffins, pain Muffin, pains Muffin, pains pour Muffins, pain pour Muffins, pains pour Muffin
+fr:Pains Muffins, pain Muffins, pain Muffin, pains Muffin, pains pour Muffins, pain pour Muffins, pains pour Muffin, Muffin anglais préemballé
 nl:Muffins, Muffin
 zh:英国松饼, 英式松饼
 wikidata:en:Q429483
+ciqual_food_code:en:7257
+ciqual_food_name:en:English muffin, prepacked
+ciqual_food_name:fr:Muffin anglais, petit pain spécial, préemballé
 
 <en:Special breads
-en:Hamburger buns, Burger buns
+en:Hamburger buns, Burger buns, Prepacked rolls for hamburger, Prepacked buns for hamburger
 ca:Pa d'hamburguesa
 de:Hamburger-Brötchen, Burger-Brötchen
 es:Panes para hamburguesas, Panes de hamburguesa
 fi:hampurilaissämpylät
-fr:Pains Burger, Pains pour hamburgers, pain pour hamburgers
+fr:Pains Burger, Pains pour hamburgers, pain pour hamburgers, Pain pour hamburger préemballé, Bun pour hamburger préemballé
 nl:Burgerbroodjes, Burgerbroodje
+ciqual_food_code:en:7259
+ciqual_food_name:en:Rolls for hamburger/hotdog (buns), prepacked
+ciqual_food_name:fr:Pain pour hamburger ou hot dog (bun), préemballé
 
 <en:Special breads
-en:Hot dog buns
+en:Hot dog buns, Prepacked rolls for hotdog, Prepacked buns for hotdog
 de:Hot-Dog-Brötchen
 es:Panecillos para perritos calientes, Panecillo de perrito caliente, Panecillos para hot dogs
 fi:hod dog -sämpylät
-fr:Pains Hot Dog, Pains Hot-dog, Pains Hot Dogs, Pains Hot-Dogs, Pain Hot-dog
+fr:Pains Hot Dog, Pains Hot-dog, Pains Hot Dogs, Pains Hot-Dogs, Pain Hot-dog, Pain pour hotdog préemballé, Bun pour hotdog préemballé
 nl:Hotdog-broodjes, Hot-dog broodje
 wikidata:en:Q1047392
+ciqual_food_code:en:7259
+ciqual_food_name:en:Rolls for hamburger/hotdog (buns), prepacked
+ciqual_food_name:fr:Pain pour hamburger ou hot dog (bun), préemballé
 
 <en:Special breads
 en:Naans, Naan
@@ -18573,9 +18603,23 @@ fr:Donuts
 nl:Donuts, Donut
 
 <en:Cakes
+en:Prepacked doughnut filled with fruits, Prepackaged doughnut filled with fruits
+fr:Beignet fourré aux fruits préemballé
+ciqual_food_code:en:23884
+ciqual_food_name:en:Doughnut filled with fruits, prepacked
+ciqual_food_name:fr:Beignet fourré aux fruits, préemballé
+
+<en:Cakes
 en:Breton cakes
 fr:Gâteaux bretons, gâteau breton
 nl:Bretons cakes
+
+<en:Breton cakes
+en:Breton pudding cake with prunes
+fr:Far aux pruneaux
+ciqual_food_code:en:23121
+ciqual_food_name:en:Breton pudding cake with prunes
+ciqual_food_name:fr:Far aux pruneaux
 
 <en:Cakes
 <en:Pastries
@@ -18777,11 +18821,18 @@ ciqual_food_name:en:Fruit cake
 ciqual_food_name:fr:Cake aux fruits
 
 <en:Cakes
-"en:Soft fruit cakes
+en:Soft fruit cakes
 fr:Gâteaux moelleux aux fruits
 ciqual_food_code:en:23937
 ciqual_food_name:en:Fruit soft cake
 ciqual_food_name:fr:Gâteau moelleux aux fruits
+
+<en:Cakes
+en:Lemon cake
+fr:Gâteau au citron
+ciqual_food_code:en:23103
+ciqual_food_name:en:Lemon cake, all types
+ciqual_food_name:fr:Gâteau au citron, tout type
 
 
 <en:Cakes
@@ -21042,14 +21093,17 @@ zh:米
 wikidata:en:Q161426
 
 <en:Rices
-en:Brown rices
+en:Brown rices, Raw brown rice
 de:Brauner Reis
 es:Arroces integrales, Arroces cargo
 fi:ruskeat riisit
-fr:Riz complet, riz cargo, riz brun, riz semi-complet
+fr:Riz complet, riz cargo, riz brun, riz semi-complet, Riz complet cru
 it:Riso integrale
 nl:Volkoren rijst
 wikidata:en:Q1066624
+ciqual_food_code:en:9102
+ciqual_food_name:en:Rice, brown, raw
+ciqual_food_name:fr:Riz complet, cru
 
 <en:Rices
 en:Paddy rices
@@ -21067,7 +21121,7 @@ nl:Parboiled rijst, Inkaf gekookte rijst
 wikidata:en:Q732925
 
 <en:Rices
-en:White rices
+en:White rices, Raw rice, Raw white rice
 de:Weißer Reis
 es:Arroces blancos
 fi:valkoiset riisit
@@ -21075,6 +21129,17 @@ fr:Riz blanc, riz usiné, riz blancho
 nl:Witte rijst
 pl:Ryż biały
 wikidata:en:Q2674257
+ciqual_food_code:en:9100
+ciqual_food_name:en:Rice, raw
+ciqual_food_name:fr:Riz blanc, cru
+
+<en:White rices
+<en:Parboiled rices
+en:Raw parboiled rice
+fr:Riz blanc étuvé cru
+ciqual_food_code:en:9101
+ciqual_food_name:en:Rice, parboiled, raw
+ciqual_food_name:fr:Riz blanc étuvé, cru
 
 <en:Rices
 en:Aromatic rices
@@ -21155,6 +21220,13 @@ fr:Riz pour sushi
 nl:Sushirijsten
 zh:寿司米
 
+<en:Rices
+en:Raw red rice
+fr:Riz rouge cru
+ciqual_food_code:en:9109
+ciqual_food_name:en:Rice, red, raw
+ciqual_food_name:fr:Riz rouge, cru
+
 <en:Short grain rices
 <en:Japonica rices
 <en:Rices for risotto
@@ -21184,15 +21256,18 @@ fr:Riz Balilla x Sollana
 <en:Long grain rices
 <en:Indica rices
 <en:Aromatic rices
-en:Basmati rices
+en:Basmati rices, Raw basmati rices
 de:Basmati Reis
 es:Arroces Basmati
 fi:basmatiriisit
-fr:Riz Basmati, Basmati
+fr:Riz Basmati, Basmati, Riz thaï cru, Riz basmati cru
 it:Riso Basmati
 nl:Basmatirijsten, Basmatirijst
 pl:Ryż Basmati, ryż siewny indyjski
 wikidata:en:Q1649635
+ciqual_food_code:en:9119
+ciqual_food_name:en:Basmati rice, raw
+ciqual_food_name:fr:Riz thaï ou basmati, cru
 
 <en:Basmati rices
 <en:Brown rices
@@ -21310,11 +21385,14 @@ nl:Vialone Nanorijsten, Vialone Nanorijst, Vialone Nano rijst
 wikidata:en:Q3937029
 
 <en:Rices
-en:Mixed rices
+en:Mixed rices, Mix of rice species
 de:Gemischter Reis
 es:Mezclas de arroces, Mezcla de arroces
-fr:Mélanges de riz
+fr:Mélanges de riz, Riz mélange de variétés
 nl:Gemengde rijsten, Rijstmelanges, Gemengde rijst, Rijstmelange
+ciqual_food_code:en:9121
+ciqual_food_name:en:Rice, mix of species (white, wholegrain, wild, red,etc.), raw
+ciqual_food_name:fr:Riz, mélange de variétés (blanc, complet, rouge, sauvage, etc.), cru
 
 <en:Cereal grains
 en:Secale
@@ -21474,14 +21552,17 @@ nl:Spelt
 wikidata:en:Q158767
 
 <en:Cereal grains
-en:Wild rice
+en:Wild rice, Raw wild rice
 de:Wildreis, Wilder Reis
 es:Arroz salvaje, Arroz silvestre, Zizania
-fr:Riz sauvage, zizanie des marais, zizanie
+fr:Riz sauvage, zizanie des marais, zizanie, Riz sauvage cru
 it:Riso selvatico
 la:Zizania
 nl:Wilde rijsten, Wilde rijst
 wikidata:en:Q831681
+ciqual_food_code:en:9108
+ciqual_food_name:en:Wild rice, raw
+ciqual_food_name:fr:Riz sauvage, cru
 
 <en:Cereals and their products
 en:Precooked rices, Instant rices, Rapid cooking rices, Pre-cooked rice
@@ -21804,7 +21885,11 @@ fr:Chips de pommes de terre rouge
 nl:Rode aardappelchips
 
 <en:Crisps
-fr:Tuiles salées, tuile salée
+fr:Tuiles salées, tuile salée, Biscuit apéritif à base de pomme de terre, Tuile salée à base de pomme de terre
+en:Salty snacks made from potato
+ciqual_food_code:en:38405
+ciqual_food_name:en:Salty snacks, made from potato
+ciqual_food_name:fr:Biscuit apéritif à base de pomme de terre, type tuile salée
 
 <en:Crisps
 en:Corn chips, corn crisps, Tortilla chips
@@ -24926,6 +25011,22 @@ nl:Magere melken
 pt:Leites desnatados, leite desnatado
 wikidata:en:Q2352187
 
+<en:UHT Milks
+<en:Skimmed milks
+en:Skimmed milks UHT
+fr:Laits écrémés UHT
+ciqual_food_code:en:19050
+ciqual_food_name:en:Milk, skimmed, UHT
+ciqual_food_name:fr:Lait écrémé, UHT
+
+<en:Pasteurised milks
+<en:Skimmed milks
+en:Pasteurised skimmed milk
+fr:Lait écrémé pasteurisé
+ciqual_food_code:en:19051
+ciqual_food_name:en:Milk, skimmed, pasteurised
+ciqual_food_name:fr:Lait écrémé, pasteurisé
+
 <en:Milks
 <en:Dehydrated beverages
 <en:Dried products to be rehydrated
@@ -26703,6 +26804,40 @@ ciqual_food_code:en:39506
 ciqual_food_name:en:Custard dessert, chocolate, canned
 ciqual_food_name:fr:Crème dessert au chocolat, appertisée
 
+<en:Dessert creams
+en:Canned vanilla custard dessert
+fr:Crème dessert à la vanille appertisée
+ciqual_food_code:en:39214
+ciqual_food_name:en:Custard dessert, vanilla, canned
+ciqual_food_name:fr:Crème dessert à la vanille, appertisée
+
+<en:Dessert creams
+en:Refrigerated custard dessert with reduced fat
+fr:Crème dessert allégée en matières grasses rayon frais
+ciqual_food_code:en:19673
+ciqual_food_name:en:Custard dessert, reduced fat, refrigerated
+ciqual_food_name:fr:Crème dessert, allégée en MG, rayon frais
+
+<en:Dessert creams
+en:Refrigerated vanilla custard dessert
+fr:Crème dessert à la vanille rayon frais
+ciqual_food_code:en:39229
+ciqual_food_name:en:Custard dessert, vanilla, refrigerated
+ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
+
+<en:Dessert creams
+en:Refrigerated coffee custard dessert
+fr:Crème dessert au café rayon frais
+ciqual_food_code:en:39246
+ciqual_food_name:en:Custard dessert, coffee, refrigerated
+ciqual_food_name:fr:Crème dessert au café, rayon frais
+
+<en:Dessert creams
+en:Reefrigerated caramel custard dessert
+fr:Crème dessert au caramel rayon frais
+ciqual_food_code:en:39247
+ciqual_food_name:en:Custard dessert, caramel, refrigerated
+ciqual_food_name:fr:Crème dessert au caramel, rayon frais
 
 <fr:Crèmes dessert chocolat
 fr:Crèmes dessert chocolat noir, Crème dessert chocolat noir, Crèmes dessert au chocolat noir, Crème dessert au chocolat noir
@@ -28448,12 +28583,22 @@ fr:Gras de bœuf, graisse de bœuf, suif de boeuf, blanc de bœuf, matière gras
 nl:Rundvetten
 
 <en:Animal fats
+en:Chicken fat
+fr:Graisse de poulet
+ciqual_food_code:en:16540
+ciqual_food_name:en:Chicken fat
+ciqual_food_name:fr:Graisse de poulet
+
+<en:Animal fats
 en:Duck fat
 de:Entenfette
 fr:Graisse de canard, gras de canard
 hu:Kacsa zsír
 it:Grasso d'anatra
 nl:Eendenvetten
+ciqual_food_code:en:16550
+ciqual_food_name:en:Duck fat
+ciqual_food_name:fr:Graisse de canard
 
 <en:Animal fats
 en:Lards
@@ -28469,6 +28614,16 @@ de:Gänsefette
 fr:Graisse d'oie, gras d'oie, graisse d'oies, gras d'oies
 hu:Liba zsírok
 nl:Ganzenvetten
+ciqual_food_code:en:16560
+ciqual_food_name:en:Goose fat
+ciqual_food_name:fr:Graisse d'oie
+
+<en:Animal fats
+en:Turkey fat
+fr:Graisse de dinde
+ciqual_food_code:en:16570
+ciqual_food_name:en:Turkey fat
+ciqual_food_name:fr:Graisse de dinde
 
 <en:Animal fats
 en:Fish oils
@@ -30747,6 +30902,13 @@ fr:Aliments d'origine végétale lyophilisées
 nl:Plantaardige gevriesdroogde producten
 
 <en:Frozen foods
+en:Frozen raw dauphine potato
+fr:Pomme de terre dauphine surgelée crue
+ciqual_food_code:en:4020
+ciqual_food_name:en:Dauphine potato, frozen, raw
+ciqual_food_name:fr:Pomme de terre dauphine, surgelée, crue
+
+<en:Frozen foods
 en:Frozen fried potatoes
 de:Gefrorene Pommes
 fi:pakastetut ranskalaiset perunat
@@ -32023,6 +32185,13 @@ es:Higos
 fr:Figues
 la:Ficus carica
 nl:Vijgen
+
+<en:Figs
+en:Dried figs
+fr:Figues sèches
+ciqual_food_code:en:13013
+ciqual_food_name:en:Fig, dried
+ciqual_food_name:fr:Figue, sèche
 
 <en:Fruits
 en:Grapes
@@ -34753,12 +34922,15 @@ ciqual_food_name:en:Mustard sauce prepacked
 ciqual_food_name:fr:Sauce moutarde, préemballée
 
 <en:Sauces
-en:Barbecue sauces, BBQ sauces
+en:Barbecue sauces, BBQ sauces, Prepacked barbecue sauces, Prepackaged barbecue sauces
 de:Barbecuesaucen, BBQ-Saucen
 fi:barbecue-kastikkeet
-fr:Sauces barbecue, Sauces BBQ
+fr:Sauces barbecue, Sauces BBQ, Sauces barbecue préemballée
 hu:Barbecue mártások, Barbecue szószok, BBQ mártások
 nl:Barbecuesauzen
+ciqual_food_code:en:11100
+ciqual_food_name:en:Barbecue sauce, prepacked
+ciqual_food_name:fr:Sauce barbecue, préemballée
 
 <en:Sauces
 en:Mint sauces
@@ -36228,6 +36400,13 @@ ciqual_food_code:en:40405
 ciqual_food_name:en:Kidney, pork, cooked
 ciqual_food_name:fr:Rognon, porc, cuit
 
+<en:Pork meals
+en:Salt-cured pork ear
+fr:Oreille de porc demi-sel
+ciqual_food_code:en:28530
+ciqual_food_name:en:Pork ear sat-cured
+ciqual_food_name:fr:Oreille de porc demi-sel
+
 <en:Meals with meat
 en:Poultry meals
 ca:Aus de corral
@@ -37357,7 +37536,11 @@ nl:Aardappelovenschotels
 
 <en:Potato gratin
 fr:Gratins dauphinois, Gratin dauphinois, Pommes de terre au gratin
+en:Dauphiné-style creamed potatoes au gratin
 wikidata:en:Q1647122
+ciqual_food_code:en:25056
+ciqual_food_name:en:Dauphiné-style creamed potatoes au gratin
+ciqual_food_name:fr:Gratin dauphinois
 
 <en:Potato gratin
 en:Tartiflettes, Tartiflette, Cheese fondue
@@ -42536,10 +42719,14 @@ fr:Tartes aux pommes néerlandaises, Tarte aux pommes néerlandaise, Tartes à l
 nl:Nederlandse appeltaarten
 
 <en:Apple pies
-fr:Tartes Tatin, Tarte Tatin
+en:Tatin tart, Caramelized upside-down apple tart
+fr:Tartes Tatin, Tarte Tatin, Tarte Tatin aux pommes
 nl:Tarte Tatin
 ru:Тарт Татен
 wikidata:en:Q1147946
+ciqual_food_code:en:23496
+ciqual_food_name:en:Tatin tart (caramelized upside-down apple tart)
+ciqual_food_name:fr:Tarte Tatin aux pommes
 
 <en:Sweet pies
 en:Pear pies
@@ -43376,6 +43563,20 @@ es:Filetes de anchoa
 fi:anjovisfileet
 fr:Filets d’anchois
 nl:Ansjovisfilets
+
+<en:Anchovy fillets
+en:Semi-preserved drained anchovy fillets rolled with capers
+fr:Filets d'anchois roulés aux câpres égouttés en semi-conserve
+ciqual_food_code:en:25999
+ciqual_food_name:en:Anchovy, fillets, rolled with capers, semi-preserved, drained
+ciqual_food_name:fr:Anchois, filets roulés aux câpres, semi-conserve, égoutté
+
+<en:Anchovy fillets
+en:Semi-preserved drained anchovy fillets in oil
+fr:Filets d'anchois égouttés à l'huile en semi-conserve
+ciqual_food_code:en:26000
+ciqual_food_name:en:Anchovy, fillets, in oil, semi-preserved, drained
+ciqual_food_name:fr:Anchois, filets à l'huile, semi-conserve, égoutté
 
 <en:Anchovy fillets
 fr:Filets d'anchois marinés
@@ -44646,6 +44847,9 @@ fr:Confitures d’abricot, confitures aux abricots, confitures à l'abricot
 hu:Sárgabarack
 it:Confetture di albicocca
 nl:Abrikozenjams
+ciqual_food_code:en:31037
+ciqual_food_name:en:Jam, apricot
+ciqual_food_name:fr:Confiture d'abricot (extra ou classique)
 
 <en:Fruit jams
 en:Cherry jams
@@ -47581,6 +47785,13 @@ nl:Spinazie
 wikidata:en:Q81464
 
 <en:Spinachs
+en:Spinach with cream sauce
+fr:Épinards à la crème
+ciqual_food_code:en:25026
+ciqual_food_name:en:Spinach w cream sauce
+ciqual_food_name:fr:Épinards à la crème
+
+<en:Spinachs
 <en:Fresh vegetables
 en:Fresh spinachs
 de:Frischer Spinat
@@ -50481,6 +50692,9 @@ pnns_group_2:en:Appetizers
 fr:Blinis
 nl:Blinis
 wikidata:en:Q815898
+ciqual_food_code:en:23805
+ciqual_food_name:en:Blinis
+ciqual_food_name:fr:Blini
 
 <en:Appetizers
 fr:Préfous
@@ -50747,6 +50961,9 @@ nl:Appelflappen
 nl_be:Appelflappen
 pl:Appelflap
 wikidata:en:Q2461000
+ciqual_food_code:en:23480
+ciqual_food_name:en:Apple turnover
+ciqual_food_name:fr:Chausson aux pommes
 
 <en:Viennoiseries
 en:Chocolate croissant
@@ -50794,10 +51011,13 @@ ciqual_food_name:en:Milk roll filled with chocolate drops, prepacked
 ciqual_food_name:fr:Pain au lait aux pépites de chocolat préemballé
 
 <en:Viennoiseries
-en:Vienna bread
-fr:Pains viennois
+en:Brioche bread, Vienna bread
+fr:Pains briochés, Pains viennois
 nl:Viennoiserie brood
 wikidata:en:Q3031313
+ciqual_food_code:en:7225
+ciqual_food_name:en:Brioche or Vienna bread
+ciqual_food_name:fr:Pain brioché ou viennois
 
 # description:en:BRIOCHE is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
 
@@ -51051,6 +51271,20 @@ wikidata:en:Q12200
 wikipedia:en:https://en.wikipedia.org/wiki/Crêpe
 # ingredient/fr:crepe has 142 products in 4 languages @2019-02-05
 # category/crepes has 582 products @2019-05-18
+
+<en:Crêpes
+en:Prepacked refrigerated plain crepe, Prepackaged refrigerated plain crepe
+fr:Crêpe nature préemballée rayon frais
+ciqual_food_code:en:23799
+ciqual_food_name:en:Crepe, plain, prepacked, refrigerated
+ciqual_food_name:fr:Crêpe, nature, préemballée, rayon frais
+
+<en:Crêpes
+en:Prepacked plain crepe at room temperature, Prepackaged plain crepe at room temperature
+fr:Crêpe nature préemballée
+ciqual_food_code:en:23800
+ciqual_food_name:en:Crepe, plain, prepacked, room temperature
+ciqual_food_name:fr:Crêpe, nature, préemballée, rayon température ambiante
 
 <en:Crêpes
 fr:Crêpes de froment, crêpe de froment
@@ -51412,41 +51646,95 @@ nl:Zoutjes
 sv:Kex
 
 <en:Crackers
+en:Plain salty snacks, Plain salty crackers
+fr:Biscuits apéritifs nature, Crackers nature
+ciqual_food_code:en:38402
+ciqual_food_name:en:Salty snacks, crackers, plain
+ciqual_food_name:fr:Biscuit apéritif, crackers, nature
+
+<en:Crackers
 en:Salty palmiers
 fr:Palmiers salés
 
 <en:Crackers
 fr:Crêpes dentelles salées
 
+<fr:Crêpes dentelles salées
+fr:Crêpe dentelle pour apéritif au fromage préemballée
+en:Prepacked salted crispy crepe with cheese, Prepackaged salted crispy crepe with cheese
+ciqual_food_code:en:38408
+ciqual_food_name:en:Salted crispy crepe with cheese, prepacked
+ciqual_food_name:fr:Crêpe dentelle (pour apéritif) au fromage, préemballée
+
 <en:Crackers
 fr:Flûtes et torsades apéritifs
 
 <en:Crackers
-en:Pretzel
+en:Pretzel, Mini pretzels
 de:Brezeln, Brezel
 fi:pretzel
-fr:Bretzels
+fr:Bretzels, Mini bretzels
 nl:Pretzels
 oqali_family:en: fr:Aperitifs a croquer - Sticks et bretzels
+ciqual_food_code:en:38107
+ciqual_food_name:en:Salty snacks, mini pretzels or sticks
+ciqual_food_name:fr:Biscuit apéritif, mini bretzel ou sticks
+
+<en:Crackers
+en:Salty snacks puff pastry
+fr:Biscuit apéritif feuilleté
+ciqual_food_code:en:38407
+ciqual_food_name:en:Salty snacks, puff pastry
+ciqual_food_name:fr:Biscuit apéritif feuilleté
 
 <en:Crackers
 fr:Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
 nl:Gepofte zoutjes
 
 <en:Crackers
-fr:Biscuits apéritifs allégé
+fr:Biscuits apéritifs allégés, Biscuits apéritifs nature allégés en matière grasse, Crackers nature allégés en matière grasse
+en:Salty snacks with reduced fat, Crackers with reduced fat
+ciqual_food_code:en:38403
+ciqual_food_name:en:Salty snacks, crackers, reduced fat
+ciqual_food_name:fr:Biscuit apéritif, crackers, nature, allégé en matière grasse
 
 <en:Crackers
 fr:Biscuits apéritifs au sésame
 
 <en:Crackers
-fr:Biscuits apéritifs fourrés au fromage
+fr:Biscuits apéritifs fourrés au fromage, fr:Biscuits apéritifs crackers garnis au fromage, Biscuits apéritifs crackers fourrés au fromage
+en:Salty snacks crackers garnished with cheese, Salty snacks crackers filled with cheese
+ciqual_food_code:en:38401
+ciqual_food_name:en:Salty snacks, crackers, garnished or filled with cheese
+ciqual_food_name:fr:Biscuit apéritif, crackers, garni ou fourré, au fromage
 
 <fr:Biscuits apéritifs soufflés
 fr:Biscuits apéritifs soufflés à base de maïs
+en:Puffed salty snacks made from maize, Puffed salty snacks made from corn
+ciqual_food_code:en:38400
+ciqual_food_name:en:Puffed salty snacks, made from maize/corn, without peanuts
+ciqual_food_name:fr:Biscuit apéritif soufflé, à base de maïs, sans cacahuète
+
+<fr:Biscuits apéritifs soufflés
+fr:Biscuit apéritif soufflé à base de maïs à la cacahuète
+en:Puffed salty snacks made from maize with peanuts, Puffed salty snacks made from corn with peanuts
+ciqual_food_code:en:38404
+ciqual_food_name:en:Puffed salty snacks, made from maize/corn, with peanuts
+ciqual_food_name:fr:Biscuit apéritif soufflé, à base de maïs, à la cacahuète
 
 <fr:Biscuits apéritifs soufflés
 fr:Biscuits apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre type Monster Munch, Monster Munch
+en:Puffed salty snacks made from potato
+ciqual_food_code:en:38106
+ciqual_food_name:en:Puffed salty snacks, made from potato
+ciqual_food_name:fr:Biscuit apéritif soufflé, à base de pomme de terre
+
+<fr:Biscuits apéritifs soufflés
+en:Puffed salty snacks made from potato and soy
+fr:Biscuit apéritif soufflé à base de pomme de terre et de soja
+ciqual_food_code:en:38108
+ciqual_food_name:en:Puffed salty snacks, made from potato and soy
+ciqual_food_name:fr:Biscuit apéritif soufflé, à base de pomme de terre et de soja
 
 en:Batches withdrawn from retail stores
 de:Aus dem Handel genommene Posten
@@ -52663,6 +52951,9 @@ nl:Chocola Charlottes
 en:Fruit Charlottes
 fr:Charlottes aux fruits
 nl:Vruchtencharlotte
+ciqual_food_code:en:23531
+ciqual_food_name:en:Fruit charlotte
+ciqual_food_name:fr:Charlotte aux fruits
 
 <en:Pastries
 <en:Desserts
