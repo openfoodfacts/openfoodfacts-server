@@ -169,6 +169,10 @@ my @lists =(
 	["en", "vegetable oil (coconut & rapeseed)", "vegetable oil (coconut and rapeseed)"],
 
 	["fr", "Masse de cacao°, Quinoa° (1,8%). °Produits issus de l'agriculture biologique.", "Masse de cacao Bio, Quinoa Bio (1,8%)."],
+
+	["fr", "Chocolat. Contient du lait et des noisettes. Peut contenir du blé, du soja et des crustacés.", "Chocolat. Substances ou produits provoquant des allergies ou intolérances : lait, Substances ou produits provoquant des allergies ou intolérances : noisettes. Traces éventuelles : blé, Traces éventuelles : soja, Traces éventuelles : crustacés."],
+
+	["en", "Chocolate. Contains milk, hazelnuts and other nuts. May contain celery and mustard.", "Chocolate. Substances or products causing allergies or intolerances : milk, Substances or products causing allergies or intolerances : hazelnuts, Substances or products causing allergies or intolerances : other nuts. Traces : celery, Traces : mustard."],
 );
 
 foreach my $test_ref (@lists) {

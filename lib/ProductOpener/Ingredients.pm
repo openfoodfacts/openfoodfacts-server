@@ -144,7 +144,7 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 
 # do not add sub ( ) in the regexps below as it would change which parts gets matched in $1, $2 etc. in other regexps that use those regexps
 # put the longest strings first, so that we can match "possible traces" before "traces"
-my %traces_regexps = (
+my %may_contain_regexps = (
 
 	en => "possible traces|traces|may contain",
 	de => "Kann Spuren|Spuren",
@@ -152,23 +152,38 @@ my %traces_regexps = (
 	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
+);
 
+my %contains_regexps = (
+
+	en => "contains",
+	de => "Kann",
+	es => "contiene",
+	fr => "contient",
+);
+
+my %contains_or_may_contain_regexps = (
+	allergens => \%contains_regexps,
+	traces => \%may_contain_regexps,
 );
 
 my %allergens_stopwords = ();
+
+my %allergens_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
 
 =head1 FUNCTIONS
 
-=head2 init_allergens_stopwords_regexps () - initialize regular expressions needed for ingredients parsing
+=head2 init_allergens_regexps () - initialize regular expressions needed for ingredients parsing
 
-This function creates regular expressions that match all variations of labels
-that we want to recognize in ingredients lists, such as organic and fair trade.
+This function initializes regular expressions needed to parse traces and allergens in ingredients lists.
 
 =cut
 
-sub init_allergens_stopwords_regexps() {
+sub init_allergens_regexps() {
+
+	# Allergens stopwords
 
 	foreach my $key (sort keys %{$stopwords{"allergens"}}) {
 		if ($key =~ /\.strings/) {
@@ -176,6 +191,45 @@ sub init_allergens_stopwords_regexps() {
 			$allergens_stopwords{$allergens_lc} = join('|', uniq(@{$stopwords{"allergens"}{$key}}));
 			#print STDERR "allergens_regexp - $allergens_lc - " . $allergens_stopwords{$allergens_lc} . "\n";
 		}
+	}
+
+	# Allergens
+
+	foreach my $allergens_lc (uniq(keys %contains_regexps, keys %may_contain_regexps)) {
+
+		my @allergenssuffixes = ();
+
+		# Add synonyms in target language
+		if (defined $translations_to{allergens}) {
+			foreach my $allergen (keys %{$translations_to{allergens}}) {
+				if (defined $translations_to{allergens}{$allergen}{$allergens_lc}) {
+					# push @allergenssuffixes, $translations_to{allergens}{$allergen}{$allergens_lc};
+					# the synonyms below also contain the main translation as the first entry
+
+					my $allergens_lc_allergenid = get_string_id_for_lang($allergens_lc, $translations_to{allergens}{$allergen}{$allergens_lc});
+
+					foreach my $synonym (@{$synonyms_for{allergens}{$allergens_lc}{$allergens_lc_allergenid}}) {
+						push @allergenssuffixes, $synonym;
+					}
+				}
+			}
+		}
+
+		$allergens_regexps{$allergens_lc} = "";
+
+		foreach my $suffix (@allergenssuffixes) {
+			# simple singulars and plurals
+			my $singular = $suffix;
+			$suffix =~ s/s$//;
+			$allergens_regexps{$allergens_lc} .= '|' . $suffix . '|' . $suffix . 's'  ;
+
+			my $unaccented_suffix = unac_string_perl($suffix);
+			if ($unaccented_suffix ne $suffix) {
+				$allergens_regexps{$allergens_lc} .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
+			}
+
+		}
+		$allergens_regexps{$allergens_lc} =~ s/^\|//;
 	}
 }
 
@@ -636,13 +690,13 @@ sub parse_ingredients_text($) {
 
 	$log->debug("preparsed ingredients from text", { text => $text }) if $log->is_debug();
 
-	# Remove traces that have been preparsed
+	# Remove allergens and traces that have been preparsed
 	# jus de pomme, eau, sucre. Traces possibles de c\x{e9}leri, moutarde et gluten.",
 	# -> jus de pomme, eau, sucre. Traces éventuelles : céleri, Traces éventuelles : moutarde, Traces éventuelles : gluten.
 
 	my $traces = $Lang{traces}{$product_lc};
-
-	$text =~ s/\b($traces)\s?:\s?([^,\.]+)//ig;
+	my $allergens = $Lang{allergens}{$product_lc};
+	$text =~ s/\b($traces|$allergens)\s?:\s?([^,\.]+)//ig;
 
 	# unify newline feeds to \n
 	$text =~ s/\r\n/\n/g;
@@ -2714,14 +2768,10 @@ sub preparse_ingredients_text($$) {
 		init_labels_regexps();
 		init_ingredients_processing_regexps();
 		init_additives_classes_regexps();
-		init_allergens_stopwords_regexps();
+		init_allergens_regexps();
 	}
 
 	my $and = $and{$product_lc} || " and ";
-	my $and_without_spaces = $and;
-	$and_without_spaces =~ s/^ //;
-	$and_without_spaces =~ s/ $//;
-
 	my $of = ' - ';
 	if (defined $of{$product_lc}) {
 		$of = $of{$product_lc};
@@ -2849,7 +2899,7 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/\bmono\s-\s/mono- /ig;
 	$text =~ s/\bmono\s/mono- /ig;
 	#  émulsifiant mono-et diglycérides d'acides gras
-	$text =~ s/(mono$and_without_spaces )/mono- $and_without_spaces /ig;
+	$text =~ s/(monoet )/mono- et /ig;
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
@@ -3252,70 +3302,40 @@ INFO
 
 	# Allergens and traces
 	# Traces de lait, d'oeufs et de soja.
+	# Contains: milk and soy.
 
-	my $traces_regexp = $traces_regexps{$product_lc};
+	foreach my $allergens_type ("allergens", "traces") {
 
-	if (defined $traces_regexp) {
+		if (defined $contains_or_may_contain_regexps{$allergens_type}{$product_lc}) {
 
-		my @allergenssuffixes = ();
+			my $contains_or_may_contain_regexp = $contains_or_may_contain_regexps{$allergens_type}{$product_lc};
+			my $allergens_regexp = $allergens_regexps{$product_lc};
 
-		# Add synonyms in target language
-		if (defined $translations_to{allergens}) {
-			foreach my $allergen (keys %{$translations_to{allergens}}) {
-				if (defined $translations_to{allergens}{$allergen}{$product_lc}) {
-					# push @allergenssuffixes, $translations_to{allergens}{$allergen}{$product_lc};
-					# the synonyms below also contain the main translation as the first entry
-
-					my $product_lc_allergenid = get_string_id_for_lang($product_lc, $translations_to{allergens}{$allergen}{$product_lc});
-
-					foreach my $synonym (@{$synonyms_for{allergens}{$product_lc}{$product_lc_allergenid}}) {
-						push @allergenssuffixes, $synonym;
-				}
-				}
-			}
-		}
-
-		my $allergenssuffixregexp = "";
-		foreach my $suffix (@allergenssuffixes) {
-			# simple singulars and plurals
-			my $singular = $suffix;
-			$suffix =~ s/s$//;
-			$allergenssuffixregexp .= '|' . $suffix . '|' . $suffix . 's'  ;
-
-			my $unaccented_suffix = unac_string_perl($suffix);
-			if ($unaccented_suffix ne $suffix) {
-				$allergenssuffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
+			# stopwords
+			# e.g. Kann Spuren von Senf und Sellerie enthalten.
+			my $stopwords = "";
+			if (defined $allergens_stopwords{$product_lc}) {
+				$stopwords = $allergens_stopwords{$product_lc};
 			}
 
+			# $contains_or_may_contain_regexp may be the end of a sentence, remove the beginning
+			# e.g. this product has been manufactured in a factory that also uses...
+			# Some text with comma May contain ... -> Some text with comma, May contain
+			# ! does not work in German and languages that have words with a capital letter
+			if ($product_lc ne "de") {
+				my $ucfirst_contains_or_may_contain_regexp = $contains_or_may_contain_regexp;
+				$ucfirst_contains_or_may_contain_regexp =~ s/(^|\|)(\w)/$1 . uc($2)/ieg;
+				$text =~ s/([a-z]) ($ucfirst_contains_or_may_contain_regexp)/$1, $2/g;
+			}
+
+			#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b(:|\(|\[| |$and|$of)+((($allergens_regexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergens_regexp))\b(s?(\)|\]))?" }) if $log->is_debug();
+			#$log->debug("allergens", { lc => $product_lc, may_contain_regexps => \%may_contain_regexps, contains_or_may_contain_regexp => $contains_or_may_contain_regexp, text => $text }) if $log->is_debug();
+
+			$text =~ s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b(:|\(|\[| |$of)+((_?($allergens_regexp)_?( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergens_regexp)_?)\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration($allergens_type,$product_lc,$4)/ieg;
+			# we may have added an extra dot in order to make sure we have at least one
+			$text =~ s/\.\./\./g;
 		}
-		$allergenssuffixregexp =~ s/^\|//;
-
-		# stopwords
-		# e.g. Kann Spuren von Senf und Sellerie enthalten.
-		my $stopwords = "";
-		if (defined $allergens_stopwords{$product_lc}) {
-			$stopwords = $allergens_stopwords{$product_lc};
-		}
-
-		# $traces_regexp may be the end of a sentence, remove the beginning
-		# e.g. this product has been manufactured in a factory that also uses...
-		# Some text with comma May contain ... -> Some text with comma, May contain
-		# ! does not work in German and languages that have words with a capital letter
-		if ($product_lc ne "de") {
-			my $ucfirst_traces_regexp = $traces_regexp;
-			$ucfirst_traces_regexp =~ s/(^|\|)(\w)/$1 . uc($2)/ieg;
-			$text =~ s/([a-z]) ($ucfirst_traces_regexp)/$1, $2/g;
-		}
-
-		#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$and|$of)+((($allergenssuffixregexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergenssuffixregexp))\b(s?(\)|\]))?" }) if $log->is_debug();
-		#$log->debug("allergens", { lc => $product_lc, traces_regexps => \%traces_regexps, traces_regexp => $traces_regexp, text => $text }) if $log->is_debug();
-
-		$text =~ s/([^,-\.;\(\)\/]*)\b($traces_regexp)\b(:|\(|\[| |$of)+((_?($allergenssuffixregexp)_?( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergenssuffixregexp)_?)\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration("traces",$product_lc,$4)/ieg;
-		# we may have added an extra dot in order to make sure we have at least one
-		$text =~ s/\.\./\./g;
-
 	}
-
 
 	# Try to find the signification of symbols like *
 	# Jus de pomme*** 68%, jus de poire***32% *** Ingrédients issus de l'agriculture biologique
@@ -3935,7 +3955,7 @@ sub replace_allergen($$$$) {
 
 	my $field = "allergens";
 
-	my $traces_regexp = $traces_regexps{$language};
+	my $traces_regexp = $may_contain_regexps{$language};
 
 	if ((defined $traces_regexp) and ($before =~ /\b($traces_regexp)\b/i)) {
 		$field = "traces";
@@ -3961,7 +3981,7 @@ sub replace_allergen_in_caps($$$$) {
 
 	my $field = "allergens";
 
-	my $traces_regexp = $traces_regexps{$language};
+	my $traces_regexp = $may_contain_regexps{$language};
 
 	if ((defined $traces_regexp) and ($before =~ /\b($traces_regexp)\b/i)) {
 		$field = "traces";
@@ -4002,21 +4022,29 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $before_allergen = "";
 	my $after_allergen = "";
 
+	my $contains_regexp = $contains_regexps{$language} || "";
+	my $may_contain_regexp = $may_contain_regexps{$language} || "";
+
+	# allergen or trace?
+
+	if ($allergen =~ /\b($contains_regexp|$may_contain_regexp)\b/i) {
+		$before_allergen .= $` . $1;
+		$allergen = $';
+	}
+
 	# Remove stopwords at the beginning or end
 	if (defined $stopwords) {
 		if ($allergen =~ /^((\s|\b($stopwords)\b)+)/i) {
-			$before_allergen = $1;
+			$before_allergen .= $1;
 			$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
 		}
 		if ($allergen =~ /((\s|\b($stopwords)\b)+)$/i) {
-			$after_allergen = $1;
+			$after_allergen .= $1;
 			$allergen =~ s/(\s|\b($stopwords)\b)+$//i;
 		}
 	}
 
-	my $traces_regexp = $traces_regexps{$language};
-
-	if (($before . $before_allergen) =~ /\b($traces_regexp)\b/i) {
+	if (($before . $before_allergen) =~ /\b($may_contain_regexp)\b/i) {
 		$field = "traces";
 		#print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}
@@ -4054,7 +4082,7 @@ sub detect_allergens_from_text($) {
 	$log->debug("detect_allergens_from_text - start", { }) if $log->is_debug();
 
 	if ((scalar keys %allergens_stopwords) == 0) {
-		init_allergens_stopwords_regexps();
+		init_allergens_regexps();
 	}
 
 	# Keep allergens entered by users in the allergens and traces field
@@ -4084,8 +4112,8 @@ sub detect_allergens_from_text($) {
 			}
 
 			my $traces_regexp = "traces";
-			if (defined $traces_regexps{$language}) {
-				$traces_regexp = $traces_regexps{$language};
+			if (defined $may_contain_regexps{$language}) {
+				$traces_regexp = $may_contain_regexps{$language};
 			}
 
 			$text =~ s/\&quot;/"/g;
@@ -4137,8 +4165,8 @@ sub detect_allergens_from_text($) {
 	# Use the language the tag have been entered in
 
 	my $traces_regexp;
-	if (defined $traces_regexps{$product_ref->{traces_lc} || $product_ref->{lc}}) {
-		$traces_regexp = $traces_regexps{$product_ref->{traces_lc} || $product_ref->{lc}};
+	if (defined $may_contain_regexps{$product_ref->{traces_lc} || $product_ref->{lc}}) {
+		$traces_regexp = $may_contain_regexps{$product_ref->{traces_lc} || $product_ref->{lc}};
 	}
 
 	if ((defined $traces_regexp) and (defined $product_ref->{allergens}) and ($product_ref->{allergens} =~ /\b($traces_regexp)\b\s*:?\s*/i)) {
