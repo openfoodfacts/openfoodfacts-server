@@ -6250,7 +6250,7 @@ vegetarian:en:maybe
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
 ca:Ferments làctics
 da:yoghurtkultur
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
 el:γαλακτικά ένζυμα
 es:fermentos lácticos, fermentos lácteos, cultivos lácticos, fermentos lácticos seleccionados
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät
@@ -7488,6 +7488,12 @@ it:burro pastorizzato bio
 <en:pasteurized butter
 fr:Beurre pasteurisé doux
 # 5@2019-06-05
+
+<en:butter
+de:Deutsche Markenbutter
+
+<de:Deutsche Markenbutter
+de:Deutsche Markenbutter mildgesäuert
 
 # description:en:BEURRE D'ISIGNY - butter produced in Europe with protected geographical indications
 
@@ -15871,6 +15877,9 @@ hu:marhazsír
 it:grasso di manzo
 nl:rundvet
 # ingredient/fr:gras-de-bœuf has 365 products in 5 languages @2019-07-10
+
+<en:beef fat
+de:Rinderknochenmarkfett
 
 ########################################## milk fat ################################
 
@@ -31426,7 +31435,7 @@ fr:demi-abricots, demi abricots
 <en:apricot
 <en:purée
 en:apricot purée
-de:Aprikosenpüree
+# in process de:Aprikosenpüree
 es:Puré de albaricoques
 fi:aprikoosipyree
 fr:purée d'abricots, purée d'abricot, pulpe d'abricot
@@ -31650,7 +31659,7 @@ it:fiocchi di banane
 <en:banana
 <en:purée
 en:banana puree
-de:Bananenpüree, Bananenmark
+# In process de:Bananenpüree, Bananenmark
 es:Puré de plátano
 fi:banaanipyree
 fr:purée de banane, purée de bananes
@@ -31918,7 +31927,7 @@ carbon_footprint_fr_foodges_value:fr:0.8
 <en:mango
 <en:purée
 en:mango puree
-de:Mangopüree, Mangomark
+# In process de:Mangopüree, Mangomark
 es:Puré de mango
 fi:mangopyree
 fr:purée de mangue, purée de mangues, pulpe de mangue
@@ -32151,7 +32160,7 @@ fr:poires en cubes
 <en:pear
 <en:purée
 en:pear puree
-de:Birnenpüree
+# In process de:Birnenpüree
 es:puré de para
 fi:päärynäpyree
 fr:purée de poires, purée de poire
@@ -32621,7 +32630,7 @@ nl:appelmoes, appelpuree
 <en:apple
 <en:purée
 en:apple purée
-de:Apfelpüree
+# In process de:Apfelpüree
 es:Puré de manzana
 fi:omenapyree
 fr:purée de pomme
@@ -33844,7 +33853,7 @@ nl:zwarte bessensap op basis van concentraat
 <en:blackcurrant
 <en:purée
 en:blackcurrant puree
-de:schwarzes Johannisbeerenpüree
+# in process de:schwarzes Johannisbeerenpüree
 es:puré de cassis
 fi:mustaherukkapyree
 fr:purée de cassis
@@ -33954,7 +33963,7 @@ fi:luomuvadelma, luomu vadelma
 <en:raspberry
 <en:purée
 en:raspberry puree
-de:Himbeermark, Himbeerpüree
+# In process de:Himbeermark, Himbeerpüree
 es:puré de frambuesa
 fi:vadelmapyree
 fr:purée de framboises, purée de framboise
@@ -34194,7 +34203,7 @@ fi:pakastekuivattu mansikka paloina
 <en:strawberry
 <en:purée
 en:strawberry puree
-de:Erdbeerpüree
+# In process de:Erdbeerpüree
 es:puré de fresa
 fi:mansikkapyree, mansikkasose
 fr:purée de fraise, purée de fraises
@@ -34767,7 +34776,7 @@ fi:kandeeratut kirsikat
 <en:cherry
 <en:purée
 en:cherry purée
-de:Kirschpüree
+# IN process de:Kirschpüree
 fi:kirsikkapyree, kirsikkasose
 fr:Purée de cerises
 it:purea di ciliegie
@@ -35471,7 +35480,7 @@ fr:kiwis biologiques
 <en:kiwi
 <en:purée
 fr:purée de kiwi
-de:Kiwipüree
+# IN process de:Kiwipüree
 fi:kiivipyree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-kiwi
 # 27 products in 2 languages @2018-09-30
@@ -35577,7 +35586,7 @@ nl:ananasvezels
 <en:pineapple
 <en:purée
 fr:purée d'ananas
-de:Ananaspüree
+# IN process de:Ananaspüree
 fi:ananaspyree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-d'ananas
 # 33 products in 2 languages @2018-09-30
@@ -38558,7 +38567,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Garlic
 
 <en:garlic
 en:garlic puree
-de:Knoblauchpüree
+# In process de:Knoblauchpüree
 es:puré de ajo
 fi:valkosipulipyree, valkosipulisose
 fr:purée d'ail
@@ -40009,7 +40018,7 @@ nl:geraspte wortelen
 
 <en:carrot
 en:carrot purée
-de:Karottenpüree
+# In process de:Karottenpüree
 es:Puré de zanahoria
 fi:porkkanapyree, porkkanasose
 fr:purée de carotte
@@ -40269,7 +40278,7 @@ fr:garniture de céleri
 
 <en:celery
 en:celery puree
-de:Selleriepüree
+# In process de:Selleriepüree
 fi:selleripyree, sellerisose
 fr:purée de céleri
 
@@ -43417,7 +43426,7 @@ fr:tomates vertes
 
 <en:green tomato
 fr:Purée de tomates vertes
-de:Püree aus grünen Tomaten
+# In process de:Püree aus grünen Tomaten
 fi:vihreä tomaattipyree
 
 <en:tomato
@@ -44761,7 +44770,7 @@ it:ceci reidratati
 
 <en:pea
 en:garden peas
-de:Gartenerbsen
+de:Markerbsen, Gartenerbsen, Markerbsenschoten
 es:Guisantes de jardín
 fi:tarhaherne, tarhaherneet
 fr:petits pois, petit pois, pois doux
@@ -44783,6 +44792,9 @@ fr:petits pois très fins
 fr:petits pois doux
 nl:zoete doperwten
 # ingredient/fr:petits-pois-doux has 38 products in 3 languages @2019-02-07
+
+<en:garden peas
+de:Junge Markerbsen
 
 <fr:petits pois doux
 fr:petits pois doux extra fins
@@ -45229,7 +45241,7 @@ fi:kypsennetty kastanja, kypsennetyt kastanjat
 
 <en:chestnut
 fr:marron, marrons
-de:Maronen
+de:Maronen, Marroni
 it:marroni
 wikidata:en:Q3177204
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:marron
@@ -45262,7 +45274,7 @@ fr:crème de marrons
 
 <fr:marron
 fr:purée de marrons
-de:Marronipüree
+# In process de:Marronipüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-marrons
 # 41 products in 3 languages @2018-10-07
 
@@ -48188,7 +48200,7 @@ nl:gemberpoeder, gemalen gember, gemalen gemberwortel, djahé
 
 <en:ginger
 en:ginger purée
-de:Ingwerpüree
+# In process de:Ingwerpüree
 es:Puré de gengibre
 fi:inkivääripyree, inkiväärisose
 fr:purée de gingembre
@@ -64085,6 +64097,7 @@ wikipedia:en:Q1470757
 # description:en:PURÉE is cooked food, that has been ground, pressed, blended or sieved to the consistency of a soft creamy paste
 
 # <en:vegetable part
+# These should also be in the processing taxonomy
 en:purée
 be:Пюрэ
 bg:Пюре
@@ -64092,7 +64105,7 @@ bn:পিউরি
 ca:puré
 cs:pyré
 da:puré
-de:Püree
+# In process de:Püree
 el:πουρές
 eo:pureo
 es:puré
@@ -64138,7 +64151,7 @@ vegetarian:en:ignore
 
 <en:purée
 en:concentrated purée
-de:Püreekonzentrat
+# in process de:Püreekonzentrat
 es:Puré concentrado
 fi:pyreetiiviste
 fr:purée concentrée
@@ -66952,6 +66965,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Soy_milk
 # mainIngredient:en:emmental
 fr:Gratinage
 # usage:fr:Gratinage 2% : emmental ( lait : France) 1,5%, arôme* (dont gluten ).
+
+de:Markklößchen
 
 # description:en:In cuisine, an OMELETTE is a dish made from beaten eggs fried with butter or oil in a frying pan (without stirring as in scrambled egg). It is quite common for the omelette to be folded around a filling such as cheese, chives, vegetables, mushrooms, meat (often ham or bacon), or some combination of the above. Whole eggs or egg whites are beaten, sometimes with a small amount of milk, cream, or water.
 
