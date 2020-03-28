@@ -217,24 +217,56 @@ my @tests = (
 			[
   				{
     				'id' => 'en:shallot',
-    'processing' => 'en:concentrated',
-    'text' => 'shallot'
-  },
-  {
-    'id' => 'en:hazelnut',
-    'processing' => 'en:concentrated',
-    'text' => "haseln\x{fc}sse"
-  },
-  {
-    'id' => 'en:almond',
-    'processing' => 'en:concentrated',
-    'text' => 'mandeln'
-  },
-  {
-    'id' => 'en:acerola',
-    'processing' => 'en:concentrated',
-    'text' => 'acerola'
-  				}
+    				'processing' => 'en:concentrated',
+    				'text' => 'shallot'
+  				},
+  				{
+    				'id' => 'en:hazelnut',
+    				'processing' => 'en:concentrated',
+    				'text' => "haseln\x{fc}sse"
+  				},
+  				{
+    				'id' => 'en:almond',
+    				'processing' => 'en:concentrated',
+    				'text' => 'mandeln'
+  				},
+  				{
+    				'id' => 'en:acerola',
+    				'processing' => 'en:concentrated',
+    				'text' => 'acerola'
+				},
+				{
+				    'id' => 'de:zweifach konzentriert',
+				    'text' => 'zweifach konzentriert'
+				 },
+				 {
+				    'id' => 'de:2 fach konzentriert',
+				    'text' => '2 fach konzentriert'
+				 },
+				 {
+				    'id' => 'de:doppelt konzentriertes',
+				    'text' => 'doppelt konzentriertes'
+				  },
+				  {
+					'id' => 'de:zweifach konzentriertes',
+					'text' => 'zweifach konzentriertes'
+				 },
+				 {
+				    'id' => 'de:2-fach konzentriert',
+				    'text' => '2-fach konzentriert'
+				 },
+				 {
+				    'id' => 'de:dreifach konzentriert',
+				    'text' => 'dreifach konzentriert'
+				 },
+				 {
+				    'id' => 'de:200fach konzentriertes',
+				    'text' => '200fach konzentriertes'
+				 },
+				 {
+				    'id' => 'de:eingekochter',
+				    'text' => 'eingekochter'
+				 }
 			]	
 		],
 		[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
