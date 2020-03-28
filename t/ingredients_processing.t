@@ -172,7 +172,7 @@ my @tests = (
 		]
 	],
 
-# Test for de:püree without space
+# Test for de:püree (and for process placing de:püree without space)
 	[ { lc => "de", ingredients_text => "Schalottepüree" }, 
 		[
 	  		{
@@ -182,7 +182,7 @@ my @tests = (
 	  		}
 		]
 	],
-# Test for de:püree with space
+# Test for process de:püree placing with space (not really necessary as it has been tested with the other)
 	[ { lc => "de", ingredients_text => "Schalotte püree" }, 
 		[
 		  	{
@@ -192,6 +192,15 @@ my @tests = (
 				}
 			]
 		],
+# Test for de: ingredients, that should NOT be detected through processing
+		[ { lc => "de", ingredients_text => "Markerbsen" }, 
+			[
+			  	{
+					'id' => 'en:garden-peas',
+					'text' => 'Markerbsen'
+					}
+				]
+			],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
