@@ -177,7 +177,7 @@ my @tests = (
 		[
 	  		{
 	    		'id' => 'en:shallot',
-	    		'processing' => 'en:puree',
+	    		'processing' => 'en:pureed',
 	    		'text' => 'Schalotte'
 	  		}
 		]
@@ -187,7 +187,7 @@ my @tests = (
 		[
 		  	{
 				'id' => 'en:shallot',
-				'processing' => 'en:puree',
+				'processing' => 'en:pureed',
 				'text' => 'Schalotte'
 				}
 			]
