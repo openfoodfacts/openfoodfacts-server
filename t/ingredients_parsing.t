@@ -171,6 +171,8 @@ my @lists =(
 	["fr", "Masse de cacao°, Quinoa° (1,8%). °Produits issus de l'agriculture biologique.", "Masse de cacao Bio, Quinoa Bio (1,8%)."],
 
 	["de", "Emulgator (Sojalecithine, Mono - und Diglyceride von Speisefettsäuren, Sorbitantristearat)", "Emulgator (Sojalecithine, mono- und Diglyceride von Speisefettsäuren, Sorbitantristearat)"],
+
+	["fr", "Tomates* (20%). *Ingrédients Bio", "Tomates Bio (20%)."],
 );
 
 foreach my $test_ref (@lists) {
