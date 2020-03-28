@@ -198,11 +198,9 @@ my @tests = (
 			  	{
 					'id' => 'en:garden-peas',
 					'text' => 'Markerbsen'
-				}
-			],
-			[
+				},
 			  	{
-					'id' => 'de:Deutsche-Markenbutter',
+					'id' => 'de:deutsche-markenbutter',
 					'text' => 'Deutsche Markenbutter'
 				}
 			]
