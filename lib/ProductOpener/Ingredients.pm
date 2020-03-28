@@ -730,9 +730,6 @@ sub parse_ingredients_text($) {
 	$text =~ s/(\d),(\d)/$1‚$2/g;
 
 	my $and = $and{$product_lc} || " and ";
-	my $and_without_spaces = $and;
-	$and_without_spaces =~ s/^ //;
-	$and_without_spaces =~ s/ $//;
 
 	my $ignore_strings_after_percent = "";
 	if (defined $ignore_strings_after_percent{$product_lc}) {
@@ -2775,6 +2772,10 @@ sub preparse_ingredients_text($$) {
 	}
 
 	my $and = $and{$product_lc} || " and ";
+	my $and_without_spaces = $and;
+	$and_without_spaces =~ s/^ //;
+	$and_without_spaces =~ s/ $//;
+
 	my $of = ' - ';
 	if (defined $of{$product_lc}) {
 		$of = $of{$product_lc};
