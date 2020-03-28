@@ -340,7 +340,6 @@ ca:Cervesa Estrella Europea
 he:כוכב בירה אירופי
 nl:European Beer Star, Europese Bier Ster
 
-
 en:Belgian hops
 fi:belgialaisia humaloita, humalan alkuperä Belgia
 it:Luppolo belga
@@ -2000,6 +1999,7 @@ hu:Ausztráliában készült
 nl:Geproduceerd in Australië
 wikidata:en:Q17000991
 country:en:Australia
+origins:en: en:Australia
 
 en:Made in Germany
 ca:Fet a Alemanya
@@ -2059,6 +2059,7 @@ es:Transformado en Francia
 fi:Prosessoitu Ranskassa
 fr:Transformé en France
 pt:Transformado na França
+#country:en: en:France
 
 en:Packaged in France
 ca:Envasat a França
@@ -2117,6 +2118,7 @@ hu:Spanyolországban készült
 it:Prodotto in Spagna
 nl:Geproduceerd in Spanje
 country:en:Spain
+origins:en: en:Spain
 
 en:Made in Swiss, made in Switzerland
 ca:Fet a Suïssa
@@ -2151,6 +2153,7 @@ it:Prodotto nell'EU, Prodotto nell'Unione europea
 nl:Geproduceerd in de EU
 pl:Wyprodukowano w UE
 pt:Feito na UE, feito na União Europeia
+origins:en: en:European Union
 
 en:Limited edition
 ca:Edició limitada
@@ -2167,12 +2170,13 @@ en:Egg laid in France
 ca:Ous posats a França
 fi:munittu Ranskassa
 fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France
-country:en:France
+origins:en: en:France
 
 fr:Origine France, Origine France Garantie, 100% origine France, les ingrédients de ce produit proviennent de France
-country:en:France
+origins:en: en:France
 
 fr:Farine de sarrasin français, Farine de blé noir français
+origins:en: en:France
 
 fr:Nou la fé, NOU LA FE
 
@@ -2181,7 +2185,7 @@ fr:PIL, Produit de l'Industrie Locale
 # Fabriqué en Gourmandie, Produit en Gourmandie are old brands of Saveurs de Normandie
 
 fr:Saveurs de Normandie
-country:en:France
+origins:en: en:France
 
 fr:Fabriqué en Gourmandie, Produit en Gourmandie
 
@@ -2189,12 +2193,15 @@ fr:Fabrication artisanale
 es:Fabricación artesanal, Producción artesanal
 
 fr:La Lorraine notre signature
+origins:en: en:France
 
 fr:Saveurs en Or, Saveurs en'Or
 wikidata:en:Q3474531
+origins:en: en:France
 
 fr:Savourez l'Alsace
 nl:Proef de Elzas
+origins:en: en:France
 
 fr:Sud de France
 country:en:France
@@ -5854,6 +5861,7 @@ fi:ilman ruskeaa lihasta
 fr:Sans muscle brun, Sans chair brune
 
 fr:AOC, A.O.C, Appellation d'Origine Contrôlée, Appelation d'Origine Contrôlée, aoc
+protected_name_type:en: aoc
 
 en:with Guérande salt
 ca:Amb sal de Guérande
@@ -5867,6 +5875,7 @@ fi:Kasvatettu Ranskassa
 fr:Cultivé en France
 he:גודל בצרפת
 pt:Cultivada na França
+origins:en: en:France
 
 fr:Entrepreneurs Engagés, E+
 
@@ -5876,16 +5885,21 @@ de:In Frankreich geerntet
 es:Cultivado en Francia
 fi:Ranskalaista sadonkorjuuta
 fr:Récolté en France
+origins:en: en:France
 
 fr:Blé français, Blé exclusivement cultivé en France, Blé Français sélectionné, Blé cultivé en France, 100% blé de France, Blé 100% Français, Blé de France
+origins:en: en:France
 
 fr:Farine de blé français
+origins:en: en:France
 
 fr:Soja Français, Soja de Français, Filière Soja Français
+origins:en: en:France
 
 <en:No GMOs
 <fr:Soja Français
 fr:Soja Français sans OGM, Soja Français garanti sans OGM
+origins:en: en:France
 
 fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition, Bleu Blanc Cœur Poulet, Bleu Blanc Cœur Bœuf, Bleu Blanc Cœur Porc, Bleu Blanc Cœur Œuf
 
@@ -5917,6 +5931,7 @@ fr:Lait Français, Lait de France, Lait Origine France
 he:חלב צרפתי
 it:Latte francese
 pt:Leite francês
+origins:en: en:France
 
 en:Produced in Bretagne
 ca:Produït a la Bretanya
@@ -5927,10 +5942,12 @@ fr:Produit en Bretagne
 it:Prodotto in Bretagna
 nl:Geproduceerd in Bretagne
 pl:Wyprodukowano w Bretanii
+origins:en: en:France
 
 en:Qualité France (French quality)
 es:Calidad francesa
 fr:Qualité France
+origins:en: en:France
 
 en:Salted with dry salt
 de:Mit Trockensalz gesalzen
