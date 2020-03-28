@@ -239,6 +239,33 @@ my @tests = (
 
 ]
 	],
+
+[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
+[
+  {
+    'id' => 'en:shallot',
+    'processing' => 'en:pureed',
+    'text' => 'Schalotte'
+  },
+  {
+    'id' => 'en:onion',
+    'processing' => 'en:pureed',
+    'text' => 'zwiebel'
+  },
+  {
+    'id' => 'en:spinach',
+    'processing' => 'en:pureed',
+    'text' => 'spinat'
+  },
+  {
+    'id' => 'en:gherkin',
+    'processing' => 'en:pureed',
+    'text' => 'gurken'
+  }
+]
+
+],
+
 );
 
 foreach my $test_ref (@tests) {
