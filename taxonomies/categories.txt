@@ -20496,6 +20496,13 @@ ciqual_food_code:en:24054
 ciqual_food_name:en:Biscuit shortbread, with fruits
 ciqual_food_name:fr:Biscuit sec, sablé, galette ou palet, aux fruits
 
+<en:Biscuits
+en:Shortbread biscuit with butter
+fr:Biscuit sec au beurre, Sablé, Galette, Palet
+ciqual_food_code:en:24049
+ciqual_food_name:en:Biscuit shortbread, with butter
+ciqual_food_name:fr:Biscuit sec au beurre, sablé, galette ou palet
+
 <en:Biscuits and cakes
 en:Gingerbreads, gingerbread
 ca:Pa de gingebre
@@ -20885,6 +20892,13 @@ fr:Pains de mie complet, Pain de mie complet
 nl:Gesneden volkorenbroden
 
 <en:Sliced breads
+en:Prepacked brioche sandwich bread, Prepackaged brioche sandwich bread
+fr:Pains de mie briochés, Pains de mie briochés préemballés
+ciqual_food_code:en:7210
+ciqual_food_name:en:Brioche sandwich bread, prepacked
+ciqual_food_name:fr:Pain de mie brioché, préemballé
+
+<en:Sliced breads
 <en:Gluten-free breads
 en:Gluten-free sliced breads
 de:Glutenfreies geschnittenes Brot
@@ -20911,6 +20925,13 @@ es:Panecillos tostados
 fi:paahdetut sämpylät
 fr:Petits pains grillés
 nl:Zweedse toasts, Zweedse toast
+
+<en:Toasts
+en:Prepacked sliced rusk with eggs, Prepackaged sliced rusk with eggs
+fr:Pain grillé brioché tranché préemballé
+ciqual_food_code:en:7403
+ciqual_food_name:en:Rusk with eggs, sliced, prepacked
+ciqual_food_name:fr:Pain grillé brioché, tranché, préemballé
 
 <en:Breads
 en:Unleavened breads, Azymes, Matzah
@@ -21620,6 +21641,13 @@ fr:Desserts gélifiés
 it:Gelatina dolce
 wikidata:en:Q4545971
 
+<en:Jelly desserts
+en:Refrigerated flavoured milk jelly covered with caramel
+fr:Lait gélifié aromatisé nappé caramel rayon frais
+ciqual_food_code:en:19679
+ciqual_food_name:en:Milk jelly, flavoured, covered with caramel, refrigerated
+ciqual_food_name:fr:Lait gélifié aromatisé, nappé caramel, rayon frais
+
 #Tartufo is an italian dessert made of ice cream with chocolate in the center. Tartufo di Pizzo is a PGI.
 <en:Desserts
 en:Tartufo
@@ -21731,6 +21759,27 @@ fr:Riz au lait
 nl:Rijstepaps
 pl:Puddingi ryżowe
 wikidata:en:Q19029
+
+<en:Rice puddingss
+en:Refrigerated rice puddings
+fr:Riz au lait rayon frais
+ciqual_food_code:en:39212
+ciqual_food_name:en:Rice pudding, refrigerated
+ciqual_food_name:fr:Riz au lait, rayon frais
+
+<en:Rice puddings
+en:Refrigerated rice pudding with caramel sauce
+fr:Gâteau de riz au caramel rayon frais
+ciqual_food_code:en:23536
+ciqual_food_name:en:Rice pudding w caramel sauce, refrigerated
+ciqual_food_name:fr:Gâteau de riz au caramel, rayon frais
+
+<en:Rice puddings
+en:Canned rice puddings
+fr:Gâteaux de riz appertisés
+ciqual_food_code:en:39232
+ciqual_food_name:en:Rice pudding, canned
+ciqual_food_name:fr:Gâteau de riz, appertisé
 
 <en:Rice puddings
 en:Vanilla flavored rice pudding
@@ -23032,12 +23081,15 @@ zh:黑牛扎糖
 
 <en:Confectioneries
 <en:Candies
-en:Marshmallows, Marshmallow
+en:Marshmallows, Marshmallow, Marshmallow candies, Marshmallow candy
 de:Marshmallows, Mäusespeck
 fi:vaahtokarkit
-fr:Guimauves, pâtes de guimauves, Chamallows, Guimauve, Marshmallows
+fr:Guimauves, pâtes de guimauves, Chamallows, Guimauve, Marshmallows, Marshmallow
 nl:Marshmallows, Zoete Spekjes, Marshmellows
 wikidata:en:Q272198
+ciqual_food_code:en:31050
+ciqual_food_name:en:Candies, marshmallows
+ciqual_food_name:fr:Guimauve, Marshmallow
 
 <en:Confectioneries
 en:Halva
@@ -28168,10 +28220,13 @@ fr:Crèmes végétales à base de riz pour cuisiner
 nl:Plantaardige rijstcremes
 
 <en:Plant-based creams for cooking
-en:Soy-based creams for cooking
+en:Soy-based creams for cooking, Soy cream preparations
 es:Natas vegetales a base de soja para cocinar
-fr:Crèmes végétales à base de soja pour cuisiner
+fr:Crèmes végétales à base de soja pour cuisiner, Préparations culinaires à base de soja, Crèmes de soja
 nl:Plantaardige sojaromen
+ciqual_food_code:en:11214
+ciqual_food_name:en:Soy cream preparation
+ciqual_food_name:fr:Préparation culinaire à base de soja, type "crème de soja"
 
 <en:Plant-based creams for cooking
 en:Spelt-based creams for cooking
@@ -28587,6 +28642,13 @@ nl:Melk met vanille
 en:Strawberry milks
 fr:Laits aromatisés à la fraise, laits à la fraise
 nl:Aardbeienmelk
+
+<en:Flavoured milks
+en:Milkshakes from fast foods restaurant, Milk-shakes from fast foods restaurant
+fr:Milkshakes de fast food, Milk-shakes de fast food
+ciqual_food_code:en:39001
+ciqual_food_name:en:Milkshake, from fast foods restaurant
+ciqual_food_name:fr:Milk-shake, provenant de fast food
 
 <en:Dairy drinks
 <en:Coffee drinks
@@ -29585,6 +29647,13 @@ ciqual_food_code:en:19580
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with chocolate shavings, with cream, with sugar
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux copeaux de chocolat, à la crème, sucré
 
+<en:Flavoured yogurts
+en:Fermented milk flavoured yogurt with sugar and cream, Flavoured dairy specialty with sugar and cream
+fr:Yaourt sucré aromatisé au lait fermenté et à la crème, Spécialité laitière aromatisée sucrée à la crème
+ciqual_food_code:en:19577
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, w sugar, with cream
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré, à la crème
+
 <en:Yogurts
 <en:Fermented milk drinks
 en:Drinkable yogurts
@@ -29605,6 +29674,34 @@ fr:Yaourts à boire goût vanille, Yaourts à boire vanille, Yaourts à boire sa
 <en:Drinkable yogurts
 fr:Yaourts à boire sans sucres
 # A verifier ajoute depuis Nutrinet
+
+<en:Drinkable yogurts
+en:Flavoured dairy drinks with sugar, Flavoured fermented milks with sugar, Flavoured yogurts with sugar
+fr:Boissons lactées aromatisées sucrées au lait fermenté, Yaourts à boire aromatisés sucrés, Laits fermentés aromatisés sucrés
+ciqual_food_code:en:19508
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
+
+<en:Drinkable yogurts
+en:Dairy drinks with sugar and fruits, Fermented milks with sugar and fruits, Yogurts with sugar and fruits
+fr:Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits
+ciqual_food_code:en:19535
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, with fruits, with sugar
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aux fruits, sucré
+
+<en:Drinkable yogurts
+en:Plain dairy drinks with sugar, Plain fermented milks with sugar, Plain yogurts with sugar
+fr:Boissons lactées nature sucrées au lait fermenté, Yaourts à boire nature sucrés, Laits fermentés nature sucrés
+ciqual_food_code:en:19537
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré
+
+<en:Drinkable yogurts
+en:Plain dairy drinks with sugar and L Casei, Plain fermented milks with sugar and L Casei, Plain yogurts with sugar and L Casei
+fr:Boissons lactées nature sucrées au lait fermenté et L Casei, Yaourts à boire nature sucrés au L Casei, Laits fermentés nature sucrés au L Casei
+ciqual_food_code:en:19538
+ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
+ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
 
 <en:Yogurts
 en:Bifidus yogurts
@@ -30658,6 +30755,13 @@ fr:Gâteaux de riz, Gâteaux au riz, Gâteau de riz, Gâteau au riz,
 
 <en:Dairy desserts
 fr:Gâteaux de semoule, Gâteaux à la semoule, Gâteau de semoule, Gâteau à la semoule
+
+<fr:Gâteaux de semoule
+en:Canned semolina puddings
+fr:Gâteaux de semoule appertisés
+ciqual_food_code:en:23535
+ciqual_food_name:en:Semolina pudding, canned
+ciqual_food_name:fr:Gâteau de semoule, appertisé
 
 <en:Dairy desserts
 en:Yogurt cake
@@ -33831,6 +33935,13 @@ fr:Popcorn sucré
 it:Popcorn dolci
 nl:Zoete popcorn
 
+<en:Sugary snacks
+en:Pop-corn with caramel, Popped maize with caramel, Popcorn with caramel
+fr:Pop-corn au caramel, Maïs éclaté au caramel, Popcorn au caramel
+ciqual_food_code:en:9232
+ciqual_food_name:en:Pop-corn or popped maize, with caramel
+ciqual_food_name:fr:Pop-corn ou Maïs éclaté, au caramel
+
 <en:Puffed cereals
 en:Puffed barley
 es:Cebada inflada, Cebada hinchada
@@ -35870,6 +35981,13 @@ wikidata:en:Q3733836
 fr:Abricots frais
 season_in_country_fr:en: 6,7,8
 
+<en:Apricots
+en:Raw pitted apricot
+fr:Abricot dénoyauté
+ciqual_food_code:en:13000
+ciqual_food_name:en:Apricot, pitted, raw
+ciqual_food_name:fr:Abricot, dénoyauté, cru
+
 <en:Fruits
 en:Berries
 de:Beeren
@@ -35928,6 +36046,13 @@ ro:Afine
 <en:Blueberries
 fr:Myrtilles fraîches
 season_in_country_fr:en: 7,8,9
+
+<en:Blueberries
+en:Frozen raw Blueberry
+fr:Myrtille surgelée crue
+ciqual_food_code:en:13132
+ciqual_food_name:en:Blueberry, frozen, raw
+ciqual_food_name:fr:Myrtille, surgelée, crue
 
 <en:Berries
 <en:Elderberry products
@@ -35996,10 +36121,13 @@ fr:Groseilles fraîches
 season_in_country_fr:en: 6,7,8
 
 <en:Berries
-en:Gooseberries
+en:Gooseberries, Raw gooseberries
 de:Stachelbeeren
-fr:Groseilles à maquereaux
+fr:Groseilles à maquereaux, Groseilles à maquereaux crues
 la:Ribes uva-crispa
+ciqual_food_code:en:13020
+ciqual_food_name:en:Gooseberry, raw
+ciqual_food_name:fr:Groseille à maquereau, crue
 
 <en:Berries
 en:Strawberries
@@ -36182,6 +36310,13 @@ fr:Figue de Solliès
 protected_name_file_number:en: PDO-FR-0544
 protected_name_type:en: pdo
 origins:en: en:France
+
+<en:Figs
+en:Dried fig
+fr:Figue sèche
+ciqual_food_code:en:13013
+ciqual_food_name:en:Fig, dried
+ciqual_food_name:fr:Figue, sèche
 
 <en:Fruits
 en:Grapes
@@ -36513,11 +36648,14 @@ ru:Бананы
 wikidata:en:Q503
 
 <en:Bananas
-en:Plantain bananas
+en:Plantain bananas, Cooked plantain bananas
 de:Kochbananen
-fr:Bananes plantains, banane plantain, banane farine, bananes farines
+fr:Bananes plantains, banane plantain, banane farine, bananes farines, Bananes plantain cuites
 nl:Bakbananen, Kookbananen
 pnns_group_2:en:Potatoes
+ciqual_food_code:en:53101
+ciqual_food_name:en:Plantain banana, cooked
+ciqual_food_name:fr:Banane plantain, cuite
 
 <en:Plantain bananas
 fr:Matooke, matoke
@@ -36863,6 +37001,9 @@ fr:Pommes séchées
 it:Mele secche
 nl:Gedroogde appels
 ru:Яблоки сушёные, сушёные яблоки
+ciqual_food_code:en:13111
+ciqual_food_name:en:Apple, dried
+ciqual_food_name:fr:Pomme, sèche
 
 <en:Dried fruits
 en:Dried apricots
@@ -36996,14 +37137,17 @@ it:Ananas secchi
 nl:Gedroogde ananas
 
 <en:Dried fruits
-en:Dried prunes, Dried plums
+en:Dried prunes, Dried plums, Prunes
 de:getrocknete Pflaumen, gedörrte Pflaumen
 es:Ciruelas pasas, Ciruelas deshidratadas
 fi:kuivatut luumut
-fr:Pruneaux
+fr:Pruneaux,Pruneaux secs
 it:Pesche secche
 nl:Gedroogde pruimen
 ru:Чернослив сушёный, сушёный чернослив, чернослив, сливы сушёные
+ciqual_food_code:en:13042
+ciqual_food_name:en:Prune
+ciqual_food_name:fr:Pruneau, sec
 
 <en:Dried prunes
 <en:French fruits
@@ -38843,10 +38987,14 @@ fr:Sauces au chocolat
 #"Crème anglaise" is a preparation made from milk or cream, eggs and sugar
 <en:Dairies
 <en:Dessert sauces
-fr:Crèmes anglaises, crèmes anglaise, creme anglaise
+fr:Crèmes anglaises, crèmes anglaise, creme anglaise, Crème anglaise préemballée
+Prepacked light custard cream with vanilla, Prepackaged light custard cream with vanilla
 de:Englische Creme
 nl:Vanillesauzen
 wikidata:en:Q1342574
+ciqual_food_code:en:39700
+ciqual_food_name:en:Light custard cream with vanilla, prepacked
+ciqual_food_name:fr:Crème anglaise, préemballée
 
 <en:Sauces
 en:Sauces for fishes, sauces for fish
@@ -41650,7 +41798,21 @@ fr:Soupes de lentilles
 nl:Linzensoep
 
 <en:Vegetable soups
-en:Asparagus soups
+en:Prepacked reheatable green vegetables soup, Prepackaged reheatable green vegetables soup
+fr:Soupe aux légumes verts préemballée à réchauffer
+ciqual_food_code:en:25963
+ciqual_food_name:en:Soup, green vegetables, prepacked, to be reheated
+ciqual_food_name:fr:Soupe aux légumes verts, préemballée à réchauffer
+
+<en:Vegetable soups
+en:Prepacked reheatable vegetables soup with cheese, Prepackaged reheatable vegetables soup with cheese
+fr:Soupe aux légumes avec fromage préemballée à réchauffer
+ciqual_food_code:en:25962
+ciqual_food_name:en:Soup, vegetables with cheese, prepacked, to be reheated
+ciqual_food_name:fr:Soupe aux légumes avec fromage, préemballée à réchauffer
+
+<en:Vegetable soups
+en:Asparagus soups, Reheatable asparagus soup
 de:Spargelsuppen
 fr:Soupes aux asperges, Soupe aux asperges à réchauffer
 nl:Aspergesoep
@@ -42218,6 +42380,13 @@ ciqual_food_name:en:Vegetables au gratin (oven grilled)
 ciqual_food_name:fr:Gratin de légumes
 
 <en:Vegetable gratins
+en:Vegetables au gratin in bechamel sauce, Oven grilled vegetables in bechamel sauce
+fr:Gratin de légumes en sauce blanche type béchamel cuit
+ciqual_food_code:en:25588
+ciqual_food_name:en:Vegetables au gratin (oven grilled) in bechamel sauce
+ciqual_food_name:fr:Gratin de légumes en sauce blanche type béchamel, cuit
+
+<en:Vegetable gratins
 en:Eggplant Gratin, Oven grilled eggplant gratin
 de:Auberginenauflauf
 fr:Gratins d'aubergine, Gratin d'aubergine
@@ -42228,10 +42397,13 @@ ciqual_food_name:en:Eggplant au gratin (oven grilled)
 ciqual_food_name:fr:Gratin d'aubergine
 
 <en:Vegetable gratins
-en:Cauliflower gratins
+en:Cauliflower gratins, Cauliflower au gratin, Oven grilled cauliflower
 fr:Gratins de choux-fleurs, Gratins de chou-fleur
 nl:Bloemkool ovenschotel
 #wikidata:en:
+ciqual_food_code:en:25101
+ciqual_food_name:en:Cauliflower au gratin (oven grilled)
+ciqual_food_name:fr:Gratin de chou-fleur
 
 <en:Gratins
 <en:Pasta dishes
@@ -42344,6 +42516,48 @@ fr:Merlu cuit à l'étouffée
 ciqual_food_code:en:26120
 ciqual_food_name:en:European hake, braised
 ciqual_food_name:fr:Merlu, cuit à l'étouffée
+
+<en:Fish dishes
+en:Raw European hake
+fr:Merlu cru
+ciqual_food_code:en:26044
+ciqual_food_name:en:European hake, raw
+ciqual_food_name:fr:Merlu, cru
+
+<en:Fish dishes
+en:Raw shallow-water Cape hake
+fr:Merlu blanc du Cap surgelé cru
+ciqual_food_code:en:26233
+ciqual_food_name:en:Shallow-water Cape hake, raw
+ciqual_food_name:fr:Merlu blanc du Cap, surgelé, cru
+
+<en:Fish dishes
+en:Raw blue grenadier
+fr:Grenadier bleu cru, Hoki de Nouvelle-Zélande cru
+ciqual_food_code:en:26214
+ciqual_food_name:en:Blue grenadier, raw
+ciqual_food_name:fr:Grenadier bleu ou hoki de Nouvelle-Zélande cru
+
+<en:Fish dishes
+en:Raw pond smelt
+fr:Éperlan cru
+ciqual_food_code:en:26083
+ciqual_food_name:en:Pond smelt, raw
+ciqual_food_name:fr:Éperlan, cru
+
+<en:Fish dishes
+en:Raw garfish
+fr:Orphie commune crue
+ciqual_food_code:en:26166
+ciqual_food_name:en:Garfish, raw
+ciqual_food_name:fr:Orphie commune, crue
+
+<en:Fish dishes
+en:Raw European sprat
+fr:Sprat cru
+ciqual_food_code:en:26173
+ciqual_food_name:en:European sprat, raw
+ciqual_food_name:fr:Sprat, cru
 
 <en:Prepared lasagne
 en:Vegetarian lasagne
@@ -42521,13 +42735,23 @@ ciqual_food_name:en:Pizza, ham cheese and mushrooms
 ciqual_food_name:fr:Pizza jambon fromage champignons ou pizza royale, reine ou regina
 
 <en:Pizzas
-en:Margherita Pizza
+en:Cheese and mushrooms pizza
+fr:Pizza champignons fromage
+ciqual_food_code:en:25477
+ciqual_food_name:en:Pizza, cheese and mushrooms
+ciqual_food_name:fr:Pizza champignons fromage
+
+<en:Pizzas
+en:Margherita Pizza, Cheese and tomato pizza
 de:Pizza Margherita
 es:Pizza margherita
 fi:margherita-pizza
-fr:Pizzas margherita, pizza margherita, pizzas marguerite
+fr:Pizzas margherita, pizza margherita, pizzas marguerite, Pizza au fromage et aux tomates
 nl:Pizza Margherita
 #wikidata:en:
+ciqual_food_code:en:25404
+ciqual_food_name:en:Pizza, cheese and tomato or Margherita pizza
+ciqual_food_name:fr:Pizza au fromage ou Pizza margherita
 
 <en:Pizzas
 en:Pizza with ham and cheese
@@ -43241,6 +43465,13 @@ fr:Escargot en sauce au beurre persillé cuit
 ciqual_food_code:en:10042
 ciqual_food_name:en:Snail in parsley butter, cooked
 ciqual_food_name:fr:Escargot en sauce au beurre persillé, cuit
+
+<en:Snails
+en:Snails in puff pastry
+fr:Feuilleté aux escargots
+ciqual_food_code:en:25399
+ciqual_food_name:en:Snails in puff pastry
+ciqual_food_name:fr:Feuilleté aux escargots
 
 <en:Meats
 en:Insects
@@ -48342,6 +48573,13 @@ fi:maustettut värilliset pastat
 fr:Pâtes sèches aromatisées et colorées, Pâtes de blé dur avec des légumes
 nl:Gearomatiseerde en gekleurde pasta
 
+<en:Dry pastas
+en:Cooked unsalted dried egg pasta
+fr:Pâtes sèches aux œufs cuites non salées
+ciqual_food_code:en:9822
+ciqual_food_name:en:Dried egg pasta, cooked, unsalted
+ciqual_food_name:fr:Pâtes sèches, aux œufs, cuites, non salées
+
 <en:Pastas
 <en:Products without gluten
 en:Gluten-free pasta
@@ -48673,6 +48911,13 @@ nl:Pastas uit de Alsace
 protected_name_file_number:en: PGI-FR-0324
 protected_name_type:en: pgi
 origins:en: en:France
+
+<en:Fresh pasta
+en:Fresh cooked unsalted egg pasta
+fr:Pâtes fraîches aux œufs cuites non salées
+ciqual_food_code:en:9816
+ciqual_food_name:en:Fresh egg pasta, cooked, unsalted
+ciqual_food_name:fr:Pâtes fraîches, aux œufs, cuites, non salées
 
 <en:Pastas
 en:Dry pasta
@@ -49917,6 +50162,13 @@ ciqual_food_name:en:Sandwich made with French bread, tuna, raw vegetables (tomat
 ciqual_food_name:fr:Sandwich baguette, thon, crudités (tomate, salade), mayonnaise
 
 <en:Sandwiches
+en:Sandwich made with French bread and tuna and sweet corn and raw vegetables
+fr:Sandwich baguette thon maïs crudités
+ciqual_food_code:en:25490
+ciqual_food_name:en:Sandwich made with French bread, tuna, sweet corn and raw vegetables
+ciqual_food_name:fr:Sandwich baguette, thon, maïs, crudités
+
+<en:Sandwiches
 en:Sandwich made with wholemeal loaf bread and tuna and raw vegetables and mayonnaise
 fr:Sandwich pain de mie complet thon crudités mayonnaise
 ciqual_food_code:en:25575
@@ -49929,6 +50181,13 @@ fr:Sandwich baguette oeuf crudités mayonnaise
 ciqual_food_code:en:25532
 ciqual_food_name:en:Sandwich made with French bread, egg, raw vegetables (tomato and lettuce) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, oeuf, crudités (tomate, salade), mayonnaise
+
+<en:Sandwiches
+en:Sandwich made with French bread and smoked salmon and butter
+fr:Sandwich baguette saumon fumé beurre
+ciqual_food_code:en:25488
+ciqual_food_name:en:Sandwich made with French bread, smoked salmon and butter
+ciqual_food_name:fr:Sandwich baguette, saumon fumé, beurre
 
 <en:Sandwiches filled with cold cuts
 en:Sandwich made with French bread pork and raw vegetables and mayonnaise
@@ -50910,6 +51169,13 @@ ro:Conserve de pește, Conservă de pește
 ru:Рыбные консервы
 th:ปลากระป๋อง
 zh:罐头鱼
+
+<en:Sardines
+en:Raw European pilchard, Raw European sardine
+fr:Sardine crue
+ciqual_food_code:en:26065
+ciqual_food_name:en:European pilchard or sardine, raw
+ciqual_food_name:fr:Sardine, crue
 
 <en:Sardines
 en:Grilled European pilchard, Grilled sardine
@@ -52695,6 +52961,9 @@ hu:Málna lekvár
 it:Confetture di lamponi
 nl:Frambozenjams
 se:Hallonsylter, hallonsylt
+ciqual_food_code:en:31062
+ciqual_food_name:en:Jam, raspberry
+ciqual_food_name:fr:Confiture de framboise (extra ou classique)
 
 <en:Berry jams
 en:Strawberry jams
@@ -52843,6 +53112,9 @@ fr:Confitures de cerises
 hu:Cseresznye lekvár
 it:Confetture di ciliegie
 nl:Kersenjams
+ciqual_food_code:en:31038
+ciqual_food_name:en:Jam, cherry
+ciqual_food_name:fr:Confiture de cerise (extra ou classique)
 
 <en:Jams
 en:Figs jams
@@ -53763,6 +54035,9 @@ nl:Fructose, Vruchtensuiker
 nl_be:Fructose, Vruchtensuiker
 ru:Фруктоза
 wikidata:en:Q122043
+ciqual_food_code:en:31077
+ciqual_food_name:en:Fructose
+ciqual_food_name:fr:Fructose
 
 <en:Natural sugar substitutes
 en:Glucose
@@ -54725,6 +55000,27 @@ es:Repollos, Col repollo
 fr:Choux cabus
 la:Brassica oleracea var. capitata
 nl:Kolen
+
+<en:Cabbages
+en:Boiled green cabbage boiled, Green cabbage cooked in water
+fr:Chou vert boulli, Chou vert cuit à l'eau
+ciqual_food_code:en:20015
+ciqual_food_name:en:Green cabbage, boiled/cooked in water
+ciqual_food_name:fr:Chou vert, cuit
+
+<en:Cabbages
+en:Boiled red cabbage, Red cabbage cooked in water
+fr:Chou rouge boulli, Chou rouge cuit à l'eau
+ciqual_food_code:en:20095
+ciqual_food_name:en:Red cabbage, boiled/cooked in water
+ciqual_food_name:fr:Chou rouge, bouilli/cuit à l'eau
+
+<en:Cabbages
+en:Cooked Chinese cabbage, Cooked nappa cabbage, Bok choy
+fr:Chou chinois (pak-choi ou pé-tsai) cuit
+ciqual_food_code:en:20221
+ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), cooked
+ciqual_food_name:fr:Chou chinois cuit, Pak-choi, Pé-tsai
 
 <en:Leaf vegetables
 en:Fresh cabbages
@@ -56336,6 +56632,13 @@ ja:サヤインゲン
 nl:Groene bonen
 wikidata:en:Q2987371
 
+<en:Green beans
+en:Cooked French beans
+fr:Haricots verts cuits
+ciqual_food_code:en:20030
+ciqual_food_name:en:French bean, cooked
+ciqual_food_name:fr:Haricot vert, cuit
+
 <en:Fresh legumes
 <en:Fresh vegetables
 <en:Green beans
@@ -56777,6 +57080,13 @@ la:Psophocarpus tetragonolobus
 nl:Vleugelbonen
 wikidata:en:Q1468260
 
+<en:Pulses
+en:Snow peas boiled in water, Snow peas cooked in water
+fr:Pois mange-tout bouillis, Pois mange-tout cuits à l'eau, Pois gourmands bouillis, Pois gourmandscuits à l'eau
+ciqual_food_code:en:20216
+ciqual_food_name:en:Snow pea, boiled/cooked in water
+ciqual_food_name:fr:Pois mange-tout ou pois gourmand, bouilli/cuit à l'eau
+
 <en:Legume seeds
 en:Soy, Soya
 de:Soja
@@ -56808,6 +57118,14 @@ es:Garbanzos cocidos en conserva, Garbanzos en conserva
 fi:purkitetut kikherneet
 fr:Pois chiches en conserve
 nl:Kikkererwten in blik
+
+<en:Canned legumes
+<en:Chickpeas
+en:Canned drained chick peas
+fr:Pois chiche appertisés égouttés
+ciqual_food_code:en:20532
+ciqual_food_name:en:Chick pea, canned, drained
+ciqual_food_name:fr:Pois chiche, appertisé, égoutté
 
 <en:Canned legumes
 en:Canned common beans, Canned string beans, Canned beans
@@ -58539,7 +58857,11 @@ fr:Haricots verts surgelés
 nl:Diepvries sperziebonen
 
 <en:Frozen green beans
-fr:Haricots verts surgelés précuits
+fr:Haricots verts surgelés précuits, Haricots verts cuits surgelés
+en:Frozen cooked French bean
+ciqual_food_code:en:20071
+ciqual_food_name:en:French bean, frozen, cooked
+ciqual_food_name:fr:Haricot vert, surgelé, cuit
 
 <en:Frozen green beans
 en:Frozen broad green beans
@@ -59056,6 +59378,16 @@ fr:Croissants
 it:Croissants
 nl:Croissants
 wikidata:en:Q207832
+ciqual_food_code:en:7602
+ciqual_food_name:en:Croissant
+ciqual_food_name:fr:Croissant, sans précision
+
+<en:Croissants
+en:Croissant from bakery
+fr:Croissant artisanal
+ciqual_food_code:en:7615
+ciqual_food_name:en:Croissant, ordinary, from bakery
+ciqual_food_name:fr:Croissant ordinaire, artisanal
 
 <en:Croissants
 en:Butter croissants, Butter croissant from bakery
@@ -59453,6 +59785,13 @@ ciqual_food_name:en:Crepe, plain, prepacked, room temperature
 ciqual_food_name:fr:Crêpe, nature, préemballée, rayon température ambiante
 
 <en:Crêpes
+en:Prepacked crepe filled with sugar, Prepackaged crepe filled with sugar
+fr:Crêpe préemballée fourrée au sucre
+ciqual_food_code:en:23815
+ciqual_food_name:en:Crepe filled with sugar, prepacked
+ciqual_food_name:fr:Crêpe préemballée, fourrée au sucre
+
+<en:Crêpes
 fr:Crêpes de froment, crêpe de froment
 
 <en:Crêpes
@@ -59471,16 +59810,36 @@ fr:Crêpes fourrées
 nl:Gevulde pannekoeken
 
 <en:Filled crêpes
-en:Filled crêpes with chocolate
+en:Filled crêpes with chocolate, Home-made crepes filled with chocolate spread
 de:Crêpes gefüllt mit Schokolade
-fr:Crêpes fourrées au chocolat, Crêpes au chocolat
+fr:Crêpes fourrées au chocolat, Crêpes au chocolat, Crêpes maison fourrées au chocolat
 nl:Pannenkoeken gevuld met chocola
 oqali_family:en: fr:Biscuits et gateaux industriels - Crepes au chocolat
+ciqual_food_code:en:23821
+ciqual_food_name:en:Crepe, filled with chocolate or chocolate and hazelnut spread, home-made
+ciqual_food_name:fr:Crêpe maison, fourrée au chocolat ou à la pâte à tartiner chocolat et noisettes
 
 <en:Filled crêpes
-en:Filled crêpes with jam
-fr:Crêpes fourrées à la confiture, Crêpes à la confiture
+"en:Home-made crepes filled with chocolate and hazelnut spread
+fr:Crêpes maison fourrées à la pâte à tartiner chocolat et noisettes
+ciqual_food_code:en:23821
+ciqual_food_name:en:Crepe, filled with chocolate or chocolate and hazelnut spread, home-made
+ciqual_food_name:fr:Crêpe maison, fourrée au chocolat ou à la pâte à tartiner chocolat et noisettes
+
+<en:Filled crêpes
+en:Filled crêpes with jam, Home-made crepes filled with jam
+fr:Crêpes fourrées à la confiture, Crêpes maison fourrées à la confiture, Crêpes à la confiture
 nl:Pannenkoeken gevuld met jam
+ciqual_food_code:en:23820
+ciqual_food_name:en:Crepe, filled with jam, home-made
+ciqual_food_name:fr:Crêpe maison, fourrée à la confiture
+
+<en:Filled crêpes
+en:Prepacked crepe filled with strawberries, Prepackaged crepe filled with strawberries
+fr:Crêpes préemballées fourrées aux fraises
+ciqual_food_code:en:23830
+ciqual_food_name:en:Crepe filled with strawberries, prepacked
+ciqual_food_name:fr:Crêpe préemballée, fourrée fraise
 
 <en:Crêpes and galettes
 en:Galettes
@@ -60141,6 +60500,12 @@ ciqual_food_code:en:23425
 ciqual_food_name:en:Puff pastry, pure butter, frozen, raw
 ciqual_food_name:fr:Pâte feuilletée pur beurre, surgelée crue
 
+<en:Pie dough
+en:Phyllo dough raw, Filo dough raw
+fr:Pâte phyllo crue, Pâte filo crue
+ciqual_food_code:en:23445
+ciqual_food_name:en:Phyllo or filo dough, raw
+ciqual_food_name:fr:Pâte phyllo ou Pâte filo, crue
 
 <en:Pie dough
 fr:Pâtes sablées, Pâte sablée, Pâtes à tarte sablées
@@ -60326,6 +60691,10 @@ nl:Pompoenpureeën
 <en:Mashed vegetables
 fr:Purées de haricots verts, Purées d'haricots verts
 nl:Sperziebonenpureeën
+en:French bean puree
+ciqual_food_code:en:20257
+ciqual_food_name:en:French bean, puree
+ciqual_food_name:fr:Haricots verts, purée
 
 <en:Meals
 en:Tabbouleh, tabouleh, tabouli, tabbouli
@@ -60334,6 +60703,13 @@ fr:Taboulés, Taboulé
 nl:Tabouleh
 nl_be:Tabouleh
 wikidata:en:Q607690
+
+<en:Meals
+en:Vegetable fritters
+fr:Beignets de légumes
+ciqual_food_code:en:25556
+ciqual_food_name:en:Vegetable fritters
+ciqual_food_name:fr:Beignet de légumes
 
 <en:Meals
 en:Filled fritter garnished with shrimps and vegetables and poultry and meat, Filo pastry garnished with shrimps and vegetables and poultry and meat
@@ -61175,6 +61551,13 @@ ciqual_food_name:fr:Charlotte aux fruits
 en:Crumbles
 fr:Crumbles
 nl:Kruimelschotels, Kruimelschotel
+
+<en:Crumbles
+en:Apple crumbles
+fr:Crumbles aux pommes
+ciqual_food_code:en:23493
+ciqual_food_name:en:Apple crumble
+ciqual_food_name:fr:Crumble aux pommes
 
 <en:Terrines
 en:Fish terrines
