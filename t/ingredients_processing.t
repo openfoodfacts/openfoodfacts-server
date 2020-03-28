@@ -211,11 +211,30 @@ my @tests = (
 			]
 			
 		],
-# Process de:konzentriert
+# Process de:konzentriert and synonyms
 [ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola" }, 
-	[
-	]
-	
+[
+  {
+    'id' => 'en:shallot',
+    'processing' => 'en:concentrated',
+    'text' => 'shallot'
+  },
+  {
+    'id' => 'en:hazelnut',
+    'processing' => 'en:concentrated',
+    'text' => "haseln\x{fc}sse"
+  },
+  {
+    'id' => 'en:almond',
+    'processing' => 'en:concentrated',
+    'text' => 'mandeln'
+  },
+  {
+    'id' => 'en:acerola',
+    'processing' => 'en:concentrated',
+    'text' => 'acerola'
+  }
+]	
 ],
 
 
