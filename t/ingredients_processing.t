@@ -211,6 +211,13 @@ my @tests = (
 			]
 			
 		],
+# Process de:konzentriert
+[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola" }, 
+	[
+	]
+	
+],
+
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
