@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-21 09:47\n"
+"PO-Revision-Date: 2020-03-28 12:20\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3931,11 +3931,11 @@ msgstr ""
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "Вы просматриваете продукты из %s."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "Вы просматриваете свои продукты."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
@@ -4061,18 +4061,18 @@ msgstr ""
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
-msgstr ""
+msgstr "Некоторые ингредиенты не могут быть распознаны."
 
 # keep the 2 %s : they will be replaced by language names.
 msgctxt "move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr ""
+msgstr "Переместить все данные и выбранные фото в %s в основной язык продукта: %s"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
-msgstr ""
+msgstr "Заменить существующие значение и выделенные фото"
 
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
-msgstr ""
+msgstr "Сохранить существующие значение и выделенные фото"
 
