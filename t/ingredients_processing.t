@@ -197,25 +197,24 @@ my @tests = (
 				}
 			]
 		],
-# Test for de: ingredients, that should NOT be detected through processing
-		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
-			[
-			  	{
-					'id' => 'en:garden-peas',
-					'text' => 'Markerbsen'
-				},
-			  	{
-					'id' => 'de:deutsche-markenbutter',
-					'text' => 'Deutsche Markenbutter'
-				}
-			]
-			
-		],
+# Test for de:mark false positives
+#		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
+#			[
+#			  	{
+#					'id' => 'en:garden-peas',
+#					'text' => 'Markerbsen'
+#				},
+#			  	{
+#					'id' => 'de:deutsche-markenbutter',
+#					'text' => 'Deutsche Markenbutter'
+#				}
+#			]
+#		],
 # Process de:konzentriert and synonyms
-[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola" }, 
-[
-  {
-    'id' => 'en:shallot',
+		[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola" }, 
+			[
+  				{
+    				'id' => 'en:shallot',
     'processing' => 'en:concentrated',
     'text' => 'shallot'
   },
@@ -233,12 +232,10 @@ my @tests = (
     'id' => 'en:acerola',
     'processing' => 'en:concentrated',
     'text' => 'acerola'
-  }
-]	
-],
-
-
-	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+  				}
+			]	
+		],
+		[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
   {
     'id' => "de:hartk\x{e4}se",
