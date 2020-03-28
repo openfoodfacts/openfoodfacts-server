@@ -317,10 +317,15 @@ sub init_ingredients_processing_regexps() {
 				$synonyms{unac_string_perl($synonym)} = 1;
 			}
 
-			# Match the longest strings first
-			my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
-			push @{$ingredients_processing_regexps{$l}}, [$ingredients_processing , $regexp];
-			# print STDERR "ingredients_processing_regexps{$l}: ingredient_processing: $ingredient_processing - regexp: $regexp . "\n";
+			# We want to match the longest strings first
+			# Unfortunately, the following does not work:
+			# my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
+			# -> if we have (gehackte|gehackt) and we parse "gehackte something", it will match "gehackt".
+			# -> just create one regexp for each synonym...
+			foreach my $synonym (sort { length($b) <=> length($a) } keys %synonyms) {
+				push @{$ingredients_processing_regexps{$l}}, [$ingredients_processing , $synonym];
+				#print STDERR "ingredients_processing_regexps{$l}: ingredient_processing: $ingredients_processing - regexp: $synonym \n";
+			}
 		}
 	}
 }
@@ -1011,14 +1016,15 @@ sub parse_ingredients_text($) {
 								if (
 									# English, French etc. match before or after the ingredient, require a space
 									(($product_lc =~ /^(en|es|it|fr)$/) and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i))
-									#  German: match after, do not require a space
-									or	(($product_lc =~ /^(de)$/) and ($new_ingredient =~ /($regexp)$/i))
+									#  match after, do not require a space
+									# currently no language
+									or	(($product_lc =~ /^(xx)$/) and ($new_ingredient =~ /($regexp)$/i))
 									#  Dutch: match before or after, do not require a space
-									or	(($product_lc =~ /^(nl)$/) and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
+									or	(($product_lc =~ /^(de|nl)$/) and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
 										) {
 									$new_ingredient = $` . $';
 
-									$debug_ingredients and $log->debug("found processing", { ingredient => $ingredient, new_ingredient => $new_ingredient, processing => $ingredient_processing_regexp_ref->[0] }) if $log->is_debug();
+									$debug_ingredients and $log->debug("found processing", { ingredient => $ingredient, new_ingredient => $new_ingredient, processing => $ingredient_processing_regexp_ref->[0], regexp => $regexp }) if $log->is_debug();
 
 									$matching = 1;
 									$matches++;
