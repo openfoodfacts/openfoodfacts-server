@@ -197,20 +197,6 @@ my @tests = (
 				}
 			]
 		],
-# Test for de: ingredients, that should NOT be detected through processing
-		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
-			[
-			  	{
-					'id' => 'en:garden-peas',
-					'text' => 'Markerbsen'
-				},
-			  	{
-					'id' => 'de:deutsche-markenbutter',
-					'text' => 'Deutsche Markenbutter'
-				}
-			]
-			
-		],
 # Test for de:passiert
 				[ { lc => "de", ingredients_text => "Schalotte passiert" }, 
 					[
