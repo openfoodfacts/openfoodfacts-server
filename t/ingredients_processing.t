@@ -210,8 +210,10 @@ my @tests = (
 #				}
 #			]
 #		],
-# Process de:konzentriert and synonyms
-		[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola" }, 
+# Process de:konzentriert (and children) and synonyms
+		[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
+		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
+		200fach konzentriertes, eingekochter" }, 
 			[
   				{
     				'id' => 'en:shallot',
