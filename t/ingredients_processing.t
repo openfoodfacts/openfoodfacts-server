@@ -197,20 +197,16 @@ my @tests = (
 				}
 			]
 		],
-# Test for de: ingredients, that should NOT be detected through processing
-		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
+# Test for process de:eingelegt
+		[ { lc => "de", ingredients_text => "Schalotte eingelegt" }, 
 			[
 			  	{
-					'id' => 'en:garden-peas',
-					'text' => 'Markerbsen'
-				},
-			  	{
-					'id' => 'de:deutsche-markenbutter',
-					'text' => 'Deutsche Markenbutter'
-				}
-			]
-			
-		],
+					'id' => 'en:shallot',
+					'processing' => 'de:eingelegt',
+					'text' => 'Schalotte'
+					}
+				]
+			],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
