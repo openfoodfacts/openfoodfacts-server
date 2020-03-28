@@ -211,6 +211,17 @@ my @tests = (
 			]
 			
 		],
+# Test for de:passiert
+				[ { lc => "de", ingredients_text => "Schalotte passiert" }, 
+					[
+					  	{
+							'id' => 'en:shallot',
+							'processing' => 'de:passiert',
+							'text' => 'Schalotte'
+						}
+					]
+
+				],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
