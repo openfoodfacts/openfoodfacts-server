@@ -167,14 +167,49 @@ my @tests = (
 		]
 	],
 	
-		[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
-	[
-	  {
-	    'id' => 'en:soured-milk',
-	    'processing' => 'en:chopped',
-	    'text' => 'Dickmilch'
-	  }
-	]
+	[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
+		[
+	  		{
+	    		'id' => 'en:soured-milk',
+	    		'processing' => 'en:chopped',
+	    		'text' => 'Dickmilch'
+	  		}
+		]
+	],
+
+# Test for de:püree (and for process placing de:püree without space)
+	[ { lc => "de", ingredients_text => "Schalottepüree" }, 
+		[
+	  		{
+	    		'id' => 'en:shallot',
+	    		'processing' => 'en:pureed',
+	    		'text' => 'Schalotte'
+	  		}
+		]
+	],
+# Test for process de:püree placing with space (not really necessary as it has been tested with the other)
+	[ { lc => "de", ingredients_text => "Schalotte püree" }, 
+		[
+		  	{
+				'id' => 'en:shallot',
+				'processing' => 'en:pureed',
+				'text' => 'Schalotte'
+				}
+			]
+		],
+# Test for de: ingredients, that should NOT be detected through processing
+		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
+			[
+			  	{
+					'id' => 'en:garden-peas',
+					'text' => 'Markerbsen'
+				},
+			  	{
+					'id' => 'de:deutsche-markenbutter',
+					'text' => 'Deutsche Markenbutter'
+				}
+			]
+			
 		],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
@@ -207,6 +242,33 @@ my @tests = (
 
 ]
 	],
+
+[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
+[
+  {
+    'id' => 'en:shallot',
+    'processing' => 'en:pureed',
+    'text' => 'Schalotte'
+  },
+  {
+    'id' => 'en:onion',
+    'processing' => 'en:pureed',
+    'text' => 'zwiebel'
+  },
+  {
+    'id' => 'en:spinach',
+    'processing' => 'en:pureed',
+    'text' => 'spinat'
+  },
+  {
+    'id' => 'en:gherkin',
+    'processing' => 'en:pureed',
+    'text' => 'gurken'
+  }
+]
+
+],
+
 );
 
 foreach my $test_ref (@tests) {
