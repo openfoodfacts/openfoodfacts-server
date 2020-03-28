@@ -730,6 +730,9 @@ sub parse_ingredients_text($) {
 	$text =~ s/(\d),(\d)/$1‚$2/g;
 
 	my $and = $and{$product_lc} || " and ";
+	my $and_without_spaces = $and;
+	$and_without_spaces =~ s/^ //;
+	$and_without_spaces =~ s/ $//;
 
 	my $ignore_strings_after_percent = "";
 	if (defined $ignore_strings_after_percent{$product_lc}) {
@@ -2899,7 +2902,7 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/\bmono\s-\s/mono- /ig;
 	$text =~ s/\bmono\s/mono- /ig;
 	#  émulsifiant mono-et diglycérides d'acides gras
-	$text =~ s/(monoet )/mono- et /ig;
+	$text =~ s/(mono$and_without_spaces )/mono- $and_without_spaces /ig;
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
