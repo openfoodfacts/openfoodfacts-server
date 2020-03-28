@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-28 13:35\n"
+"PO-Revision-Date: 2020-03-28 14:56\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3390,12 +3390,12 @@ msgstr "Platforma dla producentów umożliwia producentom łatwo zarządzać zdj
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Dane produktu i zdjęcia, które wysyłasz z platformy dla producentów, są przechowywane w prywatnej bazie danych. Przed udostępnieniem danych w publicznej bazie danych Open Food Facts będziesz mógł sprawdzić, czy wszystkie dane są poprawne."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Dane produktu i zdjęcia staną się publicznie dostępne w bazie danych Open Food Facts na licencji <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Indywidualna zawartość bazy danych jest dostępna na licencji <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a>, a obrazy produktów są dostępne na licencji <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3533,7 +3533,7 @@ msgstr "możliwe ulepszenia"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-produktów"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -3547,15 +3547,15 @@ msgstr "Twoje produkty"
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "Twoje konto nie jest jeszcze powiązane z firmą. Wyślij wiadomość e-mail na adres <a href=\"mailto:producers@openfoodfacts.org\">producentów@openfoodfacts.org</a> aby aktywować bezpłatny dostęp do platformy dla producentów."
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "Import produktów"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "Pusta kolumna"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
