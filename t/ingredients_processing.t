@@ -326,7 +326,7 @@ my @tests = (
   },
   {
     'id' => 'en:gherkin',
-    'processing' => 'en:pureed',
+    'processing' => 'en:pulp',
     'text' => 'gurken'
   }
 ]
