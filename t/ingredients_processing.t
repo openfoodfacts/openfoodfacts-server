@@ -166,7 +166,7 @@ my @tests = (
   			}
 		]
 	],
-	
+
 	[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
 		[
 	  		{
@@ -209,7 +209,7 @@ my @tests = (
 					'text' => 'Deutsche Markenbutter'
 				}
 			]
-			
+
 		],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
@@ -239,7 +239,6 @@ my @tests = (
     'processing' => 'en:sliced, en:chopped',
     'text' => 'mandeln'
   }
-
 ]
 	],
 
